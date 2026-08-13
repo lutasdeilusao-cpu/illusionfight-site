@@ -1,7 +1,7 @@
 # LDI GANGUES — Estado atual do jogo
 
 > Snapshot de referência para continuar a evolução do jogo. Não é histórico de mudanças —
-> reflete como o jogo funciona agora. `GANGUES_VERSION` atual: **1.11.2** (`src/config/version.js`).
+> reflete como o jogo funciona agora. `GANGUES_VERSION` atual: **1.12.0** (`src/config/version.js`).
 > Rota: `/games/ldi-gangues` (a antiga `/games/ldi-arena` redireciona pra cá).
 
 ## 1. Visão geral
@@ -230,20 +230,15 @@ pra não confundir quem for mexer depois: ou usa esse conteúdo pra inimigos fut
 ### Zona de Treinamento administrativa
 
 O lobby exibe o botão **Zona de Treinamento** apenas quando `FichasContext.isAdmin` confirma o
-usuário. A fase `training` repete essa autorização, portanto não pode ser aberta apenas forçando
-o estado da interface. O console permite selecionar qualquer ficha do roster e configurar XP
-total, XP disponível, AP parcial, A/H/R/D, níveis 0–3 de todas as especializações existentes e
-até duas especializações equipadas. **Aplicar e salvar** atualiza `sheet`, `roster` e
-`activeParty` e persiste pela operação normal de `saveToCloud`. Defensores e Místicos também
-podem alternar entre suas cinco árvores e configurar todos os 50 poderes correspondentes;
-**Restaurar valores** recupera
-no formulário o snapshot capturado ao selecionar a ficha, exigindo confirmação para persistir.
-O layout da zona é mobile-first e permanece em um container portrait de até 480 px: campos de
-toque têm no mínimo 48 px, experiência usa grade 2+1, atributos ficam em 2×2, poderes são sempre
-empilhados em uma coluna e as ações salvar/restaurar permanecem acessíveis durante a rolagem.
-A fase `training` adiciona o modificador `.gang-page--training` ao shell do jogo para substituir
-o `overflow: hidden` necessário nas arenas por um scroll vertical próprio, com gesto `pan-y` e
-rolagem inercial no iOS. Esse modificador nunca é aplicado ao lobby, criação ou combate.
+usuário. A fase `training` repete essa autorização. O console seleciona uma ficha e concede uma
+quantidade livre de XP, somando o valor simultaneamente a `xp_total` e `progression.xp_unspent`.
+Ele não altera atributos, AP, subcaminhos ou poderes: toda evolução usa o fluxo normal do jogador.
+
+No lobby, fichas com XP disponível recebem um marcador. Ao tocar na ficha, o jogador escolhe
+entre abrir a progressão ou continuar a seleção da gangue. O painel só aparece após confirmação,
+rola automaticamente até a área de evolução e continua usando as funções oficiais de custo
+(`upgradeGanguesAttribute` e `upgradeGanguesSpecial`). Assim, o ambiente administrativo testa o
+mesmo caminho que chegará ao usuário final, sem manter uma segunda implementação de progressão.
 
 ## 13. Estrutura de arquivos
 
@@ -256,6 +251,7 @@ src/pages/games/Gangues/
 ├── GanguesVictory.jsx        # relatório pós-batalha (vitória e derrota)
 ├── GanguesTrainingZone.jsx   # console de progressão exclusivo para administradores
 ├── GanguesTrainingZone.css   # estilos isolados do console administrativo
+├── GanguesProgressionFlow.css # aviso de XP e entrada no painel normal
 ├── Gangues.css               # todo o CSS do módulo
 ├── assets/                   # neoguide-frontal.png, neoguide-perfil.png
 ├── components/
@@ -291,7 +287,7 @@ src/pages/games/Gangues/
 - Multiplayer real (PvP) não existe — todo combate é contra IA.
 ## Zona de Treinamento pública
 
-A rota `/games/ldi-gangues/treinamento` abre diretamente a bancada de progressão sem login, ficha ou permissão administrativa. Quando não existe elenco carregado, ela cria somente em memória um personagem de teste; alterações não são enviadas ao Supabase. A rota administrativa interna continua protegida.
+A rota `/games/ldi-gangues/treinamento` abre diretamente a bancada de concessão de XP sem login, ficha ou permissão administrativa. Quando não existe elenco carregado, ela cria somente em memória um personagem de teste; alterações não são enviadas ao Supabase. A rota administrativa interna continua protegida.
 
 A Zona de Treinamento não cria um scroll interno: o primeiro container (`.gang-page`) recebe altura automática e overflow vertical visível para que `html/body` mantenham o gesto nativo do navegador. O modificador usa o seletor composto `.gang-page.gang-page--training`, pois o CSS importado pelo componente filho pode aparecer antes de `Gangues.css` no bundle do Vite. A especificidade impede que `height: 100dvh` e `overflow: hidden` da regra base voltem a travar a página.
 

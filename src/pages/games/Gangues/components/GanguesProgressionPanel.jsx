@@ -4,7 +4,7 @@ import { getGanguesSpecialPath, getGanguesSpecialPaths } from '../data/ganguesSp
 
 const SPECIAL_ICON = { atacante: '⚔', muralha: '▰', guardiao: '◇', provocador: '!', reativo: '↯', resiliente: '✚', igneo: '♨', aquatico: '≋', terreno: '◆', tempestade: 'ϟ', ilusorio: '◉' }
 
-export default function GanguesProgressionPanel({ member, onApply }) {
+export default function GanguesProgressionPanel({ member, onApply, onClose }) {
   const { t } = useLanguage()
   const progression = getGanguesProgression(member)
   const paths = getGanguesSpecialPaths(member.combat_path)
@@ -12,7 +12,7 @@ export default function GanguesProgressionPanel({ member, onApply }) {
   const specials = currentPath?.specials || []
 
   return <section className={`gang-progression gang-progression--${member.combat_path}`}>
-    <div className="gang-progression-header"><span className={`gang-progression-avatar gang-path--${member.combat_path}`}>{member.sheet_name[0].toUpperCase()}</span><div className="gang-progression-headline"><h2>{t('games.gangues.progression.title')}</h2><p>{member.sheet_name} · {t(`games.gangues.loadout.paths.${member.combat_path}.name`)}</p></div></div>
+    <div className="gang-progression-header"><span className={`gang-progression-avatar gang-path--${member.combat_path}`}>{member.sheet_name[0].toUpperCase()}</span><div className="gang-progression-headline"><h2>{t('games.gangues.progression.title')}</h2><p>{member.sheet_name} · {t(`games.gangues.loadout.paths.${member.combat_path}.name`)}</p></div>{onClose && <button className="gang-progression-close" onClick={onClose} aria-label={t('games.gangues.progression.close')}>×</button>}</div>
     <div className="gang-progression-stats"><div className="gang-progression-ap"><span>{t('games.gangues.progression.ap', { n: progression.ap })}</span><progress className="gang-progression-ap-bar" max="10" value={progression.ap} /></div><div className="gang-progression-xp">✦ {t('games.gangues.progression.xp_available', { n: progression.xp_unspent })}</div></div>
     <h3 className="gang-progression-section-title">{t('games.gangues.progression.attributes')}</h3>
     <div className="gang-attr-upgrade-grid">{['A', 'H', 'R', 'D'].map(attribute => { const value = member.attributes?.[attribute] || 0; const cost = GANGUES_ATTRIBUTE_XP_COSTS[value]; return <button key={attribute} className="gang-attr-upgrade-card" disabled={!cost || progression.xp_unspent < cost} onClick={() => onApply(member, upgradeGanguesAttribute(member, attribute))}><span className="gang-attr-upgrade-letter">{attribute}</span><span className="gang-attr-upgrade-values">{value} <b>→</b> {value + 1}</span><span className="gang-attr-upgrade-cost">{cost ? t('games.gangues.progression.upgrade', { n: cost }) : '—'}</span></button> })}</div>

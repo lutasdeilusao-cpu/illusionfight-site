@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { AnimatePresence } from 'framer-motion'
 import { useLanguage } from '../../../context/LanguageContext'
 import { useAuth } from '../../../context/AuthContext'
@@ -8,9 +8,10 @@ import NeoGuideDialog from './components/NeoGuideDialog'
 import GanguesProgressionPanel from './components/GanguesProgressionPanel'
 import { sfx } from '../../../lib/sfx'
 import { useGanguesStore, limiteFichasPorTier, podeCriarFicha } from './store/useGanguesStore'
-import { GANGUES_INITIAL_PARTY_SIZE, GANGUES_MAX_PARTY_SIZE, getGanguesPartySizeLimit } from './data/ganguesLoadout.js'
+import { GANGUES_INITIAL_PARTY_SIZE, GANGUES_MAX_PARTY_SIZE, getGanguesPartySizeLimit, getGanguesProgression } from './data/ganguesLoadout.js'
 import enemiesData from './data/gangues-enemies.json'
 import './GanguesLobby.css'
+import './GanguesProgressionFlow.css'
 
 const NEOGUIDE_SEEN_KEY = 'ldi-gangues-neoguide-seen'
 
@@ -29,12 +30,15 @@ export default function GanguesLobby({ onNavigate }) {
   const [loading, setLoading] = useState(Boolean(user))
   const [choosingEnemy, setChoosingEnemy] = useState(false)
   const [showNeoGuide, setShowNeoGuide] = useState(false)
+  const [pendingProgression, setPendingProgression] = useState(null)
+  const [progressionMemberId, setProgressionMemberId] = useState(null)
+  const progressionRef = useRef(null)
   const roster = store.roster
   const party = store.activeParty
   const rosterLimit = limiteFichasPorTier(perfil?.tier)
   const totalXp = roster.reduce((sum, member) => sum + (member.xp_total || 0), 0)
   const partyLimit = getGanguesPartySizeLimit(totalXp)
-  const progressionMember = party[0]
+  const progressionMember = roster.find(member => member.id === progressionMemberId) || null
 
   const applyProgression = async (member, change) => {
     if (!member || !change) return
@@ -55,6 +59,11 @@ export default function GanguesLobby({ onNavigate }) {
     try { if (!localStorage.getItem(NEOGUIDE_SEEN_KEY)) setShowNeoGuide(true) } catch { setShowNeoGuide(true) }
   }, [loading, roster.length])
 
+  useEffect(() => {
+    if (!progressionMemberId) return
+    requestAnimationFrame(() => progressionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }))
+  }, [progressionMemberId])
+
   const dismissNeoGuide = () => {
     try { localStorage.setItem(NEOGUIDE_SEEN_KEY, '1') } catch {}
     setShowNeoGuide(false)
@@ -73,6 +82,22 @@ export default function GanguesLobby({ onNavigate }) {
     if (party.length >= partyLimit) return
     sfx.select()
     store.setActiveParty([...party, member])
+  }
+
+  const handleSheetClick = (member) => {
+    if (getGanguesProgression(member).xp_unspent > 0) { setPendingProgression(member); return }
+    toggleParty(member)
+  }
+
+  const postponeProgression = () => {
+    if (pendingProgression) toggleParty(pendingProgression)
+    setPendingProgression(null)
+  }
+
+  const openProgression = () => {
+    if (!pendingProgression) return
+    setProgressionMemberId(pendingProgression.id)
+    setPendingProgression(null)
   }
 
   const unlocked = new Set(party.flatMap(member => member.enemies_unlocked || ['treinamento']))
@@ -154,21 +179,31 @@ export default function GanguesLobby({ onNavigate }) {
               const selected = party.some(item => item.id === member.id)
               const unavailable = !selected && party.length >= partyLimit
               return (
-                <button key={member.id} disabled={unavailable} className={`gang-sheet-card-v ${selected ? 'gang-sheet-card-v--selected' : ''}`} onClick={() => toggleParty(member)}>
+                <button key={member.id} disabled={unavailable} className={`gang-sheet-card-v ${selected ? 'gang-sheet-card-v--selected' : ''}`} onClick={() => handleSheetClick(member)}>
                   <span className="gang-sheet-avatar">{member.sheet_name[0].toUpperCase()}</span>
                   <span className="gang-sheet-info"><strong className="gang-sheet-name-v">{member.sheet_name}</strong><span className="gang-sheet-meta">{t(`games.gangues.loadout.paths.${member.combat_path}.name`)}</span><span className="gang-sheet-stats">{['A', 'H', 'R', 'D'].map(attr => <span key={attr} className="gang-sheet-stat"><span className="gang-sheet-stat-label">{attr}</span><b className="gang-sheet-stat-val">{member.attributes[attr]}</b></span>)}</span></span>
                   <span className="gang-party-status">{selected ? '✓' : '+'}</span>
+                  {getGanguesProgression(member).xp_unspent > 0 && <span className="gang-sheet-xp-ready">{t('games.gangues.progression.xp_badge', { n: getGanguesProgression(member).xp_unspent })}</span>}
                 </button>
               )
             })}
           </div>
           <p className="gang-party-counter">{t('games.gangues.party_size_atual', { n: party.length, max: partyLimit })}</p>
           {partyLimit < GANGUES_MAX_PARTY_SIZE && <p className="gang-party-counter">{t('games.gangues.party_size_bloqueado')}</p>}
-          {progressionMember && <GanguesProgressionPanel member={progressionMember} onApply={applyProgression} />}
+          {progressionMember && <div className="gang-progression-focus" ref={progressionRef}><GanguesProgressionPanel member={progressionMember} onApply={applyProgression} onClose={() => setProgressionMemberId(null)} /></div>}
           <button className="gang-new-sheet gang-new-sheet--primary" disabled={party.length < GANGUES_INITIAL_PARTY_SIZE} onClick={() => setChoosingEnemy(true)}>{t('games.gangues.party.enter_gangues')}</button>
           {roster.length < rosterLimit && <button className="gang-new-sheet" onClick={startCreation}><span className="gang-new-sheet-icon">+</span>{t('games.gangues.nova_ficha')}</button>}
         </>
       )}
+      {pendingProgression && <div className="gang-progression-prompt" role="dialog" aria-modal="true" aria-labelledby="gang-progression-prompt-title">
+        <div className="gang-progression-prompt__card">
+          <span className="gang-progression-prompt__icon">✦</span>
+          <h2 id="gang-progression-prompt-title">{t('games.gangues.progression.prompt_title')}</h2>
+          <p>{t('games.gangues.progression.prompt_body', { name: pendingProgression.sheet_name, n: getGanguesProgression(pendingProgression).xp_unspent })}</p>
+          <button className="gang-progression-prompt__confirm" onClick={openProgression}>{t('games.gangues.progression.prompt_confirm')}</button>
+          <button onClick={postponeProgression}>{t('games.gangues.progression.prompt_later')}</button>
+        </div>
+      </div>}
       <BackToGamesBtn />
     </main>
   )

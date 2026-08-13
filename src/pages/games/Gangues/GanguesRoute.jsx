@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../../../context/AuthContext'
 import { useReader } from '../../../context/ReaderContext'
 import { useGanguesStore } from './store/useGanguesStore'
@@ -17,7 +16,6 @@ console.log(`[GANGUES] versão carregada: ${GANGUES_VERSION}`)
 
 export default function GanguesRoute({ publicTraining = false }) {
   const { user } = useAuth()
-  const navigate = useNavigate()
   const { setReaderMode } = useReader()
   const store = useGanguesStore()
   const i18nReady = useGanguesI18n()
@@ -61,7 +59,7 @@ export default function GanguesRoute({ publicTraining = false }) {
       )}
       {fase === 'combat' && <GanguesCombat onNavigate={setFase} />}
       {fase === 'victory' && <GanguesVictory onNavigate={setFase} />}
-      {fase === 'training' && <GanguesTrainingZone onNavigate={publicTraining ? () => navigate('/games') : setFase} publicAccess={publicTraining} />}
+      {fase === 'training' && <GanguesTrainingZone onNavigate={setFase} publicAccess={publicTraining} />}
     </div>
   )
 }
