@@ -1,7 +1,7 @@
-# Graph Report - SiteLDI  (2026-08-12)
+# Graph Report - SiteLDI  (2026-08-13)
 
 ## Corpus Check
-- 652 files · ~749,807 words
+- 652 files · ~749,898 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `2316ba5e`
+- Built from commit: `19671b19`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -60,18 +60,18 @@
 - react
 - Community 43
 - classTree.js
+- Home.jsx
 - Community 46
 - PuzzleStealthGrid.jsx
 - Community 48
 - Community 49
+- Perfil.jsx
 - Community 51
 - Community 52
 - GridCanvas.jsx
 - Community 56
 - Community 57
-- Vila.jsx
 - useTopTrumpsRewards.js
-- useCombatEngine.js
 - Community 62
 - Community 63
 - Community 64
@@ -379,8 +379,8 @@ Cohesion: 0.12
 Nodes (17): hasFlag(), setFlag(), allScenes, filterChoices(), getSceneFromCache(), loadScene(), scenesCache, setScenesLocale() (+9 more)
 
 ### Community 39 - "useMultiplayerTurnMachine.js"
-Cohesion: 0.31
-Nodes (9): corDisponivel(), CORES_DISPONIVEIS, getCoresDisponiveis(), getNomesDisponiveis(), nomeDisponivel(), NOMES_DISPONIVEIS, podeAdicionarPersonagemABatalha(), ICONES (+1 more)
+Cohesion: 0.20
+Nodes (14): DanoPopup(), STATUS_ICONS, StatusBar(), sortearIAs(), Batalha(), calcularCaminho(), getAlcanceMovimento(), getAlcanceSkill() (+6 more)
 
 ### Community 40 - "ResultScreen.jsx"
 Cohesion: 0.27
@@ -401,6 +401,10 @@ Nodes (28): Abilities / Skills, Abilities / Skills, Abilities / Skills, Abilitie
 ### Community 44 - "classTree.js"
 Cohesion: 0.15
 Nodes (12): CRIATURAS_BASE, SPRITE_1, SPRITE_10, SPRITE_2, SPRITE_3, SPRITE_4, SPRITE_5, SPRITE_6 (+4 more)
+
+### Community 45 - "Home.jsx"
+Cohesion: 0.31
+Nodes (9): corDisponivel(), CORES_DISPONIVEIS, getCoresDisponiveis(), getNomesDisponiveis(), nomeDisponivel(), NOMES_DISPONIVEIS, podeAdicionarPersonagemABatalha(), ICONES (+1 more)
 
 ### Community 46 - "Community 46"
 Cohesion: 0.10
@@ -433,10 +437,6 @@ Nodes (15): gh-pages, devDependencies, gh-pages, pg, @playwright/test, @types/re
 ### Community 57 - "Community 57"
 Cohesion: 0.13
 Nodes (15): dependencies, pixi.js, playwright, react-dom, react-markdown, @supabase/supabase-js, @vitejs/plugin-react-oxc, zustand (+7 more)
-
-### Community 58 - "Vila.jsx"
-Cohesion: 0.20
-Nodes (14): DanoPopup(), STATUS_ICONS, StatusBar(), sortearIAs(), Batalha(), calcularCaminho(), getAlcanceMovimento(), getAlcanceSkill() (+6 more)
 
 ### Community 59 - "useTopTrumpsRewards.js"
 Cohesion: 0.17
@@ -866,7 +866,7 @@ Nodes (3): 6. CALENDÁRIO DE PUBLICAÇÃO, Horários fixos (Nova York EDT), Sema
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `useLanguage()` connect `endBattle` to `Community 0`, `Community 1`, `Community 2`, `Community 4`, `Community 6`, `Community 8`, `Community 9`, `Community 10`, `Community 12`, `useFichaGate.js`, `sfx.js`, `Community 20`, `PuzzleWrapper.jsx`, `useGanguesTurnMachine.js`, `Batalha.jsx`, `levelProgression.js`, `BLOCO B — LINKEDIN PESSOAL ISAIAS`, `PuzzleStealthGrid.jsx`, `TopTrumpsMP.jsx`, `levelProgression.js`, `ResultScreen.jsx`, `useMultiplayerTurnMachine.js`, `ResultScreen.jsx`, `PuzzleForça.jsx`, `react`, `PuzzleStealthGrid.jsx`, `Community 49`, `Vila.jsx`, `useTopTrumpsRewards.js`, `Community 62`, `Community 76`, `Navbar.jsx`, `endBattle`, `notificationManager.js`, `Quiz.jsx`, `Create`, `MiniGames.jsx`, `Brincadeira.jsx`, `RestaurarSaude.jsx`, `Criatura.jsx`?**
+- **Why does `useLanguage()` connect `endBattle` to `Community 0`, `Community 1`, `Community 2`, `Community 4`, `Community 6`, `Community 8`, `Community 9`, `Community 10`, `Community 12`, `useFichaGate.js`, `sfx.js`, `Community 20`, `PuzzleWrapper.jsx`, `useGanguesTurnMachine.js`, `Batalha.jsx`, `levelProgression.js`, `BLOCO B — LINKEDIN PESSOAL ISAIAS`, `PuzzleStealthGrid.jsx`, `TopTrumpsMP.jsx`, `levelProgression.js`, `ResultScreen.jsx`, `useMultiplayerTurnMachine.js`, `ResultScreen.jsx`, `PuzzleForça.jsx`, `react`, `Home.jsx`, `PuzzleStealthGrid.jsx`, `Community 49`, `useTopTrumpsRewards.js`, `Community 62`, `Community 76`, `Navbar.jsx`, `endBattle`, `notificationManager.js`, `Quiz.jsx`, `Create`, `MiniGames.jsx`, `Brincadeira.jsx`, `RestaurarSaude.jsx`, `Criatura.jsx`?**
   _High betweenness centrality (0.151) - this node is a cross-community bridge._
 - **Why does `useReader()` connect `sfx.js` to `Community 0`, `Community 1`, `TopTrumpsMP.jsx`, `levelProgression.js`, `Community 6`, `Community 12`, `endBattle`, `Navbar.jsx`, `PuzzleStealthGrid.jsx`, `Community 20`, `useGanguesTurnMachine.js`, `PuzzleWrapper.jsx`?**
   _High betweenness centrality (0.026) - this node is a cross-community bridge._

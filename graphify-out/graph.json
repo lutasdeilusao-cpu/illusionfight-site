@@ -5220,7 +5220,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_components_danopopup",
-      "community": 58,
+      "community": 39,
       "norm_label": "danopopup.jsx"
     },
     {
@@ -5230,7 +5230,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_components_danopopup_danopopup",
-      "community": 58,
+      "community": 39,
       "norm_label": "danopopup()"
     },
     {
@@ -5560,7 +5560,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_components_statusbar",
-      "community": 58,
+      "community": 39,
       "norm_label": "statusbar.jsx"
     },
     {
@@ -5570,7 +5570,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_components_statusbar_status_icons",
-      "community": 58,
+      "community": 39,
       "norm_label": "status_icons"
     },
     {
@@ -5580,7 +5580,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_components_statusbar_statusbar",
-      "community": 58,
+      "community": 39,
       "norm_label": "statusbar()"
     },
     {
@@ -5820,7 +5820,7 @@
       "source_location": "L395",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_data_aipersonalities_sortearias",
-      "community": 58,
+      "community": 39,
       "norm_label": "sortearias()"
     },
     {
@@ -6670,7 +6670,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_screens_batalha",
-      "community": 58,
+      "community": 39,
       "norm_label": "batalha.jsx"
     },
     {
@@ -6680,7 +6680,7 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_screens_batalha_getskills",
-      "community": 58,
+      "community": 39,
       "norm_label": "getskills()"
     },
     {
@@ -6690,7 +6690,7 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_screens_batalha_getocupadas",
-      "community": 58,
+      "community": 39,
       "norm_label": "getocupadas()"
     },
     {
@@ -6700,7 +6700,7 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_screens_batalha_getalcancemovimento",
-      "community": 58,
+      "community": 39,
       "norm_label": "getalcancemovimento()"
     },
     {
@@ -6710,7 +6710,7 @@
       "source_location": "L52",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_screens_batalha_temlinhavisao",
-      "community": 58,
+      "community": 39,
       "norm_label": "temlinhavisao()"
     },
     {
@@ -6720,7 +6720,7 @@
       "source_location": "L63",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_screens_batalha_getalvoocupadas",
-      "community": 58,
+      "community": 39,
       "norm_label": "getalvoocupadas()"
     },
     {
@@ -6730,7 +6730,7 @@
       "source_location": "L70",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_screens_batalha_getalcanceskill",
-      "community": 58,
+      "community": 39,
       "norm_label": "getalcanceskill()"
     },
     {
@@ -6740,7 +6740,7 @@
       "source_location": "L86",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_screens_batalha_estahemalcance",
-      "community": 58,
+      "community": 39,
       "norm_label": "estahemalcance()"
     },
     {
@@ -6750,7 +6750,7 @@
       "source_location": "L91",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_screens_batalha_calcularcaminho",
-      "community": 58,
+      "community": 39,
       "norm_label": "calcularcaminho()"
     },
     {
@@ -6760,7 +6760,7 @@
       "source_location": "L133",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_screens_batalha_getfaselabel",
-      "community": 58,
+      "community": 39,
       "norm_label": "getfaselabel()"
     },
     {
@@ -6770,7 +6770,7 @@
       "source_location": "L156",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_screens_batalha_batalha",
-      "community": 58,
+      "community": 39,
       "norm_label": "batalha()"
     },
     {
@@ -7270,7 +7270,7 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_store_usearenataticsstore_usearenataticsstore",
-      "community": 58,
+      "community": 39,
       "norm_label": "usearenataticsstore"
     },
     {
@@ -17620,7 +17620,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_mecanicaspoder",
-      "community": 61,
+      "community": 50,
       "norm_label": "mecanicaspoder.js"
     },
     {
@@ -17630,7 +17630,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_mecanicaspoder_mecanicas",
-      "community": 61,
+      "community": 50,
       "norm_label": "mecanicas"
     },
     {
@@ -17640,7 +17640,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_mecanicaspoder_executarmecanica",
-      "community": 61,
+      "community": 50,
       "norm_label": "executarmecanica()"
     },
     {
@@ -17650,7 +17650,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_mecanicaspoder_executarbonusatributo",
-      "community": 61,
+      "community": 50,
       "norm_label": "executarbonusatributo()"
     },
     {
@@ -17660,7 +17660,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_regrasficha",
-      "community": 39,
+      "community": 45,
       "norm_label": "regrasficha.js"
     },
     {
@@ -17670,7 +17670,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_regrasficha_cores_disponiveis",
-      "community": 39,
+      "community": 45,
       "norm_label": "cores_disponiveis"
     },
     {
@@ -17680,7 +17680,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_regrasficha_nomes_disponiveis",
-      "community": 39,
+      "community": 45,
       "norm_label": "nomes_disponiveis"
     },
     {
@@ -17700,7 +17700,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_regrasficha_podeadicionarpersonagemabatalha",
-      "community": 39,
+      "community": 45,
       "norm_label": "podeadicionarpersonagemabatalha()"
     },
     {
@@ -17710,7 +17710,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_regrasficha_cordisponivel",
-      "community": 39,
+      "community": 45,
       "norm_label": "cordisponivel()"
     },
     {
@@ -17720,7 +17720,7 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_regrasficha_nomedisponivel",
-      "community": 39,
+      "community": 45,
       "norm_label": "nomedisponivel()"
     },
     {
@@ -17730,7 +17730,7 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_regrasficha_getcoresdisponiveis",
-      "community": 39,
+      "community": 45,
       "norm_label": "getcoresdisponiveis()"
     },
     {
@@ -17740,7 +17740,7 @@
       "source_location": "L32",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_regrasficha_getnomesdisponiveis",
-      "community": 39,
+      "community": 45,
       "norm_label": "getnomesdisponiveis()"
     },
     {
@@ -18060,7 +18060,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_phases_phase2customize",
-      "community": 39,
+      "community": 45,
       "norm_label": "phase2customize.jsx"
     },
     {
@@ -18070,7 +18070,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_phases_phase2customize_icones",
-      "community": 39,
+      "community": 45,
       "norm_label": "icones"
     },
     {
@@ -18080,7 +18080,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_phases_phase2customize_phase2customize",
-      "community": 39,
+      "community": 45,
       "norm_label": "phase2customize()"
     },
     {
@@ -21727,7 +21727,7 @@
       "label": "Regra Anti-Over-Engineering",
       "file_type": "document",
       "source_file": "AGENTS.md",
-      "source_location": "L137",
+      "source_location": "L138",
       "_origin": "ast",
       "id": "agents_regra_anti_over_engineering",
       "community": 75,
@@ -21737,7 +21737,7 @@
       "label": "Regra de Tamanho de Arquivo",
       "file_type": "document",
       "source_file": "AGENTS.md",
-      "source_location": "L141",
+      "source_location": "L142",
       "_origin": "ast",
       "id": "agents_regra_de_tamanho_de_arquivo",
       "community": 75,
@@ -21747,7 +21747,7 @@
       "label": "Seguran\u00e7a \u00e9 h\u00e1bito, n\u00e3o fase",
       "file_type": "document",
       "source_file": "AGENTS.md",
-      "source_location": "L145",
+      "source_location": "L146",
       "_origin": "ast",
       "id": "agents_seguran\u00e7a_\u00e9_h\u00e1bito_n\u00e3o_fase",
       "community": 75,
@@ -21757,7 +21757,7 @@
       "label": "Este documento \u00e9 trabalho em progresso",
       "file_type": "document",
       "source_file": "AGENTS.md",
-      "source_location": "L153",
+      "source_location": "L154",
       "_origin": "ast",
       "id": "agents_este_documento_\u00e9_trabalho_em_progresso",
       "community": 75,
@@ -21767,7 +21767,7 @@
       "label": "Architecture notes",
       "file_type": "document",
       "source_file": "AGENTS.md",
-      "source_location": "L157",
+      "source_location": "L158",
       "_origin": "ast",
       "id": "agents_architecture_notes",
       "community": 75,
@@ -21777,7 +21777,7 @@
       "label": "graphify",
       "file_type": "document",
       "source_file": "AGENTS.md",
-      "source_location": "L177",
+      "source_location": "L178",
       "_origin": "ast",
       "id": "agents_graphify",
       "community": 75,
@@ -89784,7 +89784,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "AGENTS.md",
-      "source_location": "L157",
+      "source_location": "L158",
       "weight": 1.0,
       "source": "agents_agents_md_illusion_fight_site",
       "target": "agents_architecture_notes",
@@ -89844,7 +89844,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "AGENTS.md",
-      "source_location": "L153",
+      "source_location": "L154",
       "weight": 1.0,
       "source": "agents_agents_md_illusion_fight_site",
       "target": "agents_este_documento_\u00e9_trabalho_em_progresso",
@@ -89854,7 +89854,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "AGENTS.md",
-      "source_location": "L177",
+      "source_location": "L178",
       "weight": 1.0,
       "source": "agents_agents_md_illusion_fight_site",
       "target": "agents_graphify",
@@ -89874,7 +89874,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "AGENTS.md",
-      "source_location": "L137",
+      "source_location": "L138",
       "weight": 1.0,
       "source": "agents_agents_md_illusion_fight_site",
       "target": "agents_regra_anti_over_engineering",
@@ -89884,7 +89884,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "AGENTS.md",
-      "source_location": "L141",
+      "source_location": "L142",
       "weight": 1.0,
       "source": "agents_agents_md_illusion_fight_site",
       "target": "agents_regra_de_tamanho_de_arquivo",
@@ -89894,7 +89894,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "AGENTS.md",
-      "source_location": "L145",
+      "source_location": "L146",
       "weight": 1.0,
       "source": "agents_agents_md_illusion_fight_site",
       "target": "agents_seguran\u00e7a_\u00e9_h\u00e1bito_n\u00e3o_fase",
@@ -97372,5 +97372,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "2316ba5eafef97b51ae44d9a4e901fa9c263228c"
+  "built_at_commit": "19671b19126727c265abe24d6a8ecfc0af2700fd"
 }

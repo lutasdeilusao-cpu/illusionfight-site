@@ -410,8 +410,8 @@
     "semantic_hash": "b11265c546f5970b719233c19e1b2c2d"
   },
   "src/config/version.js": {
-    "mtime": 1786559899.4387383,
-    "ast_hash": "9b7dfb8640d17bf0443894089b7308c8",
+    "mtime": 1786624878.0848348,
+    "ast_hash": "6c6898143fd6865435c4dff5f1b27a51",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2795,8 +2795,8 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1785778333.1349351,
-    "ast_hash": "4d00f67ffdad26da860e46f5b751b2c0",
+    "mtime": 1786624878.0869756,
+    "ast_hash": "c24768633a17b68e0e5afe3155579302",
     "semantic_hash": ""
   },
   "Jogos_Rafael/mg01_sliding.html": {
@@ -2835,8 +2835,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1786559938.3061595,
-    "ast_hash": "85223fba8299ef280ac407546b34c920",
+    "mtime": 1786624878.0859637,
+    "ast_hash": "d9935db3b14a0bf0b32e1d3f8048536e",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
