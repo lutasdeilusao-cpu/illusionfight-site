@@ -79,7 +79,7 @@ Não substitui grep/prova de leitura em tasks de bug — a regra de colar output
 - Domínio: `https://illusionfight.com/` · Vite base: `/` · Supabase: `dvxfrzixtetdzmdrzkpx.supabase.co` (client em `src/lib/supabase.js`, anon key)
 - Stripe (`src/lib/stripe.js`): ELITE R$10/mês, PRIMORDIAL R$30/mês
 - `.env`: `VITE_DEBUG=true` (dev) / `false` (prod); `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`, `VITE_STRIPE_PRICE_ELITE`, `VITE_STRIPE_PRICE_PRIMORDIAL`
-- `vite.config.js`: `base: '/'`, `build: { sourcemap: true }` — **obrigatório até setembro 2026, nunca remover**
+- `vite.config.js`: `base: '/'`, `build: { sourcemap: true }` — **obrigatório até novembro 2026, nunca remover**
 
 ---
 

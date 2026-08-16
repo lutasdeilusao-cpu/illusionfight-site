@@ -226,7 +226,7 @@
 | LinkedIn Games (antigo) | @isaiaslealdev | 1.550 / +500 conexões | Games industry |
 | LinkedIn Dev (novo) | @isaiaslealdeveloper | 91 (23/06/2026) | Full-stack developer — foco principal |
 
-**Ritmo:** Segunda, quarta e sexta às 10h até setembro. English only.
+**Ritmo:** Segunda, quarta e sexta às 10h até novembro. English only.
 
 ## B2. MELHOR PERFORMANCE
 
@@ -254,7 +254,7 @@
 | App ID | 1876210 |
 | Status | **Em revisão pela Valve** |
 | Aprovação esperada | ~27-30/06/2026 |
-| Lançamento | 14/09/2026 |
+| Lançamento | 15/11/2026 |
 | Steam Next Fest | 19-26/10/2026 ✅ REGISTRADO (deadline 1/set) |
 
 **Regra:** não divulgar link antes da aprovação. Após aprovação: CTA "Add to wishlist on Steam" em absolutamente tudo — e-mails, redes, bio, templates de PR.
@@ -465,7 +465,7 @@ This is about something I've been building since I was 17.
 Illusion Fight is a free action universe: webtoon, book series, 
 tactical hex-grid RPG, and a 36-track original soundtrack — all 
 connected at illusionfight.com. 23 years in the making. Built 
-solo. Launching September 14, 2026.
+solo. Launching November 15, 2026.
 
 [Personalização por nicho aqui]
 
@@ -504,7 +504,7 @@ Illusion Fight é um universo de ação gratuito: webtoon, série
 de livros, RPG tático em grade hexagonal e trilha sonora 
 original com 36 faixas — tudo conectado em illusionfight.com. 
 23 anos de construção. Feito solo. Por um brasileiro. 
-Lançamento em 14 de setembro de 2026.
+Lançamento em 15 de novembro de 2026.
 
 [Personalização por nicho aqui]
 
