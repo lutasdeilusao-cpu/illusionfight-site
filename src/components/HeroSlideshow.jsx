@@ -2,6 +2,7 @@ import { useState, useEffect, useRef, useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useLanguage } from '../context/LanguageContext'
 import { useSwipe } from '../hooks/useSwipe'
+import { trackEvent } from '../lib/analytics'
 import banner01 from '../assets/images/banners/banner-01.png'
 import banner02 from '../assets/images/banners/banner-02.png'
 import banner03 from '../assets/images/banners/banner-03.png'
@@ -135,14 +136,20 @@ export default function HeroSlideshow() {
         >
           <button
             className="hero-slideshow__cta--primary"
-            onClick={() => navigate(slide.link1)}
+            onClick={() => {
+              trackEvent('hero_cta_click', { slide_index: activeIndex, slide_key: slide.key, cta_position: 'primary', destination: slide.link1 })
+              navigate(slide.link1)
+            }}
           >
             {t(`hero.${slide.key}.cta1`)}
           </button>
           {slide.link2 && (
             <button
               className="hero-slideshow__cta--secondary"
-              onClick={() => navigate(slide.link2)}
+              onClick={() => {
+                trackEvent('hero_cta_click', { slide_index: activeIndex, slide_key: slide.key, cta_position: 'secondary', destination: slide.link2 })
+                navigate(slide.link2)
+              }}
             >
               {t(`hero.${slide.key}.cta2`)}
             </button>

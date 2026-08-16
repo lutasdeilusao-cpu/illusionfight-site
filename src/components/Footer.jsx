@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useLanguage } from '../context/LanguageContext'
+import { trackEvent } from '../lib/analytics'
 import SocialBar from './SocialBar'
 import './Footer.css'
 
@@ -59,7 +60,12 @@ export default function Footer({ hidden }) {
                           {route ? (
                             <Link to={route} onClick={() => setOpenSections(new Set())}>{link}</Link>
                           ) : external ? (
-                            <a href={external} target="_blank" rel="noopener noreferrer">{link}</a>
+                            <a
+                              href={external}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={() => link === 'Newsletter' && trackEvent('newsletter_click', { destination: external })}
+                            >{link}</a>
                           ) : (
                             <a href="#">{link}</a>
                           )}

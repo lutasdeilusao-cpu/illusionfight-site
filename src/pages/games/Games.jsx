@@ -4,6 +4,7 @@ import { useNavigate, useSearchParams } from 'react-router-dom'
 import { useLanguage } from '../../context/LanguageContext'
 import { useAuth } from '../../context/AuthContext'
 import { useFichaGate } from '../../hooks/useFichaGate'
+import { trackEvent } from '../../lib/analytics'
 import ModalSemFichas from '../../components/ModalSemFichas/ModalSemFichas'
 import ModalConfirmacaoFicha from '../../components/ModalConfirmacaoFicha/ModalConfirmacaoFicha'
 import './Games.css'
@@ -68,6 +69,7 @@ export default function Games() {
   const handleJogoClick = (jogo) => {
     const bloqueado = jogo.emBreve && !isAdmin
     if (bloqueado || !jogo.rota) return
+    trackEvent('game_open', { game_id: jogo.id, category: 'ldi' })
     const gate = gates[jogo.id]
     if (gate) {
       gate.tentarEntrar(() => navigate(jogo.rota))
@@ -149,7 +151,7 @@ export default function Games() {
             {KERNEL_JOGOS.map(jogo => (
               <div key={jogo.id} className="extras-jogo-card"
                 style={{ '--cor-neon': jogo.cor, '--cor-badge': BADGE_CORES[jogo.badgeKey.split('.').pop()] || '#666' }}
-                onClick={() => navigate(jogo.rota)}>
+                onClick={() => { trackEvent('game_open', { game_id: jogo.id, category: 'kernel' }); navigate(jogo.rota) }}>
                 <div className="extras-jogo-card-inner">
                   <div className="extras-jogo-badge">{t(jogo.badgeKey)}</div>
                   <div className="extras-jogo-emoji">{jogo.emoji}</div>

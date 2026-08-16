@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { supabase } from '../../lib/supabase'
 import { useLanguage } from '../../context/LanguageContext'
 import { PAISES } from '../../data/paises'
+import { trackEvent } from '../../lib/analytics'
 import './Login.css'
 
 export default function Cadastro() {
@@ -29,6 +30,7 @@ export default function Cadastro() {
     const erroValidacao = validar()
     if (erroValidacao) { setErro(erroValidacao); return }
     setCarregando(true)
+    trackEvent('signup_start', { pais: form.pais })
     sessionStorage.setItem('ldi-cadastro-pendente', JSON.stringify({
       nome: form.nome,
       telefone: form.telefone,
@@ -41,6 +43,7 @@ export default function Cadastro() {
     })
     if (error) { setErro(error.message); setCarregando(false); return }
     setCarregando(false)
+    trackEvent('signup_complete', { pais: form.pais })
     setCadastroConcluido(true)
   }
 

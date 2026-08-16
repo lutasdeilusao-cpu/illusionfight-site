@@ -4,6 +4,7 @@ import { useNavigate, Link } from 'react-router-dom'
 import { useLanguage } from '../../context/LanguageContext'
 import { useAuth } from '../../context/AuthContext'
 import { TRIAL_ACTIVE } from '../../config/trial'
+import { trackEvent } from '../../lib/analytics'
 import { estaDisponivel } from '../../config/site'
 import episodios from '../../data/episodios.json'
 import thumbEp00 from '../../assets/images/episodes/thumb-ep00.png'
@@ -63,7 +64,11 @@ export default function Webtoon() {
                 <div
                   key={ep.id}
                   className={`webtoon-card${liberado ? '' : ' webtoon-card--locked'}`}
-                  onClick={() => liberado && navigate(`/webtoon/${ep.id}`)}
+                  onClick={() => {
+                    if (!liberado) return
+                    trackEvent('webtoon_open', { episode_id: ep.id })
+                    navigate(`/webtoon/${ep.id}`)
+                  }}
                 >
                   <div className="webtoon-card__thumb">
                     {thumb ? (
