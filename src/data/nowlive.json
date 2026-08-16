@@ -7,8 +7,8 @@
     "corPlataforma": "#FF0000",
     "url": "https://www.youtube.com/@illusionfightIF",
     "thumbnail": null,
-    "titulo": "Illusion Fight",
-    "descricao": "Assista no YouTube"
+    "titulo": "@illusionfightIF",
+    "descricao": "Visitar no YouTube"
   },
   {
     "id": "tiktok",
@@ -16,9 +16,9 @@
     "plataforma": "TikTok",
     "icone": "tiktok",
     "corPlataforma": "#010101",
-    "url": "https://www.tiktok.com/@illusionfight",
+    "url": "https://www.tiktok.com/@illusionfightif",
     "thumbnail": null,
-    "titulo": "@illusionfight",
+    "titulo": "@illusionfightif",
     "descricao": "Ver no TikTok"
   },
   {
@@ -30,7 +30,7 @@
     "url": "https://x.com/IllusionFightIF",
     "thumbnail": null,
     "titulo": "@IllusionFightIF",
-    "descricao": "Ver no X"
+    "descricao": "Seguir no X"
   },
   {
     "id": "instagram",
@@ -38,9 +38,9 @@
     "plataforma": "Instagram",
     "icone": "instagram",
     "corPlataforma": "#E1306C",
-    "url": "https://www.instagram.com/illusionfight/",
+    "url": "https://www.instagram.com/illusionfightif",
     "thumbnail": null,
-    "titulo": "@illusionfight",
-    "descricao": "Ver no Instagram"
+    "titulo": "@illusionfightif",
+    "descricao": "Seguir no Instagram"
   }
 ]
