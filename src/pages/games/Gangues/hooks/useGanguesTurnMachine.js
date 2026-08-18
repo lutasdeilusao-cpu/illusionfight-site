@@ -20,7 +20,7 @@ function prepare(combatant, side, index) {
   const enemy = side === 'enemy'
   const normalized = enemy ? { ...combatant, attributes: combatant.stats || combatant.attributes || {}, combat_path: combatant.preferred_mode === 'power' ? 'mistico' : combatant.preferred_mode === 'armed' ? 'defensor' : 'atacante' } : { ...combatant, ...normalizeGanguesLoadout(combatant) }
   const resources = enemy ? { pvMax: Number(combatant.pv_max) || 10, pmMax: Number(combatant.pm_max) || 0 } : getGanguesResources(normalized.combat_path, normalized.attributes?.R)
-  return { ...normalized, key: `${side}-${index}-${combatant.id}`, side, statuses: [], pv: resources.pvMax, pm: resources.pmMax, pvMax: resources.pvMax, pmMax: resources.pmMax, actedThisRound: false }
+  return { ...normalized, key: `${side}-${index}-${combatant.id}`, side, statuses: [], pv: resources.pvMax, pm: resources.pmMax, pvMax: resources.pvMax, pmMax: resources.pmMax, actedThisRound: false, specialState: { charge: 0, shield: 0, totalPvLost: 0 } }
 }
 
 export default function useGanguesTurnMachine({ playerTeam = [], enemyTeam = [], onFinish, attackRoll = d3, defenseRoll = d3, initiativeRoll = d3, bonusRoll = coin, targetRoll = Math.random, enemyDelay = 2200 }) {
@@ -58,27 +58,28 @@ export default function useGanguesTurnMachine({ playerTeam = [], enemyTeam = [],
     setTurnIndex(nextIndex)
   }, [initiative, onFinish, turnIndex])
 
-  const queueAction = useCallback((actor, target) => {
+  const queueAction = useCallback((actor, target, activeSpecialId = null) => {
     if (!actor || !target || pending) return false
     const result = resolveGanguesAction({
       attacker: actor, defender: target, action: { type: 'attack', mode: 'attack' },
       rolls: { fa: attackRoll(), fd: defenseRoll(), attackerBonus: bonusRoll(), defenderBonus: bonusRoll() },
+      activeSpecialId,
     })
     setPending({ actorKey: actor.key, targetKey: target.key, side: actor.side, result })
     return true
   }, [attackRoll, defenseRoll, bonusRoll, pending])
 
-  const playerAction = useCallback((actorKey, targetKey) => {
+  const playerAction = useCallback((actorKey, targetKey, activeSpecialId = null) => {
     if (phase !== 'player' || currentActor?.key !== actorKey) return false
     const target = combatants.find(item => item.key === targetKey && item.side === 'enemy' && item.pv > 0)
-    return queueAction(currentActor, target)
+    return queueAction(currentActor, target, activeSpecialId)
   }, [phase, currentActor, combatants, queueAction])
 
   const completePending = useCallback(() => {
     if (!pending) return
     const next = combatants.map(item => {
-      if (item.key === pending.actorKey) return { ...item, statuses: pending.result.attackerStatuses, pm: Math.max(0, item.pm - pending.result.pmCost), actedThisRound: true }
-      if (item.key === pending.targetKey) return { ...item, statuses: pending.result.defenderStatuses, pv: Math.max(0, item.pv - pending.result.damage) }
+      if (item.key === pending.actorKey) return { ...item, statuses: pending.result.attackerStatuses, pm: Math.max(0, item.pm - pending.result.pmCost), pv: Math.max(0, item.pv - (pending.result.pvCost || 0)), specialState: pending.result.attackerSpecialState, actedThisRound: true }
+      if (item.key === pending.targetKey) return { ...item, statuses: pending.result.defenderStatuses, pv: Math.max(0, item.pv - pending.result.damage), specialState: pending.result.defenderSpecialState }
       return item
     })
     record({ type: 'attack', side: pending.side, actorKey: pending.actorKey, targetKey: pending.targetKey, result: pending.result, round })

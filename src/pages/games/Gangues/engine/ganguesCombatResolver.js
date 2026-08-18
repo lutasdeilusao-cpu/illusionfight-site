@@ -1,3 +1,5 @@
+import { applyGanguesAttackerEffect, applyGanguesDefenderEffect, buildGanguesEffectsList } from './ganguesSpecialEffects.js'
+
 export function resolveGanguesInitiative({ combatant, roll }) {
   const ability = Number(combatant.attributes?.H) || 0
   return { ability, die: roll, total: ability + roll }
@@ -30,8 +32,16 @@ export const ATTACK_DIE_SIDES = 3
 export const CRITICAL_BONUS = 2
 
 // Dano mínimo garantido de 1: mesmo com defesa agora rolando d3 também, um golpe nunca
-// é totalmente anulado — evita as rodadas de "dano zero" que arrastavam o combate.
-export function resolveGanguesAction({ attacker, defender, action, rolls }) {
+// é totalmente anulado — evita as rodadas de "dano zero" que arrastavam o combate. Essa garantia
+// vale pro combate base; um escudo da skill tree (shield_next_hit/damage_reduction_next_hit)
+// pode reduzir o dano abaixo disso, inclusive a zero — é o efeito esperado de investir em
+// defesa, não uma regra geral do jogo.
+//
+// `activeSpecialId`: id do poder ativo equipado que o atacante escolheu usar nesta ação (ou
+// null pra ataque normal). Efeitos passivos equipados de ambos os lados aplicam sempre. Ver
+// engine/ganguesSpecialEffects.js pros valores e docs/Games/Gangues/GANGUES_PROGRESSAO_RASCUNHO.md
+// pro design original (com as simplificações feitas pra caber no modelo de 1 ação por turno).
+export function resolveGanguesAction({ attacker, defender, action, rolls, activeSpecialId = null }) {
   const attack = Number(attacker.attributes?.A) || 0
   const agility = Math.floor((Number(attacker.attributes?.H) || 0) / 2)
   const defense = Number(defender.attributes?.D) || 0
@@ -42,14 +52,43 @@ export function resolveGanguesAction({ attacker, defender, action, rolls }) {
   const critical = rolls.fa === ATTACK_DIE_SIDES
   const attackRollValue = rolls.fa + (critical ? CRITICAL_BONUS : 0)
 
-  const fa = attack + agility + attackRollValue + (attackerBonus.applied ? attackerBonus.amount : 0)
-  const fd = defense + rolls.fd + (defenderBonus.applied ? defenderBonus.amount : 0)
-  const damage = Math.max(1, fa - fd)
+  const attackerEffects = buildGanguesEffectsList(attacker, activeSpecialId)
+  const defenderEffects = buildGanguesEffectsList(defender, null)
+  const ctx = { attacker, target: defender, faMod: 0, fdMod: 0, ignoreDefPct: 0, pmCost: 0, pvCostPct: 0, selfShieldSet: 0, chargeGain: 0, chargeSpent: 0 }
+  for (const item of attackerEffects) applyGanguesAttackerEffect(item, ctx)
+  for (const item of defenderEffects) applyGanguesDefenderEffect(item, ctx)
+
+  const effectiveDefense = Math.max(0, Math.round(defense * (1 - ctx.ignoreDefPct / 100)))
+
+  const fa = attack + agility + attackRollValue + (attackerBonus.applied ? attackerBonus.amount : 0) + ctx.faMod
+  const fd = effectiveDefense + rolls.fd + (defenderBonus.applied ? defenderBonus.amount : 0) + ctx.fdMod
+  let damage = Math.max(1, fa - fd)
+
+  const incomingShield = defender.specialState?.shield || 0
+  let shieldConsumed = 0
+  if (incomingShield > 0) { shieldConsumed = Math.min(incomingShield, damage); damage = Math.max(0, damage - incomingShield) }
+
+  const pvCost = ctx.pvCostPct ? Math.max(1, Math.ceil((attacker.pv || 0) * ctx.pvCostPct / 100)) : 0
+
+  const attackerSpecialState = {
+    ...(attacker.specialState || {}),
+    charge: ctx.chargeSpent ? 0 : (attacker.specialState?.charge || 0),
+    shield: ctx.selfShieldSet || (attacker.specialState?.shield || 0),
+  }
+  const defenderSpecialState = {
+    ...(defender.specialState || {}),
+    charge: (defender.specialState?.charge || 0) + ctx.chargeGain,
+    shield: incomingShield > 0 ? 0 : (defender.specialState?.shield || 0),
+    totalPvLost: (defender.specialState?.totalPvLost || 0) + damage,
+  }
 
   return {
-    action, mode: 'attack', fa, fd, damage, pmCost: 0,
+    action, mode: 'attack', fa, fd, damage, pmCost: ctx.pmCost, pvCost,
     rolls: { ...rolls }, attackerBonus, defenderBonus, critical, criticalBonus: critical ? CRITICAL_BONUS : 0,
     attackerStatuses: [...(attacker.statuses || [])],
     defenderStatuses: [...(defender.statuses || [])],
+    activeSpecialId: attackerEffects.find(item => item.kind === 'active')?.id || null,
+    ignoreDefPct: ctx.ignoreDefPct, shieldConsumed,
+    attackerSpecialState, defenderSpecialState,
   }
 }

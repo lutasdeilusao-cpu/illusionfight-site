@@ -4,6 +4,7 @@ import { useLanguage } from '../../../context/LanguageContext'
 import { useEventos } from '../../../context/EventosContext'
 import { useGanguesStore } from './store/useGanguesStore'
 import useGanguesTurnMachine from './hooks/useGanguesTurnMachine'
+import { getEquippedActiveGanguesSpecials } from './engine/ganguesSpecialEffects.js'
 import DramaticDice from './components/DramaticDice'
 import { sfx } from '../../../lib/sfx'
 
@@ -69,6 +70,7 @@ export default function GanguesCombat({ onNavigate }) {
   const [showResultBtn, setShowResultBtn] = useState(false)
   const [selectedActor, setSelectedActor] = useState(null)
   const [selectedTarget, setSelectedTarget] = useState(null)
+  const [selectedSpecialId, setSelectedSpecialId] = useState(null)
   const [log, setLog] = useState([])
   const [trashOptions, setTrashOptions] = useState([])
   const processedEvents = useRef(0)
@@ -92,6 +94,8 @@ export default function GanguesCombat({ onNavigate }) {
       setSelectedActor(machine.playerActors[0]?.key || null)
     }
   }, [machine.playerActors, selectedActor])
+
+  useEffect(() => { setSelectedSpecialId(null) }, [selectedActor, machine.round])
 
   useEffect(() => {
     if (!selectedTarget || enemies.find(item => item.key === selectedTarget)?.pv <= 0) {
@@ -158,7 +162,19 @@ export default function GanguesCombat({ onNavigate }) {
   const handleAttack = () => {
     if (!selectedActor || !selectedTarget) return
     sfx.click()
-    machine.playerAction(selectedActor, selectedTarget)
+    machine.playerAction(selectedActor, selectedTarget, selectedSpecialId)
+    setSelectedSpecialId(null)
+  }
+
+  const actingMember = players.find(item => item.key === selectedActor) || null
+  const equippedSpecials = actingMember ? getEquippedActiveGanguesSpecials(actingMember) : []
+  const canAffordSpecial = (special) => {
+    const cost = special.effect.cost
+    if (!cost) return true
+    const value = cost.values[special.level - 1]
+    if (cost.kind === 'pm') return (actingMember?.pm || 0) >= value
+    if (cost.kind === 'pv') return (actingMember?.pv || 0) > 1
+    return true
   }
 
   useEffect(() => {
@@ -330,6 +346,33 @@ export default function GanguesCombat({ onNavigate }) {
 
       {machine.phase === 'player' && !result && (
         <div className="gang-actions-bar">
+          {equippedSpecials.length > 0 && (
+            <div className="gang-power-attacks">
+              <button
+                type="button"
+                className={`gang-mode-btn ${selectedSpecialId === null ? 'gang-mode-btn--active' : ''}`}
+                onClick={() => setSelectedSpecialId(null)}
+              >
+                {t('games.gangues.combat_specials.normal_attack')}
+              </button>
+              {equippedSpecials.map(special => {
+                const affordable = canAffordSpecial(special)
+                const cost = special.effect.cost
+                return (
+                  <button
+                    key={special.id}
+                    type="button"
+                    disabled={!affordable}
+                    className={`gang-power-btn ${selectedSpecialId === special.id ? 'gang-power-btn--active' : ''}`}
+                    onClick={() => setSelectedSpecialId(current => current === special.id ? null : special.id)}
+                  >
+                    {t(`games.gangues.progression.skills.${special.id}`)}
+                    {cost && <small>{t(`games.gangues.combat_specials.cost_${cost.kind}`, { n: cost.values[special.level - 1] })}</small>}
+                  </button>
+                )
+              })}
+            </div>
+          )}
           <div className="gang-actions-row">
             <button className="gang-exit-btn" onClick={() => onNavigate('lobby')}>{t('games.gangues.btn_sair')}</button>
             <button className="gang-attack-btn" disabled={!selectedActor || !selectedTarget} onClick={handleAttack}>

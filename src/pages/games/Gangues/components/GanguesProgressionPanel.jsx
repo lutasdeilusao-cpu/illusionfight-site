@@ -2,7 +2,7 @@ import { useLanguage } from '../../../../context/LanguageContext'
 import { GANGUES_ATTRIBUTE_XP_COSTS, GANGUES_SPECIAL_COSTS, getGanguesProgression, selectGanguesSpecialPath, toggleGanguesSpecial, upgradeGanguesAttribute, upgradeGanguesSpecial } from '../data/ganguesLoadout.js'
 import { getGanguesSpecialPath, getGanguesSpecialPaths } from '../data/ganguesSpecials.js'
 
-const SPECIAL_ICON = { atacante: '⚔', muralha: '▰', guardiao: '◇', provocador: '!', reativo: '↯', resiliente: '✚', igneo: '♨', aquatico: '≋', terreno: '◆', tempestade: 'ϟ', ilusorio: '◉' }
+const SPECIAL_ICON = { bruto: '⚔', duelista: '†', furia: '♦', especialista: '◈', vingador: '▣', muralha: '▰', guardiao: '◇', provocador: '!', reativo: '↯', resiliente: '✚', igneo: '♨', aquatico: '≋', terreno: '◆', tempestade: 'ϟ', ilusorio: '◉' }
 
 export default function GanguesProgressionPanel({ member, onApply, onClose }) {
   const { t } = useLanguage()

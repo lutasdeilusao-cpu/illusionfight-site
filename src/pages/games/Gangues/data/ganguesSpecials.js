@@ -2,7 +2,13 @@ const special = (id, kind) => ({ id, kind })
 const path = (id, specials) => ({ id, specials })
 
 export const GANGUES_SPECIAL_PATHS = {
-  atacante: [path('atacante', [special('soco_de_ferro', 'active'), special('investida', 'active'), special('peso_bruto', 'passive'), special('marreta', 'active'), special('fim_de_linha', 'active')])],
+  atacante: [
+    path('bruto', [special('soco_de_ferro', 'active'), special('investida', 'active'), special('peso_bruto', 'passive'), special('marreta', 'active'), special('fim_de_linha', 'active')]),
+    path('duelista', [special('golpe_certeiro', 'active'), special('fluidez', 'active'), special('leitura_de_combate', 'passive'), special('marca', 'active'), special('execucao', 'active')]),
+    path('furia', [special('sangue_fervente', 'passive'), special('grito_de_guerra', 'active'), special('folego_final', 'active'), special('ignorar_a_dor', 'active'), special('ultima_investida', 'active')]),
+    path('especialista', [special('precisao_absoluta', 'passive'), special('ponto_de_pressao', 'active'), special('fratura_de_ilusao', 'active'), special('foco_cirurgico', 'active'), special('colapso_mental', 'active')]),
+    path('vingador', [special('casca_dura', 'passive'), special('absorver_impacto', 'active'), special('contragolpe', 'active'), special('postura_firme', 'active'), special('retribuicao_final', 'active')]),
+  ],
   defensor: [
     path('muralha', [special('pele_de_aco', 'passive'), special('bastiao', 'passive'), special('casco_robusto', 'passive'), special('postura_defensiva', 'active'), special('muralha_impenetravel', 'active')]),
     path('guardiao', [special('instinto_de_protecao', 'passive'), special('postura_de_guarda', 'passive'), special('vinculo_de_escudo', 'passive'), special('intervencao', 'active'), special('bastiao_do_grupo', 'active')]),

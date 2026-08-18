@@ -157,18 +157,30 @@ própria). Painel visual em `GanguesLobby.jsx` (seção `.gang-progression` do C
   dá pra chegar a um atributo em 5 só na criação** — esse caminho de evolução só destrava se
   o jogador puser tudo num atributo só nas fichas que já existem via outro meio, ou é um ponto
   a revisar (ver seção 13).
-- **Especializações por caminho**: Atacante possui sua árvore original com 5 habilidades.
-  Defensor escolhe entre Muralha, Guardião, Provocador, Reativo e Resiliente; cada árvore tem
-  3 passivas e 2 ativas. Místico escolhe entre Ígneo, Aquático, Terreno, Tempestade e Ilusório;
-  cada árvore tem 1 passiva e 4 ativas. São **55 poderes catalogados** ao todo. Cada poder tem
-  **3 níveis**, custando XP crescente por
-  nível (`GANGUES_SPECIAL_COSTS`: nível 0→1 custa 1, 1→2 custa 2, 2→3 custa 3). Só dá pra
-  **equipar 2 especializações por vez** (`selected_specials`, máximo 2) — subir de nível não
-  exige estar equipada, mas só faz efeito em combate se estiver. **Nenhuma dessas
-  especializações tem efeito em batalha ainda** — o sistema de pontos/equipar está pronto, mas
-  `ganguesCombatResolver.js` ainda não lê `selected_specials`: esta entrega completa aquisição,
-  subcaminhos, persistência, loadout e ambiente de teste; os efeitos numéricos em batalha exigem
-  uma especificação de balanceamento separada para converter termos qualitativos em valores.
+- **Especializações por caminho**: os 3 caminhos têm 5 subcaminhos cada, escolhidos em
+  `data/ganguesSpecials.js`. Atacante escolhe entre Bruto, Duelista, Fúria, Especialista e
+  Vingador; cada árvore tem 4 ativas e 1 passiva (Bruto é a árvore original, desde a v1.10.0 —
+  as outras 4 entraram na v1.13.0). Defensor escolhe entre Muralha, Guardião, Provocador, Reativo
+  e Resiliente; cada árvore tem 3 passivas e 2 ativas. Místico escolhe entre Ígneo, Aquático,
+  Terreno, Tempestade e Ilusório; cada árvore tem 1 passiva e 4 ativas. São **75 poderes
+  catalogados** ao todo (5 subcaminhos × 5 poderes × 3 caminhos). Cada poder tem **3 níveis**,
+  custando XP crescente por nível (`GANGUES_SPECIAL_COSTS`: nível 0→1 custa 1, 1→2 custa 2, 2→3
+  custa 3). Só dá pra **equipar 2 especializações por vez** (`selected_specials`, máximo 2) —
+  subir de nível não exige estar equipada, mas só faz efeito em combate se estiver.
+- **Efeito em combate (desde a v1.14.0)**: todo poder equipado (nível > 0) agora tem um número
+  real por trás, aplicado em `engine/ganguesSpecialEffects.js` e lido por
+  `ganguesCombatResolver.js`. Passivos equipados aplicam sempre; o jogador escolhe qual das
+  ativas equipadas usar em cada ataque (chips acima do botão ATACAR em `GanguesCombat.jsx`,
+  custam PM ou % do próprio PV, desabilitados se não for possível pagar). Os 25 poderes do
+  Atacante seguem o design detalhado em
+  `docs/Games/Gangues/GANGUES_PROGRESSAO_RASCUNHO.md`, com **algumas simplificações** pra caber
+  no modelo de 1 ação por turno sem fila de status (ex.: Marca/Fratura de Ilusão/Ponto de Pressão
+  viraram bônus de dano imediato em vez de efeito com duração; Investida e Fôlego Final
+  perderam a manipulação da ordem de turno). Os 50 poderes de Defensor/Místico **não têm design
+  próprio ainda** — usam um template genérico por tipo/caminho (passivo = bônus fixo de
+  atributo, ativo = dano ou redução de dano fixos) só pra não ficarem inertes; precisam da mesma
+  passada de design que o Atacante teve. **Estes são valores de partida pra testar e balancear,
+  não um balanceamento final.**
 
 ## 9. Chat de batalha e trash talk
 
@@ -226,6 +238,15 @@ pra não confundir quem for mexer depois: ou usa esse conteúdo pra inimigos fut
 - Guest (sem conta): ficha fica só em memória (`addLocalSheet`), banner avisa que não salva.
 - Progresso de "gangue" (`activeParty`, tamanho liberado) depende do XP salvo nas fichas —
   se joga sem conta, some ao recarregar a página.
+- **AP/XP/atributos/especiais equipados vão pro Supabase, não pro localStorage.** Todo o estado
+  de progressão (`sheet.attributes.progression`: ap, xp_unspent, special_path, special_levels,
+  selected_specials) é salvo dentro da própria coluna `attributes` (JSONB) de `character_sheets`
+  — não é uma tabela/coluna separada. `applyProgression` em `GanguesLobby.jsx` chama
+  `store.saveToCloud(user.id)` **a cada ação** de progressão (subir atributo, subir poder, trocar
+  subcaminho, equipar/desequipar) quando o usuário está logado; só cai pra memória local
+  (`updateRosterSheet`) se for guest, igual ao resto da ficha. O único uso de `localStorage` no
+  módulo inteiro são as flags "já vi esse tutorial" da NeoGuide (seção 10) — nenhum dado de jogo
+  fica lá.
 
 ### Zona de Treinamento administrativa
 
@@ -261,10 +282,11 @@ src/pages/games/Gangues/
 │   └── GanguesProgressionPanel.jsx # painel reutilizável das árvores de progressão
 ├── data/
 │   ├── ganguesLoadout.js     # regras de pontos/atributos/recursos/tamanho de gangue
-│   ├── ganguesSpecials.js    # catálogo das 11 árvores e 55 poderes
+│   ├── ganguesSpecials.js    # catálogo das 15 árvores (5 por caminho) e 75 poderes
 │   └── gangues-enemies.json  # roster de inimigos
 ├── engine/
-│   └── ganguesCombatResolver.js  # dado, crítico, bônus de caminho, dano
+│   ├── ganguesCombatResolver.js  # dado, crítico, bônus de caminho, dano, aplica os efeitos
+│   └── ganguesSpecialEffects.js  # valores numéricos + lógica de cada poder da skill tree
 ├── hooks/
 │   ├── useGanguesTurnMachine.js  # turno, iniciativa, IA
 │   └── useGanguesI18n.js         # carrega tradução dedicada sob demanda
@@ -285,6 +307,14 @@ src/pages/games/Gangues/
 - Sem sistema de habilidades/poderes especiais além do bônus passivo do caminho — é só ataque
   básico. Se quiser variedade tática, dá pra pensar em golpes especiais que gastam PM.
 - Multiplayer real (PvP) não existe — todo combate é contra IA.
+- **Balanceamento da skill tree tem números de partida, não números finais.** Desde a v1.14.0
+  todo poder equipado (nível > 0) já faz algo real em combate (`engine/ganguesSpecialEffects.js`),
+  mas os valores foram escolhidos pra "ter alguma coisa pra testar", não calculados/simulados.
+  Falta: jogar bastante pra sentir onde está forte/fraco demais, dar um design de verdade pros
+  50 poderes de Defensor/Místico (hoje é um template genérico, ver seção 7), decidir se upar
+  atributo e upar especial competem pela mesma "panela" de XP sem restrição, e considerar se vale
+  a pena reintroduzir as mecânicas simplificadas do Atacante (duração de efeitos, fila de turno)
+  com um sistema de status de verdade, hoje deliberadamente evitado por risco no motor de turno.
 ## Zona de Treinamento pública
 
 A rota `/games/ldi-gangues/treinamento` abre diretamente a bancada de concessão de XP sem login, ficha ou permissão administrativa. Quando não existe elenco carregado, ela cria somente em memória um personagem de teste; alterações não são enviadas ao Supabase. A rota administrativa interna continua protegida.
