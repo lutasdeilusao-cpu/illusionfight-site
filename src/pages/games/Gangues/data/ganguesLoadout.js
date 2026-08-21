@@ -2,8 +2,10 @@ export const GANGUES_PATHS = ['atacante', 'defensor', 'mistico']
 export const GANGUES_CREATION_POINTS = 5
 export const GANGUES_ATTRIBUTE_MAX = 5
 export const GANGUES_AP_PER_XP = 10
-export const GANGUES_ATTRIBUTE_XP_COSTS = { 5: 3, 6: 5, 7: 7, 8: 9, 9: 12 }
+export const GANGUES_ATTRIBUTE_XP_COSTS = { 0: 1, 1: 1, 2: 1, 3: 1, 4: 1, 5: 3, 6: 5, 7: 7, 8: 9, 9: 12 }
 export const GANGUES_SPECIAL_COSTS = { 0: 1, 1: 2, 2: 3 }
+export const GANGUES_SPECIAL_PATH_ATTRIBUTE_REQUIREMENT = 10
+export const GANGUES_SPECIAL_PATH_XP_COST = 1
 export const GANGUES_INITIAL_PARTY_SIZE = 2
 export const GANGUES_MAX_PARTY_SIZE = 5
 export const GANGUES_ROSTER_LIMITS = { free: 3, elite: 5, primordial: 7 }
@@ -37,23 +39,27 @@ export const GANGUES_RESOURCE_RATES = {
 export const GANGUES_ATTACKER_SPECIALS = GANGUES_SPECIAL_PATHS.atacante[0].specials
 
 export function defaultGanguesProgression() {
-  return { ap: 0, xp_unspent: 0, special_path: null, special_levels: {}, selected_specials: [] }
+  return { ap: 0, xp_unspent: 0, special_path: null, special_path_unlocked: false, special_levels: {}, selected_specials: [] }
 }
 
 export function getGanguesProgression(sheet = {}) {
   const source = sheet.attributes?.progression || sheet.progression || {}
   const specialLevels = Object.fromEntries(Object.entries(source.special_levels || {}).map(([id, level]) => [id, Math.max(0, Math.min(3, Number(level) || 0))]))
   const combatPath = sheet.combat_path || null
-  const selectedPath = getGanguesSpecialPath(combatPath, source.special_path)?.id || null
+  const pathCandidate = source.special_path ? getGanguesSpecialPath(combatPath, source.special_path) : null
+  const hasPurchasedPower = Boolean(pathCandidate?.specials.some(item => specialLevels[item.id] > 0))
+  const pathUnlocked = Boolean(pathCandidate && (source.special_path_unlocked === true || hasPurchasedPower))
+  const selectedPath = pathUnlocked ? pathCandidate.id : null
   const selected = Array.isArray(source.selected_specials) ? source.selected_specials.filter(id => specialLevels[id] > 0 && isGanguesSpecialAllowed(combatPath, selectedPath, id)).slice(0, 2) : []
-  return { ...defaultGanguesProgression(), ...source, ap: Math.max(0, Number(source.ap) || 0), xp_unspent: Math.max(0, Number(source.xp_unspent) || 0), special_path: selectedPath, special_levels: specialLevels, selected_specials: selected }
+  return { ...defaultGanguesProgression(), ...source, ap: Math.max(0, Number(source.ap) || 0), xp_unspent: Math.max(0, Number(source.xp_unspent) || 0), special_path: selectedPath, special_path_unlocked: pathUnlocked, special_levels: specialLevels, selected_specials: selected }
 }
 
 export function selectGanguesSpecialPath(sheet, specialPath) {
   const progression = getGanguesProgression(sheet)
   const nextPath = getGanguesSpecialPath(sheet.combat_path, specialPath)
-  if (!nextPath) return null
-  return { attributes: { ...sheet.attributes, progression: { ...progression, special_path: nextPath.id, selected_specials: progression.selected_specials.filter(id => nextPath.specials.some(item => item.id === id)) } } }
+  const attributeTotal = ['A', 'H', 'R', 'D'].reduce((sum, attribute) => sum + (Number(sheet.attributes?.[attribute]) || 0), 0)
+  if (!nextPath || progression.special_path || attributeTotal < GANGUES_SPECIAL_PATH_ATTRIBUTE_REQUIREMENT || progression.xp_unspent < GANGUES_SPECIAL_PATH_XP_COST) return null
+  return { attributes: { ...sheet.attributes, progression: { ...progression, xp_unspent: progression.xp_unspent - GANGUES_SPECIAL_PATH_XP_COST, special_path: nextPath.id, special_path_unlocked: true, selected_specials: [] } } }
 }
 
 export function addGanguesAp(sheet, amount) {

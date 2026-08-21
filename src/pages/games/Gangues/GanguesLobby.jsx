@@ -48,6 +48,12 @@ export default function GanguesLobby({ onNavigate }) {
     else store.updateRosterSheet(member.id, change)
   }
 
+  const deleteProgressionMember = async (member) => {
+    if (!member || !window.confirm(t('games.gangues.progression.delete_confirm', { name: member.sheet_name }))) return
+    const deleted = await store.deleteSheet(member.id)
+    if (deleted) setProgressionMemberId(null)
+  }
+
   useEffect(() => {
     store.setEnemyCatalog(enemiesData)
     if (!user) { setLoading(false); return }
@@ -179,18 +185,21 @@ export default function GanguesLobby({ onNavigate }) {
               const selected = party.some(item => item.id === member.id)
               const unavailable = !selected && party.length >= partyLimit
               return (
-                <button key={member.id} disabled={unavailable} className={`gang-sheet-card-v ${selected ? 'gang-sheet-card-v--selected' : ''}`} onClick={() => handleSheetClick(member)}>
-                  <span className="gang-sheet-avatar">{member.sheet_name[0].toUpperCase()}</span>
-                  <span className="gang-sheet-info"><strong className="gang-sheet-name-v">{member.sheet_name}</strong><span className="gang-sheet-meta">{t(`games.gangues.loadout.paths.${member.combat_path}.name`)}</span><span className="gang-sheet-stats">{['A', 'H', 'R', 'D'].map(attr => <span key={attr} className="gang-sheet-stat"><span className="gang-sheet-stat-label">{attr}</span><b className="gang-sheet-stat-val">{member.attributes[attr]}</b></span>)}</span></span>
-                  <span className="gang-party-status">{selected ? '✓' : '+'}</span>
-                  {getGanguesProgression(member).xp_unspent > 0 && <span className="gang-sheet-xp-ready">{t('games.gangues.progression.xp_badge', { n: getGanguesProgression(member).xp_unspent })}</span>}
-                </button>
+                <div key={member.id} className="gang-sheet-card-shell">
+                  <button disabled={unavailable} className={`gang-sheet-card-v ${selected ? 'gang-sheet-card-v--selected' : ''}`} onClick={() => handleSheetClick(member)}>
+                    <span className="gang-sheet-avatar">{member.sheet_name[0].toUpperCase()}</span>
+                    <span className="gang-sheet-info"><strong className="gang-sheet-name-v">{member.sheet_name}</strong><span className="gang-sheet-meta">{t(`games.gangues.loadout.paths.${member.combat_path}.name`)}</span><span className="gang-sheet-stats">{['A', 'H', 'R', 'D'].map(attr => <span key={attr} className="gang-sheet-stat"><span className="gang-sheet-stat-label">{attr}</span><b className="gang-sheet-stat-val">{member.attributes[attr]}</b></span>)}</span></span>
+                    <span className="gang-party-status">{selected ? '✓' : '+'}</span>
+                    {getGanguesProgression(member).xp_unspent > 0 && <span className="gang-sheet-xp-ready">{t('games.gangues.progression.xp_badge', { n: getGanguesProgression(member).xp_unspent })}</span>}
+                  </button>
+                  <button className="gang-sheet-delete-btn gang-sheet-delete-btn--roster" onClick={() => deleteProgressionMember(member)} aria-label={t('games.gangues.progression.delete')}>×</button>
+                </div>
               )
             })}
           </div>
           <p className="gang-party-counter">{t('games.gangues.party_size_atual', { n: party.length, max: partyLimit })}</p>
           {partyLimit < GANGUES_MAX_PARTY_SIZE && <p className="gang-party-counter">{t('games.gangues.party_size_bloqueado')}</p>}
-          {progressionMember && <div className="gang-progression-focus" ref={progressionRef}><GanguesProgressionPanel member={progressionMember} onApply={applyProgression} onClose={() => setProgressionMemberId(null)} /></div>}
+          {progressionMember && <div className="gang-progression-focus" ref={progressionRef}><GanguesProgressionPanel member={progressionMember} onApply={applyProgression} onDelete={deleteProgressionMember} onClose={() => setProgressionMemberId(null)} /></div>}
           <button className="gang-new-sheet gang-new-sheet--primary" disabled={party.length < GANGUES_INITIAL_PARTY_SIZE} onClick={() => setChoosingEnemy(true)}>{t('games.gangues.party.enter_gangues')}</button>
           {roster.length < rosterLimit && <button className="gang-new-sheet" onClick={startCreation}><span className="gang-new-sheet-icon">+</span>{t('games.gangues.nova_ficha')}</button>}
         </>

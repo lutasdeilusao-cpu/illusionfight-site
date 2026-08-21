@@ -147,7 +147,17 @@ export const useGanguesStore = create((set, get) => ({
   },
 
   deleteSheet: async (sheetId) => {
-    await supabase.from('character_sheets').delete().eq('id', sheetId)
+    if (!sheetId) return false
+    if (get()._userId && !String(sheetId).startsWith('local-')) {
+      const { error } = await supabase.from('character_sheets').delete().eq('id', sheetId)
+      if (error) { console.error('[GANGUES] Falha ao excluir ficha:', error.message); return false }
+    }
+    set(state => ({
+      roster: state.roster.filter(item => item.id !== sheetId),
+      activeParty: state.activeParty.filter(item => item.id !== sheetId),
+      sheet: state.sheet.id === sheetId ? defaultSheet() : state.sheet,
+    }))
+    return true
   },
 
   unlockNextEnemy: (defeatedEnemyId) => set(state => {

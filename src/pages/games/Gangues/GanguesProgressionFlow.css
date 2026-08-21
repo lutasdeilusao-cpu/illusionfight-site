@@ -1,4 +1,7 @@
 .gang-sheet-card-v { position: relative; }
+.gang-sheet-card-shell { position: relative; width: 100%; }
+.gang-sheet-card-shell > .gang-sheet-card-v { width: 100%; padding-right: 54px; }
+.gang-sheet-delete-btn--roster { position: absolute; z-index: 2; top: 10px; right: 10px; }
 .gang-progression-focus { width: 100%; scroll-margin-top: 16px; }
 .gang-sheet-xp-ready {
   position: absolute; right: 10px; bottom: 8px; border: 1px solid rgba(245, 166, 35, .55);
@@ -6,9 +9,28 @@
   padding: 2px 7px; font: 800 9px 'Rajdhani', sans-serif; letter-spacing: .6px;
 }
 .gang-progression-close {
-  width: 44px; height: 44px; margin-left: auto; border: 1px solid #30444c; border-radius: 50%;
+  width: 44px; height: 44px; border: 1px solid #30444c; border-radius: 50%;
   background: #0c171b; color: #9aabb1; font: 700 24px/1 'Rajdhani', sans-serif; cursor: pointer;
 }
+.gang-progression-header-actions { display: flex; gap: 7px; margin-left: auto; }
+.gang-progression-delete {
+  width: 44px; height: 44px; border: 1px solid rgba(204, 68, 68, .55); border-radius: 50%;
+  background: rgba(90, 12, 12, .18); color: #ff7777; font: 800 20px/1 'Rajdhani', sans-serif;
+  cursor: pointer;
+}
+.gang-progression-delete:hover { border-color: #ff7777; background: rgba(140, 20, 20, .28); }
+.gang-progression-help, .gang-progression-preview-label {
+  margin: -4px 0 10px; color: #819198; font: 500 10px/1.45 'Rajdhani', sans-serif;
+  letter-spacing: .35px;
+}
+.gang-progression-preview-label { color: #f5a623; text-transform: uppercase; letter-spacing: 1px; }
+.gang-special-path--unavailable { opacity: .3; cursor: not-allowed; }
+.gang-special-path-unlock {
+  width: 100%; min-height: 46px; margin-top: 9px; border: 1px solid #f5a623; border-radius: 5px;
+  background: rgba(245, 166, 35, .12); color: #f5a623; padding: 9px 12px;
+  font: 800 11px 'Rajdhani', sans-serif; letter-spacing: 1px; text-transform: uppercase; cursor: pointer;
+}
+.gang-special-path-unlock:disabled { border-color: #34464d; background: #10191d; color: #68777d; cursor: not-allowed; }
 .gang-progression-prompt {
   position: fixed; inset: 0; z-index: 1200; display: grid; place-items: center;
   padding: 16px; background: rgba(0, 0, 0, .82); backdrop-filter: blur(8px);

@@ -31,7 +31,8 @@
 
 - **Criação**: 5 pontos pra distribuir entre A/H/R/D, máximo 5 por atributo (regra atual,
   não muda).
-- **Do 6º ponto em diante**, cada atributo sobe via XP, ficando cada vez mais caro:
+- Depois da criação, cada atributo continua podendo subir via XP. Avanços até o valor 5 custam
+  1 XP cada; do 6º ponto em diante, ficam progressivamente mais caros:
 
 | De → Para | Custo XP |
 |---|---|
@@ -40,6 +41,10 @@
 | 7 → 8 | 7 |
 | 8 → 9 | 9 |
 | 9 → 10 ("Gigante") | 12 |
+
+- Ao somar **10 pontos totais** entre A/H/R/D, o jogador libera a etapa de especialização.
+  Escolher e desbloquear definitivamente um dos cinco subcaminhos custa **1 XP**. As cinco
+  árvores podem ser vistas antes da escolha, mas poderes só são comprados no caminho liberado.
 
 - **Nível 10 = "Gigante"**: só flavor/lore (poder equivalente ao soco de um gigante, referência
   Dragon Ball Z) — sem efeito mecânico extra. Pode virar selo visual na ficha (nome do atributo

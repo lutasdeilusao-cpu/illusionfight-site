@@ -150,13 +150,11 @@ própria). Painel visual em `GanguesLobby.jsx` (seção `.gang-progression` do C
   **10 AP** na vitória, **1 AP** na derrota (`GanguesVictory.jsx`). A cada **10 AP**
   (`GANGUES_AP_PER_XP`), vira **1 XP disponível** pra gastar (`addGanguesAp`). O resto fica
   guardado como AP parcial (mostrado como barrinha `AP: n/10`).
-- **Atributos avançados**: dá pra continuar subindo A/H/R/D **além** do que foi gasto na
-  criação, mas só a partir do valor **5** pra cima — custos crescentes por XP
-  (`GANGUES_ATTRIBUTE_XP_COSTS`): 5→6 custa 3, 6→7 custa 5, 7→8 custa 7, 8→9 custa 9, 9→10
-  custa 12. Como a criação limita a 5 pontos totais entre 4 atributos e exige R≥1, hoje **não
-  dá pra chegar a um atributo em 5 só na criação** — esse caminho de evolução só destrava se
-  o jogador puser tudo num atributo só nas fichas que já existem via outro meio, ou é um ponto
-  a revisar (ver seção 13).
+- **Atributos avançados**: A/H/R/D continuam disponíveis durante toda a progressão. Cada avanço
+  de 0→1 até 4→5 custa 1 XP; depois os custos crescem: 5→6 custa 3, 6→7 custa 5, 7→8 custa 7,
+  8→9 custa 9 e 9→10 custa 12. Ao alcançar **10 pontos totais de atributo**, a ficha pode gastar
+  **1 XP** para desbloquear definitivamente um dos cinco subcaminhos. A escolha é única; antes
+  dela, o painel permite navegar pelas cinco prévias, mas não comprar poderes.
 - **Especializações por caminho**: os 3 caminhos têm 5 subcaminhos cada, escolhidos em
   `data/ganguesSpecials.js`. Atacante escolhe entre Bruto, Duelista, Fúria, Especialista e
   Vingador; cada árvore tem 4 ativas e 1 passiva (Bruto é a árvore original, desde a v1.10.0 —
@@ -167,6 +165,8 @@ própria). Painel visual em `GanguesLobby.jsx` (seção `.gang-progression` do C
   custando XP crescente por nível (`GANGUES_SPECIAL_COSTS`: nível 0→1 custa 1, 1→2 custa 2, 2→3
   custa 3). Só dá pra **equipar 2 especializações por vez** (`selected_specials`, máximo 2) —
   subir de nível não exige estar equipada, mas só faz efeito em combate se estiver.
+  Os poderes só podem ser comprados depois que o subcaminho foi desbloqueado; clicar numa prévia
+  nunca gasta XP nem seleciona um poder automaticamente.
 - **Efeito em combate (desde a v1.14.0)**: todo poder equipado (nível > 0) agora tem um número
   real por trás, aplicado em `engine/ganguesSpecialEffects.js` e lido por
   `ganguesCombatResolver.js`. Passivos equipados aplicam sempre; o jogador escolhe qual das

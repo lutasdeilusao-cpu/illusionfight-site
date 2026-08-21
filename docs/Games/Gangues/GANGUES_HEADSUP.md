@@ -215,8 +215,8 @@ Do mais novo pro mais antigo, só o que tocou em Gangues:
 - **Reavaliar as simplificações do Atacante** (Marca/Fratura/Ponto de Pressão sem duração,
   Investida/Fôlego Final sem furar turno) — só valem a pena reverter se um sistema de status com
   duração for construído no motor de turno, o que hoje foi evitado de propósito por risco.
-- Atributos avançados (além de 5) hoje só destravam por Zona de Treinamento, não pelo fluxo normal
-  de criação — vale decidir se isso é intencional ou se merece ajuste.
+- Atributos podem ser evoluídos desde o valor atual no lobby. Com 10 pontos totais, a ficha pode
+  gastar 1 XP para desbloquear definitivamente um subcaminho; poderes só ficam compráveis depois.
 - `trash_talk_npc` (facções Marelia, Karnazar, etc.) é conteúdo morto — ou vira inimigos novos, ou
   é removido.
 - Trash talk dos inimigos só existe em português; falta localizar se for pra valer noutros
