@@ -111,7 +111,7 @@
   "109": "Community 109",
   "110": "Quiz.jsx",
   "111": "MazeRafael.jsx",
-  "112": "weaponFamily",
+  "112": "useSharedLobbyMachine.js",
   "113": "Community 113",
   "114": "Footer.jsx",
   "115": "BLOCO B — LINKEDIN PESSOAL ISAIAS",
@@ -222,6 +222,7 @@
   "220": "6. CALENDÁRIO DE PUBLICAÇÃO",
   "221": "SEASON1_30_CARDS.md",
   "222": "08_universe_pitch.md",
+  "223": "Criatura.jsx",
   "224": "capitulo-01.md",
   "225": "capitulo-02.md",
   "226": "capitulo-03.md",
@@ -234,6 +235,7 @@
   "233": "capitulo-04.md",
   "234": "capitulo-05.md",
   "235": "capitulo-06.md",
+  "236": "levelProgression.js",
   "237": "GDD.md",
   "238": "IasLDITatics.md",
   "239": "RefactoryBattleLDITatics.md",
@@ -255,5 +257,10 @@
   "255": "capitulo-13.md",
   "256": "capitulo-14.md",
   "257": "capitulo-15.md",
-  "258": "capitulo-16.md"
+  "258": "capitulo-16.md",
+  "259": "Investigacao.jsx",
+  "260": "paridade-exata.mjs",
+  "261": "Vila.jsx",
+  "262": "GanguesCreate.jsx",
+  "263": "Criatura.jsx"
 }

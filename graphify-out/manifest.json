@@ -135,9 +135,9 @@
     "semantic_hash": "8d5b3b5a815f883f1cdfad6d40ecb4bc"
   },
   "scripts/prerender-routes.js": {
-    "mtime": 1782614006.690178,
-    "ast_hash": "d5c6612b6b4af15aa08718bada607c92",
-    "semantic_hash": "d5c6612b6b4af15aa08718bada607c92"
+    "mtime": 1787354301.8502629,
+    "ast_hash": "47a02c93817b4a9f506664833dd9673a",
+    "semantic_hash": ""
   },
   "scripts/run-migration.js": {
     "mtime": 1780689542.7895715,
@@ -200,9 +200,9 @@
     "semantic_hash": ""
   },
   "src/components/Footer.jsx": {
-    "mtime": 1781917844.0356312,
-    "ast_hash": "9b27e6abea64eae29f1b4fccaefcfc27",
-    "semantic_hash": "9b27e6abea64eae29f1b4fccaefcfc27"
+    "mtime": 1787354301.8502629,
+    "ast_hash": "0089c079b25aa5f5f4952833698f4083",
+    "semantic_hash": ""
   },
   "src/components/GuestNotice/GuestNotice.jsx": {
     "mtime": 1785776330.9454956,
@@ -215,9 +215,9 @@
     "semantic_hash": "8a599e26aa77ddc82eb509881e361cb0"
   },
   "src/components/HeroSlideshow.jsx": {
-    "mtime": 1780976233.6215866,
-    "ast_hash": "de76cd4cfa033f7ce3783377fc2fa809",
-    "semantic_hash": "de76cd4cfa033f7ce3783377fc2fa809"
+    "mtime": 1787354301.851264,
+    "ast_hash": "2c51463fa1edf090df06268835c3f9c9",
+    "semantic_hash": ""
   },
   "src/components/Jokempo/Jokempo.jsx": {
     "mtime": 1782588148.7067943,
@@ -360,9 +360,9 @@
     "semantic_hash": "49fddd75eb649432521b228135e97730"
   },
   "src/components/SocialBar.jsx": {
-    "mtime": 1782591619.3992794,
-    "ast_hash": "159d34849a254803899bc07935e36f97",
-    "semantic_hash": "159d34849a254803899bc07935e36f97"
+    "mtime": 1787354301.852272,
+    "ast_hash": "eddbc725d4466f6cc0f527238c601944",
+    "semantic_hash": ""
   },
   "src/components/StoryProgress.jsx": {
     "mtime": 1782441990.1019998,
@@ -395,9 +395,9 @@
     "semantic_hash": "71b66cea15e3c0c2bd184488edd67611"
   },
   "src/config/launch.js": {
-    "mtime": 1781321154.5282512,
-    "ast_hash": "12718d287678107a2d91e32c2ac5c8d7",
-    "semantic_hash": "12718d287678107a2d91e32c2ac5c8d7"
+    "mtime": 1787354301.852272,
+    "ast_hash": "d52e8d85e49b49264c24e58c9900a8b2",
+    "semantic_hash": ""
   },
   "src/config/site.js": {
     "mtime": 1781294993.6605897,
@@ -410,8 +410,8 @@
     "semantic_hash": "b11265c546f5970b719233c19e1b2c2d"
   },
   "src/config/version.js": {
-    "mtime": 1786625143.1807218,
-    "ast_hash": "f39bf0d4d97c171f72374fd4fa19a2d7",
+    "mtime": 1787354322.3135548,
+    "ast_hash": "3250ab9bf2aac363fdb8820604c7b528",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -485,14 +485,14 @@
     "semantic_hash": "dba2442a1472aaf53f8a93ce6833fd9d"
   },
   "src/data/episodios.json": {
-    "mtime": 1781917844.0471582,
-    "ast_hash": "00f380a5854e3bdc32480a54a7cf58ba",
-    "semantic_hash": "00f380a5854e3bdc32480a54a7cf58ba"
+    "mtime": 1787354301.8542743,
+    "ast_hash": "19edaf9d6c11b1e3a45056f5ab318728",
+    "semantic_hash": ""
   },
   "src/data/livro-index.json": {
-    "mtime": 1781545153.2019966,
-    "ast_hash": "2ed33e4f77c02926c1b210d0b32b4c85",
-    "semantic_hash": "2ed33e4f77c02926c1b210d0b32b4c85"
+    "mtime": 1787354301.8547926,
+    "ast_hash": "375ba49ab9a6e1cbd6fba94c18ef1626",
+    "semantic_hash": ""
   },
   "src/data/loja-digital.json": {
     "mtime": 1780899871.3476045,
@@ -525,9 +525,9 @@
     "semantic_hash": "0fa20610c9454f2c5757f30385527c9c"
   },
   "src/data/nowlive.json": {
-    "mtime": 1781012382.8553326,
-    "ast_hash": "aceb54d49a1d6359e21f5bb564df8672",
-    "semantic_hash": "aceb54d49a1d6359e21f5bb564df8672"
+    "mtime": 1787354301.8547926,
+    "ast_hash": "03a215ae1e7f50a9fdc76fd1ebb28bee",
+    "semantic_hash": ""
   },
   "src/data/paises.js": {
     "mtime": 1781230608.742857,
@@ -765,9 +765,9 @@
     "semantic_hash": "71e4420d7ccde33d756bca948c716b27"
   },
   "src/pages/content/Webtoon.jsx": {
-    "mtime": 1782940305.4791188,
-    "ast_hash": "de16e4d30c8bfa32874e42cc2d0c3703",
-    "semantic_hash": "de16e4d30c8bfa32874e42cc2d0c3703"
+    "mtime": 1787354301.8597963,
+    "ast_hash": "2b2a34de6db2b5e026c676d03f6a33e9",
+    "semantic_hash": ""
   },
   "src/pages/content/WebtoonEpisodio.jsx": {
     "mtime": 1784402926.6837263,
@@ -1135,8 +1135,8 @@
     "semantic_hash": "15ecefb92c5db4d35cb33baf951edd5e"
   },
   "src/pages/games/Games.jsx": {
-    "mtime": 1785776009.0546193,
-    "ast_hash": "2a1cedbe5ab186068de365dec569bb1d",
+    "mtime": 1787354301.8597963,
+    "ast_hash": "731b1128634dd2fa298828228b8701f1",
     "semantic_hash": ""
   },
   "src/pages/games/JackCandy/JackCandy.jsx": {
@@ -2280,9 +2280,9 @@
     "semantic_hash": "5c2d91c9043a14f1c9300b89a2b59803"
   },
   "src/pages/platform/Cadastro.jsx": {
-    "mtime": 1782447787.441317,
-    "ast_hash": "c2e9d86bd5a3059ec1df6f515deab9a3",
-    "semantic_hash": "c2e9d86bd5a3059ec1df6f515deab9a3"
+    "mtime": 1787354301.868825,
+    "ast_hash": "0d69d8392345108972a2143adb024f50",
+    "semantic_hash": ""
   },
   "src/pages/platform/Leaderboard.jsx": {
     "mtime": 1785776072.1575232,
@@ -2795,8 +2795,8 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1786624878.0869756,
-    "ast_hash": "c24768633a17b68e0e5afe3155579302",
+    "mtime": 1787354301.8167138,
+    "ast_hash": "a6b397f41a3b7336ef5bb7b5251a55e4",
     "semantic_hash": ""
   },
   "Jogos_Rafael/mg01_sliding.html": {
@@ -2835,13 +2835,13 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1786625143.1819668,
-    "ast_hash": "b956dab4d52c1f3075a59b4161ac8fa2",
+    "mtime": 1787354322.3135548,
+    "ast_hash": "22f4ae3c66e6d9cf377b5b9c077a51d6",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
-    "mtime": 1785614524.0842018,
-    "ast_hash": "981e49bf13f73ff3012339003b140f77",
+    "mtime": 1787354301.8187153,
+    "ast_hash": "9b9cc6787e21284a59f552500c3eed55",
     "semantic_hash": ""
   },
   "docs/Business/FINANCEIRO.md": {
@@ -2850,13 +2850,13 @@
     "semantic_hash": ""
   },
   "docs/Business/INESTIDORES.md": {
-    "mtime": 1783177194.1653714,
-    "ast_hash": "26e5a95331fd1bb1f9b344b0862ee8aa",
+    "mtime": 1787354301.8197136,
+    "ast_hash": "5561754b079cd526adf3f8654daccefc",
     "semantic_hash": ""
   },
   "docs/Business/Marketing-MAP.md": {
-    "mtime": 1782625064.3942125,
-    "ast_hash": "c69d321a0e83245f565bdc177d898719",
+    "mtime": 1787354301.8207145,
+    "ast_hash": "545b41e8db942efa5adf99ddc72c66ad",
     "semantic_hash": ""
   },
   "docs/Games/LDIDuelo/GDD.md": {
@@ -3565,8 +3565,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/GanguesCombat.jsx": {
-    "mtime": 1785986387.4185474,
-    "ast_hash": "1b93f61caa1c78241cf1b1d1bcb01295",
+    "mtime": 1787354301.8643038,
+    "ast_hash": "de889a5ab6d472d73e8cfca9a5d804c1",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/GanguesCreate.jsx": {
@@ -3610,13 +3610,13 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/engine/ganguesCombatResolver.js": {
-    "mtime": 1785963322.7207692,
-    "ast_hash": "afb0193e4f43e5cf8009e3c6cbc06c9a",
+    "mtime": 1787354301.8668132,
+    "ast_hash": "121477641d82f94d2e4f7d8f26071e2b",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/hooks/useGanguesTurnMachine.js": {
-    "mtime": 1785986624.1877382,
-    "ast_hash": "082e6f911f18b5c5da7931d7598aef09",
+    "mtime": 1787354301.868825,
+    "ast_hash": "134efdbcf36bf49f3f9f311705ed8dff",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/store/useGanguesStore.js": {
@@ -3640,18 +3640,18 @@
     "semantic_hash": ""
   },
   "src/i18n/gangues-en.json": {
-    "mtime": 1786625390.7701004,
-    "ast_hash": "fcdc1d852ddde306d93e1e8a16d70dbd",
+    "mtime": 1787354301.8568003,
+    "ast_hash": "f1e7680727075c8cd0307b47723b5031",
     "semantic_hash": ""
   },
   "src/i18n/gangues-es.json": {
-    "mtime": 1786625390.77122,
-    "ast_hash": "e099d16f6190dd0dea23e690548dd6e9",
+    "mtime": 1787354301.8577979,
+    "ast_hash": "85d5e5c96314b513f70871f271608d2f",
     "semantic_hash": ""
   },
   "src/i18n/gangues-pt.json": {
-    "mtime": 1786625390.769096,
-    "ast_hash": "04bc33d711fdb5497a5ae83c33e65c8a",
+    "mtime": 1787354301.858801,
+    "ast_hash": "63ac05db834cd51ee062aa0903ba9655",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/hooks/useGanguesI18n.js": {
@@ -3660,8 +3660,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/GANGUES_DESIGN.md": {
-    "mtime": 1786625428.7656548,
-    "ast_hash": "2735bae264a681595c2e059d213f613f",
+    "mtime": 1787354301.8617961,
+    "ast_hash": "5d26be28fa5b88cb8aad200f2fbd4ccf",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/GanguesTrainingZone.jsx": {
@@ -3670,13 +3670,33 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/GanguesProgressionPanel.jsx": {
-    "mtime": 1786625283.3415618,
-    "ast_hash": "1135570fcd5e6bb990d5f5c582427446",
+    "mtime": 1787354301.8643038,
+    "ast_hash": "3f16d975951d5cb7355134ea7f8478f1",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/ganguesSpecials.js": {
-    "mtime": 1786557600.6933882,
-    "ast_hash": "4f2a4b8c3e1d3313090e48f50bcbe2c9",
+    "mtime": 1787354301.8653097,
+    "ast_hash": "764bb06ada1201a971f48191b18c24fc",
+    "semantic_hash": ""
+  },
+  "src/lib/analytics.js": {
+    "mtime": 1787354301.858801,
+    "ast_hash": "10da0a781b62da922891e387f3d902a6",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/engine/ganguesSpecialEffects.js": {
+    "mtime": 1787354301.8678164,
+    "ast_hash": "57be494e739d0e609ae34560ccc4e0af",
+    "semantic_hash": ""
+  },
+  "docs/Games/Gangues/GANGUES_HEADSUP.md": {
+    "mtime": 1787354301.8217134,
+    "ast_hash": "056b380944f3393fb783a574309679d6",
+    "semantic_hash": ""
+  },
+  "docs/Games/Gangues/GANGUES_PROGRESSAO_RASCUNHO.md": {
+    "mtime": 1787354301.8227122,
+    "ast_hash": "f7cec7b24dceeab6d2abb0c98615ca94",
     "semantic_hash": ""
   }
 }
