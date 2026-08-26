@@ -1,6 +1,8 @@
 import { supabase } from './supabase'
 
-export async function ensureUserProfile(user, fallback = {}) {
+const wait = ms => new Promise(resolve => setTimeout(resolve, ms))
+
+export async function ensureUserProfile(user, fallback = {}, attempt = 0) {
   if (!user?.id) return { profile: null, created: false, error: null }
 
   const { data: existing, error: selectError } = await supabase
@@ -26,6 +28,11 @@ export async function ensureUserProfile(user, fallback = {}) {
     .upsert(profile, { onConflict: 'id', ignoreDuplicates: true })
     .select()
     .maybeSingle()
+
+  if (error?.code === '23503' && attempt < 4) {
+    await wait(300 * (2 ** attempt))
+    return ensureUserProfile(user, fallback, attempt + 1)
+  }
 
   return { profile: data || profile, created: !error && Boolean(data), error }
 }

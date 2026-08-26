@@ -60,40 +60,53 @@ export function AuthProvider({ children }) {
 
   useEffect(() => {
     supabase.auth.getSession().then(async ({ data: { session } }) => {
-      setUser(session?.user ?? null)
       setSession(session)
       if (session?.user) {
         const dadosPendentes = JSON.parse(sessionStorage.getItem('ldi-cadastro-pendente') || 'null')
         const { created, error } = await ensureUserProfile(session.user, dadosPendentes || {})
         if (error) console.error('[Auth] erro ao garantir perfil:', error)
-        if (created) sessionStorage.removeItem('ldi-cadastro-pendente')
-        await carregarPerfil(session.user.id)
-        const horas = await registrarSessao(session.user.id)
-        setHorasDesdeUltimaSessao(horas)
+        if (!error) {
+          setUser(session.user)
+          if (created) sessionStorage.removeItem('ldi-cadastro-pendente')
+          await carregarPerfil(session.user.id)
+          const horas = await registrarSessao(session.user.id)
+          setHorasDesdeUltimaSessao(horas)
+        }
+      } else {
+        setUser(null)
       }
       setCarregando(false)
     })
     const { data: { subscription } } = supabase.auth.onAuthStateChange(async (event, session) => {
-      setUser(session?.user ?? null)
       setSession(session)
       if (session?.user) {
         if (event === 'SIGNED_IN') {
           const dadosPendentes = JSON.parse(sessionStorage.getItem('ldi-cadastro-pendente') || 'null')
           const { created, error } = await ensureUserProfile(session.user, dadosPendentes || {})
           if (error) console.error('[Auth] erro ao garantir perfil:', error)
-          if (created) {
+          if (!error) {
+            setUser(session.user)
+            if (created) {
               await supabase.from('user_achievements').upsert({
                 user_id: session.user.id,
                 achievement_id: 'recrutado'
               }, { onConflict: 'user_id,achievement_id' })
-            sessionStorage.removeItem('ldi-cadastro-pendente')
+              sessionStorage.removeItem('ldi-cadastro-pendente')
+            }
+            await carregarPerfil(session.user.id)
+            await garantirDeckInicial(session.user.id)
+            const horas = await registrarSessao(session.user.id)
+            setHorasDesdeUltimaSessao(horas)
           }
-          await carregarPerfil(session.user.id)
-          await garantirDeckInicial(session.user.id)
-          const horas = await registrarSessao(session.user.id)
-          setHorasDesdeUltimaSessao(horas)
-        } else await carregarPerfil(session.user.id)
+        } else {
+          const { error } = await ensureUserProfile(session.user)
+          if (!error) {
+            setUser(session.user)
+            await carregarPerfil(session.user.id)
+          }
+        }
       } else {
+        setUser(null)
         setPerfil(null)
       }
     })
