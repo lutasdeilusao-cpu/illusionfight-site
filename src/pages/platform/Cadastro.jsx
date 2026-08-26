@@ -57,9 +57,7 @@ export default function Cadastro() {
       const { error: profileError } = await ensureUserProfile(data.session.user, dadosPerfil)
       if (profileError) {
         trackEvent('signup_error', { error_code: 'profile_creation_failed' })
-        setErro(t('site.cadastro.erro_perfil'))
-        setCarregando(false)
-        return
+        console.error('[Cadastro] conta criada; perfil será recuperado na sessão:', profileError)
       }
       sessionStorage.removeItem('ldi-cadastro-pendente')
       trackEvent('signup_complete', { pais: form.pais })

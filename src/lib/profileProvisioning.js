@@ -16,6 +16,7 @@ export async function ensureUserProfile(user, fallback = {}) {
   const profile = {
     id: user.id,
     nome: fallback.nome || metadata.nome || user.email?.split('@')[0] || 'Jogador',
+    telefone: '',
   }
   const countryCode = fallback.pais || metadata.pais
   if (countryCode) profile.country_code = countryCode

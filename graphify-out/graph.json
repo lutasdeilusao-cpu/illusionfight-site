@@ -390,7 +390,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "package_dependencies_pixi_js",
-      "community": 67,
+      "community": 57,
       "norm_label": "pixi.js"
     },
     {
@@ -400,7 +400,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "pixi_js",
-      "community": 67,
+      "community": 57,
       "norm_label": "pixi.js"
     },
     {
@@ -430,7 +430,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "package_dependencies_react",
-      "community": 57,
+      "community": 206,
       "norm_label": "react"
     },
     {
@@ -440,7 +440,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "react",
-      "community": 57,
+      "community": 206,
       "norm_label": "react"
     },
     {
@@ -13670,7 +13670,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_tamagoshi_components_balloonfala",
-      "community": 263,
+      "community": 40,
       "norm_label": "balloonfala.jsx"
     },
     {
@@ -13680,7 +13680,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "src_pages_games_tamagoshi_components_balloonfala_balloonfala",
-      "community": 263,
+      "community": 40,
       "norm_label": "balloonfala()"
     },
     {
@@ -13750,7 +13750,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_tamagoshi_components_metricbar",
-      "community": 263,
+      "community": 40,
       "norm_label": "metricbar.jsx"
     },
     {
@@ -13760,7 +13760,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "src_pages_games_tamagoshi_components_metricbar_metricbar",
-      "community": 263,
+      "community": 40,
       "norm_label": "metricbar()"
     },
     {
@@ -14140,7 +14140,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_tamagoshi_data_personalidades_personalidades",
-      "community": 263,
+      "community": 30,
       "norm_label": "personalidades"
     },
     {
@@ -14260,7 +14260,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_tamagoshi_screens_criatura",
-      "community": 263,
+      "community": 40,
       "norm_label": "criatura.jsx"
     },
     {
@@ -15780,7 +15780,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_data_fichastorage",
-      "community": 74,
+      "community": 34,
       "norm_label": "fichastorage.js"
     },
     {
@@ -15790,7 +15790,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_data_fichastorage_gerarid",
-      "community": 74,
+      "community": 34,
       "norm_label": "gerarid()"
     },
     {
@@ -15800,7 +15800,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_data_fichastorage_lerdostorage",
-      "community": 74,
+      "community": 34,
       "norm_label": "lerdostorage()"
     },
     {
@@ -15810,7 +15810,7 @@
       "source_location": "L32",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_data_fichastorage_escrevernostorage",
-      "community": 74,
+      "community": 34,
       "norm_label": "escrevernostorage()"
     },
     {
@@ -15820,7 +15820,7 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_data_fichastorage_salvarficha",
-      "community": 74,
+      "community": 34,
       "norm_label": "salvarficha()"
     },
     {
@@ -15830,7 +15830,7 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_data_fichastorage_carregarfichas",
-      "community": 74,
+      "community": 34,
       "norm_label": "carregarfichas()"
     },
     {
@@ -15840,7 +15840,7 @@
       "source_location": "L57",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_data_fichastorage_deletarficha",
-      "community": 74,
+      "community": 34,
       "norm_label": "deletarficha()"
     },
     {
@@ -15850,7 +15850,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_data_poderes",
-      "community": 34,
+      "community": 50,
       "norm_label": "poderes.js"
     },
     {
@@ -15860,7 +15860,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_data_poderes_poderes_base",
-      "community": 34,
+      "community": 50,
       "norm_label": "poderes_base"
     },
     {
@@ -15870,7 +15870,7 @@
       "source_location": "L64",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_data_poderes_getpoderesporid",
-      "community": 34,
+      "community": 50,
       "norm_label": "getpoderesporid()"
     },
     {
@@ -15880,7 +15880,7 @@
       "source_location": "L68",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_data_poderes_getpoderesdisponiveis",
-      "community": 34,
+      "community": 50,
       "norm_label": "getpoderesdisponiveis()"
     },
     {
@@ -15890,7 +15890,7 @@
       "source_location": "L73",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_data_poderes_tempoderdisponivel",
-      "community": 34,
+      "community": 50,
       "norm_label": "tempoderdisponivel()"
     },
     {
@@ -16140,7 +16140,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai",
-      "community": 42,
+      "community": 61,
       "norm_label": "ai.js"
     },
     {
@@ -16150,7 +16150,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_decidiracaoia",
-      "community": 42,
+      "community": 61,
       "norm_label": "decidiracaoia()"
     },
     {
@@ -16160,7 +16160,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_index",
-      "community": 42,
+      "community": 80,
       "norm_label": "index.js"
     },
     {
@@ -16170,7 +16170,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_index_personalidades",
-      "community": 42,
+      "community": 80,
       "norm_label": "personalidades"
     },
     {
@@ -16180,7 +16180,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_index_executarpersonalidade",
-      "community": 42,
+      "community": 80,
       "norm_label": "executarpersonalidade()"
     },
     {
@@ -16250,7 +16250,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_personalidades_index",
-      "community": 61,
+      "community": 80,
       "norm_label": "index.js"
     },
     {
@@ -16260,7 +16260,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_personalidades_index_personalidades_ia",
-      "community": 61,
+      "community": 80,
       "norm_label": "personalidades_ia"
     },
     {
@@ -16270,7 +16270,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_personalidades_index_getpersonalidadeporid",
-      "community": 61,
+      "community": 80,
       "norm_label": "getpersonalidadeporid()"
     },
     {
@@ -16280,7 +16280,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_personalidades_persistente",
-      "community": 34,
+      "community": 80,
       "norm_label": "persistente.js"
     },
     {
@@ -16290,7 +16290,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_personalidades_persistente_melhorpoderparaataque",
-      "community": 34,
+      "community": 80,
       "norm_label": "melhorpoderparaataque()"
     },
     {
@@ -16300,7 +16300,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_personalidades_persistente_inimigomenorhp",
-      "community": 34,
+      "community": 80,
       "norm_label": "inimigomenorhp()"
     },
     {
@@ -16310,7 +16310,7 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_personalidades_persistente_podeatacaralvo",
-      "community": 34,
+      "community": 80,
       "norm_label": "podeatacaralvo()"
     },
     {
@@ -16320,7 +16320,7 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_personalidades_persistente_calcularpassos",
-      "community": 34,
+      "community": 80,
       "norm_label": "calcularpassos()"
     },
     {
@@ -16330,7 +16330,7 @@
       "source_location": "L51",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_personalidades_persistente_acaopersistente",
-      "community": 34,
+      "community": 80,
       "norm_label": "acaopersistente()"
     },
     {
@@ -16340,7 +16340,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_personalidades_sanguinaria",
-      "community": 42,
+      "community": 80,
       "norm_label": "sanguinaria.js"
     },
     {
@@ -16350,7 +16350,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_personalidades_sanguinaria_melhorpoderparaataque",
-      "community": 42,
+      "community": 80,
       "norm_label": "melhorpoderparaataque()"
     },
     {
@@ -16360,7 +16360,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_personalidades_sanguinaria_inimigomaisproximo",
-      "community": 42,
+      "community": 80,
       "norm_label": "inimigomaisproximo()"
     },
     {
@@ -16370,7 +16370,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_personalidades_sanguinaria_podeatacaralvo",
-      "community": 42,
+      "community": 80,
       "norm_label": "podeatacaralvo()"
     },
     {
@@ -16380,7 +16380,7 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_personalidades_sanguinaria_resolverataqueia",
-      "community": 42,
+      "community": 80,
       "norm_label": "resolverataqueia()"
     },
     {
@@ -16390,7 +16390,7 @@
       "source_location": "L43",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_personalidades_sanguinaria_calcularpassos",
-      "community": 42,
+      "community": 80,
       "norm_label": "calcularpassos()"
     },
     {
@@ -16400,7 +16400,7 @@
       "source_location": "L64",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_personalidades_sanguinaria_acaosanguinaria",
-      "community": 42,
+      "community": 80,
       "norm_label": "acaosanguinaria()"
     },
     {
@@ -17540,7 +17540,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_combat",
-      "community": 50,
+      "community": 61,
       "norm_label": "combat.js"
     },
     {
@@ -17550,7 +17550,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_combat_calcularfa",
-      "community": 50,
+      "community": 61,
       "norm_label": "calcularfa()"
     },
     {
@@ -17560,7 +17560,7 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_combat_calcularfd",
-      "community": 50,
+      "community": 61,
       "norm_label": "calcularfd()"
     },
     {
@@ -17570,7 +17570,7 @@
       "source_location": "L57",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_combat_resolverataque",
-      "community": 50,
+      "community": 61,
       "norm_label": "resolverataque()"
     },
     {
@@ -17580,7 +17580,7 @@
       "source_location": "L129",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_combat_resolvercontraataque",
-      "community": 50,
+      "community": 61,
       "norm_label": "resolvercontraataque()"
     },
     {
@@ -17590,7 +17590,7 @@
       "source_location": "L153",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_combat_rolard6",
-      "community": 50,
+      "community": 61,
       "norm_label": "rolard6()"
     },
     {
@@ -17600,7 +17600,7 @@
       "source_location": "L162",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_combat_getcasasmovimento",
-      "community": 42,
+      "community": 61,
       "norm_label": "getcasasmovimento()"
     },
     {
@@ -17630,7 +17630,7 @@
       "source_location": "L189",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_combat_getchanceacerto",
-      "community": 42,
+      "community": 80,
       "norm_label": "getchanceacerto()"
     },
     {
@@ -17730,7 +17730,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_hexutils",
-      "community": 53,
+      "community": 42,
       "norm_label": "hexutils.js"
     },
     {
@@ -17740,7 +17740,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_hexutils_sqrt3",
-      "community": 53,
+      "community": 42,
       "norm_label": "sqrt3"
     },
     {
@@ -17750,7 +17750,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_hexutils_offsettocubo",
-      "community": 53,
+      "community": 42,
       "norm_label": "offsettocubo()"
     },
     {
@@ -17760,7 +17760,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_hexutils_cubotooffset",
-      "community": 53,
+      "community": 42,
       "norm_label": "cubotooffset()"
     },
     {
@@ -17770,7 +17770,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_hexutils_cuboround",
-      "community": 53,
+      "community": 42,
       "norm_label": "cuboround()"
     },
     {
@@ -17780,7 +17780,7 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_hexutils_cubolerp",
-      "community": 53,
+      "community": 42,
       "norm_label": "cubolerp()"
     },
     {
@@ -17820,7 +17820,7 @@
       "source_location": "L105",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_hexutils_gethexline",
-      "community": 53,
+      "community": 42,
       "norm_label": "gethexline()"
     },
     {
@@ -17830,7 +17830,7 @@
       "source_location": "L145",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_hexutils_haswallbetween",
-      "community": 53,
+      "community": 42,
       "norm_label": "haswallbetween()"
     },
     {
@@ -17850,7 +17850,7 @@
       "source_location": "L189",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_hexutils_getcellsinpdfrange",
-      "community": 53,
+      "community": 42,
       "norm_label": "getcellsinpdfrange()"
     },
     {
@@ -17860,7 +17860,7 @@
       "source_location": "L216",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_hexutils_getcelulasalcance",
-      "community": 53,
+      "community": 42,
       "norm_label": "getcelulasalcance()"
     },
     {
@@ -17880,7 +17880,7 @@
       "source_location": "L261",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_hexutils_encontrarcaminho",
-      "community": 42,
+      "community": 80,
       "norm_label": "encontrarcaminho()"
     },
     {
@@ -17960,7 +17960,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_regrasficha_podesalvarnovaficha",
-      "community": 74,
+      "community": 34,
       "norm_label": "podesalvarnovaficha()"
     },
     {
@@ -18270,7 +18270,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_phases_phase0start",
-      "community": 74,
+      "community": 34,
       "norm_label": "phase0start.jsx"
     },
     {
@@ -18280,7 +18280,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_phases_phase0start_phase0start",
-      "community": 74,
+      "community": 34,
       "norm_label": "phase0start()"
     },
     {
@@ -99087,5 +99087,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "f0d34f9a27a899e227036bcfc27bd7c17da2a923"
+  "built_at_commit": "f55d6690b9f5bbbd614517d5f76fdf779d4d354c"
 }
