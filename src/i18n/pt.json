@@ -10,7 +10,7 @@
       "AUTOR",
       "APOIAR"
     ],
-    "cta": "ENTRAR",
+    "cta": "CONTA GRÁTIS",
     "aria": {
       "menu": "Abrir menu",
       "search": "Buscar"
@@ -619,7 +619,7 @@
     },
     "cadastro": {
       "titulo": "CADASTRO",
-      "subtitulo": "Crie sua conta no SDR",
+      "subtitulo": "Salve seu progresso, suas cartas e suas conquistas em qualquer dispositivo.",
       "nome": "Nome",
       "email": "Email",
       "telefone": "Telefone",

@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
-import { Navigate, Routes, Route } from 'react-router-dom'
+import { Navigate, Routes, Route, useLocation } from 'react-router-dom'
 import { useReader } from './context/ReaderContext'
 import { useAchievements } from './context/AchievementsContext'
 import TrialBanner from './components/TrialBanner'
@@ -64,7 +64,19 @@ import StabilizerRafael from './pages/games/KernelGames/StabilizerRafael/Stabili
 import Loja from './pages/site/Loja/Loja'
 import Custos from './pages/site/Custos'
 import NotFound from './pages/site/NotFound/NotFound'
+import { trackPageView } from './lib/analytics'
 import './pages/games/Duelo/version' // side-effect: console.log version
+
+function AnalyticsPageView() {
+  const location = useLocation()
+
+  useEffect(() => {
+    const timer = setTimeout(() => trackPageView(`${location.pathname}${location.search}`), 0)
+    return () => clearTimeout(timer)
+  }, [location.pathname, location.search])
+
+  return null
+}
 
 export default function App() {
   const { readerMode } = useReader()
@@ -81,6 +93,7 @@ export default function App() {
 
   return (
     <>
+      <AnalyticsPageView />
       <ScrollToTopOnNav />
       <Navbar hidden={readerMode} onSearchOpen={() => setSearchOpen(true)} />
       <SearchModal open={searchOpen} onClose={() => setSearchOpen(false)} />

@@ -154,7 +154,6 @@
 }
 
 .navbar__cta {
-  margin-left: auto;
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 0.9rem;
@@ -165,6 +164,27 @@
   border-radius: 2px;
   transition: background 0.2s, color 0.2s;
   flex-shrink: 0;
+}
+
+.navbar__auth-actions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.navbar__login,
+.drawer__login {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+.navbar__login:hover,
+.drawer__login:hover {
+  color: var(--text-primary);
 }
 
 .navbar__cta:hover {
@@ -317,6 +337,15 @@
 .drawer__cta:hover {
   background: var(--accent-teal);
   color: var(--bg-primary);
+}
+
+.drawer__auth-actions {
+  display: flex;
+  flex-direction: column;
+}
+
+.drawer__login {
+  margin-top: 1rem;
 }
 
 .navbar__lang {

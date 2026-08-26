@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useState } from 'react'
 import { supabase } from '../lib/supabase'
 import { filterTopTrumpsInitialAccountPool } from '../lib/topTrumpsCardAccess'
+import { ensureUserProfile } from '../lib/profileProvisioning'
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || 'https://dvxfrzixtetdzmdrzkpx.supabase.co'
 
@@ -62,6 +63,10 @@ export function AuthProvider({ children }) {
       setUser(session?.user ?? null)
       setSession(session)
       if (session?.user) {
+        const dadosPendentes = JSON.parse(sessionStorage.getItem('ldi-cadastro-pendente') || 'null')
+        const { created, error } = await ensureUserProfile(session.user, dadosPendentes || {})
+        if (error) console.error('[Auth] erro ao garantir perfil:', error)
+        if (created) sessionStorage.removeItem('ldi-cadastro-pendente')
         await carregarPerfil(session.user.id)
         const horas = await registrarSessao(session.user.id)
         setHorasDesdeUltimaSessao(horas)
@@ -72,33 +77,22 @@ export function AuthProvider({ children }) {
       setUser(session?.user ?? null)
       setSession(session)
       if (session?.user) {
-        await carregarPerfil(session.user.id)
         if (event === 'SIGNED_IN') {
-          const { data: existing } = await supabase
-            .from('profiles')
-            .select('id')
-            .eq('id', session.user.id)
-            .maybeSingle()
-          if (!existing) {
-            const dadosPendentes = JSON.parse(sessionStorage.getItem('ldi-cadastro-pendente') || 'null')
-            if (dadosPendentes) {
-              await supabase.from('profiles').insert({
-                id: session.user.id,
-                nome: dadosPendentes.nome,
-                telefone: dadosPendentes.telefone,
-                country_code: dadosPendentes.pais
-              })
+          const dadosPendentes = JSON.parse(sessionStorage.getItem('ldi-cadastro-pendente') || 'null')
+          const { created, error } = await ensureUserProfile(session.user, dadosPendentes || {})
+          if (error) console.error('[Auth] erro ao garantir perfil:', error)
+          if (created) {
               await supabase.from('user_achievements').upsert({
                 user_id: session.user.id,
                 achievement_id: 'recrutado'
               }, { onConflict: 'user_id,achievement_id' })
-              sessionStorage.removeItem('ldi-cadastro-pendente')
-            }
+            sessionStorage.removeItem('ldi-cadastro-pendente')
           }
+          await carregarPerfil(session.user.id)
           await garantirDeckInicial(session.user.id)
           const horas = await registrarSessao(session.user.id)
           setHorasDesdeUltimaSessao(horas)
-        }
+        } else await carregarPerfil(session.user.id)
       } else {
         setPerfil(null)
       }

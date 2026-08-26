@@ -7,6 +7,7 @@ import { LOCALE_LABELS } from '../i18n/locales'
 import { TRIAL_ACTIVE } from '../config/trial'
 import { useAuth } from '../context/AuthContext'
 import SocialBar from './SocialBar'
+import { trackEvent } from '../lib/analytics'
 import './Navbar.css'
 
 const LOCALES = ['pt', 'es', 'en']
@@ -98,7 +99,10 @@ export default function Navbar({ hidden, onSearchOpen }) {
               <button className="navbar-sair" onClick={logout}>{t('site.perfil.sair')}</button>
             </div>
           ) : (
-            <Link to="/login" className="navbar__cta">{t('nav.cta')}</Link>
+            <div className="navbar__auth-actions">
+              <Link to="/login" className="navbar__login">{t('site.cadastro.entrar_link')}</Link>
+              <Link to="/cadastro" className="navbar__cta" onClick={() => trackEvent('signup_cta_click', { placement: 'navbar' })}>{t('nav.cta')}</Link>
+            </div>
           )}
         </div>
       </nav>
@@ -142,7 +146,10 @@ export default function Navbar({ hidden, onSearchOpen }) {
             <button className="drawer__cta" onClick={() => { logout(); setMenuOpen(false) }}>{t('site.perfil.sair')}</button>
           </>
         ) : (
-          <Link to="/login" className="drawer__cta" onClick={() => setMenuOpen(false)}>{t('nav.cta')}</Link>
+          <div className="drawer__auth-actions">
+            <Link to="/cadastro" className="drawer__cta" onClick={() => { trackEvent('signup_cta_click', { placement: 'drawer' }); setMenuOpen(false) }}>{t('nav.cta')}</Link>
+            <Link to="/login" className="drawer__login" onClick={() => setMenuOpen(false)}>{t('site.cadastro.entrar_link')}</Link>
+          </div>
         )}
       </aside>
     </>

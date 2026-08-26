@@ -5,11 +5,13 @@ const SITE_URL = 'https://illusionfight.com'
 const DIST_DIR = path.resolve(process.cwd(), 'dist')
 const INDEX_PATH = path.join(DIST_DIR, 'index.html')
 const PUBLIC_SITEMAP_PATH = path.resolve(process.cwd(), 'public', 'sitemap.xml')
-const LAST_MODIFIED = '2026-08-16'
+const LAST_MODIFIED = '2026-08-26'
 
 // Páginas públicas com metadados e fallback próprios. Nunca copie o index da
 // home sem trocar o canonical: isso faz o Google tratar todas como duplicatas.
 const ROUTES = [
+  ['/login', 'Entrar — Illusion Fight', 'Entre na sua conta Illusion Fight para acessar seu perfil e continuar seu progresso.', 'Entrar na Illusion Fight', 'Acesse sua conta para continuar seu progresso.', '0.0', 'yearly', false],
+  ['/cadastro', 'Criar conta grátis — Illusion Fight', 'Crie sua conta grátis para salvar progresso, cartas e conquistas nos jogos Illusion Fight.', 'Criar conta grátis', 'Salve seu progresso, suas cartas e suas conquistas em qualquer dispositivo.', '0.0', 'yearly', false],
   ['/personagens', 'Personagens — Illusion Fight', 'Conheça os lutadores de Illusion Fight: Kim, Jack, Nina, Helena, Shuntaro e outros personagens da arena LDI.', 'Personagens de Illusion Fight', 'Explore os lutadores, suas histórias, estilos de combate e lugar no universo Lutas de Ilusão.', '0.9', 'monthly'],
   ['/livro', 'Livro — Illusion Fight', 'Leia online os capítulos do livro Illusion Fight e acompanhe Kim, Jack e os lutadores de Bravara.', 'Livro Illusion Fight', 'Acompanhe os capítulos publicados do romance que expande o universo LDI.', '0.9', 'weekly'],
   ['/webtoon', 'Webtoon — Illusion Fight', 'Leia o webtoon brasileiro de ação Illusion Fight e entre na arena onde a dor é 100% real.', 'Webtoon Illusion Fight', 'Leia os episódios publicados do webtoon de ação e ficção científica.', '0.9', 'weekly'],
@@ -31,7 +33,7 @@ const ROUTES = [
   ['/games/toptrumps', 'Top Trumps — Illusion Fight', 'Colecione cartas e dispute partidas de Top Trumps no universo Illusion Fight.', 'Top Trumps Illusion Fight', 'Monte seu deck e dispute partidas com personagens do universo LDI.', '0.6', 'monthly'],
   ['/games/minigames', 'MiniGames — Illusion Fight', 'Jogue puzzles e desafios rápidos no universo Illusion Fight.', 'MiniGames Illusion Fight', 'Encontre desafios, puzzles e jogos rápidos da arena.', '0.6', 'monthly'],
   ['/games/duelo', 'Duelo LDI — Illusion Fight', 'Conheça Duelo LDI, o jogo de cartas um contra um de Illusion Fight.', 'Duelo LDI', 'Prepare suas cartas para os duelos do universo LDI.', '0.5', 'monthly'],
-].map(([path, title, description, heading, content, priority, changefreq]) => ({ path, title, description, heading, content, priority, changefreq }))
+].map(([path, title, description, heading, content, priority, changefreq, indexable = true]) => ({ path, title, description, heading, content, priority, changefreq, indexable }))
 
 const REDIRECTS = [
   { path: '/games/ldi-arena', target: '/games/ldi-gangues' },
@@ -51,6 +53,7 @@ function pageHtml(baseHtml, route) {
   let html = baseHtml
   html = replace(html, /<title>[\s\S]*?<\/title>/i, `<title>${title}</title>`)
   html = replace(html, /<meta name="description" content="[^"]*">/i, `<meta name="description" content="${description}">`)
+  if (!route.indexable) html = replace(html, /<meta name="robots" content="[^"]*">/i, '<meta name="robots" content="noindex, follow">')
   html = replace(html, /<link rel="canonical" href="[^"]*">/i, `<link rel="canonical" href="${url}">`)
   html = replace(html, /<meta property="og:url" content="[^"]*">/i, `<meta property="og:url" content="${url}">`)
   html = replace(html, /<meta property="og:title" content="[^"]*">/i, `<meta property="og:title" content="${title}">`)
@@ -74,7 +77,7 @@ function redirectHtml(route) {
 }
 
 function sitemapXml() {
-  const urls = [{ path: '/', priority: '1.0', changefreq: 'weekly' }, ...ROUTES]
+  const urls = [{ path: '/', priority: '1.0', changefreq: 'weekly' }, ...ROUTES.filter(route => route.indexable)]
   const entries = urls.map(route => `  <url>\n    <loc>${route.path === '/' ? `${SITE_URL}/` : canonicalUrl(route)}</loc>\n    <lastmod>${LAST_MODIFIED}</lastmod>\n    <changefreq>${route.changefreq}</changefreq>\n    <priority>${route.priority}</priority>\n  </url>`)
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${entries.join('\n')}\n</urlset>\n`
 }

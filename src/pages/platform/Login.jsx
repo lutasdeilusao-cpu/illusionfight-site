@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { Helmet } from 'react-helmet-async'
 import { supabase } from '../../lib/supabase'
 import { useLanguage } from '../../context/LanguageContext'
 import './Login.css'
@@ -27,6 +28,7 @@ export default function Login() {
 
   return (
     <section className="auth-page">
+      <Helmet><title>{`${t('site.login.titulo')} — Illusion Fight`}</title></Helmet>
       <div className="auth-card">
         <h1 className="auth-titulo">{t('site.login.titulo')}</h1>
         <p className="auth-sub">{t('site.login.subtitulo')}</p>

@@ -10,7 +10,7 @@
       "AUTHOR",
       "SUPPORT"
     ],
-    "cta": "LOG IN",
+    "cta": "FREE ACCOUNT",
     "aria": {
       "menu": "Open menu",
       "search": "Search"
@@ -619,7 +619,7 @@
     },
     "cadastro": {
       "titulo": "SIGN UP",
-      "subtitulo": "Create your SDR account",
+      "subtitulo": "Save your progress, cards, and achievements on any device.",
       "nome": "Name",
       "email": "Email",
       "telefone": "Phone",
