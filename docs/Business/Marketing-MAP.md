@@ -494,7 +494,7 @@
 
 | Aprovação esperada | ~27-30/06/2026 |
 
-| Lançamento | 15/11/2026 |
+| Lançamento | 30/11/2026 |
 
 | Steam Next Fest | 19-26/10/2026 ✅ REGISTRADO (deadline 1/set) |
 
@@ -816,7 +816,7 @@ tactical hex-grid RPG, and a 36-track original soundtrack — all
 
 connected at illusionfight.com. 23 years in the making. Built
 
-solo. Launching November 15, 2026.
+solo. Launching November 30, 2026.
 
 [Personalização por nicho aqui]
 
@@ -872,7 +872,7 @@ original com 36 faixas — tudo conectado em illusionfight.com.
 
 23 anos de construção. Feito solo. Por um brasileiro.
 
-Lançamento em 15 de novembro de 2026.
+Lançamento em 30 de novembro de 2026.
 
 [Personalização por nicho aqui]
 

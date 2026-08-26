@@ -3910,7 +3910,7 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "src_hooks_usetoptrumpsmp_entrarfilapublica",
-      "community": 131,
+      "community": 112,
       "norm_label": "entrarfilapublica()"
     },
     {
@@ -3920,7 +3920,7 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "src_hooks_usetoptrumpsmp_buscarsalapublicaativadojogador",
-      "community": 131,
+      "community": 112,
       "norm_label": "buscarsalapublicaativadojogador()"
     },
     {
@@ -3930,7 +3930,7 @@
       "source_location": "L103",
       "_origin": "ast",
       "id": "src_hooks_usetoptrumpsmp_sairfilapublica",
-      "community": 131,
+      "community": 112,
       "norm_label": "sairfilapublica()"
     },
     {
@@ -3940,7 +3940,7 @@
       "source_location": "L114",
       "_origin": "ast",
       "id": "src_hooks_usetoptrumpsmp_buscarsala",
-      "community": 131,
+      "community": 112,
       "norm_label": "buscarsala()"
     },
     {
@@ -4060,7 +4060,7 @@
       "source_location": "L228",
       "_origin": "ast",
       "id": "src_hooks_usetoptrumpsmp_subscribetosala",
-      "community": 131,
+      "community": 112,
       "norm_label": "subscribetosala()"
     },
     {
@@ -6550,7 +6550,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_data_equipment",
-      "community": 6,
+      "community": 78,
       "norm_label": "equipment.js"
     },
     {
@@ -6560,7 +6560,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_data_equipment_armes",
-      "community": 6,
+      "community": 78,
       "norm_label": "armes"
     },
     {
@@ -6570,7 +6570,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_data_equipment_armaduras",
-      "community": 6,
+      "community": 78,
       "norm_label": "armaduras"
     },
     {
@@ -6580,7 +6580,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_data_equipment_acessorios",
-      "community": 6,
+      "community": 78,
       "norm_label": "acessorios"
     },
     {
@@ -6590,7 +6590,7 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_data_equipment_getallequipamentos",
-      "community": 6,
+      "community": 78,
       "norm_label": "getallequipamentos()"
     },
     {
@@ -6600,7 +6600,7 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_data_equipment_getequipamento",
-      "community": 6,
+      "community": 78,
       "norm_label": "getequipamento()"
     },
     {
@@ -6610,7 +6610,7 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_data_equipment_calcularbonus",
-      "community": 6,
+      "community": 78,
       "norm_label": "calcularbonus()"
     },
     {
@@ -7340,7 +7340,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_screens_teamselect",
-      "community": 6,
+      "community": 78,
       "norm_label": "teamselect.jsx"
     },
     {
@@ -7350,7 +7350,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_screens_teamselect_emoji",
-      "community": 6,
+      "community": 78,
       "norm_label": "emoji"
     },
     {
@@ -7360,7 +7360,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_screens_teamselect_elem_cor",
-      "community": 6,
+      "community": 78,
       "norm_label": "elem_cor"
     },
     {
@@ -7370,7 +7370,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_screens_teamselect_teamselect",
-      "community": 6,
+      "community": 78,
       "norm_label": "teamselect()"
     },
     {
@@ -8790,7 +8790,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_gangues_components_neoguidedialog",
-      "community": 32,
+      "community": 29,
       "norm_label": "neoguidedialog.jsx"
     },
     {
@@ -8800,7 +8800,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "src_pages_games_gangues_components_neoguidedialog_neoguidedialog",
-      "community": 32,
+      "community": 29,
       "norm_label": "neoguidedialog()"
     },
     {
@@ -8810,7 +8810,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_gangues_components_neoguidetip",
-      "community": 29,
+      "community": 32,
       "norm_label": "neoguidetip.jsx"
     },
     {
@@ -8820,7 +8820,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "src_pages_games_gangues_components_neoguidetip_neoguidetip",
-      "community": 29,
+      "community": 32,
       "norm_label": "neoguidetip()"
     },
     {
@@ -12960,7 +12960,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_multiplayerlobby_usesharedlobbymachine",
-      "community": 131,
+      "community": 112,
       "norm_label": "usesharedlobbymachine.js"
     },
     {
@@ -12970,7 +12970,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "src_pages_games_multiplayerlobby_usesharedlobbymachine_initialstate",
-      "community": 131,
+      "community": 112,
       "norm_label": "initialstate"
     },
     {
@@ -12980,7 +12980,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "src_pages_games_multiplayerlobby_usesharedlobbymachine_reducer",
-      "community": 131,
+      "community": 112,
       "norm_label": "reducer()"
     },
     {
@@ -12990,7 +12990,7 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "src_pages_games_multiplayerlobby_usesharedlobbymachine_normalizematchresult",
-      "community": 131,
+      "community": 112,
       "norm_label": "normalizematchresult()"
     },
     {
@@ -13000,7 +13000,7 @@
       "source_location": "L52",
       "_origin": "ast",
       "id": "src_pages_games_multiplayerlobby_usesharedlobbymachine_usesharedlobbymachine",
-      "community": 131,
+      "community": 112,
       "norm_label": "usesharedlobbymachine()"
     },
     {
@@ -17940,7 +17940,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_regrasficha",
-      "community": 194,
+      "community": 131,
       "norm_label": "regrasficha.js"
     },
     {
@@ -17950,7 +17950,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_regrasficha_cores_disponiveis",
-      "community": 194,
+      "community": 131,
       "norm_label": "cores_disponiveis"
     },
     {
@@ -17960,7 +17960,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_regrasficha_nomes_disponiveis",
-      "community": 194,
+      "community": 131,
       "norm_label": "nomes_disponiveis"
     },
     {
@@ -17980,7 +17980,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_regrasficha_podeadicionarpersonagemabatalha",
-      "community": 194,
+      "community": 131,
       "norm_label": "podeadicionarpersonagemabatalha()"
     },
     {
@@ -17990,7 +17990,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_regrasficha_cordisponivel",
-      "community": 194,
+      "community": 131,
       "norm_label": "cordisponivel()"
     },
     {
@@ -18000,7 +18000,7 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_regrasficha_nomedisponivel",
-      "community": 194,
+      "community": 131,
       "norm_label": "nomedisponivel()"
     },
     {
@@ -18010,7 +18010,7 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_regrasficha_getcoresdisponiveis",
-      "community": 194,
+      "community": 131,
       "norm_label": "getcoresdisponiveis()"
     },
     {
@@ -18020,7 +18020,7 @@
       "source_location": "L32",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_regrasficha_getnomesdisponiveis",
-      "community": 194,
+      "community": 131,
       "norm_label": "getnomesdisponiveis()"
     },
     {
@@ -18360,7 +18360,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_phases_phase2customize_phase2customize",
-      "community": 194,
+      "community": 131,
       "norm_label": "phase2customize()"
     },
     {
@@ -23570,7 +23570,7 @@
       "source_location": "L445",
       "_origin": "ast",
       "id": "docs_business_marketing_map_bloco_b_linkedin_pessoal_isaias",
-      "community": 78,
+      "community": 189,
       "norm_label": "bloco b \u2014 linkedin pessoal isaias"
     },
     {
@@ -23580,7 +23580,7 @@
       "source_location": "L447",
       "_origin": "ast",
       "id": "docs_business_marketing_map_b1_perfis",
-      "community": 78,
+      "community": 189,
       "norm_label": "b1. perfis"
     },
     {
@@ -23590,7 +23590,7 @@
       "source_location": "L459",
       "_origin": "ast",
       "id": "docs_business_marketing_map_b2_melhor_performance",
-      "community": 78,
+      "community": 189,
       "norm_label": "b2. melhor performance"
     },
     {
@@ -23600,7 +23600,7 @@
       "source_location": "L469",
       "_origin": "ast",
       "id": "docs_business_marketing_map_b3_calend\u00e1rio",
-      "community": 78,
+      "community": 189,
       "norm_label": "b3. calendario"
     },
     {
@@ -23880,7 +23880,7 @@
       "source_location": "L1017",
       "_origin": "ast",
       "id": "docs_business_marketing_map_bloco_g_nuntius_games_posicionamento_institucional",
-      "community": 189,
+      "community": 194,
       "norm_label": "bloco g \u2014 nuntius games \u2014 posicionamento institucional"
     },
     {
@@ -23890,7 +23890,7 @@
       "source_location": "L1019",
       "_origin": "ast",
       "id": "docs_business_marketing_map_g1_time_completo",
-      "community": 189,
+      "community": 194,
       "norm_label": "g1. time completo"
     },
     {
@@ -23900,7 +23900,7 @@
       "source_location": "L1043",
       "_origin": "ast",
       "id": "docs_business_marketing_map_g2_credenciais_institucionais",
-      "community": 189,
+      "community": 194,
       "norm_label": "g2. credenciais institucionais"
     },
     {
@@ -23910,7 +23910,7 @@
       "source_location": "L1053",
       "_origin": "ast",
       "id": "docs_business_marketing_map_g3_como_usar_no_pr",
-      "community": 189,
+      "community": 194,
       "norm_label": "g3. como usar no pr"
     },
     {
@@ -99118,5 +99118,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "d9e6afeb82ca12bd72f46ad5ba39aa9d3b5e12e0"
+  "built_at_commit": "b299f91b9a69d6e76a6dcb1df3dc08c48f2134b0"
 }

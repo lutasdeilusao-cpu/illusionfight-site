@@ -395,8 +395,8 @@
     "semantic_hash": "71b66cea15e3c0c2bd184488edd67611"
   },
   "src/config/launch.js": {
-    "mtime": 1787354301.852272,
-    "ast_hash": "d52e8d85e49b49264c24e58c9900a8b2",
+    "mtime": 1787769410.1051576,
+    "ast_hash": "9f3f39c6069ac1bcdb672efc5b6fbd03",
     "semantic_hash": ""
   },
   "src/config/site.js": {
@@ -410,8 +410,8 @@
     "semantic_hash": "b11265c546f5970b719233c19e1b2c2d"
   },
   "src/config/version.js": {
-    "mtime": 1787763399.4760723,
-    "ast_hash": "dce584132e4a30508bd7277c7ab0be3e",
+    "mtime": 1787769332.0102024,
+    "ast_hash": "a8cafec4e539b6b431e6cc848c2db318",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -485,13 +485,13 @@
     "semantic_hash": "dba2442a1472aaf53f8a93ce6833fd9d"
   },
   "src/data/episodios.json": {
-    "mtime": 1787354301.8542743,
-    "ast_hash": "19edaf9d6c11b1e3a45056f5ab318728",
+    "mtime": 1787769410.1061525,
+    "ast_hash": "0a02e32416fbeb73cdc0885412bef2ea",
     "semantic_hash": ""
   },
   "src/data/livro-index.json": {
-    "mtime": 1787354301.8547926,
-    "ast_hash": "375ba49ab9a6e1cbd6fba94c18ef1626",
+    "mtime": 1787769410.1061525,
+    "ast_hash": "d03d6d4028dab043e65f0008103a3730",
     "semantic_hash": ""
   },
   "src/data/loja-digital.json": {
@@ -2835,8 +2835,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1787763479.0269544,
-    "ast_hash": "42fdafd48bfb1191c00031b066ccd815",
+    "mtime": 1787769338.2781887,
+    "ast_hash": "b5ab2995e5112a17eb7809b485b04a01",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -2850,13 +2850,13 @@
     "semantic_hash": ""
   },
   "docs/Business/INESTIDORES.md": {
-    "mtime": 1787354301.8197136,
-    "ast_hash": "5561754b079cd526adf3f8654daccefc",
+    "mtime": 1787769410.1091156,
+    "ast_hash": "de504e7ef2d3c490e56bd5d6375adec9",
     "semantic_hash": ""
   },
   "docs/Business/Marketing-MAP.md": {
-    "mtime": 1787747456.493683,
-    "ast_hash": "abbda1f0cff7b646cedd15acb1c4fa65",
+    "mtime": 1787769410.1075978,
+    "ast_hash": "eab6c5964bdbba71898dcfc37c13b77a",
     "semantic_hash": ""
   },
   "docs/Games/LDIDuelo/GDD.md": {

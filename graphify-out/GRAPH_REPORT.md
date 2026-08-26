@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `d9e6afeb`
+- Built from commit: `b299f91b`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -271,8 +271,8 @@ Cohesion: 0.19
 Nodes (13): ActionMenu(), SkillModal(), CLASSES, getClassesDisponiveis(), EFEITO_AURA, getCorPorElemental(), PALETAS_CORES, ELEMENTAIS (+5 more)
 
 ### Community 6 - "Community 6"
-Cohesion: 0.13
-Nodes (17): BackToGamesBtn(), randomPick(), ACESSORIOS, ARMADURAS, ARMES, calcularBonus(), getAllEquipamentos(), getEquipamento() (+9 more)
+Cohesion: 0.20
+Nodes (8): BackToGamesBtn(), randomPick(), Derrota(), Intro(), LINES_EN, LINES_ES, LINES_PT, Vitoria()
 
 ### Community 8 - "Community 8"
 Cohesion: 0.16
@@ -356,7 +356,7 @@ Nodes (26): estaNoPool(), getCartaInfo(), getKarauksDisponiveis(), getMorakiOuTi
 
 ### Community 29 - "Community 29"
 Cohesion: 0.07
-Nodes (34): NeoGuideTip(), BulletHellRafael(), CFG, hexAlpha(), PuzzleBulletHellRafael(), CodigoPerdido(), DIF_CFG, KEYBOARD_ROWS (+26 more)
+Nodes (34): NeoGuideDialog(), BulletHellRafael(), CFG, hexAlpha(), PuzzleBulletHellRafael(), CodigoPerdido(), DIF_CFG, KEYBOARD_ROWS (+26 more)
 
 ### Community 30 - "BLOCO B — LINKEDIN PESSOAL ISAIAS"
 Cohesion: 0.17
@@ -547,8 +547,8 @@ Cohesion: 0.12
 Nodes (16): 0. Antes de qualquer grep amplo — consultar o Graphify, 10. Decisões e Hurdles, 11. Infraestrutura, 12. Conduct Rules, 1. Filosofia, 2. Stack & Ambiente, 3. Workflow Obrigatório, 4. Layout & CSS (+8 more)
 
 ### Community 78 - "PerfilColecao.jsx"
-Cohesion: 0.50
-Nodes (4): B1. PERFIS, B2. MELHOR PERFORMANCE, B3. CALENDÁRIO, BLOCO B — LINKEDIN PESSOAL ISAIAS
+Cohesion: 0.31
+Nodes (9): ACESSORIOS, ARMADURAS, ARMES, calcularBonus(), getAllEquipamentos(), getEquipamento(), ELEM_COR, EMOJI (+1 more)
 
 ### Community 79 - "Navbar.jsx"
 Cohesion: 0.38
@@ -655,8 +655,8 @@ Cohesion: 0.17
 Nodes (11): 1. Moeda de progressão, 2. Ficha base e atributos, 3. Especiais de caminho, 4.1 Bruto — força bruta, PM em dano, 4.2 Duelista — precisão cirúrgica, 4.3 Fúria — quanto mais dói, mais forte fica, 4.4 Especialista — técnica, não força, 4.5 Vingador — aguenta o troco, devolve em dobro (+3 more)
 
 ### Community 112 - "useSharedLobbyMachine.js"
-Cohesion: 0.10
-Nodes (24): atualizarMPStats(), atualizarSala(), carregarMPStats(), codigoSala(), criarSala(), encerrarSala(), escolherPPT(), finalizarPPT() (+16 more)
+Cohesion: 0.09
+Nodes (33): atualizarMPStats(), atualizarSala(), buscarSala(), buscarSalaPublicaAtivaDoJogador(), carregarMPStats(), codigoSala(), criarSala(), encerrarSala() (+25 more)
 
 ### Community 113 - "Community 113"
 Cohesion: 0.15
@@ -687,8 +687,8 @@ Cohesion: 0.27
 Nodes (7): BANNER_URLS, BANNERS, HeroSlideshow(), SLIDE_KEYS, useSwipe(), BurstParticles(), ResultScreen()
 
 ### Community 131 - "Jokempo.jsx"
-Cohesion: 0.36
-Nodes (9): buscarSala(), buscarSalaPublicaAtivaDoJogador(), entrarFilaPublica(), sairFilaPublica(), subscribeToSala(), initialState, normalizeMatchResult(), reducer() (+1 more)
+Cohesion: 0.31
+Nodes (8): corDisponivel(), CORES_DISPONIVEIS, getCoresDisponiveis(), getNomesDisponiveis(), nomeDisponivel(), NOMES_DISPONIVEIS, podeAdicionarPersonagemABatalha(), Phase2Customize()
 
 ### Community 142 - "useFichaGate.js"
 Cohesion: 0.10
@@ -828,7 +828,7 @@ Nodes (7): CUSTOS DIRETOS, HISTÓRICO DE TRANSAÇÕES, HORAS INVESTIDAS, ILLUSIO
 
 ### Community 189 - "Marketing-MAP.md"
 Cohesion: 0.17
-Nodes (11): BLOCO C — STEAM, BLOCO D — TRENDS MAP, BLOCO G — NUNTIUS GAMES — POSICIONAMENTO INSTITUCIONAL, D1. TRENDS ATIVAS, D2. CALENDÁRIO DE ENTRADA (Fase 2), DLC STRATEGY (Steam), G1. TIME COMPLETO, G2. CREDENCIAIS INSTITUCIONAIS (+3 more)
+Nodes (11): B1. PERFIS, B2. MELHOR PERFORMANCE, B3. CALENDÁRIO, BLOCO B — LINKEDIN PESSOAL ISAIAS, BLOCO C — STEAM, BLOCO D — TRENDS MAP, D1. TRENDS ATIVAS, D2. CALENDÁRIO DE ENTRADA (Fase 2) (+3 more)
 
 ### Community 190 - "Primordial Power (Sangue Primordial)"
 Cohesion: 0.25
@@ -847,8 +847,8 @@ Cohesion: 0.25
 Nodes (7): Action Scenes, Cultural Notes, Dialogue Rules, ISA UNIVERSE — WRITING STYLE GUIDE, Prose Style, Voice & Tone, What to Avoid
 
 ### Community 194 - "regrasFicha.js"
-Cohesion: 0.31
-Nodes (8): corDisponivel(), CORES_DISPONIVEIS, getCoresDisponiveis(), getNomesDisponiveis(), nomeDisponivel(), NOMES_DISPONIVEIS, podeAdicionarPersonagemABatalha(), Phase2Customize()
+Cohesion: 0.50
+Nodes (4): BLOCO G — NUNTIUS GAMES — POSICIONAMENTO INSTITUCIONAL, G1. TIME COMPLETO, G2. CREDENCIAIS INSTITUCIONAIS, G3. COMO USAR NO PR
 
 ### Community 195 - "6. A PLATAFORMA TECNOLÓGICA"
 Cohesion: 0.29
@@ -946,7 +946,7 @@ Nodes (3): 17. RISCOS E OPORTUNIDADES IDENTIFICADOS, Gaps atuais, Pontos fortes
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `useLanguage()` connect `initBattle` to `Community 0`, `Community 1`, `PowerCard.jsx`, `Community 2`, `Community 4`, `Community 6`, `Community 8`, `Community 9`, `Community 10`, `Community 12`, `useFichaGate.js`, `sfx.js`, `endBattle`, `CityOverworld.jsx`, `Community 20`, `useGanguesTurnMachine.js`, `PuzzleWrapper.jsx`, `Batalha.jsx`, `Community 29`, `BLOCO B — LINKEDIN PESSOAL ISAIAS`, `PuzzleStealthGrid.jsx`, `TopTrumpsMP.jsx`, `levelProgression.js`, `useMultiplayerTurnMachine.js`, `ResultScreen.jsx`, `PuzzleForça.jsx`, `PuzzleStealthGrid.jsx`, `Community 49`, `BuildingInterior.jsx`, `TypewriterPhrase.jsx`, `useTopTrumpsRewards.js`, `combat.js`, `Community 62`, `regrasFicha.js`, `Criatura.jsx`, `Community 76`, `Navbar.jsx`, `notificationManager.js`, `PuzzleForça.jsx`, `PuzzleStealthGrid.jsx`, `Brincadeira.jsx`, `RestaurarSaude.jsx`, `useSharedLobbyMachine.js`, `Footer.jsx`, `GanguesLobby.jsx`, `weaponFamily`, `classTree.js`?**
+- **Why does `useLanguage()` connect `initBattle` to `Community 0`, `Community 1`, `PowerCard.jsx`, `Jokempo.jsx`, `Community 4`, `Community 2`, `Community 6`, `Community 8`, `Community 9`, `Community 10`, `Community 12`, `useFichaGate.js`, `sfx.js`, `endBattle`, `CityOverworld.jsx`, `Community 20`, `useGanguesTurnMachine.js`, `PuzzleWrapper.jsx`, `Batalha.jsx`, `Community 29`, `BLOCO B — LINKEDIN PESSOAL ISAIAS`, `PuzzleStealthGrid.jsx`, `TopTrumpsMP.jsx`, `levelProgression.js`, `useMultiplayerTurnMachine.js`, `ResultScreen.jsx`, `PuzzleForça.jsx`, `PuzzleStealthGrid.jsx`, `Community 49`, `BuildingInterior.jsx`, `TypewriterPhrase.jsx`, `useTopTrumpsRewards.js`, `combat.js`, `Community 62`, `Criatura.jsx`, `Community 76`, `Navbar.jsx`, `notificationManager.js`, `PuzzleForça.jsx`, `PuzzleStealthGrid.jsx`, `Brincadeira.jsx`, `RestaurarSaude.jsx`, `useSharedLobbyMachine.js`, `Footer.jsx`, `GanguesLobby.jsx`, `weaponFamily`, `classTree.js`?**
   _High betweenness centrality (0.160) - this node is a cross-community bridge._
 - **Why does `useReader()` connect `Community 12` to `Community 0`, `Community 1`, `TopTrumpsMP.jsx`, `Community 3`, `Community 6`, `sfx.js`, `PuzzleStealthGrid.jsx`, `useSharedLobbyMachine.js`, `Community 20`, `BuildingInterior.jsx`, `notificationManager.js`, `useGanguesTurnMachine.js`, `PuzzleWrapper.jsx`, `Community 29`?**
   _High betweenness centrality (0.020) - this node is a cross-community bridge._

@@ -5,7 +5,7 @@
 **Data:** Julho de 2026
 **Autor e fundador:** Isaias Leal
 **Site:** illusionfight.com
-**Próximo marco público:** Lançamento — 15 de novembro de 2026
+**Próximo marco público:** Lançamento — 30 de novembro de 2026
 
 ---
 
@@ -396,7 +396,7 @@ Zero. O conteúdo já está produzido. Entregar antes é apenas um e-mail com um
 
 ### 10.3 Estrutura de arcos
 
-O livro está estruturado em arcos de 6 capítulos, com um mês de intervalo entre lançamentos. Parceiros recebem cada arco completo antes do público geral, criando cobertura orgânica sincronizada a cada novo lançamento — não apenas no dia 15 de novembro.
+O livro está estruturado em arcos de 6 capítulos, com um mês de intervalo entre lançamentos. Parceiros recebem cada arco completo antes do público geral, criando cobertura orgânica sincronizada a cada novo lançamento — não apenas no dia 30 de novembro.
 
 ### 10.4 Níveis de parceria
 
@@ -523,7 +523,7 @@ O projeto foi desenhado desde o início para **nunca depender de capital externo
 | Momento | Data | O que acontece |
 |---|---|---|
 | Aprovação Steam | Junho/Julho 2026 | Página pública, wishlist aberta, primeira onda de PR |
-| Lançamento oficial | 15 de novembro de 2026 | Todos os 16 capítulos do livro liberados, loja física e digital no ar, PR principal disparado |
+| Lançamento oficial | 30 de novembro de 2026 | Todos os 16 capítulos do livro liberados, loja física e digital no ar, PR principal disparado |
 | Steam Next Fest | 19 a 26 de outubro de 2026 | Maior evento de demos do Steam no calendário anual — segunda onda de PR com urgência de evento |
 | Grande atualização mid-season | A definir | Multiplayer online liberado, novos jogos, novos modos, capítulos em formato de vídeo — terceira onda de PR |
 
@@ -553,9 +553,9 @@ Auditoria honesta feita sobre o próprio código-fonte do projeto:
 
 ## 18. POR QUE AGORA
 
-O lançamento oficial será em 15 de novembro de 2026. O Steam Next Fest de outubro é uma oportunidade de atenção e wishlist antes da estreia pública; o projeto entra nessa janela com produto funcional, distribuição mapeada e monetização implementada.
+O lançamento oficial será em 30 de novembro de 2026. O Steam Next Fest de outubro é uma oportunidade de atenção e wishlist antes da estreia pública; o projeto entra nessa janela com produto funcional, distribuição mapeada e monetização implementada.
 
-O investimento não compra a existência do projeto — ele já existe, sozinho, sem dinheiro de ninguém, há 23 anos. O que ele compra é velocidade numa janela concreta de retorno de atenção: Steam Next Fest em outubro e lançamento oficial em 15 de novembro de 2026.
+O investimento não compra a existência do projeto — ele já existe, sozinho, sem dinheiro de ninguém, há 23 anos. O que ele compra é velocidade numa janela concreta de retorno de atenção: Steam Next Fest em outubro e lançamento oficial em 30 de novembro de 2026.
 
 ---
 
