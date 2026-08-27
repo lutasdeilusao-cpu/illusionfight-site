@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import thumbEp00 from '../../assets/images/episodes/thumb-ep00.png'
+import thumbEp00 from '../../assets/images/episodes/thumb-ep00.webp'
 import { useLanguage } from '../../context/LanguageContext'
 import './AchievementToast.css'
 

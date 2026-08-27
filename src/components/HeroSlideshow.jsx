@@ -10,7 +10,7 @@ import banner04 from '../assets/images/banners/banner-04.png'
 import banner05 from '../assets/images/banners/banner-05.png'
 import './HeroSlideshow.css'
 
-const AUTOPLAY_MS = 6000
+const AUTOPLAY_MS = 12000
 const SLIDE_COUNT = 5
 
 const BANNERS = [banner01, banner02, banner03, banner04, banner05]

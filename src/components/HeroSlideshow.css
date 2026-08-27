@@ -321,7 +321,7 @@
 }
 
 .hero-slideshow__progress--active .hero-slideshow__progress-fill {
-  animation: progress-fill 6000ms linear forwards;
+  animation: progress-fill 12000ms linear forwards;
   background: #fff;
 }
 
