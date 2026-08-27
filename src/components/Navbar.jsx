@@ -106,6 +106,7 @@ export default function Navbar({ hidden, onSearchOpen }) {
           )}
         </div>
       </nav>
+      <div className="navbar__mobile-spacer" aria-hidden="true" />
 
       <div className={`drawer-overlay${menuOpen ? ' is-open' : ''}`} onClick={() => setMenuOpen(false)} />
       <aside className={`drawer${menuOpen ? ' is-open' : ''}`}>
