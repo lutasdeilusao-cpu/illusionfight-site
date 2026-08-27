@@ -19,20 +19,20 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <HelmetProvider>
         <BrowserRouter basename="/">
           <AuthProvider>
-          <FichasProvider>
-            <DixProvider>
-            <AchievementsProvider>
-              <EventosProvider>
-              <LanguageProvider>
-                <App />
-              </LanguageProvider>
-              </EventosProvider>
-            </AchievementsProvider>
-            </DixProvider>
-          </FichasProvider>
+            <FichasProvider>
+              <DixProvider>
+                <AchievementsProvider>
+                  <EventosProvider>
+                    <LanguageProvider>
+                      <App />
+                    </LanguageProvider>
+                  </EventosProvider>
+                </AchievementsProvider>
+              </DixProvider>
+            </FichasProvider>
           </AuthProvider>
         </BrowserRouter>
       </HelmetProvider>
     </ReaderProvider>
-  </React.StrictMode>
+  </React.StrictMode>,
 )

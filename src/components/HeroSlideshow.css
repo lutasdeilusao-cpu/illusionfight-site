@@ -11,6 +11,10 @@
   background: var(--bg-primary);
 }
 
+.hero-slideshow--static-backed {
+  background: transparent;
+}
+
 /* ═══════════════════════════════════════════
    TRACK — Slides
    ═══════════════════════════════════════════ */
@@ -58,6 +62,10 @@
 .hero-slideshow__slide--active .hero-slideshow__bg {
   opacity: 1;
   transform: translateX(0);
+}
+
+.hero-slideshow__slide--active .hero-slideshow__bg.hero-slideshow__bg--static-backed {
+  opacity: 0;
 }
 
 /* Slide saindo: imagem escorrega pra direita (ou esquerda) e fade out */

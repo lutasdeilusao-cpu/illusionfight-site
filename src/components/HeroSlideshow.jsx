@@ -30,6 +30,7 @@ export default function HeroSlideshow() {
   const [direction, setDirection] = useState(1)
   const [paused, setPaused] = useState(false)
   const [staggerKey, setStaggerKey] = useState(0)
+  const [staticHeroActive, setStaticHeroActive] = useState(() => document.body.classList.contains('has-static-home-hero'))
   const timerRef = useRef(null)
   const containerRef = useRef(null)
 
@@ -66,6 +67,13 @@ export default function HeroSlideshow() {
     }
   }, [paused, goNext])
 
+  useEffect(() => {
+    if (!staticHeroActive || activeIndex === 0) return
+    document.getElementById('seo-home-hero-layer')?.remove()
+    document.body.classList.remove('has-static-home-hero')
+    setStaticHeroActive(false)
+  }, [activeIndex, staticHeroActive])
+
   // Swipe
   useSwipe(containerRef, (_, dx) => {
     if (dx > 0) goPrev()
@@ -78,7 +86,7 @@ export default function HeroSlideshow() {
 
   return (
     <section
-      className="hero-slideshow"
+      className={`hero-slideshow${staticHeroActive ? ' hero-slideshow--static-backed' : ''}`}
       id="hero"
       ref={containerRef}
       onMouseEnter={() => setPaused(true)}
@@ -96,7 +104,7 @@ export default function HeroSlideshow() {
           return (
             <div key={i} className={className}>
               <img
-                className="hero-slideshow__bg"
+                className={`hero-slideshow__bg${staticHeroActive && i === 0 ? ' hero-slideshow__bg--static-backed' : ''}`}
                 src={src}
                 alt=""
                 width={i === 0 ? 1258 : 1262}

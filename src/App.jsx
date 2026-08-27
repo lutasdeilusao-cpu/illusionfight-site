@@ -7,11 +7,7 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
 import ScrollToTopOnNav from './components/ScrollToTopOnNav'
-import LDINotification from './components/LDINotification/LDINotification'
-import NinaMusicPlayer from './components/NinaMusicPlayer/NinaMusicPlayer'
 import CookieBanner from './components/CookieBanner'
-import SearchModal from './components/SearchModal/SearchModal'
-import UnifiedNotification from './components/UnifiedNotification/UnifiedNotification'
 import AnalyticsTracker from './components/AnalyticsTracker'
 import LoginGate from './components/LoginGate/LoginGate'
 import FichaGateRoute from './components/FichaGateRoute/FichaGateRoute'
@@ -64,6 +60,10 @@ const StabilizerRafael = lazy(() => import('./pages/games/KernelGames/Stabilizer
 const Loja = lazy(() => import('./pages/site/Loja/Loja'))
 const Custos = lazy(() => import('./pages/site/Custos'))
 const NotFound = lazy(() => import('./pages/site/NotFound/NotFound'))
+const SearchModal = lazy(() => import('./components/SearchModal/SearchModal'))
+const LDINotification = lazy(() => import('./components/LDINotification/LDINotification'))
+const NinaMusicPlayer = lazy(() => import('./components/NinaMusicPlayer/NinaMusicPlayer'))
+const UnifiedNotification = lazy(() => import('./components/UnifiedNotification/UnifiedNotification'))
 import { trackPageView } from './lib/analytics'
 import './pages/games/Duelo/version' // side-effect: console.log version
 
@@ -81,9 +81,37 @@ function AnalyticsPageView() {
 export default function App() {
   const { readerMode } = useReader()
   const [searchOpen, setSearchOpen] = useState(false)
+  const [deferredUiReady, setDeferredUiReady] = useState(false)
   const { desbloquear } = useAchievements()
   const desbloquearRef = useRef(desbloquear)
   useEffect(() => { desbloquearRef.current = desbloquear }, [desbloquear])
+
+  useEffect(() => {
+    let fallbackTimer
+
+    const activateDeferredUi = () => {
+      setDeferredUiReady(true)
+      window.removeEventListener('pointerdown', activateDeferredUi)
+      window.removeEventListener('keydown', activateDeferredUi)
+      window.removeEventListener('scroll', activateDeferredUi)
+      window.removeEventListener('touchstart', activateDeferredUi)
+      window.clearTimeout(fallbackTimer)
+    }
+
+    window.addEventListener('pointerdown', activateDeferredUi, { passive: true })
+    window.addEventListener('keydown', activateDeferredUi)
+    window.addEventListener('scroll', activateDeferredUi, { passive: true })
+    window.addEventListener('touchstart', activateDeferredUi, { passive: true })
+    fallbackTimer = window.setTimeout(activateDeferredUi, 15000)
+
+    return () => {
+      window.removeEventListener('pointerdown', activateDeferredUi)
+      window.removeEventListener('keydown', activateDeferredUi)
+      window.removeEventListener('scroll', activateDeferredUi)
+      window.removeEventListener('touchstart', activateDeferredUi)
+      window.clearTimeout(fallbackTimer)
+    }
+  }, [])
 
   useEffect(() => {
     const t1 = setTimeout(() => desbloquearRef.current('primeiro_acesso'), 60000)
@@ -97,7 +125,11 @@ export default function App() {
       <AnalyticsTracker />
       <ScrollToTopOnNav />
       <Navbar hidden={readerMode} onSearchOpen={() => setSearchOpen(true)} />
-      <SearchModal open={searchOpen} onClose={() => setSearchOpen(false)} />
+      {searchOpen && (
+        <Suspense fallback={null}>
+          <SearchModal open={searchOpen} onClose={() => setSearchOpen(false)} />
+        </Suspense>
+      )}
       <Suspense fallback={<div className="route-loading" aria-hidden="true" />}>
       <div role="main" id="main-content">
       <Routes>
@@ -160,9 +192,13 @@ export default function App() {
       <TrialBanner hidden={readerMode} />
       </Suspense>
       <ScrollToTop />
-      <LDINotification />
-      <NinaMusicPlayer />
-      <UnifiedNotification />
+      {deferredUiReady && (
+        <Suspense fallback={null}>
+          <LDINotification />
+          <NinaMusicPlayer />
+          <UnifiedNotification />
+        </Suspense>
+      )}
       <CookieBanner />
     </>
   )

@@ -12,8 +12,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600;700&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&family=Orbitron:wght@400;500;600;700;800;900&family=Bangers&family=Bebas+Neue&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
     <noscript><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600;700&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&family=Orbitron:wght@400;500;600;700;800;900&family=Bangers&family=Bebas+Neue&display=swap" rel="stylesheet" /></noscript>
-    <link rel="preload" href="/fonts/Ethnocentric-Regular.otf" as="font" type="font/otf" crossorigin />
-    <link rel="preload" href="/fonts/animeace2_bld.ttf" as="font" type="font/ttf" crossorigin />
     <style>@font-face { font-family: 'RacingGames'; src: url('/fonts/RacingGames.ttf') format('truetype'); font-weight: 900; font-style: normal; font-display: swap; }</style>
 
     <!-- SEO básico -->
@@ -104,6 +102,19 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <script>
+      (function preservePrerenderedHero() {
+        var root = document.getElementById('root');
+        var hero = root && root.querySelector('.seo-static-hero');
+        if (!hero) return;
+        var layer = document.createElement('div');
+        layer.id = 'seo-home-hero-layer';
+        layer.setAttribute('aria-hidden', 'true');
+        layer.appendChild(hero);
+        root.parentNode.insertBefore(layer, root);
+        document.body.classList.add('has-static-home-hero');
+      }());
+    </script>
     <script>
       if ('serviceWorker' in navigator && 'PushManager' in window) {
         navigator.serviceWorker.register('/sw.js').catch(() => {})

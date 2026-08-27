@@ -391,6 +391,23 @@ ul, ol {
   object-fit: cover;
 }
 
+#seo-home-hero-layer {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 1;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+#seo-home-hero-layer .seo-static-hero {
+  inset: -5%;
+  width: 110%;
+  max-width: none;
+  height: 110%;
+}
+
 .seo-static-home nav,
 .seo-static-home article {
   position: relative;
@@ -402,5 +419,10 @@ ul, ol {
   .route-loading,
   #root > .seo-static-home {
     min-height: 70vh;
+  }
+
+  #seo-home-hero-layer {
+    top: 48px;
+    height: 70vh;
   }
 }
