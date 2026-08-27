@@ -1,24 +1,13 @@
 .trial-banner {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 140;
   background: rgba(244, 162, 39, 0.08);
   border-top: 1px solid rgba(244, 162, 39, 0.25);
   padding: 0.5rem 1rem;
   text-align: center;
-  transition: background 0.3s ease, border-color 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.75rem;
   flex-wrap: wrap;
-}
-
-.trial-banner.scrolled {
-  background: rgba(244, 162, 39, 0.25);
-  border-top: 1px solid rgba(244, 162, 39, 0.4);
 }
 
 .trial-banner__text {

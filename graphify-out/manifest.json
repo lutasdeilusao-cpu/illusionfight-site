@@ -160,8 +160,8 @@
     "semantic_hash": "510a9ffca88eb0789eeddb9fe4d08d87"
   },
   "src/App.jsx": {
-    "mtime": 1787870240.4874642,
-    "ast_hash": "ff24723891a0dd044da9b427f6443b54",
+    "mtime": 1787870689.9199953,
+    "ast_hash": "8d64d40633de233f1da9c5ba86e47b3d",
     "semantic_hash": ""
   },
   "src/components/AchievementToast/AchievementToast.jsx": {
@@ -375,9 +375,9 @@
     "semantic_hash": "d6bb1dd52ef6512e98fb5b769da4cb8b"
   },
   "src/components/TrialBanner.jsx": {
-    "mtime": 1781917844.045142,
-    "ast_hash": "30a472763ec7cb264b0dd858ad2e8d6b",
-    "semantic_hash": "30a472763ec7cb264b0dd858ad2e8d6b"
+    "mtime": 1787870689.9212968,
+    "ast_hash": "a931fe97c4ff0543f482a3c722cfdd78",
+    "semantic_hash": ""
   },
   "src/components/TypewriterPhrase.jsx": {
     "mtime": 1780347699.534192,
@@ -410,8 +410,8 @@
     "semantic_hash": "b11265c546f5970b719233c19e1b2c2d"
   },
   "src/config/version.js": {
-    "mtime": 1787869767.0001664,
-    "ast_hash": "3055b39db7ddafd42ad41cf521619427",
+    "mtime": 1787870663.7353702,
+    "ast_hash": "36f0148fae72cfa715e40235a765a4eb",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2835,8 +2835,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1787870315.5937212,
-    "ast_hash": "d41f15aa0c0f89fa10ffc48241653820",
+    "mtime": 1787870689.9236393,
+    "ast_hash": "73f9e0f00f482a6b6380d49a1052f055",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {

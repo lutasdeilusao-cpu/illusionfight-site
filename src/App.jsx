@@ -98,7 +98,6 @@ export default function App() {
       <ScrollToTopOnNav />
       <Navbar hidden={readerMode} onSearchOpen={() => setSearchOpen(true)} />
       <SearchModal open={searchOpen} onClose={() => setSearchOpen(false)} />
-      <TrialBanner hidden={readerMode} />
       <Suspense fallback={<div className="route-loading" aria-hidden="true" />}>
       <div role="main" id="main-content">
       <Routes>
@@ -158,6 +157,7 @@ export default function App() {
       </Routes>
       </div>
       <Footer hidden={readerMode} />
+      <TrialBanner hidden={readerMode} />
       </Suspense>
       <ScrollToTop />
       <LDINotification />
