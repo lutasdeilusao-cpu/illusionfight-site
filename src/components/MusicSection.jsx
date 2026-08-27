@@ -44,7 +44,7 @@ function MusicCircle({ m }) {
         onClick={() => navigate('/musicas')}
       >
         {m._img ? (
-          <img src={m._img} alt={m.titulo} />
+          <img src={m._img} alt={m.titulo} width="300" height="300" loading="lazy" decoding="async" />
         ) : (
           <svg className="music-circle__note" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" width="28" height="28">
             <path d="M9 18V5l12-2v13" />

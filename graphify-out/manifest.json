@@ -135,8 +135,8 @@
     "semantic_hash": "8d5b3b5a815f883f1cdfad6d40ecb4bc"
   },
   "scripts/prerender-routes.js": {
-    "mtime": 1787869498.7859018,
-    "ast_hash": "bdddd8686819f423612b2deb6b5c4798",
+    "mtime": 1787870240.4888134,
+    "ast_hash": "de4648af381eda318a61d5746e9eb6be",
     "semantic_hash": ""
   },
   "scripts/run-migration.js": {
@@ -160,8 +160,8 @@
     "semantic_hash": "510a9ffca88eb0789eeddb9fe4d08d87"
   },
   "src/App.jsx": {
-    "mtime": 1787852555.6578555,
-    "ast_hash": "adf8f50e0284551d93978e4f50e144f2",
+    "mtime": 1787870240.4874642,
+    "ast_hash": "ff24723891a0dd044da9b427f6443b54",
     "semantic_hash": ""
   },
   "src/components/AchievementToast/AchievementToast.jsx": {
@@ -175,9 +175,9 @@
     "semantic_hash": "f4eb415c72f109169969124adff8741c"
   },
   "src/components/BookChaptersRow.jsx": {
-    "mtime": 1781917844.0346298,
-    "ast_hash": "8b257d3e4588acea51d0ce003fe25e87",
-    "semantic_hash": "8b257d3e4588acea51d0ce003fe25e87"
+    "mtime": 1787869851.3897076,
+    "ast_hash": "ffc53c4d9e8c805a69c8c57c45b29a79",
+    "semantic_hash": ""
   },
   "src/components/CharacterCard.jsx": {
     "mtime": 1780350264.5798957,
@@ -215,8 +215,8 @@
     "semantic_hash": "8a599e26aa77ddc82eb509881e361cb0"
   },
   "src/components/HeroSlideshow.jsx": {
-    "mtime": 1787354301.851264,
-    "ast_hash": "2c51463fa1edf090df06268835c3f9c9",
+    "mtime": 1787870074.4397187,
+    "ast_hash": "9017d24fa2941404019fcf5e29c958cf",
     "semantic_hash": ""
   },
   "src/components/Jokempo/Jokempo.jsx": {
@@ -230,9 +230,9 @@
     "semantic_hash": "ff66cf165de51fa16ba51e18863d82fb"
   },
   "src/components/LatestEpisodes.jsx": {
-    "mtime": 1781917844.0371363,
-    "ast_hash": "6acfc906b75a7c9a5197a36dc95b1d5c",
-    "semantic_hash": "6acfc906b75a7c9a5197a36dc95b1d5c"
+    "mtime": 1787869933.2252686,
+    "ast_hash": "ad9841585bc716f5c7f09a22f8969216",
+    "semantic_hash": ""
   },
   "src/components/LoginGate/LoginGate.jsx": {
     "mtime": 1780853960.0629883,
@@ -250,13 +250,13 @@
     "semantic_hash": "266ca415119946a769d0dac2ab74d642"
   },
   "src/components/MusicSection.jsx": {
-    "mtime": 1781283302.899672,
-    "ast_hash": "cf464e580c9afc34ab7308b804f922c7",
-    "semantic_hash": "cf464e580c9afc34ab7308b804f922c7"
+    "mtime": 1787869841.5492222,
+    "ast_hash": "d6d16e2a542adfa146e5b8c9cdf32ced",
+    "semantic_hash": ""
   },
   "src/components/Navbar.jsx": {
-    "mtime": 1787761154.8252277,
-    "ast_hash": "980b6e3334b6619b2b076b0b54fe3a56",
+    "mtime": 1787870133.490795,
+    "ast_hash": "b49ddd855abeabc322b1692d1a6fb0bf",
     "semantic_hash": ""
   },
   "src/components/NinaMusicPlayer/NinaMusicPlayer.jsx": {
@@ -410,8 +410,8 @@
     "semantic_hash": "b11265c546f5970b719233c19e1b2c2d"
   },
   "src/config/version.js": {
-    "mtime": 1787869498.7848997,
-    "ast_hash": "a28d983418bb3cac28bccae0662790d2",
+    "mtime": 1787869767.0001664,
+    "ast_hash": "3055b39db7ddafd42ad41cf521619427",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -730,9 +730,9 @@
     "semantic_hash": ""
   },
   "src/main.jsx": {
-    "mtime": 1781200672.9641304,
-    "ast_hash": "d888a9b834d640eb6c514b3c572880ad",
-    "semantic_hash": "d888a9b834d640eb6c514b3c572880ad"
+    "mtime": 1787870133.489795,
+    "ast_hash": "1724e1313b077c1b7a1c5f2111b41e71",
+    "semantic_hash": ""
   },
   "src/pages/content/Livro.jsx": {
     "mtime": 1782940296.842776,
@@ -2340,9 +2340,9 @@
     "semantic_hash": "d8562538008fae02579714d721204248"
   },
   "src/pages/site/Home.jsx": {
-    "mtime": 1783912435.7532363,
-    "ast_hash": "7ed24bbfdab8cdb20c872c88510653d5",
-    "semantic_hash": "7ed24bbfdab8cdb20c872c88510653d5"
+    "mtime": 1787869933.2237644,
+    "ast_hash": "3c3551e14dae80a9f8fe36a534f8961f",
+    "semantic_hash": ""
   },
   "src/pages/site/Loja/Loja.jsx": {
     "mtime": 1787852555.6588602,
@@ -2835,8 +2835,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1787869498.7859018,
-    "ast_hash": "a59046f74c84eab3c4006ac722f28701",
+    "mtime": 1787870315.5937212,
+    "ast_hash": "d41f15aa0c0f89fa10ffc48241653820",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3175,8 +3175,8 @@
     "semantic_hash": ""
   },
   "index.html": {
-    "mtime": 1787852555.652825,
-    "ast_hash": "926ec02df877824e5002cd857bf0c168",
+    "mtime": 1787870074.4407125,
+    "ast_hash": "b453a2a63f401059e13d09cabc5790f1",
     "semantic_hash": ""
   },
   "public/404.html": {
@@ -3717,6 +3717,16 @@
   "src/components/AnalyticsTracker.jsx": {
     "mtime": 1787852555.6563349,
     "ast_hash": "c2a031465f67ebd3cbf02b2c87b815e8",
+    "semantic_hash": ""
+  },
+  "src/components/DeferredSection.jsx": {
+    "mtime": 1787870036.5843031,
+    "ast_hash": "220bd4f68d417d48d2a8f04fb1e56b15",
+    "semantic_hash": ""
+  },
+  "src/assets/images/banners/banner-01.webp": {
+    "mtime": 1787870057.773,
+    "ast_hash": "39ff4d9d2e35b2866ed7865ae1045398",
     "semantic_hash": ""
   }
 }

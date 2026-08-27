@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { lazy, Suspense, useState, useEffect, useRef } from 'react'
 import { Navigate, Routes, Route, useLocation } from 'react-router-dom'
 import { useReader } from './context/ReaderContext'
 import { useAchievements } from './context/AchievementsContext'
@@ -15,56 +15,55 @@ import UnifiedNotification from './components/UnifiedNotification/UnifiedNotific
 import AnalyticsTracker from './components/AnalyticsTracker'
 import LoginGate from './components/LoginGate/LoginGate'
 import FichaGateRoute from './components/FichaGateRoute/FichaGateRoute'
-import Home from './pages/site/Home'
-import Musicas from './pages/content/Musicas'
-import Personagens from './pages/content/Personagens'
-import PersonagemDetalhe from './pages/content/PersonagemDetalhe'
-import Livro from './pages/content/Livro'
-import LivroCapitulo from './pages/content/LivroCapitulo'
-import Assinar from './pages/platform/Assinar'
-import Autor from './pages/site/Autor'
-import Webtoon from './pages/content/Webtoon'
-import WebtoonEpisodio from './pages/content/WebtoonEpisodio'
-import Mundo from './pages/content/Mundo'
-
-import Quiz from './pages/site/Quiz'
-import Games from './pages/games/Games'
-import MiniGames from './pages/games/MiniGames/MiniGames'
-import TopTrumpsSP from './pages/games/TopTrumps/TopTrumpsSP'
-import TopTrumpsMP from './pages/games/TopTrumps/TopTrumpsMP'
-import MultiplayerLobby from './pages/games/MultiplayerLobby/MultiplayerLobby'
-import Leaderboard from './pages/platform/Leaderboard'
-import Login from './pages/platform/Login'
-import Cadastro from './pages/platform/Cadastro'
-import Perfil from './pages/platform/Perfil/Perfil'
-import Admin from './pages/platform/Admin'
-import Prototype from './pages/lab/Prototype/Prototype'
-import SRGRM from './pages/lab/Prototype/SRGRM/SRGRM'
-import ArenaTestbed from './pages/lab/Prototype/ArenaTestbed/ArenaTestbed'
-import LDILobby from './pages/games/LDI/Lobby'
-import LDICreate from './pages/games/LDI/Create'
-import LDIGame from './pages/games/LDI/Game'
-import LDICombat from './pages/games/LDI/Combat'
-import LDISheet from './pages/games/LDI/Sheet'
-import LDIClues from './pages/games/LDI/Clues'
-import LDIEnd from './pages/games/LDI/End'
-import LDIPuzzle from './pages/games/LDI/PuzzlePage'
-import JackCandy from './pages/games/JackCandy/JackCandy'
-import GanguesRoute from './pages/games/Gangues/GanguesRoute'
-import ArenaTaticsRoute from './pages/games/ArenaTatics/ArenaTaticsRoute'
-import PP from './pages/games/PesadeloParticular/PP'
-import DueloRoute from './pages/games/Duelo/DueloRoute'
-import Tamagoshi from './pages/games/Tamagoshi/Tamagoshi'
-import KernelPanic from './pages/games/KernelGames/KernelPanic/KernelPanic'
-import SlidingRafael from './pages/games/KernelGames/SlidingRafael/SlidingRafael'
-import CodigoPerdido from './pages/games/KernelGames/CodigoPerdido/CodigoPerdido'
-import MazeRafael from './pages/games/KernelGames/MazeRafael/MazeRafael'
-import GlitchRafael from './pages/games/KernelGames/GlitchRafael/GlitchRafael'
-import BulletHellRafael from './pages/games/KernelGames/BulletHellRafael/BulletHellRafael'
-import StabilizerRafael from './pages/games/KernelGames/StabilizerRafael/StabilizerRafael'
-import Loja from './pages/site/Loja/Loja'
-import Custos from './pages/site/Custos'
-import NotFound from './pages/site/NotFound/NotFound'
+const Home = lazy(() => import('./pages/site/Home'))
+const Musicas = lazy(() => import('./pages/content/Musicas'))
+const Personagens = lazy(() => import('./pages/content/Personagens'))
+const PersonagemDetalhe = lazy(() => import('./pages/content/PersonagemDetalhe'))
+const Livro = lazy(() => import('./pages/content/Livro'))
+const LivroCapitulo = lazy(() => import('./pages/content/LivroCapitulo'))
+const Assinar = lazy(() => import('./pages/platform/Assinar'))
+const Autor = lazy(() => import('./pages/site/Autor'))
+const Webtoon = lazy(() => import('./pages/content/Webtoon'))
+const WebtoonEpisodio = lazy(() => import('./pages/content/WebtoonEpisodio'))
+const Mundo = lazy(() => import('./pages/content/Mundo'))
+const Quiz = lazy(() => import('./pages/site/Quiz'))
+const Games = lazy(() => import('./pages/games/Games'))
+const MiniGames = lazy(() => import('./pages/games/MiniGames/MiniGames'))
+const TopTrumpsSP = lazy(() => import('./pages/games/TopTrumps/TopTrumpsSP'))
+const TopTrumpsMP = lazy(() => import('./pages/games/TopTrumps/TopTrumpsMP'))
+const MultiplayerLobby = lazy(() => import('./pages/games/MultiplayerLobby/MultiplayerLobby'))
+const Leaderboard = lazy(() => import('./pages/platform/Leaderboard'))
+const Login = lazy(() => import('./pages/platform/Login'))
+const Cadastro = lazy(() => import('./pages/platform/Cadastro'))
+const Perfil = lazy(() => import('./pages/platform/Perfil/Perfil'))
+const Admin = lazy(() => import('./pages/platform/Admin'))
+const Prototype = lazy(() => import('./pages/lab/Prototype/Prototype'))
+const SRGRM = lazy(() => import('./pages/lab/Prototype/SRGRM/SRGRM'))
+const ArenaTestbed = lazy(() => import('./pages/lab/Prototype/ArenaTestbed/ArenaTestbed'))
+const LDILobby = lazy(() => import('./pages/games/LDI/Lobby'))
+const LDICreate = lazy(() => import('./pages/games/LDI/Create'))
+const LDIGame = lazy(() => import('./pages/games/LDI/Game'))
+const LDICombat = lazy(() => import('./pages/games/LDI/Combat'))
+const LDISheet = lazy(() => import('./pages/games/LDI/Sheet'))
+const LDIClues = lazy(() => import('./pages/games/LDI/Clues'))
+const LDIEnd = lazy(() => import('./pages/games/LDI/End'))
+const LDIPuzzle = lazy(() => import('./pages/games/LDI/PuzzlePage'))
+const JackCandy = lazy(() => import('./pages/games/JackCandy/JackCandy'))
+const GanguesRoute = lazy(() => import('./pages/games/Gangues/GanguesRoute'))
+const ArenaTaticsRoute = lazy(() => import('./pages/games/ArenaTatics/ArenaTaticsRoute'))
+const PP = lazy(() => import('./pages/games/PesadeloParticular/PP'))
+const DueloRoute = lazy(() => import('./pages/games/Duelo/DueloRoute'))
+const Tamagoshi = lazy(() => import('./pages/games/Tamagoshi/Tamagoshi'))
+const KernelPanic = lazy(() => import('./pages/games/KernelGames/KernelPanic/KernelPanic'))
+const SlidingRafael = lazy(() => import('./pages/games/KernelGames/SlidingRafael/SlidingRafael'))
+const CodigoPerdido = lazy(() => import('./pages/games/KernelGames/CodigoPerdido/CodigoPerdido'))
+const MazeRafael = lazy(() => import('./pages/games/KernelGames/MazeRafael/MazeRafael'))
+const GlitchRafael = lazy(() => import('./pages/games/KernelGames/GlitchRafael/GlitchRafael'))
+const BulletHellRafael = lazy(() => import('./pages/games/KernelGames/BulletHellRafael/BulletHellRafael'))
+const StabilizerRafael = lazy(() => import('./pages/games/KernelGames/StabilizerRafael/StabilizerRafael'))
+const Loja = lazy(() => import('./pages/site/Loja/Loja'))
+const Custos = lazy(() => import('./pages/site/Custos'))
+const NotFound = lazy(() => import('./pages/site/NotFound/NotFound'))
 import { trackPageView } from './lib/analytics'
 import './pages/games/Duelo/version' // side-effect: console.log version
 
@@ -100,6 +99,8 @@ export default function App() {
       <Navbar hidden={readerMode} onSearchOpen={() => setSearchOpen(true)} />
       <SearchModal open={searchOpen} onClose={() => setSearchOpen(false)} />
       <TrialBanner hidden={readerMode} />
+      <Suspense fallback={<div className="route-loading" aria-hidden="true" />}>
+      <div role="main" id="main-content">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/personagens" element={<Personagens />} />
@@ -155,7 +156,9 @@ export default function App() {
         <Route path="/custos" element={<Custos />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+      </div>
       <Footer hidden={readerMode} />
+      </Suspense>
       <ScrollToTop />
       <LDINotification />
       <NinaMusicPlayer />

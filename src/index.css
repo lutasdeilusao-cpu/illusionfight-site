@@ -234,7 +234,7 @@ ul, ol {
 .home-support__text {
   font-family: 'IBM Plex Sans', sans-serif;
   font-size: 0.9rem;
-  color: var(--text-muted);
+  color: #9aa0a8;
   margin: 0;
 }
 
@@ -342,4 +342,65 @@ ul, ol {
 .livro-continuar:hover {
   background: var(--accent-teal);
   color: var(--bg-primary);
+}
+/* Adia seções pesadas da Home até elas se aproximarem da viewport. */
+.deferred-section {
+  display: flow-root;
+  content-visibility: auto;
+}
+
+.deferred-section--small {
+  min-height: 180px;
+}
+
+.deferred-section--medium {
+  min-height: 360px;
+}
+
+.deferred-section--large {
+  min-height: 520px;
+}
+
+.deferred-section:has(> *) {
+  min-height: 0;
+}
+
+.route-loading,
+#root > .seo-static-home {
+  min-height: 100vh;
+}
+
+.seo-static-home {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(5rem, 12vh, 8rem) clamp(1.5rem, 6vw, 6rem) 2rem;
+}
+
+.seo-static-home::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.88), rgba(0, 0, 0, 0.25));
+}
+
+.seo-static-hero {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.seo-static-home nav,
+.seo-static-home article {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+}
+
+@media (max-width: 768px) {
+  .route-loading,
+  #root > .seo-static-home {
+    min-height: 70vh;
+  }
 }

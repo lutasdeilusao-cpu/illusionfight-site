@@ -1,3 +1,4 @@
+import { lazy, Suspense } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { useLanguage } from '../../context/LanguageContext'
@@ -5,10 +6,12 @@ import { useScrollReveal } from '../../hooks/useScrollReveal'
 import HeroSlideshow from '../../components/HeroSlideshow'
 import LatestEpisodes from '../../components/LatestEpisodes'
 import CharactersRow from '../../components/CharactersRow'
-import BookChaptersRow from '../../components/BookChaptersRow'
-import MusicSection from '../../components/MusicSection'
-import NowLive from '../../components/NowLive'
-import StoryProgress from '../../components/StoryProgress'
+import DeferredSection from '../../components/DeferredSection'
+
+const BookChaptersRow = lazy(() => import('../../components/BookChaptersRow'))
+const MusicSection = lazy(() => import('../../components/MusicSection'))
+const NowLive = lazy(() => import('../../components/NowLive'))
+const StoryProgress = lazy(() => import('../../components/StoryProgress'))
 
 export default function Home() {
   const newsletterRef = useScrollReveal()
@@ -17,24 +20,20 @@ export default function Home() {
   return (
     <>
       <Helmet>
-        <title>Illusion Fight — Webtoon, Games &amp; Music</title>
-        <meta name="description" content="Illusion Fight (Lutas de Ilusão) — a Brazilian webtoon universe with tactical RPG games, original music, and an immersive lore. Read, play, and explore the arena." />
-        <meta property="og:title" content="Illusion Fight — Webtoon, Games &amp; Music" />
-        <meta property="og:description" content="A Brazilian webtoon universe where pain is 100% real. Read the comic, play tactical games, and explore the lore of Bravara." />
+        <title>Illusion Fight — webtoon, livro e games grátis</title>
+        <meta name="description" content="Explore Illusion Fight, um universo brasileiro de ação com webtoon, webnovel, livro, personagens, música e jogos indie grátis." />
+        <meta property="og:title" content="Illusion Fight — webtoon, livro e games grátis" />
+        <meta property="og:description" content="Leia webtoon e livro online, conheça os personagens e jogue games indie grátis no universo brasileiro Illusion Fight." />
         <meta property="og:url" content="https://illusionfight.com/" />
         <meta property="og:image" content="https://illusionfight.com/og-image.jpg" />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="pt_BR" />
-        <link rel="alternate" hrefLang="pt" href="https://illusionfight.com/" />
-        <link rel="alternate" hrefLang="en" href="https://illusionfight.com/" />
-        <link rel="alternate" hrefLang="es" href="https://illusionfight.com/" />
-        <link rel="alternate" hrefLang="x-default" href="https://illusionfight.com/" />
       </Helmet>
       <HeroSlideshow />
       <LatestEpisodes />
       <CharactersRow />
-      <BookChaptersRow />
-      <MusicSection />
+      <DeferredSection size="large"><Suspense fallback={null}><BookChaptersRow /></Suspense></DeferredSection>
+      <DeferredSection><Suspense fallback={null}><MusicSection /></Suspense></DeferredSection>
       <section className="home-support">
         <div className="container">
           <div className="home-support__inner">
@@ -46,8 +45,8 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <NowLive />
-      <StoryProgress />
+      <DeferredSection size="small"><Suspense fallback={null}><NowLive /></Suspense></DeferredSection>
+      <DeferredSection><Suspense fallback={null}><StoryProgress /></Suspense></DeferredSection>
       <section ref={newsletterRef} className="newsletter-cta reveal">
         <div className="container">
           <h3>{t('newsletter.ctaTitulo')}</h3>

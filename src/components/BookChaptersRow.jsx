@@ -64,14 +64,16 @@ export default function BookChaptersRow() {
                 className="book-chapter-card"
                 {...wrapperProps}
               >
-                <div
-                  className="book-chapter-card__inner"
-                  style={{
-                    backgroundImage: `url(${liberado && capaMap[cap.id] ? capaMap[cap.id] : comingSoonImg})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center'
-                  }}
-                >
+                <div className="book-chapter-card__inner">
+                  <img
+                    className="book-chapter-card__image"
+                    src={liberado && capaMap[cap.id] ? capaMap[cap.id] : comingSoonImg}
+                    alt=""
+                    width={liberado && capaMap[cap.id] ? 204 : 768}
+                    height={liberado && capaMap[cap.id] ? 284 : 1344}
+                    loading="lazy"
+                    decoding="async"
+                  />
                   <div className="book-chapter-card__overlay">
                     <p className="book-chapter-card__tagline">{cap.tagline_pt}</p>
                   </div>

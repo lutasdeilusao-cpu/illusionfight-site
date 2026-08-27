@@ -43,7 +43,7 @@ export default function Navbar({ hidden, onSearchOpen }) {
       <nav className={classList}>
         <div className="navbar__inner container">
           <Link to="/" className="navbar__logo">
-            <img src="/favicon-ldi.png" alt="Illusion Fight" className="navbar__logo-img" />
+            <img src="/favicon-ldi.png" alt="Illusion Fight" className="navbar__logo-img" width="36" height="36" />
           </Link>
 
           <button

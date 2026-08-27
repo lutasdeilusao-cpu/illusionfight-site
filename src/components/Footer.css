@@ -109,7 +109,7 @@
 .footer__list a {
   font-family: var(--font-body);
   font-size: 0.875rem;
-  color: var(--text-muted);
+  color: #9aa0a8;
   transition: color 0.2s;
 }
 
@@ -126,5 +126,5 @@
 .footer__bottom p {
   font-family: var(--font-body);
   font-size: 0.8rem;
-  color: var(--text-muted);
+  color: #9aa0a8;
 }

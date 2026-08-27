@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { useLanguage } from '../context/LanguageContext'
 import { useSwipe } from '../hooks/useSwipe'
 import { trackEvent } from '../lib/analytics'
-import banner01 from '../assets/images/banners/banner-01.png'
+import banner01 from '../assets/images/banners/banner-01.webp'
 import banner02 from '../assets/images/banners/banner-02.png'
 import banner03 from '../assets/images/banners/banner-03.png'
 import banner04 from '../assets/images/banners/banner-04.png'
@@ -14,11 +14,6 @@ const AUTOPLAY_MS = 6000
 const SLIDE_COUNT = 5
 
 const BANNERS = [banner01, banner02, banner03, banner04, banner05]
-const BANNER_URLS = BANNERS.map((src) => {
-  if (typeof src === 'string') return src
-  return src
-})
-
 const SLIDE_KEYS = [
   { key: 'slide1', link1: '/livro', link2: '/mundo' },
   { key: 'slide2', link1: '/webtoon', link2: null },
@@ -93,15 +88,21 @@ export default function HeroSlideshow() {
         {BANNERS.map((src, i) => {
           const isActive = i === activeIndex
           const isPrev = i === prevIndex
+          if (!isActive && !isPrev) return null
           let className = 'hero-slideshow__slide'
           if (isPrev && isExiting) className += ' hero-slideshow__slide--exit'
           if (isPrev && isExiting) className += exitDir > 0 ? ' hero-slideshow__slide--exit-left' : ' hero-slideshow__slide--exit-right'
           if (isActive) className += ' hero-slideshow__slide--active'
           return (
             <div key={i} className={className}>
-              <div
+              <img
                 className="hero-slideshow__bg"
-                style={{ backgroundImage: `url(${src})` }}
+                src={src}
+                alt=""
+                width={i === 0 ? 1258 : 1262}
+                height="768"
+                fetchPriority={i === 0 ? 'high' : 'auto'}
+                decoding={i === 0 ? 'sync' : 'async'}
               />
             </div>
           )
@@ -170,10 +171,7 @@ export default function HeroSlideshow() {
             onClick={() => goTo(i)}
             aria-label={`Slide ${i + 1}`}
           >
-            <span
-              className="hero-slideshow__progress-fill"
-              style={{ '--slide-duration': `${AUTOPLAY_MS}ms` }}
-            />
+            <span className="hero-slideshow__progress-fill" />
           </button>
         ))}
       </div>

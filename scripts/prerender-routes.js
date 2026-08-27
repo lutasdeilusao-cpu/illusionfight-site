@@ -111,9 +111,11 @@ function breadcrumbFor(route, url) {
   return { '@type': 'BreadcrumbList', itemListElement: items }
 }
 
-function staticContent(route) {
+function staticContent(route, heroImage = '') {
   const parentLink = route.parent ? `<a href="${route.parent.path}">${escapeHtml(route.parent.name)}</a> · ` : ''
-  return `<main data-seo-static><nav aria-label="Navegação estrutural"><a href="/">Illusion Fight</a> · ${parentLink}<a href="/livro/">Livro e webnovel</a> · <a href="/webtoon/">Webtoon</a> · <a href="/games/">Games</a> · <a href="/personagens/">Personagens</a></nav><article><h1>${escapeHtml(route.heading)}</h1><p>${escapeHtml(route.content)}</p></article></main>`
+  const homeClass = route.path === '' ? ' class="seo-static-home"' : ''
+  const hero = route.path === '' && heroImage ? `<img class="seo-static-hero" src="${heroImage}" alt="" width="1258" height="768" fetchpriority="high">` : ''
+  return `<main data-seo-static${homeClass}>${hero}<nav aria-label="Navegação estrutural"><a href="/">Illusion Fight</a> · ${parentLink}<a href="/livro/">Livro e webnovel</a> · <a href="/webtoon/">Webtoon</a> · <a href="/games/">Games</a> · <a href="/personagens/">Personagens</a></nav><article><h1>${escapeHtml(route.heading)}</h1><p>${escapeHtml(route.content)}</p></article></main>`
 }
 
 function pageHtml(baseHtml, route) {
@@ -121,7 +123,9 @@ function pageHtml(baseHtml, route) {
   const title = escapeHtml(route.title)
   const description = escapeHtml(route.description)
   const structuredData = JSON.stringify({ '@context': 'https://schema.org', '@graph': [schemaFor(route, url), breadcrumbFor(route, url)] })
+  const heroImage = route.path === '' ? baseHtml.match(/<link data-home-hero-preload[^>]+href="([^"]+)"/i)?.[1] || '' : ''
   let html = baseHtml
+  if (route.path !== '') html = html.replace(/\s*<link data-home-hero-preload[^>]*>/i, '')
   html = replace(html, /<title>[\s\S]*?<\/title>/i, `<title>${title}</title>`)
   html = replace(html, /<meta name="description" content="[^"]*">/i, `<meta name="description" content="${description}">`)
   if (route.indexable === false) html = replace(html, /<meta name="robots" content="[^"]*">/i, '<meta name="robots" content="noindex, follow">')
@@ -133,7 +137,7 @@ function pageHtml(baseHtml, route) {
   html = replace(html, /<meta name="twitter:title" content="[^"]*">/i, `<meta name="twitter:title" content="${title}">`)
   html = replace(html, /<meta name="twitter:description" content="[^"]*">/i, `<meta name="twitter:description" content="${description}">`)
   html = html.replace('</head>', `    <script type="application/ld+json">${structuredData}</script>\n  </head>`)
-  return html.replace('<div id="root"></div>', `<div id="root">${staticContent(route)}</div><noscript>${staticContent(route)}</noscript>`)
+  return html.replace('<div id="root"></div>', `<div id="root">${staticContent(route, heroImage)}</div><noscript>${staticContent(route, heroImage)}</noscript>`)
 }
 
 function writeRoute(route, html) {

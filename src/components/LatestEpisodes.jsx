@@ -7,7 +7,6 @@ import { estaDisponivel } from '../config/site'
 import { TRIAL_ACTIVE } from '../config/trial'
 import thumbEp00 from '../assets/images/episodes/thumb-ep00.png'
 import thumbEp01 from '../assets/images/episodes/thumb-ep01.png'
-import comingSoonImg from '../assets/images/ComingSoon.png'
 import episodios from '../data/episodios.json'
 import './LatestEpisodes.css'
 
@@ -46,7 +45,7 @@ export default function LatestEpisodes() {
               className={`episodes-featured-card${liberadoFeatured ? '' : ' episodes-featured-card--locked'}`}
               onClick={() => liberadoFeatured && navigate(`/webtoon/${featured.id}`)}
             >
-              <img className="episodes-featured-img" src={thumbMap[featured.thumbnail]} alt={featured[tituloKey]} />
+              <img className="episodes-featured-img" src={thumbMap[featured.thumbnail]} alt={featured[tituloKey]} width="381" height="507" loading="lazy" decoding="async" />
               <div className="episodes-featured-overlay">
                 <span className={`episodes-featured-badge${liberadoFeatured ? ' episodes-featured-badge--live' : ' episodes-featured-badge--soon'}`}>
                   {liberadoFeatured ? t('episodes.badge.free') : t('pages.webtoon.em_breve')}
@@ -75,7 +74,9 @@ export default function LatestEpisodes() {
                 onClick={() => liberado && navigate(`/webtoon/${ep.id}`)}
               >
                 <div className="episode-list-thumb">
-                  <img src={temThumb ? thumbMap[ep.thumbnail] : comingSoonImg} alt={ep[tituloKey]} />
+                  {temThumb
+                    ? <img src={thumbMap[ep.thumbnail]} alt={ep[tituloKey]} width="381" height="507" loading="lazy" decoding="async" />
+                    : <div className="episode-list-thumb-placeholder" aria-hidden="true">LDI</div>}
                 </div>
                 <div className="episode-list-info">
                   <span className="episode-list-numero">EP. {String(ep.numero).padStart(2, '0')}</span>

@@ -38,8 +38,10 @@
 .hero-slideshow__bg {
   position: absolute;
   inset: -5%; /* overscroll to avoid edge gaps during parallax */
-  background-size: cover;
-  background-position: center;
+  width: 110%;
+  height: 110%;
+  object-fit: cover;
+  object-position: center;
   transition: transform 700ms cubic-bezier(0.4, 0, 0.2, 1),
               opacity 700ms cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform, opacity;
@@ -200,7 +202,7 @@
   display: inline-flex;
   align-items: center;
   padding: 12px 28px;
-  background: #ff6b35;
+  background: #c74617;
   color: #fff;
   border: none;
   font-family: var(--font-desc);
@@ -299,8 +301,8 @@
 
 .hero-slideshow__progress {
   flex: 1;
-  height: 3px;
-  background: rgba(255,255,255,0.25);
+  height: 24px;
+  background: transparent;
   border: none;
   border-radius: 2px;
   overflow: hidden;
@@ -310,14 +312,16 @@
 
 .hero-slideshow__progress-fill {
   display: block;
-  height: 100%;
+  height: 3px;
   width: 0%;
-  background: #fff;
+  margin-top: 10px;
+  background: rgba(255,255,255,0.4);
   border-radius: 2px;
 }
 
 .hero-slideshow__progress--active .hero-slideshow__progress-fill {
-  animation: progress-fill var(--slide-duration, 6000ms) linear forwards;
+  animation: progress-fill 6000ms linear forwards;
+  background: #fff;
 }
 
 .hero-slideshow__progress--paused .hero-slideshow__progress-fill {
@@ -398,5 +402,9 @@
 
   .hero-slideshow__actions {
     justify-content: center;
+  }
+
+  .hero-slideshow__nav {
+    bottom: 0.5rem;
   }
 }
