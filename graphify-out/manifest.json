@@ -410,8 +410,8 @@
     "semantic_hash": "b11265c546f5970b719233c19e1b2c2d"
   },
   "src/config/version.js": {
-    "mtime": 1787852476.0466855,
-    "ast_hash": "de2d8146e429e17ede657d5f79be9527",
+    "mtime": 1787867882.5463881,
+    "ast_hash": "a8514d89a488ebae55b73718f6ee9b38",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2275,8 +2275,8 @@
     "semantic_hash": "b5a913fac0e288f5c2cb4d52bd142485"
   },
   "src/pages/platform/Assinar.jsx": {
-    "mtime": 1787852555.6578555,
-    "ast_hash": "b9ea0b2f58ddd03b8b1a56ce63ba1877",
+    "mtime": 1787852624.9410224,
+    "ast_hash": "67eb4581fe39ff286d0c0da1e021bd41",
     "semantic_hash": ""
   },
   "src/pages/platform/Cadastro.jsx": {
@@ -2835,8 +2835,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1787852476.0492015,
-    "ast_hash": "c6e6066dfc75b6343d33baeb8fae84ce",
+    "mtime": 1787867882.5499008,
+    "ast_hash": "19eaa24c1f0ab2ace0adf1d5defd69af",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -2855,8 +2855,8 @@
     "semantic_hash": ""
   },
   "docs/Business/Marketing-MAP.md": {
-    "mtime": 1787769410.1075978,
-    "ast_hash": "eab6c5964bdbba71898dcfc37c13b77a",
+    "mtime": 1787867957.8504102,
+    "ast_hash": "bd88699db15954502c3f3298fff706f9",
     "semantic_hash": ""
   },
   "docs/Games/LDIDuelo/GDD.md": {
