@@ -67,6 +67,13 @@
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', {
+        analytics_storage: localStorage.getItem('ldi-cookies-accepted') === 'true' ? 'granted' : 'denied',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        wait_for_update: 500
+      });
       gtag('js', new Date());
       gtag('config', 'G-QVDGMZ1F58', { send_page_view: false });
     </script>
@@ -84,7 +91,7 @@
       "keywords": "illusion fight, lutas de ilusão, webtoon, jogos táticos, arena virtual, ficção científica"
     }
     </script>
-    <script type="module" crossorigin src="/assets/index-CALaS4ul.js"></script>
+    <script type="module" crossorigin src="/assets/index-DNCFajgO.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-CQnIdTfL.css">
       <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Duelo LDI — Illusion Fight","description":"Conheça Duelo LDI, o jogo de cartas um contra um de Illusion Fight.","url":"https://illusionfight.com/games/duelo/","isPartOf":{"@type":"WebSite","name":"Illusion Fight","url":"https://illusionfight.com"},"inLanguage":"pt-BR"}</script>
   </head>
