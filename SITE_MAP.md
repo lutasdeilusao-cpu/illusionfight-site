@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — MAPA DO SITE E DO PROJETO
 
 > Referência do estado atual do projeto para navegação humana e contexto de IA.
-> Atualizado em 2026-08-27 — `SITE_VERSION` **10.198.24**.
+> Atualizado em 2026-08-27 — `SITE_VERSION` **10.198.25**.
 > Histórico de tarefas, bugfixes e pendências não pertence a este documento.
 > Regras de trabalho, arquivos proibidos e decisões arquiteturais: `AGENTS.md`.
 
@@ -254,9 +254,11 @@ As Edge Functions ficam em `supabase/functions/`; o frontend de assinatura está
 ## 9. GitHub Pages, SEO e deploy
 
 - `public/404.html` e o script de restauração em `index.html` sustentam deep links da SPA no GitHub Pages.
-- `scripts/prerender-routes.js` roda após o build e gera conteúdo estático das rotas configuradas para SEO.
+- `scripts/prerender-routes.js` roda após o build e gera 43 páginas estáticas, sendo 42 URLs públicas indexáveis e `/login/` e `/cadastro/` com `noindex`.
+- O prerender inclui páginas gerais, jogos públicos selecionados, os personagens do catálogo e os capítulos/episódios já publicados; conteúdo futuro ou bloqueado não entra automaticamente no sitemap.
+- Cada entrada recebe título, descrição, canonical, conteúdo HTML inicial, navegação interna, breadcrumbs e JSON-LD adequado (`WebSite`, `WebPage`, `ProfilePage`, `Book`, `Chapter`, `ComicSeries`, `ComicStory` ou `VideoGame`).
 - `/login/` e `/cadastro/` também recebem HTML estático para responder HTTP 200, com `noindex` e fora do sitemap.
-- Existem entradas SEO estáticas sob `public/*/index.html` para páginas públicas selecionadas.
+- Existem entradas SEO legadas sob `public/*/index.html`; a saída final autoritativa é regenerada em `dist/` pelo prerender.
 - `public/sitemap.xml` lista URLs indexáveis; rotas privadas, internas e de laboratório não devem ser tratadas como páginas SEO só por existirem na SPA.
 - Deploy: `npm run build`, commit/push da fonte e `npm run deploy` para publicar `dist/` em `gh-pages`.
 
@@ -281,7 +283,7 @@ Fonte única: `src/config/version.js`. Esta tabela registra somente a identifica
 
 | Constante | Módulo | Versão |
 |---|---|---:|
-| `SITE_VERSION` | Site global | **10.198.24** |
+| `SITE_VERSION` | Site global | **10.198.25** |
 | `PP_VERSION` | Pesadelo Particular | 2.3.1 |
 | `LDI_VERSION` | Lendas do LDI | 2.0.1 |
 | `JACK_VERSION` | Jack Dream Beer | 5.3.2 |

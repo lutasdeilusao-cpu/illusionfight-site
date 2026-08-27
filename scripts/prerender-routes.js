@@ -5,7 +5,12 @@ const SITE_URL = 'https://illusionfight.com'
 const DIST_DIR = path.resolve(process.cwd(), 'dist')
 const INDEX_PATH = path.join(DIST_DIR, 'index.html')
 const PUBLIC_SITEMAP_PATH = path.resolve(process.cwd(), 'public', 'sitemap.xml')
-const LAST_MODIFIED = '2026-08-26'
+const LAST_MODIFIED = '2026-08-27'
+
+const readJson = file => JSON.parse(fs.readFileSync(path.resolve(process.cwd(), file), 'utf-8'))
+const personagens = readJson('src/data/personagens-pt.json')
+const capitulos = readJson('src/data/livro-index.json')
+const episodios = readJson('src/data/episodios.json')
 
 // Páginas públicas com metadados e fallback próprios. Nunca copie o index da
 // home sem trocar o canonical: isso faz o Google tratar todas como duplicatas.
@@ -35,6 +40,49 @@ const ROUTES = [
   ['/games/duelo', 'Duelo LDI — Illusion Fight', 'Conheça Duelo LDI, o jogo de cartas um contra um de Illusion Fight.', 'Duelo LDI', 'Prepare suas cartas para os duelos do universo LDI.', '0.5', 'monthly'],
 ].map(([path, title, description, heading, content, priority, changefreq, indexable = true]) => ({ path, title, description, heading, content, priority, changefreq, indexable }))
 
+const extraGameRoutes = [
+  ['/games/ldi-gangues/treinamento', 'Jogo tático grátis — Treinamento LDI Gangues', 'Teste grátis o combate tático de LDI Gangues, um RPG de arena por turnos do universo Illusion Fight.', 'Treinamento grátis de LDI Gangues', 'Experimente batalhas táticas por turnos, monte sua estratégia e conheça o sistema de combate do RPG LDI Gangues.'],
+  ['/games/kernel-panic', 'Kernel Panic — jogo de puzzle hacker grátis', 'Jogue Kernel Panic, um puzzle hacker grátis de dedução, comandos e sobrevivência digital no portal Illusion Fight.', 'Kernel Panic', 'Resolva desafios de terminal e sobreviva a um sistema digital hostil neste jogo de puzzle gratuito.'],
+  ['/games/sliding-rafael', 'Sliding Rafael — puzzle deslizante grátis', 'Jogue Sliding Rafael, um puzzle deslizante gratuito com desafios de raciocínio no portal Illusion Fight.', 'Sliding Rafael', 'Organize o tabuleiro, resolva o quebra-cabeça e complete o desafio no menor número de movimentos.'],
+  ['/games/codigo-perdido', 'Código Perdido — jogo de palavras grátis', 'Jogue Código Perdido, um puzzle gratuito de palavras, pistas e dedução inspirado em sistemas corrompidos.', 'Código Perdido', 'Descubra a palavra escondida usando pistas e raciocínio antes que o sistema entre em colapso.'],
+  ['/games/maze-rafael', 'Maze Rafael — jogo de labirinto grátis', 'Encontre a saída em Maze Rafael, um jogo de labirinto gratuito com desafios progressivos no portal Illusion Fight.', 'Maze Rafael', 'Atravesse labirintos, encontre o caminho correto e conclua desafios de navegação.'],
+  ['/games/glitch-rafael', 'Glitch Rafael — jogo de memória grátis', 'Jogue Glitch Rafael, um desafio gratuito de memória e sequência no portal de games Illusion Fight.', 'Glitch Rafael', 'Memorize os sinais do sistema, repita as sequências e resista a cada novo glitch.'],
+  ['/games/bullet-hell-rafael', 'Bullet Hell Rafael — jogo de esquiva grátis', 'Sobreviva em Bullet Hell Rafael, um jogo bullet hell gratuito de reflexo, movimento e esquiva de projéteis.', 'Bullet Hell Rafael', 'Desvie dos projéteis e sobreviva até o fim em diferentes dificuldades.'],
+  ['/games/stabilizer-rafael', 'Stabilizer Rafael — jogo de precisão grátis', 'Jogue Stabilizer Rafael, um desafio gratuito de precisão, tempo e controle no portal Illusion Fight.', 'Stabilizer Rafael', 'Mantenha o sistema estável, controle o medidor e teste sua precisão.'],
+]
+
+extraGameRoutes.forEach(([routePath, title, description, heading, content]) => ROUTES.push({ path: routePath, title, description, heading, content, priority: '0.6', changefreq: 'monthly', indexable: true, schemaType: 'game', parent: { name: 'Games', path: '/games/' } }))
+
+personagens.forEach(personagem => ROUTES.push({
+  path: `/personagens/${personagem.id}`,
+  title: `${personagem.nome} — personagem de Illusion Fight`,
+  description: personagem.descricaoBreve,
+  heading: personagem.nomeCompleto || personagem.nome,
+  content: personagem.descricaoCompleta,
+  priority: '0.8', changefreq: 'monthly', indexable: true, schemaType: 'character', image: personagem.imagem,
+  parent: { name: 'Personagens', path: '/personagens/' },
+}))
+
+capitulos.filter(capitulo => capitulo.id === 'capitulo-01').forEach(capitulo => ROUTES.push({
+  path: `/livro/${capitulo.id}`,
+  title: `${capitulo.titulo} — livro Illusion Fight, capítulo ${capitulo.numero}`,
+  description: capitulo.resumo_pt || capitulo.tagline_pt,
+  heading: `Capítulo ${capitulo.numero} — ${capitulo.titulo}`,
+  content: `${capitulo.tagline_pt} ${capitulo.resumo_pt || ''} Leia online e gratuitamente em português; versões em inglês e espanhol também estão disponíveis no portal.`,
+  priority: '0.9', changefreq: 'monthly', indexable: true, schemaType: 'chapter', datePublished: capitulo.data_publicacao,
+  parent: { name: 'Livro', path: '/livro/' },
+}))
+
+episodios.filter(episodio => episodio.id === '00').forEach(episodio => ROUTES.push({
+  path: `/webtoon/${episodio.id}`,
+  title: `${episodio.titulo_pt} — webtoon Illusion Fight, episódio ${episodio.numero}`,
+  description: episodio.descricao_pt,
+  heading: `Episódio ${episodio.numero} — ${episodio.titulo_pt}`,
+  content: `${episodio.frase_pt} Leia online este episódio do webtoon brasileiro de ação Illusion Fight.`,
+  priority: '0.9', changefreq: 'monthly', indexable: true, schemaType: 'webtoon', datePublished: episodio.data_publicacao,
+  parent: { name: 'Webtoon', path: '/webtoon/' },
+}))
+
 const REDIRECTS = [
   { path: '/games/ldi-arena', target: '/games/ldi-gangues' },
   { path: '/games/toptrumps/lobby', target: '/games/multiplayer/lobby?game=toptrumps&mode=free' },
@@ -44,12 +92,35 @@ const escapeHtml = value => value.replace(/[&<>'"]/g, char => ({ '&': '&amp;', '
 const canonicalUrl = route => `${SITE_URL}${route.path}/`
 const replace = (html, pattern, value) => html.replace(pattern, value)
 
+function schemaFor(route, url) {
+  const common = { name: route.heading, description: route.description, url, inLanguage: 'pt-BR' }
+  if (route.schemaType === 'character') return { '@type': 'ProfilePage', ...common, mainEntity: { '@type': 'Person', name: route.heading, description: route.description } }
+  if (route.schemaType === 'chapter') return { '@type': 'Chapter', ...common, datePublished: route.datePublished, isPartOf: { '@type': 'Book', name: 'Illusion Fight — Lutas de Ilusão', author: { '@type': 'Person', name: 'Isaias Leal' }, url: `${SITE_URL}/livro/` } }
+  if (route.schemaType === 'webtoon') return { '@type': 'ComicStory', ...common, datePublished: route.datePublished, isPartOf: { '@type': 'ComicSeries', name: 'Illusion Fight', author: { '@type': 'Person', name: 'Isaias Leal' }, url: `${SITE_URL}/webtoon/` } }
+  if (route.schemaType === 'game' || route.path.startsWith('/games/')) return { '@type': 'VideoGame', ...common, gamePlatform: 'Web Browser', playMode: 'SinglePlayer', genre: ['Indie game', 'Action', 'Strategy'] }
+  if (route.path === '/livro') return { '@type': 'Book', ...common, author: { '@type': 'Person', name: 'Isaias Leal' }, genre: ['Action fiction', 'Science fiction', 'Web novel'] }
+  if (route.path === '/webtoon') return { '@type': 'ComicSeries', ...common, author: { '@type': 'Person', name: 'Isaias Leal' }, genre: ['Action', 'Science fiction', 'Brazilian webtoon'] }
+  if (route.path === '') return { '@type': 'WebSite', ...common, publisher: { '@type': 'Organization', name: 'Illusion Fight', url: SITE_URL } }
+  return { '@type': 'WebPage', ...common }
+}
+
+function breadcrumbFor(route, url) {
+  const items = [{ '@type': 'ListItem', position: 1, name: 'Illusion Fight', item: `${SITE_URL}/` }]
+  if (route.parent) items.push({ '@type': 'ListItem', position: 2, name: route.parent.name, item: `${SITE_URL}${route.parent.path}` })
+  if (route.path) items.push({ '@type': 'ListItem', position: items.length + 1, name: route.heading, item: url })
+  return { '@type': 'BreadcrumbList', itemListElement: items }
+}
+
+function staticContent(route) {
+  const parentLink = route.parent ? `<a href="${route.parent.path}">${escapeHtml(route.parent.name)}</a> · ` : ''
+  return `<main data-seo-static><nav aria-label="Navegação estrutural"><a href="/">Illusion Fight</a> · ${parentLink}<a href="/livro/">Livro e webnovel</a> · <a href="/webtoon/">Webtoon</a> · <a href="/games/">Games</a> · <a href="/personagens/">Personagens</a></nav><article><h1>${escapeHtml(route.heading)}</h1><p>${escapeHtml(route.content)}</p></article></main>`
+}
+
 function pageHtml(baseHtml, route) {
   const url = canonicalUrl(route)
   const title = escapeHtml(route.title)
   const description = escapeHtml(route.description)
-  const fallback = `<noscript><main><h1>${escapeHtml(route.heading)}</h1><p>${escapeHtml(route.content)}</p><p><a href="${url}">Acessar ${escapeHtml(route.heading)}</a></p></main></noscript>`
-  const structuredData = JSON.stringify({ '@context': 'https://schema.org', '@type': 'WebPage', name: route.title, description: route.description, url, isPartOf: { '@type': 'WebSite', name: 'Illusion Fight', url: SITE_URL }, inLanguage: 'pt-BR' })
+  const structuredData = JSON.stringify({ '@context': 'https://schema.org', '@graph': [schemaFor(route, url), breadcrumbFor(route, url)] })
   let html = baseHtml
   html = replace(html, /<title>[\s\S]*?<\/title>/i, `<title>${title}</title>`)
   html = replace(html, /<meta name="description" content="[^"]*">/i, `<meta name="description" content="${description}">`)
@@ -62,7 +133,7 @@ function pageHtml(baseHtml, route) {
   html = replace(html, /<meta name="twitter:title" content="[^"]*">/i, `<meta name="twitter:title" content="${title}">`)
   html = replace(html, /<meta name="twitter:description" content="[^"]*">/i, `<meta name="twitter:description" content="${description}">`)
   html = html.replace('</head>', `    <script type="application/ld+json">${structuredData}</script>\n  </head>`)
-  return html.replace('<div id="root"></div>', `<div id="root"></div>${fallback}`)
+  return html.replace('<div id="root"></div>', `<div id="root">${staticContent(route)}</div><noscript>${staticContent(route)}</noscript>`)
 }
 
 function writeRoute(route, html) {
@@ -90,6 +161,14 @@ if (!fs.existsSync(INDEX_PATH)) {
 const indexHtml = fs.readFileSync(INDEX_PATH, 'utf-8')
 ROUTES.forEach(route => writeRoute(route, pageHtml(indexHtml, route)))
 REDIRECTS.forEach(route => writeRoute(route, redirectHtml(route)))
+const homeRoute = {
+  path: '',
+  title: 'Illusion Fight — webtoon, livro e games grátis',
+  description: 'Explore Illusion Fight, um universo brasileiro de ação com webtoon, webnovel, livro, personagens, música e jogos indie grátis.',
+  heading: 'Illusion Fight: webtoon, livro e games no mesmo universo',
+  content: 'Descubra uma história brasileira de ação e ficção científica. Leia o livro e o webtoon online, conheça os personagens e jogue games indie gratuitos conectados ao universo Lutas de Ilusão.',
+}
+fs.writeFileSync(INDEX_PATH, pageHtml(indexHtml, homeRoute))
 const sitemap = sitemapXml()
 fs.writeFileSync(PUBLIC_SITEMAP_PATH, sitemap)
 fs.writeFileSync(path.join(DIST_DIR, 'sitemap.xml'), sitemap)
