@@ -370,7 +370,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "package_dependencies_framer_motion",
-      "community": 61,
+      "community": 57,
       "norm_label": "framer-motion"
     },
     {
@@ -380,7 +380,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "framer_motion",
-      "community": 61,
+      "community": 57,
       "norm_label": "framer-motion"
     },
     {
@@ -390,7 +390,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "package_dependencies_pixi_js",
-      "community": 57,
+      "community": 114,
       "norm_label": "pixi.js"
     },
     {
@@ -400,7 +400,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "pixi_js",
-      "community": 57,
+      "community": 114,
       "norm_label": "pixi.js"
     },
     {
@@ -1214,10 +1214,20 @@
       "norm_label": "pagehtml()"
     },
     {
-      "label": "writeRoute()",
+      "label": "inlineCriticalCss()",
       "file_type": "code",
       "source_file": "scripts/prerender-routes.js",
       "source_location": "L143",
+      "_origin": "ast",
+      "id": "scripts_prerender_routes_inlinecriticalcss",
+      "community": 95,
+      "norm_label": "inlinecriticalcss()"
+    },
+    {
+      "label": "writeRoute()",
+      "file_type": "code",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L152",
       "_origin": "ast",
       "id": "scripts_prerender_routes_writeroute",
       "community": 95,
@@ -1227,7 +1237,7 @@
       "label": "redirectHtml()",
       "file_type": "code",
       "source_file": "scripts/prerender-routes.js",
-      "source_location": "L149",
+      "source_location": "L158",
       "_origin": "ast",
       "id": "scripts_prerender_routes_redirecthtml",
       "community": 95,
@@ -1237,7 +1247,7 @@
       "label": "sitemapXml()",
       "file_type": "code",
       "source_file": "scripts/prerender-routes.js",
-      "source_location": "L154",
+      "source_location": "L163",
       "_origin": "ast",
       "id": "scripts_prerender_routes_sitemapxml",
       "community": 95,
@@ -1247,7 +1257,7 @@
       "label": "indexHtml",
       "file_type": "code",
       "source_file": "scripts/prerender-routes.js",
-      "source_location": "L165",
+      "source_location": "L174",
       "_origin": "ast",
       "id": "scripts_prerender_routes_indexhtml",
       "community": 95,
@@ -1257,7 +1267,7 @@
       "label": "homeRoute",
       "file_type": "code",
       "source_file": "scripts/prerender-routes.js",
-      "source_location": "L168",
+      "source_location": "L177",
       "_origin": "ast",
       "id": "scripts_prerender_routes_homeroute",
       "community": 95,
@@ -1267,7 +1277,7 @@
       "label": "sitemap",
       "file_type": "code",
       "source_file": "scripts/prerender-routes.js",
-      "source_location": "L176",
+      "source_location": "L185",
       "_origin": "ast",
       "id": "scripts_prerender_routes_sitemap",
       "community": 95,
@@ -1900,7 +1910,7 @@
       "source_location": "L70",
       "_origin": "ast",
       "id": "src_app_analyticspageview",
-      "community": 194,
+      "community": 6,
       "norm_label": "analyticspageview()"
     },
     {
@@ -1910,7 +1920,7 @@
       "source_location": "L81",
       "_origin": "ast",
       "id": "src_app_app",
-      "community": 53,
+      "community": 55,
       "norm_label": "app()"
     },
     {
@@ -1940,7 +1950,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_components_analyticstracker",
-      "community": 79,
+      "community": 39,
       "norm_label": "analyticstracker.jsx"
     },
     {
@@ -1950,7 +1960,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "src_components_analyticstracker_scroll_marks",
-      "community": 79,
+      "community": 39,
       "norm_label": "scroll_marks"
     },
     {
@@ -1960,7 +1970,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "src_components_analyticstracker_safedestination",
-      "community": 79,
+      "community": 39,
       "norm_label": "safedestination()"
     },
     {
@@ -1970,7 +1980,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "src_components_analyticstracker_elementidentity",
-      "community": 79,
+      "community": 39,
       "norm_label": "elementidentity()"
     },
     {
@@ -1980,7 +1990,7 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "src_components_analyticstracker_analyticstracker",
-      "community": 79,
+      "community": 39,
       "norm_label": "analyticstracker()"
     },
     {
@@ -1990,7 +2000,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_components_backtogamesbtn_backtogamesbtn",
-      "community": 31,
+      "community": 21,
       "norm_label": "backtogamesbtn.jsx"
     },
     {
@@ -2000,7 +2010,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "src_components_backtogamesbtn_backtogamesbtn_backtogamesbtn",
-      "community": 31,
+      "community": 21,
       "norm_label": "backtogamesbtn()"
     },
     {
@@ -2050,7 +2060,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_components_charactercard",
-      "community": 60,
+      "community": 68,
       "norm_label": "charactercard.jsx"
     },
     {
@@ -2060,7 +2070,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "src_components_charactercard_charactercard",
-      "community": 60,
+      "community": 68,
       "norm_label": "charactercard()"
     },
     {
@@ -2090,7 +2100,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_components_cookiebanner",
-      "community": 194,
+      "community": 39,
       "norm_label": "cookiebanner.jsx"
     },
     {
@@ -2100,7 +2110,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "src_components_cookiebanner_cookiebanner",
-      "community": 194,
+      "community": 39,
       "norm_label": "cookiebanner()"
     },
     {
@@ -2210,7 +2220,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_components_guestnotice_guestnotice",
-      "community": 23,
+      "community": 55,
       "norm_label": "guestnotice.jsx"
     },
     {
@@ -2220,7 +2230,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "src_components_guestnotice_guestnotice_guestnotice",
-      "community": 23,
+      "community": 55,
       "norm_label": "guestnotice()"
     },
     {
@@ -2250,7 +2260,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_components_heroslideshow",
-      "community": 86,
+      "community": 19,
       "norm_label": "heroslideshow.jsx"
     },
     {
@@ -2260,7 +2270,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "src_components_heroslideshow_banners",
-      "community": 86,
+      "community": 19,
       "norm_label": "banners"
     },
     {
@@ -2270,7 +2280,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "src_components_heroslideshow_slide_keys",
-      "community": 86,
+      "community": 19,
       "norm_label": "slide_keys"
     },
     {
@@ -2280,7 +2290,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "src_components_heroslideshow_heroslideshow",
-      "community": 86,
+      "community": 19,
       "norm_label": "heroslideshow()"
     },
     {
@@ -2340,7 +2350,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_components_ldinotification_ldinotification",
-      "community": 213,
+      "community": 14,
       "norm_label": "ldinotification.jsx"
     },
     {
@@ -2350,7 +2360,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "src_components_ldinotification_ldinotification_shuffle",
-      "community": 213,
+      "community": 14,
       "norm_label": "shuffle()"
     },
     {
@@ -2360,7 +2370,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "src_components_ldinotification_ldinotification_personagens",
-      "community": 213,
+      "community": 14,
       "norm_label": "personagens"
     },
     {
@@ -2370,7 +2380,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "src_components_ldinotification_ldinotification_pickpersonagem",
-      "community": 213,
+      "community": 14,
       "norm_label": "pickpersonagem()"
     },
     {
@@ -2380,7 +2390,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "src_components_ldinotification_ldinotification_ldinotification",
-      "community": 213,
+      "community": 14,
       "norm_label": "ldinotification()"
     },
     {
@@ -2390,7 +2400,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_components_latestepisodes",
-      "community": 54,
+      "community": 14,
       "norm_label": "latestepisodes.jsx"
     },
     {
@@ -2400,7 +2410,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_components_latestepisodes_thumbmap",
-      "community": 54,
+      "community": 14,
       "norm_label": "thumbmap"
     },
     {
@@ -2410,7 +2420,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "src_components_latestepisodes_latestepisodes",
-      "community": 54,
+      "community": 14,
       "norm_label": "latestepisodes()"
     },
     {
@@ -2680,7 +2690,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_components_platformicons",
-      "community": 67,
+      "community": 54,
       "norm_label": "platformicons.jsx"
     },
     {
@@ -2690,7 +2700,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_components_platformicons_spotifyicon",
-      "community": 67,
+      "community": 54,
       "norm_label": "spotifyicon()"
     },
     {
@@ -2700,7 +2710,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "src_components_platformicons_youtubeicon",
-      "community": 67,
+      "community": 54,
       "norm_label": "youtubeicon()"
     },
     {
@@ -2710,7 +2720,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "src_components_platformicons_applemusicicon",
-      "community": 67,
+      "community": 54,
       "norm_label": "applemusicicon()"
     },
     {
@@ -2720,7 +2730,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "src_components_platformicons_amazonmusicicon",
-      "community": 67,
+      "community": 54,
       "norm_label": "amazonmusicicon()"
     },
     {
@@ -2730,7 +2740,7 @@
       "source_location": "L33",
       "_origin": "ast",
       "id": "src_components_platformicons_deezericon",
-      "community": 67,
+      "community": 54,
       "norm_label": "deezericon()"
     },
     {
@@ -2740,7 +2750,7 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "src_components_platformicons_tidalicon",
-      "community": 67,
+      "community": 54,
       "norm_label": "tidalicon()"
     },
     {
@@ -2750,7 +2760,7 @@
       "source_location": "L56",
       "_origin": "ast",
       "id": "src_components_platformicons_tiktokicon",
-      "community": 67,
+      "community": 54,
       "norm_label": "tiktokicon()"
     },
     {
@@ -2760,7 +2770,7 @@
       "source_location": "L64",
       "_origin": "ast",
       "id": "src_components_platformicons_twittericon",
-      "community": 67,
+      "community": 54,
       "norm_label": "twittericon()"
     },
     {
@@ -2770,7 +2780,7 @@
       "source_location": "L72",
       "_origin": "ast",
       "id": "src_components_platformicons_instagramicon",
-      "community": 67,
+      "community": 54,
       "norm_label": "instagramicon()"
     },
     {
@@ -2780,7 +2790,7 @@
       "source_location": "L82",
       "_origin": "ast",
       "id": "src_components_platformicons_platformiconmap",
-      "community": 67,
+      "community": 54,
       "norm_label": "platformiconmap"
     },
     {
@@ -3000,7 +3010,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_components_puzzles_puzzlelabirinto",
-      "community": 68,
+      "community": 19,
       "norm_label": "puzzlelabirinto.jsx"
     },
     {
@@ -3010,7 +3020,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_components_puzzles_puzzlelabirinto_gerarlabirinto",
-      "community": 68,
+      "community": 19,
       "norm_label": "gerarlabirinto()"
     },
     {
@@ -3020,7 +3030,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "src_components_puzzles_puzzlelabirinto_bfspath",
-      "community": 68,
+      "community": 19,
       "norm_label": "bfspath()"
     },
     {
@@ -3030,7 +3040,7 @@
       "source_location": "L54",
       "_origin": "ast",
       "id": "src_components_puzzles_puzzlelabirinto_maze_configs",
-      "community": 68,
+      "community": 19,
       "norm_label": "maze_configs"
     },
     {
@@ -3040,7 +3050,7 @@
       "source_location": "L60",
       "_origin": "ast",
       "id": "src_components_puzzles_puzzlelabirinto_puzzlelabirinto",
-      "community": 68,
+      "community": 19,
       "norm_label": "puzzlelabirinto()"
     },
     {
@@ -3120,7 +3130,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_components_puzzles_puzzlestealthgrid",
-      "community": 68,
+      "community": 19,
       "norm_label": "puzzlestealthgrid.jsx"
     },
     {
@@ -3130,7 +3140,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "src_components_puzzles_puzzlestealthgrid_getvisioncone",
-      "community": 68,
+      "community": 19,
       "norm_label": "getvisioncone()"
     },
     {
@@ -3140,7 +3150,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "src_components_puzzles_puzzlestealthgrid_calculateallvision",
-      "community": 68,
+      "community": 19,
       "norm_label": "calculateallvision()"
     },
     {
@@ -3150,7 +3160,7 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "src_components_puzzles_puzzlestealthgrid_temcaminholivre",
-      "community": 68,
+      "community": 19,
       "norm_label": "temcaminholivre()"
     },
     {
@@ -3160,7 +3170,7 @@
       "source_location": "L50",
       "_origin": "ast",
       "id": "src_components_puzzles_puzzlestealthgrid_gerarcameras",
-      "community": 68,
+      "community": 19,
       "norm_label": "gerarcameras()"
     },
     {
@@ -3170,7 +3180,7 @@
       "source_location": "L68",
       "_origin": "ast",
       "id": "src_components_puzzles_puzzlestealthgrid_puzzlestealthgrid",
-      "community": 68,
+      "community": 19,
       "norm_label": "puzzlestealthgrid()"
     },
     {
@@ -3230,7 +3240,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_components_resultcard_resultcard",
-      "community": 114,
+      "community": 20,
       "norm_label": "resultcard.jsx"
     },
     {
@@ -3240,7 +3250,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "src_components_resultcard_resultcard_resultcard",
-      "community": 114,
+      "community": 20,
       "norm_label": "resultcard()"
     },
     {
@@ -3250,7 +3260,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_components_resultcard_index",
-      "community": 114,
+      "community": 20,
       "norm_label": "index.js"
     },
     {
@@ -3260,7 +3270,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_components_resultcard_palettes",
-      "community": 114,
+      "community": 20,
       "norm_label": "palettes.js"
     },
     {
@@ -3270,7 +3280,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "src_components_resultcard_palettes_palettes",
-      "community": 114,
+      "community": 20,
       "norm_label": "palettes"
     },
     {
@@ -3280,7 +3290,7 @@
       "source_location": "L37",
       "_origin": "ast",
       "id": "src_components_resultcard_palettes_frases",
-      "community": 114,
+      "community": 20,
       "norm_label": "frases"
     },
     {
@@ -3290,7 +3300,7 @@
       "source_location": "L88",
       "_origin": "ast",
       "id": "src_components_resultcard_palettes_getfrase",
-      "community": 114,
+      "community": 20,
       "norm_label": "getfrase()"
     },
     {
@@ -3460,7 +3470,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_components_trialbanner",
-      "community": 55,
+      "community": 73,
       "norm_label": "trialbanner.jsx"
     },
     {
@@ -3470,7 +3480,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "src_components_trialbanner_trialbanner",
-      "community": 55,
+      "community": 73,
       "norm_label": "trialbanner()"
     },
     {
@@ -3500,7 +3510,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_components_unifiednotification_unifiednotification",
-      "community": 213,
+      "community": 14,
       "norm_label": "unifiednotification.jsx"
     },
     {
@@ -3510,7 +3520,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "src_components_unifiednotification_unifiednotification_unifiednotification",
-      "community": 213,
+      "community": 14,
       "norm_label": "unifiednotification()"
     },
     {
@@ -3520,7 +3530,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_config_fichas",
-      "community": 73,
+      "community": 61,
       "norm_label": "fichas.js"
     },
     {
@@ -3530,7 +3540,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_config_launch",
-      "community": 55,
+      "community": 73,
       "norm_label": "launch.js"
     },
     {
@@ -3540,7 +3550,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "src_config_launch_admin_emails",
-      "community": 55,
+      "community": 73,
       "norm_label": "admin_emails"
     },
     {
@@ -3590,7 +3600,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_config_version",
-      "community": 31,
+      "community": 21,
       "norm_label": "version.js"
     },
     {
@@ -3600,7 +3610,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_context_achievementscontext",
-      "community": 33,
+      "community": 55,
       "norm_label": "achievementscontext.jsx"
     },
     {
@@ -3610,7 +3620,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "src_context_achievementscontext_achievementscontext",
-      "community": 33,
+      "community": 55,
       "norm_label": "achievementscontext"
     },
     {
@@ -3620,7 +3630,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "src_context_achievementscontext_achievementsprovider",
-      "community": 33,
+      "community": 55,
       "norm_label": "achievementsprovider()"
     },
     {
@@ -3640,7 +3650,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_context_authcontext",
-      "community": 33,
+      "community": 55,
       "norm_label": "authcontext.jsx"
     },
     {
@@ -3650,7 +3660,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "src_context_authcontext_authcontext",
-      "community": 33,
+      "community": 55,
       "norm_label": "authcontext"
     },
     {
@@ -3660,7 +3670,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "src_context_authcontext_authprovider",
-      "community": 33,
+      "community": 55,
       "norm_label": "authprovider()"
     },
     {
@@ -3680,7 +3690,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_context_dixcontext",
-      "community": 33,
+      "community": 55,
       "norm_label": "dixcontext.jsx"
     },
     {
@@ -3690,7 +3700,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "src_context_dixcontext_dixcontext",
-      "community": 33,
+      "community": 55,
       "norm_label": "dixcontext"
     },
     {
@@ -3700,7 +3710,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "src_context_dixcontext_dixprovider",
-      "community": 33,
+      "community": 55,
       "norm_label": "dixprovider()"
     },
     {
@@ -3710,7 +3720,7 @@
       "source_location": "L99",
       "_origin": "ast",
       "id": "src_context_dixcontext_usedix",
-      "community": 73,
+      "community": 61,
       "norm_label": "usedix()"
     },
     {
@@ -3720,7 +3730,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_context_eventoscontext",
-      "community": 15,
+      "community": 55,
       "norm_label": "eventoscontext.jsx"
     },
     {
@@ -3730,7 +3740,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "src_context_eventoscontext_metas_progresso",
-      "community": 15,
+      "community": 55,
       "norm_label": "metas_progresso"
     },
     {
@@ -3740,7 +3750,7 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "src_context_eventoscontext_eventoscontext",
-      "community": 15,
+      "community": 55,
       "norm_label": "eventoscontext"
     },
     {
@@ -3750,7 +3760,7 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "src_context_eventoscontext_eventosprovider",
-      "community": 33,
+      "community": 55,
       "norm_label": "eventosprovider()"
     },
     {
@@ -3760,7 +3770,7 @@
       "source_location": "L127",
       "_origin": "ast",
       "id": "src_context_eventoscontext_useeventos",
-      "community": 15,
+      "community": 61,
       "norm_label": "useeventos()"
     },
     {
@@ -3770,7 +3780,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_context_fichascontext",
-      "community": 73,
+      "community": 55,
       "norm_label": "fichascontext.jsx"
     },
     {
@@ -3780,7 +3790,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "src_context_fichascontext_fichas_por_tier",
-      "community": 73,
+      "community": 55,
       "norm_label": "fichas_por_tier"
     },
     {
@@ -3790,7 +3800,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "src_context_fichascontext_admin_emails",
-      "community": 73,
+      "community": 55,
       "norm_label": "admin_emails"
     },
     {
@@ -3800,7 +3810,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "src_context_fichascontext_test_account_emails",
-      "community": 73,
+      "community": 55,
       "norm_label": "test_account_emails"
     },
     {
@@ -3810,7 +3820,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "src_context_fichascontext_fichascontext",
-      "community": 73,
+      "community": 55,
       "norm_label": "fichascontext"
     },
     {
@@ -3820,7 +3830,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "src_context_fichascontext_fichasprovider",
-      "community": 73,
+      "community": 55,
       "norm_label": "fichasprovider()"
     },
     {
@@ -3830,7 +3840,7 @@
       "source_location": "L110",
       "_origin": "ast",
       "id": "src_context_fichascontext_usefichas",
-      "community": 73,
+      "community": 61,
       "norm_label": "usefichas()"
     },
     {
@@ -3840,7 +3850,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_context_languagecontext",
-      "community": 23,
+      "community": 20,
       "norm_label": "languagecontext.jsx"
     },
     {
@@ -3850,7 +3860,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "src_context_languagecontext_languagecontext",
-      "community": 142,
+      "community": 20,
       "norm_label": "languagecontext"
     },
     {
@@ -3870,7 +3880,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_context_languageprovider",
-      "community": 142,
+      "community": 20,
       "norm_label": "languageprovider.jsx"
     },
     {
@@ -3880,7 +3890,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "src_context_languageprovider_getnested",
-      "community": 142,
+      "community": 20,
       "norm_label": "getnested()"
     },
     {
@@ -3890,7 +3900,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "src_context_languageprovider_deepmerge",
-      "community": 142,
+      "community": 20,
       "norm_label": "deepmerge()"
     },
     {
@@ -3900,7 +3910,7 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "src_context_languageprovider_languageprovider",
-      "community": 142,
+      "community": 20,
       "norm_label": "languageprovider()"
     },
     {
@@ -3910,7 +3920,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_context_readercontext",
-      "community": 53,
+      "community": 38,
       "norm_label": "readercontext.jsx"
     },
     {
@@ -3920,7 +3930,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "src_context_readercontext_readercontext",
-      "community": 53,
+      "community": 38,
       "norm_label": "readercontext"
     },
     {
@@ -3930,7 +3940,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "src_context_readercontext_readerprovider",
-      "community": 53,
+      "community": 55,
       "norm_label": "readerprovider()"
     },
     {
@@ -3940,7 +3950,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "src_context_readercontext_usereader",
-      "community": 53,
+      "community": 38,
       "norm_label": "usereader()"
     },
     {
@@ -4100,7 +4110,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "src_hooks_useleaderboarddb_carregardeck",
-      "community": 21,
+      "community": 112,
       "norm_label": "carregardeck()"
     },
     {
@@ -4110,7 +4120,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "src_hooks_useleaderboarddb_salvarcartasdeck",
-      "community": 59,
+      "community": 30,
       "norm_label": "salvarcartasdeck()"
     },
     {
@@ -4130,7 +4140,7 @@
       "source_location": "L50",
       "_origin": "ast",
       "id": "src_hooks_useleaderboarddb_substituirdeck",
-      "community": 59,
+      "community": 30,
       "norm_label": "substituirdeck()"
     },
     {
@@ -4190,7 +4200,7 @@
       "source_location": "L141",
       "_origin": "ast",
       "id": "src_hooks_useleaderboarddb_verificarcartaganhahoje",
-      "community": 59,
+      "community": 30,
       "norm_label": "verificarcartaganhahoje()"
     },
     {
@@ -4200,7 +4210,7 @@
       "source_location": "L158",
       "_origin": "ast",
       "id": "src_hooks_useleaderboarddb_carregartentativas",
-      "community": 59,
+      "community": 30,
       "norm_label": "carregartentativas()"
     },
     {
@@ -4210,7 +4220,7 @@
       "source_location": "L179",
       "_origin": "ast",
       "id": "src_hooks_useleaderboarddb_consumirtentativa",
-      "community": 59,
+      "community": 30,
       "norm_label": "consumirtentativa()"
     },
     {
@@ -4220,7 +4230,7 @@
       "source_location": "L205",
       "_origin": "ast",
       "id": "src_hooks_useleaderboarddb_marcarcartaganha",
-      "community": 59,
+      "community": 30,
       "norm_label": "marcarcartaganha()"
     },
     {
@@ -4270,7 +4280,7 @@
       "source_location": "L335",
       "_origin": "ast",
       "id": "src_hooks_useleaderboarddb_registrarpontuacaoranking",
-      "community": 59,
+      "community": 15,
       "norm_label": "registrarpontuacaoranking()"
     },
     {
@@ -4290,7 +4300,7 @@
       "source_location": "L349",
       "_origin": "ast",
       "id": "src_hooks_useleaderboarddb_registrarpontuacaoarenaranking",
-      "community": 23,
+      "community": 41,
       "norm_label": "registrarpontuacaoarenaranking()"
     },
     {
@@ -4350,7 +4360,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_hooks_usepersonagens",
-      "community": 60,
+      "community": 68,
       "norm_label": "usepersonagens.js"
     },
     {
@@ -4360,7 +4370,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "src_hooks_usepersonagens_data",
-      "community": 60,
+      "community": 68,
       "norm_label": "data"
     },
     {
@@ -4370,7 +4380,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "src_hooks_usepersonagens_usepersonagens",
-      "community": 60,
+      "community": 68,
       "norm_label": "usepersonagens()"
     },
     {
@@ -4380,7 +4390,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "src_hooks_usepersonagens_usepersonagem",
-      "community": 60,
+      "community": 68,
       "norm_label": "usepersonagem()"
     },
     {
@@ -4390,7 +4400,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "src_hooks_usepersonagens_group_order",
-      "community": 60,
+      "community": 68,
       "norm_label": "group_order"
     },
     {
@@ -4400,7 +4410,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "src_hooks_usepersonagens_group_labels",
-      "community": 60,
+      "community": 68,
       "norm_label": "group_labels"
     },
     {
@@ -4410,7 +4420,7 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "src_hooks_usepersonagens_usepersonagensagrupados",
-      "community": 60,
+      "community": 68,
       "norm_label": "usepersonagensagrupados()"
     },
     {
@@ -4520,7 +4530,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_hooks_useswipe",
-      "community": 86,
+      "community": 19,
       "norm_label": "useswipe.js"
     },
     {
@@ -4530,7 +4540,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "src_hooks_useswipe_useswipe",
-      "community": 86,
+      "community": 19,
       "norm_label": "useswipe()"
     },
     {
@@ -4660,7 +4670,7 @@
       "source_location": "L152",
       "_origin": "ast",
       "id": "src_hooks_usetoptrumpsmp_finalizarppt",
-      "community": 112,
+      "community": 34,
       "norm_label": "finalizarppt()"
     },
     {
@@ -4680,7 +4690,7 @@
       "source_location": "L177",
       "_origin": "ast",
       "id": "src_hooks_usetoptrumpsmp_atualizarsala",
-      "community": 112,
+      "community": 34,
       "norm_label": "atualizarsala()"
     },
     {
@@ -4690,7 +4700,7 @@
       "source_location": "L181",
       "_origin": "ast",
       "id": "src_hooks_usetoptrumpsmp_encerrarsala",
-      "community": 112,
+      "community": 34,
       "norm_label": "encerrarsala()"
     },
     {
@@ -4790,7 +4800,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_hooks_useviewportscroll",
-      "community": 68,
+      "community": 19,
       "norm_label": "useviewportscroll.js"
     },
     {
@@ -4800,7 +4810,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "src_hooks_useviewportscroll_useviewportscroll",
-      "community": 68,
+      "community": 19,
       "norm_label": "useviewportscroll()"
     },
     {
@@ -4810,7 +4820,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_hooks_usezoom",
-      "community": 68,
+      "community": 19,
       "norm_label": "usezoom.js"
     },
     {
@@ -4820,7 +4830,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "src_hooks_usezoom_usezoom",
-      "community": 68,
+      "community": 19,
       "norm_label": "usezoom()"
     },
     {
@@ -4860,7 +4870,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_i18n_locales",
-      "community": 142,
+      "community": 20,
       "norm_label": "locales.js"
     },
     {
@@ -4870,7 +4880,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_i18n_locales_deepmerge",
-      "community": 142,
+      "community": 20,
       "norm_label": "deepmerge()"
     },
     {
@@ -4880,7 +4890,7 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "src_i18n_locales_locales",
-      "community": 142,
+      "community": 20,
       "norm_label": "locales"
     },
     {
@@ -4890,7 +4900,7 @@
       "source_location": "L37",
       "_origin": "ast",
       "id": "src_i18n_locales_locale_labels",
-      "community": 142,
+      "community": 20,
       "norm_label": "locale_labels"
     },
     {
@@ -4900,7 +4910,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_lib_analytics",
-      "community": 194,
+      "community": 39,
       "norm_label": "analytics.js"
     },
     {
@@ -4910,7 +4920,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "src_lib_analytics_cleanvalue",
-      "community": 194,
+      "community": 39,
       "norm_label": "cleanvalue()"
     },
     {
@@ -4920,7 +4930,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "src_lib_analytics_cleanparams",
-      "community": 194,
+      "community": 39,
       "norm_label": "cleanparams()"
     },
     {
@@ -4930,7 +4940,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "src_lib_analytics_hasanalyticsconsent",
-      "community": 194,
+      "community": 39,
       "norm_label": "hasanalyticsconsent()"
     },
     {
@@ -4940,7 +4950,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "src_lib_analytics_updateanalyticsconsent",
-      "community": 194,
+      "community": 39,
       "norm_label": "updateanalyticsconsent()"
     },
     {
@@ -4950,7 +4960,7 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "src_lib_analytics_setanalyticsuser",
-      "community": 79,
+      "community": 39,
       "norm_label": "setanalyticsuser()"
     },
     {
@@ -4960,7 +4970,7 @@
       "source_location": "L42",
       "_origin": "ast",
       "id": "src_lib_analytics_trackevent",
-      "community": 194,
+      "community": 39,
       "norm_label": "trackevent()"
     },
     {
@@ -4970,7 +4980,7 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "src_lib_analytics_trackpageview",
-      "community": 194,
+      "community": 6,
       "norm_label": "trackpageview()"
     },
     {
@@ -4980,7 +4990,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_lib_getdeck",
-      "community": 21,
+      "community": 112,
       "norm_label": "getdeck.js"
     },
     {
@@ -4990,7 +5000,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "src_lib_getdeck_decks",
-      "community": 21,
+      "community": 112,
       "norm_label": "decks"
     },
     {
@@ -5000,7 +5010,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "src_lib_getdeck_getdeck",
-      "community": 21,
+      "community": 112,
       "norm_label": "getdeck()"
     },
     {
@@ -5010,7 +5020,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_lib_notificationmanager",
-      "community": 213,
+      "community": 14,
       "norm_label": "notificationmanager.js"
     },
     {
@@ -5020,7 +5030,7 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "src_lib_notificationmanager_notificationtype",
-      "community": 213,
+      "community": 14,
       "norm_label": "notificationtype"
     },
     {
@@ -5030,7 +5040,7 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "src_lib_notificationmanager_legacyachievements",
-      "community": 213,
+      "community": 14,
       "norm_label": "legacyachievements"
     },
     {
@@ -5040,7 +5050,7 @@
       "source_location": "L33",
       "_origin": "ast",
       "id": "src_lib_notificationmanager_getnotificationachievementid",
-      "community": 213,
+      "community": 14,
       "norm_label": "getnotificationachievementid()"
     },
     {
@@ -5050,7 +5060,7 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "src_lib_notificationmanager_notificationmanager",
-      "community": 213,
+      "community": 14,
       "norm_label": "notificationmanager"
     },
     {
@@ -5060,7 +5070,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_lib_profileprovisioning",
-      "community": 33,
+      "community": 55,
       "norm_label": "profileprovisioning.js"
     },
     {
@@ -5070,7 +5080,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "src_lib_profileprovisioning_wait",
-      "community": 33,
+      "community": 55,
       "norm_label": "wait()"
     },
     {
@@ -5080,7 +5090,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "src_lib_profileprovisioning_ensureuserprofile",
-      "community": 33,
+      "community": 55,
       "norm_label": "ensureuserprofile()"
     },
     {
@@ -5090,7 +5100,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_lib_sfx",
-      "community": 27,
+      "community": 23,
       "norm_label": "sfx.js"
     },
     {
@@ -5130,7 +5140,7 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "src_lib_sfx_sfx_toggle",
-      "community": 7,
+      "community": 108,
       "norm_label": ".toggle()"
     },
     {
@@ -5150,7 +5160,7 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "src_lib_sfx_sfx_off",
-      "community": 7,
+      "community": 108,
       "norm_label": ".off()"
     },
     {
@@ -5260,7 +5270,7 @@
       "source_location": "L180",
       "_origin": "ast",
       "id": "src_lib_sfx_sfx_startheartbeatloop",
-      "community": 7,
+      "community": 108,
       "norm_label": ".startheartbeatloop()"
     },
     {
@@ -5270,7 +5280,7 @@
       "source_location": "L189",
       "_origin": "ast",
       "id": "src_lib_sfx_sfx_stopheartbeatloop",
-      "community": 7,
+      "community": 108,
       "norm_label": ".stopheartbeatloop()"
     },
     {
@@ -5290,7 +5300,7 @@
       "source_location": "L205",
       "_origin": "ast",
       "id": "src_lib_sfx_sfx_win",
-      "community": 7,
+      "community": 53,
       "norm_label": ".win()"
     },
     {
@@ -5310,7 +5320,7 @@
       "source_location": "L222",
       "_origin": "ast",
       "id": "src_lib_sfx_sfx_draw",
-      "community": 7,
+      "community": 98,
       "norm_label": ".draw()"
     },
     {
@@ -5500,7 +5510,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_lib_stripe",
-      "community": 55,
+      "community": 73,
       "norm_label": "stripe.js"
     },
     {
@@ -5510,7 +5520,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "src_lib_stripe_prices",
-      "community": 55,
+      "community": 73,
       "norm_label": "prices"
     },
     {
@@ -5520,7 +5530,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "src_lib_stripe_price_display",
-      "community": 55,
+      "community": 73,
       "norm_label": "price_display"
     },
     {
@@ -5530,7 +5540,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "src_lib_stripe_getpricedisplay",
-      "community": 55,
+      "community": 73,
       "norm_label": "getpricedisplay()"
     },
     {
@@ -5550,7 +5560,7 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "src_lib_stripe_iniciarcheckout",
-      "community": 55,
+      "community": 73,
       "norm_label": "iniciarcheckout()"
     },
     {
@@ -5560,7 +5570,7 @@
       "source_location": "L56",
       "_origin": "ast",
       "id": "src_lib_stripe_cancelarassinatura",
-      "community": 55,
+      "community": 73,
       "norm_label": "cancelarassinatura()"
     },
     {
@@ -5570,7 +5580,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_lib_supabase",
-      "community": 33,
+      "community": 55,
       "norm_label": "supabase.js"
     },
     {
@@ -5580,7 +5590,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "src_lib_supabase_supabase",
-      "community": 33,
+      "community": 55,
       "norm_label": "supabase"
     },
     {
@@ -5590,7 +5600,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_lib_toptrumpscardaccess",
-      "community": 59,
+      "community": 30,
       "norm_label": "toptrumpscardaccess.js"
     },
     {
@@ -5600,7 +5610,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_lib_toptrumpscardaccess_top_trumps_card_limits",
-      "community": 59,
+      "community": 30,
       "norm_label": "top_trumps_card_limits"
     },
     {
@@ -5610,7 +5620,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "src_lib_toptrumpscardaccess_card_ids_by_tier",
-      "community": 59,
+      "community": 30,
       "norm_label": "card_ids_by_tier"
     },
     {
@@ -5620,7 +5630,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "src_lib_toptrumpscardaccess_access_rank",
-      "community": 59,
+      "community": 30,
       "norm_label": "access_rank"
     },
     {
@@ -5630,7 +5640,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "src_lib_toptrumpscardaccess_card_rank",
-      "community": 59,
+      "community": 30,
       "norm_label": "card_rank"
     },
     {
@@ -5640,7 +5650,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "src_lib_toptrumpscardaccess_gettoptrumpstierforcard",
-      "community": 59,
+      "community": 30,
       "norm_label": "gettoptrumpstierforcard()"
     },
     {
@@ -5650,7 +5660,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "src_lib_toptrumpscardaccess_gettoptrumpsaccesstier",
-      "community": 59,
+      "community": 30,
       "norm_label": "gettoptrumpsaccesstier()"
     },
     {
@@ -5660,7 +5670,7 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "src_lib_toptrumpscardaccess_canacquiretoptrumpscard",
-      "community": 59,
+      "community": 30,
       "norm_label": "canacquiretoptrumpscard()"
     },
     {
@@ -5670,7 +5680,7 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "src_lib_toptrumpscardaccess_filtertoptrumpscardpool",
-      "community": 59,
+      "community": 30,
       "norm_label": "filtertoptrumpscardpool()"
     },
     {
@@ -5680,7 +5690,7 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "src_lib_toptrumpscardaccess_filtertoptrumpsinitialaccountpool",
-      "community": 59,
+      "community": 30,
       "norm_label": "filtertoptrumpsinitialaccountpool()"
     },
     {
@@ -5690,7 +5700,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_lib_toptrumpscardimages",
-      "community": 21,
+      "community": 112,
       "norm_label": "toptrumpscardimages.js"
     },
     {
@@ -5700,7 +5710,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "src_lib_toptrumpscardimages_cardmodules",
-      "community": 21,
+      "community": 112,
       "norm_label": "cardmodules"
     },
     {
@@ -5710,7 +5720,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "src_lib_toptrumpscardimages_top_trumps_card_images",
-      "community": 21,
+      "community": 112,
       "norm_label": "top_trumps_card_images"
     },
     {
@@ -5720,7 +5730,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "src_lib_toptrumpscardimages_gettoptrumpscardimage",
-      "community": 21,
+      "community": 112,
       "norm_label": "gettoptrumpscardimage()"
     },
     {
@@ -5730,7 +5740,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_main",
-      "community": 33,
+      "community": 55,
       "norm_label": "main.jsx"
     },
     {
@@ -5800,7 +5810,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_content_mundo",
-      "community": 60,
+      "community": 68,
       "norm_label": "mundo.jsx"
     },
     {
@@ -5810,7 +5820,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "src_pages_content_mundo_datamap",
-      "community": 60,
+      "community": 68,
       "norm_label": "datamap"
     },
     {
@@ -5820,7 +5830,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "src_pages_content_mundo_protagonist_ids",
-      "community": 60,
+      "community": 68,
       "norm_label": "protagonist_ids"
     },
     {
@@ -5830,7 +5840,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "src_pages_content_mundo_mundo",
-      "community": 60,
+      "community": 68,
       "norm_label": "mundo()"
     },
     {
@@ -5840,7 +5850,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_content_musicas",
-      "community": 67,
+      "community": 54,
       "norm_label": "musicas.jsx"
     },
     {
@@ -5850,7 +5860,7 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "src_pages_content_musicas_allimages",
-      "community": 67,
+      "community": 54,
       "norm_label": "allimages"
     },
     {
@@ -5860,7 +5870,7 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "src_pages_content_musicas_shufflearray",
-      "community": 67,
+      "community": 54,
       "norm_label": "shufflearray()"
     },
     {
@@ -5870,7 +5880,7 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "src_pages_content_musicas_musicas",
-      "community": 67,
+      "community": 54,
       "norm_label": "musicas()"
     },
     {
@@ -5880,7 +5890,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_content_personagemdetalhe",
-      "community": 60,
+      "community": 68,
       "norm_label": "personagemdetalhe.jsx"
     },
     {
@@ -5890,7 +5900,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "src_pages_content_personagemdetalhe_personagemdetalhe",
-      "community": 60,
+      "community": 68,
       "norm_label": "personagemdetalhe()"
     },
     {
@@ -5900,7 +5910,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_content_personagens",
-      "community": 60,
+      "community": 68,
       "norm_label": "personagens.jsx"
     },
     {
@@ -5910,7 +5920,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "src_pages_content_personagens_personagens",
-      "community": 60,
+      "community": 68,
       "norm_label": "personagens()"
     },
     {
@@ -5990,7 +6000,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_arenataticsroute",
-      "community": 31,
+      "community": 21,
       "norm_label": "arenataticsroute.jsx"
     },
     {
@@ -6000,7 +6010,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_arenataticsroute_randompick",
-      "community": 31,
+      "community": 21,
       "norm_label": "randompick()"
     },
     {
@@ -6010,7 +6020,7 @@
       "source_location": "L32",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_arenataticsroute_arenataticsroute",
-      "community": 31,
+      "community": 21,
       "norm_label": "arenataticsroute()"
     },
     {
@@ -6100,7 +6110,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_components_confirmendturn",
-      "community": 17,
+      "community": 33,
       "norm_label": "confirmendturn.jsx"
     },
     {
@@ -6110,7 +6120,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_components_confirmendturn_confirmendturn",
-      "community": 17,
+      "community": 33,
       "norm_label": "confirmendturn()"
     },
     {
@@ -6180,7 +6190,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_components_gamecontrols",
-      "community": 31,
+      "community": 78,
       "norm_label": "gamecontrols.jsx"
     },
     {
@@ -6190,7 +6200,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_components_gamecontrols_gamecontrols",
-      "community": 31,
+      "community": 78,
       "norm_label": "gamecontrols()"
     },
     {
@@ -6460,7 +6470,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_components_statusbar",
-      "community": 17,
+      "community": 33,
       "norm_label": "statusbar.jsx"
     },
     {
@@ -6470,7 +6480,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_components_statusbar_status_icons",
-      "community": 17,
+      "community": 33,
       "norm_label": "status_icons"
     },
     {
@@ -6480,7 +6490,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_components_statusbar_statusbar",
-      "community": 17,
+      "community": 33,
       "norm_label": "statusbar()"
     },
     {
@@ -6520,7 +6530,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_components_turnoindicator",
-      "community": 17,
+      "community": 33,
       "norm_label": "turnoindicator.jsx"
     },
     {
@@ -6530,7 +6540,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_components_turnoindicator_turnoindicator",
-      "community": 17,
+      "community": 33,
       "norm_label": "turnoindicator()"
     },
     {
@@ -6720,7 +6730,7 @@
       "source_location": "L395",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_data_aipersonalities_sortearias",
-      "community": 17,
+      "community": 33,
       "norm_label": "sortearias()"
     },
     {
@@ -7010,7 +7020,7 @@
       "source_location": "L219",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_data_combat_temstatus",
-      "community": 17,
+      "community": 33,
       "norm_label": "temstatus()"
     },
     {
@@ -7030,7 +7040,7 @@
       "source_location": "L230",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_data_combat_podemover",
-      "community": 17,
+      "community": 33,
       "norm_label": "podemover()"
     },
     {
@@ -7220,7 +7230,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_data_elementals_elementals",
-      "community": 12,
+      "community": 17,
       "norm_label": "elementals"
     },
     {
@@ -7280,7 +7290,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_data_equipment",
-      "community": 31,
+      "community": 37,
       "norm_label": "equipment.js"
     },
     {
@@ -7290,7 +7300,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_data_equipment_armes",
-      "community": 31,
+      "community": 37,
       "norm_label": "armes"
     },
     {
@@ -7300,7 +7310,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_data_equipment_armaduras",
-      "community": 31,
+      "community": 37,
       "norm_label": "armaduras"
     },
     {
@@ -7310,7 +7320,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_data_equipment_acessorios",
-      "community": 31,
+      "community": 37,
       "norm_label": "acessorios"
     },
     {
@@ -7320,7 +7330,7 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_data_equipment_getallequipamentos",
-      "community": 31,
+      "community": 37,
       "norm_label": "getallequipamentos()"
     },
     {
@@ -7330,7 +7340,7 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_data_equipment_getequipamento",
-      "community": 31,
+      "community": 37,
       "norm_label": "getequipamento()"
     },
     {
@@ -7340,7 +7350,7 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_data_equipment_calcularbonus",
-      "community": 31,
+      "community": 37,
       "norm_label": "calcularbonus()"
     },
     {
@@ -7420,7 +7430,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_data_levelprogression",
-      "community": 28,
+      "community": 79,
       "norm_label": "levelprogression.js"
     },
     {
@@ -7430,7 +7440,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_data_levelprogression_base_l1",
-      "community": 28,
+      "community": 79,
       "norm_label": "base_l1"
     },
     {
@@ -7440,7 +7450,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_data_levelprogression_skills_lv50",
-      "community": 28,
+      "community": 79,
       "norm_label": "skills_lv50"
     },
     {
@@ -7450,7 +7460,7 @@
       "source_location": "L48",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_data_levelprogression_skills_lv75",
-      "community": 28,
+      "community": 79,
       "norm_label": "skills_lv75"
     },
     {
@@ -7460,7 +7470,7 @@
       "source_location": "L72",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_data_levelprogression_skill_slots",
-      "community": 28,
+      "community": 79,
       "norm_label": "skill_slots"
     },
     {
@@ -7470,7 +7480,7 @@
       "source_location": "L78",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_data_levelprogression_calcatributosnonivel",
-      "community": 28,
+      "community": 79,
       "norm_label": "calcatributosnonivel()"
     },
     {
@@ -7480,7 +7490,7 @@
       "source_location": "L96",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_data_levelprogression_getskillsnonivel",
-      "community": 28,
+      "community": 79,
       "norm_label": "getskillsnonivel()"
     },
     {
@@ -7490,7 +7500,7 @@
       "source_location": "L130",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_data_levelprogression_getskillsevolutivas",
-      "community": 28,
+      "community": 79,
       "norm_label": "getskillsevolutivas()"
     },
     {
@@ -7500,7 +7510,7 @@
       "source_location": "L148",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_data_levelprogression_aplicarbonusevolucao",
-      "community": 28,
+      "community": 79,
       "norm_label": "aplicarbonusevolucao()"
     },
     {
@@ -7510,7 +7520,7 @@
       "source_location": "L171",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_data_levelprogression_aplicarbonushpsp",
-      "community": 28,
+      "community": 79,
       "norm_label": "aplicarbonushpsp()"
     },
     {
@@ -7520,7 +7530,7 @@
       "source_location": "L216",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_data_levelprogression_construirpersonagemnivelado",
-      "community": 28,
+      "community": 79,
       "norm_label": "construirpersonagemnivelado()"
     },
     {
@@ -7570,7 +7580,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_screens_batalha",
-      "community": 17,
+      "community": 33,
       "norm_label": "batalha.jsx"
     },
     {
@@ -7580,7 +7590,7 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_screens_batalha_getskills",
-      "community": 17,
+      "community": 33,
       "norm_label": "getskills()"
     },
     {
@@ -7590,7 +7600,7 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_screens_batalha_getocupadas",
-      "community": 17,
+      "community": 33,
       "norm_label": "getocupadas()"
     },
     {
@@ -7600,7 +7610,7 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_screens_batalha_getalcancemovimento",
-      "community": 17,
+      "community": 33,
       "norm_label": "getalcancemovimento()"
     },
     {
@@ -7610,7 +7620,7 @@
       "source_location": "L52",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_screens_batalha_temlinhavisao",
-      "community": 17,
+      "community": 33,
       "norm_label": "temlinhavisao()"
     },
     {
@@ -7620,7 +7630,7 @@
       "source_location": "L63",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_screens_batalha_getalvoocupadas",
-      "community": 17,
+      "community": 33,
       "norm_label": "getalvoocupadas()"
     },
     {
@@ -7630,7 +7640,7 @@
       "source_location": "L70",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_screens_batalha_getalcanceskill",
-      "community": 17,
+      "community": 33,
       "norm_label": "getalcanceskill()"
     },
     {
@@ -7640,7 +7650,7 @@
       "source_location": "L86",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_screens_batalha_estahemalcance",
-      "community": 17,
+      "community": 33,
       "norm_label": "estahemalcance()"
     },
     {
@@ -7650,7 +7660,7 @@
       "source_location": "L91",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_screens_batalha_calcularcaminho",
-      "community": 17,
+      "community": 33,
       "norm_label": "calcularcaminho()"
     },
     {
@@ -7660,7 +7670,7 @@
       "source_location": "L133",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_screens_batalha_getfaselabel",
-      "community": 17,
+      "community": 33,
       "norm_label": "getfaselabel()"
     },
     {
@@ -7670,7 +7680,7 @@
       "source_location": "L156",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_screens_batalha_batalha",
-      "community": 17,
+      "community": 33,
       "norm_label": "batalha()"
     },
     {
@@ -7730,7 +7740,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_screens_buildinginterior",
-      "community": 31,
+      "community": 78,
       "norm_label": "buildinginterior.jsx"
     },
     {
@@ -7740,7 +7750,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_screens_buildinginterior_interior_names",
-      "community": 31,
+      "community": 78,
       "norm_label": "interior_names"
     },
     {
@@ -7750,7 +7760,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_screens_buildinginterior_interiorspawns",
-      "community": 31,
+      "community": 78,
       "norm_label": "interiorspawns"
     },
     {
@@ -7760,7 +7770,7 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_screens_buildinginterior_exit_zone",
-      "community": 31,
+      "community": 78,
       "norm_label": "exit_zone"
     },
     {
@@ -7770,7 +7780,7 @@
       "source_location": "L33",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_screens_buildinginterior_getinteriorcolliders",
-      "community": 31,
+      "community": 78,
       "norm_label": "getinteriorcolliders()"
     },
     {
@@ -7780,7 +7790,7 @@
       "source_location": "L56",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_screens_buildinginterior_isinteriorsolid",
-      "community": 31,
+      "community": 78,
       "norm_label": "isinteriorsolid()"
     },
     {
@@ -7790,7 +7800,7 @@
       "source_location": "L65",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_screens_buildinginterior_playercollidesinterior",
-      "community": 31,
+      "community": 78,
       "norm_label": "playercollidesinterior()"
     },
     {
@@ -7800,7 +7810,7 @@
       "source_location": "L76",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_screens_buildinginterior_getinteriorzone",
-      "community": 31,
+      "community": 78,
       "norm_label": "getinteriorzone()"
     },
     {
@@ -7810,7 +7820,7 @@
       "source_location": "L84",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_screens_buildinginterior_buildinterior",
-      "community": 31,
+      "community": 78,
       "norm_label": "buildinterior()"
     },
     {
@@ -7820,7 +7830,7 @@
       "source_location": "L618",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_screens_buildinginterior_buildinginterior",
-      "community": 31,
+      "community": 78,
       "norm_label": "buildinginterior()"
     },
     {
@@ -7910,7 +7920,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_screens_derrota",
-      "community": 31,
+      "community": 21,
       "norm_label": "derrota.jsx"
     },
     {
@@ -7920,7 +7930,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_screens_derrota_derrota",
-      "community": 31,
+      "community": 21,
       "norm_label": "derrota()"
     },
     {
@@ -7950,7 +7960,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_screens_intro",
-      "community": 31,
+      "community": 21,
       "norm_label": "intro.jsx"
     },
     {
@@ -7960,7 +7970,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_screens_intro_lines_pt",
-      "community": 31,
+      "community": 21,
       "norm_label": "lines_pt"
     },
     {
@@ -7970,7 +7980,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_screens_intro_lines_en",
-      "community": 31,
+      "community": 21,
       "norm_label": "lines_en"
     },
     {
@@ -7980,7 +7990,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_screens_intro_lines_es",
-      "community": 31,
+      "community": 21,
       "norm_label": "lines_es"
     },
     {
@@ -7990,7 +8000,7 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_screens_intro_intro",
-      "community": 31,
+      "community": 21,
       "norm_label": "intro()"
     },
     {
@@ -8070,7 +8080,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_screens_teamselect",
-      "community": 31,
+      "community": 37,
       "norm_label": "teamselect.jsx"
     },
     {
@@ -8080,7 +8090,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_screens_teamselect_emoji",
-      "community": 31,
+      "community": 37,
       "norm_label": "emoji"
     },
     {
@@ -8090,7 +8100,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_screens_teamselect_elem_cor",
-      "community": 31,
+      "community": 37,
       "norm_label": "elem_cor"
     },
     {
@@ -8100,7 +8110,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_screens_teamselect_teamselect",
-      "community": 31,
+      "community": 37,
       "norm_label": "teamselect()"
     },
     {
@@ -8110,7 +8120,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_screens_vitoria",
-      "community": 31,
+      "community": 21,
       "norm_label": "vitoria.jsx"
     },
     {
@@ -8120,7 +8130,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_screens_vitoria_vitoria",
-      "community": 31,
+      "community": 21,
       "norm_label": "vitoria()"
     },
     {
@@ -8170,7 +8180,7 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_store_usearenataticsstore_usearenataticsstore",
-      "community": 17,
+      "community": 21,
       "norm_label": "usearenataticsstore"
     },
     {
@@ -8190,7 +8200,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_store_usecitystore",
-      "community": 31,
+      "community": 21,
       "norm_label": "usecitystore.js"
     },
     {
@@ -8200,7 +8210,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_store_usecitystore_calcweather",
-      "community": 31,
+      "community": 21,
       "norm_label": "calcweather()"
     },
     {
@@ -8210,7 +8220,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_store_usecitystore_usecitystore",
-      "community": 31,
+      "community": 21,
       "norm_label": "usecitystore"
     },
     {
@@ -9070,7 +9080,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_duelo_version",
-      "community": 31,
+      "community": 21,
       "norm_label": "version.js"
     },
     {
@@ -9260,7 +9270,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_gangues_ganguescreate",
-      "community": 23,
+      "community": 41,
       "norm_label": "ganguescreate.jsx"
     },
     {
@@ -9270,7 +9280,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "src_pages_games_gangues_ganguescreate_path_marks",
-      "community": 23,
+      "community": 41,
       "norm_label": "path_marks"
     },
     {
@@ -9280,7 +9290,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "src_pages_games_gangues_ganguescreate_attrs",
-      "community": 23,
+      "community": 41,
       "norm_label": "attrs"
     },
     {
@@ -9290,7 +9300,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "src_pages_games_gangues_ganguescreate_tutorial_path_by_step",
-      "community": 23,
+      "community": 41,
       "norm_label": "tutorial_path_by_step"
     },
     {
@@ -9300,7 +9310,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "src_pages_games_gangues_ganguescreate_tutorial_path_side_by_step",
-      "community": 23,
+      "community": 41,
       "norm_label": "tutorial_path_side_by_step"
     },
     {
@@ -9310,7 +9320,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "src_pages_games_gangues_ganguescreate_tutorial_attr_by_step",
-      "community": 23,
+      "community": 41,
       "norm_label": "tutorial_attr_by_step"
     },
     {
@@ -9320,7 +9330,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "src_pages_games_gangues_ganguescreate_tutorial_attr_side_by_step",
-      "community": 23,
+      "community": 41,
       "norm_label": "tutorial_attr_side_by_step"
     },
     {
@@ -9330,7 +9340,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "src_pages_games_gangues_ganguescreate_ganguescreate",
-      "community": 23,
+      "community": 41,
       "norm_label": "ganguescreate()"
     },
     {
@@ -9370,7 +9380,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_gangues_ganguesroute",
-      "community": 23,
+      "community": 41,
       "norm_label": "ganguesroute.jsx"
     },
     {
@@ -9380,7 +9390,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "src_pages_games_gangues_ganguesroute_ganguesroute",
-      "community": 23,
+      "community": 41,
       "norm_label": "ganguesroute()"
     },
     {
@@ -9390,7 +9400,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_gangues_ganguestrainingzone",
-      "community": 23,
+      "community": 41,
       "norm_label": "ganguestrainingzone.jsx"
     },
     {
@@ -9400,7 +9410,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "src_pages_games_gangues_ganguestrainingzone_clamp",
-      "community": 23,
+      "community": 41,
       "norm_label": "clamp()"
     },
     {
@@ -9410,7 +9420,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "src_pages_games_gangues_ganguestrainingzone_createpublictestsheet",
-      "community": 23,
+      "community": 41,
       "norm_label": "createpublictestsheet()"
     },
     {
@@ -9420,7 +9430,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "src_pages_games_gangues_ganguestrainingzone_ganguestrainingzone",
-      "community": 23,
+      "community": 41,
       "norm_label": "ganguestrainingzone()"
     },
     {
@@ -9430,7 +9440,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_gangues_ganguesvictory",
-      "community": 23,
+      "community": 41,
       "norm_label": "ganguesvictory.jsx"
     },
     {
@@ -9440,7 +9450,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "src_pages_games_gangues_ganguesvictory_combatantname",
-      "community": 23,
+      "community": 41,
       "norm_label": "combatantname()"
     },
     {
@@ -9450,7 +9460,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_pages_games_gangues_ganguesvictory_ganguesvictory",
-      "community": 23,
+      "community": 41,
       "norm_label": "ganguesvictory()"
     },
     {
@@ -9460,7 +9470,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_gangues_components_dramaticdice",
-      "community": 41,
+      "community": 23,
       "norm_label": "dramaticdice.jsx"
     },
     {
@@ -9470,7 +9480,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "src_pages_games_gangues_components_dramaticdice_dramaticdice",
-      "community": 41,
+      "community": 23,
       "norm_label": "dramaticdice()"
     },
     {
@@ -9520,7 +9530,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_gangues_components_neoguidedialog",
-      "community": 41,
+      "community": 23,
       "norm_label": "neoguidedialog.jsx"
     },
     {
@@ -9530,7 +9540,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "src_pages_games_gangues_components_neoguidedialog_neoguidedialog",
-      "community": 41,
+      "community": 23,
       "norm_label": "neoguidedialog()"
     },
     {
@@ -9760,7 +9770,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "src_pages_games_gangues_data_ganguesspecials_path",
-      "community": 41,
+      "community": 20,
       "norm_label": "path()"
     },
     {
@@ -9990,7 +10000,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_gangues_hooks_useganguesi18n",
-      "community": 23,
+      "community": 41,
       "norm_label": "useganguesi18n.js"
     },
     {
@@ -10000,7 +10010,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "src_pages_games_gangues_hooks_useganguesi18n_loaders",
-      "community": 23,
+      "community": 41,
       "norm_label": "loaders"
     },
     {
@@ -10010,7 +10020,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "src_pages_games_gangues_hooks_useganguesi18n_useganguesi18n",
-      "community": 23,
+      "community": 41,
       "norm_label": "useganguesi18n()"
     },
     {
@@ -10140,7 +10150,7 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "src_pages_games_gangues_store_useganguesstore_useganguesstore",
-      "community": 23,
+      "community": 41,
       "norm_label": "useganguesstore"
     },
     {
@@ -10280,7 +10290,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_jackcandy_components_monologue",
-      "community": 32,
+      "community": 20,
       "norm_label": "monologue.jsx"
     },
     {
@@ -10290,7 +10300,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "src_pages_games_jackcandy_components_monologue_monologue",
-      "community": 32,
+      "community": 20,
       "norm_label": "monologue()"
     },
     {
@@ -10360,7 +10370,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_jackcandy_data_cidades",
-      "community": 78,
+      "community": 20,
       "norm_label": "cidades.js"
     },
     {
@@ -10370,7 +10380,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "src_pages_games_jackcandy_data_cidades_cidades",
-      "community": 78,
+      "community": 20,
       "norm_label": "cidades"
     },
     {
@@ -10380,7 +10390,7 @@
       "source_location": "L56",
       "_origin": "ast",
       "id": "src_pages_games_jackcandy_data_cidades_getcidade",
-      "community": 78,
+      "community": 20,
       "norm_label": "getcidade()"
     },
     {
@@ -10390,7 +10400,7 @@
       "source_location": "L60",
       "_origin": "ast",
       "id": "src_pages_games_jackcandy_data_cidades_getlocaisvisiveis",
-      "community": 78,
+      "community": 20,
       "norm_label": "getlocaisvisiveis()"
     },
     {
@@ -10400,7 +10410,7 @@
       "source_location": "L71",
       "_origin": "ast",
       "id": "src_pages_games_jackcandy_data_cidades_getcidadenavegacao",
-      "community": 78,
+      "community": 20,
       "norm_label": "getcidadenavegacao()"
     },
     {
@@ -10500,7 +10510,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_jackcandy_data_npcs",
-      "community": 78,
+      "community": 20,
       "norm_label": "npcs.js"
     },
     {
@@ -10510,7 +10520,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "src_pages_games_jackcandy_data_npcs_npcs",
-      "community": 78,
+      "community": 20,
       "norm_label": "npcs"
     },
     {
@@ -10850,7 +10860,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_jackcandy_screens_mainmenu",
-      "community": 78,
+      "community": 20,
       "norm_label": "mainmenu.jsx"
     },
     {
@@ -10860,7 +10870,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "src_pages_games_jackcandy_screens_mainmenu_mainmenu",
-      "community": 78,
+      "community": 20,
       "norm_label": "mainmenu()"
     },
     {
@@ -10870,7 +10880,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_jackcandy_screens_vila",
-      "community": 78,
+      "community": 20,
       "norm_label": "vila.jsx"
     },
     {
@@ -10880,7 +10890,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "src_pages_games_jackcandy_screens_vila_vila",
-      "community": 78,
+      "community": 20,
       "norm_label": "vila()"
     },
     {
@@ -10950,7 +10960,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_kernelgames_bullethellrafael_bullethellrafael",
-      "community": 53,
+      "community": 98,
       "norm_label": "bullethellrafael.jsx"
     },
     {
@@ -10960,7 +10970,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "src_pages_games_kernelgames_bullethellrafael_bullethellrafael_cfg",
-      "community": 53,
+      "community": 98,
       "norm_label": "cfg"
     },
     {
@@ -10970,7 +10980,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "src_pages_games_kernelgames_bullethellrafael_bullethellrafael_hexalpha",
-      "community": 53,
+      "community": 98,
       "norm_label": "hexalpha()"
     },
     {
@@ -10980,7 +10990,7 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "src_pages_games_kernelgames_bullethellrafael_bullethellrafael_puzzlebullethellrafael",
-      "community": 53,
+      "community": 98,
       "norm_label": "puzzlebullethellrafael()"
     },
     {
@@ -10990,7 +11000,7 @@
       "source_location": "L402",
       "_origin": "ast",
       "id": "src_pages_games_kernelgames_bullethellrafael_bullethellrafael_bullethellrafael",
-      "community": 53,
+      "community": 98,
       "norm_label": "bullethellrafael()"
     },
     {
@@ -11060,7 +11070,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_kernelgames_glitchrafael_glitchrafael",
-      "community": 7,
+      "community": 53,
       "norm_label": "glitchrafael.jsx"
     },
     {
@@ -11070,7 +11080,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "src_pages_games_kernelgames_glitchrafael_glitchrafael_cfg",
-      "community": 7,
+      "community": 53,
       "norm_label": "cfg"
     },
     {
@@ -11080,7 +11090,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "src_pages_games_kernelgames_glitchrafael_glitchrafael_pick",
-      "community": 7,
+      "community": 53,
       "norm_label": "pick()"
     },
     {
@@ -11090,7 +11100,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "src_pages_games_kernelgames_glitchrafael_glitchrafael_puzzleglitchrafael",
-      "community": 7,
+      "community": 53,
       "norm_label": "puzzleglitchrafael()"
     },
     {
@@ -11100,7 +11110,7 @@
       "source_location": "L291",
       "_origin": "ast",
       "id": "src_pages_games_kernelgames_glitchrafael_glitchrafael_glitchrafael",
-      "community": 7,
+      "community": 53,
       "norm_label": "glitchrafael()"
     },
     {
@@ -12030,7 +12040,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_kernelgames_mazerafael_mazerafael",
-      "community": 7,
+      "community": 86,
       "norm_label": "mazerafael.jsx"
     },
     {
@@ -12040,7 +12050,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "src_pages_games_kernelgames_mazerafael_mazerafael_cfg",
-      "community": 7,
+      "community": 86,
       "norm_label": "cfg"
     },
     {
@@ -12050,7 +12060,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "src_pages_games_kernelgames_mazerafael_mazerafael_msgs_ok",
-      "community": 7,
+      "community": 86,
       "norm_label": "msgs_ok"
     },
     {
@@ -12060,7 +12070,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "src_pages_games_kernelgames_mazerafael_mazerafael_msgs_fail",
-      "community": 7,
+      "community": 86,
       "norm_label": "msgs_fail"
     },
     {
@@ -12070,7 +12080,7 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "src_pages_games_kernelgames_mazerafael_mazerafael_shufflearr",
-      "community": 7,
+      "community": 86,
       "norm_label": "shufflearr()"
     },
     {
@@ -12080,7 +12090,7 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "src_pages_games_kernelgames_mazerafael_mazerafael_opposite",
-      "community": 7,
+      "community": 86,
       "norm_label": "opposite()"
     },
     {
@@ -12090,7 +12100,7 @@
       "source_location": "L36",
       "_origin": "ast",
       "id": "src_pages_games_kernelgames_mazerafael_mazerafael_hexalpha",
-      "community": 7,
+      "community": 86,
       "norm_label": "hexalpha()"
     },
     {
@@ -12100,7 +12110,7 @@
       "source_location": "L43",
       "_origin": "ast",
       "id": "src_pages_games_kernelgames_mazerafael_mazerafael_puzzlemazerafael",
-      "community": 7,
+      "community": 86,
       "norm_label": "puzzlemazerafael()"
     },
     {
@@ -12110,7 +12120,7 @@
       "source_location": "L575",
       "_origin": "ast",
       "id": "src_pages_games_kernelgames_mazerafael_mazerafael_mazerafael",
-      "community": 7,
+      "community": 86,
       "norm_label": "mazerafael()"
     },
     {
@@ -12120,7 +12130,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_kernelgames_slidingrafael_slidingrafael",
-      "community": 7,
+      "community": 23,
       "norm_label": "slidingrafael.jsx"
     },
     {
@@ -12130,7 +12140,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "src_pages_games_kernelgames_slidingrafael_slidingrafael_cfg",
-      "community": 7,
+      "community": 23,
       "norm_label": "cfg"
     },
     {
@@ -12140,7 +12150,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "src_pages_games_kernelgames_slidingrafael_slidingrafael_getneighbors",
-      "community": 7,
+      "community": 23,
       "norm_label": "getneighbors()"
     },
     {
@@ -12150,7 +12160,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "src_pages_games_kernelgames_slidingrafael_slidingrafael_generateboard",
-      "community": 7,
+      "community": 23,
       "norm_label": "generateboard()"
     },
     {
@@ -12160,7 +12170,7 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "src_pages_games_kernelgames_slidingrafael_slidingrafael_issolved",
-      "community": 7,
+      "community": 23,
       "norm_label": "issolved()"
     },
     {
@@ -12170,7 +12180,7 @@
       "source_location": "L49",
       "_origin": "ast",
       "id": "src_pages_games_kernelgames_slidingrafael_slidingrafael_puzzleslidingrafael",
-      "community": 7,
+      "community": 23,
       "norm_label": "puzzleslidingrafael()"
     },
     {
@@ -12180,7 +12190,7 @@
       "source_location": "L279",
       "_origin": "ast",
       "id": "src_pages_games_kernelgames_slidingrafael_slidingrafael_slidingrafael",
-      "community": 7,
+      "community": 23,
       "norm_label": "slidingrafael()"
     },
     {
@@ -12190,7 +12200,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_kernelgames_stabilizerrafael_stabilizerrafael",
-      "community": 7,
+      "community": 53,
       "norm_label": "stabilizerrafael.jsx"
     },
     {
@@ -12200,7 +12210,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "src_pages_games_kernelgames_stabilizerrafael_stabilizerrafael_cfg",
-      "community": 7,
+      "community": 53,
       "norm_label": "cfg"
     },
     {
@@ -12210,7 +12220,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "src_pages_games_kernelgames_stabilizerrafael_stabilizerrafael_msgs_ok",
-      "community": 7,
+      "community": 53,
       "norm_label": "msgs_ok"
     },
     {
@@ -12220,7 +12230,7 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "src_pages_games_kernelgames_stabilizerrafael_stabilizerrafael_msgs_fail",
-      "community": 7,
+      "community": 53,
       "norm_label": "msgs_fail"
     },
     {
@@ -12230,7 +12240,7 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "src_pages_games_kernelgames_stabilizerrafael_stabilizerrafael_pick",
-      "community": 7,
+      "community": 53,
       "norm_label": "pick()"
     },
     {
@@ -12240,7 +12250,7 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "src_pages_games_kernelgames_stabilizerrafael_stabilizerrafael_puzzlestabilizerrafael",
-      "community": 7,
+      "community": 53,
       "norm_label": "puzzlestabilizerrafael()"
     },
     {
@@ -12250,7 +12260,7 @@
       "source_location": "L338",
       "_origin": "ast",
       "id": "src_pages_games_kernelgames_stabilizerrafael_stabilizerrafael_stabilizerrafael",
-      "community": 7,
+      "community": 53,
       "norm_label": "stabilizerrafael()"
     },
     {
@@ -12260,7 +12270,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_kernelgames_shared_userafaeli18n",
-      "community": 7,
+      "community": 53,
       "norm_label": "userafaeli18n.js"
     },
     {
@@ -12270,7 +12280,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "src_pages_games_kernelgames_shared_userafaeli18n_cache",
-      "community": 7,
+      "community": 53,
       "norm_label": "cache"
     },
     {
@@ -12280,7 +12290,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "src_pages_games_kernelgames_shared_userafaeli18n_getnested",
-      "community": 7,
+      "community": 53,
       "norm_label": "getnested()"
     },
     {
@@ -12290,7 +12300,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "src_pages_games_kernelgames_shared_userafaeli18n_userafaeli18n",
-      "community": 7,
+      "community": 53,
       "norm_label": "userafaeli18n()"
     },
     {
@@ -12300,7 +12310,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_ldi_clues",
-      "community": 53,
+      "community": 38,
       "norm_label": "clues.jsx"
     },
     {
@@ -12310,7 +12320,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "src_pages_games_ldi_clues_clues",
-      "community": 53,
+      "community": 38,
       "norm_label": "clues()"
     },
     {
@@ -12320,7 +12330,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_ldi_combat",
-      "community": 53,
+      "community": 38,
       "norm_label": "combat.jsx"
     },
     {
@@ -12330,7 +12340,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_pages_games_ldi_combat_combat",
-      "community": 53,
+      "community": 38,
       "norm_label": "combat()"
     },
     {
@@ -12340,7 +12350,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_ldi_create",
-      "community": 15,
+      "community": 55,
       "norm_label": "create.jsx"
     },
     {
@@ -12350,7 +12360,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "src_pages_games_ldi_create_create",
-      "community": 15,
+      "community": 67,
       "norm_label": "create()"
     },
     {
@@ -12360,7 +12370,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_ldi_end",
-      "community": 53,
+      "community": 38,
       "norm_label": "end.jsx"
     },
     {
@@ -12370,7 +12380,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "src_pages_games_ldi_end_end_messages",
-      "community": 53,
+      "community": 38,
       "norm_label": "end_messages"
     },
     {
@@ -12380,7 +12390,7 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "src_pages_games_ldi_end_achievements",
-      "community": 53,
+      "community": 38,
       "norm_label": "achievements"
     },
     {
@@ -12390,7 +12400,7 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "src_pages_games_ldi_end_end",
-      "community": 53,
+      "community": 38,
       "norm_label": "end()"
     },
     {
@@ -12400,7 +12410,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_ldi_game",
-      "community": 53,
+      "community": 38,
       "norm_label": "game.jsx"
     },
     {
@@ -12410,7 +12420,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "src_pages_games_ldi_game_attr_keys",
-      "community": 53,
+      "community": 38,
       "norm_label": "attr_keys"
     },
     {
@@ -12420,7 +12430,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "src_pages_games_ldi_game_game",
-      "community": 53,
+      "community": 38,
       "norm_label": "game()"
     },
     {
@@ -12470,7 +12480,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_ldi_puzzlepage",
-      "community": 53,
+      "community": 38,
       "norm_label": "puzzlepage.jsx"
     },
     {
@@ -12480,7 +12490,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "src_pages_games_ldi_puzzlepage_puzzle_map",
-      "community": 53,
+      "community": 38,
       "norm_label": "puzzle_map"
     },
     {
@@ -12490,7 +12500,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "src_pages_games_ldi_puzzlepage_puzzlepage",
-      "community": 53,
+      "community": 38,
       "norm_label": "puzzlepage()"
     },
     {
@@ -12500,7 +12510,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_ldi_sheet",
-      "community": 53,
+      "community": 38,
       "norm_label": "sheet.jsx"
     },
     {
@@ -12510,7 +12520,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "src_pages_games_ldi_sheet_sheet",
-      "community": 53,
+      "community": 38,
       "norm_label": "sheet()"
     },
     {
@@ -12600,7 +12610,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_ldi_components_cluebook",
-      "community": 53,
+      "community": 38,
       "norm_label": "cluebook.jsx"
     },
     {
@@ -12610,7 +12620,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "src_pages_games_ldi_components_cluebook_cluebook",
-      "community": 53,
+      "community": 38,
       "norm_label": "cluebook()"
     },
     {
@@ -12770,7 +12780,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_ldi_components_manualdrawer",
-      "community": 53,
+      "community": 38,
       "norm_label": "manualdrawer.jsx"
     },
     {
@@ -12780,7 +12790,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "src_pages_games_ldi_components_manualdrawer_drawer",
-      "community": 53,
+      "community": 38,
       "norm_label": "drawer"
     },
     {
@@ -12790,7 +12800,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "src_pages_games_ldi_components_manualdrawer_manualdrawer",
-      "community": 53,
+      "community": 38,
       "norm_label": "manualdrawer()"
     },
     {
@@ -13090,7 +13100,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_ldi_data_characterdata",
-      "community": 15,
+      "community": 67,
       "norm_label": "characterdata.js"
     },
     {
@@ -13100,7 +13110,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_ldi_data_characterdata_attr_tooltips",
-      "community": 15,
+      "community": 67,
       "norm_label": "attr_tooltips"
     },
     {
@@ -13110,7 +13120,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "src_pages_games_ldi_data_characterdata_advantages",
-      "community": 15,
+      "community": 67,
       "norm_label": "advantages"
     },
     {
@@ -13120,7 +13130,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "src_pages_games_ldi_data_characterdata_disadvantages",
-      "community": 15,
+      "community": 67,
       "norm_label": "disadvantages"
     },
     {
@@ -13130,7 +13140,7 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "src_pages_games_ldi_data_characterdata_perks",
-      "community": 15,
+      "community": 67,
       "norm_label": "perks"
     },
     {
@@ -13140,7 +13150,7 @@
       "source_location": "L42",
       "_origin": "ast",
       "id": "src_pages_games_ldi_data_characterdata_specializations",
-      "community": 15,
+      "community": 67,
       "norm_label": "specializations"
     },
     {
@@ -13550,7 +13560,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "src_pages_games_ldi_store_usecombatstore_usecombatstore",
-      "community": 53,
+      "community": 38,
       "norm_label": "usecombatstore"
     },
     {
@@ -13600,7 +13610,7 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "src_pages_games_ldi_store_usegamestore_usegamestore",
-      "community": 53,
+      "community": 38,
       "norm_label": "usegamestore"
     },
     {
@@ -13610,7 +13620,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_minigames_minigames",
-      "community": 15,
+      "community": 90,
       "norm_label": "minigames.jsx"
     },
     {
@@ -13620,7 +13630,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "src_pages_games_minigames_minigames_games",
-      "community": 15,
+      "community": 90,
       "norm_label": "games"
     },
     {
@@ -13630,7 +13640,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "src_pages_games_minigames_minigames_stealth_config",
-      "community": 15,
+      "community": 90,
       "norm_label": "stealth_config"
     },
     {
@@ -13640,7 +13650,7 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "src_pages_games_minigames_minigames_formattempo",
-      "community": 15,
+      "community": 90,
       "norm_label": "formattempo()"
     },
     {
@@ -13650,7 +13660,7 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "src_pages_games_minigames_minigames_minigames",
-      "community": 15,
+      "community": 90,
       "norm_label": "minigames()"
     },
     {
@@ -13660,7 +13670,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_minigames_version",
-      "community": 31,
+      "community": 21,
       "norm_label": "version.js"
     },
     {
@@ -13670,7 +13680,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_multiplayerlobby_multiplayerlobby",
-      "community": 53,
+      "community": 34,
       "norm_label": "multiplayerlobby.jsx"
     },
     {
@@ -13680,7 +13690,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "src_pages_games_multiplayerlobby_multiplayerlobby_multiplayerlobby",
-      "community": 53,
+      "community": 34,
       "norm_label": "multiplayerlobby()"
     },
     {
@@ -13900,7 +13910,7 @@
       "source_location": "L844",
       "_origin": "ast",
       "id": "src_pages_games_pesadeloparticular_pp_pp",
-      "community": 53,
+      "community": 32,
       "norm_label": "pp()"
     },
     {
@@ -14340,7 +14350,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_pesadeloparticular_screens_resolucao",
-      "community": 15,
+      "community": 9,
       "norm_label": "resolucao.jsx"
     },
     {
@@ -14350,7 +14360,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "src_pages_games_pesadeloparticular_screens_resolucao_resolucao",
-      "community": 15,
+      "community": 9,
       "norm_label": "resolucao()"
     },
     {
@@ -14410,7 +14420,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_tamagoshi_components_balloonfala",
-      "community": 19,
+      "community": 47,
       "norm_label": "balloonfala.jsx"
     },
     {
@@ -14420,7 +14430,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "src_pages_games_tamagoshi_components_balloonfala_balloonfala",
-      "community": 19,
+      "community": 47,
       "norm_label": "balloonfala()"
     },
     {
@@ -14430,7 +14440,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_tamagoshi_components_cooldowntimer",
-      "community": 98,
+      "community": 32,
       "norm_label": "cooldowntimer.jsx"
     },
     {
@@ -14440,7 +14450,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "src_pages_games_tamagoshi_components_cooldowntimer_cooldowntimer",
-      "community": 98,
+      "community": 32,
       "norm_label": "cooldowntimer()"
     },
     {
@@ -14490,7 +14500,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_tamagoshi_components_metricbar",
-      "community": 19,
+      "community": 47,
       "norm_label": "metricbar.jsx"
     },
     {
@@ -14500,7 +14510,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "src_pages_games_tamagoshi_components_metricbar_metricbar",
-      "community": 19,
+      "community": 47,
       "norm_label": "metricbar()"
     },
     {
@@ -14510,7 +14520,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_tamagoshi_data_criaturas",
-      "community": 44,
+      "community": 40,
       "norm_label": "criaturas.js"
     },
     {
@@ -14520,7 +14530,7 @@
       "source_location": "L111",
       "_origin": "ast",
       "id": "src_pages_games_tamagoshi_data_criaturas_sprite_1",
-      "community": 44,
+      "community": 40,
       "norm_label": "sprite_1"
     },
     {
@@ -14530,7 +14540,7 @@
       "source_location": "L127",
       "_origin": "ast",
       "id": "src_pages_games_tamagoshi_data_criaturas_sprite_2",
-      "community": 44,
+      "community": 40,
       "norm_label": "sprite_2"
     },
     {
@@ -14540,7 +14550,7 @@
       "source_location": "L143",
       "_origin": "ast",
       "id": "src_pages_games_tamagoshi_data_criaturas_sprite_3",
-      "community": 44,
+      "community": 40,
       "norm_label": "sprite_3"
     },
     {
@@ -14550,7 +14560,7 @@
       "source_location": "L159",
       "_origin": "ast",
       "id": "src_pages_games_tamagoshi_data_criaturas_sprite_4",
-      "community": 44,
+      "community": 40,
       "norm_label": "sprite_4"
     },
     {
@@ -14560,7 +14570,7 @@
       "source_location": "L175",
       "_origin": "ast",
       "id": "src_pages_games_tamagoshi_data_criaturas_sprite_5",
-      "community": 44,
+      "community": 40,
       "norm_label": "sprite_5"
     },
     {
@@ -14570,7 +14580,7 @@
       "source_location": "L191",
       "_origin": "ast",
       "id": "src_pages_games_tamagoshi_data_criaturas_sprite_6",
-      "community": 44,
+      "community": 40,
       "norm_label": "sprite_6"
     },
     {
@@ -14580,7 +14590,7 @@
       "source_location": "L207",
       "_origin": "ast",
       "id": "src_pages_games_tamagoshi_data_criaturas_sprite_7",
-      "community": 44,
+      "community": 40,
       "norm_label": "sprite_7"
     },
     {
@@ -14590,7 +14600,7 @@
       "source_location": "L223",
       "_origin": "ast",
       "id": "src_pages_games_tamagoshi_data_criaturas_sprite_8",
-      "community": 44,
+      "community": 40,
       "norm_label": "sprite_8"
     },
     {
@@ -14600,7 +14610,7 @@
       "source_location": "L239",
       "_origin": "ast",
       "id": "src_pages_games_tamagoshi_data_criaturas_sprite_9",
-      "community": 44,
+      "community": 40,
       "norm_label": "sprite_9"
     },
     {
@@ -14610,7 +14620,7 @@
       "source_location": "L255",
       "_origin": "ast",
       "id": "src_pages_games_tamagoshi_data_criaturas_sprite_10",
-      "community": 44,
+      "community": 40,
       "norm_label": "sprite_10"
     },
     {
@@ -14620,7 +14630,7 @@
       "source_location": "L272",
       "_origin": "ast",
       "id": "src_pages_games_tamagoshi_data_criaturas_criaturas_base",
-      "community": 44,
+      "community": 40,
       "norm_label": "criaturas_base"
     },
     {
@@ -14630,7 +14640,7 @@
       "source_location": "L315",
       "_origin": "ast",
       "id": "src_pages_games_tamagoshi_data_criaturas_sprite_map",
-      "community": 44,
+      "community": 40,
       "norm_label": "sprite_map"
     },
     {
@@ -14680,7 +14690,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_tamagoshi_data_falas_criatura_en",
-      "community": 30,
+      "community": 47,
       "norm_label": "falas-criatura-en.js"
     },
     {
@@ -14690,7 +14700,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_tamagoshi_data_falas_criatura_en_falas_criatura",
-      "community": 30,
+      "community": 47,
       "norm_label": "falas_criatura"
     },
     {
@@ -14700,7 +14710,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_tamagoshi_data_falas_criatura_es",
-      "community": 30,
+      "community": 47,
       "norm_label": "falas-criatura-es.js"
     },
     {
@@ -14710,7 +14720,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_tamagoshi_data_falas_criatura_es_falas_criatura",
-      "community": 30,
+      "community": 47,
       "norm_label": "falas_criatura"
     },
     {
@@ -14720,7 +14730,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_tamagoshi_data_falas_criatura_pt",
-      "community": 30,
+      "community": 47,
       "norm_label": "falas-criatura-pt.js"
     },
     {
@@ -14730,7 +14740,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_tamagoshi_data_falas_criatura_pt_falas_criatura",
-      "community": 30,
+      "community": 47,
       "norm_label": "falas_criatura"
     },
     {
@@ -14830,7 +14840,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_tamagoshi_data_passeios",
-      "community": 30,
+      "community": 47,
       "norm_label": "passeios.js"
     },
     {
@@ -14840,7 +14850,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_tamagoshi_data_passeios_passeios",
-      "community": 30,
+      "community": 47,
       "norm_label": "passeios"
     },
     {
@@ -14850,7 +14860,7 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "src_pages_games_tamagoshi_data_passeios_passeio_key_map",
-      "community": 30,
+      "community": 47,
       "norm_label": "passeio_key_map"
     },
     {
@@ -14860,7 +14870,7 @@
       "source_location": "L55",
       "_origin": "ast",
       "id": "src_pages_games_tamagoshi_data_passeios_getpasseio",
-      "community": 30,
+      "community": 47,
       "norm_label": "getpasseio()"
     },
     {
@@ -14870,7 +14880,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_tamagoshi_data_personalidades",
-      "community": 30,
+      "community": 47,
       "norm_label": "personalidades.js"
     },
     {
@@ -14890,7 +14900,7 @@
       "source_location": "L82",
       "_origin": "ast",
       "id": "src_pages_games_tamagoshi_data_personalidades_pers_nome_key",
-      "community": 30,
+      "community": 47,
       "norm_label": "pers_nome_key"
     },
     {
@@ -14900,7 +14910,7 @@
       "source_location": "L95",
       "_origin": "ast",
       "id": "src_pages_games_tamagoshi_data_personalidades_falas_map",
-      "community": 30,
+      "community": 47,
       "norm_label": "falas_map"
     },
     {
@@ -14910,7 +14920,7 @@
       "source_location": "L97",
       "_origin": "ast",
       "id": "src_pages_games_tamagoshi_data_personalidades_getfala",
-      "community": 98,
+      "community": 47,
       "norm_label": "getfala()"
     },
     {
@@ -14950,7 +14960,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "src_pages_games_tamagoshi_screens_banhar_banhar",
-      "community": 40,
+      "community": 47,
       "norm_label": "banhar()"
     },
     {
@@ -14960,7 +14970,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_tamagoshi_screens_brincadeira",
-      "community": 98,
+      "community": 40,
       "norm_label": "brincadeira.jsx"
     },
     {
@@ -14970,7 +14980,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "src_pages_games_tamagoshi_screens_brincadeira_puzzles",
-      "community": 98,
+      "community": 40,
       "norm_label": "puzzles"
     },
     {
@@ -14980,7 +14990,7 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "src_pages_games_tamagoshi_screens_brincadeira_getconfig",
-      "community": 98,
+      "community": 40,
       "norm_label": "getconfig()"
     },
     {
@@ -14990,7 +15000,7 @@
       "source_location": "L43",
       "_origin": "ast",
       "id": "src_pages_games_tamagoshi_screens_brincadeira_brincadeira",
-      "community": 98,
+      "community": 47,
       "norm_label": "brincadeira()"
     },
     {
@@ -15000,7 +15010,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_tamagoshi_screens_criatura",
-      "community": 19,
+      "community": 47,
       "norm_label": "criatura.jsx"
     },
     {
@@ -15010,7 +15020,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "src_pages_games_tamagoshi_screens_criatura_criatura",
-      "community": 19,
+      "community": 47,
       "norm_label": "criatura()"
     },
     {
@@ -15020,7 +15030,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_tamagoshi_screens_gacha",
-      "community": 30,
+      "community": 47,
       "norm_label": "gacha.jsx"
     },
     {
@@ -15030,7 +15040,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "src_pages_games_tamagoshi_screens_gacha_criaturas_t1_gacha",
-      "community": 30,
+      "community": 47,
       "norm_label": "criaturas_t1_gacha"
     },
     {
@@ -15040,7 +15050,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_pages_games_tamagoshi_screens_gacha_sorteart1",
-      "community": 30,
+      "community": 47,
       "norm_label": "sorteart1()"
     },
     {
@@ -15050,7 +15060,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "src_pages_games_tamagoshi_screens_gacha_gacha",
-      "community": 30,
+      "community": 47,
       "norm_label": "gacha()"
     },
     {
@@ -15080,7 +15090,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_tamagoshi_screens_luto",
-      "community": 98,
+      "community": 47,
       "norm_label": "luto.jsx"
     },
     {
@@ -15090,7 +15100,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "src_pages_games_tamagoshi_screens_luto_luto",
-      "community": 98,
+      "community": 47,
       "norm_label": "luto()"
     },
     {
@@ -15100,7 +15110,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_tamagoshi_screens_ovo",
-      "community": 47,
+      "community": 32,
       "norm_label": "ovo.jsx"
     },
     {
@@ -15110,7 +15120,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "src_pages_games_tamagoshi_screens_ovo_ovo",
-      "community": 47,
+      "community": 32,
       "norm_label": "ovo()"
     },
     {
@@ -15150,7 +15160,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_tamagoshi_screens_passear",
-      "community": 47,
+      "community": 90,
       "norm_label": "passear.jsx"
     },
     {
@@ -15160,7 +15170,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_pages_games_tamagoshi_screens_passear_getvidas",
-      "community": 47,
+      "community": 90,
       "norm_label": "getvidas()"
     },
     {
@@ -15180,7 +15190,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_tamagoshi_screens_passeio",
-      "community": 30,
+      "community": 47,
       "norm_label": "passeio.jsx"
     },
     {
@@ -15190,7 +15200,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "src_pages_games_tamagoshi_screens_passeio_passeio",
-      "community": 30,
+      "community": 47,
       "norm_label": "passeio()"
     },
     {
@@ -15200,7 +15210,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_tamagoshi_screens_restaurarsaude",
-      "community": 108,
+      "community": 40,
       "norm_label": "restaurarsaude.jsx"
     },
     {
@@ -15210,7 +15220,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "src_pages_games_tamagoshi_screens_restaurarsaude_acoes",
-      "community": 108,
+      "community": 40,
       "norm_label": "acoes"
     },
     {
@@ -15220,7 +15230,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "src_pages_games_tamagoshi_screens_restaurarsaude_itens_saude",
-      "community": 108,
+      "community": 40,
       "norm_label": "itens_saude"
     },
     {
@@ -15230,7 +15240,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_pages_games_tamagoshi_screens_restaurarsaude_item_emoji",
-      "community": 108,
+      "community": 40,
       "norm_label": "item_emoji"
     },
     {
@@ -15240,7 +15250,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "src_pages_games_tamagoshi_screens_restaurarsaude_gerarparticulas",
-      "community": 108,
+      "community": 40,
       "norm_label": "gerarparticulas()"
     },
     {
@@ -15250,7 +15260,7 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "src_pages_games_tamagoshi_screens_restaurarsaude_gerarbolhas",
-      "community": 108,
+      "community": 40,
       "norm_label": "gerarbolhas()"
     },
     {
@@ -15260,7 +15270,7 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "src_pages_games_tamagoshi_screens_restaurarsaude_restaurarsaude",
-      "community": 108,
+      "community": 40,
       "norm_label": "restaurarsaude()"
     },
     {
@@ -15590,7 +15600,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_toptrumps_components_burstparticles_burstparticles",
-      "community": 86,
+      "community": 19,
       "norm_label": "burstparticles.jsx"
     },
     {
@@ -15600,7 +15610,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "src_pages_games_toptrumps_components_burstparticles_burstparticles_burstparticles",
-      "community": 86,
+      "community": 19,
       "norm_label": "burstparticles()"
     },
     {
@@ -15610,7 +15620,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_toptrumps_components_cardviewermodal_cardviewermodal",
-      "community": 21,
+      "community": 112,
       "norm_label": "cardviewermodal.jsx"
     },
     {
@@ -15620,7 +15630,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "src_pages_games_toptrumps_components_cardviewermodal_cardviewermodal_attr_keys",
-      "community": 21,
+      "community": 112,
       "norm_label": "attr_keys"
     },
     {
@@ -15630,7 +15640,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "src_pages_games_toptrumps_components_cardviewermodal_cardviewermodal_cardviewermodal",
-      "community": 21,
+      "community": 112,
       "norm_label": "cardviewermodal()"
     },
     {
@@ -15760,7 +15770,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_toptrumps_components_gameoverscreen_gameoverscreen",
-      "community": 31,
+      "community": 21,
       "norm_label": "gameoverscreen.jsx"
     },
     {
@@ -15770,7 +15780,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "src_pages_games_toptrumps_components_gameoverscreen_gameoverscreen_gameoverscreen",
-      "community": 31,
+      "community": 21,
       "norm_label": "gameoverscreen()"
     },
     {
@@ -15820,7 +15830,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_toptrumps_components_resultscreen_resultscreen",
-      "community": 86,
+      "community": 19,
       "norm_label": "resultscreen.jsx"
     },
     {
@@ -15830,7 +15840,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "src_pages_games_toptrumps_components_resultscreen_resultscreen_resultscreen",
-      "community": 86,
+      "community": 19,
       "norm_label": "resultscreen()"
     },
     {
@@ -15990,7 +16000,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_toptrumps_hooks_usegameeffects",
-      "community": 15,
+      "community": 23,
       "norm_label": "usegameeffects.js"
     },
     {
@@ -16000,7 +16010,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "src_pages_games_toptrumps_hooks_usegameeffects_onomatopeias",
-      "community": 15,
+      "community": 23,
       "norm_label": "onomatopeias"
     },
     {
@@ -16060,7 +16070,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_toptrumps_hooks_usetoptrumpsdeck",
-      "community": 59,
+      "community": 30,
       "norm_label": "usetoptrumpsdeck.js"
     },
     {
@@ -16070,7 +16080,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "src_pages_games_toptrumps_hooks_usetoptrumpsdeck_embaralhar",
-      "community": 59,
+      "community": 30,
       "norm_label": "embaralhar()"
     },
     {
@@ -16080,7 +16090,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "src_pages_games_toptrumps_hooks_usetoptrumpsdeck_usetoptrumpsdeck",
-      "community": 59,
+      "community": 30,
       "norm_label": "usetoptrumpsdeck()"
     },
     {
@@ -16090,7 +16100,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_toptrumps_hooks_usetoptrumpsrewards",
-      "community": 59,
+      "community": 30,
       "norm_label": "usetoptrumpsrewards.js"
     },
     {
@@ -16100,7 +16110,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "src_pages_games_toptrumps_hooks_usetoptrumpsrewards_gettierinicial",
-      "community": 59,
+      "community": 30,
       "norm_label": "gettierinicial()"
     },
     {
@@ -16110,7 +16120,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "src_pages_games_toptrumps_hooks_usetoptrumpsrewards_getdeckkey",
-      "community": 59,
+      "community": 30,
       "norm_label": "getdeckkey()"
     },
     {
@@ -16120,7 +16130,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "src_pages_games_toptrumps_hooks_usetoptrumpsrewards_usetoptrumpsrewards",
-      "community": 59,
+      "community": 30,
       "norm_label": "usetoptrumpsrewards()"
     },
     {
@@ -16590,7 +16600,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_data_poderes",
-      "community": 80,
+      "community": 50,
       "norm_label": "poderes.js"
     },
     {
@@ -16600,7 +16610,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_data_poderes_poderes_base",
-      "community": 80,
+      "community": 50,
       "norm_label": "poderes_base"
     },
     {
@@ -16610,7 +16620,7 @@
       "source_location": "L64",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_data_poderes_getpoderesporid",
-      "community": 80,
+      "community": 50,
       "norm_label": "getpoderesporid()"
     },
     {
@@ -16620,7 +16630,7 @@
       "source_location": "L68",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_data_poderes_getpoderesdisponiveis",
-      "community": 80,
+      "community": 50,
       "norm_label": "getpoderesdisponiveis()"
     },
     {
@@ -16630,7 +16640,7 @@
       "source_location": "L73",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_data_poderes_tempoderdisponivel",
-      "community": 80,
+      "community": 50,
       "norm_label": "tempoderdisponivel()"
     },
     {
@@ -16880,7 +16890,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai",
-      "community": 42,
+      "community": 84,
       "norm_label": "ai.js"
     },
     {
@@ -16890,7 +16900,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_decidiracaoia",
-      "community": 42,
+      "community": 84,
       "norm_label": "decidiracaoia()"
     },
     {
@@ -16900,7 +16910,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_index",
-      "community": 42,
+      "community": 80,
       "norm_label": "index.js"
     },
     {
@@ -16910,7 +16920,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_index_personalidades",
-      "community": 42,
+      "community": 80,
       "norm_label": "personalidades"
     },
     {
@@ -16920,7 +16930,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_index_executarpersonalidade",
-      "community": 42,
+      "community": 80,
       "norm_label": "executarpersonalidade()"
     },
     {
@@ -16990,7 +17000,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_personalidades_index",
-      "community": 84,
+      "community": 80,
       "norm_label": "index.js"
     },
     {
@@ -17000,7 +17010,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_personalidades_index_personalidades_ia",
-      "community": 84,
+      "community": 80,
       "norm_label": "personalidades_ia"
     },
     {
@@ -17010,7 +17020,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_personalidades_index_getpersonalidadeporid",
-      "community": 84,
+      "community": 80,
       "norm_label": "getpersonalidadeporid()"
     },
     {
@@ -17080,7 +17090,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_personalidades_sanguinaria",
-      "community": 42,
+      "community": 80,
       "norm_label": "sanguinaria.js"
     },
     {
@@ -17090,7 +17100,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_personalidades_sanguinaria_melhorpoderparaataque",
-      "community": 42,
+      "community": 80,
       "norm_label": "melhorpoderparaataque()"
     },
     {
@@ -17100,7 +17110,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_personalidades_sanguinaria_inimigomaisproximo",
-      "community": 42,
+      "community": 80,
       "norm_label": "inimigomaisproximo()"
     },
     {
@@ -17110,7 +17120,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_personalidades_sanguinaria_podeatacaralvo",
-      "community": 42,
+      "community": 80,
       "norm_label": "podeatacaralvo()"
     },
     {
@@ -17120,7 +17130,7 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_personalidades_sanguinaria_resolverataqueia",
-      "community": 42,
+      "community": 80,
       "norm_label": "resolverataqueia()"
     },
     {
@@ -17130,7 +17140,7 @@
       "source_location": "L43",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_personalidades_sanguinaria_calcularpassos",
-      "community": 42,
+      "community": 80,
       "norm_label": "calcularpassos()"
     },
     {
@@ -17140,7 +17150,7 @@
       "source_location": "L64",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_personalidades_sanguinaria_acaosanguinaria",
-      "community": 42,
+      "community": 80,
       "norm_label": "acaosanguinaria()"
     },
     {
@@ -17270,7 +17280,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_animations_attack_index_attackanimid",
-      "community": 36,
+      "community": 85,
       "norm_label": "attackanimid"
     },
     {
@@ -17300,7 +17310,7 @@
       "source_location": "L32",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_animations_attack_index_rangeanimid",
-      "community": 36,
+      "community": 85,
       "norm_label": "rangeanimid"
     },
     {
@@ -18020,7 +18030,7 @@
       "source_location": "L159",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_audiomanager_audiomanager_error",
-      "community": 33,
+      "community": 55,
       "norm_label": ".error()"
     },
     {
@@ -18280,7 +18290,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_combat",
-      "community": 50,
+      "community": 84,
       "norm_label": "combat.js"
     },
     {
@@ -18290,7 +18300,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_combat_calcularfa",
-      "community": 50,
+      "community": 84,
       "norm_label": "calcularfa()"
     },
     {
@@ -18300,7 +18310,7 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_combat_calcularfd",
-      "community": 50,
+      "community": 84,
       "norm_label": "calcularfd()"
     },
     {
@@ -18310,7 +18320,7 @@
       "source_location": "L57",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_combat_resolverataque",
-      "community": 50,
+      "community": 84,
       "norm_label": "resolverataque()"
     },
     {
@@ -18320,7 +18330,7 @@
       "source_location": "L129",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_combat_resolvercontraataque",
-      "community": 50,
+      "community": 84,
       "norm_label": "resolvercontraataque()"
     },
     {
@@ -18330,7 +18340,7 @@
       "source_location": "L153",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_combat_rolard6",
-      "community": 50,
+      "community": 84,
       "norm_label": "rolard6()"
     },
     {
@@ -18370,7 +18380,7 @@
       "source_location": "L189",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_combat_getchanceacerto",
-      "community": 42,
+      "community": 80,
       "norm_label": "getchanceacerto()"
     },
     {
@@ -18620,7 +18630,7 @@
       "source_location": "L261",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_hexutils_encontrarcaminho",
-      "community": 42,
+      "community": 80,
       "norm_label": "encontrarcaminho()"
     },
     {
@@ -19190,7 +19200,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_phases_phase5banimdebug",
-      "community": 36,
+      "community": 85,
       "norm_label": "phase5banimdebug.jsx"
     },
     {
@@ -19200,7 +19210,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_phases_phase5banimdebug_tipos_animacao",
-      "community": 36,
+      "community": 85,
       "norm_label": "tipos_animacao"
     },
     {
@@ -19210,7 +19220,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_phases_phase5banimdebug_opcoes",
-      "community": 36,
+      "community": 85,
       "norm_label": "opcoes"
     },
     {
@@ -19260,7 +19270,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_prototype",
-      "community": 53,
+      "community": 38,
       "norm_label": "prototype.jsx"
     },
     {
@@ -19270,7 +19280,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_prototype_admin_emails",
-      "community": 53,
+      "community": 38,
       "norm_label": "admin_emails"
     },
     {
@@ -19280,7 +19290,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_prototype_prototypes",
-      "community": 53,
+      "community": 38,
       "norm_label": "prototypes"
     },
     {
@@ -19290,7 +19300,7 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_prototype_prototype",
-      "community": 53,
+      "community": 38,
       "norm_label": "prototype()"
     },
     {
@@ -19510,7 +19520,7 @@
       "source_location": "L142",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_makeinventory",
-      "community": 37,
+      "community": 44,
       "norm_label": "makeinventory()"
     },
     {
@@ -19550,7 +19560,7 @@
       "source_location": "L169",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_makecombatant",
-      "community": 37,
+      "community": 44,
       "norm_label": "makecombatant()"
     },
     {
@@ -19790,7 +19800,7 @@
       "source_location": "L452",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_calchp",
-      "community": 37,
+      "community": 44,
       "norm_label": "calchp()"
     },
     {
@@ -19800,7 +19810,7 @@
       "source_location": "L459",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_calcmp",
-      "community": 37,
+      "community": 44,
       "norm_label": "calcmp()"
     },
     {
@@ -19840,7 +19850,7 @@
       "source_location": "L491",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_confirmcreation",
-      "community": 37,
+      "community": 44,
       "norm_label": "confirmcreation()"
     },
     {
@@ -19880,7 +19890,7 @@
       "source_location": "L535",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_buildmainscreen",
-      "community": 37,
+      "community": 44,
       "norm_label": "buildmainscreen()"
     },
     {
@@ -19910,7 +19920,7 @@
       "source_location": "L589",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_xpneeded",
-      "community": 37,
+      "community": 44,
       "norm_label": "xpneeded()"
     },
     {
@@ -19920,7 +19930,7 @@
       "source_location": "L597",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_rendertestbuttons",
-      "community": 37,
+      "community": 44,
       "norm_label": "rendertestbuttons()"
     },
     {
@@ -19930,7 +19940,7 @@
       "source_location": "L614",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_runtest",
-      "community": 37,
+      "community": 44,
       "norm_label": "runtest()"
     },
     {
@@ -20450,7 +20460,7 @@
       "source_location": "L2135",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_defendaction",
-      "community": 37,
+      "community": 44,
       "norm_label": "defendaction()"
     },
     {
@@ -20630,7 +20640,7 @@
       "source_location": "L2445",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_totalattrpoints",
-      "community": 37,
+      "community": 44,
       "norm_label": "totalattrpoints()"
     },
     {
@@ -20640,7 +20650,7 @@
       "source_location": "L2449",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_endbattle",
-      "community": 37,
+      "community": 44,
       "norm_label": "endbattle()"
     },
     {
@@ -20830,7 +20840,7 @@
       "source_location": "L2811",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_successchance",
-      "community": 37,
+      "community": 44,
       "norm_label": "successchance()"
     },
     {
@@ -20840,7 +20850,7 @@
       "source_location": "L2817",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_successcheck",
-      "community": 37,
+      "community": 44,
       "norm_label": "successcheck()"
     },
     {
@@ -20850,7 +20860,7 @@
       "source_location": "L2821",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_givexp",
-      "community": 37,
+      "community": 44,
       "norm_label": "givexp()"
     },
     {
@@ -20860,7 +20870,7 @@
       "source_location": "L2839",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_givexpto",
-      "community": 37,
+      "community": 44,
       "norm_label": "givexpto()"
     },
     {
@@ -20870,7 +20880,7 @@
       "source_location": "L2858",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_weaponxpattrs",
-      "community": 37,
+      "community": 44,
       "norm_label": "weaponxpattrs()"
     },
     {
@@ -20880,7 +20890,7 @@
       "source_location": "L2866",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_grantbattleendxp",
-      "community": 37,
+      "community": 44,
       "norm_label": "grantbattleendxp()"
     },
     {
@@ -20920,7 +20930,7 @@
       "source_location": "L2899",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_setbattlebuttons",
-      "community": 37,
+      "community": 44,
       "norm_label": "setbattlebuttons()"
     },
     {
@@ -20930,7 +20940,7 @@
       "source_location": "L2911",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_srgrm_game_logic_showscreen",
-      "community": 37,
+      "community": 44,
       "norm_label": "showscreen()"
     },
     {
@@ -20990,7 +21000,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_platform_admin",
-      "community": 33,
+      "community": 55,
       "norm_label": "admin.jsx"
     },
     {
@@ -21010,7 +21020,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_platform_assinar",
-      "community": 55,
+      "community": 73,
       "norm_label": "assinar.jsx"
     },
     {
@@ -21020,7 +21030,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "src_pages_platform_assinar_assinar",
-      "community": 55,
+      "community": 73,
       "norm_label": "assinar()"
     },
     {
@@ -21030,7 +21040,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_platform_cadastro",
-      "community": 33,
+      "community": 55,
       "norm_label": "cadastro.jsx"
     },
     {
@@ -21040,7 +21050,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "src_pages_platform_cadastro_cadastro",
-      "community": 33,
+      "community": 55,
       "norm_label": "cadastro()"
     },
     {
@@ -21090,7 +21100,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_platform_login",
-      "community": 194,
+      "community": 39,
       "norm_label": "login.jsx"
     },
     {
@@ -21100,7 +21110,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "src_pages_platform_login_login",
-      "community": 194,
+      "community": 39,
       "norm_label": "login()"
     },
     {
@@ -21110,7 +21120,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_platform_perfil_perfil",
-      "community": 73,
+      "community": 61,
       "norm_label": "perfil.jsx"
     },
     {
@@ -21120,7 +21130,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "src_pages_platform_perfil_perfil_tier_config",
-      "community": 73,
+      "community": 61,
       "norm_label": "tier_config"
     },
     {
@@ -21130,7 +21140,7 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "src_pages_platform_perfil_perfil_secoes",
-      "community": 73,
+      "community": 61,
       "norm_label": "secoes"
     },
     {
@@ -21140,7 +21150,7 @@
       "source_location": "L32",
       "_origin": "ast",
       "id": "src_pages_platform_perfil_perfil_perfil",
-      "community": 73,
+      "community": 61,
       "norm_label": "perfil()"
     },
     {
@@ -21150,7 +21160,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_platform_perfil_perfilprogresso",
-      "community": 73,
+      "community": 61,
       "norm_label": "perfilprogresso.jsx"
     },
     {
@@ -21160,7 +21170,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "src_pages_platform_perfil_perfilprogresso_timeago",
-      "community": 73,
+      "community": 61,
       "norm_label": "timeago()"
     },
     {
@@ -21170,7 +21180,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "src_pages_platform_perfil_perfilprogresso_iconeportipo",
-      "community": 73,
+      "community": 61,
       "norm_label": "iconeportipo()"
     },
     {
@@ -21180,7 +21190,7 @@
       "source_location": "L42",
       "_origin": "ast",
       "id": "src_pages_platform_perfil_perfilprogresso_perfilprogresso",
-      "community": 73,
+      "community": 61,
       "norm_label": "perfilprogresso()"
     },
     {
@@ -21190,7 +21200,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_platform_perfil_abas_perfilcolecao",
-      "community": 21,
+      "community": 112,
       "norm_label": "perfilcolecao.jsx"
     },
     {
@@ -21200,7 +21210,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "src_pages_platform_perfil_abas_perfilcolecao_perfilcolecao",
-      "community": 21,
+      "community": 112,
       "norm_label": "perfilcolecao()"
     },
     {
@@ -21210,7 +21220,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_platform_perfil_abas_perfilconquistas",
-      "community": 73,
+      "community": 55,
       "norm_label": "perfilconquistas.jsx"
     },
     {
@@ -21220,7 +21230,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "src_pages_platform_perfil_abas_perfilconquistas_perfilconquistas",
-      "community": 73,
+      "community": 61,
       "norm_label": "perfilconquistas()"
     },
     {
@@ -21230,7 +21240,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_platform_perfil_abas_perfilconta",
-      "community": 55,
+      "community": 73,
       "norm_label": "perfilconta.jsx"
     },
     {
@@ -21240,7 +21250,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "src_pages_platform_perfil_abas_perfilconta_calcdiasrestantes",
-      "community": 55,
+      "community": 73,
       "norm_label": "calcdiasrestantes()"
     },
     {
@@ -21250,7 +21260,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "src_pages_platform_perfil_abas_perfilconta_getstatuslabel",
-      "community": 55,
+      "community": 73,
       "norm_label": "getstatuslabel()"
     },
     {
@@ -21260,7 +21270,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "src_pages_platform_perfil_abas_perfilconta_getstatusclass",
-      "community": 55,
+      "community": 73,
       "norm_label": "getstatusclass()"
     },
     {
@@ -21270,7 +21280,7 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "src_pages_platform_perfil_abas_perfilconta_perfilconta",
-      "community": 55,
+      "community": 73,
       "norm_label": "perfilconta()"
     },
     {
@@ -21280,7 +21290,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_platform_perfil_abas_perfilgangues",
-      "community": 73,
+      "community": 61,
       "norm_label": "perfilgangues.jsx"
     },
     {
@@ -21290,7 +21300,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "src_pages_platform_perfil_abas_perfilgangues_perfilgangues",
-      "community": 73,
+      "community": 61,
       "norm_label": "perfilgangues()"
     },
     {
@@ -21340,7 +21350,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_platform_perfil_abas_recompensas",
-      "community": 73,
+      "community": 61,
       "norm_label": "recompensas.jsx"
     },
     {
@@ -21350,7 +21360,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "src_pages_platform_perfil_abas_recompensas_motivo_key_map",
-      "community": 73,
+      "community": 61,
       "norm_label": "motivo_key_map"
     },
     {
@@ -21360,7 +21370,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "src_pages_platform_perfil_abas_recompensas_recompensas",
-      "community": 73,
+      "community": 61,
       "norm_label": "recompensas()"
     },
     {
@@ -21840,7 +21850,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_paridade_exata",
-      "community": 31,
+      "community": 60,
       "norm_label": "paridade-exata.mjs"
     },
     {
@@ -21850,7 +21860,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "tests_paridade_exata_calcatkpower",
-      "community": 31,
+      "community": 60,
       "norm_label": "calcatkpower()"
     },
     {
@@ -21860,7 +21870,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "tests_paridade_exata_calcdefpower",
-      "community": 31,
+      "community": 60,
       "norm_label": "calcdefpower()"
     },
     {
@@ -21870,7 +21880,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "tests_paridade_exata_getterrainmods",
-      "community": 31,
+      "community": 60,
       "norm_label": "getterrainmods()"
     },
     {
@@ -21880,7 +21890,7 @@
       "source_location": "L37",
       "_origin": "ast",
       "id": "tests_paridade_exata_calcatkwithterrain",
-      "community": 31,
+      "community": 60,
       "norm_label": "calcatkwithterrain()"
     },
     {
@@ -21890,7 +21900,7 @@
       "source_location": "L50",
       "_origin": "ast",
       "id": "tests_paridade_exata_calcdefwithterrain",
-      "community": 31,
+      "community": 60,
       "norm_label": "calcdefwithterrain()"
     },
     {
@@ -21900,7 +21910,7 @@
       "source_location": "L65",
       "_origin": "ast",
       "id": "tests_paridade_exata_cardatk",
-      "community": 31,
+      "community": 60,
       "norm_label": "cardatk()"
     },
     {
@@ -21910,7 +21920,7 @@
       "source_location": "L66",
       "_origin": "ast",
       "id": "tests_paridade_exata_carddef",
-      "community": 31,
+      "community": 60,
       "norm_label": "carddef()"
     },
     {
@@ -21920,7 +21930,7 @@
       "source_location": "L70",
       "_origin": "ast",
       "id": "tests_paridade_exata_test",
-      "community": 31,
+      "community": 60,
       "norm_label": "test()"
     },
     {
@@ -21930,7 +21940,7 @@
       "source_location": "L75",
       "_origin": "ast",
       "id": "tests_paridade_exata_eq",
-      "community": 31,
+      "community": 60,
       "norm_label": "eq()"
     },
     {
@@ -31817,7 +31827,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/prerender-routes.js",
-      "source_location": "L168",
+      "source_location": "L177",
       "weight": 1.0,
       "source": "scripts_prerender_routes",
       "target": "scripts_prerender_routes_homeroute",
@@ -31837,10 +31847,20 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/prerender-routes.js",
-      "source_location": "L165",
+      "source_location": "L174",
       "weight": 1.0,
       "source": "scripts_prerender_routes",
       "target": "scripts_prerender_routes_indexhtml",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L143",
+      "weight": 1.0,
+      "source": "scripts_prerender_routes",
+      "target": "scripts_prerender_routes_inlinecriticalcss",
       "confidence_score": 1.0
     },
     {
@@ -31887,7 +31907,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/prerender-routes.js",
-      "source_location": "L149",
+      "source_location": "L158",
       "weight": 1.0,
       "source": "scripts_prerender_routes",
       "target": "scripts_prerender_routes_redirecthtml",
@@ -31937,7 +31957,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/prerender-routes.js",
-      "source_location": "L176",
+      "source_location": "L185",
       "weight": 1.0,
       "source": "scripts_prerender_routes",
       "target": "scripts_prerender_routes_sitemap",
@@ -31947,7 +31967,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/prerender-routes.js",
-      "source_location": "L154",
+      "source_location": "L163",
       "weight": 1.0,
       "source": "scripts_prerender_routes",
       "target": "scripts_prerender_routes_sitemapxml",
@@ -31967,7 +31987,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "scripts/prerender-routes.js",
-      "source_location": "L143",
+      "source_location": "L152",
       "weight": 1.0,
       "source": "scripts_prerender_routes",
       "target": "scripts_prerender_routes_writeroute",
@@ -32022,10 +32042,21 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "scripts/prerender-routes.js",
-      "source_location": "L156",
+      "source_location": "L165",
       "weight": 1.0,
       "source": "scripts_prerender_routes_sitemapxml",
       "target": "scripts_prerender_routes_canonicalurl",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L144",
+      "weight": 1.0,
+      "source": "scripts_prerender_routes_inlinecriticalcss",
+      "target": "scripts_prerender_routes_replace",
       "confidence_score": 1.0
     },
     {
@@ -98609,5 +98640,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "98f3869da6abef67a1132242f08bc3b199462c40"
+  "built_at_commit": "fcbc53dbbb7afd0b74079b06588a12e6276630ed"
 }
