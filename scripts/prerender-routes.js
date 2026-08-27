@@ -124,7 +124,7 @@ function pageHtml(baseHtml, route) {
   let html = baseHtml
   html = replace(html, /<title>[\s\S]*?<\/title>/i, `<title>${title}</title>`)
   html = replace(html, /<meta name="description" content="[^"]*">/i, `<meta name="description" content="${description}">`)
-  if (!route.indexable) html = replace(html, /<meta name="robots" content="[^"]*">/i, '<meta name="robots" content="noindex, follow">')
+  if (route.indexable === false) html = replace(html, /<meta name="robots" content="[^"]*">/i, '<meta name="robots" content="noindex, follow">')
   html = replace(html, /<link rel="canonical" href="[^"]*">/i, `<link rel="canonical" href="${url}">`)
   html = replace(html, /<meta property="og:url" content="[^"]*">/i, `<meta property="og:url" content="${url}">`)
   html = replace(html, /<meta property="og:title" content="[^"]*">/i, `<meta property="og:title" content="${title}">`)
