@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — MAPA DO SITE E DO PROJETO
 
 > Referência do estado atual do projeto para navegação humana e contexto de IA.
-> Atualizado em 2026-08-26 — `SITE_VERSION` **10.198.22**.
+> Atualizado em 2026-08-27 — `SITE_VERSION` **10.198.23**.
 > Histórico de tarefas, bugfixes e pendências não pertence a este documento.
 > Regras de trabalho, arquivos proibidos e decisões arquiteturais: `AGENTS.md`.
 
@@ -46,7 +46,7 @@ ReaderProvider
                                 └── App
 ```
 
-Componentes montados globalmente por `App.jsx`: `ScrollToTopOnNav`, `Navbar`, `SearchModal`, `TrialBanner`, `Footer`, `ScrollToTop`, `LDINotification`, `NinaMusicPlayer`, `UnifiedNotification` e `CookieBanner`. O `readerMode` oculta Navbar, TrialBanner e Footer durante leitura.
+Componentes montados globalmente por `App.jsx`: `AnalyticsTracker`, `ScrollToTopOnNav`, `Navbar`, `SearchModal`, `TrialBanner`, `Footer`, `ScrollToTop`, `LDINotification`, `NinaMusicPlayer`, `UnifiedNotification` e `CookieBanner`. `AnalyticsTracker` registra cliques, submits e profundidade de scroll sem capturar valores digitados; o `readerMode` oculta Navbar, TrialBanner e Footer durante leitura.
 
 ## 3. Rotas atuais
 
@@ -177,7 +177,7 @@ Cada jogo mantém componentes, dados, hooks/engine e store próprios dentro de s
 | `src/lib/supabase.js` | Cliente Supabase |
 | `src/lib/stripe.js` | Checkout, cancelamento e preços |
 | `src/lib/notificationManager.js` | Fila central de notificações |
-| `src/lib/analytics.js` | Eventos e pageviews de navegação SPA enviados ao Google Analytics |
+| `src/lib/analytics.js` | Consent Mode, identidade pseudônima, propriedades de usuário, eventos e pageviews SPA enviados ao Google Analytics |
 | `src/lib/profileProvisioning.js` | Provisionamento idempotente de `profiles` a partir do usuário autenticado e metadata |
 | `src/lib/sfx.js` | Efeitos sonoros globais |
 | `src/lib/topTrumpsCardImages.js` | Resolução central das artes Top Trumps |
@@ -281,7 +281,7 @@ Fonte única: `src/config/version.js`. Esta tabela registra somente a identifica
 
 | Constante | Módulo | Versão |
 |---|---|---:|
-| `SITE_VERSION` | Site global | **10.198.22** |
+| `SITE_VERSION` | Site global | **10.198.23** |
 | `PP_VERSION` | Pesadelo Particular | 2.3.1 |
 | `LDI_VERSION` | Lendas do LDI | 2.0.1 |
 | `JACK_VERSION` | Jack Dream Beer | 5.3.2 |

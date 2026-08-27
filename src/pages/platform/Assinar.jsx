@@ -6,6 +6,7 @@ import { useAuth } from '../../context/AuthContext'
 import { iniciarCheckout, getPriceDisplay } from '../../lib/stripe'
 import { LAUNCH_DATE, ADMIN_EMAILS } from '../../config/launch'
 import planos from '../../data/planos.json'
+import { trackEvent } from '../../lib/analytics'
 import './Assinar.css'
 
 export default function Assinar() {
@@ -22,20 +23,31 @@ export default function Assinar() {
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search)
-    if (params.get('sucesso')) setFeedback({ tipo: 'sucesso', tier: params.get('tier') })
-    if (params.get('cancelado')) setFeedback({ tipo: 'cancelado' })
+    if (params.get('sucesso')) {
+      const tier = params.get('tier')
+      setFeedback({ tipo: 'sucesso', tier })
+      trackEvent('subscription_checkout_return', { checkout_status: 'success', tier: tier || 'unknown' })
+    }
+    if (params.get('cancelado')) {
+      setFeedback({ tipo: 'cancelado' })
+      trackEvent('checkout_cancel', { transaction_type: 'subscription' })
+    }
   }, [])
 
   async function handleAssinar(tier) {
+    trackEvent('select_plan', { tier, current_tier: perfil?.tier || 'guest', placement: 'pricing_page' })
     if (!user) {
+      trackEvent('subscription_login_required', { tier })
       navigate('/login?redirect=/assinar')
       return
     }
     if (perfil?.tier === tier) return
     setLoadingTier(tier)
     try {
+      trackEvent('begin_checkout', { transaction_type: 'subscription', tier })
       await iniciarCheckout(tier)
     } catch (err) {
+      trackEvent('checkout_error', { transaction_type: 'subscription', tier, error_type: 'checkout_session' })
       console.error('[ASSINAR] erro checkout:', err)
       setFeedback({ tipo: 'erro', mensagem: err.message })
     } finally {
@@ -149,6 +161,8 @@ export default function Assinar() {
                     </span>
                   ) : (
                     <button
+                      data-analytics-id={`subscribe_${p.id}`}
+                      data-analytics-component="pricing_card"
                       onClick={() => handleAssinar(p.id.toUpperCase())}
                       disabled={loadingTier === p.id.toUpperCase() || perfil?.tier === p.id.toUpperCase()}
                       className={`assinar-card__cta${isDestaque ? ' assinar-card__cta--filled' : ' assinar-card__cta--outline'}`}

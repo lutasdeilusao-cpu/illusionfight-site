@@ -219,8 +219,10 @@
   "217": "particles.js",
   "218": "12. O TIME",
   "219": "17. RISCOS E OPORTUNIDADES IDENTIFICADOS",
+  "220": "levelProgression.js",
   "221": "SEASON1_30_CARDS.md",
   "222": "08_universe_pitch.md",
+  "223": "Vila.jsx",
   "224": "capitulo-01.md",
   "225": "capitulo-02.md",
   "226": "capitulo-03.md",
@@ -233,6 +235,7 @@
   "233": "capitulo-04.md",
   "234": "capitulo-05.md",
   "235": "capitulo-06.md",
+  "236": "renderSkillPanel",
   "237": "GDD.md",
   "238": "IasLDITatics.md",
   "239": "RefactoryBattleLDITatics.md",
@@ -254,5 +257,11 @@
   "255": "capitulo-13.md",
   "256": "capitulo-14.md",
   "257": "capitulo-15.md",
-  "258": "capitulo-16.md"
+  "258": "capitulo-16.md",
+  "259": "t",
+  "260": "MazeRafael.jsx",
+  "261": "ResultCard.jsx",
+  "262": "PowerCard.jsx",
+  "263": "BLOCO B — LINKEDIN PESSOAL ISAIAS",
+  "264": "TypewriterPhrase.jsx"
 }

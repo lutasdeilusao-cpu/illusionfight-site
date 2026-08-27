@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useLanguage } from '../context/LanguageContext'
+import { trackEvent, updateAnalyticsConsent } from '../lib/analytics'
 import './CookieBanner.css'
 
 export default function CookieBanner() {
@@ -13,6 +14,8 @@ export default function CookieBanner() {
 
   const handleAccept = () => {
     localStorage.setItem('ldi-cookies-accepted', 'true')
+    updateAnalyticsConsent(true)
+    trackEvent('analytics_consent_granted', { consent_source: 'cookie_banner' })
     setVisible(false)
   }
 
@@ -23,7 +26,7 @@ export default function CookieBanner() {
       <p className="cookie-banner-text">
         {t('cookie.text')}
       </p>
-      <button className="cookie-banner-btn" onClick={handleAccept}>
+      <button className="cookie-banner-btn" data-analytics-id="cookie_accept" onClick={handleAccept}>
         {t('cookie.accept')}
       </button>
     </div>

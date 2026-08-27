@@ -8,6 +8,7 @@ import { iniciarCheckoutLoja } from '../../../lib/stripe'
 import ProdutoDigitalCard from '../../../components/ProdutoDigitalCard/ProdutoDigitalCard'
 import produtos from '../../../data/produtos.json'
 import produtosDigitais from '../../../data/loja-digital.json'
+import { trackEvent } from '../../../lib/analytics'
 import './Loja.css'
 
 export default function Loja() {
@@ -30,10 +31,17 @@ export default function Loja() {
   }, [user])
 
   const handleComprarDigital = async (produto) => {
-    if (!user) { navigate('/login?redirect=/loja'); return }
+    trackEvent('select_item', { item_id: produto.id, item_category: 'digital' })
+    if (!user) {
+      trackEvent('store_login_required', { item_id: produto.id })
+      navigate('/login?redirect=/loja')
+      return
+    }
     try {
+      trackEvent('begin_checkout', { transaction_type: 'store', item_id: produto.id })
       await iniciarCheckoutLoja(produto.id)
     } catch (err) {
+      trackEvent('checkout_error', { transaction_type: 'store', item_id: produto.id, error_type: 'checkout_session' })
       console.error('[LOJA] erro ao comprar:', err)
     }
   }

@@ -160,8 +160,8 @@
     "semantic_hash": "510a9ffca88eb0789eeddb9fe4d08d87"
   },
   "src/App.jsx": {
-    "mtime": 1787761089.0751069,
-    "ast_hash": "71825cf7cffce0f4c0e4147dc5032df6",
+    "mtime": 1787852555.6578555,
+    "ast_hash": "adf8f50e0284551d93978e4f50e144f2",
     "semantic_hash": ""
   },
   "src/components/AchievementToast/AchievementToast.jsx": {
@@ -190,9 +190,9 @@
     "semantic_hash": "33a498cc9f60b34e013fb340738052bc"
   },
   "src/components/CookieBanner.jsx": {
-    "mtime": 1780854470.8614626,
-    "ast_hash": "a936cd5ef33ebe6bbfd31095e013a470",
-    "semantic_hash": "a936cd5ef33ebe6bbfd31095e013a470"
+    "mtime": 1787852555.6548302,
+    "ast_hash": "4ff62070e6b6d791742e545166fbc033",
+    "semantic_hash": ""
   },
   "src/components/FichaGateRoute/FichaGateRoute.jsx": {
     "mtime": 1785776366.1156547,
@@ -410,8 +410,8 @@
     "semantic_hash": "b11265c546f5970b719233c19e1b2c2d"
   },
   "src/config/version.js": {
-    "mtime": 1787769332.0102024,
-    "ast_hash": "a8cafec4e539b6b431e6cc848c2db318",
+    "mtime": 1787852476.0466855,
+    "ast_hash": "de2d8146e429e17ede657d5f79be9527",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2275,9 +2275,9 @@
     "semantic_hash": "b5a913fac0e288f5c2cb4d52bd142485"
   },
   "src/pages/platform/Assinar.jsx": {
-    "mtime": 1782449306.7390957,
-    "ast_hash": "5c2d91c9043a14f1c9300b89a2b59803",
-    "semantic_hash": "5c2d91c9043a14f1c9300b89a2b59803"
+    "mtime": 1787852555.6578555,
+    "ast_hash": "b9ea0b2f58ddd03b8b1a56ce63ba1877",
+    "semantic_hash": ""
   },
   "src/pages/platform/Cadastro.jsx": {
     "mtime": 1787762043.4932296,
@@ -2290,8 +2290,8 @@
     "semantic_hash": ""
   },
   "src/pages/platform/Login.jsx": {
-    "mtime": 1787761245.8756704,
-    "ast_hash": "eae686da7e9396b18e0653aa7eab12f9",
+    "mtime": 1787852555.6588602,
+    "ast_hash": "77ead713c32def704aaf9cd3f7c795a5",
     "semantic_hash": ""
   },
   "src/pages/platform/Perfil/Perfil.jsx": {
@@ -2345,9 +2345,9 @@
     "semantic_hash": "7ed24bbfdab8cdb20c872c88510653d5"
   },
   "src/pages/site/Loja/Loja.jsx": {
-    "mtime": 1782447845.2348819,
-    "ast_hash": "216412bf8b25eb675babc59431206f19",
-    "semantic_hash": "216412bf8b25eb675babc59431206f19"
+    "mtime": 1787852555.6588602,
+    "ast_hash": "3c4ae840092961ecc181322879433220",
+    "semantic_hash": ""
   },
   "src/pages/site/NotFound/NotFound.jsx": {
     "mtime": 1782447787.453087,
@@ -2835,8 +2835,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1787769338.2781887,
-    "ast_hash": "b5ab2995e5112a17eb7809b485b04a01",
+    "mtime": 1787852476.0492015,
+    "ast_hash": "c6e6066dfc75b6343d33baeb8fae84ce",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3175,8 +3175,8 @@
     "semantic_hash": ""
   },
   "index.html": {
-    "mtime": 1787761089.0741014,
-    "ast_hash": "2db9cfcb66eebc985287364b1ced8ca6",
+    "mtime": 1787852555.652825,
+    "ast_hash": "926ec02df877824e5002cd857bf0c168",
     "semantic_hash": ""
   },
   "public/404.html": {
@@ -3680,8 +3680,8 @@
     "semantic_hash": ""
   },
   "src/lib/analytics.js": {
-    "mtime": 1787761089.0741014,
-    "ast_hash": "8a88edede26cd6724ef0636493e1507a",
+    "mtime": 1787852555.6538303,
+    "ast_hash": "1b45d9ad45d43e136b35fc0391e2892f",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/engine/ganguesSpecialEffects.js": {
@@ -3712,6 +3712,11 @@
   "supabase/migrations/028_auth_profile_provisioning.sql": {
     "mtime": 1787763479.0248654,
     "ast_hash": "b0878a854c728617fd81f1868a514646",
+    "semantic_hash": ""
+  },
+  "src/components/AnalyticsTracker.jsx": {
+    "mtime": 1787852555.6563349,
+    "ast_hash": "c2a031465f67ebd3cbf02b2c87b815e8",
     "semantic_hash": ""
   }
 }

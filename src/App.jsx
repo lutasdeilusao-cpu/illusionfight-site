@@ -12,6 +12,7 @@ import NinaMusicPlayer from './components/NinaMusicPlayer/NinaMusicPlayer'
 import CookieBanner from './components/CookieBanner'
 import SearchModal from './components/SearchModal/SearchModal'
 import UnifiedNotification from './components/UnifiedNotification/UnifiedNotification'
+import AnalyticsTracker from './components/AnalyticsTracker'
 import LoginGate from './components/LoginGate/LoginGate'
 import FichaGateRoute from './components/FichaGateRoute/FichaGateRoute'
 import Home from './pages/site/Home'
@@ -94,6 +95,7 @@ export default function App() {
   return (
     <>
       <AnalyticsPageView />
+      <AnalyticsTracker />
       <ScrollToTopOnNav />
       <Navbar hidden={readerMode} onSearchOpen={() => setSearchOpen(true)} />
       <SearchModal open={searchOpen} onClose={() => setSearchOpen(false)} />
