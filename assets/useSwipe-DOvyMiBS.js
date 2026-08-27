@@ -1,2 +1,0 @@
-import{n as e,s as t}from"./jsx-runtime-BseJUIpC.js";var n=t(e(),1);function r({onSwipeLeft:e,onSwipeRight:t,threshold:r=50}){let i=(0,n.useRef)(null),a=(0,n.useRef)(null);function o(e){i.current=e.clientX,a.current=e.clientY}function s(n){if(i.current===null)return;let o=n.clientX-i.current,s=n.clientY-a.current;Math.abs(o)<Math.abs(s)||(o<-r&&e&&e(),o>r&&t&&t(),i.current=null,a.current=null)}return{onPointerDown:o,onPointerUp:s}}export{r as t};
-//# sourceMappingURL=useSwipe-DOvyMiBS.js.map
