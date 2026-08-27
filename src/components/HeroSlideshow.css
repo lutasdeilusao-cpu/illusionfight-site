@@ -39,6 +39,7 @@
   position: absolute;
   inset: -5%; /* overscroll to avoid edge gaps during parallax */
   width: 110%;
+  max-width: none;
   height: 110%;
   object-fit: cover;
   object-position: center;
