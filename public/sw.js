@@ -2,8 +2,8 @@ self.addEventListener('push', (event) => {
   const data = event.data.json()
   self.registration.showNotification(data.title, {
     body: data.body,
-    icon: '/favicon.svg',
-    badge: '/favicon.svg',
+    icon: '/favicon-ldi.png',
+    badge: '/favicon-ldi.png',
     tag: 'tamagoshi',
     renotify: true,
     data: { url: data.url },

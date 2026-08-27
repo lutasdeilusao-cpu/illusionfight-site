@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — MAPA DO SITE E DO PROJETO
 
 > Referência do estado atual do projeto para navegação humana e contexto de IA.
-> Atualizado em 2026-08-27 — `SITE_VERSION` **10.198.29**.
+> Atualizado em 2026-08-27 — `SITE_VERSION` **10.198.30**.
 > Histórico de tarefas, bugfixes e pendências não pertence a este documento.
 > Regras de trabalho, arquivos proibidos e decisões arquiteturais: `AGENTS.md`.
 
@@ -30,6 +30,8 @@
 | `public/sitemap.xml` | Sitemap público para buscadores; não confundir com este documento |
 | `public/_redirects` | Normalização de URLs públicas |
 | `public/CNAME` | Domínio oficial |
+| `public/manifest.webmanifest` | Instalação PWA e abertura fullscreen/standalone em dispositivos compatíveis |
+| `public/sw.js` | Service worker usado pelas notificações e pelo contexto instalável |
 
 Ordem dos providers em `src/main.jsx`:
 
@@ -262,6 +264,7 @@ As Edge Functions ficam em `supabase/functions/`; o frontend de assinatura está
 - Existem entradas SEO legadas sob `public/*/index.html`; a saída final autoritativa é regenerada em `dist/` pelo prerender.
 - `public/sitemap.xml` lista URLs indexáveis; rotas privadas, internas e de laboratório não devem ser tratadas como páginas SEO só por existirem na SPA.
 - Deploy: `npm run build`, commit/push da fonte e `npm run deploy` para publicar `dist/` em `gh-pages`.
+- O portal pode ser instalado como PWA no Android. Quando aberto pelo ícone instalado, solicita `fullscreen`, com fallback para `standalone`; uma aba comum do navegador não pode esconder suas barras automaticamente.
 
 ## 10. Camadas visuais globais
 
@@ -283,7 +286,7 @@ Fonte única: `src/config/version.js`. Esta tabela registra somente a identifica
 
 | Constante | Módulo | Versão |
 |---|---|---:|
-| `SITE_VERSION` | Site global | **10.198.29** |
+| `SITE_VERSION` | Site global | **10.198.30** |
 | `PP_VERSION` | Pesadelo Particular | 2.3.1 |
 | `LDI_VERSION` | Lendas do LDI | 2.0.1 |
 | `JACK_VERSION` | Jack Dream Beer | 5.3.2 |
