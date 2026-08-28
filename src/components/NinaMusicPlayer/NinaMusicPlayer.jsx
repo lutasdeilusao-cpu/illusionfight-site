@@ -2,31 +2,35 @@ import { useState, useEffect, useRef, useCallback } from 'react'
 import { useLocation } from 'react-router-dom'
 import { useLanguage } from '../../context/LanguageContext'
 import ninaImg from '../../assets/images/characters/nina-balloon.png'
+import playlistConfig from '../../data/nina-playlist.json'
 import './NinaMusicPlayer.css'
 
-const PLAYLIST_ID = 'PLVAkPvJrHsPZHSvAvGxpiT-yWgyx_qRfK'
-const ADMIN_EMAILS = ['isaiasgamedev@gmail.com', 'gramikgames@gmail.com']
+const { base: SONGS_BASE, excluir: EXCLUIR = [], titulos: TITULOS = {} } = playlistConfig
 
-let youtubeApiReady = false
-const readyListeners = []
-window.onYouTubeIframeAPIReady = () => {
-  youtubeApiReady = true
-  readyListeners.forEach(fn => fn())
-  readyListeners.length = 0
+function tituloDe(key) {
+  return TITULOS[key] || key.replace(/\.mp3$/i, '')
 }
 
-function onYoutubeApi(cb) {
-  if (youtubeApiReady) { cb() }
-  else { readyListeners.push(cb) }
+function shuffle(arr) {
+  const a = [...arr]
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[a[i], a[j]] = [a[j], a[i]]
+  }
+  return a
 }
 
-function loadYoutubeApi() {
-  if (document.querySelector('#youtube-api-script')) return
-  const tag = document.createElement('script')
-  tag.id = 'youtube-api-script'
-  tag.src = 'https://www.youtube.com/iframe_api'
-  const first = document.getElementsByTagName('script')[0]
-  first.parentNode.insertBefore(tag, first)
+async function carregarPlaylist() {
+  const res = await fetch(`${SONGS_BASE}/?list`)
+  if (!res.ok) throw new Error(`playlist ${res.status}`)
+  const { tracks } = await res.json()
+  const faixas = tracks
+    .filter(t => !EXCLUIR.includes(t.key))
+    .map(t => ({
+      url: `${SONGS_BASE}/${encodeURIComponent(t.key)}`,
+      titulo: tituloDe(t.key),
+    }))
+  return shuffle(faixas)
 }
 
 function getGreetingKey(pathname) {
@@ -38,112 +42,176 @@ function getGreetingKey(pathname) {
 /** Estado em memória: null (nunca perguntou), 'aceitou' ou 'recusou'.
  *  Reseta em qualquer F5/reload, persiste durante navegação SPA. */
 let ninaMemoryState = null
-
-function getNinaSessionState() {
-  return ninaMemoryState
-}
-function setNinaSessionState(val) {
-  ninaMemoryState = val
-}
+const getNinaSessionState = () => ninaMemoryState
+const setNinaSessionState = (val) => { ninaMemoryState = val }
 
 export default function NinaMusicPlayer() {
-  const [step, setStep] = useState('idle') // idle | balloon | player | hint
+  const [step, setStep] = useState('idle') // idle | player | hint
   const [playing, setPlaying] = useState(false)
   const [attention, setAttention] = useState(true)
   const [showHint, setShowHint] = useState(false)
   const [typedHint, setTypedHint] = useState('')
   const [hintTypingDone, setHintTypingDone] = useState(false)
-  const playerRef = useRef(null)
-  const iframeRef = useRef(null)
-  const playerReadyRef = useRef(false)
+  const [faixaAtual, setFaixaAtual] = useState('')
+
+  const audioRef = useRef(null)
+  const tracksRef = useRef([])
+  const idxRef = useRef(0)
+  const loadingRef = useRef(false)
+  const wantsPlayRef = useRef(false)
+
   const sessionState = getNinaSessionState()
   const sessionRef = useRef(sessionState !== null)
   const aceitouRef = useRef(sessionState === 'aceitou')
-  const initialShuffleRef = useRef(false)
-  const visibilityBoundRef = useRef(false)
-  // Só toca de verdade depois de um gesto do usuário (autoplay policy mobile).
-  const wantsPlayRef = useRef(false)
+
   const location = useLocation()
   const { t } = useLanguage()
   const greetingKey = getGreetingKey(location.pathname)
-  const fullHintRef = useRef('')
   const timerRef = useRef(null)
   const playingRef = useRef(false)
-
-  // Mantém playingRef sincronizado
   useEffect(() => { playingRef.current = playing }, [playing])
 
-  // Load YouTube API on mount
-  useEffect(() => { loadYoutubeApi() }, [])
+  // ── Motor de áudio ──────────────────────────────────────────────
+  const ensurePlaylist = useCallback(async () => {
+    if (tracksRef.current.length || loadingRef.current) return
+    loadingRef.current = true
+    try {
+      tracksRef.current = await carregarPlaylist()
+      idxRef.current = 0
+    } catch (err) {
+      console.warn('[NINA] falha ao carregar playlist:', err)
+    } finally {
+      loadingRef.current = false
+    }
+  }, [])
 
-  // Auto-restart se o usuário já aceitou na sessão anterior
+  const updateMediaSession = useCallback((titulo) => {
+    if (!('mediaSession' in navigator)) return
+    try {
+      navigator.mediaSession.metadata = new window.MediaMetadata({
+        title: titulo,
+        artist: 'Isaias Leal',
+        album: 'Lutas de Ilusão',
+        artwork: [{ src: ninaImg, sizes: '96x96', type: 'image/png' }],
+      })
+    } catch (_) { /* ignore */ }
+  }, [])
+
+  const tocarAtual = useCallback(async () => {
+    await ensurePlaylist()
+    const track = tracksRef.current[idxRef.current]
+    const audio = audioRef.current
+    if (!track || !audio) return
+    if (audio.src !== track.url) audio.src = track.url
+    setFaixaAtual(track.titulo)
+    updateMediaSession(track.titulo)
+    try {
+      await audio.play()
+      setPlaying(true)
+    } catch (_) {
+      setPlaying(false)
+    }
+  }, [ensurePlaylist, updateMediaSession])
+
+  const pular = useCallback((delta) => {
+    const total = tracksRef.current.length
+    if (!total) return
+    idxRef.current = (idxRef.current + delta + total) % total
+    tocarAtual()
+  }, [tocarAtual])
+
+  // Cria o <audio> uma vez e conecta os eventos
+  useEffect(() => {
+    const audio = new Audio()
+    audio.preload = 'none'
+    audioRef.current = audio
+
+    const onEnded = () => pular(1)
+    const onPlay = () => setPlaying(true)
+    const onPause = () => setPlaying(false)
+    audio.addEventListener('ended', onEnded)
+    audio.addEventListener('play', onPlay)
+    audio.addEventListener('pause', onPause)
+
+    return () => {
+      audio.removeEventListener('ended', onEnded)
+      audio.removeEventListener('play', onPlay)
+      audio.removeEventListener('pause', onPause)
+      audio.pause()
+      audio.src = ''
+      audioRef.current = null
+    }
+  }, [pular])
+
+  // MediaSession action handlers
+  useEffect(() => {
+    if (!('mediaSession' in navigator)) return
+    const ms = navigator.mediaSession
+    try {
+      ms.setActionHandler('play', () => tocarAtual())
+      ms.setActionHandler('pause', () => { audioRef.current?.pause() })
+      ms.setActionHandler('nexttrack', () => pular(1))
+      ms.setActionHandler('previoustrack', () => pular(-1))
+    } catch (_) { /* ignore */ }
+    return () => {
+      try {
+        ms.setActionHandler('play', null)
+        ms.setActionHandler('pause', null)
+        ms.setActionHandler('nexttrack', null)
+        ms.setActionHandler('previoustrack', null)
+      } catch (_) { /* ignore */ }
+    }
+  }, [tocarAtual, pular])
+
+  // Pré-carrega a playlist assim que o componente monta
+  useEffect(() => { ensurePlaylist() }, [ensurePlaylist])
+
+  // Auto-restart se o usuário já aceitou numa navegação anterior desta sessão
   useEffect(() => {
     if (aceitouRef.current) {
       wantsPlayRef.current = true
-      if (playerReadyRef.current && playerRef.current) {
-        try { playerRef.current.playVideo(); setPlaying(true) } catch (_) { /* ignore */ }
-      }
+      tocarAtual()
       setTimeout(() => setStep('player'), 200)
     }
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
-  // Mostrar balão da Nina após 30s (apenas UMA vez por sessão)
+  // Mostrar prompt da Nina após 30s (uma vez por sessão)
   useEffect(() => {
-    // Se já foi respondido nesta sessão ou já aceitou antes, não faz nada
     if (sessionRef.current || aceitouRef.current) return
-
-    // Se o player já está visível ou música tocando, não mostra prompt
     if (step === 'player') return
 
     const timer = setTimeout(() => {
-      if (sessionRef.current || aceitouRef.current) return
-      if (step === 'player') return
-
-      // Pré-cria o player agora para estar PRONTO quando o usuário clicar "sim".
-      // Em mobile o playVideo() precisa acontecer dentro do gesto do clique.
-      initPlayer()
+      if (sessionRef.current || aceitouRef.current || step === 'player') return
+      ensurePlaylist()
 
       const mensagem = t(greetingKey)
       window.__ninaPendingNotification = { mensagem, greetingKey }
 
-      // O callback será chamado pelo UnifiedNotification quando usuário responder
       if (typeof window.__ninaNotificationCb === 'function') {
         window.__ninaNotificationCb((resposta) => {
           window.__ninaPendingNotification = null
-          if (resposta) {
-            handleSim()
-          } else {
-            handleNao()
-          }
+          if (resposta) handleSim()
+          else handleNao()
         })
       }
     }, 30000)
     timerRef.current = timer
     return () => clearTimeout(timer)
-  }, [greetingKey, t, step])
+  }, [greetingKey, t, step]) // eslint-disable-line react-hooks/exhaustive-deps
 
-  // Page Visibility API — resume playback when tab becomes visible
+  // Retoma quando a aba volta a ficar visível
   useEffect(() => {
     const handleVisibility = () => {
-      if (document.visibilityState === 'visible' && playerReadyRef.current && playingRef.current) {
-        const p = playerRef.current
-        if (p && typeof p.getPlayerState === 'function') {
-          try {
-            const state = p.getPlayerState()
-            // Se o player está pausado (2) ou não iniciou (-1 / 5), retoma
-            if (state === window.YT.PlayerState.PAUSED || state === -1 || state === 5) {
-              p.playVideo()
-              console.log('[NINA] visibilidade retomada — player resumido')
-            }
-          } catch (_) { /* ignore */ }
-        }
+      if (document.visibilityState === 'visible' && playingRef.current) {
+        const audio = audioRef.current
+        if (audio && audio.paused) audio.play().catch(() => {})
       }
     }
     document.addEventListener('visibilitychange', handleVisibility)
     return () => document.removeEventListener('visibilitychange', handleVisibility)
   }, [])
 
-  // Typewriter effect for hint
+  // Typewriter da dica
   useEffect(() => {
     if (step !== 'hint' || !showHint) {
       setTypedHint('')
@@ -151,10 +219,8 @@ export default function NinaMusicPlayer() {
       return
     }
     const fullText = t('nina.playerHint')
-    fullHintRef.current = fullText
     let i = 0
     setTypedHint('')
-
     const interval = setInterval(() => {
       i++
       setTypedHint(fullText.slice(0, i))
@@ -163,85 +229,20 @@ export default function NinaMusicPlayer() {
         setHintTypingDone(true)
       }
     }, 20)
-
     return () => clearInterval(interval)
   }, [step, showHint, t])
 
-  // Attention pulse
   useEffect(() => {
     if (step !== 'player') return
     const timer = setTimeout(() => setAttention(false), 3000)
     return () => clearTimeout(timer)
   }, [step])
 
-  // Show hint for 6s
   useEffect(() => {
     if (step !== 'hint') return
     const timer = setTimeout(() => setShowHint(false), 6000)
     return () => clearTimeout(timer)
   }, [step])
-
-  // Create YouTube container outside React's tree so React never reconciles it
-  useEffect(() => {
-    const div = document.createElement('div')
-    div.id = 'nina-youtube-player'
-    div.className = 'nina-youtube-iframe'
-    document.body.appendChild(div)
-    iframeRef.current = div
-    return () => {
-      const player = playerRef.current
-      if (player && player.destroy) {
-        try { player.destroy() } catch (_) { /* ignore */ }
-      }
-      if (document.body.contains(div)) document.body.removeChild(div)
-    }
-  }, [])
-
-  const handlePlayerError = useCallback((e) => {
-    console.warn('[NINA] YouTube player error:', e)
-  }, [])
-
-  const initPlayer = useCallback(() => {
-    if (playerReadyRef.current) return
-    onYoutubeApi(() => {
-      if (playerReadyRef.current) return
-      try {
-        const player = new window.YT.Player('nina-youtube-player', {
-          height: '1', width: '1',
-          playerVars: {
-            listType: 'playlist', list: PLAYLIST_ID,
-            autoplay: 0, controls: 0, disablekb: 1,
-            fs: 0, modestbranding: 1, rel: 0, loop: 1,
-            playsinline: 1,
-            origin: window.location.origin,
-          },
-          events: {
-            onReady: () => {
-              playerReadyRef.current = true
-              player.setShuffle(true)
-              playerRef.current = player
-              // Só toca se o usuário já autorizou (clicou "sim" ou aceitou antes).
-              if (wantsPlayRef.current) {
-                try { player.playVideo(); setPlaying(true) } catch (_) { /* ignore */ }
-              }
-            },
-            onStateChange: (e) => {
-              if (e.data === window.YT.PlayerState.PLAYING && !initialShuffleRef.current) {
-                initialShuffleRef.current = true
-                const p = playerRef.current
-                setTimeout(() => {
-                  try { p.nextVideo() } catch (_) { /* ignore */ }
-                }, 500)
-              }
-            },
-            onError: handlePlayerError,
-          },
-        })
-      } catch (err) {
-        console.warn('[NINA] erro ao criar player:', err)
-      }
-    })
-  }, [handlePlayerError])
 
   const markSessionDone = useCallback((aceitou) => {
     sessionRef.current = true
@@ -253,12 +254,8 @@ export default function NinaMusicPlayer() {
     setStep('hint')
     setShowHint(true)
     markSessionDone(true)
-    // ESTAMOS dentro do gesto do clique — inicia a reprodução AGORA (mobile exige isso).
     wantsPlayRef.current = true
-    initPlayer()
-    if (playerReadyRef.current && playerRef.current) {
-      try { playerRef.current.playVideo(); setPlaying(true) } catch (_) { /* ignore */ }
-    }
+    tocarAtual() // dentro do gesto do clique — mobile exige isso
     setTimeout(() => setStep('player'), 100)
   }
 
@@ -268,64 +265,29 @@ export default function NinaMusicPlayer() {
   }
 
   const togglePlay = () => {
-    const player = playerRef.current
-    if (!player || !playerReadyRef.current) return
-    if (playing) { player.pauseVideo() } else { player.playVideo() }
-    setPlaying(!playing)
-  }
-
-  const nextTrack = () => {
-    const player = playerRef.current
-    if (!player || !playerReadyRef.current) return
-    try { player.nextVideo() } catch (_) { /* ignore */ }
-  }
-
-  const prevTrack = () => {
-    const player = playerRef.current
-    if (!player || !playerReadyRef.current) return
-    try { player.previousVideo() } catch (_) { /* ignore */ }
+    const audio = audioRef.current
+    if (!audio) return
+    if (playing) audio.pause()
+    else if (audio.src) audio.play().catch(() => {})
+    else tocarAtual()
   }
 
   const handleClose = () => {
-    const player = playerRef.current
-    if (player && playerReadyRef.current) player.pauseVideo()
+    audioRef.current?.pause()
     setPlaying(false)
     setStep('idle')
-    // Não marca session done — o player ainda existe, pode reabrir depois
   }
 
-  // Click outside balloon to close (after 2.5s)
-  useEffect(() => {
-    if (step !== 'balloon') return
-    let timer, handler
-    timer = setTimeout(() => {
-      handler = (e) => {
-        if (!e.target.closest('.nina-balloon') && !e.target.closest('.nina-player')) {
-          setStep('idle')
-        }
-      }
-      document.addEventListener('click', handler)
-    }, 2500)
-    return () => {
-      clearTimeout(timer)
-      if (handler) document.removeEventListener('click', handler)
-    }
-  }, [step])
-
-  // Proteção: avisar se algo tentar recarregar/navegar enquanto música toca
+  // Aviso se algo tentar recarregar/navegar enquanto a música toca
   useEffect(() => {
     if (!playing) return
-    const handler = (e) => {
-      e.preventDefault()
-      e.returnValue = ''
-    }
+    const handler = (e) => { e.preventDefault(); e.returnValue = '' }
     window.addEventListener('beforeunload', handler)
     return () => window.removeEventListener('beforeunload', handler)
   }, [playing])
 
   return (
     <>
-      {/* Hint after "sim" — renderizado pelo UnifiedNotification */}
       {showHint && step === 'hint' && (
         <div className="nina-balloon nina-hint">
           <img src={ninaImg} alt="Nina" className="nina-balloon-avatar" />
@@ -336,7 +298,6 @@ export default function NinaMusicPlayer() {
         </div>
       )}
 
-      {/* Music player */}
       {step === 'player' && (
         <div className={`nina-player ${attention ? 'nina-player-attention' : ''}`}>
           <button className="nina-player-close" onClick={handleClose}>×</button>
@@ -345,11 +306,12 @@ export default function NinaMusicPlayer() {
               {playing ? '♫' : '♪'}
             </span>
           </div>
-          <button className="nina-player-prev" onClick={prevTrack} title="Música anterior">⏮</button>
+          <button className="nina-player-prev" onClick={() => pular(-1)} title="Música anterior">⏮</button>
           <button className="nina-player-play" onClick={togglePlay}>
             {playing ? '⏸' : '▶'}
           </button>
-          <button className="nina-player-next" onClick={nextTrack} title="Próxima música">⏭</button>
+          <button className="nina-player-next" onClick={() => pular(1)} title="Próxima música">⏭</button>
+          {faixaAtual && <span className="nina-player-title" title={faixaAtual}>{faixaAtual}</span>}
         </div>
       )}
     </>

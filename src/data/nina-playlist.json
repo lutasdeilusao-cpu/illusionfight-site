@@ -1,0 +1,16 @@
+{
+  "base": "https://illusionfightsongs.lutasdeilusao.workers.dev",
+  "excluir": [
+    "Tudo vai passar Isaias Voz.mp3",
+    "Vilanesca (1).mp3"
+  ],
+  "titulos": {
+    "Escola pra que_ (1).mp3": "Escola pra Quê?",
+    "Vilanesca full song.mp3": "Vilanesca",
+    "Meu Lugar Anime Opening - 2.0.mp3": "Meu Lugar",
+    "Asilo Star(Pop).mp3": "Asilo Star (Pop)",
+    "Asilo Star (ROCK).mp3": "Asilo Star (Rock)",
+    "Deixa essa night rolar v2.mp3": "Deixa Essa Night Rolar (v2)",
+    "Deixa essa night rolar.mp3": "Deixa Essa Night Rolar"
+  }
+}

@@ -1,22 +1,4 @@
-/* ── YouTube iframe (praticamente invisível) ──
-   iOS/Android NÃO tocam vídeo de um iframe 0x0 ou com display:none.
-   Precisa ter tamanho real e estar no viewport — deixamos 2px num canto,
-   quase transparente e sem capturar toque. */
-.nina-youtube-iframe {
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  width: 2px;
-  height: 2px;
-  border: none;
-  opacity: 0.01;
-  pointer-events: none;
-  z-index: -1;
-}
-.nina-youtube-iframe iframe {
-  width: 2px;
-  height: 2px;
-}
+/* Player de MP3 nativo (Cloudflare R2 via Worker). Sem iframe. */
 
 /* ═══════════════════════════════════════════
    Nina WhatsApp-style Balloon
@@ -285,4 +267,20 @@
 .nina-player-next:hover {
   background: var(--accent-pink, #ff6b9d);
   color: var(--bg-primary);
+}
+
+.nina-player-title {
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+  color: var(--text-secondary, #c7c7c7);
+}
+
+@media (max-width: 480px) {
+  .nina-player-title { display: none; }
 }
