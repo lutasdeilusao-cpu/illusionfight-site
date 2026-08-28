@@ -25,6 +25,16 @@ export default function DesktopShellBar() {
 
   const fecharApp = () => {
     if (!window.confirm(t('runtime.shell_fechar_confirmar'))) return
+    // 1) comando nativo da shell (mais confiável)
+    const invoke = window.__TAURI__?.core?.invoke || window.__TAURI__?.invoke
+    if (typeof invoke === 'function') {
+      Promise.resolve(invoke('quit_app')).catch(() => fecharPelaJanela())
+      return
+    }
+    fecharPelaJanela()
+  }
+
+  const fecharPelaJanela = () => {
     const tauriWindow = window.__TAURI__?.window
     const currentWindow = tauriWindow?.getCurrentWindow?.() || tauriWindow?.getCurrent?.() || tauriWindow?.appWindow
     if (currentWindow?.close) {

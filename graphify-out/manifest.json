@@ -160,8 +160,8 @@
     "semantic_hash": "510a9ffca88eb0789eeddb9fe4d08d87"
   },
   "src/App.jsx": {
-    "mtime": 1787877273.2648568,
-    "ast_hash": "e01b36fc9224a0c7571ea37d100d2ebf",
+    "mtime": 1787878992.2364738,
+    "ast_hash": "18df72f5728ae8c9b1efd4e78e870bab",
     "semantic_hash": ""
   },
   "src/components/AchievementToast/AchievementToast.jsx": {
@@ -410,8 +410,8 @@
     "semantic_hash": "b11265c546f5970b719233c19e1b2c2d"
   },
   "src/config/version.js": {
-    "mtime": 1787878496.4906404,
-    "ast_hash": "2779232d46f905a7f028472d862c3789",
+    "mtime": 1787879066.6723952,
+    "ast_hash": "348fdacda4aa537af7ab5fa278ba2daa",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -655,13 +655,13 @@
     "semantic_hash": "04fe18f6b87b3e1315a9343353aef1fc"
   },
   "src/i18n/en.json": {
-    "mtime": 1787875681.3796122,
-    "ast_hash": "4c19e3a38db65150c2da45c36c4f5f93",
+    "mtime": 1787878944.1715147,
+    "ast_hash": "b9af2757d83c6c5959a350438782b917",
     "semantic_hash": ""
   },
   "src/i18n/es.json": {
-    "mtime": 1787875681.3806117,
-    "ast_hash": "1bd12c434d5d0f9c21f1bc1dbd6701ff",
+    "mtime": 1787878949.4282064,
+    "ast_hash": "4960f8c8a41601ca12b8d4fe02155b28",
     "semantic_hash": ""
   },
   "src/i18n/locales.js": {
@@ -685,8 +685,8 @@
     "semantic_hash": "fff728f6c525ec64a386f467142b28dc"
   },
   "src/i18n/pt.json": {
-    "mtime": 1787875681.3776128,
-    "ast_hash": "6f4d6b9b802c6d6855dc2478beaf587f",
+    "mtime": 1787878939.0933352,
+    "ast_hash": "43f1f7e6d01e0ac5440e7f817e242009",
     "semantic_hash": ""
   },
   "src/i18n/tt_en.json": {
@@ -2835,8 +2835,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1787878496.533216,
-    "ast_hash": "54f56279d3488c167bedb654e6340719",
+    "mtime": 1787879076.7871425,
+    "ast_hash": "87aa1b56f717b43347394d30e9953e3f",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3465,8 +3465,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/TopTrumps/components/GameOverScreen/GameOverScreen.jsx": {
-    "mtime": 1785612414.3633397,
-    "ast_hash": "729df65cecf7f9f50e108ecc44b33088",
+    "mtime": 1787878817.6086283,
+    "ast_hash": "367f50c4c4d0c5c27c4e8007b29b7e5c",
     "semantic_hash": ""
   },
   "src/pages/games/TopTrumps/components/GameScreen/GameScreen.jsx": {
@@ -3755,8 +3755,8 @@
     "semantic_hash": ""
   },
   "src-tauri/gen/schemas/capabilities.json": {
-    "mtime": 1787875893.4167714,
-    "ast_hash": "99914b932bd37a50b983c5e7c90ae93b",
+    "mtime": 1787879044.5128958,
+    "ast_hash": "053aa606db67777abacea8f385f6e37d",
     "semantic_hash": ""
   },
   "src-tauri/gen/schemas/desktop-schema.json": {
@@ -3775,8 +3775,8 @@
     "semantic_hash": ""
   },
   "src-tauri/tauri.conf.json": {
-    "mtime": 1787878201.735752,
-    "ast_hash": "5fdf5cb3f9c2520daa01704153eccf13",
+    "mtime": 1787878907.3070045,
+    "ast_hash": "9ea0a985e95b8b4a5ceb8dec54483739",
     "semantic_hash": ""
   },
   "src/lib/runtimePlatform.js": {
@@ -3787,6 +3787,16 @@
   "steam/README.md": {
     "mtime": 1787878491.948457,
     "ast_hash": "804d0362a3b0e2d290b7d24fd6dcc2d3",
+    "semantic_hash": ""
+  },
+  "src-tauri/capabilities/default.json": {
+    "mtime": 1787878900.6883874,
+    "ast_hash": "26957e4751bcd9bae22e0e180fc06e5b",
+    "semantic_hash": ""
+  },
+  "src/components/DesktopShellBar/DesktopShellBar.jsx": {
+    "mtime": 1787879001.860276,
+    "ast_hash": "7a1bcb3578189b3a5ab80ae5a8bb09c3",
     "semantic_hash": ""
   }
 }
