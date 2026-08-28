@@ -18,7 +18,10 @@
   },
   "runtime": {
     "steam_demo_purchases_unavailable": "Purchases are not available in this Steam Demo.",
-    "steam_demo_online_notice": "This Demo requires an internet connection."
+    "steam_demo_online_notice": "This Demo requires an internet connection.",
+    "shell_voltar_games": "Back to Games",
+    "shell_fechar": "Quit",
+    "shell_fechar_confirmar": "Quit the Illusion Fight Demo?"
   },
   "hero": {
     "title": "ILLUSION FIGHT",

@@ -72,7 +72,7 @@ export default function GameOverScreen({
         {autoReturnLabel && <p className="tt-fim-retorno">{autoReturnLabel}</p>}
         <div className="tt-fim-actions">
           <button className="tt-btn-jogar" onClick={onJogarNovamente}>{actionLabel || tt('btn_jogar_novamente')}</button>
-          {!hideBackToGames && <BackToGamesBtn to="/games/toptrumps" label={tt('menu_voltar_menu')} />}
+          {!hideBackToGames && <BackToGamesBtn to="/games" label={tt('menu_voltar_games')} />}
         </div>
       </div>
     </section>

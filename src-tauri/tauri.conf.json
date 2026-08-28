@@ -4,6 +4,7 @@
   "version": "0.1.0",
   "identifier": "com.illusionfight.steam.demo",
   "app": {
+    "withGlobalTauri": true,
     "windows": [
       {
         "label": "main",
@@ -19,7 +20,7 @@
       }
     ],
     "security": {
-      "capabilities": []
+      "capabilities": ["default"]
     }
   },
   "bundle": {

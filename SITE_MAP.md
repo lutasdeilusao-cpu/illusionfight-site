@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — MAPA DO SITE E DO PROJETO
 
 > Referência do estado atual do projeto para navegação humana e contexto de IA.
-> Atualizado em 2026-08-27 — `SITE_VERSION` **10.198.39**.
+> Atualizado em 2026-08-27 — `SITE_VERSION` **10.198.40**.
 > Histórico de tarefas, bugfixes e pendências não pertence a este documento.
 > Regras de trabalho, arquivos proibidos e decisões arquiteturais: `AGENTS.md`.
 
@@ -48,7 +48,7 @@ ReaderProvider
                                 └── App
 ```
 
-Componentes montados globalmente por `App.jsx`: `AnalyticsTracker`, `ScrollToTopOnNav`, `Navbar`, `SearchModal`, `Footer`, `TrialBanner`, `ScrollToTop`, `LDINotification`, `NinaMusicPlayer`, `UnifiedNotification` e `CookieBanner`. `AnalyticsTracker` registra cliques, submits e profundidade de scroll sem capturar valores digitados. No mobile, a Navbar é uma faixa azul-escura de 48 px, fixa e com espaçador no fluxo, mantendo o hero abaixo dela; no desktop, permanece fixa e sobreposta. O `TrialBanner` fica no fluxo normal, depois do rodapé, e só aparece quando o visitante chega ao fim da página; o `readerMode` oculta Navbar, TrialBanner e Footer durante leitura.
+Componentes montados globalmente por `App.jsx`: `AnalyticsTracker`, `ScrollToTopOnNav`, `DesktopShellBar` (só runtime steam-demo), `Navbar`, `SearchModal`, `Footer`, `TrialBanner`, `ScrollToTop`, `LDINotification`, `NinaMusicPlayer`, `UnifiedNotification` e `CookieBanner`. `AnalyticsTracker` registra cliques, submits e profundidade de scroll sem capturar valores digitados. No mobile, a Navbar é uma faixa azul-escura de 48 px, fixa e com espaçador no fluxo, mantendo o hero abaixo dela; no desktop, permanece fixa e sobreposta. O `TrialBanner` fica no fluxo normal, depois do rodapé, e só aparece quando o visitante chega ao fim da página; o `readerMode` oculta Navbar, TrialBanner e Footer durante leitura.
 
 ## 3. Rotas atuais
 
@@ -270,6 +270,7 @@ As Edge Functions ficam em `supabase/functions/`; o frontend de assinatura está
 
 | Camada | z-index |
 |---|---:|
+| DesktopShellBar (só runtime steam-demo) | 2147483647 |
 | SearchModal | 2000 |
 | AchievementToast | 1500 |
 | Navbar | 1000 |
@@ -283,8 +284,9 @@ CSS de jogos é global após importação pelo Vite: seletores devem ser limitad
 ## 11. Desktop Windows e Steam Demo
 
 - O shell Windows usa Tauri 2 em `src-tauri/` e carrega exclusivamente o portal oficial online com `client=steam-demo` e `shellVersion=0.1.0`.
-- A demo Steam usa App ID `5188520`, identificador `com.illusionfight.steam.demo` e executável `IllusionFightDemo.exe`; o Depot ID Windows continua pendente e aparece somente como `DEMO_DEPOT_ID` nos exemplos.
+- A demo Steam usa App ID `5188520`, Depot Windows `5188521`, identificador `com.illusionfight.steam.demo` e executável `IllusionFightDemo.exe`. A janela abre em tela cheia (`fullscreen: true`).
 - `src/lib/runtimePlatform.js` centraliza a detecção do cliente e preserva o contexto na sessão. No cliente Steam Demo, checkouts externos ficam indisponíveis; a experiência web permanece inalterada.
+- `DesktopShellBar` (`src/components/DesktopShellBar/`) renderiza só no runtime `steam-demo`: barra fixa no topo com "Voltar aos Games" e "Fechar" (fecha a janela via `window.__TAURI__.window`, capability `core:window:allow-close` em `src-tauri/capabilities/default.json`). É a saída de emergência do jogador — z-index máximo.
 - `npm run desktop:dev` abre o shell, `npm run desktop:build` gera o instalador e `npm run desktop:steam` prepara `steam/content/` para SteamPipe.
 - Instruções e VDFs de exemplo ficam em `steam/`; nenhuma credencial ou SDK da Steam faz parte do repositório.
 
@@ -294,7 +296,7 @@ Fonte única: `src/config/version.js`. Esta tabela registra somente a identifica
 
 | Constante | Módulo | Versão |
 |---|---|---:|
-| `SITE_VERSION` | Site global | **10.198.39** |
+| `SITE_VERSION` | Site global | **10.198.40** |
 | `PP_VERSION` | Pesadelo Particular | 2.3.1 |
 | `LDI_VERSION` | Lendas do LDI | 2.0.1 |
 | `JACK_VERSION` | Jack Dream Beer | 5.3.2 |
@@ -302,8 +304,8 @@ Fonte única: `src/config/version.js`. Esta tabela registra somente a identifica
 | `TAMA_VERSION` | Tamagoshi LDI | 3.4.1 |
 | `DUELO_VERSION` | Duelo LDI | 2.8.1 |
 | `MINIGAMES_VERSION` | MiniGames | 4.3.4 |
-| `TS_VERSION` | Top Trumps single-player | 6.0.1 |
-| `TM_VERSION` | Top Trumps multiplayer | 6.0.1 |
+| `TS_VERSION` | Top Trumps single-player | 6.0.2 |
+| `TM_VERSION` | Top Trumps multiplayer | 6.0.2 |
 | `TATICS_VERSION` | Arena LDI Tatics | 7.5.0 |
 | `SRGRM_VERSION` | SRGRM 3v3 | 3.5.0 |
 | `ARENATESTBED_VERSION` | Arena Testbed | 6.22.1 |

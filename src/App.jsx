@@ -8,6 +8,7 @@ import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
 import ScrollToTopOnNav from './components/ScrollToTopOnNav'
 import CookieBanner from './components/CookieBanner'
+import DesktopShellBar from './components/DesktopShellBar/DesktopShellBar'
 import AnalyticsTracker from './components/AnalyticsTracker'
 import LoginGate from './components/LoginGate/LoginGate'
 import FichaGateRoute from './components/FichaGateRoute/FichaGateRoute'
@@ -109,6 +110,7 @@ export default function App() {
       <AnalyticsPageView />
       <AnalyticsTracker />
       <ScrollToTopOnNav />
+      <DesktopShellBar />
       <Navbar hidden={readerMode} onSearchOpen={() => setSearchOpen(true)} />
       {searchOpen && (
         <Suspense fallback={null}>
