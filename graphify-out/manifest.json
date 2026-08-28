@@ -405,8 +405,8 @@
     "semantic_hash": "b11265c546f5970b719233c19e1b2c2d"
   },
   "src/config/version.js": {
-    "mtime": 1787943780.6825907,
-    "ast_hash": "40deab52a175f413c8b68c479f395265",
+    "mtime": 1787944647.6746843,
+    "ast_hash": "1e0e5514335ab4321a907fa60f5e0c31",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2830,8 +2830,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1787943780.7865145,
-    "ast_hash": "c201601b30edb8b8a0ece6ed5af8fb0e",
+    "mtime": 1787944647.6992216,
+    "ast_hash": "22e0aeb303078f6e5791df63408d46a2",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3820,8 +3820,8 @@
     "semantic_hash": ""
   },
   "src/components/RadioNina/RadioNina.jsx": {
-    "mtime": 1787943445.188376,
-    "ast_hash": "52ace4c2f2bea3694cdc639033d9c1ea",
+    "mtime": 1787944622.0950177,
+    "ast_hash": "82b6c0bbb20858690a997fd1a175427f",
     "semantic_hash": ""
   },
   "src/components/RadioNina/radio-nina.config.json": {
