@@ -130,7 +130,10 @@ export default function RadioNina() {
         />
       )}
 
-      <aside className={`radio-nina ${tocando ? '' : 'radio-nina--pausado'}`} style={{ '--radio-cor': cor }}>
+      <aside
+        className={`radio-nina ${tocando ? '' : 'radio-nina--pausado'} ${faixaAtual?.ad ? 'radio-nina--ad' : ''}`}
+        style={{ '--radio-cor': cor }}
+      >
         <div className="radio-nina__progresso">
           <div className="radio-nina__progresso-fill" style={{ width: `${pct}%` }} />
           <input
@@ -145,10 +148,13 @@ export default function RadioNina() {
 
         <div className="radio-nina__now">
           <span className="radio-nina__label">
-            {S.nome}<span className="radio-nina__tempo"> · {mmss(tempo)} / {mmss(duracao)}</span>
+            {faixaAtual?.ad ? S.publicidade : S.nome}
+            <span className="radio-nina__tempo"> · {mmss(tempo)} / {mmss(duracao)}</span>
           </span>
           <div className="radio-nina__marquee">
-            <span className="radio-nina__track">{faixaAtual?.titulo || '…'}</span>
+            <span className="radio-nina__track">
+              {faixaAtual?.ad ? S.publicidade : (faixaAtual?.titulo || '…')}
+            </span>
           </div>
         </div>
 

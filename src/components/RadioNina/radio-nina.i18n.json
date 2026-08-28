@@ -25,7 +25,8 @@
     "salvo": "Salvo!",
     "entre_para_salvar": "Entre na sua conta para montar e salvar sua playlist.",
     "vazia": "Marque músicas na lista para montar sua playlist.",
-    "volume": "Volume"
+    "volume": "Volume",
+    "publicidade": "Publicidade"
   },
   "en": {
     "nome": "Nina Radio",
@@ -53,7 +54,8 @@
     "salvo": "Saved!",
     "entre_para_salvar": "Sign in to build and save your playlist.",
     "vazia": "Check tracks in the list to build your playlist.",
-    "volume": "Volume"
+    "volume": "Volume",
+    "publicidade": "Advertisement"
   },
   "es": {
     "nome": "Radio Nina",
@@ -81,6 +83,7 @@
     "salvo": "¡Guardado!",
     "entre_para_salvar": "Inicia sesión para crear y guardar tu playlist.",
     "vazia": "Marca pistas en la lista para crear tu playlist.",
-    "volume": "Volumen"
+    "volume": "Volumen",
+    "publicidade": "Publicidad"
   }
 }

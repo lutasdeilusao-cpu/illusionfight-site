@@ -1,6 +1,8 @@
 {
   "base": "https://illusionfightsongs.lutasdeilusao.workers.dev",
   "cores": ["#ff6b9d", "#2ec4b6", "#f4a52b", "#a56bff", "#4d9dff", "#3ddc84"],
+  "musicas_por_ad": 2,
+  "ads_pastas": { "pt": "MaketingBR", "en": "MaketingEN", "es": "MaketingES" },
   "aberturas": {
     "pt": "Lutas de Ilusão(Opening) - Isaias Leal Music.mp3",
     "es": "Luchas de ilusión (Opening) - Isaias Leal Music.mp3",

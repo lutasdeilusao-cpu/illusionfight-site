@@ -1,18 +1,20 @@
 /**
- * songs-r2 — serve os MP3 do bucket R2 `songsillusionfight` (prefixo Songs/)
- * para o player de música do site (Nina).
+ * songs-r2 — serve o bucket R2 `songsillusionfight` para a Rádio Nina.
  *
  * Rotas:
- *   GET /            → JSON { tracks: [{ key, size, uploaded }] }  (só .mp3)
+ *   GET /            → { tracks: [{ key, size, uploaded }] }   músicas (prefixo Songs/)
  *   GET /list        → idem
- *   GET /<arquivo>.mp3        → stream do MP3 (aceita "Songs/" no caminho ou não)
- *   HEAD /<arquivo>.mp3       → metadados
+ *   GET /ads/<lang>  → { ads: [{ key, size }] }   propagandas do idioma (pt|en|es)
+ *   GET /<arquivo>.mp3           → stream (prefixo Songs/ assumido se não houver "/")
+ *   GET /MaketingBR/Propaganda-01.MP3 → stream direto (caminho com "/")
+ *   HEAD ...         → metadados
  *   OPTIONS *        → preflight CORS
  *
- * Binding necessário no Worker: R2 bucket  →  variável `BUCKET`  →  bucket `songsillusionfight`
+ * Binding: R2 bucket  →  variável `BUCKET`  →  bucket `songsillusionfight`
  */
 
-const PREFIX = 'Songs/'
+const SONGS_PREFIX = 'Songs/'
+const AD_FOLDERS = { pt: 'MaketingBR/', en: 'MaketingEN/', es: 'MaketingES/' }
 
 const CORS = {
   'Access-Control-Allow-Origin': '*',
@@ -20,6 +22,18 @@ const CORS = {
   'Access-Control-Allow-Headers': 'Range, Content-Type',
   'Access-Control-Expose-Headers': 'Content-Length, Content-Range, Accept-Ranges, ETag',
   'Access-Control-Max-Age': '86400',
+}
+
+const json = (data) => new Response(JSON.stringify(data, null, 2), {
+  headers: { ...CORS, 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'public, max-age=300' },
+})
+
+async function listarMp3(env, prefix) {
+  const listed = await env.BUCKET.list({ prefix })
+  return listed.objects
+    .filter(o => o.key.toLowerCase().endsWith('.mp3'))
+    .map(o => ({ key: o.key.slice(prefix.length), size: o.size, uploaded: o.uploaded }))
+    .sort((a, b) => a.key.localeCompare(b.key, 'pt'))
 }
 
 export default {
@@ -32,20 +46,20 @@ export default {
     const url = new URL(request.url)
     const path = decodeURIComponent(url.pathname.slice(1))
 
-    // ── Playlist JSON ──────────────────────────────────────────────
+    // ── Lista de músicas ───────────────────────────────────────────
     if (path === '' || path === 'list' || url.searchParams.has('list')) {
-      const listed = await env.BUCKET.list({ prefix: PREFIX })
-      const tracks = listed.objects
-        .filter(o => o.key.toLowerCase().endsWith('.mp3'))
-        .map(o => ({ key: o.key.slice(PREFIX.length), size: o.size, uploaded: o.uploaded }))
-        .sort((a, b) => a.key.localeCompare(b.key, 'pt'))
-      return new Response(JSON.stringify({ tracks }, null, 2), {
-        headers: { ...CORS, 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'public, max-age=300' },
-      })
+      return json({ tracks: await listarMp3(env, SONGS_PREFIX) })
+    }
+
+    // ── Lista de propagandas por idioma ────────────────────────────
+    if (path.startsWith('ads/')) {
+      const lang = path.slice(4).toLowerCase()
+      const folder = AD_FOLDERS[lang] || AD_FOLDERS.pt
+      return json({ ads: await listarMp3(env, folder) })
     }
 
     // ── Stream de um arquivo ───────────────────────────────────────
-    const key = path.startsWith(PREFIX) ? path : PREFIX + path
+    const key = path.includes('/') ? path : SONGS_PREFIX + path
 
     const rangeHeader = request.headers.get('Range')
     let range

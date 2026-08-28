@@ -4,7 +4,10 @@ import { trackEvent } from '../../lib/analytics'
 import CONFIG from './radio-nina.config.json'
 import { carregarPlaylistSalva, salvarPlaylistSalva } from './radio-nina.playlist'
 
-const { base: BASE, cores: CORES, aberturas: ABERTURAS, excluir: EXCLUIR, titulos: TITULOS } = CONFIG
+const {
+  base: BASE, cores: CORES, aberturas: ABERTURAS, excluir: EXCLUIR, titulos: TITULOS,
+  musicas_por_ad: MUSICAS_POR_AD = 2, ads_pastas: ADS_PASTAS = {},
+} = CONFIG
 const COR_STORAGE = 'ldi-radio-nina-cor'
 const VOL_STORAGE = 'ldi-radio-nina-vol'
 const OUVIU_STORAGE = 'ldi-radio-nina-ouviu'
@@ -67,6 +70,12 @@ export function useRadioNina() {
   const localeRef = useRef(localStorage.getItem('ldi-locale') || 'pt')
   const origemRef = useRef('auto')
   const anunciadaRef = useRef(null)
+  // Propagandas: pool do idioma + shuffle-bag sem repetir a última, 1 a cada N músicas
+  const adsRef = useRef([])
+  const adBagRef = useRef([])
+  const ultimoAdRef = useRef(null)
+  const contadorRef = useRef(0)
+  const emAdRef = useRef(false)
   const tocandoRef = useRef(false)
   useEffect(() => { tocandoRef.current = tocando }, [tocando])
 
@@ -82,6 +91,33 @@ export function useRadioNina() {
     } finally {
       carregandoRef.current = false
     }
+  }, [])
+
+  const garantirAds = useCallback(async () => {
+    if (adsRef.current.length) return
+    try {
+      const lang = localStorage.getItem('ldi-locale') || 'pt'
+      const res = await fetch(`${BASE}/ads/${lang}`)
+      if (!res.ok) return
+      const { ads } = await res.json()
+      const folder = ADS_PASTAS[lang] || ADS_PASTAS.pt || 'MaketingBR'
+      adsRef.current = (ads || []).map((a) => ({ key: a.key, url: `${BASE}/${folder}/${encodeURIComponent(a.key)}` }))
+    } catch (err) {
+      console.warn(err)
+    }
+  }, [])
+
+  const proximoAd = useCallback(() => {
+    const todos = adsRef.current
+    if (!todos.length) return null
+    if (!adBagRef.current.length) {
+      const bag = embaralhar(todos)
+      if (bag.length > 1 && bag[0].key === ultimoAdRef.current) [bag[0], bag[1]] = [bag[1], bag[0]]
+      adBagRef.current = bag
+    }
+    const ad = adBagRef.current.shift()
+    ultimoAdRef.current = ad.key
+    return ad
   }, [])
 
   const atualizarMediaSession = useCallback((titulo) => {
@@ -107,21 +143,56 @@ export function useRadioNina() {
     try { await audio.play() } catch { setTocando(false) }
   }, [atualizarMediaSession])
 
+  const tocarAd = useCallback(() => {
+    const ad = proximoAd()
+    const audio = audioRef.current
+    if (!ad || !audio) return false
+    emAdRef.current = true
+    origemRef.current = 'ad'
+    audio.src = ad.url
+    setFaixaAtual({ key: 'ad', ad: true })
+    setTempo(0)
+    setDuracao(0)
+    atualizarMediaSession('Publicidade')
+    trackEvent('radio_ad', { ad: ad.key, lang: localStorage.getItem('ldi-locale') || 'pt' })
+    audio.play().catch(() => {})
+    return true
+  }, [proximoAd, atualizarMediaSession])
+
   const ligar = useCallback(async (origem = 'auto') => {
-    await garantirPool()
+    await Promise.all([garantirPool(), garantirAds()])
     filaRef.current = filaComAbertura(poolRef.current, localeRef.current)
+    contadorRef.current = 0
+    emAdRef.current = false
     setEstado('barra')
     trackEvent('radio_ligar', { origem })
     tocarIndice(0, origem === 'auto' ? 'abertura' : origem)
-  }, [garantirPool, tocarIndice])
+  }, [garantirPool, garantirAds, tocarIndice])
+
+  // Progressão natural (fim da faixa): decide entre próxima música ou propaganda
+  const avancar = useCallback(() => {
+    const total = filaRef.current.length
+    if (emAdRef.current) {
+      emAdRef.current = false
+      if (total) tocarIndice((idxRef.current + 1) % total, 'auto')
+      return
+    }
+    contadorRef.current += 1
+    if (contadorRef.current >= MUSICAS_POR_AD && adsRef.current.length && tocarAd()) {
+      contadorRef.current = 0
+      return
+    }
+    if (total) tocarIndice((idxRef.current + 1) % total, 'auto')
+  }, [tocarIndice, tocarAd])
 
   const pular = useCallback((delta, origem = 'user') => {
     const total = filaRef.current.length
     if (!total) return
-    if (origem === 'user') {
+    if (origem === 'user' && !emAdRef.current) {
       const atual = filaRef.current[idxRef.current]
       if (atual) trackEvent('radio_pular', { musica: atual.titulo })
     }
+    emAdRef.current = false
     tocarIndice((idxRef.current + delta + total) % total, 'auto')
   }, [tocarIndice])
 
@@ -138,6 +209,8 @@ export function useRadioNina() {
     const track = poolRef.current.find((t) => t.key === key)
     if (!track) return
     filaRef.current = [track, ...embaralhar(poolRef.current.filter((t) => t.key !== key))]
+    contadorRef.current = 0
+    emAdRef.current = false
     if (estado === 'oculto') setEstado('barra')
     tocarIndice(0, 'escolha')
   }, [garantirPool, tocarIndice, estado])
@@ -149,6 +222,8 @@ export function useRadioNina() {
       .filter(Boolean)
     if (!tracks.length) return
     filaRef.current = embaralhar(tracks)
+    contadorRef.current = 0
+    emAdRef.current = false
     if (estado === 'oculto') setEstado('barra')
     tocarIndice(0, 'playlist')
   }, [garantirPool, tocarIndice, playlistSalva, estado])
@@ -180,6 +255,7 @@ export function useRadioNina() {
     const onMeta = () => setDuracao(audio.duration || 0)
     const onPlay = () => {
       setTocando(true)
+      if (emAdRef.current) return
       const atual = filaRef.current[idxRef.current]
       if (atual && anunciadaRef.current !== atual.key) {
         anunciadaRef.current = atual.key
@@ -189,9 +265,11 @@ export function useRadioNina() {
     }
     const onPause = () => setTocando(false)
     const onEnded = () => {
-      const atual = filaRef.current[idxRef.current]
-      if (atual) trackEvent('radio_completa', { musica: atual.titulo })
-      pular(1, 'auto')
+      if (!emAdRef.current) {
+        const atual = filaRef.current[idxRef.current]
+        if (atual) trackEvent('radio_completa', { musica: atual.titulo })
+      }
+      avancar()
     }
 
     audio.addEventListener('timeupdate', onTime)
@@ -208,7 +286,7 @@ export function useRadioNina() {
       audio.pause()
       audio.src = ''
     }
-  }, [pular])
+  }, [avancar])
 
   // Controles de mídia do sistema
   useEffect(() => {
@@ -222,7 +300,7 @@ export function useRadioNina() {
     return () => ['play', 'pause', 'nexttrack', 'previoustrack'].forEach((a) => set(a, null))
   }, [pular])
 
-  useEffect(() => { garantirPool() }, [garantirPool])
+  useEffect(() => { garantirPool(); garantirAds() }, [garantirPool, garantirAds])
   useEffect(() => { localStorage.setItem(COR_STORAGE, cor) }, [cor])
   useEffect(() => {
     if (audioRef.current) audioRef.current.volume = volume
