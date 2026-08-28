@@ -405,8 +405,8 @@
     "semantic_hash": "b11265c546f5970b719233c19e1b2c2d"
   },
   "src/config/version.js": {
-    "mtime": 1787946540.8903775,
-    "ast_hash": "42abb75a7a3d9c34b89799ee555a5b88",
+    "mtime": 1787952913.36794,
+    "ast_hash": "804d7725eba4382fdbf2a16435bbfef6",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2830,8 +2830,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1787946540.9088151,
-    "ast_hash": "902974f33081a641470a4e46fdfb54f3",
+    "mtime": 1787952913.3699415,
+    "ast_hash": "d0d21493a7c67b32a4aada82dda5c29a",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3795,13 +3795,13 @@
     "semantic_hash": ""
   },
   "src/data/contos-index.json": {
-    "mtime": 1787943673.9319978,
-    "ast_hash": "69f251533461071649703a5b90650d1b",
+    "mtime": 1787953015.4293008,
+    "ast_hash": "e6f18878c202e6607c72851ca1eba4e9",
     "semantic_hash": ""
   },
   "src/pages/content/ContoCapitulo.jsx": {
-    "mtime": 1787943736.5271757,
-    "ast_hash": "785f764f7ca6d5fdd38e1305e4567eeb",
+    "mtime": 1787953120.9029133,
+    "ast_hash": "66b355ae0497ad2e0a410eb13125cc6f",
     "semantic_hash": ""
   },
   "src/pages/content/Contos.jsx": {
@@ -3870,28 +3870,33 @@
     "semantic_hash": ""
   },
   "src/data/livro/contos/pt/lidando-com-a-dor/03.md": {
-    "mtime": 1787943602.1272478,
-    "ast_hash": "0b46a3aaeabfb42b5cbd4eca279b07de",
+    "mtime": 1787952977.8803504,
+    "ast_hash": "71f1d19c327b10cef7f1e93d887bc572",
     "semantic_hash": ""
   },
   "src/data/livro/contos/pt/lidando-com-a-dor/04.md": {
-    "mtime": 1787946516.5375168,
-    "ast_hash": "6ec72ddeec23a69ef6ea0f0f3db62ebd",
+    "mtime": 1787952994.1643748,
+    "ast_hash": "9b786f71437d381b2d1673e49c33e692",
     "semantic_hash": ""
   },
   "src/data/livro/contos/pt/lidando-com-a-dor/05.md": {
-    "mtime": 1787946508.9855921,
-    "ast_hash": "95e063c855d8fddab5cdb8780829299a",
+    "mtime": 1787952994.1663747,
+    "ast_hash": "22d1dd424f52539da95b245dd6abbdd4",
     "semantic_hash": ""
   },
   "src/data/livro/contos/pt/lidando-com-a-dor/06.md": {
-    "mtime": 1787945959.4470172,
-    "ast_hash": "2fdbc3d01e6883cac2f8f62959687ead",
+    "mtime": 1787952994.1673744,
+    "ast_hash": "75c8a8073de78ce5a7a776182a07df81",
     "semantic_hash": ""
   },
   "src/data/livro/contos/pt/lidando-com-a-dor/07.md": {
-    "mtime": 1787946487.6676853,
-    "ast_hash": "12eef47ba10ffaad439085f2174ffc94",
+    "mtime": 1787952994.168375,
+    "ast_hash": "d040a9f8e7865e714cd2bc8eb15e4e28",
+    "semantic_hash": ""
+  },
+  "src/data/contos-translations.json": {
+    "mtime": 1787953366.1174748,
+    "ast_hash": "bf5ad6c2003ccaf21778f80a0e088cb9",
     "semantic_hash": ""
   }
 }

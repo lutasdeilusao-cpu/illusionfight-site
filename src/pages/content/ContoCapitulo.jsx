@@ -8,6 +8,7 @@ import { useAuth } from '../../context/AuthContext'
 import { TRIAL_ACTIVE } from '../../config/trial'
 import { estaDisponivel } from '../../config/site'
 import index from '../../data/contos-index.json'
+import translations from '../../data/contos-translations.json'
 import './LivroCapitulo.css'
 
 const contoLoaders = import.meta.glob('../../data/livro/contos/**/*.md', { query: '?raw', import: 'default' })
@@ -65,6 +66,11 @@ export default function ContoCapitulo() {
     }
     const load = async () => {
       const lang = locale === 'en' ? 'en' : locale === 'es' ? 'es' : 'pt'
+      const translatedParagraphs = translations[lang]?.[historia]?.[cap]
+      if (translatedParagraphs) {
+        setMd(translatedParagraphs.join('\n\n'))
+        return
+      }
       const path = `../../data/livro/contos/${lang}/${historia}/${cap}.md`
       const loader = contoLoaders[path] || contoLoaders[`../../data/livro/contos/pt/${historia}/${cap}.md`]
       if (loader) {
