@@ -117,19 +117,6 @@
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
     <script>
-      (function preservePrerenderedHero() {
-        var root = document.getElementById('root');
-        var hero = root && root.querySelector('.seo-static-hero');
-        if (!hero) return;
-        var layer = document.createElement('div');
-        layer.id = 'seo-home-hero-layer';
-        layer.setAttribute('aria-hidden', 'true');
-        layer.appendChild(hero);
-        root.parentNode.insertBefore(layer, root);
-        document.body.classList.add('has-static-home-hero');
-      }());
-    </script>
-    <script>
       if ('serviceWorker' in navigator && 'PushManager' in window) {
         navigator.serviceWorker.register('/sw.js').catch(() => {})
       }

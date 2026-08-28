@@ -140,15 +140,6 @@ function pageHtml(baseHtml, route) {
   return html.replace('<div id="root"></div>', `<div id="root">${staticContent(route, heroImage)}</div><noscript>${staticContent(route, heroImage)}</noscript>`)
 }
 
-function inlineCriticalCss(html) {
-  return html.replace(/<link rel="stylesheet" crossorigin href="(\/assets\/index-[^"]+\.css)">/i, (link, href) => {
-    const cssPath = path.join(DIST_DIR, href.replace(/^\//, ''))
-    if (!fs.existsSync(cssPath)) return link
-    const css = fs.readFileSync(cssPath, 'utf-8')
-    return `<style data-critical-css>${css}</style>`
-  })
-}
-
 function writeRoute(route, html) {
   const routeDir = path.join(DIST_DIR, route.path)
   fs.mkdirSync(routeDir, { recursive: true })
@@ -171,7 +162,7 @@ if (!fs.existsSync(INDEX_PATH)) {
   process.exit(1)
 }
 
-const indexHtml = inlineCriticalCss(fs.readFileSync(INDEX_PATH, 'utf-8'))
+const indexHtml = fs.readFileSync(INDEX_PATH, 'utf-8')
 ROUTES.forEach(route => writeRoute(route, pageHtml(indexHtml, route)))
 REDIRECTS.forEach(route => writeRoute(route, redirectHtml(route)))
 const homeRoute = {

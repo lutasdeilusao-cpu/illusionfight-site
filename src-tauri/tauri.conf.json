@@ -3,9 +3,6 @@
   "productName": "Illusion Fight — Season 1 Demo",
   "version": "0.1.0",
   "identifier": "com.illusionfight.steam.demo",
-  "build": {
-    "frontendDist": "../dist"
-  },
   "app": {
     "windows": [
       {

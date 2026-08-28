@@ -87,29 +87,14 @@ export default function App() {
   useEffect(() => { desbloquearRef.current = desbloquear }, [desbloquear])
 
   useEffect(() => {
-    let fallbackTimer
-
-    const activateDeferredUi = () => {
-      setDeferredUiReady(true)
-      window.removeEventListener('pointerdown', activateDeferredUi)
-      window.removeEventListener('keydown', activateDeferredUi)
-      window.removeEventListener('scroll', activateDeferredUi)
-      window.removeEventListener('touchstart', activateDeferredUi)
-      window.clearTimeout(fallbackTimer)
-    }
-
-    window.addEventListener('pointerdown', activateDeferredUi, { passive: true })
-    window.addEventListener('keydown', activateDeferredUi)
-    window.addEventListener('scroll', activateDeferredUi, { passive: true })
-    window.addEventListener('touchstart', activateDeferredUi, { passive: true })
-    fallbackTimer = window.setTimeout(activateDeferredUi, 15000)
-
+    // Tira a UI secundária (player, notificações) do caminho crítico do
+    // primeiro paint, mas garante que ela monte logo em seguida.
+    const idle = window.requestIdleCallback
+      ? window.requestIdleCallback(() => setDeferredUiReady(true), { timeout: 3000 })
+      : window.setTimeout(() => setDeferredUiReady(true), 1500)
     return () => {
-      window.removeEventListener('pointerdown', activateDeferredUi)
-      window.removeEventListener('keydown', activateDeferredUi)
-      window.removeEventListener('scroll', activateDeferredUi)
-      window.removeEventListener('touchstart', activateDeferredUi)
-      window.clearTimeout(fallbackTimer)
+      if (window.cancelIdleCallback) window.cancelIdleCallback(idle)
+      else window.clearTimeout(idle)
     }
   }, [])
 
