@@ -21,7 +21,8 @@
     "steam_demo_online_notice": "Esta Demo requer conexão com a internet.",
     "shell_voltar_games": "Voltar aos Games",
     "shell_fechar": "Fechar",
-    "shell_fechar_confirmar": "Fechar a Demo de Illusion Fight?"
+    "shell_fechar_confirmar": "Fechar a Demo de Illusion Fight?",
+    "shell_fechar_manual": "Não consegui fechar automaticamente. Use Alt+F4 ou o X da janela."
   },
   "hero": {
     "title": "LUTAS DE ILUSÃO",

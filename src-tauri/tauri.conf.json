@@ -1,7 +1,7 @@
 {
   "$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
   "productName": "Illusion Fight — Season 1 Demo",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "identifier": "com.illusionfight.steam.demo",
   "app": {
     "withGlobalTauri": true,
@@ -9,14 +9,15 @@
       {
         "label": "main",
         "title": "Illusion Fight — Season 1 Demo",
-        "url": "https://illusionfight.com/?client=steam-demo&shellVersion=0.1.0",
+        "url": "https://illusionfight.com/?client=steam-demo&shellVersion=0.1.1",
         "width": 1280,
         "height": 720,
         "minWidth": 960,
         "minHeight": 540,
         "maximized": true,
         "resizable": true,
-        "fullscreen": true
+        "decorations": true,
+        "fullscreen": false
       }
     ],
     "security": {

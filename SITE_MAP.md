@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — MAPA DO SITE E DO PROJETO
 
 > Referência do estado atual do projeto para navegação humana e contexto de IA.
-> Atualizado em 2026-08-28 — `SITE_VERSION` **10.198.55**.
+> Atualizado em 2026-08-28 — `SITE_VERSION` **10.198.56**.
 > Histórico de tarefas, bugfixes e pendências não pertence a este documento.
 > Regras de trabalho, arquivos proibidos e decisões arquiteturais: `AGENTS.md`.
 
@@ -285,8 +285,8 @@ CSS de jogos é global após importação pelo Vite: seletores devem ser limitad
 
 ## 11. Desktop Windows e Steam Demo
 
-- O shell Windows usa Tauri 2 em `src-tauri/` e carrega exclusivamente o portal oficial online com `client=steam-demo` e `shellVersion=0.1.0`.
-- A demo Steam usa App ID `5188520`, Depot Windows `5188521`, identificador `com.illusionfight.steam.demo` e executável `IllusionFightDemo.exe`. A janela abre em tela cheia (`fullscreen: true`).
+- O shell Windows usa Tauri 2 em `src-tauri/` e carrega exclusivamente o portal oficial online com `client=steam-demo` e `shellVersion=0.1.1`.
+- A demo Steam usa App ID `5188520`, Depot Windows `5188521`, identificador `com.illusionfight.steam.demo` e executável `IllusionFightDemo.exe`. A janela abre maximizada e com decorações do SO (`decorations: true`, `fullscreen: false`), garantindo o X nativo.
 - `src/lib/runtimePlatform.js` centraliza a detecção do cliente e preserva o contexto na sessão. No cliente Steam Demo, checkouts externos ficam indisponíveis; a experiência web permanece inalterada.
 - `DesktopShellBar` (`src/components/DesktopShellBar/`) renderiza só no runtime `steam-demo`: barra fixa no topo com "Voltar aos Games" e "Fechar" (fecha a janela via `window.__TAURI__.window`, capability `core:window:allow-close` em `src-tauri/capabilities/default.json`). É a saída de emergência do jogador — z-index máximo.
 - `npm run desktop:dev` abre o shell, `npm run desktop:build` gera o instalador e `npm run desktop:steam` prepara `steam/content/` para SteamPipe.
@@ -298,7 +298,7 @@ Fonte única: `src/config/version.js`. Esta tabela registra somente a identifica
 
 | Constante | Módulo | Versão |
 |---|---|---:|
-| `SITE_VERSION` | Site global | **10.198.55** |
+| `SITE_VERSION` | Site global | **10.198.56** |
 | `PP_VERSION` | Pesadelo Particular | 2.3.1 |
 | `LDI_VERSION` | Lendas do LDI | 2.0.1 |
 | `JACK_VERSION` | Jack Dream Beer | 5.3.2 |

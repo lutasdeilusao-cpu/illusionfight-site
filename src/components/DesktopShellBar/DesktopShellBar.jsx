@@ -23,27 +23,28 @@ export default function DesktopShellBar() {
 
   if (!isShell) return null
 
-  const fecharApp = () => {
+  const fecharApp = async () => {
     if (!window.confirm(t('runtime.shell_fechar_confirmar'))) return
-    // 1) comando nativo da shell (mais confiável)
-    const invoke = window.__TAURI__?.core?.invoke || window.__TAURI__?.invoke
-    if (typeof invoke === 'function') {
-      Promise.resolve(invoke('quit_app')).catch(() => fecharPelaJanela())
-      return
-    }
-    fecharPelaJanela()
-  }
+    const T = window.__TAURI__
+    console.log('[shell] fechar — __TAURI__?', Boolean(T), 'core.invoke?', typeof T?.core?.invoke, 'window?', Boolean(T?.window))
 
-  const fecharPelaJanela = () => {
-    const tauriWindow = window.__TAURI__?.window
-    const currentWindow = tauriWindow?.getCurrentWindow?.() || tauriWindow?.getCurrent?.() || tauriWindow?.appWindow
-    if (currentWindow?.close) {
-      Promise.resolve(currentWindow.close()).catch(() => {
-        try { currentWindow.destroy?.() } catch { /* nada a fazer */ }
-      })
-      return
-    }
+    // 1) comando nativo quit_app (process::exit) — mais confiável quando o IPC funciona
+    try {
+      const invoke = T?.core?.invoke || T?.invoke
+      if (typeof invoke === 'function') { await invoke('quit_app'); return }
+    } catch (e) { console.warn('[shell] quit_app falhou', e) }
+
+    // 2) destruir/fechar a janela pela API global (core:window:allow-destroy/close)
+    try {
+      const w = T?.window
+      const cur = w?.getCurrentWindow?.() || w?.getCurrent?.() || w?.appWindow
+      if (cur?.destroy) { await cur.destroy(); return }
+      if (cur?.close) { await cur.close(); return }
+    } catch (e) { console.warn('[shell] destroy/close falhou', e) }
+
+    // 3) último recurso do navegador (normalmente bloqueado)
     try { window.close() } catch { /* nada a fazer */ }
+    alert(t('runtime.shell_fechar_manual'))
   }
 
   return (

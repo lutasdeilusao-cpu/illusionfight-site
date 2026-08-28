@@ -6,11 +6,11 @@ Shell Windows da demo de `Illusion Fight — Season 1`. O aplicativo abre o port
 
 - Steam Demo App ID: `5188520`
 - App principal relacionado: `1876210`
-- Shell: `0.1.0`
+- Shell: `0.1.1`
 - Executável: `IllusionFightDemo.exe`
-- URL: `https://illusionfight.com/?client=steam-demo&shellVersion=0.1.0`
+- URL: `https://illusionfight.com/?client=steam-demo&shellVersion=0.1.1`
 - Depot Windows da demo: `5188521`
-- A janela abre em tela cheia (`fullscreen: true` em `src-tauri/tauri.conf.json`).
+- A janela abre maximizada com barra de título do SO (`decorations: true`, `fullscreen: false` em `src-tauri/tauri.conf.json`) — garante que o jogador sempre tenha o X nativo pra fechar.
 
 O shell exige internet e o Microsoft Edge WebView2 Evergreen Runtime. O instalador Tauri usa o bootstrapper padrão para obter o WebView2 quando ele estiver ausente. Não há modo offline, Steamworks SDK, updater, comandos nativos, plugins ou credenciais embutidas.
 
