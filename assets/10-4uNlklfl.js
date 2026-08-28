@@ -1,0 +1,49 @@
+var e=`# CAPÍTULO 10 — A Sonata da Luta
+
+Eu troquei um olhar com o Kim. Rápido.
+
+Depois virei pro Arnold e esperei.
+
+Ele estava com mais raiva ainda — pelo fato de eu ter levantado. E aquilo me assustava mais do que o soco. Eu nunca tinha feito nenhum ato de resistência na vida. Nunca tinha pensado nisso. E mesmo assim eu estava ali, parado, esperando.
+
+Aí eu ouvi.
+
+*Perna direita à frente. Inclina pra esquerda. Abaixa o braço direito.*
+
+A voz era do Kim.
+
+Eu segui sem pensar. O Arnold passou por mim. O soco cruzou por cima do meu ombro e pegou o ar.
+
+*Gira na base da perna direita. Cento e oitenta graus.*
+
+Enquanto eu girava, o impulso do Arnold levou ele mais pra frente do que ele contava. Quando eu terminei o giro, eu estava atrás dele.
+
+*Levanta o braço direito. Joga tudo pra trás. Perna direita a noventa graus pra esquerda. Ombro inclinado ao máximo. Espera.*
+
+O Arnold virou pra uma segunda tentativa. Eu, só seguindo ordem, estava de novo cara a cara com ele. O gancho dele acertou o vazio outra vez.
+
+*Solta o braço direito à frente. Toda a extensão, todo o peso do corpo. Não recolhe. A mão vai até o fim e fica lá. Empurra o corpo todo pra frente.*
+
+E eu segui.
+
+Era como uma partitura de uma briga. A Sonata da Luta. Eu só fiz o que eu sempre fiz — no piano, na sala de aula, na minha casa. Ouvi o que os outros diziam e obedeci.
+
+---
+
+A minha mão pegou o Arnold no meio do rosto, de lado.
+
+O impacto mais forte veio do próprio peso dele contra a minha mão. Mas quando eu empurrei o braço, girei o quadril e joguei o corpo pra frente — sem esforço a mais, sem energia gasta à toa —, eu comecei a levar a cara daquele desgraçado direto pro chão.
+
+Eu senti alguma coisa quebrando dentro de mim. E alguma coisa quebrando no rosto dele.
+
+*Inclina o braço direito. Leva o arco até o chão. Não recolhe. Não precisa encostar.*
+
+Eu levei o rosto do Arnold até o chão. A única coisa que impediu de encostar foi a cabeça dele, presa entre a minha mão e o piso.
+
+Ele já tinha apagado no meio da queda.
+
+Quando a cabeça dele bateu no chão, o corredor ficou em silêncio pela primeira vez. Nenhuma risada. Nenhum deboche. Nem a respiração daquela gente.
+
+Só o silêncio. E o som da cabeça do Arnold batendo no chão.
+`;export{e as default};
+//# sourceMappingURL=10-4uNlklfl.js.map

@@ -1,0 +1,33 @@
+var e=`# CAPÍTULO 8 — A Aposta
+
+Eu olhei pro Arnold.
+
+Como eu disse, eu sempre soube que ele era um sádico. Mas eu nunca tinha visto ele naquele estado. Aquela fúria não estava no rosto — estava saindo dos olhos.
+
+— A culpa é toda sua, Pet. — A voz dele saiu baixa, do jeito que sai quando ele fala sério. — Eu vou destruir cada órgão. Cada músculo. Cada pedaço do seu corpo.
+
+Eu estava morrendo de medo.
+
+Os dois continuavam ali. Deu pra entender que eles não iam fazer nada nessa luta — só estavam parados, garantindo que ninguém interrompesse.
+
+O boné azul me olhava sério. O moicano verde sorria. Virou pro amigo.
+
+— E aí, Kim. Apostinha? Eu vou no esquentadinho.
+
+— Quantos socos, Jack?
+
+— Guenta dez?
+
+— Fecho. Dez socos. Eu vou no Pet.
+
+Kim. Jack.
+
+Foi ali, no meio daquilo, que eu finalmente tive um nome pra cada um dos dois.
+
+Quando terminaram de acertar a aposta, o olhar do Kim mudou de novo. Eu nunca vou entender como aquele rosto conseguia ser tão expressivo sem dizer nada.
+
+Dessa vez o olhar dizia uma coisa só.
+
+*É melhor você fazer alguma coisa.*
+`;export{e as default};
+//# sourceMappingURL=08-CEG8RIZz.js.map
