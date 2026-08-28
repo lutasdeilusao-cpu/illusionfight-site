@@ -6,6 +6,9 @@
 #[tauri::command]
 fn quit_app(app: tauri::AppHandle) {
   app.exit(0);
+  // Garantia final: se por algum motivo o runtime nao encerrar o processo,
+  // forca a saida para o jogador nunca ficar preso.
+  std::process::exit(0);
 }
 
 fn main() {

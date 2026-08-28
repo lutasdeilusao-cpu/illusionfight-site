@@ -3,6 +3,9 @@
   "identifier": "default",
   "description": "Permite apenas que a shell feche a propria janela (botao Fechar do modo Steam).",
   "windows": ["main"],
+  "remote": {
+    "urls": ["https://illusionfight.com", "https://*.illusionfight.com"]
+  },
   "permissions": [
     "core:window:allow-close",
     "core:window:allow-destroy"

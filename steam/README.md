@@ -46,8 +46,14 @@ Depot Windows da demo: `5188521` (já preenchido nos `.vdf.example`).
 
 ```powershell
 cd <SDK>\tools\ContentBuilder
-.\builder\steamcmd.exe +login <STEAM_USERNAME> +run_app_build .\scripts\app_build_5188520.vdf +quit
+.\builder\steamcmd.exe +login <STEAM_USERNAME> +run_app_build "<SDK>\tools\ContentBuilder\scripts\app_build_5188520.vdf" +quit
 ```
+
+> **Use o caminho ABSOLUTO do `.vdf`.** O `steamcmd` resolve o argumento de
+> `run_app_build` a partir da pasta do próprio `steamcmd.exe` (`builder\`), e não
+> da pasta atual — por isso `.\scripts\app_build_5188520.vdf` dá
+> `ERROR! App build file does not exist`. Os caminhos `BuildOutput` /
+> `ContentRoot` dentro do `.vdf` continuam relativos ao próprio `.vdf`.
 
 4. Se o preview passar, troque `"Preview" "1"` → `"Preview" "0"` no
    `app_build_5188520.vdf` e rode o mesmo comando para subir de verdade.

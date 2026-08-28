@@ -410,8 +410,8 @@
     "semantic_hash": "b11265c546f5970b719233c19e1b2c2d"
   },
   "src/config/version.js": {
-    "mtime": 1787879066.6723952,
-    "ast_hash": "348fdacda4aa537af7ab5fa278ba2daa",
+    "mtime": 1787879293.3460264,
+    "ast_hash": "198ef0b3b60e62495bab8bfea4fcadd4",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2835,8 +2835,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1787879076.7871425,
-    "ast_hash": "87aa1b56f717b43347394d30e9953e3f",
+    "mtime": 1787879293.3914022,
+    "ast_hash": "51ebea8839170886af023883e1038865",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3770,8 +3770,8 @@
     "semantic_hash": ""
   },
   "src-tauri/src/main.rs": {
-    "mtime": 1787875560.0289967,
-    "ast_hash": "dffad2d4194a65d72070746ce1e2b3a9",
+    "mtime": 1787879272.5650141,
+    "ast_hash": "15566c218ca9630dbb61513a35de7b48",
     "semantic_hash": ""
   },
   "src-tauri/tauri.conf.json": {
@@ -3795,8 +3795,8 @@
     "semantic_hash": ""
   },
   "src/components/DesktopShellBar/DesktopShellBar.jsx": {
-    "mtime": 1787879001.860276,
-    "ast_hash": "7a1bcb3578189b3a5ab80ae5a8bb09c3",
+    "mtime": 1787879281.3308153,
+    "ast_hash": "ee4318bdb4d014397ec430fdd9a13b6a",
     "semantic_hash": ""
   }
 }
