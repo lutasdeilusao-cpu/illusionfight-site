@@ -1,13 +1,21 @@
-/* ── Invisible YouTube iframe ── */
+/* ── YouTube iframe (praticamente invisível) ──
+   iOS/Android NÃO tocam vídeo de um iframe 0x0 ou com display:none.
+   Precisa ter tamanho real e estar no viewport — deixamos 2px num canto,
+   quase transparente e sem capturar toque. */
 .nina-youtube-iframe {
   position: fixed;
-  top: -9999px;
-  left: -9999px;
-  width: 0;
-  height: 0;
+  bottom: 0;
+  right: 0;
+  width: 2px;
+  height: 2px;
   border: none;
-  opacity: 0;
+  opacity: 0.01;
   pointer-events: none;
+  z-index: -1;
+}
+.nina-youtube-iframe iframe {
+  width: 2px;
+  height: 2px;
 }
 
 /* ═══════════════════════════════════════════

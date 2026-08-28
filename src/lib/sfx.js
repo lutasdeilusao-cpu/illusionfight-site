@@ -20,6 +20,42 @@ class SFX {
     this.enabled = localStorage.getItem(SFX_STORAGE_KEY) !== 'false'
     this._heartbeatInterval = null
     this._ttsVoice = null // voz fixa para a batalha atual
+    this._unlocked = false
+    this._installUnlock()
+  }
+
+  /**
+   * iOS Safari/Chrome e Android Chrome só liberam o AudioContext dentro de um
+   * gesto do usuário. Este listener destrava o contexto no primeiro toque/clique
+   * (cria + resume + toca um buffer mudo) e se remove sozinho quando consegue.
+   */
+  _installUnlock() {
+    if (typeof window === 'undefined') return
+    const unlock = () => {
+      const ctx = this._getCtx()
+      if (!ctx) return
+      if (ctx.state === 'suspended' && typeof ctx.resume === 'function') {
+        ctx.resume().catch(() => {})
+      }
+      try {
+        const buffer = ctx.createBuffer(1, 1, 22050)
+        const source = ctx.createBufferSource()
+        source.buffer = buffer
+        source.connect(ctx.destination)
+        source.start(0)
+      } catch (_) { /* ignore */ }
+      if (ctx.state === 'running') {
+        this._unlocked = true
+        window.removeEventListener('pointerdown', unlock)
+        window.removeEventListener('touchend', unlock)
+        window.removeEventListener('click', unlock)
+        window.removeEventListener('keydown', unlock)
+      }
+    }
+    window.addEventListener('pointerdown', unlock, { passive: true })
+    window.addEventListener('touchend', unlock, { passive: true })
+    window.addEventListener('click', unlock, { passive: true })
+    window.addEventListener('keydown', unlock)
   }
 
   /** Reinicia a voz TTS para uma nova batalha */

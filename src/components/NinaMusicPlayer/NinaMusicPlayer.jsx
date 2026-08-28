@@ -61,6 +61,8 @@ export default function NinaMusicPlayer() {
   const aceitouRef = useRef(sessionState === 'aceitou')
   const initialShuffleRef = useRef(false)
   const visibilityBoundRef = useRef(false)
+  // Só toca de verdade depois de um gesto do usuário (autoplay policy mobile).
+  const wantsPlayRef = useRef(false)
   const location = useLocation()
   const { t } = useLanguage()
   const greetingKey = getGreetingKey(location.pathname)
@@ -76,9 +78,11 @@ export default function NinaMusicPlayer() {
 
   // Auto-restart se o usuário já aceitou na sessão anterior
   useEffect(() => {
-    if (aceitouRef.current && !playerReadyRef.current) {
-      // Já aceitou antes nesta sessão — inicia o player silenciosamente
-      initPlayer()
+    if (aceitouRef.current) {
+      wantsPlayRef.current = true
+      if (playerReadyRef.current && playerRef.current) {
+        try { playerRef.current.playVideo(); setPlaying(true) } catch (_) { /* ignore */ }
+      }
       setTimeout(() => setStep('player'), 200)
     }
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
@@ -94,6 +98,10 @@ export default function NinaMusicPlayer() {
     const timer = setTimeout(() => {
       if (sessionRef.current || aceitouRef.current) return
       if (step === 'player') return
+
+      // Pré-cria o player agora para estar PRONTO quando o usuário clicar "sim".
+      // Em mobile o playVideo() precisa acontecer dentro do gesto do clique.
+      initPlayer()
 
       const mensagem = t(greetingKey)
       window.__ninaPendingNotification = { mensagem, greetingKey }
@@ -204,6 +212,7 @@ export default function NinaMusicPlayer() {
             listType: 'playlist', list: PLAYLIST_ID,
             autoplay: 0, controls: 0, disablekb: 1,
             fs: 0, modestbranding: 1, rel: 0, loop: 1,
+            playsinline: 1,
             origin: window.location.origin,
           },
           events: {
@@ -211,8 +220,10 @@ export default function NinaMusicPlayer() {
               playerReadyRef.current = true
               player.setShuffle(true)
               playerRef.current = player
-              player.playVideo()
-              setPlaying(true)
+              // Só toca se o usuário já autorizou (clicou "sim" ou aceitou antes).
+              if (wantsPlayRef.current) {
+                try { player.playVideo(); setPlaying(true) } catch (_) { /* ignore */ }
+              }
             },
             onStateChange: (e) => {
               if (e.data === window.YT.PlayerState.PLAYING && !initialShuffleRef.current) {
@@ -242,7 +253,12 @@ export default function NinaMusicPlayer() {
     setStep('hint')
     setShowHint(true)
     markSessionDone(true)
+    // ESTAMOS dentro do gesto do clique — inicia a reprodução AGORA (mobile exige isso).
+    wantsPlayRef.current = true
     initPlayer()
+    if (playerReadyRef.current && playerRef.current) {
+      try { playerRef.current.playVideo(); setPlaying(true) } catch (_) { /* ignore */ }
+    }
     setTimeout(() => setStep('player'), 100)
   }
 

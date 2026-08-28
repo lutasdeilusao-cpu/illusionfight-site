@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import './GameScreen.css'
 import TopTrumpsCard from '../../../../../components/TopTrumpsCard/TopTrumpsCard'
 import FireParticles from '../FireParticles/FireParticles'
@@ -14,6 +14,38 @@ export default function GameScreen({
   const [showDesistirModal, setShowDesistirModal] = useState(false)
   const isVezIA = vezAtual === 'ia'
   const localeStr = (localStorage.getItem('ldi-locale') || 'pt').slice(0, 2)
+
+  // Calcula a escala de cada carta para caber EXATAMENTE no espaço disponível.
+  // Resolve o corte das cartas em telas baixas (Chrome/Safari iOS com barra de URL).
+  const playerBoxRef = useRef(null)
+  const miniBoxRef = useRef(null)
+  useEffect(() => {
+    const CARD_W = 550, CARD_H = 720
+    const fit = (box) => {
+      if (!box) return
+      const r = box.getBoundingClientRect()
+      if (!r.width || !r.height) return
+      const s = Math.min(r.width / CARD_W, r.height / CARD_H)
+      box.style.setProperty('--tt-card-scale', String(Math.max(s, 0)))
+    }
+    const apply = () => { fit(playerBoxRef.current); fit(miniBoxRef.current) }
+    apply()
+    const ro = typeof ResizeObserver !== 'undefined' ? new ResizeObserver(apply) : null
+    if (ro) {
+      if (playerBoxRef.current) ro.observe(playerBoxRef.current)
+      if (miniBoxRef.current) ro.observe(miniBoxRef.current)
+    }
+    window.addEventListener('resize', apply)
+    window.addEventListener('orientationchange', apply)
+    const t1 = setTimeout(apply, 150)
+    const t2 = setTimeout(apply, 600)
+    return () => {
+      if (ro) ro.disconnect()
+      window.removeEventListener('resize', apply)
+      window.removeEventListener('orientationchange', apply)
+      clearTimeout(t1); clearTimeout(t2)
+    }
+  }, [])
 
   return (
     <>
@@ -32,7 +64,7 @@ export default function GameScreen({
               <span className="tt-score-ai">{tt('ia')} {placar.ia}</span>
             </div>
           </div>
-          <div className="tt-player-card-wrapper">
+          <div className="tt-player-card-wrapper" ref={playerBoxRef}>
             <TopTrumpsCard
               characterImage={cartaJogadorImg}
               name={cartaJogador?.nome}
@@ -52,7 +84,7 @@ export default function GameScreen({
             <span className="tt-opponent-mini-label">
               {isVezIA ? tt('adversario_escolhendo') : tt('adversario')}
             </span>
-            <div className="tt-card--mini-wrapper">
+            <div className="tt-card--mini-wrapper" ref={miniBoxRef}>
               <TopTrumpsCard mystery={true} mini={true} locale={localeStr} templateIndex={cartaIA ? (cartaIA.id % 6) : 0} />
             </div>
           </div>
