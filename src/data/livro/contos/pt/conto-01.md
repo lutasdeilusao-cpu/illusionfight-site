@@ -14,7 +14,7 @@ Minha casa. Não vou fingir modéstia: é uma casa muito rica. Tem ala que eu n�
 
 Meu pai e minha mãe construíram tudo isso. Não são famosos — os dois tratam a discrição como religião. Mas são ricos de um jeito que a palavra não alcança. Negócios no mundo inteiro. Alguns eu conheço. A maioria não.
 
-— Eu já tenho dinheiro pros meus filhos. — Meu pai fala sempre com a mesma calma. — Pros filhos dos meus filhos. E pros filhos deles. E ainda assim eles não vão conseguir gastar tudo o que eu juntei.
+— Eu já tenho dinheiro pros meus filhos. — Meu pai fala sempre com a mesma calma. — Pros filhos dos meus filhos. E pros filhos deles. E ainda assim eles não vão conseguir gastar tudo o que eu ganhei.
 
 Ele deixa a frase respirar. Depois vem a parte que importa pra ele.
 
