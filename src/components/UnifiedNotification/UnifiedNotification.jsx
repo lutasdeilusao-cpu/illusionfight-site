@@ -16,7 +16,7 @@ import stringsEs from '../../data/achievements-strings-es.json'
 // Reusa os CSS existentes — nenhum estilo novo
 import '../LDINotification/LDINotification.css'
 import '../AchievementToast/AchievementToast.css'
-import '../NinaMusicPlayer/NinaMusicPlayer.css'
+import '../RadioNina/RadioNina.css'
 
 export default function UnifiedNotification() {
   const [current, setCurrent] = useState(null)
@@ -46,7 +46,7 @@ export default function UnifiedNotification() {
     if (ninaPending && ninaPending.mensagem) {
       setCurrent({
         type: 'nina_music',
-        data: { mensagem: ninaPending.mensagem, greetingKey: ninaPending.greetingKey },
+        data: { mensagem: ninaPending.mensagem, sim: ninaPending.sim, nao: ninaPending.nao },
         id: Date.now(),
       })
       setIsClosing(false)
@@ -137,7 +137,7 @@ export default function UnifiedNotification() {
     handleClose()
   }, [handleClose])
 
-  // Expõe callback para NinaMusicPlayer se registrar
+  // Expõe callback para a Rádio Nina se registrar
   useEffect(() => {
     window.__ninaNotificationCb = (fn) => { ninaCbRef.current = fn }
     return () => { window.__ninaNotificationCb = undefined }
@@ -236,7 +236,7 @@ export default function UnifiedNotification() {
   }
 
   // ═══════════════════════════════════════
-  // NINA_MUSIC — reusa classes de NinaMusicPlayer.css
+  // NINA_MUSIC — convite da Rádio Nina (classes em RadioNina.css)
   // ═══════════════════════════════════════
   if (current.type === NotificationType.NINA_MUSIC) {
     const d = current.data
@@ -252,10 +252,10 @@ export default function UnifiedNotification() {
               <span className="nina-tail" />
               <div className="nina-balloon-actions">
                 <button className="nina-btn nina-btn-yes" onClick={handleNinaSim}>
-                  {t('nina.yes')}
+                  {d.sim}
                 </button>
                 <button className="nina-btn nina-btn-no" onClick={handleNinaNao}>
-                  {t('nina.no')}
+                  {d.nao}
                 </button>
               </div>
             </>

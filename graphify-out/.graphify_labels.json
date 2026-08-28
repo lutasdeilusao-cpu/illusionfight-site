@@ -272,8 +272,19 @@
   "270": "songs-r2 Worker",
   "271": "index.js",
   "272": "worker.js",
+  "273": "combat.js",
+  "274": "LanguageProvider.jsx",
+  "275": "Phase2Customize.jsx",
   "276": "Create",
+  "277": "MazeRafael.jsx",
+  "278": "version.js",
+  "279": "ResultCard.jsx",
+  "280": "Brincadeira.jsx",
+  "281": "CodigoPerdido.jsx",
   "282": "ScrollToTop.jsx",
   "283": "ScrollToTopOnNav.jsx",
-  "284": "pp-i18n.js"
+  "284": "pp-i18n.js",
+  "285": "SearchModal.jsx",
+  "286": "TypewriterPhrase.jsx",
+  "287": "useMultiplayerTurnMachine.js"
 }

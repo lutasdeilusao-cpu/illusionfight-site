@@ -260,8 +260,8 @@
     "semantic_hash": ""
   },
   "src/components/NinaMusicPlayer/NinaMusicPlayer.jsx": {
-    "mtime": 1787883739.8654675,
-    "ast_hash": "a075e0a0c8528cc9d81a1044d4a3f30a",
+    "mtime": 1787921590.6698456,
+    "ast_hash": "64caa7b6035effdbf0c44b2b2c0ff4ed",
     "semantic_hash": ""
   },
   "src/components/NowLive.jsx": {
@@ -410,8 +410,8 @@
     "semantic_hash": "b11265c546f5970b719233c19e1b2c2d"
   },
   "src/config/version.js": {
-    "mtime": 1787920648.945114,
-    "ast_hash": "b8a9a6f20b2917c5eb35786ea8a944e0",
+    "mtime": 1787921595.8990028,
+    "ast_hash": "b55d9686f862f5a85a8ff72df446bab6",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2835,8 +2835,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1787920651.409553,
-    "ast_hash": "c0eee5a327285e154198458654041a6e",
+    "mtime": 1787921597.0007398,
+    "ast_hash": "1613fdaf6901decfb85b2bf72576099d",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3827,6 +3827,11 @@
   "workers/songs-r2/README.md": {
     "mtime": 1787920634.2237806,
     "ast_hash": "6718954a9b1c99b57204f1a518130db6",
+    "semantic_hash": ""
+  },
+  "src/data/nina-playlist.json": {
+    "mtime": 1787921528.768841,
+    "ast_hash": "4b3e0f4139922c12b9713dc47715227c",
     "semantic_hash": ""
   }
 }

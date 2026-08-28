@@ -1,5 +1,6 @@
 {
   "base": "https://illusionfightsongs.lutasdeilusao.workers.dev",
+  "cores": ["#ff6b9d", "#2ec4b6", "#f4a52b", "#a56bff", "#4d9dff", "#3ddc84"],
   "excluir": [
     "Tudo vai passar Isaias Voz.mp3",
     "Vilanesca (1).mp3"

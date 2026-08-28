@@ -2351,16 +2351,6 @@
     "text": "Este site usa cookies técnicos e de terceiros (YouTube, TikTok, X) para funcionar corretamente. Ao continuar navegando, você concorda com isso.",
     "accept": "ENTENDIDO"
   },
-  "nina": {
-    "greeting": {
-      "game": "Oi! Quer ouvir uma música enquanto está jogando?",
-      "reading": "Oi! Quer ouvir uma música enquanto está lendo?",
-      "default": "Oi! Quer ouvir uma música enquanto navega?"
-    },
-    "yes": "Sim",
-    "no": "Não",
-    "playerHint": "Um pequeno player vai estar lá no canto da tela. Qualquer hora você para. 🎵"
-  },
   "custos": {
     "title": "Como esse projeto existe",
     "intro": "Illusion Fight é um projeto independente. Uma pessoa, 23 anos de desenvolvimento, lançando em 2026. Não tem investidor. Não tem equipe. Tem um desenvolvedor que trabalha das 9h às 18h numa empresa, e depois disso vira noites e fins de semana inteiros construindo isso aqui. Feriado, madrugada, final de semana — mano, é o que é.",

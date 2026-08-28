@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — MAPA DO SITE E DO PROJETO
 
 > Referência do estado atual do projeto para navegação humana e contexto de IA.
-> Atualizado em 2026-08-28 — `SITE_VERSION` **10.198.48**.
+> Atualizado em 2026-08-28 — `SITE_VERSION` **10.198.49**.
 > Histórico de tarefas, bugfixes e pendências não pertence a este documento.
 > Regras de trabalho, arquivos proibidos e decisões arquiteturais: `AGENTS.md`.
 
@@ -48,7 +48,7 @@ ReaderProvider
                                 └── App
 ```
 
-Componentes montados globalmente por `App.jsx`: `AnalyticsTracker`, `ScrollToTopOnNav`, `DesktopShellBar` (só runtime steam-demo), `Navbar`, `SearchModal`, `Footer`, `TrialBanner`, `ScrollToTop`, `LDINotification`, `NinaMusicPlayer`, `UnifiedNotification` e `CookieBanner`. `AnalyticsTracker` registra cliques, submits e profundidade de scroll sem capturar valores digitados. No mobile, a Navbar é uma faixa azul-escura de 48 px, fixa e com espaçador no fluxo, mantendo o hero abaixo dela; no desktop, permanece fixa e sobreposta. O `TrialBanner` fica no fluxo normal, depois do rodapé, e só aparece quando o visitante chega ao fim da página; o `readerMode` oculta Navbar, TrialBanner e Footer durante leitura.
+Componentes montados globalmente por `App.jsx`: `AnalyticsTracker`, `ScrollToTopOnNav`, `DesktopShellBar` (só runtime steam-demo), `Navbar`, `SearchModal`, `Footer`, `TrialBanner`, `ScrollToTop`, `LDINotification`, `RadioNina`, `UnifiedNotification` e `CookieBanner`. `AnalyticsTracker` registra cliques, submits e profundidade de scroll sem capturar valores digitados. No mobile, a Navbar é uma faixa azul-escura de 48 px, fixa e com espaçador no fluxo, mantendo o hero abaixo dela; no desktop, permanece fixa e sobreposta. O `TrialBanner` fica no fluxo normal, depois do rodapé, e só aparece quando o visitante chega ao fim da página; o `readerMode` oculta Navbar, TrialBanner e Footer durante leitura.
 
 ## 3. Rotas atuais
 
@@ -197,7 +197,7 @@ Cada jogo mantém componentes, dados, hooks/engine e store próprios dentro de s
 - Notificações: `AchievementToast`, `LDINotification`, `UnifiedNotification`.
 - Home/conteúdo: `HeroSlideshow`, `HeroEffect`, `LatestEpisodes`, `BookChaptersRow`, `CharactersRow`, `MusicSection`, `NowLive`, `ShopSection`, `StoryProgress`.
 - Jogos/resultado: `BackToGamesBtn`, `Jokempo`, `Puzzles`, `ResultCard`, `TopTrumpsCard`.
-- Mídia: `NinaMusicPlayer`, `PlatformIcons`, `SocialBar`.
+- Mídia: `RadioNina` (barra fixa no rodapé, toca MP3 do R2 via Worker; config/i18n dedicados em `src/components/RadioNina/`), `PlatformIcons`, `SocialBar`.
 
 ## 6. Conteúdo, dados e assets
 
@@ -274,6 +274,8 @@ As Edge Functions ficam em `supabase/functions/`; o frontend de assinatura está
 | SearchModal | 2000 |
 | AchievementToast | 1500 |
 | Navbar | 1000 |
+| Rádio Nina (paleta) | 501 |
+| Rádio Nina (barra/mini) | 500 |
 | CookieBanner | 200 |
 | LDINotification | 150 |
 | ScrollToTop | 100 |
@@ -296,7 +298,7 @@ Fonte única: `src/config/version.js`. Esta tabela registra somente a identifica
 
 | Constante | Módulo | Versão |
 |---|---|---:|
-| `SITE_VERSION` | Site global | **10.198.48** |
+| `SITE_VERSION` | Site global | **10.198.49** |
 | `PP_VERSION` | Pesadelo Particular | 2.3.1 |
 | `LDI_VERSION` | Lendas do LDI | 2.0.1 |
 | `JACK_VERSION` | Jack Dream Beer | 5.3.2 |

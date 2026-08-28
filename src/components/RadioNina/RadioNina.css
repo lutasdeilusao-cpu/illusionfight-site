@@ -1,0 +1,331 @@
+/* ═══════════════════════════════════════════
+   RÁDIO NINA — barra fixa no rodapé
+   Tema via --radio-cor (injetada inline).
+   z-index: 500 (barra) / 501 (paleta)
+   ═══════════════════════════════════════════ */
+.radio-nina {
+  --radio-cor: #ff6b9d;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 52px;
+  padding: 0 12px calc(env(safe-area-inset-bottom, 0px)) 12px;
+  background: var(--bg-elevated);
+  border-top: 2px solid var(--radio-cor);
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.25);
+  animation: radio-nina-subir 0.3s ease;
+}
+
+@keyframes radio-nina-subir {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+.radio-nina__face {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--radio-cor);
+  flex-shrink: 0;
+}
+
+/* ── Agora tocando ── */
+.radio-nina__now {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1px;
+}
+
+.radio-nina__label {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--radio-cor);
+  line-height: 1;
+}
+
+.radio-nina__marquee {
+  position: relative;
+  overflow: hidden;
+  height: 1.25em;
+}
+
+.radio-nina__track {
+  position: absolute;
+  white-space: nowrap;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.82rem;
+  color: var(--text-primary);
+  will-change: transform;
+  animation: radio-nina-scroll 13s linear infinite;
+}
+
+@keyframes radio-nina-scroll {
+  from { transform: translateX(100%); }
+  to { transform: translateX(-100%); }
+}
+
+.radio-nina--pausado .radio-nina__track {
+  position: static;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  animation: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .radio-nina__track {
+    position: static;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    animation: none;
+  }
+}
+
+/* ── Controles ── */
+.radio-nina__controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.radio-nina__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid var(--radio-cor);
+  background: transparent;
+  color: var(--radio-cor);
+  font-size: 0.8rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.radio-nina__btn:hover {
+  background: var(--radio-cor);
+  color: var(--bg-primary);
+}
+
+.radio-nina__btn--play {
+  width: 36px;
+  height: 36px;
+  font-size: 0.9rem;
+}
+
+/* ── Paleta de cor ── */
+.radio-nina__palette-wrap {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.radio-nina__swatch {
+  background: var(--radio-cor);
+}
+
+.radio-nina__palette {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 10px);
+  z-index: 501;
+  display: flex;
+  gap: 6px;
+  padding: 8px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--radio-cor);
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.radio-nina__cor {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform 0.12s ease;
+}
+
+.radio-nina__cor:hover {
+  transform: scale(1.12);
+}
+
+.radio-nina__cor--ativa {
+  border-color: var(--text-primary);
+}
+
+.radio-nina__close {
+  flex-shrink: 0;
+}
+
+/* ── Mini (barra minimizada) ── */
+.radio-nina-mini {
+  --radio-cor: #ff6b9d;
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 500;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border-radius: 50%;
+  border: 2px solid var(--radio-cor);
+  background: var(--bg-elevated);
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.radio-nina-mini__face {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.radio-nina-mini--tocando {
+  animation: radio-nina-pulso 1.6s ease-in-out infinite;
+}
+
+@keyframes radio-nina-pulso {
+  0%, 100% { box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3); }
+  50% { box-shadow: 0 0 0 4px color-mix(in srgb, var(--radio-cor) 40%, transparent), 0 4px 16px rgba(0, 0, 0, 0.3); }
+}
+
+@media (max-width: 420px) {
+  .radio-nina__label { display: none; }
+}
+
+/* ═══════════════════════════════════════════
+   Balão do convite ("Quer ligar a Rádio Nina?")
+   Renderizado por UnifiedNotification.
+   ═══════════════════════════════════════════ */
+.nina-balloon {
+  position: fixed;
+  bottom: 90px;
+  right: 24px;
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  max-width: 320px;
+  z-index: 150;
+  animation: ninaBalloonIn 0.25s ease;
+}
+
+@keyframes ninaBalloonIn {
+  from { opacity: 0; transform: translateY(12px) scale(0.9); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.nina-balloon-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--accent-pink, #ff6b9d);
+  flex-shrink: 0;
+}
+
+.nina-balloon-content {
+  background: var(--accent-pink, #ff6b9d);
+  border-radius: 16px 16px 16px 4px;
+  padding: 8px 12px;
+  min-width: 0;
+  max-width: 280px;
+  box-shadow: 0 2px 8px rgba(255, 107, 157, 0.25);
+  position: relative;
+  animation: bubbleGrow 0.15s ease forwards;
+  transform-origin: right center;
+}
+
+@keyframes bubbleGrow {
+  from { transform: scaleX(0); opacity: 0; }
+  to { transform: scaleX(1); opacity: 1; }
+}
+
+.nina-tail {
+  display: block;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-right-color: var(--accent-pink, #ff6b9d);
+  border-left: 0;
+  position: absolute;
+  bottom: 10px;
+  left: -6px;
+}
+
+.nina-balloon-msg {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.85rem;
+  color: #fff;
+  line-height: 1.45;
+  margin: 0;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.nina-cursor {
+  display: inline-block;
+  animation: blink 0.6s step-end infinite;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 300;
+  margin-left: 1px;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+.nina-balloon-actions {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+  animation: fadeUp 0.25s ease;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.nina-btn {
+  flex: 1;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  padding: 5px 0;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+  text-transform: uppercase;
+  background: transparent;
+  color: #fff;
+}
+
+.nina-btn-yes:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: #fff;
+}
+
+.nina-btn-no:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.7);
+}

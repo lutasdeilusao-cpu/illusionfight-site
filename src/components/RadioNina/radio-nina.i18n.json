@@ -1,0 +1,53 @@
+{
+  "pt": {
+    "nome": "Rádio Nina",
+    "convite": {
+      "game": "Oi! Quer ligar a Rádio Nina enquanto joga?",
+      "reading": "Oi! Quer ligar a Rádio Nina enquanto lê?",
+      "default": "Oi! Quer ligar a Rádio Nina?"
+    },
+    "sim": "Ligar",
+    "nao": "Agora não",
+    "anterior": "Música anterior",
+    "play": "Tocar",
+    "pause": "Pausar",
+    "proxima": "Próxima música",
+    "cor": "Cor da rádio",
+    "minimizar": "Minimizar",
+    "abrir": "Abrir a Rádio Nina"
+  },
+  "en": {
+    "nome": "Nina Radio",
+    "convite": {
+      "game": "Hey! Want to turn on Nina Radio while you play?",
+      "reading": "Hey! Want to turn on Nina Radio while you read?",
+      "default": "Hey! Want to turn on Nina Radio?"
+    },
+    "sim": "Turn on",
+    "nao": "Not now",
+    "anterior": "Previous track",
+    "play": "Play",
+    "pause": "Pause",
+    "proxima": "Next track",
+    "cor": "Radio color",
+    "minimizar": "Minimize",
+    "abrir": "Open Nina Radio"
+  },
+  "es": {
+    "nome": "Radio Nina",
+    "convite": {
+      "game": "¡Hola! ¿Quieres encender Radio Nina mientras juegas?",
+      "reading": "¡Hola! ¿Quieres encender Radio Nina mientras lees?",
+      "default": "¡Hola! ¿Quieres encender Radio Nina?"
+    },
+    "sim": "Encender",
+    "nao": "Ahora no",
+    "anterior": "Pista anterior",
+    "play": "Reproducir",
+    "pause": "Pausar",
+    "proxima": "Pista siguiente",
+    "cor": "Color de la radio",
+    "minimizar": "Minimizar",
+    "abrir": "Abrir Radio Nina"
+  }
+}

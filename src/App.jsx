@@ -65,7 +65,7 @@ const Custos = lazy(() => import('./pages/site/Custos'))
 const NotFound = lazy(() => import('./pages/site/NotFound/NotFound'))
 const SearchModal = lazy(() => import('./components/SearchModal/SearchModal'))
 const LDINotification = lazy(() => import('./components/LDINotification/LDINotification'))
-const NinaMusicPlayer = lazy(() => import('./components/NinaMusicPlayer/NinaMusicPlayer'))
+const RadioNina = lazy(() => import('./components/RadioNina/RadioNina'))
 const UnifiedNotification = lazy(() => import('./components/UnifiedNotification/UnifiedNotification'))
 import { trackPageView } from './lib/analytics'
 import './pages/games/Duelo/version' // side-effect: console.log version
@@ -186,7 +186,7 @@ export default function App() {
       {deferredUiReady && (
         <Suspense fallback={null}>
           <LDINotification />
-          <NinaMusicPlayer />
+          <RadioNina />
           <UnifiedNotification />
         </Suspense>
       )}
