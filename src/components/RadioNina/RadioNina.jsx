@@ -144,8 +144,6 @@ export default function RadioNina() {
         className={`radio-nina ${tocando ? '' : 'radio-nina--pausado'} ${faixaAtual?.ad ? 'radio-nina--ad' : ''}`}
         style={{ '--radio-cor': cor }}
       >
-        <button className="radio-nina__x" onClick={fechar} aria-label={S.fechar_de_vez}>×</button>
-
         <div className="radio-nina__progresso">
           <div className="radio-nina__progresso-fill" style={{ width: `${pct}%` }} />
           <input

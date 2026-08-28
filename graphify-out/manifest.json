@@ -160,8 +160,8 @@
     "semantic_hash": "510a9ffca88eb0789eeddb9fe4d08d87"
   },
   "src/App.jsx": {
-    "mtime": 1787922689.261403,
-    "ast_hash": "5024dc4e9a4da3cab7063325b6553c87",
+    "mtime": 1787943747.6731124,
+    "ast_hash": "eefd6ab9c7f5c9b9f765ee3ede8cf1ab",
     "semantic_hash": ""
   },
   "src/components/AchievementToast/AchievementToast.jsx": {
@@ -405,8 +405,8 @@
     "semantic_hash": "b11265c546f5970b719233c19e1b2c2d"
   },
   "src/config/version.js": {
-    "mtime": 1787942949.784274,
-    "ast_hash": "fb1cff1a706b609e45953a748424bea9",
+    "mtime": 1787943780.6825907,
+    "ast_hash": "40deab52a175f413c8b68c479f395265",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -650,13 +650,13 @@
     "semantic_hash": "04fe18f6b87b3e1315a9343353aef1fc"
   },
   "src/i18n/en.json": {
-    "mtime": 1787942348.4428072,
-    "ast_hash": "78758f0f2272f08ef360b0cb34cfe965",
+    "mtime": 1787943755.6030169,
+    "ast_hash": "8a33ede351d01e9a2e93de3de77b8160",
     "semantic_hash": ""
   },
   "src/i18n/es.json": {
-    "mtime": 1787942353.466498,
-    "ast_hash": "4def287e6795765eaccf0e5feb13628f",
+    "mtime": 1787943755.6080174,
+    "ast_hash": "eee5be8697b32f09b47325317e8e5c8f",
     "semantic_hash": ""
   },
   "src/i18n/locales.js": {
@@ -680,8 +680,8 @@
     "semantic_hash": "fff728f6c525ec64a386f467142b28dc"
   },
   "src/i18n/pt.json": {
-    "mtime": 1787942343.7460153,
-    "ast_hash": "0202e5c9ef189733fab08b551ac36156",
+    "mtime": 1787943755.5980165,
+    "ast_hash": "052c8db58d52e9e52a9b89890d925307",
     "semantic_hash": ""
   },
   "src/i18n/tt_en.json": {
@@ -2830,8 +2830,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1787942949.8117518,
-    "ast_hash": "a2c34500a3b6360a65c35d9d48f94bb8",
+    "mtime": 1787943780.7865145,
+    "ast_hash": "c201601b30edb8b8a0ece6ed5af8fb0e",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3795,23 +3795,18 @@
     "semantic_hash": ""
   },
   "src/data/contos-index.json": {
-    "mtime": 1787942942.5298536,
-    "ast_hash": "c1098c7dba5f46019f79f0fde71f040a",
+    "mtime": 1787943673.9319978,
+    "ast_hash": "69f251533461071649703a5b90650d1b",
     "semantic_hash": ""
   },
   "src/pages/content/ContoCapitulo.jsx": {
-    "mtime": 1787888727.4246728,
-    "ast_hash": "1f04a7722813bd38e11c4aafa70a0a18",
+    "mtime": 1787943736.5271757,
+    "ast_hash": "785f764f7ca6d5fdd38e1305e4567eeb",
     "semantic_hash": ""
   },
   "src/pages/content/Contos.jsx": {
-    "mtime": 1787888689.7727113,
-    "ast_hash": "5e5fe71c932e88c7632cc9acf3e834d5",
-    "semantic_hash": ""
-  },
-  "src/data/livro/contos/pt/conto-01.md": {
-    "mtime": 1787942931.0162103,
-    "ast_hash": "bb5a7bdabddbb8e221aeaa74a5479e3f",
+    "mtime": 1787943691.5745103,
+    "ast_hash": "06a26b0cb278a0de828c25551e186bf2",
     "semantic_hash": ""
   },
   "workers/songs-r2/worker.js": {
@@ -3825,8 +3820,8 @@
     "semantic_hash": ""
   },
   "src/components/RadioNina/RadioNina.jsx": {
-    "mtime": 1787936511.5992088,
-    "ast_hash": "31fcb70498e763aa4340dcf865338ed6",
+    "mtime": 1787943445.188376,
+    "ast_hash": "52ace4c2f2bea3694cdc639033d9c1ea",
     "semantic_hash": ""
   },
   "src/components/RadioNina/radio-nina.config.json": {
@@ -3835,8 +3830,8 @@
     "semantic_hash": ""
   },
   "src/components/RadioNina/radio-nina.i18n.json": {
-    "mtime": 1787936394.5972052,
-    "ast_hash": "a20e5f0b5e8da8edcc4927e7303f0b22",
+    "mtime": 1787943453.131454,
+    "ast_hash": "0bf9df2613fab9656130b5de1ef3c4c2",
     "semantic_hash": ""
   },
   "src/components/RadioNina/RadioNinaPlaylist.jsx": {
@@ -3850,13 +3845,53 @@
     "semantic_hash": ""
   },
   "src/components/RadioNina/useRadioNina.js": {
-    "mtime": 1787939546.2674267,
-    "ast_hash": "55aa5e69036516960846c4e66458958c",
+    "mtime": 1787943406.9563332,
+    "ast_hash": "922210200c1a2075ad4570151f0aa115",
     "semantic_hash": ""
   },
   "supabase/migrations/029_radio_nina_playlists.sql": {
     "mtime": 1787930785.6791418,
     "ast_hash": "e24d6fb322202bb428880587d9760dfe",
+    "semantic_hash": ""
+  },
+  "src/pages/content/ContoHistoria.jsx": {
+    "mtime": 1787943706.4386885,
+    "ast_hash": "5b7a37feb14c16e6a9fa17412c1f4b71",
+    "semantic_hash": ""
+  },
+  "src/data/livro/contos/pt/lidando-com-a-dor/01.md": {
+    "mtime": 1787943561.8641474,
+    "ast_hash": "6087291971bbe1885c8094d2abd92dc3",
+    "semantic_hash": ""
+  },
+  "src/data/livro/contos/pt/lidando-com-a-dor/02.md": {
+    "mtime": 1787943588.6054866,
+    "ast_hash": "8e0dd8f7b9e32ea9c793cb0728df2406",
+    "semantic_hash": ""
+  },
+  "src/data/livro/contos/pt/lidando-com-a-dor/03.md": {
+    "mtime": 1787943602.1272478,
+    "ast_hash": "0b46a3aaeabfb42b5cbd4eca279b07de",
+    "semantic_hash": ""
+  },
+  "src/data/livro/contos/pt/lidando-com-a-dor/04.md": {
+    "mtime": 1787943616.6387768,
+    "ast_hash": "2ee5f320a70980b801db40ad4f20e9f3",
+    "semantic_hash": ""
+  },
+  "src/data/livro/contos/pt/lidando-com-a-dor/05.md": {
+    "mtime": 1787943629.0873423,
+    "ast_hash": "ffcb8f2dbfcb3d735181f664895f07e6",
+    "semantic_hash": ""
+  },
+  "src/data/livro/contos/pt/lidando-com-a-dor/06.md": {
+    "mtime": 1787943643.6225216,
+    "ast_hash": "9f90e3b994e5a2db85ff1020816b6f08",
+    "semantic_hash": ""
+  },
+  "src/data/livro/contos/pt/lidando-com-a-dor/07.md": {
+    "mtime": 1787943658.0290666,
+    "ast_hash": "1fc7ee16de63e2dfec18bd9cc97c95dd",
     "semantic_hash": ""
   }
 }
