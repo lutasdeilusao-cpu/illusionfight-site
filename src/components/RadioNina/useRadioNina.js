@@ -79,6 +79,7 @@ export function useRadioNina() {
   const ultimoAdRef = useRef(null)
   const contadorRef = useRef(0)
   const emAdRef = useRef(false)
+  const errosRef = useRef(0)
   const semAdsRef = useRef(semAds)
   useEffect(() => { semAdsRef.current = semAds }, [semAds])
   const tocandoRef = useRef(false)
@@ -105,8 +106,9 @@ export function useRadioNina() {
       const res = await fetch(`${BASE}/ads/${lang}`)
       if (!res.ok) return
       const { ads } = await res.json()
+      if (!Array.isArray(ads) || !ads.length) return
       const folder = ADS_PASTAS[lang] || ADS_PASTAS.pt || 'MaketingBR'
-      adsRef.current = (ads || []).map((a) => ({ key: a.key, url: `${BASE}/${folder}/${encodeURIComponent(a.key)}` }))
+      adsRef.current = ads.map((a) => ({ key: a.key, url: `${BASE}/${folder}/${encodeURIComponent(a.key)}` }))
     } catch (err) {
       console.warn(err)
     }
@@ -264,6 +266,7 @@ export function useRadioNina() {
     const onMeta = () => setDuracao(audio.duration || 0)
     const onPlay = () => {
       setTocando(true)
+      errosRef.current = 0
       if (emAdRef.current) return
       const atual = filaRef.current[idxRef.current]
       if (atual && anunciadaRef.current !== atual.key) {
@@ -280,22 +283,33 @@ export function useRadioNina() {
       }
       avancar()
     }
+    // Faixa (ou propaganda) não carregou → nunca travar a rádio: segue pra próxima música.
+    const onError = () => {
+      const total = filaRef.current.length
+      if (!total) return
+      errosRef.current += 1
+      if (errosRef.current > 4) { emAdRef.current = false; setTocando(false); return }
+      emAdRef.current = false
+      tocarIndice((idxRef.current + 1) % total, 'auto')
+    }
 
     audio.addEventListener('timeupdate', onTime)
     audio.addEventListener('loadedmetadata', onMeta)
     audio.addEventListener('play', onPlay)
     audio.addEventListener('pause', onPause)
     audio.addEventListener('ended', onEnded)
+    audio.addEventListener('error', onError)
     return () => {
       audio.removeEventListener('timeupdate', onTime)
       audio.removeEventListener('loadedmetadata', onMeta)
       audio.removeEventListener('play', onPlay)
       audio.removeEventListener('pause', onPause)
       audio.removeEventListener('ended', onEnded)
+      audio.removeEventListener('error', onError)
       audio.pause()
       audio.src = ''
     }
-  }, [avancar])
+  }, [avancar, tocarIndice])
 
   // Controles de mídia do sistema
   useEffect(() => {
