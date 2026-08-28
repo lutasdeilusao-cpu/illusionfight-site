@@ -1,4 +1,4 @@
-# CONTO I — Ryan
+# CONTO I — Lidando com a Dor
 
 *Selo Legends — Contos de Ilusão*
 
@@ -7,6 +7,8 @@ Meu nome é Ryan.
 O que vem agora aconteceu antes de eu entrar na história de vocês. Antes do corredor. Antes da caixa. Vou contar do começo, porque só assim faz sentido.
 
 ---
+
+## I
 
 É uma casa.
 
@@ -58,6 +60,102 @@ Quando se vive assim, o mundo fica simples. As portas abrem antes de você chega
 
 *É simples.*
 
-E mesmo assim — com o sobrenome, com o carro, com o Beethoven às cinco e meia — dentro daquele lugar eu não passava de um capacho.
+E mesmo assim — com o sobrenome, com o carro, com o Beethoven às cinco e meia — dentro daquele lugar eu não passo de um capacho.
 
-Mas isso é a próxima parte.
+---
+
+## II
+
+Não é força de expressão. Capacho é a palavra certa.
+
+Sou uma vítima da situação. Da minha própria situação — do meu privilégio, da minha casta, da posição de elite que meu pai tanto preza. Tem uma piada aí, se você parar pra pensar. A mesma coisa que devia me proteger é a coisa que me entrega pra eles toda manhã.
+
+Porque eles também são ricos. Talvez não como a minha família — quase ninguém é. Mas ricos o suficiente pra estarem ali, no mesmo corredor, com o mesmo uniforme caro. E mesmo assim me fazem pagar as contas deles. Fazem as lições deles pararem na minha mochila. Me humilham. Filmam. Adoram filmar.
+
+Esses são os meus dias. Já faz tanto tempo que eu não lembro direito de como eram antes.
+
+---
+
+Começa sempre com o Arnold.
+
+Eu não sei o que ele tem contra mim. Nunca soube. Desde o primeiro dia em que ele chegou na Elite Academy e me olhou de cima a baixo no corredor, alguma coisa foi decidida — por ele, sobre mim — e nunca mais mudou.
+
+Arnold não é o valentão de filme. Não é grande, não é musculoso, não encosta a mão em mim se puder evitar. É magro, tem a voz baixa, senta na primeira fileira e responde o professor com educação.
+
+Mas tem uma coisa no olhar dele.
+
+Ele gosta de ver. Não de fazer — de ver. Encosta na parede, cruza os braços, e assiste os amigos trabalharem em mim com a cara de quem está revendo um filme que já achava engraçado da primeira vez.
+
+Tudo o que acontece comigo passou pela cabeça dele antes. Pensado, montado, distribuído. Os outros só executam.
+
+---
+
+**Segunda.**
+
+Segunda é dia de acerto.
+
+Dylan chega na minha carteira antes do primeiro sinal e larga um papel dobrado. Uma lista. Cantina, uma tela de celular que alguém quebrou no fim de semana, "empréstimos" que ninguém pegou emprestado. Eu confiro os números de cabeça enquanto o resto da sala vai sentando.
+
+Seiscentos numa semana leve. Mais que isso numa ruim.
+
+Eu destravo o telefone com o polegar, faço as transferências uma por uma, mostro a tela pro Dylan. Ele confere sem pressa, como se o dinheiro fosse dele.
+
+Meu pai nunca perguntou pra onde vai o cartão. Nunca vai perguntar. Pra ele, sessenta ou seis mil é a mesma coisa — barulho de fundo.
+
+---
+
+**Terça.**
+
+Terça tem três conjuntos de exercícios em cima da minha mesa quando eu chego.
+
+Letras diferentes pra cada um. Eu aprendi a imitar a caligrafia dos três — a do Bruno inclina pra direita, a do Théo aperta demais a caneta, a da Marina é redonda e caprichada. Faço os três antes da aula começar, com a minha própria prova em branco do lado.
+
+Eu tiro nota melhor nas provas dos outros do que nas minhas. Já pensei nisso mais de uma vez.
+
+---
+
+**Quarta.**
+
+Quarta é no espaço atrás do ginásio, onde a câmera do corredor não pega.
+
+Eles jogam coisa. Uma lata, um tênis, o lanche de alguém. O Dylan gosta de empurrar — não pra machucar de verdade, só pra me derrubar. Eu já aprendi a cair de um jeito que dói menos, o quadril primeiro, o cotovelo recolhido.
+
+Arnold fica de fora do círculo com o celular levantado. Ele não filma a parte da lata nem do empurrão.
+
+Ele filma a minha cara.
+
+O vídeo de cueca foi no ano passado, no corredor do segundo andar. Ainda circula. De vez em quando alguém manda de novo pro meu número, sem escrever nada, só pra eu saber que ele não sumiu.
+
+---
+
+**Quinta.**
+
+Quinta é no refeitório, com o refeitório cheio.
+
+Eles montam alguma coisa numa bandeja — o que sobrou de três pratos, misturado, mais o que acharem na mochila. Colocam na minha frente e ficam em volta, encostados, conversando de outro assunto, esperando.
+
+Não é sobre a comida. É sobre eu comer com todo mundo olhando e ninguém levantando da cadeira.
+
+Eu como. É mais rápido assim.
+
+---
+
+**Sexta.**
+
+Sexta à tarde a coisa afrouxa.
+
+Todo mundo já está pensando no fim de semana, na casa da praia, no voo de sábado de manhã. Até o Arnold. Ele me olha na saída, calcula se vale a pena, decide que não, e vai embora sem dizer nada.
+
+Eu fico umas duas horas sendo invisível. É o mais perto de paz que a semana me dá.
+
+---
+
+Isso não começou esse ano. Nem no passado.
+
+Faz tanto tempo que virou horário. Segunda o dinheiro, terça a lição, quarta o chão atrás do ginásio, quinta a bandeja, sexta o alívio. Eu sei o formato de cada dia antes dele acontecer.
+
+Eu já parei de esperar que alguém no corredor faça alguma coisa. Ninguém nunca fez.
+
+Chamam isso de lidar com a dor. Como se fosse uma habilidade que dá pra treinar.
+
+Talvez seja a única que eu tenho.
