@@ -1,0 +1,29 @@
+var e=`# CAPÍTULO 5 — Palavra e Ação
+
+O moicano pôs a mão no boné do amigo, girou o boné na frente do rosto dele, e olhou pra mim com aquele sorriso largo, os dentes brancos.
+
+— Aí, cara. Leva mal não. Mas sinceramente: se ser inferior a você é ficar do jeito que a gente tá, e ser superior é ficar do jeito que você tá — Ficamos com inferior. Valeu.
+
+— Para de mexer no meu boné, caralho. — o boné azul. — Você sabe que eu não gosto.
+
+Começaram a trocar de assunto ali mesmo. O boné azul levantou. Iam embora.
+
+O grupinho do Arnold ria da nossa conversa, tirava sarro, me sacaneavam como sempre. E eu estava cansado. Muito cansado.
+
+— É muito fácil. — Eu gritei. — É muito fácil pra uns brutamontes que nem vocês, uns neandertais, ignorantes, que só sabem brigar que nem selvagens, querer humilhar os outros. E por qual motivo, tenho mais dinheiro, terei mais sucesso, sou mais inteligente. Só porque vocês têm poder, acham que podem dizer o que quiser, fazer o que quiser. Mas não vai ser sempre assim. Não é sempre que vocês vão estar na escola. Não é sempre que vocês vão ter o poder.
+
+Aquilo não era só pro moicano. Era pra todo mundo em volta. Pra tudo que estava acontecendo. Pra aquela vida.
+
+O boné azul já estava de pé, ajeitando o boné. Falou sem me olhar.
+
+— A única coisa que eu sei nessa vida é que, se a gente não muda, nada muda pra gente, acreditar no futuro melhor, é consolo dos fracos que nada fazem, a não ser esperar.
+
+Virou o rosto devagar.
+
+— Palavra é uma coisa legal, cara. Mas é ação que faz diferença.
+
+Dessa vez o medo não veio. Só raiva. Raiva de um inferior daquele me dando lição de moral.
+
+E foi aí que eu entendi por que todo mundo odiava os dois.
+`;export{e as default};
+//# sourceMappingURL=05-C7ZaBLv6.js.map
