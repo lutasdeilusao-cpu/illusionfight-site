@@ -19,7 +19,14 @@ export default function Contos() {
   const isAdmin = perfil?.is_admin === true || ADMIN_EMAILS.includes(user?.email || '')
 
   useEffect(() => {
-    setUltimo(localStorage.getItem('ldi-conto-ultimo'))
+    const salvo = localStorage.getItem('ldi-conto-ultimo')
+    const [historiaId, capId] = salvo?.split('/') || []
+    const historia = index.find(item => item.id === historiaId)
+    if (historia?.capitulos.some(capitulo => capitulo.id === capId)) {
+      setUltimo(salvo)
+    } else {
+      localStorage.removeItem('ldi-conto-ultimo')
+    }
   }, [])
 
   const tituloKey = locale === 'en' ? 'titulo_en' : locale === 'es' ? 'titulo_es' : 'titulo'

@@ -1,16 +1,16 @@
 # Graph Report - SiteLDI  (2026-08-28)
 
 ## Corpus Check
-- 706 files · ~808,993 words
+- 706 files · ~809,024 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 3386 nodes · 6743 edges · 285 communities (228 shown, 57 thin omitted)
+- 3386 nodes · 6743 edges · 284 communities (227 shown, 57 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 52 edges (avg confidence: 0.68)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `7ee63b7a`
+- Built from commit: `b8bfe41e`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -244,10 +244,9 @@
 - 02.md
 - weaponFamily
 - Criatura.jsx
+- 02.md
 - ScrollToTop.jsx
 - ScrollToTopOnNav.jsx
-- description
-- Value
 
 ## God Nodes (most connected - your core abstractions)
 1. `useLanguage()` - 376 edges
@@ -276,7 +275,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (285 total, 57 thin omitted)
+## Communities (284 total, 57 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.05
@@ -355,8 +354,8 @@ Cohesion: 0.06
 Nodes (46): FRASES, getFrase(), PALETTES, ResultCard(), DialogoCaso(), PERSONAGEM_STYLE, DICAS, DicaToast() (+38 more)
 
 ### Community 21 - "Lobby.jsx"
-Cohesion: 0.27
-Nodes (9): CriaturaSprite(), ESTADO_ANIM, resolverEstadoVisualTama(), COMIDA_TEMATICA, ITEM_KEY_MAP, ITENS_LOJA, getCtx(), sfx (+1 more)
+Cohesion: 0.20
+Nodes (11): BalloonFala(), CriaturaSprite(), ESTADO_ANIM, resolverEstadoVisualTama(), MetricBar(), COMIDA_TEMATICA, ITEM_KEY_MAP, ITENS_LOJA (+3 more)
 
 ### Community 22 - "Community 22"
 Cohesion: 0.13
@@ -403,8 +402,8 @@ Cohesion: 0.06
 Nodes (46): AchievementToast(), CharacterCard(), CharactersRow(), DeferredSection(), LatestEpisodes(), thumbMap, allImages, MusicCircle() (+38 more)
 
 ### Community 33 - "Community 33"
-Cohesion: 0.17
-Nodes (11): FALAS_CRIATURA, FALAS_CRIATURA, FALAS_CRIATURA, getPasseio(), PASSEIO_KEY_MAP, PASSEIOS, FALAS_MAP, PERS_NOME_KEY (+3 more)
+Cohesion: 0.16
+Nodes (12): FALAS_CRIATURA, FALAS_CRIATURA, FALAS_CRIATURA, getPasseio(), PASSEIO_KEY_MAP, PASSEIOS, FALAS_MAP, PERS_NOME_KEY (+4 more)
 
 ### Community 34 - "TopTrumpsMP.jsx"
 Cohesion: 0.43
@@ -500,7 +499,7 @@ Nodes (17): gh-pages, devDependencies, gh-pages, pg, @playwright/test, @tauri-ap
 
 ### Community 57 - "Community 57"
 Cohesion: 0.12
-Nodes (17): framer-motion, dependencies, framer-motion, pixi.js, playwright, react-dom, react-helmet-async, react-router-dom (+9 more)
+Nodes (17): framer-motion, dependencies, framer-motion, playwright, react-dom, react-helmet-async, react-markdown, react-router-dom (+9 more)
 
 ### Community 58 - "useAuth"
 Cohesion: 0.10
@@ -567,8 +566,8 @@ Cohesion: 0.38
 Nodes (6): ACOES, gerarBolhas(), gerarParticulas(), ITEM_EMOJI, ITENS_SAUDE, RestaurarSaude()
 
 ### Community 74 - "Criatura.jsx"
-Cohesion: 0.15
-Nodes (13): properties, Identifier, default, description, type, description, oneOf, type (+5 more)
+Cohesion: 0.22
+Nodes (9): properties, Identifier, description, oneOf, type, identifier, remote, anyOf (+1 more)
 
 ### Community 75 - "Community 75"
 Cohesion: 0.12
@@ -607,8 +606,12 @@ Cohesion: 0.13
 Nodes (14): Combat Mode: Silent Synchrony, Conflict Pattern: Triangle, Default State: Banter, Dynamic Patterns, Group Dynamics — Kim, Jack, Nina, Group Evolution by Chapter Arc, Jack — The Anchor / The Strategist, Key Locations for Group Interaction (+6 more)
 
 ### Community 86 - "MazeRafael.jsx"
-Cohesion: 0.15
-Nodes (13): definitions, Number, PermissionEntry, Target, Value, anyOf, description, anyOf (+5 more)
+Cohesion: 0.13
+Nodes (14): anyOf, definitions, Number, Target, Value, description, anyOf, description (+6 more)
+
+### Community 87 - "Value"
+Cohesion: 0.40
+Nodes (4): anyOf, description, $schema, title
 
 ### Community 88 - "PuzzleStealthGrid.jsx"
 Cohesion: 0.17
@@ -617,6 +620,10 @@ Nodes (11): core:window:allow-close, core:window:allow-destroy, https://illusion
 ### Community 89 - "Community 89"
 Cohesion: 0.22
 Nodes (8): graphify reference: extra exports and benchmark, Step 6b - Wiki (only if --wiki flag), Step 7 - Neo4j export (only if --neo4j or --neo4j-push flag), Step 7a - FalkorDB export (only if --falkordb or --falkordb-push flag), Step 7b - SVG export (only if --svg flag), Step 7c - GraphML export (only if --graphml flag), Step 7d - MCP server (only if --mcp flag), Step 8 - Token reduction benchmark (only if total_words > 5000)
+
+### Community 90 - "react-markdown"
+Cohesion: 0.50
+Nodes (4): default, description, type, description
 
 ### Community 91 - "Community 91"
 Cohesion: 0.33
@@ -643,8 +650,8 @@ Cohesion: 0.15
 Nodes (12): 1. Orquestrador, 2. Componentes de Fase (phases/), 3. Componentes de UI Reutilizáveis/Auxiliares, 4. engine/ — Lógica pura, 5. data/ — Catálogos e armazenamento, 6. Documentação, 7. ⚪ engine/ai/index.js — Órfão com imports quebrados, ArenaTestbed — Mapa Completo de Arquivos (+4 more)
 
 ### Community 98 - "Brincadeira.jsx"
-Cohesion: 0.22
-Nodes (9): properties, Identifier, description, oneOf, type, identifier, remote, anyOf (+1 more)
+Cohesion: 0.15
+Nodes (13): properties, Identifier, default, description, type, description, oneOf, type (+5 more)
 
 ### Community 100 - "Community 100"
 Cohesion: 0.50
@@ -663,8 +670,8 @@ Cohesion: 0.50
 Nodes (3): ALLOWED_PRICE_IDS, stripe, supabase
 
 ### Community 108 - "RestaurarSaude.jsx"
-Cohesion: 0.13
-Nodes (14): anyOf, definitions, Number, PermissionEntry, Target, description, anyOf, description (+6 more)
+Cohesion: 0.15
+Nodes (13): definitions, Number, PermissionEntry, Target, Value, anyOf, description, anyOf (+5 more)
 
 ### Community 110 - "SearchModal.jsx"
 Cohesion: 0.17
@@ -954,6 +961,10 @@ Nodes (4): default, description, type, local
 Cohesion: 0.40
 Nodes (4): Deploy via CLI (alternativa), Setup no dashboard (uma vez), songs-r2 Worker, Teste
 
+### Community 271 - "CAPÍTULO 7 — Física"
+Cohesion: 0.67
+Nodes (3): PermissionEntry, anyOf, description
+
 ### Community 272 - "worker.js"
 Cohesion: 0.47
 Nodes (5): AD_FOLDERS, CORS, fetch(), json(), listarMp3()
@@ -966,22 +977,6 @@ Nodes (5): BANCO, CONFIGS, prepararUnidades(), PuzzleAnagrama(), shuffleArray()
 Cohesion: 0.09
 Nodes (25): calcDamage(), calcFA(), calcFD(), calcInitiative(), deathTest(), rollD6(), rollWithDelay(), testAttribute() (+17 more)
 
-### Community 279 - "weaponFamily"
-Cohesion: 0.40
-Nodes (4): anyOf, description, $schema, title
-
-### Community 280 - "Criatura.jsx"
-Cohesion: 0.47
-Nodes (3): BalloonFala(), MetricBar(), PERSONALIDADES
-
-### Community 284 - "description"
-Cohesion: 0.50
-Nodes (4): default, description, type, description
-
-### Community 288 - "Value"
-Cohesion: 0.67
-Nodes (3): Value, anyOf, description
-
 ## Knowledge Gaps
 - **1249 isolated node(s):** `PUBLIC_ROUTES`, `AUTH_ROUTES`, `ADMIN_ROUTES`, `name`, `private` (+1244 more)
   These have ≤1 connection - possible missing edges or undocumented components.
@@ -990,7 +985,7 @@ Nodes (3): Value, anyOf, description
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `useLanguage()` connect `initBattle` to `Community 0`, `Community 1`, `Community 2`, `ArenaTaticsRoute.jsx`, `Community 8`, `Community 9`, `Community 10`, `Community 12`, `endBattle`, `sfx.js`, `CityOverworld.jsx`, `Investigacao.jsx`, `Community 19`, `Community 20`, `Create`, `Lobby.jsx`, `useGanguesTurnMachine.js`, `Criatura.jsx`, `Community 29`, `BLOCO B — LINKEDIN PESSOAL ISAIAS`, `PuzzleStealthGrid.jsx`, `Community 33`, `TopTrumpsMP.jsx`, `useJackStore.js`, `PuzzleForça.jsx`, `react`, `classTree.js`, `Community 49`, `PP.jsx`, `TypewriterPhrase.jsx`, `useAuth`, `useTopTrumpsRewards.js`, `PuzzleForça.jsx`, `Community 62`, `useScrollReveal`, `TeamSelect.jsx`, `RestaurarSaude.jsx`, `TopTrumpsSP.jsx`, `Quiz.jsx`, `sanguinaria.js`, `AnalyticsTracker.jsx`, `hexUtils.js`?**
+- **Why does `useLanguage()` connect `initBattle` to `Community 0`, `Community 1`, `Community 2`, `ArenaTaticsRoute.jsx`, `Community 8`, `Community 9`, `Community 10`, `Community 12`, `endBattle`, `sfx.js`, `CityOverworld.jsx`, `Investigacao.jsx`, `Community 19`, `Community 20`, `Create`, `Lobby.jsx`, `useGanguesTurnMachine.js`, `Community 29`, `BLOCO B — LINKEDIN PESSOAL ISAIAS`, `PuzzleStealthGrid.jsx`, `Community 33`, `TopTrumpsMP.jsx`, `useJackStore.js`, `PuzzleForça.jsx`, `react`, `classTree.js`, `Community 49`, `PP.jsx`, `TypewriterPhrase.jsx`, `useAuth`, `useTopTrumpsRewards.js`, `PuzzleForça.jsx`, `Community 62`, `useScrollReveal`, `TeamSelect.jsx`, `RestaurarSaude.jsx`, `TopTrumpsSP.jsx`, `Quiz.jsx`, `sanguinaria.js`, `AnalyticsTracker.jsx`, `hexUtils.js`?**
   _High betweenness centrality (0.136) - this node is a cross-community bridge._
 - **Why does `useReader()` connect `useScrollReveal` to `Community 0`, `Community 1`, `Community 3`, `Community 6`, `PuzzleForça.jsx`, `endBattle`, `sfx.js`, `TopTrumpsSP.jsx`, `Community 49`, `Community 20`, `useGanguesTurnMachine.js`, `useAuth`, `useTopTrumpsRewards.js`, `BLOCO B — LINKEDIN PESSOAL ISAIAS`?**
   _High betweenness centrality (0.045) - this node is a cross-community bridge._
