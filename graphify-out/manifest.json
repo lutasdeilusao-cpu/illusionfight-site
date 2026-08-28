@@ -135,8 +135,8 @@
     "semantic_hash": "8d5b3b5a815f883f1cdfad6d40ecb4bc"
   },
   "scripts/prerender-routes.js": {
-    "mtime": 1787877282.8963466,
-    "ast_hash": "2e1f17c0d626b9fbd355408e3cbc018d",
+    "mtime": 1787888781.5054722,
+    "ast_hash": "2895689c1992653bd21c7785f3c31635",
     "semantic_hash": ""
   },
   "scripts/run-migration.js": {
@@ -160,8 +160,8 @@
     "semantic_hash": "510a9ffca88eb0789eeddb9fe4d08d87"
   },
   "src/App.jsx": {
-    "mtime": 1787878992.2364738,
-    "ast_hash": "18df72f5728ae8c9b1efd4e78e870bab",
+    "mtime": 1787888746.2047093,
+    "ast_hash": "4656f1d4d7b24fe91cafac806b9eb3b9",
     "semantic_hash": ""
   },
   "src/components/AchievementToast/AchievementToast.jsx": {
@@ -410,8 +410,8 @@
     "semantic_hash": "b11265c546f5970b719233c19e1b2c2d"
   },
   "src/config/version.js": {
-    "mtime": 1787883871.8686073,
-    "ast_hash": "35220da857c741b470671ce799f20cac",
+    "mtime": 1787888789.0567484,
+    "ast_hash": "0fa4fdcca9ba774cf675b96718e52bd9",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -655,13 +655,13 @@
     "semantic_hash": "04fe18f6b87b3e1315a9343353aef1fc"
   },
   "src/i18n/en.json": {
-    "mtime": 1787878944.1715147,
-    "ast_hash": "b9af2757d83c6c5959a350438782b917",
+    "mtime": 1787888769.9805365,
+    "ast_hash": "7fa8d9a1c521924ee0f9786a28d90ecb",
     "semantic_hash": ""
   },
   "src/i18n/es.json": {
-    "mtime": 1787878949.4282064,
-    "ast_hash": "4960f8c8a41601ca12b8d4fe02155b28",
+    "mtime": 1787888775.5163577,
+    "ast_hash": "0252fa8b1f2f6210c1d3cd198794920f",
     "semantic_hash": ""
   },
   "src/i18n/locales.js": {
@@ -685,8 +685,8 @@
     "semantic_hash": "fff728f6c525ec64a386f467142b28dc"
   },
   "src/i18n/pt.json": {
-    "mtime": 1787878939.0933352,
-    "ast_hash": "43f1f7e6d01e0ac5440e7f817e242009",
+    "mtime": 1787888759.4923894,
+    "ast_hash": "8a14838fa26d2a90a9078e97ff5082be",
     "semantic_hash": ""
   },
   "src/i18n/tt_en.json": {
@@ -735,9 +735,9 @@
     "semantic_hash": ""
   },
   "src/pages/content/Livro.jsx": {
-    "mtime": 1782940296.842776,
-    "ast_hash": "aed287f7c4bb5eb296a23e66ca91253e",
-    "semantic_hash": "aed287f7c4bb5eb296a23e66ca91253e"
+    "mtime": 1787888752.3455677,
+    "ast_hash": "82b7865b8e3d5c5cbd303e00686fbc2f",
+    "semantic_hash": ""
   },
   "src/pages/content/LivroCapitulo.jsx": {
     "mtime": 1784402926.685726,
@@ -2835,8 +2835,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1787883881.8299158,
-    "ast_hash": "d54b6609c8a70bb8bebb8fdba84d346a",
+    "mtime": 1787888792.1601422,
+    "ast_hash": "7754fcc859ce82056b6a2ea01030b523",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3797,6 +3797,26 @@
   "src/components/DesktopShellBar/DesktopShellBar.jsx": {
     "mtime": 1787879281.3308153,
     "ast_hash": "ee4318bdb4d014397ec430fdd9a13b6a",
+    "semantic_hash": ""
+  },
+  "src/data/contos-index.json": {
+    "mtime": 1787888671.2395418,
+    "ast_hash": "3ed98b181f87624f04944222876617ac",
+    "semantic_hash": ""
+  },
+  "src/pages/content/ContoCapitulo.jsx": {
+    "mtime": 1787888727.4246728,
+    "ast_hash": "1f04a7722813bd38e11c4aafa70a0a18",
+    "semantic_hash": ""
+  },
+  "src/pages/content/Contos.jsx": {
+    "mtime": 1787888689.7727113,
+    "ast_hash": "5e5fe71c932e88c7632cc9acf3e834d5",
+    "semantic_hash": ""
+  },
+  "src/data/livro/contos/pt/conto-01.md": {
+    "mtime": 1787888738.6507773,
+    "ast_hash": "1bd8c236c12d837285e43ba2247e1a85",
     "semantic_hash": ""
   }
 }

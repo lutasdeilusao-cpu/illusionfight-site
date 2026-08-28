@@ -1,11 +1,11 @@
 [
   { "id": "conto-01", "numero": 1, "selo": "Legends",
-    "titulo": "Conto I", "titulo_en": "Tale I", "titulo_es": "Cuento I",
-    "tagline_pt": "Uma história paralela do mundo de Lutas de Ilusão.",
-    "tagline_en": "A side story from the world of Illusion Fight.",
-    "tagline_es": "Una historia paralela del mundo de Lutas de Ilusão.",
-    "resumo_pt": "Em breve — o primeiro Conto de Ilusão do Selo Legends. Outros personagens, outras experiências, o mesmo mundo.",
-    "resumo_en": "Coming soon — the first Tale of Illusion from the Legends imprint. Other characters, other experiences, the same world.",
-    "resumo_es": "Próximamente — el primer Cuento de Ilusión del sello Legends. Otros personajes, otras experiencias, el mismo mundo.",
-    "data_publicacao": "2099-01-01" }
+    "titulo": "Ryan", "titulo_en": "Ryan", "titulo_es": "Ryan",
+    "tagline_pt": "A elite vista por dentro. Contada por quem nunca teve escolha.",
+    "tagline_en": "The elite from the inside. Told by someone who never had a choice.",
+    "tagline_es": "La élite vista por dentro. Contada por quien nunca tuvo elección.",
+    "resumo_pt": "Antes do corredor e da caixa, Ryan viveu dentro de uma casa que decidia tudo por ele. Primeira pessoa. Rascunho em construção.",
+    "resumo_en": "Before the hallway and the box, Ryan lived inside a house that decided everything for him. First person. Draft in progress.",
+    "resumo_es": "Antes del pasillo y la caja, Ryan vivió dentro de una casa que lo decidía todo por él. Primera persona. Borrador en construcción.",
+    "data_publicacao": "2026-08-28" }
 ]

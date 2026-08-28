@@ -1,9 +1,63 @@
-# CONTO I
+# CONTO I — Ryan
 
 *Selo Legends — Contos de Ilusão*
 
+Meu nome é Ryan.
+
+O que vem agora aconteceu antes de eu entrar na história de vocês. Antes do corredor. Antes da caixa. Vou contar do começo, porque só assim faz sentido.
+
 ---
 
-Este conto ainda está sendo escrito.
+É uma casa.
 
-Em breve, a primeira história paralela do mundo de Lutas de Ilusão: outros personagens, outras experiências, o mesmo mundo — e cruzamentos que você não vai esperar.
+Minha casa. Não vou fingir modéstia: é uma casa muito rica. Tem ala que eu não piso há meses. Tem funcionário cujo nome eu nunca aprendi, porque não era pra eu aprender.
+
+Meu pai e minha mãe construíram tudo isso. Não são famosos — os dois tratam a discrição como religião. Mas são ricos de um jeito que a palavra não alcança. Negócios no mundo inteiro. Alguns eu conheço. A maioria não.
+
+— Eu já tenho dinheiro pros meus filhos. — Meu pai fala sempre com a mesma calma. — Pros filhos dos meus filhos. E pros filhos deles. E ainda assim eles não vão conseguir gastar tudo o que eu juntei.
+
+Ele deixa a frase respirar. Depois vem a parte que importa pra ele.
+
+— Não preciso que você ganhe dinheiro, Ryan. Preciso que você seja uma representação clara da nossa classe. Do nosso nível. Do que a gente é.
+
+Eu concordo. Concordar é mais barato.
+
+---
+
+Minhas manhãs começam às cinco.
+
+Não porque eu acordo. Porque me acordam. Um dos empregados bate duas vezes na porta e acende a luz do closet antes de eu abrir os olhos, e a partir dali o dia já está andando sem mim.
+
+A roupa está escolhida. Foi separada na véspera, por outra pessoa, disposta na ordem em que eu devo vestir. O café já está decidido — porção, horário, o que entra e o que não entra. Um cardápio que minha mãe aprova toda segunda e que eu nunca vi mudar.
+
+Eu como sozinho, numa mesa comprida demais pra uma pessoa.
+
+---
+
+Antes de sair, eu sento ao piano.
+
+Não é escolha minha. É Beethoven, sempre. Uma das sonatas, a que estiver marcada na estante. Eu toco os primeiros movimentos com a técnica que anos de professor particular deixaram nos meus dedos, e não sinto nada.
+
+Meu pai passa pelo corredor exatamente nesse horário. De propósito. Ele acredita que um filho tocando Beethoven às cinco e meia da manhã é a prova viva de tudo o que ele alcançou — do lugar a que a gente pertence.
+
+Eu fecho a tampa no fim do movimento. Nunca antes.
+
+---
+
+O motorista me leva até a Elite.
+
+O carro sai às seis e quarenta. Ele não fala comigo e eu agradeço por isso.
+
+A Elite Academy aparece no fim de uma avenida arborizada que a cidade mantém só por causa de quem estuda ali. Portão alto. Um jardim que trabalha o ano inteiro pra parecer que ninguém cuida dele.
+
+Lá dentro, eu não preciso explicar nada a ninguém.
+
+Todo mundo que eu cruzo no corredor está no meu nível, ou perto o suficiente pra que a diferença não apareça. As mesmas marcas de carro no estacionamento dos alunos. As mesmas viagens nas mesmas semanas do ano. A gente se reconhece sem precisar conversar sobre isso.
+
+Quando se vive assim, o mundo fica simples. As portas abrem antes de você chegar nelas. As pessoas ajustam o tom de voz quando falam com você. Você atravessa os dias como quem atravessa um saguão: sem esbarrar em nada.
+
+*É simples.*
+
+E mesmo assim — com o sobrenome, com o carro, com o Beethoven às cinco e meia — dentro daquele lugar eu não passava de um capacho.
+
+Mas isso é a próxima parte.
