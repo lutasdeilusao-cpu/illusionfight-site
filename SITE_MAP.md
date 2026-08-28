@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — MAPA DO SITE E DO PROJETO
 
 > Referência do estado atual do projeto para navegação humana e contexto de IA.
-> Atualizado em 2026-08-28 — `SITE_VERSION` **10.198.50**.
+> Atualizado em 2026-08-28 — `SITE_VERSION` **10.198.51**.
 > Histórico de tarefas, bugfixes e pendências não pertence a este documento.
 > Regras de trabalho, arquivos proibidos e decisões arquiteturais: `AGENTS.md`.
 
@@ -197,7 +197,7 @@ Cada jogo mantém componentes, dados, hooks/engine e store próprios dentro de s
 - Notificações: `AchievementToast`, `LDINotification`, `UnifiedNotification`.
 - Home/conteúdo: `HeroSlideshow`, `HeroEffect`, `LatestEpisodes`, `BookChaptersRow`, `CharactersRow`, `MusicSection`, `NowLive`, `ShopSection`, `StoryProgress`.
 - Jogos/resultado: `BackToGamesBtn`, `Jokempo`, `Puzzles`, `ResultCard`, `TopTrumpsCard`.
-- Mídia: `RadioNina` (barra fixa no rodapé, toca MP3 do R2 via Worker; config/i18n dedicados em `src/components/RadioNina/`), `PlatformIcons`, `SocialBar`.
+- Mídia: `RadioNina` — barra fixa no rodapé, toca MP3 do R2 via Worker. Pasta dedicada `src/components/RadioNina/`: `RadioNina.jsx` (casca), `useRadioNina.js` (motor de áudio + fila + eventos GA), `RadioNinaPlaylist.jsx` (painel), `radio-nina.playlist.js` (Supabase CRUD), `radio-nina.config.json` (base/cores/aberturas/excluir/títulos), `radio-nina.i18n.json`. 1ª faixa = abertura oficial do locale. Progresso/seek estilo streaming, painel de playlist, e playlist salva por conta (`radio_nina_playlists`). Eventos GA4: `radio_ligar`, `radio_play`, `radio_completa`, `radio_pular`, `radio_playlist_salva`. Também: `PlatformIcons`, `SocialBar`.
 
 ## 6. Conteúdo, dados e assets
 
@@ -241,8 +241,8 @@ Arquivos do livro são carregados por `import.meta.glob`; ao mover leitores, os 
 
 - Projeto Supabase: `dvxfrzixtetdzmdrzkpx`.
 - Cliente: `src/lib/supabase.js`.
-- Migrações locais: `supabase/migrations/004_*.sql` até `028_auth_profile_provisioning.sql`; os números podem se repetir porque algumas linhas de evolução foram criadas em paralelo.
-- Principais domínios persistidos: perfis, fichas, DIX, conquistas, saves de jogos, Tamagoshi, Arena, decks/ranking/partidas Top Trumps e submissões compartilhadas.
+- Migrações locais: `supabase/migrations/004_*.sql` até `029_radio_nina_playlists.sql`; os números podem se repetir porque algumas linhas de evolução foram criadas em paralelo.
+- Principais domínios persistidos: perfis, fichas, DIX, conquistas, saves de jogos, Tamagoshi, Arena, decks/ranking/partidas Top Trumps, submissões compartilhadas e playlist da Rádio Nina (`radio_nina_playlists`, 1 por usuário).
 - RLS usa o usuário autenticado como autoridade nos dados pessoais.
 
 | Edge Function | Função | JWT |
@@ -298,7 +298,7 @@ Fonte única: `src/config/version.js`. Esta tabela registra somente a identifica
 
 | Constante | Módulo | Versão |
 |---|---|---:|
-| `SITE_VERSION` | Site global | **10.198.50** |
+| `SITE_VERSION` | Site global | **10.198.51** |
 | `PP_VERSION` | Pesadelo Particular | 2.3.1 |
 | `LDI_VERSION` | Lendas do LDI | 2.0.1 |
 | `JACK_VERSION` | Jack Dream Beer | 5.3.2 |

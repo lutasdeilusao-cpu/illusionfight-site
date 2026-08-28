@@ -14,7 +14,17 @@
     "proxima": "Próxima música",
     "cor": "Cor da rádio",
     "minimizar": "Minimizar",
-    "abrir": "Abrir a Rádio Nina"
+    "abrir": "Abrir a Rádio Nina",
+    "playlist": "Playlist",
+    "tocando_agora": "Tocando agora",
+    "minha_playlist": "Minha playlist",
+    "tocar_minha": "Tocar minha playlist",
+    "adicionar": "Adicionar à minha playlist",
+    "remover": "Remover da minha playlist",
+    "salvar": "Salvar",
+    "salvo": "Salvo!",
+    "entre_para_salvar": "Entre na sua conta para montar e salvar sua playlist.",
+    "vazia": "Marque músicas na lista para montar sua playlist."
   },
   "en": {
     "nome": "Nina Radio",
@@ -31,7 +41,17 @@
     "proxima": "Next track",
     "cor": "Radio color",
     "minimizar": "Minimize",
-    "abrir": "Open Nina Radio"
+    "abrir": "Open Nina Radio",
+    "playlist": "Playlist",
+    "tocando_agora": "Now playing",
+    "minha_playlist": "My playlist",
+    "tocar_minha": "Play my playlist",
+    "adicionar": "Add to my playlist",
+    "remover": "Remove from my playlist",
+    "salvar": "Save",
+    "salvo": "Saved!",
+    "entre_para_salvar": "Sign in to build and save your playlist.",
+    "vazia": "Check tracks in the list to build your playlist."
   },
   "es": {
     "nome": "Radio Nina",
@@ -48,6 +68,16 @@
     "proxima": "Pista siguiente",
     "cor": "Color de la radio",
     "minimizar": "Minimizar",
-    "abrir": "Abrir Radio Nina"
+    "abrir": "Abrir Radio Nina",
+    "playlist": "Playlist",
+    "tocando_agora": "Sonando ahora",
+    "minha_playlist": "Mi playlist",
+    "tocar_minha": "Reproducir mi playlist",
+    "adicionar": "Añadir a mi playlist",
+    "remover": "Quitar de mi playlist",
+    "salvar": "Guardar",
+    "salvo": "¡Guardado!",
+    "entre_para_salvar": "Inicia sesión para crear y guardar tu playlist.",
+    "vazia": "Marca pistas en la lista para crear tu playlist."
   }
 }
