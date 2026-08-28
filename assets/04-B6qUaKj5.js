@@ -1,0 +1,63 @@
+var e=`# CAPÍTULO 4 — Palabra y Acción
+
+El de la cresta puso una mano en la gorra de su amigo, giró la visera delante de su rostro y me miró con aquella sonrisa amplia, mostrando los dientes blancos.
+
+— Oye, amigo. Sin ofender. Pero sinceramente: si ser inferior a ti es estar como estamos nosotros, y ser superior es estar como estás tú… Nos quedamos con inferior. Gracias.
+
+— Deja de tocar mi gorra, carajo. — La gorra azul. — Sabes que no me gusta.
+
+Empezaron a hablar de otra cosa allí mismo. La gorra azul se levantó. Se iban.
+
+El grupito de Arnold se reía de nuestra conversación, se burlaba, me fastidiaba como siempre. Y yo estaba cansado. Muy cansado.
+
+— ¡Es muy fácil! — grité. — Es muy fácil para unos brutos como ustedes, unos neandertales, ignorantes que solo saben pelear como salvajes, querer humillar a los demás. ¿Y por qué? Tengo más dinero, tendré más éxito, soy más inteligente. Solo porque tienen poder creen que pueden decir lo que quieran, hacer lo que quieran. Pero no siempre será así. No siempre estarán en la escuela. No siempre tendrán el poder.
+
+Aquello no era solo para el de la cresta. Era para todos a mi alrededor. Para todo lo que estaba ocurriendo. Para aquella vida.
+
+La gorra azul ya estaba de pie, acomodándose la gorra. Habló sin mirarme.
+
+— Lo único que sé en esta vida es que, si nosotros no cambiamos, nada cambia para nosotros. Creer en un futuro mejor es el consuelo de los débiles que no hacen nada salvo esperar.
+
+Volvió el rostro despacio.
+
+— Las palabras son algo bonito, amigo. Pero la acción es lo que marca la diferencia.
+
+Esta vez el miedo no llegó. Solo rabia. Rabia de que un inferior como él me diera una lección moral.
+
+Y fue entonces cuando entendí por qué todos odiaban a los dos.
+
+---
+
+## El Codazo
+
+Salí de debajo del pie de Arnold. Perdió el equilibrio y empezó a gritar y maldecir.
+
+Me levanté y caminé hacia los dos. El grupito de Arnold me dejó hacerlo, obviamente imaginando que recibiría una paliza.
+
+Agarré a la gorra azul por el hombro. Él solo miró mi mano. Y mi mano se paralizó. Entonces comprendí lo que estaba haciendo. Bajé el brazo despacio. No dije nada. Dominado por el miedo, aterrorizado: por su mirada (cómo hacía eso), por las historias que contaban sobre los dos, por todo lo que sabía que podían hacerme.
+
+Fue entonces cuando llegó el grupo de Arnold.
+
+Arnold me rodeó el cuello con el brazo, apretó y enterró un puñetazo en mi estómago para que no olvidara mi lugar.
+
+— No te mandé levantarte. ¿Por qué te levantaste, perro? — Y para los dos, cambiando la voz: — Perdonen, chicos. Todavía estamos entrenando a nuestra mascota. Pero para fin de año estará bien domesticada. Vuelve a tu sitio, Ryan. Arrodíllate y mueve la cola.
+
+Por un momento el tiempo se detuvo.
+
+Oía a Arnold desde lejos. Ya no existía el grupo, no existía la escuela. Solo la gorra azul y yo, con las miradas clavadas. Yo doblado por el dolor de estómago, sin apartar los ojos. Arnold me tiró del pelo, intentó arrojarme al suelo, y yo no desvié la mirada.
+
+Era como si sus ojos dijeran: *toda acción genera una reacción.*
+
+Acción, como si yo pudiera realizar alguna acción. Todos decidían todo por mí. No existe un solo recuerdo, ni un acto en toda mi vida, que fuera elección mía, que fuera una acción propia.
+
+No sé qué me pasó. Mi codo se movió solo y golpeó la barbilla de Arnold. Él salió despedido hacia atrás.
+
+Fue la primera acción que realicé en mi vida.
+
+Pensándolo ahora, con calma: en el segundo en que salió el codazo, los labios de la gorra azul se curvaron levemente. Casi una sonrisa.
+
+El tiempo volvió a correr.
+
+— ¡Hijo de puta! — Arnold, con la boca sangrando y la voz desgarrada. — Me golpeaste en la boca. Estoy sangrando, basura. — Al grupo: — Acaben con él.
+`;export{e as default};
+//# sourceMappingURL=04-B6qUaKj5.js.map

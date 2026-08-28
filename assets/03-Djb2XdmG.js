@@ -1,0 +1,61 @@
+var e=`# CAPÍTULO 3 — El Mundo Gris
+
+Voy a contarte cómo es de aquí en adelante.
+
+Mi vida es gris. Cada día intento esconderme más, pasar desapercibido, ocupar menos espacio. Y aun así no puedo dejar esto, porque para mi padre nuestra casta tiene que pasar por las mejores instituciones y ser reconocida por ellas. Así que vuelvo. Cada día vuelvo al infierno gris.
+
+Fue en ese gris donde vi a los dos.
+
+Dos tipos extraños que caminan por este mundo sin color y son lo único con color dentro de él. Uno tiene una cresta verde. El otro, una gorra azul. Cruzan los pasillos como si el lugar fuera suyo.
+
+Y es extraño: si te fijas, casi todos están vueltos hacia ellos. Miradas. De desprecio, odio, envidia. Nadie entiende por qué esos dos insisten en venir aquí, por qué siguen pisando nuestro ambiente. No son conocidos por ser pacíficos. Conquistaron su espacio por la fuerza.
+
+Arnold no tiene fuerza. Tiene secuaces —hombres y mujeres, alumnos y alumnas—, todos girando a su alrededor para adularlo y hacer lo que manda. Esos dos son diferentes. La fuerza es de ellos mismos. Ya se han enfrentado a mucha gente en esta escuela, y se ve la frustración y el deseo de venganza en quienes los miran.
+
+Lo más increíble es que no parecen preocuparse.
+
+Yo veo este mundo gris. Imagino que, si ellos vieran lo que yo veo, el mundo a su alrededor sería negro: oscuridad, odio puro. Y los tipos caminan riendo. Divirtiéndose. Pueden hacerlo por un solo motivo: tienen fuerza. Y ese es el mundo en que vivimos. La ley del más fuerte. Lo único que nunca tendré.
+
+Así que sí, yo también los miro. Y siento rabia. Rabia de que personas que deberían ser inferiores a mí puedan sonreír aquí. Ellos, que no tienen nada, parecen felices. Y yo, que lo tengo todo, solo obligo a mi cabeza a soportar un día más.
+
+Si no, ya habría saltado de este edificio. O me habría puesto delante de un coche. Solo para terminar.
+
+---
+
+## El Día del Fin
+
+Este es el día del fin.
+
+Estoy de rodillas en el suelo del pasillo. Arnold tiene el pie sobre mi cuello y tengo que ladrar cada vez que lo ordena. Su grupito habla de otro tema, sin prisa. Alguien me da una patada en el trasero al pasar.
+
+*Cuando termine esta clase, resolveré esto de una vez.*
+
+No pensaba en devolver el golpe. Pensaba en terminar. Hasta me habría encantado que mi padre lo viera: la casta superior a la que pertenece su hijo.
+
+Fue entonces cuando ocurrió lo extraño.
+
+La cresta verde y la gorra azul se acercaron. No era la primera vez que me veían en el suelo. Pasaban junto a mí como pasaban junto a todos, sin registrar mi presencia. Desde mi punto de vista ni siquiera miraban. Solo pasaban y chocaron con Arnold.
+
+— ¿Qué mierda es esta, quién está…? — Arnold alzó la voz. Y se detuvo en el acto al ver quién era.
+
+Los dos se volvieron al mismo tiempo. Le dedicaron una sola mirada. Arnold y su grupito empezaron a abrir espacio por sí solos.
+
+— ¿Algún problema, amiguito? — dijo el de la cresta. — ¿Quieres decir algo?
+
+— No. No, todo bien. Perdón. Fue culpa mía. — Arnold tartamudeaba. — No debía haber gritado.
+
+La gorra azul me miró. Me encogí, esperando convertirme también en un blanco. Pero él solo se agachó y apoyó la mano en mi cabeza.
+
+— Qué vida de mierda estás viviendo. — Habló despacio. Y sonrió.
+
+No sé qué me hizo aquella sonrisa. Quizá sea lo que todos sienten cuando miran la cara de esos dos.
+
+Y aquello me sacó de quicio.
+
+— ¡Qué mierda me estás diciendo, inferior! — Las palabras salieron antes de que pensara. — ¿Crees que puedes hablarme? No eres nadie para dirigirme la palabra. Ponte en tu sitio, troglodita.
+
+El valor se fue junto con la última palabra.
+
+La gorra azul volvió el rostro hacia mí y se puso serio. No era rabia. Su expresión era casi triste. Y no era lástima —yo conocía la lástima, ya la había visto en la cara de quienes no me ayudaban por miedo—. Aquello era solo tristeza.
+`;export{e as default};
+//# sourceMappingURL=03-Djb2XdmG.js.map
