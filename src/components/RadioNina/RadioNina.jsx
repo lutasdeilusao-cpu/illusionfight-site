@@ -30,7 +30,7 @@ export default function RadioNina() {
   const {
     estado, setEstado, tocando, faixaAtual, tempo, duracao, cor, setCor,
     volume, setVolume, pool, playlistSalva, logado,
-    ligar, alternar, pular, tocarKey, tocarMinhaPlaylist, seek,
+    ligar, alternar, pular, fechar, tocarKey, tocarMinhaPlaylist, seek,
   } = radio
 
   const [listaAberta, setListaAberta] = useState(false)
@@ -95,17 +95,27 @@ export default function RadioNina() {
       setArraste(null)
     }
     return (
-      <button
+      <div
         className={`radio-nina-mini radio-nina-mini--${canto} ${arraste ? 'radio-nina-mini--arrasta' : ''} ${tocando ? 'radio-nina-mini--tocando' : ''}`}
         style={{ '--radio-cor': cor, ...(arraste ? { left: arraste.x, top: arraste.y } : null) }}
         onPointerDown={onDown}
         onPointerMove={onMove}
         onPointerUp={onUp}
-        onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setEstado('barra') } }}
-        aria-label={S.abrir}
       >
-        <img src={ninaImg} alt="" className="radio-nina-mini__face" draggable="false" />
-      </button>
+        <button
+          className="radio-nina-mini__abrir"
+          onClick={() => { if (!dragRef.current.moveu) setEstado('barra') }}
+          aria-label={S.abrir}
+        >
+          <img src={ninaImg} alt="" className="radio-nina-mini__face" draggable="false" />
+        </button>
+        <button
+          className="radio-nina-mini__x"
+          onPointerDown={(e) => e.stopPropagation()}
+          onClick={(e) => { e.stopPropagation(); fechar() }}
+          aria-label={S.fechar_de_vez}
+        >×</button>
+      </div>
     )
   }
 
@@ -134,6 +144,8 @@ export default function RadioNina() {
         className={`radio-nina ${tocando ? '' : 'radio-nina--pausado'} ${faixaAtual?.ad ? 'radio-nina--ad' : ''}`}
         style={{ '--radio-cor': cor }}
       >
+        <button className="radio-nina__x" onClick={fechar} aria-label={S.fechar_de_vez}>×</button>
+
         <div className="radio-nina__progresso">
           <div className="radio-nina__progresso-fill" style={{ width: `${pct}%` }} />
           <input

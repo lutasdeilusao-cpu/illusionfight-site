@@ -1,6 +1,6 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import { Helmet } from 'react-helmet-async'
-import { useParams, useNavigate, Link } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
 import { useLanguage } from '../../context/LanguageContext'
 import { useReader } from '../../context/ReaderContext'
@@ -14,7 +14,7 @@ const contoLoaders = import.meta.glob('../../data/livro/contos/**/*.md', { query
 
 export default function ContoCapitulo() {
   const { setReaderMode } = useReader()
-  const { id } = useParams()
+  const { historia, cap } = useParams()
   const navigate = useNavigate()
   const { locale, t } = useLanguage()
   const { user, perfil } = useAuth()
@@ -26,7 +26,9 @@ export default function ContoCapitulo() {
     return () => setReaderMode(false)
   }, [])
 
-  useEffect(() => { if (id) localStorage.setItem('ldi-conto-ultimo', id) }, [id])
+  useEffect(() => {
+    if (historia && cap) localStorage.setItem('ldi-conto-ultimo', `${historia}/${cap}`)
+  }, [historia, cap])
 
   const [md, setMd] = useState('')
   const [notFound, setNotFound] = useState(false)
@@ -51,26 +53,27 @@ export default function ContoCapitulo() {
     { label: t('pages.livro.largo'),    value: '860px' },
   ]
 
-  const conto = index.find(c => c.id === id)
+  const h = index.find(x => x.id === historia)
+  const capitulo = h?.capitulos.find(c => c.id === cap)
   const tituloKey = locale === 'en' ? 'titulo_en' : locale === 'es' ? 'titulo_es' : 'titulo'
 
   useEffect(() => {
     setNotFound(false)
-    if (!conto || (!estaDisponivel(conto, isAdmin) && !TRIAL_ACTIVE)) {
+    if (!h || !capitulo || (!estaDisponivel(capitulo, isAdmin) && !TRIAL_ACTIVE)) {
       setNotFound(true)
       return
     }
     const load = async () => {
       const lang = locale === 'en' ? 'en' : locale === 'es' ? 'es' : 'pt'
-      const path = `../../data/livro/contos/${lang}/${id}.md`
-      let loader = contoLoaders[path] || contoLoaders[`../../data/livro/contos/pt/${id}.md`]
+      const path = `../../data/livro/contos/${lang}/${historia}/${cap}.md`
+      const loader = contoLoaders[path] || contoLoaders[`../../data/livro/contos/pt/${historia}/${cap}.md`]
       if (loader) {
-        try { setMd(await loader()); return } catch {}
+        try { setMd(await loader()); return } catch { /* fallthrough */ }
       }
       setNotFound(true)
     }
     load()
-  }, [id, conto, isAdmin, locale])
+  }, [historia, cap, h, capitulo, isAdmin, locale])
 
   if (notFound) {
     return (
@@ -78,7 +81,7 @@ export default function ContoCapitulo() {
         <Helmet><title>{t('pages.helmet.capitulo_nao_encontrado')}</title></Helmet>
         <div className="container">
           <p className="livro-capitulo__erro">{t('pages.livro.nao_encontrado')}</p>
-          <button className="livro-capitulo__back" onClick={() => navigate('/livro/contos')}>
+          <button className="livro-capitulo__back" onClick={() => navigate(`/livro/contos/${historia || ''}`)}>
             {t('pages.livro.voltar_indice')}
           </button>
         </div>
@@ -86,18 +89,18 @@ export default function ContoCapitulo() {
     )
   }
 
-  const disponiveis = index.filter(c => estaDisponivel(c, isAdmin) || TRIAL_ACTIVE)
-  const cur = disponiveis.findIndex(c => c.id === id)
+  const disponiveis = h.capitulos.filter(c => estaDisponivel(c, isAdmin) || TRIAL_ACTIVE)
+  const cur = disponiveis.findIndex(c => c.id === cap)
   const anterior = disponiveis[cur - 1]
   const proximo = disponiveis[cur + 1]
 
   return (
     <section className="livro-capitulo">
       <Helmet>
-        <title>{conto ? `${conto[tituloKey]} — ${t('site.nome_curto')}` : t('pages.helmet.capitulo_nao_encontrado')}</title>
+        <title>{capitulo ? `${capitulo[tituloKey]} — ${h[tituloKey]}` : t('pages.helmet.capitulo_nao_encontrado')}</title>
       </Helmet>
       <div className="container">
-        <button className="livro-capitulo__back" onClick={() => navigate('/livro/contos')}>
+        <button className="livro-capitulo__back" onClick={() => navigate(`/livro/contos/${historia}`)}>
           {t('pages.livro.voltar_indice')}
         </button>
 
@@ -141,9 +144,9 @@ export default function ContoCapitulo() {
 
         <div className="livro-capitulo__header">
           <div className="livro-capitulo__header-numero">
-            {conto?.selo ? conto.selo.toUpperCase() : ''} · {t('pages.contos.conto')} {String(conto?.numero || 1).padStart(2, '0')}
+            {h.selo?.toUpperCase()} · {h[tituloKey]} · {t('pages.contos.cap')} {String(capitulo?.numero || 1).padStart(2, '0')}
           </div>
-          {conto && <h1 className="livro-capitulo__header-titulo">{conto[tituloKey]}</h1>}
+          {capitulo && <h1 className="livro-capitulo__header-titulo">{capitulo[tituloKey]}</h1>}
         </div>
 
         <div
@@ -159,14 +162,14 @@ export default function ContoCapitulo() {
 
         <div className="livro-capitulo__nav">
           {anterior ? (
-            <button className="livro-capitulo__nav-btn" onClick={() => navigate(`/livro/contos/${anterior.id}`)}>
+            <button className="livro-capitulo__nav-btn" onClick={() => navigate(`/livro/contos/${historia}/${anterior.id}`)}>
               ← {anterior[tituloKey]}
             </button>
           ) : (
             <span className="livro-capitulo__nav-btn livro-capitulo__nav-btn--hidden">←</span>
           )}
           {proximo ? (
-            <button className="livro-capitulo__nav-btn" onClick={() => navigate(`/livro/contos/${proximo.id}`)}>
+            <button className="livro-capitulo__nav-btn" onClick={() => navigate(`/livro/contos/${historia}/${proximo.id}`)}>
               {proximo[tituloKey]} →
             </button>
           ) : (

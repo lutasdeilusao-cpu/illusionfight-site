@@ -10,12 +10,6 @@ import comingSoonImg from '../../assets/images/ComingSoon.png'
 import './Livro.css'
 import './Contos.css'
 
-function formatarData(dataStr) {
-  if (!dataStr) return ''
-  const [a, m, d] = dataStr.split('-')
-  return `${d}/${m}/${a}`
-}
-
 export default function Contos() {
   const [ultimo, setUltimo] = useState(null)
   const navigate = useNavigate()
@@ -29,6 +23,9 @@ export default function Contos() {
   }, [])
 
   const tituloKey = locale === 'en' ? 'titulo_en' : locale === 'es' ? 'titulo_es' : 'titulo'
+  const taglineKey = locale === 'en' ? 'tagline_en' : locale === 'es' ? 'tagline_es' : 'tagline_pt'
+
+  const capsLiberados = (h) => h.capitulos.filter(c => estaDisponivel(c, isAdmin) || TRIAL_ACTIVE).length
 
   return (
     <section className="livro-page">
@@ -48,7 +45,6 @@ export default function Contos() {
         </nav>
 
         <div className="contos-hero">
-          <img className="contos-hero__img" src={comingSoonImg} alt="" loading="lazy" decoding="async" />
           <div className="contos-hero__text">
             <span className="contos-selo">{t('pages.contos.selo')}</span>
             <h2 className="section-title">{t('pages.contos.titulo')}</h2>
@@ -62,27 +58,26 @@ export default function Contos() {
           </Link>
         )}
 
-        <div className="livro-page__list">
-          {index.map(ch => {
-            const liberado = estaDisponivel(ch, isAdmin) || TRIAL_ACTIVE
+        <div className="contos-historias">
+          {index.map(h => {
+            const n = capsLiberados(h)
+            const liberado = n > 0
             return (
-              <div key={ch.id} className="livro-page__item">
-                <span className="livro-page__numero">{t('pages.contos.conto')} {String(ch.numero).padStart(2, '0')}</span>
-                <div className="livro-page__info">
-                  <span
-                    className={`livro-page__titulo${liberado ? '' : ' livro-page__titulo--locked'}`}
-                    onClick={() => liberado && navigate(`/livro/contos/${ch.id}`)}
-                  >
-                    {ch[tituloKey]}
+              <div
+                key={h.id}
+                className={`contos-card${liberado ? '' : ' contos-card--locked'}`}
+                onClick={() => liberado && navigate(`/livro/contos/${h.id}`)}
+              >
+                <img className="contos-card__img" src={comingSoonImg} alt="" loading="lazy" decoding="async" />
+                <div className="contos-card__info">
+                  <span className="contos-card__selo">{h.selo}</span>
+                  <span className="contos-card__titulo">{h[tituloKey]}</span>
+                  <p className="contos-card__tag">{h[taglineKey]}</p>
+                  <span className="contos-card__meta">
+                    {liberado
+                      ? `${n} ${n === 1 ? t('pages.contos.capitulo').toLowerCase() : t('pages.contos.capitulos')}`
+                      : t('pages.livro.em_breve')}
                   </span>
-                  <div className="livro-page__meta">
-                    {liberado && ch.data_publicacao && (
-                      <span className="livro-page__data">{formatarData(ch.data_publicacao)}</span>
-                    )}
-                    {!liberado && (
-                      <span className="livro-page__badge">{t('pages.livro.em_breve')}</span>
-                    )}
-                  </div>
                 </div>
               </div>
             )

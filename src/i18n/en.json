@@ -803,13 +803,11 @@
       "share_ja_enviou": "You've already sent a link this month.",
       "share_placeholder": "https://x.com/yourprofile/status/...",
       "share_enviar": "SUBMIT FOR REVIEW",
-
       "progresso_titulo": "YOUR PROGRESS",
       "progresso_100_parabens": "Congratulations! You completed all progress!",
       "progresso_resgatando": "CLAIMING...",
       "progresso_resgatar": "CLAIM REWARD (500 DIX)",
       "progresso_ja_resgatou": "Reward already claimed! +500 DIX",
-
       "tama_carregando": "LOADING...",
       "tama_meu_tamagoshi": "🥚 My Tamagoshi",
       "tama_sem_tamagoshi": "you don't have a tamagoshi yet.",
@@ -839,7 +837,6 @@
       "slot_1": "Slot 1",
       "slot_2": "Slot 2",
       "troca_notif_ver": "view tamagoshi",
-
       "gangues_titulo": "🥊 LDI GANGUES",
       "gangues_fichas": "Sheets",
       "gangues_xp_total": "Total XP",
@@ -847,18 +844,15 @@
       "gangues_sem_fichas": "No character sheets yet — create your fighter!",
       "gangues_ir_para": "GO TO LDI GANGUES →",
       "gangues_atributos": "Attributes",
-
       "colecao_season_1": "SEASON 1",
       "colecao_season_2": "SEASON 2",
       "colecao_coming_soon": "COMING SOON",
       "colecao_obtidas": "obtained",
       "colecao_faltando": "missing",
       "colecao_obs": "Greyed-out cards are waiting to be discovered. Play Top Trumps Single Player to unlock them!",
-
       "conquistas_secreto": "Secret achievement",
       "conquistas_desbloqueado": "✓ UNLOCKED",
       "conquistas_bloqueado": "🔒 LOCKED",
-
       "recomp_fichas_disponiveis": "available tokens",
       "recomp_admin_bypass": "★ admin account — token bypass active",
       "recomp_ficha_diaria": "DAILY TOKEN",
@@ -1103,67 +1097,24 @@
       }
     },
     "tatics": {
-      "seu_turno": "YOUR TURN",
-      "inimigo_agindo": "ENEMY ACTING...",
-      "turno_n": "TURN {n}",
-      "hp": "HP",
-      "mp": "MP",
-      "ja_movido": "ALREADY MOVED",
-      "mover": "MOVE",
-      "ja_atacou": "ALREADY ATTACKED",
-      "atacar": "ATTACK",
-      "item": "ITEM",
-      "finalizar_turno": "END TURN",
-      "confirm_titulo": "END TURN?",
-      "confirm_desc": "Are you sure you want to end your turn?",
-      "confirm_desc2": "Allies that haven't acted will lose their turn.",
-      "confirm_nao": "NO, NOT YET",
-      "confirm_sim": "YES, END TURN",
+      "loading": "LOADING SYSTEM...",
+      "erro_login": "Please log in to access the system",
+      "voltar": "BACK",
+      "menu_principal": "MAIN MENU",
+      "continuar": "CONTINUE",
+      "novo_jogo": "NEW GAME",
+      "selecionar_time": "SELECT TEAM",
+      "iniciar_batalha": "START BATTLE",
       "vitoria": "VICTORY",
-      "vitorias_streak": "{n} wins · Streak: {streak}",
-      "streak_bonus": "🔥 STREAK {n} — SDR bonus active!",
-      "proxima_batalha": "NEXT BATTLE",
       "derrota": "DEFEAT",
-      "derrota_msg": "Session ended. Returning to observer mode.",
-      "derrota_sdr": "No SDR lost. Try again.",
-      "revanche": "REMATCH",
-      "sair": "EXIT",
-      "intro_sub": "TACTICAL COMBAT SYSTEM",
-      "intro_acessar": "ACCESS SYSTEM",
-      "intro_simulacao": "⚙ AI SIMULATION",
-      "intro_teste": "🧪 QUICK TEST",
-      "intro_nexus": "NEXUS PROTOCOL",
-      "fase_idle": "YOUR TURN",
-      "fase_acao": "CHOOSE AN ACTION",
-      "fase_mover": "SELECT DESTINATION",
-      "fase_skill": "SELECT AN ATTACK",
-      "fase_target": "TARGETING",
-      "fase_animando": "ANIMATING...",
-      "fase_inimigo": "ENEMY ACTING...",
-      "sim_titulo": "AUTO SIMULATION",
-      "sim_sub": "AI vs AI — watch autonomous battles",
-      "sim_personagens": "Characters per team",
-      "sim_quantidade_ias": "Number of AIs",
-      "sim_velocidade": "Speed",
-      "sim_ias_batalha": "AIs IN BATTLE",
-      "sim_sortear": "SORT",
-      "sim_time_azul": "BLUE TEAM",
-      "sim_time_vermelho": "RED TEAM",
-      "sim_personagens_disponiveis": "AVAILABLE CHARACTERS ({n})",
-      "sim_iniciar": "START SIMULATION",
-      "classe_titulo": "SELECT YOUR CLASS",
-      "classe_toque": "Tap a class to see details",
-      "classe_free": "🔒 FREE",
-      "classe_elite": "Available on Elite plan",
       "pre_batalha": "PRE-BATTLE",
       "seu_time": "YOUR TEAM",
       "inimigos": "ENEMIES",
       "vs": "⚔️ VS ⚔️",
       "nivel": "Lv.",
       "tier": "Tier",
-      "iniciar_batalha": "START BATTLE"
+      "confirmar": "CONFIRM"
     },
-
     "lobby": {
       "titulo": "MULTIPLAYER",
       "modo_free": "FREE MODE",
@@ -1342,33 +1293,28 @@
       "fase_anciao": "Elder",
       "fase_partida": "Departure",
       "fase_evoluiu": "Tamagoshi evolved to {fase}",
-
       "partida_concluida": "✨ departure completed",
       "partida_salao_fama": "{nome} has entered the Marelia Hall of Fame.",
       "partida_ver_salao": "[ view in hall of fame ]",
       "partida_adotar_nova": "[ adopt new creature ]",
-
       "saude_item_termometro": "Thermometer",
       "saude_item_curativo": "Bandage",
       "saude_item_xarope": "Syrup",
       "saude_instrucao_termometro": "Take the creature's temperature",
       "saude_instrucao_curativo": "Put a bandage on the creature",
       "saude_instrucao_xarope": "Give the syrup to the creature",
-
       "badge_criador_iniciante": "Beginner Creator",
       "badge_cuidador_dedicado": "Dedicated Caretaker",
       "badge_companheiro_fiel": "Loyal Companion",
       "badge_guardiao_experiente": "Experienced Guardian",
       "badge_mestre_cuidador": "Master Caretaker",
       "badge_lenda_marelia": "Legend of Marelia",
-
       "partida_texto_carente": "you were the best thing that ever happened to me. thank you. i'll remember you forever.",
       "partida_texto_agressivo": "...take care. not because i care. take care.",
       "partida_texto_independente": "time to go. it was enough.",
       "partida_texto_fofo": "i knew you wouldn't abandon me. i knew it.",
       "partida_texto_filosofo": "twelve months is a blink in the universe. but it was a beautiful blink.",
       "partida_texto_comico": "dude. what a journey. can i go now? i'm hungry out there too.",
-
       "personalidade_carente": "Needy",
       "personalidade_carente_desc": "dramatic, attached, notifies before needing",
       "personalidade_agressivo": "Aggressive",
@@ -1381,7 +1327,6 @@
       "personalidade_filosofo_desc": "thoughtful, turns need into existential observation",
       "personalidade_comico": "Comical",
       "personalidade_comico_desc": "oblivious to drama, genuine confusion, out-of-context comments",
-
       "evolucao_ovo": "Egg",
       "evolucao_ovo_desc": "a mysterious egg pulsating with energy",
       "evolucao_filhote": "Baby",
@@ -1390,7 +1335,6 @@
       "evolucao_adulto_desc": "mature, with a well-defined personality",
       "evolucao_anciao": "Elder",
       "evolucao_anciao_desc": "wise, calm, scars from many stories",
-
       "variante_normal": "Common",
       "variante_normal_desc": "standard appearance",
       "variante_brilhante": "Shiny",
@@ -1399,7 +1343,6 @@
       "variante_sombria_desc": "dark tones, mysterious aura",
       "variante_celestial": "Celestial",
       "variante_celestial_desc": "own light, floating particles",
-
       "item_comida_basica": "Standard Food",
       "item_comida_especial": "Special Dish",
       "item_comida_primordial": "Ancestral Energy",
@@ -1415,7 +1358,6 @@
       "item_comida_9": "Embers of Energy",
       "item_comida_30": "Bus Ticket",
       "item_comida_7": "Spray Paint",
-
       "passeio_marelia_centro": "Marelia Center",
       "passeio_marelia_centro_desc": "wet cobblestone streets, neon signs",
       "passeio_terminal_rodoviario": "Bus Terminal",
@@ -1428,13 +1370,11 @@
       "passeio_feira_livre_desc": "colorful stalls, food smells, people talking loud",
       "passeio_rua_branca": "White Street",
       "passeio_rua_branca_desc": "silence, mist, a place forgotten by time",
-
       "raridade_comum": "common",
       "raridade_incomum": "uncommon",
       "raridade_raro": "rare",
       "raridade_epico": "epic",
       "raridade_lendario": "legendary",
-
       "notif_carente_boasvindas": "\"ah… you came. i was counting the seconds.\"",
       "notif_carente_fome": "\"i'm hungry but it's fine, stay there, i can handle it... probably\"",
       "notif_carente_sede": "\"three hours without water. three. hours. i'm totally fine not\"",
@@ -1471,12 +1411,10 @@
       "notif_comico_passeio": "\"we need to go out. i saw a pigeon here that i want to get to know better\"",
       "notif_comico_critico": "\"man. this is getting serious. i think. i don't know. i'm dizzy\"",
       "notif_comico_morte": "\"can't believe i'm gonna die over a cookie. what a story to tell on the other side\"",
-
       "slots_limite_atingido": "You've reached the limit of {limite} slot(s) for your tier.",
       "trocar_tama": "Swap Tama",
       "selecionar_slot": "Select Slot",
       "fechar": "Close",
-
       "gacha_titulo": "🎰 Season Raffle",
       "gacha_sub": "Spin for {custo} DIX and win a random creature from the season!",
       "gacha_entrar": "Raffle 🎰",
@@ -1493,7 +1431,6 @@
       "gacha_gratis": "FREE",
       "gacha_giro_gratis": "1ST FREE SPIN",
       "em_breve": "COMING SOON",
-
       "banhar_usando": "using: {item}",
       "brincadeira_sair": "leave",
       "brincadeira_ganhou": "nice! you played!",
@@ -1507,8 +1444,7 @@
       "puzzle_labirinto": "Maze",
       "puzzle_anagrama": "Anagram",
       "puzzle_forca": "Secret Word",
-
-"termo": {
+      "termo": {
         "titulo": "TERM OF RESPONSIBILITY",
         "intro": "Before continuing, please read carefully. A Tamagoshi is a digital living being. It depends on you to survive.",
         "regra_alimentar": "You must feed it regularly",
@@ -1536,7 +1472,6 @@
       "erro_item_indisponivel": "Item not available in inventory",
       "erro_desconhecido": "Unknown error",
       "cooldown_disponivel": "available",
-      "cooldown_formato": "{h}h {m}m",
       "cooldown_formato": "{h}h {m}m"
     },
     "pesadelo": {
@@ -1947,60 +1882,228 @@
       },
       "powers": {
         "fogo": [
-          { "id": "chama_rapida", "name": "Quick Flame", "desc": "Fires a swift flame dealing +2 elemental damage." },
-          { "id": "explosao", "name": "Explosion", "desc": "A fire explosion around you. Deals area damage (doubles FD but hits multiple targets)." },
-          { "id": "labareda", "name": "Blaze", "desc": "An intense blaze. If it hits, causes burn (-1 FD on enemy's next turn)." },
-          { "id": "inferno", "name": "Inferno", "desc": "Pure flames consume the enemy. Deals double elemental damage." },
-          { "id": "escudo_fogo", "name": "Fire Shield", "desc": "Flames protect you. +2 FD this turn, deals 1 damage if the enemy hits." },
-          { "id": "pilar_fogo", "name": "Fire Pillar", "desc": "A pillar of fire erupts from the ground. Medium damage but ignores 3 FD." }
+          {
+            "id": "chama_rapida",
+            "name": "Quick Flame",
+            "desc": "Fires a swift flame dealing +2 elemental damage."
+          },
+          {
+            "id": "explosao",
+            "name": "Explosion",
+            "desc": "A fire explosion around you. Deals area damage (doubles FD but hits multiple targets)."
+          },
+          {
+            "id": "labareda",
+            "name": "Blaze",
+            "desc": "An intense blaze. If it hits, causes burn (-1 FD on enemy's next turn)."
+          },
+          {
+            "id": "inferno",
+            "name": "Inferno",
+            "desc": "Pure flames consume the enemy. Deals double elemental damage."
+          },
+          {
+            "id": "escudo_fogo",
+            "name": "Fire Shield",
+            "desc": "Flames protect you. +2 FD this turn, deals 1 damage if the enemy hits."
+          },
+          {
+            "id": "pilar_fogo",
+            "name": "Fire Pillar",
+            "desc": "A pillar of fire erupts from the ground. Medium damage but ignores 3 FD."
+          }
         ],
         "agua": [
-          { "id": "projetil_agua", "name": "Water Projectile", "desc": "Fires pressurized water. Deals +2 elemental damage." },
-          { "id": "onda", "name": "Wave", "desc": "A wave pushes the enemy. Damage + reduces enemy FA by 1 on next turn." },
-          { "id": "nevoeiro", "name": "Fog", "desc": "Creates a dense fog. Enemy has -2 FA on next attack." },
-          { "id": "cura", "name": "Light Heal", "desc": "Revitalizing water. Recovers 2 HP (cannot exceed max)." },
-          { "id": "torrente", "name": "Torrent", "desc": "A massive water jet. Deals double elemental damage." },
-          { "id": "gelo", "name": "Ice", "desc": "Frozen water. Damage + enemy loses 1 H on next turn." }
+          {
+            "id": "projetil_agua",
+            "name": "Water Projectile",
+            "desc": "Fires pressurized water. Deals +2 elemental damage."
+          },
+          {
+            "id": "onda",
+            "name": "Wave",
+            "desc": "A wave pushes the enemy. Damage + reduces enemy FA by 1 on next turn."
+          },
+          {
+            "id": "nevoeiro",
+            "name": "Fog",
+            "desc": "Creates a dense fog. Enemy has -2 FA on next attack."
+          },
+          {
+            "id": "cura",
+            "name": "Light Heal",
+            "desc": "Revitalizing water. Recovers 2 HP (cannot exceed max)."
+          },
+          {
+            "id": "torrente",
+            "name": "Torrent",
+            "desc": "A massive water jet. Deals double elemental damage."
+          },
+          {
+            "id": "gelo",
+            "name": "Ice",
+            "desc": "Frozen water. Damage + enemy loses 1 H on next turn."
+          }
         ],
         "terra": [
-          { "id": "projetil_pedra", "name": "Stone Projectile", "desc": "Throws a stone. Deals +2 elemental damage." },
-          { "id": "muralha", "name": "Wall", "desc": "Raises a stone wall. +3 FD this turn." },
-          { "id": "terremoto", "name": "Earthquake", "desc": "The ground trembles. Deals double elemental damage and stuns the enemy (-1 FA and FD next turn)." },
-          { "id": "armadura", "name": "Earth Armor", "desc": "Coats your body in stone. +2 FD for 2 turns." },
-          { "id": "areia_movel", "name": "Quicksand", "desc": "The ground becomes unstable. Enemy loses next turn (doesn't attack)." },
-          { "id": "lanca_pedra", "name": "Stone Lance", "desc": "A stone lance pierces the enemy. Ignores 4 FD." }
+          {
+            "id": "projetil_pedra",
+            "name": "Stone Projectile",
+            "desc": "Throws a stone. Deals +2 elemental damage."
+          },
+          {
+            "id": "muralha",
+            "name": "Wall",
+            "desc": "Raises a stone wall. +3 FD this turn."
+          },
+          {
+            "id": "terremoto",
+            "name": "Earthquake",
+            "desc": "The ground trembles. Deals double elemental damage and stuns the enemy (-1 FA and FD next turn)."
+          },
+          {
+            "id": "armadura",
+            "name": "Earth Armor",
+            "desc": "Coats your body in stone. +2 FD for 2 turns."
+          },
+          {
+            "id": "areia_movel",
+            "name": "Quicksand",
+            "desc": "The ground becomes unstable. Enemy loses next turn (doesn't attack)."
+          },
+          {
+            "id": "lanca_pedra",
+            "name": "Stone Lance",
+            "desc": "A stone lance pierces the enemy. Ignores 4 FD."
+          }
         ],
         "ar": [
-          { "id": "rajada", "name": "Gust", "desc": "A gust of wind. Deals +2 elemental damage." },
-          { "id": "ciclone", "name": "Cyclone", "desc": "A cyclone envelops the enemy. Deals double elemental damage." },
-          { "id": "escudo_vento", "name": "Wind Shield", "desc": "Wind deflects attacks. +2 FD this turn." },
-          { "id": "passos_leves", "name": "Light Steps", "desc": "Wind carries you. +2 H for one turn (more initiative)." },
-          { "id": "sopro", "name": "Big Blow", "desc": "A strong gust pushes the enemy away. Enemy loses 1 H on next turn." },
-          { "id": "tempestade", "name": "Storm", "desc": "Small air explosions. Deals damage + -1 FD on enemy for 2 turns." }
+          {
+            "id": "rajada",
+            "name": "Gust",
+            "desc": "A gust of wind. Deals +2 elemental damage."
+          },
+          {
+            "id": "ciclone",
+            "name": "Cyclone",
+            "desc": "A cyclone envelops the enemy. Deals double elemental damage."
+          },
+          {
+            "id": "escudo_vento",
+            "name": "Wind Shield",
+            "desc": "Wind deflects attacks. +2 FD this turn."
+          },
+          {
+            "id": "passos_leves",
+            "name": "Light Steps",
+            "desc": "Wind carries you. +2 H for one turn (more initiative)."
+          },
+          {
+            "id": "sopro",
+            "name": "Big Blow",
+            "desc": "A strong gust pushes the enemy away. Enemy loses 1 H on next turn."
+          },
+          {
+            "id": "tempestade",
+            "name": "Storm",
+            "desc": "Small air explosions. Deals damage + -1 FD on enemy for 2 turns."
+          }
         ],
         "trevas": [
-          { "id": "sombra_atacante", "name": "Attacking Shadow", "desc": "Shadows attack the enemy. Deals +2 elemental damage." },
-          { "id": "dreno", "name": "Drain", "desc": "Drains energy from the enemy. Deals damage and recovers 1 HP." },
-          { "id": "nevoa_escura", "name": "Dark Fog", "desc": "Darkness envelops the arena. Enemy has -2 FA on next attack." },
-          { "id": "toque_sombrio", "name": "Dark Touch", "desc": "A consuming touch. Deals double elemental damage." },
-          { "id": "medo", "name": "Fear", "desc": "Projects fear into the enemy's mind. Enemy loses next attack (but still defends)." },
-          { "id": "absorcao", "name": "Absorption", "desc": "Absorbs elemental energy. Recovers 1 MP." }
+          {
+            "id": "sombra_atacante",
+            "name": "Attacking Shadow",
+            "desc": "Shadows attack the enemy. Deals +2 elemental damage."
+          },
+          {
+            "id": "dreno",
+            "name": "Drain",
+            "desc": "Drains energy from the enemy. Deals damage and recovers 1 HP."
+          },
+          {
+            "id": "nevoa_escura",
+            "name": "Dark Fog",
+            "desc": "Darkness envelops the arena. Enemy has -2 FA on next attack."
+          },
+          {
+            "id": "toque_sombrio",
+            "name": "Dark Touch",
+            "desc": "A consuming touch. Deals double elemental damage."
+          },
+          {
+            "id": "medo",
+            "name": "Fear",
+            "desc": "Projects fear into the enemy's mind. Enemy loses next attack (but still defends)."
+          },
+          {
+            "id": "absorcao",
+            "name": "Absorption",
+            "desc": "Absorbs elemental energy. Recovers 1 MP."
+          }
         ],
         "luz": [
-          { "id": "raio_luz", "name": "Light Ray", "desc": "A blinding light ray. Deals +2 elemental damage." },
-          { "id": "cura_luz", "name": "Radiant Heal", "desc": "Revitalizing light. Recovers 3 HP." },
-          { "id": "escudo_luz", "name": "Light Shield", "desc": "Luminous barrier. +2 FD this turn." },
-          { "id": "explosao_luz", "name": "Light Explosion", "desc": "Explosion blinds the enemy. Deals double elemental damage and enemy has -1 FA next turn." },
-          { "id": "purificacao", "name": "Purification", "desc": "Removes a negative status or heals 1 additional HP." },
-          { "id": "fulgor", "name": "Blaze", "desc": "Intense light. Deals damage + enemy has -1 FD next turn." }
+          {
+            "id": "raio_luz",
+            "name": "Light Ray",
+            "desc": "A blinding light ray. Deals +2 elemental damage."
+          },
+          {
+            "id": "cura_luz",
+            "name": "Radiant Heal",
+            "desc": "Revitalizing light. Recovers 3 HP."
+          },
+          {
+            "id": "escudo_luz",
+            "name": "Light Shield",
+            "desc": "Luminous barrier. +2 FD this turn."
+          },
+          {
+            "id": "explosao_luz",
+            "name": "Light Explosion",
+            "desc": "Explosion blinds the enemy. Deals double elemental damage and enemy has -1 FA next turn."
+          },
+          {
+            "id": "purificacao",
+            "name": "Purification",
+            "desc": "Removes a negative status or heals 1 additional HP."
+          },
+          {
+            "id": "fulgor",
+            "name": "Blaze",
+            "desc": "Intense light. Deals damage + enemy has -1 FD next turn."
+          }
         ],
         "neutro": [
-          { "id": "impacto", "name": "Impact", "desc": "A neutral energy strike. Deals +2 damage." },
-          { "id": "barreira", "name": "Barrier", "desc": "Energy barrier. +2 FD this turn." },
-          { "id": "pulso", "name": "Pulse", "desc": "Energy pulse. Deals damage and pushes the enemy (-1 FA next turn)." },
-          { "id": "carga_total", "name": "Total Charge", "desc": "All your energy in one blow. Deals double damage." },
-          { "id": "recuperacao", "name": "Recovery", "desc": "Recovers 1 MP." },
-          { "id": "sobrecarga", "name": "Overload", "desc": "Overloads your circuits. Next attack deals +3 damage." }
+          {
+            "id": "impacto",
+            "name": "Impact",
+            "desc": "A neutral energy strike. Deals +2 damage."
+          },
+          {
+            "id": "barreira",
+            "name": "Barrier",
+            "desc": "Energy barrier. +2 FD this turn."
+          },
+          {
+            "id": "pulso",
+            "name": "Pulse",
+            "desc": "Energy pulse. Deals damage and pushes the enemy (-1 FA next turn)."
+          },
+          {
+            "id": "carga_total",
+            "name": "Total Charge",
+            "desc": "All your energy in one blow. Deals double damage."
+          },
+          {
+            "id": "recuperacao",
+            "name": "Recovery",
+            "desc": "Recovers 1 MP."
+          },
+          {
+            "id": "sobrecarga",
+            "name": "Overload",
+            "desc": "Overloads your circuits. Next attack deals +3 damage."
+          }
         ]
       },
       "game": {
@@ -2026,25 +2129,6 @@
         "nenhum": "none",
         "xp_toast": "+{n} XP"
       }
-    },
-    "tatics": {
-      "loading": "LOADING SYSTEM...",
-      "erro_login": "Please log in to access the system",
-      "voltar": "BACK",
-      "menu_principal": "MAIN MENU",
-      "continuar": "CONTINUE",
-      "novo_jogo": "NEW GAME",
-      "selecionar_time": "SELECT TEAM",
-      "iniciar_batalha": "START BATTLE",
-      "vitoria": "VICTORY",
-      "derrota": "DEFEAT",
-      "pre_batalha": "PRE-BATTLE",
-      "seu_time": "YOUR TEAM",
-      "inimigos": "ENEMIES",
-      "vs": "⚔️ VS ⚔️",
-      "nivel": "Lv.",
-      "tier": "Tier",
-      "confirmar": "CONFIRM"
     }
   },
   "admin": {
@@ -2098,7 +2182,10 @@
       "descricao": "Side stories from the world of Illusion Fight. Other characters, other experiences — which may or may not cross the main line.",
       "conto": "TALE",
       "og_title": "Tales of Illusion — Legends Imprint | Illusion Fight",
-      "og_desc": "Side stories from the Illusion Fight universe under the Legends Imprint. Other characters, other experiences, the same world."
+      "og_desc": "Side stories from the Illusion Fight universe under the Legends Imprint. Other characters, other experiences, the same world.",
+      "cap": "CH.",
+      "capitulo": "Chapter",
+      "capitulos": "chapters"
     },
     "webtoon": {
       "titulo": "WEBTOON",
@@ -2407,7 +2494,6 @@
     "database_queue": "● TOP TRUMPS CANONICAL QUEUE",
     "you": "You",
     "opponent": "Opponent",
-    "versus": "VS",
     "even": "Even",
     "odd": "Odd",
     "choose_number": "Choose a number",
@@ -2435,8 +2521,14 @@
     "integration_pending": "Database and game integration will be added in the next stage.",
     "test_again": "TEST AGAIN",
     "back": "BACK TO GAMES",
-    "games": { "toptrumps": "Top Trumps", "duelo": "Duelo LDI" },
-    "modes": { "standard": "Standard", "ranked": "Ranked" }
+    "games": {
+      "toptrumps": "Top Trumps",
+      "duelo": "Duelo LDI"
+    },
+    "modes": {
+      "standard": "Standard",
+      "ranked": "Ranked"
+    }
   },
   "prototype": {
     "title": "Prototype",

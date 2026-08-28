@@ -79,3 +79,82 @@
     justify-content: center;
   }
 }
+
+/* ── Lista de histórias (cada card = uma história com N capítulos) ── */
+.contos-historias {
+  max-width: 680px;
+  margin: 2rem auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contos-card {
+  display: flex;
+  gap: 1rem;
+  padding: 0.9rem;
+  border: 1px solid var(--border-subtle);
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.contos-card:hover {
+  border-color: var(--accent-teal);
+}
+
+.contos-card--locked {
+  cursor: default;
+  opacity: 0.55;
+}
+
+.contos-card--locked:hover {
+  border-color: var(--border-subtle);
+}
+
+.contos-card__img {
+  width: 96px;
+  height: 128px;
+  flex-shrink: 0;
+  object-fit: cover;
+  border: 1px solid var(--border-subtle);
+}
+
+.contos-card__info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  min-width: 0;
+}
+
+.contos-card__selo {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-amber);
+}
+
+.contos-card__titulo {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.15rem;
+  letter-spacing: 0.03em;
+  color: var(--text-primary);
+}
+
+.contos-card__tag {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.contos-card__meta {
+  margin-top: auto;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+}

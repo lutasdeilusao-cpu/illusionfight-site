@@ -803,13 +803,11 @@
       "share_ja_enviou": "Ya enviaste un enlace este mes.",
       "share_placeholder": "https://x.com/tuperfil/status/...",
       "share_enviar": "ENVIAR PARA ANÁLISIS",
-
       "progresso_titulo": "TU PROGRESO",
       "progresso_100_parabens": "¡Felicidades! ¡Completaste todo el progreso!",
       "progresso_resgatando": "RECOGIENDO...",
       "progresso_resgatar": "RECOGER RECOMPENSA (500 DIX)",
       "progresso_ja_resgatou": "¡Recompensa ya recogida! +500 DIX",
-
       "tama_carregando": "CARGANDO...",
       "tama_meu_tamagoshi": "🥚 Mi Tamagoshi",
       "tama_sem_tamagoshi": "aún no tienes un tamagoshi.",
@@ -839,7 +837,6 @@
       "slot_1": "Slot 1",
       "slot_2": "Slot 2",
       "troca_notif_ver": "ver tamagoshi",
-
       "gangues_titulo": "🥊 LDI GANGUES",
       "gangues_fichas": "Fichas",
       "gangues_xp_total": "XP Total",
@@ -847,18 +844,15 @@
       "gangues_sem_fichas": "¡Sin fichas de personaje aún — crea tu luchador!",
       "gangues_ir_para": "IR A LDI GANGUES →",
       "gangues_atributos": "Atributos",
-
       "colecao_season_1": "TEMPORADA 1",
       "colecao_season_2": "TEMPORADA 2",
       "colecao_coming_soon": "PRÓXIMAMENTE",
       "colecao_obtidas": "obtenidas",
       "colecao_faltando": "faltantes",
       "colecao_obs": "Las cartas atenuadas aún no han sido descubiertas. ¡Juega Top Trumps Single Player para desbloquearlas!",
-
       "conquistas_secreto": "Logro secreto",
       "conquistas_desbloqueado": "✓ DESBLOQUEADO",
       "conquistas_bloqueado": "🔒 BLOQUEADO",
-
       "recomp_fichas_disponiveis": "fichas disponibles",
       "recomp_admin_bypass": "★ cuenta admin — bypass de fichas activo",
       "recomp_ficha_diaria": "FICHA DIARIA",
@@ -1103,67 +1097,24 @@
       }
     },
     "tatics": {
-      "seu_turno": "TU TURNO",
-      "inimigo_agindo": "ENEMIGO ACTUANDO...",
-      "turno_n": "TURNO {n}",
-      "hp": "PV",
-      "mp": "PM",
-      "ja_movido": "YA MOVIDO",
-      "mover": "MOVERTE",
-      "ja_atacou": "YA ATACÓ",
-      "atacar": "ATACAR",
-      "item": "OBJETO",
-      "finalizar_turno": "FINALIZAR TURNO",
-      "confirm_titulo": "¿FINALIZAR TURNO?",
-      "confirm_desc": "¿Seguro que quieres terminar tu turno?",
-      "confirm_desc2": "Los aliados que no actuaron perderán su turno.",
-      "confirm_nao": "NO, AÚN NO",
-      "confirm_sim": "SÍ, TERMINAR",
+      "loading": "CARGANDO SISTEMA...",
+      "erro_login": "Inicia sesión para acceder al sistema",
+      "voltar": "VOLVER",
+      "menu_principal": "MENÚ PRINCIPAL",
+      "continuar": "CONTINUAR",
+      "novo_jogo": "NUEVO JUEGO",
+      "selecionar_time": "SELECCIONAR EQUIPO",
+      "iniciar_batalha": "INICIAR BATALLA",
       "vitoria": "VICTORIA",
-      "vitorias_streak": "{n} victorias · Rachas: {streak}",
-      "streak_bonus": "🔥 RACHA {n} — ¡Bono de SDR activo!",
-      "proxima_batalha": "PRÓXIMA BATALLA",
       "derrota": "DERROTA",
-      "derrota_msg": "Sesión finalizada. Volviendo al modo observador.",
-      "derrota_sdr": "Sin SDR perdido. Intenta de nuevo.",
-      "revanche": "REVANCHA",
-      "sair": "SALIR",
-      "intro_sub": "SISTEMA DE COMBATE TÁCTICO",
-      "intro_acessar": "ACCEDER AL SISTEMA",
-      "intro_simulacao": "⚙ SIMULACIÓN IA",
-      "intro_teste": "🧪 PRUEBA RÁPIDA",
-      "intro_nexus": "PROTOCOLO NEXUS",
-      "fase_idle": "TU TURNO",
-      "fase_acao": "ELIGE UNA ACCIÓN",
-      "fase_mover": "SELECCIONA DESTINO",
-      "fase_skill": "SELECCIONA UN ATAQUE",
-      "fase_target": "APUNTANDO",
-      "fase_animando": "ANIMANDO...",
-      "fase_inimigo": "ENEMIGO ACTUANDO...",
-      "sim_titulo": "SIMULACIÓN AUTOMÁTICA",
-      "sim_sub": "IA vs IA — mira batallas autónomas",
-      "sim_personagens": "Personajes por equipo",
-      "sim_quantidade_ias": "Cantidad de IAs",
-      "sim_velocidade": "Velocidad",
-      "sim_ias_batalha": "IAs EN BATALLA",
-      "sim_sortear": "SORTEAR",
-      "sim_time_azul": "EQUIPO AZUL",
-      "sim_time_vermelho": "EQUIPO ROJO",
-      "sim_personagens_disponiveis": "PERSONAJES DISPONIBLES ({n})",
-      "sim_iniciar": "INICIAR SIMULACIÓN",
-      "classe_titulo": "SELECCIONA TU CLASE",
-      "classe_toque": "Toca una clase para ver detalles",
-      "classe_free": "🔒 GRATIS",
-      "classe_elite": "Disponible en el plan Élite",
       "pre_batalha": "PRE-BATALLA",
       "seu_time": "TU EQUIPO",
       "inimigos": "ENEMIGOS",
       "vs": "⚔️ VS ⚔️",
       "nivel": "Nv.",
       "tier": "Tier",
-      "iniciar_batalha": "INICIAR BATALLA"
+      "confirmar": "CONFIRMAR"
     },
-
     "lobby": {
       "titulo": "MULTIPLAYER",
       "modo_free": "MODO FREE",
@@ -1342,33 +1293,28 @@
       "fase_anciao": "Anciano",
       "fase_partida": "Partida",
       "fase_evoluiu": "Tamagoshi evolucionó a {fase}",
-
       "partida_concluida": "✨ partida completada",
       "partida_salao_fama": "{nome} entró al salón de la fama de Marelia.",
       "partida_ver_salao": "[ ver en salón de la fama ]",
       "partida_adotar_nova": "[ adoptar nueva criatura ]",
-
       "saude_item_termometro": "Termómetro",
       "saude_item_curativo": "Curita",
       "saude_item_xarope": "Jarabe",
       "saude_instrucao_termometro": "Toma la temperatura de la criatura",
       "saude_instrucao_curativo": "Ponle una curita a la criatura",
       "saude_instrucao_xarope": "Dale el jarabe a la criatura",
-
       "badge_criador_iniciante": "Creador Principiante",
       "badge_cuidador_dedicado": "Cuidador Dedicado",
       "badge_companheiro_fiel": "Compañero Fiel",
       "badge_guardiao_experiente": "Guardián Experimentado",
       "badge_mestre_cuidador": "Maestro Cuidador",
       "badge_lenda_marelia": "Leyenda de Marelia",
-
       "partida_texto_carente": "fuiste lo mejor que me pasó. gracias. te recordaré siempre.",
       "partida_texto_agressivo": "...cuídate. no porque me importe. cuídate.",
       "partida_texto_independente": "hora de irse. fue suficiente.",
       "partida_texto_fofo": "sabía que no me ibas a abandonar. lo sabía.",
       "partida_texto_filosofo": "doce meses es un parpadeo en el universo. pero fue un parpadeo hermoso.",
       "partida_texto_comico": "wey. qué viaje. ¿ya me puedo ir? también tengo hambre allá afuera.",
-
       "personalidade_carente": "Necesitado",
       "personalidade_carente_desc": "dramático, apegado, notifica antes de necesitar",
       "personalidade_agressivo": "Agresivo",
@@ -1381,7 +1327,6 @@
       "personalidade_filosofo_desc": "reflexivo, convierte necesidad en observación existencial",
       "personalidade_comico": "Cómico",
       "personalidade_comico_desc": "ajeno al drama, confusión genuina, comentarios fuera de contexto",
-
       "evolucao_ovo": "Huevo",
       "evolucao_ovo_desc": "un huevo misterioso pulsando con energía",
       "evolucao_filhote": "Cría",
@@ -1390,7 +1335,6 @@
       "evolucao_adulto_desc": "maduro, con personalidad bien definida",
       "evolucao_anciao": "Anciano",
       "evolucao_anciao_desc": "sabio, calmado, cicatrices de muchas historias",
-
       "variante_normal": "Común",
       "variante_normal_desc": "apariencia estándar",
       "variante_brilhante": "Brillante",
@@ -1399,7 +1343,6 @@
       "variante_sombria_desc": "tonos oscuros, aura misteriosa",
       "variante_celestial": "Celestial",
       "variante_celestial_desc": "luz propia, partículas flotantes",
-
       "item_comida_basica": "Comida Estándar",
       "item_comida_especial": "Plato Especial",
       "item_comida_primordial": "Energía Ancestral",
@@ -1415,7 +1358,6 @@
       "item_comida_9": "Brasas de Energía",
       "item_comida_30": "Boleto de Autobús",
       "item_comida_7": "Pintura en Spray",
-
       "passeio_marelia_centro": "Centro de Marelia",
       "passeio_marelia_centro_desc": "calles adoquinadas mojadas, letreros de neón",
       "passeio_terminal_rodoviario": "Terminal de Autobuses",
@@ -1428,13 +1370,11 @@
       "passeio_feira_livre_desc": "puestos coloridos, olor a comida, gente hablando alto",
       "passeio_rua_branca": "Calle Blanca",
       "passeio_rua_branca_desc": "silencio, niebla, un lugar olvidado por el tiempo",
-
       "raridade_comum": "común",
       "raridade_incomum": "poco común",
       "raridade_raro": "raro",
       "raridade_epico": "épico",
       "raridade_lendario": "legendario",
-
       "notif_carente_boasvindas": "\"ah… viniste. estaba contando los segundos.\"",
       "notif_carente_fome": "\"tengo hambre pero está bien, quédate ahí, aguanto... probablemente\"",
       "notif_carente_sede": "\"tres horas sin agua. tres. horas. no estoy bien, claramente\"",
@@ -1471,12 +1411,10 @@
       "notif_comico_passeio": "\"necesitamos salir. vi una paloma aquí que quiero conocer mejor\"",
       "notif_comico_critico": "\"wey. esto se está poniendo serio. creo. no sé. estoy mareado\"",
       "notif_comico_morte": "\"no puedo creer que voy a morir por una galleta. qué historia contar del otro lado\"",
-
       "slots_limite_atingido": "Has alcanzado el límite de {limite} slot(s) para tu nivel.",
       "trocar_tama": "Cambiar Tama",
       "selecionar_slot": "Seleccionar Slot",
       "fechar": "Cerrar",
-
       "gacha_titulo": "🎰 Sorteo de Temporada",
       "gacha_sub": "¡Gira por {custo} DIX y gana una criatura aleatoria de la temporada!",
       "gacha_entrar": "Sorteo 🎰",
@@ -1493,7 +1431,6 @@
       "gacha_gratis": "GRATIS",
       "gacha_giro_gratis": "1ER GIRO GRATIS",
       "em_breve": "PRÓXIMAMENTE",
-
       "banhar_usando": "usando: {item}",
       "brincadeira_sair": "salir",
       "brincadeira_ganhou": "¡bien! ¡jugaste!",
@@ -1507,8 +1444,7 @@
       "puzzle_labirinto": "Laberinto",
       "puzzle_anagrama": "Anagrama",
       "puzzle_forca": "Palabra Secreta",
-
-"termo": {
+      "termo": {
         "titulo": "TÉRMINO DE RESPONSABILIDAD",
         "intro": "Antes de continuar, lea con atención. Un Tamagoshi es un ser vivo digital. Depende de ti para sobrevivir.",
         "regra_alimentar": "Debes alimentarlo regularmente",
@@ -1946,60 +1882,228 @@
       },
       "powers": {
         "fogo": [
-          { "id": "chama_rapida", "name": "Llama Rápida", "desc": "Dispara una llama veloz que causa +2 de daño elemental." },
-          { "id": "explosao", "name": "Explosión", "desc": "Una explosión de fuego alrededor. Causa daño en área (duplica FD pero impacta múltiples objetivos)." },
-          { "id": "labareda", "name": "Llamarada", "desc": "Una llamarada intensa. Si acierta, causa quemadura (-1 FD en el próximo turno del enemigo)." },
-          { "id": "inferno", "name": "Infierno", "desc": "Llamas puras consumen al enemigo. Causa el doble de daño elemental." },
-          { "id": "escudo_fogo", "name": "Escudo de Fuego", "desc": "Llamas te protegen. +2 FD este turno, causa 1 de daño si el enemigo acierta." },
-          { "id": "pilar_fogo", "name": "Pilar de Fuego", "desc": "Un pilar de fuego surge del suelo. Daño medio pero ignora 3 de FD." }
+          {
+            "id": "chama_rapida",
+            "name": "Llama Rápida",
+            "desc": "Dispara una llama veloz que causa +2 de daño elemental."
+          },
+          {
+            "id": "explosao",
+            "name": "Explosión",
+            "desc": "Una explosión de fuego alrededor. Causa daño en área (duplica FD pero impacta múltiples objetivos)."
+          },
+          {
+            "id": "labareda",
+            "name": "Llamarada",
+            "desc": "Una llamarada intensa. Si acierta, causa quemadura (-1 FD en el próximo turno del enemigo)."
+          },
+          {
+            "id": "inferno",
+            "name": "Infierno",
+            "desc": "Llamas puras consumen al enemigo. Causa el doble de daño elemental."
+          },
+          {
+            "id": "escudo_fogo",
+            "name": "Escudo de Fuego",
+            "desc": "Llamas te protegen. +2 FD este turno, causa 1 de daño si el enemigo acierta."
+          },
+          {
+            "id": "pilar_fogo",
+            "name": "Pilar de Fuego",
+            "desc": "Un pilar de fuego surge del suelo. Daño medio pero ignora 3 de FD."
+          }
         ],
         "agua": [
-          { "id": "projetil_agua", "name": "Proyectil de Agua", "desc": "Dispara agua presurizada. Causa +2 de daño elemental." },
-          { "id": "onda", "name": "Ola", "desc": "Una ola empuja al enemigo. Daño + reduce FA del enemigo en 1 en el próximo turno." },
-          { "id": "nevoeiro", "name": "Niebla", "desc": "Crea una niebla densa. Enemigo tiene -2 FA en el próximo ataque." },
-          { "id": "cura", "name": "Cura Ligera", "desc": "Agua revitalizante. Recupera 2 PV (no puede superar el máximo)." },
-          { "id": "torrente", "name": "Torrente", "desc": "Un chorro masivo de agua. Causa el doble de daño elemental." },
-          { "id": "gelo", "name": "Hielo", "desc": "Agua congelada. Daño + enemigo pierde 1 de H en el próximo turno." }
+          {
+            "id": "projetil_agua",
+            "name": "Proyectil de Agua",
+            "desc": "Dispara agua presurizada. Causa +2 de daño elemental."
+          },
+          {
+            "id": "onda",
+            "name": "Ola",
+            "desc": "Una ola empuja al enemigo. Daño + reduce FA del enemigo en 1 en el próximo turno."
+          },
+          {
+            "id": "nevoeiro",
+            "name": "Niebla",
+            "desc": "Crea una niebla densa. Enemigo tiene -2 FA en el próximo ataque."
+          },
+          {
+            "id": "cura",
+            "name": "Cura Ligera",
+            "desc": "Agua revitalizante. Recupera 2 PV (no puede superar el máximo)."
+          },
+          {
+            "id": "torrente",
+            "name": "Torrente",
+            "desc": "Un chorro masivo de agua. Causa el doble de daño elemental."
+          },
+          {
+            "id": "gelo",
+            "name": "Hielo",
+            "desc": "Agua congelada. Daño + enemigo pierde 1 de H en el próximo turno."
+          }
         ],
         "terra": [
-          { "id": "projetil_pedra", "name": "Proyectil de Piedra", "desc": "Lanza una piedra. Causa +2 de daño elemental." },
-          { "id": "muralha", "name": "Muralha", "desc": "Levanta una pared de piedra. +3 FD este turno." },
-          { "id": "terremoto", "name": "Terremoto", "desc": "El suelo tiembla. Causa el doble de daño elemental y aturde al enemigo (-1 FA y FD próximo turno)." },
-          { "id": "armadura", "name": "Armadura de Tierra", "desc": "Reviste tu cuerpo de piedra. +2 FD por 2 turnos." },
-          { "id": "areia_movel", "name": "Arena Movediza", "desc": "El suelo se vuelve inestable. El enemigo pierde el próximo turno (no ataca)." },
-          { "id": "lanca_pedra", "name": "Lanza de Piedra", "desc": "Una lanza de piedra perfora al enemigo. Ignora 4 de FD." }
+          {
+            "id": "projetil_pedra",
+            "name": "Proyectil de Piedra",
+            "desc": "Lanza una piedra. Causa +2 de daño elemental."
+          },
+          {
+            "id": "muralha",
+            "name": "Muralha",
+            "desc": "Levanta una pared de piedra. +3 FD este turno."
+          },
+          {
+            "id": "terremoto",
+            "name": "Terremoto",
+            "desc": "El suelo tiembla. Causa el doble de daño elemental y aturde al enemigo (-1 FA y FD próximo turno)."
+          },
+          {
+            "id": "armadura",
+            "name": "Armadura de Tierra",
+            "desc": "Reviste tu cuerpo de piedra. +2 FD por 2 turnos."
+          },
+          {
+            "id": "areia_movel",
+            "name": "Arena Movediza",
+            "desc": "El suelo se vuelve inestable. El enemigo pierde el próximo turno (no ataca)."
+          },
+          {
+            "id": "lanca_pedra",
+            "name": "Lanza de Piedra",
+            "desc": "Una lanza de piedra perfora al enemigo. Ignora 4 de FD."
+          }
         ],
         "ar": [
-          { "id": "rajada", "name": "Ráfaga", "desc": "Una ráfaga de viento. Causa +2 de daño elemental." },
-          { "id": "ciclone", "name": "Ciclón", "desc": "Un ciclón envuelve al enemigo. Causa el doble de daño elemental." },
-          { "id": "escudo_vento", "name": "Escudo de Viento", "desc": "El viento desvía ataques. +2 FD este turno." },
-          { "id": "passos_leves", "name": "Pasos Ligeros", "desc": "El viento te carga. +2 H por un turno (más iniciativa)." },
-          { "id": "sopro", "name": "Soplido", "desc": "Un soplido fuerte empuja al enemigo lejos. El enemigo pierde 1 de H en el próximo turno." },
-          { "id": "tempestade", "name": "Tormenta", "desc": "Pequeñas explosiones de aire. Causa daño + -1 FD en el enemigo por 2 turnos." }
+          {
+            "id": "rajada",
+            "name": "Ráfaga",
+            "desc": "Una ráfaga de viento. Causa +2 de daño elemental."
+          },
+          {
+            "id": "ciclone",
+            "name": "Ciclón",
+            "desc": "Un ciclón envuelve al enemigo. Causa el doble de daño elemental."
+          },
+          {
+            "id": "escudo_vento",
+            "name": "Escudo de Viento",
+            "desc": "El viento desvía ataques. +2 FD este turno."
+          },
+          {
+            "id": "passos_leves",
+            "name": "Pasos Ligeros",
+            "desc": "El viento te carga. +2 H por un turno (más iniciativa)."
+          },
+          {
+            "id": "sopro",
+            "name": "Soplido",
+            "desc": "Un soplido fuerte empuja al enemigo lejos. El enemigo pierde 1 de H en el próximo turno."
+          },
+          {
+            "id": "tempestade",
+            "name": "Tormenta",
+            "desc": "Pequeñas explosiones de aire. Causa daño + -1 FD en el enemigo por 2 turnos."
+          }
         ],
         "trevas": [
-          { "id": "sombra_atacante", "name": "Sombra Atacante", "desc": "Sombras atacan al enemigo. Causa +2 de daño elemental." },
-          { "id": "dreno", "name": "Drenaje", "desc": "Drena energía del enemigo. Causa daño y recupera 1 PV." },
-          { "id": "nevoa_escura", "name": "Niebla Oscura", "desc": "Oscuridad envuelve la arena. Enemigo tiene -2 FA en el próximo ataque." },
-          { "id": "toque_sombrio", "name": "Toque Sombrío", "desc": "Un toque que consume. Causa el doble de daño elemental." },
-          { "id": "medo", "name": "Miedo", "desc": "Proyecta miedo en la mente del enemigo. El enemigo pierde el próximo ataque (pero aún defiende)." },
-          { "id": "absorcao", "name": "Absorción", "desc": "Absorbe energía elemental. Recupera 1 PM." }
+          {
+            "id": "sombra_atacante",
+            "name": "Sombra Atacante",
+            "desc": "Sombras atacan al enemigo. Causa +2 de daño elemental."
+          },
+          {
+            "id": "dreno",
+            "name": "Drenaje",
+            "desc": "Drena energía del enemigo. Causa daño y recupera 1 PV."
+          },
+          {
+            "id": "nevoa_escura",
+            "name": "Niebla Oscura",
+            "desc": "Oscuridad envuelve la arena. Enemigo tiene -2 FA en el próximo ataque."
+          },
+          {
+            "id": "toque_sombrio",
+            "name": "Toque Sombrío",
+            "desc": "Un toque que consume. Causa el doble de daño elemental."
+          },
+          {
+            "id": "medo",
+            "name": "Miedo",
+            "desc": "Proyecta miedo en la mente del enemigo. El enemigo pierde el próximo ataque (pero aún defiende)."
+          },
+          {
+            "id": "absorcao",
+            "name": "Absorción",
+            "desc": "Absorbe energía elemental. Recupera 1 PM."
+          }
         ],
         "luz": [
-          { "id": "raio_luz", "name": "Rayo de Luz", "desc": "Un rayo de luz cegadora. Causa +2 de daño elemental." },
-          { "id": "cura_luz", "name": "Cura Radiante", "desc": "Luz revitalizante. Recupera 3 PV." },
-          { "id": "escudo_luz", "name": "Escudo de Luz", "desc": "Barrera luminosa. +2 FD este turno." },
-          { "id": "explosao_luz", "name": "Explosión de Luz", "desc": "Explosión ciega al enemigo. Causa el doble de daño elemental y enemigo tiene -1 FA próximo turno." },
-          { "id": "purificacao", "name": "Purificación", "desc": "Elimina un estado negativo o cura 1 PV adicional." },
-          { "id": "fulgor", "name": "Resplandor", "desc": "Luz intensa. Causa daño + enemigo tiene -1 FD próximo turno." }
+          {
+            "id": "raio_luz",
+            "name": "Rayo de Luz",
+            "desc": "Un rayo de luz cegadora. Causa +2 de daño elemental."
+          },
+          {
+            "id": "cura_luz",
+            "name": "Cura Radiante",
+            "desc": "Luz revitalizante. Recupera 3 PV."
+          },
+          {
+            "id": "escudo_luz",
+            "name": "Escudo de Luz",
+            "desc": "Barrera luminosa. +2 FD este turno."
+          },
+          {
+            "id": "explosao_luz",
+            "name": "Explosión de Luz",
+            "desc": "Explosión ciega al enemigo. Causa el doble de daño elemental y enemigo tiene -1 FA próximo turno."
+          },
+          {
+            "id": "purificacao",
+            "name": "Purificación",
+            "desc": "Elimina un estado negativo o cura 1 PV adicional."
+          },
+          {
+            "id": "fulgor",
+            "name": "Resplandor",
+            "desc": "Luz intensa. Causa daño + enemigo tiene -1 FD próximo turno."
+          }
         ],
         "neutro": [
-          { "id": "impacto", "name": "Impacto", "desc": "Un golpe de energía neutra. Causa +2 de daño." },
-          { "id": "barreira", "name": "Barrera", "desc": "Barrera de energía. +2 FD este turno." },
-          { "id": "pulso", "name": "Pulso", "desc": "Pulso de energía. Causa daño y empuja al enemigo (-1 FA próximo turno)." },
-          { "id": "carga_total", "name": "Carga Total", "desc": "Toda tu energía en un golpe. Causa el doble de daño." },
-          { "id": "recuperacao", "name": "Recuperación", "desc": "Recupera 1 PM." },
-          { "id": "sobrecarga", "name": "Sobrecarga", "desc": "Sobrecarga tus circuitos. Próximo ataque causa +3 de daño." }
+          {
+            "id": "impacto",
+            "name": "Impacto",
+            "desc": "Un golpe de energía neutra. Causa +2 de daño."
+          },
+          {
+            "id": "barreira",
+            "name": "Barrera",
+            "desc": "Barrera de energía. +2 FD este turno."
+          },
+          {
+            "id": "pulso",
+            "name": "Pulso",
+            "desc": "Pulso de energía. Causa daño y empuja al enemigo (-1 FA próximo turno)."
+          },
+          {
+            "id": "carga_total",
+            "name": "Carga Total",
+            "desc": "Toda tu energía en un golpe. Causa el doble de daño."
+          },
+          {
+            "id": "recuperacao",
+            "name": "Recuperación",
+            "desc": "Recupera 1 PM."
+          },
+          {
+            "id": "sobrecarga",
+            "name": "Sobrecarga",
+            "desc": "Sobrecarga tus circuitos. Próximo ataque causa +3 de daño."
+          }
         ]
       },
       "game": {
@@ -2025,25 +2129,6 @@
         "nenhum": "ninguno",
         "xp_toast": "+{n} XP"
       }
-    },
-    "tatics": {
-      "loading": "CARGANDO SISTEMA...",
-      "erro_login": "Inicia sesión para acceder al sistema",
-      "voltar": "VOLVER",
-      "menu_principal": "MENÚ PRINCIPAL",
-      "continuar": "CONTINUAR",
-      "novo_jogo": "NUEVO JUEGO",
-      "selecionar_time": "SELECCIONAR EQUIPO",
-      "iniciar_batalha": "INICIAR BATALLA",
-      "vitoria": "VICTORIA",
-      "derrota": "DERROTA",
-      "pre_batalha": "PRE-BATALLA",
-      "seu_time": "TU EQUIPO",
-      "inimigos": "ENEMIGOS",
-      "vs": "⚔️ VS ⚔️",
-      "nivel": "Nv.",
-      "tier": "Tier",
-      "confirmar": "CONFIRMAR"
     }
   },
   "admin": {
@@ -2097,7 +2182,10 @@
       "descricao": "Historias paralelas del mundo de Lutas de Ilusão. Otros personajes, otras experiencias — que pueden cruzar o no la línea principal.",
       "conto": "CUENTO",
       "og_title": "Cuentos de Ilusión — Sello Legends | Lutas de Ilusão",
-      "og_desc": "Historias paralelas del universo Lutas de Ilusão bajo el Sello Legends. Otros personajes, otras experiencias, el mismo mundo."
+      "og_desc": "Historias paralelas del universo Lutas de Ilusão bajo el Sello Legends. Otros personajes, otras experiencias, el mismo mundo.",
+      "cap": "CAP.",
+      "capitulo": "Capítulo",
+      "capitulos": "capítulos"
     },
     "webtoon": {
       "titulo": "WEBTOON",
@@ -2406,7 +2494,6 @@
     "database_queue": "● COLA CANÓNICA DE TOP TRUMPS",
     "you": "Tú",
     "opponent": "Oponente",
-    "versus": "VS",
     "even": "Par",
     "odd": "Impar",
     "choose_number": "Elige un número",
@@ -2434,8 +2521,14 @@
     "integration_pending": "La integración con la base de datos y los juegos se hará en la próxima etapa.",
     "test_again": "PROBAR DE NUEVO",
     "back": "VOLVER A JUEGOS",
-    "games": { "toptrumps": "Top Trumps", "duelo": "Duelo LDI" },
-    "modes": { "standard": "Estándar", "ranked": "Clasificado" }
+    "games": {
+      "toptrumps": "Top Trumps",
+      "duelo": "Duelo LDI"
+    },
+    "modes": {
+      "standard": "Estándar",
+      "ranked": "Clasificado"
+    }
   },
   "prototype": {
     "title": "Prototipo",

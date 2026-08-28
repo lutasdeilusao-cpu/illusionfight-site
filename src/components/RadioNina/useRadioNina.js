@@ -75,6 +75,7 @@ export function useRadioNina() {
   const anunciadaRef = useRef(null)
   // Propagandas: pool do idioma + shuffle-bag sem repetir a última, 1 a cada N músicas
   const adsRef = useRef([])
+  const adsLangRef = useRef(null)
   const adBagRef = useRef([])
   const ultimoAdRef = useRef(null)
   const contadorRef = useRef(0)
@@ -99,14 +100,18 @@ export function useRadioNina() {
     }
   }, [])
 
+  // Recarrega o pool de propaganda sempre que o idioma do site mudou.
   const garantirAds = useCallback(async () => {
-    if (adsRef.current.length || semAdsRef.current) return
+    if (semAdsRef.current) return
+    const lang = localStorage.getItem('ldi-locale') || 'pt'
+    if (adsRef.current.length && adsLangRef.current === lang) return
     try {
-      const lang = localStorage.getItem('ldi-locale') || 'pt'
       const res = await fetch(`${BASE}/ads/${lang}`)
       if (!res.ok) return
       const { ads } = await res.json()
-      if (!Array.isArray(ads) || !ads.length) return
+      adsLangRef.current = lang
+      adBagRef.current = []
+      if (!Array.isArray(ads) || !ads.length) { adsRef.current = []; return }
       const folder = ADS_PASTAS[lang] || ADS_PASTAS.pt || 'MaketingBR'
       adsRef.current = ads.map((a) => ({ key: a.key, url: `${BASE}/${folder}/${encodeURIComponent(a.key)}` }))
     } catch (err) {
@@ -179,22 +184,16 @@ export function useRadioNina() {
   // Progressão natural (fim da faixa): decide entre próxima música ou propaganda
   const avancar = useCallback(() => {
     const total = filaRef.current.length
-    if (emAdRef.current) {
-      emAdRef.current = false
-      if (total) tocarIndice((idxRef.current + 1) % total, 'auto')
-      return
-    }
-    if (semAdsRef.current) {
-      if (total) tocarIndice((idxRef.current + 1) % total, 'auto')
-      return
-    }
+    const proximaMusica = () => { if (total) tocarIndice((idxRef.current + 1) % total, 'auto') }
+    if (emAdRef.current) { emAdRef.current = false; proximaMusica(); return }
+    if (semAdsRef.current) { proximaMusica(); return }
+
     contadorRef.current += 1
-    if (contadorRef.current >= MUSICAS_POR_AD && adsRef.current.length && tocarAd()) {
-      contadorRef.current = 0
-      return
-    }
-    if (total) tocarIndice((idxRef.current + 1) % total, 'auto')
-  }, [tocarIndice, tocarAd])
+    if (contadorRef.current < MUSICAS_POR_AD) { proximaMusica(); return }
+    contadorRef.current = 0
+    // Rechecar o idioma agora — o usuário pode ter trocado durante a sessão.
+    garantirAds().then(() => { if (!tocarAd()) proximaMusica() })
+  }, [tocarIndice, tocarAd, garantirAds])
 
   const pular = useCallback((delta, origem = 'user') => {
     const total = filaRef.current.length
@@ -214,6 +213,18 @@ export function useRadioNina() {
     else if (audio.src) audio.play().catch(() => {})
     else ligar('escolha')
   }, [ligar])
+
+  // Fechar de vez: para o áudio, some com a rádio e não pergunta de novo nesta sessão.
+  const fechar = useCallback(() => {
+    const audio = audioRef.current
+    if (audio) { audio.pause(); audio.src = '' }
+    emAdRef.current = false
+    setTocando(false)
+    setFaixaAtual(null)
+    setEstado('oculto')
+    memoriaSessao = 'recusou'
+    trackEvent('radio_fechar', {})
+  }, [])
 
   const tocarKey = useCallback(async (key) => {
     await garantirPool()
@@ -367,6 +378,6 @@ export function useRadioNina() {
   return {
     estado, setEstado, tocando, faixaAtual, tempo, duracao, cor, setCor, volume, setVolume,
     pool, playlistSalva, logado: Boolean(user?.id),
-    ligar, alternar, pular, tocarKey, tocarMinhaPlaylist, seek, salvar,
+    ligar, alternar, pular, fechar, tocarKey, tocarMinhaPlaylist, seek, salvar,
   }
 }
