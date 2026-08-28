@@ -410,8 +410,8 @@
     "semantic_hash": "b11265c546f5970b719233c19e1b2c2d"
   },
   "src/config/version.js": {
-    "mtime": 1787890422.6394725,
-    "ast_hash": "69b3f152e24604ee2b6ad7b2bd4547de",
+    "mtime": 1787891192.0245569,
+    "ast_hash": "217acc62082528a05638a548034509ca",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -655,13 +655,13 @@
     "semantic_hash": "04fe18f6b87b3e1315a9343353aef1fc"
   },
   "src/i18n/en.json": {
-    "mtime": 1787888769.9805365,
-    "ast_hash": "7fa8d9a1c521924ee0f9786a28d90ecb",
+    "mtime": 1787891187.0070674,
+    "ast_hash": "001d773067c38aa7a5e7b21d4e30a6ab",
     "semantic_hash": ""
   },
   "src/i18n/es.json": {
-    "mtime": 1787888775.5163577,
-    "ast_hash": "0252fa8b1f2f6210c1d3cd198794920f",
+    "mtime": 1787891188.238232,
+    "ast_hash": "f7a50ef190e76c38e308b91fe2b71027",
     "semantic_hash": ""
   },
   "src/i18n/locales.js": {
@@ -685,8 +685,8 @@
     "semantic_hash": "fff728f6c525ec64a386f467142b28dc"
   },
   "src/i18n/pt.json": {
-    "mtime": 1787888759.4923894,
-    "ast_hash": "8a14838fa26d2a90a9078e97ff5082be",
+    "mtime": 1787891185.6344857,
+    "ast_hash": "7caa461d1fb2644f8f45670e5ca04c2c",
     "semantic_hash": ""
   },
   "src/i18n/tt_en.json": {
@@ -2835,8 +2835,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1787890425.2277834,
-    "ast_hash": "0ec4081c48821d6f87bbe060be30a195",
+    "mtime": 1787891193.2497663,
+    "ast_hash": "00f973bfa06dc11139a7833891b420ba",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3815,8 +3815,8 @@
     "semantic_hash": ""
   },
   "src/data/livro/contos/pt/conto-01.md": {
-    "mtime": 1787890418.54802,
-    "ast_hash": "28c59c0ecae7b756273b744d704779cb",
+    "mtime": 1787890811.6771345,
+    "ast_hash": "6108b05000ccacc82225befff52755db",
     "semantic_hash": ""
   }
 }

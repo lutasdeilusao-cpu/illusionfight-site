@@ -1,0 +1,10 @@
+# Deploy: cd workers/songs-r2 && npx wrangler deploy
+# (ou colar worker.js no editor do dashboard e adicionar o binding abaixo em Settings)
+
+name = "fancy-recipe-c0b4"
+main = "worker.js"
+compatibility_date = "2024-09-23"
+
+[[r2_buckets]]
+binding = "BUCKET"
+bucket_name = "songsillusionfight"
