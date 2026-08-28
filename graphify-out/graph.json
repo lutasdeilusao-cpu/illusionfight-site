@@ -254,104 +254,234 @@
       "norm_label": "13. onde procurar primeiro"
     },
     {
-      "label": "useRadioNina.js",
+      "label": "tauri.conf.json",
       "file_type": "code",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_file": "src-tauri/tauri.conf.json",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_components_radionina_useradionina",
-      "community": 262,
-      "norm_label": "useradionina.js"
+      "id": "src_tauri_tauri_conf",
+      "community": 16,
+      "norm_label": "tauri.conf.json"
     },
     {
-      "label": "ABERTURA_KEYS",
+      "label": "$schema",
       "file_type": "code",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L14",
+      "source_file": "src-tauri/tauri.conf.json",
+      "source_location": "L2",
       "_origin": "ast",
-      "id": "src_components_radionina_useradionina_abertura_keys",
-      "community": 262,
-      "norm_label": "abertura_keys"
+      "id": "src_tauri_tauri_conf_schema",
+      "community": 16,
+      "norm_label": "$schema"
     },
     {
-      "label": "marcarSessao()",
+      "label": "productName",
       "file_type": "code",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L18",
+      "source_file": "src-tauri/tauri.conf.json",
+      "source_location": "L3",
       "_origin": "ast",
-      "id": "src_components_radionina_useradionina_marcarsessao",
-      "community": 262,
-      "norm_label": "marcarsessao()"
+      "id": "src_tauri_tauri_conf_productname",
+      "community": 16,
+      "norm_label": "productname"
     },
     {
-      "label": "sessaoRespondida()",
+      "label": "version",
       "file_type": "code",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L19",
+      "source_file": "src-tauri/tauri.conf.json",
+      "source_location": "L4",
       "_origin": "ast",
-      "id": "src_components_radionina_useradionina_sessaorespondida",
-      "community": 262,
-      "norm_label": "sessaorespondida()"
+      "id": "src_tauri_tauri_conf_version",
+      "community": 16,
+      "norm_label": "version"
     },
     {
-      "label": "tituloDe()",
+      "label": "identifier",
       "file_type": "code",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L21",
+      "source_file": "src-tauri/tauri.conf.json",
+      "source_location": "L5",
       "_origin": "ast",
-      "id": "src_components_radionina_useradionina_titulode",
-      "community": 262,
-      "norm_label": "titulode()"
+      "id": "src_tauri_tauri_conf_identifier",
+      "community": 16,
+      "norm_label": "identifier"
     },
     {
-      "label": "embaralhar()",
+      "label": "app",
       "file_type": "code",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_file": "src-tauri/tauri.conf.json",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "src_tauri_tauri_conf_app",
+      "community": 16,
+      "norm_label": "app"
+    },
+    {
+      "label": "withGlobalTauri",
+      "file_type": "code",
+      "source_file": "src-tauri/tauri.conf.json",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "src_tauri_tauri_conf_app_withglobaltauri",
+      "community": 16,
+      "norm_label": "withglobaltauri"
+    },
+    {
+      "label": "windows",
+      "file_type": "code",
+      "source_file": "src-tauri/tauri.conf.json",
+      "source_location": "L8",
+      "_origin": "ast",
+      "id": "src_tauri_tauri_conf_app_windows",
+      "community": 16,
+      "norm_label": "windows"
+    },
+    {
+      "label": "security",
+      "file_type": "code",
+      "source_file": "src-tauri/tauri.conf.json",
+      "source_location": "L23",
+      "_origin": "ast",
+      "id": "src_tauri_tauri_conf_app_security",
+      "community": 16,
+      "norm_label": "security"
+    },
+    {
+      "label": "capabilities",
+      "file_type": "code",
+      "source_file": "src-tauri/tauri.conf.json",
       "source_location": "L24",
       "_origin": "ast",
-      "id": "src_components_radionina_useradionina_embaralhar",
-      "community": 262,
-      "norm_label": "embaralhar()"
+      "id": "src_tauri_tauri_conf_security_capabilities",
+      "community": 16,
+      "norm_label": "capabilities"
     },
     {
-      "label": "buscarPool()",
-      "file_type": "code",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L33",
+      "label": "default",
+      "file_type": "concept",
+      "source_file": "src-tauri/tauri.conf.json",
+      "source_location": "L24",
       "_origin": "ast",
-      "id": "src_components_radionina_useradionina_buscarpool",
-      "community": 262,
-      "norm_label": "buscarpool()"
+      "id": "ref_default",
+      "community": 16,
+      "norm_label": "default"
     },
     {
-      "label": "filaComAbertura()",
+      "label": "bundle",
       "file_type": "code",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L42",
+      "source_file": "src-tauri/tauri.conf.json",
+      "source_location": "L27",
       "_origin": "ast",
-      "id": "src_components_radionina_useradionina_filacomabertura",
-      "community": 262,
-      "norm_label": "filacomabertura()"
+      "id": "src_tauri_tauri_conf_bundle",
+      "community": 16,
+      "norm_label": "bundle"
     },
     {
-      "label": "TIERS_SEM_AD",
+      "label": "active",
       "file_type": "code",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L49",
+      "source_file": "src-tauri/tauri.conf.json",
+      "source_location": "L28",
       "_origin": "ast",
-      "id": "src_components_radionina_useradionina_tiers_sem_ad",
-      "community": 262,
-      "norm_label": "tiers_sem_ad"
+      "id": "src_tauri_tauri_conf_bundle_active",
+      "community": 16,
+      "norm_label": "active"
     },
     {
-      "label": "useRadioNina()",
+      "label": "targets",
       "file_type": "code",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L51",
+      "source_file": "src-tauri/tauri.conf.json",
+      "source_location": "L29",
       "_origin": "ast",
-      "id": "src_components_radionina_useradionina_useradionina",
-      "community": 262,
-      "norm_label": "useradionina()"
+      "id": "src_tauri_tauri_conf_bundle_targets",
+      "community": 16,
+      "norm_label": "targets"
+    },
+    {
+      "label": "nsis",
+      "file_type": "concept",
+      "source_file": "src-tauri/tauri.conf.json",
+      "source_location": "L29",
+      "_origin": "ast",
+      "id": "ref_nsis",
+      "community": 16,
+      "norm_label": "nsis"
+    },
+    {
+      "label": "icon",
+      "file_type": "code",
+      "source_file": "src-tauri/tauri.conf.json",
+      "source_location": "L30",
+      "_origin": "ast",
+      "id": "src_tauri_tauri_conf_bundle_icon",
+      "community": 16,
+      "norm_label": "icon"
+    },
+    {
+      "label": "icons/32x32.png",
+      "file_type": "concept",
+      "source_file": "src-tauri/tauri.conf.json",
+      "source_location": "L30",
+      "_origin": "ast",
+      "id": "ref_icons_32x32_png",
+      "community": 16,
+      "norm_label": "icons/32x32.png"
+    },
+    {
+      "label": "icons/128x128.png",
+      "file_type": "concept",
+      "source_file": "src-tauri/tauri.conf.json",
+      "source_location": "L30",
+      "_origin": "ast",
+      "id": "ref_icons_128x128_png",
+      "community": 16,
+      "norm_label": "icons/128x128.png"
+    },
+    {
+      "label": "icons/128x128@2x.png",
+      "file_type": "concept",
+      "source_file": "src-tauri/tauri.conf.json",
+      "source_location": "L30",
+      "_origin": "ast",
+      "id": "ref_icons_128x128_2x_png",
+      "community": 16,
+      "norm_label": "icons/128x128@2x.png"
+    },
+    {
+      "label": "icons/icon.icns",
+      "file_type": "concept",
+      "source_file": "src-tauri/tauri.conf.json",
+      "source_location": "L30",
+      "_origin": "ast",
+      "id": "ref_icons_icon_icns",
+      "community": 16,
+      "norm_label": "icons/icon.icns"
+    },
+    {
+      "label": "icons/icon.ico",
+      "file_type": "concept",
+      "source_file": "src-tauri/tauri.conf.json",
+      "source_location": "L30",
+      "_origin": "ast",
+      "id": "ref_icons_icon_ico",
+      "community": 16,
+      "norm_label": "icons/icon.ico"
+    },
+    {
+      "label": "DesktopShellBar.jsx",
+      "file_type": "code",
+      "source_file": "src/components/DesktopShellBar/DesktopShellBar.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_components_desktopshellbar_desktopshellbar",
+      "community": 284,
+      "norm_label": "desktopshellbar.jsx"
+    },
+    {
+      "label": "DesktopShellBar()",
+      "file_type": "code",
+      "source_file": "src/components/DesktopShellBar/DesktopShellBar.jsx",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "src_components_desktopshellbar_desktopshellbar_desktopshellbar",
+      "community": 284,
+      "norm_label": "desktopshellbar()"
     },
     {
       "label": "version.js",
@@ -364,14 +494,184 @@
       "norm_label": "version.js"
     },
     {
+      "label": "README.md",
+      "file_type": "document",
+      "source_file": "steam/README.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "steam_readme",
+      "community": 206,
+      "norm_label": "readme.md"
+    },
+    {
+      "label": "Illusion Fight \u2014 Steam Demo",
+      "file_type": "document",
+      "source_file": "steam/README.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "steam_readme_illusion_fight_steam_demo",
+      "community": 206,
+      "norm_label": "illusion fight \u2014 steam demo"
+    },
+    {
+      "label": "Identifica\u00e7\u00e3o",
+      "file_type": "document",
+      "source_file": "steam/README.md",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "steam_readme_identifica\u00e7\u00e3o",
+      "community": 206,
+      "norm_label": "identificacao"
+    },
+    {
+      "label": "Build local",
+      "file_type": "document",
+      "source_file": "steam/README.md",
+      "source_location": "L17",
+      "_origin": "ast",
+      "id": "steam_readme_build_local",
+      "community": 206,
+      "norm_label": "build local"
+    },
+    {
+      "label": "Preparar conte\u00fado Steam",
+      "file_type": "document",
+      "source_file": "steam/README.md",
+      "source_location": "L29",
+      "_origin": "ast",
+      "id": "steam_readme_preparar_conte\u00fado_steam",
+      "community": 206,
+      "norm_label": "preparar conteudo steam"
+    },
+    {
+      "label": "SteamPipe",
+      "file_type": "document",
+      "source_file": "steam/README.md",
+      "source_location": "L37",
+      "_origin": "ast",
+      "id": "steam_readme_steampipe",
+      "community": 206,
+      "norm_label": "steampipe"
+    },
+    {
+      "label": "Configura\u00e7\u00e3o manual pendente no Steamworks",
+      "file_type": "document",
+      "source_file": "steam/README.md",
+      "source_location": "L64",
+      "_origin": "ast",
+      "id": "steam_readme_configura\u00e7\u00e3o_manual_pendente_no_steamworks",
+      "community": 206,
+      "norm_label": "configuracao manual pendente no steamworks"
+    },
+    {
+      "label": "useRadioNina.js",
+      "file_type": "code",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 262,
+      "norm_label": "useradionina.js",
+      "id": "src_components_radionina_useradionina"
+    },
+    {
+      "label": "ABERTURA_KEYS",
+      "file_type": "code",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L14",
+      "_origin": "ast",
+      "community": 262,
+      "norm_label": "abertura_keys",
+      "id": "src_components_radionina_useradionina_abertura_keys"
+    },
+    {
+      "label": "marcarSessao()",
+      "file_type": "code",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L18",
+      "_origin": "ast",
+      "community": 262,
+      "norm_label": "marcarsessao()",
+      "id": "src_components_radionina_useradionina_marcarsessao"
+    },
+    {
+      "label": "sessaoRespondida()",
+      "file_type": "code",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L19",
+      "_origin": "ast",
+      "community": 262,
+      "norm_label": "sessaorespondida()",
+      "id": "src_components_radionina_useradionina_sessaorespondida"
+    },
+    {
+      "label": "tituloDe()",
+      "file_type": "code",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L21",
+      "_origin": "ast",
+      "community": 262,
+      "norm_label": "titulode()",
+      "id": "src_components_radionina_useradionina_titulode"
+    },
+    {
+      "label": "embaralhar()",
+      "file_type": "code",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L24",
+      "_origin": "ast",
+      "community": 262,
+      "norm_label": "embaralhar()",
+      "id": "src_components_radionina_useradionina_embaralhar"
+    },
+    {
+      "label": "buscarPool()",
+      "file_type": "code",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L33",
+      "_origin": "ast",
+      "community": 262,
+      "norm_label": "buscarpool()",
+      "id": "src_components_radionina_useradionina_buscarpool"
+    },
+    {
+      "label": "filaComAbertura()",
+      "file_type": "code",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L42",
+      "_origin": "ast",
+      "community": 262,
+      "norm_label": "filacomabertura()",
+      "id": "src_components_radionina_useradionina_filacomabertura"
+    },
+    {
+      "label": "TIERS_SEM_AD",
+      "file_type": "code",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L49",
+      "_origin": "ast",
+      "community": 262,
+      "norm_label": "tiers_sem_ad",
+      "id": "src_components_radionina_useradionina_tiers_sem_ad"
+    },
+    {
+      "label": "useRadioNina()",
+      "file_type": "code",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L51",
+      "_origin": "ast",
+      "community": 262,
+      "norm_label": "useradionina()",
+      "id": "src_components_radionina_useradionina_useradionina"
+    },
+    {
       "label": "CORES_RADIO",
       "file_type": "code",
       "source_file": "src/components/RadioNina/useRadioNina.js",
       "source_location": "L22",
       "_origin": "ast",
-      "id": "src_components_radionina_useradionina_cores_radio",
       "community": 262,
-      "norm_label": "cores_radio"
+      "norm_label": "cores_radio",
+      "id": "src_components_radionina_useradionina_cores_radio"
     },
     {
       "label": "RadioNina.jsx",
@@ -2152,306 +2452,6 @@
       "community": 269,
       "norm_label": "main()",
       "id": "src_tauri_src_main_main"
-    },
-    {
-      "label": "README.md",
-      "file_type": "document",
-      "source_file": "steam/README.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 206,
-      "norm_label": "readme.md",
-      "id": "steam_readme"
-    },
-    {
-      "label": "Illusion Fight \u2014 Steam Demo",
-      "file_type": "document",
-      "source_file": "steam/README.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 206,
-      "norm_label": "illusion fight \u2014 steam demo",
-      "id": "steam_readme_illusion_fight_steam_demo"
-    },
-    {
-      "label": "Identifica\u00e7\u00e3o",
-      "file_type": "document",
-      "source_file": "steam/README.md",
-      "source_location": "L5",
-      "_origin": "ast",
-      "community": 206,
-      "norm_label": "identificacao",
-      "id": "steam_readme_identifica\u00e7\u00e3o"
-    },
-    {
-      "label": "Build local",
-      "file_type": "document",
-      "source_file": "steam/README.md",
-      "source_location": "L17",
-      "_origin": "ast",
-      "community": 206,
-      "norm_label": "build local",
-      "id": "steam_readme_build_local"
-    },
-    {
-      "label": "Preparar conte\u00fado Steam",
-      "file_type": "document",
-      "source_file": "steam/README.md",
-      "source_location": "L29",
-      "_origin": "ast",
-      "community": 206,
-      "norm_label": "preparar conteudo steam",
-      "id": "steam_readme_preparar_conte\u00fado_steam"
-    },
-    {
-      "label": "SteamPipe",
-      "file_type": "document",
-      "source_file": "steam/README.md",
-      "source_location": "L37",
-      "_origin": "ast",
-      "community": 206,
-      "norm_label": "steampipe",
-      "id": "steam_readme_steampipe"
-    },
-    {
-      "label": "Configura\u00e7\u00e3o manual pendente no Steamworks",
-      "file_type": "document",
-      "source_file": "steam/README.md",
-      "source_location": "L64",
-      "_origin": "ast",
-      "community": 206,
-      "norm_label": "configuracao manual pendente no steamworks",
-      "id": "steam_readme_configura\u00e7\u00e3o_manual_pendente_no_steamworks"
-    },
-    {
-      "label": "DesktopShellBar.jsx",
-      "file_type": "code",
-      "source_file": "src/components/DesktopShellBar/DesktopShellBar.jsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 284,
-      "norm_label": "desktopshellbar.jsx",
-      "id": "src_components_desktopshellbar_desktopshellbar"
-    },
-    {
-      "label": "DesktopShellBar()",
-      "file_type": "code",
-      "source_file": "src/components/DesktopShellBar/DesktopShellBar.jsx",
-      "source_location": "L13",
-      "_origin": "ast",
-      "community": 284,
-      "norm_label": "desktopshellbar()",
-      "id": "src_components_desktopshellbar_desktopshellbar_desktopshellbar"
-    },
-    {
-      "label": "tauri.conf.json",
-      "file_type": "code",
-      "source_file": "src-tauri/tauri.conf.json",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 16,
-      "norm_label": "tauri.conf.json",
-      "id": "src_tauri_tauri_conf"
-    },
-    {
-      "label": "$schema",
-      "file_type": "code",
-      "source_file": "src-tauri/tauri.conf.json",
-      "source_location": "L2",
-      "_origin": "ast",
-      "community": 16,
-      "norm_label": "$schema",
-      "id": "src_tauri_tauri_conf_schema"
-    },
-    {
-      "label": "productName",
-      "file_type": "code",
-      "source_file": "src-tauri/tauri.conf.json",
-      "source_location": "L3",
-      "_origin": "ast",
-      "community": 16,
-      "norm_label": "productname",
-      "id": "src_tauri_tauri_conf_productname"
-    },
-    {
-      "label": "version",
-      "file_type": "code",
-      "source_file": "src-tauri/tauri.conf.json",
-      "source_location": "L4",
-      "_origin": "ast",
-      "community": 16,
-      "norm_label": "version",
-      "id": "src_tauri_tauri_conf_version"
-    },
-    {
-      "label": "identifier",
-      "file_type": "code",
-      "source_file": "src-tauri/tauri.conf.json",
-      "source_location": "L5",
-      "_origin": "ast",
-      "community": 16,
-      "norm_label": "identifier",
-      "id": "src_tauri_tauri_conf_identifier"
-    },
-    {
-      "label": "app",
-      "file_type": "code",
-      "source_file": "src-tauri/tauri.conf.json",
-      "source_location": "L6",
-      "_origin": "ast",
-      "community": 16,
-      "norm_label": "app",
-      "id": "src_tauri_tauri_conf_app"
-    },
-    {
-      "label": "withGlobalTauri",
-      "file_type": "code",
-      "source_file": "src-tauri/tauri.conf.json",
-      "source_location": "L7",
-      "_origin": "ast",
-      "community": 16,
-      "norm_label": "withglobaltauri",
-      "id": "src_tauri_tauri_conf_app_withglobaltauri"
-    },
-    {
-      "label": "windows",
-      "file_type": "code",
-      "source_file": "src-tauri/tauri.conf.json",
-      "source_location": "L8",
-      "_origin": "ast",
-      "community": 16,
-      "norm_label": "windows",
-      "id": "src_tauri_tauri_conf_app_windows"
-    },
-    {
-      "label": "security",
-      "file_type": "code",
-      "source_file": "src-tauri/tauri.conf.json",
-      "source_location": "L22",
-      "_origin": "ast",
-      "community": 16,
-      "norm_label": "security",
-      "id": "src_tauri_tauri_conf_app_security"
-    },
-    {
-      "label": "capabilities",
-      "file_type": "code",
-      "source_file": "src-tauri/tauri.conf.json",
-      "source_location": "L23",
-      "_origin": "ast",
-      "community": 16,
-      "norm_label": "capabilities",
-      "id": "src_tauri_tauri_conf_security_capabilities"
-    },
-    {
-      "label": "default",
-      "file_type": "concept",
-      "source_file": "src-tauri/tauri.conf.json",
-      "source_location": "L23",
-      "_origin": "ast",
-      "community": 16,
-      "norm_label": "default",
-      "id": "ref_default"
-    },
-    {
-      "label": "bundle",
-      "file_type": "code",
-      "source_file": "src-tauri/tauri.conf.json",
-      "source_location": "L26",
-      "_origin": "ast",
-      "community": 16,
-      "norm_label": "bundle",
-      "id": "src_tauri_tauri_conf_bundle"
-    },
-    {
-      "label": "active",
-      "file_type": "code",
-      "source_file": "src-tauri/tauri.conf.json",
-      "source_location": "L27",
-      "_origin": "ast",
-      "community": 16,
-      "norm_label": "active",
-      "id": "src_tauri_tauri_conf_bundle_active"
-    },
-    {
-      "label": "targets",
-      "file_type": "code",
-      "source_file": "src-tauri/tauri.conf.json",
-      "source_location": "L28",
-      "_origin": "ast",
-      "community": 16,
-      "norm_label": "targets",
-      "id": "src_tauri_tauri_conf_bundle_targets"
-    },
-    {
-      "label": "nsis",
-      "file_type": "concept",
-      "source_file": "src-tauri/tauri.conf.json",
-      "source_location": "L28",
-      "_origin": "ast",
-      "community": 16,
-      "norm_label": "nsis",
-      "id": "ref_nsis"
-    },
-    {
-      "label": "icon",
-      "file_type": "code",
-      "source_file": "src-tauri/tauri.conf.json",
-      "source_location": "L29",
-      "_origin": "ast",
-      "community": 16,
-      "norm_label": "icon",
-      "id": "src_tauri_tauri_conf_bundle_icon"
-    },
-    {
-      "label": "icons/32x32.png",
-      "file_type": "concept",
-      "source_file": "src-tauri/tauri.conf.json",
-      "source_location": "L29",
-      "_origin": "ast",
-      "community": 16,
-      "norm_label": "icons/32x32.png",
-      "id": "ref_icons_32x32_png"
-    },
-    {
-      "label": "icons/128x128.png",
-      "file_type": "concept",
-      "source_file": "src-tauri/tauri.conf.json",
-      "source_location": "L29",
-      "_origin": "ast",
-      "community": 16,
-      "norm_label": "icons/128x128.png",
-      "id": "ref_icons_128x128_png"
-    },
-    {
-      "label": "icons/128x128@2x.png",
-      "file_type": "concept",
-      "source_file": "src-tauri/tauri.conf.json",
-      "source_location": "L29",
-      "_origin": "ast",
-      "community": 16,
-      "norm_label": "icons/128x128@2x.png",
-      "id": "ref_icons_128x128_2x_png"
-    },
-    {
-      "label": "icons/icon.icns",
-      "file_type": "concept",
-      "source_file": "src-tauri/tauri.conf.json",
-      "source_location": "L29",
-      "_origin": "ast",
-      "community": 16,
-      "norm_label": "icons/icon.icns",
-      "id": "ref_icons_icon_icns"
-    },
-    {
-      "label": "icons/icon.ico",
-      "file_type": "concept",
-      "source_file": "src-tauri/tauri.conf.json",
-      "source_location": "L29",
-      "_origin": "ast",
-      "community": 16,
-      "norm_label": "icons/icon.ico",
-      "id": "ref_icons_icon_ico"
     },
     {
       "label": "GameOverScreen.jsx",
@@ -33546,248 +33546,221 @@
       "confidence_score": 1.0
     },
     {
-      "relation": "imports_from",
-      "context": "import",
+      "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "src/components/RadioNina/RadioNina.jsx",
+      "source_file": "src-tauri/tauri.conf.json",
       "source_location": "L6",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_components_radionina_radionina",
-      "target": "src_components_radionina_useradionina"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L14",
-      "weight": 1.0,
-      "source": "src_components_radionina_useradionina",
-      "target": "src_components_radionina_useradionina_abertura_keys",
+      "source": "src_tauri_tauri_conf",
+      "target": "src_tauri_tauri_conf_app",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L33",
+      "source_file": "src-tauri/tauri.conf.json",
+      "source_location": "L27",
       "weight": 1.0,
-      "source": "src_components_radionina_useradionina",
-      "target": "src_components_radionina_useradionina_buscarpool",
+      "source": "src_tauri_tauri_conf",
+      "target": "src_tauri_tauri_conf_bundle",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_file": "src-tauri/tauri.conf.json",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "src_tauri_tauri_conf",
+      "target": "src_tauri_tauri_conf_identifier",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src-tauri/tauri.conf.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_tauri_tauri_conf",
+      "target": "src_tauri_tauri_conf_productname",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src-tauri/tauri.conf.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "src_tauri_tauri_conf",
+      "target": "src_tauri_tauri_conf_schema",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src-tauri/tauri.conf.json",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "src_tauri_tauri_conf",
+      "target": "src_tauri_tauri_conf_version",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src-tauri/tauri.conf.json",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "src_tauri_tauri_conf_app",
+      "target": "src_tauri_tauri_conf_app_security",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src-tauri/tauri.conf.json",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "src_tauri_tauri_conf_app",
+      "target": "src_tauri_tauri_conf_app_windows",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src-tauri/tauri.conf.json",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "src_tauri_tauri_conf_app",
+      "target": "src_tauri_tauri_conf_app_withglobaltauri",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src-tauri/tauri.conf.json",
       "source_location": "L24",
       "weight": 1.0,
-      "source": "src_components_radionina_useradionina",
-      "target": "src_components_radionina_useradionina_embaralhar",
+      "source": "src_tauri_tauri_conf_app_security",
+      "target": "src_tauri_tauri_conf_security_capabilities",
       "confidence_score": 1.0
     },
     {
-      "relation": "contains",
+      "relation": "extends",
       "confidence": "EXTRACTED",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L42",
+      "source_file": "src-tauri/tauri.conf.json",
+      "source_location": "L24",
       "weight": 1.0,
-      "source": "src_components_radionina_useradionina",
-      "target": "src_components_radionina_useradionina_filacomabertura",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L18",
-      "weight": 1.0,
-      "source": "src_components_radionina_useradionina",
-      "target": "src_components_radionina_useradionina_marcarsessao",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L19",
-      "weight": 1.0,
-      "source": "src_components_radionina_useradionina",
-      "target": "src_components_radionina_useradionina_sessaorespondida",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L49",
-      "weight": 1.0,
-      "source": "src_components_radionina_useradionina",
-      "target": "src_components_radionina_useradionina_tiers_sem_ad",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L21",
-      "weight": 1.0,
-      "source": "src_components_radionina_useradionina",
-      "target": "src_components_radionina_useradionina_titulode",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L51",
-      "weight": 1.0,
-      "source": "src_components_radionina_useradionina",
-      "target": "src_components_radionina_useradionina_useradionina",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L45",
-      "weight": 1.0,
-      "source": "src_components_radionina_useradionina_filacomabertura",
-      "target": "src_components_radionina_useradionina_abertura_keys"
-    },
-    {
-      "relation": "imports",
       "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/RadioNina/RadioNina.jsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_components_radionina_radionina",
-      "target": "src_components_radionina_useradionina_marcarsessao"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/components/RadioNina/RadioNina.jsx",
-      "source_location": "L63",
-      "weight": 1.0,
-      "source": "src_components_radionina_radionina_radionina",
-      "target": "src_components_radionina_useradionina_marcarsessao"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/RadioNina/RadioNina.jsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_components_radionina_radionina",
-      "target": "src_components_radionina_useradionina_sessaorespondida"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/components/RadioNina/RadioNina.jsx",
-      "source_location": "L55",
-      "weight": 1.0,
-      "source": "src_components_radionina_radionina_radionina",
-      "target": "src_components_radionina_useradionina_sessaorespondida"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L39",
-      "weight": 1.0,
-      "source": "src_components_radionina_useradionina_buscarpool",
-      "target": "src_components_radionina_useradionina_titulode",
+      "source": "src_tauri_tauri_conf_security_capabilities",
+      "target": "ref_default",
       "confidence_score": 1.0
     },
     {
-      "relation": "calls",
-      "context": "call",
+      "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L45",
+      "source_file": "src-tauri/tauri.conf.json",
+      "source_location": "L28",
       "weight": 1.0,
-      "source": "src_components_radionina_useradionina_filacomabertura",
-      "target": "src_components_radionina_useradionina_embaralhar",
+      "source": "src_tauri_tauri_conf_bundle",
+      "target": "src_tauri_tauri_conf_bundle_active",
       "confidence_score": 1.0
     },
     {
-      "relation": "calls",
-      "context": "call",
+      "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L121",
+      "source_file": "src-tauri/tauri.conf.json",
+      "source_location": "L30",
       "weight": 1.0,
-      "source": "src_components_radionina_useradionina_useradionina",
-      "target": "src_components_radionina_useradionina_embaralhar",
+      "source": "src_tauri_tauri_conf_bundle",
+      "target": "src_tauri_tauri_conf_bundle_icon",
       "confidence_score": 1.0
     },
     {
-      "relation": "calls",
-      "context": "call",
+      "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L92",
-      "weight": 1.0,
-      "source": "src_components_radionina_useradionina_useradionina",
-      "target": "src_components_radionina_useradionina_buscarpool",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L171",
-      "weight": 1.0,
-      "source": "src_components_radionina_useradionina_useradionina",
-      "target": "src_components_radionina_useradionina_filacomabertura",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L53",
-      "weight": 1.0,
-      "source": "src_components_radionina_useradionina_useradionina",
-      "target": "src_components_radionina_useradionina_tiers_sem_ad"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/RadioNina/RadioNina.jsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_components_radionina_radionina",
-      "target": "src_components_radionina_useradionina_useradionina"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/components/RadioNina/RadioNina.jsx",
+      "source_file": "src-tauri/tauri.conf.json",
       "source_location": "L29",
       "weight": 1.0,
-      "source": "src_components_radionina_radionina_radionina",
-      "target": "src_components_radionina_useradionina_useradionina"
+      "source": "src_tauri_tauri_conf_bundle",
+      "target": "src_tauri_tauri_conf_bundle_targets",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": "src-tauri/tauri.conf.json",
+      "source_location": "L29",
+      "weight": 1.0,
+      "context": "import",
+      "source": "src_tauri_tauri_conf_bundle_targets",
+      "target": "ref_nsis",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": "src-tauri/tauri.conf.json",
+      "source_location": "L30",
+      "weight": 1.0,
+      "context": "import",
+      "source": "src_tauri_tauri_conf_bundle_icon",
+      "target": "ref_icons_128x128_2x_png",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": "src-tauri/tauri.conf.json",
+      "source_location": "L30",
+      "weight": 1.0,
+      "context": "import",
+      "source": "src_tauri_tauri_conf_bundle_icon",
+      "target": "ref_icons_128x128_png",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": "src-tauri/tauri.conf.json",
+      "source_location": "L30",
+      "weight": 1.0,
+      "context": "import",
+      "source": "src_tauri_tauri_conf_bundle_icon",
+      "target": "ref_icons_32x32_png",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": "src-tauri/tauri.conf.json",
+      "source_location": "L30",
+      "weight": 1.0,
+      "context": "import",
+      "source": "src_tauri_tauri_conf_bundle_icon",
+      "target": "ref_icons_icon_icns",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "extends",
+      "confidence": "EXTRACTED",
+      "source_file": "src-tauri/tauri.conf.json",
+      "source_location": "L30",
+      "weight": 1.0,
+      "context": "import",
+      "source": "src_tauri_tauri_conf_bundle_icon",
+      "target": "ref_icons_icon_ico",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/DesktopShellBar/DesktopShellBar.jsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "src_components_desktopshellbar_desktopshellbar",
+      "target": "src_components_desktopshellbar_desktopshellbar_desktopshellbar",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -33942,6 +33915,310 @@
       "confidence_score": 1.0,
       "source": "src_pages_lab_prototype_srgrm_srgrm",
       "target": "src_config_version"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "steam/README.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "steam_readme",
+      "target": "steam_readme_illusion_fight_steam_demo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "steam/README.md",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "steam_readme_illusion_fight_steam_demo",
+      "target": "steam_readme_build_local",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "steam/README.md",
+      "source_location": "L64",
+      "weight": 1.0,
+      "source": "steam_readme_illusion_fight_steam_demo",
+      "target": "steam_readme_configura\u00e7\u00e3o_manual_pendente_no_steamworks",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "steam/README.md",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "steam_readme_illusion_fight_steam_demo",
+      "target": "steam_readme_identifica\u00e7\u00e3o",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "steam/README.md",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "steam_readme_illusion_fight_steam_demo",
+      "target": "steam_readme_preparar_conte\u00fado_steam",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "steam/README.md",
+      "source_location": "L37",
+      "weight": 1.0,
+      "source": "steam_readme_illusion_fight_steam_demo",
+      "target": "steam_readme_steampipe",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/RadioNina/RadioNina.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_components_radionina_radionina",
+      "target": "src_components_radionina_useradionina"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L14",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_components_radionina_useradionina",
+      "target": "src_components_radionina_useradionina_abertura_keys"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L33",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_components_radionina_useradionina",
+      "target": "src_components_radionina_useradionina_buscarpool"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L24",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_components_radionina_useradionina",
+      "target": "src_components_radionina_useradionina_embaralhar"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L42",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_components_radionina_useradionina",
+      "target": "src_components_radionina_useradionina_filacomabertura"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L18",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_components_radionina_useradionina",
+      "target": "src_components_radionina_useradionina_marcarsessao"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L19",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_components_radionina_useradionina",
+      "target": "src_components_radionina_useradionina_sessaorespondida"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L49",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_components_radionina_useradionina",
+      "target": "src_components_radionina_useradionina_tiers_sem_ad"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L21",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_components_radionina_useradionina",
+      "target": "src_components_radionina_useradionina_titulode"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L51",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_components_radionina_useradionina",
+      "target": "src_components_radionina_useradionina_useradionina"
+    },
+    {
+      "relation": "references",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L45",
+      "weight": 1.0,
+      "source": "src_components_radionina_useradionina_filacomabertura",
+      "target": "src_components_radionina_useradionina_abertura_keys"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/RadioNina/RadioNina.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_components_radionina_radionina",
+      "target": "src_components_radionina_useradionina_marcarsessao"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/RadioNina/RadioNina.jsx",
+      "source_location": "L63",
+      "weight": 1.0,
+      "source": "src_components_radionina_radionina_radionina",
+      "target": "src_components_radionina_useradionina_marcarsessao"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/RadioNina/RadioNina.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_components_radionina_radionina",
+      "target": "src_components_radionina_useradionina_sessaorespondida"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/RadioNina/RadioNina.jsx",
+      "source_location": "L55",
+      "weight": 1.0,
+      "source": "src_components_radionina_radionina_radionina",
+      "target": "src_components_radionina_useradionina_sessaorespondida"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L39",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_components_radionina_useradionina_buscarpool",
+      "target": "src_components_radionina_useradionina_titulode"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L45",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_components_radionina_useradionina_filacomabertura",
+      "target": "src_components_radionina_useradionina_embaralhar"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L121",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_components_radionina_useradionina_useradionina",
+      "target": "src_components_radionina_useradionina_embaralhar"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L92",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_components_radionina_useradionina_useradionina",
+      "target": "src_components_radionina_useradionina_buscarpool"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L171",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_components_radionina_useradionina_useradionina",
+      "target": "src_components_radionina_useradionina_filacomabertura"
+    },
+    {
+      "relation": "references",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L53",
+      "weight": 1.0,
+      "source": "src_components_radionina_useradionina_useradionina",
+      "target": "src_components_radionina_useradionina_tiers_sem_ad"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/RadioNina/RadioNina.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_components_radionina_radionina",
+      "target": "src_components_radionina_useradionina_useradionina"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/RadioNina/RadioNina.jsx",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "src_components_radionina_radionina_radionina",
+      "target": "src_components_radionina_useradionina_useradionina"
     },
     {
       "relation": "imports",
@@ -36777,283 +37054,6 @@
       "confidence_score": 1.0,
       "source": "src_tauri_src_main_quit_app",
       "target": "apphandle"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "steam/README.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "steam_readme",
-      "target": "steam_readme_illusion_fight_steam_demo"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "steam/README.md",
-      "source_location": "L17",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "steam_readme_illusion_fight_steam_demo",
-      "target": "steam_readme_build_local"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "steam/README.md",
-      "source_location": "L64",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "steam_readme_illusion_fight_steam_demo",
-      "target": "steam_readme_configura\u00e7\u00e3o_manual_pendente_no_steamworks"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "steam/README.md",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "steam_readme_illusion_fight_steam_demo",
-      "target": "steam_readme_identifica\u00e7\u00e3o"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "steam/README.md",
-      "source_location": "L29",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "steam_readme_illusion_fight_steam_demo",
-      "target": "steam_readme_preparar_conte\u00fado_steam"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "steam/README.md",
-      "source_location": "L37",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "steam_readme_illusion_fight_steam_demo",
-      "target": "steam_readme_steampipe"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/DesktopShellBar/DesktopShellBar.jsx",
-      "source_location": "L13",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_components_desktopshellbar_desktopshellbar",
-      "target": "src_components_desktopshellbar_desktopshellbar_desktopshellbar"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src-tauri/tauri.conf.json",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_tauri_tauri_conf",
-      "target": "src_tauri_tauri_conf_app"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src-tauri/tauri.conf.json",
-      "source_location": "L26",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_tauri_tauri_conf",
-      "target": "src_tauri_tauri_conf_bundle"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src-tauri/tauri.conf.json",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_tauri_tauri_conf",
-      "target": "src_tauri_tauri_conf_identifier"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src-tauri/tauri.conf.json",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_tauri_tauri_conf",
-      "target": "src_tauri_tauri_conf_productname"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src-tauri/tauri.conf.json",
-      "source_location": "L2",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_tauri_tauri_conf",
-      "target": "src_tauri_tauri_conf_schema"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src-tauri/tauri.conf.json",
-      "source_location": "L4",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_tauri_tauri_conf",
-      "target": "src_tauri_tauri_conf_version"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src-tauri/tauri.conf.json",
-      "source_location": "L22",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_tauri_tauri_conf_app",
-      "target": "src_tauri_tauri_conf_app_security"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src-tauri/tauri.conf.json",
-      "source_location": "L8",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_tauri_tauri_conf_app",
-      "target": "src_tauri_tauri_conf_app_windows"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src-tauri/tauri.conf.json",
-      "source_location": "L7",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_tauri_tauri_conf_app",
-      "target": "src_tauri_tauri_conf_app_withglobaltauri"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src-tauri/tauri.conf.json",
-      "source_location": "L23",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_tauri_tauri_conf_app_security",
-      "target": "src_tauri_tauri_conf_security_capabilities"
-    },
-    {
-      "relation": "extends",
-      "confidence": "EXTRACTED",
-      "source_file": "src-tauri/tauri.conf.json",
-      "source_location": "L23",
-      "weight": 1.0,
-      "context": "import",
-      "confidence_score": 1.0,
-      "source": "src_tauri_tauri_conf_security_capabilities",
-      "target": "ref_default"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src-tauri/tauri.conf.json",
-      "source_location": "L27",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_tauri_tauri_conf_bundle",
-      "target": "src_tauri_tauri_conf_bundle_active"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src-tauri/tauri.conf.json",
-      "source_location": "L29",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_tauri_tauri_conf_bundle",
-      "target": "src_tauri_tauri_conf_bundle_icon"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src-tauri/tauri.conf.json",
-      "source_location": "L28",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_tauri_tauri_conf_bundle",
-      "target": "src_tauri_tauri_conf_bundle_targets"
-    },
-    {
-      "relation": "extends",
-      "confidence": "EXTRACTED",
-      "source_file": "src-tauri/tauri.conf.json",
-      "source_location": "L28",
-      "weight": 1.0,
-      "context": "import",
-      "confidence_score": 1.0,
-      "source": "src_tauri_tauri_conf_bundle_targets",
-      "target": "ref_nsis"
-    },
-    {
-      "relation": "extends",
-      "confidence": "EXTRACTED",
-      "source_file": "src-tauri/tauri.conf.json",
-      "source_location": "L29",
-      "weight": 1.0,
-      "context": "import",
-      "confidence_score": 1.0,
-      "source": "src_tauri_tauri_conf_bundle_icon",
-      "target": "ref_icons_128x128_2x_png"
-    },
-    {
-      "relation": "extends",
-      "confidence": "EXTRACTED",
-      "source_file": "src-tauri/tauri.conf.json",
-      "source_location": "L29",
-      "weight": 1.0,
-      "context": "import",
-      "confidence_score": 1.0,
-      "source": "src_tauri_tauri_conf_bundle_icon",
-      "target": "ref_icons_128x128_png"
-    },
-    {
-      "relation": "extends",
-      "confidence": "EXTRACTED",
-      "source_file": "src-tauri/tauri.conf.json",
-      "source_location": "L29",
-      "weight": 1.0,
-      "context": "import",
-      "confidence_score": 1.0,
-      "source": "src_tauri_tauri_conf_bundle_icon",
-      "target": "ref_icons_32x32_png"
-    },
-    {
-      "relation": "extends",
-      "confidence": "EXTRACTED",
-      "source_file": "src-tauri/tauri.conf.json",
-      "source_location": "L29",
-      "weight": 1.0,
-      "context": "import",
-      "confidence_score": 1.0,
-      "source": "src_tauri_tauri_conf_bundle_icon",
-      "target": "ref_icons_icon_icns"
-    },
-    {
-      "relation": "extends",
-      "confidence": "EXTRACTED",
-      "source_file": "src-tauri/tauri.conf.json",
-      "source_location": "L29",
-      "weight": 1.0,
-      "context": "import",
-      "confidence_score": 1.0,
-      "source": "src_tauri_tauri_conf_bundle_icon",
-      "target": "ref_icons_icon_ico"
     },
     {
       "relation": "contains",
@@ -102450,5 +102450,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "6a9c27e310387a649f67a9281a494a8c6acb3b30"
+  "built_at_commit": "fce517481d44c9a963bd7e40d81d344410074060"
 }

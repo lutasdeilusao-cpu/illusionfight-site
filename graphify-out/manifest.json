@@ -405,8 +405,8 @@
     "semantic_hash": "b11265c546f5970b719233c19e1b2c2d"
   },
   "src/config/version.js": {
-    "mtime": 1787939562.459622,
-    "ast_hash": "a68de0a9e51f81917ad469cf626ec3c0",
+    "mtime": 1787942378.7140267,
+    "ast_hash": "b1af83af2f5109b3278d305e2c83620e",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -650,13 +650,13 @@
     "semantic_hash": "04fe18f6b87b3e1315a9343353aef1fc"
   },
   "src/i18n/en.json": {
-    "mtime": 1787922730.4346972,
-    "ast_hash": "48348eda02f0fef52d31fe2337a370ff",
+    "mtime": 1787942348.4428072,
+    "ast_hash": "78758f0f2272f08ef360b0cb34cfe965",
     "semantic_hash": ""
   },
   "src/i18n/es.json": {
-    "mtime": 1787922735.4233353,
-    "ast_hash": "c78903ec386548b4ff51e86e5c72d953",
+    "mtime": 1787942353.466498,
+    "ast_hash": "4def287e6795765eaccf0e5feb13628f",
     "semantic_hash": ""
   },
   "src/i18n/locales.js": {
@@ -680,8 +680,8 @@
     "semantic_hash": "fff728f6c525ec64a386f467142b28dc"
   },
   "src/i18n/pt.json": {
-    "mtime": 1787922725.75927,
-    "ast_hash": "db2a1d0590e297743b7d72dea771874b",
+    "mtime": 1787942343.7460153,
+    "ast_hash": "0202e5c9ef189733fab08b551ac36156",
     "semantic_hash": ""
   },
   "src/i18n/tt_en.json": {
@@ -2830,8 +2830,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1787939562.4770083,
-    "ast_hash": "23c9fdd2cef83df9bca0371d6b5efb6d",
+    "mtime": 1787942378.7299953,
+    "ast_hash": "d4fc9bfa22d2fdfcbc5bf94647c1fa53",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3770,8 +3770,8 @@
     "semantic_hash": ""
   },
   "src-tauri/tauri.conf.json": {
-    "mtime": 1787878907.3070045,
-    "ast_hash": "9ea0a985e95b8b4a5ceb8dec54483739",
+    "mtime": 1787942368.8873916,
+    "ast_hash": "3e7362be16e2878e2405b0058dfee48b",
     "semantic_hash": ""
   },
   "src/lib/runtimePlatform.js": {
@@ -3780,8 +3780,8 @@
     "semantic_hash": ""
   },
   "steam/README.md": {
-    "mtime": 1787879632.6734626,
-    "ast_hash": "256929db13e461a40b29b8e84b755501",
+    "mtime": 1787942368.963966,
+    "ast_hash": "03d5114894db56564487d34816193c23",
     "semantic_hash": ""
   },
   "src-tauri/capabilities/default.json": {
@@ -3790,8 +3790,8 @@
     "semantic_hash": ""
   },
   "src/components/DesktopShellBar/DesktopShellBar.jsx": {
-    "mtime": 1787879281.3308153,
-    "ast_hash": "ee4318bdb4d014397ec430fdd9a13b6a",
+    "mtime": 1787942334.988473,
+    "ast_hash": "703bf3260df7ba60c592f143accbc084",
     "semantic_hash": ""
   },
   "src/data/contos-index.json": {

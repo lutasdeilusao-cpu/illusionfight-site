@@ -1,7 +1,7 @@
 # Graph Report - SiteLDI  (2026-08-28)
 
 ## Corpus Check
-- 685 files · ~797,010 words
+- 685 files · ~797,119 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `6a9c27e3`
+- Built from commit: `fce51748`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -1010,11 +1010,11 @@ Nodes (3): CHOICES, EMOJI, Jokempo()
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `useLanguage()` connect `initBattle` to `Community 0`, `Community 1`, `Community 2`, `Community 9`, `Community 10`, `Community 12`, `endBattle`, `sfx.js`, `Vila.jsx`, `CityOverworld.jsx`, `Community 19`, `Community 20`, `Create`, `Lobby.jsx`, `PowerCard.jsx`, `Batalha.jsx`, `Community 29`, `PuzzleStealthGrid.jsx`, `Community 33`, `TopTrumpsMP.jsx`, `PuzzleStealthGrid.jsx`, `Community 49`, `PP.jsx`, `BLOCO G — NUNTIUS GAMES — POSICIONAMENTO INSTITUCIONAL`, `useAuth`, `useTopTrumpsRewards.js`, `GanguesRoute.jsx`, `Community 62`, `useScrollReveal`, `TeamSelect.jsx`, `Community 76`, `RestaurarSaude.jsx`, `PerfilColecao.jsx`, `Quiz.jsx`, `AnalyticsTracker.jsx`, `Phase0Start.jsx`, `particles.js`, `PuzzleForça.jsx`, `classTree.js`, `Quiz.jsx`?**
-  _High betweenness centrality (0.132) - this node is a cross-community bridge._
+  _High betweenness centrality (0.130) - this node is a cross-community bridge._
 - **Why does `useReader()` connect `useScrollReveal` to `Community 0`, `Community 1`, `Community 3`, `Batalha.jsx`, `endBattle`, `sfx.js`, `PuzzleStealthGrid.jsx`, `Vila.jsx`, `Community 19`, `Community 20`, `particles.js`, `useAuth`, `useTopTrumpsRewards.js`?**
   _High betweenness centrality (0.037) - this node is a cross-community bridge._
 - **Why does `SFX` connect `Community 7` to `initBattle`, `useScrollReveal`, `Community 12`, `PuzzleStealthGrid.jsx`, `Community 19`, `Batalha.jsx`?**
-  _High betweenness centrality (0.018) - this node is a cross-community bridge._
+  _High betweenness centrality (0.012) - this node is a cross-community bridge._
 - **What connects `1. Visão geral`, `2. Entradas e composição global`, `3.1 Site e conteúdo` to the rest of the system?**
   _1230 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**

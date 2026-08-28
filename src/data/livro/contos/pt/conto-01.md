@@ -159,3 +159,171 @@ Eu já parei de esperar que alguém no corredor faça alguma coisa. Ninguém nun
 Chamam isso de lidar com a dor. Como se fosse uma habilidade que dá pra treinar.
 
 Talvez seja a única que eu tenho.
+
+---
+
+## III
+
+Vou te contar como é, daqui pra frente.
+
+Minha vida é cinza. Todo dia eu tento mais me esconder, passar despercebido, ocupar menos espaço. E mesmo assim não posso largar isso — porque pro meu pai a nossa casta tem que passar pelas melhores instituições e ser reconhecida por elas. Então eu volto. Todo dia eu volto pro inferno cinza.
+
+Foi nesse cinza que eu vi os dois.
+
+Dois sujeitos estranhos que andam por esse mundo sem cor e são a única coisa com cor dentro dele. Um tem um moicano verde. O outro, um boné azul. Eles atravessam os corredores como se o lugar fosse deles.
+
+E é estranho: se você reparar, quase todo mundo está virado pra eles. Olhares. De desprezo, de ódio, de inveja. Ninguém entende por que aqueles dois insistem em vir pra cá, por que continuam pisando no nosso ambiente. Eles não são conhecidos por serem pacíficos. Conquistaram o espaço deles na força.
+
+O Arnold não tem força. Tem os capangas — homens e mulheres, alunos e alunas, todos girando em volta dele pra puxar saco e fazer o que ele manda. Esses dois são diferentes. A força é deles mesmos. Já enfrentaram muita gente nessa escola, e dá pra ver a frustração e o desejo de vingança em quem olha pra eles.
+
+O mais incrível é que eles não parecem se importar.
+
+Eu vejo esse mundo cinza. Imagino que, se eles enxergassem o que eu enxergo, o mundo em volta deles seria preto — escuridão, puro ódio. E os caras andam rindo. Se divertindo. Conseguem fazer isso por um motivo só: eles têm força. E é nesse mundo que a gente vive. A lei do mais forte. A única coisa que eu nunca vou ter.
+
+Então sim, eu também olho pros dois. E eu tenho raiva. Raiva de como pessoas que deveriam ser inferiores a mim conseguem sorrir aqui. Eles, que não têm nada, parecem felizes. E eu, que tenho tudo, só forço a cabeça pra aguentar mais um dia.
+
+Senão eu já tinha pulado desse prédio. Ou parado na frente de um carro. Só pra acabar.
+
+---
+
+## IV
+
+Esse é o dia do fim.
+
+Eu estou de joelhos no chão do corredor. O Arnold tem o pé no meu pescoço e eu tenho que latir toda vez que ele manda. O grupinho dele conversa de outro assunto, sem pressa. Alguém chuta a minha bunda de passagem.
+
+*Quando essa aula acabar, eu resolvo isso de uma vez.*
+
+Não era em revidar que eu pensava. Era em acabar. Eu até ia adorar que meu pai visse — a casta superior que o filho dele é.
+
+Foi aí que aconteceu a coisa estranha.
+
+O moicano verde e o boné azul chegaram perto. Não era a primeira vez que eles me viam no chão. Passavam por mim como passavam por todo mundo, sem registrar. Do meu ponto de vista eles nem estavam olhando. Só estavam passando, e esbarraram no Arnold.
+
+— Que porra é essa, quem tá— O Arnold levantou a voz. E parou na hora, quando viu quem era.
+
+Os dois viraram ao mesmo tempo. Deram um olhar só. O Arnold e o grupinho começaram a abrir espaço sozinhos.
+
+— Algum problema, querido? — o moicano. — Você tem algum problema com a gente?
+
+— Não. Não, tudo bem. Desculpa. Foi mal. — O Arnold gaguejava. — Eu não devia ter gritado.
+
+O boné azul olhou pra mim. Eu me encolhi, esperando virar alvo também. Mas ele só encostou a mão na minha cabeça.
+
+— Que vida de merda que você tá vivendo. — E sorriu.
+
+Não sei o que aquele sorriso me fez. Talvez seja o que todo mundo sente quando olha pra cara desses dois.
+
+E aquilo me tirou do sério.
+
+— Que merda, pobre. — As palavras saíram antes de eu pensar. — Como você acha que pode falar comigo? Você não é nada pra eu dirigir a palavra. Se coloca no seu lugar, seu merda.
+
+A coragem foi embora junto com a última palavra.
+
+O boné azul virou o rosto pra mim e ficou sério. Não era raiva. A expressão era quase triste. E não era pena — pena eu conhecia, já tinha visto na cara dos que não me ajudavam por medo. Aquilo era só tristeza.
+
+---
+
+## V
+
+O moicano pôs a mão no boné do amigo, girou o boné na frente do rosto dele, e olhou pra mim com aquele sorriso largo, os dentes brancos.
+
+— Aí, cara. Leva mal não. Mas sinceramente: se ser inferior a você é ficar do jeito que a gente tá, e ser superior é ficar do jeito que você tá — a gente aceita ser inferior. Valeu.
+
+— Para de mexer no meu boné, caralho. — o boné azul. — Você sabe que eu não gosto.
+
+Começaram a trocar de assunto ali mesmo. O boné azul levantou. Iam embora.
+
+O grupinho do Arnold ria da nossa conversa, tirava sarro, me escaneava como sempre. E eu estava cansado. Muito cansado.
+
+— É muito fácil. — Eu gritei. — É muito fácil pra uns brutamontes que nem vocês, que só sabem brigar que nem bicho, querer humilhar os outros. Só porque a gente é mais inteligente. Só porque vocês têm poder, acham que podem dizer o que quiser, fazer o que quiser. Mas não vai ser sempre assim. Não é sempre que vocês vão estar na escola. Não é sempre que vocês vão ter o poder.
+
+Aquilo não era só pro moicano. Era pra todo mundo em volta. Pra tudo que estava acontecendo. Pra aquela vida.
+
+O boné azul já estava de pé, ajeitando o boné. Falou sem me olhar.
+
+— A única coisa que eu sei nessa vida é que, se a gente não muda, nada muda pra gente.
+
+Virou o rosto devagar.
+
+— Palavra é uma coisa legal, cara. Mas é ação que faz diferença.
+
+Dessa vez o medo não veio. Só raiva. Raiva de um inferior daquele me dando lição de moral.
+
+E foi aí que eu entendi por que todo mundo odiava os dois.
+
+---
+
+## VI
+
+Eu saí de baixo do pé do Arnold. Ele se desequilibrou, começou a gritar e xingar.
+
+Me levantei e fui em direção aos dois. O grupinho do Arnold deixou — obviamente imaginando que eu ia levar uma surra.
+
+Segurei o boné azul pelo ombro. Ele só olhou pra minha mão. E a minha mão travou. Aí eu me dei conta do que estava fazendo. Abaixei o braço devagar. Não falei nada. Dominado pelo medo — pelo olhar, pelas histórias que contavam dos dois, por tudo que eu sabia que eles podiam fazer comigo.
+
+Foi quando o grupo do Arnold chegou.
+
+O Arnold pôs o braço no meu pescoço, apertou, e enterrou um soco no meu estômago pra eu não esquecer o lugar.
+
+— Eu não mandei você levantar. Por que você levantou, cachorro? — E pros dois, mudando a voz: — Desculpa, pessoal. A gente ainda tá treinando esse animal. Mas até o fim do ano ele vai estar bem domesticado. Volta pro seu lugar, Ryan. Ajoelha e abana o rabo.
+
+Por um momento o tempo parou.
+
+Eu ouvia o Arnold de longe. Não existia mais o grupo, não existia mais a escola. Só eu e o boné azul, os olhos travados um no outro. Eu dobrado de dor no estômago e sem tirar o olho dele. O Arnold me puxou pelo cabelo, tentou me jogar no chão, e eu não desviava o olhar.
+
+E era como se os olhos dele dissessem: *toda ação gera uma reação. Você sabe disso.*
+
+Eu sabia. Tinha estudado isso a fundo. Só faltava a ação.
+
+Não sei o que deu em mim. O meu cotovelo se moveu sozinho e acertou o queixo do Arnold. Ele foi pra trás com tudo.
+
+Foi a primeira ação que eu fiz na vida.
+
+Pensando agora, com calma: no segundo em que a cotovelada saiu, os lábios do boné azul se curvaram de leve. Quase um sorriso.
+
+O tempo voltou a rodar.
+
+— Filho da puta! — O Arnold, a boca sangrando, a voz rasgada. — Você bateu na minha boca. Vou acabar com você. — Pro grupo: — Peguem ele. Acabem com ele.
+
+---
+
+## VII
+
+Eu virei. Já nem via mais os dois. Só via o monte de capanga vindo pra cima de mim.
+
+Aí uma mão pegou o meu ombro e me puxou pra trás com tudo. O moicano verde. O boné azul me segurou pra eu não cair e me pôs de lado. Não falaram nada. Mas alguma coisa ficou entendida.
+
+Os dois entraram no meio do círculo.
+
+— É o seguinte. — o moicano. — Vamos equilibrar pra ficar justo. Já que vai ser em equipe, a gente entra pro time do cachorro. E aí, alguém se habilita?
+
+Deu pra ver todo mundo recuando. O grupo que tanto me humilhava, tanto se achava, tendo que encarar um poder maior — foi dando pra trás.
+
+O Arnold gritava de ódio, mandando os capangas atacarem. Os capangas já conheciam bem os dois. Sabiam que não dava conta.
+
+— Então beleza. — o boné azul. — Vamos do jeito mais simples e justo. Um a um. Você, esquentadinho — pro Arnold —, e o cachorro. Podem brigar à vontade.
+
+Eu fiquei sem saber o que fazer. Nunca briguei na vida.
+
+— Vocês não mandam aqui. — alguém do grupo. — Vocês não mandam nessa escola.
+
+— A gente não manda. — o boné azul, tranquilo. — Sem problema nenhum.
+
+— Mas eu já dei a opção de vocês virem com a gente. — o moicano. — A gente só não quer conversar. Mas sabe como terminar.
+
+A confiança com que os dois falavam. A sincronia. O jeito que se comunicavam sem combinar. Era como uma pessoa só dividida em dois corpos.
+
+O círculo foi se abrindo. Um círculo de briga.
+
+O grupo do Arnold empurrava ele pra frente:
+
+— É só o cachorro, cara. É só o Ryan. Você sempre dá conta dele. Ou vai ficar com medo de encarar?
+
+O moicano verde abriu o sorriso pro Arnold.
+
+— E aí, mano. Encarar seu cachorrinho. Não é você que disse que ia treinar ele bem? Então chegou a hora da lição.
+
+Ele deu de ombros, o sorriso ainda no rosto.
+
+— É a sua chance de domesticar ele de novo.
