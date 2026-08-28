@@ -410,8 +410,8 @@
     "semantic_hash": "b11265c546f5970b719233c19e1b2c2d"
   },
   "src/config/version.js": {
-    "mtime": 1787877379.7045927,
-    "ast_hash": "73c8e9cb2935f22a92c06dd813cb272a",
+    "mtime": 1787878206.510404,
+    "ast_hash": "d0307ff926ba73a4d2204809f976587b",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2835,8 +2835,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1787877744.4365127,
-    "ast_hash": "4360acc9cede4c0d683d7daec7750fcb",
+    "mtime": 1787878206.560343,
+    "ast_hash": "ff7cbae06773603640b4c9e54f93419d",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3775,8 +3775,8 @@
     "semantic_hash": ""
   },
   "src-tauri/tauri.conf.json": {
-    "mtime": 1787876685.6205769,
-    "ast_hash": "6ab3aa025c46bf6eee932b20bb55750e",
+    "mtime": 1787878201.735752,
+    "ast_hash": "5fdf5cb3f9c2520daa01704153eccf13",
     "semantic_hash": ""
   },
   "src/lib/runtimePlatform.js": {

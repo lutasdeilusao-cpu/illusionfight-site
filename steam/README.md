@@ -9,7 +9,8 @@ Shell Windows da demo de `Illusion Fight — Season 1`. O aplicativo abre o port
 - Shell: `0.1.0`
 - Executável: `IllusionFightDemo.exe`
 - URL: `https://illusionfight.com/?client=steam-demo&shellVersion=0.1.0`
-- Depot Windows da demo: `DEMO_DEPOT_ID` (pendente no Steamworks)
+- Depot Windows da demo: `5188521`
+- A janela abre em tela cheia (`fullscreen: true` em `src-tauri/tauri.conf.json`).
 
 O shell exige internet e o Microsoft Edge WebView2 Evergreen Runtime. O instalador Tauri usa o bootstrapper padrão para obter o WebView2 quando ele estiver ausente. Não há modo offline, Steamworks SDK, updater, comandos nativos, plugins ou credenciais embutidas.
 
@@ -35,22 +36,28 @@ O comando compila sem empacotador e copia somente `IllusionFightDemo.exe` para `
 
 ## SteamPipe
 
-1. No Steamworks, crie ou identifique o depot Windows pertencente à demo `5188520`.
-2. Copie os dois `.vdf.example` desta pasta removendo `.example`.
-3. Substitua todas as ocorrências literais de `DEMO_DEPOT_ID` pelo Depot ID real.
-4. Baixe o Steamworks SDK pelo portal Steamworks e coloque as ferramentas fora do repositório ou em `steam/steampipe/sdk/`.
-5. A partir de `steam/steampipe/scripts/`, autentique com uma conta autorizada e envie:
+Depot Windows da demo: `5188521` (já preenchido nos `.vdf.example`).
+
+1. `npm run desktop:steam` — gera `IllusionFightDemo.exe` e copia para `steam/content/`.
+2. Copie os dois `.vdf.example` desta pasta removendo `.example` (ou use as cópias já
+   preparadas no ContentBuilder do SDK).
+3. A partir da pasta do ContentBuilder do Steamworks SDK, autentique com uma conta
+   autorizada e rode um build de teste (`"Preview" "1"` → nada é enviado):
 
 ```powershell
-steamcmd +login <STEAM_USERNAME> +run_app_build_http app_build_5188520.vdf +quit
+cd <SDK>\tools\ContentBuilder
+.\builder\steamcmd.exe +login <STEAM_USERNAME> +run_app_build .\scripts\app_build_5188520.vdf +quit
 ```
 
-Nunca grave senha, Steam Guard, token ou chave neste repositório. O exemplo não ativa branch automaticamente; confira o build no Steamworks antes de vinculá-lo a uma branch.
+4. Se o preview passar, troque `"Preview" "1"` → `"Preview" "0"` no
+   `app_build_5188520.vdf` e rode o mesmo comando para subir de verdade.
+5. Confira o build no Steamworks (SteamPipe → Builds) antes de vinculá-lo a uma branch.
+
+Nunca grave senha, Steam Guard, token ou chave neste repositório. O comando não ativa branch automaticamente.
 
 ## Configuração manual pendente no Steamworks
 
-- Informar o Depot ID Windows real nos VDFs.
-- Sincronizar o depot Windows com o App ID da demo `5188520`.
+- Confirmar que o depot `5188521` está associado ao App da demo `5188520`.
 - Definir a Launch Option para `IllusionFightDemo.exe` no sistema operacional Windows.
 - Publicar/ativar o build na branch desejada somente depois do teste pelo cliente Steam.
 - Finalizar store checklist, packages/licenças e visibilidade da demo.

@@ -6,6 +6,6 @@
     "ContentRoot" "../../content"
     "Depots"
     {
-        "DEMO_DEPOT_ID" "depot_build_DEMO_DEPOT_ID.vdf.example"
+        "5188521" "depot_build_5188521.vdf"
     }
 }
