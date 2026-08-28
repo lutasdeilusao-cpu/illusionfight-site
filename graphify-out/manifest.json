@@ -405,8 +405,8 @@
     "semantic_hash": "b11265c546f5970b719233c19e1b2c2d"
   },
   "src/config/version.js": {
-    "mtime": 1787932537.2096295,
-    "ast_hash": "b0c8d58e17269a4924e639b00f1fb5b3",
+    "mtime": 1787936555.4686224,
+    "ast_hash": "e7dd24bfb4f058582e8e4a01bdfa32e4",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2830,8 +2830,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1787932547.7699108,
-    "ast_hash": "7bd27ed3aa618cffa4fe46c8daf2383e",
+    "mtime": 1787936565.2908518,
+    "ast_hash": "d09b761a729a6eb8c7db273d1fe92270",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3815,8 +3815,8 @@
     "semantic_hash": ""
   },
   "workers/songs-r2/worker.js": {
-    "mtime": 1787920622.7161999,
-    "ast_hash": "1602d5bb00caadfeac087052308d1901",
+    "mtime": 1787936382.0892735,
+    "ast_hash": "4ce160e395de786e7800bc8997f753cb",
     "semantic_hash": ""
   },
   "workers/songs-r2/README.md": {
@@ -3825,18 +3825,18 @@
     "semantic_hash": ""
   },
   "src/components/RadioNina/RadioNina.jsx": {
-    "mtime": 1787932525.9852493,
-    "ast_hash": "72ba27d4579d6023592fb14d7a05a3ef",
+    "mtime": 1787936511.5992088,
+    "ast_hash": "31fcb70498e763aa4340dcf865338ed6",
     "semantic_hash": ""
   },
   "src/components/RadioNina/radio-nina.config.json": {
-    "mtime": 1787930760.3415587,
-    "ast_hash": "c785acce62cc6f766bf0bf9e783cc509",
+    "mtime": 1787936389.0764503,
+    "ast_hash": "06138740a24681f17f6af5ae0c98a323",
     "semantic_hash": ""
   },
   "src/components/RadioNina/radio-nina.i18n.json": {
-    "mtime": 1787932398.7684746,
-    "ast_hash": "6c55768f8b3e4750dc4a493cc562dbce",
+    "mtime": 1787936394.5972052,
+    "ast_hash": "a20e5f0b5e8da8edcc4927e7303f0b22",
     "semantic_hash": ""
   },
   "src/components/RadioNina/RadioNinaPlaylist.jsx": {
@@ -3850,8 +3850,8 @@
     "semantic_hash": ""
   },
   "src/components/RadioNina/useRadioNina.js": {
-    "mtime": 1787932337.3938372,
-    "ast_hash": "671614dc45bc801b553081aed3e7bf4d",
+    "mtime": 1787936494.9304307,
+    "ast_hash": "f9bc09953979dada7cb9935c48a58cd8",
     "semantic_hash": ""
   },
   "supabase/migrations/029_radio_nina_playlists.sql": {

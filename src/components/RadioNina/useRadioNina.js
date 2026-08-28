@@ -46,8 +46,11 @@ function filaComAbertura(pool, locale) {
   return abertura ? [abertura, ...resto] : embaralhar(pool)
 }
 
+const TIERS_SEM_AD = ['elite', 'primordial', 'moderator', 'admin']
+
 export function useRadioNina() {
-  const { user } = useAuth()
+  const { user, perfil } = useAuth()
+  const semAds = perfil?.is_admin === true || TIERS_SEM_AD.includes(perfil?.tier)
 
   const [estado, setEstado] = useState('oculto') // oculto | barra | mini
   const [tocando, setTocando] = useState(false)
@@ -76,6 +79,8 @@ export function useRadioNina() {
   const ultimoAdRef = useRef(null)
   const contadorRef = useRef(0)
   const emAdRef = useRef(false)
+  const semAdsRef = useRef(semAds)
+  useEffect(() => { semAdsRef.current = semAds }, [semAds])
   const tocandoRef = useRef(false)
   useEffect(() => { tocandoRef.current = tocando }, [tocando])
 
@@ -94,7 +99,7 @@ export function useRadioNina() {
   }, [])
 
   const garantirAds = useCallback(async () => {
-    if (adsRef.current.length) return
+    if (adsRef.current.length || semAdsRef.current) return
     try {
       const lang = localStorage.getItem('ldi-locale') || 'pt'
       const res = await fetch(`${BASE}/ads/${lang}`)
@@ -174,6 +179,10 @@ export function useRadioNina() {
     const total = filaRef.current.length
     if (emAdRef.current) {
       emAdRef.current = false
+      if (total) tocarIndice((idxRef.current + 1) % total, 'auto')
+      return
+    }
+    if (semAdsRef.current) {
       if (total) tocarIndice((idxRef.current + 1) % total, 'auto')
       return
     }
