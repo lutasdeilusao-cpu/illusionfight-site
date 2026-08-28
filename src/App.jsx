@@ -18,6 +18,8 @@ const Personagens = lazy(() => import('./pages/content/Personagens'))
 const PersonagemDetalhe = lazy(() => import('./pages/content/PersonagemDetalhe'))
 const Livro = lazy(() => import('./pages/content/Livro'))
 const LivroCapitulo = lazy(() => import('./pages/content/LivroCapitulo'))
+const Contos = lazy(() => import('./pages/content/Contos'))
+const ContoCapitulo = lazy(() => import('./pages/content/ContoCapitulo'))
 const Assinar = lazy(() => import('./pages/platform/Assinar'))
 const Autor = lazy(() => import('./pages/site/Autor'))
 const Webtoon = lazy(() => import('./pages/content/Webtoon'))
@@ -124,6 +126,8 @@ export default function App() {
         <Route path="/personagens" element={<Personagens />} />
         <Route path="/personagens/:id" element={<PersonagemDetalhe />} />
         <Route path="/livro" element={<Livro />} />
+        <Route path="/livro/contos" element={<Contos />} />
+        <Route path="/livro/contos/:id" element={<ContoCapitulo />} />
         <Route path="/livro/:id" element={<LivroCapitulo />} />
         <Route path="/assinar" element={<Assinar />} />
         <Route path="/autor" element={<Autor />} />

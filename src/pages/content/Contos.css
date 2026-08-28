@@ -1,0 +1,81 @@
+.livro-linhas {
+  display: flex;
+  gap: 0.5rem;
+  max-width: 680px;
+  margin: 0 auto 2rem;
+  flex-wrap: wrap;
+}
+
+.livro-linha {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.4rem 0.8rem;
+  border: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.livro-linha:hover {
+  color: var(--text-primary);
+  border-color: var(--text-primary);
+}
+
+.livro-linha--ativa {
+  color: var(--accent-teal);
+  border-color: var(--accent-teal);
+  cursor: default;
+}
+
+.contos-hero {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.contos-hero__img {
+  width: 140px;
+  height: auto;
+  flex-shrink: 0;
+  border: 1px solid var(--border-subtle);
+  object-fit: cover;
+}
+
+.contos-selo {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent-amber);
+  border: 1px solid var(--accent-amber);
+  padding: 0.15rem 0.5rem;
+  margin-bottom: 0.6rem;
+}
+
+.contos-hero .section-title {
+  margin: 0 0 0.5rem;
+}
+
+.contos-hero__desc {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+@media (max-width: 560px) {
+  .contos-hero {
+    flex-direction: column;
+    text-align: center;
+  }
+  .livro-linhas {
+    justify-content: center;
+  }
+}

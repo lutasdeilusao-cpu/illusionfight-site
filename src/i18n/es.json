@@ -2088,6 +2088,16 @@
       "sans": "Sans",
       "mono": "Mono"
     },
+    "contos": {
+      "linha_principal": "Línea Principal",
+      "linha_contos": "Cuentos de Ilusión · Sello Legends",
+      "selo": "Sello Legends",
+      "titulo": "CUENTOS DE ILUSIÓN",
+      "descricao": "Historias paralelas del mundo de Lutas de Ilusão. Otros personajes, otras experiencias — que pueden cruzar o no la línea principal.",
+      "conto": "CUENTO",
+      "og_title": "Cuentos de Ilusión — Sello Legends | Lutas de Ilusão",
+      "og_desc": "Historias paralelas del universo Lutas de Ilusão bajo el Sello Legends. Otros personajes, otras experiencias, el mismo mundo."
+    },
     "webtoon": {
       "titulo": "WEBTOON",
       "continuar": "→ Continuar",

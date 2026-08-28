@@ -5,7 +5,8 @@ import { useLanguage } from '../../context/LanguageContext'
 import { useAuth } from '../../context/AuthContext'
 import { TRIAL_ACTIVE } from '../../config/trial'
 import { estaDisponivel } from '../../config/site'
-import index from '../../data/livro-index.json'
+import index from '../../data/contos-index.json'
+import comingSoonImg from '../../assets/images/ComingSoon.png'
 import './Livro.css'
 import './Contos.css'
 
@@ -15,7 +16,7 @@ function formatarData(dataStr) {
   return `${d}/${m}/${a}`
 }
 
-export default function Livro() {
+export default function Contos() {
   const [ultimo, setUltimo] = useState(null)
   const navigate = useNavigate()
   const { locale, t } = useLanguage()
@@ -24,7 +25,7 @@ export default function Livro() {
   const isAdmin = perfil?.is_admin === true || ADMIN_EMAILS.includes(user?.email || '')
 
   useEffect(() => {
-    setUltimo(localStorage.getItem('ldi-livro-ultimo'))
+    setUltimo(localStorage.getItem('ldi-conto-ultimo'))
   }, [])
 
   const tituloKey = locale === 'en' ? 'titulo_en' : locale === 'es' ? 'titulo_es' : 'titulo'
@@ -32,49 +33,54 @@ export default function Livro() {
   return (
     <section className="livro-page">
       <Helmet>
-        <title>Book — Illusion Fight</title>
-        <meta name="description" content="Read the Illusion Fight book chapters online. The complete novel of the LDI universe — follow Kim, Jack, and the fighters of Bravara." />
-        <meta property="og:title" content="Book — Illusion Fight" />
-        <meta property="og:description" content="Read the Illusion Fight book online. The complete novel of the LDI universe." />
-        <meta property="og:url" content="https://illusionfight.com/livro" />
+        <title>{t('pages.contos.og_title')}</title>
+        <meta name="description" content={t('pages.contos.og_desc')} />
+        <meta property="og:title" content={t('pages.contos.og_title')} />
+        <meta property="og:description" content={t('pages.contos.og_desc')} />
+        <meta property="og:url" content="https://illusionfight.com/livro/contos" />
         <meta property="og:image" content="https://illusionfight.com/og-image.jpg" />
         <meta property="og:type" content="website" />
-        <link rel="alternate" hrefLang="pt" href="https://illusionfight.com/livro" />
-        <link rel="alternate" hrefLang="en" href="https://illusionfight.com/livro" />
-        <link rel="alternate" hrefLang="es" href="https://illusionfight.com/livro" />
       </Helmet>
       <div className="container">
+        <nav className="livro-linhas">
+          <Link to="/livro" className="livro-linha">{t('pages.contos.linha_principal')}</Link>
+          <span className="livro-linha livro-linha--ativa">{t('pages.contos.linha_contos')}</span>
+        </nav>
+
+        <div className="contos-hero">
+          <img className="contos-hero__img" src={comingSoonImg} alt="" loading="lazy" decoding="async" />
+          <div className="contos-hero__text">
+            <span className="contos-selo">{t('pages.contos.selo')}</span>
+            <h2 className="section-title">{t('pages.contos.titulo')}</h2>
+            <p className="contos-hero__desc">{t('pages.contos.descricao')}</p>
+          </div>
+        </div>
+
         {ultimo && (
-          <Link to={`/livro/${ultimo}`} className="livro-continuar">
+          <Link to={`/livro/contos/${ultimo}`} className="livro-continuar">
             {t('pages.livro.continuar_lendo')}
           </Link>
         )}
-        <nav className="livro-linhas">
-          <span className="livro-linha livro-linha--ativa">{t('pages.contos.linha_principal')}</span>
-          <Link to="/livro/contos" className="livro-linha">{t('pages.contos.linha_contos')}</Link>
-        </nav>
-        <h2 className="section-title">{t('pages.livro.titulo')}</h2>
+
         <div className="livro-page__list">
           {index.map(ch => {
-            const liberado = ch.id === 'capitulo-01' || estaDisponivel(ch, isAdmin) || TRIAL_ACTIVE
+            const liberado = estaDisponivel(ch, isAdmin) || TRIAL_ACTIVE
             return (
               <div key={ch.id} className="livro-page__item">
-                <span className="livro-page__numero">{t('pages.livro.cap')} {String(ch.numero).padStart(2, '0')}</span>
+                <span className="livro-page__numero">{t('pages.contos.conto')} {String(ch.numero).padStart(2, '0')}</span>
                 <div className="livro-page__info">
                   <span
                     className={`livro-page__titulo${liberado ? '' : ' livro-page__titulo--locked'}`}
-                    onClick={() => liberado && navigate(`/livro/${ch.id}`)}
+                    onClick={() => liberado && navigate(`/livro/contos/${ch.id}`)}
                   >
                     {ch[tituloKey]}
                   </span>
                   <div className="livro-page__meta">
                     {liberado && ch.data_publicacao && (
-                      <span className="livro-page__data">{ch.data_publicacao}</span>
+                      <span className="livro-page__data">{formatarData(ch.data_publicacao)}</span>
                     )}
                     {!liberado && (
-                      <span className="livro-page__badge">
-                        {ch.data_publicacao ? `${t('pages.livro.em_breve')} — ${formatarData(ch.data_publicacao)}` : t('pages.livro.em_breve')}
-                      </span>
+                      <span className="livro-page__badge">{t('pages.livro.em_breve')}</span>
                     )}
                   </div>
                 </div>

@@ -2089,6 +2089,16 @@
       "sans": "Sans",
       "mono": "Mono"
     },
+    "contos": {
+      "linha_principal": "Main Line",
+      "linha_contos": "Tales of Illusion · Legends Imprint",
+      "selo": "Legends Imprint",
+      "titulo": "TALES OF ILLUSION",
+      "descricao": "Side stories from the world of Illusion Fight. Other characters, other experiences — which may or may not cross the main line.",
+      "conto": "TALE",
+      "og_title": "Tales of Illusion — Legends Imprint | Illusion Fight",
+      "og_desc": "Side stories from the Illusion Fight universe under the Legends Imprint. Other characters, other experiences, the same world."
+    },
     "webtoon": {
       "titulo": "WEBTOON",
       "continuar": "→ Continue",

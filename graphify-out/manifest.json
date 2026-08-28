@@ -260,9 +260,9 @@
     "semantic_hash": ""
   },
   "src/components/NinaMusicPlayer/NinaMusicPlayer.jsx": {
-    "mtime": 1781280964.0583792,
-    "ast_hash": "598cccaa4fb30b93d838eb003150e00b",
-    "semantic_hash": "598cccaa4fb30b93d838eb003150e00b"
+    "mtime": 1787883739.8654675,
+    "ast_hash": "a075e0a0c8528cc9d81a1044d4a3f30a",
+    "semantic_hash": ""
   },
   "src/components/NowLive.jsx": {
     "mtime": 1781917844.0391407,
@@ -410,8 +410,8 @@
     "semantic_hash": "b11265c546f5970b719233c19e1b2c2d"
   },
   "src/config/version.js": {
-    "mtime": 1787879675.1625423,
-    "ast_hash": "7a5963999e33707694761b571c7cea86",
+    "mtime": 1787883871.8686073,
+    "ast_hash": "35220da857c741b470671ce799f20cac",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -715,9 +715,9 @@
     "semantic_hash": ""
   },
   "src/lib/sfx.js": {
-    "mtime": 1781198042.1680393,
-    "ast_hash": "a3f321a6a4ec6c9bece70eb26a95c12a",
-    "semantic_hash": "a3f321a6a4ec6c9bece70eb26a95c12a"
+    "mtime": 1787883694.5519412,
+    "ast_hash": "4da70dfec5adbaad2adff4f8171bad6b",
+    "semantic_hash": ""
   },
   "src/lib/stripe.js": {
     "mtime": 1787875654.2212594,
@@ -2835,8 +2835,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1787879677.622985,
-    "ast_hash": "a2feef7032c09c7a81e063650f8801c3",
+    "mtime": 1787883881.8299158,
+    "ast_hash": "d54b6609c8a70bb8bebb8fdba84d346a",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3470,8 +3470,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/TopTrumps/components/GameScreen/GameScreen.jsx": {
-    "mtime": 1785172596.3046117,
-    "ast_hash": "a98ea23410a2d31dbafd62abe63a8a16",
+    "mtime": 1787883776.792785,
+    "ast_hash": "afa07c547a75b4a6fe987bfa46cc9387",
     "semantic_hash": ""
   },
   "src/pages/games/TopTrumps/components/MenuScreen/MenuScreen.jsx": {
@@ -3755,8 +3755,8 @@
     "semantic_hash": ""
   },
   "src-tauri/gen/schemas/capabilities.json": {
-    "mtime": 1787879044.5128958,
-    "ast_hash": "053aa606db67777abacea8f385f6e37d",
+    "mtime": 1787879857.5284016,
+    "ast_hash": "6e5a7b80e47863c1b69445cce53a2f47",
     "semantic_hash": ""
   },
   "src-tauri/gen/schemas/desktop-schema.json": {
