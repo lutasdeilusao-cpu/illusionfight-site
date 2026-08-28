@@ -1,4 +1,5 @@
 import { supabase } from './supabase'
+import { assertExternalPurchasesAllowed } from './runtimePlatform'
 
 // Um único Price ID por tier. O Stripe resolve a moeda automaticamente
 // com base no país do cartão do cliente (multi-currency Price).
@@ -19,6 +20,7 @@ export function getPriceDisplay(locale) {
 }
 
 export async function iniciarCheckoutLoja(produto_id) {
+  assertExternalPurchasesAllowed()
   const { data: { session } } = await supabase.auth.getSession()
   if (!session) {
     window.location.href = '/login?redirect=/loja'
@@ -42,6 +44,7 @@ export async function iniciarCheckoutLoja(produto_id) {
 }
 
 export async function iniciarCheckout(tier) {
+  assertExternalPurchasesAllowed()
   const priceId = PRICES[tier]
   if (!priceId) throw new Error('Price ID não configurado para este tier')
 

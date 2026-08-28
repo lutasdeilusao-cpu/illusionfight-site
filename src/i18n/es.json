@@ -16,6 +16,10 @@
       "search": "Buscar"
     }
   },
+  "runtime": {
+    "steam_demo_purchases_unavailable": "Las compras no están disponibles en esta Demo de Steam.",
+    "steam_demo_online_notice": "Esta Demo requiere conexión a Internet."
+  },
   "hero": {
     "title": "LUTAS DE ILUSIÓN",
     "subtitle": "En un mundo donde el arena es virtual, las cicatrices son reales. Siempre lo fueron.",

@@ -5,6 +5,7 @@ import { useAuth } from '../../../../context/AuthContext'
 import { useLanguage } from '../../../../context/LanguageContext'
 import { cancelarAssinatura, iniciarCheckout } from '../../../../lib/stripe'
 import { PAISES } from '../../../../data/paises'
+import { runtimePlatform } from '../../../../lib/runtimePlatform'
 
 function calcDiasRestantes(dataFim) {
   if (!dataFim) return null
@@ -96,6 +97,10 @@ export default function PerfilConta() {
   }
 
   async function handleRenovar() {
+    if (runtimePlatform.isSteamDemo) {
+      setFeedback({ type: 'error', msg: t('runtime.steam_demo_purchases_unavailable') })
+      return
+    }
     setRenovando(true)
     setFeedback(null)
     try {
@@ -218,9 +223,11 @@ export default function PerfilConta() {
             <button
               className="btn btn-primary perfil-billing-btn perfil-billing-btn--renew"
               onClick={handleRenovar}
-              disabled={renovando}
+              disabled={renovando || runtimePlatform.isSteamDemo}
             >
-              {renovando ? t('site.perfil.billing_renovando') : t('site.perfil.billing_renovar_btn')}
+              {runtimePlatform.isSteamDemo
+                ? t('runtime.steam_demo_purchases_unavailable')
+                : renovando ? t('site.perfil.billing_renovando') : t('site.perfil.billing_renovar_btn')}
             </button>
           </div>
         )}

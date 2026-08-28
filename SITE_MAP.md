@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — MAPA DO SITE E DO PROJETO
 
 > Referência do estado atual do projeto para navegação humana e contexto de IA.
-> Atualizado em 2026-08-27 — `SITE_VERSION` **10.198.34**.
+> Atualizado em 2026-08-27 — `SITE_VERSION` **10.198.35**.
 > Histórico de tarefas, bugfixes e pendências não pertence a este documento.
 > Regras de trabalho, arquivos proibidos e decisões arquiteturais: `AGENTS.md`.
 
@@ -280,13 +280,21 @@ As Edge Functions ficam em `supabase/functions/`; o frontend de assinatura está
 
 CSS de jogos é global após importação pelo Vite: seletores devem ser limitados ao wrapper do módulo para não vazar para o restante do site.
 
-## 11. Versões atuais
+## 11. Desktop Windows e Steam Demo
+
+- O shell Windows usa Tauri 2 em `src-tauri/` e carrega exclusivamente o portal oficial online com `client=steam-demo` e `shellVersion=0.1.0`.
+- A demo Steam usa App ID `5188520`, identificador `com.illusionfight.steam.demo` e executável `IllusionFightDemo.exe`; o Depot ID Windows continua pendente e aparece somente como `DEMO_DEPOT_ID` nos exemplos.
+- `src/lib/runtimePlatform.js` centraliza a detecção do cliente e preserva o contexto na sessão. No cliente Steam Demo, checkouts externos ficam indisponíveis; a experiência web permanece inalterada.
+- `npm run desktop:dev` abre o shell, `npm run desktop:build` gera o instalador e `npm run desktop:steam` prepara `steam/content/` para SteamPipe.
+- Instruções e VDFs de exemplo ficam em `steam/`; nenhuma credencial ou SDK da Steam faz parte do repositório.
+
+## 12. Versões atuais
 
 Fonte única: `src/config/version.js`. Esta tabela registra somente a identificação atual, sem histórico de alterações.
 
 | Constante | Módulo | Versão |
 |---|---|---:|
-| `SITE_VERSION` | Site global | **10.198.34** |
+| `SITE_VERSION` | Site global | **10.198.35** |
 | `PP_VERSION` | Pesadelo Particular | 2.3.1 |
 | `LDI_VERSION` | Lendas do LDI | 2.0.1 |
 | `JACK_VERSION` | Jack Dream Beer | 5.3.2 |
@@ -307,7 +315,7 @@ Fonte única: `src/config/version.js`. Esta tabela registra somente a identifica
 | `BULLETHELL_VERSION` | Bullet Hell Rafael | 1.1.3 |
 | `STABILIZER_VERSION` | Stabilizer Rafael | 1.1.2 |
 
-## 12. Onde procurar primeiro
+## 13. Onde procurar primeiro
 
 | Necessidade | Fonte principal |
 |---|---|
@@ -320,6 +328,7 @@ Fonte única: `src/config/version.js`. Esta tabela registra somente a identifica
 | Estado de um jogo | `src/pages/games/<Jogo>/store/` ou hooks do próprio módulo |
 | Esquema/evolução do backend | `supabase/migrations/` |
 | Assinaturas | `src/lib/stripe.js` e `supabase/functions/` |
+| Shell Windows / Steam Demo | `src-tauri/`, `src/lib/runtimePlatform.js` e `steam/README.md` |
 | SEO indexável | `public/sitemap.xml` e `scripts/prerender-routes.js` |
 | Mapa detalhado do Arena Testbed | `src/pages/lab/Prototype/ArenaTestbed/ARENATESTBED_MAPA.md` |
 | Regras e estado atual do LDI Gangues | `src/pages/games/Gangues/GANGUES_DESIGN.md` |

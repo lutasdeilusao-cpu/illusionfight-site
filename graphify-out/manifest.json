@@ -65,9 +65,9 @@
     "semantic_hash": "156131c0c4fa0a41da3fc5ca52b2cde4"
   },
   "package.json": {
-    "mtime": 1782961728.795416,
-    "ast_hash": "6bd7eb2cd8c21c378c62a409d0661afe",
-    "semantic_hash": "6bd7eb2cd8c21c378c62a409d0661afe"
+    "mtime": 1787875793.9718466,
+    "ast_hash": "aac638b247b652153a7b572665ed45d8",
+    "semantic_hash": ""
   },
   "playwright.config.js": {
     "mtime": 1781324014.8367403,
@@ -410,8 +410,8 @@
     "semantic_hash": "b11265c546f5970b719233c19e1b2c2d"
   },
   "src/config/version.js": {
-    "mtime": 1787873531.9956753,
-    "ast_hash": "2ef5e6a0f851ae3264ea92912f16bfcd",
+    "mtime": 1787875341.8380976,
+    "ast_hash": "bfa7d906be77d69afe8a08bc0abfd3ba",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -655,13 +655,13 @@
     "semantic_hash": "04fe18f6b87b3e1315a9343353aef1fc"
   },
   "src/i18n/en.json": {
-    "mtime": 1787761154.8285823,
-    "ast_hash": "c1250ab7515ac0d01fed5c211fe18006",
+    "mtime": 1787875681.3796122,
+    "ast_hash": "4c19e3a38db65150c2da45c36c4f5f93",
     "semantic_hash": ""
   },
   "src/i18n/es.json": {
-    "mtime": 1787761154.8295887,
-    "ast_hash": "37b361247ed3c5b4a9bb3f6202e41d83",
+    "mtime": 1787875681.3806117,
+    "ast_hash": "1bd12c434d5d0f9c21f1bc1dbd6701ff",
     "semantic_hash": ""
   },
   "src/i18n/locales.js": {
@@ -685,8 +685,8 @@
     "semantic_hash": "fff728f6c525ec64a386f467142b28dc"
   },
   "src/i18n/pt.json": {
-    "mtime": 1787761154.8272307,
-    "ast_hash": "d43bbe92fddaf6e30fe747a75d85c3c1",
+    "mtime": 1787875681.3776128,
+    "ast_hash": "6f4d6b9b802c6d6855dc2478beaf587f",
     "semantic_hash": ""
   },
   "src/i18n/tt_en.json": {
@@ -720,9 +720,9 @@
     "semantic_hash": "a3f321a6a4ec6c9bece70eb26a95c12a"
   },
   "src/lib/stripe.js": {
-    "mtime": 1780899609.7850406,
-    "ast_hash": "4c76f4c756cc483491b31b9050e35aad",
-    "semantic_hash": "4c76f4c756cc483491b31b9050e35aad"
+    "mtime": 1787875654.2212594,
+    "ast_hash": "313fec2cf955b8b9ec540f085035265d",
+    "semantic_hash": ""
   },
   "src/lib/supabase.js": {
     "mtime": 1785513995.1290717,
@@ -730,8 +730,8 @@
     "semantic_hash": ""
   },
   "src/main.jsx": {
-    "mtime": 1787872943.1902769,
-    "ast_hash": "5b8dd8b06e3e7937aac24e8c851bd23a",
+    "mtime": 1787876223.5341651,
+    "ast_hash": "843f58f010f34cb6b682affa3476e6e8",
     "semantic_hash": ""
   },
   "src/pages/content/Livro.jsx": {
@@ -2275,8 +2275,8 @@
     "semantic_hash": "b5a913fac0e288f5c2cb4d52bd142485"
   },
   "src/pages/platform/Assinar.jsx": {
-    "mtime": 1787852624.9410224,
-    "ast_hash": "67eb4581fe39ff286d0c0da1e021bd41",
+    "mtime": 1787875654.2212594,
+    "ast_hash": "0c60f7d762fb6f74f5f6c3dadbfaf1ad",
     "semantic_hash": ""
   },
   "src/pages/platform/Cadastro.jsx": {
@@ -2315,9 +2315,9 @@
     "semantic_hash": "f277f25243a957bc726c02951208eaff"
   },
   "src/pages/platform/Perfil/abas/PerfilConta.jsx": {
-    "mtime": 1783911114.260039,
-    "ast_hash": "93b58e280848d8a26aa8aa606d1275d9",
-    "semantic_hash": "93b58e280848d8a26aa8aa606d1275d9"
+    "mtime": 1787875681.3756187,
+    "ast_hash": "9bdf7672c06691e3331988d24db955b7",
+    "semantic_hash": ""
   },
   "src/pages/platform/Perfil/abas/PerfilTamagoshi.jsx": {
     "mtime": 1782447972.4865253,
@@ -2345,8 +2345,8 @@
     "semantic_hash": ""
   },
   "src/pages/site/Loja/Loja.jsx": {
-    "mtime": 1787852555.6588602,
-    "ast_hash": "3c4ae840092961ecc181322879433220",
+    "mtime": 1787875681.3736324,
+    "ast_hash": "3941bf95a5487ec52aec7f931f11dfbc",
     "semantic_hash": ""
   },
   "src/pages/site/NotFound/NotFound.jsx": {
@@ -2835,8 +2835,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1787873531.99668,
-    "ast_hash": "c9e035b191306f9dc738d462307d18c2",
+    "mtime": 1787875803.9679453,
+    "ast_hash": "24422ec1b60d431f17aba76b21180164",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3737,6 +3737,56 @@
   "src/assets/images/episodes/thumb-ep01.webp": {
     "mtime": 1787871979.9607396,
     "ast_hash": "da9b03b424ebc1886cf6f753bd3b7ccc",
+    "semantic_hash": ""
+  },
+  "scripts/prepare-steam-demo.js": {
+    "mtime": 1787875793.972838,
+    "ast_hash": "8311f3c75ab1bdd455fb725ba0bbfa92",
+    "semantic_hash": ""
+  },
+  "src-tauri/build.rs": {
+    "mtime": 1787875471.8659406,
+    "ast_hash": "8e6c89bd412b755ef41bd9bb191f2e31",
+    "semantic_hash": ""
+  },
+  "src-tauri/gen/schemas/acl-manifests.json": {
+    "mtime": 1787875893.4108427,
+    "ast_hash": "0ba7d29863a070859dda4d713ca118dc",
+    "semantic_hash": ""
+  },
+  "src-tauri/gen/schemas/capabilities.json": {
+    "mtime": 1787875893.4167714,
+    "ast_hash": "99914b932bd37a50b983c5e7c90ae93b",
+    "semantic_hash": ""
+  },
+  "src-tauri/gen/schemas/desktop-schema.json": {
+    "mtime": 1787875893.4147716,
+    "ast_hash": "6c3f18b65fe3b826c905b040074ee10d",
+    "semantic_hash": ""
+  },
+  "src-tauri/gen/schemas/windows-schema.json": {
+    "mtime": 1787875893.4147716,
+    "ast_hash": "6c3f18b65fe3b826c905b040074ee10d",
+    "semantic_hash": ""
+  },
+  "src-tauri/src/main.rs": {
+    "mtime": 1787875560.0289967,
+    "ast_hash": "dffad2d4194a65d72070746ce1e2b3a9",
+    "semantic_hash": ""
+  },
+  "src-tauri/tauri.conf.json": {
+    "mtime": 1787875560.0279899,
+    "ast_hash": "3462b155c257788cd0bc221a62eebeae",
+    "semantic_hash": ""
+  },
+  "src/lib/runtimePlatform.js": {
+    "mtime": 1787875654.2202666,
+    "ast_hash": "f4b9656d2fb4a42380c6cff1ae1ea6b6",
+    "semantic_hash": ""
+  },
+  "steam/README.md": {
+    "mtime": 1787875793.9779387,
+    "ast_hash": "b3a2e2679f0942c88a549d538152c702",
     "semantic_hash": ""
   }
 }

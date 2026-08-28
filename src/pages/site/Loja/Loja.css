@@ -73,6 +73,17 @@
   margin-bottom: 2rem;
 }
 
+.loja-steam-demo-notice {
+  max-width: 720px;
+  margin: 2rem auto;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--accent-cyan);
+  border-radius: 8px;
+  color: var(--text-primary);
+  background: rgba(0, 229, 204, 0.08);
+  text-align: center;
+}
+
 .loja-tab {
   background: none;
   border: 1px solid #333;

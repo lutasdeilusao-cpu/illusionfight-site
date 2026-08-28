@@ -7,6 +7,7 @@ import { iniciarCheckout, getPriceDisplay } from '../../lib/stripe'
 import { LAUNCH_DATE, ADMIN_EMAILS } from '../../config/launch'
 import planos from '../../data/planos.json'
 import { trackEvent } from '../../lib/analytics'
+import { runtimePlatform } from '../../lib/runtimePlatform'
 import './Assinar.css'
 
 export default function Assinar() {
@@ -35,6 +36,10 @@ export default function Assinar() {
   }, [])
 
   async function handleAssinar(tier) {
+    if (runtimePlatform.isSteamDemo) {
+      setFeedback({ tipo: 'steam-demo' })
+      return
+    }
     trackEvent('select_plan', { tier, current_tier: perfil?.tier || 'guest', placement: 'pricing_page' })
     if (!user) {
       trackEvent('subscription_login_required', { tier })
@@ -117,6 +122,11 @@ export default function Assinar() {
                 {t('assinar.feedback.erro', { mensagem: feedback.mensagem })}
               </div>
             )}
+            {feedback.tipo === 'steam-demo' && (
+              <div className="assinar-feedback__info">
+                {t('runtime.steam_demo_purchases_unavailable')}
+              </div>
+            )}
           </div>
         </section>
       )}
@@ -153,7 +163,11 @@ export default function Assinar() {
                       </li>
                     ))}
                   </ul>
-                  {p.cta_disabled ? (
+                  {runtimePlatform.isSteamDemo && !isBase ? (
+                    <span className="assinar-card__cta assinar-card__cta--disabled">
+                      {t('runtime.steam_demo_purchases_unavailable')}
+                    </span>
+                  ) : p.cta_disabled ? (
                     <span className="assinar-card__cta assinar-card__cta--disabled">{p[ctaTextKey]}</span>
                   ) : isPreLaunch && p.id !== 'ranqueado' ? (
                     <span className="assinar-card__cta assinar-card__cta--disabled assinar-card__cta--gate">

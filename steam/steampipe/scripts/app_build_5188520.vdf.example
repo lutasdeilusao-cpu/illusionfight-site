@@ -1,0 +1,11 @@
+"AppBuild"
+{
+    "AppID" "5188520"
+    "Desc" "Illusion Fight Season 1 Demo shell 0.1.0"
+    "BuildOutput" "../../build-output"
+    "ContentRoot" "../../content"
+    "Depots"
+    {
+        "DEMO_DEPOT_ID" "depot_build_DEMO_DEPOT_ID.vdf.example"
+    }
+}

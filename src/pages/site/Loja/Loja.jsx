@@ -9,6 +9,7 @@ import ProdutoDigitalCard from '../../../components/ProdutoDigitalCard/ProdutoDi
 import produtos from '../../../data/produtos.json'
 import produtosDigitais from '../../../data/loja-digital.json'
 import { trackEvent } from '../../../lib/analytics'
+import { runtimePlatform } from '../../../lib/runtimePlatform'
 import './Loja.css'
 
 export default function Loja() {
@@ -66,16 +67,22 @@ export default function Loja() {
           </p>
         </div>
 
-        <div className="loja-tabs">
+        {runtimePlatform.isSteamDemo && (
+          <div className="loja-steam-demo-notice">
+            {t('runtime.steam_demo_purchases_unavailable')}
+          </div>
+        )}
+
+        {!runtimePlatform.isSteamDemo && <div className="loja-tabs">
           <button className={`loja-tab ${aba === 'digital' ? 'loja-tab--ativo' : ''}`} onClick={() => setAba('digital')}>
             🎰 {t('shop.digital') || 'DIGITAL'}
           </button>
           <button className={`loja-tab ${aba === 'fisico' ? 'loja-tab--ativo' : ''}`} onClick={() => setAba('fisico')}>
             📦 {t('shop.fisico') || 'FÍSICO'}
           </button>
-        </div>
+        </div>}
 
-        {aba === 'digital' && (
+        {!runtimePlatform.isSteamDemo && aba === 'digital' && (
           <div className="loja-digital-grid">
             {produtosDigitais.map(produto => (
               <ProdutoDigitalCard
@@ -89,7 +96,7 @@ export default function Loja() {
           </div>
         )}
 
-        {aba === 'fisico' && (
+        {!runtimePlatform.isSteamDemo && aba === 'fisico' && (
           <div className="loja-fisico-grid">
             {produtos.map(produto => {
               const nome = locale === 'pt' ? produto.nome_pt : locale === 'es' ? produto.nome_es : produto.nome_en
@@ -114,7 +121,11 @@ export default function Loja() {
         )}
 
         <div className="loja-footer">
-          <p className="loja-footer-text">{t('shop.footer') || '© 2026 Illusion Fight — Compre com segurança via Stripe'}</p>
+          <p className="loja-footer-text">
+            {runtimePlatform.isSteamDemo
+              ? t('runtime.steam_demo_online_notice')
+              : t('shop.footer') || '© 2026 Illusion Fight — Compre com segurança via Stripe'}
+          </p>
         </div>
       </div>
     </>

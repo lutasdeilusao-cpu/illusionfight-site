@@ -1,0 +1,17 @@
+[package]
+name = "illusion-fight-demo"
+version = "0.1.0"
+description = "Secure Windows shell for the Illusion Fight Steam Demo"
+authors = ["Illusion Fight"]
+edition = "2021"
+rust-version = "1.77.2"
+
+[[bin]]
+name = "IllusionFightDemo"
+path = "src/main.rs"
+
+[build-dependencies]
+tauri-build = { version = "2.6.3", features = [] }
+
+[dependencies]
+tauri = { version = "2.11.3", features = [] }
