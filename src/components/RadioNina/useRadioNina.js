@@ -6,6 +6,7 @@ import { carregarPlaylistSalva, salvarPlaylistSalva } from './radio-nina.playlis
 
 const { base: BASE, cores: CORES, aberturas: ABERTURAS, excluir: EXCLUIR, titulos: TITULOS } = CONFIG
 const COR_STORAGE = 'ldi-radio-nina-cor'
+const VOL_STORAGE = 'ldi-radio-nina-vol'
 const OUVIU_STORAGE = 'ldi-radio-nina-ouviu'
 const ABERTURA_KEYS = Object.values(ABERTURAS)
 
@@ -51,6 +52,10 @@ export function useRadioNina() {
   const [tempo, setTempo] = useState(0)
   const [duracao, setDuracao] = useState(0)
   const [cor, setCor] = useState(() => localStorage.getItem(COR_STORAGE) || CORES[0])
+  const [volume, setVolume] = useState(() => {
+    const v = parseFloat(localStorage.getItem(VOL_STORAGE))
+    return Number.isFinite(v) ? v : 0.8
+  })
   const [pool, setPool] = useState([])
   const [playlistSalva, setPlaylistSalva] = useState([])
 
@@ -167,6 +172,8 @@ export function useRadioNina() {
   useEffect(() => {
     const audio = new Audio()
     audio.preload = 'none'
+    const volInicial = parseFloat(localStorage.getItem(VOL_STORAGE))
+    audio.volume = Number.isFinite(volInicial) ? volInicial : 0.8
     audioRef.current = audio
 
     const onTime = () => setTempo(audio.currentTime || 0)
@@ -217,6 +224,10 @@ export function useRadioNina() {
 
   useEffect(() => { garantirPool() }, [garantirPool])
   useEffect(() => { localStorage.setItem(COR_STORAGE, cor) }, [cor])
+  useEffect(() => {
+    if (audioRef.current) audioRef.current.volume = volume
+    localStorage.setItem(VOL_STORAGE, String(volume))
+  }, [volume])
 
   // Playlist salva do usuário
   useEffect(() => {
@@ -253,7 +264,7 @@ export function useRadioNina() {
   }, [tocando])
 
   return {
-    estado, setEstado, tocando, faixaAtual, tempo, duracao, cor, setCor,
+    estado, setEstado, tocando, faixaAtual, tempo, duracao, cor, setCor, volume, setVolume,
     pool, playlistSalva, logado: Boolean(user?.id),
     ligar, alternar, pular, tocarKey, tocarMinhaPlaylist, seek, salvar,
   }

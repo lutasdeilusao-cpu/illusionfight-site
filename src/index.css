@@ -11,6 +11,8 @@
 }
 
 :root {
+  /* Altura reservada pela barra da Rádio Nina (0 quando escondida). Setada em JS. */
+  --radio-nina-h: 0px;
   --bg-primary:     #0B0D0F;
   --bg-secondary:   #111416;
   --bg-elevated:    #1A1D21;

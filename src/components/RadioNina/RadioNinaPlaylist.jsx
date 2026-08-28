@@ -1,8 +1,8 @@
 import { useState } from 'react'
 
 export default function RadioNinaPlaylist({
-  pool, faixaAtualKey, playlistSalva, logado, S, cor,
-  onTocar, onTocarMinha, onSalvar, onFechar,
+  pool, faixaAtualKey, playlistSalva, logado, S, cor, cores,
+  onCor, onTocar, onTocarMinha, onSalvar, onFechar,
 }) {
   const [marcadas, setMarcadas] = useState(() => new Set(playlistSalva))
   const [salvando, setSalvando] = useState(false)
@@ -29,6 +29,18 @@ export default function RadioNinaPlaylist({
       <div className="radio-nina-lista__topo">
         <span className="radio-nina-lista__titulo">{S.playlist}</span>
         <button className="radio-nina-lista__x" onClick={onFechar} aria-label={S.minimizar}>×</button>
+      </div>
+
+      <div className="radio-nina-lista__cores" role="group" aria-label={S.cor}>
+        {cores.map((c) => (
+          <button
+            key={c}
+            className={`radio-nina-lista__cor ${c === cor ? 'radio-nina-lista__cor--ativa' : ''}`}
+            style={{ background: c }}
+            onClick={() => onCor(c)}
+            aria-label={c}
+          />
+        ))}
       </div>
 
       {logado && playlistSalva.length > 0 && (

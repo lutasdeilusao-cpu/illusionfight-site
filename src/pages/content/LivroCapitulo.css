@@ -87,7 +87,7 @@
 
 .livro-nav-flutuante {
   position: fixed;
-  bottom: 90px;
+  bottom: calc(90px + var(--radio-nina-h, 0px));
   left: 24px;
   display: flex;
   flex-direction: column;
@@ -234,7 +234,7 @@
 @media (max-width: 600px) {
   .reader-settings-wrap {
     top: auto;
-    bottom: 160px;
+    bottom: calc(160px + var(--radio-nina-h, 0px));
     right: 1rem;
   }
 }

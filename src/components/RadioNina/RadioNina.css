@@ -3,6 +3,12 @@
    Tema via --radio-cor (injetada inline).
    z-index: 500 (barra) / 501 (paleta)
    ═══════════════════════════════════════════ */
+/* A barra é um rodapé: reserva a própria altura pra não cobrir o conteúdo
+   nem o footer do site. --radio-nina-h é setada em JS (54px aberta, 0 sem). */
+body {
+  padding-bottom: var(--radio-nina-h, 0px);
+}
+
 .radio-nina {
   --radio-cor: #ff6b9d;
   position: fixed;
@@ -168,57 +174,40 @@
   font-size: 0.9rem;
 }
 
-/* ── Paleta de cor ── */
-.radio-nina__palette-wrap {
+/* ── Popover (volume) ── */
+.radio-nina__pop-wrap {
   position: relative;
   flex-shrink: 0;
 }
 
-.radio-nina__swatch {
-  background: var(--radio-cor);
-}
-
-.radio-nina__palette {
+.radio-nina__pop {
   position: absolute;
   right: 0;
   bottom: calc(100% + 10px);
   z-index: 501;
   display: flex;
-  gap: 6px;
-  padding: 8px;
+  align-items: center;
+  padding: 10px;
   background: var(--bg-elevated);
   border: 1px solid var(--radio-cor);
   border-radius: 10px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
 }
 
-.radio-nina__cor {
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  border: 2px solid transparent;
+.radio-nina__pop--vol input[type="range"] {
+  width: 120px;
+  accent-color: var(--radio-cor);
   cursor: pointer;
-  transition: transform 0.12s ease;
-}
-
-.radio-nina__cor:hover {
-  transform: scale(1.12);
-}
-
-.radio-nina__cor--ativa {
-  border-color: var(--text-primary);
 }
 
 .radio-nina__close {
   flex-shrink: 0;
 }
 
-/* ── Mini (barra minimizada) ── */
+/* ── Mini (barra minimizada) — arrastável pros 4 cantos ── */
 .radio-nina-mini {
   --radio-cor: #ff6b9d;
   position: fixed;
-  right: 16px;
-  bottom: 16px;
   z-index: 500;
   width: 48px;
   height: 48px;
@@ -227,14 +216,31 @@
   border: 2px solid var(--radio-cor);
   background: var(--bg-elevated);
   overflow: hidden;
-  cursor: pointer;
+  cursor: grab;
+  touch-action: none;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.radio-nina-mini--tl { top: calc(58px + env(safe-area-inset-top, 0px)); left: 14px; }
+.radio-nina-mini--tr { top: calc(58px + env(safe-area-inset-top, 0px)); right: 14px; }
+.radio-nina-mini--bl { bottom: calc(16px + env(safe-area-inset-bottom, 0px)); left: 14px; }
+.radio-nina-mini--br { bottom: calc(16px + env(safe-area-inset-bottom, 0px)); right: 14px; }
+
+.radio-nina-mini--arrasta {
+  cursor: grabbing;
+  top: auto;
+  bottom: auto;
+  left: auto;
+  right: auto;
+  transition: none;
+  opacity: 0.9;
 }
 
 .radio-nina-mini__face {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  pointer-events: none;
 }
 
 .radio-nina-mini--tocando {
@@ -246,8 +252,13 @@
   50% { box-shadow: 0 0 0 4px color-mix(in srgb, var(--radio-cor) 40%, transparent), 0 4px 16px rgba(0, 0, 0, 0.3); }
 }
 
-@media (max-width: 420px) {
-  .radio-nina__label { font-size: 0.58rem; }
+@media (max-width: 460px) {
+  .radio-nina { gap: 6px; padding-left: 8px; padding-right: 8px; }
+  .radio-nina__tempo { display: none; }
+  .radio-nina__controls { gap: 4px; }
+  .radio-nina__btn { width: 27px; height: 27px; font-size: 0.72rem; }
+  .radio-nina__btn--play { width: 32px; height: 32px; }
+  .radio-nina__face { width: 30px; height: 30px; }
 }
 
 /* ═══════════════════════════════════════════
@@ -295,6 +306,30 @@
   font-size: 1.1rem;
   line-height: 1;
   cursor: pointer;
+}
+
+.radio-nina-lista__cores {
+  display: flex;
+  gap: 8px;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.1));
+}
+
+.radio-nina-lista__cor {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform 0.12s ease;
+}
+
+.radio-nina-lista__cor:hover {
+  transform: scale(1.12);
+}
+
+.radio-nina-lista__cor--ativa {
+  border-color: var(--text-primary);
 }
 
 .radio-nina-lista__minha {

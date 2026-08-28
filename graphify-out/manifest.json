@@ -405,8 +405,8 @@
     "semantic_hash": "b11265c546f5970b719233c19e1b2c2d"
   },
   "src/config/version.js": {
-    "mtime": 1787923573.491196,
-    "ast_hash": "85a53fce20ff027245d79ba014472b7e",
+    "mtime": 1787931047.3598337,
+    "ast_hash": "f702b8b13768c934640dd73e7474621e",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2830,8 +2830,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1787923574.5273762,
-    "ast_hash": "18da3218e4036897bd47c1742db95a4c",
+    "mtime": 1787931075.5024254,
+    "ast_hash": "b26f6298f6ea2be39407176e227b5e05",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3825,18 +3825,38 @@
     "semantic_hash": ""
   },
   "src/components/RadioNina/RadioNina.jsx": {
-    "mtime": 1787922630.8593118,
-    "ast_hash": "3ae829c7dd5cee78babc165030b0abd6",
+    "mtime": 1787930939.7239964,
+    "ast_hash": "1397dc88da8df6cb4cac2b9eee5a405f",
     "semantic_hash": ""
   },
   "src/components/RadioNina/radio-nina.config.json": {
-    "mtime": 1787922559.6950338,
-    "ast_hash": "05f0f2de2d6035e34fe158137a1f1520",
+    "mtime": 1787930760.3415587,
+    "ast_hash": "c785acce62cc6f766bf0bf9e783cc509",
     "semantic_hash": ""
   },
   "src/components/RadioNina/radio-nina.i18n.json": {
-    "mtime": 1787922568.69213,
-    "ast_hash": "82bd9a20f40797f00be66a92315a9b69",
+    "mtime": 1787930774.236194,
+    "ast_hash": "bee948112f5919926f14e9c7305c562e",
+    "semantic_hash": ""
+  },
+  "src/components/RadioNina/RadioNinaPlaylist.jsx": {
+    "mtime": 1787930935.4248528,
+    "ast_hash": "9859394d150a3904f12f0602e994baa8",
+    "semantic_hash": ""
+  },
+  "src/components/RadioNina/radio-nina.playlist.js": {
+    "mtime": 1787930810.9428248,
+    "ast_hash": "0a722a4c67bb0cc45fa563ef2e478df5",
+    "semantic_hash": ""
+  },
+  "src/components/RadioNina/useRadioNina.js": {
+    "mtime": 1787931030.198941,
+    "ast_hash": "4f512e3c5f0785fae8f258f1f1b73336",
+    "semantic_hash": ""
+  },
+  "supabase/migrations/029_radio_nina_playlists.sql": {
+    "mtime": 1787930785.6791418,
+    "ast_hash": "e24d6fb322202bb428880587d9760dfe",
     "semantic_hash": ""
   }
 }
