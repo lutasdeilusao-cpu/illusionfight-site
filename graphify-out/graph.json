@@ -254,6 +254,116 @@
       "norm_label": "13. onde procurar primeiro"
     },
     {
+      "label": "useRadioNina.js",
+      "file_type": "code",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_components_radionina_useradionina",
+      "community": 262,
+      "norm_label": "useradionina.js"
+    },
+    {
+      "label": "MS_ARTWORK",
+      "file_type": "code",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "src_components_radionina_useradionina_ms_artwork",
+      "community": 262,
+      "norm_label": "ms_artwork"
+    },
+    {
+      "label": "ABERTURA_KEYS",
+      "file_type": "code",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L19",
+      "_origin": "ast",
+      "id": "src_components_radionina_useradionina_abertura_keys",
+      "community": 262,
+      "norm_label": "abertura_keys"
+    },
+    {
+      "label": "marcarSessao()",
+      "file_type": "code",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L23",
+      "_origin": "ast",
+      "id": "src_components_radionina_useradionina_marcarsessao",
+      "community": 262,
+      "norm_label": "marcarsessao()"
+    },
+    {
+      "label": "sessaoRespondida()",
+      "file_type": "code",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L24",
+      "_origin": "ast",
+      "id": "src_components_radionina_useradionina_sessaorespondida",
+      "community": 262,
+      "norm_label": "sessaorespondida()"
+    },
+    {
+      "label": "tituloDe()",
+      "file_type": "code",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L26",
+      "_origin": "ast",
+      "id": "src_components_radionina_useradionina_titulode",
+      "community": 262,
+      "norm_label": "titulode()"
+    },
+    {
+      "label": "embaralhar()",
+      "file_type": "code",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L29",
+      "_origin": "ast",
+      "id": "src_components_radionina_useradionina_embaralhar",
+      "community": 262,
+      "norm_label": "embaralhar()"
+    },
+    {
+      "label": "buscarPool()",
+      "file_type": "code",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L38",
+      "_origin": "ast",
+      "id": "src_components_radionina_useradionina_buscarpool",
+      "community": 262,
+      "norm_label": "buscarpool()"
+    },
+    {
+      "label": "filaComAbertura()",
+      "file_type": "code",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L47",
+      "_origin": "ast",
+      "id": "src_components_radionina_useradionina_filacomabertura",
+      "community": 262,
+      "norm_label": "filacomabertura()"
+    },
+    {
+      "label": "TIERS_SEM_AD",
+      "file_type": "code",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L54",
+      "_origin": "ast",
+      "id": "src_components_radionina_useradionina_tiers_sem_ad",
+      "community": 262,
+      "norm_label": "tiers_sem_ad"
+    },
+    {
+      "label": "useRadioNina()",
+      "file_type": "code",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L56",
+      "_origin": "ast",
+      "id": "src_components_radionina_useradionina_useradionina",
+      "community": 262,
+      "norm_label": "useradionina()"
+    },
+    {
       "label": "version.js",
       "file_type": "code",
       "source_file": "src/config/version.js",
@@ -264,14 +374,24 @@
       "norm_label": "version.js"
     },
     {
+      "label": "CORES_RADIO",
+      "file_type": "code",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L27",
+      "_origin": "ast",
+      "id": "src_components_radionina_useradionina_cores_radio",
+      "community": 262,
+      "norm_label": "cores_radio"
+    },
+    {
       "label": "12.md",
       "file_type": "document",
       "source_file": "src/data/livro/contos/pt/02/12.md",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_data_livro_contos_pt_02_12",
       "community": 307,
-      "norm_label": "12.md"
+      "norm_label": "12.md",
+      "id": "src_data_livro_contos_pt_02_12"
     },
     {
       "label": "CAP\u00cdTULO 12 \u2014 De Costas",
@@ -279,9 +399,9 @@
       "source_file": "src/data/livro/contos/pt/02/12.md",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_data_livro_contos_pt_02_12_cap\u00edtulo_12_de_costas",
       "community": 307,
-      "norm_label": "capitulo 12 \u2014 de costas"
+      "norm_label": "capitulo 12 \u2014 de costas",
+      "id": "src_data_livro_contos_pt_02_12_cap\u00edtulo_12_de_costas"
     },
     {
       "label": "13.md",
@@ -289,9 +409,9 @@
       "source_file": "src/data/livro/contos/pt/02/13.md",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_data_livro_contos_pt_02_13",
       "community": 319,
-      "norm_label": "13.md"
+      "norm_label": "13.md",
+      "id": "src_data_livro_contos_pt_02_13"
     },
     {
       "label": "CAP\u00cdTULO 13 \u2014 Primeira Segunda-Feira",
@@ -299,9 +419,9 @@
       "source_file": "src/data/livro/contos/pt/02/13.md",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_data_livro_contos_pt_02_13_cap\u00edtulo_13_primeira_segunda_feira",
       "community": 319,
-      "norm_label": "capitulo 13 \u2014 primeira segunda-feira"
+      "norm_label": "capitulo 13 \u2014 primeira segunda-feira",
+      "id": "src_data_livro_contos_pt_02_13_cap\u00edtulo_13_primeira_segunda_feira"
     },
     {
       "label": "14.md",
@@ -309,9 +429,9 @@
       "source_file": "src/data/livro/contos/pt/02/14.md",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_data_livro_contos_pt_02_14",
       "community": 320,
-      "norm_label": "14.md"
+      "norm_label": "14.md",
+      "id": "src_data_livro_contos_pt_02_14"
     },
     {
       "label": "CAP\u00cdTULO 14 \u2014 A Cerim\u00f4nia",
@@ -319,9 +439,9 @@
       "source_file": "src/data/livro/contos/pt/02/14.md",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_data_livro_contos_pt_02_14_cap\u00edtulo_14_a_cerim\u00f4nia",
       "community": 320,
-      "norm_label": "capitulo 14 \u2014 a cerimonia"
+      "norm_label": "capitulo 14 \u2014 a cerimonia",
+      "id": "src_data_livro_contos_pt_02_14_cap\u00edtulo_14_a_cerim\u00f4nia"
     },
     {
       "label": "15.md",
@@ -329,9 +449,9 @@
       "source_file": "src/data/livro/contos/pt/02/15.md",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_data_livro_contos_pt_02_15",
       "community": 321,
-      "norm_label": "15.md"
+      "norm_label": "15.md",
+      "id": "src_data_livro_contos_pt_02_15"
     },
     {
       "label": "CAP\u00cdTULO 15 \u2014 Marcado",
@@ -339,9 +459,9 @@
       "source_file": "src/data/livro/contos/pt/02/15.md",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_data_livro_contos_pt_02_15_cap\u00edtulo_15_marcado",
       "community": 321,
-      "norm_label": "capitulo 15 \u2014 marcado"
+      "norm_label": "capitulo 15 \u2014 marcado",
+      "id": "src_data_livro_contos_pt_02_15_cap\u00edtulo_15_marcado"
     },
     {
       "label": "09.md",
@@ -452,126 +572,6 @@
       "community": 141,
       "norm_label": "respondercomrange()",
       "id": "public_sw_respondercomrange"
-    },
-    {
-      "label": "useRadioNina.js",
-      "file_type": "code",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 262,
-      "norm_label": "useradionina.js",
-      "id": "src_components_radionina_useradionina"
-    },
-    {
-      "label": "MS_ARTWORK",
-      "file_type": "code",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L9",
-      "_origin": "ast",
-      "community": 262,
-      "norm_label": "ms_artwork",
-      "id": "src_components_radionina_useradionina_ms_artwork"
-    },
-    {
-      "label": "ABERTURA_KEYS",
-      "file_type": "code",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L19",
-      "_origin": "ast",
-      "community": 262,
-      "norm_label": "abertura_keys",
-      "id": "src_components_radionina_useradionina_abertura_keys"
-    },
-    {
-      "label": "marcarSessao()",
-      "file_type": "code",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L23",
-      "_origin": "ast",
-      "community": 262,
-      "norm_label": "marcarsessao()",
-      "id": "src_components_radionina_useradionina_marcarsessao"
-    },
-    {
-      "label": "sessaoRespondida()",
-      "file_type": "code",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L24",
-      "_origin": "ast",
-      "community": 262,
-      "norm_label": "sessaorespondida()",
-      "id": "src_components_radionina_useradionina_sessaorespondida"
-    },
-    {
-      "label": "tituloDe()",
-      "file_type": "code",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L26",
-      "_origin": "ast",
-      "community": 262,
-      "norm_label": "titulode()",
-      "id": "src_components_radionina_useradionina_titulode"
-    },
-    {
-      "label": "embaralhar()",
-      "file_type": "code",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L29",
-      "_origin": "ast",
-      "community": 262,
-      "norm_label": "embaralhar()",
-      "id": "src_components_radionina_useradionina_embaralhar"
-    },
-    {
-      "label": "buscarPool()",
-      "file_type": "code",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L38",
-      "_origin": "ast",
-      "community": 262,
-      "norm_label": "buscarpool()",
-      "id": "src_components_radionina_useradionina_buscarpool"
-    },
-    {
-      "label": "filaComAbertura()",
-      "file_type": "code",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L47",
-      "_origin": "ast",
-      "community": 262,
-      "norm_label": "filacomabertura()",
-      "id": "src_components_radionina_useradionina_filacomabertura"
-    },
-    {
-      "label": "TIERS_SEM_AD",
-      "file_type": "code",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L54",
-      "_origin": "ast",
-      "community": 262,
-      "norm_label": "tiers_sem_ad",
-      "id": "src_components_radionina_useradionina_tiers_sem_ad"
-    },
-    {
-      "label": "useRadioNina()",
-      "file_type": "code",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L56",
-      "_origin": "ast",
-      "community": 262,
-      "norm_label": "useradionina()",
-      "id": "src_components_radionina_useradionina_useradionina"
-    },
-    {
-      "label": "CORES_RADIO",
-      "file_type": "code",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L27",
-      "_origin": "ast",
-      "community": 262,
-      "norm_label": "cores_radio",
-      "id": "src_components_radionina_useradionina_cores_radio"
     },
     {
       "label": "worker.js",
@@ -34469,6 +34469,260 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "src/components/RadioNina/RadioNina.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_components_radionina_radionina",
+      "target": "src_components_radionina_useradionina"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "src_components_radionina_useradionina",
+      "target": "src_components_radionina_useradionina_abertura_keys",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L38",
+      "weight": 1.0,
+      "source": "src_components_radionina_useradionina",
+      "target": "src_components_radionina_useradionina_buscarpool",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "src_components_radionina_useradionina",
+      "target": "src_components_radionina_useradionina_embaralhar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L47",
+      "weight": 1.0,
+      "source": "src_components_radionina_useradionina",
+      "target": "src_components_radionina_useradionina_filacomabertura",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "src_components_radionina_useradionina",
+      "target": "src_components_radionina_useradionina_marcarsessao",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "src_components_radionina_useradionina",
+      "target": "src_components_radionina_useradionina_ms_artwork",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "src_components_radionina_useradionina",
+      "target": "src_components_radionina_useradionina_sessaorespondida",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L54",
+      "weight": 1.0,
+      "source": "src_components_radionina_useradionina",
+      "target": "src_components_radionina_useradionina_tiers_sem_ad",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "src_components_radionina_useradionina",
+      "target": "src_components_radionina_useradionina_titulode",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L56",
+      "weight": 1.0,
+      "source": "src_components_radionina_useradionina",
+      "target": "src_components_radionina_useradionina_useradionina",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L50",
+      "weight": 1.0,
+      "source": "src_components_radionina_useradionina_filacomabertura",
+      "target": "src_components_radionina_useradionina_abertura_keys"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/RadioNina/RadioNina.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_components_radionina_radionina",
+      "target": "src_components_radionina_useradionina_marcarsessao"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/RadioNina/RadioNina.jsx",
+      "source_location": "L79",
+      "weight": 1.0,
+      "source": "src_components_radionina_radionina_radionina",
+      "target": "src_components_radionina_useradionina_marcarsessao"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/RadioNina/RadioNina.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_components_radionina_radionina",
+      "target": "src_components_radionina_useradionina_sessaorespondida"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/RadioNina/RadioNina.jsx",
+      "source_location": "L71",
+      "weight": 1.0,
+      "source": "src_components_radionina_radionina_radionina",
+      "target": "src_components_radionina_useradionina_sessaorespondida"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L44",
+      "weight": 1.0,
+      "source": "src_components_radionina_useradionina_buscarpool",
+      "target": "src_components_radionina_useradionina_titulode",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L50",
+      "weight": 1.0,
+      "source": "src_components_radionina_useradionina_filacomabertura",
+      "target": "src_components_radionina_useradionina_embaralhar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L135",
+      "weight": 1.0,
+      "source": "src_components_radionina_useradionina_useradionina",
+      "target": "src_components_radionina_useradionina_embaralhar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L102",
+      "weight": 1.0,
+      "source": "src_components_radionina_useradionina_useradionina",
+      "target": "src_components_radionina_useradionina_buscarpool",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L241",
+      "weight": 1.0,
+      "source": "src_components_radionina_useradionina_useradionina",
+      "target": "src_components_radionina_useradionina_filacomabertura",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L58",
+      "weight": 1.0,
+      "source": "src_components_radionina_useradionina_useradionina",
+      "target": "src_components_radionina_useradionina_tiers_sem_ad"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/RadioNina/RadioNina.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_components_radionina_radionina",
+      "target": "src_components_radionina_useradionina_useradionina"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/RadioNina/RadioNina.jsx",
+      "source_location": "L31",
+      "weight": 1.0,
+      "source": "src_components_radionina_radionina_radionina",
+      "target": "src_components_radionina_useradionina_useradionina"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "src/main.jsx",
       "source_location": "L5",
       "weight": 1.0,
@@ -34620,14 +34874,25 @@
       "target": "src_config_version"
     },
     {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/RadioNina/RadioNina.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_components_radionina_radionina",
+      "target": "src_components_radionina_useradionina_cores_radio"
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/data/livro/contos/pt/02/12.md",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_data_livro_contos_pt_02_12",
-      "target": "src_data_livro_contos_pt_02_12_cap\u00edtulo_12_de_costas",
-      "confidence_score": 1.0
+      "target": "src_data_livro_contos_pt_02_12_cap\u00edtulo_12_de_costas"
     },
     {
       "relation": "contains",
@@ -34635,9 +34900,9 @@
       "source_file": "src/data/livro/contos/pt/02/13.md",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_data_livro_contos_pt_02_13",
-      "target": "src_data_livro_contos_pt_02_13_cap\u00edtulo_13_primeira_segunda_feira",
-      "confidence_score": 1.0
+      "target": "src_data_livro_contos_pt_02_13_cap\u00edtulo_13_primeira_segunda_feira"
     },
     {
       "relation": "contains",
@@ -34645,9 +34910,9 @@
       "source_file": "src/data/livro/contos/pt/02/14.md",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_data_livro_contos_pt_02_14",
-      "target": "src_data_livro_contos_pt_02_14_cap\u00edtulo_14_a_cerim\u00f4nia",
-      "confidence_score": 1.0
+      "target": "src_data_livro_contos_pt_02_14_cap\u00edtulo_14_a_cerim\u00f4nia"
     },
     {
       "relation": "contains",
@@ -34655,9 +34920,9 @@
       "source_file": "src/data/livro/contos/pt/02/15.md",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_data_livro_contos_pt_02_15",
-      "target": "src_data_livro_contos_pt_02_15_cap\u00edtulo_15_marcado",
-      "confidence_score": 1.0
+      "target": "src_data_livro_contos_pt_02_15_cap\u00edtulo_15_marcado"
     },
     {
       "relation": "contains",
@@ -34750,271 +35015,6 @@
       "confidence_score": 1.0,
       "source": "public_sw_serviraudio",
       "target": "public_sw_respondercomrange"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/RadioNina/RadioNina.jsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_components_radionina_radionina",
-      "target": "src_components_radionina_useradionina"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L19",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_components_radionina_useradionina",
-      "target": "src_components_radionina_useradionina_abertura_keys"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L38",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_components_radionina_useradionina",
-      "target": "src_components_radionina_useradionina_buscarpool"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L29",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_components_radionina_useradionina",
-      "target": "src_components_radionina_useradionina_embaralhar"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L47",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_components_radionina_useradionina",
-      "target": "src_components_radionina_useradionina_filacomabertura"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L23",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_components_radionina_useradionina",
-      "target": "src_components_radionina_useradionina_marcarsessao"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L9",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_components_radionina_useradionina",
-      "target": "src_components_radionina_useradionina_ms_artwork"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L24",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_components_radionina_useradionina",
-      "target": "src_components_radionina_useradionina_sessaorespondida"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L54",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_components_radionina_useradionina",
-      "target": "src_components_radionina_useradionina_tiers_sem_ad"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L26",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_components_radionina_useradionina",
-      "target": "src_components_radionina_useradionina_titulode"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L56",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_components_radionina_useradionina",
-      "target": "src_components_radionina_useradionina_useradionina"
-    },
-    {
-      "relation": "references",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L50",
-      "weight": 1.0,
-      "source": "src_components_radionina_useradionina_filacomabertura",
-      "target": "src_components_radionina_useradionina_abertura_keys"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/RadioNina/RadioNina.jsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_components_radionina_radionina",
-      "target": "src_components_radionina_useradionina_marcarsessao"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/components/RadioNina/RadioNina.jsx",
-      "source_location": "L79",
-      "weight": 1.0,
-      "source": "src_components_radionina_radionina_radionina",
-      "target": "src_components_radionina_useradionina_marcarsessao"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/RadioNina/RadioNina.jsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_components_radionina_radionina",
-      "target": "src_components_radionina_useradionina_sessaorespondida"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/components/RadioNina/RadioNina.jsx",
-      "source_location": "L71",
-      "weight": 1.0,
-      "source": "src_components_radionina_radionina_radionina",
-      "target": "src_components_radionina_useradionina_sessaorespondida"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L44",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_components_radionina_useradionina_buscarpool",
-      "target": "src_components_radionina_useradionina_titulode"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L50",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_components_radionina_useradionina_filacomabertura",
-      "target": "src_components_radionina_useradionina_embaralhar"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L133",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_components_radionina_useradionina_useradionina",
-      "target": "src_components_radionina_useradionina_embaralhar"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L100",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_components_radionina_useradionina_useradionina",
-      "target": "src_components_radionina_useradionina_buscarpool"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L227",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_components_radionina_useradionina_useradionina",
-      "target": "src_components_radionina_useradionina_filacomabertura"
-    },
-    {
-      "relation": "references",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L58",
-      "weight": 1.0,
-      "source": "src_components_radionina_useradionina_useradionina",
-      "target": "src_components_radionina_useradionina_tiers_sem_ad"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/RadioNina/RadioNina.jsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_components_radionina_radionina",
-      "target": "src_components_radionina_useradionina_useradionina"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/components/RadioNina/RadioNina.jsx",
-      "source_location": "L31",
-      "weight": 1.0,
-      "source": "src_components_radionina_radionina_radionina",
-      "target": "src_components_radionina_useradionina_useradionina"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/RadioNina/RadioNina.jsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_components_radionina_radionina",
-      "target": "src_components_radionina_useradionina_cores_radio"
     },
     {
       "relation": "contains",
@@ -105613,5 +105613,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "633e26247633288a95ae3638998452f302aed0c7"
+  "built_at_commit": "001cb524bd7a0f1093e62f3cf7aa1c9ad8be30f1"
 }

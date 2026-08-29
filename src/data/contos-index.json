@@ -48,7 +48,11 @@
       { "id": "12", "numero": 12, "titulo": "De Costas", "titulo_en": "Back to Back", "titulo_es": "Espalda con Espalda", "data_publicacao": "2026-08-29" },
       { "id": "13", "numero": 13, "titulo": "Primeira Segunda-Feira", "titulo_en": "First Monday", "titulo_es": "El Primer Lunes", "data_publicacao": "2026-08-29" },
       { "id": "14", "numero": 14, "titulo": "A Cerimônia", "titulo_en": "The Ceremony", "titulo_es": "La Ceremonia", "data_publicacao": "2026-08-29" },
-      { "id": "15", "numero": 15, "titulo": "Marcado", "titulo_en": "Marked", "titulo_es": "Marcado", "data_publicacao": "2026-08-29" }
+      { "id": "15", "numero": 15, "titulo": "Marcado", "titulo_en": "Marked", "titulo_es": "Marcado", "data_publicacao": "2026-08-29" },
+      { "id": "16", "numero": 16, "titulo": "Não Há Regras", "titulo_en": "No Rules", "titulo_es": "No Hay Reglas", "data_publicacao": "2026-08-29" },
+      { "id": "17", "numero": 17, "titulo": "A Pantera Solta", "titulo_en": "The Panther Unleashed", "titulo_es": "La Pantera Suelta", "data_publicacao": "2026-08-29" },
+      { "id": "18", "numero": 18, "titulo": "A Coronhada", "titulo_en": "The Pistol-Whip", "titulo_es": "El Culatazo", "data_publicacao": "2026-08-29" },
+      { "id": "19", "numero": 19, "titulo": "Sob Minha Proteção", "titulo_en": "Under My Protection", "titulo_es": "Bajo Mi Protección", "data_publicacao": "2026-08-29" }
     ]
   }
 ]
