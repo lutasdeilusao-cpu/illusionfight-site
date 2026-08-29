@@ -405,8 +405,8 @@
     "semantic_hash": "b11265c546f5970b719233c19e1b2c2d"
   },
   "src/config/version.js": {
-    "mtime": 1787954747.946685,
-    "ast_hash": "0d77f45bb01a1a31e17384169b639e09",
+    "mtime": 1787971974.9295526,
+    "ast_hash": "c119310f68747437d64c08d6af1127b2",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2830,8 +2830,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1787954747.948686,
-    "ast_hash": "631edaef3dde57608759a44bf392ccf7",
+    "mtime": 1787971974.976663,
+    "ast_hash": "15e5b16e36098acac32e7f2f4746fa16",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3795,8 +3795,8 @@
     "semantic_hash": ""
   },
   "src/data/contos-index.json": {
-    "mtime": 1787954747.9496863,
-    "ast_hash": "7e2e3dd410c84f6ec97bf10efc19075c",
+    "mtime": 1787971588.1853373,
+    "ast_hash": "207695bea1e3a6578379ad31479e1110",
     "semantic_hash": ""
   },
   "src/pages/content/ContoCapitulo.jsx": {
@@ -3962,6 +3962,46 @@
   "src/data/livro/contos/pt/01/07.md": {
     "mtime": 1787952994.168375,
     "ast_hash": "d040a9f8e7865e714cd2bc8eb15e4e28",
+    "semantic_hash": ""
+  },
+  "src/data/livro/contos/pt/02/01.md": {
+    "mtime": 1787971937.0818434,
+    "ast_hash": "660efb25a4d1ddb8b3d80b46d9d5d502",
+    "semantic_hash": ""
+  },
+  "src/data/livro/contos/pt/02/02.md": {
+    "mtime": 1787971894.7031863,
+    "ast_hash": "c1a4076950f84c4659d1fa6b5475483f",
+    "semantic_hash": ""
+  },
+  "src/data/livro/contos/pt/02/03.md": {
+    "mtime": 1787971927.4224887,
+    "ast_hash": "19c422a004e8ccf4b9c2e4147433096b",
+    "semantic_hash": ""
+  },
+  "src/data/livro/contos/pt/02/04.md": {
+    "mtime": 1787971752.8700309,
+    "ast_hash": "1f69a4583e940fd76c06b303b445ba0a",
+    "semantic_hash": ""
+  },
+  "src/data/livro/contos/pt/02/05.md": {
+    "mtime": 1787971904.740744,
+    "ast_hash": "836dfec4111211918ba5bdc40f0ae755",
+    "semantic_hash": ""
+  },
+  "src/data/livro/contos/pt/02/06.md": {
+    "mtime": 1787971812.630023,
+    "ast_hash": "1b1115d29b240fb870018408b5fb9d49",
+    "semantic_hash": ""
+  },
+  "src/data/livro/contos/pt/02/07.md": {
+    "mtime": 1787971919.056108,
+    "ast_hash": "8c987c01d0ab88da3622f88781bd514b",
+    "semantic_hash": ""
+  },
+  "src/data/livro/contos/pt/02/08.md": {
+    "mtime": 1787971863.56977,
+    "ast_hash": "705c22943de37f81d1d8ae13ef8d07d6",
     "semantic_hash": ""
   }
 }
