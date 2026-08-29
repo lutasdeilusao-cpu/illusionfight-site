@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — MAPA DO SITE E DO PROJETO
 
 > Referência do estado atual do projeto para navegação humana e contexto de IA.
-> Atualizado em 2026-08-29 — `SITE_VERSION` **10.198.71**.
+> Atualizado em 2026-08-29 — `SITE_VERSION` **10.198.72**.
 > Histórico de tarefas, bugfixes e pendências não pertence a este documento.
 > Regras de trabalho, arquivos proibidos e decisões arquiteturais: `AGENTS.md`.
 
@@ -31,7 +31,7 @@
 | `public/_redirects` | Normalização de URLs públicas |
 | `public/CNAME` | Domínio oficial |
 | `public/manifest.webmanifest` | Instalação PWA e abertura fullscreen/standalone em dispositivos compatíveis |
-| `public/sw.js` | Service worker usado pelas notificações e pelo contexto instalável |
+| `public/sw.js` | Service worker: push notifications + cache de áudio da Rádio Nina (músicas/propagandas do R2, `nina-audio-v1`) |
 
 Ordem dos providers em `src/main.jsx`:
 
@@ -298,7 +298,7 @@ Fonte única: `src/config/version.js`. Esta tabela registra somente a identifica
 
 | Constante | Módulo | Versão |
 |---|---|---:|
-| `SITE_VERSION` | Site global | **10.198.71** |
+| `SITE_VERSION` | Site global | **10.198.72** |
 | `PP_VERSION` | Pesadelo Particular | 2.3.1 |
 | `LDI_VERSION` | Lendas do LDI | 2.0.1 |
 | `JACK_VERSION` | Jack Dream Beer | 5.3.2 |

@@ -120,17 +120,32 @@ export function useRadioNina() {
     }
   }, [])
 
-  const proximoAd = useCallback(() => {
+  // Monta o shuffle-bag de propaganda com antecedência (chamado já no ligar()).
+  const prepararAdBag = useCallback(() => {
     const todos = adsRef.current
-    if (!todos.length) return null
-    if (!adBagRef.current.length) {
-      const bag = embaralhar(todos)
-      if (bag.length > 1 && bag[0].key === ultimoAdRef.current) [bag[0], bag[1]] = [bag[1], bag[0]]
-      adBagRef.current = bag
-    }
+    if (!todos.length || adBagRef.current.length) return
+    const bag = embaralhar(todos)
+    if (bag.length > 1 && bag[0].key === ultimoAdRef.current) [bag[0], bag[1]] = [bag[1], bag[0]]
+    adBagRef.current = bag
+  }, [])
+
+  const proximoAd = useCallback(() => {
+    if (!adsRef.current.length) return null
+    prepararAdBag()
     const ad = adBagRef.current.shift()
+    if (!ad) return null
     ultimoAdRef.current = ad.key
     return ad
+  }, [prepararAdBag])
+
+  // Pré-carrega uma URL (próxima faixa / próximo anúncio) num <audio> mudo e
+  // descartável — só pra aquecer o cache do browser e reduzir o gap.
+  const preloadRef = useRef(null)
+  const prefetch = useCallback((url) => {
+    if (!url) return
+    let a = preloadRef.current
+    if (!a) { a = new Audio(); a.preload = 'auto'; a.muted = true; preloadRef.current = a }
+    if (a.src !== url) { try { a.src = url; a.load() } catch { /* noop */ } }
   }, [])
 
   const atualizarMediaSession = useCallback((titulo) => {
@@ -158,7 +173,14 @@ export function useRadioNina() {
     // Mantém o pool de propaganda quente e no idioma certo, pra que o próximo
     // anúncio possa ser disparado de forma síncrona (ver avancar()).
     if (!semAdsRef.current) garantirAds()
-  }, [atualizarMediaSession, garantirAds])
+    // Aquece o cache da próxima faixa e, se for a vez do anúncio, do anúncio.
+    const total = filaRef.current.length
+    if (total > 1) prefetch(filaRef.current[(i + 1) % total]?.url)
+    if (!semAdsRef.current && contadorRef.current + 1 >= MUSICAS_POR_AD) {
+      prepararAdBag()
+      prefetch(adBagRef.current[0]?.url)
+    }
+  }, [atualizarMediaSession, garantirAds, prefetch, prepararAdBag])
 
   const tocarAd = useCallback(() => {
     const ad = proximoAd()
@@ -186,10 +208,11 @@ export function useRadioNina() {
     filaRef.current = filaComAbertura(poolRef.current, localeRef.current)
     contadorRef.current = 0
     emAdRef.current = false
+    prepararAdBag() // shuffle da propaganda já na largada
     setEstado('barra')
     trackEvent('radio_ligar', { origem })
     tocarIndice(0, origem === 'auto' ? 'abertura' : origem)
-  }, [garantirPool, garantirAds, tocarIndice])
+  }, [garantirPool, garantirAds, tocarIndice, prepararAdBag])
 
   // Progressão natural (fim da faixa): decide entre próxima música ou propaganda
   const avancar = useCallback(() => {
@@ -344,6 +367,7 @@ export function useRadioNina() {
       audio.removeEventListener('error', onError)
       audio.pause()
       audio.src = ''
+      if (preloadRef.current) { preloadRef.current.src = ''; preloadRef.current = null }
     }
   }, [avancar, tocarIndice])
 

@@ -84,7 +84,9 @@ export default {
     headers.set('ETag', object.httpEtag)
     headers.set('Accept-Ranges', 'bytes')
     if (!headers.has('Content-Type')) headers.set('Content-Type', 'audio/mpeg')
-    if (!headers.has('Cache-Control')) headers.set('Cache-Control', 'public, max-age=86400')
+    // Músicas e propagandas são imutáveis por chave — cache agressivo no browser
+    // (repetição = disco local, zero rede / zero dados do usuário).
+    headers.set('Cache-Control', 'public, max-age=31536000, immutable')
 
     let status = 200
     if (object.range) {
