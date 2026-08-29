@@ -1,0 +1,53 @@
+var e=`# CAPÍTULO 17 — A Pantera Solta
+
+O Kim pôs as quatro no chão.
+
+Não era o estilo selvagem do começo, de dois anos antes, que era só instinto sem lugar pra ir. Esse aqui carregava os dois anos de briga junto. Era selvagem com técnica. Selvagem treinado.
+
+Ele veio pra cima de mim como louco.
+
+Mordeu a minha perna. Como bicho, os dentes fechando na panturrilha. Eu chutei ele pra longe e ele já estava rodando pelo chão, voltando, vindo de outro lado. Atacava, fugia, rodava. Cada golpe que eu acertava nele — e eu acertava — não fazia diferença. Ele rolava, levava, levantava, voltava. Tudo muito rápido.
+
+---
+
+Ele foi rasgando a minha camiseta em tiras. Conseguiu subir. Grudou nas minhas costas como um macaco e cravou os dentes no meu pescoço enquanto socava o meu peito e a minha cara com as duas mãos ao mesmo tempo.
+
+O moleque estava fora de si.
+
+Eu puxei ele pelo cabelo e joguei no chão com força. Ele voltou. Eu bati. Ele voltou. Eu bati até o meu braço cansar, e nada fazia efeito — ele estava entorpecido pela própria loucura, num lugar onde a dor não chega.
+
+---
+
+Aí ele deu um pulo de frente. Cabeçada em cheio na minha testa, segurando a minha camiseta pra não cair.
+
+Quando ele veio de novo, eu achei que era outra cabeçada. Me preparei pra aguentar.
+
+Ele virou a cabeça de lado e mordeu a minha orelha.
+
+Eu chutei aquele moleque. Chutei muito. Com a orelha sangrando na lateral da minha cara, eu olhei pra baixo e vi ele ali — o corpo dele também todo aberto, roxo, machucado — mastigando um pedaço de mim como se fosse comida.
+
+Sinceramente: eu fiquei com medo de um moleque de nove anos.
+
+---
+
+E ele continuava.
+
+Não parava de bater. Não parava de vir. E pouco a pouco eu fui perdendo a força. A visão foi ficando turva de um jeito que nunca tinha ficado na minha vida. As pernas foram amolecendo.
+
+Eu estava perdendo.
+
+Pela primeira vez na vida eu entendi, na hora, o que estava acontecendo. Não era um susto. Não era uma briga difícil. Era uma derrota. A minha primeira.
+
+E o pior nem era isso.
+
+O pior era eu não ter certeza de que aquele moleque ia parar quando eu caísse. Os olhos dele não diziam que iam parar.
+
+---
+
+Eu senti os meus dois joelhos começando a dobrar.
+
+Era isso que eles queriam. Um joelho no chão. Dois anos pedindo um joelho no chão. E ali estavam os dois, do jeito mais feio possível, dobrando ao mesmo tempo.
+
+Eu já estava caindo quando ouvi o golpe.
+`;export{e as default};
+//# sourceMappingURL=17-Dx0hcbZg.js.map
