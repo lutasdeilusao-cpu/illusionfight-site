@@ -41,7 +41,11 @@
       { "id": "05", "numero": 5, "titulo": "O Alto do Morro", "titulo_en": "The Top of the Hill", "titulo_es": "La Cima del Cerro", "data_publicacao": "2026-08-28" },
       { "id": "06", "numero": 6, "titulo": "O Mendigo", "titulo_en": "The Beggar", "titulo_es": "El Mendigo", "data_publicacao": "2026-08-28" },
       { "id": "07", "numero": 7, "titulo": "Dono de Bairro", "titulo_en": "Master of a District", "titulo_es": "Dueño del Barrio", "data_publicacao": "2026-08-28" },
-      { "id": "08", "numero": 8, "titulo": "O Indiozinho", "titulo_en": "The Kid", "titulo_es": "El Indiecito", "data_publicacao": "2026-08-28" }
+      { "id": "08", "numero": 8, "titulo": "O Indiozinho", "titulo_en": "The Kid", "titulo_es": "El Indiecito", "data_publicacao": "2026-08-28" },
+      { "id": "09", "numero": 9, "titulo": "A Pantera", "titulo_en": "The Panther", "titulo_es": "La Pantera", "data_publicacao": "2026-08-29" },
+      { "id": "10", "numero": 10, "titulo": "O Cabelinho Verde", "titulo_en": "The Green Hair", "titulo_es": "El Pelo Verde", "data_publicacao": "2026-08-29" },
+      { "id": "11", "numero": 11, "titulo": "O Parque", "titulo_en": "The Park", "titulo_es": "El Parque", "data_publicacao": "2026-08-29" },
+      { "id": "12", "numero": 12, "titulo": "De Costas", "titulo_en": "Back to Back", "titulo_es": "Espalda con Espalda", "data_publicacao": "2026-08-29" }
     ]
   }
 ]
