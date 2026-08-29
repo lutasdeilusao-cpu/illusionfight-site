@@ -45,7 +45,10 @@
       { "id": "09", "numero": 9, "titulo": "A Pantera", "titulo_en": "The Panther", "titulo_es": "La Pantera", "data_publicacao": "2026-08-29" },
       { "id": "10", "numero": 10, "titulo": "O Cabelinho Verde", "titulo_en": "The Green Hair", "titulo_es": "El Pelo Verde", "data_publicacao": "2026-08-29" },
       { "id": "11", "numero": 11, "titulo": "O Parque", "titulo_en": "The Park", "titulo_es": "El Parque", "data_publicacao": "2026-08-29" },
-      { "id": "12", "numero": 12, "titulo": "De Costas", "titulo_en": "Back to Back", "titulo_es": "Espalda con Espalda", "data_publicacao": "2026-08-29" }
+      { "id": "12", "numero": 12, "titulo": "De Costas", "titulo_en": "Back to Back", "titulo_es": "Espalda con Espalda", "data_publicacao": "2026-08-29" },
+      { "id": "13", "numero": 13, "titulo": "Primeira Segunda-Feira", "titulo_en": "First Monday", "titulo_es": "El Primer Lunes", "data_publicacao": "2026-08-29" },
+      { "id": "14", "numero": 14, "titulo": "A Cerimônia", "titulo_en": "The Ceremony", "titulo_es": "La Ceremonia", "data_publicacao": "2026-08-29" },
+      { "id": "15", "numero": 15, "titulo": "Marcado", "titulo_en": "Marked", "titulo_es": "Marcado", "data_publicacao": "2026-08-29" }
     ]
   }
 ]
