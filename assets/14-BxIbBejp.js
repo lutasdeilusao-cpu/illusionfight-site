@@ -1,0 +1,73 @@
+var e=`# CAPÍTULO 14 — A Cerimônia
+
+Virou cerimônia. Durou quase dois anos.
+
+Uma vez por mês, primeira segunda-feira, aqueles dois subiam o Morro pra apanhar de mim. E eu esperava por isso.
+
+Deixa eu te contar como foi mudando.
+
+---
+
+**Primeiro mês.**
+
+Eu achei que ia ser rápido. Dois moleques, metade da minha idade, sem técnica. Não foi.
+
+Os dois juntos eram outra coisa. Cada um cobrindo o buraco do outro, exatamente como eu tinha visto no parque, só que agora virado pra mim. Eu levei a sério do começo ao fim, e mesmo assim saí daquela briga com uma marca no queixo que ninguém tinha me deixado em anos.
+
+E aconteceu uma coisa que me pegou de surpresa.
+
+Foi divertido.
+
+Eu sempre briguei por um motivo. Pra sobreviver, quando era bucha. Pra provar força, quando era segurança. Pra dominar, depois. Briga sempre teve função. Nunca me passou pela cabeça que uma briga podia ser só... boa. Do jeito que uma partida de bola é boa. Com aqueles dois foi assim desde a primeira vez.
+
+Eu não contei isso pra ninguém. Não é o tipo de coisa que um dono de bairro fala em voz alta.
+
+---
+
+**Terceiro mês.**
+
+O indiozinho tinha domado a pantera.
+
+Aquele estilo selvagem dele, de pôr as mãos no chão, foi virando outra coisa — ainda baixo, ainda animal, mas com propósito. Ele parou de só querer encostar. Começou a escolher onde encostar.
+
+O cabelinho verde tinha aprendido a ler as minhas dicas. Sabia pra que lado eu ia pelo meu pé de trás. Começou a falar os meus golpes em voz alta antes de eu dar, só pra me irritar, e o pior é que ele acertava.
+
+---
+
+**Sexto mês.**
+
+Foi a primeira vez que um deles chegou perto do joelho.
+
+O indiozinho passou por baixo de um golpe meu e enganchou a perna na minha. Se ele tivesse dois quilos a mais de corpo, eu ia pro chão. Não tinha. Eu recuperei o equilíbrio e terminei a briga do jeito de sempre.
+
+Mas os dois trocaram um olhar quando aquilo aconteceu. Aquele olhar de quem viu a porta abrir uma fresta.
+
+---
+
+**Um ano.**
+
+A essa altura já não era segredo pra ninguém.
+
+O Morro inteiro sabia. Tudo estava liberado pros dois — os portões, as escadarias, as lajes. Eles entravam em lugar que a polícia nunca entrou, chegavam perto de mim de um jeito que ninguém nunca chegou, e ninguém encostava neles, porque todo mundo sabia que aquilo era coisa minha.
+
+Na primeira segunda de cada mês, a molecada do bairro subia pra assistir. Sentava na laje de cima como quem vai ver jogo.
+
+E toda vez terminava igual. O cabelinho verde largava os braços primeiro.
+
+— Parou. Por hoje chega.
+
+E o indiozinho, não. O indiozinho nunca caía, nunca falava "parou", nunca aceitava. Terminava de pé, sangrando, encarando. Toda vez.
+
+---
+
+Nesses dois anos os dois melhoraram muito. Muito mesmo.
+
+E eu levava cada briga a sério — sério de verdade, porque eles tinham um objetivo claro e trabalhavam pra ele: um joelho meu no chão. Mesmo dizendo que não ligavam pro meu respeito, era isso que eles queriam. Provar que davam conta.
+
+O que eles não sabiam é que aquela primeira segunda-feira era o único dia do meu mês que não era trabalho. Não era ameaça, não era cobrança, não era plano. Era só uma briga boa com dois moleques que não tinham medo de nada.
+
+Eu ia sentir falta disso.
+
+Só que naquela época eu ainda não sabia que ia acabar.
+`;export{e as default};
+//# sourceMappingURL=14-BxIbBejp.js.map
