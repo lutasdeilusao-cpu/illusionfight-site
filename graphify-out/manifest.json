@@ -405,8 +405,8 @@
     "semantic_hash": "b11265c546f5970b719233c19e1b2c2d"
   },
   "src/config/version.js": {
-    "mtime": 1788031532.8402321,
-    "ast_hash": "f73487efb03b3402cc799c12278c941a",
+    "mtime": 1788032101.9535203,
+    "ast_hash": "bac181d22fb6db77209b68fc13fde993",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2830,8 +2830,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1788031540.3356712,
-    "ast_hash": "fadf09ae5a9e536c1becc942633ced4a",
+    "mtime": 1788032101.974271,
+    "ast_hash": "753b3e3c8805853066a570928c8e6209",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3795,8 +3795,8 @@
     "semantic_hash": ""
   },
   "src/data/contos-index.json": {
-    "mtime": 1787971588.1853373,
-    "ast_hash": "207695bea1e3a6578379ad31479e1110",
+    "mtime": 1788032094.3844337,
+    "ast_hash": "3e8c531034f055272e53e956578685ef",
     "semantic_hash": ""
   },
   "src/pages/content/ContoCapitulo.jsx": {
@@ -4002,6 +4002,26 @@
   "src/data/livro/contos/pt/02/08.md": {
     "mtime": 1787981256.8973181,
     "ast_hash": "59c12acbe7a7c03f819b018ea52e8730",
+    "semantic_hash": ""
+  },
+  "src/data/livro/contos/pt/02/09.md": {
+    "mtime": 1788032029.0139444,
+    "ast_hash": "7881a4d031d4a4ceaffcb731a7659f93",
+    "semantic_hash": ""
+  },
+  "src/data/livro/contos/pt/02/10.md": {
+    "mtime": 1788032051.5083916,
+    "ast_hash": "57800577631983897aab373b25307d5a",
+    "semantic_hash": ""
+  },
+  "src/data/livro/contos/pt/02/11.md": {
+    "mtime": 1788032070.753984,
+    "ast_hash": "29f2d1c90d7590c6edbd948ae4aeec66",
+    "semantic_hash": ""
+  },
+  "src/data/livro/contos/pt/02/12.md": {
+    "mtime": 1788032127.0513597,
+    "ast_hash": "0a28d1fc43b618eedf88e6801e4c3ffb",
     "semantic_hash": ""
   }
 }

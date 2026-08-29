@@ -290,6 +290,7 @@
   "288": "Phase0Start.jsx",
   "289": "index.js",
   "290": "PowerCard.jsx",
+  "291": "Brincadeira.jsx",
   "292": "drawCombatBoard",
   "293": "01.md",
   "294": "02.md",
@@ -301,7 +302,10 @@
   "300": "08.md",
   "301": "GanguesLobby.jsx",
   "302": "GanguesCombat.jsx",
+  "303": "10.md",
   "304": "RadioNina.jsx",
   "305": "Create",
+  "306": "11.md",
+  "307": "12.md",
   "313": "drawCombatBoard"
 }
