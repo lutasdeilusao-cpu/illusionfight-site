@@ -81,6 +81,7 @@ export function useRadioNina() {
   const contadorRef = useRef(0)
   const emAdRef = useRef(false)
   const errosRef = useRef(0)
+  const desligadoRef = useRef(false) // true entre fechar() e a próxima ligação: silencia error/ended
   const semAdsRef = useRef(semAds)
   useEffect(() => { semAdsRef.current = semAds }, [semAds])
   const tocandoRef = useRef(false)
@@ -145,6 +146,7 @@ export function useRadioNina() {
     const track = filaRef.current[i]
     const audio = audioRef.current
     if (!track || !audio) return
+    desligadoRef.current = false
     idxRef.current = i
     origemRef.current = origem
     if (audio.src !== track.url) audio.src = track.url
@@ -159,6 +161,7 @@ export function useRadioNina() {
     const ad = proximoAd()
     const audio = audioRef.current
     if (!ad || !audio) return false
+    desligadoRef.current = false
     emAdRef.current = true
     origemRef.current = 'ad'
     audio.src = ad.url
@@ -216,9 +219,15 @@ export function useRadioNina() {
 
   // Fechar de vez: para o áudio, some com a rádio e não pergunta de novo nesta sessão.
   const fechar = useCallback(() => {
+    desligadoRef.current = true
     const audio = audioRef.current
-    if (audio) { audio.pause(); audio.src = '' }
+    if (audio) {
+      audio.pause()
+      audio.removeAttribute('src') // '' dispara evento 'error' em alguns browsers; remover não
+      try { audio.load() } catch { /* noop */ }
+    }
     emAdRef.current = false
+    contadorRef.current = 0
     setTocando(false)
     setFaixaAtual(null)
     setEstado('oculto')
@@ -288,6 +297,7 @@ export function useRadioNina() {
     }
     const onPause = () => setTocando(false)
     const onEnded = () => {
+      if (desligadoRef.current) return
       if (!emAdRef.current) {
         const atual = filaRef.current[idxRef.current]
         if (atual) trackEvent('radio_completa', { musica: atual.titulo })
@@ -296,6 +306,7 @@ export function useRadioNina() {
     }
     // Faixa (ou propaganda) não carregou → nunca travar a rádio: segue pra próxima música.
     const onError = () => {
+      if (desligadoRef.current) return
       const total = filaRef.current.length
       if (!total) return
       errosRef.current += 1

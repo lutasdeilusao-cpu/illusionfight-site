@@ -85,29 +85,31 @@ export default function RadioNina() {
 
   // ── Modo compacto: bolinha arrastável pros 4 cantos ──
   if (estado === 'mini') {
+    const LIMIAR = 6 // px de folga: abaixo disso é toque, não arraste
+    const abrirBarra = () => { dragRef.current = { ativo: false, moveu: false }; setArraste(null); setEstado('barra') }
     const onDown = (e) => {
-      dragRef.current = { ativo: true, moveu: false }
+      if (e.button != null && e.button !== 0) return
+      dragRef.current = { ativo: true, moveu: false, x0: e.clientX, y0: e.clientY }
       e.currentTarget.setPointerCapture?.(e.pointerId)
-      setArraste({ x: e.clientX - 24, y: e.clientY - 24 })
     }
     const onMove = (e) => {
-      if (!dragRef.current.ativo) return
-      dragRef.current.moveu = true
+      const d = dragRef.current
+      if (!d.ativo) return
+      if (!d.moveu && Math.hypot(e.clientX - d.x0, e.clientY - d.y0) < LIMIAR) return
+      d.moveu = true
       setArraste({ x: e.clientX - 24, y: e.clientY - 24 })
     }
     const onUp = (e) => {
-      if (!dragRef.current.ativo) return
-      dragRef.current.ativo = false
-      if (!dragRef.current.moveu) {
-        setArraste(null)
-        setEstado('barra')
-        return
-      }
-      const cx = e.clientX
-      const cy = e.clientY
-      setCanto((cy < window.innerHeight / 2 ? 't' : 'b') + (cx < window.innerWidth / 2 ? 'l' : 'r'))
+      const d = dragRef.current
+      if (!d.ativo) return
+      d.ativo = false
+      e.currentTarget.releasePointerCapture?.(e.pointerId)
+      if (!d.moveu) { abrirBarra(); return }
+      d.moveu = false
+      setCanto((e.clientY < window.innerHeight / 2 ? 't' : 'b') + (e.clientX < window.innerWidth / 2 ? 'l' : 'r'))
       setArraste(null)
     }
+    const onCancel = () => { dragRef.current = { ativo: false, moveu: false }; setArraste(null) }
     return (
       <div
         className={`radio-nina-mini radio-nina-mini--${canto} ${arraste ? 'radio-nina-mini--arrasta' : ''} ${tocando ? 'radio-nina-mini--tocando' : ''}`}
@@ -115,17 +117,21 @@ export default function RadioNina() {
         onPointerDown={onDown}
         onPointerMove={onMove}
         onPointerUp={onUp}
+        onPointerCancel={onCancel}
       >
         <button
+          type="button"
           className="radio-nina-mini__abrir"
-          onClick={() => { if (!dragRef.current.moveu) setEstado('barra') }}
+          onClick={() => { if (!dragRef.current.moveu) abrirBarra() }}
           aria-label={S.abrir}
         >
           <img src={ninaImg} alt="" className="radio-nina-mini__face" draggable="false" />
         </button>
         <button
+          type="button"
           className="radio-nina-mini__x"
           onPointerDown={(e) => e.stopPropagation()}
+          onPointerUp={(e) => e.stopPropagation()}
           onClick={(e) => { e.stopPropagation(); fechar() }}
           aria-label={S.fechar_de_vez}
         >×</button>
