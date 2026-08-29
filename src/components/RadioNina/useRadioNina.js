@@ -155,7 +155,10 @@ export function useRadioNina() {
     setDuracao(0)
     atualizarMediaSession(track.titulo)
     try { await audio.play() } catch { setTocando(false) }
-  }, [atualizarMediaSession])
+    // Mantém o pool de propaganda quente e no idioma certo, pra que o próximo
+    // anúncio possa ser disparado de forma síncrona (ver avancar()).
+    if (!semAdsRef.current) garantirAds()
+  }, [atualizarMediaSession, garantirAds])
 
   const tocarAd = useCallback(() => {
     const ad = proximoAd()
@@ -170,16 +173,13 @@ export function useRadioNina() {
     setDuracao(0)
     atualizarMediaSession('Publicidade')
     trackEvent('radio_ad', { ad: ad.key, lang: localStorage.getItem('ldi-locale') || 'pt' })
-    audio.play().catch(() => {
-      // Propaganda não pôde iniciar (política de autoplay / corrida de load):
-      // não deixa a rádio parada num anúncio pausado — segue pra próxima música.
-      if (desligadoRef.current) return
-      emAdRef.current = false
-      const total = filaRef.current.length
-      if (total) tocarIndice((idxRef.current + 1) % total, 'auto')
-    })
+    // Corrida src/play do Chrome dispara AbortError inofensivo (o áudio toca ao
+    // carregar). Só ignoramos: NUNCA pulamos o anúncio — o usuário tem que ouvir.
+    // Erro real de autoplay deixa a barra pausada com ▶ pra ele dar play.
+    const p = audio.play()
+    if (p && typeof p.catch === 'function') p.catch(() => {})
     return true
-  }, [proximoAd, atualizarMediaSession, tocarIndice])
+  }, [proximoAd, atualizarMediaSession])
 
   const ligar = useCallback(async (origem = 'auto') => {
     await Promise.all([garantirPool(), garantirAds()])
@@ -201,8 +201,15 @@ export function useRadioNina() {
     contadorRef.current += 1
     if (contadorRef.current < MUSICAS_POR_AD) { proximaMusica(); return }
     contadorRef.current = 0
-    // Rechecar o idioma agora — o usuário pode ter trocado durante a sessão.
-    garantirAds().then(() => { if (!tocarAd()) proximaMusica() })
+    // Chrome Android só deixa o áudio tocar sozinho se o play() sair SÍNCRONO de
+    // dentro do handler de 'ended'. O pool de ads já vem sendo mantido quente por
+    // garantirAds() a cada música — então tocamos direto aqui. Só caímos no fetch
+    // assíncrono (que pode travar o autoplay) se o pool ainda não estiver em memória.
+    if (adsRef.current.length) {
+      if (!tocarAd()) proximaMusica()
+    } else {
+      garantirAds().then(() => { if (!tocarAd()) proximaMusica() })
+    }
   }, [tocarIndice, tocarAd, garantirAds])
 
   const pular = useCallback((delta, origem = 'user') => {
