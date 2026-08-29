@@ -1,0 +1,83 @@
+var e=`# CAPÍTULO 10 — O Cabelinho Verde
+
+Uma semana depois eu estava numa reunião com todos os meus subcomandantes do bairro.
+
+A gente resolvia uma chatice. Alguns policiais — daqueles que a gente pagava pra olhar pro outro lado — tinham decidido que o preço de virar a cabeça tinha subido.
+
+Isso é mais perigoso do que parece. Se você deixa um cara aumentar o preço só porque quis, no mês seguinte todos os outros aumentam também, e aí não tem caixa que segure. A gente ia precisar de uma demonstração de força. Alguma coisa que fizesse os caras entenderem que o pagamento estava justo e ia continuar justo.
+
+No meio disso, um cara entra na sala e me chama.
+
+— Tem um moleque te procurando lá embaixo. Pelo nome.
+
+---
+
+Eu saí de mau humor. Era uma reunião importante.
+
+Lá embaixo tinha um moleque da mesma idade do da semana passada. Só que esse era negro — negro como eu —, dentes muito brancos, e um cabelo pintado de verde tão mal pintado que dava dó.
+
+E estava me procurando. Pelo meu nome.
+
+Eu não entendia de onde aqueles moleques estavam saindo. Nem como esse tinha conseguido subir o Morro inteiro sem ninguém parar ele.
+
+— E aí. — falei. — Sou eu.
+
+Ele abriu um sorriso do tamanho da cara.
+
+— Ah, beleza. Você é o Alan, então.
+
+E já pulou tentando me acertar um soco na cara. Um pulo meio abestado, telegrafado, coisa de quem viu numa luta e nunca fez.
+
+Levou um chute no estômago e foi pra trás. Deu risada do chão.
+
+— Parece que você é mesmo o que dizem que você é.
+
+---
+
+Eu não estava entendendo mais nada da minha própria vida.
+
+Que bairro maluco era aquele. Que lugar era esse onde criança de rua aparecia toda semana só pra apanhar de mim.
+
+O estilo desse aqui era diferente do outro. Desleixado. Fanfarrão. Como se ele estivesse brincando, relaxado, sem nada em jogo. Mas por baixo do desleixo tinha a mesma coisa que o indiozinho tinha. Instinto. Instinto claro de quem sabia brigar.
+
+E, de novo, um moleque com metade da minha idade.
+
+---
+
+Dessa vez eu comecei sério. Aprendi com o primeiro.
+
+Fui batendo. Soco aqui, soco ali, sem cerimônia, porque eu tinha uma reunião esperando.
+
+E a coisa foi mudando de novo — só que ao contrário do outro.
+
+O indiozinho tinha ficado selvagem quando apanhou. Esse aqui ficou preciso. Cada golpe que ele levava, o próximo dele saía mais limpo, mais no lugar. Alguns começaram a me acertar.
+
+Só que ele estava enfraquecendo. Eu sentia. A diferença é que ele não deixava aparecer. Pra qualquer um que estivesse olhando de fora, parecia que o moleque estava melhorando. Ficando mais forte a cada porrada.
+
+Maldito cabelinho verde. Deu trabalho.
+
+---
+
+O outro se recusou a cair. Esse aqui, quando chegou no limite, largou os braços.
+
+— Parou. Parou, parou. Eu desisto.
+
+Soube reconhecer. Perdeu direitinho. Foi até engraçado.
+
+— Prefiro sair daqui andando do que ficar largado no chão. Valeu.
+
+— Cai fora, garoto. E não volta mais aqui.
+
+— Não. — Ele limpou o sangue do nariz com as costas da mão, ainda sorrindo. — Eu volto. E da próxima vez eu venço você.
+
+---
+
+Um moleque que não caía. Outro que aceitava perder, mas só pra poder voltar no dia seguinte.
+
+Eu comecei a ver um padrão.
+
+Os dois tinham a mesma coisa por dentro. Instinto — aquilo que não se compra com o tempo.
+
+Eu podia recrutar os dois. Devia. Mas de novo eu estava atolado de reunião, e deixei passar.
+`;export{e as default};
+//# sourceMappingURL=10-Dm6CEJTf.js.map
