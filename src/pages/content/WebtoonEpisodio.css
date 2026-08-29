@@ -6,10 +6,11 @@
 
 .webtoon-ep-header {
   position: fixed;
-  top: 0;
+  top: var(--radio-nina-top-h, 0px);
   left: 0;
   right: 0;
   z-index: 100;
+  transition: top 0.3s ease;
   background: var(--bg-secondary);
   border-bottom: 1px solid var(--border-subtle);
   padding: 0.75rem 0;

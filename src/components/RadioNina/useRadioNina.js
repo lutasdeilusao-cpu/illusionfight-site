@@ -170,9 +170,16 @@ export function useRadioNina() {
     setDuracao(0)
     atualizarMediaSession('Publicidade')
     trackEvent('radio_ad', { ad: ad.key, lang: localStorage.getItem('ldi-locale') || 'pt' })
-    audio.play().catch(() => {})
+    audio.play().catch(() => {
+      // Propaganda não pôde iniciar (política de autoplay / corrida de load):
+      // não deixa a rádio parada num anúncio pausado — segue pra próxima música.
+      if (desligadoRef.current) return
+      emAdRef.current = false
+      const total = filaRef.current.length
+      if (total) tocarIndice((idxRef.current + 1) % total, 'auto')
+    })
     return true
-  }, [proximoAd, atualizarMediaSession])
+  }, [proximoAd, atualizarMediaSession, tocarIndice])
 
   const ligar = useCallback(async (origem = 'auto') => {
     await Promise.all([garantirPool(), garantirAds()])

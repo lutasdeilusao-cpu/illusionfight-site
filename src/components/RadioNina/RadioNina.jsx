@@ -53,9 +53,11 @@ export default function RadioNina() {
     const naBarra = estado === 'barra'
     const noTopo = naBarra && posicao === 'top'
     document.documentElement.style.setProperty('--radio-nina-h', naBarra && !noTopo ? '54px' : '0px')
+    document.documentElement.style.setProperty('--radio-nina-top-h', noTopo ? '54px' : '0px')
     document.body.classList.toggle('radio-nina-top', noTopo)
     return () => {
       document.documentElement.style.setProperty('--radio-nina-h', '0px')
+      document.documentElement.style.setProperty('--radio-nina-top-h', '0px')
       document.body.classList.remove('radio-nina-top')
     }
   }, [estado, posicao])
