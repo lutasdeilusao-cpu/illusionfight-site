@@ -27,7 +27,9 @@
     "vazia": "Marque músicas na lista para montar sua playlist.",
     "volume": "Volume",
     "publicidade": "Publicidade",
-    "fechar_de_vez": "Fechar a rádio"
+    "fechar_de_vez": "Fechar a rádio",
+    "mover_para_cima": "Mover a rádio para cima (acima do menu)",
+    "mover_para_baixo": "Mover a rádio para o rodapé"
   },
   "en": {
     "nome": "Nina Radio",
@@ -57,7 +59,9 @@
     "vazia": "Check tracks in the list to build your playlist.",
     "volume": "Volume",
     "publicidade": "Advertisement",
-    "fechar_de_vez": "Close the radio"
+    "fechar_de_vez": "Close the radio",
+    "mover_para_cima": "Move the radio to the top (above the menu)",
+    "mover_para_baixo": "Move the radio to the bottom"
   },
   "es": {
     "nome": "Radio Nina",
@@ -87,6 +91,8 @@
     "vazia": "Marca pistas en la lista para crear tu playlist.",
     "volume": "Volumen",
     "publicidade": "Publicidad",
-    "fechar_de_vez": "Cerrar la radio"
+    "fechar_de_vez": "Cerrar la radio",
+    "mover_para_cima": "Mover la radio arriba (sobre el menú)",
+    "mover_para_baixo": "Mover la radio al pie de página"
   }
 }

@@ -122,6 +122,42 @@ body {
   to { transform: translateY(0); }
 }
 
+/* ═══════════════════════════════════════════
+   Modo "topo" — a barra fica ACIMA da navbar
+   e empurra a navbar para baixo (body.radio-nina-top).
+   ═══════════════════════════════════════════ */
+.radio-nina--top {
+  top: 0;
+  bottom: auto;
+  z-index: 1001;
+  border-top: none;
+  border-bottom: 1px solid var(--radio-cor);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  padding: calc(env(safe-area-inset-top, 0px)) 12px 3px 12px;
+  animation: radio-nina-descer 0.3s ease;
+}
+
+body.has-desktop-shell-bar .radio-nina--top { top: 34px; }
+
+@keyframes radio-nina-descer {
+  from { transform: translateY(-100%); }
+  to { transform: translateY(0); }
+}
+
+/* Progresso/seek vão para a base da barra no modo topo */
+.radio-nina--top .radio-nina__progresso { top: auto; bottom: 0; }
+.radio-nina--top .radio-nina__seek { top: auto; bottom: -8px; }
+
+/* Popover de volume abre para baixo */
+.radio-nina--top .radio-nina__pop { top: calc(100% + 10px); bottom: auto; }
+
+/* Empurra a navbar do portal para baixo da barra */
+body.radio-nina-top .navbar,
+body.radio-nina-top .navbar.navbar--scrolled { top: 54px; }
+
+body.radio-nina-top.has-desktop-shell-bar .navbar,
+body.radio-nina-top.has-desktop-shell-bar .navbar.navbar--scrolled { top: 88px; }
+
 .radio-nina__face {
   width: 34px;
   height: 34px;
@@ -356,6 +392,18 @@ body {
   box-shadow: 0 -6px 24px rgba(0, 0, 0, 0.35);
   animation: radio-nina-subir 0.25s ease;
 }
+
+.radio-nina-lista--top {
+  bottom: auto;
+  top: 54px;
+  border-top: none;
+  border-bottom: 1px solid var(--radio-cor);
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
+  animation: radio-nina-descer 0.25s ease;
+}
+
+body.has-desktop-shell-bar .radio-nina-lista--top { top: 88px; }
 
 .radio-nina-lista__topo {
   display: flex;

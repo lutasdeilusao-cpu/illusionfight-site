@@ -9,6 +9,8 @@ import './RadioNina.css'
 
 const CANTO_STORAGE = 'ldi-radio-nina-canto'
 const CANTOS = ['tl', 'tr', 'bl', 'br']
+const POS_STORAGE = 'ldi-radio-nina-pos'
+const POSICOES = ['bottom', 'top']
 
 const mmss = (s) => {
   if (!Number.isFinite(s) || s < 0) return '0:00'
@@ -41,12 +43,24 @@ export default function RadioNina() {
   })
   const [arraste, setArraste] = useState(null) // { x, y } durante o drag
   const dragRef = useRef({ ativo: false, moveu: false })
+  const [posicao, setPosicao] = useState(() => {
+    const p = localStorage.getItem(POS_STORAGE)
+    return POSICOES.includes(p) ? p : 'bottom'
+  })
 
-  // A barra reserva espaço no rodapé (variável global lida pelo CSS do site)
+  // A barra reserva espaço: no rodapé (top:bottom) ou empurra a navbar (top:top).
   useEffect(() => {
-    document.documentElement.style.setProperty('--radio-nina-h', estado === 'barra' ? '54px' : '0px')
-    return () => document.documentElement.style.setProperty('--radio-nina-h', '0px')
-  }, [estado])
+    const naBarra = estado === 'barra'
+    const noTopo = naBarra && posicao === 'top'
+    document.documentElement.style.setProperty('--radio-nina-h', naBarra && !noTopo ? '54px' : '0px')
+    document.body.classList.toggle('radio-nina-top', noTopo)
+    return () => {
+      document.documentElement.style.setProperty('--radio-nina-h', '0px')
+      document.body.classList.remove('radio-nina-top')
+    }
+  }, [estado, posicao])
+
+  useEffect(() => { localStorage.setItem(POS_STORAGE, posicao) }, [posicao])
 
   useEffect(() => { localStorage.setItem(CANTO_STORAGE, canto) }, [canto])
 
@@ -131,6 +145,7 @@ export default function RadioNina() {
           logado={logado}
           S={S}
           cor={cor}
+          posicao={posicao}
           cores={CORES_RADIO}
           onCor={setCor}
           onTocar={(k) => tocarKey(k)}
@@ -141,7 +156,7 @@ export default function RadioNina() {
       )}
 
       <aside
-        className={`radio-nina ${tocando ? '' : 'radio-nina--pausado'} ${faixaAtual?.ad ? 'radio-nina--ad' : ''}`}
+        className={`radio-nina radio-nina--${posicao} ${tocando ? '' : 'radio-nina--pausado'} ${faixaAtual?.ad ? 'radio-nina--ad' : ''}`}
         style={{ '--radio-cor': cor }}
       >
         <div className="radio-nina__progresso">
@@ -197,7 +212,14 @@ export default function RadioNina() {
           aria-label={S.playlist}
         >☰</button>
 
-        <button className="radio-nina__btn radio-nina__close" onClick={() => setEstado('mini')} aria-label={S.minimizar}>▾</button>
+        <button
+          className="radio-nina__btn"
+          onClick={() => setPosicao((p) => (p === 'top' ? 'bottom' : 'top'))}
+          aria-label={posicao === 'top' ? S.mover_para_baixo : S.mover_para_cima}
+          title={posicao === 'top' ? S.mover_para_baixo : S.mover_para_cima}
+        >{posicao === 'top' ? '⤓' : '⤒'}</button>
+
+        <button className="radio-nina__btn radio-nina__close" onClick={() => setEstado('mini')} aria-label={S.minimizar}>{posicao === 'top' ? '▴' : '▾'}</button>
       </aside>
     </>
   )
