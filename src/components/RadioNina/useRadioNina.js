@@ -82,6 +82,7 @@ export function useRadioNina() {
   const emAdRef = useRef(false)
   const errosRef = useRef(0)
   const desligadoRef = useRef(false) // true entre fechar() e a próxima ligação: silencia error/ended
+  const avancouRef = useRef(false) // já disparou a virada desta faixa? (dedup ended vs watchdog)
   const semAdsRef = useRef(semAds)
   useEffect(() => { semAdsRef.current = semAds }, [semAds])
   const tocandoRef = useRef(false)
@@ -157,11 +158,20 @@ export function useRadioNina() {
     } catch { /* noop */ }
   }, [])
 
+  // play() com 1 retry curto — em segundo plano / tela bloqueada o 1º play
+  // pode falhar de forma transitória logo após trocar o src.
+  const tentarPlay = useCallback(async (audio) => {
+    try { await audio.play(); return true } catch { /* retry abaixo */ }
+    await new Promise((r) => setTimeout(r, 300))
+    try { await audio.play(); return true } catch { setTocando(false); return false }
+  }, [])
+
   const tocarIndice = useCallback(async (i, origem = 'auto') => {
     const track = filaRef.current[i]
     const audio = audioRef.current
     if (!track || !audio) return
     desligadoRef.current = false
+    avancouRef.current = false
     idxRef.current = i
     origemRef.current = origem
     if (audio.src !== track.url) audio.src = track.url
@@ -169,7 +179,7 @@ export function useRadioNina() {
     setTempo(0)
     setDuracao(0)
     atualizarMediaSession(track.titulo)
-    try { await audio.play() } catch { setTocando(false) }
+    await tentarPlay(audio)
     // Mantém o pool de propaganda quente e no idioma certo, pra que o próximo
     // anúncio possa ser disparado de forma síncrona (ver avancar()).
     if (!semAdsRef.current) garantirAds()
@@ -180,13 +190,14 @@ export function useRadioNina() {
       prepararAdBag()
       prefetch(adBagRef.current[0]?.url)
     }
-  }, [atualizarMediaSession, garantirAds, prefetch, prepararAdBag])
+  }, [atualizarMediaSession, garantirAds, prefetch, prepararAdBag, tentarPlay])
 
   const tocarAd = useCallback(() => {
     const ad = proximoAd()
     const audio = audioRef.current
     if (!ad || !audio) return false
     desligadoRef.current = false
+    avancouRef.current = false
     emAdRef.current = true
     origemRef.current = 'ad'
     audio.src = ad.url
@@ -319,11 +330,29 @@ export function useRadioNina() {
     audio.volume = Number.isFinite(volInicial) ? volInicial : 0.8
     audioRef.current = audio
 
-    const onTime = () => setTempo(audio.currentTime || 0)
+    const onTime = () => {
+      const t = audio.currentTime || 0
+      setTempo(t)
+      // Watchdog de virada: em segundo plano / tela bloqueada o evento 'ended'
+      // às vezes não dispara. Quando faltam ~0.4s, viramos a faixa na mão.
+      const dur = audio.duration || 0
+      if (!avancouRef.current && !desligadoRef.current && dur > 0 && t >= dur - 0.4) {
+        avancouRef.current = true
+        if (!emAdRef.current) {
+          const atual = filaRef.current[idxRef.current]
+          if (atual) trackEvent('radio_completa', { musica: atual.titulo })
+        }
+        avancar()
+      }
+      if ('mediaSession' in navigator && navigator.mediaSession.setPositionState && dur > 0) {
+        try { navigator.mediaSession.setPositionState({ duration: dur, position: Math.min(t, dur) }) } catch { /* noop */ }
+      }
+    }
     const onMeta = () => setDuracao(audio.duration || 0)
     const onPlay = () => {
       setTocando(true)
       errosRef.current = 0
+      if ('mediaSession' in navigator) navigator.mediaSession.playbackState = 'playing'
       if (emAdRef.current) return
       const atual = filaRef.current[idxRef.current]
       if (atual && anunciadaRef.current !== atual.key) {
@@ -332,9 +361,13 @@ export function useRadioNina() {
         trackEvent('radio_play', { musica: atual.titulo, origem: origemRef.current })
       }
     }
-    const onPause = () => setTocando(false)
+    const onPause = () => {
+      setTocando(false)
+      if ('mediaSession' in navigator) navigator.mediaSession.playbackState = 'paused'
+    }
     const onEnded = () => {
-      if (desligadoRef.current) return
+      if (desligadoRef.current || avancouRef.current) return
+      avancouRef.current = true
       if (!emAdRef.current) {
         const atual = filaRef.current[idxRef.current]
         if (atual) trackEvent('radio_completa', { musica: atual.titulo })
