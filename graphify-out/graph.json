@@ -254,56 +254,6 @@
       "norm_label": "13. onde procurar primeiro"
     },
     {
-      "label": "sw.js",
-      "file_type": "code",
-      "source_file": "public/sw.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "public_sw",
-      "community": 141,
-      "norm_label": "sw.js"
-    },
-    {
-      "label": "servirAudio()",
-      "file_type": "code",
-      "source_file": "public/sw.js",
-      "source_location": "L56",
-      "_origin": "ast",
-      "id": "public_sw_serviraudio",
-      "community": 141,
-      "norm_label": "serviraudio()"
-    },
-    {
-      "label": "popularCache()",
-      "file_type": "code",
-      "source_file": "public/sw.js",
-      "source_location": "L75",
-      "_origin": "ast",
-      "id": "public_sw_popularcache",
-      "community": 141,
-      "norm_label": "popularcache()"
-    },
-    {
-      "label": "podarCache()",
-      "file_type": "code",
-      "source_file": "public/sw.js",
-      "source_location": "L85",
-      "_origin": "ast",
-      "id": "public_sw_podarcache",
-      "community": 141,
-      "norm_label": "podarcache()"
-    },
-    {
-      "label": "responderComRange()",
-      "file_type": "code",
-      "source_file": "public/sw.js",
-      "source_location": "L96",
-      "_origin": "ast",
-      "id": "public_sw_respondercomrange",
-      "community": 141,
-      "norm_label": "respondercomrange()"
-    },
-    {
       "label": "useRadioNina.js",
       "file_type": "code",
       "source_file": "src/components/RadioNina/useRadioNina.js",
@@ -414,66 +364,6 @@
       "norm_label": "version.js"
     },
     {
-      "label": "worker.js",
-      "file_type": "code",
-      "source_file": "workers/songs-r2/worker.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "workers_songs_r2_worker",
-      "community": 272,
-      "norm_label": "worker.js"
-    },
-    {
-      "label": "AD_FOLDERS",
-      "file_type": "code",
-      "source_file": "workers/songs-r2/worker.js",
-      "source_location": "L17",
-      "_origin": "ast",
-      "id": "workers_songs_r2_worker_ad_folders",
-      "community": 272,
-      "norm_label": "ad_folders"
-    },
-    {
-      "label": "CORS",
-      "file_type": "code",
-      "source_file": "workers/songs-r2/worker.js",
-      "source_location": "L19",
-      "_origin": "ast",
-      "id": "workers_songs_r2_worker_cors",
-      "community": 272,
-      "norm_label": "cors"
-    },
-    {
-      "label": "json()",
-      "file_type": "code",
-      "source_file": "workers/songs-r2/worker.js",
-      "source_location": "L27",
-      "_origin": "ast",
-      "id": "workers_songs_r2_worker_json",
-      "community": 272,
-      "norm_label": "json()"
-    },
-    {
-      "label": "listarMp3()",
-      "file_type": "code",
-      "source_file": "workers/songs-r2/worker.js",
-      "source_location": "L31",
-      "_origin": "ast",
-      "id": "workers_songs_r2_worker_listarmp3",
-      "community": 272,
-      "norm_label": "listarmp3()"
-    },
-    {
-      "label": "fetch()",
-      "file_type": "code",
-      "source_file": "workers/songs-r2/worker.js",
-      "source_location": "L40",
-      "_origin": "ast",
-      "id": "workers_songs_r2_worker_fetch",
-      "community": 272,
-      "norm_label": "fetch()"
-    },
-    {
       "label": "CORES_RADIO",
       "file_type": "code",
       "source_file": "src/components/RadioNina/useRadioNina.js",
@@ -482,6 +372,116 @@
       "id": "src_components_radionina_useradionina_cores_radio",
       "community": 262,
       "norm_label": "cores_radio"
+    },
+    {
+      "label": "sw.js",
+      "file_type": "code",
+      "source_file": "public/sw.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 141,
+      "norm_label": "sw.js",
+      "id": "public_sw"
+    },
+    {
+      "label": "servirAudio()",
+      "file_type": "code",
+      "source_file": "public/sw.js",
+      "source_location": "L56",
+      "_origin": "ast",
+      "community": 141,
+      "norm_label": "serviraudio()",
+      "id": "public_sw_serviraudio"
+    },
+    {
+      "label": "popularCache()",
+      "file_type": "code",
+      "source_file": "public/sw.js",
+      "source_location": "L75",
+      "_origin": "ast",
+      "community": 141,
+      "norm_label": "popularcache()",
+      "id": "public_sw_popularcache"
+    },
+    {
+      "label": "podarCache()",
+      "file_type": "code",
+      "source_file": "public/sw.js",
+      "source_location": "L85",
+      "_origin": "ast",
+      "community": 141,
+      "norm_label": "podarcache()",
+      "id": "public_sw_podarcache"
+    },
+    {
+      "label": "responderComRange()",
+      "file_type": "code",
+      "source_file": "public/sw.js",
+      "source_location": "L96",
+      "_origin": "ast",
+      "community": 141,
+      "norm_label": "respondercomrange()",
+      "id": "public_sw_respondercomrange"
+    },
+    {
+      "label": "worker.js",
+      "file_type": "code",
+      "source_file": "workers/songs-r2/worker.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 272,
+      "norm_label": "worker.js",
+      "id": "workers_songs_r2_worker"
+    },
+    {
+      "label": "AD_FOLDERS",
+      "file_type": "code",
+      "source_file": "workers/songs-r2/worker.js",
+      "source_location": "L17",
+      "_origin": "ast",
+      "community": 272,
+      "norm_label": "ad_folders",
+      "id": "workers_songs_r2_worker_ad_folders"
+    },
+    {
+      "label": "CORS",
+      "file_type": "code",
+      "source_file": "workers/songs-r2/worker.js",
+      "source_location": "L19",
+      "_origin": "ast",
+      "community": 272,
+      "norm_label": "cors",
+      "id": "workers_songs_r2_worker_cors"
+    },
+    {
+      "label": "json()",
+      "file_type": "code",
+      "source_file": "workers/songs-r2/worker.js",
+      "source_location": "L27",
+      "_origin": "ast",
+      "community": 272,
+      "norm_label": "json()",
+      "id": "workers_songs_r2_worker_json"
+    },
+    {
+      "label": "listarMp3()",
+      "file_type": "code",
+      "source_file": "workers/songs-r2/worker.js",
+      "source_location": "L31",
+      "_origin": "ast",
+      "community": 272,
+      "norm_label": "listarmp3()",
+      "id": "workers_songs_r2_worker_listarmp3"
+    },
+    {
+      "label": "fetch()",
+      "file_type": "code",
+      "source_file": "workers/songs-r2/worker.js",
+      "source_location": "L40",
+      "_origin": "ast",
+      "community": 272,
+      "norm_label": "fetch()",
+      "id": "workers_songs_r2_worker_fetch"
     },
     {
       "label": "RadioNina.jsx",
@@ -34316,79 +34316,6 @@
       "confidence_score": 1.0
     },
     {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "public/sw.js",
-      "source_location": "L85",
-      "weight": 1.0,
-      "source": "public_sw",
-      "target": "public_sw_podarcache",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "public/sw.js",
-      "source_location": "L75",
-      "weight": 1.0,
-      "source": "public_sw",
-      "target": "public_sw_popularcache",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "public/sw.js",
-      "source_location": "L96",
-      "weight": 1.0,
-      "source": "public_sw",
-      "target": "public_sw_respondercomrange",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "public/sw.js",
-      "source_location": "L56",
-      "weight": 1.0,
-      "source": "public_sw",
-      "target": "public_sw_serviraudio",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "public/sw.js",
-      "source_location": "L68",
-      "weight": 1.0,
-      "source": "public_sw_serviraudio",
-      "target": "public_sw_popularcache",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "public/sw.js",
-      "source_location": "L63",
-      "weight": 1.0,
-      "source": "public_sw_serviraudio",
-      "target": "public_sw_respondercomrange",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "public/sw.js",
-      "source_location": "L81",
-      "weight": 1.0,
-      "source": "public_sw_popularcache",
-      "target": "public_sw_podarcache",
-      "confidence_score": 1.0
-    },
-    {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -34571,7 +34498,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L127",
+      "source_location": "L128",
       "weight": 1.0,
       "source": "src_components_radionina_useradionina_useradionina",
       "target": "src_components_radionina_useradionina_embaralhar",
@@ -34582,7 +34509,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L94",
+      "source_location": "L95",
       "weight": 1.0,
       "source": "src_components_radionina_useradionina_useradionina",
       "target": "src_components_radionina_useradionina_buscarpool",
@@ -34593,7 +34520,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L208",
+      "source_location": "L219",
       "weight": 1.0,
       "source": "src_components_radionina_useradionina_useradionina",
       "target": "src_components_radionina_useradionina_filacomabertura",
@@ -34787,78 +34714,6 @@
       "target": "src_config_version"
     },
     {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "workers/songs-r2/worker.js",
-      "source_location": "L17",
-      "weight": 1.0,
-      "source": "workers_songs_r2_worker",
-      "target": "workers_songs_r2_worker_ad_folders",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "workers/songs-r2/worker.js",
-      "source_location": "L19",
-      "weight": 1.0,
-      "source": "workers_songs_r2_worker",
-      "target": "workers_songs_r2_worker_cors",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "workers/songs-r2/worker.js",
-      "source_location": "L40",
-      "weight": 1.0,
-      "source": "workers_songs_r2_worker",
-      "target": "workers_songs_r2_worker_fetch",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "workers/songs-r2/worker.js",
-      "source_location": "L27",
-      "weight": 1.0,
-      "source": "workers_songs_r2_worker",
-      "target": "workers_songs_r2_worker_json",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "workers/songs-r2/worker.js",
-      "source_location": "L31",
-      "weight": 1.0,
-      "source": "workers_songs_r2_worker",
-      "target": "workers_songs_r2_worker_listarmp3",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "workers/songs-r2/worker.js",
-      "source_location": "L51",
-      "weight": 1.0,
-      "source": "workers_songs_r2_worker_fetch",
-      "target": "workers_songs_r2_worker_json",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "workers/songs-r2/worker.js",
-      "source_location": "L51",
-      "weight": 1.0,
-      "source": "workers_songs_r2_worker_fetch",
-      "target": "workers_songs_r2_worker_listarmp3",
-      "confidence_score": 1.0
-    },
-    {
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -34868,6 +34723,151 @@
       "confidence_score": 1.0,
       "source": "src_components_radionina_radionina",
       "target": "src_components_radionina_useradionina_cores_radio"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/sw.js",
+      "source_location": "L85",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "public_sw",
+      "target": "public_sw_podarcache"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/sw.js",
+      "source_location": "L75",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "public_sw",
+      "target": "public_sw_popularcache"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/sw.js",
+      "source_location": "L96",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "public_sw",
+      "target": "public_sw_respondercomrange"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "public/sw.js",
+      "source_location": "L56",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "public_sw",
+      "target": "public_sw_serviraudio"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/sw.js",
+      "source_location": "L68",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "public_sw_serviraudio",
+      "target": "public_sw_popularcache"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/sw.js",
+      "source_location": "L63",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "public_sw_serviraudio",
+      "target": "public_sw_respondercomrange"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "public/sw.js",
+      "source_location": "L81",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "public_sw_popularcache",
+      "target": "public_sw_podarcache"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "workers/songs-r2/worker.js",
+      "source_location": "L17",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "workers_songs_r2_worker",
+      "target": "workers_songs_r2_worker_ad_folders"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "workers/songs-r2/worker.js",
+      "source_location": "L19",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "workers_songs_r2_worker",
+      "target": "workers_songs_r2_worker_cors"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "workers/songs-r2/worker.js",
+      "source_location": "L40",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "workers_songs_r2_worker",
+      "target": "workers_songs_r2_worker_fetch"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "workers/songs-r2/worker.js",
+      "source_location": "L27",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "workers_songs_r2_worker",
+      "target": "workers_songs_r2_worker_json"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "workers/songs-r2/worker.js",
+      "source_location": "L31",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "workers_songs_r2_worker",
+      "target": "workers_songs_r2_worker_listarmp3"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "workers/songs-r2/worker.js",
+      "source_location": "L51",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "workers_songs_r2_worker_fetch",
+      "target": "workers_songs_r2_worker_json"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "workers/songs-r2/worker.js",
+      "source_location": "L51",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "workers_songs_r2_worker_fetch",
+      "target": "workers_songs_r2_worker_listarmp3"
     },
     {
       "relation": "contains",
@@ -105394,5 +105394,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "eebd66eb8c7f89039acff30c79cf263fdd4edae8"
+  "built_at_commit": "65c21b49730594c861442d2ad88453e83caf20d6"
 }

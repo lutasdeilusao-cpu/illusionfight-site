@@ -3,6 +3,11 @@ import { useAuth } from '../../context/AuthContext'
 import { trackEvent } from '../../lib/analytics'
 import CONFIG from './radio-nina.config.json'
 import { carregarPlaylistSalva, salvarPlaylistSalva } from './radio-nina.playlist'
+import ninaArt from '../../assets/images/characters/nina-balloon.png'
+
+// Capa pra tela de bloqueio / notificação de mídia (MediaSession).
+const MS_ARTWORK = ['96x96', '128x128', '192x192', '256x256', '384x384', '512x512']
+  .map((sizes) => ({ src: ninaArt, sizes, type: 'image/png' }))
 
 const {
   base: BASE, cores: CORES, aberturas: ABERTURAS, excluir: EXCLUIR, titulos: TITULOS,
@@ -149,11 +154,14 @@ export function useRadioNina() {
     if (a.src !== url) { try { a.src = url; a.load() } catch { /* noop */ } }
   }, [])
 
-  const atualizarMediaSession = useCallback((titulo) => {
+  const atualizarMediaSession = useCallback((titulo, ad = false) => {
     if (!('mediaSession' in navigator)) return
     try {
       navigator.mediaSession.metadata = new window.MediaMetadata({
-        title: titulo, artist: 'Isaias Leal', album: 'Rádio Nina',
+        title: titulo,
+        artist: ad ? 'Publicidade' : 'Isaias Leal',
+        album: 'Rádio Nina · Illusion Fight',
+        artwork: MS_ARTWORK,
       })
     } catch { /* noop */ }
   }, [])
@@ -204,7 +212,7 @@ export function useRadioNina() {
     setFaixaAtual({ key: 'ad', ad: true })
     setTempo(0)
     setDuracao(0)
-    atualizarMediaSession('Publicidade')
+    atualizarMediaSession('Publicidade', true)
     trackEvent('radio_ad', { ad: ad.key, lang: localStorage.getItem('ldi-locale') || 'pt' })
     // Corrida src/play do Chrome dispara AbortError inofensivo (o áudio toca ao
     // carregar). Só ignoramos: NUNCA pulamos o anúncio — o usuário tem que ouvir.
@@ -413,8 +421,13 @@ export function useRadioNina() {
     set('pause', () => audioRef.current?.pause())
     set('nexttrack', () => pular(1, 'user'))
     set('previoustrack', () => pular(-1, 'user'))
-    return () => ['play', 'pause', 'nexttrack', 'previoustrack'].forEach((a) => set(a, null))
-  }, [pular])
+    set('stop', () => fechar())
+    set('seekto', (d) => {
+      const audio = audioRef.current
+      if (audio && Number.isFinite(d?.seekTime)) audio.currentTime = d.seekTime
+    })
+    return () => ['play', 'pause', 'nexttrack', 'previoustrack', 'stop', 'seekto'].forEach((a) => set(a, null))
+  }, [pular, fechar])
 
   useEffect(() => { garantirPool(); garantirAds() }, [garantirPool, garantirAds])
   useEffect(() => { localStorage.setItem(COR_STORAGE, cor) }, [cor])
