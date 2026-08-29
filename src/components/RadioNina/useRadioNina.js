@@ -144,14 +144,14 @@ export function useRadioNina() {
     return ad
   }, [prepararAdBag])
 
-  // Pré-carrega uma URL (próxima faixa / próximo anúncio) num <audio> mudo e
-  // descartável — só pra aquecer o cache do browser e reduzir o gap.
-  const preloadRef = useRef(null)
+  // Aquece o cache da próxima URL SEM bufferizar áudio na página: um GET leve
+  // aciona o Service Worker (que baixa e guarda o arquivo em disco em segundo
+  // plano) e a gente cancela o corpo na hora. Nada de <audio> extra em RAM.
+  const prefetchRef = useRef(new Set())
   const prefetch = useCallback((url) => {
-    if (!url) return
-    let a = preloadRef.current
-    if (!a) { a = new Audio(); a.preload = 'auto'; a.muted = true; preloadRef.current = a }
-    if (a.src !== url) { try { a.src = url; a.load() } catch { /* noop */ } }
+    if (!url || prefetchRef.current.has(url)) return
+    prefetchRef.current.add(url)
+    fetch(url).then((r) => { try { r.body?.cancel() } catch { /* noop */ } }).catch(() => {})
   }, [])
 
   const atualizarMediaSession = useCallback((titulo, ad = false) => {
@@ -317,7 +317,10 @@ export function useRadioNina() {
 
   const seek = useCallback((segundos) => {
     const audio = audioRef.current
-    if (audio && Number.isFinite(segundos)) audio.currentTime = segundos
+    if (audio && Number.isFinite(segundos)) {
+      audio.currentTime = segundos
+      setTempo(segundos) // resposta imediata do slider (o timeupdate é throttled)
+    }
   }, [])
 
   const salvar = useCallback(async (faixas) => {
@@ -338,12 +341,12 @@ export function useRadioNina() {
     audio.volume = Number.isFinite(volInicial) ? volInicial : 0.8
     audioRef.current = audio
 
+    let ultimoSeg = -1
     const onTime = () => {
       const t = audio.currentTime || 0
-      setTempo(t)
-      // Watchdog de virada: em segundo plano / tela bloqueada o evento 'ended'
-      // às vezes não dispara. Quando faltam ~0.4s, viramos a faixa na mão.
       const dur = audio.duration || 0
+      // Watchdog de virada (todo tick): em segundo plano o 'ended' às vezes não
+      // dispara. Quando faltam ~0.4s, viramos a faixa na mão.
       if (!avancouRef.current && !desligadoRef.current && dur > 0 && t >= dur - 0.4) {
         avancouRef.current = true
         if (!emAdRef.current) {
@@ -351,7 +354,13 @@ export function useRadioNina() {
           if (atual) trackEvent('radio_completa', { musica: atual.titulo })
         }
         avancar()
+        return
       }
+      // React/mediaSession só ~1x por segundo (timeupdate dispara ~4x/s).
+      const seg = Math.floor(t)
+      if (seg === ultimoSeg) return
+      ultimoSeg = seg
+      setTempo(t)
       if ('mediaSession' in navigator && navigator.mediaSession.setPositionState && dur > 0) {
         try { navigator.mediaSession.setPositionState({ duration: dur, position: Math.min(t, dur) }) } catch { /* noop */ }
       }
@@ -407,8 +416,8 @@ export function useRadioNina() {
       audio.removeEventListener('ended', onEnded)
       audio.removeEventListener('error', onError)
       audio.pause()
-      audio.src = ''
-      if (preloadRef.current) { preloadRef.current.src = ''; preloadRef.current = null }
+      audio.removeAttribute('src')
+      try { audio.load() } catch { /* noop */ }
     }
   }, [avancar, tocarIndice])
 
