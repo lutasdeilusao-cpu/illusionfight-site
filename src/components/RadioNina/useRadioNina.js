@@ -88,6 +88,8 @@ export function useRadioNina() {
   const errosRef = useRef(0)
   const desligadoRef = useRef(false) // true entre fechar() e a próxima ligação: silencia error/ended
   const avancouRef = useRef(false) // já disparou a virada desta faixa? (dedup ended vs watchdog)
+  const querTocarRef = useRef(false) // intenção: usuário quer a rádio tocando (mesmo que agora esteja parada)
+  const trocandoRef = useRef(false) // troca de faixa em curso — ignora o 'pause' transitório do swap de src
   const semAdsRef = useRef(semAds)
   useEffect(() => { semAdsRef.current = semAds }, [semAds])
   const tocandoRef = useRef(false)
@@ -144,14 +146,18 @@ export function useRadioNina() {
     return ad
   }, [prepararAdBag])
 
-  // Aquece o cache da próxima URL SEM bufferizar áudio na página: um GET leve
-  // aciona o Service Worker (que baixa e guarda o arquivo em disco em segundo
-  // plano) e a gente cancela o corpo na hora. Nada de <audio> extra em RAM.
+  // Aquece a próxima URL: baixa e joga no ralo (memória mínima — 1 chunk por vez
+  // via WritableStream), o que faz o Service Worker terminar de gravar o arquivo
+  // no cache de disco. É 1 faixa de lookahead; tudo fica cacheado pra sempre.
+  // Respeita "economia de dados" do sistema.
   const prefetchRef = useRef(new Set())
   const prefetch = useCallback((url) => {
     if (!url || prefetchRef.current.has(url)) return
+    if (navigator.connection?.saveData) return
     prefetchRef.current.add(url)
-    fetch(url).then((r) => { try { r.body?.cancel() } catch { /* noop */ } }).catch(() => {})
+    fetch(url)
+      .then((r) => (r.body?.pipeTo ? r.body.pipeTo(new WritableStream()) : null))
+      .catch(() => {})
   }, [])
 
   const atualizarMediaSession = useCallback((titulo, ad = false) => {
@@ -171,7 +177,9 @@ export function useRadioNina() {
   const tentarPlay = useCallback(async (audio) => {
     try { await audio.play(); return true } catch { /* retry abaixo */ }
     await new Promise((r) => setTimeout(r, 300))
-    try { await audio.play(); return true } catch { setTocando(false); return false }
+    // Se falhar de novo NÃO derruba o estado: querTocarRef segue true e a
+    // recuperação (canplay / voltar pro foreground) toca quando der.
+    try { await audio.play(); return true } catch { return false }
   }, [])
 
   const tocarIndice = useCallback(async (i, origem = 'auto') => {
@@ -180,6 +188,8 @@ export function useRadioNina() {
     if (!track || !audio) return
     desligadoRef.current = false
     avancouRef.current = false
+    querTocarRef.current = true
+    trocandoRef.current = true
     idxRef.current = i
     origemRef.current = origem
     if (audio.src !== track.url) audio.src = track.url
@@ -187,7 +197,8 @@ export function useRadioNina() {
     setTempo(0)
     setDuracao(0)
     atualizarMediaSession(track.titulo)
-    await tentarPlay(audio)
+    tentarPlay(audio)
+    setTimeout(() => { trocandoRef.current = false }, 1500)
     // Mantém o pool de propaganda quente e no idioma certo, pra que o próximo
     // anúncio possa ser disparado de forma síncrona (ver avancar()).
     if (!semAdsRef.current) garantirAds()
@@ -206,6 +217,9 @@ export function useRadioNina() {
     if (!ad || !audio) return false
     desligadoRef.current = false
     avancouRef.current = false
+    querTocarRef.current = true
+    trocandoRef.current = true
+    setTimeout(() => { trocandoRef.current = false }, 1500)
     emAdRef.current = true
     origemRef.current = 'ad'
     audio.src = ad.url
@@ -268,14 +282,16 @@ export function useRadioNina() {
   const alternar = useCallback(() => {
     const audio = audioRef.current
     if (!audio) return
-    if (tocandoRef.current) audio.pause()
-    else if (audio.src) audio.play().catch(() => {})
+    if (tocandoRef.current) { querTocarRef.current = false; audio.pause() }
+    else if (audio.src) { querTocarRef.current = true; audio.play().catch(() => {}) }
     else ligar('escolha')
   }, [ligar])
 
   // Fechar de vez: para o áudio, some com a rádio e não pergunta de novo nesta sessão.
   const fechar = useCallback(() => {
     desligadoRef.current = true
+    querTocarRef.current = false
+    trocandoRef.current = false
     const audio = audioRef.current
     if (audio) {
       audio.pause()
@@ -366,7 +382,16 @@ export function useRadioNina() {
       }
     }
     const onMeta = () => setDuracao(audio.duration || 0)
+    // Carregou (talvez após um stall em segundo plano): se o usuário quer ouvir
+    // e está parado, dá play. É o que reata a rádio depois da propaganda quando
+    // o 1º play() da faixa seguinte não pegou.
+    const onCanPlay = () => {
+      if (querTocarRef.current && !desligadoRef.current && audio.paused) {
+        audio.play().catch(() => {})
+      }
+    }
     const onPlay = () => {
+      trocandoRef.current = false
       setTocando(true)
       errosRef.current = 0
       if ('mediaSession' in navigator) navigator.mediaSession.playbackState = 'playing'
@@ -379,6 +404,7 @@ export function useRadioNina() {
       }
     }
     const onPause = () => {
+      if (trocandoRef.current) return // 'pause' transitório do swap de src — não é o usuário pausando
       setTocando(false)
       if ('mediaSession' in navigator) navigator.mediaSession.playbackState = 'paused'
     }
@@ -404,6 +430,8 @@ export function useRadioNina() {
 
     audio.addEventListener('timeupdate', onTime)
     audio.addEventListener('loadedmetadata', onMeta)
+    audio.addEventListener('canplay', onCanPlay)
+    audio.addEventListener('loadeddata', onCanPlay)
     audio.addEventListener('play', onPlay)
     audio.addEventListener('pause', onPause)
     audio.addEventListener('ended', onEnded)
@@ -411,6 +439,8 @@ export function useRadioNina() {
     return () => {
       audio.removeEventListener('timeupdate', onTime)
       audio.removeEventListener('loadedmetadata', onMeta)
+      audio.removeEventListener('canplay', onCanPlay)
+      audio.removeEventListener('loadeddata', onCanPlay)
       audio.removeEventListener('play', onPlay)
       audio.removeEventListener('pause', onPause)
       audio.removeEventListener('ended', onEnded)
@@ -426,8 +456,8 @@ export function useRadioNina() {
     if (!('mediaSession' in navigator)) return
     const ms = navigator.mediaSession
     const set = (a, h) => { try { ms.setActionHandler(a, h) } catch { /* noop */ } }
-    set('play', () => audioRef.current?.play().catch(() => {}))
-    set('pause', () => audioRef.current?.pause())
+    set('play', () => { querTocarRef.current = true; audioRef.current?.play().catch(() => {}) })
+    set('pause', () => { querTocarRef.current = false; audioRef.current?.pause() })
     set('nexttrack', () => pular(1, 'user'))
     set('previoustrack', () => pular(-1, 'user'))
     set('stop', () => fechar())
@@ -460,15 +490,23 @@ export function useRadioNina() {
     }
   }, [user?.id, ligar])
 
-  // Retoma ao focar a aba
+  // Retoma quando volta pro foreground (ou o áudio fica pronto após um stall):
+  // baseia-se na INTENÇÃO (querTocarRef), não no estado atual — o play() da faixa
+  // seguinte pode não ter pego em segundo plano.
   useEffect(() => {
-    const onVis = () => {
-      if (document.visibilityState === 'visible' && tocandoRef.current && audioRef.current?.paused) {
-        audioRef.current.play().catch(() => {})
+    const retomar = () => {
+      const audio = audioRef.current
+      if (querTocarRef.current && !desligadoRef.current && audio && audio.paused && audio.src) {
+        audio.play().catch(() => {})
       }
     }
+    const onVis = () => { if (document.visibilityState === 'visible') retomar() }
     document.addEventListener('visibilitychange', onVis)
-    return () => document.removeEventListener('visibilitychange', onVis)
+    window.addEventListener('focus', retomar)
+    return () => {
+      document.removeEventListener('visibilitychange', onVis)
+      window.removeEventListener('focus', retomar)
+    }
   }, [])
 
   // Aviso antes de recarregar tocando
