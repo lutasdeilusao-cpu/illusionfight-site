@@ -405,8 +405,8 @@
     "semantic_hash": "b11265c546f5970b719233c19e1b2c2d"
   },
   "src/config/version.js": {
-    "mtime": 1788039425.1759613,
-    "ast_hash": "b6d846777c7b4075e64d3eb29a77df3a",
+    "mtime": 1788040075.2771778,
+    "ast_hash": "83f5bd1a78cf99eed595a65909a64f38",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -530,19 +530,19 @@
     "semantic_hash": "6aa32d1abeef1341bdab97bd9df5a4ad"
   },
   "src/data/personagens-en.json": {
-    "mtime": 1781019544.5707686,
-    "ast_hash": "b36b725709da02e22519f5d79621172d",
-    "semantic_hash": "b36b725709da02e22519f5d79621172d"
+    "mtime": 1788040052.3130312,
+    "ast_hash": "0509fbc1e4405a5b9a2d45ec4e95f91b",
+    "semantic_hash": ""
   },
   "src/data/personagens-es.json": {
-    "mtime": 1781019565.452812,
-    "ast_hash": "2eab2cd56fb282bd424498ed8e4ade3f",
-    "semantic_hash": "2eab2cd56fb282bd424498ed8e4ade3f"
+    "mtime": 1788040063.0703585,
+    "ast_hash": "1736ee6457023239d8faa56ca912f5f4",
+    "semantic_hash": ""
   },
   "src/data/personagens-pt.json": {
-    "mtime": 1781019476.7249372,
-    "ast_hash": "aea27b4c08ebbfe826594c2015f81b61",
-    "semantic_hash": "aea27b4c08ebbfe826594c2015f81b61"
+    "mtime": 1788040037.3168366,
+    "ast_hash": "909ce5a60b1dc860f6b609e504503c2c",
+    "semantic_hash": ""
   },
   "src/data/planos.json": {
     "mtime": 1780599115.4540095,
@@ -2830,8 +2830,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1788039425.202433,
-    "ast_hash": "5c38b61b8e0a0c47ac8e78b2867af30d",
+    "mtime": 1788040075.2999623,
+    "ast_hash": "7f423b906874c2c91f623a6570a1b973",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {

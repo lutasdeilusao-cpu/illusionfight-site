@@ -54,5 +54,26 @@
       { "id": "18", "numero": 18, "titulo": "A Coronhada", "titulo_en": "The Pistol-Whip", "titulo_es": "El Culatazo", "data_publicacao": "2026-08-29" },
       { "id": "19", "numero": 19, "titulo": "Sob Minha Proteção", "titulo_en": "Under My Protection", "titulo_es": "Bajo Mi Protección", "data_publicacao": "2026-08-29" }
     ]
+  },
+  {
+    "id": "03",
+    "selo": "Legends",
+    "titulo": "A Banda do Kim e do Jack",
+    "titulo_en": "Kim and Jack's Band",
+    "titulo_es": "La Banda de Kim y Jack",
+    "tagline_pt": "A gente não tem uma banda. O Kim faz questão de deixar isso claro.",
+    "tagline_en": "We don't have a band. Kim insists on making that clear.",
+    "tagline_es": "No tenemos una banda. Kim insiste en dejarlo claro.",
+    "resumo_pt": "Por que o Jack não para de dizer que eles têm uma banda. Contada pelo Kim — com a máxima má vontade possível. Primeira pessoa.",
+    "resumo_en": "Why Jack won't stop saying they have a band. Told by Kim — with the maximum possible reluctance. First person.",
+    "resumo_es": "Por qué Jack no para de decir que tienen una banda. Contada por Kim — con la máxima mala gana posible. Primera persona.",
+    "capitulos": [
+      { "id": "01", "numero": 1, "titulo": "Joaquim", "titulo_en": "Joaquim", "titulo_es": "Joaquim", "data_publicacao": "2026-08-30" },
+      { "id": "02", "numero": 2, "titulo": "Quem Decide", "titulo_en": "Who Decides", "titulo_es": "Quién Decide", "data_publicacao": "2026-08-30" },
+      { "id": "03", "numero": 3, "titulo": "O Violão", "titulo_en": "The Guitar", "titulo_es": "La Guitarra", "data_publicacao": "2026-08-30" },
+      { "id": "04", "numero": 4, "titulo": "O Osvaldo Errado", "titulo_en": "The Wrong Osvaldo", "titulo_es": "El Osvaldo Equivocado", "data_publicacao": "2026-08-30" },
+      { "id": "05", "numero": 5, "titulo": "Smells Like Teen Spirit", "titulo_en": "Smells Like Teen Spirit", "titulo_es": "Smells Like Teen Spirit", "data_publicacao": "2026-08-30" },
+      { "id": "06", "numero": 6, "titulo": "A Bateria", "titulo_en": "The Drum Kit", "titulo_es": "La Batería", "data_publicacao": "2026-08-30" }
+    ]
   }
 ]
