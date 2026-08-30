@@ -405,8 +405,8 @@
     "semantic_hash": "b11265c546f5970b719233c19e1b2c2d"
   },
   "src/config/version.js": {
-    "mtime": 1788040075.2771778,
-    "ast_hash": "83f5bd1a78cf99eed595a65909a64f38",
+    "mtime": 1788105246.1262834,
+    "ast_hash": "0a9a4352d23ff4f61298b39c1044d44f",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2830,8 +2830,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1788040075.2999623,
-    "ast_hash": "7f423b906874c2c91f623a6570a1b973",
+    "mtime": 1788105246.1430576,
+    "ast_hash": "6fbd499daf164b9a4643c545f4d7e1dd",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3795,8 +3795,8 @@
     "semantic_hash": ""
   },
   "src/data/contos-index.json": {
-    "mtime": 1788039415.671117,
-    "ast_hash": "d109eb54946c105daae96d94b259381d",
+    "mtime": 1788105238.171571,
+    "ast_hash": "29e671db7da67293e7f7ae283efca9ea",
     "semantic_hash": ""
   },
   "src/pages/content/ContoCapitulo.jsx": {
@@ -4057,6 +4057,36 @@
   "src/data/livro/contos/pt/02/19.md": {
     "mtime": 1788039452.7927818,
     "ast_hash": "f3d77611279695328ec8ce5fd162bfb6",
+    "semantic_hash": ""
+  },
+  "src/data/livro/contos/pt/03/01.md": {
+    "mtime": 1788105285.605771,
+    "ast_hash": "fa965d203a3585371c3e8941a7a541e9",
+    "semantic_hash": ""
+  },
+  "src/data/livro/contos/pt/03/02.md": {
+    "mtime": 1788105307.7755065,
+    "ast_hash": "980c0e0c1fc29337845edea1c592ee42",
+    "semantic_hash": ""
+  },
+  "src/data/livro/contos/pt/03/03.md": {
+    "mtime": 1788105321.6165183,
+    "ast_hash": "7179bf3e72124a581d343d5663311525",
+    "semantic_hash": ""
+  },
+  "src/data/livro/contos/pt/03/04.md": {
+    "mtime": 1788105188.3299482,
+    "ast_hash": "2960c567f43cce55c430ce1cce992fae",
+    "semantic_hash": ""
+  },
+  "src/data/livro/contos/pt/03/05.md": {
+    "mtime": 1788105341.2400415,
+    "ast_hash": "e84672ad50b49363732e6e070327043f",
+    "semantic_hash": ""
+  },
+  "src/data/livro/contos/pt/03/06.md": {
+    "mtime": 1788105224.9507961,
+    "ast_hash": "e850e8d1a5492a645c80463b9e29572f",
     "semantic_hash": ""
   }
 }
