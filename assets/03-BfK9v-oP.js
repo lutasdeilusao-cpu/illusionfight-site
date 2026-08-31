@@ -1,0 +1,61 @@
+var e=`# CAPÍTULO 3 — Tio e Tia
+
+Vou chamar eles de Tio e Tia.
+
+Os nomes reais eu joguei fora faz tempo, de propósito, e não vou catar no lixo agora só pra fazer bonito na narração. Tio e Tia. Serve.
+
+---
+
+A casa era pequena e tinha uma regra que ninguém falava em voz alta mas todo mundo sabia: cada coisa ali tinha dono, e eu não era dono de nada.
+
+A comida tinha dono. Tinha um armário que eu não abria. Tinha uma prateleira na geladeira que não era minha. O que sobrava do prato dos outros, se sobrasse, aí sim, isso podia ser meu, dependendo do humor da noite.
+
+Eu passei muitos dias com fome ali. Não "sem lanche da tarde" — fome mesmo, a de verdade, a que te acorda e fica. Eu aprendi umas coisas úteis com ela. Aprendi que água enche por um tempo. Aprendi qual vizinho jogava fora o quê e em que dia. Aprendi a dormir cedo porque dormindo você não sente.
+
+---
+
+E eu apanhei. Bastante.
+
+Eu não vou dar detalhe porque detalhe de porrada é chato de ouvir, e além do mais vocês já me viram apanhar do Brock naquele anexo. Pega aquilo, tira a plateia, tira o revide, e põe uma criança de cinco anos no meu lugar. Pronto. Vocês têm a imagem. Não precisa que eu desenhe.
+
+Não era todo dia. Era imprevisível, que é pior. Dia bom e dia ruim usavam a mesma roupa e você só descobria qual era quando já era tarde.
+
+---
+
+Agora presta atenção nessa parte, porque essa é a parte boa e ela é importante pro resto de tudo.
+
+Naqueles dois anos eu ganhei, de graça, a única coisa que eu sei fazer melhor que o Kim.
+
+Eu aprendi a ler o soco antes de quem vai dar o soco saber que vai dar.
+
+Eu decorei o barulho do portão. O jeito que o Tio pisava quando o dia tinha sido ruim, diferente de quando tinha sido normal. O tom da Tia no telefone, que já dizia como ia ser a próxima hora. A demora entre a chave na fechadura e a porta abrir. Cada sinalzinho desses eu catalogava sem saber que tava catalogando, porque a informação valia não apanhar.
+
+Vocês acham que a minha leitura de briga é dom. Que eu nasci sabendo onde o cara vai bater. Não nasci. É trauma com boa apresentação. Aqueles dois me deram um treino que dinheiro nenhum compra, e o preço eu paguei na hora, à vista.
+
+---
+
+Teve uma noite que eu me enfiei atrás da caixa d'água no quintal e fiquei lá até o dia clarear.
+
+Fazia frio. Eu não chorei — já não chorava por essas coisas fazia um tempo, chorar não mudava o placar. Eu só fiquei ali olhando o céu ir ficando cinza e pensei uma coisa bem específica pra uma criança daquela idade.
+
+*Isso aqui não é pra sempre. Alguém decide quando acaba. E vai ser eu.*
+
+Não era um plano ainda. Era só uma frase. Mas eu guardei ela junto com o cheiro de terra molhada e a voz desafinada. Na mesma caixinha.
+
+---
+
+Ah, e a outra parte boa, porque teve duas nesse capítulo.
+
+A Tia fazia pão de vez em quando. Domingo, geralmente. Sei lá por quê — remorso, talvez, ou só vontade de pão. E aquele pão era bom pra caramba. Quentinho, com a casca certa.
+
+Eu odiava aquela mulher e amava aquele pão ao mesmo tempo, com a mesma força, no mesmo domingo. Dá pra fazer as duas coisas de uma vez. Ninguém te conta isso quando você é criança, mas dá.
+
+---
+
+Aí eu fiz seis anos.
+
+Ninguém cantou parabéns. Ninguém comprou nada. Foi um dia igual aos outros.
+
+E foi mais ou menos nesse dia que eu tomei a primeira decisão de verdade da minha vida.
+`;export{e as default};
+//# sourceMappingURL=03-BfK9v-oP.js.map

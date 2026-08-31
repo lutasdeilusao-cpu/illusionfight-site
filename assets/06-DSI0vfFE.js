@@ -1,0 +1,63 @@
+var e=`# CAPÍTULO 6 — Lata e Papelão
+
+Meu primeiro emprego foi lata.
+
+Latinha de alumínio. A matemática é simples: tanto de lata dá tanto de quilo, tanto de quilo dá tanto de dinheiro no ferro-velho. Uma criança consegue fazer essa conta. Eu fazia dormindo.
+
+O segredo não é catar lata. Qualquer um cata lata. O segredo é o calendário.
+
+---
+
+Eu sabia o calendário de lixo de Marélia melhor que o caminhão do lixo.
+
+Terça era ouro. Terça de manhã bem cedo, depois dos bares fecharem e antes do caminhão passar, antes dos outros catadores acordarem. Eu levantava no escuro pra chegar primeiro nos pontos bons.
+
+Vocês acham que eu durmo demais. Eu não durmo demais. Eu durmo rápido, que é uma habilidade completamente diferente, e naquela época eu já tinha ela afiada.
+
+Papelão eu também pegava. Vale menos, é grande, atrapalha. Mas se você amassa bem, empilha e arrasta, o volume compensa. Eu descia a rua parecendo uma parede ambulante de caixa amassada.
+
+---
+
+Aí eu diversifiquei, que é palavra chique pra "arranjei mais de um corre".
+
+Na feira e na rodoviária eu carregava sacola. "Levo pra senhora, tia? Uma moedinha." E eu era bom nisso, porque eu era rápido, era engraçado, e nunca deixava nada cair. Isso gera cliente que volta.
+
+Eu inventei programa de fidelidade antes de saber que isso tinha nome. A dona Marlene, feira de sábado, era sempre eu que carregava. Em troca ela separava as bananas machucadas e me dava de brinde. Todo mundo saía ganhando. Eu chamo isso de economia.
+
+---
+
+E tinha a informação.
+
+Eu andava o bairro todo, então eu sabia das coisas. Quem tinha chegado, quem tinha ido embora, qual esquina tava com a luz queimada, quem tava vendendo o quê e por quanto. Informação de bairro parece que não vale nada. Vale um pouco. Não muito. Mas um pouco vezes muita gente vira alguma coisa.
+
+O crime, é claro, tava ali de braço aberto o tempo todo. Moleque de rua é a mão de obra favorita deles. Eu entendo quem entra — de verdade, eu tento entender, não julgo. Só não era o meu estilo. Eu queria construir uma coisa que fosse minha, e no crime a coisa nunca é sua, você só toma conta dela pros outros.
+
+---
+
+Lata por lata, sacola por sacola, moeda por moeda, eu fui juntando.
+
+Guardava numa lata enterrada — lata guardando dinheiro, a ironia não passou batido nem pra mim. Depois num canto do depósito do Seu Nestor que o gato vigiava. E lá pelos meus nove anos eu tinha o suficiente pra primeira barraca.
+
+Barraca é uma palavra grande demais. Era um engradado, uma tábua por cima, um plástico pra chuva. Mercadoria era o que eu conseguisse comprar barato e vender um pouquinho mais caro. Chiclete, bala, pilha, isqueiro. O básico.
+
+---
+
+A essa altura eu e o Kim já era eu-e-o-Kim.
+
+A gente nunca sentou pra decidir isso. Simplesmente, um dia, já era. Ele no busão com as bala dele, eu na minha barraca. A gente brigava, trabalhava, brigava de novo, dividia o que um tinha quando o outro não tinha. Irmão sem cerimônia de posse.
+
+E tinha o cara. Uma vez por mês a gente subia e brigava com um cara.
+
+Eu não lembro o nome dele. Juro por tudo. Era terça, ou quarta — segunda? Não fixava. O Kim lembra cada detalhe dessa história, vai perguntar pro Kim. Eu lembro que a gente ia, apanhava, descia, e no mês seguinte ia de novo. Ficou arquivado em mim na pasta "coisas que aconteciam". O Kim guarda numa pasta com etiqueta e ordem alfabética. Eu não. Cada um processa do seu jeito, e o meu jeito é não segurar.
+
+---
+
+A parte boa desse capítulo é a melhor de todas até agora.
+
+Eu descobri que eu era bom nisso. Bom de verdade.
+
+Pega nada e transforma em alguma coisa — isso é um jogo, e eu ganho esse jogo. Sabe quando o Kim entra numa briga e você vê no rosto dele que ele já sabe como aquilo termina? Essa mesma cara eu faço na frente de um saco de latinha vazia. Eu olho pro lixo e já vejo a grana.
+
+Com a primeira barraca de pé, eu fiz a conta de novo e vi uma coisa: dava pra ter duas.
+`;export{e as default};
+//# sourceMappingURL=06-DSI0vfFE.js.map
