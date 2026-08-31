@@ -1,0 +1,65 @@
+var e=`# CAPÍTULO 4 — A Porta
+
+Vocês estão esperando a cena de saída. Eu sei que estão. Trovão lá fora, mochila nas costas, um discurso na porta, a criança olhando pra trás uma última vez com a trilha sonora subindo.
+
+Não teve nada disso.
+
+Eu saí num dia de semana qualquer, de tarde, pela porta da frente, que nem tava trancada. Virei a esquina. E fui virando esquina atrás de esquina até a casa sumir do mapa.
+
+---
+
+Eu não corri.
+
+Isso é importante. Correr é o que você faz quando tem alguém atrás de você. E não tinha ninguém atrás de mim.
+
+Ninguém veio. Essa é a parte que, no papel, devia doer — e que na hora foi o maior alívio da minha vida até então. Porque se tivessem vindo atrás, eu ia ter que voltar. Uma criança de cinco anos não ganha essa discussão. Mas ninguém veio. Então, sinceramente: obrigado.
+
+---
+
+Ficou um monte de criança lá dentro. Eu sei disso.
+
+Eu penso nisso às vezes, principalmente quando alguém tenta me chamar de corajoso. Eu não salvei ninguém. Eu mal consegui me tirar de lá. Levar mais alguém junto não passou pela minha cabeça, e se tivesse passado, não ia ter como. Cinco anos, sozinho — mal cabia eu dentro daquela decisão.
+
+Essa parte não tem lado bom. Eu procurei. Não tem.
+
+---
+
+Foi ali, andando, que a coisa aconteceu dentro de mim.
+
+Eu fiz a primeira escolha da minha vida. E cara, foi tão boa a sensação — escolher, decidir, ser eu apertando o botão — que eu nunca mais parei.
+
+Desde aquele dia, tudo que aconteceu comigo teve um pedaço meu na decisão. Às vezes um pedaço grande. Às vezes um pedaço minúsculo, do tamanho de escolher como reagir a uma coisa que eu não pedi. Mas sempre teve. Quem escolheu fui eu.
+
+Porque assim escolheu o Jack.
+
+---
+
+Deixa eu te explicar a minha filosofia, já que a gente chegou nela.
+
+Tudo que aconteceu comigo antes daquela porta foi coisa que aconteceu comigo. Eu nasci onde nasci. Fui dado pra quem fui dado. Apanhei de quem apanhei. Nada disso passou pela minha mesa pra eu assinar. Era tudo irracional, tudo fora do meu controle.
+
+E eu não gasto energia lutando contra o irracional. Você não soca a chuva. Você não discute com o terremoto. Você acha um beiral, espera passar, e usa o tempo pra pensar no próximo passo.
+
+O Kim luta contra tudo. É o jeito dele, e funciona pra ele. Eu não. Eu desvio do que não dá pra vencer e vou com força total no que dá. A gente chega no mesmo lugar por estradas diferentes.
+
+---
+
+A primeira noite sozinho foi apavorante.
+
+Frio, escuro, cada barulho parecendo um problema vindo na minha direção. Eu me encolhi num vão entre dois muros e fiquei de olho aberto metade da noite.
+
+E aí, na outra metade, eu dormi. Dormi o sono inteiro.
+
+Foi a primeira vez em três anos que isso aconteceu. Sozinho é assustador, não vou mentir. Mas sozinho ninguém te acorda no susto. Ninguém pisa diferente no corredor. O medo do escuro é grande, mas ele é burro e não tem mão. Eu troquei um medo esperto por um medo burro, e foi o melhor negócio que eu já fiz.
+
+---
+
+Eu andei na direção das luzes.
+
+Aquele monte de luz junto que eu tinha visto da carroceria anos antes. Marélia. Uma cidade tem mais esquina, e mais esquina quer dizer mais lugar pra não ser visto, e mais coisa caindo de bolso.
+
+Marélia me recebeu do jeito que ela recebe todo mundo: sem olhar na minha cara.
+
+E eu adorei. Pra quem tá começando do zero, não ter ninguém te olhando é quase um presente.
+`;export{e as default};
+//# sourceMappingURL=04-LoeX8Htr.js.map
