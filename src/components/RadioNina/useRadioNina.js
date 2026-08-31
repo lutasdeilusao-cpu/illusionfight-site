@@ -44,11 +44,13 @@ async function buscarPool() {
     .map((t) => ({ key: t.key, url: `${BASE}/${encodeURIComponent(t.key)}`, titulo: tituloDe(t.key) }))
 }
 
-function filaComAbertura(pool, locale) {
-  const aberturaKey = ABERTURAS[locale] || ABERTURAS.pt
-  const abertura = pool.find((t) => t.key === aberturaKey)
+function filaComAbertura(pool) {
+  // 1ª faixa = uma das 3 aberturas (pt/es/en) sorteada — não fica sempre a mesma.
+  const aberturas = pool.filter((t) => ABERTURA_KEYS.includes(t.key))
   const resto = embaralhar(pool.filter((t) => !ABERTURA_KEYS.includes(t.key)))
-  return abertura ? [abertura, ...resto] : embaralhar(pool)
+  if (!aberturas.length) return embaralhar(pool)
+  const primeira = aberturas[Math.floor(Math.random() * aberturas.length)]
+  return [primeira, ...resto]
 }
 
 const TIERS_SEM_AD = ['elite', 'primordial', 'moderator', 'admin']
@@ -75,7 +77,6 @@ export function useRadioNina() {
   const filaRef = useRef([])
   const idxRef = useRef(0)
   const carregandoRef = useRef(false)
-  const localeRef = useRef(localStorage.getItem('ldi-locale') || 'pt')
   const origemRef = useRef('auto')
   const anunciadaRef = useRef(null)
   // Propagandas: pool do idioma + shuffle-bag sem repetir a última, 1 a cada N músicas
@@ -238,7 +239,7 @@ export function useRadioNina() {
 
   const ligar = useCallback(async (origem = 'auto') => {
     await Promise.all([garantirPool(), garantirAds()])
-    filaRef.current = filaComAbertura(poolRef.current, localeRef.current)
+    filaRef.current = filaComAbertura(poolRef.current)
     contadorRef.current = 0
     emAdRef.current = false
     prepararAdBag() // shuffle da propaganda já na largada
