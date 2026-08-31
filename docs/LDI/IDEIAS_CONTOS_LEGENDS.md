@@ -33,7 +33,58 @@ Isso dá unidade ao selo — mas é o **limite**. Próximo conto não pode ser m
 
 ## TIER 1 — fazer primeiro
 
-### A. Conto do Jack  ⭐ prioridade
+### A. Conto do Jack  ✅ PARTE 1 PUBLICADA (id 05, v10.198.90, 2026-08-31)
+
+**Decisão tomada: Opção A** — Jack sozinho no mundo desde criança. Descartadas:
+a versão "pai muito legal" (antiga, vaga) e a versão "pais drogados → avós bondosos"
+(dava rede de proteção que o Isaias NÃO quer — a vida do Jack tem que ser tão dura
+quanto a do Kim, só encarada com perspectiva oposta).
+
+**Canon estabelecido na Parte 1** (7 caps, POV Jack, tom stand-up/teatral):
+- Nasceu no interior de Bravara, família paupérrima. Entregue a "uns tios" (Tio e
+  Tia, sem nome) por volta dos 4 anos. ~2 anos de fome e surra.
+- Aos 6 saiu de casa sozinho, nunca mais voltou. Não sabe onde estão pais nem tios,
+  e prefere assim. Filosofia: "não luto contra o irracional".
+- Refrão: **"Porque assim escolheu o Jack"** — aos 6 fez a 1ª escolha da vida e
+  desde então sempre escolhe.
+- Regra do Jack: "toda merda tem uma parte boa, você só tem que ser rápido pra
+  achar antes que afunde". Motivo recorrente em cada capítulo.
+- Rua em Marélia: dormia escondido no depósito da loja do **Seu Nestor** (velho,
+  nunca soube — ou fez que não). Gato da loja. Fase de pedir comida → percebeu que
+  "dó azeda" → virou empreendedor.
+- Corre: latinha (sabia o calendário do lixo, "terça é ouro"), papelão, carregar
+  sacola na feira (dona Marlene), vender informação de bairro. Recusou o crime
+  ("no crime a coisa nunca é sua").
+- ~9 anos: 1ª barraca. ~10-11: 2ª barraca + moleque de confiança (**Pedrinho**),
+  usa o nome do Kim como segurança de graça. Arbitragem: compra cabo/carregador/
+  caixinha de som no centro, vende mais caro no Morro ("vendo o direito de não ir
+  no centro"). Recruta moleques de rua "firmeza", paga certo ("é planilha, não
+  bondade"). Aluga casa pra criança pagando 3 meses adiantado em espécie.
+- **Ninguém sabe como o Jack ganha dinheiro** (nem Kim nem Nina) — de propósito,
+  ele mantém o mistério. Verdade = lata + papelão + cabo de celular + firma de
+  moleque.
+- Cabelo verde = 1ª compra não-essencial ("porque eu podia, não tinha ninguém pra
+  fazer cara de 'vai sair assim?'").
+- Conheceu o Kim aos ~7 (trombada na esquina, ver [[conto-03-a-banda-e-o-osvaldo-rockeiro]]);
+  no dia seguinte foi o **Jack** que procurou o Kim de volta (Kim testou por anos,
+  Jack decidiu no 2º dia — contraste).
+- A briga mensal com o Campeão (Alan): Jack **não lembra o nome nem o dia**, de
+  propósito ("cada um processa do seu jeito, o meu é não segurar"). Cross-ref
+  [[crime-organizado-marelia]].
+- "A coisa boa" final da Parte 1: ele construiu "um lugar cheio de gente que
+  aparece" — o oposto de onde cresceu. (Explica por que puxa a Nina pra dentro na
+  linha principal.)
+
+**Parte 2 pendente** — o Isaias disse: "vai ter um peso, chega num point de clima".
+Fim do cap 7 deixa gancho contido (sem inventar plot): "tem uma outra parte, essa
+eu ainda tô decidindo como conto". Só PT; sem en/es.
+
+Peso classificado **pesada** (conteúdo: abandono + abuso infantil + rua aos 6),
+apesar do tom cômico — pode virar "média", decisão do Isaias.
+
+---
+
+### (arquivado) Ideia original do conto do Jack  ⭐ prioridade
 - **Por quê:** é o buraco óbvio. Kim tem conto (03), Nina tem (04), Alan tem o
   anti-conto (02). O Jack não tem nada. Não sabemos da família dele, por que ele
   dorme em qualquer lugar (cap 15), por que a indiferença às consequências é
