@@ -40,47 +40,59 @@ a versão "pai muito legal" (antiga, vaga) e a versão "pais drogados → avós 
 (dava rede de proteção que o Isaias NÃO quer — a vida do Jack tem que ser tão dura
 quanto a do Kim, só encarada com perspectiva oposta).
 
-**Canon estabelecido na Parte 1** (7 caps, POV Jack, tom stand-up/teatral):
-- Nasceu no interior de Bravara, família paupérrima. Entregue a "uns tios" (Tio e
-  Tia, sem nome) por volta dos 4 anos. ~2 anos de fome e surra.
-- Aos 6 saiu de casa sozinho, nunca mais voltou. Não sabe onde estão pais nem tios,
-  e prefere assim. Filosofia: "não luto contra o irracional".
-- Refrão: **"Porque assim escolheu o Jack"** — aos 6 fez a 1ª escolha da vida e
-  desde então sempre escolhe.
-- Regra do Jack: "toda merda tem uma parte boa, você só tem que ser rápido pra
-  achar antes que afunde". Motivo recorrente em cada capítulo.
-- Rua em Marélia: dormia escondido no depósito da loja do **Seu Nestor** (velho,
-  nunca soube — ou fez que não). Gato da loja. Fase de pedir comida → percebeu que
-  "dó azeda" → virou empreendedor.
-- Corre: latinha (sabia o calendário do lixo, "terça é ouro"), papelão, carregar
-  sacola na feira (dona Marlene), vender informação de bairro. Recusou o crime
-  ("no crime a coisa nunca é sua").
-- ~9 anos: 1ª barraca. ~10-11: 2ª barraca + moleque de confiança (**Pedrinho**),
-  usa o nome do Kim como segurança de graça. Arbitragem: compra cabo/carregador/
-  caixinha de som no centro, vende mais caro no Morro ("vendo o direito de não ir
-  no centro"). Recruta moleques de rua "firmeza", paga certo ("é planilha, não
-  bondade"). Aluga casa pra criança pagando 3 meses adiantado em espécie.
-- **Ninguém sabe como o Jack ganha dinheiro** (nem Kim nem Nina) — de propósito,
-  ele mantém o mistério. Verdade = lata + papelão + cabo de celular + firma de
-  moleque.
-- Cabelo verde = 1ª compra não-essencial ("porque eu podia, não tinha ninguém pra
-  fazer cara de 'vai sair assim?'").
-- Conheceu o Kim aos ~7 (trombada na esquina, ver [[conto-03-a-banda-e-o-osvaldo-rockeiro]]);
-  no dia seguinte foi o **Jack** que procurou o Kim de volta (Kim testou por anos,
-  Jack decidiu no 2º dia — contraste).
-- A briga mensal com o Campeão (Alan): Jack **não lembra o nome nem o dia**, de
-  propósito ("cada um processa do seu jeito, o meu é não segurar"). Cross-ref
+**Canon da Parte 1** (7 caps, POV Jack, stand-up/teatral; revisado v10.198.91):
+
+TIMELINE: 0-2 com os pais → 2-5 casa dos tios → 5-7 sozinho na rua → **conhece o
+Kim aos 7** → 7-9+ o corre cresce com o Kim já por perto → ~17 estabelecido.
+
+- Nasceu na parte alta de Bravara, região de **canavial / sertão / seca**. Pais
+  **humildes que o amavam** e cortavam cana, sem como criá-lo. Entregue "aos tios"
+  aos **2 anos** — quase não teve contato com os pais, não lembra o rosto ("o corpo
+  guardou a temperatura, não o rosto" — paralelo com [[conto-04-passado-da-nina]]).
+- **Os tios catam crianças de parentes pobres pelo sertão** porque cada criança em
+  casa = mais grana do governo ("suporte a família numerosa"). Casa **cheia de
+  crianças**. Tio e Tia (sem nome) terríveis: fome organizada, surra imprevisível,
+  "a gente era número". Um menino mais velho protegia os menores e "foi pra outro
+  tio".
+- Aos **5** saiu sozinho, nunca voltou. Deixou as outras crianças — "essa parte não
+  tem lado bom". Filosofia: "não luto contra o irracional, acho um beiral".
+- Refrão **"Porque assim escolheu o Jack"** — 1ª escolha aos 5.
+- Regra do Jack: "toda merda tem uma parte boa, tem que ser rápido pra achar".
+- Rua em Marélia (5-7): dormia na loja do **Seu Nestor**, gato. Pediu → "dó azeda"
+  → decidiu virar empreendedor.
+- **O CORRE = ENTREGAS.** Largou lata/papelão ("lixo não multiplica"). O negócio:
+  entrega, a pé e depois **de bike** ("a bike me deu alcance, não velocidade").
+  Barracas: compra cabo/carregador/caixinha de som no centro, revende no Morro
+  ("vendo o direito de não ir no centro"). Recusou o crime.
+- ~8-9+ (Kim já por perto, **não sabe o tamanho do corre do Jack**): firma de
+  moleques. **Pedrinho** = 1º funcionário, usa o nome do Kim como segurança.
+  Recruta moleques "firmeza", paga certo ("planilha, não bondade").
+- ~17: **bem estabelecido pra jovem sem família** — grana, casa alugada (3 meses
+  adiantados em espécie).
+- Pegada: **"não mexe com a minha ganância"** — não deixa passar oportunidade de
+  ganhar. "Um dia vai me trazer encrenca."
+- **Ninguém sabe como o Jack ganha dinheiro** — de propósito.
+- Cabelo verde = 1ª compra supérflua.
+- Conheceu o Kim aos **7** (trombada, ver [[conto-03-a-banda-e-o-osvaldo-rockeiro]]);
+  o Jack procurou de volta no 2º dia (Kim testou por anos).
+- Briga mensal com o Campeão/Alan: Jack não lembra nome nem dia, de propósito.
   [[crime-organizado-marelia]].
-- "A coisa boa" final da Parte 1: ele construiu "um lugar cheio de gente que
-  aparece" — o oposto de onde cresceu. (Explica por que puxa a Nina pra dentro na
-  linha principal.)
 
-**Parte 2 pendente** — o Isaias disse: "vai ter um peso, chega num point de clima".
-Fim do cap 7 deixa gancho contido (sem inventar plot): "tem uma outra parte, essa
-eu ainda tô decidindo como conto". Só PT; sem en/es.
+**SEMENTE DA EMPRESA "O CORRE"** (decisão do Isaias — ele queria há tempo que Jack
++ Kim montassem uma empresa no fim de um arco, sem saber qual). Jack, pedalando e
+fazendo o corre dos outros, sacou o padrão: "todo mundo tem um corre que não quer
+fazer, e paga pra não fazer". Ideia = app/plataforma **O Corre**: pessoas postam
+serviço + valor, outras fazem (buscar no aeroporto, companhia a idoso, pegar fila,
+esperar entrega, etc). "Onde você faz o corre quando não pode fazer o corre." Jack
+já tem o nome; sabe que "não se monta sozinho, é departamento de outra pessoa" (=
+Kim: estrutura, regra). **É o destino de longo prazo do arco Jack+Kim**; a Parte 1
+só planta a semente.
 
-Peso classificado **pesada** (conteúdo: abandono + abuso infantil + rua aos 6),
-apesar do tom cômico — pode virar "média", decisão do Isaias.
+**Parte 2 pendente** — "vai ter um peso, chega num point de clima" (Isaias). Cap 7
+termina com gancho contido. Só PT.
+
+Peso **pesada** (abandono + abuso infantil + rua aos 5), apesar do tom cômico —
+pode virar "média", decisão do Isaias.
 
 ---
 
