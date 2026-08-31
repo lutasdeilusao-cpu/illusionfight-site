@@ -1,0 +1,73 @@
+var e=`# CAPÍTULO 3 — Essa É a Vida
+
+Aos nove anos a gente se mudou de novo.
+
+Eu já estava acostumada. Fazia as malas no automático, sabendo que do outro lado tinha um quarto maior, uma cama nova, uma cidade pra ignorar.
+
+Só que dessa vez a casa era outra coisa.
+
+Dois cômodos. Chão de cimento queimado. Uma pia que pingava. A cama era um colchão no chão do quarto que era meu e do meu pai ao mesmo tempo, separado por uma cortina.
+
+Eu fiquei parada na porta com a mala na mão sem entender.
+
+---
+
+— Pai, cadê a minha parte da casa?
+
+— É essa, Nina.
+
+— E a piscina.
+
+— Não tem piscina.
+
+— E a Dona que cozinha.
+
+— Sou eu que cozinho agora. Você vai aprender também.
+
+Eu pedi outras dez coisas naquela primeira semana. A resposta foi "não" pra todas. Não tem, não dá, não vai ter.
+
+Eu chorei, gritei, fiz birra no chão como eu sempre tinha feito. E pela primeira vez na vida, não aconteceu nada. Ninguém correu. Ninguém trouxe. O meu pai só esperou eu terminar, e quando eu terminei, o "não" ainda estava lá.
+
+---
+
+Eu passei meses achando que o meu pai tinha ficado pobre.
+
+Fazia sentido. Um dia a gente tinha tudo, no outro a gente não tinha nada. Eu já tinha ouvido histórias de gente que quebrou. Achei que era isso.
+
+Toda vez que eu perguntava o que tinha acontecido, ele respondia a mesma frase, sempre igual, sem raiva:
+
+— Essa é a vida agora.
+
+E eu, aos poucos, fui parando de perguntar. Fui entendendo que aquela era a vida agora. A escola virou escola pública. A roupa virou a roupa que dava. O almoço virou o que tinha na geladeira, e a geladeira nem sempre tinha.
+
+Eu levei quase um ano pra parar de esperar a vida antiga voltar.
+
+---
+
+As primeiras semanas foram uma guerra de birra contra o silêncio.
+
+Eu me trancava no lado da cortina que era meu e ficava sem falar por dias. O meu pai não implorava. Ele deixava o prato na minha frente na hora da comida, falava "tá aqui", e ia comer o dele. Se eu não comesse, ele guardava, e a próxima refeição era a mesma comida requentada. Não por castigo. Porque não tinha outra.
+
+Eu descobri que fazer birra sem plateia é a coisa mais inútil do mundo. Você grita, cansa, e no fim está só você e o teto de laje.
+
+Um dia eu virei a mesa — literalmente, empurrei a mesinha e o prato foi junto. O meu pai olhou o arroz espalhado no cimento, pegou a vassoura, me entregou a vassoura, e falou:
+
+— Esse era o teu jantar. Limpa, e amanhã a gente vê.
+
+Eu limpei chorando. E naquela noite eu dormi com fome pela primeira vez na vida. Não foi a última.
+
+---
+
+O que me pegou não foi a fome. Foi a matemática.
+
+Antes, tudo que eu queria aparecia, então eu nunca tinha aprendido a querer direito. Ali, pela primeira vez, um pedido tinha custo. Se eu quisesse o tênis, alguma outra coisa não ia dar. Se eu estragasse o material da escola, ele não ia ser trocado.
+
+Foi horrível e foi a melhor aula que eu já tive. Só que eu só fui reconhecer isso anos depois.
+
+Na época eu só sabia repetir a pergunta, e ele só sabia repetir a resposta.
+
+— O que foi que aconteceu com a gente, pai?
+
+— Essa é a vida agora, Nina.
+`;export{e as default};
+//# sourceMappingURL=03-C34bwiFr.js.map

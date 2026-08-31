@@ -1,0 +1,55 @@
+var e=`# CAPÍTULO 7 — O Medo
+
+— Eu tentei comprar o teu amor.
+
+Ele falou assim, sem enfeite.
+
+— Sem a Elizabeth do meu lado pra me segurar, eu virei um pai burro. Eu tinha pânico de você não gostar de mim. Pânico. Então eu me convenci de que, se eu te desse tudo, você ia me amar. Cada presente era um pedido de desculpa por eu não saber fazer o resto.
+
+— E deu certo por um tempo. Você me amava e amava as coisas junto, e eu não conseguia mais separar as duas.
+
+---
+
+— Aos teus nove anos eu percebi o tamanho da merda que eu tinha feito.
+
+Ele usou a palavra difícil só uma vez, e foi essa.
+
+— Você tinha virado uma criança impossível. Não por maldade — você era criança. Mas você estava abusando de um poder que não era seu. De um status que não era seu. Tudo o que você tinha, Nina, fui eu que conquistei. Você ainda ia ter que conquistar as tuas próprias coisas, e você não estava nem olhando pra isso. Você se sentia superior. E isso me deixava triste de um jeito que eu não sabia carregar.
+
+— Eu sabia que dali só ia piorar. Então, na mudança seguinte, eu escolhi a pior casa que eu achei e cortei tudo. De uma vez.
+
+---
+
+Eu fiquei um tempo processando.
+
+— Espera. — Falei. — Você TEM dinheiro.
+
+— Tenho, Nina.
+
+— Mas a gente ficou pobre aos meus nove anos. Você disse que era a vida agora.
+
+— E era. Eu não menti uma palavra. Aquela passou a ser a vida. — Ele deu um sorriso torto. — Mas você achou que foi porque a gente quebrou. A gente não quebrou. Vivendo daquele jeito, gastando quase nada, guardando tudo... eu tô mais rico hoje do que era antes de te tirar a piscina.
+
+— Eu não acredito que você fez isso comigo.
+
+— Fiz pro teu bem. Você precisava dessa lição.
+
+— Que lição maluca, pai.
+
+— Pois é. — Ele deu de ombros. — Mas olha pra você agora.
+
+---
+
+E ele olhou. De verdade, demorado.
+
+— Você virou a cópia da Elizabeth. Forte. Decidida. Do tipo que nunca vai abaixar a cabeça pra ninguém. Às vezes eu acho que pesei a mão — mas aí eu te vejo e penso que talvez tenha sido a mão certa. Você é a tua mãe por inteiro, Nina. É bizarro de tão parecido.
+
+Ele fez uma pausa e a voz mudou.
+
+— A única coisa que me preocupa é que você ficou independente demais. Você não tem gente ao teu lado. Amigo de verdade, pessoa que fica. Eu tenho os meus — foram eles que me ergueram quando a Elizabeth morreu. Você ainda não achou os teus.
+
+— E eu preciso? — Eu perguntei.
+
+— Precisa. — Ele falou. — Todo mundo precisa. Até você.
+`;export{e as default};
+//# sourceMappingURL=07-1ejYMwiL.js.map
