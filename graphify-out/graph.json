@@ -254,44 +254,114 @@
       "norm_label": "13. onde procurar primeiro"
     },
     {
-      "label": "Farol.jsx",
+      "label": "useRadioNina.js",
       "file_type": "code",
-      "source_file": "src/components/Farol/Farol.jsx",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_components_farol_farol",
-      "community": 287,
-      "norm_label": "farol.jsx"
+      "id": "src_components_radionina_useradionina",
+      "community": 262,
+      "norm_label": "useradionina.js"
     },
     {
-      "label": "PESOS",
+      "label": "MS_ARTWORK",
       "file_type": "code",
-      "source_file": "src/components/Farol/Farol.jsx",
-      "source_location": "L4",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L9",
       "_origin": "ast",
-      "id": "src_components_farol_farol_pesos",
-      "community": 287,
-      "norm_label": "pesos"
+      "id": "src_components_radionina_useradionina_ms_artwork",
+      "community": 262,
+      "norm_label": "ms_artwork"
     },
     {
-      "label": "pesoIndex()",
+      "label": "ABERTURA_KEYS",
       "file_type": "code",
-      "source_file": "src/components/Farol/Farol.jsx",
-      "source_location": "L6",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L19",
       "_origin": "ast",
-      "id": "src_components_farol_farol_pesoindex",
-      "community": 287,
-      "norm_label": "pesoindex()"
+      "id": "src_components_radionina_useradionina_abertura_keys",
+      "community": 262,
+      "norm_label": "abertura_keys"
     },
     {
-      "label": "Farol()",
+      "label": "marcarSessao()",
       "file_type": "code",
-      "source_file": "src/components/Farol/Farol.jsx",
-      "source_location": "L16",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L23",
       "_origin": "ast",
-      "id": "src_components_farol_farol_farol",
-      "community": 287,
-      "norm_label": "farol()"
+      "id": "src_components_radionina_useradionina_marcarsessao",
+      "community": 262,
+      "norm_label": "marcarsessao()"
+    },
+    {
+      "label": "sessaoRespondida()",
+      "file_type": "code",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L24",
+      "_origin": "ast",
+      "id": "src_components_radionina_useradionina_sessaorespondida",
+      "community": 262,
+      "norm_label": "sessaorespondida()"
+    },
+    {
+      "label": "tituloDe()",
+      "file_type": "code",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L26",
+      "_origin": "ast",
+      "id": "src_components_radionina_useradionina_titulode",
+      "community": 262,
+      "norm_label": "titulode()"
+    },
+    {
+      "label": "embaralhar()",
+      "file_type": "code",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L29",
+      "_origin": "ast",
+      "id": "src_components_radionina_useradionina_embaralhar",
+      "community": 262,
+      "norm_label": "embaralhar()"
+    },
+    {
+      "label": "buscarPool()",
+      "file_type": "code",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L38",
+      "_origin": "ast",
+      "id": "src_components_radionina_useradionina_buscarpool",
+      "community": 262,
+      "norm_label": "buscarpool()"
+    },
+    {
+      "label": "filaComAbertura()",
+      "file_type": "code",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L47",
+      "_origin": "ast",
+      "id": "src_components_radionina_useradionina_filacomabertura",
+      "community": 262,
+      "norm_label": "filacomabertura()"
+    },
+    {
+      "label": "TIERS_SEM_AD",
+      "file_type": "code",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L56",
+      "_origin": "ast",
+      "id": "src_components_radionina_useradionina_tiers_sem_ad",
+      "community": 262,
+      "norm_label": "tiers_sem_ad"
+    },
+    {
+      "label": "useRadioNina()",
+      "file_type": "code",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L58",
+      "_origin": "ast",
+      "id": "src_components_radionina_useradionina_useradionina",
+      "community": 262,
+      "norm_label": "useradionina()"
     },
     {
       "label": "version.js",
@@ -304,14 +374,64 @@
       "norm_label": "version.js"
     },
     {
+      "label": "CORES_RADIO",
+      "file_type": "code",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L27",
+      "_origin": "ast",
+      "id": "src_components_radionina_useradionina_cores_radio",
+      "community": 262,
+      "norm_label": "cores_radio"
+    },
+    {
+      "label": "Farol.jsx",
+      "file_type": "code",
+      "source_file": "src/components/Farol/Farol.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 287,
+      "norm_label": "farol.jsx",
+      "id": "src_components_farol_farol"
+    },
+    {
+      "label": "PESOS",
+      "file_type": "code",
+      "source_file": "src/components/Farol/Farol.jsx",
+      "source_location": "L4",
+      "_origin": "ast",
+      "community": 287,
+      "norm_label": "pesos",
+      "id": "src_components_farol_farol_pesos"
+    },
+    {
+      "label": "pesoIndex()",
+      "file_type": "code",
+      "source_file": "src/components/Farol/Farol.jsx",
+      "source_location": "L6",
+      "_origin": "ast",
+      "community": 287,
+      "norm_label": "pesoindex()",
+      "id": "src_components_farol_farol_pesoindex"
+    },
+    {
+      "label": "Farol()",
+      "file_type": "code",
+      "source_file": "src/components/Farol/Farol.jsx",
+      "source_location": "L16",
+      "_origin": "ast",
+      "community": 287,
+      "norm_label": "farol()",
+      "id": "src_components_farol_farol_farol"
+    },
+    {
       "label": "ContoHistoria.jsx",
       "file_type": "code",
       "source_file": "src/pages/content/ContoHistoria.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_pages_content_contohistoria",
       "community": 287,
-      "norm_label": "contohistoria.jsx"
+      "norm_label": "contohistoria.jsx",
+      "id": "src_pages_content_contohistoria"
     },
     {
       "label": "formatarData()",
@@ -319,9 +439,9 @@
       "source_file": "src/pages/content/ContoHistoria.jsx",
       "source_location": "L12",
       "_origin": "ast",
-      "id": "src_pages_content_contohistoria_formatardata",
       "community": 287,
-      "norm_label": "formatardata()"
+      "norm_label": "formatardata()",
+      "id": "src_pages_content_contohistoria_formatardata"
     },
     {
       "label": "ContoHistoria()",
@@ -329,9 +449,9 @@
       "source_file": "src/pages/content/ContoHistoria.jsx",
       "source_location": "L18",
       "_origin": "ast",
-      "id": "src_pages_content_contohistoria_contohistoria",
       "community": 287,
-      "norm_label": "contohistoria()"
+      "norm_label": "contohistoria()",
+      "id": "src_pages_content_contohistoria_contohistoria"
     },
     {
       "label": "Contos.jsx",
@@ -339,9 +459,9 @@
       "source_file": "src/pages/content/Contos.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_pages_content_contos",
       "community": 287,
-      "norm_label": "contos.jsx"
+      "norm_label": "contos.jsx",
+      "id": "src_pages_content_contos"
     },
     {
       "label": "Contos()",
@@ -349,9 +469,9 @@
       "source_file": "src/pages/content/Contos.jsx",
       "source_location": "L14",
       "_origin": "ast",
-      "id": "src_pages_content_contos_contos",
       "community": 287,
-      "norm_label": "contos()"
+      "norm_label": "contos()",
+      "id": "src_pages_content_contos_contos"
     },
     {
       "label": "Livro.jsx",
@@ -359,9 +479,9 @@
       "source_file": "src/pages/content/Livro.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_pages_content_livro",
       "community": 287,
-      "norm_label": "livro.jsx"
+      "norm_label": "livro.jsx",
+      "id": "src_pages_content_livro"
     },
     {
       "label": "formatarData()",
@@ -369,9 +489,9 @@
       "source_file": "src/pages/content/Livro.jsx",
       "source_location": "L13",
       "_origin": "ast",
-      "id": "src_pages_content_livro_formatardata",
       "community": 287,
-      "norm_label": "formatardata()"
+      "norm_label": "formatardata()",
+      "id": "src_pages_content_livro_formatardata"
     },
     {
       "label": "Livro()",
@@ -379,9 +499,9 @@
       "source_file": "src/pages/content/Livro.jsx",
       "source_location": "L19",
       "_origin": "ast",
-      "id": "src_pages_content_livro_livro",
       "community": 287,
-      "norm_label": "livro()"
+      "norm_label": "livro()",
+      "id": "src_pages_content_livro_livro"
     },
     {
       "label": "IDEIAS_CONTOS_LEGENDS.md",
@@ -952,126 +1072,6 @@
       "community": 329,
       "norm_label": "capitulo 19 \u2014 sob minha protecao",
       "id": "src_data_livro_contos_pt_02_19_cap\u00edtulo_19_sob_minha_prote\u00e7\u00e3o"
-    },
-    {
-      "label": "useRadioNina.js",
-      "file_type": "code",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 262,
-      "norm_label": "useradionina.js",
-      "id": "src_components_radionina_useradionina"
-    },
-    {
-      "label": "MS_ARTWORK",
-      "file_type": "code",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L9",
-      "_origin": "ast",
-      "community": 262,
-      "norm_label": "ms_artwork",
-      "id": "src_components_radionina_useradionina_ms_artwork"
-    },
-    {
-      "label": "ABERTURA_KEYS",
-      "file_type": "code",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L19",
-      "_origin": "ast",
-      "community": 262,
-      "norm_label": "abertura_keys",
-      "id": "src_components_radionina_useradionina_abertura_keys"
-    },
-    {
-      "label": "marcarSessao()",
-      "file_type": "code",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L23",
-      "_origin": "ast",
-      "community": 262,
-      "norm_label": "marcarsessao()",
-      "id": "src_components_radionina_useradionina_marcarsessao"
-    },
-    {
-      "label": "sessaoRespondida()",
-      "file_type": "code",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L24",
-      "_origin": "ast",
-      "community": 262,
-      "norm_label": "sessaorespondida()",
-      "id": "src_components_radionina_useradionina_sessaorespondida"
-    },
-    {
-      "label": "tituloDe()",
-      "file_type": "code",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L26",
-      "_origin": "ast",
-      "community": 262,
-      "norm_label": "titulode()",
-      "id": "src_components_radionina_useradionina_titulode"
-    },
-    {
-      "label": "embaralhar()",
-      "file_type": "code",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L29",
-      "_origin": "ast",
-      "community": 262,
-      "norm_label": "embaralhar()",
-      "id": "src_components_radionina_useradionina_embaralhar"
-    },
-    {
-      "label": "buscarPool()",
-      "file_type": "code",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L38",
-      "_origin": "ast",
-      "community": 262,
-      "norm_label": "buscarpool()",
-      "id": "src_components_radionina_useradionina_buscarpool"
-    },
-    {
-      "label": "filaComAbertura()",
-      "file_type": "code",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L47",
-      "_origin": "ast",
-      "community": 262,
-      "norm_label": "filacomabertura()",
-      "id": "src_components_radionina_useradionina_filacomabertura"
-    },
-    {
-      "label": "TIERS_SEM_AD",
-      "file_type": "code",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L54",
-      "_origin": "ast",
-      "community": 262,
-      "norm_label": "tiers_sem_ad",
-      "id": "src_components_radionina_useradionina_tiers_sem_ad"
-    },
-    {
-      "label": "useRadioNina()",
-      "file_type": "code",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L56",
-      "_origin": "ast",
-      "community": 262,
-      "norm_label": "useradionina()",
-      "id": "src_components_radionina_useradionina_useradionina"
-    },
-    {
-      "label": "CORES_RADIO",
-      "file_type": "code",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L27",
-      "_origin": "ast",
-      "community": 262,
-      "norm_label": "cores_radio",
-      "id": "src_components_radionina_useradionina_cores_radio"
     },
     {
       "label": "12.md",
@@ -35036,122 +35036,258 @@
       "confidence_score": 1.0
     },
     {
-      "relation": "contains",
+      "relation": "imports_from",
+      "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "src/components/Farol/Farol.jsx",
-      "source_location": "L16",
-      "weight": 1.0,
-      "source": "src_components_farol_farol",
-      "target": "src_components_farol_farol_farol",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/Farol/Farol.jsx",
+      "source_file": "src/components/RadioNina/RadioNina.jsx",
       "source_location": "L6",
       "weight": 1.0,
-      "source": "src_components_farol_farol",
-      "target": "src_components_farol_farol_pesoindex",
+      "confidence_score": 1.0,
+      "source": "src_components_radionina_radionina",
+      "target": "src_components_radionina_useradionina"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "src_components_radionina_useradionina",
+      "target": "src_components_radionina_useradionina_abertura_keys",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "src/components/Farol/Farol.jsx",
-      "source_location": "L4",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L38",
       "weight": 1.0,
-      "source": "src_components_farol_farol",
-      "target": "src_components_farol_farol_pesos",
+      "source": "src_components_radionina_useradionina",
+      "target": "src_components_radionina_useradionina_buscarpool",
       "confidence_score": 1.0
     },
     {
-      "relation": "imports_from",
-      "context": "import",
+      "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/ContoHistoria.jsx",
-      "source_location": "L7",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L29",
       "weight": 1.0,
-      "source": "src_pages_content_contohistoria",
-      "target": "src_components_farol_farol",
+      "source": "src_components_radionina_useradionina",
+      "target": "src_components_radionina_useradionina_embaralhar",
       "confidence_score": 1.0
     },
     {
-      "relation": "imports_from",
-      "context": "import",
+      "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/Contos.jsx",
-      "source_location": "L8",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L47",
       "weight": 1.0,
-      "source": "src_pages_content_contos",
-      "target": "src_components_farol_farol",
+      "source": "src_components_radionina_useradionina",
+      "target": "src_components_radionina_useradionina_filacomabertura",
       "confidence_score": 1.0
     },
     {
-      "relation": "imports_from",
-      "context": "import",
+      "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/Livro.jsx",
-      "source_location": "L8",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L23",
       "weight": 1.0,
-      "source": "src_pages_content_livro",
-      "target": "src_components_farol_farol",
+      "source": "src_components_radionina_useradionina",
+      "target": "src_components_radionina_useradionina_marcarsessao",
       "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "src_components_radionina_useradionina",
+      "target": "src_components_radionina_useradionina_ms_artwork",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "src_components_radionina_useradionina",
+      "target": "src_components_radionina_useradionina_sessaorespondida",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L56",
+      "weight": 1.0,
+      "source": "src_components_radionina_useradionina",
+      "target": "src_components_radionina_useradionina_tiers_sem_ad",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "src_components_radionina_useradionina",
+      "target": "src_components_radionina_useradionina_titulode",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L58",
+      "weight": 1.0,
+      "source": "src_components_radionina_useradionina",
+      "target": "src_components_radionina_useradionina_useradionina",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L49",
+      "weight": 1.0,
+      "source": "src_components_radionina_useradionina_filacomabertura",
+      "target": "src_components_radionina_useradionina_abertura_keys"
     },
     {
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/Contos.jsx",
-      "source_location": "L8",
+      "source_file": "src/components/RadioNina/RadioNina.jsx",
+      "source_location": "L6",
       "weight": 1.0,
-      "source": "src_pages_content_contos",
-      "target": "src_components_farol_farol_pesos",
+      "confidence_score": 1.0,
+      "source": "src_components_radionina_radionina",
+      "target": "src_components_radionina_useradionina_marcarsessao"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/RadioNina/RadioNina.jsx",
+      "source_location": "L79",
+      "weight": 1.0,
+      "source": "src_components_radionina_radionina_radionina",
+      "target": "src_components_radionina_useradionina_marcarsessao"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/RadioNina/RadioNina.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_components_radionina_radionina",
+      "target": "src_components_radionina_useradionina_sessaorespondida"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/RadioNina/RadioNina.jsx",
+      "source_location": "L71",
+      "weight": 1.0,
+      "source": "src_components_radionina_radionina_radionina",
+      "target": "src_components_radionina_useradionina_sessaorespondida"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L44",
+      "weight": 1.0,
+      "source": "src_components_radionina_useradionina_buscarpool",
+      "target": "src_components_radionina_useradionina_titulode",
       "confidence_score": 1.0
     },
     {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
-      "source_file": "src/components/Farol/Farol.jsx",
-      "source_location": "L27",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L50",
       "weight": 1.0,
-      "source": "src_components_farol_farol_farol",
-      "target": "src_components_farol_farol_pesoindex",
+      "source": "src_components_radionina_useradionina_filacomabertura",
+      "target": "src_components_radionina_useradionina_embaralhar",
       "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L136",
+      "weight": 1.0,
+      "source": "src_components_radionina_useradionina_useradionina",
+      "target": "src_components_radionina_useradionina_embaralhar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L103",
+      "weight": 1.0,
+      "source": "src_components_radionina_useradionina_useradionina",
+      "target": "src_components_radionina_useradionina_buscarpool",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L242",
+      "weight": 1.0,
+      "source": "src_components_radionina_useradionina_useradionina",
+      "target": "src_components_radionina_useradionina_filacomabertura",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/RadioNina/useRadioNina.js",
+      "source_location": "L60",
+      "weight": 1.0,
+      "source": "src_components_radionina_useradionina_useradionina",
+      "target": "src_components_radionina_useradionina_tiers_sem_ad"
     },
     {
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/ContoHistoria.jsx",
-      "source_location": "L7",
+      "source_file": "src/components/RadioNina/RadioNina.jsx",
+      "source_location": "L6",
       "weight": 1.0,
-      "source": "src_pages_content_contohistoria",
-      "target": "src_components_farol_farol_farol",
-      "confidence_score": 1.0
+      "confidence_score": 1.0,
+      "source": "src_components_radionina_radionina",
+      "target": "src_components_radionina_useradionina_useradionina"
     },
     {
-      "relation": "imports",
-      "context": "import",
+      "relation": "calls",
+      "context": "call",
       "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/Contos.jsx",
-      "source_location": "L8",
+      "confidence_score": 1.0,
+      "source_file": "src/components/RadioNina/RadioNina.jsx",
+      "source_location": "L31",
       "weight": 1.0,
-      "source": "src_pages_content_contos",
-      "target": "src_components_farol_farol_farol",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/Livro.jsx",
-      "source_location": "L8",
-      "weight": 1.0,
-      "source": "src_pages_content_livro",
-      "target": "src_components_farol_farol_farol",
-      "confidence_score": 1.0
+      "source": "src_components_radionina_radionina_radionina",
+      "target": "src_components_radionina_useradionina_useradionina"
     },
     {
       "relation": "imports_from",
@@ -35308,14 +35444,143 @@
       "target": "src_config_version"
     },
     {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/RadioNina/RadioNina.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_components_radionina_radionina",
+      "target": "src_components_radionina_useradionina_cores_radio"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Farol/Farol.jsx",
+      "source_location": "L16",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_components_farol_farol",
+      "target": "src_components_farol_farol_farol"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Farol/Farol.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_components_farol_farol",
+      "target": "src_components_farol_farol_pesoindex"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Farol/Farol.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_components_farol_farol",
+      "target": "src_components_farol_farol_pesos"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/ContoHistoria.jsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_content_contohistoria",
+      "target": "src_components_farol_farol"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/Contos.jsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_content_contos",
+      "target": "src_components_farol_farol"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/Livro.jsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_content_livro",
+      "target": "src_components_farol_farol"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/Contos.jsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_content_contos",
+      "target": "src_components_farol_farol_pesos"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Farol/Farol.jsx",
+      "source_location": "L27",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_components_farol_farol_farol",
+      "target": "src_components_farol_farol_pesoindex"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/ContoHistoria.jsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_content_contohistoria",
+      "target": "src_components_farol_farol_farol"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/Contos.jsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_content_contos",
+      "target": "src_components_farol_farol_farol"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/Livro.jsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_content_livro",
+      "target": "src_components_farol_farol_farol"
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/content/ContoHistoria.jsx",
       "source_location": "L18",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_contohistoria",
-      "target": "src_pages_content_contohistoria_contohistoria",
-      "confidence_score": 1.0
+      "target": "src_pages_content_contohistoria_contohistoria"
     },
     {
       "relation": "contains",
@@ -35323,9 +35588,9 @@
       "source_file": "src/pages/content/ContoHistoria.jsx",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_contohistoria",
-      "target": "src_pages_content_contohistoria_formatardata",
-      "confidence_score": 1.0
+      "target": "src_pages_content_contohistoria_formatardata"
     },
     {
       "relation": "calls",
@@ -35334,9 +35599,9 @@
       "source_file": "src/pages/content/ContoHistoria.jsx",
       "source_location": "L80",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_contohistoria_contohistoria",
-      "target": "src_pages_content_contohistoria_formatardata",
-      "confidence_score": 1.0
+      "target": "src_pages_content_contohistoria_formatardata"
     },
     {
       "relation": "contains",
@@ -35344,9 +35609,9 @@
       "source_file": "src/pages/content/Contos.jsx",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_contos",
-      "target": "src_pages_content_contos_contos",
-      "confidence_score": 1.0
+      "target": "src_pages_content_contos_contos"
     },
     {
       "relation": "contains",
@@ -35354,9 +35619,9 @@
       "source_file": "src/pages/content/Livro.jsx",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_livro",
-      "target": "src_pages_content_livro_formatardata",
-      "confidence_score": 1.0
+      "target": "src_pages_content_livro_formatardata"
     },
     {
       "relation": "contains",
@@ -35364,9 +35629,9 @@
       "source_file": "src/pages/content/Livro.jsx",
       "source_location": "L19",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_livro",
-      "target": "src_pages_content_livro_livro",
-      "confidence_score": 1.0
+      "target": "src_pages_content_livro_livro"
     },
     {
       "relation": "calls",
@@ -35375,9 +35640,9 @@
       "source_file": "src/pages/content/Livro.jsx",
       "source_location": "L81",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_livro_livro",
-      "target": "src_pages_content_livro_formatardata",
-      "confidence_score": 1.0
+      "target": "src_pages_content_livro_formatardata"
     },
     {
       "relation": "contains",
@@ -35728,271 +35993,6 @@
       "confidence_score": 1.0,
       "source": "src_data_livro_contos_pt_02_19",
       "target": "src_data_livro_contos_pt_02_19_cap\u00edtulo_19_sob_minha_prote\u00e7\u00e3o"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/RadioNina/RadioNina.jsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_components_radionina_radionina",
-      "target": "src_components_radionina_useradionina"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L19",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_components_radionina_useradionina",
-      "target": "src_components_radionina_useradionina_abertura_keys"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L38",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_components_radionina_useradionina",
-      "target": "src_components_radionina_useradionina_buscarpool"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L29",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_components_radionina_useradionina",
-      "target": "src_components_radionina_useradionina_embaralhar"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L47",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_components_radionina_useradionina",
-      "target": "src_components_radionina_useradionina_filacomabertura"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L23",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_components_radionina_useradionina",
-      "target": "src_components_radionina_useradionina_marcarsessao"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L9",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_components_radionina_useradionina",
-      "target": "src_components_radionina_useradionina_ms_artwork"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L24",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_components_radionina_useradionina",
-      "target": "src_components_radionina_useradionina_sessaorespondida"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L54",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_components_radionina_useradionina",
-      "target": "src_components_radionina_useradionina_tiers_sem_ad"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L26",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_components_radionina_useradionina",
-      "target": "src_components_radionina_useradionina_titulode"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L56",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_components_radionina_useradionina",
-      "target": "src_components_radionina_useradionina_useradionina"
-    },
-    {
-      "relation": "references",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L50",
-      "weight": 1.0,
-      "source": "src_components_radionina_useradionina_filacomabertura",
-      "target": "src_components_radionina_useradionina_abertura_keys"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/RadioNina/RadioNina.jsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_components_radionina_radionina",
-      "target": "src_components_radionina_useradionina_marcarsessao"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/components/RadioNina/RadioNina.jsx",
-      "source_location": "L79",
-      "weight": 1.0,
-      "source": "src_components_radionina_radionina_radionina",
-      "target": "src_components_radionina_useradionina_marcarsessao"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/RadioNina/RadioNina.jsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_components_radionina_radionina",
-      "target": "src_components_radionina_useradionina_sessaorespondida"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/components/RadioNina/RadioNina.jsx",
-      "source_location": "L71",
-      "weight": 1.0,
-      "source": "src_components_radionina_radionina_radionina",
-      "target": "src_components_radionina_useradionina_sessaorespondida"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L44",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_components_radionina_useradionina_buscarpool",
-      "target": "src_components_radionina_useradionina_titulode"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L50",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_components_radionina_useradionina_filacomabertura",
-      "target": "src_components_radionina_useradionina_embaralhar"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L135",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_components_radionina_useradionina_useradionina",
-      "target": "src_components_radionina_useradionina_embaralhar"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L102",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_components_radionina_useradionina_useradionina",
-      "target": "src_components_radionina_useradionina_buscarpool"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L241",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_components_radionina_useradionina_useradionina",
-      "target": "src_components_radionina_useradionina_filacomabertura"
-    },
-    {
-      "relation": "references",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/components/RadioNina/useRadioNina.js",
-      "source_location": "L58",
-      "weight": 1.0,
-      "source": "src_components_radionina_useradionina_useradionina",
-      "target": "src_components_radionina_useradionina_tiers_sem_ad"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/RadioNina/RadioNina.jsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_components_radionina_radionina",
-      "target": "src_components_radionina_useradionina_useradionina"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/components/RadioNina/RadioNina.jsx",
-      "source_location": "L31",
-      "weight": 1.0,
-      "source": "src_components_radionina_radionina_radionina",
-      "target": "src_components_radionina_useradionina_useradionina"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/RadioNina/RadioNina.jsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_components_radionina_radionina",
-      "target": "src_components_radionina_useradionina_cores_radio"
     },
     {
       "relation": "contains",
@@ -106411,5 +106411,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "808eb2a655364b3e185cb3d14d88e197d43f5fb4"
+  "built_at_commit": "b8804e8cfe97f1da18a5ce412db822aa89f30a13"
 }
