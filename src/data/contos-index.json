@@ -431,16 +431,16 @@
     "tagline_pt": "Ninguém nunca perguntou. Por isso ele nunca contou. Agora ele conta — rindo, porque é o único jeito que ele aceita.",
     "tagline_en": "Nobody ever asked. So he never told. Now he tells it — laughing, the only way he'll do it.",
     "tagline_es": "Nadie preguntó nunca. Por eso nunca lo contó. Ahora lo cuenta — riendo, la única forma en que lo acepta.",
-    "resumo_pt": "O passado do Jack antes do Kim: o interior pobre, os tios que era melhor não ter tido, a rua aos seis anos e a firma que ele montou do zero catando latinha. Ele conta tudo como piada — que é o único jeito que ele aceita contar. Parte 1.",
-    "resumo_en": "Jack's past before Kim: the poor countryside, the aunt and uncle he'd have been better off without, the street at six, and the little operation he built from scratch collecting cans. He tells it all as a joke — the only way he'll tell it. Part 1.",
-    "resumo_es": "El pasado de Jack antes de Kim: el interior pobre, los tíos que mejor no haber tenido, la calle a los seis años y el negocio que montó de cero juntando latas. Lo cuenta todo como un chiste — la única forma en que lo acepta. Parte 1.",
+    "resumo_pt": "O passado do Jack antes do Kim: os pais que o amavam e não podiam criá-lo, os tios que faziam das crianças um negócio, a rua aos cinco anos e a firma de entregas que ele montou do zero. Ele conta tudo como piada — que é o único jeito que ele aceita. Parte 1.",
+    "resumo_en": "Jack's past before Kim: the parents who loved him and couldn't raise him, the relatives who made a business out of children, the street at five, and the delivery operation he built from scratch. He tells it all as a joke — the only way he'll do it. Part 1.",
+    "resumo_es": "El pasado de Jack antes de Kim: los padres que lo amaban y no podían criarlo, los tíos que hacían un negocio con los niños, la calle a los cinco años y el negocio de entregas que montó de cero. Lo cuenta todo como un chiste — la única forma en que lo acepta. Parte 1.",
     "capitulos": [
       { "id": "01", "numero": 1, "titulo": "Porque Assim Escolheu o Jack", "titulo_en": "Because That's How Jack Chose It", "titulo_es": "Porque Así lo Eligió Jack", "data_publicacao": "2026-08-31" },
       { "id": "02", "numero": 2, "titulo": "O Interior", "titulo_en": "The Countryside", "titulo_es": "El Interior", "data_publicacao": "2026-08-31" },
       { "id": "03", "numero": 3, "titulo": "Tio e Tia", "titulo_en": "Uncle and Aunt", "titulo_es": "Tío y Tía", "data_publicacao": "2026-08-31" },
       { "id": "04", "numero": 4, "titulo": "A Porta", "titulo_en": "The Door", "titulo_es": "La Puerta", "data_publicacao": "2026-08-31" },
       { "id": "05", "numero": 5, "titulo": "A Loja do Seu Nestor", "titulo_en": "Mr. Nestor's Shop", "titulo_es": "La Tienda del Señor Nestor", "data_publicacao": "2026-08-31" },
-      { "id": "06", "numero": 6, "titulo": "Lata e Papelão", "titulo_en": "Cans and Cardboard", "titulo_es": "Latas y Cartón", "data_publicacao": "2026-08-31" },
+      { "id": "06", "numero": 6, "titulo": "A Bike", "titulo_en": "The Bike", "titulo_es": "La Bici", "data_publicacao": "2026-08-31" },
       { "id": "07", "numero": 7, "titulo": "A Firma", "titulo_en": "The Operation", "titulo_es": "El Negocio", "data_publicacao": "2026-08-31" }
     ]
   }
