@@ -5,6 +5,7 @@ import { useLanguage } from '../../context/LanguageContext'
 import { useAuth } from '../../context/AuthContext'
 import { TRIAL_ACTIVE } from '../../config/trial'
 import { estaDisponivel } from '../../config/site'
+import Farol from '../../components/Farol/Farol'
 import index from '../../data/livro-index.json'
 import './Livro.css'
 import './Contos.css'
@@ -54,6 +55,10 @@ export default function Livro() {
           <Link to="/livro/contos" className="livro-linha">{t('pages.contos.linha_contos')}</Link>
         </nav>
         <h2 className="section-title">{t('pages.livro.titulo')}</h2>
+        <div className="livro-farol">
+          <Farol peso="pesada" canon={true} temas={['luta', 'familia', 'amizade', 'crime', 'humor']} />
+          <p className="contos-hero__aviso">{t('pages.contos.peso_pesada_desc')}</p>
+        </div>
         <div className="livro-page__list">
           {index.map(ch => {
             const liberado = ch.id === 'capitulo-01' || estaDisponivel(ch, isAdmin) || TRIAL_ACTIVE

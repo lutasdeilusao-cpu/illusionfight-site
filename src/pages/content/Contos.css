@@ -158,3 +158,126 @@
   letter-spacing: 0.06em;
   color: var(--text-muted);
 }
+
+/* ── Farol de peso ── */
+.farol-bar {
+  max-width: 680px;
+  margin: 2rem auto 0;
+  padding: 1rem;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-secondary);
+}
+
+.farol-bar__titulo {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+  color: var(--text-primary);
+}
+
+.farol-bar__intro {
+  margin: 0.3rem 0 0.9rem;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: var(--text-muted);
+}
+
+.farol-bar__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.farol-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.7rem;
+  border: 1px solid var(--border-subtle);
+  background: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+}
+
+.farol-chip:hover {
+  color: var(--text-primary);
+  border-color: var(--text-secondary);
+}
+
+.farol-chip__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--chip-cor, var(--text-muted));
+}
+
+.farol-chip--leve   { --chip-cor: #4ADE80; }
+.farol-chip--media  { --chip-cor: var(--accent-amber); }
+.farol-chip--pesada { --chip-cor: #F4525F; }
+
+.farol-chip--ativo {
+  color: var(--text-primary);
+  border-color: var(--chip-cor, var(--accent-teal));
+  background: color-mix(in srgb, var(--chip-cor, var(--accent-teal)) 14%, transparent);
+}
+
+.farol-bar__limpar {
+  margin-top: 0.7rem;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.55rem;
+  border: 1px solid var(--text-primary);
+  background: var(--text-primary);
+  color: var(--bg-primary);
+  cursor: pointer;
+}
+
+.contos-card {
+  border-left: 3px solid var(--card-peso, var(--border-subtle));
+}
+
+.contos-card--leve   { --card-peso: #4ADE80; }
+.contos-card--media  { --card-peso: var(--accent-amber); }
+.contos-card--pesada { --card-peso: #F4525F; }
+
+.contos-card__info .farol {
+  margin-top: 0.15rem;
+}
+
+.contos-hero__aviso {
+  margin: 0.5rem 0 0;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+.contos-vazio {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-align: center;
+  padding: 1.5rem 0;
+}
+
+.livro-farol {
+  max-width: 680px;
+  margin: -0.5rem auto 1.5rem;
+}
+
+/* switcher de linhas mais presente */
+.livro-linha {
+  padding: 0.5rem 1rem;
+}

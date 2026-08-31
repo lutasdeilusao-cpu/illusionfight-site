@@ -4,6 +4,7 @@ import { useLanguage } from '../../context/LanguageContext'
 import { useAuth } from '../../context/AuthContext'
 import { TRIAL_ACTIVE } from '../../config/trial'
 import { estaDisponivel } from '../../config/site'
+import Farol from '../../components/Farol/Farol'
 import index from '../../data/contos-index.json'
 import './Livro.css'
 import './Contos.css'
@@ -53,6 +54,11 @@ export default function ContoHistoria() {
           <div className="contos-hero__text">
             <span className="contos-selo">{h.selo}</span>
             <h2 className="section-title">{h[tituloKey]}</h2>
+            <p className="contos-hero__desc">
+              {h[locale === 'en' ? 'resumo_en' : locale === 'es' ? 'resumo_es' : 'resumo_pt']}
+            </p>
+            <Farol peso={h.peso} canon={h.canon} temas={h.temas || []} />
+            <p className="contos-hero__aviso">{t(`pages.contos.peso_${h.peso}_desc`)}</p>
           </div>
         </div>
 

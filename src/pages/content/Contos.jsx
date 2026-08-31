@@ -1,10 +1,11 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useNavigate, Link } from 'react-router-dom'
 import { useLanguage } from '../../context/LanguageContext'
 import { useAuth } from '../../context/AuthContext'
 import { TRIAL_ACTIVE } from '../../config/trial'
 import { estaDisponivel } from '../../config/site'
+import Farol, { PESOS } from '../../components/Farol/Farol'
 import index from '../../data/contos-index.json'
 import comingSoonImg from '../../assets/images/ComingSoon.png'
 import './Livro.css'
@@ -12,6 +13,8 @@ import './Contos.css'
 
 export default function Contos() {
   const [ultimo, setUltimo] = useState(null)
+  const [pesoFiltro, setPesoFiltro] = useState(null)
+  const [temaFiltro, setTemaFiltro] = useState(null)
   const navigate = useNavigate()
   const { locale, t } = useLanguage()
   const { user, perfil } = useAuth()
@@ -33,6 +36,17 @@ export default function Contos() {
   const taglineKey = locale === 'en' ? 'tagline_en' : locale === 'es' ? 'tagline_es' : 'tagline_pt'
 
   const capsLiberados = (h) => h.capitulos.filter(c => estaDisponivel(c, isAdmin) || TRIAL_ACTIVE).length
+
+  const pesosPresentes = useMemo(
+    () => PESOS.filter(p => index.some(h => h.peso === p)),
+    []
+  )
+
+  const historias = useMemo(() => index.filter(h => {
+    if (pesoFiltro && h.peso !== pesoFiltro) return false
+    if (temaFiltro && !(h.temas || []).includes(temaFiltro)) return false
+    return true
+  }), [pesoFiltro, temaFiltro])
 
   return (
     <section className="livro-page">
@@ -65,14 +79,46 @@ export default function Contos() {
           </Link>
         )}
 
+        {/* ── Farol de peso: filtro por intensidade ── */}
+        <div className="farol-bar">
+          <p className="farol-bar__titulo">{t('pages.contos.farol_titulo')}</p>
+          <p className="farol-bar__intro">{t('pages.contos.farol_intro')}</p>
+          <div className="farol-bar__chips">
+            <button
+              type="button"
+              className={`farol-chip${!pesoFiltro ? ' farol-chip--ativo' : ''}`}
+              onClick={() => setPesoFiltro(null)}
+            >
+              {t('pages.contos.farol_todas')}
+            </button>
+            {pesosPresentes.map(p => (
+              <button
+                key={p}
+                type="button"
+                className={`farol-chip farol-chip--${p}${pesoFiltro === p ? ' farol-chip--ativo' : ''}`}
+                onClick={() => setPesoFiltro(pesoFiltro === p ? null : p)}
+                title={t(`pages.contos.peso_${p}_desc`)}
+              >
+                <span className="farol-chip__dot" aria-hidden="true" />
+                {t(`pages.contos.peso_${p}`)}
+              </button>
+            ))}
+          </div>
+          {temaFiltro && (
+            <button type="button" className="farol-bar__limpar" onClick={() => setTemaFiltro(null)}>
+              {t(`pages.contos.tema_${temaFiltro}`)} ✕
+            </button>
+          )}
+        </div>
+
         <div className="contos-historias">
-          {index.map(h => {
+          {historias.map(h => {
             const n = capsLiberados(h)
             const liberado = n > 0
             return (
               <div
                 key={h.id}
-                className={`contos-card${liberado ? '' : ' contos-card--locked'}`}
+                className={`contos-card contos-card--${h.peso || 'media'}${liberado ? '' : ' contos-card--locked'}`}
                 onClick={() => liberado && navigate(`/livro/contos/${h.id}`)}
               >
                 <img className="contos-card__img" src={comingSoonImg} alt="" loading="lazy" decoding="async" />
@@ -80,6 +126,14 @@ export default function Contos() {
                   <span className="contos-card__selo">{h.selo}</span>
                   <span className="contos-card__titulo">{h[tituloKey]}</span>
                   <p className="contos-card__tag">{h[taglineKey]}</p>
+                  <Farol
+                    peso={h.peso}
+                    canon={h.canon}
+                    temas={h.temas || []}
+                    size="sm"
+                    temaAtivo={temaFiltro}
+                    onTema={(tm) => setTemaFiltro(temaFiltro === tm ? null : tm)}
+                  />
                   <span className="contos-card__meta">
                     {liberado
                       ? `${n} ${n === 1 ? t('pages.contos.capitulo').toLowerCase() : t('pages.contos.capitulos')}`
@@ -89,6 +143,9 @@ export default function Contos() {
               </div>
             )
           })}
+          {historias.length === 0 && (
+            <p className="contos-vazio">{t('pages.contos.farol_vazio')}</p>
+          )}
         </div>
       </div>
     </section>
