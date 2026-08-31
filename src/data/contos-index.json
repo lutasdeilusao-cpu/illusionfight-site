@@ -75,5 +75,29 @@
       { "id": "05", "numero": 5, "titulo": "Smells Like Teen Spirit", "titulo_en": "Smells Like Teen Spirit", "titulo_es": "Smells Like Teen Spirit", "data_publicacao": "2026-08-30" },
       { "id": "06", "numero": 6, "titulo": "A Bateria", "titulo_en": "The Drum Kit", "titulo_es": "La Batería", "data_publicacao": "2026-08-30" }
     ]
+  },
+  {
+    "id": "04",
+    "selo": "Legends",
+    "titulo": "A Menina de Fora",
+    "titulo_en": "The Girl from Outside",
+    "titulo_es": "La Chica de Afuera",
+    "tagline_pt": "Nina foi rica, depois pobre de propósito, depois rica de novo. E nenhum dos meninos sabe.",
+    "tagline_en": "Nina was rich, then poor on purpose, then rich again. And neither of the boys knows.",
+    "tagline_es": "Nina fue rica, luego pobre a propósito, luego rica otra vez. Y ninguno de los chicos lo sabe.",
+    "resumo_pt": "O passado da Nina antes de conhecer o Kim e o Jack: a mãe que ela não lembra, os sete anos de pobreza que o pai escolheu por ela, e a conversa que explicou tudo. Primeira pessoa.",
+    "resumo_en": "Nina's past before she met Kim and Jack: the mother she doesn't remember, the seven years of poverty her father chose for her, and the conversation that explained everything. First person.",
+    "resumo_es": "El pasado de Nina antes de conocer a Kim y Jack: la madre que no recuerda, los siete años de pobreza que su padre eligió por ella, y la conversación que lo explicó todo. Primera persona.",
+    "capitulos": [
+      { "id": "01", "numero": 1, "titulo": "Elizabeth", "titulo_en": "Elizabeth", "titulo_es": "Elizabeth", "data_publicacao": "2026-08-30" },
+      { "id": "02", "numero": 2, "titulo": "A Menina Estragada", "titulo_en": "The Spoiled Girl", "titulo_es": "La Niña Malcriada", "data_publicacao": "2026-08-30" },
+      { "id": "03", "numero": 3, "titulo": "Essa É a Vida", "titulo_en": "This Is Life Now", "titulo_es": "Esta Es la Vida", "data_publicacao": "2026-08-30" },
+      { "id": "04", "numero": 4, "titulo": "O Escudo", "titulo_en": "The Shield", "titulo_es": "El Escudo", "data_publicacao": "2026-08-30" },
+      { "id": "05", "numero": 5, "titulo": "Azuma", "titulo_en": "Azuma", "titulo_es": "Azuma", "data_publicacao": "2026-08-30" },
+      { "id": "06", "numero": 6, "titulo": "A Conversa", "titulo_en": "The Conversation", "titulo_es": "La Conversación", "data_publicacao": "2026-08-30" },
+      { "id": "07", "numero": 7, "titulo": "O Medo", "titulo_en": "The Fear", "titulo_es": "El Miedo", "data_publicacao": "2026-08-30" },
+      { "id": "08", "numero": 8, "titulo": "A Verdade", "titulo_en": "The Truth", "titulo_es": "La Verdad", "data_publicacao": "2026-08-30" },
+      { "id": "09", "numero": 9, "titulo": "Um Ano Antes", "titulo_en": "One Year Before", "titulo_es": "Un Año Antes", "data_publicacao": "2026-08-30" }
+    ]
   }
 ]
