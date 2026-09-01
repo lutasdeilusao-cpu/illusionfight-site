@@ -1,4 +1,8 @@
-# Ideias de Contos — Selo Legends (Contos de Ilusão)
+# Ideias de Contos de Ilusão
+
+> (A marca "Legends" foi removida do site em v10.198.98 — o título é só "Contos de
+> Ilusão", canon = tag do farol. O nome deste arquivo é histórico.)
+
 
 > Registro de ideias pra produzir. **Nada aqui está decidido** — o Isaias ainda vai
 > escolher o que entra, em que ordem e com que forma. Serve de cardápio.
