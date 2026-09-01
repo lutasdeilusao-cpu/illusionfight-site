@@ -1,0 +1,79 @@
+var e=`# CAPÍTULO 16 — Não Há Regras
+
+Naquela segunda-feira de manhã eu subi a laje e os dois já estavam lá me esperando.
+
+Antes de qualquer coisa, eu falei.
+
+— Presta atenção. Essa é a última. Depois de hoje vocês não vão me encontrar mais. Não pergunta por quê.
+
+O Jack abriu a boca pra brincar e, pela primeira vez em dois anos, fechou de novo sem falar nada. O indiozinho só apertou o maxilar.
+
+Eles entenderam que era sério.
+
+---
+
+— Antes de começar, tem uma coisa que eu nunca perguntei pra vocês. — Falei. — Faz dois anos que a gente se encontra e eu nunca soube o nome de vocês. Pra mim vocês são o Indiozinho e o Cabelinho Verde. E de verdade?
+
+O indiozinho respondeu como quem cospe o próprio nome.
+
+— Kim.
+
+O cabelinho verde deu um passo à frente, o sorriso de sempre.
+
+— Meu nome é Jack. — Pausou. — Bom, meu nome não é Jack. Mas esse carinha aqui me chama de Jack, então tá valendo.
+
+— O meu vocês já sabem. Sou o Alan. — Assenti. — Pronto. Agora tá formalizado.
+
+Kim. Jack. Alan.
+
+Depois de dois anos, a gente finalmente tinha nome um pro outro.
+
+---
+
+— Como essa é a última vez, eu vou deixar uma coisa clara.
+
+Eu andei até o meio da laje. Tirei a corrente do pescoço e guardei no bolso.
+
+— Todas as outras vezes eu briguei com vocês de brincadeira. Hoje não. Hoje eu vou enfrentar vocês como se a minha vida estivesse na mesa. Como se tudo o que eu construí dependesse dessa briga. Vou apostar tudo — cada gota de sangue que eu já sangrei, cada surra que eu levei pra chegar onde cheguei, cada coisa que doeu no caminho. Hoje vocês vão me ver de verdade. Como nunca viram.
+
+Os dois trocaram um olhar.
+
+— Levem a sério desde o primeiro segundo. Venham com tudo desde o primeiro segundo. Senão vocês vão se machucar pra valer hoje.
+
+---
+
+— E vou ensinar pra vocês a única regra da briga de rua. — Falei. — Só existe uma. Vocês sabem qual é?
+
+Os dois se olharam de novo, meio confusos, procurando a resposta certa.
+
+Erro.
+
+— NÃO HÁ REGRAS.
+
+Eu já estava em cima do Jack quando terminei de gritar.
+
+Peso todo pra trás, quadril girado até o osso, o punho subindo de baixo pra cima. Um gancho no queixo com tudo o que eu tinha. O Jack saiu do chão. Subiu no ar, girou, e caiu de costas apagado antes de terminar de cair.
+
+Dois anos e eu nunca tinha visto o Jack no chão. O Kim também não.
+
+E o Kim cometeu o mesmo erro que os dois tinham acabado de cometer: olhou pro amigo.
+
+Eu pisei no pé dele pra prender e enterrei uma joelhada no plexo. Todo o ar dele saiu de uma vez. Ele voou pra trás, dobrado, e eu já ia em cima pro próximo golpe.
+
+---
+
+O Kim estava no chão, sem ar, tentando me acertar um chute no queixo do jeito que dava.
+
+Eu desviei. E parei.
+
+Porque o moleque que estava me olhando de baixo não era mais o mesmo.
+
+Alguma coisa mudou dentro dele naquele segundo. Quando ele viu o Jack apagado no chão, uma chave virou. O olhar de garoto arrogante sumiu. No lugar dele tinha um olhar frio, parado, de quem não ia mais medir nada.
+
+E pela primeira vez em muito tempo, eu senti medo.
+
+---
+
+O Kim guardou essa frase. Anos depois ele ia repetir ela, palavra por palavra, pra cima de um cara que tinha alugado meia dúzia de capangas ([linha principal, cap. 3](/livro/capitulo-03)). Duvido que ele lembre de onde tirou.
+`;export{e as default};
+//# sourceMappingURL=16-C2MiwynZ.js.map
