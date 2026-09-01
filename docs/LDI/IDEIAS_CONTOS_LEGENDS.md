@@ -43,7 +43,8 @@ quanto a do Kim, só encarada com perspectiva oposta).
 **Canon da Parte 1** (7 caps, POV Jack, stand-up/teatral; revisado v10.198.91):
 
 TIMELINE: 0-2 com os pais → 2-5 casa dos tios → 5-7 sozinho na rua → **conhece o
-Kim aos 7** → 7-9+ o corre cresce com o Kim já por perto → ~17 estabelecido.
+Kim aos 7** → 7-9+ o corre cresce com o Kim já por perto. **A Parte 1 NÃO chega
+aos 17** — o Isaias vai contar mais coisa até lá.
 
 - Nasceu na parte alta de Bravara, região de **canavial / sertão / seca**. Pais
   **humildes que o amavam** e cortavam cana, sem como criá-lo. Entregue "aos tios"
@@ -64,15 +65,15 @@ Kim aos 7** → 7-9+ o corre cresce com o Kim já por perto → ~17 estabelecido
   entrega, a pé e depois **de bike** ("a bike me deu alcance, não velocidade").
   Barracas: compra cabo/carregador/caixinha de som no centro, revende no Morro
   ("vendo o direito de não ir no centro"). Recusou o crime.
-- Bike com nome: **Órion** ("nome de caçador, de guerreiro; 'Warrior' em inglês").
+- Bike com nome: **Warrior** ("guerreiro, em inglês, porque fica mais filme").
 - ~8-9+ (Kim já por perto, **não sabe o tamanho do corre do Jack**): firma de
   moleques. **Metade dos moleques que ele contrata são caras que ele já bateu na
   rua.** Aviso de roubo: "você sabe com quem eu ando, e melhor: sabe quem eu sou —
   a gente já se pegou. Se me roubar não vai ter treta na esquina, vai ter outra
   coisa." Paga certo ("planilha, não bondade"). (SEM "Pedrinho" e SEM "o Kim é meu
   sócio informal" — removidos na limpeza do cap 7, v10.198.92.)
-- ~17: **bem estabelecido pra jovem sem família** — grana, casa alugada (3 meses
-  adiantados em espécie).
+- Vai ficando de pé: teto (casa alugada, adiantamento em espécie), renda entrando.
+  **NÃO citar idade no cap 7** — a Parte 1 não chega aos 17.
 - **Ninguém sabe como o Jack ganha dinheiro** — de propósito.
 - Cabelo verde = 1ª compra supérflua.
 - Conheceu o Kim aos **7** (trombada, ver [[conto-03-a-banda-e-o-osvaldo-rockeiro]]);
@@ -85,7 +86,7 @@ livro** (linha principal): app/plataforma onde alguém posta um serviço + valor
 outra pessoa faz o corre (buscar no aeroporto, companhia a idoso, pegar fila,
 esperar entrega...). "Onde você faz o corre quando não pode fazer o corre." Foi
 cogitada como semente na Parte 1 e **removida a pedido do Isaias** (v10.198.92) — o
-cap 7 termina só no Jack montando o esquema (barracas + entregas + a Órion), sem
+cap 7 termina só no Jack montando o esquema (barracas + entregas + a Warrior), sem
 prenúncio de empresa. **Guardar pro livro, não pro conto.**
 
 **Parte 2 pendente** — "vai ter um peso, chega num point de clima" (Isaias, que vai
