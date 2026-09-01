@@ -498,6 +498,14 @@
         "titulo_en": "Nobody Ever Asked",
         "titulo_es": "Nadie Preguntó Nunca",
         "data_publicacao": "2026-09-01"
+      },
+      {
+        "id": "09",
+        "numero": 9,
+        "titulo": "Eu e o Kim",
+        "titulo_en": "Kim and Me",
+        "titulo_es": "Kim y Yo",
+        "data_publicacao": "2026-09-01"
       }
     ]
   }
