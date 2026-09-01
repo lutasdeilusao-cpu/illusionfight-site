@@ -405,8 +405,8 @@
     "semantic_hash": "b11265c546f5970b719233c19e1b2c2d"
   },
   "src/config/version.js": {
-    "mtime": 1788280800.2396748,
-    "ast_hash": "1e2c356dba2d025b6da566bf0a6f04ce",
+    "mtime": 1788282612.1180873,
+    "ast_hash": "06164c08f2f9e37a2704aaf7e674081c",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2830,8 +2830,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1788280800.292667,
-    "ast_hash": "8d452cd5647fde90de1cc37ac3ff2442",
+    "mtime": 1788282612.1690736,
+    "ast_hash": "0844d86dcf27c139d8359fc8d07ce536",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -4197,6 +4197,96 @@
   "src/lib/mdComponents.jsx": {
     "mtime": 1788277083.134333,
     "ast_hash": "506e6fd49896592a1f62440cd724a9a2",
+    "semantic_hash": ""
+  },
+  "src/data/livro/contos/en/05/01.md": {
+    "mtime": 1788282538.740264,
+    "ast_hash": "a159fdcb156a417188f22a0883836eb0",
+    "semantic_hash": ""
+  },
+  "src/data/livro/contos/en/05/02.md": {
+    "mtime": 1788282543.4963987,
+    "ast_hash": "28a700d38930a96e5ecb4ac5162afa79",
+    "semantic_hash": ""
+  },
+  "src/data/livro/contos/en/05/03.md": {
+    "mtime": 1788282548.155914,
+    "ast_hash": "21be14fc826005768ba4de685dcd2ba3",
+    "semantic_hash": ""
+  },
+  "src/data/livro/contos/en/05/04.md": {
+    "mtime": 1788282011.9350846,
+    "ast_hash": "1f1c58b8f1e86cc81dabc193f8dd7083",
+    "semantic_hash": ""
+  },
+  "src/data/livro/contos/en/05/05.md": {
+    "mtime": 1788282554.2520516,
+    "ast_hash": "e0e079fe8cb913d72f48297778c60e59",
+    "semantic_hash": ""
+  },
+  "src/data/livro/contos/en/05/06.md": {
+    "mtime": 1788282053.7514844,
+    "ast_hash": "51cbce99174c056a0913171ea4bfa92c",
+    "semantic_hash": ""
+  },
+  "src/data/livro/contos/en/05/07.md": {
+    "mtime": 1788282069.4150112,
+    "ast_hash": "5f9454672faef15185f99be616c0106b",
+    "semantic_hash": ""
+  },
+  "src/data/livro/contos/en/05/08.md": {
+    "mtime": 1788282590.7163663,
+    "ast_hash": "19ca2b957c6f89c9212786929e475820",
+    "semantic_hash": ""
+  },
+  "src/data/livro/contos/en/05/09.md": {
+    "mtime": 1788282579.8876178,
+    "ast_hash": "fe7e635ac42ecfe8c30d2bfee15db622",
+    "semantic_hash": ""
+  },
+  "src/data/livro/contos/es/05/01.md": {
+    "mtime": 1788282168.8375182,
+    "ast_hash": "52f23ccc8af8ae514f746f3fbd2ae37d",
+    "semantic_hash": ""
+  },
+  "src/data/livro/contos/es/05/02.md": {
+    "mtime": 1788282191.630685,
+    "ast_hash": "ddbe80de09b3fa1d18f793a01f260aa4",
+    "semantic_hash": ""
+  },
+  "src/data/livro/contos/es/05/03.md": {
+    "mtime": 1788282226.9732962,
+    "ast_hash": "bd5519194b33af2bce5cbca1ac9df3f1",
+    "semantic_hash": ""
+  },
+  "src/data/livro/contos/es/05/04.md": {
+    "mtime": 1788282314.5966148,
+    "ast_hash": "950fdcb1ca45fdde8decbb6692399415",
+    "semantic_hash": ""
+  },
+  "src/data/livro/contos/es/05/05.md": {
+    "mtime": 1788282357.478239,
+    "ast_hash": "70a0257cf13a9bd9c26b6dbbd425372f",
+    "semantic_hash": ""
+  },
+  "src/data/livro/contos/es/05/06.md": {
+    "mtime": 1788282439.8996005,
+    "ast_hash": "49636397e92aa3b0cf05ad0a9e21e177",
+    "semantic_hash": ""
+  },
+  "src/data/livro/contos/es/05/07.md": {
+    "mtime": 1788282459.669606,
+    "ast_hash": "b40492a8fdf0e83c1ad93ee521ee95b4",
+    "semantic_hash": ""
+  },
+  "src/data/livro/contos/es/05/08.md": {
+    "mtime": 1788282495.7519448,
+    "ast_hash": "267e0b37961aa277ef6e40f70eaf5cd4",
+    "semantic_hash": ""
+  },
+  "src/data/livro/contos/es/05/09.md": {
+    "mtime": 1788282517.4586227,
+    "ast_hash": "f01b2ce24ee2188dedd21cf7dc1d21ee",
     "semantic_hash": ""
   }
 }
