@@ -30,6 +30,12 @@
   cursor: default;
 }
 
+/* switcher dentro do leitor de conto: alinhado à esquerda, mais compacto */
+.livro-linhas--reader {
+  max-width: none;
+  margin: 0 0 0.75rem;
+}
+
 .contos-hero {
   display: flex;
   gap: 1.5rem;

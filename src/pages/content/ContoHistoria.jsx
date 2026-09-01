@@ -46,10 +46,14 @@ export default function ContoHistoria() {
         <meta name="description" content={h[locale === 'en' ? 'resumo_en' : locale === 'es' ? 'resumo_es' : 'resumo_pt']} />
       </Helmet>
       <div className="container">
+        <nav className="livro-linhas">
+          <Link to="/livro" className="livro-linha">{t('pages.contos.linha_principal')}</Link>
+          <Link to="/livro/contos" className="livro-linha">{t('pages.contos.linha_contos')}</Link>
+        </nav>
+
         <button className="livro-capitulo__back" onClick={() => navigate('/livro/contos')}>
           {t('pages.livro.voltar_indice')}
         </button>
-
         <div className="contos-hero">
           <div className="contos-hero__text">
             <span className="contos-selo">{h.selo}</span>

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Helmet } from 'react-helmet-async'
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate, Link } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
 import { useLanguage } from '../../context/LanguageContext'
 import { useReader } from '../../context/ReaderContext'
@@ -9,6 +9,7 @@ import { TRIAL_ACTIVE } from '../../config/trial'
 import { estaDisponivel } from '../../config/site'
 import index from '../../data/contos-index.json'
 import './LivroCapitulo.css'
+import './Contos.css'
 
 const contoLoaders = import.meta.glob('../../data/livro/contos/**/*.md', { query: '?raw', import: 'default' })
 
@@ -100,6 +101,11 @@ export default function ContoCapitulo() {
         <title>{capitulo ? `${capitulo[tituloKey]} — ${h[tituloKey]}` : t('pages.helmet.capitulo_nao_encontrado')}</title>
       </Helmet>
       <div className="container">
+        <nav className="livro-linhas livro-linhas--reader">
+          <Link to="/livro" className="livro-linha">{t('pages.contos.linha_principal')}</Link>
+          <Link to="/livro/contos" className="livro-linha">{t('pages.contos.linha_contos')}</Link>
+        </nav>
+
         <button className="livro-capitulo__back" onClick={() => navigate(`/livro/contos/${historia}`)}>
           {t('pages.livro.voltar_indice')}
         </button>
