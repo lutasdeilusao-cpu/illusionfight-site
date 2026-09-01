@@ -22,7 +22,7 @@
 | 02 | Alan, o Campeão | Alan | 19 | pesado / calculista | **coluna do Livro 1** — constrói a Marélia do crime inteira |
 | 03 | A Banda do Kim e do Jack | Kim | 6 | leve de propósito | respiro; reveal do Osvaldo rockeiro |
 | 04 | Eu sou Nina | Nina | 9 | seco / dureza com ternura pelo pai | passado da Nina; amarra na "consultoria com uma pausa antes da palavra" |
-| 05 | Porque Assim Escolheu o Jack | Jack | 8 | pesada / stand-up teatral | passado do Jack; fecha aos 15 com o reveal dos pais que ele sustenta em segredo |
+| 05 | Porque Assim Escolheu o Jack | Jack | 9 | pesada / stand-up teatral | passado do Jack; cap 8 = reveal dos pais que ele sustenta em segredo; cap 9 "Eu e o Kim" conecta com a linha principal |
 
 **Espinha comum dos 4 (não planejada, mas real):** *uma pessoa que decidiu não
 precisar de ninguém e é obrigada a deixar alguém entrar.*
@@ -38,7 +38,7 @@ Isso dá unidade ao selo — mas é o **limite**. Próximo conto não pode ser m
 
 ## TIER 1 — fazer primeiro
 
-### A. Conto do Jack  ✅ COMPLETO — 8 caps (id 05, v10.198.90..94)
+### A. Conto do Jack  ✅ COMPLETO — 9 caps (id 05, v10.198.90..100)
 
 **Termina no cap 8 "Ninguém Nunca Perguntou"** (aos 15 anos): o Jack se reencontrou
 com os pais e os **sustenta em segredo** — começou por carta (ele decorou o
