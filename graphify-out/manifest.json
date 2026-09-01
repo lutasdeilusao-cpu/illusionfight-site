@@ -4180,8 +4180,8 @@
     "semantic_hash": ""
   },
   "src/data/livro/contos/pt/05/08.md": {
-    "mtime": 1788280792.6508398,
-    "ast_hash": "de53c320053a55dd5ff7905fc151b75f",
+    "mtime": 1788281860.2606006,
+    "ast_hash": "11d0f1367f2eaa2657de9a45645564e2",
     "semantic_hash": ""
   },
   "src/lib/lazyWithReload.js": {
