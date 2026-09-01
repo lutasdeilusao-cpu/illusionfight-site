@@ -405,8 +405,8 @@
     "semantic_hash": "b11265c546f5970b719233c19e1b2c2d"
   },
   "src/config/version.js": {
-    "mtime": 1788225569.2325952,
-    "ast_hash": "463e9f5974d7a36adc18751efda91bc3",
+    "mtime": 1788233286.9946043,
+    "ast_hash": "4757aa8c9ea13dab913aa27590145c35",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2830,8 +2830,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1788225569.2803314,
-    "ast_hash": "7e7ba020a122687488d750bbbdff5d26",
+    "mtime": 1788233287.0459623,
+    "ast_hash": "d4364ab78149bb7f48be6f97f50f4c73",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -4135,8 +4135,8 @@
     "semantic_hash": ""
   },
   "docs/LDI/IDEIAS_CONTOS_LEGENDS.md": {
-    "mtime": 1788225723.1976793,
-    "ast_hash": "cdbe5a8215603692d8247a60ceee8153",
+    "mtime": 1788233447.149821,
+    "ast_hash": "1a068c08f2a1663c6703305c4da51d77",
     "semantic_hash": ""
   },
   "src/components/Farol/Farol.jsx": {
@@ -4175,8 +4175,8 @@
     "semantic_hash": ""
   },
   "src/data/livro/contos/pt/05/07.md": {
-    "mtime": 1788225564.4811532,
-    "ast_hash": "fb8e1d8a43a43a5604061abea91dc72e",
+    "mtime": 1788233272.5389075,
+    "ast_hash": "e7fdc876c6cfabc9c7d94cc9d8006fc4",
     "semantic_hash": ""
   }
 }
