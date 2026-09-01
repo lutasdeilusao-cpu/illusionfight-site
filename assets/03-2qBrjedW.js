@@ -1,0 +1,105 @@
+var e=`# CAPÍTULO 3 — Tio e Tia
+
+Vou chamar eles de Tio e Tia. Os nomes verdadeiros eu joguei fora de propósito e não vou catar no lixo agora só pra fazer bonito na narração.
+
+Eu morei naquela casa dos dois aos cinco anos. Três anos. Na cabeça de uma criança, três anos é uma vida inteira.
+
+---
+
+A primeira coisa que marcou foi o barulho.
+
+Criança. Muita criança. Aquilo não era casa — era um casarão velho de dois andares, cheio de quarto, com um corredor que rangia e uma escada em que ninguém confiava. Quase um orfanato, só que sem ninguém nem fingindo que ia cuidar de você. Eu não sei quantas crianças moravam ali. Mais do que dava pra contar de cabeça, e o número mudava.
+
+Eu era o mais novo quando cheguei. Fui crescendo no meio daquilo.
+
+---
+
+Levou um tempo pra eu sacar o esquema, porque eu era pequeno demais. Mas ficou claro.
+
+Cada criança naquela casa era dinheiro no fim do mês. Cada cabeça valia um tanto de auxílio, de benefício, de ajuda pra "família numerosa". O Tio e a Tia tinham montado uma criação de gente pequena, e a gente era o rebanho.
+
+O dinheiro que era pra nos sustentar entrava e evaporava. Ia pro bolso deles, pra bebida, pro que fosse. Pra gente sobrava o mínimo pra continuar de pé — porque criança magra demais chama atenção, e chamar atenção era ruim pro negócio.
+
+---
+
+Comida ali era controlada como remédio de tarja preta.
+
+Tinha hora, tinha porção, tinha dono. Faltar era o normal. Eu aprendi coisas naquela mesa vazia que carrego até hoje: que água engana a fome por uns quarenta minutos, que dá pra dormir com o estômago doendo se você se encolher do jeito certo, que o lixo de alguns lugares tem coisa aproveitável se você chegar antes dos outros.
+
+Currículo pesado pra quem ainda não sabia contar até dez.
+
+---
+
+E teve a porrada.
+
+Não vou dar detalhe, porque detalhe de apanhar é chato de ler, e vocês já me viram apanhar do Brock naquele anexo. Pega aquilo, tira a plateia, tira o revide, encolhe pro tamanho de uma criança de três, quatro anos, e multiplica pela quantidade de dias. Pronto. A imagem tá aí sem eu precisar desenhar.
+
+O pior nem era a dor. Era não dar pra prever. Dia bom e dia ruim usavam a mesma roupa, e você só descobria qual era quando já era tarde. Isso mexe com a cabeça de um jeito que a dor sozinha não mexe.
+
+---
+
+A gente não era criança naquela casa. A gente era número.
+
+Ninguém sabia o meu aniversário. Ninguém sabia do que eu gostava. Eu era uma linha numa planilha, e o meu trabalho era continuar respirando pra não estragar a contagem no dia em que aparecia o assistente — aí sim tinha comida decente na mesa, e a Tia falava com voz de novela, e todo mundo sorria pra foto.
+
+O assistente ia embora e a comida ia junto.
+
+---
+
+E tinha o porão.
+
+De dia a gente era número pra foto. De noite tinha o porão, com uma porta que ficava trancada enquanto o sol estava alto. Quando escurecia, ela abria, e os mais velhos desciam. Com o tempo os menores desciam junto. Eu desci.
+
+Lá embaixo a gente trabalhava. Saquinho plástico, uma balança, e um cheiro que agarrava a garganta e não largava mais. Eu tinha quatro, cinco anos, não sabia o nome daquilo. Mas eu sabia o cheiro, e sabia a cara dos homens que passavam pra buscar o que a gente montava — homens que olhavam pra uma criança do mesmo jeito que olhavam pra uma cadeira.
+
+O Tio e a Tia não eram o topo de nada. Eram um elo. Mão de obra de graça, sem folha de pagamento, sem pergunta, e se sumisse uma criança dali ninguém ia procurar. A gente montava o que mandavam montar, do jeito que mandavam, e no fim da noite subia. Ninguém explicava o que era. A gente já sabia que era do tipo de coisa que não se conta.
+
+Foi ali, naquele porão, que o crime apareceu pra mim pela primeira vez na vida. Não como oportunidade. Como uma porta trancada e um cheiro na garganta.
+
+---
+
+Teve um menino mais velho que tomava conta dos menores. Não por mando de ninguém — ele fazia o que dava pra amortecer. Avisava quando a barra ia pesar. Dividia o pouco que conseguia esconder.
+
+Um dia ele não tava mais lá. "Foi pra outro tio." Ninguém explicou e ninguém perguntou, porque a gente já tinha aprendido a não perguntar.
+
+Eu penso nele de vez em quando. Torço pra ter dado certo. É o máximo que eu consigo fazer por ele daqui.
+
+---
+
+E chegava carta.
+
+Não muita. Uma ou outra, ao longo daqueles três anos, mandada pelos meus pais lá do sertão. A Tia pegava primeiro. Às vezes lia em voz alta, com deboche, fazendo a mesa rir da letra torta da minha mãe. Às vezes nem entregava.
+
+Eu quase nunca soube o que estava escrito dentro. Mas eu via o de fora. Via o nome dos meus pais e o endereço deles, escrito no canto do envelope, toda vez.
+
+E eu decorei. Letra por letra, número por número — um moleque de quatro anos guardando um endereço como quem guarda ouro. Naquela hora eu não sabia pra que ia servir. Guardei mesmo assim.
+
+Esse endereço decorado ia ser, anos depois, a coisa mais importante que eu tirei daquela casa. Fora a leitura de briga.
+
+---
+
+Agora a parte boa. Tem, e nesse capítulo ela é a mais importante da história toda.
+
+Naqueles três anos eu ganhei de graça a única coisa que eu faço melhor que o Kim.
+
+Eu aprendi a ler o soco antes de quem vai dar o soco saber que vai dar.
+
+Eu decorei o barulho do portão. O jeito que o Tio pisava quando o dia tinha sido ruim. O tom da Tia no telefone, que já entregava a próxima hora inteira. A demora entre a chave entrar na fechadura e a porta abrir. Cada sinalzinho desses eu fui catalogando sem saber que estava catalogando, porque a informação valia uma coisa concreta: não apanhar.
+
+Vocês acham que a minha leitura de briga é dom. Não é. É trauma com boa apresentação. Aqueles dois me deram um treino que dinheiro nenhum compra, e o preço eu paguei à vista, na hora, em criança.
+
+---
+
+Uma noite eu subi do porão, me enfiei atrás da caixa d'água no quintal e fiquei lá até clarear.
+
+Fazia frio. Eu já não chorava por essas coisas — chorar não mexia no placar. E naquela noite eu entendi uma coisa com uma clareza que assustava pra idade que eu tinha: não era a fome que ia me acabar ali, nem a porrada. Fome eu aguentava. Era o porão. Aquela casa não era só cruel — ela alimentava uma coisa maior e pior lá fora, e quem ficasse ia ser engolido junto, um saquinho de cada vez.
+
+Fiquei olhando o céu ir ficando cinza e pensei uma frase grande demais pra criança:
+
+*Isso aqui não é pra sempre. Alguém decide quando acaba. E vai ser eu.*
+
+Não era um plano. Era uma frase. Mas eu guardei ela junto com a voz desafinada da minha mãe, na mesma caixinha.
+
+Pouco depois eu fiz cinco anos. E tomei a primeira decisão de verdade da minha vida — sair. Não só pra fugir da surra. Pra sair de perto daquilo antes que aquilo virasse eu.
+`;export{e as default};
+//# sourceMappingURL=03-2qBrjedW.js.map
