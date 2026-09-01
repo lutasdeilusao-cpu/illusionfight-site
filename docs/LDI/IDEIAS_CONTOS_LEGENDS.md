@@ -64,13 +64,15 @@ Kim aos 7** → 7-9+ o corre cresce com o Kim já por perto → ~17 estabelecido
   entrega, a pé e depois **de bike** ("a bike me deu alcance, não velocidade").
   Barracas: compra cabo/carregador/caixinha de som no centro, revende no Morro
   ("vendo o direito de não ir no centro"). Recusou o crime.
+- Bike com nome: **Órion** ("nome de caçador, de guerreiro; 'Warrior' em inglês").
 - ~8-9+ (Kim já por perto, **não sabe o tamanho do corre do Jack**): firma de
-  moleques. **Pedrinho** = 1º funcionário, usa o nome do Kim como segurança.
-  Recruta moleques "firmeza", paga certo ("planilha, não bondade").
+  moleques. **Metade dos moleques que ele contrata são caras que ele já bateu na
+  rua.** Aviso de roubo: "você sabe com quem eu ando, e melhor: sabe quem eu sou —
+  a gente já se pegou. Se me roubar não vai ter treta na esquina, vai ter outra
+  coisa." Paga certo ("planilha, não bondade"). (SEM "Pedrinho" e SEM "o Kim é meu
+  sócio informal" — removidos na limpeza do cap 7, v10.198.92.)
 - ~17: **bem estabelecido pra jovem sem família** — grana, casa alugada (3 meses
   adiantados em espécie).
-- Pegada: **"não mexe com a minha ganância"** — não deixa passar oportunidade de
-  ganhar. "Um dia vai me trazer encrenca."
 - **Ninguém sabe como o Jack ganha dinheiro** — de propósito.
 - Cabelo verde = 1ª compra supérflua.
 - Conheceu o Kim aos **7** (trombada, ver [[conto-03-a-banda-e-o-osvaldo-rockeiro]]);
@@ -78,18 +80,16 @@ Kim aos 7** → 7-9+ o corre cresce com o Kim já por perto → ~17 estabelecido
 - Briga mensal com o Campeão/Alan: Jack não lembra nome nem dia, de propósito.
   [[crime-organizado-marelia]].
 
-**SEMENTE DA EMPRESA "O CORRE"** (decisão do Isaias — ele queria há tempo que Jack
-+ Kim montassem uma empresa no fim de um arco, sem saber qual). Jack, pedalando e
-fazendo o corre dos outros, sacou o padrão: "todo mundo tem um corre que não quer
-fazer, e paga pra não fazer". Ideia = app/plataforma **O Corre**: pessoas postam
-serviço + valor, outras fazem (buscar no aeroporto, companhia a idoso, pegar fila,
-esperar entrega, etc). "Onde você faz o corre quando não pode fazer o corre." Jack
-já tem o nome; sabe que "não se monta sozinho, é departamento de outra pessoa" (=
-Kim: estrutura, regra). **É o destino de longo prazo do arco Jack+Kim**; a Parte 1
-só planta a semente.
+**EMPRESA "O CORRE" — NÃO ENTRA NO CONTO.** Ideia do Isaias pra **finalização do
+livro** (linha principal): app/plataforma onde alguém posta um serviço + valor e
+outra pessoa faz o corre (buscar no aeroporto, companhia a idoso, pegar fila,
+esperar entrega...). "Onde você faz o corre quando não pode fazer o corre." Foi
+cogitada como semente na Parte 1 e **removida a pedido do Isaias** (v10.198.92) — o
+cap 7 termina só no Jack montando o esquema (barracas + entregas + a Órion), sem
+prenúncio de empresa. **Guardar pro livro, não pro conto.**
 
-**Parte 2 pendente** — "vai ter um peso, chega num point de clima" (Isaias). Cap 7
-termina com gancho contido. Só PT.
+**Parte 2 pendente** — "vai ter um peso, chega num point de clima" (Isaias, que vai
+escrever). Cap 7 termina leve, no esquema montado. Só PT.
 
 Peso **pesada** (abandono + abuso infantil + rua aos 5), apesar do tom cômico —
 pode virar "média", decisão do Isaias.
