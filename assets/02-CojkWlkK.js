@@ -1,0 +1,75 @@
+var e=`# CHAPTER 2 — The Countryside
+
+Let me put you on the map.
+
+Way up top, in the high country of Bravara, there's a region nobody puts on a postcard. Cracked earth. Punishing sun. Sugarcane on one side, dry scrub on the other, and a dust that gets into everything — the food, your ears, your soul if you let it. It's the kind of place where rain is news. When it falls, everybody stops what they're doing to watch.
+
+That's where I was born.
+
+---
+
+My parents were poor folk. Really poor — not the pretty-speech kind of humble, the kind that cuts cane all day and comes home with a wrecked body and an almost empty pocket.
+
+And they loved me. I need to make that very clear right up front, because the rest of this story is ugly and I don't want it splashing on them.
+
+They loved me like crazy.
+
+---
+
+The problem wasn't love. The problem was food.
+
+Dry year after dry year, and one more mouth in a house that already didn't add up. My parents looked at the situation and saw it for what it was: if I stayed, I'd go hungry with them. Maybe worse than hungry.
+
+That's when the aunt and uncle showed up.
+
+---
+
+I was two years old when they took me.
+
+Two. After that I barely had any contact with my parents. I have no memory of their faces. What I carry isn't quite a memory — it's more of a climate, a temperature. A lap that existed. A woman's voice singing badly off-key, and I swear that voice is my mother's, and that she sang terribly, beautifully so.
+
+It's not much. But it was before I was two and it stuck anyway. That says something about how strong the thing is.
+
+---
+
+I don't know if they were blood relatives. In that region, "uncle" is any half-distant relative who shows up now and then.
+
+And these ones showed up with a good offer. Too good, for anyone with the head to be suspicious — and my parents, in that desperation, didn't have it. *We'll take the boy to the city. There's school there, food every day, a doctor. You visit whenever you want.*
+
+What hungry parent doesn't sign that?
+
+---
+
+What my parents didn't know was that it was a running business.
+
+The aunt and uncle drove the whole backcountry collecting kids off poor relatives. Not out of charity. It's that the more kids in the house, the more money came in — aid, benefits, a rate per head to "support a large family". They ran the numbers and saw that a kid cost nothing. A kid paid.
+
+We weren't taken in. We were collected.
+
+---
+
+I don't remember the goodbye, because I was two.
+
+But they told me, a long time later, that my mother cried in a way nobody had seen before. That my father didn't cry in front of them, but held my hand too tight and took too long to let go.
+
+They thought they were giving me a better life. They were handing me over to the worse one. And the blame isn't theirs — it's hunger's, which makes good people make bad decisions thinking they're good.
+
+---
+
+This is where the good part of the chapter should come. And it does, only it's different from the others.
+
+The good part is that I was really loved for the first two years. Long enough for the body to keep the temperature, even without keeping the face.
+
+Plenty of people never even had that. I did. It's my emergency reserve, and I've drawn on it more times than I'll admit on stage.
+
+---
+
+The trip to the city was long, in the bed of a pickup.
+
+They say it was the first time I saw Marelia growing on the horizon — that cluster of light, switching on one by one as the sun went down. I don't remember. But I like to imagine I found it beautiful, because a two-year-old finds everything beautiful and still doesn't know where it's headed.
+
+The pickup stopped in front of a house. They set me on the ground. The door opened.
+
+And that's where the part I tell fast begins.
+`;export{e as default};
+//# sourceMappingURL=02-CojkWlkK.js.map

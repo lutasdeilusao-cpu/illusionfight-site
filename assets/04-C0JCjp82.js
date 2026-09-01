@@ -1,0 +1,65 @@
+var e=`# CHAPTER 4 — The Door
+
+You're expecting the exit scene. I know you are. Thunder outside, a backpack, a speech at the door, the kid looking back one last time with the soundtrack swelling.
+
+None of that happened.
+
+I left on some ordinary weekday, in the afternoon, through the front door, which wasn't even locked. I turned the corner. And I kept turning corners until the house was off the map.
+
+---
+
+I didn't run.
+
+That's important. You run when there's somebody chasing you. And there was nobody chasing me.
+
+Nobody came. That's the part that, on paper, should hurt — and in the moment was the biggest relief of my life up to then. Because if they'd come after me, I'd have had to go back. A five-year-old doesn't win that argument. But nobody came. So, honestly: thank you.
+
+---
+
+A whole lot of kids stayed inside there. I know that.
+
+I think about it sometimes, mostly when somebody tries to call me brave. I didn't save anybody. I barely got myself out. Taking someone else with me never crossed my mind, and if it had, there'd have been no way. Five years old, alone — I barely fit inside that decision.
+
+This part has no good side. I looked. There isn't one.
+
+---
+
+It was there, walking, that the thing happened inside me.
+
+I made the first choice of my life. And man, the feeling was so good — choosing, deciding, being the one pressing the button — that I never stopped.
+
+From that day on, everything that happened to me had a piece of me in the decision. Sometimes a big piece. Sometimes a tiny piece, the size of choosing how to react to something I didn't ask for. But there was always a piece. I'm the one who chose.
+
+Because that's how Jack chose it.
+
+---
+
+Let me explain my philosophy, since we got to it.
+
+Everything that happened to me before that door was something that happened to me. I was born where I was born. I was given to whoever I was given to. I got beaten by whoever beat me. None of that crossed my desk for a signature. It was all irrational, all outside my control.
+
+And I don't spend energy fighting the irrational. You don't punch the rain. You don't argue with the earthquake. You find an overhang, wait it out, and use the time to think about the next step.
+
+Kim fights everything. That's his way, and it works for him. Not me. I dodge what I can't beat and go full force at what I can. We get to the same place by different roads.
+
+---
+
+The first night alone was terrifying.
+
+Cold, dark, every noise sounding like a problem coming my way. I curled up in a gap between two walls and lay there with my eyes open for half the night.
+
+And then, the other half, I slept. Slept the whole way through.
+
+It was the first time in three years that happened. Alone is scary, I won't lie. But alone, nobody wakes you with a jolt. Nobody steps different in the hallway. The fear of the dark is big, but it's stupid and it has no hands. I traded a smart fear for a stupid one, and it was the best deal I ever made.
+
+---
+
+I walked toward the lights.
+
+That cluster of light I'd seen from the pickup bed years before. Marelia. A city has more corners, and more corners means more places not to be seen, and more stuff falling out of pockets.
+
+Marelia took me in the way it takes everybody in: without looking at my face.
+
+And I loved it. For someone starting from zero, nobody looking at you is almost a gift.
+`;export{e as default};
+//# sourceMappingURL=04-C0JCjp82.js.map

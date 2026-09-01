@@ -1,0 +1,61 @@
+var e=`# CAPÍTULO 1 — Porque Así lo Eligió Jack
+
+Déjenme empezar con una pregunta para ustedes.
+
+¿Cuántas veces, en todos estos años, alguien me preguntó de dónde vengo?
+
+Voy a esperar.
+
+---
+
+Cero. La respuesta es cero.
+
+Kim nunca preguntó. Y eso que Kim me conoce desde los siete años. Ya me vio sangrar, ya me cargó fuera de lugares que no voy a nombrar acá. Nunca se dio vuelta y me dijo "Jack, viejo, ¿y tu familia?". Ni una sola vez.
+
+Nina nunca preguntó. Nina, que se fija en todo, que te escanea apenas entra a una sala, que sabe cuánto tienes en la billetera por cómo caminas. Nunca me preguntó nada sobre mi pasado.
+
+Nadie preguntó nunca.
+
+Y yo nunca conté. ¿Por qué? Porque esa es la regla del juego. Pregunta que nadie hace no tiene respuesta. Eso es prácticamente física. A Kim le gustaría esa — le gusta cuando la vida tiene reglas.
+
+---
+
+Ahora, antes de que les dé lástima: paren. Guárdense la lástima donde no da el sol.
+
+No estoy contando esto dolido. No hago dolido, no es mi departamento. Hago gracia. Si cuento esta historia con voz de documental, se van a ir por la mitad, y con razón, porque el documental triste es aburrido y yo me niego a ser aburrido hasta después de muerto.
+
+Así que va a ser así: con Jack en el escenario. A mi manera. Cine. Luces, público, un tipo lindo en el centro contando su propio lío y riéndose de todo.
+
+Porque tiene gracia. Tiene mucha gracia. Van a ver.
+
+---
+
+Spoiler, ya que estamos: yo gano al final.
+
+Yo siempre gano. No porque la vida haya sido suave conmigo — la vida no fue suave, van a ver que no fue nada suave. Gano porque en algún momento, muy chico, decidí que iba a ganar, y después de eso se volvió terquedad.
+
+Hay una frase que se va a repetir bastante en esta historia, así que vayan acostumbrando el oído:
+
+Porque así lo eligió Jack.
+
+---
+
+Y hay una regla de la casa que les tengo que explicar antes, si no, nada de lo que viene después tiene sentido.
+
+La regla es: toda porquería tiene una parte buena.
+
+No es optimismo de camiseta motivacional. Es técnica. Toda situación mala, por peor que sea, tiene una cosita aprovechable flotando adentro. Un pan. Una luz prendida. Una habilidad que ganas sin querer. Cualquier cosa sirve.
+
+El truco es ser rápido. Tienes que encontrar la parte buena antes de que se hunda con el resto. Si tardas, se fue. Ahí te quedas solo con la porquería, igual que todo el mundo.
+
+Yo soy muy rápido para eso. Es mi mayor talento. Más que pelear. Y peleo bien.
+
+---
+
+Entonces bueno. Siéntense. Agarren las palomitas.
+
+La historia empieza en un lugar del interior cuyo nombre no sé bien, con una pareja que me amaba y no tenía cómo criarme.
+
+Ese hijo era yo. Obvio. ¿Pensaban que iba a narrar la historia de otra persona?
+`;export{e as default};
+//# sourceMappingURL=01-BznQw8Z_.js.map
