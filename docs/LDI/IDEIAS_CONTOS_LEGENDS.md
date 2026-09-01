@@ -18,6 +18,7 @@
 | 02 | Alan, o Campeão | Alan | 19 | pesado / calculista | **coluna do Livro 1** — constrói a Marélia do crime inteira |
 | 03 | A Banda do Kim e do Jack | Kim | 6 | leve de propósito | respiro; reveal do Osvaldo rockeiro |
 | 04 | Eu sou Nina | Nina | 9 | seco / dureza com ternura pelo pai | passado da Nina; amarra na "consultoria com uma pausa antes da palavra" |
+| 05 | Porque Assim Escolheu o Jack | Jack | 8 | pesada / stand-up teatral | passado do Jack; fecha aos 15 com o reveal dos pais que ele sustenta em segredo |
 
 **Espinha comum dos 4 (não planejada, mas real):** *uma pessoa que decidiu não
 precisar de ninguém e é obrigada a deixar alguém entrar.*
@@ -33,7 +34,20 @@ Isso dá unidade ao selo — mas é o **limite**. Próximo conto não pode ser m
 
 ## TIER 1 — fazer primeiro
 
-### A. Conto do Jack  ✅ PARTE 1 PUBLICADA (id 05, v10.198.90, 2026-08-31)
+### A. Conto do Jack  ✅ COMPLETO — 8 caps (id 05, v10.198.90..94)
+
+**Termina no cap 8 "Ninguém Nunca Perguntou"** (aos 15 anos): o Jack se reencontrou
+com os pais e os **sustenta em segredo** — começou por carta (chegava na loja do
+Seu Nestor; ele zoa muito), depois mandou um **celular velho** e paga a **franquia**
+(chamada de vídeo vez ou outra), e manda **dinheiro todo mês**. Os pais se preocupam
+demais. Ele nunca os viu pessoalmente (quer um dia). A mãe cantou desafinado numa
+chamada (paga o plant do cap 2). O **nome de batismo dele não é revelado** (só os
+pais usam; "o Kim me deu o nome Jack"). Fecha igual abriu: **"Ninguém sabe porque
+ninguém nunca perguntou."** SEM Parte 2 — o conto está fechado.
+
+---
+
+### (histórico) Estrutura da Parte 1
 
 **Decisão tomada: Opção A** — Jack sozinho no mundo desde criança. Descartadas:
 a versão "pai muito legal" (antiga, vaga) e a versão "pais drogados → avós bondosos"
@@ -89,8 +103,7 @@ cogitada como semente na Parte 1 e **removida a pedido do Isaias** (v10.198.92) 
 cap 7 termina só no Jack montando o esquema (barracas + entregas + a Warrior), sem
 prenúncio de empresa. **Guardar pro livro, não pro conto.**
 
-**Parte 2 pendente** — "vai ter um peso, chega num point de clima" (Isaias, que vai
-escrever). Cap 7 termina leve, no esquema montado. Só PT.
+**Conto fechado no cap 8** (não tem Parte 2). Só PT.
 
 Peso **pesada** (abandono + abuso infantil + rua aos 5), apesar do tom cômico —
 pode virar "média", decisão do Isaias.
