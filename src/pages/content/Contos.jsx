@@ -67,7 +67,6 @@ export default function Contos() {
 
         <div className="contos-hero">
           <div className="contos-hero__text">
-            <span className="contos-selo">{t('pages.contos.selo')}</span>
             <h2 className="section-title">{t('pages.contos.titulo')}</h2>
             <p className="contos-hero__desc">{t('pages.contos.descricao')}</p>
           </div>
@@ -123,7 +122,6 @@ export default function Contos() {
               >
                 <img className="contos-card__img" src={comingSoonImg} alt="" loading="lazy" decoding="async" />
                 <div className="contos-card__info">
-                  <span className="contos-card__selo">{h.selo}</span>
                   <span className="contos-card__titulo">{h[tituloKey]}</span>
                   <p className="contos-card__tag">{h[taglineKey]}</p>
                   <Farol

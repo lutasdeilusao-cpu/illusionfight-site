@@ -150,7 +150,7 @@ export default function ContoCapitulo() {
 
         <div className="livro-capitulo__header">
           <div className="livro-capitulo__header-numero">
-            {h.selo?.toUpperCase()} · {h[tituloKey]} · {t('pages.contos.cap')} {String(capitulo?.numero || 1).padStart(2, '0')}
+            {h[tituloKey]} · {t('pages.contos.cap')} {String(capitulo?.numero || 1).padStart(2, '0')}
           </div>
           {capitulo && <h1 className="livro-capitulo__header-titulo">{capitulo[tituloKey]}</h1>}
         </div>

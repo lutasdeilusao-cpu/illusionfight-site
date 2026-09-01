@@ -42,7 +42,7 @@ export default function ContoHistoria() {
   return (
     <section className="livro-page">
       <Helmet>
-        <title>{h[tituloKey]} — {t('pages.contos.selo')}</title>
+        <title>{h[tituloKey]} — {t('pages.contos.linha_contos')}</title>
         <meta name="description" content={h[locale === 'en' ? 'resumo_en' : locale === 'es' ? 'resumo_es' : 'resumo_pt']} />
       </Helmet>
       <div className="container">
@@ -56,7 +56,6 @@ export default function ContoHistoria() {
         </button>
         <div className="contos-hero">
           <div className="contos-hero__text">
-            <span className="contos-selo">{h.selo}</span>
             <h2 className="section-title">{h[tituloKey]}</h2>
             <p className="contos-hero__desc">
               {h[locale === 'en' ? 'resumo_en' : locale === 'es' ? 'resumo_es' : 'resumo_pt']}

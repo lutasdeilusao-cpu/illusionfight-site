@@ -1,7 +1,6 @@
 [
   {
     "id": "01",
-    "selo": "Legends",
     "peso": "pesada",
     "canon": true,
     "temas": [
@@ -80,7 +79,6 @@
   },
   {
     "id": "02",
-    "selo": "Legends",
     "peso": "pesada",
     "canon": true,
     "temas": [
@@ -255,7 +253,6 @@
   },
   {
     "id": "03",
-    "selo": "Legends",
     "peso": "leve",
     "canon": true,
     "temas": [
@@ -326,7 +323,6 @@
   },
   {
     "id": "04",
-    "selo": "Legends",
     "peso": "media",
     "canon": true,
     "temas": [
@@ -421,10 +417,14 @@
   },
   {
     "id": "05",
-    "selo": "Legends",
     "peso": "pesada",
     "canon": true,
-    "temas": ["solidao", "infancia", "humor", "superacao"],
+    "temas": [
+      "solidao",
+      "infancia",
+      "humor",
+      "superacao"
+    ],
     "titulo": "Porque Assim Escolheu o Jack",
     "titulo_en": "Because That's How Jack Chose It",
     "titulo_es": "Porque Así lo Eligió Jack",
@@ -435,14 +435,70 @@
     "resumo_en": "Jack's past before Kim: the parents who loved him and couldn't raise him, the relatives who made a business out of children, the street at five, the delivery operation he built from scratch — and a secret he keeps not because he's hiding it, but because nobody ever asked.",
     "resumo_es": "El pasado de Jack antes de Kim: los padres que lo amaban y no podían criarlo, los tíos que hacían un negocio con los niños, la calle a los cinco años, el negocio de entregas que montó de cero — y un secreto que guarda no porque lo esconde, sino porque nadie preguntó nunca.",
     "capitulos": [
-      { "id": "01", "numero": 1, "titulo": "Porque Assim Escolheu o Jack", "titulo_en": "Because That's How Jack Chose It", "titulo_es": "Porque Así lo Eligió Jack", "data_publicacao": "2026-08-31" },
-      { "id": "02", "numero": 2, "titulo": "O Interior", "titulo_en": "The Countryside", "titulo_es": "El Interior", "data_publicacao": "2026-08-31" },
-      { "id": "03", "numero": 3, "titulo": "Tio e Tia", "titulo_en": "Uncle and Aunt", "titulo_es": "Tío y Tía", "data_publicacao": "2026-08-31" },
-      { "id": "04", "numero": 4, "titulo": "A Porta", "titulo_en": "The Door", "titulo_es": "La Puerta", "data_publicacao": "2026-08-31" },
-      { "id": "05", "numero": 5, "titulo": "A Loja do Seu Nestor", "titulo_en": "Mr. Nestor's Shop", "titulo_es": "La Tienda del Señor Nestor", "data_publicacao": "2026-08-31" },
-      { "id": "06", "numero": 6, "titulo": "A Bike", "titulo_en": "The Bike", "titulo_es": "La Bici", "data_publicacao": "2026-08-31" },
-      { "id": "07", "numero": 7, "titulo": "A Firma", "titulo_en": "The Operation", "titulo_es": "El Negocio", "data_publicacao": "2026-08-31" },
-      { "id": "08", "numero": 8, "titulo": "Ninguém Nunca Perguntou", "titulo_en": "Nobody Ever Asked", "titulo_es": "Nadie Preguntó Nunca", "data_publicacao": "2026-09-01" }
+      {
+        "id": "01",
+        "numero": 1,
+        "titulo": "Porque Assim Escolheu o Jack",
+        "titulo_en": "Because That's How Jack Chose It",
+        "titulo_es": "Porque Así lo Eligió Jack",
+        "data_publicacao": "2026-08-31"
+      },
+      {
+        "id": "02",
+        "numero": 2,
+        "titulo": "O Interior",
+        "titulo_en": "The Countryside",
+        "titulo_es": "El Interior",
+        "data_publicacao": "2026-08-31"
+      },
+      {
+        "id": "03",
+        "numero": 3,
+        "titulo": "Tio e Tia",
+        "titulo_en": "Uncle and Aunt",
+        "titulo_es": "Tío y Tía",
+        "data_publicacao": "2026-08-31"
+      },
+      {
+        "id": "04",
+        "numero": 4,
+        "titulo": "A Porta",
+        "titulo_en": "The Door",
+        "titulo_es": "La Puerta",
+        "data_publicacao": "2026-08-31"
+      },
+      {
+        "id": "05",
+        "numero": 5,
+        "titulo": "A Loja do Seu Nestor",
+        "titulo_en": "Mr. Nestor's Shop",
+        "titulo_es": "La Tienda del Señor Nestor",
+        "data_publicacao": "2026-08-31"
+      },
+      {
+        "id": "06",
+        "numero": 6,
+        "titulo": "A Bike",
+        "titulo_en": "The Bike",
+        "titulo_es": "La Bici",
+        "data_publicacao": "2026-08-31"
+      },
+      {
+        "id": "07",
+        "numero": 7,
+        "titulo": "A Firma",
+        "titulo_en": "The Operation",
+        "titulo_es": "El Negocio",
+        "data_publicacao": "2026-08-31"
+      },
+      {
+        "id": "08",
+        "numero": 8,
+        "titulo": "Ninguém Nunca Perguntou",
+        "titulo_en": "Nobody Ever Asked",
+        "titulo_es": "Nadie Preguntó Nunca",
+        "data_publicacao": "2026-09-01"
+      }
     ]
   }
 ]

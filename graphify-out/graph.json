@@ -254,14 +254,634 @@
       "norm_label": "13. onde procurar primeiro"
     },
     {
+      "label": "App.jsx",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_app",
+      "community": 6,
+      "norm_label": "app.jsx"
+    },
+    {
+      "label": "Home",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L16",
+      "_origin": "ast",
+      "id": "src_app_home",
+      "community": 6,
+      "norm_label": "home"
+    },
+    {
+      "label": "Musicas",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L17",
+      "_origin": "ast",
+      "id": "src_app_musicas",
+      "community": 6,
+      "norm_label": "musicas"
+    },
+    {
+      "label": "Personagens",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L18",
+      "_origin": "ast",
+      "id": "src_app_personagens",
+      "community": 6,
+      "norm_label": "personagens"
+    },
+    {
+      "label": "PersonagemDetalhe",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L19",
+      "_origin": "ast",
+      "id": "src_app_personagemdetalhe",
+      "community": 6,
+      "norm_label": "personagemdetalhe"
+    },
+    {
+      "label": "Livro",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "src_app_livro",
+      "community": 6,
+      "norm_label": "livro"
+    },
+    {
+      "label": "LivroCapitulo",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L21",
+      "_origin": "ast",
+      "id": "src_app_livrocapitulo",
+      "community": 6,
+      "norm_label": "livrocapitulo"
+    },
+    {
+      "label": "Contos",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L22",
+      "_origin": "ast",
+      "id": "src_app_contos",
+      "community": 6,
+      "norm_label": "contos"
+    },
+    {
+      "label": "ContoHistoria",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L23",
+      "_origin": "ast",
+      "id": "src_app_contohistoria",
+      "community": 6,
+      "norm_label": "contohistoria"
+    },
+    {
+      "label": "ContoCapitulo",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L24",
+      "_origin": "ast",
+      "id": "src_app_contocapitulo",
+      "community": 6,
+      "norm_label": "contocapitulo"
+    },
+    {
+      "label": "Assinar",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L25",
+      "_origin": "ast",
+      "id": "src_app_assinar",
+      "community": 6,
+      "norm_label": "assinar"
+    },
+    {
+      "label": "Autor",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L26",
+      "_origin": "ast",
+      "id": "src_app_autor",
+      "community": 6,
+      "norm_label": "autor"
+    },
+    {
+      "label": "Webtoon",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L27",
+      "_origin": "ast",
+      "id": "src_app_webtoon",
+      "community": 6,
+      "norm_label": "webtoon"
+    },
+    {
+      "label": "WebtoonEpisodio",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L28",
+      "_origin": "ast",
+      "id": "src_app_webtoonepisodio",
+      "community": 6,
+      "norm_label": "webtoonepisodio"
+    },
+    {
+      "label": "Mundo",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L29",
+      "_origin": "ast",
+      "id": "src_app_mundo",
+      "community": 6,
+      "norm_label": "mundo"
+    },
+    {
+      "label": "Quiz",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L30",
+      "_origin": "ast",
+      "id": "src_app_quiz",
+      "community": 6,
+      "norm_label": "quiz"
+    },
+    {
+      "label": "Games",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L31",
+      "_origin": "ast",
+      "id": "src_app_games",
+      "community": 6,
+      "norm_label": "games"
+    },
+    {
+      "label": "MiniGames",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L32",
+      "_origin": "ast",
+      "id": "src_app_minigames",
+      "community": 6,
+      "norm_label": "minigames"
+    },
+    {
+      "label": "TopTrumpsSP",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L33",
+      "_origin": "ast",
+      "id": "src_app_toptrumpssp",
+      "community": 6,
+      "norm_label": "toptrumpssp"
+    },
+    {
+      "label": "TopTrumpsMP",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L34",
+      "_origin": "ast",
+      "id": "src_app_toptrumpsmp",
+      "community": 6,
+      "norm_label": "toptrumpsmp"
+    },
+    {
+      "label": "MultiplayerLobby",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L35",
+      "_origin": "ast",
+      "id": "src_app_multiplayerlobby",
+      "community": 6,
+      "norm_label": "multiplayerlobby"
+    },
+    {
+      "label": "Leaderboard",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L36",
+      "_origin": "ast",
+      "id": "src_app_leaderboard",
+      "community": 6,
+      "norm_label": "leaderboard"
+    },
+    {
+      "label": "Login",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L37",
+      "_origin": "ast",
+      "id": "src_app_login",
+      "community": 6,
+      "norm_label": "login"
+    },
+    {
+      "label": "Cadastro",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L38",
+      "_origin": "ast",
+      "id": "src_app_cadastro",
+      "community": 6,
+      "norm_label": "cadastro"
+    },
+    {
+      "label": "Perfil",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L39",
+      "_origin": "ast",
+      "id": "src_app_perfil",
+      "community": 6,
+      "norm_label": "perfil"
+    },
+    {
+      "label": "Admin",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L40",
+      "_origin": "ast",
+      "id": "src_app_admin",
+      "community": 6,
+      "norm_label": "admin"
+    },
+    {
+      "label": "Prototype",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L41",
+      "_origin": "ast",
+      "id": "src_app_prototype",
+      "community": 6,
+      "norm_label": "prototype"
+    },
+    {
+      "label": "SRGRM",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L42",
+      "_origin": "ast",
+      "id": "src_app_srgrm",
+      "community": 6,
+      "norm_label": "srgrm"
+    },
+    {
+      "label": "ArenaTestbed",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L43",
+      "_origin": "ast",
+      "id": "src_app_arenatestbed",
+      "community": 6,
+      "norm_label": "arenatestbed"
+    },
+    {
+      "label": "LDILobby",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L44",
+      "_origin": "ast",
+      "id": "src_app_ldilobby",
+      "community": 6,
+      "norm_label": "ldilobby"
+    },
+    {
+      "label": "LDICreate",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L45",
+      "_origin": "ast",
+      "id": "src_app_ldicreate",
+      "community": 6,
+      "norm_label": "ldicreate"
+    },
+    {
+      "label": "LDIGame",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L46",
+      "_origin": "ast",
+      "id": "src_app_ldigame",
+      "community": 6,
+      "norm_label": "ldigame"
+    },
+    {
+      "label": "LDICombat",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L47",
+      "_origin": "ast",
+      "id": "src_app_ldicombat",
+      "community": 6,
+      "norm_label": "ldicombat"
+    },
+    {
+      "label": "LDISheet",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L48",
+      "_origin": "ast",
+      "id": "src_app_ldisheet",
+      "community": 6,
+      "norm_label": "ldisheet"
+    },
+    {
+      "label": "LDIClues",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L49",
+      "_origin": "ast",
+      "id": "src_app_ldiclues",
+      "community": 6,
+      "norm_label": "ldiclues"
+    },
+    {
+      "label": "LDIEnd",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L50",
+      "_origin": "ast",
+      "id": "src_app_ldiend",
+      "community": 6,
+      "norm_label": "ldiend"
+    },
+    {
+      "label": "LDIPuzzle",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L51",
+      "_origin": "ast",
+      "id": "src_app_ldipuzzle",
+      "community": 6,
+      "norm_label": "ldipuzzle"
+    },
+    {
+      "label": "JackCandy",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L52",
+      "_origin": "ast",
+      "id": "src_app_jackcandy",
+      "community": 6,
+      "norm_label": "jackcandy"
+    },
+    {
+      "label": "GanguesRoute",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L53",
+      "_origin": "ast",
+      "id": "src_app_ganguesroute",
+      "community": 6,
+      "norm_label": "ganguesroute"
+    },
+    {
+      "label": "ArenaTaticsRoute",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L54",
+      "_origin": "ast",
+      "id": "src_app_arenataticsroute",
+      "community": 6,
+      "norm_label": "arenataticsroute"
+    },
+    {
+      "label": "PP",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L55",
+      "_origin": "ast",
+      "id": "src_app_pp",
+      "community": 6,
+      "norm_label": "pp"
+    },
+    {
+      "label": "DueloRoute",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L56",
+      "_origin": "ast",
+      "id": "src_app_dueloroute",
+      "community": 6,
+      "norm_label": "dueloroute"
+    },
+    {
+      "label": "Tamagoshi",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L57",
+      "_origin": "ast",
+      "id": "src_app_tamagoshi",
+      "community": 6,
+      "norm_label": "tamagoshi"
+    },
+    {
+      "label": "KernelPanic",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L58",
+      "_origin": "ast",
+      "id": "src_app_kernelpanic",
+      "community": 6,
+      "norm_label": "kernelpanic"
+    },
+    {
+      "label": "SlidingRafael",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L59",
+      "_origin": "ast",
+      "id": "src_app_slidingrafael",
+      "community": 6,
+      "norm_label": "slidingrafael"
+    },
+    {
+      "label": "CodigoPerdido",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L60",
+      "_origin": "ast",
+      "id": "src_app_codigoperdido",
+      "community": 6,
+      "norm_label": "codigoperdido"
+    },
+    {
+      "label": "MazeRafael",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L61",
+      "_origin": "ast",
+      "id": "src_app_mazerafael",
+      "community": 6,
+      "norm_label": "mazerafael"
+    },
+    {
+      "label": "GlitchRafael",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L62",
+      "_origin": "ast",
+      "id": "src_app_glitchrafael",
+      "community": 6,
+      "norm_label": "glitchrafael"
+    },
+    {
+      "label": "BulletHellRafael",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L63",
+      "_origin": "ast",
+      "id": "src_app_bullethellrafael",
+      "community": 6,
+      "norm_label": "bullethellrafael"
+    },
+    {
+      "label": "StabilizerRafael",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L64",
+      "_origin": "ast",
+      "id": "src_app_stabilizerrafael",
+      "community": 6,
+      "norm_label": "stabilizerrafael"
+    },
+    {
+      "label": "Loja",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L65",
+      "_origin": "ast",
+      "id": "src_app_loja",
+      "community": 6,
+      "norm_label": "loja"
+    },
+    {
+      "label": "Custos",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L66",
+      "_origin": "ast",
+      "id": "src_app_custos",
+      "community": 6,
+      "norm_label": "custos"
+    },
+    {
+      "label": "NotFound",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L67",
+      "_origin": "ast",
+      "id": "src_app_notfound",
+      "community": 6,
+      "norm_label": "notfound"
+    },
+    {
+      "label": "SearchModal",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L68",
+      "_origin": "ast",
+      "id": "src_app_searchmodal",
+      "community": 6,
+      "norm_label": "searchmodal"
+    },
+    {
+      "label": "LDINotification",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L69",
+      "_origin": "ast",
+      "id": "src_app_ldinotification",
+      "community": 6,
+      "norm_label": "ldinotification"
+    },
+    {
+      "label": "RadioNina",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L70",
+      "_origin": "ast",
+      "id": "src_app_radionina",
+      "community": 6,
+      "norm_label": "radionina"
+    },
+    {
+      "label": "UnifiedNotification",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L71",
+      "_origin": "ast",
+      "id": "src_app_unifiednotification",
+      "community": 6,
+      "norm_label": "unifiednotification"
+    },
+    {
+      "label": "AnalyticsPageView()",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L75",
+      "_origin": "ast",
+      "id": "src_app_analyticspageview",
+      "community": 6,
+      "norm_label": "analyticspageview()"
+    },
+    {
+      "label": "App()",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L86",
+      "_origin": "ast",
+      "id": "src_app_app",
+      "community": 59,
+      "norm_label": "app()"
+    },
+    {
       "label": "version.js",
       "file_type": "code",
       "source_file": "src/config/version.js",
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_config_version",
-      "community": 67,
+      "community": 292,
       "norm_label": "version.js"
+    },
+    {
+      "label": "lazyWithReload.js",
+      "file_type": "code",
+      "source_file": "src/lib/lazyWithReload.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_lib_lazywithreload",
+      "community": 301,
+      "norm_label": "lazywithreload.js"
+    },
+    {
+      "label": "isChunkLoadError()",
+      "file_type": "code",
+      "source_file": "src/lib/lazyWithReload.js",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "src_lib_lazywithreload_ischunkloaderror",
+      "community": 301,
+      "norm_label": "ischunkloaderror()"
+    },
+    {
+      "label": "lazyWithReload()",
+      "file_type": "code",
+      "source_file": "src/lib/lazyWithReload.js",
+      "source_location": "L24",
+      "_origin": "ast",
+      "id": "src_lib_lazywithreload_lazywithreload",
+      "community": 301,
+      "norm_label": "lazywithreload()"
     },
     {
       "label": "ContoCapitulo.jsx",
@@ -269,9 +889,9 @@
       "source_file": "src/pages/content/ContoCapitulo.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_pages_content_contocapitulo",
       "community": 347,
-      "norm_label": "contocapitulo.jsx"
+      "norm_label": "contocapitulo.jsx",
+      "id": "src_pages_content_contocapitulo"
     },
     {
       "label": "contoLoaders",
@@ -279,9 +899,9 @@
       "source_file": "src/pages/content/ContoCapitulo.jsx",
       "source_location": "L14",
       "_origin": "ast",
-      "id": "src_pages_content_contocapitulo_contoloaders",
       "community": 347,
-      "norm_label": "contoloaders"
+      "norm_label": "contoloaders",
+      "id": "src_pages_content_contocapitulo_contoloaders"
     },
     {
       "label": "ContoCapitulo()",
@@ -289,9 +909,9 @@
       "source_file": "src/pages/content/ContoCapitulo.jsx",
       "source_location": "L16",
       "_origin": "ast",
-      "id": "src_pages_content_contocapitulo_contocapitulo",
       "community": 347,
-      "norm_label": "contocapitulo()"
+      "norm_label": "contocapitulo()",
+      "id": "src_pages_content_contocapitulo_contocapitulo"
     },
     {
       "label": "ContoHistoria.jsx",
@@ -299,9 +919,9 @@
       "source_file": "src/pages/content/ContoHistoria.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_pages_content_contohistoria",
       "community": 348,
-      "norm_label": "contohistoria.jsx"
+      "norm_label": "contohistoria.jsx",
+      "id": "src_pages_content_contohistoria"
     },
     {
       "label": "formatarData()",
@@ -309,9 +929,9 @@
       "source_file": "src/pages/content/ContoHistoria.jsx",
       "source_location": "L12",
       "_origin": "ast",
-      "id": "src_pages_content_contohistoria_formatardata",
       "community": 348,
-      "norm_label": "formatardata()"
+      "norm_label": "formatardata()",
+      "id": "src_pages_content_contohistoria_formatardata"
     },
     {
       "label": "ContoHistoria()",
@@ -319,9 +939,9 @@
       "source_file": "src/pages/content/ContoHistoria.jsx",
       "source_location": "L18",
       "_origin": "ast",
-      "id": "src_pages_content_contohistoria_contohistoria",
       "community": 348,
-      "norm_label": "contohistoria()"
+      "norm_label": "contohistoria()",
+      "id": "src_pages_content_contohistoria_contohistoria"
     },
     {
       "label": "IDEIAS_CONTOS_LEGENDS.md",
@@ -5564,596 +6184,6 @@
       "id": "ref_icons_icon_ico"
     },
     {
-      "label": "App.jsx",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "app.jsx",
-      "id": "src_app"
-    },
-    {
-      "label": "Home",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L15",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "home",
-      "id": "src_app_home"
-    },
-    {
-      "label": "Musicas",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L16",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "musicas",
-      "id": "src_app_musicas"
-    },
-    {
-      "label": "Personagens",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L17",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "personagens",
-      "id": "src_app_personagens"
-    },
-    {
-      "label": "PersonagemDetalhe",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L18",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "personagemdetalhe",
-      "id": "src_app_personagemdetalhe"
-    },
-    {
-      "label": "Livro",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L19",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "livro",
-      "id": "src_app_livro"
-    },
-    {
-      "label": "LivroCapitulo",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L20",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "livrocapitulo",
-      "id": "src_app_livrocapitulo"
-    },
-    {
-      "label": "Contos",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L21",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "contos",
-      "id": "src_app_contos"
-    },
-    {
-      "label": "ContoHistoria",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L22",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "contohistoria",
-      "id": "src_app_contohistoria"
-    },
-    {
-      "label": "ContoCapitulo",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L23",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "contocapitulo",
-      "id": "src_app_contocapitulo"
-    },
-    {
-      "label": "Assinar",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L24",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "assinar",
-      "id": "src_app_assinar"
-    },
-    {
-      "label": "Autor",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L25",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "autor",
-      "id": "src_app_autor"
-    },
-    {
-      "label": "Webtoon",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L26",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "webtoon",
-      "id": "src_app_webtoon"
-    },
-    {
-      "label": "WebtoonEpisodio",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L27",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "webtoonepisodio",
-      "id": "src_app_webtoonepisodio"
-    },
-    {
-      "label": "Mundo",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L28",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "mundo",
-      "id": "src_app_mundo"
-    },
-    {
-      "label": "Quiz",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L29",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "quiz",
-      "id": "src_app_quiz"
-    },
-    {
-      "label": "Games",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L30",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "games",
-      "id": "src_app_games"
-    },
-    {
-      "label": "MiniGames",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L31",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "minigames",
-      "id": "src_app_minigames"
-    },
-    {
-      "label": "TopTrumpsSP",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L32",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "toptrumpssp",
-      "id": "src_app_toptrumpssp"
-    },
-    {
-      "label": "TopTrumpsMP",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L33",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "toptrumpsmp",
-      "id": "src_app_toptrumpsmp"
-    },
-    {
-      "label": "MultiplayerLobby",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L34",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "multiplayerlobby",
-      "id": "src_app_multiplayerlobby"
-    },
-    {
-      "label": "Leaderboard",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L35",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "leaderboard",
-      "id": "src_app_leaderboard"
-    },
-    {
-      "label": "Login",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L36",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "login",
-      "id": "src_app_login"
-    },
-    {
-      "label": "Cadastro",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L37",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "cadastro",
-      "id": "src_app_cadastro"
-    },
-    {
-      "label": "Perfil",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L38",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "perfil",
-      "id": "src_app_perfil"
-    },
-    {
-      "label": "Admin",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L39",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "admin",
-      "id": "src_app_admin"
-    },
-    {
-      "label": "Prototype",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L40",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "prototype",
-      "id": "src_app_prototype"
-    },
-    {
-      "label": "SRGRM",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L41",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "srgrm",
-      "id": "src_app_srgrm"
-    },
-    {
-      "label": "ArenaTestbed",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L42",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "arenatestbed",
-      "id": "src_app_arenatestbed"
-    },
-    {
-      "label": "LDILobby",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L43",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "ldilobby",
-      "id": "src_app_ldilobby"
-    },
-    {
-      "label": "LDICreate",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L44",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "ldicreate",
-      "id": "src_app_ldicreate"
-    },
-    {
-      "label": "LDIGame",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L45",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "ldigame",
-      "id": "src_app_ldigame"
-    },
-    {
-      "label": "LDICombat",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L46",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "ldicombat",
-      "id": "src_app_ldicombat"
-    },
-    {
-      "label": "LDISheet",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L47",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "ldisheet",
-      "id": "src_app_ldisheet"
-    },
-    {
-      "label": "LDIClues",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L48",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "ldiclues",
-      "id": "src_app_ldiclues"
-    },
-    {
-      "label": "LDIEnd",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L49",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "ldiend",
-      "id": "src_app_ldiend"
-    },
-    {
-      "label": "LDIPuzzle",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L50",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "ldipuzzle",
-      "id": "src_app_ldipuzzle"
-    },
-    {
-      "label": "JackCandy",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L51",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "jackcandy",
-      "id": "src_app_jackcandy"
-    },
-    {
-      "label": "GanguesRoute",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L52",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "ganguesroute",
-      "id": "src_app_ganguesroute"
-    },
-    {
-      "label": "ArenaTaticsRoute",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L53",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "arenataticsroute",
-      "id": "src_app_arenataticsroute"
-    },
-    {
-      "label": "PP",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L54",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "pp",
-      "id": "src_app_pp"
-    },
-    {
-      "label": "DueloRoute",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L55",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "dueloroute",
-      "id": "src_app_dueloroute"
-    },
-    {
-      "label": "Tamagoshi",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L56",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "tamagoshi",
-      "id": "src_app_tamagoshi"
-    },
-    {
-      "label": "KernelPanic",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L57",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "kernelpanic",
-      "id": "src_app_kernelpanic"
-    },
-    {
-      "label": "SlidingRafael",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L58",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "slidingrafael",
-      "id": "src_app_slidingrafael"
-    },
-    {
-      "label": "CodigoPerdido",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L59",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "codigoperdido",
-      "id": "src_app_codigoperdido"
-    },
-    {
-      "label": "MazeRafael",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L60",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "mazerafael",
-      "id": "src_app_mazerafael"
-    },
-    {
-      "label": "GlitchRafael",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L61",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "glitchrafael",
-      "id": "src_app_glitchrafael"
-    },
-    {
-      "label": "BulletHellRafael",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L62",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "bullethellrafael",
-      "id": "src_app_bullethellrafael"
-    },
-    {
-      "label": "StabilizerRafael",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L63",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "stabilizerrafael",
-      "id": "src_app_stabilizerrafael"
-    },
-    {
-      "label": "Loja",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L64",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "loja",
-      "id": "src_app_loja"
-    },
-    {
-      "label": "Custos",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L65",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "custos",
-      "id": "src_app_custos"
-    },
-    {
-      "label": "NotFound",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L66",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "notfound",
-      "id": "src_app_notfound"
-    },
-    {
-      "label": "SearchModal",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L67",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "searchmodal",
-      "id": "src_app_searchmodal"
-    },
-    {
-      "label": "LDINotification",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L68",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "ldinotification",
-      "id": "src_app_ldinotification"
-    },
-    {
-      "label": "RadioNina",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L69",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "radionina",
-      "id": "src_app_radionina"
-    },
-    {
-      "label": "UnifiedNotification",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L70",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "unifiednotification",
-      "id": "src_app_unifiednotification"
-    },
-    {
-      "label": "AnalyticsPageView()",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L74",
-      "_origin": "ast",
-      "community": 6,
-      "norm_label": "analyticspageview()",
-      "id": "src_app_analyticspageview"
-    },
-    {
-      "label": "App()",
-      "file_type": "code",
-      "source_file": "src/App.jsx",
-      "source_location": "L85",
-      "_origin": "ast",
-      "community": 67,
-      "norm_label": "app()",
-      "id": "src_app_app"
-    },
-    {
       "label": "AchievementToast.jsx",
       "file_type": "code",
       "source_file": "src/components/AchievementToast/AchievementToast.jsx",
@@ -6249,7 +6279,7 @@
       "source_file": "src/components/BookChaptersRow.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 14,
+      "community": 309,
       "norm_label": "bookchaptersrow.jsx",
       "id": "src_components_bookchaptersrow"
     },
@@ -6259,7 +6289,7 @@
       "source_file": "src/components/BookChaptersRow.jsx",
       "source_location": "L14",
       "_origin": "ast",
-      "community": 14,
+      "community": 309,
       "norm_label": "capamap",
       "id": "src_components_bookchaptersrow_capamap"
     },
@@ -6269,7 +6299,7 @@
       "source_file": "src/components/BookChaptersRow.jsx",
       "source_location": "L20",
       "_origin": "ast",
-      "community": 14,
+      "community": 309,
       "norm_label": "formatardata()",
       "id": "src_components_bookchaptersrow_formatardata"
     },
@@ -6279,7 +6309,7 @@
       "source_file": "src/components/BookChaptersRow.jsx",
       "source_location": "L26",
       "_origin": "ast",
-      "community": 14,
+      "community": 309,
       "norm_label": "bookchaptersrow()",
       "id": "src_components_bookchaptersrow_bookchaptersrow"
     },
@@ -6469,7 +6499,7 @@
       "source_file": "src/components/GuestNotice/GuestNotice.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 14,
+      "community": 292,
       "norm_label": "guestnotice.jsx",
       "id": "src_components_guestnotice_guestnotice"
     },
@@ -6479,7 +6509,7 @@
       "source_file": "src/components/GuestNotice/GuestNotice.jsx",
       "source_location": "L6",
       "_origin": "ast",
-      "community": 14,
+      "community": 292,
       "norm_label": "guestnotice()",
       "id": "src_components_guestnotice_guestnotice_guestnotice"
     },
@@ -6649,7 +6679,7 @@
       "source_file": "src/components/LatestEpisodes.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 32,
+      "community": 309,
       "norm_label": "latestepisodes.jsx",
       "id": "src_components_latestepisodes"
     },
@@ -6659,7 +6689,7 @@
       "source_file": "src/components/LatestEpisodes.jsx",
       "source_location": "L13",
       "_origin": "ast",
-      "community": 32,
+      "community": 309,
       "norm_label": "thumbmap",
       "id": "src_components_latestepisodes_thumbmap"
     },
@@ -6669,7 +6699,7 @@
       "source_file": "src/components/LatestEpisodes.jsx",
       "source_location": "L15",
       "_origin": "ast",
-      "community": 32,
+      "community": 309,
       "norm_label": "latestepisodes()",
       "id": "src_components_latestepisodes_latestepisodes"
     },
@@ -6679,7 +6709,7 @@
       "source_file": "src/components/LoginGate/LoginGate.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 14,
+      "community": 19,
       "norm_label": "logingate.jsx",
       "id": "src_components_logingate_logingate"
     },
@@ -6689,7 +6719,7 @@
       "source_file": "src/components/LoginGate/LoginGate.jsx",
       "source_location": "L6",
       "_origin": "ast",
-      "community": 14,
+      "community": 19,
       "norm_label": "logingate()",
       "id": "src_components_logingate_logingate_logingate"
     },
@@ -6849,7 +6879,7 @@
       "source_file": "src/components/PlatformIcons.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 76,
+      "community": 32,
       "norm_label": "platformicons.jsx",
       "id": "src_components_platformicons"
     },
@@ -6859,7 +6889,7 @@
       "source_file": "src/components/PlatformIcons.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 76,
+      "community": 32,
       "norm_label": "spotifyicon()",
       "id": "src_components_platformicons_spotifyicon"
     },
@@ -6869,7 +6899,7 @@
       "source_file": "src/components/PlatformIcons.jsx",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 76,
+      "community": 32,
       "norm_label": "youtubeicon()",
       "id": "src_components_platformicons_youtubeicon"
     },
@@ -6879,7 +6909,7 @@
       "source_file": "src/components/PlatformIcons.jsx",
       "source_location": "L17",
       "_origin": "ast",
-      "community": 76,
+      "community": 32,
       "norm_label": "applemusicicon()",
       "id": "src_components_platformicons_applemusicicon"
     },
@@ -6889,7 +6919,7 @@
       "source_file": "src/components/PlatformIcons.jsx",
       "source_location": "L25",
       "_origin": "ast",
-      "community": 76,
+      "community": 32,
       "norm_label": "amazonmusicicon()",
       "id": "src_components_platformicons_amazonmusicicon"
     },
@@ -6899,7 +6929,7 @@
       "source_file": "src/components/PlatformIcons.jsx",
       "source_location": "L33",
       "_origin": "ast",
-      "community": 76,
+      "community": 32,
       "norm_label": "deezericon()",
       "id": "src_components_platformicons_deezericon"
     },
@@ -6909,7 +6939,7 @@
       "source_file": "src/components/PlatformIcons.jsx",
       "source_location": "L48",
       "_origin": "ast",
-      "community": 76,
+      "community": 32,
       "norm_label": "tidalicon()",
       "id": "src_components_platformicons_tidalicon"
     },
@@ -6919,7 +6949,7 @@
       "source_file": "src/components/PlatformIcons.jsx",
       "source_location": "L56",
       "_origin": "ast",
-      "community": 76,
+      "community": 32,
       "norm_label": "tiktokicon()",
       "id": "src_components_platformicons_tiktokicon"
     },
@@ -6929,7 +6959,7 @@
       "source_file": "src/components/PlatformIcons.jsx",
       "source_location": "L64",
       "_origin": "ast",
-      "community": 76,
+      "community": 32,
       "norm_label": "twittericon()",
       "id": "src_components_platformicons_twittericon"
     },
@@ -6939,7 +6969,7 @@
       "source_file": "src/components/PlatformIcons.jsx",
       "source_location": "L72",
       "_origin": "ast",
-      "community": 76,
+      "community": 32,
       "norm_label": "instagramicon()",
       "id": "src_components_platformicons_instagramicon"
     },
@@ -6949,7 +6979,7 @@
       "source_file": "src/components/PlatformIcons.jsx",
       "source_location": "L82",
       "_origin": "ast",
-      "community": 76,
+      "community": 32,
       "norm_label": "platformiconmap",
       "id": "src_components_platformicons_platformiconmap"
     },
@@ -6959,7 +6989,7 @@
       "source_file": "src/components/ProdutoDigitalCard/ProdutoDigitalCard.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 32,
+      "community": 59,
       "norm_label": "produtodigitalcard.jsx",
       "id": "src_components_produtodigitalcard_produtodigitalcard"
     },
@@ -6969,7 +6999,7 @@
       "source_file": "src/components/ProdutoDigitalCard/ProdutoDigitalCard.jsx",
       "source_location": "L5",
       "_origin": "ast",
-      "community": 32,
+      "community": 59,
       "norm_label": "badgecorclass()",
       "id": "src_components_produtodigitalcard_produtodigitalcard_badgecorclass"
     },
@@ -6979,7 +7009,7 @@
       "source_file": "src/components/ProdutoDigitalCard/ProdutoDigitalCard.jsx",
       "source_location": "L15",
       "_origin": "ast",
-      "community": 32,
+      "community": 59,
       "norm_label": "produtodigitalcard()",
       "id": "src_components_produtodigitalcard_produtodigitalcard_produtodigitalcard"
     },
@@ -7399,7 +7429,7 @@
       "source_file": "src/components/RadioNina/radio-nina.playlist.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 12,
+      "community": 59,
       "norm_label": "radio-nina.playlist.js",
       "id": "src_components_radionina_radio_nina_playlist"
     },
@@ -7409,7 +7439,7 @@
       "source_file": "src/components/RadioNina/radio-nina.playlist.js",
       "source_location": "L4",
       "_origin": "ast",
-      "community": 12,
+      "community": 59,
       "norm_label": "carregarplaylistsalva()",
       "id": "src_components_radionina_radio_nina_playlist_carregarplaylistsalva"
     },
@@ -7419,7 +7449,7 @@
       "source_file": "src/components/RadioNina/radio-nina.playlist.js",
       "source_location": "L16",
       "_origin": "ast",
-      "community": 12,
+      "community": 59,
       "norm_label": "salvarplaylistsalva()",
       "id": "src_components_radionina_radio_nina_playlist_salvarplaylistsalva"
     },
@@ -7499,7 +7529,7 @@
       "source_file": "src/components/ScrollToTop.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 6,
+      "community": 305,
       "norm_label": "scrolltotop.jsx",
       "id": "src_components_scrolltotop"
     },
@@ -7509,7 +7539,7 @@
       "source_file": "src/components/ScrollToTop.jsx",
       "source_location": "L4",
       "_origin": "ast",
-      "community": 6,
+      "community": 305,
       "norm_label": "scrolltotop()",
       "id": "src_components_scrolltotop_scrolltotop"
     },
@@ -7519,7 +7549,7 @@
       "source_file": "src/components/ScrollToTopOnNav.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 6,
+      "community": 341,
       "norm_label": "scrolltotoponnav.jsx",
       "id": "src_components_scrolltotoponnav"
     },
@@ -7529,7 +7559,7 @@
       "source_file": "src/components/ScrollToTopOnNav.jsx",
       "source_location": "L4",
       "_origin": "ast",
-      "community": 6,
+      "community": 341,
       "norm_label": "scrolltotoponnav()",
       "id": "src_components_scrolltotoponnav_scrolltotoponnav"
     },
@@ -7559,7 +7589,7 @@
       "source_file": "src/components/ShopSection.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 32,
+      "community": 59,
       "norm_label": "shopsection.jsx",
       "id": "src_components_shopsection"
     },
@@ -7569,7 +7599,7 @@
       "source_file": "src/components/ShopSection.jsx",
       "source_location": "L13",
       "_origin": "ast",
-      "community": 32,
+      "community": 59,
       "norm_label": "shopsection()",
       "id": "src_components_shopsection_shopsection"
     },
@@ -7659,7 +7689,7 @@
       "source_file": "src/components/TrialBanner.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 14,
+      "community": 309,
       "norm_label": "trialbanner.jsx",
       "id": "src_components_trialbanner"
     },
@@ -7669,7 +7699,7 @@
       "source_file": "src/components/TrialBanner.jsx",
       "source_location": "L7",
       "_origin": "ast",
-      "community": 14,
+      "community": 309,
       "norm_label": "trialbanner()",
       "id": "src_components_trialbanner_trialbanner"
     },
@@ -7699,7 +7729,7 @@
       "source_file": "src/components/UnifiedNotification/UnifiedNotification.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 338,
+      "community": 14,
       "norm_label": "unifiednotification.jsx",
       "id": "src_components_unifiednotification_unifiednotification"
     },
@@ -7709,7 +7739,7 @@
       "source_file": "src/components/UnifiedNotification/UnifiedNotification.jsx",
       "source_location": "L21",
       "_origin": "ast",
-      "community": 338,
+      "community": 14,
       "norm_label": "unifiednotification()",
       "id": "src_components_unifiednotification_unifiednotification_unifiednotification"
     },
@@ -7729,7 +7759,7 @@
       "source_file": "src/config/launch.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 59,
+      "community": 309,
       "norm_label": "launch.js",
       "id": "src_config_launch"
     },
@@ -7739,7 +7769,7 @@
       "source_file": "src/config/launch.js",
       "source_location": "L14",
       "_origin": "ast",
-      "community": 59,
+      "community": 309,
       "norm_label": "admin_emails",
       "id": "src_config_launch_admin_emails"
     },
@@ -7749,7 +7779,7 @@
       "source_file": "src/config/site.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 14,
+      "community": 309,
       "norm_label": "site.js",
       "id": "src_config_site"
     },
@@ -7769,7 +7799,7 @@
       "source_file": "src/config/site.js",
       "source_location": "L10",
       "_origin": "ast",
-      "community": 14,
+      "community": 309,
       "norm_label": "estadisponivel()",
       "id": "src_config_site_estadisponivel"
     },
@@ -7779,7 +7809,7 @@
       "source_file": "src/config/trial.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 14,
+      "community": 309,
       "norm_label": "trial.js",
       "id": "src_config_trial"
     },
@@ -7789,7 +7819,7 @@
       "source_file": "src/context/AchievementsContext.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 12,
+      "community": 14,
       "norm_label": "achievementscontext.jsx",
       "id": "src_context_achievementscontext"
     },
@@ -7799,7 +7829,7 @@
       "source_file": "src/context/AchievementsContext.jsx",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 12,
+      "community": 14,
       "norm_label": "achievementscontext",
       "id": "src_context_achievementscontext_achievementscontext"
     },
@@ -7809,7 +7839,7 @@
       "source_file": "src/context/AchievementsContext.jsx",
       "source_location": "L11",
       "_origin": "ast",
-      "community": 12,
+      "community": 59,
       "norm_label": "achievementsprovider()",
       "id": "src_context_achievementscontext_achievementsprovider"
     },
@@ -7829,7 +7859,7 @@
       "source_file": "src/context/AuthContext.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 12,
+      "community": 59,
       "norm_label": "authcontext.jsx",
       "id": "src_context_authcontext"
     },
@@ -7839,7 +7869,7 @@
       "source_file": "src/context/AuthContext.jsx",
       "source_location": "L8",
       "_origin": "ast",
-      "community": 12,
+      "community": 59,
       "norm_label": "authcontext",
       "id": "src_context_authcontext_authcontext"
     },
@@ -7849,7 +7879,7 @@
       "source_file": "src/context/AuthContext.jsx",
       "source_location": "L10",
       "_origin": "ast",
-      "community": 12,
+      "community": 59,
       "norm_label": "authprovider()",
       "id": "src_context_authcontext_authprovider"
     },
@@ -7859,7 +7889,7 @@
       "source_file": "src/context/AuthContext.jsx",
       "source_location": "L174",
       "_origin": "ast",
-      "community": 14,
+      "community": 292,
       "norm_label": "useauth()",
       "id": "src_context_authcontext_useauth"
     },
@@ -7869,7 +7899,7 @@
       "source_file": "src/context/DixContext.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 12,
+      "community": 59,
       "norm_label": "dixcontext.jsx",
       "id": "src_context_dixcontext"
     },
@@ -7879,7 +7909,7 @@
       "source_file": "src/context/DixContext.jsx",
       "source_location": "L5",
       "_origin": "ast",
-      "community": 12,
+      "community": 59,
       "norm_label": "dixcontext",
       "id": "src_context_dixcontext_dixcontext"
     },
@@ -7889,7 +7919,7 @@
       "source_file": "src/context/DixContext.jsx",
       "source_location": "L7",
       "_origin": "ast",
-      "community": 12,
+      "community": 59,
       "norm_label": "dixprovider()",
       "id": "src_context_dixcontext_dixprovider"
     },
@@ -7909,7 +7939,7 @@
       "source_file": "src/context/EventosContext.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 12,
+      "community": 14,
       "norm_label": "eventoscontext.jsx",
       "id": "src_context_eventoscontext"
     },
@@ -7919,7 +7949,7 @@
       "source_file": "src/context/EventosContext.jsx",
       "source_location": "L5",
       "_origin": "ast",
-      "community": 12,
+      "community": 14,
       "norm_label": "metas_progresso",
       "id": "src_context_eventoscontext_metas_progresso"
     },
@@ -7929,7 +7959,7 @@
       "source_file": "src/context/EventosContext.jsx",
       "source_location": "L28",
       "_origin": "ast",
-      "community": 12,
+      "community": 14,
       "norm_label": "eventoscontext",
       "id": "src_context_eventoscontext_eventoscontext"
     },
@@ -7939,7 +7969,7 @@
       "source_file": "src/context/EventosContext.jsx",
       "source_location": "L30",
       "_origin": "ast",
-      "community": 12,
+      "community": 59,
       "norm_label": "eventosprovider()",
       "id": "src_context_eventoscontext_eventosprovider"
     },
@@ -8099,7 +8129,7 @@
       "source_file": "src/context/ReaderContext.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 67,
+      "community": 14,
       "norm_label": "readercontext.jsx",
       "id": "src_context_readercontext"
     },
@@ -8109,7 +8139,7 @@
       "source_file": "src/context/ReaderContext.jsx",
       "source_location": "L3",
       "_origin": "ast",
-      "community": 67,
+      "community": 14,
       "norm_label": "readercontext",
       "id": "src_context_readercontext_readercontext"
     },
@@ -8119,7 +8149,7 @@
       "source_file": "src/context/ReaderContext.jsx",
       "source_location": "L5",
       "_origin": "ast",
-      "community": 67,
+      "community": 14,
       "norm_label": "readerprovider()",
       "id": "src_context_readercontext_readerprovider"
     },
@@ -8129,7 +8159,7 @@
       "source_file": "src/context/ReaderContext.jsx",
       "source_location": "L14",
       "_origin": "ast",
-      "community": 67,
+      "community": 14,
       "norm_label": "usereader()",
       "id": "src_context_readercontext_usereader"
     },
@@ -8139,7 +8169,7 @@
       "source_file": "src/data/paises.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 4,
+      "community": 59,
       "norm_label": "paises.js",
       "id": "src_data_paises"
     },
@@ -8149,7 +8179,7 @@
       "source_file": "src/data/paises.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 4,
+      "community": 59,
       "norm_label": "paises",
       "id": "src_data_paises_paises"
     },
@@ -8159,7 +8189,7 @@
       "source_file": "src/data/paises.js",
       "source_location": "L26",
       "_origin": "ast",
-      "community": 4,
+      "community": 59,
       "norm_label": "getnomepais()",
       "id": "src_data_paises_getnomepais"
     },
@@ -8269,7 +8299,7 @@
       "source_file": "src/hooks/useLeaderboardDB.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 4,
+      "community": 53,
       "norm_label": "useleaderboarddb.js",
       "id": "src_hooks_useleaderboarddb"
     },
@@ -8279,7 +8309,7 @@
       "source_file": "src/hooks/useLeaderboardDB.js",
       "source_location": "L3",
       "_origin": "ast",
-      "community": 4,
+      "community": 53,
       "norm_label": "tentativas_por_tier",
       "id": "src_hooks_useleaderboarddb_tentativas_por_tier"
     },
@@ -8309,7 +8339,7 @@
       "source_file": "src/hooks/useLeaderboardDB.js",
       "source_location": "L42",
       "_origin": "ast",
-      "community": 4,
+      "community": 53,
       "norm_label": "limpardeck()",
       "id": "src_hooks_useleaderboarddb_limpardeck"
     },
@@ -8329,7 +8359,7 @@
       "source_file": "src/hooks/useLeaderboardDB.js",
       "source_location": "L69",
       "_origin": "ast",
-      "community": 4,
+      "community": 53,
       "norm_label": "migrarlocalstorageparasupabase()",
       "id": "src_hooks_useleaderboarddb_migrarlocalstorageparasupabase"
     },
@@ -8339,7 +8369,7 @@
       "source_file": "src/hooks/useLeaderboardDB.js",
       "source_location": "L86",
       "_origin": "ast",
-      "community": 23,
+      "community": 14,
       "norm_label": "registrarpartida()",
       "id": "src_hooks_useleaderboarddb_registrarpartida"
     },
@@ -8349,7 +8379,7 @@
       "source_file": "src/hooks/useLeaderboardDB.js",
       "source_location": "L103",
       "_origin": "ast",
-      "community": 4,
+      "community": 53,
       "norm_label": "atualizarstats()",
       "id": "src_hooks_useleaderboarddb_atualizarstats"
     },
@@ -8359,7 +8389,7 @@
       "source_file": "src/hooks/useLeaderboardDB.js",
       "source_location": "L122",
       "_origin": "ast",
-      "community": 4,
+      "community": 53,
       "norm_label": "carregarstats()",
       "id": "src_hooks_useleaderboarddb_carregarstats"
     },
@@ -8369,7 +8399,7 @@
       "source_file": "src/hooks/useLeaderboardDB.js",
       "source_location": "L131",
       "_origin": "ast",
-      "community": 4,
+      "community": 53,
       "norm_label": "carregarultimaspartidas()",
       "id": "src_hooks_useleaderboarddb_carregarultimaspartidas"
     },
@@ -8419,7 +8449,7 @@
       "source_file": "src/hooks/useLeaderboardDB.js",
       "source_location": "L214",
       "_origin": "ast",
-      "community": 4,
+      "community": 53,
       "norm_label": "getperiod()",
       "id": "src_hooks_useleaderboarddb_getperiod"
     },
@@ -8429,7 +8459,7 @@
       "source_file": "src/hooks/useLeaderboardDB.js",
       "source_location": "L219",
       "_origin": "ast",
-      "community": 4,
+      "community": 53,
       "norm_label": "_registrarpontuacao()",
       "id": "src_hooks_useleaderboarddb_registrarpontuacao"
     },
@@ -8439,7 +8469,7 @@
       "source_file": "src/hooks/useLeaderboardDB.js",
       "source_location": "L339",
       "_origin": "ast",
-      "community": 4,
+      "community": 53,
       "norm_label": "carregarranking",
       "id": "src_hooks_useleaderboarddb_carregarranking"
     },
@@ -8449,7 +8479,7 @@
       "source_file": "src/hooks/useLeaderboardDB.js",
       "source_location": "L303",
       "_origin": "ast",
-      "community": 4,
+      "community": 53,
       "norm_label": "_carregarposicao()",
       "id": "src_hooks_useleaderboarddb_carregarposicao"
     },
@@ -8459,7 +8489,7 @@
       "source_file": "src/hooks/useLeaderboardDB.js",
       "source_location": "L335",
       "_origin": "ast",
-      "community": 23,
+      "community": 53,
       "norm_label": "registrarpontuacaoranking()",
       "id": "src_hooks_useleaderboarddb_registrarpontuacaoranking"
     },
@@ -8469,7 +8499,7 @@
       "source_file": "src/hooks/useLeaderboardDB.js",
       "source_location": "L343",
       "_origin": "ast",
-      "community": 4,
+      "community": 53,
       "norm_label": "carregarposicaousuario()",
       "id": "src_hooks_useleaderboarddb_carregarposicaousuario"
     },
@@ -8479,7 +8509,7 @@
       "source_file": "src/hooks/useLeaderboardDB.js",
       "source_location": "L349",
       "_origin": "ast",
-      "community": 292,
+      "community": 53,
       "norm_label": "registrarpontuacaoarenaranking()",
       "id": "src_hooks_useleaderboarddb_registrarpontuacaoarenaranking"
     },
@@ -8489,7 +8519,7 @@
       "source_file": "src/hooks/useLeaderboardDB.js",
       "source_location": "L353",
       "_origin": "ast",
-      "community": 4,
+      "community": 53,
       "norm_label": "carregarrankingarena()",
       "id": "src_hooks_useleaderboarddb_carregarrankingarena"
     },
@@ -8499,7 +8529,7 @@
       "source_file": "src/hooks/useLeaderboardDB.js",
       "source_location": "L357",
       "_origin": "ast",
-      "community": 4,
+      "community": 53,
       "norm_label": "carregarposicaousuarioarena()",
       "id": "src_hooks_useleaderboarddb_carregarposicaousuarioarena"
     },
@@ -8509,7 +8539,7 @@
       "source_file": "src/hooks/useLeaderboardDB.js",
       "source_location": "L365",
       "_origin": "ast",
-      "community": 4,
+      "community": 53,
       "norm_label": "registrarpontuacaotamaranking()",
       "id": "src_hooks_useleaderboarddb_registrarpontuacaotamaranking"
     },
@@ -8519,7 +8549,7 @@
       "source_file": "src/hooks/useLeaderboardDB.js",
       "source_location": "L413",
       "_origin": "ast",
-      "community": 4,
+      "community": 53,
       "norm_label": "carregarrankingtama()",
       "id": "src_hooks_useleaderboarddb_carregarrankingtama"
     },
@@ -8529,7 +8559,7 @@
       "source_file": "src/hooks/useLeaderboardDB.js",
       "source_location": "L417",
       "_origin": "ast",
-      "community": 4,
+      "community": 53,
       "norm_label": "carregarposicaousuariotama()",
       "id": "src_hooks_useleaderboarddb_carregarposicaousuariotama"
     },
@@ -8609,7 +8639,7 @@
       "source_file": "src/hooks/usePresence.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 12,
+      "community": 59,
       "norm_label": "usepresence.js",
       "id": "src_hooks_usepresence"
     },
@@ -8619,7 +8649,7 @@
       "source_file": "src/hooks/usePresence.js",
       "source_location": "L15",
       "_origin": "ast",
-      "community": 23,
+      "community": 14,
       "norm_label": "usepresence()",
       "id": "src_hooks_usepresence_usepresence"
     },
@@ -8779,7 +8809,7 @@
       "source_file": "src/hooks/useTopTrumpsMP.js",
       "source_location": "L35",
       "_origin": "ast",
-      "community": 2,
+      "community": 4,
       "norm_label": "entrarfilapublica()",
       "id": "src_hooks_usetoptrumpsmp_entrarfilapublica"
     },
@@ -8789,7 +8819,7 @@
       "source_file": "src/hooks/useTopTrumpsMP.js",
       "source_location": "L45",
       "_origin": "ast",
-      "community": 2,
+      "community": 4,
       "norm_label": "buscarsalapublicaativadojogador()",
       "id": "src_hooks_usetoptrumpsmp_buscarsalapublicaativadojogador"
     },
@@ -8799,7 +8829,7 @@
       "source_file": "src/hooks/useTopTrumpsMP.js",
       "source_location": "L103",
       "_origin": "ast",
-      "community": 2,
+      "community": 4,
       "norm_label": "sairfilapublica()",
       "id": "src_hooks_usetoptrumpsmp_sairfilapublica"
     },
@@ -8809,7 +8839,7 @@
       "source_file": "src/hooks/useTopTrumpsMP.js",
       "source_location": "L114",
       "_origin": "ast",
-      "community": 2,
+      "community": 4,
       "norm_label": "buscarsala()",
       "id": "src_hooks_usetoptrumpsmp_buscarsala"
     },
@@ -8859,7 +8889,7 @@
       "source_file": "src/hooks/useTopTrumpsMP.js",
       "source_location": "L164",
       "_origin": "ast",
-      "community": 55,
+      "community": 2,
       "norm_label": "registrarmovimento()",
       "id": "src_hooks_usetoptrumpsmp_registrarmovimento"
     },
@@ -8929,7 +8959,7 @@
       "source_file": "src/hooks/useTopTrumpsMP.js",
       "source_location": "L228",
       "_origin": "ast",
-      "community": 2,
+      "community": 4,
       "norm_label": "subscribetosala()",
       "id": "src_hooks_usetoptrumpsmp_subscribetosala"
     },
@@ -8939,7 +8969,7 @@
       "source_file": "src/hooks/useTopTrumpsMP.js",
       "source_location": "L242",
       "_origin": "ast",
-      "community": 55,
+      "community": 2,
       "norm_label": "subscribetomatchpresence()",
       "id": "src_hooks_usetoptrumpsmp_subscribetomatchpresence"
     },
@@ -8949,7 +8979,7 @@
       "source_file": "src/hooks/useTopTrumpsMP.js",
       "source_location": "L260",
       "_origin": "ast",
-      "community": 55,
+      "community": 2,
       "norm_label": "subscribetomovimentos()",
       "id": "src_hooks_usetoptrumpsmp_subscribetomovimentos"
     },
@@ -9159,7 +9189,7 @@
       "source_file": "src/lib/analytics.js",
       "source_location": "L47",
       "_origin": "ast",
-      "community": 6,
+      "community": 309,
       "norm_label": "trackpageview()",
       "id": "src_lib_analytics_trackpageview"
     },
@@ -9199,7 +9229,7 @@
       "source_file": "src/lib/notificationManager.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 338,
+      "community": 14,
       "norm_label": "notificationmanager.js",
       "id": "src_lib_notificationmanager"
     },
@@ -9209,7 +9239,7 @@
       "source_file": "src/lib/notificationManager.js",
       "source_location": "L24",
       "_origin": "ast",
-      "community": 338,
+      "community": 14,
       "norm_label": "notificationtype",
       "id": "src_lib_notificationmanager_notificationtype"
     },
@@ -9219,7 +9249,7 @@
       "source_file": "src/lib/notificationManager.js",
       "source_location": "L31",
       "_origin": "ast",
-      "community": 338,
+      "community": 14,
       "norm_label": "legacyachievements",
       "id": "src_lib_notificationmanager_legacyachievements"
     },
@@ -9229,7 +9259,7 @@
       "source_file": "src/lib/notificationManager.js",
       "source_location": "L33",
       "_origin": "ast",
-      "community": 338,
+      "community": 14,
       "norm_label": "getnotificationachievementid()",
       "id": "src_lib_notificationmanager_getnotificationachievementid"
     },
@@ -9239,7 +9269,7 @@
       "source_file": "src/lib/notificationManager.js",
       "source_location": "L46",
       "_origin": "ast",
-      "community": 338,
+      "community": 14,
       "norm_label": "notificationmanager",
       "id": "src_lib_notificationmanager_notificationmanager"
     },
@@ -9249,7 +9279,7 @@
       "source_file": "src/lib/profileProvisioning.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 12,
+      "community": 59,
       "norm_label": "profileprovisioning.js",
       "id": "src_lib_profileprovisioning"
     },
@@ -9259,7 +9289,7 @@
       "source_file": "src/lib/profileProvisioning.js",
       "source_location": "L3",
       "_origin": "ast",
-      "community": 12,
+      "community": 59,
       "norm_label": "wait()",
       "id": "src_lib_profileprovisioning_wait"
     },
@@ -9269,7 +9299,7 @@
       "source_file": "src/lib/profileProvisioning.js",
       "source_location": "L5",
       "_origin": "ast",
-      "community": 12,
+      "community": 59,
       "norm_label": "ensureuserprofile()",
       "id": "src_lib_profileprovisioning_ensureuserprofile"
     },
@@ -9819,7 +9849,7 @@
       "source_file": "src/lib/stripe.js",
       "source_location": "L18",
       "_origin": "ast",
-      "community": 59,
+      "community": 309,
       "norm_label": "getpricedisplay()",
       "id": "src_lib_stripe_getpricedisplay"
     },
@@ -9859,7 +9889,7 @@
       "source_file": "src/lib/supabase.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 12,
+      "community": 59,
       "norm_label": "supabase.js",
       "id": "src_lib_supabase"
     },
@@ -9869,7 +9899,7 @@
       "source_file": "src/lib/supabase.js",
       "source_location": "L6",
       "_origin": "ast",
-      "community": 12,
+      "community": 59,
       "norm_label": "supabase",
       "id": "src_lib_supabase_supabase"
     },
@@ -10009,7 +10039,7 @@
       "source_file": "src/lib/topTrumpsCardImages.js",
       "source_location": "L15",
       "_origin": "ast",
-      "community": 55,
+      "community": 2,
       "norm_label": "gettoptrumpscardimage()",
       "id": "src_lib_toptrumpscardimages_gettoptrumpscardimage"
     },
@@ -10019,7 +10049,7 @@
       "source_file": "src/main.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 12,
+      "community": 59,
       "norm_label": "main.jsx",
       "id": "src_main"
     },
@@ -10099,7 +10129,7 @@
       "source_file": "src/pages/content/Musicas.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 76,
+      "community": 32,
       "norm_label": "musicas.jsx",
       "id": "src_pages_content_musicas"
     },
@@ -10109,7 +10139,7 @@
       "source_file": "src/pages/content/Musicas.jsx",
       "source_location": "L24",
       "_origin": "ast",
-      "community": 76,
+      "community": 32,
       "norm_label": "allimages",
       "id": "src_pages_content_musicas_allimages"
     },
@@ -10119,7 +10149,7 @@
       "source_file": "src/pages/content/Musicas.jsx",
       "source_location": "L26",
       "_origin": "ast",
-      "community": 76,
+      "community": 32,
       "norm_label": "shufflearray()",
       "id": "src_pages_content_musicas_shufflearray"
     },
@@ -10129,7 +10159,7 @@
       "source_file": "src/pages/content/Musicas.jsx",
       "source_location": "L35",
       "_origin": "ast",
-      "community": 76,
+      "community": 32,
       "norm_label": "musicas()",
       "id": "src_pages_content_musicas_musicas"
     },
@@ -10179,7 +10209,7 @@
       "source_file": "src/pages/content/Webtoon.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 14,
+      "community": 309,
       "norm_label": "webtoon.jsx",
       "id": "src_pages_content_webtoon"
     },
@@ -10189,7 +10219,7 @@
       "source_file": "src/pages/content/Webtoon.jsx",
       "source_location": "L15",
       "_origin": "ast",
-      "community": 14,
+      "community": 309,
       "norm_label": "thumbmap",
       "id": "src_pages_content_webtoon_thumbmap"
     },
@@ -10199,7 +10229,7 @@
       "source_file": "src/pages/content/Webtoon.jsx",
       "source_location": "L17",
       "_origin": "ast",
-      "community": 14,
+      "community": 309,
       "norm_label": "formatardata()",
       "id": "src_pages_content_webtoon_formatardata"
     },
@@ -10209,7 +10239,7 @@
       "source_file": "src/pages/content/Webtoon.jsx",
       "source_location": "L23",
       "_origin": "ast",
-      "community": 14,
+      "community": 309,
       "norm_label": "webtoon()",
       "id": "src_pages_content_webtoon_webtoon"
     },
@@ -13329,7 +13359,7 @@
       "source_file": "src/pages/games/Duelo/version.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 67,
+      "community": 292,
       "norm_label": "version.js",
       "id": "src_pages_games_duelo_version"
     },
@@ -13429,7 +13459,7 @@
       "source_file": "src/pages/games/Gangues/GanguesCombat.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 341,
+      "community": 68,
       "norm_label": "ganguescombat.jsx",
       "id": "src_pages_games_gangues_ganguescombat"
     },
@@ -13439,7 +13469,7 @@
       "source_file": "src/pages/games/Gangues/GanguesCombat.jsx",
       "source_location": "L11",
       "_origin": "ast",
-      "community": 341,
+      "community": 68,
       "norm_label": "onomatopeias",
       "id": "src_pages_games_gangues_ganguescombat_onomatopeias"
     },
@@ -13449,7 +13479,7 @@
       "source_file": "src/pages/games/Gangues/GanguesCombat.jsx",
       "source_location": "L12",
       "_origin": "ast",
-      "community": 341,
+      "community": 68,
       "norm_label": "randomonoma()",
       "id": "src_pages_games_gangues_ganguescombat_randomonoma"
     },
@@ -13459,7 +13489,7 @@
       "source_file": "src/pages/games/Gangues/GanguesCombat.jsx",
       "source_location": "L13",
       "_origin": "ast",
-      "community": 341,
+      "community": 68,
       "norm_label": "pct()",
       "id": "src_pages_games_gangues_ganguescombat_pct"
     },
@@ -13469,7 +13499,7 @@
       "source_file": "src/pages/games/Gangues/GanguesCombat.jsx",
       "source_location": "L14",
       "_origin": "ast",
-      "community": 341,
+      "community": 68,
       "norm_label": "path_icon",
       "id": "src_pages_games_gangues_ganguescombat_path_icon"
     },
@@ -13479,7 +13509,7 @@
       "source_file": "src/pages/games/Gangues/GanguesCombat.jsx",
       "source_location": "L16",
       "_origin": "ast",
-      "community": 341,
+      "community": 68,
       "norm_label": "fightername()",
       "id": "src_pages_games_gangues_ganguescombat_fightername"
     },
@@ -13489,7 +13519,7 @@
       "source_file": "src/pages/games/Gangues/GanguesCombat.jsx",
       "source_location": "L21",
       "_origin": "ast",
-      "community": 341,
+      "community": 68,
       "norm_label": "picktrash()",
       "id": "src_pages_games_gangues_ganguescombat_picktrash"
     },
@@ -13499,7 +13529,7 @@
       "source_file": "src/pages/games/Gangues/GanguesCombat.jsx",
       "source_location": "L28",
       "_origin": "ast",
-      "community": 341,
+      "community": 68,
       "norm_label": "roster()",
       "id": "src_pages_games_gangues_ganguescombat_roster"
     },
@@ -13509,7 +13539,7 @@
       "source_file": "src/pages/games/Gangues/GanguesCombat.jsx",
       "source_location": "L65",
       "_origin": "ast",
-      "community": 341,
+      "community": 68,
       "norm_label": "ganguescombat()",
       "id": "src_pages_games_gangues_ganguescombat_ganguescombat"
     },
@@ -13599,7 +13629,7 @@
       "source_file": "src/pages/games/Gangues/GanguesLobby.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 305,
+      "community": 68,
       "norm_label": "gangueslobby.jsx",
       "id": "src_pages_games_gangues_gangueslobby"
     },
@@ -13609,7 +13639,7 @@
       "source_file": "src/pages/games/Gangues/GanguesLobby.jsx",
       "source_location": "L18",
       "_origin": "ast",
-      "community": 305,
+      "community": 68,
       "norm_label": "pickenemyteam()",
       "id": "src_pages_games_gangues_gangueslobby_pickenemyteam"
     },
@@ -13619,7 +13649,7 @@
       "source_file": "src/pages/games/Gangues/GanguesLobby.jsx",
       "source_location": "L25",
       "_origin": "ast",
-      "community": 305,
+      "community": 68,
       "norm_label": "gangueslobby()",
       "id": "src_pages_games_gangues_gangueslobby_gangueslobby"
     },
@@ -13719,7 +13749,7 @@
       "source_file": "src/pages/games/Gangues/components/DramaticDice.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 341,
+      "community": 68,
       "norm_label": "dramaticdice.jsx",
       "id": "src_pages_games_gangues_components_dramaticdice"
     },
@@ -13729,7 +13759,7 @@
       "source_file": "src/pages/games/Gangues/components/DramaticDice.jsx",
       "source_location": "L12",
       "_origin": "ast",
-      "community": 341,
+      "community": 68,
       "norm_label": "dramaticdice()",
       "id": "src_pages_games_gangues_components_dramaticdice_dramaticdice"
     },
@@ -13739,7 +13769,7 @@
       "source_file": "src/pages/games/Gangues/components/GanguesProgressionPanel.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 19,
+      "community": 68,
       "norm_label": "ganguesprogressionpanel.jsx",
       "id": "src_pages_games_gangues_components_ganguesprogressionpanel"
     },
@@ -13749,7 +13779,7 @@
       "source_file": "src/pages/games/Gangues/components/GanguesProgressionPanel.jsx",
       "source_location": "L16",
       "_origin": "ast",
-      "community": 19,
+      "community": 68,
       "norm_label": "special_icon",
       "id": "src_pages_games_gangues_components_ganguesprogressionpanel_special_icon"
     },
@@ -13759,7 +13789,7 @@
       "source_file": "src/pages/games/Gangues/components/GanguesProgressionPanel.jsx",
       "source_location": "L17",
       "_origin": "ast",
-      "community": 19,
+      "community": 68,
       "norm_label": "attributes",
       "id": "src_pages_games_gangues_components_ganguesprogressionpanel_attributes"
     },
@@ -13769,7 +13799,7 @@
       "source_file": "src/pages/games/Gangues/components/GanguesProgressionPanel.jsx",
       "source_location": "L19",
       "_origin": "ast",
-      "community": 19,
+      "community": 68,
       "norm_label": "ganguesprogressionpanel()",
       "id": "src_pages_games_gangues_components_ganguesprogressionpanel_ganguesprogressionpanel"
     },
@@ -13779,7 +13809,7 @@
       "source_file": "src/pages/games/Gangues/components/NeoGuideDialog.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 41,
+      "community": 68,
       "norm_label": "neoguidedialog.jsx",
       "id": "src_pages_games_gangues_components_neoguidedialog"
     },
@@ -13789,7 +13819,7 @@
       "source_file": "src/pages/games/Gangues/components/NeoGuideDialog.jsx",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 41,
+      "community": 68,
       "norm_label": "neoguidedialog()",
       "id": "src_pages_games_gangues_components_neoguidedialog_neoguidedialog"
     },
@@ -13819,7 +13849,7 @@
       "source_file": "src/pages/games/Gangues/data/ganguesLoadout.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 19,
+      "community": 68,
       "norm_label": "ganguesloadout.js",
       "id": "src_pages_games_gangues_data_ganguesloadout"
     },
@@ -13839,7 +13869,7 @@
       "source_file": "src/pages/games/Gangues/data/ganguesLoadout.js",
       "source_location": "L5",
       "_origin": "ast",
-      "community": 19,
+      "community": 68,
       "norm_label": "gangues_attribute_xp_costs",
       "id": "src_pages_games_gangues_data_ganguesloadout_gangues_attribute_xp_costs"
     },
@@ -13849,7 +13879,7 @@
       "source_file": "src/pages/games/Gangues/data/ganguesLoadout.js",
       "source_location": "L6",
       "_origin": "ast",
-      "community": 19,
+      "community": 68,
       "norm_label": "gangues_special_costs",
       "id": "src_pages_games_gangues_data_ganguesloadout_gangues_special_costs"
     },
@@ -13859,7 +13889,7 @@
       "source_file": "src/pages/games/Gangues/data/ganguesLoadout.js",
       "source_location": "L11",
       "_origin": "ast",
-      "community": 19,
+      "community": 68,
       "norm_label": "gangues_roster_limits",
       "id": "src_pages_games_gangues_data_ganguesloadout_gangues_roster_limits"
     },
@@ -13869,7 +13899,7 @@
       "source_file": "src/pages/games/Gangues/data/ganguesLoadout.js",
       "source_location": "L14",
       "_origin": "ast",
-      "community": 19,
+      "community": 68,
       "norm_label": "gangues_party_size_thresholds",
       "id": "src_pages_games_gangues_data_ganguesloadout_gangues_party_size_thresholds"
     },
@@ -13879,7 +13909,7 @@
       "source_file": "src/pages/games/Gangues/data/ganguesLoadout.js",
       "source_location": "L21",
       "_origin": "ast",
-      "community": 305,
+      "community": 68,
       "norm_label": "getganguespartysizelimit()",
       "id": "src_pages_games_gangues_data_ganguesloadout_getganguespartysizelimit"
     },
@@ -13889,7 +13919,7 @@
       "source_file": "src/pages/games/Gangues/data/ganguesLoadout.js",
       "source_location": "L29",
       "_origin": "ast",
-      "community": 305,
+      "community": 68,
       "norm_label": "getganguesrosterlimit()",
       "id": "src_pages_games_gangues_data_ganguesloadout_getganguesrosterlimit"
     },
@@ -13899,7 +13929,7 @@
       "source_file": "src/pages/games/Gangues/data/ganguesLoadout.js",
       "source_location": "L33",
       "_origin": "ast",
-      "community": 19,
+      "community": 68,
       "norm_label": "gangues_resource_rates",
       "id": "src_pages_games_gangues_data_ganguesloadout_gangues_resource_rates"
     },
@@ -13909,7 +13939,7 @@
       "source_file": "src/pages/games/Gangues/data/ganguesLoadout.js",
       "source_location": "L41",
       "_origin": "ast",
-      "community": 305,
+      "community": 68,
       "norm_label": "defaultganguesprogression()",
       "id": "src_pages_games_gangues_data_ganguesloadout_defaultganguesprogression"
     },
@@ -13919,7 +13949,7 @@
       "source_file": "src/pages/games/Gangues/data/ganguesLoadout.js",
       "source_location": "L45",
       "_origin": "ast",
-      "community": 19,
+      "community": 68,
       "norm_label": "getganguesprogression()",
       "id": "src_pages_games_gangues_data_ganguesloadout_getganguesprogression"
     },
@@ -13929,7 +13959,7 @@
       "source_file": "src/pages/games/Gangues/data/ganguesLoadout.js",
       "source_location": "L57",
       "_origin": "ast",
-      "community": 19,
+      "community": 68,
       "norm_label": "selectganguesspecialpath()",
       "id": "src_pages_games_gangues_data_ganguesloadout_selectganguesspecialpath"
     },
@@ -13939,7 +13969,7 @@
       "source_file": "src/pages/games/Gangues/data/ganguesLoadout.js",
       "source_location": "L65",
       "_origin": "ast",
-      "community": 305,
+      "community": 68,
       "norm_label": "addganguesap()",
       "id": "src_pages_games_gangues_data_ganguesloadout_addganguesap"
     },
@@ -13949,7 +13979,7 @@
       "source_file": "src/pages/games/Gangues/data/ganguesLoadout.js",
       "source_location": "L72",
       "_origin": "ast",
-      "community": 19,
+      "community": 68,
       "norm_label": "upgradeganguesattribute()",
       "id": "src_pages_games_gangues_data_ganguesloadout_upgradeganguesattribute"
     },
@@ -13959,7 +13989,7 @@
       "source_file": "src/pages/games/Gangues/data/ganguesLoadout.js",
       "source_location": "L80",
       "_origin": "ast",
-      "community": 19,
+      "community": 68,
       "norm_label": "upgradeganguesspecial()",
       "id": "src_pages_games_gangues_data_ganguesloadout_upgradeganguesspecial"
     },
@@ -13969,7 +13999,7 @@
       "source_file": "src/pages/games/Gangues/data/ganguesLoadout.js",
       "source_location": "L89",
       "_origin": "ast",
-      "community": 19,
+      "community": 68,
       "norm_label": "toggleganguesspecial()",
       "id": "src_pages_games_gangues_data_ganguesloadout_toggleganguesspecial"
     },
@@ -13999,7 +14029,7 @@
       "source_file": "src/pages/games/Gangues/data/ganguesSpecials.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 19,
+      "community": 68,
       "norm_label": "ganguesspecials.js",
       "id": "src_pages_games_gangues_data_ganguesspecials"
     },
@@ -14009,7 +14039,7 @@
       "source_file": "src/pages/games/Gangues/data/ganguesSpecials.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 341,
+      "community": 68,
       "norm_label": "special()",
       "id": "src_pages_games_gangues_data_ganguesspecials_special"
     },
@@ -14029,7 +14059,7 @@
       "source_file": "src/pages/games/Gangues/data/ganguesSpecials.js",
       "source_location": "L4",
       "_origin": "ast",
-      "community": 301,
+      "community": 68,
       "norm_label": "gangues_special_paths",
       "id": "src_pages_games_gangues_data_ganguesspecials_gangues_special_paths"
     },
@@ -14039,7 +14069,7 @@
       "source_file": "src/pages/games/Gangues/data/ganguesSpecials.js",
       "source_location": "L28",
       "_origin": "ast",
-      "community": 19,
+      "community": 68,
       "norm_label": "gangues_all_specials",
       "id": "src_pages_games_gangues_data_ganguesspecials_gangues_all_specials"
     },
@@ -14049,7 +14079,7 @@
       "source_file": "src/pages/games/Gangues/data/ganguesSpecials.js",
       "source_location": "L30",
       "_origin": "ast",
-      "community": 19,
+      "community": 68,
       "norm_label": "getganguesspecialpaths()",
       "id": "src_pages_games_gangues_data_ganguesspecials_getganguesspecialpaths"
     },
@@ -14059,7 +14089,7 @@
       "source_file": "src/pages/games/Gangues/data/ganguesSpecials.js",
       "source_location": "L34",
       "_origin": "ast",
-      "community": 19,
+      "community": 68,
       "norm_label": "getganguesspecialpath()",
       "id": "src_pages_games_gangues_data_ganguesspecials_getganguesspecialpath"
     },
@@ -14069,7 +14099,7 @@
       "source_file": "src/pages/games/Gangues/data/ganguesSpecials.js",
       "source_location": "L39",
       "_origin": "ast",
-      "community": 19,
+      "community": 68,
       "norm_label": "getganguesspecials()",
       "id": "src_pages_games_gangues_data_ganguesspecials_getganguesspecials"
     },
@@ -14079,7 +14109,7 @@
       "source_file": "src/pages/games/Gangues/data/ganguesSpecials.js",
       "source_location": "L43",
       "_origin": "ast",
-      "community": 19,
+      "community": 68,
       "norm_label": "isganguesspecialallowed()",
       "id": "src_pages_games_gangues_data_ganguesspecials_isganguesspecialallowed"
     },
@@ -14089,7 +14119,7 @@
       "source_file": "src/pages/games/Gangues/engine/ganguesCombatResolver.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 301,
+      "community": 68,
       "norm_label": "ganguescombatresolver.js",
       "id": "src_pages_games_gangues_engine_ganguescombatresolver"
     },
@@ -14109,7 +14139,7 @@
       "source_file": "src/pages/games/Gangues/engine/ganguesCombatResolver.js",
       "source_location": "L17",
       "_origin": "ast",
-      "community": 301,
+      "community": 68,
       "norm_label": "resolveattackerbonus()",
       "id": "src_pages_games_gangues_engine_ganguescombatresolver_resolveattackerbonus"
     },
@@ -14119,7 +14149,7 @@
       "source_file": "src/pages/games/Gangues/engine/ganguesCombatResolver.js",
       "source_location": "L23",
       "_origin": "ast",
-      "community": 301,
+      "community": 68,
       "norm_label": "resolvedefenderbonus()",
       "id": "src_pages_games_gangues_engine_ganguescombatresolver_resolvedefenderbonus"
     },
@@ -14129,7 +14159,7 @@
       "source_file": "src/pages/games/Gangues/engine/ganguesCombatResolver.js",
       "source_location": "L44",
       "_origin": "ast",
-      "community": 301,
+      "community": 68,
       "norm_label": "resolveganguesaction()",
       "id": "src_pages_games_gangues_engine_ganguescombatresolver_resolveganguesaction"
     },
@@ -14139,7 +14169,7 @@
       "source_file": "src/pages/games/Gangues/engine/ganguesSpecialEffects.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 301,
+      "community": 68,
       "norm_label": "ganguesspecialeffects.js",
       "id": "src_pages_games_gangues_engine_ganguesspecialeffects"
     },
@@ -14149,7 +14179,7 @@
       "source_file": "src/pages/games/Gangues/engine/ganguesSpecialEffects.js",
       "source_location": "L13",
       "_origin": "ast",
-      "community": 301,
+      "community": 68,
       "norm_label": "e()",
       "id": "src_pages_games_gangues_engine_ganguesspecialeffects_e"
     },
@@ -14159,7 +14189,7 @@
       "source_file": "src/pages/games/Gangues/engine/ganguesSpecialEffects.js",
       "source_location": "L15",
       "_origin": "ast",
-      "community": 301,
+      "community": 68,
       "norm_label": "gangues_special_effects",
       "id": "src_pages_games_gangues_engine_ganguesspecialeffects_gangues_special_effects"
     },
@@ -14169,7 +14199,7 @@
       "source_file": "src/pages/games/Gangues/engine/ganguesSpecialEffects.js",
       "source_location": "L52",
       "_origin": "ast",
-      "community": 301,
+      "community": 68,
       "norm_label": "kind_by_id",
       "id": "src_pages_games_gangues_engine_ganguesspecialeffects_kind_by_id"
     },
@@ -14179,7 +14209,7 @@
       "source_file": "src/pages/games/Gangues/engine/ganguesSpecialEffects.js",
       "source_location": "L53",
       "_origin": "ast",
-      "community": 301,
+      "community": 68,
       "norm_label": "path_by_id",
       "id": "src_pages_games_gangues_engine_ganguesspecialeffects_path_by_id"
     },
@@ -14189,7 +14219,7 @@
       "source_file": "src/pages/games/Gangues/engine/ganguesSpecialEffects.js",
       "source_location": "L61",
       "_origin": "ast",
-      "community": 301,
+      "community": 68,
       "norm_label": "genericeffect()",
       "id": "src_pages_games_gangues_engine_ganguesspecialeffects_genericeffect"
     },
@@ -14199,7 +14229,7 @@
       "source_file": "src/pages/games/Gangues/engine/ganguesSpecialEffects.js",
       "source_location": "L69",
       "_origin": "ast",
-      "community": 301,
+      "community": 68,
       "norm_label": "getganguesspecialeffect()",
       "id": "src_pages_games_gangues_engine_ganguesspecialeffects_getganguesspecialeffect"
     },
@@ -14209,7 +14239,7 @@
       "source_file": "src/pages/games/Gangues/engine/ganguesSpecialEffects.js",
       "source_location": "L76",
       "_origin": "ast",
-      "community": 301,
+      "community": 68,
       "norm_label": "buildgangueseffectslist()",
       "id": "src_pages_games_gangues_engine_ganguesspecialeffects_buildgangueseffectslist"
     },
@@ -14219,7 +14249,7 @@
       "source_file": "src/pages/games/Gangues/engine/ganguesSpecialEffects.js",
       "source_location": "L105",
       "_origin": "ast",
-      "community": 301,
+      "community": 68,
       "norm_label": "getequippedactiveganguesspecials()",
       "id": "src_pages_games_gangues_engine_ganguesspecialeffects_getequippedactiveganguesspecials"
     },
@@ -14229,7 +14259,7 @@
       "source_file": "src/pages/games/Gangues/engine/ganguesSpecialEffects.js",
       "source_location": "L119",
       "_origin": "ast",
-      "community": 301,
+      "community": 68,
       "norm_label": "applyganguesattackereffect()",
       "id": "src_pages_games_gangues_engine_ganguesspecialeffects_applyganguesattackereffect"
     },
@@ -14239,7 +14269,7 @@
       "source_file": "src/pages/games/Gangues/engine/ganguesSpecialEffects.js",
       "source_location": "L173",
       "_origin": "ast",
-      "community": 301,
+      "community": 68,
       "norm_label": "applyganguesdefendereffect()",
       "id": "src_pages_games_gangues_engine_ganguesspecialeffects_applyganguesdefendereffect"
     },
@@ -14339,7 +14369,7 @@
       "source_file": "src/pages/games/Gangues/store/useGanguesStore.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 305,
+      "community": 68,
       "norm_label": "useganguesstore.js",
       "id": "src_pages_games_gangues_store_useganguesstore"
     },
@@ -14349,7 +14379,7 @@
       "source_file": "src/pages/games/Gangues/store/useGanguesStore.js",
       "source_location": "L5",
       "_origin": "ast",
-      "community": 305,
+      "community": 68,
       "norm_label": "legacy_path_storage",
       "id": "src_pages_games_gangues_store_useganguesstore_legacy_path_storage"
     },
@@ -14359,7 +14389,7 @@
       "source_file": "src/pages/games/Gangues/store/useGanguesStore.js",
       "source_location": "L6",
       "_origin": "ast",
-      "community": 305,
+      "community": 68,
       "norm_label": "legacy_style_path",
       "id": "src_pages_games_gangues_store_useganguesstore_legacy_style_path"
     },
@@ -14369,7 +14399,7 @@
       "source_file": "src/pages/games/Gangues/store/useGanguesStore.js",
       "source_location": "L11",
       "_origin": "ast",
-      "community": 305,
+      "community": 68,
       "norm_label": "limitefichasportier()",
       "id": "src_pages_games_gangues_store_useganguesstore_limitefichasportier"
     },
@@ -14379,7 +14409,7 @@
       "source_file": "src/pages/games/Gangues/store/useGanguesStore.js",
       "source_location": "L18",
       "_origin": "ast",
-      "community": 305,
+      "community": 68,
       "norm_label": "podecriarficha()",
       "id": "src_pages_games_gangues_store_useganguesstore_podecriarficha"
     },
@@ -14389,7 +14419,7 @@
       "source_file": "src/pages/games/Gangues/store/useGanguesStore.js",
       "source_location": "L23",
       "_origin": "ast",
-      "community": 305,
+      "community": 68,
       "norm_label": "defaultsheet()",
       "id": "src_pages_games_gangues_store_useganguesstore_defaultsheet"
     },
@@ -14719,7 +14749,7 @@
       "source_file": "src/pages/games/JackCandy/data/itens.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 20,
+      "community": 324,
       "norm_label": "itens.js",
       "id": "src_pages_games_jackcandy_data_itens"
     },
@@ -14729,7 +14759,7 @@
       "source_file": "src/pages/games/JackCandy/data/itens.js",
       "source_location": "L4",
       "_origin": "ast",
-      "community": 20,
+      "community": 324,
       "norm_label": "itens",
       "id": "src_pages_games_jackcandy_data_itens_itens"
     },
@@ -14959,7 +14989,7 @@
       "source_file": "src/pages/games/JackCandy/screens/Interior.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 20,
+      "community": 324,
       "norm_label": "interior.jsx",
       "id": "src_pages_games_jackcandy_screens_interior"
     },
@@ -15029,7 +15059,7 @@
       "source_file": "src/pages/games/JackCandy/screens/Inventario.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 20,
+      "community": 324,
       "norm_label": "inventario.jsx",
       "id": "src_pages_games_jackcandy_screens_inventario"
     },
@@ -15039,7 +15069,7 @@
       "source_file": "src/pages/games/JackCandy/screens/Inventario.jsx",
       "source_location": "L7",
       "_origin": "ast",
-      "community": 20,
+      "community": 324,
       "norm_label": "slots",
       "id": "src_pages_games_jackcandy_screens_inventario_slots"
     },
@@ -15049,7 +15079,7 @@
       "source_file": "src/pages/games/JackCandy/screens/Inventario.jsx",
       "source_location": "L8",
       "_origin": "ast",
-      "community": 20,
+      "community": 324,
       "norm_label": "slot_icons",
       "id": "src_pages_games_jackcandy_screens_inventario_slot_icons"
     },
@@ -15059,7 +15089,7 @@
       "source_file": "src/pages/games/JackCandy/screens/Inventario.jsx",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 20,
+      "community": 324,
       "norm_label": "slot_labels",
       "id": "src_pages_games_jackcandy_screens_inventario_slot_labels"
     },
@@ -16559,7 +16589,7 @@
       "source_file": "src/pages/games/LDI/Clues.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 67,
+      "community": 14,
       "norm_label": "clues.jsx",
       "id": "src_pages_games_ldi_clues"
     },
@@ -16569,7 +16599,7 @@
       "source_file": "src/pages/games/LDI/Clues.jsx",
       "source_location": "L8",
       "_origin": "ast",
-      "community": 67,
+      "community": 14,
       "norm_label": "clues()",
       "id": "src_pages_games_ldi_clues_clues"
     },
@@ -16579,7 +16609,7 @@
       "source_file": "src/pages/games/LDI/Combat.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 67,
+      "community": 14,
       "norm_label": "combat.jsx",
       "id": "src_pages_games_ldi_combat"
     },
@@ -16589,7 +16619,7 @@
       "source_file": "src/pages/games/LDI/Combat.jsx",
       "source_location": "L13",
       "_origin": "ast",
-      "community": 67,
+      "community": 14,
       "norm_label": "combat()",
       "id": "src_pages_games_ldi_combat_combat"
     },
@@ -16599,7 +16629,7 @@
       "source_file": "src/pages/games/LDI/Create.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 12,
+      "community": 14,
       "norm_label": "create.jsx",
       "id": "src_pages_games_ldi_create"
     },
@@ -16619,7 +16649,7 @@
       "source_file": "src/pages/games/LDI/End.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 67,
+      "community": 14,
       "norm_label": "end.jsx",
       "id": "src_pages_games_ldi_end"
     },
@@ -16629,7 +16659,7 @@
       "source_file": "src/pages/games/LDI/End.jsx",
       "source_location": "L10",
       "_origin": "ast",
-      "community": 67,
+      "community": 14,
       "norm_label": "end_messages",
       "id": "src_pages_games_ldi_end_end_messages"
     },
@@ -16639,7 +16669,7 @@
       "source_file": "src/pages/games/LDI/End.jsx",
       "source_location": "L28",
       "_origin": "ast",
-      "community": 67,
+      "community": 14,
       "norm_label": "achievements",
       "id": "src_pages_games_ldi_end_achievements"
     },
@@ -16649,7 +16679,7 @@
       "source_file": "src/pages/games/LDI/End.jsx",
       "source_location": "L40",
       "_origin": "ast",
-      "community": 67,
+      "community": 14,
       "norm_label": "end()",
       "id": "src_pages_games_ldi_end_end"
     },
@@ -16659,7 +16689,7 @@
       "source_file": "src/pages/games/LDI/Game.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 67,
+      "community": 14,
       "norm_label": "game.jsx",
       "id": "src_pages_games_ldi_game"
     },
@@ -16669,7 +16699,7 @@
       "source_file": "src/pages/games/LDI/Game.jsx",
       "source_location": "L14",
       "_origin": "ast",
-      "community": 67,
+      "community": 14,
       "norm_label": "attr_keys",
       "id": "src_pages_games_ldi_game_attr_keys"
     },
@@ -16679,7 +16709,7 @@
       "source_file": "src/pages/games/LDI/Game.jsx",
       "source_location": "L22",
       "_origin": "ast",
-      "community": 67,
+      "community": 14,
       "norm_label": "game()",
       "id": "src_pages_games_ldi_game_game"
     },
@@ -16729,7 +16759,7 @@
       "source_file": "src/pages/games/LDI/PuzzlePage.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 67,
+      "community": 14,
       "norm_label": "puzzlepage.jsx",
       "id": "src_pages_games_ldi_puzzlepage"
     },
@@ -16739,7 +16769,7 @@
       "source_file": "src/pages/games/LDI/PuzzlePage.jsx",
       "source_location": "L8",
       "_origin": "ast",
-      "community": 67,
+      "community": 14,
       "norm_label": "puzzle_map",
       "id": "src_pages_games_ldi_puzzlepage_puzzle_map"
     },
@@ -16749,7 +16779,7 @@
       "source_file": "src/pages/games/LDI/PuzzlePage.jsx",
       "source_location": "L16",
       "_origin": "ast",
-      "community": 67,
+      "community": 14,
       "norm_label": "puzzlepage()",
       "id": "src_pages_games_ldi_puzzlepage_puzzlepage"
     },
@@ -16759,7 +16789,7 @@
       "source_file": "src/pages/games/LDI/Sheet.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 67,
+      "community": 14,
       "norm_label": "sheet.jsx",
       "id": "src_pages_games_ldi_sheet"
     },
@@ -16769,7 +16799,7 @@
       "source_file": "src/pages/games/LDI/Sheet.jsx",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 67,
+      "community": 14,
       "norm_label": "sheet()",
       "id": "src_pages_games_ldi_sheet_sheet"
     },
@@ -17029,7 +17059,7 @@
       "source_file": "src/pages/games/LDI/components/ManualDrawer.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 67,
+      "community": 14,
       "norm_label": "manualdrawer.jsx",
       "id": "src_pages_games_ldi_components_manualdrawer"
     },
@@ -17039,7 +17069,7 @@
       "source_file": "src/pages/games/LDI/components/ManualDrawer.jsx",
       "source_location": "L4",
       "_origin": "ast",
-      "community": 67,
+      "community": 14,
       "norm_label": "drawer",
       "id": "src_pages_games_ldi_components_manualdrawer_drawer"
     },
@@ -17049,7 +17079,7 @@
       "source_file": "src/pages/games/LDI/components/ManualDrawer.jsx",
       "source_location": "L10",
       "_origin": "ast",
-      "community": 67,
+      "community": 14,
       "norm_label": "manualdrawer()",
       "id": "src_pages_games_ldi_components_manualdrawer_manualdrawer"
     },
@@ -17809,7 +17839,7 @@
       "source_file": "src/pages/games/LDI/store/useCombatStore.js",
       "source_location": "L4",
       "_origin": "ast",
-      "community": 67,
+      "community": 14,
       "norm_label": "usecombatstore",
       "id": "src_pages_games_ldi_store_usecombatstore_usecombatstore"
     },
@@ -17859,7 +17889,7 @@
       "source_file": "src/pages/games/LDI/store/useGameStore.js",
       "source_location": "L53",
       "_origin": "ast",
-      "community": 67,
+      "community": 14,
       "norm_label": "usegamestore",
       "id": "src_pages_games_ldi_store_usegamestore_usegamestore"
     },
@@ -17919,7 +17949,7 @@
       "source_file": "src/pages/games/MiniGames/version.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 67,
+      "community": 292,
       "norm_label": "version.js",
       "id": "src_pages_games_minigames_version"
     },
@@ -17929,7 +17959,7 @@
       "source_file": "src/pages/games/MultiplayerLobby/MultiplayerLobby.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 67,
+      "community": 292,
       "norm_label": "multiplayerlobby.jsx",
       "id": "src_pages_games_multiplayerlobby_multiplayerlobby"
     },
@@ -17939,7 +17969,7 @@
       "source_file": "src/pages/games/MultiplayerLobby/MultiplayerLobby.jsx",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 67,
+      "community": 292,
       "norm_label": "multiplayerlobby()",
       "id": "src_pages_games_multiplayerlobby_multiplayerlobby_multiplayerlobby"
     },
@@ -17949,7 +17979,7 @@
       "source_file": "src/pages/games/MultiplayerLobby/useSharedLobbyMachine.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 2,
+      "community": 4,
       "norm_label": "usesharedlobbymachine.js",
       "id": "src_pages_games_multiplayerlobby_usesharedlobbymachine"
     },
@@ -17959,7 +17989,7 @@
       "source_file": "src/pages/games/MultiplayerLobby/useSharedLobbyMachine.js",
       "source_location": "L10",
       "_origin": "ast",
-      "community": 2,
+      "community": 4,
       "norm_label": "initialstate",
       "id": "src_pages_games_multiplayerlobby_usesharedlobbymachine_initialstate"
     },
@@ -17969,7 +17999,7 @@
       "source_file": "src/pages/games/MultiplayerLobby/useSharedLobbyMachine.js",
       "source_location": "L19",
       "_origin": "ast",
-      "community": 2,
+      "community": 4,
       "norm_label": "reducer()",
       "id": "src_pages_games_multiplayerlobby_usesharedlobbymachine_reducer"
     },
@@ -17979,7 +18009,7 @@
       "source_file": "src/pages/games/MultiplayerLobby/useSharedLobbyMachine.js",
       "source_location": "L44",
       "_origin": "ast",
-      "community": 2,
+      "community": 4,
       "norm_label": "normalizematchresult()",
       "id": "src_pages_games_multiplayerlobby_usesharedlobbymachine_normalizematchresult"
     },
@@ -17989,7 +18019,7 @@
       "source_file": "src/pages/games/MultiplayerLobby/useSharedLobbyMachine.js",
       "source_location": "L52",
       "_origin": "ast",
-      "community": 2,
+      "community": 4,
       "norm_label": "usesharedlobbymachine()",
       "id": "src_pages_games_multiplayerlobby_usesharedlobbymachine_usesharedlobbymachine"
     },
@@ -18159,7 +18189,7 @@
       "source_file": "src/pages/games/PesadeloParticular/PP.jsx",
       "source_location": "L844",
       "_origin": "ast",
-      "community": 67,
+      "community": 41,
       "norm_label": "pp()",
       "id": "src_pages_games_pesadeloparticular_pp_pp"
     },
@@ -18599,7 +18629,7 @@
       "source_file": "src/pages/games/PesadeloParticular/screens/Resolucao.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 14,
+      "community": 9,
       "norm_label": "resolucao.jsx",
       "id": "src_pages_games_pesadeloparticular_screens_resolucao"
     },
@@ -18609,7 +18639,7 @@
       "source_file": "src/pages/games/PesadeloParticular/screens/Resolucao.jsx",
       "source_location": "L7",
       "_origin": "ast",
-      "community": 14,
+      "community": 9,
       "norm_label": "resolucao()",
       "id": "src_pages_games_pesadeloparticular_screens_resolucao_resolucao"
     },
@@ -18669,7 +18699,7 @@
       "source_file": "src/pages/games/Tamagoshi/components/BalloonFala.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 39,
+      "community": 23,
       "norm_label": "balloonfala.jsx",
       "id": "src_pages_games_tamagoshi_components_balloonfala"
     },
@@ -18679,7 +18709,7 @@
       "source_file": "src/pages/games/Tamagoshi/components/BalloonFala.jsx",
       "source_location": "L3",
       "_origin": "ast",
-      "community": 39,
+      "community": 23,
       "norm_label": "balloonfala()",
       "id": "src_pages_games_tamagoshi_components_balloonfala_balloonfala"
     },
@@ -18689,7 +18719,7 @@
       "source_file": "src/pages/games/Tamagoshi/components/CooldownTimer.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 342,
+      "community": 41,
       "norm_label": "cooldowntimer.jsx",
       "id": "src_pages_games_tamagoshi_components_cooldowntimer"
     },
@@ -18699,7 +18729,7 @@
       "source_file": "src/pages/games/Tamagoshi/components/CooldownTimer.jsx",
       "source_location": "L4",
       "_origin": "ast",
-      "community": 342,
+      "community": 41,
       "norm_label": "cooldowntimer()",
       "id": "src_pages_games_tamagoshi_components_cooldowntimer_cooldowntimer"
     },
@@ -18749,7 +18779,7 @@
       "source_file": "src/pages/games/Tamagoshi/components/MetricBar.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 39,
+      "community": 23,
       "norm_label": "metricbar.jsx",
       "id": "src_pages_games_tamagoshi_components_metricbar"
     },
@@ -18759,7 +18789,7 @@
       "source_file": "src/pages/games/Tamagoshi/components/MetricBar.jsx",
       "source_location": "L3",
       "_origin": "ast",
-      "community": 39,
+      "community": 23,
       "norm_label": "metricbar()",
       "id": "src_pages_games_tamagoshi_components_metricbar_metricbar"
     },
@@ -19089,7 +19119,7 @@
       "source_file": "src/pages/games/Tamagoshi/data/passeios.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 343,
+      "community": 33,
       "norm_label": "passeios.js",
       "id": "src_pages_games_tamagoshi_data_passeios"
     },
@@ -19099,7 +19129,7 @@
       "source_file": "src/pages/games/Tamagoshi/data/passeios.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 343,
+      "community": 33,
       "norm_label": "passeios",
       "id": "src_pages_games_tamagoshi_data_passeios_passeios"
     },
@@ -19109,7 +19139,7 @@
       "source_file": "src/pages/games/Tamagoshi/data/passeios.js",
       "source_location": "L46",
       "_origin": "ast",
-      "community": 343,
+      "community": 33,
       "norm_label": "passeio_key_map",
       "id": "src_pages_games_tamagoshi_data_passeios_passeio_key_map"
     },
@@ -19119,7 +19149,7 @@
       "source_file": "src/pages/games/Tamagoshi/data/passeios.js",
       "source_location": "L55",
       "_origin": "ast",
-      "community": 343,
+      "community": 33,
       "norm_label": "getpasseio()",
       "id": "src_pages_games_tamagoshi_data_passeios_getpasseio"
     },
@@ -19139,7 +19169,7 @@
       "source_file": "src/pages/games/Tamagoshi/data/personalidades.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 33,
+      "community": 23,
       "norm_label": "personalidades",
       "id": "src_pages_games_tamagoshi_data_personalidades_personalidades"
     },
@@ -19219,7 +19249,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/Brincadeira.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 21,
+      "community": 342,
       "norm_label": "brincadeira.jsx",
       "id": "src_pages_games_tamagoshi_screens_brincadeira"
     },
@@ -19229,7 +19259,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/Brincadeira.jsx",
       "source_location": "L22",
       "_origin": "ast",
-      "community": 21,
+      "community": 342,
       "norm_label": "puzzles",
       "id": "src_pages_games_tamagoshi_screens_brincadeira_puzzles"
     },
@@ -19239,7 +19269,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/Brincadeira.jsx",
       "source_location": "L31",
       "_origin": "ast",
-      "community": 15,
+      "community": 342,
       "norm_label": "getconfig()",
       "id": "src_pages_games_tamagoshi_screens_brincadeira_getconfig"
     },
@@ -19249,7 +19279,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/Brincadeira.jsx",
       "source_location": "L43",
       "_origin": "ast",
-      "community": 15,
+      "community": 342,
       "norm_label": "brincadeira()",
       "id": "src_pages_games_tamagoshi_screens_brincadeira_brincadeira"
     },
@@ -19259,7 +19289,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/Criatura.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 39,
+      "community": 23,
       "norm_label": "criatura.jsx",
       "id": "src_pages_games_tamagoshi_screens_criatura"
     },
@@ -19439,7 +19469,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/Passeio.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 343,
+      "community": 33,
       "norm_label": "passeio.jsx",
       "id": "src_pages_games_tamagoshi_screens_passeio"
     },
@@ -19529,7 +19559,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/Selecao.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 33,
+      "community": 15,
       "norm_label": "selecao.jsx",
       "id": "src_pages_games_tamagoshi_screens_selecao"
     },
@@ -19539,7 +19569,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/Selecao.jsx",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 33,
+      "community": 15,
       "norm_label": "criaturas_t1",
       "id": "src_pages_games_tamagoshi_screens_selecao_criaturas_t1"
     },
@@ -19549,7 +19579,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/Selecao.jsx",
       "source_location": "L12",
       "_origin": "ast",
-      "community": 33,
+      "community": 15,
       "norm_label": "slot_limits",
       "id": "src_pages_games_tamagoshi_screens_selecao_slot_limits"
     },
@@ -19559,7 +19589,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/Selecao.jsx",
       "source_location": "L14",
       "_origin": "ast",
-      "community": 33,
+      "community": 15,
       "norm_label": "shuffle()",
       "id": "src_pages_games_tamagoshi_screens_selecao_shuffle"
     },
@@ -19569,7 +19599,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/Selecao.jsx",
       "source_location": "L22",
       "_origin": "ast",
-      "community": 33,
+      "community": 15,
       "norm_label": "geraropcoesselecaotama()",
       "id": "src_pages_games_tamagoshi_screens_selecao_geraropcoesselecaotama"
     },
@@ -19769,7 +19799,7 @@
       "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 55,
+      "community": 2,
       "norm_label": "toptrumpsmp.jsx",
       "id": "src_pages_games_toptrumps_toptrumpsmp"
     },
@@ -19779,7 +19809,7 @@
       "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
       "source_location": "L23",
       "_origin": "ast",
-      "community": 55,
+      "community": 2,
       "norm_label": "logmp()",
       "id": "src_pages_games_toptrumps_toptrumpsmp_logmp"
     },
@@ -19789,7 +19819,7 @@
       "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
       "source_location": "L30",
       "_origin": "ast",
-      "community": 55,
+      "community": 2,
       "norm_label": "attrnomekey()",
       "id": "src_pages_games_toptrumps_toptrumpsmp_attrnomekey"
     },
@@ -19799,7 +19829,7 @@
       "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
       "source_location": "L43",
       "_origin": "ast",
-      "community": 55,
+      "community": 2,
       "norm_label": "avatarcor()",
       "id": "src_pages_games_toptrumps_toptrumpsmp_avatarcor"
     },
@@ -19809,7 +19839,7 @@
       "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
       "source_location": "L49",
       "_origin": "ast",
-      "community": 55,
+      "community": 2,
       "norm_label": "toptrumpsmp()",
       "id": "src_pages_games_toptrumps_toptrumpsmp_toptrumpsmp"
     },
@@ -19819,7 +19849,7 @@
       "source_file": "src/pages/games/TopTrumps/TopTrumpsMP.jsx",
       "source_location": "L816",
       "_origin": "ast",
-      "community": 55,
+      "community": 2,
       "norm_label": "note: para top trumps (um jogador por rodada) nao dependemos mais",
       "id": "src_pages_games_toptrumps_toptrumpsmp_rationale_816"
     },
@@ -19829,7 +19859,7 @@
       "source_file": "src/pages/games/TopTrumps/TopTrumpsSP.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 23,
+      "community": 14,
       "norm_label": "toptrumpssp.jsx",
       "id": "src_pages_games_toptrumps_toptrumpssp"
     },
@@ -19839,7 +19869,7 @@
       "source_file": "src/pages/games/TopTrumps/TopTrumpsSP.jsx",
       "source_location": "L23",
       "_origin": "ast",
-      "community": 23,
+      "community": 14,
       "norm_label": "toptrumpssp()",
       "id": "src_pages_games_toptrumps_toptrumpssp_toptrumpssp"
     },
@@ -19849,7 +19879,7 @@
       "source_file": "src/pages/games/TopTrumps/components/BurstParticles/BurstParticles.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 317,
+      "community": 85,
       "norm_label": "burstparticles.jsx",
       "id": "src_pages_games_toptrumps_components_burstparticles_burstparticles"
     },
@@ -19859,7 +19889,7 @@
       "source_file": "src/pages/games/TopTrumps/components/BurstParticles/BurstParticles.jsx",
       "source_location": "L3",
       "_origin": "ast",
-      "community": 317,
+      "community": 85,
       "norm_label": "burstparticles()",
       "id": "src_pages_games_toptrumps_components_burstparticles_burstparticles_burstparticles"
     },
@@ -20019,7 +20049,7 @@
       "source_file": "src/pages/games/TopTrumps/components/GameOverScreen/GameOverScreen.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 23,
+      "community": 2,
       "norm_label": "gameoverscreen.jsx",
       "id": "src_pages_games_toptrumps_components_gameoverscreen_gameoverscreen"
     },
@@ -20029,7 +20059,7 @@
       "source_file": "src/pages/games/TopTrumps/components/GameOverScreen/GameOverScreen.jsx",
       "source_location": "L5",
       "_origin": "ast",
-      "community": 23,
+      "community": 2,
       "norm_label": "gameoverscreen()",
       "id": "src_pages_games_toptrumps_components_gameoverscreen_gameoverscreen_gameoverscreen"
     },
@@ -20079,7 +20109,7 @@
       "source_file": "src/pages/games/TopTrumps/components/ResultScreen/ResultScreen.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 317,
+      "community": 85,
       "norm_label": "resultscreen.jsx",
       "id": "src_pages_games_toptrumps_components_resultscreen_resultscreen"
     },
@@ -20089,7 +20119,7 @@
       "source_file": "src/pages/games/TopTrumps/components/ResultScreen/ResultScreen.jsx",
       "source_location": "L7",
       "_origin": "ast",
-      "community": 317,
+      "community": 85,
       "norm_label": "resultscreen()",
       "id": "src_pages_games_toptrumps_components_resultscreen_resultscreen_resultscreen"
     },
@@ -20249,7 +20279,7 @@
       "source_file": "src/pages/games/TopTrumps/hooks/useGameEffects.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 30,
+      "community": 14,
       "norm_label": "usegameeffects.js",
       "id": "src_pages_games_toptrumps_hooks_usegameeffects"
     },
@@ -20259,7 +20289,7 @@
       "source_file": "src/pages/games/TopTrumps/hooks/useGameEffects.js",
       "source_location": "L4",
       "_origin": "ast",
-      "community": 30,
+      "community": 14,
       "norm_label": "onomatopeias",
       "id": "src_pages_games_toptrumps_hooks_usegameeffects_onomatopeias"
     },
@@ -20269,7 +20299,7 @@
       "source_file": "src/pages/games/TopTrumps/hooks/useGameEffects.js",
       "source_location": "L11",
       "_origin": "ast",
-      "community": 23,
+      "community": 14,
       "norm_label": "usegameeffects()",
       "id": "src_pages_games_toptrumps_hooks_usegameeffects_usegameeffects"
     },
@@ -20279,7 +20309,7 @@
       "source_file": "src/pages/games/TopTrumps/hooks/useMultiplayerTurnMachine.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 55,
+      "community": 76,
       "norm_label": "usemultiplayerturnmachine.js",
       "id": "src_pages_games_toptrumps_hooks_usemultiplayerturnmachine"
     },
@@ -20289,7 +20319,7 @@
       "source_file": "src/pages/games/TopTrumps/hooks/useMultiplayerTurnMachine.js",
       "source_location": "L5",
       "_origin": "ast",
-      "community": 55,
+      "community": 76,
       "norm_label": "initialstate",
       "id": "src_pages_games_toptrumps_hooks_usemultiplayerturnmachine_initialstate"
     },
@@ -20299,7 +20329,7 @@
       "source_file": "src/pages/games/TopTrumps/hooks/useMultiplayerTurnMachine.js",
       "source_location": "L15",
       "_origin": "ast",
-      "community": 55,
+      "community": 76,
       "norm_label": "reduce()",
       "id": "src_pages_games_toptrumps_hooks_usemultiplayerturnmachine_reduce"
     },
@@ -20309,7 +20339,7 @@
       "source_file": "src/pages/games/TopTrumps/hooks/useMultiplayerTurnMachine.js",
       "source_location": "L62",
       "_origin": "ast",
-      "community": 55,
+      "community": 76,
       "norm_label": "usemultiplayerturnmachine()",
       "id": "src_pages_games_toptrumps_hooks_usemultiplayerturnmachine_usemultiplayerturnmachine"
     },
@@ -20389,7 +20419,7 @@
       "source_file": "src/pages/games/TopTrumps/hooks/useTopTrumpsSP.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 23,
+      "community": 53,
       "norm_label": "usetoptrumpssp.js",
       "id": "src_pages_games_toptrumps_hooks_usetoptrumpssp"
     },
@@ -20399,7 +20429,7 @@
       "source_file": "src/pages/games/TopTrumps/hooks/useTopTrumpsSP.js",
       "source_location": "L4",
       "_origin": "ast",
-      "community": 23,
+      "community": 53,
       "norm_label": "embaralhar()",
       "id": "src_pages_games_toptrumps_hooks_usetoptrumpssp_embaralhar"
     },
@@ -20409,7 +20439,7 @@
       "source_file": "src/pages/games/TopTrumps/hooks/useTopTrumpsSP.js",
       "source_location": "L8",
       "_origin": "ast",
-      "community": 23,
+      "community": 14,
       "norm_label": "usetoptrumpssp()",
       "id": "src_pages_games_toptrumps_hooks_usetoptrumpssp_usetoptrumpssp"
     },
@@ -20419,7 +20449,7 @@
       "source_file": "src/pages/games/TopTrumps/utils/attrNomeKey.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 23,
+      "community": 14,
       "norm_label": "attrnomekey.js",
       "id": "src_pages_games_toptrumps_utils_attrnomekey"
     },
@@ -20429,7 +20459,7 @@
       "source_file": "src/pages/games/TopTrumps/utils/attrNomeKey.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 23,
+      "community": 14,
       "norm_label": "attrnomekey()",
       "id": "src_pages_games_toptrumps_utils_attrnomekey_attrnomekey"
     },
@@ -20439,7 +20469,7 @@
       "source_file": "src/pages/games/TopTrumps/utils/deterministicDeck.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 55,
+      "community": 2,
       "norm_label": "deterministicdeck.js",
       "id": "src_pages_games_toptrumps_utils_deterministicdeck"
     },
@@ -20449,7 +20479,7 @@
       "source_file": "src/pages/games/TopTrumps/utils/deterministicDeck.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 55,
+      "community": 2,
       "norm_label": "hashseed()",
       "id": "src_pages_games_toptrumps_utils_deterministicdeck_hashseed"
     },
@@ -20459,7 +20489,7 @@
       "source_file": "src/pages/games/TopTrumps/utils/deterministicDeck.js",
       "source_location": "L10",
       "_origin": "ast",
-      "community": 55,
+      "community": 2,
       "norm_label": "ordenardeckdeterministico()",
       "id": "src_pages_games_toptrumps_utils_deterministicdeck_ordenardeckdeterministico"
     },
@@ -20909,7 +20939,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/TurnController.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 24,
+      "community": 84,
       "norm_label": "tipoacao",
       "id": "src_pages_lab_prototype_arenatestbed_engine_turncontroller_tipoacao"
     },
@@ -21249,7 +21279,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/ai/personalidades/index.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 114,
+      "community": 12,
       "norm_label": "index.js",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_personalidades_index"
     },
@@ -21259,7 +21289,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/ai/personalidades/index.js",
       "source_location": "L5",
       "_origin": "ast",
-      "community": 114,
+      "community": 12,
       "norm_label": "personalidades_ia",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_personalidades_index_personalidades_ia"
     },
@@ -21269,7 +21299,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/ai/personalidades/index.js",
       "source_location": "L11",
       "_origin": "ast",
-      "community": 114,
+      "community": 12,
       "norm_label": "getpersonalidadeporid()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_personalidades_index_getpersonalidadeporid"
     },
@@ -21279,7 +21309,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/ai/personalidades/persistente.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 114,
+      "community": 47,
       "norm_label": "persistente.js",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_personalidades_persistente"
     },
@@ -21289,7 +21319,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/ai/personalidades/persistente.js",
       "source_location": "L5",
       "_origin": "ast",
-      "community": 114,
+      "community": 47,
       "norm_label": "melhorpoderparaataque()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_personalidades_persistente_melhorpoderparaataque"
     },
@@ -21299,7 +21329,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/ai/personalidades/persistente.js",
       "source_location": "L15",
       "_origin": "ast",
-      "community": 114,
+      "community": 47,
       "norm_label": "inimigomenorhp()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_personalidades_persistente_inimigomenorhp"
     },
@@ -21309,7 +21339,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/ai/personalidades/persistente.js",
       "source_location": "L24",
       "_origin": "ast",
-      "community": 114,
+      "community": 47,
       "norm_label": "podeatacaralvo()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_personalidades_persistente_podeatacaralvo"
     },
@@ -21319,7 +21349,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/ai/personalidades/persistente.js",
       "source_location": "L30",
       "_origin": "ast",
-      "community": 114,
+      "community": 47,
       "norm_label": "calcularpassos()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_personalidades_persistente_calcularpassos"
     },
@@ -21329,7 +21359,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/ai/personalidades/persistente.js",
       "source_location": "L51",
       "_origin": "ast",
-      "community": 114,
+      "community": 47,
       "norm_label": "acaopersistente()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_personalidades_persistente_acaopersistente"
     },
@@ -22279,7 +22309,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/audioManager.js",
       "source_location": "L159",
       "_origin": "ast",
-      "community": 12,
+      "community": 59,
       "norm_label": ".error()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_audiomanager_audiomanager_error"
     },
@@ -22609,7 +22639,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/combat.js",
       "source_location": "L174",
       "_origin": "ast",
-      "community": 47,
+      "community": 12,
       "norm_label": "gethp()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_combat_gethp"
     },
@@ -22619,7 +22649,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/combat.js",
       "source_location": "L182",
       "_origin": "ast",
-      "community": 47,
+      "community": 12,
       "norm_label": "getmp()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_combat_getmp"
     },
@@ -22629,7 +22659,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/combat.js",
       "source_location": "L189",
       "_origin": "ast",
-      "community": 114,
+      "community": 47,
       "norm_label": "getchanceacerto()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_combat_getchanceacerto"
     },
@@ -22639,7 +22669,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/combat.js",
       "source_location": "L203",
       "_origin": "ast",
-      "community": 47,
+      "community": 12,
       "norm_label": "criarpersonagem()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_combat_criarpersonagem"
     },
@@ -22879,7 +22909,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/hexUtils.js",
       "source_location": "L261",
       "_origin": "ast",
-      "community": 114,
+      "community": 47,
       "norm_label": "encontrarcaminho()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_hexutils_encontrarcaminho"
     },
@@ -23289,7 +23319,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/phases/Phase1SheetBuilder.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 47,
+      "community": 12,
       "norm_label": "phase1sheetbuilder.jsx",
       "id": "src_pages_lab_prototype_arenatestbed_phases_phase1sheetbuilder"
     },
@@ -23299,7 +23329,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/phases/Phase1SheetBuilder.jsx",
       "source_location": "L8",
       "_origin": "ast",
-      "community": 47,
+      "community": 12,
       "norm_label": "attributes",
       "id": "src_pages_lab_prototype_arenatestbed_phases_phase1sheetbuilder_attributes"
     },
@@ -23309,7 +23339,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/phases/Phase1SheetBuilder.jsx",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 47,
+      "community": 12,
       "norm_label": "budget_options",
       "id": "src_pages_lab_prototype_arenatestbed_phases_phase1sheetbuilder_budget_options"
     },
@@ -23319,7 +23349,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/phases/Phase1SheetBuilder.jsx",
       "source_location": "L11",
       "_origin": "ast",
-      "community": 47,
+      "community": 12,
       "norm_label": "phase1sheetbuilder()",
       "id": "src_pages_lab_prototype_arenatestbed_phases_phase1sheetbuilder_phase1sheetbuilder"
     },
@@ -23519,7 +23549,7 @@
       "source_file": "src/pages/lab/Prototype/Prototype.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 67,
+      "community": 292,
       "norm_label": "prototype.jsx",
       "id": "src_pages_lab_prototype_prototype"
     },
@@ -23529,7 +23559,7 @@
       "source_file": "src/pages/lab/Prototype/Prototype.jsx",
       "source_location": "L12",
       "_origin": "ast",
-      "community": 67,
+      "community": 292,
       "norm_label": "admin_emails",
       "id": "src_pages_lab_prototype_prototype_admin_emails"
     },
@@ -23539,7 +23569,7 @@
       "source_file": "src/pages/lab/Prototype/Prototype.jsx",
       "source_location": "L14",
       "_origin": "ast",
-      "community": 67,
+      "community": 292,
       "norm_label": "prototypes",
       "id": "src_pages_lab_prototype_prototype_prototypes"
     },
@@ -23549,7 +23579,7 @@
       "source_file": "src/pages/lab/Prototype/Prototype.jsx",
       "source_location": "L31",
       "_origin": "ast",
-      "community": 67,
+      "community": 292,
       "norm_label": "prototype()",
       "id": "src_pages_lab_prototype_prototype_prototype"
     },
@@ -25249,7 +25279,7 @@
       "source_file": "src/pages/platform/Admin.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 12,
+      "community": 59,
       "norm_label": "admin.jsx",
       "id": "src_pages_platform_admin"
     },
@@ -25259,7 +25289,7 @@
       "source_file": "src/pages/platform/Admin.jsx",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 14,
+      "community": 292,
       "norm_label": "admin()",
       "id": "src_pages_platform_admin_admin"
     },
@@ -25269,7 +25299,7 @@
       "source_file": "src/pages/platform/Assinar.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 59,
+      "community": 309,
       "norm_label": "assinar.jsx",
       "id": "src_pages_platform_assinar"
     },
@@ -25279,7 +25309,7 @@
       "source_file": "src/pages/platform/Assinar.jsx",
       "source_location": "L13",
       "_origin": "ast",
-      "community": 59,
+      "community": 309,
       "norm_label": "assinar()",
       "id": "src_pages_platform_assinar_assinar"
     },
@@ -25289,7 +25319,7 @@
       "source_file": "src/pages/platform/Cadastro.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 12,
+      "community": 59,
       "norm_label": "cadastro.jsx",
       "id": "src_pages_platform_cadastro"
     },
@@ -25299,7 +25329,7 @@
       "source_file": "src/pages/platform/Cadastro.jsx",
       "source_location": "L11",
       "_origin": "ast",
-      "community": 12,
+      "community": 59,
       "norm_label": "cadastro()",
       "id": "src_pages_platform_cadastro_cadastro"
     },
@@ -25309,7 +25339,7 @@
       "source_file": "src/pages/platform/Leaderboard.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 4,
+      "community": 53,
       "norm_label": "leaderboard.jsx",
       "id": "src_pages_platform_leaderboard"
     },
@@ -25319,7 +25349,7 @@
       "source_file": "src/pages/platform/Leaderboard.jsx",
       "source_location": "L13",
       "_origin": "ast",
-      "community": 4,
+      "community": 53,
       "norm_label": "getperiodlabel()",
       "id": "src_pages_platform_leaderboard_getperiodlabel"
     },
@@ -25329,7 +25359,7 @@
       "source_file": "src/pages/platform/Leaderboard.jsx",
       "source_location": "L18",
       "_origin": "ast",
-      "community": 4,
+      "community": 53,
       "norm_label": "rankingsection()",
       "id": "src_pages_platform_leaderboard_rankingsection"
     },
@@ -25339,7 +25369,7 @@
       "source_file": "src/pages/platform/Leaderboard.jsx",
       "source_location": "L95",
       "_origin": "ast",
-      "community": 4,
+      "community": 53,
       "norm_label": "leaderboard()",
       "id": "src_pages_platform_leaderboard_leaderboard"
     },
@@ -25469,7 +25499,7 @@
       "source_file": "src/pages/platform/Perfil/abas/PerfilConquistas.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 12,
+      "community": 14,
       "norm_label": "perfilconquistas.jsx",
       "id": "src_pages_platform_perfil_abas_perfilconquistas"
     },
@@ -25479,7 +25509,7 @@
       "source_file": "src/pages/platform/Perfil/abas/PerfilConquistas.jsx",
       "source_location": "L10",
       "_origin": "ast",
-      "community": 28,
+      "community": 14,
       "norm_label": "perfilconquistas()",
       "id": "src_pages_platform_perfil_abas_perfilconquistas_perfilconquistas"
     },
@@ -25769,7 +25799,7 @@
       "source_file": "src/pages/site/Quiz.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 14,
+      "community": 19,
       "norm_label": "quiz.jsx",
       "id": "src_pages_site_quiz"
     },
@@ -25779,7 +25809,7 @@
       "source_file": "src/pages/site/Quiz.jsx",
       "source_location": "L11",
       "_origin": "ast",
-      "community": 14,
+      "community": 19,
       "norm_label": "modos",
       "id": "src_pages_site_quiz_modos"
     },
@@ -25789,7 +25819,7 @@
       "source_file": "src/pages/site/Quiz.jsx",
       "source_location": "L17",
       "_origin": "ast",
-      "community": 14,
+      "community": 19,
       "norm_label": "embaralhar()",
       "id": "src_pages_site_quiz_embaralhar"
     },
@@ -25799,7 +25829,7 @@
       "source_file": "src/pages/site/Quiz.jsx",
       "source_location": "L21",
       "_origin": "ast",
-      "community": 14,
+      "community": 19,
       "norm_label": "selecionarperguntas()",
       "id": "src_pages_site_quiz_selecionarperguntas"
     },
@@ -25809,7 +25839,7 @@
       "source_file": "src/pages/site/Quiz.jsx",
       "source_location": "L29",
       "_origin": "ast",
-      "community": 14,
+      "community": 19,
       "norm_label": "gerardicagangue()",
       "id": "src_pages_site_quiz_gerardicagangue"
     },
@@ -25819,7 +25849,7 @@
       "source_file": "src/pages/site/Quiz.jsx",
       "source_location": "L52",
       "_origin": "ast",
-      "community": 14,
+      "community": 19,
       "norm_label": "calcularrank()",
       "id": "src_pages_site_quiz_calcularrank"
     },
@@ -25829,7 +25859,7 @@
       "source_file": "src/pages/site/Quiz.jsx",
       "source_location": "L63",
       "_origin": "ast",
-      "community": 14,
+      "community": 19,
       "norm_label": "quiz()",
       "id": "src_pages_site_quiz_quiz"
     },
@@ -35216,6 +35246,630 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L40",
+      "weight": 1.0,
+      "source": "src_app",
+      "target": "src_app_admin",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L75",
+      "weight": 1.0,
+      "source": "src_app",
+      "target": "src_app_analyticspageview",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L86",
+      "weight": 1.0,
+      "source": "src_app",
+      "target": "src_app_app",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L54",
+      "weight": 1.0,
+      "source": "src_app",
+      "target": "src_app_arenataticsroute",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L43",
+      "weight": 1.0,
+      "source": "src_app",
+      "target": "src_app_arenatestbed",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "src_app",
+      "target": "src_app_assinar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "src_app",
+      "target": "src_app_autor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L63",
+      "weight": 1.0,
+      "source": "src_app",
+      "target": "src_app_bullethellrafael",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L38",
+      "weight": 1.0,
+      "source": "src_app",
+      "target": "src_app_cadastro",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L60",
+      "weight": 1.0,
+      "source": "src_app",
+      "target": "src_app_codigoperdido",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "src_app",
+      "target": "src_app_contocapitulo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "src_app",
+      "target": "src_app_contohistoria",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "src_app",
+      "target": "src_app_contos",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L66",
+      "weight": 1.0,
+      "source": "src_app",
+      "target": "src_app_custos",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L56",
+      "weight": 1.0,
+      "source": "src_app",
+      "target": "src_app_dueloroute",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L31",
+      "weight": 1.0,
+      "source": "src_app",
+      "target": "src_app_games",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L53",
+      "weight": 1.0,
+      "source": "src_app",
+      "target": "src_app_ganguesroute",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L62",
+      "weight": 1.0,
+      "source": "src_app",
+      "target": "src_app_glitchrafael",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "src_app",
+      "target": "src_app_home",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L52",
+      "weight": 1.0,
+      "source": "src_app",
+      "target": "src_app_jackcandy",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L58",
+      "weight": 1.0,
+      "source": "src_app",
+      "target": "src_app_kernelpanic",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L49",
+      "weight": 1.0,
+      "source": "src_app",
+      "target": "src_app_ldiclues",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L47",
+      "weight": 1.0,
+      "source": "src_app",
+      "target": "src_app_ldicombat",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L45",
+      "weight": 1.0,
+      "source": "src_app",
+      "target": "src_app_ldicreate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L50",
+      "weight": 1.0,
+      "source": "src_app",
+      "target": "src_app_ldiend",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L46",
+      "weight": 1.0,
+      "source": "src_app",
+      "target": "src_app_ldigame",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L44",
+      "weight": 1.0,
+      "source": "src_app",
+      "target": "src_app_ldilobby",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L69",
+      "weight": 1.0,
+      "source": "src_app",
+      "target": "src_app_ldinotification",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L51",
+      "weight": 1.0,
+      "source": "src_app",
+      "target": "src_app_ldipuzzle",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L48",
+      "weight": 1.0,
+      "source": "src_app",
+      "target": "src_app_ldisheet",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L36",
+      "weight": 1.0,
+      "source": "src_app",
+      "target": "src_app_leaderboard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "src_app",
+      "target": "src_app_livro",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "src_app",
+      "target": "src_app_livrocapitulo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L37",
+      "weight": 1.0,
+      "source": "src_app",
+      "target": "src_app_login",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L65",
+      "weight": 1.0,
+      "source": "src_app",
+      "target": "src_app_loja",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L61",
+      "weight": 1.0,
+      "source": "src_app",
+      "target": "src_app_mazerafael",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "src_app",
+      "target": "src_app_minigames",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L35",
+      "weight": 1.0,
+      "source": "src_app",
+      "target": "src_app_multiplayerlobby",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "src_app",
+      "target": "src_app_mundo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "src_app",
+      "target": "src_app_musicas",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L67",
+      "weight": 1.0,
+      "source": "src_app",
+      "target": "src_app_notfound",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L39",
+      "weight": 1.0,
+      "source": "src_app",
+      "target": "src_app_perfil",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "src_app",
+      "target": "src_app_personagemdetalhe",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "src_app",
+      "target": "src_app_personagens",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L55",
+      "weight": 1.0,
+      "source": "src_app",
+      "target": "src_app_pp",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L41",
+      "weight": 1.0,
+      "source": "src_app",
+      "target": "src_app_prototype",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L30",
+      "weight": 1.0,
+      "source": "src_app",
+      "target": "src_app_quiz",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L70",
+      "weight": 1.0,
+      "source": "src_app",
+      "target": "src_app_radionina",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L68",
+      "weight": 1.0,
+      "source": "src_app",
+      "target": "src_app_searchmodal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L59",
+      "weight": 1.0,
+      "source": "src_app",
+      "target": "src_app_slidingrafael",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L42",
+      "weight": 1.0,
+      "source": "src_app",
+      "target": "src_app_srgrm",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L64",
+      "weight": 1.0,
+      "source": "src_app",
+      "target": "src_app_stabilizerrafael",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L57",
+      "weight": 1.0,
+      "source": "src_app",
+      "target": "src_app_tamagoshi",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L34",
+      "weight": 1.0,
+      "source": "src_app",
+      "target": "src_app_toptrumpsmp",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L33",
+      "weight": 1.0,
+      "source": "src_app",
+      "target": "src_app_toptrumpssp",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L71",
+      "weight": 1.0,
+      "source": "src_app",
+      "target": "src_app_unifiednotification",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "src_app",
+      "target": "src_app_webtoon",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "src_app",
+      "target": "src_app_webtoonepisodio",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_app",
+      "target": "src_lib_lazywithreload",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "src_app",
+      "target": "src_lib_lazywithreload_lazywithreload",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.jsx",
+      "source_location": "L14",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_main",
+      "target": "src_app"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.jsx",
+      "source_location": "L14",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_main",
+      "target": "src_app_app"
+    },
+    {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -35372,12 +36026,43 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "src/lib/lazyWithReload.js",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "src_lib_lazywithreload",
+      "target": "src_lib_lazywithreload_ischunkloaderror",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/lazyWithReload.js",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "src_lib_lazywithreload",
+      "target": "src_lib_lazywithreload_lazywithreload",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/lazyWithReload.js",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "src_lib_lazywithreload_lazywithreload",
+      "target": "src_lib_lazywithreload_ischunkloaderror",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "src/pages/content/ContoCapitulo.jsx",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_contocapitulo",
-      "target": "src_pages_content_contocapitulo_contocapitulo",
-      "confidence_score": 1.0
+      "target": "src_pages_content_contocapitulo_contocapitulo"
     },
     {
       "relation": "contains",
@@ -35385,9 +36070,9 @@
       "source_file": "src/pages/content/ContoCapitulo.jsx",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_contocapitulo",
-      "target": "src_pages_content_contocapitulo_contoloaders",
-      "confidence_score": 1.0
+      "target": "src_pages_content_contocapitulo_contoloaders"
     },
     {
       "relation": "contains",
@@ -35395,9 +36080,9 @@
       "source_file": "src/pages/content/ContoHistoria.jsx",
       "source_location": "L18",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_contohistoria",
-      "target": "src_pages_content_contohistoria_contohistoria",
-      "confidence_score": 1.0
+      "target": "src_pages_content_contohistoria_contohistoria"
     },
     {
       "relation": "contains",
@@ -35405,9 +36090,9 @@
       "source_file": "src/pages/content/ContoHistoria.jsx",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_contohistoria",
-      "target": "src_pages_content_contohistoria_formatardata",
-      "confidence_score": 1.0
+      "target": "src_pages_content_contohistoria_formatardata"
     },
     {
       "relation": "calls",
@@ -35416,9 +36101,9 @@
       "source_file": "src/pages/content/ContoHistoria.jsx",
       "source_location": "L84",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_contohistoria_contohistoria",
-      "target": "src_pages_content_contohistoria_formatardata",
-      "confidence_score": 1.0
+      "target": "src_pages_content_contohistoria_formatardata"
     },
     {
       "relation": "contains",
@@ -40316,938 +41001,6 @@
       "confidence_score": 1.0,
       "source": "src_tauri_tauri_conf_bundle_icon",
       "target": "ref_icons_icon_ico"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L39",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_app_admin"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L74",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_app_analyticspageview"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L85",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_app_app"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L53",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_app_arenataticsroute"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L42",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_app_arenatestbed"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L24",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_app_assinar"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L25",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_app_autor"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L62",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_app_bullethellrafael"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L37",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_app_cadastro"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L59",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_app_codigoperdido"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L23",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_app_contocapitulo"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L22",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_app_contohistoria"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L21",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_app_contos"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L65",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_app_custos"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L55",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_app_dueloroute"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L30",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_app_games"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L52",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_app_ganguesroute"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L61",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_app_glitchrafael"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L15",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_app_home"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L51",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_app_jackcandy"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L57",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_app_kernelpanic"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L48",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_app_ldiclues"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L46",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_app_ldicombat"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L44",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_app_ldicreate"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L49",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_app_ldiend"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L45",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_app_ldigame"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L43",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_app_ldilobby"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L68",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_app_ldinotification"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L50",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_app_ldipuzzle"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L47",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_app_ldisheet"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L35",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_app_leaderboard"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L19",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_app_livro"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L20",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_app_livrocapitulo"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L36",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_app_login"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L64",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_app_loja"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L60",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_app_mazerafael"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L31",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_app_minigames"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L34",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_app_multiplayerlobby"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L28",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_app_mundo"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L16",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_app_musicas"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L66",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_app_notfound"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L38",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_app_perfil"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L18",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_app_personagemdetalhe"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L17",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_app_personagens"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L54",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_app_pp"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L40",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_app_prototype"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L29",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_app_quiz"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L69",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_app_radionina"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L67",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_app_searchmodal"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L58",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_app_slidingrafael"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L41",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_app_srgrm"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L63",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_app_stabilizerrafael"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L56",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_app_tamagoshi"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L33",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_app_toptrumpsmp"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L32",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_app_toptrumpssp"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L70",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_app_unifiednotification"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L26",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_app_webtoon"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L27",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_app_webtoonepisodio"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L12",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_components_analyticstracker"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L12",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_components_analyticstracker_analyticstracker"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L10",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_components_cookiebanner"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L10",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_components_cookiebanner_cookiebanner"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L11",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_components_desktopshellbar_desktopshellbar"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L11",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_components_desktopshellbar_desktopshellbar_desktopshellbar"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L14",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_components_fichagateroute_fichagateroute"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L14",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_components_fichagateroute_fichagateroute_fichagateroute"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L7",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_components_footer"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L7",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_components_footer_footer"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L13",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_components_logingate_logingate"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L13",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_components_logingate_logingate_logingate"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_components_navbar"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_components_navbar_navbar"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L8",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_components_scrolltotop"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L8",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_components_scrolltotop_scrolltotop"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L9",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_components_scrolltotoponnav"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L9",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_components_scrolltotoponnav_scrolltotoponnav"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_components_trialbanner"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_components_trialbanner_trialbanner"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_context_achievementscontext"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_context_achievementscontext_useachievements"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_context_readercontext"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_context_readercontext_usereader"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L71",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_lib_analytics"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L71",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_lib_analytics_trackpageview"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L72",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app",
-      "target": "src_pages_games_duelo_version"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/main.jsx",
-      "source_location": "L14",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_main",
-      "target": "src_app"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/App.jsx",
-      "source_location": "L78",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_app_analyticspageview",
-      "target": "src_lib_analytics_trackpageview"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/App.jsx",
-      "source_location": "L89",
-      "weight": 1.0,
-      "source": "src_app_app",
-      "target": "src_context_achievementscontext_useachievements"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/App.jsx",
-      "source_location": "L86",
-      "weight": 1.0,
-      "source": "src_app_app",
-      "target": "src_context_readercontext_usereader"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/main.jsx",
-      "source_location": "L14",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_main",
-      "target": "src_app_app"
     },
     {
       "relation": "contains",
@@ -106526,5 +106279,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "d50b00f49e680ef23ca160b1287f49e27e0634ba"
+  "built_at_commit": "5e6b2db1db03b33d5f941f2df2a62ef727bb8039"
 }

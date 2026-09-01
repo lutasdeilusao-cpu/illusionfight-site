@@ -52,19 +52,6 @@
   object-fit: cover;
 }
 
-.contos-selo {
-  display: inline-block;
-  font-family: var(--font-mono);
-  font-size: 0.6rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--accent-amber);
-  border: 1px solid var(--accent-amber);
-  padding: 0.15rem 0.5rem;
-  margin-bottom: 0.6rem;
-}
-
 .contos-hero .section-title {
   margin: 0 0 0.5rem;
 }
@@ -130,15 +117,6 @@
   flex-direction: column;
   gap: 0.3rem;
   min-width: 0;
-}
-
-.contos-card__selo {
-  font-family: var(--font-mono);
-  font-size: 0.58rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--accent-amber);
 }
 
 .contos-card__titulo {
