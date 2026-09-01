@@ -8,6 +8,7 @@ import { useAuth } from '../../context/AuthContext'
 import { TRIAL_ACTIVE } from '../../config/trial'
 import { estaDisponivel } from '../../config/site'
 import index from '../../data/contos-index.json'
+import { readerMdComponents } from '../../lib/mdComponents'
 import './LivroCapitulo.css'
 import './Contos.css'
 
@@ -163,7 +164,7 @@ export default function ContoCapitulo() {
             '--reader-max-width': contentWidth,
           }}
         >
-          <ReactMarkdown>{md}</ReactMarkdown>
+          <ReactMarkdown components={readerMdComponents}>{md}</ReactMarkdown>
         </div>
 
         <div className="livro-capitulo__nav">

@@ -55,6 +55,18 @@
   color: var(--text-primary);
 }
 
+/* citações cruzadas (conto → linha principal e vice-versa) */
+.livro-capitulo__content a {
+  color: var(--accent-teal);
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--accent-teal) 40%, transparent);
+  transition: border-color 0.15s;
+}
+
+.livro-capitulo__content a:hover {
+  border-bottom-color: var(--accent-teal);
+}
+
 .livro-capitulo__nav {
   display: flex;
   justify-content: space-between;

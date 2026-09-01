@@ -2,6 +2,7 @@ import { useState, useEffect, useLayoutEffect, useRef } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useParams, useNavigate, Link } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
+import { readerMdComponents } from '../../lib/mdComponents'
 import { useLanguage } from '../../context/LanguageContext'
 import { useReader } from '../../context/ReaderContext'
 import { useAuth } from '../../context/AuthContext'
@@ -233,7 +234,7 @@ export default function LivroCapitulo() {
             '--reader-max-width': contentWidth,
           }}
         >
-          <ReactMarkdown>{md}</ReactMarkdown>
+          <ReactMarkdown components={readerMdComponents}>{md}</ReactMarkdown>
           <div ref={sentinelRef} className="livro-capitulo__sentinel" />
         </div>
 
