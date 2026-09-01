@@ -37,8 +37,10 @@ Isso dá unidade ao selo — mas é o **limite**. Próximo conto não pode ser m
 ### A. Conto do Jack  ✅ COMPLETO — 8 caps (id 05, v10.198.90..94)
 
 **Termina no cap 8 "Ninguém Nunca Perguntou"** (aos 15 anos): o Jack se reencontrou
-com os pais e os **sustenta em segredo** — começou por carta (chegava na loja do
-Seu Nestor; ele zoa muito), depois mandou um **celular velho** e paga a **franquia**
+com os pais e os **sustenta em segredo** — começou por carta (ele decorou o
+endereço dos pais ainda na casa dos tios, cap 3; mandava endereço de retorno novo a
+cada mudança; zoa muito o "carta numa era dessas"), depois mandou um **celular
+velho** e paga a **franquia**
 (chamada de vídeo vez ou outra), e manda **dinheiro todo mês**. Os pais se preocupam
 demais. Ele nunca os viu pessoalmente (quer um dia). A mãe cantou desafinado numa
 chamada (paga o plant do cap 2). O **nome de batismo dele não é revelado** (só os
