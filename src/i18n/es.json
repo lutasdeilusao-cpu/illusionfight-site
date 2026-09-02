@@ -2202,6 +2202,15 @@
       "idioma_unico": "Solo en portugués por ahora",
       "nao_encontrado": "Historia no encontrada."
     },
+    "mundoHub": {
+      "titulo": "UNIVERSOS",
+      "intro": "Cada historia del proyecto tiene su mundo. Elige un universo y explora la lore por dentro.",
+      "og_title": "Universos | Illusion Fight",
+      "og_desc": "Los tres universos de Isaias Leal: Lutas de Ilusión, El Mundo de las Sombras y Mar de Cenizas. Lore, razas, mapas y glosarios."
+    },
+    "universo": {
+      "voltar": "← UNIVERSOS"
+    },
     "contos": {
       "linha_principal": "Línea Principal",
       "linha_contos": "Cuentos de Ilusión",

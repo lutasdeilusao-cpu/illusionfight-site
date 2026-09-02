@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — MAPA DO SITE E DO PROJETO
 
 > Referência do estado atual do projeto para navegação humana e contexto de IA.
-> Atualizado em 2026-09-02 — `SITE_VERSION` **10.199.2**.
+> Atualizado em 2026-09-02 — `SITE_VERSION` **10.200.0**.
 > Histórico de tarefas, bugfixes e pendências não pertence a este documento.
 > Regras de trabalho, arquivos proibidos e decisões arquiteturais: `AGENTS.md`.
 
@@ -72,7 +72,9 @@ Componentes montados globalmente por `App.jsx`: `AnalyticsTracker`, `ScrollToTop
 | `/webtoon` | Índice do webtoon | `src/pages/content/Webtoon.jsx` |
 | `/webtoon/:id` | Leitor de episódio | `src/pages/content/WebtoonEpisodio.jsx` |
 | `/musicas` | Músicas | `src/pages/content/Musicas.jsx` |
-| `/mundo` | Lore e mundo | `src/pages/content/Mundo.jsx` |
+| `/mundo` | Hub dos universos (seletor) | `src/pages/content/MundoHub.jsx` |
+| `/mundo/lutas-de-ilusao` | Lore do universo LDI | `src/pages/content/Mundo.jsx` |
+| `/mundo/:universo` | Worldbuilding (Mundo das Sombras, Mar de Cinzas) | `src/pages/content/Universo.jsx` |
 | `/autor` | Autor | `src/pages/site/Autor.jsx` |
 | `/loja` | Loja | `src/pages/site/Loja/Loja.jsx` |
 | `/quiz` | Quiz | `src/pages/site/Quiz.jsx` |
@@ -217,6 +219,7 @@ Cada jogo mantém componentes, dados, hooks/engine e store próprios dentro de s
 | Livro (linha principal) | `src/data/livro-index.json` e `src/data/livro/{pt,en,es}/*.md` |
 | Contos de Ilusão | `src/data/contos-index.json` e `src/data/livro/contos/{pt,en,es}/NN/NN.md` |
 | Obras (Mundo das Sombras, Mar de Cinzas) | `src/data/obras-index.json` e `src/data/livro/obras/<slug>/{pt,en,es}/NN.md`; arte em `src/assets/obras/<slug>/` |
+| Worldbuilding dos universos | `src/data/universo-index.json` e `src/data/universo/<slug>/<lang>/<secao>.md` (renderizado por `Universo.jsx`) |
 | Webtoon | `src/data/episodios.json` e páginas em `public/webtoon/` |
 | Músicas | `src/data/musicas.json` |
 | Loja | `src/data/produtos.json` e `src/data/loja-digital.json` |
@@ -307,7 +310,7 @@ Fonte única: `src/config/version.js`. Esta tabela registra somente a identifica
 
 | Constante | Módulo | Versão |
 |---|---|---:|
-| `SITE_VERSION` | Site global | **10.199.2** |
+| `SITE_VERSION` | Site global | **10.200.0** |
 | `PP_VERSION` | Pesadelo Particular | 2.3.1 |
 | `LDI_VERSION` | Lendas do LDI | 2.0.1 |
 | `JACK_VERSION` | Jack Dream Beer | 5.3.2 |

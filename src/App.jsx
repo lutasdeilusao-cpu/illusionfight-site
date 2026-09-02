@@ -30,6 +30,8 @@ const Autor = lazyWithReload(() => import('./pages/site/Autor'))
 const Webtoon = lazyWithReload(() => import('./pages/content/Webtoon'))
 const WebtoonEpisodio = lazyWithReload(() => import('./pages/content/WebtoonEpisodio'))
 const Mundo = lazyWithReload(() => import('./pages/content/Mundo'))
+const MundoHub = lazyWithReload(() => import('./pages/content/MundoHub'))
+const Universo = lazyWithReload(() => import('./pages/content/Universo'))
 const Quiz = lazyWithReload(() => import('./pages/site/Quiz'))
 const Games = lazyWithReload(() => import('./pages/games/Games'))
 const MiniGames = lazyWithReload(() => import('./pages/games/MiniGames/MiniGames'))
@@ -153,7 +155,9 @@ export default function App() {
         <Route path="/assinar" element={<Assinar />} />
         <Route path="/autor" element={<Autor />} />
         <Route path="/musicas" element={<Musicas />} />
-        <Route path="/mundo" element={<Mundo />} />
+        <Route path="/mundo" element={<MundoHub />} />
+        <Route path="/mundo/lutas-de-ilusao" element={<Mundo />} />
+        <Route path="/mundo/:universo" element={<Universo />} />
         <Route path="/webtoon" element={<Webtoon />} />
         <Route path="/webtoon/:id" element={<WebtoonEpisodio />} />
         <Route path="/games/toptrumps/v2" element={<TopTrumpsSP />} />

@@ -2202,6 +2202,15 @@
       "idioma_unico": "Portuguese only for now",
       "nao_encontrado": "Story not found."
     },
+    "mundoHub": {
+      "titulo": "UNIVERSES",
+      "intro": "Every story in the project has its own world. Pick a universe and explore its lore from the inside.",
+      "og_title": "Universes | Illusion Fight",
+      "og_desc": "Isaias Leal's three universes: Illusion Fight, The Shadow World and Sea of Ashes. Lore, races, maps and glossaries."
+    },
+    "universo": {
+      "voltar": "← UNIVERSES"
+    },
     "contos": {
       "linha_principal": "Main Line",
       "linha_contos": "Tales of Illusion",

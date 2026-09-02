@@ -1,0 +1,13 @@
+.mundo-hub-page .hub-row--wrap {
+  flex-wrap: wrap;
+}
+
+.mundo-hub-page .hub-card {
+  flex: 0 1 320px;
+}
+
+@media (max-width: 720px) {
+  .mundo-hub-page .hub-card {
+    flex-basis: 100%;
+  }
+}

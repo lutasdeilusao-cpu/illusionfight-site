@@ -524,3 +524,24 @@
   .mundo-combat-grid { grid-template-columns: 1fr; }
   .mundo-tech-grid { grid-template-columns: 1fr; }
 }
+
+.mundo-hero__voltar {
+  display: inline-block;
+  margin-bottom: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.7rem;
+  border: 1px solid var(--border-subtle);
+  background: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.mundo-hero__voltar:hover {
+  color: var(--text-primary);
+  border-color: var(--text-secondary);
+}

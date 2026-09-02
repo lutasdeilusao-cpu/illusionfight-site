@@ -52,7 +52,7 @@ if (mundo.glossario) {
       tipo: 'Lore',
       titulo: g.sigla,
       descricao: g.descricao.slice(0, 120),
-      url: '/mundo',
+      url: '/mundo/lutas-de-ilusao',
       premium: g.premium || false,
     })
   })
@@ -64,7 +64,7 @@ if (mundo.localizacoes) {
       tipo: 'Lore',
       titulo: l.nome,
       descricao: l.descricao.slice(0, 120),
-      url: '/mundo',
+      url: '/mundo/lutas-de-ilusao',
       premium: false,
     })
   })
@@ -76,7 +76,7 @@ if (mundo.timeline) {
       tipo: 'Lore',
       titulo: `${t.ano} — ${t.titulo}`,
       descricao: t.texto.slice(0, 120),
-      url: '/mundo#timeline',
+      url: '/mundo/lutas-de-ilusao#timeline',
       premium: false,
     })
   })

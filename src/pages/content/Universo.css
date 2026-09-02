@@ -1,0 +1,134 @@
+.universo-hero {
+  max-width: 800px;
+  margin: 0.5rem auto 0;
+}
+
+.universo-hero__titulo {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 2rem;
+  line-height: 1.05;
+  color: var(--text-primary);
+}
+
+.universo-hero__sub {
+  margin: 0.5rem 0 0;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+
+.universo-hero__aviso {
+  margin: 0.5rem 0 0;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+.universo-tabs {
+  position: sticky;
+  top: 48px;
+  z-index: 10;
+  max-width: 800px;
+  margin: 1.5rem auto 0;
+  display: flex;
+  gap: 0.4rem;
+  overflow-x: auto;
+  padding: 0.5rem 0;
+  background: var(--bg-primary);
+  border-bottom: 1px solid var(--border-subtle);
+  -webkit-overflow-scrolling: touch;
+}
+
+.universo-tab {
+  flex: 0 0 auto;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.45rem 0.8rem;
+  border: 1px solid var(--border-subtle);
+  background: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.universo-tab:hover {
+  color: var(--text-primary);
+  border-color: var(--text-secondary);
+}
+
+.universo-tab--ativa {
+  color: var(--accent-teal);
+  border-color: var(--accent-teal);
+}
+
+.universo-doc {
+  max-width: 760px;
+  margin: 1.75rem auto 0;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+.universo-doc h2 {
+  margin: 2.5rem 0 0.5rem;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.35rem;
+  letter-spacing: 0.02em;
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 0.3rem;
+}
+
+.universo-doc h3 {
+  margin: 1.8rem 0 0.4rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--text-primary);
+}
+
+.universo-doc h4 {
+  margin: 1.2rem 0 0.3rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--accent-teal);
+}
+
+.universo-doc p {
+  margin: 0 0 1rem;
+}
+
+.universo-doc em {
+  color: var(--text-muted);
+}
+
+.universo-doc blockquote {
+  margin: 1rem 0;
+  padding-left: 1rem;
+  border-left: 3px solid var(--accent-teal);
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.universo-doc hr {
+  border: none;
+  border-top: 1px solid var(--border-subtle);
+  margin: 2rem 0;
+}
+
+@media (max-width: 620px) {
+  .universo-hero__titulo { font-size: 1.6rem; }
+  .universo-doc { font-size: 0.95rem; }
+}
