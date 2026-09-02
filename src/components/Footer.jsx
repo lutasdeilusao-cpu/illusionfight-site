@@ -6,18 +6,18 @@ import SocialBar from './SocialBar'
 import './Footer.css'
 
 const routeMap = {
-  'Histórias': '/historias',
-  'Stories': '/historias',
-  'Historias': '/historias',
-  'Apoiar o Projeto': '/assinar',
-  'Sobre o Autor': '/autor',
-  'Support the Project': '/assinar',
-  'About the Author': '/autor',
-  'Apoyar el Proyecto': '/assinar',
-  'Sobre el Autor': '/autor',
-  'Como funcionamos': '/custos',
-  'How it works': '/custos',
-  'Cómo funciona': '/custos',
+  'Histórias': '/historias/',
+  'Stories': '/historias/',
+  'Historias': '/historias/',
+  'Apoiar o Projeto': '/assinar/',
+  'Sobre o Autor': '/autor/',
+  'Support the Project': '/assinar/',
+  'About the Author': '/autor/',
+  'Apoyar el Proyecto': '/assinar/',
+  'Sobre el Autor': '/autor/',
+  'Como funcionamos': '/custos/',
+  'How it works': '/custos/',
+  'Cómo funciona': '/custos/',
 }
 
 const externalMap = {

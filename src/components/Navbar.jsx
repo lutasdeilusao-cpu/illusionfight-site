@@ -58,7 +58,7 @@ export default function Navbar({ hidden, onSearchOpen }) {
             {navLinks.map((key, i) => (
               <li key={key}>
                 <Link
-                  to={`/${key}`}
+                  to={`/${key}/`}
                   className={`navbar__link${key === 'assinar' ? ' navbar__link--highlight' : ''}`}
                 >
                   {t(`nav.links.${i}`)}
@@ -118,7 +118,7 @@ export default function Navbar({ hidden, onSearchOpen }) {
           {navLinks.map((key, i) => (
             <li key={key}>
               <Link
-                to={`/${key}`}
+                to={`/${key}/`}
                 className={`drawer__link${key === 'assinar' ? ' drawer__link--highlight' : ''}`}
                 onClick={() => setMenuOpen(false)}
               >
