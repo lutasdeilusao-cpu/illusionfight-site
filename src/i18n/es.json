@@ -2209,7 +2209,9 @@
       "og_desc": "Los tres universos de Isaias Leal: Lutas de Ilusión, El Mundo de las Sombras y Mar de Cenizas. Lore, razas, mapas y glosarios."
     },
     "universo": {
-      "voltar": "← UNIVERSOS"
+      "voltar": "← UNIVERSOS",
+      "recolher": "Contraer",
+      "verbetes": "{n} entradas"
     },
     "contos": {
       "linha_principal": "Línea Principal",

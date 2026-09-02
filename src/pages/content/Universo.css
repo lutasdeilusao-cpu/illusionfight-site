@@ -1,45 +1,180 @@
-.universo-hero {
-  max-width: 800px;
-  margin: 0.5rem auto 0;
+/* ══════════════════════════════════════════════════════════════
+   Página de universo — worldbuilding com tema por universo.
+   Tokens --uni-* são redefinidos em [data-tema="..."].
+   ══════════════════════════════════════════════════════════════ */
+
+.universo-page {
+  --uni-accent: var(--accent-teal);
+  --uni-accent-2: var(--accent-amber);
+  --uni-bg: #07090c;
+  --uni-bg-2: #0d1116;
+  --uni-panel: #10151b;
+  --uni-line: #23303a;
+  --uni-ink: #d9e2e8;
+  --uni-ink-soft: #93a1ac;
+  --uni-font-display: 'Rajdhani', sans-serif;
+  --uni-glow: 0 0 26px -6px color-mix(in srgb, var(--uni-accent) 55%, transparent);
+
+  min-height: 100vh;
+  background:
+    radial-gradient(1200px 600px at 50% -10%, color-mix(in srgb, var(--uni-accent) 9%, transparent), transparent 60%),
+    var(--uni-bg);
+  color: var(--uni-ink);
+  padding-bottom: 5rem;
 }
+
+/* ── O Mundo das Sombras ── */
+.universo-page[data-tema="mundo-das-sombras"] {
+  --uni-accent: #b98cff;
+  --uni-accent-2: #f2c14e;
+  --uni-bg: #08060d;
+  --uni-bg-2: #0e0a16;
+  --uni-panel: #130f1d;
+  --uni-line: #2c2440;
+  --uni-ink: #e7e2f0;
+  --uni-ink-soft: #9a90b4;
+  --uni-font-display: 'Cinzel', 'Rajdhani', serif;
+}
+
+/* ── Mar de Cinzas ── */
+.universo-page[data-tema="mar-de-cinzas"] {
+  --uni-accent: #57d4e6;
+  --uni-accent-2: #9fb0c4;
+  --uni-bg: #05090d;
+  --uni-bg-2: #0a1219;
+  --uni-panel: #0c141c;
+  --uni-line: #1d2c38;
+  --uni-ink: #dce7ee;
+  --uni-ink-soft: #8ea1b0;
+  --uni-font-display: 'Cormorant Garamond', 'Rajdhani', serif;
+}
+
+/* ══ Hero ══ */
+.universo-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 7.5rem 0 3rem;
+  border-bottom: 1px solid var(--uni-line);
+  background: linear-gradient(180deg, var(--uni-bg-2), var(--uni-bg));
+}
+
+.universo-hero__fx {
+  position: absolute;
+  inset: -40% -20% auto -20%;
+  height: 150%;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.universo-page[data-tema="mundo-das-sombras"] .universo-hero__fx {
+  background:
+    conic-gradient(from 0deg at 50% 40%,
+      transparent 0deg,
+      color-mix(in srgb, var(--uni-accent) 30%, transparent) 60deg,
+      transparent 120deg,
+      color-mix(in srgb, var(--uni-accent-2) 22%, transparent) 200deg,
+      transparent 260deg,
+      color-mix(in srgb, var(--uni-accent) 26%, transparent) 320deg,
+      transparent 360deg);
+  filter: blur(50px);
+  animation: uni-spin 44s linear infinite;
+}
+
+.universo-page[data-tema="mar-de-cinzas"] .universo-hero__fx {
+  background:
+    radial-gradient(60% 45% at 20% 20%, color-mix(in srgb, var(--uni-accent) 26%, transparent), transparent 70%),
+    radial-gradient(55% 40% at 85% 35%, color-mix(in srgb, var(--uni-accent-2) 20%, transparent), transparent 70%),
+    radial-gradient(70% 50% at 50% 90%, color-mix(in srgb, var(--uni-accent) 18%, transparent), transparent 70%);
+  filter: blur(60px);
+  animation: uni-drift 26s ease-in-out infinite alternate;
+}
+
+@keyframes uni-spin { to { transform: rotate(360deg); } }
+@keyframes uni-drift {
+  from { transform: translate3d(-4%, -2%, 0) scale(1); }
+  to   { transform: translate3d(5%, 3%, 0) scale(1.08); }
+}
+
+.universo-hero .container { position: relative; z-index: 1; }
+
+.universo-crumbs {
+  display: flex;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--uni-ink-soft);
+  margin-bottom: 1.25rem;
+}
+
+.universo-crumbs a { color: var(--uni-accent); text-decoration: none; }
+.universo-crumbs a:hover { text-decoration: underline; }
 
 .universo-hero__titulo {
   margin: 0;
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 2rem;
-  line-height: 1.05;
-  color: var(--text-primary);
+  font-family: var(--uni-font-display);
+  font-weight: 700;
+  font-size: clamp(2.4rem, 7vw, 4.4rem);
+  line-height: 1.02;
+  letter-spacing: 0.02em;
+  color: #fff;
+  text-shadow:
+    0 0 1px color-mix(in srgb, var(--uni-accent) 80%, #fff),
+    0 0 30px color-mix(in srgb, var(--uni-accent) 55%, transparent),
+    0 0 60px color-mix(in srgb, var(--uni-accent) 30%, transparent);
+}
+
+.universo-page[data-tema="mar-de-cinzas"] .universo-hero__titulo {
+  font-style: italic;
+  font-weight: 600;
 }
 
 .universo-hero__sub {
-  margin: 0.5rem 0 0;
+  margin: 0.9rem 0 0;
+  max-width: 46ch;
   font-family: var(--font-body);
-  font-size: 0.95rem;
+  font-size: 1.02rem;
   line-height: 1.55;
-  color: var(--text-muted);
+  color: var(--uni-ink-soft);
+}
+
+.universo-hero__count {
+  display: inline-block;
+  margin: 1.25rem 0 0;
+  padding: 0.3rem 0.7rem;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--uni-accent);
+  border: 1px solid color-mix(in srgb, var(--uni-accent) 40%, transparent);
 }
 
 .universo-hero__aviso {
-  margin: 0.5rem 0 0;
+  margin: 0.75rem 0 0;
   font-family: var(--font-body);
   font-size: 0.8rem;
   font-style: italic;
-  color: var(--text-muted);
+  color: var(--uni-ink-soft);
 }
+
+/* ══ Corpo ══ */
+.universo-body { max-width: 820px; }
 
 .universo-tabs {
   position: sticky;
   top: 48px;
   z-index: 10;
-  max-width: 800px;
-  margin: 1.5rem auto 0;
   display: flex;
   gap: 0.4rem;
   overflow-x: auto;
-  padding: 0.5rem 0;
-  background: var(--bg-primary);
-  border-bottom: 1px solid var(--border-subtle);
+  margin: 0 -1rem;
+  padding: 0.75rem 1rem;
+  background: color-mix(in srgb, var(--uni-bg) 92%, transparent);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--uni-line);
   -webkit-overflow-scrolling: touch;
 }
 
@@ -50,85 +185,225 @@
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  padding: 0.45rem 0.8rem;
-  border: 1px solid var(--border-subtle);
+  padding: 0.5rem 0.85rem;
+  border: 1px solid var(--uni-line);
   background: none;
-  color: var(--text-muted);
+  color: var(--uni-ink-soft);
   cursor: pointer;
-  transition: color 0.15s, border-color 0.15s;
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
 }
 
-.universo-tab:hover {
-  color: var(--text-primary);
-  border-color: var(--text-secondary);
-}
+.universo-tab:hover { color: var(--uni-ink); border-color: var(--uni-accent-2); }
 
 .universo-tab--ativa {
-  color: var(--accent-teal);
-  border-color: var(--accent-teal);
+  color: var(--uni-bg);
+  background: var(--uni-accent);
+  border-color: var(--uni-accent);
 }
 
-.universo-doc {
-  max-width: 760px;
-  margin: 1.75rem auto 0;
+.universo-intro {
+  margin: 1.75rem 0 0;
+  padding: 0.9rem 1.1rem;
   font-family: var(--font-body);
-  font-size: 1rem;
-  line-height: 1.7;
-  color: var(--text-secondary);
+  font-size: 0.88rem;
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--uni-ink-soft);
+  border-left: 2px solid color-mix(in srgb, var(--uni-accent) 50%, transparent);
+  background: var(--uni-bg-2);
 }
 
-.universo-doc h2 {
-  margin: 2.5rem 0 0.5rem;
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 1.35rem;
-  letter-spacing: 0.02em;
-  color: var(--text-primary);
-  border-bottom: 1px solid var(--border-subtle);
-  padding-bottom: 0.3rem;
+/* ── Grupo ── */
+.universo-grupo { margin-top: 3rem; }
+
+.universo-grupo__head {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--uni-line);
 }
 
-.universo-doc h3 {
-  margin: 1.8rem 0 0.4rem;
-  font-family: var(--font-display);
+.universo-grupo__titulo {
+  margin: 0;
+  font-family: var(--uni-font-display);
   font-weight: 700;
-  font-size: 1.1rem;
-  color: var(--text-primary);
+  font-size: clamp(1.3rem, 3.5vw, 1.75rem);
+  letter-spacing: 0.03em;
+  color: var(--uni-ink);
 }
 
-.universo-doc h4 {
-  margin: 1.2rem 0 0.3rem;
+.universo-grupo__badge {
   font-family: var(--font-mono);
-  font-size: 0.8rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--uni-accent);
+  border: 1px solid color-mix(in srgb, var(--uni-accent) 40%, transparent);
+  border-radius: 999px;
+  padding: 0.1rem 0.5rem;
+}
+
+.universo-grupo__intro {
+  margin: 1rem 0 0;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--uni-ink-soft);
+}
+
+.universo-entradas {
+  margin-top: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+/* ── Verbete (accordion) ── */
+.uverb {
+  border: 1px solid var(--uni-line);
+  background: var(--uni-panel);
+  border-left: 3px solid color-mix(in srgb, var(--uni-accent) 45%, transparent);
+  transition: border-color 0.18s, box-shadow 0.18s;
+}
+
+.uverb--aberto,
+.uverb:hover {
+  border-left-color: var(--uni-accent);
+  box-shadow: var(--uni-glow);
+}
+
+.uverb__head {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.95rem 1.1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+.uverb__nome {
+  font-family: var(--uni-font-display);
+  font-weight: 700;
+  font-size: 1.12rem;
+  letter-spacing: 0.02em;
+  color: var(--uni-ink);
+}
+
+.uverb__chevron {
+  flex-shrink: 0;
+  width: 9px;
+  height: 9px;
+  border-right: 2px solid var(--uni-accent);
+  border-bottom: 2px solid var(--uni-accent);
+  transform: rotate(45deg);
+  transition: transform 0.2s;
+}
+
+.uverb--aberto .uverb__chevron { transform: rotate(225deg); }
+
+.uverb__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding: 0 1.1rem 0.9rem;
+}
+
+.uverb__chip {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 1px;
+  padding: 0.28rem 0.55rem;
+  background: var(--uni-bg-2);
+  border: 1px solid var(--uni-line);
+}
+
+.uverb__chip-k {
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--uni-accent);
+}
+
+.uverb__chip-v {
+  font-family: var(--font-body);
+  font-size: 0.76rem;
+  color: var(--uni-ink);
+}
+
+.uverb__teaser {
+  margin: 0;
+  padding: 0 1.1rem 1rem;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--uni-ink-soft);
+}
+
+.uverb__body {
+  padding: 0.4rem 1.1rem 1.2rem;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.72;
+  color: var(--uni-ink);
+  border-top: 1px solid var(--uni-line);
+}
+
+.universo-page[data-tema="mar-de-cinzas"] .uverb__body {
+  font-family: 'Cormorant Garamond', var(--font-body);
+  font-size: 1.12rem;
+  line-height: 1.7;
+}
+
+.uverb__body p { margin: 0.9rem 0 0; }
+.uverb__body p:first-child { margin-top: 0.6rem; }
+
+.uverb__rotulo {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: var(--accent-teal);
+  color: var(--uni-accent);
 }
 
-.universo-doc p {
-  margin: 0 0 1rem;
+.uverb__sub {
+  font-family: var(--font-mono) !important;
+  font-size: 0.72rem !important;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--uni-accent-2);
+  margin-top: 1.2rem !important;
 }
 
-.universo-doc em {
-  color: var(--text-muted);
+.uverb__fechar {
+  margin-top: 1.1rem;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.7rem;
+  background: none;
+  border: 1px solid var(--uni-line);
+  color: var(--uni-ink-soft);
+  cursor: pointer;
 }
 
-.universo-doc blockquote {
-  margin: 1rem 0;
-  padding-left: 1rem;
-  border-left: 3px solid var(--accent-teal);
-  color: var(--text-muted);
-  font-style: italic;
-}
-
-.universo-doc hr {
-  border: none;
-  border-top: 1px solid var(--border-subtle);
-  margin: 2rem 0;
-}
+.uverb__fechar:hover { color: var(--uni-ink); border-color: var(--uni-accent-2); }
 
 @media (max-width: 620px) {
-  .universo-hero__titulo { font-size: 1.6rem; }
-  .universo-doc { font-size: 0.95rem; }
+  .universo-hero { padding-top: 6rem; }
+  .uverb__nome { font-size: 1rem; }
+  .universo-page[data-tema="mar-de-cinzas"] .uverb__body { font-size: 1.04rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .universo-hero__fx { animation: none !important; }
 }

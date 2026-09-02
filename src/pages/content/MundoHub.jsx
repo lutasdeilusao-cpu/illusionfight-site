@@ -36,6 +36,7 @@ export default function MundoHub() {
               key={u.id}
               to={u.rota || `/mundo/${u.id}`}
               className="hub-card"
+              data-uni={u.id}
             >
               <div className="hub-card__media">
                 {asset(u.id, u.capa)

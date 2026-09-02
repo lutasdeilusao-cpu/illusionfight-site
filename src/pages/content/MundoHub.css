@@ -4,6 +4,21 @@
 
 .mundo-hub-page .hub-card {
   flex: 0 1 320px;
+  border-left: 3px solid var(--mh-accent, var(--border-subtle));
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.mundo-hub-page .hub-card[data-uni="lutas-de-ilusao"]     { --mh-accent: var(--accent-teal); }
+.mundo-hub-page .hub-card[data-uni="mundo-das-sombras"]   { --mh-accent: #b98cff; }
+.mundo-hub-page .hub-card[data-uni="mar-de-cinzas"]       { --mh-accent: #57d4e6; }
+
+.mundo-hub-page .hub-card:hover {
+  border-color: var(--mh-accent);
+  box-shadow: 0 0 30px -8px color-mix(in srgb, var(--mh-accent) 55%, transparent);
+}
+
+.mundo-hub-page .hub-card:hover .hub-card__meta {
+  color: var(--mh-accent);
 }
 
 @media (max-width: 720px) {

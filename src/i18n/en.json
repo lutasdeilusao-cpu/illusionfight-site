@@ -2209,7 +2209,9 @@
       "og_desc": "Isaias Leal's three universes: Illusion Fight, The Shadow World and Sea of Ashes. Lore, races, maps and glossaries."
     },
     "universo": {
-      "voltar": "← UNIVERSES"
+      "voltar": "← UNIVERSES",
+      "recolher": "Collapse",
+      "verbetes": "{n} entries"
     },
     "contos": {
       "linha_principal": "Main Line",
