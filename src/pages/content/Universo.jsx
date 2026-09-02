@@ -149,7 +149,11 @@ export default function Universo() {
           </nav>
         )}
 
-        {parsed.intro.map((p, i) => <p key={i} className="universo-intro">{p}</p>)}
+        {parsed.intro.length > 0 && (
+          <div className="universo-intro">
+            {parsed.intro.map((p, i) => <p key={i}>{p}</p>)}
+          </div>
+        )}
 
         {parsed.grupos.map((g, gi) => (
           <section key={gi} className="universo-grupo">
