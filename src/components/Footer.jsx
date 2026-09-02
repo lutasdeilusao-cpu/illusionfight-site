@@ -6,6 +6,9 @@ import SocialBar from './SocialBar'
 import './Footer.css'
 
 const routeMap = {
+  'Histórias': '/historias',
+  'Stories': '/historias',
+  'Historias': '/historias',
   'Apoiar o Projeto': '/assinar',
   'Sobre o Autor': '/autor',
   'Support the Project': '/assinar',
