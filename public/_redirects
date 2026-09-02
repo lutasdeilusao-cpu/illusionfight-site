@@ -13,8 +13,8 @@
 /leaderboard /leaderboard/ 301
 
 # Livro → Histórias (migração v10.199.0)
-/livro              /historias/lutas-de-ilusao/   301
-/livro/             /historias/lutas-de-ilusao/   301
+/livro              /historias/                  301
+/livro/             /historias/                  301
 /livro/contos       /historias/contos/           301
 /livro/contos/      /historias/contos/           301
 /historias          /historias/                  301

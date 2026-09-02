@@ -2,7 +2,6 @@
 .obra-page .obra-hero,
 .obra-page .obra-resumo,
 .obra-page .obra-universo,
-.obra-page .obra-galeria,
 .obra-page .obra-caps-titulo,
 .obra-page .obra-aviso,
 .obra-page .livro-page__list,
@@ -139,23 +138,6 @@
   color: var(--text-muted);
 }
 
-.obra-galeria {
-  margin: 1.5rem auto 0;
-  display: flex;
-  gap: 0.75rem;
-  overflow-x: auto;
-  padding-bottom: 0.5rem;
-  -webkit-overflow-scrolling: touch;
-}
-
-.obra-galeria__img {
-  flex: 0 0 320px;
-  width: 320px;
-  height: 240px;
-  object-fit: cover;
-  border: 1px solid var(--border-subtle);
-}
-
 .obra-caps-titulo {
   margin: 2.2rem auto 0.5rem;
 }
@@ -192,5 +174,4 @@
     text-align: center;
   }
   .obra-hero__badges { justify-content: center; }
-  .obra-galeria__img { flex-basis: 78vw; width: 78vw; }
 }

@@ -5,6 +5,7 @@ import { useAuth } from '../../context/AuthContext'
 import { TRIAL_ACTIVE } from '../../config/trial'
 import { estaDisponivel } from '../../config/site'
 import Farol from '../../components/Farol/Farol'
+import CapCard from '../../components/CapCard/CapCard'
 import obras from '../../data/obras-index.json'
 import './Livro.css'
 import './Contos.css'
@@ -44,7 +45,6 @@ export default function Obra() {
   const resumo = obra[`resumo${suf}`] || obra.resumo_pt
   const universo = obra[`universo${suf}`] || obra.universo_pt
   const capaImg = asset(obra.id, obra.capa)
-  const galeria = (obra.galeria || []).map(f => asset(obra.id, f)).filter(Boolean)
 
   const capsLiberados = obra.capitulos.filter(c => estaDisponivel(c, isAdmin) || TRIAL_ACTIVE)
   const temTravado = capsLiberados.length < obra.capitulos.length
@@ -96,14 +96,6 @@ export default function Obra() {
           </div>
         )}
 
-        {galeria.length > 0 && (
-          <div className="obra-galeria">
-            {galeria.map((src, i) => (
-              <img key={i} className="obra-galeria__img" src={src} alt="" width="320" height="240" loading="lazy" decoding="async" />
-            ))}
-          </div>
-        )}
-
         <h2 className="section-title obra-caps-titulo">{t('pages.obra.capitulos')}</h2>
 
         {temTravado && (
@@ -113,25 +105,23 @@ export default function Obra() {
           <p className="contos-hero__aviso obra-aviso">{t('pages.obra.idioma_unico')}</p>
         )}
 
-        <div className="livro-page__list">
-          {obra.capitulos.map(cap => {
+        <div className="cap-list">
+          {obra.capitulos.map((cap, i) => {
             const liberado = estaDisponivel(cap, isAdmin) || TRIAL_ACTIVE
             const capTitulo = cap[`titulo${sufT}`] || cap.titulo
+            const capResumo = cap[`resumo${suf}`] || cap.resumo_pt || ''
             return (
-              <div key={cap.id} className="livro-page__item">
-                <span className="livro-page__numero">{String(cap.numero).padStart(2, '0')}</span>
-                <div className="livro-page__info">
-                  <span
-                    className={`livro-page__titulo${liberado ? '' : ' livro-page__titulo--locked'}`}
-                    onClick={() => liberado && navigate(`/historias/${obra.id}/${cap.id}`)}
-                  >
-                    {capTitulo}
-                  </span>
-                  <div className="livro-page__meta">
-                    {!liberado && <span className="livro-page__badge">{t('pages.livro.em_breve')}</span>}
-                  </div>
-                </div>
-              </div>
+              <CapCard
+                key={cap.id}
+                to={`/historias/${obra.id}/${cap.id}`}
+                liberado={liberado}
+                img={asset(obra.id, (obra.galeria || [])[i])}
+                rotulo={cap.numero > 0 ? `${t('pages.livro.cap')} ${String(cap.numero).padStart(2, '0')}` : ''}
+                titulo={capTitulo}
+                resumo={capResumo}
+                meta=""
+                badge={t('pages.livro.em_breve')}
+              />
             )
           })}
         </div>

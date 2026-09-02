@@ -25,7 +25,10 @@
         "titulo": "A Casa",
         "titulo_en": "The House",
         "titulo_es": "La Casa",
-        "data_publicacao": "2026-08-28"
+        "data_publicacao": "2026-08-28",
+        "resumo_pt": "A vida cinza de Ryan em casa: o pai distante, a rotina sem cor, a manhã que não deixa de doer.",
+        "resumo_en": "Ryan's grey life at home: a distant father, a colorless routine, a morning that never stops hurting.",
+        "resumo_es": "La vida gris de Ryan en casa: un padre distante, una rutina sin color, una mañana que no deja de doler."
       },
       {
         "id": "02",
@@ -33,7 +36,10 @@
         "titulo": "Arnold",
         "titulo_en": "Arnold",
         "titulo_es": "Arnold",
-        "data_publicacao": "2026-08-28"
+        "data_publicacao": "2026-08-28",
+        "resumo_pt": "Ryan é o capacho do Arnold há anos. Hoje a conta chega.",
+        "resumo_en": "Ryan has been Arnold's doormat for years. Today the bill comes due.",
+        "resumo_es": "Ryan es el felpudo de Arnold desde hace años. Hoy llega la cuenta."
       },
       {
         "id": "03",
@@ -41,7 +47,10 @@
         "titulo": "O Mundo Cinza",
         "titulo_en": "The Grey World",
         "titulo_es": "El Mundo Gris",
-        "data_publicacao": "2026-08-28"
+        "data_publicacao": "2026-08-28",
+        "resumo_pt": "Como é viver quando tudo perde a cor — e por que Ryan aguenta calado.",
+        "resumo_en": "What it feels like when everything loses color — and why Ryan takes it in silence.",
+        "resumo_es": "Cómo es vivir cuando todo pierde el color — y por qué Ryan lo aguanta callado."
       },
       {
         "id": "04",
@@ -49,7 +58,10 @@
         "titulo": "Palavra e Ação",
         "titulo_en": "Word and Action",
         "titulo_es": "Palabra y Acción",
-        "data_publicacao": "2026-08-28"
+        "data_publicacao": "2026-08-28",
+        "resumo_pt": "No corredor, dois caras que ainda têm cor esbarram no dia mais cinza de Ryan.",
+        "resumo_en": "In the hallway, two guys who still have color bump into Ryan's greyest day.",
+        "resumo_es": "En el pasillo, dos chicos que todavía tienen color chocan con el día más gris de Ryan."
       },
       {
         "id": "05",
@@ -57,7 +69,10 @@
         "titulo": "O Círculo",
         "titulo_en": "The Circle",
         "titulo_es": "El Círculo",
-        "data_publicacao": "2026-08-28"
+        "data_publicacao": "2026-08-28",
+        "resumo_pt": "Cercado pelos capangas do Arnold, Ryan trava, fecha os olhos e espera os golpes.",
+        "resumo_en": "Surrounded by Arnold's muscle, Ryan freezes, closes his eyes and waits for the blows.",
+        "resumo_es": "Rodeado por los matones de Arnold, Ryan se traba, cierra los ojos y espera los golpes."
       },
       {
         "id": "06",
@@ -65,7 +80,10 @@
         "titulo": "O Primeiro Soco",
         "titulo_en": "The First Punch",
         "titulo_es": "El Primer Golpe",
-        "data_publicacao": "2026-08-28"
+        "data_publicacao": "2026-08-28",
+        "resumo_pt": "Ryan se vira pro Arnold. A primeira vez, em anos, que ele reage.",
+        "resumo_en": "Ryan turns to face Arnold. The first time in years that he fights back.",
+        "resumo_es": "Ryan se gira hacia Arnold. La primera vez en años que reacciona."
       },
       {
         "id": "07",
@@ -73,7 +91,10 @@
         "titulo": "Física",
         "titulo_en": "Physics",
         "titulo_es": "Física",
-        "data_publicacao": "2026-08-28"
+        "data_publicacao": "2026-08-28",
+        "resumo_pt": "Parado na mesma posição, Ryan entende o que acabou de acontecer com ele.",
+        "resumo_en": "Standing in the same spot, Ryan realizes what just happened to him.",
+        "resumo_es": "Parado en la misma posición, Ryan entiende lo que acaba de pasarle."
       }
     ]
   },
@@ -103,7 +124,10 @@
         "titulo": "O Rei",
         "titulo_en": "The King",
         "titulo_es": "El Rey",
-        "data_publicacao": "2026-08-28"
+        "data_publicacao": "2026-08-28",
+        "resumo_pt": "Não é a história de como Alan virou rei de Marélia. É a de quem ele encontrou no caminho.",
+        "resumo_en": "This isn't the story of how Alan became king of Marélia. It's the story of who he met along the way.",
+        "resumo_es": "No es la historia de cómo Alan se volvió rey de Marélia. Es la de a quién encontró en el camino."
       },
       {
         "id": "02",
@@ -111,7 +135,10 @@
         "titulo": "Três Anos",
         "titulo_en": "Three Years Old",
         "titulo_es": "Tres Años",
-        "data_publicacao": "2026-08-28"
+        "data_publicacao": "2026-08-28",
+        "resumo_pt": "A primeira morte que Alan viu foi aos três anos. O resto foi ladeira abaixo.",
+        "resumo_en": "The first death Alan saw was at age three. The rest was all downhill.",
+        "resumo_es": "La primera muerte que Alan vio fue a los tres años. El resto fue cuesta abajo."
       },
       {
         "id": "03",
@@ -119,7 +146,10 @@
         "titulo": "A Bucha",
         "titulo_en": "Cannon Fodder",
         "titulo_es": "Carne de Cañón",
-        "data_publicacao": "2026-08-28"
+        "data_publicacao": "2026-08-28",
+        "resumo_pt": "Sempre tem vaga pra uma criança no crime. Alan aceita a primeira que aparece.",
+        "resumo_en": "There is always an opening for a child in crime. Alan takes the first one offered.",
+        "resumo_es": "Siempre hay un lugar para un niño en el crimen. Alan acepta el primero que aparece."
       },
       {
         "id": "04",
@@ -127,7 +157,10 @@
         "titulo": "O Reformatório",
         "titulo_en": "The Reformatory",
         "titulo_es": "El Reformatorio",
-        "data_publicacao": "2026-08-28"
+        "data_publicacao": "2026-08-28",
+        "resumo_pt": "Três anos trancado no reformatório. Alan sai outro.",
+        "resumo_en": "Three years locked in juvenile detention. Alan comes out someone else.",
+        "resumo_es": "Tres años encerrado en el reformatorio. Alan sale siendo otro."
       },
       {
         "id": "05",
@@ -135,7 +168,10 @@
         "titulo": "O Alto do Morro",
         "titulo_en": "The Top of the Hill",
         "titulo_es": "La Cima del Cerro",
-        "data_publicacao": "2026-08-28"
+        "data_publicacao": "2026-08-28",
+        "resumo_pt": "No mesmo dia em que saiu, levaram Alan pro alto do Morro. A carreira começa.",
+        "resumo_en": "The same day he got out, they took Alan to the top of the Hill. His career begins.",
+        "resumo_es": "El mismo día en que salió, llevaron a Alan a lo alto del Morro. La carrera empieza."
       },
       {
         "id": "06",
@@ -143,7 +179,10 @@
         "titulo": "O Mendigo",
         "titulo_en": "The Beggar",
         "titulo_es": "El Mendigo",
-        "data_publicacao": "2026-08-28"
+        "data_publicacao": "2026-08-28",
+        "resumo_pt": "Primeiro nome da lista: o Sombra. Alan aprende o preço de subir.",
+        "resumo_en": "First name on the list: Sombra. Alan learns the price of climbing.",
+        "resumo_es": "Primer nombre de la lista: Sombra. Alan aprende el precio de subir."
       },
       {
         "id": "07",
@@ -151,7 +190,10 @@
         "titulo": "Dono de Bairro",
         "titulo_en": "Master of a District",
         "titulo_es": "Dueño del Barrio",
-        "data_publicacao": "2026-08-28"
+        "data_publicacao": "2026-08-28",
+        "resumo_pt": "Mais alguns serviços, e o bairro inteiro passa a ser de Alan.",
+        "resumo_en": "A few more jobs, and the whole neighborhood becomes Alan’s.",
+        "resumo_es": "Unos cuantos trabajos más, y el barrio entero pasa a ser de Alan."
       },
       {
         "id": "08",
@@ -159,7 +201,10 @@
         "titulo": "O Indiozinho",
         "titulo_en": "The Kid",
         "titulo_es": "El Indiecito",
-        "data_publicacao": "2026-08-28"
+        "data_publicacao": "2026-08-28",
+        "resumo_pt": "Num dia comum, Alan cruza com um moleque que não abaixa a cabeça.",
+        "resumo_en": "On an ordinary day, Alan crosses paths with a kid who won't lower his head.",
+        "resumo_es": "En un día común, Alan se cruza con un chico que no baja la cabeza."
       },
       {
         "id": "09",
@@ -167,7 +212,10 @@
         "titulo": "A Pantera",
         "titulo_en": "The Panther",
         "titulo_es": "La Pantera",
-        "data_publicacao": "2026-08-29"
+        "data_publicacao": "2026-08-29",
+        "resumo_pt": "Enfrentar aquele moleque nunca foi só questão de honra. Alan descobre por quê.",
+        "resumo_en": "Facing that kid was never just about honor. Alan finds out why.",
+        "resumo_es": "Enfrentar a ese chico nunca fue solo cuestión de honor. Alan descubre por qué."
       },
       {
         "id": "10",
@@ -175,7 +223,10 @@
         "titulo": "O Cabelinho Verde",
         "titulo_en": "The Green Hair",
         "titulo_es": "El Pelo Verde",
-        "data_publicacao": "2026-08-29"
+        "data_publicacao": "2026-08-29",
+        "resumo_pt": "Numa reunião com os subcomandantes, um segundo moleque entra na conversa.",
+        "resumo_en": "In a meeting with his subcommanders, a second kid enters the conversation.",
+        "resumo_es": "En una reunión con los subcomandantes, un segundo chico entra en la conversación."
       },
       {
         "id": "11",
@@ -183,7 +234,10 @@
         "titulo": "O Parque",
         "titulo_en": "The Park",
         "titulo_es": "El Parque",
-        "data_publicacao": "2026-08-29"
+        "data_publicacao": "2026-08-29",
+        "resumo_pt": "Na volta de sempre pelo bairro, Alan encontra os dois de novo.",
+        "resumo_en": "On his usual walk through the neighborhood, Alan runs into the two of them again.",
+        "resumo_es": "En su vuelta de siempre por el barrio, Alan se encuentra a los dos otra vez."
       },
       {
         "id": "12",
@@ -191,7 +245,10 @@
         "titulo": "De Costas",
         "titulo_en": "Back to Back",
         "titulo_es": "Espalda con Espalda",
-        "data_publicacao": "2026-08-29"
+        "data_publicacao": "2026-08-29",
+        "resumo_pt": "\"Uma pessoa dividida em dois corpos.\" Alan tinha ouvido a frase. Nunca tinha visto.",
+        "resumo_en": "\"One person split into two bodies.\" Alan had heard the phrase. He’d never seen it.",
+        "resumo_es": "\"Una persona dividida en dos cuerpos.\" Alan había oído la frase. Nunca la había visto."
       },
       {
         "id": "13",
@@ -199,7 +256,10 @@
         "titulo": "Primeira Segunda-Feira",
         "titulo_en": "First Monday",
         "titulo_es": "El Primer Lunes",
-        "data_publicacao": "2026-08-29"
+        "data_publicacao": "2026-08-29",
+        "resumo_pt": "Antes que os dois se estranhem de verdade, Alan grita do muro.",
+        "resumo_en": "Before the two of them really turn on each other, Alan shouts from the wall.",
+        "resumo_es": "Antes de que los dos se enfrenten en serio, Alan grita desde el muro."
       },
       {
         "id": "14",
@@ -207,7 +267,10 @@
         "titulo": "A Cerimônia",
         "titulo_en": "The Ceremony",
         "titulo_es": "La Ceremonia",
-        "data_publicacao": "2026-08-29"
+        "data_publicacao": "2026-08-29",
+        "resumo_pt": "Virou ritual. Toda segunda-feira, por quase dois anos, no mesmo lugar.",
+        "resumo_en": "It became a ritual. Every Monday, for almost two years, in the same spot.",
+        "resumo_es": "Se volvió ritual. Cada lunes, por casi dos años, en el mismo lugar."
       },
       {
         "id": "15",
@@ -215,7 +278,10 @@
         "titulo": "Marcado",
         "titulo_en": "Marked",
         "titulo_es": "Marcado",
-        "data_publicacao": "2026-08-29"
+        "data_publicacao": "2026-08-29",
+        "resumo_pt": "Enquanto os moleques crescem, a vida de Alan vira do avesso.",
+        "resumo_en": "As the kids grow up, Alan's life turns inside out.",
+        "resumo_es": "Mientras los chicos crecen, la vida de Alan se da vuelta."
       },
       {
         "id": "16",
@@ -223,7 +289,10 @@
         "titulo": "Não Há Regras",
         "titulo_en": "No Rules",
         "titulo_es": "No Hay Reglas",
-        "data_publicacao": "2026-08-29"
+        "data_publicacao": "2026-08-29",
+        "resumo_pt": "Alan sobe a laje e os dois já estão lá, esperando por ele.",
+        "resumo_en": "Alan climbs to the rooftop and the two of them are already there, waiting for him.",
+        "resumo_es": "Alan sube a la azotea y los dos ya están ahí, esperándolo."
       },
       {
         "id": "17",
@@ -231,7 +300,10 @@
         "titulo": "A Pantera Solta",
         "titulo_en": "The Panther Unleashed",
         "titulo_es": "La Pantera Suelta",
-        "data_publicacao": "2026-08-29"
+        "data_publicacao": "2026-08-29",
+        "resumo_pt": "O Kim põe as quatro no chão. O que Alan segurava há anos se solta.",
+        "resumo_en": "Kim drops to all fours. What Alan had been holding back for years breaks loose.",
+        "resumo_es": "Kim pone las cuatro en el suelo. Lo que Alan contenía desde hacía años se suelta."
       },
       {
         "id": "18",
@@ -239,7 +311,10 @@
         "titulo": "A Coronhada",
         "titulo_en": "The Pistol-Whip",
         "titulo_es": "El Culatazo",
-        "data_publicacao": "2026-08-29"
+        "data_publicacao": "2026-08-29",
+        "resumo_pt": "Alan ouve o golpe e os dois joelhos tocam o chão.",
+        "resumo_en": "Alan hears the blow and both his knees hit the ground.",
+        "resumo_es": "Alan oye el golpe y las dos rodillas tocan el suelo."
       },
       {
         "id": "19",
@@ -247,7 +322,10 @@
         "titulo": "Sob Minha Proteção",
         "titulo_en": "Under My Protection",
         "titulo_es": "Bajo Mi Protección",
-        "data_publicacao": "2026-08-29"
+        "data_publicacao": "2026-08-29",
+        "resumo_pt": "Os dois se recuperam e voltam pra casa. Agora sob a proteção de Alan.",
+        "resumo_en": "The two of them recover and go home. Now under Alan's protection.",
+        "resumo_es": "Los dos se recuperan y vuelven a casa. Ahora bajo la protección de Alan."
       }
     ]
   },
@@ -277,7 +355,10 @@
         "titulo": "Joaquim",
         "titulo_en": "Joaquim",
         "titulo_es": "Joaquim",
-        "data_publicacao": "2026-08-30"
+        "data_publicacao": "2026-08-30",
+        "resumo_pt": "Vocês conhecem o Kim. Não conhecem o Joaquim. Ainda.",
+        "resumo_en": "You know Kim. You don't know Joaquim. Not yet.",
+        "resumo_es": "Ustedes conocen a Kim. No conocen a Joaquim. Todavía."
       },
       {
         "id": "02",
@@ -285,7 +366,10 @@
         "titulo": "Quem Decide",
         "titulo_en": "Who Decides",
         "titulo_es": "Quién Decide",
-        "data_publicacao": "2026-08-30"
+        "data_publicacao": "2026-08-30",
+        "resumo_pt": "Fica entre nós: quem decide as coisas na dupla nem sempre é quem parece.",
+        "resumo_en": "Just between us: the one who calls the shots in the duo isn't always who you'd think.",
+        "resumo_es": "Que quede entre nosotros: quien decide las cosas en el dúo no siempre es quien parece."
       },
       {
         "id": "03",
@@ -293,7 +377,10 @@
         "titulo": "O Violão",
         "titulo_en": "The Guitar",
         "titulo_es": "La Guitarra",
-        "data_publicacao": "2026-08-30"
+        "data_publicacao": "2026-08-30",
+        "resumo_pt": "Voltando do busão depois de vender bala, o Kim esbarra num violão.",
+        "resumo_en": "Coming back from the bus after selling candy, Kim stumbles onto a guitar.",
+        "resumo_es": "Volviendo del bus después de vender caramelos, Kim se topa con una guitarra."
       },
       {
         "id": "04",
@@ -301,7 +388,10 @@
         "titulo": "O Osvaldo Errado",
         "titulo_en": "The Wrong Osvaldo",
         "titulo_es": "El Osvaldo Equivocado",
-        "data_publicacao": "2026-08-30"
+        "data_publicacao": "2026-08-30",
+        "resumo_pt": "Perto de casa tinha um lugar onde uns caras tocavam — e um Osvaldo bem diferente do que vocês conhecem.",
+        "resumo_en": "Near home there was a place where some guys played — and an Osvaldo very different from the one you know.",
+        "resumo_es": "Cerca de casa había un lugar donde unos tipos tocaban — y un Osvaldo muy distinto al que ustedes conocen."
       },
       {
         "id": "05",
@@ -309,7 +399,10 @@
         "titulo": "Smells Like Teen Spirit",
         "titulo_en": "Smells Like Teen Spirit",
         "titulo_es": "Smells Like Teen Spirit",
-        "data_publicacao": "2026-08-30"
+        "data_publicacao": "2026-08-30",
+        "resumo_pt": "Meses depois, o Kim finalmente mostra pro Jack o que andou aprendendo.",
+        "resumo_en": "Months later, Kim finally shows Jack what he’s been learning.",
+        "resumo_es": "Meses después, Kim por fin le muestra a Jack lo que estuvo aprendiendo."
       },
       {
         "id": "06",
@@ -317,7 +410,10 @@
         "titulo": "A Bateria",
         "titulo_en": "The Drum Kit",
         "titulo_es": "La Batería",
-        "data_publicacao": "2026-08-30"
+        "data_publicacao": "2026-08-30",
+        "resumo_pt": "Depois daquele dia, o Jack sumiu. Voltou com uma ideia.",
+        "resumo_en": "After that day, Jack disappeared. He came back with an idea.",
+        "resumo_es": "Después de aquel día, Jack desapareció. Volvió con una idea."
       }
     ]
   },
@@ -347,7 +443,10 @@
         "titulo": "Elizabeth",
         "titulo_en": "Elizabeth",
         "titulo_es": "Elizabeth",
-        "data_publicacao": "2026-08-30"
+        "data_publicacao": "2026-08-30",
+        "resumo_pt": "Vocês conhecem a Nina. O nome de batismo é Elizabeth — e a história começa antes dela.",
+        "resumo_en": "You know Nina. Her birth name is Elizabeth — and the story starts before her.",
+        "resumo_es": "Ustedes conocen a Nina. Su nombre de nacimiento es Elizabeth — y la historia empieza antes de ella."
       },
       {
         "id": "02",
@@ -355,7 +454,10 @@
         "titulo": "A Menina Estragada",
         "titulo_en": "The Spoiled Girl",
         "titulo_es": "La Niña Malcriada",
-        "data_publicacao": "2026-08-30"
+        "data_publicacao": "2026-08-30",
+        "resumo_pt": "A Elizabeth morre e deixa o pai sozinho com uma criança de cinco anos que ele mal sabe segurar.",
+        "resumo_en": "Elizabeth dies and leaves her father alone with a five-year-old he barely knows how to hold.",
+        "resumo_es": "Elizabeth muere y deja al padre solo con una niña de cinco años que apenas sabe sostener."
       },
       {
         "id": "03",
@@ -363,7 +465,10 @@
         "titulo": "Essa É a Vida",
         "titulo_en": "This Is Life Now",
         "titulo_es": "Esta Es la Vida",
-        "data_publicacao": "2026-08-30"
+        "data_publicacao": "2026-08-30",
+        "resumo_pt": "Aos nove anos, mais uma mudança de cidade. Sempre de uma casa boa pra outra casa boa.",
+        "resumo_en": "At nine, another move. Always from one nice house to another nice house.",
+        "resumo_es": "A los nueve años, otra mudanza. Siempre de una casa buena a otra casa buena."
       },
       {
         "id": "04",
@@ -371,7 +476,10 @@
         "titulo": "O Escudo",
         "titulo_en": "The Shield",
         "titulo_es": "El Escudo",
-        "data_publicacao": "2026-08-30"
+        "data_publicacao": "2026-08-30",
+        "resumo_pt": "A escola pública não perdoa. A Nina aprende a se blindar.",
+        "resumo_en": "Public school shows no mercy. Nina learns to armor up.",
+        "resumo_es": "La escuela pública no perdona. Nina aprende a blindarse."
       },
       {
         "id": "05",
@@ -379,7 +487,10 @@
         "titulo": "Azuma",
         "titulo_en": "Azuma",
         "titulo_es": "Azuma",
-        "data_publicacao": "2026-08-30"
+        "data_publicacao": "2026-08-30",
+        "resumo_pt": "Quatro anos em Azuma, a parada mais longa da vida da Nina. E a que mais marcou.",
+        "resumo_en": "Four years in Azuma, the longest stop of Nina's life. And the one that marked her most.",
+        "resumo_es": "Cuatro años en Azuma, la parada más larga de la vida de Nina. Y la que más la marcó."
       },
       {
         "id": "06",
@@ -387,7 +498,10 @@
         "titulo": "A Conversa",
         "titulo_en": "The Conversation",
         "titulo_es": "La Conversación",
-        "data_publicacao": "2026-08-30"
+        "data_publicacao": "2026-08-30",
+        "resumo_pt": "Aos dezesseis, o pai chama a Nina pra conversar de verdade pela primeira vez.",
+        "resumo_en": "At sixteen, her father sits Nina down for a real conversation for the first time.",
+        "resumo_es": "A los dieciséis, el padre llama a Nina para hablar de verdad por primera vez."
       },
       {
         "id": "07",
@@ -395,7 +509,10 @@
         "titulo": "O Medo",
         "titulo_en": "The Fear",
         "titulo_es": "El Miedo",
-        "data_publicacao": "2026-08-30"
+        "data_publicacao": "2026-08-30",
+        "resumo_pt": "\"Eu tentei comprar o teu amor.\" O que o pai da Nina escondeu por anos.",
+        "resumo_en": "\"I tried to buy your love.\" What Nina’s father hid for years.",
+        "resumo_es": "\"Intenté comprar tu amor.\" Lo que el padre de Nina escondió durante años."
       },
       {
         "id": "08",
@@ -403,7 +520,10 @@
         "titulo": "A Verdade",
         "titulo_en": "The Truth",
         "titulo_es": "La Verdad",
-        "data_publicacao": "2026-08-30"
+        "data_publicacao": "2026-08-30",
+        "resumo_pt": "Próxima mudança: Elite Academy, último ano, um diploma que abre porta.",
+        "resumo_en": "Next move: Elite Academy, senior year, a diploma that opens doors.",
+        "resumo_es": "Próxima mudanza: Elite Academy, último año, un diploma que abre puertas."
       },
       {
         "id": "09",
@@ -411,7 +531,10 @@
         "titulo": "Um Ano Antes",
         "titulo_en": "One Year Before",
         "titulo_es": "Un Año Antes",
-        "data_publicacao": "2026-08-30"
+        "data_publicacao": "2026-08-30",
+        "resumo_pt": "Um ano antes de conhecer o Kim e o Jack. É aqui que a Nina de vocês começa.",
+        "resumo_en": "One year before she meets Kim and Jack. This is where the Nina you know begins.",
+        "resumo_es": "Un año antes de conocer a Kim y a Jack. Aquí es donde empieza la Nina que ustedes conocen."
       }
     ]
   },
@@ -441,7 +564,10 @@
         "titulo": "Porque Assim Escolheu o Jack",
         "titulo_en": "Because That's How Jack Chose It",
         "titulo_es": "Porque Así lo Eligió Jack",
-        "data_publicacao": "2026-08-31"
+        "data_publicacao": "2026-08-31",
+        "resumo_pt": "Ninguém nunca perguntou de onde o Jack veio. Ele vai contar assim mesmo — com graça.",
+        "resumo_en": "Nobody ever asked where Jack came from. He's going to tell it anyway — with jokes.",
+        "resumo_es": "Nadie nunca preguntó de dónde vino Jack. Igual lo va a contar — con gracia."
       },
       {
         "id": "02",
@@ -449,7 +575,10 @@
         "titulo": "O Interior",
         "titulo_en": "The Countryside",
         "titulo_es": "El Interior",
-        "data_publicacao": "2026-08-31"
+        "data_publicacao": "2026-08-31",
+        "resumo_pt": "O Jack situa vocês no mapa: o interior, longe de tudo, o começo de tudo.",
+        "resumo_en": "Jack puts you on the map: the countryside, far from everything, the start of everything.",
+        "resumo_es": "Jack los ubica en el mapa: el interior, lejos de todo, el comienzo de todo."
       },
       {
         "id": "03",
@@ -457,7 +586,10 @@
         "titulo": "Tio e Tia",
         "titulo_en": "Uncle and Aunt",
         "titulo_es": "Tío y Tía",
-        "data_publicacao": "2026-08-31"
+        "data_publicacao": "2026-08-31",
+        "resumo_pt": "Ele vai chamar de Tio e Tia. Os nomes verdadeiros o Jack jogou fora de propósito.",
+        "resumo_en": "He'll call them Uncle and Aunt. Jack threw the real names away on purpose.",
+        "resumo_es": "Los va a llamar Tío y Tía. Los nombres verdaderos Jack los tiró a propósito."
       },
       {
         "id": "04",
@@ -465,7 +597,10 @@
         "titulo": "A Porta",
         "titulo_en": "The Door",
         "titulo_es": "La Puerta",
-        "data_publicacao": "2026-08-31"
+        "data_publicacao": "2026-08-31",
+        "resumo_pt": "Vocês estão esperando a cena de saída dramática. O Jack não vai dar essa.",
+        "resumo_en": "You're waiting for the dramatic exit scene. Jack isn't going to give you that.",
+        "resumo_es": "Ustedes esperan la escena de salida dramática. Jack no les va a dar esa."
       },
       {
         "id": "05",
@@ -473,7 +608,10 @@
         "titulo": "A Loja do Seu Nestor",
         "titulo_en": "Mr. Nestor's Shop",
         "titulo_es": "La Tienda del Señor Nestor",
-        "data_publicacao": "2026-08-31"
+        "data_publicacao": "2026-08-31",
+        "resumo_pt": "Primeiro problema de quem mora na rua: onde dormir. O Seu Nestor entra aqui.",
+        "resumo_en": "First problem of living on the street: where to sleep. Mr. Nestor comes in here.",
+        "resumo_es": "Primer problema de vivir en la calle: dónde dormir. Don Nestor entra aquí."
       },
       {
         "id": "06",
@@ -481,7 +619,10 @@
         "titulo": "A Bike",
         "titulo_en": "The Bike",
         "titulo_es": "La Bici",
-        "data_publicacao": "2026-08-31"
+        "data_publicacao": "2026-08-31",
+        "resumo_pt": "Aos sete, o Jack já não estava mais sozinho — já tinha o Kim. E ganha a \"Warrior\".",
+        "resumo_en": "At seven, Jack wasn’t alone anymore — he had Kim. And he gets the \"Warrior\".",
+        "resumo_es": "A los siete, Jack ya no estaba solo — ya tenía a Kim. Y consigue la \"Warrior\"."
       },
       {
         "id": "07",
@@ -489,7 +630,10 @@
         "titulo": "A Firma",
         "titulo_en": "The Operation",
         "titulo_es": "El Negocio",
-        "data_publicacao": "2026-08-31"
+        "data_publicacao": "2026-08-31",
+        "resumo_pt": "Duas barracas, um Jack só. A matemática não fecha até fechar.",
+        "resumo_en": "Two stalls, one Jack. The math doesn't add up until it does.",
+        "resumo_es": "Dos puestos, un solo Jack. La matemática no cierra hasta que cierra."
       },
       {
         "id": "08",
@@ -497,7 +641,10 @@
         "titulo": "Ninguém Nunca Perguntou",
         "titulo_en": "Nobody Ever Asked",
         "titulo_es": "Nadie Preguntó Nunca",
-        "data_publicacao": "2026-09-01"
+        "data_publicacao": "2026-09-01",
+        "resumo_pt": "O envelope ia pro sertão. O que o Jack manda pra casa, em segredo, há anos.",
+        "resumo_en": "The envelope went to the backlands. What Jack has been sending home, in secret, for years.",
+        "resumo_es": "El sobre iba al interior. Lo que Jack manda a casa, en secreto, desde hace años."
       },
       {
         "id": "09",
@@ -505,7 +652,10 @@
         "titulo": "Eu e o Kim",
         "titulo_en": "Kim and Me",
         "titulo_es": "Kim y Yo",
-        "data_publicacao": "2026-09-01"
+        "data_publicacao": "2026-09-01",
+        "resumo_pt": "A pergunta que vocês seguraram o conto inteiro. O Jack responde antes de fechar as cortinas.",
+        "resumo_en": "The question you held onto the whole story. Jack answers it before the curtain falls.",
+        "resumo_es": "La pregunta que aguantaron todo el cuento. Jack la responde antes de cerrar el telón."
       }
     ]
   }

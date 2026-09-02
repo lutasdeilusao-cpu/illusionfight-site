@@ -6,11 +6,29 @@
     "canon": false,
     "peso": "pesada",
     "selo": "dark-fantasy",
-    "idiomas": ["pt", "en", "es"],
+    "idiomas": [
+      "pt",
+      "en",
+      "es"
+    ],
     "autor": "Isaias Leal",
-    "temas": ["sobrenatural", "infancia", "luto", "solidao", "superacao", "luta"],
+    "temas": [
+      "sobrenatural",
+      "infancia",
+      "luto",
+      "solidao",
+      "superacao",
+      "luta"
+    ],
     "capa": "capa.webp",
-    "galeria": ["cap-01.webp", "cap-02.webp", "cap-03.webp", "cap-04.webp", "cap-05.webp", "cap-06.webp"],
+    "galeria": [
+      "cap-01.webp",
+      "cap-02.webp",
+      "cap-03.webp",
+      "cap-04.webp",
+      "cap-05.webp",
+      "cap-06.webp"
+    ],
     "amazon": "https://www.amazon.com.br/dp/B0GF4N2V9G",
     "titulo": "O Mundo das Sombras",
     "titulo_en": "The Shadow World",
@@ -28,12 +46,72 @@
     "universo_en": "A world pressed against ours, separated only by a thin film. On one side, the impure who see nothing. On the other, the shadows and the Illuminated — and the few marked children caught in between.",
     "universo_es": "Un mundo pegado al nuestro, separado apenas por una película fina. De un lado, los impuros que no ven nada. Del otro, las sombras y los Iluminados — y los pocos niños marcados atrapados en medio.",
     "capitulos": [
-      { "id": "01", "numero": 1, "titulo": "A Marca", "titulo_en": "The Mark", "titulo_es": "La Marca", "data_publicacao": "2099-01-01" },
-      { "id": "02", "numero": 2, "titulo": "O Limiar", "titulo_en": "The Threshold", "titulo_es": "El Umbral", "data_publicacao": "2099-01-01" },
-      { "id": "03", "numero": 3, "titulo": "Correntes", "titulo_en": "Chains", "titulo_es": "Cadenas", "data_publicacao": "2099-01-01" },
-      { "id": "04", "numero": 4, "titulo": "Nefeli", "titulo_en": "Nefeli", "titulo_es": "Nefeli", "data_publicacao": "2099-01-01" },
-      { "id": "05", "numero": 5, "titulo": "No Coração das Sombras", "titulo_en": "In the Heart of Shadows", "titulo_es": "En el Corazón de las Sombras", "data_publicacao": "2099-01-01" },
-      { "id": "06", "numero": 6, "titulo": "Ressonância", "titulo_en": "Resonance", "titulo_es": "Resonancia", "data_publicacao": "2099-01-01" }
+      {
+        "id": "01",
+        "numero": 1,
+        "titulo": "A Marca",
+        "titulo_en": "The Mark",
+        "titulo_es": "La Marca",
+        "data_publicacao": "2099-01-01",
+        "resumo_pt": "Uma penumbra chamada Falha vê o bebê Minus ser tocado — e, pela primeira vez em eras, ser visto de volta. Anos depois, o escudo dele racha.",
+        "resumo_en": "A penumbra called Flaw watches baby Minus be touched — and, for the first time in ages, be seen back. Years later, his shield cracks.",
+        "resumo_es": "Una penumbra llamada Falla ve al bebé Minus ser tocado — y, por primera vez en eras, ser mirado de vuelta. Años después, su escudo se agrieta."
+      },
+      {
+        "id": "02",
+        "numero": 2,
+        "titulo": "O Limiar",
+        "titulo_en": "The Threshold",
+        "titulo_es": "El Umbral",
+        "data_publicacao": "2099-01-01",
+        "resumo_pt": "Quatro anos nas ruas. Minus aprende a atravessar o limiar entre o mundo dos impuros e o das sombras — e Falha o segue.",
+        "resumo_en": "Four years on the streets. Minus learns to cross the threshold between the world of the impure and the world of shadows — and Flaw follows.",
+        "resumo_es": "Cuatro años en la calle. Minus aprende a cruzar el umbral entre el mundo de los impuros y el de las sombras — y Falla lo sigue."
+      },
+      {
+        "id": "03",
+        "numero": 3,
+        "titulo": "Correntes",
+        "titulo_en": "Chains",
+        "titulo_es": "Cadenas",
+        "data_publicacao": "2099-01-01",
+        "resumo_pt": "A marca vira arma. Correntes azuis brotam do braço de Minus enquanto os Iluminados fecham o cerco.",
+        "resumo_en": "The mark becomes a weapon. Blue chains erupt from Minus’s arm as the Illuminated close in.",
+        "resumo_es": "La marca se vuelve arma. Cadenas azules brotan del brazo de Minus mientras los Iluminados cierran el cerco."
+      },
+      {
+        "id": "04",
+        "numero": 4,
+        "titulo": "Nefeli",
+        "titulo_en": "Nefeli",
+        "titulo_es": "Nefeli",
+        "data_publicacao": "2099-01-01",
+        "resumo_pt": "Anos treinando uma sombra-cachorro. E uma segunda pessoa marcada aparece no radar.",
+        "resumo_en": "Years training a shadow-dog. And a second marked person shows up on the radar.",
+        "resumo_es": "Años entrenando a una sombra-perro. Y aparece una segunda persona marcada en el radar."
+      },
+      {
+        "id": "05",
+        "numero": 5,
+        "titulo": "No Coração das Sombras",
+        "titulo_en": "In the Heart of Shadows",
+        "titulo_es": "En el Corazón de las Sombras",
+        "data_publicacao": "2099-01-01",
+        "resumo_pt": "Minus mergulha fundo pra alcançar a outra marcada antes das sombras. Dois Iluminados não vão deixar barato.",
+        "resumo_en": "Minus dives deep to reach the other marked one before the shadows do. Two Illuminated won’t make it easy.",
+        "resumo_es": "Minus se sumerge hondo para alcanzar a la otra marcada antes que las sombras. Dos Iluminados no lo pondrán fácil."
+      },
+      {
+        "id": "06",
+        "numero": 6,
+        "titulo": "Ressonância",
+        "titulo_en": "Resonance",
+        "titulo_es": "Resonancia",
+        "data_publicacao": "2099-01-01",
+        "resumo_pt": "Dois marcados se encontram pela primeira vez em eras. O que ressoa entre eles muda os dois mundos.",
+        "resumo_en": "Two marked ones meet for the first time in ages. What resonates between them shakes both worlds.",
+        "resumo_es": "Dos marcados se encuentran por primera vez en eras. Lo que resuena entre ellos sacude ambos mundos."
+      }
     ]
   },
   {
@@ -43,9 +121,17 @@
     "canon": false,
     "peso": "pesada",
     "selo": "dark-fantasy",
-    "idiomas": ["pt"],
+    "idiomas": [
+      "pt"
+    ],
     "autor": "Isaias Leal",
-    "temas": ["opressao", "horror_cosmico", "resistencia", "familia", "luta"],
+    "temas": [
+      "opressao",
+      "horror_cosmico",
+      "resistencia",
+      "familia",
+      "luta"
+    ],
     "capa": null,
     "galeria": [],
     "amazon": null,
@@ -65,10 +151,42 @@
     "universo_en": "Thalvorn: an ocean of islands, each owned by someone who chose not to share. The human Admiralty burns ether — the crystallized flesh of gods who sacrificed themselves — to run its engines. Tritons, orcs, elves and dwarves carry the cost.",
     "universo_es": "Thalvorn: un océano de islas, cada una de quien eligió no compartir. El Almirantazgo humano quema el éter — la carne cristalizada de dioses que se sacrificaron — para mover sus motores. Tritones, orcos, elfas y enanas cargan el precio.",
     "capitulos": [
-      { "id": "00", "numero": 0, "titulo": "Prólogo — O Inquilino Fala", "titulo_en": "Prologue — The Tenant Speaks", "titulo_es": "Prólogo — El Inquilino Habla", "data_publicacao": "2099-01-01" },
-      { "id": "01", "numero": 1, "titulo": "Capítulo Um — As Doze Obrigações", "titulo_en": "Chapter One — The Twelve Obligations", "titulo_es": "Capítulo Uno — Las Doce Obligaciones", "data_publicacao": "2099-01-01" },
-      { "id": "02", "numero": 2, "titulo": "Capítulo Dois — O Décimo Terceiro Dia", "titulo_en": "Chapter Two — The Thirteenth Day", "titulo_es": "Capítulo Dos — El Decimotercer Día", "data_publicacao": "2099-01-01" },
-      { "id": "03", "numero": 3, "titulo": "Apêndice — As Doze Obrigações da Consorte", "titulo_en": "Appendix — The Twelve Obligations of the Consort", "titulo_es": "Apéndice — Las Doce Obligaciones de la Consorte", "data_publicacao": "2099-01-01" }
+      {
+        "id": "00",
+        "numero": 0,
+        "titulo": "Prólogo — O Inquilino Fala",
+        "titulo_en": "Prologue — The Tenant Speaks",
+        "titulo_es": "Prólogo — El Inquilino Habla",
+        "data_publicacao": "2099-01-01",
+        "resumo_pt": "Algo que espera há trinta mil anos no fundo do oceano conta o mundo que existia antes dela."
+      },
+      {
+        "id": "01",
+        "numero": 1,
+        "titulo": "Capítulo Um — As Doze Obrigações",
+        "titulo_en": "Chapter One — The Twelve Obligations",
+        "titulo_es": "Capítulo Uno — Las Doce Obligaciones",
+        "data_publicacao": "2099-01-01",
+        "resumo_pt": "Catorze anos, vestido branco, um comandante com três esposas mortas. Elizabeth conta os passos até o altar."
+      },
+      {
+        "id": "02",
+        "numero": 2,
+        "titulo": "Capítulo Dois — O Décimo Terceiro Dia",
+        "titulo_en": "Chapter Two — The Thirteenth Day",
+        "titulo_es": "Capítulo Dos — El Decimotercer Día",
+        "data_publicacao": "2099-01-01",
+        "resumo_pt": "Algemada num contensor do Almirantado, Elizabeth é levada a Amvesh — e ao que fazem lá."
+      },
+      {
+        "id": "03",
+        "numero": 3,
+        "titulo": "Apêndice — As Doze Obrigações da Consorte",
+        "titulo_en": "Appendix — The Twelve Obligations of the Consort",
+        "titulo_es": "Apéndice — Las Doce Obligaciones de la Consorte",
+        "data_publicacao": "2099-01-01",
+        "resumo_pt": "O texto ritual, na íntegra, que a noiva pronuncia de joelhos. Um documento do mundo."
+      }
     ]
   }
 ]

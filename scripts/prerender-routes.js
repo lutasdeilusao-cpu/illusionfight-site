@@ -90,7 +90,7 @@ episodios.filter(episodio => episodio.id === '00').forEach(episodio => ROUTES.pu
 const REDIRECTS = [
   { path: '/games/ldi-arena', target: '/games/ldi-gangues' },
   { path: '/games/toptrumps/lobby', target: '/games/multiplayer/lobby?game=toptrumps&mode=free' },
-  { path: '/livro', target: '/historias/lutas-de-ilusao' },
+  { path: '/livro', target: '/historias' },
   { path: '/livro/contos', target: '/historias/contos' },
 ]
 

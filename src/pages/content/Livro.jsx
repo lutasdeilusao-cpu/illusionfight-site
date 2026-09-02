@@ -6,6 +6,7 @@ import { useAuth } from '../../context/AuthContext'
 import { TRIAL_ACTIVE } from '../../config/trial'
 import { estaDisponivel } from '../../config/site'
 import Farol from '../../components/Farol/Farol'
+import CapCard from '../../components/CapCard/CapCard'
 import index from '../../data/livro-index.json'
 import './Livro.css'
 import './Contos.css'
@@ -60,31 +61,22 @@ export default function Livro() {
           <Farol peso="pesada" canon={true} temas={['luta', 'familia', 'amizade', 'crime', 'humor']} />
           <p className="contos-hero__aviso">{t('pages.contos.peso_pesada_desc')}</p>
         </div>
-        <div className="livro-page__list">
+        <div className="cap-list">
           {index.map(ch => {
             const liberado = ch.id === 'capitulo-01' || estaDisponivel(ch, isAdmin) || TRIAL_ACTIVE
+            const resumoKey = locale === 'en' ? 'resumo_en' : locale === 'es' ? 'resumo_es' : 'resumo_pt'
+            const taglineKey = locale === 'en' ? 'tagline_en' : locale === 'es' ? 'tagline_es' : 'tagline_pt'
             return (
-              <div key={ch.id} className="livro-page__item">
-                <span className="livro-page__numero">{t('pages.livro.cap')} {String(ch.numero).padStart(2, '0')}</span>
-                <div className="livro-page__info">
-                  <span
-                    className={`livro-page__titulo${liberado ? '' : ' livro-page__titulo--locked'}`}
-                    onClick={() => liberado && navigate(`/historias/lutas-de-ilusao/${ch.id}`)}
-                  >
-                    {ch[tituloKey]}
-                  </span>
-                  <div className="livro-page__meta">
-                    {liberado && ch.data_publicacao && (
-                      <span className="livro-page__data">{ch.data_publicacao}</span>
-                    )}
-                    {!liberado && (
-                      <span className="livro-page__badge">
-                        {ch.data_publicacao ? `${t('pages.livro.em_breve')} — ${formatarData(ch.data_publicacao)}` : t('pages.livro.em_breve')}
-                      </span>
-                    )}
-                  </div>
-                </div>
-              </div>
+              <CapCard
+                key={ch.id}
+                to={`/historias/lutas-de-ilusao/${ch.id}`}
+                liberado={liberado}
+                rotulo={`${t('pages.livro.cap')} ${String(ch.numero).padStart(2, '0')}`}
+                titulo={ch[tituloKey]}
+                resumo={ch[resumoKey] || ch[taglineKey] || ''}
+                meta={liberado && ch.data_publicacao ? formatarData(ch.data_publicacao) : ''}
+                badge={ch.data_publicacao ? `${t('pages.livro.em_breve')} — ${formatarData(ch.data_publicacao)}` : t('pages.livro.em_breve')}
+              />
             )
           })}
         </div>

@@ -5,6 +5,7 @@ import { useAuth } from '../../context/AuthContext'
 import { TRIAL_ACTIVE } from '../../config/trial'
 import { estaDisponivel } from '../../config/site'
 import Farol from '../../components/Farol/Farol'
+import CapCard from '../../components/CapCard/CapCard'
 import index from '../../data/contos-index.json'
 import './Livro.css'
 import './Contos.css'
@@ -66,29 +67,21 @@ export default function ContoHistoria() {
           </div>
         </div>
 
-        <div className="livro-page__list">
+        <div className="cap-list">
           {h.capitulos.map(cap => {
             const liberado = estaDisponivel(cap, isAdmin) || TRIAL_ACTIVE
+            const resumoKey = locale === 'en' ? 'resumo_en' : locale === 'es' ? 'resumo_es' : 'resumo_pt'
             return (
-              <div key={cap.id} className="livro-page__item">
-                <span className="livro-page__numero">{t('pages.contos.cap')} {String(cap.numero).padStart(2, '0')}</span>
-                <div className="livro-page__info">
-                  <span
-                    className={`livro-page__titulo${liberado ? '' : ' livro-page__titulo--locked'}`}
-                    onClick={() => liberado && navigate(`/historias/contos/${h.id}/${cap.id}`)}
-                  >
-                    {cap[tituloKey]}
-                  </span>
-                  <div className="livro-page__meta">
-                    {liberado && cap.data_publicacao && (
-                      <span className="livro-page__data">{formatarData(cap.data_publicacao)}</span>
-                    )}
-                    {!liberado && (
-                      <span className="livro-page__badge">{t('pages.livro.em_breve')}</span>
-                    )}
-                  </div>
-                </div>
-              </div>
+              <CapCard
+                key={cap.id}
+                to={`/historias/contos/${h.id}/${cap.id}`}
+                liberado={liberado}
+                rotulo={`${t('pages.contos.cap')} ${String(cap.numero).padStart(2, '0')}`}
+                titulo={cap[tituloKey]}
+                resumo={cap[resumoKey] || cap.resumo_pt || ''}
+                meta={liberado && cap.data_publicacao ? formatarData(cap.data_publicacao) : ''}
+                badge={t('pages.livro.em_breve')}
+              />
             )
           })}
         </div>

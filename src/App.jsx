@@ -145,7 +145,7 @@ export default function App() {
         <Route path="/historias/:slug" element={<Obra />} />
         <Route path="/historias/:slug/:cap" element={<ObraCapitulo />} />
         {/* Redirects legados — /livro migrou para /historias (v10.199.0) */}
-        <Route path="/livro" element={<Navigate to="/historias/lutas-de-ilusao" replace />} />
+        <Route path="/livro" element={<Navigate to="/historias" replace />} />
         <Route path="/livro/contos" element={<Navigate to="/historias/contos" replace />} />
         <Route path="/livro/contos/:historia" element={<LegacyLivroRedirect to="/historias/contos/:historia" />} />
         <Route path="/livro/contos/:historia/:cap" element={<LegacyLivroRedirect to="/historias/contos/:historia/:cap" />} />
