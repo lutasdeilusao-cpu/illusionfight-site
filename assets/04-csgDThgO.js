@@ -1,0 +1,73 @@
+var e=`# CHAPTER 4 — The Wrong Osvaldo
+
+Near where I live there was a place where some guys played.
+
+It was a studio. Belonging to a man named Osvaldo.
+
+At first I just stood outside, at the window, watching. Bands came and went all day, and I tried to copy what I saw. They played electric, not acoustic, but it looked like the same thing — the finger positions looked identical, so I memorized them and tried to reproduce it right there, with the beat-up old guitar I had with me.
+
+Osvaldo would shoo me away.
+
+— Get out of there, you little stinker. You're bothering the bands with that shit sound.
+
+I'd leave and come back the next day. And the next. No mercy.
+
+---
+
+Until one day I showed up and there wasn't a single band. Empty studio.
+
+Osvaldo saw me at the window again.
+
+— Hey, brat. You again. — He sighed like I was an electricity bill. — Come here, stinker. Go on, in.
+
+I don't usually trust adults. But I'd been there so many times I almost felt like part of the place.
+
+— Play something on that piece of junk. — He pointed at my guitar.
+
+I played.
+
+— Man. — He made a pained face. — What are you doing? That's way out of tune.
+
+He ripped the guitar out of my hand with hatred, tuned it string by string grumbling, and handed it back.
+
+— Now play.
+
+I played. It sounded a little better. Still bad, but less.
+
+— Wow. You're terrible.
+
+I really was terrible. Still am. Osvaldo says so to this day.
+
+---
+
+And that's when he started training me.
+
+Whenever there was a free slot at the studio, he'd call me in and teach me one more thing.
+
+You know Osvaldo ([main line, ch. 1](/historias/lutas-de-ilusao/capitulo-01)). Calm, patient, that gentle old man who helped half the world.
+
+That wasn't the Osvaldo I met.
+
+The one who taught me had a mohawk. Rock clothes, all torn. He was a crazy old man, he yelled, and he cursed at me nonstop.
+
+— Incompetent. You can't learn something this simple. You're stupid, kid. Stupid.
+
+It was about three months like that.
+
+---
+
+And then something happened in Osvaldo's life.
+
+I don't know what. Never asked. But from one day to the next he changed.
+
+— I had an epiphany. — He said. — Now I know why you don't learn.
+
+The truth is his manner didn't bother me. Being mistreated, cursed at, humiliated — that had been part of my day since I can remember. And, in the middle of it all, Osvaldo at least was trying to teach me something. The problem was that I was too stupid to learn the way he was teaching.
+
+When he started being kinder, it was actually strange for me.
+
+But it worked. With the new method I learned a little song. Then another.
+
+Things started going right.
+`;export{e as default};
+//# sourceMappingURL=04-csgDThgO.js.map

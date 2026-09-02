@@ -1,0 +1,71 @@
+var e=`# CHAPTER 6 — The Drums
+
+After that day, Jack disappeared.
+
+Three weeks without a word. That never happened — we saw each other almost every day. I didn't even really know where he lived to go after him. We'd been friends for years and I didn't know his address. That's how it works when nobody has a house you can call a house.
+
+I was worried. Not that I'd admit that to anyone.
+
+---
+
+Then, in the middle of the night, little pebbles started hitting my window.
+
+I got up. It was Jack, down below, all filthy, with a huge grin.
+
+— I did it, damn it. Open the fucking garage.
+
+— What the hell is this, Jack? — I was still half asleep. — What time is it.
+
+— Open the garage.
+
+He had a drum kit. Old, missing one of the toms, snare torn, all patched up.
+
+— We're not putting that piece of junk in my garage.
+
+— We're putting that piece of junk in your garage, yes we are.
+
+— Explain to me first what's going on.
+
+He hadn't been able to borrow a kit anywhere. So he worked. Three weeks of hell, nonstop, saving up cash to buy that wrecked kit.
+
+— We finally have a band.
+
+— Jack. You're losing it. Helena's going to hear you.
+
+But it was Jack. And with Jack the story is always the same. I went down in the middle of the night and we dragged that kit inside making the least noise possible — knowing full well that silence would last exactly until the first hit.
+
+---
+
+Early the next day he showed up, and lucky for us Helena was off on one of her whole-weekend outings.
+
+So it was the first time we played together.
+
+In my garage. Me with the little old guitar, completely buried under the absurd noise of that patched-up kit.
+
+And that's where I noticed something.
+
+Jack is different from me.
+
+At the start of the session he was bad. Really bad. But from the middle on he was already playing for real — on the beat, controlling snare, hi-hat and kick, knowing where to come in and where to hold back. He taught himself to play drums, that same day, on instinct alone.
+
+That was magnificent.
+
+---
+
+Over the years Jack only got better.
+
+He started making songs. Genuinely good songs. Learned editing, key, mixing, does live sound editing. The stuff he produces is sensational.
+
+I always told him to look for a real band. Someone who could actually play, at his level. It's impossible not to recognize the guy's talent.
+
+He always answered the same thing: if it's not to play with you, I don't play with anyone.
+
+Which puts me in an idiotic position. Because Jack's talent can't just die in a garage. So, with a lot of bad will, once in a while I go down, pick up the guitar, and make some sound with him. Not because I like it. Because it's stupid to leave a guy like that with no one to play with.
+
+We don't have a band. That I make a point of making clear.
+
+But Jack deserves to be heard by the world. And one day I hope he is.
+
+That's how Jack got it into his head that we have a band.
+`;export{e as default};
+//# sourceMappingURL=06-BG91C1Fk.js.map
