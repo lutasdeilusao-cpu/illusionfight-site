@@ -1,0 +1,53 @@
+var e=`# CAPÍTULO 5 — Azuma
+
+A gente passou quatro anos em Azuma. Foi a parada mais longa ([conto isso pros meninos anos depois, linha principal, cap. 9](/historias/lutas-de-ilusao/capitulo-09)).
+
+Azuma é longe. Outra língua, outra comida, outro jeito de olhar pra estrangeiro. E o meu pai viajando ainda mais que antes, semanas fora, a consultoria dele comendo o calendário inteiro.
+
+Eu tinha doze anos quando chegamos e dezesseis quando saímos. Praticamente cresci lá.
+
+---
+
+Foi em Azuma que a luta virou rotina.
+
+Não a academia — a rua. Menina estrangeira, sozinha, sem irmão mais velho, sem grupo. Isso é alvo em qualquer lugar do mundo. Umas duas vezes por mês tinha alguém pra testar se eu ia deixar barato.
+
+Eu parei de deixar barato lá pelo terceiro mês.
+
+Teve uma vez que três garotas me cercaram na saída de um mercado por causa de nada — uma delas achou que eu tinha olhado torto. Eu quebrei o nariz da primeira antes das outras duas entenderem que aquilo não ia ser fácil. Elas foram embora. Ninguém daquele grupo mexeu comigo de novo.
+
+Eu não senti orgulho. Senti alívio. É diferente.
+
+---
+
+Teve outras. Nunca por briga que eu comecei.
+
+Um menino mais velho que ficava me esperando na esquina do prédio pra pedir dinheiro que eu não tinha, todo dia, até o dia em que eu cansei e enfrentei. Esse foi o único que revidou de verdade. Eu saí com o lábio partido e ele saiu mancando, e nenhum dos dois voltou a tocar no assunto.
+
+Um grupo de meninas da escola que resolveu que a estrangeira ia ser a piada do semestre. Eu não bati em ninguém dessa vez. Eu só esperei a líder ficar sozinha no banheiro e falei, bem baixo, exatamente o que ia acontecer com ela se continuasse. Ela acreditou. Acabou ali.
+
+Eu aprendi cedo que quase toda briga se ganha antes, na cara que você faz e na calma com que você fala. O soco é só a parte que sobra quando o resto não funcionou.
+
+O problema é que, de tanto ganhar as brigas antes, eu comecei a ganhar as conversas todas do mesmo jeito. E aí não sobrava ninguém do outro lado da mesa.
+
+---
+
+Foi em Azuma também que eu tentei uma amizade.
+
+Uma menina do prédio, mais ou menos da minha idade, que também não se encaixava em lugar nenhum. A gente andou junto por uns cinco meses. Foi bom. Eu quase esqueci a minha regra.
+
+Aí meu pai chegou um dia e falou que a gente ia embora em duas semanas.
+
+Eu não contei pra ela. Só parei de descer. No dia da mudança eu vi da janela do carro que ela estava na porta do prédio, olhando, sem entender. Igual à menina de Azuma que eu tinha sido cinco meses antes, e igual à menina que eu ia ser de novo na cidade seguinte.
+
+Foi a última vez que eu deixei alguém entrar. Por muito tempo.
+
+---
+
+O meu pai, mesmo com todo esse trabalho, nunca foi ausente de verdade.
+
+Ele ligava toda noite que estava fora. Voltava sempre com uma história e nunca com um presente — isso tinha acabado. Ele me ensinou a cozinhar arroz, a trocar a resistência do chuveiro, a discutir preço na feira. Ensinou como quem passa um ofício.
+
+Naqueles quatro anos duros, ele foi a única coisa firme que eu tive. E eu ainda não sabia que ele estava me devendo uma explicação enorme.
+`;export{e as default};
+//# sourceMappingURL=05-Ql6iyWIz.js.map

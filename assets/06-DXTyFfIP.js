@@ -1,0 +1,83 @@
+var e=`# CHAPTER 6 — The Bike
+
+By seven I wasn't alone anymore. I had Kim.
+
+But Kim had his own stuff — Helena, the buses, his candy to sell. And I had mine. We ran around together, fought together, slept on the school roof together when going home wasn't an option. But each guy's hustle was his own. To this day Kim has no idea how big mine is.
+
+So let me tell you.
+
+---
+
+Everybody starts by begging. I already told you that. Begging has an expiration date, and mine came up fast.
+
+The first real hustle was cans and cardboard. Aluminum cans, flattened boxes, anything the scrapyard paid for by the kilo. It pays. I got to know Marelia's trash calendar better than the garbage truck — Tuesday early morning was gold, before the other collectors woke up.
+
+But I dropped it fast, and I'll tell you why.
+
+---
+
+Trash doesn't multiply.
+
+You collect all day, bent over, stinking, and at the end you've got exactly what you picked up with your two hands. Tomorrow you wake up and start from zero. It's honest work and it's a treadmill: run hard, get nowhere.
+
+I wanted something that would grow. And that's when I tripped over the thing that became my whole life.
+
+---
+
+Delivery.
+
+It started tiny. A lady at the market: "kid, take this bag over to my place, I can't carry it, I'll give you a coin". I took it. Next day she had a friend who also needed it. The friend had a neighbor.
+
+In a month I had a little list of people who called me to move things from one point of the city to another. Groceries, packages, a document, medicine from the pharmacy, the lunchbox the kid forgot.
+
+I was fast, I was funny, and I never lost or broke a single thing that belonged to anybody. In a city where trust is in short supply, that's worth more than muscle.
+
+---
+
+You're probably wondering why I didn't take the easy road.
+
+Crime was right there the whole time, arms wide open, the way it always is for a street kid with nobody behind him. All you had to do was say yes.
+
+I walked right past it. And it wasn't out of some speech about morals — it was out of experience. I'd already worked for free for the operation once, without choosing to, in that basement at the aunt and uncle's house that I'm not going to describe again. I know exactly what it smells like in there. Once is enough for a lifetime.
+
+Besides that, there's the practical part: in crime the thing is never yours. You mind it for other people, and the day it goes wrong the bill lands on you. I wanted something that was mine. So I went my own way.
+
+---
+
+Then I saved up some money and bought a bike. The Warrior — my warrior girl. "Warrior" — and in English everything sounds more like a movie.
+
+Old, half-working brakes, torn seat. The best purchase of my life — after the green hair, but that's another chapter.
+
+With the Warrior I stopped being a kid who carries a bag and became a service. Five times more deliveries in the same day. A neighborhood that was far became close. I'd pick up a package downtown in the morning and drop it on the Hill before lunch — something that on foot ate the whole afternoon.
+
+The Warrior didn't give me speed. It gave me reach. And reach is what turns into money.
+
+---
+
+It was around then that I set up the first stall.
+
+I noticed the people up top wanted stuff that was only downtown — cables, chargers, batteries, earbuds, little speakers — and nobody wanted to go down for it. Two buses, a whole afternoon lost.
+
+I was already going down every day to deliver. So I started going down with a shopping list of my own too. Buy ten, go back up, resell for a little more off a board on top of a crate.
+
+People paid the difference happily. Because what I was really selling wasn't the cable. It was the right not to have to go downtown.
+
+---
+
+And there was the guy.
+
+Once a month, me and Kim would go up and fight a guy ([the main line mentions him, the Champion, in ch. 3](/historias/lutas-de-ilusao/capitulo-03)). I don't remember his name. Swear to everything. It was Tuesday, or Wednesday — Monday? Never stuck.
+
+Kim remembers every detail of that story, ask Kim. I remember that we went, took a beating, came back down, and the next month went up again. In me it got filed under "things that happened". Kim keeps it with a label and in alphabetical order. I don't hold on to that stuff. Everybody processes their own way, and mine is to let go.
+
+---
+
+The good part of this chapter is the best one yet.
+
+I found out I was good at this. Really good.
+
+Take nothing and turn it into something — that's a game, and I win that game. You know how Kim walks into a fight and you can see on his face that he already knows how it ends? That same face I make in front of a city full of people who need things. I look and I already see the map of the money.
+
+With the first stall standing and the Warrior rolling, I ran the numbers and saw there was room for a lot more than that.
+`;export{e as default};
+//# sourceMappingURL=06-DXTyFfIP.js.map
