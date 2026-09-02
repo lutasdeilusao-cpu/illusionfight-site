@@ -1,0 +1,63 @@
+{
+ "icone": "👑",
+ "titulo": "As Seis Coroas — Política Humana",
+ "blocos": [
+  {
+   "t": "prose",
+   "texto": "A Aliança das Seis Coroas não é monolítica. É uma coalizão de interesses que divergem com frequência suficiente para criar fissuras que o Perpétuo vai explorar."
+  },
+  {
+   "t": "personagens",
+   "itens": [
+    {
+     "nome": "Vaelthar — A Coroa Mercantil",
+     "papel": "Capital · Maior ilha · Centro financeiro",
+     "desc": "Governa pela Bolsa do Éter e pela Companhia. Controla o dinheiro, controla tudo. O Almirantado é formalmente neutro mas financiado majoritariamente por Vaelthar. Qualquer ameaça ao mercado de éter é tratada como existencial.",
+     "flaw": "Fratura interna: facção de mercadores menores percebendo que a Companhia suprime concorrência. Querem reforma — não por moralidade, por oportunidade.",
+     "power": "",
+     "tags": []
+    },
+    {
+     "nome": "Dornath — A Coroa Militar",
+     "papel": "Segunda maior · Sede do Almirantado · Origem de Vaeryn",
+     "desc": "Cultura militar. Honra, disciplina, hierarquia. Maioria dos oficiais vem de Dornath — incluindo Voss. Acredita genuinamente na missão civilizatória da Aliança.",
+     "flaw": "Para Vaeryn, Dornath é o sistema que a criou e tentou leiloá-la. Voltar lá como capitã do Perpétuo no Arco II cria as cenas mais pessoalmente carregadas da série.",
+     "power": "",
+     "tags": []
+    },
+    {
+     "nome": "Selvane — A Coroa Religiosa",
+     "papel": "Sede da Igreja das Seis Marés",
+     "desc": "A mais instável politicamente. Movimento crescente dos Reformistas que acredita na Igreja corrompida ao silenciar o Deus do Fundo. Estão perigosamente próximos de descobrir o que o Manifesto conta.",
+     "flaw": "Potencial aliado no Arco II: se os Reformistas obtiverem o Manifesto, causam crise religiosa que abala Selvane de dentro para fora.",
+     "power": "",
+     "tags": []
+    },
+    {
+     "nome": "Korrath — A Coroa Científica",
+     "papel": "Centro de pesquisa · Engenharia de éter",
+     "desc": "Pragmáticos puros. Dados internos estão começando a sugerir que o éter se comporta de forma anômala. Alguns pesquisadores sabem mais do que publicam.",
+     "flaw": "Bross tem contatos de Korrath. Um deles tem dados técnicos que corroboram o Manifesto por ângulo diferente.",
+     "power": "",
+     "tags": []
+    },
+    {
+     "nome": "Amvesh — A Coroa Colonial",
+     "papel": "Expansão · Fronteiras · Exploração",
+     "desc": "A mais jovem das Coroas. Economia dependente do controle de ilhas \"pacificadas\" de não-humanos. Os mais brutais em suprimir resistência.",
+     "flaw": "Maior obstáculo político para qualquer reforma. E onde Ossa está. Para Vaeryn, Amvesh nunca é só política.",
+     "power": "",
+     "tags": []
+    },
+    {
+     "nome": "Thessa — A Coroa Neutra",
+     "papel": "Comércio · Diplomacia · Equilíbrio",
+     "desc": "A menor em território, a mais rica per capita. Intermediário diplomático entre as cinco e entre a Aliança e as Ilhas Livres — numa relação que oficialmente não existe.",
+     "flaw": "A mais provável aliada no Arco III — se o preço for certo. Thessa sempre tem um preço.",
+     "power": "",
+     "tags": []
+    }
+   ]
+  }
+ ]
+}

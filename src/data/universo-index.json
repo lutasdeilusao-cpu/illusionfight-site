@@ -20,29 +20,35 @@
     "titulo": "O Mundo das Sombras",
     "titulo_en": "The Shadow World",
     "titulo_es": "El Mundo de las Sombras",
-    "subtitulo_pt": "As Sombras e os Iluminados, os Marcados, o Escudo — o que os personagens sabem até o fim do Arco 1.",
-    "subtitulo_en": "The Shadows and the Illuminated, the Marked, the Shield — what the characters know by the end of Arc 1.",
-    "subtitulo_es": "Las Sombras y los Iluminados, los Marcados, el Escudo — lo que los personajes saben hasta el fin del Arco 1.",
+    "subtitulo_pt": "Um mundo colado ao nosso. As Sombras e os Iluminados, os Marcados, o Escudo — o que se sabe até o fim do Arco 1.",
+    "subtitulo_en": "A world pressed against ours. The Shadows and the Illuminated, the Marked, the Shield — what is known by the end of Arc 1.",
+    "subtitulo_es": "Un mundo pegado al nuestro. Las Sombras y los Iluminados, los Marcados, el Escudo — lo que se sabe hasta el fin del Arco 1.",
     "secoes": [
+      { "id": "mundo", "titulo": "O Mundo", "titulo_en": "The World", "titulo_es": "El Mundo" },
+      { "id": "personagens", "titulo": "Personagens", "titulo_en": "Characters", "titulo_es": "Personajes" },
+      { "id": "linha-do-tempo", "titulo": "Linha do Tempo", "titulo_en": "Timeline", "titulo_es": "Línea del Tiempo" },
       { "id": "glossario", "titulo": "Glossário", "titulo_en": "Glossary", "titulo_es": "Glosario" }
     ]
   },
   {
     "id": "mar-de-cinzas",
-    "selo": "dark-fantasy",
+    "selo": "mar-de-cinzas",
+    "formato": "blocos",
     "capa": null,
     "idiomas": ["pt"],
     "titulo": "Mar de Cinzas",
     "titulo_en": "Sea of Ashes",
     "titulo_es": "Mar de Cenizas",
-    "subtitulo_pt": "Thalvorn: um oceano de ilhas movido a memória de deuses mortos. As raças, os povos humanos, o que vive no fundo.",
-    "subtitulo_en": "Thalvorn: an ocean of islands run on the memory of dead gods. The races, the human peoples, what lives in the deep.",
-    "subtitulo_es": "Thalvorn: un océano de islas movido por la memoria de dioses muertos. Las razas, los pueblos humanos, lo que vive en el fondo.",
+    "subtitulo_pt": "Thalvorn: um oceano de ilhas movido a memória de deuses mortos. A bíblia do mundo, do sistema de magia e do elenco.",
+    "subtitulo_en": "Thalvorn: an ocean of islands run on the memory of dead gods. The bible of the world, the magic system and the cast.",
+    "subtitulo_es": "Thalvorn: un océano de islas movido por la memoria de dioses muertos. La biblia del mundo, del sistema de magia y del elenco.",
+    "aviso_pt": "Bíblia do projeto v5.0. A protagonista aqui — Vaeryn Thoss — é a revisão mais recente do mundo; os capítulos publicados em Histórias ainda seguem a versão anterior.",
     "secoes": [
-      { "id": "racas", "titulo": "Raças", "titulo_en": "Races", "titulo_es": "Razas" },
-      { "id": "povos", "titulo": "Povos Humanos", "titulo_en": "Human Peoples", "titulo_es": "Pueblos Humanos" },
-      { "id": "criaturas", "titulo": "Criaturas do Oceano", "titulo_en": "Ocean Creatures", "titulo_es": "Criaturas del Océano" },
-      { "id": "aberracoes", "titulo": "Aberrações e Horror Cósmico", "titulo_en": "Aberrations and Cosmic Horror", "titulo_es": "Aberraciones y Horror Cósmico" }
+      { "id": "mundo-tab", "titulo": "O Mundo", "partes": ["mundo", "magia", "historia", "navegacao"] },
+      { "id": "geografia", "titulo": "Geografia", "partes": ["ilhas", "seis-coroas", "tritons"] },
+      { "id": "elenco", "titulo": "Elenco", "partes": ["protagonista", "personagens", "antagonista"] },
+      { "id": "abismo", "titulo": "O Abismo", "partes": ["inquilino", "twist", "criaturas", "horror", "religiao"] },
+      { "id": "serie", "titulo": "A Série", "partes": ["arcos", "desastres", "pirataria", "final"] }
     ]
   }
 ]

@@ -1,0 +1,58 @@
+{
+ "icone": "🌒",
+ "titulo": "The World",
+ "blocos": [
+  {
+   "t": "prose",
+   "texto": "The Shadow World is not another planet. It is **our world**, pressed against the real one, separated by a thin film — almost invisible, almost impassable. On one side are the *impure*: ordinary people, who see nothing. On the other, the Shadows and the Illuminated."
+  },
+  {
+   "t": "prose",
+   "texto": "Caught in between are the few **Marked** children — touched as infants by a nameless force that leaves a spiral scar on the body. The mark draws everything in: the Shadows that feed on pain, and the gold-lit Illuminated who have hated them since the cradle."
+  },
+  {
+   "t": "card",
+   "variant": "purple",
+   "titulo": "The Shield",
+   "corpo": [
+    {
+     "t": "prose",
+     "texto": "Every Marked child is born inside an invisible film that blocks the Shadows' direct touch. It shouldn't exist — it is an error, something *broken*."
+    },
+    {
+     "t": "prose",
+     "texto": "The Shield cracks a little with every **Special Night** and every death tied to the Marked one. What happens when it breaks completely has not yet been documented."
+    }
+   ]
+  },
+  {
+   "t": "card",
+   "variant": "blue",
+   "titulo": "The Special Nights",
+   "corpo": [
+    {
+     "t": "prose",
+     "texto": "Rare events where Shadows and Illuminated manifest at once. They always come with mass deaths and local collapses of reality."
+    },
+    {
+     "t": "prose",
+     "texto": "The Marked draw these nights — and the gaps between them shorten before great tragedies. Minus has survived three."
+    }
+   ]
+  },
+  {
+   "t": "card",
+   "titulo": "The other side",
+   "corpo": [
+    {
+     "t": "prose",
+     "texto": "The *Shadow World* is a distorted reflection of the real one, where the Shadows exist in solid form. Every city has its own version, each with a different level of corruption."
+    },
+    {
+     "t": "prose",
+     "texto": "Entering that plane drains a human's body and mind within minutes. Minus crosses anyway — time runs differently there, and it lets him cover impossible distances in seconds."
+    }
+   ]
+  }
+ ]
+}

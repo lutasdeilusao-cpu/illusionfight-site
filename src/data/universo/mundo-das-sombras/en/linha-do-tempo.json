@@ -1,0 +1,84 @@
+{
+ "icone": "⏳",
+ "titulo": "Timeline",
+ "blocos": [
+  {
+   "t": "timeline",
+   "itens": [
+    {
+     "label": "Ages ago",
+     "titulo": "Flaw is born by mistake",
+     "tags": [],
+     "corpo": [
+      {
+       "t": "prose",
+       "texto": "In an Illuminated attempt to create something beyond their own control, a placeless penumbra appears — neither Shadow nor Light. It drifts without purpose, only watching the touched across the centuries."
+      }
+     ]
+    },
+    {
+     "label": "The cradle",
+     "titulo": "Minus is touched — and looks back",
+     "tags": [],
+     "corpo": [
+      {
+       "t": "prose",
+       "texto": "The nameless force touches baby Minus and the spiral burns into his skin. For a fraction of a second, he doesn't just receive the mark: he **sees something beyond**. It had never happened. Flaw feels it, and begins to follow him."
+      }
+     ]
+    },
+    {
+     "label": "My 4 years",
+     "titulo": "The sunny kitchen",
+     "tags": [],
+     "corpo": [
+      {
+       "t": "prose",
+       "texto": "The only truly happy years. His mother, the smell of vanilla, soup on the stove. Minus doesn't see any Shadow yet. And then it stops."
+      }
+     ]
+    },
+    {
+     "label": "My 9 years",
+     "titulo": "The São Miguel Orphanage massacre",
+     "tags": [
+      "Special Night",
+      "3rd time"
+     ],
+     "corpo": [
+      {
+       "t": "prose",
+       "texto": "The Shield truly cracks for the first time. The Shadows form a circle. Nineteen children slept there when the night began — Minus is the only one who walks out alive, unharmed, hidden under a sheet. The police have no question he can answer."
+      }
+     ]
+    },
+    {
+     "label": "From 9 to 13",
+     "titulo": "Four years on the street",
+     "tags": [
+      "Brasília"
+     ],
+     "corpo": [
+      {
+       "t": "prose",
+       "texto": "Minus learns to survive: where to sleep, where to find water. He discovers the Shadow World and captures Red Eyes while it is still wild. He trains the Chain in the ruins of Ceilândia until it becomes an extension of his body. He creates **Protocol Delta**: watch the Marked from a distance, step in only at the extreme."
+      }
+     ]
+    },
+    {
+     "label": "Now",
+     "titulo": "Luna — and the Resonance",
+     "tags": [
+      "Arc 1"
+     ],
+     "corpo": [
+      {
+       "t": "prose",
+       "texto": "Minus tracks the second Marked one in ages. To reach her before the Shadows, he dives into the Shadow World (Protocol Omega). Two Illuminated close in. When both Marked use their power at the same time, for the same purpose, something **resonates** — and it changes both worlds."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

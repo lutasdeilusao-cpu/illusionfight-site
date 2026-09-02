@@ -1,0 +1,164 @@
+{
+ "icone": "🏝️",
+ "titulo": "As Ilhas — Cenários Únicos",
+ "blocos": [
+  {
+   "t": "prose",
+   "texto": "Cada ilha de Thalvorn tem cultura, clima e segredos próprios. As ilhas abaixo são cenários-chave para os três arcos."
+  },
+  {
+   "t": "card",
+   "variant": "blue",
+   "titulo": "Vaelthar — A Capital",
+   "tags": [
+    "Aliança Imperial",
+    "opressão"
+   ],
+   "corpo": [
+    {
+     "t": "tags",
+     "itens": [
+      "Aliança Imperial",
+      "opressão"
+     ]
+    },
+    {
+     "t": "prose",
+     "texto": "A maior ilha conhecida. Torres de éter iluminam a noite como estrelas artificiais. Dirigíveis cruzam o céu em horários precisos. Linda e horrível. E nas docas de baixo, onde a Névoa Cinza se acumula à noite, os trabalhadores tritões dormem em gaiolas submersas. A Bolsa do Éter fica aqui. Suas flutuações determinam se aldeias inteiras comem ou não naquele mês."
+    }
+   ]
+  },
+  {
+   "t": "card",
+   "variant": "green",
+   "titulo": "Orvacht — O Porto Livre",
+   "tags": [
+    "Ilhas Livres",
+    "neutro"
+   ],
+   "corpo": [
+    {
+     "t": "tags",
+     "itens": [
+      "Ilhas Livres",
+      "neutro"
+     ]
+    },
+    {
+     "t": "prose",
+     "texto": "Construída sobre as ruínas de um antigo templo orc. Aqui humanos, elfos, anões, orcs, tritões coexistem de forma tensa mas funcional. A regra é simples: **o dinheiro não tem raça.** O mercado negro de éter bruto existe aqui — e também, discretamente, uma rede de resistência que Vaeryn vai ter que navegar com cuidado."
+    }
+   ]
+  },
+  {
+   "t": "card",
+   "variant": null,
+   "titulo": "Ilha das Árvores de Prata — Velanthar",
+   "tags": [
+    "élfica",
+    "mágica"
+   ],
+   "corpo": [
+    {
+     "t": "tags",
+     "itens": [
+      "élfica",
+      "mágica"
+     ]
+    },
+    {
+     "t": "prose",
+     "texto": "O maior refúgio élfico remanescente. Árvores de 60 metros com troncos prateados. Beleza real dentro de uma reserva vigiada pelo Almirantado. Os elfos de Velanthar têm memória mais clara da Semana Branca e documentos históricos que corroboram o Manifesto."
+    }
+   ]
+  },
+  {
+   "t": "card",
+   "variant": "red",
+   "titulo": "Ilha da Carcaça — Sem Nome Oficial",
+   "tags": [
+    "perigosa",
+    "história"
+   ],
+   "corpo": [
+    {
+     "t": "tags",
+     "itens": [
+      "perigosa",
+      "história"
+     ]
+    },
+    {
+     "t": "prose",
+     "texto": "Uma cidade dentro da carcaça calcificada de um leviatã pré-histórico encalhado. 800 metros de comprimento. Contrabandistas e pescadores que não se enquadram em nenhuma jurisdição. Dentro das costelas, casas aquecidas por éter que ainda emana dos ossos. Não existe em nenhum mapa oficial."
+    }
+   ]
+  },
+  {
+   "t": "card",
+   "variant": "purple",
+   "titulo": "Rekhmaar — A Ilha que Ferve",
+   "tags": [
+    "vulcânica",
+    "éter"
+   ],
+   "corpo": [
+    {
+     "t": "tags",
+     "itens": [
+      "vulcânica",
+      "éter"
+     ]
+    },
+    {
+     "t": "prose",
+     "texto": "O mar ao redor literalmente ferve em pontos — éter bruto aflora do fundo vulcânico. O vapor tem propriedades alucinógenas. Os orcs consideram sagrada a névoa. Os anões têm uma forja clandestina aqui que usa éter bruto aflorante — tecnicamente impossível segundo a Companhia. Aqui acontece a Cena II do Horror Cósmico."
+    }
+   ]
+  },
+  {
+   "t": "card",
+   "variant": "blue",
+   "titulo": "Amvesh — A Ilha da Punição e do Retorno",
+   "tags": [
+    "colonial",
+    "Vaeryn"
+   ],
+   "corpo": [
+    {
+     "t": "tags",
+     "itens": [
+      "colonial",
+      "Vaeryn"
+     ]
+    },
+    {
+     "t": "prose",
+     "texto": "Para Vaeryn, Amvesh não é só cenário político. É onde Ossa está. É onde a mina de onde fugiu se localiza. É onde a dívida pessoal mais pesada da história vive. No Arco III, quando o Perpétuo passa por Amvesh a caminho do Abismo, Vaeryn enfrenta a escolha entre desviar e cumprir o que prometeu ou continuar rumo ao que o mundo precisa. A história não deixa essa escolha fácil."
+    }
+   ]
+  },
+  {
+   "t": "card",
+   "variant": "green",
+   "titulo": "As Ilhas Submersas — Veth-Naur",
+   "tags": [
+    "tritão",
+    "abissal"
+   ],
+   "corpo": [
+    {
+     "t": "tags",
+     "itens": [
+      "tritão",
+      "abissal"
+     ]
+    },
+    {
+     "t": "prose",
+     "texto": "Apenas as pontas das torres emergem. A cidade real fica entre 20 e 80 metros de profundidade. O maior assentamento tritão livre — o Almirantado nunca conseguiu escravizar uma cidade submersa de forma eficiente. Veth-Naur tem os registros mais antigos sobre O Afogamento Primordial — e sobre O Inquilino, que chamam de *Veth-Dur*."
+    }
+   ]
+  }
+ ]
+}

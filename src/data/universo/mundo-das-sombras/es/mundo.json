@@ -1,0 +1,58 @@
+{
+ "icone": "🌒",
+ "titulo": "El Mundo",
+ "blocos": [
+  {
+   "t": "prose",
+   "texto": "El Mundo de las Sombras no es otro planeta. Es **nuestro mundo**, pegado al real, separado por una película fina — casi invisible, casi infranqueable. De un lado están los *impuros*: la gente común, que no ve nada. Del otro, las Sombras y los Iluminados."
+  },
+  {
+   "t": "prose",
+   "texto": "En el medio, atrapados, están los pocos niños **Marcados** — tocados de bebés por una fuerza sin nombre que deja una cicatriz en espiral en el cuerpo. La marca lo atrae todo: las Sombras que se alimentan del dolor, y los Iluminados de luz dorada que los odian desde la cuna."
+  },
+  {
+   "t": "card",
+   "variant": "purple",
+   "titulo": "El Escudo",
+   "corpo": [
+    {
+     "t": "prose",
+     "texto": "Todo Marcado nace dentro de una película invisible que impide el toque directo de las Sombras. No debería existir — es un error, algo *roto*."
+    },
+    {
+     "t": "prose",
+     "texto": "El Escudo se agrieta un poco en cada **Noche Especial** y en cada muerte ligada al Marcado. Lo que ocurre cuando se rompe por completo todavía no fue documentado."
+    }
+   ]
+  },
+  {
+   "t": "card",
+   "variant": "blue",
+   "titulo": "Las Noches Especiales",
+   "corpo": [
+    {
+     "t": "prose",
+     "texto": "Eventos raros en que Sombras e Iluminados se manifiestan a la vez. Vienen siempre con muertes en masa y colapsos locales de la realidad."
+    },
+    {
+     "t": "prose",
+     "texto": "Los Marcados atraen estas noches — y los intervalos entre ellas se acortan antes de grandes tragedias. Minus ya sobrevivió a tres."
+    }
+   ]
+  },
+  {
+   "t": "card",
+   "titulo": "El otro lado",
+   "corpo": [
+    {
+     "t": "prose",
+     "texto": "El *Shadow World* es un reflejo distorsionado del mundo real, donde las Sombras existen de forma sólida. Cada ciudad tiene su propia versión, con distinto nivel de corrupción."
+    },
+    {
+     "t": "prose",
+     "texto": "Entrar en ese plano drena el cuerpo y la mente de un humano en minutos. Minus atraviesa igual — el tiempo corre distinto allí dentro, y eso le permite cruzar distancias imposibles en segundos."
+    }
+   ]
+  }
+ ]
+}

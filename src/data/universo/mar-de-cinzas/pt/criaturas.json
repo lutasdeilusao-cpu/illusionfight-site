@@ -1,0 +1,51 @@
+{
+ "icone": "🦑",
+ "titulo": "Criaturas do Oceano",
+ "blocos": [
+  {
+   "t": "prose",
+   "texto": "A Névoa Cinza não fica na superfície. Desce. E o que existe nas profundezas foi exposto a ela por décadas. O oceano de Thalvorn está ficando errado."
+  },
+  {
+   "t": "tabela",
+   "head": [
+    "Criatura",
+    "Origem",
+    "O que a Névoa Fez",
+    "Papel na História"
+   ],
+   "rows": [
+    [
+     "**Leviatãs Brancos**",
+     "Cetáceos gigantes das rotas do norte",
+     "Ficaram completamente brancos e mudos. Nadam em círculos perfeitos repetitivos. Não comem. Devem estar morrendo — mas não morrem. Os tritões dizem que \"estão escutando.\"",
+     "Aparecem perto do Perpétuo durante os momentos em que Mira sente o chamado do Inquilino. São um sinal."
+    ],
+    [
+     "**Coral Memória**",
+     "Recifes de éter natural",
+     "Absorvem éter vazado e projetam imagens de civilização antiga — hologramas fragmentados de luz azul. Duram horas antes de se apagarem.",
+     "Bross encontra um campo de Coral Memória no Arco II. As imagens mostram quem construiu as estruturas de contenção."
+    ],
+    [
+     "**Cracas de Névoa**",
+     "Crustáceos de fundo oceânico",
+     "Crescem agora na superfície — em cascos de navios, pilares de porto. Inofensivas individualmente. Em colônias de milhares, coordenam ataques por vibração.",
+     "O Perpétuo fica infestado. Bross descobre que as do casco mais velho parecem \"proteger\" uma área específica do motor."
+    ],
+    [
+     "**Enguias de Fogo Frio**",
+     "Fauna abissal",
+     "Sobem para águas rasas em cardumes brilhantes. Contato com a pele transmite fragmentos de memória de alguém que viveu muito antes das raças atuais.",
+     "Mira pode \"conversar\" com elas. São parte do sistema de comunicação do Inquilino."
+    ],
+    [
+     "**O Remo**",
+     "Desconhecida",
+     "Criatura única, avistada três vezes. 400 metros. Corda viva de luz bioluminescente azul. Quando aparece, bússolas de éter nas proximidades param por horas.",
+     "Aparece uma vez no Arco III. É mensageiro do Inquilino — não ameaça."
+    ]
+   ]
+  }
+ ]
+}

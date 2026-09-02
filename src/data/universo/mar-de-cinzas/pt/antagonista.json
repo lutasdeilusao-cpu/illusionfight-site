@@ -1,0 +1,75 @@
+{
+ "icone": "⚔️",
+ "titulo": "Antagonista — Almirante Voss Threndar",
+ "blocos": [
+  {
+   "t": "card",
+   "variant": "red",
+   "titulo": "O Rosto do Sistema",
+   "tags": [],
+   "corpo": [
+    {
+     "t": "prose",
+     "texto": "Todo sistema precisa de um rosto. A Companhia das Ilhas Profundas é a estrutura — mas histórias fortes precisam de uma pessoa que você possa olhar nos olhos e tentar entender."
+    },
+    {
+     "t": "prose",
+     "texto": "**Almirante Voss Threndar**, 58 anos. Humano. Comandante da Fortaleza Flutuante *Inevitável* — um dreadnought do tamanho de uma pequena ilha, sede móvel do Almirantado Imperial, com 200 canhões e capacidade para 4.000 marinheiros."
+    }
+   ]
+  },
+  {
+   "t": "sub",
+   "texto": "Quem ele é"
+  },
+  {
+   "t": "prose",
+   "texto": "Voss não é um sádico. Não é corrupto. Não tortura por prazer. Ele é muito mais perigoso que isso: **ele acredita sinceramente que fez o que era necessário**."
+  },
+  {
+   "t": "quote",
+   "texto": "\"Eu não gosto do que o mundo é. Mas eu entendo o que o mundo seria sem o que nós fizemos. E esse mundo seria pior. É simples assim.\"",
+   "cite": "Almirante Voss Threndar, em interrogatório de um jornalista dissidente"
+  },
+  {
+   "t": "prose",
+   "texto": "Voss foi o arquiteto tático da Semana Branca. Não o inventor das Bombas — mas o homem que assinou a ordem de uso em larga escala, depois que os inventores hesitaram. Calculou as baixas. Aprovou os números. E depois dormiu."
+  },
+  {
+   "t": "prose",
+   "texto": "Mandou matar o pai de Vaeryn porque o homem estava prestes a publicar evidências que teriam desestabilizado a Aliança num momento crítico. Não por ódio. Por conveniência política. E a cadeia de consequências dessa decisão — família Thoss empobrecida, Vaeryn vendida em casamento, Vaeryn na mina, Vaeryn com o Manifesto — é uma ironia que Voss vai ter que encarar quando o confronto final acontecer."
+  },
+  {
+   "t": "sub",
+   "texto": "A Nova Dimensão do Confronto"
+  },
+  {
+   "t": "prose",
+   "texto": "Quando Vaeryn finalmente se posiciona diante de Voss no Arco II, o confronto tem uma camada adicional que não existia com Cael: Voss matou o pai dela. Não é abstrato. É pessoal. E Voss sabe disso — e apresenta os argumentos calculados de um homem que passou décadas justificando decisões necessárias a pessoas que foram diretamente prejudicadas por elas."
+  },
+  {
+   "t": "prose",
+   "texto": "Vaeryn tem que decidir se a raiva pessoal vai contaminar o que precisa ser feito. Ela decide que não. Mas essa decisão tem custo."
+  },
+  {
+   "t": "card",
+   "variant": "purple",
+   "titulo": "O Arco de Voss",
+   "tags": [],
+   "corpo": [
+    {
+     "t": "prose",
+     "texto": "No Arco III, quando a verdade do Inquilino é revelada — que as minas estão destruindo a prisão de algo capaz de afundar tudo que existe — Voss tem uma escolha. Reformar a Companhia por dentro, ordenar a paralisação das minas, e salvar o mundo ao custo de destruir o sistema que ele passou a vida construindo."
+    },
+    {
+     "t": "prose",
+     "texto": "Ou negar tudo, suprimir o Manifesto, e apostar que os cálculos da Companhia estavam certos."
+    },
+    {
+     "t": "prose",
+     "texto": "O que Voss escolhe fica em aberto até o capítulo final. Mas a pessoa que apresenta os argumentos para a escolha certa é a filha do homem que ele matou. Isso não passa despercebido por nenhum dos dois."
+    }
+   ]
+  }
+ ]
+}

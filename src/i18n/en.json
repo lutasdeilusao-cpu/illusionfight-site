@@ -2211,7 +2211,9 @@
     "universo": {
       "voltar": "← UNIVERSES",
       "recolher": "Collapse",
-      "verbetes": "{n} entries"
+      "verbetes": "{n} entries",
+      "forca": "Strength",
+      "falha": "Flaw"
     },
     "contos": {
       "linha_principal": "Main Line",

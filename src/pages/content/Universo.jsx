@@ -1,48 +1,122 @@
-import { useState, useEffect, useMemo } from 'react'
+import { useState, useEffect } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useParams, useNavigate, Link, Navigate } from 'react-router-dom'
 import { useLanguage } from '../../context/LanguageContext'
-import { parseUniverso } from '../../lib/parseUniverso'
 import universos from '../../data/universo-index.json'
 import './Livro.css'
 import './Contos.css'
 import './Universo.css'
 
-const docs = import.meta.glob('../../data/universo/**/*.md', { query: '?raw', import: 'default' })
+const docs = import.meta.glob('../../data/universo/**/*.json', { eager: true, import: 'default' })
 
-function Verbete({ v, aberto, onToggle, t }) {
+/* ── inline: **negrito** e *itálico* ── */
+function Inline({ children }) {
+  const s = String(children || '')
+  const parts = s.split(/(\*\*[^*]+\*\*|\*[^*\n]+\*)/g).filter(Boolean)
+  return parts.map((p, i) => {
+    if (p.startsWith('**') && p.endsWith('**')) return <strong key={i}>{p.slice(2, -2)}</strong>
+    if (p.startsWith('*') && p.endsWith('*')) return <em key={i}>{p.slice(1, -1)}</em>
+    return <span key={i}>{p}</span>
+  })
+}
+
+function Tags({ itens }) {
+  if (!itens?.length) return null
   return (
-    <div className={`uverb${aberto ? ' uverb--aberto' : ''}`}>
-      <button type="button" className="uverb__head" onClick={onToggle} aria-expanded={aberto}>
-        <span className="uverb__nome">{v.nome}</span>
-        <span className="uverb__chevron" aria-hidden="true" />
-      </button>
-
-      {v.chips.length > 0 && (
-        <div className="uverb__chips">
-          {v.chips.map(([k, val], i) => (
-            <span key={i} className="uverb__chip">
-              <span className="uverb__chip-k">{k}</span>
-              <span className="uverb__chip-v">{val}</span>
-            </span>
-          ))}
-        </div>
-      )}
-
-      {!aberto && v.teaser && <p className="uverb__teaser">{v.teaser}</p>}
-
-      {aberto && (
-        <div className="uverb__body">
-          {v.corpo.map((c, i) => {
-            if (c.tipo === 'sub') return <p key={i} className="uverb__sub">{c.texto}</p>
-            if (c.rotulo) return <p key={i}><span className="uverb__rotulo">{c.rotulo}</span> {c.texto}</p>
-            return <p key={i}>{c.texto}</p>
-          })}
-          <button type="button" className="uverb__fechar" onClick={onToggle}>{t('pages.universo.recolher')}</button>
-        </div>
-      )}
+    <div className="u-tags">
+      {itens.map((t, i) => <span key={i} className="u-tag"><Inline>{t}</Inline></span>)}
     </div>
   )
+}
+
+function Corpo({ blocos, t }) {
+  return (blocos || []).map((b, i) => <Bloco key={i} b={b} t={t} />)
+}
+
+function Bloco({ b, t }) {
+  switch (b.t) {
+    case 'prose':
+      return <p className="u-p"><Inline>{b.texto}</Inline></p>
+    case 'sub':
+      return <h4 className="u-sub"><Inline>{b.texto}</Inline></h4>
+    case 'tags':
+      return <Tags itens={b.itens} />
+    case 'lista':
+      return <ul className="u-lista">{b.itens.map((it, i) => <li key={i}><Inline>{it}</Inline></li>)}</ul>
+    case 'quote':
+      return (
+        <blockquote className="u-quote">
+          <p><Inline>{b.texto}</Inline></p>
+          {b.cite && <cite>— <Inline>{b.cite}</Inline></cite>}
+        </blockquote>
+      )
+    case 'tabela':
+      return (
+        <div className="u-tabela-wrap">
+          <table className="u-tabela">
+            {b.head?.length > 0 && <thead><tr>{b.head.map((h, i) => <th key={i}><Inline>{h}</Inline></th>)}</tr></thead>}
+            <tbody>{b.rows.map((r, i) => <tr key={i}>{r.map((c, j) => <td key={j}><Inline>{c}</Inline></td>)}</tr>)}</tbody>
+          </table>
+        </div>
+      )
+    case 'box':
+      return <div className={`u-box u-box--${b.variant || 'default'}`}><Corpo blocos={b.corpo} t={t} /></div>
+    case 'card':
+      return (
+        <div className={`u-card u-card--${b.variant || 'default'}`}>
+          {b.titulo && <h3 className="u-card__titulo"><Inline>{b.titulo}</Inline></h3>}
+          <Tags itens={b.tags} />
+          <Corpo blocos={b.corpo} t={t} />
+        </div>
+      )
+    case 'callout':
+      return (
+        <div className={`u-callout u-callout--${b.kind || 'twist'}`}>
+          {b.label && <span className="u-callout__label"><Inline>{b.label}</Inline></span>}
+          {b.titulo && <h3 className="u-callout__titulo"><Inline>{b.titulo}</Inline></h3>}
+          <Corpo blocos={b.corpo} t={t} />
+        </div>
+      )
+    case 'protagonista':
+      return (
+        <div className="u-protag">
+          <span className="u-protag__nome"><Inline>{b.nome}</Inline></span>
+          <span className="u-protag__papel"><Inline>{b.papel}</Inline></span>
+          <Tags itens={b.tags} />
+          <Corpo blocos={b.corpo} t={t} />
+        </div>
+      )
+    case 'timeline':
+      return (
+        <div className="u-timeline">
+          {b.itens.map((it, i) => (
+            <div key={i} className="u-tl-item">
+              <span className="u-tl-label"><Inline>{it.label}</Inline></span>
+              <h3 className="u-tl-titulo"><Inline>{it.titulo}</Inline></h3>
+              <Tags itens={it.tags} />
+              <Corpo blocos={it.corpo} t={t} />
+            </div>
+          ))}
+        </div>
+      )
+    case 'personagens':
+      return (
+        <div className="u-chars">
+          {b.itens.map((c, i) => (
+            <div key={i} className="u-char">
+              <span className="u-char__nome"><Inline>{c.nome}</Inline></span>
+              {c.papel && <span className="u-char__papel"><Inline>{c.papel}</Inline></span>}
+              {c.desc && <p className="u-char__desc"><Inline>{c.desc}</Inline></p>}
+              {c.power && <p className="u-char__linha"><span className="u-char__k">{t('pages.universo.forca')}</span> <Inline>{c.power}</Inline></p>}
+              {c.flaw && <p className="u-char__linha u-char__linha--flaw"><span className="u-char__k">{t('pages.universo.falha')}</span> <Inline>{c.flaw}</Inline></p>}
+              <Tags itens={c.tags} />
+            </div>
+          ))}
+        </div>
+      )
+    default:
+      return null
+  }
 }
 
 export default function Universo() {
@@ -53,38 +127,13 @@ export default function Universo() {
   const meta = universos.find(x => x.id === universo)
   const u = meta && !meta.externo ? meta : null
 
-  const [secao, setSecao] = useState(u?.secoes?.[0]?.id || null)
-  const [raw, setRaw] = useState('')
-  const [abertos, setAbertos] = useState(() => new Set())
+  const [aba, setAba] = useState(u?.secoes?.[0]?.id || null)
 
   const sufT = locale === 'en' ? '_en' : locale === 'es' ? '_es' : ''
   const suf = locale === 'en' ? '_en' : locale === 'es' ? '_es' : '_pt'
 
-  useEffect(() => { setSecao(u?.secoes?.[0]?.id || null) }, [universo])
-
-  useEffect(() => {
-    if (!u || !secao) return
-    const idiomas = u.idiomas || ['pt']
-    const lang = idiomas.includes(locale) ? locale : 'pt'
-    const path = `../../data/universo/${u.id}/${lang}/${secao}.md`
-    const loader = docs[path] || docs[`../../data/universo/${u.id}/pt/${secao}.md`]
-    if (loader) loader().then(setRaw).catch(() => setRaw(''))
-    else setRaw('')
-    window.scrollTo(0, 0)
-  }, [u, secao, locale])
-
-  const parsed = useMemo(() => parseUniverso(raw), [raw])
-
-  useEffect(() => {
-    const first = parsed.grupos.find(g => g.entradas.length)?.entradas[0]?.id
-    setAbertos(first ? new Set([first]) : new Set())
-  }, [parsed])
-
-  const toggle = (id) => setAbertos(prev => {
-    const next = new Set(prev)
-    next.has(id) ? next.delete(id) : next.add(id)
-    return next
-  })
+  useEffect(() => { setAba(u?.secoes?.[0]?.id || null); window.scrollTo(0, 0) }, [universo])
+  useEffect(() => { window.scrollTo(0, 0) }, [aba])
 
   if (!universo) return <Navigate to="/mundo" replace />
   if (meta?.externo) return <Navigate to={meta.rota} replace />
@@ -101,8 +150,16 @@ export default function Universo() {
 
   const titulo = u[`titulo${sufT}`] || u.titulo
   const subtitulo = u[`subtitulo${suf}`] || u.subtitulo_pt
+  const aviso = u[`aviso${suf}`] || u.aviso_pt
   const soPt = (u.idiomas || ['pt']).length === 1 && (u.idiomas || ['pt'])[0] === 'pt'
-  const totalVerbetes = parsed.grupos.reduce((a, g) => a + g.entradas.length, 0)
+  const abaAtiva = u.secoes.find(s => s.id === aba) || u.secoes[0]
+
+  const idiomas = u.idiomas || ['pt']
+  const lang = idiomas.includes(locale) ? locale : 'pt'
+  const partes = (abaAtiva.partes || [abaAtiva.id])
+    .map(pid => docs[`../../data/universo/${u.id}/${lang}/${pid}.json`]
+      || docs[`../../data/universo/${u.id}/pt/${pid}.json`])
+    .filter(Boolean)
 
   return (
     <section className="universo-page" data-tema={u.id}>
@@ -124,11 +181,6 @@ export default function Universo() {
           </nav>
           <h1 className="universo-hero__titulo">{titulo}</h1>
           <p className="universo-hero__sub">{subtitulo}</p>
-          {totalVerbetes > 0 && (
-            <p className="universo-hero__count">
-              {t('pages.universo.verbetes').replace('{n}', totalVerbetes)}
-            </p>
-          )}
           {soPt && locale !== 'pt' && <p className="universo-hero__aviso">{t('pages.obra.idioma_unico')}</p>}
         </div>
       </header>
@@ -140,8 +192,8 @@ export default function Universo() {
               <button
                 key={s.id}
                 type="button"
-                className={`universo-tab${secao === s.id ? ' universo-tab--ativa' : ''}`}
-                onClick={() => setSecao(s.id)}
+                className={`universo-tab${aba === s.id ? ' universo-tab--ativa' : ''}`}
+                onClick={() => setAba(s.id)}
               >
                 {s[`titulo${sufT}`] || s.titulo}
               </button>
@@ -149,28 +201,15 @@ export default function Universo() {
           </nav>
         )}
 
-        {parsed.intro.length > 0 && (
-          <div className="universo-intro">
-            {parsed.intro.map((p, i) => <p key={i}>{p}</p>)}
-          </div>
-        )}
+        {aviso && <p className="universo-aviso">⚠ {aviso}</p>}
 
-        {parsed.grupos.map((g, gi) => (
-          <section key={gi} className="universo-grupo">
-            {g.titulo && (
-              <div className="universo-grupo__head">
-                <h2 className="universo-grupo__titulo">{g.titulo}</h2>
-                {g.entradas.length > 0 && <span className="universo-grupo__badge">{g.entradas.length}</span>}
-              </div>
-            )}
-            {g.intro.map((p, i) => <p key={i} className="universo-grupo__intro">{p}</p>)}
-            {g.entradas.length > 0 && (
-              <div className="universo-entradas">
-                {g.entradas.map(v => (
-                  <Verbete key={v.id} v={v} aberto={abertos.has(v.id)} onToggle={() => toggle(v.id)} t={t} />
-                ))}
-              </div>
-            )}
+        {partes.map((p, i) => (
+          <section key={i} className="universo-parte">
+            <div className="universo-parte__head">
+              {p.icone && <span className="universo-parte__icone" aria-hidden="true">{p.icone}</span>}
+              <h2 className="universo-parte__titulo">{p.titulo}</h2>
+            </div>
+            <Corpo blocos={p.blocos} t={t} />
           </section>
         ))}
       </div>

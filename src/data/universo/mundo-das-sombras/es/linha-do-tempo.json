@@ -1,0 +1,84 @@
+{
+ "icone": "⏳",
+ "titulo": "Línea del Tiempo",
+ "blocos": [
+  {
+   "t": "timeline",
+   "itens": [
+    {
+     "label": "Hace eras",
+     "titulo": "Falla nace por error",
+     "tags": [],
+     "corpo": [
+      {
+       "t": "prose",
+       "texto": "En un intento de los Iluminados de crear algo más allá de su propio control, surge una penumbra sin lugar en el mundo — ni Sombra, ni Luz. Vaga sin propósito, solo observando a los tocados a lo largo de los siglos."
+      }
+     ]
+    },
+    {
+     "label": "La cuna",
+     "titulo": "Minus es tocado — y mira de vuelta",
+     "tags": [],
+     "corpo": [
+      {
+       "t": "prose",
+       "texto": "La fuerza sin nombre toca al bebé Minus y la espiral le quema la piel. Por una fracción de segundo, no solo recibe la marca: **ve algo más allá**. Nunca había pasado. Falla lo siente, y empieza a seguirlo."
+      }
+     ]
+    },
+    {
+     "label": "Mis 4 años",
+     "titulo": "La cocina soleada",
+     "tags": [],
+     "corpo": [
+      {
+       "t": "prose",
+       "texto": "Los únicos años realmente felices. Su madre, olor a vainilla, sopa en el fuego. Minus todavía no ve ninguna Sombra. Y entonces deja de ser."
+      }
+     ]
+    },
+    {
+     "label": "Mis 9 años",
+     "titulo": "La masacre del Orfanato San Miguel",
+     "tags": [
+      "Noche Especial",
+      "3ª vez"
+     ],
+     "corpo": [
+      {
+       "t": "prose",
+       "texto": "El Escudo se agrieta de verdad por primera vez. Las Sombras forman un círculo. Diecinueve niños dormían allí cuando empezó la noche — Minus es el único que sale vivo, ileso, escondido bajo una sábana. La policía no tiene pregunta que él pueda responder."
+      }
+     ]
+    },
+    {
+     "label": "De los 9 a los 13",
+     "titulo": "Cuatro años de calle",
+     "tags": [
+      "Brasilia"
+     ],
+     "corpo": [
+      {
+       "t": "prose",
+       "texto": "Minus aprende a sobrevivir: dónde dormir, dónde encontrar agua. Descubre el Shadow World y captura a Ojos Rojos todavía salvaje. Entrena la Cadena en las ruinas de Ceilândia hasta que se vuelve extensión de su cuerpo. Crea el **Protocolo Delta**: observar a los Marcados de lejos, intervenir solo en el extremo."
+      }
+     ]
+    },
+    {
+     "label": "Ahora",
+     "titulo": "Luna — y la Resonancia",
+     "tags": [
+      "Arco 1"
+     ],
+     "corpo": [
+      {
+       "t": "prose",
+       "texto": "Minus rastrea a la segunda Marcada en eras. Para alcanzarla antes que las Sombras, se sumerge en el Shadow World (Protocolo Omega). Dos Iluminados cierran el cerco. Cuando los dos Marcados usan el poder a la vez, con el mismo propósito, algo **resuena** — y cambia los dos mundos."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

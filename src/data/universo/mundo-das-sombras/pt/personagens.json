@@ -1,0 +1,82 @@
+{
+ "icone": "👤",
+ "titulo": "Personagens",
+ "blocos": [
+  {
+   "t": "personagens",
+   "itens": [
+    {
+     "nome": "Minus",
+     "papel": "Marcado · humano · 13 anos",
+     "desc": "Sozinho desde os quatro anos, sobrevivente de três Noites Especiais — a última matou o orfanato inteiro. Vive nas ruas de Brasília e transformou o próprio medo em método: observa, treina, e só age quando não há outra saída.",
+     "power": "A Corrente — elos de luz azul que brotam do braço direito e servem de arma, escudo e meio de locomoção. Cresce quanto mais ele a enfrenta.",
+     "flaw": "Carrega a certeza de que cada morte ao redor dele é culpa sua. O Iluminado sussurra isso desde sempre, e Minus quase acredita.",
+     "tags": [
+      "solidão",
+      "culpa",
+      "método"
+     ]
+    },
+    {
+     "nome": "Nefeli",
+     "papel": "penumbra autoconsciente · ex-\"Falha\"",
+     "desc": "Não é Sombra nem Luz. Segundo o próprio relato, nasceu por acidente numa tentativa dos Iluminados de criar algo fora do controle deles. Deu a si mesma o nome \"Falha\" — depois virou Nefeli. Invisível para todos menos Minus.",
+     "power": "Projeta uma tela de fumaça prateada com informação (contagem de Sombras, avisos). Enxerga através das eras.",
+     "flaw": "Passou eras sem propósito, só observando. Segue Minus tentando descobrir por que existe — e o que ele viu no segundo em que foi tocado.",
+     "tags": [
+      "observadora",
+      "acidente",
+      "propósito"
+     ]
+    },
+    {
+     "nome": "Luna",
+     "papel": "Marcada · humana",
+     "desc": "A segunda pessoa marcada que Minus encontra em eras. Cresceu protegida — o oposto da rua. Descobre o próprio poder na hora em que precisa proteger alguém.",
+     "power": "Pétalas — pétalas rosadas que formam escudo ou atacam. Ela associa isso à memória de rosas e espinhos: beleza e dor juntas.",
+     "flaw": "Chama as forças por outros nomes (\"Forças da Escuridão\", \"Brilhantes\") — vê o mesmo conflito de um ângulo que não bate com o de Minus.",
+     "tags": [
+      "proteção",
+      "memória",
+      "espinhos"
+     ]
+    },
+    {
+     "nome": "Olhos Vermelhos",
+     "papel": "sombra-cachorro domada",
+     "desc": "Uma criatura canina capturada por Minus dentro do Shadow World. Selvagem no começo; quatro anos de treino a transformaram em aliada. Não tem os sentimentos do velho Sombra — Minus deu um nome novo porque não é um amigo, é uma arma viva.",
+     "power": "Consome outras Sombras. Obedece a protocolos treinados sem hesitar.",
+     "flaw": "Segundo Nefeli, não é a Sombra original — é algo moldado. O que sobra dela quando não há ordem a cumprir, ninguém sabe.",
+     "tags": [
+      "arma viva",
+      "treino",
+      "lealdade fria"
+     ]
+    },
+    {
+     "nome": "O Iluminado",
+     "papel": "entidade de luz dourada",
+     "desc": "Raramente toca um humano diretamente. Observa de longe e interfere só quando lhe convém. Trata as pessoas como peças de um conflito velho demais para ter registro — e reserva ódio especial aos Marcados.",
+     "power": "Orquestra as Sombras. Sua vontade dispersa ou organiza um enxame inteiro.",
+     "flaw": "A Senhora Helena o chamou de anjo da guarda. Estava errada. O Iluminado não protege ninguém — ele coordena.",
+     "tags": [
+      "orquestra",
+      "ódio antigo",
+      "luz sem misericórdia"
+     ]
+    },
+    {
+     "nome": "Sombra",
+     "papel": "cachorro de rua",
+     "desc": "Um viralata preto e marrom, orelha esquerda rasgada, que encontrou Minus aos sete anos. Nenhum dos dois tinha ninguém. Não é uma das sombras — é só um cachorro, e é a primeira coisa que Minus escolheu cuidar.",
+     "power": "—",
+     "flaw": "—",
+     "tags": [
+      "companhia",
+      "antes do Kim"
+     ]
+    }
+   ]
+  }
+ ]
+}

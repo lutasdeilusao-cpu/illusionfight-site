@@ -1,0 +1,109 @@
+{
+ "icone": "🌊",
+ "titulo": "Cultura Tritã — O Povo do Fundo",
+ "blocos": [
+  {
+   "t": "prose",
+   "texto": "Os tritões são o povo mais antigo de Thalvorn. São também o povo mais escravizado, mais desumanizado, mais mal-compreendido. A Companhia tem interesse em que sejam vistos como criaturas de trabalho, não como uma civilização com 30.000 anos de história."
+  },
+  {
+   "t": "card",
+   "variant": "blue",
+   "titulo": "Arquitetura — Cidades que Respiram",
+   "tags": [],
+   "corpo": [
+    {
+     "t": "prose",
+     "texto": "A arquitetura tritã negocia com o ambiente em vez de resistir. Construída com materiais que crescem — coral cultivado, conchas específicas, algas calcificadas. Uma cidade tritã não é construída e depois habitada: ela *cresce* por séculos. Veth-Naur tem três camadas:"
+    },
+    {
+     "t": "tabela",
+     "head": [
+      "Camada",
+      "Profundidade",
+      "Função",
+      "Material"
+     ],
+     "rows": [
+      [
+       "**A Superfície**",
+       "0–5m",
+       "Comércio com outras raças",
+       "Pedra comum — feito para visitantes"
+      ],
+      [
+       "**O Meio**",
+       "5–40m",
+       "Habitação, mercados, escolas",
+       "Coral luminescente, conchas de leviatã"
+      ],
+      [
+       "**O Fundo**",
+       "40–120m",
+       "Arquivos, templos, espaços sagrados",
+       "Éter cristalizado natural, pedra abissal"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "t": "card",
+   "variant": null,
+   "titulo": "Música — A Língua Que a Companhia Não Conseguiu Censurar",
+   "tags": [],
+   "corpo": [
+    {
+     "t": "prose",
+     "texto": "O **Veth-Nar** — \"falar com o fundo\" — usa frequências que se propagam por centenas de quilômetros no oceano sem perda significativa."
+    },
+    {
+     "t": "lista",
+     "itens": [
+      "**Frequência alta** — audível acima d'água. Carrega mensagem emocional. O que outras raças \"escutam\". Inofensivo segundo a Companhia.",
+      "**Frequência média** — audível embaixo d'água. Carrega informação específica. Localização, números, alertas. A camada de comunicação real.",
+      "**Frequência baixa** — infrassônica. Carrega história: memórias coletivas codificadas em padrão de vibração que só tritões treinados decodificam."
+     ]
+    },
+    {
+     "t": "prose",
+     "texto": "Os tritões escravizados cantam \"ao acaso\" nas câmaras de extração. A Companhia acha que é comportamento instintivo. É a rede de resistência mais elaborada de Thalvorn. Mira sabe o Veth-Nar completo — sua mãe ensinou antes de morrer na mina. Ato de resistência cultural disfarçado de amor."
+    }
+   ]
+  },
+  {
+   "t": "card",
+   "variant": "purple",
+   "titulo": "O Conclave das Profundezas — Política por Memória",
+   "tags": [],
+   "corpo": [
+    {
+     "t": "prose",
+     "texto": "Autoridade política tritã é proporcional à quantidade de história coletiva que um indivíduo consegue carregar e articular. O Conclave não vota. *Canta*. A decisão emerge do padrão de harmonia ou dissonância. Soluções que geram harmonia são adotadas — porque qualquer proposta que contradiz registros históricos gera dissonância automaticamente. Não tem como bluffar."
+    },
+    {
+     "t": "box",
+     "variant": "purple",
+     "corpo": [
+      {
+       "t": "prose",
+       "texto": "Fações do Conclave"
+      },
+      {
+       "t": "prose",
+       "texto": "**Os Silenciosos** — Desaparecer para profundidades intocáveis e esperar que a civilização de superfície colapse sozinha."
+      },
+      {
+       "t": "prose",
+       "texto": "**Os Cantores da Maré** — Resistência ativa. Redes de Veth-Nar, fugas, contato com o Culto do Fundo. Aliados naturais do Perpétuo."
+      },
+      {
+       "t": "prose",
+       "texto": "**Os Intérpretes** — Sabem sobre os Veth. Sabem sobre o Inquilino. E acreditam que o despertar pode não ser catástrofe — e que não é papel dos tritões impedi-lo."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

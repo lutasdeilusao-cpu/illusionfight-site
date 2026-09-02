@@ -1,0 +1,194 @@
+{
+ "icone": "⭑",
+ "titulo": "Protagonista — Vaeryn Thoss",
+ "blocos": [
+  {
+   "t": "protagonista",
+   "nome": "VAERYN THOSS",
+   "papel": "Comandante do Perpétuo · Humana · Dornath · 19 anos",
+   "tags": [
+    "rebeldia",
+    "inteligência",
+    "culpa",
+    "liderança",
+    "outsider"
+   ],
+   "corpo": [
+    {
+     "t": "prose",
+     "texto": "Filha de um oficial de médio escalão de Dornath, criada para ser entregue em casamento a alguém com conexões que a família precisava. Educada para ser inteligente o suficiente para não envergonhar um marido em jantar de oficiais, mas nunca suficientemente para fazer perguntas inconvenientes."
+    },
+    {
+     "t": "prose",
+     "texto": "O sistema calculou mal nos dois parâmetros."
+    }
+   ]
+  },
+  {
+   "t": "sub",
+   "texto": "Origem — A Formação de Consorte"
+  },
+  {
+   "t": "prose",
+   "texto": "O pai de Vaeryn, Capitão Errath Thoss, era um homem que acreditava genuinamente estar fazendo o melhor pela filha. A família tinha status mas pouca fortuna — o casamento político era a forma de garantir segurança a longo prazo. Ele a inscreveu na Formação de Consorte aos 12 anos sem segunda opinião. Era o que se fazia."
+  },
+  {
+   "t": "prose",
+   "texto": "O que ele não calculou: Vaeryn tinha memória fotográfica e curiosidade irrefreável. Cada jantar de oficiais na sala ao lado era uma aula. Cada mapa que o pai deixava sobre a mesa, uma lição de navegação. Cada relatório do Almirantado discutido entre homens que consideravam mulheres incapazes de entender, um arquivo mental."
+  },
+  {
+   "t": "prose",
+   "texto": "Por sete anos, ela aprendeu o que não era permitida de aprender — *sendo ignorada por pessoas que deveriam tê-la vigiado.*"
+  },
+  {
+   "t": "callout",
+   "kind": "scene",
+   "label": "cena de ruptura · o casamento",
+   "titulo": "O Dia em que Parou de Ser Invisível",
+   "corpo": [
+    {
+     "t": "prose",
+     "texto": "O noivo: **Comandante Herath Vael**, 47 anos, viúvo duas vezes. Voz respeitada no Almirantado. Solicitou Vaeryn especificamente porque o pai dela tinha acesso a rotas comerciais que ele queria controlar. Ela tinha 19 anos."
+    },
+    {
+     "t": "prose",
+     "texto": "A cerimônia era pública — Dornath valoriza testemunhas. Duzentos oficiais e suas famílias."
+    },
+    {
+     "t": "prose",
+     "texto": "No momento do juramento de subordinação — onde a noiva recita formalmente as *Doze Obrigações da Consorte* — Vaeryn parou. Silêncio."
+    },
+    {
+     "t": "prose",
+     "texto": "Depois começou a falar. Não o juramento. Uma análise tática do casamento. Em voz alta. Para todos os presentes. Ela desmontou cada \"obrigação\" usando a própria linguagem do Almirantado — terminologia de contratos de comércio, de gestão de ativos, de propriedade registrada. Fez o que o casamento *era* soar exatamente como o que era, usando o vocabulário que os homens na sala usavam todos os dias para outras transações."
+    },
+    {
+     "t": "prose",
+     "texto": "Não xingou. Não gritou. Usou a linguagem deles contra eles com precisão cirúrgica."
+    },
+    {
+     "t": "prose",
+     "texto": "Depois olhou para Herath e disse a única frase emocional da cena:"
+    },
+    {
+     "t": "quote",
+     "texto": "\"Você não está comprando uma esposa. Está comprando silêncio. E eu não estou à venda.\"",
+     "cite": "Vaeryn Thoss · cerimônia de casamento · Dornath"
+    },
+    {
+     "t": "prose",
+     "texto": "O silêncio que seguiu não foi de choque. Foi de raiva contida de duzentas pessoas que sabiam que ela estava tecnicamente correta e que isso não importava."
+    }
+   ]
+  },
+  {
+   "t": "sub",
+   "texto": "A Falha Real — O Peso que ela Carrega"
+  },
+  {
+   "t": "card",
+   "variant": "red",
+   "titulo": "Ossa",
+   "tags": [],
+   "corpo": [
+    {
+     "t": "prose",
+     "texto": "Três meses antes do casamento, Vaeryn convenceu **Ossa** — sua criada, única pessoa próxima de uma amiga — a entregar uma mensagem a um estudante dissidente. Livros proibidos. Conversas sobre o que realmente aconteceu nas Guerras. A única forma de Vaeryn continuar sendo ela mesma por mais alguns meses."
+    },
+    {
+     "t": "prose",
+     "texto": "Ossa foi capturada com a mensagem. Identificada como a remetente para proteger a família Thoss de escândalo. Condenada a três anos de trabalho compulsório numa ilha colonial de Amvesh."
+    },
+    {
+     "t": "prose",
+     "texto": "Vaeryn não a defendeu. Ficou em silêncio porque defendê-la significaria confessar, o que destruiria o casamento, o que destruiria a família."
+    },
+    {
+     "t": "prose",
+     "texto": "Dois meses depois, Vaeryn humilhou o noivo e foi enviada para a escravidão de qualquer jeito. Ossa ainda está em Amvesh. Vaeryn não sabe se está viva. E essa conta não tem como ser paga com heroísmo."
+    }
+   ]
+  },
+  {
+   "t": "sub",
+   "texto": "A Punição — Como Entra no Mundo"
+  },
+  {
+   "t": "prose",
+   "texto": "O Almirantado tem um processo para casos como o de Vaeryn. Executá-la ou prendê-la cria mártir e escândalo para a família de um oficial. A solução elegante: **reclassificação como \"trabalhadora em débito\"** — o mesmo eufemismo aplicado a tritões e orcs capturados. Enviada para uma mina de extração de éter no arquipélago colonial de Amvesh, como supervisora de baixo nível sobre trabalhadores tritões."
+  },
+  {
+   "t": "prose",
+   "texto": "A ironia calculada da punição: colocá-la acima de criaturas consideradas subumanas era suposto ser degradante. Para Vaeryn, é a primeira vez num ambiente onde o que ela sabe tem valor prático real. Em três meses aprende mais do que em 19 anos de Formação de Consorte."
+  },
+  {
+   "t": "prose",
+   "texto": "Aprende, principalmente, fragmentos de **Veth-Nar** — o sistema de comunicação tritão — porque escuta. Ela sempre foi extraordinariamente boa em escutar o que não era endereçado a ela."
+  },
+  {
+   "t": "sub",
+   "texto": "A Fuga — Inteligência como Arma"
+  },
+  {
+   "t": "prose",
+   "texto": "A fuga não é força bruta. É **administração**."
+  },
+  {
+   "t": "prose",
+   "texto": "Vaeryn descobre que o encarregado da mina está desviando 8% da produção de éter para um comprador particular — não declarado à Companhia. Ela documenta. Não por altruísmo: por *leverage*."
+  },
+  {
+   "t": "prose",
+   "texto": "Apresenta os números ao encarregado com uma proposta simples: liberdade para ela e doze trabalhadores tritões, em troca do silêncio. Se ela morrer, os documentos aparecem em Vaelthar em uma semana."
+  },
+  {
+   "t": "prose",
+   "texto": "Ele a libera."
+  },
+  {
+   "t": "prose",
+   "texto": "Ela não tinha nenhum plano de distribuição. Foi blefe puro. Mas ele não sabia — e ela apostou que homens que constroem poder em segredos têm medo desproporcional de serem expostos. Estava certa."
+  },
+  {
+   "t": "prose",
+   "texto": "Os doze tritões liberados incluem **Mira**."
+  },
+  {
+   "t": "sub",
+   "texto": "O Perpétuo — Como Consegue o Navio"
+  },
+  {
+   "t": "prose",
+   "texto": "O Perpétuo não é roubado. É *vendido* — o encarregado da mina o passa para Vaeryn por valor simbólico como parte do acordo, para formalizar a transação em papel e explicar o paradeiro dos \"trabalhadores liberados\" sem admitir o desvio. O navio estava parado, a tripulação original dispensada dias antes por corrupção administrativa. É tecnicamente de Vaeryn. Legalmente, no papel de um encarregado que prefere que ela desapareça."
+  },
+  {
+   "t": "prose",
+   "texto": "É o instrumento mais absurdo de liberdade que alguém poderia ter — e é exatamente o tipo de coisa que só acontece quando o sistema é corrupto o suficiente para ser virado contra si mesmo."
+  },
+  {
+   "t": "sub",
+   "texto": "Voz Narrativa — Como ela Soa"
+  },
+  {
+   "t": "card",
+   "variant": "rose",
+   "titulo": "O Log do Perpétuo",
+   "tags": [],
+   "corpo": [
+    {
+     "t": "prose",
+     "texto": "Vaeryn narra com a raiva controlada de quem aprendeu que raiva descontrolada é exatamente o que o sistema espera de você. Analítica, precisa, com momentos de vulnerabilidade que ela mesma tenta disfarçar de pragmatismo."
+    },
+    {
+     "t": "prose",
+     "texto": "Ela nunca dramatiza. Registra. A brutalidade está nos fatos nus, não na emoção com que os conta. Isso torna a narrativa mais devastadora — não menos."
+    },
+    {
+     "t": "quote",
+     "texto": "Nunca quis ser capitã. Queria ler livros que me disseram que não eram para mim. O resto foi consequência.",
+     "cite": "VAERYN THOSS · log 3 do Perpétuo · terceira semana de fuga"
+    }
+   ]
+  }
+ ]
+}

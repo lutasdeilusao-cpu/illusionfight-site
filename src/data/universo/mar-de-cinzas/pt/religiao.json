@@ -1,0 +1,62 @@
+{
+ "icone": "🕯️",
+ "titulo": "Religião & Cultos",
+ "blocos": [
+  {
+   "t": "card",
+   "variant": null,
+   "titulo": "A Igreja das Seis Marés — Humanos",
+   "tags": [],
+   "corpo": [
+    {
+     "t": "prose",
+     "texto": "Religião oficial da Aliança. Seis deuses representando as seis direções do oceano. O Deus do Fundo é deliberadamente omitido dos rituais — mencionado apenas como \"O Lugar Sem Resposta.\""
+    },
+    {
+     "t": "prose",
+     "texto": "Verdade oculta: os fundadores sabiam do Inquilino. O Deus do Fundo não é fictício. É uma advertência codificada que o clero atual esqueceu de ler."
+    }
+   ]
+  },
+  {
+   "t": "card",
+   "variant": "blue",
+   "titulo": "O Ciclo Perpétuo — Elfos",
+   "tags": [],
+   "corpo": [
+    {
+     "t": "prose",
+     "texto": "Crença de que a existência é circular — que cada coisa que morre alimenta o que vive, e que a memória nunca desaparece completamente, apenas se transforma. É, em retrospecto, tecnicamente correto: o éter *é* memória transformada. Os elfos mais velhos de Velanthar consideram queimar éter um ato de violência espiritual de magnitude incompreensível."
+    }
+   ]
+  },
+  {
+   "t": "card",
+   "variant": "red",
+   "titulo": "Culto do Fundo — Raças Oprimidas",
+   "tags": [],
+   "corpo": [
+    {
+     "t": "prose",
+     "texto": "Movimento de resistência disfarçado de culto místico. Crença central: algo nos fundos do oceano um dia vai despertar e desfazer o que foi feito. O Almirantado persegue membros ativamente — não pelas crenças, mas porque as reuniões organizam resistência política."
+    },
+    {
+     "t": "prose",
+     "texto": "Ironia amarga: eles estão certos. Mas o despertar do Inquilino não vai \"desfazer\" nada. Vai destruir tudo — a menos que seja negociado com cuidado."
+    }
+   ]
+  },
+  {
+   "t": "card",
+   "variant": "purple",
+   "titulo": "Os Leitores de Éter — Anões",
+   "tags": [],
+   "corpo": [
+    {
+     "t": "prose",
+     "texto": "Prática contemplativa — sentar com éter bruto e tentar \"escutar\" o que está gravado. Alguns descrevem visões de arquiteturas impossíveis, de um povo que navegava sem navios. Bross é um Leitor. Nunca contou para ninguém."
+    }
+   ]
+  }
+ ]
+}

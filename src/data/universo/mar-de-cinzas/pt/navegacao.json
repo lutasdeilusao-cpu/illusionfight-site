@@ -1,0 +1,58 @@
+{
+ "icone": "🧭",
+ "titulo": "Navegação — Um Mundo Que Não Fica Quieto",
+ "blocos": [
+  {
+   "t": "card",
+   "variant": null,
+   "titulo": "Ilhas que Somem e Surgem",
+   "tags": [],
+   "corpo": [
+    {
+     "t": "prose",
+     "texto": "Algumas ilhas não são permanentes — bancas de areia elevadas por pressão éter-vulcânica subterrânea. Surgem por décadas, viram comunidades, desaparecem em seis a doze meses. Há comunidades nômades que carregam tudo para os barcos quando a ilha começa a afundar. O Almirantado odeia isso. Não consegue coletar impostos de ilhas que não existem por tempo suficiente para construir um posto fiscal."
+    }
+   ]
+  },
+  {
+   "t": "card",
+   "variant": "blue",
+   "titulo": "As Correntes Vivas",
+   "tags": [],
+   "corpo": [
+    {
+     "t": "prose",
+     "texto": "Três correntes principais — **A Primeira**, **A Segunda** e **O Retorno** — mudam de direção com as estações. Mas desde que as minas intensificaram operações, A Segunda se comporta erraticamente. A hipótese dos navegadores mais velhos: as correntes são influenciadas pelo éter natural do fundo. Com as minas drenando esse fluxo, a dinâmica hídrica está desestabilizando."
+    }
+   ]
+  },
+  {
+   "t": "card",
+   "variant": "red",
+   "titulo": "Zonas de Silêncio Bússola",
+   "tags": [],
+   "corpo": [
+    {
+     "t": "prose",
+     "texto": "Regiões onde bússolas de éter param. Os piratas da Irmandade têm vantagem aqui — aprenderam navegação antiga porque não podiam depender de bússolas. O Almirantado treina exclusivamente com bússolas. Numa Zona de Silêncio, um navio de guerra imperial fica cego."
+    },
+    {
+     "t": "prose",
+     "texto": "Vaeryn não aprendeu navegação antiga na Formação de Consorte. Mas memorizou todos os mapas que o pai deixava sobre a mesa. E Syre, sendo elfa, nunca precisou de bússola. Isso vai salvar o Perpétuo no Arco III."
+    }
+   ]
+  },
+  {
+   "t": "card",
+   "variant": "purple",
+   "titulo": "Cartas Negras — O Mercado de Conhecimento",
+   "tags": [],
+   "corpo": [
+    {
+     "t": "prose",
+     "texto": "Mapas não-oficiais com Zonas de Silêncio, ilhas temporárias, posições das Correntes Vivas e rotas não-patrulhadas. O maior cartógrafo do mercado negro: **Keth**, anão de 80 anos que vive num navio que nunca ancora. Motivação puramente acadêmica — quer o mapa mais preciso que já existiu e o Almirantado continua recusando compartilhar as cartas dele."
+    }
+   ]
+  }
+ ]
+}

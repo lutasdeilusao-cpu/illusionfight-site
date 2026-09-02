@@ -1,0 +1,82 @@
+{
+ "icone": "👤",
+ "titulo": "Characters",
+ "blocos": [
+  {
+   "t": "personagens",
+   "itens": [
+    {
+     "nome": "Minus",
+     "papel": "Marked · human · 13 years old",
+     "desc": "Alone since the age of four, survivor of three Special Nights — the last one killed the whole orphanage. He lives on the streets of Brasília and has turned his own fear into method: he watches, he trains, and he only acts when there is no other way out.",
+     "power": "The Chain — links of blue light that erupt from his right arm and serve as weapon, shield and means of travel. It grows the more he faces it.",
+     "flaw": "He carries the certainty that every death around him is his fault. The Illuminated has whispered it forever, and Minus almost believes it.",
+     "tags": [
+      "solitude",
+      "guilt",
+      "method"
+     ]
+    },
+    {
+     "nome": "Nefeli",
+     "papel": "self-aware penumbra · formerly \"Flaw\"",
+     "desc": "Neither Shadow nor Light. By her own account, she was born by accident in an Illuminated attempt to create something beyond their control. She named herself \"Flaw\" — then became Nefeli. Invisible to everyone but Minus.",
+     "power": "Projects a silver screen of smoke carrying information (Shadow counts, warnings). She sees across the ages.",
+     "flaw": "She spent ages without purpose, only watching. She follows Minus trying to find out why she exists — and what he saw in the second he was touched.",
+     "tags": [
+      "observer",
+      "accident",
+      "purpose"
+     ]
+    },
+    {
+     "nome": "Luna",
+     "papel": "Marked · human",
+     "desc": "The second marked person Minus meets in ages. She grew up protected — the opposite of the street. She discovers her own power the moment she needs to protect someone.",
+     "power": "Petals — pink petals that form a shield or attack. She ties it to the memory of roses and thorns: beauty and pain together.",
+     "flaw": "She calls the forces by other names (\"Forces of Darkness\", \"the Bright Ones\") — she sees the same conflict from an angle that doesn't match Minus's.",
+     "tags": [
+      "protection",
+      "memory",
+      "thorns"
+     ]
+    },
+    {
+     "nome": "Red Eyes",
+     "papel": "tamed shadow-dog",
+     "desc": "A canine creature Minus captured inside the Shadow World. Wild at first; four years of training made it an ally. It lacks old Shadow's feelings — Minus gave it a new name because it isn't a friend, it's a living weapon.",
+     "power": "Consumes other Shadows. Obeys trained protocols without hesitation.",
+     "flaw": "According to Nefeli, it isn't the original Shadow — it's something shaped. What's left of it when there's no order to follow, no one knows.",
+     "tags": [
+      "living weapon",
+      "training",
+      "cold loyalty"
+     ]
+    },
+    {
+     "nome": "The Illuminated",
+     "papel": "entity of golden light",
+     "desc": "It rarely touches a human directly. It watches from a distance and interferes only when it suits it. It treats people as pieces in a conflict too old to have any record — and reserves special hatred for the Marked.",
+     "power": "Orchestrates the Shadows. Its will scatters or organizes a whole swarm.",
+     "flaw": "Mrs. Helena called it a guardian angel. She was wrong. The Illuminated protects no one — it coordinates.",
+     "tags": [
+      "orchestrator",
+      "ancient hate",
+      "light without mercy"
+     ]
+    },
+    {
+     "nome": "Shadow",
+     "papel": "street dog",
+     "desc": "A black-and-brown mutt with a torn left ear, who found Minus when he was seven. Neither of them had anyone. It's not one of the shadows — it's just a dog, and it's the first thing Minus chose to take care of.",
+     "power": "—",
+     "flaw": "—",
+     "tags": [
+      "company",
+      "before Kim"
+     ]
+    }
+   ]
+  }
+ ]
+}

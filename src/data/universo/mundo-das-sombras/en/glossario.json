@@ -1,0 +1,244 @@
+{
+ "icone": "📖",
+ "titulo": "Glossary — what is known",
+ "blocos": [
+  {
+   "t": "prose",
+   "texto": "The information below reflects what has been observed, understood, or interpreted by the characters up to the end of Arc 1: Discovery.\n Not everything presented here represents absolute truths. Many gaps remain."
+  },
+  {
+   "t": "card",
+   "variant": "purple",
+   "titulo": "ESSENTIAL TERMS",
+   "corpo": [
+    {
+     "t": "sub",
+     "texto": "THE MARKED"
+    },
+    {
+     "t": "prose",
+     "texto": "According to accounts gathered by Minus and observations made by Nefeli, the Marked are humans touched by an unknown force while still infants. They carry a spiral-shaped mark on their bodies and seem to attract both Shadows and luminous entities."
+    },
+    {
+     "t": "prose",
+     "texto": "They are considered extremely rare. Nefeli claims to have observed only a handful of cases over time — which does not rule out the possibility that many others may have existed without ever being recorded."
+    },
+    {
+     "t": "sub",
+     "texto": "THE MARK"
+    },
+    {
+     "t": "prose",
+     "texto": "A spiral-shaped scar present on the bodies of the Marked. It often burns or pulses during supernatural events, especially when other entities or another Marked are nearby.\n The exact origin of the Mark remains unknown."
+    },
+    {
+     "t": "sub",
+     "texto": "ANTAGONISTIC FORCES"
+    },
+    {
+     "t": "prose",
+     "texto": "(Nomenclature varies depending on the observer)"
+    },
+    {
+     "t": "sub",
+     "texto": "SHADOWS (Minus / Nefeli)"
+    },
+    {
+     "t": "sub",
+     "texto": "FORCES OF DARKNESS (Luna)"
+    },
+    {
+     "t": "prose",
+     "texto": "Described as deformed entities that inhabit the edges of reality. They currently manifest in dark tones — black and deep gray — often with red eyes, displaying aggressive behavior."
+    },
+    {
+     "t": "prose",
+     "texto": "According to Nefeli’s vision during the Resonance event, Shadows were not always like this. Originally, they were translucent, peaceful, and inert beings — existing without defined form and without malice."
+    },
+    {
+     "t": "prose",
+     "texto": "Their transformation into hostile entities is believed to have resulted from corruption imposed by the Illuminated during an ancient war, when the Light assigned everything it considered “impure” — violence, hatred, lust, greed — to the Shadows, reshaping them into what they are today."
+    },
+    {
+     "t": "prose",
+     "texto": "Reports indicate that they appear more intensely during certain events known as Special Nights. Their true origin remains uncertain, but evidence suggests they were not born as threats."
+    },
+    {
+     "t": "sub",
+     "texto": "THE ILLUMINATED (Minus / Nefeli)"
+    },
+    {
+     "t": "sub",
+     "texto": "THE BRILLIANT ONES (Luna)"
+    },
+    {
+     "t": "prose",
+     "texto": "Golden-light entities that rarely interact directly with humans. According to Minus, they seem to observe events from a distance, interfering only when it suits them."
+    },
+    {
+     "t": "prose",
+     "texto": "Nefeli suggests they treat humans as pieces in a conflict far older than any known historical record, showing particular interest — and hostility — toward the Marked."
+    }
+   ]
+  },
+  {
+   "t": "card",
+   "variant": "purple",
+   "titulo": "IMPORTANT CONCEPTS",
+   "corpo": [
+    {
+     "t": "sub",
+     "texto": "SHIELD"
+    },
+    {
+     "t": "prose",
+     "texto": "An invisible protection that, according to Minus’s observations, surrounds the Marked from birth. This shield prevents direct contact with Shadows but appears to deteriorate with each Special Night and/or related deaths."
+    },
+    {
+     "t": "prose",
+     "texto": "What happens when the Shield fully collapses has not yet been fully documented."
+    },
+    {
+     "t": "sub",
+     "texto": "SHADOW WORLD"
+    },
+    {
+     "t": "prose",
+     "texto": "A parallel dimension described as a distorted reflection of the real world, where Shadows exist in a more solid form. Extremely hostile to humans: entering this plane causes rapid physical and mental exhaustion."
+    },
+    {
+     "t": "prose",
+     "texto": "Reports indicate that each city has its own version of the Shadow World, varying in levels of corruption."
+    },
+    {
+     "t": "sub",
+     "texto": "SPECIAL NIGHTS (Minus)"
+    },
+    {
+     "t": "sub",
+     "texto": "STRANGE NIGHTS (Luna)"
+    },
+    {
+     "t": "prose",
+     "texto": "Rare events in which Shadows and luminous entities manifest simultaneously. Generally associated with multiple deaths and localized collapses of reality."
+    },
+    {
+     "t": "prose",
+     "texto": "According to Minus, the Marked seem to attract these events, and the intervals between them tend to shorten before major tragedies."
+    }
+   ]
+  },
+  {
+   "t": "card",
+   "variant": "purple",
+   "titulo": "MANIFESTED POWERS",
+   "corpo": [
+    {
+     "t": "sub",
+     "texto": "CHAINS (Minus)"
+    },
+    {
+     "t": "prose",
+     "texto": "Can be used as a weapon, protection, or means of movement. Its strength apparently grows as the user faces extreme situations and trains its use."
+    },
+    {
+     "t": "sub",
+     "texto": "PETALS (Luna)"
+    },
+    {
+     "t": "prose",
+     "texto": "A power manifested from an intense protective impulse. Materializes pink petals that can form shields or attack."
+    },
+    {
+     "t": "prose",
+     "texto": "Luna associates this manifestation with the symbolic memory of roses and thorns — beauty and pain coexisting."
+    },
+    {
+     "t": "sub",
+     "texto": "RESONANCE"
+    },
+    {
+     "t": "prose",
+     "texto": "A rare phenomenon observed when two Marked use their powers simultaneously with the same purpose.\n The full effects of this event remain unknown."
+    }
+   ]
+  },
+  {
+   "t": "card",
+   "variant": "purple",
+   "titulo": "UNIQUE ENTITIES",
+   "corpo": [
+    {
+     "t": "sub",
+     "texto": "NEFELI (formerly called “Failure”)"
+    },
+    {
+     "t": "prose",
+     "texto": "A self-aware penumbra entity. According to her own account, her existence was an accident during attempts by the Illuminated to create something beyond their control."
+    },
+    {
+     "t": "prose",
+     "texto": "She does not fully fit as either Shadow or Light. Invisible to everyone except Minus, she acts as a silent observer — and gradually begins to find a purpose of her own."
+    },
+    {
+     "t": "sub",
+     "texto": "RED EYES"
+    },
+    {
+     "t": "prose",
+     "texto": "A dog-like creature captured from the Shadow World by Minus. Originally wild, it was trained over years until becoming an ally."
+    },
+    {
+     "t": "prose",
+     "texto": "According to Minus, it is capable of consuming other Shadows. Nefeli states that it is not the original Shadow, but something shaped — a living weapon."
+    }
+   ]
+  },
+  {
+   "t": "card",
+   "variant": "purple",
+   "titulo": "REAL-WORLD TERMS",
+   "corpo": [
+    {
+     "t": "sub",
+     "texto": "DELTA PROTOCOL"
+    },
+    {
+     "t": "prose",
+     "texto": "A strategy created by Minus: observe the Marked from a distance, learn their patterns, and intervene only in extreme situations."
+    },
+    {
+     "t": "sub",
+     "texto": "OMEGA PROTOCOL"
+    },
+    {
+     "t": "prose",
+     "texto": "Minus’s last resort. It consists of intentionally plunging into the Shadow World to traverse great distances using the shadows of objects or people."
+    },
+    {
+     "t": "prose",
+     "texto": "Extremely dangerous: it drains vital energy and attracts the attention of native entities. Minus justifies its use by exploiting the fact that time passes differently inside the Shadow World, allowing faster displacement from the perspective of the real world."
+    },
+    {
+     "t": "sub",
+     "texto": "WHITES (Exclusive account by Nefeli)"
+    },
+    {
+     "t": "prose",
+     "texto": "Humans who allegedly passed through the so-called “Judgment of Light.” Described as empty of shadow and free will, functioning as tools or soldiers in service of the Illuminated.\n The full accuracy of these observations has not yet been confirmed."
+    }
+   ]
+  },
+  {
+   "t": "card",
+   "variant": "purple",
+   "titulo": "NOTE TO THE READER",
+   "corpo": [
+    {
+     "t": "prose",
+     "texto": "This glossary compiles only information accessible up to the end of Arc 1 — Discovery.\n The origin of the Marks, the true nature of the war between Light and Shadow, and the ultimate purpose of the Marked remain shrouded in mystery."
+    }
+   ]
+  }
+ ]
+}

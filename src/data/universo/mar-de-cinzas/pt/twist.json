@@ -1,0 +1,55 @@
+{
+ "icone": "🌀",
+ "titulo": "O Twist Gigante",
+ "blocos": [
+  {
+   "t": "callout",
+   "kind": "twist",
+   "label": "⚠ SPOILER ABSOLUTO",
+   "titulo": "O Éter Queimado Não Desaparece",
+   "corpo": [
+    {
+     "t": "prose",
+     "texto": "A revelação entregue por Bross no Arco III depois de décadas de Leitura de Éter:"
+    },
+    {
+     "t": "prose",
+     "texto": "**Os fragmentos de memória que a Companhia acredita estar destruindo ao queimar o éter não estão sendo destruídos. Estão sendo liberados.**"
+    },
+    {
+     "t": "prose",
+     "texto": "A Névoa Cinza não é poluição. É memória dos Veth em estado livre — fragmentos de seres que se sacrificaram voluntariamente, que agora permeiam o oceano, o ar, os organismos vivos."
+    },
+    {
+     "t": "prose",
+     "texto": "Todo habitante de Thalvorn que jamais teve um sonho estranho, uma intuição inexplicável, um senso de déjà vu — estava acessando memória Veth absorvida pela Névoa Cinza."
+    },
+    {
+     "t": "prose",
+     "texto": "As raças de Thalvorn não são apenas habitantes do mundo construído pelos Veth. Estão lentamente *tornando-se* Veth. O processo levaria 10.000 anos ao ritmo natural."
+    },
+    {
+     "t": "prose",
+     "texto": "A queima industrial está acelerando para 100 a 500 anos."
+    }
+   ]
+  },
+  {
+   "t": "sub",
+   "texto": "O Que Isso Significa"
+  },
+  {
+   "t": "prose",
+   "texto": "O Inquilino sabe. E está acordando — não porque a contenção está falhando, mas porque está sentindo que os habitantes de Thalvorn estão cada vez mais parecendo com seus companheiros que se dissolveram. Está acordando de tristeza e reconhecimento."
+  },
+  {
+   "t": "prose",
+   "texto": "Quando Mira finalmente se comunica com ele plenamente, ele não pede libertação. Ele pede para **ver**. Ver o que o mundo se tornou. Ver se aqueles que se sacrificaram criaram algo que valeu o sacrifício."
+  },
+  {
+   "t": "quote",
+   "texto": "\"Eles esperavam que vocês chegassem. Esperavam há muito tempo. Eu fui o único que não acreditou que vocês viriam.\"",
+   "cite": "O Inquilino, primeira fala completa, para Mira"
+  }
+ ]
+}

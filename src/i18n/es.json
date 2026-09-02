@@ -2211,7 +2211,9 @@
     "universo": {
       "voltar": "← UNIVERSOS",
       "recolher": "Contraer",
-      "verbetes": "{n} entradas"
+      "verbetes": "{n} entradas",
+      "forca": "Fuerza",
+      "falha": "Fallo"
     },
     "contos": {
       "linha_principal": "Línea Principal",

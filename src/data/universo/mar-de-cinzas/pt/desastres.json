@@ -1,0 +1,103 @@
+{
+ "icone": "🌊",
+ "titulo": "O Colapso Físico — Consequências Palpáveis",
+ "blocos": [
+  {
+   "t": "prose",
+   "texto": "A história é filosófica porque o problema é filosófico. Mas filosofia sem consequência física é abstrata demais. O Arco III precisa de peso real no mundo — coisas que *não voltam*."
+  },
+  {
+   "t": "card",
+   "variant": "red",
+   "titulo": "O Afundamento de Amrath",
+   "tags": [],
+   "corpo": [
+    {
+     "t": "prose",
+     "texto": "Ilha média, 40.000 habitantes, mistura rara de humanos e orcs. As minas removeram éter equivalente a 12% do volume total da ilha. O éter não era só produto — era parte da estrutura geológica que mantinha Amrath acima d'água."
+    },
+    {
+     "t": "box",
+     "variant": "red",
+     "corpo": [
+      {
+       "t": "prose",
+       "texto": "O Colapso — Dia 1 do Arco III"
+      },
+      {
+       "t": "prose",
+       "texto": "Um tremor que não para. 14 minutos. Ruas do porto central afundam 2 metros em 20 segundos. Em seis horas, onde havia uma ilha com 40.000 vidas, existe só oceano. Os resgatados ficam olhando da distância enquanto o lugar onde viviam vira parte do fundo do mundo."
+      },
+      {
+       "t": "prose",
+       "texto": "O Almirantado chama de atividade vulcânica. Os sobreviventes, depois do Manifesto, sabem a verdade. Isso transforma tragédia em crime."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "t": "card",
+   "variant": "purple",
+   "titulo": "A Fúria dos Leviatãs — Os Cinco Dias",
+   "tags": [],
+   "corpo": [
+    {
+     "t": "prose",
+     "texto": "Maior vazamento de Névoa da história. Trinta e dois Leviatãs Brancos acordam — mas revivendo batalhas navais de 300 anos atrás. Atacam navios que não existem mais. Quarenta e sete navios afundados. Dezoito portos destruídos. Doze mil mortos em cinco dias. O maior desastre marítimo da história de Thalvorn."
+    },
+    {
+     "t": "prose",
+     "texto": "Syre fica numa lancha por seis horas perto do menor Leviatã. Volta sem dizer nada. Quando Vaeryn pergunta o que foi, ela diz apenas: *\"Ele estava com saudade de alguém.\"*"
+    }
+   ]
+  },
+  {
+   "t": "card",
+   "variant": "blue",
+   "titulo": "O Esvaziamento do Abismo",
+   "tags": [],
+   "corpo": [
+    {
+     "t": "prose",
+     "texto": "O nível do oceano ao redor do Abismo cai. Centímetros por dia, depois decímetros. Ilhas que tinham portos adequados ficam com o fundo exposto."
+    },
+    {
+     "t": "tabela",
+     "head": [
+      "Semana",
+      "Queda no nível",
+      "Efeito"
+     ],
+     "rows": [
+      [
+       "**1**",
+       "2–3 cm/dia",
+       "Pescadores notam. Almirantado nega."
+      ],
+      [
+       "**2**",
+       "8–12 cm/dia",
+       "Portos rasos ficam inoperantes."
+      ],
+      [
+       "**3**",
+       "25–40 cm/dia",
+       "Três ilhas baixas parcialmente descobertas."
+      ],
+      [
+       "**4**",
+       "Aceleração variável",
+       "Comunicados de emergência. Tarde demais."
+      ],
+      [
+       "**Pós-resolução**",
+       "Reversão parcial",
+       "Retorna a ~70% do original. Permanente."
+      ]
+     ]
+    }
+   ]
+  }
+ ]
+}

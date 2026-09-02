@@ -1,0 +1,140 @@
+{
+ "icone": "🌅",
+ "titulo": "O Final Épico",
+ "blocos": [
+  {
+   "t": "prose",
+   "texto": "O final acontece em três camadas simultâneas, cada uma fechando um arco de personagem."
+  },
+  {
+   "t": "card",
+   "variant": "blue",
+   "titulo": "Camada 1 — Mira e o Inquilino",
+   "tags": [],
+   "corpo": [
+    {
+     "t": "prose",
+     "texto": "No fundo do Abismo, Mira estabelece a conexão completa. O processo começa a absorvê-la. Desta vez, o Inquilino percebe — e pela primeira vez em 30.000 anos exerce controle sobre o próprio transbordamento para interromper o processo."
+    },
+    {
+     "t": "prose",
+     "texto": "A negociação: ele vai se dissolver voluntariamente. Pede que as memórias que carrega — toda a história dos Veth — não sejam perdidas. Que alguém as carregue. Que alguém lembre que eles existiram."
+    },
+    {
+     "t": "prose",
+     "texto": "Mira aceita."
+    },
+    {
+     "t": "box",
+     "variant": "red",
+     "corpo": [
+      {
+       "t": "prose",
+       "texto": "Quando sobe à superfície, a tripulação percebe imediatamente: ela demora um segundo a responder pelo próprio nome. Não porque esqueceu — mas porque agora *Mira* é uma entre muitas vozes. Ela vai viver assim para sempre. Às vezes acorda descrevendo arquiteturas de um mundo afundado há 30.000 anos. Às vezes ri de piadas em idiomas que não existem mais. Às vezes chora por pessoas que morreram antes de qualquer raça atual existir."
+      },
+      {
+       "t": "prose",
+       "texto": "Ela não se arrepende. Mas isso não a impede de sentir a perda."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "t": "card",
+   "variant": "green",
+   "titulo": "Camada 2 — Vaeryn e Voss",
+   "tags": [],
+   "corpo": [
+    {
+     "t": "prose",
+     "texto": "Enquanto Mira desce, Vaeryn está na ponte do Perpétuo, entre a frota do Almirantado e o Abismo. Voss chegou — como esperado. Mas chegou sozinho, num bote, sem escolta."
+    },
+    {
+     "t": "prose",
+     "texto": "Ele ouviu a verdade sobre o Inquilino. Acredita. Está oferecendo seu nome e autoridade para ordenar a paralisação de todas as minas enquanto Mira trabalha."
+    },
+    {
+     "t": "prose",
+     "texto": "O custo para Voss: assinar essa ordem significa reconhecer implicitamente que as minas representam risco catastrófico — o que valida o Manifesto, o que valida as acusações sobre a Semana Branca, o que destrói tudo que ele construiu."
+    },
+    {
+     "t": "prose",
+     "texto": "Ele assina. Não por redenção. Porque é o que é necessário."
+    },
+    {
+     "t": "prose",
+     "texto": "Vaeryn recebe o documento. Não agradece. Não o condena. Diz apenas: *\"Meu pai teria apreciado a ironia.\"* Ele não responde. Não há nada a responder."
+    }
+   ]
+  },
+  {
+   "t": "card",
+   "variant": "rose",
+   "titulo": "Camada 3 — Vaeryn e Ossa",
+   "tags": [],
+   "corpo": [
+    {
+     "t": "prose",
+     "texto": "A cena mais quieta do final. Não acontece no Abismo. Acontece semanas depois, em Amvesh."
+    },
+    {
+     "t": "prose",
+     "texto": "Vaeryn encontrou Ossa. Está viva. Mudou de formas que Vaeryn não consegue desfazer. A conversa entre as duas é a cena mais pessoalmente difícil que Vaeryn tem na série inteira — não porque Ossa é cruel, mas porque não é. Porque Ossa entende o que aconteceu, e entender não é o mesmo que perdoar, e perdão não é o mesmo que resolução."
+    },
+    {
+     "t": "prose",
+     "texto": "Não há resolução fácil. Existe o compromisso de que Ossa não vai mais estar sozinha em Amvesh — e de que Vaeryn não vai mais usar silêncio como estratégia de sobrevivência. Esse não é um final heroico. É o preço de ter aprendido que inteligência sem coragem é outra forma de covardia."
+    }
+   ]
+  },
+  {
+   "t": "sub",
+   "texto": "O Mundo Depois — O Que Não Volta"
+  },
+  {
+   "t": "prose",
+   "texto": "A dissolução do Inquilino libera um pulso de éter puro que percorre todo o oceano em ondas. As criaturas deformadas pela Névoa Cinza começam a se recuperar — algumas completamente, outras não. Há regiões onde a Névoa estava concentrada por décadas demais: lá, os corais são permanentemente luminescentes e qualquer não-humano que passa tem visões fragmentadas por horas."
+  },
+  {
+   "t": "prose",
+   "texto": "O Abismo Central não fecha. Fica mais escuro. Mais fundo. As cartas náuticas ao redor nunca mais batem — como se a região tivesse adquirido gravidade geográfica própria. Nenhum navio se aproxima voluntariamente."
+  },
+  {
+   "t": "prose",
+   "texto": "A paralisação das minas causa exatamente o colapso econômico que Voss previu. Há fome em três arquipélagos. Dois governantes das Seis Coroas são depostos em menos de um ano. É caótico, doloroso e necessário — e a história não finge que foi diferente."
+  },
+  {
+   "t": "quote",
+   "texto": "Mira trabalha agora com os Leitores de Éter anões e os sábios de Veth-Naur. É um arquivo vivo tentando organizar 30.000 anos de memórias fragmentadas enquanto ainda tenta descobrir quem ela é debaixo de tudo aquilo. Eu perguntei uma vez o que ela via quando ficava no cais olhando para o horizonte. Ela disse: \"Cidades. Mas não as daqui.\" Não perguntei de novo.\n \n\n\n Bross comprou a forja — ou o que restava dela depois que o credor faliu com o colapso do mercado de éter. Drok abriu uma escola de luta em Orvacht. Não cobrou de não-humanos. Quando perguntei se estava feliz, disse que não sabia o que isso significava mas que estava ocupado, e que ocupado era suficiente por enquanto.\n \n\n\n Syre parou de escutar a voz da filha na Névoa Cinza porque a Névoa Cinza parou de existir. Ela me disse que isso foi pior. Que pelo menos antes ela ainda tinha algo. Não soube o que responder.\n \n\n\n Vael ficou em Orvacht. Não o perdoei. Mas também não o expulsei. Há uma diferença entre justiça e punição que ainda estou aprendendo a traçar.\n \n\n\n Ossa está em Orvacht agora. Trabalha na Irmandade. Não me procura. Às vezes a vejo nos cais e ela acena, e eu aceno de volta, e isso é o que é possível por enquanto. Talvez seja o que seja possível sempre. Estou aprendendo a não decidir isso com antecedência.\n \n\n\n Nunca quis ser capitã. Queria ler livros que me disseram que não eram para mim. Tudo o mais foi consequência. O oceano ainda guarda segredos — sempre vai guardar. Mas pelo menos agora sei que o que estava no fundo não era um monstro esperando nos destruir. Era uma memória esperando ser lida.\n \n\n\n O problema é que memórias doem. E agora temos 30.000 anos de dor para aprender a carregar.\n \n\n\n Por hoje, isso é suficiente.",
+   "cite": "VAERYN THOSS · log final do Perpétuo"
+  },
+  {
+   "t": "sub",
+   "texto": "Avaliação do Projeto — v5.0"
+  },
+  {
+   "t": "card",
+   "variant": "rose",
+   "titulo": "Próximos Passos Sugeridos — v5.0",
+   "tags": [],
+   "corpo": [
+    {
+     "t": "prose",
+     "texto": "Com a protagonista revisada, os próximos documentos recomendados são:"
+    },
+    {
+     "t": "lista",
+     "itens": [
+      "Capítulo 1 completo — estabelecer a voz de Vaeryn: analítica, contida, com fissuras precisas",
+      "A cena do casamento em detalhe — o discurso das Doze Obrigações, momento a momento",
+      "Perfil expandido de Ossa — a pessoa que Vaeryn sacrificou e com quem vai ter que viver",
+      "Gazetteer de Orvacht — a cidade em detalhe (bairros, NPCs, facções)",
+      "A conversa entre Vaeryn e Vareth Cin no Arco II — duas líderes, dois sistemas de poder, uma negociação",
+      "O Código Interno do Perpétuo — regras da tripulação (inspirado no código de Bartholomew Roberts)"
+     ]
+    }
+   ]
+  }
+ ]
+}

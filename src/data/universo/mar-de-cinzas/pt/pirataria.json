@@ -1,0 +1,131 @@
+{
+ "icone": "🏴‍☠️",
+ "titulo": "Pirataria — O Terceiro Poder",
+ "blocos": [
+  {
+   "t": "prose",
+   "texto": "Num mundo oceânico com comércio de éter valendo fortunas e um Almirantado que não consegue patrulhar tudo, a pirataria não é marginal. É um sistema econômico paralelo com sua própria política, moeda e código de honra."
+  },
+  {
+   "t": "card",
+   "variant": null,
+   "titulo": "A Irmandade das Marés Livres",
+   "tags": [
+    "Ilhas Livres",
+    "neutro",
+    "organizado"
+   ],
+   "corpo": [
+    {
+     "t": "tags",
+     "itens": [
+      "Ilhas Livres",
+      "neutro",
+      "organizado"
+     ]
+    },
+    {
+     "t": "prose",
+     "texto": "A maior confederação pirata de Thalvorn. Não é uma frota unificada — é um sistema de reconhecimento mútuo. Navios com a bandeira da Irmandade (âncora partida em fundo azul) não se atacam entre si e têm direito a portos seguros nas Ilhas Livres."
+    },
+    {
+     "t": "prose",
+     "texto": "O conselho dos **Sete Capitães** — reunidos duas vezes por ano em Orvacht. O atual presidente rotativo é **Vareth Cin**, elfa de 120 anos, dois navios de guerra capturados do Almirantado e rancor pessoal histórico com Voss."
+    },
+    {
+     "t": "prose",
+     "texto": "A Irmandade vai ser recurso chave no Arco II — e variável imprevisível no Arco III. Vaeryn não tem o carisma histórico de Cael mas tem algo diferente: argumentos. A negociação com Vareth Cin no Arco II é uma das cenas mais tecnicamente elaboradas da série — duas mulheres em posições de poder num mundo que não esperava nenhuma delas ali."
+    }
+   ]
+  },
+  {
+   "t": "card",
+   "variant": "blue",
+   "titulo": "Contrabandistas de Éter Bruto",
+   "tags": [
+    "tritões",
+    "mercado negro"
+   ],
+   "corpo": [
+    {
+     "t": "tags",
+     "itens": [
+      "tritões",
+      "mercado negro"
+     ]
+    },
+    {
+     "t": "prose",
+     "texto": "O comércio mais perigoso de Thalvorn. Tritões que fogem das minas com fragmentos de éter bruto vendem no mercado negro. O éter bruto não-filtrado é ilegal de posse. Para não-humanos: reclassificação como \"trabalhador em débito\" — eufemismo para escravidão."
+    }
+   ]
+  },
+  {
+   "t": "card",
+   "variant": "red",
+   "titulo": "Os Corsários Imperiais",
+   "tags": [
+    "Almirantado",
+    "legal"
+   ],
+   "corpo": [
+    {
+     "t": "tags",
+     "itens": [
+      "Almirantado",
+      "legal"
+     ]
+    },
+    {
+     "t": "prose",
+     "texto": "O Almirantado terceiriza. Corsários com carta de corso têm autorização para atacar navios da Irmandade ou portadores de éter ilegal, em troca de 30% do confisco. O capitão corsário mais temido: **Rhenk Adara** — ex-membro da Irmandade, ódio pessoal por Vareth Cin, talento específico para aparecer nos momentos mais inconvenientes para o Perpétuo."
+    }
+   ]
+  },
+  {
+   "t": "sub",
+   "texto": "O Código da Irmandade"
+  },
+  {
+   "t": "tabela",
+   "head": [
+    "Artigo",
+    "Regra"
+   ],
+   "rows": [
+    [
+     "**I**",
+     "Cada tripulante tem voto igual em decisões de rota e ataque"
+    ],
+    [
+     "**II**",
+     "Saque dividido igualmente, capitão recebe dupla parte, navegador parte e meia"
+    ],
+    [
+     "**III**",
+     "Nenhum membro da tripulação é propriedade de outro, independente de raça"
+    ],
+    [
+     "**IV**",
+     "Deserção em batalha: morte ou abandono em ilha deserta, escolha da tripulação"
+    ],
+    [
+     "**V**",
+     "Dívidas entre tripulantes resolvidas em terra, nunca a bordo"
+    ],
+    [
+     "**VI**",
+     "Navio da Irmandade não ataca navio da Irmandade"
+    ],
+    [
+     "**VII**",
+     "Prisioneiros tratados com honra até resgate ou libertação — tortura proibida"
+    ],
+    [
+     "**VIII**",
+     "Capitão pode ser substituído por voto de 2/3 da tripulação a qualquer momento"
+    ]
+   ]
+  }
+ ]
+}

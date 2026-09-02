@@ -1,0 +1,118 @@
+{
+ "icone": "🔮",
+ "titulo": "Magia & Tecnologia — O Éter Vivo",
+ "blocos": [
+  {
+   "t": "callout",
+   "kind": "twist",
+   "label": "⚠ REVELAÇÃO CENTRAL",
+   "titulo": "O Éter Não É Combustível. É Sangue.",
+   "corpo": [
+    {
+     "t": "prose",
+     "texto": "A descoberta mais devastadora do Manifesto das Profundezas: o éter cristalizado não é um recurso natural inerte. É a **manifestação física da memória coletiva** de uma civilização extinta — comprimida, solidificada, fossilizada em milhões de anos de pressão oceânica."
+    },
+    {
+     "t": "prose",
+     "texto": "Cada cristal queimado nos Motores de Éter destrói fragmentos irreversíveis de uma história que existiu antes de qualquer raça atual. Não é extração de combustível. É **cremação de memória**."
+    },
+    {
+     "t": "prose",
+     "texto": "E a Companhia das Ilhas Profundas sabe disso há 200 anos."
+    }
+   ]
+  },
+  {
+   "t": "sub",
+   "texto": "Como o Sistema Funciona"
+  },
+  {
+   "t": "prose",
+   "texto": "O éter existe em três estados:"
+  },
+  {
+   "t": "card",
+   "variant": "blue",
+   "titulo": "Éter Bruto",
+   "tags": [],
+   "corpo": [
+    {
+     "t": "prose",
+     "texto": "Estado natural, encontrado nas profundezas. Fluido, luminescente, instável. Reage ao toque de raças com sensibilidade mágica — especialmente tritões e elfos, que conseguem \"ouvir\" fragmentos de memória ao entrar em contato. Os tritões são os únicos que conseguem mergulhar fundo o suficiente para extraí-lo sem morrer. Esta é a razão pela qual são tão valiosamente escravizados."
+    }
+   ]
+  },
+  {
+   "t": "card",
+   "variant": null,
+   "titulo": "Éter Cristalizado",
+   "tags": [],
+   "corpo": [
+    {
+     "t": "prose",
+     "texto": "Éter bruto que solidificou naturalmente em centenas de anos. Estável, transportável, comercializável. É o ouro de Thalvorn. Cresce nas paredes de cavernas submarinas, em certos recifes profundos e, raramente, no interior de criaturas que vivem nas zonas abissais."
+    }
+   ]
+  },
+  {
+   "t": "card",
+   "variant": "red",
+   "titulo": "Névoa Cinza",
+   "tags": [],
+   "corpo": [
+    {
+     "t": "prose",
+     "texto": "Subproduto da queima de éter cristalizado nos Motores. Uma poluição mágica que corrói o ambiente, mata corais, deforma fauna marinha e — em concentração alta — causa alucinações e loucura nas raças com maior sensibilidade mágica. Os elfos são os mais vulneráveis. Os humanos são quase imunes. Isso não é coincidência."
+    },
+    {
+     "t": "prose",
+     "texto": "A Névoa Cinza não é poluição aleatória. É memória liberada em forma de fragmentos caóticos. Criaturas expostas \"recordam\" coisas que nunca viveram."
+    }
+   ]
+  },
+  {
+   "t": "sub",
+   "texto": "Tecnologia Resultante"
+  },
+  {
+   "t": "tabela",
+   "head": [
+    "Tecnologia",
+    "Função",
+    "Consequência"
+   ],
+   "rows": [
+    [
+     "**Navios a Vapor de Éter**",
+     "Transporte, guerra, comércio",
+     "Rotas de Névoa nos oceanos centrais"
+    ],
+    [
+     "**Canhões de Compressão**",
+     "Disparam rajadas de éter concentrado",
+     "Corrupção mágica na área de impacto"
+    ],
+    [
+     "**Torres de Transmissão**",
+     "Comunicação instantânea entre ilhas",
+     "Enlouquece aves e cetáceos próximos"
+    ],
+    [
+     "**Armaduras Mecanizadas**",
+     "Tropas de elite do Almirantado",
+     "Operadores humanos ficam surdos com 5 anos de uso"
+    ],
+    [
+     "**Dirigíveis de Carga**",
+     "Logística em zonas sem porto",
+     "Precisam de manutenção constante — éter degrada os motores"
+    ],
+    [
+     "**Coleiras de Supressão**",
+     "Bloqueiam magia em não-humanos",
+     "Uso prolongado causa danos neurológicos permanentes"
+    ]
+   ]
+  }
+ ]
+}

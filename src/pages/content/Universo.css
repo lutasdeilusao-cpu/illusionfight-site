@@ -1,52 +1,58 @@
 /* ══════════════════════════════════════════════════════════════
    Página de universo — worldbuilding com tema por universo.
-   Tokens --uni-* são redefinidos em [data-tema="..."].
+   Tokens --u-* são redefinidos em [data-tema="..."].
    ══════════════════════════════════════════════════════════════ */
 
 .universo-page {
-  --uni-accent: var(--accent-teal);
-  --uni-accent-2: var(--accent-amber);
-  --uni-bg: #07090c;
-  --uni-bg-2: #0d1116;
-  --uni-panel: #10151b;
-  --uni-line: #23303a;
-  --uni-ink: #d9e2e8;
-  --uni-ink-soft: #93a1ac;
-  --uni-font-display: 'Rajdhani', sans-serif;
-  --uni-glow: 0 0 26px -6px color-mix(in srgb, var(--uni-accent) 55%, transparent);
+  --u-accent: var(--accent-teal);
+  --u-blue: #7eb8d4;
+  --u-red: #d47070;
+  --u-rose: #d4a0a0;
+  --u-green: #a0d090;
+  --u-purple: #9b78c8;
+  --u-bg: #07090c;
+  --u-bg2: #0d1116;
+  --u-panel: #10151b;
+  --u-line: #232c34;
+  --u-ink: #dce3e8;
+  --u-ink-soft: #93a1ac;
+  --u-font-display: 'Rajdhani', sans-serif;
+  --u-font-body: var(--font-body);
 
   min-height: 100vh;
-  background:
-    radial-gradient(1200px 600px at 50% -10%, color-mix(in srgb, var(--uni-accent) 9%, transparent), transparent 60%),
-    var(--uni-bg);
-  color: var(--uni-ink);
-  padding-bottom: 5rem;
+  background: radial-gradient(1100px 560px at 50% -10%, color-mix(in srgb, var(--u-accent) 8%, transparent), transparent 60%), var(--u-bg);
+  color: var(--u-ink);
+  padding-bottom: 6rem;
 }
 
 /* ── O Mundo das Sombras ── */
 .universo-page[data-tema="mundo-das-sombras"] {
-  --uni-accent: #b98cff;
-  --uni-accent-2: #f2c14e;
-  --uni-bg: #08060d;
-  --uni-bg-2: #0e0a16;
-  --uni-panel: #130f1d;
-  --uni-line: #2c2440;
-  --uni-ink: #e7e2f0;
-  --uni-ink-soft: #9a90b4;
-  --uni-font-display: 'Cinzel', 'Rajdhani', serif;
+  --u-accent: #b98cff;
+  --u-bg: #08060d;
+  --u-bg2: #0e0a16;
+  --u-panel: #130f1d;
+  --u-line: #2c2440;
+  --u-ink: #e7e2f0;
+  --u-ink-soft: #9a90b4;
+  --u-font-display: 'Cinzel', 'Rajdhani', serif;
 }
 
-/* ── Mar de Cinzas ── */
+/* ── Mar de Cinzas — parchment / brass / naval ── */
 .universo-page[data-tema="mar-de-cinzas"] {
-  --uni-accent: #57d4e6;
-  --uni-accent-2: #9fb0c4;
-  --uni-bg: #05090d;
-  --uni-bg-2: #0a1219;
-  --uni-panel: #0c141c;
-  --uni-line: #1d2c38;
-  --uni-ink: #dce7ee;
-  --uni-ink-soft: #8ea1b0;
-  --uni-font-display: 'Cormorant Garamond', 'Rajdhani', serif;
+  --u-accent: #c9872a;
+  --u-blue: #7eb8d4;
+  --u-red: #d47070;
+  --u-rose: #d4a0a0;
+  --u-green: #a0d090;
+  --u-purple: #9b78c8;
+  --u-bg: #0a0806;
+  --u-bg2: #110e0a;
+  --u-panel: #17130d;
+  --u-line: #322818;
+  --u-ink: #e8e0cc;
+  --u-ink-soft: #a89880;
+  --u-font-display: 'Cinzel', 'Rajdhani', serif;
+  --u-font-body: 'EB Garamond', Georgia, serif;
 }
 
 /* ══ Hero ══ */
@@ -54,8 +60,8 @@
   position: relative;
   overflow: hidden;
   padding: 7.5rem 0 3rem;
-  border-bottom: 1px solid var(--uni-line);
-  background: linear-gradient(180deg, var(--uni-bg-2), var(--uni-bg));
+  border-bottom: 1px solid var(--u-line);
+  background: linear-gradient(180deg, var(--u-bg2), var(--u-bg));
 }
 
 .universo-hero__fx {
@@ -67,33 +73,22 @@
 }
 
 .universo-page[data-tema="mundo-das-sombras"] .universo-hero__fx {
-  background:
-    conic-gradient(from 0deg at 50% 40%,
-      transparent 0deg,
-      color-mix(in srgb, var(--uni-accent) 30%, transparent) 60deg,
-      transparent 120deg,
-      color-mix(in srgb, var(--uni-accent-2) 22%, transparent) 200deg,
-      transparent 260deg,
-      color-mix(in srgb, var(--uni-accent) 26%, transparent) 320deg,
-      transparent 360deg);
-  filter: blur(50px);
-  animation: uni-spin 44s linear infinite;
+  background: conic-gradient(from 0deg at 50% 40%, transparent 0deg, color-mix(in srgb, var(--u-accent) 30%, transparent) 60deg, transparent 120deg, color-mix(in srgb, #f2c14e 20%, transparent) 200deg, transparent 260deg, color-mix(in srgb, var(--u-accent) 24%, transparent) 320deg, transparent 360deg);
+  filter: blur(52px);
+  animation: u-spin 46s linear infinite;
 }
 
 .universo-page[data-tema="mar-de-cinzas"] .universo-hero__fx {
   background:
-    radial-gradient(60% 45% at 20% 20%, color-mix(in srgb, var(--uni-accent) 26%, transparent), transparent 70%),
-    radial-gradient(55% 40% at 85% 35%, color-mix(in srgb, var(--uni-accent-2) 20%, transparent), transparent 70%),
-    radial-gradient(70% 50% at 50% 90%, color-mix(in srgb, var(--uni-accent) 18%, transparent), transparent 70%);
+    radial-gradient(55% 42% at 22% 18%, color-mix(in srgb, var(--u-accent) 24%, transparent), transparent 70%),
+    radial-gradient(50% 38% at 82% 32%, color-mix(in srgb, var(--u-blue) 16%, transparent), transparent 70%),
+    radial-gradient(65% 46% at 50% 92%, color-mix(in srgb, var(--u-accent) 16%, transparent), transparent 70%);
   filter: blur(60px);
-  animation: uni-drift 26s ease-in-out infinite alternate;
+  animation: u-drift 30s ease-in-out infinite alternate;
 }
 
-@keyframes uni-spin { to { transform: rotate(360deg); } }
-@keyframes uni-drift {
-  from { transform: translate3d(-4%, -2%, 0) scale(1); }
-  to   { transform: translate3d(5%, 3%, 0) scale(1.08); }
-}
+@keyframes u-spin { to { transform: rotate(360deg); } }
+@keyframes u-drift { from { transform: translate3d(-4%, -2%, 0); } to { transform: translate3d(5%, 3%, 0) scale(1.07); } }
 
 .universo-hero .container { position: relative; z-index: 1; }
 
@@ -101,55 +96,33 @@
   display: flex;
   gap: 0.5rem;
   font-family: var(--font-mono);
-  font-size: 0.66rem;
+  font-size: 0.64rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--uni-ink-soft);
+  color: var(--u-ink-soft);
   margin-bottom: 1.25rem;
 }
-
-.universo-crumbs a { color: var(--uni-accent); text-decoration: none; }
+.universo-crumbs a { color: var(--u-accent); text-decoration: none; }
 .universo-crumbs a:hover { text-decoration: underline; }
 
 .universo-hero__titulo {
   margin: 0;
-  font-family: var(--uni-font-display);
+  font-family: var(--u-font-display);
   font-weight: 700;
   font-size: clamp(2.4rem, 7vw, 4.4rem);
-  line-height: 1.02;
-  letter-spacing: 0.02em;
+  line-height: 1.03;
+  letter-spacing: 0.03em;
   color: #fff;
-  text-shadow:
-    0 0 1px color-mix(in srgb, var(--uni-accent) 80%, #fff),
-    0 0 30px color-mix(in srgb, var(--uni-accent) 55%, transparent),
-    0 0 60px color-mix(in srgb, var(--uni-accent) 30%, transparent);
-}
-
-.universo-page[data-tema="mar-de-cinzas"] .universo-hero__titulo {
-  font-style: italic;
-  font-weight: 600;
+  text-shadow: 0 0 1px color-mix(in srgb, var(--u-accent) 80%, #fff), 0 0 32px color-mix(in srgb, var(--u-accent) 50%, transparent), 0 0 64px color-mix(in srgb, var(--u-accent) 26%, transparent);
 }
 
 .universo-hero__sub {
   margin: 0.9rem 0 0;
-  max-width: 46ch;
+  max-width: 52ch;
   font-family: var(--font-body);
   font-size: 1.02rem;
   line-height: 1.55;
-  color: var(--uni-ink-soft);
-}
-
-.universo-hero__count {
-  display: inline-block;
-  margin: 1.25rem 0 0;
-  padding: 0.3rem 0.7rem;
-  font-family: var(--font-mono);
-  font-size: 0.62rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--uni-accent);
-  border: 1px solid color-mix(in srgb, var(--uni-accent) 40%, transparent);
+  color: var(--u-ink-soft);
 }
 
 .universo-hero__aviso {
@@ -157,7 +130,7 @@
   font-family: var(--font-body);
   font-size: 0.8rem;
   font-style: italic;
-  color: var(--uni-ink-soft);
+  color: var(--u-ink-soft);
 }
 
 /* ══ Corpo ══ */
@@ -172,9 +145,9 @@
   overflow-x: auto;
   margin: 0 -1rem;
   padding: 0.75rem 1rem;
-  background: color-mix(in srgb, var(--uni-bg) 92%, transparent);
+  background: color-mix(in srgb, var(--u-bg) 92%, transparent);
   backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--uni-line);
+  border-bottom: 1px solid var(--u-line);
   -webkit-overflow-scrolling: touch;
 }
 
@@ -186,226 +159,342 @@
   letter-spacing: 0.06em;
   text-transform: uppercase;
   padding: 0.5rem 0.85rem;
-  border: 1px solid var(--uni-line);
+  border: 1px solid var(--u-line);
   background: none;
-  color: var(--uni-ink-soft);
+  color: var(--u-ink-soft);
   cursor: pointer;
   transition: color 0.15s, border-color 0.15s, background 0.15s;
 }
+.universo-tab:hover { color: var(--u-ink); border-color: var(--u-accent); }
+.universo-tab--ativa { color: var(--u-bg); background: var(--u-accent); border-color: var(--u-accent); }
 
-.universo-tab:hover { color: var(--uni-ink); border-color: var(--uni-accent-2); }
-
-.universo-tab--ativa {
-  color: var(--uni-bg);
-  background: var(--uni-accent);
-  border-color: var(--uni-accent);
-}
-
-.universo-intro {
-  margin: 1.75rem 0 0;
-  padding: 1rem 1.1rem 0.1rem;
-  border-left: 2px solid color-mix(in srgb, var(--uni-accent) 50%, transparent);
-  background: var(--uni-bg-2);
-}
-
-.universo-intro p {
-  margin: 0 0 0.9rem;
-  font-family: var(--font-body);
-  font-size: 0.86rem;
-  font-style: italic;
-  line-height: 1.6;
-  color: var(--uni-ink-soft);
-}
-
-/* ── Grupo ── */
-.universo-grupo { margin-top: 3rem; }
-
-.universo-grupo__head {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid var(--uni-line);
-}
-
-.universo-grupo__titulo {
-  margin: 0;
-  font-family: var(--uni-font-display);
-  font-weight: 700;
-  font-size: clamp(1.3rem, 3.5vw, 1.75rem);
-  letter-spacing: 0.03em;
-  color: var(--uni-ink);
-}
-
-.universo-grupo__badge {
+.universo-aviso {
+  margin: 1.5rem 0 0;
+  padding: 0.8rem 1rem;
   font-family: var(--font-mono);
-  font-size: 0.7rem;
-  font-weight: 700;
-  color: var(--uni-accent);
-  border: 1px solid color-mix(in srgb, var(--uni-accent) 40%, transparent);
-  border-radius: 999px;
-  padding: 0.1rem 0.5rem;
+  font-size: 0.72rem;
+  line-height: 1.55;
+  color: var(--u-accent);
+  border: 1px dashed color-mix(in srgb, var(--u-accent) 45%, transparent);
+  background: var(--u-bg2);
 }
 
-.universo-grupo__intro {
-  margin: 1rem 0 0;
-  font-family: var(--font-body);
-  font-size: 0.92rem;
-  line-height: 1.65;
-  color: var(--uni-ink-soft);
-}
+/* ── Parte (uma seção da bíblia) ── */
+.universo-parte { margin-top: 3.5rem; }
+.universo-parte:first-of-type { margin-top: 2rem; }
 
-.universo-entradas {
-  margin-top: 1.25rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.7rem;
-}
-
-/* ── Verbete (accordion) ── */
-.uverb {
-  border: 1px solid var(--uni-line);
-  background: var(--uni-panel);
-  border-left: 3px solid color-mix(in srgb, var(--uni-accent) 45%, transparent);
-  transition: border-color 0.18s, box-shadow 0.18s;
-}
-
-.uverb--aberto,
-.uverb:hover {
-  border-left-color: var(--uni-accent);
-  box-shadow: var(--uni-glow);
-}
-
-.uverb__head {
-  width: 100%;
+.universo-parte__head {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 0.95rem 1.1rem;
-  background: none;
-  border: none;
-  cursor: pointer;
-  text-align: left;
+  gap: 0.7rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid color-mix(in srgb, var(--u-accent) 45%, transparent);
 }
 
-.uverb__nome {
-  font-family: var(--uni-font-display);
+.universo-parte__icone { font-size: 1.5rem; line-height: 1; }
+
+.universo-parte__titulo {
+  margin: 0;
+  font-family: var(--u-font-display);
   font-weight: 700;
-  font-size: 1.12rem;
+  font-size: clamp(1.5rem, 4vw, 2rem);
   letter-spacing: 0.02em;
-  color: var(--uni-ink);
+  color: var(--u-ink);
 }
 
-.uverb__chevron {
-  flex-shrink: 0;
-  width: 9px;
-  height: 9px;
-  border-right: 2px solid var(--uni-accent);
-  border-bottom: 2px solid var(--uni-accent);
-  transform: rotate(45deg);
-  transition: transform 0.2s;
+/* ── Blocos ── */
+.u-p {
+  margin: 1rem 0 0;
+  font-family: var(--u-font-body);
+  font-size: 1.05rem;
+  line-height: 1.72;
+  color: var(--u-ink);
 }
 
-.uverb--aberto .uverb__chevron { transform: rotate(225deg); }
+.u-sub {
+  margin: 1.8rem 0 0.2rem;
+  font-family: var(--u-font-display);
+  font-weight: 700;
+  font-size: 1.2rem;
+  letter-spacing: 0.02em;
+  color: var(--u-accent);
+}
 
-.uverb__chips {
+.u-lista {
+  margin: 0.8rem 0 0;
+  padding-left: 1.2rem;
+  font-family: var(--u-font-body);
+  font-size: 1.02rem;
+  line-height: 1.7;
+  color: var(--u-ink);
+}
+.u-lista li { margin: 0.4rem 0; }
+
+.u-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.4rem;
-  padding: 0 1.1rem 0.9rem;
+  gap: 0.35rem;
+  margin: 0.75rem 0 0;
 }
 
-.uverb__chip {
-  display: inline-flex;
-  flex-direction: column;
-  gap: 1px;
-  padding: 0.28rem 0.55rem;
-  background: var(--uni-bg-2);
-  border: 1px solid var(--uni-line);
-}
-
-.uverb__chip-k {
+.u-tag {
   font-family: var(--font-mono);
-  font-size: 0.55rem;
+  font-size: 0.58rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--uni-accent);
+  padding: 0.2rem 0.5rem;
+  color: var(--u-accent);
+  border: 1px solid color-mix(in srgb, var(--u-accent) 38%, transparent);
+  background: color-mix(in srgb, var(--u-accent) 8%, transparent);
 }
 
-.uverb__chip-v {
-  font-family: var(--font-body);
-  font-size: 0.76rem;
-  color: var(--uni-ink);
+/* card */
+.u-card {
+  margin: 1.5rem 0 0;
+  padding: 1.2rem 1.3rem;
+  background: var(--u-panel);
+  border: 1px solid var(--u-line);
+  border-left: 3px solid var(--uc, var(--u-accent));
 }
+.u-card--blue { --uc: var(--u-blue); }
+.u-card--red { --uc: var(--u-red); }
+.u-card--rose { --uc: var(--u-rose); }
+.u-card--green { --uc: var(--u-green); }
+.u-card--purple { --uc: var(--u-purple); }
 
-.uverb__teaser {
+.u-card__titulo {
   margin: 0;
-  padding: 0 1.1rem 1rem;
+  font-family: var(--u-font-display);
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--uc, var(--u-accent));
+}
+.u-card .u-p:first-of-type { margin-top: 0.7rem; }
+
+/* box aninhada */
+.u-box {
+  margin: 1rem 0 0;
+  padding: 0.9rem 1.1rem;
+  background: var(--u-bg2);
+  border-left: 2px solid var(--uc, var(--u-accent));
+}
+.u-box--blue { --uc: var(--u-blue); }
+.u-box--red { --uc: var(--u-red); }
+.u-box--purple { --uc: var(--u-purple); }
+.u-box--rose { --uc: var(--u-rose); }
+.u-box .u-p:first-of-type { margin-top: 0; }
+.u-box .u-p { font-size: 0.98rem; }
+
+/* callout / twist */
+.u-callout {
+  margin: 1.75rem 0 0;
+  padding: 1.4rem 1.5rem;
+  border: 1px solid color-mix(in srgb, var(--u-accent) 35%, transparent);
+  background: radial-gradient(ellipse at 50% 0%, color-mix(in srgb, var(--u-accent) 8%, transparent), transparent 70%), var(--u-panel);
+  box-shadow: 0 0 40px -12px color-mix(in srgb, var(--u-accent) 40%, transparent);
+}
+.u-callout--scene { border-color: color-mix(in srgb, var(--u-rose) 40%, transparent); }
+
+.u-callout__label {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--u-accent);
+  border: 1px solid color-mix(in srgb, var(--u-accent) 35%, transparent);
+  padding: 0.2rem 0.55rem;
+  margin-bottom: 0.6rem;
+}
+.u-callout--scene .u-callout__label { color: var(--u-rose); border-color: color-mix(in srgb, var(--u-rose) 35%, transparent); }
+
+.u-callout__titulo {
+  margin: 0 0 0.3rem;
+  font-family: var(--u-font-display);
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: var(--u-accent);
+}
+.u-callout--scene .u-callout__titulo { color: var(--u-rose); }
+
+/* quote */
+.u-quote {
+  margin: 1.5rem 0 0;
+  padding: 0.6rem 0 0.6rem 1.2rem;
+  border-left: 3px solid var(--u-accent);
+}
+.u-quote p {
+  margin: 0;
+  font-family: var(--u-font-body);
+  font-size: 1.12rem;
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--u-ink);
+}
+.u-quote cite {
+  display: block;
+  margin-top: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-style: normal;
+  letter-spacing: 0.04em;
+  color: var(--u-ink-soft);
+}
+
+/* tabela */
+.u-tabela-wrap { margin: 1.5rem 0 0; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.u-tabela {
+  width: 100%;
+  border-collapse: collapse;
   font-family: var(--font-body);
   font-size: 0.85rem;
-  line-height: 1.5;
-  color: var(--uni-ink-soft);
 }
-
-.uverb__body {
-  padding: 0.4rem 1.1rem 1.2rem;
-  font-family: var(--font-body);
-  font-size: 0.95rem;
-  line-height: 1.72;
-  color: var(--uni-ink);
-  border-top: 1px solid var(--uni-line);
-}
-
-.universo-page[data-tema="mar-de-cinzas"] .uverb__body {
-  font-family: 'Cormorant Garamond', var(--font-body);
-  font-size: 1.12rem;
-  line-height: 1.7;
-}
-
-.uverb__body p { margin: 0.9rem 0 0; }
-.uverb__body p:first-child { margin-top: 0.6rem; }
-
-.uverb__rotulo {
+.u-tabela th {
+  text-align: left;
+  padding: 0.55rem 0.7rem;
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: 0.62rem;
   font-weight: 700;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--uni-accent);
+  color: var(--u-accent);
+  border-bottom: 1px solid var(--u-accent);
+}
+.u-tabela td {
+  padding: 0.6rem 0.7rem;
+  vertical-align: top;
+  line-height: 1.5;
+  color: var(--u-ink);
+  border-bottom: 1px solid var(--u-line);
 }
 
-.uverb__sub {
-  font-family: var(--font-mono) !important;
-  font-size: 0.72rem !important;
+/* protagonista */
+.u-protag {
+  margin: 1.5rem 0 0;
+  padding: 1.6rem 1.6rem 1.3rem;
+  background: radial-gradient(ellipse at 0% 0%, color-mix(in srgb, var(--u-rose) 12%, transparent), transparent 60%), var(--u-panel);
+  border: 1px solid color-mix(in srgb, var(--u-rose) 30%, transparent);
+}
+.u-protag__nome {
+  display: block;
+  font-family: var(--u-font-display);
+  font-weight: 700;
+  font-size: 1.9rem;
+  letter-spacing: 0.04em;
+  color: #fff;
+}
+.u-protag__papel {
+  display: block;
+  margin-top: 0.2rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  color: var(--u-rose);
+}
+
+/* char grid */
+.u-chars {
+  margin: 1.5rem 0 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+.u-char {
+  padding: 1.1rem 1.2rem;
+  background: var(--u-panel);
+  border: 1px solid var(--u-line);
+  border-top: 2px solid var(--u-accent);
+}
+.u-char__nome {
+  display: block;
+  font-family: var(--u-font-display);
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--u-ink);
+}
+.u-char__papel {
+  display: block;
+  margin-top: 0.15rem;
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.03em;
+  color: var(--u-accent);
+}
+.u-char__desc {
+  margin: 0.7rem 0 0;
+  font-family: var(--u-font-body);
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: var(--u-ink);
+}
+.u-char__linha {
+  margin: 0.6rem 0 0;
+  font-family: var(--u-font-body);
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--u-ink-soft);
+}
+.u-char__k {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--u-accent);
+  margin-right: 0.3rem;
+}
+.u-char__linha--flaw .u-char__k { color: var(--u-red); }
+
+/* timeline */
+.u-timeline {
+  margin: 1.5rem 0 0;
+  position: relative;
+  padding-left: 1.5rem;
+}
+.u-timeline::before {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 6px;
+  bottom: 6px;
+  width: 2px;
+  background: color-mix(in srgb, var(--u-accent) 35%, transparent);
+}
+.u-tl-item { position: relative; margin-top: 2rem; }
+.u-tl-item:first-child { margin-top: 0; }
+.u-tl-item::before {
+  content: '';
+  position: absolute;
+  left: -1.5rem;
+  top: 6px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--u-accent);
+  box-shadow: 0 0 12px color-mix(in srgb, var(--u-accent) 60%, transparent);
+}
+.u-tl-label {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--uni-accent-2);
-  margin-top: 1.2rem !important;
+  color: var(--u-accent);
 }
-
-.uverb__fechar {
-  margin-top: 1.1rem;
-  font-family: var(--font-mono);
-  font-size: 0.6rem;
+.u-tl-titulo {
+  margin: 0.2rem 0 0;
+  font-family: var(--u-font-display);
   font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  padding: 0.3rem 0.7rem;
-  background: none;
-  border: 1px solid var(--uni-line);
-  color: var(--uni-ink-soft);
-  cursor: pointer;
+  font-size: 1.3rem;
+  color: var(--u-ink);
 }
-
-.uverb__fechar:hover { color: var(--uni-ink); border-color: var(--uni-accent-2); }
 
 @media (max-width: 620px) {
   .universo-hero { padding-top: 6rem; }
-  .uverb__nome { font-size: 1rem; }
-  .universo-page[data-tema="mar-de-cinzas"] .uverb__body { font-size: 1.04rem; }
+  .u-p, .u-char__desc, .u-lista { font-size: 1rem; }
+  .u-chars { grid-template-columns: 1fr; }
 }
 
 @media (prefers-reduced-motion: reduce) {

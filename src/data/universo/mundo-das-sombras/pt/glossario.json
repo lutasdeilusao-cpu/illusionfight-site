@@ -1,0 +1,199 @@
+{
+ "icone": "📖",
+ "titulo": "Glossário — o que se sabe",
+ "blocos": [
+  {
+   "t": "prose",
+   "texto": "As informações abaixo refletem o que foi observado, compreendido ou interpretado pelos personagens até o final do Arco 1: Descobrimento. Nem tudo aqui representa verdades absolutas. Muitas lacunas permanecem."
+  },
+  {
+   "t": "card",
+   "variant": "purple",
+   "titulo": "TERMOS ESSENCIAIS",
+   "corpo": [
+    {
+     "t": "sub",
+     "texto": "OS MARCADOS"
+    },
+    {
+     "t": "prose",
+     "texto": "Segundo relatos reunidos por Minus e pelas observações de Nefeli, os Marcados são humanos tocados por uma força desconhecida enquanto ainda são bebês. Carregam no corpo uma marca em espiral e parecem atrair tanto Sombras quanto entidades luminosas.\nSão considerados extremamente raros. Nefeli afirma ter observado apenas alguns poucos casos ao longo do tempo — o que não exclui a possibilidade de muitos outros terem existido sem jamais serem registrados."
+    },
+    {
+     "t": "sub",
+     "texto": "A MARCA"
+    },
+    {
+     "t": "prose",
+     "texto": "Cicatriz em forma de espiral presente no corpo dos Marcados. Costuma queimar ou pulsar durante eventos sobrenaturais, especialmente quando outras entidades ou outro Marcado estão próximos. A origem exata da Marca ainda é desconhecida."
+    }
+   ]
+  },
+  {
+   "t": "card",
+   "variant": "purple",
+   "titulo": "AS FORÇAS ANTAGÔNICAS",
+   "corpo": [
+    {
+     "t": "prose",
+     "texto": "(A nomenclatura varia conforme quem observa)"
+    },
+    {
+     "t": "sub",
+     "texto": "SOMBRAS (Minus / Nefeli)"
+    },
+    {
+     "t": "sub",
+     "texto": "FORÇAS DA ESCURIDÃO (Luna)"
+    },
+    {
+     "t": "prose",
+     "texto": "Descritas como entidades deformadas que habitam as bordas da realidade. Costumam manifestar-se de forma translúcida, frequentemente com olhos vermelhos, e demonstram comportamento agressivo.\nRelatos indicam que surgem com mais intensidade durante certos eventos conhecidos como Noites Especiais. Sua verdadeira origem permanece incerta."
+    },
+    {
+     "t": "sub",
+     "texto": "ILUMINADOS (Minus / Nefeli)"
+    },
+    {
+     "t": "sub",
+     "texto": "BRILHANTES (Luna)"
+    },
+    {
+     "t": "prose",
+     "texto": "Entidades de luz dourada que raramente interagem diretamente com humanos. Segundo Minus, parecem observar os acontecimentos à distância, interferindo apenas quando lhes convém.\nNefeli sugere que eles tratam humanos como peças em um conflito muito mais antigo do que qualquer registro histórico conhecido, demonstrando especial interesse — e hostilidade — em relação aos Marcados."
+    }
+   ]
+  },
+  {
+   "t": "card",
+   "variant": "purple",
+   "titulo": "CONCEITOS IMPORTANTES",
+   "corpo": [
+    {
+     "t": "sub",
+     "texto": "ESCUDO"
+    },
+    {
+     "t": "prose",
+     "texto": "Proteção invisível que, segundo as observações de Minus, envolve os Marcados desde o nascimento. Esse escudo impede o contato direto das Sombras, mas parece se deteriorar a cada Noite Especial e ou mortes relacionadas.\nO que ocorre quando o Escudo se rompe completamente ainda não foi plenamente documentado."
+    },
+    {
+     "t": "sub",
+     "texto": "SHADOW WORLD (MUNDO DAS SOMBRAS)"
+    },
+    {
+     "t": "prose",
+     "texto": "Dimensão paralela descrita como um reflexo distorcido do mundo real, onde Sombras existem de forma mais sólida. Extremamente hostil a humanos: entrar nesse plano provoca rápido esgotamento físico e mental.\nRelatos indicam que cada cidade possui uma versão própria do Shadow World, variando em nível de corrupção."
+    },
+    {
+     "t": "sub",
+     "texto": "NOITES ESPECIAIS (Minus)"
+    },
+    {
+     "t": "sub",
+     "texto": "NOITES ESTRANHAS (Luna)"
+    },
+    {
+     "t": "prose",
+     "texto": "Eventos raros em que Sombras e entidades luminosas manifestam-se simultaneamente. Geralmente associados a múltiplas mortes e colapsos locais da realidade.\nSegundo Minus, Marcados parecem atrair esse tipo de evento, e os intervalos entre eles tendem a diminuir antes de grandes tragédias."
+    }
+   ]
+  },
+  {
+   "t": "card",
+   "variant": "purple",
+   "titulo": "PODERES MANIFESTADOS",
+   "corpo": [
+    {
+     "t": "sub",
+     "texto": "CORRENTE (Minus)"
+    },
+    {
+     "t": "prose",
+     "texto": "Pode ser usada como arma, proteção ou meio de locomoção. Aparentemente, sua força cresce conforme o usuário enfrenta e treina seu uso aparentemente."
+    },
+    {
+     "t": "sub",
+     "texto": "PÉTALAS (Luna)"
+    },
+    {
+     "t": "prose",
+     "texto": "Poder manifestado a partir de um impulso intenso de proteção. Materializa pétalas rosadas que podem formar escudos ou atacar.\nLuna associa essa manifestação à memória simbólica de rosas e espinhos — beleza e dor coexistindo."
+    },
+    {
+     "t": "sub",
+     "texto": "RESSONÂNCIA"
+    },
+    {
+     "t": "prose",
+     "texto": "Fenômeno raro observado quando dois Marcados utilizam seus poderes simultaneamente com o mesmo propósito. Os efeitos completos desse evento ainda são desconhecidos."
+    }
+   ]
+  },
+  {
+   "t": "card",
+   "variant": "purple",
+   "titulo": "ENTIDADES ÚNICAS",
+   "corpo": [
+    {
+     "t": "sub",
+     "texto": "NEFELI (anteriormente chamada de Falha)"
+    },
+    {
+     "t": "prose",
+     "texto": "Entidade de penumbra autoconsciente. Segundo seu próprio relato, sua existência foi um acidente durante tentativas dos Iluminados de criar algo além de seu controle.\nNão se encaixa completamente como Sombra nem como Luz. Invisível para todos exceto Minus, atua como observadora silenciosa — e, aos poucos, encontra um propósito próprio."
+    },
+    {
+     "t": "sub",
+     "texto": "OLHOS VERMELHOS"
+    },
+    {
+     "t": "prose",
+     "texto": "Criatura semelhante a um cão, capturada do Shadow World por Minus. Originalmente selvagem, foi treinada ao longo de anos até se tornar uma aliada.\nSegundo Minus, é capaz de consumir outras Sombras. Nefeli afirma que não se trata da Sombra original, mas de algo moldado — uma arma viva."
+    }
+   ]
+  },
+  {
+   "t": "card",
+   "variant": "purple",
+   "titulo": "TERMOS DO MUNDO REAL",
+   "corpo": [
+    {
+     "t": "sub",
+     "texto": "PROTOCOLO DELTA"
+    },
+    {
+     "t": "prose",
+     "texto": "Estratégia criada por Minus: observar Marcados à distância, aprender seus padrões e intervir apenas em situações extremas."
+    },
+    {
+     "t": "sub",
+     "texto": "PROTOCOLO OMEGA"
+    },
+    {
+     "t": "prose",
+     "texto": "Último recurso de Minus. Consiste em mergulhar intencionalmente no Shadow World para atravessar grandes distâncias utilizando sombras de objetos ou pessoas.\nExtremamente perigoso: drena energia vital e atrai atenção de entidades nativas. Minus justifica seu uso aproveitando que o tempo passa de forma diferente dentro do Shadow World, permitindo deslocamentos mais rápidos do ponto de vista do mundo real."
+    },
+    {
+     "t": "sub",
+     "texto": "BRANCOS (Relato exclusivo de Nefeli)"
+    },
+    {
+     "t": "prose",
+     "texto": "Humanos que teriam passado pelo chamado “crivo da Luz”. Descritos como vazios de sombra e vontade própria, funcionando como ferramentas ou soldados a serviço dos Iluminados. A veracidade completa dessas observações ainda não pôde ser confirmada."
+    }
+   ]
+  },
+  {
+   "t": "card",
+   "variant": "purple",
+   "titulo": "NOTA AO LEITOR",
+   "corpo": [
+    {
+     "t": "prose",
+     "texto": "Este glossário reúne apenas informações acessíveis até o fim do Arco 1 — Descobrimento.\nA origem das Marcas, a verdadeira natureza da guerra entre Luz e Sombra e o propósito final dos Marcados permanecem envoltos em mistério."
+    }
+   ]
+  }
+ ]
+}

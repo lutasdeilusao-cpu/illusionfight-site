@@ -1,0 +1,34 @@
+{
+ "icone": "🌍",
+ "titulo": "O Mundo — Thalvorn",
+ "blocos": [
+  {
+   "t": "prose",
+   "texto": "Thalvorn é um planeta de oceano quase infinito. **Não existem continentes. Nunca existiram** — ou melhor, ninguém sabe se existiram. Os que mergulharam fundo demais nunca voltaram para contar."
+  },
+  {
+   "t": "prose",
+   "texto": "O que há são ilhas. Dezenas de milhares delas, desde recifes do tamanho de uma casa até arquipélagos com montanhas que rasgam as nuvens. Nenhum mapa cobre mais que um terço do mundo cartografado, e o mundo cartografado é apenas uma fração do que existe."
+  },
+  {
+   "t": "card",
+   "variant": null,
+   "titulo": "A Teoria do Afogamento Primordial",
+   "tags": [],
+   "corpo": [
+    {
+     "t": "prose",
+     "texto": "A hipótese mais aceita entre os estudiosos é que Thalvorn *foi destruída* — que sob o oceano existem os restos de algo muito maior, afundado numa era pré-registrada. Os magos tritões mais velhos chamam isso de **O Afogamento Primordial**."
+    },
+    {
+     "t": "prose",
+     "texto": "Ninguém sabe o que causou. Ou sabe, e não conta."
+    },
+    {
+     "t": "prose",
+     "texto": "A verdade, descoberta no Arco III: os continentes foram afundados *propositalmente*. Para prender algo. O éter é a fechadura. As minas estão quebrando a fechadura."
+    }
+   ]
+  }
+ ]
+}

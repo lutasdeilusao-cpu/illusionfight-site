@@ -1,0 +1,70 @@
+{
+ "icone": "🕳️",
+ "titulo": "O Horror do Abismo — Cenas Cósmicas",
+ "blocos": [
+  {
+   "t": "prose",
+   "texto": "Thalvorn tem potencial lovecraftiano oceânico que precisa ser usado. Não como ornamento — como choque existencial real. Três cenas para o Arco III que mudam o peso da história."
+  },
+  {
+   "t": "card",
+   "variant": "red",
+   "titulo": "Cena I — A Maré de Memória",
+   "tags": [],
+   "corpo": [
+    {
+     "t": "prose",
+     "texto": "O Perpétuo atravessa uma zona de extração abandonada após um vazamento catastrófico. O oceano está quieto demais. Depois percebem por quê: a superfície da água está sólida em trechos — não gelo, não rocha. **Memória solidificada**, como âmbar translúcido por quilômetros."
+    },
+    {
+     "t": "prose",
+     "texto": "Dentro: cenas de uma civilização que existiu aqui. Figuras não-humanoides construindo estruturas que desafiam a geometria. Rindo. Discutindo. Morrendo. A tripulação fica em silêncio absoluto por horas. Drok: *\"Isso não foi de ontem.\"* Bross: *\"Não. Mas a Companhia sabia que estava aqui.\"*"
+    },
+    {
+     "t": "prose",
+     "texto": "O horror não é o que a matéria translúcida é. É que ela é bonita. E que vocês estão navegando sobre os restos do dia mais feliz de uma espécie que não existe mais."
+    }
+   ]
+  },
+  {
+   "t": "card",
+   "variant": "purple",
+   "titulo": "Cena II — Os Que Revivem",
+   "tags": [],
+   "corpo": [
+    {
+     "t": "prose",
+     "texto": "Em Rekhmaar, a tripulação encontra trinta e dois pescadores orcs expostos a Névoa Cinza massiva. Fisicamente intactos — mas revivendo batalhas de 500 anos atrás. Não como alucinações: como episódios completos. Acordam sendo si mesmos, colapsam ao meio-dia numa memória de guerra, voltam à noite sem lembrar das horas intermediárias."
+    },
+    {
+     "t": "prose",
+     "texto": "Todos revivem a mesma memória: um navio orc afundado com a tripulação presa no final da Quarta Guerra. Os Veth cujos restos se tornaram éter estavam naquele navio. A memória ficou gravada com força suficiente para sobrescrever consciências vivas."
+    },
+    {
+     "t": "prose",
+     "texto": "Não há cura. Eles deixam Rekhmaar sabendo que aquelas 32 pessoas vão continuar afundando naquele navio toda tarde pelo resto de suas vidas."
+    }
+   ]
+  },
+  {
+   "t": "card",
+   "variant": "blue",
+   "titulo": "Cena III — O Chamado em Escala",
+   "tags": [],
+   "corpo": [
+    {
+     "t": "prose",
+     "texto": "48 horas antes de chegarem ao Abismo, todos os não-humanos da tripulação — Syre, Drok, Mira, Bross — acordam às 3 da manhã e vão ao convés sem combinar. Apontam para direções diferentes. Falam entre si num idioma que nenhum conhece conscientemente. Duram quarenta minutos. De manhã, não lembram de nada."
+    },
+    {
+     "t": "prose",
+     "texto": "Vaeryn e Vael observam. Vael conta depois: *\"Aquele idioma. Eu ouvi uma coisa parecida uma vez. Num coral antigo que a Companhia tentou queimar. Antes de queimar, por alguns segundos, emitiu um som.\"*"
+    },
+    {
+     "t": "prose",
+     "texto": "O Inquilino não estava chamando só Mira. Está chamando todos os que têm éter suficiente nos genes para escutar. E está ficando mais forte toda noite."
+    }
+   ]
+  }
+ ]
+}

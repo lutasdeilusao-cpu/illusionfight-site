@@ -1,0 +1,75 @@
+{
+ "icone": "🌊",
+ "titulo": "O Inquilino — A Verdade Real",
+ "blocos": [
+  {
+   "t": "callout",
+   "kind": "twist",
+   "label": "⚠ SPOILER MÁXIMO",
+   "titulo": "Ele Não É Um Monstro",
+   "corpo": [
+    {
+     "t": "prose",
+     "texto": "O Inquilino não é uma criatura. Não é um deus. Não é um mal que precisa ser destruído. O Inquilino é **o último sobrevivente consciente da civilização que afundou os próprios continentes** — há 30.000 anos — para aprisioná-lo."
+    }
+   ]
+  },
+  {
+   "t": "sub",
+   "texto": "A Civilização Anterior — Os Veth"
+  },
+  {
+   "t": "prose",
+   "texto": "Antes das raças atuais, Thalvorn tinha continentes. Tinha uma civilização chamada os **Veth** — seres que existiam simultaneamente em estado físico e de pura memória. Eram o éter. Cada um, uma biblioteca viva de milênios. O mais antigo — o Inquilino — acumulou tanto que começou a *transbordar*: reescrever a realidade ao redor com memórias tão intensas que eram físicas."
+  },
+  {
+   "t": "quote",
+   "texto": "Imagine uma pessoa com memórias tão vívidas que quando ela lembra de um incêndio, o quarto pega fogo. Agora imagine isso escalado para um ser de 40.000 anos com a memória coletiva de uma civilização inteira. Esse é o problema que os outros Veth precisaram resolver.",
+   "cite": "Trecho do Manifesto das Profundezas, secção IV"
+  },
+  {
+   "t": "prose",
+   "texto": "Os outros Veth se sacrificaram voluntariamente — dissolveram seus corpos físicos, tornaram-se o éter dos fundos oceânicos, usaram essa transição para afundar os continentes e criar uma estrutura de contenção que manteria o Inquilino dormindo."
+  },
+  {
+   "t": "prose",
+   "texto": "O éter que a Aliança queima nos motores **são os corpos dos Veth que se sacrificaram** para manter a prisão funcionando."
+  },
+  {
+   "t": "card",
+   "variant": "purple",
+   "titulo": "O Estado Atual do Inquilino",
+   "tags": [],
+   "corpo": [
+    {
+     "t": "prose",
+     "texto": "Não está inconsciente. Está em contemplação forçada — com seus processos de transbordamento suprimidos pela estrutura de contenção. Com o enfraquecimento causado pela extração de éter, ele começou a \"vazar\" — fragmentos de memória não-intencionais. É isso que Mira ouve. É o que enlouquece as criaturas marinhas."
+    },
+    {
+     "t": "prose",
+     "texto": "Ele não está tentando escapar. Está acordando involuntariamente. E quando acordar completamente, o transbordamento será automático — não por malícia, mas pela natureza do que ele é."
+    },
+    {
+     "t": "prose",
+     "texto": "Se acordar sem a contenção intacta, a realidade ao redor do abismo central será reescrita pelas suas memórias. Escala geológica: provavelmente metade do mundo cartografado."
+    }
+   ]
+  },
+  {
+   "t": "card",
+   "variant": "red",
+   "titulo": "O Custo Real de Mira",
+   "tags": [],
+   "corpo": [
+    {
+     "t": "prose",
+     "texto": "Cada sessão de comunicação não é neutra. As memórias dos Veth que entram por ela não são cópias — são substituições parciais. Após o contato no Arco III, ela sabe coisas que nunca aprendeu, sente saudade de lugares que nunca visitou, e às vezes responde ao próprio nome com um segundo de hesitação."
+    },
+    {
+     "t": "prose",
+     "texto": "Ela não vai perder a identidade completamente. Mas vai sempre se perguntar, nos momentos de silêncio, onde Mira termina e onde os Veth começam."
+    }
+   ]
+  }
+ ]
+}
