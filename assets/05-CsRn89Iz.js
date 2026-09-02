@@ -1,0 +1,75 @@
+var e=`# CAPÍTULO 5 — El Círculo
+
+Me di vuelta. Ya ni veía a los dos. Solo veía el montón de matones viniendo hacia mí. Me trabé, cerré los ojos y esperé los golpes.
+
+Ahí una mano me agarró el hombro y me tiró para atrás con todo. El mohawk verde. La gorra azul me sostuvo para que no cayera y me puso a un costado. No dijeron nada. Pero algo quedó entendido.
+
+Los dos entraron al medio del círculo.
+
+— Es lo siguiente. — el mohawk. — Vamos a equilibrar para que sea justo. Ya que va a ser en equipo, entramos al equipo del PET. Y bueno, ¿quién va primero?
+
+Se veía a todos retrocediendo. El grupo que tanto me humillaba, tanto se creía, teniendo que encarar a un poder más grande — fueron cediendo terreno.
+
+Arnold gritaba de odio, ordenándoles a los matones que atacaran. Los matones ya conocían bien a los dos. Sabían que no daban abasto.
+
+— Entonces bien. — la gorra azul. — Vamos de simple y justo. Uno a uno. Vos, calentón — a Arnold —, y el PET. Peleen.
+
+Yo no sabía qué hacer. Nunca peleé en la vida.
+
+— Quiénes se creen que son. — alguien del grupo. — Ustedes no mandan acá.
+
+— La posta, todo el mundo es libre de hacer lo que quiera. — la gorra azul, tranquilo. — Lo que significa que nosotros podemos hacer lo que queramos, ¿no, Jack?
+
+— Y sí, ustedes querían pelea, pelea, va a haber ahora. — el mohawk. — Nosotros no empezamos nada, pero si hace falta terminamos. Elijan — nosotros o el Pet.
+
+La confianza con que hablaban los dos. La sincronía. La forma en que se comunicaban sin combinar. Era como una sola persona dividida en dos cuerpos.
+
+El círculo se fue abriendo. Un círculo de pelea.
+
+El grupo de Arnold lo empujaba hacia adelante:
+
+— Es solo el PET, viejo. Ryan. Vos podés con él. ¿Mejor que todos tengan que pelear con esos dos?
+
+El mohawk verde le abrió la sonrisa a Arnold.
+
+— ¿Y, hermano? Vas a encarar a tu PET. ¿No sos vos el que dijo que lo iba a entrenar bien? Entonces llegó la hora de la lección.
+
+Se encogió de hombros, la sonrisa todavía en la cara.
+
+— Es tu oportunidad de domesticarlo de nuevo. Un perro que muerde la mano del dueño tiene que aprender una lección.
+
+---
+
+## La Apuesta
+
+Miré a Arnold.
+
+Como dije, yo siempre supe que era un sádico. Pero nunca lo había visto en ese estado. Esa furia no estaba en la cara — estaba saliendo de los ojos.
+
+— La culpa es toda tuya, PET. — La voz le salió baja, de la forma en que sale cuando habla en serio. — Voy a destruir cada órgano. Cada músculo. Cada pedazo de tu cuerpo.
+
+Yo me estaba muriendo de miedo.
+
+Los dos seguían ahí. Se entendía que no iban a hacer nada en esta pelea — solo estaban parados, garantizando que nadie interrumpiera.
+
+La gorra azul me miraba serio. El mohawk verde sonreía. Se dio vuelta hacia el amigo.
+
+— ¿Y, Kim? ¿Apuestita? Yo voy al calentón.
+
+— ¿Cuántos golpes, Jack?
+
+— ¿Aguanta diez?
+
+— Cerrado. Diez golpes. Yo voy al PET.
+
+Kim. Jack.
+
+Fue ahí, en el medio de todo eso, que finalmente tuve un nombre para cada uno de los dos.
+
+Cuando terminaron de ajustar la apuesta, la mirada de Kim cambió de nuevo. Nunca voy a entender cómo esa cara podía ser tan expresiva sin decir nada.
+
+Esta vez la mirada decía una sola cosa.
+
+*Más te vale ganar.*
+`;export{e as default};
+//# sourceMappingURL=05-CsRn89Iz.js.map

@@ -1,0 +1,97 @@
+var e=`# CHAPTER 2 — Arnold
+
+That's not a figure of speech. Doormat is the right word. Okay, "right" might be a stretch, but the correct word isn't politically acceptable.
+
+I'm a victim of the situation. Of my own situation — of my privilege, my caste, the elite position my father prizes so much. There's a joke in there, if you stop to think about it. The same thing that's supposed to protect me is the thing that hands me over to them every morning.
+
+Because they're rich too. Maybe not like my family — almost nobody is. But rich enough to be there, in the same hallway, in the same expensive uniform. And even so they make me pay their bills. They make their homework land in my backpack. They humiliate me. They film it. They love filming it.
+
+These are my days. It's been so long I don't really remember what they were like before.
+
+---
+
+It always starts with Arnold.
+
+I don't know what he has against me. Never did. From the first day he showed up at Elite Academy and looked me up and down in the hallway, something was decided — by him, about me — and it never changed.
+
+Arnold isn't the movie bully. He's not big, he's not muscular, he doesn't lay a hand on me if he can avoid it. He's thin, he has a quiet voice, he sits in the front row and answers the teacher politely.
+
+But there's something in his eyes.
+
+He likes to watch. Not to do — to watch. He leans against the wall, crosses his arms, and watches his friends work on me with the face of someone rewatching a movie he already found funny the first time.
+
+Everything that happens to me passed through his head first. Thought out, arranged, handed out. The others just carry it out.
+
+---
+
+**Monday.**
+
+Monday is settling day.
+
+Dylan comes to my desk before the first bell, sits next to me, sends me a disappearing message, waits for me to write it down in my notebook and makes sure he sees me delete it. A list. Cafeteria, a phone screen someone cracked over the weekend, "loans" nobody borrowed. I run the numbers in my head while the rest of the room takes their seats.
+
+Six hundred on a light week. More than that on a bad one.
+
+I unlock the phone with my thumb, make the transfers one by one, show the screen to Dylan. He checks it without hurrying, like the money is his.
+
+My father never asked where the card goes. He never will. To him, sixty or six thousand is the same thing — background noise.
+
+---
+
+**Tuesday.**
+
+Tuesday there are three sets of exercises on my desk when I get there.
+
+Different handwriting for each one. I learned to imitate all three — Bruno's leans right, Théo presses too hard on the pen, Marina's is round and neat. I do all three before class starts, with my own blank test next to me.
+
+I get better grades on other people's tests than on my own. I've thought about that more than once.
+
+---
+
+**Wednesday.**
+
+Wednesday it's in the space behind the gym, where the hallway camera doesn't reach.
+
+They throw stuff. A can, a shoe, someone's lunch. Dylan likes to shove — not to really hurt me, just to knock me down. I've learned to fall in a way that hurts less, hip first, elbow tucked in.
+
+Arnold stays outside the circle with his phone up. He doesn't film the can or the shove.
+
+He films my face.
+
+The underwear video was last year, in the second-floor hallway. It still goes around. Every now and then someone sends it to my number again, without writing anything, just so I know it didn't disappear.
+
+---
+
+**Thursday.**
+
+Thursday it's in the cafeteria, with the cafeteria full.
+
+They build something on a tray — what's left of three plates, mixed together, plus whatever they find in a backpack. They put it in front of me and stand around, leaning, talking about something else, waiting.
+
+It's not about the food. It's about me eating with everyone watching and nobody getting up from their chair.
+
+I eat. It's faster that way.
+
+---
+
+**Friday.**
+
+Friday afternoon it eases up.
+
+Everyone's already thinking about the weekend, the beach house, Saturday morning's flight. Even Arnold. He looks at me on the way out, calculates whether it's worth it, decides it isn't, and leaves without a word.
+
+I get about two hours of being invisible. It's the closest thing to peace the week gives me.
+
+---
+
+This didn't start this year. Or last year.
+
+It's been so long it became a schedule. Monday the money, Tuesday the homework, Wednesday the floor behind the gym, Thursday the tray, Friday the relief. I know the shape of each day before it happens.
+
+I stopped waiting for anyone in the hallway to do something. Nobody ever did.
+
+They call it coping with pain. Like it's a skill you can train.
+
+Maybe it's the only one I have.
+`;export{e as default};
+//# sourceMappingURL=02-iCPyeo8e.js.map

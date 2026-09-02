@@ -1,0 +1,71 @@
+var e=`# CHAPTER 7 — Physics
+
+I stayed there. Still, in the same position.
+
+The only thing I heard was Jack shouting.
+
+— No. Come on. No, no, no!
+
+It was probably the frustration of losing the bet. But, stopping to think about it now — who bets on punches? Those two were from another reality.
+
+---
+
+The tears came back. Running down my face, without me being able to control it. I was crying again.
+
+Except it wasn't sadness. It wasn't pain. I just didn't know how to get out what I was feeling. Body and head confused.
+
+*Was this what other people called happiness?*
+
+---
+
+Kim was dragging Jack by the shirt. Jack facing backward, trying to get away.
+
+He passed by me and said only one thing:
+
+— That wasn't power. That was physics.
+
+And he left, taking Jack with him. To make him pay the bet, I imagine.
+
+---
+
+I smiled.
+
+Really smiled. It had been so many years since I'd done it that the muscles in my face hurt. And I laughed.
+
+At those two crazy idiots that make everyone afraid. That get into other people's problems. That say little and only say garbage. That can conduct a fight like conducting an orchestra. That bet on punches. Cavemen. Ha.
+
+Those two inferiors. The most hated in the school. And who saved my shit life.
+
+I stayed hunched over. I didn't straighten up until the two of them disappeared from the hallway. It was all I could do there — let it become a bow. A bow of gratitude.
+
+This is the end.
+
+---
+
+## What Kim Said
+
+I know you're dying to know what Kim said in my ear.
+
+Fine. I'll tell you. But don't tell anyone.
+
+He said:
+
+— Every punch Jack lands on me, I give back five on you. A year of pain with those losers isn't worth one punch of mine.
+
+— Get up. And be a pet. Listen to every order. No thinking, no questioning. Execute with a hundred percent precision. One mistake, and I finish you!
+
+---
+
+Yeah. My savior's words of encouragement.
+
+Kind? No. Charitable? Definitely not.
+
+Did he want to help me somehow? I don't know. But I know he did not want to lose that bet, no way. It's the one certainty I have.
+
+Because that same day I saw Jack.
+
+And no. I did not want to be in his place.
+
+Now yes. The end.
+`;export{e as default};
+//# sourceMappingURL=07-D19z4Ty7.js.map

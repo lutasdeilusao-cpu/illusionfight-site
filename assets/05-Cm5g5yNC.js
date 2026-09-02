@@ -1,0 +1,75 @@
+var e=`# CHAPTER 5 — The Circle
+
+I turned. I couldn't even see the two of them anymore. All I saw was the pile of muscle coming at me. I locked up, closed my eyes and waited for the hits.
+
+Then a hand grabbed my shoulder and yanked me back hard. The green mohawk. The blue cap held me so I wouldn't fall and set me off to the side. They didn't say anything. But something was understood.
+
+The two of them stepped into the middle of the circle.
+
+— Here's the deal. — the mohawk. — Let's even it out so it's fair. Since it's going to be a team thing, we're joining the PET's team. So, who's first?
+
+You could see everyone backing off. The group that humiliated me so much, thought so highly of themselves, now facing a bigger power — they started giving ground.
+
+Arnold was screaming with hatred, ordering the muscle to attack. The muscle already knew the two of them well. They knew they couldn't handle it.
+
+— Alright then. — the blue cap. — Let's keep it simple and fair. One on one. You, hothead — to Arnold —, and the PET. Fight.
+
+I had no idea what to do. I'd never fought in my life.
+
+— Who do you think you are. — someone from the group. — You don't run this place.
+
+— Real talk, everyone's free to do what they want. — the blue cap, calm. — Which means we can do what we want, right, Jack?
+
+— Yeah, well, you wanted a fight, you'll get a fight, right now. — the mohawk. — We didn't start anything, but if we have to, we'll finish it. Pick one — us or the Pet.
+
+The confidence the two of them talked with. The sync. The way they communicated without arranging it. It was like one person split into two bodies.
+
+The circle opened up. A fight circle.
+
+Arnold's group pushed him forward:
+
+— It's just the PET, man. Ryan. You can handle him. Better than everyone having to fight those two, right?
+
+The green mohawk grinned at Arnold.
+
+— So, man? Going to face your PET. Aren't you the one who said you'd train him well? Then it's time for the lesson.
+
+He shrugged, the smile still on his face.
+
+— It's your chance to domesticate him again. A dog that bites the owner's hand has to learn a lesson.
+
+---
+
+## The Bet
+
+I looked at Arnold.
+
+Like I said, I always knew he was a sadist. But I'd never seen him in that state. That fury wasn't on his face — it was coming out of his eyes.
+
+— This is all your fault, PET. — His voice came out low, the way it does when he's serious. — I'm going to destroy every organ. Every muscle. Every piece of your body.
+
+I was scared to death.
+
+The two of them stayed there. It was clear they weren't going to do anything in this fight — they were just standing there, making sure nobody interrupted.
+
+The blue cap watched me, serious. The green mohawk was smiling. He turned to his friend.
+
+— So, Kim. Little bet? I'm on the hothead.
+
+— How many punches, Jack?
+
+— Can he take ten?
+
+— Deal. Ten punches. I'm on the PET.
+
+Kim. Jack.
+
+It was there, in the middle of all that, that I finally had a name for each of them.
+
+When they finished settling the bet, Kim's look changed again. I'll never understand how that face could be so expressive without saying anything.
+
+This time the look said only one thing.
+
+*You'd better win.*
+`;export{e as default};
+//# sourceMappingURL=05-Cm5g5yNC.js.map

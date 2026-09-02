@@ -1,0 +1,73 @@
+var e=`# CAPÍTULO 4 — Palabra y Acción
+
+El mohawk le puso la mano en la gorra al amigo, la giró frente a su cara, y me miró con esa sonrisa ancha, los dientes blancos.
+
+— Che, viejo. No te lo tomes a mal. Este idiota habla sin pensar. Pero sinceramente: si ser inferior a vos es quedar como estamos nosotros, y ser superior es quedar como estás vos... ¿Y vos qué decís, socio?
+
+La gorra azul contestó sin ni siquiera mirarme.
+
+— ¡Inferior!
+
+El mohawk verde se rió y soltó:
+
+— Inferior también, ya hicimos nuestra elección, ¡gracias!
+
+El mohawk le sacudió la gorra a la gorra azul.
+
+— Dejá de tocarme la gorra, carajo. — la gorra azul. — Sabés que no me gusta.
+
+Empezaron a cambiar de tema ahí mismo. La gorra azul empezó a levantarse.
+
+El grupito de Arnold se reía de nuestra conversación, se burlaba, me jodía como siempre. Y yo estaba cansado. Muy cansado.
+
+— Es muy fácil. — Grité. — Es muy fácil para unos brutos como ustedes, unos neandertales, ignorantes, que solo saben pelear como salvajes, querer humillar a los demás. ¿Y por qué motivo? Tengo más dinero, voy a tener más éxito, soy más inteligente. Solo porque tienen poder hoy, creen que pueden decir lo que quieran, hacer lo que quieran. Pero no va a ser siempre así. No siempre van a estar en la escuela. No siempre van a tener el poder.
+
+Eso no era solo para el mohawk. Era para todos alrededor. Para todo lo que estaba pasando. Para esa vida. — Era una de las cosas que ellos iban a escuchar por mi video, pero ya no aguantaba más y lo dije ahí mismo.
+
+La gorra azul ya estaba de pie, acomodándose la gorra. Habló sin mirarme.
+
+— El consuelo del fracasado: esperar que caiga del cielo el futuro mejor.
+
+Giró la cara despacio.
+
+— Hablar está bueno, viejo. Pero es la acción la que hace la diferencia.
+
+Esta vez el miedo no vino. Solo rabia. Rabia de que un inferior así me diera lección de moral.
+
+Y fue ahí que entendí por qué todo el mundo odiaba a los dos.
+
+---
+
+## El Codazo
+
+Salí de abajo del pie de Arnold. Él se desequilibró, empezó a gritar e insultar.
+
+Me levanté y fui hacia los dos. El grupito de Arnold me dejó — obviamente imaginando que iba a comerme una paliza.
+
+Agarré a la gorra azul del hombro. Él solo miró mi mano. Y mi mano se trabó. Ahí me di cuenta de lo que estaba haciendo. Bajé el brazo despacio. No dije nada. Dominado por el miedo, aterrado — por la mirada (cómo hacía eso), por las historias que contaban de los dos, por todo lo que yo sabía que podían hacerme.
+
+Fue cuando llegó el grupo de Arnold.
+
+Arnold me pasó el brazo por el cuello, apretó, y me enterró un golpe en el estómago para que no me olvidara mi lugar.
+
+— No te mandé a levantarte. ¿Por qué te levantaste, PET? — Y para los dos, cambiando la voz: — Perdón, gente. Todavía estamos entrenando a nuestro PET. Pero para fin de año va a estar bien domesticado. Volvé a tu lugar, Ryan. Arrodillate y meneá la cola.
+
+Por un momento el tiempo se detuvo.
+
+Escuchaba a Arnold de lejos. Ya no existía el grupo, ya no existía la escuela. Solo yo y la gorra azul, los ojos trabados uno en el otro. Yo doblado de dolor en el estómago y sin sacarle el ojo de encima. Arnold me tiró del pelo, intentó tirarme al piso, y yo no desviaba la mirada.
+
+Y era como si sus ojos dijeran: *ACCIÓN*
+
+Acción, como si yo pudiera hacer alguna acción. Todos decidían todo por mí. No existe un recuerdo, ni un acto en toda mi vida, que haya sido elección mía, que haya sido una acción mía.
+
+No sé qué me agarró. Mi codo se movió solo y le pegó en el mentón a Arnold. Salió para atrás con todo.
+
+Fue la primera acción que hice en la vida.
+
+Pensándolo ahora, con calma: en el segundo en que salió el codazo, los labios de la gorra azul se curvaron apenas. Casi una sonrisa.
+
+El tiempo volvió a andar.
+
+— ¡Hijo de puta! — Arnold, la boca sangrando, la voz rasgada. — Me pegaste en la boca. Estoy sangrando, pedazo de mierda. — Al grupo: — Termínenlo.
+`;export{e as default};
+//# sourceMappingURL=04-B4AunQIf.js.map
