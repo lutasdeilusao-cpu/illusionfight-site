@@ -39,10 +39,9 @@
     "titulo": "Mar de Cinzas",
     "titulo_en": "Sea of Ashes",
     "titulo_es": "Mar de Cenizas",
-    "subtitulo_pt": "Thalvorn: um oceano de ilhas movido a memória de deuses mortos. A bíblia do mundo, do sistema de magia e do elenco.",
-    "subtitulo_en": "Thalvorn: an ocean of islands run on the memory of dead gods. The bible of the world, the magic system and the cast.",
-    "subtitulo_es": "Thalvorn: un océano de islas movido por la memoria de dioses muertos. La biblia del mundo, del sistema de magia y del elenco.",
-    "aviso_pt": "Bíblia do projeto v5.0. A protagonista aqui — Vaeryn Thoss — é a revisão mais recente do mundo; os capítulos publicados em Histórias ainda seguem a versão anterior.",
+    "subtitulo_pt": "Thalvorn: um oceano de ilhas movido a memória de deuses mortos. O mundo, o sistema de magia, o elenco e o mistério do Abismo — alinhado com a história.",
+    "subtitulo_en": "Thalvorn: an ocean of islands run on the memory of dead gods. The world, the magic system, the cast and the mystery of the Abyss — aligned with the story.",
+    "subtitulo_es": "Thalvorn: un océano de islas movido por la memoria de dioses muertos. El mundo, el sistema de magia, el elenco y el misterio del Abismo — alineado con la historia.",
     "secoes": [
       { "id": "mundo-tab", "titulo": "O Mundo", "partes": ["mundo", "magia", "historia", "navegacao"] },
       { "id": "geografia", "titulo": "Geografia", "partes": ["ilhas", "seis-coroas", "tritons"] },

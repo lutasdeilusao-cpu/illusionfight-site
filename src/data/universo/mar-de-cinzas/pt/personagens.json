@@ -18,8 +18,8 @@
    "t": "personagens",
    "itens": [
     {
-     "nome": "Vaeryn Thoss",
-     "papel": "Comandante · Humana · Dornath · 19 anos",
+     "nome": "Elizabeth Thoss",
+     "papel": "Comandante · Humana · Dornath · 14 anos",
      "desc": "Ver seção completa acima. Resumo para referência rápida: filha de oficial de Dornath, educada para casamento político, recusou publicamente e de forma devastadora, foi punida com trabalho compulsório nas minas, escapou usando os próprios instrumentos do sistema contra si mesmo.",
      "flaw": "Falha real: Ossa. Deixou uma pessoa inocente ser punida em seu lugar por cálculo frio, e depois não aproveitou a única chance que tinha de consertar isso. O heroísmo posterior não cobre essa conta.",
      "power": "Força: análise fria sob pressão, memória de mapa e de conversas que nunca foram endereçadas a ela, capacidade de usar o vocabulário e lógica do inimigo contra ele. Não sabe lutar. Sabe *convencer*.",
@@ -33,7 +33,7 @@
      "nome": "Syre",
      "papel": "Navegação climática · Elfa do Mar · 60 anos",
      "desc": "Ex-meteorologista do Almirantado. Uma das poucas não-humanas em posição técnica, algo conseguido calando a boca sobre muita coisa por muito tempo. Perdeu a filha na Semana Branca.",
-     "flaw": "A posição que ela manteve no Almirantado foi construída sobre silêncio. Sabia de atrocidades menores e não falou. O peso é real. Quando encontra Vaeryn, reconhece algo familiar — outra mulher que sobreviveu sendo invisível. A diferença é que Vaeryn parou. E Syre não sabe como se sentir em relação a isso.",
+     "flaw": "A posição que ela manteve no Almirantado foi construída sobre silêncio. Sabia de atrocidades menores e não falou. O peso é real. Quando encontra Elizabeth, reconhece algo familiar — outra mulher que sobreviveu sendo invisível. A diferença é que Elizabeth parou. E Syre não sabe como se sentir em relação a isso.",
      "power": "Controle climático em raio de 3km. Pode chamar névoa, dispersar tempestades, sentir correntes ocultas. A Névoa Cinza lhe dá alucinações da filha.",
      "tags": [
       "mágica",
@@ -44,8 +44,8 @@
     {
      "nome": "Drok",
      "papel": "Combate · Orc · 35 anos",
-     "desc": "Ex-lutador de arenas clandestinas humanas. Resgatado das gaiolas da mina. Não é grato — foi resgatado por *leverage*, e ele sabe disso. Questiona cada decisão de Vaeryn. Frequentemente está certo.",
-     "flaw": "Raiva sem controle em situações de humilhação. Já matou pessoas que não precisavam morrer por isso. O arco de Drok com Vaeryn é diferente do que seria com Cael: ele a testa porque é mulher e porque é jovem, e vai ter que encarar de frente os próprios preconceitos quando perceber que estava certo por razões erradas.",
+     "desc": "Ex-lutador de arenas clandestinas humanas. Resgatado das gaiolas de Amvesh. Não é grato — foi resgatado por *leverage*, e ele sabe disso. Questiona cada decisão de Elizabeth. Frequentemente está certo.",
+     "flaw": "Raiva sem controle em situações de humilhação. Já matou pessoas que não precisavam morrer por isso. Drok testa Elizabeth porque ela é mulher e porque tem catorze anos, e vai ter que encarar de frente os próprios preconceitos quando perceber que estava certo por razões erradas.",
      "power": "500 anos de guerra racial condensados num corpo que aprendeu a sobreviver em cada cenário adversarial que Thalvorn tem para oferecer.",
      "tags": [
       "raiva",
@@ -56,7 +56,7 @@
     {
      "nome": "Mira",
      "papel": "Mergulhadora · Tritão · 17 anos",
-     "desc": "Resgatada das gaiolas da mina por Vaeryn. Diferente dos outros tritões — consegue mergulhar mais fundo que qualquer um. Uma vez foi longe demais e voltou com algo diferente nos olhos. Às vezes para tudo e escuta o oceano.",
+     "desc": "Resgatada das gaiolas da mina por Elizabeth. Diferente dos outros tritões — consegue mergulhar mais fundo que qualquer um. Uma vez foi longe demais e voltou com algo diferente nos olhos. Às vezes para tudo e escuta o oceano.",
      "flaw": "Está sendo chamada pelo Inquilino, e a cada vez que acontece sente que quer ir. A luta para permanecer com a tripulação vai ficando mais difícil. E a questão central: quando retornar do contato com o Inquilino, *quanto dela ainda é ela?*",
      "power": "**Por que Mira?** Não é profecia. Micro-exposições ao éter bruto desde os 4 anos criaram adaptação neurológica única: processa sinais de éter como linguagem, não como ruído. Acidente estatístico num sistema quebrado. Sua mãe lhe ensinou Veth-Nar completo — ato de resistência cultural disfarçado de canto.",
      "tags": [
@@ -68,8 +68,8 @@
     {
      "nome": "Bross",
      "papel": "Engenharia · Anão · 52 anos",
-     "desc": "O mais pragmático de todos. Não está no barco por ideologia — Vaeryn prometeu pagamento quando as coisas se acalmassem. Bross precisa de dinheiro para comprar de volta a forja que perdeu para um credor humano há dez anos.",
-     "flaw": "Pragmatismo excessivo: vai ter que escolher entre o grupo e uma saída financeira. Escolhe o grupo, mas demora mais do que deveria. Inicialmente trata Vaeryn como uma nobre entediada que vai desistir na primeira tempestade. É o primeiro a mudar de ideia — porque ela demonstra competência técnica antes de demonstrar liderança, e competência é a única coisa que Bross respeita.",
+     "desc": "O mais pragmático de todos. Não está no barco por ideologia — Elizabeth prometeu pagamento quando as coisas se acalmassem. Bross precisa de dinheiro para comprar de volta a forja que perdeu para um credor humano há dez anos.",
+     "flaw": "Pragmatismo excessivo: vai ter que escolher entre o grupo e uma saída financeira. Escolhe o grupo, mas demora mais do que deveria. Inicialmente trata Elizabeth como uma nobre entediada que vai desistir na primeira tempestade. É o primeiro a mudar de ideia — porque ela demonstra competência técnica antes de demonstrar liderança, e competência é a única coisa que Bross respeita.",
      "power": "Mantém o motor do Perpétuo funcionando por milagre e xingamento. Entende Motores de Éter melhor que qualquer engenheiro humano — porque anões estudaram éter como fenômeno natural por séculos. É Leitor de Éter. Nunca contou para ninguém.",
      "tags": [
       "pragmático",
@@ -80,8 +80,8 @@
      "nome": "Vael Orrith",
      "papel": "Conselheiro · Humano · 45 anos",
      "desc": "Ex-capitão do Almirantado. \"Reformado\" pelos piratas que afundaram seu navio — e que, sobrevivendo, decidiu nunca mais servir a nenhuma bandeira. Conhece cada rota, cada banco de areia, cada contato suspeito no mundo navegável.",
-     "flaw": "Segredo devastador: foi ele quem entregou a localização do navio do pai de Vaeryn ao Almirante Voss. O pai de Vaeryn — um dos primeiros pesquisadores que tentou publicar fragmentos do que viria a ser o Manifesto — foi morto por esse ato. Vael não sabia que Voss ia matar o homem. Ou se sabia, se convenceu de que não. De qualquer forma, a família Thoss ficou empobrecida e vulnerável o suficiente para precisar vender Vaeryn em casamento.",
-     "power": "Rede de contatos que abrange cada porto clandestino de Thalvorn. Conhecimento tático que rivaliza com qualquer oficial do Almirantado. O mais educadamente subestimador com Vaeryn — o que ela aprende a usar antes de confrontar.",
+     "flaw": "Segredo devastador: foi ele quem entregou os documentos do pai de Elizabeth ao gabinete do Almirante Voss. O pai de Elizabeth — um dos primeiros pesquisadores a tentar publicar fragmentos do que viria a ser o Manifesto — teve a carreira enterrada por esse ato. Vael não sabia até onde iria. Ou se sabia, se convenceu de que não. De qualquer forma, a família Thoss ficou vulnerável o suficiente para precisar leiloar Elizabeth em casamento.",
+     "power": "Rede de contatos que abrange cada porto clandestino de Thalvorn. Conhecimento tático que rivaliza com qualquer oficial do Almirantado. O mais educadamente subestimador com Elizabeth — o que ela aprende a usar antes de confrontar.",
      "tags": [
       "traição",
       "experiente",
@@ -98,7 +98,7 @@
    "corpo": [
     {
      "t": "prose",
-     "texto": "Nenhum dos homens é abertamente hostil. Isso é quase pior. Drok testa porque quer saber o que ela é. Bross ignora até que não pode mais. Vael *sugere*, *enquadra*, *re-explica* — como se as ideias de Vaeryn precisassem de uma segunda voz masculina para serem válidas. Ela nota. Aprende a usar: deixa ele pensar que a ideia é dele quando convém. Mas há um limite para isso. E quando Vael cruza, a cena que acontece é uma das mais carregadas do Arco I."
+     "texto": "Nenhum dos homens é abertamente hostil. Isso é quase pior. Drok testa porque quer saber o que ela é. Bross ignora até que não pode mais. Vael *sugere*, *enquadra*, *re-explica* — como se as ideias de Elizabeth precisassem de uma segunda voz masculina para serem válidas. Ela nota. Aprende a usar: deixa ele pensar que a ideia é dele quando convém. Mas há um limite para isso. E quando Vael cruza, a cena que acontece é uma das mais carregadas do Arco I."
     },
     {
      "t": "prose",

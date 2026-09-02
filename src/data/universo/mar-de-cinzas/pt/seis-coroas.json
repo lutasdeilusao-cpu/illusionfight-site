@@ -19,9 +19,9 @@
     },
     {
      "nome": "Dornath — A Coroa Militar",
-     "papel": "Segunda maior · Sede do Almirantado · Origem de Vaeryn",
+     "papel": "Segunda maior · Sede do Almirantado · Origem de Elizabeth",
      "desc": "Cultura militar. Honra, disciplina, hierarquia. Maioria dos oficiais vem de Dornath — incluindo Voss. Acredita genuinamente na missão civilizatória da Aliança.",
-     "flaw": "Para Vaeryn, Dornath é o sistema que a criou e tentou leiloá-la. Voltar lá como capitã do Perpétuo no Arco II cria as cenas mais pessoalmente carregadas da série.",
+     "flaw": "Para Elizabeth, Dornath é o sistema que a criou e tentou leiloá-la. Voltar lá como capitã do Perpétuo no Arco II cria as cenas mais pessoalmente carregadas da série.",
      "power": "",
      "tags": []
     },
@@ -45,7 +45,7 @@
      "nome": "Amvesh — A Coroa Colonial",
      "papel": "Expansão · Fronteiras · Exploração",
      "desc": "A mais jovem das Coroas. Economia dependente do controle de ilhas \"pacificadas\" de não-humanos. Os mais brutais em suprimir resistência.",
-     "flaw": "Maior obstáculo político para qualquer reforma. E onde Ossa está. Para Vaeryn, Amvesh nunca é só política.",
+     "flaw": "Maior obstáculo político para qualquer reforma. E onde Ossa está. Para Elizabeth, Amvesh nunca é só política.",
      "power": "",
      "tags": []
     },

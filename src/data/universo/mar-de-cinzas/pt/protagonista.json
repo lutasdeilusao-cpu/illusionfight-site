@@ -1,11 +1,11 @@
 {
  "icone": "⭑",
- "titulo": "Protagonista — Vaeryn Thoss",
+ "titulo": "Protagonista — Elizabeth Thoss",
  "blocos": [
   {
    "t": "protagonista",
-   "nome": "VAERYN THOSS",
-   "papel": "Comandante do Perpétuo · Humana · Dornath · 19 anos",
+   "nome": "ELIZABETH THOSS",
+   "papel": "Comandante do Perpétuo · Humana · Dornath · 14 anos",
    "tags": [
     "rebeldia",
     "inteligência",
@@ -16,7 +16,7 @@
    "corpo": [
     {
      "t": "prose",
-     "texto": "Filha de um oficial de médio escalão de Dornath, criada para ser entregue em casamento a alguém com conexões que a família precisava. Educada para ser inteligente o suficiente para não envergonhar um marido em jantar de oficiais, mas nunca suficientemente para fazer perguntas inconvenientes."
+     "texto": "Filha de Errath Thoss, oficial de médio escalão de Dornath — família respeitável mas nunca próspera. Criada para ser entregue em casamento a alguém com conexões que a família precisava. Ela se chama a si mesma de Eli. Educada para ser inteligente o suficiente para não envergonhar um marido em jantar de oficiais, mas nunca suficientemente para fazer perguntas inconvenientes."
     },
     {
      "t": "prose",
@@ -30,11 +30,11 @@
   },
   {
    "t": "prose",
-   "texto": "O pai de Vaeryn, Capitão Errath Thoss, era um homem que acreditava genuinamente estar fazendo o melhor pela filha. A família tinha status mas pouca fortuna — o casamento político era a forma de garantir segurança a longo prazo. Ele a inscreveu na Formação de Consorte aos 12 anos sem segunda opinião. Era o que se fazia."
+   "texto": "O pai de Elizabeth, Errath Thoss, acreditava genuinamente estar fazendo o melhor pela filha. Estatura média, ombros curvados pela vida, olhos claros que ela herdou. A família tinha status mas nunca fortuna — anos antes, quando ele tentou publicar fragmentos do que viria a ser o Manifesto, foi calado e teve a carreira travada. Nunca se recuperou. O casamento político era a forma que ele via de garantir segurança à filha. Ele a inscreveu na Formação de Consorte aos 12 anos sem segunda opinião. Era o que se fazia."
   },
   {
    "t": "prose",
-   "texto": "O que ele não calculou: Vaeryn tinha memória fotográfica e curiosidade irrefreável. Cada jantar de oficiais na sala ao lado era uma aula. Cada mapa que o pai deixava sobre a mesa, uma lição de navegação. Cada relatório do Almirantado discutido entre homens que consideravam mulheres incapazes de entender, um arquivo mental."
+   "texto": "O que ele não calculou: Elizabeth tinha memória fotográfica e curiosidade irrefreável. Cada jantar de oficiais na sala ao lado era uma aula. Cada mapa que o pai deixava sobre a mesa, uma lição de navegação. Cada relatório do Almirantado discutido entre homens que consideravam mulheres incapazes de entender, um arquivo mental."
   },
   {
    "t": "prose",
@@ -48,15 +48,15 @@
    "corpo": [
     {
      "t": "prose",
-     "texto": "O noivo: **Comandante Herath Vael**, 47 anos, viúvo duas vezes. Voz respeitada no Almirantado. Solicitou Vaeryn especificamente porque o pai dela tinha acesso a rotas comerciais que ele queria controlar. Ela tinha 19 anos."
+     "texto": "O noivo: **Comandante Scarn Vael**, 52 anos. Cinco casamentos; três esposas anteriores mortas — febre, colapso cardíaco, afogamento num navio ancorado, sozinha, à noite. Voz respeitada no Almirantado. Elizabeth tinha catorze anos."
     },
     {
      "t": "prose",
-     "texto": "A cerimônia era pública — Dornath valoriza testemunhas. Duzentos oficiais e suas famílias."
+     "texto": "A cerimônia era pública. Trezentas e catorze pessoas — Dornath valoriza testemunhas."
     },
     {
      "t": "prose",
-     "texto": "No momento do juramento de subordinação — onde a noiva recita formalmente as *Doze Obrigações da Consorte* — Vaeryn parou. Silêncio."
+     "texto": "No momento do juramento de subordinação — onde a noiva recita formalmente as *Doze Obrigações da Consorte* — Elizabeth parou. Silêncio."
     },
     {
      "t": "prose",
@@ -68,16 +68,16 @@
     },
     {
      "t": "prose",
-     "texto": "Depois olhou para Herath e disse a única frase emocional da cena:"
+     "texto": "Foi passando pelos doze artigos, um por um, recusando cada obrigação com a terminologia de contratos comerciais do próprio Almirantado. Só no fim olhou diretamente para Scarn Vael:"
     },
     {
      "t": "quote",
-     "texto": "\"Você não está comprando uma esposa. Está comprando silêncio. E eu não estou à venda.\"",
-     "cite": "Vaeryn Thoss · cerimônia de casamento · Dornath"
+     "texto": "\"Você não está comprando uma esposa. Está comprando um móvel que vem com certos bens e pode lhe fazer certos agrados. Estou usando a palavra móvel porque há crianças na plateia.\"",
+     "cite": "Elizabeth Thoss · cerimônia de casamento · Dornath"
     },
     {
      "t": "prose",
-     "texto": "O silêncio que seguiu não foi de choque. Foi de raiva contida de duzentas pessoas que sabiam que ela estava tecnicamente correta e que isso não importava."
+     "texto": "O silêncio que seguiu não foi de choque. Foi de raiva contida de trezentas pessoas que sabiam que ela estava tecnicamente correta e que isso não importava."
     }
    ]
   },
@@ -93,7 +93,7 @@
    "corpo": [
     {
      "t": "prose",
-     "texto": "Três meses antes do casamento, Vaeryn convenceu **Ossa** — sua criada, única pessoa próxima de uma amiga — a entregar uma mensagem a um estudante dissidente. Livros proibidos. Conversas sobre o que realmente aconteceu nas Guerras. A única forma de Vaeryn continuar sendo ela mesma por mais alguns meses."
+     "texto": "Meses antes do casamento, Elizabeth convenceu **Ossa** — sua criada, a coisa mais próxima de uma amiga que teve — a entregar uma mensagem a um estudante dissidente. Livros proibidos. Conversas sobre o que realmente aconteceu nas Guerras. A única forma de Elizabeth continuar sendo ela mesma por mais alguns meses."
     },
     {
      "t": "prose",
@@ -101,11 +101,11 @@
     },
     {
      "t": "prose",
-     "texto": "Vaeryn não a defendeu. Ficou em silêncio porque defendê-la significaria confessar, o que destruiria o casamento, o que destruiria a família."
+     "texto": "Elizabeth não a defendeu. Ficou em silêncio porque defendê-la significaria confessar, o que destruiria o casamento, o que destruiria a família."
     },
     {
      "t": "prose",
-     "texto": "Dois meses depois, Vaeryn humilhou o noivo e foi enviada para a escravidão de qualquer jeito. Ossa ainda está em Amvesh. Vaeryn não sabe se está viva. E essa conta não tem como ser paga com heroísmo."
+     "texto": "Meses depois, Elizabeth humilhou o noivo diante de trezentas testemunhas e foi reclassificada como \"trabalhadora em débito\" e enviada para Amvesh de qualquer jeito. Ossa ainda está em Amvesh. Elizabeth não sabe se está viva. E essa conta não tem como ser paga com heroísmo."
     }
    ]
   },
@@ -115,11 +115,11 @@
   },
   {
    "t": "prose",
-   "texto": "O Almirantado tem um processo para casos como o de Vaeryn. Executá-la ou prendê-la cria mártir e escândalo para a família de um oficial. A solução elegante: **reclassificação como \"trabalhadora em débito\"** — o mesmo eufemismo aplicado a tritões e orcs capturados. Enviada para uma mina de extração de éter no arquipélago colonial de Amvesh, como supervisora de baixo nível sobre trabalhadores tritões."
+   "texto": "O Almirantado tem um processo para casos como o de Elizabeth. Executá-la ou prendê-la cria mártir e escândalo para a família de um oficial. A solução elegante: **reclassificação como \"trabalhadora em débito\"** — o mesmo eufemismo aplicado a tritões e orcs capturados. Enviada para uma mina de extração de éter no arquipélago colonial de Amvesh, como supervisora de baixo nível sobre trabalhadores tritões."
   },
   {
    "t": "prose",
-   "texto": "A ironia calculada da punição: colocá-la acima de criaturas consideradas subumanas era suposto ser degradante. Para Vaeryn, é a primeira vez num ambiente onde o que ela sabe tem valor prático real. Em três meses aprende mais do que em 19 anos de Formação de Consorte."
+   "texto": "A ironia calculada da punição: colocá-la acima de criaturas consideradas subumanas era suposto ser degradante. Para Elizabeth, é a primeira vez num ambiente onde o que ela sabe tem valor prático real. Em três meses aprende mais do que em anos de Formação de Consorte."
   },
   {
    "t": "prose",
@@ -135,7 +135,7 @@
   },
   {
    "t": "prose",
-   "texto": "Vaeryn descobre que o encarregado da mina está desviando 8% da produção de éter para um comprador particular — não declarado à Companhia. Ela documenta. Não por altruísmo: por *leverage*."
+   "texto": "Elizabeth descobre que o encarregado da mina está desviando 8% da produção de éter para um comprador particular — não declarado à Companhia. Ela documenta. Não por altruísmo: por *leverage*."
   },
   {
    "t": "prose",
@@ -159,7 +159,7 @@
   },
   {
    "t": "prose",
-   "texto": "O Perpétuo não é roubado. É *vendido* — o encarregado da mina o passa para Vaeryn por valor simbólico como parte do acordo, para formalizar a transação em papel e explicar o paradeiro dos \"trabalhadores liberados\" sem admitir o desvio. O navio estava parado, a tripulação original dispensada dias antes por corrupção administrativa. É tecnicamente de Vaeryn. Legalmente, no papel de um encarregado que prefere que ela desapareça."
+   "texto": "O Perpétuo não é roubado. É *vendido* — o encarregado da mina o passa para Elizabeth por valor simbólico como parte do acordo, para formalizar a transação em papel e explicar o paradeiro dos \"trabalhadores liberados\" sem admitir o desvio. O navio estava parado, a tripulação original dispensada dias antes por corrupção administrativa. É tecnicamente de Elizabeth. Legalmente, no papel de um encarregado que prefere que ela desapareça."
   },
   {
    "t": "prose",
@@ -177,7 +177,7 @@
    "corpo": [
     {
      "t": "prose",
-     "texto": "Vaeryn narra com a raiva controlada de quem aprendeu que raiva descontrolada é exatamente o que o sistema espera de você. Analítica, precisa, com momentos de vulnerabilidade que ela mesma tenta disfarçar de pragmatismo."
+     "texto": "Elizabeth narra com a raiva controlada de quem aprendeu que raiva descontrolada é exatamente o que o sistema espera de você. Analítica, precisa, com momentos de vulnerabilidade que ela mesma tenta disfarçar de pragmatismo."
     },
     {
      "t": "prose",
@@ -186,7 +186,7 @@
     {
      "t": "quote",
      "texto": "Nunca quis ser capitã. Queria ler livros que me disseram que não eram para mim. O resto foi consequência.",
-     "cite": "VAERYN THOSS · log 3 do Perpétuo · terceira semana de fuga"
+     "cite": "ELIZABETH THOSS · log 3 do Perpétuo · terceira semana de fuga"
     }
    ]
   }
