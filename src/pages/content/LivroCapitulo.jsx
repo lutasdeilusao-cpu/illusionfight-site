@@ -149,7 +149,7 @@ export default function LivroCapitulo() {
         <title>{chapter ? `${chapter[tituloKey]} — ${t('site.nome_curto')}` : t('pages.helmet.capitulo_nao_encontrado')}</title>
       </Helmet>
       <div className="container">
-        <button className="livro-capitulo__back" onClick={() => navigate('/livro')}>
+        <button className="livro-capitulo__back" onClick={() => navigate('/historias/lutas-de-ilusao')}>
           {t('pages.livro.voltar_indice')}
         </button>
 
@@ -240,12 +240,12 @@ export default function LivroCapitulo() {
 
         <div className="livro-nav-flutuante">
           {anterior && (
-            <Link to={`/livro/${anterior.id}`} className="livro-nav-btn">
+            <Link to={`/historias/lutas-de-ilusao/${anterior.id}`} className="livro-nav-btn">
               ← {anterior[tituloKey]}
             </Link>
           )}
           {proximo && (
-            <Link to={`/livro/${proximo.id}`} className="livro-nav-btn livro-nav-btn--proximo">
+            <Link to={`/historias/lutas-de-ilusao/${proximo.id}`} className="livro-nav-btn livro-nav-btn--proximo">
               {proximo[tituloKey]} →
             </Link>
           )}
@@ -255,7 +255,7 @@ export default function LivroCapitulo() {
           {prevPublished ? (
             <button
               className="livro-capitulo__nav-btn"
-              onClick={() => navigate(`/livro/${prevPublished.id}`)}
+              onClick={() => navigate(`/historias/lutas-de-ilusao/${prevPublished.id}`)}
             >
               ← {prevPublished[tituloKey]}
             </button>
@@ -266,7 +266,7 @@ export default function LivroCapitulo() {
           {nextPublished ? (
             <button
               className="livro-capitulo__nav-btn"
-              onClick={() => navigate(`/livro/${nextPublished.id}`)}
+              onClick={() => navigate(`/historias/lutas-de-ilusao/${nextPublished.id}`)}
             >
               {nextPublished[tituloKey]} →
             </button>

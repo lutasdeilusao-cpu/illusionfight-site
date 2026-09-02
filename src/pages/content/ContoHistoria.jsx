@@ -31,7 +31,7 @@ export default function ContoHistoria() {
       <section className="livro-page">
         <div className="container">
           <p className="livro-capitulo__erro">{t('pages.livro.nao_encontrado')}</p>
-          <button className="livro-capitulo__back" onClick={() => navigate('/livro/contos')}>
+          <button className="livro-capitulo__back" onClick={() => navigate('/historias/contos')}>
             {t('pages.livro.voltar_indice')}
           </button>
         </div>
@@ -47,11 +47,12 @@ export default function ContoHistoria() {
       </Helmet>
       <div className="container">
         <nav className="livro-linhas">
-          <Link to="/livro" className="livro-linha">{t('pages.contos.linha_principal')}</Link>
-          <Link to="/livro/contos" className="livro-linha">{t('pages.contos.linha_contos')}</Link>
+          <Link to="/historias" className="livro-linha">{t('pages.historias.titulo')}</Link>
+          <Link to="/historias/lutas-de-ilusao" className="livro-linha">{t('pages.contos.linha_principal')}</Link>
+          <Link to="/historias/contos" className="livro-linha">{t('pages.contos.linha_contos')}</Link>
         </nav>
 
-        <button className="livro-capitulo__back" onClick={() => navigate('/livro/contos')}>
+        <button className="livro-capitulo__back" onClick={() => navigate('/historias/contos')}>
           {t('pages.livro.voltar_indice')}
         </button>
         <div className="contos-hero">
@@ -74,7 +75,7 @@ export default function ContoHistoria() {
                 <div className="livro-page__info">
                   <span
                     className={`livro-page__titulo${liberado ? '' : ' livro-page__titulo--locked'}`}
-                    onClick={() => liberado && navigate(`/livro/contos/${h.id}/${cap.id}`)}
+                    onClick={() => liberado && navigate(`/historias/contos/${h.id}/${cap.id}`)}
                   >
                     {cap[tituloKey]}
                   </span>

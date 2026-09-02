@@ -2,7 +2,7 @@
   "nav": {
     "links": [
       "Webtoon",
-      "Livro",
+      "Histórias",
       "Músicas",
       "Games",
       "LOJA",
@@ -2174,6 +2174,34 @@
       "sans": "Sans",
       "mono": "Mono"
     },
+    "historias": {
+      "titulo": "HISTÓRIAS",
+      "intro": "Todo o universo de leitura de Illusion Fight num lugar só: a linha principal, os Contos de Ilusão e outros mundos.",
+      "og_title": "Histórias | Illusion Fight",
+      "og_desc": "Leia online a linha principal de Lutas de Ilusão, os Contos de Ilusão e outras histórias do mesmo criador.",
+      "destaque": "EM DESTAQUE",
+      "secao_ldi": "Lutas de Ilusão",
+      "secao_ldi_desc": "O universo principal — a história que originou o projeto.",
+      "outras": "Outros Universos",
+      "outras_desc": "Histórias fora da linha principal: outros mundos, o mesmo autor.",
+      "abrir": "Abrir",
+      "caps": "{n} capítulos",
+      "cap_1": "1 capítulo"
+    },
+    "obra": {
+      "voltar": "← HISTÓRIAS",
+      "voltar_livro": "← VOLTAR",
+      "sobre_universo": "O universo",
+      "capitulos": "Capítulos",
+      "ler": "Ler",
+      "continuar": "→ Continuar lendo",
+      "por": "por",
+      "em_breve_aviso": "Este livro ainda não está liberado aqui. Vai ficar — de graça — em breve.",
+      "amazon": "Ver na Amazon",
+      "selo_dark_fantasy": "Dark Fantasy",
+      "idioma_unico": "Só em português por enquanto",
+      "nao_encontrado": "História não encontrada."
+    },
     "contos": {
       "linha_principal": "Linha Principal",
       "linha_contos": "Contos de Ilusão",
@@ -2209,6 +2237,10 @@
       "tema_superacao": "Superação",
       "tema_solidao": "Solidão",
       "tema_adocao": "Adoção",
+      "tema_sobrenatural": "Sobrenatural",
+      "tema_opressao": "Opressão",
+      "tema_horror_cosmico": "Horror cósmico",
+      "tema_resistencia": "Resistência",
       "farol_vazio": "Nenhuma história com esse filtro. Tenta outro peso."
     },
     "webtoon": {

@@ -1,0 +1,196 @@
+.obra-page .livro-linhas,
+.obra-page .obra-hero,
+.obra-page .obra-resumo,
+.obra-page .obra-universo,
+.obra-page .obra-galeria,
+.obra-page .obra-caps-titulo,
+.obra-page .obra-aviso,
+.obra-page .livro-page__list,
+.obra-page .obra-amazon {
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.obra-hero {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.obra-hero__capa {
+  width: 220px;
+  height: 330px;
+  flex-shrink: 0;
+  object-fit: cover;
+  border: 1px solid var(--border-subtle);
+}
+
+.obra-hero__capa--texto {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  text-align: center;
+}
+
+.obra-hero__capa--texto span {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.6rem;
+  line-height: 1.1;
+  color: #fff;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+}
+
+.obra-hero__capa--dark-fantasy { background: linear-gradient(150deg, #2a1420, #0c0910); }
+.obra-hero__capa--default { background: linear-gradient(150deg, #222, #111); }
+
+.obra-hero__info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  min-width: 0;
+}
+
+.obra-hero__saga {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent-teal);
+}
+
+.obra-hero__titulo {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.9rem;
+  line-height: 1.05;
+  color: var(--text-primary);
+}
+
+.obra-hero__autor {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.obra-hero__tagline {
+  margin: 0.2rem 0 0;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-style: italic;
+  line-height: 1.45;
+  color: var(--text-secondary);
+}
+
+.obra-hero__badges {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.obra-selo {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.5rem;
+  border: 1px solid var(--accent-amber);
+  color: var(--accent-amber);
+}
+
+.obra-resumo {
+  margin: 1.8rem auto 0;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.obra-universo {
+  margin: 1.5rem auto 0;
+  padding: 1rem 1.1rem;
+  border-left: 3px solid var(--accent-teal);
+  background: var(--bg-secondary);
+}
+
+.obra-universo__label {
+  margin: 0 0 0.3rem;
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent-teal);
+}
+
+.obra-universo__texto {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 0.86rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+
+.obra-galeria {
+  margin: 1.5rem auto 0;
+  display: flex;
+  gap: 0.75rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+.obra-galeria__img {
+  flex: 0 0 320px;
+  width: 320px;
+  height: 240px;
+  object-fit: cover;
+  border: 1px solid var(--border-subtle);
+}
+
+.obra-caps-titulo {
+  margin: 2.2rem auto 0.5rem;
+}
+
+.obra-aviso {
+  text-align: left;
+}
+
+.obra-amazon {
+  display: block;
+  width: fit-content;
+  margin: 1.8rem auto 0;
+  padding: 0.65rem 1.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1px solid var(--text-primary);
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.obra-amazon:hover {
+  background: var(--text-primary);
+  color: var(--bg-primary);
+}
+
+@media (max-width: 620px) {
+  .obra-hero {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .obra-hero__badges { justify-content: center; }
+  .obra-galeria__img { flex-basis: 78vw; width: 78vw; }
+}

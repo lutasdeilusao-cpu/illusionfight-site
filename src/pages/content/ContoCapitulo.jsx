@@ -83,7 +83,7 @@ export default function ContoCapitulo() {
         <Helmet><title>{t('pages.helmet.capitulo_nao_encontrado')}</title></Helmet>
         <div className="container">
           <p className="livro-capitulo__erro">{t('pages.livro.nao_encontrado')}</p>
-          <button className="livro-capitulo__back" onClick={() => navigate(`/livro/contos/${historia || ''}`)}>
+          <button className="livro-capitulo__back" onClick={() => navigate(`/historias/contos/${historia || ''}`)}>
             {t('pages.livro.voltar_indice')}
           </button>
         </div>
@@ -103,11 +103,11 @@ export default function ContoCapitulo() {
       </Helmet>
       <div className="container">
         <nav className="livro-linhas livro-linhas--reader">
-          <Link to="/livro" className="livro-linha">{t('pages.contos.linha_principal')}</Link>
-          <Link to="/livro/contos" className="livro-linha">{t('pages.contos.linha_contos')}</Link>
+          <Link to="/historias/lutas-de-ilusao" className="livro-linha">{t('pages.contos.linha_principal')}</Link>
+          <Link to="/historias/contos" className="livro-linha">{t('pages.contos.linha_contos')}</Link>
         </nav>
 
-        <button className="livro-capitulo__back" onClick={() => navigate(`/livro/contos/${historia}`)}>
+        <button className="livro-capitulo__back" onClick={() => navigate(`/historias/contos/${historia}`)}>
           {t('pages.livro.voltar_indice')}
         </button>
 
@@ -169,14 +169,14 @@ export default function ContoCapitulo() {
 
         <div className="livro-capitulo__nav">
           {anterior ? (
-            <button className="livro-capitulo__nav-btn" onClick={() => navigate(`/livro/contos/${historia}/${anterior.id}`)}>
+            <button className="livro-capitulo__nav-btn" onClick={() => navigate(`/historias/contos/${historia}/${anterior.id}`)}>
               ← {anterior[tituloKey]}
             </button>
           ) : (
             <span className="livro-capitulo__nav-btn livro-capitulo__nav-btn--hidden">←</span>
           )}
           {proximo ? (
-            <button className="livro-capitulo__nav-btn" onClick={() => navigate(`/livro/contos/${historia}/${proximo.id}`)}>
+            <button className="livro-capitulo__nav-btn" onClick={() => navigate(`/historias/contos/${historia}/${proximo.id}`)}>
               {proximo[tituloKey]} →
             </button>
           ) : (

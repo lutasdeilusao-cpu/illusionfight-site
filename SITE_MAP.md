@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — MAPA DO SITE E DO PROJETO
 
 > Referência do estado atual do projeto para navegação humana e contexto de IA.
-> Atualizado em 2026-08-31 — `SITE_VERSION` **10.198.105**.
+> Atualizado em 2026-09-02 — `SITE_VERSION` **10.199.0**.
 > Histórico de tarefas, bugfixes e pendências não pertence a este documento.
 > Regras de trabalho, arquivos proibidos e decisões arquiteturais: `AGENTS.md`.
 
@@ -61,8 +61,14 @@ Componentes montados globalmente por `App.jsx`: `AnalyticsTracker`, `ScrollToTop
 | `/` | Home | `src/pages/site/Home.jsx` |
 | `/personagens` | Catálogo de personagens | `src/pages/content/Personagens.jsx` |
 | `/personagens/:id` | Detalhe de personagem | `src/pages/content/PersonagemDetalhe.jsx` |
-| `/livro` | Índice do livro | `src/pages/content/Livro.jsx` |
-| `/livro/:id` | Leitor de capítulo | `src/pages/content/LivroCapitulo.jsx` |
+| `/historias` | Hub de histórias (todos os universos) | `src/pages/content/Historias.jsx` |
+| `/historias/lutas-de-ilusao` | Índice da linha principal | `src/pages/content/Livro.jsx` |
+| `/historias/lutas-de-ilusao/:id` | Leitor de capítulo | `src/pages/content/LivroCapitulo.jsx` |
+| `/historias/contos` | Índice dos Contos de Ilusão | `src/pages/content/Contos.jsx` |
+| `/historias/contos/:historia(/:cap)` | História e leitor de conto | `src/pages/content/ContoHistoria.jsx` / `ContoCapitulo.jsx` |
+| `/historias/:slug` | Página de obra (Mundo das Sombras, Mar de Cinzas) | `src/pages/content/Obra.jsx` |
+| `/historias/:slug/:cap` | Leitor de capítulo de obra | `src/pages/content/ObraCapitulo.jsx` |
+| `/livro`, `/livro/contos`, `/livro/:id` | Redirects 301 → `/historias/...` | `src/App.jsx` (`LegacyLivroRedirect`) |
 | `/webtoon` | Índice do webtoon | `src/pages/content/Webtoon.jsx` |
 | `/webtoon/:id` | Leitor de episódio | `src/pages/content/WebtoonEpisodio.jsx` |
 | `/musicas` | Músicas | `src/pages/content/Musicas.jsx` |
@@ -208,7 +214,9 @@ Cada jogo mantém componentes, dados, hooks/engine e store próprios dentro de s
 |---|---|
 | Personagens | `src/data/personagens-{pt,en,es}.json` |
 | Mundo/lore | `src/data/mundo-{pt,en,es}.json` |
-| Livro | `src/data/livro-index.json` e `src/data/livro/{pt,en,es}/*.md` |
+| Livro (linha principal) | `src/data/livro-index.json` e `src/data/livro/{pt,en,es}/*.md` |
+| Contos de Ilusão | `src/data/contos-index.json` e `src/data/livro/contos/{pt,en,es}/NN/NN.md` |
+| Obras (Mundo das Sombras, Mar de Cinzas) | `src/data/obras-index.json` e `src/data/livro/obras/<slug>/{pt,en,es}/NN.md`; arte em `src/assets/obras/<slug>/` |
 | Webtoon | `src/data/episodios.json` e páginas em `public/webtoon/` |
 | Músicas | `src/data/musicas.json` |
 | Loja | `src/data/produtos.json` e `src/data/loja-digital.json` |
@@ -299,7 +307,7 @@ Fonte única: `src/config/version.js`. Esta tabela registra somente a identifica
 
 | Constante | Módulo | Versão |
 |---|---|---:|
-| `SITE_VERSION` | Site global | **10.198.105** |
+| `SITE_VERSION` | Site global | **10.199.0** |
 | `PP_VERSION` | Pesadelo Particular | 2.3.1 |
 | `LDI_VERSION` | Lendas do LDI | 2.0.1 |
 | `JACK_VERSION` | Jack Dream Beer | 5.3.2 |

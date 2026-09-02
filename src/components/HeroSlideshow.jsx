@@ -15,7 +15,7 @@ const SLIDE_COUNT = 5
 
 const BANNERS = [banner01, banner02, banner03, banner04, banner05]
 const SLIDE_KEYS = [
-  { key: 'slide1', link1: '/livro', link2: '/mundo' },
+  { key: 'slide1', link1: '/historias/lutas-de-ilusao', link2: '/mundo' },
   { key: 'slide2', link1: '/webtoon', link2: null },
   { key: 'slide3', link1: '/games', link2: null },
   { key: 'slide4', link1: '/musicas', link2: null },

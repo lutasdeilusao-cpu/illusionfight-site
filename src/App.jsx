@@ -1,5 +1,5 @@
 import { Suspense, useState, useEffect, useRef } from 'react'
-import { Navigate, Routes, Route, useLocation } from 'react-router-dom'
+import { Navigate, Routes, Route, useLocation, useParams } from 'react-router-dom'
 import lazyWithReload from './lib/lazyWithReload'
 import { useReader } from './context/ReaderContext'
 import { useAchievements } from './context/AchievementsContext'
@@ -17,11 +17,14 @@ const Home = lazyWithReload(() => import('./pages/site/Home'))
 const Musicas = lazyWithReload(() => import('./pages/content/Musicas'))
 const Personagens = lazyWithReload(() => import('./pages/content/Personagens'))
 const PersonagemDetalhe = lazyWithReload(() => import('./pages/content/PersonagemDetalhe'))
+const Historias = lazyWithReload(() => import('./pages/content/Historias'))
 const Livro = lazyWithReload(() => import('./pages/content/Livro'))
 const LivroCapitulo = lazyWithReload(() => import('./pages/content/LivroCapitulo'))
 const Contos = lazyWithReload(() => import('./pages/content/Contos'))
 const ContoHistoria = lazyWithReload(() => import('./pages/content/ContoHistoria'))
 const ContoCapitulo = lazyWithReload(() => import('./pages/content/ContoCapitulo'))
+const Obra = lazyWithReload(() => import('./pages/content/Obra'))
+const ObraCapitulo = lazyWithReload(() => import('./pages/content/ObraCapitulo'))
 const Assinar = lazyWithReload(() => import('./pages/platform/Assinar'))
 const Autor = lazyWithReload(() => import('./pages/site/Autor'))
 const Webtoon = lazyWithReload(() => import('./pages/content/Webtoon'))
@@ -71,6 +74,12 @@ const RadioNina = lazyWithReload(() => import('./components/RadioNina/RadioNina'
 const UnifiedNotification = lazyWithReload(() => import('./components/UnifiedNotification/UnifiedNotification'))
 import { trackPageView } from './lib/analytics'
 import './pages/games/Duelo/version' // side-effect: console.log version
+
+function LegacyLivroRedirect({ to }) {
+  const params = useParams()
+  const target = to.replace(/:(\w+)/g, (_, k) => params[k] ?? '')
+  return <Navigate to={target} replace />
+}
 
 function AnalyticsPageView() {
   const location = useLocation()
@@ -127,11 +136,20 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/personagens" element={<Personagens />} />
         <Route path="/personagens/:id" element={<PersonagemDetalhe />} />
-        <Route path="/livro" element={<Livro />} />
-        <Route path="/livro/contos" element={<Contos />} />
-        <Route path="/livro/contos/:historia" element={<ContoHistoria />} />
-        <Route path="/livro/contos/:historia/:cap" element={<ContoCapitulo />} />
-        <Route path="/livro/:id" element={<LivroCapitulo />} />
+        <Route path="/historias" element={<Historias />} />
+        <Route path="/historias/lutas-de-ilusao" element={<Livro />} />
+        <Route path="/historias/lutas-de-ilusao/:id" element={<LivroCapitulo />} />
+        <Route path="/historias/contos" element={<Contos />} />
+        <Route path="/historias/contos/:historia" element={<ContoHistoria />} />
+        <Route path="/historias/contos/:historia/:cap" element={<ContoCapitulo />} />
+        <Route path="/historias/:slug" element={<Obra />} />
+        <Route path="/historias/:slug/:cap" element={<ObraCapitulo />} />
+        {/* Redirects legados — /livro migrou para /historias (v10.199.0) */}
+        <Route path="/livro" element={<Navigate to="/historias/lutas-de-ilusao" replace />} />
+        <Route path="/livro/contos" element={<Navigate to="/historias/contos" replace />} />
+        <Route path="/livro/contos/:historia" element={<LegacyLivroRedirect to="/historias/contos/:historia" />} />
+        <Route path="/livro/contos/:historia/:cap" element={<LegacyLivroRedirect to="/historias/contos/:historia/:cap" />} />
+        <Route path="/livro/:id" element={<LegacyLivroRedirect to="/historias/lutas-de-ilusao/:id" />} />
         <Route path="/assinar" element={<Assinar />} />
         <Route path="/autor" element={<Autor />} />
         <Route path="/musicas" element={<Musicas />} />

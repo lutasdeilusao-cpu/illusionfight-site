@@ -18,8 +18,11 @@ const ROUTES = [
   ['/login', 'Entrar — Illusion Fight', 'Entre na sua conta Illusion Fight para acessar seu perfil e continuar seu progresso.', 'Entrar na Illusion Fight', 'Acesse sua conta para continuar seu progresso.', '0.0', 'yearly', false],
   ['/cadastro', 'Criar conta grátis — Illusion Fight', 'Crie sua conta grátis para salvar progresso, cartas e conquistas nos jogos Illusion Fight.', 'Criar conta grátis', 'Salve seu progresso, suas cartas e suas conquistas em qualquer dispositivo.', '0.0', 'yearly', false],
   ['/personagens', 'Personagens — Illusion Fight', 'Conheça os lutadores de Illusion Fight: Kim, Jack, Nina, Helena, Shuntaro e outros personagens da arena LDI.', 'Personagens de Illusion Fight', 'Explore os lutadores, suas histórias, estilos de combate e lugar no universo Lutas de Ilusão.', '0.9', 'monthly'],
-  ['/livro', 'Livro — Illusion Fight', 'Leia online os capítulos do livro Illusion Fight e acompanhe Kim, Jack e os lutadores de Bravara.', 'Livro Illusion Fight', 'Acompanhe os capítulos publicados do romance que expande o universo LDI.', '0.9', 'weekly'],
-  ['/livro/contos', 'Contos de Ilusão — Selo Legends | Illusion Fight', 'Histórias paralelas do universo Illusion Fight sob o Selo Legends: outros personagens, outras experiências, o mesmo mundo.', 'Contos de Ilusão — Selo Legends', 'Side stories do universo Lutas de Ilusão. Personagens e experiências que expandem a arena LDI fora da linha principal.', '0.7', 'weekly'],
+  ['/historias', 'Histórias — Illusion Fight', 'A linha principal de Lutas de Ilusão, os Contos de Ilusão e outros mundos do mesmo criador — leia online e de graça.', 'Histórias de Illusion Fight', 'Todo o universo de leitura de Illusion Fight num lugar só: linha principal, contos e outras histórias.', '0.9', 'weekly'],
+  ['/historias/lutas-de-ilusao', 'Livro — Illusion Fight', 'Leia online os capítulos do livro Illusion Fight e acompanhe Kim, Jack e os lutadores de Bravara.', 'Livro Illusion Fight', 'Acompanhe os capítulos publicados do romance que expande o universo LDI.', '0.9', 'weekly'],
+  ['/historias/contos', 'Contos de Ilusão | Illusion Fight', 'Histórias paralelas do universo Illusion Fight: outros personagens, outras experiências, o mesmo mundo.', 'Contos de Ilusão', 'Side stories do universo Lutas de Ilusão. Personagens e experiências que expandem a arena LDI fora da linha principal.', '0.7', 'weekly'],
+  ['/historias/mundo-das-sombras', 'O Mundo das Sombras — Illusion Fight', 'O Mundo das Sombras, romance dark fantasy de Isaias Leal. Livro 1 da Saga Descobrimento. Em breve, de graça, no portal Illusion Fight.', 'O Mundo das Sombras', 'Minus tem nove anos e já perdeu tudo três vezes. A marca no ombro dele atrai as sombras. Dark fantasy do criador de Illusion Fight.', '0.6', 'monthly'],
+  ['/historias/mar-de-cinzas', 'Mar de Cinzas — Illusion Fight', 'Mar de Cinzas, dark fantasy de horror cósmico e opressão de Isaias Leal. Arco I. Em breve, de graça, no portal Illusion Fight.', 'Mar de Cinzas', 'Catorze anos, vestido branco, um noivo com três esposas mortas — e algo no fundo do oceano que espera há trinta mil anos.', '0.6', 'monthly'],
   ['/webtoon', 'Webtoon — Illusion Fight', 'Leia o webtoon brasileiro de ação Illusion Fight e entre na arena onde a dor é 100% real.', 'Webtoon Illusion Fight', 'Leia os episódios publicados do webtoon de ação e ficção científica.', '0.9', 'weekly'],
   ['/musicas', 'Músicas — Illusion Fight', 'Ouça a trilha sonora original de Illusion Fight, o universo de webtoon, jogos e ficção científica.', 'Músicas de Illusion Fight', 'Conheça e ouça as músicas originais que acompanham o universo LDI.', '0.8', 'monthly'],
   ['/mundo', 'Mundo de Illusion Fight', 'Explore Bravara, a arena LDI, personagens, facções e a história do universo Illusion Fight.', 'O mundo de Illusion Fight', 'Descubra a lore, os lugares, as organizações e os acontecimentos do universo LDI.', '0.8', 'monthly'],
@@ -65,13 +68,13 @@ personagens.forEach(personagem => ROUTES.push({
 }))
 
 capitulos.filter(capitulo => capitulo.id === 'capitulo-01').forEach(capitulo => ROUTES.push({
-  path: `/livro/${capitulo.id}`,
+  path: `/historias/lutas-de-ilusao/${capitulo.id}`,
   title: `${capitulo.titulo} — livro Illusion Fight, capítulo ${capitulo.numero}`,
   description: capitulo.resumo_pt || capitulo.tagline_pt,
   heading: `Capítulo ${capitulo.numero} — ${capitulo.titulo}`,
   content: `${capitulo.tagline_pt} ${capitulo.resumo_pt || ''} Leia online e gratuitamente em português; versões em inglês e espanhol também estão disponíveis no portal.`,
   priority: '0.9', changefreq: 'monthly', indexable: true, schemaType: 'chapter', datePublished: capitulo.data_publicacao,
-  parent: { name: 'Livro', path: '/livro/' },
+  parent: { name: 'Histórias', path: '/historias/lutas-de-ilusao/' },
 }))
 
 episodios.filter(episodio => episodio.id === '00').forEach(episodio => ROUTES.push({
@@ -87,6 +90,8 @@ episodios.filter(episodio => episodio.id === '00').forEach(episodio => ROUTES.pu
 const REDIRECTS = [
   { path: '/games/ldi-arena', target: '/games/ldi-gangues' },
   { path: '/games/toptrumps/lobby', target: '/games/multiplayer/lobby?game=toptrumps&mode=free' },
+  { path: '/livro', target: '/historias/lutas-de-ilusao' },
+  { path: '/livro/contos', target: '/historias/contos' },
 ]
 
 const escapeHtml = value => value.replace(/[&<>'"]/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' })[char])
@@ -96,10 +101,11 @@ const replace = (html, pattern, value) => html.replace(pattern, value)
 function schemaFor(route, url) {
   const common = { name: route.heading, description: route.description, url, inLanguage: 'pt-BR' }
   if (route.schemaType === 'character') return { '@type': 'ProfilePage', ...common, mainEntity: { '@type': 'Person', name: route.heading, description: route.description } }
-  if (route.schemaType === 'chapter') return { '@type': 'Chapter', ...common, datePublished: route.datePublished, isPartOf: { '@type': 'Book', name: 'Illusion Fight — Lutas de Ilusão', author: { '@type': 'Person', name: 'Isaias Leal' }, url: `${SITE_URL}/livro/` } }
+  if (route.schemaType === 'chapter') return { '@type': 'Chapter', ...common, datePublished: route.datePublished, isPartOf: { '@type': 'Book', name: 'Illusion Fight — Lutas de Ilusão', author: { '@type': 'Person', name: 'Isaias Leal' }, url: `${SITE_URL}/historias/lutas-de-ilusao/` } }
   if (route.schemaType === 'webtoon') return { '@type': 'ComicStory', ...common, datePublished: route.datePublished, isPartOf: { '@type': 'ComicSeries', name: 'Illusion Fight', author: { '@type': 'Person', name: 'Isaias Leal' }, url: `${SITE_URL}/webtoon/` } }
   if (route.schemaType === 'game' || route.path.startsWith('/games/')) return { '@type': 'VideoGame', ...common, gamePlatform: 'Web Browser', playMode: 'SinglePlayer', genre: ['Indie game', 'Action', 'Strategy'] }
-  if (route.path === '/livro') return { '@type': 'Book', ...common, author: { '@type': 'Person', name: 'Isaias Leal' }, genre: ['Action fiction', 'Science fiction', 'Web novel'] }
+  if (route.path === '/historias/lutas-de-ilusao') return { '@type': 'Book', ...common, author: { '@type': 'Person', name: 'Isaias Leal' }, genre: ['Action fiction', 'Science fiction', 'Web novel'] }
+  if (route.path === '/historias/mundo-das-sombras' || route.path === '/historias/mar-de-cinzas') return { '@type': 'Book', ...common, author: { '@type': 'Person', name: 'Isaias Leal' }, genre: ['Dark fantasy', 'Fiction'] }
   if (route.path === '/webtoon') return { '@type': 'ComicSeries', ...common, author: { '@type': 'Person', name: 'Isaias Leal' }, genre: ['Action', 'Science fiction', 'Brazilian webtoon'] }
   if (route.path === '') return { '@type': 'WebSite', ...common, publisher: { '@type': 'Organization', name: 'Illusion Fight', url: SITE_URL } }
   return { '@type': 'WebPage', ...common }
@@ -116,7 +122,7 @@ function staticContent(route, heroImage = '') {
   const parentLink = route.parent ? `<a href="${route.parent.path}">${escapeHtml(route.parent.name)}</a> · ` : ''
   const homeClass = route.path === '' ? ' class="seo-static-home"' : ''
   const hero = route.path === '' && heroImage ? `<img class="seo-static-hero" src="${heroImage}" alt="" width="1258" height="768" fetchpriority="high">` : ''
-  return `<main data-seo-static${homeClass}>${hero}<nav aria-label="Navegação estrutural"><a href="/">Illusion Fight</a> · ${parentLink}<a href="/livro/">Livro e webnovel</a> · <a href="/webtoon/">Webtoon</a> · <a href="/games/">Games</a> · <a href="/personagens/">Personagens</a></nav><article><h1>${escapeHtml(route.heading)}</h1><p>${escapeHtml(route.content)}</p></article></main>`
+  return `<main data-seo-static${homeClass}>${hero}<nav aria-label="Navegação estrutural"><a href="/">Illusion Fight</a> · ${parentLink}<a href="/historias/">Histórias</a> · <a href="/webtoon/">Webtoon</a> · <a href="/games/">Games</a> · <a href="/personagens/">Personagens</a></nav><article><h1>${escapeHtml(route.heading)}</h1><p>${escapeHtml(route.content)}</p></article></main>`
 }
 
 function pageHtml(baseHtml, route) {

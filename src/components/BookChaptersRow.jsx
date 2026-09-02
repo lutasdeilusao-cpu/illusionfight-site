@@ -57,7 +57,7 @@ export default function BookChaptersRow() {
           {capitulos.map(cap => {
             const liberado = cap.id === 'capitulo-01' || estaDisponivel(cap, isAdmin) || TRIAL_ACTIVE
             const Wrapper = liberado ? Link : 'div'
-            const wrapperProps = liberado ? { to: `/livro/${cap.id}` } : {}
+            const wrapperProps = liberado ? { to: `/historias/lutas-de-ilusao/${cap.id}` } : {}
             return (
               <Wrapper
                 key={cap.id}

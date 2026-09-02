@@ -21,7 +21,7 @@ livro.forEach(ch => {
     tipo: 'Capítulo',
     titulo: `Capítulo ${String(ch.numero).padStart(2, '0')} — ${ch.titulo}`,
     descricao: ch.resumo_pt || '',
-    url: `/livro/${ch.id.replace('capitulo-', '')}`,
+    url: `/historias/lutas-de-ilusao/${ch.id}`,
     premium: !ch.publicado,
   })
 })

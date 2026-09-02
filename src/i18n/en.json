@@ -2,7 +2,7 @@
   "nav": {
     "links": [
       "Webtoon",
-      "Book",
+      "Stories",
       "Music",
       "Games",
       "SHOP",
@@ -2174,6 +2174,34 @@
       "sans": "Sans",
       "mono": "Mono"
     },
+    "historias": {
+      "titulo": "STORIES",
+      "intro": "All of Illusion Fight's reading universe in one place: the main line, the Illusion Tales and other worlds.",
+      "og_title": "Stories | Illusion Fight",
+      "og_desc": "Read the main line of Illusion Fight online, the Illusion Tales and other stories by the same creator.",
+      "destaque": "FEATURED",
+      "secao_ldi": "Illusion Fight",
+      "secao_ldi_desc": "The main universe — the story that started the project.",
+      "outras": "Other Universes",
+      "outras_desc": "Stories outside the main line: other worlds, the same author.",
+      "abrir": "Open",
+      "caps": "{n} chapters",
+      "cap_1": "1 chapter"
+    },
+    "obra": {
+      "voltar": "← STORIES",
+      "voltar_livro": "← BACK",
+      "sobre_universo": "The universe",
+      "capitulos": "Chapters",
+      "ler": "Read",
+      "continuar": "→ Continue reading",
+      "por": "by",
+      "em_breve_aviso": "This book isn't available here yet. It will be — free — soon.",
+      "amazon": "View on Amazon",
+      "selo_dark_fantasy": "Dark Fantasy",
+      "idioma_unico": "Portuguese only for now",
+      "nao_encontrado": "Story not found."
+    },
     "contos": {
       "linha_principal": "Main Line",
       "linha_contos": "Tales of Illusion",
@@ -2209,6 +2237,10 @@
       "tema_superacao": "Overcoming",
       "tema_solidao": "Loneliness",
       "tema_adocao": "Adoption",
+      "tema_sobrenatural": "Supernatural",
+      "tema_opressao": "Oppression",
+      "tema_horror_cosmico": "Cosmic horror",
+      "tema_resistencia": "Resistance",
       "farol_vazio": "No story matches that filter. Try another weight."
     },
     "webtoon": {

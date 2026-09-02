@@ -20,7 +20,7 @@ const mmss = (s) => {
 
 function conviteDe(pathname, S) {
   if (pathname.startsWith('/games/')) return S.convite.game
-  if (pathname.startsWith('/livro/') || pathname.startsWith('/webtoon/')) return S.convite.reading
+  if (pathname.startsWith('/historias/') || pathname.startsWith('/livro/') || pathname.startsWith('/webtoon/')) return S.convite.reading
   return S.convite.default
 }
 

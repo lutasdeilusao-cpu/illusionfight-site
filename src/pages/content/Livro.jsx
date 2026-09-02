@@ -37,22 +37,23 @@ export default function Livro() {
         <meta name="description" content="Read the Illusion Fight book chapters online. The complete novel of the LDI universe — follow Kim, Jack, and the fighters of Bravara." />
         <meta property="og:title" content="Book — Illusion Fight" />
         <meta property="og:description" content="Read the Illusion Fight book online. The complete novel of the LDI universe." />
-        <meta property="og:url" content="https://illusionfight.com/livro" />
+        <meta property="og:url" content="https://illusionfight.com/historias/lutas-de-ilusao" />
         <meta property="og:image" content="https://illusionfight.com/og-image.jpg" />
         <meta property="og:type" content="website" />
-        <link rel="alternate" hrefLang="pt" href="https://illusionfight.com/livro" />
-        <link rel="alternate" hrefLang="en" href="https://illusionfight.com/livro" />
-        <link rel="alternate" hrefLang="es" href="https://illusionfight.com/livro" />
+        <link rel="alternate" hrefLang="pt" href="https://illusionfight.com/historias/lutas-de-ilusao" />
+        <link rel="alternate" hrefLang="en" href="https://illusionfight.com/historias/lutas-de-ilusao" />
+        <link rel="alternate" hrefLang="es" href="https://illusionfight.com/historias/lutas-de-ilusao" />
       </Helmet>
       <div className="container">
         {ultimo && (
-          <Link to={`/livro/${ultimo}`} className="livro-continuar">
+          <Link to={`/historias/lutas-de-ilusao/${ultimo}`} className="livro-continuar">
             {t('pages.livro.continuar_lendo')}
           </Link>
         )}
         <nav className="livro-linhas">
+          <Link to="/historias" className="livro-linha">{t('pages.historias.titulo')}</Link>
           <span className="livro-linha livro-linha--ativa">{t('pages.contos.linha_principal')}</span>
-          <Link to="/livro/contos" className="livro-linha">{t('pages.contos.linha_contos')}</Link>
+          <Link to="/historias/contos" className="livro-linha">{t('pages.contos.linha_contos')}</Link>
         </nav>
         <h2 className="section-title">{t('pages.livro.titulo')}</h2>
         <div className="livro-farol">
@@ -68,7 +69,7 @@ export default function Livro() {
                 <div className="livro-page__info">
                   <span
                     className={`livro-page__titulo${liberado ? '' : ' livro-page__titulo--locked'}`}
-                    onClick={() => liberado && navigate(`/livro/${ch.id}`)}
+                    onClick={() => liberado && navigate(`/historias/lutas-de-ilusao/${ch.id}`)}
                   >
                     {ch[tituloKey]}
                   </span>

@@ -13,16 +13,34 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://illusionfight.com/livro/</loc>
+    <loc>https://illusionfight.com/historias/</loc>
     <lastmod>2026-08-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://illusionfight.com/livro/contos/</loc>
+    <loc>https://illusionfight.com/historias/lutas-de-ilusao/</loc>
+    <lastmod>2026-08-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://illusionfight.com/historias/contos/</loc>
     <lastmod>2026-08-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://illusionfight.com/historias/mundo-das-sombras/</loc>
+    <lastmod>2026-08-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://illusionfight.com/historias/mar-de-cinzas/</loc>
+    <lastmod>2026-08-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://illusionfight.com/webtoon/</loc>
@@ -247,7 +265,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://illusionfight.com/livro/capitulo-01/</loc>
+    <loc>https://illusionfight.com/historias/lutas-de-ilusao/capitulo-01/</loc>
     <lastmod>2026-08-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>

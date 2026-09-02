@@ -55,13 +55,14 @@ export default function Contos() {
         <meta name="description" content={t('pages.contos.og_desc')} />
         <meta property="og:title" content={t('pages.contos.og_title')} />
         <meta property="og:description" content={t('pages.contos.og_desc')} />
-        <meta property="og:url" content="https://illusionfight.com/livro/contos" />
+        <meta property="og:url" content="https://illusionfight.com/historias/contos" />
         <meta property="og:image" content="https://illusionfight.com/og-image.jpg" />
         <meta property="og:type" content="website" />
       </Helmet>
       <div className="container">
         <nav className="livro-linhas">
-          <Link to="/livro" className="livro-linha">{t('pages.contos.linha_principal')}</Link>
+          <Link to="/historias" className="livro-linha">{t('pages.historias.titulo')}</Link>
+          <Link to="/historias/lutas-de-ilusao" className="livro-linha">{t('pages.contos.linha_principal')}</Link>
           <span className="livro-linha livro-linha--ativa">{t('pages.contos.linha_contos')}</span>
         </nav>
 
@@ -73,7 +74,7 @@ export default function Contos() {
         </div>
 
         {ultimo && (
-          <Link to={`/livro/contos/${ultimo}`} className="livro-continuar">
+          <Link to={`/historias/contos/${ultimo}`} className="livro-continuar">
             {t('pages.livro.continuar_lendo')}
           </Link>
         )}
@@ -118,7 +119,7 @@ export default function Contos() {
               <div
                 key={h.id}
                 className={`contos-card contos-card--${h.peso || 'media'}${liberado ? '' : ' contos-card--locked'}`}
-                onClick={() => liberado && navigate(`/livro/contos/${h.id}`)}
+                onClick={() => liberado && navigate(`/historias/contos/${h.id}`)}
               >
                 <img className="contos-card__img" src={comingSoonImg} alt="" loading="lazy" decoding="async" />
                 <div className="contos-card__info">
