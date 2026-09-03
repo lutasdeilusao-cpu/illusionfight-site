@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useLanguage } from '../../../../context/LanguageContext'
 import { JOGOS } from '../../../games/Games'
+import HomeSectionHeading from './HomeSectionHeading'
 import './StoryProgress.css'
 
 export default function StoryProgress() {
@@ -27,7 +28,7 @@ export default function StoryProgress() {
   return (
     <section className="progress">
       <div className="container">
-        <h2 className="section-title">{t('home.section_games')}</h2>
+        <HomeSectionHeading eyebrow={t('home.section_games_category')} title={t('home.section_games')} />
         <div className="games-carousel">
           <div className="games-carousel-controls">
             <button type="button" onClick={() => selectGame(current - 1)} aria-label={t('home.game_previous')}>‹</button>

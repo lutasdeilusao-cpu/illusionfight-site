@@ -1,6 +1,7 @@
 import { useLanguage } from '../../../../context/LanguageContext'
 import data from '../../../../data/nowlive.json'
 import { platformIconMap } from '../../../../components/PlatformIcons'
+import HomeSectionHeading from './HomeSectionHeading'
 import './NowLive.css'
 
 const platRGB = {
@@ -17,8 +18,11 @@ export default function NowLive() {
   return (
     <section className="nowlive-section">
       <div className="container">
-        <h2 className="section-title">{t('nowlive.title')}</h2>
-        <p className="nowlive-subtitle">{t('nowlive.subtitle')}</p>
+        <HomeSectionHeading
+          eyebrow={t('home.section_social')}
+          title={t('home.section_networks')}
+          description={t('nowlive.subtitle')}
+        />
         <div className="nowlive-grid">
           {items.map(item => {
             const [r, g, b] = platRGB[item.icone] || [100, 100, 100]

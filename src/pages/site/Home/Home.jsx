@@ -31,11 +31,10 @@ export default function Home() {
         <meta property="og:type" content="website" />
         <meta property="og:locale" content={ogLocale} />
       </Helmet>
+      {/* Ordem definida pelo Isaias: Webtoon → Histórias → Apoiar → Personagens → Músicas → Games → Redes → Novidades */}
       <HeroSlideshow />
       <LatestEpisodes />
-      <CharactersRow />
       <DeferredSection size="large"><Suspense fallback={null}><BookChaptersRow /></Suspense></DeferredSection>
-      <DeferredSection><Suspense fallback={null}><MusicSection /></Suspense></DeferredSection>
       <section className="home-support">
         <div className="container">
           <div className="home-support__inner">
@@ -47,8 +46,10 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <DeferredSection size="small"><Suspense fallback={null}><NowLive /></Suspense></DeferredSection>
+      <CharactersRow />
+      <DeferredSection><Suspense fallback={null}><MusicSection /></Suspense></DeferredSection>
       <DeferredSection><Suspense fallback={null}><StoryProgress /></Suspense></DeferredSection>
+      <DeferredSection size="small"><Suspense fallback={null}><NowLive /></Suspense></DeferredSection>
       <section ref={newsletterRef} className="newsletter-cta reveal">
         <div className="container">
           <h3>{t('newsletter.ctaTitulo')}</h3>

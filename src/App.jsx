@@ -116,6 +116,12 @@ export default function App() {
   }, [])
 
   useEffect(() => {
+    // Avisa a vinheta de abertura (index.html) que o app montou — ela encerra
+    // respeitando o mínimo visual; nunca antes.
+    window.dispatchEvent(new Event('ldi:ready'))
+  }, [])
+
+  useEffect(() => {
     const t1 = setTimeout(() => desbloquearRef.current('primeiro_acesso'), 60000)
     const t2 = setTimeout(() => desbloquearRef.current('sangue_primordial'), 600000)
     return () => { clearTimeout(t1); clearTimeout(t2) }

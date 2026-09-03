@@ -6,6 +6,7 @@ import { useAuth } from '../../../../context/AuthContext'
 import { estaDisponivel } from '../../../../config/site'
 import { TRIAL_ACTIVE } from '../../../../config/trial'
 import episodios from '../../../../data/episodios.json'
+import HomeSectionHeading from './HomeSectionHeading'
 import './LatestEpisodes.css'
 
 const thumbnailModules = import.meta.glob('../../../../assets/images/episodes/*', {
@@ -43,11 +44,11 @@ export default function LatestEpisodes() {
   return (
     <section ref={ref} className="episodes reveal" id="episodios">
       <div className="container">
-        <div className="home-section-heading">
-          <span className="home-section-heading__eyebrow">{t('home.section_webtoon')}</span>
-          <h2 className="section-title">{t('home.section_latest')}</h2>
-          <p>{t('home.section_webtoon_hint')}</p>
-        </div>
+        <HomeSectionHeading
+          eyebrow={t('home.section_webtoon')}
+          title={t('home.section_latest')}
+          description={t('home.section_webtoon_hint')}
+        />
 
         {featured && (
           <div className="episodes-featured">

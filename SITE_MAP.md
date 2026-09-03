@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — MAPA DO SITE E DO PROJETO
 
 > Referência do estado atual do projeto para navegação humana e contexto de IA.
-> Atualizado em 2026-09-03 — `SITE_VERSION` **10.201.11**.
+> Atualizado em 2026-09-03 — `SITE_VERSION` **10.202.0**.
 > Histórico de tarefas, bugfixes e pendências não pertence a este documento.
 > Regras de trabalho, arquivos proibidos e decisões arquiteturais: `AGENTS.md`.
 
@@ -22,7 +22,7 @@
 
 | Arquivo | Responsabilidade |
 |---|---|
-| `index.html` | Entrada HTML, metadados, analytics e restauração da URL da SPA |
+| `index.html` | Entrada HTML, metadados, analytics, restauração da URL da SPA e a **abertura (vinheta)** — ver §2.1 |
 | `src/main.jsx` | Montagem React e composição dos providers |
 | `src/App.jsx` | Layout global e fonte de verdade das rotas client-side |
 | `src/index.css` | Reset, variáveis e estilos globais |
@@ -33,6 +33,16 @@
 | `public/CNAME` | Domínio oficial |
 | `public/manifest.webmanifest` | Instalação PWA e abertura fullscreen/standalone em dispositivos compatíveis |
 | `public/sw.js` | Service worker: push notifications + cache de áudio da Rádio Nina (músicas/propagandas do R2, `nina-audio-v1`) |
+
+### 2.1 Abertura (vinheta de carregamento)
+
+Inline em `index.html`, **antes** do React — um componente montaria tarde demais. Objetivo: dar feedback visual enquanto o primeiro acesso forma o cache, sem prender o visitante.
+
+- Exibida **só no primeiro acesso do dia** (`localStorage['ldi-intro-day'] = YYYY-MM-DD`); reload no mesmo dia nem injeta o overlay.
+- Duração: **mínimo 2 s, teto absoluto 4 s**. `App.jsx` dispara `window.dispatchEvent(new Event('ldi:ready'))` ao montar; a vinheta encerra assim que recebe o evento, respeitando o mínimo. Com `prefers-reduced-motion` vira `--static` (sem keyframes, mínimo 600 ms).
+- Visual: `#ldi-intro` fixo (z-index 2147483000, acima de tudo), símbolo IF (`/favicon-ldi.png`, já em cache pelo ícone da aba — zero download extra) com scale-in + glow pulsante, wordmark em `RacingGames` com varredura de luz, barra de progresso ciano→roxo de 4 s no rodapé. Texto: `LUTAS DE ILUSÃO` (pt/es) ou `ILLUSION FIGHT` (en) via `ldi-locale`.
+- Som: `public/sounds/intro.mp3` (Mixkit #164, licença Mixkit, 1,9 s, mono 64 kbps, `loudnorm` + fade) tocado a `volume 0.22`. Autoplay pode ser bloqueado pelo navegador antes da 1ª interação — o `play()` rejeitado é engolido e **a entrada nunca depende do som**.
+- Ao terminar, o overlay é removido do DOM (não só escondido) e `html.ldi-intro-on` (trava de scroll) é retirada.
 
 Ordem dos providers em `src/main.jsx`:
 
@@ -329,7 +339,7 @@ Fonte única: `src/config/version.js`. Esta tabela registra somente a identifica
 
 | Constante | Módulo | Versão |
 |---|---|---:|
-| `SITE_VERSION` | Site global | **10.201.11** |
+| `SITE_VERSION` | Site global | **10.202.0** |
 | `PP_VERSION` | Pesadelo Particular | 2.3.1 |
 | `LDI_VERSION` | Lendas do LDI | 2.0.1 |
 | `JACK_VERSION` | Jack Dream Beer | 5.3.2 |

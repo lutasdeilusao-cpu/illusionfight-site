@@ -3,6 +3,7 @@ import CharacterCard from '../../../../components/CharacterCard'
 import { useLanguage } from '../../../../context/LanguageContext'
 import { usePersonagens } from '../../../../hooks/usePersonagens'
 import { useScrollReveal } from '../../../../hooks/useScrollReveal'
+import HomeSectionHeading from './HomeSectionHeading'
 import './CharactersRow.css'
 
 export default function CharactersRow() {
@@ -13,7 +14,7 @@ export default function CharactersRow() {
   return (
     <section ref={ref} className="characters-row reveal">
       <div className="container">
-        <h2 className="section-title">{t('home.section_characters')}</h2>
+        <HomeSectionHeading eyebrow={t('home.section_characters_category')} title={t('home.section_characters')} />
         <div className="characters-row__fade">
           <div className="characters-row__scroll">
             {personagens.map(personagem => (

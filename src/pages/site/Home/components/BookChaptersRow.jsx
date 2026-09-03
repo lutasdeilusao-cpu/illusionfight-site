@@ -6,6 +6,7 @@ import livroIndex from '../../../../data/livro-index.json'
 import { useLanguage } from '../../../../context/LanguageContext'
 import { releaseDateFor, resolveAccessLevel } from '../../../../lib/releaseAccess.js'
 import comingSoonImg from '../../../../assets/images/ComingSoon.png'
+import HomeSectionHeading from './HomeSectionHeading'
 import './BookChaptersRow.css'
 
 const coverModules = import.meta.glob('../../../../assets/images/livro/capitulo-*', {
@@ -59,7 +60,9 @@ export default function BookChaptersRow() {
 
   return (
     <section className="book-chapters-section">
-      <h2 className="book-chapters-title section-title">{t('home.section_chapters')}</h2>
+      <div className="container">
+        <HomeSectionHeading eyebrow={t('home.section_stories')} title={t('home.section_chapters')} />
+      </div>
       <div className="book-chapters-wrapper">
         <button className="book-chapters-arrow book-chapters-arrow--left" onClick={scrollLeft} aria-label={t('home.previous')}>‹</button>
         <div className="book-chapters-scroll" ref={scrollRef}>

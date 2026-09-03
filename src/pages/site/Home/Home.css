@@ -55,59 +55,6 @@
   background: linear-gradient(145deg, rgba(18, 9, 29, 0.96), rgba(5, 8, 11, 0.99) 62%);
 }
 
-.home-section-heading {
-  margin-bottom: 26px;
-}
-
-.home-section-heading__eyebrow {
-  display: block;
-  margin: 0 0 8px 18px;
-  color: var(--home-cyan);
-  font: 700 0.65rem/1 'JetBrains Mono', monospace;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-}
-
-.home-section-heading p {
-  margin: -12px 0 0 18px;
-  color: #74818b;
-  font-size: 0.76rem;
-}
-
-.home-page .section-title,
-.home-page .book-chapters-title {
-  position: relative;
-  margin: 0 0 26px;
-  padding: 0 0 13px 18px;
-  color: #f6f8fa;
-  font: 700 clamp(1.25rem, 6vw, 1.7rem)/1 'Rajdhani', sans-serif;
-  letter-spacing: 0.075em;
-  text-transform: uppercase;
-}
-
-.home-page .section-title::before,
-.home-page .book-chapters-title::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: -3px;
-  width: 3px;
-  height: 27px;
-  background: var(--home-cyan);
-  box-shadow: 0 0 14px var(--home-cyan);
-}
-
-.home-page .section-title::after,
-.home-page .book-chapters-title::after {
-  content: '';
-  position: absolute;
-  left: 18px;
-  right: 0;
-  bottom: 0;
-  height: 1px;
-  background: linear-gradient(90deg, rgba(0, 229, 255, 0.82), transparent 92%);
-}
-
 .home-page .hero-slideshow {
   min-height: 92svh;
   border-bottom: 1px solid rgba(0, 229, 255, 0.5);

@@ -18,6 +18,7 @@ import img13 from '../../../../assets/images/music/13.png'
 import img14 from '../../../../assets/images/music/14.png'
 import img15 from '../../../../assets/images/music/15.png'
 import img16 from '../../../../assets/images/music/16.png'
+import HomeSectionHeading from './HomeSectionHeading'
 import './MusicSection.css'
 
 const allImages = [img01, img02, img03, img04, img05, img06, img07, img08, img09, img10, img11, img12, img13, img14, img15, img16]
@@ -75,7 +76,7 @@ export default function MusicSection() {
   return (
     <section className="music-section">
       <div className="container">
-        <h2 className="section-title">{t('music.title')}</h2>
+        <HomeSectionHeading eyebrow={t('home.section_music_category')} title={t('home.section_music')} />
         <div className="music-carousel">
           <div className="music-carousel__track" ref={trackRef}>
             {doubled.map((m, i) => (
