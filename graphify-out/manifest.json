@@ -160,8 +160,8 @@
     "semantic_hash": "510a9ffca88eb0789eeddb9fe4d08d87"
   },
   "src/App.jsx": {
-    "mtime": 1788404626.3513243,
-    "ast_hash": "a6411e83ea0dc27260ec414d3cf9fe88",
+    "mtime": 1788407028.6658602,
+    "ast_hash": "f5a5d74b1149b21035e4849310c31368",
     "semantic_hash": ""
   },
   "src/components/AchievementToast/AchievementToast.jsx": {
@@ -370,8 +370,8 @@
     "semantic_hash": "b11265c546f5970b719233c19e1b2c2d"
   },
   "src/config/version.js": {
-    "mtime": 1788405699.0270145,
-    "ast_hash": "96ad3feb9eb26ffc74df24aae7be266d",
+    "mtime": 1788408239.0514052,
+    "ast_hash": "22fb8df5d7bb117d07cd88766cf1cafa",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2750,8 +2750,8 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1787354301.8167138,
-    "ast_hash": "a6b397f41a3b7336ef5bb7b5251a55e4",
+    "mtime": 1788408232.8242245,
+    "ast_hash": "e7b5a67312a0af2afbe8ba1691324115",
     "semantic_hash": ""
   },
   "Jogos_Rafael/mg01_sliding.html": {
@@ -2790,13 +2790,13 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1788405699.029014,
-    "ast_hash": "e7894bfe102e1ac1d0c79ef76a4bf037",
+    "mtime": 1788408335.1930985,
+    "ast_hash": "265802b93ca275492e73553d63f900d4",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
-    "mtime": 1787354301.8187153,
-    "ast_hash": "9b9cc6787e21284a59f552500c3eed55",
+    "mtime": 1788408219.6853888,
+    "ast_hash": "9551dce004cf728bf0a33f17b130e7fd",
     "semantic_hash": ""
   },
   "docs/Business/FINANCEIRO.md": {
@@ -3130,8 +3130,8 @@
     "semantic_hash": ""
   },
   "index.html": {
-    "mtime": 1788386020.8185287,
-    "ast_hash": "257c41bfb1a150c7dc2d8e09c64fd310",
+    "mtime": 1788407010.0300558,
+    "ast_hash": "14243a82674aec6a3144a8d039d08f3f",
     "semantic_hash": ""
   },
   "public/404.html": {
@@ -4665,33 +4665,33 @@
     "semantic_hash": ""
   },
   "src/i18n/home_en.json": {
-    "mtime": 1788405750.089066,
-    "ast_hash": "63e7f0acc9a64c013451ef23f80b7ea1",
+    "mtime": 1788406702.4354901,
+    "ast_hash": "79388e72bc5e08f2013df10f1742abdd",
     "semantic_hash": ""
   },
   "src/i18n/home_es.json": {
-    "mtime": 1788405750.0905704,
-    "ast_hash": "beacb03878614867d734976084b1d530",
+    "mtime": 1788406702.4454906,
+    "ast_hash": "876a0c6ba99e1bcb6fb01b1eb0cbec80",
     "semantic_hash": ""
   },
   "src/i18n/home_pt.json": {
-    "mtime": 1788405750.0880668,
-    "ast_hash": "e1b32dcd8c5bff37c72fbc13b4f30082",
+    "mtime": 1788406702.4212847,
+    "ast_hash": "bd9c5ed41be3f192223fdf3e55017c40",
     "semantic_hash": ""
   },
   "src/pages/site/Home/Home.jsx": {
-    "mtime": 1788404959.7393973,
-    "ast_hash": "3c32d569464b4d6b5f90d59d55fb3cc2",
+    "mtime": 1788406820.1764824,
+    "ast_hash": "eb20d9e05942e6a64aee1138d6b55e54",
     "semantic_hash": ""
   },
   "src/pages/site/Home/components/BookChaptersRow.jsx": {
-    "mtime": 1788404959.7373958,
-    "ast_hash": "13bde65f694d0ce7db58cab90547d195",
+    "mtime": 1788406808.9193242,
+    "ast_hash": "74e24ec66dc953a220c774d6c5f761eb",
     "semantic_hash": ""
   },
   "src/pages/site/Home/components/CharactersRow.jsx": {
-    "mtime": 1788404922.650079,
-    "ast_hash": "6a3de0bb0009d42a738be57a6080740f",
+    "mtime": 1788406747.563392,
+    "ast_hash": "958b6c40afaaa3e19b851837c830e525",
     "semantic_hash": ""
   },
   "src/pages/site/Home/components/HeroSlideshow.jsx": {
@@ -4700,23 +4700,33 @@
     "semantic_hash": ""
   },
   "src/pages/site/Home/components/LatestEpisodes.jsx": {
-    "mtime": 1788405750.0905704,
-    "ast_hash": "17e98604097c41d7621c175c94bcbabc",
+    "mtime": 1788406732.2895494,
+    "ast_hash": "488854bf277002e907a2eceef367a1b5",
     "semantic_hash": ""
   },
   "src/pages/site/Home/components/MusicSection.jsx": {
-    "mtime": 1788405210.6631594,
-    "ast_hash": "02ca35086551f2f66bbc3c4042adadd7",
+    "mtime": 1788406810.4239779,
+    "ast_hash": "790635f389122cb68be66f7803ef93b7",
     "semantic_hash": ""
   },
   "src/pages/site/Home/components/NowLive.jsx": {
-    "mtime": 1788405210.6641579,
-    "ast_hash": "86f714fa84538730bf72a0d5a9bf107b",
+    "mtime": 1788406811.9144075,
+    "ast_hash": "98ce8fa752f775cf47f8b666c1d39b8f",
     "semantic_hash": ""
   },
   "src/pages/site/Home/components/StoryProgress.jsx": {
-    "mtime": 1788405750.0932708,
-    "ast_hash": "07d478599e825e95623484dc71cd9ad2",
+    "mtime": 1788406794.5522556,
+    "ast_hash": "dce83eb67101c9117d0bfbda61e69b5b",
+    "semantic_hash": ""
+  },
+  "src/pages/site/Home/components/HomeSectionHeading.jsx": {
+    "mtime": 1788406334.6440437,
+    "ast_hash": "df7051698831ca4d44c090a55926906d",
+    "semantic_hash": ""
+  },
+  "public/sounds/intro.mp3": {
+    "mtime": 1788407167.6438746,
+    "ast_hash": "71f1f22e664feeda44d1e321ca1198d2",
     "semantic_hash": ""
   }
 }
