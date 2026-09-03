@@ -94,12 +94,19 @@ export default function RadioNina() {
       dragRef.current = { ativo: true, moveu: false, x0: e.clientX, y0: e.clientY }
       e.currentTarget.setPointerCapture?.(e.pointerId)
     }
+    // A coluna mobile (#root) é o limite: a bolinha nunca sai dela, nem
+    // durante o arraste nem ao soltar — o site é mobile only.
+    const coluna = () => document.getElementById('root')?.getBoundingClientRect()
+      || { left: 0, right: window.innerWidth, width: window.innerWidth }
     const onMove = (e) => {
       const d = dragRef.current
       if (!d.ativo) return
       if (!d.moveu && Math.hypot(e.clientX - d.x0, e.clientY - d.y0) < LIMIAR) return
       d.moveu = true
-      setArraste({ x: e.clientX - 24, y: e.clientY - 24 })
+      const col = coluna()
+      const x = Math.max(col.left + 8, Math.min(col.right - 48 - 8, e.clientX - 24))
+      const y = Math.max(58, Math.min(window.innerHeight - 48 - 8, e.clientY - 24))
+      setArraste({ x, y })
     }
     const onUp = (e) => {
       const d = dragRef.current
@@ -108,7 +115,9 @@ export default function RadioNina() {
       e.currentTarget.releasePointerCapture?.(e.pointerId)
       if (!d.moveu) { abrirBarra(); return }
       d.moveu = false
-      setCanto((e.clientY < window.innerHeight / 2 ? 't' : 'b') + (e.clientX < window.innerWidth / 2 ? 'l' : 'r'))
+      const col = coluna()
+      const meioX = (col.left + col.right) / 2
+      setCanto((e.clientY < window.innerHeight / 2 ? 't' : 'b') + (e.clientX < meioX ? 'l' : 'r'))
       setArraste(null)
     }
     const onCancel = () => { dragRef.current = { ativo: false, moveu: false }; setArraste(null) }

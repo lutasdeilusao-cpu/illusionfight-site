@@ -332,10 +332,12 @@ body.radio-nina-top.has-desktop-shell-bar .navbar.navbar--scrolled { top: 88px; 
   justify-content: center;
 }
 
-.radio-nina-mini--tl { top: calc(58px + env(safe-area-inset-top, 0px)); left: 14px; }
-.radio-nina-mini--tr { top: calc(58px + env(safe-area-inset-top, 0px)); right: 14px; }
-.radio-nina-mini--bl { bottom: calc(16px + env(safe-area-inset-bottom, 0px)); left: 14px; }
-.radio-nina-mini--br { bottom: calc(16px + env(safe-area-inset-bottom, 0px)); right: 14px; }
+/* --app-gutter mantém a bolinha dentro da coluna mobile — no desktop
+   ela colava na borda da tela, muito longe do conteúdo. */
+.radio-nina-mini--tl { top: calc(58px + env(safe-area-inset-top, 0px)); left: calc(var(--app-gutter, 0px) + 14px); }
+.radio-nina-mini--tr { top: calc(58px + env(safe-area-inset-top, 0px)); right: calc(var(--app-gutter, 0px) + 14px); }
+.radio-nina-mini--bl { bottom: calc(16px + env(safe-area-inset-bottom, 0px)); left: calc(var(--app-gutter, 0px) + 14px); }
+.radio-nina-mini--br { bottom: calc(16px + env(safe-area-inset-bottom, 0px)); right: calc(var(--app-gutter, 0px) + 14px); }
 
 .radio-nina-mini--arrasta {
   cursor: grabbing;
