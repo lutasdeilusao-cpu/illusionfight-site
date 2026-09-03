@@ -22,6 +22,9 @@ export default function GanguesVictory({ onNavigate }) {
   const playerDamage = attacks.filter(entry => entry.side === 'player').reduce((sum, entry) => sum + entry.dmg, 0)
   const enemyDamage = attacks.filter(entry => entry.side === 'enemy').reduce((sum, entry) => sum + entry.dmg, 0)
 
+  const storyAlvo = store.storyTarget
+  const noModoHistoria = Boolean(storyAlvo?.noId)
+
   useEffect(() => {
     if (processed.current) return
     processed.current = true
@@ -29,6 +32,8 @@ export default function GanguesVictory({ onNavigate }) {
     store.gainAp(ap)
     if (victory) {
       store.unlockNextEnemy(match.enemy_id)
+      // Modo história: marca o nó dominado.
+      if (noModoHistoria) store.marcarNoDominado(storyAlvo.territorioId, storyAlvo.noId, storyAlvo.isChefe)
       if (user?.id) registrarPontuacaoArenaRanking(user.id)
       sfx.win()
     } else sfx.lose()
@@ -77,8 +82,19 @@ export default function GanguesVictory({ onNavigate }) {
       </section>
 
       <footer className="gang-report-actions">
-        <button className="gang-report-primary" onClick={() => onNavigate('lobby')}>{t('games.gangues.report.back_to_gang')}</button>
-        <button className="gang-report-secondary" onClick={() => onNavigate('lobby')}>{t('games.gangues.report.new_battle')}</button>
+        {noModoHistoria ? (
+          <>
+            <button className="gang-report-primary" onClick={() => { store.setStoryTarget({ territorioId: storyAlvo.territorioId }); onNavigate('territorio') }}>
+              {victory ? t('games.gangues.story.continuar_territorio') : t('games.gangues.story.tentar_de_novo')}
+            </button>
+            <button className="gang-report-secondary" onClick={() => onNavigate('story')}>{t('games.gangues.story.voltar_mapa')}</button>
+          </>
+        ) : (
+          <>
+            <button className="gang-report-primary" onClick={() => onNavigate('lobby')}>{t('games.gangues.report.back_to_gang')}</button>
+            <button className="gang-report-secondary" onClick={() => onNavigate('lobby')}>{t('games.gangues.report.new_battle')}</button>
+          </>
+        )}
       </footer>
     </main>
   )

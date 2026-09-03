@@ -173,5 +173,30 @@ export const useGanguesStore = create((set, get) => ({
     return { sheet: { ...state.sheet, enemies_unlocked: [...current, nextId] } }
   }),
 
+  // ── Modo história ──
+  // storyProgress: { [territorioId]: { pontos: [noId...], chefe: bool } }
+  // Persistido só em localStorage por enquanto (esqueleto).
+  storyProgress: (() => {
+    try { return JSON.parse(localStorage.getItem('ldi-gangues-story') || '{}') } catch { return {} }
+  })(),
+  // Nó em que o jogador entrou: { territorioId, noId, enemyId, isChefe }
+  storyTarget: null,
+  setStoryTarget: (target) => set({ storyTarget: target }),
+
+  marcarNoDominado: (territorioId, noId, isChefe) => set(state => {
+    const atual = state.storyProgress[territorioId] || { pontos: [], chefe: false }
+    const prox = isChefe
+      ? { ...atual, chefe: true }
+      : { ...atual, pontos: atual.pontos.includes(noId) ? atual.pontos : [...atual.pontos, noId] }
+    const storyProgress = { ...state.storyProgress, [territorioId]: prox }
+    try { localStorage.setItem('ldi-gangues-story', JSON.stringify(storyProgress)) } catch { /* ignora */ }
+    return { storyProgress }
+  }),
+
+  resetStory: () => {
+    try { localStorage.removeItem('ldi-gangues-story') } catch { /* ignora */ }
+    set({ storyProgress: {}, storyTarget: null })
+  },
+
   reset: () => set({ sheet: defaultSheet(), roster: [], activeParty: [], match: { playerTeam: [], enemyTeam: [], enemy: null, enemy_id: null, score: 0, status: 'idle', battleReport: null } }),
 }))

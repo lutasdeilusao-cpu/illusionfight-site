@@ -1,0 +1,351 @@
+/* ══════════════════════════════════════════════════════════════
+   MODO HISTÓRIA — o mapa de Marelia
+   Esqueleto visual. O Isaias vai trocar o fundo por arte de verdade,
+   pôr os retratos dos chefes e mexer nas animações. A estrutura de
+   estados (trancado / aberto / dominado) e o layout ficam.
+   ══════════════════════════════════════════════════════════════ */
+
+.gang-story {
+  align-self: stretch;
+  width: 100%;
+  max-height: 100dvh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 52px 14px 44px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.gang-story::-webkit-scrollbar { display: none; }
+
+/* ── Entrada no lobby ── */
+.gang-story-entry {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  margin: 0 0 14px;
+  padding: 12px 14px;
+  text-align: left;
+  cursor: pointer;
+  border: 1px solid var(--if-amber-72);
+  background: linear-gradient(100deg, var(--if-amber-16), rgba(255, 174, 50, 0.03));
+  box-shadow: inset 3px 0 var(--if-amber), 0 0 26px -10px rgba(255, 174, 50, 0.4);
+  transition: box-shadow 0.2s, transform 0.15s;
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%);
+}
+.gang-story-entry:hover { transform: translateY(-2px); box-shadow: inset 3px 0 var(--if-amber), 0 0 30px -6px rgba(255, 174, 50, 0.5); }
+.gang-story-entry-icon { font-size: 1.5rem; line-height: 1; }
+.gang-story-entry-txt { flex: 1; display: flex; flex-direction: column; gap: 2px; }
+.gang-story-entry-txt strong {
+  font-family: var(--font-display); font-weight: 800; font-size: 1rem;
+  letter-spacing: 0.04em; color: #ffce6b;
+}
+.gang-story-entry-txt small { font-size: 0.72rem; color: var(--text-secondary); }
+.gang-story-entry b { color: var(--if-amber); font-size: 1.2rem; }
+
+/* ── Cabeçalho ── */
+.gang-story-head {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px; margin-bottom: 14px;
+}
+.gang-story-dominio {
+  display: flex; align-items: baseline; gap: 6px;
+  font: 700 0.6rem var(--font-mono); letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--if-amber);
+}
+.gang-story-dominio-num {
+  font: 800 1.4rem var(--font-display); color: #ffce6b;
+  text-shadow: 0 0 16px rgba(255, 174, 50, 0.4);
+}
+
+.gang-story-titulo-wrap { margin-bottom: 16px; }
+.gang-story-titulo {
+  margin: 0.3rem 0 0;
+  font-family: var(--font-display); font-weight: 800;
+  font-size: clamp(1.6rem, calc(8 * var(--app-vw) / 100), 2.1rem);
+  line-height: 1; letter-spacing: 0.04em; color: #fff;
+  text-shadow: 0 0 24px rgba(24, 218, 251, 0.3);
+}
+.gang-story-sub {
+  margin: 0.5rem 0 0; max-width: 42ch;
+  color: var(--text-secondary); font-size: 0.82rem; line-height: 1.5;
+}
+
+/* ── O mapa ── */
+.gang-story-mapa {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  margin: 4px 0 18px;
+  padding: 4px;
+  overflow: hidden;
+  border: 1px solid var(--if-edge);
+  background:
+    radial-gradient(80% 60% at 50% 8%, rgba(24, 218, 251, 0.08), transparent 70%),
+    radial-gradient(70% 50% at 30% 90%, rgba(168, 85, 247, 0.07), transparent 70%),
+    linear-gradient(180deg, #0a1015, #070b0e 70%);
+  clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 0 100%);
+}
+
+/* grade de quarteirões */
+.gang-story-mapa-grid {
+  position: absolute; inset: 0; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 34px 34px;
+  mask-image: radial-gradient(circle at 50% 45%, #000 30%, transparent 85%);
+}
+
+/* névoa sobre o mapa — dá o clima e esconde o que não foi explorado */
+.gang-story-mapa-fog {
+  position: absolute; inset: -20%;
+  pointer-events: none;
+  background:
+    radial-gradient(40% 30% at 20% 15%, rgba(120, 130, 140, 0.12), transparent 70%),
+    radial-gradient(45% 35% at 82% 40%, rgba(120, 130, 140, 0.1), transparent 70%),
+    radial-gradient(50% 40% at 45% 88%, rgba(120, 130, 140, 0.14), transparent 72%);
+  filter: blur(18px);
+  animation: gang-story-fog 34s ease-in-out infinite alternate;
+}
+@keyframes gang-story-fog {
+  from { transform: translate3d(-3%, -2%, 0); }
+  to { transform: translate3d(4%, 3%, 0) scale(1.08); }
+}
+
+.gang-story-rota { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+
+/* ── Território no mapa ── */
+.gang-story-terr {
+  --terr-cor: var(--if-teal);
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: flex; flex-direction: column; align-items: center; gap: 2px;
+  width: min(96px, 27vw); padding: 8px 6px 9px;
+  cursor: pointer;
+  border: 1px solid color-mix(in srgb, var(--terr-cor) 45%, transparent);
+  background: linear-gradient(160deg, color-mix(in srgb, var(--terr-cor) 14%, #0b1015), #070b0e 75%);
+  transition: transform 0.18s, box-shadow 0.25s, border-color 0.2s;
+  clip-path: polygon(0 0, calc(100% - 9px) 0, 100% 9px, 100% 100%, 0 100%);
+}
+.gang-story-terr-halo {
+  position: absolute; inset: -8px;
+  border-radius: 50%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--terr-cor) 30%, transparent), transparent 70%);
+  filter: blur(8px);
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: -1;
+}
+.gang-story-terr-num {
+  font: 700 0.5rem var(--font-mono); letter-spacing: 0.1em;
+  color: color-mix(in srgb, var(--terr-cor) 85%, #fff);
+}
+.gang-story-terr-nome {
+  font-family: var(--font-display); font-weight: 800; font-size: 0.86rem;
+  line-height: 1.05; letter-spacing: 0.02em; color: #fff; text-align: center;
+}
+.gang-story-terr-dif {
+  font: 700 0.5rem var(--font-mono); letter-spacing: 0.08em;
+  text-transform: uppercase; color: color-mix(in srgb, var(--terr-cor) 88%, #fff);
+}
+.gang-story-terr-flag {
+  position: absolute; top: -8px; right: -6px;
+  font-size: 0.9rem; color: var(--terr-cor);
+  filter: drop-shadow(0 0 6px color-mix(in srgb, var(--terr-cor) 70%, transparent));
+}
+.gang-story-terr-lock { position: absolute; top: -6px; right: -4px; font-size: 0.7rem; }
+.gang-story-terr-prog {
+  margin-top: 2px; padding: 1px 5px;
+  font: 700 0.5rem var(--font-mono); color: #04141a;
+  background: color-mix(in srgb, var(--terr-cor) 85%, #fff);
+}
+
+/* estados */
+.gang-story-terr--aberto {
+  animation: gang-story-terr-pulso 2.2s ease-in-out infinite;
+}
+.gang-story-terr--aberto .gang-story-terr-halo { opacity: 0.8; }
+.gang-story-terr--aberto:hover { transform: translate(-50%, -50%) scale(1.06); }
+@keyframes gang-story-terr-pulso {
+  0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--terr-cor) 50%, transparent); }
+  50% { box-shadow: 0 0 0 10px color-mix(in srgb, var(--terr-cor) 0%, transparent); }
+}
+.gang-story-terr--dominado {
+  border-color: color-mix(in srgb, var(--terr-cor) 75%, transparent);
+  box-shadow: 0 0 24px -6px color-mix(in srgb, var(--terr-cor) 55%, transparent);
+}
+.gang-story-terr--dominado .gang-story-terr-nome { color: color-mix(in srgb, var(--terr-cor) 20%, #fff); }
+.gang-story-terr--trancado {
+  cursor: not-allowed;
+  opacity: 0.4;
+  filter: grayscale(0.7);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+.gang-story-terr--trancado .gang-story-terr-nome { color: #6b757c; }
+
+@media (prefers-reduced-motion: reduce) {
+  .gang-story-mapa-fog, .gang-story-terr--aberto { animation: none; }
+}
+
+/* ══ Dentro de um território ══ */
+.gang-story-terr-view { --terr-cor: var(--if-teal); }
+.gang-story-terr-hero { margin-bottom: 18px; }
+.gang-story-terr-titulo {
+  margin: 0.3rem 0 0;
+  font-family: var(--font-display); font-weight: 800;
+  font-size: clamp(1.8rem, calc(9 * var(--app-vw) / 100), 2.3rem);
+  line-height: 1; color: #fff;
+  text-shadow: 0 0 26px color-mix(in srgb, var(--terr-cor) 40%, transparent);
+}
+.gang-story-terr-desc {
+  margin: 0.6rem 0 0; max-width: 44ch;
+  color: #b9c4cc; font-size: 0.84rem; line-height: 1.55;
+}
+.gang-story-terr-dominado {
+  display: inline-flex; margin-top: 0.7rem;
+  padding: 3px 9px; font: 800 0.62rem var(--font-mono); letter-spacing: 0.1em;
+  color: #04141a; background: var(--terr-cor);
+  clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 0 100%);
+}
+
+/* ── A trilha de pontos ── */
+.gang-story-trilha { list-style: none; margin: 0 0 18px; padding: 0; display: flex; flex-direction: column; }
+.gang-story-no { position: relative; padding-left: 22px; }
+.gang-story-no::before {
+  content: ''; position: absolute; left: 8px; top: 0; bottom: 0;
+  width: 2px; background: repeating-linear-gradient(180deg, color-mix(in srgb, var(--terr-cor) 45%, transparent) 0 6px, transparent 6px 12px);
+}
+.gang-story-no:first-child::before { top: 50%; }
+.gang-story-no:last-child::before { bottom: 50%; }
+
+.gang-story-no-btn {
+  display: flex; align-items: center; gap: 12px;
+  width: 100%; margin: 5px 0; padding: 11px 12px;
+  text-align: left; cursor: pointer;
+  border: 1px solid var(--if-hair-strong);
+  background: rgba(255, 255, 255, 0.02);
+  transition: border-color 0.18s, background 0.18s, transform 0.15s;
+  clip-path: polygon(0 0, calc(100% - 9px) 0, 100% 9px, 100% 100%, 0 100%);
+}
+.gang-story-no-marca {
+  display: grid; place-items: center; flex-shrink: 0;
+  width: 30px; height: 30px;
+  font: 800 0.85rem var(--font-display);
+  border: 1px solid color-mix(in srgb, var(--terr-cor) 55%, transparent);
+  color: color-mix(in srgb, var(--terr-cor) 90%, #fff);
+  background: color-mix(in srgb, var(--terr-cor) 12%, transparent);
+  clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 0 100%);
+}
+.gang-story-no-info { flex: 1; display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+.gang-story-no-info strong {
+  font-family: var(--font-display); font-weight: 700; font-size: 0.92rem;
+  letter-spacing: 0.02em; color: var(--text-primary);
+}
+.gang-story-no-info small { font: 600 0.68rem var(--font-mono); color: var(--text-secondary); }
+.gang-story-no-vai {
+  flex-shrink: 0; font: 700 0.6rem var(--font-mono); letter-spacing: 0.08em;
+  text-transform: uppercase; color: color-mix(in srgb, var(--terr-cor) 92%, #fff);
+}
+.gang-story-no-lock { flex-shrink: 0; font-size: 0.8rem; }
+
+.gang-story-no--atual .gang-story-no-btn {
+  border-color: color-mix(in srgb, var(--terr-cor) 60%, transparent);
+  background: color-mix(in srgb, var(--terr-cor) 8%, transparent);
+  box-shadow: 0 0 22px -8px color-mix(in srgb, var(--terr-cor) 60%, transparent);
+}
+.gang-story-no--atual .gang-story-no-btn:hover { transform: translateX(3px); }
+.gang-story-no--dominado .gang-story-no-marca {
+  color: #04141a; background: color-mix(in srgb, var(--terr-cor) 85%, #fff);
+}
+.gang-story-no--dominado .gang-story-no-info strong { color: var(--text-secondary); }
+.gang-story-no--trancado .gang-story-no-btn { opacity: 0.42; cursor: not-allowed; }
+.gang-story-no--chefe .gang-story-no-marca {
+  border-color: var(--if-amber); color: var(--if-amber);
+  background: var(--if-amber-16);
+}
+.gang-story-no--chefe.gang-story-no--atual .gang-story-no-btn {
+  border-color: var(--if-amber-72);
+  box-shadow: 0 0 26px -6px rgba(255, 174, 50, 0.5);
+}
+
+/* ── Apresentação do desafiante (VS) ── */
+.gang-story-vs {
+  position: fixed; inset: 0; z-index: 940;
+  display: grid; place-items: center; padding: 1.5rem;
+}
+.gang-story-vs-bg { position: absolute; inset: 0; background: rgba(2, 5, 8, 0.86); backdrop-filter: blur(7px); }
+.gang-story-vs-card {
+  --terr-cor: var(--if-teal);
+  position: relative; display: grid; justify-items: center; gap: 0.5rem;
+  width: 100%; max-width: 320px;
+  padding: 1.7rem 1.3rem 1.4rem; text-align: center;
+  border: 1px solid color-mix(in srgb, var(--terr-cor) 50%, transparent);
+  background: linear-gradient(160deg, #0d151b, #070a0d 72%);
+  box-shadow: 0 0 46px -10px color-mix(in srgb, var(--terr-cor) 55%, transparent);
+  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%);
+}
+.gang-story-vs-card--chefe {
+  border-color: var(--if-amber-72);
+  box-shadow: 0 0 50px -8px rgba(255, 174, 50, 0.5);
+}
+.gang-story-vs-avatar {
+  display: grid; place-items: center;
+  width: 60px; height: 60px;
+  font: 800 1.6rem var(--font-display); color: #fff;
+  border: 1px solid color-mix(in srgb, var(--terr-cor) 60%, transparent);
+  background: color-mix(in srgb, var(--terr-cor) 16%, transparent);
+}
+.gang-story-vs-card--chefe .gang-story-vs-avatar { border-color: var(--if-amber); color: #ffce6b; background: var(--if-amber-16); }
+.gang-story-vs-tag {
+  padding: 0.14rem 0.5rem; font: 700 0.54rem var(--font-mono);
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: color-mix(in srgb, var(--terr-cor) 92%, #fff);
+  border: 1px solid color-mix(in srgb, var(--terr-cor) 55%, transparent);
+}
+.gang-story-vs-card--chefe .gang-story-vs-tag { color: #ffce6b; border-color: var(--if-amber-72); }
+.gang-story-vs-nome {
+  margin: 0.2rem 0 0; font: 800 1.3rem var(--font-display);
+  letter-spacing: 0.03em; color: #fff;
+}
+.gang-story-vs-fala {
+  margin: 0.15rem 0 0; font-family: var(--font-body); font-size: 0.85rem;
+  font-style: italic; line-height: 1.5; color: #c6d0d7;
+}
+.gang-story-vs-stats {
+  display: flex; gap: 8px; margin-top: 0.4rem;
+  font: 700 0.62rem var(--font-mono); color: var(--text-secondary);
+}
+.gang-story-vs-stats i { font-style: normal; color: var(--if-cyan); margin-right: 2px; }
+.gang-story-vs-acoes { display: flex; gap: 8px; width: 100%; margin-top: 0.7rem; }
+.gang-story-vs-no, .gang-story-vs-yes {
+  flex: 1; min-height: 44px; padding: 0.6rem;
+  font: 800 0.72rem var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase;
+  cursor: pointer;
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
+}
+.gang-story-vs-no {
+  color: #c6cdd2; background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+.gang-story-vs-yes {
+  color: #04141a; background: var(--terr-cor); border: 1px solid var(--terr-cor);
+}
+.gang-story-vs-card--chefe .gang-story-vs-yes { background: var(--if-amber); border-color: var(--if-amber); color: #1b1000; }
+
+/* ── Saída ── */
+.gang-lobby-quit {
+  display: block;
+  margin: 16px auto 0;
+  padding: 9px 22px;
+  font: 800 0.68rem var(--font-mono);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--if-hair-strong);
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+  clip-path: polygon(0 0, calc(100% - 7px) 0, 100% 7px, 100% 100%, 0 100%);
+}
+.gang-lobby-quit:hover { color: #ff9a9a; border-color: rgba(255, 107, 107, 0.5); }

@@ -1143,7 +1143,60 @@
       "beat": {
         "derrotado": "DERROTADO"
       },
-      "escolha_oponente": "Escolha o oponente"
+      "escolha_oponente": "Escolha o oponente",
+      "sair_do_jogo": "SAIR",
+      "story": {
+        "entry": "Modo história",
+        "entry_desc": "Domine Marelia, território por território",
+        "titulo": "O DOMÍNIO DE MARELIA",
+        "sub": "Cada território tem seus donos. Bata todos e o Morro é seu.",
+        "dominio": "de Marelia dominado",
+        "dominado": "Território dominado",
+        "voltar_mapa": "Mapa",
+        "sem_territorio": "Nenhum território selecionado.",
+        "chefe": "Chefe do território",
+        "chefe_do_territorio": "Chefe do território",
+        "desafiante": "Desafiante",
+        "ponto": "Ponto {n}",
+        "enfrentar": "Enfrentar",
+        "brigar": "Brigar",
+        "agora_nao": "Agora não",
+        "continuar_territorio": "Continuar no território",
+        "tentar_de_novo": "Tentar de novo",
+        "dificuldades": {
+          "iniciacao": "Iniciação",
+          "rua": "Rua",
+          "territorio": "Território",
+          "guerra": "Guerra",
+          "coroa": "A Coroa"
+        },
+        "territorios": {
+          "beira": {
+            "nome": "A Beira",
+            "desc": "A ponta de Marelia. Olheiros, fogueteiros e a molecada que a Banca usa de bucha. Ninguém importante, mas é por aqui que se começa."
+          },
+          "baixada": {
+            "nome": "A Baixada",
+            "desc": "Do outro lado da linha do trem. A facção do Sombra rachou em três depois que ele morreu; os cacos ainda mordem."
+          },
+          "morro": {
+            "nome": "O Morro",
+            "desc": "A favela de encosta que a Banca administra. Quem sobe o Morro não desce igual. A cúpula fica lá em cima."
+          },
+          "zona": {
+            "nome": "A Zona",
+            "desc": "O centro, onde a Banca aluga segurança pra turma de escola cara. Aqui a briga tem nome e sobrenome."
+          },
+          "alto": {
+            "nome": "O Alto",
+            "desc": "O topo da hierarquia. A cúpula, a Torre Kronos, e o que dorme dentro dela. Chegar aqui já é história."
+          }
+        },
+        "falas": {
+          "ponto": "{territorio}. Você entrou sem pedir licença. Errado.",
+          "chefe": "{territorio} é meu. Você tá batendo meu pessoal pra chegar até mim — então prova que merece."
+        }
+      }
     }
   }
 }

@@ -3,7 +3,7 @@ import { AnimatePresence } from 'framer-motion'
 import { useLanguage } from '../../../context/LanguageContext'
 import { useAuth } from '../../../context/AuthContext'
 import { useFichas } from '../../../context/FichasContext'
-import BackToGamesBtn from '../../../components/BackToGamesBtn/BackToGamesBtn'
+import { useNavigate } from 'react-router-dom'
 import NeoGuideDialog from './components/NeoGuideDialog'
 import { sfx } from '../../../lib/sfx'
 import { useGanguesStore, limiteFichasPorTier, podeCriarFicha } from './store/useGanguesStore'
@@ -40,6 +40,7 @@ function pickEnemyTeam(pool, size) {
 
 export default function GanguesLobby({ onNavigate }) {
   const { t } = useLanguage()
+  const navigate = useNavigate()
   const { user, perfil } = useAuth()
   const { isAdmin } = useFichas()
   const store = useGanguesStore()
@@ -205,6 +206,16 @@ export default function GanguesLobby({ onNavigate }) {
         </section>
       ) : (
         <>
+          {/* Modo história — dominar Marelia território por território. */}
+          <button className="gang-story-entry" onClick={() => onNavigate('story')}>
+            <span className="gang-story-entry-icon">🗺</span>
+            <span className="gang-story-entry-txt">
+              <strong>{t('games.gangues.story.entry')}</strong>
+              <small>{t('games.gangues.story.entry_desc')}</small>
+            </span>
+            <b>→</b>
+          </button>
+
           <div className="gang-lobby-section-label gang-lobby-section-label--row"><span>{t('games.gangues.party.roster')}</span><span>{roster.length}/{rosterLimit}</span></div>
           <div className="gang-sheet-list">
             {roster.map(member => {
@@ -254,7 +265,11 @@ export default function GanguesLobby({ onNavigate }) {
           </div>
         </div>
       )}
-      <BackToGamesBtn />
+      {/* Saída do jogo: "SAIR", não "voltar aos games" — quem joga sente
+          que está saindo de um jogo, não navegando num site. */}
+      <button className="gang-lobby-quit" onClick={() => navigate('/games')}>
+        {t('games.gangues.sair_do_jogo')}
+      </button>
     </main>
   )
 }

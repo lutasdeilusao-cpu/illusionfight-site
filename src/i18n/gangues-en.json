@@ -1553,7 +1553,60 @@
       "beat": {
         "derrotado": "DEFEATED"
       },
-      "escolha_oponente": "Choose your opponent"
+      "escolha_oponente": "Choose your opponent",
+      "sair_do_jogo": "QUIT",
+      "story": {
+        "entry": "Story mode",
+        "entry_desc": "Take Marelia, one turf at a time",
+        "titulo": "THE HOLD ON MARELIA",
+        "sub": "Every turf has owners. Beat them all and the Hill is yours.",
+        "dominio": "of Marelia held",
+        "dominado": "Turf taken",
+        "voltar_mapa": "Map",
+        "sem_territorio": "No turf selected.",
+        "chefe": "Turf boss",
+        "chefe_do_territorio": "Turf boss",
+        "desafiante": "Challenger",
+        "ponto": "Node {n}",
+        "enfrentar": "Fight",
+        "brigar": "Fight",
+        "agora_nao": "Not now",
+        "continuar_territorio": "Back to the turf",
+        "tentar_de_novo": "Try again",
+        "dificuldades": {
+          "iniciacao": "Initiation",
+          "rua": "Street",
+          "territorio": "Turf",
+          "guerra": "War",
+          "coroa": "The Crown"
+        },
+        "territorios": {
+          "beira": {
+            "nome": "The Edge",
+            "desc": "Marelia's rim. Lookouts, runners and the kids the Banca uses as cannon fodder. Nobody important, but this is where you start."
+          },
+          "baixada": {
+            "nome": "The Lowside",
+            "desc": "Across the train tracks. The Shadow's crew split into three after he died; the shards still bite."
+          },
+          "morro": {
+            "nome": "The Hill",
+            "desc": "The hillside slum the Banca runs. Nobody who climbs the Hill comes down the same. The top brass lives up there."
+          },
+          "zona": {
+            "nome": "The Core",
+            "desc": "Downtown, where the Banca rents muscle to a rich-school crew. Here the fight has a first and last name."
+          },
+          "alto": {
+            "nome": "The Height",
+            "desc": "The top of the ladder. The brass, the Kronos Tower, and whatever sleeps inside it. Getting here is already a story."
+          }
+        },
+        "falas": {
+          "ponto": "{territorio}. You walked in without asking. Bad move.",
+          "chefe": "{territorio} is mine. You've been beating my people to reach me — so prove you deserve it."
+        }
+      }
     }
   }
 }

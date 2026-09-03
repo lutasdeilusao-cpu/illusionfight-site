@@ -9,7 +9,10 @@ import GanguesCombat from './GanguesCombat'
 import GanguesVictory from './GanguesVictory'
 import GanguesTrainingZone from './GanguesTrainingZone'
 import GanguesProgression from './GanguesProgression'
+import GanguesStoryMap from './GanguesStoryMap'
+import GanguesTerritorio from './GanguesTerritorio'
 import GuestNotice from '../../../components/GuestNotice/GuestNotice'
+import enemiesData from './data/gangues-enemies.json'
 import './Gangues.css'
 
 import { GANGUES_VERSION } from '../../../config/version'
@@ -31,6 +34,21 @@ export default function GanguesRoute({ publicTraining = false }) {
     setReaderMode(true)
     return () => setReaderMode(false)
   }, [setReaderMode])
+
+  // Modo história: quando entra em 'story-combat', monta a batalha com o
+  // inimigo do nó e cai no GanguesCombat normal. A vitória volta pro
+  // território (marcando o nó) via GanguesVictory.
+  useEffect(() => {
+    if (fase !== 'story-combat') return
+    const alvo = store.storyTarget
+    const party = store.activeParty
+    if (!alvo?.enemyId || party.length < 1) { setFase('story'); return }
+    const enemy = enemiesData.find(e => e.id === alvo.enemyId)
+    if (!enemy) { setFase('story'); return }
+    const extras = Array.from({ length: Math.max(0, party.length - 1) }, () => enemy)
+    store.startMatch(enemy, [enemy, ...extras])
+    setFase('combat')
+  }, [fase])
 
   if (!i18nReady) return <div className="gang-page" />
 
@@ -59,6 +77,8 @@ export default function GanguesRoute({ publicTraining = false }) {
         />
       )}
       {fase === 'progression' && <GanguesProgression onNavigate={setFase} />}
+      {fase === 'story' && <GanguesStoryMap onNavigate={setFase} />}
+      {fase === 'territorio' && <GanguesTerritorio onNavigate={setFase} />}
       {fase === 'combat' && <GanguesCombat onNavigate={setFase} />}
       {fase === 'victory' && <GanguesVictory onNavigate={setFase} />}
       {fase === 'training' && <GanguesTrainingZone onNavigate={setFase} publicAccess={publicTraining} />}
