@@ -226,7 +226,9 @@
         "confirm_body": "You'll spend <b>{n} XP</b> on <b>{label}</b>. This can't be undone once confirmed.",
         "confirm_cancel": "Cancel",
         "confirm_ok": "Spend {n} XP",
-        "equipped_badge": "EQUIPPED"
+        "equipped_badge": "EQUIPPED",
+        "open_sheet": "Sheet",
+        "no_subpath": "No subpath"
       },
       "training": {
         "entry": "TRAINING ZONE",

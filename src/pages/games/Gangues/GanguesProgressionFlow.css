@@ -1,7 +1,16 @@
 .gang-sheet-card-v { position: relative; }
 .gang-sheet-card-shell { position: relative; width: 100%; }
-.gang-sheet-card-shell > .gang-sheet-card-v { width: 100%; padding-right: 54px; }
-.gang-sheet-delete-btn--roster { position: absolute; z-index: 2; top: 10px; right: 10px; }
+.gang-sheet-card-shell > .gang-sheet-card-v { width: 100%; padding-right: 92px; }
+/* Coluna de ações (X, FICHA, LEVEL UP) sobreposta à direita do card. */
+.gang-sheet-card-shell > .gang-sheet-card-side {
+  position: absolute;
+  z-index: 2;
+  top: 10px;
+  right: 10px;
+  bottom: 10px;
+  justify-content: space-between;
+}
+.gang-sheet-delete-btn--roster { position: static; }
 .gang-progression-focus { width: 100%; scroll-margin-top: 16px; }
 .gang-sheet-xp-ready {
   position: absolute; right: 10px; bottom: 8px; border: 1px solid rgba(245, 166, 35, .55);
@@ -298,3 +307,49 @@
 @media (prefers-reduced-motion: reduce) {
   .gang-skill-node--novo { animation: none; }
 }
+
+/* ── Tira de ficha: números que importam em batalha ── */
+.gang-ficha-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0 0 14px;
+  padding: 10px 12px;
+  border: 1px solid var(--if-edge);
+  background: rgba(255, 255, 255, 0.02);
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
+}
+.gang-ficha-cell {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 3px;
+  padding: 3px 8px;
+  font: 700 0.62rem var(--font-mono);
+  letter-spacing: 0.04em;
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.03);
+}
+.gang-ficha-cell b { font: 800 0.85rem var(--font-display); color: #fff; }
+.gang-ficha-cell i { font-style: normal; color: var(--if-cyan); font-weight: 700; }
+.gang-ficha-cell--pm b { color: #d9bdf7; }
+.gang-ficha-cell--path {
+  color: var(--if-amber-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* Botão FICHA no card do elenco */
+.gang-sheet-ficha {
+  padding: 5px 9px;
+  font: 700 0.56rem var(--font-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--if-cyan);
+  background: var(--if-cyan-08);
+  border: 1px solid var(--if-cyan-45);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s, color 0.15s;
+  clip-path: polygon(0 0, calc(100% - 5px) 0, 100% 5px, 100% 100%, 0 100%);
+}
+.gang-sheet-ficha:hover { background: var(--if-cyan); color: #04141a; }

@@ -226,7 +226,9 @@
         "confirm_body": "Vas a gastar <b>{n} XP</b> en <b>{label}</b>. Esto no se puede deshacer tras confirmar.",
         "confirm_cancel": "Cancelar",
         "confirm_ok": "Gastar {n} XP",
-        "equipped_badge": "EQUIPADO"
+        "equipped_badge": "EQUIPADO",
+        "open_sheet": "Ficha",
+        "no_subpath": "Sin subcamino"
       },
       "training": {
         "entry": "ZONA DE ENTRENAMIENTO",

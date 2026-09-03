@@ -186,6 +186,11 @@ export default function GanguesLobby({ onNavigate }) {
                   </button>
                   <div className="gang-sheet-card-side">
                     <button className="gang-sheet-delete-btn gang-sheet-delete-btn--roster" onClick={() => deleteProgressionMember(member)} aria-label={t('games.gangues.progression.delete')}>×</button>
+                    {/* Ver ficha completa — atributos, PV/PM, subcaminho, poderes.
+                        É a mesma tela onde se gasta XP. */}
+                    <button className="gang-sheet-ficha" onClick={() => abrirProgressao(member)}>
+                      {t('games.gangues.progression.open_sheet')}
+                    </button>
                     {xpDisponivel > 0 && (
                       <button className="gang-sheet-levelup" onClick={() => abrirProgressao(member)}>
                         {t('games.gangues.progression.xp_badge', { n: xpDisponivel })}

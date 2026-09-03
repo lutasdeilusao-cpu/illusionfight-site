@@ -6,6 +6,7 @@ import {
   GANGUES_SPECIAL_PATH_ATTRIBUTE_REQUIREMENT,
   GANGUES_SPECIAL_PATH_XP_COST,
   getGanguesProgression,
+  getGanguesResources,
   selectGanguesSpecialPath,
   toggleGanguesSpecial,
   upgradeGanguesAttribute,
@@ -42,6 +43,27 @@ export default function GanguesProgressionPanel({ member, onApply, onDelete, des
         <p>{member.sheet_name} · {t(`games.gangues.loadout.paths.${member.combat_path}.name`)}</p>
       </div>
       {onDelete && <button className="gang-progression-delete" onClick={() => onDelete(member)} aria-label={t('games.gangues.progression.delete')}>🗑</button>}
+    </div>
+
+    {/* ── Ficha: os números que valem em batalha ── */}
+    <div className="gang-ficha-strip">
+      {(() => {
+        const res = getGanguesResources(member.combat_path, Number(member.attributes?.R) || 0)
+        const equipadas = progression.selected_specials?.length || 0
+        return (
+          <>
+            <span className="gang-ficha-cell"><b>{res.pvMax}</b> PV</span>
+            <span className="gang-ficha-cell gang-ficha-cell--pm"><b>{res.pmMax}</b> PM</span>
+            {ATTRIBUTES.map(a => (
+              <span key={a} className="gang-ficha-cell"><i>{a}</i><b>{Number(member.attributes?.[a]) || 0}</b></span>
+            ))}
+            <span className="gang-ficha-cell gang-ficha-cell--path">
+              {unlockedPath ? t(`games.gangues.progression.paths.${unlockedPath.id}`) : t('games.gangues.progression.no_subpath')}
+            </span>
+            <span className="gang-ficha-cell">{t('games.gangues.progression.loadout', { n: equipadas })}</span>
+          </>
+        )
+      })()}
     </div>
 
     <div className="gang-progression-stats">
