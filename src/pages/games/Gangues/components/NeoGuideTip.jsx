@@ -3,7 +3,9 @@ import { useLanguage } from '../../../../context/LanguageContext'
 import { sfx } from '../../../../lib/sfx'
 import neoGuideProfile from '../assets/neoguide-perfil.png'
 
-export default function NeoGuideTip({ text, side = 'right', isLast, onNext, onSkip }) {
+/** `nextLabel` sobrescreve o rótulo do botão: num aviso de campo faltando,
+ *  "COMEÇAR" não faz sentido — o certo é "ENTENDI". */
+export default function NeoGuideTip({ text, side = 'right', isLast, nextLabel, onNext, onSkip }) {
   const { t } = useLanguage()
   const fromRight = side === 'right'
 
@@ -23,7 +25,7 @@ export default function NeoGuideTip({ text, side = 'right', isLast, onNext, onSk
         <button className="neoguide-tip-skip" onClick={skip}>{t('games.gangues.neoguide.pular')} ✕</button>
         <p className="neoguide-tip-text">{text}</p>
         <button className="neoguide-tip-next" onClick={advance}>
-          {isLast ? t('games.gangues.neoguide.comecar') : t('games.gangues.neoguide.proximo')}
+          {nextLabel || (isLast ? t('games.gangues.neoguide.comecar') : t('games.gangues.neoguide.proximo'))}
         </button>
       </div>
     </motion.div>

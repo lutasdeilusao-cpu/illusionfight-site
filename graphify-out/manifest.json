@@ -135,8 +135,8 @@
     "semantic_hash": "8d5b3b5a815f883f1cdfad6d40ecb4bc"
   },
   "scripts/prerender-routes.js": {
-    "mtime": 1788400573.9028153,
-    "ast_hash": "5c4cf50f20422756e8d278a764851667",
+    "mtime": 1788444555.0267477,
+    "ast_hash": "6d2d64d056ca18101072c9f18b6a20bf",
     "semantic_hash": ""
   },
   "scripts/run-migration.js": {
@@ -160,8 +160,8 @@
     "semantic_hash": "510a9ffca88eb0789eeddb9fe4d08d87"
   },
   "src/App.jsx": {
-    "mtime": 1788407028.6658602,
-    "ast_hash": "f5a5d74b1149b21035e4849310c31368",
+    "mtime": 1788444545.7428005,
+    "ast_hash": "f1431c14b57e4799d8ea802aaeeca24f",
     "semantic_hash": ""
   },
   "src/components/AchievementToast/AchievementToast.jsx": {
@@ -230,8 +230,8 @@
     "semantic_hash": "266ca415119946a769d0dac2ab74d642"
   },
   "src/components/Navbar.jsx": {
-    "mtime": 1788403996.7821803,
-    "ast_hash": "7850cc5f8db901ac50fd2e3df20f931a",
+    "mtime": 1788444529.466545,
+    "ast_hash": "f88d585a6fdb32783d9bdd948bfe772c",
     "semantic_hash": ""
   },
   "src/components/PlatformIcons.jsx": {
@@ -370,8 +370,8 @@
     "semantic_hash": "b11265c546f5970b719233c19e1b2c2d"
   },
   "src/config/version.js": {
-    "mtime": 1788443363.9768565,
-    "ast_hash": "81a48a4b09d507b4ce42a7c056cf2c60",
+    "mtime": 1788444724.6706116,
+    "ast_hash": "5b7e04af0fb1e5dec542a590d556568c",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -525,8 +525,8 @@
     "semantic_hash": "faec688b85ba1372c9c8fa3dfcb8684d"
   },
   "src/data/search-index.js": {
-    "mtime": 1788384258.3550727,
-    "ast_hash": "bdbcb7bca08f8d42e639514056004fef",
+    "mtime": 1788444529.4677222,
+    "ast_hash": "36584f26bd4d6cf4e11872bcf257cda1",
     "semantic_hash": ""
   },
   "src/data/supertrunfo-en.json": {
@@ -660,8 +660,8 @@
     "semantic_hash": ""
   },
   "src/pages/content/Mundo.jsx": {
-    "mtime": 1788400540.7665577,
-    "ast_hash": "95fadffe912957025f4cdab9525ec14d",
+    "mtime": 1788444529.4677222,
+    "ast_hash": "f41568876e9254cbd8c162b437d5c421",
     "semantic_hash": ""
   },
   "src/pages/content/Musicas.jsx": {
@@ -2745,8 +2745,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1788443364.0244448,
-    "ast_hash": "fc20cb9884e5c58c9e041a629e1aec46",
+    "mtime": 1788444724.809816,
+    "ast_hash": "ca3442e635789ce9d8536547e912c84e",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3115,8 +3115,8 @@
     "semantic_hash": ""
   },
   "public/mundo/index.html": {
-    "mtime": 1782183498.440234,
-    "ast_hash": "04aa34498769e22284000c4a573b599f",
+    "mtime": 1788444550.5931847,
+    "ast_hash": "8f07dec7f862ebfe86ba4dd79a2e013e",
     "semantic_hash": ""
   },
   "public/musicas/index.html": {
@@ -4220,8 +4220,8 @@
     "semantic_hash": ""
   },
   "src/data/universo-index.json": {
-    "mtime": 1788387769.3963327,
-    "ast_hash": "e8403377fdd4094097bc5515dea93702",
+    "mtime": 1788444619.3839219,
+    "ast_hash": "06d6a251a6492ef81c707b0bba32a1bb",
     "semantic_hash": ""
   },
   "src/data/universo/mar-de-cinzas/pt/antagonista.json": {
@@ -4389,11 +4389,6 @@
     "ast_hash": "a57cc4fd87f814402491e62ae90f16b8",
     "semantic_hash": ""
   },
-  "src/pages/content/MundoHub.jsx": {
-    "mtime": 1788400540.7665577,
-    "ast_hash": "0cde43e411f844517bce29f2234aebe8",
-    "semantic_hash": ""
-  },
   "src/pages/content/Obra.jsx": {
     "mtime": 1788400776.9444742,
     "ast_hash": "fb0f27e6ccd03f8ffbf3e4cab27d878a",
@@ -4405,8 +4400,8 @@
     "semantic_hash": ""
   },
   "src/pages/content/Universo.jsx": {
-    "mtime": 1788400540.7685573,
-    "ast_hash": "4016911798e984d884864d3f75076cfa",
+    "mtime": 1788444529.469216,
+    "ast_hash": "898862ec3b0c01b278f8cbae2906978d",
     "semantic_hash": ""
   },
   "src/pages/site/Calendario/Calendario.jsx": {
@@ -4630,13 +4625,13 @@
     "semantic_hash": ""
   },
   "src/pages/site/Home/components/CharactersRow.jsx": {
-    "mtime": 1788406747.563392,
-    "ast_hash": "958b6c40afaaa3e19b851837c830e525",
+    "mtime": 1788444529.4702208,
+    "ast_hash": "bf1626b89abefd6bc5e5303718bfbf68",
     "semantic_hash": ""
   },
   "src/pages/site/Home/components/HeroSlideshow.jsx": {
-    "mtime": 1788405750.0922654,
-    "ast_hash": "da2f6ff98bc38f1f0892edaa0865c710",
+    "mtime": 1788444529.4702208,
+    "ast_hash": "5c8c4450a29874692248c36220a5cae3",
     "semantic_hash": ""
   },
   "src/pages/site/Home/components/LatestEpisodes.jsx": {
@@ -4670,18 +4665,18 @@
     "semantic_hash": ""
   },
   "src/i18n/core/en.json": {
-    "mtime": 1788409608.9655683,
-    "ast_hash": "ee06ffd4a69dee083f85d92407dcbe56",
+    "mtime": 1788444515.1010668,
+    "ast_hash": "b52cb2a0f31c284bd6ee4e64863f17c8",
     "semantic_hash": ""
   },
   "src/i18n/core/es.json": {
-    "mtime": 1788409608.971569,
-    "ast_hash": "137b07cd84f54632f5f37545671aa862",
+    "mtime": 1788444515.1030672,
+    "ast_hash": "b72f44cde91ec98c6ef19a504d1ade0a",
     "semantic_hash": ""
   },
   "src/i18n/core/pt.json": {
-    "mtime": 1788409608.9595687,
-    "ast_hash": "4185b489ef97ec6b49b6ab1733250c88",
+    "mtime": 1788444515.09714,
+    "ast_hash": "2d57414fb22e0e22b198d18bb29e7377",
     "semantic_hash": ""
   },
   "src/i18n/games/en.json": {
@@ -4712,6 +4707,11 @@
   "src/i18n/prototype/pt.json": {
     "mtime": 1788409608.9575531,
     "ast_hash": "b1fe40591bad39fbe355e16c93142957",
+    "semantic_hash": ""
+  },
+  "src/pages/content/UniversosHub/UniversosHub.jsx": {
+    "mtime": 1788444629.883418,
+    "ast_hash": "ce6931c21c97ece126351b1c21a6465c",
     "semantic_hash": ""
   }
 }
