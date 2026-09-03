@@ -270,3 +270,31 @@
 @media (prefers-reduced-motion: reduce) {
   .gang-sheet-levelup { animation: none; }
 }
+
+/* ── Destaque de poder ── */
+.gang-skill-node-badge {
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  padding: 2px 6px;
+  font: 800 0.5rem var(--font-mono);
+  letter-spacing: 0.08em;
+  color: #1b1000;
+  background: var(--if-amber);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 6px 100%);
+}
+.gang-skill-node--equipped {
+  border-color: var(--if-amber) !important;
+  background: rgba(245, 166, 35, 0.12) !important;
+  box-shadow: 0 0 22px -4px rgba(245, 166, 35, 0.5) !important;
+}
+.gang-skill-node--novo {
+  animation: gang-skill-novo 2.4s ease-out;
+}
+@keyframes gang-skill-novo {
+  0% { box-shadow: 0 0 0 0 rgba(255, 206, 107, 0.9); border-color: #ffce6b; }
+  100% { box-shadow: 0 0 22px -4px rgba(245, 166, 35, 0.5); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .gang-skill-node--novo { animation: none; }
+}

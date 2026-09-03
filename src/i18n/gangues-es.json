@@ -225,7 +225,8 @@
         "confirm_title": "¿Gastar XP?",
         "confirm_body": "Vas a gastar <b>{n} XP</b> en <b>{label}</b>. Esto no se puede deshacer tras confirmar.",
         "confirm_cancel": "Cancelar",
-        "confirm_ok": "Gastar {n} XP"
+        "confirm_ok": "Gastar {n} XP",
+        "equipped_badge": "EQUIPADO"
       },
       "training": {
         "entry": "ZONA DE ENTRENAMIENTO",
@@ -442,7 +443,12 @@
         "cost_pm": "{n} PM",
         "cost_pv": "{n}% PV",
         "sem_pm": "sin PM",
-        "sem_pv": "PV muy bajo"
+        "sem_pv": "PV muy bajo",
+        "vez_de": "Turno de",
+        "escolha_golpe": "Elige el golpe",
+        "sem_custo": "sin costo",
+        "sem_poderes": "Este luchador no tiene poderes activos equipados. Equípalos en la progresión de la ficha.",
+        "usar_golpe": "Usar {nome}"
       },
       "pag_atributos": "ATRIBUTOS",
       "pag_identidade": "IDENTIDAD",

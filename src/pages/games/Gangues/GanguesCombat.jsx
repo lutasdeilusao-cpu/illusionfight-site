@@ -393,19 +393,27 @@ export default function GanguesCombat({ onNavigate }) {
 
       {machine.phase === 'player' && !result && (
         <div className="gang-actions-bar">
-          {equippedSpecials.length > 0 && (
-            <div className="gang-power-attacks">
-              {actingMember && (
-                <span className="gang-power-mp" aria-label="PM">
-                  <b>{actingMember.pm}</b><span>/{actingMember.pmMax}</span> PM
-                </span>
+          {/* Fica claro de quem é a vez e o que ele pode fazer. */}
+          {actingMember && (
+            <div className="gang-turn-banner">
+              <span className="gang-turn-banner-vez">{t('games.gangues.combat_specials.vez_de')}</span>
+              <strong className="gang-turn-banner-nome">{fighterName(t, actingMember)}</strong>
+              {actingMember.pmMax > 0 && (
+                <span className="gang-turn-banner-mp"><b>{actingMember.pm}</b>/{actingMember.pmMax} PM</span>
               )}
+            </div>
+          )}
+
+          <div className="gang-power-attacks">
+            <span className="gang-power-attacks-label">{t('games.gangues.combat_specials.escolha_golpe')}</span>
+            <div className="gang-power-attacks-grid">
               <button
                 type="button"
-                className={`gang-mode-btn ${selectedSpecialId === null ? 'gang-mode-btn--active' : ''}`}
+                className={`gang-power-btn gang-power-btn--normal ${selectedSpecialId === null ? 'gang-power-btn--active' : ''}`}
                 onClick={() => setSelectedSpecialId(null)}
               >
-                {t('games.gangues.combat_specials.normal_attack')}
+                <span className="gang-power-btn-nome">{t('games.gangues.combat_specials.normal_attack')}</span>
+                <small>{t('games.gangues.combat_specials.sem_custo')}</small>
               </button>
               {equippedSpecials.map(special => {
                 const affordable = canAffordSpecial(special)
@@ -419,22 +427,28 @@ export default function GanguesCombat({ onNavigate }) {
                     className={`gang-power-btn ${selectedSpecialId === special.id ? 'gang-power-btn--active' : ''} ${!affordable ? 'gang-power-btn--sem-recurso' : ''}`}
                     onClick={() => setSelectedSpecialId(current => current === special.id ? null : special.id)}
                   >
-                    {t(`games.gangues.progression.skills.${special.id}`)}
+                    <span className="gang-power-btn-nome">{t(`games.gangues.progression.skills.${special.id}`)}</span>
                     {cost && (
                       <small>
                         {t(`games.gangues.combat_specials.cost_${cost.kind}`, { n: custoTxt })}
-                        {!affordable && ` — ${t('games.gangues.combat_specials.sem_' + cost.kind)}`}
+                        {!affordable && ` · ${t('games.gangues.combat_specials.sem_' + cost.kind)}`}
                       </small>
                     )}
                   </button>
                 )
               })}
             </div>
-          )}
+            {equippedSpecials.length === 0 && (
+              <p className="gang-power-attacks-vazio">{t('games.gangues.combat_specials.sem_poderes')}</p>
+            )}
+          </div>
+
           <div className="gang-actions-row">
             <button className="gang-exit-btn" onClick={() => onNavigate('lobby')}>{t('games.gangues.btn_sair')}</button>
             <button className="gang-attack-btn" disabled={!selectedActor || !selectedTarget} onClick={handleAttack}>
-              {t('games.gangues.btn_atacar')}
+              {selectedSpecialId
+                ? t('games.gangues.combat_specials.usar_golpe', { nome: t(`games.gangues.progression.skills.${selectedSpecialId}`) })
+                : t('games.gangues.btn_atacar')}
             </button>
           </div>
         </div>

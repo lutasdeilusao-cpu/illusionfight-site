@@ -21,6 +21,7 @@ export default function GanguesProgression({ onNavigate }) {
   const store = useGanguesStore()
   const member = store.roster.find(m => m.id === store.progressionTargetId) || null
   const [pendente, setPendente] = useState(null) // { change, meta } aguardando confirmação
+  const [destaque, setDestaque] = useState(null) // id do poder recém-comprado, pra dar feedback
 
   const voltar = () => { store.setProgressionTarget(null); onNavigate('lobby') }
 
@@ -40,7 +41,17 @@ export default function GanguesProgression({ onNavigate }) {
     aplicar(change)
   }
 
-  const confirmar = () => { const c = pendente; setPendente(null); if (c) { sfx.reward(); aplicar(c.change) } }
+  const confirmar = () => {
+    const c = pendente
+    setPendente(null)
+    if (!c) return
+    sfx.reward()
+    aplicar(c.change)
+    if (c.meta.skillId) {
+      setDestaque(c.meta.skillId)
+      setTimeout(() => setDestaque(null), 2600)
+    }
+  }
   const cancelar = () => { sfx.cancel(); setPendente(null) }
 
   const excluir = async () => {
@@ -73,7 +84,7 @@ export default function GanguesProgression({ onNavigate }) {
         </div>
       </header>
 
-      <GanguesProgressionPanel member={member} onApply={onApply} onDelete={excluir} />
+      <GanguesProgressionPanel member={member} onApply={onApply} onDelete={excluir} destaque={destaque} />
 
       <AnimatePresence>
         {pendente && (

@@ -18,7 +18,7 @@ const ATTRIBUTES = ['A', 'H', 'R', 'D']
 
 /** onApply(member, change, meta) — meta.cost e meta.label alimentam a
  *  confirmação na tela de progressão. cost 0 = aplica direto (ex: equipar). */
-export default function GanguesProgressionPanel({ member, onApply, onDelete }) {
+export default function GanguesProgressionPanel({ member, onApply, onDelete, destaque }) {
   const { t } = useLanguage()
   const progression = getGanguesProgression(member)
   const paths = getGanguesSpecialPaths(member.combat_path)
@@ -107,7 +107,8 @@ export default function GanguesProgressionPanel({ member, onApply, onDelete }) {
       const purchasable = Boolean(unlockedPath && unlockedPath.id === previewPath?.id)
       const skillName = t(`games.gangues.progression.skills.${special.id}`)
       return (
-        <div key={special.id} className={`gang-skill-node ${equipped ? 'gang-skill-node--equipped' : ''} ${level === 0 ? 'gang-skill-node--locked' : ''}`}>
+        <div key={special.id} className={`gang-skill-node ${equipped ? 'gang-skill-node--equipped' : ''} ${level === 0 ? 'gang-skill-node--locked' : ''} ${destaque === special.id ? 'gang-skill-node--novo' : ''}`}>
+          {equipped && <span className="gang-skill-node-badge">{t('games.gangues.progression.equipped_badge')}</span>}
           <div className="gang-skill-node-icon">{SPECIAL_ICON[previewPath?.id] || '★'}</div>
           <strong className="gang-skill-node-name">{skillName}</strong>
           <span className="gang-skill-node-kind">{t(`games.gangues.progression.${special.kind}`)}</span>
@@ -115,7 +116,7 @@ export default function GanguesProgressionPanel({ member, onApply, onDelete }) {
           <div className="gang-skill-node-actions">
             <button
               disabled={!purchasable || !cost || progression.xp_unspent < cost}
-              onClick={() => onApply(member, upgradeGanguesSpecial(member, special.id), { cost, label: skillName })}
+              onClick={() => onApply(member, upgradeGanguesSpecial(member, special.id), { cost, label: skillName, skillId: special.id })}
             >{purchasable && cost ? t('games.gangues.progression.cost_xp', { n: cost }) : t('games.gangues.progression.unlock_path_first')}</button>
             {purchasable && level > 0 && (
               <button

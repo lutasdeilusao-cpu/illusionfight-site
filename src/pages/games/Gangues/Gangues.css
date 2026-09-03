@@ -810,15 +810,99 @@
 }
 .gang-attack-btn:hover:not(:disabled) { box-shadow: 0 0 20px rgba(139,0,0,0.4); }
 .gang-attack-btn:disabled { opacity: 0.3; cursor: not-allowed; }
-.gang-power-attacks { display: flex; flex-wrap: wrap; gap: 6px; }
-.gang-power-btn {
-  padding: 6px 12px; background: rgba(245,166,35,0.06); border: 1px solid rgba(245,166,35,0.25);
-  color: #c89940; cursor: pointer; font-family: 'Courier New', monospace; font-size: 11px;
-  border-radius: 4px; transition: all 0.15s;
+/* ── Vez de quem + escolha do golpe ── */
+.gang-turn-banner {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 8px 12px;
+  border: 1px solid var(--if-cyan-45);
+  background: var(--if-cyan-08);
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
 }
-.gang-power-btn:hover:not(:disabled) { background: rgba(245,166,35,0.1); }
-.gang-power-btn:disabled { opacity: 0.45; cursor: not-allowed; }
+.gang-turn-banner-vez {
+  font: 700 0.58rem var(--font-mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--if-cyan-58);
+}
+.gang-turn-banner-nome {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.05rem;
+  letter-spacing: 0.03em;
+  color: var(--if-cyan);
+}
+.gang-turn-banner-mp {
+  margin-left: auto;
+  font: 700 0.62rem var(--font-mono);
+  color: #c99bf5;
+}
+.gang-turn-banner-mp b { font-size: 0.8rem; color: #d9bdf7; }
+
+.gang-power-attacks { display: flex; flex-direction: column; gap: 6px; }
+.gang-power-attacks-label {
+  font: 700 0.58rem var(--font-mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--if-cyan-58);
+}
+.gang-power-attacks-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+.gang-power-attacks-vazio {
+  margin: 2px 0 0;
+  font: 400 0.72rem var(--font-body);
+  line-height: 1.4;
+  color: var(--text-secondary);
+}
+
+.gang-power-btn {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-height: 46px;
+  padding: 8px 10px;
+  text-align: left;
+  background: rgba(245, 166, 35, 0.07);
+  border: 1px solid rgba(245, 166, 35, 0.3);
+  color: var(--if-amber-soft);
+  cursor: pointer;
+  font-family: var(--font-mono);
+  transition: background 0.15s, border-color 0.15s, box-shadow 0.15s;
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
+}
+.gang-power-btn-nome {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+  color: #ffce6b;
+}
+.gang-power-btn small { font-size: 0.6rem; letter-spacing: 0.04em; opacity: 0.85; }
+.gang-power-btn--normal {
+  background: rgba(24, 218, 251, 0.06);
+  border-color: var(--if-cyan-45);
+  color: var(--if-cyan);
+}
+.gang-power-btn--normal .gang-power-btn-nome { color: var(--if-cyan); }
+.gang-power-btn:hover:not(:disabled) { background: rgba(245, 166, 35, 0.14); }
+.gang-power-btn--normal:hover:not(:disabled) { background: rgba(24, 218, 251, 0.14); }
+.gang-power-btn--active {
+  border-color: var(--if-amber);
+  background: rgba(245, 166, 35, 0.22);
+  box-shadow: 0 0 18px rgba(255, 174, 50, 0.3);
+}
+.gang-power-btn--normal.gang-power-btn--active {
+  border-color: var(--if-cyan);
+  background: rgba(24, 218, 251, 0.2);
+  box-shadow: 0 0 18px rgba(24, 218, 251, 0.3);
+}
+.gang-power-btn:disabled { opacity: 0.42; cursor: not-allowed; }
 .gang-power-btn--sem-recurso { border-color: rgba(255, 107, 107, 0.45); color: #ff9a9a; }
+.gang-power-btn--sem-recurso .gang-power-btn-nome { color: #ff9a9a; }
 .gang-power-btn--sem-recurso small { color: #ff8080; opacity: 1; }
 
 /* PM do lutador que vai agir — sempre à vista antes de escolher o golpe */

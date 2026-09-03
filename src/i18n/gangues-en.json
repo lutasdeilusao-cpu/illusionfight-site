@@ -225,7 +225,8 @@
         "confirm_title": "Spend XP?",
         "confirm_body": "You'll spend <b>{n} XP</b> on <b>{label}</b>. This can't be undone once confirmed.",
         "confirm_cancel": "Cancel",
-        "confirm_ok": "Spend {n} XP"
+        "confirm_ok": "Spend {n} XP",
+        "equipped_badge": "EQUIPPED"
       },
       "training": {
         "entry": "TRAINING ZONE",
@@ -442,7 +443,12 @@
         "cost_pm": "{n} PM",
         "cost_pv": "{n}% HP",
         "sem_pm": "not enough MP",
-        "sem_pv": "HP too low"
+        "sem_pv": "HP too low",
+        "vez_de": "Turn:",
+        "escolha_golpe": "Choose your move",
+        "sem_custo": "free",
+        "sem_poderes": "This fighter has no active powers equipped. Equip them in the sheet progression.",
+        "usar_golpe": "Use {nome}"
       },
       "pag_atributos": "ATTRIBUTES",
       "pag_identidade": "IDENTITY",
