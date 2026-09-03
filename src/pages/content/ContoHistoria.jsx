@@ -3,7 +3,7 @@ import { useParams, useNavigate, Link } from 'react-router-dom'
 import { useLanguage } from '../../context/LanguageContext'
 import { useAuth } from '../../context/AuthContext'
 import { TRIAL_ACTIVE } from '../../config/trial'
-import { estaDisponivel } from '../../config/site'
+import { contoLiberado } from '../../config/site'
 import Farol from '../../components/Farol/Farol'
 import CapCard from '../../components/CapCard/CapCard'
 import index from '../../data/contos-index.json'
@@ -69,7 +69,7 @@ export default function ContoHistoria() {
 
         <div className="cap-list">
           {h.capitulos.map(cap => {
-            const liberado = estaDisponivel(cap, isAdmin, { user, perfil })
+            const liberado = contoLiberado(cap, isAdmin, { user, perfil })
             const resumoKey = locale === 'en' ? 'resumo_en' : locale === 'es' ? 'resumo_es' : 'resumo_pt'
             return (
               <CapCard

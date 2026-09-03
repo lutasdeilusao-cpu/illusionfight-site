@@ -6,7 +6,7 @@ import { useLanguage } from '../../context/LanguageContext'
 import { useReader } from '../../context/ReaderContext'
 import { useAuth } from '../../context/AuthContext'
 import { TRIAL_ACTIVE } from '../../config/trial'
-import { estaDisponivel } from '../../config/site'
+import { contoLiberado } from '../../config/site'
 import index from '../../data/contos-index.json'
 import { readerMdComponents } from '../../lib/mdComponents'
 import './LivroCapitulo.css'
@@ -61,7 +61,7 @@ export default function ContoCapitulo() {
 
   useEffect(() => {
     setNotFound(false)
-    if (!h || !capitulo || (!estaDisponivel(capitulo, isAdmin, { user, perfil }))) {
+    if (!h || !capitulo || (!contoLiberado(capitulo, isAdmin, { user, perfil }))) {
       setNotFound(true)
       return
     }
@@ -91,7 +91,7 @@ export default function ContoCapitulo() {
     )
   }
 
-  const disponiveis = h.capitulos.filter(c => estaDisponivel(c, isAdmin, { user, perfil }))
+  const disponiveis = h.capitulos.filter(c => contoLiberado(c, isAdmin, { user, perfil }))
   const cur = disponiveis.findIndex(c => c.id === cap)
   const anterior = disponiveis[cur - 1]
   const proximo = disponiveis[cur + 1]

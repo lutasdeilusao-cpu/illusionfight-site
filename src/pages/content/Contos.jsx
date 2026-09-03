@@ -4,7 +4,7 @@ import { useNavigate, Link } from 'react-router-dom'
 import { useLanguage } from '../../context/LanguageContext'
 import { useAuth } from '../../context/AuthContext'
 import { TRIAL_ACTIVE } from '../../config/trial'
-import { estaDisponivel } from '../../config/site'
+import { contoLiberado } from '../../config/site'
 import Farol, { PESOS } from '../../components/Farol/Farol'
 import index from '../../data/contos-index.json'
 import comingSoonImg from '../../assets/images/ComingSoon.png'
@@ -35,7 +35,7 @@ export default function Contos() {
   const tituloKey = locale === 'en' ? 'titulo_en' : locale === 'es' ? 'titulo_es' : 'titulo'
   const taglineKey = locale === 'en' ? 'tagline_en' : locale === 'es' ? 'tagline_es' : 'tagline_pt'
 
-  const capsLiberados = (h) => h.capitulos.filter(c => estaDisponivel(c, isAdmin, { user, perfil })).length
+  const capsLiberados = (h) => h.capitulos.filter(c => contoLiberado(c, isAdmin, { user, perfil })).length
 
   const pesosPresentes = useMemo(
     () => PESOS.filter(p => index.some(h => h.peso === p)),

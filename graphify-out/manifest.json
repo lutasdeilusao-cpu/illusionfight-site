@@ -370,8 +370,8 @@
     "semantic_hash": "b11265c546f5970b719233c19e1b2c2d"
   },
   "src/config/version.js": {
-    "mtime": 1788454234.9070814,
-    "ast_hash": "3baa86e35588690a37fecfcb86f7f0d1",
+    "mtime": 1788454810.7191522,
+    "ast_hash": "17986af2d1e74ed88a728bb691bf4b45",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -380,8 +380,8 @@
     "semantic_hash": ""
   },
   "src/context/AuthContext.jsx": {
-    "mtime": 1787763500.7940264,
-    "ast_hash": "2a2289e132c4332e8cf1bb8b12a58746",
+    "mtime": 1788454577.9255226,
+    "ast_hash": "d3816a85646d2561950027ec8c9e2754",
     "semantic_hash": ""
   },
   "src/context/DixContext.jsx": {
@@ -2195,8 +2195,8 @@
     "semantic_hash": ""
   },
   "src/pages/platform/Cadastro.jsx": {
-    "mtime": 1787762043.4932296,
-    "ast_hash": "720f4b9d901a9c738e6deab2b37a9c40",
+    "mtime": 1788454504.0922813,
+    "ast_hash": "f3ef5b5c07a5ef9f49e4500007512a26",
     "semantic_hash": ""
   },
   "src/pages/platform/Leaderboard.jsx": {
@@ -2205,8 +2205,8 @@
     "semantic_hash": ""
   },
   "src/pages/platform/Login.jsx": {
-    "mtime": 1787852555.6588602,
-    "ast_hash": "77ead713c32def704aaf9cd3f7c795a5",
+    "mtime": 1788454741.169114,
+    "ast_hash": "b109fbad1b8e5109f9e4fd1aa40701be",
     "semantic_hash": ""
   },
   "src/pages/platform/Perfil/Perfil.jsx": {
@@ -2745,8 +2745,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1788454234.9514885,
-    "ast_hash": "ab368191e243790fe8ad0735f2cfc0a2",
+    "mtime": 1788454810.7678485,
+    "ast_hash": "fa82670ddeff251e5cee77662ab860b2",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3610,8 +3610,8 @@
     "semantic_hash": ""
   },
   "src/lib/profileProvisioning.js": {
-    "mtime": 1787763479.0238657,
-    "ast_hash": "b0701f006ea3dafb63b7100d53dfa895",
+    "mtime": 1788454533.569524,
+    "ast_hash": "f0e3cdeb5bd9bb3b898ead0df691eda7",
     "semantic_hash": ""
   },
   "supabase/migrations/027_profiles_phone_optional.sql": {
@@ -4665,18 +4665,18 @@
     "semantic_hash": ""
   },
   "src/i18n/core/en.json": {
-    "mtime": 1788444515.1010668,
-    "ast_hash": "b52cb2a0f31c284bd6ee4e64863f17c8",
+    "mtime": 1788454751.1405582,
+    "ast_hash": "a103388d89f6989aa75988389acf2bc5",
     "semantic_hash": ""
   },
   "src/i18n/core/es.json": {
-    "mtime": 1788444515.1030672,
-    "ast_hash": "b72f44cde91ec98c6ef19a504d1ade0a",
+    "mtime": 1788454751.1425564,
+    "ast_hash": "6a1d08f93993636049dba65e63a3db2e",
     "semantic_hash": ""
   },
   "src/i18n/core/pt.json": {
-    "mtime": 1788444515.09714,
-    "ast_hash": "2d57414fb22e0e22b198d18bb29e7377",
+    "mtime": 1788454751.1381843,
+    "ast_hash": "33e53c817b0b4beb33bd349f8b76e215",
     "semantic_hash": ""
   },
   "src/i18n/games/en.json": {
@@ -4712,6 +4712,11 @@
   "src/pages/content/UniversosHub/UniversosHub.jsx": {
     "mtime": 1788444629.883418,
     "ast_hash": "ce6931c21c97ece126351b1c21a6465c",
+    "semantic_hash": ""
+  },
+  "supabase/migrations/030_signup_hardening.sql": {
+    "mtime": 1788454597.537696,
+    "ast_hash": "c7a8a86bdd1d3749182530dfab1f5d37",
     "semantic_hash": ""
   }
 }
