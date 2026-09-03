@@ -370,8 +370,8 @@
     "semantic_hash": "b11265c546f5970b719233c19e1b2c2d"
   },
   "src/config/version.js": {
-    "mtime": 1788447852.073014,
-    "ast_hash": "f9a96dfebb511fdaab7af97e74f7b2de",
+    "mtime": 1788454234.9070814,
+    "ast_hash": "3baa86e35588690a37fecfcb86f7f0d1",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2745,8 +2745,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1788447852.1232128,
-    "ast_hash": "a46bba1edc00a8b9a308849315c25379",
+    "mtime": 1788454234.9514885,
+    "ast_hash": "ab368191e243790fe8ad0735f2cfc0a2",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3475,8 +3475,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/GanguesCombat.jsx": {
-    "mtime": 1787354301.8643038,
-    "ast_hash": "de889a5ab6d472d73e8cfca9a5d804c1",
+    "mtime": 1788451994.9879029,
+    "ast_hash": "c5d94b426d5f78a4fadc422e7f70ef37",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/GanguesCreate.jsx": {
@@ -3500,8 +3500,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/DramaticDice.jsx": {
-    "mtime": 1788408770.9857907,
-    "ast_hash": "a2a19838cebc90630d03730787b5964e",
+    "mtime": 1788453136.096617,
+    "ast_hash": "1b77bbd09e3eb71bd1dd83940a36556e",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/gangues-enemies.json": {
@@ -3550,18 +3550,18 @@
     "semantic_hash": ""
   },
   "src/i18n/gangues-en.json": {
-    "mtime": 1788447790.642892,
-    "ast_hash": "24deb66e17e2a4e2615aaef016cb4c0d",
+    "mtime": 1788452122.7112792,
+    "ast_hash": "848ca1a8050ae264685ce92e5ec773cf",
     "semantic_hash": ""
   },
   "src/i18n/gangues-es.json": {
-    "mtime": 1788447790.645893,
-    "ast_hash": "84cd3fd41cf3355bae00be8d65b42a64",
+    "mtime": 1788452122.7142787,
+    "ast_hash": "5eb17c91cd7ad99edd2bb2f6ac3f6ae3",
     "semantic_hash": ""
   },
   "src/i18n/gangues-pt.json": {
-    "mtime": 1788447790.6394064,
-    "ast_hash": "751fb3484e5a133e15a5ec4657b6eca6",
+    "mtime": 1788452122.7092497,
+    "ast_hash": "20d7eb837706559b3e04b01451350362",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/hooks/useGanguesI18n.js": {

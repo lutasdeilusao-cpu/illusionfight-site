@@ -7,6 +7,16 @@ const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || 'https://dvxfrzixtetdzm
 
 const AuthContext = createContext(null)
 
+// sessionStorage lança em Safari privado / storage cheio. Ler os dados
+// pendentes do cadastro nunca pode derrubar o login.
+function lerCadastroPendente() {
+  try { return JSON.parse(sessionStorage.getItem('ldi-cadastro-pendente') || 'null') || {} }
+  catch { return {} }
+}
+function limparCadastroPendente() {
+  try { sessionStorage.removeItem('ldi-cadastro-pendente') } catch { /* ignora */ }
+}
+
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null)
   const [perfil, setPerfil] = useState(null)
@@ -21,7 +31,7 @@ export function AuthProvider({ children }) {
         .from('profiles')
         .select('last_seen_at')
         .eq('id', userId)
-        .single()
+        .maybeSingle()
 
       const agora = new Date()
       const ultimaSessao = perfilData?.last_seen_at
@@ -59,55 +69,69 @@ export function AuthProvider({ children }) {
   }, [user])
 
   useEffect(() => {
+    // Se a sessão existe, o usuário ENTRA. O provisionamento de perfil é
+    // rede de segurança da trigger — nunca pode barrar o login. E o
+    // `carregando` sempre termina, aconteça o que acontecer.
+    async function entrar(session, { primeiroLogin = false } = {}) {
+      const pendentes = lerCadastroPendente()
+      let created = false
+      try {
+        const r = await ensureUserProfile(session.user, pendentes)
+        created = r.created
+        if (r.error) console.error('[Auth] provisionamento de perfil:', r.error)
+      } catch (e) {
+        console.error('[Auth] provisionamento lançou:', e)
+      }
+
+      // Entra de qualquer jeito — a conta existe.
+      setUser(session.user)
+      limparCadastroPendente()
+
+      try { await carregarPerfil(session.user.id) } catch (e) { console.error('[Auth] carregarPerfil:', e) }
+
+      if (primeiroLogin) {
+        try {
+          await supabase.from('user_achievements').upsert(
+            { user_id: session.user.id, achievement_id: 'recrutado' },
+            { onConflict: 'user_id,achievement_id' },
+          )
+        } catch (e) { console.error('[Auth] achievement recrutado:', e) }
+        try { await garantirDeckInicial(session.user.id) } catch (e) { console.error('[Auth] deck inicial:', e) }
+      }
+
+      try {
+        const horas = await registrarSessao(session.user.id)
+        setHorasDesdeUltimaSessao(horas)
+      } catch (e) { console.error('[Auth] registrarSessao:', e) }
+    }
+
     supabase.auth.getSession().then(async ({ data: { session } }) => {
       setSession(session)
-      if (session?.user) {
-        const dadosPendentes = JSON.parse(sessionStorage.getItem('ldi-cadastro-pendente') || 'null')
-        const { created, error } = await ensureUserProfile(session.user, dadosPendentes || {})
-        if (error) console.error('[Auth] erro ao garantir perfil:', error)
-        if (!error) {
-          setUser(session.user)
-          if (created) sessionStorage.removeItem('ldi-cadastro-pendente')
-          await carregarPerfil(session.user.id)
-          const horas = await registrarSessao(session.user.id)
-          setHorasDesdeUltimaSessao(horas)
-        }
-      } else {
-        setUser(null)
+      try {
+        if (session?.user) await entrar(session)
+        else setUser(null)
+      } catch (e) {
+        console.error('[Auth] getSession:', e)
+        if (session?.user) setUser(session.user)
+      } finally {
+        setCarregando(false)
       }
-      setCarregando(false)
-    })
+    }).catch(e => { console.error('[Auth] getSession rejeitou:', e); setCarregando(false) })
+
     const { data: { subscription } } = supabase.auth.onAuthStateChange(async (event, session) => {
       setSession(session)
-      if (session?.user) {
-        if (event === 'SIGNED_IN') {
-          const dadosPendentes = JSON.parse(sessionStorage.getItem('ldi-cadastro-pendente') || 'null')
-          const { created, error } = await ensureUserProfile(session.user, dadosPendentes || {})
-          if (error) console.error('[Auth] erro ao garantir perfil:', error)
-          if (!error) {
-            setUser(session.user)
-            if (created) {
-              await supabase.from('user_achievements').upsert({
-                user_id: session.user.id,
-                achievement_id: 'recrutado'
-              }, { onConflict: 'user_id,achievement_id' })
-              sessionStorage.removeItem('ldi-cadastro-pendente')
-            }
-            await carregarPerfil(session.user.id)
-            await garantirDeckInicial(session.user.id)
-            const horas = await registrarSessao(session.user.id)
-            setHorasDesdeUltimaSessao(horas)
-          }
+      try {
+        if (session?.user) {
+          await entrar(session, { primeiroLogin: event === 'SIGNED_IN' })
         } else {
-          const { error } = await ensureUserProfile(session.user)
-          if (!error) {
-            setUser(session.user)
-            await carregarPerfil(session.user.id)
-          }
+          setUser(null)
+          setPerfil(null)
         }
-      } else {
-        setUser(null)
-        setPerfil(null)
+      } catch (e) {
+        console.error('[Auth] onAuthStateChange:', e)
+        if (session?.user) setUser(session.user)
+      } finally {
+        setCarregando(false)
       }
     })
     return () => subscription.unsubscribe()
@@ -126,10 +150,13 @@ export function AuthProvider({ children }) {
   async function garantirDeckInicial(userId) {
     const { data } = await supabase.from('toptrumps_decks').select('carta_id').eq('user_id', userId).limit(1)
     if (data && data.length > 0) { return }
-    const locale = localStorage.getItem('ldi-locale') || 'pt'
+    let locale = 'pt'
+    try { locale = (localStorage.getItem('ldi-locale') || 'pt').slice(0, 2) } catch { /* pt */ }
     const supertrunfoModules = import.meta.glob('../data/supertrunfo-*.json')
     const path = `../data/supertrunfo-${locale}.json`
-    const mod = await supertrunfoModules[path]()
+    const loader = supertrunfoModules[path] || supertrunfoModules['../data/supertrunfo-pt.json']
+    if (!loader) return
+    const mod = await loader()
     const todasCartas = mod.default
     const cartasFree = filterTopTrumpsInitialAccountPool(todasCartas.cartas)
     const qtdInicial = 5

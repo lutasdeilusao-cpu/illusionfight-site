@@ -19,14 +19,27 @@ export default function Login() {
     setErro('')
     setCarregando(true)
     trackEvent('login_start', { method: 'email' })
-    const { error } = await supabase.auth.signInWithPassword({ email, password })
-    setCarregando(false)
-    if (error) {
-      trackEvent('login_error', { method: 'email', error_type: 'authentication' })
-      setErro(error.message)
-    } else {
+    try {
+      const { error } = await Promise.race([
+        supabase.auth.signInWithPassword({ email: email.trim().toLowerCase(), password }),
+        new Promise((_, reject) => setTimeout(() => reject(new Error('timeout')), 20000)),
+      ])
+      if (error) {
+        trackEvent('login_error', { method: 'email', error_type: 'authentication' })
+        if (/invalid login credentials/i.test(error.message || '')) {
+          setErro(t('site.login.credenciais_invalidas'))
+        } else {
+          setErro(error.message || t('site.login.erro_generico'))
+        }
+        return
+      }
       trackEvent('login', { method: 'email' })
       navigate('/perfil')
+    } catch {
+      trackEvent('login_error', { method: 'email', error_type: 'exception' })
+      setErro(t('site.login.erro_generico'))
+    } finally {
+      setCarregando(false)
     }
   }
 

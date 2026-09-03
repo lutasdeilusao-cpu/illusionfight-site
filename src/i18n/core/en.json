@@ -272,7 +272,9 @@
       "entrando": "LOGGING IN...",
       "sem_conta": "Don't have an account?",
       "cadastrar_link": "Sign up",
-      "erro": "Login error"
+      "erro": "Login error",
+      "credenciais_invalidas": "Wrong email or password.",
+      "erro_generico": "Couldn't log in right now. Try again in a moment."
     },
     "cadastro": {
       "titulo": "SIGN UP",
@@ -297,7 +299,10 @@
       "erro_perfil": "Account created but error saving profile. Please try again.",
       "confirme_titulo": "Check your email",
       "confirme_mensagem": "We sent a confirmation link to your email address. Open your inbox and click the link to activate your account.",
-      "privacidade_aviso": "Your account is used only to save your progress and history across the games. We don't use your data to train AI, we don't sell data to third parties, and this site has no ads or data-based monetization of any kind."
+      "privacidade_aviso": "Your account is used only to save your progress and history across the games. We don't use your data to train AI, we don't sell data to third parties, and this site has no ads or data-based monetization of any kind.",
+      "nome_obrigatorio": "Enter your name",
+      "email_ja_existe": "That email already has an account. Try logging in.",
+      "erro_generico": "Couldn't create the account right now. Try again in a moment."
     },
     "games": {
       "titulo": "GAMES",
