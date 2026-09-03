@@ -1890,7 +1890,7 @@
       "source_location": "L67",
       "_origin": "ast",
       "id": "src_tauri_gen_schemas_desktop_schema_properties_local",
-      "community": 74,
+      "community": 399,
       "norm_label": "local"
     },
     {
@@ -1900,7 +1900,7 @@
       "source_location": "L68",
       "_origin": "ast",
       "id": "src_tauri_gen_schemas_desktop_schema_local_description",
-      "community": 74,
+      "community": 399,
       "norm_label": "description"
     },
     {
@@ -1910,7 +1910,7 @@
       "source_location": "L69",
       "_origin": "ast",
       "id": "src_tauri_gen_schemas_desktop_schema_local_default",
-      "community": 74,
+      "community": 399,
       "norm_label": "default"
     },
     {
@@ -1920,7 +1920,7 @@
       "source_location": "L70",
       "_origin": "ast",
       "id": "src_tauri_gen_schemas_desktop_schema_local_type",
-      "community": 74,
+      "community": 399,
       "norm_label": "type"
     },
     {
@@ -2290,7 +2290,7 @@
       "source_location": "L2197",
       "_origin": "ast",
       "id": "src_tauri_gen_schemas_desktop_schema_definitions_value",
-      "community": 86,
+      "community": 401,
       "norm_label": "value"
     },
     {
@@ -2300,7 +2300,7 @@
       "source_location": "L2198",
       "_origin": "ast",
       "id": "src_tauri_gen_schemas_desktop_schema_value_description",
-      "community": 86,
+      "community": 401,
       "norm_label": "description"
     },
     {
@@ -2310,7 +2310,7 @@
       "source_location": "L2199",
       "_origin": "ast",
       "id": "src_tauri_gen_schemas_desktop_schema_value_anyof",
-      "community": 86,
+      "community": 401,
       "norm_label": "anyof"
     },
     {
@@ -2320,7 +2320,7 @@
       "source_location": "L2236",
       "_origin": "ast",
       "id": "src_tauri_gen_schemas_desktop_schema_definitions_number",
-      "community": 379,
+      "community": 86,
       "norm_label": "number"
     },
     {
@@ -2330,7 +2330,7 @@
       "source_location": "L2237",
       "_origin": "ast",
       "id": "src_tauri_gen_schemas_desktop_schema_number_description",
-      "community": 379,
+      "community": 86,
       "norm_label": "description"
     },
     {
@@ -2340,7 +2340,7 @@
       "source_location": "L2238",
       "_origin": "ast",
       "id": "src_tauri_gen_schemas_desktop_schema_number_anyof",
-      "community": 379,
+      "community": 86,
       "norm_label": "anyof"
     },
     {
@@ -2380,7 +2380,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_tauri_gen_schemas_windows_schema",
-      "community": 377,
+      "community": 108,
       "norm_label": "windows-schema.json"
     },
     {
@@ -2390,7 +2390,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "src_tauri_gen_schemas_windows_schema_schema",
-      "community": 377,
+      "community": 108,
       "norm_label": "$schema"
     },
     {
@@ -2400,7 +2400,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "src_tauri_gen_schemas_windows_schema_title",
-      "community": 377,
+      "community": 108,
       "norm_label": "title"
     },
     {
@@ -2410,7 +2410,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "src_tauri_gen_schemas_windows_schema_description",
-      "community": 377,
+      "community": 108,
       "norm_label": "description"
     },
     {
@@ -2420,7 +2420,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "src_tauri_gen_schemas_windows_schema_anyof",
-      "community": 377,
+      "community": 108,
       "norm_label": "anyof"
     },
     {
@@ -2540,7 +2540,7 @@
       "source_location": "L51",
       "_origin": "ast",
       "id": "src_tauri_gen_schemas_windows_schema_properties_description",
-      "community": 98,
+      "community": 400,
       "norm_label": "description"
     },
     {
@@ -2550,7 +2550,7 @@
       "source_location": "L52",
       "_origin": "ast",
       "id": "src_tauri_gen_schemas_windows_schema_description_description",
-      "community": 98,
+      "community": 400,
       "norm_label": "description"
     },
     {
@@ -2560,7 +2560,7 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "src_tauri_gen_schemas_windows_schema_description_default",
-      "community": 98,
+      "community": 400,
       "norm_label": "default"
     },
     {
@@ -2570,7 +2570,7 @@
       "source_location": "L54",
       "_origin": "ast",
       "id": "src_tauri_gen_schemas_windows_schema_description_type",
-      "community": 98,
+      "community": 400,
       "norm_label": "type"
     },
     {
@@ -2610,7 +2610,7 @@
       "source_location": "L67",
       "_origin": "ast",
       "id": "src_tauri_gen_schemas_windows_schema_properties_local",
-      "community": 263,
+      "community": 98,
       "norm_label": "local"
     },
     {
@@ -2620,7 +2620,7 @@
       "source_location": "L68",
       "_origin": "ast",
       "id": "src_tauri_gen_schemas_windows_schema_local_description",
-      "community": 263,
+      "community": 98,
       "norm_label": "description"
     },
     {
@@ -2630,7 +2630,7 @@
       "source_location": "L69",
       "_origin": "ast",
       "id": "src_tauri_gen_schemas_windows_schema_local_default",
-      "community": 263,
+      "community": 98,
       "norm_label": "default"
     },
     {
@@ -2640,7 +2640,7 @@
       "source_location": "L70",
       "_origin": "ast",
       "id": "src_tauri_gen_schemas_windows_schema_local_type",
-      "community": 263,
+      "community": 98,
       "norm_label": "type"
     },
     {
@@ -3040,7 +3040,7 @@
       "source_location": "L2236",
       "_origin": "ast",
       "id": "src_tauri_gen_schemas_windows_schema_definitions_number",
-      "community": 108,
+      "community": 353,
       "norm_label": "number"
     },
     {
@@ -3050,7 +3050,7 @@
       "source_location": "L2237",
       "_origin": "ast",
       "id": "src_tauri_gen_schemas_windows_schema_number_description",
-      "community": 108,
+      "community": 353,
       "norm_label": "description"
     },
     {
@@ -3060,7 +3060,7 @@
       "source_location": "L2238",
       "_origin": "ast",
       "id": "src_tauri_gen_schemas_windows_schema_number_anyof",
-      "community": 108,
+      "community": 353,
       "norm_label": "anyof"
     },
     {
@@ -4340,7 +4340,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_components_footer",
-      "community": 374,
+      "community": 338,
       "norm_label": "footer.jsx"
     },
     {
@@ -4350,7 +4350,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "src_components_footer_routemap",
-      "community": 374,
+      "community": 338,
       "norm_label": "routemap"
     },
     {
@@ -4360,7 +4360,7 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "src_components_footer_externalmap",
-      "community": 374,
+      "community": 338,
       "norm_label": "externalmap"
     },
     {
@@ -4370,7 +4370,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "src_components_footer_footer",
-      "community": 374,
+      "community": 338,
       "norm_label": "footer()"
     },
     {
@@ -5310,7 +5310,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_components_radionina_radionina",
-      "community": 304,
+      "community": 263,
       "norm_label": "radionina.jsx"
     },
     {
@@ -5320,7 +5320,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "src_components_radionina_radionina_cantos",
-      "community": 304,
+      "community": 263,
       "norm_label": "cantos"
     },
     {
@@ -5330,7 +5330,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_components_radionina_radionina_posicoes",
-      "community": 304,
+      "community": 263,
       "norm_label": "posicoes"
     },
     {
@@ -5340,7 +5340,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "src_components_radionina_radionina_mmss",
-      "community": 304,
+      "community": 263,
       "norm_label": "mmss()"
     },
     {
@@ -5350,7 +5350,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "src_components_radionina_radionina_convitede",
-      "community": 304,
+      "community": 263,
       "norm_label": "convitede()"
     },
     {
@@ -5360,7 +5360,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "src_components_radionina_radionina_radionina",
-      "community": 304,
+      "community": 263,
       "norm_label": "radionina()"
     },
     {
@@ -5370,7 +5370,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_components_radionina_radioninaplaylist",
-      "community": 304,
+      "community": 263,
       "norm_label": "radioninaplaylist.jsx"
     },
     {
@@ -5380,7 +5380,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "src_components_radionina_radioninaplaylist_radioninaplaylist",
-      "community": 304,
+      "community": 263,
       "norm_label": "radioninaplaylist()"
     },
     {
@@ -5450,7 +5450,7 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "src_components_radionina_useradionina_marcarsessao",
-      "community": 304,
+      "community": 263,
       "norm_label": "marcarsessao()"
     },
     {
@@ -5460,7 +5460,7 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "src_components_radionina_useradionina_sessaorespondida",
-      "community": 304,
+      "community": 263,
       "norm_label": "sessaorespondida()"
     },
     {
@@ -5680,7 +5680,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_components_socialbar",
-      "community": 374,
+      "community": 338,
       "norm_label": "socialbar.jsx"
     },
     {
@@ -5690,7 +5690,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "src_components_socialbar_social_links",
-      "community": 374,
+      "community": 338,
       "norm_label": "social_links"
     },
     {
@@ -5700,7 +5700,7 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "src_components_socialbar_socialbar",
-      "community": 374,
+      "community": 338,
       "norm_label": "socialbar()"
     },
     {
@@ -5780,7 +5780,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_components_typewriterphrase",
-      "community": 353,
+      "community": 351,
       "norm_label": "typewriterphrase.jsx"
     },
     {
@@ -5790,7 +5790,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "src_components_typewriterphrase_typewriterphrase",
-      "community": 353,
+      "community": 351,
       "norm_label": "typewriterphrase()"
     },
     {
@@ -7100,7 +7100,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_hooks_usetypewriter",
-      "community": 353,
+      "community": 351,
       "norm_label": "usetypewriter.js"
     },
     {
@@ -7110,7 +7110,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "src_hooks_usetypewriter_usetypewriter",
-      "community": 353,
+      "community": 351,
       "norm_label": "usetypewriter()"
     },
     {
@@ -8860,7 +8860,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_arenataticsroute",
-      "community": 49,
+      "community": 31,
       "norm_label": "arenataticsroute.jsx"
     },
     {
@@ -8870,7 +8870,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_arenataticsroute_randompick",
-      "community": 49,
+      "community": 31,
       "norm_label": "randompick()"
     },
     {
@@ -8880,7 +8880,7 @@
       "source_location": "L32",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_arenataticsroute_arenataticsroute",
-      "community": 49,
+      "community": 31,
       "norm_label": "arenataticsroute()"
     },
     {
@@ -10780,7 +10780,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_screens_derrota",
-      "community": 49,
+      "community": 31,
       "norm_label": "derrota.jsx"
     },
     {
@@ -10790,7 +10790,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_screens_derrota_derrota",
-      "community": 49,
+      "community": 31,
       "norm_label": "derrota()"
     },
     {
@@ -10980,7 +10980,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_screens_vitoria",
-      "community": 49,
+      "community": 31,
       "norm_label": "vitoria.jsx"
     },
     {
@@ -10990,7 +10990,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_screens_vitoria_vitoria",
-      "community": 49,
+      "community": 31,
       "norm_label": "vitoria()"
     },
     {
@@ -11040,7 +11040,7 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_store_usearenataticsstore_usearenataticsstore",
-      "community": 49,
+      "community": 31,
       "norm_label": "usearenataticsstore"
     },
     {
@@ -11060,7 +11060,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_store_usecitystore",
-      "community": 49,
+      "community": 31,
       "norm_label": "usecitystore.js"
     },
     {
@@ -11070,7 +11070,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_store_usecitystore_calcweather",
-      "community": 49,
+      "community": 31,
       "norm_label": "calcweather()"
     },
     {
@@ -11080,7 +11080,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "src_pages_games_arenatatics_store_usecitystore_usecitystore",
-      "community": 49,
+      "community": 31,
       "norm_label": "usecitystore"
     },
     {
@@ -19460,7 +19460,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_data_poderes",
-      "community": 351,
+      "community": 84,
       "norm_label": "poderes.js"
     },
     {
@@ -19470,7 +19470,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_data_poderes_poderes_base",
-      "community": 351,
+      "community": 84,
       "norm_label": "poderes_base"
     },
     {
@@ -19480,7 +19480,7 @@
       "source_location": "L64",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_data_poderes_getpoderesporid",
-      "community": 351,
+      "community": 84,
       "norm_label": "getpoderesporid()"
     },
     {
@@ -19490,7 +19490,7 @@
       "source_location": "L68",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_data_poderes_getpoderesdisponiveis",
-      "community": 351,
+      "community": 84,
       "norm_label": "getpoderesdisponiveis()"
     },
     {
@@ -19500,7 +19500,7 @@
       "source_location": "L73",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_data_poderes_tempoderdisponivel",
-      "community": 351,
+      "community": 84,
       "norm_label": "tempoderdisponivel()"
     },
     {
@@ -19750,7 +19750,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai",
-      "community": 114,
+      "community": 47,
       "norm_label": "ai.js"
     },
     {
@@ -19760,7 +19760,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_decidiracaoia",
-      "community": 114,
+      "community": 47,
       "norm_label": "decidiracaoia()"
     },
     {
@@ -19800,7 +19800,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_personalidades_fujona",
-      "community": 114,
+      "community": 44,
       "norm_label": "fujona.js"
     },
     {
@@ -19810,7 +19810,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_personalidades_fujona_inimigomaisproximo",
-      "community": 114,
+      "community": 44,
       "norm_label": "inimigomaisproximo()"
     },
     {
@@ -19820,7 +19820,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_personalidades_fujona_inimigomaisfracoemalcance",
-      "community": 114,
+      "community": 44,
       "norm_label": "inimigomaisfracoemalcance()"
     },
     {
@@ -19830,7 +19830,7 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_personalidades_fujona_celulamaisdistante",
-      "community": 114,
+      "community": 44,
       "norm_label": "celulamaisdistante()"
     },
     {
@@ -19840,7 +19840,7 @@
       "source_location": "L49",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_personalidades_fujona_avancarumacasa",
-      "community": 114,
+      "community": 44,
       "norm_label": "avancarumacasa()"
     },
     {
@@ -19850,7 +19850,7 @@
       "source_location": "L67",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_personalidades_fujona_acaofujona",
-      "community": 114,
+      "community": 44,
       "norm_label": "acaofujona()"
     },
     {
@@ -19860,7 +19860,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_personalidades_index",
-      "community": 47,
+      "community": 114,
       "norm_label": "index.js"
     },
     {
@@ -19870,7 +19870,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_personalidades_index_personalidades_ia",
-      "community": 47,
+      "community": 114,
       "norm_label": "personalidades_ia"
     },
     {
@@ -19880,7 +19880,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_personalidades_index_getpersonalidadeporid",
-      "community": 47,
+      "community": 114,
       "norm_label": "getpersonalidadeporid()"
     },
     {
@@ -19890,7 +19890,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_personalidades_persistente",
-      "community": 351,
+      "community": 114,
       "norm_label": "persistente.js"
     },
     {
@@ -19900,7 +19900,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_personalidades_persistente_melhorpoderparaataque",
-      "community": 351,
+      "community": 114,
       "norm_label": "melhorpoderparaataque()"
     },
     {
@@ -19910,7 +19910,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_personalidades_persistente_inimigomenorhp",
-      "community": 351,
+      "community": 114,
       "norm_label": "inimigomenorhp()"
     },
     {
@@ -19920,7 +19920,7 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_personalidades_persistente_podeatacaralvo",
-      "community": 351,
+      "community": 114,
       "norm_label": "podeatacaralvo()"
     },
     {
@@ -19930,7 +19930,7 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_personalidades_persistente_calcularpassos",
-      "community": 351,
+      "community": 114,
       "norm_label": "calcularpassos()"
     },
     {
@@ -19940,7 +19940,7 @@
       "source_location": "L51",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_personalidades_persistente_acaopersistente",
-      "community": 351,
+      "community": 114,
       "norm_label": "acaopersistente()"
     },
     {
@@ -21150,7 +21150,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_combat",
-      "community": 84,
+      "community": 47,
       "norm_label": "combat.js"
     },
     {
@@ -21160,7 +21160,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_combat_calcularfa",
-      "community": 84,
+      "community": 47,
       "norm_label": "calcularfa()"
     },
     {
@@ -21170,7 +21170,7 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_combat_calcularfd",
-      "community": 84,
+      "community": 47,
       "norm_label": "calcularfd()"
     },
     {
@@ -21180,7 +21180,7 @@
       "source_location": "L57",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_combat_resolverataque",
-      "community": 84,
+      "community": 47,
       "norm_label": "resolverataque()"
     },
     {
@@ -21190,7 +21190,7 @@
       "source_location": "L129",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_combat_resolvercontraataque",
-      "community": 84,
+      "community": 47,
       "norm_label": "resolvercontraataque()"
     },
     {
@@ -21200,7 +21200,7 @@
       "source_location": "L153",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_combat_rolard6",
-      "community": 84,
+      "community": 47,
       "norm_label": "rolard6()"
     },
     {
@@ -21210,7 +21210,7 @@
       "source_location": "L162",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_combat_getcasasmovimento",
-      "community": 114,
+      "community": 47,
       "norm_label": "getcasasmovimento()"
     },
     {
@@ -21410,7 +21410,7 @@
       "source_location": "L67",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_hexutils_distanciahex",
-      "community": 114,
+      "community": 44,
       "norm_label": "distanciahex()"
     },
     {
@@ -21420,7 +21420,7 @@
       "source_location": "L75",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_hexutils_getvizinhos",
-      "community": 114,
+      "community": 44,
       "norm_label": "getvizinhos()"
     },
     {
@@ -21450,7 +21450,7 @@
       "source_location": "L167",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_hexutils_getcellsinmeleerange",
-      "community": 114,
+      "community": 44,
       "norm_label": "getcellsinmeleerange()"
     },
     {
@@ -21480,7 +21480,7 @@
       "source_location": "L248",
       "_origin": "ast",
       "id": "src_pages_lab_prototype_arenatestbed_engine_hexutils_getcelulasataque",
-      "community": 114,
+      "community": 44,
       "norm_label": "getcelulasataque()"
     },
     {
@@ -24080,7 +24080,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_platform_perfil_abas_perfilconquistas",
-      "community": 14,
+      "community": 28,
       "norm_label": "perfilconquistas.jsx"
     },
     {
@@ -24760,7 +24760,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_paridade_exata",
-      "community": 338,
+      "community": 304,
       "norm_label": "paridade-exata.mjs"
     },
     {
@@ -24770,7 +24770,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "tests_paridade_exata_calcatkpower",
-      "community": 338,
+      "community": 304,
       "norm_label": "calcatkpower()"
     },
     {
@@ -24780,7 +24780,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "tests_paridade_exata_calcdefpower",
-      "community": 338,
+      "community": 304,
       "norm_label": "calcdefpower()"
     },
     {
@@ -24790,7 +24790,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "tests_paridade_exata_getterrainmods",
-      "community": 338,
+      "community": 304,
       "norm_label": "getterrainmods()"
     },
     {
@@ -24800,7 +24800,7 @@
       "source_location": "L37",
       "_origin": "ast",
       "id": "tests_paridade_exata_calcatkwithterrain",
-      "community": 338,
+      "community": 304,
       "norm_label": "calcatkwithterrain()"
     },
     {
@@ -24810,7 +24810,7 @@
       "source_location": "L50",
       "_origin": "ast",
       "id": "tests_paridade_exata_calcdefwithterrain",
-      "community": 338,
+      "community": 304,
       "norm_label": "calcdefwithterrain()"
     },
     {
@@ -24820,7 +24820,7 @@
       "source_location": "L65",
       "_origin": "ast",
       "id": "tests_paridade_exata_cardatk",
-      "community": 338,
+      "community": 304,
       "norm_label": "cardatk()"
     },
     {
@@ -24830,7 +24830,7 @@
       "source_location": "L66",
       "_origin": "ast",
       "id": "tests_paridade_exata_carddef",
-      "community": 338,
+      "community": 304,
       "norm_label": "carddef()"
     },
     {
@@ -24840,7 +24840,7 @@
       "source_location": "L70",
       "_origin": "ast",
       "id": "tests_paridade_exata_test",
-      "community": 338,
+      "community": 304,
       "norm_label": "test()"
     },
     {
@@ -24850,7 +24850,7 @@
       "source_location": "L75",
       "_origin": "ast",
       "id": "tests_paridade_exata_eq",
-      "community": 338,
+      "community": 304,
       "norm_label": "eq()"
     },
     {
@@ -39620,7 +39620,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "src_components_radionina_useradionina_cores_radio",
-      "community": 304,
+      "community": 263,
       "norm_label": "cores_radio"
     }
   ],
@@ -117012,5 +117012,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "71dc6104110d31c8859ba1c8ab0332a78cc26642"
+  "built_at_commit": "6cddd49a94ca5f7e1ca4cadd0d7b0d1cf9abdcdb"
 }

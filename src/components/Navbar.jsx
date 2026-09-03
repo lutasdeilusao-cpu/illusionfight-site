@@ -31,9 +31,9 @@ export default function Navbar({ hidden, onSearchOpen }) {
   }, [menuOpen])
 
   const navLinks = [
-    ['webtoon', '/webtoon/'], ['historias', '/historias/'], ['musicas', '/musicas/'],
-    ['games', '/games/'], ['loja', '/loja/'], ['mundo', '/mundo/'],
-    ['autor', '/autor/'], ['calendario', '/calendario/'], ['assinar', '/assinar/'],
+    ['assinar', '/assinar/'], ['calendario', '/calendario/'], ['webtoon', '/webtoon/'],
+    ['historias', '/historias/'], ['games', '/games/'], ['musicas', '/musicas/'],
+    ['mundo', '/mundo/'], ['autor', '/autor/'],
   ]
   const isActive = path => path !== '/' && pathname.startsWith(path.slice(0, -1))
 
@@ -122,6 +122,19 @@ export default function Navbar({ hidden, onSearchOpen }) {
         <button className="drawer__search" onClick={() => { setMenuOpen(false); onSearchOpen?.() }}>
           🔍 {t('nav.aria.search')}
         </button>
+        <div className="drawer__lang" aria-label={t('nav.aria.language')}>
+          {LOCALES.map(code => (
+            <button
+              key={code}
+              className={`drawer__lang-card${locale === code ? ' is-active' : ''}`}
+              onClick={() => { changeLocale(code); setMenuOpen(false) }}
+              aria-pressed={locale === code}
+            >
+              <span>{code.toUpperCase()}</span>
+              <strong>{t(`nav.languages.${code}`)}</strong>
+            </button>
+          ))}
+        </div>
         <ul className="drawer__links">
           {navLinks.map(([key, path], index) => (
             <li key={key}>
@@ -138,17 +151,6 @@ export default function Navbar({ hidden, onSearchOpen }) {
             </li>
           ))}
         </ul>
-        <div className="drawer__lang">
-          {LOCALES.map(code => (
-            <button
-              key={code}
-              className={`navbar__lang-btn${locale === code ? ' is-active' : ''}`}
-              onClick={() => { changeLocale(code); setMenuOpen(false) }}
-            >
-              {LOCALE_LABELS[code]}
-            </button>
-          ))}
-        </div>
         <div className="drawer__social">
           <SocialBar size="medium" />
         </div>

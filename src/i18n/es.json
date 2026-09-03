@@ -6,7 +6,7 @@
       "musicas": "Música",
       "games": "Games",
       "loja": "TIENDA",
-      "mundo": "Mundo",
+      "mundo": "Mundos",
       "autor": "AUTOR",
       "calendario": "CALENDARIO",
       "assinar": "APOYAR"
@@ -14,8 +14,10 @@
     "cta": "CUENTA GRATIS",
     "aria": {
       "menu": "Abrir menú",
-      "search": "Buscar"
-    }
+      "search": "Buscar",
+      "language": "Elige el idioma del sitio"
+    },
+    "languages": { "pt": "Português", "es": "Español", "en": "English" }
   },
   "runtime": {
     "steam_demo_purchases_unavailable": "Las compras no están disponibles en esta Demo de Steam.",
