@@ -1,21 +1,64 @@
-.nowlive-subtitle { margin: -12px 0 25px; color: #7f8b94; font-size: 0.78rem; text-align: center; }
-.nowlive-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-.nowlive-card {
-  overflow: hidden;
-  color: inherit;
-  border: 1px solid rgba(var(--plat-r), var(--plat-g), var(--plat-b), 0.28);
-  background: #0b1116;
-  text-decoration: none;
-  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
-  transition: transform 220ms ease, border-color 220ms ease;
+/* ══════════════════════════════════════════════════════════════
+   REDES — uma linha, não uma seção
+   Rede social é navegação, não conteúdo: não merece card com
+   título e descrição. Antes eram 4 cards 2×2 ocupando 617px
+   (11% da Home) para repetir os mesmos links que o rodapé e o
+   menu já mostram. Agora são 4 quadrados numa linha.
+   ══════════════════════════════════════════════════════════════ */
+
+/* Fora da métrica de 68px das seções de conteúdo da Home: isto é uma
+   faixa utilitária antes do rodapé, não uma seção com peso próprio. */
+.home-page .nowlive-section {
+  padding: 26px 0 28px;
+  border-bottom: 1px solid var(--home-line);
 }
-.nowlive-card:hover { transform: translateY(-4px); border-color: rgb(var(--plat-r), var(--plat-g), var(--plat-b)); }
-.nowlive-card-thumb { position: relative; display: grid; place-items: center; height: 86px; overflow: hidden; background: radial-gradient(circle at 75% 25%, rgba(var(--plat-r),var(--plat-g),var(--plat-b),.32), transparent 45%), linear-gradient(135deg, rgba(var(--plat-r),var(--plat-g),var(--plat-b),.16), #10161b); }
-.nowlive-card-icon { z-index: 1; width: 38px; height: 38px; }
-.nowlive-card-icon svg { width: 100%; height: 100%; }
-.nowlive-card-overlay { position: absolute; inset: 0; display: grid; place-items: center; opacity: 0; color: white; background: rgba(3, 6, 8, 0.75); font: 700 0.7rem 'JetBrains Mono', monospace; transition: opacity 180ms ease; }
-.nowlive-card:hover .nowlive-card-overlay { opacity: 1; }
-.nowlive-card-footer { display: grid; gap: 3px; min-height: 92px; padding: 10px; border-top: 1px solid rgba(255,255,255,.05); }
-.nowlive-card-label { color: var(--cor-plat); font: 700 0.52rem 'JetBrains Mono', monospace; letter-spacing: 0.1em; text-transform: uppercase; }
-.nowlive-card-titulo { margin: 0; color: #eff3f5; font: 700 0.78rem 'Rajdhani', sans-serif; }
-.nowlive-card-desc { margin: 0; color: #69747c; font-size: 0.62rem; }
+
+.nowlive-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.nowlive-card {
+  display: grid;
+  place-items: center;
+  gap: 5px;
+  padding: 10px 4px 8px;
+  text-decoration: none;
+  border: 1px solid var(--if-hair-strong);
+  /* Fundo tingido com a cor da plataforma, bem discreto. */
+  background: linear-gradient(160deg, rgba(var(--plat-r), var(--plat-g), var(--plat-b), 0.12), rgba(255, 255, 255, 0.02));
+  transition: border-color 0.2s, background 0.2s, transform 0.2s;
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
+}
+
+.nowlive-card:hover {
+  border-color: rgba(var(--plat-r), var(--plat-g), var(--plat-b), 0.75);
+  background: linear-gradient(160deg, rgba(var(--plat-r), var(--plat-g), var(--plat-b), 0.28), rgba(255, 255, 255, 0.03));
+  transform: translateY(-2px);
+}
+
+.nowlive-card-icon {
+  display: block;
+  width: 22px;
+  height: 22px;
+  color: var(--text-primary);
+}
+
+.nowlive-card-icon svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+
+.nowlive-card:hover .nowlive-card-icon { color: #fff; }
+
+.nowlive-card-label {
+  color: var(--text-secondary);
+  font: 700 0.5rem var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.nowlive-card:hover .nowlive-card-label { color: var(--text-primary); }

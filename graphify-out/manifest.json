@@ -240,37 +240,37 @@
     "semantic_hash": "9f1937643a98c5156bdc523e38ccfedc"
   },
   "src/components/ProdutoDigitalCard/ProdutoDigitalCard.jsx": {
-    "mtime": 1781291431.4208665,
+    "mtime": 1788408770.9644675,
     "ast_hash": "4a9a47d78bf99868c53b301d28c62a7e",
     "semantic_hash": "4a9a47d78bf99868c53b301d28c62a7e"
   },
   "src/components/Puzzles/PuzzleAnagrama.jsx": {
-    "mtime": 1781917844.0401416,
+    "mtime": 1788408770.966827,
     "ast_hash": "cc704f9b99e5ce4c860f832e5c6d0b2d",
     "semantic_hash": "cc704f9b99e5ce4c860f832e5c6d0b2d"
   },
   "src/components/Puzzles/PuzzleDecoder.jsx": {
-    "mtime": 1781917844.0401416,
+    "mtime": 1788408770.9678323,
     "ast_hash": "7259a5fd4bc475dd0ec89496d77e3133",
     "semantic_hash": "7259a5fd4bc475dd0ec89496d77e3133"
   },
   "src/components/Puzzles/PuzzleFor\u00e7a.jsx": {
-    "mtime": 1781917844.0411406,
+    "mtime": 1788408770.9678323,
     "ast_hash": "c5543d8449a4497d436d774cfd61c07d",
     "semantic_hash": "c5543d8449a4497d436d774cfd61c07d"
   },
   "src/components/Puzzles/PuzzleLabirinto.jsx": {
-    "mtime": 1781917844.042142,
+    "mtime": 1788408770.9690363,
     "ast_hash": "88b7da891103d3a46301c2dc71c8351c",
     "semantic_hash": "88b7da891103d3a46301c2dc71c8351c"
   },
   "src/components/Puzzles/PuzzleSimonSays.jsx": {
-    "mtime": 1781917844.042142,
+    "mtime": 1788408770.9700432,
     "ast_hash": "2463aaf56f6965971b03a55c34f6e9f6",
     "semantic_hash": "2463aaf56f6965971b03a55c34f6e9f6"
   },
   "src/components/Puzzles/PuzzleSlidingTiles.jsx": {
-    "mtime": 1783187495.1635492,
+    "mtime": 1788408770.9700432,
     "ast_hash": "12a0f042e767ac7175bd8170ea959e4b",
     "semantic_hash": "12a0f042e767ac7175bd8170ea959e4b"
   },
@@ -300,9 +300,9 @@
     "semantic_hash": "a00f388617584580c61c5a30bba17304"
   },
   "src/components/ResultCard/palettes.js": {
-    "mtime": 1780557143.2634733,
-    "ast_hash": "6f2304acb2c8843a0bcf125863f92cbb",
-    "semantic_hash": "6f2304acb2c8843a0bcf125863f92cbb"
+    "mtime": 1788408770.9714546,
+    "ast_hash": "f10d5ce8457a72e1f383d796a8826703",
+    "semantic_hash": ""
   },
   "src/components/ScrollToTop.jsx": {
     "mtime": 1780355085.8806186,
@@ -370,8 +370,8 @@
     "semantic_hash": "b11265c546f5970b719233c19e1b2c2d"
   },
   "src/config/version.js": {
-    "mtime": 1788408239.0514052,
-    "ast_hash": "22fb8df5d7bb117d07cd88766cf1cafa",
+    "mtime": 1788410074.3796897,
+    "ast_hash": "3f0d71cfa896bf3a036e2e23dfb6a6b9",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -405,8 +405,8 @@
     "semantic_hash": "fad7a3342f794732f4e6c6db18aee699"
   },
   "src/context/LanguageProvider.jsx": {
-    "mtime": 1785962643.142889,
-    "ast_hash": "df2987e8aa787353da61d8f2e5b538d4",
+    "mtime": 1788409641.2329605,
+    "ast_hash": "0b1dbcd5e26219712c42d1d8fa02731c",
     "semantic_hash": ""
   },
   "src/context/ReaderContext.jsx": {
@@ -614,54 +614,9 @@
     "ast_hash": "04fe18f6b87b3e1315a9343353aef1fc",
     "semantic_hash": "04fe18f6b87b3e1315a9343353aef1fc"
   },
-  "src/i18n/en.json": {
-    "mtime": 1788404676.4806151,
-    "ast_hash": "ac4f383dd91073682788940f4e5ba41e",
-    "semantic_hash": ""
-  },
-  "src/i18n/es.json": {
-    "mtime": 1788404676.486128,
-    "ast_hash": "3e3e1e76f002298ec6c8091d5f6c4432",
-    "semantic_hash": ""
-  },
   "src/i18n/locales.js": {
-    "mtime": 1788404685.3046126,
-    "ast_hash": "4cacdd2ba942968cb196a37dfb6509bb",
-    "semantic_hash": ""
-  },
-  "src/i18n/pp_en.json": {
-    "mtime": 1781381408.2315183,
-    "ast_hash": "43bac1b223a56cd5c6a3753f0d7360cd",
-    "semantic_hash": "43bac1b223a56cd5c6a3753f0d7360cd"
-  },
-  "src/i18n/pp_es.json": {
-    "mtime": 1781381408.232693,
-    "ast_hash": "d12e213cff0be6d1ff57e2b80cf8314b",
-    "semantic_hash": "d12e213cff0be6d1ff57e2b80cf8314b"
-  },
-  "src/i18n/pp_pt.json": {
-    "mtime": 1781381408.2315183,
-    "ast_hash": "fff728f6c525ec64a386f467142b28dc",
-    "semantic_hash": "fff728f6c525ec64a386f467142b28dc"
-  },
-  "src/i18n/pt.json": {
-    "mtime": 1788404676.4763002,
-    "ast_hash": "437825fa1dbe1d8696d3075ef255ff54",
-    "semantic_hash": ""
-  },
-  "src/i18n/tt_en.json": {
-    "mtime": 1785612427.057989,
-    "ast_hash": "8c25504305c6c656e6aab805352d7255",
-    "semantic_hash": ""
-  },
-  "src/i18n/tt_es.json": {
-    "mtime": 1785612427.0605047,
-    "ast_hash": "a766a242f8747de64da499f355354d9f",
-    "semantic_hash": ""
-  },
-  "src/i18n/tt_pt.json": {
-    "mtime": 1785612427.0569885,
-    "ast_hash": "b7e95dc2678f1007338e51e731bc6bfe",
+    "mtime": 1788409622.437674,
+    "ast_hash": "14391de1f5a7ea5ab3658f80c421685c",
     "semantic_hash": ""
   },
   "src/lib/getDeck.js": {
@@ -710,9 +665,9 @@
     "semantic_hash": ""
   },
   "src/pages/content/Musicas.jsx": {
-    "mtime": 1788400540.7665577,
-    "ast_hash": "29a5e7e9bdb0c4ed93b1962175ba0cda",
-    "semantic_hash": "29a5e7e9bdb0c4ed93b1962175ba0cda"
+    "mtime": 1788409551.0088923,
+    "ast_hash": "92be913906961b43d4dff01de0819201",
+    "semantic_hash": ""
   },
   "src/pages/content/PersonagemDetalhe.jsx": {
     "mtime": 1788400540.7685573,
@@ -740,9 +695,9 @@
     "semantic_hash": "5a9b8224dd7f3a8888be346f2118ba71"
   },
   "src/pages/games/ArenaTatics/components/ActionMenu.jsx": {
-    "mtime": 1782447842.7313433,
-    "ast_hash": "e8dc03beda5e3a6f8ca082e08d171d38",
-    "semantic_hash": "e8dc03beda5e3a6f8ca082e08d171d38"
+    "mtime": 1788408770.9735978,
+    "ast_hash": "38ad9a39bab1d0749dae6621de9bca45",
+    "semantic_hash": ""
   },
   "src/pages/games/ArenaTatics/components/CityHUD.jsx": {
     "mtime": 1782441630.3427477,
@@ -760,7 +715,7 @@
     "semantic_hash": "33a1d6f63651a2896a7ee94b17871689"
   },
   "src/pages/games/ArenaTatics/components/DanoPopup.jsx": {
-    "mtime": 1782441630.3437505,
+    "mtime": 1788408770.9735978,
     "ast_hash": "35acbe4e38a34fa0a72496c3ba6b447a",
     "semantic_hash": "35acbe4e38a34fa0a72496c3ba6b447a"
   },
@@ -785,17 +740,17 @@
     "semantic_hash": "cf84a610597eb95ff1cd5832cd958d97"
   },
   "src/pages/games/ArenaTatics/components/GridCanvas.jsx": {
-    "mtime": 1782441630.344752,
+    "mtime": 1788408770.9747846,
     "ast_hash": "6b292524f8cb057ae50aa6694ad06997",
     "semantic_hash": "6b292524f8cb057ae50aa6694ad06997"
   },
   "src/pages/games/ArenaTatics/components/JuiceComponents.jsx": {
-    "mtime": 1782441630.3457515,
+    "mtime": 1788408770.9747846,
     "ast_hash": "98cebcbf0b85141baf8075cd40500240",
     "semantic_hash": "98cebcbf0b85141baf8075cd40500240"
   },
   "src/pages/games/ArenaTatics/components/SkillModal.jsx": {
-    "mtime": 1782942297.3319764,
+    "mtime": 1788408770.9757905,
     "ast_hash": "c466ab962fa7b357956d2863107eeddf",
     "semantic_hash": "c466ab962fa7b357956d2863107eeddf"
   },
@@ -805,7 +760,7 @@
     "semantic_hash": "df68d5ed0960599062553fb0fb014ac9"
   },
   "src/pages/games/ArenaTatics/components/StatusBar.jsx": {
-    "mtime": 1782441630.346751,
+    "mtime": 1788408770.9757905,
     "ast_hash": "4062bd3c9da377e25692fb8722f3b52a",
     "semantic_hash": "4062bd3c9da377e25692fb8722f3b52a"
   },
@@ -860,7 +815,7 @@
     "semantic_hash": "9268da6ec4c9290acfdf81efdb10c712"
   },
   "src/pages/games/ArenaTatics/data/elementals.js": {
-    "mtime": 1782441630.3507507,
+    "mtime": 1788408770.9767904,
     "ast_hash": "0c8e8e2206a517313188ebcf46d85546",
     "semantic_hash": "0c8e8e2206a517313188ebcf46d85546"
   },
@@ -900,12 +855,12 @@
     "semantic_hash": "e57d31b5dbf5f053a5285585918ee48e"
   },
   "src/pages/games/ArenaTatics/screens/Batalha.jsx": {
-    "mtime": 1782447842.775836,
-    "ast_hash": "a8d81b3e866450b7bc0d242ac7a3a1d7",
-    "semantic_hash": "a8d81b3e866450b7bc0d242ac7a3a1d7"
+    "mtime": 1788408770.9787905,
+    "ast_hash": "f012d84b01601905b3d64aaf2effc5b7",
+    "semantic_hash": ""
   },
   "src/pages/games/ArenaTatics/screens/BatalhaSimulacao.jsx": {
-    "mtime": 1782942083.543281,
+    "mtime": 1788408770.9787905,
     "ast_hash": "5f8afa1ce7c7cf66ee471b1113375e3f",
     "semantic_hash": "5f8afa1ce7c7cf66ee471b1113375e3f"
   },
@@ -950,9 +905,9 @@
     "semantic_hash": "11be304986bc299a1dc47dc64947456f"
   },
   "src/pages/games/ArenaTatics/screens/SimulacaoAuto.jsx": {
-    "mtime": 1782447842.924692,
-    "ast_hash": "70707f4afd8f8e61f5c534968459be75",
-    "semantic_hash": "70707f4afd8f8e61f5c534968459be75"
+    "mtime": 1788408770.9797902,
+    "ast_hash": "175358a3d0923b21aabd1c10b920ea1a",
+    "semantic_hash": ""
   },
   "src/pages/games/ArenaTatics/screens/TeamBuilder.jsx": {
     "mtime": 1782441630.358804,
@@ -960,9 +915,9 @@
     "semantic_hash": "5045a3990965156cc65fd786a1d1e5e1"
   },
   "src/pages/games/ArenaTatics/screens/TeamSelect.jsx": {
-    "mtime": 1782447842.9549978,
-    "ast_hash": "6b3e54c4e9ec3ab71ea63eae4c1a91fd",
-    "semantic_hash": "6b3e54c4e9ec3ab71ea63eae4c1a91fd"
+    "mtime": 1788408770.9797902,
+    "ast_hash": "f69b6cc6cc1f82e9853733cf1a4af3e0",
+    "semantic_hash": ""
   },
   "src/pages/games/ArenaTatics/screens/Vitoria.jsx": {
     "mtime": 1783911438.7453506,
@@ -980,9 +935,9 @@
     "semantic_hash": "13b16af9d521ebda58a6b9efc00fde3e"
   },
   "src/pages/games/Duelo/DueloRoute.jsx": {
-    "mtime": 1782447843.0024054,
-    "ast_hash": "e4dc25968ba3c6d23a952e3728f35be0",
-    "semantic_hash": "e4dc25968ba3c6d23a952e3728f35be0"
+    "mtime": 1788408770.9807906,
+    "ast_hash": "005ac8f53086728bd300ef889186ddf1",
+    "semantic_hash": ""
   },
   "src/pages/games/Duelo/components/BattleLog.jsx": {
     "mtime": 1782441630.3659852,
@@ -995,14 +950,14 @@
     "semantic_hash": "21956997a8252aba036fc76c961b99a7"
   },
   "src/pages/games/Duelo/components/Card.jsx": {
-    "mtime": 1782447843.0568006,
-    "ast_hash": "849277fd82e3024d5213a70b85ce1587",
-    "semantic_hash": "849277fd82e3024d5213a70b85ce1587"
+    "mtime": 1788408770.9817903,
+    "ast_hash": "68863210651ec6739cef59fa8a1e31ca",
+    "semantic_hash": ""
   },
   "src/pages/games/Duelo/components/CardPreviewModal.jsx": {
-    "mtime": 1782447843.0899594,
-    "ast_hash": "dd06df1350a2901349cf73a752fde825",
-    "semantic_hash": "dd06df1350a2901349cf73a752fde825"
+    "mtime": 1788408770.98279,
+    "ast_hash": "ac935a1541daecad580a11e5efa24b3c",
+    "semantic_hash": ""
   },
   "src/pages/games/Duelo/components/CardSlot.jsx": {
     "mtime": 1782441630.3679838,
@@ -1015,7 +970,7 @@
     "semantic_hash": "a3556f8790be30c62dc17a7cba877c4f"
   },
   "src/pages/games/Duelo/components/LPDisplay.jsx": {
-    "mtime": 1782441630.3679838,
+    "mtime": 1788408770.9837906,
     "ast_hash": "a798ad4e7210a2cc39a4d62c7ac99503",
     "semantic_hash": "a798ad4e7210a2cc39a4d62c7ac99503"
   },
@@ -1095,8 +1050,8 @@
     "semantic_hash": "15ecefb92c5db4d35cb33baf951edd5e"
   },
   "src/pages/games/Games.jsx": {
-    "mtime": 1787354301.8597963,
-    "ast_hash": "731b1128634dd2fa298828228b8701f1",
+    "mtime": 1788410034.21662,
+    "ast_hash": "99bda3b44b8b2d8e6f51299dc1ff5ab7",
     "semantic_hash": ""
   },
   "src/pages/games/JackCandy/JackCandy.jsx": {
@@ -1110,7 +1065,7 @@
     "semantic_hash": "c451f631333f8eb4d055cbc0cc304fd4"
   },
   "src/pages/games/JackCandy/components/DialogoCaso.jsx": {
-    "mtime": 1782441630.381552,
+    "mtime": 1788408770.98679,
     "ast_hash": "1051a5e8bf7a098045a0595e3bd1b295",
     "semantic_hash": "1051a5e8bf7a098045a0595e3bd1b295"
   },
@@ -1130,14 +1085,14 @@
     "semantic_hash": "ea825a0bc6aa1d533a8da68ad1b577eb"
   },
   "src/pages/games/JackCandy/components/PistaCard.jsx": {
-    "mtime": 1782441630.3825576,
+    "mtime": 1788408770.98679,
     "ast_hash": "b2b5028b6e954e071447da0ae34b51ba",
     "semantic_hash": "b2b5028b6e954e071447da0ae34b51ba"
   },
   "src/pages/games/JackCandy/components/StatusBar.jsx": {
-    "mtime": 1782447843.2768822,
-    "ast_hash": "f1e559ed8a2f37d6fe71e91c82890571",
-    "semantic_hash": "f1e559ed8a2f37d6fe71e91c82890571"
+    "mtime": 1788408770.9877903,
+    "ast_hash": "44c380ac9536fd18ecc9cc3387798afe",
+    "semantic_hash": ""
   },
   "src/pages/games/JackCandy/data/casos.js": {
     "mtime": 1782441630.3835576,
@@ -1145,7 +1100,7 @@
     "semantic_hash": "8fc13e31bcf8a7a198257d68f32d98ba"
   },
   "src/pages/games/JackCandy/data/cidades.js": {
-    "mtime": 1782441630.3845575,
+    "mtime": 1788408770.9887903,
     "ast_hash": "e43c59f99d65019dda4589831566a257",
     "semantic_hash": "e43c59f99d65019dda4589831566a257"
   },
@@ -1185,24 +1140,24 @@
     "semantic_hash": "b8b93cbc6f47cd4a1e89ebc3d8de5c6e"
   },
   "src/pages/games/JackCandy/screens/CasoSelect.jsx": {
-    "mtime": 1782447843.342163,
-    "ast_hash": "e0afc49c2e0782946832155f87db7e61",
-    "semantic_hash": "e0afc49c2e0782946832155f87db7e61"
+    "mtime": 1788408770.9897957,
+    "ast_hash": "c6028af8a7f5672e7403a75dc3200588",
+    "semantic_hash": ""
   },
   "src/pages/games/JackCandy/screens/Descanso.jsx": {
-    "mtime": 1782447843.3879814,
-    "ast_hash": "e41965e4dca5c1cae27d52e98bf9beb2",
-    "semantic_hash": "e41965e4dca5c1cae27d52e98bf9beb2"
+    "mtime": 1788408770.9897957,
+    "ast_hash": "934723f8ba899bbda092f88e4609d77d",
+    "semantic_hash": ""
   },
   "src/pages/games/JackCandy/screens/Dossier.jsx": {
-    "mtime": 1782447843.4347327,
-    "ast_hash": "481c96e94dffbf314b393cfafaf4908f",
-    "semantic_hash": "481c96e94dffbf314b393cfafaf4908f"
+    "mtime": 1788408770.9907959,
+    "ast_hash": "6e52b2667001eda7bb55cb0fc0332fee",
+    "semantic_hash": ""
   },
   "src/pages/games/JackCandy/screens/Dungeon.jsx": {
-    "mtime": 1782447843.482373,
-    "ast_hash": "5c5b91741c7408951b3facb219bbdb36",
-    "semantic_hash": "5c5b91741c7408951b3facb219bbdb36"
+    "mtime": 1788408770.9917953,
+    "ast_hash": "044ad28d33224d72f00e86d7b32b026b",
+    "semantic_hash": ""
   },
   "src/pages/games/JackCandy/screens/DungeonSelect.jsx": {
     "mtime": 1782447843.5379546,
@@ -1210,9 +1165,9 @@
     "semantic_hash": "e647e09887c7632753d2a8098ce00ca6"
   },
   "src/pages/games/JackCandy/screens/Interior.jsx": {
-    "mtime": 1782447843.5818381,
-    "ast_hash": "2e2520f8a0e62526e79de2c2091ffd30",
-    "semantic_hash": "2e2520f8a0e62526e79de2c2091ffd30"
+    "mtime": 1788408770.9917953,
+    "ast_hash": "f26b684c310ae068bc378e4f1b61e06c",
+    "semantic_hash": ""
   },
   "src/pages/games/JackCandy/screens/Interrogatorio.jsx": {
     "mtime": 1782447843.6136796,
@@ -1235,9 +1190,9 @@
     "semantic_hash": "fa598b2abc5fa83c0db275a21c0956be"
   },
   "src/pages/games/JackCandy/screens/MainMenu.jsx": {
-    "mtime": 1782447843.761027,
-    "ast_hash": "4859bc69a9235dba38a8c6947f876297",
-    "semantic_hash": "4859bc69a9235dba38a8c6947f876297"
+    "mtime": 1788408770.9927955,
+    "ast_hash": "704691607047b658b308d830d1b8f692",
+    "semantic_hash": ""
   },
   "src/pages/games/JackCandy/screens/Vila.jsx": {
     "mtime": 1782447843.7924373,
@@ -1250,19 +1205,19 @@
     "semantic_hash": "0e552c16aaf2c3276e7924d81637fd8e"
   },
   "src/pages/games/KernelGames/BulletHellRafael/BulletHellRafael.jsx": {
-    "mtime": 1783200995.780881,
-    "ast_hash": "6deaf48aa110c7940b01583a1fd18f19",
-    "semantic_hash": "6deaf48aa110c7940b01583a1fd18f19"
+    "mtime": 1788408770.9937952,
+    "ast_hash": "6c8a45757aadfe04064d8c090de5eb61",
+    "semantic_hash": ""
   },
   "src/pages/games/KernelGames/CodigoPerdido/CodigoPerdido.jsx": {
-    "mtime": 1783197334.819201,
-    "ast_hash": "3ae75d695d18324466790618897872a0",
-    "semantic_hash": "3ae75d695d18324466790618897872a0"
+    "mtime": 1788408770.994795,
+    "ast_hash": "19051d56e82943490fc35cafea6c612b",
+    "semantic_hash": ""
   },
   "src/pages/games/KernelGames/GlitchRafael/GlitchRafael.jsx": {
-    "mtime": 1783273165.5834272,
-    "ast_hash": "12d9a330bfc178779263833377e8f8d0",
-    "semantic_hash": "12d9a330bfc178779263833377e8f8d0"
+    "mtime": 1788408770.994795,
+    "ast_hash": "dd51a15a867afb56237e85d098749b3f",
+    "semantic_hash": ""
   },
   "src/pages/games/KernelGames/KernelPanic/KernelPanic.jsx": {
     "mtime": 1783029651.5976098,
@@ -1400,19 +1355,19 @@
     "semantic_hash": "69cbef0bf41d1c27c0ae7cadc308acad"
   },
   "src/pages/games/KernelGames/MazeRafael/MazeRafael.jsx": {
-    "mtime": 1783201287.4453497,
-    "ast_hash": "360322c09dae8a07b85a94840cf4580f",
-    "semantic_hash": "360322c09dae8a07b85a94840cf4580f"
+    "mtime": 1788408770.9960632,
+    "ast_hash": "66e5a818248829e277710e58fc6b2df1",
+    "semantic_hash": ""
   },
   "src/pages/games/KernelGames/SlidingRafael/SlidingRafael.jsx": {
-    "mtime": 1783271162.7439432,
-    "ast_hash": "c6c32a46b89d6a6086010ceb3476ed55",
-    "semantic_hash": "c6c32a46b89d6a6086010ceb3476ed55"
+    "mtime": 1788408770.9974077,
+    "ast_hash": "a6a13970ea0999e6b4fdb0cfb934bddc",
+    "semantic_hash": ""
   },
   "src/pages/games/KernelGames/StabilizerRafael/StabilizerRafael.jsx": {
-    "mtime": 1783197456.561183,
-    "ast_hash": "d2ab852567163033fc1dec0696c725f9",
-    "semantic_hash": "d2ab852567163033fc1dec0696c725f9"
+    "mtime": 1788408770.998413,
+    "ast_hash": "75a199a7b22af7101ad251bc05d8d908",
+    "semantic_hash": ""
   },
   "src/pages/games/KernelGames/_shared/i18n/rafael_en.json": {
     "mtime": 1783196517.0158427,
@@ -1515,7 +1470,7 @@
     "semantic_hash": "7fe4fbe6444badcd7f72774f21a1a76d"
   },
   "src/pages/games/LDI/components/PuzzleSimonSays.jsx": {
-    "mtime": 1782441630.4021864,
+    "mtime": 1788408770.9994133,
     "ast_hash": "7e18b5ba4803e659eea87aa33b008a11",
     "semantic_hash": "7e18b5ba4803e659eea87aa33b008a11"
   },
@@ -1530,7 +1485,7 @@
     "semantic_hash": "940befbce6448ae6988a552b3b4c3e1c"
   },
   "src/pages/games/LDI/components/PuzzleWireCut.jsx": {
-    "mtime": 1782441630.4031873,
+    "mtime": 1788408771.0004137,
     "ast_hash": "9ab8532749259b68cda9529aa7e707e6",
     "semantic_hash": "9ab8532749259b68cda9529aa7e707e6"
   },
@@ -1540,7 +1495,7 @@
     "semantic_hash": "a93846eb66f6ab8aa82038be8c0cbc76"
   },
   "src/pages/games/LDI/components/Typewriter.jsx": {
-    "mtime": 1782441630.4041865,
+    "mtime": 1788408771.0004137,
     "ast_hash": "fb4830857203f2a466cf04595dacc360",
     "semantic_hash": "fb4830857203f2a466cf04595dacc360"
   },
@@ -1650,7 +1605,7 @@
     "semantic_hash": "99aa646fabce8ecc2e825cec5eaa0b37"
   },
   "src/pages/games/MiniGames/MiniGames.jsx": {
-    "mtime": 1783197291.5831883,
+    "mtime": 1788408771.0014133,
     "ast_hash": "dc223bcf5d3c7cdf3efea40bd561d9c9",
     "semantic_hash": "dc223bcf5d3c7cdf3efea40bd561d9c9"
   },
@@ -1705,9 +1660,9 @@
     "semantic_hash": "8d7443e642ad158764ea90c63e660ae6"
   },
   "src/pages/games/PesadeloParticular/screens/CasoAbertura.jsx": {
-    "mtime": 1783911641.4309428,
-    "ast_hash": "562791558e997b239a41486dc06f2adb",
-    "semantic_hash": "562791558e997b239a41486dc06f2adb"
+    "mtime": 1788408771.0024145,
+    "ast_hash": "106a9655316194882b8587f78379de51",
+    "semantic_hash": ""
   },
   "src/pages/games/PesadeloParticular/screens/Confronto.jsx": {
     "mtime": 1782447844.0731153,
@@ -1720,9 +1675,9 @@
     "semantic_hash": "a6b60a5369e07b87c9d6b1c8fbda88b5"
   },
   "src/pages/games/PesadeloParticular/screens/Dossier.jsx": {
-    "mtime": 1782447844.1234872,
-    "ast_hash": "68def7f508e6cdfa0dc1ccd92296bf9e",
-    "semantic_hash": "68def7f508e6cdfa0dc1ccd92296bf9e"
+    "mtime": 1788408771.0034132,
+    "ast_hash": "651f80f6b248c832bd8896f0187fdeae",
+    "semantic_hash": ""
   },
   "src/pages/games/PesadeloParticular/screens/FinalScreen.jsx": {
     "mtime": 1782447787.407645,
@@ -1740,9 +1695,9 @@
     "semantic_hash": "f2df6db7f6ac9426d4929cd302b7c90a"
   },
   "src/pages/games/PesadeloParticular/screens/Resolucao.jsx": {
-    "mtime": 1783911652.1376245,
-    "ast_hash": "7531dfa36ef068765d358b18be041148",
-    "semantic_hash": "7531dfa36ef068765d358b18be041148"
+    "mtime": 1788408771.0034132,
+    "ast_hash": "9c2ec9d7e6751cd15e4b391461f10dec",
+    "semantic_hash": ""
   },
   "src/pages/games/PesadeloParticular/store/usePPStore.js": {
     "mtime": 1782447787.4096427,
@@ -1815,7 +1770,7 @@
     "semantic_hash": "3ba5e2bf6307e11d0c95e72f658914fd"
   },
   "src/pages/games/Tamagoshi/data/personalidades.js": {
-    "mtime": 1782441630.5116925,
+    "mtime": 1788408771.0044136,
     "ast_hash": "5359f55d5c7fff0252c96d3d53c4d8d9",
     "semantic_hash": "5359f55d5c7fff0252c96d3d53c4d8d9"
   },
@@ -1840,8 +1795,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Tamagoshi/screens/Criatura.jsx": {
-    "mtime": 1785349018.337438,
-    "ast_hash": "5b95f9497a9c11f471169f8a8309b6fe",
+    "mtime": 1788408771.0044136,
+    "ast_hash": "766343cccbae608e8ef7f854c3057d04",
     "semantic_hash": ""
   },
   "src/pages/games/Tamagoshi/screens/Gacha.jsx": {
@@ -1880,8 +1835,8 @@
     "semantic_hash": "a16e84cd5de51b4d6148821bd0a6f491"
   },
   "src/pages/games/Tamagoshi/screens/RestaurarSaude.jsx": {
-    "mtime": 1785349035.800085,
-    "ast_hash": "a2aafffdad12117ffa9a976e7674aa7e",
+    "mtime": 1788408771.0062962,
+    "ast_hash": "f1f90d236877e59c2bf4f86241869c1a",
     "semantic_hash": ""
   },
   "src/pages/games/Tamagoshi/screens/Selecao.jsx": {
@@ -1930,7 +1885,7 @@
     "semantic_hash": "63f27ee31b3934dad88cc71f37ac9cfb"
   },
   "src/pages/lab/Prototype/ArenaTestbed/components/effects/effectsMap.js": {
-    "mtime": 1782441630.4473019,
+    "mtime": 1788408771.0080056,
     "ast_hash": "4da67268ffb1fcfb7beec20c6932e2a4",
     "semantic_hash": "4da67268ffb1fcfb7beec20c6932e2a4"
   },
@@ -2050,7 +2005,7 @@
     "semantic_hash": "b7a088465cfce13d90a8d18a1824864f"
   },
   "src/pages/lab/Prototype/ArenaTestbed/engine/animations/attack/rangeAnim3SpiritGun.js": {
-    "mtime": 1782441630.46889,
+    "mtime": 1788408771.0090063,
     "ast_hash": "7a6cbcad00eae33cacceb87df698e877",
     "semantic_hash": "7a6cbcad00eae33cacceb87df698e877"
   },
@@ -2075,7 +2030,7 @@
     "semantic_hash": "715b7ab124113850c7d30816faaf4720"
   },
   "src/pages/lab/Prototype/ArenaTestbed/engine/animations/juice.js": {
-    "mtime": 1782441630.4720142,
+    "mtime": 1788408771.0100062,
     "ast_hash": "d26deaee3a7ca4bd2955a323855caaf7",
     "semantic_hash": "d26deaee3a7ca4bd2955a323855caaf7"
   },
@@ -2090,7 +2045,7 @@
     "semantic_hash": "f5087addd09c52a459d03349c217edd9"
   },
   "src/pages/lab/Prototype/ArenaTestbed/engine/animations/movement/moveAnim2Teleport.js": {
-    "mtime": 1782441630.4740145,
+    "mtime": 1788408771.011006,
     "ast_hash": "06ddd7f786f89a148e12ac7b394ae5b0",
     "semantic_hash": "06ddd7f786f89a148e12ac7b394ae5b0"
   },
@@ -2100,7 +2055,7 @@
     "semantic_hash": "ac06b7a416e7c7082c1b75b2721a59f8"
   },
   "src/pages/lab/Prototype/ArenaTestbed/engine/animations/particles.js": {
-    "mtime": 1782441630.4760146,
+    "mtime": 1788408771.0120068,
     "ast_hash": "4ff8f2e86a079b33edf209dfb86f8cff",
     "semantic_hash": "4ff8f2e86a079b33edf209dfb86f8cff"
   },
@@ -2115,7 +2070,7 @@
     "semantic_hash": "9a9785b89f7b34bd10bb700ffdd7243d"
   },
   "src/pages/lab/Prototype/ArenaTestbed/engine/drawCombatBoard.js": {
-    "mtime": 1782441630.4790142,
+    "mtime": 1788408771.0120068,
     "ast_hash": "ee3bc12496ecf6e6abe46a003d25a956",
     "semantic_hash": "ee3bc12496ecf6e6abe46a003d25a956"
   },
@@ -2195,9 +2150,9 @@
     "semantic_hash": "315dbd4e5e30c554aa3ac2f0406300e7"
   },
   "src/pages/lab/Prototype/ArenaTestbed/phases/Phase4BoardSetup.jsx": {
-    "mtime": 1782447844.8738227,
-    "ast_hash": "848a3270504f6d0092cd8bfe7aa0b23a",
-    "semantic_hash": "848a3270504f6d0092cd8bfe7aa0b23a"
+    "mtime": 1788408771.0130064,
+    "ast_hash": "cc02209b06ca1c032d079b86262a03d5",
+    "semantic_hash": ""
   },
   "src/pages/lab/Prototype/ArenaTestbed/phases/Phase5PowerSelect.jsx": {
     "mtime": 1783914626.9603324,
@@ -2245,8 +2200,8 @@
     "semantic_hash": ""
   },
   "src/pages/platform/Leaderboard.jsx": {
-    "mtime": 1785776072.1575232,
-    "ast_hash": "2a331070d071af75bcf307187540b2d4",
+    "mtime": 1788408771.0140066,
+    "ast_hash": "494838b60457a936027dd736c10c4eff",
     "semantic_hash": ""
   },
   "src/pages/platform/Login.jsx": {
@@ -2255,8 +2210,8 @@
     "semantic_hash": ""
   },
   "src/pages/platform/Perfil/Perfil.jsx": {
-    "mtime": 1785776051.2837944,
-    "ast_hash": "2ace7b29caabe9ace24f99ebf9cef893",
+    "mtime": 1788408771.0152736,
+    "ast_hash": "3b88dc27a4785b501a60e85a4276bee5",
     "semantic_hash": ""
   },
   "src/pages/platform/Perfil/PerfilProgresso.jsx": {
@@ -2280,9 +2235,9 @@
     "semantic_hash": ""
   },
   "src/pages/platform/Perfil/abas/PerfilTamagoshi.jsx": {
-    "mtime": 1782447972.4865253,
-    "ast_hash": "8be599df20be45c21ff7e3cf914afeec",
-    "semantic_hash": "8be599df20be45c21ff7e3cf914afeec"
+    "mtime": 1788408771.0162783,
+    "ast_hash": "ab3ed0f802c70abbc34ef465942abc9f",
+    "semantic_hash": ""
   },
   "src/pages/platform/Perfil/abas/Recompensas.jsx": {
     "mtime": 1782447845.2047646,
@@ -2750,8 +2705,8 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1788408232.8242245,
-    "ast_hash": "e7b5a67312a0af2afbe8ba1691324115",
+    "mtime": 1788410095.1947532,
+    "ast_hash": "39838a46738e428fd6b7de5a942ed922",
     "semantic_hash": ""
   },
   "Jogos_Rafael/mg01_sliding.html": {
@@ -2790,13 +2745,13 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1788408399.217744,
-    "ast_hash": "5b69fbad8d15d57d345ef7f68b39c171",
+    "mtime": 1788410146.1885877,
+    "ast_hash": "9437334e90d0072a227fca0d4f11ff2d",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
-    "mtime": 1788408219.6853888,
-    "ast_hash": "9551dce004cf728bf0a33f17b130e7fd",
+    "mtime": 1788410110.2453964,
+    "ast_hash": "4bed28291e755a478da48d77f4c34695",
     "semantic_hash": ""
   },
   "docs/Business/FINANCEIRO.md": {
@@ -3545,8 +3500,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/DramaticDice.jsx": {
-    "mtime": 1785963497.99647,
-    "ast_hash": "fcc28a7acffa3a87600d292ba9a6869f",
+    "mtime": 1788408770.9857907,
+    "ast_hash": "a2a19838cebc90630d03730787b5964e",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/gangues-enemies.json": {
@@ -4664,21 +4619,6 @@
     "ast_hash": "c8f247a797f457d099637d9dad4d8bc6",
     "semantic_hash": ""
   },
-  "src/i18n/home_en.json": {
-    "mtime": 1788406702.4354901,
-    "ast_hash": "79388e72bc5e08f2013df10f1742abdd",
-    "semantic_hash": ""
-  },
-  "src/i18n/home_es.json": {
-    "mtime": 1788406702.4454906,
-    "ast_hash": "876a0c6ba99e1bcb6fb01b1eb0cbec80",
-    "semantic_hash": ""
-  },
-  "src/i18n/home_pt.json": {
-    "mtime": 1788406702.4212847,
-    "ast_hash": "bd9c5ed41be3f192223fdf3e55017c40",
-    "semantic_hash": ""
-  },
   "src/pages/site/Home/Home.jsx": {
     "mtime": 1788406820.1764824,
     "ast_hash": "eb20d9e05942e6a64aee1138d6b55e54",
@@ -4727,6 +4667,51 @@
   "public/sounds/intro.mp3": {
     "mtime": 1788407167.6438746,
     "ast_hash": "71f1f22e664feeda44d1e321ca1198d2",
+    "semantic_hash": ""
+  },
+  "src/i18n/core/en.json": {
+    "mtime": 1788409608.9655683,
+    "ast_hash": "ee06ffd4a69dee083f85d92407dcbe56",
+    "semantic_hash": ""
+  },
+  "src/i18n/core/es.json": {
+    "mtime": 1788409608.971569,
+    "ast_hash": "137b07cd84f54632f5f37545671aa862",
+    "semantic_hash": ""
+  },
+  "src/i18n/core/pt.json": {
+    "mtime": 1788409608.9595687,
+    "ast_hash": "4185b489ef97ec6b49b6ab1733250c88",
+    "semantic_hash": ""
+  },
+  "src/i18n/games/en.json": {
+    "mtime": 1788409608.9635682,
+    "ast_hash": "4c2299d2133e08f9cb6f1eede37a21ff",
+    "semantic_hash": ""
+  },
+  "src/i18n/games/es.json": {
+    "mtime": 1788409608.9695675,
+    "ast_hash": "1aa0c810939932980708ad0e9d9711ad",
+    "semantic_hash": ""
+  },
+  "src/i18n/games/pt.json": {
+    "mtime": 1788409608.9565532,
+    "ast_hash": "751ffeb42b48339855bbd3f2869b55d2",
+    "semantic_hash": ""
+  },
+  "src/i18n/prototype/en.json": {
+    "mtime": 1788409608.9645689,
+    "ast_hash": "8b7dbe715c2340bb961a032cadcd69a0",
+    "semantic_hash": ""
+  },
+  "src/i18n/prototype/es.json": {
+    "mtime": 1788409608.9705682,
+    "ast_hash": "22cbcbb63179b39521820a81af9d410b",
+    "semantic_hash": ""
+  },
+  "src/i18n/prototype/pt.json": {
+    "mtime": 1788409608.9575531,
+    "ast_hash": "b1fe40591bad39fbe355e16c93142957",
     "semantic_hash": ""
   }
 }

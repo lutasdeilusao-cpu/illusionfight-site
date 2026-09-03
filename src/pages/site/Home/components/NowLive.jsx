@@ -18,10 +18,10 @@ export default function NowLive() {
   return (
     <section className="nowlive-section">
       <div className="container">
+        {/* Sem descrição: são quatro links, o título já diz tudo. */}
         <HomeSectionHeading
           eyebrow={t('home.section_social')}
           title={t('home.section_networks')}
-          description={t('nowlive.subtitle')}
         />
         <div className="nowlive-grid">
           {items.map(item => {
@@ -34,17 +34,11 @@ export default function NowLive() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="nowlive-card"
-                style={{ '--plat-r': r, '--plat-g': g, '--plat-b': b, '--cor-plat': item.corPlataforma }}
+                aria-label={`${item.plataforma} — ${item.titulo}`}
+                style={{ '--plat-r': r, '--plat-g': g, '--plat-b': b }}
               >
-                <div className="nowlive-card-thumb">
-                  <div className="nowlive-card-overlay">{t('nowlive.abrir')}</div>
-                  {Icon && <span className="nowlive-card-icon"><Icon /></span>}
-                </div>
-                <div className="nowlive-card-footer">
-                  <span className="nowlive-card-label">{item.plataforma}</span>
-                  <h3 className="nowlive-card-titulo">{item.titulo}</h3>
-                  <p className="nowlive-card-desc">{item.descricao}</p>
-                </div>
+                {Icon && <span className="nowlive-card-icon"><Icon /></span>}
+                <span className="nowlive-card-label">{item.plataforma}</span>
               </a>
             )
           })}
