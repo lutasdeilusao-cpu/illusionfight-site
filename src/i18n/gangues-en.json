@@ -217,7 +217,7 @@
           "fragmentar_mente": "Shatter Mind",
           "pesadelo_desperto": "Waking Nightmare"
         },
-        "back_to_roster": "Back to roster",
+        "back_to_roster": "Menu",
         "no_member": "No fighter selected for progression.",
         "xp_label": "XP to spend",
         "cost_xp": "{n} XP",
@@ -228,7 +228,8 @@
         "confirm_ok": "Spend {n} XP",
         "equipped_badge": "EQUIPPED",
         "open_sheet": "Sheet",
-        "no_subpath": "No subpath"
+        "no_subpath": "No subpath",
+        "menu_label": "← Menu"
       },
       "training": {
         "entry": "TRAINING ZONE",

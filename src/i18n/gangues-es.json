@@ -217,7 +217,7 @@
           "fragmentar_mente": "Fragmentar Mente",
           "pesadelo_desperto": "Pesadilla Despierta"
         },
-        "back_to_roster": "Volver al elenco",
+        "back_to_roster": "Menú",
         "no_member": "Ninguna ficha seleccionada para progresión.",
         "xp_label": "XP por gastar",
         "cost_xp": "{n} XP",
@@ -228,7 +228,8 @@
         "confirm_ok": "Gastar {n} XP",
         "equipped_badge": "EQUIPADO",
         "open_sheet": "Ficha",
-        "no_subpath": "Sin subcamino"
+        "no_subpath": "Sin subcamino",
+        "menu_label": "← Menú"
       },
       "training": {
         "entry": "ZONA DE ENTRENAMIENTO",

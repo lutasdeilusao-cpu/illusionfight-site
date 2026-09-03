@@ -5,7 +5,6 @@ import { useAuth } from '../../../context/AuthContext'
 import { useGanguesStore } from './store/useGanguesStore'
 import { getGanguesProgression } from './data/ganguesLoadout.js'
 import GanguesProgressionPanel from './components/GanguesProgressionPanel'
-import BackToGamesBtn from '../../../components/BackToGamesBtn/BackToGamesBtn'
 import { sfx } from '../../../lib/sfx'
 
 /* ══════════════════════════════════════════════════════════════
@@ -105,7 +104,6 @@ export default function GanguesProgression({ onNavigate }) {
         )}
       </AnimatePresence>
 
-      <BackToGamesBtn />
     </main>
   )
 }
