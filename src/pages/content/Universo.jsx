@@ -135,14 +135,14 @@ export default function Universo() {
   useEffect(() => { setAba(u?.secoes?.[0]?.id || null); window.scrollTo(0, 0) }, [universo])
   useEffect(() => { window.scrollTo(0, 0) }, [aba])
 
-  if (!universo) return <Navigate to="/mundo" replace />
+  if (!universo) return <Navigate to="/universos" replace />
   if (meta?.externo) return <Navigate to={meta.rota} replace />
   if (!u) {
     return (
       <section className="livro-page">
         <div className="container">
           <p className="livro-capitulo__erro">{t('pages.obra.nao_encontrado')}</p>
-          <button className="livro-capitulo__back" onClick={() => navigate('/mundo')}>{t('pages.universo.voltar')}</button>
+          <button className="livro-capitulo__back" onClick={() => navigate('/universos')}>{t('pages.universo.voltar')}</button>
         </div>
       </section>
     )
@@ -168,14 +168,14 @@ export default function Universo() {
         <meta name="description" content={subtitulo} />
         <meta property="og:title" content={`${titulo} — Illusion Fight`} />
         <meta property="og:description" content={subtitulo} />
-        <meta property="og:url" content={`https://illusionfight.com/mundo/${u.id}`} />
+        <meta property="og:url" content={`https://illusionfight.com/universos/${u.id}`} />
       </Helmet>
 
       <header className="universo-hero">
         <div className="universo-hero__fx" aria-hidden="true" />
         <div className="container">
           <nav className="universo-crumbs">
-            <Link to="/mundo">{t('pages.mundoHub.titulo')}</Link>
+            <Link to="/universos">{t('pages.mundoHub.titulo')}</Link>
             <span>·</span>
             <span>{titulo}</span>
           </nav>

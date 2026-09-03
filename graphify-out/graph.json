@@ -4,176 +4,6 @@
   "graph": {},
   "nodes": [
     {
-      "label": "AGENTS.md",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "agents",
-      "community": 75,
-      "norm_label": "agents.md"
-    },
-    {
-      "label": "AGENTS.md \u2014 Illusion Fight Site",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "agents_agents_md_illusion_fight_site",
-      "community": 75,
-      "norm_label": "agents.md \u2014 illusion fight site"
-    },
-    {
-      "label": "Mandatory workflow for every code change",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L3",
-      "_origin": "ast",
-      "id": "agents_mandatory_workflow_for_every_code_change",
-      "community": 75,
-      "norm_label": "mandatory workflow for every code change"
-    },
-    {
-      "label": "Stack",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L25",
-      "_origin": "ast",
-      "id": "agents_stack",
-      "community": 75,
-      "norm_label": "stack"
-    },
-    {
-      "label": "Environment",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L38",
-      "_origin": "ast",
-      "id": "agents_environment",
-      "community": 75,
-      "norm_label": "environment"
-    },
-    {
-      "label": "\ud83e\udd16 Custom Agents",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L46",
-      "_origin": "ast",
-      "id": "agents_custom_agents",
-      "community": 75,
-      "norm_label": "\ud83e\udd16 custom agents"
-    },
-    {
-      "label": "Deploy commands (must run in this order)",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L54",
-      "_origin": "ast",
-      "id": "agents_deploy_commands_must_run_in_this_order",
-      "community": 75,
-      "norm_label": "deploy commands (must run in this order)"
-    },
-    {
-      "label": "SPA on GitHub Pages",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L64",
-      "_origin": "ast",
-      "id": "agents_spa_on_github_pages",
-      "community": 75,
-      "norm_label": "spa on github pages"
-    },
-    {
-      "label": "Version constants (every game has its own)",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L68",
-      "_origin": "ast",
-      "id": "agents_version_constants_every_game_has_its_own",
-      "community": 75,
-      "norm_label": "version constants (every game has its own)"
-    },
-    {
-      "label": "Conduct rules",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L100",
-      "_origin": "ast",
-      "id": "agents_conduct_rules",
-      "community": 75,
-      "norm_label": "conduct rules"
-    },
-    {
-      "label": "Decis\u00f5es e Hurdles Documentados",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L113",
-      "_origin": "ast",
-      "id": "agents_decis\u00f5es_e_hurdles_documentados",
-      "community": 75,
-      "norm_label": "decisoes e hurdles documentados"
-    },
-    {
-      "label": "Regra Anti-Over-Engineering",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L142",
-      "_origin": "ast",
-      "id": "agents_regra_anti_over_engineering",
-      "community": 75,
-      "norm_label": "regra anti-over-engineering"
-    },
-    {
-      "label": "Regra de Tamanho de Arquivo",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L146",
-      "_origin": "ast",
-      "id": "agents_regra_de_tamanho_de_arquivo",
-      "community": 75,
-      "norm_label": "regra de tamanho de arquivo"
-    },
-    {
-      "label": "Seguran\u00e7a \u00e9 h\u00e1bito, n\u00e3o fase",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L150",
-      "_origin": "ast",
-      "id": "agents_seguran\u00e7a_\u00e9_h\u00e1bito_n\u00e3o_fase",
-      "community": 75,
-      "norm_label": "seguranca e habito, nao fase"
-    },
-    {
-      "label": "Este documento \u00e9 trabalho em progresso",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L158",
-      "_origin": "ast",
-      "id": "agents_este_documento_\u00e9_trabalho_em_progresso",
-      "community": 75,
-      "norm_label": "este documento e trabalho em progresso"
-    },
-    {
-      "label": "Architecture notes",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L162",
-      "_origin": "ast",
-      "id": "agents_architecture_notes",
-      "community": 75,
-      "norm_label": "architecture notes"
-    },
-    {
-      "label": "graphify",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L182",
-      "_origin": "ast",
-      "id": "agents_graphify",
-      "community": 75,
-      "norm_label": "graphify"
-    },
-    {
       "label": "SITE_MAP.md",
       "file_type": "document",
       "source_file": "SITE_MAP.md",
@@ -464,176 +294,6 @@
       "norm_label": "13. onde procurar primeiro"
     },
     {
-      "label": "BIBLIA_DO_ISAIAS.md",
-      "file_type": "document",
-      "source_file": "docs/BIBLIA_DO_ISAIAS.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "docs_biblia_do_isaias",
-      "community": 77,
-      "norm_label": "biblia_do_isaias.md"
-    },
-    {
-      "label": "B\u00cdBLIA DO ISAIAS \u2014 Filosofia, Arquitetura e Regras do Projeto",
-      "file_type": "document",
-      "source_file": "docs/BIBLIA_DO_ISAIAS.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "docs_biblia_do_isaias_b\u00edblia_do_isaias_filosofia_arquitetura_e_regras_do_projeto",
-      "community": 77,
-      "norm_label": "biblia do isaias \u2014 filosofia, arquitetura e regras do projeto"
-    },
-    {
-      "label": "\u00cdndice",
-      "file_type": "document",
-      "source_file": "docs/BIBLIA_DO_ISAIAS.md",
-      "source_location": "L5",
-      "_origin": "ast",
-      "id": "docs_biblia_do_isaias_\u00edndice",
-      "community": 77,
-      "norm_label": "indice"
-    },
-    {
-      "label": "\ud83d\uddd1\ufe0f Contador de Merda do Agente de C\u00f3digo \u2014 1",
-      "file_type": "document",
-      "source_file": "docs/BIBLIA_DO_ISAIAS.md",
-      "source_location": "L22",
-      "_origin": "ast",
-      "id": "docs_biblia_do_isaias_contador_de_merda_do_agente_de_c\u00f3digo_1",
-      "community": 77,
-      "norm_label": "\ud83d\uddd1\ufe0f contador de merda do agente de codigo \u2014 1"
-    },
-    {
-      "label": "0. Antes de qualquer grep amplo \u2014 consultar o Graphify",
-      "file_type": "document",
-      "source_file": "docs/BIBLIA_DO_ISAIAS.md",
-      "source_location": "L38",
-      "_origin": "ast",
-      "id": "docs_biblia_do_isaias_0_antes_de_qualquer_grep_amplo_consultar_o_graphify",
-      "community": 77,
-      "norm_label": "0. antes de qualquer grep amplo \u2014 consultar o graphify"
-    },
-    {
-      "label": "1. Filosofia",
-      "file_type": "document",
-      "source_file": "docs/BIBLIA_DO_ISAIAS.md",
-      "source_location": "L53",
-      "_origin": "ast",
-      "id": "docs_biblia_do_isaias_1_filosofia",
-      "community": 77,
-      "norm_label": "1. filosofia"
-    },
-    {
-      "label": "2. Stack & Ambiente",
-      "file_type": "document",
-      "source_file": "docs/BIBLIA_DO_ISAIAS.md",
-      "source_location": "L65",
-      "_origin": "ast",
-      "id": "docs_biblia_do_isaias_2_stack_ambiente",
-      "community": 77,
-      "norm_label": "2. stack & ambiente"
-    },
-    {
-      "label": "3. Workflow Obrigat\u00f3rio",
-      "file_type": "document",
-      "source_file": "docs/BIBLIA_DO_ISAIAS.md",
-      "source_location": "L88",
-      "_origin": "ast",
-      "id": "docs_biblia_do_isaias_3_workflow_obrigat\u00f3rio",
-      "community": 77,
-      "norm_label": "3. workflow obrigatorio"
-    },
-    {
-      "label": "4. Layout & CSS",
-      "file_type": "document",
-      "source_file": "docs/BIBLIA_DO_ISAIAS.md",
-      "source_location": "L114",
-      "_origin": "ast",
-      "id": "docs_biblia_do_isaias_4_layout_css",
-      "community": 77,
-      "norm_label": "4. layout & css"
-    },
-    {
-      "label": "5. i18n",
-      "file_type": "document",
-      "source_file": "docs/BIBLIA_DO_ISAIAS.md",
-      "source_location": "L179",
-      "_origin": "ast",
-      "id": "docs_biblia_do_isaias_5_i18n",
-      "community": 77,
-      "norm_label": "5. i18n"
-    },
-    {
-      "label": "6. Arquitetura do Portal",
-      "file_type": "document",
-      "source_file": "docs/BIBLIA_DO_ISAIAS.md",
-      "source_location": "L196",
-      "_origin": "ast",
-      "id": "docs_biblia_do_isaias_6_arquitetura_do_portal",
-      "community": 77,
-      "norm_label": "6. arquitetura do portal"
-    },
-    {
-      "label": "7. Regras de C\u00f3digo",
-      "file_type": "document",
-      "source_file": "docs/BIBLIA_DO_ISAIAS.md",
-      "source_location": "L227",
-      "_origin": "ast",
-      "id": "docs_biblia_do_isaias_7_regras_de_c\u00f3digo",
-      "community": 77,
-      "norm_label": "7. regras de codigo"
-    },
-    {
-      "label": "8. Versionamento",
-      "file_type": "document",
-      "source_file": "docs/BIBLIA_DO_ISAIAS.md",
-      "source_location": "L237",
-      "_origin": "ast",
-      "id": "docs_biblia_do_isaias_8_versionamento",
-      "community": 77,
-      "norm_label": "8. versionamento"
-    },
-    {
-      "label": "9. Sistemas do Portal",
-      "file_type": "document",
-      "source_file": "docs/BIBLIA_DO_ISAIAS.md",
-      "source_location": "L245",
-      "_origin": "ast",
-      "id": "docs_biblia_do_isaias_9_sistemas_do_portal",
-      "community": 77,
-      "norm_label": "9. sistemas do portal"
-    },
-    {
-      "label": "10. Decis\u00f5es e Hurdles",
-      "file_type": "document",
-      "source_file": "docs/BIBLIA_DO_ISAIAS.md",
-      "source_location": "L263",
-      "_origin": "ast",
-      "id": "docs_biblia_do_isaias_10_decis\u00f5es_e_hurdles",
-      "community": 77,
-      "norm_label": "10. decisoes e hurdles"
-    },
-    {
-      "label": "11. Infraestrutura",
-      "file_type": "document",
-      "source_file": "docs/BIBLIA_DO_ISAIAS.md",
-      "source_location": "L271",
-      "_origin": "ast",
-      "id": "docs_biblia_do_isaias_11_infraestrutura",
-      "community": 77,
-      "norm_label": "11. infraestrutura"
-    },
-    {
-      "label": "12. Conduct Rules",
-      "file_type": "document",
-      "source_file": "docs/BIBLIA_DO_ISAIAS.md",
-      "source_location": "L285",
-      "_origin": "ast",
-      "id": "docs_biblia_do_isaias_12_conduct_rules",
-      "community": 77,
-      "norm_label": "12. conduct rules"
-    },
-    {
       "label": "version.js",
       "file_type": "code",
       "source_file": "src/config/version.js",
@@ -644,14 +304,384 @@
       "norm_label": "version.js"
     },
     {
+      "label": "NowLive.jsx",
+      "file_type": "code",
+      "source_file": "src/pages/site/Home/components/NowLive.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_pages_site_home_components_nowlive",
+      "community": 396,
+      "norm_label": "nowlive.jsx"
+    },
+    {
+      "label": "platRGB",
+      "file_type": "code",
+      "source_file": "src/pages/site/Home/components/NowLive.jsx",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "src_pages_site_home_components_nowlive_platrgb",
+      "community": 396,
+      "norm_label": "platrgb"
+    },
+    {
+      "label": "NowLive()",
+      "file_type": "code",
+      "source_file": "src/pages/site/Home/components/NowLive.jsx",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "src_pages_site_home_components_nowlive_nowlive",
+      "community": 396,
+      "norm_label": "nowlive()"
+    },
+    {
+      "label": "AGENTS.md",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 75,
+      "norm_label": "agents.md",
+      "id": "agents"
+    },
+    {
+      "label": "AGENTS.md \u2014 Illusion Fight Site",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 75,
+      "norm_label": "agents.md \u2014 illusion fight site",
+      "id": "agents_agents_md_illusion_fight_site"
+    },
+    {
+      "label": "Mandatory workflow for every code change",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L3",
+      "_origin": "ast",
+      "community": 75,
+      "norm_label": "mandatory workflow for every code change",
+      "id": "agents_mandatory_workflow_for_every_code_change"
+    },
+    {
+      "label": "Stack",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L25",
+      "_origin": "ast",
+      "community": 75,
+      "norm_label": "stack",
+      "id": "agents_stack"
+    },
+    {
+      "label": "Environment",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L38",
+      "_origin": "ast",
+      "community": 75,
+      "norm_label": "environment",
+      "id": "agents_environment"
+    },
+    {
+      "label": "\ud83e\udd16 Custom Agents",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L46",
+      "_origin": "ast",
+      "community": 75,
+      "norm_label": "\ud83e\udd16 custom agents",
+      "id": "agents_custom_agents"
+    },
+    {
+      "label": "Deploy commands (must run in this order)",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L54",
+      "_origin": "ast",
+      "community": 75,
+      "norm_label": "deploy commands (must run in this order)",
+      "id": "agents_deploy_commands_must_run_in_this_order"
+    },
+    {
+      "label": "SPA on GitHub Pages",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L64",
+      "_origin": "ast",
+      "community": 75,
+      "norm_label": "spa on github pages",
+      "id": "agents_spa_on_github_pages"
+    },
+    {
+      "label": "Version constants (every game has its own)",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L68",
+      "_origin": "ast",
+      "community": 75,
+      "norm_label": "version constants (every game has its own)",
+      "id": "agents_version_constants_every_game_has_its_own"
+    },
+    {
+      "label": "Conduct rules",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L100",
+      "_origin": "ast",
+      "community": 75,
+      "norm_label": "conduct rules",
+      "id": "agents_conduct_rules"
+    },
+    {
+      "label": "Decis\u00f5es e Hurdles Documentados",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L113",
+      "_origin": "ast",
+      "community": 75,
+      "norm_label": "decisoes e hurdles documentados",
+      "id": "agents_decis\u00f5es_e_hurdles_documentados"
+    },
+    {
+      "label": "Regra Anti-Over-Engineering",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L142",
+      "_origin": "ast",
+      "community": 75,
+      "norm_label": "regra anti-over-engineering",
+      "id": "agents_regra_anti_over_engineering"
+    },
+    {
+      "label": "Regra de Tamanho de Arquivo",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L146",
+      "_origin": "ast",
+      "community": 75,
+      "norm_label": "regra de tamanho de arquivo",
+      "id": "agents_regra_de_tamanho_de_arquivo"
+    },
+    {
+      "label": "Seguran\u00e7a \u00e9 h\u00e1bito, n\u00e3o fase",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L150",
+      "_origin": "ast",
+      "community": 75,
+      "norm_label": "seguranca e habito, nao fase",
+      "id": "agents_seguran\u00e7a_\u00e9_h\u00e1bito_n\u00e3o_fase"
+    },
+    {
+      "label": "Este documento \u00e9 trabalho em progresso",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L158",
+      "_origin": "ast",
+      "community": 75,
+      "norm_label": "este documento e trabalho em progresso",
+      "id": "agents_este_documento_\u00e9_trabalho_em_progresso"
+    },
+    {
+      "label": "Architecture notes",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L162",
+      "_origin": "ast",
+      "community": 75,
+      "norm_label": "architecture notes",
+      "id": "agents_architecture_notes"
+    },
+    {
+      "label": "graphify",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L182",
+      "_origin": "ast",
+      "community": 75,
+      "norm_label": "graphify",
+      "id": "agents_graphify"
+    },
+    {
+      "label": "BIBLIA_DO_ISAIAS.md",
+      "file_type": "document",
+      "source_file": "docs/BIBLIA_DO_ISAIAS.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 77,
+      "norm_label": "biblia_do_isaias.md",
+      "id": "docs_biblia_do_isaias"
+    },
+    {
+      "label": "B\u00cdBLIA DO ISAIAS \u2014 Filosofia, Arquitetura e Regras do Projeto",
+      "file_type": "document",
+      "source_file": "docs/BIBLIA_DO_ISAIAS.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 77,
+      "norm_label": "biblia do isaias \u2014 filosofia, arquitetura e regras do projeto",
+      "id": "docs_biblia_do_isaias_b\u00edblia_do_isaias_filosofia_arquitetura_e_regras_do_projeto"
+    },
+    {
+      "label": "\u00cdndice",
+      "file_type": "document",
+      "source_file": "docs/BIBLIA_DO_ISAIAS.md",
+      "source_location": "L5",
+      "_origin": "ast",
+      "community": 77,
+      "norm_label": "indice",
+      "id": "docs_biblia_do_isaias_\u00edndice"
+    },
+    {
+      "label": "\ud83d\uddd1\ufe0f Contador de Merda do Agente de C\u00f3digo \u2014 1",
+      "file_type": "document",
+      "source_file": "docs/BIBLIA_DO_ISAIAS.md",
+      "source_location": "L22",
+      "_origin": "ast",
+      "community": 77,
+      "norm_label": "\ud83d\uddd1\ufe0f contador de merda do agente de codigo \u2014 1",
+      "id": "docs_biblia_do_isaias_contador_de_merda_do_agente_de_c\u00f3digo_1"
+    },
+    {
+      "label": "0. Antes de qualquer grep amplo \u2014 consultar o Graphify",
+      "file_type": "document",
+      "source_file": "docs/BIBLIA_DO_ISAIAS.md",
+      "source_location": "L38",
+      "_origin": "ast",
+      "community": 77,
+      "norm_label": "0. antes de qualquer grep amplo \u2014 consultar o graphify",
+      "id": "docs_biblia_do_isaias_0_antes_de_qualquer_grep_amplo_consultar_o_graphify"
+    },
+    {
+      "label": "1. Filosofia",
+      "file_type": "document",
+      "source_file": "docs/BIBLIA_DO_ISAIAS.md",
+      "source_location": "L53",
+      "_origin": "ast",
+      "community": 77,
+      "norm_label": "1. filosofia",
+      "id": "docs_biblia_do_isaias_1_filosofia"
+    },
+    {
+      "label": "2. Stack & Ambiente",
+      "file_type": "document",
+      "source_file": "docs/BIBLIA_DO_ISAIAS.md",
+      "source_location": "L65",
+      "_origin": "ast",
+      "community": 77,
+      "norm_label": "2. stack & ambiente",
+      "id": "docs_biblia_do_isaias_2_stack_ambiente"
+    },
+    {
+      "label": "3. Workflow Obrigat\u00f3rio",
+      "file_type": "document",
+      "source_file": "docs/BIBLIA_DO_ISAIAS.md",
+      "source_location": "L88",
+      "_origin": "ast",
+      "community": 77,
+      "norm_label": "3. workflow obrigatorio",
+      "id": "docs_biblia_do_isaias_3_workflow_obrigat\u00f3rio"
+    },
+    {
+      "label": "4. Layout & CSS",
+      "file_type": "document",
+      "source_file": "docs/BIBLIA_DO_ISAIAS.md",
+      "source_location": "L114",
+      "_origin": "ast",
+      "community": 77,
+      "norm_label": "4. layout & css",
+      "id": "docs_biblia_do_isaias_4_layout_css"
+    },
+    {
+      "label": "5. i18n",
+      "file_type": "document",
+      "source_file": "docs/BIBLIA_DO_ISAIAS.md",
+      "source_location": "L179",
+      "_origin": "ast",
+      "community": 77,
+      "norm_label": "5. i18n",
+      "id": "docs_biblia_do_isaias_5_i18n"
+    },
+    {
+      "label": "6. Arquitetura do Portal",
+      "file_type": "document",
+      "source_file": "docs/BIBLIA_DO_ISAIAS.md",
+      "source_location": "L196",
+      "_origin": "ast",
+      "community": 77,
+      "norm_label": "6. arquitetura do portal",
+      "id": "docs_biblia_do_isaias_6_arquitetura_do_portal"
+    },
+    {
+      "label": "7. Regras de C\u00f3digo",
+      "file_type": "document",
+      "source_file": "docs/BIBLIA_DO_ISAIAS.md",
+      "source_location": "L227",
+      "_origin": "ast",
+      "community": 77,
+      "norm_label": "7. regras de codigo",
+      "id": "docs_biblia_do_isaias_7_regras_de_c\u00f3digo"
+    },
+    {
+      "label": "8. Versionamento",
+      "file_type": "document",
+      "source_file": "docs/BIBLIA_DO_ISAIAS.md",
+      "source_location": "L237",
+      "_origin": "ast",
+      "community": 77,
+      "norm_label": "8. versionamento",
+      "id": "docs_biblia_do_isaias_8_versionamento"
+    },
+    {
+      "label": "9. Sistemas do Portal",
+      "file_type": "document",
+      "source_file": "docs/BIBLIA_DO_ISAIAS.md",
+      "source_location": "L245",
+      "_origin": "ast",
+      "community": 77,
+      "norm_label": "9. sistemas do portal",
+      "id": "docs_biblia_do_isaias_9_sistemas_do_portal"
+    },
+    {
+      "label": "10. Decis\u00f5es e Hurdles",
+      "file_type": "document",
+      "source_file": "docs/BIBLIA_DO_ISAIAS.md",
+      "source_location": "L263",
+      "_origin": "ast",
+      "community": 77,
+      "norm_label": "10. decisoes e hurdles",
+      "id": "docs_biblia_do_isaias_10_decis\u00f5es_e_hurdles"
+    },
+    {
+      "label": "11. Infraestrutura",
+      "file_type": "document",
+      "source_file": "docs/BIBLIA_DO_ISAIAS.md",
+      "source_location": "L271",
+      "_origin": "ast",
+      "community": 77,
+      "norm_label": "11. infraestrutura",
+      "id": "docs_biblia_do_isaias_11_infraestrutura"
+    },
+    {
+      "label": "12. Conduct Rules",
+      "file_type": "document",
+      "source_file": "docs/BIBLIA_DO_ISAIAS.md",
+      "source_location": "L285",
+      "_origin": "ast",
+      "community": 77,
+      "norm_label": "12. conduct rules",
+      "id": "docs_biblia_do_isaias_12_conduct_rules"
+    },
+    {
       "label": "LanguageProvider.jsx",
       "file_type": "code",
       "source_file": "src/context/LanguageProvider.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_context_languageprovider",
       "community": 340,
-      "norm_label": "languageprovider.jsx"
+      "norm_label": "languageprovider.jsx",
+      "id": "src_context_languageprovider"
     },
     {
       "label": "getNested()",
@@ -659,9 +689,9 @@
       "source_file": "src/context/LanguageProvider.jsx",
       "source_location": "L6",
       "_origin": "ast",
-      "id": "src_context_languageprovider_getnested",
       "community": 340,
-      "norm_label": "getnested()"
+      "norm_label": "getnested()",
+      "id": "src_context_languageprovider_getnested"
     },
     {
       "label": "deepMerge()",
@@ -669,9 +699,9 @@
       "source_file": "src/context/LanguageProvider.jsx",
       "source_location": "L17",
       "_origin": "ast",
-      "id": "src_context_languageprovider_deepmerge",
       "community": 340,
-      "norm_label": "deepmerge()"
+      "norm_label": "deepmerge()",
+      "id": "src_context_languageprovider_deepmerge"
     },
     {
       "label": "LanguageProvider()",
@@ -679,9 +709,9 @@
       "source_file": "src/context/LanguageProvider.jsx",
       "source_location": "L35",
       "_origin": "ast",
-      "id": "src_context_languageprovider_languageprovider",
       "community": 340,
-      "norm_label": "languageprovider()"
+      "norm_label": "languageprovider()",
+      "id": "src_context_languageprovider_languageprovider"
     },
     {
       "label": "locales.js",
@@ -689,9 +719,9 @@
       "source_file": "src/i18n/locales.js",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_i18n_locales",
       "community": 340,
-      "norm_label": "locales.js"
+      "norm_label": "locales.js",
+      "id": "src_i18n_locales"
     },
     {
       "label": "CORE",
@@ -699,9 +729,9 @@
       "source_file": "src/i18n/locales.js",
       "source_location": "L16",
       "_origin": "ast",
-      "id": "src_i18n_locales_core",
       "community": 340,
-      "norm_label": "core"
+      "norm_label": "core",
+      "id": "src_i18n_locales_core"
     },
     {
       "label": "AREAS",
@@ -709,9 +739,9 @@
       "source_file": "src/i18n/locales.js",
       "source_location": "L22",
       "_origin": "ast",
-      "id": "src_i18n_locales_areas",
       "community": 340,
-      "norm_label": "areas"
+      "norm_label": "areas",
+      "id": "src_i18n_locales_areas"
     },
     {
       "label": "LOCALES_DISPONIVEIS",
@@ -719,9 +749,9 @@
       "source_file": "src/i18n/locales.js",
       "source_location": "L35",
       "_origin": "ast",
-      "id": "src_i18n_locales_locales_disponiveis",
       "community": 340,
-      "norm_label": "locales_disponiveis"
+      "norm_label": "locales_disponiveis",
+      "id": "src_i18n_locales_locales_disponiveis"
     },
     {
       "label": "carregarCore()",
@@ -729,9 +759,9 @@
       "source_file": "src/i18n/locales.js",
       "source_location": "L38",
       "_origin": "ast",
-      "id": "src_i18n_locales_carregarcore",
       "community": 340,
-      "norm_label": "carregarcore()"
+      "norm_label": "carregarcore()",
+      "id": "src_i18n_locales_carregarcore"
     },
     {
       "label": "carregarArea()",
@@ -739,9 +769,9 @@
       "source_file": "src/i18n/locales.js",
       "source_location": "L44",
       "_origin": "ast",
-      "id": "src_i18n_locales_carregararea",
       "community": 340,
-      "norm_label": "carregararea()"
+      "norm_label": "carregararea()",
+      "id": "src_i18n_locales_carregararea"
     },
     {
       "label": "areaDaRota()",
@@ -749,9 +779,9 @@
       "source_file": "src/i18n/locales.js",
       "source_location": "L54",
       "_origin": "ast",
-      "id": "src_i18n_locales_areadarota",
       "community": 340,
-      "norm_label": "areadarota()"
+      "norm_label": "areadarota()",
+      "id": "src_i18n_locales_areadarota"
     },
     {
       "label": "LOCALE_LABELS",
@@ -759,9 +789,9 @@
       "source_file": "src/i18n/locales.js",
       "source_location": "L60",
       "_origin": "ast",
-      "id": "src_i18n_locales_locale_labels",
       "community": 39,
-      "norm_label": "locale_labels"
+      "norm_label": "locale_labels",
+      "id": "src_i18n_locales_locale_labels"
     },
     {
       "label": "Musicas.jsx",
@@ -769,9 +799,9 @@
       "source_file": "src/pages/content/Musicas.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_pages_content_musicas",
       "community": 379,
-      "norm_label": "musicas.jsx"
+      "norm_label": "musicas.jsx",
+      "id": "src_pages_content_musicas"
     },
     {
       "label": "allImages",
@@ -779,9 +809,9 @@
       "source_file": "src/pages/content/Musicas.jsx",
       "source_location": "L24",
       "_origin": "ast",
-      "id": "src_pages_content_musicas_allimages",
       "community": 379,
-      "norm_label": "allimages"
+      "norm_label": "allimages",
+      "id": "src_pages_content_musicas_allimages"
     },
     {
       "label": "shuffleArray()",
@@ -789,9 +819,9 @@
       "source_file": "src/pages/content/Musicas.jsx",
       "source_location": "L26",
       "_origin": "ast",
-      "id": "src_pages_content_musicas_shufflearray",
       "community": 379,
-      "norm_label": "shufflearray()"
+      "norm_label": "shufflearray()",
+      "id": "src_pages_content_musicas_shufflearray"
     },
     {
       "label": "Musicas()",
@@ -799,9 +829,9 @@
       "source_file": "src/pages/content/Musicas.jsx",
       "source_location": "L35",
       "_origin": "ast",
-      "id": "src_pages_content_musicas_musicas",
       "community": 379,
-      "norm_label": "musicas()"
+      "norm_label": "musicas()",
+      "id": "src_pages_content_musicas_musicas"
     },
     {
       "label": "Games.jsx",
@@ -809,9 +839,9 @@
       "source_file": "src/pages/games/Games.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_pages_games_games",
       "community": 350,
-      "norm_label": "games.jsx"
+      "norm_label": "games.jsx",
+      "id": "src_pages_games_games"
     },
     {
       "label": "JOGOS",
@@ -819,9 +849,9 @@
       "source_file": "src/pages/games/Games.jsx",
       "source_location": "L12",
       "_origin": "ast",
-      "id": "src_pages_games_games_jogos",
       "community": 350,
-      "norm_label": "jogos"
+      "norm_label": "jogos",
+      "id": "src_pages_games_games_jogos"
     },
     {
       "label": "BADGE_CORES",
@@ -829,9 +859,9 @@
       "source_file": "src/pages/games/Games.jsx",
       "source_location": "L26",
       "_origin": "ast",
-      "id": "src_pages_games_games_badge_cores",
       "community": 350,
-      "norm_label": "badge_cores"
+      "norm_label": "badge_cores",
+      "id": "src_pages_games_games_badge_cores"
     },
     {
       "label": "KERNEL_JOGOS",
@@ -839,9 +869,9 @@
       "source_file": "src/pages/games/Games.jsx",
       "source_location": "L33",
       "_origin": "ast",
-      "id": "src_pages_games_games_kernel_jogos",
       "community": 350,
-      "norm_label": "kernel_jogos"
+      "norm_label": "kernel_jogos",
+      "id": "src_pages_games_games_kernel_jogos"
     },
     {
       "label": "CONTEUDO",
@@ -849,9 +879,9 @@
       "source_file": "src/pages/games/Games.jsx",
       "source_location": "L43",
       "_origin": "ast",
-      "id": "src_pages_games_games_conteudo",
       "community": 350,
-      "norm_label": "conteudo"
+      "norm_label": "conteudo",
+      "id": "src_pages_games_games_conteudo"
     },
     {
       "label": "FICHA_GAMES",
@@ -859,9 +889,9 @@
       "source_file": "src/pages/games/Games.jsx",
       "source_location": "L49",
       "_origin": "ast",
-      "id": "src_pages_games_games_ficha_games",
       "community": 350,
-      "norm_label": "ficha_games"
+      "norm_label": "ficha_games",
+      "id": "src_pages_games_games_ficha_games"
     },
     {
       "label": "ADMIN_EMAILS",
@@ -869,9 +899,9 @@
       "source_file": "src/pages/games/Games.jsx",
       "source_location": "L51",
       "_origin": "ast",
-      "id": "src_pages_games_games_admin_emails",
       "community": 350,
-      "norm_label": "admin_emails"
+      "norm_label": "admin_emails",
+      "id": "src_pages_games_games_admin_emails"
     },
     {
       "label": "ABAS",
@@ -879,9 +909,9 @@
       "source_file": "src/pages/games/Games.jsx",
       "source_location": "L53",
       "_origin": "ast",
-      "id": "src_pages_games_games_abas",
       "community": 350,
-      "norm_label": "abas"
+      "norm_label": "abas",
+      "id": "src_pages_games_games_abas"
     },
     {
       "label": "Games()",
@@ -889,9 +919,9 @@
       "source_file": "src/pages/games/Games.jsx",
       "source_location": "L55",
       "_origin": "ast",
-      "id": "src_pages_games_games_games",
       "community": 350,
-      "norm_label": "games()"
+      "norm_label": "games()",
+      "id": "src_pages_games_games_games"
     },
     {
       "label": "HeroSlideshow.jsx",
@@ -5409,7 +5439,7 @@
       "source_file": "src/components/LDINotification/LDINotification.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 14,
+      "community": 339,
       "norm_label": "ldinotification.jsx",
       "id": "src_components_ldinotification_ldinotification"
     },
@@ -5419,7 +5449,7 @@
       "source_file": "src/components/LDINotification/LDINotification.jsx",
       "source_location": "L5",
       "_origin": "ast",
-      "community": 14,
+      "community": 339,
       "norm_label": "shuffle()",
       "id": "src_components_ldinotification_ldinotification_shuffle"
     },
@@ -5429,7 +5459,7 @@
       "source_file": "src/components/LDINotification/LDINotification.jsx",
       "source_location": "L14",
       "_origin": "ast",
-      "community": 14,
+      "community": 339,
       "norm_label": "personagens",
       "id": "src_components_ldinotification_ldinotification_personagens"
     },
@@ -5439,7 +5469,7 @@
       "source_file": "src/components/LDINotification/LDINotification.jsx",
       "source_location": "L16",
       "_origin": "ast",
-      "community": 14,
+      "community": 339,
       "norm_label": "pickpersonagem()",
       "id": "src_components_ldinotification_ldinotification_pickpersonagem"
     },
@@ -5449,7 +5479,7 @@
       "source_file": "src/components/LDINotification/LDINotification.jsx",
       "source_location": "L20",
       "_origin": "ast",
-      "community": 14,
+      "community": 339,
       "norm_label": "ldinotification()",
       "id": "src_components_ldinotification_ldinotification_ldinotification"
     },
@@ -5659,7 +5689,7 @@
       "source_file": "src/components/ProdutoDigitalCard/ProdutoDigitalCard.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 17,
+      "community": 14,
       "norm_label": "produtodigitalcard.jsx",
       "id": "src_components_produtodigitalcard_produtodigitalcard"
     },
@@ -5669,7 +5699,7 @@
       "source_file": "src/components/ProdutoDigitalCard/ProdutoDigitalCard.jsx",
       "source_location": "L5",
       "_origin": "ast",
-      "community": 17,
+      "community": 14,
       "norm_label": "badgecorclass()",
       "id": "src_components_produtodigitalcard_produtodigitalcard_badgecorclass"
     },
@@ -5679,7 +5709,7 @@
       "source_file": "src/components/ProdutoDigitalCard/ProdutoDigitalCard.jsx",
       "source_location": "L15",
       "_origin": "ast",
-      "community": 17,
+      "community": 14,
       "norm_label": "produtodigitalcard()",
       "id": "src_components_produtodigitalcard_produtodigitalcard_produtodigitalcard"
     },
@@ -6449,7 +6479,7 @@
       "source_file": "src/components/ShopSection.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 17,
+      "community": 14,
       "norm_label": "shopsection.jsx",
       "id": "src_components_shopsection"
     },
@@ -6459,7 +6489,7 @@
       "source_file": "src/components/ShopSection.jsx",
       "source_location": "L13",
       "_origin": "ast",
-      "community": 17,
+      "community": 14,
       "norm_label": "shopsection()",
       "id": "src_components_shopsection_shopsection"
     },
@@ -6529,7 +6559,7 @@
       "source_file": "src/components/TrialBanner.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 17,
+      "community": 55,
       "norm_label": "trialbanner.jsx",
       "id": "src_components_trialbanner"
     },
@@ -6539,7 +6569,7 @@
       "source_file": "src/components/TrialBanner.jsx",
       "source_location": "L7",
       "_origin": "ast",
-      "community": 17,
+      "community": 55,
       "norm_label": "trialbanner()",
       "id": "src_components_trialbanner_trialbanner"
     },
@@ -6569,7 +6599,7 @@
       "source_file": "src/components/UnifiedNotification/UnifiedNotification.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 14,
+      "community": 339,
       "norm_label": "unifiednotification.jsx",
       "id": "src_components_unifiednotification_unifiednotification"
     },
@@ -6579,7 +6609,7 @@
       "source_file": "src/components/UnifiedNotification/UnifiedNotification.jsx",
       "source_location": "L21",
       "_origin": "ast",
-      "community": 14,
+      "community": 339,
       "norm_label": "unifiednotification()",
       "id": "src_components_unifiednotification_unifiednotification_unifiednotification"
     },
@@ -6649,7 +6679,7 @@
       "source_file": "src/config/trial.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 339,
+      "community": 55,
       "norm_label": "trial.js",
       "id": "src_config_trial"
     },
@@ -6689,7 +6719,7 @@
       "source_file": "src/context/AchievementsContext.jsx",
       "source_location": "L114",
       "_origin": "ast",
-      "community": 14,
+      "community": 339,
       "norm_label": "useachievements()",
       "id": "src_context_achievementscontext_useachievements"
     },
@@ -6699,7 +6729,7 @@
       "source_file": "src/context/AuthContext.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 17,
+      "community": 14,
       "norm_label": "authcontext.jsx",
       "id": "src_context_authcontext"
     },
@@ -6709,7 +6739,7 @@
       "source_file": "src/context/AuthContext.jsx",
       "source_location": "L8",
       "_origin": "ast",
-      "community": 17,
+      "community": 14,
       "norm_label": "authcontext",
       "id": "src_context_authcontext_authcontext"
     },
@@ -6829,7 +6859,7 @@
       "source_file": "src/context/FichasContext.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 28,
+      "community": 14,
       "norm_label": "fichascontext.jsx",
       "id": "src_context_fichascontext"
     },
@@ -6839,7 +6869,7 @@
       "source_file": "src/context/FichasContext.jsx",
       "source_location": "L5",
       "_origin": "ast",
-      "community": 28,
+      "community": 14,
       "norm_label": "fichas_por_tier",
       "id": "src_context_fichascontext_fichas_por_tier"
     },
@@ -6849,7 +6879,7 @@
       "source_file": "src/context/FichasContext.jsx",
       "source_location": "L6",
       "_origin": "ast",
-      "community": 28,
+      "community": 14,
       "norm_label": "admin_emails",
       "id": "src_context_fichascontext_admin_emails"
     },
@@ -6859,7 +6889,7 @@
       "source_file": "src/context/FichasContext.jsx",
       "source_location": "L7",
       "_origin": "ast",
-      "community": 28,
+      "community": 14,
       "norm_label": "test_account_emails",
       "id": "src_context_fichascontext_test_account_emails"
     },
@@ -6869,7 +6899,7 @@
       "source_file": "src/context/FichasContext.jsx",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 28,
+      "community": 14,
       "norm_label": "fichascontext",
       "id": "src_context_fichascontext_fichascontext"
     },
@@ -6879,7 +6909,7 @@
       "source_file": "src/context/FichasContext.jsx",
       "source_location": "L11",
       "_origin": "ast",
-      "community": 28,
+      "community": 14,
       "norm_label": "fichasprovider()",
       "id": "src_context_fichascontext_fichasprovider"
     },
@@ -7469,7 +7499,7 @@
       "source_file": "src/hooks/usePresence.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 17,
+      "community": 14,
       "norm_label": "usepresence.js",
       "id": "src_hooks_usepresence"
     },
@@ -8049,7 +8079,7 @@
       "source_file": "src/lib/mdComponents.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 339,
+      "community": 33,
       "norm_label": "mdcomponents.jsx",
       "id": "src_lib_mdcomponents"
     },
@@ -8059,7 +8089,7 @@
       "source_file": "src/lib/mdComponents.jsx",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 339,
+      "community": 33,
       "norm_label": "readermdcomponents",
       "id": "src_lib_mdcomponents_readermdcomponents"
     },
@@ -8069,7 +8099,7 @@
       "source_file": "src/lib/notificationManager.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 14,
+      "community": 339,
       "norm_label": "notificationmanager.js",
       "id": "src_lib_notificationmanager"
     },
@@ -8079,7 +8109,7 @@
       "source_file": "src/lib/notificationManager.js",
       "source_location": "L24",
       "_origin": "ast",
-      "community": 14,
+      "community": 339,
       "norm_label": "notificationtype",
       "id": "src_lib_notificationmanager_notificationtype"
     },
@@ -8089,7 +8119,7 @@
       "source_file": "src/lib/notificationManager.js",
       "source_location": "L31",
       "_origin": "ast",
-      "community": 14,
+      "community": 339,
       "norm_label": "legacyachievements",
       "id": "src_lib_notificationmanager_legacyachievements"
     },
@@ -8099,7 +8129,7 @@
       "source_file": "src/lib/notificationManager.js",
       "source_location": "L33",
       "_origin": "ast",
-      "community": 14,
+      "community": 339,
       "norm_label": "getnotificationachievementid()",
       "id": "src_lib_notificationmanager_getnotificationachievementid"
     },
@@ -8109,7 +8139,7 @@
       "source_file": "src/lib/notificationManager.js",
       "source_location": "L46",
       "_origin": "ast",
-      "community": 14,
+      "community": 339,
       "norm_label": "notificationmanager",
       "id": "src_lib_notificationmanager_notificationmanager"
     },
@@ -8119,7 +8149,7 @@
       "source_file": "src/lib/profileProvisioning.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 17,
+      "community": 14,
       "norm_label": "profileprovisioning.js",
       "id": "src_lib_profileprovisioning"
     },
@@ -8129,7 +8159,7 @@
       "source_file": "src/lib/profileProvisioning.js",
       "source_location": "L3",
       "_origin": "ast",
-      "community": 17,
+      "community": 14,
       "norm_label": "wait()",
       "id": "src_lib_profileprovisioning_wait"
     },
@@ -8139,7 +8169,7 @@
       "source_file": "src/lib/profileProvisioning.js",
       "source_location": "L5",
       "_origin": "ast",
-      "community": 17,
+      "community": 14,
       "norm_label": "ensureuserprofile()",
       "id": "src_lib_profileprovisioning_ensureuserprofile"
     },
@@ -8779,7 +8809,7 @@
       "source_file": "src/lib/stripe.js",
       "source_location": "L22",
       "_origin": "ast",
-      "community": 17,
+      "community": 14,
       "norm_label": "iniciarcheckoutloja()",
       "id": "src_lib_stripe_iniciarcheckoutloja"
     },
@@ -8809,7 +8839,7 @@
       "source_file": "src/lib/supabase.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 17,
+      "community": 14,
       "norm_label": "supabase.js",
       "id": "src_lib_supabase"
     },
@@ -8819,7 +8849,7 @@
       "source_file": "src/lib/supabase.js",
       "source_location": "L6",
       "_origin": "ast",
-      "community": 17,
+      "community": 14,
       "norm_label": "supabase",
       "id": "src_lib_supabase_supabase"
     },
@@ -8979,7 +9009,7 @@
       "source_file": "src/pages/content/ContoCapitulo.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 339,
+      "community": 33,
       "norm_label": "contocapitulo.jsx",
       "id": "src_pages_content_contocapitulo"
     },
@@ -8989,7 +9019,7 @@
       "source_file": "src/pages/content/ContoCapitulo.jsx",
       "source_location": "L15",
       "_origin": "ast",
-      "community": 339,
+      "community": 33,
       "norm_label": "contoloaders",
       "id": "src_pages_content_contocapitulo_contoloaders"
     },
@@ -9289,7 +9319,7 @@
       "source_file": "src/pages/content/ObraCapitulo.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 339,
+      "community": 33,
       "norm_label": "obracapitulo.jsx",
       "id": "src_pages_content_obracapitulo"
     },
@@ -9299,7 +9329,7 @@
       "source_file": "src/pages/content/ObraCapitulo.jsx",
       "source_location": "L15",
       "_origin": "ast",
-      "community": 339,
+      "community": 33,
       "norm_label": "obraloaders",
       "id": "src_pages_content_obracapitulo_obraloaders"
     },
@@ -17319,7 +17349,7 @@
       "source_file": "src/pages/games/PesadeloParticular/PP.jsx",
       "source_location": "L844",
       "_origin": "ast",
-      "community": 33,
+      "community": 55,
       "norm_label": "pp()",
       "id": "src_pages_games_pesadeloparticular_pp_pp"
     },
@@ -24409,7 +24439,7 @@
       "source_file": "src/pages/platform/Admin.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 17,
+      "community": 14,
       "norm_label": "admin.jsx",
       "id": "src_pages_platform_admin"
     },
@@ -24449,7 +24479,7 @@
       "source_file": "src/pages/platform/Cadastro.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 17,
+      "community": 14,
       "norm_label": "cadastro.jsx",
       "id": "src_pages_platform_cadastro"
     },
@@ -24459,7 +24489,7 @@
       "source_file": "src/pages/platform/Cadastro.jsx",
       "source_location": "L11",
       "_origin": "ast",
-      "community": 17,
+      "community": 14,
       "norm_label": "cadastro()",
       "id": "src_pages_platform_cadastro_cadastro"
     },
@@ -24639,7 +24669,7 @@
       "source_file": "src/pages/platform/Perfil/abas/PerfilConquistas.jsx",
       "source_location": "L10",
       "_origin": "ast",
-      "community": 14,
+      "community": 28,
       "norm_label": "perfilconquistas()",
       "id": "src_pages_platform_perfil_abas_perfilconquistas_perfilconquistas"
     },
@@ -25044,42 +25074,12 @@
       "id": "src_pages_site_home_components_musicsection_musicsection"
     },
     {
-      "label": "NowLive.jsx",
-      "file_type": "code",
-      "source_file": "src/pages/site/Home/components/NowLive.jsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 12,
-      "norm_label": "nowlive.jsx",
-      "id": "src_pages_site_home_components_nowlive"
-    },
-    {
-      "label": "platRGB",
-      "file_type": "code",
-      "source_file": "src/pages/site/Home/components/NowLive.jsx",
-      "source_location": "L6",
-      "_origin": "ast",
-      "community": 12,
-      "norm_label": "platrgb",
-      "id": "src_pages_site_home_components_nowlive_platrgb"
-    },
-    {
-      "label": "NowLive()",
-      "file_type": "code",
-      "source_file": "src/pages/site/Home/components/NowLive.jsx",
-      "source_location": "L13",
-      "_origin": "ast",
-      "community": 12,
-      "norm_label": "nowlive()",
-      "id": "src_pages_site_home_components_nowlive_nowlive"
-    },
-    {
       "label": "Loja.jsx",
       "file_type": "code",
       "source_file": "src/pages/site/Loja/Loja.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 17,
+      "community": 14,
       "norm_label": "loja.jsx",
       "id": "src_pages_site_loja_loja"
     },
@@ -25089,7 +25089,7 @@
       "source_file": "src/pages/site/Loja/Loja.jsx",
       "source_location": "L15",
       "_origin": "ast",
-      "community": 17,
+      "community": 14,
       "norm_label": "loja()",
       "id": "src_pages_site_loja_loja_loja"
     },
@@ -39718,166 +39718,6 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "source": "agents",
-      "target": "agents_agents_md_illusion_fight_site",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L162",
-      "weight": 1.0,
-      "source": "agents_agents_md_illusion_fight_site",
-      "target": "agents_architecture_notes",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L100",
-      "weight": 1.0,
-      "source": "agents_agents_md_illusion_fight_site",
-      "target": "agents_conduct_rules",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L46",
-      "weight": 1.0,
-      "source": "agents_agents_md_illusion_fight_site",
-      "target": "agents_custom_agents",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L113",
-      "weight": 1.0,
-      "source": "agents_agents_md_illusion_fight_site",
-      "target": "agents_decis\u00f5es_e_hurdles_documentados",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L54",
-      "weight": 1.0,
-      "source": "agents_agents_md_illusion_fight_site",
-      "target": "agents_deploy_commands_must_run_in_this_order",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L38",
-      "weight": 1.0,
-      "source": "agents_agents_md_illusion_fight_site",
-      "target": "agents_environment",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L158",
-      "weight": 1.0,
-      "source": "agents_agents_md_illusion_fight_site",
-      "target": "agents_este_documento_\u00e9_trabalho_em_progresso",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L182",
-      "weight": 1.0,
-      "source": "agents_agents_md_illusion_fight_site",
-      "target": "agents_graphify",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L3",
-      "weight": 1.0,
-      "source": "agents_agents_md_illusion_fight_site",
-      "target": "agents_mandatory_workflow_for_every_code_change",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L142",
-      "weight": 1.0,
-      "source": "agents_agents_md_illusion_fight_site",
-      "target": "agents_regra_anti_over_engineering",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L146",
-      "weight": 1.0,
-      "source": "agents_agents_md_illusion_fight_site",
-      "target": "agents_regra_de_tamanho_de_arquivo",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L150",
-      "weight": 1.0,
-      "source": "agents_agents_md_illusion_fight_site",
-      "target": "agents_seguran\u00e7a_\u00e9_h\u00e1bito_n\u00e3o_fase",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L64",
-      "weight": 1.0,
-      "source": "agents_agents_md_illusion_fight_site",
-      "target": "agents_spa_on_github_pages",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L25",
-      "weight": 1.0,
-      "source": "agents_agents_md_illusion_fight_site",
-      "target": "agents_stack",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L68",
-      "weight": 1.0,
-      "source": "agents_agents_md_illusion_fight_site",
-      "target": "agents_version_constants_every_game_has_its_own",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
       "source_file": "SITE_MAP.md",
       "source_location": "L1",
       "weight": 1.0,
@@ -40156,166 +39996,6 @@
       "confidence_score": 1.0
     },
     {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/BIBLIA_DO_ISAIAS.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "source": "docs_biblia_do_isaias",
-      "target": "docs_biblia_do_isaias_b\u00edblia_do_isaias_filosofia_arquitetura_e_regras_do_projeto",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/BIBLIA_DO_ISAIAS.md",
-      "source_location": "L38",
-      "weight": 1.0,
-      "source": "docs_biblia_do_isaias_b\u00edblia_do_isaias_filosofia_arquitetura_e_regras_do_projeto",
-      "target": "docs_biblia_do_isaias_0_antes_de_qualquer_grep_amplo_consultar_o_graphify",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/BIBLIA_DO_ISAIAS.md",
-      "source_location": "L263",
-      "weight": 1.0,
-      "source": "docs_biblia_do_isaias_b\u00edblia_do_isaias_filosofia_arquitetura_e_regras_do_projeto",
-      "target": "docs_biblia_do_isaias_10_decis\u00f5es_e_hurdles",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/BIBLIA_DO_ISAIAS.md",
-      "source_location": "L271",
-      "weight": 1.0,
-      "source": "docs_biblia_do_isaias_b\u00edblia_do_isaias_filosofia_arquitetura_e_regras_do_projeto",
-      "target": "docs_biblia_do_isaias_11_infraestrutura",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/BIBLIA_DO_ISAIAS.md",
-      "source_location": "L285",
-      "weight": 1.0,
-      "source": "docs_biblia_do_isaias_b\u00edblia_do_isaias_filosofia_arquitetura_e_regras_do_projeto",
-      "target": "docs_biblia_do_isaias_12_conduct_rules",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/BIBLIA_DO_ISAIAS.md",
-      "source_location": "L53",
-      "weight": 1.0,
-      "source": "docs_biblia_do_isaias_b\u00edblia_do_isaias_filosofia_arquitetura_e_regras_do_projeto",
-      "target": "docs_biblia_do_isaias_1_filosofia",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/BIBLIA_DO_ISAIAS.md",
-      "source_location": "L65",
-      "weight": 1.0,
-      "source": "docs_biblia_do_isaias_b\u00edblia_do_isaias_filosofia_arquitetura_e_regras_do_projeto",
-      "target": "docs_biblia_do_isaias_2_stack_ambiente",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/BIBLIA_DO_ISAIAS.md",
-      "source_location": "L88",
-      "weight": 1.0,
-      "source": "docs_biblia_do_isaias_b\u00edblia_do_isaias_filosofia_arquitetura_e_regras_do_projeto",
-      "target": "docs_biblia_do_isaias_3_workflow_obrigat\u00f3rio",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/BIBLIA_DO_ISAIAS.md",
-      "source_location": "L114",
-      "weight": 1.0,
-      "source": "docs_biblia_do_isaias_b\u00edblia_do_isaias_filosofia_arquitetura_e_regras_do_projeto",
-      "target": "docs_biblia_do_isaias_4_layout_css",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/BIBLIA_DO_ISAIAS.md",
-      "source_location": "L179",
-      "weight": 1.0,
-      "source": "docs_biblia_do_isaias_b\u00edblia_do_isaias_filosofia_arquitetura_e_regras_do_projeto",
-      "target": "docs_biblia_do_isaias_5_i18n",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/BIBLIA_DO_ISAIAS.md",
-      "source_location": "L196",
-      "weight": 1.0,
-      "source": "docs_biblia_do_isaias_b\u00edblia_do_isaias_filosofia_arquitetura_e_regras_do_projeto",
-      "target": "docs_biblia_do_isaias_6_arquitetura_do_portal",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/BIBLIA_DO_ISAIAS.md",
-      "source_location": "L227",
-      "weight": 1.0,
-      "source": "docs_biblia_do_isaias_b\u00edblia_do_isaias_filosofia_arquitetura_e_regras_do_projeto",
-      "target": "docs_biblia_do_isaias_7_regras_de_c\u00f3digo",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/BIBLIA_DO_ISAIAS.md",
-      "source_location": "L237",
-      "weight": 1.0,
-      "source": "docs_biblia_do_isaias_b\u00edblia_do_isaias_filosofia_arquitetura_e_regras_do_projeto",
-      "target": "docs_biblia_do_isaias_8_versionamento",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/BIBLIA_DO_ISAIAS.md",
-      "source_location": "L245",
-      "weight": 1.0,
-      "source": "docs_biblia_do_isaias_b\u00edblia_do_isaias_filosofia_arquitetura_e_regras_do_projeto",
-      "target": "docs_biblia_do_isaias_9_sistemas_do_portal",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/BIBLIA_DO_ISAIAS.md",
-      "source_location": "L22",
-      "weight": 1.0,
-      "source": "docs_biblia_do_isaias_b\u00edblia_do_isaias_filosofia_arquitetura_e_regras_do_projeto",
-      "target": "docs_biblia_do_isaias_contador_de_merda_do_agente_de_c\u00f3digo_1",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/BIBLIA_DO_ISAIAS.md",
-      "source_location": "L5",
-      "weight": 1.0,
-      "source": "docs_biblia_do_isaias_b\u00edblia_do_isaias_filosofia_arquitetura_e_regras_do_projeto",
-      "target": "docs_biblia_do_isaias_\u00edndice",
-      "confidence_score": 1.0
-    },
-    {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -40472,12 +40152,352 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "src/pages/site/Home/components/NowLive.jsx",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "src_pages_site_home_components_nowlive",
+      "target": "src_pages_site_home_components_nowlive_nowlive",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/site/Home/components/NowLive.jsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "src_pages_site_home_components_nowlive",
+      "target": "src_pages_site_home_components_nowlive_platrgb",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents",
+      "target": "agents_agents_md_illusion_fight_site"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L162",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_agents_md_illusion_fight_site",
+      "target": "agents_architecture_notes"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L100",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_agents_md_illusion_fight_site",
+      "target": "agents_conduct_rules"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L46",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_agents_md_illusion_fight_site",
+      "target": "agents_custom_agents"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L113",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_agents_md_illusion_fight_site",
+      "target": "agents_decis\u00f5es_e_hurdles_documentados"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L54",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_agents_md_illusion_fight_site",
+      "target": "agents_deploy_commands_must_run_in_this_order"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L38",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_agents_md_illusion_fight_site",
+      "target": "agents_environment"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L158",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_agents_md_illusion_fight_site",
+      "target": "agents_este_documento_\u00e9_trabalho_em_progresso"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L182",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_agents_md_illusion_fight_site",
+      "target": "agents_graphify"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_agents_md_illusion_fight_site",
+      "target": "agents_mandatory_workflow_for_every_code_change"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L142",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_agents_md_illusion_fight_site",
+      "target": "agents_regra_anti_over_engineering"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L146",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_agents_md_illusion_fight_site",
+      "target": "agents_regra_de_tamanho_de_arquivo"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L150",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_agents_md_illusion_fight_site",
+      "target": "agents_seguran\u00e7a_\u00e9_h\u00e1bito_n\u00e3o_fase"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L64",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_agents_md_illusion_fight_site",
+      "target": "agents_spa_on_github_pages"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L25",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_agents_md_illusion_fight_site",
+      "target": "agents_stack"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L68",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "agents_agents_md_illusion_fight_site",
+      "target": "agents_version_constants_every_game_has_its_own"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/BIBLIA_DO_ISAIAS.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_biblia_do_isaias",
+      "target": "docs_biblia_do_isaias_b\u00edblia_do_isaias_filosofia_arquitetura_e_regras_do_projeto"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/BIBLIA_DO_ISAIAS.md",
+      "source_location": "L38",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_biblia_do_isaias_b\u00edblia_do_isaias_filosofia_arquitetura_e_regras_do_projeto",
+      "target": "docs_biblia_do_isaias_0_antes_de_qualquer_grep_amplo_consultar_o_graphify"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/BIBLIA_DO_ISAIAS.md",
+      "source_location": "L263",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_biblia_do_isaias_b\u00edblia_do_isaias_filosofia_arquitetura_e_regras_do_projeto",
+      "target": "docs_biblia_do_isaias_10_decis\u00f5es_e_hurdles"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/BIBLIA_DO_ISAIAS.md",
+      "source_location": "L271",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_biblia_do_isaias_b\u00edblia_do_isaias_filosofia_arquitetura_e_regras_do_projeto",
+      "target": "docs_biblia_do_isaias_11_infraestrutura"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/BIBLIA_DO_ISAIAS.md",
+      "source_location": "L285",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_biblia_do_isaias_b\u00edblia_do_isaias_filosofia_arquitetura_e_regras_do_projeto",
+      "target": "docs_biblia_do_isaias_12_conduct_rules"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/BIBLIA_DO_ISAIAS.md",
+      "source_location": "L53",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_biblia_do_isaias_b\u00edblia_do_isaias_filosofia_arquitetura_e_regras_do_projeto",
+      "target": "docs_biblia_do_isaias_1_filosofia"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/BIBLIA_DO_ISAIAS.md",
+      "source_location": "L65",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_biblia_do_isaias_b\u00edblia_do_isaias_filosofia_arquitetura_e_regras_do_projeto",
+      "target": "docs_biblia_do_isaias_2_stack_ambiente"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/BIBLIA_DO_ISAIAS.md",
+      "source_location": "L88",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_biblia_do_isaias_b\u00edblia_do_isaias_filosofia_arquitetura_e_regras_do_projeto",
+      "target": "docs_biblia_do_isaias_3_workflow_obrigat\u00f3rio"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/BIBLIA_DO_ISAIAS.md",
+      "source_location": "L114",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_biblia_do_isaias_b\u00edblia_do_isaias_filosofia_arquitetura_e_regras_do_projeto",
+      "target": "docs_biblia_do_isaias_4_layout_css"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/BIBLIA_DO_ISAIAS.md",
+      "source_location": "L179",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_biblia_do_isaias_b\u00edblia_do_isaias_filosofia_arquitetura_e_regras_do_projeto",
+      "target": "docs_biblia_do_isaias_5_i18n"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/BIBLIA_DO_ISAIAS.md",
+      "source_location": "L196",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_biblia_do_isaias_b\u00edblia_do_isaias_filosofia_arquitetura_e_regras_do_projeto",
+      "target": "docs_biblia_do_isaias_6_arquitetura_do_portal"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/BIBLIA_DO_ISAIAS.md",
+      "source_location": "L227",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_biblia_do_isaias_b\u00edblia_do_isaias_filosofia_arquitetura_e_regras_do_projeto",
+      "target": "docs_biblia_do_isaias_7_regras_de_c\u00f3digo"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/BIBLIA_DO_ISAIAS.md",
+      "source_location": "L237",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_biblia_do_isaias_b\u00edblia_do_isaias_filosofia_arquitetura_e_regras_do_projeto",
+      "target": "docs_biblia_do_isaias_8_versionamento"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/BIBLIA_DO_ISAIAS.md",
+      "source_location": "L245",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_biblia_do_isaias_b\u00edblia_do_isaias_filosofia_arquitetura_e_regras_do_projeto",
+      "target": "docs_biblia_do_isaias_9_sistemas_do_portal"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/BIBLIA_DO_ISAIAS.md",
+      "source_location": "L22",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_biblia_do_isaias_b\u00edblia_do_isaias_filosofia_arquitetura_e_regras_do_projeto",
+      "target": "docs_biblia_do_isaias_contador_de_merda_do_agente_de_c\u00f3digo_1"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/BIBLIA_DO_ISAIAS.md",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "docs_biblia_do_isaias_b\u00edblia_do_isaias_filosofia_arquitetura_e_regras_do_projeto",
+      "target": "docs_biblia_do_isaias_\u00edndice"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "src/context/LanguageProvider.jsx",
       "source_location": "L17",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_context_languageprovider",
-      "target": "src_context_languageprovider_deepmerge",
-      "confidence_score": 1.0
+      "target": "src_context_languageprovider_deepmerge"
     },
     {
       "relation": "contains",
@@ -40485,9 +40505,9 @@
       "source_file": "src/context/LanguageProvider.jsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_context_languageprovider",
-      "target": "src_context_languageprovider_getnested",
-      "confidence_score": 1.0
+      "target": "src_context_languageprovider_getnested"
     },
     {
       "relation": "contains",
@@ -40495,9 +40515,9 @@
       "source_file": "src/context/LanguageProvider.jsx",
       "source_location": "L35",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_context_languageprovider",
-      "target": "src_context_languageprovider_languageprovider",
-      "confidence_score": 1.0
+      "target": "src_context_languageprovider_languageprovider"
     },
     {
       "relation": "imports_from",
@@ -40506,9 +40526,9 @@
       "source_file": "src/context/LanguageProvider.jsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_context_languageprovider",
-      "target": "src_i18n_locales",
-      "confidence_score": 1.0
+      "target": "src_i18n_locales"
     },
     {
       "relation": "imports",
@@ -40517,9 +40537,9 @@
       "source_file": "src/context/LanguageProvider.jsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_context_languageprovider",
-      "target": "src_i18n_locales_areadarota",
-      "confidence_score": 1.0
+      "target": "src_i18n_locales_areadarota"
     },
     {
       "relation": "imports",
@@ -40528,9 +40548,9 @@
       "source_file": "src/context/LanguageProvider.jsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_context_languageprovider",
-      "target": "src_i18n_locales_carregararea",
-      "confidence_score": 1.0
+      "target": "src_i18n_locales_carregararea"
     },
     {
       "relation": "imports",
@@ -40539,9 +40559,9 @@
       "source_file": "src/context/LanguageProvider.jsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_context_languageprovider",
-      "target": "src_i18n_locales_carregarcore",
-      "confidence_score": 1.0
+      "target": "src_i18n_locales_carregarcore"
     },
     {
       "relation": "imports_from",
@@ -40561,9 +40581,9 @@
       "source_file": "src/context/LanguageProvider.jsx",
       "source_location": "L78",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_context_languageprovider_languageprovider",
-      "target": "src_context_languageprovider_getnested",
-      "confidence_score": 1.0
+      "target": "src_context_languageprovider_getnested"
     },
     {
       "relation": "calls",
@@ -40572,9 +40592,9 @@
       "source_file": "src/context/LanguageProvider.jsx",
       "source_location": "L74",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_context_languageprovider_languageprovider",
-      "target": "src_context_languageprovider_deepmerge",
-      "confidence_score": 1.0
+      "target": "src_context_languageprovider_deepmerge"
     },
     {
       "relation": "calls",
@@ -40637,9 +40657,9 @@
       "source_file": "src/i18n/locales.js",
       "source_location": "L54",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_i18n_locales",
-      "target": "src_i18n_locales_areadarota",
-      "confidence_score": 1.0
+      "target": "src_i18n_locales_areadarota"
     },
     {
       "relation": "contains",
@@ -40647,9 +40667,9 @@
       "source_file": "src/i18n/locales.js",
       "source_location": "L22",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_i18n_locales",
-      "target": "src_i18n_locales_areas",
-      "confidence_score": 1.0
+      "target": "src_i18n_locales_areas"
     },
     {
       "relation": "contains",
@@ -40657,9 +40677,9 @@
       "source_file": "src/i18n/locales.js",
       "source_location": "L44",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_i18n_locales",
-      "target": "src_i18n_locales_carregararea",
-      "confidence_score": 1.0
+      "target": "src_i18n_locales_carregararea"
     },
     {
       "relation": "contains",
@@ -40667,9 +40687,9 @@
       "source_file": "src/i18n/locales.js",
       "source_location": "L38",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_i18n_locales",
-      "target": "src_i18n_locales_carregarcore",
-      "confidence_score": 1.0
+      "target": "src_i18n_locales_carregarcore"
     },
     {
       "relation": "contains",
@@ -40677,9 +40697,9 @@
       "source_file": "src/i18n/locales.js",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_i18n_locales",
-      "target": "src_i18n_locales_core",
-      "confidence_score": 1.0
+      "target": "src_i18n_locales_core"
     },
     {
       "relation": "contains",
@@ -40687,9 +40707,9 @@
       "source_file": "src/i18n/locales.js",
       "source_location": "L60",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_i18n_locales",
-      "target": "src_i18n_locales_locale_labels",
-      "confidence_score": 1.0
+      "target": "src_i18n_locales_locale_labels"
     },
     {
       "relation": "contains",
@@ -40697,9 +40717,9 @@
       "source_file": "src/i18n/locales.js",
       "source_location": "L35",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_i18n_locales",
-      "target": "src_i18n_locales_locales_disponiveis",
-      "confidence_score": 1.0
+      "target": "src_i18n_locales_locales_disponiveis"
     },
     {
       "relation": "imports",
@@ -40718,9 +40738,9 @@
       "source_file": "src/pages/content/Musicas.jsx",
       "source_location": "L24",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_musicas",
-      "target": "src_pages_content_musicas_allimages",
-      "confidence_score": 1.0
+      "target": "src_pages_content_musicas_allimages"
     },
     {
       "relation": "contains",
@@ -40728,9 +40748,9 @@
       "source_file": "src/pages/content/Musicas.jsx",
       "source_location": "L35",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_musicas",
-      "target": "src_pages_content_musicas_musicas",
-      "confidence_score": 1.0
+      "target": "src_pages_content_musicas_musicas"
     },
     {
       "relation": "contains",
@@ -40738,9 +40758,9 @@
       "source_file": "src/pages/content/Musicas.jsx",
       "source_location": "L26",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_musicas",
-      "target": "src_pages_content_musicas_shufflearray",
-      "confidence_score": 1.0
+      "target": "src_pages_content_musicas_shufflearray"
     },
     {
       "relation": "calls",
@@ -40749,9 +40769,9 @@
       "source_file": "src/pages/content/Musicas.jsx",
       "source_location": "L37",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_musicas_musicas",
-      "target": "src_pages_content_musicas_shufflearray",
-      "confidence_score": 1.0
+      "target": "src_pages_content_musicas_shufflearray"
     },
     {
       "relation": "contains",
@@ -40759,9 +40779,9 @@
       "source_file": "src/pages/games/Games.jsx",
       "source_location": "L53",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_games",
-      "target": "src_pages_games_games_abas",
-      "confidence_score": 1.0
+      "target": "src_pages_games_games_abas"
     },
     {
       "relation": "contains",
@@ -40769,9 +40789,9 @@
       "source_file": "src/pages/games/Games.jsx",
       "source_location": "L51",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_games",
-      "target": "src_pages_games_games_admin_emails",
-      "confidence_score": 1.0
+      "target": "src_pages_games_games_admin_emails"
     },
     {
       "relation": "contains",
@@ -40779,9 +40799,9 @@
       "source_file": "src/pages/games/Games.jsx",
       "source_location": "L26",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_games",
-      "target": "src_pages_games_games_badge_cores",
-      "confidence_score": 1.0
+      "target": "src_pages_games_games_badge_cores"
     },
     {
       "relation": "contains",
@@ -40789,9 +40809,9 @@
       "source_file": "src/pages/games/Games.jsx",
       "source_location": "L43",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_games",
-      "target": "src_pages_games_games_conteudo",
-      "confidence_score": 1.0
+      "target": "src_pages_games_games_conteudo"
     },
     {
       "relation": "contains",
@@ -40799,9 +40819,9 @@
       "source_file": "src/pages/games/Games.jsx",
       "source_location": "L49",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_games",
-      "target": "src_pages_games_games_ficha_games",
-      "confidence_score": 1.0
+      "target": "src_pages_games_games_ficha_games"
     },
     {
       "relation": "contains",
@@ -40809,9 +40829,9 @@
       "source_file": "src/pages/games/Games.jsx",
       "source_location": "L55",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_games",
-      "target": "src_pages_games_games_games",
-      "confidence_score": 1.0
+      "target": "src_pages_games_games_games"
     },
     {
       "relation": "contains",
@@ -40819,9 +40839,9 @@
       "source_file": "src/pages/games/Games.jsx",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_games",
-      "target": "src_pages_games_games_jogos",
-      "confidence_score": 1.0
+      "target": "src_pages_games_games_jogos"
     },
     {
       "relation": "contains",
@@ -40829,9 +40849,9 @@
       "source_file": "src/pages/games/Games.jsx",
       "source_location": "L33",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_games",
-      "target": "src_pages_games_games_kernel_jogos",
-      "confidence_score": 1.0
+      "target": "src_pages_games_games_kernel_jogos"
     },
     {
       "relation": "contains",
@@ -47916,28 +47936,6 @@
       "confidence_score": 0.5,
       "source": "src_components_platformicons",
       "target": "src_components_platformicons_youtubeicon"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/site/Home/components/NowLive.jsx",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_site_home_components_nowlive",
-      "target": "src_components_platformicons"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/site/Home/components/NowLive.jsx",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_site_home_components_nowlive",
-      "target": "src_components_platformicons_platformiconmap"
     },
     {
       "relation": "contains",
@@ -56575,17 +56573,6 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "src/pages/site/Home/components/NowLive.jsx",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_site_home_components_nowlive",
-      "target": "src_context_languagecontext"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
       "source_file": "src/pages/site/Home/Home.jsx",
       "source_location": "L4",
       "weight": 1.0,
@@ -60067,28 +60054,6 @@
       "source_location": "L53",
       "weight": 1.0,
       "source": "src_pages_site_home_components_musicsection_musicsection",
-      "target": "src_context_languagecontext_uselanguage"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/site/Home/components/NowLive.jsx",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_site_home_components_nowlive",
-      "target": "src_context_languagecontext_uselanguage"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/site/Home/components/NowLive.jsx",
-      "source_location": "L14",
-      "weight": 1.0,
-      "source": "src_pages_site_home_components_nowlive_nowlive",
       "target": "src_context_languagecontext_uselanguage"
     },
     {
@@ -104156,26 +104121,6 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "src/pages/site/Home/components/NowLive.jsx",
-      "source_location": "L13",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_site_home_components_nowlive",
-      "target": "src_pages_site_home_components_nowlive_nowlive"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/site/Home/components/NowLive.jsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_site_home_components_nowlive",
-      "target": "src_pages_site_home_components_nowlive_platrgb"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
       "source_file": "src/pages/site/Loja/Loja.jsx",
       "source_location": "L15",
       "weight": 1.0,
@@ -116675,5 +116620,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "fbd08aa3b51b9c334b93f9f342e5788910f328f6"
+  "built_at_commit": "09a8813fe52102b5d05cb59a602f95c06f42a48f"
 }

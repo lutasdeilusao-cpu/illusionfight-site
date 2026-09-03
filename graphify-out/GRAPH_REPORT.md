@@ -5,12 +5,12 @@
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 3971 nodes · 7288 edges · 400 communities (267 shown, 133 thin omitted)
+- 3971 nodes · 7283 edges · 401 communities (266 shown, 135 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 53 edges (avg confidence: 0.69)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `fbd08aa3`
+- Built from commit: `09a8813f`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -358,13 +358,14 @@
 - 01.md
 - 02.md
 - description
+- NowLive.jsx
 - react-markdown
 - description
 - Value
 - Value
 
 ## God Nodes (most connected - your core abstractions)
-1. `useLanguage()` - 382 edges
+1. `useLanguage()` - 380 edges
 2. `useAuth()` - 123 edges
 3. `useReader()` - 63 edges
 4. `SFX` - 59 edges
@@ -390,7 +391,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (400 total, 133 thin omitted)
+## Communities (401 total, 135 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.05
@@ -432,17 +433,13 @@ Nodes (30): clearHighlight(), CharModal(), applyShake(), drawCanvasFlash(), draw
 Cohesion: 0.06
 Nodes (33): #24 — Sarah — Estrategista de Arenia, #28 — Mikael — Calculista de Zylvaron, #35 — Ferro Vivo — Construto, #36 — Kimura — O Espelho, #37 — Doru — Trovão do Continente, #39 — Mako — Das Profundezas, #40 — Kei — Sombra Dupla, #42 — Tairo — Mestre do Solo (+25 more)
 
-### Community 12 - "Community 12"
-Cohesion: 0.15
-Nodes (3): platformIconMap, NowLive(), platRGB
-
 ### Community 13 - "Community 13"
 Cohesion: 0.07
 Nodes (30): #14 — Helena — A Sobrevivente, #15 — Osvaldo — O Porteiro, #16 — Ryan — O Grato, #17 — Samuel — O Valentão, #18 — Roxy — A Mercenária, #19 — Brock — Capanga Líder, #1 — Kim — Briguento, #20 — Walter — O Diretor (+22 more)
 
 ### Community 14 - "endBattle"
-Cohesion: 0.13
-Nodes (17): App(), LDINotification(), PERSONAGENS, shuffle(), UnifiedNotification(), AchievementsContext, AchievementsProvider(), useAchievements() (+9 more)
+Cohesion: 0.12
+Nodes (22): App(), badgeCorClass(), ProdutoDigitalCard(), ShopSection(), AchievementsContext, AchievementsProvider(), AuthContext, AuthProvider() (+14 more)
 
 ### Community 15 - "sfx.js"
 Cohesion: 0.06
@@ -453,8 +450,8 @@ Cohesion: 0.10
 Nodes (20): default, icons/128x128@2x.png, icons/128x128.png, icons/32x32.png, icons/icon.icns, icons/icon.ico, nsis, app (+12 more)
 
 ### Community 17 - "CityOverworld.jsx"
-Cohesion: 0.09
-Nodes (28): DesktopShellBar(), badgeCorClass(), ProdutoDigitalCard(), ShopSection(), TrialBanner(), ADMIN_EMAILS, AuthContext, ensureUserProfile() (+20 more)
+Cohesion: 0.13
+Nodes (17): DesktopShellBar(), ADMIN_EMAILS, assertExternalPurchasesAllowed(), params, requestedClient, requestedShellVersion, runtimePlatform, cancelarAssinatura() (+9 more)
 
 ### Community 18 - "Community 18"
 Cohesion: 0.07
@@ -497,8 +494,8 @@ Cohesion: 0.16
 Nodes (12): path(), CodigoPerdido(), DIF_CFG, KEYBOARD_ROWS, pick(), PuzzleCodigoPerdido(), CFG, GlitchRafael() (+4 more)
 
 ### Community 28 - "levelProgression.js"
-Cohesion: 0.13
-Nodes (21): DixContext, useDix(), ADMIN_EMAILS, FICHAS_POR_TIER, FichasContext, FichasProvider(), TEST_ACCOUNT_EMAILS, useFichas() (+13 more)
+Cohesion: 0.16
+Nodes (17): DixContext, useDix(), useFichas(), getHoje(), isDesbloqueadoHoje(), marcarDesbloqueado(), useFichaGate(), PerfilConquistas() (+9 more)
 
 ### Community 29 - "Community 29"
 Cohesion: 0.09
@@ -517,8 +514,8 @@ Cohesion: 0.23
 Nodes (11): CLASSES, getClassesDisponiveis(), EFEITO_AURA, getCorPorElemental(), PALETAS_CORES, ELEMENTAIS, ClasseSelect(), ATTR_LABELS (+3 more)
 
 ### Community 33 - "Community 33"
-Cohesion: 0.13
-Nodes (21): ReaderContext, useReader(), ContoCapitulo(), ObraCapitulo(), Clues(), Combat(), ClueBook(), drawer (+13 more)
+Cohesion: 0.11
+Nodes (23): ReaderContext, useReader(), readerMdComponents, ContoCapitulo(), contoLoaders, ObraCapitulo(), obraLoaders, Clues() (+15 more)
 
 ### Community 34 - "TopTrumpsMP.jsx"
 Cohesion: 0.13
@@ -601,8 +598,8 @@ Cohesion: 0.48
 Nodes (5): CLASS_TREE, getEvolucaoAtiva(), getNo(), getNomeClasse(), EvolutionScreen()
 
 ### Community 55 - "TypewriterPhrase.jsx"
-Cohesion: 0.23
-Nodes (12): LoginGate(), useAuth(), formatarData(), thumbMap, Webtoon(), Admin(), calcularRank(), embaralhar() (+4 more)
+Cohesion: 0.18
+Nodes (14): LoginGate(), TrialBanner(), useAuth(), formatarData(), thumbMap, Webtoon(), PP(), Admin() (+6 more)
 
 ### Community 56 - "Community 56"
 Cohesion: 0.12
@@ -1149,8 +1146,8 @@ Cohesion: 0.23
 Nodes (14): GANGUES_SPECIAL_PATHS, resolveAttackerBonus(), resolveDefenderBonus(), resolveGanguesAction(), applyGanguesAttackerEffect(), applyGanguesDefenderEffect(), buildGanguesEffectsList(), E() (+6 more)
 
 ### Community 339 - "MazeRafael.jsx"
-Cohesion: 0.12
-Nodes (18): EventosContext, METAS_PROGRESSO, useEventos(), useReadingCompletionGate(), readerMdComponents, contoLoaders, chapterLoaders, LivroCapitulo() (+10 more)
+Cohesion: 0.10
+Nodes (24): LDINotification(), PERSONAGENS, shuffle(), UnifiedNotification(), useAchievements(), EventosContext, METAS_PROGRESSO, useEventos() (+16 more)
 
 ### Community 340 - "RestaurarSaude.jsx"
 Cohesion: 0.33
@@ -1249,21 +1246,21 @@ Cohesion: 0.67
 Nodes (3): Value, anyOf, description
 
 ## Knowledge Gaps
-- **1667 isolated node(s):** `Mandatory workflow for every code change`, `Stack`, `Environment`, `🤖 Custom Agents`, `Deploy commands (must run in this order)` (+1662 more)
+- **1668 isolated node(s):** `1. Visão geral`, `2.1 Abertura (vinheta de carregamento)`, `3.1 Site e conteúdo`, `3.2 Plataforma e conta`, `3.3 Catálogo e jogos` (+1663 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **133 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **135 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `useLanguage()` connect `PuzzleForça.jsx` to `Community 0`, `Community 1`, `Community 4`, `ArenaTaticsRoute.jsx`, `Community 8`, `Community 9`, `Community 10`, `Community 12`, `endBattle`, `sfx.js`, `CityOverworld.jsx`, `Community 19`, `Community 20`, `Lobby.jsx`, `useGanguesTurnMachine.js`, `Batalha.jsx`, `levelProgression.js`, `Community 29`, `react-markdown`, `PuzzleStealthGrid.jsx`, `initBattle`, `Community 33`, `TopTrumpsMP.jsx`, `BLOCO B — LINKEDIN PESSOAL ISAIAS`, `drawCombatBoard`, `levelProgression.js`, `PowerCard.jsx`, `useJackStore.js`, `ResultScreen.jsx`, `react`, `useTopTrumpsRewards.js`, `RadioNina.jsx`, `Community 49`, `supabase.js`, `BLOCO G — NUNTIUS GAMES — POSICIONAMENTO INSTITUCIONAL`, `TypewriterPhrase.jsx`, `useAuth`, `useTopTrumpsRewards.js`, `PuzzleForça.jsx`, `Community 62`, `criaturas.js`, `SearchModal.jsx`, `TeamSelect.jsx`, `MazeRafael.jsx`, `version.js`, `FichaGateRoute.jsx`, `SlidingRafael.jsx`, `Brincadeira.jsx`, `TypewriterPhrase.jsx`, `pp-i18n.js`, `Universo.jsx`, `TypewriterPhrase.jsx`?**
-  _High betweenness centrality (0.124) - this node is a cross-community bridge._
-- **Why does `useReader()` connect `Community 33` to `Community 0`, `Community 1`, `Community 3`, `Community 4`, `Community 6`, `endBattle`, `sfx.js`, `Community 20`, `Lobby.jsx`, `Batalha.jsx`, `PuzzleStealthGrid.jsx`, `PowerCard.jsx`, `ResultScreen.jsx`, `PuzzleForça.jsx`, `RadioNina.jsx`, `useTopTrumpsRewards.js`, `MazeRafael.jsx`, `FichaGateRoute.jsx`, `SlidingRafael.jsx`, `pp-i18n.js`, `Universo.jsx`?**
-  _High betweenness centrality (0.027) - this node is a cross-community bridge._
+- **Why does `useLanguage()` connect `PuzzleForça.jsx` to `Community 0`, `Community 1`, `Community 4`, `ArenaTaticsRoute.jsx`, `Community 8`, `Community 9`, `Community 10`, `endBattle`, `sfx.js`, `CityOverworld.jsx`, `Community 19`, `Community 20`, `Lobby.jsx`, `useGanguesTurnMachine.js`, `Batalha.jsx`, `levelProgression.js`, `Community 29`, `react-markdown`, `PuzzleStealthGrid.jsx`, `initBattle`, `Community 33`, `TopTrumpsMP.jsx`, `BLOCO B — LINKEDIN PESSOAL ISAIAS`, `drawCombatBoard`, `levelProgression.js`, `PowerCard.jsx`, `useJackStore.js`, `ResultScreen.jsx`, `react`, `useTopTrumpsRewards.js`, `RadioNina.jsx`, `Community 49`, `supabase.js`, `BLOCO G — NUNTIUS GAMES — POSICIONAMENTO INSTITUCIONAL`, `TypewriterPhrase.jsx`, `useAuth`, `useTopTrumpsRewards.js`, `PuzzleForça.jsx`, `Community 62`, `criaturas.js`, `SearchModal.jsx`, `TeamSelect.jsx`, `MazeRafael.jsx`, `version.js`, `FichaGateRoute.jsx`, `SlidingRafael.jsx`, `Brincadeira.jsx`, `TypewriterPhrase.jsx`, `pp-i18n.js`, `Universo.jsx`, `TypewriterPhrase.jsx`?**
+  _High betweenness centrality (0.116) - this node is a cross-community bridge._
+- **Why does `useReader()` connect `Community 33` to `Community 0`, `Community 1`, `Community 3`, `Community 4`, `Community 6`, `endBattle`, `sfx.js`, `Community 20`, `Lobby.jsx`, `Batalha.jsx`, `PuzzleStealthGrid.jsx`, `PowerCard.jsx`, `ResultScreen.jsx`, `PuzzleForça.jsx`, `RadioNina.jsx`, `TypewriterPhrase.jsx`, `useTopTrumpsRewards.js`, `MazeRafael.jsx`, `FichaGateRoute.jsx`, `SlidingRafael.jsx`, `pp-i18n.js`, `Universo.jsx`?**
+  _High betweenness centrality (0.030) - this node is a cross-community bridge._
 - **Why does `useKpI18n()` connect `Community 0` to `PuzzleForça.jsx`?**
-  _High betweenness centrality (0.015) - this node is a cross-community bridge._
-- **What connects `Mandatory workflow for every code change`, `Stack`, `Environment` to the rest of the system?**
-  _1667 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _High betweenness centrality (0.012) - this node is a cross-community bridge._
+- **What connects `1. Visão geral`, `2.1 Abertura (vinheta de carregamento)`, `3.1 Site e conteúdo` to the rest of the system?**
+  _1668 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
   _Cohesion score 0.05016722408026756 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**

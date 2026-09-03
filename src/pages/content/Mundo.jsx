@@ -37,18 +37,18 @@ export default function Mundo() {
         <meta name="description" content={t('pages.mundo.og_desc')} />
         <meta property="og:title" content={t('pages.mundo.og_title')} />
         <meta property="og:description" content={t('pages.mundo.og_desc')} />
-        <meta property="og:url" content="https://illusionfight.com/mundo/lutas-de-ilusao" />
+        <meta property="og:url" content="https://illusionfight.com/universos/lutas-de-ilusao" />
         <meta property="og:image" content="https://illusionfight.com/og-image.jpg" />
         <meta property="og:type" content="website" />
-        <link rel="canonical" href="https://illusionfight.com/mundo/lutas-de-ilusao" />
-        <link rel="alternate" hrefLang="pt" href="https://illusionfight.com/mundo/lutas-de-ilusao" />
-        <link rel="alternate" hrefLang="en" href="https://illusionfight.com/mundo/lutas-de-ilusao" />
-        <link rel="alternate" hrefLang="es" href="https://illusionfight.com/mundo/lutas-de-ilusao" />
+        <link rel="canonical" href="https://illusionfight.com/universos/lutas-de-ilusao" />
+        <link rel="alternate" hrefLang="pt" href="https://illusionfight.com/universos/lutas-de-ilusao" />
+        <link rel="alternate" hrefLang="en" href="https://illusionfight.com/universos/lutas-de-ilusao" />
+        <link rel="alternate" hrefLang="es" href="https://illusionfight.com/universos/lutas-de-ilusao" />
       </Helmet>
 
       <section className="mundo-hero">
         <div className="container">
-          <button className="mundo-hero__voltar" onClick={() => navigate('/mundo')}>
+          <button className="mundo-hero__voltar" onClick={() => navigate('/universos')}>
             {t('pages.universo.voltar')}
           </button>
           <h1 className="mundo-hero__title">{t('pages.mundo.titulo')}</h1>

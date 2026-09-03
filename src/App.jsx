@@ -30,7 +30,7 @@ const Autor = lazyWithReload(() => import('./pages/site/Autor'))
 const Webtoon = lazyWithReload(() => import('./pages/content/Webtoon'))
 const WebtoonEpisodio = lazyWithReload(() => import('./pages/content/WebtoonEpisodio'))
 const Mundo = lazyWithReload(() => import('./pages/content/Mundo'))
-const MundoHub = lazyWithReload(() => import('./pages/content/MundoHub'))
+const UniversosHub = lazyWithReload(() => import('./pages/content/UniversosHub/UniversosHub'))
 const Universo = lazyWithReload(() => import('./pages/content/Universo'))
 const Quiz = lazyWithReload(() => import('./pages/site/Quiz'))
 const Games = lazyWithReload(() => import('./pages/games/Games'))
@@ -162,9 +162,12 @@ export default function App() {
         <Route path="/assinar" element={<Assinar />} />
         <Route path="/autor" element={<Autor />} />
         <Route path="/musicas" element={<Musicas />} />
-        <Route path="/mundo" element={<MundoHub />} />
-        <Route path="/mundo/lutas-de-ilusao" element={<Mundo />} />
-        <Route path="/mundo/:universo" element={<Universo />} />
+        <Route path="/universos" element={<UniversosHub />} />
+        <Route path="/universos/lutas-de-ilusao" element={<Mundo />} />
+        <Route path="/universos/:universo" element={<Universo />} />
+        {/* Mundo → Universos (migração v10.205.0): a rota antiga não morre. */}
+        <Route path="/mundo" element={<LegacyLivroRedirect to="/universos" />} />
+        <Route path="/mundo/:universo" element={<LegacyLivroRedirect to="/universos/:universo" />} />
         <Route path="/webtoon" element={<Webtoon />} />
         <Route path="/webtoon/:id" element={<WebtoonEpisodio />} />
         <Route path="/games/toptrumps/v2" element={<TopTrumpsSP />} />

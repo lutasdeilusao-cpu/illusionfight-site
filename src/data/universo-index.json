@@ -1,22 +1,75 @@
 [
   {
     "id": "lutas-de-ilusao",
-    "rota": "/mundo/lutas-de-ilusao",
+    "rota": "/universos/lutas-de-ilusao",
     "externo": true,
     "selo": "canon",
-    "capa": null,
     "titulo": "Lutas de Ilusão",
     "titulo_en": "Illusion Fight",
     "titulo_es": "Lutas de Ilusión",
     "subtitulo_pt": "Bravara, a arena LDI, os Xakaxi, a lore que originou o projeto.",
     "subtitulo_en": "Bravara, the LDI arena, the Xakaxi, the lore that started the project.",
-    "subtitulo_es": "Bravara, la arena LDI, los Xakaxi, la lore que originó el proyecto."
+    "subtitulo_es": "Bravara, la arena LDI, los Xakaxi, la lore que originó el proyecto.",
+    "destaque": true,
+    "idiomas": [
+      "pt",
+      "en",
+      "es"
+    ],
+    "secoes": [
+      {
+        "id": "personagens",
+        "titulo": "Personagens",
+        "titulo_en": "Characters",
+        "titulo_es": "Personajes"
+      },
+      {
+        "id": "bravara",
+        "titulo": "Bravara",
+        "titulo_en": "Bravara",
+        "titulo_es": "Bravara"
+      },
+      {
+        "id": "timeline",
+        "titulo": "Linha do Tempo",
+        "titulo_en": "Timeline",
+        "titulo_es": "Línea del Tiempo"
+      },
+      {
+        "id": "ldi",
+        "titulo": "Modos de Combate",
+        "titulo_en": "Combat Modes",
+        "titulo_es": "Modos de Combate"
+      },
+      {
+        "id": "ranking",
+        "titulo": "Ranking SDR",
+        "titulo_en": "SDR Ranking",
+        "titulo_es": "Ranking SDR"
+      },
+      {
+        "id": "xakaxi",
+        "titulo": "Xakaxi",
+        "titulo_en": "Xakaxi",
+        "titulo_es": "Xakaxi"
+      },
+      {
+        "id": "glossario",
+        "titulo": "Glossário",
+        "titulo_en": "Glossary",
+        "titulo_es": "Glosario"
+      }
+    ],
+    "arte": "images/banners/banner-01.webp"
   },
   {
     "id": "mundo-das-sombras",
     "selo": "dark-fantasy",
-    "capa": "capa.webp",
-    "idiomas": ["pt", "en", "es"],
+    "idiomas": [
+      "pt",
+      "en",
+      "es"
+    ],
     "titulo": "O Mundo das Sombras",
     "titulo_en": "The Shadow World",
     "titulo_es": "El Mundo de las Sombras",
@@ -24,18 +77,41 @@
     "subtitulo_en": "A world pressed against ours. The Shadows and the Illuminated, the Marked, the Shield — what is known by the end of Arc 1.",
     "subtitulo_es": "Un mundo pegado al nuestro. Las Sombras y los Iluminados, los Marcados, el Escudo — lo que se sabe hasta el fin del Arco 1.",
     "secoes": [
-      { "id": "mundo", "titulo": "O Mundo", "titulo_en": "The World", "titulo_es": "El Mundo" },
-      { "id": "personagens", "titulo": "Personagens", "titulo_en": "Characters", "titulo_es": "Personajes" },
-      { "id": "linha-do-tempo", "titulo": "Linha do Tempo", "titulo_en": "Timeline", "titulo_es": "Línea del Tiempo" },
-      { "id": "glossario", "titulo": "Glossário", "titulo_en": "Glossary", "titulo_es": "Glosario" }
-    ]
+      {
+        "id": "mundo",
+        "titulo": "O Mundo",
+        "titulo_en": "The World",
+        "titulo_es": "El Mundo"
+      },
+      {
+        "id": "personagens",
+        "titulo": "Personagens",
+        "titulo_en": "Characters",
+        "titulo_es": "Personajes"
+      },
+      {
+        "id": "linha-do-tempo",
+        "titulo": "Linha do Tempo",
+        "titulo_en": "Timeline",
+        "titulo_es": "Línea del Tiempo"
+      },
+      {
+        "id": "glossario",
+        "titulo": "Glossário",
+        "titulo_en": "Glossary",
+        "titulo_es": "Glosario"
+      }
+    ],
+    "destaque": false,
+    "arte": "obras/mundo-das-sombras/capa.webp"
   },
   {
     "id": "mar-de-cinzas",
     "selo": "mar-de-cinzas",
     "formato": "blocos",
-    "capa": null,
-    "idiomas": ["pt"],
+    "idiomas": [
+      "pt"
+    ],
     "titulo": "Mar de Cinzas",
     "titulo_en": "Sea of Ashes",
     "titulo_es": "Mar de Cenizas",
@@ -43,11 +119,57 @@
     "subtitulo_en": "Thalvorn: an ocean of islands run on the memory of dead gods. The world, the magic system, the cast and the mystery of the Abyss — aligned with the story.",
     "subtitulo_es": "Thalvorn: un océano de islas movido por la memoria de dioses muertos. El mundo, el sistema de magia, el elenco y el misterio del Abismo — alineado con la historia.",
     "secoes": [
-      { "id": "mundo-tab", "titulo": "O Mundo", "partes": ["mundo", "magia", "historia", "navegacao"] },
-      { "id": "geografia", "titulo": "Geografia", "partes": ["ilhas", "seis-coroas", "tritons"] },
-      { "id": "elenco", "titulo": "Elenco", "partes": ["protagonista", "personagens", "antagonista"] },
-      { "id": "abismo", "titulo": "O Abismo", "partes": ["inquilino", "twist", "criaturas", "horror", "religiao"] },
-      { "id": "serie", "titulo": "A Série", "partes": ["arcos", "desastres", "pirataria", "final"] }
-    ]
+      {
+        "id": "mundo-tab",
+        "titulo": "O Mundo",
+        "partes": [
+          "mundo",
+          "magia",
+          "historia",
+          "navegacao"
+        ]
+      },
+      {
+        "id": "geografia",
+        "titulo": "Geografia",
+        "partes": [
+          "ilhas",
+          "seis-coroas",
+          "tritons"
+        ]
+      },
+      {
+        "id": "elenco",
+        "titulo": "Elenco",
+        "partes": [
+          "protagonista",
+          "personagens",
+          "antagonista"
+        ]
+      },
+      {
+        "id": "abismo",
+        "titulo": "O Abismo",
+        "partes": [
+          "inquilino",
+          "twist",
+          "criaturas",
+          "horror",
+          "religiao"
+        ]
+      },
+      {
+        "id": "serie",
+        "titulo": "A Série",
+        "partes": [
+          "arcos",
+          "desastres",
+          "pirataria",
+          "final"
+        ]
+      }
+    ],
+    "destaque": false,
+    "arte": null
   }
 ]

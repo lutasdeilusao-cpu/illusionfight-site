@@ -23,7 +23,7 @@ export default function CharactersRow() {
           </div>
         </div>
         <div className="characters-row__footer">
-          <Link to="/mundo" className="btn btn--outline">{t('pages.mundo.ver_todos')}</Link>
+          <Link to="/universos" className="btn btn--outline">{t('pages.mundo.ver_todos')}</Link>
         </div>
       </div>
     </section>

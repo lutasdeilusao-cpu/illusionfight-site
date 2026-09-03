@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — MAPA DO SITE E DO PROJETO
 
 > Referência do estado atual do projeto para navegação humana e contexto de IA.
-> Atualizado em 2026-09-03 — `SITE_VERSION` **10.204.1**.
+> Atualizado em 2026-09-03 — `SITE_VERSION` **10.205.0**.
 > Histórico de tarefas, bugfixes e pendências não pertence a este documento.
 > Regras de trabalho, arquivos proibidos e decisões arquiteturais: `AGENTS.md`.
 
@@ -83,9 +83,10 @@ Componentes montados globalmente por `App.jsx`: `AnalyticsTracker`, `ScrollToTop
 | `/webtoon` | Índice do webtoon | `src/pages/content/Webtoon.jsx` |
 | `/webtoon/:id` | Leitor de episódio | `src/pages/content/WebtoonEpisodio.jsx` |
 | `/musicas` | Músicas | `src/pages/content/Musicas.jsx` |
-| `/mundo` | Hub dos universos (seletor) | `src/pages/content/MundoHub.jsx` |
-| `/mundo/lutas-de-ilusao` | Lore do universo LDI | `src/pages/content/Mundo.jsx` |
-| `/mundo/:universo` | Worldbuilding (Mundo das Sombras, Mar de Cinzas) | `src/pages/content/Universo.jsx` |
+| `/universos` | Portal dos universos (entrada) | `src/pages/content/UniversosHub/UniversosHub.jsx` |
+| `/universos/lutas-de-ilusao` | Lore do universo LDI | `src/pages/content/Mundo.jsx` |
+| `/universos/:universo` | Worldbuilding (Mundo das Sombras, Mar de Cinzas) | `src/pages/content/Universo.jsx` |
+| `/mundo` → `/universos`, `/mundo/:universo` → `/universos/:universo` | Redirects 301 legados | `src/App.jsx` (`LegacyLivroRedirect`) + `public/_redirects` + `public/mundo/index.html` + prerender REDIRECTS |
 | `/autor` | Autor | `src/pages/site/Autor.jsx` |
 | `/loja` | Loja | `src/pages/site/Loja/Loja.jsx` |
 | `/quiz` | Quiz | `src/pages/site/Quiz.jsx` |
@@ -386,7 +387,7 @@ Fonte única: `src/config/version.js`. Esta tabela registra somente a identifica
 
 | Constante | Módulo | Versão |
 |---|---|---:|
-| `SITE_VERSION` | Site global | **10.204.1** |
+| `SITE_VERSION` | Site global | **10.205.0** |
 | `PP_VERSION` | Pesadelo Particular | 2.3.1 |
 | `LDI_VERSION` | Lendas do LDI | 2.0.1 |
 | `JACK_VERSION` | Jack Dream Beer | 5.3.2 |

@@ -6,7 +6,7 @@
       "musicas": "Músicas",
       "games": "Games",
       "loja": "LOJA",
-      "mundo": "Mundos",
+      "mundo": "Universos",
       "autor": "AUTOR",
       "calendario": "CALENDÁRIO",
       "assinar": "APOIAR"
@@ -608,7 +608,10 @@
       "titulo": "UNIVERSOS",
       "intro": "Cada história do projeto tem o seu mundo. Escolha um universo e explore a lore por dentro.",
       "og_title": "Universos | Illusion Fight",
-      "og_desc": "Os três universos de Isaias Leal: Lutas de Ilusão, O Mundo das Sombras e Mar de Cinzas. Lore, raças, mapas e glossários."
+      "og_desc": "Os três universos de Isaias Leal: Lutas de Ilusão, O Mundo das Sombras e Mar de Cinzas. Lore, raças, mapas e glossários.",
+      "entrar": "Entrar",
+      "origem": "A origem",
+      "outros": "Outros universos"
     },
     "universo": {
       "voltar": "← UNIVERSOS",

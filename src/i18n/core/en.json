@@ -6,7 +6,7 @@
       "musicas": "Music",
       "games": "Games",
       "loja": "SHOP",
-      "mundo": "Worlds",
+      "mundo": "Universes",
       "autor": "AUTHOR",
       "calendario": "CALENDAR",
       "assinar": "SUPPORT"
@@ -608,7 +608,10 @@
       "titulo": "UNIVERSES",
       "intro": "Every story in the project has its own world. Pick a universe and explore its lore from the inside.",
       "og_title": "Universes | Illusion Fight",
-      "og_desc": "Isaias Leal's three universes: Illusion Fight, The Shadow World and Sea of Ashes. Lore, races, maps and glossaries."
+      "og_desc": "Isaias Leal's three universes: Illusion Fight, The Shadow World and Sea of Ashes. Lore, races, maps and glossaries.",
+      "entrar": "Enter",
+      "origem": "The origin",
+      "outros": "Other universes"
     },
     "universo": {
       "voltar": "← UNIVERSES",
