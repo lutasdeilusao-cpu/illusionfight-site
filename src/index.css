@@ -1,3 +1,6 @@
+/* Linguagem visual única do portal — tokens e primitivas. Ver §10.2 do SITE_MAP. */
+@import './styles/design-system.css';
+
 @font-face {
   font-family: 'Ethnocentric';
   src: url('/fonts/Ethnocentric-Regular.otf') format('opentype');

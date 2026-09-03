@@ -28,9 +28,9 @@
   font-family: var(--font-body, 'Courier New', monospace);
   font-size: 0.7rem;
   font-weight: 600;
-  color: #F5A623;
+  color: var(--if-amber);
   text-decoration: none;
-  border: 1px solid #F5A623;
+  border: 1px solid var(--if-amber);
   border-radius: 3px;
   padding: 0.15rem 0.5rem;
   transition: background 0.2s, color 0.2s;
@@ -40,6 +40,6 @@
 }
 
 .guest-notice__cta:hover {
-  background: #F5A623;
+  background: var(--if-amber);
   color: #0a0a0a;
 }

@@ -513,8 +513,8 @@
 .mundo-ranking-item--2 { border-left-color: #4F5359; }
 .mundo-ranking-item--3 { border-left-color: #6B7280; }
 .mundo-ranking-item--4,
-.mundo-ranking-item--5 { border-left-color: #00B4D8; }
-.mundo-ranking-item--6 { border-left-color: #F4A227; }
+.mundo-ranking-item--5 { border-left-color: var(--if-teal); }
+.mundo-ranking-item--6 { border-left-color: var(--if-amber); }
 
 .mundo-ranking-item > div {
   width: 100%;

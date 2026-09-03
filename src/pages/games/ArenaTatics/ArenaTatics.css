@@ -161,7 +161,7 @@
   font-family: 'Rajdhani', sans-serif;
   font-size: 3rem;
   font-weight: 700;
-  color: #00B4D8;
+  color: var(--if-teal);
   letter-spacing: 0.15em;
   text-shadow:
     0 0 20px rgba(0, 180, 216, 0.5),
@@ -211,7 +211,7 @@
 }
 
 .tatics-intro-terminal-prompt {
-  color: #00B4D8;
+  color: var(--if-teal);
   font-weight: 700;
   opacity: 0.7;
 }
@@ -244,7 +244,7 @@
   background: transparent;
   border: 1px solid rgba(0, 180, 216, 0.4);
   border-radius: 8px;
-  color: #00B4D8;
+  color: var(--if-teal);
   font-family: 'Rajdhani', sans-serif;
   font-size: 1rem;
   font-weight: 700;
@@ -256,7 +256,7 @@
 }
 
 .tatics-intro-btn:hover {
-  border-color: #00B4D8;
+  border-color: var(--if-teal);
   box-shadow: 0 0 25px rgba(0, 180, 216, 0.2), inset 0 0 25px rgba(0, 180, 216, 0.05);
   color: #fff;
 }
@@ -369,7 +369,7 @@
 .tatics-sim-value {
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.8rem;
-  color: #00B4D8;
+  color: var(--if-teal);
   min-width: 40px;
   text-align: center;
   font-weight: 700;
@@ -454,7 +454,7 @@
 .tatics-sim-matchup-text {
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.5rem;
-  color: #00B4D8;
+  color: var(--if-teal);
   letter-spacing: 0.1em;
 }
 
@@ -567,7 +567,7 @@
   font-family: 'Rajdhani', sans-serif;
   font-size: 1rem;
   font-weight: 700;
-  color: #00B4D8;
+  color: var(--if-teal);
   letter-spacing: 0.15em;
 }
 
@@ -729,7 +729,7 @@
 }
 
 .tatics-enemy-log-prompt {
-  color: #00B4D8;
+  color: var(--if-teal);
   font-weight: 700;
   opacity: 0.6;
 }
@@ -763,8 +763,8 @@
   color: #fff;
 }
 .tatics-freelook-btn.active {
-  border-color: #F4A227;
-  color: #F4A227;
+  border-color: var(--if-amber);
+  color: var(--if-amber);
   background: rgba(244,162,39,0.15);
   box-shadow: 0 0 12px rgba(244,162,39,0.3);
 }
@@ -907,7 +907,7 @@
 }
 
 .turno-player .tatics-turno-linha {
-  color: #00B4D8;
+  color: var(--if-teal);
 }
 
 .turno-inimigo .tatics-turno-linha {
@@ -952,7 +952,7 @@
   padding: 4px 8px;
 }
 
-.statusbar-aliado { --cor-lado: #00B4D8; }
+.statusbar-aliado { --cor-lado: var(--if-teal); }
 .statusbar-inimigo { --cor-lado: #E24B4A; }
 
 .tatics-status-card {
@@ -1087,7 +1087,7 @@
 }
 
 .tatics-action-mp {
-  color: #F4A227;
+  color: var(--if-amber);
 }
 
 .tatics-skill-custo-valor {
@@ -1360,7 +1360,7 @@
 }
 
 .custo-disponivel .tatics-skill-custo-valor {
-  color: #00B4D8;
+  color: var(--if-teal);
 }
 
 .custo-indisponivel .tatics-skill-custo-valor {
@@ -1433,7 +1433,7 @@
 }
 
 .tatics-evento-label {
-  color: #F4A227;
+  color: var(--if-amber);
   font-family: 'Rajdhani', sans-serif;
   font-size: 0.65rem;
   letter-spacing: 0.2em;
@@ -1451,7 +1451,7 @@
   margin-top: 6px;
   background: none;
   border: 1px solid rgba(244, 162, 39, 0.3);
-  color: #F4A227;
+  color: var(--if-amber);
   border-radius: 6px;
   padding: 2px 12px;
   font-size: 0.6rem;
@@ -1648,7 +1648,7 @@
 }
 
 .tatics-instruction-move {
-  color: #F4A227;
+  color: var(--if-amber);
 }
 
 .tatics-instruction-attack {
@@ -1715,7 +1715,7 @@
   font-family: 'Rajdhani', sans-serif;
   font-size: 1.1rem;
   font-weight: 700;
-  color: #00B4D8;
+  color: var(--if-teal);
   letter-spacing: 0.2em;
   text-shadow: 0 0 20px rgba(0,180,216,0.3);
   text-transform: uppercase;
@@ -1892,7 +1892,7 @@
   background: transparent;
   border: 1px solid rgba(0,180,216,0.4);
   border-radius: 8px;
-  color: #00B4D8;
+  color: var(--if-teal);
   font-family: 'Rajdhani', sans-serif;
   font-size: 0.8rem;
   font-weight: 700;
@@ -1905,7 +1905,7 @@
 }
 
 .tatics-select-go:hover:not(:disabled) {
-  border-color: #00B4D8;
+  border-color: var(--if-teal);
   box-shadow: 0 0 20px rgba(0,180,216,0.15);
   color: #fff;
 }
@@ -2168,7 +2168,7 @@
 .tatics-detail-slot-bonus {
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.45rem;
-  color: #00B4D8;
+  color: var(--if-teal);
   letter-spacing: 0.05em;
   text-align: center;
   line-height: 1.2;
@@ -2234,7 +2234,7 @@
 }
 
 .tatics-equip-item-icon {
-  color: #00B4D8;
+  color: var(--if-teal);
   font-size: 0.7rem;
 }
 
@@ -2248,7 +2248,7 @@
 .tatics-equip-item-bonus {
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.45rem;
-  color: #00B4D8;
+  color: var(--if-teal);
 }
 
 .tatics-equip-item-desc {
@@ -2525,7 +2525,7 @@
 }
 
 .skill-meta-cd {
-  color: #F4A227;
+  color: var(--if-amber);
 }
 
 /* ── EFEITO TAG ── */
@@ -3329,7 +3329,7 @@
   font-family: 'Rajdhani', sans-serif;
   font-size: 1rem;
   font-weight: 700;
-  color: #00B4D8;
+  color: var(--if-teal);
   letter-spacing: 0.15em;
   text-transform: uppercase;
   margin: 0;
@@ -3358,11 +3358,11 @@
 
 .city-menu-btn-close {
   border-color: rgba(0, 180, 216, 0.3);
-  color: #00B4D8;
+  color: var(--if-teal);
 }
 
 .city-menu-btn-close:hover {
-  border-color: #00B4D8;
+  border-color: var(--if-teal);
   background: rgba(0, 180, 216, 0.1);
 }
 
@@ -3373,7 +3373,7 @@
   justify-content: center;
   min-height: 100vh;
   background: #08080C;
-  color: #00B4D8;
+  color: var(--if-teal);
   font-family: 'Rajdhani', sans-serif;
   font-size: 0.8rem;
   letter-spacing: 0.15em;

@@ -112,7 +112,7 @@
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: #e8853a;
+  background: var(--if-amber);
   color: #000;
   font-family: "Rajdhani", sans-serif;
   font-size: 0.9rem;
@@ -433,10 +433,10 @@
 }
 
 .drawer__lang-card.is-active {
-  border-color: #18dafb;
+  border-color: var(--if-cyan);
   background: linear-gradient(145deg, rgba(24, 218, 251, 0.18), rgba(24, 218, 251, 0.035));
-  color: #18dafb;
-  box-shadow: 0 0 18px rgba(24, 218, 251, 0.12), inset 0 -2px #18dafb;
+  color: var(--if-cyan);
+  box-shadow: 0 0 18px rgba(24, 218, 251, 0.12), inset 0 -2px var(--if-cyan);
 }
 
 .drawer__social {
@@ -620,7 +620,7 @@
   transition: color .2s, border-color .2s, transform .2s;
 }
 
-.drawer__close:hover { color: #18dafb; border-color: #18dafb; transform: rotate(90deg); }
+.drawer__close:hover { color: var(--if-cyan); border-color: var(--if-cyan); transform: rotate(90deg); }
 
 .drawer__search {
   position: relative;
@@ -656,19 +656,19 @@
 
 .drawer__link:hover::after,
 .drawer__link.is-active::after { transform: translateX(0); }
-.drawer__link.is-active { color: #eaffff; box-shadow: inset 2px 0 #18dafb; }
+.drawer__link.is-active { color: #eaffff; box-shadow: inset 2px 0 var(--if-cyan); }
 .drawer__link-index { width: 20px; color: #3d6573; font: 600 .52rem var(--font-mono); letter-spacing: .06em; }
-.drawer__link.is-active .drawer__link-index { color: #18dafb; }
+.drawer__link.is-active .drawer__link-index { color: var(--if-cyan); }
 .drawer__link--calendario { color: #9eefff; }
 .drawer__link--assinar {
   margin: 6px 0 4px;
   border: 1px solid rgba(255, 174, 50, 0.72);
   background: linear-gradient(90deg, rgba(255, 174, 50, 0.16), rgba(255, 174, 50, 0.025));
-  color: #ffb43c;
-  box-shadow: 0 0 24px rgba(255, 174, 50, 0.08), inset 3px 0 #ffae32;
+  color: var(--if-amber-soft);
+  box-shadow: 0 0 24px rgba(255, 174, 50, 0.08), inset 3px 0 var(--if-amber);
   clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
 }
-.drawer__link--assinar .drawer__link-index { color: #ffae32; }
+.drawer__link--assinar .drawer__link-index { color: var(--if-amber); }
 
 @media (prefers-reduced-motion: no-preference) {
   .drawer.is-open .drawer__links li { animation: drawerLinkIn .42s both; }

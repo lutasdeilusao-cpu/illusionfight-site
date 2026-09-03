@@ -1,5 +1,5 @@
 :root {
-  --gr-cyan:   #00e5ff;
+  --gr-cyan:   var(--if-cyan);
   --gr-purple: #b400ff;
   --gr-red:    #ff0055;
   --gr-gold:   #ffcc00;

@@ -110,11 +110,11 @@ body {
 /* Durante a propaganda */
 .radio-nina--ad .radio-nina__label,
 .radio-nina--ad .radio-nina__track {
-  color: var(--accent-amber, #f4a227);
+  color: var(--accent-amber, var(--if-amber));
 }
 
 .radio-nina--ad .radio-nina__progresso-fill {
-  background: var(--accent-amber, #f4a227);
+  background: var(--accent-amber, var(--if-amber));
 }
 
 @keyframes radio-nina-subir {

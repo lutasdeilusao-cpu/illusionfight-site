@@ -1,54 +1,90 @@
+/* ══════════════════════════════════════════════════════════════
+   MÚSICAS
+   Linguagem da navbar (src/styles/design-system.css).
+   Sem cantos arredondados — o portal usa chanfro, não raio.
+   ══════════════════════════════════════════════════════════════ */
+
 .musicas-hero {
-  padding: 8rem 0 3rem;
-  background: var(--bg-primary);
-  text-align: center;
+  padding: 1.75rem 0 1.25rem;
+}
+
+.musicas-hero__eyebrow {
+  display: block;
+  color: var(--if-cyan-58);
+  font: 700 0.55rem var(--font-mono);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
 }
 
 .musicas-hero__title {
-  font-family: 'Rajdhani', sans-serif;
+  margin: 0.35rem 0 0;
+  font-family: var(--font-display);
   font-weight: 700;
-  font-size: clamp(2.5rem, calc(6 * var(--app-vw) / 100), 4rem);
-  color: var(--accent-teal);
-  margin: 0 0 0.75rem;
-  letter-spacing: 0.08em;
+  font-size: clamp(1.8rem, calc(9 * var(--app-vw) / 100), 2.4rem);
+  line-height: 1;
+  letter-spacing: 0.04em;
+  color: #fff;
+  text-shadow: 0 0 22px rgba(24, 218, 251, 0.28);
 }
 
 .musicas-hero__subtitle {
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-weight: 300;
-  font-size: 1.1rem;
-  color: var(--text-muted);
-  margin: 0;
+  margin: 0.5rem 0 0;
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  line-height: 1.5;
 }
 
 .musicas-faixas {
-  padding: 2rem 0 4rem;
-  background: var(--bg-primary);
+  padding: 0.5rem 0 2.5rem;
 }
 
+/* ── Faixa ── */
 .musica-card {
+  position: relative;
   display: flex;
-  gap: 1.5rem;
+  gap: 0.85rem;
   align-items: center;
-  background: var(--bg-elevated);
-  border: 1px solid var(--border-subtle);
-  border-radius: 8px;
-  padding: 1.25rem;
-  max-width: 640px;
-  margin: 0 auto 1rem;
+  margin: 0 auto 0.6rem;
+  padding: 0.75rem;
+  overflow: hidden;
+  border: 1px solid var(--if-edge);
+  background: var(--if-glow-corner), var(--if-panel);
+  transition: border-color 0.22s, box-shadow 0.22s;
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%);
+}
+
+/* Varredura de luz — o mesmo gesto dos links do drawer. */
+.musica-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, var(--if-cyan-13), transparent 72%);
+  transform: translateX(-102%);
+  transition: transform 0.3s ease;
+  pointer-events: none;
+}
+
+.musica-card:hover::after { transform: translateX(0); }
+
+.musica-card:hover {
+  border-color: var(--if-cyan-45);
+  box-shadow: 0 0 26px rgba(24, 218, 251, 0.14);
 }
 
 .musica-card__capa {
   position: relative;
-  width: 100px;
-  height: 100px;
-  border-radius: 6px;
-  overflow: hidden;
-  flex-shrink: 0;
-  background: var(--bg-secondary);
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
+  width: 76px;
+  height: 76px;
+  overflow: hidden;
+  border: 1px solid var(--if-cyan-20);
+  background: var(--bg-secondary);
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
 }
 
 .musica-card__capa img {
@@ -58,43 +94,47 @@
 }
 
 .musica-card__info {
+  position: relative;
+  z-index: 1;
   flex: 1;
   min-width: 0;
 }
 
 .musica-card__titulo {
-  font-family: 'Rajdhani', sans-serif;
+  margin: 0 0 0.15rem;
+  font-family: var(--font-display);
   font-weight: 700;
-  font-size: 1.2rem;
+  font-size: 1.05rem;
+  letter-spacing: 0.03em;
   color: var(--text-primary);
-  margin: 0 0 0.25rem;
 }
 
 .musica-card__artista {
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  margin: 0 0 0.75rem;
+  margin: 0 0 0.6rem;
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  font-size: 0.75rem;
 }
 
 .musica-card__plataformas {
   display: flex;
-  gap: 0.5rem;
+  gap: 0.4rem;
 }
 
 .musica-card__plataforma {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
-  border: 1px solid var(--border-subtle);
-  border-radius: 6px;
-  transition: border-color 0.2s;
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--if-hair-strong);
+  background: rgba(255, 255, 255, 0.02);
+  transition: border-color 0.2s, background 0.2s;
 }
 
 .musica-card__plataforma:hover {
-  border-color: var(--accent-teal);
+  border-color: var(--if-cyan-45);
+  background: var(--if-cyan-08);
 }
 
 .musica-card__plataforma--disabled {
@@ -103,39 +143,40 @@
 }
 
 .musica-card__plataforma--disabled:hover {
-  border-color: var(--border-subtle);
+  border-color: var(--if-hair-strong);
+  background: rgba(255, 255, 255, 0.02);
 }
 
-.musica-card--placeholder {
-  opacity: 0.6;
-}
+.musica-card--placeholder { opacity: 0.6; }
 
 .musica-card__coming-soon {
   position: absolute;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.6rem;
-  color: var(--accent-teal);
-  letter-spacing: 0.1em;
+  color: var(--if-cyan);
+  font: 700 0.55rem var(--font-mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
 .musica-card__badge-placeholder {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.65rem;
-  color: var(--text-muted);
-  border: 1px solid var(--text-muted);
-  padding: 0.15rem 0.5rem;
   display: inline-block;
+  padding: 0.15rem 0.45rem;
+  border: 1px solid var(--if-hair-strong);
+  color: var(--text-muted);
+  font: 700 0.54rem var(--font-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
+/* ── Clipes ── */
 .musicas-clipes {
-  padding: 3rem 0;
-  background: var(--bg-secondary);
+  padding: 1.5rem 0 2rem;
+  border-top: 1px solid var(--if-hair);
   text-align: center;
 }
 
 .musicas-clipes__placeholder {
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 0.9rem;
+  margin-top: 0.75rem;
   color: var(--text-muted);
-  margin-top: 1rem;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
 }

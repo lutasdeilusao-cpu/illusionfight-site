@@ -10,7 +10,7 @@
   --pp-kim: #00ccff;
   --pp-pajé: #ffd700;
   --pp-anon: #888888;
-  --pp-amber: #f5a623;
+  --pp-amber: var(--if-amber);
   --pp-fio: #ffd700;
   --pp-danger: #8b0000;
   --pp-success: #22c55e;
@@ -525,7 +525,7 @@
 .pp-slot-btn--continue {
   background: rgba(232,133,58,0.15);
   border: 1px solid rgba(232,133,58,0.4);
-  color: #E8853A;
+  color: var(--if-amber);
 }
 .pp-slot-btn--new {
   background: rgba(0,255,136,0.1);
@@ -658,7 +658,7 @@
   flex: 1;
 }
 .pp-dossier-caso-nome {
-  color: #F5A623;
+  color: var(--if-amber);
   margin: 0;
   font-size: 18px;
   letter-spacing: 3px;
@@ -673,7 +673,7 @@
 .pp-dossier-dif-badge {
   border: 1px solid rgba(245,166,35,0.27);
   padding: 1px 6px;
-  color: #F5A623;
+  color: var(--if-amber);
   letter-spacing: 2px;
 }
 .pp-dossier-acusar-feedback {
@@ -713,7 +713,7 @@
 .pp-puzzle-container-styled {
   background: linear-gradient(135deg, #0a1f00 0%, #0a0a0a 100%);
   border: 1px solid #1a3a1a;
-  border-top: 2px solid #F5A623;
+  border-top: 2px solid var(--if-amber);
   clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%);
   padding: 24px;
   margin: 16px 0;
@@ -725,7 +725,7 @@
   right: 0;
   width: 14px;
   height: 14px;
-  background: #F5A623;
+  background: var(--if-amber);
   clip-path: polygon(0 0, 100% 100%, 100% 0);
   opacity: 0.4;
 }
@@ -785,7 +785,7 @@
   font-size: 0.75rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #F5A623;
+  color: var(--if-amber);
   margin-bottom: 0.5rem;
 }
 .pp-guest-aviso-texto {
@@ -797,9 +797,9 @@
 .pp-guest-aviso-link {
   display: inline-block;
   padding: 0.45rem 1.1rem;
-  border: 1px solid #F5A623;
+  border: 1px solid var(--if-amber);
   border-radius: 4px;
-  color: #F5A623;
+  color: var(--if-amber);
   font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.05em;
@@ -807,7 +807,7 @@
   transition: background 0.2s ease, color 0.2s ease;
 }
 .pp-guest-aviso-link:hover {
-  background: #F5A623;
+  background: var(--if-amber);
   color: #0a0a0a;
 }
 

@@ -3,7 +3,7 @@
   --ldi-bg2:       #0b0d1a;
   --ldi-bg3:       #111328;
   --ldi-border:    #1e2140;
-  --ldi-cyan:      #00eeff;
+  --ldi-cyan:      var(--if-cyan);
   --ldi-cyan-dim:  rgba(0,238,255,0.15);
   --ldi-red:       #ff2244;
   --ldi-red-dim:   rgba(255,34,68,0.15);

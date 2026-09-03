@@ -51,7 +51,7 @@
 .mg-resultado-tempo { display: flex; flex-direction: column; align-items: center; gap: 0.2rem; margin: 0.5rem 0; }
 .mg-resultado-tempo-label { font-size: 0.6rem; color: #444; letter-spacing: 0.2em; }
 .mg-resultado-tempo-val { font-size: 2rem; font-weight: bold; letter-spacing: 0.1em; }
-.mg-resultado-recorde { font-size: 0.75rem; color: #F5A623; letter-spacing: 0.2em; animation: mg-blink 1s step-end infinite; }
+.mg-resultado-recorde { font-size: 0.75rem; color: var(--if-amber); letter-spacing: 0.2em; animation: mg-blink 1s step-end infinite; }
 .mg-resultado-recorde-atual { font-size: 0.65rem; color: #444; letter-spacing: 0.1em; }
 .mg-resultado-btns { display: flex; gap: 0.8rem; margin-top: 0.5rem; flex-wrap: wrap; justify-content: center; }
 
@@ -61,8 +61,8 @@
 
 .mg-btn-sair {
   background: #0a0a0a;
-  border: 1px solid #F5A623;
-  color: #F5A623;
+  border: 1px solid var(--if-amber);
+  color: var(--if-amber);
   font-family: 'Share Tech Mono', monospace;
   font-size: 0.75rem;
   padding: 0.4rem 0.8rem;
@@ -91,7 +91,7 @@
 .mg-dif-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
 .mg-dif-card { background: #0a0a0a; border: 1px solid #1a1a1a; border-radius: 4px; cursor: pointer; transition: transform 0.2s, border-color 0.2s; overflow: hidden; }
 .mg-dif-card--easy { --cor: #22C55E; }
-.mg-dif-card--medium { --cor: #F5A623; }
+.mg-dif-card--medium { --cor: var(--if-amber); }
 .mg-dif-card--hard { --cor: #8B0000; }
 .mg-dif-card:not(.mg-dif-card--locked):hover { transform: translateY(-4px); border-color: var(--cor); box-shadow: 0 0 20px rgba(245,166,35,0.1); }
 .mg-dif-card--locked { cursor: default; opacity: 0.5; filter: grayscale(0.6); }
@@ -110,7 +110,7 @@
 .mg-btn-derrota { border-color: #8B0000; color: #8B0000; }
 
 .mg-dif-badge--free { color: #22C55E; border-color: #22C55E44; background: #22C55E11; }
-.mg-dif-badge--elite { color: #00B4D8; border-color: #00B4D844; background: #00B4D811; }
+.mg-dif-badge--elite { color: var(--if-teal); border-color: var(--if-teal)44; background: var(--if-teal)11; }
 .mg-dif-badge--locked { color: #444; border-color: #333; background: transparent; }
 .mg-dif-locked-msg { font-size: 0.58rem; color: #444; margin: 0; letter-spacing: 0.05em; }
 @media (max-width: 500px) {

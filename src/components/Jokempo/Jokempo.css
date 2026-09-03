@@ -58,7 +58,7 @@
 .jkp-btn:hover,
 .jkp-btn:active {
   transform: scale(1.03);
-  border-color: #e8853a;
+  border-color: var(--if-amber);
   background: rgba(232,133,58,0.1);
 }
 
@@ -86,7 +86,7 @@
   font-family: "Rajdhani", sans-serif;
   font-size: 2rem;
   font-weight: 700;
-  color: #e8853a;
+  color: var(--if-amber);
   animation: jkp-pop-in 0.25s ease-out;
   margin: 0;
 }
@@ -141,7 +141,7 @@
 
 .jkp-resultado--win  { color: #1ea064; }
 .jkp-resultado--lose { color: #e74c3c; }
-.jkp-resultado--draw { color: #e8853a; }
+.jkp-resultado--draw { color: var(--if-amber); }
 
 @keyframes jkp-pop-in {
   0%   { transform: scale(0.5); opacity: 0; }

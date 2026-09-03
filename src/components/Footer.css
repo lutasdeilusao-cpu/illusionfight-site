@@ -37,13 +37,13 @@
   text-align: left;
   cursor: pointer;
 }
-.footer__chevron { width: 8px; height: 8px; border-right: 1px solid #00e5ff; border-bottom: 1px solid #00e5ff; transform: rotate(45deg); transition: transform 220ms ease; }
+.footer__chevron { width: 8px; height: 8px; border-right: 1px solid var(--if-cyan); border-bottom: 1px solid var(--if-cyan); transform: rotate(45deg); transition: transform 220ms ease; }
 .footer__chevron--open { transform: rotate(-135deg); }
 .footer__list-wrap { max-height: 0; overflow: hidden; transition: max-height 280ms ease; }
 .footer__list-wrap--open { max-height: 240px; }
 .footer__list { display: grid; gap: 7px; margin: 0; padding: 12px 2px 16px; list-style: none; }
 .footer__list a { color: #7f8b94; font-size: .76rem; text-decoration: none; transition: color 180ms ease; }
-.footer__list a:hover { color: #00e5ff; }
+.footer__list a:hover { color: var(--if-cyan); }
 .footer__bottom { margin-top: 24px; padding-top: 18px; border-top: 1px solid rgba(0, 229, 255, 0.12); text-align: center; }
 .footer__bottom p { margin: 0; color: #65717a; font-size: .66rem; line-height: 1.5; }
 

@@ -58,7 +58,7 @@
 
 .jack-title {
   font-size: 1.8rem;
-  color: #F5A623;
+  color: var(--if-amber);
   text-shadow: 0 0 20px rgba(245, 166, 35, 0.3);
   margin-bottom: 2rem;
   min-height: 2.5rem;
@@ -74,7 +74,7 @@
 }
 
 .jack-text--amber {
-  color: #F5A623;
+  color: var(--if-amber);
 }
 
 .jack-text--crimson {
@@ -88,7 +88,7 @@
 
 .jack-counter {
   font-size: 1.1rem;
-  color: #F5A623;
+  color: var(--if-amber);
   margin: 1rem 0;
   letter-spacing: 0.05em;
 }
@@ -115,8 +115,8 @@
 }
 
 .jack-btn:hover:not(:disabled) {
-  border-color: #F5A623;
-  color: #F5A623;
+  border-color: var(--if-amber);
+  color: var(--if-amber);
   background: rgba(245, 166, 35, 0.05);
 }
 
@@ -137,8 +137,8 @@
 }
 
 .jack-btn--amber {
-  border-color: #F5A623;
-  color: #F5A623;
+  border-color: var(--if-amber);
+  color: var(--if-amber);
 }
 
 /* ===== Overlay / Modal ===== */
@@ -163,7 +163,7 @@
 
 .jack-modal-title {
   font-size: 1.1rem;
-  color: #F5A623;
+  color: var(--if-amber);
   margin-bottom: 1rem;
 }
 
@@ -185,8 +185,8 @@
   max-width: 420px;
   width: 90%;
   background: rgba(8,8,8,0.97);
-  border: 1px solid #F5A62333;
-  border-left: 3px solid #F5A623;
+  border: 1px solid var(--if-amber)33;
+  border-left: 3px solid var(--if-amber);
   padding: 0.75rem 1rem;
   cursor: pointer;
   font-family: 'Share Tech Mono', monospace;
@@ -299,7 +299,7 @@
 
 .jdc-slot-stat--amber {
   font-size: 0.55rem;
-  color: #F5A623;
+  color: var(--if-amber);
 }
 
 /* ===== StatusBar ===== */
@@ -346,7 +346,7 @@
 }
 
 .jdc-arrow-amber {
-  color: #F5A623;
+  color: var(--if-amber);
 }
 
 /* ===== DungeonSelect ===== */
@@ -559,7 +559,7 @@
 }
 
 .jdc-vila-card-detail--amber {
-  color: #F5A623;
+  color: var(--if-amber);
 }
 
 .jdc-vila-card-detail--caso {
@@ -655,7 +655,7 @@
 }
 
 .jdc-dungeon-end-icon--victory {
-  color: #F5A623;
+  color: var(--if-amber);
 }
 
 .jdc-dungeon-end-title {
@@ -714,7 +714,7 @@
 
 .jack-item-equipada {
   font-size: 0.75rem;
-  color: #F5A623;
+  color: var(--if-amber);
   margin-left: auto;
 }
 
@@ -741,8 +741,8 @@
 }
 
 .jack-tab--active {
-  color: #F5A623;
-  border-bottom: 1px solid #F5A623;
+  color: var(--if-amber);
+  border-bottom: 1px solid var(--if-amber);
 }
 
 .jack-tab:hover {
@@ -755,7 +755,7 @@
   display: inline-block;
   width: 2px;
   height: 1.1em;
-  background: #F5A623;
+  background: var(--if-amber);
   vertical-align: text-bottom;
   margin-left: 2px;
   animation: jack-blink 0.6s step-end infinite;
@@ -794,7 +794,7 @@
 }
 
 .jdc-sb-resources {
-  color: #F5A623;
+  color: var(--if-amber);
   white-space: pre;
   text-shadow: 0 0 4px rgba(245, 166, 35, 0.2);
 }
@@ -819,14 +819,14 @@
 }
 
 .jdc-sb-btn:hover:not(:disabled) {
-  border-color: #F5A623;
-  color: #F5A623;
+  border-color: var(--if-amber);
+  color: var(--if-amber);
   text-shadow: 0 0 8px rgba(245, 166, 35, 0.3);
 }
 
 .jdc-sb-btn--active {
   border-color: #8B0000;
-  color: #F5A623;
+  color: var(--if-amber);
   background: rgba(139, 0, 0, 0.12);
   text-shadow: 0 0 8px rgba(245, 166, 35, 0.2);
 }
@@ -857,8 +857,8 @@
 }
 
 .jdc-sb-btn--amber-pulse {
-  border-color: #F5A623;
-  color: #F5A623;
+  border-color: var(--if-amber);
+  color: var(--if-amber);
   animation: pulse-amber 1.5s ease-in-out infinite;
 }
 
@@ -921,13 +921,13 @@
 
 .jdc-sb-xpbar-fill {
   height: 100%;
-  background: #F5A623;
+  background: var(--if-amber);
   border-radius: 1px;
   transition: width 0.3s;
 }
 
 .jdc-sb-level {
-  color: #F5A623;
+  color: var(--if-amber);
   margin-left: auto;
   font-size: 0.65rem;
 }
@@ -941,7 +941,7 @@
 
 .jdc-intro-title {
   font-size: 1.8rem;
-  color: #F5A623;
+  color: var(--if-amber);
   text-shadow: 0 0 20px rgba(245, 166, 35, 0.3);
   margin-bottom: 2rem;
   min-height: 2.5rem;
@@ -991,7 +991,7 @@
   padding: 0.65rem;
   background: rgba(0,0,0,0.25);
   border: 1px solid #1a1a1a;
-  border-left: 3px solid #F5A623;
+  border-left: 3px solid var(--if-amber);
   border-radius: 2px;
   cursor: pointer;
   text-align: left;
@@ -1045,7 +1045,7 @@
 .jdc-vila-card-detail {
   display: block;
   font-size: 0.6rem;
-  color: #F5A623;
+  color: var(--if-amber);
   margin-top: 0.15rem;
 }
 
@@ -1066,7 +1066,7 @@
 
 .jdc-vila-title {
   font-size: 1.3rem;
-  color: #F5A623;
+  color: var(--if-amber);
   letter-spacing: 0.3em;
   margin-bottom: 1rem;
 }
@@ -1189,7 +1189,7 @@
 
 .jdc-quest-header {
   font-size: 1rem;
-  color: #F5A623;
+  color: var(--if-amber);
   margin-bottom: 0.3rem;
   letter-spacing: 0.05em;
 }
@@ -1276,7 +1276,7 @@
   font-size: 0.75rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #F5A623;
+  color: var(--if-amber);
   margin-bottom: 0.5rem;
 }
 
@@ -1290,9 +1290,9 @@
 .jack-guest-aviso-link {
   display: inline-block;
   padding: 0.45rem 1.1rem;
-  border: 1px solid #F5A623;
+  border: 1px solid var(--if-amber);
   border-radius: 4px;
-  color: #F5A623;
+  color: var(--if-amber);
   font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.05em;
@@ -1301,7 +1301,7 @@
 }
 
 .jack-guest-aviso-link:hover {
-  background: #F5A623;
+  background: var(--if-amber);
   color: #0a0a0a;
 }
 
@@ -1332,7 +1332,7 @@
 
 .jdc-quest-result-title {
   font-size: 1.1rem;
-  color: #F5A623;
+  color: var(--if-amber);
   margin-bottom: 0.5rem;
 }
 
@@ -1425,7 +1425,7 @@
 .jdc-interior-item-nome {
   font-family: 'Share Tech Mono', monospace;
   font-size: 0.8rem;
-  color: #F5A623;
+  color: var(--if-amber);
   display: block;
   margin-bottom: 0.15rem;
 }
@@ -1468,8 +1468,8 @@
 
 .jdc-interior-balao-float {
   background: rgba(0,0,0,0.9);
-  border: 1px solid #F5A62333;
-  color: #F5A623;
+  border: 1px solid var(--if-amber)33;
+  color: var(--if-amber);
   padding: 0.3rem 0.6rem;
   font-family: 'Share Tech Mono', monospace;
   font-size: 0.7rem;
@@ -1510,12 +1510,12 @@
 }
 
 .jdc-inv-slot--filled {
-  border-color: #F5A62333;
+  border-color: var(--if-amber)33;
   background: rgba(245,166,35,0.03);
 }
 
 .jdc-inv-slot--selected {
-  border-color: #F5A623;
+  border-color: var(--if-amber);
   background: rgba(245,166,35,0.06);
 }
 
@@ -1611,7 +1611,7 @@
 .jdc-main-title {
   font-family: 'Share Tech Mono', monospace;
   font-size: 2rem;
-  color: #F5A623;
+  color: var(--if-amber);
   text-align: center;
   text-shadow: 0 0 30px rgba(245, 166, 35, 0.4);
   letter-spacing: 0.2em;
@@ -1643,12 +1643,12 @@
 }
 
 .jdc-slot-card:hover {
-  border-color: #F5A623;
+  border-color: var(--if-amber);
   background: rgba(245,166,35,0.04);
 }
 
 .jdc-slot-card--selected {
-  border-color: #F5A623;
+  border-color: var(--if-amber);
 }
 
 .jdc-slot-card--filled {
@@ -1694,7 +1694,7 @@
 
 .jdc-vila-card--glow {
   animation: jdc-glow 2s ease-in-out infinite;
-  border-color: #F5A623 !important;
+  border-color: var(--if-amber) !important;
   box-shadow: 0 0 12px rgba(245, 166, 35, 0.2);
 }
 
@@ -1725,8 +1725,8 @@
 }
 
 .jdc-vila-nav-dot--active {
-  background: #F5A623;
-  border-color: #F5A623;
+  background: var(--if-amber);
+  border-color: var(--if-amber);
   box-shadow: 0 0 4px rgba(245,166,35,0.4);
 }
 
@@ -1797,7 +1797,7 @@
 .jdc-dungeon-player-label {
   font-family: 'Share Tech Mono', monospace;
   font-size: 0.6rem;
-  color: #F5A623;
+  color: var(--if-amber);
   margin-top: 0.15rem;
 }
 
@@ -1840,7 +1840,7 @@
 }
 
 .jdc-dungeon-onomato--hit {
-  color: #F5A623;
+  color: var(--if-amber);
   text-shadow: 0 0 8px rgba(245, 166, 35, 0.5);
   font-size: 1.5rem;
 }
@@ -1895,7 +1895,7 @@
 .jdc-pista-card {
   background: rgba(0,0,0,0.25);
   border: 1px solid #1a1a1a;
-  border-left: 3px solid #F5A623;
+  border-left: 3px solid var(--if-amber);
   border-radius: 2px;
   padding: 0.5rem 0.75rem;
   margin: 0.35rem 0;
@@ -1911,7 +1911,7 @@
 }
 
 .jdc-pista-card-type-label {
-  color: #F5A623;
+  color: var(--if-amber);
   font-family: 'Share Tech Mono', monospace;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -1938,7 +1938,7 @@
 .jdc-dossier-titulo {
   font-family: 'Share Tech Mono', monospace;
   font-size: 1rem;
-  color: #F5A623;
+  color: var(--if-amber);
   letter-spacing: 0.05em;
 }
 
@@ -1994,7 +1994,7 @@
   gap: 0.4rem;
   padding: 0.4rem 0.5rem;
   border: 1px solid #1a1a1a;
-  border-left: 3px solid #F5A623;
+  border-left: 3px solid var(--if-amber);
   background: rgba(0,0,0,0.15);
   margin-bottom: 0.25rem;
   cursor: pointer;
@@ -2005,7 +2005,7 @@
   transition: all 0.2s;
 }
 
-.jdc-dossier-local:hover { border-color: #F5A623; background: rgba(245,166,35,0.03); }
+.jdc-dossier-local:hover { border-color: var(--if-amber); background: rgba(245,166,35,0.03); }
 
 .jdc-dossier-local--visitado {
   opacity: 0.6;
@@ -2015,7 +2015,7 @@
 .jdc-dossier-local-info { flex: 1; }
 
 .jdc-dossier-local-arrow {
-  color: #F5A623;
+  color: var(--if-amber);
   min-width: 16px;
   text-align: center;
 }
@@ -2033,7 +2033,7 @@
 
 .jdc-investigacao-puzzle {
   background: rgba(0,0,0,0.3);
-  border: 1px solid #F5A62333;
+  border: 1px solid var(--if-amber)33;
   border-radius: 4px;
   padding: 1rem;
   margin: 1rem 0;
@@ -2078,7 +2078,7 @@
   font-size: 0.85rem;
 }
 
-.jdc-interrogatorio-jack { color: #F5A623; }
+.jdc-interrogatorio-jack { color: var(--if-amber); }
 .jdc-interrogatorio-vs { color: #666; font-size: 0.7rem; }
 .jdc-interrogatorio-kim { color: #8B0000; }
 
@@ -2104,7 +2104,7 @@
 
 .jdc-interrogatorio-fala--jack {
   text-align: left;
-  border-left: 2px solid #F5A623;
+  border-left: 2px solid var(--if-amber);
 }
 
 .jdc-interrogatorio-fala--kim {
@@ -2120,7 +2120,7 @@
   margin-bottom: 0.15rem;
 }
 
-.jdc-interrogatorio-fala--jack .jdc-interrogatorio-nome { color: #F5A623; }
+.jdc-interrogatorio-fala--jack .jdc-interrogatorio-nome { color: var(--if-amber); }
 .jdc-interrogatorio-fala--kim .jdc-interrogatorio-nome { color: #8B0000; }
 
 .jdc-interrogatorio-fim {
@@ -2137,8 +2137,8 @@
   transform: translateX(-50%);
   z-index: 50;
   background: #1a1a1a;
-  border: 1px solid #F5A623;
-  color: #F5A623;
+  border: 1px solid var(--if-amber);
+  color: var(--if-amber);
   font-family: 'Share Tech Mono', monospace;
   font-size: 0.7rem;
   padding: 0.2rem 0.6rem;
@@ -2176,7 +2176,7 @@
 .jdc-auto-picker-title {
   font-family: 'Share Tech Mono', monospace;
   font-size: 0.8rem;
-  color: #F5A623;
+  color: var(--if-amber);
   text-align: center;
   margin-bottom: 1rem;
   text-transform: uppercase;
@@ -2212,12 +2212,12 @@
 }
 
 .jdc-auto-picker-item--ativa {
-  border-color: #F5A623;
+  border-color: var(--if-amber);
   background: #1a1a1a;
 }
 
 .jdc-auto-picker-item:hover {
-  border-color: #F5A623;
+  border-color: var(--if-amber);
 }
 
 .jdc-auto-picker-item-emoji {

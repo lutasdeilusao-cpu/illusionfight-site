@@ -1,7 +1,7 @@
 .games-carousel { display: grid; gap: 16px; }
 .games-carousel-controls { display: flex; align-items: center; justify-content: flex-end; gap: 9px; margin-top: -12px; }
-.games-carousel-controls button { display: grid; place-items: center; width: 36px; height: 36px; border: 1px solid rgba(0,229,255,.28); background: #091016; color: #00e5ff; font-size: 1.2rem; cursor: pointer; transition: border-color 180ms ease, background 180ms ease; }
-.games-carousel-controls button:hover { border-color: #00e5ff; background: rgba(0,229,255,.1); }
+.games-carousel-controls button { display: grid; place-items: center; width: 36px; height: 36px; border: 1px solid rgba(0,229,255,.28); background: #091016; color: var(--if-cyan); font-size: 1.2rem; cursor: pointer; transition: border-color 180ms ease, background 180ms ease; }
+.games-carousel-controls button:hover { border-color: var(--if-cyan); background: rgba(0,229,255,.1); }
 .games-carousel-controls span { color: #6f7d87; font: 600 0.58rem 'JetBrains Mono', monospace; letter-spacing: .08em; }
 .games-carousel-card {
   display: grid;
@@ -28,5 +28,5 @@
 .games-carousel-badge { padding: 4px 7px; color: #35df83; background: rgba(53,223,131,.1); border: 1px solid rgba(53,223,131,.25); font: 700 .52rem 'JetBrains Mono', monospace; letter-spacing: .08em; }
 .games-carousel-dots { display: flex; justify-content: center; gap: 6px; }
 .games-carousel-dot { width: 22px; height: 4px; padding: 0; border: 0; background: rgba(255,255,255,.15); cursor: pointer; transition: width 220ms ease, background 220ms ease; }
-.games-carousel-dot--active { width: 40px; background: #00e5ff; box-shadow: 0 0 9px rgba(0,229,255,.6); }
+.games-carousel-dot--active { width: 40px; background: var(--if-cyan); box-shadow: 0 0 9px rgba(0,229,255,.6); }
 @keyframes game-card-in { from { opacity: 0; transform: translateX(10px); } }

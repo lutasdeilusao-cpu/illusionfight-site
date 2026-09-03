@@ -16,7 +16,7 @@
 .duelo-vitoria__titulo {
   font-family: 'Rajdhani', sans-serif;
   font-size: 42px;
-  color: #F5A623;
+  color: var(--if-amber);
   margin: 0;
   letter-spacing: 8px;
 }
@@ -44,8 +44,8 @@
 
 .duelo-vitoria__btn--revanche {
   background: rgba(245, 166, 35, 0.1);
-  border: 1px solid #F5A623;
-  color: #F5A623;
+  border: 1px solid var(--if-amber);
+  color: var(--if-amber);
 }
 
 .duelo-vitoria__btn--menu {

@@ -6,7 +6,7 @@
   --grove:    #0d0d20;
   --olive:    #1a1a3a;
   --sage:     #2a2a6a;
-  --copper:   #00e5ff;
+  --copper:   var(--if-cyan);
   --brass:    #b400ff;
   --khaki:    #c8d8e8;
   --ghost:    #4a5a8a;

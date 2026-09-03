@@ -8,6 +8,6 @@
   color: var(--ldi-text-dim, #888);
   transition: all 0.12s;
 }
-.st-btn:hover { border-color: var(--ldi-cyan, #00eeff); color: var(--ldi-text, #ccc); }
-.st-btn--ativo { border-color: var(--ldi-cyan, #00eeff); color: var(--ldi-cyan, #00eeff); }
+.st-btn:hover { border-color: var(--ldi-cyan, var(--if-cyan)); color: var(--ldi-text, #ccc); }
+.st-btn--ativo { border-color: var(--ldi-cyan, var(--if-cyan)); color: var(--ldi-cyan, var(--if-cyan)); }
 .st-seta { font-size: 8px; }

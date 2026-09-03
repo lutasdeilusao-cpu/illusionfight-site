@@ -1,0 +1,1236 @@
+{
+  "nav": {
+    "links": {
+      "webtoon": "Webtoon",
+      "historias": "Historias",
+      "musicas": "Música",
+      "games": "Games",
+      "loja": "TIENDA",
+      "mundo": "Mundos",
+      "autor": "AUTOR",
+      "calendario": "CALENDARIO",
+      "assinar": "APOYAR"
+    },
+    "cta": "CUENTA GRATIS",
+    "aria": {
+      "menu": "Abrir menú",
+      "search": "Buscar",
+      "language": "Elige el idioma del sitio"
+    },
+    "languages": {
+      "pt": "Português",
+      "es": "Español",
+      "en": "English"
+    }
+  },
+  "runtime": {
+    "steam_demo_purchases_unavailable": "Las compras no están disponibles en esta Demo de Steam.",
+    "steam_demo_online_notice": "Esta Demo requiere conexión a Internet.",
+    "shell_voltar_games": "Volver a Juegos",
+    "shell_fechar": "Cerrar",
+    "shell_fechar_confirmar": "¿Cerrar la Demo de Illusion Fight?",
+    "shell_fechar_manual": "No se pudo cerrar automáticamente. Usa Alt+F4 o la X de la ventana."
+  },
+  "stats": {
+    "title": "UNIVERSO EN NÚMEROS",
+    "labels": [
+      "Jugadores en SDR",
+      "Año",
+      "Dolor real"
+    ]
+  },
+  "musicas": {
+    "subtitle": "La banda sonora del universo Lutas de Ilusão",
+    "clipesPlaceholder": "Videoclips en producción — próximamente."
+  },
+  "achievement": {
+    "titulo": "LOGRO DESBLOQUEADO",
+    "continuar": "CONTINUAR"
+  },
+  "login_gate": {
+    "texto": "Para acceder a {feature} necesitas una cuenta.",
+    "criar": "CREAR CUENTA GRATIS",
+    "entrar": "Ya tengo cuenta — entrar"
+  },
+  "modal_sem_fichas": {
+    "titulo": "CREA TU CUENTA GRATIS",
+    "desc": "Crea tu cuenta gratis ahora y gana 100 fichas para jugar {jogo} gratis.",
+    "criar_conta": "CREAR CUENTA GRATIS — GANA 100 FICHAS",
+    "voltar": "volver"
+  },
+  "modal_confirmacao_ficha": {
+    "titulo": "¿GASTAR 1 FICHA?",
+    "desc": "vas a gastar 1 ficha para desbloquear {jogo}.",
+    "duracao": "⏳ válido por 24 horas — ¡juega todo lo que quieras!",
+    "saldo_atual": "saldo actual",
+    "saldo_restante": "saldo después",
+    "confirmar": "gastar 1 ficha",
+    "cancelar": "cancelar"
+  },
+  "resultcard": {
+    "btn_x": "𝕏 Compartir",
+    "btn_whatsapp": "📱 WhatsApp",
+    "btn_download": "💾 Guardar",
+    "btn_copy": "📋 Copiar texto",
+    "copied": "✅ Copiado",
+    "fechar": "[ cerrar ]",
+    "jogador": "Jugador"
+  },
+  "ficha_gate": {
+    "carregando": "cargando...",
+    "gamefree": {
+      "titulo": "GRATIS",
+      "desc": "{nome} es un juego GRATIS — ¡no gasta fichas!",
+      "sub": "juega todo lo que quieras.",
+      "jogar": "[ JUGAR ]"
+    },
+    "confirmacao": {
+      "titulo": "¿GASTAR 1 FICHA?",
+      "desc": "vas a gastar 1 ficha para desbloquear {nome}.",
+      "duracao": "⏳ válido por 24 horas — ¡juega todo lo que quieras!",
+      "saldo_atual": "saldo actual",
+      "saldo_restante": "saldo después",
+      "gastando": "...",
+      "confirmar": "[ gastar 1 ficha ]",
+      "coletar_mais": "recoger más fichas"
+    },
+    "semfichas": {
+      "titulo": "SIN FICHAS",
+      "desc": "necesitas 1 ficha para jugar {nome}.",
+      "sub": "fichas diarias se reinician a medianoche.",
+      "coletar": "recoger fichas",
+      "assinar": "suscribirse elite — 10 fichas/día",
+      "voltar": "volver a los juegos"
+    }
+  },
+  "search": {
+    "placeholder": "Buscar personajes, capítulos, lore...",
+    "fechar": "ESC",
+    "vazio": "Sin resultados para \"{q}\"",
+    "premium": "PREMIUM"
+  },
+  "shop": {
+    "titulo": "ARTÍCULOS DEL UNIVERSO",
+    "fisico": "FÍSICO",
+    "digital": "DIGITAL",
+    "subtitulo": "fichas, DIX y artículos exclusivos",
+    "ver_tudo": "VER TODO →",
+    "comprar": "COMPRAR",
+    "adquirido": "✓ ADQUIRIDO",
+    "footer": "© 2026 Illusion Fight — Pague de forma segura vía Stripe",
+    "page_title": "Tienda — Illusion Fight",
+    "page_desc": "Compra fichas, DIX y artículos exclusivos del universo Illusion Fight.",
+    "page_og_desc": "Compra fichas, DIX y artículos exclusivos.",
+    "fichas": "fichas",
+    "item_exclusivo": "Artículo exclusivo"
+  },
+  "beta": {
+    "message": "🔧 ¡Estamos en beta! Lanzamiento oficial el {{date}}.",
+    "cta": "Reportar error"
+  },
+  "trial": {
+    "message": "Contenido exclusivo en acceso libre por tiempo limitado — ¡aprovéchalo!"
+  },
+  "footer": {
+    "columns": [
+      {
+        "title": "Navegación",
+        "links": [
+          "Webtoon",
+          "Historias",
+          "Músicas",
+          "Mundo"
+        ]
+      },
+      {
+        "title": "Universo",
+        "links": [
+          "Personajes",
+          "Games",
+          "Episodios",
+          "Rankings"
+        ]
+      },
+      {
+        "title": "Sobre",
+        "links": [
+          "Apoyar el Proyecto",
+          "Sobre el Autor",
+          "Newsletter",
+          "Contacto",
+          "FAQ",
+          "Términos",
+          "Privacidad",
+          "Cómo funciona"
+        ]
+      }
+    ],
+    "copyright": "© 2026 Illusion Fight · By: Isaias Leal · Arte generado con asistencia de IA"
+  },
+  "assinar": {
+    "titulo": "Tu clase. Tu elección.",
+    "subtitulo": "Cada tier desbloquea un nuevo nivel de acceso al universo. El ranking es real.",
+    "fichaAnchor": "En Free, recibes 3 fichas por día. En Primordial, 900 por mes. La elección es tuya.",
+    "cta": "Suscribirse",
+    "custosBtn": "Nuestros Costos",
+    "nota": "* Los precios en USD y EUR son aproximados. Pago via Stripe o PIX.",
+    "plano_atual": "✓ Plan actual",
+    "pagamento_pendente": "⚠️ Pago pendiente",
+    "cancela_em": "Cancela el {{data}}",
+    "fazer_downgrade": "Hacer downgrade",
+    "fazer_upgrade": "Hacer upgrade",
+    "aguarde": "Aguarde...",
+    "feedback": {
+      "sucesso": "✅ ¡Suscripción {{tier}} activada! Bienvenido al club.",
+      "cancelado": "Compra cancelada. No se realizaron cargos.",
+      "erro": "❌ {{mensagem}}"
+    },
+    "doacao": {
+      "title": "¿Prefieres apoyar sin suscribirte?",
+      "text": "Toda donación ayuda al proyecto a continuar.",
+      "benefit1": "€10 o más = 1 mes de ELITE gratis",
+      "benefit2": "€50 o más = 1 mes de PRIMORDIAL gratis",
+      "cta": "HACER UNA DONACIÓN"
+    },
+    "gate": {
+      "pre_lancamento": "Suscripciones abren el {{date}}"
+    },
+    "pix": {
+      "title": "¿Prefieres contribuir vía PIX?",
+      "text": "Cualquier valor es bienvenido.",
+      "key": "clavepix@email.com (placeholder)"
+    }
+  },
+  "quiz": {
+    "titulo": "PON A PRUEBA TU RANKING",
+    "subtitulo": "Tres mil millones de luchadores. Un ranking. ¿Cuánto sabes realmente sobre el LDI?",
+    "nexus_tag": "NEXUS PHANTASM — HERALDO DE LAS ARENAS",
+    "nexus_resultado": "NEXUS PHANTASM — RESULTADO OFICIAL",
+    "timer_aviso": "30 segundos por pregunta · la velocidad cuenta en el ranking final",
+    "ajuda_pular": "SALTAR",
+    "ajuda_universitarios": "UNIVERSITARIOS",
+    "ajuda_consultar": "¿A quién quieres consultar?",
+    "proxima": "SIGUIENTE →",
+    "ver_resultado": "VER RESULTADO →",
+    "rank_label": "posición estimada en el SDR",
+    "stat_acertos": "aciertos",
+    "stat_erros": "errores",
+    "stat_aproveitamento": "aprovechamiento",
+    "revisao_titulo": "REVISIÓN",
+    "revisao_correta": "Correcta:",
+    "btn_reiniciar": "JUGAR DE NUEVO",
+    "btn_home": "VOLVER AL INICIO",
+    "bloqueio_titulo": "Modo exclusivo ELITE / PRIMORDIAL",
+    "bloqueio_desc": "Suscríbete para desbloquear los modos RECRUTA y ELITE, historial de rangos y universitarios ilimitados.",
+    "bloqueio_btn": "VER PLANES",
+    "bloqueio_voltar": "Volver",
+    "modo_recruta_desc": "Básico — cualquier fan entra",
+    "modo_ranqueado_desc": "Gratis — 5 fáciles + 5 medias",
+    "modo_elite_desc": "Completo — del prólogo a Kronos",
+    "modo_free_badge": "GRATIS",
+    "modo_premium_badge": "PREMIUM",
+    "perguntas_count": "{n} preguntas",
+    "hud_questao": "PREGUNTA {n}/{total}",
+    "hud_acertos": "ACIERTOS: {n}",
+    "ajuda_gangue": "PANDILLA ({n})",
+    "modo_desc_ranqueado": "5 fáciles + 5 medias",
+    "modo_desc_elite": "7 fáciles + 7 medias + 6 difíciles",
+    "modo_desc_primordial": "10 de cada dificultad",
+    "rank_tier_elite": "ÉLITE",
+    "rank_tier_ranqueado": "RANQUEADO",
+    "rank_tier_aspirante": "ASPIRANTE",
+    "rank_tier_novato": "NOVATO",
+    "rank_tier_recruta": "RECLUTA",
+    "rank_tier_primordial": "PRIMORDIAL",
+    "rank_desc_elite": "Top mundial. Kronos te está observando.",
+    "rank_desc_ranqueado": "Competitivo. Pero aún hay camino al top 1000.",
+    "rank_desc_aspirante": "Sabes lo suficiente para sobrevivir. Por ahora.",
+    "rank_desc_novato": "Prometedor. Relee los capítulos y vuelve.",
+    "rank_desc_recruta": "Ni Thunderbolt habría perdido tanto."
+  },
+  "autor": {
+    "blocks": [
+      "Empecé a trabajar a los 13 años vendiendo caramelos en autobuses. En ese momento no lo sabía, pero estaba viviendo la historia que un día escribiría.",
+      "A los 17, en una clase de historia, me di cuenta de que nunca contábamos la historia de los pueblos originarios de Brasil, ese mundo entero antes del \"descubrimiento\". Vi ahí un universo esperando. Fue cuando Lutas de Ilusão empezó a existir. Lo escribía en Word, lo imprimía en la escuela y repartía las páginas. Cada semana la gente pedía el próximo capítulo. Escribía muy mal, pero la historia funcionaba.",
+      "Era la época de la Pandilla del Rock, un nombre que ni siquiera elegimos (lo puso la directora, después de que rompiéramos un jarrón en el patio, esa cosa siempre estaba tapada) y que se quedó para siempre. Años después, de los 21 a los 25, tuve una banda llamada O Problema (El Problema). LDI siempre estuvo ahí, en el fondo, esperando.",
+      "A los 25 me casé. Tengo una hija y una esposa maravillosas, y no fue fácil, pero si fuera fácil todo el mundo lo haría, jaja.",
+      "A los 30 llevaba 10 años como funcionario público, ganando menos de 200 dólares al mes, y no era feliz. Decidí cambiarlo todo: estudié duro para una beca, y ya en mi primer semestre de universidad tenía trabajo. Empecé a especializarme en porting de videojuegos para consola, Nintendo, Xbox y PlayStation.",
+      "El momento que lo definió todo ocurrió en mi primera empresa, con menos de un año desde el lanzamiento de la Switch 1. Nadie en la empresa sabía trabajar con esa consola. Yo era pasante, me dieron un kit de desarrollo, documentación y un juego: \"tienes un mes para lanzarlo, esta es tu prueba\". Así empecé.",
+      "Entré en la industria de los videojuegos y trabajé en proyectos internacionales, incluyendo títulos como Five Nights at Freddy's y una versión que llegó al universo de God of War. Pero quiero ser honesto: por mucho que ame esta industria, no es estable, y todo el mundo en el medio lo sabe. Si no lo sabías, ahora ya lo sabes. Pasé al desarrollo de software tradicional (empezando de nuevo desde junior). Hoy tengo 40 años y por fin estoy publicando esta historia.",
+      "Lutas de Ilusão es un proyecto independiente. Cada capítulo, cada página del webtoon, cada canción tiene un costo y un trabajo real detrás. Apoyar la obra es la única forma de mantenerla viva y creciendo."
+    ],
+    "cta": "APOYAR EL PROYECTO"
+  },
+  "site": {
+    "nome_curto": "Lutas de Ilusión",
+    "login": {
+      "titulo": "INICIAR SESIÓN",
+      "subtitulo": "Accede a tu cuenta en el SDR",
+      "email": "Correo",
+      "senha": "Contraseña",
+      "entrar": "ENTRAR",
+      "entrando": "ENTRANDO...",
+      "sem_conta": "¿No tienes cuenta?",
+      "cadastrar_link": "Regístrate",
+      "erro": "Error al iniciar sesión"
+    },
+    "cadastro": {
+      "titulo": "REGISTRO",
+      "subtitulo": "Guarda tu progreso, tus cartas y tus logros en cualquier dispositivo.",
+      "nome": "Nombre",
+      "email": "Correo",
+      "telefone": "Teléfono",
+      "senha": "Contraseña",
+      "confirmar_senha": "Confirmar Contraseña",
+      "cadastrar": "REGISTRARSE",
+      "cadastrando": "REGISTRANDO...",
+      "ja_tem_conta": "¿Ya tienes cuenta?",
+      "entrar_link": "Iniciar sesión",
+      "email_invalido": "Correo inválido",
+      "telefone_invalido": "El teléfono debe tener al menos 10 dígitos",
+      "senha_curta": "La contraseña debe tener al menos 6 caracteres",
+      "senhas_diferem": "Las contraseñas no coinciden",
+      "pais": "País",
+      "pais_selecione": "Selecciona tu país",
+      "pais_obrigatorio": "Selecciona tu país",
+      "sucesso": "Revisa tu correo para confirmar el registro.",
+      "erro_perfil": "Cuenta creada pero error al guardar perfil. Intenta de nuevo.",
+      "confirme_titulo": "Verifica tu correo",
+      "confirme_mensagem": "Enviamos un enlace de confirmación a tu correo electrónico. Abre tu bandeja de entrada y haz clic en el enlace para activar tu cuenta.",
+      "privacidade_aviso": "Tu cuenta se usa solo para guardar tu progreso e historial en los juegos. No usamos tus datos para entrenar IA, no vendemos datos a terceros, y este sitio no tiene anuncios ni ningún modelo de monetización basado en datos."
+    },
+    "games": {
+      "titulo": "JUEGOS",
+      "meta_title": "Juegos — Illusion Fight",
+      "meta_desc": "Juega los juegos de Illusion Fight online — cartas, RPG táctico, detective, tamagoshi, batallas arena y más. Juegos gratuitos y premium.",
+      "subtitulo": "explora más allá de la historia principal",
+      "secao_jogos": "JUEGOS",
+      "secao_conteudo": "CONTENIDO",
+      "inserir_ficha": "INSERTAR FICHA",
+      "jogar": "JUGAR",
+      "em_breve": "PRÓXIMAMENTE",
+      "credits": "LUTAS DE ILUSIÓN — 1 JUGADOR",
+      "toggle_ldi": "Games LDI",
+      "toggle_kernel": "Kernel Games",
+      "kernel_tagline": "PROTOCOLO DE ELIMINACIÓN",
+      "kernel_empty": "ningún protocolo disponible aún.",
+      "modal_lancamento": {
+        "titulo": "¿Te gustó? Hay mucho más por venir.",
+        "corpo": "Más capítulos se lanzarán el día del lanzamiento oficial de la plataforma. Esto es solo una muestra.",
+        "cta_guest": "Crea tu cuenta gratis — es rápido y no perderás nada de lo que conquistes aquí.",
+        "logado": "¡Gracias por leer! Te avisaremos el día del lanzamiento.",
+        "botao_conta": "CREAR CUENTA GRATIS",
+        "fechar": "Entendido"
+      },
+      "badges": {
+        "free": "GRATIS",
+        "lancado": "LANZADO",
+        "novo": "NUEVO",
+        "beta": "BETA",
+        "em_breve": "PRÓXIMAMENTE",
+        "fechado": "ARCHIVADO"
+      },
+      "nomes": {
+        "ldi": "LDI LEYENDAS",
+        "jack": "Jack Dream Beer",
+        "pesadelo": "PESADILLA PARTICULAR",
+        "gangues": "LDI GANGUES",
+        "tama": "LDI TAMA",
+        "trumps": "LDI TRUMPS",
+        "tatics": "LDI TATICS",
+        "minigames": "LDI MINI JUEGOS",
+        "duelo": "DUELO LDI",
+        "quiz": "Quiz SDR",
+        "leaderboard": "Clasificación",
+        "kernel_panic": "Kernel Panic",
+        "sliding_rafael": "Rompecabezas Deslizante",
+        "codigo_perdido": "Código Perdido",
+        "maze_rafael": "Laberinto",
+        "glitch_rafael": "Encuentra el Glitch",
+        "bullet_hell_rafael": "Lluvia de Proyectiles",
+        "stabilizer_rafael": "Señal Estable"
+      },
+      "taglines": {
+        "ldi": "RPG NARRATIVO, crea tu avatar, toma tus decisiones, enfréntate a tus batallas, ¡descubre la verdad!",
+        "jack": "idle noir. los sueños no tienen lógica. este tiene cerveza.",
+        "pesadelo": "20 casos. una conspiración. un amigo en peligro.",
+        "gangues": "Combate TURNO A TURNO clásico creando ficha y lanzando dados. Single Player y Multijugador Online.",
+        "tama": "No hay forma de que resistas esta cosa linda, pero si vas a tener uno, tienes que cuidarlo con responsabilidad.",
+        "trumps": "Cartas coleccionables en tu cuenta. Arma tu mazo. Single Player y Multijugador Online.",
+        "tatics": "¿Alguna vez pensaste en jugar Pokémon pero con batallas tácticas? Así es, y lo estoy probando. Pronto lo liberaré para todos.",
+        "minigames": "puzzles independientes. sin login. solo habilidad.",
+        "duelo": "¿Alguna vez pensaste en jugar Yu-Gi-Oh pero con batallas en un tablero? Así es, y lo estoy probando. Pronto lo liberaré para todos.",
+        "quiz": "prueba tu conocimiento del universo LDI.",
+        "leaderboard": "ranking global de jugadores.",
+        "kernel_panic": "Protocolo de Eliminación",
+        "sliding_rafael": "Reorganiza el flujo de datos fragmentado",
+        "codigo_perdido": "Identifica la palabra · 6 errores permitidos",
+        "maze_rafael": "laberinto con punto de control y penalidades",
+        "glitch_rafael": "encuentra la anomalía entre los datos",
+        "bullet_hell_rafael": "sobrevive al caos de proyectiles",
+        "stabilizer_rafael": "mantén la señal en la zona verde"
+      }
+    },
+    "leaderboard": {
+      "titulo": "RANKING GLOBAL",
+      "subtitulo": "Los mejores jugadores de Top Trumps del universo LDI",
+      "abas": {
+        "toptrumps": "Top Trumps",
+        "quiz": "Quiz",
+        "geral": "General",
+        "cuidadores": "Cuidadores"
+      },
+      "badges_label": "insignias",
+      "vitorias": "victorias",
+      "derrotas": "derrotas",
+      "cartas": "cartas",
+      "pontos": "pts",
+      "sem_rank": "Aún no apareces en el ranking.",
+      "sem_cuidadores": "Ningún cuidador registrado aún. ¡Adopta un Tamagoshi!",
+      "sem_cuidador_voce": "Aún no apareces en el ranking. ¡Adopta y cuida un Tamagoshi!",
+      "carregando": "CARGANDO..."
+    },
+    "perfil": {
+      "fichas": "FICHAS",
+      "abas": [
+        "Logros",
+        "Arena",
+        "Colección",
+        "Cuenta",
+        "Recompensas",
+        "Tamagoshi"
+      ],
+      "sair": "SALIR",
+      "admin_label": "ADMIN",
+      "admin_reset_btn": "[ RESETEAR LOGROS ]",
+      "admin_reset_confirm_titulo": "⚠️ RESETEAR LOGROS",
+      "admin_reset_confirm_desc": "Esto borrará TODOS tus logros desbloqueados y los registros de desbloqueo. Esta acción es irreversible.",
+      "admin_reset_confirmar": "SÍ, RESETEAR",
+      "admin_reset_cancelar": "CANCELAR",
+      "admin_reset_resetando": "RESETEANDO...",
+      "meu_perfil": "Mi Perfil",
+      "abas_conquistas": "Logros",
+      "abas_gangues": "Gangues",
+      "abas_colecao": "CARTAS TOP TRUMPS",
+      "abas_conta": "Cuenta",
+      "abas_recompensas": "Recompensas",
+      "abas_tamagoshi": "Tamagoshi",
+      "coletar": "RECOGER",
+      "tier_ranqueado": "RANQUEADO",
+      "tier_elite": "ÉLITE",
+      "tier_primordial": "PRIMORDIAL",
+      "conta_titulo": "INFORMACIÓN DE LA CUENTA",
+      "conta_nome": "Nombre",
+      "conta_email": "Email",
+      "conta_tier": "Tier",
+      "conta_pais": "País",
+      "billing_titulo": "SUSCRIPCIÓN",
+      "billing_no_subscription": "Aún no tienes una suscripción activa.",
+      "billing_expired": "Tu suscripción ha expirado.",
+      "billing_ver_planos": "VER PLANES",
+      "billing_plan": "Plan",
+      "billing_next_charge": "Próximo cobro",
+      "billing_access_until": "Acceso hasta",
+      "billing_dias_restantes": "{n} día(s) restante(s)",
+      "billing_cancelar_btn": "Cancelar Suscripción",
+      "billing_cancelando": "Cancelando...",
+      "billing_renovar_btn": "Renovar Suscripción",
+      "billing_renovando": "Redirigiendo...",
+      "billing_confirm_cancel": "¿Confirmar cancelación? El acceso continúa hasta el final del período pagado.",
+      "billing_cancel_success": "Cancelación programada. Acceso mantenido hasta el final del período.",
+      "billing_error": "Error",
+      "billing_status_active": "Activa",
+      "billing_status_canceled": "Cancelada (acceso hasta fin del período)",
+      "billing_status_past_due": "Pago pendiente",
+      "billing_status_expired": "Expirada",
+      "billing_status_none": "Sin suscripción",
+      "share_titulo": "LOGRO MENSUAL",
+      "share_desc": "¿Compartiste LDI en X, YouTube, TikTok o alguna red este mes? Pega el enlace para auditoría y gana el logro 🔥",
+      "share_aprovado": "✓ Compartir aprobado este mes. ¡Vuelve el próximo mes!",
+      "share_pendente": "⏳ Enlace enviado — en análisis.",
+      "share_rejeitado": "✗ Enlace rechazado.",
+      "share_ja_enviou": "Ya enviaste un enlace este mes.",
+      "share_placeholder": "https://x.com/tuperfil/status/...",
+      "share_enviar": "ENVIAR PARA ANÁLISIS",
+      "progresso_titulo": "TU PROGRESO",
+      "progresso_100_parabens": "¡Felicidades! ¡Completaste todo el progreso!",
+      "progresso_resgatando": "RECOGIENDO...",
+      "progresso_resgatar": "RECOGER RECOMPENSA (500 DIX)",
+      "progresso_ja_resgatou": "¡Recompensa ya recogida! +500 DIX",
+      "tama_carregando": "CARGANDO...",
+      "tama_meu_tamagoshi": "🥚 Mi Tamagoshi",
+      "tama_sem_tamagoshi": "aún no tienes un tamagoshi.",
+      "tama_ir_pegar": "🥚 Ve a buscar tu Tamagoshi",
+      "tama_limite_trocas": "límite de intercambios:",
+      "tama_free_troca": "1 cada 3 meses",
+      "tama_elite_troca": "1 por mes",
+      "tama_primordial_troca": "2 por mes (15 días entre cada)",
+      "tama_propor_troca": "[ PROPONER INTERCAMBIO ]",
+      "tama_gerando": "GENERANDO...",
+      "tama_input_key": "pega la key de 8 chars...",
+      "tama_confirmar_troca": "[ CONFIRMAR INTERCAMBIO ]",
+      "tama_confirmando": "CONFIRMANDO...",
+      "tama_sua_key": "tu key (válida por 24h):",
+      "tama_clique_copiar": "clic para copiar",
+      "tama_badges_titulo": "🏅 insignias ganadas",
+      "tama_fama_titulo": "🏛️ salón de la fama",
+      "tama_sem_nome": "sin nombre",
+      "tama_jogar": "🎮 Jugar Tamagoshi",
+      "troca_erro_vivo": "solo se puede intercambiar tamagoshi vivo",
+      "troca_key_gerada": "¡clave generada! comparte con otro jugador",
+      "troca_cole_key": "pega la clave primero",
+      "troca_confirmada": "intercambio confirmado! {emoji} {nome} llegó: {fala}",
+      "troca_nova_criatura": "nueva criatura",
+      "troca_key_copiada": "¡clave copiada!",
+      "fama_badges": "{n} insignias",
+      "slot_1": "Slot 1",
+      "slot_2": "Slot 2",
+      "troca_notif_ver": "ver tamagoshi",
+      "gangues_titulo": "🥊 LDI GANGUES",
+      "gangues_fichas": "Fichas",
+      "gangues_xp_total": "XP Total",
+      "gangues_inimigos": "Enemigos Desbloqueados",
+      "gangues_sem_fichas": "¡Sin fichas de personaje aún — crea tu luchador!",
+      "gangues_ir_para": "IR A LDI GANGUES →",
+      "gangues_atributos": "Atributos",
+      "colecao_season_1": "TEMPORADA 1",
+      "colecao_season_2": "TEMPORADA 2",
+      "colecao_coming_soon": "PRÓXIMAMENTE",
+      "colecao_obtidas": "obtenidas",
+      "colecao_faltando": "faltantes",
+      "colecao_obs": "Las cartas atenuadas aún no han sido descubiertas. ¡Juega Top Trumps Single Player para desbloquearlas!",
+      "conquistas_secreto": "Logro secreto",
+      "conquistas_desbloqueado": "✓ DESBLOQUEADO",
+      "conquistas_bloqueado": "🔒 BLOQUEADO",
+      "recomp_fichas_disponiveis": "fichas disponibles",
+      "recomp_admin_bypass": "★ cuenta admin — bypass de fichas activo",
+      "recomp_ficha_diaria": "FICHA DIARIA",
+      "recomp_fichas_disponiveis_valor": "+ {n} fichas disponibles",
+      "recomp_fichas_coletadas_hoje": "fichas recogidas hoy",
+      "recomp_clique_coletar": "clic para recoger",
+      "recomp_reset_meia_noite": "se reinicia a medianoche · {n} fichas/día",
+      "recomp_coletar_btn": "RECOGER",
+      "recomp_coletadas_msg": "+{n} fichas recogidas!",
+      "recomp_como_ganhar": "CÓMO GANAR FICHAS",
+      "recomp_historico": "HISTORIAL",
+      "recomp_motivo_diaria": "fichas diarias",
+      "recomp_motivo_achievement": "logro desbloqueado",
+      "recomp_motivo_webtoon": "episodio leído",
+      "recomp_motivo_livro": "capítulo leído",
+      "recomp_motivo_indicacao": "referencia calificada",
+      "recomp_motivo_compartilhamento": "compartir aprobado",
+      "recomp_motivo_jack": "jack dream beer",
+      "recomp_motivo_lendas": "lendas do ldi",
+      "recomp_motivo_trumps": "top trumps",
+      "recomp_motivo_outro": "{motivo}",
+      "recomp_acao_livro": "Leer capítulo del libro",
+      "recomp_acao_webtoon": "Leer episodio del webtoon",
+      "recomp_acao_achievement": "Desbloquear logro",
+      "recomp_acao_indicar": "Recomendar un amigo",
+      "recomp_acao_compartilhar": "Compartir resultado",
+      "recomp_acao_elite": "Suscribirse Elite",
+      "recomp_acao_primordial": "Suscribirse Primordial",
+      "recomp_acoes_fichas": "+{n} 🎰"
+    }
+  },
+  "admin": {
+    "titulo": "ADMIN",
+    "painel": "PANEL ADMIN",
+    "submissao_aprovada": "Aprobada",
+    "submissao_rejeitada": "Rechazada",
+    "submissao_pendente": "Pendiente",
+    "acoes": "Acciones",
+    "aprovar": "APROBAR",
+    "rejeitar": "RECHAZAR",
+    "sem_submissoes": "Sin envios pendientes.",
+    "carregando": "CARREGANDO...",
+    "btn_voltar": "VOLVER",
+    "auditoria_titulo": "AUDITORÍA — COMPARTIDOS PENDIENTES",
+    "pendentes_count": "{n} pendientes",
+    "acesso_negado": "Acceso denegado."
+  },
+  "pages": {
+    "musicas": {
+      "titulo": "MÚSICAS",
+      "videoclipes": "Videoclips",
+      "em_breve": "PRÓXIMAMENTE"
+    },
+    "livro": {
+      "titulo": "CAPÍTULOS",
+      "continuar_lendo": "→ Seguir leyendo",
+      "cap": "CAP.",
+      "em_breve": "PRÓXIMAMENTE",
+      "premium": "PREMIUM",
+      "nao_encontrado": "Este capítulo aún no ha sido publicado.",
+      "voltar_indice": "← VOLVER AL ÍNDICE",
+      "capitulo": "CAPÍTULO",
+      "config_leitura": "Configuraciones de lectura",
+      "fonte": "Fuente",
+      "tipo": "Tipo",
+      "largura": "Ancho",
+      "estreito": "Estrecho",
+      "medio": "Medio",
+      "largo": "Ancho",
+      "padrao": "Por defecto",
+      "serif": "Serif",
+      "sans": "Sans",
+      "mono": "Mono"
+    },
+    "historias": {
+      "titulo": "HISTORIAS",
+      "intro": "Todo el universo de lectura de Illusion Fight en un solo lugar: la línea principal, los Cuentos de Ilusión y otros mundos.",
+      "og_title": "Historias | Illusion Fight",
+      "og_desc": "Lee online la línea principal de Lutas de Ilusión, los Cuentos de Ilusión y otras historias del mismo creador.",
+      "destaque": "DESTACADO",
+      "secao_ldi": "Lutas de Ilusión",
+      "secao_ldi_desc": "El universo principal — la historia que originó el proyecto.",
+      "outras": "Otros Universos",
+      "outras_desc": "Historias fuera de la línea principal: otros mundos, el mismo autor.",
+      "abrir": "Abrir",
+      "caps": "{n} capítulos",
+      "cap_1": "1 capítulo"
+    },
+    "obra": {
+      "voltar": "← HISTORIAS",
+      "voltar_livro": "← VOLVER",
+      "sobre_universo": "El universo",
+      "capitulos": "Capítulos",
+      "ler": "Leer",
+      "continuar": "→ Seguir leyendo",
+      "por": "por",
+      "em_breve_aviso": "Este libro todavía no está disponible aquí. Lo estará — gratis — pronto.",
+      "amazon": "Ver en Amazon",
+      "selo_dark_fantasy": "Dark Fantasy",
+      "idioma_unico": "Solo en portugués por ahora",
+      "nao_encontrado": "Historia no encontrada."
+    },
+    "mundoHub": {
+      "titulo": "UNIVERSOS",
+      "intro": "Cada historia del proyecto tiene su mundo. Elige un universo y explora la lore por dentro.",
+      "og_title": "Universos | Illusion Fight",
+      "og_desc": "Los tres universos de Isaias Leal: Lutas de Ilusión, El Mundo de las Sombras y Mar de Cenizas. Lore, razas, mapas y glosarios."
+    },
+    "universo": {
+      "voltar": "← UNIVERSOS",
+      "recolher": "Contraer",
+      "verbetes": "{n} entradas",
+      "forca": "Fuerza",
+      "falha": "Fallo"
+    },
+    "contos": {
+      "linha_principal": "Línea Principal",
+      "linha_contos": "Cuentos de Ilusión",
+      "titulo": "CUENTOS DE ILUSIÓN",
+      "descricao": "Historias paralelas del mundo de Lutas de Ilusão. Otros personajes, otras experiencias — que pueden cruzar o no la línea principal.",
+      "conto": "CUENTO",
+      "og_title": "Cuentos de Ilusión | Lutas de Ilusão",
+      "og_desc": "Historias paralelas del universo Lutas de Ilusão. Otros personajes, otras experiencias, el mismo mundo.",
+      "cap": "CAP.",
+      "capitulo": "Capítulo",
+      "capitulos": "capítulos",
+      "farol_titulo": "¿Qué quieres sentir hoy?",
+      "farol_intro": "Faro de peso — cada historia tiene una intensidad. Elige por lo que tienes ganas de sentir.",
+      "farol_todas": "Todas",
+      "peso_label": "Peso",
+      "peso_leve": "Ligera",
+      "peso_media": "Media",
+      "peso_pesada": "Pesada",
+      "peso_leve_desc": "Para reír, para respirar. Sin peso en el pecho.",
+      "peso_media_desc": "Tiene emoción y un golpe al estómago, pero cabe en un día normal.",
+      "peso_pesada_desc": "No se guarda nada. Léela cuando estés listo.",
+      "canon_sim": "Canónico",
+      "canon_nao": "Experimental",
+      "tema_crime": "Crimen",
+      "tema_violencia": "Violencia",
+      "tema_familia": "Familia",
+      "tema_amizade": "Amistad",
+      "tema_infancia": "Infancia",
+      "tema_luto": "Duelo",
+      "tema_humor": "Humor",
+      "tema_musica": "Música",
+      "tema_luta": "Lucha",
+      "tema_superacao": "Superación",
+      "tema_solidao": "Soledad",
+      "tema_adocao": "Adopción",
+      "tema_sobrenatural": "Sobrenatural",
+      "tema_opressao": "Opresión",
+      "tema_horror_cosmico": "Horror cósmico",
+      "tema_resistencia": "Resistencia",
+      "farol_vazio": "Ninguna historia con ese filtro. Prueba otro peso."
+    },
+    "webtoon": {
+      "titulo": "WEBTOON",
+      "continuar": "→ Continuar",
+      "voltar": "← VOLVER",
+      "nao_encontrado": "Episodio no encontrado.",
+      "em_breve": "PRÓXIMAMENTE",
+      "anterior": "← Episodio Anterior",
+      "proximo": "Próximo Episodio →",
+      "pagina": "Página"
+    },
+    "mundo": {
+      "titulo": "EL UNIVERSO",
+      "subtitulo": "Bravara. 20XX. Un arena donde el dolor es 100% real.",
+      "bravara": "BRAVARA",
+      "timeline": "LÍNEA DE TIEMPO",
+      "ldi": "LUTAS DE ILUSIÓN",
+      "ranking_sdr": "Ranking SDR",
+      "xakaxi": "LOS XAKAXI",
+      "glossario": "GLOSARIO",
+      "personagens_titulo": "CONOCE A LOS PERSONAJES",
+      "ver_todos": "VER TODOS",
+      "timeline_prev": "← ANTERIOR",
+      "timeline_next": "SIGUIENTE →",
+      "og_title": "Mundo — Lutas de Ilusión",
+      "og_desc": "Explora el universo de Lutas de Ilusión — Bravara, el arena LDI, la tribu Xakaxi, línea de tiempo, glosario y toda la lore completa.",
+      "premium": "PREMIUM",
+      "premium_ritual": "Ritual del Sellamiento detallado, fichas de Yawanari, Powa y Tawira, y las Sagas Primordiales"
+    },
+    "personagens": {
+      "voltar": "← PERSONAJES",
+      "nao_encontrado": "Personaje no encontrado.",
+      "idade": "Edad",
+      "status": "Estado",
+      "grupo": "Grupo",
+      "arma": "Arma",
+      "estilo": "Estilo",
+      "elemental": "Elemental",
+      "anos": "años",
+      "relacoes": "Relaciones"
+    },
+    "autor": {
+      "by": "BY:",
+      "name": "ISAIAS LEAL"
+    },
+    "assinar": {
+      "og_title": "Suscríbete — Lutas de Ilusión",
+      "og_desc": "Elige tu tier: Ranqueado, Elite o Primordial. Cada nivel desbloquea nuevos accesos al universo Lutas de Ilusión."
+    },
+    "leaderboard": {
+      "quiz_sdr": "QUIZ SDR",
+      "sua_posicao": "TU POSICIÓN",
+      "jogador": "Jugador",
+      "vitorias": "V",
+      "derrotas": "D",
+      "cartas": "Cartas",
+      "pontos": "Pts",
+      "cuidador": "Cuidador",
+      "partidas": "Partidas",
+      "badges": "Insignias"
+    },
+    "helmet": {
+      "home": "Lutas de Ilusión — El dolor es 100% real",
+      "musicas": "Música — Lutas de Ilusión",
+      "livro": "Libro — Lutas de Ilusión",
+      "webtoon": "Webtoon — Lutas de Ilusión",
+      "mundo": "Mundo — Lutas de Ilusión",
+      "autor": "Autor — Lutas de Ilusión",
+      "personagens": "Personajes — Lutas de Ilusión",
+      "assinar": "Suscríbete — Lutas de Ilusión",
+      "personagem_nao_encontrado": "Personaje no encontrado — Lutas de Ilusión",
+      "capitulo_nao_encontrado": "Capítulo no encontrado — Lutas de Ilusión"
+    },
+    "notFound": {
+      "titulo": "Página no encontrada — Lutas de Ilusión",
+      "mensagem": "Esta página no existe.",
+      "redirect": "Serás redirigido a la página principal en",
+      "cta": "Ir ahora"
+    }
+  },
+  "pp": {
+    "intro": {
+      "texto": "Marelia, 1954. No para de llover hace tres días.\n\nNo eres detective.\n\nPero al sueño no le importa.",
+      "titulo": "PESADILLA PRIVADA",
+      "pular": "toca para saltar"
+    },
+    "menu": {
+      "marelia": "Marelia, 1954",
+      "titulo_linha1": "PESADILLA",
+      "titulo_linha2": "PRIVADA",
+      "selecione_slot": "Selecciona un guardado",
+      "slot_label": "Guardado",
+      "slot_vazio": "Vacío",
+      "continuar": "● CONTINUAR",
+      "nivel_casos": "nivel {nivel}, {casos} casos resueltos",
+      "novo_jogo": "○ NUEVO JUEGO",
+      "voltar_site": "← volver al sitio",
+      "confirmar": "¿estás seguro?\nesto borra todo.",
+      "nao": "NO",
+      "sim": "SÍ"
+    },
+    "final": {
+      "msg_jack": "fue un placer trabajar contigo.\nmarelia seguirá necesitando a alguien como tú.",
+      "jack_label": "Jack Cachorrão",
+      "creditos_titulo": "PESADILLA PRIVADA",
+      "creditos_temporada": "Temporada 1",
+      "creditos_historia": "una historia de",
+      "creditos_marelia": "MARELIA, 1954",
+      "creditos_escrito": "escrito y dirigido por",
+      "creditos_autor": "ISAIAS LEAL",
+      "creditos_obrigado": "gracias por jugar",
+      "creditos_prox_temp": "nos vemos la próxima temporada.",
+      "nivel_casos_label": "nivel {nivel} · {casos} casos resueltos",
+      "compartilhar": "compartir con amigos",
+      "voltar_inicio": "volver al inicio",
+      "link_copiado": "¡enlace copiado!"
+    },
+    "convo": {
+      "caso_aberto": "Caso abierto.",
+      "caso_encerrado": "Caso cerrado.",
+      "jack_nome": "Jack Cachorrão",
+      "online": "● en línea"
+    },
+    "batalha": {
+      "titulo": "CONFRONTACIÓN · NIVEL {nivel}",
+      "comeca": "Comienza la confrontación.",
+      "atacar": "⚔️ ATACAR",
+      "inimigo_agindo": "⏳ Enemigo actuando...",
+      "vitoria": "✓ ¡Victoria!",
+      "derrota": "✗ Derrota",
+      "jack_ataca": "Jack ataca: {dano} de daño",
+      "inimigo_ataca": "{nome} ataca: {dano} de daño",
+      "inimigo_derrotado": "¡Enemigo derrotado!",
+      "jack_derrotado": "Jack fue derrotado...",
+      "critico": "⚡ ¡CRÍTICO!",
+      "resultado": "resultado: {valor}",
+      "vitoria_msg": "⚔️ ¡VICTORIA!",
+      "derrota_msg": "💀 ¡Fuiste derrotado!",
+      "voce_ataca": "Atacas y causas {dano} de daño.",
+      "inimigo_ataca_log": "{nome} ataca y causa {dano} de daño."
+    },
+    "local": {
+      "confronto": "Confrontación Necesaria",
+      "puzzle": "Resolver Puzzle para Investigar",
+      "investigar": "Investigar Local",
+      "voltar_dossier": "← Volver al Dossier",
+      "evidencia_encontrada": "EVIDENCIA ENCONTRADA",
+      "todos_investigados": "Todos los locales investigados",
+      "voltar_dossier_btn": "VOLVER AL DOSSIER",
+      "restantes": "Local ({n} restantes)",
+      "investigar_btn": "INVESTIGAR",
+      "investigar_puzzle_btn": "INVESTIGAR (puzzle)",
+      "hp_label": "HP",
+      "dossier_voltar": "← dossier",
+      "mapa_voltar": "← mapa",
+      "puzzle_instrucao": "Resuelve el puzzle para investigar este local.",
+      "puzzle_nenhum": "No se necesita puzzle."
+    },
+    "dossier": {
+      "caso_encerrado": "CASO CERRADO",
+      "reputacao": "+{valor} reputación",
+      "voltar_mapa": "VOLVER AL MAPA",
+      "inocente": "¡Inocente! Perdiste reputación.",
+      "suspeitos": "SOSPECHOSOS",
+      "locais": "LUGARES",
+      "briefing": "Briefing del Caso",
+      "ver_abertura": "Ver conversación inicial",
+      "pistas_label": "PISTAS RECOLECTADAS",
+      "evidencias": "EVIDENCIAS",
+      "resolvido_badge": "RESUELTO ✓",
+      "sem_requisito": "sin requisito",
+      "novo_fio": "NUEVO HILO"
+    },
+    "acusar": {
+      "errada": "pista equivocada. inténtalo de nuevo.",
+      "bloqueada": "caso fallido. reinicia para intentar de nuevo.",
+      "incompleta": "completa todas las pistas antes de acusar.",
+      "colete_mais": "Recoge {n} pista{plural} más",
+      "btn": "ACUSAR A {nome}"
+    },
+    "phone": {
+      "chamada": "LLAMADA ENTRANTE",
+      "atender": "📞 RESPONDER",
+      "recusar": "✕ RECHAZAR",
+      "suspeito_label": "Sospechoso"
+    },
+    "story": {
+      "fio_label": "⚡ HILO DE CONSPIRACIÓN"
+    },
+    "caderno": {
+      "titulo": "Cuaderno de Sospechas",
+      "desc": "Las pistas de tipo Hilo recolectadas forman un patrón. Alguien está conectando todos los casos.",
+      "progresso": "Progreso de la conspiración: {pct}%",
+      "vazio": "Ninguna pista Hilo recolectada aún. Resuelve casos para encontrar conexiones.",
+      "conspiracao_5": "Un nombre sigue apareciendo. Kim. El dueño del bar. Siempre presente, nunca sospechoso.",
+      "conspiracao_10": "Las piezas empiezan a encajar. Alguien está orquestando el crimen en Marelia. Alguien que conoce a todos los involucrados.",
+      "conspiracao_15": "El patrón es claro. Kim está en el centro de todo. Cada caso, cada muerte, cada pista lleva al bar de la esquina."
+    },
+    "dormindo": {
+      "titulo": "INCONSCIENTE",
+      "texto": "Fuiste derrotado. El sueño se oscurece. Jack está tirado en el callejón, la lluvia lavando la sangre del asfalto.\n\nEn unos minutos, alguien lo encontrará. O tal vez nadie lo haga. Esto es Marelia.",
+      "acordar": "DESPERTAR"
+    },
+    "fimscreen": {
+      "titulo": "FIN DE LA PESADILLA",
+      "completo": "Recolectaste suficientes pistas. Kim fue confrontado con todas las evidencias. El sueño termina con claridad — pero los recuerdos permanecen.",
+      "fragmentado": "No conseguiste todas las pistas. Kim admite parte de los crímenes, pero escapa parcialmente. El sueño termina con dudas — tal vez haya más por descubrir.",
+      "reputacao_label": "reputación total",
+      "casos_label": "casos resueltos",
+      "fios_label": "Pistas Hilo recolectadas",
+      "voltar_mapa": "VOLVER AL MAPA"
+    },
+    "resolucao": {
+      "caso_encerrado": "CASO CERRADO",
+      "novo_fio": "NUEVO HILO",
+      "voltar_mapa": "VOLVER AL MAPA",
+      "ver_caderno": "VER CUADERNO"
+    },
+    "mapa": {
+      "subtitulo": "Marelia, 1954. El sueño te eligió.",
+      "sem_requisito": "sin requisito"
+    },
+    "abertura": {
+      "investigar": "INVESTIGAR"
+    },
+    "geral": {
+      "reputacao": "★ {valor}",
+      "casos_resolvidos": "{n}/{total}",
+      "hp": "HP: {hp}/30"
+    },
+    "feed": {
+      "revisitar": "REVISITAR",
+      "investigar": "INVESTIGAR",
+      "mensagens": "MENSAJES",
+      "stories_vazio": "Aún no se han recolectado pistas.\n\nInvestiga los lugares de los casos para revelar evidencias.",
+      "status_reputacao": "REPUTACIÓN",
+      "status_casos": "CASOS RESUELTOS",
+      "status_nivel": "NIVEL",
+      "status_fios": "HILOS DE CONSPIRACIÓN",
+      "topbar_nome": "Pesadilla Privada",
+      "topbar_sub": "Marelia, 1954 · Nivel {nivel}",
+      "loading": "CARGANDO...",
+      "caderno_vazio": "\"aún no sé quién es.\npero cada pista conecta un punto con otro.\""
+    },
+    "guest": {
+      "titulo": "Jugando sin cuenta",
+      "desc": "Tu progreso (casos resueltos, pistas, reputación) se mantiene solo durante esta sesión: al recargar la página se pierde todo y empiezas de cero. Para mantener tu progreso entre visitas, crea una cuenta gratis.",
+      "criar_conta": "Crear cuenta gratis"
+    }
+  },
+  "cookie": {
+    "text": "Este sitio utiliza cookies técnicas y de terceros (YouTube, TikTok, X) para funcionar correctamente. Al continuar navegando, aceptas esto.",
+    "accept": "ENTENDIDO"
+  },
+  "custos": {
+    "title": "Cómo existe este proyecto",
+    "intro": "Illusion Fight es un proyecto independiente. Una persona, 23 años de desarrollo, lanzando en 2026. Sin inversor. Sin equipo. Solo un desarrollador que trabaja de 9 a 18 en una empresa, y después de eso pasa noches y fines de semana enteros construyendo esto. Feriados, madrugadas, cada hora libre — mano, así es como funciona.",
+    "s1": {
+      "title": "Qué cuesta mantener esto funcionando",
+      "sub": "Infraestructura actual",
+      "item1": "Dominio illusionfight.com",
+      "item2": "Supabase — base de datos, autenticación, funciones de servidor",
+      "item3": "Stripe — procesamiento de pagos",
+      "sub2": "Qué costará cuando crezca",
+      "body": "Hoy los costos son bajos porque la base de usuarios todavía es pequeña. Cuando escale — y va a escalar — va a necesitar servidor dedicado, más capacidad de base de datos, más procesamiento. Cada funcionalidad online tiene un costo real. Multijugador en tiempo real, guardado de progreso, ranking global — todo eso usa infraestructura que cobra por uso."
+    },
+    "s2": {
+      "title": "Por qué las cuentas gratuitas tienen límites",
+      "body": "No es un castigo. Es matemática. Si mil personas juegan gratis y nadie contribuye, el proyecto cierra o los juegos se desconectan. Los límites existen para que el proyecto pueda existir mientras ofrece acceso real a quienes no pueden pagar. A medida que la base crece, si el número de colaboradores no acompaña, los límites de las cuentas gratuitas van a necesitar ajustarse. Eso se comunicará aquí con anticipación, sin sorpresas."
+    },
+    "s3": {
+      "title": "En qué se usa tu suscripción",
+      "item1": "Infraestructura para todos — incluyendo quienes no pagan",
+      "item2": "Producción de nuevos episodios del webtoon",
+      "item3": "Nuevos juegos y actualizaciones",
+      "item4": "Tiempo — el recurso más escaso aquí"
+    },
+    "s4": {
+      "title": "Algo que vale la pena decir",
+      "body": "Ningún centavo va a publicidad. No se venden datos. Sin anuncios. El producto es el producto.",
+      "thanks": "Si lo usas, lo disfrutas y puedes contribuir — gracias. Eso mantiene las luces encendidas.",
+      "free": "Si no puedes contribuir ahora — está bien. Disfruta lo que está disponible."
+    },
+    "footer": "Esta página se actualiza cuando los costos cambian.",
+    "cta": "Ver planes"
+  },
+  "calendar": {
+    "meta_title": "Calendario de la Temporada 1 — Illusion Fight",
+    "kicker": "Protocolo de estreno // T1",
+    "title": "El futuro ya tiene fecha.",
+    "manifesto": "Nada aquí queda bloqueado para siempre. Cada capítulo será gratis para todos. La única diferencia es cuándo.",
+    "cadence": "Lunes alternos, sin fallar. Primer drop: 30/11/2026.",
+    "levels_title": "Elige cuándo entrar",
+    "you": "Estás aquí",
+    "level_subscriber": "Suscriptor",
+    "level_account": "Cuenta gratis",
+    "level_public": "Público",
+    "cost_subscriber": "Plan activo",
+    "cost_account": "€ 0 · con sesión",
+    "cost_public": "€ 0 · sin sesión",
+    "delay": "Retraso",
+    "days": "días",
+    "launch": "Caps. al estreno",
+    "tales": "Cuentos exclusivos",
+    "completion_title": "Cuándo se completa cada obra",
+    "work_ldi": "Lutas de Ilusão T1 · 18 caps",
+    "work_shadows": "El Mundo de las Sombras · 6 caps",
+    "work_ashes": "Mar de Cenizas · 6 caps",
+    "drops_title": "Línea temporal",
+    "current": "Estás aquí",
+    "next": "Próxima señal",
+    "finale": "Temporada 1: 100% pública",
+    "channels_label": "Canales del calendario",
+    "channel_chapters": "Capítulos",
+    "channel_webtoon": "Webtoon",
+    "channel_games": "Games",
+    "channel_music": "Música",
+    "channel_partners": "Socios",
+    "signal_pending": "Señal aún no transmitida",
+    "channel_empty": "Este canal tiene su propio calendario. Las fechas oficiales aparecerán aquí cuando se autorice la transmisión.",
+    "unlocks_on": "Se libera para ti el",
+    "earlier_conta": "Crea una cuenta y lee el",
+    "earlier_elite": "Suscríbete y lee el"
+  },
+  "home": {
+    "eyebrow": "PORTAL // TRANSMISIÓN ACTIVA",
+    "section_latest": "Lanzamientos",
+    "section_webtoon": "Webtoon",
+    "section_webtoon_hint": "Nuevos episodios y lanzamientos",
+    "section_worlds": "Mundos",
+    "section_characters": "Personajes destacados",
+    "section_characters_category": "Elenco",
+    "section_stories": "Historias",
+    "section_chapters": "Libros en lanzamiento",
+    "game_previous": "Juego anterior",
+    "game_next": "Siguiente juego",
+    "game_select": "Seleccionar juego",
+    "section_music_category": "Música",
+    "section_music": "Últimos lanzamientos",
+    "section_social": "Redes sociales",
+    "section_networks": "Sigue Illusion Fight",
+    "section_games_category": "Games",
+    "section_games": "Últimos games",
+    "previous": "Anterior",
+    "next": "Siguiente",
+    "meta_title": "Illusion Fight — webtoon, libro y juegos gratis",
+    "meta_description": "Explora Illusion Fight, un universo brasileño de acción con webtoon, webnovela, personajes, música y juegos indie gratis.",
+    "og_description": "Lee el webtoon y el libro, conoce a los personajes y juega juegos indie gratis en el universo Illusion Fight."
+  },
+  "hero": {
+    "title": "LUTAS DE ILUSIÓN",
+    "subtitle": "En un mundo donde el arena es virtual, las cicatrices son reales. Siempre lo fueron.",
+    "cta": {
+      "primary": "LEER AHORA",
+      "secondary": "SABER MÁS"
+    },
+    "aria": {
+      "slide": "Diapositiva",
+      "previous": "Diapositiva anterior",
+      "next": "Siguiente diapositiva"
+    },
+    "slide1": {
+      "tag": "Lutas de Ilusión — Libro 1",
+      "titulo": "La Ilusión",
+      "subtitulo": "Kim tiene 17 años, vende caramelos en autobuses y acaba de entrar a una arena donde el dolor es 100% real. Tres mil millones de jugadores. Cero preparación.",
+      "cta1": "Leer ahora",
+      "cta2": "Saber más"
+    },
+    "slide2": {
+      "tag": "Webtoon",
+      "titulo": "Una imagen vale más que mil palabras.",
+      "subtitulo": "Lanzamiento mensual aquí en el portal — una semana antes que en cualquier otra plataforma. Acceso anticipado para quienes llegaron primero.",
+      "cta1": "Leer episodio"
+    },
+    "slide3": {
+      "tag": "9 Juegos",
+      "titulo": "El universo expandido del LDI está aquí.",
+      "subtitulo": "Nueve juegos listos para tu degustación. Y pronto, mucho más. Échale la ficha y dale play.",
+      "cta1": "Ver juegos"
+    },
+    "slide4": {
+      "tag": "The Problem",
+      "titulo": "La banda que Jack menciona es real.",
+      "subtitulo": "Las canciones del universo Lutas de Ilusión están en las plataformas. Acércate para disfrutar.",
+      "cta1": "Escuchar ahora"
+    },
+    "slide5": {
+      "tag": "Apoyar",
+      "titulo": "Empecé esto con 17 años. Me tomó 23 realizarlo.",
+      "subtitulo": "Si quieres ser parte de esto, puedes. Y serás muy bien recompensado por ello.",
+      "cta1": "Ver tienda",
+      "cta2": "Apoyar"
+    }
+  },
+  "episodes": {
+    "title": "EPISODIOS",
+    "placeholder": "Webtoon Illusion Fight",
+    "titles": [
+      "Presentación",
+      "La Invitación",
+      "Primer Round"
+    ],
+    "badge": {
+      "free": "GRATIS",
+      "premium": "PREMIUM"
+    },
+    "thumbnail": "Miniatura",
+    "cta": "VER TODOS →",
+    "featured_ler": "LEER AHORA",
+    "webtoon": {
+      "text": "También disponible en Webtoon Canvas",
+      "subscribers": "— suscriptores",
+      "cta": "LEER EN WEBTOON"
+    }
+  },
+  "music": {
+    "title": "MÚSICA",
+    "comingSoon": "PRÓXIMAMENTE"
+  },
+  "nowlive": {
+    "title": "EN VIVO",
+    "subtitle": "Sigue el universo Lutas de Ilusão en las redes",
+    "abrir": "ABRIR →"
+  },
+  "progress": {
+    "title": "ACTUALIZACIONES",
+    "tracks": [
+      {
+        "format": "WEBTOON",
+        "items": [
+          {
+            "label": "Episodio 0",
+            "status": "Publicado"
+          },
+          {
+            "label": "Capítulo 1",
+            "status": "Próximamente"
+          }
+        ]
+      },
+      {
+        "format": "LIBRO",
+        "items": [
+          {
+            "label": "Capítulo 1",
+            "status": "Publicado"
+          },
+          {
+            "label": "Capítulo 2",
+            "status": "Publicado"
+          },
+          {
+            "label": "Capítulo 3",
+            "status": "Publicado"
+          },
+          {
+            "label": "Capítulo 4",
+            "status": "Próximamente"
+          }
+        ]
+      },
+      {
+        "format": "MÚSICA",
+        "items": [
+          {
+            "label": "Pista 1",
+            "status": "Publicada"
+          },
+          {
+            "label": "Pista 2",
+            "status": "Publicada"
+          },
+          {
+            "label": "Pista 3",
+            "status": "Próximamente"
+          }
+        ]
+      },
+      {
+        "format": "JUEGOS",
+        "items": [
+          {
+            "label": "Top Trumps",
+            "status": "Lanzado"
+          },
+          {
+            "label": "Lendas do LDI",
+            "status": "Free"
+          },
+          {
+            "label": "Jack Dream Beer",
+            "status": "Lanzado"
+          },
+          {
+            "label": "Pesadelo Particular",
+            "status": "Lanzado"
+          },
+          {
+            "label": "Arena Mode",
+            "status": "Lanzado"
+          },
+          {
+            "label": "Tamagoshi LDI",
+            "status": "Lanzado"
+          },
+          {
+            "label": "LDI Tatics",
+            "status": "Nuevo"
+          },
+          {
+            "label": "MiniGames",
+            "status": "Free"
+          },
+          {
+            "label": "Duelo LDI",
+            "status": "Beta"
+          }
+        ]
+      },
+      {
+        "format": "TIENDA",
+        "items": [
+          {
+            "label": "Starter Pack",
+            "status": "Disponible"
+          },
+          {
+            "label": "100 Fichas",
+            "status": "Disponible"
+          },
+          {
+            "label": "300 Fichas + Bonif.",
+            "status": "Disponible"
+          },
+          {
+            "label": "1000 Fichas + Bonif.",
+            "status": "Disponible"
+          },
+          {
+            "label": "Piel Karuak",
+            "status": "Disponible"
+          },
+          {
+            "label": "Libro Físico",
+            "status": "Próximamente"
+          },
+          {
+            "label": "eBook Kindle",
+            "status": "Próximamente"
+          },
+          {
+            "label": "Camisetas",
+            "status": "Próximamente"
+          },
+          {
+            "label": "Gorra & Accesorios",
+            "status": "Próximamente"
+          }
+        ]
+      }
+    ]
+  },
+  "homeSupport": {
+    "title": "APOYA EL PROYECTO",
+    "text": "Accede a contenido exclusivo y ayuda a mantener la obra viva.",
+    "cta": "CÓMO COLABORAR"
+  },
+  "newsletter": {
+    "titulo": "Mantente al día",
+    "descricao": "Newsletter mensual con bastidores, novedades y contenido exclusivo del universo Lutas de Ilusão.",
+    "botao": "Suscribirse al Newsletter",
+    "gratis": "Gratis. Sin spam.",
+    "ctaTitulo": "Recibe las novedades",
+    "ctaDescricao": "Newsletter mensual — bastidores, lanzamientos y universo expandido.",
+    "ctaBotao": "Suscribirse gratis"
+  }
+}

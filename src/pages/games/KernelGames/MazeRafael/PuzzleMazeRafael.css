@@ -1,5 +1,5 @@
 :root {
-  --mz-cyan:   #00e5ff;
+  --mz-cyan:   var(--if-cyan);
   --mz-purple: #b400ff;
   --mz-red:    #ff0055;
   --mz-gold:   #ffcc00;

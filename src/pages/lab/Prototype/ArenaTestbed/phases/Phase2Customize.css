@@ -30,7 +30,7 @@
   font-family: var(--ldi-font-mono, monospace);
   font-size: 10px; padding: 2px 8px; border-radius: 3px;
   background: rgba(0,238,255,0.08);
-  color: var(--ldi-cyan, #00eeff);
+  color: var(--ldi-cyan, var(--if-cyan));
 }
 .p2-field { display: flex; flex-direction: column; gap: 6px; }
 .p2-label {
@@ -56,8 +56,8 @@
   border: 1px solid var(--ldi-border, #1a1e26);
   transition: all 0.12s;
 }
-.p2-ico-btn:hover { border-color: var(--ldi-cyan, #00eeff); }
-.p2-ico-btn--sel { border-color: var(--ldi-cyan, #00eeff); background: rgba(0,238,255,0.06); }
+.p2-ico-btn:hover { border-color: var(--ldi-cyan, var(--if-cyan)); }
+.p2-ico-btn--sel { border-color: var(--ldi-cyan, var(--if-cyan)); background: rgba(0,238,255,0.06); }
 .p2-nomes { display: flex; gap: 6px; }
 .p2-nome-btn {
   flex: 1; padding: 6px 0; border-radius: 4px;
@@ -68,7 +68,7 @@
   color: var(--ldi-text, #ccc);
   transition: all 0.12s;
 }
-.p2-nome-btn:hover:not(:disabled) { border-color: var(--ldi-cyan, #00eeff); }
+.p2-nome-btn:hover:not(:disabled) { border-color: var(--ldi-cyan, var(--if-cyan)); }
 .p2-nome-btn--sel { border-color: #00ff88; background: rgba(0,255,136,0.08); color: #00ff88; }
 .p2-nome-btn:disabled { opacity: 0.3; cursor: default; }
 .p2-footer { display: flex; gap: 10px; justify-content: center; }
@@ -86,7 +86,7 @@
 .p2-btn--back:hover { border-color: var(--ldi-text-dim, #888); }
 .p2-btn--confirm {
   background: rgba(0,238,255,0.1);
-  color: var(--ldi-cyan, #00eeff);
-  border-color: var(--ldi-cyan, #00eeff);
+  color: var(--ldi-cyan, var(--if-cyan));
+  border-color: var(--ldi-cyan, var(--if-cyan));
 }
 .p2-btn--confirm:hover { background: rgba(0,238,255,0.2); }

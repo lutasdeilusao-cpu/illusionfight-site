@@ -8,7 +8,7 @@
 .puzzle-title {
   font-family: 'Share Tech Mono', monospace;
   font-size: 0.95rem;
-  color: #F5A623;
+  color: var(--if-amber);
   margin-bottom: 0.25rem;
 }
 
@@ -22,7 +22,7 @@
 .puzzle-hint {
   font-family: 'Share Tech Mono', monospace;
   font-size: 0.7rem;
-  color: #F5A623;
+  color: var(--if-amber);
   margin-top: 0.5rem;
 }
 
@@ -78,13 +78,13 @@
 
 .puzzle-decoder-slider input[type="range"] {
   width: 200px;
-  accent-color: #F5A623;
+  accent-color: var(--if-amber);
 }
 
 .puzzle-decoder-value {
   font-family: 'Share Tech Mono', monospace;
   font-size: 0.8rem;
-  color: #F5A623;
+  color: var(--if-amber);
   min-width: 40px;
 }
 
@@ -107,7 +107,7 @@
 
 .puzzle-stealth-cell--player {
   background: rgba(245,166,35,0.15);
-  border-color: #F5A623;
+  border-color: var(--if-amber);
 }
 
 .puzzle-stealth-cell--goal {
@@ -271,7 +271,7 @@
   transition: all 0.15s;
 }
 
-.puzzle-dpad-btn:hover:not(:disabled) { border-color: #F5A623; color: #F5A623; }
+.puzzle-dpad-btn:hover:not(:disabled) { border-color: var(--if-amber); color: var(--if-amber); }
 .puzzle-dpad-btn:disabled { opacity: 0.3; }
 .puzzle-dpad-btn--up { grid-area: up; }
 .puzzle-dpad-btn--down { grid-area: down; }
@@ -306,7 +306,7 @@
 .puzzle-sliding-tile-num {
   font-family: 'Share Tech Mono', monospace;
   font-size: 1rem;
-  color: #F5A623;
+  color: var(--if-amber);
 }
 
 /* === Labirinto === */
@@ -339,7 +339,7 @@
 
 .puzzle-maze-cell--player {
   background: rgba(245,166,35,0.2);
-  border-color: #F5A623;
+  border-color: var(--if-amber);
 }
 
 .puzzle-maze-cell--goal {
@@ -371,14 +371,14 @@
 }
 
 .puzzle-anagrama-letra:hover:not(:disabled) {
-  border-color: #F5A623;
+  border-color: var(--if-amber);
   background: rgba(245,166,35,0.1);
 }
 
 .puzzle-anagrama-letra--selected {
   background: rgba(245,166,35,0.2);
-  border-color: #F5A623;
-  color: #F5A623;
+  border-color: var(--if-amber);
+  color: var(--if-amber);
 }
 
 .puzzle-anagrama-preview {
@@ -394,7 +394,7 @@
 }
 
 .puzzle-anagrama-preview-text {
-  color: #F5A623;
+  color: var(--if-amber);
   letter-spacing: 0.2em;
 }
 
@@ -412,7 +412,7 @@
   font-family: 'Share Tech Mono', monospace;
   font-size: 0.85rem;
   font-weight: bold;
-  color: #F5A623;
+  color: var(--if-amber);
   border-radius: 2px;
   transition: all 0.2s;
 }
@@ -428,7 +428,7 @@
 .pz-msg { text-align: center; font-family: 'Share Tech Mono', monospace; font-size: 0.75rem; margin-top: 0.5rem; }
 .pz-msg-success { color: #22C55E; }
 .pz-msg-error { color: #8B0000; }
-.pz-msg-warn { color: #F5A623; }
+.pz-msg-warn { color: var(--if-amber); }
 .pz-btns { margin-top: 0.6rem; display: flex; gap: 8px; justify-content: center; }
 @keyframes timer-warn { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
 @keyframes timer-urgent { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.3; transform: scale(0.95); } }

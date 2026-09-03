@@ -33,8 +33,8 @@
 }
 
 .shop-tab--ativo {
-  border-color: #F5A623;
-  color: #F5A623;
+  border-color: var(--if-amber);
+  color: var(--if-amber);
   background: rgba(245,166,35,0.05);
 }
 
@@ -119,7 +119,7 @@
 .sfc-preco {
   font-size: 1.5rem;
   font-weight: 900;
-  color: #F5A623;
+  color: var(--if-amber);
   margin: 0.3rem 0 0;
 }
 
@@ -131,8 +131,8 @@
 
 .shop-ver-tudo {
   background: none;
-  border: 1px solid #F5A623;
-  color: #F5A623;
+  border: 1px solid var(--if-amber);
+  color: var(--if-amber);
   font-family: 'Share Tech Mono', monospace;
   font-size: 0.8rem;
   padding: 0.6rem 2rem;

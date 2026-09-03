@@ -46,7 +46,7 @@
 }
 
 .tt-deckbuilder-min-msg {
-  color: #F5A623;
+  color: var(--if-amber);
   font-size: 0.85rem;
   text-align: center;
   padding: 2rem 0;
@@ -74,8 +74,8 @@
 }
 .tt-deckbuilder-tab:hover { border-color: #333; color: #999; }
 .tt-deckbuilder-tab--ativa {
-  border-color: #F5A623;
-  color: #F5A623;
+  border-color: var(--if-amber);
+  color: var(--if-amber);
   background: rgba(245,166,35,0.06);
 }
 
@@ -91,7 +91,7 @@
   outline: none;
   transition: border-color 0.15s;
 }
-.tt-deckbuilder-name-input:focus { border-color: #F5A623; }
+.tt-deckbuilder-name-input:focus { border-color: var(--if-amber); }
 
 .tt-deckbuilder-split {
   display: flex;
@@ -138,7 +138,7 @@
   padding-bottom: 0.2rem;
 }
 .tt-deckbuilder-card:hover {
-  border-color: #F5A623;
+  border-color: var(--if-amber);
   transform: scale(1.05);
 }
 .tt-deckbuilder-card--disabled { opacity: 0.4; pointer-events: none; }
@@ -164,7 +164,7 @@
   position: absolute;
   top: 2px;
   right: 2px;
-  background: #F5A623;
+  background: var(--if-amber);
   color: #000;
   font-size: 0.5rem;
   font-weight: bold;
@@ -239,7 +239,7 @@
 .tt-deckbuilder-btn:hover { filter: brightness(1.1); }
 
 .tt-deckbuilder-btn--salvar {
-  background: #e8853a;
+  background: var(--if-amber);
   color: #000;
 }
 
@@ -340,7 +340,7 @@
 
 .tt-deckbuilder-viewer-frase {
   font-size: 0.65rem;
-  color: #F5A623;
+  color: var(--if-amber);
   font-style: italic;
   margin: 0 0 0.6rem;
 }

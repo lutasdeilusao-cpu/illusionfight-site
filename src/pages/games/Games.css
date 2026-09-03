@@ -1,337 +1,319 @@
-/* ===== EXTRAS PAGE — ARCADE ANOS 90 ===== */
+/* ══════════════════════════════════════════════════════════════
+   GAMES — catálogo
+   Segue a linguagem da navbar (src/styles/design-system.css).
+   O visual arcade anos 90 (scanlines, glitch, cursor piscando)
+   foi aposentado: o portal tem uma linguagem só.
+
+   Cada jogo mantém um --cor-neon próprio, mas só como fio de
+   identidade na borda e no selo — a moldura é sempre a mesma.
+   ══════════════════════════════════════════════════════════════ */
 
 .extras-page {
+  position: relative;
   min-height: 100vh;
-  background: #000;
-  color: #e8e8e8;
-  font-family: 'Share Tech Mono', monospace;
-  padding: 2rem 1.5rem 4rem;
-  position: relative;
-  overflow-x: hidden;
+  padding: 0 1.25rem 3rem;
+  color: var(--text-primary);
+  font-family: var(--font-body);
 }
 
-.extras-scanlines {
-  position: fixed;
-  inset: 0;
-  background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.08) 2px, rgba(0,0,0,0.08) 4px);
-  pointer-events: none;
-  z-index: 1;
-}
-
+/* ── Cabeçalho ── */
 .extras-header {
-  text-align: center;
-  padding: 3rem 0 2.5rem;
-  position: relative;
-  z-index: 2;
+  padding: 1.75rem 0 1.25rem;
 }
 
 .extras-titulo {
-  font-size: clamp(2.5rem, 8vw, 5rem);
-  font-family: 'Share Tech Mono', monospace;
-  font-weight: 900;
-  letter-spacing: 0.2em;
-  margin: 0 0 0.5rem;
+  margin: 0.35rem 0 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.8rem, calc(9 * var(--app-vw) / 100), 2.4rem);
+  line-height: 1;
+  letter-spacing: 0.04em;
   color: #fff;
-  position: relative;
-  display: inline-block;
-}
-
-.extras-titulo-glitch {
-  position: relative;
-  display: inline-block;
-  color: #fff;
-  text-shadow: 0 0 20px rgba(0,180,216,0.6);
-}
-
-.extras-titulo-glitch::before,
-.extras-titulo-glitch::after {
-  content: attr(data-text);
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-  overflow: hidden;
-}
-
-.extras-titulo-glitch::before {
-  color: #00B4D8;
-  animation: glitch-1 3s infinite;
-  clip-path: polygon(0 0, 100% 0, 100% 40%, 0 40%);
-  opacity: 0.7;
-}
-
-.extras-titulo-glitch::after {
-  color: #8B0000;
-  animation: glitch-2 3s infinite;
-  clip-path: polygon(0 60%, 100% 60%, 100% 100%, 0 100%);
-  opacity: 0.7;
-}
-
-@keyframes glitch-1 {
-  0%, 90%, 100% { transform: translate(0); }
-  92% { transform: translate(-3px, 1px); }
-  94% { transform: translate(3px, -1px); }
-  96% { transform: translate(-2px, 0); }
-}
-
-@keyframes glitch-2 {
-  0%, 90%, 100% { transform: translate(0); }
-  93% { transform: translate(3px, 1px); }
-  95% { transform: translate(-3px, -1px); }
-  97% { transform: translate(2px, 0); }
+  text-shadow: 0 0 22px rgba(24, 218, 251, 0.28);
 }
 
 .extras-subtitulo {
+  margin: 0.5rem 0 0;
+  color: var(--text-secondary);
   font-size: 0.85rem;
-  color: #00B4D8;
-  letter-spacing: 0.15em;
-  margin: 0;
+  line-height: 1.5;
 }
 
-.extras-cursor {
-  animation: cursor-blink 0.8s step-end infinite;
-  margin-right: 0.3rem;
+/* ── Abas LDI / Kernel ── */
+.kp-toggle {
+  display: flex;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
 }
 
-@keyframes cursor-blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+.kp-toggle-btn {
+  flex: 1;
+  min-height: 42px;
+  padding: 0.5rem 0.6rem;
+  border: 1px solid var(--if-hair-strong);
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--text-secondary);
+  font: 700 0.68rem var(--font-mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s, background 0.2s, box-shadow 0.2s;
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
 }
 
-.extras-secao {
+.kp-toggle-btn:hover {
+  color: var(--if-cyan);
+  border-color: var(--if-cyan-45);
+}
+
+.kp-toggle-btn--ativa {
+  color: #04141a;
+  background: var(--if-cyan);
+  border-color: var(--if-cyan);
+  box-shadow: 0 0 20px rgba(24, 218, 251, 0.28);
+}
+
+/* ── Seção ── */
+.extras-secao,
+.kp-secao {
   position: relative;
-  z-index: 2;
-  margin-bottom: 3rem;
-  max-width: 1000px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-bottom: 2.25rem;
 }
 
 .extras-secao-label {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  margin-bottom: 1.2rem;
-  font-size: 0.75rem;
-  color: #555;
-  letter-spacing: 0.2em;
+  gap: 0.75rem;
+  margin-bottom: 0.9rem;
+  color: var(--if-cyan-58);
+  font: 700 0.55rem var(--font-mono);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
 }
 
 .extras-secao-linha {
   flex: 1;
   height: 1px;
-  background: linear-gradient(to right, #333, transparent);
+  background: linear-gradient(90deg, var(--if-cyan-72), transparent);
+  opacity: 0.55;
 }
 
+/* ── Lista de jogos ──
+   Coluna única: o portal é mobile only, não existe grade de desktop. */
 .extras-jogos-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  counter-reset: jogo;
 }
 
 .extras-jogo-card {
+  --cor-neon: var(--if-teal);
   position: relative;
-  background: #0a0a0a;
-  border: 1px solid #222;
-  border-radius: 4px;
   cursor: pointer;
-  transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
-  overflow: hidden;
+  border: 1px solid var(--if-edge);
+  background: var(--if-glow-corner), var(--if-panel);
+  transition: border-color 0.22s, box-shadow 0.22s, transform 0.22s;
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%);
 }
 
-.extras-jogo-card:not(.extras-jogo-card--bloqueado):hover {
-  transform: translateY(-6px);
-  border-color: var(--cor-neon);
-  box-shadow: 0 0 20px rgba(245,166,35,0.15), 0 0 40px rgba(245,166,35,0.05);
+.extras-jogo-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 2px;
+  background: var(--cor-neon);
+  opacity: 0.7;
+}
+
+/* Varredura de luz no hover — o mesmo gesto dos links do drawer. */
+.extras-jogo-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, var(--if-cyan-13), transparent 72%);
+  transform: translateX(-102%);
+  transition: transform 0.3s ease;
+  pointer-events: none;
+}
+
+.extras-jogo-card:hover::after { transform: translateX(0); }
+
+.extras-jogo-card:hover {
+  border-color: var(--if-cyan-45);
+  box-shadow: 0 0 26px rgba(24, 218, 251, 0.14);
+  transform: translateY(-2px);
 }
 
 .extras-jogo-card--bloqueado {
-  cursor: default;
-  opacity: 0.45;
-  filter: grayscale(0.8);
+  opacity: 0.5;
+  cursor: not-allowed;
 }
+
+.extras-jogo-card--bloqueado:hover {
+  transform: none;
+  border-color: var(--if-edge);
+  box-shadow: none;
+}
+
+.extras-jogo-card--bloqueado:hover::after { transform: translateX(-102%); }
 
 .extras-jogo-card-inner {
-  padding: 1.5rem 1.2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 0.6rem;
   position: relative;
-  z-index: 2;
-}
-
-.extras-jogo-badge {
-  font-size: 0.6rem;
-  padding: 0.15rem 0.5rem;
-  border-radius: 2px;
-  letter-spacing: 0.15em;
-  font-weight: bold;
-  align-self: flex-end;
-  background: color-mix(in srgb, var(--cor-badge) 13%, transparent);
-  border: 1px solid var(--cor-badge);
-  color: var(--cor-badge);
-}
-
-.extras-jogo-badge--embreve {
-  background-color: #444 !important;
-  color: #aaa !important;
-  border: 1px solid #666 !important;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 46px 1fr auto;
+  grid-template-areas:
+    'emoji nome  badge'
+    'emoji tag   cta';
+  align-items: center;
+  gap: 0.15rem 0.8rem;
+  padding: 0.8rem 0.9rem 0.8rem 0.85rem;
 }
 
 .extras-jogo-emoji {
-  font-size: 2.8rem;
-  animation: emoji-idle 3s ease-in-out infinite;
+  grid-area: emoji;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border: 1px solid color-mix(in srgb, var(--cor-neon) 45%, transparent);
+  background: color-mix(in srgb, var(--cor-neon) 10%, transparent);
+  font-size: 1.4rem;
   line-height: 1;
-}
-
-@keyframes emoji-idle {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
 }
 
 .extras-jogo-nome {
-  font-family: 'Share Tech Mono', monospace;
-  font-size: 1rem;
-  font-weight: bold;
-  letter-spacing: 0.1em;
-  color: #fff;
+  grid-area: nome;
   margin: 0;
-  text-transform: uppercase;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: 0.03em;
+  color: var(--text-primary);
 }
 
 .extras-jogo-tagline {
-  font-size: 0.7rem;
-  color: #666;
-  line-height: 1.5;
+  grid-area: tag;
   margin: 0;
+  font-size: 0.76rem;
+  line-height: 1.35;
+  color: var(--text-secondary);
+}
+
+.extras-jogo-badge {
+  grid-area: badge;
+  justify-self: end;
+  padding: 0.15rem 0.45rem;
+  border: 1px solid color-mix(in srgb, var(--cor-badge, var(--if-teal)) 60%, transparent);
+  background: color-mix(in srgb, var(--cor-badge, var(--if-teal)) 14%, transparent);
+  color: var(--cor-badge, var(--if-teal));
+  font: 700 0.54rem var(--font-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.extras-jogo-badge--embreve {
+  border-color: var(--if-hair-strong);
+  background: none;
+  color: var(--text-muted);
 }
 
 .extras-jogo-cta {
-  font-size: 0.65rem;
-  color: var(--cor-neon);
-  border: 1px solid var(--cor-neon);
-  padding: 0.25rem 0.75rem;
-  letter-spacing: 0.2em;
-  margin-top: 0.3rem;
-  opacity: 0;
-  transition: opacity 0.2s;
-  animation: cta-pulse 1.5s ease-in-out infinite;
+  grid-area: cta;
+  justify-self: end;
+  color: var(--if-cyan);
+  font: 700 0.58rem var(--font-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
 }
 
-.extras-jogo-card:hover .extras-jogo-cta {
-  opacity: 1;
+.extras-jogo-cta::after {
+  content: ' →';
+  transition: margin-left 0.2s ease;
 }
+
+.extras-jogo-card:hover .extras-jogo-cta::after { margin-left: 3px; }
 
 .extras-jogo-cta--bloqueado {
-  opacity: 0.5 !important;
-  animation: none;
-  color: #555;
-  border-color: #333;
+  color: var(--text-muted);
 }
 
-@keyframes cta-pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.4; }
-}
+.extras-jogo-cta--bloqueado::after { content: ''; }
 
-.extras-jogo-card-borda {
-  position: absolute;
-  inset: 0;
-  border-radius: 4px;
-  background: linear-gradient(135deg, rgba(255,255,255,0.02) 0%, transparent 50%);
-  pointer-events: none;
-  z-index: 1;
-}
-
+/* ── Cards de conteúdo (quiz, ranking) ── */
 .extras-conteudo-grid {
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
+  gap: 0.5rem;
 }
 
 .extras-conteudo-card {
+  --cor-neon: var(--if-teal);
+  position: relative;
   display: flex;
   align-items: center;
-  gap: 1rem;
-  padding: 0.8rem 1rem;
-  background: #0a0a0a;
-  border: 1px solid #1a1a1a;
-  border-left: 3px solid var(--cor-neon);
-  border-radius: 2px;
+  gap: 0.75rem;
+  min-height: 56px;
+  padding: 0.6rem 0.9rem;
   cursor: pointer;
-  transition: background 0.15s, transform 0.15s;
+  border: 1px solid var(--if-hair-strong);
+  background: rgba(255, 255, 255, 0.02);
+  overflow: hidden;
+  transition: border-color 0.2s, background 0.2s;
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
 }
 
 .extras-conteudo-card:hover {
-  background: #111;
-  transform: translateX(4px);
+  border-color: var(--if-cyan-45);
+  background: var(--if-cyan-005);
 }
 
 .extras-conteudo-emoji {
-  font-size: 1.3rem;
-  flex-shrink: 0;
+  font-size: 1.2rem;
+  line-height: 1;
 }
 
 .extras-conteudo-nome {
-  font-size: 0.85rem;
-  font-weight: bold;
-  color: #e8e8e8;
   margin: 0;
-  letter-spacing: 0.05em;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text-primary);
 }
 
 .extras-conteudo-tagline {
-  font-size: 0.65rem;
-  color: #555;
-  margin: 0.1rem 0 0;
+  margin: 0;
+  font-size: 0.72rem;
+  color: var(--text-secondary);
 }
 
 .extras-conteudo-badge {
   margin-left: auto;
-  font-size: 0.6rem;
-  border: 1px solid color-mix(in srgb, var(--cor-neon) 27%, transparent);
-  padding: 0.1rem 0.4rem;
-  border-radius: 2px;
-  flex-shrink: 0;
-  letter-spacing: 0.1em;
+  padding: 0.15rem 0.45rem;
+  border: 1px solid color-mix(in srgb, var(--cor-neon) 55%, transparent);
   color: var(--cor-neon);
+  font: 700 0.54rem var(--font-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
+/* ── Rodapé ── */
 .extras-footer-arcade {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--if-hair);
   text-align: center;
-  padding-top: 2rem;
-  position: relative;
-  z-index: 2;
 }
 
 .extras-footer-credits {
-  font-size: 0.6rem;
-  color: #333;
-  letter-spacing: 0.2em;
-  animation: credits-blink 4s ease-in-out infinite;
-}
-
-@keyframes credits-blink {
-  0%, 80%, 100% { opacity: 1; }
-  90% { opacity: 0.3; }
-}
-
-@media (max-width: 600px) {
-  .extras-jogos-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 0.8rem;
-  }
-  .extras-jogo-card-inner {
-    padding: 1rem 0.8rem;
-  }
-  .extras-jogo-emoji {
-    font-size: 2rem;
-  }
-  .extras-jogo-nome {
-    font-size: 0.8rem;
-  }
-  .extras-jogo-cta {
-    opacity: 1;
-  }
+  color: var(--text-muted);
+  font: 600 0.6rem var(--font-mono);
+  letter-spacing: 0.1em;
 }

@@ -5,7 +5,7 @@
 .gang-progression-focus { width: 100%; scroll-margin-top: 16px; }
 .gang-sheet-xp-ready {
   position: absolute; right: 10px; bottom: 8px; border: 1px solid rgba(245, 166, 35, .55);
-  border-radius: 999px; background: rgba(245, 166, 35, .12); color: #f5a623;
+  border-radius: 999px; background: rgba(245, 166, 35, .12); color: var(--if-amber);
   padding: 2px 7px; font: 800 9px 'Rajdhani', sans-serif; letter-spacing: .6px;
 }
 .gang-progression-close {
@@ -23,11 +23,11 @@
   margin: -4px 0 10px; color: #819198; font: 500 10px/1.45 'Rajdhani', sans-serif;
   letter-spacing: .35px;
 }
-.gang-progression-preview-label { color: #f5a623; text-transform: uppercase; letter-spacing: 1px; }
+.gang-progression-preview-label { color: var(--if-amber); text-transform: uppercase; letter-spacing: 1px; }
 .gang-special-path--unavailable { opacity: .3; cursor: not-allowed; }
 .gang-special-path-unlock {
-  width: 100%; min-height: 46px; margin-top: 9px; border: 1px solid #f5a623; border-radius: 5px;
-  background: rgba(245, 166, 35, .12); color: #f5a623; padding: 9px 12px;
+  width: 100%; min-height: 46px; margin-top: 9px; border: 1px solid var(--if-amber); border-radius: 5px;
+  background: rgba(245, 166, 35, .12); color: var(--if-amber); padding: 9px 12px;
   font: 800 11px 'Rajdhani', sans-serif; letter-spacing: 1px; text-transform: uppercase; cursor: pointer;
 }
 .gang-special-path-unlock:disabled { border-color: #34464d; background: #10191d; color: #68777d; cursor: not-allowed; }
@@ -40,7 +40,7 @@
   background: radial-gradient(circle at 50% 0, rgba(245, 166, 35, .13), transparent 45%), #0d171b;
   padding: 24px 18px 18px; box-shadow: 0 24px 70px rgba(0, 0, 0, .65); text-align: center;
 }
-.gang-progression-prompt__icon { display: block; margin-bottom: 8px; color: #f5a623; font-size: 32px; }
+.gang-progression-prompt__icon { display: block; margin-bottom: 8px; color: var(--if-amber); font-size: 32px; }
 .gang-progression-prompt h2 { margin: 0 0 8px; color: #eef4f6; font: 900 22px 'Rajdhani', sans-serif; letter-spacing: 1.5px; }
 .gang-progression-prompt p { margin: 0 0 18px; color: #9cacb2; font: 500 13px/1.5 'Rajdhani', sans-serif; }
 .gang-progression-prompt button {
@@ -49,4 +49,4 @@
   letter-spacing: 1px; text-transform: uppercase; cursor: pointer;
 }
 .gang-progression-prompt button + button { margin-top: 8px; }
-.gang-progression-prompt .gang-progression-prompt__confirm { border-color: #f5a623; background: #f5a623; color: #171006; }
+.gang-progression-prompt .gang-progression-prompt__confirm { border-color: var(--if-amber); background: var(--if-amber); color: #171006; }

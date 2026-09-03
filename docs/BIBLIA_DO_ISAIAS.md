@@ -54,6 +54,8 @@ Não substitui grep/prova de leitura em tasks de bug — a regra de colar output
 
 **MOBILE ONLY — não é mobile-first, é mobile e ponto.** O portal tem UMA visão só, a do celular, não importa a plataforma que acessa. Não existe visão desktop, nem "versão desktop do componente X", nem breakpoint que revela algo a mais em tela grande. Num monitor de 1920px o site é exatamente o mesmo app de celular, numa coluna centralizada — o resto da tela é só moldura. Isso vale para TODA página, jogo, overlay e componente. Detalhes de implementação em §4.
 
+**Uma linguagem visual só — a base é a navbar.** O portal inteiro fala a língua da navbar/drawer, codificada em `src/styles/design-system.css`. O visitante tem que sentir que está no mesmo aplicativo o tempo todo, sem quebra brusca ao passar de Histórias para Games ou para a conta. Antes era um Frankenstein: 4 âmbares e 4 cianos diferentes, cada área com seu tema. Agora existe token e primitiva — `--if-cyan`, `--if-amber`, `.if-panel`, `.if-btn`, `.if-field`. Hex novo numa página é regressão. Detalhes em §4.
+
 **Cada pixel é intencional.** Nada de padding/margem/gap arbitrário — ver tabela exata em §4. Se não tiver certeza do resultado visual, ler o CSS existente e entender o fluxo antes de editar. "Fazer por fazer" não é aceito; correção esperada já na primeira tentativa, mas refazer 2-3x até acertar é normal.
 
 **Sem frescura.** Zero CSS-in-JS para estático. Zero libs novas sem ganho visual comprovado (lição Pixi.js — não repetir). Mais de 2 arquivos novos ou arquivo passando de 300 linhas → propor extração/arquitetura e aguardar aprovação antes de executar. Nunca sobrescrever array inteiro (adicionar itens). Nunca remover `console.log` de diagnóstico sem permissão.
@@ -149,6 +151,16 @@ De 320px (iPhone SE) a 430px (Pro Max) a coluna é 100% da tela; acima disso tra
 **Teclado virtual (Código Perdido/forca):** container `width: 100%` sem `max-width`; teclas `flex: 1` sem `max-width` individual; `min-height: 44px` (WCAG); gap 5px entre linhas, 4px entre teclas.
 
 **HUD padrão:** `[← back 44×44] [timer/vidas] [centro] [dificuldade]` — back 44×44px borda 1px cyan; `flex-shrink: 0; border-bottom: 1px solid var(--ghost)`.
+
+**Os cinco gestos de assinatura.** É o que faz uma tela nova "parecer do portal":
+
+1. **Canto chanfrado** — `clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%)`. O portal corta o canto superior direito; **não usa `border-radius`**. Cantos arredondados são a marca do visual antigo.
+2. **Eyebrow mono** — `IF // GAMES`, `IF // ACCESS`: `font: 700 .55rem var(--font-mono); letter-spacing: .18em`, em `--if-cyan-58`. Toda página tem o seu.
+3. **Índice numerado** — `01`, `02` em mono minúsculo e apagado, acendendo em ciano no item ativo.
+4. **Varredura de luz** — no hover, um `::after` com gradiente ciano entra de `translateX(-102%)` para `0` em `.28s`.
+5. **Barra ativa** — `box-shadow: inset 2px 0 var(--if-cyan)` no item selecionado.
+
+Cada jogo ainda pode ter cor própria (`--cor-neon`), mas só como fio na borda e no selo: a moldura em volta é sempre a mesma.
 
 **Mobile-only não é media query no fim.** Errado: CSS de desktop "consertado" com `@media`. Certo: pensar em portrait desde o início — a coluna `--app-w` já resolve a adaptação. Media query que revela layout de tela grande não será aceita.
 

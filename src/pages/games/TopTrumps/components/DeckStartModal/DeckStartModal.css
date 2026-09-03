@@ -60,7 +60,7 @@
 }
 .tt-startdeck-opcao:hover { border-color: #333; }
 .tt-startdeck-opcao--selected {
-  border-color: #F5A623;
+  border-color: var(--if-amber);
   background: rgba(245,166,35,0.06);
 }
 .tt-startdeck-opcao--disabled { opacity: 0.4; pointer-events: none; }
@@ -132,7 +132,7 @@
 .tt-startdeck-btn:hover { filter: brightness(1.1); }
 
 .tt-startdeck-btn--confirm {
-  background: #e8853a;
+  background: var(--if-amber);
   color: #000;
 }
 

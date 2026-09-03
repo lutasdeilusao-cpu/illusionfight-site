@@ -31,10 +31,10 @@
 }
 
 .pdc-badge--gold {
-  --badge-cor: #F5A623;
-  background: color-mix(in srgb, #F5A623 15%, transparent);
-  border: 1px solid #F5A623;
-  color: #F5A623;
+  --badge-cor: var(--if-amber);
+  background: color-mix(in srgb, var(--if-amber) 15%, transparent);
+  border: 1px solid var(--if-amber);
+  color: var(--if-amber);
 }
 
 .pdc-badge--green {
@@ -71,17 +71,17 @@
   border: 1px solid #333;
   border-radius: 3px;
 }
-.pdc-item--dix { border-color: #F5A62344; color: #F5A623; }
+.pdc-item--dix { border-color: var(--if-amber)44; color: var(--if-amber); }
 .pdc-item--cosmetico { border-color: #A855F444; color: #A855F4; }
-.pdc-item--jogo { border-color: #00B4D844; color: #00B4D8; }
+.pdc-item--jogo { border-color: var(--if-teal)44; color: var(--if-teal); }
 .pdc-item-icon { font-size: 0.8rem; }
 .pdc-item-label { font-size: 0.65rem; }
-.pdc-preco { font-size: 1.5rem; font-weight: 900; color: #F5A623; margin: 0.3rem 0; }
+.pdc-preco { font-size: 1.5rem; font-weight: 900; color: var(--if-amber); margin: 0.3rem 0; }
 .pdc-comprar {
   width: 100%;
   background: none;
-  border: 1px solid #F5A623;
-  color: #F5A623;
+  border: 1px solid var(--if-amber);
+  color: var(--if-amber);
   font-family: 'Share Tech Mono', monospace;
   font-size: 0.8rem;
   padding: 0.5rem;

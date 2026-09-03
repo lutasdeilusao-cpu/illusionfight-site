@@ -53,6 +53,7 @@ export default function Musicas() {
       </Helmet>
       <section className="musicas-hero">
         <div className="container">
+          <span className="musicas-hero__eyebrow">IF // SOUND</span>
           <h1 className="musicas-hero__title">{t('pages.musicas.titulo')}</h1>
           <p className="musicas-hero__subtitle">{t('musicas.subtitle')}</p>
         </div>

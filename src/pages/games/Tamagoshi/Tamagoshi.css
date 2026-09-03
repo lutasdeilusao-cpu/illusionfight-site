@@ -59,8 +59,8 @@
   transition: all 0.2s;
 }
 .tama-btn:hover {
-  border-color: #00B4D8;
-  color: #00B4D8;
+  border-color: var(--if-teal);
+  color: var(--if-teal);
 }
 
 /* ===== SELECAO ===== */
@@ -70,7 +70,7 @@
 }
 .tama-selecao-title {
   font-size: 1rem;
-  color: #F5A623;
+  color: var(--if-amber);
   text-transform: uppercase;
   letter-spacing: 0.15em;
   margin-bottom: 0.3rem;
@@ -136,7 +136,7 @@
 }
 .tama-criatura-nome {
   font-size: 1.2rem;
-  color: #F5A623;
+  color: var(--if-amber);
   text-transform: uppercase;
   letter-spacing: 0.15em;
 }
@@ -332,7 +332,7 @@
 }
 .tama-passeio-title {
   font-size: 1rem;
-  color: #00B4D8;
+  color: var(--if-teal);
   text-transform: uppercase;
   letter-spacing: 0.15em;
   margin-bottom: 0.3rem;
@@ -487,7 +487,7 @@
 /* ===== COOLDOWN ===== */
 .tama-cooldown {
   font-size: 1.2rem;
-  color: #F5A623;
+  color: var(--if-amber);
   letter-spacing: 0.1em;
 }
 
@@ -541,11 +541,11 @@
   gap: 0.3rem;
   padding: 0.3rem 0.8rem;
   background: #151510;
-  border: 1px solid #F5A62333;
+  border: 1px solid var(--if-amber)33;
   border-radius: 20px;
 }
 .tama-dix-display:hover {
-  border-color: #F5A62388;
+  border-color: var(--if-amber)88;
   background: #1a1a12;
 }
 
@@ -562,7 +562,7 @@
 }
 .tama-acao-title {
   font-size: 1rem;
-  color: #F5A623;
+  color: var(--if-amber);
   text-transform: uppercase;
   letter-spacing: 0.15em;
   margin-bottom: 0.2rem;
@@ -595,7 +595,7 @@
 }
 .tama-acao-progress-fill {
   height: 100%;
-  background: linear-gradient(90deg, #F5A623, #00B4D8);
+  background: linear-gradient(90deg, var(--if-amber), var(--if-teal));
   border-radius: 6px;
   transition: width 0.2s;
 }
@@ -689,13 +689,13 @@
   gap: 0.4rem;
   padding: 0.4rem 1rem;
   background: #151510;
-  border: 1px solid #F5A62344;
+  border: 1px solid var(--if-amber)44;
   border-radius: 20px;
   margin-bottom: 0.5rem;
 }
 .tama-loja-saldo-valor {
   font-size: 1.2rem;
-  color: #F5A623;
+  color: var(--if-amber);
   font-weight: bold;
 }
 .tama-loja-saldo-label {
@@ -742,7 +742,7 @@
 }
 .tama-loja-card-preco {
   font-size: 0.65rem;
-  color: #F5A623;
+  color: var(--if-amber);
 }
 .tama-loja-card-qtd {
   font-size: 0.6rem;
@@ -790,7 +790,7 @@
   color: #ccc;
 }
 .tama-loja-inventario-qtd {
-  color: #F5A623;
+  color: var(--if-amber);
   font-weight: bold;
   margin-left: 0.2rem;
 }
@@ -814,7 +814,7 @@
   width: 120px;
   height: 120px;
   border-radius: 50%;
-  background: radial-gradient(circle, #F5A623, transparent);
+  background: radial-gradient(circle, var(--if-amber), transparent);
   pointer-events: none;
 }
 .tama-partida-texto {
@@ -856,8 +856,8 @@
   transition: all 0.3s;
 }
 .tama-saude-progresso-dot--active {
-  background: #00B4D8;
-  border-color: #00B4D8;
+  background: var(--if-teal);
+  border-color: var(--if-teal);
   box-shadow: 0 0 8px rgba(0, 180, 216, 0.5);
 }
 .tama-saude-progresso-dot--done {
@@ -884,7 +884,7 @@
   background: #0a0a0f;
 }
 .tama-saude-dropzone--hover {
-  border-color: #00B4D8;
+  border-color: var(--if-teal);
   background: rgba(0, 180, 216, 0.05);
   box-shadow: 0 0 20px rgba(0, 180, 216, 0.15);
 }
@@ -930,7 +930,7 @@
   transition: all 0.2s;
 }
 .tama-saude-item:hover {
-  border-color: #00B4D8;
+  border-color: var(--if-teal);
   background: #1a1a2a;
 }
 .tama-saude-item--arrastando {
@@ -968,7 +968,7 @@
   position: absolute;
   top: -10px;
   font-size: 1rem;
-  color: #00B4D8;
+  color: var(--if-teal);
   font-weight: bold;
   z-index: 5;
   pointer-events: none;
@@ -1081,7 +1081,7 @@
 }
 .tama-modal h3 {
   font-size: 0.9rem;
-  color: #F5A623;
+  color: var(--if-amber);
   text-transform: uppercase;
   letter-spacing: 0.1em;
   margin: 0;
@@ -1109,7 +1109,7 @@
   width: 100%;
 }
 .tama-slot-card:hover:not(:disabled) {
-  border-color: #F5A623;
+  border-color: var(--if-amber);
   background: #222;
 }
 .tama-slot-card:disabled {
@@ -1152,7 +1152,7 @@
 }
 .tama-gacha-title {
   font-size: 1.1rem;
-  color: #F5A623;
+  color: var(--if-amber);
   text-transform: uppercase;
   letter-spacing: 0.15em;
 }
@@ -1183,10 +1183,10 @@
   transition: all 0.2s;
 }
 .tama-gacha-temp-btn:hover:not(:disabled) {
-  border-color: #F5A623;
+  border-color: var(--if-amber);
 }
 .tama-gacha-temp-btn--ativo {
-  border-color: #F5A623;
+  border-color: var(--if-amber);
   background: #1a1a10;
 }
 .tama-gacha-temp-btn--breve {
@@ -1205,7 +1205,7 @@
 }
 .tama-gacha-saldo {
   font-size: 0.75rem;
-  color: #F5A623;
+  color: var(--if-amber);
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -1228,8 +1228,8 @@
 .gacha-btn-roll {
   font-size: 0.9rem !important;
   padding: 0.7rem 2rem !important;
-  border-color: #F5A623 !important;
-  color: #F5A623 !important;
+  border-color: var(--if-amber) !important;
+  color: var(--if-amber) !important;
 }
 .gacha-btn-roll:disabled {
   opacity: 0.4;
@@ -1338,8 +1338,8 @@
   text-align: center;
 }
 .gacha-btn-entry {
-  border-color: #F5A623 !important;
-  color: #F5A623 !important;
+  border-color: var(--if-amber) !important;
+  color: var(--if-amber) !important;
   font-size: 0.85rem !important;
 }
 
@@ -1376,7 +1376,7 @@
   font-size: 4rem;
 }
 .tama-brincadeira-apresentando-nome {
-  color: #F5A623;
+  color: var(--if-amber);
   font-size: 1.2rem;
   letter-spacing: 0.15em;
   text-align: center;
@@ -1393,7 +1393,7 @@
   align-items: center;
 }
 .tama-brincadeira-header-nome {
-  color: #F5A623;
+  color: var(--if-amber);
   font-size: 0.85rem;
   font-weight: bold;
   letter-spacing: 0.1em;
@@ -1430,7 +1430,7 @@
   color: #22C55E;
 }
 .tama-brincadeira-resultado--derrota {
-  color: #F5A623;
+  color: var(--if-amber);
 }
 .tama-brincadeira-resultado-desc {
   color: #888;
@@ -1452,7 +1452,7 @@
 .tama-criatura-dix-display {
   cursor: pointer;
   font-size: 0.75rem;
-  color: #F5A623;
+  color: var(--if-amber);
   margin-bottom: 0.3rem;
 }
 .tama-criatura-loja-link {
@@ -1511,7 +1511,7 @@
   font-size: 32px;
   font-weight: 700;
   margin-bottom: 4px;
-  color: #F5A623;
+  color: var(--if-amber);
 }
 .tama-passear-gameover-moedas {
   font-size: 14px;
@@ -1571,7 +1571,7 @@
   margin-bottom: 4px;
   font-weight: 700;
   letter-spacing: 0.05em;
-  color: #F5A623;
+  color: var(--if-amber);
 }
 .tama-passear-card-desc {
   font-size: 13px;
@@ -1635,7 +1635,7 @@
   font-size: 32px;
   font-weight: 700;
   margin-bottom: 4px;
-  color: #F5A623;
+  color: var(--if-amber);
 }
 .tama-passear-gameover-coins {
   font-size: 14px;
@@ -1684,49 +1684,49 @@
 /* BalloonFala — cor da personalidade */
 .tama-balloon[data-tipo="CARENTE"]   { --tama-cor: #EC4899; }
 .tama-balloon[data-tipo="AGRESSIVO"] { --tama-cor: #E02020; }
-.tama-balloon[data-tipo="FOFO"]      { --tama-cor: #F5A623; }
+.tama-balloon[data-tipo="FOFO"]      { --tama-cor: var(--if-amber); }
 .tama-balloon[data-tipo="INDEPENDENTE"] { --tama-cor: #A855F4; }
 .tama-balloon[data-tipo="FILOSOFO"]  { --tama-cor: #22C55E; }
-.tama-balloon[data-tipo="COMICO"]    { --tama-cor: #00B4D8; }
+.tama-balloon[data-tipo="COMICO"]    { --tama-cor: var(--if-teal); }
 .tama-balloon:not([data-tipo])       { --tama-cor: #555; }
 
 /* Selecao card — cor da personalidade */
 .tama-selecao-card[data-tipo="CARENTE"]   { --tama-cor: #EC4899; }
 .tama-selecao-card[data-tipo="AGRESSIVO"] { --tama-cor: #E02020; }
-.tama-selecao-card[data-tipo="FOFO"]      { --tama-cor: #F5A623; }
+.tama-selecao-card[data-tipo="FOFO"]      { --tama-cor: var(--if-amber); }
 .tama-selecao-card[data-tipo="INDEPENDENTE"] { --tama-cor: #A855F4; }
 .tama-selecao-card[data-tipo="FILOSOFO"]  { --tama-cor: #22C55E; }
-.tama-selecao-card[data-tipo="COMICO"]    { --tama-cor: #00B4D8; }
+.tama-selecao-card[data-tipo="COMICO"]    { --tama-cor: var(--if-teal); }
 
 .tama-selecao-tipo[data-tipo="CARENTE"]   { --tama-cor: #EC4899; }
 .tama-selecao-tipo[data-tipo="AGRESSIVO"] { --tama-cor: #E02020; }
-.tama-selecao-tipo[data-tipo="FOFO"]      { --tama-cor: #F5A623; }
+.tama-selecao-tipo[data-tipo="FOFO"]      { --tama-cor: var(--if-amber); }
 .tama-selecao-tipo[data-tipo="INDEPENDENTE"] { --tama-cor: #A855F4; }
 .tama-selecao-tipo[data-tipo="FILOSOFO"]  { --tama-cor: #22C55E; }
-.tama-selecao-tipo[data-tipo="COMICO"]    { --tama-cor: #00B4D8; }
+.tama-selecao-tipo[data-tipo="COMICO"]    { --tama-cor: var(--if-teal); }
 
 /* Gacha resultado — cor da personalidade */
 .tama-gacha-resultado-emoji[data-tipo="CARENTE"]   { --tama-cor: #EC4899; }
 .tama-gacha-resultado-emoji[data-tipo="AGRESSIVO"] { --tama-cor: #E02020; }
-.tama-gacha-resultado-emoji[data-tipo="FOFO"]      { --tama-cor: #F5A623; }
+.tama-gacha-resultado-emoji[data-tipo="FOFO"]      { --tama-cor: var(--if-amber); }
 .tama-gacha-resultado-emoji[data-tipo="INDEPENDENTE"] { --tama-cor: #A855F4; }
 .tama-gacha-resultado-emoji[data-tipo="FILOSOFO"]  { --tama-cor: #22C55E; }
-.tama-gacha-resultado-emoji[data-tipo="COMICO"]    { --tama-cor: #00B4D8; }
+.tama-gacha-resultado-emoji[data-tipo="COMICO"]    { --tama-cor: var(--if-teal); }
 
 .tama-gacha-resultado-tipo[data-tipo="CARENTE"]   { --tama-cor: #EC4899; }
 .tama-gacha-resultado-tipo[data-tipo="AGRESSIVO"] { --tama-cor: #E02020; }
-.tama-gacha-resultado-tipo[data-tipo="FOFO"]      { --tama-cor: #F5A623; }
+.tama-gacha-resultado-tipo[data-tipo="FOFO"]      { --tama-cor: var(--if-amber); }
 .tama-gacha-resultado-tipo[data-tipo="INDEPENDENTE"] { --tama-cor: #A855F4; }
 .tama-gacha-resultado-tipo[data-tipo="FILOSOFO"]  { --tama-cor: #22C55E; }
-.tama-gacha-resultado-tipo[data-tipo="COMICO"]    { --tama-cor: #00B4D8; }
+.tama-gacha-resultado-tipo[data-tipo="COMICO"]    { --tama-cor: var(--if-teal); }
 
 /* Passeio bonus — cor da personalidade */
 .tama-passeio-card-bonus[data-tipo="CARENTE"]   { --tama-cor: #EC4899; }
 .tama-passeio-card-bonus[data-tipo="AGRESSIVO"] { --tama-cor: #E02020; }
-.tama-passeio-card-bonus[data-tipo="FOFO"]      { --tama-cor: #F5A623; }
+.tama-passeio-card-bonus[data-tipo="FOFO"]      { --tama-cor: var(--if-amber); }
 .tama-passeio-card-bonus[data-tipo="INDEPENDENTE"] { --tama-cor: #A855F4; }
 .tama-passeio-card-bonus[data-tipo="FILOSOFO"]  { --tama-cor: #22C55E; }
-.tama-passeio-card-bonus[data-tipo="COMICO"]    { --tama-cor: #00B4D8; }
+.tama-passeio-card-bonus[data-tipo="COMICO"]    { --tama-cor: var(--if-teal); }
 
 /* ===== CRIATURA SPRITE — tamanho por estágio ===== */
 .tama-sprite[data-estagio="0"] { --tam-tamanho: 160px; }
@@ -1758,7 +1758,7 @@
 
 /* ===== METRIC BAR — fill colors by level ===== */
 .tama-mb-fill--alta  { background: var(--cor-barra, #22C55E); }
-.tama-mb-fill--media { background: #F5A623; }
+.tama-mb-fill--media { background: var(--if-amber); }
 .tama-mb-fill--baixa { background: #E02020; }
 
 /* ===== BANHO BUBBLES ===== */
@@ -1770,7 +1770,7 @@
 
 /* ===== RESTAURAR SAÚDE — partículas ===== */
 .tama-saude-particula {
-  background: var(--cor, #00B4D8);
+  background: var(--cor, var(--if-teal));
   animation-delay: var(--delay, 0s);
 }
 @keyframes particula-temp {

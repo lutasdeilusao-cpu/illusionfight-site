@@ -79,7 +79,7 @@
   font-family: 'Courier New', monospace;
   font-size: 10px;
   letter-spacing: 6px;
-  color: #00B4D8;
+  color: var(--if-teal);
   opacity: 0.5;
   margin: 0 0 8px;
   text-transform: uppercase;
@@ -88,7 +88,7 @@
   font-family: 'Rajdhani', sans-serif;
   font-size: 52px;
   font-weight: 900;
-  color: #F5A623;
+  color: var(--if-amber);
   letter-spacing: 12px;
   margin: 0;
   line-height: 1;
@@ -249,14 +249,14 @@
 }
 
 .duelo-statusbar-name {
-  color: #F5A623;
+  color: var(--if-amber);
   font-weight: 700;
   font-size: 12px;
   letter-spacing: 1px;
 }
 
 .duelo-statusbar-stars {
-  color: #F5A623;
+  color: var(--if-amber);
   font-size: 9px;
   letter-spacing: 2px;
 }
@@ -307,8 +307,8 @@
 }
 
 .duelo-phase-btn:hover {
-  border-color: #F5A623;
-  color: #F5A623;
+  border-color: var(--if-amber);
+  color: var(--if-amber);
   background: rgba(245,166,35,0.06);
 }
 
@@ -318,8 +318,8 @@
 }
 
 .duelo-phase-btn--active {
-  border-color: #F5A623;
-  color: #F5A623;
+  border-color: var(--if-amber);
+  color: var(--if-amber);
   background: rgba(245,166,35,0.08);
 }
 
@@ -333,7 +333,7 @@
 }
 
 .duelo-phase-over {
-  color: #F5A623;
+  color: var(--if-amber);
   font-weight: 700;
   letter-spacing: 2px;
 }
@@ -350,7 +350,7 @@
 }
 
 .duelo-turn-indicator span {
-  color: #F5A623;
+  color: var(--if-amber);
   font-weight: 700;
 }
 
@@ -408,7 +408,7 @@
 }
 
 .duelo-card-stars {
-  color: #F5A623;
+  color: var(--if-amber);
   font-size: 6px;
 }
 
@@ -508,7 +508,7 @@
   font-family: 'Rajdhani', sans-serif;
 }
 .duelo-preparation-banner h3 {
-  color: #F5A623;
+  color: var(--if-amber);
   font-size: 20px;
   letter-spacing: 6px;
   margin: 0 0 4px;
@@ -538,7 +538,7 @@
 .duelo-targeting-hint {
   background: rgba(245,166,35,0.08);
   border: 1px solid rgba(245,166,35,0.2);
-  color: #F5A623;
+  color: var(--if-amber);
   text-align: center;
   padding: 6px 12px;
   font-family: 'Courier New', monospace;
@@ -631,13 +631,13 @@
 }
 
 .duelo-grid-cell--selected {
-  border-color: #F5A623 !important;
+  border-color: var(--if-amber) !important;
   box-shadow: 0 0 8px rgba(245,166,35,0.3);
   background: rgba(245,166,35,0.06) !important;
 }
 
 .duelo-grid-cell--move {
-  border-color: #00B4D8 !important;
+  border-color: var(--if-teal) !important;
   background: rgba(0,180,216,0.08) !important;
   cursor: pointer;
 }
@@ -723,7 +723,7 @@
 }
 
 .duelo-grid-monster--player {
-  border-left: 2px solid #00B4D8;
+  border-left: 2px solid var(--if-teal);
 }
 
 .duelo-grid-monster--ai {
@@ -751,8 +751,8 @@
 
 .duelo-stat-atk { color: #EF4444; font-size: 7px; font-family: 'Courier New', monospace; }
 .duelo-stat-def { color: #22C55E; font-size: 7px; font-family: 'Courier New', monospace; }
-.duelo-stat-mov { color: #00B4D8; font-size: 6px; font-family: 'Courier New', monospace; }
-.duelo-stat-rng { color: #F5A623; font-size: 6px; font-family: 'Courier New', monospace; }
+.duelo-stat-mov { color: var(--if-teal); font-size: 6px; font-family: 'Courier New', monospace; }
+.duelo-stat-rng { color: var(--if-amber); font-size: 6px; font-family: 'Courier New', monospace; }
 
 /* ── Grid Trap ── */
 .duelo-grid-trap {
@@ -780,11 +780,11 @@
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #F5A623, #8B6914);
+  background: linear-gradient(135deg, var(--if-amber), #8B6914);
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 3px solid #F5A623;
+  border: 3px solid var(--if-amber);
   box-shadow: 0 0 40px rgba(245,166,35,0.3);
 }
 
@@ -795,7 +795,7 @@
 .duelo-coin-text {
   font-family: 'Rajdhani', sans-serif;
   font-size: 22px;
-  color: #F5A623;
+  color: var(--if-amber);
   letter-spacing: 4px;
   font-weight: 700;
 }
@@ -846,11 +846,11 @@
   padding: 4px;
   border: 2px solid #3A3A5A;
   background: #0D0D1A;
-  color: #F5A623;
+  color: var(--if-amber);
 }
 
 .duelo-draw-card--revealed {
-  border-color: #F5A623;
+  border-color: var(--if-amber);
   background: linear-gradient(135deg, rgba(245,166,35,0.1), #0D0D1A);
 }
 
@@ -863,7 +863,7 @@
 
 .duelo-draw-card-name {
   font-size: 7px;
-  color: #F5A623;
+  color: var(--if-amber);
   font-weight: 700;
   word-break: break-word;
   line-height: 1.2;
@@ -872,7 +872,7 @@
 .duelo-draw-ready {
   font-family: 'Rajdhani', sans-serif;
   font-size: 18px;
-  color: #F5A623;
+  color: var(--if-amber);
   letter-spacing: 4px;
 }
 
@@ -903,7 +903,7 @@
 .duelo-confirm-title {
   font-family: 'Rajdhani', sans-serif;
   font-size: 22px;
-  color: #F5A623;
+  color: var(--if-amber);
   font-weight: 900;
   margin: 0;
   letter-spacing: 2px;
@@ -1014,7 +1014,7 @@
 .duelo-phase-hint {
   font-family: 'Courier New', monospace;
   font-size: 9px;
-  color: #00B4D8;
+  color: var(--if-teal);
   letter-spacing: 1px;
   padding: 4px 8px;
 }
@@ -1061,9 +1061,9 @@
 }
 
 .duelo-vercartas-tab.active {
-  color: #F5A623;
+  color: var(--if-amber);
   background: rgba(245,166,35,0.06);
-  border-bottom: 2px solid #F5A623;
+  border-bottom: 2px solid var(--if-amber);
 }
 
 .duelo-vercartas-close {
@@ -1143,7 +1143,7 @@
 .duelo-vercartas-preview-name {
   font-family: 'Rajdhani', sans-serif;
   font-size: 14px;
-  color: #F5A623;
+  color: var(--if-amber);
   margin: 0;
   font-weight: 700;
 }
@@ -1207,7 +1207,7 @@
   font-family: 'Rajdhani', sans-serif;
   font-size: 32px;
   font-weight: 900;
-  color: #F5A623;
+  color: var(--if-amber);
   letter-spacing: 6px;
   text-shadow: 0 0 30px rgba(245,166,35,0.4), 0 2px 4px rgba(0,0,0,0.8);
   text-align: center;

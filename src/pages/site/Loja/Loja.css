@@ -15,7 +15,7 @@
   font-size: 2.5rem;
   font-weight: 900;
   letter-spacing: 0.2em;
-  color: #F5A623;
+  color: var(--if-amber);
   margin: 0;
   position: relative;
 }
@@ -37,7 +37,7 @@
 }
 
 .loja-titulo-glitch::after {
-  color: #00B4D8;
+  color: var(--if-teal);
   z-index: -2;
   animation: glitch-shift 2s infinite linear alternate-reverse;
 }
@@ -102,8 +102,8 @@
 }
 
 .loja-tab--ativo {
-  border-color: #F5A623;
-  color: #F5A623;
+  border-color: var(--if-amber);
+  color: var(--if-amber);
   background: rgba(245,166,35,0.05);
 }
 
@@ -129,7 +129,7 @@
 }
 
 .loja-card:hover {
-  border-color: #00B4D8;
+  border-color: var(--if-teal);
   transform: translateY(-2px);
 }
 
@@ -161,7 +161,7 @@
 
 .loja-card-badge {
   font-size: 0.6rem;
-  color: #00B4D8;
+  color: var(--if-teal);
   letter-spacing: 0.1em;
 }
 

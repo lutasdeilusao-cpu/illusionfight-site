@@ -3,7 +3,7 @@
   --home-panel: #0a1015;
   --home-panel-2: #0d151b;
   --home-line: rgba(0, 229, 255, 0.2);
-  --home-cyan: #00e5ff;
+  --home-cyan: var(--if-cyan);
   --home-violet: #a855f7;
   --home-amber: #ff9f1c;
   position: relative;

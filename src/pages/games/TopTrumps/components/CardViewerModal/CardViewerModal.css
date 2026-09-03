@@ -121,7 +121,7 @@
 }
 
 .tt-viewer-tier--free { color: #00c8a8; }
-.tt-viewer-tier--elite { color: #e8853a; }
+.tt-viewer-tier--elite { color: var(--if-amber); }
 .tt-viewer-tier--primordial { color: #6B0F1A; }
 .tt-viewer-tier--lendario { color: #9b59b6; }
 .tt-viewer-tier--sombra { color: #2c3e50; }
@@ -134,7 +134,7 @@
 
 .tt-viewer-elemental {
   font-size: 0.75rem;
-  color: #e8853a;
+  color: var(--if-amber);
   margin: 0.3rem 0;
   letter-spacing: 0.04em;
 }
@@ -148,11 +148,11 @@
 
 .tt-viewer-frase {
   font-size: 0.7rem;
-  color: #F5A623;
+  color: var(--if-amber);
   font-style: italic;
   margin: 0.4rem 0 0.6rem;
   padding-left: 0.5rem;
-  border-left: 2px solid #F5A62344;
+  border-left: 2px solid var(--if-amber)44;
 }
 
 .tt-viewer-stats-title {
@@ -199,7 +199,7 @@
 
 .tt-viewer-stat-bar-fill {
   height: 100%;
-  background: linear-gradient(90deg, #e8853a, #F5A623);
+  background: linear-gradient(90deg, var(--if-amber), var(--if-amber));
   border-radius: 3px;
   transition: width 0.3s;
 }

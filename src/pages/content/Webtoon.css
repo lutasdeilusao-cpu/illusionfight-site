@@ -1,38 +1,56 @@
+/* ══════════════════════════════════════════════════════════════
+   WEBTOON — índice de episódios
+   Linguagem da navbar (src/styles/design-system.css).
+   Coluna única: o portal é mobile only, não existe grade de desktop.
+   ══════════════════════════════════════════════════════════════ */
+
 .webtoon-page {
-  padding: 8rem 0 4rem;
   min-height: 100vh;
-  background: var(--bg-primary);
+  padding: 1.75rem 0 3rem;
 }
 
 .webtoon-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-top: 1.25rem;
 }
 
 .webtoon-card {
-  background: var(--bg-elevated);
-  border: 1px solid var(--border-subtle);
-  border-radius: 8px;
+  position: relative;
   overflow: hidden;
   cursor: pointer;
-  transition: border-color 0.2s, transform 0.2s;
+  border: 1px solid var(--if-edge);
+  background: var(--if-glow-corner), var(--if-panel);
+  transition: border-color 0.22s, box-shadow 0.22s, transform 0.22s;
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%);
 }
 
 .webtoon-card:hover {
-  border-color: var(--accent-teal);
-  transform: translateY(-4px);
+  border-color: var(--if-cyan-45);
+  box-shadow: 0 0 26px rgba(24, 218, 251, 0.14);
+  transform: translateY(-2px);
+}
+
+.webtoon-card--locked {
+  cursor: default;
+  opacity: 0.6;
+}
+
+.webtoon-card--locked:hover {
+  border-color: var(--if-edge);
+  box-shadow: none;
+  transform: none;
 }
 
 .webtoon-card__thumb {
-  aspect-ratio: 16 / 9;
-  background: var(--bg-elevated);
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
-  position: relative;
+  background: var(--bg-secondary);
 }
 
 .webtoon-card__thumb img {
@@ -41,81 +59,69 @@
   object-fit: cover;
 }
 
-.webtoon-card--locked {
-  cursor: default;
-  opacity: 0.7;
-}
-
-.webtoon-card--locked:hover {
-  border-color: var(--border-subtle);
-  transform: none;
-}
-
 .webtoon-card__overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.65);
   display: flex;
   align-items: center;
   justify-content: center;
+  background: rgba(0, 4, 7, 0.72);
+  backdrop-filter: blur(2px);
 }
 
 .webtoon-card__badge {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.7rem;
-  font-weight: 600;
-  color: var(--text-muted);
-  letter-spacing: 0.08em;
   padding: 0.3rem 0.7rem;
-  border: 1px solid var(--text-muted);
+  border: 1px solid var(--if-hair-strong);
   background: rgba(0, 0, 0, 0.5);
+  color: var(--text-muted);
+  font: 700 0.6rem var(--font-mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
   text-align: center;
 }
 
-.webtoon-card__titulo--locked {
-  color: var(--text-muted);
-}
-
 .webtoon-card__num {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: 2rem;
   color: var(--text-muted);
 }
 
 .webtoon-card__info {
-  padding: 1rem;
   display: flex;
   flex-direction: column;
-  gap: 0.35rem;
+  gap: 0.3rem;
+  padding: 0.8rem 0.9rem;
 }
 
 .webtoon-card__numero {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.75rem;
-  color: var(--accent-teal);
-  letter-spacing: 0.05em;
+  color: var(--if-cyan);
+  font: 700 0.58rem var(--font-mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 .webtoon-card__titulo {
-  font-family: 'Rajdhani', sans-serif;
-  font-weight: 700;
-  font-size: 1.1rem;
-  color: var(--text-primary);
   margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: 0.03em;
+  color: var(--text-primary);
 }
+
+.webtoon-card__titulo--locked { color: var(--text-muted); }
 
 .webtoon-card__langs {
   display: flex;
-  gap: 0.35rem;
-  margin-top: 0.25rem;
+  gap: 0.3rem;
+  margin-top: 0.15rem;
 }
 
 .webtoon-card__lang {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.6rem;
-  font-weight: 600;
-  color: var(--text-muted);
-  border: 1px solid var(--border-subtle);
   padding: 0.1rem 0.4rem;
+  border: 1px solid var(--if-hair-strong);
+  color: var(--text-muted);
+  font: 700 0.54rem var(--font-mono);
+  letter-spacing: 0.08em;
 }

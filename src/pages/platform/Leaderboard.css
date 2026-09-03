@@ -51,7 +51,7 @@
 }
 
 .lb-aba--ativa {
-  border-color: #e8853a;
+  border-color: var(--if-amber);
   color: #EAEAEA;
 }
 
@@ -120,7 +120,7 @@
 .lb-podium-pontos {
   font-family: "JetBrains Mono", monospace;
   font-size: 0.7rem;
-  color: #e8853a;
+  color: var(--if-amber);
 }
 
 .lb-tabela {
@@ -190,7 +190,7 @@
 .lb-user-pos {
   font-family: "JetBrains Mono", monospace;
   font-size: 0.6rem;
-  color: #e8853a;
+  color: var(--if-amber);
   display: block;
   margin-bottom: 0.5rem;
 }
@@ -205,7 +205,7 @@
 .lb-user-pontos {
   font-family: "JetBrains Mono", monospace;
   font-size: 0.7rem;
-  color: #e8853a;
+  color: var(--if-amber);
 }
 
 .lb-user-cta {
@@ -216,7 +216,7 @@
 }
 
 .lb-user-cta a {
-  color: #e8853a;
+  color: var(--if-amber);
 }
 
 .lb-ranking-meta {
@@ -252,14 +252,14 @@
 }
 
 .lb-scope-btn:hover {
-  border-color: #e8853a;
+  border-color: var(--if-amber);
   color: #EAEAEA;
 }
 
 .lb-scope-btn--ativo {
-  border-color: #e8853a;
+  border-color: var(--if-amber);
   background: rgba(232,133,58,0.12);
-  color: #e8853a;
+  color: var(--if-amber);
 }
 
 @media (max-width: 640px) {

@@ -1,0 +1,280 @@
+/* ══════════════════════════════════════════════════════════════
+   IF DESIGN SYSTEM
+   Linguagem visual única do portal, extraída da navbar/drawer.
+   O visitante tem que sentir que está no mesmo aplicativo o tempo
+   todo — nada de cada área ter sua própria paleta.
+
+   Importado uma vez em src/index.css. Use os tokens e as
+   primitivas daqui; não invente cor nova por página.
+   ══════════════════════════════════════════════════════════════ */
+
+:root {
+  /* ── Ciano: a cor de assinatura ──
+     --if-cyan é o brilho da navbar; --if-teal é a base mais sóbria.
+     Antes existiam 4 cianos soltos (#00eeff, #00e5ff, ...) — não voltar. */
+  --if-cyan: #18dafb;
+  --if-teal: #00b4d8;
+  --if-cyan-005: rgba(24, 218, 251, 0.035);
+  --if-cyan-08: rgba(24, 218, 251, 0.08);
+  --if-cyan-13: rgba(24, 218, 251, 0.13);
+  --if-cyan-20: rgba(24, 218, 251, 0.2);
+  --if-cyan-45: rgba(24, 218, 251, 0.45);
+  --if-cyan-58: rgba(24, 218, 251, 0.58);
+  --if-cyan-72: rgba(25, 218, 251, 0.72);
+
+  /* ── Âmbar: destaque, premium, apoiar ──
+     Antes eram 4 (#f5a623, #e8853a, #f4a227, #ffae32). Agora um só. */
+  --if-amber: #ffae32;
+  --if-amber-soft: #ffb43c;
+  --if-amber-16: rgba(255, 174, 50, 0.16);
+  --if-amber-72: rgba(255, 174, 50, 0.72);
+
+  /* ── Laranja de ação (CTA de conversão) ── */
+  --if-cta: #c74617;
+  --if-cta-edge: #ff7a45;
+
+  /* ── Semânticas: estado, não decoração ── */
+  --if-ok: #22c55e;       /* pronto, liberado, sucesso */
+  --if-danger: #ff0055;   /* erro, perigo */
+
+  /* ── Identidade: paleta curada para distinguir jogos e trilhas.
+     Um card pode ter cor própria; a moldura em volta é sempre a mesma. */
+  --if-violet: #a855f4;
+  --if-pink: #ec4899;
+  --if-blood: #8b0000;
+
+  /* ── Superfícies ── */
+  --if-ink: #eaffff;
+  --if-panel: linear-gradient(160deg, #0b151a, #070b0e 65%);
+  --if-panel-flat: #0b151a;
+  --if-glow-corner: radial-gradient(circle at 100% 0, rgba(0, 180, 216, 0.14), transparent 34%);
+  --if-glass: linear-gradient(180deg, rgba(5, 14, 19, 0.91), rgba(5, 11, 15, 0.76));
+
+  /* ── Fios de separação ── */
+  --if-hair: rgba(255, 255, 255, 0.055);
+  --if-hair-strong: rgba(255, 255, 255, 0.09);
+  --if-edge: rgba(30, 218, 250, 0.18);
+
+  /* ── Geometria de assinatura ── */
+  --if-cut: 10px;   /* canto chanfrado superior direito */
+  --if-blur: blur(18px) saturate(145%);
+}
+
+/* ══ Canto chanfrado — o gesto que identifica o portal ══ */
+.if-cut {
+  clip-path: polygon(0 0, calc(100% - var(--if-cut)) 0, 100% var(--if-cut), 100% 100%, 0 100%);
+}
+
+/* ══ Painel padrão ══ */
+.if-panel {
+  position: relative;
+  border: 1px solid var(--if-edge);
+  background: var(--if-glow-corner), var(--if-panel);
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.28);
+  clip-path: polygon(0 0, calc(100% - var(--if-cut)) 0, 100% var(--if-cut), 100% 100%, 0 100%);
+}
+
+/* ══ Eyebrow mono — "IF // ALGUMA COISA" ══ */
+.if-eyebrow {
+  display: block;
+  color: var(--if-cyan-58);
+  font: 700 0.55rem var(--font-mono);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* ══ Título de seção ══ */
+.if-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.35rem, calc(6 * var(--app-vw) / 100), 1.8rem);
+  line-height: 1.05;
+  letter-spacing: 0.02em;
+  color: var(--text-primary);
+}
+
+/* ══ Fio com brilho no centro (o de baixo da navbar) ══ */
+.if-divider {
+  height: 1px;
+  border: 0;
+  background: linear-gradient(90deg, transparent, var(--if-cyan-72), transparent);
+  opacity: 0.65;
+}
+
+/* ══ Item de lista com índice, sweep e barra ativa ══
+   É o padrão do drawer, reaproveitado em catálogos e listas. */
+.if-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 43px;
+  padding: 8px 10px;
+  overflow: hidden;
+  border-bottom: 1px solid var(--if-hair);
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.05rem;
+  letter-spacing: 0.05em;
+  transition: color 0.2s;
+}
+
+.if-item::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(90deg, var(--if-cyan-13), transparent 78%);
+  transform: translateX(-102%);
+  transition: transform 0.28s ease;
+}
+
+.if-item:hover::after,
+.if-item.is-active::after { transform: translateX(0); }
+.if-item:hover { color: var(--if-cyan); }
+.if-item.is-active { color: var(--if-ink); box-shadow: inset 2px 0 var(--if-cyan); }
+
+.if-item__index {
+  width: 20px;
+  flex: none;
+  color: #3d6573;
+  font: 600 0.52rem var(--font-mono);
+  letter-spacing: 0.06em;
+}
+
+.if-item.is-active .if-item__index { color: var(--if-cyan); }
+
+/* ══ Botões ══ */
+.if-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  min-height: 44px;            /* alvo de toque WCAG */
+  padding: 0.6rem 1.4rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  clip-path: polygon(0 0, calc(100% - var(--if-cut)) 0, 100% var(--if-cut), 100% 100%, 0 100%);
+}
+
+.if-btn--ghost {
+  border: 1px solid var(--if-cyan-45);
+  background: linear-gradient(90deg, rgba(24, 218, 251, 0.07), transparent);
+  color: var(--if-cyan);
+}
+
+.if-btn--ghost:hover {
+  background: var(--if-cyan);
+  color: #04141a;
+  box-shadow: 0 0 22px rgba(24, 218, 251, 0.35);
+}
+
+.if-btn--primary {
+  border: 1px solid var(--if-cta-edge);
+  background: var(--if-cta);
+  color: #fff;
+}
+
+.if-btn--primary:hover {
+  box-shadow: 0 0 24px rgba(255, 122, 69, 0.4);
+}
+
+.if-btn--amber {
+  border: 1px solid var(--if-amber-72);
+  background: linear-gradient(90deg, var(--if-amber-16), rgba(255, 174, 50, 0.025));
+  color: var(--if-amber-soft);
+  box-shadow: inset 3px 0 var(--if-amber);
+}
+
+.if-btn--amber:hover {
+  background: var(--if-amber);
+  color: #1b1000;
+}
+
+.if-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* ══ Campo de formulário ══ */
+.if-field {
+  width: 100%;
+  min-height: 44px;
+  padding: 0.65rem 0.9rem;
+  border: 1px solid var(--if-hair-strong);
+  background: rgba(255, 255, 255, 0.025);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.if-field::placeholder { color: var(--text-muted); }
+
+.if-field:focus {
+  outline: none;
+  border-color: var(--if-cyan-45);
+  box-shadow: 0 0 0 1px var(--if-cyan-20), 0 0 18px rgba(24, 218, 251, 0.12);
+}
+
+.if-label {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--text-secondary);
+  font: 700 0.6rem var(--font-mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* ══ Selo / badge ══ */
+.if-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.5rem;
+  border: 1px solid var(--if-cyan-45);
+  background: var(--if-cyan-08);
+  color: var(--if-cyan);
+  font: 700 0.58rem var(--font-mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.if-badge--amber {
+  border-color: var(--if-amber-72);
+  background: var(--if-amber-16);
+  color: var(--if-amber-soft);
+}
+
+/* ══ Cabeçalho de página ══ */
+.if-page-head {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 1.5rem 0 1rem;
+}
+
+/* ══ Entrada escalonada (mesma do drawer) ══ */
+@media (prefers-reduced-motion: no-preference) {
+  .if-stagger > * { animation: ifStaggerIn 0.42s both; }
+  .if-stagger > *:nth-child(2) { animation-delay: 0.035s; }
+  .if-stagger > *:nth-child(3) { animation-delay: 0.07s; }
+  .if-stagger > *:nth-child(4) { animation-delay: 0.105s; }
+  .if-stagger > *:nth-child(5) { animation-delay: 0.14s; }
+  .if-stagger > *:nth-child(6) { animation-delay: 0.175s; }
+  .if-stagger > *:nth-child(7) { animation-delay: 0.21s; }
+  .if-stagger > *:nth-child(8) { animation-delay: 0.245s; }
+  .if-stagger > *:nth-child(9) { animation-delay: 0.28s; }
+}
+
+@keyframes ifStaggerIn {
+  from { opacity: 0; transform: translateX(18px); }
+  to { opacity: 1; transform: translateX(0); }
+}

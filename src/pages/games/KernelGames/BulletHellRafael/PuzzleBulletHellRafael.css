@@ -1,5 +1,5 @@
 :root {
-  --bh-cyan:   #00e5ff;
+  --bh-cyan:   var(--if-cyan);
   --bh-purple: #b400ff;
   --bh-red:    #ff0055;
   --bh-gold:   #ffcc00;

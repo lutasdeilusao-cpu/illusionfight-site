@@ -35,7 +35,7 @@
   font-family: 'Impact', 'Arial Black', sans-serif;
   font-size: 32px;
   letter-spacing: 4px;
-  color: #F5A623;
+  color: var(--if-amber);
   text-shadow:
     0 0 30px rgba(245, 166, 35, 0.8),
     0 0 60px rgba(245, 166, 35, 0.4),
@@ -168,7 +168,7 @@
 }
 
 .dramatic-dice-number--critico {
-  color: #F5A623;
+  color: var(--if-amber);
   text-shadow:
     0 0 20px rgba(245, 166, 35, 0.8),
     0 0 40px rgba(245, 166, 35, 0.4),
@@ -217,7 +217,7 @@
 }
 
 .dramatic-dice-subtext--critico {
-  color: #F5A623;
+  color: var(--if-amber);
   font-weight: 700;
   text-shadow:
     0 0 20px rgba(245, 166, 35, 0.6),
@@ -230,7 +230,7 @@
   width: 200px;
   height: 3px;
   border-radius: 2px;
-  background: linear-gradient(90deg, #00B4D8, #F5A623);
+  background: linear-gradient(90deg, var(--if-teal), var(--if-amber));
   transform-origin: left center;
   opacity: 0.4;
 }

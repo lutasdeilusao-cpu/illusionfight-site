@@ -25,8 +25,8 @@
 }
 .p0-btn--primary {
   background: rgba(0,238,255,0.1);
-  color: var(--ldi-cyan, #00eeff);
-  border-color: var(--ldi-cyan, #00eeff);
+  color: var(--ldi-cyan, var(--if-cyan));
+  border-color: var(--ldi-cyan, var(--if-cyan));
 }
 .p0-btn--primary:hover { background: rgba(0,238,255,0.2); }
 .p0-btn--secondary {
@@ -64,7 +64,7 @@
   color: var(--ldi-text-dim, #888);
   transition: all 0.12s;
 }
-.p0-lista-btn:hover { border-color: var(--ldi-cyan, #00eeff); color: var(--ldi-cyan, #00eeff); }
+.p0-lista-btn:hover { border-color: var(--ldi-cyan, var(--if-cyan)); color: var(--ldi-cyan, var(--if-cyan)); }
 .p0-lista-btn--del:hover { border-color: #ff2244; color: #ff2244; }
 .p0-aviso {
   font-family: var(--ldi-font-body, sans-serif);
@@ -96,6 +96,6 @@
   color: var(--ldi-text-dim, #888);
   transition: all 0.12s;
 }
-.p0-modal-btn:hover { border-color: var(--ldi-cyan, #00eeff); color: var(--ldi-cyan, #00eeff); }
+.p0-modal-btn:hover { border-color: var(--ldi-cyan, var(--if-cyan)); color: var(--ldi-cyan, var(--if-cyan)); }
 .p0-modal-btn--del { border-color: rgba(255,34,68,0.3); color: #ff6688; }
 .p0-modal-btn--del:hover { border-color: #ff2244; color: #ff2244; }

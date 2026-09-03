@@ -30,10 +30,10 @@
 }
 .p3-btn--training {
   background: rgba(0,238,255,0.08);
-  color: var(--ldi-cyan, #00eeff);
+  color: var(--ldi-cyan, var(--if-cyan));
   border-color: rgba(0,238,255,0.3);
 }
-.p3-btn--training:hover { background: rgba(0,238,255,0.15); border-color: var(--ldi-cyan, #00eeff); }
+.p3-btn--training:hover { background: rgba(0,238,255,0.15); border-color: var(--ldi-cyan, var(--if-cyan)); }
 .p3-btn--campaign {
   background: var(--ldi-bg, #0a0e14);
   color: var(--ldi-text-dim, #555);

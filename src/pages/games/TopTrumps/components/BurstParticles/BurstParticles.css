@@ -8,7 +8,7 @@
   animation-fill-mode: forwards;
 }
 
-.tt-particula--ganhou { background: #e8853a; }
+.tt-particula--ganhou { background: var(--if-amber); }
 .tt-particula--perdeu { background: #e74c3c; }
 .tt-particula--empate { background: #fff; }
 

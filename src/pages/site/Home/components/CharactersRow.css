@@ -23,7 +23,7 @@
 .characters-row__scroll .character-card:hover {
   z-index: 2;
   transform: translateY(-5px);
-  border-color: #00e5ff;
+  border-color: var(--if-cyan);
   box-shadow: 0 14px 32px rgba(0, 0, 0, 0.4);
 }
 .characters-row__scroll .character-card__footer { background: linear-gradient(transparent, rgba(3, 6, 9, 0.95)); }

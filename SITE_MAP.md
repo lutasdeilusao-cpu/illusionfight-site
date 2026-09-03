@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — MAPA DO SITE E DO PROJETO
 
 > Referência do estado atual do projeto para navegação humana e contexto de IA.
-> Atualizado em 2026-09-03 — `SITE_VERSION` **10.203.0**.
+> Atualizado em 2026-09-03 — `SITE_VERSION` **10.204.0**.
 > Histórico de tarefas, bugfixes e pendências não pertence a este documento.
 > Regras de trabalho, arquivos proibidos e decisões arquiteturais: `AGENTS.md`.
 
@@ -263,11 +263,22 @@ Arquivos do livro são carregados por `import.meta.glob`; ao mover leitores, os 
 
 ### 6.2 i18n
 
-- Site geral: `src/i18n/pt.json`, `en.json`, `es.json`. A Home usa os arquivos dedicados `home_{pt,en,es}.json`, combinados em `src/i18n/locales.js`. Namespaces de conteúdo relevantes: `nav.links`, `pages.livro`, `pages.contos` (`peso_*`, `canon_*`, `tema_*`), `pages.historias`, `pages.obra`, `pages.mundoHub`, `pages.universo`.
-- Pesadelo Particular: `src/i18n/pp_{pt,en,es}.json`.
-- Top Trumps: `src/i18n/tt_{pt,en,es}.json`.
-- LDI Gangues: `src/i18n/gangues-{pt,en,es}.json`, carregado sob demanda via `useGanguesI18n()` (só baixa quando o jogador entra no jogo, não faz parte do bundle geral).
-- Kernel Games: `src/pages/games/KernelGames/_shared/i18n/` e i18n próprio do Kernel Panic.
+Carregamento **por idioma e por área**: o visitante baixa só o núcleo do idioma que usa, e a área pesada chega quando ele entra nela. Antes os três idiomas inteiros entravam no bundle (~356K) para servir um.
+
+| Pasta | Conteúdo | Quando carrega |
+|---|---|---|
+| `src/i18n/core/<lang>.json` | Navegação, home, histórias, conta, loja, quiz, calendário | Sempre, só o idioma ativo |
+| `src/i18n/games/<lang>.json` | Strings de dentro dos jogos (inclui `pp` e `games.toptrumps`), `tatics`, `multiplayer_lobby` | Ao entrar em `/games/<jogo>` |
+| `src/i18n/prototype/<lang>.json` | Laboratório | Ao entrar em `/lab` |
+| `src/i18n/gangues-<lang>.json` | LDI Gangues (grande) | `useGanguesI18n()`, ao abrir o jogo |
+
+`src/i18n/locales.js` expõe `carregarCore(locale)`, `carregarArea(area, locale)`, `areaDaRota(pathname)` e `LOCALE_LABELS`. O `LanguageProvider` segura a renderização até o núcleo chegar — é o que evita a página piscar com as chaves cruas; a vinheta de abertura cobre essa espera. Ao trocar de idioma o dicionário antigo continua valendo até o novo chegar, então não há tela em branco.
+
+Chave nova vai no arquivo da área correspondente, nunca num monolito, e precisa existir nos três idiomas. O catálogo `/games` usa `site.games.*`, que fica no núcleo — só as telas de dentro puxam o pedaço pesado.
+
+Kernel Games mantém i18n próprio em `src/pages/games/KernelGames/_shared/i18n/`.
+
+Namespaces de conteúdo relevantes: `nav.links`, `pages.livro`, `pages.contos` (`peso_*`, `canon_*`, `tema_*`), `pages.historias`, `pages.obra`, `pages.mundoHub`, `pages.universo`.
 
 ## 7. Multiplayer e persistência dos jogos
 
@@ -327,6 +338,24 @@ Overlays `fixed` escapam do `#root`, então são presos à coluna por `left/righ
 
 Media queries de viewport e unidades `vw` medem a tela, não a coluna, e por isso quebram a visão única no desktop — as regras de conversão estão em `AGENTS.md` e na Bíblia §4.
 
+### 10.2 Linguagem visual única
+
+`src/styles/design-system.css` (importado por `index.css`) guarda a linguagem do portal, extraída da navbar/drawer. Toda área usa os mesmos tokens; página nenhuma escreve hex novo.
+
+| Token | Papel |
+|---|---|
+| `--if-cyan` / `--if-teal` | Ciano de assinatura e a base mais sóbria. Substituíram `#00eeff`, `#00e5ff`, `#18dafb`, `#00b4d8`. |
+| `--if-amber` / `--if-amber-soft` | Destaque, premium, apoiar. Substituíram `#f5a623`, `#e8853a`, `#f4a227`, `#ffae32`. |
+| `--if-cta` / `--if-cta-edge` | Laranja de conversão (Conta Grátis, Entrar). |
+| `--if-ok` / `--if-danger` | Estado: liberado, erro. |
+| `--if-violet` / `--if-pink` / `--if-blood` | Identidade curada para distinguir jogos. |
+| `--if-panel`, `--if-glass`, `--if-glow-corner`, `--if-edge`, `--if-hair` | Superfícies e fios. |
+| `--if-cut` | Canto chanfrado (10px). O portal corta o canto, não arredonda. |
+
+Primitivas: `.if-panel`, `.if-btn` (`--ghost`/`--primary`/`--amber`), `.if-field`, `.if-label`, `.if-eyebrow`, `.if-title`, `.if-item` (+`__index`), `.if-badge`, `.if-divider`, `.if-page-head`, `.if-stagger`.
+
+Motores de jogo que desenham em canvas mantêm hex literal: `ctx.fillStyle` não resolve `var()`.
+
 | Camada | z-index |
 |---|---:|
 | DesktopShellBar (só runtime steam-demo) | 2147483647 |
@@ -357,7 +386,7 @@ Fonte única: `src/config/version.js`. Esta tabela registra somente a identifica
 
 | Constante | Módulo | Versão |
 |---|---|---:|
-| `SITE_VERSION` | Site global | **10.203.0** |
+| `SITE_VERSION` | Site global | **10.204.0** |
 | `PP_VERSION` | Pesadelo Particular | 2.3.1 |
 | `LDI_VERSION` | Lendas do LDI | 2.0.1 |
 | `JACK_VERSION` | Jack Dream Beer | 5.3.2 |

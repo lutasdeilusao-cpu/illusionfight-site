@@ -16,8 +16,8 @@
 }
 .pfb-elem-btn:hover { border-color: var(--ldi-text-dim, #888); }
 .pfb-elem-btn--ativo {
-  border-color: var(--ldi-cyan, #00eeff);
-  color: var(--ldi-cyan, #00eeff);
+  border-color: var(--ldi-cyan, var(--if-cyan));
+  color: var(--ldi-cyan, var(--if-cyan));
   background: rgba(0,238,255,0.06);
 }
 .pfb-ordem {

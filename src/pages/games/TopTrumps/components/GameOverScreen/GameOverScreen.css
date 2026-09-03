@@ -9,7 +9,7 @@
   font-size: 1.1rem;
   font-weight: 700;
   letter-spacing: 0.08em;
-  background: #e8853a;
+  background: var(--if-amber);
   color: #000;
   border: none;
   border-radius: 6px;
@@ -91,7 +91,7 @@
 .tt-fim-aviso {
   font-family: "IBM Plex Sans", sans-serif;
   font-size: 0.8rem;
-  color: #e8853a;
+  color: var(--if-amber);
   margin-bottom: 1.5rem;
 }
 
@@ -105,7 +105,7 @@
 }
 
 .tt-guest-cta a {
-  color: #F5A623;
+  color: var(--if-amber);
   text-decoration: underline;
 }
 

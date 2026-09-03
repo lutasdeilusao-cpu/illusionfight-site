@@ -39,7 +39,7 @@
   width: 40px;
   height: 40px;
   border: 3px solid #2A2D31;
-  border-top-color: #e8853a;
+  border-top-color: var(--if-amber);
   border-radius: 50%;
   animation: ttmp-spin 0.8s linear infinite;
 }
@@ -177,7 +177,7 @@
   padding: 0.45rem 0.8rem;
   border: 1px solid rgba(232, 133, 58, 0.4);
   border-radius: 999px;
-  color: #e8853a;
+  color: var(--if-amber);
   background: rgba(232, 133, 58, 0.08);
   font-family: "JetBrains Mono", monospace;
   font-size: 0.68rem;
@@ -215,7 +215,7 @@
 }
 
 .ttmp-ppt-btn:hover:not(:disabled) {
-  border-color: #e8853a;
+  border-color: var(--if-amber);
   background: rgba(232,133,58,0.08);
 }
 
@@ -236,7 +236,7 @@
 .ttmp-ppt-aguardando {
   font-family: "JetBrains Mono", monospace;
   font-size: 0.7rem;
-  color: #e8853a;
+  color: var(--if-amber);
   animation: ttmp-pulse 1.2s ease-in-out infinite;
   margin: 0;
 }
@@ -284,7 +284,7 @@
 .ttmp-vez-message {
   font-family: "JetBrains Mono", monospace;
   font-size: 0.55rem;
-  color: #e8853a;
+  color: var(--if-amber);
   letter-spacing: 0.05em;
   animation: ttmp-pulse 1.2s ease-in-out infinite;
   text-align: center;
@@ -362,7 +362,7 @@
 }
 
 .ttmp-fim-titulo--empate {
-  color: #e8853a;
+  color: var(--if-amber);
 }
 
 .ttmp-fim-titulo--derrota {
@@ -416,7 +416,7 @@
   font-size: 0.9rem;
   font-weight: 700;
   letter-spacing: 0.08em;
-  background: #e8853a;
+  background: var(--if-amber);
   color: #000;
   border: none;
   border-radius: 6px;
@@ -467,9 +467,9 @@
   inset: 0;
   background: linear-gradient(
     135deg,
-    #e8853a 0%, #f4a227 20%,
+    var(--if-amber) 0%, var(--if-amber) 20%,
     #e74c3c 40%, #9b59b6 60%,
-    #3498db 80%, #e8853a 100%
+    #3498db 80%, var(--if-amber) 100%
   );
   background-size: 200% 200%;
   animation: ttmp-curtain-sweep 0.8s ease-in-out forwards;
@@ -490,10 +490,10 @@
   font-weight: 900;
   color: #ffeb3b;
   text-shadow:
-    4px 4px 0 #e8853a,
-    -2px -2px 0 #e8853a,
-    2px -2px 0 #e8853a,
-    -2px 2px 0 #e8853a,
+    4px 4px 0 var(--if-amber),
+    -2px -2px 0 var(--if-amber),
+    2px -2px 0 var(--if-amber),
+    -2px 2px 0 var(--if-amber),
     0 0 20px rgba(255, 235, 59, 0.8),
     0 0 60px rgba(232, 133, 58, 0.6);
   letter-spacing: 0.05em;

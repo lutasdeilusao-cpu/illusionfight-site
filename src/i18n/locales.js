@@ -1,40 +1,60 @@
-import pt from './pt.json'
-import es from './es.json'
-import en from './en.json'
-import home_pt from './home_pt.json'
-import home_en from './home_en.json'
-import home_es from './home_es.json'
-import pp_pt from './pp_pt.json'
-import pp_en from './pp_en.json'
-import pp_es from './pp_es.json'
-import tt_pt from './tt_pt.json'
-import tt_en from './tt_en.json'
-import tt_es from './tt_es.json'
-// games.gangues.* não entra aqui — é carregado sob demanda por useGanguesI18n()
-// só quando o jogador abre o LDI Gangues, pra não engordar o bundle geral.
+/* ══════════════════════════════════════════════════════════════
+   i18n — carregamento por idioma e por área
 
-function deepMerge(target, ...sources) {
-  const result = { ...target }
-  for (const source of sources) {
-    for (const key of Object.keys(source)) {
-      if (
-        source[key] &&
-        typeof source[key] === 'object' &&
-        !Array.isArray(source[key])
-      ) {
-        result[key] = deepMerge(result[key] || {}, source[key])
-      } else {
-        result[key] = source[key]
-      }
-    }
-  }
-  return result
+   Antes os três idiomas inteiros entravam no bundle (~356K) para
+   servir um. Agora o visitante baixa só o núcleo do idioma dele
+   (~50K) e as áreas pesadas chegam quando ele entra nelas.
+
+   • core      → navegação, home, histórias, conta, loja. Sempre.
+   • games     → strings de dentro dos jogos (inclui pp e toptrumps).
+   • prototype → laboratório.
+
+   Gangues continua à parte, em gangues-<lang>.json, carregado por
+   useGanguesI18n() — é grande e só interessa a quem abre o jogo.
+   ══════════════════════════════════════════════════════════════ */
+
+const CORE = {
+  pt: () => import('./core/pt.json'),
+  es: () => import('./core/es.json'),
+  en: () => import('./core/en.json'),
 }
 
-export const locales = {
-  pt: deepMerge(pt, home_pt, pp_pt, tt_pt),
-  es: deepMerge(es, home_es, pp_es, tt_es),
-  en: deepMerge(en, home_en, pp_en, tt_en),
+const AREAS = {
+  games: {
+    pt: () => import('./games/pt.json'),
+    es: () => import('./games/es.json'),
+    en: () => import('./games/en.json'),
+  },
+  prototype: {
+    pt: () => import('./prototype/pt.json'),
+    es: () => import('./prototype/es.json'),
+    en: () => import('./prototype/en.json'),
+  },
+}
+
+export const LOCALES_DISPONIVEIS = Object.keys(CORE)
+
+/** Núcleo do idioma. Resolve para 'pt' se pedirem um idioma que não existe. */
+export async function carregarCore(locale) {
+  const load = CORE[locale] || CORE.pt
+  return (await load()).default
+}
+
+/** Área sob demanda. Devolve null quando a área/idioma não existe. */
+export async function carregarArea(area, locale) {
+  const porIdioma = AREAS[area]
+  if (!porIdioma) return null
+  const load = porIdioma[locale] || porIdioma.pt
+  return (await load()).default
+}
+
+/** Qual área a rota atual precisa — null quando o núcleo já basta.
+ *  O catálogo /games usa site.games.*, que mora no núcleo; só as
+ *  telas de dentro (/games/algum-jogo) precisam do pedaço pesado. */
+export function areaDaRota(pathname) {
+  if (/^\/games\/./.test(pathname)) return 'games'
+  if (pathname.startsWith('/lab')) return 'prototype'
+  return null
 }
 
 export const LOCALE_LABELS = {

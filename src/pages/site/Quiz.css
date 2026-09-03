@@ -26,7 +26,7 @@
   font-size: 0.65rem;
   font-weight: 600;
   letter-spacing: 0.12em;
-  color: #e8853a;
+  color: var(--if-amber);
   margin-bottom: 1rem;
   text-transform: uppercase;
 }
@@ -115,7 +115,7 @@
 }
 
 .quiz-modo-badge.premium {
-  color: #e8853a;
+  color: var(--if-amber);
   border-color: rgba(232,133,58,0.4);
 }
 
@@ -188,7 +188,7 @@
   font-size: 0.85rem;
   letter-spacing: 0.08em;
   padding: 0.75rem 2rem;
-  background: #e8853a;
+  background: var(--if-amber);
   color: #000;
   text-decoration: none;
   border-radius: 4px;
@@ -254,7 +254,7 @@
 
 .quiz-timer-bar-inner {
   height: 100%;
-  background: #00B4D8;
+  background: var(--if-teal);
   border-radius: 2px;
   transition: width 1s linear, background 0.3s;
 }
@@ -288,7 +288,7 @@
   font-size: 0.6rem;
   font-weight: 600;
   letter-spacing: 0.1em;
-  color: #e8853a;
+  color: var(--if-amber);
   text-transform: uppercase;
   margin-bottom: 1rem;
   padding: 2px 8px;
@@ -458,7 +458,7 @@
 
 .quiz-gangue-card:hover {
   transform: translateY(-2px);
-  border-color: #00B4D8;
+  border-color: var(--if-teal);
 }
 
 .quiz-gangue {
@@ -471,7 +471,7 @@
   align-items: flex-start;
   gap: 0.5rem;
   background: rgba(232,133,58,0.06);
-  border-left: 3px solid #e8853a;
+  border-left: 3px solid var(--if-amber);
   padding: 0.75rem 1rem;
   margin-bottom: 1.5rem;
   border-radius: 0 4px 4px 0;
@@ -482,7 +482,7 @@
   font-family: "Rajdhani", sans-serif;
   font-size: 0.8rem;
   font-weight: 700;
-  color: #e8853a;
+  color: var(--if-amber);
   white-space: nowrap;
   text-transform: uppercase;
 }
@@ -500,7 +500,7 @@
   align-items: flex-start;
   gap: 0.75rem;
   background: rgba(232,133,58,0.04);
-  border-left: 3px solid #e8853a;
+  border-left: 3px solid var(--if-amber);
   padding: 0.75rem 1rem;
   border-radius: 0 4px 4px 0;
   animation: slideUp 0.25s ease;
@@ -510,7 +510,7 @@
   font-family: "Rajdhani", sans-serif;
   font-size: 0.75rem;
   font-weight: 700;
-  color: #e8853a;
+  color: var(--if-amber);
   white-space: nowrap;
 }
 
@@ -534,7 +534,7 @@
   font-weight: 700;
   letter-spacing: 0.08em;
   padding: 0.75rem 1.5rem;
-  background: #00B4D8;
+  background: var(--if-teal);
   color: #0B0D0F;
   border: none;
   border-radius: 4px;
@@ -563,7 +563,7 @@
   font-size: 2.5rem;
   font-weight: 700;
   letter-spacing: 0.08em;
-  color: #e8853a;
+  color: var(--if-amber);
   margin-bottom: 0.5rem;
   animation: tierReveal 0.4s ease 0.6s both;
 }
@@ -689,7 +689,7 @@
   font-weight: 700;
   letter-spacing: 0.08em;
   padding: 0.75rem 2rem;
-  background: #00B4D8;
+  background: var(--if-teal);
   color: #0B0D0F;
   border: none;
   border-radius: 4px;

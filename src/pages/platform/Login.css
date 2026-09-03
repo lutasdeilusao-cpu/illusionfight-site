@@ -1,135 +1,167 @@
+/* ══════════════════════════════════════════════════════════════
+   AUTENTICAÇÃO — login, cadastro, recuperação
+   Linguagem da navbar (src/styles/design-system.css): painel com
+   canto chanfrado, rótulo mono, campo com foco ciano.
+   Sem cantos arredondados — o portal usa chanfro, não raio.
+   ══════════════════════════════════════════════════════════════ */
+
+/* Alinhado ao topo: centralizar verticalmente jogava o formulário
+   para o meio da tela do celular, longe do polegar. */
 .auth-page {
-  min-height: 100vh;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  padding: 6rem 1.5rem 3rem;
-  background: #0B0D0F;
+  min-height: 100vh;
+  padding: 4.5rem 1.25rem 3rem;
 }
 
 .auth-card {
-  background: #1A1D21;
-  border: 1px solid #2A2D31;
-  border-radius: 8px;
-  padding: 2.5rem 2rem;
-  max-width: 400px;
+  position: relative;
   width: 100%;
+  padding: 2rem 1.5rem 1.75rem;
+  border: 1px solid var(--if-edge);
+  background: var(--if-glow-corner), var(--if-panel);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
+  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%);
+}
+
+/* Assinatura do portal, igual ao "IF // NAVIGATION" do drawer. */
+.auth-card::before {
+  content: 'IF // ACCESS';
+  position: absolute;
+  top: 16px;
+  left: 20px;
+  color: var(--if-cyan-58);
+  font: 700 0.55rem var(--font-mono);
+  letter-spacing: 0.18em;
 }
 
 .auth-titulo {
-  font-family: "Rajdhani", sans-serif;
-  font-size: 1.5rem;
+  margin: 1.6rem 0 0.35rem;
+  font-family: var(--font-display);
   font-weight: 700;
-  letter-spacing: 0.06em;
-  color: #EAEAEA;
-  text-align: center;
-  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+  letter-spacing: 0.05em;
+  color: var(--text-primary);
 }
 
 .auth-sub {
-  font-family: "IBM Plex Sans", sans-serif;
-  font-size: 0.85rem;
-  color: #8B8F96;
-  text-align: center;
   margin-bottom: 1.5rem;
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  line-height: 1.5;
 }
 
-.auth-erro {
-  font-family: "IBM Plex Sans", sans-serif;
-  font-size: 0.8rem;
-  color: #e74c3c;
-  text-align: center;
-  margin-bottom: 1rem;
-  padding: 0.5rem;
-  background: rgba(231,76,60,0.1);
-  border-radius: 4px;
-}
-
+/* ── Campos ── */
 .auth-label {
   display: block;
-  font-family: "JetBrains Mono", monospace;
-  font-size: 0.7rem;
-  color: #8B8F96;
-  letter-spacing: 0.05em;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.9rem;
+  color: var(--text-secondary);
+  font: 700 0.6rem var(--font-mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
 .auth-input {
   display: block;
-  width: 100%;
-  margin-top: 0.3rem;
-  padding: 0.6rem 0.75rem;
-  background: #0B0D0F;
-  border: 1px solid #2A2D31;
-  border-radius: 4px;
-  font-family: "IBM Plex Sans", sans-serif;
-  font-size: 0.85rem;
-  color: #EAEAEA;
-  outline: none;
   box-sizing: border-box;
+  width: 100%;
+  min-height: 44px;
+  margin-top: 0.4rem;
+  padding: 0.65rem 0.9rem;
+  border: 1px solid var(--if-hair-strong);
+  background: rgba(255, 255, 255, 0.025);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  text-transform: none;
+  letter-spacing: normal;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
+
+.auth-input::placeholder { color: var(--text-muted); }
 
 .auth-input:focus {
-  border-color: #e8853a;
+  border-color: var(--if-cyan-45);
+  box-shadow: 0 0 0 1px var(--if-cyan-20), 0 0 18px rgba(24, 218, 251, 0.12);
 }
 
+/* ── Ação ── */
 .auth-btn {
   width: 100%;
-  margin-top: 1rem;
-  font-family: "Rajdhani", sans-serif;
-  font-size: 0.9rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
+  min-height: 46px;
+  margin-top: 1.25rem;
   padding: 0.75rem;
-  background: #6B0F1A;
-  color: #EAEAEA;
-  border: none;
-  border-radius: 4px;
+  border: 1px solid var(--if-cta-edge);
+  background: var(--if-cta);
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   cursor: pointer;
-  transition: opacity 0.2s;
+  transition: box-shadow 0.2s, opacity 0.2s;
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
 }
 
-.auth-btn:hover {
-  opacity: 0.85;
-}
+.auth-btn:hover { box-shadow: 0 0 24px rgba(255, 122, 69, 0.4); }
 
 .auth-btn:disabled {
-  opacity: 0.5;
+  opacity: 0.45;
   cursor: default;
+  box-shadow: none;
 }
 
-.auth-link-text {
-  text-align: center;
-  font-family: "IBM Plex Sans", sans-serif;
+/* ── Mensagens ── */
+.auth-erro,
+.auth-sucesso {
+  margin-bottom: 1rem;
+  padding: 0.6rem 0.75rem;
+  border-left: 2px solid currentColor;
+  font-family: var(--font-body);
   font-size: 0.8rem;
-  color: #8B8F96;
-  margin-top: 1.25rem;
+  line-height: 1.45;
+}
+
+.auth-erro {
+  color: #ff6b6b;
+  background: rgba(255, 107, 107, 0.08);
 }
 
 .auth-sucesso {
-  font-family: "IBM Plex Sans", sans-serif;
-  font-size: 0.8rem;
-  color: #1ea064;
+  color: var(--if-ok);
+  background: rgba(34, 197, 94, 0.08);
+}
+
+/* ── Rodapé do card ── */
+.auth-link-text {
+  margin-top: 1.25rem;
   text-align: center;
-  margin-bottom: 1rem;
-  padding: 0.5rem;
-  background: rgba(30,160,100,0.1);
-  border-radius: 4px;
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
 }
 
 .auth-link {
-  color: #e8853a;
-  text-decoration: underline;
+  color: var(--if-cyan);
+  text-decoration: none;
+  border-bottom: 1px solid var(--if-cyan-45);
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.auth-link:hover {
+  color: #fff;
+  border-color: #fff;
 }
 
 .auth-privacidade-aviso {
-  font-family: "IBM Plex Sans", sans-serif;
+  margin: 0.9rem auto 0;
+  color: var(--text-muted);
+  font-family: var(--font-body);
   font-size: 0.7rem;
-  color: #6B6F76;
-  text-align: center;
-  margin-top: 0.75rem;
   line-height: 1.5;
-  max-width: 320px;
-  margin-left: auto;
-  margin-right: auto;
+  text-align: center;
 }

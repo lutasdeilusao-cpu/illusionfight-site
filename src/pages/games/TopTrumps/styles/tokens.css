@@ -1,6 +1,6 @@
 :root {
-  --tt-orange: #e8853a;
-  --tt-orange-alt: #f4a227;
+  --tt-orange: var(--if-amber);
+  --tt-orange-alt: var(--if-amber);
   --tt-win: #1ea064;
   --tt-lose: #e74c3c;
   --tt-defeat-muted: #718096;

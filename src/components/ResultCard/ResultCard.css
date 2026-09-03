@@ -113,8 +113,8 @@
 }
 
 .resultcard-btn:hover {
-  border-color: #F5A623;
-  color: #F5A623;
+  border-color: var(--if-amber);
+  color: var(--if-amber);
   background: rgba(245,166,35,0.05);
 }
 
