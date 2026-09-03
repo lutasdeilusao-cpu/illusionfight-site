@@ -101,10 +101,13 @@ export default function Navbar({ hidden, onSearchOpen }) {
           {user ? (
             <div className="navbar-usuario">
               <Link to="/perfil" className="navbar-usuario-link">
-                <div className="navbar-avatar">{perfil?.nome?.[0]?.toUpperCase()}</div>
-                <span className="navbar-nome">{perfil?.nome}</span>
+                <div className="navbar-avatar">{perfil?.nome?.trim()?.[0]?.toUpperCase()}</div>
+                {/* Só o primeiro nome na barra — o nome completo fica no perfil. */}
+                <span className="navbar-nome">{perfil?.nome?.trim().split(/\s+/)[0]}</span>
               </Link>
-              <button className="navbar-sair" onClick={logout}>{t('site.perfil.sair')}</button>
+              <button className="navbar-sair" onClick={logout} aria-label={t('site.perfil.sair')}>
+                {t('site.perfil.sair')}
+              </button>
             </div>
           ) : (
             <div className="navbar__auth-actions">

@@ -360,18 +360,18 @@
     "semantic_hash": ""
   },
   "src/config/site.js": {
-    "mtime": 1788400240.1582124,
-    "ast_hash": "f3fa2e575c1199d318689d3c50492cb2",
+    "mtime": 1788457133.1355572,
+    "ast_hash": "ffbe2fb8266df4893992fbafe4c1b120",
     "semantic_hash": ""
   },
   "src/config/trial.js": {
-    "mtime": 1781321154.5282512,
-    "ast_hash": "b11265c546f5970b719233c19e1b2c2d",
-    "semantic_hash": "b11265c546f5970b719233c19e1b2c2d"
+    "mtime": 1788457123.5142977,
+    "ast_hash": "dcb35b7376a7843bca2ce3d0f002907b",
+    "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1788454810.7191522,
-    "ast_hash": "17986af2d1e74ed88a728bb691bf4b45",
+    "mtime": 1788457299.3085513,
+    "ast_hash": "ee4630e76dcc84e733071e88f7e36fd3",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2745,8 +2745,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1788454810.7678485,
-    "ast_hash": "fa82670ddeff251e5cee77662ab860b2",
+    "mtime": 1788457299.3767815,
+    "ast_hash": "d41b309eeb1c4ddb2f421a0266c098ce",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3715,13 +3715,13 @@
     "semantic_hash": ""
   },
   "src/pages/content/ContoCapitulo.jsx": {
-    "mtime": 1788400776.9434757,
-    "ast_hash": "509c6026bbb4c941aecab71dd1a88f2b",
+    "mtime": 1788457141.152619,
+    "ast_hash": "0ee25c2dcb5b203dbbebcfdf364551bc",
     "semantic_hash": ""
   },
   "src/pages/content/Contos.jsx": {
-    "mtime": 1788400705.604069,
-    "ast_hash": "bb8280e9f647edeb11623f8e7c7a1cc4",
+    "mtime": 1788457140.957718,
+    "ast_hash": "6063fbabe0bd6d5455dd0325caa1afe9",
     "semantic_hash": ""
   },
   "workers/songs-r2/worker.js": {
@@ -3770,8 +3770,8 @@
     "semantic_hash": ""
   },
   "src/pages/content/ContoHistoria.jsx": {
-    "mtime": 1788400705.6050718,
-    "ast_hash": "4f8ca1808961228f806e04854002c81b",
+    "mtime": 1788457141.0697224,
+    "ast_hash": "f364e32128a395c7cfcaa3ab237c3483",
     "semantic_hash": ""
   },
   "src/data/livro/contos/en/01/01.md": {

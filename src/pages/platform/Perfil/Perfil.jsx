@@ -68,10 +68,11 @@ export default function Perfil() {
         <div className="perfil-header-inner">
           <div className="perfil-avatar"
             style={{ background: `hsl(${(perfil?.nome || 'U').length * 47}, 55%, 35%)` }}>
-            {perfil?.nome?.[0]?.toUpperCase() || '?'}
+            {perfil?.nome?.trim()?.[0]?.toUpperCase() || '?'}
           </div>
           <div className="perfil-header-info">
-            <h1 className="perfil-nome">{perfil?.nome || '...'}</h1>
+            {/* Só o primeiro nome — o nome completo, se houver, aparece na aba Conta. */}
+            <h1 className="perfil-nome">{perfil?.nome?.trim().split(/\s+/)[0] || '...'}</h1>
             <p className="perfil-email">{user.email}</p>
             <span className="perfil-tier-badge"
               style={{ color: tierCfg.cor, borderColor: tierCfg.bordaCor + '44', background: tierCfg.cor + '11' }}>
