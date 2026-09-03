@@ -110,6 +110,11 @@ export default function HeroSlideshow() {
       </div>
 
       <div className="hero-slideshow__overlay" />
+      <div className="hero-slideshow__edge" aria-hidden="true">
+        <span>{String(activeIndex + 1).padStart(2, '0')}</span>
+        <i />
+        <span>{String(SLIDE_COUNT).padStart(2, '0')}</span>
+      </div>
 
       <div className="hero-slideshow__content">
         <span

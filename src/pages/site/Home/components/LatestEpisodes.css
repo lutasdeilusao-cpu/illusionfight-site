@@ -1,50 +1,48 @@
-.episodes {
-  padding: 5rem 0;
-  background: var(--bg-secondary);
-}
-
-/* ── Featured ────────────────────────── */
-
 .episodes-featured {
-  margin-top: 2rem;
+  display: grid;
+  place-items: center;
 }
 
 .episodes-featured-card {
   position: relative;
-  border-radius: 8px;
+  width: min(100%, 352px);
+  min-height: 510px;
   overflow: hidden;
   cursor: pointer;
-  transition: box-shadow 0.3s ease;
-  aspect-ratio: 16 / 9;
-  max-height: 420px;
+  border: 1px solid rgba(0, 229, 255, 0.5);
+  background: #091017;
+  clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 0 100%);
+  box-shadow: 0 18px 55px rgba(0, 0, 0, 0.45), inset 3px 0 #00e5ff;
+  transition: transform 280ms ease, box-shadow 280ms ease;
 }
 
 .episodes-featured-card:hover {
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+  transform: translateY(-5px);
+  box-shadow: 0 22px 65px rgba(0, 0, 0, 0.55), 0 0 24px rgba(0, 229, 255, 0.13), inset 3px 0 #00e5ff;
 }
 
-.episodes-featured-card--locked {
-  cursor: default;
-}
-
-.episodes-featured-card--locked:hover {
-  box-shadow: none;
-}
-
-.episodes-featured-img {
+.episodes-featured-img,
+.episodes-featured-placeholder {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
-  transition: transform 0.4s ease;
+  transition: transform 700ms cubic-bezier(.2,.8,.2,1);
 }
 
 .episodes-featured-card:hover .episodes-featured-img {
-  transform: scale(1.05);
+  transform: scale(1.035);
 }
 
-.episodes-featured-card--locked:hover .episodes-featured-img {
-  transform: none;
+.episodes-featured-placeholder {
+  display: grid;
+  place-items: center;
+  color: rgba(0, 229, 255, 0.55);
+  background: linear-gradient(145deg, #101a22, #090c12 55%, #171020);
+  font: 700 0.68rem 'JetBrains Mono', monospace;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
 }
 
 .episodes-featured-overlay {
@@ -53,200 +51,86 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 2rem 1.5rem;
-  background: linear-gradient(transparent 20%, rgba(0, 0, 0, 0.85) 80%);
+  padding: 28px 22px;
+  background: linear-gradient(180deg, transparent 20%, rgba(2, 5, 8, 0.18) 43%, rgba(2, 5, 8, 0.98) 92%);
 }
 
-.episodes-featured-badge {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  padding: 4px 10px;
-  align-self: flex-start;
-  border-radius: 3px;
-  margin-bottom: 0.75rem;
+.episodes-featured-badge,
+.episode-list-status {
+  width: fit-content;
+  padding: 4px 8px;
+  border: 1px solid currentColor;
+  font: 700 0.58rem 'JetBrains Mono', monospace;
+  letter-spacing: 0.1em;
 }
 
-.episodes-featured-badge--live {
-  background: var(--accent-teal);
-  color: var(--bg-primary);
-}
+.episodes-featured-badge--live,
+.episode-list-status--live { color: #00e5ff; background: rgba(0, 229, 255, 0.1); }
+.episodes-featured-badge--soon,
+.episode-list-status--soon { color: #ff9f1c; background: rgba(255, 159, 28, 0.1); }
 
-.episodes-featured-badge--soon {
-  background: var(--accent-amber);
-  color: #000;
-}
-
-.episodes-featured-numero {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.6);
-  letter-spacing: 0.05em;
-  margin-bottom: 0.25rem;
+.episodes-featured-numero,
+.episode-list-numero {
+  margin-top: 12px;
+  color: #89949d;
+  font: 600 0.66rem 'JetBrains Mono', monospace;
+  letter-spacing: 0.1em;
 }
 
 .episodes-featured-titulo {
-  font-family: 'Rajdhani', sans-serif;
-  font-size: 1.5rem;
-  font-weight: 700;
+  margin: 5px 0;
   color: #fff;
-  margin: 0 0 0.25rem;
+  font: 700 1.55rem 'Rajdhani', sans-serif;
 }
 
 .episodes-featured-desc {
-  font-family: 'IBM Plex Sans', sans-serif;
+  margin: 0 0 16px;
+  color: #b4bbc1;
   font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.7);
-  line-height: 1.4;
-  margin: 0 0 0.75rem;
-  max-width: 480px;
+  line-height: 1.45;
 }
 
 .episodes-featured-btn {
-  background: transparent;
-  border: 1px solid var(--accent-teal);
-  color: var(--accent-teal);
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  padding: 0.5rem 1.2rem;
-  border-radius: 4px;
-  cursor: pointer;
   align-self: flex-start;
-  transition: background 0.2s, color 0.2s;
+  min-height: 42px;
+  padding: 9px 18px;
+  border: 1px solid #00e5ff;
+  background: rgba(3, 9, 13, 0.8);
+  color: #00e5ff;
+  font: 700 0.7rem 'JetBrains Mono', monospace;
+  letter-spacing: 0.1em;
+  cursor: pointer;
 }
-
-.episodes-featured-btn:hover {
-  background: var(--accent-teal);
-  color: var(--bg-primary);
-}
-
-/* ── Compact list ────────────────────── */
 
 .episodes-list {
   display: flex;
-  gap: 1rem;
-  margin-top: 1.5rem;
+  gap: 12px;
+  margin: 26px -22px 0;
+  padding: 4px 22px 18px;
   overflow-x: auto;
-  padding-bottom: 0.5rem;
-  scrollbar-width: thin;
-  scrollbar-color: #333 transparent;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
 }
 
-.episodes-list::-webkit-scrollbar {
-  height: 4px;
-}
-
-.episodes-list::-webkit-scrollbar-thumb {
-  background: #333;
-  border-radius: 2px;
-}
+.episodes-list::-webkit-scrollbar { display: none; }
 
 .episode-list-item {
-  flex: 0 0 160px;
-  border-radius: 6px;
+  flex: 0 0 142px;
   overflow: hidden;
+  scroll-snap-align: start;
   cursor: pointer;
-  transition: box-shadow 0.3s ease;
-  background: var(--bg-elevated);
+  border: 1px solid rgba(0, 229, 255, 0.2);
+  background: #0b1116;
+  clip-path: polygon(0 0, calc(100% - 9px) 0, 100% 9px, 100% 100%, 0 100%);
+  transition: transform 220ms ease, border-color 220ms ease;
 }
 
-.episode-list-item:hover {
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-}
-
-.episode-list-item--locked {
-  cursor: default;
-}
-
-.episode-list-item--locked:hover {
-  box-shadow: none;
-}
-
-.episode-list-thumb {
-  width: 100%;
-  aspect-ratio: 3 / 4;
-  overflow: hidden;
-  background: var(--bg-primary);
-}
-
-.episode-list-thumb img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.3s ease;
-}
-
-.episode-list-item:hover .episode-list-thumb img {
-  transform: scale(1.1);
-}
-
-.episode-list-item--locked:hover .episode-list-thumb img {
-  transform: none;
-}
-
-.episode-list-info {
-  padding: 0.5rem 0.6rem 0.6rem;
-}
-
-.episode-list-numero {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.6rem;
-  color: #9aa0a8;
-  letter-spacing: 0.05em;
-  display: block;
-}
-
-.episode-list-titulo {
-  font-family: 'Rajdhani', sans-serif;
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  display: block;
-  margin: 2px 0 4px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.episode-list-status {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.55rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  padding: 2px 6px;
-  border-radius: 2px;
-  display: inline-block;
-}
-
-.episode-list-status--live {
-  background: rgba(34, 197, 94, 0.15);
-  color: #22C55E;
-}
-
-.episode-list-status--soon {
-  background: rgba(244, 162, 39, 0.15);
-  color: #F5A623;
-}
-
-/* ── Footer ──────────────────────────── */
-
-.episodes__footer {
-  text-align: center;
-  margin-top: 2.5rem;
-}
-
-.episode-list-thumb-placeholder {
-  width: 100%;
-  height: 100%;
-  display: grid;
-  place-items: center;
-  background: linear-gradient(145deg, var(--bg-elevated), var(--bg-secondary));
-  color: #9aa0a8;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.7rem;
-  letter-spacing: 0.15em;
-}
+.episode-list-item:hover { transform: translateY(-4px); border-color: #00e5ff; }
+.episode-list-thumb { aspect-ratio: 3 / 4; overflow: hidden; background: #080d11; }
+.episode-list-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 350ms ease; }
+.episode-list-item:hover img { transform: scale(1.04); }
+.episode-list-thumb-placeholder { width: 100%; height: 100%; display: grid; place-items: center; color: #52616c; font: 600 0.65rem 'JetBrains Mono', monospace; }
+.episode-list-info { display: grid; gap: 5px; padding: 10px; }
+.episode-list-titulo { overflow: hidden; color: #eef2f5; font: 700 0.86rem 'Rajdhani', sans-serif; text-overflow: ellipsis; white-space: nowrap; }
+.episode-list-status { margin-top: 2px; }
+.episodes__footer { margin-top: 22px; text-align: center; }

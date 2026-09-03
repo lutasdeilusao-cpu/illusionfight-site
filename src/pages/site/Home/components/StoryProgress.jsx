@@ -22,12 +22,18 @@ export default function StoryProgress() {
   if (disponiveis.length === 0) return null
 
   const jogo = disponiveis[current]
+  const selectGame = index => setCurrent((index + disponiveis.length) % disponiveis.length)
 
   return (
     <section className="progress">
       <div className="container">
         <h2 className="section-title">{t('home.section_games')}</h2>
         <div className="games-carousel">
+          <div className="games-carousel-controls">
+            <button type="button" onClick={() => selectGame(current - 1)} aria-label={t('home.game_previous')}>‹</button>
+            <span>{String(current + 1).padStart(2, '0')} / {String(disponiveis.length).padStart(2, '0')}</span>
+            <button type="button" onClick={() => selectGame(current + 1)} aria-label={t('home.game_next')}>›</button>
+          </div>
           <button
             type="button"
             className="games-carousel-card"
@@ -44,7 +50,14 @@ export default function StoryProgress() {
           {disponiveis.length > 1 && (
             <div className="games-carousel-dots">
               {disponiveis.map((item, i) => (
-                <span key={item.id} className={`games-carousel-dot${i === current ? ' games-carousel-dot--active' : ''}`} />
+                <button
+                  type="button"
+                  key={item.id}
+                  className={`games-carousel-dot${i === current ? ' games-carousel-dot--active' : ''}`}
+                  onClick={() => selectGame(i)}
+                  aria-label={`${t('home.game_select')}: ${t(item.nomeKey)}`}
+                  aria-current={i === current ? 'true' : undefined}
+                />
               ))}
             </div>
           )}

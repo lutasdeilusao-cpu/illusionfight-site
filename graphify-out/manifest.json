@@ -370,8 +370,8 @@
     "semantic_hash": "b11265c546f5970b719233c19e1b2c2d"
   },
   "src/config/version.js": {
-    "mtime": 1788404436.398149,
-    "ast_hash": "7d24b30f6d457e5503c53708f334b4a6",
+    "mtime": 1788405699.0270145,
+    "ast_hash": "96ad3feb9eb26ffc74df24aae7be266d",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2790,8 +2790,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1788405192.495146,
-    "ast_hash": "eea1eef148589c83b90b2664db025e51",
+    "mtime": 1788405699.029014,
+    "ast_hash": "e7894bfe102e1ac1d0c79ef76a4bf037",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -4665,18 +4665,18 @@
     "semantic_hash": ""
   },
   "src/i18n/home_en.json": {
-    "mtime": 1788404981.8951042,
-    "ast_hash": "555e6f3cdea0a4228f04aabf70a1887a",
+    "mtime": 1788405750.089066,
+    "ast_hash": "63e7f0acc9a64c013451ef23f80b7ea1",
     "semantic_hash": ""
   },
   "src/i18n/home_es.json": {
-    "mtime": 1788404981.8963144,
-    "ast_hash": "227b97528f2b2f2eba64e4cc33226405",
+    "mtime": 1788405750.0905704,
+    "ast_hash": "beacb03878614867d734976084b1d530",
     "semantic_hash": ""
   },
   "src/i18n/home_pt.json": {
-    "mtime": 1788404981.893381,
-    "ast_hash": "fbf2a1f37607b8b1167240200d548674",
+    "mtime": 1788405750.0880668,
+    "ast_hash": "e1b32dcd8c5bff37c72fbc13b4f30082",
     "semantic_hash": ""
   },
   "src/pages/site/Home/Home.jsx": {
@@ -4695,13 +4695,13 @@
     "semantic_hash": ""
   },
   "src/pages/site/Home/components/HeroSlideshow.jsx": {
-    "mtime": 1788404959.7383952,
-    "ast_hash": "7d36d9e6e98cbc7a43a2a196f073201c",
+    "mtime": 1788405750.0922654,
+    "ast_hash": "da2f6ff98bc38f1f0892edaa0865c710",
     "semantic_hash": ""
   },
   "src/pages/site/Home/components/LatestEpisodes.jsx": {
-    "mtime": 1788404942.409199,
-    "ast_hash": "cb93737f3771fd5a1fd3b7be7b58274a",
+    "mtime": 1788405750.0905704,
+    "ast_hash": "17e98604097c41d7621c175c94bcbabc",
     "semantic_hash": ""
   },
   "src/pages/site/Home/components/MusicSection.jsx": {
@@ -4715,8 +4715,8 @@
     "semantic_hash": ""
   },
   "src/pages/site/Home/components/StoryProgress.jsx": {
-    "mtime": 1788405210.6651592,
-    "ast_hash": "9d572da0bbbe1eda6762a922239d0665",
+    "mtime": 1788405750.0932708,
+    "ast_hash": "07d478599e825e95623484dc71cd9ad2",
     "semantic_hash": ""
   }
 }

@@ -43,7 +43,11 @@ export default function LatestEpisodes() {
   return (
     <section ref={ref} className="episodes reveal" id="episodios">
       <div className="container">
-        <h2 className="section-title">{t('home.section_latest')}</h2>
+        <div className="home-section-heading">
+          <span className="home-section-heading__eyebrow">{t('home.section_webtoon')}</span>
+          <h2 className="section-title">{t('home.section_latest')}</h2>
+          <p>{t('home.section_webtoon_hint')}</p>
+        </div>
 
         {featured && (
           <div className="episodes-featured">

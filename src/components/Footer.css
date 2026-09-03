@@ -1,130 +1,57 @@
 .footer {
-  background: var(--bg-secondary);
-  border-top: 1px solid var(--border-subtle);
-  padding: 4rem 0 2rem;
+  position: relative;
+  min-height: 0;
+  padding: 34px 0 calc(24px + var(--radio-nina-h, 0px));
+  overflow: hidden;
+  border-top: 1px solid rgba(0, 229, 255, 0.24);
+  background: #05090c;
 }
 
-.footer__grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0;
-  margin-bottom: 3rem;
+.footer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.16;
+  background-image: linear-gradient(rgba(0,229,255,.12) 1px, transparent 1px), linear-gradient(90deg, rgba(0,229,255,.12) 1px, transparent 1px);
+  background-size: 32px 32px;
 }
 
-@media (min-width: 640px) {
-  .footer__grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-  }
-}
-
-/* ── Heading ─────────────────────── */
-
+.footer > .container { position: relative; z-index: 1; }
+.footer__grid { display: grid; grid-template-columns: 1fr; gap: 0; margin: 0 0 28px; }
+.footer__col { min-height: 0; }
 .footer__heading {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1.1rem;
-  color: var(--text-primary);
-  letter-spacing: 0.05em;
-  margin-bottom: 0;
-  padding: 0.75rem 0;
-  width: 100%;
-  text-align: left;
-  background: none;
-  border: none;
-  cursor: default;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
+  min-height: 46px;
+  margin: 0;
+  padding: 10px 2px;
+  border: 0;
+  border-bottom: 1px solid rgba(0, 229, 255, 0.12);
+  background: transparent;
+  color: #dce4e9;
+  font: 700 0.78rem 'Rajdhani', sans-serif;
+  letter-spacing: 0.09em;
+  text-align: left;
+  cursor: pointer;
 }
+.footer__chevron { width: 8px; height: 8px; border-right: 1px solid #00e5ff; border-bottom: 1px solid #00e5ff; transform: rotate(45deg); transition: transform 220ms ease; }
+.footer__chevron--open { transform: rotate(-135deg); }
+.footer__list-wrap { max-height: 0; overflow: hidden; transition: max-height 280ms ease; }
+.footer__list-wrap--open { max-height: 240px; }
+.footer__list { display: grid; gap: 7px; margin: 0; padding: 12px 2px 16px; list-style: none; }
+.footer__list a { color: #7f8b94; font-size: .76rem; text-decoration: none; transition: color 180ms ease; }
+.footer__list a:hover { color: #00e5ff; }
+.footer__bottom { margin-top: 24px; padding-top: 18px; border-top: 1px solid rgba(0, 229, 255, 0.12); text-align: center; }
+.footer__bottom p { margin: 0; color: #65717a; font-size: .66rem; line-height: 1.5; }
 
 @media (min-width: 640px) {
-  .footer__heading {
-    margin-bottom: 1rem;
-    padding: 0;
-    cursor: default;
-  }
-}
-
-/* ── Chevron ─────────────────────── */
-
-.footer__chevron {
-  display: none;
-}
-
-@media (max-width: 639px) {
-  .footer__heading {
-    cursor: pointer;
-    border-bottom: 1px solid var(--border-subtle);
-  }
-
-  .footer__chevron {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    border-right: 2px solid var(--text-muted);
-    border-bottom: 2px solid var(--text-muted);
-    transform: rotate(45deg);
-    transition: transform 0.25s ease;
-    flex-shrink: 0;
-  }
-
-  .footer__chevron--open {
-    transform: rotate(-135deg);
-  }
-}
-
-/* ── List wrap (accordion) ────────── */
-
-.footer__list-wrap {
-  overflow: hidden;
-  max-height: 0;
-  transition: max-height 0.3s ease;
-}
-
-.footer__list-wrap--open {
-  max-height: 500px;
-}
-
-@media (min-width: 640px) {
-  .footer__list-wrap {
-    max-height: none;
-    overflow: visible;
-  }
-}
-
-.footer__list {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  padding: 0.5rem 0 0.75rem;
-}
-
-@media (min-width: 640px) {
-  .footer__list {
-    padding: 0;
-  }
-}
-
-.footer__list a {
-  font-family: var(--font-body);
-  font-size: 0.875rem;
-  color: #9aa0a8;
-  transition: color 0.2s;
-}
-
-.footer__list a:hover {
-  color: var(--accent-teal);
-}
-
-.footer__bottom {
-  border-top: 1px solid var(--border-subtle);
-  padding-top: 1.5rem;
-  text-align: center;
-}
-
-.footer__bottom p {
-  font-family: var(--font-body);
-  font-size: 0.8rem;
-  color: #9aa0a8;
+  .footer { padding-top: 46px; }
+  .footer__grid { grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  .footer__heading { min-height: 0; margin-bottom: 14px; padding: 0 0 10px; cursor: default; }
+  .footer__chevron { display: none; }
+  .footer__list-wrap { max-height: none; overflow: visible; }
+  .footer__list { padding: 0; }
 }

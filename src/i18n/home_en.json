@@ -1,9 +1,14 @@
 {
   "home": {
     "eyebrow": "PORTAL // LIVE TRANSMISSION",
-    "section_latest": "Latest transmissions",
+    "section_latest": "Latest chapters",
+    "section_webtoon": "Webtoon",
+    "section_webtoon_hint": "New episodes and releases",
     "section_characters": "Featured characters",
-    "section_chapters": "Chapter archive",
+    "section_chapters": "Latest book chapters",
+    "game_previous": "Previous game",
+    "game_next": "Next game",
+    "game_select": "Select game",
     "section_music": "Sound frequency",
     "section_networks": "Social signal",
     "section_games": "Playable systems",
