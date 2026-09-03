@@ -1083,7 +1083,11 @@
         "resistance_required": "El personaje necesita al menos 1 punto de Resistencia.",
         "finish_member": "FINALIZAR FICHA",
         "need_two": "Tienes {n} luchador en la banda. Necesitas 2 para pelear — crea otro.",
-        "select_two": "Elige 2 luchadores para la batalla (marcaste {n})."
+        "select_two": "Elige 2 luchadores para la batalla (marcaste {n}).",
+        "equipar_titulo": "Poderes sin equipar",
+        "equipar_corpo": "{nomes} compró un poder activo pero no lo equipó. En batalla, sin equipar, solo se puede usar el ataque normal. Cada luchador lleva hasta 2 poderes — arma distinto por enfrentamiento.",
+        "equipar_agora": "Equipar ahora",
+        "equipar_depois": "Entrar igual"
       },
       "limite": {
         "titulo": "LÍMITE DE FICHAS",

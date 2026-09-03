@@ -1083,7 +1083,11 @@
         "resistance_required": "The character needs at least 1 Resistance point.",
         "finish_member": "FINISH SHEET",
         "need_two": "You have {n} fighter in the gang. You need 2 to start a fight — create another.",
-        "select_two": "Pick 2 fighters for battle (you picked {n})."
+        "select_two": "Pick 2 fighters for battle (you picked {n}).",
+        "equipar_titulo": "Powers not equipped",
+        "equipar_corpo": "{nomes} bought an active power but hasn’t equipped it. In battle, without equipping, only the normal attack is available. Each fighter carries up to 2 powers — build differently per matchup.",
+        "equipar_agora": "Equip now",
+        "equipar_depois": "Enter anyway"
       },
       "limite": {
         "titulo": "SHEET LIMIT",

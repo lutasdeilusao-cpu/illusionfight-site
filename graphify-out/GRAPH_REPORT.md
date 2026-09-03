@@ -1,16 +1,16 @@
 # Graph Report - SiteLDI  (2026-09-03)
 
 ## Corpus Check
-- 850 files · ~985,995 words
+- 850 files · ~986,101 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 4064 nodes · 7075 edges · 427 communities (289 shown, 138 thin omitted)
+- 4064 nodes · 7076 edges · 427 communities (289 shown, 138 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 49 edges (avg confidence: 0.68)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `332d1e66`
+- Built from commit: `e53eb7b8`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -482,8 +482,8 @@ Cohesion: 0.83
 Nodes (3): Cadastro(), comTimeout(), guardarPendente()
 
 ### Community 20 - "Community 20"
-Cohesion: 0.08
-Nodes (36): DialogoCaso(), PERSONAGEM_STYLE, DICAS, DicaToast(), getDica(), IntroNoir(), PistaCard(), StatusBar() (+28 more)
+Cohesion: 0.12
+Nodes (25): DialogoCaso(), PERSONAGEM_STYLE, DICAS, DicaToast(), getDica(), IntroNoir(), Monologue(), PistaCard() (+17 more)
 
 ### Community 21 - "Lobby.jsx"
 Cohesion: 0.10
@@ -1166,7 +1166,7 @@ Cohesion: 0.15
 Nodes (12): CHAPTER 4 — NEFELI, FOUR YEARS LATER · NARRATOR: NEFELI, NARRATOR: MINUS, NARRATOR: MINUS, NARRATOR: NEFELI, NEWS · NARRATOR: MINUS, PURE TERROR · NARRATOR: LUNA, THE ENCOUNTER · NARRATOR: MINUS (+4 more)
 
 ### Community 343 - "GanguesRoute.jsx"
-Cohesion: 0.25
+Cohesion: 0.27
 Nodes (7): ATTRIBUTES, GanguesProgressionPanel(), SPECIAL_ICON, GanguesLobby(), pickEnemyTeam(), GanguesProgression(), GanguesRoute()
 
 ### Community 344 - "resolveDamageSpellWithEffect"
@@ -1210,8 +1210,8 @@ Cohesion: 0.31
 Nodes (9): ACESSORIOS, ARMADURAS, ARMES, calcularBonus(), getAllEquipamentos(), getEquipamento(), ELEM_COR, EMOJI (+1 more)
 
 ### Community 372 - "Vila.jsx"
-Cohesion: 0.36
-Nodes (7): CIDADES, getCidade(), getCidadeNavegacao(), getLocaisVisiveis(), NPCS, MainMenu(), Vila()
+Cohesion: 0.10
+Nodes (18): CIDADES, getCidade(), getCidadeNavegacao(), getLocaisVisiveis(), DUNGEONS, FLAGS, ITENS, MONOLOGUES (+10 more)
 
 ### Community 373 - "Calendario.jsx"
 Cohesion: 0.33
@@ -1334,7 +1334,7 @@ Cohesion: 0.50
 Nodes (4): BLOCO G — NUNTIUS GAMES — POSICIONAMENTO INSTITUCIONAL, G1. TIME COMPLETO, G2. CREDENCIAIS INSTITUCIONAIS, G3. COMO USAR NO PR
 
 ## Knowledge Gaps
-- **1743 isolated node(s):** `1. Visão geral`, `2.1 Abertura (vinheta de carregamento)`, `3.1 Site e conteúdo`, `3.2 Plataforma e conta`, `3.3 Catálogo e jogos` (+1738 more)
+- **1742 isolated node(s):** `1. Visão geral`, `2.1 Abertura (vinheta de carregamento)`, `3.1 Site e conteúdo`, `3.2 Plataforma e conta`, `3.3 Catálogo e jogos` (+1737 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **138 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -1348,7 +1348,7 @@ _Questions this graph is uniquely positioned to answer:_
 - **Why does `useAuth()` connect `levelProgression.js` to `Community 1`, `Community 4`, `ArenaTaticsRoute.jsx`, `Community 9`, `endBattle`, `sfx.js`, `CityOverworld.jsx`, `Community 20`, `PuzzleStealthGrid.jsx`, `Community 33`, `TopTrumpsMP.jsx`, `Brincadeira.jsx`, `levelProgression.js`, `PuzzleForça.jsx`, `RadioNina.jsx`, `useScrollReveal`, `criaturas.js`, `Brincadeira.jsx`, `useFichas`?**
   _High betweenness centrality (0.010) - this node is a cross-community bridge._
 - **What connects `1. Visão geral`, `2.1 Abertura (vinheta de carregamento)`, `3.1 Site e conteúdo` to the rest of the system?**
-  _1743 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _1742 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
   _Cohesion score 0.05016722408026756 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**

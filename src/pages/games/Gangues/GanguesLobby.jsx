@@ -8,7 +8,24 @@ import NeoGuideDialog from './components/NeoGuideDialog'
 import { sfx } from '../../../lib/sfx'
 import { useGanguesStore, limiteFichasPorTier, podeCriarFicha } from './store/useGanguesStore'
 import { GANGUES_INITIAL_PARTY_SIZE, GANGUES_MAX_PARTY_SIZE, getGanguesPartySizeLimit, getGanguesProgression } from './data/ganguesLoadout.js'
+import { getGanguesSpecials } from './data/ganguesSpecials.js'
 import enemiesData from './data/gangues-enemies.json'
+
+/** Nomes dos lutadores da party que têm poder ATIVO comprado mas ainda com
+ *  vaga livre pra equipar. Sem equipar, eles só usam ataque normal. */
+function lutadoresComPoderPraEquipar(party) {
+  return party
+    .filter(member => {
+      const prog = getGanguesProgression(member)
+      if ((prog.selected_specials?.length || 0) >= 2) return false
+      const specials = getGanguesSpecials(member)
+      return specials.some(s =>
+        s.kind === 'active' &&
+        (prog.special_levels?.[s.id] || 0) > 0 &&
+        !prog.selected_specials?.includes(s.id))
+    })
+    .map(member => member.sheet_name)
+}
 import './GanguesLobby.css'
 import './GanguesProgressionFlow.css'
 
@@ -30,6 +47,7 @@ export default function GanguesLobby({ onNavigate }) {
   const [choosingEnemy, setChoosingEnemy] = useState(false)
   const [showNeoGuide, setShowNeoGuide] = useState(false)
   const [avisoParty, setAvisoParty] = useState('')
+  const [avisoPoderes, setAvisoPoderes] = useState(null) // { nomes } — poderes por equipar
   const roster = store.roster
   const party = store.activeParty
   const rosterLimit = limiteFichasPorTier(perfil?.tier)
@@ -92,8 +110,24 @@ export default function GanguesLobby({ onNavigate }) {
       sfx.cancel(); setAvisoParty(t('games.gangues.party.select_two', { n: party.length })); return
     }
     setAvisoParty('')
+
+    // Poderes ativos comprados mas não equipados: em batalha só sobra o
+    // ataque normal. Avisa antes — dá pra equipar diferente por confronto.
+    const nomes = lutadoresComPoderPraEquipar(party)
+    if (nomes.length > 0) {
+      sfx.notification?.()
+      setAvisoPoderes({ nomes })
+      return
+    }
     setChoosingEnemy(true)
   }
+
+  const equiparAgora = () => {
+    const alvo = party.find(m => avisoPoderes?.nomes.includes(m.sheet_name)) || party[0]
+    setAvisoPoderes(null)
+    if (alvo) abrirProgressao(alvo)
+  }
+  const entrarAssimMesmo = () => { setAvisoPoderes(null); setChoosingEnemy(true) }
 
   const unlocked = new Set(party.flatMap(member => member.enemies_unlocked || ['treinamento']))
   const enemyPool = enemiesData.filter(enemy => unlocked.has(enemy.id))
@@ -208,6 +242,17 @@ export default function GanguesLobby({ onNavigate }) {
           <button className="gang-new-sheet gang-new-sheet--primary" onClick={tentarBatalha}>{t('games.gangues.party.enter_gangues')}</button>
           {roster.length < rosterLimit && <button className="gang-new-sheet" onClick={startCreation}><span className="gang-new-sheet-icon">+</span>{t('games.gangues.nova_ficha')}</button>}
         </>
+      )}
+      {avisoPoderes && (
+        <div className="gang-progression-prompt" role="dialog" aria-modal="true" aria-labelledby="gang-poderes-prompt-title">
+          <div className="gang-progression-prompt__card">
+            <span className="gang-progression-prompt__icon">⚔</span>
+            <h2 id="gang-poderes-prompt-title">{t('games.gangues.party.equipar_titulo')}</h2>
+            <p>{t('games.gangues.party.equipar_corpo', { nomes: avisoPoderes.nomes.join(', ') })}</p>
+            <button className="gang-progression-prompt__confirm" onClick={equiparAgora}>{t('games.gangues.party.equipar_agora')}</button>
+            <button onClick={entrarAssimMesmo}>{t('games.gangues.party.equipar_depois')}</button>
+          </div>
+        </div>
       )}
       <BackToGamesBtn />
     </main>

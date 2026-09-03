@@ -1109,7 +1109,11 @@
         "resistance_required": "O personagem precisa de pelo menos 1 ponto em Resistência.",
         "finish_member": "FINALIZAR FICHA",
         "need_two": "Você tem {n} lutador na gangue. Pra entrar na briga precisa de 2 — crie mais um.",
-        "select_two": "Selecione 2 lutadores pra batalha (você marcou {n})."
+        "select_two": "Selecione 2 lutadores pra batalha (você marcou {n}).",
+        "equipar_titulo": "Poderes por equipar",
+        "equipar_corpo": "{nomes} tem poder ativo comprado mas não equipado. Em batalha, sem equipar, só dá pra usar o ataque normal. Cada lutador leva até 2 poderes — dá pra montar diferente por confronto.",
+        "equipar_agora": "Equipar agora",
+        "equipar_depois": "Entrar assim mesmo"
       },
       "limite": {
         "titulo": "LIMITE DE FICHAS",
