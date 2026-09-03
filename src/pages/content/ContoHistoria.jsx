@@ -69,13 +69,14 @@ export default function ContoHistoria() {
 
         <div className="cap-list">
           {h.capitulos.map(cap => {
-            const liberado = estaDisponivel(cap, isAdmin) || TRIAL_ACTIVE
+            const liberado = estaDisponivel(cap, isAdmin, { user, perfil })
             const resumoKey = locale === 'en' ? 'resumo_en' : locale === 'es' ? 'resumo_es' : 'resumo_pt'
             return (
               <CapCard
                 key={cap.id}
                 to={`/historias/contos/${h.id}/${cap.id}`}
                 liberado={liberado}
+                releaseItem={cap}
                 rotulo={`${t('pages.contos.cap')} ${String(cap.numero).padStart(2, '0')}`}
                 titulo={cap[tituloKey]}
                 resumo={cap[resumoKey] || cap.resumo_pt || ''}

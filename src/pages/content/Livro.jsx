@@ -63,7 +63,7 @@ export default function Livro() {
         </div>
         <div className="cap-list">
           {index.map(ch => {
-            const liberado = ch.id === 'capitulo-01' || estaDisponivel(ch, isAdmin) || TRIAL_ACTIVE
+            const liberado = ch.id === 'capitulo-01' || estaDisponivel(ch, isAdmin, { user, perfil })
             const resumoKey = locale === 'en' ? 'resumo_en' : locale === 'es' ? 'resumo_es' : 'resumo_pt'
             const taglineKey = locale === 'en' ? 'tagline_en' : locale === 'es' ? 'tagline_es' : 'tagline_pt'
             return (
@@ -71,6 +71,7 @@ export default function Livro() {
                 key={ch.id}
                 to={`/historias/lutas-de-ilusao/${ch.id}`}
                 liberado={liberado}
+                releaseItem={ch}
                 rotulo={`${t('pages.livro.cap')} ${String(ch.numero).padStart(2, '0')}`}
                 titulo={ch[tituloKey]}
                 resumo={ch[resumoKey] || ch[taglineKey] || ''}

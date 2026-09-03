@@ -1,15 +1,16 @@
 {
   "nav": {
-    "links": [
-      "Webtoon",
-      "Stories",
-      "Music",
-      "Games",
-      "SHOP",
-      "World",
-      "AUTHOR",
-      "SUPPORT"
-    ],
+    "links": {
+      "webtoon": "Webtoon",
+      "historias": "Stories",
+      "musicas": "Music",
+      "games": "Games",
+      "loja": "SHOP",
+      "mundo": "World",
+      "autor": "AUTHOR",
+      "calendario": "CALENDAR",
+      "assinar": "SUPPORT"
+    },
     "cta": "FREE ACCOUNT",
     "aria": {
       "menu": "Open menu",
@@ -2849,5 +2850,43 @@
       "ia_personalidade_persistente": "Persistent",
       "ia_personalidade_persistente_desc": "Stays on the same target for multiple turns, only switching if another enemy gets weaker."
     }
+  },
+  "calendar": {
+    "meta_title": "Season 1 Calendar — Illusion Fight",
+    "kicker": "Release protocol // S1",
+    "title": "The future has a date.",
+    "manifesto": "Nothing here stays locked forever. Every chapter becomes free for everyone. The only difference is when.",
+    "cadence": "Every other Monday, without fail. First drop: Nov 30, 2026.",
+    "levels_title": "Choose when to enter",
+    "you": "You are here",
+    "level_subscriber": "Subscriber",
+    "level_account": "Free account",
+    "level_public": "Public",
+    "cost_subscriber": "Active plan",
+    "cost_account": " · signed in",
+    "cost_public": " · no login",
+    "delay": "Delay",
+    "days": "days",
+    "launch": "Launch chapters",
+    "tales": "Exclusive tales",
+    "completion_title": "When each story completes",
+    "work_ldi": "Illusion Fight S1 · 18 chapters",
+    "work_shadows": "The Shadow World · 6 chapters",
+    "work_ashes": "Sea of Ashes · 6 chapters",
+    "drops_title": "Drop timeline",
+    "current": "You are here",
+    "next": "Next signal",
+    "finale": "Season 1: 100% public",
+    "channels_label": "Calendar channels",
+    "channel_chapters": "Chapters",
+    "channel_webtoon": "Webtoon",
+    "channel_games": "Games",
+    "channel_music": "Music",
+    "channel_partners": "Partners",
+    "signal_pending": "Signal not transmitted yet",
+    "channel_empty": "This channel has its own calendar. Official dates will appear here as soon as the transmission is cleared.",
+    "unlocks_on": "Unlocks for you on",
+    "earlier_conta": "Create an account and read on",
+    "earlier_elite": "Subscribe and read on"
   }
 }

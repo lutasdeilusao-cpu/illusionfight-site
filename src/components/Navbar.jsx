@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { useScrollPosition } from '../hooks/useScrollPosition'
 import { SITE_CONFIG } from '../config/site'
 import { useLanguage } from '../context/LanguageContext'
@@ -17,6 +17,7 @@ export default function Navbar({ hidden, onSearchOpen }) {
   const [menuOpen, setMenuOpen] = useState(false)
   const { t, locale, changeLocale } = useLanguage()
   const { user, perfil, logout } = useAuth()
+  const { pathname } = useLocation()
 
   useEffect(() => {
     const handler = (e) => { if ((e.ctrlKey || e.metaKey) && e.key === 'k') { e.preventDefault(); onSearchOpen?.() } }
@@ -29,7 +30,12 @@ export default function Navbar({ hidden, onSearchOpen }) {
     return () => { document.body.style.overflow = '' }
   }, [menuOpen])
 
-  const navLinks = ['webtoon', 'historias', 'musicas', 'games', 'loja', 'mundo', 'autor', 'assinar']
+  const navLinks = [
+    ['webtoon', '/webtoon/'], ['historias', '/historias/'], ['musicas', '/musicas/'],
+    ['games', '/games/'], ['loja', '/loja/'], ['mundo', '/mundo/'],
+    ['autor', '/autor/'], ['calendario', '/calendario/'], ['assinar', '/assinar/'],
+  ]
+  const isActive = path => path !== '/' && pathname.startsWith(path.slice(0, -1))
 
   if (hidden) return null
 
@@ -55,13 +61,15 @@ export default function Navbar({ hidden, onSearchOpen }) {
           </button>
 
           <ul className="navbar__links">
-            {navLinks.map((key, i) => (
+            {navLinks.map(([key, path]) => (
               <li key={key}>
                 <Link
-                  to={`/${key}/`}
-                  className={`navbar__link${key === 'assinar' ? ' navbar__link--highlight' : ''}`}
+                  to={path}
+                  aria-current={isActive(path) ? 'page' : undefined}
+                  className={`navbar__link navbar__link--${key}${key === 'assinar' ? ' navbar__link--highlight' : ''}${isActive(path) ? ' is-active' : ''}`}
                 >
-                  {t(`nav.links.${i}`)}
+                  {key === 'calendario' && <span className="navbar__calendar-icon" aria-hidden="true" />}
+                  {t(`nav.links.${key}`)}
                 </Link>
               </li>
             ))}
@@ -115,14 +123,17 @@ export default function Navbar({ hidden, onSearchOpen }) {
           🔍 {t('nav.aria.search')}
         </button>
         <ul className="drawer__links">
-          {navLinks.map((key, i) => (
+          {navLinks.map(([key, path], index) => (
             <li key={key}>
               <Link
-                to={`/${key}/`}
-                className={`drawer__link${key === 'assinar' ? ' drawer__link--highlight' : ''}`}
+                to={path}
+                aria-current={isActive(path) ? 'page' : undefined}
+                className={`drawer__link drawer__link--${key}${key === 'assinar' ? ' drawer__link--highlight' : ''}${isActive(path) ? ' is-active' : ''}`}
                 onClick={() => setMenuOpen(false)}
               >
-                {t(`nav.links.${i}`)}
+                <span className="drawer__link-index" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+                {key === 'calendario' && <span className="navbar__calendar-icon" aria-hidden="true" />}
+                {t(`nav.links.${key}`)}
               </Link>
             </li>
           ))}

@@ -26,10 +26,10 @@ export default function LatestEpisodes() {
   const featured = useMemo(() => {
     const disponiveis = episodios
       .filter(ep => thumbMap[ep.thumbnail])
-      .filter(ep => ep.id === '00' || estaDisponivel(ep, isAdmin) || TRIAL_ACTIVE)
+      .filter(ep => ep.id === '00' || estaDisponivel(ep, isAdmin, { user, perfil }) || TRIAL_ACTIVE)
       .sort((a, b) => ((b.data_publicacao || '').localeCompare(a.data_publicacao || '')))
     return disponiveis[0]
-  }, [isAdmin])
+  }, [isAdmin, user, perfil])
 
   const lista = episodios.filter(ep => ep.id !== featured?.id)
   const liberadoFeatured = !!featured
@@ -65,7 +65,7 @@ export default function LatestEpisodes() {
 
         <div className="episodes-list">
           {lista.map(ep => {
-            const liberado = ep.id === '00' || estaDisponivel(ep, isAdmin) || TRIAL_ACTIVE
+            const liberado = ep.id === '00' || estaDisponivel(ep, isAdmin, { user, perfil }) || TRIAL_ACTIVE
             const temThumb = thumbMap[ep.thumbnail]
             return (
               <div

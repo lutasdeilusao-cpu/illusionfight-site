@@ -135,8 +135,8 @@
     "semantic_hash": "8d5b3b5a815f883f1cdfad6d40ecb4bc"
   },
   "scripts/prerender-routes.js": {
-    "mtime": 1787888781.5054722,
-    "ast_hash": "2895689c1992653bd21c7785f3c31635",
+    "mtime": 1788400573.9028153,
+    "ast_hash": "5c4cf50f20422756e8d278a764851667",
     "semantic_hash": ""
   },
   "scripts/run-migration.js": {
@@ -160,8 +160,8 @@
     "semantic_hash": "510a9ffca88eb0789eeddb9fe4d08d87"
   },
   "src/App.jsx": {
-    "mtime": 1788274072.3086388,
-    "ast_hash": "65dc3be6c5a32de0bc11500d98634529",
+    "mtime": 1788400472.274304,
+    "ast_hash": "69dedcc71564d8369d36e8243521f5a0",
     "semantic_hash": ""
   },
   "src/components/AchievementToast/AchievementToast.jsx": {
@@ -175,8 +175,8 @@
     "semantic_hash": "f4eb415c72f109169969124adff8741c"
   },
   "src/components/BookChaptersRow.jsx": {
-    "mtime": 1787869851.3897076,
-    "ast_hash": "ffc53c4d9e8c805a69c8c57c45b29a79",
+    "mtime": 1788400705.6010606,
+    "ast_hash": "7016ea1362f049d746acedb22f82f526",
     "semantic_hash": ""
   },
   "src/components/CharacterCard.jsx": {
@@ -200,8 +200,8 @@
     "semantic_hash": ""
   },
   "src/components/Footer.jsx": {
-    "mtime": 1787354301.8502629,
-    "ast_hash": "0089c079b25aa5f5f4952833698f4083",
+    "mtime": 1788387241.165827,
+    "ast_hash": "7da9e72607f4587c2306ecd4ed4c80f5",
     "semantic_hash": ""
   },
   "src/components/GuestNotice/GuestNotice.jsx": {
@@ -215,8 +215,8 @@
     "semantic_hash": "8a599e26aa77ddc82eb509881e361cb0"
   },
   "src/components/HeroSlideshow.jsx": {
-    "mtime": 1787877227.3519747,
-    "ast_hash": "96b974e0b320175d4fdc0bdbf46ee6ff",
+    "mtime": 1788384236.5842562,
+    "ast_hash": "9d89e1a7eb9d7cf8cf1c84b302766a85",
     "semantic_hash": ""
   },
   "src/components/Jokempo/Jokempo.jsx": {
@@ -230,8 +230,8 @@
     "semantic_hash": "ff66cf165de51fa16ba51e18863d82fb"
   },
   "src/components/LatestEpisodes.jsx": {
-    "mtime": 1787872032.971823,
-    "ast_hash": "b23a9e3196a364e2fa8c192a61d45b71",
+    "mtime": 1788400559.5669034,
+    "ast_hash": "4feb3f52c758a35fe125475c5790ee35",
     "semantic_hash": ""
   },
   "src/components/LoginGate/LoginGate.jsx": {
@@ -255,8 +255,8 @@
     "semantic_hash": ""
   },
   "src/components/Navbar.jsx": {
-    "mtime": 1787872032.9706767,
-    "ast_hash": "6ab3f1fe3d1b04d1683b6d25a8911a83",
+    "mtime": 1788400351.9957602,
+    "ast_hash": "dce646c192ba46386da66b98a4b01a09",
     "semantic_hash": ""
   },
   "src/components/NowLive.jsx": {
@@ -395,9 +395,9 @@
     "semantic_hash": ""
   },
   "src/config/site.js": {
-    "mtime": 1781294993.6605897,
-    "ast_hash": "d47c6821b3a5c803c4c622dd7325c30d",
-    "semantic_hash": "d47c6821b3a5c803c4c622dd7325c30d"
+    "mtime": 1788400240.1582124,
+    "ast_hash": "f3fa2e575c1199d318689d3c50492cb2",
+    "semantic_hash": ""
   },
   "src/config/trial.js": {
     "mtime": 1781321154.5282512,
@@ -405,8 +405,8 @@
     "semantic_hash": "b11265c546f5970b719233c19e1b2c2d"
   },
   "src/config/version.js": {
-    "mtime": 1788283825.6349032,
-    "ast_hash": "9866afcd5d02932cb778438331bbfd8f",
+    "mtime": 1788400197.3695781,
+    "ast_hash": "e7287f8237f246f9906cf605fc995262",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -485,8 +485,8 @@
     "semantic_hash": ""
   },
   "src/data/livro-index.json": {
-    "mtime": 1787769410.1061525,
-    "ast_hash": "d03d6d4028dab043e65f0008103a3730",
+    "mtime": 1788400516.3706968,
+    "ast_hash": "a3a0b3b11ef066b081cc16e89811c5af",
     "semantic_hash": ""
   },
   "src/data/loja-digital.json": {
@@ -515,9 +515,9 @@
     "semantic_hash": "aac4c96a02230b2a6cd1e5dbd628135d"
   },
   "src/data/notificacoes.json": {
-    "mtime": 1780871359.0383441,
-    "ast_hash": "0fa20610c9454f2c5757f30385527c9c",
-    "semantic_hash": "0fa20610c9454f2c5757f30385527c9c"
+    "mtime": 1788381904.7719748,
+    "ast_hash": "60a4c16b9ad73ffd8a213c978dadf784",
+    "semantic_hash": ""
   },
   "src/data/nowlive.json": {
     "mtime": 1787354301.8547926,
@@ -560,9 +560,9 @@
     "semantic_hash": "faec688b85ba1372c9c8fa3dfcb8684d"
   },
   "src/data/search-index.js": {
-    "mtime": 1780973357.621879,
-    "ast_hash": "4c9489e0830b4c13b91fdbb8ae06e3c8",
-    "semantic_hash": "4c9489e0830b4c13b91fdbb8ae06e3c8"
+    "mtime": 1788384258.3550727,
+    "ast_hash": "bdbcb7bca08f8d42e639514056004fef",
+    "semantic_hash": ""
   },
   "src/data/supertrunfo-en.json": {
     "mtime": 1785770412.4822745,
@@ -650,13 +650,13 @@
     "semantic_hash": "04fe18f6b87b3e1315a9343353aef1fc"
   },
   "src/i18n/en.json": {
-    "mtime": 1788274225.4339337,
-    "ast_hash": "7cd6b1a110ba03fe846b90bb0ec4e47a",
+    "mtime": 1788400599.138321,
+    "ast_hash": "1753468c85b267185cfb8d34bc26f3fe",
     "semantic_hash": ""
   },
   "src/i18n/es.json": {
-    "mtime": 1788274225.4373527,
-    "ast_hash": "4230a24a79f98c7f487db60ef4eff5eb",
+    "mtime": 1788400599.1403208,
+    "ast_hash": "de933c34963e9cf2adfbc6efc48c9113",
     "semantic_hash": ""
   },
   "src/i18n/locales.js": {
@@ -680,8 +680,8 @@
     "semantic_hash": "fff728f6c525ec64a386f467142b28dc"
   },
   "src/i18n/pt.json": {
-    "mtime": 1788274225.430245,
-    "ast_hash": "2008f95a406a2801a27988a2ef1c9fd1",
+    "mtime": 1788400599.1363204,
+    "ast_hash": "b0ccaff4de4428ad45871c57d1c7ca3d",
     "semantic_hash": ""
   },
   "src/i18n/tt_en.json": {
@@ -730,43 +730,43 @@
     "semantic_hash": ""
   },
   "src/pages/content/Livro.jsx": {
-    "mtime": 1788179046.7312555,
-    "ast_hash": "9eaa07e380b804769277cfdcfab5fcb7",
+    "mtime": 1788400705.6030679,
+    "ast_hash": "16fdb85f474ecd269583a62733e035af",
     "semantic_hash": ""
   },
   "src/pages/content/LivroCapitulo.jsx": {
-    "mtime": 1788277101.751376,
-    "ast_hash": "6c6bd1b6e1711fde11cdf6586c3d95b2",
+    "mtime": 1788400705.604069,
+    "ast_hash": "e7ae591882377509609e1b3a5e4e1aa6",
     "semantic_hash": ""
   },
   "src/pages/content/Mundo.jsx": {
-    "mtime": 1782447787.351583,
-    "ast_hash": "c9d26b4d8b88c3cd674f63e0f90a0b49",
-    "semantic_hash": "c9d26b4d8b88c3cd674f63e0f90a0b49"
+    "mtime": 1788400540.7665577,
+    "ast_hash": "95fadffe912957025f4cdab9525ec14d",
+    "semantic_hash": ""
   },
   "src/pages/content/Musicas.jsx": {
-    "mtime": 1783912453.0858934,
+    "mtime": 1788400540.7665577,
     "ast_hash": "29a5e7e9bdb0c4ed93b1962175ba0cda",
     "semantic_hash": "29a5e7e9bdb0c4ed93b1962175ba0cda"
   },
   "src/pages/content/PersonagemDetalhe.jsx": {
-    "mtime": 1783911070.784882,
+    "mtime": 1788400540.7685573,
     "ast_hash": "519c098cc60510cefaa4b37e59047eca",
     "semantic_hash": "519c098cc60510cefaa4b37e59047eca"
   },
   "src/pages/content/Personagens.jsx": {
-    "mtime": 1783912461.1410296,
+    "mtime": 1788400540.7685573,
     "ast_hash": "71e4420d7ccde33d756bca948c716b27",
     "semantic_hash": "71e4420d7ccde33d756bca948c716b27"
   },
   "src/pages/content/Webtoon.jsx": {
-    "mtime": 1787872032.9738297,
-    "ast_hash": "34b6f6d51e62777ef72dc73078e37da6",
+    "mtime": 1788400559.5639098,
+    "ast_hash": "014f99c8d03bb27a6dd05b799e4662a8",
     "semantic_hash": ""
   },
   "src/pages/content/WebtoonEpisodio.jsx": {
-    "mtime": 1784402926.6837263,
-    "ast_hash": "c2afc43ca51d0b1e11f462fdedeec826",
+    "mtime": 1788400559.5639098,
+    "ast_hash": "e5102471c8c572140f210f8f31cb5efd",
     "semantic_hash": ""
   },
   "src/pages/games/ArenaTatics/ArenaTaticsRoute.jsx": {
@@ -2830,8 +2830,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1788283826.6176207,
-    "ast_hash": "b8483648bff330460b05e4b2cfba3b07",
+    "mtime": 1788400608.4607282,
+    "ast_hash": "f8b9c70431bab8ee2ba883e9433b2dda",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3170,8 +3170,8 @@
     "semantic_hash": ""
   },
   "index.html": {
-    "mtime": 1787877248.8892362,
-    "ast_hash": "bdb191310932aedf0a0bd1d65d6827f0",
+    "mtime": 1788386020.8185287,
+    "ast_hash": "257c41bfb1a150c7dc2d8e09c64fd310",
     "semantic_hash": ""
   },
   "public/404.html": {
@@ -3190,8 +3190,8 @@
     "semantic_hash": ""
   },
   "public/livro/index.html": {
-    "mtime": 1782183505.8226094,
-    "ast_hash": "3fcdbd4a8ffd2f825e553e633c5b09d7",
+    "mtime": 1788383198.546091,
+    "ast_hash": "8bcd60b3cb9083036c19fa9045596b97",
     "semantic_hash": ""
   },
   "public/loja/index.html": {
@@ -3795,18 +3795,18 @@
     "semantic_hash": ""
   },
   "src/data/contos-index.json": {
-    "mtime": 1788275740.7371764,
-    "ast_hash": "9f5c75cbc571b0cd2c7a022838485ea2",
+    "mtime": 1788400516.373695,
+    "ast_hash": "ee917862a893b7d44d226786824ac86f",
     "semantic_hash": ""
   },
   "src/pages/content/ContoCapitulo.jsx": {
-    "mtime": 1788277093.2287343,
-    "ast_hash": "9f3aeddbec6ea754ffa0dccc80292fec",
+    "mtime": 1788400705.6050718,
+    "ast_hash": "57e77fee20a4ccbcce14468a566ab243",
     "semantic_hash": ""
   },
   "src/pages/content/Contos.jsx": {
-    "mtime": 1788274237.7823355,
-    "ast_hash": "242be10b7d05709ddfd1d1383ba6a367",
+    "mtime": 1788400705.604069,
+    "ast_hash": "bb8280e9f647edeb11623f8e7c7a1cc4",
     "semantic_hash": ""
   },
   "workers/songs-r2/worker.js": {
@@ -3820,8 +3820,8 @@
     "semantic_hash": ""
   },
   "src/components/RadioNina/RadioNina.jsx": {
-    "mtime": 1788016474.999718,
-    "ast_hash": "0b87f6f2c7cb4c9801b8496352d88b6c",
+    "mtime": 1788381882.504815,
+    "ast_hash": "5329a58ee196a3cc17913a02531f82ae",
     "semantic_hash": ""
   },
   "src/components/RadioNina/radio-nina.config.json": {
@@ -3855,113 +3855,113 @@
     "semantic_hash": ""
   },
   "src/pages/content/ContoHistoria.jsx": {
-    "mtime": 1788274247.0299115,
-    "ast_hash": "ba4cc2a03cce14872b3f9f63fe3b209a",
+    "mtime": 1788400705.6050718,
+    "ast_hash": "4f8ca1808961228f806e04854002c81b",
     "semantic_hash": ""
   },
   "src/data/livro/contos/en/01/01.md": {
-    "mtime": 1788277164.2230434,
-    "ast_hash": "92eb699148e3ecbfe8e6317dd68e798f",
+    "mtime": 1788389338.475516,
+    "ast_hash": "4e5f30d3cd7d7c5d77ab8936c43ebcde",
     "semantic_hash": ""
   },
   "src/data/livro/contos/en/01/02.md": {
-    "mtime": 1787954279.222438,
-    "ast_hash": "f7a5c14b615d182c7b4f5ec5fd0443f9",
+    "mtime": 1788389385.3208218,
+    "ast_hash": "b98f078e935a8f870bc3cd0864f16f74",
     "semantic_hash": ""
   },
   "src/data/livro/contos/en/01/03.md": {
-    "mtime": 1787954279.2234352,
-    "ast_hash": "4c6f74605a03962417dad589360e95a6",
+    "mtime": 1788389408.7527094,
+    "ast_hash": "52c1fc6eb61b0feaaf28676bf79ecd57",
     "semantic_hash": ""
   },
   "src/data/livro/contos/en/01/04.md": {
-    "mtime": 1787954279.2234352,
-    "ast_hash": "33d7bb5c810b1f4aaf80f316b4b6ec2f",
+    "mtime": 1788389429.3524325,
+    "ast_hash": "57267caf7cc82e48a724f2e448545f04",
     "semantic_hash": ""
   },
   "src/data/livro/contos/en/01/05.md": {
-    "mtime": 1787954279.2234352,
-    "ast_hash": "40876792837efd75b9e32bbc363a20a5",
+    "mtime": 1788389448.2379327,
+    "ast_hash": "8eeb38b4136efaa49e7d509d814e53f7",
     "semantic_hash": ""
   },
   "src/data/livro/contos/en/01/06.md": {
-    "mtime": 1787954597.239807,
-    "ast_hash": "a52262a35ed030ca4257e46859f1fb46",
+    "mtime": 1788389465.3563435,
+    "ast_hash": "32eeff7420da05c2bec0f88d64443aee",
     "semantic_hash": ""
   },
   "src/data/livro/contos/en/01/07.md": {
-    "mtime": 1787954279.2244334,
-    "ast_hash": "48163b68437807438e2e608b6cfa0cc7",
+    "mtime": 1788389480.6069717,
+    "ast_hash": "3b21fda63069da893dec5d930b71dabb",
     "semantic_hash": ""
   },
   "src/data/livro/contos/es/01/01.md": {
-    "mtime": 1788277169.6867716,
-    "ast_hash": "8c1133f38bf4c57db1ffc904317c2030",
+    "mtime": 1788389503.540614,
+    "ast_hash": "f5a64a418d41e48955d38eac833613ae",
     "semantic_hash": ""
   },
   "src/data/livro/contos/es/01/02.md": {
-    "mtime": 1787954279.2264338,
-    "ast_hash": "0a214c0c82a42c74aad9456e9c82000c",
+    "mtime": 1788389532.1829448,
+    "ast_hash": "bb1f67e88d239a8f29456621c9ba380b",
     "semantic_hash": ""
   },
   "src/data/livro/contos/es/01/03.md": {
-    "mtime": 1787954279.2264338,
-    "ast_hash": "633fd2ad0b34b724924a1c786b07848b",
+    "mtime": 1788389559.961728,
+    "ast_hash": "9348688bfa18b98505e1b68a2c60a61f",
     "semantic_hash": ""
   },
   "src/data/livro/contos/es/01/04.md": {
-    "mtime": 1787954279.2274344,
-    "ast_hash": "132e257702c08e8a12201fd7c3aa4b87",
+    "mtime": 1788389588.6254807,
+    "ast_hash": "805fe92607a8dc2c4280385855f27b7a",
     "semantic_hash": ""
   },
   "src/data/livro/contos/es/01/05.md": {
-    "mtime": 1787954279.2274344,
-    "ast_hash": "a45c9d2da6fdfbf6204b635220fb79a5",
+    "mtime": 1788389612.0244956,
+    "ast_hash": "46d29c8aa47901c597cb7d6765f1e508",
     "semantic_hash": ""
   },
   "src/data/livro/contos/es/01/06.md": {
-    "mtime": 1787954597.2408082,
-    "ast_hash": "ea24651ad1b514dc7738c7786f33cb2d",
+    "mtime": 1788389634.3614967,
+    "ast_hash": "5d1b4b13bfb90f752b817260f22735d3",
     "semantic_hash": ""
   },
   "src/data/livro/contos/es/01/07.md": {
-    "mtime": 1787954279.2284334,
-    "ast_hash": "b5e72de4bc99e2a9904c2c913dc31c22",
+    "mtime": 1788389650.847111,
+    "ast_hash": "f30f1a9a7e3a1f551c77767cfd478bcb",
     "semantic_hash": ""
   },
   "src/data/livro/contos/pt/01/01.md": {
-    "mtime": 1788277137.3521268,
-    "ast_hash": "a5c42b32553265b6f86a48886daaa2df",
+    "mtime": 1788389318.466514,
+    "ast_hash": "45a418c6cf0860ec763d5677ca84b8e1",
     "semantic_hash": ""
   },
   "src/data/livro/contos/pt/01/02.md": {
-    "mtime": 1787946503.2782376,
-    "ast_hash": "34c40b94656c11bc574f960aaf238e0b",
+    "mtime": 1788302167.675289,
+    "ast_hash": "6e8315fe952aa4637fda672acd6e6ad8",
     "semantic_hash": ""
   },
   "src/data/livro/contos/pt/01/03.md": {
-    "mtime": 1787952977.8803504,
-    "ast_hash": "71f1d19c327b10cef7f1e93d887bc572",
+    "mtime": 1788389363.2244112,
+    "ast_hash": "b71b6659444e91ab92b2d0dc38b5ed5a",
     "semantic_hash": ""
   },
   "src/data/livro/contos/pt/01/04.md": {
-    "mtime": 1787952994.1643748,
-    "ast_hash": "9b786f71437d381b2d1673e49c33e692",
+    "mtime": 1788389318.467523,
+    "ast_hash": "7b25fac0eb893dfdcef0be66cd8fec18",
     "semantic_hash": ""
   },
   "src/data/livro/contos/pt/01/05.md": {
-    "mtime": 1787952994.1663747,
-    "ast_hash": "22d1dd424f52539da95b245dd6abbdd4",
+    "mtime": 1788388715.5756187,
+    "ast_hash": "b568a4f3f996689ead98921107efc81a",
     "semantic_hash": ""
   },
   "src/data/livro/contos/pt/01/06.md": {
-    "mtime": 1787954564.6488857,
-    "ast_hash": "bf369174602c26ca3ef8647839fe0128",
+    "mtime": 1788388867.5147717,
+    "ast_hash": "1e8aeb0579a4e9256495f55b61b6387f",
     "semantic_hash": ""
   },
   "src/data/livro/contos/pt/01/07.md": {
-    "mtime": 1788277151.61898,
-    "ast_hash": "d040a9f8e7865e714cd2bc8eb15e4e28",
+    "mtime": 1788389167.6874552,
+    "ast_hash": "c821d0213f70e67e4aba4d5aebb3de1b",
     "semantic_hash": ""
   },
   "src/data/livro/contos/pt/02/01.md": {
@@ -4010,8 +4010,8 @@
     "semantic_hash": ""
   },
   "src/data/livro/contos/pt/02/10.md": {
-    "mtime": 1788277194.9413085,
-    "ast_hash": "ec4a1ee1d54d0c5617358eb73d545985",
+    "mtime": 1788381913.185721,
+    "ast_hash": "8a7691b93977a16d0a1fb38ad43d7cac",
     "semantic_hash": ""
   },
   "src/data/livro/contos/pt/02/11.md": {
@@ -4040,8 +4040,8 @@
     "semantic_hash": ""
   },
   "src/data/livro/contos/pt/02/16.md": {
-    "mtime": 1788277224.0227592,
-    "ast_hash": "225eff7cf5c51421d27a330ae9f8b20d",
+    "mtime": 1788381913.2257972,
+    "ast_hash": "3f9d2cebcbbc39d49662582f7c58cb7a",
     "semantic_hash": ""
   },
   "src/data/livro/contos/pt/02/17.md": {
@@ -4060,43 +4060,43 @@
     "semantic_hash": ""
   },
   "src/data/livro/contos/pt/03/01.md": {
-    "mtime": 1788277236.5149846,
-    "ast_hash": "2db2762667d8fa3380a7a7756da60117",
+    "mtime": 1788391797.586682,
+    "ast_hash": "36f8af783a84face305a45845b2b565f",
     "semantic_hash": ""
   },
   "src/data/livro/contos/pt/03/02.md": {
-    "mtime": 1788277242.7579346,
-    "ast_hash": "de6c69782ed2fb499dfe89a8ef1821f9",
+    "mtime": 1788390339.7713704,
+    "ast_hash": "b66ef247998e9f59b000648f81e35b15",
     "semantic_hash": ""
   },
   "src/data/livro/contos/pt/03/03.md": {
-    "mtime": 1788105487.125674,
-    "ast_hash": "691801bccd29065ee3673fcfc00a8b06",
+    "mtime": 1788390478.3682697,
+    "ast_hash": "aabb17aca0d0d7a9e3752510bbf17465",
     "semantic_hash": ""
   },
   "src/data/livro/contos/pt/03/04.md": {
-    "mtime": 1788277250.677476,
-    "ast_hash": "6fc85d69367cef13b505235f98c8dec4",
+    "mtime": 1788391809.6502872,
+    "ast_hash": "6a7c897332775f2ba5a9ece82ae2cf1b",
     "semantic_hash": ""
   },
   "src/data/livro/contos/pt/03/05.md": {
-    "mtime": 1788105468.7674143,
+    "mtime": 1788391273.4127967,
     "ast_hash": "47d065b61d528b36aae790d3df4c8096",
     "semantic_hash": ""
   },
   "src/data/livro/contos/pt/03/06.md": {
-    "mtime": 1788105224.9507961,
-    "ast_hash": "e850e8d1a5492a645c80463b9e29572f",
+    "mtime": 1788391809.6512928,
+    "ast_hash": "f789c50de4747014b79516f0f7799fb9",
     "semantic_hash": ""
   },
   "src/data/livro/contos/pt/04/01.md": {
-    "mtime": 1788136212.8337524,
-    "ast_hash": "0bd38e7c47a1be2a379ebbd7be39b4f1",
+    "mtime": 1788392497.5444448,
+    "ast_hash": "41d9671fdeb96b13603ad2b183daf167",
     "semantic_hash": ""
   },
   "src/data/livro/contos/pt/04/02.md": {
-    "mtime": 1788277257.0106473,
-    "ast_hash": "0933e162931c9e43b841eaa0e382564e",
+    "mtime": 1788381913.3903954,
+    "ast_hash": "07a0f2e0bcc93a496696323ca08bfb6b",
     "semantic_hash": ""
   },
   "src/data/livro/contos/pt/04/03.md": {
@@ -4110,8 +4110,8 @@
     "semantic_hash": ""
   },
   "src/data/livro/contos/pt/04/05.md": {
-    "mtime": 1788277261.370943,
-    "ast_hash": "2cf5439888e624bc5d0e773e67c68e01",
+    "mtime": 1788381913.4342675,
+    "ast_hash": "2e8f8425f5d94cfc35afded96e73dec9",
     "semantic_hash": ""
   },
   "src/data/livro/contos/pt/04/06.md": {
@@ -4130,8 +4130,8 @@
     "semantic_hash": ""
   },
   "src/data/livro/contos/pt/04/09.md": {
-    "mtime": 1788277266.8699768,
-    "ast_hash": "5b53f30d82606b5915cc81877fea59fb",
+    "mtime": 1788381913.4760585,
+    "ast_hash": "82c4fd4ff4ec415534b653d6b133aaff",
     "semantic_hash": ""
   },
   "docs/LDI/IDEIAS_CONTOS_LEGENDS.md": {
@@ -4155,8 +4155,8 @@
     "semantic_hash": ""
   },
   "src/data/livro/contos/pt/05/03.md": {
-    "mtime": 1788277125.560106,
-    "ast_hash": "4a8719a9c1105c8b2ec691510fcf638b",
+    "mtime": 1788381913.5256636,
+    "ast_hash": "4a127df9b0eb726b23fdd645645201f5",
     "semantic_hash": ""
   },
   "src/data/livro/contos/pt/05/04.md": {
@@ -4170,8 +4170,8 @@
     "semantic_hash": ""
   },
   "src/data/livro/contos/pt/05/06.md": {
-    "mtime": 1788280469.898435,
-    "ast_hash": "48a782957fc53da273a73a769fb257b6",
+    "mtime": 1788381913.5675457,
+    "ast_hash": "12129a58533de8f785b234c484e8a5b3",
     "semantic_hash": ""
   },
   "src/data/livro/contos/pt/05/07.md": {
@@ -4180,8 +4180,8 @@
     "semantic_hash": ""
   },
   "src/data/livro/contos/pt/05/08.md": {
-    "mtime": 1788283808.353041,
-    "ast_hash": "2471ac0178006d0a57e2696b77d473d2",
+    "mtime": 1788381913.6170373,
+    "ast_hash": "6b7ea798f655415fb509bb35cfc16cbe",
     "semantic_hash": ""
   },
   "src/lib/lazyWithReload.js": {
@@ -4210,8 +4210,8 @@
     "semantic_hash": ""
   },
   "src/data/livro/contos/en/05/03.md": {
-    "mtime": 1788282548.155914,
-    "ast_hash": "21be14fc826005768ba4de685dcd2ba3",
+    "mtime": 1788381912.8526497,
+    "ast_hash": "a2d041ebd202c56fcd892d882aad66dc",
     "semantic_hash": ""
   },
   "src/data/livro/contos/en/05/04.md": {
@@ -4225,8 +4225,8 @@
     "semantic_hash": ""
   },
   "src/data/livro/contos/en/05/06.md": {
-    "mtime": 1788282053.7514844,
-    "ast_hash": "51cbce99174c056a0913171ea4bfa92c",
+    "mtime": 1788381912.8974597,
+    "ast_hash": "fd640b087c84f80d0167df600086482d",
     "semantic_hash": ""
   },
   "src/data/livro/contos/en/05/07.md": {
@@ -4235,8 +4235,8 @@
     "semantic_hash": ""
   },
   "src/data/livro/contos/en/05/08.md": {
-    "mtime": 1788283813.4415798,
-    "ast_hash": "e2ebf3ee7360a67c7e59e82b8a759f74",
+    "mtime": 1788381912.937052,
+    "ast_hash": "e5a6823e75dc811472da2685aa4fc7d5",
     "semantic_hash": ""
   },
   "src/data/livro/contos/en/05/09.md": {
@@ -4255,8 +4255,8 @@
     "semantic_hash": ""
   },
   "src/data/livro/contos/es/05/03.md": {
-    "mtime": 1788282226.9732962,
-    "ast_hash": "bd5519194b33af2bce5cbca1ac9df3f1",
+    "mtime": 1788381913.0219758,
+    "ast_hash": "86ffdb5d9b2190c86dbbd92b4b8193d2",
     "semantic_hash": ""
   },
   "src/data/livro/contos/es/05/04.md": {
@@ -4270,8 +4270,8 @@
     "semantic_hash": ""
   },
   "src/data/livro/contos/es/05/06.md": {
-    "mtime": 1788282439.8996005,
-    "ast_hash": "49636397e92aa3b0cf05ad0a9e21e177",
+    "mtime": 1788381913.0630364,
+    "ast_hash": "4d5784db66b22310297460258a71ce9c",
     "semantic_hash": ""
   },
   "src/data/livro/contos/es/05/07.md": {
@@ -4280,13 +4280,428 @@
     "semantic_hash": ""
   },
   "src/data/livro/contos/es/05/08.md": {
-    "mtime": 1788283817.5798738,
-    "ast_hash": "9499d822e5f58c8e74d88bb3f5266299",
+    "mtime": 1788381913.1047711,
+    "ast_hash": "3e6cfd6f94d583796f49422be22d9464",
     "semantic_hash": ""
   },
   "src/data/livro/contos/es/05/09.md": {
     "mtime": 1788282517.4586227,
     "ast_hash": "f01b2ce24ee2188dedd21cf7dc1d21ee",
+    "semantic_hash": ""
+  },
+  "src/components/CapCard/CapCard.jsx": {
+    "mtime": 1788400590.508304,
+    "ast_hash": "eb5ea204706697a1740dd2f1b5d3caf9",
+    "semantic_hash": ""
+  },
+  "src/data/obras-index.json": {
+    "mtime": 1788400524.1692393,
+    "ast_hash": "60c8c36aaace8c31ef907be49172c89c",
+    "semantic_hash": ""
+  },
+  "src/data/season-one-schedule.js": {
+    "mtime": 1788400330.7414126,
+    "ast_hash": "0a28cc29aec489cacc524d6e452a83aa",
+    "semantic_hash": ""
+  },
+  "src/data/universo-index.json": {
+    "mtime": 1788387769.3963327,
+    "ast_hash": "e8403377fdd4094097bc5515dea93702",
+    "semantic_hash": ""
+  },
+  "src/data/universo/mar-de-cinzas/pt/antagonista.json": {
+    "mtime": 1788387727.7414103,
+    "ast_hash": "b608d38c978af71b6485b45688b87968",
+    "semantic_hash": ""
+  },
+  "src/data/universo/mar-de-cinzas/pt/arcos.json": {
+    "mtime": 1788393601.6786373,
+    "ast_hash": "f44044fb32f85a64c2c5a88d856a9356",
+    "semantic_hash": ""
+  },
+  "src/data/universo/mar-de-cinzas/pt/criaturas.json": {
+    "mtime": 1788387727.7414103,
+    "ast_hash": "f170661123d2a26296346544f8a24c9d",
+    "semantic_hash": ""
+  },
+  "src/data/universo/mar-de-cinzas/pt/desastres.json": {
+    "mtime": 1788387727.7414103,
+    "ast_hash": "ff01da31faa74f1f4522c05da11379d0",
+    "semantic_hash": ""
+  },
+  "src/data/universo/mar-de-cinzas/pt/final.json": {
+    "mtime": 1788387756.468905,
+    "ast_hash": "8b963b1a5d21aca9433c319541fe0c07",
+    "semantic_hash": ""
+  },
+  "src/data/universo/mar-de-cinzas/pt/historia.json": {
+    "mtime": 1788393601.6796367,
+    "ast_hash": "0fe4cf7bba9525d73cec8bca0062e29d",
+    "semantic_hash": ""
+  },
+  "src/data/universo/mar-de-cinzas/pt/horror.json": {
+    "mtime": 1788387727.7439225,
+    "ast_hash": "7c1e7cf4671b8a053ecb321ca3e12d84",
+    "semantic_hash": ""
+  },
+  "src/data/universo/mar-de-cinzas/pt/ilhas.json": {
+    "mtime": 1788387727.7439225,
+    "ast_hash": "f409ddc582aa3ddaa0cd5548ac38f719",
+    "semantic_hash": ""
+  },
+  "src/data/universo/mar-de-cinzas/pt/inquilino.json": {
+    "mtime": 1788387727.7439225,
+    "ast_hash": "71a482c81779c29c0373961dd79b7bb4",
+    "semantic_hash": ""
+  },
+  "src/data/universo/mar-de-cinzas/pt/magia.json": {
+    "mtime": 1788387727.7449274,
+    "ast_hash": "246544e3ab113df76d451ee40d7ad5d4",
+    "semantic_hash": ""
+  },
+  "src/data/universo/mar-de-cinzas/pt/mundo.json": {
+    "mtime": 1788387727.7449274,
+    "ast_hash": "9794d51f51477b87a81ad84f5a3e9d84",
+    "semantic_hash": ""
+  },
+  "src/data/universo/mar-de-cinzas/pt/navegacao.json": {
+    "mtime": 1788387727.7459552,
+    "ast_hash": "833d5eccaceeb2c555babe587c76f4ab",
+    "semantic_hash": ""
+  },
+  "src/data/universo/mar-de-cinzas/pt/personagens.json": {
+    "mtime": 1788393601.680637,
+    "ast_hash": "3bbfda929ba00bc2fe50fee69543f88a",
+    "semantic_hash": ""
+  },
+  "src/data/universo/mar-de-cinzas/pt/pirataria.json": {
+    "mtime": 1788387727.7459552,
+    "ast_hash": "8914b98595115f8494ef92ab5474438d",
+    "semantic_hash": ""
+  },
+  "src/data/universo/mar-de-cinzas/pt/protagonista.json": {
+    "mtime": 1788393601.683637,
+    "ast_hash": "91b4842e4ae53cb091d97a0fb28b36b7",
+    "semantic_hash": ""
+  },
+  "src/data/universo/mar-de-cinzas/pt/religiao.json": {
+    "mtime": 1788387727.7469282,
+    "ast_hash": "8e1384fc8a8e9858df64e4e3a56a8d06",
+    "semantic_hash": ""
+  },
+  "src/data/universo/mar-de-cinzas/pt/seis-coroas.json": {
+    "mtime": 1788387727.7469282,
+    "ast_hash": "87b60c95ebda59e259b6b42971e7aa1c",
+    "semantic_hash": ""
+  },
+  "src/data/universo/mar-de-cinzas/pt/tritons.json": {
+    "mtime": 1788387727.7479298,
+    "ast_hash": "fbfcf36aa836b83d06fc07df82cba426",
+    "semantic_hash": ""
+  },
+  "src/data/universo/mar-de-cinzas/pt/twist.json": {
+    "mtime": 1788387727.7479298,
+    "ast_hash": "e6d1f40135243d43aa6399ac7b9d695b",
+    "semantic_hash": ""
+  },
+  "src/data/universo/mundo-das-sombras/en/glossario.json": {
+    "mtime": 1788386367.7872634,
+    "ast_hash": "100592268a11d2f910ce080c25291856",
+    "semantic_hash": ""
+  },
+  "src/data/universo/mundo-das-sombras/en/linha-do-tempo.json": {
+    "mtime": 1788386367.7872634,
+    "ast_hash": "17d15d8e6e5d010935d16d00b63edeaa",
+    "semantic_hash": ""
+  },
+  "src/data/universo/mundo-das-sombras/en/mundo.json": {
+    "mtime": 1788386367.7872634,
+    "ast_hash": "2880ee5521de2f253bc4c6d77725b7c3",
+    "semantic_hash": ""
+  },
+  "src/data/universo/mundo-das-sombras/en/personagens.json": {
+    "mtime": 1788386367.7882688,
+    "ast_hash": "c192736e913d6e5596e5d25df0c0ad8a",
+    "semantic_hash": ""
+  },
+  "src/data/universo/mundo-das-sombras/es/glossario.json": {
+    "mtime": 1788386367.7882688,
+    "ast_hash": "e9a351cd7df2fbf25f1024c003d66874",
+    "semantic_hash": ""
+  },
+  "src/data/universo/mundo-das-sombras/es/linha-do-tempo.json": {
+    "mtime": 1788386367.7892687,
+    "ast_hash": "072e2a42da319e6068f8a13f886ae008",
+    "semantic_hash": ""
+  },
+  "src/data/universo/mundo-das-sombras/es/mundo.json": {
+    "mtime": 1788386367.7892687,
+    "ast_hash": "216405301f39cd0eb6b3a9b792dd60ae",
+    "semantic_hash": ""
+  },
+  "src/data/universo/mundo-das-sombras/es/personagens.json": {
+    "mtime": 1788386367.7892687,
+    "ast_hash": "ee950f56d0b68220bfa452b4dba69c76",
+    "semantic_hash": ""
+  },
+  "src/data/universo/mundo-das-sombras/pt/glossario.json": {
+    "mtime": 1788386367.7844133,
+    "ast_hash": "336e5a7a82705594e560fe112168a5fa",
+    "semantic_hash": ""
+  },
+  "src/data/universo/mundo-das-sombras/pt/linha-do-tempo.json": {
+    "mtime": 1788386367.785758,
+    "ast_hash": "3a5ae5d3430468335e987d73b7bc4aee",
+    "semantic_hash": ""
+  },
+  "src/data/universo/mundo-das-sombras/pt/mundo.json": {
+    "mtime": 1788386367.785758,
+    "ast_hash": "9479fbacc7d92207bb02f6a7304c3b84",
+    "semantic_hash": ""
+  },
+  "src/data/universo/mundo-das-sombras/pt/personagens.json": {
+    "mtime": 1788386367.785758,
+    "ast_hash": "80006a39f2899b1c5f06822b96a5c338",
+    "semantic_hash": ""
+  },
+  "src/lib/releaseAccess.js": {
+    "mtime": 1788400240.1572113,
+    "ast_hash": "5d70e62d0f00dc250a8ec53c6a6b2f57",
+    "semantic_hash": ""
+  },
+  "src/pages/content/Historias.jsx": {
+    "mtime": 1788400705.6060724,
+    "ast_hash": "a57cc4fd87f814402491e62ae90f16b8",
+    "semantic_hash": ""
+  },
+  "src/pages/content/MundoHub.jsx": {
+    "mtime": 1788400540.7665577,
+    "ast_hash": "0cde43e411f844517bce29f2234aebe8",
+    "semantic_hash": ""
+  },
+  "src/pages/content/Obra.jsx": {
+    "mtime": 1788400705.6070702,
+    "ast_hash": "6586f5f7ca1482121edddbb8070763d7",
+    "semantic_hash": ""
+  },
+  "src/pages/content/ObraCapitulo.jsx": {
+    "mtime": 1788400705.6080716,
+    "ast_hash": "cd96e555b0b38490e014c22f8f3a6b28",
+    "semantic_hash": ""
+  },
+  "src/pages/content/Universo.jsx": {
+    "mtime": 1788400540.7685573,
+    "ast_hash": "4016911798e984d884864d3f75076cfa",
+    "semantic_hash": ""
+  },
+  "src/pages/site/Calendario/Calendario.jsx": {
+    "mtime": 1788400449.9800608,
+    "ast_hash": "03d4a62f577831ea4d9b14785f58a47a",
+    "semantic_hash": ""
+  },
+  "src/data/livro/contos/en/03/01.md": {
+    "mtime": 1788391835.5126183,
+    "ast_hash": "08eed9209a0bd869cce4c536d37aa644",
+    "semantic_hash": ""
+  },
+  "src/data/livro/contos/en/03/02.md": {
+    "mtime": 1788391854.723757,
+    "ast_hash": "7cdf1092c6b04b037fb1ed4fcb187428",
+    "semantic_hash": ""
+  },
+  "src/data/livro/contos/en/03/03.md": {
+    "mtime": 1788391873.8081262,
+    "ast_hash": "f09e1bb3c8a16303d2e1162ee3e7d50f",
+    "semantic_hash": ""
+  },
+  "src/data/livro/contos/en/03/04.md": {
+    "mtime": 1788391891.327648,
+    "ast_hash": "64b4c5e17c2c39033d077457dbbc0f2b",
+    "semantic_hash": ""
+  },
+  "src/data/livro/contos/en/03/05.md": {
+    "mtime": 1788391908.2127645,
+    "ast_hash": "0036bc351dc6d38d5cce3553d66f70c4",
+    "semantic_hash": ""
+  },
+  "src/data/livro/contos/en/03/06.md": {
+    "mtime": 1788391925.8311849,
+    "ast_hash": "33f8be79da76d6ba174e4d16d83c6d2e",
+    "semantic_hash": ""
+  },
+  "src/data/livro/contos/es/03/01.md": {
+    "mtime": 1788391952.2717094,
+    "ast_hash": "d62293c42caaba339c4951b3833fdb03",
+    "semantic_hash": ""
+  },
+  "src/data/livro/contos/es/03/02.md": {
+    "mtime": 1788391977.7996159,
+    "ast_hash": "b092d63b13bb98f52257d18d16a7f63e",
+    "semantic_hash": ""
+  },
+  "src/data/livro/contos/es/03/03.md": {
+    "mtime": 1788392000.8221786,
+    "ast_hash": "794902067e0d7daff7f0a1382f754473",
+    "semantic_hash": ""
+  },
+  "src/data/livro/contos/es/03/04.md": {
+    "mtime": 1788392023.116951,
+    "ast_hash": "5bd7352c8a22de35804a2f80c47052ad",
+    "semantic_hash": ""
+  },
+  "src/data/livro/contos/es/03/05.md": {
+    "mtime": 1788392046.2277749,
+    "ast_hash": "b188c1ac9b3dd649e194e1610cde8a14",
+    "semantic_hash": ""
+  },
+  "src/data/livro/contos/es/03/06.md": {
+    "mtime": 1788392068.4486756,
+    "ast_hash": "c5dfb00b2c15db7cd7142cf3748a6904",
+    "semantic_hash": ""
+  },
+  "src/data/livro/obras/mar-de-cinzas/pt/00.md": {
+    "mtime": 1788393601.6766486,
+    "ast_hash": "a102461d37b8ce0f4dce392ea03298d6",
+    "semantic_hash": ""
+  },
+  "src/data/livro/obras/mar-de-cinzas/pt/01.md": {
+    "mtime": 1788393601.6776366,
+    "ast_hash": "3d76842343e6efa83584d5c84369d4f5",
+    "semantic_hash": ""
+  },
+  "src/data/livro/obras/mar-de-cinzas/pt/02.md": {
+    "mtime": 1788381285.761325,
+    "ast_hash": "c57b5cd1c5309139a3a3d2466563b35d",
+    "semantic_hash": ""
+  },
+  "src/data/livro/obras/mar-de-cinzas/pt/03.md": {
+    "mtime": 1788393601.6643727,
+    "ast_hash": "bdd47975eb8ca8a2955e7afb32452c45",
+    "semantic_hash": ""
+  },
+  "src/data/livro/obras/mundo-das-sombras/en/01.md": {
+    "mtime": 1788380554.0093663,
+    "ast_hash": "8de46f8b7375e8d511cba465a586c2c5",
+    "semantic_hash": ""
+  },
+  "src/data/livro/obras/mundo-das-sombras/en/02.md": {
+    "mtime": 1788380554.0417056,
+    "ast_hash": "55b1ef824968dd8335dd3266b3603d41",
+    "semantic_hash": ""
+  },
+  "src/data/livro/obras/mundo-das-sombras/en/03.md": {
+    "mtime": 1788380554.0766125,
+    "ast_hash": "a2a3836009287bf1d21c9350faf118b8",
+    "semantic_hash": ""
+  },
+  "src/data/livro/obras/mundo-das-sombras/en/04.md": {
+    "mtime": 1788380554.1063204,
+    "ast_hash": "e86bfcbccb197f230bcdac6f89414bbb",
+    "semantic_hash": ""
+  },
+  "src/data/livro/obras/mundo-das-sombras/en/05.md": {
+    "mtime": 1788380554.1376455,
+    "ast_hash": "c46e2896eb12ae1bb3b5b2728af92335",
+    "semantic_hash": ""
+  },
+  "src/data/livro/obras/mundo-das-sombras/en/06.md": {
+    "mtime": 1788380554.1761622,
+    "ast_hash": "ba8e09f63dea9769bd3430ae9219305d",
+    "semantic_hash": ""
+  },
+  "src/data/livro/obras/mundo-das-sombras/es/01.md": {
+    "mtime": 1788380554.2221894,
+    "ast_hash": "f081f8b4a9205e1f38a75d85faed1aec",
+    "semantic_hash": ""
+  },
+  "src/data/livro/obras/mundo-das-sombras/es/02.md": {
+    "mtime": 1788380554.2544765,
+    "ast_hash": "5bb2c8e6a3bbe80b1af8c95e74a2dd6d",
+    "semantic_hash": ""
+  },
+  "src/data/livro/obras/mundo-das-sombras/es/03.md": {
+    "mtime": 1788380554.2934737,
+    "ast_hash": "3233c99ec070166840bf4fc63a91251a",
+    "semantic_hash": ""
+  },
+  "src/data/livro/obras/mundo-das-sombras/es/04.md": {
+    "mtime": 1788380554.3213723,
+    "ast_hash": "bb3f96b956824c27876bf799eaf463d1",
+    "semantic_hash": ""
+  },
+  "src/data/livro/obras/mundo-das-sombras/es/05.md": {
+    "mtime": 1788380554.35538,
+    "ast_hash": "2d5798ea3620910942e39fbcc36bee51",
+    "semantic_hash": ""
+  },
+  "src/data/livro/obras/mundo-das-sombras/es/06.md": {
+    "mtime": 1788380554.395758,
+    "ast_hash": "418fd7cf7028be0bfd1a1073b9704b55",
+    "semantic_hash": ""
+  },
+  "src/data/livro/obras/mundo-das-sombras/pt/01.md": {
+    "mtime": 1788380553.9619758,
+    "ast_hash": "2cffaee89fb59a49f8414f116ccee4d0",
+    "semantic_hash": ""
+  },
+  "src/data/livro/obras/mundo-das-sombras/pt/02.md": {
+    "mtime": 1788380553.9641252,
+    "ast_hash": "d2658c82bfd2f147301db9b1c9e0602f",
+    "semantic_hash": ""
+  },
+  "src/data/livro/obras/mundo-das-sombras/pt/03.md": {
+    "mtime": 1788380553.9663193,
+    "ast_hash": "f5514cd59ea79024b73126d20ebe4c65",
+    "semantic_hash": ""
+  },
+  "src/data/livro/obras/mundo-das-sombras/pt/04.md": {
+    "mtime": 1788380553.9683073,
+    "ast_hash": "60a9d5b380d97fc854bca2948a4efb45",
+    "semantic_hash": ""
+  },
+  "src/data/livro/obras/mundo-das-sombras/pt/05.md": {
+    "mtime": 1788380553.9703069,
+    "ast_hash": "0f8955331f9aa8b76038e6d0759d639d",
+    "semantic_hash": ""
+  },
+  "src/data/livro/obras/mundo-das-sombras/pt/06.md": {
+    "mtime": 1788380553.9723065,
+    "ast_hash": "fe87209291fd5e174d839692fbd85376",
+    "semantic_hash": ""
+  },
+  "src/assets/obras/mundo-das-sombras/cap-01.webp": {
+    "mtime": 1788380628.1713047,
+    "ast_hash": "311000ebf0d09dc7f50a2b3fda729a6c",
+    "semantic_hash": ""
+  },
+  "src/assets/obras/mundo-das-sombras/cap-02.webp": {
+    "mtime": 1788380628.3617215,
+    "ast_hash": "0bc803116e743aa3f5e3adbb161cbc99",
+    "semantic_hash": ""
+  },
+  "src/assets/obras/mundo-das-sombras/cap-03.webp": {
+    "mtime": 1788380628.5596375,
+    "ast_hash": "a4ba87896719d3765dd04608847b77cd",
+    "semantic_hash": ""
+  },
+  "src/assets/obras/mundo-das-sombras/cap-04.webp": {
+    "mtime": 1788380628.7294495,
+    "ast_hash": "8ac664196f9b604b15e8510a2c7654cc",
+    "semantic_hash": ""
+  },
+  "src/assets/obras/mundo-das-sombras/cap-05.webp": {
+    "mtime": 1788380628.9093678,
+    "ast_hash": "58630690e512faa418e85352adaa2666",
+    "semantic_hash": ""
+  },
+  "src/assets/obras/mundo-das-sombras/cap-06.webp": {
+    "mtime": 1788380629.0842662,
+    "ast_hash": "a811a6b61f55e6520b2f2de868a2f7db",
+    "semantic_hash": ""
+  },
+  "src/assets/obras/mundo-das-sombras/capa.webp": {
+    "mtime": 1788380620.083782,
+    "ast_hash": "c8f247a797f457d099637d9dad4d8bc6",
     "semantic_hash": ""
   }
 }

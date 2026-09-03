@@ -61,7 +61,7 @@ export default function ObraCapitulo() {
 
   useEffect(() => {
     setNotFound(false)
-    if (!obra || !capitulo || (!estaDisponivel(capitulo, isAdmin) && !TRIAL_ACTIVE)) {
+    if (!obra || !capitulo || (!estaDisponivel(capitulo, isAdmin, { user, perfil }))) {
       setNotFound(true)
       return
     }
@@ -92,7 +92,7 @@ export default function ObraCapitulo() {
     )
   }
 
-  const disponiveis = obra.capitulos.filter(c => estaDisponivel(c, isAdmin) || TRIAL_ACTIVE)
+  const disponiveis = obra.capitulos.filter(c => estaDisponivel(c, isAdmin, { user, perfil }))
   const cur = disponiveis.findIndex(c => c.id === cap)
   const anterior = disponiveis[cur - 1]
   const proximo = disponiveis[cur + 1]

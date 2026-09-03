@@ -1,5 +1,6 @@
 import fs from 'fs'
 import path from 'path'
+import { validateRelease } from '../src/lib/releaseAccess.js'
 
 const SITE_URL = 'https://illusionfight.com'
 const DIST_DIR = path.resolve(process.cwd(), 'dist')
@@ -10,7 +11,16 @@ const LAST_MODIFIED = '2026-08-27'
 const readJson = file => JSON.parse(fs.readFileSync(path.resolve(process.cwd(), file), 'utf-8'))
 const personagens = readJson('src/data/personagens-pt.json')
 const capitulos = readJson('src/data/livro-index.json')
+const contos = readJson('src/data/contos-index.json')
+const obras = readJson('src/data/obras-index.json')
 const episodios = readJson('src/data/episodios.json')
+
+const releaseItems = [
+  ...capitulos.map(cap => [`livro/${cap.id}`, cap]),
+  ...contos.flatMap(conto => conto.capitulos.map(cap => [`conto/${conto.id}/${cap.id}`, cap])),
+  ...obras.flatMap(obra => obra.capitulos.map(cap => [`obra/${obra.id}/${cap.id}`, cap])),
+]
+releaseItems.forEach(([label, item]) => validateRelease(item, label))
 
 // Páginas públicas com metadados e fallback próprios. Nunca copie o index da
 // home sem trocar o canonical: isso faz o Google tratar todas como duplicatas.
@@ -35,6 +45,7 @@ const ROUTES = [
   ['/loja', 'Loja — Illusion Fight', 'Encontre fichas, DIX e itens digitais do universo Illusion Fight.', 'Loja Illusion Fight', 'Explore itens digitais e formas de apoiar o universo Illusion Fight.', '0.7', 'monthly'],
   ['/quiz', 'Quiz — Illusion Fight', 'Teste seus conhecimentos sobre Illusion Fight e o universo LDI.', 'Quiz Illusion Fight', 'Responda perguntas e descubra quanto você conhece da arena LDI.', '0.5', 'monthly'],
   ['/custos', 'Custos da plataforma — Illusion Fight', 'Entenda os custos e a estrutura que mantêm a plataforma Illusion Fight ativa.', 'Custos da plataforma', 'Transparência sobre a estrutura e os custos do projeto Illusion Fight.', '0.4', 'monthly'],
+  ['/calendario', 'Calendário de lançamentos — Illusion Fight', 'Acompanhe os lançamentos de capítulos, webtoon, games, músicas e parceiros de Illusion Fight.', 'Calendário de lançamentos', 'Veja o calendário público da Temporada 1 e acompanhe cada canal de lançamento do universo Illusion Fight.', '0.8', 'weekly'],
   ['/leaderboard', 'Ranking — Illusion Fight', 'Acompanhe o ranking de jogadores do universo Illusion Fight.', 'Ranking Illusion Fight', 'Veja a classificação dos jogadores da arena.', '0.5', 'weekly'],
   ['/games/ldi', 'Lendas do LDI — Illusion Fight', 'Jogue Lendas do LDI, o RPG narrativo do universo Illusion Fight.', 'Lendas do LDI', 'Entre na aventura narrativa e crie sua história na arena LDI.', '0.6', 'monthly'],
   ['/games/ldi-gangues', 'LDI Gangues — Illusion Fight', 'Monte sua equipe e lute em LDI Gangues, o jogo tático do universo Illusion Fight.', 'LDI Gangues', 'Forme sua gangue e participe de batalhas no universo LDI.', '0.6', 'monthly'],
@@ -70,13 +81,13 @@ personagens.forEach(personagem => ROUTES.push({
   parent: { name: 'Personagens', path: '/personagens/' },
 }))
 
-capitulos.filter(capitulo => capitulo.id === 'capitulo-01').forEach(capitulo => ROUTES.push({
+capitulos.forEach(capitulo => ROUTES.push({
   path: `/historias/lutas-de-ilusao/${capitulo.id}`,
   title: `${capitulo.titulo} — livro Illusion Fight, capítulo ${capitulo.numero}`,
   description: capitulo.resumo_pt || capitulo.tagline_pt,
   heading: `Capítulo ${capitulo.numero} — ${capitulo.titulo}`,
   content: `${capitulo.tagline_pt} ${capitulo.resumo_pt || ''} Leia online e gratuitamente em português; versões em inglês e espanhol também estão disponíveis no portal.`,
-  priority: '0.9', changefreq: 'monthly', indexable: true, schemaType: 'chapter', datePublished: capitulo.data_publicacao,
+  priority: '0.9', changefreq: 'monthly', indexable: true, schemaType: 'chapter', datePublished: capitulo.liberacao.publico,
   parent: { name: 'Histórias', path: '/historias/lutas-de-ilusao/' },
 }))
 

@@ -52,9 +52,9 @@ export default function Historias() {
   const capsContagem = (n) => (n === 1 ? t('pages.historias.cap_1') : t('pages.historias.caps').replace('{n}', n))
 
   const contosLiberados = contosIndex.reduce(
-    (acc, h) => acc + h.capitulos.filter(c => estaDisponivel(c, isAdmin) || TRIAL_ACTIVE).length, 0)
+    (acc, h) => acc + h.capitulos.filter(c => estaDisponivel(c, isAdmin, { user, perfil })).length, 0)
   const livroLiberados = livroIndex.filter(
-    c => c.id === 'capitulo-01' || estaDisponivel(c, isAdmin) || TRIAL_ACTIVE).length
+    c => c.id === 'capitulo-01' || estaDisponivel(c, isAdmin, { user, perfil })).length
 
   return (
     <section className="livro-page historias-page">
@@ -109,7 +109,7 @@ export default function Historias() {
         <p className="historias-secao__desc">{t('pages.historias.outras_desc')}</p>
         <div className="hub-row">
           {obras.map(o => {
-            const liberados = o.capitulos.filter(c => estaDisponivel(c, isAdmin) || TRIAL_ACTIVE).length
+            const liberados = o.capitulos.filter(c => estaDisponivel(c, isAdmin, { user, perfil })).length
             return (
               <HubCard
                 key={o.id}

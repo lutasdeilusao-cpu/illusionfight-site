@@ -35,7 +35,7 @@ export default function Contos() {
   const tituloKey = locale === 'en' ? 'titulo_en' : locale === 'es' ? 'titulo_es' : 'titulo'
   const taglineKey = locale === 'en' ? 'tagline_en' : locale === 'es' ? 'tagline_es' : 'tagline_pt'
 
-  const capsLiberados = (h) => h.capitulos.filter(c => estaDisponivel(c, isAdmin) || TRIAL_ACTIVE).length
+  const capsLiberados = (h) => h.capitulos.filter(c => estaDisponivel(c, isAdmin, { user, perfil })).length
 
   const pesosPresentes = useMemo(
     () => PESOS.filter(p => index.some(h => h.peso === p)),

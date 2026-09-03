@@ -83,7 +83,7 @@ export default function LivroCapitulo() {
   useEffect(() => {
     setNotFound(false)
 
-    if (!chapter || (id !== 'capitulo-01' && !estaDisponivel(chapter, isAdmin) && !TRIAL_ACTIVE)) {
+    if (!chapter || (id !== 'capitulo-01' && !estaDisponivel(chapter, isAdmin, { user, perfil }))) {
       setNotFound(true)
       return
     }
@@ -136,9 +136,9 @@ export default function LivroCapitulo() {
   const idx = index.findIndex(ch => ch.id === id)
   const prev = idx > 0 ? index[idx - 1] : null
   const next = idx < index.length - 1 ? index[idx + 1] : null
-  const prevPublished = prev && estaDisponivel(prev, isAdmin) ? prev : null
-  const nextPublished = next && estaDisponivel(next, isAdmin) ? next : null
-  const capitulos = index.filter(c => c.id === 'capitulo-01' || estaDisponivel(c, isAdmin) || TRIAL_ACTIVE)
+  const prevPublished = prev && estaDisponivel(prev, isAdmin, { user, perfil }) ? prev : null
+  const nextPublished = next && estaDisponivel(next, isAdmin, { user, perfil }) ? next : null
+  const capitulos = index.filter(c => c.id === 'capitulo-01' || estaDisponivel(c, isAdmin, { user, perfil }))
   const currentIndex = capitulos.findIndex(c => c.id === id)
   const anterior = capitulos[currentIndex - 1]
   const proximo = capitulos[currentIndex + 1]

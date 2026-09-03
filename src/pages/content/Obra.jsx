@@ -46,7 +46,7 @@ export default function Obra() {
   const universo = obra[`universo${suf}`] || obra.universo_pt
   const capaImg = asset(obra.id, obra.capa)
 
-  const capsLiberados = obra.capitulos.filter(c => estaDisponivel(c, isAdmin) || TRIAL_ACTIVE)
+  const capsLiberados = obra.capitulos.filter(c => estaDisponivel(c, isAdmin, { user, perfil }))
   const temTravado = capsLiberados.length < obra.capitulos.length
   const soPt = (obra.idiomas || ['pt']).length === 1 && (obra.idiomas || ['pt'])[0] === 'pt'
 
@@ -107,7 +107,7 @@ export default function Obra() {
 
         <div className="cap-list">
           {obra.capitulos.map((cap, i) => {
-            const liberado = estaDisponivel(cap, isAdmin) || TRIAL_ACTIVE
+            const liberado = estaDisponivel(cap, isAdmin, { user, perfil })
             const capTitulo = cap[`titulo${sufT}`] || cap.titulo
             const capResumo = cap[`resumo${suf}`] || cap.resumo_pt || ''
             return (
@@ -115,6 +115,7 @@ export default function Obra() {
                 key={cap.id}
                 to={`/historias/${obra.id}/${cap.id}`}
                 liberado={liberado}
+                releaseItem={cap}
                 img={asset(obra.id, (obra.galeria || [])[i])}
                 rotulo={cap.numero > 0 ? `${t('pages.livro.cap')} ${String(cap.numero).padStart(2, '0')}` : ''}
                 titulo={capTitulo}

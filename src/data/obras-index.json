@@ -52,10 +52,15 @@
         "titulo": "A Marca",
         "titulo_en": "The Mark",
         "titulo_es": "La Marca",
-        "data_publicacao": "2099-01-01",
         "resumo_pt": "Uma penumbra chamada Falha vê o bebê Minus ser tocado — e, pela primeira vez em eras, ser visto de volta. Anos depois, o escudo dele racha.",
         "resumo_en": "A penumbra called Flaw watches baby Minus be touched — and, for the first time in ages, be seen back. Years later, his shield cracks.",
-        "resumo_es": "Una penumbra llamada Falla ve al bebé Minus ser tocado — y, por primera vez en eras, ser mirado de vuelta. Años después, su escudo se agrieta."
+        "resumo_es": "Una penumbra llamada Falla ve al bebé Minus ser tocado — y, por primera vez en eras, ser mirado de vuelta. Años después, su escudo se agrieta.",
+        "liberacao": {
+          "primordial": "2027-02-08",
+          "elite": "2027-02-08",
+          "conta": "2027-02-08",
+          "publico": "2027-02-08"
+        }
       },
       {
         "id": "02",
@@ -63,10 +68,15 @@
         "titulo": "O Limiar",
         "titulo_en": "The Threshold",
         "titulo_es": "El Umbral",
-        "data_publicacao": "2099-01-01",
         "resumo_pt": "Quatro anos nas ruas. Minus aprende a atravessar o limiar entre o mundo dos impuros e o das sombras — e Falha o segue.",
         "resumo_en": "Four years on the streets. Minus learns to cross the threshold between the world of the impure and the world of shadows — and Flaw follows.",
-        "resumo_es": "Cuatro años en la calle. Minus aprende a cruzar el umbral entre el mundo de los impuros y el de las sombras — y Falla lo sigue."
+        "resumo_es": "Cuatro años en la calle. Minus aprende a cruzar el umbral entre el mundo de los impuros y el de las sombras — y Falla lo sigue.",
+        "liberacao": {
+          "primordial": "2027-02-08",
+          "elite": "2027-02-08",
+          "conta": "2027-02-08",
+          "publico": "2027-02-22"
+        }
       },
       {
         "id": "03",
@@ -74,10 +84,15 @@
         "titulo": "Correntes",
         "titulo_en": "Chains",
         "titulo_es": "Cadenas",
-        "data_publicacao": "2099-01-01",
         "resumo_pt": "A marca vira arma. Correntes azuis brotam do braço de Minus enquanto os Iluminados fecham o cerco.",
         "resumo_en": "The mark becomes a weapon. Blue chains erupt from Minus’s arm as the Illuminated close in.",
-        "resumo_es": "La marca se vuelve arma. Cadenas azules brotan del brazo de Minus mientras los Iluminados cierran el cerco."
+        "resumo_es": "La marca se vuelve arma. Cadenas azules brotan del brazo de Minus mientras los Iluminados cierran el cerco.",
+        "liberacao": {
+          "primordial": "2027-02-08",
+          "elite": "2027-02-08",
+          "conta": "2027-02-22",
+          "publico": "2027-02-22"
+        }
       },
       {
         "id": "04",
@@ -85,10 +100,15 @@
         "titulo": "Nefeli",
         "titulo_en": "Nefeli",
         "titulo_es": "Nefeli",
-        "data_publicacao": "2099-01-01",
         "resumo_pt": "Anos treinando uma sombra-cachorro. E uma segunda pessoa marcada aparece no radar.",
         "resumo_en": "Years training a shadow-dog. And a second marked person shows up on the radar.",
-        "resumo_es": "Años entrenando a una sombra-perro. Y aparece una segunda persona marcada en el radar."
+        "resumo_es": "Años entrenando a una sombra-perro. Y aparece una segunda persona marcada en el radar.",
+        "liberacao": {
+          "primordial": "2027-02-22",
+          "elite": "2027-02-22",
+          "conta": "2027-02-22",
+          "publico": "2027-06-14"
+        }
       },
       {
         "id": "05",
@@ -96,10 +116,15 @@
         "titulo": "No Coração das Sombras",
         "titulo_en": "In the Heart of Shadows",
         "titulo_es": "En el Corazón de las Sombras",
-        "data_publicacao": "2099-01-01",
         "resumo_pt": "Minus mergulha fundo pra alcançar a outra marcada antes das sombras. Dois Iluminados não vão deixar barato.",
         "resumo_en": "Minus dives deep to reach the other marked one before the shadows do. Two Illuminated won’t make it easy.",
-        "resumo_es": "Minus se sumerge hondo para alcanzar a la otra marcada antes que las sombras. Dos Iluminados no lo pondrán fácil."
+        "resumo_es": "Minus se sumerge hondo para alcanzar a la otra marcada antes que las sombras. Dos Iluminados no lo pondrán fácil.",
+        "liberacao": {
+          "primordial": "2027-02-22",
+          "elite": "2027-02-22",
+          "conta": "2027-06-14",
+          "publico": "2027-06-14"
+        }
       },
       {
         "id": "06",
@@ -107,10 +132,15 @@
         "titulo": "Ressonância",
         "titulo_en": "Resonance",
         "titulo_es": "Resonancia",
-        "data_publicacao": "2099-01-01",
         "resumo_pt": "Dois marcados se encontram pela primeira vez em eras. O que ressoa entre eles muda os dois mundos.",
         "resumo_en": "Two marked ones meet for the first time in ages. What resonates between them shakes both worlds.",
-        "resumo_es": "Dos marcados se encuentran por primera vez en eras. Lo que resuena entre ellos sacude ambos mundos."
+        "resumo_es": "Dos marcados se encuentran por primera vez en eras. Lo que resuena entre ellos sacude ambos mundos.",
+        "liberacao": {
+          "primordial": "2027-02-22",
+          "elite": "2027-02-22",
+          "conta": "2027-06-14",
+          "publico": "2027-06-28"
+        }
       }
     ]
   },
@@ -157,8 +187,13 @@
         "titulo": "Prólogo — O Inquilino Fala",
         "titulo_en": "Prologue — The Tenant Speaks",
         "titulo_es": "Prólogo — El Inquilino Habla",
-        "data_publicacao": "2099-01-01",
-        "resumo_pt": "Algo que espera há trinta mil anos no fundo do oceano conta o mundo que existia antes dela."
+        "resumo_pt": "Algo que espera há trinta mil anos no fundo do oceano conta o mundo que existia antes dela.",
+        "liberacao": {
+          "primordial": "2099-01-01",
+          "elite": "2099-01-01",
+          "conta": "2099-01-01",
+          "publico": "2099-01-01"
+        }
       },
       {
         "id": "01",
@@ -166,8 +201,13 @@
         "titulo": "Capítulo Um — As Doze Obrigações",
         "titulo_en": "Chapter One — The Twelve Obligations",
         "titulo_es": "Capítulo Uno — Las Doce Obligaciones",
-        "data_publicacao": "2099-01-01",
-        "resumo_pt": "Dezessete anos, vestido branco, um comandante com três esposas mortas. Elizabeth conta os passos até o altar."
+        "resumo_pt": "Dezessete anos, vestido branco, um comandante com três esposas mortas. Elizabeth conta os passos até o altar.",
+        "liberacao": {
+          "primordial": "2027-06-14",
+          "elite": "2027-06-14",
+          "conta": "2027-06-28",
+          "publico": "2027-10-18"
+        }
       },
       {
         "id": "02",
@@ -175,8 +215,13 @@
         "titulo": "Capítulo Dois — O Décimo Terceiro Dia",
         "titulo_en": "Chapter Two — The Thirteenth Day",
         "titulo_es": "Capítulo Dos — El Decimotercer Día",
-        "data_publicacao": "2099-01-01",
-        "resumo_pt": "Algemada num contensor do Almirantado, Elizabeth é levada a Amvesh — e ao que fazem lá."
+        "resumo_pt": "Algemada num contensor do Almirantado, Elizabeth é levada a Amvesh — e ao que fazem lá.",
+        "liberacao": {
+          "primordial": "2027-06-14",
+          "elite": "2027-06-14",
+          "conta": "2027-06-28",
+          "publico": "2027-10-18"
+        }
       },
       {
         "id": "03",
@@ -184,8 +229,13 @@
         "titulo": "Apêndice — As Doze Obrigações da Consorte",
         "titulo_en": "Appendix — The Twelve Obligations of the Consort",
         "titulo_es": "Apéndice — Las Doce Obligaciones de la Consorte",
-        "data_publicacao": "2099-01-01",
-        "resumo_pt": "O texto ritual, na íntegra, que a noiva pronuncia de joelhos. Um documento do mundo."
+        "resumo_pt": "O texto ritual, na íntegra, que a noiva pronuncia de joelhos. Um documento do mundo.",
+        "liberacao": {
+          "primordial": "2027-06-14",
+          "elite": "2027-06-14",
+          "conta": "2027-10-18",
+          "publico": "2027-11-01"
+        }
       }
     ]
   }

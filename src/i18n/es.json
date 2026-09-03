@@ -1,15 +1,16 @@
 {
   "nav": {
-    "links": [
-      "Webtoon",
-      "Historias",
-      "Músicas",
-      "Games",
-      "TIENDA",
-      "Mundo",
-      "AUTOR",
-      "APOYAR"
-    ],
+    "links": {
+      "webtoon": "Webtoon",
+      "historias": "Historias",
+      "musicas": "Música",
+      "games": "Games",
+      "loja": "TIENDA",
+      "mundo": "Mundo",
+      "autor": "AUTOR",
+      "calendario": "CALENDARIO",
+      "assinar": "APOYAR"
+    },
     "cta": "CUENTA GRATIS",
     "aria": {
       "menu": "Abrir menú",
@@ -2849,5 +2850,43 @@
       "ia_personalidade_persistente": "Persistente",
       "ia_personalidade_persistente_desc": "Mantiene el mismo objetivo por varios turnos, solo cambiando si otro enemigo se vuelve más débil."
     }
+  },
+  "calendar": {
+    "meta_title": "Calendario de la Temporada 1 — Illusion Fight",
+    "kicker": "Protocolo de estreno // T1",
+    "title": "El futuro ya tiene fecha.",
+    "manifesto": "Nada aquí queda bloqueado para siempre. Cada capítulo será gratis para todos. La única diferencia es cuándo.",
+    "cadence": "Lunes alternos, sin fallar. Primer drop: 30/11/2026.",
+    "levels_title": "Elige cuándo entrar",
+    "you": "Estás aquí",
+    "level_subscriber": "Suscriptor",
+    "level_account": "Cuenta gratis",
+    "level_public": "Público",
+    "cost_subscriber": "Plan activo",
+    "cost_account": "€ 0 · con sesión",
+    "cost_public": "€ 0 · sin sesión",
+    "delay": "Retraso",
+    "days": "días",
+    "launch": "Caps. al estreno",
+    "tales": "Cuentos exclusivos",
+    "completion_title": "Cuándo se completa cada obra",
+    "work_ldi": "Lutas de Ilusão T1 · 18 caps",
+    "work_shadows": "El Mundo de las Sombras · 6 caps",
+    "work_ashes": "Mar de Cenizas · 6 caps",
+    "drops_title": "Línea temporal",
+    "current": "Estás aquí",
+    "next": "Próxima señal",
+    "finale": "Temporada 1: 100% pública",
+    "channels_label": "Canales del calendario",
+    "channel_chapters": "Capítulos",
+    "channel_webtoon": "Webtoon",
+    "channel_games": "Games",
+    "channel_music": "Música",
+    "channel_partners": "Socios",
+    "signal_pending": "Señal aún no transmitida",
+    "channel_empty": "Este canal tiene su propio calendario. Las fechas oficiales aparecerán aquí cuando se autorice la transmisión.",
+    "unlocks_on": "Se libera para ti el",
+    "earlier_conta": "Crea una cuenta y lee el",
+    "earlier_elite": "Suscríbete y lee el"
   }
 }

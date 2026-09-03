@@ -67,7 +67,7 @@ export default function WebtoonEpisodio() {
 
   const tituloKey = locale === 'en' ? 'titulo_en' : locale === 'es' ? 'titulo_es' : 'titulo_pt'
 
-  if (!ep || (id !== '00' && !estaDisponivel(ep, isAdmin) && !TRIAL_ACTIVE)) {
+  if (!ep || (id !== '00' && !estaDisponivel(ep, isAdmin, { user, perfil }) && !TRIAL_ACTIVE)) {
     return (
       <section className="webtoon-ep-page">
         <div className="container">
