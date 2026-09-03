@@ -56,9 +56,21 @@
    Antes era um painel espremido no meio do elenco. Agora é uma
    parada consciente: entra pelo LEVEL UP, gasta com calma, volta.
    ══════════════════════════════════════════════════════════════ */
+/* .gang-page é height:100dvh + overflow:hidden + flex-center. Sem isto a
+   tela de progressão (que é longa) fica presa: nao rola nem pra cima nem
+   pra baixo, o header e o fim dos poderes ficam cortados. */
 .gang-progression-screen {
-  padding-top: 8px;
+  align-self: stretch;
+  width: 100%;
+  max-height: 100dvh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  /* 52px no topo: livra o aviso de guest (position:absolute top:0 no .gang-page). */
+  padding: 52px 16px 48px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
 }
+.gang-progression-screen::-webkit-scrollbar { display: none; }
 
 .gang-progression-screen-head {
   display: flex;
