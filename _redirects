@@ -6,11 +6,15 @@
 /webtoon    /webtoon/    301
 /autor      /autor/      301
 /games      /games/      301
-/mundo      /mundo/      301
+/universos  /universos/  301
 /loja       /loja/       301
 /personagens /personagens/ 301
 /quiz       /quiz/       301
 /leaderboard /leaderboard/ 301
+
+# Mundo → Universos (migração v10.205.0)
+/mundo              /universos/                  301
+/mundo/             /universos/                  301
 
 # Livro → Histórias (migração v10.199.0)
 /livro              /historias/                  301
