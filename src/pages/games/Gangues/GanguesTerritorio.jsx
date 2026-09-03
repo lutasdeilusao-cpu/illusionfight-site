@@ -90,7 +90,7 @@ export default function GanguesTerritorio({ onNavigate }) {
                   {estado === 'dominado' ? '✓' : no.isChefe ? '★' : i + 1}
                 </span>
                 <span className="gang-story-no-info">
-                  <strong>{no.isChefe ? t('games.gangues.story.chefe') : t('games.gangues.story.ponto', { n: i + 1 })}</strong>
+                  <strong>{no.isChefe ? t('games.gangues.story.chefe') : t(`games.gangues.story.ranks.${no.rank}`)}</strong>
                   <small>{t(`games.gangues.enemy_names.${no.enemy}`)}</small>
                 </span>
                 {estado === 'atual' && <span className="gang-story-no-vai">{t('games.gangues.story.enfrentar')} →</span>}
@@ -124,6 +124,7 @@ export default function GanguesTerritorio({ onNavigate }) {
               <p className="gang-story-vs-fala">
                 {t(`games.gangues.story.falas.${confronto.isChefe ? 'chefe' : 'ponto'}`, {
                   territorio: t(`games.gangues.story.territorios.${terr.id}.nome`),
+                  rank: t(`games.gangues.story.ranks.${confronto.no.rank || 'bucha'}`),
                 })}
               </p>
               {confronto.enemy && (

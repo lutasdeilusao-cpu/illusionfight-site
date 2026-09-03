@@ -2,89 +2,98 @@
    MODO HISTÓRIA — o mapa de Marelia
    Esqueleto pra o Isaias polir o visual e ligar a lógica depois.
 
-   Cada território tem uma dificuldade, uma posição no mapa, alguns
-   PONTOS a dominar (lutas normais) e um CHEFE. Domine todos os
-   pontos + o chefe → território conquistado → o próximo libera.
+   Estrutura fiel ao conto "Alan, o Campeão" (contos-index id 02):
 
-   As 5 dificuldades ganharam nome de gameplay em vez de
-   "fácil/difícil". A lore vem do crime organizado de Marelia
-   (conto "Alan, o Campeão"): a Beira, a Baixada, o Morro, a Zona,
-   o Alto — de baixo pra cima da hierarquia da Banca.
+   • GEOGRAFIA (os 5 territórios, de baixo pra cima):
+     A Rua → A Baixada → O Morro → O Alto do Morro → A Laje.
+   • HIERARQUIA DA BANCA (os degraus dentro de cada território — os
+     "pontos" a dominar): bucha de canhão → olheiro/fogueteiro →
+     vapor → cobrador → segurança → gerente de boca → frente/dono
+     de bairro → cúpula → o Campeão (o topo).
+   • REGRA MÁXIMA DO MORRO: "quem manda é quem entrega". A hierarquia
+     ainda se resolve do jeito antigo: dois num espaço vazio, o resto
+     do Morro em volta olhando. Quem fica em pé, sobe.
 
-   `enemy` referencia os ids de gangues-enemies.json.
-   `pos` é % no mapa (top/left) — o layout visual é livre pra mexer.
+   `enemy` referencia gangues-enemies.json (o Isaias vai criar os
+   desafiantes/chefes de verdade e trocar aqui).
+   `pos` é % no mapa (top/left) — layout livre pra mexer.
    ══════════════════════════════════════════════════════════════ */
 
-export const GANGUES_DIFICULDADES = ['iniciacao', 'rua', 'territorio', 'guerra', 'coroa']
+// As 5 dificuldades = os degraus da Banca. Sem "fácil/difícil".
+export const GANGUES_DIFICULDADES = ['bucha', 'vapor', 'cobrador', 'frente', 'coroa']
 
 export const GANGUES_TERRITORIOS = [
   {
-    id: 'beira',
-    dificuldade: 'iniciacao',
+    id: 'rua',
+    dificuldade: 'bucha',
     ordem: 1,
     pos: { top: 82, left: 27 },
     cor: '#3ddc97',
+    // os degraus de baixo: a molecada de rua que a Banca usa e descarta
     pontos: [
-      { id: 'beira-1', enemy: 'treinamento' },
-      { id: 'beira-2', enemy: 'treinamento' },
-      { id: 'beira-3', enemy: 'kaeda' },
+      { id: 'rua-1', enemy: 'treinamento', rank: 'bucha' },
+      { id: 'rua-2', enemy: 'treinamento', rank: 'olheiro' },
+      { id: 'rua-3', enemy: 'kaeda', rank: 'vapor' },
     ],
-    chefe: { id: 'beira-chefe', enemy: 'kaeda' },
+    chefe: { id: 'rua-chefe', enemy: 'kaeda', rank: 'gerente' },
   },
   {
     id: 'baixada',
-    dificuldade: 'rua',
+    dificuldade: 'vapor',
     ordem: 2,
     pos: { top: 64, left: 67 },
     cor: '#18dafb',
+    // do outro lado da linha do trem: os cacos da facção do Sombra
     pontos: [
-      { id: 'baixada-1', enemy: 'kaeda' },
-      { id: 'baixada-2', enemy: 'stormbyte' },
-      { id: 'baixada-3', enemy: 'thunderbolt' },
+      { id: 'baixada-1', enemy: 'kaeda', rank: 'vapor' },
+      { id: 'baixada-2', enemy: 'stormbyte', rank: 'cobrador' },
+      { id: 'baixada-3', enemy: 'thunderbolt', rank: 'seguranca' },
     ],
-    chefe: { id: 'baixada-chefe', enemy: 'thunderbolt' },
+    chefe: { id: 'baixada-chefe', enemy: 'thunderbolt', rank: 'chefe_baixada' },
   },
   {
     id: 'morro',
-    dificuldade: 'territorio',
+    dificuldade: 'cobrador',
     ordem: 3,
     pos: { top: 46, left: 28 },
     cor: '#ffae32',
+    // a favela de encosta, a escadaria de cimento, as bocas
     pontos: [
-      { id: 'morro-1', enemy: 'stormbyte' },
-      { id: 'morro-2', enemy: 'thunderbolt' },
-      { id: 'morro-3', enemy: 'viran' },
-      { id: 'morro-4', enemy: 'viran' },
+      { id: 'morro-1', enemy: 'stormbyte', rank: 'cobrador' },
+      { id: 'morro-2', enemy: 'thunderbolt', rank: 'seguranca' },
+      { id: 'morro-3', enemy: 'viran', rank: 'gerente' },
+      { id: 'morro-4', enemy: 'viran', rank: 'frente' },
     ],
-    chefe: { id: 'morro-chefe', enemy: 'viran' },
-  },
-  {
-    id: 'zona',
-    dificuldade: 'guerra',
-    ordem: 4,
-    pos: { top: 30, left: 67 },
-    cor: '#ff6b6b',
-    pontos: [
-      { id: 'zona-1', enemy: 'viran' },
-      { id: 'zona-2', enemy: 'campeao' },
-      { id: 'zona-3', enemy: 'campeao' },
-      { id: 'zona-4', enemy: 'campeao' },
-    ],
-    chefe: { id: 'zona-chefe', enemy: 'campeao' },
+    chefe: { id: 'morro-chefe', enemy: 'viran', rank: 'dono_bairro' },
   },
   {
     id: 'alto',
+    dificuldade: 'frente',
+    ordem: 4,
+    pos: { top: 30, left: 67 },
+    cor: '#ff6b6b',
+    // atrás da porta de aço: a cúpula, os 4-5 que a rua nunca vê
+    pontos: [
+      { id: 'alto-1', enemy: 'viran', rank: 'dono_bairro' },
+      { id: 'alto-2', enemy: 'campeao', rank: 'cupula' },
+      { id: 'alto-3', enemy: 'campeao', rank: 'cupula' },
+      { id: 'alto-4', enemy: 'campeao', rank: 'cupula' },
+    ],
+    chefe: { id: 'alto-chefe', enemy: 'campeao', rank: 'cupula' },
+  },
+  {
+    id: 'laje',
     dificuldade: 'coroa',
     ordem: 5,
     pos: { top: 14, left: 40 },
     cor: '#a855f7',
+    // a laje do alto do Morro, onde a hierarquia se resolve na porrada
     pontos: [
-      { id: 'alto-1', enemy: 'campeao' },
-      { id: 'alto-2', enemy: 'kronos' },
-      { id: 'alto-3', enemy: 'kronos' },
-      { id: 'alto-4', enemy: 'primordial_jack' },
+      { id: 'laje-1', enemy: 'campeao', rank: 'braco_direito' },
+      { id: 'laje-2', enemy: 'kronos', rank: 'braco_direito' },
+      { id: 'laje-3', enemy: 'primordial_jack', rank: 'braco_direito' },
     ],
-    chefe: { id: 'alto-chefe', enemy: 'primordial_jack' },
+    chefe: { id: 'laje-chefe', enemy: 'campeao', rank: 'campeao' },
   },
 ]
 
@@ -125,7 +134,6 @@ export function estadoNo(territorio, noId, storyProgress = {}) {
     return (p.pontos?.length || 0) >= (territorio.pontos?.length || 0) ? 'atual' : 'trancado'
   }
   if ((p.pontos || []).includes(noId)) return 'dominado'
-  // o próximo ponto não-dominado é o "atual"
   const proximo = territorio.pontos.find(pt => !(p.pontos || []).includes(pt.id))
   return proximo?.id === noId ? 'atual' : 'trancado'
 }

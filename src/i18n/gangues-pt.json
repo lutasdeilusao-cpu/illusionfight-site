@@ -1147,55 +1147,76 @@
       "sair_do_jogo": "SAIR",
       "story": {
         "entry": "Modo história",
-        "entry_desc": "Domine Marelia, território por território",
-        "titulo": "O DOMÍNIO DE MARELIA",
-        "sub": "Cada território tem seus donos. Bata todos e o Morro é seu.",
-        "dominio": "de Marelia dominado",
+        "entry_desc": "Suba o Morro. Domine Marelia degrau por degrau.",
+        "titulo": "A SUBIDA DO MORRO",
+        "sub": "Em Marelia a hierarquia se resolve do jeito antigo: dois num espaço vazio, o resto olhando. Quem fica em pé, sobe.",
+        "dominio": "de Marelia sob você",
         "dominado": "Território dominado",
         "voltar_mapa": "Mapa",
         "sem_territorio": "Nenhum território selecionado.",
-        "chefe": "Chefe do território",
-        "chefe_do_territorio": "Chefe do território",
+        "chefe": "O dono do território",
+        "chefe_do_territorio": "O dono do território",
         "desafiante": "Desafiante",
-        "ponto": "Ponto {n}",
+        "ponto": "Degrau",
         "enfrentar": "Enfrentar",
         "brigar": "Brigar",
         "agora_nao": "Agora não",
-        "continuar_territorio": "Continuar no território",
+        "continuar_territorio": "Continuar a subida",
         "tentar_de_novo": "Tentar de novo",
         "dificuldades": {
-          "iniciacao": "Iniciação",
-          "rua": "Rua",
-          "territorio": "Território",
-          "guerra": "Guerra",
+          "bucha": "Bucha de canhão",
+          "vapor": "Vapor",
+          "cobrador": "Cobrador",
+          "frente": "Frente",
           "coroa": "A Coroa"
         },
+        "ranks": {
+          "bucha": "Bucha de canhão",
+          "olheiro": "Olheiro",
+          "vapor": "Vapor",
+          "cobrador": "Cobrador",
+          "seguranca": "Segurança",
+          "gerente": "Gerente de boca",
+          "frente": "Frente",
+          "dono_bairro": "Dono de bairro",
+          "chefe_baixada": "Chefe da Baixada",
+          "cupula": "Cúpula",
+          "braco_direito": "O braço direito",
+          "campeao": "O Campeão"
+        },
         "territorios": {
-          "beira": {
-            "nome": "A Beira",
-            "desc": "A ponta de Marelia. Olheiros, fogueteiros e a molecada que a Banca usa de bucha. Ninguém importante, mas é por aqui que se começa."
+          "rua": {
+            "nome": "A Rua",
+            "desc": "O asfalto de baixo. Buchas de canhão, olheiros que assobiam quando a viatura vira, vapor de esquina. Ninguém importante — mas todo mundo começa aqui."
           },
           "baixada": {
             "nome": "A Baixada",
-            "desc": "Do outro lado da linha do trem. A facção do Sombra rachou em três depois que ele morreu; os cacos ainda mordem."
+            "desc": "Do outro lado da linha do trem. A facção do Sombra rachou em três depois que ele morreu; os cacos ainda mordem e a Baixada nova quer se provar."
           },
           "morro": {
             "nome": "O Morro",
-            "desc": "A favela de encosta que a Banca administra. Quem sobe o Morro não desce igual. A cúpula fica lá em cima."
-          },
-          "zona": {
-            "nome": "A Zona",
-            "desc": "O centro, onde a Banca aluga segurança pra turma de escola cara. Aqui a briga tem nome e sobrenome."
+            "desc": "A favela de encosta que a Banca administra. Escadaria de cimento que muda de forma a cada laje nova. As bocas, os cobradores, os gerentes. Quem sobe o Morro não desce igual."
           },
           "alto": {
-            "nome": "O Alto",
-            "desc": "O topo da hierarquia. A cúpula, a Torre Kronos, e o que dorme dentro dela. Chegar aqui já é história."
+            "nome": "O Alto do Morro",
+            "desc": "Passada a porta de aço, a cúpula: quatro ou cinco pessoas que a rua nunca vê e nunca vai ver. Não andam armadas. Cada uma tem um bairro que anda armado por ela."
+          },
+          "laje": {
+            "nome": "A Laje",
+            "desc": "A laje no alto do Morro, de um lado Marelia inteira, do outro a cúpula. É aqui que o título muda de dono — apanhando ou batendo, na frente de todo mundo. Quem fica em pé vira o Rei."
           }
         },
         "falas": {
-          "ponto": "{territorio}. Você entrou sem pedir licença. Errado.",
-          "chefe": "{territorio} é meu. Você tá batendo meu pessoal pra chegar até mim — então prova que merece."
-        }
+          "ponto": "{territorio}. Você passou por mim sem pedir. {rank} não deixa isso barato.",
+          "chefe": "{territorio} responde pra mim. Você tá batendo meu pessoal pra chegar aqui — então mostra que aguenta."
+        },
+        "neoguide": [
+          "Modo história. Aqui a gente não briga por briga — a gente sobe.",
+          "Marelia é da Banca. E a Banca tem degrau: bucha, vapor, cobrador, gerente, frente, cúpula.",
+          "Cada território é um pedaço do mapa. Domine todos os degraus dele, bata o dono, e o próximo abre.",
+          "No topo tem a laje do alto do Morro. E o Campeão. Mas isso é história pra depois.",
+          "Sua ficha evolui a cada vitória. Vai equipando poder diferente pra cada confronto. Bora subir."
+        ]
       }
     }
   }

@@ -1,8 +1,9 @@
-import { useMemo } from 'react'
-import { motion } from 'framer-motion'
+import { useMemo, useState } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
 import { useLanguage } from '../../../context/LanguageContext'
 import { useGanguesStore } from './store/useGanguesStore'
 import { sfx } from '../../../lib/sfx'
+import NeoGuideDialog from './components/NeoGuideDialog'
 import {
   GANGUES_TERRITORIOS,
   estadoTerritorio,
@@ -10,6 +11,8 @@ import {
   totalNos,
 } from './data/ganguesTerritorios.js'
 import './GanguesStory.css'
+
+const INTRO_KEY = 'ldi-gangues-story-intro'
 
 /* ══════════════════════════════════════════════════════════════
    MODO HISTÓRIA — o mapa de Marelia
@@ -24,6 +27,13 @@ export default function GanguesStoryMap({ onNavigate }) {
   const { t } = useLanguage()
   const store = useGanguesStore()
   const progress = store.storyProgress
+  const [intro, setIntro] = useState(() => {
+    try { return !localStorage.getItem(INTRO_KEY) } catch { return true }
+  })
+  const fecharIntro = () => {
+    try { localStorage.setItem(INTRO_KEY, '1') } catch { /* ignora */ }
+    setIntro(false)
+  }
 
   const dominados = useMemo(
     () => GANGUES_TERRITORIOS.filter(terr => estadoTerritorio(terr, progress) === 'dominado').length,
@@ -41,6 +51,12 @@ export default function GanguesStoryMap({ onNavigate }) {
 
   return (
     <main className="gang-lobby gang-story">
+      <AnimatePresence>
+        {intro && (
+          <NeoGuideDialog lines={t('games.gangues.story.neoguide')} onFinish={fecharIntro} onSkip={fecharIntro} />
+        )}
+      </AnimatePresence>
+
       <header className="gang-story-head">
         <button className="gang-progression-screen-back" onClick={() => onNavigate('lobby')}>
           ← {t('games.gangues.progression.back_to_roster')}

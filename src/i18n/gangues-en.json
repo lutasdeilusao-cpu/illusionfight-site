@@ -1557,55 +1557,76 @@
       "sair_do_jogo": "QUIT",
       "story": {
         "entry": "Story mode",
-        "entry_desc": "Take Marelia, one turf at a time",
-        "titulo": "THE HOLD ON MARELIA",
-        "sub": "Every turf has owners. Beat them all and the Hill is yours.",
-        "dominio": "of Marelia held",
+        "entry_desc": "Climb the Hill. Take Marelia one step at a time.",
+        "titulo": "THE CLIMB",
+        "sub": "In Marelia the pecking order settles the old way: two in an empty space, everyone else watching. Whoever stays on their feet moves up.",
+        "dominio": "of Marelia under you",
         "dominado": "Turf taken",
         "voltar_mapa": "Map",
         "sem_territorio": "No turf selected.",
-        "chefe": "Turf boss",
-        "chefe_do_territorio": "Turf boss",
+        "chefe": "The turf owner",
+        "chefe_do_territorio": "The turf owner",
         "desafiante": "Challenger",
-        "ponto": "Node {n}",
+        "ponto": "Step",
         "enfrentar": "Fight",
         "brigar": "Fight",
         "agora_nao": "Not now",
-        "continuar_territorio": "Back to the turf",
+        "continuar_territorio": "Keep climbing",
         "tentar_de_novo": "Try again",
         "dificuldades": {
-          "iniciacao": "Initiation",
-          "rua": "Street",
-          "territorio": "Turf",
-          "guerra": "War",
+          "bucha": "Cannon fodder",
+          "vapor": "Runner",
+          "cobrador": "Collector",
+          "frente": "Front",
           "coroa": "The Crown"
         },
+        "ranks": {
+          "bucha": "Cannon fodder",
+          "olheiro": "Lookout",
+          "vapor": "Runner",
+          "cobrador": "Collector",
+          "seguranca": "Muscle",
+          "gerente": "Spot manager",
+          "frente": "Front",
+          "dono_bairro": "Block owner",
+          "chefe_baixada": "Lowside boss",
+          "cupula": "Council",
+          "braco_direito": "The right hand",
+          "campeao": "The Champion"
+        },
         "territorios": {
-          "beira": {
-            "nome": "The Edge",
-            "desc": "Marelia's rim. Lookouts, runners and the kids the Banca uses as cannon fodder. Nobody important, but this is where you start."
+          "rua": {
+            "nome": "The Street",
+            "desc": "The asphalt down below. Cannon-fodder kids, lookouts who whistle when the patrol turns the corner, corner runners. Nobody important — but everyone starts here."
           },
           "baixada": {
             "nome": "The Lowside",
-            "desc": "Across the train tracks. The Shadow's crew split into three after he died; the shards still bite."
+            "desc": "Across the train tracks. The Shadow's crew split into three after he died; the shards still bite, and the new Lowside has something to prove."
           },
           "morro": {
             "nome": "The Hill",
-            "desc": "The hillside slum the Banca runs. Nobody who climbs the Hill comes down the same. The top brass lives up there."
-          },
-          "zona": {
-            "nome": "The Core",
-            "desc": "Downtown, where the Banca rents muscle to a rich-school crew. Here the fight has a first and last name."
+            "desc": "The hillside slum the Banca runs. A concrete stairway that changes shape with every new rooftop. The spots, the collectors, the managers. Nobody comes down the Hill the same."
           },
           "alto": {
-            "nome": "The Height",
-            "desc": "The top of the ladder. The brass, the Kronos Tower, and whatever sleeps inside it. Getting here is already a story."
+            "nome": "The Hilltop",
+            "desc": "Past the steel door: the council. Four or five people the street never sees and never will. They don't carry guns. Each of them has a block that carries guns for them."
+          },
+          "laje": {
+            "nome": "The Rooftop",
+            "desc": "The rooftop at the top of the Hill — all of Marelia on one side, the council on the other. This is where the title changes hands, taking hits or landing them, in front of everyone. Stay standing and you're King."
           }
         },
         "falas": {
-          "ponto": "{territorio}. You walked in without asking. Bad move.",
-          "chefe": "{territorio} is mine. You've been beating my people to reach me — so prove you deserve it."
-        }
+          "ponto": "{territorio}. You walked past me without asking. A {rank} doesn't let that slide.",
+          "chefe": "{territorio} answers to me. You've been beating my people to get here — so show me you can take it."
+        },
+        "neoguide": [
+          "Story mode. Here we don't fight to fight — we climb.",
+          "Marelia belongs to the Banca. And the Banca has rungs: fodder, runner, collector, manager, front, council.",
+          "Each turf is a piece of the map. Take every rung of it, beat the owner, and the next one opens.",
+          "At the top there's the rooftop at the top of the Hill. And the Champion. But that's a story for later.",
+          "Your sheet levels up with every win. Equip a different power for each matchup. Let's climb."
+        ]
       }
     }
   }
