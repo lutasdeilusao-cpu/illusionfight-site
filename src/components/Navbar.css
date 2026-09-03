@@ -132,27 +132,29 @@
 }
 
 /* SAIR era um textinho cinza mono quase invisível. Agora é um botão
-   de verdade: chip com borda, chanfrado, na linguagem do portal. */
+   vermelho, sempre em destaque — ninguém pode sentir que ficou preso
+   na conta. O estado de hover (mais forte) é o repouso. */
 .navbar-sair {
   flex-shrink: 0;
-  padding: 5px 10px;
+  padding: 5px 11px;
   font-family: var(--font-mono);
   font-size: 0.62rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--text-secondary);
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid var(--if-hair-strong);
+  color: #ff6b6b;
+  background: rgba(255, 107, 107, 0.1);
+  border: 1px solid rgba(255, 107, 107, 0.55);
   cursor: pointer;
-  transition: color 0.2s, border-color 0.2s, background 0.2s;
+  transition: color 0.2s, border-color 0.2s, background 0.2s, box-shadow 0.2s;
   clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 0 100%);
 }
 
 .navbar-sair:hover {
-  color: #ff6b6b;
-  border-color: rgba(255, 107, 107, 0.6);
-  background: rgba(255, 107, 107, 0.1);
+  color: #fff;
+  border-color: #ff6b6b;
+  background: #e0453f;
+  box-shadow: 0 0 16px rgba(255, 107, 107, 0.4);
 }
 
 .navbar__badge {

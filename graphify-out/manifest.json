@@ -230,8 +230,8 @@
     "semantic_hash": "266ca415119946a769d0dac2ab74d642"
   },
   "src/components/Navbar.jsx": {
-    "mtime": 1788444529.466545,
-    "ast_hash": "f88d585a6fdb32783d9bdd948bfe772c",
+    "mtime": 1788457509.9121532,
+    "ast_hash": "af6af1c2a6aa4743cb8e591a5d017a6c",
     "semantic_hash": ""
   },
   "src/components/PlatformIcons.jsx": {
@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1788457299.3085513,
-    "ast_hash": "ee4630e76dcc84e733071e88f7e36fd3",
+    "mtime": 1788457711.987136,
+    "ast_hash": "e85af5aef326936e5ac604589cb22718",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2210,8 +2210,8 @@
     "semantic_hash": ""
   },
   "src/pages/platform/Perfil/Perfil.jsx": {
-    "mtime": 1788408771.0152736,
-    "ast_hash": "3b88dc27a4785b501a60e85a4276bee5",
+    "mtime": 1788457542.047368,
+    "ast_hash": "cdc09329173cb61a82ae07e94f439ac3",
     "semantic_hash": ""
   },
   "src/pages/platform/Perfil/PerfilProgresso.jsx": {
@@ -2745,8 +2745,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1788457299.3767815,
-    "ast_hash": "d41b309eeb1c4ddb2f421a0266c098ce",
+    "mtime": 1788457712.0369382,
+    "ast_hash": "d1530108736b80b5c07d5814b31bbc9c",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
