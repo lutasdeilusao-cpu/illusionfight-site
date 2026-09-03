@@ -272,3 +272,87 @@
     width: 160px;
   }
 }
+
+/* ══════════════════════════════════════════════════════════════
+   Identificação de quem ataca + impacto na revelação
+   Sem o nome o jogador se perde no meio da rolagem; sem o soco o
+   dado só parava, sem peso nenhum.
+   ══════════════════════════════════════════════════════════════ */
+.dramatic-dice-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+
+.dramatic-dice-attacker {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.2rem;
+  letter-spacing: 0.04em;
+  line-height: 1.1;
+  text-align: center;
+}
+
+.dramatic-dice-label--player .dramatic-dice-attacker {
+  color: var(--if-cyan);
+  text-shadow: 0 0 16px rgba(24, 218, 251, 0.55);
+}
+
+.dramatic-dice-label--enemy .dramatic-dice-attacker {
+  color: #ff6b6b;
+  text-shadow: 0 0 16px rgba(255, 107, 107, 0.5);
+}
+
+.dramatic-dice-vs {
+  color: #9aa5ad;
+  font: 600 0.66rem var(--font-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.dramatic-dice-vs b {
+  color: #dfe7ec;
+  font-weight: 700;
+}
+
+/* Onda de choque saindo do dado */
+.dramatic-dice-shockwave {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 110px;
+  height: 110px;
+  margin: -55px 0 0 -55px;
+  border: 2px solid rgba(24, 218, 251, 0.75);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.dramatic-dice-shockwave--critico {
+  border-color: rgba(255, 174, 50, 0.85);
+  border-width: 3px;
+}
+
+/* O soco/estouro batendo — deslocado do centro para NÃO cobrir o número
+   do dado, que é a informação principal da tela. */
+.dramatic-dice-impacto {
+  position: absolute;
+  top: 12%;
+  left: 68%;
+  font-size: 2.9rem;
+  line-height: 1;
+  pointer-events: none;
+  filter: drop-shadow(0 0 12px rgba(0, 0, 0, 0.65));
+}
+
+.dramatic-dice-impacto--critico {
+  top: 6%;
+  left: 66%;
+  font-size: 3.8rem;
+  filter: drop-shadow(0 0 20px rgba(255, 174, 50, 0.75));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dramatic-dice-shockwave, .dramatic-dice-impacto { display: none; }
+}

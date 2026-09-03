@@ -1105,7 +1105,19 @@
         "modal_titulo": "Multiplayer restrito",
         "modal_body": "O modo Multiplayer do Gangues está disponível apenas para assinantes Elite e Primordial.",
         "modal_btn": "FAZER UPGRADE"
-      }
+      },
+      "dado": {
+        "preparando": "Preparando...",
+        "girando": "Girando... Girando...",
+        "resultado": "RESULTADO: {n}!",
+        "ataca": "ataca",
+        "critico_player": "CRÍTICO! GOLPE PERFEITO!",
+        "critico_enemy": "CRÍTICO! GOLPE FATAL!"
+      },
+      "beat": {
+        "derrotado": "DERROTADO"
+      },
+      "escolha_oponente": "Escolha o oponente"
     }
   }
 }

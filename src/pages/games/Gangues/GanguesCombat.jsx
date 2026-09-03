@@ -67,6 +67,9 @@ export default function GanguesCombat({ onNavigate }) {
   const { registrarEvento } = useEventos()
   const store = useGanguesStore()
   const [result, setResult] = useState(null)
+  // O derrotado fala antes da tela de resultado subir. Sem essa pausa a
+  // batalha acabava seca, sem reação de quem perdeu.
+  const [falaFinal, setFalaFinal] = useState(null)
   const [showResultBtn, setShowResultBtn] = useState(false)
   const [selectedActor, setSelectedActor] = useState(null)
   const [selectedTarget, setSelectedTarget] = useState(null)
@@ -82,6 +85,19 @@ export default function GanguesCombat({ onNavigate }) {
     if (outcome === 'victory') registrarEvento('arena_vitoria', 'Venceu uma batalha de gangue', 1)
     outcome === 'victory' ? sfx.win() : sfx.lose()
   }, [store, registrarEvento])
+
+  // Quem perdeu comenta: na vitória do jogador é o inimigo caindo
+  // ('defeat'); na derrota, é ele debochando ('player_near_death').
+  useEffect(() => {
+    if (!result) return
+    const inimigo = store.match.enemy
+    if (!inimigo) return
+    const linha = pickTrash(t, inimigo, result === 'victory' ? 'defeat' : 'player_near_death')
+    if (!linha) return
+    setFalaFinal({ nome: fighterName(t, { ...inimigo, side: 'enemy' }), texto: linha, outcome: result })
+    const timer = setTimeout(() => setFalaFinal(null), 2600)
+    return () => clearTimeout(timer)
+  }, [result, store.match.enemy, t])
 
   const machine = useGanguesTurnMachine({ playerTeam: store.match.playerTeam, enemyTeam: store.match.enemyTeam, onFinish: finish })
   const players = machine.combatants.filter(item => item.side === 'player')
@@ -178,10 +194,10 @@ export default function GanguesCombat({ onNavigate }) {
   }
 
   useEffect(() => {
-    if (!result) { setShowResultBtn(false); return }
+    if (!result || falaFinal) { setShowResultBtn(false); return }
     const timer = setTimeout(() => setShowResultBtn(true), 1400)
     return () => clearTimeout(timer)
-  }, [result])
+  }, [result, falaFinal])
 
   const openBattleReport = () => {
     store.setBattleReport({ outcome: result, entries: log, initiative: machine.initiative, combatants: machine.combatants, rounds: machine.round })
@@ -199,10 +215,33 @@ export default function GanguesCombat({ onNavigate }) {
             finalValue={machine.pending.result.rolls.fa}
             sides={3}
             side={machine.pending.side}
+            attackerName={fighterName(t, machine.combatants.find(item => item.key === machine.pending.actorKey))}
+            targetName={fighterName(t, machine.combatants.find(item => item.key === machine.pending.targetKey))}
             onComplete={machine.completePending}
           />
         )}
-        {result && (
+        {falaFinal && (
+          <motion.div
+            className={`gang-fala-final gang-fala-final--${falaFinal.outcome}`}
+            initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+          >
+            <div className="gang-fala-final-bg" />
+            <motion.div
+              className="gang-fala-final-card"
+              initial={{ opacity: 0, y: 30, scale: 0.94 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ type: 'spring', stiffness: 200, damping: 18 }}
+            >
+              <span className="gang-fala-final-avatar">{falaFinal.nome[0]}</span>
+              <span className="gang-fala-final-nome">{falaFinal.nome}</span>
+              {falaFinal.outcome === 'victory' && (
+                <span className="gang-fala-final-selo">{t('games.gangues.beat.derrotado')}</span>
+              )}
+              <p className="gang-fala-final-texto">“{falaFinal.texto}”</p>
+            </motion.div>
+          </motion.div>
+        )}
+        {result && !falaFinal && (
           <motion.div className="gang-match-result" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
             <div className="gang-match-result-bg" />
             <div className="gang-match-result-content">

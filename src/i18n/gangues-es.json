@@ -1515,7 +1515,19 @@
         "sabes que esto es un juego, ¿no? peleas como si fuera real 😂",
         "¡mira el daño! ¡MIRA! eso es FA de verdad 👊💥",
         "deberías pedir reembolso de esa ficha 💀"
-      ]
+      ],
+      "dado": {
+        "preparando": "Preparando...",
+        "girando": "Girando... Girando...",
+        "resultado": "RESULTADO: {n}!",
+        "ataca": "ataca",
+        "critico_player": "¡CRÍTICO! ¡GOLPE PERFECTO!",
+        "critico_enemy": "¡CRÍTICO! ¡GOLPE FATAL!"
+      },
+      "beat": {
+        "derrotado": "DERROTADO"
+      },
+      "escolha_oponente": "Elige el oponente"
     }
   }
 }

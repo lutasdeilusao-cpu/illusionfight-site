@@ -370,8 +370,8 @@
     "semantic_hash": "b11265c546f5970b719233c19e1b2c2d"
   },
   "src/config/version.js": {
-    "mtime": 1788444724.6706116,
-    "ast_hash": "5b7e04af0fb1e5dec542a590d556568c",
+    "mtime": 1788447852.073014,
+    "ast_hash": "f9a96dfebb511fdaab7af97e74f7b2de",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2745,8 +2745,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1788444724.809816,
-    "ast_hash": "ca3442e635789ce9d8536547e912c84e",
+    "mtime": 1788447852.1232128,
+    "ast_hash": "a46bba1edc00a8b9a308849315c25379",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3480,8 +3480,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/GanguesCreate.jsx": {
-    "mtime": 1785936366.846504,
-    "ast_hash": "610539f557afc8f407a2b988accb5329",
+    "mtime": 1788447790.6468928,
+    "ast_hash": "80f12dc2ebfe4b49b4b6ecf7067785b7",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/GanguesLobby.jsx": {
@@ -3545,23 +3545,23 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/NeoGuideTip.jsx": {
-    "mtime": 1785936292.5175486,
-    "ast_hash": "9a2a492c4a6785cc68d852a3075e2a07",
+    "mtime": 1788447784.3481767,
+    "ast_hash": "0521c44f3f3a3108f157044d354d1560",
     "semantic_hash": ""
   },
   "src/i18n/gangues-en.json": {
-    "mtime": 1787355199.8600776,
-    "ast_hash": "0cca6417107b0c8a2842226783072643",
+    "mtime": 1788447790.642892,
+    "ast_hash": "24deb66e17e2a4e2615aaef016cb4c0d",
     "semantic_hash": ""
   },
   "src/i18n/gangues-es.json": {
-    "mtime": 1787355199.8763468,
-    "ast_hash": "c798cb70a36bace3d43ecce904713f7c",
+    "mtime": 1788447790.645893,
+    "ast_hash": "84cd3fd41cf3355bae00be8d65b42a64",
     "semantic_hash": ""
   },
   "src/i18n/gangues-pt.json": {
-    "mtime": 1787355199.8408175,
-    "ast_hash": "ee6b8ef3593a44d2ea01901605bf46cb",
+    "mtime": 1788447790.6394064,
+    "ast_hash": "751fb3484e5a133e15a5ec4657b6eca6",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/hooks/useGanguesI18n.js": {

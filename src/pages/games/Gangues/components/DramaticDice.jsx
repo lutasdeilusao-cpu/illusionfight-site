@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useLanguage } from '../../../../context/LanguageContext'
 import { sfx } from '../../../../lib/sfx'
 import './DramaticDice.css'
 
@@ -7,9 +8,13 @@ import './DramaticDice.css'
  * DramaticDice — Tela cheia que pausa o jogo e mostra um dado rodando
  * com efeito cinematográfico (começa rápido, desacelera, revela o número).
  *
- * @param {{ finalValue: number, sides?: number, side: 'player'|'enemy', onComplete: () => void, powerName?: string }} props
+ * Mostra QUEM está atacando e em QUEM — sem isso o jogador se perde no
+ * meio da rolagem, sem saber de quem é o turno.
+ *
+ * @param {{ finalValue: number, sides?: number, side: 'player'|'enemy', onComplete: () => void, powerName?: string, attackerName?: string, targetName?: string }} props
  */
-export default function DramaticDice({ finalValue, sides = 6, side, onComplete, powerName }) {
+export default function DramaticDice({ finalValue, sides = 6, side, onComplete, powerName, attackerName, targetName }) {
+  const { t } = useLanguage()
   const [display, setDisplay] = useState(null)       // null = fase de "aquecimento"
   const [phase, setPhase] = useState('intro')        // intro → rolling → reveal → done
   const displayRef = useRef(null)                    // ref para usar dentro do rAF sem causar re-render
@@ -137,14 +142,17 @@ export default function DramaticDice({ finalValue, sides = 6, side, onComplete, 
             </motion.div>
           )}
 
-          {/* Rótulo: ROLL DO JOGADOR / ROLL DO INIMIGO */}
+          {/* Quem ataca quem — a identificação que faltava */}
           <motion.div
-            className="dramatic-dice-label"
+            className={`dramatic-dice-label dramatic-dice-label--${isPlayer ? 'player' : 'enemy'}`}
             initial={{ opacity: 0, y: -30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.15, duration: 0.4 }}
           >
-            {isPlayer ? '🎯 SEU ATAQUE' : '💀 ATAQUE INIMIGO'}
+            <span className="dramatic-dice-attacker">{isPlayer ? '🎯' : '💀'} {attackerName || (isPlayer ? '—' : '—')}</span>
+            {targetName && (
+              <span className="dramatic-dice-vs">{t('games.gangues.dado.ataca')} <b>{targetName}</b></span>
+            )}
           </motion.div>
 
           {/* O dado em si */}
@@ -175,6 +183,27 @@ export default function DramaticDice({ finalValue, sides = 6, side, onComplete, 
                 {display ?? '?'}
               </span>
             </motion.div>
+
+            {/* Impacto: onda de choque + soco batendo no instante da revelação.
+                É o que dá peso ao número — antes o dado só parava. */}
+            {phase === 'reveal' && (
+              <>
+                <motion.span
+                  className={`dramatic-dice-shockwave ${isCritical ? 'dramatic-dice-shockwave--critico' : ''}`}
+                  initial={{ scale: 0.2, opacity: 0.9 }}
+                  animate={{ scale: isCritical ? 3.2 : 2.4, opacity: 0 }}
+                  transition={{ duration: isCritical ? 0.7 : 0.55, ease: 'easeOut' }}
+                />
+                <motion.span
+                  className={`dramatic-dice-impacto ${isCritical ? 'dramatic-dice-impacto--critico' : ''}`}
+                  initial={{ scale: 0, rotate: isPlayer ? -35 : 35, opacity: 0 }}
+                  animate={{ scale: [0, 1.3, 1.05], rotate: isPlayer ? [-35, 8, 0] : [35, -8, 0], opacity: [0, 1, 0] }}
+                  transition={{ duration: 0.6, times: [0, 0.3, 1], ease: 'easeOut' }}
+                >
+                  {isCritical ? '💥' : '👊'}
+                </motion.span>
+              </>
+            )}
 
             {/* Partículas / estrelas ao redor no reveal */}
             {phase === 'reveal' && (
@@ -219,8 +248,8 @@ export default function DramaticDice({ finalValue, sides = 6, side, onComplete, 
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
           >
-            {phase === 'intro' && '🎲 Preparando...'}
-            {phase === 'rolling' && 'Girando... Girando...'}
+            {phase === 'intro' && `🎲 ${t('games.gangues.dado.preparando')}`}
+            {phase === 'rolling' && t('games.gangues.dado.girando')}
             {phase === 'reveal' && (
               <motion.span
                 className={isCritical ? 'dramatic-dice-subtext--critico' : ''}
@@ -228,8 +257,8 @@ export default function DramaticDice({ finalValue, sides = 6, side, onComplete, 
                 transition={{ duration: 0.5, repeat: Infinity }}
               >
                 {isCritical
-                  ? (isPlayer ? '⚡ CRÍTICO! GOLPE PERFEITO! ⚡' : '💀 CRÍTICO! GOLPE FATAL! 💀')
-                  : `🎯 RESULTADO: ${finalValue}!`
+                  ? (isPlayer ? `⚡ ${t('games.gangues.dado.critico_player')} ⚡` : `💀 ${t('games.gangues.dado.critico_enemy')} 💀`)
+                  : `🎯 ${t('games.gangues.dado.resultado', { n: finalValue })}`
                 }
               </motion.span>
             )}

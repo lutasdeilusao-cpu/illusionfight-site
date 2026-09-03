@@ -1515,7 +1515,19 @@
         "you know this is a game right? you're fighting like it's real 😂",
         "look at the damage! LOOK! that's real FA right there 👊💥",
         "you should ask for a refund on that sheet 💀"
-      ]
+      ],
+      "dado": {
+        "preparando": "Getting ready...",
+        "girando": "Rolling... Rolling...",
+        "resultado": "RESULT: {n}!",
+        "ataca": "attacks",
+        "critico_player": "CRITICAL! PERFECT HIT!",
+        "critico_enemy": "CRITICAL! FATAL BLOW!"
+      },
+      "beat": {
+        "derrotado": "DEFEATED"
+      },
+      "escolha_oponente": "Choose your opponent"
     }
   }
 }
