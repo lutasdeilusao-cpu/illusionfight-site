@@ -1073,7 +1073,9 @@
         "points_remaining": "PUNTOS RESTANTES",
         "spend_all": "Distribuye los {n} punto(s) restantes.",
         "resistance_required": "El personaje necesita al menos 1 punto de Resistencia.",
-        "finish_member": "FINALIZAR FICHA"
+        "finish_member": "FINALIZAR FICHA",
+        "need_two": "Tienes {n} luchador en la banda. Necesitas 2 para pelear — crea otro.",
+        "select_two": "Elige 2 luchadores para la batalla (marcaste {n})."
       },
       "limite": {
         "titulo": "LÍMITE DE FICHAS",

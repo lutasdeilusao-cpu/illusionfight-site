@@ -1073,7 +1073,9 @@
         "points_remaining": "POINTS REMAINING",
         "spend_all": "Distribute the remaining {n} point(s).",
         "resistance_required": "The character needs at least 1 Resistance point.",
-        "finish_member": "FINISH SHEET"
+        "finish_member": "FINISH SHEET",
+        "need_two": "You have {n} fighter in the gang. You need 2 to start a fight — create another.",
+        "select_two": "Pick 2 fighters for battle (you picked {n})."
       },
       "limite": {
         "titulo": "SHEET LIMIT",

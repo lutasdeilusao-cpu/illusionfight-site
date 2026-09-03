@@ -29,6 +29,7 @@ export default function GanguesLobby({ onNavigate }) {
   const [loading, setLoading] = useState(Boolean(user))
   const [choosingEnemy, setChoosingEnemy] = useState(false)
   const [showNeoGuide, setShowNeoGuide] = useState(false)
+  const [avisoParty, setAvisoParty] = useState('')
   const roster = store.roster
   const party = store.activeParty
   const rosterLimit = limiteFichasPorTier(perfil?.tier)
@@ -80,7 +81,19 @@ export default function GanguesLobby({ onNavigate }) {
 
   // Clicar no card só seleciona/deseleciona pra batalha. A progressão é
   // uma parada consciente pelo botão LEVEL UP — nunca por engano.
-  const handleSheetClick = (member) => toggleParty(member)
+  const handleSheetClick = (member) => { setAvisoParty(''); toggleParty(member) }
+
+  // O botão de batalha só avisa quando falta lutador — nunca bloqueia a tela.
+  const tentarBatalha = () => {
+    if (roster.length < GANGUES_INITIAL_PARTY_SIZE) {
+      sfx.cancel(); setAvisoParty(t('games.gangues.party.need_two', { n: roster.length })); return
+    }
+    if (party.length < GANGUES_INITIAL_PARTY_SIZE) {
+      sfx.cancel(); setAvisoParty(t('games.gangues.party.select_two', { n: party.length })); return
+    }
+    setAvisoParty('')
+    setChoosingEnemy(true)
+  }
 
   const unlocked = new Set(party.flatMap(member => member.enemies_unlocked || ['treinamento']))
   const enemyPool = enemiesData.filter(enemy => unlocked.has(enemy.id))
@@ -144,13 +157,16 @@ export default function GanguesLobby({ onNavigate }) {
         </button>
       )}
 
-      {roster.length < GANGUES_INITIAL_PARTY_SIZE ? (
+      {/* Onboarding só quando o elenco está VAZIO. Com 1 ficha, o jogador
+          continua vendo a lista pra poder excluir também a última — nunca
+          é empurrado pra criação por ter deletado alguém. */}
+      {roster.length === 0 ? (
         <section className="gang-onboarding-panel">
-          <span className="gang-onboarding-step">0{roster.length + 1} / 0{GANGUES_INITIAL_PARTY_SIZE}</span>
-          <h2>{t('games.gangues.party.create_member', { n: roster.length + 1 })}</h2>
-          <p>{roster.length === 0 ? t('games.gangues.party.onboarding') : t('games.gangues.party.second_member')}</p>
+          <span className="gang-onboarding-step">01 / 0{GANGUES_INITIAL_PARTY_SIZE}</span>
+          <h2>{t('games.gangues.party.create_member', { n: 1 })}</h2>
+          <p>{t('games.gangues.party.onboarding')}</p>
           <button className="gang-new-sheet gang-new-sheet--primary" onClick={startCreation}>
-            <span className="gang-new-sheet-icon">+</span>{roster.length === 0 ? t('games.gangues.party.start') : t('games.gangues.party.continue')}
+            <span className="gang-new-sheet-icon">+</span>{t('games.gangues.party.start')}
           </button>
         </section>
       ) : (
@@ -182,7 +198,9 @@ export default function GanguesLobby({ onNavigate }) {
           </div>
           <p className="gang-party-counter">{t('games.gangues.party_size_atual', { n: party.length, max: partyLimit })}</p>
           {partyLimit < GANGUES_MAX_PARTY_SIZE && <p className="gang-party-counter">{t('games.gangues.party_size_bloqueado')}</p>}
-          <button className="gang-new-sheet gang-new-sheet--primary" disabled={party.length < GANGUES_INITIAL_PARTY_SIZE} onClick={() => setChoosingEnemy(true)}>{t('games.gangues.party.enter_gangues')}</button>
+          {avisoParty && <p className="gang-err">{avisoParty}</p>}
+          {/* Sempre clicável: se faltar lutador, avisa aqui em vez de bloquear. */}
+          <button className="gang-new-sheet gang-new-sheet--primary" onClick={tentarBatalha}>{t('games.gangues.party.enter_gangues')}</button>
           {roster.length < rosterLimit && <button className="gang-new-sheet" onClick={startCreation}><span className="gang-new-sheet-icon">+</span>{t('games.gangues.nova_ficha')}</button>}
         </>
       )}

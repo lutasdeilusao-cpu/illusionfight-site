@@ -1099,7 +1099,9 @@
         "points_remaining": "PONTOS RESTANTES",
         "spend_all": "Distribua os {n} ponto(s) restantes.",
         "resistance_required": "O personagem precisa de pelo menos 1 ponto em Resistência.",
-        "finish_member": "FINALIZAR FICHA"
+        "finish_member": "FINALIZAR FICHA",
+        "need_two": "Você tem {n} lutador na gangue. Pra entrar na briga precisa de 2 — crie mais um.",
+        "select_two": "Selecione 2 lutadores pra batalha (você marcou {n})."
       },
       "limite": {
         "titulo": "LIMITE DE FICHAS",
