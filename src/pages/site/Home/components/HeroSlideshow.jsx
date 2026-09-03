@@ -1,13 +1,13 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useLanguage } from '../context/LanguageContext'
-import { useSwipe } from '../hooks/useSwipe'
-import { trackEvent } from '../lib/analytics'
-import banner01 from '../assets/images/banners/banner-01.webp'
-import banner02 from '../assets/images/banners/banner-02.png'
-import banner03 from '../assets/images/banners/banner-03.png'
-import banner04 from '../assets/images/banners/banner-04.png'
-import banner05 from '../assets/images/banners/banner-05.png'
+import { useLanguage } from '../../../../context/LanguageContext'
+import { useSwipe } from '../../../../hooks/useSwipe'
+import { trackEvent } from '../../../../lib/analytics'
+import banner01 from '../../../../assets/images/banners/banner-01.webp'
+import banner02 from '../../../../assets/images/banners/banner-02.png'
+import banner03 from '../../../../assets/images/banners/banner-03.png'
+import banner04 from '../../../../assets/images/banners/banner-04.png'
+import banner05 from '../../../../assets/images/banners/banner-05.png'
 import './HeroSlideshow.css'
 
 const AUTOPLAY_MS = 6000
@@ -169,7 +169,7 @@ export default function HeroSlideshow() {
             key={i}
             className={`hero-slideshow__progress${i === activeIndex ? ' hero-slideshow__progress--active' : ''}${paused && i === activeIndex ? ' hero-slideshow__progress--paused' : ''}`}
             onClick={() => goTo(i)}
-            aria-label={`Slide ${i + 1}`}
+            aria-label={`${t('hero.aria.slide')} ${i + 1}`}
           >
             <span className="hero-slideshow__progress-fill" />
           </button>
@@ -178,12 +178,12 @@ export default function HeroSlideshow() {
 
       {/* Arrows */}
       <div className="hero-slideshow__setas">
-        <button className="hero-slideshow__seta hero-slideshow__seta--prev" onClick={goPrev} aria-label="Anterior">
+        <button className="hero-slideshow__seta hero-slideshow__seta--prev" onClick={goPrev} aria-label={t('hero.aria.previous')}>
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
             <polyline points="15 18 9 12 15 6" />
           </svg>
         </button>
-        <button className="hero-slideshow__seta hero-slideshow__seta--next" onClick={goNext} aria-label="Próximo">
+        <button className="hero-slideshow__seta hero-slideshow__seta--next" onClick={goNext} aria-label={t('hero.aria.next')}>
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
             <polyline points="9 18 15 12 9 6" />
           </svg>

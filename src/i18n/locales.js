@@ -1,6 +1,9 @@
 import pt from './pt.json'
 import es from './es.json'
 import en from './en.json'
+import home_pt from './home_pt.json'
+import home_en from './home_en.json'
+import home_es from './home_es.json'
 import pp_pt from './pp_pt.json'
 import pp_en from './pp_en.json'
 import pp_es from './pp_es.json'
@@ -29,9 +32,9 @@ function deepMerge(target, ...sources) {
 }
 
 export const locales = {
-  pt: deepMerge({ ...pt, ...pp_pt }, tt_pt),
-  es: deepMerge({ ...es, ...pp_es }, tt_es),
-  en: deepMerge({ ...en, ...pp_en }, tt_en),
+  pt: deepMerge(pt, home_pt, pp_pt, tt_pt),
+  es: deepMerge(es, home_es, pp_es, tt_es),
+  en: deepMerge(en, home_en, pp_en, tt_en),
 }
 
 export const LOCALE_LABELS = {

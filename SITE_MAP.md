@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — MAPA DO SITE E DO PROJETO
 
 > Referência do estado atual do projeto para navegação humana e contexto de IA.
-> Atualizado em 2026-09-02 — `SITE_VERSION` **10.201.9**.
+> Atualizado em 2026-09-03 — `SITE_VERSION` **10.201.10**.
 > Histórico de tarefas, bugfixes e pendências não pertence a este documento.
 > Regras de trabalho, arquivos proibidos e decisões arquiteturais: `AGENTS.md`.
 
@@ -59,7 +59,7 @@ Componentes montados globalmente por `App.jsx`: `AnalyticsTracker`, `ScrollToTop
 
 | Rota | Página | Arquivo principal |
 |---|---|---|
-| `/` | Home | `src/pages/site/Home.jsx` |
+| `/` | Home | `src/pages/site/Home/Home.jsx` |
 | `/personagens` | Catálogo de personagens | `src/pages/content/Personagens.jsx` |
 | `/personagens/:id` | Detalhe de personagem | `src/pages/content/PersonagemDetalhe.jsx` |
 | `/historias` | Hub de histórias (todos os universos) | `src/pages/content/Historias.jsx` |
@@ -218,7 +218,7 @@ Cada jogo mantém componentes, dados, hooks/engine e store próprios dentro de s
 - Navegação e shell: `Navbar`, `Footer`, `ScrollToTop`, `ScrollToTopOnNav`, `SearchModal`, `CookieBanner`, `TrialBanner`.
 - Acesso e economia: `LoginGate`, `FichaGateRoute`, `GuestNotice`, `ModalConfirmacaoFicha`, `ModalSemFichas`.
 - Notificações: `AchievementToast`, `LDINotification`, `UnifiedNotification`.
-- Home/conteúdo: `HeroSlideshow`, `HeroEffect`, `LatestEpisodes`, `BookChaptersRow`, `CharactersRow`, `MusicSection`, `NowLive`, `ShopSection`, `StoryProgress`.
+- Home/conteúdo: `src/pages/site/Home/` concentra a página, o CSS visual e os componentes exclusivos `HeroSlideshow`, `LatestEpisodes`, `BookChaptersRow`, `CharactersRow`, `MusicSection`, `NowLive` e `StoryProgress`. As vitrines consomem os catálogos oficiais para refletir novos conteúdos sem listas duplicadas.
 - Histórias: `CapCard` (`src/components/CapCard/`) — mini-card vertical de capítulo (miniatura + rótulo + título + resumo + status), usado em `Livro.jsx`, `ContoHistoria.jsx` e `Obra.jsx`. Classe wrapper `.cap-list`.
 - Farol (`src/components/Farol/`) — badge de peso (leve/média/pesada), canonicidade e tags de temática. Dados em `contos-index.json` / `obras-index.json` (`peso`, `canon`, `temas[]`, `selo`); labels em `pages.contos.peso_*` / `tema_*` (temas incluem `sobrenatural`, `opressao`, `horror_cosmico`, `resistencia`). Usado em `Contos.jsx` (filtro por peso/tema), `ContoHistoria.jsx`, `Livro.jsx`, `Obra.jsx` e `Historias.jsx`.
 - Universo: `src/lib/mdComponents.jsx` (`readerMdComponents`) transforma links `/...` do markdown em `<Link>` do React Router — usado por todos os leitores (livro, conto, obra) para as citações cruzadas.
@@ -253,7 +253,7 @@ Arquivos do livro são carregados por `import.meta.glob`; ao mover leitores, os 
 
 ### 6.2 i18n
 
-- Site geral: `src/i18n/pt.json`, `en.json`, `es.json`. Namespaces de conteúdo relevantes: `nav.links`, `pages.livro`, `pages.contos` (`peso_*`, `canon_*`, `tema_*`), `pages.historias`, `pages.obra`, `pages.mundoHub`, `pages.universo`.
+- Site geral: `src/i18n/pt.json`, `en.json`, `es.json`. A Home usa os arquivos dedicados `home_{pt,en,es}.json`, combinados em `src/i18n/locales.js`. Namespaces de conteúdo relevantes: `nav.links`, `pages.livro`, `pages.contos` (`peso_*`, `canon_*`, `tema_*`), `pages.historias`, `pages.obra`, `pages.mundoHub`, `pages.universo`.
 - Pesadelo Particular: `src/i18n/pp_{pt,en,es}.json`.
 - Top Trumps: `src/i18n/tt_{pt,en,es}.json`.
 - LDI Gangues: `src/i18n/gangues-{pt,en,es}.json`, carregado sob demanda via `useGanguesI18n()` (só baixa quando o jogador entra no jogo, não faz parte do bundle geral).
@@ -329,7 +329,7 @@ Fonte única: `src/config/version.js`. Esta tabela registra somente a identifica
 
 | Constante | Módulo | Versão |
 |---|---|---:|
-| `SITE_VERSION` | Site global | **10.201.9** |
+| `SITE_VERSION` | Site global | **10.201.10** |
 | `PP_VERSION` | Pesadelo Particular | 2.3.1 |
 | `LDI_VERSION` | Lendas do LDI | 2.0.1 |
 | `JACK_VERSION` | Jack Dream Beer | 5.3.2 |

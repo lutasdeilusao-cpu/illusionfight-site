@@ -1,36 +1,35 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useLanguage } from '../context/LanguageContext'
-import { useScrollReveal } from '../hooks/useScrollReveal'
-import { JOGOS } from '../pages/games/Games'
+import { useLanguage } from '../../../../context/LanguageContext'
+import { JOGOS } from '../../../games/Games'
 import './StoryProgress.css'
 
 export default function StoryProgress() {
-  const ref = useScrollReveal()
   const { t } = useLanguage()
   const navigate = useNavigate()
 
-  const lancados = JOGOS.filter(j => j.badgeKey === 'site.games.badges.lancado')
+  const disponiveis = JOGOS.filter(jogo => !jogo.emBreve && jogo.rota)
   const [current, setCurrent] = useState(0)
 
   useEffect(() => {
-    if (lancados.length <= 1) return
+    if (disponiveis.length <= 1) return
     const interval = setInterval(() => {
-      setCurrent(prev => (prev + 1) % lancados.length)
+      setCurrent(prev => (prev + 1) % disponiveis.length)
     }, 3500)
     return () => clearInterval(interval)
-  }, [lancados.length])
+  }, [disponiveis.length])
 
-  if (lancados.length === 0) return null
+  if (disponiveis.length === 0) return null
 
-  const jogo = lancados[current]
+  const jogo = disponiveis[current]
 
   return (
-    <section ref={ref} className="progress reveal">
+    <section className="progress">
       <div className="container">
-        <h2 className="section-title">{t('progress.title')}</h2>
+        <h2 className="section-title">{t('home.section_games')}</h2>
         <div className="games-carousel">
-          <div
+          <button
+            type="button"
             className="games-carousel-card"
             onClick={() => navigate(jogo.rota)}
             style={{ '--cor-neon': jogo.cor }}
@@ -41,11 +40,11 @@ export default function StoryProgress() {
               <span className="games-carousel-tag">{t(jogo.tagKey)}</span>
             </div>
             <span className="games-carousel-badge">{t(jogo.badgeKey)}</span>
-          </div>
-          {lancados.length > 1 && (
+          </button>
+          {disponiveis.length > 1 && (
             <div className="games-carousel-dots">
-              {lancados.map((_, i) => (
-                <span key={i} className={`games-carousel-dot${i === current ? ' games-carousel-dot--active' : ''}`} />
+              {disponiveis.map((item, i) => (
+                <span key={item.id} className={`games-carousel-dot${i === current ? ' games-carousel-dot--active' : ''}`} />
               ))}
             </div>
           )}

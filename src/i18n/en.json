@@ -17,7 +17,11 @@
       "search": "Search",
       "language": "Choose the site language"
     },
-    "languages": { "pt": "Português", "es": "Español", "en": "English" }
+    "languages": {
+      "pt": "Português",
+      "es": "Español",
+      "en": "English"
+    }
   },
   "runtime": {
     "steam_demo_purchases_unavailable": "Purchases are not available in this Steam Demo.",
@@ -27,46 +31,6 @@
     "shell_fechar_confirmar": "Quit the Illusion Fight Demo?",
     "shell_fechar_manual": "Couldn't quit automatically. Use Alt+F4 or the window's X."
   },
-  "hero": {
-    "title": "ILLUSION FIGHT",
-    "subtitle": "In a world where the arena is virtual, the scars are real. They always were.",
-    "cta": {
-      "primary": "READ NOW",
-      "secondary": "LEARN MORE"
-    },
-    "slide1": {
-      "tag": "Illusion Fight — Book 1",
-      "titulo": "The Illusion",
-      "subtitulo": "Kim is 17, sells candy on buses and just entered an arena where the pain is 100% real. Three billion players. Zero preparation.",
-      "cta1": "Read now",
-      "cta2": "Learn more"
-    },
-    "slide2": {
-      "tag": "Webtoon",
-      "titulo": "A picture is worth a thousand words.",
-      "subtitulo": "Monthly release here on the portal — one week ahead of any other platform. Early access for those who arrived first.",
-      "cta1": "Read episode"
-    },
-    "slide3": {
-      "tag": "9 Games",
-      "titulo": "The expanded LDI universe is here.",
-      "subtitulo": "Nine games ready for your enjoyment. And soon, much more. Put your token in and play.",
-      "cta1": "See games"
-    },
-    "slide4": {
-      "tag": "The Problem",
-      "titulo": "The band Jack mentions is real.",
-      "subtitulo": "The songs from the Illusion Fight universe are on streaming platforms. Come on in for the vibe.",
-      "cta1": "Listen now"
-    },
-    "slide5": {
-      "tag": "Support",
-      "titulo": "I started this at 17. It took me 23 years to make it happen.",
-      "subtitulo": "If you want to be part of this, you can. And you'll be very well rewarded for it.",
-      "cta1": "Visit store",
-      "cta2": "Support"
-    }
-  },
   "stats": {
     "title": "UNIVERSE BY NUMBERS",
     "labels": [
@@ -75,33 +39,9 @@
       "Real pain"
     ]
   },
-  "episodes": {
-    "title": "EPISODES",
-    "titles": [
-      "Introduction",
-      "The Invitation",
-      "First Round"
-    ],
-    "badge": {
-      "free": "FREE",
-      "premium": "PREMIUM"
-    },
-    "thumbnail": "Thumbnail",
-    "cta": "VIEW ALL →",
-    "featured_ler": "READ NOW",
-    "webtoon": {
-      "text": "Also available on Webtoon Canvas",
-      "subscribers": "— subscribers",
-      "cta": "READ ON WEBTOON"
-    }
-  },
   "musicas": {
     "subtitle": "The soundtrack of the Illusion Fight universe",
     "clipesPlaceholder": "Music videos in production — coming soon."
-  },
-  "music": {
-    "title": "MUSIC",
-    "comingSoon": "COMING SOON"
   },
   "achievement": {
     "titulo": "ACHIEVEMENT UNLOCKED",
@@ -169,11 +109,6 @@
     "vazio": "No results for \"{q}\"",
     "premium": "PREMIUM"
   },
-  "nowlive": {
-    "title": "NOW LIVE",
-    "subtitle": "Follow the Illusion Fight universe on social media",
-    "abrir": "OPEN →"
-  },
   "shop": {
     "titulo": "UNIVERSE ITEMS",
     "fisico": "PHYSICAL",
@@ -188,149 +123,6 @@
     "page_og_desc": "Buy tokens, DIX and exclusive items.",
     "fichas": "tokens",
     "item_exclusivo": "Exclusive item"
-  },
-  "progress": {
-    "title": "UPDATES",
-    "tracks": [
-      {
-        "format": "WEBTOON",
-        "items": [
-          {
-            "label": "Episode 0",
-            "status": "Published"
-          },
-          {
-            "label": "Chapter 1",
-            "status": "Coming soon"
-          }
-        ]
-      },
-      {
-        "format": "BOOK",
-        "items": [
-          {
-            "label": "Chapter 1",
-            "status": "Published"
-          },
-          {
-            "label": "Chapter 2",
-            "status": "Published"
-          },
-          {
-            "label": "Chapter 3",
-            "status": "Published"
-          },
-          {
-            "label": "Chapter 4",
-            "status": "Coming soon"
-          }
-        ]
-      },
-      {
-        "format": "MUSIC",
-        "items": [
-          {
-            "label": "Track 1",
-            "status": "Released"
-          },
-          {
-            "label": "Track 2",
-            "status": "Released"
-          },
-          {
-            "label": "Track 3",
-            "status": "Coming soon"
-          }
-        ]
-      },
-      {
-        "format": "GAMES",
-        "items": [
-          {
-            "label": "Top Trumps",
-            "status": "Released"
-          },
-          {
-            "label": "Lendas do LDI",
-            "status": "Free"
-          },
-          {
-            "label": "Jack Dream Beer",
-            "status": "Released"
-          },
-          {
-            "label": "Pesadelo Particular",
-            "status": "Released"
-          },
-          {
-            "label": "Arena Mode",
-            "status": "Released"
-          },
-          {
-            "label": "Tamagoshi LDI",
-            "status": "Released"
-          },
-          {
-            "label": "LDI Tatics",
-            "status": "New"
-          },
-          {
-            "label": "MiniGames",
-            "status": "Free"
-          },
-          {
-            "label": "Duelo LDI",
-            "status": "Beta"
-          }
-        ]
-      },
-      {
-        "format": "STORE",
-        "items": [
-          {
-            "label": "Starter Pack",
-            "status": "Available"
-          },
-          {
-            "label": "100 Tokens",
-            "status": "Available"
-          },
-          {
-            "label": "300 Tokens + Bonus",
-            "status": "Available"
-          },
-          {
-            "label": "1000 Tokens + Bonus",
-            "status": "Available"
-          },
-          {
-            "label": "Karuak Skin",
-            "status": "Available"
-          },
-          {
-            "label": "Physical Book",
-            "status": "Coming soon"
-          },
-          {
-            "label": "Kindle eBook",
-            "status": "Coming soon"
-          },
-          {
-            "label": "T-Shirts",
-            "status": "Coming soon"
-          },
-          {
-            "label": "Cap & Accessories",
-            "status": "Coming soon"
-          }
-        ]
-      }
-    ]
-  },
-  "homeSupport": {
-    "title": "SUPPORT THE PROJECT",
-    "text": "Access exclusive content and help keep the work alive.",
-    "cta": "HOW TO SUPPORT"
   },
   "beta": {
     "message": "🔧 We're in beta! Official launch on {{date}}.",
@@ -408,15 +200,6 @@
       "text": "Any amount is welcome.",
       "key": "pixkey@email.com (placeholder)"
     }
-  },
-  "newsletter": {
-    "titulo": "Stay in the loop",
-    "descricao": "Monthly newsletter with behind-the-scenes, news and exclusive content from the Illusion Fight universe.",
-    "botao": "Subscribe to Newsletter",
-    "gratis": "Free. No spam.",
-    "ctaTitulo": "Get the updates",
-    "ctaDescricao": "Monthly newsletter — behind the scenes, releases and expanded universe.",
-    "ctaBotao": "Subscribe free"
   },
   "tatics": {
     "loading": "LOADING SYSTEM...",

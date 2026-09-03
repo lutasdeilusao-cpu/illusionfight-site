@@ -1,7 +1,6 @@
-import { useLanguage } from '../context/LanguageContext'
-import { useScrollReveal } from '../hooks/useScrollReveal'
-import data from '../data/nowlive.json'
-import { platformIconMap } from './PlatformIcons'
+import { useLanguage } from '../../../../context/LanguageContext'
+import data from '../../../../data/nowlive.json'
+import { platformIconMap } from '../../../../components/PlatformIcons'
 import './NowLive.css'
 
 const platRGB = {
@@ -12,12 +11,11 @@ const platRGB = {
 }
 
 export default function NowLive() {
-  const ref = useScrollReveal()
   const { t } = useLanguage()
   const items = data.filter(item => item.ativo)
 
   return (
-    <section ref={ref} className="nowlive-section reveal">
+    <section className="nowlive-section">
       <div className="container">
         <h2 className="section-title">{t('nowlive.title')}</h2>
         <p className="nowlive-subtitle">{t('nowlive.subtitle')}</p>

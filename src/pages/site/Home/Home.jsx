@@ -1,33 +1,35 @@
 import { lazy, Suspense } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
-import { useLanguage } from '../../context/LanguageContext'
-import { useScrollReveal } from '../../hooks/useScrollReveal'
-import HeroSlideshow from '../../components/HeroSlideshow'
-import LatestEpisodes from '../../components/LatestEpisodes'
-import CharactersRow from '../../components/CharactersRow'
-import DeferredSection from '../../components/DeferredSection'
+import { useLanguage } from '../../../context/LanguageContext'
+import { useScrollReveal } from '../../../hooks/useScrollReveal'
+import HeroSlideshow from './components/HeroSlideshow'
+import LatestEpisodes from './components/LatestEpisodes'
+import CharactersRow from './components/CharactersRow'
+import DeferredSection from '../../../components/DeferredSection'
+import './Home.css'
 
-const BookChaptersRow = lazy(() => import('../../components/BookChaptersRow'))
-const MusicSection = lazy(() => import('../../components/MusicSection'))
-const NowLive = lazy(() => import('../../components/NowLive'))
-const StoryProgress = lazy(() => import('../../components/StoryProgress'))
+const BookChaptersRow = lazy(() => import('./components/BookChaptersRow'))
+const MusicSection = lazy(() => import('./components/MusicSection'))
+const NowLive = lazy(() => import('./components/NowLive'))
+const StoryProgress = lazy(() => import('./components/StoryProgress'))
 
 export default function Home() {
   const newsletterRef = useScrollReveal()
-  const { t } = useLanguage()
+  const { t, locale } = useLanguage()
+  const ogLocale = locale === 'en' ? 'en_US' : locale === 'es' ? 'es_ES' : 'pt_BR'
 
   return (
-    <>
+    <div className="home-page">
       <Helmet>
-        <title>Illusion Fight — webtoon, livro e games grátis</title>
-        <meta name="description" content="Explore Illusion Fight, um universo brasileiro de ação com webtoon, webnovel, livro, personagens, música e jogos indie grátis." />
-        <meta property="og:title" content="Illusion Fight — webtoon, livro e games grátis" />
-        <meta property="og:description" content="Leia webtoon e livro online, conheça os personagens e jogue games indie grátis no universo brasileiro Illusion Fight." />
+        <title>{t('home.meta_title')}</title>
+        <meta name="description" content={t('home.meta_description')} />
+        <meta property="og:title" content={t('home.meta_title')} />
+        <meta property="og:description" content={t('home.og_description')} />
         <meta property="og:url" content="https://illusionfight.com/" />
         <meta property="og:image" content="https://illusionfight.com/og-image.jpg" />
         <meta property="og:type" content="website" />
-        <meta property="og:locale" content="pt_BR" />
+        <meta property="og:locale" content={ogLocale} />
       </Helmet>
       <HeroSlideshow />
       <LatestEpisodes />
@@ -61,6 +63,6 @@ export default function Home() {
           </a>
         </div>
       </section>
-    </>
+    </div>
   )
 }

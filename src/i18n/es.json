@@ -17,7 +17,11 @@
       "search": "Buscar",
       "language": "Elige el idioma del sitio"
     },
-    "languages": { "pt": "Português", "es": "Español", "en": "English" }
+    "languages": {
+      "pt": "Português",
+      "es": "Español",
+      "en": "English"
+    }
   },
   "runtime": {
     "steam_demo_purchases_unavailable": "Las compras no están disponibles en esta Demo de Steam.",
@@ -27,46 +31,6 @@
     "shell_fechar_confirmar": "¿Cerrar la Demo de Illusion Fight?",
     "shell_fechar_manual": "No se pudo cerrar automáticamente. Usa Alt+F4 o la X de la ventana."
   },
-  "hero": {
-    "title": "LUTAS DE ILUSIÓN",
-    "subtitle": "En un mundo donde el arena es virtual, las cicatrices son reales. Siempre lo fueron.",
-    "cta": {
-      "primary": "LEER AHORA",
-      "secondary": "SABER MÁS"
-    },
-    "slide1": {
-      "tag": "Lutas de Ilusión — Libro 1",
-      "titulo": "La Ilusión",
-      "subtitulo": "Kim tiene 17 años, vende caramelos en autobuses y acaba de entrar a una arena donde el dolor es 100% real. Tres mil millones de jugadores. Cero preparación.",
-      "cta1": "Leer ahora",
-      "cta2": "Saber más"
-    },
-    "slide2": {
-      "tag": "Webtoon",
-      "titulo": "Una imagen vale más que mil palabras.",
-      "subtitulo": "Lanzamiento mensual aquí en el portal — una semana antes que en cualquier otra plataforma. Acceso anticipado para quienes llegaron primero.",
-      "cta1": "Leer episodio"
-    },
-    "slide3": {
-      "tag": "9 Juegos",
-      "titulo": "El universo expandido del LDI está aquí.",
-      "subtitulo": "Nueve juegos listos para tu degustación. Y pronto, mucho más. Échale la ficha y dale play.",
-      "cta1": "Ver juegos"
-    },
-    "slide4": {
-      "tag": "The Problem",
-      "titulo": "La banda que Jack menciona es real.",
-      "subtitulo": "Las canciones del universo Lutas de Ilusión están en las plataformas. Acércate para disfrutar.",
-      "cta1": "Escuchar ahora"
-    },
-    "slide5": {
-      "tag": "Apoyar",
-      "titulo": "Empecé esto con 17 años. Me tomó 23 realizarlo.",
-      "subtitulo": "Si quieres ser parte de esto, puedes. Y serás muy bien recompensado por ello.",
-      "cta1": "Ver tienda",
-      "cta2": "Apoyar"
-    }
-  },
   "stats": {
     "title": "UNIVERSO EN NÚMEROS",
     "labels": [
@@ -75,33 +39,9 @@
       "Dolor real"
     ]
   },
-  "episodes": {
-    "title": "EPISODIOS",
-    "titles": [
-      "Presentación",
-      "La Invitación",
-      "Primer Round"
-    ],
-    "badge": {
-      "free": "GRATIS",
-      "premium": "PREMIUM"
-    },
-    "thumbnail": "Miniatura",
-    "cta": "VER TODOS →",
-    "featured_ler": "LEER AHORA",
-    "webtoon": {
-      "text": "También disponible en Webtoon Canvas",
-      "subscribers": "— suscriptores",
-      "cta": "LEER EN WEBTOON"
-    }
-  },
   "musicas": {
     "subtitle": "La banda sonora del universo Lutas de Ilusão",
     "clipesPlaceholder": "Videoclips en producción — próximamente."
-  },
-  "music": {
-    "title": "MÚSICA",
-    "comingSoon": "PRÓXIMAMENTE"
   },
   "achievement": {
     "titulo": "LOGRO DESBLOQUEADO",
@@ -169,11 +109,6 @@
     "vazio": "Sin resultados para \"{q}\"",
     "premium": "PREMIUM"
   },
-  "nowlive": {
-    "title": "EN VIVO",
-    "subtitle": "Sigue el universo Lutas de Ilusão en las redes",
-    "abrir": "ABRIR →"
-  },
   "shop": {
     "titulo": "ARTÍCULOS DEL UNIVERSO",
     "fisico": "FÍSICO",
@@ -188,149 +123,6 @@
     "page_og_desc": "Compra fichas, DIX y artículos exclusivos.",
     "fichas": "fichas",
     "item_exclusivo": "Artículo exclusivo"
-  },
-  "progress": {
-    "title": "ACTUALIZACIONES",
-    "tracks": [
-      {
-        "format": "WEBTOON",
-        "items": [
-          {
-            "label": "Episodio 0",
-            "status": "Publicado"
-          },
-          {
-            "label": "Capítulo 1",
-            "status": "Próximamente"
-          }
-        ]
-      },
-      {
-        "format": "LIBRO",
-        "items": [
-          {
-            "label": "Capítulo 1",
-            "status": "Publicado"
-          },
-          {
-            "label": "Capítulo 2",
-            "status": "Publicado"
-          },
-          {
-            "label": "Capítulo 3",
-            "status": "Publicado"
-          },
-          {
-            "label": "Capítulo 4",
-            "status": "Próximamente"
-          }
-        ]
-      },
-      {
-        "format": "MÚSICA",
-        "items": [
-          {
-            "label": "Pista 1",
-            "status": "Publicada"
-          },
-          {
-            "label": "Pista 2",
-            "status": "Publicada"
-          },
-          {
-            "label": "Pista 3",
-            "status": "Próximamente"
-          }
-        ]
-      },
-      {
-        "format": "JUEGOS",
-        "items": [
-          {
-            "label": "Top Trumps",
-            "status": "Lanzado"
-          },
-          {
-            "label": "Lendas do LDI",
-            "status": "Free"
-          },
-          {
-            "label": "Jack Dream Beer",
-            "status": "Lanzado"
-          },
-          {
-            "label": "Pesadelo Particular",
-            "status": "Lanzado"
-          },
-          {
-            "label": "Arena Mode",
-            "status": "Lanzado"
-          },
-          {
-            "label": "Tamagoshi LDI",
-            "status": "Lanzado"
-          },
-          {
-            "label": "LDI Tatics",
-            "status": "Nuevo"
-          },
-          {
-            "label": "MiniGames",
-            "status": "Free"
-          },
-          {
-            "label": "Duelo LDI",
-            "status": "Beta"
-          }
-        ]
-      },
-      {
-        "format": "TIENDA",
-        "items": [
-          {
-            "label": "Starter Pack",
-            "status": "Disponible"
-          },
-          {
-            "label": "100 Fichas",
-            "status": "Disponible"
-          },
-          {
-            "label": "300 Fichas + Bonif.",
-            "status": "Disponible"
-          },
-          {
-            "label": "1000 Fichas + Bonif.",
-            "status": "Disponible"
-          },
-          {
-            "label": "Piel Karuak",
-            "status": "Disponible"
-          },
-          {
-            "label": "Libro Físico",
-            "status": "Próximamente"
-          },
-          {
-            "label": "eBook Kindle",
-            "status": "Próximamente"
-          },
-          {
-            "label": "Camisetas",
-            "status": "Próximamente"
-          },
-          {
-            "label": "Gorra & Accesorios",
-            "status": "Próximamente"
-          }
-        ]
-      }
-    ]
-  },
-  "homeSupport": {
-    "title": "APOYA EL PROYECTO",
-    "text": "Accede a contenido exclusivo y ayuda a mantener la obra viva.",
-    "cta": "CÓMO COLABORAR"
   },
   "beta": {
     "message": "🔧 ¡Estamos en beta! Lanzamiento oficial el {{date}}.",
@@ -408,15 +200,6 @@
       "text": "Cualquier valor es bienvenido.",
       "key": "clavepix@email.com (placeholder)"
     }
-  },
-  "newsletter": {
-    "titulo": "Mantente al día",
-    "descricao": "Newsletter mensual con bastidores, novedades y contenido exclusivo del universo Lutas de Ilusão.",
-    "botao": "Suscribirse al Newsletter",
-    "gratis": "Gratis. Sin spam.",
-    "ctaTitulo": "Recibe las novedades",
-    "ctaDescricao": "Newsletter mensual — bastidores, lanzamientos y universo expandido.",
-    "ctaBotao": "Suscribirse gratis"
   },
   "tatics": {
     "loading": "CARGANDO SISTEMA...",

@@ -1,16 +1,23 @@
 import { useMemo } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useLanguage } from '../context/LanguageContext'
-import { useScrollReveal } from '../hooks/useScrollReveal'
-import { useAuth } from '../context/AuthContext'
-import { estaDisponivel } from '../config/site'
-import { TRIAL_ACTIVE } from '../config/trial'
-import thumbEp00 from '../assets/images/episodes/thumb-ep00.webp'
-import thumbEp01 from '../assets/images/episodes/thumb-ep01.webp'
-import episodios from '../data/episodios.json'
+import { useLanguage } from '../../../../context/LanguageContext'
+import { useScrollReveal } from '../../../../hooks/useScrollReveal'
+import { useAuth } from '../../../../context/AuthContext'
+import { estaDisponivel } from '../../../../config/site'
+import { TRIAL_ACTIVE } from '../../../../config/trial'
+import episodios from '../../../../data/episodios.json'
 import './LatestEpisodes.css'
 
-const thumbMap = { 'thumb-ep00.png': thumbEp00, 'thumb-ep01.png': thumbEp01 }
+const thumbnailModules = import.meta.glob('../../../../assets/images/episodes/*', {
+  eager: true,
+  import: 'default',
+  query: '?url',
+})
+const thumbnailMap = Object.fromEntries(Object.entries(thumbnailModules).map(([path, url]) => [
+  path.split('/').pop().replace(/\.[^.]+$/, ''),
+  url,
+]))
+const thumbnailFor = episode => thumbnailMap[episode.thumbnail?.replace(/\.[^.]+$/, '')]
 
 export default function LatestEpisodes() {
   const { t, locale } = useLanguage()
@@ -25,7 +32,6 @@ export default function LatestEpisodes() {
 
   const featured = useMemo(() => {
     const disponiveis = episodios
-      .filter(ep => thumbMap[ep.thumbnail])
       .filter(ep => ep.id === '00' || estaDisponivel(ep, isAdmin, { user, perfil }) || TRIAL_ACTIVE)
       .sort((a, b) => ((b.data_publicacao || '').localeCompare(a.data_publicacao || '')))
     return disponiveis[0]
@@ -37,7 +43,7 @@ export default function LatestEpisodes() {
   return (
     <section ref={ref} className="episodes reveal" id="episodios">
       <div className="container">
-        <h2 className="section-title">{t('episodes.title')}</h2>
+        <h2 className="section-title">{t('home.section_latest')}</h2>
 
         {featured && (
           <div className="episodes-featured">
@@ -45,7 +51,9 @@ export default function LatestEpisodes() {
               className={`episodes-featured-card${liberadoFeatured ? '' : ' episodes-featured-card--locked'}`}
               onClick={() => liberadoFeatured && navigate(`/webtoon/${featured.id}`)}
             >
-              <img className="episodes-featured-img" src={thumbMap[featured.thumbnail]} alt={featured[tituloKey]} width="381" height="507" loading="lazy" decoding="async" />
+              {thumbnailFor(featured)
+                ? <img className="episodes-featured-img" src={thumbnailFor(featured)} alt={featured[tituloKey]} width="381" height="507" loading="lazy" decoding="async" />
+                : <div className="episodes-featured-placeholder">{t('episodes.placeholder')}</div>}
               <div className="episodes-featured-overlay">
                 <span className={`episodes-featured-badge${liberadoFeatured ? ' episodes-featured-badge--live' : ' episodes-featured-badge--soon'}`}>
                   {liberadoFeatured ? t('episodes.badge.free') : t('pages.webtoon.em_breve')}
@@ -66,7 +74,7 @@ export default function LatestEpisodes() {
         <div className="episodes-list">
           {lista.map(ep => {
             const liberado = ep.id === '00' || estaDisponivel(ep, isAdmin, { user, perfil }) || TRIAL_ACTIVE
-            const temThumb = thumbMap[ep.thumbnail]
+            const thumbnail = thumbnailFor(ep)
             return (
               <div
                 key={ep.id}
@@ -74,8 +82,8 @@ export default function LatestEpisodes() {
                 onClick={() => liberado && navigate(`/webtoon/${ep.id}`)}
               >
                 <div className="episode-list-thumb">
-                  {temThumb
-                    ? <img src={thumbMap[ep.thumbnail]} alt={ep[tituloKey]} width="381" height="507" loading="lazy" decoding="async" />
+                  {thumbnail
+                    ? <img src={thumbnail} alt={ep[tituloKey]} width="381" height="507" loading="lazy" decoding="async" />
                     : <div className="episode-list-thumb-placeholder" aria-hidden="true">LDI</div>}
                 </div>
                 <div className="episode-list-info">

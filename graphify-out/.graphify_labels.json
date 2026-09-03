@@ -373,9 +373,12 @@
   "371": "09.md",
   "372": "pp-i18n.js",
   "373": "Calendario.jsx",
+  "374": "MiniGames.jsx",
   "375": "Universo.jsx",
   "376": "PowerCard.jsx",
+  "377": "Navbar.jsx",
   "378": "MundoHub.jsx",
+  "379": "useScrollPosition.js",
   "380": "01.md",
   "381": "02.md",
   "382": "03.md",
@@ -391,7 +394,7 @@
   "392": "00.md",
   "393": "01.md",
   "394": "02.md",
-  "399": "local",
-  "400": "description",
-  "401": "Value"
+  "395": "trackPageView",
+  "396": "ScrollToTop.jsx",
+  "397": "ScrollToTopOnNav.jsx"
 }

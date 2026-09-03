@@ -13,7 +13,7 @@ import DesktopShellBar from './components/DesktopShellBar/DesktopShellBar'
 import AnalyticsTracker from './components/AnalyticsTracker'
 import LoginGate from './components/LoginGate/LoginGate'
 import FichaGateRoute from './components/FichaGateRoute/FichaGateRoute'
-const Home = lazyWithReload(() => import('./pages/site/Home'))
+const Home = lazyWithReload(() => import('./pages/site/Home/Home'))
 const Musicas = lazyWithReload(() => import('./pages/content/Musicas'))
 const Personagens = lazyWithReload(() => import('./pages/content/Personagens'))
 const PersonagemDetalhe = lazyWithReload(() => import('./pages/content/PersonagemDetalhe'))

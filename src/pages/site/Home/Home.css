@@ -1,0 +1,261 @@
+.home-page {
+  --home-cyan: #00e5ff;
+  --home-violet: #9d4edd;
+  --home-amber: #ff9f1c;
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  max-width: 480px;
+  min-height: 100vh;
+  margin: 0 auto;
+  overflow: hidden;
+  background: #070a0d;
+  box-shadow: 0 0 80px rgba(0, 229, 255, 0.08);
+}
+
+.home-page::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    linear-gradient(rgba(0, 229, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 229, 255, 0.025) 1px, transparent 1px),
+    radial-gradient(circle at 20% 15%, rgba(157, 78, 221, 0.11), transparent 35%),
+    #070a0d;
+  background-size: 28px 28px, 28px 28px, auto, auto;
+}
+
+.home-page .container {
+  width: 100%;
+  max-width: none;
+  padding-inline: 20px;
+}
+
+.home-page .section-title,
+.home-page .book-chapters-title {
+  position: relative;
+  margin: 0 0 24px;
+  padding: 0 0 12px 18px;
+  color: #f4f8fb;
+  font: 700 clamp(1.25rem, 6vw, 1.75rem)/1 'Rajdhani', sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.home-page .section-title::before,
+.home-page .book-chapters-title::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: -2px;
+  width: 3px;
+  height: 24px;
+  background: var(--home-cyan);
+  box-shadow: 0 0 14px var(--home-cyan);
+}
+
+.home-page .section-title::after,
+.home-page .book-chapters-title::after {
+  content: '';
+  position: absolute;
+  left: 18px;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(0, 229, 255, 0.75), transparent);
+}
+
+.home-page .hero-slideshow {
+  min-height: 92svh;
+  border-bottom: 1px solid rgba(0, 229, 255, 0.32);
+}
+
+.home-page .hero-slideshow__content {
+  min-height: 92svh;
+  padding: 96px 22px 118px;
+}
+
+.home-page .hero-slideshow__bg {
+  object-position: 58% center;
+}
+
+.home-page .hero-slideshow__overlay {
+  background:
+    linear-gradient(180deg, rgba(4, 6, 9, 0.18), rgba(4, 6, 9, 0.96) 88%),
+    linear-gradient(90deg, rgba(4, 6, 9, 0.72), transparent);
+}
+
+.home-page .hero-slideshow__title {
+  font-size: clamp(2.3rem, 12vw, 4rem);
+  line-height: 0.9;
+  text-wrap: balance;
+}
+
+.home-page .hero-slideshow__actions {
+  width: 100%;
+}
+
+.home-page .hero-slideshow__actions button,
+.home-page .btn,
+.home-support__cta,
+.newsletter-cta__btn {
+  min-height: 44px;
+  border-radius: 0;
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+}
+
+.home-page .episodes,
+.home-page .characters-row,
+.home-page .music-section,
+.home-page .progress,
+.home-page .nowlive-section,
+.home-page .book-chapters-section {
+  position: relative;
+  padding: 64px 0;
+  background: linear-gradient(180deg, rgba(10, 14, 18, 0.96), rgba(6, 9, 12, 0.98));
+  border-bottom: 1px solid rgba(0, 229, 255, 0.12);
+}
+
+.home-page .characters-row,
+.home-page .progress {
+  background: linear-gradient(135deg, rgba(16, 10, 24, 0.96), rgba(6, 9, 12, 0.98));
+}
+
+.home-page .episodes-featured-card {
+  min-height: 430px;
+  aspect-ratio: 4 / 5;
+  border: 1px solid rgba(0, 229, 255, 0.36);
+  border-radius: 0;
+  clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 0 100%);
+  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.5), 0 16px 50px rgba(0, 0, 0, 0.35);
+}
+
+.home-page .episodes-featured-placeholder {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #101923, #090b10 55%, #151021);
+  color: rgba(0, 229, 255, 0.52);
+  font: 700 0.7rem 'JetBrains Mono', monospace;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.home-page .episode-list-item,
+.home-page .book-chapter-card__inner,
+.home-page .nowlive-card,
+.home-page .games-carousel-card {
+  border-radius: 0;
+  border: 1px solid rgba(0, 229, 255, 0.18);
+  background: rgba(13, 18, 23, 0.92);
+  clip-path: polygon(0 0, calc(100% - 9px) 0, 100% 9px, 100% 100%, 0 100%);
+}
+
+.home-page .characters-row__scroll {
+  gap: 12px;
+  margin: 0 -20px;
+  padding: 16px 20px 24px;
+  scroll-snap-type: x mandatory;
+}
+
+.home-page .character-card {
+  width: 152px;
+  height: 230px;
+  overflow: hidden;
+  scroll-snap-align: start;
+  border-color: rgba(157, 78, 221, 0.34);
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%);
+}
+
+.home-page .character-card:hover {
+  transform: translateY(-5px);
+}
+
+.home-page .book-chapters-title {
+  margin-inline: 20px;
+}
+
+.home-page .book-chapters-scroll {
+  padding-inline: 20px;
+}
+
+.home-page .music-carousel {
+  margin-top: 8px;
+}
+
+.home-page .games-carousel-card {
+  color: inherit;
+  text-align: left;
+  box-shadow: 0 10px 38px rgba(0, 0, 0, 0.32), inset 3px 0 var(--cor-neon);
+}
+
+.home-support,
+.newsletter-cta {
+  position: relative;
+  padding: 56px 0;
+  background: linear-gradient(135deg, rgba(255, 159, 28, 0.14), rgba(7, 10, 13, 0.98) 58%);
+  border-block: 1px solid rgba(255, 159, 28, 0.3);
+}
+
+.home-support__inner {
+  display: grid;
+  gap: 22px;
+  padding: 24px;
+  border: 1px solid rgba(255, 159, 28, 0.38);
+  background: rgba(12, 11, 10, 0.78);
+  box-shadow: inset 3px 0 var(--home-amber), 0 18px 42px rgba(0, 0, 0, 0.25);
+}
+
+.home-support__title,
+.newsletter-cta h3 {
+  margin: 0 0 8px;
+  color: #fff;
+  font: 700 1.45rem 'Rajdhani', sans-serif;
+  letter-spacing: 0.08em;
+}
+
+.home-support__text,
+.newsletter-cta p {
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+.home-support__cta,
+.newsletter-cta__btn {
+  display: inline-grid;
+  place-items: center;
+  padding: 10px 18px;
+  border: 1px solid var(--home-amber);
+  background: var(--home-amber);
+  color: #080808;
+  font: 700 0.78rem 'JetBrains Mono', monospace;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+}
+
+.newsletter-cta {
+  text-align: center;
+  background: linear-gradient(180deg, #0b1015, #050709);
+  border-color: rgba(0, 229, 255, 0.2);
+}
+
+.newsletter-cta__btn {
+  margin-top: 20px;
+  border-color: var(--home-cyan);
+  background: transparent;
+  color: var(--home-cyan);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-page *,
+  .home-page *::before,
+  .home-page *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

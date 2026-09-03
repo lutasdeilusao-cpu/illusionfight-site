@@ -160,8 +160,8 @@
     "semantic_hash": "510a9ffca88eb0789eeddb9fe4d08d87"
   },
   "src/App.jsx": {
-    "mtime": 1788400472.274304,
-    "ast_hash": "69dedcc71564d8369d36e8243521f5a0",
+    "mtime": 1788404626.3513243,
+    "ast_hash": "a6411e83ea0dc27260ec414d3cf9fe88",
     "semantic_hash": ""
   },
   "src/components/AchievementToast/AchievementToast.jsx": {
@@ -174,20 +174,10 @@
     "ast_hash": "f4eb415c72f109169969124adff8741c",
     "semantic_hash": "f4eb415c72f109169969124adff8741c"
   },
-  "src/components/BookChaptersRow.jsx": {
-    "mtime": 1788400705.6010606,
-    "ast_hash": "7016ea1362f049d746acedb22f82f526",
-    "semantic_hash": ""
-  },
   "src/components/CharacterCard.jsx": {
     "mtime": 1780350264.5798957,
     "ast_hash": "c9a05f245d2710d938b2cabf215f71e9",
     "semantic_hash": "c9a05f245d2710d938b2cabf215f71e9"
-  },
-  "src/components/CharactersRow.jsx": {
-    "mtime": 1780853960.0127757,
-    "ast_hash": "33a498cc9f60b34e013fb340738052bc",
-    "semantic_hash": "33a498cc9f60b34e013fb340738052bc"
   },
   "src/components/CookieBanner.jsx": {
     "mtime": 1787852555.6548302,
@@ -214,11 +204,6 @@
     "ast_hash": "8a599e26aa77ddc82eb509881e361cb0",
     "semantic_hash": "8a599e26aa77ddc82eb509881e361cb0"
   },
-  "src/components/HeroSlideshow.jsx": {
-    "mtime": 1788384236.5842562,
-    "ast_hash": "9d89e1a7eb9d7cf8cf1c84b302766a85",
-    "semantic_hash": ""
-  },
   "src/components/Jokempo/Jokempo.jsx": {
     "mtime": 1782588148.7067943,
     "ast_hash": "ae86f2dddcdd6302fda84106ca719b44",
@@ -228,11 +213,6 @@
     "mtime": 1781029227.1117108,
     "ast_hash": "ff66cf165de51fa16ba51e18863d82fb",
     "semantic_hash": "ff66cf165de51fa16ba51e18863d82fb"
-  },
-  "src/components/LatestEpisodes.jsx": {
-    "mtime": 1788400782.8144984,
-    "ast_hash": "1d48a49bdd03c56f2eff0fde796b8dfc",
-    "semantic_hash": ""
   },
   "src/components/LoginGate/LoginGate.jsx": {
     "mtime": 1780853960.0629883,
@@ -249,20 +229,10 @@
     "ast_hash": "266ca415119946a769d0dac2ab74d642",
     "semantic_hash": "266ca415119946a769d0dac2ab74d642"
   },
-  "src/components/MusicSection.jsx": {
-    "mtime": 1787869841.5492222,
-    "ast_hash": "d6d16e2a542adfa146e5b8c9cdf32ced",
-    "semantic_hash": ""
-  },
   "src/components/Navbar.jsx": {
     "mtime": 1788403996.7821803,
     "ast_hash": "7850cc5f8db901ac50fd2e3df20f931a",
     "semantic_hash": ""
-  },
-  "src/components/NowLive.jsx": {
-    "mtime": 1781917844.0391407,
-    "ast_hash": "a79b3d7f6661f2938fa8866a4f87ce1c",
-    "semantic_hash": "a79b3d7f6661f2938fa8866a4f87ce1c"
   },
   "src/components/PlatformIcons.jsx": {
     "mtime": 1780358628.1654365,
@@ -359,11 +329,6 @@
     "ast_hash": "eddbc725d4466f6cc0f527238c601944",
     "semantic_hash": ""
   },
-  "src/components/StoryProgress.jsx": {
-    "mtime": 1782441990.1019998,
-    "ast_hash": "256fe822ab358db5e59927503fd8e8f5",
-    "semantic_hash": "256fe822ab358db5e59927503fd8e8f5"
-  },
   "src/components/TopTrumpsCard/TopTrumpsCard.jsx": {
     "mtime": 1782448783.9521353,
     "ast_hash": "d6bb1dd52ef6512e98fb5b769da4cb8b",
@@ -405,8 +370,8 @@
     "semantic_hash": "b11265c546f5970b719233c19e1b2c2d"
   },
   "src/config/version.js": {
-    "mtime": 1788403980.7246099,
-    "ast_hash": "64c350eae4d9483a57231dd5d0af97ec",
+    "mtime": 1788404436.398149,
+    "ast_hash": "7d24b30f6d457e5503c53708f334b4a6",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -650,18 +615,18 @@
     "semantic_hash": "04fe18f6b87b3e1315a9343353aef1fc"
   },
   "src/i18n/en.json": {
-    "mtime": 1788404011.084115,
-    "ast_hash": "eff8f79c0dc940bbe7c218013d83c7d2",
+    "mtime": 1788404676.4806151,
+    "ast_hash": "ac4f383dd91073682788940f4e5ba41e",
     "semantic_hash": ""
   },
   "src/i18n/es.json": {
-    "mtime": 1788404011.0851119,
-    "ast_hash": "e6e2ae717aab5ae5f0b74a306dd923f8",
+    "mtime": 1788404676.486128,
+    "ast_hash": "3e3e1e76f002298ec6c8091d5f6c4432",
     "semantic_hash": ""
   },
   "src/i18n/locales.js": {
-    "mtime": 1785962758.0190897,
-    "ast_hash": "51c58eee6d4062855567df6d2f3e29b6",
+    "mtime": 1788404685.3046126,
+    "ast_hash": "4cacdd2ba942968cb196a37dfb6509bb",
     "semantic_hash": ""
   },
   "src/i18n/pp_en.json": {
@@ -680,8 +645,8 @@
     "semantic_hash": "fff728f6c525ec64a386f467142b28dc"
   },
   "src/i18n/pt.json": {
-    "mtime": 1788404011.0821066,
-    "ast_hash": "ccd44e49cd4a753a7d909ba654ad2336",
+    "mtime": 1788404676.4763002,
+    "ast_hash": "437825fa1dbe1d8696d3075ef255ff54",
     "semantic_hash": ""
   },
   "src/i18n/tt_en.json": {
@@ -2334,11 +2299,6 @@
     "ast_hash": "d8562538008fae02579714d721204248",
     "semantic_hash": "d8562538008fae02579714d721204248"
   },
-  "src/pages/site/Home.jsx": {
-    "mtime": 1787869933.2237644,
-    "ast_hash": "3c3551e14dae80a9f8fe36a534f8961f",
-    "semantic_hash": ""
-  },
   "src/pages/site/Loja/Loja.jsx": {
     "mtime": 1787875681.3736324,
     "ast_hash": "3941bf95a5487ec52aec7f931f11dfbc",
@@ -2830,8 +2790,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1788403980.7266092,
-    "ast_hash": "7339a5d86acfb91414d3bda87a80ff08",
+    "mtime": 1788405192.495146,
+    "ast_hash": "eea1eef148589c83b90b2664db025e51",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -4702,6 +4662,61 @@
   "src/assets/obras/mundo-das-sombras/capa.webp": {
     "mtime": 1788380620.083782,
     "ast_hash": "c8f247a797f457d099637d9dad4d8bc6",
+    "semantic_hash": ""
+  },
+  "src/i18n/home_en.json": {
+    "mtime": 1788404981.8951042,
+    "ast_hash": "555e6f3cdea0a4228f04aabf70a1887a",
+    "semantic_hash": ""
+  },
+  "src/i18n/home_es.json": {
+    "mtime": 1788404981.8963144,
+    "ast_hash": "227b97528f2b2f2eba64e4cc33226405",
+    "semantic_hash": ""
+  },
+  "src/i18n/home_pt.json": {
+    "mtime": 1788404981.893381,
+    "ast_hash": "fbf2a1f37607b8b1167240200d548674",
+    "semantic_hash": ""
+  },
+  "src/pages/site/Home/Home.jsx": {
+    "mtime": 1788404959.7393973,
+    "ast_hash": "3c32d569464b4d6b5f90d59d55fb3cc2",
+    "semantic_hash": ""
+  },
+  "src/pages/site/Home/components/BookChaptersRow.jsx": {
+    "mtime": 1788404959.7373958,
+    "ast_hash": "13bde65f694d0ce7db58cab90547d195",
+    "semantic_hash": ""
+  },
+  "src/pages/site/Home/components/CharactersRow.jsx": {
+    "mtime": 1788404922.650079,
+    "ast_hash": "6a3de0bb0009d42a738be57a6080740f",
+    "semantic_hash": ""
+  },
+  "src/pages/site/Home/components/HeroSlideshow.jsx": {
+    "mtime": 1788404959.7383952,
+    "ast_hash": "7d36d9e6e98cbc7a43a2a196f073201c",
+    "semantic_hash": ""
+  },
+  "src/pages/site/Home/components/LatestEpisodes.jsx": {
+    "mtime": 1788404942.409199,
+    "ast_hash": "cb93737f3771fd5a1fd3b7be7b58274a",
+    "semantic_hash": ""
+  },
+  "src/pages/site/Home/components/MusicSection.jsx": {
+    "mtime": 1788405210.6631594,
+    "ast_hash": "02ca35086551f2f66bbc3c4042adadd7",
+    "semantic_hash": ""
+  },
+  "src/pages/site/Home/components/NowLive.jsx": {
+    "mtime": 1788405210.6641579,
+    "ast_hash": "86f714fa84538730bf72a0d5a9bf107b",
+    "semantic_hash": ""
+  },
+  "src/pages/site/Home/components/StoryProgress.jsx": {
+    "mtime": 1788405210.6651592,
+    "ast_hash": "9d572da0bbbe1eda6762a922239d0665",
     "semantic_hash": ""
   }
 }
