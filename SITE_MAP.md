@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — MAPA DO SITE E DO PROJETO
 
 > Referência do estado atual do projeto para navegação humana e contexto de IA.
-> Atualizado em 2026-09-03 — `SITE_VERSION` **10.202.0**.
+> Atualizado em 2026-09-03 — `SITE_VERSION` **10.203.0**.
 > Histórico de tarefas, bugfixes e pendências não pertence a este documento.
 > Regras de trabalho, arquivos proibidos e decisões arquiteturais: `AGENTS.md`.
 
@@ -308,6 +308,24 @@ As Edge Functions ficam em `supabase/functions/`; o frontend de assinatura está
 - O portal pode ser instalado como PWA no Android. Quando aberto pelo ícone instalado, solicita `fullscreen`, com fallback para `standalone`; uma aba comum do navegador não pode esconder suas barras automaticamente.
 
 ## 10. Camadas visuais globais
+
+### 10.1 Coluna única mobile
+
+O portal é **mobile only**: uma visão só, a do celular, em qualquer plataforma. Não existe visão desktop nem breakpoint que revele layout de tela grande — num monitor o site é o mesmo app de celular numa coluna centralizada, com o resto da tela servindo de moldura.
+
+A coluna vive em `src/index.css` e toda página herda (nenhuma repete `max-width`):
+
+| Token | Valor | Papel |
+|---|---|---|
+| `--app-w` | `480px` | Largura máxima da coluna (`#root`). Nunca muda. |
+| `--app-gutter` | `max(0px, (100vw - --app-w) / 2)` | Moldura de cada lado; `0` em telas estreitas. Confina os overlays `position: fixed`. |
+| `--app-vw` | `min(100vw, --app-w)` | Largura real da coluna. Substitui as unidades `vw`. |
+
+De 320px (iPhone SE) a 430px (Pro Max) a coluna ocupa 100% da tela; acima disso trava em 480px e centraliza.
+
+Overlays `fixed` escapam do `#root`, então são presos à coluna por `left/right: var(--app-gutter)`: Navbar, Rádio Nina (barra e paleta), CookieBanner, TrialBanner, LDINotification, UnifiedNotification, drawer-overlay e SearchModal. O drawer da navbar é ancorado só pela direita e seu deslocamento de fechado soma `--app-gutter`, senão estacionaria visível ao lado da coluna em vez de sair da tela. O `ScrollToTop` recua 16px da borda direita da coluna.
+
+Media queries de viewport e unidades `vw` medem a tela, não a coluna, e por isso quebram a visão única no desktop — as regras de conversão estão em `AGENTS.md` e na Bíblia §4.
 
 | Camada | z-index |
 |---|---:|

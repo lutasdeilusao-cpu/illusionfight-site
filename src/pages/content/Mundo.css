@@ -7,7 +7,7 @@
 .mundo-hero__title {
   font-family: 'Rajdhani', sans-serif;
   font-weight: 700;
-  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-size: clamp(2.5rem, calc(6 * var(--app-vw) / 100), 4rem);
   color: var(--accent-teal);
   margin: 0 0 0.75rem;
   letter-spacing: 0.08em;
@@ -520,10 +520,9 @@
   width: 100%;
 }
 
-@media (max-width: 768px) {
-  .mundo-combat-grid { grid-template-columns: 1fr; }
-  .mundo-tech-grid { grid-template-columns: 1fr; }
-}
+.mundo-combat-grid { grid-template-columns: 1fr; }
+.mundo-tech-grid { grid-template-columns: 1fr; }
+
 
 .mundo-hero__voltar {
   display: inline-block;

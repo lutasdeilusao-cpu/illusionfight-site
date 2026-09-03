@@ -383,12 +383,7 @@
   color: var(--text-primary);
 }
 
-@media (min-width: 768px) {
-  .navbar__search-btn {
-    display: flex;
-    align-items: center;
-  }
-}
+
 
 .navbar__lang-btn:hover {
   color: var(--text-primary);
@@ -454,84 +449,67 @@
   gap: 1rem;
 }
 
-@media (min-width: 768px) {
-  .navbar__hamburger {
-    display: none;
-  }
 
-  .navbar__links {
-    display: flex;
-  }
 
-  .navbar__lang {
-    display: flex;
-  }
-
-  .navbar__social {
-    display: flex;
-  }
+.navbar,
+.navbar.navbar--scrolled {
+  height: 48px;
+  padding: 0;
+  background: #04384b;
+  border-bottom: 2px solid var(--accent-teal);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
-@media (max-width: 767px) {
-  .navbar,
-  .navbar.navbar--scrolled {
-    height: 48px;
-    padding: 0;
-    background: #04384b;
-    border-bottom: 2px solid var(--accent-teal);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-  }
-
-  .navbar__inner.container {
-    width: 100%;
-    height: 46px;
-    gap: 0.75rem;
-    padding-right: 0.75rem;
-    padding-left: 0.75rem;
-  }
-
-  .navbar__mobile-spacer {
-    display: block;
-    height: 48px;
-  }
-
-  .navbar__logo-img {
-    width: 24px;
-    height: 24px;
-  }
-
-  .navbar__hamburger {
-    padding: 3px;
-  }
-
-  .navbar__hamburger span {
-    width: 18px;
-  }
-
-  .navbar__hamburger span {
-    background: #fff;
-  }
-
-  .navbar__login {
-    color: #fff;
-    font-size: 0.85rem;
-  }
-
-  .navbar__auth-actions {
-    gap: 0.5rem;
-  }
-
-  .navbar__cta {
-    color: #fff;
-    background: #c74617;
-    border-color: #ff7a45;
-    border-radius: 6px;
-    padding: 0.3rem 0.65rem;
-    font-size: 0.75rem;
-  }
+.navbar__inner.container {
+  width: 100%;
+  height: 46px;
+  gap: 0.75rem;
+  padding-right: 0.75rem;
+  padding-left: 0.75rem;
 }
+
+.navbar__mobile-spacer {
+  display: block;
+  height: 48px;
+}
+
+.navbar__logo-img {
+  width: 24px;
+  height: 24px;
+}
+
+.navbar__hamburger {
+  padding: 3px;
+}
+
+.navbar__hamburger span {
+  width: 18px;
+}
+
+.navbar__hamburger span {
+  background: #fff;
+}
+
+.navbar__login {
+  color: #fff;
+  font-size: 0.85rem;
+}
+
+.navbar__auth-actions {
+  gap: 0.5rem;
+}
+
+.navbar__cta {
+  color: #fff;
+  background: #c74617;
+  border-color: #ff7a45;
+  border-radius: 6px;
+  padding: 0.3rem 0.65rem;
+  font-size: 0.75rem;
+}
+
 
 /* Navigation refresh — glass, active route signal and cinematic drawer. */
 .navbar {
@@ -615,7 +593,7 @@
 }
 
 .drawer {
-  width: min(88vw, 360px);
+  width: min(calc(88 * var(--app-vw) / 100), 360px);
   padding: 1.25rem 1.4rem 1.5rem;
   border-left-color: rgba(24, 218, 251, 0.44);
   background: radial-gradient(circle at 100% 0, rgba(0, 180, 216, 0.14), transparent 34%), linear-gradient(160deg, #0b151a, #070b0e 65%);

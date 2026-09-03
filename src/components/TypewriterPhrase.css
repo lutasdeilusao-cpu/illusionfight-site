@@ -38,14 +38,13 @@
   51%, 100% { opacity: 0; }
 }
 
-@media (max-width: 768px) {
-  .typewriter {
-    padding: 10px 16px;
-    max-width: 90vw;
-  }
-
-  .typewriter__text,
-  .typewriter__cursor {
-    font-size: 0.85rem;
-  }
+.typewriter {
+  padding: 10px 16px;
+  max-width: calc(90 * var(--app-vw) / 100);
 }
+
+.typewriter__text,
+.typewriter__cursor {
+  font-size: 0.85rem;
+}
+

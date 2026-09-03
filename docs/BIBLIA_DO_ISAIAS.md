@@ -52,7 +52,7 @@ Não substitui grep/prova de leitura em tasks de bug — a regra de colar output
 
 ## 1. Filosofia
 
-**Mobile-first de verdade — não existe desktop.** Todo jogo/página, em qualquer dispositivo, parece um app de celular: container `max-width: 480px; margin: 0 auto`, backgrounds em `position: fixed; inset: 0` atrás do container. Nunca esticar horizontalmente.
+**MOBILE ONLY — não é mobile-first, é mobile e ponto.** O portal tem UMA visão só, a do celular, não importa a plataforma que acessa. Não existe visão desktop, nem "versão desktop do componente X", nem breakpoint que revela algo a mais em tela grande. Num monitor de 1920px o site é exatamente o mesmo app de celular, numa coluna centralizada — o resto da tela é só moldura. Isso vale para TODA página, jogo, overlay e componente. Detalhes de implementação em §4.
 
 **Cada pixel é intencional.** Nada de padding/margem/gap arbitrário — ver tabela exata em §4. Se não tiver certeza do resultado visual, ler o CSS existente e entender o fluxo antes de editar. "Fazer por fazer" não é aceito; correção esperada já na primeira tentativa, mas refazer 2-3x até acertar é normal.
 
@@ -111,14 +111,22 @@ Não substitui grep/prova de leitura em tasks de bug — a regra de colar output
 
 ## 4. Layout & CSS
 
-**Container vertical (regra geral):**
+**A coluna única (regra do portal inteiro).** `#root` já é a coluna, em `src/index.css`:
 ```css
-.kg-page, .game-wrapper /* qualquer container de jogo */ {
-  position: relative; width: 100%; max-width: 480px; /* NUNCA mude */
-  min-height: 100vh; margin: 0 auto; overflow: hidden;
+:root {
+  --app-w: 480px;                                          /* NUNCA mude */
+  --app-gutter: max(0px, calc((100vw - var(--app-w)) / 2));
+  --app-vw: min(100vw, var(--app-w));
 }
+#root { width: 100%; max-width: var(--app-w); margin: 0 auto; }
 ```
-Backgrounds (scanlines, grids) em `position: fixed; inset: 0` atrás do container. Esticar horizontalmente = errado.
+De 320px (iPhone SE) a 430px (Pro Max) a coluna é 100% da tela; acima disso trava em 480px e centraliza. Página nenhuma precisa repetir isso — herda. Backgrounds em `position: fixed; inset: 0` atrás da coluna. Esticar horizontalmente = errado.
+
+**As três armadilhas do mobile-only.** Todas medem o VIEWPORT, não a coluna — num desktop elas enxergam 1920px e quebram a visão única:
+
+1. **Media query.** `@media (max-width: 767px)` não dispara num desktop, então o estilo mobile some. Regra mecânica: `max-width` com valor **≥ 480** é sempre verdadeiro dentro da coluna → desembrulhe o bloco (vira CSS normal). `min-width` com valor **≥ 480** é estilo desktop → apague o bloco. Só sobrevive query abaixo de 480 (refinamento de telefone pequeno) e as não-dimensionais (`prefers-reduced-motion`, `orientation`).
+2. **Unidade `vw`.** `78vw` num desktop = 1497px. Use `calc(78 * var(--app-vw) / 100)`. Vale para `clamp(..., Nvw, ...)` de fonte também — senão o desktop trava sempre no máximo e o celular não.
+3. **`position: fixed`.** Escapa da coluna e cola na borda da tela. Confine com `left/right: var(--app-gutter)` (bloco pronto em `index.css`); painel ancorado à direita, como o drawer, leva só `right`. Foi o que consertou a Rádio Nina atravessando o monitor inteiro.
 
 **Botão voltar:**
 - Nível 2 (menu dificuldade → catálogo Kernel Games): `onBack` prop → `navigate('/games')`
@@ -142,7 +150,7 @@ Backgrounds (scanlines, grids) em `position: fixed; inset: 0` atrás do containe
 
 **HUD padrão:** `[← back 44×44] [timer/vidas] [centro] [dificuldade]` — back 44×44px borda 1px cyan; `flex-shrink: 0; border-bottom: 1px solid var(--ghost)`.
 
-**Mobile-first não é media query no fim.** Errado: CSS de desktop "consertado" com `@media`. Certo: pensar em portrait desde o início — `max-width: 480px` já resolve a adaptação.
+**Mobile-only não é media query no fim.** Errado: CSS de desktop "consertado" com `@media`. Certo: pensar em portrait desde o início — a coluna `--app-w` já resolve a adaptação. Media query que revela layout de tela grande não será aceita.
 
 **CSS custom properties:** globais em `src/index.css :root` (`--bg-primary`, `--accent-teal`, etc.); por jogo com prefixo (`--pp-jack`, `--tt-orange`, `--cp-cyan`, `--sr-ghost`); dinâmicas via inline (`--cor-neon`, `--pct`, `--delay`).
 

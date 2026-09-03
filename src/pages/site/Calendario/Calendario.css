@@ -2,7 +2,7 @@
 .calendar-grid { position: absolute; inset: 0; z-index: -1; opacity: .13; background-image: linear-gradient(rgba(0, 213, 255, .22) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 213, 255, .22) 1px, transparent 1px); background-size: 28px 28px; mask-image: linear-gradient(to bottom, black, transparent 65%); }
 .calendar-hero { padding: 28px 20px; border: 1px solid rgba(32, 220, 255, .38); background: linear-gradient(145deg, rgba(10, 35, 46, .94), rgba(4, 10, 14, .96)); box-shadow: 0 24px 70px rgba(0,0,0,.48), inset 0 1px rgba(255,255,255,.08); clip-path: polygon(0 0, calc(100% - 22px) 0, 100% 22px, 100% 100%, 0 100%); }
 .calendar-kicker, .calendar-section-heading span { font: 700 .66rem/1 var(--font-mono); letter-spacing: .2em; color: #18dafb; text-transform: uppercase; }
-.calendar-hero h1 { margin: 12px 0 14px; font: 800 clamp(2.1rem, 10vw, 3.4rem)/.92 var(--font-display); letter-spacing: -.04em; text-transform: uppercase; text-shadow: 0 0 28px rgba(24,218,251,.26); }
+.calendar-hero h1 { margin: 12px 0 14px; font: 800 clamp(2.1rem, calc(10 * var(--app-vw) / 100), 3.4rem)/.92 var(--font-display); letter-spacing: -.04em; text-transform: uppercase; text-shadow: 0 0 28px rgba(24,218,251,.26); }
 .calendar-manifesto { margin: 0; color: #b9cbd1; font: 500 1rem/1.55 var(--font-body); }
 .calendar-cadence { display: flex; align-items: center; gap: 9px; margin-top: 20px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,.08); color: #fff; font: 700 .74rem/1.4 var(--font-mono); }
 .calendar-pulse { width: 8px; height: 8px; flex: none; border-radius: 50%; background: #ffae32; box-shadow: 0 0 0 0 rgba(255,174,50,.5); animation: calendarPulse 2s infinite; }

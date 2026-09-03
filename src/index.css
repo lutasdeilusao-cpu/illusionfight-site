@@ -11,6 +11,15 @@
 }
 
 :root {
+  /* ── Visão única mobile ──
+     --app-w: largura máxima da coluna do portal. NUNCA existe visão desktop.
+     --app-gutter: sobra de cada lado quando a tela é maior que a coluna;
+     é 0 em telas estreitas, então overlays fixos coincidem com a coluna. */
+  --app-w: 480px;
+  --app-gutter: max(0px, calc((100vw - var(--app-w)) / 2));
+  /* Largura real da coluna. Use no lugar das unidades vw: `vw` mede o
+     viewport, então num desktop daria a tela toda em vez da coluna. */
+  --app-vw: min(100vw, var(--app-w));
   /* Altura reservada pela barra da Rádio Nina (0 quando escondida). Setada em JS. */
   --radio-nina-h: 0px;
   --bg-primary:     #0B0D0F;
@@ -70,6 +79,67 @@ body {
   max-width: 100%;
 }
 
+/* ══════════════════════════════════════════════════════════════
+   VISÃO ÚNICA MOBILE — o portal não tem versão desktop.
+   Em qualquer plataforma o app vive numa coluna de no máximo
+   --app-w. De 320px (iPhone SE) a 430px (Pro Max) a coluna é
+   100% da tela; acima disso ela trava em 480px e centraliza.
+   Overlays `position: fixed` escapam do #root, então são
+   confinados à mesma coluna por --app-gutter (ver abaixo).
+   ══════════════════════════════════════════════════════════════ */
+#root {
+  position: relative;
+  width: 100%;
+  max-width: var(--app-w);
+  margin: 0 auto;
+  min-height: 100vh;
+  background: var(--bg-primary);
+}
+
+/* Moldura fora da coluna (só aparece em telas largas) */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(900px 600px at 50% 0%, rgba(0, 180, 216, 0.06), transparent 70%),
+    var(--bg-primary);
+}
+
+/* Overlays fixos: colam nas bordas da coluna, não do viewport.
+   max() mantém 0 em telas estreitas — sem media query. */
+.navbar,
+.radio-nina,
+.radio-nina-lista,
+.cookie-banner,
+.trial-banner,
+.ldi-notification,
+.unified-notification,
+.drawer-overlay,
+.search-modal-overlay {
+  left: var(--app-gutter) !important;
+  right: var(--app-gutter) !important;
+}
+
+/* O drawer desliza a partir da borda DIREITA da coluna — só o `right` é
+   fixado, largura relativa à coluna, igual ao celular. O deslocamento de
+   fechado precisa somar a moldura (--app-gutter): senão ele estaciona
+   visível ao lado da coluna em vez de sair da tela. */
+.drawer {
+  right: var(--app-gutter) !important;
+  width: min(calc(0.88 * var(--app-vw)), 360px) !important;
+  transform: translateX(calc(100% + var(--app-gutter))) !important;
+}
+
+.drawer.is-open {
+  transform: translateX(0) !important;
+}
+
+.scroll-top-btn {
+  right: calc(var(--app-gutter) + 16px) !important;
+}
+
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -114,15 +184,9 @@ ul, ol {
 }
 
 .container {
-  max-width: 1200px;
+  max-width: var(--app-w);
   margin: 0 auto;
   padding: 0 1.5rem;
-}
-
-@media (min-width: 768px) {
-  .container {
-    padding: 0 2rem;
-  }
 }
 
 .section-title {
@@ -375,7 +439,7 @@ ul, ol {
 .seo-static-home {
   position: relative;
   overflow: hidden;
-  padding: clamp(5rem, 12vh, 8rem) clamp(1.5rem, 6vw, 6rem) 2rem;
+  padding: clamp(5rem, 12vh, 8rem) clamp(1.5rem, calc(6 * var(--app-vw) / 100), 6rem) 2rem;
 }
 
 .seo-static-home::after {
@@ -400,9 +464,8 @@ ul, ol {
   max-width: 700px;
 }
 
-@media (max-width: 768px) {
-  .route-loading,
-  #root > .seo-static-home {
-    min-height: 70vh;
-  }
+.route-loading,
+#root > .seo-static-home {
+  min-height: 70vh;
 }
+

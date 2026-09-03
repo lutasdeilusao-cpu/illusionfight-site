@@ -108,11 +108,10 @@ a.cap-card:hover {
   color: var(--accent-amber);
 }
 
-@media (max-width: 520px) {
-  .cap-card__thumb {
-    flex-basis: 74px;
-    width: 74px;
-    height: 100px;
-  }
-  .cap-card__titulo { font-size: 1rem; }
+.cap-card__thumb {
+  flex-basis: 74px;
+  width: 74px;
+  height: 100px;
 }
+.cap-card__titulo { font-size: 1rem; }
+

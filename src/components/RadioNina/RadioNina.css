@@ -381,7 +381,7 @@ body.radio-nina-top.has-desktop-shell-bar .navbar.navbar--scrolled { top: 88px; 
   right: 0;
   bottom: 54px;
   z-index: 501;
-  width: min(360px, 100vw);
+  width: min(360px, calc(100 * var(--app-vw) / 100));
   max-height: 58vh;
   display: flex;
   flex-direction: column;

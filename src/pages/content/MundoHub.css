@@ -21,8 +21,7 @@
   color: var(--mh-accent);
 }
 
-@media (max-width: 720px) {
-  .mundo-hub-page .hub-card {
-    flex-basis: 100%;
-  }
+.mundo-hub-page .hub-card {
+  flex-basis: 100%;
 }
+

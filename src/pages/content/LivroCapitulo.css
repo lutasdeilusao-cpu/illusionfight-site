@@ -244,13 +244,12 @@
   text-align: center;
 }
 
-@media (max-width: 600px) {
-  .reader-settings-wrap {
-    top: auto;
-    bottom: calc(160px + var(--radio-nina-h, 0px));
-    right: 1rem;
-  }
+.reader-settings-wrap {
+  top: auto;
+  bottom: calc(160px + var(--radio-nina-h, 0px));
+  right: 1rem;
 }
+
 .livro-capitulo__sentinel {
   height: 1px;
 }

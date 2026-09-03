@@ -219,8 +219,7 @@
   color: var(--text-muted);
 }
 
-@media (max-width: 620px) {
-  .historias-destaque__titulo { font-size: 1.35rem; }
-  .historias-destaque__text { padding: 1rem 1.2rem; }
-  .hub-card { flex-basis: 78vw; }
-}
+.historias-destaque__titulo { font-size: 1.35rem; }
+.historias-destaque__text { padding: 1rem 1.2rem; }
+.hub-card { flex-basis: calc(78 * var(--app-vw) / 100); }
+

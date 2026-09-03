@@ -108,7 +108,7 @@
 
 .home-page .hero-slideshow__title {
   max-width: 360px;
-  font-size: clamp(2.5rem, 12vw, 4.15rem);
+  font-size: clamp(2.5rem, calc(12 * var(--app-vw) / 100), 4.15rem);
   line-height: 0.88;
   text-wrap: balance;
 }

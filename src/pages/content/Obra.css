@@ -167,11 +167,10 @@
   color: var(--bg-primary);
 }
 
-@media (max-width: 620px) {
-  .obra-hero {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-  .obra-hero__badges { justify-content: center; }
+.obra-hero {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
+.obra-hero__badges { justify-content: center; }
+

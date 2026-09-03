@@ -47,11 +47,4 @@
 .footer__bottom { margin-top: 24px; padding-top: 18px; border-top: 1px solid rgba(0, 229, 255, 0.12); text-align: center; }
 .footer__bottom p { margin: 0; color: #65717a; font-size: .66rem; line-height: 1.5; }
 
-@media (min-width: 640px) {
-  .footer { padding-top: 46px; }
-  .footer__grid { grid-template-columns: repeat(3, 1fr); gap: 28px; }
-  .footer__heading { min-height: 0; margin-bottom: 14px; padding: 0 0 10px; cursor: default; }
-  .footer__chevron { display: none; }
-  .footer__list-wrap { max-height: none; overflow: visible; }
-  .footer__list { padding: 0; }
-}
+

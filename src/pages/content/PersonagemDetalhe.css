@@ -32,11 +32,7 @@
   align-items: start;
 }
 
-@media (min-width: 768px) {
-  .personagem-detail__grid {
-    grid-template-columns: 1fr 1fr;
-  }
-}
+
 
 .personagem-detail__image {
   width: 100%;

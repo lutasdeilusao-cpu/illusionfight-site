@@ -63,15 +63,14 @@
   line-height: 1.5;
 }
 
-@media (max-width: 560px) {
-  .contos-hero {
-    flex-direction: column;
-    text-align: center;
-  }
-  .livro-linhas {
-    justify-content: center;
-  }
+.contos-hero {
+  flex-direction: column;
+  text-align: center;
 }
+.livro-linhas {
+  justify-content: center;
+}
+
 
 /* ── Lista de histórias (cada card = uma história com N capítulos) ── */
 .contos-historias {

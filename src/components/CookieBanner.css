@@ -47,14 +47,13 @@
   color: var(--bg-primary);
 }
 
-@media (max-width: 768px) {
-  .cookie-banner {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .cookie-banner-btn {
-    align-self: stretch;
-    text-align: center;
-  }
+.cookie-banner {
+  flex-direction: column;
+  align-items: flex-start;
 }
+
+.cookie-banner-btn {
+  align-self: stretch;
+  text-align: center;
+}
+
