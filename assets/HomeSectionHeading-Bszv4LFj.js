@@ -1,0 +1,2 @@
+import{t as e}from"./jsx-runtime-BnvnyDTF.js";var t=e();function n({eyebrow:e,title:n,description:r,className:i=``}){return(0,t.jsxs)(`header`,{className:`home-section-heading${i?` ${i}`:``}`,children:[(0,t.jsx)(`span`,{className:`home-section-heading__eyebrow`,children:e}),(0,t.jsx)(`h2`,{className:`home-section-heading__title`,children:n}),r&&(0,t.jsx)(`p`,{className:`home-section-heading__description`,children:r})]})}export{n as t};
+//# sourceMappingURL=HomeSectionHeading-Bszv4LFj.js.map
