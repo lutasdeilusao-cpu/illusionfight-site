@@ -22,7 +22,7 @@
 
 .gangues-header { padding: 20px; text-align: center; }
 .gangues-back {
-  background: none; border: 1px solid #333; color: #666;
+  background: none; border: 1px solid #333; color: #a4adb6;
   padding: 4px 12px; cursor: pointer; font-family: inherit; font-size: 12px;
   display: inline-block; margin-bottom: 12px;
 }
@@ -48,17 +48,17 @@
 @keyframes gangues-glitch-2 {
   0% { transform: translate(0); } 20% { transform: translate(2px, -1px); } 100% { transform: translate(-1px, 1px); }
 }
-.gangues-sub { color: #666; font-size: 12px; }
+.gangues-sub { color: #a4adb6; font-size: 12px; }
 .gangues-cursor { animation: gangues-blink 1s step-end infinite; color: var(--if-teal); }
 @keyframes gangues-blink { 50% { opacity: 0; } }
 .gangues-titulo-menor { font-size: 20px; color: var(--if-amber); text-align: center; margin: 0 0 12px; }
 
 .gangues-section-label {
   display: flex; align-items: center; gap: 12px; padding: 16px 20px 8px;
-  font-size: 12px; color: #555; letter-spacing: 2px;
+  font-size: 12px; color: #9aa3ad; letter-spacing: 2px;
 }
 .gangues-section-linha { flex: 1; height: 1px; background: #222; }
-.gangues-loading, .gangues-empty { text-align: center; color: #666; padding: 40px; }
+.gangues-loading, .gangues-empty { text-align: center; color: #a4adb6; padding: 40px; }
 
 /* ===== LOBBY ===== */
 .gang-lobby {}
@@ -91,7 +91,7 @@
   margin: 0 0 16px; font-family: 'Rajdhani', sans-serif; line-height: 1;
 }
 
-.gang-lobby-sub { font-size: 12px; color: #444; letter-spacing: 3px; font-family: 'Courier New', monospace; }
+.gang-lobby-sub { font-size: 12px; color: #8b93a0; letter-spacing: 3px; font-family: 'Courier New', monospace; }
 
 .gang-lobby-divider--gap { margin: 24px auto; }
 
@@ -104,7 +104,7 @@
 .gang-lobby-section-label--row { display: flex; justify-content: space-between; align-items: center; }
 
 .gang-lobby-section-label {
-  font-size: 10px; letter-spacing: 4px; color: #333; text-transform: uppercase;
+  font-size: 10px; letter-spacing: 4px; color: #8b93a0; text-transform: uppercase;
   font-family: 'Courier New', monospace; margin-bottom: 16px; width: 100%; max-width: 560px;
 }
 
@@ -145,15 +145,15 @@
 .gang-sheet-name-v { font-size: 17px; font-weight: 700; color: #eee; margin-bottom: 4px; font-family: 'Rajdhani', sans-serif; letter-spacing: 1px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 .gangues-temp-badge { font-size: 9px; font-weight: 600; color: var(--if-amber); background: rgba(245,166,35,0.12); border: 1px solid rgba(245,166,35,0.25); padding: 2px 8px; border-radius: 4px; letter-spacing: 0.5px; text-transform: uppercase; white-space: nowrap; }
 .gang-sheet-card-v--temp { border-left-color: var(--if-amber) !important; }
-.gang-sheet-meta { font-size: 10px; color: #555; letter-spacing: 2px; font-family: 'Courier New', monospace; margin-bottom: 12px; text-transform: uppercase; }
+.gang-sheet-meta { font-size: 10px; color: #9aa3ad; letter-spacing: 2px; font-family: 'Courier New', monospace; margin-bottom: 12px; text-transform: uppercase; }
 .gang-sheet-stats { display: flex; gap: 12px; }
 .gang-sheet-stat { display: flex; flex-direction: column; align-items: center; gap: 2px; }
-.gang-sheet-stat-label { font-size: 8px; color: #444; letter-spacing: 1px; font-family: 'Courier New', monospace; text-transform: uppercase; }
+.gang-sheet-stat-label { font-size: 8px; color: #8b93a0; letter-spacing: 1px; font-family: 'Courier New', monospace; text-transform: uppercase; }
 .gang-sheet-stat-val { font-size: 16px; font-weight: 700; color: var(--if-amber); font-family: 'Rajdhani', sans-serif; line-height: 1; }
-.gang-sheet-arrow { color: #333; font-size: 18px; flex-shrink: 0; transition: color 0.2s, transform 0.2s; }
+.gang-sheet-arrow { color: #8b93a0; font-size: 18px; flex-shrink: 0; transition: color 0.2s, transform 0.2s; }
 .gang-sheet-card-v:hover .gang-sheet-arrow { color: var(--if-teal); transform: translateX(4px); }
 
-.gang-new-sheet--back { border-color: rgba(255,255,255,0.1); color: #666; }
+.gang-new-sheet--back { border-color: rgba(255,255,255,0.1); color: #a4adb6; }
 
 .gang-new-sheet {
   width: 100%; max-width: 560px; margin-top: 8px; padding: 16px; text-align: center;
@@ -171,23 +171,55 @@
 .gang-onboarding-panel { width: 100%; max-width: 560px; padding: 32px; border: 1px solid rgba(0,180,216,0.2); background: linear-gradient(135deg, rgba(0,180,216,0.06), rgba(255,255,255,0.01)); box-shadow: 0 0 50px rgba(0,180,216,0.05); text-align: center; }
 .gang-onboarding-step { color: var(--if-teal); font-size: 10px; letter-spacing: 5px; }
 .gang-onboarding-panel h2 { margin: 14px 0 10px; color: var(--if-amber); font: 800 26px 'Rajdhani', sans-serif; letter-spacing: 5px; text-transform: uppercase; }
-.gang-onboarding-panel p { margin: 0 auto; max-width: 420px; color: #718089; font-size: 11px; line-height: 1.8; letter-spacing: 1px; }
+.gang-onboarding-panel p { margin: 0 auto; max-width: 420px; color: #aab3bb; font-size: 11px; line-height: 1.8; letter-spacing: 1px; }
 .gang-sheet-card-v--selected { border-color: rgba(0,180,216,0.45); background: rgba(0,180,216,0.07); box-shadow: -6px 0 32px rgba(0,180,216,0.16); }
 .gang-sheet-card-v:disabled { opacity: 0.28; cursor: not-allowed; transform: none; }
 .gang-sheet-card-v--enemy { width: 100%; color: inherit; text-align: left; }
 .gang-party-status { color: var(--if-teal); font: 800 24px 'Rajdhani', sans-serif; }
-.gang-party-counter { color: #66747b; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; }
+.gang-party-counter { color: #a4adb6; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; }
 
 .gang-sheet-card-actions { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+/* Era #8B0000 a 0.7 de opacidade — invisível no fundo escuro. Agora é um
+   X vermelho claro, com contorno, que dá pra ver e achar. */
 .gang-sheet-delete-btn {
-  background: none; border: 1px solid rgba(139, 0, 0, 0.4); color: #8B0000;
-  width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;
-  cursor: pointer; font-size: 13px; font-family: 'Courier New', monospace;
-  transition: all 0.2s ease; flex-shrink: 0; border-radius: 4px;
-  font-weight: 700; opacity: 0.7;
+  background: rgba(255, 107, 107, 0.1); border: 1px solid rgba(255, 107, 107, 0.5); color: #ff6b6b;
+  width: 30px; height: 30px; display: flex; align-items: center; justify-content: center;
+  cursor: pointer; font-size: 15px; line-height: 1; font-family: var(--font-mono);
+  transition: color 0.18s, border-color 0.18s, background 0.18s, transform 0.18s; flex-shrink: 0;
+  font-weight: 700;
+  clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 0 100%);
 }
-.gang-sheet-delete-btn:hover { border-color: #cc2222; color: #ff4444; background: rgba(200, 0, 0, 0.15); opacity: 1; transform: scale(1.15); }
+.gang-sheet-delete-btn:hover { border-color: #ff6b6b; color: #fff; background: #e0453f; transform: scale(1.08); }
 .gang-sheet-delete-btn:active { transform: scale(0.95); }
+
+/* ── LEVEL UP: pontos de XP para gastar ──
+   Era um "9 XP" apagado. Agora grita — pisca em âmbar pra puxar o olho. */
+.gang-sheet-xp-ready {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 8px;
+  font: 800 0.6rem var(--font-display);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #1b1000;
+  background: var(--if-amber);
+  box-shadow: 0 0 0 0 rgba(255, 174, 50, 0.6);
+  clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 0 100%);
+  animation: gang-levelup-pulso 1.6s ease-in-out infinite;
+}
+
+@keyframes gang-levelup-pulso {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 174, 50, 0.55); }
+  50% { box-shadow: 0 0 0 7px rgba(255, 174, 50, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gang-sheet-xp-ready { animation: none; }
+}
 
 /* ── XP Progress Bar ── */
 .gangues-xpbar {
@@ -213,7 +245,7 @@
 }
 .gangues-xpbar-count {
   font-size: 10px;
-  color: #888;
+  color: #b0b8bf;
   font-family: 'Courier New', monospace;
   letter-spacing: 1px;
 }
@@ -235,7 +267,7 @@
 .gangues-xpbar-remaining {
   display: block;
   font-size: 9px;
-  color: #666;
+  color: #a4adb6;
   font-family: 'Courier New', monospace;
   letter-spacing: 1px;
   margin-top: 3px;
@@ -250,7 +282,7 @@
   to   { opacity: 1;   text-shadow: 0 0 12px rgba(245,166,35,0.5); }
 }
 
-.gang-lobby-empty { text-align: center; color: #333; font-size: 13px; font-family: 'Courier New', monospace; padding: 40px 0; letter-spacing: 2px; }
+.gang-lobby-empty { text-align: center; color: #8b93a0; font-size: 13px; font-family: 'Courier New', monospace; padding: 40px 0; letter-spacing: 2px; }
 
 /* ===== LOBBY INTRO (NeoGuide) ===== */
 .gang-lobby-intro { display: flex; flex-direction: column; align-items: center; gap: 16px; padding: 0 20px; }
@@ -259,7 +291,7 @@
   background: #0d2a35; border: 2px solid var(--if-teal); color: var(--if-teal);
   display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0;
 }
-.gangues-ng-text { font-family: 'Courier New', monospace; font-size: 14px; color: #aaa; text-align: center; line-height: 1.7; max-width: 420px; }
+.gangues-ng-text { font-family: 'Courier New', monospace; font-size: 14px; color: #c6cdd2; text-align: center; line-height: 1.7; max-width: 420px; }
 .gangues-ng-cursor {
   display: inline-block; width: 8px; height: 16px; background: var(--if-teal);
   vertical-align: text-bottom; margin-left: 2px; animation: gangues-blink 0.8s step-end infinite;
@@ -273,7 +305,7 @@
 
 /* ===== ENEMY SELECT (legado — não usado no lobby novo) ===== */
 .gangues-enemy-list { display: flex; flex-direction: column; gap: 8px; padding: 0 20px; max-width: 600px; margin: 0 auto; }
-.gangues-enemy-tier-sep { font-size: 10px; color: #444; letter-spacing: 4px; text-transform: uppercase; padding: 12px 0 4px; border-top: 1px solid #1a1a1a; margin-top: 8px; }
+.gangues-enemy-tier-sep { font-size: 10px; color: #8b93a0; letter-spacing: 4px; text-transform: uppercase; padding: 12px 0 4px; border-top: 1px solid #1a1a1a; margin-top: 8px; }
 .gangues-enemy-card-v {
   display: flex; align-items: center; gap: 12px;
   background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06);
@@ -285,9 +317,9 @@
 .gangues-enemy-av { width: 40px; height: 40px; border-radius: 50%; background: var(--cor, #333); display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: bold; color: #fff; flex-shrink: 0; font-family: 'Courier New', monospace; opacity: 0.8; }
 .gangues-enemy-info { flex: 1; min-width: 0; }
 .gangues-enemy-name-v { font-size: 14px; color: #eee; margin-bottom: 2px; }
-.gangues-enemy-rank-v { font-size: 9px; color: #555; margin-bottom: 2px; }
-.gangues-enemy-attrs-v { font-size: 9px; color: #555; letter-spacing: 1px; }
-.gang-btn-sair { display: block; margin: 0 20px 20px; background: none; border: 1px solid #333; color: #666; padding: 8px 16px; cursor: pointer; font-family: inherit; }
+.gangues-enemy-rank-v { font-size: 9px; color: #9aa3ad; margin-bottom: 2px; }
+.gangues-enemy-attrs-v { font-size: 9px; color: #9aa3ad; letter-spacing: 1px; }
+.gang-btn-sair { display: block; margin: 0 20px 20px; background: none; border: 1px solid #333; color: #a4adb6; padding: 8px 16px; cursor: pointer; font-family: inherit; }
 .gang-btn-sair:hover { border-color: var(--if-teal); color: var(--if-teal); }
 
 /* ── SFX Toggle ── */
@@ -343,7 +375,7 @@
 .gangues-manual-drawer--open { right: 0; }
 .gangues-manual-drawer-header { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; border-bottom: 1px solid rgba(255,255,255,0.05); flex-shrink: 0; }
 .gangues-manual-drawer-titulo { font-size: 13px; letter-spacing: 6px; color: var(--if-teal); font-family: 'Courier New', monospace; }
-.gangues-manual-drawer-close { background: none; border: none; color: #555; font-size: 16px; cursor: pointer; transition: color 0.2s; padding: 4px 8px; }
+.gangues-manual-drawer-close { background: none; border: none; color: #9aa3ad; font-size: 16px; cursor: pointer; transition: color 0.2s; padding: 4px 8px; }
 .gangues-manual-drawer-close:hover { color: #eee; }
 .gangues-manual-drawer-body { flex: 1; overflow-y: auto; padding: 16px; }
 
@@ -351,20 +383,20 @@
 .gangues-manual-sections { display: flex; flex-direction: column; gap: 4px; }
 .gangues-manual-section { border: 1px solid rgba(255,255,255,0.04); }
 .gangues-manual-section-btn {
-  width: 100%; background: rgba(255,255,255,0.02); border: none; color: #aaa;
+  width: 100%; background: rgba(255,255,255,0.02); border: none; color: #c6cdd2;
   padding: 12px 16px; text-align: left; cursor: pointer; font-family: 'Courier New', monospace;
   font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
   display: flex; justify-content: space-between; align-items: center; transition: all 0.15s;
 }
 .gangues-manual-section-btn:hover { background: rgba(255,255,255,0.05); color: #eee; }
 .gangues-manual-section-btn--open { color: var(--if-teal); background: rgba(0,180,216,0.05); }
-.gangues-manual-section-arrow { font-size: 8px; color: #444; }
+.gangues-manual-section-arrow { font-size: 8px; color: #8b93a0; }
 .gangues-manual-section-body { padding: 16px; border-top: 1px solid rgba(255,255,255,0.04); background: rgba(0,0,0,0.2); }
-.gangues-manual-pre { font-family: 'Courier New', monospace; font-size: 10px; color: #888; line-height: 1.8; white-space: pre-wrap; margin: 0; }
+.gangues-manual-pre { font-family: 'Courier New', monospace; font-size: 10px; color: #b0b8bf; line-height: 1.8; white-space: pre-wrap; margin: 0; }
 .gangues-manual-pre--extra { margin-top: 12px; color: var(--if-amber); border-top: 1px solid rgba(245,166,35,0.1); padding-top: 12px; }
 .gangues-manual-table { width: 100%; border-collapse: collapse; font-family: 'Courier New', monospace; font-size: 10px; }
 .gangues-manual-td-key { color: var(--if-teal); padding: 5px 12px 5px 0; vertical-align: top; white-space: nowrap; width: 40%; }
-.gangues-manual-td-val { color: #666; padding: 5px 0; line-height: 1.5; }
+.gangues-manual-td-val { color: #a4adb6; padding: 5px 0; line-height: 1.5; }
 
 /* ===== ADV TOOLTIP ===== */
 .gangues-adv-tooltip {
@@ -380,7 +412,7 @@
   box-shadow: 0 4px 24px rgba(0,0,0,0.6);
 }
 .gangues-adv-tooltip-label { font-size: 11px; font-weight: 700; color: var(--if-amber); letter-spacing: 2px; margin-bottom: 6px; text-transform: uppercase; }
-.gangues-adv-tooltip-desc { font-size: 10px; color: #888; line-height: 1.6; }
+.gangues-adv-tooltip-desc { font-size: 10px; color: #b0b8bf; line-height: 1.6; }
 
 /* ===== CREATE REDESIGN (gc-*) ===== */
 .gc-header { display: flex; align-items: center; justify-content: space-between; padding: 20px 20px 16px; border-bottom: 1px solid rgba(255,255,255,0.05); margin-bottom: 8px; gap: 16px; }
@@ -389,7 +421,7 @@
 
 .gc-step { padding: 0 20px 40px; max-width: 600px; margin: 0 auto; min-height: 0; }
 
-.gc-section-label { font-size: 10px; letter-spacing: 4px; color: #333; text-transform: uppercase; font-family: 'Courier New', monospace; margin: 24px 0 12px; display: flex; align-items: center; gap: 12px; }
+.gc-section-label { font-size: 10px; letter-spacing: 4px; color: #8b93a0; text-transform: uppercase; font-family: 'Courier New', monospace; margin: 24px 0 12px; display: flex; align-items: center; gap: 12px; }
 .gc-section-label::after { content: ''; flex: 1; height: 1px; background: rgba(255,255,255,0.05); }
 .gc-pontos { color: var(--if-amber); font-size: 10px; letter-spacing: 2px; }
 .gc-pontos--gain { color: #22C55E; }
@@ -409,9 +441,9 @@
 .gc-attr-avatar { font-size: 22px; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background: rgba(245,166,35,0.05); border: 1px solid rgba(245,166,35,0.1); border-radius: 50%; flex-shrink: 0; }
 .gc-attr-info { flex: 1; }
 .gc-attr-name { font-size: 13px; color: #ccc; font-family: 'Rajdhani', sans-serif; font-weight: 700; letter-spacing: 1px; }
-.gc-attr-desc { font-size: 9px; color: #444; font-family: 'Courier New', monospace; letter-spacing: 1px; margin-top: 2px; }
+.gc-attr-desc { font-size: 9px; color: #8b93a0; font-family: 'Courier New', monospace; letter-spacing: 1px; margin-top: 2px; }
 .gc-attr-controls { display: flex; align-items: center; gap: 8px; }
-.gc-attr-btn { width: 28px; height: 28px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); color: #aaa; cursor: pointer; font-size: 16px; font-family: inherit; display: flex; align-items: center; justify-content: center; transition: all 0.15s; border-radius: 2px; }
+.gc-attr-btn { width: 28px; height: 28px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); color: #c6cdd2; cursor: pointer; font-size: 16px; font-family: inherit; display: flex; align-items: center; justify-content: center; transition: all 0.15s; border-radius: 2px; }
 .gc-attr-btn:hover:not(:disabled) { border-color: var(--if-amber); color: var(--if-amber); background: rgba(245,166,35,0.08); }
 .gc-attr-btn:disabled { opacity: 0.2; cursor: not-allowed; }
 .gc-attr-val { font-size: 24px; font-weight: 900; color: var(--if-amber); font-family: 'Rajdhani', sans-serif; width: 28px; text-align: center; line-height: 1; }
@@ -420,7 +452,7 @@
 .gc-name-avatar { width: 72px; height: 72px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; font-weight: 900; color: #fff; font-family: 'Rajdhani', sans-serif; border: 2px solid rgba(255,255,255,0.1); transition: all 0.3s; }
 .gc-name-input { width: 100%; background: rgba(255,255,255,0.03); border: none; border-bottom: 1px solid rgba(255,255,255,0.1); color: #eee; padding: 10px 4px; font-family: 'Rajdhani', sans-serif; font-size: 22px; font-weight: 700; letter-spacing: 2px; text-align: center; box-sizing: border-box; transition: border-color 0.2s; }
 .gc-name-input:focus { outline: none; border-bottom-color: var(--elem-cor, var(--if-teal)); }
-.gc-name-input::placeholder { color: #333; }
+.gc-name-input::placeholder { color: #8b93a0; }
 .gc-points-console { display: grid; grid-template-columns: 1fr auto; align-items: center; margin: 18px 0; padding: 15px 18px; border: 1px solid rgba(0,180,216,0.2); border-left: 3px solid var(--if-teal); background: rgba(0,180,216,0.045); }
 .gc-points-console span { color: #9aa6ac; font: 700 15px 'Rajdhani', sans-serif; letter-spacing: 3px; text-transform: uppercase; }
 .gc-points-console strong { grid-row: span 2; color: var(--if-amber); font: 900 38px 'Rajdhani', sans-serif; line-height: 1; text-shadow: 0 0 18px rgba(245,166,35,0.25); }
@@ -437,28 +469,28 @@
 .gc-elem-info { flex: 1; }
 .gc-elem-name { font-size: 13px; font-weight: 700; color: #ccc; font-family: 'Rajdhani', sans-serif; letter-spacing: 1px; }
 .gc-elem-card--active .gc-elem-name { color: var(--elem-cor, var(--if-teal)); }
-.gc-elem-desc { font-size: 9px; color: #444; font-family: 'Courier New', monospace; letter-spacing: 1px; margin-top: 2px; }
+.gc-elem-desc { font-size: 9px; color: #8b93a0; font-family: 'Courier New', monospace; letter-spacing: 1px; margin-top: 2px; }
 .gc-elem-check { color: var(--elem-cor, var(--if-teal)); font-size: 14px; font-weight: bold; }
 
 .gc-text-input { width: 100%; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); color: #eee; padding: 12px 16px; font-family: 'Courier New', monospace; font-size: 13px; box-sizing: border-box; transition: border-color 0.2s; }
 .gc-text-input:focus { outline: none; border-color: rgba(0,180,216,0.4); }
-.gc-text-input::placeholder { color: #333; }
+.gc-text-input::placeholder { color: #8b93a0; }
 
 .gc-chip-grid { display: flex; flex-wrap: wrap; gap: 6px; }
-.gc-chip { padding: 5px 12px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); color: #666; cursor: pointer; font-size: 11px; font-family: 'Courier New', monospace; transition: all 0.15s; position: relative; }
-.gc-chip:hover { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.15); color: #aaa; }
+.gc-chip { padding: 5px 12px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); color: #a4adb6; cursor: pointer; font-size: 11px; font-family: 'Courier New', monospace; transition: all 0.15s; position: relative; }
+.gc-chip:hover { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.15); color: #c6cdd2; }
 .gc-chip--active { border-color: var(--if-teal); color: var(--if-teal); background: rgba(0,180,216,0.06); }
 .gc-chip--adv-active { border-color: var(--if-amber); color: var(--if-amber); background: rgba(245,166,35,0.06); }
 .gc-chip--dis-active { border-color: #8B0000; color: #cc4444; background: rgba(139,0,0,0.06); }
-.gc-chip-cost { font-size: 9px; color: #444; margin-right: 4px; font-family: 'Courier New', monospace; }
+.gc-chip-cost { font-size: 9px; color: #8b93a0; margin-right: 4px; font-family: 'Courier New', monospace; }
 .gc-chip--adv-active .gc-chip-cost { color: rgba(245,166,35,0.5); }
 .gc-chip--dis-active .gc-chip-cost { color: rgba(204,68,68,0.5); }
 
-.gc-balance { margin: 16px 0; padding: 12px 16px; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.04); font-size: 11px; color: #444; font-family: 'Courier New', monospace; letter-spacing: 1px; text-align: center; }
+.gc-balance { margin: 16px 0; padding: 12px 16px; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.04); font-size: 11px; color: #8b93a0; font-family: 'Courier New', monospace; letter-spacing: 1px; text-align: center; }
 
 .gc-nav { display: flex; gap: 8px; justify-content: center; padding: 24px 0 8px; }
-.gc-btn-ghost { background: none; border: 1px solid rgba(255,255,255,0.1); color: #555; padding: 10px 20px; cursor: pointer; font-family: 'Courier New', monospace; font-size: 12px; letter-spacing: 2px; transition: all 0.2s; }
-.gc-btn-ghost:hover { border-color: rgba(255,255,255,0.2); color: #888; }
+.gc-btn-ghost { background: none; border: 1px solid rgba(255,255,255,0.1); color: #9aa3ad; padding: 10px 20px; cursor: pointer; font-family: 'Courier New', monospace; font-size: 12px; letter-spacing: 2px; transition: all 0.2s; }
+.gc-btn-ghost:hover { border-color: rgba(255,255,255,0.2); color: #b0b8bf; }
 .gc-btn-primary { background: rgba(0,180,216,0.1); border: 1px solid var(--if-teal); color: var(--if-teal); padding: 10px 28px; cursor: pointer; font-family: 'Courier New', monospace; font-size: 12px; letter-spacing: 3px; transition: all 0.2s; }
 .gc-btn-primary:hover { background: rgba(0,180,216,0.18); box-shadow: 0 0 16px rgba(0,180,216,0.2); }
 .gc-btn-salvar { background: linear-gradient(135deg, #8B0000 0%, #a00000 100%); border: 1px solid #cc0000; box-shadow: 0 0 20px rgba(139,0,0,0.3); color: #eee; padding: 10px 32px; cursor: pointer; font-family: 'Courier New', monospace; font-size: 12px; letter-spacing: 4px; transition: all 0.2s; }
@@ -471,9 +503,9 @@
 .gc-intro-card--primary:hover { border-color: rgba(139,0,0,0.7); background: rgba(139,0,0,0.1); }
 .gc-intro-card-icon { font-size: 28px; }
 .gc-intro-card-titulo { font-size: 12px; font-weight: 700; letter-spacing: 4px; color: #eee; font-family: 'Rajdhani', sans-serif; }
-.gc-intro-card-sub { font-size: 10px; color: #444; font-family: 'Courier New', monospace; letter-spacing: 1px; line-height: 1.6; }
+.gc-intro-card-sub { font-size: 10px; color: #8b93a0; font-family: 'Courier New', monospace; letter-spacing: 1px; line-height: 1.6; }
 .gc-intro-hint { font-size: 10px; color: #2a2a2a; font-family: 'Courier New', monospace; letter-spacing: 1px; }
-.gc-intro-hint strong { color: #444; }
+.gc-intro-hint strong { color: #8b93a0; }
 
 /* ===== COMBAT ===== */
 .gang-combat {
@@ -572,7 +604,7 @@
 .gang-fighter-bar-row { display: flex; align-items: center; gap: 6px; }
 .gang-fighter-strip--enemy .gang-fighter-bar-row { flex-direction: row-reverse; }
 .gang-fighter-bar-label {
-  font-size: 9px; color: #444; font-family: 'Courier New', monospace;
+  font-size: 9px; color: #8b93a0; font-family: 'Courier New', monospace;
   letter-spacing: 1px; width: 20px; flex-shrink: 0; text-align: right;
 }
 .gang-fighter-strip--enemy .gang-fighter-bar-label { text-align: left; }
@@ -590,13 +622,13 @@
   animation: gang-bar-pulse 0.5s ease-in-out infinite alternate;
 }
 .gang-fighter-bar-val {
-  font-size: 9px; color: #555; font-family: 'Courier New', monospace;
+  font-size: 9px; color: #9aa3ad; font-family: 'Courier New', monospace;
   min-width: 28px; text-align: left; flex-shrink: 0;
 }
 .gang-fighter-strip--enemy .gang-fighter-bar-val { text-align: right; }
 
 .gang-fighter-mode {
-  font-size: 9px; color: #444; font-family: 'Courier New', monospace;
+  font-size: 9px; color: #8b93a0; font-family: 'Courier New', monospace;
   letter-spacing: 1px; margin-top: 2px;
 }
 
@@ -621,7 +653,7 @@
   font-family: 'Courier New', monospace; cursor: pointer; letter-spacing: 1px;
   padding: 0; transition: color 0.2s;
 }
-.gang-vs-bar-back:hover { color: #555; }
+.gang-vs-bar-back:hover { color: #9aa3ad; }
 
 /* --- Chat log --- */
 .gang-log-area {
@@ -693,20 +725,20 @@
 .gang-attack-card--enemy .gang-attack-card-header { background: rgba(139, 0, 0, 0.1); color: #cc4444; }
 .gang-attack-card-body { padding: 10px 12px; background: rgba(0,0,0,0.3); display: flex; flex-direction: column; gap: 4px; }
 .gang-attack-card-row { display: flex; justify-content: space-between; align-items: center; font-size: 10px; }
-.gang-attack-card-key { color: #444; letter-spacing: 1px; }
-.gang-attack-card-val { color: #888; font-size: 10px; }
+.gang-attack-card-key { color: #8b93a0; letter-spacing: 1px; }
+.gang-attack-card-val { color: #b0b8bf; font-size: 10px; }
 .gang-attack-card-divider { height: 1px; background: rgba(255,255,255,0.04); margin: 4px 0; }
 .gang-attack-card-damage { display: flex; justify-content: space-between; align-items: baseline; }
-.gang-attack-card-damage-label { font-size: 9px; color: #444; letter-spacing: 2px; text-transform: uppercase; }
+.gang-attack-card-damage-label { font-size: 9px; color: #8b93a0; letter-spacing: 2px; text-transform: uppercase; }
 .gang-attack-card-damage-val { font-size: 22px; font-weight: 900; font-family: 'Rajdhani', sans-serif; line-height: 1; }
 .gang-attack-card--player .gang-attack-card-damage-val { color: var(--if-teal); }
 .gang-attack-card--enemy .gang-attack-card-damage-val { color: #cc4444; }
 
 .gang-attack-card-bonus { display: flex; align-items: center; gap: 5px; padding: 4px 6px; margin-top: 2px; border-radius: 4px; font-size: 9px; letter-spacing: 0.5px; text-transform: uppercase; }
 .gang-attack-card-bonus--hit { background: rgba(245, 166, 35, 0.12); color: var(--if-amber); }
-.gang-attack-card-bonus--miss { background: rgba(255, 255, 255, 0.03); color: #555; text-decoration: line-through; }
+.gang-attack-card-bonus--miss { background: rgba(255, 255, 255, 0.03); color: #9aa3ad; text-decoration: line-through; }
 .gang-attack-card-bonus--critical { background: rgba(220, 45, 55, 0.15); color: #ff6b6b; font-weight: 700; }
-.gang-attack-card-damage-val--zero { color: #333 !important; font-size: 16px; }
+.gang-attack-card-damage-val--zero { color: #8b93a0 !important; font-size: 16px; }
 
 /* --- Player Trash Talk Options --- */
 .gang-trash-player-row {
@@ -749,7 +781,7 @@
 .gang-mode-btns { display: flex; gap: 6px; flex-wrap: wrap; }
 .gang-mode-btn {
   padding: 6px 12px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08);
-  color: #555; cursor: pointer; font-family: 'Courier New', monospace; font-size: 11px;
+  color: #9aa3ad; cursor: pointer; font-family: 'Courier New', monospace; font-size: 11px;
   letter-spacing: 1px; transition: all 0.15s; border-radius: 4px;
 }
 .gang-mode-btn:hover { border-color: var(--if-teal); color: var(--if-teal); }
@@ -758,7 +790,7 @@
 .gang-actions-row { display: flex; gap: 8px; align-items: center; }
 .gang-btn-flee {
   padding: 8px 14px; background: none; border: 1px solid rgba(139,0,0,0.3);
-  color: #555; cursor: pointer; font-family: 'Courier New', monospace; font-size: 11px;
+  color: #9aa3ad; cursor: pointer; font-family: 'Courier New', monospace; font-size: 11px;
   border-radius: 4px; transition: all 0.15s; flex-shrink: 0;
 }
 .gang-btn-flee:hover { border-color: #8B0000; color: #cc4444; }
@@ -778,7 +810,25 @@
   border-radius: 4px; transition: all 0.15s;
 }
 .gang-power-btn:hover:not(:disabled) { background: rgba(245,166,35,0.1); }
-.gang-power-btn:disabled { opacity: 0.2; cursor: not-allowed; }
+.gang-power-btn:disabled { opacity: 0.45; cursor: not-allowed; }
+.gang-power-btn--sem-recurso { border-color: rgba(255, 107, 107, 0.45); color: #ff9a9a; }
+.gang-power-btn--sem-recurso small { color: #ff8080; opacity: 1; }
+
+/* PM do lutador que vai agir — sempre à vista antes de escolher o golpe */
+.gang-power-mp {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 2px;
+  padding: 4px 9px;
+  font: 700 0.62rem var(--font-mono);
+  letter-spacing: 0.06em;
+  color: #c99bf5;
+  background: rgba(168, 85, 247, 0.12);
+  border: 1px solid rgba(168, 85, 247, 0.4);
+  clip-path: polygon(0 0, calc(100% - 5px) 0, 100% 5px, 100% 100%, 0 100%);
+}
+.gang-power-mp b { font-size: 0.85rem; color: #d9bdf7; }
+.gang-power-mp span { opacity: 0.75; }
 .gang-power-btn--active { border-color: rgba(245,166,35,0.7); background: rgba(245,166,35,0.18); color: var(--if-amber); }
 .gang-power-btn small, .gang-mode-btn small { display: block; font-size: 9px; opacity: 0.7; letter-spacing: 0; margin-top: 2px; }
 
@@ -805,7 +855,7 @@
 
 .gang-power-sub {
   font-size: 10px;
-  color: #333;
+  color: #8b93a0;
   letter-spacing: 3px;
   font-family: 'Courier New', monospace;
   margin: 0 0 40px;
@@ -907,7 +957,7 @@
 
 .gang-power-header-cost {
   font-size: 10px;
-  color: #444;
+  color: #8b93a0;
   font-family: 'Courier New', monospace;
   letter-spacing: 1px;
   background: rgba(255, 255, 255, 0.03);
@@ -922,14 +972,14 @@
 
 .gang-power-card p {
   font-size: 10px;
-  color: #444;
+  color: #8b93a0;
   margin: 0;
   line-height: 1.6;
   letter-spacing: 0.5px;
 }
 
 .gang-power-card--selected p {
-  color: #666;
+  color: #a4adb6;
 }
 
 .gang-power-card-check {
@@ -955,7 +1005,7 @@
 
 .gang-power-counter {
   font-size: 11px;
-  color: #555;
+  color: #9aa3ad;
   font-family: 'Courier New', monospace;
   letter-spacing: 3px;
 }
@@ -995,13 +1045,13 @@
 .gang-victory-title { font-size: 36px; margin: 0; letter-spacing: 4px; }
 .gang-victory-win { color: var(--if-amber); }
 .gang-victory-lose { color: #8B0000; }
-.gang-victory-sub { color: #666; font-size: 14px; }
+.gang-victory-sub { color: #a4adb6; font-size: 14px; }
 .gang-victory-card { background: #111; border: 1px solid #222; padding: 20px; max-width: 360px; margin: 0 auto 20px; }
 .gang-victory-sheet-name { font-size: 20px; color: #eee; margin-bottom: 12px; }
 .gang-victory-attrs { display: flex; gap: 12px; justify-content: center; margin-bottom: 12px; }
 .gang-victory-attr { background: #0a0a0a; padding: 6px 10px; border: 1px solid #222; text-align: center; font-size: 16px; color: var(--if-teal); font-weight: bold; }
-.gang-victory-attr span { display: block; font-size: 8px; color: #555; margin-bottom: 2px; }
-.gang-victory-stats { display: flex; gap: 16px; justify-content: center; font-size: 12px; color: #555; margin-bottom: 12px; }
+.gang-victory-attr span { display: block; font-size: 8px; color: #9aa3ad; margin-bottom: 2px; }
+.gang-victory-stats { display: flex; gap: 16px; justify-content: center; font-size: 12px; color: #9aa3ad; margin-bottom: 12px; }
 .gang-xp-gain { font-size: 28px; color: var(--if-amber); font-weight: bold; margin-bottom: 8px; }
 .gang-victory-btns { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
 
@@ -1025,7 +1075,7 @@
 }
 .gang-hp-enemy-name {
   font-family: 'Share Tech Mono', monospace;
-  color: #888;
+  color: #b0b8bf;
   margin-bottom: 1rem;
   font-size: 0.85rem;
 }
@@ -1244,7 +1294,7 @@
 /* ===== LIMITE DE FICHAS ===== */
 .gangues-limit-counter {
   font-size: 10px;
-  color: #666;
+  color: #a4adb6;
   font-family: 'Courier New', monospace;
   letter-spacing: 1px;
 }
@@ -1316,7 +1366,7 @@
 
 .gangues-upgrade-modal-body {
   font-size: 12px;
-  color: #888;
+  color: #b0b8bf;
   line-height: 1.7;
   letter-spacing: 1px;
   margin: 0 0 12px;
@@ -1324,7 +1374,7 @@
 
 .gangues-upgrade-modal-info {
   font-size: 10px;
-  color: #555;
+  color: #9aa3ad;
   letter-spacing: 2px;
   margin: 0 0 20px;
 }
@@ -1364,7 +1414,7 @@
 
 .gangues-upgrade-tier-valor {
   font-size: 10px;
-  color: #666;
+  color: #a4adb6;
   letter-spacing: 2px;
   text-transform: uppercase;
 }
@@ -1394,7 +1444,7 @@
   right: 12px;
   background: none;
   border: none;
-  color: #444;
+  color: #8b93a0;
   font-size: 18px;
   cursor: pointer;
   font-family: 'Courier New', monospace;
@@ -1452,7 +1502,7 @@
 
 .gangues-guest-modal-desc {
   font-size: 0.78rem;
-  color: #888;
+  color: #b0b8bf;
   line-height: 1.6;
   margin: 0;
 }
@@ -1468,7 +1518,7 @@
 .gangues-guest-modal-btn {
   background: none;
   border: 1px solid #333;
-  color: #888;
+  color: #b0b8bf;
   font-family: 'Courier New', monospace;
   font-size: 0.75rem;
   padding: 0.6rem;
@@ -1670,7 +1720,7 @@
   grid-template-columns: 26px 1fr 60px;
   align-items: center;
   gap: 6px;
-  color: #aaa;
+  color: #c6cdd2;
   font-size: 11px;
 }
 
@@ -1720,7 +1770,7 @@
 .gang2-log-system,
 .gang2-log-line {
   margin: 0;
-  color: #999;
+  color: #bcc3c9;
   font-size: 11px;
   text-align: center;
 }
@@ -1797,7 +1847,7 @@
 
 /* Roster de gangue com tamanho variável — escolha de atacante/alvo */
 .gang-team { margin: 12px 0; }
-.gang-team-title { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #666; margin: 0 0 8px; text-align: center; }
+.gang-team-title { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #a4adb6; margin: 0 0 8px; text-align: center; }
 .gang-team-grid { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
 
 .gang-fighter-card {
@@ -1844,14 +1894,19 @@
 
 .gang-fighter-card-info { display: flex; flex-direction: column; gap: 3px; min-width: 0; flex: 1; }
 .gang-fighter-card-info strong { font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.gang-fighter-card-info small { font-size: 9px; color: #666; }
+.gang-fighter-card-info small { font-size: 9px; color: #a4adb6; }
 .gang-fighter-card-path-label { font-size: 8px; letter-spacing: 1.5px; text-transform: uppercase; opacity: 0.9; }
 .gang-fighter-card-bar { width: 100%; height: 4px; border: 0; border-radius: 2px; background: rgba(255,255,255,0.08); overflow: hidden; appearance: none; }
 .gang-fighter-card-bar::-webkit-progress-bar { background: rgba(255,255,255,0.08); }
-.gang-fighter-card-bar::-webkit-progress-value { background: var(--if-teal); }
-.gang-fighter-card-bar::-moz-progress-bar { background: var(--if-teal); }
-.gang-fighter-card--enemy .gang-fighter-card-bar::-webkit-progress-value { background: #8B0000; }
-.gang-fighter-card--enemy .gang-fighter-card-bar::-moz-progress-bar { background: #8B0000; }
+/* PV = verde-água, PM = roxo. Cores distintas pra bater o olho e saber qual é qual. */
+.gang-fighter-card-bar--pv::-webkit-progress-value { background: #3ddc97; }
+.gang-fighter-card-bar--pv::-moz-progress-bar { background: #3ddc97; }
+.gang-fighter-card-bar--pm::-webkit-progress-value { background: #a855f7; }
+.gang-fighter-card-bar--pm::-moz-progress-bar { background: #a855f7; }
+.gang-fighter-card--enemy .gang-fighter-card-bar--pv::-webkit-progress-value { background: #ff6b6b; }
+.gang-fighter-card--enemy .gang-fighter-card-bar--pv::-moz-progress-bar { background: #ff6b6b; }
+.gang-fighter-card-res { font: 700 9px var(--font-mono); letter-spacing: 0.04em; }
+.gang-fighter-card-res--pm { color: #c99bf5; }
 .gang-fighter-card-tag { color: #22C55E; font-weight: 700; font-size: 12px; }
 
 .gang-attack-stack { display: flex; flex-direction: column; gap: 6px; }

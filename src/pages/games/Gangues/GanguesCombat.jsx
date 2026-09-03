@@ -50,8 +50,16 @@ function Roster({ title, members, side, selectable, selectedKey, onSelect, t }) 
               <div className="gang-fighter-card-info">
                 <strong>{fighterName(t, member)}</strong>
                 {member.combat_path && <span className="gang-fighter-card-path-label">{t(`games.gangues.loadout.paths.${member.combat_path}.name`)}</span>}
-                <progress className="gang-fighter-card-bar" max="100" value={pct(member.pv, member.pvMax)} />
-                <small>{member.pv}/{member.pvMax} PV</small>
+                <progress className="gang-fighter-card-bar gang-fighter-card-bar--pv" max="100" value={pct(member.pv, member.pvMax)} />
+                <small className="gang-fighter-card-res">{member.pv}/{member.pvMax} PV</small>
+                {/* PM sempre visível — as habilidades ativas gastam PM e o
+                    jogador precisa saber quanto tem antes de escolher. */}
+                {member.pmMax > 0 && (
+                  <>
+                    <progress className="gang-fighter-card-bar gang-fighter-card-bar--pm" max="100" value={pct(member.pm, member.pmMax)} />
+                    <small className="gang-fighter-card-res gang-fighter-card-res--pm">{member.pm}/{member.pmMax} PM</small>
+                  </>
+                )}
               </div>
               {acted && <span className="gang-fighter-card-tag">✓</span>}
             </button>
@@ -387,6 +395,11 @@ export default function GanguesCombat({ onNavigate }) {
         <div className="gang-actions-bar">
           {equippedSpecials.length > 0 && (
             <div className="gang-power-attacks">
+              {actingMember && (
+                <span className="gang-power-mp" aria-label="PM">
+                  <b>{actingMember.pm}</b><span>/{actingMember.pmMax}</span> PM
+                </span>
+              )}
               <button
                 type="button"
                 className={`gang-mode-btn ${selectedSpecialId === null ? 'gang-mode-btn--active' : ''}`}
@@ -397,16 +410,22 @@ export default function GanguesCombat({ onNavigate }) {
               {equippedSpecials.map(special => {
                 const affordable = canAffordSpecial(special)
                 const cost = special.effect.cost
+                const custoTxt = cost ? cost.values[special.level - 1] : null
                 return (
                   <button
                     key={special.id}
                     type="button"
                     disabled={!affordable}
-                    className={`gang-power-btn ${selectedSpecialId === special.id ? 'gang-power-btn--active' : ''}`}
+                    className={`gang-power-btn ${selectedSpecialId === special.id ? 'gang-power-btn--active' : ''} ${!affordable ? 'gang-power-btn--sem-recurso' : ''}`}
                     onClick={() => setSelectedSpecialId(current => current === special.id ? null : special.id)}
                   >
                     {t(`games.gangues.progression.skills.${special.id}`)}
-                    {cost && <small>{t(`games.gangues.combat_specials.cost_${cost.kind}`, { n: cost.values[special.level - 1] })}</small>}
+                    {cost && (
+                      <small>
+                        {t(`games.gangues.combat_specials.cost_${cost.kind}`, { n: custoTxt })}
+                        {!affordable && ` — ${t('games.gangues.combat_specials.sem_' + cost.kind)}`}
+                      </small>
+                    )}
                   </button>
                 )
               })}

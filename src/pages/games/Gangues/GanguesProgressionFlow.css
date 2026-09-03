@@ -50,3 +50,211 @@
 }
 .gang-progression-prompt button + button { margin-top: 8px; }
 .gang-progression-prompt .gang-progression-prompt__confirm { border-color: var(--if-amber); background: var(--if-amber); color: #171006; }
+
+/* ══════════════════════════════════════════════════════════════
+   PROGRESSÃO — tela dedicada (v10.208)
+   Antes era um painel espremido no meio do elenco. Agora é uma
+   parada consciente: entra pelo LEVEL UP, gasta com calma, volta.
+   ══════════════════════════════════════════════════════════════ */
+.gang-progression-screen {
+  padding-top: 8px;
+}
+
+.gang-progression-screen-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0 0 18px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.gang-progression-screen-back {
+  padding: 8px 14px;
+  font: 700 0.68rem var(--font-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--if-cyan);
+  background: rgba(24, 218, 251, 0.08);
+  border: 1px solid rgba(24, 218, 251, 0.4);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
+}
+.gang-progression-screen-back:hover { background: var(--if-cyan); color: #04141a; }
+
+.gang-progression-screen-xp {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  font: 700 0.62rem var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--if-amber);
+}
+.gang-progression-screen-xp-num {
+  font: 800 1.5rem var(--font-display);
+  color: #ffce6b;
+  text-shadow: 0 0 16px rgba(255, 174, 50, 0.4);
+}
+
+/* ── Steppers de atributo ── */
+.gang-attr-steppers {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 10px 0 4px;
+}
+
+.gang-attr-stepper {
+  display: grid;
+  grid-template-columns: 28px 1fr auto auto 40px;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  background: rgba(255, 255, 255, 0.02);
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
+}
+
+.gang-attr-stepper-letter {
+  font: 800 1rem var(--font-display);
+  color: var(--if-cyan);
+  text-align: center;
+}
+.gang-attr-stepper-name {
+  font: 600 0.82rem var(--font-body);
+  color: #d6dde2;
+}
+.gang-attr-stepper-val {
+  font: 700 0.95rem var(--font-mono);
+  color: #fff;
+}
+.gang-attr-stepper-val b { color: var(--if-amber); font-weight: 700; }
+.gang-attr-stepper-cost {
+  font: 700 0.58rem var(--font-mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--if-amber);
+}
+.gang-attr-stepper-plus {
+  width: 40px;
+  height: 40px;
+  font: 800 1.3rem var(--font-display);
+  line-height: 1;
+  color: #04141a;
+  background: var(--if-cyan);
+  border: 1px solid var(--if-cyan);
+  cursor: pointer;
+  transition: background 0.15s, transform 0.15s, opacity 0.15s;
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
+}
+.gang-attr-stepper-plus:hover:not(:disabled) { transform: scale(1.06); box-shadow: 0 0 16px rgba(24, 218, 251, 0.4); }
+.gang-attr-stepper-plus:disabled { opacity: 0.28; cursor: not-allowed; background: rgba(255,255,255,0.1); color: #6b757c; border-color: rgba(255,255,255,0.12); }
+
+/* ── Confirmação de gasto de XP ── */
+.gang-xp-confirm {
+  position: fixed;
+  inset: 0;
+  z-index: 950;
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+}
+.gang-xp-confirm-bg {
+  position: absolute;
+  inset: 0;
+  background: rgba(2, 5, 8, 0.82);
+  backdrop-filter: blur(6px);
+}
+.gang-xp-confirm-card {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: 0.55rem;
+  width: 100%;
+  max-width: 320px;
+  padding: 1.6rem 1.3rem 1.4rem;
+  text-align: center;
+  border: 1px solid rgba(255, 174, 50, 0.45);
+  background: linear-gradient(160deg, #16110a, #0a0806 70%);
+  box-shadow: 0 0 44px -10px rgba(255, 174, 50, 0.5);
+  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%);
+}
+.gang-xp-confirm-icon {
+  font-size: 1.6rem;
+  color: var(--if-amber);
+}
+.gang-xp-confirm-card h3 {
+  margin: 0;
+  font: 800 1.1rem var(--font-display);
+  letter-spacing: 0.04em;
+  color: #ffce6b;
+}
+.gang-xp-confirm-card p {
+  margin: 0;
+  font: 400 0.88rem var(--font-body);
+  line-height: 1.5;
+  color: #cdd4d9;
+}
+.gang-xp-confirm-card p b { color: #fff; }
+.gang-xp-confirm-actions {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+.gang-xp-confirm-no, .gang-xp-confirm-yes {
+  flex: 1;
+  min-height: 44px;
+  padding: 0.6rem;
+  font: 800 0.72rem var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
+}
+.gang-xp-confirm-no {
+  color: #c6cdd2;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+.gang-xp-confirm-no:hover { background: rgba(255, 255, 255, 0.09); color: #fff; }
+.gang-xp-confirm-yes {
+  color: #1b1000;
+  background: var(--if-amber);
+  border: 1px solid var(--if-amber);
+}
+.gang-xp-confirm-yes:hover { background: #ffce6b; }
+
+/* ── Coluna lateral do card do elenco: X + LEVEL UP ── */
+.gang-sheet-card-side {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.gang-sheet-levelup {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 9px;
+  font: 800 0.58rem var(--font-display);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #1b1000;
+  background: var(--if-amber);
+  border: 0;
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: 0 0 0 0 rgba(255, 174, 50, 0.55);
+  animation: gang-levelup-pulso 1.6s ease-in-out infinite;
+  clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 0 100%);
+}
+.gang-sheet-levelup:hover { background: #ffce6b; }
+
+@media (prefers-reduced-motion: reduce) {
+  .gang-sheet-levelup { animation: none; }
+}

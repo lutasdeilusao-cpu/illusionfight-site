@@ -37,6 +37,9 @@ export const useGanguesStore = create((set, get) => ({
   activeParty: [],
   match: { playerTeam: [], enemyTeam: [], enemy: null, enemy_id: null, score: 0, status: 'idle', battleReport: null },
   _userId: null,
+  // Qual ficha está aberta na tela dedicada de progressão (fase 'progression').
+  progressionTargetId: null,
+  setProgressionTarget: (id) => set({ progressionTargetId: id }),
 
   newSheet: () => set({ sheet: defaultSheet() }),
 

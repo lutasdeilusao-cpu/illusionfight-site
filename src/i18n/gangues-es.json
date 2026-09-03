@@ -108,7 +108,7 @@
         "unequip": "QUITAR",
         "active": "activo",
         "passive": "pasivo",
-        "xp_badge": "✦ {n} XP",
+        "xp_badge": "★ LEVEL UP · {n}",
         "prompt_title": "XP DISPONIBLE",
         "prompt_body": "{name} tiene {n} puntos de XP. ¿Quieres usarlos ahora?",
         "prompt_confirm": "USAR XP",
@@ -216,7 +216,16 @@
           "sussurro_sombrio": "Susurro Sombrío",
           "fragmentar_mente": "Fragmentar Mente",
           "pesadelo_desperto": "Pesadilla Despierta"
-        }
+        },
+        "back_to_roster": "Volver al elenco",
+        "no_member": "Ninguna ficha seleccionada para progresión.",
+        "xp_label": "XP por gastar",
+        "cost_xp": "{n} XP",
+        "maxed": "al máximo",
+        "confirm_title": "¿Gastar XP?",
+        "confirm_body": "Vas a gastar <b>{n} XP</b> en <b>{label}</b>. Esto no se puede deshacer tras confirmar.",
+        "confirm_cancel": "Cancelar",
+        "confirm_ok": "Gastar {n} XP"
       },
       "training": {
         "entry": "ZONA DE ENTRENAMIENTO",
@@ -431,7 +440,9 @@
       "combat_specials": {
         "normal_attack": "Ataque normal",
         "cost_pm": "{n} PM",
-        "cost_pv": "{n}% PV"
+        "cost_pv": "{n}% PV",
+        "sem_pm": "sin PM",
+        "sem_pv": "PV muy bajo"
       },
       "pag_atributos": "ATRIBUTOS",
       "pag_identidade": "IDENTIDAD",

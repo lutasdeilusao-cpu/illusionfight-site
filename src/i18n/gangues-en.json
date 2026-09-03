@@ -108,7 +108,7 @@
         "unequip": "REMOVE",
         "active": "active",
         "passive": "passive",
-        "xp_badge": "✦ {n} XP",
+        "xp_badge": "★ LEVEL UP · {n}",
         "prompt_title": "XP AVAILABLE",
         "prompt_body": "{name} has {n} XP points. Would you like to spend them now?",
         "prompt_confirm": "USE XP",
@@ -216,7 +216,16 @@
           "sussurro_sombrio": "Dark Whisper",
           "fragmentar_mente": "Shatter Mind",
           "pesadelo_desperto": "Waking Nightmare"
-        }
+        },
+        "back_to_roster": "Back to roster",
+        "no_member": "No fighter selected for progression.",
+        "xp_label": "XP to spend",
+        "cost_xp": "{n} XP",
+        "maxed": "maxed",
+        "confirm_title": "Spend XP?",
+        "confirm_body": "You'll spend <b>{n} XP</b> on <b>{label}</b>. This can't be undone once confirmed.",
+        "confirm_cancel": "Cancel",
+        "confirm_ok": "Spend {n} XP"
       },
       "training": {
         "entry": "TRAINING ZONE",
@@ -431,7 +440,9 @@
       "combat_specials": {
         "normal_attack": "Normal attack",
         "cost_pm": "{n} PM",
-        "cost_pv": "{n}% HP"
+        "cost_pv": "{n}% HP",
+        "sem_pm": "not enough MP",
+        "sem_pv": "HP too low"
       },
       "pag_atributos": "ATTRIBUTES",
       "pag_identidade": "IDENTITY",
