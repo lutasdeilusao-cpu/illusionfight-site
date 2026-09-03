@@ -40,3 +40,6 @@ graphify-out/20??-??-??/
 /steam/content/
 /steam/build-output/
 /steam/steampipe/sdk/
+
+# scratch de teste local (playwright)
+_*.mjs
