@@ -108,14 +108,16 @@ export default function GanguesCombat({ onNavigate }) {
   const processedEvents = useRef(0)
   const logEndRef = useRef(null)
 
-  // ── Briga em Multidão: bandos de 3+ (jogador + inimigo) podem pular o
-  // golpe-a-golpe. Escolhe os poderes uma vez, a luta inteira resolve na
-  // hora (mesmas contas do combate normal, ver engine/ganguesBrigaMultidao).
-  // "Modo rápido" é um switch persistente (localStorage): uma vez ligado,
-  // a pergunta "golpe a golpe x multidão" some — vai direto pra escolha de
-  // poderes em toda luta grande, até o jogador cancelar e desligar de novo.
+  // ── Briga em Multidão: bandos de 6+ combatentes (jogador + inimigo,
+  // somados) podem pular o golpe-a-golpe. 5 ou menos NÃO ativa — golpe a
+  // golpe direto, sem nem perguntar. Escolhe os poderes uma vez, a luta
+  // inteira resolve na hora (mesmas contas do combate normal, ver
+  // engine/ganguesBrigaMultidao). "Modo rápido" é um switch persistente
+  // (localStorage): uma vez ligado, a pergunta "golpe a golpe x multidão"
+  // some — vai direto pra escolha de poderes em toda luta grande, até o
+  // jogador cancelar e desligar de novo.
   const totalCombatentes = (store.match.playerTeam?.length || 0) + (store.match.enemyTeam?.length || 0)
-  const multidaoDisponivel = totalCombatentes >= 3
+  const multidaoDisponivel = totalCombatentes >= 6
   const [modoRapidoAtivo, setModoRapidoAtivoState] = useState(() => {
     try { return localStorage.getItem('ldi-gangues-modo-rapido') === '1' } catch { return false }
   })
