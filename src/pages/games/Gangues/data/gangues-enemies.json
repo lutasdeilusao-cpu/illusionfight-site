@@ -42,6 +42,69 @@
     }
   },
   {
+    "id": "moleque_a",
+    "name": "Moleque da Pista",
+    "rank": 88000,
+    "stats": { "A": 2, "H": 1, "R": 2, "D": 1 },
+    "pv_max": 8, "pm_max": 5,
+    "weapon": "facao", "weapon_damage": 1,
+    "elemental": null, "preferred_mode": "fists",
+    "ai_pattern": "básico",
+    "difficulty": "easy", "tier": 0,
+    "notes": "Grunt exclusivo do modo história — a primeira treta de verdade da Pista. Fraco de propósito: o jogador acabou de criar a ficha.",
+    "trash_talk": {
+      "attack_miss": ["quase, quase 😅", "ei, para quieto! 😤", "vish, errei 💦"],
+      "attack_hit": ["toma! 👊", "e agora? 😤", "sentiu isso? 🔥"],
+      "take_damage": ["ow! mas não foi nada 🙄", "isso doeu um pouco 😬", "vem mais! 💢"],
+      "take_critical": ["EI, PESADO DEMAIS 😳", "beleza, agora ferrou 😤", "respeitei esse golpe 👏"],
+      "player_near_death": ["cê já era 😈", "desiste logo 🙏", "acaba com isso 💀"],
+      "enemy_near_death": ["não... eu não posso perder aqui 😰", "ainda dá pra virar 😤", "vai ter que fazer melhor que isso 💢"],
+      "defeat": ["poxa, mano... 😔", "não contava com isso 😨", "beleza, você venceu essa 🤝"]
+    }
+  },
+  {
+    "id": "moleque_b",
+    "name": "Moleque Valentão",
+    "rank": 76000,
+    "stats": { "A": 2, "H": 2, "R": 2, "D": 2 },
+    "pv_max": 10, "pm_max": 6,
+    "weapon": "corrente", "weapon_damage": 2,
+    "elemental": null, "preferred_mode": "fists",
+    "ai_pattern": "agressivo",
+    "difficulty": "easy", "tier": 0,
+    "notes": "Grunt exclusivo do modo história — segunda treta da Pista, um degrau acima do primeiro moleque.",
+    "trash_talk": {
+      "attack_miss": ["escapou dessa vez 😤", "próxima não escapa 😈", "ei, fica parado! 💢"],
+      "attack_hit": ["AI QUE DOEU né 🔥", "bateu e levou 👊", "próximo! 😤"],
+      "take_damage": ["isso não vai me derrubar 😒", "ok, tá valendo 😬", "gostei do golpe 👏"],
+      "take_critical": ["PUTA QUE PARIU 😳💢", "ok respeitei 🫡", "cê é osso duro 😤"],
+      "player_near_death": ["chega, desiste 🙏", "não aguenta mais né 😈", "quase lá 💀"],
+      "enemy_near_death": ["ainda não acabou 😤", "vou virar essa luta 🔥", "não subestima não 😡"],
+      "defeat": ["caraca... 😨", "você é braba mesmo 🫡", "não esperava perder pra vocês 😔"]
+    }
+  },
+  {
+    "id": "fumaca",
+    "name": "Fumaça",
+    "rank": 52000,
+    "stats": { "A": 3, "H": 2, "R": 3, "D": 2 },
+    "pv_max": 16, "pm_max": 10,
+    "weapon": "facao", "weapon_damage": 3,
+    "elemental": null, "preferred_mode": "fists",
+    "ai_pattern": "agressivo",
+    "difficulty": "medium", "tier": 0,
+    "notes": "Chefe da Pista. Aparece só depois que o portão do bairro abre (as duas tretas obrigatórias + ferro-velho ou corre). Mais forte que os moleques, mas o jogador já chega com pelo menos 2 vitórias de AP acumulado e briga em dupla.",
+    "trash_talk": {
+      "attack_miss": ["cê é ligeiro, hein 😏", "isso não vai adiantar 😤", "some que nem fumaça? não vai rolar 😈"],
+      "attack_hit": ["pisca que eu sumo 💨🔥", "sentiu a fumaça? 😈", "e olha que eu nem esquentei 💢"],
+      "take_damage": ["isso é só fumaça 😒", "vem mais forte que isso 😤", "ok, essa doeu 👀"],
+      "take_critical": ["...respeito. 🫡", "ninguém me acerta assim há tempos 😳", "a Pista tá diferente hoje 🔥"],
+      "player_near_death": ["cê apanha no escuro, moleque 😈", "desiste antes que piore 🙏", "a Pista é minha 💨"],
+      "enemy_near_death": ["ainda não é hoje que eu caio 😤", "fumaça não se apaga fácil 🔥", "vem, então! 😡"],
+      "defeat": ["...cê tomou meu bairro. 😨", "respeito, moleque. respeito. 🫡", "a Pista agora é sua. 💨"]
+    }
+  },
+  {
     "id": "thunderbolt",
     "name": "Thunderbolt",
     "rank": 30156,

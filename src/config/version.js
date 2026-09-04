@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.213.0'
+export const SITE_VERSION = '10.214.0'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '1.27.0' // fix: GuestNotice e Radio Nina flutuavam por cima do jogo em vez de reservar espaco (causa raiz: .gang-page nao contabilizava --guest-notice-h/--radio-nina-h/-top-h no padding, e 3 telas compensavam com um padding-top:52px fixo que ja nao fazia sentido). GuestNotice redesenhado pra tira fina de 1 linha so, sem quebrar.
+export const GANGUES_VERSION   = '1.28.0' // rebalance modo historia (Pista): as duas tretas obrigatorias (molecada_1/2) usavam "kaeda" (ficha da arena, 11 pontos de atributo, pv15) contra um personagem recem-criado de 5 pontos — praticamente invencivel. Agora usam grunts proprios (moleque_a 6pts/pv8, moleque_b 8pts/pv10) e o chefe da Pista ganhou ficha propria (fumaca, 10pts/pv16) em vez de emprestar a do kaeda — o combate agora mostra "Fumaça" de verdade, batendo com o nome/fala ja usados na tela de confronto.
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
 export const MINIGAMES_VERSION = '4.3.4'  // Glitch: safe-area lateral no grid-wrap

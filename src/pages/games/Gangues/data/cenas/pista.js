@@ -65,8 +65,11 @@ export const CENA_PISTA = {
       tipo: 'treta',
       pino: { x: 50, y: 132 },
       i18n: 'games.gangues.cena.pista.molecada_1',
-      enemy: 'kaeda',
-      forca: 2,
+      // Grunt fraco de propósito — é a primeira treta de verdade do jogo,
+      // logo depois da criação da ficha (5 pontos). "Kaeda" (arena) é forte
+      // demais pra esse momento; ver docs/Games/Gangues sobre o rebalance.
+      enemy: 'moleque_a',
+      forca: 1,
       recompensa: { grana: 8, rep: 2, xp: 10 },
       revela: ['birosca'],
     },
@@ -94,7 +97,9 @@ export const CENA_PISTA = {
       tipo: 'treta',
       pino: { x: 44, y: 48 },
       i18n: 'games.gangues.cena.pista.molecada_2',
-      enemy: 'kaeda',
+      // Um degrau acima do moleque_a — o jogador já deve ter 1 vitória de AP
+      // acumulado (a de molecada_1) até chegar aqui.
+      enemy: 'moleque_b',
       forca: 2,
       recompensa: { grana: 8, rep: 3, xp: 10 },
     },
@@ -117,7 +122,10 @@ export const CENA_PISTA = {
     tipo: 'treta',
     pino: { x: 50, y: 12 },
     i18n: 'games.gangues.cena.pista.boss',
-    enemy: 'kaeda',
+    // Ficha própria (não mais "kaeda" emprestado) — o combate real agora
+    // mostra "Fumaça" lutando, batendo com a fala/nome já usados na tela
+    // de confronto (games.gangues.story.bosses.fumaca).
+    enemy: 'fumaca',
     forca: 3,
     boss: 'fumaca',
   },
