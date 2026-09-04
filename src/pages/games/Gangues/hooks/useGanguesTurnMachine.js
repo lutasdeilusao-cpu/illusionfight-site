@@ -7,7 +7,9 @@ const coin = () => Math.random() < 0.5
 
 // IA de alvo: evita bater sempre no mesmo alvo quando há outro vivo — alterna entre focar
 // quem está com menos PV (foco) e escolher alguém aleatório entre os outros vivos.
-function pickEnemyTarget(combatants, lastTargetKey, roll = Math.random) {
+// Exportadas pra engine/ganguesBrigaMultidao.js reusar a MESMA lógica de
+// alvo/preparo — o modo rápido não pode divergir das contas do combate normal.
+export function pickEnemyTarget(combatants, lastTargetKey, roll = Math.random) {
   const targets = combatants.filter(item => item.side === 'player' && item.pv > 0)
   if (targets.length <= 1) return targets[0] || null
   const others = targets.filter(item => item.key !== lastTargetKey)
@@ -16,7 +18,7 @@ function pickEnemyTarget(combatants, lastTargetKey, roll = Math.random) {
   return pool[Math.floor(roll() * pool.length)]
 }
 
-function prepare(combatant, side, index) {
+export function prepare(combatant, side, index) {
   const enemy = side === 'enemy'
   const normalized = enemy ? { ...combatant, attributes: combatant.stats || combatant.attributes || {}, combat_path: combatant.preferred_mode === 'power' ? 'mistico' : combatant.preferred_mode === 'armed' ? 'defensor' : 'atacante' } : { ...combatant, ...normalizeGanguesLoadout(combatant) }
   const resources = enemy ? { pvMax: Number(combatant.pv_max) || 10, pmMax: Number(combatant.pm_max) || 0 } : getGanguesResources(normalized.combat_path, normalized.attributes?.R)

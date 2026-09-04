@@ -550,6 +550,56 @@
   }
 }
 
+/* ===== BRIGA EM MULTIDÃO ===== */
+.gang-modo-escolha {
+  align-items: center; justify-content: center; text-align: center;
+  padding: 32px 20px; gap: 12px; overflow-y: auto;
+}
+.gang-modo-titulo { font: 800 1.2rem var(--font-display, 'Rajdhani', sans-serif); color: var(--if-teal); margin: 0; }
+.gang-modo-sub { font: 400 0.8rem var(--font-body); color: #a4adb6; line-height: 1.5; max-width: 320px; margin: 0 0 8px; }
+.gang-modo-opcoes { display: flex; flex-direction: column; gap: 10px; width: 100%; max-width: 340px; }
+.gang-modo-opcoes--fila { margin-top: 8px; }
+.gang-modo-card {
+  display: flex; flex-direction: column; gap: 4px; text-align: left;
+  padding: 14px 16px; background: rgba(255,255,255,0.03); border: 1px solid rgba(0,180,216,0.25);
+  border-radius: 10px; cursor: pointer; transition: border-color 0.15s, background 0.15s;
+  color: #d5dde0; font-family: var(--font-body);
+}
+.gang-modo-card:hover { border-color: rgba(0,180,216,0.6); background: rgba(0,180,216,0.05); }
+.gang-modo-card strong { font: 700 0.9rem var(--font-display); color: var(--if-teal); }
+.gang-modo-card small { font-size: 0.7rem; color: #8b93a0; line-height: 1.4; }
+.gang-modo-card--destaque { border-color: rgba(245,166,35,0.4); background: rgba(245,166,35,0.06); }
+.gang-modo-card--destaque strong { color: var(--if-amber); }
+.gang-modo-card--destaque:hover { border-color: var(--if-amber); background: rgba(245,166,35,0.12); }
+.gang-modo-fugir {
+  margin-top: 8px; background: none; border: none; color: #667078; font-size: 0.72rem;
+  font-family: 'Courier New', monospace; cursor: pointer; letter-spacing: 1px; text-decoration: underline;
+}
+
+.gang-multidao-lista { width: 100%; max-width: 380px; display: flex; flex-direction: column; gap: 10px; overflow-y: auto; }
+.gang-multidao-lutador {
+  display: flex; flex-direction: column; gap: 6px; padding: 10px 12px;
+  background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; text-align: left;
+}
+.gang-multidao-lutador-nome { font: 700 0.82rem var(--font-display); color: #d5dde0; }
+.gang-multidao-sem-poder { font-size: 0.7rem; color: #667078; font-family: var(--font-mono); }
+.gang-multidao-poderes-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; }
+
+.gang-multidao-revela {
+  align-items: center; justify-content: center; gap: 20px;
+}
+.gang-multidao-dados { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; max-width: 260px; }
+.gang-multidao-dado {
+  font-size: 28px; display: inline-block;
+  animation: gang-multidao-girar 0.6s ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+}
+@keyframes gang-multidao-girar {
+  0%, 100% { transform: rotate(-12deg) scale(1); }
+  50% { transform: rotate(12deg) scale(1.15); }
+}
+.gang-multidao-revela-texto { font: 700 0.78rem var(--font-mono); letter-spacing: 0.06em; color: var(--if-amber); text-transform: uppercase; }
+
 /* --- Player strip (topo) --- */
 .gang-fighter-strip {
   display: flex;

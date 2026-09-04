@@ -5,6 +5,7 @@ import { useEventos } from '../../../context/EventosContext'
 import { useGanguesStore } from './store/useGanguesStore'
 import useGanguesTurnMachine from './hooks/useGanguesTurnMachine'
 import { getEquippedActiveGanguesSpecials } from './engine/ganguesSpecialEffects.js'
+import { simularGanguesBrigaMultidao } from './engine/ganguesBrigaMultidao.js'
 import DramaticDice from './components/DramaticDice'
 import { sfx } from '../../../lib/sfx'
 
@@ -22,6 +23,37 @@ function pickTrash(t, enemy, category) {
   const pool = Array.isArray(translated) ? translated : (enemy.trash_talk?.[category] || [])
   if (!pool.length) return null
   return pool[Math.floor(Math.random() * pool.length)]
+}
+
+// Um evento de combate (do motor normal OU do simulador da Briga em
+// Multidão — mesmo formato) vira 1-2 entradas de log. Reusado nos dois
+// modos pra não duplicar a lógica de nome/trash-talk/onomatopeia.
+function transformarEvento(t, event, combatants) {
+  if (event.type === 'battle_start') return [{ id: event.id, kind: 'system', text: t('games.gangues.log_batalha_inicio') }]
+  if (event.type === 'initiative') {
+    return [{ id: event.id, kind: 'initiative', order: event.order.map(item => ({ ...item, name: fighterName(t, combatants.find(m => m.key === item.key)) })) }]
+  }
+  if (event.type !== 'attack') return []
+  const actor = combatants.find(m => m.key === event.actorKey) || { side: event.side }
+  const target = combatants.find(m => m.key === event.targetKey)
+  const isPlayer = event.side === 'player'
+  const entries = [{
+    id: event.id, kind: 'attack_card', side: event.side,
+    actorName: fighterName(t, actor), targetName: fighterName(t, target), round: event.round,
+    fa: event.result.fa, fd: event.result.fd, dice: event.result.rolls.fa, defenseDice: event.result.rolls.fd,
+    dmg: event.result.damage, onoma: randomOnoma(),
+    attackerBonus: event.result.attackerBonus, defenderBonus: event.result.defenderBonus,
+    critical: event.result.critical, criticalBonus: event.result.criticalBonus,
+  }]
+  const enemyCombatant = isPlayer ? target : actor
+  if (enemyCombatant?.trash_talk) {
+    const category = event.result.critical ? 'take_critical' : isPlayer ? 'take_damage' : 'attack_hit'
+    if (Math.random() < 0.6) {
+      const line = pickTrash(t, enemyCombatant, category)
+      if (line) entries.push({ id: `${event.id}-trash`, kind: 'trash', sender: fighterName(t, enemyCombatant), text: line })
+    }
+  }
+  return entries
 }
 
 // Roster compacto: um quadradinho por lutador (avatar + anel de PV). O nome
@@ -76,6 +108,40 @@ export default function GanguesCombat({ onNavigate }) {
   const processedEvents = useRef(0)
   const logEndRef = useRef(null)
 
+  // ── Briga em Multidão: bandos de 3+ (jogador + inimigo) podem pular o
+  // golpe-a-golpe. Escolhe os poderes uma vez, a luta inteira resolve na
+  // hora (mesmas contas do combate normal, ver engine/ganguesBrigaMultidao).
+  const totalCombatentes = (store.match.playerTeam?.length || 0) + (store.match.enemyTeam?.length || 0)
+  const multidaoDisponivel = totalCombatentes >= 3
+  const [modo, setModo] = useState(null) // null (escolhendo) | 'individual' | 'multidao'
+  const [etapaMultidao, setEtapaMultidao] = useState('poderes') // 'poderes' | 'revelando'
+  const [poderesMultidao, setPoderesMultidao] = useState({}) // sheetId -> specialId | null
+
+  useEffect(() => {
+    if (modo === null && !multidaoDisponivel) setModo('individual')
+  }, [modo, multidaoDisponivel])
+
+  const resolverBrigaMultidao = () => {
+    sfx.vs?.()
+    const especiaisPorPersonagem = {}
+    for (const m of store.match.playerTeam) especiaisPorPersonagem[m.id] = getEquippedActiveGanguesSpecials(m)
+    const resultado = simularGanguesBrigaMultidao({
+      playerTeam: store.match.playerTeam,
+      enemyTeam: store.match.enemyTeam,
+      poderesPorPersonagem: poderesMultidao,
+      especiaisPorPersonagem,
+    })
+    setEtapaMultidao('revelando')
+    setTimeout(() => {
+      store.endMatch(resultado.outcome)
+      const entries = resultado.events.flatMap(event => transformarEvento(t, event, resultado.combatants))
+      store.setBattleReport({ outcome: resultado.outcome, entries, initiative: resultado.initiative, combatants: resultado.combatants, rounds: resultado.rounds })
+      if (resultado.outcome === 'victory') registrarEvento('arena_vitoria', 'Venceu uma batalha de gangue', 1)
+      resultado.outcome === 'victory' ? sfx.win() : sfx.lose()
+      onNavigate('victory')
+    }, 1400)
+  }
+
   const finish = useCallback(outcome => {
     store.endMatch(outcome)
     setResult(outcome)
@@ -100,7 +166,9 @@ export default function GanguesCombat({ onNavigate }) {
   const players = machine.combatants.filter(item => item.side === 'player')
   const enemies = machine.combatants.filter(item => item.side === 'enemy')
 
-  useEffect(() => { if (machine.phase === 'select') machine.enterCombat() }, [machine.phase, machine.enterCombat])
+  // Só entra no combate golpe-a-golpe se o jogador escolheu (ou não havia
+  // escolha — bandos pequenos pulam direto pro modo individual).
+  useEffect(() => { if (modo === 'individual' && machine.phase === 'select') machine.enterCombat() }, [modo, machine.phase, machine.enterCombat])
 
   useEffect(() => {
     if (!selectedActor || !machine.playerActors.some(item => item.key === selectedActor)) {
@@ -131,36 +199,7 @@ export default function GanguesCombat({ onNavigate }) {
 
     setLog(prev => {
       let next = prev
-      for (const event of newEvents) {
-        if (event.type === 'battle_start') {
-          next = [...next, { id: event.id, kind: 'system', text: t('games.gangues.log_batalha_inicio') }]
-          continue
-        }
-        if (event.type === 'initiative') {
-          next = [...next, { id: event.id, kind: 'initiative', order: event.order.map(item => ({ ...item, name: fighterName(t, machine.combatants.find(member => member.key === item.key)) })) }]
-          continue
-        }
-        if (event.type !== 'attack') continue
-        const actor = machine.combatants.find(item => item.key === event.actorKey) || { side: event.side }
-        const target = machine.combatants.find(item => item.key === event.targetKey)
-        const isPlayer = event.side === 'player'
-        next = [...next, {
-          id: event.id, kind: 'attack_card', side: event.side,
-          actorName: fighterName(t, actor), targetName: fighterName(t, target), round: event.round, fa: event.result.fa, fd: event.result.fd,
-          dice: event.result.rolls.fa, defenseDice: event.result.rolls.fd, dmg: event.result.damage, onoma: randomOnoma(),
-          attackerBonus: event.result.attackerBonus, defenderBonus: event.result.defenderBonus,
-          critical: event.result.critical, criticalBonus: event.result.criticalBonus,
-        }]
-
-        const enemyCombatant = isPlayer ? target : actor
-        if (enemyCombatant?.trash_talk) {
-          const category = event.result.critical ? 'take_critical' : isPlayer ? 'take_damage' : 'attack_hit'
-          if (Math.random() < 0.6) {
-            const line = pickTrash(t, enemyCombatant, category)
-            if (line) next = [...next, { id: `${event.id}-trash`, kind: 'trash', sender: fighterName(t, enemyCombatant), text: line }]
-          }
-        }
-      }
+      for (const event of newEvents) next = [...next, ...transformarEvento(t, event, machine.combatants)]
       return next
     })
   }, [machine.events, machine.combatants, t])
@@ -203,6 +242,87 @@ export default function GanguesCombat({ onNavigate }) {
   }
 
   if (!store.match.playerTeam?.length) return null
+
+  // ── Escolha do modo: golpe-a-golpe (acompanha tudo) x Briga em Multidão
+  // (resolve na hora). Só aparece quando o bando é grande o bastante pra
+  // valer a pena perguntar — 1x1 ou 2x1 vai direto pro combate normal. ──
+  if (modo === null) {
+    return (
+      <div className="gang-combat gang-container gang-modo-escolha">
+        <h2 className="gang-modo-titulo">{t('games.gangues.multidao.titulo')}</h2>
+        <p className="gang-modo-sub">{t('games.gangues.multidao.sub', { seu: store.match.playerTeam.length, deles: store.match.enemyTeam.length })}</p>
+        <div className="gang-modo-opcoes">
+          <button className="gang-modo-card" onClick={() => setModo('individual')}>
+            <strong>{t('games.gangues.multidao.opcao_individual')}</strong>
+            <small>{t('games.gangues.multidao.opcao_individual_aviso')}</small>
+          </button>
+          <button className="gang-modo-card gang-modo-card--destaque" onClick={() => setModo('multidao')}>
+            <strong>{t('games.gangues.multidao.opcao_multidao')}</strong>
+            <small>{t('games.gangues.multidao.opcao_multidao_desc')}</small>
+          </button>
+        </div>
+        <button className="gang-modo-fugir" onClick={() => onNavigate('lobby')}>{t('games.gangues.btn_sair')}</button>
+      </div>
+    )
+  }
+
+  // ── Briga em Multidão: escolhe poderes uma vez, resolve tudo, revela. ──
+  if (modo === 'multidao') {
+    if (etapaMultidao === 'revelando') {
+      return (
+        <div className="gang-combat gang-container gang-multidao-revela">
+          <div className="gang-multidao-dados">
+            {Array.from({ length: 8 }, (_, i) => <span key={i} className="gang-multidao-dado" style={{ '--delay': `${i * 0.07}s` }}>🎲</span>)}
+          </div>
+          <p className="gang-multidao-revela-texto">{t('games.gangues.multidao.resolvendo')}</p>
+        </div>
+      )
+    }
+    return (
+      <div className="gang-combat gang-container gang-modo-escolha">
+        <h2 className="gang-modo-titulo">{t('games.gangues.multidao.poderes_titulo')}</h2>
+        <p className="gang-modo-sub">{t('games.gangues.multidao.poderes_sub')}</p>
+        <div className="gang-multidao-lista">
+          {store.match.playerTeam.map(member => {
+            const especiais = getEquippedActiveGanguesSpecials(member)
+            const escolhido = poderesMultidao[member.id] || null
+            return (
+              <div key={member.id} className="gang-multidao-lutador">
+                <span className="gang-multidao-lutador-nome">{member.sheet_name}</span>
+                {especiais.length === 0 ? (
+                  <span className="gang-multidao-sem-poder">{t('games.gangues.combat_specials.normal_attack')}</span>
+                ) : (
+                  <div className="gang-multidao-poderes-grid">
+                    <button
+                      type="button"
+                      className={`gang-power-btn gang-power-btn--normal ${escolhido === null ? 'gang-power-btn--active' : ''}`}
+                      onClick={() => setPoderesMultidao(prev => ({ ...prev, [member.id]: null }))}
+                    >
+                      <span className="gang-power-btn-nome">{t('games.gangues.combat_specials.normal_attack')}</span>
+                    </button>
+                    {especiais.map(special => (
+                      <button
+                        key={special.id}
+                        type="button"
+                        className={`gang-power-btn ${escolhido === special.id ? 'gang-power-btn--active' : ''}`}
+                        onClick={() => setPoderesMultidao(prev => ({ ...prev, [member.id]: special.id }))}
+                      >
+                        <span className="gang-power-btn-nome">{t(`games.gangues.progression.skills.${special.id}`)}</span>
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+            )
+          })}
+        </div>
+        <div className="gang-modo-opcoes gang-modo-opcoes--fila">
+          <button className="gang-attack-btn" onClick={resolverBrigaMultidao}>{t('games.gangues.multidao.lutar')}</button>
+          <button className="gang-modo-fugir" onClick={() => onNavigate('lobby')}>{t('games.gangues.btn_sair')}</button>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div className="gang-combat gang-container">

@@ -457,6 +457,18 @@
         "sem_poderes": "Este lutador não tem poderes ativos equipados. Equipe na progressão da ficha.",
         "usar_golpe": "Usar {nome}"
       },
+      "multidao": {
+        "titulo": "Bando grande pela frente",
+        "sub": "Sua gangue ({seu}) contra o bando deles ({deles}). Quer acompanhar golpe a golpe ou resolver tudo de uma vez?",
+        "opcao_individual": "Golpe a golpe",
+        "opcao_individual_aviso": "Você escolhe cada ataque e vê cada resultado — pode demorar bastante com bandos grandes.",
+        "opcao_multidao": "Briga em Multidão",
+        "opcao_multidao_desc": "Escolha os poderes uma vez e veja o resultado da briga inteira na hora.",
+        "poderes_titulo": "Escolha os poderes",
+        "poderes_sub": "Quem tem poder ativo equipado pode usar — o resto ataca normal a luta inteira.",
+        "resolvendo": "Rolando os dados da briga inteira...",
+        "lutar": "LUTAR"
+      },
       "pag_atributos": "ATRIBUTOS",
       "pag_identidade": "IDENTIDADE",
       "pag_pericias": "PERÍCIAS",

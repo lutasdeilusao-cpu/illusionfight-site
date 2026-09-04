@@ -457,6 +457,18 @@
         "sem_poderes": "This fighter has no active powers equipped. Equip them in the sheet progression.",
         "usar_golpe": "Use {nome}"
       },
+      "multidao": {
+        "titulo": "Big mob ahead",
+        "sub": "Your gang ({seu}) against their mob ({deles}). Watch every hit or resolve it all at once?",
+        "opcao_individual": "Hit by hit",
+        "opcao_individual_aviso": "You pick every attack and see every result — can take a while against big mobs.",
+        "opcao_multidao": "Mob Brawl",
+        "opcao_multidao_desc": "Pick your powers once and see the whole fight's outcome right away.",
+        "poderes_titulo": "Pick your powers",
+        "poderes_sub": "Whoever has an active power equipped can use it — everyone else fights with normal attacks the whole battle.",
+        "resolvendo": "Rolling the whole fight's dice...",
+        "lutar": "FIGHT"
+      },
       "pag_atributos": "ATTRIBUTES",
       "pag_identidade": "IDENTITY",
       "pag_pericias": "SKILLS",

@@ -457,6 +457,18 @@
         "sem_poderes": "Este luchador no tiene poderes activos equipados. Equípalos en la progresión de la ficha.",
         "usar_golpe": "Usar {nome}"
       },
+      "multidao": {
+        "titulo": "Banda grande por delante",
+        "sub": "Tu pandilla ({seu}) contra su banda ({deles}). ¿Quieres ver golpe a golpe o resolver todo de una vez?",
+        "opcao_individual": "Golpe a golpe",
+        "opcao_individual_aviso": "Eliges cada ataque y ves cada resultado — puede tardar bastante contra bandas grandes.",
+        "opcao_multidao": "Pelea Multitudinaria",
+        "opcao_multidao_desc": "Elige los poderes una vez y mira el resultado de toda la pelea al instante.",
+        "poderes_titulo": "Elige los poderes",
+        "poderes_sub": "Quien tenga un poder activo equipado puede usarlo — el resto ataca normal toda la pelea.",
+        "resolvendo": "Tirando los dados de toda la pelea...",
+        "lutar": "PELEAR"
+      },
       "pag_atributos": "ATRIBUTOS",
       "pag_identidade": "IDENTIDAD",
       "pag_pericias": "PERICIAS",
