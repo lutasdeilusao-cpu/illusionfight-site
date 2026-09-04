@@ -30,6 +30,20 @@ export const GANGUES_TERRITORIO_ENCONTRO = {
   laje: { moldes: ['bonde_costura_1', 'bonde_costura_2', 'bonde_costura_3'], min: 6, max: 10 },
 }
 
+// Equipe do CHEFE — fixa, nunca sorteada. O chefe não anda sozinho, leva os
+// melhores da própria gangue junto (o 1º id é sempre o próprio chefe). Sendo
+// sempre a mesma composição, dá pra aprender o combate e voltar mais forte —
+// bem diferente do bando comum, que é aleatório de propósito.
+export const GANGUES_CHEFE_EQUIPE = {
+  pista: ['fumaca', 'moleque_b'],
+  feira: ['turco', 'turco_capanga'],
+  baixada: ['espeto', 'sombra_fria'],
+  vila: ['sala', 'bonde_predio_2'],
+  morro: ['zefa', 'frente_escada_2'],
+  alto: ['doutor', 'os_cinco_2'],
+  laje: ['costura', 'bonde_costura_3', 'bonde_costura_2'],
+}
+
 // Total de pontos do bando = pontos do jogador * esse fator. "normal" ~65%
 // deu, na simulação, algo entre "ralado" e "vencível" na maioria dos
 // tamanhos de time testados. "dificil"/"facil" alternam dentro do
