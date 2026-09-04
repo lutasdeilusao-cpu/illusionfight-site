@@ -1151,7 +1151,7 @@
         "entry_desc": "Suba nas gangues de Marelia até sobrar você — e o Alan.",
         "titulo": "MARELIA SEM DONO",
         "sub": "Antes do Alan, Marelia não tinha rei. Era gangue em cada esquina, cada uma dona do próprio quarteirão e de mais nada. Você monta a sua e sobe nesse caos.",
-        "dominio": "de Marelia é sua",
+        "dominio": "de Marelia",
         "dominado": "Região dominada",
         "voltar_mapa": "Mapa",
         "sem_territorio": "Nenhuma região selecionada.",
@@ -1209,9 +1209,9 @@
           }
         },
         "falas": {
-          "ponto": "{territorio}. Esse ponto é da {gangue}. Você não passa daqui sem resolver comigo.",
-          "chefe": "A {gangue} segura essa região inteira. Você engoliu meus pontos um por um pra chegar aqui — mostra que aguenta o dono.",
-          "alan": "Então é você. Ouvi seu nome subindo o morro do mesmo jeito que o meu. Só que a Laje é de um só. Sobe aqui."
+          "ponto": "{territorio}. Esse ponto é da {gangue}. A {suaGangue} não passa daqui sem resolver comigo.",
+          "chefe": "Então a {suaGangue} chegou até aqui — engoliu meus pontos um por um. Mas a região é da {gangue}, e o dono você ainda não bateu.",
+          "alan": "Então é você. Ouvi o nome da {suaGangue} subindo o morro do mesmo jeito que o meu. Só que a Laje é de um só. Sobe aqui."
         },
         "neoguide": [
           "Modo história. Marelia ainda não tem dono — e é aí que a gente entra.",
@@ -1224,9 +1224,9 @@
           "code": "A SUBIDA ACABA AQUI",
           "titulo": "A LAJE É DE UM SÓ",
           "paragrafos": [
-            "Você derrubou o Alan na Laje. Marelia inteira viu.",
-            "Mas quando o sangue secou, quem levantou a mão foi ele. E Marelia inteira aceitou — porque no fim o morro sempre escolhe um, e daquela vez não foi você.",
-            "Você chegou mais perto do que qualquer outro. É por isso que, dali pra frente, quando o Alan fala o seu nome, ele fala com respeito."
+            "A {gangue} derrubou o Alan na Laje. Marelia inteira viu.",
+            "Mas quando o sangue secou, quem levantou a mão foi ele. E Marelia inteira aceitou — porque o morro sempre escolhe um, e daquela vez não foi a {gangue}.",
+            "Vocês chegaram mais perto do que qualquer outro. É por isso que, dali pra frente, quando o Alan fala da {gangue}, ele fala com respeito."
           ]
         }
       },
@@ -1240,7 +1240,31 @@
         "historia_desc": "Suba o Morro. Domine Marelia degrau por degrau — cada território até o chefe, com progresso salvo.",
         "batalha_titulo": "MODO BATALHA",
         "batalha_tag": "Avulso",
-        "batalha_desc": "Um confronto rápido 2×2 contra o oponente que você escolher. Sem progresso no mapa."
+        "batalha_desc": "Um confronto rápido 2×2 contra o oponente que você escolher. Sem progresso no mapa.",
+        "dupla_da_gangue": "A dupla da {gangue}"
+      },
+      "naming": {
+        "titulo": "FUNDE A SUA GANGUE",
+        "titulo_editar": "RENOMEAR A GANGUE",
+        "sub": "Os personagens importam. Mas é o nome da gangue que reverbera — é ele que os inimigos vão cuspir, é ele que vai dominar Marelia.",
+        "label": "Nome da gangue",
+        "placeholder": "Ex: Bonde do Fim de Linha",
+        "exemplos": "Ideias:",
+        "sugestao_bonde": "Bonde do Fim de Linha",
+        "sugestao_firma": "A Firma",
+        "sugestao_trilha": "Trilha de Cima",
+        "sugestao_sindicato": "Sindicato do Beco",
+        "sugestao_quebrada": "Quebrada Nova",
+        "preview": "“A {nome} tá subindo o morro.”",
+        "preview_vazio": "O nome que Marelia inteira vai aprender a temer.",
+        "fundar": "FUNDAR A GANGUE",
+        "salvar": "SALVAR",
+        "renomear": "renomear",
+        "neoguide": [
+          "Antes de tudo: sua gangue precisa de nome.",
+          "Os lutadores vêm e vão. O nome da gangue é o que fica — é ele que corre a boca do morro.",
+          "Escolhe bem. É esse nome que o Alan vai falar quando você chegar na Laje."
+        ]
       }
     }
   }

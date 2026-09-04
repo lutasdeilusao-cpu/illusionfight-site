@@ -45,12 +45,15 @@ export default function GanguesVictory({ onNavigate }) {
 
   // ── Confronto final contra o Alan — canon: Marelia não fica com você ──
   if (confrontoFinal && victory) {
+    const suaGangue = store.gangName || t('games.gangues.report.your_gang')
+    const paragrafos = (t('games.gangues.story.final.paragrafos') || []).map(par =>
+      String(par).replace(/\{gangue\}/g, suaGangue))
     return (
       <main className="gang-report gang-report--final">
         <motion.div className="gang-final" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
           <span className="gang-report-code">{t('games.gangues.story.final.code')}</span>
           <h1 className="gang-final-titulo">{t('games.gangues.story.final.titulo')}</h1>
-          {t('games.gangues.story.final.paragrafos').map((par, i) => (
+          {paragrafos.map((par, i) => (
             <motion.p
               key={i}
               className="gang-final-par"
@@ -65,7 +68,7 @@ export default function GanguesVictory({ onNavigate }) {
             className="gang-report-primary"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.5 + t('games.gangues.story.final.paragrafos').length * 0.6 }}
+            transition={{ delay: 0.5 + paragrafos.length * 0.6 }}
             onClick={() => onNavigate('story')}
           >
             {t('games.gangues.story.voltar_mapa')}
@@ -93,7 +96,7 @@ export default function GanguesVictory({ onNavigate }) {
       <section className="gang-report-section">
         <h2>{t('games.gangues.report.final_state')}</h2>
         <div className="gang-report-roster">
-          {report.combatants.map(member => <div key={member.key} className={`gang-report-member gang-report-member--${member.side} ${member.pv <= 0 ? 'gang-report-member--ko' : ''}`}><span>{combatantName(t, member)?.[0] || '?'}</span><div><strong>{combatantName(t, member)}</strong><small>{member.side === 'player' ? t('games.gangues.report.your_gang') : t('games.gangues.report.enemy_gang')}</small></div><b>{member.pv}/{member.pvMax} PV</b></div>)}
+          {report.combatants.map(member => <div key={member.key} className={`gang-report-member gang-report-member--${member.side} ${member.pv <= 0 ? 'gang-report-member--ko' : ''}`}><span>{combatantName(t, member)?.[0] || '?'}</span><div><strong>{combatantName(t, member)}</strong><small>{member.side === 'player' ? (store.gangName || t('games.gangues.report.your_gang')) : t('games.gangues.report.enemy_gang')}</small></div><b>{member.pv}/{member.pvMax} PV</b></div>)}
         </div>
       </section>
 

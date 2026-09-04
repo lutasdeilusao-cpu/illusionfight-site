@@ -131,6 +131,7 @@ export default function GanguesTerritorio({ onNavigate }) {
                 {t(`games.gangues.story.falas.${confronto.no.ehAlan ? 'alan' : confronto.isChefe ? 'chefe' : 'ponto'}`, {
                   territorio: t(`games.gangues.story.territorios.${terr.id}.nome`),
                   gangue: t(`games.gangues.story.gangues.${confronto.no.gangue}`),
+                  suaGangue: store.gangName || t('games.gangues.report.your_gang'),
                 })}
               </p>
               {confronto.enemy && (

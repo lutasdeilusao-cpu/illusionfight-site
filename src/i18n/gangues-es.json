@@ -1561,7 +1561,7 @@
         "entry_desc": "Sube por las gangas de Marelia hasta quedar tú — y Alan.",
         "titulo": "MARELIA SIN DUEÑO",
         "sub": "Antes de Alan, Marelia no tenía rey. Una ganga en cada esquina, cada una dueña de su cuadra y de nada más. Tú armas la tuya y subes en ese caos.",
-        "dominio": "de Marelia es tuya",
+        "dominio": "de Marelia",
         "dominado": "Región dominada",
         "voltar_mapa": "Mapa",
         "sem_territorio": "Ninguna región seleccionada.",
@@ -1619,9 +1619,9 @@
           }
         },
         "falas": {
-          "ponto": "{territorio}. Ese punto es de {gangue}. No pasas de aquí sin arreglarlo conmigo.",
-          "chefe": "{gangue} sostiene toda esta región. Te comiste mis puntos uno por uno para llegar aquí — demuestra que aguantas al dueño.",
-          "alan": "Así que eres tú. Oí tu nombre subiendo el cerro igual que el mío. Pero la Azotea es de uno solo. Sube."
+          "ponto": "{territorio}. Ese punto es de {gangue}. {suaGangue} no pasa de aquí sin arreglarlo conmigo.",
+          "chefe": "Así que {suaGangue} llegó hasta aquí — se comió mis puntos uno por uno. Pero la región es de {gangue}, y al dueño no lo tocaste todavía.",
+          "alan": "Así que eres tú. Oí el nombre de {suaGangue} subiendo el cerro igual que el mío. Pero la Azotea es de uno solo. Sube."
         },
         "neoguide": [
           "Modo historia. Marelia todavía no tiene dueño — y ahí entramos nosotros.",
@@ -1634,9 +1634,9 @@
           "code": "LA SUBIDA TERMINA AQUÍ",
           "titulo": "LA AZOTEA ES DE UNO SOLO",
           "paragrafos": [
-            "Tumbaste a Alan en la Azotea. Marelia entera lo vio.",
-            "Pero cuando la sangre se secó, la mano que se alzó fue la suya. Y Marelia entera lo aceptó — porque el cerro siempre elige a uno, y esa vez no fuiste tú.",
-            "Llegaste más cerca que nadie. Por eso, de ahí en adelante, cuando Alan dice tu nombre, lo dice con respeto."
+            "{gangue} tumbó a Alan en la Azotea. Marelia entera lo vio.",
+            "Pero cuando la sangre se secó, la mano que se alzó fue la suya. Y Marelia entera lo aceptó — porque el cerro siempre elige a uno, y esa vez no fue {gangue}.",
+            "Llegaron más cerca que nadie. Por eso, de ahí en adelante, cuando Alan dice {gangue}, lo dice con respeto."
           ]
         }
       },
@@ -1650,7 +1650,31 @@
         "historia_desc": "Sube el Cerro. Domina Marelia escalón por escalón — cada territorio hasta el jefe, con progreso guardado.",
         "batalha_titulo": "MODO BATALLA",
         "batalha_tag": "Suelto",
-        "batalha_desc": "Un enfrentamiento rápido 2×2 contra el oponente que elijas. Sin progreso en el mapa."
+        "batalha_desc": "Un enfrentamiento rápido 2×2 contra el oponente que elijas. Sin progreso en el mapa.",
+        "dupla_da_gangue": "El dúo de {gangue}"
+      },
+      "naming": {
+        "titulo": "FUNDA TU GANGA",
+        "titulo_editar": "RENOMBRAR LA GANGA",
+        "sub": "Los personajes importan. Pero es el nombre de la ganga el que resuena — el que los enemigos escupen, el que va a dominar Marelia.",
+        "label": "Nombre de la ganga",
+        "placeholder": "Ej: La Banda del Fin de Línea",
+        "exemplos": "Ideas:",
+        "sugestao_bonde": "La Banda del Fin de Línea",
+        "sugestao_firma": "La Firma",
+        "sugestao_trilha": "Sendero de Arriba",
+        "sugestao_sindicato": "Sindicato del Callejón",
+        "sugestao_quebrada": "Barrio Nuevo",
+        "preview": "«{nome} está subiendo el cerro.»",
+        "preview_vazio": "El nombre que Marelia entera aprenderá a temer.",
+        "fundar": "FUNDAR LA GANGA",
+        "salvar": "GUARDAR",
+        "renomear": "renombrar",
+        "neoguide": [
+          "Antes que nada: tu ganga necesita un nombre.",
+          "Los luchadores van y vienen. El nombre de la ganga es lo que queda — es lo que corre la boca del cerro.",
+          "Elige bien. Es el nombre que Alan va a decir cuando llegues a la Azotea."
+        ]
       }
     }
   }

@@ -47,12 +47,14 @@ export default function GanguesModes({ onNavigate }) {
       </header>
 
       <div className="gang-modes-titulo-wrap">
-        <span className="if-eyebrow">IF // GANGUES</span>
+        <span className="if-eyebrow">IF // {store.gangName || 'MARELIA'}</span>
         <h1 className="gang-modes-titulo">{t('games.gangues.modes.titulo')}</h1>
       </div>
 
       <div className="gang-modes-dupla">
-        <span className="gang-modes-dupla-label">{t('games.gangues.modes.sua_dupla')}</span>
+        <span className="gang-modes-dupla-label">
+          {store.gangName ? t('games.gangues.modes.dupla_da_gangue', { gangue: store.gangName }) : t('games.gangues.modes.sua_dupla')}
+        </span>
         <div className="gang-modes-dupla-lista">
           {party.map(member => (
             <span key={member.id} className="gang-modes-dupla-item">

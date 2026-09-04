@@ -5,6 +5,7 @@ import { useAuth } from '../../../context/AuthContext'
 import { useFichas } from '../../../context/FichasContext'
 import { useNavigate } from 'react-router-dom'
 import NeoGuideDialog from './components/NeoGuideDialog'
+import GanguesNaming from './GanguesNaming'
 import { sfx } from '../../../lib/sfx'
 import { useGanguesStore, limiteFichasPorTier, podeCriarFicha } from './store/useGanguesStore'
 import { GANGUES_INITIAL_PARTY_SIZE, GANGUES_MAX_PARTY_SIZE, getGanguesPartySizeLimit, getGanguesProgression } from './data/ganguesLoadout.js'
@@ -41,6 +42,7 @@ export default function GanguesLobby({ onNavigate }) {
   const [showNeoGuide, setShowNeoGuide] = useState(false)
   const [avisoParty, setAvisoParty] = useState('')
   const [avisoPoderes, setAvisoPoderes] = useState(null) // { nomes } — poderes por equipar
+  const [renomeando, setRenomeando] = useState(false)
   const roster = store.roster
   const party = store.activeParty
   const rosterLimit = limiteFichasPorTier(perfil?.tier)
@@ -124,6 +126,10 @@ export default function GanguesLobby({ onNavigate }) {
 
   if (loading) return <main className="gang-lobby"><div className="gang-lobby-empty">{t('games.gangues.carregando')}</div></main>
 
+  // Primeira coisa ao entrar: batizar a gangue. É o nome que reverbera.
+  if (!store.gangName) return <GanguesNaming onDone={() => {}} />
+  if (renomeando) return <GanguesNaming modoEdicao onDone={() => setRenomeando(false)} />
+
   return (
     <main className="gang-lobby">
       <AnimatePresence>
@@ -132,8 +138,9 @@ export default function GanguesLobby({ onNavigate }) {
         )}
       </AnimatePresence>
       <header className="gang-lobby-hero">
-        <p className="gang-lobby-titulo">{t('games.gangues.modo_standalone')}</p>
-        <h1 className="gang-lobby-nome">LDI GANGUES</h1>
+        <p className="gang-lobby-titulo">{t('games.gangues.modo_standalone')} · LDI GANGUES</p>
+        <h1 className="gang-lobby-nome">{store.gangName}</h1>
+        <button className="gang-lobby-rename" onClick={() => setRenomeando(true)}>✎ {t('games.gangues.naming.renomear')}</button>
         <p className="gang-lobby-sub">{roster.length < GANGUES_INITIAL_PARTY_SIZE ? t('games.gangues.party.subtitle') : t('games.gangues.party.single_desc')}</p>
       </header>
       <div className="gang-lobby-divider" />

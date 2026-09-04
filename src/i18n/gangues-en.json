@@ -1561,7 +1561,7 @@
         "entry_desc": "Rise through Marelia's gangs until it's just you — and Alan.",
         "titulo": "MARELIA HAS NO KING",
         "sub": "Before Alan, Marelia had no king. A gang on every corner, each one ruling its own block and nothing else. You build yours and rise through the mess.",
-        "dominio": "of Marelia is yours",
+        "dominio": "of Marelia",
         "dominado": "Region taken",
         "voltar_mapa": "Map",
         "sem_territorio": "No region selected.",
@@ -1619,9 +1619,9 @@
           }
         },
         "falas": {
-          "ponto": "{territorio}. This spot belongs to {gangue}. You don't get past here without settling it with me.",
-          "chefe": "{gangue} holds this whole region. You ate my spots one by one to get here — show me you can handle the owner.",
-          "alan": "So it's you. I heard your name climbing the hill the same way mine did. But the Rooftop only fits one. Come on up."
+          "ponto": "{territorio}. This spot belongs to {gangue}. {suaGangue} doesn't get past here without settling it with me.",
+          "chefe": "So {suaGangue} made it here — ate my spots one by one. But this region is {gangue}'s, and you haven't hit the owner yet.",
+          "alan": "So it's you. I heard the name {suaGangue} climbing the hill the same way mine did. But the Rooftop only fits one. Come on up."
         },
         "neoguide": [
           "Story mode. Marelia has no king yet — and that's where we come in.",
@@ -1634,9 +1634,9 @@
           "code": "THE CLIMB ENDS HERE",
           "titulo": "THE ROOFTOP FITS ONE",
           "paragrafos": [
-            "You put Alan down on the Rooftop. All of Marelia saw it.",
-            "But when the blood dried, the hand that went up was his. And all of Marelia accepted it — because the hill always picks one, and that time it wasn't you.",
-            "You got closer than anyone else ever did. That's why, from then on, when Alan says your name, he says it with respect."
+            "{gangue} put Alan down on the Rooftop. All of Marelia saw it.",
+            "But when the blood dried, the hand that went up was his. And all of Marelia accepted it — because the hill always picks one, and that time it wasn't {gangue}.",
+            "You got closer than anyone else ever did. That's why, from then on, when Alan says {gangue}, he says it with respect."
           ]
         }
       },
@@ -1650,7 +1650,31 @@
         "historia_desc": "Climb the Hill. Take Marelia one step at a time — every turf up to the boss, progress saved.",
         "batalha_titulo": "BATTLE MODE",
         "batalha_tag": "One-off",
-        "batalha_desc": "A quick 2×2 fight against the opponent you pick. No map progress."
+        "batalha_desc": "A quick 2×2 fight against the opponent you pick. No map progress.",
+        "dupla_da_gangue": "{gangue}'s duo"
+      },
+      "naming": {
+        "titulo": "FOUND YOUR GANG",
+        "titulo_editar": "RENAME THE GANG",
+        "sub": "The fighters matter. But it's the gang's name that echoes — the one enemies spit out, the one that takes Marelia.",
+        "label": "Gang name",
+        "placeholder": "e.g. End of the Line Crew",
+        "exemplos": "Ideas:",
+        "sugestao_bonde": "End of the Line Crew",
+        "sugestao_firma": "The Firm",
+        "sugestao_trilha": "The High Trail",
+        "sugestao_sindicato": "Alley Syndicate",
+        "sugestao_quebrada": "New Block",
+        "preview": "\"{nome} is coming up the hill.\"",
+        "preview_vazio": "The name all of Marelia will learn to fear.",
+        "fundar": "FOUND THE GANG",
+        "salvar": "SAVE",
+        "renomear": "rename",
+        "neoguide": [
+          "First things first: your gang needs a name.",
+          "Fighters come and go. The gang's name is what stays — it's what runs the mouth of the hill.",
+          "Choose well. This is the name Alan says when you reach the Rooftop."
+        ]
       }
     }
   }

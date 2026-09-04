@@ -173,6 +173,18 @@ export const useGanguesStore = create((set, get) => ({
     return { sheet: { ...state.sheet, enemies_unlocked: [...current, nextId] } }
   }),
 
+  // ── Nome da gangue ──
+  // É o que reverbera na história (falas dos inimigos, % de domínio, fim).
+  // Persistido só em localStorage por enquanto (esqueleto), como o storyProgress.
+  gangName: (() => {
+    try { return localStorage.getItem('ldi-gangues-nome') || '' } catch { return '' }
+  })(),
+  setGangName: (nome) => {
+    const limpo = String(nome || '').replace(/\s+/g, ' ').trim().slice(0, 28)
+    try { localStorage.setItem('ldi-gangues-nome', limpo) } catch { /* ignora */ }
+    set({ gangName: limpo })
+  },
+
   // ── Modo história ──
   // storyProgress: { [territorioId]: { pontos: [noId...], chefe: bool } }
   // Persistido só em localStorage por enquanto (esqueleto).

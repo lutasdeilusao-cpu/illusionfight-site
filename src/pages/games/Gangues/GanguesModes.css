@@ -108,3 +108,56 @@
 @media (prefers-reduced-motion: reduce) {
   .gang-modes-card, .gang-modes-card-cta b { transition: none; }
 }
+
+/* ══ Batizar a gangue ══ */
+.gang-naming { gap: 0; }
+.gang-naming-sub {
+  margin: 8px 0 0; max-width: 42ch;
+  color: var(--text-secondary); font-size: 0.84rem; line-height: 1.55;
+}
+.gang-naming-campo {
+  display: flex; flex-direction: column; gap: 8px;
+  margin: 22px 0 6px;
+}
+.gang-naming-campo label {
+  font: 700 0.6rem var(--font-mono); letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--text-secondary);
+}
+.gang-naming-campo input {
+  width: 100%; padding: 14px 14px;
+  font: 800 1.15rem var(--font-display); letter-spacing: 0.02em;
+  color: #fff; background: #05080a;
+  border: 1px solid var(--if-teal);
+  box-shadow: inset 3px 0 var(--if-teal);
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
+}
+.gang-naming-campo input::placeholder { color: #5b6570; font-weight: 600; font-size: 0.95rem; }
+.gang-naming-campo input:focus { outline: none; box-shadow: inset 3px 0 var(--if-teal), 0 0 24px -6px var(--if-teal); }
+.gang-naming-contador {
+  align-self: flex-end;
+  font: 0.62rem var(--font-mono); color: var(--text-secondary);
+}
+.gang-naming-sugestoes {
+  display: flex; flex-wrap: wrap; gap: 6px; align-items: center;
+  margin-top: 4px;
+}
+.gang-naming-sugestoes > span {
+  font: 700 0.58rem var(--font-mono); letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--text-secondary);
+}
+.gang-naming-chip {
+  padding: 5px 9px;
+  font: 600 0.72rem var(--font-body); color: #cdd4dc;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--if-hair);
+  cursor: pointer; transition: border-color 0.15s, color 0.15s;
+}
+.gang-naming-chip:hover { border-color: var(--if-teal); color: #fff; }
+.gang-naming-preview {
+  margin: 14px 0 4px; padding: 12px 14px;
+  font-size: 0.9rem; line-height: 1.5; color: #c7cdd6;
+  border-left: 2px solid var(--if-amber);
+  background: linear-gradient(100deg, var(--if-amber-16), transparent 80%);
+}
+.gang-naming-ok { margin-top: 10px; }
+.gang-naming-ok:disabled { opacity: 0.35; cursor: not-allowed; }

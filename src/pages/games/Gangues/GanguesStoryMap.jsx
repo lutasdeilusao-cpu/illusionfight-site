@@ -69,7 +69,7 @@ export default function GanguesStoryMap({ onNavigate }) {
         </button>
         <div className="gang-story-dominio">
           <span className="gang-story-dominio-num">{pct}%</span>
-          <span>{t('games.gangues.story.dominio')}</span>
+          <span>{t('games.gangues.story.dominio')}{store.gangName ? ` · ${store.gangName}` : ''}</span>
         </div>
       </header>
 

@@ -7,3 +7,13 @@
   overscroll-behavior-y: auto;
   touch-action: auto;
 }
+
+/* renomear a gangue — chip discreto abaixo do nome no lobby */
+.gang-lobby-rename {
+  margin: 6px auto 0; padding: 3px 10px;
+  font: 700 0.6rem var(--font-mono); letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--text-secondary);
+  background: transparent; border: 1px solid var(--if-hair);
+  cursor: pointer; transition: color 0.15s, border-color 0.15s;
+}
+.gang-lobby-rename:hover { color: var(--if-teal); border-color: var(--if-teal); }
