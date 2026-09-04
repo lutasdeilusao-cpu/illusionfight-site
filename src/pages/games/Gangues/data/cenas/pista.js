@@ -70,6 +70,9 @@ export const CENA_PISTA = {
       // demais pra esse momento; ver docs/Games/Gangues sobre o rebalance.
       enemy: 'moleque_a',
       forca: 1,
+      // Tamanho do bando inimigo — independente do tamanho do SEU time (a
+      // regra aqui é "gangue", não duelo 1x1). Teto da Pista: 4.
+      qtd: 1,
       recompensa: { grana: 8, rep: 2, xp: 10 },
       revela: ['birosca'],
     },
@@ -101,6 +104,7 @@ export const CENA_PISTA = {
       // acumulado (a de molecada_1) até chegar aqui.
       enemy: 'moleque_b',
       forca: 2,
+      qtd: 3,
       recompensa: { grana: 8, rep: 3, xp: 10 },
     },
     {
@@ -127,6 +131,7 @@ export const CENA_PISTA = {
     // de confronto (games.gangues.story.bosses.fumaca).
     enemy: 'fumaca',
     forca: 3,
+    qtd: 1,
     boss: 'fumaca',
   },
 

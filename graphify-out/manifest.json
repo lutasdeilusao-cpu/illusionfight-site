@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1788552409.2240963,
-    "ast_hash": "881aa7d904bb39b82635d5c440950358",
+    "mtime": 1788555730.23128,
+    "ast_hash": "679a5f6019b2a21649c3bacc20b18264",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2745,8 +2745,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1788552418.8640475,
-    "ast_hash": "a526d329d83c555132d5b74d8215d709",
+    "mtime": 1788555739.1659741,
+    "ast_hash": "9c5b6d2a985a74817abed30a96da09ff",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3505,8 +3505,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/gangues-enemies.json": {
-    "mtime": 1788552313.6448233,
-    "ast_hash": "7ca10b529e683da052a16d9f910b126f",
+    "mtime": 1788555584.6881306,
+    "ast_hash": "128f9457bbb1ef7e450d6236600ed153",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/ganguesLoadout.js": {
@@ -3550,18 +3550,18 @@
     "semantic_hash": ""
   },
   "src/i18n/gangues-en.json": {
-    "mtime": 1788552359.9104402,
-    "ast_hash": "3947858fc532de0e20d6a13ab833ce87",
+    "mtime": 1788555683.4228585,
+    "ast_hash": "c03ac81fab85375c1918ccd476178ba7",
     "semantic_hash": ""
   },
   "src/i18n/gangues-es.json": {
-    "mtime": 1788552366.6201322,
-    "ast_hash": "4e7d903f9a5a78edb06704f9a6d94a8a",
+    "mtime": 1788555692.4848745,
+    "ast_hash": "c784cc44415d89632ef79dcf84f3d084",
     "semantic_hash": ""
   },
   "src/i18n/gangues-pt.json": {
-    "mtime": 1788552353.312827,
-    "ast_hash": "c123f1f73af7e50add4c1d7abd13532c",
+    "mtime": 1788555656.3044567,
+    "ast_hash": "f6855479db76c9098cd60b1b190da4a2",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/hooks/useGanguesI18n.js": {
@@ -4735,8 +4735,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/ganguesTerritorios.js": {
-    "mtime": 1788488457.74043,
-    "ast_hash": "e58c80f3a487dfc63eaa57756e19b096",
+    "mtime": 1788555642.397557,
+    "ast_hash": "fd341bdd2d801e896916364a57014aa9",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/GanguesEnemyPick.jsx": {

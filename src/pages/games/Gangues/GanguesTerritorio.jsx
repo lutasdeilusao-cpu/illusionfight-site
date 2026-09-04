@@ -51,6 +51,9 @@ export default function GanguesTerritorio({ onNavigate }) {
       territorioId: terr.id,
       noId: confronto.no.id,
       enemyId: confronto.no.enemy,
+      // Tamanho do bando inimigo — bairro é gangue contra gangue, não duelo
+      // 1x1: o número de inimigos não depende do tamanho do SEU time.
+      enemyQtd: confronto.no.qtd || 1,
       isChefe: confronto.isChefe,
     })
     // GanguesRoute lê o storyTarget e monta a batalha.

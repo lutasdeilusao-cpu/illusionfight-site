@@ -10,6 +10,29 @@ export const GANGUES_INITIAL_PARTY_SIZE = 2
 export const GANGUES_MAX_PARTY_SIZE = 5
 export const GANGUES_ROSTER_LIMITS = { free: 3, elite: 5, primordial: 7 }
 
+// ── Modo história: teto de time de batalha + elenco que cresce por recrutamento ──
+// Bairro é gangue contra gangue (bando inimigo pode ter até 10 corpos) — mas
+// o time que VOCÊ leva pra briga tem teto fixo de 3, não acompanha o elenco.
+export const GANGUES_STORY_BATTLE_PARTY_MAX = 3
+// Cada território dominado (chefe derrotado) libera 1 vaga nova no elenco,
+// além do limite pago por tier — até um teto de 6 territórios contando (a
+// Laje, o 7º, não soma mais porque essa conta já bateu no teto do elenco).
+export const GANGUES_STORY_ROSTER_BASE = GANGUES_INITIAL_PARTY_SIZE
+export const GANGUES_STORY_ROSTER_TERRITORIOS_QUE_CONTAM = 6
+export const GANGUES_STORY_ROSTER_MAX = GANGUES_STORY_ROSTER_BASE + GANGUES_STORY_ROSTER_TERRITORIOS_QUE_CONTAM // 8
+
+/** Quantos territórios já foram dominados (chefe derrotado)? */
+export function contarTerritoriosDominados(storyProgress = {}) {
+  return Object.values(storyProgress).filter(t => t?.chefe).length
+}
+
+/** Vaga de elenco liberada pelo progresso da história — soma ao limite do tier, nunca substitui. */
+export function getGanguesRosterLimitComHistoria(tier, storyProgress) {
+  const dominados = Math.min(GANGUES_STORY_ROSTER_TERRITORIOS_QUE_CONTAM, contarTerritoriosDominados(storyProgress))
+  const viaHistoria = GANGUES_STORY_ROSTER_BASE + dominados
+  return Math.max(getGanguesRosterLimit(tier), viaHistoria)
+}
+
 // Slots extras de gangue destravam com XP acumulado no roster; começa em 2 e sobe até o teto de 5.
 export const GANGUES_PARTY_SIZE_THRESHOLDS = [
   { size: 2, xp: 0 },

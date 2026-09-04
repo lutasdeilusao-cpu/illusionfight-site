@@ -5,8 +5,8 @@ import { useFichas } from '../../../context/FichasContext'
 import { useNavigate } from 'react-router-dom'
 import GanguesNaming from './GanguesNaming'
 import { sfx } from '../../../lib/sfx'
-import { useGanguesStore, limiteFichasPorTier, podeCriarFicha } from './store/useGanguesStore'
-import { GANGUES_INITIAL_PARTY_SIZE, GANGUES_MAX_PARTY_SIZE, getGanguesPartySizeLimit, getGanguesProgression } from './data/ganguesLoadout.js'
+import { useGanguesStore } from './store/useGanguesStore'
+import { GANGUES_INITIAL_PARTY_SIZE, GANGUES_MAX_PARTY_SIZE, getGanguesPartySizeLimit, getGanguesProgression, getGanguesRosterLimitComHistoria } from './data/ganguesLoadout.js'
 import { getGanguesSpecials } from './data/ganguesSpecials.js'
 import enemiesData from './data/gangues-enemies.json'
 
@@ -40,7 +40,8 @@ export default function GanguesLobby({ onNavigate }) {
   const [renomeando, setRenomeando] = useState(false)
   const roster = store.roster
   const party = store.activeParty
-  const rosterLimit = limiteFichasPorTier(perfil?.tier)
+  // Cresce por tier pago OU por território dominado na história — vale o maior.
+  const rosterLimit = getGanguesRosterLimitComHistoria(perfil?.tier, store.storyProgress)
   const totalXp = roster.reduce((sum, member) => sum + (member.xp_total || 0), 0)
   const partyLimit = getGanguesPartySizeLimit(totalXp)
 
@@ -63,7 +64,7 @@ export default function GanguesLobby({ onNavigate }) {
   }, [user])
 
   const startCreation = () => {
-    if (!podeCriarFicha(perfil, roster.length)) return
+    if (roster.length >= rosterLimit) return
     sfx.click()
     store.newSheet()
     onNavigate('create')

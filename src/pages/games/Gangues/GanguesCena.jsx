@@ -106,6 +106,9 @@ export default function GanguesCena({ onNavigate }) {
       pontoIds: terr.pontos.map(p => p.id),
       noId: ehChefe ? cena.chefe.poiNo : null,
       enemyId: viraTreta ? viraTreta.enemy : poi.enemy,
+      // Tamanho do bando — viraTreta (punição de papo/parada) é sempre 1x1;
+      // treta normal usa o qtd definido no POI.
+      enemyQtd: viraTreta ? 1 : (poi.qtd || 1),
       isChefe: ehChefe,
       repDelta: viraTreta?.rep || 0,
     })

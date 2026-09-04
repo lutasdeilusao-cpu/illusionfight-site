@@ -304,14 +304,114 @@
       "norm_label": "version.js"
     },
     {
+      "label": "ganguesTerritorios.js",
+      "file_type": "code",
+      "source_file": "src/pages/games/Gangues/data/ganguesTerritorios.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_pages_games_gangues_data_ganguesterritorios",
+      "community": 405,
+      "norm_label": "ganguesterritorios.js"
+    },
+    {
+      "label": "GANGUES_DIFICULDADES",
+      "file_type": "code",
+      "source_file": "src/pages/games/Gangues/data/ganguesTerritorios.js",
+      "source_location": "L26",
+      "_origin": "ast",
+      "id": "src_pages_games_gangues_data_ganguesterritorios_gangues_dificuldades",
+      "community": 405,
+      "norm_label": "gangues_dificuldades"
+    },
+    {
+      "label": "GANGUES_TERRITORIOS",
+      "file_type": "code",
+      "source_file": "src/pages/games/Gangues/data/ganguesTerritorios.js",
+      "source_location": "L28",
+      "_origin": "ast",
+      "id": "src_pages_games_gangues_data_ganguesterritorios_gangues_territorios",
+      "community": 405,
+      "norm_label": "gangues_territorios"
+    },
+    {
+      "label": "GANGUES_TERRITORIO_POR_ID",
+      "file_type": "code",
+      "source_file": "src/pages/games/Gangues/data/ganguesTerritorios.js",
+      "source_location": "L133",
+      "_origin": "ast",
+      "id": "src_pages_games_gangues_data_ganguesterritorios_gangues_territorio_por_id",
+      "community": 405,
+      "norm_label": "gangues_territorio_por_id"
+    },
+    {
+      "label": "GANGUES_NO_FINAL",
+      "file_type": "code",
+      "source_file": "src/pages/games/Gangues/data/ganguesTerritorios.js",
+      "source_location": "L136",
+      "_origin": "ast",
+      "id": "src_pages_games_gangues_data_ganguesterritorios_gangues_no_final",
+      "community": 405,
+      "norm_label": "gangues_no_final"
+    },
+    {
+      "label": "ehConfrontoFinal()",
+      "file_type": "code",
+      "source_file": "src/pages/games/Gangues/data/ganguesTerritorios.js",
+      "source_location": "L137",
+      "_origin": "ast",
+      "id": "src_pages_games_gangues_data_ganguesterritorios_ehconfrontofinal",
+      "community": 405,
+      "norm_label": "ehconfrontofinal()"
+    },
+    {
+      "label": "totalNos()",
+      "file_type": "code",
+      "source_file": "src/pages/games/Gangues/data/ganguesTerritorios.js",
+      "source_location": "L142",
+      "_origin": "ast",
+      "id": "src_pages_games_gangues_data_ganguesterritorios_totalnos",
+      "community": 405,
+      "norm_label": "totalnos()"
+    },
+    {
+      "label": "progressoTerritorio()",
+      "file_type": "code",
+      "source_file": "src/pages/games/Gangues/data/ganguesTerritorios.js",
+      "source_location": "L147",
+      "_origin": "ast",
+      "id": "src_pages_games_gangues_data_ganguesterritorios_progressoterritorio",
+      "community": 405,
+      "norm_label": "progressoterritorio()"
+    },
+    {
+      "label": "estadoTerritorio()",
+      "file_type": "code",
+      "source_file": "src/pages/games/Gangues/data/ganguesTerritorios.js",
+      "source_location": "L155",
+      "_origin": "ast",
+      "id": "src_pages_games_gangues_data_ganguesterritorios_estadoterritorio",
+      "community": 405,
+      "norm_label": "estadoterritorio()"
+    },
+    {
+      "label": "estadoNo()",
+      "file_type": "code",
+      "source_file": "src/pages/games/Gangues/data/ganguesTerritorios.js",
+      "source_location": "L168",
+      "_origin": "ast",
+      "id": "src_pages_games_gangues_data_ganguesterritorios_estadono",
+      "community": 405,
+      "norm_label": "estadono()"
+    },
+    {
       "label": "pista.js",
       "file_type": "code",
       "source_file": "src/pages/games/Gangues/data/cenas/pista.js",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_data_cenas_pista",
       "community": 304,
-      "norm_label": "pista.js"
+      "norm_label": "pista.js",
+      "id": "src_pages_games_gangues_data_cenas_pista"
     },
     {
       "label": "CENA_PISTA",
@@ -319,9 +419,9 @@
       "source_file": "src/pages/games/Gangues/data/cenas/pista.js",
       "source_location": "L29",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_data_cenas_pista_cena_pista",
       "community": 304,
-      "norm_label": "cena_pista"
+      "norm_label": "cena_pista",
+      "id": "src_pages_games_gangues_data_cenas_pista_cena_pista"
     },
     {
       "label": "CENAS_POR_ID",
@@ -329,9 +429,9 @@
       "source_file": "src/pages/games/Gangues/data/cenas/pista.js",
       "source_location": "L140",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_data_cenas_pista_cenas_por_id",
       "community": 304,
-      "norm_label": "cenas_por_id"
+      "norm_label": "cenas_por_id",
+      "id": "src_pages_games_gangues_data_cenas_pista_cenas_por_id"
     },
     {
       "label": "temCena()",
@@ -339,9 +439,9 @@
       "source_file": "src/pages/games/Gangues/data/cenas/pista.js",
       "source_location": "L145",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_data_cenas_pista_temcena",
       "community": 304,
-      "norm_label": "temcena()"
+      "norm_label": "temcena()",
+      "id": "src_pages_games_gangues_data_cenas_pista_temcena"
     },
     {
       "label": "portaoAberto()",
@@ -349,9 +449,9 @@
       "source_file": "src/pages/games/Gangues/data/cenas/pista.js",
       "source_location": "L150",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_data_cenas_pista_portaoaberto",
       "community": 304,
-      "norm_label": "portaoaberto()"
+      "norm_label": "portaoaberto()",
+      "id": "src_pages_games_gangues_data_cenas_pista_portaoaberto"
     },
     {
       "label": "cenaCompleta()",
@@ -359,9 +459,9 @@
       "source_file": "src/pages/games/Gangues/data/cenas/pista.js",
       "source_location": "L158",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_data_cenas_pista_cenacompleta",
       "community": 304,
-      "norm_label": "cenacompleta()"
+      "norm_label": "cenacompleta()",
+      "id": "src_pages_games_gangues_data_cenas_pista_cenacompleta"
     },
     {
       "label": "contarCena()",
@@ -369,9 +469,9 @@
       "source_file": "src/pages/games/Gangues/data/cenas/pista.js",
       "source_location": "L164",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_data_cenas_pista_contarcena",
       "community": 304,
-      "norm_label": "contarcena()"
+      "norm_label": "contarcena()",
+      "id": "src_pages_games_gangues_data_cenas_pista_contarcena"
     },
     {
       "label": "GuestNotice.jsx",
@@ -1332,106 +1432,6 @@
       "community": 286,
       "norm_label": "gangtip()",
       "id": "src_pages_games_gangues_components_gangtip_gangtip"
-    },
-    {
-      "label": "ganguesTerritorios.js",
-      "file_type": "code",
-      "source_file": "src/pages/games/Gangues/data/ganguesTerritorios.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 405,
-      "norm_label": "ganguesterritorios.js",
-      "id": "src_pages_games_gangues_data_ganguesterritorios"
-    },
-    {
-      "label": "GANGUES_DIFICULDADES",
-      "file_type": "code",
-      "source_file": "src/pages/games/Gangues/data/ganguesTerritorios.js",
-      "source_location": "L26",
-      "_origin": "ast",
-      "community": 405,
-      "norm_label": "gangues_dificuldades",
-      "id": "src_pages_games_gangues_data_ganguesterritorios_gangues_dificuldades"
-    },
-    {
-      "label": "GANGUES_TERRITORIOS",
-      "file_type": "code",
-      "source_file": "src/pages/games/Gangues/data/ganguesTerritorios.js",
-      "source_location": "L28",
-      "_origin": "ast",
-      "community": 405,
-      "norm_label": "gangues_territorios",
-      "id": "src_pages_games_gangues_data_ganguesterritorios_gangues_territorios"
-    },
-    {
-      "label": "GANGUES_TERRITORIO_POR_ID",
-      "file_type": "code",
-      "source_file": "src/pages/games/Gangues/data/ganguesTerritorios.js",
-      "source_location": "L129",
-      "_origin": "ast",
-      "community": 405,
-      "norm_label": "gangues_territorio_por_id",
-      "id": "src_pages_games_gangues_data_ganguesterritorios_gangues_territorio_por_id"
-    },
-    {
-      "label": "GANGUES_NO_FINAL",
-      "file_type": "code",
-      "source_file": "src/pages/games/Gangues/data/ganguesTerritorios.js",
-      "source_location": "L132",
-      "_origin": "ast",
-      "community": 405,
-      "norm_label": "gangues_no_final",
-      "id": "src_pages_games_gangues_data_ganguesterritorios_gangues_no_final"
-    },
-    {
-      "label": "ehConfrontoFinal()",
-      "file_type": "code",
-      "source_file": "src/pages/games/Gangues/data/ganguesTerritorios.js",
-      "source_location": "L133",
-      "_origin": "ast",
-      "community": 405,
-      "norm_label": "ehconfrontofinal()",
-      "id": "src_pages_games_gangues_data_ganguesterritorios_ehconfrontofinal"
-    },
-    {
-      "label": "totalNos()",
-      "file_type": "code",
-      "source_file": "src/pages/games/Gangues/data/ganguesTerritorios.js",
-      "source_location": "L138",
-      "_origin": "ast",
-      "community": 405,
-      "norm_label": "totalnos()",
-      "id": "src_pages_games_gangues_data_ganguesterritorios_totalnos"
-    },
-    {
-      "label": "progressoTerritorio()",
-      "file_type": "code",
-      "source_file": "src/pages/games/Gangues/data/ganguesTerritorios.js",
-      "source_location": "L143",
-      "_origin": "ast",
-      "community": 405,
-      "norm_label": "progressoterritorio()",
-      "id": "src_pages_games_gangues_data_ganguesterritorios_progressoterritorio"
-    },
-    {
-      "label": "estadoTerritorio()",
-      "file_type": "code",
-      "source_file": "src/pages/games/Gangues/data/ganguesTerritorios.js",
-      "source_location": "L151",
-      "_origin": "ast",
-      "community": 405,
-      "norm_label": "estadoterritorio()",
-      "id": "src_pages_games_gangues_data_ganguesterritorios_estadoterritorio"
-    },
-    {
-      "label": "estadoNo()",
-      "file_type": "code",
-      "source_file": "src/pages/games/Gangues/data/ganguesTerritorios.js",
-      "source_location": "L164",
-      "_origin": "ast",
-      "community": 405,
-      "norm_label": "estadono()",
-      "id": "src_pages_games_gangues_data_ganguesterritorios_estadono"
     },
     {
       "label": "GanguesModes.jsx",
@@ -41722,12 +41722,278 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/Gangues/data/ganguesTerritorios.js",
+      "source_location": "L137",
+      "weight": 1.0,
+      "source": "src_pages_games_gangues_data_ganguesterritorios",
+      "target": "src_pages_games_gangues_data_ganguesterritorios_ehconfrontofinal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/Gangues/data/ganguesTerritorios.js",
+      "source_location": "L168",
+      "weight": 1.0,
+      "source": "src_pages_games_gangues_data_ganguesterritorios",
+      "target": "src_pages_games_gangues_data_ganguesterritorios_estadono",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/Gangues/data/ganguesTerritorios.js",
+      "source_location": "L155",
+      "weight": 1.0,
+      "source": "src_pages_games_gangues_data_ganguesterritorios",
+      "target": "src_pages_games_gangues_data_ganguesterritorios_estadoterritorio",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/Gangues/data/ganguesTerritorios.js",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "src_pages_games_gangues_data_ganguesterritorios",
+      "target": "src_pages_games_gangues_data_ganguesterritorios_gangues_dificuldades",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/Gangues/data/ganguesTerritorios.js",
+      "source_location": "L136",
+      "weight": 1.0,
+      "source": "src_pages_games_gangues_data_ganguesterritorios",
+      "target": "src_pages_games_gangues_data_ganguesterritorios_gangues_no_final",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/Gangues/data/ganguesTerritorios.js",
+      "source_location": "L133",
+      "weight": 1.0,
+      "source": "src_pages_games_gangues_data_ganguesterritorios",
+      "target": "src_pages_games_gangues_data_ganguesterritorios_gangues_territorio_por_id",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/Gangues/data/ganguesTerritorios.js",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "src_pages_games_gangues_data_ganguesterritorios",
+      "target": "src_pages_games_gangues_data_ganguesterritorios_gangues_territorios",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/Gangues/data/ganguesTerritorios.js",
+      "source_location": "L147",
+      "weight": 1.0,
+      "source": "src_pages_games_gangues_data_ganguesterritorios",
+      "target": "src_pages_games_gangues_data_ganguesterritorios_progressoterritorio",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/Gangues/data/ganguesTerritorios.js",
+      "source_location": "L142",
+      "weight": 1.0,
+      "source": "src_pages_games_gangues_data_ganguesterritorios",
+      "target": "src_pages_games_gangues_data_ganguesterritorios_totalnos",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/Gangues/GanguesStoryMap.jsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_games_gangues_ganguesstorymap",
+      "target": "src_pages_games_gangues_data_ganguesterritorios"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/Gangues/GanguesTerritorio.jsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_games_gangues_ganguesterritorio",
+      "target": "src_pages_games_gangues_data_ganguesterritorios"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/Gangues/GanguesStoryMap.jsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_games_gangues_ganguesstorymap",
+      "target": "src_pages_games_gangues_data_ganguesterritorios_gangues_territorios"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/Gangues/GanguesTerritorio.jsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_games_gangues_ganguesterritorio",
+      "target": "src_pages_games_gangues_data_ganguesterritorios_gangues_territorio_por_id"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/Gangues/data/ganguesTerritorios.js",
+      "source_location": "L150",
+      "weight": 1.0,
+      "source": "src_pages_games_gangues_data_ganguesterritorios_progressoterritorio",
+      "target": "src_pages_games_gangues_data_ganguesterritorios_totalnos",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/Gangues/GanguesStoryMap.jsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_games_gangues_ganguesstorymap",
+      "target": "src_pages_games_gangues_data_ganguesterritorios_totalnos"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/pages/games/Gangues/GanguesStoryMap.jsx",
+      "source_location": "L127",
+      "weight": 1.0,
+      "source": "src_pages_games_gangues_ganguesstorymap_ganguesstorymap",
+      "target": "src_pages_games_gangues_data_ganguesterritorios_totalnos"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/Gangues/GanguesTerritorio.jsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_games_gangues_ganguesterritorio",
+      "target": "src_pages_games_gangues_data_ganguesterritorios_totalnos"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/Gangues/GanguesStoryMap.jsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_games_gangues_ganguesstorymap",
+      "target": "src_pages_games_gangues_data_ganguesterritorios_progressoterritorio"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/pages/games/Gangues/GanguesStoryMap.jsx",
+      "source_location": "L126",
+      "weight": 1.0,
+      "source": "src_pages_games_gangues_ganguesstorymap_ganguesstorymap",
+      "target": "src_pages_games_gangues_data_ganguesterritorios_progressoterritorio"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/Gangues/GanguesStoryMap.jsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_games_gangues_ganguesstorymap",
+      "target": "src_pages_games_gangues_data_ganguesterritorios_estadoterritorio"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/pages/games/Gangues/GanguesStoryMap.jsx",
+      "source_location": "L45",
+      "weight": 1.0,
+      "source": "src_pages_games_gangues_ganguesstorymap_ganguesstorymap",
+      "target": "src_pages_games_gangues_data_ganguesterritorios_estadoterritorio"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/Gangues/GanguesTerritorio.jsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_games_gangues_ganguesterritorio",
+      "target": "src_pages_games_gangues_data_ganguesterritorios_estadoterritorio"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/pages/games/Gangues/GanguesTerritorio.jsx",
+      "source_location": "L36",
+      "weight": 1.0,
+      "source": "src_pages_games_gangues_ganguesterritorio_ganguesterritorio",
+      "target": "src_pages_games_gangues_data_ganguesterritorios_estadoterritorio"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/Gangues/GanguesTerritorio.jsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_games_gangues_ganguesterritorio",
+      "target": "src_pages_games_gangues_data_ganguesterritorios_estadono"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/pages/games/Gangues/GanguesTerritorio.jsx",
+      "source_location": "L40",
+      "weight": 1.0,
+      "source": "src_pages_games_gangues_ganguesterritorio_ganguesterritorio",
+      "target": "src_pages_games_gangues_data_ganguesterritorios_estadono"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "src/pages/games/Gangues/data/cenas/pista.js",
       "source_location": "L29",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_cenas_pista",
-      "target": "src_pages_games_gangues_data_cenas_pista_cena_pista",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_cenas_pista_cena_pista"
     },
     {
       "relation": "contains",
@@ -41735,9 +42001,9 @@
       "source_file": "src/pages/games/Gangues/data/cenas/pista.js",
       "source_location": "L158",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_cenas_pista",
-      "target": "src_pages_games_gangues_data_cenas_pista_cenacompleta",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_cenas_pista_cenacompleta"
     },
     {
       "relation": "contains",
@@ -41745,9 +42011,9 @@
       "source_file": "src/pages/games/Gangues/data/cenas/pista.js",
       "source_location": "L140",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_cenas_pista",
-      "target": "src_pages_games_gangues_data_cenas_pista_cenas_por_id",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_cenas_pista_cenas_por_id"
     },
     {
       "relation": "contains",
@@ -41755,9 +42021,9 @@
       "source_file": "src/pages/games/Gangues/data/cenas/pista.js",
       "source_location": "L164",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_cenas_pista",
-      "target": "src_pages_games_gangues_data_cenas_pista_contarcena",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_cenas_pista_contarcena"
     },
     {
       "relation": "contains",
@@ -41765,9 +42031,9 @@
       "source_file": "src/pages/games/Gangues/data/cenas/pista.js",
       "source_location": "L150",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_cenas_pista",
-      "target": "src_pages_games_gangues_data_cenas_pista_portaoaberto",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_cenas_pista_portaoaberto"
     },
     {
       "relation": "contains",
@@ -41775,9 +42041,9 @@
       "source_file": "src/pages/games/Gangues/data/cenas/pista.js",
       "source_location": "L145",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_cenas_pista",
-      "target": "src_pages_games_gangues_data_cenas_pista_temcena",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_cenas_pista_temcena"
     },
     {
       "relation": "contains",
@@ -42984,61 +43250,6 @@
       "target": "src_pages_games_gangues_components_gangdialog_gangdialog"
     },
     {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/Gangues/GanguesStoryMap.jsx",
-      "source_location": "L7",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_gangues_ganguesstorymap",
-      "target": "src_pages_games_gangues_data_ganguesterritorios"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/Gangues/GanguesStoryMap.jsx",
-      "source_location": "L7",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_gangues_ganguesstorymap",
-      "target": "src_pages_games_gangues_data_ganguesterritorios_estadoterritorio"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/Gangues/GanguesStoryMap.jsx",
-      "source_location": "L7",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_gangues_ganguesstorymap",
-      "target": "src_pages_games_gangues_data_ganguesterritorios_gangues_territorios"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/Gangues/GanguesStoryMap.jsx",
-      "source_location": "L7",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_gangues_ganguesstorymap",
-      "target": "src_pages_games_gangues_data_ganguesterritorios_progressoterritorio"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/Gangues/GanguesStoryMap.jsx",
-      "source_location": "L7",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_gangues_ganguesstorymap",
-      "target": "src_pages_games_gangues_data_ganguesterritorios_totalnos"
-    },
-    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/Gangues/GanguesStoryMap.jsx",
@@ -43070,94 +43281,6 @@
       "target": "src_pages_games_gangues_ganguesstorymap_centro"
     },
     {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/games/Gangues/GanguesStoryMap.jsx",
-      "source_location": "L45",
-      "weight": 1.0,
-      "source": "src_pages_games_gangues_ganguesstorymap_ganguesstorymap",
-      "target": "src_pages_games_gangues_data_ganguesterritorios_estadoterritorio"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/games/Gangues/GanguesStoryMap.jsx",
-      "source_location": "L126",
-      "weight": 1.0,
-      "source": "src_pages_games_gangues_ganguesstorymap_ganguesstorymap",
-      "target": "src_pages_games_gangues_data_ganguesterritorios_progressoterritorio"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/games/Gangues/GanguesStoryMap.jsx",
-      "source_location": "L127",
-      "weight": 1.0,
-      "source": "src_pages_games_gangues_ganguesstorymap_ganguesstorymap",
-      "target": "src_pages_games_gangues_data_ganguesterritorios_totalnos"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/Gangues/GanguesTerritorio.jsx",
-      "source_location": "L7",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_gangues_ganguesterritorio",
-      "target": "src_pages_games_gangues_data_ganguesterritorios"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/Gangues/GanguesTerritorio.jsx",
-      "source_location": "L7",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_gangues_ganguesterritorio",
-      "target": "src_pages_games_gangues_data_ganguesterritorios_estadono"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/Gangues/GanguesTerritorio.jsx",
-      "source_location": "L7",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_gangues_ganguesterritorio",
-      "target": "src_pages_games_gangues_data_ganguesterritorios_estadoterritorio"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/Gangues/GanguesTerritorio.jsx",
-      "source_location": "L7",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_gangues_ganguesterritorio",
-      "target": "src_pages_games_gangues_data_ganguesterritorios_gangues_territorio_por_id"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/Gangues/GanguesTerritorio.jsx",
-      "source_location": "L7",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_gangues_ganguesterritorio",
-      "target": "src_pages_games_gangues_data_ganguesterritorios_totalnos"
-    },
-    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/Gangues/GanguesTerritorio.jsx",
@@ -43166,28 +43289,6 @@
       "confidence_score": 1.0,
       "source": "src_pages_games_gangues_ganguesterritorio",
       "target": "src_pages_games_gangues_ganguesterritorio_ganguesterritorio"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/games/Gangues/GanguesTerritorio.jsx",
-      "source_location": "L40",
-      "weight": 1.0,
-      "source": "src_pages_games_gangues_ganguesterritorio_ganguesterritorio",
-      "target": "src_pages_games_gangues_data_ganguesterritorios_estadono"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/games/Gangues/GanguesTerritorio.jsx",
-      "source_location": "L36",
-      "weight": 1.0,
-      "source": "src_pages_games_gangues_ganguesterritorio_ganguesterritorio",
-      "target": "src_pages_games_gangues_data_ganguesterritorios_estadoterritorio"
     },
     {
       "relation": "contains",
@@ -43208,107 +43309,6 @@
       "confidence_score": 1.0,
       "source": "src_pages_games_gangues_components_gangtip",
       "target": "src_pages_games_gangues_components_gangtip_gangtip"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/Gangues/data/ganguesTerritorios.js",
-      "source_location": "L133",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_gangues_data_ganguesterritorios",
-      "target": "src_pages_games_gangues_data_ganguesterritorios_ehconfrontofinal"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/Gangues/data/ganguesTerritorios.js",
-      "source_location": "L164",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_gangues_data_ganguesterritorios",
-      "target": "src_pages_games_gangues_data_ganguesterritorios_estadono"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/Gangues/data/ganguesTerritorios.js",
-      "source_location": "L151",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_gangues_data_ganguesterritorios",
-      "target": "src_pages_games_gangues_data_ganguesterritorios_estadoterritorio"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/Gangues/data/ganguesTerritorios.js",
-      "source_location": "L26",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_gangues_data_ganguesterritorios",
-      "target": "src_pages_games_gangues_data_ganguesterritorios_gangues_dificuldades"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/Gangues/data/ganguesTerritorios.js",
-      "source_location": "L132",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_gangues_data_ganguesterritorios",
-      "target": "src_pages_games_gangues_data_ganguesterritorios_gangues_no_final"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/Gangues/data/ganguesTerritorios.js",
-      "source_location": "L129",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_gangues_data_ganguesterritorios",
-      "target": "src_pages_games_gangues_data_ganguesterritorios_gangues_territorio_por_id"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/Gangues/data/ganguesTerritorios.js",
-      "source_location": "L28",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_gangues_data_ganguesterritorios",
-      "target": "src_pages_games_gangues_data_ganguesterritorios_gangues_territorios"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/Gangues/data/ganguesTerritorios.js",
-      "source_location": "L143",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_gangues_data_ganguesterritorios",
-      "target": "src_pages_games_gangues_data_ganguesterritorios_progressoterritorio"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/Gangues/data/ganguesTerritorios.js",
-      "source_location": "L138",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_gangues_data_ganguesterritorios",
-      "target": "src_pages_games_gangues_data_ganguesterritorios_totalnos"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/Gangues/data/ganguesTerritorios.js",
-      "source_location": "L146",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_gangues_data_ganguesterritorios_progressoterritorio",
-      "target": "src_pages_games_gangues_data_ganguesterritorios_totalnos"
     },
     {
       "relation": "contains",
@@ -116509,5 +116509,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "edea675740f94c8339e6207cd248816880fc6842"
+  "built_at_commit": "9cee756f6f712297cd3f12d8d0f4145555edf5ff"
 }

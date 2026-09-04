@@ -69,8 +69,11 @@ export const useGanguesStore = create((set, get) => ({
     return saved
   },
 
-  startMatch: (enemy, enemyTeam = [enemy]) => {
-    const playerTeam = get().activeParty
+  // playerTeamOverride: usado pelo modo história pra levar só um recorte do
+  // elenco pra batalha (teto de 3), sem mexer no activeParty "de verdade"
+  // que o resto da UI (lobby, Arena) enxerga.
+  startMatch: (enemy, enemyTeam = [enemy], playerTeamOverride = null) => {
+    const playerTeam = playerTeamOverride || get().activeParty
     set({ match: { playerTeam, enemyTeam, enemy, enemy_id: enemy.id, score: 0, status: 'fighting', battleReport: null } })
   },
 

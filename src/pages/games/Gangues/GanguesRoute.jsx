@@ -15,6 +15,7 @@ import GanguesStoryMap from './GanguesStoryMap'
 import GanguesTerritorio from './GanguesTerritorio'
 import GanguesCena from './GanguesCena'
 import { temCena } from './data/cenas/pista.js'
+import { GANGUES_STORY_BATTLE_PARTY_MAX } from './data/ganguesLoadout.js'
 import GuestNotice from '../../../components/GuestNotice/GuestNotice'
 import enemiesData from './data/gangues-enemies.json'
 import './Gangues.css'
@@ -45,15 +46,20 @@ export default function GanguesRoute({ publicTraining = false }) {
   // Modo história: quando entra em 'story-combat', monta a batalha com o
   // inimigo do nó e cai no GanguesCombat normal. A vitória volta pro
   // território (marcando o nó) via GanguesVictory.
+  // Bairro é gangue contra gangue — o tamanho do bando inimigo (enemyQtd, por
+  // nó) NÃO acompanha o tamanho do seu time. E o seu time de batalha no modo
+  // história tem teto próprio de 3, mesmo que o elenco já tenha crescido mais
+  // via recrutamento (GANGUES_STORY_BATTLE_PARTY_MAX).
   useEffect(() => {
     if (fase !== 'story-combat') return
     const alvo = store.storyTarget
-    const party = store.activeParty
+    const party = store.activeParty.slice(0, GANGUES_STORY_BATTLE_PARTY_MAX)
     if (!alvo?.enemyId || party.length < 1) { setFase('story'); return }
     const enemy = enemiesData.find(e => e.id === alvo.enemyId)
     if (!enemy) { setFase('story'); return }
-    const extras = Array.from({ length: Math.max(0, party.length - 1) }, () => enemy)
-    store.startMatch(enemy, [enemy, ...extras])
+    const qtd = Math.max(1, Number(alvo.enemyQtd) || 1)
+    const extras = Array.from({ length: Math.max(0, qtd - 1) }, () => enemy)
+    store.startMatch(enemy, [enemy, ...extras], party)
     setFase('combat')
   }, [fase])
 
@@ -67,7 +73,7 @@ export default function GanguesRoute({ publicTraining = false }) {
         <GanguesCreate
           onNavigate={setFase}
           skipIntro
-          creationNumber={creationParty.length ? creationParty.length + 1 : store.roster.length === 1 ? 2 : 1}
+          creationNumber={creationParty.length ? creationParty.length + 1 : store.roster.length + 1}
           blockedPaths={(creationParty.length ? creationParty : store.roster.length === 1 ? store.roster : []).map(member => member.combat_path)}
           onCreated={(member) => {
             const base = creationParty.length ? creationParty : store.roster.length === 1 ? store.roster : []

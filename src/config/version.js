@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.215.0'
+export const SITE_VERSION = '10.216.0'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '1.29.0' // rebalance do modo historia inteiro (todos os 7 territorios ate o chefe final). Todo mundo reciclava as 8 fichas da Arena (kaeda/thunderbolt/stormbyte/viran/campeao/kronos/primordial_jack), 20-40 pontos de atributo contra um personagem de 5 — parede em qualquer territorio, nao so na Pista. Agora sao 27 fichas proprias e exclusivas do modo historia (uma por gangue/forca de cada territorio), pontos = 2*forca+1 (formula do Isaias: forca1=3, forca2=5, forca3=7...), pv/pm escalando junto. kaeda e os outros 7 da Arena continuam intocados, servindo so a Arena.
+export const GANGUES_VERSION   = '1.30.0' // modo historia: bando inimigo por no (campo qtd, 1 a 10 conforme o territorio) independente do tamanho do seu time — antes era sempre 1:1 com a party. Time de batalha no modo historia agora tem teto proprio de 3 (GANGUES_STORY_BATTLE_PARTY_MAX), sem mexer no activeParty da Arena. Recrutamento: dominar um territorio libera 1 vaga no elenco (soma ao limite pago por tier, nunca substitui), ate 8 vagas via historia; tela de vitoria do chefe oferece "recrutar novo membro".
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
 export const MINIGAMES_VERSION = '4.3.4'  // Glitch: safe-area lateral no grid-wrap

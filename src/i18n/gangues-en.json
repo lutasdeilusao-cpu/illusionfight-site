@@ -85,7 +85,8 @@
         "round_number": "ROUND {n}",
         "no_log": "No attacks recorded.",
         "back_to_gang": "BACK TO GANG",
-        "new_battle": "NEW BATTLE"
+        "new_battle": "NEW BATTLE",
+        "recrutar": "RECRUIT NEW MEMBER"
       },
       "ko": "K.O.!",
       "lutar_novamente": "FIGHT AGAIN",

@@ -4,6 +4,7 @@ import { useAuth } from '../../../context/AuthContext'
 import { useLanguage } from '../../../context/LanguageContext'
 import { useGanguesStore } from './store/useGanguesStore'
 import { ehConfrontoFinal } from './data/ganguesTerritorios.js'
+import { getGanguesRosterLimitComHistoria } from './data/ganguesLoadout.js'
 import { registrarPontuacaoArenaRanking } from '../../../hooks/useLeaderboardDB'
 import { sfx } from '../../../lib/sfx'
 
@@ -13,7 +14,7 @@ function combatantName(t, member) {
 
 export default function GanguesVictory({ onNavigate }) {
   const { t } = useLanguage()
-  const { user } = useAuth()
+  const { user, perfil } = useAuth()
   const store = useGanguesStore()
   const { match } = store
   const report = match.battleReport || { outcome: match.status, entries: [], initiative: [], combatants: [], rounds: 0 }
@@ -28,6 +29,12 @@ export default function GanguesVictory({ onNavigate }) {
   const noModoHistoria = Boolean(storyAlvo?.noId) || emCena
   const cenaChefe = emCena && storyAlvo.isChefe
   const confrontoFinal = Boolean(storyAlvo?.noId) && ehConfrontoFinal(storyAlvo)
+  // Território dominado nesta vitória? (chefe caiu, seja no fluxo de cena
+  // da Pista ou na trilha dos outros bairros) — libera 1 vaga de recruta.
+  const territorioDominado = victory && (cenaChefe || (noModoHistoria && !emCena && storyAlvo.isChefe))
+  const podeRecrutar = territorioDominado && !confrontoFinal
+    && store.roster.length < getGanguesRosterLimitComHistoria(perfil?.tier, store.storyProgress)
+  const recrutar = () => { store.newSheet(); onNavigate('create') }
 
   useEffect(() => {
     if (processed.current) return
@@ -136,10 +143,14 @@ export default function GanguesVictory({ onNavigate }) {
 
       <footer className="gang-report-actions">
         {cenaChefe && victory ? (
-          <button className="gang-report-primary" onClick={() => onNavigate('story')}>{t('games.gangues.story.voltar_mapa')}</button>
+          <>
+            {podeRecrutar && <button className="gang-report-primary" onClick={recrutar}>{t('games.gangues.report.recrutar')}</button>}
+            <button className={podeRecrutar ? 'gang-report-secondary' : 'gang-report-primary'} onClick={() => onNavigate('story')}>{t('games.gangues.story.voltar_mapa')}</button>
+          </>
         ) : noModoHistoria ? (
           <>
-            <button className="gang-report-primary" onClick={() => { store.setStoryTarget({ territorioId: storyAlvo.territorioId }); onNavigate('territorio') }}>
+            {podeRecrutar && <button className="gang-report-primary" onClick={recrutar}>{t('games.gangues.report.recrutar')}</button>}
+            <button className={podeRecrutar ? 'gang-report-secondary' : 'gang-report-primary'} onClick={() => { store.setStoryTarget({ territorioId: storyAlvo.territorioId }); onNavigate('territorio') }}>
               {victory ? t('games.gangues.story.continuar_territorio') : t('games.gangues.story.tentar_de_novo')}
             </button>
             <button className="gang-report-secondary" onClick={() => onNavigate('story')}>{t('games.gangues.story.voltar_mapa')}</button>

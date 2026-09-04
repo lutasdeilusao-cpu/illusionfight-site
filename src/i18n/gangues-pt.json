@@ -85,7 +85,8 @@
         "round_number": "RODADA {n}",
         "no_log": "Nenhum ataque registrado.",
         "back_to_gang": "VOLTAR À GANGUE",
-        "new_battle": "NOVA BATALHA"
+        "new_battle": "NOVA BATALHA",
+        "recrutar": "RECRUTAR NOVO MEMBRO"
       },
       "ko": "K.O.!",
       "lutar_novamente": "LUTAR DE NOVO",
