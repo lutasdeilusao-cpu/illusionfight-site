@@ -1,0 +1,275 @@
+/* ══════════════════════════════════════════════════════════════
+   MODO HISTÓRIA — a CENA (bairro navegável)
+   Rua desenhada em SVG + pinos (POIs) + token da gangue. Esqueleto
+   visual: o Isaias troca o <path> da rua por arte depois; a curva,
+   os estados dos pinos e o layout ficam. Mobile only — herda a
+   coluna --app-w; nada de media query de tela grande aqui.
+   ══════════════════════════════════════════════════════════════ */
+
+.gang-cena { --terr-cor: var(--if-teal); }
+
+/* ── Topo ── */
+.gang-cena-top {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 10px; margin-bottom: 12px;
+}
+.gang-cena-breadcrumb {
+  font: 700 0.62rem var(--font-mono); letter-spacing: 0.08em;
+  text-transform: uppercase; color: color-mix(in srgb, var(--terr-cor) 88%, #fff);
+  text-align: right;
+}
+
+/* ── HUD: grana / nome / fôlego ── */
+.gang-cena-hud {
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px 10px; margin-bottom: 4px;
+  border: 1px solid var(--if-hair-strong);
+  background: rgba(255, 255, 255, 0.02);
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
+}
+.gang-cena-moeda {
+  display: flex; align-items: baseline; gap: 4px;
+  font: 700 0.72rem var(--font-mono); color: var(--text-primary);
+}
+.gang-cena-moeda b { font-size: 0.95rem; color: #fff; }
+.gang-cena-moeda i { font-style: normal; font-size: 0.54rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-secondary); }
+.gang-cena-folego { margin-left: auto; display: flex; align-items: center; }
+.gang-cena-folego-bar {
+  display: block; width: 74px; height: 8px;
+  border: 1px solid var(--if-hair-strong); background: rgba(0, 0, 0, 0.4);
+}
+.gang-cena-folego-bar i {
+  display: block; height: 100%; width: var(--pct, 100%);
+  background: color-mix(in srgb, var(--terr-cor) 80%, #fff);
+  transition: width 0.4s ease;
+}
+.gang-cena-folego.is-low .gang-cena-folego-bar i { background: #ff6b6b; }
+.gang-cena-folego-aviso {
+  margin: 6px 0 0; font: 600 0.68rem var(--font-mono);
+  color: #ff9a9a; letter-spacing: 0.02em;
+}
+
+/* ── A rua ── */
+.gang-cena-rua-wrap { margin: 12px 0 4px; }
+.gang-cena-rua-scroll {
+  position: relative; width: 100%;
+  aspect-ratio: 100 / 240;
+  border: 1px solid var(--if-edge);
+  background:
+    radial-gradient(80% 30% at 50% 0%, color-mix(in srgb, var(--terr-cor) 12%, transparent), transparent 70%),
+    linear-gradient(180deg, #0a1015, #070b0e 70%);
+  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%);
+  overflow: hidden;
+}
+.gang-cena-rua-svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.gang-cena-rua-asfalto {
+  fill: none; stroke: #11181d; stroke-width: 13; stroke-linecap: round;
+}
+.gang-cena-rua-faixa {
+  fill: none; stroke: color-mix(in srgb, var(--terr-cor) 45%, #4a5560);
+  stroke-width: 0.7; stroke-dasharray: 3 4; stroke-linecap: round;
+}
+
+/* token da gangue */
+.gang-cena-token {
+  position: absolute; transform: translate(-50%, -50%); z-index: 4;
+  display: grid; place-items: center;
+  width: 26px; height: 26px;
+  font: 800 0.8rem var(--font-display); color: #04141a;
+  background: color-mix(in srgb, var(--terr-cor) 85%, #fff);
+  border: 2px solid #fff;
+  box-shadow: 0 0 16px -2px color-mix(in srgb, var(--terr-cor) 70%, transparent);
+  clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 0 100%);
+  pointer-events: none;
+}
+
+/* pinos */
+.gang-cena-pino {
+  position: absolute; transform: translate(-50%, -50%); z-index: 3;
+  display: flex; flex-direction: column; align-items: center; gap: 3px;
+  padding: 0; background: none; border: none; cursor: pointer;
+}
+.gang-cena-pino-dot {
+  display: grid; place-items: center;
+  width: 30px; height: 30px;
+  font-size: 0.85rem; line-height: 1;
+  border: 1px solid color-mix(in srgb, var(--terr-cor) 55%, transparent);
+  color: #fff; background: color-mix(in srgb, #05080a 72%, var(--terr-cor));
+  clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 0 100%);
+  transition: transform 0.15s, box-shadow 0.2s, border-color 0.2s;
+}
+.gang-cena-pino-label {
+  display: flex; flex-direction: column; align-items: center;
+  max-width: 128px; text-align: center;
+  font-family: var(--font-display); font-weight: 700; font-size: 0.72rem;
+  line-height: 1.1; letter-spacing: 0.01em; color: #eef3f6;
+  text-shadow: 0 1px 4px #05080a, 0 0 8px #05080a;
+}
+.gang-cena-pino-label em {
+  font: 700 0.5rem var(--font-mono); font-style: normal;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  color: color-mix(in srgb, var(--terr-cor) 82%, #fff);
+}
+
+.gang-cena-pino--disponivel .gang-cena-pino-dot {
+  border-color: var(--terr-cor);
+  box-shadow: 0 0 0 0 color-mix(in srgb, var(--terr-cor) 50%, transparent);
+  animation: gang-cena-pulso 2.2s ease-in-out infinite;
+}
+.gang-cena-pino--disponivel:hover .gang-cena-pino-dot { transform: scale(1.08); }
+@keyframes gang-cena-pulso {
+  0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--terr-cor) 45%, transparent); }
+  50% { box-shadow: 0 0 12px 4px color-mix(in srgb, var(--terr-cor) 28%, transparent); }
+}
+.gang-cena-pino--resolvido { opacity: 0.5; }
+.gang-cena-pino--resolvido .gang-cena-pino-dot {
+  color: #04141a; background: color-mix(in srgb, var(--terr-cor) 78%, #fff);
+  border-color: var(--terr-cor); animation: none;
+}
+.gang-cena-pino--chefe .gang-cena-pino-dot {
+  width: 38px; height: 38px; font-size: 1.05rem;
+  border-color: #ff6b6b; color: #ffd7d7;
+  background: color-mix(in srgb, #1a0808 60%, #ff6b6b);
+  box-shadow: 0 0 22px -4px rgba(255, 107, 107, 0.6);
+}
+.gang-cena-pino--chefe .gang-cena-pino-label em { color: #ff9a9a; }
+
+.gang-cena-boss-lock {
+  margin: 10px auto 0; width: max-content;
+  padding: 4px 12px; font: 700 0.6rem var(--font-mono);
+  letter-spacing: 0.08em; text-transform: uppercase; color: #8b959c;
+  border: 1px solid var(--if-hair-strong);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gang-cena-pino--disponivel .gang-cena-pino-dot { animation: none; }
+}
+
+/* ── Toast de recompensa ── */
+.gang-cena-toast {
+  position: fixed; left: var(--app-gutter); right: var(--app-gutter);
+  bottom: 68px; z-index: 950;
+  margin: 0 auto; width: max-content; max-width: 90%;
+  display: flex; align-items: center; gap: 10px;
+  padding: 8px 14px;
+  font: 700 0.78rem var(--font-mono); color: #fff;
+  border: 1px solid var(--terr-cor);
+  background: linear-gradient(160deg, #0d151b, #070a0d);
+  box-shadow: 0 0 30px -8px color-mix(in srgb, var(--terr-cor) 60%, transparent);
+  clip-path: polygon(0 0, calc(100% - 9px) 0, 100% 9px, 100% 100%, 0 100%);
+}
+.gang-cena-toast b {
+  font: 700 0.56rem var(--font-mono); letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--text-secondary);
+}
+
+/* ── Modal de encontro ── */
+.gang-cena-modal {
+  position: fixed; inset: 0; z-index: 945;
+  display: grid; place-items: center; padding: 1.4rem;
+}
+.gang-cena-modal-bg { position: absolute; inset: 0; background: rgba(2, 5, 8, 0.86); backdrop-filter: blur(7px); }
+.gang-cena-modal-card {
+  position: relative; width: 100%; max-width: 340px;
+}
+.gang-cena-enc {
+  position: relative;
+  display: grid; justify-items: center; gap: 0.55rem;
+  padding: 1.5rem 1.2rem 1.3rem; text-align: center;
+  border: 1px solid color-mix(in srgb, var(--terr-cor) 50%, transparent);
+  background: linear-gradient(160deg, #0d151b, #070a0d 72%);
+  box-shadow: 0 0 44px -12px color-mix(in srgb, var(--terr-cor) 55%, transparent);
+  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%);
+}
+.gang-cena-enc--vs { border-color: #ff6b6b66; }
+.gang-cena-enc-x {
+  position: absolute; top: 8px; right: 10px;
+  width: 30px; height: 30px; padding: 0;
+  font-size: 0.8rem; color: var(--text-secondary);
+  background: none; border: 1px solid var(--if-hair-strong); cursor: pointer;
+}
+.gang-cena-eyebrow {
+  font: 700 0.54rem var(--font-mono); letter-spacing: 0.16em;
+  text-transform: uppercase; color: color-mix(in srgb, var(--terr-cor) 90%, #fff);
+}
+.gang-cena-enc-titulo {
+  margin: 0.1rem 0 0; font: 800 1.2rem var(--font-display);
+  letter-spacing: 0.02em; color: #fff;
+}
+.gang-cena-enc-sub { margin: 0; font: 600 0.72rem var(--font-mono); color: var(--text-secondary); }
+.gang-cena-enc-intro { margin: 0.2rem 0 0; font-size: 0.86rem; line-height: 1.5; color: #c6d0d7; }
+.gang-cena-enc-desfecho { margin: 0.3rem 0 0; font-size: 0.9rem; line-height: 1.5; color: #dbe3e8; }
+.gang-cena-enc-selo {
+  display: grid; place-items: center;
+  width: 54px; height: 54px;
+  font: 800 1.5rem var(--font-display); color: #fff;
+  border: 1px solid color-mix(in srgb, var(--terr-cor) 55%, transparent);
+  background: color-mix(in srgb, var(--terr-cor) 14%, transparent);
+}
+.gang-cena-enc-selo.is-ok { color: #04141a; background: var(--terr-cor); border-color: var(--terr-cor); }
+.gang-cena-enc-selo.is-fail { color: #ff9a9a; border-color: #ff6b6b66; background: rgba(255, 107, 107, 0.1); }
+
+.gang-cena-enc-acoes { display: flex; gap: 8px; width: 100%; margin-top: 0.6rem; }
+.gang-cena-btn {
+  flex: 1; min-height: 44px; padding: 0.6rem 0.7rem;
+  font: 800 0.7rem var(--font-mono); letter-spacing: 0.06em; text-transform: uppercase;
+  color: #c6cdd2; background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.14); cursor: pointer;
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
+  transition: transform 0.14s, border-color 0.16s;
+}
+.gang-cena-btn:hover:not(:disabled) { transform: translateY(-1px); }
+.gang-cena-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.gang-cena-btn--go { color: #04141a; background: var(--terr-cor); border-color: var(--terr-cor); }
+.gang-cena-btn--treta { color: #ffd7d7; background: rgba(255, 107, 107, 0.14); border-color: #ff6b6b66; }
+.gang-cena-btn-custo { font-style: normal; opacity: 0.75; }
+
+/* papo */
+.gang-cena-papo-face {
+  display: grid; place-items: center;
+  width: 52px; height: 52px;
+  font: 800 1.4rem var(--font-display); color: #fff;
+  border: 1px solid color-mix(in srgb, var(--terr-cor) 55%, transparent);
+  background: color-mix(in srgb, var(--terr-cor) 14%, transparent);
+}
+.gang-cena-papo-nome {
+  font: 800 0.9rem var(--font-display); letter-spacing: 0.02em; color: #fff;
+}
+.gang-cena-papo-nome em { font: 600 0.68rem var(--font-mono); font-style: normal; color: var(--text-secondary); }
+.gang-cena-papo-fala {
+  margin: 0.15rem 0 0; font-family: var(--font-body); font-size: 0.85rem;
+  font-style: italic; line-height: 1.5; color: #c6d0d7;
+}
+.gang-cena-papo-escolhas { display: flex; flex-direction: column; gap: 6px; width: 100%; margin-top: 0.6rem; }
+.gang-cena-papo-escolhas .gang-cena-btn { flex: none; width: 100%; text-transform: none; letter-spacing: 0.01em; font-family: var(--font-body); font-weight: 700; }
+
+/* puzzle */
+.gang-cena-puzzle-wrap { width: 100%; }
+.gang-cena-skin--gazua .gang-cena-eyebrow::after { content: ' · gazua no portão'; }
+.gang-cena-skin--viatura .gang-cena-eyebrow::after { content: ' · a viatura tá na rua'; }
+
+/* vs */
+.gang-cena-vs-stats {
+  display: flex; gap: 8px; margin-top: 0.3rem;
+  font: 700 0.62rem var(--font-mono); color: var(--text-secondary);
+}
+.gang-cena-vs-stats i { font-style: normal; color: var(--if-cyan); margin-right: 2px; }
+.gang-cena-vs-aviso { margin: 0.2rem 0 0; font: 600 0.7rem var(--font-mono); color: #ff9a9a; }
+
+/* descanso */
+.gang-cena-folego--big { gap: 8px; }
+.gang-cena-folego--big .gang-cena-folego-bar { width: 160px; height: 12px; }
+.gang-cena-folego--big b { font: 800 1.1rem var(--font-display); color: #fff; }
+
+/* bairro tomado */
+.gang-cena-tomado {
+  max-width: 38ch; margin: 18vh auto 0; text-align: center;
+  display: flex; flex-direction: column; align-items: center; gap: 12px;
+}
+.gang-cena-tomado h1 {
+  margin: 4px 0 0; font: 800 clamp(1.6rem, calc(9 * var(--app-vw) / 100), 2.1rem)/1 var(--font-display);
+  letter-spacing: 0.04em; color: #fff;
+  text-shadow: 0 0 24px color-mix(in srgb, var(--terr-cor) 45%, transparent);
+}
+.gang-cena-tomado p { margin: 0; font-size: 0.88rem; line-height: 1.55; color: #c7cdd6; }
+.gang-cena-tomado .gang-cena-btn { flex: none; min-width: 200px; margin-top: 8px; }

@@ -24,8 +24,10 @@ export default function GanguesVictory({ onNavigate }) {
   const enemyDamage = attacks.filter(entry => entry.side === 'enemy').reduce((sum, entry) => sum + entry.dmg, 0)
 
   const storyAlvo = store.storyTarget
-  const noModoHistoria = Boolean(storyAlvo?.noId)
-  const confrontoFinal = noModoHistoria && ehConfrontoFinal(storyAlvo)
+  const emCena = Boolean(storyAlvo?.cenaId)
+  const noModoHistoria = Boolean(storyAlvo?.noId) || emCena
+  const cenaChefe = emCena && storyAlvo.isChefe
+  const confrontoFinal = Boolean(storyAlvo?.noId) && ehConfrontoFinal(storyAlvo)
 
   useEffect(() => {
     if (processed.current) return
@@ -34,8 +36,22 @@ export default function GanguesVictory({ onNavigate }) {
     store.gainAp(ap)
     if (victory) {
       store.unlockNextEnemy(match.enemy_id)
-      // Modo história: marca o nó dominado.
-      if (noModoHistoria) store.marcarNoDominado(storyAlvo.territorioId, storyAlvo.noId, storyAlvo.isChefe)
+      // Modo história — cena: marca o POI resolvido, aplica grana/rep e fôlego.
+      if (emCena) {
+        store.marcarPoiResolvido(storyAlvo.cenaId, storyAlvo.cenaPoiId, storyAlvo.cenaRevela || [])
+        if (storyAlvo.repDelta) store.ganharRep(storyAlvo.repDelta)
+        const rec = storyAlvo.cenaRecompensa
+        if (rec) { if (rec.grana) store.ganharGrana(rec.grana); if (rec.rep) store.ganharRep(rec.rep) }
+        store.ajustarFolego(storyAlvo.cenaId, -14)
+        if (cenaChefe) {
+          store.marcarBossCena(storyAlvo.cenaId)
+          store.dominarTerritorioViaCena(storyAlvo.territorioId, storyAlvo.pontoIds || [])
+          store.restaurarFolego(storyAlvo.cenaId)
+        }
+      } else if (noModoHistoria) {
+        // Modo história — trilha: marca o nó dominado.
+        store.marcarNoDominado(storyAlvo.territorioId, storyAlvo.noId, storyAlvo.isChefe)
+      }
       if (user?.id) registrarPontuacaoArenaRanking(user.id)
       sfx.win()
     } else sfx.lose()
@@ -119,7 +135,9 @@ export default function GanguesVictory({ onNavigate }) {
       </section>
 
       <footer className="gang-report-actions">
-        {noModoHistoria ? (
+        {cenaChefe && victory ? (
+          <button className="gang-report-primary" onClick={() => onNavigate('story')}>{t('games.gangues.story.voltar_mapa')}</button>
+        ) : noModoHistoria ? (
           <>
             <button className="gang-report-primary" onClick={() => { store.setStoryTarget({ territorioId: storyAlvo.territorioId }); onNavigate('territorio') }}>
               {victory ? t('games.gangues.story.continuar_territorio') : t('games.gangues.story.tentar_de_novo')}

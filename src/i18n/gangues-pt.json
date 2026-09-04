@@ -1317,6 +1317,111 @@
         "proximo": "continuar",
         "fechar": "entendi",
         "comecar": "bora"
+      },
+      "cena": {
+        "grana": "Grana",
+        "rep": "Nome",
+        "folego": "Fôlego da gangue",
+        "folego_baixo": "A gangue tá acabada. Passa na birosca antes de brigar de novo.",
+        "bairro_tomado": "Bairro tomado",
+        "opcional": "de boa",
+        "boss_trancado": "Fecha os ponto antes de subir",
+        "recompensa": "Levou",
+        "treta_nao": "Agora não",
+        "treta_sim": "Brigar",
+        "fechar": "Fechar",
+        "parada_pular": "Deixa pra lá",
+        "parada_tentar": "Encarar",
+        "parada_ok": "Deu certo. A rua abriu.",
+        "parada_falha": "Foi mal — e agora acordou treta.",
+        "parada_falha_leve": "Não rolou. Fica pra próxima.",
+        "corre_ok": "Corre feito. O Nato paga o combinado.",
+        "corre_falha": "A viatura te viu. Larga o pacote e corre.",
+        "tipo": {
+          "treta": "Treta",
+          "parada": "Parada",
+          "papo": "Papo",
+          "corre": "Corre",
+          "achado": "Achado",
+          "descanso": "Birosca"
+        },
+        "itens": {
+          "sucata": "Sucata (item)"
+        },
+        "descanso_curou": "A gangue respirou. +{n} de fôlego.",
+        "descanso_cheio": "A gangue já tá inteira.",
+        "descanso_sem_grana": "Sem grana pro descanso.",
+        "descanso_curar": "Descansar (−{grana})",
+        "pista": {
+          "chegada": [
+            "Isso aqui é a Pista, moleque. O asfalto lá embaixo.",
+            "Toma os ponto das gangue pequena, faz teu nome, e quando a rua toda te conhecer o Fumaça desce pra te encarar.",
+            "Anda. Toca no que acender."
+          ],
+          "sinal": {
+            "nome": "A boca do sinal",
+            "sub": "moleque vendendo bala",
+            "fala": [
+              "Cê é da gangue nova? Tá maluco de descer aqui sem ninguém.",
+              "Óh, eu vejo tudo desse farol. Quer saber de alguma coisa, é só trocar uma ideia — ou um trocado."
+            ],
+            "escolhas": {
+              "compra": {
+                "label": "Compra a bala e ouve o que ele sabe",
+                "resultado": "Ele embolsa o trocado. \"O ferro-velho ali, o portão fica só no cadeado. Dentro tem coisa boa.\""
+              },
+              "aperta": {
+                "label": "Aperta o moleque pra ele falar de graça"
+              },
+              "ignora": {
+                "label": "Ignora e segue subindo",
+                "resultado": "Cê passa reto. O moleque cospe no chão. Dá pra ver um ferro-velho logo adiante."
+              }
+            }
+          },
+          "ferro": {
+            "nome": "O ferro-velho",
+            "sub": "portão no cadeado",
+            "intro": "O portão é só corrente e um cadeado velho. A equipe se junta na gazua — quem tem mão boa trabalha, o resto fica de olho no vigia."
+          },
+          "molecada_1": {
+            "nome": "O beco da Molecada",
+            "fala": "Esse beco é nosso, parça. A gangue nova não passa daqui de graça."
+          },
+          "birosca": {
+            "nome": "A birosca do Seu Nato",
+            "sub": "o coroa da esquina",
+            "fala": [
+              "Senta aí. Toma um mate. Cê tá subindo rápido demais pra quem ninguém conhece.",
+              "Vou te falar onde o Fumaça se enfia. Mas antes me faz um corre — leva um pacote pro outro lado sem a viatura ver.",
+              "Depois disso a Pista te respeita. E a birosca fica aberta pra vocês descansarem."
+            ],
+            "escolhas": {
+              "aceita_corre": {
+                "label": "Aceita o corre do Nato",
+                "resultado": "\"Fechou. O pacote tá atrás do balcão. E os outro ponto da Molecada é subindo à direita.\""
+              },
+              "so_papo": {
+                "label": "Só quer a informação",
+                "resultado": "\"Teimoso. Então vai no osso: o outro ponto da Molecada é ali em cima. Bata os dois e o Fumaça aparece.\""
+              }
+            }
+          },
+          "corre": {
+            "nome": "O corre do Nato",
+            "sub": "leva o pacote",
+            "intro": "Atravessa a quadra com o pacote sem entrar no facho da viatura. A equipe se espalha e cobre teu movimento."
+          },
+          "molecada_2": {
+            "nome": "O outro ponto da Molecada",
+            "fala": "Cê de novo?? Bateu o beco lá embaixo e achou que ia ser fácil aqui também?"
+          },
+          "descanso": {
+            "nome": "Descanso na birosca",
+            "sub": "mate, pão e sossego",
+            "intro": "Um tempo sentado, longe da rua. Custa uns trocado, mas a gangue volta inteira pro corre."
+          }
+        }
       }
     }
   }

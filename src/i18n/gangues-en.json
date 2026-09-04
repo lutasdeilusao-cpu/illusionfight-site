@@ -1727,6 +1727,111 @@
         "proximo": "go on",
         "fechar": "got it",
         "comecar": "let's go"
+      },
+      "cena": {
+        "grana": "Cash",
+        "rep": "Name",
+        "folego": "Gang's wind",
+        "folego_baixo": "The gang's spent. Hit the bar before fighting again.",
+        "bairro_tomado": "Block taken",
+        "opcional": "optional",
+        "boss_trancado": "Lock the spots down before going up",
+        "recompensa": "You got",
+        "treta_nao": "Not now",
+        "treta_sim": "Fight",
+        "fechar": "Close",
+        "parada_pular": "Leave it",
+        "parada_tentar": "Take it on",
+        "parada_ok": "Worked. The street opened up.",
+        "parada_falha": "Botched it — and now there's a fight.",
+        "parada_falha_leve": "Didn't work. Next time.",
+        "corre_ok": "Run done. Nato pays what he owes.",
+        "corre_falha": "The patrol car saw you. Drop the package and run.",
+        "tipo": {
+          "treta": "Fight",
+          "parada": "Job",
+          "papo": "Talk",
+          "corre": "Run",
+          "achado": "Find",
+          "descanso": "Bar"
+        },
+        "itens": {
+          "sucata": "Scrap (item)"
+        },
+        "descanso_curou": "The gang caught its breath. +{n} wind.",
+        "descanso_cheio": "The gang's already at full.",
+        "descanso_sem_grana": "Not enough cash for a rest.",
+        "descanso_curar": "Rest (−{grana})",
+        "pista": {
+          "chegada": [
+            "This is the Track, kid. The asphalt down below.",
+            "Take the little gangs' spots, make your name, and when the whole street knows you Fumaça comes down to face you.",
+            "Move. Tap whatever lights up."
+          ],
+          "sinal": {
+            "nome": "The stoplight corner",
+            "sub": "kid selling candy",
+            "fala": [
+              "You with the new gang? You're crazy coming down here alone.",
+              "Look, I see everything from this light. Want to know something, trade a word — or some change."
+            ],
+            "escolhas": {
+              "compra": {
+                "label": "Buy the candy and hear what he knows",
+                "resultado": "He pockets the change. \"The junkyard over there, the gate's just a padlock. Good stuff inside.\""
+              },
+              "aperta": {
+                "label": "Lean on the kid to make him talk for free"
+              },
+              "ignora": {
+                "label": "Ignore him and keep climbing",
+                "resultado": "You walk past. The kid spits on the ground. You can see a junkyard just ahead."
+              }
+            }
+          },
+          "ferro": {
+            "nome": "The junkyard",
+            "sub": "gate on a padlock",
+            "intro": "The gate's just a chain and an old padlock. The crew gets on the pick — whoever's got the hands works it, the rest watch the guard."
+          },
+          "molecada_1": {
+            "nome": "The Molecada's alley",
+            "fala": "This alley's ours, pal. The new gang doesn't get through for free."
+          },
+          "birosca": {
+            "nome": "Old Nato's bar",
+            "sub": "the corner elder",
+            "fala": [
+              "Sit down. Have some mate. You're climbing way too fast for someone nobody knows.",
+              "I'll tell you where Fumaça hides. But first do me a run — take a package across without the patrol car seeing.",
+              "After that the Track respects you. And the bar stays open for your crew to rest."
+            ],
+            "escolhas": {
+              "aceita_corre": {
+                "label": "Take Nato's run",
+                "resultado": "\"Deal. The package is behind the counter. And the Molecada's other spot is up to the right.\""
+              },
+              "so_papo": {
+                "label": "Just want the information",
+                "resultado": "\"Stubborn. Then straight up: the Molecada's other spot is up there. Take both and Fumaça shows up.\""
+              }
+            }
+          },
+          "corre": {
+            "nome": "Nato's run",
+            "sub": "carry the package",
+            "intro": "Cross the block with the package without stepping into the patrol car's beam. The crew spreads out and covers you."
+          },
+          "molecada_2": {
+            "nome": "The Molecada's other spot",
+            "fala": "You again?? Took the alley down there and thought this'd be easy too?"
+          },
+          "descanso": {
+            "nome": "Rest at the bar",
+            "sub": "mate, bread and quiet",
+            "intro": "Some time sitting, off the street. Costs a little change, but the gang comes back whole."
+          }
+        }
       }
     }
   }

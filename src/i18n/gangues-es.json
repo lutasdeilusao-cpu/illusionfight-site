@@ -1727,6 +1727,111 @@
         "proximo": "seguir",
         "fechar": "entendido",
         "comecar": "vamos"
+      },
+      "cena": {
+        "grana": "Plata",
+        "rep": "Nombre",
+        "folego": "Aliento de la banda",
+        "folego_baixo": "La banda está reventada. Pasá por el bar antes de pelear de nuevo.",
+        "bairro_tomado": "Barrio tomado",
+        "opcional": "opcional",
+        "boss_trancado": "Cerrá los puntos antes de subir",
+        "recompensa": "Te llevaste",
+        "treta_nao": "Ahora no",
+        "treta_sim": "Pelear",
+        "fechar": "Cerrar",
+        "parada_pular": "Dejalo",
+        "parada_tentar": "Encarar",
+        "parada_ok": "Salió bien. La calle se abrió.",
+        "parada_falha": "Se pudrió — y ahora hay pelea.",
+        "parada_falha_leve": "No salió. Para la próxima.",
+        "corre_ok": "Mandado hecho. Nato paga lo acordado.",
+        "corre_falha": "El patrullero te vio. Soltá el paquete y corré.",
+        "tipo": {
+          "treta": "Pelea",
+          "parada": "Laburo",
+          "papo": "Charla",
+          "corre": "Mandado",
+          "achado": "Hallazgo",
+          "descanso": "Bar"
+        },
+        "itens": {
+          "sucata": "Chatarra (ítem)"
+        },
+        "descanso_curou": "La banda respiró. +{n} de aliento.",
+        "descanso_cheio": "La banda ya está entera.",
+        "descanso_sem_grana": "No hay plata para el descanso.",
+        "descanso_curar": "Descansar (−{grana})",
+        "pista": {
+          "chegada": [
+            "Esto es la Pista, pibe. El asfalto de abajo.",
+            "Tomá los puntos de las bandas chicas, hacé tu nombre, y cuando toda la calle te conozca Fumaça baja a encararte.",
+            "Andá. Tocá lo que se prenda."
+          ],
+          "sinal": {
+            "nome": "La esquina del semáforo",
+            "sub": "pibe vendiendo caramelos",
+            "fala": [
+              "¿Sos de la banda nueva? Estás loco de bajar acá solo.",
+              "Mirá, yo veo todo desde este semáforo. ¿Querés saber algo? Cambiá una idea — o unas monedas."
+            ],
+            "escolhas": {
+              "compra": {
+                "label": "Comprá el caramelo y escuchá lo que sabe",
+                "resultado": "Se guarda las monedas. \"El depósito de chatarra de ahí, el portón es solo un candado. Adentro hay cosa buena.\""
+              },
+              "aperta": {
+                "label": "Apretá al pibe para que hable gratis"
+              },
+              "ignora": {
+                "label": "Ignoralo y seguí subiendo",
+                "resultado": "Pasás de largo. El pibe escupe al piso. Se ve un depósito de chatarra más adelante."
+              }
+            }
+          },
+          "ferro": {
+            "nome": "El depósito de chatarra",
+            "sub": "portón con candado",
+            "intro": "El portón es solo cadena y un candado viejo. El equipo se junta en la ganzúa — el que tiene mano buena labura, el resto vigila al sereno."
+          },
+          "molecada_1": {
+            "nome": "El callejón de la Molecada",
+            "fala": "Este callejón es nuestro, socio. La banda nueva no pasa gratis."
+          },
+          "birosca": {
+            "nome": "El bar de Don Nato",
+            "sub": "el veterano de la esquina",
+            "fala": [
+              "Sentate. Tomá un mate. Estás subiendo demasiado rápido para alguien que nadie conoce.",
+              "Te digo dónde se mete Fumaça. Pero antes hacéme un mandado — llevá un paquete al otro lado sin que el patrullero te vea.",
+              "Después de eso la Pista te respeta. Y el bar queda abierto para que tu banda descanse."
+            ],
+            "escolhas": {
+              "aceita_corre": {
+                "label": "Aceptá el mandado de Nato",
+                "resultado": "\"Cerrado. El paquete está atrás del mostrador. Y el otro punto de la Molecada es subiendo a la derecha.\""
+              },
+              "so_papo": {
+                "label": "Solo querés la información",
+                "resultado": "\"Terco. Entonces al hueso: el otro punto de la Molecada está allá arriba. Tomá los dos y aparece Fumaça.\""
+              }
+            }
+          },
+          "corre": {
+            "nome": "El mandado de Nato",
+            "sub": "llevá el paquete",
+            "intro": "Cruzá la cuadra con el paquete sin entrar en el haz del patrullero. El equipo se abre y te cubre."
+          },
+          "molecada_2": {
+            "nome": "El otro punto de la Molecada",
+            "fala": "¿¿Vos de nuevo?? ¿Tomaste el callejón de abajo y pensaste que acá también iba a ser fácil?"
+          },
+          "descanso": {
+            "nome": "Descanso en el bar",
+            "sub": "mate, pan y tranquilidad",
+            "intro": "Un rato sentado, lejos de la calle. Cuesta unas monedas, pero la banda vuelve entera."
+          }
+        }
       }
     }
   }

@@ -13,6 +13,8 @@ import GanguesTrainingZone from './GanguesTrainingZone'
 import GanguesProgression from './GanguesProgression'
 import GanguesStoryMap from './GanguesStoryMap'
 import GanguesTerritorio from './GanguesTerritorio'
+import GanguesCena from './GanguesCena'
+import { temCena } from './data/cenas/pista.js'
 import GuestNotice from '../../../components/GuestNotice/GuestNotice'
 import enemiesData from './data/gangues-enemies.json'
 import './Gangues.css'
@@ -82,7 +84,11 @@ export default function GanguesRoute({ publicTraining = false }) {
       {fase === 'modes' && <GanguesModes onNavigate={setFase} />}
       {fase === 'enemy' && <GanguesEnemyPick onNavigate={setFase} />}
       {fase === 'story' && <GanguesStoryMap onNavigate={setFase} />}
-      {fase === 'territorio' && <GanguesTerritorio onNavigate={setFase} />}
+      {fase === 'territorio' && (
+        temCena(store.storyTarget?.territorioId)
+          ? <GanguesCena onNavigate={setFase} />
+          : <GanguesTerritorio onNavigate={setFase} />
+      )}
       {fase === 'combat' && <GanguesCombat onNavigate={setFase} />}
       {fase === 'victory' && <GanguesVictory onNavigate={setFase} />}
       {fase === 'training' && <GanguesTrainingZone onNavigate={setFase} publicAccess={publicTraining} />}

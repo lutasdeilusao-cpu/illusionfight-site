@@ -207,8 +207,97 @@ export const useGanguesStore = create((set, get) => ({
 
   resetStory: () => {
     try { localStorage.removeItem('ldi-gangues-story') } catch { /* ignora */ }
-    set({ storyProgress: {}, storyTarget: null })
+    try { localStorage.removeItem('ldi-gangues-cena') } catch { /* ignora */ }
+    set({ storyProgress: {}, storyTarget: null, grana: 0, rep: 0, cenaProgresso: {} })
   },
 
+  // ── Modo história: a CENA (bairro navegável) ──
+  // Economia leve + progresso por cena. Persistido só em localStorage
+  // por enquanto (esqueleto), junto do storyProgress. Supabase depois.
+  // cenaProgresso: { [cenaId]: { resolvidos: {poiId:true}, revelados: {poiId:true}, boss: bool, folego: 0..100 } }
+  ...(() => {
+    try {
+      const raw = JSON.parse(localStorage.getItem('ldi-gangues-cena') || '{}')
+      return { grana: raw.grana || 0, rep: raw.rep || 0, cenaProgresso: raw.cenaProgresso || {} }
+    } catch { return { grana: 0, rep: 0, cenaProgresso: {} } }
+  })(),
+
+  _persistCena: () => {
+    const { grana, rep, cenaProgresso } = get()
+    try { localStorage.setItem('ldi-gangues-cena', JSON.stringify({ grana, rep, cenaProgresso })) } catch { /* ignora */ }
+  },
+
+  _cena: (cenaId) => get().cenaProgresso[cenaId] || { resolvidos: {}, revelados: {}, boss: false, folego: 100 },
+
+  ganharGrana: (n) => { set(state => ({ grana: Math.max(0, state.grana + (n || 0)) })); get()._persistCena() },
+  ganharRep: (n) => { set(state => ({ rep: Math.max(0, state.rep + (n || 0)) })); get()._persistCena() },
+  gastarGrana: (n) => {
+    if (get().grana < n) return false
+    set(state => ({ grana: state.grana - n }))
+    get()._persistCena()
+    return true
+  },
+
+  revelarPoi: (cenaId, ...poiIds) => {
+    set(state => {
+      const atual = state.cenaProgresso[cenaId] || { resolvidos: {}, revelados: {}, boss: false, folego: 100 }
+      const revelados = { ...atual.revelados }
+      poiIds.flat().forEach(id => { if (id) revelados[id] = true })
+      return { cenaProgresso: { ...state.cenaProgresso, [cenaId]: { ...atual, revelados } } }
+    })
+    get()._persistCena()
+  },
+
+  marcarPoiResolvido: (cenaId, poiId, revela = []) => {
+    set(state => {
+      const atual = state.cenaProgresso[cenaId] || { resolvidos: {}, revelados: {}, boss: false, folego: 100 }
+      const revelados = { ...atual.revelados }
+      ;[].concat(revela).forEach(id => { if (id) revelados[id] = true })
+      return {
+        cenaProgresso: {
+          ...state.cenaProgresso,
+          [cenaId]: { ...atual, resolvidos: { ...atual.resolvidos, [poiId]: true }, revelados },
+        },
+      }
+    })
+    get()._persistCena()
+  },
+
+  marcarBossCena: (cenaId) => {
+    set(state => {
+      const atual = state.cenaProgresso[cenaId] || { resolvidos: {}, revelados: {}, boss: false, folego: 100 }
+      return { cenaProgresso: { ...state.cenaProgresso, [cenaId]: { ...atual, boss: true } } }
+    })
+    get()._persistCena()
+  },
+
+  // Fôlego da gangue: cai nas tretas/paradas falhadas, cura na birosca,
+  // volta ao cheio ao dominar / sair do bairro.
+  ajustarFolego: (cenaId, delta) => {
+    set(state => {
+      const atual = state.cenaProgresso[cenaId] || { resolvidos: {}, revelados: {}, boss: false, folego: 100 }
+      const folego = Math.max(0, Math.min(100, (atual.folego ?? 100) + delta))
+      return { cenaProgresso: { ...state.cenaProgresso, [cenaId]: { ...atual, folego } } }
+    })
+    get()._persistCena()
+  },
+
+  restaurarFolego: (cenaId) => get().ajustarFolego(cenaId, 100),
+
+  // Dominar o território a partir da cena: marca todos os pontos + o chefe,
+  // pra estadoTerritorio() reconhecer 'dominado' e a próxima região abrir.
+  dominarTerritorioViaCena: (territorioId, pontoIds = []) => set(state => {
+    const atual = state.storyProgress[territorioId] || { pontos: [], chefe: false }
+    const pontos = Array.from(new Set([...(atual.pontos || []), ...pontoIds]))
+    const storyProgress = { ...state.storyProgress, [territorioId]: { pontos, chefe: true } }
+    try { localStorage.setItem('ldi-gangues-story', JSON.stringify(storyProgress)) } catch { /* ignora */ }
+    return { storyProgress }
+  }),
+
   reset: () => set({ sheet: defaultSheet(), roster: [], activeParty: [], match: { playerTeam: [], enemyTeam: [], enemy: null, enemy_id: null, score: 0, status: 'idle', battleReport: null } }),
+
+  resetCena: () => {
+    try { localStorage.removeItem('ldi-gangues-cena') } catch { /* ignora */ }
+    set({ grana: 0, rep: 0, cenaProgresso: {} })
+  },
 }))
