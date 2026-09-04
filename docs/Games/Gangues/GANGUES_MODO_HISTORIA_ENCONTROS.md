@@ -138,37 +138,63 @@ aposta (Top Trumps), corre de bike / perseguição (KernelGames).
 
 ---
 
-## 7. Decisões abertas (é o que precisamos fechar antes de codar)
+## 7. Decisões — FECHADAS (2026-09-04)
 
-1. **Economia:** entra Grana + Rep agora, ou fica só XP por enquanto?
-   *(recomendo Grana + Rep — é o que faz o conteúdo fora-de-briga importar.)*
-2. **Navegação:** fita de cards vertical (seguro, rápido, estilo Jack Dream Beer)
-   **ou** pinos numa rua desenhada com o token da gangue andando (mais imersivo,
-   mais trabalho)?
-3. **Mini-jogos:** usa a lib `Puzzles/` como está (rápido) ou re-tematiza com a
-   cara de gangue (mais lento, mais bonito)?
-4. **Descoberta:** revelação progressiva (POI só aparece depois de destravar) ou
-   tudo visível com alguns cinza? *(recomendo progressiva — é o ponto do pedido.)*
-5. **Dano entre encontros:** a gangue carrega PV perdido de um POI pro outro
-   (aí "descanso" importa) ou reseta a cada encontro (mais leve)?
-6. **Tamanho do protótipo da Pista:** os 6 POIs acima, ou começa menor (ex: 1
-   papo + 1 parada + 2 tretas + boss) pra validar o modelo antes?
+1. **Economia:** entra **Grana + Nome/Rep** agora. Grana de corre/achado/briga,
+   gasta em descanso e vantagem pontual. Rep = fama da gangue, destranca POI,
+   alimenta o % de domínio e o texto do final.
+2. **Navegação:** **pinos numa rua desenhada**. Uma rua estilizada em SVG
+   atravessa a tela; os POIs são pinos ao longo dela; o token da gangue anda
+   (hop animado) do pino atual pro próximo quando o jogador toca. Breadcrumb
+   "A Pista · 3/7" no topo. Sem d-pad — o toque no pino é a navegação.
+3. **Mini-jogos:** **re-tematizados** com a cara de gangue antes de entrar —
+   visual, textos e contexto de cada um (a gazua é gazua, o stealth tem viatura,
+   o decoder é a caderneta do Turco). Base técnica continua sendo a lib
+   `Puzzles/`, mas com skin própria.
+4. **Descoberta:** **revelação progressiva** — POI só aparece no mapa da rua
+   depois que o grafo de descoberta libera. Pino escondido = não desenha.
+5. **Dano entre encontros:** a gangue **carrega PV perdido** dentro do bairro.
+   Existe um POI de descanso (birosca) que cura gastando grana. PV volta ao
+   cheio ao sair do bairro / ao dominar.
+6. **Protótipo da Pista:** **completo** — os 6 POIs + boss da seção 5.
 
 ---
 
-## 8. Ordem de implementação sugerida (depois de fechar a seção 7)
+## 8. Ordem de implementação
 
-1. `GanguesCena.jsx` — o container: carrega a cena, renderiza a fita de POIs,
-   controla estado (escondido/disponível/resolvido), grafo de descoberta, portão
-   do chefe. Substitui o `GanguesTerritorio.jsx` atual.
-2. `GanguesParada.jsx` — wrapper fino sobre `Puzzles/` (baseado no `PuzzleRouter`
-   da LDI) devolvendo recompensa pro store.
-3. `GanguesPapo.jsx` — `GangDialog` + escolhas + consequências.
-4. `data/cenas/pista.js` — a cena da Pista (seção 5) como dados.
-5. Store: `grana`, `rep`, `cenaProgresso[cenaId]` (quais POIs caíram), no mesmo
-   padrão localStorage do `storyProgress` (esqueleto; Supabase depois).
-6. Ligar vitória de treta / sucesso de parada → `marcarPoiResolvido` → revelação.
-7. Só quando a Pista estiver gostosa: escrever as cenas dos outros 6 bairros.
+1. **Store** — `grana`, `rep`, `cenaProgresso[cenaId] = { pois:[ids], pv:{...} }`,
+   ações `ganharGrana/ganharRep/gastarGrana`, `marcarPoiResolvido`, `revelarPoi`.
+   localStorage `ldi-gangues-cena` (esqueleto; Supabase depois, junto do resto).
+2. **`data/cenas/pista.js`** — a cena (seção 5) como dados: `pois[]` com
+   `{ id, tipo, pino:{x,y}, revela:[ids], recompensa, ...conteúdo }`, `chefe`,
+   `portao` (quais POIs abrem o boss), `ruaPath` (o SVG da rua).
+3. **`GanguesCena.jsx`** — container. Desenha a rua (SVG), os pinos revelados, o
+   token da gangue, o breadcrumb, a barra de grana/rep/PV. Toca no pino →
+   token anda → abre o encontro do tipo certo. Substitui `GanguesTerritorio.jsx`.
+   Fase `territorio` no `GanguesRoute` vira `cena`.
+4. **`GanguesEncontroTreta`** — usa `GanguesCombat` (já existe), volta com
+   resultado → `marcarPoiResolvido`.
+5. **`GanguesParada.jsx`** — wrapper sobre `Puzzles/` (base `PuzzleRouter` da
+   LDI) + skin de gangue por parada. `onComplete(ok, recompensa)`.
+6. **`GanguesPapo.jsx`** — `GangDialog` + escolhas + consequências (revela POI /
+   +rep / vira treta).
+7. **`GanguesCorre` / `GanguesAchado` / `GanguesDescanso`** — os POIs mais simples.
+8. Ligar tudo: resolver POI → `marcarPoiResolvido` → `revelarPoi` do grafo →
+   re-render da rua. Portão do chefe abre quando os POIs-chave caíram.
+9. Só quando a Pista estiver gostosa: escrever `data/cenas/{feira,baixada,...}.js`.
+
+### 8.1 A rua desenhada (nota técnica)
+
+- `ruaPath` = um `<path>` SVG (viewBox tipo `0 0 100 200`, vertical, rola) — uma
+  rua tortinha subindo. O Isaias troca por arte depois; a curva fica.
+- Cada pino tem `pino:{x,y}` em coords do viewBox, ancorado perto da rua.
+- Token da gangue = um marcador na posição do POI atual; ao avançar, `framer-motion`
+  anima a posição ao longo de pontos-chave (não precisa seguir o path ao pixel —
+  um arco entre pino A e pino B basta pra dar o "andou").
+- Pino escondido não renderiza. Pino disponível pulsa. Resolvido fica apagado com
+  ✓. Chefe trancado = cadeado; aberto = pino grande vermelho no fim da rua.
+- Mobile: a rua rola vertical dentro de `overflow-y:auto`; o token centraliza na
+  viewport ao andar (`scrollIntoView`).
 
 ---
 
