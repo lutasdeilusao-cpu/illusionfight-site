@@ -4,6 +4,11 @@
   max-width: 480px;
   margin: 0 auto;
   height: 100dvh;
+  /* Reserva o espaço da tira de guest (topo) e da Rádio Nina (topo OU rodapé,
+     conforme a posição escolhida) — sem isso os dois ficam fixos por cima do
+     jogo em vez de empurrar o conteúdo, como acontecia no combate. */
+  padding-top: calc(var(--guest-notice-h, 0px) + var(--radio-nina-top-h, 0px));
+  padding-bottom: var(--radio-nina-h, 0px);
   overflow: hidden;
   background: #0a0a0a;
   background-image: 
@@ -67,7 +72,7 @@
 .gang-lobby {
   align-self: stretch;
   width: 100%;
-  max-height: 100dvh;
+  max-height: 100%;
   overflow-y: auto;
   overflow-x: hidden;
   display: flex;
@@ -353,7 +358,7 @@
   padding-bottom: 20px;
   overflow-y: auto;
   overflow-x: hidden;
-  max-height: 100dvh;
+  max-height: 100%;
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
@@ -518,7 +523,10 @@
 .gang-combat {
   display: flex;
   flex-direction: column;
-  height: 100dvh;
+  /* 100% do conteúdo já reduzido de .gang-page (que reserva a tira de guest
+     e a Rádio Nina via padding) — não mais 100dvh direto, que ignorava esse
+     espaço reservado e ficava por baixo das duas barras. */
+  height: 100%;
   max-height: 800px;
   width: 100%;
   max-width: 420px;
@@ -537,7 +545,7 @@
     border-radius: 24px;
     border: 1px solid rgba(0,180,216,0.1);
     box-shadow: 0 0 60px rgba(0,0,0,0.8), 0 0 120px rgba(0,180,216,0.05);
-    height: calc(100dvh - 40px);
+    height: calc(100% - 40px);
     max-height: 800px;
   }
 }
@@ -1993,7 +2001,7 @@
 @keyframes gang-thinking { to { opacity: 0.25; transform: scale(0.65); } }
 
 /* Relatório final — duas variantes, mesma estrutura analítica */
-.gang-report { width: min(100%, 720px); height: 100dvh; margin: 0 auto; padding: 54px 22px 40px; overflow-y: auto; color: #d9e0e3; scrollbar-color: #24414b #080c0e; }
+.gang-report { width: min(100%, 720px); height: 100%; margin: 0 auto; padding: 54px 22px 40px; overflow-y: auto; color: #d9e0e3; scrollbar-color: #24414b #080c0e; }
 .gang-report-hero { padding: 28px 20px; border: 1px solid rgba(0,180,216,0.3); border-top: 3px solid var(--if-teal); background: linear-gradient(180deg, rgba(0,180,216,0.09), transparent); text-align: center; }
 .gang-report--defeat .gang-report-hero { border-color: rgba(220,45,55,0.35); border-top-color: #dc2d37; background: linear-gradient(180deg, rgba(220,45,55,0.1), transparent); }
 .gang-report-code { color: var(--if-teal); font-size: 8px; letter-spacing: 5px; text-transform: uppercase; }

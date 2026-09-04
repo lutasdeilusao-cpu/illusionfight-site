@@ -5,10 +5,13 @@
 .gang-modes {
   align-self: stretch;
   width: 100%;
-  max-height: 100dvh;
+  max-height: 100%;
   overflow-y: auto;
   overflow-x: hidden;
-  padding: 52px 16px 44px;
+  /* .gang-page já reserva o espaço da tira de guest/rádio no topo (padding
+     dinâmico via --guest-notice-h/--radio-nina-top-h) — aqui só falta a
+     respiração normal do header. */
+  padding: 20px 16px 44px;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
 }

@@ -861,8 +861,8 @@
         "npc_hacker_sdr": "Hacker do SDR",
         "npc_nordico_karnazar": "Lutador de Karnazar"
       },
-      "guest_banner": "Você está jogando sem conta — seu progresso não será salvo.",
-      "guest_create_account": "Criar conta grátis",
+      "guest_banner": "Sem conta: progresso não é salvo.",
+      "guest_create_account": "Criar conta",
       "guest_save_prompt_title": "Crie uma conta grátis",
       "guest_save_prompt_desc": "Crie uma conta grátis para salvar esta ficha e seu progresso. Seu personagem está pronto — não perca seus dados!",
       "guest_continue_without_saving": "Continuar com ficha temporária",
