@@ -1,6 +1,11 @@
 import { create } from 'zustand'
 import { supabase } from '../../../../lib/supabase'
 import { addGanguesAp, defaultGanguesProgression, getGanguesRosterLimit, normalizeGanguesLoadout } from '../data/ganguesLoadout.js'
+import { carregarProgressoHistoria, salvarProgressoHistoria } from './ganguesStoryProgress.js'
+
+// Debounce dos writes de progresso do modo história: várias ações batem em sequência
+// (marcar POI + fôlego + grana + rep) e não faz sentido um upsert por campo.
+let storySaveTimer = null
 
 const LEGACY_PATH_STORAGE = { atacante: 'brutamontes', defensor: 'duelista', mistico: 'canalizador' }
 const LEGACY_STYLE_PATH = { brutamontes: 'atacante', duelista: 'defensor', canalizador: 'mistico' }
@@ -175,57 +180,67 @@ export const useGanguesStore = create((set, get) => ({
 
   // ── Nome da gangue ──
   // É o que reverbera na história (falas dos inimigos, % de domínio, fim).
-  // Persistido só em localStorage por enquanto (esqueleto), como o storyProgress.
-  gangName: (() => {
-    try { return localStorage.getItem('ldi-gangues-nome') || '' } catch { return '' }
-  })(),
+  gangName: '',
   setGangName: (nome) => {
     const limpo = String(nome || '').replace(/\s+/g, ' ').trim().slice(0, 28)
-    try { localStorage.setItem('ldi-gangues-nome', limpo) } catch { /* ignora */ }
     set({ gangName: limpo })
+    get()._persistStory()
   },
 
   // ── Modo história ──
+  // Progresso salvo em Supabase (tabela `gangues_story_progress`, uma linha por
+  // usuário) quando logado; guest joga só em memória e perde tudo ao sair —
+  // igual à ficha de personagem (ver `addLocalSheet`).
   // storyProgress: { [territorioId]: { pontos: [noId...], chefe: bool } }
-  // Persistido só em localStorage por enquanto (esqueleto).
-  storyProgress: (() => {
-    try { return JSON.parse(localStorage.getItem('ldi-gangues-story') || '{}') } catch { return {} }
-  })(),
+  storyProgress: {},
   // Nó em que o jogador entrou: { territorioId, noId, enemyId, isChefe }
   storyTarget: null,
   setStoryTarget: (target) => set({ storyTarget: target }),
 
-  marcarNoDominado: (territorioId, noId, isChefe) => set(state => {
-    const atual = state.storyProgress[territorioId] || { pontos: [], chefe: false }
-    const prox = isChefe
-      ? { ...atual, chefe: true }
-      : { ...atual, pontos: atual.pontos.includes(noId) ? atual.pontos : [...atual.pontos, noId] }
-    const storyProgress = { ...state.storyProgress, [territorioId]: prox }
-    try { localStorage.setItem('ldi-gangues-story', JSON.stringify(storyProgress)) } catch { /* ignora */ }
-    return { storyProgress }
-  }),
+  loadStoryProgress: async (userId) => {
+    if (!userId) return
+    const progresso = await carregarProgressoHistoria(userId)
+    if (progresso) set(progresso)
+  },
+
+  marcarNoDominado: (territorioId, noId, isChefe) => {
+    set(state => {
+      const atual = state.storyProgress[territorioId] || { pontos: [], chefe: false }
+      const prox = isChefe
+        ? { ...atual, chefe: true }
+        : { ...atual, pontos: atual.pontos.includes(noId) ? atual.pontos : [...atual.pontos, noId] }
+      return { storyProgress: { ...state.storyProgress, [territorioId]: prox } }
+    })
+    get()._persistStory()
+  },
 
   resetStory: () => {
-    try { localStorage.removeItem('ldi-gangues-story') } catch { /* ignora */ }
-    try { localStorage.removeItem('ldi-gangues-cena') } catch { /* ignora */ }
     set({ storyProgress: {}, storyTarget: null, grana: 0, rep: 0, cenaProgresso: {} })
+    get()._persistStory()
   },
 
   // ── Modo história: a CENA (bairro navegável) ──
-  // Economia leve + progresso por cena. Persistido só em localStorage
-  // por enquanto (esqueleto), junto do storyProgress. Supabase depois.
+  // Economia leve + progresso por cena.
   // cenaProgresso: { [cenaId]: { resolvidos: {poiId:true}, revelados: {poiId:true}, boss: bool, folego: 0..100 } }
-  ...(() => {
-    try {
-      const raw = JSON.parse(localStorage.getItem('ldi-gangues-cena') || '{}')
-      return { grana: raw.grana || 0, rep: raw.rep || 0, cenaProgresso: raw.cenaProgresso || {} }
-    } catch { return { grana: 0, rep: 0, cenaProgresso: {} } }
-  })(),
+  grana: 0,
+  rep: 0,
+  cenaProgresso: {},
 
-  _persistCena: () => {
-    const { grana, rep, cenaProgresso } = get()
-    try { localStorage.setItem('ldi-gangues-cena', JSON.stringify({ grana, rep, cenaProgresso })) } catch { /* ignora */ }
+  // Escreve no Supabase com debounce — várias ações do modo história disparam
+  // essa persistência em sequência (marcar POI + fôlego + grana + rep) e não
+  // faz sentido um upsert por campo. Guest (sem `_userId`) não salva nada,
+  // igual à ficha: o banner já avisa que o progresso não fica.
+  _persistStory: () => {
+    const uid = get()._userId
+    if (!uid) return
+    clearTimeout(storySaveTimer)
+    storySaveTimer = setTimeout(() => {
+      const { gangName, storyProgress, cenaProgresso, grana, rep } = get()
+      salvarProgressoHistoria(uid, { gangName, storyProgress, cenaProgresso, grana, rep })
+    }, 800)
   },
+
+  _persistCena: () => get()._persistStory(),
 
   _cena: (cenaId) => get().cenaProgresso[cenaId] || { resolvidos: {}, revelados: {}, boss: false, folego: 100 },
 
@@ -286,18 +301,19 @@ export const useGanguesStore = create((set, get) => ({
 
   // Dominar o território a partir da cena: marca todos os pontos + o chefe,
   // pra estadoTerritorio() reconhecer 'dominado' e a próxima região abrir.
-  dominarTerritorioViaCena: (territorioId, pontoIds = []) => set(state => {
-    const atual = state.storyProgress[territorioId] || { pontos: [], chefe: false }
-    const pontos = Array.from(new Set([...(atual.pontos || []), ...pontoIds]))
-    const storyProgress = { ...state.storyProgress, [territorioId]: { pontos, chefe: true } }
-    try { localStorage.setItem('ldi-gangues-story', JSON.stringify(storyProgress)) } catch { /* ignora */ }
-    return { storyProgress }
-  }),
+  dominarTerritorioViaCena: (territorioId, pontoIds = []) => {
+    set(state => {
+      const atual = state.storyProgress[territorioId] || { pontos: [], chefe: false }
+      const pontos = Array.from(new Set([...(atual.pontos || []), ...pontoIds]))
+      return { storyProgress: { ...state.storyProgress, [territorioId]: { pontos, chefe: true } } }
+    })
+    get()._persistStory()
+  },
 
   reset: () => set({ sheet: defaultSheet(), roster: [], activeParty: [], match: { playerTeam: [], enemyTeam: [], enemy: null, enemy_id: null, score: 0, status: 'idle', battleReport: null } }),
 
   resetCena: () => {
-    try { localStorage.removeItem('ldi-gangues-cena') } catch { /* ignora */ }
     set({ grana: 0, rep: 0, cenaProgresso: {} })
+    get()._persistStory()
   },
 }))

@@ -247,6 +247,17 @@ pra não confundir quem for mexer depois: ou usa esse conteúdo pra inimigos fut
   (`updateRosterSheet`) se for guest, igual ao resto da ficha. O único uso de `localStorage` no
   módulo inteiro são as flags "já vi esse tutorial" da NeoGuide (seção 10) — nenhum dado de jogo
   fica lá.
+- **Modo história (mapa de território + cenas) salva em Supabase, tabela
+  `gangues_story_progress`** (migration 031) — uma linha por usuário com `gang_name`,
+  `story_progress`, `cena_progresso`, `grana`, `rep`. `loadStoryProgress(userId)` carrega ao logar
+  (chamado em `GanguesRoute.jsx`); toda mutação (`marcarNoDominado`, `marcarPoiResolvido`,
+  `ganharGrana`, `ajustarFolego`, etc.) passa por `_persistStory()`, que faz upsert com debounce de
+  800ms — várias ações batem em sequência (marcar POI + fôlego + grana + rep) e não faz sentido um
+  write por campo. Guest (sem `_userId`) não persiste nada — fica só em memória e some ao sair,
+  igual à ficha; o banner do modo standalone já avisa isso. Antes disso o progresso vivia inteiro
+  em `localStorage` (`ldi-gangues-story`/`ldi-gangues-cena`/`ldi-gangues-nome`), então até quem
+  tinha conta perdia tudo ao trocar de dispositivo ou limpar dados do navegador — bug corrigido
+  nesta migration.
 
 ### Zona de Treinamento administrativa
 

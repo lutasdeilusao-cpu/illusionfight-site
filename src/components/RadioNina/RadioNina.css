@@ -564,7 +564,7 @@ body.has-desktop-shell-bar .radio-nina-lista--top { top: 88px; }
 .nina-balloon {
   position: fixed;
   bottom: 90px;
-  right: 24px;
+  right: calc(var(--app-gutter, 0px) + 24px);
   display: flex;
   align-items: flex-end;
   gap: 6px;

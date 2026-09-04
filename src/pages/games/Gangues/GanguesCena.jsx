@@ -94,14 +94,14 @@ export default function GanguesCena({ onNavigate }) {
   }
 
   // ── Treta: usa o fluxo story-combat existente (GanguesRoute + GanguesVictory) ──
-  const iniciarTreta = (poi, { viraTreta } = {}) => {
+  const iniciarTreta = (poi, { viraTreta, revela } = {}) => {
     const ehChefe = Boolean(poi.ehChefe)
     sfx.vs?.()
     store.setStoryTarget({
       territorioId: terr.id,
       cenaId: cena.id,
       cenaPoiId: poi.id,
-      cenaRevela: poi.revela || [],
+      cenaRevela: viraTreta ? (revela || []) : (poi.revela || []),
       cenaRecompensa: viraTreta ? null : poi.recompensa || null,
       pontoIds: terr.pontos.map(p => p.id),
       noId: ehChefe ? cena.chefe.poiNo : null,
@@ -116,7 +116,7 @@ export default function GanguesCena({ onNavigate }) {
   const resolver = (res) => {
     const poi = encontro.poi
     setEncontro(null)
-    if (res?.viraTreta) { iniciarTreta(poi, { viraTreta: res.viraTreta }); return }
+    if (res?.viraTreta) { iniciarTreta(poi, { viraTreta: res.viraTreta, revela: res.revela }); return }
 
     if (res?.custoGrana) store.gastarGrana(res.custoGrana)
     if (typeof res?.folego === 'number') store.ajustarFolego(cena.id, res.folego)

@@ -31,7 +31,10 @@ export default function GanguesRoute({ publicTraining = false }) {
   const [creationParty, setCreationParty] = useState([])
 
   useEffect(() => {
-    if (user) store.setUserId(user.id)
+    if (user) {
+      store.setUserId(user.id)
+      store.loadStoryProgress(user.id)
+    }
   }, [user])
 
   useEffect(() => {
