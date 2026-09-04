@@ -1075,7 +1075,7 @@
         "enemy_team": "ENEMY TEAM",
         "start": "START CREATION",
         "continue": "CREATE SECOND FIGHTER",
-        "enter_gangues": "START BATTLE",
+        "enter_gangues": "QUICK BATTLE · 2×2",
         "save_member": "CONFIRM FIGHTER",
         "save_error": "The fighter could not be saved. Please try again.",
         "distribute_title": "DISTRIBUTE YOUR POINTS",
@@ -1088,7 +1088,8 @@
         "equipar_titulo": "Powers not equipped",
         "equipar_corpo": "{nomes} bought an active power but hasn’t equipped it. In battle, without equipping, only the normal attack is available. Each fighter carries up to 2 powers — build differently per matchup.",
         "equipar_agora": "Equip now",
-        "equipar_depois": "Enter anyway"
+        "equipar_depois": "Enter anyway",
+        "quick_desc": "A one-off fight, no map progress."
       },
       "limite": {
         "titulo": "SHEET LIMIT",
@@ -1626,7 +1627,8 @@
           "Each turf is a piece of the map. Take every rung of it, beat the owner, and the next one opens.",
           "At the top there's the rooftop at the top of the Hill. And the Champion. But that's a story for later.",
           "Your sheet levels up with every win. Equip a different power for each matchup. Let's climb."
-        ]
+        ],
+        "entry_cta": "OPEN THE MARELIA MAP"
       }
     }
   }

@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1788470375.062026,
-    "ast_hash": "d0f71465c01c4d1a8f029fcbb4ac49d5",
+    "mtime": 1788479560.936657,
+    "ast_hash": "c9030d8889829c9e2f36227ca5ad7ae8",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2745,8 +2745,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1788470375.1060553,
-    "ast_hash": "1798720d2adc5ae44d93715e7f1a3ad1",
+    "mtime": 1788479572.212656,
+    "ast_hash": "83e26355101fdf122a7c5fd829f90aed",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3550,18 +3550,18 @@
     "semantic_hash": ""
   },
   "src/i18n/gangues-en.json": {
-    "mtime": 1788470120.658296,
-    "ast_hash": "d5b7634ed5145093d4706125aead3d44",
+    "mtime": 1788479180.0130527,
+    "ast_hash": "7c70d8ac50f779d8248bc9223ee4ea9e",
     "semantic_hash": ""
   },
   "src/i18n/gangues-es.json": {
-    "mtime": 1788470120.6608553,
-    "ast_hash": "a836a4b2d2c51447ec5d850895f772b9",
+    "mtime": 1788479180.016056,
+    "ast_hash": "6c2df6d054f7b39d4e2b9b4efdf2e0e5",
     "semantic_hash": ""
   },
   "src/i18n/gangues-pt.json": {
-    "mtime": 1788470120.654724,
-    "ast_hash": "92599b8f8d7d79e5cd9f42ea3e461448",
+    "mtime": 1788479180.0085752,
+    "ast_hash": "cb33a82f7519d98d036c5cd9f77ebb4f",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/hooks/useGanguesI18n.js": {
@@ -4725,18 +4725,18 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/GanguesStoryMap.jsx": {
-    "mtime": 1788469759.6781173,
-    "ast_hash": "ebd7e07dacacf740e83f6578b8f9afb9",
+    "mtime": 1788479209.8583064,
+    "ast_hash": "c2e4faa3fa1e5c6e49530ed2d7312cab",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/GanguesTerritorio.jsx": {
-    "mtime": 1788469791.5326264,
-    "ast_hash": "f9a1ebc517e31703b7e45000067491a6",
+    "mtime": 1788479119.8266125,
+    "ast_hash": "aa3d7bb0c6ee2c40251f63d0863eda71",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/ganguesTerritorios.js": {
-    "mtime": 1788470315.0735133,
-    "ast_hash": "e6d843868c65b51652fd14705a53d346",
+    "mtime": 1788479103.8980823,
+    "ast_hash": "183ddbe9e9a348df9b71983c61d94174",
     "semantic_hash": ""
   }
 }

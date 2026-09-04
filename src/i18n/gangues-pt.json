@@ -1101,7 +1101,7 @@
         "enemy_team": "EQUIPE INIMIGA",
         "start": "INICIAR CRIAÇÃO",
         "continue": "CRIAR SEGUNDO LUTADOR",
-        "enter_gangues": "INICIAR BATALHA",
+        "enter_gangues": "BATALHA RÁPIDA · 2×2",
         "save_member": "CONFIRMAR LUTADOR",
         "save_error": "Não foi possível salvar o lutador. Tente novamente.",
         "distribute_title": "DISTRIBUA SEUS PONTOS",
@@ -1114,7 +1114,8 @@
         "equipar_titulo": "Poderes por equipar",
         "equipar_corpo": "{nomes} tem poder ativo comprado mas não equipado. Em batalha, sem equipar, só dá pra usar o ataque normal. Cada lutador leva até 2 poderes — dá pra montar diferente por confronto.",
         "equipar_agora": "Equipar agora",
-        "equipar_depois": "Entrar assim mesmo"
+        "equipar_depois": "Entrar assim mesmo",
+        "quick_desc": "Um confronto avulso, sem progresso no mapa."
       },
       "limite": {
         "titulo": "LIMITE DE FICHAS",
@@ -1216,7 +1217,8 @@
           "Cada território é um pedaço do mapa. Domine todos os degraus dele, bata o dono, e o próximo abre.",
           "No topo tem a laje do alto do Morro. E o Campeão. Mas isso é história pra depois.",
           "Sua ficha evolui a cada vitória. Vai equipando poder diferente pra cada confronto. Bora subir."
-        ]
+        ],
+        "entry_cta": "ABRIR O MAPA DE MARELIA"
       }
     }
   }

@@ -206,14 +206,16 @@ export default function GanguesLobby({ onNavigate }) {
         </section>
       ) : (
         <>
-          {/* Modo história — dominar Marelia território por território. */}
-          <button className="gang-story-entry" onClick={() => onNavigate('story')}>
-            <span className="gang-story-entry-icon">🗺</span>
-            <span className="gang-story-entry-txt">
+          {/* Modo história — o jeito principal de jogar: dominar Marelia
+              território por território no mapa. É o destaque do lobby. */}
+          <button className="gang-story-entry" onClick={() => { sfx.select?.(); onNavigate('story') }}>
+            <span className="if-eyebrow">IF // MARELIA</span>
+            <span className="gang-story-entry-head">
+              <span className="gang-story-entry-icon">🗺</span>
               <strong>{t('games.gangues.story.entry')}</strong>
-              <small>{t('games.gangues.story.entry_desc')}</small>
             </span>
-            <b>→</b>
+            <small>{t('games.gangues.story.entry_desc')}</small>
+            <span className="gang-story-entry-cta">{t('games.gangues.story.entry_cta')} <b>→</b></span>
           </button>
 
           <div className="gang-lobby-section-label gang-lobby-section-label--row"><span>{t('games.gangues.party.roster')}</span><span>{roster.length}/{rosterLimit}</span></div>
@@ -249,9 +251,11 @@ export default function GanguesLobby({ onNavigate }) {
           <p className="gang-party-counter">{t('games.gangues.party_size_atual', { n: party.length, max: partyLimit })}</p>
           {partyLimit < GANGUES_MAX_PARTY_SIZE && <p className="gang-party-counter">{t('games.gangues.party_size_bloqueado')}</p>}
           {avisoParty && <p className="gang-err">{avisoParty}</p>}
-          {/* Sempre clicável: se faltar lutador, avisa aqui em vez de bloquear. */}
-          <button className="gang-new-sheet gang-new-sheet--primary" onClick={tentarBatalha}>{t('games.gangues.party.enter_gangues')}</button>
           {roster.length < rosterLimit && <button className="gang-new-sheet" onClick={startCreation}><span className="gang-new-sheet-icon">+</span>{t('games.gangues.nova_ficha')}</button>}
+          {/* Batalha avulsa — secundária. Sempre clicável: se faltar lutador,
+              avisa aqui em vez de bloquear. */}
+          <button className="gang-new-sheet gang-quick-battle" onClick={tentarBatalha}>{t('games.gangues.party.enter_gangues')}</button>
+          <p className="gang-quick-battle-hint">{t('games.gangues.party.quick_desc')}</p>
         </>
       )}
       {avisoPoderes && (

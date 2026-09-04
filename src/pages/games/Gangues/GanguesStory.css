@@ -17,31 +17,47 @@
 }
 .gang-story::-webkit-scrollbar { display: none; }
 
-/* ── Entrada no lobby ── */
+/* ── Entrada no lobby — o destaque do lobby, jeito principal de jogar ── */
 .gang-story-entry {
   display: flex;
-  align-items: center;
-  gap: 12px;
+  flex-direction: column;
+  gap: 6px;
   width: 100%;
-  margin: 0 0 14px;
-  padding: 12px 14px;
+  margin: 4px 0 20px;
+  padding: 16px 16px 14px;
   text-align: left;
   cursor: pointer;
-  border: 1px solid var(--if-amber-72);
-  background: linear-gradient(100deg, var(--if-amber-16), rgba(255, 174, 50, 0.03));
-  box-shadow: inset 3px 0 var(--if-amber), 0 0 26px -10px rgba(255, 174, 50, 0.4);
+  border: 1px solid var(--if-amber);
+  background:
+    radial-gradient(120% 90% at 100% 0%, rgba(255, 174, 50, 0.16), transparent 60%),
+    linear-gradient(100deg, var(--if-amber-16), rgba(255, 174, 50, 0.03));
+  box-shadow: inset 3px 0 var(--if-amber), 0 0 34px -8px rgba(255, 174, 50, 0.5);
   transition: box-shadow 0.2s, transform 0.15s;
-  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%);
+  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%);
 }
-.gang-story-entry:hover { transform: translateY(-2px); box-shadow: inset 3px 0 var(--if-amber), 0 0 30px -6px rgba(255, 174, 50, 0.5); }
-.gang-story-entry-icon { font-size: 1.5rem; line-height: 1; }
-.gang-story-entry-txt { flex: 1; display: flex; flex-direction: column; gap: 2px; }
-.gang-story-entry-txt strong {
-  font-family: var(--font-display); font-weight: 800; font-size: 1rem;
+.gang-story-entry:hover { transform: translateY(-2px); box-shadow: inset 3px 0 var(--if-amber), 0 0 40px -4px rgba(255, 174, 50, 0.6); }
+.gang-story-entry .if-eyebrow { color: var(--if-amber); opacity: 0.8; }
+.gang-story-entry-head { display: flex; align-items: center; gap: 10px; }
+.gang-story-entry-icon { font-size: 1.6rem; line-height: 1; }
+.gang-story-entry-head strong {
+  font-family: var(--font-display); font-weight: 800; font-size: 1.15rem;
   letter-spacing: 0.04em; color: #ffce6b;
 }
-.gang-story-entry-txt small { font-size: 0.72rem; color: var(--text-secondary); }
-.gang-story-entry b { color: var(--if-amber); font-size: 1.2rem; }
+.gang-story-entry small { font-size: 0.75rem; color: var(--text-secondary); line-height: 1.4; }
+.gang-story-entry-cta {
+  margin-top: 6px;
+  font: 700 0.72rem var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--if-amber); display: flex; align-items: center; gap: 8px;
+}
+.gang-story-entry-cta b { font-size: 1.1rem; transition: transform 0.15s; }
+.gang-story-entry:hover .gang-story-entry-cta b { transform: translateX(4px); }
+
+/* ── Batalha avulsa: ação secundária no lobby ── */
+.gang-quick-battle { opacity: 0.85; }
+.gang-quick-battle-hint {
+  margin: 4px 0 0; text-align: center;
+  font: 0.68rem var(--font-mono); letter-spacing: 0.04em; color: var(--text-secondary);
+}
 
 /* ── Cabeçalho ── */
 .gang-story-head {
