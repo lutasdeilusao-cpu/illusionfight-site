@@ -16,6 +16,7 @@ import GanguesTerritorio from './GanguesTerritorio'
 import GanguesCena from './GanguesCena'
 import { temCena } from './data/cenas/pista.js'
 import { GANGUES_STORY_BATTLE_PARTY_MAX } from './data/ganguesLoadout.js'
+import { gerarBandoInimigo } from './data/ganguesEncontros.js'
 import GuestNotice from '../../../components/GuestNotice/GuestNotice'
 import enemiesData from './data/gangues-enemies.json'
 import './Gangues.css'
@@ -46,20 +47,30 @@ export default function GanguesRoute({ publicTraining = false }) {
   // Modo história: quando entra em 'story-combat', monta a batalha com o
   // inimigo do nó e cai no GanguesCombat normal. A vitória volta pro
   // território (marcando o nó) via GanguesVictory.
-  // Bairro é gangue contra gangue — o tamanho do bando inimigo (enemyQtd, por
-  // nó) NÃO acompanha o tamanho do seu time. E o seu time de batalha no modo
-  // história tem teto próprio de 3, mesmo que o elenco já tenha crescido mais
-  // via recrutamento (GANGUES_STORY_BATTLE_PARTY_MAX).
+  // Bairro é gangue contra gangue: o time de batalha usa o ELENCO inteiro
+  // (não o activeParty da Arena, que tem seu próprio teto/lógica separada),
+  // até o teto do modo história (GANGUES_STORY_BATTLE_PARTY_MAX). Chefe é
+  // ficha fixa e sozinha; treta comum sorteia um bando novo a cada
+  // tentativa (gerarBandoInimigo), calibrado contra o time atual do
+  // jogador — nunca o mesmo bando duas vezes.
   useEffect(() => {
     if (fase !== 'story-combat') return
     const alvo = store.storyTarget
-    const party = store.activeParty.slice(0, GANGUES_STORY_BATTLE_PARTY_MAX)
+    const party = store.roster.slice(0, GANGUES_STORY_BATTLE_PARTY_MAX)
     if (!alvo?.enemyId || party.length < 1) { setFase('story'); return }
-    const enemy = enemiesData.find(e => e.id === alvo.enemyId)
-    if (!enemy) { setFase('story'); return }
-    const qtd = Math.max(1, Number(alvo.enemyQtd) || 1)
-    const extras = Array.from({ length: Math.max(0, qtd - 1) }, () => enemy)
-    store.startMatch(enemy, [enemy, ...extras], party)
+
+    let enemyTeam
+    if (alvo.isChefe || alvo.fixo) {
+      // Chefe (ficha própria) ou punição fixa (ex: bot de treinamento) — 1
+      // inimigo certo, sem sorteio.
+      const enemy = enemiesData.find(e => e.id === alvo.enemyId)
+      if (!enemy) { setFase('story'); return }
+      enemyTeam = [enemy]
+    } else {
+      enemyTeam = gerarBandoInimigo({ territorioId: alvo.territorioId, dificuldade: alvo.dificuldade, playerTeam: party, enemiesData })
+      if (!enemyTeam?.length) { setFase('story'); return }
+    }
+    store.startMatch(enemyTeam[0], enemyTeam, party)
     setFase('combat')
   }, [fase])
 

@@ -106,9 +106,11 @@ export default function GanguesCena({ onNavigate }) {
       pontoIds: terr.pontos.map(p => p.id),
       noId: ehChefe ? cena.chefe.poiNo : null,
       enemyId: viraTreta ? viraTreta.enemy : poi.enemy,
-      // Tamanho do bando — viraTreta (punição de papo/parada) é sempre 1x1;
-      // treta normal usa o qtd definido no POI.
-      enemyQtd: viraTreta ? 1 : (poi.qtd || 1),
+      // viraTreta (punição de papo/parada, ex: bot de treinamento) é ficha
+      // fixa e sozinha — não sorteia bando. Treta normal sorteia (ver
+      // GanguesRoute → gerarBandoInimigo), com dificuldade alternando por POI.
+      fixo: Boolean(viraTreta),
+      dificuldade: poi.dificuldade,
       isChefe: ehChefe,
       repDelta: viraTreta?.rep || 0,
     })

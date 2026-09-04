@@ -11,15 +11,15 @@ export const GANGUES_MAX_PARTY_SIZE = 5
 export const GANGUES_ROSTER_LIMITS = { free: 3, elite: 5, primordial: 7 }
 
 // ── Modo história: teto de time de batalha + elenco que cresce por recrutamento ──
-// Bairro é gangue contra gangue (bando inimigo pode ter até 10 corpos) — mas
-// o time que VOCÊ leva pra briga tem teto fixo de 3, não acompanha o elenco.
-export const GANGUES_STORY_BATTLE_PARTY_MAX = 3
-// Cada território dominado (chefe derrotado) libera 1 vaga nova no elenco,
-// além do limite pago por tier — até um teto de 6 territórios contando (a
-// Laje, o 7º, não soma mais porque essa conta já bateu no teto do elenco).
+// Bairro é gangue contra gangue (bando inimigo sorteado, calibrado contra o
+// total de pontos do seu time — ver data/ganguesEncontros.js) — o time que
+// você leva pra briga cresce junto com o elenco recrutado, até um teto.
+export const GANGUES_STORY_BATTLE_PARTY_MAX = 8
+// Cada um dos 7 territórios dominado (chefe derrotado) libera 1 vaga nova no
+// elenco, além do limite pago por tier — começa em 2, termina em 9.
 export const GANGUES_STORY_ROSTER_BASE = GANGUES_INITIAL_PARTY_SIZE
-export const GANGUES_STORY_ROSTER_TERRITORIOS_QUE_CONTAM = 6
-export const GANGUES_STORY_ROSTER_MAX = GANGUES_STORY_ROSTER_BASE + GANGUES_STORY_ROSTER_TERRITORIOS_QUE_CONTAM // 8
+export const GANGUES_STORY_ROSTER_TERRITORIOS_QUE_CONTAM = 7
+export const GANGUES_STORY_ROSTER_MAX = GANGUES_STORY_ROSTER_BASE + GANGUES_STORY_ROSTER_TERRITORIOS_QUE_CONTAM // 9
 
 /** Quantos territórios já foram dominados (chefe derrotado)? */
 export function contarTerritoriosDominados(storyProgress = {}) {

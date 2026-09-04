@@ -65,14 +65,13 @@ export const CENA_PISTA = {
       tipo: 'treta',
       pino: { x: 50, y: 132 },
       i18n: 'games.gangues.cena.pista.molecada_1',
-      // Grunt fraco de propósito — é a primeira treta de verdade do jogo,
-      // logo depois da criação da ficha (5 pontos). "Kaeda" (arena) é forte
-      // demais pra esse momento; ver docs/Games/Gangues sobre o rebalance.
+      // É a primeira treta de verdade do jogo, logo depois da criação da
+      // ficha. O bando é sorteado na hora (GanguesRoute → gerarBandoInimigo,
+      // moldes da Pista) calibrado contra o time atual — nunca é sempre o
+      // mesmo inimigo/quantidade.
       enemy: 'moleque_a',
       forca: 1,
-      // Tamanho do bando inimigo — independente do tamanho do SEU time (a
-      // regra aqui é "gangue", não duelo 1x1). Teto da Pista: 4.
-      qtd: 1,
+      dificuldade: 'normal',
       recompensa: { grana: 8, rep: 2, xp: 10 },
       revela: ['birosca'],
     },
@@ -100,11 +99,11 @@ export const CENA_PISTA = {
       tipo: 'treta',
       pino: { x: 44, y: 48 },
       i18n: 'games.gangues.cena.pista.molecada_2',
-      // Um degrau acima do moleque_a — o jogador já deve ter 1 vitória de AP
-      // acumulado (a de molecada_1) até chegar aqui.
+      // Segunda treta — dificuldade 'dificil' (o jogador já deve ter 1
+      // vitória de AP acumulado até chegar aqui).
       enemy: 'moleque_b',
       forca: 2,
-      qtd: 3,
+      dificuldade: 'dificil',
       recompensa: { grana: 8, rep: 3, xp: 10 },
     },
     {
@@ -131,7 +130,6 @@ export const CENA_PISTA = {
     // de confronto (games.gangues.story.bosses.fumaca).
     enemy: 'fumaca',
     forca: 3,
-    qtd: 1,
     boss: 'fumaca',
   },
 

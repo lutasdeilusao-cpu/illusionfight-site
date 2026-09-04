@@ -51,9 +51,11 @@ export default function GanguesTerritorio({ onNavigate }) {
       territorioId: terr.id,
       noId: confronto.no.id,
       enemyId: confronto.no.enemy,
-      // Tamanho do bando inimigo — bairro é gangue contra gangue, não duelo
-      // 1x1: o número de inimigos não depende do tamanho do SEU time.
-      enemyQtd: confronto.no.qtd || 1,
+      // Chefe é ficha fixa e sozinha; treta comum sorteia um bando novo a
+      // cada tentativa (GanguesRoute → gerarBandoInimigo), calibrado contra
+      // o time atual do jogador. `dificuldade` só alterna facil/normal/dificil
+      // pra não empilhar luta puxada atrás de luta puxada.
+      dificuldade: confronto.no.dificuldade,
       isChefe: confronto.isChefe,
     })
     // GanguesRoute lê o storyTarget e monta a batalha.
@@ -152,7 +154,10 @@ export default function GanguesTerritorio({ onNavigate }) {
                   <p className="gang-story-vs-fala">{fala}</p>
                 </>)
               })()}
-              {confronto.enemy && (
+              {/* Só o chefe (ficha fixa) mostra prévia de status — a treta
+                  comum sorteia o bando na hora, então mostrar um status fixo
+                  aqui seria mentira. */}
+              {confronto.isChefe && confronto.enemy && (
                 <span className="gang-story-vs-stats">
                   {['A', 'H', 'R', 'D'].map(a => (
                     <span key={a}><i>{a}</i>{confronto.enemy.stats?.[a] ?? '—'}</span>

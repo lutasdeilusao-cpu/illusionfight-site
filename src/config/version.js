@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.218.0'
+export const SITE_VERSION = '10.219.0'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '1.32.0' // Briga em Multidao: "ataque normal pra todos" resolve na hora sem escolher poder nenhum, e "modo rapido" virou switch persistente (localStorage) — uma vez ligado, para de perguntar golpe-a-golpe x multidao em toda luta grande, so pergunta poderes x ataque normal; botao Cancelar desliga o switch e cai no combate individual.
+export const GANGUES_VERSION   = '1.33.0' // Rebalance final do bando inimigo: qtd fixo por no virou geracao aleatoria por tentativa (data/ganguesEncontros.js), pontos do bando = total de pontos do TIME do jogador * fator de dificuldade (facil/normal/dificil, alternando por territorio pra nao empilhar luta puxada), calibrado por simulacao real (nao formula no papel) com times diversificados nos 3 caminhos. Time de batalha no modo historia sobe de 3 para 8 (usa o elenco inteiro, ate o teto), elenco maximo sobe de 8 para 9 (7 territorios contam, nao 6).
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
 export const MINIGAMES_VERSION = '4.3.4'  // Glitch: safe-area lateral no grid-wrap

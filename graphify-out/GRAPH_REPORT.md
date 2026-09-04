@@ -1,16 +1,16 @@
 # Graph Report - SiteLDI  (2026-09-04)
 
 ## Corpus Check
-- 867 files · ~1,007,226 words
+- 867 files · ~1,007,570 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 4137 nodes · 7191 edges · 436 communities (295 shown, 141 thin omitted)
+- 4137 nodes · 7185 edges · 437 communities (296 shown, 141 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 49 edges (avg confidence: 0.68)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `e48852b6`
+- Built from commit: `9f927867`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -390,6 +390,7 @@
 - TypewriterPhrase.jsx
 - Jokempo.jsx
 - drawCombatBoard
+- GanguesCombat.jsx
 
 ## God Nodes (most connected - your core abstractions)
 1. `useLanguage()` - 342 edges
@@ -418,7 +419,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (436 total, 141 thin omitted)
+## Communities (437 total, 141 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.05
@@ -669,8 +670,8 @@ Cohesion: 0.07
 Nodes (28): 10.1 Coluna única mobile, 10.2 Linguagem visual única, 10. Camadas visuais globais, 11. Desktop Windows e Steam Demo, 12. Versões atuais, 13. Onde procurar primeiro, 1. Visão geral, 2.1 Abertura (vinheta de carregamento) (+20 more)
 
 ### Community 67 - "useScrollReveal"
-Cohesion: 0.22
-Nodes (15): coin(), d3(), podePagarCusto(), simularGanguesBrigaMultidao(), fighterName(), GanguesCombat(), ONOMATOPEIAS, pct() (+7 more)
+Cohesion: 0.35
+Nodes (7): coin(), d3(), podePagarCusto(), simularGanguesBrigaMultidao(), pickEnemyTarget(), prepare(), useGanguesTurnMachine()
 
 ### Community 68 - "CodigoPerdido.jsx"
 Cohesion: 0.07
@@ -1355,6 +1356,10 @@ Nodes (3): BalloonFala(), MetricBar(), PERSONALIDADES
 ### Community 434 - "Jokempo.jsx"
 Cohesion: 0.40
 Nodes (3): CHOICES, EMOJI, Jokempo()
+
+### Community 436 - "GanguesCombat.jsx"
+Cohesion: 0.44
+Nodes (8): fighterName(), GanguesCombat(), ONOMATOPEIAS, pct(), pickTrash(), randomOnoma(), Roster(), transformarEvento()
 
 ## Knowledge Gaps
 - **1759 isolated node(s):** `1. Visão geral`, `2.1 Abertura (vinheta de carregamento)`, `3.1 Site e conteúdo`, `3.2 Plataforma e conta`, `3.3 Catálogo e jogos` (+1754 more)

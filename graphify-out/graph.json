@@ -310,7 +310,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_games_gangues_ganguescombat",
-      "community": 67,
+      "community": 436,
       "norm_label": "ganguescombat.jsx"
     },
     {
@@ -320,7 +320,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "src_pages_games_gangues_ganguescombat_onomatopeias",
-      "community": 67,
+      "community": 436,
       "norm_label": "onomatopeias"
     },
     {
@@ -330,7 +330,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_pages_games_gangues_ganguescombat_randomonoma",
-      "community": 67,
+      "community": 436,
       "norm_label": "randomonoma()"
     },
     {
@@ -340,7 +340,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "src_pages_games_gangues_ganguescombat_pct",
-      "community": 67,
+      "community": 436,
       "norm_label": "pct()"
     },
     {
@@ -350,7 +350,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "src_pages_games_gangues_ganguescombat_fightername",
-      "community": 67,
+      "community": 436,
       "norm_label": "fightername()"
     },
     {
@@ -360,7 +360,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "src_pages_games_gangues_ganguescombat_picktrash",
-      "community": 67,
+      "community": 436,
       "norm_label": "picktrash()"
     },
     {
@@ -370,7 +370,7 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "src_pages_games_gangues_ganguescombat_transformarevento",
-      "community": 67,
+      "community": 436,
       "norm_label": "transformarevento()"
     },
     {
@@ -380,7 +380,7 @@
       "source_location": "L64",
       "_origin": "ast",
       "id": "src_pages_games_gangues_ganguescombat_roster",
-      "community": 67,
+      "community": 436,
       "norm_label": "roster()"
     },
     {
@@ -390,7 +390,7 @@
       "source_location": "L93",
       "_origin": "ast",
       "id": "src_pages_games_gangues_ganguescombat_ganguescombat",
-      "community": 67,
+      "community": 436,
       "norm_label": "ganguescombat()"
     },
     {
@@ -399,9 +399,9 @@
       "source_file": "src/pages/games/Gangues/engine/ganguesBrigaMultidao.js",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_engine_ganguesbrigamultidao",
       "community": 67,
-      "norm_label": "ganguesbrigamultidao.js"
+      "norm_label": "ganguesbrigamultidao.js",
+      "id": "src_pages_games_gangues_engine_ganguesbrigamultidao"
     },
     {
       "label": "d3()",
@@ -409,9 +409,9 @@
       "source_file": "src/pages/games/Gangues/engine/ganguesBrigaMultidao.js",
       "source_location": "L19",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_engine_ganguesbrigamultidao_d3",
       "community": 67,
-      "norm_label": "d3()"
+      "norm_label": "d3()",
+      "id": "src_pages_games_gangues_engine_ganguesbrigamultidao_d3"
     },
     {
       "label": "coin()",
@@ -419,9 +419,9 @@
       "source_file": "src/pages/games/Gangues/engine/ganguesBrigaMultidao.js",
       "source_location": "L20",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_engine_ganguesbrigamultidao_coin",
       "community": 67,
-      "norm_label": "coin()"
+      "norm_label": "coin()",
+      "id": "src_pages_games_gangues_engine_ganguesbrigamultidao_coin"
     },
     {
       "label": "podePagarCusto()",
@@ -429,9 +429,9 @@
       "source_file": "src/pages/games/Gangues/engine/ganguesBrigaMultidao.js",
       "source_location": "L23",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_engine_ganguesbrigamultidao_podepagarcusto",
       "community": 67,
-      "norm_label": "podepagarcusto()"
+      "norm_label": "podepagarcusto()",
+      "id": "src_pages_games_gangues_engine_ganguesbrigamultidao_podepagarcusto"
     },
     {
       "label": "simularGanguesBrigaMultidao()",
@@ -439,9 +439,9 @@
       "source_file": "src/pages/games/Gangues/engine/ganguesBrigaMultidao.js",
       "source_location": "L33",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_engine_ganguesbrigamultidao_simularganguesbrigamultidao",
       "community": 67,
-      "norm_label": "simularganguesbrigamultidao()"
+      "norm_label": "simularganguesbrigamultidao()",
+      "id": "src_pages_games_gangues_engine_ganguesbrigamultidao_simularganguesbrigamultidao"
     },
     {
       "label": "useGanguesTurnMachine.js",
@@ -449,9 +449,9 @@
       "source_file": "src/pages/games/Gangues/hooks/useGanguesTurnMachine.js",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_hooks_useganguesturnmachine",
       "community": 67,
-      "norm_label": "useganguesturnmachine.js"
+      "norm_label": "useganguesturnmachine.js",
+      "id": "src_pages_games_gangues_hooks_useganguesturnmachine"
     },
     {
       "label": "d3()",
@@ -459,9 +459,9 @@
       "source_file": "src/pages/games/Gangues/hooks/useGanguesTurnMachine.js",
       "source_location": "L5",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_hooks_useganguesturnmachine_d3",
       "community": 67,
-      "norm_label": "d3()"
+      "norm_label": "d3()",
+      "id": "src_pages_games_gangues_hooks_useganguesturnmachine_d3"
     },
     {
       "label": "coin()",
@@ -469,9 +469,9 @@
       "source_file": "src/pages/games/Gangues/hooks/useGanguesTurnMachine.js",
       "source_location": "L6",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_hooks_useganguesturnmachine_coin",
       "community": 67,
-      "norm_label": "coin()"
+      "norm_label": "coin()",
+      "id": "src_pages_games_gangues_hooks_useganguesturnmachine_coin"
     },
     {
       "label": "pickEnemyTarget()",
@@ -479,9 +479,9 @@
       "source_file": "src/pages/games/Gangues/hooks/useGanguesTurnMachine.js",
       "source_location": "L12",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_hooks_useganguesturnmachine_pickenemytarget",
       "community": 67,
-      "norm_label": "pickenemytarget()"
+      "norm_label": "pickenemytarget()",
+      "id": "src_pages_games_gangues_hooks_useganguesturnmachine_pickenemytarget"
     },
     {
       "label": "prepare()",
@@ -489,9 +489,9 @@
       "source_file": "src/pages/games/Gangues/hooks/useGanguesTurnMachine.js",
       "source_location": "L21",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_hooks_useganguesturnmachine_prepare",
       "community": 67,
-      "norm_label": "prepare()"
+      "norm_label": "prepare()",
+      "id": "src_pages_games_gangues_hooks_useganguesturnmachine_prepare"
     },
     {
       "label": "useGanguesTurnMachine()",
@@ -499,9 +499,9 @@
       "source_file": "src/pages/games/Gangues/hooks/useGanguesTurnMachine.js",
       "source_location": "L28",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_hooks_useganguesturnmachine_useganguesturnmachine",
       "community": 67,
-      "norm_label": "useganguesturnmachine()"
+      "norm_label": "useganguesturnmachine()",
+      "id": "src_pages_games_gangues_hooks_useganguesturnmachine_useganguesturnmachine"
     },
     {
       "label": "GanguesCena.jsx",
@@ -41810,28 +41810,6 @@
       "target": "src_config_version"
     },
     {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/Gangues/GanguesCombat.jsx",
-      "source_location": "L8",
-      "weight": 1.0,
-      "source": "src_pages_games_gangues_ganguescombat",
-      "target": "src_pages_games_gangues_engine_ganguesbrigamultidao",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/Gangues/GanguesCombat.jsx",
-      "source_location": "L8",
-      "weight": 1.0,
-      "source": "src_pages_games_gangues_ganguescombat",
-      "target": "src_pages_games_gangues_engine_ganguesbrigamultidao_simularganguesbrigamultidao",
-      "confidence_score": 1.0
-    },
-    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/Gangues/GanguesCombat.jsx",
@@ -41912,28 +41890,6 @@
       "confidence_score": 1.0
     },
     {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/Gangues/GanguesCombat.jsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "source": "src_pages_games_gangues_ganguescombat",
-      "target": "src_pages_games_gangues_hooks_useganguesturnmachine",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/Gangues/GanguesCombat.jsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "source": "src_pages_games_gangues_ganguescombat",
-      "target": "src_pages_games_gangues_hooks_useganguesturnmachine_useganguesturnmachine",
-      "confidence_score": 1.0
-    },
-    {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
@@ -41960,7 +41916,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/Gangues/GanguesCombat.jsx",
-      "source_location": "L160",
+      "source_location": "L183",
       "weight": 1.0,
       "source": "src_pages_games_gangues_ganguescombat_ganguescombat",
       "target": "src_pages_games_gangues_ganguescombat_fightername",
@@ -41993,7 +41949,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/Gangues/GanguesCombat.jsx",
-      "source_location": "L158",
+      "source_location": "L181",
       "weight": 1.0,
       "source": "src_pages_games_gangues_ganguescombat_ganguescombat",
       "target": "src_pages_games_gangues_ganguescombat_picktrash",
@@ -42015,33 +41971,11 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/Gangues/GanguesCombat.jsx",
-      "source_location": "L137",
+      "source_location": "L160",
       "weight": 1.0,
       "source": "src_pages_games_gangues_ganguescombat_ganguescombat",
       "target": "src_pages_games_gangues_ganguescombat_transformarevento",
       "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/games/Gangues/GanguesCombat.jsx",
-      "source_location": "L128",
-      "weight": 1.0,
-      "source": "src_pages_games_gangues_ganguescombat_ganguescombat",
-      "target": "src_pages_games_gangues_engine_ganguesbrigamultidao_simularganguesbrigamultidao"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/games/Gangues/GanguesCombat.jsx",
-      "source_location": "L165",
-      "weight": 1.0,
-      "source": "src_pages_games_gangues_ganguescombat_ganguescombat",
-      "target": "src_pages_games_gangues_hooks_useganguesturnmachine_useganguesturnmachine"
     },
     {
       "relation": "contains",
@@ -42049,9 +41983,9 @@
       "source_file": "src/pages/games/Gangues/engine/ganguesBrigaMultidao.js",
       "source_location": "L20",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_engine_ganguesbrigamultidao",
-      "target": "src_pages_games_gangues_engine_ganguesbrigamultidao_coin",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_engine_ganguesbrigamultidao_coin"
     },
     {
       "relation": "contains",
@@ -42059,9 +41993,9 @@
       "source_file": "src/pages/games/Gangues/engine/ganguesBrigaMultidao.js",
       "source_location": "L19",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_engine_ganguesbrigamultidao",
-      "target": "src_pages_games_gangues_engine_ganguesbrigamultidao_d3",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_engine_ganguesbrigamultidao_d3"
     },
     {
       "relation": "contains",
@@ -42069,9 +42003,9 @@
       "source_file": "src/pages/games/Gangues/engine/ganguesBrigaMultidao.js",
       "source_location": "L23",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_engine_ganguesbrigamultidao",
-      "target": "src_pages_games_gangues_engine_ganguesbrigamultidao_podepagarcusto",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_engine_ganguesbrigamultidao_podepagarcusto"
     },
     {
       "relation": "contains",
@@ -42079,9 +42013,9 @@
       "source_file": "src/pages/games/Gangues/engine/ganguesBrigaMultidao.js",
       "source_location": "L33",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_engine_ganguesbrigamultidao",
-      "target": "src_pages_games_gangues_engine_ganguesbrigamultidao_simularganguesbrigamultidao",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_engine_ganguesbrigamultidao_simularganguesbrigamultidao"
     },
     {
       "relation": "imports_from",
@@ -42090,9 +42024,9 @@
       "source_file": "src/pages/games/Gangues/engine/ganguesBrigaMultidao.js",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_engine_ganguesbrigamultidao",
-      "target": "src_pages_games_gangues_hooks_useganguesturnmachine",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_hooks_useganguesturnmachine"
     },
     {
       "relation": "imports",
@@ -42101,9 +42035,9 @@
       "source_file": "src/pages/games/Gangues/engine/ganguesBrigaMultidao.js",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_engine_ganguesbrigamultidao",
-      "target": "src_pages_games_gangues_hooks_useganguesturnmachine_pickenemytarget",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_hooks_useganguesturnmachine_pickenemytarget"
     },
     {
       "relation": "imports",
@@ -42112,9 +42046,9 @@
       "source_file": "src/pages/games/Gangues/engine/ganguesBrigaMultidao.js",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_engine_ganguesbrigamultidao",
-      "target": "src_pages_games_gangues_hooks_useganguesturnmachine_prepare",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_hooks_useganguesturnmachine_prepare"
     },
     {
       "relation": "calls",
@@ -42123,9 +42057,9 @@
       "source_file": "src/pages/games/Gangues/engine/ganguesBrigaMultidao.js",
       "source_location": "L42",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_engine_ganguesbrigamultidao_simularganguesbrigamultidao",
-      "target": "src_pages_games_gangues_engine_ganguesbrigamultidao_d3",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_engine_ganguesbrigamultidao_d3"
     },
     {
       "relation": "calls",
@@ -42134,9 +42068,9 @@
       "source_file": "src/pages/games/Gangues/engine/ganguesBrigaMultidao.js",
       "source_location": "L87",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_engine_ganguesbrigamultidao_simularganguesbrigamultidao",
-      "target": "src_pages_games_gangues_engine_ganguesbrigamultidao_coin",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_engine_ganguesbrigamultidao_coin"
     },
     {
       "relation": "calls",
@@ -42145,9 +42079,9 @@
       "source_file": "src/pages/games/Gangues/engine/ganguesBrigaMultidao.js",
       "source_location": "L78",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_engine_ganguesbrigamultidao_simularganguesbrigamultidao",
-      "target": "src_pages_games_gangues_engine_ganguesbrigamultidao_podepagarcusto",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_engine_ganguesbrigamultidao_podepagarcusto"
     },
     {
       "relation": "calls",
@@ -42177,9 +42111,9 @@
       "source_file": "src/pages/games/Gangues/hooks/useGanguesTurnMachine.js",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_hooks_useganguesturnmachine",
-      "target": "src_pages_games_gangues_hooks_useganguesturnmachine_coin",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_hooks_useganguesturnmachine_coin"
     },
     {
       "relation": "contains",
@@ -42187,9 +42121,9 @@
       "source_file": "src/pages/games/Gangues/hooks/useGanguesTurnMachine.js",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_hooks_useganguesturnmachine",
-      "target": "src_pages_games_gangues_hooks_useganguesturnmachine_d3",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_hooks_useganguesturnmachine_d3"
     },
     {
       "relation": "contains",
@@ -42197,9 +42131,9 @@
       "source_file": "src/pages/games/Gangues/hooks/useGanguesTurnMachine.js",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_hooks_useganguesturnmachine",
-      "target": "src_pages_games_gangues_hooks_useganguesturnmachine_pickenemytarget",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_hooks_useganguesturnmachine_pickenemytarget"
     },
     {
       "relation": "contains",
@@ -42207,9 +42141,9 @@
       "source_file": "src/pages/games/Gangues/hooks/useGanguesTurnMachine.js",
       "source_location": "L21",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_hooks_useganguesturnmachine",
-      "target": "src_pages_games_gangues_hooks_useganguesturnmachine_prepare",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_hooks_useganguesturnmachine_prepare"
     },
     {
       "relation": "contains",
@@ -42217,9 +42151,9 @@
       "source_file": "src/pages/games/Gangues/hooks/useGanguesTurnMachine.js",
       "source_location": "L28",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_hooks_useganguesturnmachine",
-      "target": "src_pages_games_gangues_hooks_useganguesturnmachine_useganguesturnmachine",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_hooks_useganguesturnmachine_useganguesturnmachine"
     },
     {
       "relation": "calls",
@@ -42228,9 +42162,9 @@
       "source_file": "src/pages/games/Gangues/hooks/useGanguesTurnMachine.js",
       "source_location": "L97",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_hooks_useganguesturnmachine_useganguesturnmachine",
-      "target": "src_pages_games_gangues_hooks_useganguesturnmachine_pickenemytarget",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_hooks_useganguesturnmachine_pickenemytarget"
     },
     {
       "relation": "calls",
@@ -42239,9 +42173,9 @@
       "source_file": "src/pages/games/Gangues/hooks/useGanguesTurnMachine.js",
       "source_location": "L29",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_hooks_useganguesturnmachine_useganguesturnmachine",
-      "target": "src_pages_games_gangues_hooks_useganguesturnmachine_prepare",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_hooks_useganguesturnmachine_prepare"
     },
     {
       "relation": "imports_from",
@@ -117120,5 +117054,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "e48852b65b42810b499060d291f1e4bf0f03d956"
+  "built_at_commit": "9f9278677f2b43356cf8d22c8cf68dd9c96ee703"
 }
