@@ -1148,77 +1148,87 @@
       "sair_do_jogo": "SAIR",
       "story": {
         "entry": "Modo história",
-        "entry_desc": "Suba o Morro. Domine Marelia degrau por degrau.",
-        "titulo": "A SUBIDA DO MORRO",
-        "sub": "Em Marelia a hierarquia se resolve do jeito antigo: dois num espaço vazio, o resto olhando. Quem fica em pé, sobe.",
-        "dominio": "de Marelia sob você",
-        "dominado": "Território dominado",
+        "entry_desc": "Suba nas gangues de Marelia até sobrar você — e o Alan.",
+        "titulo": "MARELIA SEM DONO",
+        "sub": "Antes do Alan, Marelia não tinha rei. Era gangue em cada esquina, cada uma dona do próprio quarteirão e de mais nada. Você monta a sua e sobe nesse caos.",
+        "dominio": "de Marelia é sua",
+        "dominado": "Região dominada",
         "voltar_mapa": "Mapa",
-        "sem_territorio": "Nenhum território selecionado.",
-        "chefe": "O dono do território",
-        "chefe_do_territorio": "O dono do território",
-        "desafiante": "Desafiante",
-        "ponto": "Degrau",
+        "sem_territorio": "Nenhuma região selecionada.",
+        "desafiante": "Gangue do ponto",
+        "gangue_dominante": "Gangue dominante",
+        "confronto_final": "O último de pé",
+        "ponto_n": "Ponto {n}",
+        "n_gangues": "{n} gangues",
         "enfrentar": "Enfrentar",
         "brigar": "Brigar",
         "agora_nao": "Agora não",
-        "continuar_territorio": "Continuar a subida",
+        "continuar_territorio": "Continuar na região",
         "tentar_de_novo": "Tentar de novo",
         "dificuldades": {
-          "bucha": "Bucha de canhão",
-          "vapor": "Vapor",
-          "cobrador": "Cobrador",
-          "frente": "Frente",
+          "formiga": "Formiga",
+          "muvuca": "Muvuca",
+          "disputa": "Disputa",
+          "guerra": "Guerra",
           "coroa": "A Coroa"
         },
-        "ranks": {
-          "bucha": "Bucha de canhão",
-          "olheiro": "Olheiro",
-          "vapor": "Vapor",
-          "cobrador": "Cobrador",
-          "seguranca": "Segurança",
-          "gerente": "Gerente de boca",
-          "frente": "Frente",
-          "dono_bairro": "Dono de bairro",
-          "chefe_baixada": "Chefe da Baixada",
-          "cupula": "Cúpula",
-          "braco_direito": "O braço direito",
-          "campeao": "O Campeão"
+        "gangues": {
+          "molecada_pista": "Molecada da Pista",
+          "bonde_sinal": "Bonde do Sinal",
+          "sombra_rubra": "Sombra Rubra",
+          "sombra_fria": "Sombra Fria",
+          "os_restos": "Os Restos",
+          "boca_escada": "Boca da Escada",
+          "frente_cimento": "Frente do Cimento",
+          "os_fogueteiro": "Os Fogueteiro",
+          "a_roda": "A Roda",
+          "os_cinco": "Os Cinco",
+          "bonde_alan": "O bonde do Alan",
+          "alan": "Alan"
         },
         "territorios": {
           "rua": {
             "nome": "A Rua",
-            "desc": "O asfalto de baixo. Buchas de canhão, olheiros que assobiam quando a viatura vira, vapor de esquina. Ninguém importante — mas todo mundo começa aqui."
+            "desc": "O asfalto de baixo. Molecada que corre no sinal, rouba corrente, vende bala. Nenhuma gangue de verdade — mas é onde todo mundo começa, inclusive o Alan."
           },
           "baixada": {
             "nome": "A Baixada",
-            "desc": "Do outro lado da linha do trem. A facção do Sombra rachou em três depois que ele morreu; os cacos ainda mordem e a Baixada nova quer se provar."
+            "desc": "Do outro lado da linha do trem. A facção do Sombra rachou em três quando ele morreu; os cacos — Rubra, Fria e os Restos — se mordem antes de te morder."
           },
           "morro": {
             "nome": "O Morro",
-            "desc": "A favela de encosta que a Banca administra. Escadaria de cimento que muda de forma a cada laje nova. As bocas, os cobradores, os gerentes. Quem sobe o Morro não desce igual."
+            "desc": "A favela de encosta, a escadaria de cimento. Bocas soltas, cada dono no seu ponto. Ninguém unificou o Morro ainda. Ainda."
           },
           "alto": {
             "nome": "O Alto do Morro",
-            "desc": "Passada a porta de aço, a cúpula: quatro ou cinco pessoas que a rua nunca vê e nunca vai ver. Não andam armadas. Cada uma tem um bairro que anda armado por ela."
+            "desc": "Atrás da porta de aço. A Roda e Os Cinco quase juntaram o Morro inteiro numa mão só — pararam a um passo de virar cúpula."
           },
           "laje": {
             "nome": "A Laje",
-            "desc": "A laje no alto do Morro, de um lado Marelia inteira, do outro a cúpula. É aqui que o título muda de dono — apanhando ou batendo, na frente de todo mundo. Quem fica em pé vira o Rei."
+            "desc": "A laje no topo. De um lado, Marelia inteira olhando. Do outro, o Alan — que subiu pelo outro lado do mapa e chegou aqui na mesma hora que você."
           }
         },
         "falas": {
-          "ponto": "{territorio}. Você passou por mim sem pedir. {rank} não deixa isso barato.",
-          "chefe": "{territorio} responde pra mim. Você tá batendo meu pessoal pra chegar aqui — então mostra que aguenta."
+          "ponto": "{territorio}. Esse ponto é da {gangue}. Você não passa daqui sem resolver comigo.",
+          "chefe": "A {gangue} segura essa região inteira. Você engoliu meus pontos um por um pra chegar aqui — mostra que aguenta o dono.",
+          "alan": "Então é você. Ouvi seu nome subindo o morro do mesmo jeito que o meu. Só que a Laje é de um só. Sobe aqui."
         },
         "neoguide": [
-          "Modo história. Aqui a gente não briga por briga — a gente sobe.",
-          "Marelia é da Banca. E a Banca tem degrau: bucha, vapor, cobrador, gerente, frente, cúpula.",
-          "Cada território é um pedaço do mapa. Domine todos os degraus dele, bata o dono, e o próximo abre.",
-          "No topo tem a laje do alto do Morro. E o Campeão. Mas isso é história pra depois.",
-          "Sua ficha evolui a cada vitória. Vai equipando poder diferente pra cada confronto. Bora subir."
+          "Modo história. Marelia ainda não tem dono — e é aí que a gente entra.",
+          "A cidade tá partida em região, e cada região tem vários pontos, cada ponto de uma gangue diferente.",
+          "Toma os pontos, engole a gangue dominante, a região vira sua. Aí a próxima abre.",
+          "Do outro lado do mapa tem um moleque fazendo a mesma coisa. O nome dele é Alan.",
+          "Vocês se encontram no topo, na Laje. Sua ficha evolui a cada vitória — bora subir."
         ],
-        "entry_cta": "ABRIR O MAPA DE MARELIA"
+        "final": {
+          "code": "A SUBIDA ACABA AQUI",
+          "titulo": "A LAJE É DE UM SÓ",
+          "paragrafos": [
+            "Você derrubou o Alan na Laje. Marelia inteira viu.",
+            "Mas quando o sangue secou, quem levantou a mão foi ele. E Marelia inteira aceitou — porque no fim o morro sempre escolhe um, e daquela vez não foi você.",
+            "Você chegou mais perto do que qualquer outro. É por isso que, dali pra frente, quando o Alan fala o seu nome, ele fala com respeito."
+          ]
+        }
       },
       "modes": {
         "titulo": "ESCOLHA O MODO",

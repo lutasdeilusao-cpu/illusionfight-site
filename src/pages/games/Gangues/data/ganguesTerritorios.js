@@ -1,103 +1,132 @@
 /* ══════════════════════════════════════════════════════════════
-   MODO HISTÓRIA — o mapa de Marelia
+   MODO HISTÓRIA — o mapa de Marelia ANTES do Alan
    Esqueleto pra o Isaias polir o visual e ligar a lógica depois.
 
-   Estrutura fiel ao conto "Alan, o Campeão" (contos-index id 02):
+   AMBIENTAÇÃO (fiel ao conto "Alan, o Campeão", contos-index id 02):
+   O LDI Gangues acontece ANTES de Marelia ter dono. A cidade é uma
+   bagunça: dezenas de gangues pequenas, cada uma segurando seus
+   pontos, ninguém manda em nada além do próprio quarteirão.
 
-   • GEOGRAFIA (os 5 territórios, de baixo pra cima):
-     A Rua → A Baixada → O Morro → O Alto do Morro → A Laje.
-   • HIERARQUIA DA BANCA (os degraus dentro de cada território — os
-     "pontos" a dominar): bucha de canhão → olheiro/fogueteiro →
-     vapor → cobrador → segurança → gerente de boca → frente/dono
-     de bairro → cúpula → o Campeão (o topo).
-   • REGRA MÁXIMA DO MORRO: "quem manda é quem entrega". A hierarquia
-     ainda se resolve do jeito antigo: dois num espaço vazio, o resto
-     do Morro em volta olhando. Quem fica em pé, sobe.
+   O jogador monta a sua gangue e sobe nesse caos — toma ponto por
+   ponto, região por região, engole gangue por gangue. Enquanto isso,
+   do outro lado do mapa, um moleque chamado Alan está fazendo a mesma
+   coisa. Os dois só se encontram no topo: na Laje.
 
-   `enemy` referencia gangues-enemies.json (o Isaias vai criar os
-   desafiantes/chefes de verdade e trocar aqui).
-   `pos` é % no mapa (top/left) — layout livre pra mexer.
+   E ali Marelia ganha o Rei dela. Não é você. Você chega mais perto
+   do que qualquer outro — e é por isso que, dali pra frente, quando
+   o Alan fala o seu nome, ele fala com respeito.
+
+   • REGIÕES (5, do pé do morro pro topo):
+     A Rua → A Baixada → O Morro → O Alto do Morro → A Laje
+   • Cada região tem VÁRIOS PONTOS, cada um segurado por uma gangue.
+     Domina todos + a gangue dominante da região → a região é sua,
+     e a próxima abre.
+   • `gangue` referencia story.gangues.<key> na i18n (o Isaias troca
+     os nomes/artes). `enemy` referencia gangues-enemies.json (o
+     lutador que representa a gangue naquele ponto — placeholder).
+   • `poly` / `pos` são coordenadas no SVG do mapa (viewBox 0 0 100 120)
+     — arte de mapa de verdade entra por cima depois.
    ══════════════════════════════════════════════════════════════ */
 
-// As 5 dificuldades = os degraus da Banca. Sem "fácil/difícil".
-export const GANGUES_DIFICULDADES = ['bucha', 'vapor', 'cobrador', 'frente', 'coroa']
+// As 5 "dificuldades" = o quão quente está a disputa naquela região.
+// Sem "fácil/difícil" — nomes de dentro do jogo.
+export const GANGUES_DIFICULDADES = ['formiga', 'muvuca', 'disputa', 'guerra', 'coroa']
 
 export const GANGUES_TERRITORIOS = [
   {
     id: 'rua',
-    dificuldade: 'bucha',
+    dificuldade: 'formiga',
     ordem: 1,
-    pos: { top: 82, left: 27 },
     cor: '#3ddc97',
-    // os degraus de baixo: a molecada de rua que a Banca usa e descarta
+    // distrito de baixo, colado no asfalto
+    poly: '8,98 46,92 42,74 4,80',
+    pos: { top: 84, left: 24 },
+    // molecada de rua: rouba, corre, vende bala no sinal
     pontos: [
-      { id: 'rua-1', enemy: 'treinamento', rank: 'bucha' },
-      { id: 'rua-2', enemy: 'treinamento', rank: 'olheiro' },
-      { id: 'rua-3', enemy: 'kaeda', rank: 'vapor' },
+      { id: 'rua-p1', gangue: 'molecada_pista', enemy: 'treinamento', forca: 1 },
+      { id: 'rua-p2', gangue: 'molecada_pista', enemy: 'treinamento', forca: 1 },
+      { id: 'rua-p3', gangue: 'bonde_sinal', enemy: 'kaeda', forca: 2 },
+      { id: 'rua-p4', gangue: 'bonde_sinal', enemy: 'kaeda', forca: 2 },
     ],
-    chefe: { id: 'rua-chefe', enemy: 'kaeda', rank: 'gerente' },
+    chefe: { id: 'rua-chefe', gangue: 'bonde_sinal', enemy: 'kaeda', forca: 3 },
   },
   {
     id: 'baixada',
-    dificuldade: 'vapor',
+    dificuldade: 'muvuca',
     ordem: 2,
-    pos: { top: 64, left: 67 },
     cor: '#18dafb',
-    // do outro lado da linha do trem: os cacos da facção do Sombra
+    // do outro lado da linha do trem
+    poly: '52,90 96,84 92,62 48,68',
+    pos: { top: 76, left: 74 },
+    // a facção do Sombra rachou em três quando ele morreu — os cacos
+    // brigam entre si antes de brigar com você
     pontos: [
-      { id: 'baixada-1', enemy: 'kaeda', rank: 'vapor' },
-      { id: 'baixada-2', enemy: 'stormbyte', rank: 'cobrador' },
-      { id: 'baixada-3', enemy: 'thunderbolt', rank: 'seguranca' },
+      { id: 'baixada-p1', gangue: 'sombra_rubra', enemy: 'kaeda', forca: 2 },
+      { id: 'baixada-p2', gangue: 'sombra_rubra', enemy: 'stormbyte', forca: 3 },
+      { id: 'baixada-p3', gangue: 'sombra_fria', enemy: 'stormbyte', forca: 3 },
+      { id: 'baixada-p4', gangue: 'os_restos', enemy: 'thunderbolt', forca: 3 },
     ],
-    chefe: { id: 'baixada-chefe', enemy: 'thunderbolt', rank: 'chefe_baixada' },
+    chefe: { id: 'baixada-chefe', gangue: 'sombra_fria', enemy: 'thunderbolt', forca: 4 },
   },
   {
     id: 'morro',
-    dificuldade: 'cobrador',
+    dificuldade: 'disputa',
     ordem: 3,
-    pos: { top: 46, left: 28 },
     cor: '#ffae32',
-    // a favela de encosta, a escadaria de cimento, as bocas
+    // a favela de encosta, a escadaria de cimento
+    poly: '10,64 48,60 44,36 6,40',
+    pos: { top: 52, left: 24 },
+    // bocas soltas, cada dono no seu ponto — ninguém unificou ainda
     pontos: [
-      { id: 'morro-1', enemy: 'stormbyte', rank: 'cobrador' },
-      { id: 'morro-2', enemy: 'thunderbolt', rank: 'seguranca' },
-      { id: 'morro-3', enemy: 'viran', rank: 'gerente' },
-      { id: 'morro-4', enemy: 'viran', rank: 'frente' },
+      { id: 'morro-p1', gangue: 'boca_escada', enemy: 'stormbyte', forca: 3 },
+      { id: 'morro-p2', gangue: 'boca_escada', enemy: 'thunderbolt', forca: 4 },
+      { id: 'morro-p3', gangue: 'frente_cimento', enemy: 'thunderbolt', forca: 4 },
+      { id: 'morro-p4', gangue: 'os_fogueteiro', enemy: 'viran', forca: 4 },
     ],
-    chefe: { id: 'morro-chefe', enemy: 'viran', rank: 'dono_bairro' },
+    chefe: { id: 'morro-chefe', gangue: 'frente_cimento', enemy: 'viran', forca: 5 },
   },
   {
     id: 'alto',
-    dificuldade: 'frente',
+    dificuldade: 'guerra',
     ordem: 4,
-    pos: { top: 30, left: 67 },
     cor: '#ff6b6b',
-    // atrás da porta de aço: a cúpula, os 4-5 que a rua nunca vê
+    // o alto do morro, atrás da porta de aço
+    poly: '54,58 94,54 90,30 50,34',
+    pos: { top: 46, left: 74 },
+    // os barões que quase unificaram o Morro antes do Alan aparecer
     pontos: [
-      { id: 'alto-1', enemy: 'viran', rank: 'dono_bairro' },
-      { id: 'alto-2', enemy: 'campeao', rank: 'cupula' },
-      { id: 'alto-3', enemy: 'campeao', rank: 'cupula' },
-      { id: 'alto-4', enemy: 'campeao', rank: 'cupula' },
+      { id: 'alto-p1', gangue: 'a_roda', enemy: 'viran', forca: 5 },
+      { id: 'alto-p2', gangue: 'a_roda', enemy: 'campeao', forca: 5 },
+      { id: 'alto-p3', gangue: 'os_cinco', enemy: 'campeao', forca: 6 },
+      { id: 'alto-p4', gangue: 'os_cinco', enemy: 'kronos', forca: 6 },
     ],
-    chefe: { id: 'alto-chefe', enemy: 'campeao', rank: 'cupula' },
+    chefe: { id: 'alto-chefe', gangue: 'os_cinco', enemy: 'kronos', forca: 7 },
   },
   {
     id: 'laje',
     dificuldade: 'coroa',
     ordem: 5,
-    pos: { top: 14, left: 40 },
     cor: '#a855f7',
-    // a laje do alto do Morro, onde a hierarquia se resolve na porrada
+    // a laje no topo, de um lado Marelia inteira, do outro o Alan
+    poly: '30,32 72,32 64,6 36,6',
+    pos: { top: 18, left: 50 },
+    // o bonde do Alan. E o Alan.
     pontos: [
-      { id: 'laje-1', enemy: 'campeao', rank: 'braco_direito' },
-      { id: 'laje-2', enemy: 'kronos', rank: 'braco_direito' },
-      { id: 'laje-3', enemy: 'primordial_jack', rank: 'braco_direito' },
+      { id: 'laje-p1', gangue: 'bonde_alan', enemy: 'campeao', forca: 6 },
+      { id: 'laje-p2', gangue: 'bonde_alan', enemy: 'kronos', forca: 7 },
+      { id: 'laje-p3', gangue: 'bonde_alan', enemy: 'primordial_jack', forca: 8 },
     ],
-    chefe: { id: 'laje-chefe', enemy: 'campeao', rank: 'campeao' },
+    chefe: { id: 'laje-chefe', gangue: 'alan', enemy: 'campeao', forca: 10, ehAlan: true },
   },
 ]
 
 export const GANGUES_TERRITORIO_POR_ID = Object.fromEntries(GANGUES_TERRITORIOS.map(t => [t.id, t]))
+
+/** O confronto final contra o Alan — canon: você não fica com Marelia. */
+export const GANGUES_NO_FINAL = { territorioId: 'laje', noId: 'laje-chefe' }
+export function ehConfrontoFinal(alvo) {
+  return alvo?.territorioId === GANGUES_NO_FINAL.territorioId && alvo?.noId === GANGUES_NO_FINAL.noId
+}
 
 /** Total de nós (pontos + chefe) de um território. */
 export function totalNos(territorio) {

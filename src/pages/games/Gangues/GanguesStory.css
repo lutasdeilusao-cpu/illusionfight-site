@@ -91,16 +91,53 @@
 .gang-story-mapa {
   position: relative;
   width: 100%;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 100 / 104;
   margin: 4px 0 18px;
   padding: 4px;
   overflow: hidden;
   border: 1px solid var(--if-edge);
   background:
-    radial-gradient(80% 60% at 50% 8%, rgba(24, 218, 251, 0.08), transparent 70%),
-    radial-gradient(70% 50% at 30% 90%, rgba(168, 85, 247, 0.07), transparent 70%),
+    radial-gradient(80% 60% at 50% 8%, rgba(168, 85, 247, 0.1), transparent 70%),
+    radial-gradient(70% 50% at 30% 92%, rgba(61, 220, 151, 0.08), transparent 70%),
     linear-gradient(180deg, #0a1015, #070b0e 70%);
   clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 0 100%);
+}
+
+/* SVG dos distritos da cidade — placeholder pra arte de mapa depois */
+.gang-story-mapa-svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.gang-story-regiao {
+  --terr-cor: var(--if-teal);
+  fill: color-mix(in srgb, var(--terr-cor) 12%, #0b1015);
+  stroke: color-mix(in srgb, var(--terr-cor) 55%, transparent);
+  stroke-width: 0.5;
+  transition: fill 0.3s, stroke 0.3s;
+}
+.gang-story-regiao--aberto {
+  fill: color-mix(in srgb, var(--terr-cor) 24%, #0b1015);
+  stroke: var(--terr-cor);
+  stroke-width: 0.8;
+  animation: gang-story-regiao-pulso 2.6s ease-in-out infinite;
+}
+.gang-story-regiao--dominado {
+  fill: color-mix(in srgb, var(--terr-cor) 40%, #0b1015);
+  stroke: var(--terr-cor);
+}
+.gang-story-regiao--trancado {
+  fill: rgba(20, 24, 28, 0.9);
+  stroke: rgba(255, 255, 255, 0.08);
+}
+@keyframes gang-story-regiao-pulso {
+  0%, 100% { fill: color-mix(in srgb, var(--terr-cor) 20%, #0b1015); }
+  50% { fill: color-mix(in srgb, var(--terr-cor) 34%, #0b1015); }
+}
+.gang-story-regiao-farol {
+  --terr-cor: var(--if-teal);
+  fill: var(--terr-cor);
+  animation: gang-story-farol 1.8s ease-in-out infinite;
+}
+@keyframes gang-story-farol {
+  0%, 100% { opacity: 0.4; r: 1.2; }
+  50% { opacity: 1; r: 1.9; }
 }
 
 /* grade de quarteirões */
@@ -129,79 +166,68 @@
   to { transform: translate3d(4%, 3%, 0) scale(1.08); }
 }
 
-.gang-story-rota { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
-
-/* ── Território no mapa ── */
+/* ── Rótulo da região sobre o mapa ── */
 .gang-story-terr {
   --terr-cor: var(--if-teal);
   position: absolute;
   transform: translate(-50%, -50%);
-  display: flex; flex-direction: column; align-items: center; gap: 2px;
-  width: min(96px, 27vw); padding: 8px 6px 9px;
+  display: flex; flex-direction: column; align-items: center; gap: 1px;
+  min-width: 74px; max-width: 40vw; padding: 5px 8px 6px;
   cursor: pointer;
-  border: 1px solid color-mix(in srgb, var(--terr-cor) 45%, transparent);
-  background: linear-gradient(160deg, color-mix(in srgb, var(--terr-cor) 14%, #0b1015), #070b0e 75%);
+  border: 1px solid color-mix(in srgb, var(--terr-cor) 55%, transparent);
+  background: color-mix(in srgb, #05080a 78%, var(--terr-cor));
+  backdrop-filter: blur(2px);
   transition: transform 0.18s, box-shadow 0.25s, border-color 0.2s;
-  clip-path: polygon(0 0, calc(100% - 9px) 0, 100% 9px, 100% 100%, 0 100%);
-}
-.gang-story-terr-halo {
-  position: absolute; inset: -8px;
-  border-radius: 50%;
-  background: radial-gradient(circle, color-mix(in srgb, var(--terr-cor) 30%, transparent), transparent 70%);
-  filter: blur(8px);
-  opacity: 0;
-  transition: opacity 0.3s;
-  z-index: -1;
+  clip-path: polygon(0 0, calc(100% - 7px) 0, 100% 7px, 100% 100%, 0 100%);
 }
 .gang-story-terr-num {
-  font: 700 0.5rem var(--font-mono); letter-spacing: 0.1em;
-  color: color-mix(in srgb, var(--terr-cor) 85%, #fff);
+  font: 700 0.46rem var(--font-mono); letter-spacing: 0.12em;
+  color: color-mix(in srgb, var(--terr-cor) 80%, #fff);
 }
 .gang-story-terr-nome {
-  font-family: var(--font-display); font-weight: 800; font-size: 0.86rem;
+  font-family: var(--font-display); font-weight: 800; font-size: 0.82rem;
   line-height: 1.05; letter-spacing: 0.02em; color: #fff; text-align: center;
 }
 .gang-story-terr-dif {
-  font: 700 0.5rem var(--font-mono); letter-spacing: 0.08em;
-  text-transform: uppercase; color: color-mix(in srgb, var(--terr-cor) 88%, #fff);
+  font: 700 0.46rem var(--font-mono); letter-spacing: 0.09em;
+  text-transform: uppercase; color: color-mix(in srgb, var(--terr-cor) 85%, #fff);
 }
-.gang-story-terr-flag {
-  position: absolute; top: -8px; right: -6px;
-  font-size: 0.9rem; color: var(--terr-cor);
-  filter: drop-shadow(0 0 6px color-mix(in srgb, var(--terr-cor) 70%, transparent));
+.gang-story-terr-tag {
+  margin-top: 3px; padding: 1px 6px;
+  font: 700 0.5rem var(--font-mono); letter-spacing: 0.04em;
+  color: color-mix(in srgb, var(--terr-cor) 30%, #fff);
+  border: 1px solid color-mix(in srgb, var(--terr-cor) 35%, transparent);
 }
-.gang-story-terr-lock { position: absolute; top: -6px; right: -4px; font-size: 0.7rem; }
-.gang-story-terr-prog {
-  margin-top: 2px; padding: 1px 5px;
-  font: 700 0.5rem var(--font-mono); color: #04141a;
-  background: color-mix(in srgb, var(--terr-cor) 85%, #fff);
+.gang-story-terr-tag--ok {
+  color: #04141a; background: var(--terr-cor); border-color: var(--terr-cor);
 }
+.gang-story-terr-tag--lock { color: #6b757c; border-color: rgba(255,255,255,0.12); }
 
 /* estados */
 .gang-story-terr--aberto {
-  animation: gang-story-terr-pulso 2.2s ease-in-out infinite;
+  animation: gang-story-terr-pulso 2.3s ease-in-out infinite;
+  z-index: 2;
 }
-.gang-story-terr--aberto .gang-story-terr-halo { opacity: 0.8; }
-.gang-story-terr--aberto:hover { transform: translate(-50%, -50%) scale(1.06); }
+.gang-story-terr--aberto:hover { transform: translate(-50%, -50%) scale(1.05); }
 @keyframes gang-story-terr-pulso {
-  0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--terr-cor) 50%, transparent); }
-  50% { box-shadow: 0 0 0 10px color-mix(in srgb, var(--terr-cor) 0%, transparent); }
+  0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--terr-cor) 45%, transparent); }
+  50% { box-shadow: 0 0 14px 3px color-mix(in srgb, var(--terr-cor) 30%, transparent); }
 }
 .gang-story-terr--dominado {
-  border-color: color-mix(in srgb, var(--terr-cor) 75%, transparent);
-  box-shadow: 0 0 24px -6px color-mix(in srgb, var(--terr-cor) 55%, transparent);
+  border-color: var(--terr-cor);
+  box-shadow: 0 0 20px -6px color-mix(in srgb, var(--terr-cor) 55%, transparent);
 }
-.gang-story-terr--dominado .gang-story-terr-nome { color: color-mix(in srgb, var(--terr-cor) 20%, #fff); }
 .gang-story-terr--trancado {
   cursor: not-allowed;
-  opacity: 0.4;
-  filter: grayscale(0.7);
+  opacity: 0.45;
+  filter: grayscale(0.6);
   border-color: rgba(255, 255, 255, 0.1);
 }
 .gang-story-terr--trancado .gang-story-terr-nome { color: #6b757c; }
 
 @media (prefers-reduced-motion: reduce) {
-  .gang-story-mapa-fog, .gang-story-terr--aberto { animation: none; }
+  .gang-story-mapa-fog, .gang-story-terr--aberto,
+  .gang-story-regiao--aberto, .gang-story-regiao-farol { animation: none; }
 }
 
 /* ══ Dentro de um território ══ */
@@ -259,6 +285,7 @@
   letter-spacing: 0.02em; color: var(--text-primary);
 }
 .gang-story-no-info small { font: 600 0.68rem var(--font-mono); color: var(--text-secondary); }
+.gang-story-no-forca { letter-spacing: 0.1em; color: color-mix(in srgb, var(--terr-cor, var(--if-amber)) 70%, #fff); }
 .gang-story-no-vai {
   flex-shrink: 0; font: 700 0.6rem var(--font-mono); letter-spacing: 0.08em;
   text-transform: uppercase; color: color-mix(in srgb, var(--terr-cor) 92%, #fff);
@@ -365,3 +392,29 @@
   clip-path: polygon(0 0, calc(100% - 7px) 0, 100% 7px, 100% 100%, 0 100%);
 }
 .gang-lobby-quit:hover { color: #ff9a9a; border-color: rgba(255, 107, 107, 0.5); }
+
+/* ══ Confronto final contra o Alan — tela de canon ══ */
+.gang-report--final {
+  min-height: 100dvh;
+  display: flex; align-items: center; justify-content: center;
+  padding: 40px 20px;
+  background:
+    radial-gradient(70% 50% at 50% 15%, rgba(168, 85, 247, 0.14), transparent 70%),
+    linear-gradient(180deg, #0a0710, #05060a 75%);
+}
+.gang-final {
+  max-width: 40ch; text-align: center;
+  display: flex; flex-direction: column; align-items: center; gap: 14px;
+}
+.gang-final .gang-report-code { color: #c99bf5; }
+.gang-final-titulo {
+  margin: 4px 0 6px;
+  font: 800 clamp(1.6rem, calc(9 * var(--app-vw) / 100), 2.2rem)/1 var(--font-display);
+  letter-spacing: 0.04em; color: #fff;
+  text-shadow: 0 0 26px rgba(168, 85, 247, 0.45);
+}
+.gang-final-par {
+  margin: 0; font-size: 0.92rem; line-height: 1.6; color: #c7cdd6;
+}
+.gang-final-par:last-of-type { color: #fff; font-weight: 600; }
+.gang-report--final .gang-report-primary { margin-top: 12px; }

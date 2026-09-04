@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { useAuth } from '../../../context/AuthContext'
 import { useLanguage } from '../../../context/LanguageContext'
 import { useGanguesStore } from './store/useGanguesStore'
+import { ehConfrontoFinal } from './data/ganguesTerritorios.js'
 import { registrarPontuacaoArenaRanking } from '../../../hooks/useLeaderboardDB'
 import { sfx } from '../../../lib/sfx'
 
@@ -24,6 +25,7 @@ export default function GanguesVictory({ onNavigate }) {
 
   const storyAlvo = store.storyTarget
   const noModoHistoria = Boolean(storyAlvo?.noId)
+  const confrontoFinal = noModoHistoria && ehConfrontoFinal(storyAlvo)
 
   useEffect(() => {
     if (processed.current) return
@@ -40,6 +42,38 @@ export default function GanguesVictory({ onNavigate }) {
     const timer = setTimeout(() => store.saveToCloud(user?.id), 400)
     return () => clearTimeout(timer)
   }, [])
+
+  // ── Confronto final contra o Alan — canon: Marelia não fica com você ──
+  if (confrontoFinal && victory) {
+    return (
+      <main className="gang-report gang-report--final">
+        <motion.div className="gang-final" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
+          <span className="gang-report-code">{t('games.gangues.story.final.code')}</span>
+          <h1 className="gang-final-titulo">{t('games.gangues.story.final.titulo')}</h1>
+          {t('games.gangues.story.final.paragrafos').map((par, i) => (
+            <motion.p
+              key={i}
+              className="gang-final-par"
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5 + i * 0.6 }}
+            >
+              {par}
+            </motion.p>
+          ))}
+          <motion.button
+            className="gang-report-primary"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5 + t('games.gangues.story.final.paragrafos').length * 0.6 }}
+            onClick={() => onNavigate('story')}
+          >
+            {t('games.gangues.story.voltar_mapa')}
+          </motion.button>
+        </motion.div>
+      </main>
+    )
+  }
 
   return (
     <main className={`gang-report gang-report--${victory ? 'victory' : 'defeat'}`}>

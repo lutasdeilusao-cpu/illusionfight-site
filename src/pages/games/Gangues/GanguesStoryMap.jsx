@@ -15,13 +15,19 @@ import './GanguesStory.css'
 const INTRO_KEY = 'ldi-gangues-story-intro'
 
 /* ══════════════════════════════════════════════════════════════
-   MODO HISTÓRIA — o mapa de Marelia
-   Esqueleto visual: 5 territórios num mapa estilizado, ligados por
-   uma rota. Você domina um, o próximo acende. O Isaias vai trocar
-   a arte de fundo, os ícones e as animações — a estrutura fica.
+   MODO HISTÓRIA — o mapa de Marelia (fragmentada, antes do Alan)
+   Esqueleto visual: a cidade dividida em regiões (polígonos no SVG).
+   Clica numa região → entra nela e enfrenta as gangues dos pontos.
+   Domina a região → a próxima acende. O Isaias troca o SVG por arte
+   de mapa de verdade — a estrutura de estados fica.
    ══════════════════════════════════════════════════════════════ */
 
-const CHECKS = [8, 21, 34, 47, 60, 73, 86] // pontinhos da rota entre territórios
+function centro(poly) {
+  const pts = poly.trim().split(/\s+/).map(p => p.split(',').map(Number))
+  const x = pts.reduce((s, p) => s + p[0], 0) / pts.length
+  const y = pts.reduce((s, p) => s + p[1], 0) / pts.length
+  return { x, y }
+}
 
 export default function GanguesStoryMap({ onNavigate }) {
   const { t } = useLanguage()
@@ -73,61 +79,68 @@ export default function GanguesStoryMap({ onNavigate }) {
         <p className="gang-story-sub">{t('games.gangues.story.sub')}</p>
       </div>
 
-      {/* ── O mapa ── */}
+      {/* ── O mapa da cidade ── */}
       <div className="gang-story-mapa">
         <div className="gang-story-mapa-grid" aria-hidden="true" />
-        <div className="gang-story-mapa-fog" aria-hidden="true" />
 
-        {/* rota ligando os territórios, na ordem */}
-        <svg className="gang-story-rota" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+        <svg className="gang-story-mapa-svg" viewBox="0 0 100 104" preserveAspectRatio="none" aria-hidden="true">
+          {/* linha do trem que corta a Baixada */}
+          <line x1="49" y1="102" x2="49" y2="60" stroke="rgba(255,255,255,0.12)" strokeWidth="0.8" strokeDasharray="2 2" />
+          {/* rota de avanço, região a região */}
           <polyline
-            points={GANGUES_TERRITORIOS.map(terr => `${terr.pos.left},${terr.pos.top}`).join(' ')}
-            fill="none"
-            stroke="rgba(24,218,251,0.35)"
-            strokeWidth="0.6"
-            strokeDasharray="1.6 1.4"
+            points={GANGUES_TERRITORIOS.map(terr => { const c = centro(terr.poly); return `${c.x},${c.y}` }).join(' ')}
+            fill="none" stroke="rgba(24,218,251,0.32)" strokeWidth="0.7" strokeDasharray="1.6 1.6"
           />
-          {CHECKS.map(p => {
-            // ponto interpolado ao longo da polilinha
-            const segs = GANGUES_TERRITORIOS
-            const t01 = p / 100
-            const idx = Math.min(segs.length - 2, Math.floor(t01 * (segs.length - 1)))
-            const local = t01 * (segs.length - 1) - idx
-            const a = segs[idx].pos, b = segs[idx + 1].pos
-            const x = a.left + (b.left - a.left) * local
-            const y = a.top + (b.top - a.top) * local
-            return <circle key={p} cx={x} cy={y} r="0.5" fill="rgba(24,218,251,0.5)" />
+          {GANGUES_TERRITORIOS.map((terr, i) => {
+            const estado = estadoTerritorio(terr, progress)
+            const c = centro(terr.poly)
+            return (
+              <g key={terr.id} onClick={() => abrirTerritorio(terr)} style={{ cursor: estado === 'trancado' ? 'not-allowed' : 'pointer' }}>
+                <motion.polygon
+                  points={terr.poly}
+                  className={`gang-story-regiao gang-story-regiao--${estado}`}
+                  style={{ '--terr-cor': terr.cor }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.1 + i * 0.08 }}
+                />
+                {estado === 'aberto' && (
+                  <circle cx={c.x} cy={c.y} r="1.4" className="gang-story-regiao-farol" style={{ '--terr-cor': terr.cor }} />
+                )}
+              </g>
+            )
           })}
         </svg>
 
+        <div className="gang-story-mapa-fog" aria-hidden="true" />
+
+        {/* rótulos das regiões (HTML pra texto nítido) */}
         {GANGUES_TERRITORIOS.map((terr, i) => {
           const estado = estadoTerritorio(terr, progress)
           const prog = progressoTerritorio(terr, progress)
           const feitos = Math.round(prog * totalNos(terr))
+          const gangues = new Set(terr.pontos.map(p => p.gangue)).size
           return (
             <motion.button
               key={terr.id}
               className={`gang-story-terr gang-story-terr--${estado}`}
-              style={{
-                top: `${terr.pos.top}%`,
-                left: `${terr.pos.left}%`,
-                '--terr-cor': terr.cor,
-              }}
+              style={{ top: `${terr.pos.top}%`, left: `${terr.pos.left}%`, '--terr-cor': terr.cor }}
               onClick={() => abrirTerritorio(terr)}
               disabled={estado === 'trancado'}
-              initial={{ opacity: 0, scale: 0.6 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.15 + i * 0.09, type: 'spring', stiffness: 260, damping: 18 }}
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 + i * 0.09 }}
             >
-              <span className="gang-story-terr-halo" aria-hidden="true" />
               <span className="gang-story-terr-num">{String(terr.ordem).padStart(2, '0')}</span>
               <span className="gang-story-terr-nome">{t(`games.gangues.story.territorios.${terr.id}.nome`)}</span>
               <span className="gang-story-terr-dif">{t(`games.gangues.story.dificuldades.${terr.dificuldade}`)}</span>
-              {estado === 'dominado' && <span className="gang-story-terr-flag">⚑</span>}
-              {estado === 'trancado' && <span className="gang-story-terr-lock" aria-hidden="true">🔒</span>}
-              {estado === 'aberto' && feitos > 0 && (
-                <span className="gang-story-terr-prog">{feitos}/{totalNos(terr)}</span>
-              )}
+              {estado === 'dominado'
+                ? <span className="gang-story-terr-tag gang-story-terr-tag--ok">⚑ {t('games.gangues.story.dominado')}</span>
+                : estado === 'trancado'
+                  ? <span className="gang-story-terr-tag gang-story-terr-tag--lock">🔒</span>
+                  : <span className="gang-story-terr-tag">{feitos > 0
+                      ? `${feitos}/${totalNos(terr)}`
+                      : t('games.gangues.story.n_gangues', { n: gangues })}</span>}
             </motion.button>
           )
         })}

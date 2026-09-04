@@ -1558,77 +1558,87 @@
       "sair_do_jogo": "SALIR",
       "story": {
         "entry": "Modo historia",
-        "entry_desc": "Sube el Cerro. Domina Marelia escalón por escalón.",
-        "titulo": "LA SUBIDA",
-        "sub": "En Marelia la jerarquía se resuelve a la antigua: dos en un espacio vacío, el resto mirando. Quien queda en pie, sube.",
-        "dominio": "de Marelia bajo ti",
-        "dominado": "Territorio dominado",
+        "entry_desc": "Sube por las gangas de Marelia hasta quedar tú — y Alan.",
+        "titulo": "MARELIA SIN DUEÑO",
+        "sub": "Antes de Alan, Marelia no tenía rey. Una ganga en cada esquina, cada una dueña de su cuadra y de nada más. Tú armas la tuya y subes en ese caos.",
+        "dominio": "de Marelia es tuya",
+        "dominado": "Región dominada",
         "voltar_mapa": "Mapa",
-        "sem_territorio": "Ningún territorio seleccionado.",
-        "chefe": "El dueño del territorio",
-        "chefe_do_territorio": "El dueño del territorio",
-        "desafiante": "Retador",
-        "ponto": "Escalón",
+        "sem_territorio": "Ninguna región seleccionada.",
+        "desafiante": "Ganga del punto",
+        "gangue_dominante": "Ganga dominante",
+        "confronto_final": "El último en pie",
+        "ponto_n": "Punto {n}",
+        "n_gangues": "{n} gangas",
         "enfrentar": "Enfrentar",
         "brigar": "Pelear",
         "agora_nao": "Ahora no",
-        "continuar_territorio": "Seguir subiendo",
+        "continuar_territorio": "Seguir en la región",
         "tentar_de_novo": "Intentar de nuevo",
         "dificuldades": {
-          "bucha": "Carne de cañón",
-          "vapor": "Vendedor",
-          "cobrador": "Cobrador",
-          "frente": "Frente",
+          "formiga": "De poca monta",
+          "muvuca": "Amontonada",
+          "disputa": "Disputada",
+          "guerra": "Guerra",
           "coroa": "La Corona"
         },
-        "ranks": {
-          "bucha": "Carne de cañón",
-          "olheiro": "Vigía",
-          "vapor": "Vendedor",
-          "cobrador": "Cobrador",
-          "seguranca": "Seguridad",
-          "gerente": "Gerente de punto",
-          "frente": "Frente",
-          "dono_bairro": "Dueño de barrio",
-          "chefe_baixada": "Jefe de la Bajada",
-          "cupula": "Cúpula",
-          "braco_direito": "La mano derecha",
-          "campeao": "El Campeón"
+        "gangues": {
+          "molecada_pista": "Los Pibes de la Pista",
+          "bonde_sinal": "La Banda del Semáforo",
+          "sombra_rubra": "Sombra Roja",
+          "sombra_fria": "Sombra Fría",
+          "os_restos": "Los Restos",
+          "boca_escada": "Punto de la Escalera",
+          "frente_cimento": "Frente del Cemento",
+          "os_fogueteiro": "Los Coheteros",
+          "a_roda": "La Rueda",
+          "os_cinco": "Los Cinco",
+          "bonde_alan": "La banda de Alan",
+          "alan": "Alan"
         },
         "territorios": {
           "rua": {
             "nome": "La Calle",
-            "desc": "El asfalto de abajo. Carne de cañón, vigías que silban cuando dobla la patrulla, vendedores de esquina. Nadie importante — pero todos empiezan aquí."
+            "desc": "El asfalto de abajo. Pibes que corren en el semáforo, arrancan cadenas, venden chicle. Ninguna ganga de verdad — pero es donde todos empiezan. Alan también."
           },
           "baixada": {
             "nome": "La Bajada",
-            "desc": "Al otro lado de las vías. La banda del Sombra se partió en tres tras su muerte; los pedazos aún muerden y la Bajada nueva quiere probarse."
+            "desc": "Al otro lado de las vías. La facción del Sombra se partió en tres cuando murió; los pedazos — Roja, Fría y los Restos — se muerden entre sí antes de morderte a ti."
           },
           "morro": {
             "nome": "El Cerro",
-            "desc": "La favela de ladera que administra la Banca. Una escalera de cemento que cambia de forma con cada azotea nueva. Los puntos, los cobradores, los gerentes. Quien sube el Cerro no baja igual."
+            "desc": "La favela de ladera, la escalera de cemento. Puntos sueltos, cada dueño en el suyo. Nadie unificó el Cerro todavía. Todavía."
           },
           "alto": {
             "nome": "Lo Alto del Cerro",
-            "desc": "Pasada la puerta de acero, la cúpula: cuatro o cinco personas que la calle nunca ve y nunca verá. No andan armadas. Cada una tiene un barrio que anda armado por ella."
+            "desc": "Pasada la puerta de acero. La Rueda y Los Cinco casi juntaron el Cerro entero en una sola mano — se quedaron a un paso de ser cúpula."
           },
           "laje": {
             "nome": "La Azotea",
-            "desc": "La azotea de lo alto del Cerro — Marelia entera de un lado, la cúpula del otro. Aquí el título cambia de dueño, recibiendo golpes o dándolos, frente a todos. Quien queda en pie es el Rey."
+            "desc": "La azotea de lo alto. De un lado, Marelia entera mirando. Del otro, Alan — que subió por el otro lado del mapa y llegó arriba en el mismo momento que tú."
           }
         },
         "falas": {
-          "ponto": "{territorio}. Pasaste por mí sin pedir permiso. Un {rank} no deja eso pasar.",
-          "chefe": "{territorio} responde a mí. Has estado golpeando a mi gente para llegar aquí — demuestra que aguantas."
+          "ponto": "{territorio}. Ese punto es de {gangue}. No pasas de aquí sin arreglarlo conmigo.",
+          "chefe": "{gangue} sostiene toda esta región. Te comiste mis puntos uno por uno para llegar aquí — demuestra que aguantas al dueño.",
+          "alan": "Así que eres tú. Oí tu nombre subiendo el cerro igual que el mío. Pero la Azotea es de uno solo. Sube."
         },
         "neoguide": [
-          "Modo historia. Aquí no peleamos por pelear — subimos.",
-          "Marelia es de la Banca. Y la Banca tiene escalones: carne de cañón, vendedor, cobrador, gerente, frente, cúpula.",
-          "Cada territorio es un pedazo del mapa. Domina todos sus escalones, vence al dueño, y el siguiente se abre.",
-          "Arriba está la azotea de lo alto del Cerro. Y el Campeón. Pero esa es historia para después.",
-          "Tu ficha evoluciona con cada victoria. Equipa un poder distinto para cada enfrentamiento. Vamos a subir."
+          "Modo historia. Marelia todavía no tiene dueño — y ahí entramos nosotros.",
+          "La ciudad está partida en regiones, y cada región tiene varios puntos, cada punto de una ganga distinta.",
+          "Tomas los puntos, te tragas a la ganga dominante, la región es tuya. Entonces se abre la siguiente.",
+          "Al otro lado del mapa hay un pibe haciendo exactamente lo mismo. Se llama Alan.",
+          "Se encuentran arriba, en la Azotea. Tu ficha evoluciona con cada victoria — vamos a subir."
         ],
-        "entry_cta": "ABRIR EL MAPA DE MARELIA"
+        "final": {
+          "code": "LA SUBIDA TERMINA AQUÍ",
+          "titulo": "LA AZOTEA ES DE UNO SOLO",
+          "paragrafos": [
+            "Tumbaste a Alan en la Azotea. Marelia entera lo vio.",
+            "Pero cuando la sangre se secó, la mano que se alzó fue la suya. Y Marelia entera lo aceptó — porque el cerro siempre elige a uno, y esa vez no fuiste tú.",
+            "Llegaste más cerca que nadie. Por eso, de ahí en adelante, cuando Alan dice tu nombre, lo dice con respeto."
+          ]
+        }
       },
       "modes": {
         "titulo": "ELIGE EL MODO",
