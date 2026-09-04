@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.217.0'
+export const SITE_VERSION = '10.218.0'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '1.31.0' // Briga em Multidao: bandos de 3+ podem pular o golpe-a-golpe (escolhe poderes uma vez, resolve a luta inteira na hora, mesmas contas do combate normal via engine/ganguesBrigaMultidao.js). ATENCAO: simulacao confirmou que os qtd definidos no commit anterior (ate 10 inimigos) estao matematicamente imbativeis pelo motor de turno atual — ver relatorio, nao mudei os numeros sozinho.
+export const GANGUES_VERSION   = '1.32.0' // Briga em Multidao: "ataque normal pra todos" resolve na hora sem escolher poder nenhum, e "modo rapido" virou switch persistente (localStorage) — uma vez ligado, para de perguntar golpe-a-golpe x multidao em toda luta grande, so pergunta poderes x ataque normal; botao Cancelar desliga o switch e cai no combate individual.
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
 export const MINIGAMES_VERSION = '4.3.4'  // Glitch: safe-area lateral no grid-wrap

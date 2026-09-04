@@ -111,24 +111,47 @@ export default function GanguesCombat({ onNavigate }) {
   // ── Briga em Multidão: bandos de 3+ (jogador + inimigo) podem pular o
   // golpe-a-golpe. Escolhe os poderes uma vez, a luta inteira resolve na
   // hora (mesmas contas do combate normal, ver engine/ganguesBrigaMultidao).
+  // "Modo rápido" é um switch persistente (localStorage): uma vez ligado,
+  // a pergunta "golpe a golpe x multidão" some — vai direto pra escolha de
+  // poderes em toda luta grande, até o jogador cancelar e desligar de novo.
   const totalCombatentes = (store.match.playerTeam?.length || 0) + (store.match.enemyTeam?.length || 0)
   const multidaoDisponivel = totalCombatentes >= 3
+  const [modoRapidoAtivo, setModoRapidoAtivoState] = useState(() => {
+    try { return localStorage.getItem('ldi-gangues-modo-rapido') === '1' } catch { return false }
+  })
+  const setModoRapidoAtivo = (ativo) => {
+    setModoRapidoAtivoState(ativo)
+    try { localStorage.setItem('ldi-gangues-modo-rapido', ativo ? '1' : '0') } catch { /* ignora */ }
+  }
+  const [ativarModoRapidoMarcado, setAtivarModoRapidoMarcado] = useState(false)
   const [modo, setModo] = useState(null) // null (escolhendo) | 'individual' | 'multidao'
-  const [etapaMultidao, setEtapaMultidao] = useState('poderes') // 'poderes' | 'revelando'
+  const [etapaMultidao, setEtapaMultidao] = useState('menu') // 'menu' | 'individual' | 'revelando'
   const [poderesMultidao, setPoderesMultidao] = useState({}) // sheetId -> specialId | null
 
   useEffect(() => {
-    if (modo === null && !multidaoDisponivel) setModo('individual')
-  }, [modo, multidaoDisponivel])
+    if (modo !== null) return
+    if (!multidaoDisponivel) { setModo('individual'); return }
+    if (modoRapidoAtivo) setModo('multidao')
+  }, [modo, multidaoDisponivel, modoRapidoAtivo])
 
-  const resolverBrigaMultidao = () => {
+  const escolherMultidao = () => {
+    if (ativarModoRapidoMarcado) setModoRapidoAtivo(true)
+    setModo('multidao')
+  }
+
+  const cancelarMultidao = () => {
+    setModoRapidoAtivo(false)
+    setModo('individual')
+  }
+
+  const resolverBrigaMultidao = (poderesEscolhidos = poderesMultidao) => {
     sfx.vs?.()
     const especiaisPorPersonagem = {}
     for (const m of store.match.playerTeam) especiaisPorPersonagem[m.id] = getEquippedActiveGanguesSpecials(m)
     const resultado = simularGanguesBrigaMultidao({
       playerTeam: store.match.playerTeam,
       enemyTeam: store.match.enemyTeam,
-      poderesPorPersonagem: poderesMultidao,
+      poderesPorPersonagem: poderesEscolhidos,
       especiaisPorPersonagem,
     })
     setEtapaMultidao('revelando')
@@ -256,11 +279,15 @@ export default function GanguesCombat({ onNavigate }) {
             <strong>{t('games.gangues.multidao.opcao_individual')}</strong>
             <small>{t('games.gangues.multidao.opcao_individual_aviso')}</small>
           </button>
-          <button className="gang-modo-card gang-modo-card--destaque" onClick={() => setModo('multidao')}>
+          <button className="gang-modo-card gang-modo-card--destaque" onClick={escolherMultidao}>
             <strong>{t('games.gangues.multidao.opcao_multidao')}</strong>
             <small>{t('games.gangues.multidao.opcao_multidao_desc')}</small>
           </button>
         </div>
+        <label className="gang-modo-check">
+          <input type="checkbox" checked={ativarModoRapidoMarcado} onChange={e => setAtivarModoRapidoMarcado(e.target.checked)} />
+          {t('games.gangues.multidao.ativar_switch')}
+        </label>
         <button className="gang-modo-fugir" onClick={() => onNavigate('lobby')}>{t('games.gangues.btn_sair')}</button>
       </div>
     )
@@ -278,6 +305,30 @@ export default function GanguesCombat({ onNavigate }) {
         </div>
       )
     }
+
+    // Pergunta simples primeiro: poderes um por um, ou ataque normal pra
+    // todo mundo de uma vez (o caminho mais rápido — nem precisa escolher
+    // nada, já resolve na hora)?
+    if (etapaMultidao === 'menu') {
+      return (
+        <div className="gang-combat gang-container gang-modo-escolha">
+          <h2 className="gang-modo-titulo">{t('games.gangues.multidao.poderes_titulo')}</h2>
+          <p className="gang-modo-sub">{t('games.gangues.multidao.poderes_sub')}</p>
+          <div className="gang-modo-opcoes">
+            <button className="gang-modo-card" onClick={() => setEtapaMultidao('individual')}>
+              <strong>{t('games.gangues.multidao.opcao_poderes')}</strong>
+              <small>{t('games.gangues.multidao.opcao_poderes_desc')}</small>
+            </button>
+            <button className="gang-modo-card gang-modo-card--destaque" onClick={() => resolverBrigaMultidao({})}>
+              <strong>{t('games.gangues.multidao.opcao_ataque_normal')}</strong>
+              <small>{t('games.gangues.multidao.opcao_ataque_normal_desc')}</small>
+            </button>
+          </div>
+          <button className="gang-modo-fugir" onClick={cancelarMultidao}>{t('games.gangues.multidao.cancelar')}</button>
+        </div>
+      )
+    }
+
     return (
       <div className="gang-combat gang-container gang-modo-escolha">
         <h2 className="gang-modo-titulo">{t('games.gangues.multidao.poderes_titulo')}</h2>
@@ -317,8 +368,8 @@ export default function GanguesCombat({ onNavigate }) {
           })}
         </div>
         <div className="gang-modo-opcoes gang-modo-opcoes--fila">
-          <button className="gang-attack-btn" onClick={resolverBrigaMultidao}>{t('games.gangues.multidao.lutar')}</button>
-          <button className="gang-modo-fugir" onClick={() => onNavigate('lobby')}>{t('games.gangues.btn_sair')}</button>
+          <button className="gang-attack-btn" onClick={() => resolverBrigaMultidao()}>{t('games.gangues.multidao.lutar')}</button>
+          <button className="gang-modo-fugir" onClick={() => setEtapaMultidao('menu')}>{t('games.gangues.multidao.cancelar')}</button>
         </div>
       </div>
     )

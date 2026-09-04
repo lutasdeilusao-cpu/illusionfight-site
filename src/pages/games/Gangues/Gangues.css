@@ -575,6 +575,12 @@
   margin-top: 8px; background: none; border: none; color: #667078; font-size: 0.72rem;
   font-family: 'Courier New', monospace; cursor: pointer; letter-spacing: 1px; text-decoration: underline;
 }
+.gang-modo-check {
+  display: flex; align-items: center; gap: 8px; max-width: 340px;
+  font-size: 0.68rem; color: #8b93a0; font-family: var(--font-body); line-height: 1.4;
+  cursor: pointer; text-align: left;
+}
+.gang-modo-check input { flex-shrink: 0; width: 15px; height: 15px; accent-color: var(--if-amber); cursor: pointer; }
 
 .gang-multidao-lista { width: 100%; max-width: 380px; display: flex; flex-direction: column; gap: 10px; overflow-y: auto; }
 .gang-multidao-lutador {
