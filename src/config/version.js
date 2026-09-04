@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.214.0'
+export const SITE_VERSION = '10.215.0'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '1.28.0' // rebalance modo historia (Pista): as duas tretas obrigatorias (molecada_1/2) usavam "kaeda" (ficha da arena, 11 pontos de atributo, pv15) contra um personagem recem-criado de 5 pontos — praticamente invencivel. Agora usam grunts proprios (moleque_a 6pts/pv8, moleque_b 8pts/pv10) e o chefe da Pista ganhou ficha propria (fumaca, 10pts/pv16) em vez de emprestar a do kaeda — o combate agora mostra "Fumaça" de verdade, batendo com o nome/fala ja usados na tela de confronto.
+export const GANGUES_VERSION   = '1.29.0' // rebalance do modo historia inteiro (todos os 7 territorios ate o chefe final). Todo mundo reciclava as 8 fichas da Arena (kaeda/thunderbolt/stormbyte/viran/campeao/kronos/primordial_jack), 20-40 pontos de atributo contra um personagem de 5 — parede em qualquer territorio, nao so na Pista. Agora sao 27 fichas proprias e exclusivas do modo historia (uma por gangue/forca de cada territorio), pontos = 2*forca+1 (formula do Isaias: forca1=3, forca2=5, forca3=7...), pv/pm escalando junto. kaeda e os outros 7 da Arena continuam intocados, servindo so a Arena.
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
 export const MINIGAMES_VERSION = '4.3.4'  // Glitch: safe-area lateral no grid-wrap

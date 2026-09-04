@@ -294,26 +294,6 @@
       "norm_label": "13. onde procurar primeiro"
     },
     {
-      "label": "GuestNotice.jsx",
-      "file_type": "code",
-      "source_file": "src/components/GuestNotice/GuestNotice.jsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "src_components_guestnotice_guestnotice",
-      "community": 352,
-      "norm_label": "guestnotice.jsx"
-    },
-    {
-      "label": "GuestNotice()",
-      "file_type": "code",
-      "source_file": "src/components/GuestNotice/GuestNotice.jsx",
-      "source_location": "L13",
-      "_origin": "ast",
-      "id": "src_components_guestnotice_guestnotice_guestnotice",
-      "community": 352,
-      "norm_label": "guestnotice()"
-    },
-    {
       "label": "version.js",
       "file_type": "code",
       "source_file": "src/config/version.js",
@@ -322,6 +302,96 @@
       "id": "src_config_version",
       "community": 28,
       "norm_label": "version.js"
+    },
+    {
+      "label": "pista.js",
+      "file_type": "code",
+      "source_file": "src/pages/games/Gangues/data/cenas/pista.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_pages_games_gangues_data_cenas_pista",
+      "community": 304,
+      "norm_label": "pista.js"
+    },
+    {
+      "label": "CENA_PISTA",
+      "file_type": "code",
+      "source_file": "src/pages/games/Gangues/data/cenas/pista.js",
+      "source_location": "L29",
+      "_origin": "ast",
+      "id": "src_pages_games_gangues_data_cenas_pista_cena_pista",
+      "community": 304,
+      "norm_label": "cena_pista"
+    },
+    {
+      "label": "CENAS_POR_ID",
+      "file_type": "code",
+      "source_file": "src/pages/games/Gangues/data/cenas/pista.js",
+      "source_location": "L140",
+      "_origin": "ast",
+      "id": "src_pages_games_gangues_data_cenas_pista_cenas_por_id",
+      "community": 304,
+      "norm_label": "cenas_por_id"
+    },
+    {
+      "label": "temCena()",
+      "file_type": "code",
+      "source_file": "src/pages/games/Gangues/data/cenas/pista.js",
+      "source_location": "L145",
+      "_origin": "ast",
+      "id": "src_pages_games_gangues_data_cenas_pista_temcena",
+      "community": 304,
+      "norm_label": "temcena()"
+    },
+    {
+      "label": "portaoAberto()",
+      "file_type": "code",
+      "source_file": "src/pages/games/Gangues/data/cenas/pista.js",
+      "source_location": "L150",
+      "_origin": "ast",
+      "id": "src_pages_games_gangues_data_cenas_pista_portaoaberto",
+      "community": 304,
+      "norm_label": "portaoaberto()"
+    },
+    {
+      "label": "cenaCompleta()",
+      "file_type": "code",
+      "source_file": "src/pages/games/Gangues/data/cenas/pista.js",
+      "source_location": "L158",
+      "_origin": "ast",
+      "id": "src_pages_games_gangues_data_cenas_pista_cenacompleta",
+      "community": 304,
+      "norm_label": "cenacompleta()"
+    },
+    {
+      "label": "contarCena()",
+      "file_type": "code",
+      "source_file": "src/pages/games/Gangues/data/cenas/pista.js",
+      "source_location": "L164",
+      "_origin": "ast",
+      "id": "src_pages_games_gangues_data_cenas_pista_contarcena",
+      "community": 304,
+      "norm_label": "contarcena()"
+    },
+    {
+      "label": "GuestNotice.jsx",
+      "file_type": "code",
+      "source_file": "src/components/GuestNotice/GuestNotice.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 352,
+      "norm_label": "guestnotice.jsx",
+      "id": "src_components_guestnotice_guestnotice"
+    },
+    {
+      "label": "GuestNotice()",
+      "file_type": "code",
+      "source_file": "src/components/GuestNotice/GuestNotice.jsx",
+      "source_location": "L13",
+      "_origin": "ast",
+      "community": 352,
+      "norm_label": "guestnotice()",
+      "id": "src_components_guestnotice_guestnotice_guestnotice"
     },
     {
       "label": "GanguesCombat.jsx",
@@ -882,76 +952,6 @@
       "community": 409,
       "norm_label": "ganguesparada()",
       "id": "src_pages_games_gangues_components_cena_ganguesparada_ganguesparada"
-    },
-    {
-      "label": "pista.js",
-      "file_type": "code",
-      "source_file": "src/pages/games/Gangues/data/cenas/pista.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 304,
-      "norm_label": "pista.js",
-      "id": "src_pages_games_gangues_data_cenas_pista"
-    },
-    {
-      "label": "CENA_PISTA",
-      "file_type": "code",
-      "source_file": "src/pages/games/Gangues/data/cenas/pista.js",
-      "source_location": "L29",
-      "_origin": "ast",
-      "community": 304,
-      "norm_label": "cena_pista",
-      "id": "src_pages_games_gangues_data_cenas_pista_cena_pista"
-    },
-    {
-      "label": "CENAS_POR_ID",
-      "file_type": "code",
-      "source_file": "src/pages/games/Gangues/data/cenas/pista.js",
-      "source_location": "L132",
-      "_origin": "ast",
-      "community": 304,
-      "norm_label": "cenas_por_id",
-      "id": "src_pages_games_gangues_data_cenas_pista_cenas_por_id"
-    },
-    {
-      "label": "temCena()",
-      "file_type": "code",
-      "source_file": "src/pages/games/Gangues/data/cenas/pista.js",
-      "source_location": "L137",
-      "_origin": "ast",
-      "community": 304,
-      "norm_label": "temcena()",
-      "id": "src_pages_games_gangues_data_cenas_pista_temcena"
-    },
-    {
-      "label": "portaoAberto()",
-      "file_type": "code",
-      "source_file": "src/pages/games/Gangues/data/cenas/pista.js",
-      "source_location": "L142",
-      "_origin": "ast",
-      "community": 304,
-      "norm_label": "portaoaberto()",
-      "id": "src_pages_games_gangues_data_cenas_pista_portaoaberto"
-    },
-    {
-      "label": "cenaCompleta()",
-      "file_type": "code",
-      "source_file": "src/pages/games/Gangues/data/cenas/pista.js",
-      "source_location": "L150",
-      "_origin": "ast",
-      "community": 304,
-      "norm_label": "cenacompleta()",
-      "id": "src_pages_games_gangues_data_cenas_pista_cenacompleta"
-    },
-    {
-      "label": "contarCena()",
-      "file_type": "code",
-      "source_file": "src/pages/games/Gangues/data/cenas/pista.js",
-      "source_location": "L156",
-      "_origin": "ast",
-      "community": 304,
-      "norm_label": "contarcena()",
-      "id": "src_pages_games_gangues_data_cenas_pista_contarcena"
     },
     {
       "label": "GANGUES_MODO_HISTORIA_ENCONTROS.md",
@@ -41566,16 +41566,6 @@
       "confidence_score": 1.0
     },
     {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/GuestNotice/GuestNotice.jsx",
-      "source_location": "L13",
-      "weight": 1.0,
-      "source": "src_components_guestnotice_guestnotice",
-      "target": "src_components_guestnotice_guestnotice_guestnotice",
-      "confidence_score": 1.0
-    },
-    {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -41728,6 +41718,76 @@
       "confidence_score": 1.0,
       "source": "src_pages_lab_prototype_srgrm_srgrm",
       "target": "src_config_version"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/Gangues/data/cenas/pista.js",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "src_pages_games_gangues_data_cenas_pista",
+      "target": "src_pages_games_gangues_data_cenas_pista_cena_pista",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/Gangues/data/cenas/pista.js",
+      "source_location": "L158",
+      "weight": 1.0,
+      "source": "src_pages_games_gangues_data_cenas_pista",
+      "target": "src_pages_games_gangues_data_cenas_pista_cenacompleta",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/Gangues/data/cenas/pista.js",
+      "source_location": "L140",
+      "weight": 1.0,
+      "source": "src_pages_games_gangues_data_cenas_pista",
+      "target": "src_pages_games_gangues_data_cenas_pista_cenas_por_id",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/Gangues/data/cenas/pista.js",
+      "source_location": "L164",
+      "weight": 1.0,
+      "source": "src_pages_games_gangues_data_cenas_pista",
+      "target": "src_pages_games_gangues_data_cenas_pista_contarcena",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/Gangues/data/cenas/pista.js",
+      "source_location": "L150",
+      "weight": 1.0,
+      "source": "src_pages_games_gangues_data_cenas_pista",
+      "target": "src_pages_games_gangues_data_cenas_pista_portaoaberto",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/Gangues/data/cenas/pista.js",
+      "source_location": "L145",
+      "weight": 1.0,
+      "source": "src_pages_games_gangues_data_cenas_pista",
+      "target": "src_pages_games_gangues_data_cenas_pista_temcena",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/GuestNotice/GuestNotice.jsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_components_guestnotice_guestnotice",
+      "target": "src_components_guestnotice_guestnotice_guestnotice"
     },
     {
       "relation": "contains",
@@ -42573,66 +42633,6 @@
       "confidence_score": 1.0,
       "source": "src_pages_games_gangues_components_cena_ganguesparada",
       "target": "src_pages_games_gangues_components_cena_ganguesparada_puzzles"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/Gangues/data/cenas/pista.js",
-      "source_location": "L29",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_gangues_data_cenas_pista",
-      "target": "src_pages_games_gangues_data_cenas_pista_cena_pista"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/Gangues/data/cenas/pista.js",
-      "source_location": "L150",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_gangues_data_cenas_pista",
-      "target": "src_pages_games_gangues_data_cenas_pista_cenacompleta"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/Gangues/data/cenas/pista.js",
-      "source_location": "L132",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_gangues_data_cenas_pista",
-      "target": "src_pages_games_gangues_data_cenas_pista_cenas_por_id"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/Gangues/data/cenas/pista.js",
-      "source_location": "L156",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_gangues_data_cenas_pista",
-      "target": "src_pages_games_gangues_data_cenas_pista_contarcena"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/Gangues/data/cenas/pista.js",
-      "source_location": "L142",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_gangues_data_cenas_pista",
-      "target": "src_pages_games_gangues_data_cenas_pista_portaoaberto"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/Gangues/data/cenas/pista.js",
-      "source_location": "L137",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_gangues_data_cenas_pista",
-      "target": "src_pages_games_gangues_data_cenas_pista_temcena"
     },
     {
       "relation": "contains",
@@ -116509,5 +116509,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "821a7e1036edee15cb9691ef39f12c342fc61c32"
+  "built_at_commit": "edea675740f94c8339e6207cd248816880fc6842"
 }
