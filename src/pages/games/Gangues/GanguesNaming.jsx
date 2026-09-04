@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { useLanguage } from '../../../context/LanguageContext'
 import { useGanguesStore } from './store/useGanguesStore'
 import { sfx } from '../../../lib/sfx'
-import NeoGuideDialog from './components/NeoGuideDialog'
+import GangDialog from './components/GangDialog'
 import './GanguesModes.css'
 
 const INTRO_KEY = 'ldi-gangues-naming-intro'
@@ -43,7 +43,13 @@ export default function GanguesNaming({ onDone, modoEdicao = false }) {
     <main className="gang-lobby gang-modes gang-naming">
       <AnimatePresence>
         {intro && (
-          <NeoGuideDialog lines={t('games.gangues.naming.neoguide')} onFinish={fecharIntro} onSkip={fecharIntro} />
+          <GangDialog
+            lines={t('games.gangues.naming.abertura')}
+            speaker={t('games.gangues.dialogo.veio_nome')}
+            sub={t('games.gangues.dialogo.veio_sub')}
+            onFinish={fecharIntro}
+            onSkip={fecharIntro}
+          />
         )}
       </AnimatePresence>
 

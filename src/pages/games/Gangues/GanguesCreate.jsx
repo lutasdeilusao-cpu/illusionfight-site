@@ -5,7 +5,7 @@ import { useAuth } from '../../../context/AuthContext'
 import { useGanguesStore } from './store/useGanguesStore'
 import { GANGUES_ATTRIBUTE_MAX, GANGUES_CREATION_POINTS, GANGUES_PATHS, getGanguesResources } from './data/ganguesLoadout.js'
 import BackToGamesBtn from '../../../components/BackToGamesBtn/BackToGamesBtn'
-import NeoGuideTip from './components/NeoGuideTip'
+import GangTip from './components/GangTip'
 import { sfx } from '../../../lib/sfx'
 
 const PATH_MARKS = { atacante: 'A', defensor: 'D', mistico: 'M' }
@@ -136,7 +136,7 @@ export default function GanguesCreate({ onNavigate, blockedPaths = [], creationN
     return <div className="gang-create">
       <AnimatePresence mode="wait">
         {attrTutorialActive && (
-          <NeoGuideTip
+          <GangTip
             key={attrTutorialStep}
             text={Array.isArray(tutorialLines) ? tutorialLines[attrTutorialStep] : ''}
             side={TUTORIAL_ATTR_SIDE_BY_STEP[attrTutorialStep]}
@@ -146,7 +146,7 @@ export default function GanguesCreate({ onNavigate, blockedPaths = [], creationN
           />
         )}
         {!attrTutorialActive && aviso && (
-          <NeoGuideTip key={`aviso-${aviso.campo}`} text={aviso.texto} side="right" nextLabel={t('games.gangues.neoguide.entendi')} onNext={limparAviso} onSkip={limparAviso} />
+          <GangTip key={`aviso-${aviso.campo}`} text={aviso.texto} side="right" nextLabel={t('games.gangues.neoguide.entendi')} onNext={limparAviso} onSkip={limparAviso} />
         )}
       </AnimatePresence>
       <div className="gc-header"><div className="gc-header-center"><p className="gang-lobby-titulo gang-lobby-titulo--sm">{t('games.gangues.party.distribute_title')}</p><p className="gc-header-name">{sheet.sheet_name}</p></div></div>
@@ -166,7 +166,7 @@ export default function GanguesCreate({ onNavigate, blockedPaths = [], creationN
   return <div className="gang-create">
     <AnimatePresence mode="wait">
       {pathTutorialActive && (
-        <NeoGuideTip
+        <GangTip
           key={pathTutorialStep}
           text={Array.isArray(pathTutorialLines) ? pathTutorialLines[pathTutorialStep] : ''}
           side={TUTORIAL_PATH_SIDE_BY_STEP[pathTutorialStep]}
@@ -176,7 +176,7 @@ export default function GanguesCreate({ onNavigate, blockedPaths = [], creationN
         />
       )}
       {!pathTutorialActive && aviso && (
-        <NeoGuideTip key={`aviso-${aviso.campo}`} text={aviso.texto} side="right" nextLabel={t('games.gangues.neoguide.entendi')} onNext={limparAviso} onSkip={limparAviso} />
+        <GangTip key={`aviso-${aviso.campo}`} text={aviso.texto} side="right" nextLabel={t('games.gangues.neoguide.entendi')} onNext={limparAviso} onSkip={limparAviso} />
       )}
     </AnimatePresence>
     <div className="gc-header"><div className="gc-header-center"><p className="gang-lobby-titulo gang-lobby-titulo--sm">{t('games.gangues.loadout.path_title')}</p></div></div>

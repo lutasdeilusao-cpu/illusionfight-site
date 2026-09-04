@@ -90,11 +90,15 @@ export default function GanguesTerritorio({ onNavigate }) {
                   {estado === 'dominado' ? '✓' : no.isChefe ? '★' : i + 1}
                 </span>
                 <span className="gang-story-no-info">
-                  <strong>{t(`games.gangues.story.gangues.${no.gangue}`)}</strong>
+                  <strong>
+                    {no.isChefe ? t(`games.gangues.story.bosses.${no.boss}.nome`) : t(`games.gangues.story.gangues.${no.gangue}`)}
+                  </strong>
                   <small>
-                    {no.isChefe ? t('games.gangues.story.gangue_dominante') : t('games.gangues.story.ponto_n', { n: i + 1 })}
+                    {no.isChefe
+                      ? t('games.gangues.story.boss_de', { gangue: t(`games.gangues.story.gangues.${no.gangue}`) })
+                      : t('games.gangues.story.ponto_n', { n: i + 1 })}
                     {' · '}
-                    <span className="gang-story-no-forca" aria-hidden="true">{'◆'.repeat(no.forca || 1)}{'◇'.repeat(Math.max(0, 5 - (no.forca || 1)))}</span>
+                    <span className="gang-story-no-forca" aria-hidden="true">{'◆'.repeat(Math.min(5, no.forca || 1))}{'◇'.repeat(Math.max(0, 5 - (no.forca || 1)))}</span>
                   </small>
                 </span>
                 {estado === 'atual' && <span className="gang-story-no-vai">{t('games.gangues.story.enfrentar')} →</span>}
@@ -120,20 +124,31 @@ export default function GanguesTerritorio({ onNavigate }) {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ type: 'spring', stiffness: 210, damping: 20 }}
             >
-              <span className="gang-story-vs-avatar">{(t(`games.gangues.story.gangues.${confronto.no.gangue}`) || '?')[0]}</span>
-              <span className="gang-story-vs-tag">
-                {confronto.no.ehAlan
-                  ? t('games.gangues.story.confronto_final')
-                  : confronto.isChefe ? t('games.gangues.story.gangue_dominante') : t('games.gangues.story.desafiante')}
-              </span>
-              <h3 className="gang-story-vs-nome">{t(`games.gangues.story.gangues.${confronto.no.gangue}`)}</h3>
-              <p className="gang-story-vs-fala">
-                {t(`games.gangues.story.falas.${confronto.no.ehAlan ? 'alan' : confronto.isChefe ? 'chefe' : 'ponto'}`, {
+              {(() => {
+                const nome = confronto.isChefe
+                  ? t(`games.gangues.story.bosses.${confronto.no.boss}.nome`)
+                  : t(`games.gangues.story.gangues.${confronto.no.gangue}`)
+                const params = {
                   territorio: t(`games.gangues.story.territorios.${terr.id}.nome`),
                   gangue: t(`games.gangues.story.gangues.${confronto.no.gangue}`),
                   suaGangue: store.gangName || t('games.gangues.report.your_gang'),
-                })}
-              </p>
+                }
+                const fala = confronto.no.ehFinal
+                  ? t('games.gangues.story.bosses.costura.fala', params)
+                  : confronto.isChefe
+                    ? t(`games.gangues.story.bosses.${confronto.no.boss}.fala`, params)
+                    : t('games.gangues.story.falas.ponto', params)
+                return (<>
+                  <span className="gang-story-vs-avatar">{(nome || '?')[0]}</span>
+                  <span className="gang-story-vs-tag">
+                    {confronto.no.ehFinal
+                      ? t('games.gangues.story.confronto_final')
+                      : confronto.isChefe ? t('games.gangues.story.boss_tag') : t('games.gangues.story.desafiante')}
+                  </span>
+                  <h3 className="gang-story-vs-nome">{nome}</h3>
+                  <p className="gang-story-vs-fala">{fala}</p>
+                </>)
+              })()}
               {confronto.enemy && (
                 <span className="gang-story-vs-stats">
                   {['A', 'H', 'R', 'D'].map(a => (

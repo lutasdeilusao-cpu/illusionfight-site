@@ -1518,30 +1518,30 @@
         }
       },
       "trash_talk_player": [
-        "is that a fight or a nap? 💤",
-        "the SDR should ban you for embarrassment 😂",
-        "about time 😏",
-        "come back when you have more levels, rookie 😤",
-        "even my Tamagoshi fights better than you 🐣",
-        "my sheet has more H than you have IQ 🤡",
-        "if you were an elemental, you'd be Water - so soft 🌊",
-        "am I on easy mode or is this just you? 🤔",
-        "NeoGuide should give you a tutorial on taking damage 📖",
-        "that hit was free, the next one costs 💸",
-        "do you train with bots or is losing natural talent? 😂",
-        "your dice are cursed to miss 🎲😭",
-        "I'm sending you to reset with this next hit 🔄",
-        "your character is strong, the pilot is weak 🎮",
-        "stop shaking and fight for real 🔥",
-        "already over? thought this would be fun 😒",
-        "was that lag or just your reflexes? 🖥️😂",
-        "your HP drops faster than my rank rises 📈",
-        "even the training bot would give you more trouble 🤖",
-        "surrender, it's less humiliating 🏳️",
-        "I'd tell my friends about this win... nah, I have no friends 😭",
-        "you know this is a game right? you're fighting like it's real 😂",
-        "look at the damage! LOOK! that's real FA right there 👊💥",
-        "you should ask for a refund on that sheet 💀"
+        "you call that a fight? my grandpa hits harder asleep",
+        "go back to your street, kid",
+        "good riddance",
+        "come back when you've got a level, rookie",
+        "your whole crew together can't touch me",
+        "this spot ain't yours. never was",
+        "fighting you wastes time I could spend taking blocks",
+        "am I on easy mode or are you just like this?",
+        "stop shaking and fight right",
+        "that hit was free. the next one costs you",
+        "who do you train with, a lamppost?",
+        "spit the tooth and get up",
+        "that was just the warning",
+        "your crew sent you up here alone? brave",
+        "stop running and face me",
+        "done already? thought you'd be trouble",
+        "was that the lag or is your reflex just that bad?",
+        "your HP drops faster than your rep on the block",
+        "even the track rat hits better",
+        "sit down. the payback's coming",
+        "you came for my spot with THAT hand?",
+        "note that hit. it's landing again",
+        "the whole block's gonna know you got beat today",
+        "at least fall with some style"
       ],
       "dado": {
         "preparando": "Getting ready...",
@@ -1558,85 +1558,128 @@
       "sair_do_jogo": "QUIT",
       "story": {
         "entry": "Story mode",
-        "entry_desc": "Rise through Marelia's gangs until it's just you — and Alan.",
+        "entry_desc": "Take Marelia block by block. From street rat to the Rooftop.",
         "titulo": "MARELIA HAS NO KING",
-        "sub": "Before Alan, Marelia had no king. A gang on every corner, each one ruling its own block and nothing else. You build yours and rise through the mess.",
+        "sub": "Before Alan, nobody held Marelia. A gang on every corner, each one sure it ran the world because it ran one street. One guy — the Stitch — almost pulled it all together. Almost. Now it's your turn to try.",
         "dominio": "of Marelia",
-        "dominado": "Region taken",
+        "dominado": "Block taken",
         "voltar_mapa": "Map",
-        "sem_territorio": "No region selected.",
+        "sem_territorio": "No block selected.",
         "desafiante": "Spot gang",
-        "gangue_dominante": "Ruling gang",
-        "confronto_final": "Last one standing",
+        "gangue_dominante": "Block-running gang",
+        "boss_tag": "The region’s heavy",
+        "boss_de": "runs {gangue}",
+        "confronto_final": "The one who almost made it",
         "ponto_n": "Spot {n}",
         "n_gangues": "{n} gangs",
-        "enfrentar": "Fight",
+        "enfrentar": "Face off",
         "brigar": "Fight",
         "agora_nao": "Not now",
-        "continuar_territorio": "Stay in the region",
-        "tentar_de_novo": "Try again",
+        "continuar_territorio": "Stay on the block",
+        "tentar_de_novo": "Back up top",
         "dificuldades": {
-          "formiga": "Small-time",
-          "muvuca": "Crowded",
+          "rato": "Street rat",
+          "muvuca": "Packed",
+          "correria": "Hustle",
           "disputa": "Contested",
           "guerra": "War",
+          "sangue": "Blood in it",
           "coroa": "The Crown"
         },
         "gangues": {
-          "molecada_pista": "Street Kids",
+          "rato_pista": "Track Rats",
           "bonde_sinal": "Red-Light Crew",
+          "cobranca_turco": "Turk's Collectors",
+          "os_gato": "The Splice",
           "sombra_rubra": "Crimson Shadow",
           "sombra_fria": "Cold Shadow",
           "os_restos": "The Leftovers",
-          "boca_escada": "Stairway Spot",
-          "frente_cimento": "Concrete Front",
+          "bonde_predio": "Tower Crew",
+          "os_andar_de_cima": "Upstairs",
+          "frente_escada": "Stairway Front",
           "os_fogueteiro": "The Firework Boys",
-          "a_roda": "The Ring",
           "os_cinco": "The Five",
-          "bonde_alan": "Alan's crew",
-          "alan": "Alan"
+          "a_roda": "The Ring",
+          "bonde_costura": "The Stitch's crew"
+        },
+        "bosses": {
+          "fumaca": {
+            "nome": "Smoke",
+            "fala": "You quick? I'm smoke, kid. Blink and I'm gone — and you eat it in the dark."
+          },
+          "turco": {
+            "nome": "the Turk",
+            "fala": "All of Marelia owes me. Now {suaGangue} does too. Round here, whoever can't pay in cash pays in bone."
+          },
+          "espeto": {
+            "nome": "Skewer",
+            "fala": "The Lowside's been mine since the Shadow hit the ditch. Took my spots? Fine. Come take the rest."
+          },
+          "sala": {
+            "nome": "Salatiel",
+            "fala": "Climbed ten floors just to get dropped on the last one? Respect the effort. Changes nothing."
+          },
+          "zefa": {
+            "nome": "Miss Zefa",
+            "fala": "I raised half the kids {suaGangue} beat to get up here. Sit down. Your punishment's gonna take a while."
+          },
+          "doutor": {
+            "nome": "the Doc",
+            "fala": "Do the math, kid. You've got two fighters. I've got the whole Hilltop owing me favors. Now go home."
+          },
+          "costura": {
+            "nome": "Damião, the Stitch",
+            "fala": "All of Marelia was mine once. Six blocks in hand, the Rooftop under my feet. But this thing won't stitch — not even I held it. Come up here and I'll show you the hard way."
+          }
         },
         "territorios": {
-          "rua": {
-            "nome": "The Street",
-            "desc": "The asphalt down below. Kids darting through traffic, snatching chains, selling gum. No real gang — but it's where everyone starts. Alan too."
+          "pista": {
+            "nome": "The Track",
+            "desc": "The asphalt down below. Kids darting the light, snatching chains, selling gum. Nobody important — but everyone starts here. Alan did too."
+          },
+          "feira": {
+            "nome": "The Market",
+            "desc": "The stalls, the vendors, the spliced power lines. No shooting here — just debt. The Turk writes it all down, and the Turk collects it all."
           },
           "baixada": {
             "nome": "The Lowside",
-            "desc": "Across the train tracks. The Shadow's crew split into three when he died; the shards — Crimson, Cold and the Leftovers — bite each other before they bite you."
+            "desc": "Across the train tracks. The Shadow's crew split three ways when he died. Crimson, Cold and the Leftovers bite each other before they bite you."
+          },
+          "vila": {
+            "nome": "The Projects",
+            "desc": "The blocks, the ten-floor towers, the unlit stairwell. The crew runs it bottom to top. To reach the owner you climb it all taking hits."
           },
           "morro": {
             "nome": "The Hill",
-            "desc": "The hillside slum, the concrete stairway. Loose spots, each with its own owner. Nobody's unified the Hill yet. Yet."
+            "desc": "The hillside slum, the concrete stairway that changes shape with every new rooftop. The spots, the firework boys. Nobody comes down the Hill the same."
           },
           "alto": {
             "nome": "The Hilltop",
-            "desc": "Past the steel door. The Ring and The Five almost pulled the whole Hill into one hand — stopped one step short of becoming a council."
+            "desc": "Past the steel door. The Five nearly became a council — pulled half the Hill into one hand before the Stitch came, and before you."
           },
           "laje": {
             "nome": "The Rooftop",
-            "desc": "The rooftop at the top. On one side, all of Marelia watching. On the other, Alan — who climbed the far side of the map and reached the top the same moment you did."
+            "desc": "The top. On one side, all of Marelia watching. On the other, the Stitch — the only man who ever held six blocks at once. This is where you find out if seven can be held."
           }
         },
         "falas": {
-          "ponto": "{territorio}. This spot belongs to {gangue}. {suaGangue} doesn't get past here without settling it with me.",
-          "chefe": "So {suaGangue} made it here — ate my spots one by one. But this region is {gangue}'s, and you haven't hit the owner yet.",
-          "alan": "So it's you. I heard the name {suaGangue} climbing the hill the same way mine did. But the Rooftop only fits one. Come on up."
+          "ponto": "{territorio}. This spot belongs to {gangue}, pal. {suaGangue} doesn't walk through here for free."
         },
-        "neoguide": [
-          "Story mode. Marelia has no king yet — and that's where we come in.",
-          "The city is split into regions, and each region has several spots, every spot held by a different gang.",
-          "Take the spots, swallow the ruling gang, the region is yours. Then the next one opens.",
-          "On the far side of the map there's a kid doing the exact same thing. His name is Alan.",
-          "You meet at the top, on the Rooftop. Your sheet levels up with every win — let's climb."
+        "abertura": [
+          "Sit down, I'll tell you how this works.",
+          "Marelia has no king. A gang in every alley, each one thinking it rules the world 'cause it rules one street.",
+          "Want to rise? Start on the Track, down below. Take the small gangs' spots, then face the region's heavy — the one holding the flag.",
+          "Take the block, the next one opens. Block by block up to the Rooftop.",
+          "Up top there's a man named Damião. The Stitch. He once pulled six blocks under one flag. Nobody ever came closer to owning Marelia.",
+          "You'll have to go through him. Good luck, kid — you'll need it."
         ],
         "final": {
           "code": "THE CLIMB ENDS HERE",
-          "titulo": "THE ROOFTOP FITS ONE",
+          "titulo": "MARELIA WON'T STITCH",
           "paragrafos": [
-            "{gangue} put Alan down on the Rooftop. All of Marelia saw it.",
-            "But when the blood dried, the hand that went up was his. And all of Marelia accepted it — because the hill always picks one, and that time it wasn't {gangue}.",
-            "You got closer than anyone else ever did. That's why, from then on, when Alan says {gangue}, he says it with respect."
+            "{gangue} put the Stitch down on the Rooftop. All of Marelia saw it.",
+            "And then you understood what he already knew. Two weeks and the map was split again — blocks pulling one way, spots pulling another. Nobody holds this city. He didn't. You didn't.",
+            "Years later a kid with weird hair would do what neither of you could. His name was Alan. But that's another story — and you're in it, right at the start."
           ]
         }
       },
@@ -1670,11 +1713,20 @@
         "fundar": "FOUND THE GANG",
         "salvar": "SAVE",
         "renomear": "rename",
-        "neoguide": [
-          "First things first: your gang needs a name.",
-          "Fighters come and go. The gang's name is what stays — it's what runs the mouth of the hill.",
-          "Choose well. This is the name Alan says when you reach the Rooftop."
+        "abertura": [
+          "First thing: your gang needs a name.",
+          "Fighters come and go. The gang's name is what stays — it runs the mouth of the hill, it turns into a legend or into a joke.",
+          "Choose well. This is the name the Stitch spits when you reach the Rooftop."
         ]
+      },
+      "dialogo": {
+        "voz": "A voice from the block",
+        "veio_nome": "Old Nego",
+        "veio_sub": "the corner elder",
+        "pular": "skip",
+        "proximo": "go on",
+        "fechar": "got it",
+        "comecar": "let's go"
       }
     }
   }

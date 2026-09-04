@@ -1,10 +1,8 @@
 import { useEffect, useState } from 'react'
-import { AnimatePresence } from 'framer-motion'
 import { useLanguage } from '../../../context/LanguageContext'
 import { useAuth } from '../../../context/AuthContext'
 import { useFichas } from '../../../context/FichasContext'
 import { useNavigate } from 'react-router-dom'
-import NeoGuideDialog from './components/NeoGuideDialog'
 import GanguesNaming from './GanguesNaming'
 import { sfx } from '../../../lib/sfx'
 import { useGanguesStore, limiteFichasPorTier, podeCriarFicha } from './store/useGanguesStore'
@@ -30,8 +28,6 @@ function lutadoresComPoderPraEquipar(party) {
 import './GanguesLobby.css'
 import './GanguesProgressionFlow.css'
 
-const NEOGUIDE_SEEN_KEY = 'ldi-gangues-neoguide-seen'
-
 export default function GanguesLobby({ onNavigate }) {
   const { t } = useLanguage()
   const navigate = useNavigate()
@@ -39,7 +35,6 @@ export default function GanguesLobby({ onNavigate }) {
   const { isAdmin } = useFichas()
   const store = useGanguesStore()
   const [loading, setLoading] = useState(Boolean(user))
-  const [showNeoGuide, setShowNeoGuide] = useState(false)
   const [avisoParty, setAvisoParty] = useState('')
   const [avisoPoderes, setAvisoPoderes] = useState(null) // { nomes } — poderes por equipar
   const [renomeando, setRenomeando] = useState(false)
@@ -66,16 +61,6 @@ export default function GanguesLobby({ onNavigate }) {
     if (!user) { setLoading(false); return }
     store.loadSheets(user.id).finally(() => setLoading(false))
   }, [user])
-
-  useEffect(() => {
-    if (loading || roster.length > 0) return
-    try { if (!localStorage.getItem(NEOGUIDE_SEEN_KEY)) setShowNeoGuide(true) } catch { setShowNeoGuide(true) }
-  }, [loading, roster.length])
-
-  const dismissNeoGuide = () => {
-    try { localStorage.setItem(NEOGUIDE_SEEN_KEY, '1') } catch {}
-    setShowNeoGuide(false)
-  }
 
   const startCreation = () => {
     if (!podeCriarFicha(perfil, roster.length)) return
@@ -132,11 +117,6 @@ export default function GanguesLobby({ onNavigate }) {
 
   return (
     <main className="gang-lobby">
-      <AnimatePresence>
-        {showNeoGuide && (
-          <NeoGuideDialog lines={t('games.gangues.neoguide.intro')} onFinish={dismissNeoGuide} onSkip={dismissNeoGuide} />
-        )}
-      </AnimatePresence>
       <header className="gang-lobby-hero">
         <p className="gang-lobby-titulo">{t('games.gangues.modo_standalone')} · LDI GANGUES</p>
         <h1 className="gang-lobby-nome">{store.gangName}</h1>

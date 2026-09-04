@@ -2121,6 +2121,27 @@
 @keyframes neoguide-pulse { 0%, 100% { box-shadow: 0 0 0 rgba(0,180,216,0); } 50% { box-shadow: 0 0 12px rgba(0,180,216,0.4); } }
 @media (max-width: 420px) { .neoguide-portrait-frame { width: 82vw; } .neoguide-text { font-size: 14px; } }
 
+/* ── Diálogo de rua (GangDialog) — sem mascote, voz de Marelia ── */
+.gang-dlg-overlay {
+  background: radial-gradient(ellipse at 50% 35%, rgba(40, 20, 0, 0.5) 0%, rgba(2, 3, 4, 0.95) 70%);
+}
+.gang-dlg-box { border-top-color: var(--if-amber); box-shadow: 0 -8px 30px rgba(255, 174, 50, 0.12); }
+.gang-dlg-face {
+  display: grid; place-items: center;
+  width: 46px; height: 46px; margin-bottom: 8px;
+  font: 800 1.3rem var(--font-display); color: #1b1000;
+  background: linear-gradient(150deg, var(--if-amber), #b56a1e);
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
+}
+.gang-dlg-name { background: rgba(255, 174, 50, 0.14); border-color: rgba(255, 174, 50, 0.4); color: var(--if-amber); }
+.gang-dlg-sub { font-style: normal; opacity: 0.72; font-weight: 600; letter-spacing: 1px; }
+.gang-dlg-overlay .neoguide-next {
+  border-color: var(--if-amber); background: rgba(255, 174, 50, 0.12); color: var(--if-amber); animation: none;
+}
+.gang-dlg-overlay .neoguide-next:hover { background: rgba(255, 174, 50, 0.22); }
+.gang-dlg-overlay .neoguide-dot--active { background: var(--if-amber); box-shadow: 0 0 6px rgba(255, 174, 50, 0.7); }
+.gang-dlg-overlay .neoguide-cursor { color: var(--if-amber); }
+
 /* ===== NEOGUIDE — dica lateral (tutorial guiado) ===== */
 .neoguide-tip {
   position: fixed; z-index: 500; bottom: max(12px, env(safe-area-inset-bottom));
@@ -2374,3 +2395,28 @@
   line-height: 1.45;
   text-align: center;
 }
+
+/* ── Balão de dica de rua (GangTip) — sem mascote ── */
+.gang-tip {
+  position: fixed; bottom: max(18px, env(safe-area-inset-bottom)); z-index: 9998;
+  max-width: 230px; padding: 12px 14px 12px;
+  background: linear-gradient(180deg, rgba(14, 10, 4, 0.96), rgba(6, 5, 3, 0.98));
+  border: 1px solid var(--if-amber); box-shadow: inset 3px 0 var(--if-amber), 0 8px 26px rgba(0, 0, 0, 0.5);
+  clip-path: polygon(0 0, calc(100% - 9px) 0, 100% 9px, 100% 100%, 0 100%);
+}
+.gang-tip--right { right: 8px; }
+.gang-tip--left { left: 8px; }
+.gang-tip-skip {
+  position: absolute; top: 6px; right: 8px;
+  background: none; border: none; cursor: pointer;
+  font: 700 8px 'Courier New', monospace; letter-spacing: 1.5px;
+  color: rgba(255, 255, 255, 0.4); text-transform: uppercase;
+}
+.gang-tip-skip:hover { color: #fff; }
+.gang-tip-text { margin: 6px 0 0; color: #eadfce; font-size: 12.5px; line-height: 1.5; }
+.gang-tip-next {
+  margin-top: 10px; padding: 6px 14px;
+  border: 1px solid var(--if-amber); background: rgba(255, 174, 50, 0.12); color: var(--if-amber);
+  font: 800 10px 'Rajdhani', sans-serif; letter-spacing: 2px; text-transform: uppercase; cursor: pointer;
+}
+.gang-tip-next:hover { background: rgba(255, 174, 50, 0.22); }

@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { useLanguage } from '../../../context/LanguageContext'
 import { useGanguesStore } from './store/useGanguesStore'
 import { sfx } from '../../../lib/sfx'
-import NeoGuideDialog from './components/NeoGuideDialog'
+import GangDialog from './components/GangDialog'
 import {
   GANGUES_TERRITORIOS,
   estadoTerritorio,
@@ -59,7 +59,13 @@ export default function GanguesStoryMap({ onNavigate }) {
     <main className="gang-lobby gang-story">
       <AnimatePresence>
         {intro && (
-          <NeoGuideDialog lines={t('games.gangues.story.neoguide')} onFinish={fecharIntro} onSkip={fecharIntro} />
+          <GangDialog
+            lines={t('games.gangues.story.abertura')}
+            speaker={t('games.gangues.dialogo.veio_nome')}
+            sub={t('games.gangues.dialogo.veio_sub')}
+            onFinish={fecharIntro}
+            onSkip={fecharIntro}
+          />
         )}
       </AnimatePresence>
 
@@ -83,9 +89,9 @@ export default function GanguesStoryMap({ onNavigate }) {
       <div className="gang-story-mapa">
         <div className="gang-story-mapa-grid" aria-hidden="true" />
 
-        <svg className="gang-story-mapa-svg" viewBox="0 0 100 104" preserveAspectRatio="none" aria-hidden="true">
+        <svg className="gang-story-mapa-svg" viewBox="0 0 100 108" preserveAspectRatio="none" aria-hidden="true">
           {/* linha do trem que corta a Baixada */}
-          <line x1="49" y1="102" x2="49" y2="60" stroke="rgba(255,255,255,0.12)" strokeWidth="0.8" strokeDasharray="2 2" />
+          <line x1="49" y1="106" x2="49" y2="58" stroke="rgba(255,255,255,0.12)" strokeWidth="0.8" strokeDasharray="2 2" />
           {/* rota de avanço, região a região */}
           <polyline
             points={GANGUES_TERRITORIOS.map(terr => { const c = centro(terr.poly); return `${c.x},${c.y}` }).join(' ')}

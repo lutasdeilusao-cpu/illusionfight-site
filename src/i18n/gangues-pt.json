@@ -1049,30 +1049,30 @@
         }
       },
       "trash_talk_player": [
-        "acha que isso é luta? meu avô bate mais forte dormindo 😴",
-        "o SDR devia te banir por vergonha alheia 😂",
-        "já foi tarde 😏",
-        "volta quando tiver mais nível, iniciante 😤",
-        "até meu Tamagoshi luta melhor que você 🐣",
-        "minha ficha tem mais H que você de QI 🤡",
-        "se você fosse um elemental, era Água de tão molenga 🌊",
-        "tô lutando no modo fácil ou você é assim mesmo? 🤔",
-        "o NeoGuide podia te dar um tutorial de como levar dano 📖",
-        "esse golpe veio de graça, o próximo é cobrado 💸",
-        "você treina com bots ou é talento natural pra perder? 😂",
-        "seus dados tão viciados em errar 🎲😭",
-        "vou te mandar pro reset com esse próximo golpe 🔄",
-        "seu personagem é forte, o piloto que é fraco 🎮",
-        "para de tremer e luta de verdade 🔥",
-        "já acabou? achei que teria graça 😒",
-        "o servidor lagou ou foi seu reflexo mesmo? 🖥️😂",
-        "teu HP cai mais rápido que meu ranking sobe 📈",
-        "até o bot de treinamento te daria mais trabalho 🤖",
-        "rende que é menos humilhante 🏳️",
-        "vou contar essa vitória pros meus amigos... mentira, não tenho amigos 😭",
-        "cê sabe que isso é um jogo né? parece que tá lutando de verdade 😂",
-        "olha o dano! olha! isso que é FA de verdade 👊💥",
-        "você devia pedir reembolso dessa ficha 💀"
+        "acha que isso é briga? meu avô bate mais forte dormindo",
+        "volta pra tua rua, moleque",
+        "já foi tarde",
+        "aparece quando tiver nível, novato",
+        "tua gangue toda junta não me pega",
+        "esse ponto não é teu. nunca foi",
+        "brigar contigo é perder tempo que eu podia tá tomando bairro",
+        "tô no modo mole ou tu é assim mesmo?",
+        "para de tremer e briga direito",
+        "esse golpe veio de graça. o próximo é cobrado",
+        "tu treina com quem, com poste?",
+        "cospe o dente e levanta, vai",
+        "esse aí foi só o aviso",
+        "teu bonde te soltou sozinho aqui? corajoso",
+        "para de correr e encara",
+        "já acabou? achei que ia dar trabalho",
+        "foi o barato ou teu reflexo é isso mesmo?",
+        "teu HP cai mais rápido que tua moral na quebrada",
+        "até o moleque da pista bate melhor",
+        "senta. o troco vem já",
+        "tu veio tomar meu ponto com ESSA mão?",
+        "anota esse golpe. vai cair de novo",
+        "a rua toda vai saber que tu apanhou hoje",
+        "cai com estilo pelo menos"
       ],
       "party": {
         "title": "MONTE SUA EQUIPE",
@@ -1148,85 +1148,128 @@
       "sair_do_jogo": "SAIR",
       "story": {
         "entry": "Modo história",
-        "entry_desc": "Suba nas gangues de Marelia até sobrar você — e o Alan.",
+        "entry_desc": "Sobe Marelia bairro por bairro. Do rato de rua até a Laje.",
         "titulo": "MARELIA SEM DONO",
-        "sub": "Antes do Alan, Marelia não tinha rei. Era gangue em cada esquina, cada uma dona do próprio quarteirão e de mais nada. Você monta a sua e sobe nesse caos.",
+        "sub": "Antes do Alan, ninguém segurava Marelia. Era gangue em cada esquina, cada uma dona do próprio quarteirão. Um cara — o Costura — quase juntou tudo. Quase. Agora é a tua vez de tentar.",
         "dominio": "de Marelia",
-        "dominado": "Região dominada",
+        "dominado": "Bairro tomado",
         "voltar_mapa": "Mapa",
-        "sem_territorio": "Nenhuma região selecionada.",
+        "sem_territorio": "Nenhum bairro selecionado.",
         "desafiante": "Gangue do ponto",
-        "gangue_dominante": "Gangue dominante",
-        "confronto_final": "O último de pé",
+        "gangue_dominante": "Gangue dona do bairro",
+        "boss_tag": "O foda da região",
+        "boss_de": "manda na {gangue}",
+        "confronto_final": "O cara que quase conseguiu",
         "ponto_n": "Ponto {n}",
         "n_gangues": "{n} gangues",
-        "enfrentar": "Enfrentar",
+        "enfrentar": "Encarar",
         "brigar": "Brigar",
         "agora_nao": "Agora não",
-        "continuar_territorio": "Continuar na região",
-        "tentar_de_novo": "Tentar de novo",
+        "continuar_territorio": "Continuar no bairro",
+        "tentar_de_novo": "Voltar pra cima",
         "dificuldades": {
-          "formiga": "Formiga",
+          "rato": "Rato de rua",
           "muvuca": "Muvuca",
+          "correria": "Correria",
           "disputa": "Disputa",
           "guerra": "Guerra",
+          "sangue": "No sangue",
           "coroa": "A Coroa"
         },
         "gangues": {
-          "molecada_pista": "Molecada da Pista",
+          "rato_pista": "Rato de Pista",
           "bonde_sinal": "Bonde do Sinal",
+          "cobranca_turco": "Cobrança do Turco",
+          "os_gato": "Os Gato",
           "sombra_rubra": "Sombra Rubra",
           "sombra_fria": "Sombra Fria",
           "os_restos": "Os Restos",
-          "boca_escada": "Boca da Escada",
-          "frente_cimento": "Frente do Cimento",
+          "bonde_predio": "Bonde dos Prédio",
+          "os_andar_de_cima": "Os Andar de Cima",
+          "frente_escada": "Frente da Escada",
           "os_fogueteiro": "Os Fogueteiro",
-          "a_roda": "A Roda",
           "os_cinco": "Os Cinco",
-          "bonde_alan": "O bonde do Alan",
-          "alan": "Alan"
+          "a_roda": "A Roda",
+          "bonde_costura": "O bonde do Costura"
+        },
+        "bosses": {
+          "fumaca": {
+            "nome": "Fumaça",
+            "fala": "Cê é ligeiro? Eu sou fumaça, moleque. Pisca que eu sumo — e cê apanha no escuro."
+          },
+          "turco": {
+            "nome": "o Turco",
+            "fala": "Marelia inteira me deve. Agora a {suaGangue} também. E aqui quem não paga em dinheiro paga no osso."
+          },
+          "espeto": {
+            "nome": "Espeto",
+            "fala": "A Baixada é minha desde que o Sombra caiu no valão. Cê tomou meus ponto? Beleza. Vem tomar o resto."
+          },
+          "sala": {
+            "nome": "Salatiel",
+            "fala": "Subiu os dez andar só pra apanhar no último? Respeito a disposição. Não muda merda nenhuma."
+          },
+          "zefa": {
+            "nome": "Dona Zefa",
+            "fala": "Eu criei metade dos moleque que a {suaGangue} bateu pra chegar aqui. Senta aí. O teu castigo vai demorar."
+          },
+          "doutor": {
+            "nome": "o Doutor",
+            "fala": "Conta comigo, moleque. Cê tem dois lutador. Eu tenho o Alto do Morro inteiro devendo favor. Faz a conta e vai embora."
+          },
+          "costura": {
+            "nome": "Damião, o Costura",
+            "fala": "Marelia inteira já foi minha uma vez. Seis bairro na mão, a Laje no pé. Só que essa porra não costura — nem eu segurei. Sobe aqui que eu te mostro na marra."
+          }
         },
         "territorios": {
-          "rua": {
-            "nome": "A Rua",
-            "desc": "O asfalto de baixo. Molecada que corre no sinal, rouba corrente, vende bala. Nenhuma gangue de verdade — mas é onde todo mundo começa, inclusive o Alan."
+          "pista": {
+            "nome": "A Pista",
+            "desc": "O asfalto lá embaixo. Moleque que corre no farol, arranca corrente, vende bala. Ninguém importante — mas todo mundo começa aqui. O Alan também começou."
+          },
+          "feira": {
+            "nome": "A Feira",
+            "desc": "O comércio, os camelô, a luz de gato. Aqui não tem tiro — tem dívida. O Turco anota tudo, e o Turco cobra tudo."
           },
           "baixada": {
             "nome": "A Baixada",
-            "desc": "Do outro lado da linha do trem. A facção do Sombra rachou em três quando ele morreu; os cacos — Rubra, Fria e os Restos — se mordem antes de te morder."
+            "desc": "Do outro lado da linha do trem. A facção do Sombra rachou em três quando ele morreu. Rubra, Fria e os Restos se mordem antes de morder você."
+          },
+          "vila": {
+            "nome": "A Vila",
+            "desc": "O conjunto, os prédio de dez andar, a escada sem luz. O bonde controla de baixo pra cima. Pra chegar no dono, sobe tudo apanhando."
           },
           "morro": {
             "nome": "O Morro",
-            "desc": "A favela de encosta, a escadaria de cimento. Bocas soltas, cada dono no seu ponto. Ninguém unificou o Morro ainda. Ainda."
+            "desc": "A favela de encosta, a escadaria de cimento que muda de forma a cada laje nova. As boca, os fogueteiro. Quem sobe o Morro não desce igual."
           },
           "alto": {
             "nome": "O Alto do Morro",
-            "desc": "Atrás da porta de aço. A Roda e Os Cinco quase juntaram o Morro inteiro numa mão só — pararam a um passo de virar cúpula."
+            "desc": "Atrás da porta de aço. Os Cinco quase viraram cúpula — juntaram meio Morro numa mão só antes do Costura chegar e antes de você."
           },
           "laje": {
             "nome": "A Laje",
-            "desc": "A laje no topo. De um lado, Marelia inteira olhando. Do outro, o Alan — que subiu pelo outro lado do mapa e chegou aqui na mesma hora que você."
+            "desc": "O topo. De um lado, Marelia inteira olhando. Do outro, o Costura — o único que já segurou seis bairro de uma vez. É aqui que se descobre se dá pra segurar sete."
           }
         },
         "falas": {
-          "ponto": "{territorio}. Esse ponto é da {gangue}. A {suaGangue} não passa daqui sem resolver comigo.",
-          "chefe": "Então a {suaGangue} chegou até aqui — engoliu meus pontos um por um. Mas a região é da {gangue}, e o dono você ainda não bateu.",
-          "alan": "Então é você. Ouvi o nome da {suaGangue} subindo o morro do mesmo jeito que o meu. Só que a Laje é de um só. Sobe aqui."
+          "ponto": "{territorio}. Esse ponto é da {gangue}, parça. A {suaGangue} não passa daqui de graça."
         },
-        "neoguide": [
-          "Modo história. Marelia ainda não tem dono — e é aí que a gente entra.",
-          "A cidade tá partida em região, e cada região tem vários pontos, cada ponto de uma gangue diferente.",
-          "Toma os pontos, engole a gangue dominante, a região vira sua. Aí a próxima abre.",
-          "Do outro lado do mapa tem um moleque fazendo a mesma coisa. O nome dele é Alan.",
-          "Vocês se encontram no topo, na Laje. Sua ficha evolui a cada vitória — bora subir."
+        "abertura": [
+          "Senta aí que eu te explico como funciona.",
+          "Marelia não tem dono. Tem gangue em cada beco, cada uma achando que manda no mundo porque manda numa rua.",
+          "Cê quer subir? Começa na Pista, lá embaixo. Toma os ponto das gangue pequena, depois encara o foda da região — o dono da boca, o cara da bandeira.",
+          "Toma o bairro, o de cima abre. Bairro por bairro até a Laje.",
+          "Lá em cima tem um cara chamado Damião. O Costura. Ele já juntou seis bairro numa bandeira só. Ninguém nunca chegou mais perto de ser dono de Marelia.",
+          "Cê vai ter que passar por ele. Boa sorte, moleque — cê vai precisar."
         ],
         "final": {
           "code": "A SUBIDA ACABA AQUI",
-          "titulo": "A LAJE É DE UM SÓ",
+          "titulo": "MARELIA NÃO SE COSTURA",
           "paragrafos": [
-            "A {gangue} derrubou o Alan na Laje. Marelia inteira viu.",
-            "Mas quando o sangue secou, quem levantou a mão foi ele. E Marelia inteira aceitou — porque o morro sempre escolhe um, e daquela vez não foi a {gangue}.",
-            "Vocês chegaram mais perto do que qualquer outro. É por isso que, dali pra frente, quando o Alan fala da {gangue}, ele fala com respeito."
+            "A {gangue} derrubou o Costura na Laje. Marelia inteira viu.",
+            "E aí você entendeu o que ele já sabia. Em duas semana o mapa tava rachado de novo — bairro puxando pra um lado, boca puxando pra outro. Ninguém segura essa cidade. Nem ele segurou. Nem você.",
+            "Anos depois um moleque de cabelo esquisito ia conseguir o que vocês dois não conseguiram. O nome dele era Alan. Mas isso é outra história — e cê tá nela, lá no comecinho."
           ]
         }
       },
@@ -1260,11 +1303,20 @@
         "fundar": "FUNDAR A GANGUE",
         "salvar": "SALVAR",
         "renomear": "renomear",
-        "neoguide": [
-          "Antes de tudo: sua gangue precisa de nome.",
-          "Os lutadores vêm e vão. O nome da gangue é o que fica — é ele que corre a boca do morro.",
-          "Escolhe bem. É esse nome que o Alan vai falar quando você chegar na Laje."
+        "abertura": [
+          "Antes de tudo: tua gangue precisa de nome.",
+          "Os lutador vêm e vão. O nome da gangue é o que fica — é ele que corre a boca do morro, é ele que vira lenda ou vira piada.",
+          "Escolhe bem. É esse nome que o Costura vai cuspir quando cê chegar na Laje."
         ]
+      },
+      "dialogo": {
+        "voz": "Voz da quebrada",
+        "veio_nome": "Nego Véio",
+        "veio_sub": "o coroa da esquina",
+        "pular": "pular",
+        "proximo": "continuar",
+        "fechar": "entendi",
+        "comecar": "bora"
       }
     }
   }

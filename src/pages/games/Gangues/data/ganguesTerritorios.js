@@ -1,128 +1,134 @@
 /* ══════════════════════════════════════════════════════════════
-   MODO HISTÓRIA — o mapa de Marelia ANTES do Alan
-   Esqueleto pra o Isaias polir o visual e ligar a lógica depois.
+   MODO HISTÓRIA — o mapa de Marelia, antes de ter dono
+   Esqueleto pra o Isaias polir o visual e pôr arte dos bosses depois.
 
-   AMBIENTAÇÃO (fiel ao conto "Alan, o Campeão", contos-index id 02):
-   O LDI Gangues acontece ANTES de Marelia ter dono. A cidade é uma
-   bagunça: dezenas de gangues pequenas, cada uma segurando seus
-   pontos, ninguém manda em nada além do próprio quarteirão.
+   AMBIENTAÇÃO (liga no conto "Alan, o Campeão", contos-index id 02):
+   Anos antes do Alan, um cara chamado Damião — o Costura — quase fez o
+   que o Alan ia fazer: juntar Marelia inteira numa bandeira só. Chegou
+   a segurar seis bairros e a Laje. Não durou. Marelia rachou de novo.
 
-   O jogador monta a sua gangue e sobe nesse caos — toma ponto por
-   ponto, região por região, engole gangue por gangue. Enquanto isso,
-   do outro lado do mapa, um moleque chamado Alan está fazendo a mesma
-   coisa. Os dois só se encontram no topo: na Laje.
+   O LDI Gangues é essa época. Você monta a sua gangue lá embaixo, na
+   Pista, e sobe bairro por bairro: primeiro as gangue pequena de cada
+   ponto, depois o foda da região — o boss da gangue dona do lugar.
+   No topo, na Laje, tem o Costura. Você derruba ele. E aí descobre o
+   que ele já sabia: essa porra não se segura na mão de ninguém.
+   (Só o Alan ia conseguir. Mas isso é depois.)
 
-   E ali Marelia ganha o Rei dela. Não é você. Você chega mais perto
-   do que qualquer outro — e é por isso que, dali pra frente, quando
-   o Alan fala o seu nome, ele fala com respeito.
-
-   • REGIÕES (5, do pé do morro pro topo):
-     A Rua → A Baixada → O Morro → O Alto do Morro → A Laje
-   • Cada região tem VÁRIOS PONTOS, cada um segurado por uma gangue.
-     Domina todos + a gangue dominante da região → a região é sua,
-     e a próxima abre.
-   • `gangue` referencia story.gangues.<key> na i18n (o Isaias troca
-     os nomes/artes). `enemy` referencia gangues-enemies.json (o
-     lutador que representa a gangue naquele ponto — placeholder).
-   • `poly` / `pos` são coordenadas no SVG do mapa (viewBox 0 0 100 120)
-     — arte de mapa de verdade entra por cima depois.
+   • `boss` referencia story.bosses.<key> — nome/vulgo + trash talk.
+     Os boss são gente, voz de rua. O Isaias põe os retratos depois.
+   • `gangue` referencia story.gangues.<key>.
+   • `enemy` referencia gangues-enemies.json (o lutador que representa
+     aquele ponto/boss — placeholder até ter os de verdade).
+   • `poly` / `pos` são coords no SVG do mapa (viewBox 0 0 100 108).
    ══════════════════════════════════════════════════════════════ */
 
-// As 5 "dificuldades" = o quão quente está a disputa naquela região.
-// Sem "fácil/difícil" — nomes de dentro do jogo.
-export const GANGUES_DIFICULDADES = ['formiga', 'muvuca', 'disputa', 'guerra', 'coroa']
+// As 7 "dificuldades" = o quão quente é a disputa na região. Sem fácil/difícil.
+export const GANGUES_DIFICULDADES = ['rato', 'muvuca', 'correria', 'disputa', 'guerra', 'sangue', 'coroa']
 
 export const GANGUES_TERRITORIOS = [
   {
-    id: 'rua',
-    dificuldade: 'formiga',
+    id: 'pista',
+    dificuldade: 'rato',
     ordem: 1,
     cor: '#3ddc97',
-    // distrito de baixo, colado no asfalto
-    poly: '8,98 46,92 42,74 4,80',
-    pos: { top: 84, left: 24 },
-    // molecada de rua: rouba, corre, vende bala no sinal
+    poly: '6,102 44,96 40,80 4,84',
+    pos: { top: 88, left: 24 },
     pontos: [
-      { id: 'rua-p1', gangue: 'molecada_pista', enemy: 'treinamento', forca: 1 },
-      { id: 'rua-p2', gangue: 'molecada_pista', enemy: 'treinamento', forca: 1 },
-      { id: 'rua-p3', gangue: 'bonde_sinal', enemy: 'kaeda', forca: 2 },
-      { id: 'rua-p4', gangue: 'bonde_sinal', enemy: 'kaeda', forca: 2 },
+      { id: 'pista-1', gangue: 'rato_pista', enemy: 'treinamento', forca: 1 },
+      { id: 'pista-2', gangue: 'rato_pista', enemy: 'treinamento', forca: 1 },
+      { id: 'pista-3', gangue: 'bonde_sinal', enemy: 'kaeda', forca: 2 },
     ],
-    chefe: { id: 'rua-chefe', gangue: 'bonde_sinal', enemy: 'kaeda', forca: 3 },
+    chefe: { id: 'pista-chefe', gangue: 'rato_pista', enemy: 'kaeda', forca: 3, boss: 'fumaca' },
+  },
+  {
+    id: 'feira',
+    dificuldade: 'muvuca',
+    ordem: 2,
+    cor: '#7ee787',
+    poly: '52,98 96,92 92,74 48,80',
+    pos: { top: 80, left: 72 },
+    pontos: [
+      { id: 'feira-1', gangue: 'cobranca_turco', enemy: 'kaeda', forca: 2 },
+      { id: 'feira-2', gangue: 'cobranca_turco', enemy: 'kaeda', forca: 3 },
+      { id: 'feira-3', gangue: 'os_gato', enemy: 'stormbyte', forca: 3 },
+    ],
+    chefe: { id: 'feira-chefe', gangue: 'cobranca_turco', enemy: 'stormbyte', forca: 4, boss: 'turco' },
   },
   {
     id: 'baixada',
-    dificuldade: 'muvuca',
-    ordem: 2,
+    dificuldade: 'correria',
+    ordem: 3,
     cor: '#18dafb',
-    // do outro lado da linha do trem
-    poly: '52,90 96,84 92,62 48,68',
-    pos: { top: 76, left: 74 },
-    // a facção do Sombra rachou em três quando ele morreu — os cacos
-    // brigam entre si antes de brigar com você
+    poly: '8,80 46,76 42,58 6,62',
+    pos: { top: 66, left: 24 },
     pontos: [
-      { id: 'baixada-p1', gangue: 'sombra_rubra', enemy: 'kaeda', forca: 2 },
-      { id: 'baixada-p2', gangue: 'sombra_rubra', enemy: 'stormbyte', forca: 3 },
-      { id: 'baixada-p3', gangue: 'sombra_fria', enemy: 'stormbyte', forca: 3 },
-      { id: 'baixada-p4', gangue: 'os_restos', enemy: 'thunderbolt', forca: 3 },
+      { id: 'baixada-1', gangue: 'sombra_rubra', enemy: 'stormbyte', forca: 3 },
+      { id: 'baixada-2', gangue: 'sombra_fria', enemy: 'thunderbolt', forca: 4 },
+      { id: 'baixada-3', gangue: 'os_restos', enemy: 'thunderbolt', forca: 4 },
     ],
-    chefe: { id: 'baixada-chefe', gangue: 'sombra_fria', enemy: 'thunderbolt', forca: 4 },
+    chefe: { id: 'baixada-chefe', gangue: 'sombra_fria', enemy: 'thunderbolt', forca: 5, boss: 'espeto' },
+  },
+  {
+    id: 'vila',
+    dificuldade: 'disputa',
+    ordem: 4,
+    cor: '#ffae32',
+    poly: '52,74 96,70 92,52 50,56',
+    pos: { top: 58, left: 72 },
+    pontos: [
+      { id: 'vila-1', gangue: 'bonde_predio', enemy: 'thunderbolt', forca: 4 },
+      { id: 'vila-2', gangue: 'bonde_predio', enemy: 'viran', forca: 5 },
+      { id: 'vila-3', gangue: 'os_andar_de_cima', enemy: 'viran', forca: 5 },
+    ],
+    chefe: { id: 'vila-chefe', gangue: 'bonde_predio', enemy: 'viran', forca: 6, boss: 'sala' },
   },
   {
     id: 'morro',
-    dificuldade: 'disputa',
-    ordem: 3,
-    cor: '#ffae32',
-    // a favela de encosta, a escadaria de cimento
-    poly: '10,64 48,60 44,36 6,40',
-    pos: { top: 52, left: 24 },
-    // bocas soltas, cada dono no seu ponto — ninguém unificou ainda
+    dificuldade: 'guerra',
+    ordem: 5,
+    cor: '#ff8f3c',
+    poly: '10,56 48,52 44,34 8,38',
+    pos: { top: 42, left: 24 },
     pontos: [
-      { id: 'morro-p1', gangue: 'boca_escada', enemy: 'stormbyte', forca: 3 },
-      { id: 'morro-p2', gangue: 'boca_escada', enemy: 'thunderbolt', forca: 4 },
-      { id: 'morro-p3', gangue: 'frente_cimento', enemy: 'thunderbolt', forca: 4 },
-      { id: 'morro-p4', gangue: 'os_fogueteiro', enemy: 'viran', forca: 4 },
+      { id: 'morro-1', gangue: 'frente_escada', enemy: 'viran', forca: 5 },
+      { id: 'morro-2', gangue: 'frente_escada', enemy: 'campeao', forca: 6 },
+      { id: 'morro-3', gangue: 'os_fogueteiro', enemy: 'campeao', forca: 6 },
     ],
-    chefe: { id: 'morro-chefe', gangue: 'frente_cimento', enemy: 'viran', forca: 5 },
+    chefe: { id: 'morro-chefe', gangue: 'frente_escada', enemy: 'campeao', forca: 7, boss: 'zefa' },
   },
   {
     id: 'alto',
-    dificuldade: 'guerra',
-    ordem: 4,
+    dificuldade: 'sangue',
+    ordem: 6,
     cor: '#ff6b6b',
-    // o alto do morro, atrás da porta de aço
-    poly: '54,58 94,54 90,30 50,34',
-    pos: { top: 46, left: 74 },
-    // os barões que quase unificaram o Morro antes do Alan aparecer
+    poly: '52,50 94,46 90,28 50,32',
+    pos: { top: 34, left: 72 },
     pontos: [
-      { id: 'alto-p1', gangue: 'a_roda', enemy: 'viran', forca: 5 },
-      { id: 'alto-p2', gangue: 'a_roda', enemy: 'campeao', forca: 5 },
-      { id: 'alto-p3', gangue: 'os_cinco', enemy: 'campeao', forca: 6 },
-      { id: 'alto-p4', gangue: 'os_cinco', enemy: 'kronos', forca: 6 },
+      { id: 'alto-1', gangue: 'os_cinco', enemy: 'campeao', forca: 6 },
+      { id: 'alto-2', gangue: 'os_cinco', enemy: 'kronos', forca: 7 },
+      { id: 'alto-3', gangue: 'a_roda', enemy: 'kronos', forca: 8 },
     ],
-    chefe: { id: 'alto-chefe', gangue: 'os_cinco', enemy: 'kronos', forca: 7 },
+    chefe: { id: 'alto-chefe', gangue: 'os_cinco', enemy: 'kronos', forca: 9, boss: 'doutor' },
   },
   {
     id: 'laje',
     dificuldade: 'coroa',
-    ordem: 5,
+    ordem: 7,
     cor: '#a855f7',
-    // a laje no topo, de um lado Marelia inteira, do outro o Alan
-    poly: '30,32 72,32 64,6 36,6',
-    pos: { top: 18, left: 50 },
-    // o bonde do Alan. E o Alan.
+    poly: '30,30 72,30 64,4 36,4',
+    pos: { top: 15, left: 49 },
     pontos: [
-      { id: 'laje-p1', gangue: 'bonde_alan', enemy: 'campeao', forca: 6 },
-      { id: 'laje-p2', gangue: 'bonde_alan', enemy: 'kronos', forca: 7 },
-      { id: 'laje-p3', gangue: 'bonde_alan', enemy: 'primordial_jack', forca: 8 },
+      { id: 'laje-1', gangue: 'bonde_costura', enemy: 'kronos', forca: 7 },
+      { id: 'laje-2', gangue: 'bonde_costura', enemy: 'primordial_jack', forca: 8 },
+      { id: 'laje-3', gangue: 'bonde_costura', enemy: 'primordial_jack', forca: 9 },
     ],
-    chefe: { id: 'laje-chefe', gangue: 'alan', enemy: 'campeao', forca: 10, ehAlan: true },
+    chefe: { id: 'laje-chefe', gangue: 'bonde_costura', enemy: 'primordial_jack', forca: 10, boss: 'costura', ehFinal: true },
   },
 ]
 
 export const GANGUES_TERRITORIO_POR_ID = Object.fromEntries(GANGUES_TERRITORIOS.map(t => [t.id, t]))
 
-/** O confronto final contra o Alan — canon: você não fica com Marelia. */
+/** O confronto final — o Costura, na Laje. Canon: Marelia não fica com você. */
 export const GANGUES_NO_FINAL = { territorioId: 'laje', noId: 'laje-chefe' }
 export function ehConfrontoFinal(alvo) {
   return alvo?.territorioId === GANGUES_NO_FINAL.territorioId && alvo?.noId === GANGUES_NO_FINAL.noId
