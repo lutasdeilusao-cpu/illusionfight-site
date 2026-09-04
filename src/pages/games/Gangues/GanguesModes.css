@@ -1,0 +1,110 @@
+/* ══════════════════════════════════════════════════════════════
+   SELEÇÃO DE MODO — história x batalha, depois da dupla montada
+   ══════════════════════════════════════════════════════════════ */
+
+.gang-modes {
+  align-self: stretch;
+  width: 100%;
+  max-height: 100dvh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 52px 16px 44px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.gang-modes::-webkit-scrollbar { display: none; }
+
+.gang-modes-titulo-wrap { margin: 10px 0 18px; }
+.gang-modes-titulo {
+  margin: 4px 0 0;
+  font: 800 1.7rem/1 var(--font-display);
+  letter-spacing: 0.04em;
+  color: var(--text-primary);
+}
+
+/* ── Dupla escolhida ── */
+.gang-modes-dupla {
+  border: 1px solid var(--if-hair);
+  background: var(--if-glass);
+  padding: 12px 14px;
+  margin-bottom: 22px;
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
+}
+.gang-modes-dupla-label {
+  font: 700 0.6rem var(--font-mono); letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--text-secondary);
+}
+.gang-modes-dupla-lista { display: flex; gap: 10px; margin-top: 10px; }
+.gang-modes-dupla-item {
+  flex: 1; min-width: 0;
+  display: grid; grid-template-columns: 34px 1fr; grid-template-rows: auto auto;
+  column-gap: 9px; align-items: center;
+  padding: 8px; border: 1px solid var(--if-hair); background: rgba(255, 255, 255, 0.02);
+}
+.gang-modes-dupla-avatar {
+  grid-row: 1 / 3; width: 34px; height: 34px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: radial-gradient(circle at 35% 30%, var(--if-teal), #0a3a49);
+  font: 800 0.95rem var(--font-display); color: #04222b;
+}
+.gang-modes-dupla-nome {
+  font: 700 0.82rem var(--font-display); color: var(--text-primary);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.gang-modes-dupla-path {
+  font: 0.62rem var(--font-mono); letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--if-teal);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+
+/* ── Os dois modos ── */
+.gang-modes-grid { display: flex; flex-direction: column; gap: 14px; }
+.gang-modes-card {
+  position: relative;
+  display: flex; flex-direction: column; gap: 6px;
+  width: 100%;
+  padding: 20px 18px 16px;
+  text-align: left;
+  cursor: pointer;
+  border: 1px solid var(--modo-cor);
+  background:
+    radial-gradient(130% 100% at 100% 0%, color-mix(in srgb, var(--modo-cor) 18%, transparent), transparent 62%),
+    var(--if-panel);
+  box-shadow: inset 4px 0 var(--modo-cor), 0 0 34px -12px var(--modo-cor);
+  transition: transform 0.15s, box-shadow 0.2s;
+  clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 0 100%);
+}
+.gang-modes-card:hover {
+  transform: translateY(-3px);
+  box-shadow: inset 4px 0 var(--modo-cor), 0 0 42px -6px var(--modo-cor);
+}
+.gang-modes-card:active { transform: translateY(-1px); }
+.gang-modes-card-icon {
+  font-size: 1.9rem; line-height: 1;
+  filter: drop-shadow(0 0 12px color-mix(in srgb, var(--modo-cor) 60%, transparent));
+}
+.gang-modes-card-tag {
+  position: absolute; top: 14px; right: 18px;
+  font: 700 0.58rem var(--font-mono); letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--modo-cor);
+  border: 1px solid color-mix(in srgb, var(--modo-cor) 45%, transparent);
+  padding: 3px 7px;
+}
+.gang-modes-card-titulo {
+  font: 800 1.35rem/1 var(--font-display); letter-spacing: 0.03em;
+  color: var(--text-primary);
+}
+.gang-modes-card-desc {
+  font-size: 0.8rem; line-height: 1.45; color: var(--text-secondary);
+}
+.gang-modes-card-cta {
+  margin-top: 8px;
+  font: 700 0.72rem var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--modo-cor); display: flex; align-items: center; gap: 8px;
+}
+.gang-modes-card-cta b { font-size: 1.1rem; transition: transform 0.15s; }
+.gang-modes-card:hover .gang-modes-card-cta b { transform: translateX(5px); }
+
+@media (prefers-reduced-motion: reduce) {
+  .gang-modes-card, .gang-modes-card-cta b { transition: none; }
+}

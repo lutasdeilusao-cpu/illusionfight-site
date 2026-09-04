@@ -4,6 +4,8 @@ import { useReader } from '../../../context/ReaderContext'
 import { useGanguesStore } from './store/useGanguesStore'
 import useGanguesI18n from './hooks/useGanguesI18n'
 import GanguesLobby from './GanguesLobby'
+import GanguesModes from './GanguesModes'
+import GanguesEnemyPick from './GanguesEnemyPick'
 import GanguesCreate from './GanguesCreate'
 import GanguesCombat from './GanguesCombat'
 import GanguesVictory from './GanguesVictory'
@@ -77,6 +79,8 @@ export default function GanguesRoute({ publicTraining = false }) {
         />
       )}
       {fase === 'progression' && <GanguesProgression onNavigate={setFase} />}
+      {fase === 'modes' && <GanguesModes onNavigate={setFase} />}
+      {fase === 'enemy' && <GanguesEnemyPick onNavigate={setFase} />}
       {fase === 'story' && <GanguesStoryMap onNavigate={setFase} />}
       {fase === 'territorio' && <GanguesTerritorio onNavigate={setFase} />}
       {fase === 'combat' && <GanguesCombat onNavigate={setFase} />}

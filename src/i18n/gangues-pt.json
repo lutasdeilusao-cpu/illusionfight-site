@@ -1219,6 +1219,18 @@
           "Sua ficha evolui a cada vitória. Vai equipando poder diferente pra cada confronto. Bora subir."
         ],
         "entry_cta": "ABRIR O MAPA DE MARELIA"
+      },
+      "modes": {
+        "titulo": "ESCOLHA O MODO",
+        "sua_dupla": "Sua dupla",
+        "abrir": "ESCOLHER MODO DE JOGO",
+        "jogar": "Jogar",
+        "historia_titulo": "MODO HISTÓRIA",
+        "historia_tag": "Campanha",
+        "historia_desc": "Suba o Morro. Domine Marelia degrau por degrau — cada território até o chefe, com progresso salvo.",
+        "batalha_titulo": "MODO BATALHA",
+        "batalha_tag": "Avulso",
+        "batalha_desc": "Um confronto rápido 2×2 contra o oponente que você escolher. Sem progresso no mapa."
       }
     }
   }

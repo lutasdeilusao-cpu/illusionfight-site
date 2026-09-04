@@ -31,13 +31,6 @@ import './GanguesProgressionFlow.css'
 
 const NEOGUIDE_SEEN_KEY = 'ldi-gangues-neoguide-seen'
 
-function pickEnemyTeam(pool, size) {
-  const shuffled = [...pool].sort(() => Math.random() - 0.5)
-  const team = shuffled.slice(0, size)
-  while (team.length < size && pool.length) team.push(pool[Math.floor(Math.random() * pool.length)])
-  return team
-}
-
 export default function GanguesLobby({ onNavigate }) {
   const { t } = useLanguage()
   const navigate = useNavigate()
@@ -45,7 +38,6 @@ export default function GanguesLobby({ onNavigate }) {
   const { isAdmin } = useFichas()
   const store = useGanguesStore()
   const [loading, setLoading] = useState(Boolean(user))
-  const [choosingEnemy, setChoosingEnemy] = useState(false)
   const [showNeoGuide, setShowNeoGuide] = useState(false)
   const [avisoParty, setAvisoParty] = useState('')
   const [avisoPoderes, setAvisoPoderes] = useState(null) // { nomes } — poderes por equipar
@@ -120,7 +112,7 @@ export default function GanguesLobby({ onNavigate }) {
       setAvisoPoderes({ nomes })
       return
     }
-    setChoosingEnemy(true)
+    onNavigate('modes')
   }
 
   const equiparAgora = () => {
@@ -128,47 +120,9 @@ export default function GanguesLobby({ onNavigate }) {
     setAvisoPoderes(null)
     if (alvo) abrirProgressao(alvo)
   }
-  const entrarAssimMesmo = () => { setAvisoPoderes(null); setChoosingEnemy(true) }
-
-  const unlocked = new Set(party.flatMap(member => member.enemies_unlocked || ['treinamento']))
-  const enemyPool = enemiesData.filter(enemy => unlocked.has(enemy.id))
-
-  const startBattle = (enemy) => {
-    store.loadSheet(party[0])
-    const others = enemyPool.filter(item => item.id !== enemy.id)
-    const extra = pickEnemyTeam(others.length ? others : [enemy], Math.max(0, party.length - 1))
-    store.startMatch(enemy, [enemy, ...extra])
-    sfx.vs()
-    onNavigate('combat')
-  }
+  const entrarAssimMesmo = () => { setAvisoPoderes(null); onNavigate('modes') }
 
   if (loading) return <main className="gang-lobby"><div className="gang-lobby-empty">{t('games.gangues.carregando')}</div></main>
-
-  if (choosingEnemy) return (
-    <main className="gang-lobby">
-      <header className="gang-lobby-hero gang-lobby-hero--enemies">
-        <p className="gang-lobby-titulo">{t('games.gangues.party.single_title')}</p>
-        <h1 className="gang-lobby-nome gang-lobby-nome--enemy">{party.length} × {party.length}</h1>
-        <p className="gang-lobby-sub">{t('games.gangues.party.enemy_team_desc')}</p>
-      </header>
-      <div className="gang-lobby-divider" />
-      <p className="gang-lobby-section-label">{t('games.gangues.escolha_oponente')}</p>
-      <div className="gang-sheet-list">
-        {enemyPool.map(enemy => (
-          <button key={enemy.id} className="gang-sheet-card-v gang-sheet-card-v--enemy" onClick={() => startBattle(enemy)}>
-            <span className="gang-sheet-avatar">{t(`games.gangues.enemy_names.${enemy.id}`)[0]}</span>
-            <span className="gang-sheet-info">
-              <strong className="gang-sheet-name-v">{t(`games.gangues.enemy_names.${enemy.id}`)}</strong>
-              <span className="gang-sheet-meta">{t('games.gangues.party.enemy_duo')} · RANK #{enemy.rank}</span>
-              <span className="gang-sheet-stats">{['A', 'H', 'R', 'D'].map(attr => <span key={attr} className="gang-sheet-stat"><span className="gang-sheet-stat-label">{attr}</span><b className="gang-sheet-stat-val">{enemy.stats[attr]}</b></span>)}</span>
-            </span>
-            <span className="gang-sheet-arrow">→</span>
-          </button>
-        ))}
-      </div>
-      <button className="gang-new-sheet gang-new-sheet--back" onClick={() => setChoosingEnemy(false)}>{t('games.gangues.btn_voltar')}</button>
-    </main>
-  )
 
   return (
     <main className="gang-lobby">
@@ -206,18 +160,6 @@ export default function GanguesLobby({ onNavigate }) {
         </section>
       ) : (
         <>
-          {/* Modo história — o jeito principal de jogar: dominar Marelia
-              território por território no mapa. É o destaque do lobby. */}
-          <button className="gang-story-entry" onClick={() => { sfx.select?.(); onNavigate('story') }}>
-            <span className="if-eyebrow">IF // MARELIA</span>
-            <span className="gang-story-entry-head">
-              <span className="gang-story-entry-icon">🗺</span>
-              <strong>{t('games.gangues.story.entry')}</strong>
-            </span>
-            <small>{t('games.gangues.story.entry_desc')}</small>
-            <span className="gang-story-entry-cta">{t('games.gangues.story.entry_cta')} <b>→</b></span>
-          </button>
-
           <div className="gang-lobby-section-label gang-lobby-section-label--row"><span>{t('games.gangues.party.roster')}</span><span>{roster.length}/{rosterLimit}</span></div>
           <div className="gang-sheet-list">
             {roster.map(member => {
@@ -251,11 +193,10 @@ export default function GanguesLobby({ onNavigate }) {
           <p className="gang-party-counter">{t('games.gangues.party_size_atual', { n: party.length, max: partyLimit })}</p>
           {partyLimit < GANGUES_MAX_PARTY_SIZE && <p className="gang-party-counter">{t('games.gangues.party_size_bloqueado')}</p>}
           {avisoParty && <p className="gang-err">{avisoParty}</p>}
+          {/* Monta a dupla e segue pra seleção de modo (história / batalha).
+              Sempre clicável: se faltar lutador, avisa aqui em vez de bloquear. */}
+          <button className="gang-new-sheet gang-new-sheet--primary" onClick={tentarBatalha}>{t('games.gangues.modes.abrir')}</button>
           {roster.length < rosterLimit && <button className="gang-new-sheet" onClick={startCreation}><span className="gang-new-sheet-icon">+</span>{t('games.gangues.nova_ficha')}</button>}
-          {/* Batalha avulsa — secundária. Sempre clicável: se faltar lutador,
-              avisa aqui em vez de bloquear. */}
-          <button className="gang-new-sheet gang-quick-battle" onClick={tentarBatalha}>{t('games.gangues.party.enter_gangues')}</button>
-          <p className="gang-quick-battle-hint">{t('games.gangues.party.quick_desc')}</p>
         </>
       )}
       {avisoPoderes && (

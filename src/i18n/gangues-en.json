@@ -1629,6 +1629,18 @@
           "Your sheet levels up with every win. Equip a different power for each matchup. Let's climb."
         ],
         "entry_cta": "OPEN THE MARELIA MAP"
+      },
+      "modes": {
+        "titulo": "CHOOSE A MODE",
+        "sua_dupla": "Your duo",
+        "abrir": "CHOOSE GAME MODE",
+        "jogar": "Play",
+        "historia_titulo": "STORY MODE",
+        "historia_tag": "Campaign",
+        "historia_desc": "Climb the Hill. Take Marelia one step at a time — every turf up to the boss, progress saved.",
+        "batalha_titulo": "BATTLE MODE",
+        "batalha_tag": "One-off",
+        "batalha_desc": "A quick 2×2 fight against the opponent you pick. No map progress."
       }
     }
   }

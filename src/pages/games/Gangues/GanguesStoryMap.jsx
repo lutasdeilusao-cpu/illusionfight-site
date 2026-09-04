@@ -58,7 +58,7 @@ export default function GanguesStoryMap({ onNavigate }) {
       </AnimatePresence>
 
       <header className="gang-story-head">
-        <button className="gang-progression-screen-back" onClick={() => onNavigate('lobby')}>
+        <button className="gang-progression-screen-back" onClick={() => onNavigate('modes')}>
           ← {t('games.gangues.progression.back_to_roster')}
         </button>
         <div className="gang-story-dominio">
@@ -133,7 +133,7 @@ export default function GanguesStoryMap({ onNavigate }) {
         })}
       </div>
 
-      <button className="gang-lobby-quit" onClick={() => onNavigate('lobby')}>
+      <button className="gang-lobby-quit" onClick={() => onNavigate('modes')}>
         {t('games.gangues.progression.back_to_roster')}
       </button>
     </main>

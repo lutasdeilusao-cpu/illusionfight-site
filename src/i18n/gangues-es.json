@@ -1629,6 +1629,18 @@
           "Tu ficha evoluciona con cada victoria. Equipa un poder distinto para cada enfrentamiento. Vamos a subir."
         ],
         "entry_cta": "ABRIR EL MAPA DE MARELIA"
+      },
+      "modes": {
+        "titulo": "ELIGE EL MODO",
+        "sua_dupla": "Tu dúo",
+        "abrir": "ELEGIR MODO DE JUEGO",
+        "jogar": "Jugar",
+        "historia_titulo": "MODO HISTORIA",
+        "historia_tag": "Campaña",
+        "historia_desc": "Sube el Cerro. Domina Marelia escalón por escalón — cada territorio hasta el jefe, con progreso guardado.",
+        "batalha_titulo": "MODO BATALLA",
+        "batalha_tag": "Suelto",
+        "batalha_desc": "Un enfrentamiento rápido 2×2 contra el oponente que elijas. Sin progreso en el mapa."
       }
     }
   }
