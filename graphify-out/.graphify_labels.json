@@ -408,6 +408,7 @@
   "406": "Vila.jsx",
   "407": "Perfil.jsx",
   "408": "UniversosHub.jsx",
+  "409": "GanguesParada.jsx",
   "410": "A7. TRÁFEGO PAGO — HISTÓRICO",
   "411": "Mundo.jsx",
   "412": "ScrollToTop.jsx",
@@ -416,13 +417,12 @@
   "415": "DramaticDice.jsx",
   "416": "BLOCO C — STEAM",
   "417": "A10. ESTRATÉGIA DE MONETIZAÇÃO DO YOUTUBE — DOUTRINA OFICIAL",
+  "418": "drawCombatBoard",
   "419": "index.js",
   "420": "paridade-exata.mjs",
   "422": "BLOCO F — PROGRAMA DE PARCEIROS DE CONTEÚDO",
   "424": "BLOCO G — NUNTIUS GAMES — POSICIONAMENTO INSTITUCIONAL",
   "425": "LDINotification.jsx",
   "426": "passeios.js",
-  "427": "ResultCard.jsx",
-  "429": "Create",
-  "431": "TypewriterPhrase.jsx"
+  "429": "Create"
 }

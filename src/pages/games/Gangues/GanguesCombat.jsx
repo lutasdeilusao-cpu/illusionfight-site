@@ -11,7 +11,6 @@ import { sfx } from '../../../lib/sfx'
 const ONOMATOPEIAS = ['POW!', 'WHAM!', 'CRACK!', 'SLASH!', 'BOOM!', 'THWACK!']
 const randomOnoma = () => ONOMATOPEIAS[Math.floor(Math.random() * ONOMATOPEIAS.length)]
 const pct = (value, max) => Math.max(0, Math.min(100, (value / Math.max(1, max)) * 100))
-const PATH_ICON = { atacante: '⚔️', defensor: '🛡️', mistico: '✨' }
 
 function fighterName(t, member) {
   if (!member) return '?'
@@ -25,48 +24,37 @@ function pickTrash(t, enemy, category) {
   return pool[Math.floor(Math.random() * pool.length)]
 }
 
-function Roster({ title, members, side, selectable, selectedKey, onSelect, t }) {
+// Roster compacto: um quadradinho por lutador (avatar + anel de PV). O nome
+// completo só aparece no title/tooltip — a informação que importa segundo a
+// segundo é "quem tá vivo, quem tá selecionado, de quem é a vez", não uma
+// ficha inteira ocupando a tela. Quem age agora pisca (gang-mini--acting) em
+// vez de existir um banner de texto "Vez de X" só pra dizer isso.
+function Roster({ members, side, selectable, selectedKey, onSelect, actingKey, t }) {
   return (
-    <section className="gang-team">
-      <h3 className="gang-team-title">{title}</h3>
-      <div className="gang-team-grid">
-        {members.map(member => {
-          const dead = member.pv <= 0
-          const acted = side === 'player' && member.actedThisRound
-          const disabled = dead || acted || !selectable
-          const pathClass = member.combat_path ? `gang-path--${member.combat_path}` : ''
-          return (
-            <button
-              key={member.key}
-              type="button"
-              disabled={disabled}
-              className={`gang-fighter-card ${pathClass} ${side === 'enemy' ? 'gang-fighter-card--enemy' : ''} ${selectedKey === member.key ? 'gang-fighter-card--selected' : ''} ${dead ? 'gang-fighter-card--dead' : ''}`}
-              onClick={() => onSelect?.(member.key)}
-            >
-              <div className="gang-fighter-card-avatar">
-                {fighterName(t, member)[0]}
-                {member.combat_path && <span className="gang-fighter-card-path-icon">{PATH_ICON[member.combat_path]}</span>}
-              </div>
-              <div className="gang-fighter-card-info">
-                <strong>{fighterName(t, member)}</strong>
-                {member.combat_path && <span className="gang-fighter-card-path-label">{t(`games.gangues.loadout.paths.${member.combat_path}.name`)}</span>}
-                <progress className="gang-fighter-card-bar gang-fighter-card-bar--pv" max="100" value={pct(member.pv, member.pvMax)} />
-                <small className="gang-fighter-card-res">{member.pv}/{member.pvMax} PV</small>
-                {/* PM sempre visível — as habilidades ativas gastam PM e o
-                    jogador precisa saber quanto tem antes de escolher. */}
-                {member.pmMax > 0 && (
-                  <>
-                    <progress className="gang-fighter-card-bar gang-fighter-card-bar--pm" max="100" value={pct(member.pm, member.pmMax)} />
-                    <small className="gang-fighter-card-res gang-fighter-card-res--pm">{member.pm}/{member.pmMax} PM</small>
-                  </>
-                )}
-              </div>
-              {acted && <span className="gang-fighter-card-tag">✓</span>}
-            </button>
-          )
-        })}
-      </div>
-    </section>
+    <div className={`gang-roster gang-roster--${side}`}>
+      {members.map(member => {
+        const dead = member.pv <= 0
+        const acted = side === 'player' && member.actedThisRound
+        const disabled = dead || acted || !selectable
+        const acting = member.key === actingKey && !dead
+        const pathClass = member.combat_path ? `gang-path--${member.combat_path}` : ''
+        return (
+          <button
+            key={member.key}
+            type="button"
+            disabled={disabled}
+            title={fighterName(t, member)}
+            className={`gang-mini ${pathClass} ${dead ? 'gang-mini--dead' : ''} ${selectedKey === member.key ? 'gang-mini--selected' : ''} ${acting ? 'gang-mini--acting' : ''}`}
+            onClick={() => onSelect?.(member.key)}
+          >
+            <span className="gang-mini-avatar">{fighterName(t, member)[0]}</span>
+            <span className="gang-mini-hp"><i style={{ '--pct': `${pct(member.pv, member.pvMax)}%` }} /></span>
+            {acting && member.pmMax > 0 && <span className="gang-mini-pm">{member.pm}</span>}
+            {acted && <span className="gang-mini-tag">✓</span>}
+          </button>
+        )
+      })}
+    </div>
   )
 }
 
@@ -84,6 +72,7 @@ export default function GanguesCombat({ onNavigate }) {
   const [selectedSpecialId, setSelectedSpecialId] = useState(null)
   const [log, setLog] = useState([])
   const [trashOptions, setTrashOptions] = useState([])
+  const [trashAberto, setTrashAberto] = useState(false)
   const processedEvents = useRef(0)
   const logEndRef = useRef(null)
 
@@ -181,6 +170,7 @@ export default function GanguesCombat({ onNavigate }) {
   const sendPlayerTrash = (phrase) => {
     sfx.click()
     setLog(prev => [...prev, { id: `player-trash-${Date.now()}`, kind: 'trash', side: 'player', sender: players[0]?.sheet_name, text: phrase }])
+    setTrashAberto(false)
   }
 
   const handleAttack = () => {
@@ -292,15 +282,34 @@ export default function GanguesCombat({ onNavigate }) {
       <div className="gang-vs-bar">
         <button className="gang-vs-bar-back" onClick={() => onNavigate('lobby')}>{t('games.gangues.btn_sair')}</button>
         <div className="gang-vs-bar-line" />
-        <span className="gang-vs-bar-label">{t('games.gangues.loadout.round', { n: machine.round })}</span>
+        <span className={`gang-vs-bar-turn ${machine.phase === 'player' ? 'gang-vs-bar-turn--player' : machine.phase === 'enemy' ? 'gang-vs-bar-turn--enemy' : ''}`}>
+          {t('games.gangues.loadout.round', { n: machine.round })}
+          {(machine.phase === 'player' || machine.phase === 'enemy') && (
+            <><i className="gang-vs-bar-turn-dot" />{t(machine.phase === 'player' ? 'games.gangues.combat_specials.sua_vez' : 'games.gangues.combat_specials.vez_inimiga')}</>
+          )}
+        </span>
         <div className="gang-vs-bar-line" />
+        {machine.phase === 'player' && !result && trashOptions.length >= 3 && (
+          <div className="gang-trash-toggle-wrap">
+            <button type="button" className="gang-trash-toggle" onClick={() => setTrashAberto(v => !v)} aria-label={t('games.gangues.combat_specials.provocar')}>💬</button>
+            <AnimatePresence>
+              {trashAberto && (
+                <motion.div className="gang-trash-pop" initial={{ opacity: 0, y: -6, scale: 0.96 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: -6, scale: 0.96 }}>
+                  {trashOptions.map((phrase, i) => (
+                    <button key={phrase + i} className="gang-trash-pop-btn" onClick={() => sendPlayerTrash(phrase)}>{phrase}</button>
+                  ))}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+        )}
       </div>
 
       <Roster
-        title={t('games.gangues.party.your_team')}
         members={players} side="player"
         selectable={machine.phase === 'player'}
-        selectedKey={selectedActor} onSelect={setSelectedActor} t={t}
+        selectedKey={selectedActor} onSelect={setSelectedActor}
+        actingKey={machine.currentActor?.key} t={t}
       />
 
       <div className="gang-log-area">
@@ -374,36 +383,14 @@ export default function GanguesCombat({ onNavigate }) {
       </div>
 
       <Roster
-        title={t('games.gangues.party.enemy_team')}
         members={enemies} side="enemy"
         selectable={machine.phase === 'player'}
-        selectedKey={selectedTarget} onSelect={setSelectedTarget} t={t}
+        selectedKey={selectedTarget} onSelect={setSelectedTarget}
+        actingKey={machine.currentActor?.key} t={t}
       />
-
-      {machine.phase === 'player' && !result && trashOptions.length >= 3 && (
-        <div className="gang-trash-player-row">
-          {trashOptions.map((phrase, i) => (
-            <motion.button key={phrase + i} className="gang-trash-player-btn" onClick={() => sendPlayerTrash(phrase)}
-              whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.08 }}>
-              💬 {phrase}
-            </motion.button>
-          ))}
-        </div>
-      )}
 
       {machine.phase === 'player' && !result && (
         <div className="gang-actions-bar">
-          {/* Fica claro de quem é a vez e o que ele pode fazer. */}
-          {actingMember && (
-            <div className="gang-turn-banner">
-              <span className="gang-turn-banner-vez">{t('games.gangues.combat_specials.vez_de')}</span>
-              <strong className="gang-turn-banner-nome">{fighterName(t, actingMember)}</strong>
-              {actingMember.pmMax > 0 && (
-                <span className="gang-turn-banner-mp"><b>{actingMember.pm}</b>/{actingMember.pmMax} PM</span>
-              )}
-            </div>
-          )}
-
           <div className="gang-power-attacks">
             <span className="gang-power-attacks-label">{t('games.gangues.combat_specials.escolha_golpe')}</span>
             <div className="gang-power-attacks-grid">

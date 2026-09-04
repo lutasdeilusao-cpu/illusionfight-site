@@ -646,21 +646,59 @@
 
 @keyframes gang-bar-pulse { from { opacity: 1; } to { opacity: 0.5; } }
 
-/* --- VS divider --- */
+/* --- VS divider: barra fina do topo, carrega o indicador de vez inteiro
+   (round + "sua vez"/"vez inimiga" piscando) e o toggle de trash talk, pra
+   não precisar de um banner extra ocupando altura mais embaixo --- */
 .gang-vs-bar {
-  display: flex; align-items: center; justify-content: center; gap: 12px;
-  padding: 6px 20px; background: rgba(0,0,0,0.3);
+  position: relative;
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  padding: 6px 12px; background: rgba(0,0,0,0.3); flex-shrink: 0;
 }
-.gang-vs-bar-line { flex: 1; height: 1px; background: rgba(255,255,255,0.04); }
-.gang-vs-bar-label {
-  font-size: 10px; color: #2a2a2a; font-family: 'Courier New', monospace; letter-spacing: 4px;
-}
+.gang-vs-bar-line { flex: 0 1 24px; height: 1px; background: rgba(255,255,255,0.04); }
 .gang-vs-bar-back {
   background: none; border: none; color: #2a2a2a; font-size: 10px;
   font-family: 'Courier New', monospace; cursor: pointer; letter-spacing: 1px;
-  padding: 0; transition: color 0.2s;
+  padding: 0; transition: color 0.2s; flex-shrink: 0;
 }
 .gang-vs-bar-back:hover { color: #9aa3ad; }
+
+.gang-vs-bar-turn {
+  display: flex; align-items: center; gap: 6px; flex: 1; justify-content: center;
+  font-size: 10px; color: #4a4a4a; font-family: 'Courier New', monospace; letter-spacing: 2px;
+  white-space: nowrap; overflow: hidden;
+}
+.gang-vs-bar-turn-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+.gang-vs-bar-turn--player { color: var(--if-teal); }
+.gang-vs-bar-turn--player .gang-vs-bar-turn-dot { background: var(--if-teal); animation: gang-turn-blink 1s ease-in-out infinite; }
+.gang-vs-bar-turn--enemy { color: #cc4444; }
+.gang-vs-bar-turn--enemy .gang-vs-bar-turn-dot { background: #cc4444; animation: gang-turn-blink 1s ease-in-out infinite; }
+@keyframes gang-turn-blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.25; } }
+
+/* --- Trash talk: um botão redondo que abre um popover com as 3 frases,
+   em vez de uma fileira inteira sempre visível empurrando o resto --- */
+.gang-trash-toggle-wrap { position: relative; flex-shrink: 0; }
+.gang-trash-toggle {
+  width: 26px; height: 26px; border-radius: 50%;
+  background: rgba(245, 166, 35, 0.08); border: 1px solid rgba(245, 166, 35, 0.25);
+  color: var(--if-amber); font-size: 12px; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.15s, border-color 0.15s;
+}
+.gang-trash-toggle:hover { background: rgba(245, 166, 35, 0.18); border-color: rgba(245, 166, 35, 0.5); }
+.gang-trash-pop {
+  position: absolute; top: calc(100% + 6px); right: 0; z-index: 20;
+  display: flex; flex-direction: column; gap: 4px;
+  width: max-content; max-width: 220px;
+  padding: 6px; border-radius: 10px;
+  background: #101012; border: 1px solid rgba(245, 166, 35, 0.25);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+}
+.gang-trash-pop-btn {
+  padding: 6px 10px; background: rgba(245, 166, 35, 0.06); border: 1px solid rgba(245, 166, 35, 0.15);
+  color: #d9a850; cursor: pointer; font-family: 'Courier New', monospace; font-size: 10px;
+  letter-spacing: 0.3px; border-radius: 8px; text-align: left; transition: all 0.15s;
+}
+.gang-trash-pop-btn:hover { background: rgba(245, 166, 35, 0.16); border-color: rgba(245, 166, 35, 0.4); color: var(--if-amber); }
 
 /* --- Chat log --- */
 .gang-log-area {
@@ -747,43 +785,10 @@
 .gang-attack-card-bonus--critical { background: rgba(220, 45, 55, 0.15); color: #ff6b6b; font-weight: 700; }
 .gang-attack-card-damage-val--zero { color: #8b93a0 !important; font-size: 16px; }
 
-/* --- Player Trash Talk Options --- */
-.gang-trash-player-row {
-  padding: 8px 16px 4px;
-  display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
-  justify-content: center;
-  border-top: 1px solid rgba(255,255,255,0.03);
-  background: rgba(0,0,0,0.3);
-}
-.gang-trash-player-btn {
-  padding: 5px 10px;
-  background: rgba(0, 180, 216, 0.06);
-  border: 1px solid rgba(0, 180, 216, 0.15);
-  color: #7ec8e0;
-  cursor: pointer;
-  font-family: 'Courier New', monospace;
-  font-size: 10px;
-  letter-spacing: 0.5px;
-  border-radius: 12px;
-  transition: all 0.15s;
-  white-space: nowrap;
-  max-width: 220px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  line-height: 1.3;
-}
-.gang-trash-player-btn:hover {
-  background: rgba(0, 180, 216, 0.15);
-  border-color: rgba(0, 180, 216, 0.4);
-  color: var(--if-teal);
-}
-
 /* --- Actions bar (rodapé fixo) --- */
 .gang-actions-bar {
-  padding: 12px 16px 16px; border-top: 1px solid rgba(255,255,255,0.05);
-  background: rgba(0,0,0,0.5); display: flex; flex-direction: column; gap: 8px;
+  padding: 8px 12px 10px; border-top: 1px solid rgba(255,255,255,0.05);
+  background: rgba(0,0,0,0.5); display: flex; flex-direction: column; gap: 6px; flex-shrink: 0;
 }
 .gang-mode-btns { display: flex; gap: 6px; flex-wrap: wrap; }
 .gang-mode-btn {
@@ -810,39 +815,11 @@
 }
 .gang-attack-btn:hover:not(:disabled) { box-shadow: 0 0 20px rgba(139,0,0,0.4); }
 .gang-attack-btn:disabled { opacity: 0.3; cursor: not-allowed; }
-/* ── Vez de quem + escolha do golpe ── */
-.gang-turn-banner {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  padding: 8px 12px;
-  border: 1px solid var(--if-cyan-45);
-  background: var(--if-cyan-08);
-  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
-}
-.gang-turn-banner-vez {
-  font: 700 0.58rem var(--font-mono);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--if-cyan-58);
-}
-.gang-turn-banner-nome {
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 1.05rem;
-  letter-spacing: 0.03em;
-  color: var(--if-cyan);
-}
-.gang-turn-banner-mp {
-  margin-left: auto;
-  font: 700 0.62rem var(--font-mono);
-  color: #c99bf5;
-}
-.gang-turn-banner-mp b { font-size: 0.8rem; color: #d9bdf7; }
-
-.gang-power-attacks { display: flex; flex-direction: column; gap: 6px; }
+/* ── Escolha do golpe — quem age e o PM já aparecem no quadradinho piscando
+   no roster (gang-mini--acting), então esse bloco só precisa dos golpes ── */
+.gang-power-attacks { display: flex; flex-direction: column; gap: 4px; }
 .gang-power-attacks-label {
-  font: 700 0.58rem var(--font-mono);
+  font: 700 0.56rem var(--font-mono);
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--if-cyan-58);
@@ -850,21 +827,21 @@
 .gang-power-attacks-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 6px;
+  gap: 5px;
 }
 .gang-power-attacks-vazio {
   margin: 2px 0 0;
-  font: 400 0.72rem var(--font-body);
-  line-height: 1.4;
+  font: 400 0.7rem var(--font-body);
+  line-height: 1.3;
   color: var(--text-secondary);
 }
 
 .gang-power-btn {
   display: flex;
   flex-direction: column;
-  gap: 2px;
-  min-height: 46px;
-  padding: 8px 10px;
+  gap: 1px;
+  min-height: 36px;
+  padding: 5px 8px;
   text-align: left;
   background: rgba(245, 166, 35, 0.07);
   border: 1px solid rgba(245, 166, 35, 0.3);
@@ -877,11 +854,11 @@
 .gang-power-btn-nome {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 0.9rem;
+  font-size: 0.78rem;
   letter-spacing: 0.02em;
   color: #ffce6b;
 }
-.gang-power-btn small { font-size: 0.6rem; letter-spacing: 0.04em; opacity: 0.85; }
+.gang-power-btn small { font-size: 0.58rem; letter-spacing: 0.04em; opacity: 0.85; }
 .gang-power-btn--normal {
   background: rgba(24, 218, 251, 0.06);
   border-color: var(--if-cyan-45);
@@ -1241,8 +1218,8 @@
   .gang-fighter-bar-val { font-size: 8px; min-width: 24px; }
   .gang-fighter-bar-track { height: 5px; }
 
-  .gang-vs-bar { padding: 3px 12px; gap: 8px; }
-  .gang-vs-bar-label { font-size: 9px; }
+  .gang-vs-bar { padding: 3px 10px; gap: 8px; }
+  .gang-vs-bar-turn { font-size: 9px; }
   .gang-vs-bar-back { font-size: 9px; }
 
   .gang-log-area {
@@ -1936,69 +1913,70 @@
   text-transform: uppercase;
 }
 
-/* Roster de gangue com tamanho variável — escolha de atacante/alvo */
-.gang-team { margin: 12px 0; }
-.gang-team-title { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #a4adb6; margin: 0 0 8px; text-align: center; }
-.gang-team-grid { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
-
-.gang-fighter-card {
-  display: flex; align-items: center; gap: 8px;
-  min-width: 140px; padding: 8px 10px;
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(0, 180, 216, 0.2);
-  border-radius: 10px;
-  cursor: pointer;
-  transition: border-color 0.2s, background 0.2s, transform 0.15s;
-  text-align: left;
+/* Roster compacto — uma fileira de quadradinhos por lado (avatar + anel de
+   PV), não mais o card cheio com nome/barras/rótulo de caminho. É status
+   ambiente, não a informação principal da tela — essa é o chat. */
+.gang-roster {
+  display: flex; flex-wrap: wrap; gap: 6px; justify-content: center;
+  padding: 6px 10px; flex-shrink: 0;
 }
-.gang-fighter-card:hover:not(:disabled) { border-color: rgba(0, 180, 216, 0.6); transform: translateY(-1px); }
-.gang-fighter-card:disabled { opacity: 0.35; cursor: not-allowed; }
-.gang-fighter-card--enemy { border-color: rgba(139, 0, 0, 0.3); }
-.gang-fighter-card--enemy:hover:not(:disabled) { border-color: rgba(220, 20, 20, 0.7); }
-.gang-fighter-card--selected { border-color: var(--if-amber); background: rgba(245, 166, 35, 0.08); box-shadow: 0 0 12px rgba(245, 166, 35, 0.25); }
-.gang-fighter-card--dead { opacity: 0.25; filter: grayscale(1); }
 
-/* Identidade visual por caminho — atacante vermelho, defensor azul, místico roxo,
-   pra dar de cara pra ver quem é quem no time sem precisar ler o nome. */
-.gang-fighter-card.gang-path--atacante { border-left: 3px solid #e05252; }
-.gang-fighter-card.gang-path--atacante .gang-fighter-card-avatar { background: rgba(224, 82, 82, 0.16); color: #ff6b6b; }
-.gang-fighter-card.gang-path--atacante .gang-fighter-card-path-label { color: #ff6b6b; }
-.gang-fighter-card.gang-path--defensor { border-left: 3px solid #3b82f6; }
-.gang-fighter-card.gang-path--defensor .gang-fighter-card-avatar { background: rgba(59, 130, 246, 0.16); color: #6fa8ff; }
-.gang-fighter-card.gang-path--defensor .gang-fighter-card-path-label { color: #6fa8ff; }
-.gang-fighter-card.gang-path--mistico { border-left: 3px solid #a855f4; }
-.gang-fighter-card.gang-path--mistico .gang-fighter-card-avatar { background: rgba(168, 85, 244, 0.16); color: #c084fc; }
-.gang-fighter-card.gang-path--mistico .gang-fighter-card-path-label { color: #c084fc; }
-
-.gang-fighter-card-avatar {
+.gang-mini {
   position: relative;
-  width: 32px; height: 32px; border-radius: 50%;
+  width: 40px; height: 40px; padding: 0;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(0, 180, 216, 0.25);
+  cursor: pointer;
   display: flex; align-items: center; justify-content: center;
-  background: rgba(0, 180, 216, 0.15); color: var(--if-teal);
-  font-weight: 700; font-size: 14px; flex-shrink: 0;
+  transition: border-color 0.2s, background 0.2s, transform 0.15s;
 }
-.gang-fighter-card--enemy .gang-fighter-card-avatar { background: rgba(139, 0, 0, 0.15); color: #cc4444; }
-.gang-fighter-card-path-icon {
-  position: absolute; bottom: -3px; right: -3px; font-size: 11px; line-height: 1;
-  filter: drop-shadow(0 0 2px #000) drop-shadow(0 0 2px #000);
+.gang-mini:hover:not(:disabled) { border-color: rgba(0, 180, 216, 0.6); transform: translateY(-1px); }
+.gang-mini:disabled { cursor: not-allowed; }
+.gang-roster--enemy .gang-mini { border-color: rgba(139, 0, 0, 0.35); }
+.gang-roster--enemy .gang-mini:hover:not(:disabled) { border-color: rgba(220, 20, 20, 0.7); }
+.gang-mini--selected { border-color: var(--if-amber); background: rgba(245, 166, 35, 0.1); box-shadow: 0 0 10px rgba(245, 166, 35, 0.3); }
+.gang-mini--dead { opacity: 0.25; filter: grayscale(1); }
+
+/* Quem age agora pisca — é o indicador de turno inteiro, sem banner de texto. */
+.gang-mini--acting { animation: gang-mini-acting 1s ease-in-out infinite; }
+@keyframes gang-mini-acting {
+  0%, 100% { box-shadow: 0 0 0 1px var(--if-cyan-45), 0 0 10px rgba(24, 218, 251, 0.35); }
+  50% { box-shadow: 0 0 0 1px var(--if-cyan), 0 0 16px rgba(24, 218, 251, 0.7); }
+}
+.gang-roster--enemy .gang-mini--acting {
+  animation-name: gang-mini-acting-enemy;
+}
+@keyframes gang-mini-acting-enemy {
+  0%, 100% { box-shadow: 0 0 0 1px rgba(220, 20, 20, 0.5), 0 0 10px rgba(220, 20, 20, 0.35); }
+  50% { box-shadow: 0 0 0 1px #cc4444, 0 0 16px rgba(220, 20, 20, 0.7); }
 }
 
-.gang-fighter-card-info { display: flex; flex-direction: column; gap: 3px; min-width: 0; flex: 1; }
-.gang-fighter-card-info strong { font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.gang-fighter-card-info small { font-size: 9px; color: #a4adb6; }
-.gang-fighter-card-path-label { font-size: 8px; letter-spacing: 1.5px; text-transform: uppercase; opacity: 0.9; }
-.gang-fighter-card-bar { width: 100%; height: 4px; border: 0; border-radius: 2px; background: rgba(255,255,255,0.08); overflow: hidden; appearance: none; }
-.gang-fighter-card-bar::-webkit-progress-bar { background: rgba(255,255,255,0.08); }
-/* PV = verde-água, PM = roxo. Cores distintas pra bater o olho e saber qual é qual. */
-.gang-fighter-card-bar--pv::-webkit-progress-value { background: #3ddc97; }
-.gang-fighter-card-bar--pv::-moz-progress-bar { background: #3ddc97; }
-.gang-fighter-card-bar--pm::-webkit-progress-value { background: #a855f7; }
-.gang-fighter-card-bar--pm::-moz-progress-bar { background: #a855f7; }
-.gang-fighter-card--enemy .gang-fighter-card-bar--pv::-webkit-progress-value { background: #ff6b6b; }
-.gang-fighter-card--enemy .gang-fighter-card-bar--pv::-moz-progress-bar { background: #ff6b6b; }
-.gang-fighter-card-res { font: 700 9px var(--font-mono); letter-spacing: 0.04em; }
-.gang-fighter-card-res--pm { color: #c99bf5; }
-.gang-fighter-card-tag { color: #22C55E; font-weight: 700; font-size: 12px; }
+/* Identidade visual por caminho — atacante vermelho, defensor azul, místico roxo. */
+.gang-mini.gang-path--atacante { border-left: 3px solid #e05252; }
+.gang-mini.gang-path--atacante .gang-mini-avatar { color: #ff6b6b; }
+.gang-mini.gang-path--defensor { border-left: 3px solid #3b82f6; }
+.gang-mini.gang-path--defensor .gang-mini-avatar { color: #6fa8ff; }
+.gang-mini.gang-path--mistico { border-left: 3px solid #a855f4; }
+.gang-mini.gang-path--mistico .gang-mini-avatar { color: #c084fc; }
+
+.gang-mini-avatar { font-weight: 700; font-size: 13px; color: var(--if-teal); font-family: 'Rajdhani', sans-serif; }
+.gang-roster--enemy .gang-mini-avatar { color: #cc4444; }
+
+/* Anel de PV fino contornando o quadrado — dá pra ler de relance sem barra. */
+.gang-mini-hp {
+  position: absolute; left: 3px; right: 3px; bottom: 3px; height: 3px;
+  border-radius: 2px; background: rgba(255,255,255,0.1); overflow: hidden;
+}
+.gang-mini-hp i { display: block; height: 100%; width: var(--pct, 100%); border-radius: 2px; background: #3ddc97; transition: width 0.4s ease; }
+.gang-roster--enemy .gang-mini-hp i { background: #ff6b6b; }
+
+.gang-mini-pm {
+  position: absolute; top: -5px; left: -5px; min-width: 15px; height: 15px; padding: 0 3px;
+  border-radius: 8px; background: #1a1024; border: 1px solid rgba(168, 85, 247, 0.6);
+  color: #d9bdf7; font: 700 9px var(--font-mono); display: flex; align-items: center; justify-content: center;
+}
+.gang-mini-tag { position: absolute; top: -5px; right: -5px; color: #22C55E; font-weight: 700; font-size: 12px; text-shadow: 0 0 4px #000; }
 
 .gang-attack-stack { display: flex; flex-direction: column; gap: 6px; }
 .gang-attack-card-val--max { color: var(--if-amber); font-weight: 700; }
