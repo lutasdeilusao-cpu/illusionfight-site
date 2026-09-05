@@ -14,8 +14,6 @@ const INTRO_KEY = 'ldi-gangues-naming-intro'
    é ele que os inimigos vão falar, é ele que domina Marelia.
    ══════════════════════════════════════════════════════════════ */
 
-const SUGESTOES = ['bonde', 'firma', 'trilha', 'sindicato', 'quebrada']
-
 export default function GanguesNaming({ onDone, modoEdicao = false }) {
   const { t } = useLanguage()
   const store = useGanguesStore()
@@ -61,13 +59,13 @@ export default function GanguesNaming({ onDone, modoEdicao = false }) {
         </header>
       )}
 
-      <div className="gang-modes-titulo-wrap">
+      <div className="gang-naming-poster">
+        <div className="gang-naming-poster__stamp" aria-hidden="true"><span>LDI</span><b>GANGUES</b></div>
         <span className="if-eyebrow">IF // MARELIA</span>
         <h1 className="gang-modes-titulo">
           {modoEdicao ? t('games.gangues.naming.titulo_editar') : t('games.gangues.naming.titulo')}
         </h1>
-        <p className="gang-naming-sub">{t('games.gangues.naming.sub')}</p>
-      </div>
+        <p>{t('games.gangues.naming.poster_pitch')}</p>
 
       <motion.div className="gang-naming-campo" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}>
         <label htmlFor="gang-nome-input">{t('games.gangues.naming.label')}</label>
@@ -83,25 +81,12 @@ export default function GanguesNaming({ onDone, modoEdicao = false }) {
         />
         <span className="gang-naming-contador">{limpo.length}/28</span>
 
-        <div className="gang-naming-sugestoes">
-          <span>{t('games.gangues.naming.exemplos')}</span>
-          {SUGESTOES.map(s => (
-            <button key={s} type="button" className="gang-naming-chip" onClick={() => setNome(t(`games.gangues.naming.sugestao_${s}`))}>
-              {t(`games.gangues.naming.sugestao_${s}`)}
-            </button>
-          ))}
-        </div>
       </motion.div>
-
-      <div className="gang-naming-preview" aria-hidden={!valido}>
-        {valido
-          ? t('games.gangues.naming.preview', { nome: limpo })
-          : t('games.gangues.naming.preview_vazio')}
-      </div>
 
       <button className="gang-new-sheet gang-new-sheet--primary gang-naming-ok" disabled={!valido} onClick={confirmar}>
         {modoEdicao ? t('games.gangues.naming.salvar') : t('games.gangues.naming.fundar')}
       </button>
+      </div>
     </main>
   )
 }

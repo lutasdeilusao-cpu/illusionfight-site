@@ -26,6 +26,25 @@
   background: var(--if-cyan-12); color: var(--if-teal); font-weight: 900;
 }
 .gang-modes-grid { display: grid; gap: 12px; }
+.gang-modes-gang-button {
+  width: 100%; min-height: 58px; margin: 16px 0 14px; padding: 9px 14px;
+  display: grid; grid-template-columns: 1fr auto; text-align: left;
+  border: 1px solid var(--if-teal); background: linear-gradient(100deg,var(--if-cyan-12),var(--if-panel-flat)); color: var(--text-primary);
+  clip-path: polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,0 100%);
+}
+.gang-modes-gang-button span { font: 900 1rem var(--font-display); text-transform: uppercase; }
+.gang-modes-gang-button small { grid-column: 1; color: var(--if-teal); font: 700 .56rem var(--font-mono); letter-spacing: .08em; text-transform: uppercase; }
+.gang-modes-gang-button b { grid-column: 2; grid-row: 1/3; align-self: center; color: var(--if-teal); }
+.gang-modes-party-modal { position: absolute; inset: 0; z-index: 90; display: flex; align-items: flex-end; padding: 12px; background: color-mix(in srgb,var(--bg-primary) 88%,transparent); backdrop-filter: blur(8px); }
+.gang-modes-party-modal>section { width: 100%; padding: 18px; border: 1px solid var(--if-teal); border-left-width: 4px; background: var(--if-panel-flat); clip-path: polygon(0 0,calc(100% - 14px) 0,100% 14px,100% 100%,0 100%); }
+.gang-modes-party-modal h2 { margin: 6px 0 12px; color: var(--text-primary); font: 900 1.5rem var(--font-display); text-transform: uppercase; }
+.gang-modes-party-modal article { display: flex; align-items: center; gap: 9px; padding: 8px; border-top: 1px solid var(--if-hair); }
+.gang-modes-party-modal article i { width: 32px; height: 32px; display: grid; place-items: center; border: 1px solid var(--if-teal); color: var(--if-teal); font: 900 .9rem var(--font-display); font-style: normal; }
+.gang-modes-party-modal article span { display: grid; }
+.gang-modes-party-modal article strong { color: var(--text-primary); font: 800 .8rem var(--font-display); }
+.gang-modes-party-modal article small { color: var(--text-secondary); font: .55rem var(--font-mono); text-transform: uppercase; }
+.gang-modes-party-modal article>b { margin-left: auto; color: var(--if-amber); }
+.gang-modes-party-modal>section>button { width: 100%; margin-top: 12px; min-height: 42px; border: 1px solid var(--if-teal); background: transparent; color: var(--if-teal); font: 800 .65rem var(--font-mono); text-transform: uppercase; }
 .gang-modes-card {
   --modo-cor: var(--if-amber); position: relative; min-height: 210px; width: 100%; padding: 18px;
   display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-end; gap: 5px;
@@ -58,3 +77,13 @@ button.gang-modes-card { cursor: pointer; }
 .gang-modes-card--locked { opacity: .42; filter: grayscale(.6); }
 .gang-modes-lock { position: absolute; right: 20px; top: 28px; color: var(--if-teal); font: 300 3.2rem/1 var(--font-display); }
 @media (prefers-reduced-motion: reduce) { .gang-modes-card { transition: none; } }
+.gang-naming { justify-content:center; }
+.gang-naming-poster { width:100%; margin:auto 0; padding:24px 18px 20px; border:1px solid var(--if-amber); border-left-width:4px; background:repeating-linear-gradient(165deg,transparent 0 25px,var(--if-amber-16) 26px 27px),linear-gradient(145deg,var(--if-amber-16),var(--if-panel-flat) 48%,var(--bg-primary)); box-shadow:0 24px 70px -42px var(--if-amber); clip-path:polygon(0 0,calc(100% - 16px) 0,100% 16px,100% 100%,0 100%); }
+.gang-naming-poster__stamp { width:82px; height:82px; margin:0 auto 24px; display:grid; place-content:center; border:3px solid var(--if-amber); color:var(--if-amber); text-align:center; transform:rotate(-3deg); }
+.gang-naming-poster__stamp span { font:900 1.7rem/.8 var(--font-title); }
+.gang-naming-poster__stamp b { font:900 .48rem var(--font-mono); letter-spacing:.24em; }
+.gang-naming-poster>.if-eyebrow { color:var(--if-teal); }
+.gang-naming-poster>.gang-modes-titulo { margin-top:8px; font-size:2.2rem; }
+.gang-naming-poster>p { margin:10px 0 20px; color:var(--text-secondary); font-size:.78rem; line-height:1.5; }
+.gang-naming-poster .gang-naming-campo { margin:0; }
+.gang-naming-poster .gang-naming-ok { width:100%; margin-top:16px; }

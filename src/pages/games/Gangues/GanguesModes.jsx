@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { useState } from 'react'
 import { useLanguage } from '../../../context/LanguageContext'
 import { useGanguesStore } from './store/useGanguesStore'
 import { sfx } from '../../../lib/sfx'
@@ -15,6 +16,7 @@ export default function GanguesModes({ onNavigate }) {
   const { t } = useLanguage()
   const store = useGanguesStore()
   const party = store.activeParty
+  const [gangueAberta, setGangueAberta] = useState(false)
 
   if (party.length < 2) { onNavigate('lobby'); return null }
 
@@ -31,26 +33,9 @@ export default function GanguesModes({ onNavigate }) {
         </button>
       </header>
 
-      <div className="gang-modes-titulo-wrap">
-        <span className="if-eyebrow">IF // {store.gangName || t('games.gangues.modes.marelia')}</span>
-        <h1 className="gang-modes-titulo">{t('games.gangues.modes.titulo')}</h1>
-        <p className="gang-modes-intro">{t('games.gangues.modes.intro')}</p>
-      </div>
-
-      <div className="gang-modes-dupla">
-        <span className="gang-modes-dupla-label">
-          {store.gangName ? t('games.gangues.modes.dupla_da_gangue', { gangue: store.gangName }) : t('games.gangues.modes.sua_dupla')}
-        </span>
-        <div className="gang-modes-dupla-lista">
-          {party.map(member => (
-            <span key={member.id} className="gang-modes-dupla-item">
-              <span className="gang-modes-dupla-avatar">{member.sheet_name[0].toUpperCase()}</span>
-              <span className="gang-modes-dupla-nome">{member.sheet_name}</span>
-              <span className="gang-modes-dupla-path">{t(`games.gangues.loadout.paths.${member.combat_path}.name`)}</span>
-            </span>
-          ))}
-        </div>
-      </div>
+      <button className="gang-modes-gang-button" onClick={() => setGangueAberta(true)}>
+        <span>{store.gangName}</span><small>{t('games.gangues.modes.ver_escalacao', { n: party.length })}</small><b>→</b>
+      </button>
 
       <div className="gang-modes-grid">
         <motion.button className="gang-modes-card gang-modes-card--historia" onClick={ir}
@@ -74,6 +59,15 @@ export default function GanguesModes({ onNavigate }) {
           <span className="gang-modes-card-cta">{t('games.gangues.modes.em_breve')}</span>
         </motion.div>
       </div>
+
+      {gangueAberta && <div className="gang-modes-party-modal" onClick={() => setGangueAberta(false)}>
+        <section onClick={event => event.stopPropagation()}>
+          <span className="if-eyebrow">LDI // {store.gangName}</span>
+          <h2>{t('games.gangues.modes.escalacao')}</h2>
+          <div>{party.map(member => <article key={member.id}><i>{member.sheet_name[0]}</i><span><strong>{member.sheet_name}</strong><small>{t(`games.gangues.loadout.paths.${member.combat_path}.name`)}</small></span><b>✓</b></article>)}</div>
+          <button onClick={() => setGangueAberta(false)}>{t('games.gangues.ficha_fechar')}</button>
+        </section>
+      </div>}
     </main>
   )
 }

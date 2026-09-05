@@ -203,3 +203,23 @@
 @media (prefers-reduced-motion: reduce) {
   .gang-fighter-card { transition: none; }
 }
+
+/* Hub limpo: a identidade da gangue e somente as duas decisões reais. */
+.gang-lobby .gang-lobby-hero--compact { margin: 34px 0 18px; text-align: center; }
+.gang-lobby .gang-lobby-hero--compact .gang-lobby-nome {
+  margin: 0; color: var(--if-amber); font: 900 clamp(2.6rem, calc(15 * var(--app-vw) / 100), 4rem)/.9 var(--font-title);
+  letter-spacing: .08em; text-transform: uppercase; text-shadow: 0 0 34px var(--if-amber-16);
+}
+.gang-lobby .gang-onboarding-panel--solo { margin-top: 18px; min-height: calc(100% - 72px); justify-content: center; }
+.gang-home-actions { display: grid; gap: 10px; margin-top: 12px; }
+.gang-home-actions button {
+  width: 100%; min-height: 58px; padding: 0 16px; display: flex; align-items: center; gap: 10px;
+  border: 1px solid var(--if-teal); background: linear-gradient(105deg, var(--if-cyan-12), var(--if-panel-flat));
+  color: var(--text-primary); font: 800 .72rem var(--font-mono); letter-spacing: .1em; text-transform: uppercase;
+  clip-path: polygon(0 0, calc(100% - 11px) 0, 100% 11px, 100% 100%, 0 100%);
+}
+.gang-home-actions button strong { margin-left: auto; color: var(--if-amber); }
+.gang-home-actions button > b { color: var(--if-teal); font-size: 1.1rem; }
+.gang-home-actions .gang-home-actions__play { border-color: var(--if-amber); background: var(--if-amber); color: var(--bg-primary); }
+.gang-home-actions .gang-home-actions__play b { margin-left: auto; color: var(--bg-primary); }
+.gang-roster-drawer { margin-top: 12px; padding: 13px 10px; border: 1px solid var(--if-hair); background: var(--if-panel-flat); }

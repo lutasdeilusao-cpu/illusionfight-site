@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom'
 import GanguesNaming from './GanguesNaming'
 import { sfx } from '../../../lib/sfx'
 import { useGanguesStore } from './store/useGanguesStore'
-import { GANGUES_INITIAL_PARTY_SIZE, GANGUES_MAX_PARTY_SIZE, getGanguesPartySizeLimit, getGanguesProgression, getGanguesRosterLimitComHistoria } from './data/ganguesLoadout.js'
+import { GANGUES_INITIAL_PARTY_SIZE, getGanguesPartySizeLimit, getGanguesProgression, getGanguesRosterLimitComHistoria } from './data/ganguesLoadout.js'
 import { getGanguesSpecials } from './data/ganguesSpecials.js'
 import enemiesData from './data/gangues-enemies.json'
 
@@ -38,6 +38,7 @@ export default function GanguesLobby({ onNavigate }) {
   const [avisoParty, setAvisoParty] = useState('')
   const [avisoPoderes, setAvisoPoderes] = useState(null) // { nomes } — poderes por equipar
   const [renomeando, setRenomeando] = useState(false)
+  const [elencoAberto, setElencoAberto] = useState(false)
   const roster = store.roster
   const party = store.activeParty
   // Cresce por tier pago OU por território dominado na história — vale o maior.
@@ -85,10 +86,10 @@ export default function GanguesLobby({ onNavigate }) {
   // O botão de batalha só avisa quando falta lutador — nunca bloqueia a tela.
   const tentarBatalha = () => {
     if (roster.length < GANGUES_INITIAL_PARTY_SIZE) {
-      sfx.cancel(); setAvisoParty(t('games.gangues.party.need_two', { n: roster.length })); return
+      sfx.cancel(); setElencoAberto(true); setAvisoParty(t('games.gangues.party.need_two', { n: roster.length })); return
     }
     if (party.length < GANGUES_INITIAL_PARTY_SIZE) {
-      sfx.cancel(); setAvisoParty(t('games.gangues.party.select_two', { n: party.length })); return
+      sfx.cancel(); setElencoAberto(true); setAvisoParty(t('games.gangues.party.select_two', { n: party.length })); return
     }
     setAvisoParty('')
 
@@ -118,13 +119,11 @@ export default function GanguesLobby({ onNavigate }) {
 
   return (
     <main className="gang-lobby">
-      <header className="gang-lobby-hero">
-        <p className="gang-lobby-titulo">{t('games.gangues.modo_standalone')} · LDI GANGUES</p>
+      {roster.length > 0 && <header className="gang-lobby-hero gang-lobby-hero--compact">
         <h1 className="gang-lobby-nome">{store.gangName}</h1>
         <button className="gang-lobby-rename" onClick={() => setRenomeando(true)}>✎ {t('games.gangues.naming.renomear')}</button>
-        <p className="gang-lobby-sub">{roster.length < GANGUES_INITIAL_PARTY_SIZE ? t('games.gangues.party.subtitle') : t('games.gangues.party.single_desc')}</p>
       </header>
-      <div className="gang-lobby-divider" />
+      }
 
       {isAdmin && (
         <button className="gang-training-entry" onClick={() => onNavigate('training')}>
@@ -138,7 +137,7 @@ export default function GanguesLobby({ onNavigate }) {
           continua vendo a lista pra poder excluir também a última — nunca
           é empurrado pra criação por ter deletado alguém. */}
       {roster.length === 0 ? (
-        <section className="gang-onboarding-panel">
+        <section className="gang-onboarding-panel gang-onboarding-panel--solo">
           <div className="gang-onboarding-panel__stamp" aria-hidden="true"><span>LDI</span><b>GANGUES</b></div>
           <span className="gang-onboarding-step">{t('games.gangues.recruitment.first_mission')}</span>
           <h2>{t('games.gangues.recruitment.assemble')}</h2>
@@ -150,6 +149,13 @@ export default function GanguesLobby({ onNavigate }) {
         </section>
       ) : (
         <>
+          <div className="gang-home-actions">
+            <button className="gang-home-actions__roster" onClick={() => setElencoAberto(value => !value)}>
+              <span>{t('games.gangues.party.roster')}</span><strong>{party.length}/{partyLimit}</strong><b>{elencoAberto ? '−' : '+'}</b>
+            </button>
+            <button className="gang-home-actions__play" onClick={tentarBatalha}>{t('games.gangues.modes.abrir')} <b>→</b></button>
+          </div>
+          {elencoAberto && <section className="gang-roster-drawer">
           <div className="gang-lobby-section-label gang-lobby-section-label--row"><span>{t('games.gangues.party.roster')}</span><span>{roster.length}/{rosterLimit}</span></div>
           <div className="gang-sheet-list">
             {roster.map(member => {
@@ -181,12 +187,11 @@ export default function GanguesLobby({ onNavigate }) {
             })}
           </div>
           <p className="gang-party-counter">{t('games.gangues.party_size_atual', { n: party.length, max: partyLimit })}</p>
-          {partyLimit < GANGUES_MAX_PARTY_SIZE && <p className="gang-party-counter">{t('games.gangues.party_size_bloqueado')}</p>}
           {avisoParty && <p className="gang-err">{avisoParty}</p>}
           {/* Monta a dupla e segue pra seleção de modo (história / batalha).
               Sempre clicável: se faltar lutador, avisa aqui em vez de bloquear. */}
-          <button className="gang-new-sheet gang-new-sheet--primary" onClick={tentarBatalha}>{t('games.gangues.modes.abrir')}</button>
           {roster.length < rosterLimit && <button className="gang-new-sheet" onClick={startRecruitment}><span className="gang-new-sheet-icon">+</span>{t('games.gangues.recruitment.title')}</button>}
+          </section>}
         </>
       )}
       {avisoPoderes && (
