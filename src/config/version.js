@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.224.0'
+export const SITE_VERSION = '10.225.0'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '1.36.0' // dano minimo garantido de 1 removido (Isaias jogou bastante e nao gostou — defesa bem investida agora pode zerar o golpe de verdade). Botao ⓘ da fichinha tirado (pequeno demais pro celular) — agora tocar no proprio quadradinho abre a ficha quando o toque nao ia selecionar nada de novo (ja selecionado, ou fora da sua vez); continua selecionando normal quando ha o que selecionar.
+export const GANGUES_VERSION   = '1.36.1' // fix: no roster de combate, o segundo personagem do jogador nunca abria a fichinha — a checagem de "pode selecionar" nao considerava se era a vez dele, entao o toque tentava selecionar (sem efeito) em vez de abrir a ficha; agora so quem ta agindo e selecionavel do lado do jogador. Tela de vitoria ganhou aviso quando a ficha aberta tem AP parado esperando ser gasto (store.gainAp agora retorna earnedXp) — o mesmo aviso amarelo que ja existia no lobby, so que na hora, pra nao esquecer de ir distribuir os pontos.
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
 export const MINIGAMES_VERSION = '4.3.4'  // Glitch: safe-area lateral no grid-wrap

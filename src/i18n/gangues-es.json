@@ -72,6 +72,7 @@
         "mission_complete": "INFORME // OPERACIÓN COMPLETADA",
         "mission_failed": "INFORME // OPERACIÓN FALLIDA",
         "victory_message": "Tu pandilla controló el combate. Analiza cada decisión abajo.",
+        "pontos_parados": "{nome} tiene {n} punto(s) sin usar — toca aquí para ir a Progresión",
         "defeat_message": "La pandilla cayó, pero el registro muestra dónde se perdió la lucha.",
         "rounds": "RONDAS",
         "attacks": "ATAQUES",

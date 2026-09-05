@@ -70,9 +70,14 @@ function Roster({ members, side, selectable, selectedKey, onSelect, actingKey, o
       {members.map(member => {
         const dead = member.pv <= 0
         const acted = side === 'player' && member.actedThisRound
-        const podeSelecionar = selectable && !dead && !acted
-        const jaSelecionado = selectedKey === member.key
         const acting = member.key === actingKey && !dead
+        // No lado do jogador só quem tá agindo AGORA é selecionável de
+        // verdade (a ordem de turno decide quem ataca, não o toque) — sem
+        // isso o segundo personagem nunca teria "nada a selecionar" e o
+        // toque tentava selecionar (não fazia nada) em vez de abrir a
+        // fichinha, que era o bug: a ficha só abria em quem tava na vez.
+        const podeSelecionar = selectable && !dead && !acted && (side === 'enemy' || acting)
+        const jaSelecionado = selectedKey === member.key
         const pathClass = member.combat_path ? `gang-path--${member.combat_path}` : ''
         const nome = fighterName(t, member)
         const tocar = () => {

@@ -73,6 +73,7 @@
         "mission_failed": "RELATÓRIO // OPERAÇÃO FRACASSADA",
         "victory_message": "Sua gangue controlou o combate. Analise cada decisão abaixo.",
         "defeat_message": "A gangue caiu, mas o registro mostra onde a luta foi perdida.",
+        "pontos_parados": "{nome} tem {n} ponto(s) parado(s) pra distribuir — toca aqui pra ir na Progressão",
         "rounds": "RODADAS",
         "attacks": "ATAQUES",
         "damage_dealt": "DANO CAUSADO",

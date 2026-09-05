@@ -36,6 +36,13 @@ export default function GanguesVictory({ onNavigate }) {
     && store.roster.length < getGanguesRosterLimitComHistoria(perfil?.tier, store.storyProgress)
   const recrutar = () => { store.newSheet(); onNavigate('create') }
 
+  // Pontos parados esperando serem gastos — o Isaias jogou uma sessão inteira
+  // acumulando AP e só lembrou de voltar pra Progressão quase no fim. Isso
+  // avisa toda vez que a ficha aberta (a que ganhou AP nesta luta) tem ponto
+  // parado, não só na primeira vez que ganhou.
+  const xpParado = store.sheet?.attributes?.progression?.xp_unspent || 0
+  const irProgressao = () => { store.setProgressionTarget(store.sheet.id); onNavigate('progression') }
+
   useEffect(() => {
     if (processed.current) return
     processed.current = true
@@ -108,6 +115,20 @@ export default function GanguesVictory({ onNavigate }) {
         <h1>{victory ? t('games.gangues.vitoria') : t('games.gangues.derrota')}</h1>
         <p>{victory ? t('games.gangues.report.victory_message') : t('games.gangues.report.defeat_message')}</p>
       </motion.header>
+
+      {xpParado > 0 && (
+        <motion.button
+          className="gang-report-levelup"
+          initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
+          onClick={irProgressao}
+        >
+          <span className="gang-report-levelup-icone">⬆</span>
+          <span className="gang-report-levelup-texto">
+            {t('games.gangues.report.pontos_parados', { n: xpParado, nome: store.sheet?.sheet_name || '' })}
+          </span>
+          <span className="gang-report-levelup-seta">→</span>
+        </motion.button>
+      )}
 
       <section className="gang-report-summary">
         <div><span>{t('games.gangues.report.rounds')}</span><strong>{report.rounds}</strong></div>

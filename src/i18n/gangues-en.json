@@ -72,6 +72,7 @@
         "mission_complete": "REPORT // OPERATION COMPLETE",
         "mission_failed": "REPORT // OPERATION FAILED",
         "victory_message": "Your gang controlled the fight. Analyze every decision below.",
+        "pontos_parados": "{nome} has {n} point(s) waiting to be spent — tap here to go to Progression",
         "defeat_message": "The gang fell, but the record shows where the fight was lost.",
         "rounds": "ROUNDS",
         "attacks": "ATTACKS",
