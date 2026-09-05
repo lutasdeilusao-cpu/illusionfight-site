@@ -77,7 +77,12 @@ export default function GanguesRoute({ publicTraining = false }) {
     setFase('combat')
   }, [fase])
 
-  if (!i18nReady) return <div className="gang-page" />
+  if (!i18nReady) return (
+    <div className="gang-page gang-page--loading" role="status" aria-label="LDI Gangues">
+      <span className="gang-loading-mark" aria-hidden="true">LDI</span>
+      <i className="gang-loading-line" aria-hidden="true" />
+    </div>
+  )
 
   return (
     <div className={`gang-page ${fase === 'training' ? 'gang-page--training' : ''} ${fase === 'lobby' ? 'gang-page--lobby' : ''}`}>

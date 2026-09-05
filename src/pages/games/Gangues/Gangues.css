@@ -2503,3 +2503,31 @@
   font: 800 10px 'Rajdhani', sans-serif; letter-spacing: 2px; text-transform: uppercase; cursor: pointer;
 }
 .gang-tip-next:hover { background: rgba(255, 174, 50, 0.22); }
+.gang-page--loading {
+  min-height: 100dvh;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 12px;
+  background: var(--bg-primary);
+}
+.gang-loading-mark {
+  font: 800 1.35rem var(--font-display);
+  letter-spacing: .18em;
+  color: var(--if-cyan);
+}
+.gang-loading-line {
+  width: 96px;
+  height: 2px;
+  overflow: hidden;
+  background: var(--if-ghost);
+}
+.gang-loading-line::after {
+  content: '';
+  display: block;
+  width: 45%;
+  height: 100%;
+  background: var(--if-cyan);
+  animation: gang-loading-scan 1s ease-in-out infinite alternate;
+}
+@keyframes gang-loading-scan { to { transform: translateX(124%); } }
