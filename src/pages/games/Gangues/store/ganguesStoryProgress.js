@@ -1,11 +1,13 @@
 import { supabase } from '../../../../lib/supabase'
 
+const GANGUES_SAVE_VERSION = 2
+
 /** Carrega o progresso do modo história (gangue) do usuário logado. */
 export async function carregarProgressoHistoria(userId) {
   if (!userId) return null
   let { data, error } = await supabase
     .from('gangues_story_progress')
-    .select('gang_name, story_progress, cena_progresso, grana, rep, campaign_clears, event_character_ids')
+    .select('gang_name, story_progress, cena_progresso, grana, rep, campaign_clears, event_character_ids, save_version')
     .eq('user_id', userId)
     .maybeSingle()
   if (error && /(campaign_clears|event_character_ids)/i.test(error.message || '')) {
@@ -14,6 +16,13 @@ export async function carregarProgressoHistoria(userId) {
     error = legacy.error
   }
   if (error || !data) return null
+  if (data.save_version !== GANGUES_SAVE_VERSION) {
+    await supabase.from('gangues_story_progress').delete().eq('user_id', userId)
+    return {
+      gangName: '', storyProgress: {}, cenaProgresso: {}, grana: 0, rep: 0,
+      campaignClears: 0, eventCharacterIds: [],
+    }
+  }
   return {
     gangName: data.gang_name || '',
     storyProgress: data.story_progress || {},
@@ -44,6 +53,7 @@ export async function salvarProgressoHistoria(userId, progresso) {
       rep: rep || 0,
       campaign_clears: campaignClears || 0,
       event_character_ids: eventCharacterIds || [],
+      save_version: GANGUES_SAVE_VERSION,
       atualizada_em: new Date().toISOString(),
     }, { onConflict: 'user_id' })
   if (error && /(campaign_clears|event_character_ids)/i.test(error.message || '')) {

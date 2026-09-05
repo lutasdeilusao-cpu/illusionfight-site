@@ -8,9 +8,6 @@ import { createGanguesTemplateSheet, hydrateGanguesTemplateSheet } from '../data
 // (marcar POI + fôlego + grana + rep) e não faz sentido um upsert por campo.
 let storySaveTimer = null
 
-const LEGACY_PATH_STORAGE = { atacante: 'brutamontes', defensor: 'duelista', mistico: 'canalizador' }
-const LEGACY_STYLE_PATH = { brutamontes: 'atacante', duelista: 'defensor', canalizador: 'mistico' }
-
 /**
  * Retorna o limite máximo de fichas de personagem por tier.
  */
@@ -166,28 +163,7 @@ export const useGanguesStore = create((set, get) => ({
     const request = s.id
       ? supabase.from('character_sheets').update(payload).eq('id', s.id).select('id').maybeSingle()
       : supabase.from('character_sheets').insert(payload).select('id').maybeSingle()
-    let { data, error } = await request
-
-    // Compatibilidade curta até a migration 025 ser aplicada no Supabase oficial.
-    if (error && /(combat_path|character_type|character_template_id)/i.test(error.message || '')) {
-      const legacyPayload = {
-        ...payload,
-        combat_style: LEGACY_PATH_STORAGE[s.combat_path],
-        weapon: 'none',
-        advantages: [],
-        disadvantages: [],
-        perks: [],
-        specializations: [],
-      }
-      delete legacyPayload.combat_path
-      delete legacyPayload.character_type
-      delete legacyPayload.character_template_id
-      const fallback = s.id
-        ? await supabase.from('character_sheets').update(legacyPayload).eq('id', s.id).select('id').maybeSingle()
-        : await supabase.from('character_sheets').insert(legacyPayload).select('id').maybeSingle()
-      data = fallback.data
-      error = fallback.error
-    }
+    const { data, error } = await request
     if (error) { console.error('[GANGUES] Falha ao salvar ficha:', error.message); return null }
     if (!s.id && data) {
       if (data) set(state => ({ sheet: { ...state.sheet, id: data.id } }))
@@ -199,12 +175,7 @@ export const useGanguesStore = create((set, get) => ({
 
   loadSheets: async (userId) => {
     if (!userId) return []
-    let { data, error } = await supabase.from('character_sheets').select('id, sheet_name, attributes, elemental, combat_path, loadout_version, xp_total, enemies_unlocked, character_type, character_template_id').eq('user_id', userId).order('created_at', { ascending: false })
-    if (error && /(combat_path|character_type|character_template_id)/i.test(error.message || '')) {
-      const legacy = await supabase.from('character_sheets').select('id, sheet_name, attributes, elemental, combat_style, loadout_version, xp_total, enemies_unlocked').eq('user_id', userId).order('created_at', { ascending: false })
-      data = (legacy.data || []).map(item => ({ ...item, combat_path: LEGACY_STYLE_PATH[item.combat_style] || null }))
-      error = legacy.error
-    }
+    const { data, error } = await supabase.from('character_sheets').select('id, sheet_name, attributes, elemental, combat_path, loadout_version, xp_total, enemies_unlocked, character_type, character_template_id').eq('user_id', userId).eq('character_type', 'template').order('created_at', { ascending: false })
     if (error) console.error('[GANGUES] Falha ao carregar fichas:', error.message)
     const roster = Array.isArray(data) ? data.map(item => {
       const templateId = item.character_template_id || item.attributes?.character_template_id
