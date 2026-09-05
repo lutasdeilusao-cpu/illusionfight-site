@@ -275,7 +275,7 @@
 .gang-cena-tomado .gang-cena-btn { flex: none; min-width: 200px; margin-top: 8px; }
 
 /* ══ A Pista 2.4 — bairro explorável ═════════════════════════ */
-.gang-cena-worldpage { position:relative; height:calc(100dvh - var(--guest-notice-h, 0px)); min-height:620px; overflow:hidden; background:#030609; color:#fff; }
+.gang-cena-worldpage { position:relative; width:100%; align-self:stretch; flex:1 1 auto; min-width:0; height:calc(100dvh - var(--guest-notice-h, 0px)); min-height:620px; overflow:hidden; background:#030609; color:#fff; }
 .gang-cena-worldhud { position:absolute; z-index:30; inset:12px 12px auto; height:42px; display:flex; align-items:center; justify-content:space-between; gap:8px; padding:0 10px; border:1px solid #284047; background:rgba(3,8,11,.9); backdrop-filter:blur(8px); clip-path:polygon(0 0,calc(100% - 9px) 0,100% 9px,100% 100%,0 100%); }
 .gang-cena-worldhud button { color:var(--if-cyan); border:0; background:none; font:800 .62rem var(--font-mono); letter-spacing:.1em; }
 .gang-cena-worldhud strong { font:800 .72rem var(--font-display); letter-spacing:.08em; white-space:nowrap; }
