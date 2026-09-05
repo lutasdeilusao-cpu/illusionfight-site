@@ -22,7 +22,19 @@ export default function GanguesProgression({ onNavigate }) {
   const [pendente, setPendente] = useState(null) // { change, meta } aguardando confirmação
   const [destaque, setDestaque] = useState(null) // id do poder recém-comprado, pra dar feedback
 
-  const voltar = () => { store.setProgressionTarget(null); onNavigate('lobby') }
+  // Se a Vitória empurrou o jogador pra cá por causa de ponto parado, guardou
+  // ali o que ele faria em seguida — o voltar retoma isso em vez de ir pro
+  // lobby, terminando ou não de distribuir.
+  const voltar = () => {
+    store.setProgressionTarget(null)
+    const acao = store.posVitoriaAcao
+    if (acao) {
+      store.setPosVitoriaAcao(null)
+      acao()
+    } else {
+      onNavigate('lobby')
+    }
+  }
 
   const aplicar = async (change) => {
     if (!member || !change) return

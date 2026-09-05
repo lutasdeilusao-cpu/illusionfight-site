@@ -36,12 +36,19 @@ export default function GanguesVictory({ onNavigate }) {
     && store.roster.length < getGanguesRosterLimitComHistoria(perfil?.tier, store.storyProgress)
   const recrutar = () => { store.newSheet(); onNavigate('create') }
 
-  // Pontos parados esperando serem gastos — o Isaias jogou uma sessão inteira
-  // acumulando AP e só lembrou de voltar pra Progressão quase no fim. Isso
-  // avisa toda vez que a ficha aberta (a que ganhou AP nesta luta) tem ponto
-  // parado, não só na primeira vez que ganhou.
-  const xpParado = store.sheet?.attributes?.progression?.xp_unspent || 0
-  const irProgressao = () => { store.setProgressionTarget(store.sheet.id); onNavigate('progression') }
+  // Pra onde o jogador iria depois desta vitória, se não tivesse ponto parado
+  // pra distribuir — mesma lógica dos botões do rodapé, sem a opção de recrutar
+  // (recrutar é um desvio opcional, não "o que ele tava fazendo").
+  const acaoPosVitoria = () => {
+    if (confrontoFinal && victory) { onNavigate('story'); return }
+    if (cenaChefe && victory) { onNavigate('story'); return }
+    if (noModoHistoria) {
+      store.setStoryTarget({ territorioId: storyAlvo.territorioId })
+      onNavigate('territorio')
+      return
+    }
+    onNavigate('lobby')
+  }
 
   useEffect(() => {
     if (processed.current) return
@@ -70,6 +77,17 @@ export default function GanguesVictory({ onNavigate }) {
       sfx.win()
     } else sfx.lose()
     const timer = setTimeout(() => store.saveToCloud(user?.id), 400)
+
+    // Ficha ganhou ponto parado nesta luta (ou já tinha)? Level up de verdade:
+    // manda direto pra tela de distribuição, igual qualquer jogo faria — não
+    // é só um aviso. O "voltar" de lá retoma exatamente o que aconteceria aqui.
+    const xpAgora = useGanguesStore.getState().sheet?.attributes?.progression?.xp_unspent || 0
+    if (xpAgora > 0) {
+      store.setPosVitoriaAcao(() => acaoPosVitoria)
+      store.setProgressionTarget(store.sheet.id)
+      onNavigate('progression')
+    }
+
     return () => clearTimeout(timer)
   }, [])
 
@@ -115,20 +133,6 @@ export default function GanguesVictory({ onNavigate }) {
         <h1>{victory ? t('games.gangues.vitoria') : t('games.gangues.derrota')}</h1>
         <p>{victory ? t('games.gangues.report.victory_message') : t('games.gangues.report.defeat_message')}</p>
       </motion.header>
-
-      {xpParado > 0 && (
-        <motion.button
-          className="gang-report-levelup"
-          initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
-          onClick={irProgressao}
-        >
-          <span className="gang-report-levelup-icone">⬆</span>
-          <span className="gang-report-levelup-texto">
-            {t('games.gangues.report.pontos_parados', { n: xpParado, nome: store.sheet?.sheet_name || '' })}
-          </span>
-          <span className="gang-report-levelup-seta">→</span>
-        </motion.button>
-      )}
 
       <section className="gang-report-summary">
         <div><span>{t('games.gangues.report.rounds')}</span><strong>{report.rounds}</strong></div>

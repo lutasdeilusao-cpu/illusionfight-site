@@ -46,6 +46,13 @@ export const useGanguesStore = create((set, get) => ({
   progressionTargetId: null,
   setProgressionTarget: (id) => set({ progressionTargetId: id }),
 
+  // Quando a vitória empurra o jogador pra Progressão pra gastar AP parado,
+  // guarda aqui o que ele faria em seguida (continuar território, voltar pro
+  // mapa etc.) — o botão "voltar" da Progressão executa isso em vez de ir
+  // sempre pro lobby, retomando o fluxo pós-vitória de onde ele parou.
+  posVitoriaAcao: null,
+  setPosVitoriaAcao: (fn) => set({ posVitoriaAcao: fn }),
+
   newSheet: () => set({ sheet: defaultSheet() }),
 
   updateSheet: (partial) => set(state => ({ sheet: { ...state.sheet, ...partial } })),
