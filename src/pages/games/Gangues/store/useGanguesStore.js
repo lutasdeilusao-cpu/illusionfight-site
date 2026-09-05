@@ -281,7 +281,7 @@ export const useGanguesStore = create((set, get) => ({
 
   // ── Modo história: a CENA (bairro navegável) ──
   // Economia leve + progresso por cena.
-  // cenaProgresso: { [cenaId]: { resolvidos: {poiId:true}, revelados: {poiId:true}, boss: bool, folego: 0..100 } }
+  // cenaProgresso: { [cenaId]: { resolvidos, revelados, boss, folego, posicao:{x,y} } }
   grana: 0,
   rep: 0,
   campaignClears: 0,
@@ -365,6 +365,15 @@ export const useGanguesStore = create((set, get) => ({
   },
 
   restaurarFolego: (cenaId) => get().ajustarFolego(cenaId, 100),
+
+  salvarPosicaoCena: (cenaId, posicao) => {
+    if (!cenaId || !Number.isFinite(posicao?.x) || !Number.isFinite(posicao?.y)) return
+    set(state => {
+      const atual = state.cenaProgresso[cenaId] || { resolvidos: {}, revelados: {}, boss: false, folego: 100 }
+      return { cenaProgresso: { ...state.cenaProgresso, [cenaId]: { ...atual, posicao: { x: Math.round(posicao.x), y: Math.round(posicao.y) } } } }
+    })
+    get()._persistCena()
+  },
 
   // Dominar o território a partir da cena: marca todos os pontos + o chefe,
   // pra estadoTerritorio() reconhecer 'dominado' e a próxima região abrir.
