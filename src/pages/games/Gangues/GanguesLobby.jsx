@@ -64,6 +64,17 @@ export default function GanguesLobby({ onNavigate }) {
     store.loadSheets(user.id).finally(() => setLoading(false))
   }, [user])
 
+  // Sem elenco pra escolher de verdade (tudo que existe cabe no limite da
+  // gangue), não faz sentido obrigar o jogador a marcar manualmente quem vai
+  // pra batalha — os únicos lutadores que tem já são os que têm que ir. Só
+  // preenche sozinho quando ninguém nunca escolheu nada (não briga com quem
+  // já desmarcou alguém de propósito).
+  useEffect(() => {
+    if (party.length === 0 && roster.length > 0) {
+      store.setActiveParty(roster.slice(0, partyLimit))
+    }
+  }, [roster.length, partyLimit])
+
   const startRecruitment = () => {
     if (roster.length >= rosterLimit) return
     sfx.click()
