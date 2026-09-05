@@ -85,7 +85,6 @@ export default function GanguesRoute({ publicTraining = false }) {
       {fase === 'lobby' && <GanguesLobby onNavigate={setFase} />}
       {fase === 'create' && (
         <GanguesCreate
-          key={store.roster.length}
           onNavigate={setFase}
           onCreated={() => {
             const roster = useGanguesStore.getState().roster

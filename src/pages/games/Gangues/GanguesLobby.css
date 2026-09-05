@@ -8,29 +8,198 @@
   touch-action: auto;
 }
 
-/* renomear a gangue — chip discreto abaixo do nome no lobby */
 .gang-lobby-rename {
-  margin: 6px auto 0; padding: 3px 10px;
-  font: 700 0.6rem var(--font-mono); letter-spacing: 0.08em;
-  text-transform: uppercase; color: var(--text-secondary);
-  background: transparent; border: 1px solid var(--if-hair);
-  cursor: pointer; transition: color 0.15s, border-color 0.15s;
+  margin: 6px auto 0;
+  padding: 3px 10px;
+  border: 1px solid var(--if-hair);
+  background: transparent;
+  color: var(--text-secondary);
+  font: 700 .6rem var(--font-mono);
+  letter-spacing: .08em;
+  text-transform: uppercase;
 }
+
 .gang-lobby-rename:hover { color: var(--if-teal); border-color: var(--if-teal); }
 
-.gang-character-select { padding-bottom: 28px; }
-.gang-character-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; padding: 12px 8px; }
-.gang-character-card { min-height: 94px; padding: 9px 6px; border: 1px solid var(--if-hair); background: var(--if-panel); color: var(--text-primary); display: flex; flex-direction: column; align-items: center; gap: 4px; clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%); }
-.gang-character-card--selected { border-color: var(--if-cyan); box-shadow: inset 0 -2px var(--if-cyan); }
-.gang-character-card--locked { opacity: .42; }
-.gang-character-card strong { font-family: var(--font-title); text-transform: uppercase; }
-.gang-character-card small { font: 9px var(--font-mono); text-transform: uppercase; }
-.gang-character-mark { width: 30px; height: 30px; display: grid; place-items: center; border: 1px solid currentColor; }
-.gang-character-detail { margin: 4px 8px 14px; padding: 14px; border: 1px solid var(--if-hair); background: var(--if-panel); display: grid; grid-template-columns: 56px 1fr; gap: 12px; }
-.gang-character-detail-avatar { width: 56px; height: 56px; display: grid; place-items: center; font: 28px var(--font-title); border: 1px solid currentColor; }
-.gang-character-detail h2, .gang-character-detail p { margin: 0; }
-.gang-character-detail p { color: var(--text-secondary); font-size: 13px; }
-.gang-character-stats { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
-.gang-character-stats span { padding: 7px; border: 1px solid var(--if-hair); text-align: center; display: grid; }
-.gang-character-technique { grid-column: 1 / -1; padding-top: 10px; border-top: 1px solid var(--if-hair); display: grid; gap: 3px; }
-.gang-character-technique span { color: var(--text-secondary); font-size: 12px; }
+/* Primeiro contato: convocação de rua, não formulário de criação. */
+.gang-lobby .gang-onboarding-panel {
+  position: relative;
+  width: calc(100% - 16px);
+  max-width: none;
+  padding: 32px 18px 22px;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--if-amber) 45%, transparent);
+  background:
+    linear-gradient(155deg, color-mix(in srgb, var(--if-amber) 13%, transparent), transparent 45%),
+    repeating-linear-gradient(-12deg, transparent 0 15px, color-mix(in srgb, var(--if-cyan) 5%, transparent) 16px 17px),
+    var(--if-panel);
+  box-shadow: 8px 8px 0 color-mix(in srgb, var(--if-cyan) 10%, transparent);
+  clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 0 100%);
+}
+
+.gang-onboarding-panel__stamp {
+  width: 98px;
+  height: 98px;
+  margin: 0 auto 20px;
+  border: 3px solid var(--if-amber);
+  color: var(--if-amber);
+  display: grid;
+  place-content: center;
+  transform: rotate(-4deg);
+  text-transform: uppercase;
+  box-shadow: inset 0 0 0 5px var(--if-panel), inset 0 0 0 6px var(--if-amber);
+}
+
+.gang-onboarding-panel__stamp span { font: 900 30px var(--font-title); line-height: .8; }
+.gang-onboarding-panel__stamp b { font: 700 10px var(--font-mono); letter-spacing: 3px; }
+.gang-lobby .gang-onboarding-panel h2 { margin: 12px 0 8px; font-size: 30px; line-height: .95; }
+.gang-lobby .gang-onboarding-panel p { max-width: 330px; font-size: 12px; }
+
+.gang-onboarding-panel__slots {
+  margin: 24px auto 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+.gang-onboarding-panel__slots i {
+  width: 58px;
+  height: 68px;
+  display: grid;
+  place-items: center;
+  border: 1px dashed var(--if-cyan);
+  color: var(--if-cyan);
+  background: color-mix(in srgb, var(--if-cyan) 7%, transparent);
+  font: 700 24px var(--font-title);
+  transform: skew(-3deg);
+}
+
+.gang-onboarding-panel__slots span { color: var(--if-amber); font: 700 22px var(--font-title); }
+
+/* Recrutamento */
+.gang-recruit {
+  position: relative;
+  min-height: 100dvh;
+  overflow: hidden;
+  padding: 22px 0 28px;
+  background:
+    radial-gradient(circle at 50% 28%, color-mix(in srgb, var(--if-cyan) 13%, transparent), transparent 37%),
+    linear-gradient(180deg, var(--bg-primary), color-mix(in srgb, var(--if-amber) 5%, var(--bg-primary)));
+}
+
+.gang-recruit::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: .22;
+  background: repeating-linear-gradient(90deg, transparent 0 31px, var(--if-hair) 32px);
+}
+
+.gang-recruit__head { position: relative; z-index: 2; padding: 0 46px 10px; text-align: center; }
+.gang-recruit__head h1 { margin: 8px 0 5px; color: var(--if-amber); font: 900 30px/.9 var(--font-title); letter-spacing: 2px; text-transform: uppercase; }
+.gang-recruit__head p { margin: 0; color: var(--text-secondary); font-size: 11px; line-height: 1.45; }
+.gang-recruit__back { position: absolute; top: 0; left: 10px; width: 34px; height: 34px; border: 1px solid var(--if-hair); background: var(--if-panel); color: var(--if-cyan); font-size: 20px; }
+
+.gang-recruit__stage { position: relative; height: 390px; display: grid; place-items: center; }
+.gang-recruit__street { position: absolute; inset: 15% 0 0; overflow: hidden; background: linear-gradient(transparent, color-mix(in srgb, var(--if-panel) 92%, transparent)); }
+.gang-recruit__street::before, .gang-recruit__street::after { content: ''; position: absolute; bottom: 0; width: 32%; height: 70%; border-top: 2px solid var(--if-hair); background: repeating-linear-gradient(90deg, var(--if-panel) 0 17px, color-mix(in srgb, var(--if-cyan) 8%, var(--if-panel)) 18px 24px); transform: skewY(-14deg); }
+.gang-recruit__street::before { left: -4%; }
+.gang-recruit__street::after { right: -4%; transform: skewY(14deg); }
+.gang-recruit__street i { position: absolute; bottom: 0; left: 49.5%; width: 1px; height: 48%; background: var(--if-amber); opacity: .45; transform: rotate(12deg); transform-origin: bottom; }
+.gang-recruit__slides { position: relative; width: 100%; height: 100%; }
+
+.gang-fighter-card {
+  position: absolute;
+  top: 18px;
+  width: 242px;
+  height: 350px;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid var(--if-hair);
+  background: var(--if-panel);
+  color: var(--text-primary);
+  text-align: left;
+  clip-path: polygon(0 0, calc(100% - 22px) 0, 100% 22px, 100% 100%, 0 100%);
+  transition: filter .2s, border-color .2s;
+}
+
+.gang-fighter-card--current { left: calc(50% - 121px); z-index: 3; border-color: color-mix(in srgb, var(--if-cyan) 60%, var(--if-hair)); box-shadow: 0 18px 50px color-mix(in srgb, var(--bg-primary) 70%, transparent); }
+.gang-fighter-card--prev, .gang-fighter-card--next { top: 48px; width: 188px; height: 292px; z-index: 1; opacity: .36 !important; filter: saturate(.25); }
+.gang-fighter-card--prev { right: calc(50% + 92px); }
+.gang-fighter-card--next { left: calc(50% + 92px); }
+.gang-fighter-card--selected { border-color: var(--if-amber); box-shadow: inset 0 -4px var(--if-amber), 0 0 34px color-mix(in srgb, var(--if-amber) 20%, transparent); }
+.gang-fighter-card__number { position: absolute; z-index: 3; top: 13px; left: 14px; color: var(--text-secondary); font: 700 10px var(--font-mono); letter-spacing: 2px; }
+.gang-fighter-card__selected { position: absolute; z-index: 4; top: 10px; right: 13px; padding: 4px 7px; background: var(--if-amber); color: var(--bg-primary); font: 900 9px var(--font-mono); text-transform: uppercase; }
+
+.gang-fighter-card__portrait { position: relative; height: 232px; display: grid; place-items: end center; overflow: hidden; background: linear-gradient(150deg, color-mix(in srgb, var(--if-cyan) 14%, var(--if-panel-flat)), var(--if-panel-flat)); }
+.gang-fighter-card--defensor .gang-fighter-card__portrait { background: linear-gradient(150deg, color-mix(in srgb, var(--if-amber) 17%, var(--if-panel-flat)), var(--if-panel-flat)); }
+.gang-fighter-card--mistico .gang-fighter-card__portrait { background: linear-gradient(150deg, color-mix(in srgb, var(--if-violet) 18%, var(--if-panel-flat)), var(--if-panel-flat)); }
+.gang-fighter-card__portrait::before { content: ''; position: absolute; width: 132px; height: 195px; bottom: -24px; border-radius: 52% 52% 8% 8%; background: currentColor; opacity: .13; box-shadow: 0 -72px 0 -28px currentColor; }
+.gang-fighter-card__portrait i { position: relative; z-index: 2; margin-bottom: 20px; color: color-mix(in srgb, var(--text-primary) 25%, transparent); font: 900 138px/.7 var(--font-title); font-style: normal; text-shadow: 5px 5px 0 color-mix(in srgb, var(--if-cyan) 22%, transparent); }
+.gang-fighter-card__portrait b { position: absolute; right: 12px; bottom: 10px; color: var(--if-cyan); font: 900 42px var(--font-title); opacity: .36; }
+.gang-fighter-card__copy { display: grid; padding: 12px 14px 6px; }
+.gang-fighter-card__copy small { color: var(--if-cyan); font: 800 9px var(--font-mono); letter-spacing: 2px; text-transform: uppercase; }
+.gang-fighter-card__copy strong { font: 900 30px/.95 var(--font-title); letter-spacing: 1px; text-transform: uppercase; }
+.gang-fighter-card__copy em { color: var(--text-secondary); font: 700 11px var(--font-mono); font-style: normal; text-transform: uppercase; }
+.gang-fighter-card__cta { position: absolute; right: 13px; bottom: 10px; color: var(--if-amber); font: 800 9px var(--font-mono); letter-spacing: 1px; text-transform: uppercase; }
+
+.gang-recruit__arrow { position: absolute; z-index: 5; top: 44%; width: 38px; height: 52px; border: 1px solid var(--if-hair); background: color-mix(in srgb, var(--bg-primary) 86%, transparent); color: var(--if-cyan); font-size: 30px; }
+.gang-recruit__arrow--left { left: 5px; }
+.gang-recruit__arrow--right { right: 5px; }
+.gang-recruit__dots { position: relative; z-index: 3; display: flex; justify-content: center; gap: 8px; margin-top: -6px; }
+.gang-recruit__dots button { width: 18px; height: 3px; padding: 0; border: 0; background: var(--if-hair); }
+.gang-recruit__dots button.is-active { width: 34px; background: var(--if-cyan); }
+
+.gang-recruit__picks { position: relative; z-index: 2; margin: 18px 8px 0; padding: 15px; border-top: 1px solid var(--if-hair); background: color-mix(in srgb, var(--if-panel-flat) 76%, transparent); }
+.gang-recruit__picks > div:first-child { display: flex; justify-content: space-between; color: var(--text-secondary); font: 700 10px var(--font-mono); letter-spacing: 2px; text-transform: uppercase; }
+.gang-recruit__picks > div:first-child strong { color: var(--if-amber); }
+.gang-recruit__slots { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-top: 10px; }
+.gang-recruit__slots button { min-height: 48px; padding: 6px 9px; border: 1px dashed var(--if-hair); background: transparent; color: var(--text-secondary); display: flex; align-items: center; gap: 8px; }
+.gang-recruit__slots button.is-filled { border-style: solid; border-color: var(--if-amber); color: var(--text-primary); }
+.gang-recruit__slots b { width: 30px; height: 30px; display: grid; place-items: center; background: color-mix(in srgb, var(--if-cyan) 12%, transparent); color: var(--if-cyan); font: 900 18px var(--font-title); }
+.gang-recruit__slots span { font: 800 11px var(--font-mono); text-transform: uppercase; }
+.gang-recruit__slots i { margin-left: auto; color: var(--if-amber); font-style: normal; }
+.gang-recruit__confirm { width: 100%; min-height: 50px; margin-top: 12px; border: 1px solid var(--if-amber); background: var(--if-amber); color: var(--bg-primary); font: 900 12px var(--font-mono); letter-spacing: 2px; text-transform: uppercase; clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%); }
+.gang-recruit__confirm:disabled { border-color: var(--if-hair); background: transparent; color: var(--text-secondary); opacity: .45; }
+
+/* Ficha modal */
+.gang-sheet-modal { position: fixed; z-index: 1200; inset: 0 var(--app-gutter); display: grid; align-items: end; padding: 10px; }
+.gang-sheet-modal__scrim { position: absolute; inset: 0; border: 0; background: color-mix(in srgb, var(--bg-primary) 88%, transparent); backdrop-filter: blur(7px); }
+.gang-sheet-modal__card { position: relative; width: 100%; max-height: 88dvh; overflow-y: auto; padding: 16px; border: 1px solid var(--if-cyan); background: var(--if-panel); color: var(--text-primary); box-shadow: 0 -18px 70px color-mix(in srgb, var(--if-cyan) 16%, transparent); clip-path: polygon(0 0, calc(100% - 22px) 0, 100% 22px, 100% 100%, 0 100%); }
+.gang-sheet-modal__card--defensor { border-color: var(--if-amber); }
+.gang-sheet-modal__card--mistico { border-color: var(--if-violet); }
+.gang-sheet-modal__close { position: absolute; z-index: 3; top: 10px; right: 10px; width: 34px; height: 34px; border: 1px solid var(--if-hair); background: var(--bg-primary); color: var(--text-primary); font-size: 22px; }
+.gang-sheet-modal__hero { min-height: 154px; padding: 12px 112px 10px 4px; position: relative; overflow: hidden; }
+.gang-sheet-modal__hero > span { color: var(--if-cyan); font: 700 10px var(--font-mono); letter-spacing: 2px; }
+.gang-sheet-modal__hero > i { position: absolute; right: 12px; bottom: -14px; color: color-mix(in srgb, var(--if-cyan) 16%, transparent); font: 900 150px/.8 var(--font-title); font-style: normal; }
+.gang-sheet-modal__hero small { display: block; margin-top: 28px; color: var(--if-amber); font: 800 9px var(--font-mono); letter-spacing: 2px; text-transform: uppercase; }
+.gang-sheet-modal__hero h2 { position: relative; margin: 2px 0 0; font: 900 38px/.9 var(--font-title); text-transform: uppercase; }
+.gang-sheet-modal__hero p { position: relative; margin: 4px 0 0; color: var(--text-secondary); font: 700 11px var(--font-mono); text-transform: uppercase; }
+.gang-sheet-modal__stats { display: grid; gap: 6px; }
+.gang-sheet-modal__stats > div { display: grid; grid-template-columns: 1fr 28px 92px; align-items: center; gap: 8px; padding: 6px 8px; border-left: 2px solid var(--if-cyan); background: color-mix(in srgb, var(--if-cyan) 5%, transparent); }
+.gang-sheet-modal__stats span { font: 700 10px var(--font-mono); text-transform: uppercase; }
+.gang-sheet-modal__stats strong { font: 900 18px var(--font-title); text-align: center; }
+.gang-sheet-modal__stats i { display: flex; gap: 3px; }
+.gang-sheet-modal__stats i b { width: 15px; height: 4px; background: var(--if-hair); }
+.gang-sheet-modal__stats i b.is-on { background: var(--if-cyan); }
+.gang-sheet-modal__resources { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 8px; }
+.gang-sheet-modal__resources > span { padding: 8px 12px; border: 1px solid var(--if-hair); display: flex; justify-content: space-between; align-items: center; }
+.gang-sheet-modal__resources small { color: var(--text-secondary); font: 800 10px var(--font-mono); }
+.gang-sheet-modal__resources strong { color: var(--if-amber); font: 900 24px var(--font-title); }
+.gang-sheet-modal__technique { margin-top: 8px; padding: 10px 12px; border: 1px solid var(--if-hair); display: grid; grid-template-columns: 1fr auto; }
+.gang-sheet-modal__technique small { grid-column: 1 / -1; color: var(--text-secondary); font: 700 8px var(--font-mono); letter-spacing: 2px; text-transform: uppercase; }
+.gang-sheet-modal__technique strong { color: var(--if-cyan); text-transform: uppercase; }
+.gang-sheet-modal__technique span { color: var(--if-amber); font: 700 11px var(--font-mono); }
+.gang-sheet-modal__select { width: 100%; min-height: 50px; margin-top: 12px; border: 1px solid var(--if-cyan); background: var(--if-cyan); color: var(--bg-primary); font: 900 12px var(--font-mono); letter-spacing: 2px; text-transform: uppercase; }
+.gang-sheet-modal__select.is-selected { border-color: var(--if-amber); background: transparent; color: var(--if-amber); }
+
+@media (max-width: 370px) {
+  .gang-fighter-card { width: 220px; left: calc(50% - 110px); }
+  .gang-recruit__head h1 { font-size: 26px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gang-fighter-card { transition: none; }
+}

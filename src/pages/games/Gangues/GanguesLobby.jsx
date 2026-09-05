@@ -63,7 +63,7 @@ export default function GanguesLobby({ onNavigate }) {
     store.loadSheets(user.id).finally(() => setLoading(false))
   }, [user])
 
-  const startCreation = () => {
+  const startRecruitment = () => {
     if (roster.length >= rosterLimit) return
     sfx.click()
     store.newSheet()
@@ -139,11 +139,13 @@ export default function GanguesLobby({ onNavigate }) {
           é empurrado pra criação por ter deletado alguém. */}
       {roster.length === 0 ? (
         <section className="gang-onboarding-panel">
-          <span className="gang-onboarding-step">01 / 0{GANGUES_INITIAL_PARTY_SIZE}</span>
-          <h2>{t('games.gangues.party.create_member', { n: 1 })}</h2>
-          <p>{t('games.gangues.party.onboarding')}</p>
-          <button className="gang-new-sheet gang-new-sheet--primary" onClick={startCreation}>
-            <span className="gang-new-sheet-icon">+</span>{t('games.gangues.party.start')}
+          <div className="gang-onboarding-panel__stamp" aria-hidden="true"><span>LDI</span><b>GANGUES</b></div>
+          <span className="gang-onboarding-step">{t('games.gangues.recruitment.first_mission')}</span>
+          <h2>{t('games.gangues.recruitment.assemble')}</h2>
+          <p>{t('games.gangues.recruitment.lobby_pitch')}</p>
+          <div className="gang-onboarding-panel__slots" aria-hidden="true"><i>?</i><span>+</span><i>?</i></div>
+          <button className="gang-new-sheet gang-new-sheet--primary" onClick={startRecruitment}>
+            <span className="gang-new-sheet-icon">⚡</span>{t('games.gangues.recruitment.enter')}
           </button>
         </section>
       ) : (
@@ -184,7 +186,7 @@ export default function GanguesLobby({ onNavigate }) {
           {/* Monta a dupla e segue pra seleção de modo (história / batalha).
               Sempre clicável: se faltar lutador, avisa aqui em vez de bloquear. */}
           <button className="gang-new-sheet gang-new-sheet--primary" onClick={tentarBatalha}>{t('games.gangues.modes.abrir')}</button>
-          {roster.length < rosterLimit && <button className="gang-new-sheet" onClick={startCreation}><span className="gang-new-sheet-icon">+</span>{t('games.gangues.nova_ficha')}</button>}
+          {roster.length < rosterLimit && <button className="gang-new-sheet" onClick={startRecruitment}><span className="gang-new-sheet-icon">+</span>{t('games.gangues.recruitment.title')}</button>}
         </>
       )}
       {avisoPoderes && (

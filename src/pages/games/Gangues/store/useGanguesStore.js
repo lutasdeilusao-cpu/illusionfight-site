@@ -76,7 +76,7 @@ export const useGanguesStore = create((set, get) => ({
 
   setActiveParty: (activeParty) => set({ activeParty }),
   addLocalSheet: (sheet) => {
-    const saved = { ...sheet, id: sheet.id || `local-${Date.now()}` }
+    const saved = { ...sheet, id: sheet.id || `local-${sheet.character_template_id || 'legacy'}-${Date.now()}` }
     set(state => ({ sheet: saved, roster: [...state.roster, saved] }))
     return saved
   },
