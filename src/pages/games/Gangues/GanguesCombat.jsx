@@ -5,7 +5,7 @@ import { useEventos } from '../../../context/EventosContext'
 import { useGanguesStore } from './store/useGanguesStore'
 import useGanguesTurnMachine from './hooks/useGanguesTurnMachine'
 import { getEquippedActiveGanguesSpecials } from './engine/ganguesSpecialEffects.js'
-import { simularGanguesBrigaMultidao } from './engine/ganguesBrigaMultidao.js'
+import { iniciarBrigaMultidao, avancarRodadaMultidao } from './engine/ganguesBrigaMultidao.js'
 import DramaticDice from './components/DramaticDice'
 import { sfx } from '../../../lib/sfx'
 
@@ -25,7 +25,7 @@ function pickTrash(t, enemy, category) {
   return pool[Math.floor(Math.random() * pool.length)]
 }
 
-// Um evento de combate (do motor normal OU do simulador da Briga em
+// Um evento de combate (do motor normal OU do avanço de rodada da Briga em
 // Multidão — mesmo formato) vira 1-2 entradas de log. Reusado nos dois
 // modos pra não duplicar a lógica de nome/trash-talk/onomatopeia.
 function transformarEvento(t, event, combatants) {
@@ -108,63 +108,37 @@ export default function GanguesCombat({ onNavigate }) {
   const processedEvents = useRef(0)
   const logEndRef = useRef(null)
 
-  // ── Briga em Multidão: bandos de 6+ combatentes (jogador + inimigo,
-  // somados) podem pular o golpe-a-golpe. 5 ou menos NÃO ativa — golpe a
-  // golpe direto, sem nem perguntar. Escolhe os poderes uma vez, a luta
-  // inteira resolve na hora (mesmas contas do combate normal, ver
-  // engine/ganguesBrigaMultidao). "Modo rápido" é um switch persistente
-  // (localStorage): uma vez ligado, a pergunta "golpe a golpe x multidão"
-  // some — vai direto pra escolha de poderes em toda luta grande, até o
-  // jogador cancelar e desligar de novo.
+  // ── Briga em Multidão: um SWITCH na barra do topo (não uma tela separada),
+  // visível só quando o bando é grande o bastante (6+ combatentes somados).
+  // Continua por TURNO — cada aperto em "avançar rodada" resolve uma rodada
+  // inteira (todo mundo vivo age uma vez) e PARA; o jogador decide se
+  // continua. O switch trava assim que a primeira rodada/ataque acontece,
+  // pra não ter que sincronizar dois motores de combate no meio da luta.
   const totalCombatentes = (store.match.playerTeam?.length || 0) + (store.match.enemyTeam?.length || 0)
   const multidaoDisponivel = totalCombatentes >= 6
-  const [modoRapidoAtivo, setModoRapidoAtivoState] = useState(() => {
+  const [modoMultidaoOn, setModoMultidaoOnState] = useState(() => {
     try { return localStorage.getItem('ldi-gangues-modo-rapido') === '1' } catch { return false }
   })
-  const setModoRapidoAtivo = (ativo) => {
-    setModoRapidoAtivoState(ativo)
+  const setModoMultidaoOn = (ativo) => {
+    setModoMultidaoOnState(ativo)
     try { localStorage.setItem('ldi-gangues-modo-rapido', ativo ? '1' : '0') } catch { /* ignora */ }
   }
-  const [ativarModoRapidoMarcado, setAtivarModoRapidoMarcado] = useState(false)
-  const [modo, setModo] = useState(null) // null (escolhendo) | 'individual' | 'multidao'
-  const [etapaMultidao, setEtapaMultidao] = useState('menu') // 'menu' | 'individual' | 'revelando'
+  const [switchTravado, setSwitchTravado] = useState(false)
+  const modoMultidaoAtivo = multidaoDisponivel && modoMultidaoOn
+
   const [poderesMultidao, setPoderesMultidao] = useState({}) // sheetId -> specialId | null
+  const [estadoMultidao, setEstadoMultidao] = useState(null)
+  const [revelandoRodada, setRevelandoRodada] = useState(false)
 
-  useEffect(() => {
-    if (modo !== null) return
-    if (!multidaoDisponivel) { setModo('individual'); return }
-    if (modoRapidoAtivo) setModo('multidao')
-  }, [modo, multidaoDisponivel, modoRapidoAtivo])
-
-  const escolherMultidao = () => {
-    if (ativarModoRapidoMarcado) setModoRapidoAtivo(true)
-    setModo('multidao')
-  }
-
-  const cancelarMultidao = () => {
-    setModoRapidoAtivo(false)
-    setModo('individual')
-  }
-
-  const resolverBrigaMultidao = (poderesEscolhidos = poderesMultidao) => {
-    sfx.vs?.()
-    const especiaisPorPersonagem = {}
-    for (const m of store.match.playerTeam) especiaisPorPersonagem[m.id] = getEquippedActiveGanguesSpecials(m)
-    const resultado = simularGanguesBrigaMultidao({
-      playerTeam: store.match.playerTeam,
-      enemyTeam: store.match.enemyTeam,
-      poderesPorPersonagem: poderesEscolhidos,
-      especiaisPorPersonagem,
+  const cicloPoderMultidao = (member) => {
+    const especiais = getEquippedActiveGanguesSpecials(member)
+    if (!especiais.length) return
+    setPoderesMultidao(prev => {
+      const atual = prev[member.id] || null
+      const opcoes = [null, ...especiais.map(s => s.id)]
+      const proximo = opcoes[(opcoes.indexOf(atual) + 1) % opcoes.length]
+      return { ...prev, [member.id]: proximo }
     })
-    setEtapaMultidao('revelando')
-    setTimeout(() => {
-      store.endMatch(resultado.outcome)
-      const entries = resultado.events.flatMap(event => transformarEvento(t, event, resultado.combatants))
-      store.setBattleReport({ outcome: resultado.outcome, entries, initiative: resultado.initiative, combatants: resultado.combatants, rounds: resultado.rounds })
-      if (resultado.outcome === 'victory') registrarEvento('arena_vitoria', 'Venceu uma batalha de gangue', 1)
-      resultado.outcome === 'victory' ? sfx.win() : sfx.lose()
-      onNavigate('victory')
-    }, 1400)
   }
 
   const finish = useCallback(outcome => {
@@ -188,26 +162,43 @@ export default function GanguesCombat({ onNavigate }) {
   }, [result, store.match.enemy, t])
 
   const machine = useGanguesTurnMachine({ playerTeam: store.match.playerTeam, enemyTeam: store.match.enemyTeam, onFinish: finish })
-  const players = machine.combatants.filter(item => item.side === 'player')
-  const enemies = machine.combatants.filter(item => item.side === 'enemy')
 
-  // Só entra no combate golpe-a-golpe se o jogador escolheu (ou não havia
-  // escolha — bandos pequenos pulam direto pro modo individual).
-  useEffect(() => { if (modo === 'individual' && machine.phase === 'select') machine.enterCombat() }, [modo, machine.phase, machine.enterCombat])
+  // No modo multidão o motor golpe-a-golpe fica ocioso de propósito — quem
+  // resolve a luta é o estadoMultidao (avancarRodadaMultidao).
+  useEffect(() => { if (!modoMultidaoAtivo && machine.phase === 'select') machine.enterCombat() }, [modoMultidaoAtivo, machine.phase, machine.enterCombat])
+
+  // Prepara o estado da Briga em Multidão assim que o switch liga — igual o
+  // enterCombat() do modo normal, só que pro outro motor. Sem isso o roster
+  // mostraria as fichas cruas (sem pv/pvMax/key) até o primeiro clique.
+  useEffect(() => {
+    if (!modoMultidaoAtivo || estadoMultidao) return
+    const inicial = iniciarBrigaMultidao({ playerTeam: store.match.playerTeam, enemyTeam: store.match.enemyTeam })
+    setEstadoMultidao(inicial)
+    setLog(prev => [...prev, ...inicial.eventosIniciais.flatMap(event => transformarEvento(t, event, inicial.combatants))])
+  }, [modoMultidaoAtivo, estadoMultidao])
+
+  const players = modoMultidaoAtivo
+    ? (estadoMultidao?.combatants || []).filter(item => item.side === 'player')
+    : machine.combatants.filter(item => item.side === 'player')
+  const enemies = modoMultidaoAtivo
+    ? (estadoMultidao?.combatants || []).filter(item => item.side === 'enemy')
+    : machine.combatants.filter(item => item.side === 'enemy')
 
   useEffect(() => {
+    if (modoMultidaoAtivo) return
     if (!selectedActor || !machine.playerActors.some(item => item.key === selectedActor)) {
       setSelectedActor(machine.playerActors[0]?.key || null)
     }
-  }, [machine.playerActors, selectedActor])
+  }, [machine.playerActors, selectedActor, modoMultidaoAtivo])
 
   useEffect(() => { setSelectedSpecialId(null) }, [selectedActor, machine.round])
 
   useEffect(() => {
+    if (modoMultidaoAtivo) return
     if (!selectedTarget || enemies.find(item => item.key === selectedTarget)?.pv <= 0) {
       setSelectedTarget(enemies.find(item => item.pv > 0)?.key || null)
     }
-  }, [enemies, selectedTarget])
+  }, [enemies, selectedTarget, modoMultidaoAtivo])
 
   useEffect(() => {
     const pool = t('games.gangues.trash_talk_player')
@@ -215,9 +206,10 @@ export default function GanguesCombat({ onNavigate }) {
       const shuffled = [...pool].sort(() => Math.random() - 0.5)
       setTrashOptions(shuffled.slice(0, 3))
     }
-  }, [machine.round, t])
+  }, [machine.round, estadoMultidao?.round, t])
 
   useEffect(() => {
+    if (modoMultidaoAtivo) return
     if (machine.events.length <= processedEvents.current) return
     const newEvents = machine.events.slice(processedEvents.current)
     processedEvents.current = machine.events.length
@@ -227,7 +219,7 @@ export default function GanguesCombat({ onNavigate }) {
       for (const event of newEvents) next = [...next, ...transformarEvento(t, event, machine.combatants)]
       return next
     })
-  }, [machine.events, machine.combatants, t])
+  }, [machine.events, machine.combatants, t, modoMultidaoAtivo])
 
   useEffect(() => { logEndRef.current?.scrollIntoView({ behavior: 'smooth' }) }, [log])
 
@@ -240,11 +232,34 @@ export default function GanguesCombat({ onNavigate }) {
   const handleAttack = () => {
     if (!selectedActor || !selectedTarget) return
     sfx.click()
+    if (!switchTravado) setSwitchTravado(true)
     machine.playerAction(selectedActor, selectedTarget, selectedSpecialId)
     setSelectedSpecialId(null)
   }
 
-  const actingMember = players.find(item => item.key === selectedActor) || null
+  // ── Briga em Multidão: avança exatamente UMA rodada por clique — nunca a
+  // luta inteira. Poderes são lidos na hora (o jogador pode trocar entre
+  // rodadas, ciclando os chips). ──
+  const avancarRodada = () => {
+    if (revelandoRodada || result || !estadoMultidao) return
+    sfx.vs?.()
+    if (!switchTravado) setSwitchTravado(true)
+
+    const especiaisPorPersonagem = {}
+    for (const m of store.match.playerTeam) especiaisPorPersonagem[m.id] = getEquippedActiveGanguesSpecials(m)
+    const proximoEstado = avancarRodadaMultidao(estadoMultidao, poderesMultidao, especiaisPorPersonagem)
+
+    setRevelandoRodada(true)
+    setTimeout(() => {
+      setEstadoMultidao(proximoEstado)
+      const entradasRodada = proximoEstado.eventosRodada.flatMap(event => transformarEvento(t, event, proximoEstado.combatants))
+      setLog(prev => [...prev, ...entradasRodada])
+      setRevelandoRodada(false)
+      if (proximoEstado.terminado) finish(proximoEstado.outcome)
+    }, 900)
+  }
+
+  const actingMember = players.find(item => item.key === (modoMultidaoAtivo ? null : selectedActor)) || null
   const equippedSpecials = actingMember ? getEquippedActiveGanguesSpecials(actingMember) : []
   const canAffordSpecial = (special) => {
     const cost = special.effect.cost
@@ -262,125 +277,19 @@ export default function GanguesCombat({ onNavigate }) {
   }, [result, falaFinal])
 
   const openBattleReport = () => {
-    store.setBattleReport({ outcome: result, entries: log, initiative: machine.initiative, combatants: machine.combatants, rounds: machine.round })
+    const initiative = modoMultidaoAtivo ? (estadoMultidao?.initiative || []) : machine.initiative
+    const combatants = modoMultidaoAtivo ? (estadoMultidao?.combatants || []) : machine.combatants
+    const rounds = modoMultidaoAtivo ? (estadoMultidao?.round || 1) : machine.round
+    store.setBattleReport({ outcome: result, entries: log, initiative, combatants, rounds })
     onNavigate('victory')
   }
 
   if (!store.match.playerTeam?.length) return null
 
-  // ── Escolha do modo: golpe-a-golpe (acompanha tudo) x Briga em Multidão
-  // (resolve na hora). Só aparece quando o bando é grande o bastante pra
-  // valer a pena perguntar — 1x1 ou 2x1 vai direto pro combate normal. ──
-  if (modo === null) {
-    return (
-      <div className="gang-combat gang-container gang-modo-escolha">
-        <h2 className="gang-modo-titulo">{t('games.gangues.multidao.titulo')}</h2>
-        <p className="gang-modo-sub">{t('games.gangues.multidao.sub', { seu: store.match.playerTeam.length, deles: store.match.enemyTeam.length })}</p>
-        <div className="gang-modo-opcoes">
-          <button className="gang-modo-card" onClick={() => setModo('individual')}>
-            <strong>{t('games.gangues.multidao.opcao_individual')}</strong>
-            <small>{t('games.gangues.multidao.opcao_individual_aviso')}</small>
-          </button>
-          <button className="gang-modo-card gang-modo-card--destaque" onClick={escolherMultidao}>
-            <strong>{t('games.gangues.multidao.opcao_multidao')}</strong>
-            <small>{t('games.gangues.multidao.opcao_multidao_desc')}</small>
-          </button>
-        </div>
-        <label className="gang-modo-check">
-          <input type="checkbox" checked={ativarModoRapidoMarcado} onChange={e => setAtivarModoRapidoMarcado(e.target.checked)} />
-          {t('games.gangues.multidao.ativar_switch')}
-        </label>
-        <button className="gang-modo-fugir" onClick={() => onNavigate('lobby')}>{t('games.gangues.btn_sair')}</button>
-      </div>
-    )
-  }
-
-  // ── Briga em Multidão: escolhe poderes uma vez, resolve tudo, revela. ──
-  if (modo === 'multidao') {
-    if (etapaMultidao === 'revelando') {
-      return (
-        <div className="gang-combat gang-container gang-multidao-revela">
-          <div className="gang-multidao-dados">
-            {Array.from({ length: 8 }, (_, i) => <span key={i} className="gang-multidao-dado" style={{ '--delay': `${i * 0.07}s` }}>🎲</span>)}
-          </div>
-          <p className="gang-multidao-revela-texto">{t('games.gangues.multidao.resolvendo')}</p>
-        </div>
-      )
-    }
-
-    // Pergunta simples primeiro: poderes um por um, ou ataque normal pra
-    // todo mundo de uma vez (o caminho mais rápido — nem precisa escolher
-    // nada, já resolve na hora)?
-    if (etapaMultidao === 'menu') {
-      return (
-        <div className="gang-combat gang-container gang-modo-escolha">
-          <h2 className="gang-modo-titulo">{t('games.gangues.multidao.poderes_titulo')}</h2>
-          <p className="gang-modo-sub">{t('games.gangues.multidao.poderes_sub')}</p>
-          <div className="gang-modo-opcoes">
-            <button className="gang-modo-card" onClick={() => setEtapaMultidao('individual')}>
-              <strong>{t('games.gangues.multidao.opcao_poderes')}</strong>
-              <small>{t('games.gangues.multidao.opcao_poderes_desc')}</small>
-            </button>
-            <button className="gang-modo-card gang-modo-card--destaque" onClick={() => resolverBrigaMultidao({})}>
-              <strong>{t('games.gangues.multidao.opcao_ataque_normal')}</strong>
-              <small>{t('games.gangues.multidao.opcao_ataque_normal_desc')}</small>
-            </button>
-          </div>
-          <button className="gang-modo-fugir" onClick={cancelarMultidao}>{t('games.gangues.multidao.cancelar')}</button>
-        </div>
-      )
-    }
-
-    return (
-      <div className="gang-combat gang-container gang-modo-escolha">
-        <h2 className="gang-modo-titulo">{t('games.gangues.multidao.poderes_titulo')}</h2>
-        <p className="gang-modo-sub">{t('games.gangues.multidao.poderes_sub')}</p>
-        <div className="gang-multidao-lista">
-          {store.match.playerTeam.map(member => {
-            const especiais = getEquippedActiveGanguesSpecials(member)
-            const escolhido = poderesMultidao[member.id] || null
-            return (
-              <div key={member.id} className="gang-multidao-lutador">
-                <span className="gang-multidao-lutador-nome">{member.sheet_name}</span>
-                {especiais.length === 0 ? (
-                  <span className="gang-multidao-sem-poder">{t('games.gangues.combat_specials.normal_attack')}</span>
-                ) : (
-                  <div className="gang-multidao-poderes-grid">
-                    <button
-                      type="button"
-                      className={`gang-power-btn gang-power-btn--normal ${escolhido === null ? 'gang-power-btn--active' : ''}`}
-                      onClick={() => setPoderesMultidao(prev => ({ ...prev, [member.id]: null }))}
-                    >
-                      <span className="gang-power-btn-nome">{t('games.gangues.combat_specials.normal_attack')}</span>
-                    </button>
-                    {especiais.map(special => (
-                      <button
-                        key={special.id}
-                        type="button"
-                        className={`gang-power-btn ${escolhido === special.id ? 'gang-power-btn--active' : ''}`}
-                        onClick={() => setPoderesMultidao(prev => ({ ...prev, [member.id]: special.id }))}
-                      >
-                        <span className="gang-power-btn-nome">{t(`games.gangues.progression.skills.${special.id}`)}</span>
-                      </button>
-                    ))}
-                  </div>
-                )}
-              </div>
-            )
-          })}
-        </div>
-        <div className="gang-modo-opcoes gang-modo-opcoes--fila">
-          <button className="gang-attack-btn" onClick={() => resolverBrigaMultidao()}>{t('games.gangues.multidao.lutar')}</button>
-          <button className="gang-modo-fugir" onClick={() => setEtapaMultidao('menu')}>{t('games.gangues.multidao.cancelar')}</button>
-        </div>
-      </div>
-    )
-  }
-
   return (
     <div className="gang-combat gang-container">
       <AnimatePresence>
-        {machine.pending && (
+        {machine.pending && !modoMultidaoAtivo && (
           <DramaticDice
             key={`${machine.pending.actorKey}-${machine.round}`}
             finalValue={machine.pending.result.rolls.fa}
@@ -390,6 +299,14 @@ export default function GanguesCombat({ onNavigate }) {
             targetName={fighterName(t, machine.combatants.find(item => item.key === machine.pending.targetKey))}
             onComplete={machine.completePending}
           />
+        )}
+        {revelandoRodada && (
+          <div className="gang-multidao-revela gang-multidao-revela--overlay">
+            <div className="gang-multidao-dados">
+              {Array.from({ length: 6 }, (_, i) => <span key={i} className="gang-multidao-dado" style={{ '--delay': `${i * 0.07}s` }}>🎲</span>)}
+            </div>
+            <p className="gang-multidao-revela-texto">{t('games.gangues.multidao.resolvendo')}</p>
+          </div>
         )}
         {falaFinal && (
           <motion.div
@@ -456,13 +373,25 @@ export default function GanguesCombat({ onNavigate }) {
         <button className="gang-vs-bar-back" onClick={() => onNavigate('lobby')}>{t('games.gangues.btn_sair')}</button>
         <div className="gang-vs-bar-line" />
         <span className={`gang-vs-bar-turn ${machine.phase === 'player' ? 'gang-vs-bar-turn--player' : machine.phase === 'enemy' ? 'gang-vs-bar-turn--enemy' : ''}`}>
-          {t('games.gangues.loadout.round', { n: machine.round })}
-          {(machine.phase === 'player' || machine.phase === 'enemy') && (
+          {t('games.gangues.loadout.round', { n: modoMultidaoAtivo ? (estadoMultidao?.round || 1) : machine.round })}
+          {!modoMultidaoAtivo && (machine.phase === 'player' || machine.phase === 'enemy') && (
             <><i className="gang-vs-bar-turn-dot" />{t(machine.phase === 'player' ? 'games.gangues.combat_specials.sua_vez' : 'games.gangues.combat_specials.vez_inimiga')}</>
           )}
         </span>
         <div className="gang-vs-bar-line" />
-        {machine.phase === 'player' && !result && trashOptions.length >= 3 && (
+        {multidaoDisponivel && (
+          <button
+            type="button"
+            className={`gang-multidao-switch ${modoMultidaoOn ? 'gang-multidao-switch--on' : ''}`}
+            disabled={switchTravado}
+            title={t('games.gangues.multidao.switch_titulo')}
+            onClick={() => setModoMultidaoOn(!modoMultidaoOn)}
+          >
+            <span className="gang-multidao-switch-track"><span className="gang-multidao-switch-bolinha" /></span>
+            <small>{t('games.gangues.multidao.switch_label')}</small>
+          </button>
+        )}
+        {!modoMultidaoAtivo && machine.phase === 'player' && !result && trashOptions.length >= 3 && (
           <div className="gang-trash-toggle-wrap">
             <button type="button" className="gang-trash-toggle" onClick={() => setTrashAberto(v => !v)} aria-label={t('games.gangues.combat_specials.provocar')}>💬</button>
             <AnimatePresence>
@@ -480,9 +409,9 @@ export default function GanguesCombat({ onNavigate }) {
 
       <Roster
         members={players} side="player"
-        selectable={machine.phase === 'player'}
-        selectedKey={selectedActor} onSelect={setSelectedActor}
-        actingKey={machine.currentActor?.key} t={t}
+        selectable={!modoMultidaoAtivo && machine.phase === 'player'}
+        selectedKey={selectedActor} onSelect={modoMultidaoAtivo ? undefined : setSelectedActor}
+        actingKey={modoMultidaoAtivo ? null : machine.currentActor?.key} t={t}
       />
 
       <div className="gang-log-area">
@@ -557,12 +486,46 @@ export default function GanguesCombat({ onNavigate }) {
 
       <Roster
         members={enemies} side="enemy"
-        selectable={machine.phase === 'player'}
-        selectedKey={selectedTarget} onSelect={setSelectedTarget}
-        actingKey={machine.currentActor?.key} t={t}
+        selectable={!modoMultidaoAtivo && machine.phase === 'player'}
+        selectedKey={selectedTarget} onSelect={modoMultidaoAtivo ? undefined : setSelectedTarget}
+        actingKey={modoMultidaoAtivo ? null : machine.currentActor?.key} t={t}
       />
 
-      {machine.phase === 'player' && !result && (
+      {/* ── Modo Briga em Multidão: poderes configuráveis por toque + avançar rodada ── */}
+      {modoMultidaoAtivo && !result && (
+        <div className="gang-actions-bar">
+          <div className="gang-multidao-poderes-fila">
+            <span className="gang-power-attacks-label">{t('games.gangues.multidao.poderes_titulo')}</span>
+            <div className="gang-multidao-chips">
+              {store.match.playerTeam.map(member => {
+                const especiais = getEquippedActiveGanguesSpecials(member)
+                const escolhido = poderesMultidao[member.id] || null
+                const rotulo = escolhido ? t(`games.gangues.progression.skills.${escolhido}`) : t('games.gangues.combat_specials.normal_attack')
+                return (
+                  <button
+                    key={member.id}
+                    type="button"
+                    disabled={!especiais.length}
+                    className={`gang-multidao-chip ${escolhido ? 'gang-multidao-chip--poder' : ''}`}
+                    onClick={() => cicloPoderMultidao(member)}
+                  >
+                    <strong>{member.sheet_name}</strong>
+                    <small>{rotulo}</small>
+                  </button>
+                )
+              })}
+            </div>
+          </div>
+          <div className="gang-actions-row">
+            <button className="gang-exit-btn" onClick={() => onNavigate('lobby')}>{t('games.gangues.btn_sair')}</button>
+            <button className="gang-attack-btn" disabled={revelandoRodada || !estadoMultidao} onClick={avancarRodada}>
+              {t('games.gangues.multidao.avancar_rodada')}
+            </button>
+          </div>
+        </div>
+      )}
+
+      {!modoMultidaoAtivo && machine.phase === 'player' && !result && (
         <div className="gang-actions-bar">
           <div className="gang-power-attacks">
             <span className="gang-power-attacks-label">{t('games.gangues.combat_specials.escolha_golpe')}</span>
@@ -613,7 +576,7 @@ export default function GanguesCombat({ onNavigate }) {
           </div>
         </div>
       )}
-      {machine.phase === 'enemy' && !machine.pending && <div className="gang2-enemy-thinking"><span className="gang-thinking-pulse" /><strong>{t('games.gangues.report.enemy_thinking')}</strong><small>{t('games.gangues.report.enemy_strategy')}</small></div>}
+      {!modoMultidaoAtivo && machine.phase === 'enemy' && !machine.pending && <div className="gang2-enemy-thinking"><span className="gang-thinking-pulse" /><strong>{t('games.gangues.report.enemy_thinking')}</strong><small>{t('games.gangues.report.enemy_strategy')}</small></div>}
     </div>
   )
 }

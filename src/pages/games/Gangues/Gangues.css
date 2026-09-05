@@ -523,6 +523,7 @@
 .gang-combat {
   display: flex;
   flex-direction: column;
+  position: relative; /* âncora do overlay de revelação da Briga em Multidão */
   /* 100% do conteúdo já reduzido de .gang-page (que reserva a tira de guest
      e a Rádio Nina via padding) — não mais 100dvh direto, que ignorava esse
      espaço reservado e ficava por baixo das duas barras. */
@@ -551,48 +552,51 @@
 }
 
 /* ===== BRIGA EM MULTIDÃO ===== */
-.gang-modo-escolha {
-  align-items: center; justify-content: center; text-align: center;
-  padding: 32px 20px; gap: 12px; overflow-y: auto;
+/* Switch de verdade na barra do topo — trilho + bolinha que desliza,
+   igual um toggle de configuração. Fica ao lado do indicador de rodada,
+   só aparece quando o bando é grande (6+ combatentes). */
+.gang-multidao-switch {
+  display: flex; align-items: center; gap: 6px; flex-shrink: 0;
+  background: none; border: none; cursor: pointer; padding: 2px;
 }
-.gang-modo-titulo { font: 800 1.2rem var(--font-display, 'Rajdhani', sans-serif); color: var(--if-teal); margin: 0; }
-.gang-modo-sub { font: 400 0.8rem var(--font-body); color: #a4adb6; line-height: 1.5; max-width: 320px; margin: 0 0 8px; }
-.gang-modo-opcoes { display: flex; flex-direction: column; gap: 10px; width: 100%; max-width: 340px; }
-.gang-modo-opcoes--fila { margin-top: 8px; }
-.gang-modo-card {
-  display: flex; flex-direction: column; gap: 4px; text-align: left;
-  padding: 14px 16px; background: rgba(255,255,255,0.03); border: 1px solid rgba(0,180,216,0.25);
-  border-radius: 10px; cursor: pointer; transition: border-color 0.15s, background 0.15s;
-  color: #d5dde0; font-family: var(--font-body);
+.gang-multidao-switch:disabled { cursor: not-allowed; opacity: 0.5; }
+.gang-multidao-switch small {
+  font: 700 0.58rem var(--font-mono); letter-spacing: 0.04em; color: #8b93a0; white-space: nowrap;
 }
-.gang-modo-card:hover { border-color: rgba(0,180,216,0.6); background: rgba(0,180,216,0.05); }
-.gang-modo-card strong { font: 700 0.9rem var(--font-display); color: var(--if-teal); }
-.gang-modo-card small { font-size: 0.7rem; color: #8b93a0; line-height: 1.4; }
-.gang-modo-card--destaque { border-color: rgba(245,166,35,0.4); background: rgba(245,166,35,0.06); }
-.gang-modo-card--destaque strong { color: var(--if-amber); }
-.gang-modo-card--destaque:hover { border-color: var(--if-amber); background: rgba(245,166,35,0.12); }
-.gang-modo-fugir {
-  margin-top: 8px; background: none; border: none; color: #667078; font-size: 0.72rem;
-  font-family: 'Courier New', monospace; cursor: pointer; letter-spacing: 1px; text-decoration: underline;
+.gang-multidao-switch--on small { color: var(--if-amber); }
+.gang-multidao-switch-track {
+  position: relative; display: inline-block; width: 30px; height: 16px; border-radius: 8px;
+  background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15);
+  transition: background 0.2s, border-color 0.2s; flex-shrink: 0;
 }
-.gang-modo-check {
-  display: flex; align-items: center; gap: 8px; max-width: 340px;
-  font-size: 0.68rem; color: #8b93a0; font-family: var(--font-body); line-height: 1.4;
-  cursor: pointer; text-align: left;
+.gang-multidao-switch--on .gang-multidao-switch-track { background: rgba(245,166,35,0.35); border-color: var(--if-amber); }
+.gang-multidao-switch-bolinha {
+  position: absolute; top: 1px; left: 1px; width: 12px; height: 12px; border-radius: 50%;
+  background: #cfd6db; transition: transform 0.2s ease, background 0.2s;
 }
-.gang-modo-check input { flex-shrink: 0; width: 15px; height: 15px; accent-color: var(--if-amber); cursor: pointer; }
+.gang-multidao-switch--on .gang-multidao-switch-bolinha { transform: translateX(14px); background: var(--if-amber); }
 
-.gang-multidao-lista { width: 100%; max-width: 380px; display: flex; flex-direction: column; gap: 10px; overflow-y: auto; }
-.gang-multidao-lutador {
-  display: flex; flex-direction: column; gap: 6px; padding: 10px 12px;
-  background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; text-align: left;
+/* Fila de poderes por rodada — um chip por personagem, toque pra ciclar
+   entre ataque normal e os poderes equipados. */
+.gang-multidao-poderes-fila { display: flex; flex-direction: column; gap: 6px; }
+.gang-multidao-chips { display: flex; gap: 6px; flex-wrap: wrap; }
+.gang-multidao-chip {
+  display: flex; flex-direction: column; gap: 1px; text-align: left;
+  padding: 5px 10px; min-width: 84px; border-radius: 8px;
+  background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1);
+  color: #a4adb6; cursor: pointer; transition: border-color 0.15s, background 0.15s;
 }
-.gang-multidao-lutador-nome { font: 700 0.82rem var(--font-display); color: #d5dde0; }
-.gang-multidao-sem-poder { font-size: 0.7rem; color: #667078; font-family: var(--font-mono); }
-.gang-multidao-poderes-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; }
+.gang-multidao-chip:disabled { opacity: 0.45; cursor: not-allowed; }
+.gang-multidao-chip strong { font: 700 0.72rem var(--font-display); color: #d5dde0; }
+.gang-multidao-chip small { font-size: 0.6rem; }
+.gang-multidao-chip--poder { border-color: rgba(245,166,35,0.5); background: rgba(245,166,35,0.1); }
+.gang-multidao-chip--poder small { color: var(--if-amber); }
 
-.gang-multidao-revela {
-  align-items: center; justify-content: center; gap: 20px;
+/* Revelação de UMA rodada — overlay curto por cima do combate, não a tela inteira. */
+.gang-multidao-revela--overlay {
+  position: absolute; inset: 0; z-index: 60;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px;
+  background: rgba(10,10,10,0.82); backdrop-filter: blur(2px);
 }
 .gang-multidao-dados { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; max-width: 260px; }
 .gang-multidao-dado {

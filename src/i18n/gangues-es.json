@@ -458,22 +458,11 @@
         "usar_golpe": "Usar {nome}"
       },
       "multidao": {
-        "titulo": "Banda grande por delante",
-        "sub": "Tu pandilla ({seu}) contra su banda ({deles}). ¿Quieres ver golpe a golpe o resolver todo de una vez?",
-        "opcao_individual": "Golpe a golpe",
-        "opcao_individual_aviso": "Eliges cada ataque y ves cada resultado — puede tardar bastante contra bandas grandes.",
-        "opcao_multidao": "Pelea Multitudinaria",
-        "opcao_multidao_desc": "Elige los poderes una vez y mira el resultado de toda la pelea al instante.",
-        "ativar_switch": "No preguntar de nuevo — usar siempre Pelea Multitudinaria en bandas grandes",
-        "poderes_titulo": "Elige los poderes",
-        "poderes_sub": "Quien tenga un poder activo equipado puede usarlo — el resto ataca normal toda la pelea.",
-        "opcao_poderes": "Elegir poderes",
-        "opcao_poderes_desc": "Marca el poder de cada personaje que tenga uno equipado, uno por uno.",
-        "opcao_ataque_normal": "Ataque normal para todos",
-        "opcao_ataque_normal_desc": "Nadie usa poder — resuelve al instante, sin elegir nada.",
-        "cancelar": "Cancelar",
-        "resolvendo": "Tirando los dados de toda la pelea...",
-        "lutar": "PELEAR"
+        "switch_label": "Pelea Multitudinaria",
+        "switch_titulo": "Activa la Pelea Multitudinaria — cada ronda se resuelve de una vez, pero sigue siendo por turnos",
+        "poderes_titulo": "Poderes de la ronda",
+        "avancar_rodada": "SIGUIENTE RONDA",
+        "resolvendo": "Tirando los dados de la ronda..."
       },
       "pag_atributos": "ATRIBUTOS",
       "pag_identidade": "IDENTIDAD",

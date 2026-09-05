@@ -2,23 +2,23 @@ import { resolveGanguesAction, resolveGanguesInitiative } from './ganguesCombatR
 import { prepare, pickEnemyTarget } from '../hooks/useGanguesTurnMachine.js'
 
 /* ══════════════════════════════════════════════════════════════
-   BRIGA EM MULTIDÃO — resolve a luta inteira de uma vez, sem passar por
-   cada golpe na tela. Usa exatamente as mesmas contas do combate normal
-   (mesmo resolveGanguesAction, mesmo prepare/pickEnemyTarget da
-   useGanguesTurnMachine) — só não pausa pra animação de cada ataque.
+   BRIGA EM MULTIDÃO — RODADA a rodada, não a luta inteira de um clique.
 
-   Alvo: personagens do jogador sempre focam o inimigo com menos PV (limpa
-   o bando mais rápido); inimigos usam a mesma IA de alvo do combate normal.
-   Poderes: cada personagem do jogador usa o poder escolhido em
-   `poderes[sheetId]` (ou ataque normal se null/sem PM/PV suficiente) em
-   TODOS os turnos dele — é a versão "modo rápido" de "decide uma vez, a
-   luta inteira usa essa escolha", coerente com a UI de escolher poder uma
-   vez só antes da luta.
+   O jogo é por turno: cada clique em "avançar rodada" resolve UMA rodada
+   completa (todo mundo vivo age uma vez, na ordem de iniciativa — jogador
+   focando o inimigo mais fraco, inimigo com a IA de sempre) e PARA. O
+   jogador vê o resultado daquela rodada e decide se continua. Só o alvo
+   automático (em vez de escolher manualmente) e o dano em lote (em vez de
+   um DramaticDice por golpe) são "rápidos" — o ritmo de jogo (uma decisão
+   por rodada) continua igual ao combate normal.
+
+   Usa exatamente as mesmas contas do combate normal (mesmo
+   resolveGanguesAction, mesmo prepare/pickEnemyTarget da
+   useGanguesTurnMachine).
    ══════════════════════════════════════════════════════════════ */
 
 const d3 = () => Math.floor(Math.random() * 3) + 1
 const coin = () => Math.random() < 0.5
-const MAX_TURNOS = 600 // válvula de segurança — nunca deveria bater nisso (PV só cai)
 
 function podePagarCusto(actor, special) {
   if (!special) return true
@@ -30,13 +30,12 @@ function podePagarCusto(actor, special) {
   return true
 }
 
-export function simularGanguesBrigaMultidao({ playerTeam, enemyTeam, poderesPorPersonagem = {}, especiaisPorPersonagem = {} }) {
+/** Monta o estado inicial da briga (times preparados + iniciativa sorteada). Nenhuma rodada resolvida ainda. */
+export function iniciarBrigaMultidao({ playerTeam, enemyTeam }) {
   const combatants = [
     ...playerTeam.map((m, i) => prepare(m, 'player', i)),
     ...enemyTeam.map((m, i) => prepare(m, 'enemy', i)),
   ]
-  const byKey = new Map(combatants.map(c => [c.key, c]))
-
   const initiative = combatants
     .map(c => {
       const resolved = resolveGanguesInitiative({ combatant: c, roll: d3() })
@@ -44,40 +43,53 @@ export function simularGanguesBrigaMultidao({ playerTeam, enemyTeam, poderesPorP
     })
     .sort((a, b) => b.total - a.total || b.ability - a.ability || b.tie - a.tie)
 
-  const events = [{ type: 'battle_start', id: 'bm-start' }, { type: 'initiative', id: 'bm-initiative', order: initiative }]
-  let round = 1
-  let turnIndex = 0
-  let lastEnemyTargetKey = null
-  let seq = 0
+  return {
+    combatants, initiative, turnIndex: 0, round: 1, lastEnemyTargetKey: null,
+    terminado: false, outcome: null,
+    eventosIniciais: [{ type: 'battle_start', id: 'bm-start' }, { type: 'initiative', id: 'bm-initiative', order: initiative }],
+    seq: 0,
+  }
+}
 
-  for (let i = 0; i < MAX_TURNOS; i++) {
+/** Resolve UMA rodada a partir do estado atual — todo combatente vivo age uma vez. Retorna o novo estado + os eventos só dessa rodada.
+ *  poderesPorPersonagem/especiaisPorPersonagem são lidos a cada chamada (não travados na iniciação) — o jogador pode trocar o poder escolhido entre uma rodada e outra. */
+export function avancarRodadaMultidao(estado, poderesPorPersonagem = {}, especiaisPorPersonagem = {}) {
+  const byKey = new Map(estado.combatants.map(c => [c.key, { ...c }]))
+  const { initiative } = estado
+  let { turnIndex, round, lastEnemyTargetKey, seq } = estado
+  const eventosRodada = []
+
+  const checarFim = () => {
     const alive = [...byKey.values()]
     const playersAlive = alive.some(c => c.side === 'player' && c.pv > 0)
     const enemiesAlive = alive.some(c => c.side === 'enemy' && c.pv > 0)
-    if (!playersAlive || !enemiesAlive) {
-      return { outcome: enemiesAlive ? 'defeat' : 'victory', events, initiative, combatants: alive, rounds: round }
-    }
+    if (playersAlive && enemiesAlive) return null
+    return enemiesAlive ? 'defeat' : 'victory'
+  }
 
+  let outcome = checarFim()
+  const rodadaAlvo = round // para assim que essa rodada fechar (turnIndex voltar a 0) ou a luta acabar
+
+  while (!outcome) {
     const turn = initiative[turnIndex]
     const actor = byKey.get(turn.key)
     if (!actor || actor.pv <= 0) {
       turnIndex = (turnIndex + 1) % initiative.length
-      if (turnIndex === 0) { round += 1; for (const c of byKey.values()) c.actedThisRound = false }
+      if (turnIndex === 0) { round += 1; break }
       continue
     }
 
     let target = null
     let activeSpecialId = null
     if (actor.side === 'player') {
-      // Foca sempre o inimigo mais perto de cair — é o jeito eficiente de
-      // limpar um bando grande, e é o que o resumo final vai mostrar.
-      target = alive.filter(c => c.side === 'enemy' && c.pv > 0).sort((a, b) => a.pv - b.pv)[0] || null
+      // Foca sempre o inimigo mais perto de cair — eficiente pra limpar um bando grande.
+      target = [...byKey.values()].filter(c => c.side === 'enemy' && c.pv > 0).sort((a, b) => a.pv - b.pv)[0] || null
       const especiais = especiaisPorPersonagem[actor.id] || []
       const escolhaId = poderesPorPersonagem[actor.id] || null
       const especial = escolhaId ? especiais.find(s => s.id === escolhaId) : null
       activeSpecialId = especial && podePagarCusto(actor, especial) ? escolhaId : null
     } else {
-      target = pickEnemyTarget(alive, lastEnemyTargetKey, Math.random)
+      target = pickEnemyTarget([...byKey.values()], lastEnemyTargetKey, Math.random)
       lastEnemyTargetKey = target?.key || null
     }
     if (!target) { turnIndex = (turnIndex + 1) % initiative.length; continue }
@@ -98,13 +110,19 @@ export function simularGanguesBrigaMultidao({ playerTeam, enemyTeam, poderesPorP
     target.specialState = result.defenderSpecialState
 
     seq += 1
-    events.push({ type: 'attack', id: `bm-${seq}`, side: actor.side, actorKey: actor.key, targetKey: target.key, result, round })
+    eventosRodada.push({ type: 'attack', id: `bm-${seq}`, side: actor.side, actorKey: actor.key, targetKey: target.key, result, round: rodadaAlvo })
 
     turnIndex = (turnIndex + 1) % initiative.length
-    if (turnIndex === 0) { round += 1; for (const c of byKey.values()) c.actedThisRound = false }
+    outcome = checarFim()
+    if (turnIndex === 0 && !outcome) { round += 1; break }
   }
 
-  // Válvula de segurança (não deveria disparar: PV só decresce, alguém cai antes de 600 turnos).
-  const enemiesAlive = [...byKey.values()].some(c => c.side === 'enemy' && c.pv > 0)
-  return { outcome: enemiesAlive ? 'defeat' : 'victory', events, initiative, combatants: [...byKey.values()], rounds: round }
+  const combatantsFinais = [...byKey.values()]
+  if (!outcome) outcome = checarFim()
+
+  return {
+    combatants: combatantsFinais, initiative, turnIndex, round, lastEnemyTargetKey, seq,
+    terminado: Boolean(outcome), outcome: outcome || null,
+    eventosRodada,
+  }
 }
