@@ -12,7 +12,7 @@ import { CENAS_POR_ID, portaoAberto, contarCena } from './data/cenas/pista.js'
 import { GANGUES_TERRITORIO_POR_ID } from './data/ganguesTerritorios.js'
 import './GanguesCena.css'
 
-const WORLD={w:760,h:1840}, SPAWN={x:380,y:1720}, TILE=40, STEP_MS=160, PLAYER_RADIUS=18
+const WORLD={w:760,h:1840}, SPAWN={x:380,y:1720}, TILE=20, STEP_MS=110, PLAYER_RADIUS=18
 const seenSceneIntros = new Set()
 const POS={sinal:{x:210,y:1570},ferro:{x:150,y:1325},molecada_1:{x:445,y:1190},birosca:{x:170,y:1460},corre:{x:610,y:1010},molecada_2:{x:445,y:505},descanso:{x:205,y:1440},boss:{x:570,y:175}}
 const COLLIDERS=[
@@ -86,10 +86,15 @@ export default function GanguesCena({onNavigate}){
 }
 
 function WorldScenery({bossAberto}){return <><div className="gang-road road-main"/><div className="gang-road road-cross r1"/><div className="gang-road road-cross r2"/><div className="gang-road road-cross r3"/><div className="gang-road road-branch left"/><div className="gang-road road-branch right"/><div className="gang-world-zone z-praca">PRAÇA DA PISTA</div><div className="gang-world-zone z-quadra"/><div className={`gang-world-gate ${bossAberto?'is-open':''}`}/><div className="gang-world-graffiti">A RUA<br/>LEMBRA</div>{[120,300,510,680,850,1040,1240,1430,1610].map((y,i)=><span key={y} className="gang-world-lamp" style={{left:i%2?690:45,top:y}}/>)}</>}
-function GangMarker({player,facing,gangName}){return <motion.div className={`gang-world-player is-gang facing-${facing}`} animate={{left:player.x,top:player.y}} transition={{duration:.16,ease:'easeOut'}}><span><i/><i/><i/></span><small>{gangName||'GANGUE'}</small></motion.div>}
+function GangMarker({player,facing,gangName}){return <motion.div className={`gang-world-player is-gang facing-${facing}`} animate={{left:player.x,top:player.y}} transition={{duration:STEP_MS/1000,ease:'easeOut'}}><span><i/><i/><i/></span><small>{gangName||'GANGUE'}</small></motion.div>}
 function EntryZone({poi,active}){const z=ENTRY_ZONES[poi.id];if(!z||poi.estado==='trancado'||poi.estado==='resolvido')return null;return <div className={`gang-world-entry${active?' is-active':''}`} style={{left:z.x,top:z.y,width:z.w,height:z.h}}/>}
 function validPosition(p){return Number.isFinite(p?.x)&&Number.isFinite(p?.y)&&p.x>=35&&p.x<=WORLD.w-35&&p.y>=70&&p.y<=WORLD.h-40}
-function insideZone(p,z){return Boolean(z&&p.x>=z.x&&p.x<=z.x+z.w&&p.y>=z.y&&p.y<=z.y+z.h)}
+// Overlap do "corpo" do jogador (mesmo raio da colisão) com a zona, não um
+// ponto exato — com movimento em grade, o centro do jogador raramente cai
+// pixel-perfeito dentro de corredores estreitos de 35-80px; exigir isso
+// deixaria zonas inalcançáveis dependendo de por onde a grade passa perto
+// delas. "Chegou perto o suficiente" é o comportamento certo pra interação.
+function insideZone(p,z){return Boolean(z&&p.x+PLAYER_RADIUS>z.x&&p.x-PLAYER_RADIUS<z.x+z.w&&p.y+PLAYER_RADIUS>z.y&&p.y-PLAYER_RADIUS<z.y+z.h)}
 function hitsSolid(x,y,bossAberto){const hit=COLLIDERS.some(r=>x+PLAYER_RADIUS>r.x&&x-PLAYER_RADIUS<r.x+r.w&&y+PLAYER_RADIUS>r.y&&y-PLAYER_RADIUS<r.y+r.h);if(hit)return true;if(y-PLAYER_RADIUS<350&&y+PLAYER_RADIUS>330){const inOpening=x-PLAYER_RADIUS>=470&&x+PLAYER_RADIUS<=675;return !bossAberto||!inOpening}return false}
 function stepPlayer(p,dx,dy,bossAberto){const x=Math.max(35,Math.min(WORLD.w-35,p.x+dx*TILE)),y=Math.max(70,Math.min(WORLD.h-40,p.y+dy*TILE));return hitsSolid(x,y,bossAberto)?p:{x,y}}
 function WorldControls({onInput,onInteract,action}){const base=useRef(null),active=useRef(null);const update=useCallback((x,y)=>{const r=base.current?.getBoundingClientRect();if(!r)return;let dx=x-(r.left+r.width/2),dy=y-(r.top+r.height/2);const d=Math.hypot(dx,dy),max=42;if(d>max){dx=dx/d*max;dy=dy/d*max}base.current.style.setProperty('--jx',`${dx}px`);base.current.style.setProperty('--jy',`${dy}px`);onInput({x:dx/max,y:dy/max})},[onInput]);const stop=useCallback(()=>{active.current=null;if(base.current){base.current.style.setProperty('--jx','0px');base.current.style.setProperty('--jy','0px')}onInput({x:0,y:0})},[onInput]);return <div className="gang-world-controls"><div ref={base} className="gang-world-stick" onPointerDown={e=>{active.current=e.pointerId;e.currentTarget.setPointerCapture(e.pointerId);update(e.clientX,e.clientY)}} onPointerMove={e=>{if(active.current===e.pointerId)update(e.clientX,e.clientY)}} onPointerUp={stop} onPointerCancel={stop}><i/></div><button disabled={!action} onClick={onInteract}><b>{action||'...'}</b><span>INTERAGIR</span></button></div>}
