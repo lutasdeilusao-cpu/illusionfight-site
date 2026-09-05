@@ -448,6 +448,8 @@
       "btn_atacar": "ATACAR",
       "ficha_ver": "Ver ficha",
       "ficha_fechar": "Cerrar",
+      "ficha_dossie": "Expediente del miembro",
+      "ficha_xp_disponivel": "{n} XP disponible para evolución",
       "selecionados": "{n}/4 seleccionados",
       "fa_label": "FA",
       "fd_label": "FD",
@@ -1771,7 +1773,13 @@
         "batalha_titulo": "MODO BATALLA",
         "batalha_tag": "Suelto",
         "batalha_desc": "Un enfrentamiento rápido 2×2 contra el oponente que elijas. Sin progreso en el mapa.",
-        "dupla_da_gangue": "El dúo de {gangue}"
+        "dupla_da_gangue": "El dúo de {gangue}",
+        "marelia": "MARELIA",
+        "intro": "Tu pandilla ha nacido. Ahora toma las calles, territorio por territorio.",
+        "comecar_historia": "COMENZAR LA HISTORIA",
+        "bloqueado": "Bloqueado",
+        "batalha_bloqueada_desc": "Los combates sueltos llegarán en una actualización futura. Primero, construye tu historia en Marelia.",
+        "em_breve": "PRÓXIMAMENTE"
       },
       "naming": {
         "titulo": "FUNDA TU GANGA",

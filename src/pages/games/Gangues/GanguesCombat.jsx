@@ -5,14 +5,14 @@ import { useEventos } from '../../../context/EventosContext'
 import { useGanguesStore } from './store/useGanguesStore'
 import useGanguesTurnMachine from './hooks/useGanguesTurnMachine'
 import { getEquippedActiveGanguesSpecials } from './engine/ganguesSpecialEffects.js'
+import { getGanguesProgression } from './data/ganguesLoadout.js'
 import { iniciarBrigaMultidao, avancarRodadaMultidao } from './engine/ganguesBrigaMultidao.js'
 import DramaticDice from './components/DramaticDice'
 import { sfx } from '../../../lib/sfx'
+import './GanguesCombatRedesign.css'
 
 const ONOMATOPEIAS = ['POW!', 'WHAM!', 'CRACK!', 'SLASH!', 'BOOM!', 'THWACK!']
 const randomOnoma = () => ONOMATOPEIAS[Math.floor(Math.random() * ONOMATOPEIAS.length)]
-const pct = (value, max) => Math.max(0, Math.min(100, (value / Math.max(1, max)) * 100))
-
 function fighterName(t, member) {
   if (!member) return '?'
   return member.side === 'enemy' ? (t(`games.gangues.enemy_names.${member.id}`) || member.name) : member.sheet_name
@@ -79,6 +79,7 @@ function Roster({ members, side, selectable, selectedKey, onSelect, actingKey, o
         const podeSelecionar = selectable && !dead && !acted && (side === 'enemy' || acting)
         const jaSelecionado = selectedKey === member.key
         const pathClass = member.combat_path ? `gang-path--${member.combat_path}` : ''
+        const progression = getGanguesProgression(member)
         const nome = fighterName(t, member)
         const tocar = () => {
           if (podeSelecionar && !jaSelecionado) onSelect?.(member.key)
@@ -93,11 +94,15 @@ function Roster({ members, side, selectable, selectedKey, onSelect, actingKey, o
               onClick={tocar}
             >
               <span className="gang-mini-avatar">{nome[0]}</span>
-              <span className="gang-mini-hp"><i style={{ '--pct': `${pct(member.pv, member.pvMax)}%` }} /></span>
+              <progress className="gang-mini-hp" max={member.pvMax || 1} value={Math.max(0, member.pv || 0)} />
               {acted && <span className="gang-mini-tag">✓</span>}
             </button>
-            <span className="gang-mini-nome">{nome.slice(0, 5)}</span>
-            {member.pmMax > 0 && <span className="gang-mini-pm-label">{member.pm}/{member.pmMax} PM</span>}
+            <span className="gang-mini-nome">{nome.slice(0, 7)}</span>
+            <span className="gang-mini-bars" aria-label={nome}>
+              <progress className="gang-mini-resource gang-mini-resource--pv" max={member.pvMax || 1} value={Math.max(0, member.pv || 0)} />
+              <progress className="gang-mini-resource gang-mini-resource--pm" max={member.pmMax || 1} value={Math.max(0, member.pm || 0)} />
+              <progress className="gang-mini-resource gang-mini-resource--xp" max="10" value={progression.ap} />
+            </span>
           </div>
         )
       })}
@@ -331,6 +336,7 @@ export default function GanguesCombat({ onNavigate }) {
               initial={{ opacity: 0, y: 16, scale: 0.95 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: 8 }}
               onClick={e => e.stopPropagation()}
             >
+              <span className="gang-ficha-modal-kicker">{t('games.gangues.ficha_dossie')}</span>
               <span className="gang-ficha-modal-avatar">{fighterName(t, fichaAberta)[0]}</span>
               <strong className="gang-ficha-modal-nome">{fighterName(t, fichaAberta)}</strong>
               {fichaAberta.combat_path && (
@@ -342,8 +348,15 @@ export default function GanguesCombat({ onNavigate }) {
                 ))}
               </div>
               <div className="gang-ficha-modal-recursos">
-                <span>PV <b>{fichaAberta.pv}</b>/{fichaAberta.pvMax}</span>
-                {fichaAberta.pmMax > 0 && <span>PM <b>{fichaAberta.pm}</b>/{fichaAberta.pmMax}</span>}
+                {(() => {
+                  const progression = getGanguesProgression(fichaAberta)
+                  return <>
+                    <span><em>PV</em><progress className="gang-ficha-bar gang-ficha-bar--pv" max={fichaAberta.pvMax || 1} value={Math.max(0, fichaAberta.pv || 0)} /><strong>{fichaAberta.pv}/{fichaAberta.pvMax}</strong></span>
+                    <span><em>PM</em><progress className="gang-ficha-bar gang-ficha-bar--pm" max={fichaAberta.pmMax || 1} value={Math.max(0, fichaAberta.pm || 0)} /><strong>{fichaAberta.pm || 0}/{fichaAberta.pmMax || 0}</strong></span>
+                    <span><em>XP</em><progress className="gang-ficha-bar gang-ficha-bar--xp" max="10" value={progression.ap} /><strong>{progression.ap}/10</strong></span>
+                    <small>{t('games.gangues.ficha_xp_disponivel', { n: progression.xp_unspent })}</small>
+                  </>
+                })()}
               </div>
               <button className="gang-modo-fugir" onClick={() => setFichaAberta(null)}>{t('games.gangues.ficha_fechar')}</button>
             </motion.div>

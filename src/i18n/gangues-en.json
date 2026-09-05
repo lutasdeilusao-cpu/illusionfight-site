@@ -448,6 +448,8 @@
       "btn_atacar": "ATTACK",
       "ficha_ver": "View sheet",
       "ficha_fechar": "Close",
+      "ficha_dossie": "Member dossier",
+      "ficha_xp_disponivel": "{n} XP available for progression",
       "selecionados": "{n}/4 selected",
       "fa_label": "FA",
       "fd_label": "FD",
@@ -1771,7 +1773,13 @@
         "batalha_titulo": "BATTLE MODE",
         "batalha_tag": "One-off",
         "batalha_desc": "A quick 2×2 fight against the opponent you pick. No map progress.",
-        "dupla_da_gangue": "{gangue}'s duo"
+        "dupla_da_gangue": "{gangue}'s duo",
+        "marelia": "MARELIA",
+        "intro": "Your gang is born. Now take the streets, one territory at a time.",
+        "comecar_historia": "START THE STORY",
+        "bloqueado": "Locked",
+        "batalha_bloqueada_desc": "One-off battles will arrive in a future update. First, build your story in Marelia.",
+        "em_breve": "COMING SOON"
       },
       "naming": {
         "titulo": "FOUND YOUR GANG",

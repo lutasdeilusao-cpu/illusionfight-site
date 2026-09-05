@@ -448,6 +448,8 @@
       "btn_atacar": "ATACAR",
       "ficha_ver": "Ver ficha",
       "ficha_fechar": "Fechar",
+      "ficha_dossie": "Dossiê do membro",
+      "ficha_xp_disponivel": "{n} XP disponível para evolução",
       "selecionados": "{n}/4 selecionados",
       "fa_label": "FA",
       "fd_label": "FD",
@@ -1361,7 +1363,13 @@
         "batalha_titulo": "MODO BATALHA",
         "batalha_tag": "Avulso",
         "batalha_desc": "Um confronto rápido 2×2 contra o oponente que você escolher. Sem progresso no mapa.",
-        "dupla_da_gangue": "A dupla da {gangue}"
+        "dupla_da_gangue": "A dupla da {gangue}",
+        "marelia": "MARELIA",
+        "intro": "Sua gangue nasceu. Agora é hora de tomar as ruas, território por território.",
+        "comecar_historia": "COMEÇAR A HISTÓRIA",
+        "bloqueado": "Bloqueado",
+        "batalha_bloqueada_desc": "Confrontos avulsos serão liberados em uma atualização futura. Primeiro, construa sua história em Marelia.",
+        "em_breve": "EM BREVE"
       },
       "naming": {
         "titulo": "FUNDE A SUA GANGUE",

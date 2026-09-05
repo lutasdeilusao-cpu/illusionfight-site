@@ -125,10 +125,11 @@ export const useGanguesStore = create((set, get) => ({
 
   gainApForParticipants: (amount, participantIds = []) => {
     const ids = new Set(participantIds)
+    const share = ids.size > 0 ? Math.max(0, Number(amount) || 0) / ids.size : 0
     set(state => {
       const advance = member => {
         if (!ids.has(member.id)) return member
-        const { progression, earnedXp } = addGanguesAp(member, amount)
+        const { progression, earnedXp } = addGanguesAp(member, share)
         const next = { ...member, xp_total: (member.xp_total || 0) + earnedXp, attributes: { ...member.attributes, progression } }
         return member.character_type === 'template' ? hydrateGanguesTemplateSheet(next) : next
       }

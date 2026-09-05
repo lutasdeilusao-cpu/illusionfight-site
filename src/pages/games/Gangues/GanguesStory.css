@@ -93,15 +93,18 @@
 .gang-story-mapa {
   position: relative;
   width: 100%;
-  aspect-ratio: 100 / 108;
+  aspect-ratio: 4 / 5;
   margin: 4px 0 18px;
   padding: 4px;
   overflow: hidden;
-  border: 1px solid var(--if-edge);
+  border: 1px solid var(--if-teal);
+  border-left-width: 4px;
   background:
     radial-gradient(80% 60% at 50% 8%, rgba(168, 85, 247, 0.1), transparent 70%),
     radial-gradient(70% 50% at 30% 92%, rgba(61, 220, 151, 0.08), transparent 70%),
-    linear-gradient(180deg, #0a1015, #070b0e 70%);
+    repeating-linear-gradient(118deg, transparent 0 38px, var(--if-cyan-12) 39px 40px),
+    linear-gradient(180deg, var(--if-panel-flat), var(--bg-primary) 70%);
+  box-shadow: 0 24px 60px -38px var(--if-teal), inset 0 0 70px var(--bg-primary);
   clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 0 100%);
 }
 
@@ -234,7 +237,13 @@
 
 /* ══ Dentro de um território ══ */
 .gang-story-terr-view { --terr-cor: var(--if-teal); }
-.gang-story-terr-hero { margin-bottom: 18px; }
+.gang-story-terr-hero {
+  position: relative; margin-bottom: 18px; padding: 18px 16px;
+  border: 1px solid color-mix(in srgb, var(--terr-cor) 55%, transparent);
+  border-left: 4px solid var(--terr-cor);
+  background: linear-gradient(120deg, color-mix(in srgb, var(--terr-cor) 14%, var(--if-panel-flat)), var(--bg-primary));
+  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%);
+}
 .gang-story-terr-titulo {
   margin: 0.3rem 0 0;
   font-family: var(--font-display); font-weight: 800;
@@ -254,8 +263,13 @@
 }
 
 /* ── A trilha de pontos ── */
-.gang-story-trilha { list-style: none; margin: 0 0 18px; padding: 0; display: flex; flex-direction: column; }
-.gang-story-no { position: relative; padding-left: 22px; }
+.gang-story-trilha {
+  list-style: none; margin: 0 0 18px; padding: 20px 8px;
+  display: flex; flex-direction: column; gap: 8px;
+  border: 1px solid var(--if-hair); background: repeating-linear-gradient(130deg, var(--if-glass) 0 1px, transparent 1px 32px);
+}
+.gang-story-no { position: relative; width: 88%; padding-left: 22px; }
+.gang-story-no:nth-child(even) { align-self: flex-end; }
 .gang-story-no::before {
   content: ''; position: absolute; left: 8px; top: 0; bottom: 0;
   width: 2px; background: repeating-linear-gradient(180deg, color-mix(in srgb, var(--terr-cor) 45%, transparent) 0 6px, transparent 6px 12px);
@@ -265,10 +279,10 @@
 
 .gang-story-no-btn {
   display: flex; align-items: center; gap: 12px;
-  width: 100%; margin: 5px 0; padding: 11px 12px;
+  width: 100%; min-height: 68px; margin: 5px 0; padding: 11px 12px;
   text-align: left; cursor: pointer;
   border: 1px solid var(--if-hair-strong);
-  background: rgba(255, 255, 255, 0.02);
+  background: linear-gradient(105deg, color-mix(in srgb, var(--terr-cor) 7%, var(--if-panel-flat)), var(--bg-primary));
   transition: border-color 0.18s, background 0.18s, transform 0.15s;
   clip-path: polygon(0 0, calc(100% - 9px) 0, 100% 9px, 100% 100%, 0 100%);
 }

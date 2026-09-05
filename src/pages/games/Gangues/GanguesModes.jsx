@@ -3,6 +3,7 @@ import { useLanguage } from '../../../context/LanguageContext'
 import { useGanguesStore } from './store/useGanguesStore'
 import { sfx } from '../../../lib/sfx'
 import './GanguesModes.css'
+import './GanguesModesRedesign.css'
 
 /* ══════════════════════════════════════════════════════════════
    SELEÇÃO DE MODO — depois que a dupla está montada.
@@ -17,26 +18,10 @@ export default function GanguesModes({ onNavigate }) {
 
   if (party.length < 2) { onNavigate('lobby'); return null }
 
-  const ir = (destino) => {
+  const ir = () => {
     sfx.select?.()
-    if (destino === 'enemy') store.setStoryTarget(null)
-    onNavigate(destino)
+    onNavigate('story')
   }
-
-  const MODOS = [
-    {
-      id: 'historia', destino: 'story', cor: 'var(--if-amber)', icon: '🗺',
-      titulo: t('games.gangues.modes.historia_titulo'),
-      desc: t('games.gangues.modes.historia_desc'),
-      tag: t('games.gangues.modes.historia_tag'),
-    },
-    {
-      id: 'batalha', destino: 'enemy', cor: 'var(--if-teal)', icon: '⚔',
-      titulo: t('games.gangues.modes.batalha_titulo'),
-      desc: t('games.gangues.modes.batalha_desc'),
-      tag: t('games.gangues.modes.batalha_tag'),
-    },
-  ]
 
   return (
     <main className="gang-lobby gang-modes">
@@ -47,8 +32,9 @@ export default function GanguesModes({ onNavigate }) {
       </header>
 
       <div className="gang-modes-titulo-wrap">
-        <span className="if-eyebrow">IF // {store.gangName || 'MARELIA'}</span>
+        <span className="if-eyebrow">IF // {store.gangName || t('games.gangues.modes.marelia')}</span>
         <h1 className="gang-modes-titulo">{t('games.gangues.modes.titulo')}</h1>
+        <p className="gang-modes-intro">{t('games.gangues.modes.intro')}</p>
       </div>
 
       <div className="gang-modes-dupla">
@@ -67,23 +53,26 @@ export default function GanguesModes({ onNavigate }) {
       </div>
 
       <div className="gang-modes-grid">
-        {MODOS.map((modo, i) => (
-          <motion.button
-            key={modo.id}
-            className={`gang-modes-card gang-modes-card--${modo.id}`}
-            style={{ '--modo-cor': modo.cor }}
-            onClick={() => ir(modo.destino)}
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.08 + i * 0.1, type: 'spring', stiffness: 240, damping: 20 }}
-          >
-            <span className="gang-modes-card-icon">{modo.icon}</span>
-            <span className="gang-modes-card-tag">{modo.tag}</span>
-            <strong className="gang-modes-card-titulo">{modo.titulo}</strong>
-            <small className="gang-modes-card-desc">{modo.desc}</small>
-            <span className="gang-modes-card-cta">{t('games.gangues.modes.jogar')} <b>→</b></span>
-          </motion.button>
-        ))}
+        <motion.button className="gang-modes-card gang-modes-card--historia" onClick={ir}
+          initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.08, type: 'spring', stiffness: 240, damping: 20 }}>
+          <span className="gang-modes-card-index">01</span>
+          <span className="gang-modes-card-art" aria-hidden="true"><i /><b>MARELIA</b></span>
+          <span className="gang-modes-card-tag">{t('games.gangues.modes.historia_tag')}</span>
+          <strong className="gang-modes-card-titulo">{t('games.gangues.modes.historia_titulo')}</strong>
+          <small className="gang-modes-card-desc">{t('games.gangues.modes.historia_desc')}</small>
+          <span className="gang-modes-card-cta">{t('games.gangues.modes.comecar_historia')} <b>→</b></span>
+        </motion.button>
+
+        <motion.div className="gang-modes-card gang-modes-card--batalha gang-modes-card--locked"
+          initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.18 }}>
+          <span className="gang-modes-card-index">02</span>
+          <span className="gang-modes-lock" aria-hidden="true">⊘</span>
+          <span className="gang-modes-card-tag">{t('games.gangues.modes.bloqueado')}</span>
+          <strong className="gang-modes-card-titulo">{t('games.gangues.modes.batalha_titulo')}</strong>
+          <small className="gang-modes-card-desc">{t('games.gangues.modes.batalha_bloqueada_desc')}</small>
+          <span className="gang-modes-card-cta">{t('games.gangues.modes.em_breve')}</span>
+        </motion.div>
       </div>
     </main>
   )
