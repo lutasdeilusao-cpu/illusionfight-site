@@ -433,6 +433,8 @@
       "btn_sair": "EXIT",
       "erro_excluir": "Error deleting sheet. Try again.",
       "btn_atacar": "ATTACK",
+      "ficha_ver": "View sheet",
+      "ficha_fechar": "Close",
       "selecionados": "{n}/4 selected",
       "fa_label": "FA",
       "fd_label": "FD",

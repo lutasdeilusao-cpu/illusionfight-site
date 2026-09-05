@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.222.0'
+export const SITE_VERSION = '10.223.0'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '1.35.0' // Briga em Multidao reescrita: era um botao que resolvia a luta INTEIRA de um clique (matava o loop de turnos); agora e switch de verdade na barra do topo (efeito de toggle deslizante) e resolve RODADA por rodada — cada clique em "avancar rodada" processa um turno completo (todo mundo vivo age uma vez) e para, esperando o jogador clicar de novo. engine/ganguesBrigaMultidao.js virou um stepper (iniciarBrigaMultidao + avancarRodadaMultidao) em vez de rodar ate o fim.
+export const GANGUES_VERSION   = '1.35.1' // roster de combate: nome (5 letras) e PM voltam a aparecer sempre (nao so quando o personagem tava agindo), e cada lutador ganhou um botao ⓘ que abre a fichinha completa (caminho, A/H/R/D, PV/PM) num popup — importante pra saber quem e quem com 6+ personagens em campo.
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
 export const MINIGAMES_VERSION = '4.3.4'  // Glitch: safe-area lateral no grid-wrap

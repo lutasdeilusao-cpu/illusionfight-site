@@ -433,6 +433,8 @@
       "btn_sair": "SAIR",
       "erro_excluir": "Erro ao excluir ficha. Tente novamente.",
       "btn_atacar": "ATACAR",
+      "ficha_ver": "Ver ficha",
+      "ficha_fechar": "Fechar",
       "selecionados": "{n}/4 selecionados",
       "fa_label": "FA",
       "fd_label": "FD",

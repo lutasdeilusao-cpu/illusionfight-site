@@ -1985,8 +1985,16 @@
    PV), não mais o card cheio com nome/barras/rótulo de caminho. É status
    ambiente, não a informação principal da tela — essa é o chat. */
 .gang-roster {
-  display: flex; flex-wrap: wrap; gap: 6px; justify-content: center;
+  display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;
   padding: 6px 10px; flex-shrink: 0;
+}
+
+/* Coluna: quadrado (seleção) + nome curto + PM, sempre visíveis — com 6
+   personagens em campo "quem é quem" tem que dar pra ler sem tooltip. */
+.gang-mini-wrap {
+  position: relative;
+  display: flex; flex-direction: column; align-items: center; gap: 2px;
+  width: 44px;
 }
 
 .gang-mini {
@@ -2039,12 +2047,22 @@
 .gang-mini-hp i { display: block; height: 100%; width: var(--pct, 100%); border-radius: 2px; background: #3ddc97; transition: width 0.4s ease; }
 .gang-roster--enemy .gang-mini-hp i { background: #ff6b6b; }
 
-.gang-mini-pm {
-  position: absolute; top: -5px; left: -5px; min-width: 15px; height: 15px; padding: 0 3px;
-  border-radius: 8px; background: #1a1024; border: 1px solid rgba(168, 85, 247, 0.6);
-  color: #d9bdf7; font: 700 9px var(--font-mono); display: flex; align-items: center; justify-content: center;
-}
 .gang-mini-tag { position: absolute; top: -5px; right: -5px; color: #22C55E; font-weight: 700; font-size: 12px; text-shadow: 0 0 4px #000; }
+
+/* Botão ⓘ — abre a fichinha completa. Fica na quina oposta da tag de "já agiu". */
+.gang-mini-info {
+  position: absolute; top: -5px; left: -5px; width: 15px; height: 15px; padding: 0;
+  border-radius: 50%; background: #10161a; border: 1px solid rgba(0, 180, 216, 0.4);
+  color: #7ec8e0; font-size: 9px; line-height: 1; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+}
+.gang-mini-info:hover { border-color: var(--if-teal); color: var(--if-teal); }
+
+.gang-mini-nome {
+  font: 700 9px var(--font-mono); letter-spacing: 0.02em; color: #c7ced2;
+  max-width: 44px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.gang-mini-pm-label { font: 700 8px var(--font-mono); color: #c99bf5; }
 
 .gang-attack-stack { display: flex; flex-direction: column; gap: 6px; }
 .gang-attack-card-val--max { color: var(--if-amber); font-weight: 700; }
@@ -2366,6 +2384,31 @@
    Na vitória do jogador, o inimigo caído comenta; na derrota, ele
    debocha. A batalha acabava seca, sem reação de quem perdeu.
    ══════════════════════════════════════════════════════════════ */
+/* Popup de ficha — status completo de um lutador, aberto pelo ⓘ do roster. */
+.gang-ficha-modal {
+  position: absolute; inset: 0; z-index: 70;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(6,6,8,0.78);
+}
+.gang-ficha-modal-card {
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  width: min(260px, 82%); padding: 20px 18px;
+  background: #12181c; border: 1px solid rgba(0,180,216,0.3); border-radius: 14px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+}
+.gang-ficha-modal-avatar {
+  width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  background: rgba(0,180,216,0.12); border: 1px solid rgba(0,180,216,0.4);
+  font: 700 18px var(--font-display, 'Rajdhani', sans-serif); color: var(--if-teal);
+}
+.gang-ficha-modal-nome { font: 700 1rem var(--font-display); color: #eef4f6; }
+.gang-ficha-modal-caminho { font: 700 0.62rem var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--if-amber); margin-bottom: 4px; }
+.gang-ficha-modal-stats { display: flex; gap: 12px; margin: 4px 0; }
+.gang-ficha-modal-stats span { display: flex; flex-direction: column; align-items: center; font: 700 0.95rem var(--font-mono); color: #d5dde0; }
+.gang-ficha-modal-stats i { font: 700 0.6rem var(--font-mono); color: #667078; font-style: normal; }
+.gang-ficha-modal-recursos { display: flex; gap: 14px; font: 400 0.72rem var(--font-body); color: #a4adb6; margin-bottom: 6px; }
+.gang-ficha-modal-recursos b { color: #d5dde0; }
+
 .gang-fala-final {
   position: fixed;
   inset: 0;

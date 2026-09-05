@@ -56,12 +56,12 @@ function transformarEvento(t, event, combatants) {
   return entries
 }
 
-// Roster compacto: um quadradinho por lutador (avatar + anel de PV). O nome
-// completo só aparece no title/tooltip — a informação que importa segundo a
-// segundo é "quem tá vivo, quem tá selecionado, de quem é a vez", não uma
-// ficha inteira ocupando a tela. Quem age agora pisca (gang-mini--acting) em
-// vez de existir um banner de texto "Vez de X" só pra dizer isso.
-function Roster({ members, side, selectable, selectedKey, onSelect, actingKey, t }) {
+// Roster compacto: quadradinho (avatar + anel de PV) + nome curto e PM
+// sempre visíveis embaixo — com 6 personagens em campo, "quem é quem" tem
+// que dar pra ler sem precisar segurar o dedo pra ver o tooltip. Quem age
+// agora pisca (gang-mini--acting) em vez de existir um banner "Vez de X".
+// O botão ⓘ abre a fichinha completa (path, A/H/R/D, PV/PM) num popup.
+function Roster({ members, side, selectable, selectedKey, onSelect, actingKey, onAbrirFicha, t }) {
   return (
     <div className={`gang-roster gang-roster--${side}`}>
       {members.map(member => {
@@ -70,20 +70,24 @@ function Roster({ members, side, selectable, selectedKey, onSelect, actingKey, t
         const disabled = dead || acted || !selectable
         const acting = member.key === actingKey && !dead
         const pathClass = member.combat_path ? `gang-path--${member.combat_path}` : ''
+        const nome = fighterName(t, member)
         return (
-          <button
-            key={member.key}
-            type="button"
-            disabled={disabled}
-            title={fighterName(t, member)}
-            className={`gang-mini ${pathClass} ${dead ? 'gang-mini--dead' : ''} ${selectedKey === member.key ? 'gang-mini--selected' : ''} ${acting ? 'gang-mini--acting' : ''}`}
-            onClick={() => onSelect?.(member.key)}
-          >
-            <span className="gang-mini-avatar">{fighterName(t, member)[0]}</span>
-            <span className="gang-mini-hp"><i style={{ '--pct': `${pct(member.pv, member.pvMax)}%` }} /></span>
-            {acting && member.pmMax > 0 && <span className="gang-mini-pm">{member.pm}</span>}
-            {acted && <span className="gang-mini-tag">✓</span>}
-          </button>
+          <div key={member.key} className="gang-mini-wrap">
+            <button
+              type="button"
+              disabled={disabled}
+              title={nome}
+              className={`gang-mini ${pathClass} ${dead ? 'gang-mini--dead' : ''} ${selectedKey === member.key ? 'gang-mini--selected' : ''} ${acting ? 'gang-mini--acting' : ''}`}
+              onClick={() => onSelect?.(member.key)}
+            >
+              <span className="gang-mini-avatar">{nome[0]}</span>
+              <span className="gang-mini-hp"><i style={{ '--pct': `${pct(member.pv, member.pvMax)}%` }} /></span>
+              {acted && <span className="gang-mini-tag">✓</span>}
+            </button>
+            <button type="button" className="gang-mini-info" title={t('games.gangues.ficha_ver')} onClick={() => onAbrirFicha?.(member)}>ⓘ</button>
+            <span className="gang-mini-nome">{nome.slice(0, 5)}</span>
+            {member.pmMax > 0 && <span className="gang-mini-pm-label">{member.pm}/{member.pmMax} PM</span>}
+          </div>
         )
       })}
     </div>
@@ -105,6 +109,7 @@ export default function GanguesCombat({ onNavigate }) {
   const [log, setLog] = useState([])
   const [trashOptions, setTrashOptions] = useState([])
   const [trashAberto, setTrashAberto] = useState(false)
+  const [fichaAberta, setFichaAberta] = useState(null) // combatant ou null — popup de status completo
   const processedEvents = useRef(0)
   const logEndRef = useRef(null)
 
@@ -308,6 +313,31 @@ export default function GanguesCombat({ onNavigate }) {
             <p className="gang-multidao-revela-texto">{t('games.gangues.multidao.resolvendo')}</p>
           </div>
         )}
+        {fichaAberta && (
+          <motion.div className="gang-ficha-modal" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setFichaAberta(null)}>
+            <motion.div
+              className="gang-ficha-modal-card"
+              initial={{ opacity: 0, y: 16, scale: 0.95 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: 8 }}
+              onClick={e => e.stopPropagation()}
+            >
+              <span className="gang-ficha-modal-avatar">{fighterName(t, fichaAberta)[0]}</span>
+              <strong className="gang-ficha-modal-nome">{fighterName(t, fichaAberta)}</strong>
+              {fichaAberta.combat_path && (
+                <span className="gang-ficha-modal-caminho">{t(`games.gangues.loadout.paths.${fichaAberta.combat_path}.name`)}</span>
+              )}
+              <div className="gang-ficha-modal-stats">
+                {['A', 'H', 'R', 'D'].map(k => (
+                  <span key={k}><i>{k}</i>{fichaAberta.attributes?.[k] ?? fichaAberta.stats?.[k] ?? 0}</span>
+                ))}
+              </div>
+              <div className="gang-ficha-modal-recursos">
+                <span>PV <b>{fichaAberta.pv}</b>/{fichaAberta.pvMax}</span>
+                {fichaAberta.pmMax > 0 && <span>PM <b>{fichaAberta.pm}</b>/{fichaAberta.pmMax}</span>}
+              </div>
+              <button className="gang-modo-fugir" onClick={() => setFichaAberta(null)}>{t('games.gangues.ficha_fechar')}</button>
+            </motion.div>
+          </motion.div>
+        )}
         {falaFinal && (
           <motion.div
             className={`gang-fala-final gang-fala-final--${falaFinal.outcome}`}
@@ -411,7 +441,8 @@ export default function GanguesCombat({ onNavigate }) {
         members={players} side="player"
         selectable={!modoMultidaoAtivo && machine.phase === 'player'}
         selectedKey={selectedActor} onSelect={modoMultidaoAtivo ? undefined : setSelectedActor}
-        actingKey={modoMultidaoAtivo ? null : machine.currentActor?.key} t={t}
+        actingKey={modoMultidaoAtivo ? null : machine.currentActor?.key}
+        onAbrirFicha={setFichaAberta} t={t}
       />
 
       <div className="gang-log-area">
@@ -488,7 +519,8 @@ export default function GanguesCombat({ onNavigate }) {
         members={enemies} side="enemy"
         selectable={!modoMultidaoAtivo && machine.phase === 'player'}
         selectedKey={selectedTarget} onSelect={modoMultidaoAtivo ? undefined : setSelectedTarget}
-        actingKey={modoMultidaoAtivo ? null : machine.currentActor?.key} t={t}
+        actingKey={modoMultidaoAtivo ? null : machine.currentActor?.key}
+        onAbrirFicha={setFichaAberta} t={t}
       />
 
       {/* ── Modo Briga em Multidão: poderes configuráveis por toque + avançar rodada ── */}

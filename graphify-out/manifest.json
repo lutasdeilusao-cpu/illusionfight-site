@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1788565520.750231,
-    "ast_hash": "2e8aa1dde5f7d9f5a46fafd65d38b93b",
+    "mtime": 1788567744.0706527,
+    "ast_hash": "efdf52124f87ef7669d17a3e7a573888",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2745,8 +2745,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1788565530.7831578,
-    "ast_hash": "63a243f7fc83a4687e22a49725b7e350",
+    "mtime": 1788567755.159401,
+    "ast_hash": "8a340e8ca2b2799e7386ae978c70ff1d",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3475,8 +3475,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/GanguesCombat.jsx": {
-    "mtime": 1788565499.1736362,
-    "ast_hash": "00d547681142f82b83f151772286fd74",
+    "mtime": 1788567592.8179631,
+    "ast_hash": "e6252fd1200416f8dbbd58d9c597cc3f",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/GanguesCreate.jsx": {
@@ -3550,18 +3550,18 @@
     "semantic_hash": ""
   },
   "src/i18n/gangues-en.json": {
-    "mtime": 1788559545.4149761,
-    "ast_hash": "38c087de516891961a60760b3fbc1831",
+    "mtime": 1788567628.6956663,
+    "ast_hash": "71b57f2d8dbddc929722a0b0ba3f7f53",
     "semantic_hash": ""
   },
   "src/i18n/gangues-es.json": {
-    "mtime": 1788559560.7761896,
-    "ast_hash": "734983e4c97cf952198cb812c782e91f",
+    "mtime": 1788567640.0741508,
+    "ast_hash": "4f3f5d0ba5989da8123fcd7fbefa2026",
     "semantic_hash": ""
   },
   "src/i18n/gangues-pt.json": {
-    "mtime": 1788559531.9283473,
-    "ast_hash": "b5916775436a35e3fd1c0dbc354fbc74",
+    "mtime": 1788567616.5567198,
+    "ast_hash": "470c989dbb4b626acfe8e315f72ec9aa",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/hooks/useGanguesI18n.js": {
@@ -4805,8 +4805,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/engine/ganguesBrigaMultidao.js": {
-    "mtime": 1788558874.464408,
-    "ast_hash": "8af3cc68727d2f35ffa97b873f8fbd96",
+    "mtime": 1788567553.53275,
+    "ast_hash": "0d5b729406c715d76913b18ba1bb076a",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/ganguesEncontros.js": {
