@@ -133,10 +133,9 @@ export const CENA_PISTA = {
     boss: 'fumaca',
   },
 
-  // Portão do chefe: precisa dos dois pontos + (o ferro-velho OU o corre).
+  // A área final só abre depois de todo o caminho obrigatório da Pista.
   portao: {
-    precisa: ['molecada_1', 'molecada_2'],
-    ou: ['ferro', 'corre'],
+    precisa: ['sinal', 'ferro', 'molecada_1', 'birosca', 'molecada_2'],
   },
 }
 
