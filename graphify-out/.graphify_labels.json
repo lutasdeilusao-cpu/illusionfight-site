@@ -312,6 +312,7 @@
   "310": "GanguesLobby.jsx",
   "311": "06.md",
   "312": "GanguesCombat.jsx",
+  "313": "ScrollToTop.jsx",
   "314": "Vila.jsx",
   "315": "09.md",
   "316": "version.js",
@@ -320,6 +321,7 @@
   "319": "13.md",
   "320": "14.md",
   "321": "15.md",
+  "322": "ScrollToTopOnNav.jsx",
   "323": "Investigacao.jsx",
   "324": "GanguesCombat.jsx",
   "325": "01.md",
@@ -404,12 +406,9 @@
   "424": "BLOCO G — NUNTIUS GAMES — POSICIONAMENTO INSTITUCIONAL",
   "425": "ganguesSpecialEffects.js",
   "426": "useGanguesStore",
-  "428": "MazeRafael.jsx",
   "429": "Create",
   "430": "ResultCard.jsx",
   "431": "drawCombatBoard",
   "432": "classTree.js",
-  "433": "RestaurarSaude.jsx",
-  "437": "CodigoPerdido.jsx",
-  "442": "GanguesStoryMap.jsx"
+  "433": "RestaurarSaude.jsx"
 }
