@@ -31,11 +31,11 @@ function resolveDefenderBonus(defenderPath, attackerPath, bonusRoll) {
 export const ATTACK_DIE_SIDES = 3
 export const CRITICAL_BONUS = 2
 
-// Dano mínimo garantido de 1: mesmo com defesa agora rolando d3 também, um golpe nunca
-// é totalmente anulado — evita as rodadas de "dano zero" que arrastavam o combate. Essa garantia
-// vale pro combate base; um escudo da skill tree (shield_next_hit/damage_reduction_next_hit)
-// pode reduzir o dano abaixo disso, inclusive a zero — é o efeito esperado de investir em
-// defesa, não uma regra geral do jogo.
+// Sem piso de dano — defesa bem investida pode anular o golpe (dano 0). Isaias
+// removeu o mínimo garantido de 1 depois de jogar bastante: com bandos grandes,
+// aquele "sempre acerta pelo menos 1" deixava todo hit relevante, sem chance de
+// defesa de verdade zerar o golpe. FA/FD continuam calculados igual; só o clamp
+// final mudou de Math.max(1, ...) pra Math.max(0, ...).
 //
 // `activeSpecialId`: id do poder ativo equipado que o atacante escolheu usar nesta ação (ou
 // null pra ataque normal). Efeitos passivos equipados de ambos os lados aplicam sempre. Ver
@@ -62,7 +62,7 @@ export function resolveGanguesAction({ attacker, defender, action, rolls, active
 
   const fa = attack + agility + attackRollValue + (attackerBonus.applied ? attackerBonus.amount : 0) + ctx.faMod
   const fd = effectiveDefense + rolls.fd + (defenderBonus.applied ? defenderBonus.amount : 0) + ctx.fdMod
-  let damage = Math.max(1, fa - fd)
+  let damage = Math.max(0, fa - fd)
 
   const incomingShield = defender.specialState?.shield || 0
   let shieldConsumed = 0

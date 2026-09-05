@@ -60,31 +60,37 @@ function transformarEvento(t, event, combatants) {
 // sempre visíveis embaixo — com 6 personagens em campo, "quem é quem" tem
 // que dar pra ler sem precisar segurar o dedo pra ver o tooltip. Quem age
 // agora pisca (gang-mini--acting) em vez de existir um banner "Vez de X".
-// O botão ⓘ abre a fichinha completa (path, A/H/R/D, PV/PM) num popup.
+// Tocar no quadrado abre a fichinha completa quando tocar não ia selecionar
+// nada de novo (já tá selecionado, ou não dá pra selecionar agora — morto,
+// já agiu, ou fora da sua vez) — sem precisar de botãozinho separado
+// pequeno demais pra tocar no celular.
 function Roster({ members, side, selectable, selectedKey, onSelect, actingKey, onAbrirFicha, t }) {
   return (
     <div className={`gang-roster gang-roster--${side}`}>
       {members.map(member => {
         const dead = member.pv <= 0
         const acted = side === 'player' && member.actedThisRound
-        const disabled = dead || acted || !selectable
+        const podeSelecionar = selectable && !dead && !acted
+        const jaSelecionado = selectedKey === member.key
         const acting = member.key === actingKey && !dead
         const pathClass = member.combat_path ? `gang-path--${member.combat_path}` : ''
         const nome = fighterName(t, member)
+        const tocar = () => {
+          if (podeSelecionar && !jaSelecionado) onSelect?.(member.key)
+          else onAbrirFicha?.(member)
+        }
         return (
           <div key={member.key} className="gang-mini-wrap">
             <button
               type="button"
-              disabled={disabled}
               title={nome}
-              className={`gang-mini ${pathClass} ${dead ? 'gang-mini--dead' : ''} ${selectedKey === member.key ? 'gang-mini--selected' : ''} ${acting ? 'gang-mini--acting' : ''}`}
-              onClick={() => onSelect?.(member.key)}
+              className={`gang-mini ${pathClass} ${!podeSelecionar ? 'gang-mini--indisponivel' : ''} ${dead ? 'gang-mini--dead' : ''} ${jaSelecionado ? 'gang-mini--selected' : ''} ${acting ? 'gang-mini--acting' : ''}`}
+              onClick={tocar}
             >
               <span className="gang-mini-avatar">{nome[0]}</span>
               <span className="gang-mini-hp"><i style={{ '--pct': `${pct(member.pv, member.pvMax)}%` }} /></span>
               {acted && <span className="gang-mini-tag">✓</span>}
             </button>
-            <button type="button" className="gang-mini-info" title={t('games.gangues.ficha_ver')} onClick={() => onAbrirFicha?.(member)}>ⓘ</button>
             <span className="gang-mini-nome">{nome.slice(0, 5)}</span>
             {member.pmMax > 0 && <span className="gang-mini-pm-label">{member.pm}/{member.pmMax} PM</span>}
           </div>
@@ -501,7 +507,7 @@ export default function GanguesCombat({ onNavigate }) {
                     <div className="gang-attack-card-divider" />
                     <div className="gang-attack-card-damage">
                       <span className="gang-attack-card-damage-label">{t('games.gangues.card_dano')}</span>
-                      <span className="gang-attack-card-damage-val">{entry.dmg}</span>
+                      <span className={`gang-attack-card-damage-val ${entry.dmg === 0 ? 'gang-attack-card-damage-val--zero' : ''}`}>{entry.dmg}</span>
                     </div>
                   </div>
                 </div>

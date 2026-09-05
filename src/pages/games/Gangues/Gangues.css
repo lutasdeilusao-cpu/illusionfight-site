@@ -2007,10 +2007,12 @@
   display: flex; align-items: center; justify-content: center;
   transition: border-color 0.2s, background 0.2s, transform 0.15s;
 }
-.gang-mini:hover:not(:disabled) { border-color: rgba(0, 180, 216, 0.6); transform: translateY(-1px); }
-.gang-mini:disabled { cursor: not-allowed; }
+.gang-mini:hover:not(.gang-mini--indisponivel) { border-color: rgba(0, 180, 216, 0.6); transform: translateY(-1px); }
+/* Não usa o atributo disabled nativo — o toque continua ativo mesmo
+   "indisponível" pra seleção, só que abre a fichinha em vez de selecionar. */
+.gang-mini--indisponivel { opacity: 0.6; }
 .gang-roster--enemy .gang-mini { border-color: rgba(139, 0, 0, 0.35); }
-.gang-roster--enemy .gang-mini:hover:not(:disabled) { border-color: rgba(220, 20, 20, 0.7); }
+.gang-roster--enemy .gang-mini:hover:not(.gang-mini--indisponivel) { border-color: rgba(220, 20, 20, 0.7); }
 .gang-mini--selected { border-color: var(--if-amber); background: rgba(245, 166, 35, 0.1); box-shadow: 0 0 10px rgba(245, 166, 35, 0.3); }
 .gang-mini--dead { opacity: 0.25; filter: grayscale(1); }
 
@@ -2048,15 +2050,6 @@
 .gang-roster--enemy .gang-mini-hp i { background: #ff6b6b; }
 
 .gang-mini-tag { position: absolute; top: -5px; right: -5px; color: #22C55E; font-weight: 700; font-size: 12px; text-shadow: 0 0 4px #000; }
-
-/* Botão ⓘ — abre a fichinha completa. Fica na quina oposta da tag de "já agiu". */
-.gang-mini-info {
-  position: absolute; top: -5px; left: -5px; width: 15px; height: 15px; padding: 0;
-  border-radius: 50%; background: #10161a; border: 1px solid rgba(0, 180, 216, 0.4);
-  color: #7ec8e0; font-size: 9px; line-height: 1; cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-}
-.gang-mini-info:hover { border-color: var(--if-teal); color: var(--if-teal); }
 
 .gang-mini-nome {
   font: 700 9px var(--font-mono); letter-spacing: 0.02em; color: #c7ced2;
