@@ -137,13 +137,7 @@ export default function GanguesCombat({ onNavigate }) {
   // pra não ter que sincronizar dois motores de combate no meio da luta.
   const totalCombatentes = (store.match.playerTeam?.length || 0) + (store.match.enemyTeam?.length || 0)
   const multidaoDisponivel = totalCombatentes >= 6
-  const [modoMultidaoOn, setModoMultidaoOnState] = useState(() => {
-    try { return localStorage.getItem('ldi-gangues-modo-rapido') === '1' } catch { return false }
-  })
-  const setModoMultidaoOn = (ativo) => {
-    setModoMultidaoOnState(ativo)
-    try { localStorage.setItem('ldi-gangues-modo-rapido', ativo ? '1' : '0') } catch { /* ignora */ }
-  }
+  const [modoMultidaoOn, setModoMultidaoOn] = useState(false)
   const [switchTravado, setSwitchTravado] = useState(false)
   const modoMultidaoAtivo = multidaoDisponivel && modoMultidaoOn
 

@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1788641838.7190988,
-    "ast_hash": "a97f267a989b58b42031a20b8c0ebc32",
+    "mtime": 1788642050.3697362,
+    "ast_hash": "ac239a5b7e090d219af4e5b6ebab4325",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2745,8 +2745,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1788641838.7200904,
-    "ast_hash": "e6a76da4a9fc9caba92545fff8ed326c",
+    "mtime": 1788642050.3707638,
+    "ast_hash": "e0ec1a4113ae8fdbe6775f441ce0677d",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3475,8 +3475,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/GanguesCombat.jsx": {
-    "mtime": 1788635682.7771287,
-    "ast_hash": "cb5f8161673e5f0a59bbb9c3663ddaf1",
+    "mtime": 1788642050.3737776,
+    "ast_hash": "b3658a484a0dee74622511b43b847c29",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/GanguesCreate.jsx": {
@@ -3570,8 +3570,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/GANGUES_DESIGN.md": {
-    "mtime": 1788527010.97028,
-    "ast_hash": "3a2d2a82a7518e40826f8847c37e5e45",
+    "mtime": 1788642096.7287424,
+    "ast_hash": "22f8d890bec89c8636bf332c283c68f9",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/GanguesTrainingZone.jsx": {
@@ -4750,8 +4750,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/GanguesNaming.jsx": {
-    "mtime": 1788636774.2641566,
-    "ast_hash": "569c1110c965fb3b3f93832767cbf7de",
+    "mtime": 1788642050.3727732,
+    "ast_hash": "3bd954858ef348cf3eb95a097c4b1a0f",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/GangDialog.jsx": {
@@ -4770,8 +4770,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/GanguesCena.jsx": {
-    "mtime": 1788640682.1970806,
-    "ast_hash": "5e4925be38b5de4c099008848e5b1bcf",
+    "mtime": 1788642050.3757732,
+    "ast_hash": "f1f2d460e751994a19ad8eca966a3bd5",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/cena/GanguesDescanso.jsx": {

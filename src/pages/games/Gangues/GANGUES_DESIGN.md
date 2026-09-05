@@ -200,18 +200,15 @@ mostrar da cintura pra cima no diálogo) e `assets/neoguide-perfil.png` (perfil,
 laterais — espelhado via CSS conforme o lado pra sempre olhar em direção ao texto).
 
 - **`components/NeoGuideDialog.jsx`**: diálogo full-screen vertical (retrato + caixa de texto
-  com efeito de máquina de escrever), usado como intro ao entrar pela primeira vez no lobby
-  (`localStorage: ldi-gangues-neoguide-seen`).
+  com efeito de máquina de escrever), usado nas introduções guiadas.
 - **`components/NeoGuideTip.jsx`**: dica lateral compacta (retrato de perfil + balão), usada
   em tutoriais guiados que destacam um elemento da tela com glow pulsante enquanto ela explica:
   - Tutorial de **caminhos** (`ldi-gangues-tutorial-paths-seen`), na tela de escolha de caminho.
   - Tutorial de **atributos** (`ldi-gangues-tutorial-attrs-seen`), na tela de distribuição de
     pontos.
-- Ambos os tutoriais e a intro só aparecem uma vez (flags em `localStorage`), com botão de
-  pular sempre disponível. Pra testar de novo:
-  ```js
-  Object.keys(localStorage).filter(k => k.startsWith('ldi-gangues')).forEach(k => localStorage.removeItem(k))
-  ```
+- Gangues não grava flags, preferências nem progresso no `localStorage`. Introduções vistas
+  podem ser lembradas somente na memória da aba; recarregar reinicia integralmente a sessão
+  de convidado. Persistência entre acessos é exclusiva de conta autenticada via Supabase.
 
 ## 11. i18n
 
@@ -243,10 +240,9 @@ pra não confundir quem for mexer depois: ou usa esse conteúdo pra inimigos fut
   selected_specials) é salvo dentro da própria coluna `attributes` (JSONB) de `character_sheets`
   — não é uma tabela/coluna separada. `applyProgression` em `GanguesLobby.jsx` chama
   `store.saveToCloud(user.id)` **a cada ação** de progressão (subir atributo, subir poder, trocar
-  subcaminho, equipar/desequipar) quando o usuário está logado; só cai pra memória local
-  (`updateRosterSheet`) se for guest, igual ao resto da ficha. O único uso de `localStorage` no
-  módulo inteiro são as flags "já vi esse tutorial" da NeoGuide (seção 10) — nenhum dado de jogo
-  fica lá.
+  subcaminho, equipar/desequipar) quando o usuário está logado; só cai pra memória da sessão
+  (`updateRosterSheet`) se for guest, igual ao resto da ficha. O módulo Gangues não usa
+  `localStorage`: recarregar a página apaga integralmente a partida do convidado.
 - **Modo história (mapa de território + cenas) salva em Supabase, tabela
   `gangues_story_progress`** (migration 031) — uma linha por usuário com `gang_name`,
   `story_progress`, `cena_progresso`, `grana`, `rep`. `loadStoryProgress(userId)` carrega ao logar

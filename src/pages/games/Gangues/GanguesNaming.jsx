@@ -6,8 +6,6 @@ import { sfx } from '../../../lib/sfx'
 import GangDialog from './components/GangDialog'
 import './GanguesModes.css'
 
-const INTRO_KEY = 'ldi-gangues-naming-intro'
-
 /* ══════════════════════════════════════════════════════════════
    BATIZAR A GANGUE — primeira coisa ao entrar no jogo.
    Os personagens importam, mas é o nome da gangue que reverbera:
@@ -18,14 +16,8 @@ export default function GanguesNaming({ onDone, modoEdicao = false }) {
   const { t } = useLanguage()
   const store = useGanguesStore()
   const [nome, setNome] = useState(store.gangName || '')
-  const [intro, setIntro] = useState(() => {
-    if (modoEdicao) return false
-    try { return !localStorage.getItem(INTRO_KEY) } catch { return true }
-  })
-  const fecharIntro = () => {
-    try { localStorage.setItem(INTRO_KEY, '1') } catch { /* ignora */ }
-    setIntro(false)
-  }
+  const [intro, setIntro] = useState(!modoEdicao)
+  const fecharIntro = () => setIntro(false)
 
   const limpo = nome.replace(/\s+/g, ' ').trim()
   const valido = limpo.length >= 2
