@@ -1,5 +1,6 @@
 import { getGanguesProgression } from '../data/ganguesLoadout.js'
 import { GANGUES_SPECIAL_PATHS, getGanguesSpecials } from '../data/ganguesSpecials.js'
+import { getGanguesCharacter } from '../data/ganguesCharacters.js'
 
 // Valores numéricos padrão da skill tree — ponto de partida pra testar e balancear, não é
 // balanceamento final. Design detalhado do Atacante em
@@ -13,6 +14,9 @@ import { GANGUES_SPECIAL_PATHS, getGanguesSpecials } from '../data/ganguesSpecia
 const E = (type, values, cost = null) => ({ type, values, cost })
 
 const GANGUES_SPECIAL_EFFECTS = {
+  golpe_forcado: E('damage_flat', [1], { kind: 'pm', values: [3] }),
+  guarda: E('shield_next_hit', [1], { kind: 'pm', values: [3] }),
+  ruptura: E('reduce_target_defense', [1], { kind: 'pm', values: [3] }),
   // Bruto
   soco_de_ferro: E('damage_flat', [3, 5, 7], { kind: 'pm', values: [2, 2, 2] }),
   investida: E('bonus_if_target_fresh', [2, 3, 4], { kind: 'pm', values: [1, 1, 1] }),
@@ -78,6 +82,10 @@ export function buildGanguesEffectsList(member, activeSpecialId = null) {
   const specials = getGanguesSpecials(member)
   const equippedIds = progression.selected_specials || []
   const list = []
+  const baseTechnique = getGanguesCharacter(member.character_template_id)?.base_technique
+  if (baseTechnique?.id === activeSpecialId && (member.pm || 0) >= baseTechnique.pm_cost) {
+    list.push({ id: baseTechnique.id, kind: 'active', level: 1, effect: getGanguesSpecialEffect(baseTechnique.id) })
+  }
   for (const id of equippedIds) {
     const level = progression.special_levels[id] || 0
     if (level <= 0) continue
@@ -106,7 +114,7 @@ export function getEquippedActiveGanguesSpecials(member) {
   const progression = getGanguesProgression(member)
   const specials = getGanguesSpecials(member)
   const equippedIds = progression.selected_specials || []
-  return equippedIds
+  const equipped = equippedIds
     .map(id => {
       const level = progression.special_levels[id] || 0
       const spec = specials.find(item => item.id === id)
@@ -114,6 +122,9 @@ export function getEquippedActiveGanguesSpecials(member) {
       return { id, level, effect: getGanguesSpecialEffect(id) }
     })
     .filter(Boolean)
+  const baseTechnique = getGanguesCharacter(member.character_template_id)?.base_technique
+  if (baseTechnique) equipped.unshift({ id: baseTechnique.id, level: 1, effect: getGanguesSpecialEffect(baseTechnique.id) })
+  return equipped
 }
 
 export function applyGanguesAttackerEffect(item, ctx) {
@@ -138,6 +149,8 @@ export function applyGanguesAttackerEffect(item, ctx) {
     }
     case 'ignore_def_pct':
       ctx.ignoreDefPct = Math.max(ctx.ignoreDefPct, v); break
+    case 'reduce_target_defense':
+      ctx.targetDefenseReduction = Math.max(ctx.targetDefenseReduction || 0, v); break
     case 'bonus_if_target_fresh':
       if (!ctx.target.actedThisRound) ctx.faMod += v
       break

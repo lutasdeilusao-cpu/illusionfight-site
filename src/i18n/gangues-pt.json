@@ -143,6 +143,18 @@
           "ilusorio": "Ilusório"
         },
         "skills": {
+          "golpe_forcado": "Golpe Forçado",
+          "guarda": "Guarda",
+          "ruptura": "Ruptura",
+          "escudo_humano": "Escudo Humano", "guarda_compartilhada": "Guarda Compartilhada", "cobertura": "Cobertura", "interceptar": "Interceptar", "ultimo_bastiao": "Último Bastião",
+          "voz_de_comando": "Voz de Comando", "casca_de_rua": "Casca de Rua", "centro_das_atencoes": "Centro das Atenções", "marcar_alvo": "Marcar Alvo",
+          "reflexo_defensivo": "Reflexo Defensivo", "aparar": "Aparar", "contragolpe_defensivo": "Contragolpe Defensivo", "retorno_de_impacto": "Retorno de Impacto", "resposta_automatica": "Resposta Automática",
+          "carne_dura": "Carne Dura", "firme_no_chao": "Firme no Chão", "segunda_respiracao": "Segunda Respiração", "inquebravel": "Inquebrável", "recusar_queda": "Recusar Queda",
+          "bola_de_fogo": "Bola de Fogo", "brasa_viva": "Brasa Viva", "explosao_termica": "Explosão Térmica", "inferno_de_rua": "Inferno de Rua", "combustao": "Combustão",
+          "correnteza": "Correnteza", "neblina": "Neblina", "fluxo_restaurador": "Fluxo Restaurador", "mare_alta": "Maré Alta", "jato_pressurizado": "Jato Pressurizado",
+          "raiz_prendente": "Raiz Prendente", "tremor": "Tremor", "ruptura_do_solo": "Ruptura do Solo", "estilhaco_terrestre": "Estilhaço Terrestre",
+          "raio_curto": "Raio Curto", "eletricidade_estatica": "Eletricidade Estática", "passo_eletrico": "Passo Elétrico", "tempestade_total": "Tempestade Total", "cadeia_de_raios": "Cadeia de Raios",
+          "mente_nebulosa": "Mente Nebulosa", "reflexo_falso": "Reflexo Falso", "distorcao": "Distorção", "quebra_de_realidade": "Quebra de Realidade", "duplo_ilusorio": "Duplo Ilusório",
           "soco_de_ferro": "Soco de Ferro",
           "investida": "Investida",
           "peso_bruto": "Peso Bruto",
@@ -1188,6 +1200,7 @@
       "escolha_oponente": "Escolha o oponente",
       "sair_do_jogo": "SAIR",
       "story": {
+        "new_campaign": "INICIAR NOVA CAMPANHA",
         "entry": "Modo história",
         "entry_desc": "Sobe Marelia bairro por bairro. Do rato de rua até a Laje.",
         "titulo": "MARELIA SEM DONO",

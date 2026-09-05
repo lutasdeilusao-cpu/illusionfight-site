@@ -143,6 +143,18 @@
           "ilusorio": "Illusory"
         },
         "skills": {
+          "golpe_forcado": "Power Strike",
+          "guarda": "Guard",
+          "ruptura": "Rupture",
+          "escudo_humano": "Human Shield", "guarda_compartilhada": "Shared Guard", "cobertura": "Cover", "interceptar": "Intercept", "ultimo_bastiao": "Last Bastion",
+          "voz_de_comando": "Commanding Voice", "casca_de_rua": "Street Toughness", "centro_das_atencoes": "Center of Attention", "marcar_alvo": "Mark Target",
+          "reflexo_defensivo": "Defensive Reflex", "aparar": "Parry", "contragolpe_defensivo": "Defensive Counter", "retorno_de_impacto": "Impact Return", "resposta_automatica": "Automatic Response",
+          "carne_dura": "Tough Flesh", "firme_no_chao": "Stand Firm", "segunda_respiracao": "Second Wind", "inquebravel": "Unbreakable", "recusar_queda": "Refuse to Fall",
+          "bola_de_fogo": "Fireball", "brasa_viva": "Living Ember", "explosao_termica": "Thermal Blast", "inferno_de_rua": "Street Inferno", "combustao": "Combustion",
+          "correnteza": "Current", "neblina": "Mist", "fluxo_restaurador": "Restoring Flow", "mare_alta": "High Tide", "jato_pressurizado": "Pressure Jet",
+          "raiz_prendente": "Binding Root", "tremor": "Tremor", "ruptura_do_solo": "Ground Rupture", "estilhaco_terrestre": "Earth Shard",
+          "raio_curto": "Short Bolt", "eletricidade_estatica": "Static Electricity", "passo_eletrico": "Electric Step", "tempestade_total": "Total Storm", "cadeia_de_raios": "Chain Lightning",
+          "mente_nebulosa": "Clouded Mind", "reflexo_falso": "False Reflection", "distorcao": "Distortion", "quebra_de_realidade": "Reality Break", "duplo_ilusorio": "Illusory Double",
           "soco_de_ferro": "Iron Fist",
           "investida": "Charge",
           "peso_bruto": "Heavyweight",
@@ -1598,6 +1610,7 @@
       "escolha_oponente": "Choose your opponent",
       "sair_do_jogo": "QUIT",
       "story": {
+        "new_campaign": "START NEW CAMPAIGN",
         "entry": "Story mode",
         "entry_desc": "Take Marelia block by block. From street rat to the Rooftop.",
         "titulo": "MARELIA HAS NO KING",

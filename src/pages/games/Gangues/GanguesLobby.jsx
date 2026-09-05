@@ -41,7 +41,7 @@ export default function GanguesLobby({ onNavigate }) {
   const roster = store.roster
   const party = store.activeParty
   // Cresce por tier pago OU por território dominado na história — vale o maior.
-  const rosterLimit = getGanguesRosterLimitComHistoria(perfil?.tier, store.storyProgress)
+  const rosterLimit = getGanguesRosterLimitComHistoria(perfil?.tier, store.storyProgress, store.rep)
   const totalXp = roster.reduce((sum, member) => sum + (member.xp_total || 0), 0)
   const partyLimit = getGanguesPartySizeLimit(totalXp)
 

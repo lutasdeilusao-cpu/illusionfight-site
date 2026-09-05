@@ -143,6 +143,18 @@
           "ilusorio": "Ilusorio"
         },
         "skills": {
+          "golpe_forcado": "Golpe Forzado",
+          "guarda": "Guardia",
+          "ruptura": "Ruptura",
+          "escudo_humano": "Escudo Humano", "guarda_compartilhada": "Guardia Compartida", "cobertura": "Cobertura", "interceptar": "Interceptar", "ultimo_bastiao": "Último Bastión",
+          "voz_de_comando": "Voz de Mando", "casca_de_rua": "Dureza Callejera", "centro_das_atencoes": "Centro de Atención", "marcar_alvo": "Marcar Objetivo",
+          "reflexo_defensivo": "Reflejo Defensivo", "aparar": "Parar", "contragolpe_defensivo": "Contraataque Defensivo", "retorno_de_impacto": "Retorno de Impacto", "resposta_automatica": "Respuesta Automática",
+          "carne_dura": "Carne Dura", "firme_no_chao": "Firme en el Suelo", "segunda_respiracao": "Segundo Aire", "inquebravel": "Inquebrantable", "recusar_queda": "Negarse a Caer",
+          "bola_de_fogo": "Bola de Fuego", "brasa_viva": "Brasa Viva", "explosao_termica": "Explosión Térmica", "inferno_de_rua": "Infierno Callejero", "combustao": "Combustión",
+          "correnteza": "Corriente", "neblina": "Niebla", "fluxo_restaurador": "Flujo Restaurador", "mare_alta": "Marea Alta", "jato_pressurizado": "Chorro Presurizado",
+          "raiz_prendente": "Raíz Atrapante", "tremor": "Temblor", "ruptura_do_solo": "Ruptura del Suelo", "estilhaco_terrestre": "Esquirla Terrestre",
+          "raio_curto": "Rayo Corto", "eletricidade_estatica": "Electricidad Estática", "passo_eletrico": "Paso Eléctrico", "tempestade_total": "Tormenta Total", "cadeia_de_raios": "Cadena de Rayos",
+          "mente_nebulosa": "Mente Nublada", "reflexo_falso": "Reflejo Falso", "distorcao": "Distorsión", "quebra_de_realidade": "Ruptura de Realidad", "duplo_ilusorio": "Doble Ilusorio",
           "soco_de_ferro": "Puño de Hierro",
           "investida": "Embestida",
           "peso_bruto": "Peso Bruto",
@@ -1598,6 +1610,7 @@
       "escolha_oponente": "Elige el oponente",
       "sair_do_jogo": "SALIR",
       "story": {
+        "new_campaign": "INICIAR NUEVA CAMPAÑA",
         "entry": "Modo historia",
         "entry_desc": "Toma Marelia barrio por barrio. De rata de calle a la Azotea.",
         "titulo": "MARELIA SIN DUEÑO",

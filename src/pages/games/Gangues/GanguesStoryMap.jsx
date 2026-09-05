@@ -155,6 +155,7 @@ export default function GanguesStoryMap({ onNavigate }) {
       <button className="gang-lobby-quit" onClick={() => onNavigate('modes')}>
         {t('games.gangues.progression.back_to_roster')}
       </button>
+      {pct === 100 && <button className="gang-new-sheet gang-new-sheet--primary" onClick={() => store.resetStory()}>{t('games.gangues.story.new_campaign')}</button>}
     </main>
   )
 }

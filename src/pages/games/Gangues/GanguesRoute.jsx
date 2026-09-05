@@ -30,7 +30,6 @@ export default function GanguesRoute({ publicTraining = false }) {
   const store = useGanguesStore()
   const i18nReady = useGanguesI18n()
   const [fase, setFase] = useState(publicTraining ? 'training' : 'lobby')
-  const [creationParty, setCreationParty] = useState([])
 
   useEffect(() => {
     if (user) {
@@ -57,7 +56,8 @@ export default function GanguesRoute({ publicTraining = false }) {
   useEffect(() => {
     if (fase !== 'story-combat') return
     const alvo = store.storyTarget
-    const party = store.roster.slice(0, GANGUES_STORY_BATTLE_PARTY_MAX)
+    const selected = store.activeParty.filter(member => store.roster.some(item => item.id === member.id))
+    const party = (selected.length ? selected : store.roster).slice(0, GANGUES_STORY_BATTLE_PARTY_MAX)
     if (!alvo?.enemyId || party.length < 1) { setFase('story'); return }
 
     let enemyTeam
@@ -85,21 +85,13 @@ export default function GanguesRoute({ publicTraining = false }) {
       {fase === 'lobby' && <GanguesLobby onNavigate={setFase} />}
       {fase === 'create' && (
         <GanguesCreate
+          key={store.roster.length}
           onNavigate={setFase}
-          skipIntro
-          creationNumber={creationParty.length ? creationParty.length + 1 : store.roster.length + 1}
-          blockedPaths={(creationParty.length ? creationParty : store.roster.length === 1 ? store.roster : []).map(member => member.combat_path)}
-          onCreated={(member) => {
-            const base = creationParty.length ? creationParty : store.roster.length === 1 ? store.roster : []
-            const next = [...base, member]
-            if (store.roster.length === 0 && next.length < 2) {
-              setCreationParty(next)
-              store.newSheet()
-            } else {
-              if (next.length === 2) store.setActiveParty(next)
-              setCreationParty([])
-              setFase('lobby')
-            }
+          onCreated={() => {
+            const roster = useGanguesStore.getState().roster
+            if (roster.length < 2) return
+            if (!useGanguesStore.getState().activeParty.length) store.setActiveParty(roster.slice(0, 2))
+            setFase('lobby')
           }}
         />
       )}

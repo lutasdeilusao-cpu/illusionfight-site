@@ -2,6 +2,7 @@ import { create } from 'zustand'
 import { supabase } from '../../../../lib/supabase'
 import { addGanguesAp, defaultGanguesProgression, getGanguesRosterLimit, normalizeGanguesLoadout } from '../data/ganguesLoadout.js'
 import { carregarProgressoHistoria, salvarProgressoHistoria } from './ganguesStoryProgress.js'
+import { createGanguesTemplateSheet, hydrateGanguesTemplateSheet } from '../data/ganguesCharacters.js'
 
 // Debounce dos writes de progresso do modo história: várias ações batem em sequência
 // (marcar POI + fôlego + grana + rep) e não faz sentido um upsert por campo.
@@ -34,6 +35,8 @@ const defaultSheet = () => ({
   loadout_version: 2,
   xp_total: 0,
   enemies_unlocked: ['treinamento'],
+  character_type: 'legacy',
+  character_template_id: null,
 })
 
 export const useGanguesStore = create((set, get) => ({
@@ -58,8 +61,10 @@ export const useGanguesStore = create((set, get) => ({
   updateSheet: (partial) => set(state => ({ sheet: { ...state.sheet, ...partial } })),
 
   loadSheet: (data) => {
-    const normalized = normalizeGanguesLoadout(data)
-    set({ sheet: { ...defaultSheet(), ...data, ...normalized }, match: { enemy_id: null, score: 0, status: 'idle' } })
+    const templateId = data?.character_template_id || data?.attributes?.character_template_id
+    const source = templateId ? { ...data, character_type: 'template', character_template_id: Number(templateId) } : data
+    const normalized = source?.character_type === 'template' ? hydrateGanguesTemplateSheet(source) : { ...source, ...normalizeGanguesLoadout(source) }
+    set({ sheet: { ...defaultSheet(), ...normalized }, match: { enemy_id: null, score: 0, status: 'idle' } })
   },
 
   setUserId: (id) => set({ _userId: id }),
@@ -74,6 +79,13 @@ export const useGanguesStore = create((set, get) => ({
     const saved = { ...sheet, id: sheet.id || `local-${Date.now()}` }
     set(state => ({ sheet: saved, roster: [...state.roster, saved] }))
     return saved
+  },
+
+  recruitTemplate: async (characterTemplateId, userId) => {
+    const templateSheet = createGanguesTemplateSheet(characterTemplateId)
+    if (!templateSheet || get().roster.some(item => item.character_template_id === templateSheet.character_template_id)) return null
+    set({ sheet: templateSheet })
+    return (userId || get()._userId) ? get().saveToCloud(userId) : get().addLocalSheet(templateSheet)
   },
 
   // playerTeamOverride: usado pelo modo história pra levar só um recorte do
@@ -111,6 +123,34 @@ export const useGanguesStore = create((set, get) => ({
     return earnedXp
   },
 
+  gainApForParticipants: (amount, participantIds = []) => {
+    const ids = new Set(participantIds)
+    set(state => {
+      const advance = member => {
+        if (!ids.has(member.id)) return member
+        const { progression, earnedXp } = addGanguesAp(member, amount)
+        const next = { ...member, xp_total: (member.xp_total || 0) + earnedXp, attributes: { ...member.attributes, progression } }
+        return member.character_type === 'template' ? hydrateGanguesTemplateSheet(next) : next
+      }
+      const roster = state.roster.map(advance)
+      const byId = new Map(roster.map(member => [member.id, member]))
+      return {
+        roster,
+        activeParty: state.activeParty.map(member => byId.get(member.id) || member),
+        sheet: byId.get(state.sheet.id) || state.sheet,
+      }
+    })
+  },
+
+  saveParticipantProgress: async (participantIds = []) => {
+    const uid = get()._userId
+    if (!uid) return
+    const ids = new Set(participantIds)
+    await Promise.all(get().roster.filter(member => ids.has(member.id) && !String(member.id).startsWith('local-')).map(member =>
+      supabase.from('character_sheets').update({ attributes: member.attributes, xp_total: member.xp_total }).eq('id', member.id).eq('user_id', uid)
+    ))
+  },
+
   updateRosterSheet: (sheetId, partial) => set(state => {
     const roster = state.roster.map(member => member.id === sheetId ? { ...member, ...partial } : member)
     const sheet = state.sheet.id === sheetId ? { ...state.sheet, ...partial } : state.sheet
@@ -121,14 +161,14 @@ export const useGanguesStore = create((set, get) => ({
     const uid = userId || get()._userId
     if (!uid) return null
     const s = get().sheet
-    const payload = { user_id: uid, sheet_name: s.sheet_name, attributes: s.attributes, elemental: s.elemental, combat_path: s.combat_path, loadout_version: s.loadout_version, xp_total: s.xp_total, enemies_unlocked: s.enemies_unlocked }
+    const payload = { user_id: uid, sheet_name: s.sheet_name, attributes: s.attributes, elemental: s.elemental, combat_path: s.combat_path, loadout_version: s.loadout_version, xp_total: s.xp_total, enemies_unlocked: s.enemies_unlocked, character_type: s.character_type || 'legacy', character_template_id: s.character_template_id || null }
     const request = s.id
       ? supabase.from('character_sheets').update(payload).eq('id', s.id).select('id').maybeSingle()
       : supabase.from('character_sheets').insert(payload).select('id').maybeSingle()
     let { data, error } = await request
 
     // Compatibilidade curta até a migration 025 ser aplicada no Supabase oficial.
-    if (error && /combat_path/i.test(error.message || '')) {
+    if (error && /(combat_path|character_type|character_template_id)/i.test(error.message || '')) {
       const legacyPayload = {
         ...payload,
         combat_style: LEGACY_PATH_STORAGE[s.combat_path],
@@ -139,6 +179,8 @@ export const useGanguesStore = create((set, get) => ({
         specializations: [],
       }
       delete legacyPayload.combat_path
+      delete legacyPayload.character_type
+      delete legacyPayload.character_template_id
       const fallback = s.id
         ? await supabase.from('character_sheets').update(legacyPayload).eq('id', s.id).select('id').maybeSingle()
         : await supabase.from('character_sheets').insert(legacyPayload).select('id').maybeSingle()
@@ -156,14 +198,17 @@ export const useGanguesStore = create((set, get) => ({
 
   loadSheets: async (userId) => {
     if (!userId) return []
-    let { data, error } = await supabase.from('character_sheets').select('id, sheet_name, attributes, elemental, combat_path, loadout_version, xp_total, enemies_unlocked').eq('user_id', userId).order('created_at', { ascending: false })
-    if (error && /combat_path/i.test(error.message || '')) {
+    let { data, error } = await supabase.from('character_sheets').select('id, sheet_name, attributes, elemental, combat_path, loadout_version, xp_total, enemies_unlocked, character_type, character_template_id').eq('user_id', userId).order('created_at', { ascending: false })
+    if (error && /(combat_path|character_type|character_template_id)/i.test(error.message || '')) {
       const legacy = await supabase.from('character_sheets').select('id, sheet_name, attributes, elemental, combat_style, loadout_version, xp_total, enemies_unlocked').eq('user_id', userId).order('created_at', { ascending: false })
       data = (legacy.data || []).map(item => ({ ...item, combat_path: LEGACY_STYLE_PATH[item.combat_style] || null }))
       error = legacy.error
     }
     if (error) console.error('[GANGUES] Falha ao carregar fichas:', error.message)
-    const roster = Array.isArray(data) ? data.map(item => ({ ...item, ...normalizeGanguesLoadout(item) })) : []
+    const roster = Array.isArray(data) ? data.map(item => {
+      const templateId = item.character_template_id || item.attributes?.character_template_id
+      return templateId ? hydrateGanguesTemplateSheet({ ...item, character_type: 'template', character_template_id: Number(templateId) }) : ({ ...item, ...normalizeGanguesLoadout(item) })
+    }) : []
     set({ roster })
     return roster
   },
@@ -238,7 +283,14 @@ export const useGanguesStore = create((set, get) => ({
   // cenaProgresso: { [cenaId]: { resolvidos: {poiId:true}, revelados: {poiId:true}, boss: bool, folego: 0..100 } }
   grana: 0,
   rep: 0,
+  campaignClears: 0,
+  eventCharacterIds: [],
   cenaProgresso: {},
+
+  completeCampaign: () => {
+    set(state => ({ campaignClears: state.campaignClears + 1 }))
+    get()._persistStory()
+  },
 
   // Escreve no Supabase com debounce — várias ações do modo história disparam
   // essa persistência em sequência (marcar POI + fôlego + grana + rep) e não
@@ -249,8 +301,8 @@ export const useGanguesStore = create((set, get) => ({
     if (!uid) return
     clearTimeout(storySaveTimer)
     storySaveTimer = setTimeout(() => {
-      const { gangName, storyProgress, cenaProgresso, grana, rep } = get()
-      salvarProgressoHistoria(uid, { gangName, storyProgress, cenaProgresso, grana, rep })
+      const { gangName, storyProgress, cenaProgresso, grana, rep, campaignClears, eventCharacterIds } = get()
+      salvarProgressoHistoria(uid, { gangName, storyProgress, cenaProgresso, grana, rep, campaignClears, eventCharacterIds })
     }, 800)
   },
 

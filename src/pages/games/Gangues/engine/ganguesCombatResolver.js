@@ -15,14 +15,10 @@ export function resolveGanguesInitiative({ combatant, roll }) {
  *   recebe bônus de defesa nenhum.
  */
 function resolveAttackerBonus(attackerPath, bonusRoll) {
-  if (attackerPath === 'atacante') return { path: 'atacante', applied: !!bonusRoll, amount: 1 }
-  if (attackerPath === 'mistico') return { path: 'mistico', applied: true, amount: 1 }
   return { path: null, applied: false, amount: 0 }
 }
 
 function resolveDefenderBonus(defenderPath, attackerPath, bonusRoll) {
-  if (defenderPath === 'defensor') return { path: 'defensor', applied: !!bonusRoll, amount: 1 }
-  if (defenderPath === 'mistico' && attackerPath === 'mistico') return { path: 'mistico', applied: true, amount: 1 }
   return { path: null, applied: false, amount: 0 }
 }
 
@@ -54,11 +50,11 @@ export function resolveGanguesAction({ attacker, defender, action, rolls, active
 
   const attackerEffects = buildGanguesEffectsList(attacker, activeSpecialId)
   const defenderEffects = buildGanguesEffectsList(defender, null)
-  const ctx = { attacker, target: defender, faMod: 0, fdMod: 0, ignoreDefPct: 0, pmCost: 0, pvCostPct: 0, selfShieldSet: 0, chargeGain: 0, chargeSpent: 0 }
+  const ctx = { attacker, target: defender, faMod: 0, fdMod: 0, ignoreDefPct: 0, targetDefenseReduction: 0, pmCost: 0, pvCostPct: 0, selfShieldSet: 0, chargeGain: 0, chargeSpent: 0 }
   for (const item of attackerEffects) applyGanguesAttackerEffect(item, ctx)
   for (const item of defenderEffects) applyGanguesDefenderEffect(item, ctx)
 
-  const effectiveDefense = Math.max(0, Math.round(defense * (1 - ctx.ignoreDefPct / 100)))
+  const effectiveDefense = Math.max(0, Math.round(defense * (1 - ctx.ignoreDefPct / 100)) - ctx.targetDefenseReduction)
 
   const fa = attack + agility + attackRollValue + (attackerBonus.applied ? attackerBonus.amount : 0) + ctx.faMod
   const fd = effectiveDefense + rolls.fd + (defenderBonus.applied ? defenderBonus.amount : 0) + ctx.fdMod

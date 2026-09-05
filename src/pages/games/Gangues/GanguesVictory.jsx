@@ -32,8 +32,8 @@ export default function GanguesVictory({ onNavigate }) {
   // Território dominado nesta vitória? (chefe caiu, seja no fluxo de cena
   // da Pista ou na trilha dos outros bairros) — libera 1 vaga de recruta.
   const territorioDominado = victory && (cenaChefe || (noModoHistoria && !emCena && storyAlvo.isChefe))
-  const podeRecrutar = territorioDominado && !confrontoFinal
-    && store.roster.length < getGanguesRosterLimitComHistoria(perfil?.tier, store.storyProgress)
+  const podeRecrutar = territorioDominado
+    && store.roster.length < getGanguesRosterLimitComHistoria(perfil?.tier, store.storyProgress, store.rep)
   const recrutar = () => { store.newSheet(); onNavigate('create') }
 
   // Pra onde o jogador iria depois desta vitória, se não tivesse ponto parado
@@ -54,7 +54,8 @@ export default function GanguesVictory({ onNavigate }) {
     if (processed.current) return
     processed.current = true
     const ap = victory ? 10 : 1
-    store.gainAp(ap)
+    const participantIds = match.playerTeam.map(member => member.id)
+    store.gainApForParticipants(ap, participantIds)
     if (victory) {
       store.unlockNextEnemy(match.enemy_id)
       // Modo história — cena: marca o POI resolvido, aplica grana/rep e fôlego.
@@ -74,20 +75,14 @@ export default function GanguesVictory({ onNavigate }) {
         store.marcarNoDominado(storyAlvo.territorioId, storyAlvo.noId, storyAlvo.isChefe)
       }
       if (user?.id) registrarPontuacaoArenaRanking(user.id)
+      if (confrontoFinal) store.completeCampaign()
       sfx.win()
     } else sfx.lose()
-    const timer = setTimeout(() => store.saveToCloud(user?.id), 400)
+    const timer = setTimeout(() => store.saveParticipantProgress(participantIds), 400)
 
     // Ficha ganhou ponto parado nesta luta (ou já tinha)? Level up de verdade:
     // manda direto pra tela de distribuição, igual qualquer jogo faria — não
     // é só um aviso. O "voltar" de lá retoma exatamente o que aconteceria aqui.
-    const xpAgora = useGanguesStore.getState().sheet?.attributes?.progression?.xp_unspent || 0
-    if (xpAgora > 0) {
-      store.setPosVitoriaAcao(() => acaoPosVitoria)
-      store.setProgressionTarget(store.sheet.id)
-      onNavigate('progression')
-    }
-
     return () => clearTimeout(timer)
   }, [])
 
@@ -121,6 +116,7 @@ export default function GanguesVictory({ onNavigate }) {
           >
             {t('games.gangues.story.voltar_mapa')}
           </motion.button>
+          {podeRecrutar && <button className="gang-report-secondary" onClick={recrutar}>{t('games.gangues.report.recrutar')}</button>}
         </motion.div>
       </main>
     )

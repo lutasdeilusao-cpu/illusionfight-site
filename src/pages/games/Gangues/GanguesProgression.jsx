@@ -1,121 +1,48 @@
-import { useState } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
 import { useLanguage } from '../../../context/LanguageContext'
-import { useAuth } from '../../../context/AuthContext'
 import { useGanguesStore } from './store/useGanguesStore'
-import { getGanguesProgression } from './data/ganguesLoadout.js'
-import GanguesProgressionPanel from './components/GanguesProgressionPanel'
-import { sfx } from '../../../lib/sfx'
+import { getGanguesCharacter, getGanguesLevelFromXp, getGanguesNextLevel, getGanguesUnlockedSpecials } from './data/ganguesCharacters.js'
 
-/* ══════════════════════════════════════════════════════════════
-   PROGRESSÃO DA FICHA — tela dedicada
-   Antes era um painel espremido no meio do elenco; dava pra entrar
-   sem querer e o jogador se sentia preso. Agora é uma parada
-   consciente: você entra pelo botão LEVEL UP, gasta os pontos com
-   calma, e volta pelo botão. Todo gasto de XP passa por confirmação.
-   ══════════════════════════════════════════════════════════════ */
 export default function GanguesProgression({ onNavigate }) {
   const { t } = useLanguage()
-  const { user } = useAuth()
   const store = useGanguesStore()
-  const member = store.roster.find(m => m.id === store.progressionTargetId) || null
-  const [pendente, setPendente] = useState(null) // { change, meta } aguardando confirmação
-  const [destaque, setDestaque] = useState(null) // id do poder recém-comprado, pra dar feedback
+  const member = store.roster.find(item => item.id === store.progressionTargetId) || null
 
-  // Se a Vitória empurrou o jogador pra cá por causa de ponto parado, guardou
-  // ali o que ele faria em seguida — o voltar retoma isso em vez de ir pro
-  // lobby, terminando ou não de distribuir.
   const voltar = () => {
     store.setProgressionTarget(null)
-    const acao = store.posVitoriaAcao
-    if (acao) {
-      store.setPosVitoriaAcao(null)
-      acao()
-    } else {
-      onNavigate('lobby')
-    }
+    const action = store.posVitoriaAcao
+    store.setPosVitoriaAcao(null)
+    if (action) action()
+    else onNavigate('lobby')
   }
 
-  const aplicar = async (change) => {
-    if (!member || !change) return
-    store.loadSheet(member)
-    store.updateSheet(change)
-    if (user?.id) await store.saveToCloud(user.id)
-    else store.updateRosterSheet(member.id, change)
-  }
+  if (!member) return <main className="gang-lobby gang-progression-screen"><p className="gang-lobby-empty">{t('games.gangues.progression.no_member')}</p><button className="gang-new-sheet gang-new-sheet--back" onClick={voltar}>{t('games.gangues.progression.back_to_roster')}</button></main>
+  if (member.character_type !== 'template') return <main className="gang-lobby gang-progression-screen"><button className="gang-progression-screen-back" onClick={voltar}>← {t('games.gangues.progression.back_to_roster')}</button><p className="gang-lobby-empty">{t('games.gangues.progression.no_member')}</p></main>
 
-  // O painel manda o custo junto. Custo > 0 → confirma antes.
-  const onApply = (m, change, meta = {}) => {
-    if (!change) return
-    if (meta.cost > 0) { sfx.select(); setPendente({ change, meta }); return }
-    sfx.select()
-    aplicar(change)
-  }
+  const character = getGanguesCharacter(member.character_template_id)
+  const level = getGanguesLevelFromXp(member.xp_total)
+  const next = getGanguesNextLevel(character.id, member.xp_total)
+  const unlocked = getGanguesUnlockedSpecials(character.id, member.xp_total)
+  const ap = member.attributes?.progression?.ap || 0
 
-  const confirmar = () => {
-    const c = pendente
-    setPendente(null)
-    if (!c) return
-    sfx.reward()
-    aplicar(c.change)
-    if (c.meta.skillId) {
-      setDestaque(c.meta.skillId)
-      setTimeout(() => setDestaque(null), 2600)
-    }
-  }
-  const cancelar = () => { sfx.cancel(); setPendente(null) }
-
-  const excluir = async () => {
-    if (!member) return
-    if (!window.confirm(t('games.gangues.progression.delete_confirm', { name: member.sheet_name }))) return
-    await store.deleteSheet(member.id)
-    voltar()
-  }
-
-  if (!member) {
-    return (
-      <main className="gang-lobby gang-progression-screen">
-        <p className="gang-lobby-empty">{t('games.gangues.progression.no_member')}</p>
-        <button className="gang-new-sheet gang-new-sheet--back" onClick={voltar}>{t('games.gangues.progression.back_to_roster')}</button>
-      </main>
-    )
-  }
-
-  const prog = getGanguesProgression(member)
-
-  return (
-    <main className="gang-lobby gang-progression-screen">
-      <header className="gang-progression-screen-head">
-        <button className="gang-progression-screen-back" onClick={voltar}>
-          ← {t('games.gangues.progression.back_to_roster')}
-        </button>
-        <div className="gang-progression-screen-xp">
-          <span className="gang-progression-screen-xp-num">{prog.xp_unspent}</span>
-          <span>{t('games.gangues.progression.xp_label')}</span>
-        </div>
-      </header>
-
-      <GanguesProgressionPanel member={member} onApply={onApply} onDelete={excluir} destaque={destaque} />
-
-      <AnimatePresence>
-        {pendente && (
-          <motion.div className="gang-xp-confirm" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-            <div className="gang-xp-confirm-bg" onClick={cancelar} />
-            <motion.div className="gang-xp-confirm-card"
-              initial={{ opacity: 0, y: 24, scale: 0.95 }} animate={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ type: 'spring', stiffness: 220, damping: 20 }}>
-              <span className="gang-xp-confirm-icon">✦</span>
-              <h3>{t('games.gangues.progression.confirm_title')}</h3>
-              <p dangerouslySetInnerHTML={{ __html: t('games.gangues.progression.confirm_body', { label: pendente.meta.label || '—', n: pendente.meta.cost }) }} />
-              <div className="gang-xp-confirm-actions">
-                <button className="gang-xp-confirm-no" onClick={cancelar}>{t('games.gangues.progression.confirm_cancel')}</button>
-                <button className="gang-xp-confirm-yes" onClick={confirmar}>{t('games.gangues.progression.confirm_ok', { n: pendente.meta.cost })}</button>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-    </main>
-  )
+  return <main className="gang-lobby gang-progression-screen">
+    <header className="gang-progression-screen-head">
+      <button className="gang-progression-screen-back" onClick={voltar}>← {t('games.gangues.progression.back_to_roster')}</button>
+      <div className="gang-progression-screen-xp"><span className="gang-progression-screen-xp-num">{level}</span><span>NV</span></div>
+    </header>
+    <section className="gang-progression-panel">
+      <div className="gang-progression-ident"><div className={`gang-progression-avatar gang-path--${character.combat_path}`}>{character.name[0]}</div><div><h2>{character.name}</h2><p>{t(`games.gangues.loadout.paths.${character.combat_path}.name`)} · {t(`games.gangues.progression.paths.${character.special_path}`)}</p></div></div>
+      <div className="gang-progression-ap"><span>{t('games.gangues.progression.ap', { n: ap })}</span><progress className="gang-progression-ap-bar" max="10" value={ap} /></div>
+      <h3 className="gang-progression-section-title">{t('games.gangues.progression.attributes')}</h3>
+      <div className="gang-attr-steppers">{['A', 'H', 'R', 'D'].map(attribute => <div className="gang-attr-stepper" key={attribute}><span className="gang-attr-stepper-letter">{attribute}</span><span className="gang-attr-stepper-name">{t(`games.gangues.attr_labels.${attribute}`)}</span><strong>{member.attributes[attribute]}</strong></div>)}</div>
+      <h3 className="gang-progression-section-title">{t('games.gangues.progression.specials')}</h3>
+      <div className="gang-skill-grid">
+        <div className="gang-skill-node gang-skill-node--equipped"><strong className="gang-skill-node-name">{t(`games.gangues.progression.skills.${character.base_technique.id}`)}</strong><span className="gang-skill-node-kind">3 PM</span></div>
+        {character.signature_specials.map((special, index) => {
+          const open = unlocked.some(item => item.id === special.id)
+          return <div key={special.id} className={`gang-skill-node${open ? ' gang-skill-node--equipped' : ' gang-skill-node--locked'}`}><span>NV {3 + index * 2}</span><strong className="gang-skill-node-name">{t(`games.gangues.progression.skills.${special.id}`)}</strong><span className="gang-skill-node-kind">{open ? t(`games.gangues.progression.${special.kind}`) : '🔒'}</span></div>
+        })}
+      </div>
+      {next && <div className="gang-character-technique"><strong>NV {next.level}</strong><span>{next.events.map(event => event.attribute ? `+${event.delta} ${event.attribute}` : t(`games.gangues.progression.skills.${event.id}`)).join(' · ')}</span></div>}
+    </section>
+  </main>
 }
