@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.230.9'
+export const SITE_VERSION = '10.230.10'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '2.5.4' // fix real do corte dos controles da Pista: .gang-page (pai) tem height:100dvh sem descontar os 48px do Navbar fixo, e o align-items:center do pai dividia essa sobra em cima/embaixo cortando a faixa de baixo. .gang-cena-worldpage agora usa align-self:flex-start + height com -48px, nascendo exatamente no topo certo e terminando na borda real da tela
+export const GANGUES_VERSION   = '2.5.5' // reverte o -48px de "navbar" do patch anterior: provado ao vivo com Playwright que o Navbar nao renderiza em nenhum jogo (setReaderMode(true) desmonta ele de verdade), entao nao havia 48px pra descontar - a subtracao so criava uma sobra vazia embaixo. Testado local: control bar termina exatamente em 932/932, sem corte e sem sobra
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
 export const MINIGAMES_VERSION = '4.3.4'  // Glitch: safe-area lateral no grid-wrap
