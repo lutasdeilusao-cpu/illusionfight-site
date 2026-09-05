@@ -12,7 +12,7 @@ import { CENAS_POR_ID, portaoAberto, contarCena } from './data/cenas/pista.js'
 import { GANGUES_TERRITORIO_POR_ID } from './data/ganguesTerritorios.js'
 import './GanguesCena.css'
 
-const WORLD={w:760,h:1840}, SPAWN={x:380,y:1720}, SPEED=190, PLAYER_RADIUS=18
+const WORLD={w:760,h:1840}, SPAWN={x:380,y:1720}, TILE=40, STEP_MS=160, PLAYER_RADIUS=18
 const seenSceneIntros = new Set()
 const POS={sinal:{x:210,y:1570},ferro:{x:150,y:1325},molecada_1:{x:445,y:1190},birosca:{x:170,y:1460},corre:{x:610,y:1010},molecada_2:{x:445,y:505},descanso:{x:205,y:1440},boss:{x:570,y:175}}
 const COLLIDERS=[
@@ -35,14 +35,38 @@ export default function GanguesCena({onNavigate}){
   const cena=CENAS_POR_ID[territorioId]||null, terr=GANGUES_TERRITORIO_POR_ID[territorioId]||null
   const prog=store.cenaProgresso[cena?.id]||{resolvidos:{},revelados:{},boss:false,folego:100}
   const [intro,setIntro]=useState(()=>Boolean(cena&&!seenSceneIntros.has(cena.id))),[player,setPlayer]=useState(()=>validPosition(prog.posicao)?prog.posicao:SPAWN),[facing,setFacing]=useState('up'),[encontro,setEncontro]=useState(null),[toast,setToast]=useState(null),[hint,setHint]=useState('Use o analógico para andar')
-  const viewportRef=useRef(null),inputRef=useRef({x:0,y:0}),keysRef=useRef(new Set()),lastRef=useRef(0)
+  const viewportRef=useRef(null),inputRef=useRef({x:0,y:0}),keysRef=useRef(new Set())
   const bossAberto=cena?portaoAberto(cena,prog.resolvidos):false, folego=prog.folego??100
   const pinos=useMemo(()=>{if(!cena)return[];const a=cena.pois.filter(p=>p.visivel||prog.revelados[p.id]).map(p=>({...p,world:POS[p.id],estado:estadoPoi(p,prog)}));a.push({...cena.chefe,world:POS.boss,estado:prog.boss?'resolvido':bossAberto?'disponivel':'trancado',ehChefe:true});return a.filter(p=>p.world)},[cena,prog,bossAberto])
   const perto=useMemo(()=>pinos.find(p=>(p.estado==='disponivel'||p.repetivel)&&insideZone(player,ENTRY_ZONES[p.id]))||null,[pinos,player])
   const {feitos,total}=cena?contarCena(cena,prog.resolvidos,prog.boss):{feitos:0,total:0}
 
   useEffect(()=>{const down=e=>{if(['arrowup','arrowdown','arrowleft','arrowright','w','a','s','d'].includes(e.key.toLowerCase())){e.preventDefault();keysRef.current.add(e.key.toLowerCase())}},up=e=>keysRef.current.delete(e.key.toLowerCase());window.addEventListener('keydown',down);window.addEventListener('keyup',up);return()=>{window.removeEventListener('keydown',down);window.removeEventListener('keyup',up)}},[])
-  useEffect(()=>{let raf;const frame=now=>{const dt=Math.min((now-(lastRef.current||now))/1000,.035);lastRef.current=now;const k=keysRef.current;let x=inputRef.current.x+(k.has('arrowright')||k.has('d')?1:0)-(k.has('arrowleft')||k.has('a')?1:0),y=inputRef.current.y+(k.has('arrowdown')||k.has('s')?1:0)-(k.has('arrowup')||k.has('w')?1:0),m=Math.hypot(x,y);if(!intro&&!encontro&&m>.08){x/=Math.max(1,m);y/=Math.max(1,m);setFacing(Math.abs(x)>Math.abs(y)?x>0?'right':'left':y>0?'down':'up');setPlayer(p=>movePlayer(p,x*SPEED*dt,y*SPEED*dt,bossAberto));setHint(null)}raf=requestAnimationFrame(frame)};raf=requestAnimationFrame(frame);return()=>cancelAnimationFrame(raf)},[intro,encontro,bossAberto])
+  // Movimento em grade, tipo Pokémon clássico: um passo de TILE por vez, sem
+  // diagonal (o eixo com maior intensidade no analógico/teclado vence),
+  // travado por STEP_MS entre passos. Isso também deixa a colisão óbvia —
+  // ou o passo acontece, ou não acontece, sem deslize parcial que escondia
+  // quando o choque era detectado.
+  useEffect(()=>{
+    if(intro||encontro) return
+    let cancelado=false, timer
+    const passo=()=>{
+      if(cancelado) return
+      const k=keysRef.current
+      const ix=inputRef.current.x+(k.has('arrowright')||k.has('d')?1:0)-(k.has('arrowleft')||k.has('a')?1:0)
+      const iy=inputRef.current.y+(k.has('arrowdown')||k.has('s')?1:0)-(k.has('arrowup')||k.has('w')?1:0)
+      if(Math.hypot(ix,iy)>.35){
+        const dx=Math.abs(ix)>=Math.abs(iy)?(ix>0?1:-1):0
+        const dy=dx===0?(iy>0?1:-1):0
+        setFacing(dx>0?'right':dx<0?'left':dy>0?'down':'up')
+        setHint(null)
+        setPlayer(p=>stepPlayer(p,dx,dy,bossAberto))
+      }
+      timer=setTimeout(passo,STEP_MS)
+    }
+    timer=setTimeout(passo,0)
+    return()=>{cancelado=true;clearTimeout(timer)}
+  },[intro,encontro,bossAberto])
   if(!cena||!terr)return <main className="gang-lobby"><button className="gang-new-sheet" onClick={()=>onNavigate('story')}>← MAPA</button></main>
   const fecharIntro=()=>{seenSceneIntros.add(cena.id);setIntro(false)}
   const guardarPosicao=()=>store.salvarPosicaoCena(cena.id,player)
@@ -62,12 +86,12 @@ export default function GanguesCena({onNavigate}){
 }
 
 function WorldScenery({bossAberto}){return <><div className="gang-road road-main"/><div className="gang-road road-cross r1"/><div className="gang-road road-cross r2"/><div className="gang-road road-cross r3"/><div className="gang-road road-branch left"/><div className="gang-road road-branch right"/><div className="gang-world-zone z-praca">PRAÇA DA PISTA</div><div className="gang-world-zone z-quadra"/><div className={`gang-world-gate ${bossAberto?'is-open':''}`}/><div className="gang-world-graffiti">A RUA<br/>LEMBRA</div>{[120,300,510,680,850,1040,1240,1430,1610].map((y,i)=><span key={y} className="gang-world-lamp" style={{left:i%2?690:45,top:y}}/>)}</>}
-function GangMarker({player,facing,gangName}){return <motion.div className={`gang-world-player is-gang facing-${facing}`} animate={{left:player.x,top:player.y}} transition={{duration:.07,ease:'linear'}}><span><i/><i/><i/></span><small>{gangName||'GANGUE'}</small></motion.div>}
+function GangMarker({player,facing,gangName}){return <motion.div className={`gang-world-player is-gang facing-${facing}`} animate={{left:player.x,top:player.y}} transition={{duration:.16,ease:'easeOut'}}><span><i/><i/><i/></span><small>{gangName||'GANGUE'}</small></motion.div>}
 function EntryZone({poi,active}){const z=ENTRY_ZONES[poi.id];if(!z||poi.estado==='trancado'||poi.estado==='resolvido')return null;return <div className={`gang-world-entry${active?' is-active':''}`} style={{left:z.x,top:z.y,width:z.w,height:z.h}}/>}
 function validPosition(p){return Number.isFinite(p?.x)&&Number.isFinite(p?.y)&&p.x>=35&&p.x<=WORLD.w-35&&p.y>=70&&p.y<=WORLD.h-40}
 function insideZone(p,z){return Boolean(z&&p.x>=z.x&&p.x<=z.x+z.w&&p.y>=z.y&&p.y<=z.y+z.h)}
 function hitsSolid(x,y,bossAberto){const hit=COLLIDERS.some(r=>x+PLAYER_RADIUS>r.x&&x-PLAYER_RADIUS<r.x+r.w&&y+PLAYER_RADIUS>r.y&&y-PLAYER_RADIUS<r.y+r.h);if(hit)return true;if(y-PLAYER_RADIUS<350&&y+PLAYER_RADIUS>330){const inOpening=x-PLAYER_RADIUS>=470&&x+PLAYER_RADIUS<=675;return !bossAberto||!inOpening}return false}
-function movePlayer(p,dx,dy,bossAberto){let x=Math.max(35,Math.min(WORLD.w-35,p.x+dx)),y=p.y;if(hitsSolid(x,y,bossAberto))x=p.x;y=Math.max(70,Math.min(WORLD.h-40,p.y+dy));if(hitsSolid(x,y,bossAberto))y=p.y;return{x,y}}
+function stepPlayer(p,dx,dy,bossAberto){const x=Math.max(35,Math.min(WORLD.w-35,p.x+dx*TILE)),y=Math.max(70,Math.min(WORLD.h-40,p.y+dy*TILE));return hitsSolid(x,y,bossAberto)?p:{x,y}}
 function WorldControls({onInput,onInteract,action}){const base=useRef(null),active=useRef(null);const update=useCallback((x,y)=>{const r=base.current?.getBoundingClientRect();if(!r)return;let dx=x-(r.left+r.width/2),dy=y-(r.top+r.height/2);const d=Math.hypot(dx,dy),max=42;if(d>max){dx=dx/d*max;dy=dy/d*max}base.current.style.setProperty('--jx',`${dx}px`);base.current.style.setProperty('--jy',`${dy}px`);onInput({x:dx/max,y:dy/max})},[onInput]);const stop=useCallback(()=>{active.current=null;if(base.current){base.current.style.setProperty('--jx','0px');base.current.style.setProperty('--jy','0px')}onInput({x:0,y:0})},[onInput]);return <div className="gang-world-controls"><div ref={base} className="gang-world-stick" onPointerDown={e=>{active.current=e.pointerId;e.currentTarget.setPointerCapture(e.pointerId);update(e.clientX,e.clientY)}} onPointerMove={e=>{if(active.current===e.pointerId)update(e.clientX,e.clientY)}} onPointerUp={stop} onPointerCancel={stop}><i/></div><button disabled={!action} onClick={onInteract}><b>{action||'...'}</b><span>INTERAGIR</span></button></div>}
 function interactionLabel(p){if(p.ehChefe)return'DESAFIAR';return({papo:'FALAR',treta:'ENCARAR',parada:'INVESTIGAR',corre:'SEGUIR',descanso:'ENTRAR'})[p.tipo]||'INTERAGIR'}
 const ICONE={treta:'✊',parada:'🔧',papo:'●',corre:'!',achado:'◆',descanso:'☕'}
