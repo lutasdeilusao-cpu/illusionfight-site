@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.260.0'
+export const SITE_VERSION = '10.261.0'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '2.36.0' // feat: custo de AP por XP agora cresce por nivel pros 30 personagens do catalogo (ldi_gangues_30_personagens_v1.json) - nivel 1: 10 AP/XP, nivel 2: 15, nivel 3: 20, nivel 4: 25, nivel 5: 30... (+5 por nivel, ganguesApCostForLevel em ganguesLoadout.js) em vez do GANGUES_AP_PER_XP=10 fixo de sempre pra qualquer nivel. addGanguesAp agora consome AP em loop recalculando o custo a cada XP ganho (level pode subir no meio da mesma conversao). Personagem "custom" (fora do catalogo, sem nivel) continua no custo fixo. xp.max exibido na ficha (GanguesCombat/GanguesProgression/GanguesCena) trocado de 10 fixo pro novo ganguesXpMaxForSheet()
+export const GANGUES_VERSION   = '2.37.0' // feat: efeito visual proprio por poder usado em combate (novo data/ganguesEffectThemes.js) - os 75 poderes dos 30 personagens herdam o visual do seu arquetipo/special_path (15 arquetipos: bruto/duelista/furia/especialista/vingador, muralha/guardiao/provocador/reativo/resiliente, igneo/aquatico/terreno/tempestade/ilusorio), cada um com cor+glifos+contagem de particula proprios, tingindo o glow/borda/onda de choque/particulas/nome do poder na tela do dado (DramaticDice) via --fx-rgb, e o card do log de combate tambem ganha borda tingida + tag com nome do poder. Antes todo poder (base ou super poder desbloqueado no nivel 3+) usava o mesmo visual azul/laranja do soco comum - activeSpecialId (ja calculado em ganguesCombatResolver.js) agora chega em GanguesCombat.jsx e alimenta o tema
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
 export const MINIGAMES_VERSION = '4.3.4'  // Glitch: safe-area lateral no grid-wrap

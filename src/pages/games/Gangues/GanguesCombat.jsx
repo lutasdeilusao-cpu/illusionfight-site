@@ -6,6 +6,7 @@ import { useGanguesStore } from './store/useGanguesStore'
 import useGanguesTurnMachine from './hooks/useGanguesTurnMachine'
 import { getEquippedActiveGanguesSpecials } from './engine/ganguesSpecialEffects.js'
 import { getGanguesProgression, ganguesXpMaxForSheet } from './data/ganguesLoadout.js'
+import { getGanguesEffectTheme } from './data/ganguesEffectThemes.js'
 import { iniciarBrigaMultidao, avancarRodadaMultidao } from './engine/ganguesBrigaMultidao.js'
 import DramaticDice from './components/DramaticDice'
 import GanguesCombatTutorial from './components/GanguesCombatTutorial'
@@ -51,6 +52,7 @@ function transformarEvento(t, event, combatants) {
     dmg: event.result.damage, onoma: randomOnoma(),
     attackerBonus: event.result.attackerBonus, defenderBonus: event.result.defenderBonus,
     critical: event.result.critical, criticalBonus: event.result.criticalBonus,
+    activeSpecialId: event.result.activeSpecialId || null,
   }]
   const enemyCombatant = isPlayer ? target : actor
   if (enemyCombatant?.trash_talk) {
@@ -319,6 +321,8 @@ export default function GanguesCombat({ onNavigate }) {
             side={machine.pending.side}
             attackerName={fighterName(t, machine.combatants.find(item => item.key === machine.pending.actorKey))}
             targetName={fighterName(t, machine.combatants.find(item => item.key === machine.pending.targetKey))}
+            powerName={machine.pending.result.activeSpecialId ? t(`games.gangues.progression.skills.${machine.pending.result.activeSpecialId}`) : null}
+            theme={getGanguesEffectTheme(machine.pending.result.activeSpecialId)}
             onComplete={machine.completePending}
           />
         )}
@@ -489,12 +493,13 @@ export default function GanguesCombat({ onNavigate }) {
             )
           }
           const isPlayer = entry.side === 'player'
+          const fxLog = getGanguesEffectTheme(entry.activeSpecialId)
           return (
             <motion.div key={entry.id} className={`gang-msg-wrap ${isPlayer ? 'gang-msg-wrap--player' : ''}`} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}>
               <div className={`gang-msg-avatar ${isPlayer ? 'gang-msg-avatar--player' : 'gang-msg-avatar--enemy'}`}>{entry.actorName[0]}</div>
               <div className="gang-attack-stack">
-                <div className={`gang-attack-card gang-attack-card--${isPlayer ? 'player' : 'enemy'}`}>
-                  <div className="gang-attack-card-header">{entry.actorName}</div>
+                <div className={`gang-attack-card gang-attack-card--${isPlayer ? 'player' : 'enemy'} ${fxLog ? 'gang-attack-card--fx' : ''}`} style={fxLog ? { '--fx-rgb': fxLog.rgb } : undefined}>
+                  <div className="gang-attack-card-header">{entry.actorName}{fxLog && <em className="gang-attack-card-power">{fxLog.glyphs[0]} {t(`games.gangues.progression.skills.${entry.activeSpecialId}`)}</em>}</div>
                   <div className="gang-attack-card-body">
                     <div className="gang-attack-card-row"><span className="gang-attack-card-key">FA</span><span className="gang-attack-card-val">{entry.fa}</span></div>
                     <div className="gang-attack-card-row"><span className="gang-attack-card-key">FD</span><span className="gang-attack-card-val">{entry.fd}</span></div>

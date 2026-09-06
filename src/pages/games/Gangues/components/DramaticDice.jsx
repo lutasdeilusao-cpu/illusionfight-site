@@ -11,9 +11,9 @@ import './DramaticDice.css'
  * Mostra QUEM está atacando e em QUEM — sem isso o jogador se perde no
  * meio da rolagem, sem saber de quem é o turno.
  *
- * @param {{ finalValue: number, sides?: number, side: 'player'|'enemy', onComplete: () => void, powerName?: string, attackerName?: string, targetName?: string }} props
+ * @param {{ finalValue: number, sides?: number, side: 'player'|'enemy', onComplete: () => void, powerName?: string, attackerName?: string, targetName?: string, theme?: { rgb: string, glyphs: string[], particleCount: number } | null }} props
  */
-export default function DramaticDice({ finalValue, sides = 6, side, onComplete, powerName, attackerName, targetName }) {
+export default function DramaticDice({ finalValue, sides = 6, side, onComplete, powerName, attackerName, targetName, theme }) {
   const { t } = useLanguage()
   const [display, setDisplay] = useState(null)       // null = fase de "aquecimento"
   const [phase, setPhase] = useState('intro')        // intro → rolling → reveal → done
@@ -21,6 +21,9 @@ export default function DramaticDice({ finalValue, sides = 6, side, onComplete, 
   const lastSoundRef = useRef(0)
   const phaseRef = useRef('intro')
   const isCritical = finalValue === sides
+  // Crítico sempre ganha (visual já é o "uau" da tela) — o tema por poder só
+  // aparece fora do crítico, senão os dois efeitos brigam pela mesma cor.
+  const fx = !isCritical && theme ? theme : null
 
   // Mantém phaseRef sincronizado com o state phase (evita stale closure no rAF)
   useEffect(() => {
@@ -129,11 +132,11 @@ export default function DramaticDice({ finalValue, sides = 6, side, onComplete, 
         {/* Background blur */}
         <div className="dramatic-dice-bg" />
 
-        <div className="dramatic-dice-container">
+        <div className="dramatic-dice-container" style={fx ? { '--fx-rgb': fx.rgb } : undefined}>
           {/* Nome do poder (se houver) — aparece antes da label */}
           {powerName && (
             <motion.div
-              className="dramatic-dice-powername"
+              className={`dramatic-dice-powername ${fx ? 'dramatic-dice-powername--fx' : ''}`}
               initial={{ opacity: 0, scale: 0.5, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ delay: 0.05, duration: 0.4, ease: [0.175, 0.885, 0.32, 1.275] }}
@@ -158,10 +161,10 @@ export default function DramaticDice({ finalValue, sides = 6, side, onComplete, 
           {/* O dado em si */}
           <div className="dramatic-dice-stage">
             {/* LIGHTING EFFECTS */}
-            <div className={`dramatic-dice-glow ${isCritical && phase === 'reveal' ? 'dramatic-dice-glow--critico' : ''}`} />
+            <div className={`dramatic-dice-glow ${isCritical && phase === 'reveal' ? 'dramatic-dice-glow--critico' : ''} ${fx && phase === 'reveal' ? 'dramatic-dice-glow--fx' : ''}`} />
 
             <motion.div
-              className={`dramatic-dice-box ${isCritical && phase === 'reveal' ? 'dramatic-dice-box--critico' : ''} ${phase === 'reveal' ? 'dramatic-dice-box--reveal' : ''} ${phase === 'rolling' ? 'dramatic-dice-box--rolling' : ''}`}
+              className={`dramatic-dice-box ${isCritical && phase === 'reveal' ? 'dramatic-dice-box--critico' : ''} ${fx && phase === 'reveal' ? 'dramatic-dice-box--fx' : ''} ${phase === 'reveal' ? 'dramatic-dice-box--reveal' : ''} ${phase === 'rolling' ? 'dramatic-dice-box--rolling' : ''}`}
               animate={
                 phase === 'intro' ? { scale: 0, rotate: -180 } :
                 phase === 'rolling' ? { scale: 1, rotate: [0, 15, -15, 10, -10, 5, -5, 0] } :
@@ -179,7 +182,7 @@ export default function DramaticDice({ finalValue, sides = 6, side, onComplete, 
               }
             >
               <span className="dramatic-dice-emoji">🎲</span>
-              <span className={`dramatic-dice-number ${phase === 'reveal' ? 'dramatic-dice-number--final' : ''} ${isCritical && phase === 'reveal' ? 'dramatic-dice-number--critico' : ''}`}>
+              <span className={`dramatic-dice-number ${phase === 'reveal' ? 'dramatic-dice-number--final' : ''} ${isCritical && phase === 'reveal' ? 'dramatic-dice-number--critico' : ''} ${fx && phase === 'reveal' ? 'dramatic-dice-number--fx' : ''}`}>
                 {display ?? '?'}
               </span>
             </motion.div>
@@ -189,7 +192,7 @@ export default function DramaticDice({ finalValue, sides = 6, side, onComplete, 
             {phase === 'reveal' && (
               <>
                 <motion.span
-                  className={`dramatic-dice-shockwave ${isCritical ? 'dramatic-dice-shockwave--critico' : ''}`}
+                  className={`dramatic-dice-shockwave ${isCritical ? 'dramatic-dice-shockwave--critico' : ''} ${fx ? 'dramatic-dice-shockwave--fx' : ''}`}
                   initial={{ scale: 0.2, opacity: 0.9 }}
                   animate={{ scale: isCritical ? 3.2 : 2.4, opacity: 0 }}
                   transition={{ duration: isCritical ? 0.7 : 0.55, ease: 'easeOut' }}
@@ -200,7 +203,7 @@ export default function DramaticDice({ finalValue, sides = 6, side, onComplete, 
                   animate={{ scale: [0, 1.3, 1.05], rotate: isPlayer ? [-35, 8, 0] : [35, -8, 0], opacity: [0, 1, 0] }}
                   transition={{ duration: 0.6, times: [0, 0.3, 1], ease: 'easeOut' }}
                 >
-                  {isCritical ? '💥' : '👊'}
+                  {isCritical ? '💥' : fx ? fx.glyphs[0] : '👊'}
                 </motion.span>
               </>
             )}
@@ -213,29 +216,32 @@ export default function DramaticDice({ finalValue, sides = 6, side, onComplete, 
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.3 }}
               >
-                {[...Array(8)].map((_, i) => {
-                  const angle = (i / 8) * 360
-                  const dist = 60 + Math.random() * 40
-                  return (
-                    <motion.span
-                      key={i}
-                      className="dramatic-dice-particle"
-                      initial={{ x: 0, y: 0, opacity: 1, scale: 1 }}
-                      animate={{
-                        x: Math.cos((angle * Math.PI) / 180) * dist,
-                        y: Math.sin((angle * Math.PI) / 180) * dist,
-                        opacity: 0,
-                        scale: 0,
-                      }}
-                      transition={{ duration: 0.8, ease: 'easeOut' }}
-                      style={{
-                        background: isCritical ? '#F5A623' : '#00B4D8',
-                      }}
-                    >
-                      {isCritical ? '✦' : '•'}
-                    </motion.span>
-                  )
-                })}
+                {(() => {
+                  const count = isCritical ? 8 : (fx?.particleCount || 8)
+                  return [...Array(count)].map((_, i) => {
+                    const angle = (i / count) * 360
+                    const dist = 60 + Math.random() * 40
+                    return (
+                      <motion.span
+                        key={i}
+                        className="dramatic-dice-particle"
+                        initial={{ x: 0, y: 0, opacity: 1, scale: 1 }}
+                        animate={{
+                          x: Math.cos((angle * Math.PI) / 180) * dist,
+                          y: Math.sin((angle * Math.PI) / 180) * dist,
+                          opacity: 0,
+                          scale: 0,
+                        }}
+                        transition={{ duration: 0.8, ease: 'easeOut' }}
+                        style={{
+                          background: isCritical ? '#F5A623' : fx ? `rgb(${fx.rgb})` : '#00B4D8',
+                        }}
+                      >
+                        {isCritical ? '✦' : fx ? fx.glyphs[i % fx.glyphs.length] : '•'}
+                      </motion.span>
+                    )
+                  })
+                })()}
               </motion.div>
             )}
           </div>

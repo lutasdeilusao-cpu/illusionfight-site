@@ -92,6 +92,43 @@
   50% { transform: scale(1.2); opacity: 1; filter: brightness(1.5); }
 }
 
+/* ══════════════════════════════════════════════════════════════
+   Efeito por PODER — cada arquétipo (bruto/duelista/furia/... ver
+   ganguesEffectThemes.js) tinge o mesmo conjunto de efeitos com uma cor
+   própria via --fx-rgb (inline, setado pelo componente). Sem isso todo
+   poder usava o mesmo azul/laranja do soco comum — nada os diferenciava
+   visualmente uns dos outros. Crítico continua tendo prioridade visual
+   (aplicado só quando NÃO é crítico, ver DramaticDice.jsx).
+   ══════════════════════════════════════════════════════════════ */
+.dramatic-dice-glow--fx {
+  background: radial-gradient(circle, rgba(var(--fx-rgb), 0.4) 0%, rgba(var(--fx-rgb), 0.1) 50%, transparent 70%);
+  animation: dramatic-glow-pulse-critico 1.1s ease-in-out infinite;
+}
+.dramatic-dice-box--fx {
+  border-color: rgba(var(--fx-rgb), 0.75);
+  box-shadow:
+    0 0 50px rgba(var(--fx-rgb), 0.4),
+    0 0 90px rgba(var(--fx-rgb), 0.15),
+    inset 0 0 30px rgba(var(--fx-rgb), 0.12);
+}
+.dramatic-dice-shockwave--fx {
+  border-color: rgba(var(--fx-rgb), 0.8);
+  border-width: 3px;
+}
+.dramatic-dice-powername--fx {
+  color: rgb(var(--fx-rgb));
+  text-shadow:
+    0 0 30px rgba(var(--fx-rgb), 0.8),
+    0 0 60px rgba(var(--fx-rgb), 0.4),
+    0 2px 0 rgba(0, 0, 0, 0.5);
+}
+.dramatic-dice-number--fx {
+  color: #fff;
+  text-shadow:
+    0 0 20px rgba(255, 255, 255, 0.6),
+    0 0 40px rgba(var(--fx-rgb), 0.7);
+}
+
 /* O dado em si */
 .dramatic-dice-box {
   position: relative;
