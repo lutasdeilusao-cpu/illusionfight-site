@@ -223,7 +223,7 @@ function RosterCarousel({ roster, party, partyLimit, rosterLimit, rosterIndex, s
     <section className="gang-roster-carousel">
       <div className="gang-lobby-section-label gang-lobby-section-label--row"><span>{t('games.gangues.party.roster')}</span><span>{roster.length}/{rosterLimit}</span></div>
 
-      <div className="gang-recruit__stage gang-recruit__stage--roster">
+      <div className="gang-recruit__stage">
         <div className="gang-recruit__street" aria-hidden="true"><i /><i /><i /></div>
         {roster.length > 1 && <button className="gang-recruit__arrow gang-recruit__arrow--left" onClick={() => move(-1)}>‹</button>}
         <div className="gang-recruit__slides">
@@ -253,16 +253,15 @@ function RosterCarousel({ roster, party, partyLimit, rosterLimit, rosterIndex, s
           })}
         </div>
         {roster.length > 1 && <button className="gang-recruit__arrow gang-recruit__arrow--right" onClick={() => move(1)}>›</button>}
+        {atual && <div className="gang-roster-carousel__actions">
+          <button className="gang-sheet-delete-btn gang-sheet-delete-btn--roster" onClick={() => deleteProgressionMember(atual)} aria-label={t('games.gangues.progression.delete')}>×</button>
+          <button className="gang-sheet-ficha" onClick={() => abrirProgressao(atual)}>{t('games.gangues.progression.open_sheet')}</button>
+          {xpDisponivel > 0 && <button className="gang-sheet-levelup" onClick={() => abrirProgressao(atual)}>{t('games.gangues.progression.xp_badge', { n: xpDisponivel })}</button>}
+        </div>}
       </div>
 
       {roster.length > 1 && <div className="gang-recruit__dots">
         {roster.map((member, index) => <button key={member.id} className={index === rosterIndex ? 'is-active' : ''} onClick={() => setRosterIndex(index)} />)}
-      </div>}
-
-      {atual && <div className="gang-roster-carousel__actions">
-        <button className="gang-sheet-delete-btn gang-sheet-delete-btn--roster" onClick={() => deleteProgressionMember(atual)} aria-label={t('games.gangues.progression.delete')}>×</button>
-        <button className="gang-sheet-ficha" onClick={() => abrirProgressao(atual)}>{t('games.gangues.progression.open_sheet')}</button>
-        {xpDisponivel > 0 && <button className="gang-sheet-levelup" onClick={() => abrirProgressao(atual)}>{t('games.gangues.progression.xp_badge', { n: xpDisponivel })}</button>}
       </div>}
 
       {roster.length < rosterLimit && <button className="gang-new-sheet" onClick={startRecruitment}><span className="gang-new-sheet-icon">+</span>{t('games.gangues.recruitment.title')}</button>}

@@ -63,6 +63,12 @@ export const CENA_PISTA = {
     {
       id: 'molecada_1',
       tipo: 'treta',
+      // Continua OBRIGATÓRIA pra abrir o portão (portao.precisa) — repetivel
+      // só faz ela continuar desafiável DEPOIS de vencida uma vez, igual a
+      // rinha (mesmo travarPontosFarm em GanguesCena.jsx). É a treta mais
+      // fácil e mais cedo da Pista — vira o alvo natural pra upar quem acaba
+      // de ser recrutado e começa do nível 1.
+      repetivel: true,
       pino: { x: 50, y: 132 },
       i18n: 'games.gangues.cena.pista.molecada_1',
       // É a primeira treta de verdade do jogo, logo depois da criação da
