@@ -48,7 +48,7 @@ export default function GanguesStoryMap({ onNavigate }) {
         </div>
 
         <div className="gang-world__map" role="group" aria-label={t('games.gangues.story.titulo')}>
-          <svg viewBox="0 0 100 108" className="gang-world__svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+          <svg viewBox="0 0 100 150" className="gang-world__svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
             {GANGUES_TERRITORIOS.map(territorio => {
               const state = estadoTerritorio(territorio, progress)
               return (

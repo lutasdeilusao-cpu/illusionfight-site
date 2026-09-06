@@ -15,7 +15,7 @@
 /* Mapa político — regiões desenhadas no SVG (poly/cor de cada território),
    rótulos numerados sobrepostos via posição percentual (pos.top/left). Cada
    território é um bairro de Marelia, tipo zona de uma cidade de verdade. */
-.gang-world__map { position:relative; z-index:3; margin:6px 14px 4px; aspect-ratio:100/108; }
+.gang-world__map { position:relative; z-index:3; margin:6px 14px 4px; aspect-ratio:100/150; }
 .gang-world__svg { position:absolute; inset:0; width:100%; height:100%; overflow:visible; }
 .gang-world__region {
   fill:color-mix(in srgb, var(--regiao-cor) 14%, transparent);

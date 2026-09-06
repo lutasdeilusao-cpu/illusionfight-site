@@ -36,8 +36,12 @@ export const GANGUES_TERRITORIOS = [
     dificuldade: 'rato',
     ordem: 1,
     cor: '#3ddc97',
-    poly: '6,102 44,96 40,80 4,84',
-    pos: { top: 88, left: 24 },
+    // Formas encaixadas de verdade (sem vão entre regiões): cada território
+    // compartilha o ponto exato da fronteira com o vizinho — é o que faz
+    // parecer um mapa político real em vez de blocos soltos. viewBox do
+    // mapa é "0 0 100 150" (ver GanguesStoryMap.jsx).
+    poly: '0,138 16,150 32,140 50,148 43,130 57,112 40,118 20,108 0,120',
+    pos: { top: 86, left: 29 },
     // A Pista tem CENA própria (ver data/cenas/pista.js) — GanguesCena
     // substitui essa trilha em jogo. Os campos abaixo (enemy/forca) ficam
     // só pra bookkeeping de domínio (marcarNoDominado usa os ids); os
@@ -54,8 +58,8 @@ export const GANGUES_TERRITORIOS = [
     dificuldade: 'muvuca',
     ordem: 2,
     cor: '#7ee787',
-    poly: '52,98 96,92 92,74 48,80',
-    pos: { top: 80, left: 72 },
+    poly: '50,148 68,138 84,148 100,136 100,116 90,106 74,120 57,112 43,130',
+    pos: { top: 85, left: 74 },
     // Reaproveitamento: os 3 pontos da Feira não bastam pra abrir o chefe —
     // precisa também ter falado com o informante lá na Pista (POI
     // repetível `informante`, ver data/cenas/pista.js). É a primeira ponte
@@ -74,8 +78,8 @@ export const GANGUES_TERRITORIOS = [
     dificuldade: 'correria',
     ordem: 3,
     cor: '#18dafb',
-    poly: '8,80 46,76 42,58 6,62',
-    pos: { top: 66, left: 24 },
+    poly: '0,120 20,108 40,118 57,112 44,94 56,76 40,82 20,72 0,84 6,100',
+    pos: { top: 64, left: 28 },
     pontos: [
       { id: 'baixada-1', gangue: 'sombra_rubra', enemy: 'sombra_rubra', forca: 3, dificuldade: 'normal' },
       { id: 'baixada-2', gangue: 'sombra_fria', enemy: 'sombra_fria', forca: 4, dificuldade: 'dificil' },
@@ -88,8 +92,8 @@ export const GANGUES_TERRITORIOS = [
     dificuldade: 'disputa',
     ordem: 4,
     cor: '#ffae32',
-    poly: '52,74 96,70 92,52 50,56',
-    pos: { top: 58, left: 72 },
+    poly: '57,112 74,120 90,106 100,116 94,98 100,80 90,70 74,84 56,76 44,94',
+    pos: { top: 64, left: 78 },
     pontos: [
       { id: 'vila-1', gangue: 'bonde_predio', enemy: 'bonde_predio_1', forca: 4, dificuldade: 'normal' },
       { id: 'vila-2', gangue: 'bonde_predio', enemy: 'bonde_predio_2', forca: 5, dificuldade: 'dificil' },
@@ -102,8 +106,8 @@ export const GANGUES_TERRITORIOS = [
     dificuldade: 'guerra',
     ordem: 5,
     cor: '#ff8f3c',
-    poly: '10,56 48,52 44,34 8,38',
-    pos: { top: 42, left: 24 },
+    poly: '0,84 20,72 40,82 56,76 43,58 50,54 40,58 28,50 10,60 4,72',
+    pos: { top: 44, left: 29 },
     pontos: [
       { id: 'morro-1', gangue: 'frente_escada', enemy: 'frente_escada_1', forca: 5, dificuldade: 'normal' },
       { id: 'morro-2', gangue: 'frente_escada', enemy: 'frente_escada_2', forca: 6, dificuldade: 'dificil' },
@@ -116,8 +120,8 @@ export const GANGUES_TERRITORIOS = [
     dificuldade: 'sangue',
     ordem: 6,
     cor: '#ff6b6b',
-    poly: '52,50 94,46 90,28 50,32',
-    pos: { top: 34, left: 72 },
+    poly: '56,76 74,84 90,70 100,80 96,68 90,60 74,50 62,58 50,54 43,58',
+    pos: { top: 44, left: 74 },
     pontos: [
       { id: 'alto-1', gangue: 'os_cinco', enemy: 'os_cinco_1', forca: 6, dificuldade: 'normal' },
       { id: 'alto-2', gangue: 'os_cinco', enemy: 'os_cinco_2', forca: 7, dificuldade: 'dificil' },
@@ -130,8 +134,8 @@ export const GANGUES_TERRITORIOS = [
     dificuldade: 'coroa',
     ordem: 7,
     cor: '#a855f7',
-    poly: '30,30 72,30 64,4 36,4',
-    pos: { top: 15, left: 49 },
+    poly: '10,60 28,50 40,58 50,54 62,58 74,50 90,60 84,44 74,26 60,10 50,6 40,10 24,26 14,44',
+    pos: { top: 27, left: 51 },
     pontos: [
       { id: 'laje-1', gangue: 'bonde_costura', enemy: 'bonde_costura_1', forca: 7, dificuldade: 'normal' },
       { id: 'laje-2', gangue: 'bonde_costura', enemy: 'bonde_costura_2', forca: 8, dificuldade: 'dificil' },
