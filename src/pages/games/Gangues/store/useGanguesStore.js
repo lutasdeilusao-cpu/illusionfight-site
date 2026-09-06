@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 import { supabase } from '../../../../lib/supabase'
-import { addGanguesAp, defaultGanguesProgression, getGanguesRosterLimit, normalizeGanguesLoadout, ganguesXpMaxForSheet } from '../data/ganguesLoadout.js'
+import { addGanguesAp, defaultGanguesProgression, getGanguesRosterLimit, normalizeGanguesLoadout } from '../data/ganguesLoadout.js'
 import { carregarProgressoHistoria, salvarProgressoHistoria, listarSaves, criarSave, excluirSave } from './ganguesStoryProgress.js'
 import { createGanguesTemplateSheet, hydrateGanguesTemplateSheet } from '../data/ganguesCharacters.js'
 
@@ -154,9 +154,13 @@ export const useGanguesStore = create((set, get) => ({
 
   // pesosPorId: { [memberId]: peso } — a fatia de `totalAp` de cada um é
   // proporcional ao peso dele (quem matou mais/bateu mais dano pesa mais,
-  // ver GanguesVictory.jsx), não mais dividido em partes iguais. Ninguém
-  // que participou fica sem NADA: quem cruzaria 0 XP pela fatia normal
-  // recebe um empurrão extra até garantir pelo menos 1 ponto de XP.
+  // ver GanguesVictory.jsx), não mais dividido em partes iguais. O peso
+  // mínimo de 1 (já aplicado em GanguesVictory.jsx) garante que ninguém
+  // fica de fora da divisão do MESMO pote — mas o pote continua sendo só
+  // o AP da luta (10 por inimigo), nunca AP extra inventado do nada. Uma
+  // luta contra 1 inimigo só dá 10 AP no total: raramente vai fechar 1 XP
+  // inteiro pra alguém (custa 10 AP no nível 1) e ISSO é o esperado — subir
+  // de nível numa primeira luta contra um alvo fraco não devia acontecer.
   gainApForParticipants: (totalAp, pesosPorId = {}) => {
     const somaPesos = Object.values(pesosPorId).reduce((s, p) => s + (Number(p) || 0), 0) || 1
     const levelUps = []
@@ -166,12 +170,7 @@ export const useGanguesStore = create((set, get) => ({
         if (!(member.id in pesosPorId)) return member
         const peso = Number(pesosPorId[member.id]) || 0
         const share = (peso / somaPesos) * Math.max(0, Number(totalAp) || 0)
-        let resultado = addGanguesAp(member, share)
-        if (resultado.earnedXp === 0) {
-          const parcial = { ...member, attributes: { ...member.attributes, progression: resultado.progression } }
-          const faltando = ganguesXpMaxForSheet(parcial) - resultado.progression.ap
-          resultado = addGanguesAp(parcial, Math.max(0, faltando))
-        }
+        const resultado = addGanguesAp(member, share)
         totalXp += resultado.earnedXp
         const next = { ...member, xp_total: (member.xp_total || 0) + resultado.earnedXp, attributes: { ...member.attributes, progression: resultado.progression } }
         const hydrated = member.character_type === 'template' ? hydrateGanguesTemplateSheet(next) : next

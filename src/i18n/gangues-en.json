@@ -486,7 +486,7 @@
         "bolinha": "That floating orb is where you act now. Tap it: ATTACK resolves instantly for free, POWER costs PM (or PV) but hits harder, and ITEM will show your items once you have any.",
         "bolinha_mover": "Don't like where it's sitting? Hold and drag it to any corner of the screen — the spot is saved for next time.",
         "ko_aviso_tutorial": "If an ally goes down in a fight, a red 💀 warning pops up right away — keep an eye out.",
-        "xp_regra": "Battle XP isn't split evenly: finishing off more enemies earns way more, damage dealt breaks ties. But nobody's left out — everyone who fought is guaranteed at least 1 XP."
+        "xp_regra": "Battle XP isn't split evenly: finishing off more enemies earns a much bigger slice, damage dealt breaks ties. A fight against weak stuff gives little total XP — don't expect to level up every single time."
       },
       "multidao": {
         "switch_label": "Mob Brawl",

@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.265.0'
+export const SITE_VERSION = '10.266.0'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '2.41.0' // feat: tutorial de combate (v4) ganha 2 passos novos explicando o aviso de KO e a nova regra de divisao de XP por contribuicao (matar pesa mais que so bater, mas todo mundo garante pelo menos 1 XP) - pra quem joga pela primeira vez ja entender a regra sem precisar descobrir sozinho
+export const GANGUES_VERSION   = '2.42.0' // fix: gainApForParticipants (useGanguesStore.js) tinha um "empurrao" que forcava CADA participante a fechar pelo menos 1 XP inteiro sempre que a fatia proporcional dava earnedXp=0 - isso inventava AP extra fora do pote da luta (nao vinha do total de 10*inimigos) e fazia os dois personagens da dupla subirem de nivel na PRIMEIRA luta contra 1 inimigo fraco (nivel 1->2 custa so 1 XP = 10 AP, e o empurrao dava exatamente isso pros dois ao mesmo tempo, sem relacao nenhuma com o pote real de 10 AP dividido). Removido: agora a fatia de cada um sai só do pote real (peso minimo 1 evita ficar zerado, mas nao inventa AP a mais) - lutar contra pouca coisa da pouco XP total, como devia ser. Texto do tutorial (xp_regra) ajustado pra nao prometer "pelo menos 1 XP garantido" que nao existe mais
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
 export const MINIGAMES_VERSION = '4.3.4'  // Glitch: safe-area lateral no grid-wrap

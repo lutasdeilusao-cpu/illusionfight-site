@@ -486,7 +486,7 @@
         "bolinha": "Esa bolita flotante es donde actúas ahora. Tócala: ATACAR resuelve al instante gratis, PODER gasta PM (o PV) pero pega más fuerte, e ITEM va a mostrar tus objetos cuando tengas alguno.",
         "bolinha_mover": "¿No te gusta dónde está? Mantén presionado y arrástrala a cualquier esquina de la pantalla — la posición se guarda para la próxima.",
         "ko_aviso_tutorial": "Si un aliado cae en la pelea, aparece de inmediato un aviso rojo 💀 — estate atento.",
-        "xp_regra": "El XP de la pelea no se divide igual: quien remata a más enemigos gana bastante más, el daño causado desempata. Pero nadie se queda afuera — todos los que pelearon garantizan al menos 1 XP."
+        "xp_regra": "El XP de la pelea no se divide igual: quien remata a más enemigos se lleva una porción bastante mayor, el daño causado desempata. Una pelea contra poca cosa da poco XP en total — no esperes subir de nivel todo el tiempo."
       },
       "multidao": {
         "switch_label": "Pelea Multitudinaria",
