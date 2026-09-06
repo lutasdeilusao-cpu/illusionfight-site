@@ -165,11 +165,17 @@ export const useGanguesStore = create((set, get) => ({
     const somaPesos = Object.values(pesosPorId).reduce((s, p) => s + (Number(p) || 0), 0) || 1
     const levelUps = []
     let totalXp = 0
+    // AP (não XP) que cada participante efetivamente recebeu nesta luta —
+    // o que a tela de vitória mostra em destaque agora é ISSO, não o XP
+    // convertido (pedido explícito: "pontos de ação" é o número que importa
+    // pro jogador ver, o XP é só conta interna de conversão).
+    const apPorMembro = {}
     set(state => {
       const advance = member => {
         if (!(member.id in pesosPorId)) return member
         const peso = Number(pesosPorId[member.id]) || 0
         const share = (peso / somaPesos) * Math.max(0, Number(totalAp) || 0)
+        apPorMembro[member.id] = Math.round(share)
         const resultado = addGanguesAp(member, share)
         totalXp += resultado.earnedXp
         const next = { ...member, xp_total: (member.xp_total || 0) + resultado.earnedXp, attributes: { ...member.attributes, progression: resultado.progression } }
@@ -187,7 +193,7 @@ export const useGanguesStore = create((set, get) => ({
         sheet: byId.get(state.sheet.id) || state.sheet,
       }
     })
-    return { levelUps, totalXp }
+    return { levelUps, totalXp, apPorMembro }
   },
 
   // Grava o PV/PM com que cada lutador do time SAIU da luta — é isso que faz

@@ -49,7 +49,7 @@ export default function GanguesFichaCard({ numero, nome, caminho, subcaminho, ni
 
       {xp && (
         <div className="gang-sheet-modal__xp">
-          <span className="gang-sheet-modal__resource-row"><small>XP</small><strong>{xp.atual}/{xp.max}</strong></span>
+          <span className="gang-sheet-modal__resource-row"><small>{t('games.gangues.ficha_ap_label')}</small><strong>{xp.atual}/{xp.max}</strong></span>
           <i className="gang-ficha-bar gang-ficha-bar--xp"><b style={{ width: `${Math.max(0, Math.min(100, (xp.atual / xp.max) * 100))}%` }} /></i>
           {xp.disponivel > 0 && <small className="gang-ficha-xp-disponivel">{t('games.gangues.ficha_xp_disponivel', { n: xp.disponivel })}</small>}
         </div>

@@ -78,6 +78,7 @@
         "defeat_message": "La pandilla cayó, pero el registro muestra dónde se perdió la lucha.",
         "rewards_title": "Recompensa",
         "reward_xp": "XP",
+        "reward_ap": "Puntos de Acción",
         "reward_grana": "Plata",
         "reward_rep": "Reputación",
         "rounds": "RONDAS",
@@ -448,6 +449,7 @@
       "ficha_fechar": "Cerrar",
       "ficha_dossie": "Expediente del miembro",
       "ficha_xp_disponivel": "{n} XP disponible para evolución",
+      "ficha_ap_label": "PA",
       "selecionados": "{n}/4 seleccionados",
       "fa_label": "FA",
       "fd_label": "FD",
@@ -486,7 +488,7 @@
         "bolinha": "Esa bolita flotante es donde actúas ahora. Tócala: ATACAR resuelve al instante gratis, PODER gasta PM (o PV) pero pega más fuerte, e ITEM va a mostrar tus objetos cuando tengas alguno.",
         "bolinha_mover": "¿No te gusta dónde está? Mantén presionado y arrástrala a cualquier esquina de la pantalla — la posición se guarda para la próxima.",
         "ko_aviso_tutorial": "Si un aliado cae en la pelea, aparece de inmediato un aviso rojo 💀 — estate atento.",
-        "xp_regra": "El XP de la pelea no se divide igual: quien remata a más enemigos se lleva una porción bastante mayor, el daño causado desempata. Una pelea contra poca cosa da poco XP en total — no esperes subir de nivel todo el tiempo."
+        "xp_regra": "Los puntos de acción de la pelea no se dividen igual: quien remata a más enemigos se lleva una porción bastante mayor, el daño causado desempata. Una pelea contra poca cosa da pocos puntos en total — no esperes subir de nivel todo el tiempo."
       },
       "multidao": {
         "switch_label": "Pelea Multitudinaria",

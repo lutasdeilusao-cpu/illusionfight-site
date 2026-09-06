@@ -77,6 +77,7 @@
         "defeat_message": "A gangue caiu, mas o registro mostra onde a luta foi perdida.",
         "rewards_title": "Recompensa",
         "reward_xp": "XP",
+        "reward_ap": "Pontos de Ação",
         "reward_grana": "Grana",
         "reward_rep": "Reputação",
         "pontos_parados": "{nome} tem {n} ponto(s) parado(s) pra distribuir — toca aqui pra ir na Progressão",
@@ -448,6 +449,7 @@
       "ficha_fechar": "Fechar",
       "ficha_dossie": "Dossiê do membro",
       "ficha_xp_disponivel": "{n} XP disponível para evolução",
+      "ficha_ap_label": "PA",
       "selecionados": "{n}/4 selecionados",
       "fa_label": "FA",
       "fd_label": "FD",
@@ -486,7 +488,7 @@
         "bolinha": "Aquela bolinha flutuante é onde você age agora. Toque nela: ATACAR resolve na hora sem custo, PODER gasta PM (ou PV) mas causa mais efeito, e ITEM vai mostrar seus itens quando você tiver algum.",
         "bolinha_mover": "Não gostou de onde ela tá? Segure e arraste pra qualquer canto da tela — a posição fica salva pra próxima luta.",
         "ko_aviso_tutorial": "Se um aliado cair na luta, um aviso vermelho 💀 aparece na hora avisando — fica de olho.",
-        "xp_regra": "O XP da luta não é dividido igual: quem finaliza mais inimigos ganha bem mais da fatia, dano causado desempata. Uma luta contra pouca coisa dá pouco XP no total — não espera subir de nível toda hora."
+        "xp_regra": "Os pontos de ação da luta não são divididos igual: quem finaliza mais inimigos ganha bem mais da fatia, dano causado desempata. Uma luta contra pouca coisa dá poucos pontos no total — não espera subir de nível toda hora."
       },
       "multidao": {
         "switch_label": "Briga em Multidão",

@@ -96,8 +96,16 @@ export default function GanguesVictory({ onNavigate }) {
       const c = contrib[id] || { dano: 0, abates: 0 }
       pesosPorId[id] = victory ? Math.max(1, c.abates * 100 + c.dano) : 1
     }
-    const { levelUps: newLevelUps, totalXp } = store.gainApForParticipants(ap, pesosPorId)
+    const { levelUps: newLevelUps, apPorMembro } = store.gainApForParticipants(ap, pesosPorId)
     setLevelUps(newLevelUps)
+    // O jogador pediu pra ver PONTOS DE AÇÃO (o número que ele realmente
+    // entende e acompanha), não o XP já convertido — isso vira conta interna
+    // de bastidor, sem aparecer aqui.
+    const apLista = participantIds.map(id => ({
+      id,
+      nome: match.playerTeam.find(member => member.id === id)?.sheet_name || '?',
+      ap: apPorMembro[id] || 0,
+    }))
     // Dano persiste entre lutas repetíveis dentro da mesma cena — sem isso
     // toda reentrada voltava com PV/PM cheios, e "descansar"/gastar grana
     // não tinha motivo de existir (ver prepare() em useGanguesTurnMachine.js).
@@ -127,7 +135,7 @@ export default function GanguesVictory({ onNavigate }) {
       }
       if (user?.id) registrarPontuacaoArenaRanking(user.id)
       if (confrontoFinal) store.completeCampaign()
-      setRewardSummary({ xp: totalXp, grana: granaGanha, rep: repGanha })
+      setRewardSummary({ apLista, grana: granaGanha, rep: repGanha })
       sfx.win()
     } else sfx.lose()
     const timer = setTimeout(() => store.saveParticipantProgress(participantIds), 400)
@@ -216,13 +224,19 @@ export default function GanguesVictory({ onNavigate }) {
       {victory && rewardSummary && (
         <section className="gang-reward-panel">
           <span className="gang-reward-panel__kicker">{t('games.gangues.report.rewards_title')}</span>
+          {/* Pontos de Ação por personagem — não XP. O jogador acompanha AP
+              (é o número que ele entende e decidiu como regra); o XP
+              convertido é só conta de bastidor, nunca aparece aqui. */}
+          <div className="gang-reward-ap-lista">
+            {rewardSummary.apLista.map((item, index) => (
+              <motion.div key={item.id} className="gang-reward-ap-item" initial={{ opacity: 0, x: -8 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.2 + index * 0.12 }}>
+                <span className="gang-reward-ap-item__nome">{item.nome}</span>
+                <strong className="gang-reward-ap-item__val">+{item.ap}</strong>
+                <small className="gang-reward-ap-item__label">{t('games.gangues.report.reward_ap')}</small>
+              </motion.div>
+            ))}
+          </div>
           <div className="gang-reward-panel__items">
-            {/* XP sempre aparece, mesmo +0 — antes só mostrava quando dava
-                pra fechar um XP inteiro, e o jogador não tinha como saber
-                se realmente não ganhou nada ou se só não apareceu. */}
-            <motion.div className="gang-reward-item gang-reward-item--xp" initial={{ scale: 0.5, opacity: 0, y: 10 }} animate={{ scale: 1, opacity: 1, y: 0 }} transition={{ delay: 0.35, type: 'spring', stiffness: 260, damping: 16 }}>
-              <b>⚡</b><strong>+{rewardSummary.xp}</strong><span>{t('games.gangues.report.reward_xp')}</span>
-            </motion.div>
             {rewardSummary.grana > 0 && (
               <motion.div className="gang-reward-item gang-reward-item--grana" initial={{ scale: 0.5, opacity: 0, y: 10 }} animate={{ scale: 1, opacity: 1, y: 0 }} transition={{ delay: 0.5, type: 'spring', stiffness: 260, damping: 16 }}>
                 <b>💵</b><strong>+{rewardSummary.grana}</strong><span>{t('games.gangues.report.reward_grana')}</span>

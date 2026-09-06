@@ -353,3 +353,24 @@
 .gang-reward-item--grana strong { color: #7ed957; }
 .gang-reward-item--rep { border-color: color-mix(in srgb, var(--if-amber) 45%, transparent); box-shadow: 0 0 20px -8px var(--if-amber-45, rgba(245, 166, 35, .45)); }
 .gang-reward-item--rep strong { color: var(--if-amber); }
+
+/* Pontos de Ação por personagem — número que o jogador acompanha de
+   verdade; substitui o XP já convertido, que é só conta de bastidor. */
+.gang-reward-ap-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+  max-width: 280px;
+}
+.gang-reward-ap-item {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 6px 10px;
+  border: 1px solid color-mix(in srgb, var(--if-cyan) 35%, transparent);
+  background: rgba(255, 255, 255, 0.02);
+}
+.gang-reward-ap-item__nome { flex: 1; font: 700 0.72rem var(--font-display); color: var(--text-primary); text-transform: uppercase; letter-spacing: 0.03em; }
+.gang-reward-ap-item__val { font: 900 1rem var(--font-display); color: var(--if-cyan); }
+.gang-reward-ap-item__label { font: 700 0.54rem var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-secondary); }
