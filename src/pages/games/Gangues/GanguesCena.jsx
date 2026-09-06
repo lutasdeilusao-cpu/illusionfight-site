@@ -32,7 +32,14 @@ const COLLIDERS=[
 const ENTRY_ZONES={
   sinal:{x:243,y:1532,w:70,h:76},ferro:{x:270,y:1288,w:35,h:76},molecada_1:{x:355,y:1155,w:76,h:70},
   birosca:{x:270,y:1418,w:35,h:82},corre:{x:455,y:970,w:35,h:82},molecada_2:{x:350,y:465,w:76,h:82},
-  descanso:{x:270,y:1375,w:35,h:72},informante:{x:270,y:705,w:35,h:76},rinha:{x:455,y:705,w:35,h:76},boss:{x:530,y:300,w:80,h:45},
+  // informante/rinha ficam num trecho SEM colisor nenhum (y:705-781 não tem
+  // nenhum COLLIDERS cobrindo essa faixa) — diferente de ferro/corre/etc,
+  // que hospedam perto de prédio de verdade e por isso a zona anda longe do
+  // pino (encosta na borda do prédio, não no ícone). Aqui não existe prédio,
+  // então a zona fica centralizada NO PRÓPRIO ícone — senão o jogador anda
+  // até o que vê na tela e nada acontece, porque a zona de verdade tava
+  // longe dali.
+  descanso:{x:270,y:1375,w:35,h:72},informante:{x:120,y:710,w:60,h:60},rinha:{x:580,y:710,w:60,h:60},boss:{x:530,y:300,w:80,h:45},
 }
 const PLACES=[
   ['entrada',380,1745,'⇧','Entrada da Pista'],['banca',95,1600,'▤','Banca fechada'],['bar',155,1450,'♬','Bar do Zé'],['residencial',560,1440,'⌂','Rua residencial'],['cruzamento',380,1270,'╳','Cruzamento'],['mercado',592,1120,'▦','Mercadinho da Cida'],['fliperama',610,990,'▣','Fliperama do Kiko'],['quadra',130,900,'◎','Quadra da Pista'],['praca',370,900,'♣','Praça da Pista'],['ponto',625,770,'▥','Ponto de ônibus'],['oficina',205,650,'⚙','Oficina do Nando'],['escadaria',245,390,'▰','Escadaria / mirante'],['loja',200,240,'◇','Loja abandonada'],['portao',380,300,'▥','Portão da gangue rival','gate']

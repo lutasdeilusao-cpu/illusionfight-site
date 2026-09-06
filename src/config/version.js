@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.233.1'
+export const SITE_VERSION = '10.233.2'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '2.9.1' // fix critico: depois de dominar o chefe, GanguesCena trocava a cena inteira por uma tela morta "PISTA DOMINADA" sem saida - isso trancava pra sempre o informante e a rinha (farm), que moram na mesma cena e tem que continuar alcancaveis. Removida a tela morta, vira so um selo "DOMINADA" no cabecalho, cena continua 100% exploravel. Testado direto no store (marcarBossCena) sem precisar vencer o chefe de novo: mundo continua renderizando, controles funcionam, tela morta nao aparece mais
+export const GANGUES_VERSION   = '2.9.2' // fix: zona de interacao do informante/rinha ficava longe do icone visivel na tela - copiei o padrao de outros POIs (ferro/corre) que encostam na borda de um predio de verdade, mas informante/rinha estao numa faixa sem nenhum colisor, entao nao tem porque a zona ficar longe do icone. Zona agora fica centralizada no proprio icone. Testado com o caminho real (sobe pelo corredor livre de colisao, so depois vai lateral): chega exatamente do lado do icone e o botao ENCARAR acende
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
 export const MINIGAMES_VERSION = '4.3.4'  // Glitch: safe-area lateral no grid-wrap
