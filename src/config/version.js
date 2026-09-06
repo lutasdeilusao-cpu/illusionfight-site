@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.268.0'
+export const SITE_VERSION = '10.269.0'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '2.44.0' // fix: total de AP de uma batalha estava estourando o teto de 10-por-inimigo (ex: bug real reportado, 1 inimigo dava 13 AP no total) - a causa era o campo `xp` de recompensa de treta em pista.js (cenaRecompensa.xp, resquicio de uma versao ANTERIOR a regra de "10 AP por inimigo" existir) sendo somado por cima do pote em GanguesVictory.jsx; removido o campo `xp` de toda recompensa de treta (sinal.aperta, ferro.falha, molecada_1, molecada_2, rinha, chefe) e a soma em cima do pote. fix: apPorMembro (numero exibido por personagem) agora usa arredondamento por "maior resto" em gainApForParticipants em vez de Math.round por pessoa - evita a soma exibida passar do total real em splits de 3+ personagens (ex: 50 AP / 3 pessoas dava 17+17+17=51 antes, agora fecha em 50). Testado com simulacao numerica reproduzindo o bug reportado antes de publicar
+export const GANGUES_VERSION   = '2.45.0' // fix: ao remover o "empurrao" que estourava o teto de AP (v2.44.0), a garantia de "todo participante ganha pelo menos 1 AP" foi removida junto por engano - resultado real reportado: 1 inimigo (ap=10) com contribuicao bem desigual deu Trinca+10/Muro+0, participante zerado. Corrigido de vez: gainApForParticipants agora reserva 1 AP garantido POR PARTICIPANTE tirado do PROPRIO pote (nunca inventado por fora, que foi o bug original) - o restante do pote e' dividido por peso entre todos. So cai pra divisao pura por peso (podendo zerar alguem) quando o pote e menor que o numero de gente (time gigante contra 1 inimigo fraco, ou derrota com ap=1). Validado com bateria de 8 cenarios numericos (copia literal do bloco de calculo do arquivo real) confirmando soma exata = total e ninguem zerado nos casos de time normal (ate 6), antes de build/deploy
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
 export const MINIGAMES_VERSION = '4.3.4'  // Glitch: safe-area lateral no grid-wrap

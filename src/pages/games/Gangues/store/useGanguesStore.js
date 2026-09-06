@@ -154,29 +154,32 @@ export const useGanguesStore = create((set, get) => ({
 
   // pesosPorId: { [memberId]: peso } — a fatia de `totalAp` de cada um é
   // proporcional ao peso dele (quem matou mais/bateu mais dano pesa mais,
-  // ver GanguesVictory.jsx), não mais dividido em partes iguais. O peso
-  // mínimo de 1 (já aplicado em GanguesVictory.jsx) garante que ninguém
-  // fica de fora da divisão do MESMO pote — mas o pote continua sendo só
-  // o AP da luta (10 por inimigo), nunca AP extra inventado do nada. Uma
-  // luta contra 1 inimigo só dá 10 AP no total: raramente vai fechar 1 XP
-  // inteiro pra alguém (custa 10 AP no nível 1) e ISSO é o esperado — subir
-  // de nível numa primeira luta contra um alvo fraco não devia acontecer.
+  // ver GanguesVictory.jsx), não dividido em partes iguais. MAS todo
+  // participante recebe 1 AP garantido, reservado do PRÓPRIO pote (nunca
+  // inventado por fora — foi exatamente isso que estourou o teto antes: um
+  // "empurrão" que dava AP extra além do total real). Só quando o pote é
+  // menor que o número de gente (time gigante contra 1 inimigo fraco) é que
+  // não dá pra garantir pra todo mundo — aí cai pra divisão só por peso.
   gainApForParticipants: (totalAp, pesosPorId = {}) => {
     const ids = Object.keys(pesosPorId)
     const somaPesos = ids.reduce((s, id) => s + (Number(pesosPorId[id]) || 0), 0) || 1
     const apTotalInteiro = Math.round(Math.max(0, Number(totalAp) || 0))
-    // Fatia EXATA (fracionária) de cada um — usada de verdade pra converter
-    // em XP (addGanguesAp). O que aparece pro jogador (apPorMembro) usa
-    // "maior resto" pra arredondar SEM estourar o total: arredondar cada
-    // fatia sozinha (ex: 50/3 = 16.67 vira 17 pra todo mundo, 17×3=51) podia
-    // fazer a soma exibida passar do total real da luta.
-    const sharesExatas = {}
-    ids.forEach(id => { sharesExatas[id] = (Number(pesosPorId[id]) || 0) / somaPesos * Math.max(0, Number(totalAp) || 0) })
+    const podeGarantirTodoMundo = ids.length > 0 && apTotalInteiro >= ids.length
+    const baseGarantida = podeGarantirTodoMundo ? 1 : 0
+    const poteRestante = podeGarantirTodoMundo ? Math.max(0, apTotalInteiro - ids.length) : apTotalInteiro
+    // Fatia EXATA (fracionária) do pote restante, por peso — usada de
+    // verdade pra converter em XP (addGanguesAp), somada à base garantida.
+    // O que aparece pro jogador (apPorMembro) usa "maior resto" pra
+    // arredondar SEM estourar o total: arredondar cada fatia sozinha (ex:
+    // 50/3 = 16.67 vira 17 pra todo mundo, 17×3=51) podia fazer a soma
+    // exibida passar do total real da luta.
+    const fracoesExatas = {}
+    ids.forEach(id => { fracoesExatas[id] = (Number(pesosPorId[id]) || 0) / somaPesos * poteRestante })
     const apPorMembro = {}
     let somaPisos = 0
-    ids.forEach(id => { const piso = Math.floor(sharesExatas[id]); apPorMembro[id] = piso; somaPisos += piso })
-    const sobra = apTotalInteiro - somaPisos
-    const ordemPorResto = [...ids].sort((a, b) => (sharesExatas[b] - Math.floor(sharesExatas[b])) - (sharesExatas[a] - Math.floor(sharesExatas[a])))
+    ids.forEach(id => { const piso = Math.floor(fracoesExatas[id]); apPorMembro[id] = baseGarantida + piso; somaPisos += piso })
+    const sobra = poteRestante - somaPisos
+    const ordemPorResto = [...ids].sort((a, b) => (fracoesExatas[b] - Math.floor(fracoesExatas[b])) - (fracoesExatas[a] - Math.floor(fracoesExatas[a])))
     for (let i = 0; i < sobra && ordemPorResto.length; i++) apPorMembro[ordemPorResto[i % ordemPorResto.length]] += 1
 
     const levelUps = []
@@ -184,7 +187,7 @@ export const useGanguesStore = create((set, get) => ({
     set(state => {
       const advance = member => {
         if (!(member.id in pesosPorId)) return member
-        const resultado = addGanguesAp(member, sharesExatas[member.id])
+        const resultado = addGanguesAp(member, baseGarantida + fracoesExatas[member.id])
         totalXp += resultado.earnedXp
         const next = { ...member, xp_total: (member.xp_total || 0) + resultado.earnedXp, attributes: { ...member.attributes, progression: resultado.progression } }
         const hydrated = member.character_type === 'template' ? hydrateGanguesTemplateSheet(next) : next
