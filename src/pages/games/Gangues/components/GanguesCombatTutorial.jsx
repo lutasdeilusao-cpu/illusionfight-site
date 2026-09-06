@@ -3,7 +3,12 @@ import { useLanguage } from '../../../../context/LanguageContext'
 import GangTip from './GangTip'
 
 const TUTORIAL_KEY = 'ldi-gangues-combate-tutorial-visto'
-function jaViu() { try { return localStorage.getItem(TUTORIAL_KEY) === '1' } catch { return true } }
+// Falha ao ler localStorage (privacidade estrita, storage bloqueado) tem que
+// falhar pro lado de MOSTRAR o tutorial, nunca de escondê-lo — errar
+// mostrando de novo pra quem já viu é bem menos grave que nunca ensinar
+// quem tá vendo o jogo pela primeira vez (mesmo padrão de cenaIntroJaVista
+// em GanguesCena.jsx).
+function jaViu() { try { return localStorage.getItem(TUTORIAL_KEY) === '1' } catch { return false } }
 function marcarVisto() { try { localStorage.setItem(TUTORIAL_KEY, '1') } catch {} }
 
 const PASSOS = [
