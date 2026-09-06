@@ -129,7 +129,13 @@ export function normalizeGanguesLoadout(sheet = {}) {
 
   return {
     combat_path: combatPath,
-    attributes: { ...Object.fromEntries(['A', 'H', 'R', 'D'].map(attr => [attr, Math.max(0, Number(source[attr]) || 0)])), progression: getGanguesProgression({ combat_path: combatPath, attributes: source, progression: sheet.progression }) },
+    // pv_atual/pm_atual: dano que persiste entre lutas repetíveis dentro da
+    // mesma cena — sem isso, todo combatente voltava com a barra cheia a
+    // cada reentrada, tirando o motivo de existir "descansar" ou gastar
+    // grana. Só volta ao máximo via GanguesDescanso ou dominar o território
+    // (ver restaurarPvPmTodos em useGanguesStore.js). Precisa ser copiado
+    // manualmente porque esta função reconstrói `attributes` do zero.
+    attributes: { ...Object.fromEntries(['A', 'H', 'R', 'D'].map(attr => [attr, Math.max(0, Number(source[attr]) || 0)])), progression: getGanguesProgression({ combat_path: combatPath, attributes: source, progression: sheet.progression }), pv_atual: source.pv_atual, pm_atual: source.pm_atual },
     loadout_version: 2,
   }
 }

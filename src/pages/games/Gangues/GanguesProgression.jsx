@@ -37,8 +37,8 @@ export default function GanguesProgression({ onNavigate }) {
         subcaminho={`${t(`games.gangues.loadout.paths.${character.combat_path}.name`)} · ${t(`games.gangues.progression.paths.${character.special_path}`)}`}
         nivel={level}
         atributos={member.attributes}
-        pv={{ max: resources.pvMax }}
-        pm={{ max: resources.pmMax }}
+        pv={{ atual: Math.min(resources.pvMax, member.attributes?.pv_atual ?? resources.pvMax), max: resources.pvMax }}
+        pm={{ atual: Math.min(resources.pmMax, member.attributes?.pm_atual ?? resources.pmMax), max: resources.pmMax }}
         xp={{ atual: progression.ap, max: 10, disponivel: progression.xp_unspent }}
       />
       <h3 className="gang-progression-section-title">{t('games.gangues.progression.specials')}</h3>

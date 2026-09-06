@@ -178,6 +178,35 @@ export const useGanguesStore = create((set, get) => ({
     return levelUps
   },
 
+  // Grava o PV/PM com que cada lutador do time SAIU da luta — é isso que faz
+  // o dano persistir entre reentradas numa treta repetível (ver `prepare` em
+  // useGanguesTurnMachine.js, que lê pv_atual/pm_atual pra decidir com quanto
+  // cada um COMEÇA a próxima). `finais` é o array de combatentes do
+  // battleReport (só os do lado 'player' importam aqui).
+  aplicarDanoPersistente: (finais = []) => set(state => {
+    const porId = new Map(finais.filter(c => c.side === 'player').map(c => [c.id, c]))
+    const aplicar = member => {
+      const final = porId.get(member.id)
+      if (!final) return member
+      return { ...member, attributes: { ...member.attributes, pv_atual: Math.max(0, final.pv), pm_atual: Math.max(0, final.pm) } }
+    }
+    return {
+      roster: state.roster.map(aplicar),
+      activeParty: state.activeParty.map(aplicar),
+      sheet: porId.has(state.sheet.id) ? aplicar(state.sheet) : state.sheet,
+    }
+  }),
+
+  // Restaura PV/PM de todo o elenco pro máximo — só acontece descansando na
+  // birosca (GanguesDescanso) ou dominando o território (GanguesVictory).
+  // Limpar pv_atual/pm_atual (em vez de calcular o máximo aqui) deixa o
+  // próximo `prepare()` cair no fallback de "cheio" sozinho.
+  restaurarPvPmTodos: () => {
+    const limpar = member => ({ ...member, attributes: { ...member.attributes, pv_atual: null, pm_atual: null } })
+    set(state => ({ roster: state.roster.map(limpar), activeParty: state.activeParty.map(limpar) }))
+    get().saveParticipantProgress(get().roster.map(member => member.id))
+  },
+
   saveParticipantProgress: async (participantIds = []) => {
     const uid = get()._userId
     if (!uid) return

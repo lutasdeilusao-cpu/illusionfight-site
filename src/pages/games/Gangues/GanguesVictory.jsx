@@ -71,6 +71,10 @@ export default function GanguesVictory({ onNavigate }) {
     const ap = victory ? 10 : 1
     const participantIds = match.playerTeam.map(member => member.id)
     setLevelUps(store.gainApForParticipants(ap, participantIds))
+    // Dano persiste entre lutas repetíveis dentro da mesma cena — sem isso
+    // toda reentrada voltava com PV/PM cheios, e "descansar"/gastar grana
+    // não tinha motivo de existir (ver prepare() em useGanguesTurnMachine.js).
+    store.aplicarDanoPersistente(report.combatants)
     if (victory) {
       store.unlockNextEnemy(match.enemy_id)
       // Modo história — cena: marca o POI resolvido, aplica grana/rep e fôlego.
@@ -84,6 +88,7 @@ export default function GanguesVictory({ onNavigate }) {
           store.marcarBossCena(storyAlvo.cenaId)
           store.dominarTerritorioViaCena(storyAlvo.territorioId, storyAlvo.pontoIds || [])
           store.restaurarFolego(storyAlvo.cenaId)
+          store.restaurarPvPmTodos()
         }
       } else if (noModoHistoria) {
         // Modo história — trilha: marca o nó dominado.
@@ -174,6 +179,29 @@ export default function GanguesVictory({ onNavigate }) {
         <p>{victory ? t('games.gangues.report.victory_message') : t('games.gangues.report.defeat_message')}</p>
       </motion.header>
 
+      {/* Ação principal logo abaixo do resultado — é o botão que mais importa
+          (seguir em frente), não precisa rolar o log inteiro pra achar.
+          "Voltar pro mapa" só aparece aqui quando é a ÚNICA opção real (chefe
+          derrotado, bairro dominado); dentro do bairro já tem um botão de
+          volta ao mapa pra quem quiser sair por lá. */}
+      <footer className="gang-report-actions gang-report-actions--top">
+        {cenaChefe && victory ? (
+          <>
+            {podeRecrutar && <button className="gang-report-primary" onClick={recrutar}>{t('games.gangues.report.recrutar')}</button>}
+            <button className={podeRecrutar ? 'gang-report-secondary' : 'gang-report-primary'} onClick={() => onNavigate('story')}>{t('games.gangues.story.voltar_mapa')}</button>
+          </>
+        ) : noModoHistoria ? (
+          <>
+            {podeRecrutar && <button className="gang-report-primary" onClick={recrutar}>{t('games.gangues.report.recrutar')}</button>}
+            <button className={podeRecrutar ? 'gang-report-secondary' : 'gang-report-primary'} onClick={() => { store.setStoryTarget({ territorioId: storyAlvo.territorioId }); onNavigate('territorio') }}>
+              {victory ? t('games.gangues.story.continuar_territorio') : t('games.gangues.story.tentar_de_novo')}
+            </button>
+          </>
+        ) : (
+          <button className="gang-report-primary" onClick={() => onNavigate('lobby')}>{t('games.gangues.report.back_to_gang')}</button>
+        )}
+      </footer>
+
       <section className="gang-report-summary">
         <div><span>{t('games.gangues.report.rounds')}</span><strong>{report.rounds}</strong></div>
         <div><span>{t('games.gangues.report.attacks')}</span><strong>{attacks.length}</strong></div>
@@ -205,28 +233,6 @@ export default function GanguesVictory({ onNavigate }) {
           {!attacks.length && <p className="gang-report-empty">{t('games.gangues.report.no_log')}</p>}
         </div>
       </section>
-
-      <footer className="gang-report-actions">
-        {cenaChefe && victory ? (
-          <>
-            {podeRecrutar && <button className="gang-report-primary" onClick={recrutar}>{t('games.gangues.report.recrutar')}</button>}
-            <button className={podeRecrutar ? 'gang-report-secondary' : 'gang-report-primary'} onClick={() => onNavigate('story')}>{t('games.gangues.story.voltar_mapa')}</button>
-          </>
-        ) : noModoHistoria ? (
-          <>
-            {podeRecrutar && <button className="gang-report-primary" onClick={recrutar}>{t('games.gangues.report.recrutar')}</button>}
-            <button className={podeRecrutar ? 'gang-report-secondary' : 'gang-report-primary'} onClick={() => { store.setStoryTarget({ territorioId: storyAlvo.territorioId }); onNavigate('territorio') }}>
-              {victory ? t('games.gangues.story.continuar_territorio') : t('games.gangues.story.tentar_de_novo')}
-            </button>
-            <button className="gang-report-secondary" onClick={() => onNavigate('story')}>{t('games.gangues.story.voltar_mapa')}</button>
-          </>
-        ) : (
-          <>
-            <button className="gang-report-primary" onClick={() => onNavigate('lobby')}>{t('games.gangues.report.back_to_gang')}</button>
-            <button className="gang-report-secondary" onClick={() => onNavigate('lobby')}>{t('games.gangues.report.new_battle')}</button>
-          </>
-        )}
-      </footer>
     </main>
   )
 }

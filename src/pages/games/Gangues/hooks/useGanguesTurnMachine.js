@@ -22,7 +22,12 @@ export function prepare(combatant, side, index) {
   const enemy = side === 'enemy'
   const normalized = enemy ? { ...combatant, attributes: combatant.stats || combatant.attributes || {}, combat_path: combatant.preferred_mode === 'power' ? 'mistico' : combatant.preferred_mode === 'armed' ? 'defensor' : 'atacante' } : { ...combatant, ...normalizeGanguesLoadout(combatant) }
   const resources = enemy ? { pvMax: Number(combatant.pv_max) || 10, pmMax: Number(combatant.pm_max) || 0 } : getGanguesResources(normalized.combat_path, normalized.attributes?.R)
-  return { ...normalized, key: `${side}-${index}-${combatant.id}`, side, statuses: [], pv: resources.pvMax, pm: resources.pmMax, pvMax: resources.pvMax, pmMax: resources.pmMax, actedThisRound: false, specialState: { charge: 0, shield: 0, totalPvLost: 0 } }
+  // Jogador entra com o PV/PM que sobrou da última luta (ver pv_atual/pm_atual
+  // em normalizeGanguesLoadout) — só some pra 'full' quando nunca lutou ou
+  // quando descansou/dominou o território. Inimigo sempre entra cheio.
+  const pvInicial = enemy ? resources.pvMax : Math.min(resources.pvMax, Number(normalized.attributes?.pv_atual ?? resources.pvMax))
+  const pmInicial = enemy ? resources.pmMax : Math.min(resources.pmMax, Number(normalized.attributes?.pm_atual ?? resources.pmMax))
+  return { ...normalized, key: `${side}-${index}-${combatant.id}`, side, statuses: [], pv: pvInicial, pm: pmInicial, pvMax: resources.pvMax, pmMax: resources.pmMax, actedThisRound: false, specialState: { charge: 0, shield: 0, totalPvLost: 0 } }
 }
 
 export default function useGanguesTurnMachine({ playerTeam = [], enemyTeam = [], onFinish, attackRoll = d3, defenseRoll = d3, initiativeRoll = d3, bonusRoll = coin, targetRoll = Math.random, enemyDelay = 2200 }) {

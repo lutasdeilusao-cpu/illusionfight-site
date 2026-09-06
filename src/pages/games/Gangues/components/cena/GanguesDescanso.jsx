@@ -19,6 +19,7 @@ export default function GanguesDescanso({ poi, cena, onClose }) {
     if (cheio || semGrana) { sfx.cancel(); return }
     if (!store.gastarGrana(custo)) { sfx.cancel(); return }
     store.ajustarFolego(cena.id, poi.cura || 40)
+    store.restaurarPvPmTodos()
     setCurou(poi.cura || 40)
     sfx.reward?.()
   }

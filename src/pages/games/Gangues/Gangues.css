@@ -2106,6 +2106,10 @@
 .gang-report-empty { color: #566269; font-size: 10px; text-align: center; }
 .gang-report-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 16px 0; }
 .gang-report-actions button { padding: 14px 10px; cursor: pointer; font: 700 9px 'Courier New', monospace; letter-spacing: 2px; text-transform: uppercase; }
+.gang-report-actions button:only-child { grid-column: 1 / -1; }
+/* Ação principal promovida pro topo (logo abaixo do resultado) — o log
+   completo da batalha continua embaixo pra quem quiser rolar e conferir. */
+.gang-report-actions--top { padding: 4px 0 14px; }
 .gang-report-primary { border: 1px solid var(--if-teal); background: rgba(0,180,216,0.08); color: var(--if-teal); }
 .gang-report--defeat .gang-report-primary { border-color: #dc3b45; background: rgba(220,59,69,0.08); color: #dc5961; }
 .gang-report-secondary { border: 1px solid rgba(245,166,35,0.35); background: transparent; color: var(--if-amber); }

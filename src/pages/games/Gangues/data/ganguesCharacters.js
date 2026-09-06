@@ -58,7 +58,10 @@ export function hydrateGanguesTemplateSheet(sheet = {}) {
     character_template_id: character.id,
     combat_path: character.combat_path,
     level,
-    attributes: { ...levelData.stats, progression, character_type: 'template', character_template_id: character.id },
+    // pv_atual/pm_atual: ver comentário em normalizeGanguesLoadout (ganguesLoadout.js) —
+    // precisa ser copiado manualmente porque esta função também reconstrói
+    // `attributes` do zero a cada hidratação.
+    attributes: { ...levelData.stats, progression, character_type: 'template', character_template_id: character.id, pv_atual: sheet.attributes?.pv_atual, pm_atual: sheet.attributes?.pm_atual },
     elemental: 'neutro',
     loadout_version: 3,
   }
