@@ -5,7 +5,7 @@ import { useEventos } from '../../../context/EventosContext'
 import { useGanguesStore } from './store/useGanguesStore'
 import useGanguesTurnMachine from './hooks/useGanguesTurnMachine'
 import { getEquippedActiveGanguesSpecials } from './engine/ganguesSpecialEffects.js'
-import { getGanguesProgression } from './data/ganguesLoadout.js'
+import { getGanguesProgression, ganguesXpMaxForSheet } from './data/ganguesLoadout.js'
 import { iniciarBrigaMultidao, avancarRodadaMultidao } from './engine/ganguesBrigaMultidao.js'
 import DramaticDice from './components/DramaticDice'
 import GanguesCombatTutorial from './components/GanguesCombatTutorial'
@@ -347,7 +347,7 @@ export default function GanguesCombat({ onNavigate }) {
                 pm={{ atual: fichaAberta.pm || 0, max: fichaAberta.pmMax || 0 }}
                 xp={fichaAberta.side !== 'enemy' ? (() => {
                   const progression = getGanguesProgression(fichaAberta)
-                  return { atual: progression.ap, max: 10, disponivel: progression.xp_unspent }
+                  return { atual: progression.ap, max: ganguesXpMaxForSheet(fichaAberta), disponivel: progression.xp_unspent }
                 })() : null}
               />
               <button className="gang-modo-fugir" onClick={() => setFichaAberta(null)}>{t('games.gangues.ficha_fechar')}</button>

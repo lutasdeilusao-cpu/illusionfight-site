@@ -11,7 +11,7 @@ import GanguesDescanso from './components/cena/GanguesDescanso'
 import { CENAS_POR_ID, portaoAberto, contarCena } from './data/cenas/pista.js'
 import { GANGUES_TERRITORIO_POR_ID } from './data/ganguesTerritorios.js'
 import { calcularPontosTime } from './data/ganguesEncontros.js'
-import { GANGUES_STORY_BATTLE_PARTY_MAX, getGanguesResources, getGanguesProgression } from './data/ganguesLoadout.js'
+import { GANGUES_STORY_BATTLE_PARTY_MAX, getGanguesResources, getGanguesProgression, ganguesXpMaxForSheet } from './data/ganguesLoadout.js'
 import { getGanguesCharacter, getGanguesLevelFromXp } from './data/ganguesCharacters.js'
 import GanguesFichaCard from './components/GanguesFichaCard'
 import './GanguesCena.css'
@@ -160,7 +160,7 @@ function FichaCenaCard({member,t}){
     atributos={member.attributes}
     pv={{atual:Math.min(resources.pvMax,member.attributes?.pv_atual??resources.pvMax),max:resources.pvMax}}
     pm={{atual:Math.min(resources.pmMax,member.attributes?.pm_atual??resources.pmMax),max:resources.pmMax}}
-    xp={{atual:progression.ap,max:10,disponivel:progression.xp_unspent}}
+    xp={{atual:progression.ap,max:ganguesXpMaxForSheet(member),disponivel:progression.xp_unspent}}
   />
 }
 function TretaVS({poi,folegoBaixo,onSim,onNao,t}){const enemy=enemiesData.find(e=>e.id===poi.enemy),nome=poi.ehChefe?t(`games.gangues.story.bosses.${poi.boss}.nome`):t(`${poi.i18n}.nome`),fala=poi.ehChefe?t(`games.gangues.story.bosses.${poi.boss}.fala`,{suaGangue:t('games.gangues.report.your_gang')}):t(`${poi.i18n}.fala`);return <div className="gang-cena-enc gang-cena-enc--vs"><span className="gang-cena-enc-selo">{(nome||'?')[0]}</span><span className="gang-cena-eyebrow">{poi.ehChefe?'CHEFÃO':'TRETA'}</span><h3 className="gang-cena-enc-titulo">{nome}</h3><p className="gang-cena-papo-fala">{fala}</p>{enemy&&<span className="gang-cena-vs-stats">{['A','H','R','D'].map(a=><span key={a}><i>{a}</i>{enemy.stats?.[a]??'—'}</span>)}</span>}{folegoBaixo&&<p className="gang-cena-vs-aviso">Sua gangue está sem fôlego.</p>}<div className="gang-cena-enc-acoes"><button className="gang-cena-btn" onClick={onNao}>AGORA NÃO</button><button className="gang-cena-btn gang-cena-btn--go" onClick={onSim}>PARTIR PRA CIMA</button></div></div>}

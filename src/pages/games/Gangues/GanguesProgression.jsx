@@ -1,7 +1,7 @@
 import { useLanguage } from '../../../context/LanguageContext'
 import { useGanguesStore } from './store/useGanguesStore'
 import { getGanguesCharacter, getGanguesLevelFromXp, getGanguesUnlockedSpecials } from './data/ganguesCharacters.js'
-import { getGanguesResources, getGanguesProgression } from './data/ganguesLoadout.js'
+import { getGanguesResources, getGanguesProgression, ganguesXpMaxForSheet } from './data/ganguesLoadout.js'
 import GanguesFichaCard from './components/GanguesFichaCard'
 
 export default function GanguesProgression({ onNavigate }) {
@@ -39,7 +39,7 @@ export default function GanguesProgression({ onNavigate }) {
         atributos={member.attributes}
         pv={{ atual: Math.min(resources.pvMax, member.attributes?.pv_atual ?? resources.pvMax), max: resources.pvMax }}
         pm={{ atual: Math.min(resources.pmMax, member.attributes?.pm_atual ?? resources.pmMax), max: resources.pmMax }}
-        xp={{ atual: progression.ap, max: 10, disponivel: progression.xp_unspent }}
+        xp={{ atual: progression.ap, max: ganguesXpMaxForSheet(member), disponivel: progression.xp_unspent }}
       />
       <h3 className="gang-progression-section-title">{t('games.gangues.progression.specials')}</h3>
       <div className="gang-skill-grid">

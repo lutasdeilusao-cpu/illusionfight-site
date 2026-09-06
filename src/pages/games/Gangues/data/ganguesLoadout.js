@@ -1,3 +1,5 @@
+import { getGanguesLevelFromXp } from './ganguesCharacters.js'
+
 export const GANGUES_PATHS = ['atacante', 'defensor', 'mistico']
 export const GANGUES_CREATION_POINTS = 5
 export const GANGUES_ATTRIBUTE_MAX = 5
@@ -80,11 +82,39 @@ export function selectGanguesSpecialPath(sheet, specialPath) {
   return { attributes: { ...sheet.attributes, progression: { ...progression, xp_unspent: progression.xp_unspent - GANGUES_SPECIAL_PATH_XP_COST, special_path: nextPath.id, special_path_unlocked: true, selected_specials: [] } } }
 }
 
+// Custo de AP por ponto de XP cresce com o nível do personagem (catálogo dos
+// 30 personagens) — nível 1 custa 10 AP por XP, nível 2 custa 15, nível 3
+// custa 20... +5 por nível. Sem isso, upar um personagem já avançado custava
+// o mesmo AP que upar um recém-recrutado, o que ficava fácil demais (pedido
+// do Isaias). Personagem "custom" (fora do catálogo, sem nível) continua no
+// custo fixo de sempre.
+export function ganguesApCostForLevel(level) {
+  return 5 * (Math.max(1, Number(level) || 1) + 1)
+}
+
+export function ganguesXpMaxForSheet(sheet = {}) {
+  if (sheet.character_type !== 'template') return GANGUES_AP_PER_XP
+  return ganguesApCostForLevel(getGanguesLevelFromXp(sheet.xp_total))
+}
+
 export function addGanguesAp(sheet, amount) {
   const progression = getGanguesProgression(sheet)
-  const ap = progression.ap + Math.max(0, Number(amount) || 0)
-  const earnedXp = Math.floor(ap / GANGUES_AP_PER_XP)
-  return { progression: { ...progression, ap: ap % GANGUES_AP_PER_XP, xp_unspent: progression.xp_unspent + earnedXp }, earnedXp }
+  let ap = progression.ap + Math.max(0, Number(amount) || 0)
+  let earnedXp = 0
+  if (sheet.character_type === 'template') {
+    let xpTotal = Math.max(0, Number(sheet.xp_total) || 0)
+    let cost = ganguesApCostForLevel(getGanguesLevelFromXp(xpTotal))
+    while (ap >= cost) {
+      ap -= cost
+      earnedXp += 1
+      xpTotal += 1
+      cost = ganguesApCostForLevel(getGanguesLevelFromXp(xpTotal))
+    }
+  } else {
+    earnedXp = Math.floor(ap / GANGUES_AP_PER_XP)
+    ap = ap % GANGUES_AP_PER_XP
+  }
+  return { progression: { ...progression, ap, xp_unspent: progression.xp_unspent + earnedXp }, earnedXp }
 }
 
 export function upgradeGanguesAttribute(sheet, attribute) {
