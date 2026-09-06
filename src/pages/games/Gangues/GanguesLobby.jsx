@@ -90,7 +90,14 @@ export default function GanguesLobby({ onNavigate }) {
 
   const toggleParty = (member) => {
     const selected = party.some(item => item.id === member.id)
-    if (selected) { store.setActiveParty(party.filter(item => item.id !== member.id)); return }
+    // Nunca deixa cair abaixo do mínimo pra batalhar — com só 2 recrutados,
+    // desmarcar um não faz sentido nenhum (não sobra ninguém pra completar
+    // a dupla). Some silenciosamente: não é erro, é regra do próprio botão.
+    if (selected) {
+      if (party.length <= GANGUES_INITIAL_PARTY_SIZE) return
+      store.setActiveParty(party.filter(item => item.id !== member.id))
+      return
+    }
     if (party.length >= partyLimit) return
     sfx.select()
     store.setActiveParty([...party, member])
@@ -230,11 +237,13 @@ function RosterCarousel({ roster, party, partyLimit, rosterLimit, rosterIndex, s
         <div className="gang-recruit__slides">
           {slides.map(({ member, position }) => {
             const selected = party.some(item => item.id === member.id)
-            const unavailable = !selected && party.length >= partyLimit
+            const travado = selected
+              ? party.length <= GANGUES_INITIAL_PARTY_SIZE
+              : party.length >= partyLimit
             return (
               <motion.button
                 key={`${position}-${member.id}`}
-                disabled={position === 'current' && unavailable}
+                disabled={position === 'current' && travado}
                 className={`gang-fighter-card gang-fighter-card--${position} gang-fighter-card--${member.combat_path}${selected ? ' gang-fighter-card--selected' : ''}`}
                 onClick={() => position === 'current' ? handleSheetClick(member) : move(position === 'prev' ? -1 : 1)}
                 initial={{ opacity: 0, scale: .9 }}
@@ -248,7 +257,7 @@ function RosterCarousel({ roster, party, partyLimit, rosterLimit, rosterIndex, s
                   <strong>{member.sheet_name}</strong>
                   <em>{['A', 'H', 'R', 'D'].map(attr => `${attr}${member.attributes[attr]}`).join(' · ')}</em>
                 </span>
-                <span className="gang-fighter-card__cta">{selected ? t('games.gangues.party.remover') : t('games.gangues.party.select')}</span>
+                <span className="gang-fighter-card__cta">{selected ? (travado ? t('games.gangues.party.obrigatorio') : t('games.gangues.party.remover')) : t('games.gangues.party.select')}</span>
               </motion.button>
             )
           })}

@@ -1,6 +1,8 @@
 import { useLanguage } from '../../../context/LanguageContext'
 import { useGanguesStore } from './store/useGanguesStore'
 import { getGanguesCharacter, getGanguesLevelFromXp, getGanguesNextLevel, getGanguesUnlockedSpecials } from './data/ganguesCharacters.js'
+import { getGanguesResources, getGanguesProgression } from './data/ganguesLoadout.js'
+import GanguesFichaCard from './components/GanguesFichaCard'
 
 export default function GanguesProgression({ onNavigate }) {
   const { t } = useLanguage()
@@ -22,18 +24,24 @@ export default function GanguesProgression({ onNavigate }) {
   const level = getGanguesLevelFromXp(member.xp_total)
   const next = getGanguesNextLevel(character.id, member.xp_total)
   const unlocked = getGanguesUnlockedSpecials(character.id, member.xp_total)
-  const ap = member.attributes?.progression?.ap || 0
+  const progression = getGanguesProgression(member)
+  const resources = getGanguesResources(character.combat_path, member.attributes?.R)
 
   return <main className="gang-lobby gang-progression-screen">
     <header className="gang-progression-screen-head">
       <button className="gang-progression-screen-back" onClick={voltar}>← {t('games.gangues.progression.back_to_roster')}</button>
-      <div className="gang-progression-screen-xp"><span className="gang-progression-screen-xp-num">{level}</span><span>NV</span></div>
     </header>
     <section className="gang-progression-panel">
-      <div className="gang-progression-ident"><div className={`gang-progression-avatar gang-path--${character.combat_path}`}>{character.name[0]}</div><div><h2>{character.name}</h2><p>{t(`games.gangues.loadout.paths.${character.combat_path}.name`)} · {t(`games.gangues.progression.paths.${character.special_path}`)}</p></div></div>
-      <div className="gang-progression-ap"><span>{t('games.gangues.progression.ap', { n: ap })}</span><progress className="gang-progression-ap-bar" max="10" value={ap} /></div>
-      <h3 className="gang-progression-section-title">{t('games.gangues.progression.attributes')}</h3>
-      <div className="gang-attr-steppers">{['A', 'H', 'R', 'D'].map(attribute => <div className="gang-attr-stepper" key={attribute}><span className="gang-attr-stepper-letter">{attribute}</span><span className="gang-attr-stepper-name">{t(`games.gangues.attr_labels.${attribute}`)}</span><strong>{member.attributes[attribute]}</strong></div>)}</div>
+      <GanguesFichaCard
+        nome={character.name}
+        caminho={character.combat_path}
+        subcaminho={`${t(`games.gangues.loadout.paths.${character.combat_path}.name`)} · ${t(`games.gangues.progression.paths.${character.special_path}`)}`}
+        nivel={level}
+        atributos={member.attributes}
+        pv={{ max: resources.pvMax }}
+        pm={{ max: resources.pmMax }}
+        xp={{ atual: progression.ap, max: 10, disponivel: progression.xp_unspent }}
+      />
       <h3 className="gang-progression-section-title">{t('games.gangues.progression.specials')}</h3>
       <div className="gang-skill-grid">
         <div className="gang-skill-node gang-skill-node--equipped"><strong className="gang-skill-node-name">{t(`games.gangues.progression.skills.${character.base_technique.id}`)}</strong><span className="gang-skill-node-kind">3 PM</span></div>

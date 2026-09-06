@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.246.0'
+export const SITE_VERSION = '10.247.0'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '2.22.0' // feat: tutorial de combate na primeira luta (GanguesCombatTutorial.jsx, novo) - 3 dicas via GangTip (ordem de iniciativa, escolha de golpe, botao ATACAR), so aparece 1x por conta via localStorage, mesmo padrao dos tutoriais NeoGuide de outras telas. fix: .gang-tip--right/--left grudavam na borda real da JANELA (right/left:8px) em vez da coluna mobile (--app-gutter) - agora corrigido, ficava invisivel/longe em desktop largo
+export const GANGUES_VERSION   = '2.23.0' // feat: ficha unificada - GanguesFichaCard.jsx (novo componente) extrai o visual do modal de recrutamento (o "padrao bonito") e passa a ser usado tambem no popup de ficha dentro do combate e no topo da tela de progressao, que antes tinham 2 estilos diferentes. Agora todos mostram PV/PM atual (quando aplicavel), XP e nivel com a mesma linguagem visual (pips de atributo, barras). fix: lobby deixava desmarcar um membro da equipe abaixo do minimo (2) - com elenco de 2 nao tem pra onde ir, botao agora trava e mostra "OBRIGATORIO NA EQUIPE" em vez de "TIRAR DA EQUIPE"
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
 export const MINIGAMES_VERSION = '4.3.4'  // Glitch: safe-area lateral no grid-wrap

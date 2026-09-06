@@ -106,22 +106,8 @@
 }
 .gang-progression-screen-back:hover { background: var(--if-cyan); color: #04141a; }
 
-.gang-progression-screen-xp {
-  display: flex;
-  align-items: baseline;
-  gap: 6px;
-  font: 700 0.62rem var(--font-mono);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--if-amber);
-}
-.gang-progression-screen-xp-num {
-  font: 800 1.5rem var(--font-display);
-  color: #ffce6b;
-  text-shadow: 0 0 16px rgba(255, 174, 50, 0.4);
-}
-
-/* ── Steppers de atributo ── */
+/* ── Steppers de atributo (usado por GanguesProgressionPanel.jsx — hoje sem
+   rota ativa, mas o componente ainda existe no repo) ── */
 .gang-attr-steppers {
   display: flex;
   flex-direction: column;

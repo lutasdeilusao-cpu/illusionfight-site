@@ -2390,18 +2390,9 @@
   background: #12181c; border: 1px solid rgba(0,180,216,0.3); border-radius: 14px;
   box-shadow: 0 12px 40px rgba(0,0,0,0.5);
 }
-.gang-ficha-modal-avatar {
-  width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
-  background: rgba(0,180,216,0.12); border: 1px solid rgba(0,180,216,0.4);
-  font: 700 18px var(--font-display, 'Rajdhani', sans-serif); color: var(--if-teal);
-}
-.gang-ficha-modal-nome { font: 700 1rem var(--font-display); color: #eef4f6; }
-.gang-ficha-modal-caminho { font: 700 0.62rem var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--if-amber); margin-bottom: 4px; }
-.gang-ficha-modal-stats { display: flex; gap: 12px; margin: 4px 0; }
-.gang-ficha-modal-stats span { display: flex; flex-direction: column; align-items: center; font: 700 0.95rem var(--font-mono); color: #d5dde0; }
-.gang-ficha-modal-stats i { font: 700 0.6rem var(--font-mono); color: #667078; font-style: normal; }
-.gang-ficha-modal-recursos { display: flex; gap: 14px; font: 400 0.72rem var(--font-body); color: #a4adb6; margin-bottom: 6px; }
-.gang-ficha-modal-recursos b { color: #d5dde0; }
+/* Conteúdo (hero, atributos, PV/PM/XP) vem de GanguesFichaCard — mesmas
+   classes gang-sheet-modal__* do modal de recrutamento, ver GanguesLobby.css.
+   Aqui só sobra a moldura (fundo, card) e o rótulo "DOSSIÊ". */
 
 .gang-fala-final {
   position: fixed;

@@ -1138,6 +1138,7 @@
         "selected": "NA EQUIPE",
         "select": "SELECIONAR",
         "remover": "TIRAR DA EQUIPE",
+        "obrigatorio": "OBRIGATÓRIO NA EQUIPE",
         "progression": "A equipe começa com 2 vagas e poderá crescer até {max} conforme a progressão.",
         "single_title": "BATALHA EM EQUIPE",
         "single_desc": "Base atual: sua dupla enfrenta uma dupla inimiga.",

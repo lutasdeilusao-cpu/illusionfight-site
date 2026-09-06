@@ -19,21 +19,11 @@
 .gang-combat .gang-ficha-modal { position:absolute; align-items:flex-end; padding:12px; background:color-mix(in srgb,var(--bg-primary) 88%,transparent); backdrop-filter:blur(8px); }
 .gang-combat .gang-ficha-modal-card { position:relative; width:100%; max-width:none; padding:18px 16px 16px; align-items:flex-start; gap:7px; border:1px solid var(--if-teal); border-left:4px solid var(--if-teal); border-radius:0; background:linear-gradient(150deg,var(--if-cyan-12),var(--if-panel-flat) 52%,var(--bg-primary)); box-shadow:0 -18px 52px color-mix(in srgb,var(--if-teal) 16%,transparent); clip-path:polygon(0 0,calc(100% - 15px) 0,100% 15px,100% 100%,0 100%); }
 .gang-combat .gang-ficha-modal-kicker { color:var(--if-teal); font:800 .55rem var(--font-mono); letter-spacing:.18em; text-transform:uppercase; }
-.gang-combat .gang-ficha-modal-avatar { position:absolute; right:18px; top:20px; width:58px; height:58px; border-radius:0; font-size:1.45rem; clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,0 100%); }
-.gang-combat .gang-ficha-modal-nome { padding-right:70px; font:900 1.65rem/.95 var(--font-display); text-transform:uppercase; }
-.gang-combat .gang-ficha-modal-caminho { margin-bottom:8px; }
-.gang-combat .gang-ficha-modal-stats { width:100%; gap:6px; margin:0 0 5px; }
-.gang-combat .gang-ficha-modal-stats span { flex:1; padding:7px 4px; border:1px solid var(--if-hair); background:var(--if-glass); font-size:1.05rem; }
-.gang-combat .gang-ficha-modal-recursos { width:100%; display:grid; gap:7px; margin:0; }
-.gang-combat .gang-ficha-modal-recursos>span { display:grid; grid-template-columns:24px 1fr 48px; align-items:center; gap:7px; width:100%; }
-.gang-combat .gang-ficha-modal-recursos em { color:var(--text-secondary); font:800 .56rem var(--font-mono); font-style:normal; }
-.gang-combat .gang-ficha-modal-recursos strong { color:var(--text-primary); font:800 .62rem var(--font-mono); text-align:right; }
-.gang-combat .gang-ficha-bar { width:100%; height:7px; }
-.gang-combat .gang-ficha-bar::-webkit-progress-value { background:var(--if-teal); }
-.gang-combat .gang-ficha-bar::-moz-progress-bar { background:var(--if-teal); }
-.gang-combat .gang-ficha-bar--pm::-webkit-progress-value { background:var(--if-violet); }
-.gang-combat .gang-ficha-bar--pm::-moz-progress-bar { background:var(--if-violet); }
-.gang-combat .gang-ficha-bar--xp::-webkit-progress-value { background:var(--if-amber); }
-.gang-combat .gang-ficha-bar--xp::-moz-progress-bar { background:var(--if-amber); }
-.gang-combat .gang-ficha-modal-recursos small { color:var(--if-amber); font:700 .58rem var(--font-mono); letter-spacing:.06em; text-transform:uppercase; }
+/* Ficha unificada (GanguesFichaCard, mesma linguagem visual do recrutamento)
+   dentro do card cheio de largura do modal de combate — só ajusta o hero
+   pra não sobrar o respiro de altura pensado pro modal estreito. */
+.gang-combat .gang-sheet-modal__hero { min-height: 0; padding: 6px 100px 4px 0; }
+.gang-combat .gang-sheet-modal__hero > i { font-size: 110px; right: 4px; bottom: -10px; }
+.gang-combat .gang-sheet-modal__hero h2 { font-size: 28px; }
+.gang-combat .gang-sheet-modal__stats { width: 100%; }
 .gang-combat .gang-ficha-modal-card .gang-modo-fugir { align-self:stretch; margin-top:7px; }

@@ -185,9 +185,20 @@
 .gang-sheet-modal__stats i b { width: 15px; height: 4px; background: var(--if-hair); }
 .gang-sheet-modal__stats i b.is-on { background: var(--if-cyan); }
 .gang-sheet-modal__resources { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 8px; }
-.gang-sheet-modal__resources > span { padding: 8px 12px; border: 1px solid var(--if-hair); display: flex; justify-content: space-between; align-items: center; }
-.gang-sheet-modal__resources small { color: var(--text-secondary); font: 800 10px var(--font-mono); }
-.gang-sheet-modal__resources strong { color: var(--if-amber); font: 900 24px var(--font-title); }
+.gang-sheet-modal__resources > span { padding: 8px 12px; border: 1px solid var(--if-hair); display: grid; gap: 5px; }
+.gang-sheet-modal__resource-row { display: flex; justify-content: space-between; align-items: center; }
+.gang-sheet-modal__resources small, .gang-sheet-modal__xp small { color: var(--text-secondary); font: 800 10px var(--font-mono); }
+.gang-sheet-modal__resources strong, .gang-sheet-modal__xp strong { color: var(--if-amber); font: 900 24px var(--font-title); }
+/* Barra fina de PV/PM/XP atual — só aparece quando quem chama passa `atual`
+   (fora de combate/recrutamento não existe "atual" de PV/PM, só o máximo). */
+.gang-ficha-bar { display: block; height: 5px; border-radius: 3px; background: var(--if-hair); overflow: hidden; }
+.gang-ficha-bar b { display: block; height: 100%; border-radius: inherit; }
+.gang-ficha-bar--pv b { background: linear-gradient(90deg, #3ddc97, #22a06b); }
+.gang-ficha-bar--pm b { background: linear-gradient(90deg, #8b6df0, #5b3fc9); }
+.gang-ficha-bar--xp b { background: var(--if-amber); }
+.gang-sheet-modal__xp { margin-top: 8px; padding: 8px 12px; border: 1px solid var(--if-hair); display: grid; gap: 5px; }
+.gang-ficha-xp-disponivel { color: var(--if-amber) !important; text-transform: none !important; letter-spacing: 0 !important; font-weight: 700 !important; }
+.gang-ficha-nivel { color: var(--if-cyan); font-size: .55em; letter-spacing: .06em; }
 .gang-sheet-modal__technique { margin-top: 8px; padding: 10px 12px; border: 1px solid var(--if-hair); display: grid; grid-template-columns: 1fr auto; }
 .gang-sheet-modal__technique small { grid-column: 1 / -1; color: var(--text-secondary); font: 700 8px var(--font-mono); letter-spacing: 2px; text-transform: uppercase; }
 .gang-sheet-modal__technique strong { color: var(--if-cyan); text-transform: uppercase; }

@@ -5,9 +5,9 @@ import { useAuth } from '../../../context/AuthContext'
 import { useGanguesStore } from './store/useGanguesStore'
 import { GANGUES_CHARACTER_CATALOG, getGanguesAvailableCharacterIds } from './data/ganguesCharacters.js'
 import { sfx } from '../../../lib/sfx'
+import GanguesFichaCard from './components/GanguesFichaCard'
 
 const PATH_MARKS = { atacante: 'A', defensor: 'D', mistico: 'M' }
-const ATTRIBUTES = ['A', 'H', 'R', 'D']
 
 export default function GanguesCreate({ onNavigate, onCreated }) {
   const { t } = useLanguage()
@@ -138,10 +138,17 @@ export default function GanguesCreate({ onNavigate, onCreated }) {
           <button className="gang-sheet-modal__scrim" onClick={() => setDetailId(null)} aria-label={t('games.gangues.recruitment.close')} />
           <motion.article className={`gang-sheet-modal__card gang-sheet-modal__card--${detail.combat_path}`} initial={{ y: 60, scale: .94 }} animate={{ y: 0, scale: 1 }} exit={{ y: 40, opacity: 0 }} transition={{ type: 'spring', stiffness: 240, damping: 24 }}>
             <button className="gang-sheet-modal__close" onClick={() => setDetailId(null)} aria-label={t('games.gangues.recruitment.close')}>×</button>
-            <div className="gang-sheet-modal__hero"><span>#{String(detail.id).padStart(2, '0')}</span><i>{detail.name[0]}</i><small>{t(`games.gangues.loadout.paths.${detail.combat_path}.name`)}</small><h2 id="gang-sheet-name">{detail.name}</h2><p>{t(`games.gangues.progression.paths.${detail.special_path}`)}</p></div>
-            <div className="gang-sheet-modal__stats">{ATTRIBUTES.map(attribute => <div key={attribute}><span>{t(`games.gangues.attr_labels.${attribute}`)}</span><strong>{detail.base_stats[attribute]}</strong><i>{Array.from({ length: 5 }, (_, index) => <b key={index} className={index < detail.base_stats[attribute] ? 'is-on' : ''} />)}</i></div>)}</div>
-            <div className="gang-sheet-modal__resources"><span><small>PV</small><strong>{detail.base_resources.pv_max}</strong></span><span><small>PM</small><strong>{detail.base_resources.pm_max}</strong></span></div>
-            <div className="gang-sheet-modal__technique"><small>{t('games.gangues.recruitment.starting_technique')}</small><strong>{t(`games.gangues.progression.skills.${detail.base_technique.id}`)}</strong><span>{detail.base_technique.pm_cost} PM</span></div>
+            <GanguesFichaCard
+              tituloId="gang-sheet-name"
+              numero={detail.id}
+              nome={detail.name}
+              caminho={detail.combat_path}
+              subcaminho={t(`games.gangues.progression.paths.${detail.special_path}`)}
+              atributos={detail.base_stats}
+              pv={{ max: detail.base_resources.pv_max }}
+              pm={{ max: detail.base_resources.pm_max }}
+              tecnica={{ nome: t(`games.gangues.progression.skills.${detail.base_technique.id}`), custo: detail.base_technique.pm_cost }}
+            />
             <button className={`gang-sheet-modal__select${selectedIds.includes(detail.id) ? ' is-selected' : ''}`} onClick={() => toggleSelection(detail)}>{selectedIds.includes(detail.id) ? t('games.gangues.recruitment.remove') : t('games.gangues.recruitment.select')}</button>
           </motion.article>
         </motion.div>}

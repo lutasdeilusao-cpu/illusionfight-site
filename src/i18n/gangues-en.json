@@ -1112,6 +1112,7 @@
         "selected": "ON TEAM",
         "select": "SELECT",
         "remover": "REMOVE FROM TEAM",
+        "obrigatorio": "REQUIRED ON TEAM",
         "progression": "The team starts with 2 slots and may grow to {max} through progression.",
         "single_title": "TEAM BATTLE",
         "single_desc": "Current foundation: your duo faces an enemy duo.",

@@ -1112,6 +1112,7 @@
         "selected": "EN EL EQUIPO",
         "select": "SELECCIONAR",
         "remover": "QUITAR DEL EQUIPO",
+        "obrigatorio": "OBLIGATORIO EN EL EQUIPO",
         "progression": "El equipo comienza con 2 plazas y podrá crecer hasta {max} con la progresión.",
         "single_title": "BATALLA EN EQUIPO",
         "single_desc": "Base actual: tu dúo enfrenta a un dúo enemigo.",

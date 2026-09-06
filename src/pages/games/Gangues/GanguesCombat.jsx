@@ -9,6 +9,7 @@ import { getGanguesProgression } from './data/ganguesLoadout.js'
 import { iniciarBrigaMultidao, avancarRodadaMultidao } from './engine/ganguesBrigaMultidao.js'
 import DramaticDice from './components/DramaticDice'
 import GanguesCombatTutorial from './components/GanguesCombatTutorial'
+import GanguesFichaCard from './components/GanguesFichaCard'
 import { sfx } from '../../../lib/sfx'
 import './GanguesCombatRedesign.css'
 
@@ -332,27 +333,18 @@ export default function GanguesCombat({ onNavigate }) {
               onClick={e => e.stopPropagation()}
             >
               <span className="gang-ficha-modal-kicker">{t('games.gangues.ficha_dossie')}</span>
-              <span className="gang-ficha-modal-avatar">{fighterName(t, fichaAberta)[0]}</span>
-              <strong className="gang-ficha-modal-nome">{fighterName(t, fichaAberta)}</strong>
-              {fichaAberta.combat_path && (
-                <span className="gang-ficha-modal-caminho">{t(`games.gangues.loadout.paths.${fichaAberta.combat_path}.name`)}</span>
-              )}
-              <div className="gang-ficha-modal-stats">
-                {['A', 'H', 'R', 'D'].map(k => (
-                  <span key={k}><i>{k}</i>{fichaAberta.attributes?.[k] ?? fichaAberta.stats?.[k] ?? 0}</span>
-                ))}
-              </div>
-              <div className="gang-ficha-modal-recursos">
-                {(() => {
+              <GanguesFichaCard
+                nome={fighterName(t, fichaAberta)}
+                caminho={fichaAberta.combat_path}
+                nivel={fichaAberta.side !== 'enemy' ? fichaAberta.level : null}
+                atributos={fichaAberta.attributes || fichaAberta.stats}
+                pv={{ atual: fichaAberta.pv || 0, max: fichaAberta.pvMax || 1 }}
+                pm={{ atual: fichaAberta.pm || 0, max: fichaAberta.pmMax || 0 }}
+                xp={fichaAberta.side !== 'enemy' ? (() => {
                   const progression = getGanguesProgression(fichaAberta)
-                  return <>
-                    <span><em>PV</em><progress className="gang-ficha-bar gang-ficha-bar--pv" max={fichaAberta.pvMax || 1} value={Math.max(0, fichaAberta.pv || 0)} /><strong>{fichaAberta.pv}/{fichaAberta.pvMax}</strong></span>
-                    <span><em>PM</em><progress className="gang-ficha-bar gang-ficha-bar--pm" max={fichaAberta.pmMax || 1} value={Math.max(0, fichaAberta.pm || 0)} /><strong>{fichaAberta.pm || 0}/{fichaAberta.pmMax || 0}</strong></span>
-                    <span><em>XP</em><progress className="gang-ficha-bar gang-ficha-bar--xp" max="10" value={progression.ap} /><strong>{progression.ap}/10</strong></span>
-                    <small>{t('games.gangues.ficha_xp_disponivel', { n: progression.xp_unspent })}</small>
-                  </>
-                })()}
-              </div>
+                  return { atual: progression.ap, max: 10, disponivel: progression.xp_unspent }
+                })() : null}
+              />
               <button className="gang-modo-fugir" onClick={() => setFichaAberta(null)}>{t('games.gangues.ficha_fechar')}</button>
             </motion.div>
           </motion.div>
