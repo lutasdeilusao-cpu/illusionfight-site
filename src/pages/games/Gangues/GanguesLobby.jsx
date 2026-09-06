@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom'
 import GanguesNaming from './GanguesNaming'
 import { sfx } from '../../../lib/sfx'
 import { useGanguesStore } from './store/useGanguesStore'
-import { GANGUES_INITIAL_PARTY_SIZE, getGanguesPartySizeLimit, getGanguesProgression, getGanguesRosterLimitComHistoria } from './data/ganguesLoadout.js'
+import { GANGUES_INITIAL_PARTY_SIZE, GANGUES_MAX_PARTY_SIZE, getGanguesProgression, getGanguesRosterLimitComHistoria } from './data/ganguesLoadout.js'
 import { getGanguesSpecials } from './data/ganguesSpecials.js'
 import enemiesData from './data/gangues-enemies.json'
 
@@ -43,8 +43,10 @@ export default function GanguesLobby({ onNavigate }) {
   const party = store.activeParty
   // Cresce por tier pago OU por território dominado na história — vale o maior.
   const rosterLimit = getGanguesRosterLimitComHistoria(perfil?.tier, store.storyProgress, store.rep)
-  const totalXp = roster.reduce((sum, member) => sum + (member.xp_total || 0), 0)
-  const partyLimit = getGanguesPartySizeLimit(totalXp)
+  // Time de batalha = quantos você recrutou, até o teto — não depende mais
+  // de XP acumulado. Antes era "cresce só grindando", o que não bate com a
+  // fantasia de "recrutar mais = levar mais gente pra briga".
+  const partyLimit = Math.min(roster.length, GANGUES_MAX_PARTY_SIZE)
 
   // Abre a tela dedicada de progressão pra essa ficha.
   const abrirProgressao = (member) => {

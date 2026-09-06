@@ -33,22 +33,6 @@ export function getGanguesRosterLimitComHistoria(tier, storyProgress, rep = 0) {
   return Math.min(GANGUES_STORY_ROSTER_MAX, Math.max(getGanguesRosterLimit(tier), viaHistoria))
 }
 
-// Slots extras de gangue destravam com XP acumulado no roster; começa em 2 e sobe até o teto de 5.
-export const GANGUES_PARTY_SIZE_THRESHOLDS = [
-  { size: 2, xp: 0 },
-  { size: 3, xp: 50 },
-  { size: 4, xp: 150 },
-  { size: 5, xp: 300 },
-  { size: 6, xp: 500 },
-]
-
-export function getGanguesPartySizeLimit(totalXp = 0) {
-  let limit = GANGUES_INITIAL_PARTY_SIZE
-  for (const step of GANGUES_PARTY_SIZE_THRESHOLDS) {
-    if (totalXp >= step.xp) limit = step.size
-  }
-  return Math.min(GANGUES_MAX_PARTY_SIZE, limit)
-}
 
 export function getGanguesRosterLimit(tier) {
   return GANGUES_ROSTER_LIMITS[tier] || GANGUES_ROSTER_LIMITS.free
