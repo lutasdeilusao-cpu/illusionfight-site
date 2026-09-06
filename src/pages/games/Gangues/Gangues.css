@@ -191,18 +191,6 @@
 .gang-party-counter { color: #a4adb6; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; }
 
 .gang-sheet-card-actions { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
-/* Era #8B0000 a 0.7 de opacidade — invisível no fundo escuro. Agora é um
-   X vermelho claro, com contorno, que dá pra ver e achar. */
-.gang-sheet-delete-btn {
-  background: rgba(255, 107, 107, 0.1); border: 1px solid rgba(255, 107, 107, 0.5); color: #ff6b6b;
-  width: 30px; height: 30px; display: flex; align-items: center; justify-content: center;
-  cursor: pointer; font-size: 15px; line-height: 1; font-family: var(--font-mono);
-  transition: color 0.18s, border-color 0.18s, background 0.18s, transform 0.18s; flex-shrink: 0;
-  font-weight: 700;
-  clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 0 100%);
-}
-.gang-sheet-delete-btn:hover { border-color: #ff6b6b; color: #fff; background: #e0453f; transform: scale(1.08); }
-.gang-sheet-delete-btn:active { transform: scale(0.95); }
 
 /* ── LEVEL UP: pontos de XP para gastar ──
    Era um "9 XP" apagado. Agora grita — pisca em âmbar pra puxar o olho. */

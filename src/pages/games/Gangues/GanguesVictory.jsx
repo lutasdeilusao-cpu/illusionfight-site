@@ -145,16 +145,22 @@ export default function GanguesVictory({ onNavigate }) {
               const eventos = character ? eventosDoLevelUp(character, lu.fromLevel, lu.toLevel) : []
               return (
                 <div key={lu.id} className="gang-levelup-entry">
-                  <p>{t('games.gangues.levelup.subtitulo', { nome: lu.name, nivel: lu.toLevel })}</p>
-                  {eventos.map((evento, index) => (
-                    <p key={index}>
-                      {evento.type === 'attribute'
-                        ? `+${evento.delta} ${t(`games.gangues.attr_labels.${evento.attribute}`)}`
-                        : evento.type === 'unlock_special'
-                          ? `${t('games.gangues.levelup.poder_novo')}: ${t(`games.gangues.progression.skills.${evento.special_id}`)}`
-                          : null}
-                    </p>
-                  ))}
+                  <div className="gang-levelup-entry__head">
+                    <span className={`gang-levelup-entry__avatar gang-path--${character?.combat_path}`}>{lu.name?.[0]?.toUpperCase()}</span>
+                    <span className="gang-levelup-entry__nome">{lu.name}</span>
+                    <span className="gang-levelup-entry__nivel">NV {lu.toLevel}</span>
+                  </div>
+                  <div className="gang-levelup-entry__eventos">
+                    {eventos.map((evento, index) => (
+                      <span key={index} className={`gang-levelup-tag${evento.type === 'unlock_special' ? ' gang-levelup-tag--poder' : ''}`}>
+                        {evento.type === 'attribute'
+                          ? `+${evento.delta} ${t(`games.gangues.attr_labels.${evento.attribute}`)}`
+                          : evento.type === 'unlock_special'
+                            ? `⚡ ${t(`games.gangues.progression.skills.${evento.special_id}`)}`
+                            : null}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               )
             })}

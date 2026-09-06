@@ -1,6 +1,6 @@
 import { useLanguage } from '../../../context/LanguageContext'
 import { useGanguesStore } from './store/useGanguesStore'
-import { getGanguesCharacter, getGanguesLevelFromXp, getGanguesNextLevel, getGanguesUnlockedSpecials } from './data/ganguesCharacters.js'
+import { getGanguesCharacter, getGanguesLevelFromXp, getGanguesUnlockedSpecials } from './data/ganguesCharacters.js'
 import { getGanguesResources, getGanguesProgression } from './data/ganguesLoadout.js'
 import GanguesFichaCard from './components/GanguesFichaCard'
 
@@ -22,7 +22,6 @@ export default function GanguesProgression({ onNavigate }) {
 
   const character = getGanguesCharacter(member.character_template_id)
   const level = getGanguesLevelFromXp(member.xp_total)
-  const next = getGanguesNextLevel(character.id, member.xp_total)
   const unlocked = getGanguesUnlockedSpecials(character.id, member.xp_total)
   const progression = getGanguesProgression(member)
   const resources = getGanguesResources(character.combat_path, member.attributes?.R)
@@ -50,7 +49,6 @@ export default function GanguesProgression({ onNavigate }) {
           return <div key={special.id} className={`gang-skill-node${open ? ' gang-skill-node--equipped' : ' gang-skill-node--locked'}`}><span>NV {3 + index * 2}</span><strong className="gang-skill-node-name">{t(`games.gangues.progression.skills.${special.id}`)}</strong><span className="gang-skill-node-kind">{open ? t(`games.gangues.progression.${special.kind}`) : '🔒'}</span></div>
         })}
       </div>
-      {next && <div className="gang-character-technique"><strong>NV {next.level}</strong><span>{next.events.map(event => event.attribute ? `+${event.delta} ${event.attribute}` : t(`games.gangues.progression.skills.${event.id}`)).join(' · ')}</span></div>}
     </section>
   </main>
 }

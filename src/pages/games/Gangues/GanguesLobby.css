@@ -145,6 +145,23 @@
 .gang-fighter-card__copy em { color: var(--text-secondary); font: 700 11px var(--font-mono); font-style: normal; text-transform: uppercase; }
 .gang-fighter-card__cta { position: absolute; right: 13px; bottom: 10px; color: var(--if-amber); font: 800 9px var(--font-mono); letter-spacing: 1px; text-transform: uppercase; }
 
+/* Card do elenco (lobby): o corpo inteiro abre a ficha (tapzone) — a
+   seleção pra equipe vira um selo pequeno no canto, tocável separado,
+   já que <button> não pode conter outro <button>. */
+.gang-fighter-card__tapzone {
+  all: unset; display: block; position: relative; width: 100%; height: 100%;
+  box-sizing: border-box; cursor: pointer; text-align: left;
+}
+.gang-fighter-card__team-toggle {
+  position: absolute; z-index: 5; top: 10px; right: 13px; width: 30px; height: 30px;
+  display: grid; place-items: center; border: 1px solid var(--if-hair);
+  background: color-mix(in srgb, var(--bg-primary) 78%, transparent); color: var(--text-secondary);
+  font: 900 15px var(--font-title); cursor: pointer;
+  clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 0 100%);
+}
+.gang-fighter-card__team-toggle.is-selected { border-color: var(--if-amber); background: var(--if-amber); color: var(--bg-primary); }
+.gang-fighter-card__team-toggle:disabled { opacity: .55; cursor: not-allowed; }
+
 .gang-recruit__arrow { position: absolute; z-index: 5; top: 44%; width: 38px; height: 52px; border: 1px solid var(--if-hair); background: color-mix(in srgb, var(--bg-primary) 86%, transparent); color: var(--if-cyan); font-size: 30px; }
 .gang-recruit__arrow--left { left: 5px; }
 .gang-recruit__arrow--right { right: 5px; }
@@ -263,28 +280,3 @@
    do que no recrutamento. Estoura o padding só no stage pra ele ocupar a
    largura cheia da coluna, igual ao recrutamento. */
 .gang-roster-carousel .gang-recruit__stage { margin-left: -24px; margin-right: -24px; }
-/* Barra de ações grudada embaixo do card atual — vive DENTRO do próprio
-   .gang-recruit__stage (posicionada em relação a ele), ancorada exatamente
-   onde o card termina (top:18px + altura 350px = 368px) — assim não
-   depende da ordem dos irmãos (dots aparecem só com >1 lutador) e fica
-   sempre grudada no card, igual às setas ‹/› que também são absolutas
-   dentro do stage. Como ela estoura os 390px do stage, empurra a margem
-   de baixo pra não brigar com os dots que vêm depois. */
-.gang-roster-carousel .gang-recruit__stage { margin-bottom: 26px; }
-.gang-roster-carousel__actions {
-  position: absolute; left: 50%; top: 368px; transform: translateX(-50%);
-  width: 242px; max-width: 100%; padding: 0;
-  display: flex; align-items: stretch;
-  border: 1px solid var(--if-hair);
-  background: var(--if-panel-flat);
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 12px 100%, 0 calc(100% - 12px));
-  overflow: hidden;
-}
-.gang-roster-carousel__actions button {
-  flex: 1; min-height: 40px; border: 0; border-right: 1px solid var(--if-hair);
-  border-radius: 0; clip-path: none; background: transparent;
-}
-.gang-roster-carousel__actions button:last-child { border-right: 0; }
-.gang-roster-carousel__actions .gang-sheet-delete-btn { flex: 0 0 40px; background: transparent; }
-.gang-roster-carousel__actions .gang-sheet-levelup { animation: none; background: var(--if-amber-16); }
-@media (max-width: 370px) { .gang-roster-carousel__actions { width: 220px; } }

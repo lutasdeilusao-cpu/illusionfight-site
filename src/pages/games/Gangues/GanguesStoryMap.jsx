@@ -39,13 +39,24 @@ export default function GanguesStoryMap({ onNavigate }) {
         <span><b>{domainPct}%</b>{t('games.gangues.story.dominio')}</span>
       </header>
 
+      <div className="gang-world__title">
+        <h1>{t('games.gangues.story.world_title')}</h1>
+        <p>{t('games.gangues.story.world_hint')}</p>
+      </div>
+
+      <section className="gang-world__intel">
+        <span>{t('games.gangues.story.territorio_selecionado')}</span>
+        <h2>{t(`games.gangues.story.territorios.${active.id}.nome`)}</h2>
+        <p>{t(`games.gangues.story.territorios.${active.id}.desc`)}</p>
+        <div className="gang-world__intel-progress">
+          <progress max={totalNos(active)} value={Math.round(progressoTerritorio(active, progress) * totalNos(active))} />
+          <small>{Math.round(progressoTerritorio(active, progress) * totalNos(active))}/{totalNos(active)}</small>
+        </div>
+        <button onClick={enter} disabled={activeState === 'trancado'}>{activeState === 'trancado' ? t('games.gangues.story.bloqueado_cta') : t('games.gangues.story.entrar_territorio')} <b>→</b></button>
+      </section>
+
       <section className="gang-world__city" aria-label={t('games.gangues.story.titulo')}>
         <div className="gang-world__sky" aria-hidden="true"><i /><i /><i /><i /><i /></div>
-        <div className="gang-world__title">
-          <small>LDI // {t('games.gangues.modes.marelia')}</small>
-          <h1>{t('games.gangues.story.world_title')}</h1>
-          <p>{t('games.gangues.story.world_hint')}</p>
-        </div>
 
         <div className="gang-world__map" role="group" aria-label={t('games.gangues.story.titulo')}>
           <svg viewBox="0 0 100 150" className="gang-world__svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
@@ -80,17 +91,6 @@ export default function GanguesStoryMap({ onNavigate }) {
             )
           })}
         </div>
-      </section>
-
-      <section className="gang-world__intel">
-        <span>{t('games.gangues.story.territorio_selecionado')}</span>
-        <h2>{t(`games.gangues.story.territorios.${active.id}.nome`)}</h2>
-        <p>{t(`games.gangues.story.territorios.${active.id}.desc`)}</p>
-        <div className="gang-world__intel-progress">
-          <progress max={totalNos(active)} value={Math.round(progressoTerritorio(active, progress) * totalNos(active))} />
-          <small>{Math.round(progressoTerritorio(active, progress) * totalNos(active))}/{totalNos(active)}</small>
-        </div>
-        <button onClick={enter} disabled={activeState === 'trancado'}>{activeState === 'trancado' ? t('games.gangues.story.bloqueado_cta') : t('games.gangues.story.entrar_territorio')} <b>→</b></button>
       </section>
     </main>
   )

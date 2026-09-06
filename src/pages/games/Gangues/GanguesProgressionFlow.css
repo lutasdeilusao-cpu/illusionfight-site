@@ -1,22 +1,5 @@
 .gang-sheet-card-v { position: relative; }
-.gang-sheet-card-shell { position: relative; width: 100%; }
-.gang-sheet-card-shell > .gang-sheet-card-v { width: 100%; padding-right: 92px; }
-/* Coluna de ações (X, FICHA, LEVEL UP) sobreposta à direita do card. */
-.gang-sheet-card-shell > .gang-sheet-card-side {
-  position: absolute;
-  z-index: 2;
-  top: 10px;
-  right: 10px;
-  bottom: 10px;
-  justify-content: space-between;
-}
-.gang-sheet-delete-btn--roster { position: static; }
 .gang-progression-focus { width: 100%; scroll-margin-top: 16px; }
-.gang-sheet-xp-ready {
-  position: absolute; right: 10px; bottom: 8px; border: 1px solid rgba(245, 166, 35, .55);
-  border-radius: 999px; background: rgba(245, 166, 35, .12); color: var(--if-amber);
-  padding: 2px 7px; font: 800 9px 'Rajdhani', sans-serif; letter-spacing: .6px;
-}
 .gang-progression-close {
   width: 44px; height: 44px; border: 1px solid #30444c; border-radius: 50%;
   background: #0c171b; color: #9aabb1; font: 700 24px/1 'Rajdhani', sans-serif; cursor: pointer;
@@ -59,6 +42,32 @@
 }
 .gang-progression-prompt button + button { margin-top: 8px; }
 .gang-progression-prompt .gang-progression-prompt__confirm { border-color: var(--if-amber); background: var(--if-amber); color: #171006; }
+
+/* ── Card de SUBIU DE NÍVEL — mesma linguagem visual da ficha unificada
+   (ver GanguesFichaCard/gang-sheet-modal__*): avatar + nome + tags de
+   ganho, em vez de parágrafos soltos sem estilo nenhum. ── */
+.gang-levelup-entry {
+  margin-top: 12px; padding: 12px; text-align: left;
+  border: 1px solid var(--if-hair); border-left: 3px solid var(--if-amber);
+  background: var(--if-panel-flat);
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
+}
+.gang-levelup-entry__head { display: flex; align-items: center; gap: 8px; }
+.gang-levelup-entry__avatar {
+  width: 32px; height: 32px; flex-shrink: 0; display: grid; place-items: center;
+  border: 1px solid var(--if-cyan-45); background: var(--if-cyan-08); color: var(--if-cyan);
+  font: 900 15px var(--font-title);
+}
+.gang-levelup-entry__avatar.gang-path--defensor { border-color: color-mix(in srgb, var(--if-amber) 45%, transparent); background: var(--if-amber-16); color: var(--if-amber); }
+.gang-levelup-entry__avatar.gang-path--mistico { border-color: color-mix(in srgb, var(--if-violet) 45%, transparent); background: color-mix(in srgb, var(--if-violet) 10%, transparent); color: var(--if-violet); }
+.gang-levelup-entry__nome { flex: 1; color: var(--text-primary); font: 900 15px var(--font-title); text-transform: uppercase; text-align: left; }
+.gang-levelup-entry__nivel { padding: 3px 8px; border: 1px solid var(--if-amber); color: var(--if-amber); font: 800 10px var(--font-mono); letter-spacing: .06em; }
+.gang-levelup-entry__eventos { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 9px; }
+.gang-levelup-tag {
+  padding: 4px 8px; border: 1px solid var(--if-hair); color: var(--text-secondary);
+  font: 700 10px var(--font-mono); letter-spacing: .04em; text-transform: uppercase;
+}
+.gang-levelup-tag--poder { border-color: var(--if-amber); color: var(--if-amber); background: var(--if-amber-16); }
 
 /* ══════════════════════════════════════════════════════════════
    PROGRESSÃO — tela dedicada (v10.208)
@@ -238,35 +247,6 @@
 .gang-xp-confirm-yes:hover { background: #ffce6b; }
 
 /* ── Coluna lateral do card do elenco: X + LEVEL UP ── */
-.gang-sheet-card-side {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 8px;
-  flex-shrink: 0;
-}
-.gang-sheet-levelup {
-  display: inline-flex;
-  align-items: center;
-  padding: 5px 9px;
-  font: 800 0.58rem var(--font-display);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #1b1000;
-  background: var(--if-amber);
-  border: 0;
-  cursor: pointer;
-  white-space: nowrap;
-  box-shadow: 0 0 0 0 rgba(255, 174, 50, 0.55);
-  animation: gang-levelup-pulso 1.6s ease-in-out infinite;
-  clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 0 100%);
-}
-.gang-sheet-levelup:hover { background: #ffce6b; }
-
-@media (prefers-reduced-motion: reduce) {
-  .gang-sheet-levelup { animation: none; }
-}
-
 /* ── Destaque de poder ── */
 .gang-skill-node-badge {
   position: absolute;
@@ -324,19 +304,3 @@
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
-
-/* Botão FICHA no card do elenco */
-.gang-sheet-ficha {
-  padding: 5px 9px;
-  font: 700 0.56rem var(--font-mono);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--if-cyan);
-  background: var(--if-cyan-08);
-  border: 1px solid var(--if-cyan-45);
-  cursor: pointer;
-  white-space: nowrap;
-  transition: background 0.15s, color 0.15s;
-  clip-path: polygon(0 0, calc(100% - 5px) 0, 100% 5px, 100% 100%, 0 100%);
-}
-.gang-sheet-ficha:hover { background: var(--if-cyan); color: #04141a; }

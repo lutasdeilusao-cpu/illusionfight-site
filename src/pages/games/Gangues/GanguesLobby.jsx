@@ -56,11 +56,6 @@ export default function GanguesLobby({ onNavigate }) {
     onNavigate('progression')
   }
 
-  const deleteProgressionMember = async (member) => {
-    if (!member || !window.confirm(t('games.gangues.progression.delete_confirm', { name: member.sheet_name }))) return
-    await store.deleteSheet(member.id)
-  }
-
   // O elenco já foi carregado pela tela de save (GanguesSaveSelect.selecionarSave)
   // pra quem tem conta — aqui só recarrega se por algum motivo chegou no lobby
   // sem passar por lá (ex: guest, que não tem save nenhum).
@@ -176,7 +171,6 @@ export default function GanguesLobby({ onNavigate }) {
             setRosterIndex={setRosterIndex}
             handleSheetClick={handleSheetClick}
             abrirProgressao={abrirProgressao}
-            deleteProgressionMember={deleteProgressionMember}
             startRecruitment={startRecruitment}
             t={t}
           />
@@ -209,7 +203,7 @@ export default function GanguesLobby({ onNavigate }) {
 /** Elenco em carrossel de cartinhas — mesma linguagem visual do recrutamento
  *  (GanguesCreate): 3 cartas visíveis (prev/current/next), tocar na do meio
  *  marca/desmarca pra batalha, tocar nas laterais só navega. */
-function RosterCarousel({ roster, party, partyLimit, rosterLimit, rosterIndex, setRosterIndex, handleSheetClick, abrirProgressao, deleteProgressionMember, startRecruitment, t }) {
+function RosterCarousel({ roster, party, partyLimit, rosterLimit, rosterIndex, setRosterIndex, handleSheetClick, abrirProgressao, startRecruitment, t }) {
   useEffect(() => {
     if (rosterIndex >= roster.length) setRosterIndex(0)
   }, [roster.length, rosterIndex])
@@ -224,9 +218,6 @@ function RosterCarousel({ roster, party, partyLimit, rosterLimit, rosterIndex, s
     ? [{ member: at(-1), position: 'prev' }, { member: at(0), position: 'current' }, { member: at(1), position: 'next' }]
     : roster.map(member => ({ member, position: 'current' }))
 
-  const atual = at(0)
-  const xpDisponivel = atual ? getGanguesProgression(atual).xp_unspent : 0
-
   return (
     <section className="gang-roster-carousel">
       <div className="gang-lobby-section-label gang-lobby-section-label--row"><span>{t('games.gangues.party.roster')}</span><span>{roster.length}/{rosterLimit}</span></div>
@@ -240,34 +231,58 @@ function RosterCarousel({ roster, party, partyLimit, rosterLimit, rosterIndex, s
             const travado = selected
               ? party.length <= GANGUES_INITIAL_PARTY_SIZE
               : party.length >= partyLimit
+            if (position !== 'current') {
+              return (
+                <motion.button
+                  key={`${position}-${member.id}`}
+                  className={`gang-fighter-card gang-fighter-card--${position} gang-fighter-card--${member.combat_path}${selected ? ' gang-fighter-card--selected' : ''}`}
+                  onClick={() => move(position === 'prev' ? -1 : 1)}
+                  initial={{ opacity: 0, scale: .9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                >
+                  <span className="gang-fighter-card__number">#{String(roster.indexOf(member) + 1).padStart(2, '0')}</span>
+                  {selected && <span className="gang-fighter-card__selected">✓ {t('games.gangues.party.selected')}</span>}
+                  <span className="gang-fighter-card__portrait" aria-hidden="true"><i>{member.sheet_name[0].toUpperCase()}</i><b>{PATH_MARKS[member.combat_path]}</b></span>
+                  <span className="gang-fighter-card__copy">
+                    <small>{t(`games.gangues.loadout.paths.${member.combat_path}.name`)}</small>
+                    <strong>{member.sheet_name}</strong>
+                    <em>{['A', 'H', 'R', 'D'].map(attr => `${attr}${member.attributes[attr]}`).join(' · ')}</em>
+                  </span>
+                </motion.button>
+              )
+            }
+            const xpMembro = getGanguesProgression(member).xp_unspent
             return (
-              <motion.button
+              <motion.div
                 key={`${position}-${member.id}`}
-                disabled={position === 'current' && travado}
                 className={`gang-fighter-card gang-fighter-card--${position} gang-fighter-card--${member.combat_path}${selected ? ' gang-fighter-card--selected' : ''}`}
-                onClick={() => position === 'current' ? handleSheetClick(member) : move(position === 'prev' ? -1 : 1)}
                 initial={{ opacity: 0, scale: .9 }}
                 animate={{ opacity: 1, scale: 1 }}
               >
                 <span className="gang-fighter-card__number">#{String(roster.indexOf(member) + 1).padStart(2, '0')}</span>
-                {selected && <span className="gang-fighter-card__selected">✓ {t('games.gangues.party.selected')}</span>}
-                <span className="gang-fighter-card__portrait" aria-hidden="true"><i>{member.sheet_name[0].toUpperCase()}</i><b>{PATH_MARKS[member.combat_path]}</b></span>
-                <span className="gang-fighter-card__copy">
-                  <small>{t(`games.gangues.loadout.paths.${member.combat_path}.name`)}</small>
-                  <strong>{member.sheet_name}</strong>
-                  <em>{['A', 'H', 'R', 'D'].map(attr => `${attr}${member.attributes[attr]}`).join(' · ')}</em>
-                </span>
-                <span className="gang-fighter-card__cta">{selected ? (travado ? t('games.gangues.party.obrigatorio') : t('games.gangues.party.remover')) : t('games.gangues.party.select')}</span>
-              </motion.button>
+                <button
+                  type="button"
+                  className={`gang-fighter-card__team-toggle${selected ? ' is-selected' : ''}`}
+                  disabled={travado}
+                  aria-label={selected ? t('games.gangues.party.remover') : t('games.gangues.party.select')}
+                  onClick={() => handleSheetClick(member)}
+                >
+                  {selected ? '✓' : '+'}
+                </button>
+                <button type="button" className="gang-fighter-card__tapzone" onClick={() => abrirProgressao(member)}>
+                  <span className="gang-fighter-card__portrait" aria-hidden="true"><i>{member.sheet_name[0].toUpperCase()}</i><b>{PATH_MARKS[member.combat_path]}</b></span>
+                  <span className="gang-fighter-card__copy">
+                    <small>{t(`games.gangues.loadout.paths.${member.combat_path}.name`)}</small>
+                    <strong>{member.sheet_name}</strong>
+                    <em>{['A', 'H', 'R', 'D'].map(attr => `${attr}${member.attributes[attr]}`).join(' · ')}</em>
+                  </span>
+                  <span className="gang-fighter-card__cta">{xpMembro > 0 ? t('games.gangues.progression.xp_badge', { n: xpMembro }) : t('games.gangues.progression.open_sheet')}</span>
+                </button>
+              </motion.div>
             )
           })}
         </div>
         {roster.length > 1 && <button className="gang-recruit__arrow gang-recruit__arrow--right" onClick={() => move(1)}>›</button>}
-        {atual && <div className="gang-roster-carousel__actions">
-          <button className="gang-sheet-delete-btn gang-sheet-delete-btn--roster" onClick={() => deleteProgressionMember(atual)} aria-label={t('games.gangues.progression.delete')}>×</button>
-          <button className="gang-sheet-ficha" onClick={() => abrirProgressao(atual)}>{t('games.gangues.progression.open_sheet')}</button>
-          {xpDisponivel > 0 && <button className="gang-sheet-levelup" onClick={() => abrirProgressao(atual)}>{t('games.gangues.progression.xp_badge', { n: xpDisponivel })}</button>}
-        </div>}
       </div>
 
       {roster.length > 1 && <div className="gang-recruit__dots">
