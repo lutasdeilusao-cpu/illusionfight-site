@@ -55,8 +55,6 @@ export const useGanguesStore = create((set, get) => ({
 
   newSheet: () => set({ sheet: defaultSheet() }),
 
-  updateSheet: (partial) => set(state => ({ sheet: { ...state.sheet, ...partial } })),
-
   loadSheet: (data) => {
     const templateId = data?.character_template_id || data?.attributes?.character_template_id
     const source = templateId ? { ...data, character_type: 'template', character_template_id: Number(templateId) } : data
@@ -154,12 +152,6 @@ export const useGanguesStore = create((set, get) => ({
       supabase.from('character_sheets').update({ attributes: member.attributes, xp_total: member.xp_total }).eq('id', member.id).eq('user_id', uid)
     ))
   },
-
-  updateRosterSheet: (sheetId, partial) => set(state => {
-    const roster = state.roster.map(member => member.id === sheetId ? { ...member, ...partial } : member)
-    const sheet = state.sheet.id === sheetId ? { ...state.sheet, ...partial } : state.sheet
-    return { roster, activeParty: state.activeParty.map(member => member.id === sheetId ? { ...member, ...partial } : member), sheet }
-  }),
 
   saveToCloud: async (userId) => {
     const uid = userId || get()._userId

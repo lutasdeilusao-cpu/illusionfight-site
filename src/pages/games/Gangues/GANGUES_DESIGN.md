@@ -255,18 +255,10 @@ pra não confundir quem for mexer depois: ou usa esse conteúdo pra inimigos fut
   tinha conta perdia tudo ao trocar de dispositivo ou limpar dados do navegador — bug corrigido
   nesta migration.
 
-### Zona de Treinamento administrativa
-
-O lobby exibe o botão **Zona de Treinamento** apenas quando `FichasContext.isAdmin` confirma o
-usuário. A fase `training` repete essa autorização. O console seleciona uma ficha e concede uma
-quantidade livre de XP, somando o valor simultaneamente a `xp_total` e `progression.xp_unspent`.
-Ele não altera atributos, AP, subcaminhos ou poderes: toda evolução usa o fluxo normal do jogador.
-
 No lobby, fichas com XP disponível recebem um marcador. Ao tocar na ficha, o jogador escolhe
 entre abrir a progressão ou continuar a seleção da gangue. O painel só aparece após confirmação,
 rola automaticamente até a área de evolução e continua usando as funções oficiais de custo
-(`upgradeGanguesAttribute` e `upgradeGanguesSpecial`). Assim, o ambiente administrativo testa o
-mesmo caminho que chegará ao usuário final, sem manter uma segunda implementação de progressão.
+(`upgradeGanguesAttribute` e `upgradeGanguesSpecial`).
 
 ## 13. Estrutura de arquivos
 
@@ -277,8 +269,6 @@ src/pages/games/Gangues/
 ├── GanguesCreate.jsx         # criação: caminho → atributos (+ tutoriais NeoGuide)
 ├── GanguesCombat.jsx         # tela de batalha (chat, roster, ataque)
 ├── GanguesVictory.jsx        # relatório pós-batalha (vitória e derrota)
-├── GanguesTrainingZone.jsx   # console de progressão exclusivo para administradores
-├── GanguesTrainingZone.css   # estilos isolados do console administrativo
 ├── GanguesProgressionFlow.css # aviso de XP e entrada no painel normal
 ├── Gangues.css               # todo o CSS do módulo
 ├── assets/                   # neoguide-frontal.png, neoguide-perfil.png
@@ -322,10 +312,10 @@ src/pages/games/Gangues/
   atributo e upar especial competem pela mesma "panela" de XP sem restrição, e considerar se vale
   a pena reintroduzir as mecânicas simplificadas do Atacante (duração de efeitos, fila de turno)
   com um sistema de status de verdade, hoje deliberadamente evitado por risco no motor de turno.
-## Zona de Treinamento pública
+## Scroll do lobby
 
-A rota `/games/ldi-gangues/treinamento` abre diretamente a bancada de concessão de XP sem login, ficha ou permissão administrativa. Quando não existe elenco carregado, ela cria somente em memória um personagem de teste; alterações não são enviadas ao Supabase. A rota administrativa interna continua protegida.
-
-A Zona de Treinamento não cria um scroll interno: o primeiro container (`.gang-page`) recebe altura automática e overflow vertical visível para que `html/body` mantenham o gesto nativo do navegador. O modificador usa o seletor composto `.gang-page.gang-page--training`, pois o CSS importado pelo componente filho pode aparecer antes de `Gangues.css` no bundle do Vite. A especificidade impede que `height: 100dvh` e `overflow: hidden` da regra base voltem a travar a página.
-
-O lobby segue a mesma estratégia por meio de `.gang-page.gang-page--lobby`. Isso é necessário porque o painel de progressão pode tornar o lobby maior que a viewport; a rolagem permanece no documento e não interfere nas telas fechadas de criação e combate.
+O lobby não cria um scroll interno: o primeiro container (`.gang-page`) recebe altura automática
+e overflow vertical visível para que `html/body` mantenham o gesto nativo do navegador, via
+`.gang-page.gang-page--lobby`. Isso é necessário porque o painel de progressão pode tornar o
+lobby maior que a viewport; a rolagem permanece no documento e não interfere nas telas fechadas
+de criação e combate.

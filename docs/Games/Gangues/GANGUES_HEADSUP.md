@@ -128,19 +128,15 @@ A tela de combate mostra um log estilo chat: card por golpe (FA, FD, dados, bôn
 crítico, dano, onomatopeia tipo POW!/WHAM!), trash talk automático do inimigo (~60% de chance por
 evento), e você pode mandar trash talk seu (3 frases sorteadas, renovadas a cada rodada).
 
-## 9. NeoGuide (mascote/guia) e Zona de Treinamento
+## 9. NeoGuide (mascote/guia)
 
 - **NeoGuide**: diálogo full-screen na primeira vez que entra no lobby, mais dicas laterais
   guiadas na escolha de caminho e na distribuição de atributos. Cada tutorial só aparece uma vez
   (flag no `localStorage`). Pra ver de novo, tem um snippet de console documentado na seção 10 do
   `GANGUES_DESIGN.md`.
-- **Zona de Treinamento administrativa**: botão só visível se `FichasContext.isAdmin` confirmar
-  que você é admin. Deixa escolher uma ficha e dar XP livre pra testar progressão, sem mexer em
-  atributos/poderes diretamente — usa as mesmas funções oficiais que o fluxo normal do jogador
-  (`upgradeGanguesAttribute`, `upgradeGanguesSpecial`), então serve como ambiente de teste real.
-- **Zona de Treinamento pública**: rota `/games/ldi-gangues/treinamento`, abre direto sem login
-  nem permissão — cria um personagem só em memória quando não há elenco carregado, nada é salvo
-  no Supabase. Foi a mudança da v1.12.0, unificando esse fluxo de teste com a progressão normal.
+- A Zona de Treinamento (botão admin no lobby + rota pública `/games/ldi-gangues/treinamento`,
+  ambas da v1.12.0) foi removida na v2.11.0 — componente, rota e store methods exclusivos dela
+  (`updateSheet`, `updateRosterSheet`) saíram do código pra não sobrar lixo morto.
 
 ## 10. Onde o texto do jogo mora (i18n)
 

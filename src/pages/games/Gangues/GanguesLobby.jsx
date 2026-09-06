@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { useLanguage } from '../../../context/LanguageContext'
 import { useAuth } from '../../../context/AuthContext'
-import { useFichas } from '../../../context/FichasContext'
 import { useNavigate } from 'react-router-dom'
 import GanguesNaming from './GanguesNaming'
 import { sfx } from '../../../lib/sfx'
@@ -35,7 +34,6 @@ export default function GanguesLobby({ onNavigate }) {
   const { t } = useLanguage()
   const navigate = useNavigate()
   const { user, perfil } = useAuth()
-  const { isAdmin } = useFichas()
   const store = useGanguesStore()
   const [loading, setLoading] = useState(Boolean(user))
   const [avisoParty, setAvisoParty] = useState('')
@@ -175,14 +173,6 @@ export default function GanguesLobby({ onNavigate }) {
 
           <p className="gang-party-counter">{t('games.gangues.party_size_atual', { n: party.length, max: partyLimit })}</p>
           {avisoParty && <p className="gang-err">{avisoParty}</p>}
-
-          {isAdmin && (
-            <button className="gang-training-entry" onClick={() => onNavigate('training')}>
-              <span>⚙</span>
-              <span><strong>{t('games.gangues.training.entry')}</strong><small>{t('games.gangues.training.entry_desc')}</small></span>
-              <b>→</b>
-            </button>
-          )}
         </>
       )}
       {avisoPoderes && (

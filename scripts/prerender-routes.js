@@ -59,7 +59,6 @@ const ROUTES = [
 ].map(([path, title, description, heading, content, priority, changefreq, indexable = true]) => ({ path, title, description, heading, content, priority, changefreq, indexable }))
 
 const extraGameRoutes = [
-  ['/games/ldi-gangues/treinamento', 'Jogo tático grátis — Treinamento LDI Gangues', 'Teste grátis o combate tático de LDI Gangues, um RPG de arena por turnos do universo Illusion Fight.', 'Treinamento grátis de LDI Gangues', 'Experimente batalhas táticas por turnos, monte sua estratégia e conheça o sistema de combate do RPG LDI Gangues.'],
   ['/games/kernel-panic', 'Kernel Panic — jogo de puzzle hacker grátis', 'Jogue Kernel Panic, um puzzle hacker grátis de dedução, comandos e sobrevivência digital no portal Illusion Fight.', 'Kernel Panic', 'Resolva desafios de terminal e sobreviva a um sistema digital hostil neste jogo de puzzle gratuito.'],
   ['/games/sliding-rafael', 'Sliding Rafael — puzzle deslizante grátis', 'Jogue Sliding Rafael, um puzzle deslizante gratuito com desafios de raciocínio no portal Illusion Fight.', 'Sliding Rafael', 'Organize o tabuleiro, resolva o quebra-cabeça e complete o desafio no menor número de movimentos.'],
   ['/games/codigo-perdido', 'Código Perdido — jogo de palavras grátis', 'Jogue Código Perdido, um puzzle gratuito de palavras, pistas e dedução inspirado em sistemas corrompidos.', 'Código Perdido', 'Descubra a palavra escondida usando pistas e raciocínio antes que o sistema entre em colapso.'],

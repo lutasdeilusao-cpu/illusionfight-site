@@ -9,7 +9,6 @@ import GanguesEnemyPick from './GanguesEnemyPick'
 import GanguesCreate from './GanguesCreate'
 import GanguesCombat from './GanguesCombat'
 import GanguesVictory from './GanguesVictory'
-import GanguesTrainingZone from './GanguesTrainingZone'
 import GanguesProgression from './GanguesProgression'
 import GanguesStoryMap from './GanguesStoryMap'
 import GanguesTerritorio from './GanguesTerritorio'
@@ -24,12 +23,12 @@ import './Gangues.css'
 import { GANGUES_VERSION } from '../../../config/version'
 console.log(`[GANGUES] versão carregada: ${GANGUES_VERSION}`)
 
-export default function GanguesRoute({ publicTraining = false }) {
+export default function GanguesRoute() {
   const { user } = useAuth()
   const { setReaderMode } = useReader()
   const store = useGanguesStore()
   const i18nReady = useGanguesI18n()
-  const [fase, setFase] = useState(publicTraining ? 'training' : 'lobby')
+  const [fase, setFase] = useState('lobby')
 
   useEffect(() => {
     if (user) {
@@ -85,7 +84,7 @@ export default function GanguesRoute({ publicTraining = false }) {
   )
 
   return (
-    <div className={`gang-page ${fase === 'training' ? 'gang-page--training' : ''} ${fase === 'lobby' ? 'gang-page--lobby' : ''}`}>
+    <div className={`gang-page ${fase === 'lobby' ? 'gang-page--lobby' : ''}`}>
       <GuestNotice />
       {fase === 'lobby' && <GanguesLobby onNavigate={setFase} />}
       {fase === 'create' && (
@@ -110,7 +109,6 @@ export default function GanguesRoute({ publicTraining = false }) {
       )}
       {fase === 'combat' && <GanguesCombat onNavigate={setFase} />}
       {fase === 'victory' && <GanguesVictory onNavigate={setFase} />}
-      {fase === 'training' && <GanguesTrainingZone onNavigate={setFase} publicAccess={publicTraining} />}
     </div>
   )
 }
