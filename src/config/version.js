@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.231.2'
+export const SITE_VERSION = '10.231.3'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '2.6.2' // fix: intro da cena (NeoGuide "Isso aqui e a Pista...") repetia toda vez que a pagina recarregava - seenSceneIntros era um Set so em memoria, nunca persistia. Agora usa localStorage (ldi-gangues-cena-intro-vista), igual aos outros tutoriais do jogo. Testado: fecha a intro, recarrega a pagina inteira, entra nas mesma cena de novo - nao aparece mais
+export const GANGUES_VERSION   = '2.6.3' // fix: portao da gangue rival tinha a abertura em x:470-675, mas a estrada por onde o jogador anda fica em x:305-455 - a passagem ficava em cima de predio solido, inalcancavel. Realinhado (CSS do portao + logica de colisao) pra abertura casar exatamente com a estrada. Testado visualmente: a parte listrada do portao fica centralizada na linha tracejada da rua
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
 export const MINIGAMES_VERSION = '4.3.4'  // Glitch: safe-area lateral no grid-wrap
