@@ -34,6 +34,31 @@ function fighterName(t, member) {
   return member.numeroInstancia ? `${base} (${member.numeroInstancia})` : base
 }
 
+// Quanto cada personagem do jogador contribuiu na luta (dano causado +
+// quantos inimigos ele finalizou) — usado pra pesar a divisão de XP no
+// final (GanguesVictory.jsx): quem mais lutou/matou ganha mais, mas todo
+// mundo que participou ganha pelo menos alguma coisa. Reconstrói o PV de
+// cada inimigo evento a evento (a partir do pvMax, que não muda durante a
+// luta) só pra saber qual golpe foi o que derrubou cada um.
+function computarContribuicoes(eventosBrutos, combatants) {
+  const porId = {}
+  const pvSimulado = new Map(combatants.filter(c => c.side === 'enemy').map(c => [c.key, c.pvMax]))
+  for (const ev of eventosBrutos) {
+    if (ev.type !== 'attack' || ev.side !== 'player') continue
+    const ator = combatants.find(c => c.key === ev.actorKey)
+    if (!ator) continue
+    const stat = porId[ator.id] || (porId[ator.id] = { dano: 0, abates: 0 })
+    stat.dano += ev.result?.damage || 0
+    const antes = pvSimulado.get(ev.targetKey)
+    if (antes != null) {
+      const depois = Math.max(0, antes - (ev.result?.damage || 0))
+      pvSimulado.set(ev.targetKey, depois)
+      if (antes > 0 && depois <= 0) stat.abates += 1
+    }
+  }
+  return porId
+}
+
 function pickTrash(t, enemy, category) {
   const translated = t(`games.gangues.trash_talk_npc.${enemy.id}.${category}`)
   const pool = Array.isArray(translated) ? translated : (enemy.trash_talk?.[category] || [])
@@ -149,6 +174,15 @@ export default function GanguesCombat({ onNavigate }) {
   const [fichaAberta, setFichaAberta] = useState(null) // combatant ou null — popup de status completo
   const processedEvents = useRef(0)
   const logEndRef = useRef(null)
+  // Eventos brutos (com actorKey/targetKey, não só o texto já traduzido do
+  // log) acumulados a luta inteira — dá pra calcular quem matou mais/bateu
+  // mais dano só no final, sem precisar recomputar nada durante a luta.
+  const eventosBrutosRef = useRef([])
+  // Aviso de "fulano caiu" — compara quem tava vivo no render anterior com
+  // quem tá vivo agora; sem isso o jogador só percebia que perdeu alguém
+  // olhando o roster ficar cinza, sem nenhum destaque chamando atenção.
+  const vivosAnterioresRef = useRef(new Set())
+  const [koAviso, setKoAviso] = useState(null)
 
   // ── Briga em Multidão: um SWITCH na barra do topo (não uma tela separada),
   // visível só quando o bando é grande o bastante (6+ combatentes somados).
@@ -228,6 +262,24 @@ export default function GanguesCombat({ onNavigate }) {
     ? (estadoMultidao?.combatants || []).filter(item => item.side === 'enemy')
     : machine.combatants.filter(item => item.side === 'enemy')
 
+  // Avisa quando um ALIADO cai — compara quem tava vivo no render anterior
+  // com quem tá vivo agora (funciona igual nos dois modos, já que `players`
+  // já é a lista unificada acima). Sem isso o jogador só descobria olhando
+  // o roster ficar cinza, fácil de não notar no meio da luta.
+  useEffect(() => {
+    const vivosAgora = new Set(players.filter(p => p.pv > 0).map(p => p.key))
+    for (const key of vivosAnterioresRef.current) {
+      if (!vivosAgora.has(key)) {
+        const membro = players.find(p => p.key === key)
+        if (membro) {
+          setKoAviso(fighterName(t, membro))
+          setTimeout(() => setKoAviso(null), 2400)
+        }
+      }
+    }
+    vivosAnterioresRef.current = vivosAgora
+  }, [players])
+
   useEffect(() => {
     if (modoMultidaoAtivo) return
     if (!selectedActor || !machine.playerActors.some(item => item.key === selectedActor)) {
@@ -257,6 +309,7 @@ export default function GanguesCombat({ onNavigate }) {
     if (machine.events.length <= processedEvents.current) return
     const newEvents = machine.events.slice(processedEvents.current)
     processedEvents.current = machine.events.length
+    eventosBrutosRef.current = [...eventosBrutosRef.current, ...newEvents]
 
     setLog(prev => {
       let next = prev
@@ -302,6 +355,7 @@ export default function GanguesCombat({ onNavigate }) {
     setRevelandoRodada(true)
     setTimeout(() => {
       setEstadoMultidao(proximoEstado)
+      eventosBrutosRef.current = [...eventosBrutosRef.current, ...proximoEstado.eventosRodada]
       const entradasRodada = proximoEstado.eventosRodada.flatMap(event => transformarEvento(t, event, proximoEstado.combatants))
       setLog(prev => [...prev, ...entradasRodada])
       setRevelandoRodada(false)
@@ -330,7 +384,8 @@ export default function GanguesCombat({ onNavigate }) {
     const initiative = modoMultidaoAtivo ? (estadoMultidao?.initiative || []) : machine.initiative
     const combatants = modoMultidaoAtivo ? (estadoMultidao?.combatants || []) : machine.combatants
     const rounds = modoMultidaoAtivo ? (estadoMultidao?.round || 1) : machine.round
-    store.setBattleReport({ outcome: result, entries: log, initiative, combatants, rounds })
+    const contribuicoes = computarContribuicoes(eventosBrutosRef.current, combatants)
+    store.setBattleReport({ outcome: result, entries: log, initiative, combatants, rounds, contribuicoes })
     onNavigate('victory')
   }
 
@@ -338,6 +393,13 @@ export default function GanguesCombat({ onNavigate }) {
 
   return (
     <div className="gang-combat gang-container">
+      <AnimatePresence>
+        {koAviso && (
+          <motion.div className="gang-ko-aviso" initial={{ opacity: 0, y: -20, scale: 0.9 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: -12 }}>
+            💀 {t('games.gangues.ko_aviso', { nome: koAviso })}
+          </motion.div>
+        )}
+      </AnimatePresence>
       <AnimatePresence>
         {machine.pending && !modoMultidaoAtivo && (
           <DramaticDice

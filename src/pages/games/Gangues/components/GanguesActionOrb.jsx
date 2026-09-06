@@ -74,9 +74,6 @@ export default function GanguesActionOrb({ t, disabled, equippedSpecials, canAff
                 <button type="button" className="gang-orb-voltar" onClick={() => setTab('menu')}>←</button>
                 <span>{t('games.gangues.orb.poder')}</span>
               </div>
-              <button type="button" className="gang-orb-item-btn gang-orb-item-btn--normal" disabled={disabled} onClick={() => { onUsarPoder(null); fechar() }}>
-                {t('games.gangues.combat_specials.normal_attack')}<small>{t('games.gangues.combat_specials.sem_custo')}</small>
-              </button>
               {equippedSpecials.map(special => {
                 const affordable = canAffordSpecial(special)
                 const cost = special.effect.cost

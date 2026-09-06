@@ -6,6 +6,7 @@
       "escolha_alvo": "ESCOLHA O ALVO",
       "log_batalha_inicio": "A briga começou.",
       "log_usou_item": "{nome} usou um item — abriu mão do ataque nessa rodada.",
+      "ko_aviso": "{nome} caiu!",
       "neoguide": {
         "pular": "PULAR",
         "proximo": "PRÓXIMO ▸",

@@ -6,6 +6,7 @@
       "escolha_alvo": "ELIGE UN OBJETIVO",
       "log_batalha_inicio": "La pelea ha comenzado.",
       "log_usou_item": "{nome} usó un objeto — renunció a su ataque esta ronda.",
+      "ko_aviso": "¡{nome} cayó!",
       "neoguide": {
         "pular": "SALTAR",
         "proximo": "SIGUIENTE ▸",

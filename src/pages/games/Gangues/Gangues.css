@@ -602,6 +602,22 @@
 }
 .gang-multidao-item-toggle--on { opacity: 1; border-color: var(--if-violet); background: color-mix(in srgb, var(--if-violet) 16%, transparent); }
 
+/* Aviso de "fulano caiu" — antes o jogador só percebia olhando o roster
+   ficar cinza, fácil demais de não notar no meio da luta. */
+.gang-ko-aviso {
+  position: fixed; top: 14%; left: 50%; transform: translateX(-50%); z-index: 200;
+  padding: 10px 18px;
+  border: 1px solid #cc4444;
+  background: linear-gradient(160deg, #2a0d0d, #140606 80%);
+  color: #ff8a8a;
+  font: 800 0.82rem var(--font-display);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  box-shadow: 0 0 30px -6px rgba(204, 68, 68, 0.6), 0 8px 20px rgba(0,0,0,0.5);
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
+  pointer-events: none;
+}
+
 /* Revelação de UMA rodada — overlay curto por cima do combate, não a tela inteira. */
 .gang-multidao-revela--overlay {
   position: absolute; inset: 0; z-index: 60;
