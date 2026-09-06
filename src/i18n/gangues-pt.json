@@ -872,6 +872,7 @@
         "kaeda": "Kaeda",
         "moleque_a": "Moleque da Pista",
         "moleque_b": "Moleque Valentão",
+        "moleque_c": "Fumacinha",
         "fumaca": "Fumaça",
         "turco_batedor": "Batedor do Turco",
         "turco_capanga": "Capanga do Turco",
@@ -897,12 +898,12 @@
         "bonde_costura_2": "Tenente do Costura",
         "bonde_costura_3": "General do Costura",
         "costura": "Damião, o Costura",
-        "thunderbolt": "Thunderbolt",
-        "stormbyte": "StormByte_91",
-        "viran": "Mestre Viran",
-        "campeao": "O Campeao",
-        "kronos": "Kronos",
-        "primordial_jack": "Jack Primordial"
+        "thunderbolt": "Faísca",
+        "stormbyte": "Vírus",
+        "viran": "Mestre Onça",
+        "campeao": "O Invicto",
+        "kronos": "O Patrão",
+        "primordial_jack": "Rei do Asfalto"
       },
       "defeat_fallbacks": [
         "isso não pode ser...",

@@ -872,6 +872,7 @@
         "kaeda": "Kaeda",
         "moleque_a": "Street Kid",
         "moleque_b": "Tough Kid",
+        "moleque_c": "Little Smoke",
         "fumaca": "Fumaça",
         "turco_batedor": "Turk's Enforcer",
         "turco_capanga": "Turk's Heavy",
@@ -897,12 +898,12 @@
         "bonde_costura_2": "Stitch's Lieutenant",
         "bonde_costura_3": "Stitch's General",
         "costura": "Damião, the Stitch",
-        "thunderbolt": "Thunderbolt",
-        "stormbyte": "StormByte_91",
-        "viran": "Master Viran",
-        "campeao": "The Champion",
-        "kronos": "Kronos",
-        "primordial_jack": "Primordial Jack"
+        "thunderbolt": "Sparkfist",
+        "stormbyte": "Virus",
+        "viran": "Master Jaguar",
+        "campeao": "The Unbeaten",
+        "kronos": "The Boss",
+        "primordial_jack": "King of Asphalt"
       },
       "defeat_fallbacks": [
         "this cannot be...",

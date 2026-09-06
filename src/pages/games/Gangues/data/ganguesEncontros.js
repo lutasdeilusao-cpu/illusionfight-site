@@ -23,7 +23,7 @@ import { getGanguesResources } from './ganguesLoadout.js'
 // corpos no bando — a quantidade real também respeita o tamanho do time do
 // jogador (ver gerarBandoInimigo).
 export const GANGUES_TERRITORIO_ENCONTRO = {
-  pista: { moldes: ['moleque_a', 'moleque_b'], min: 1, max: 4 },
+  pista: { moldes: ['moleque_a', 'moleque_b', 'moleque_c'], min: 1, max: 4 },
   feira: { moldes: ['turco_batedor', 'turco_capanga', 'gato_eletrico'], min: 2, max: 5 },
   baixada: { moldes: ['sombra_rubra', 'sombra_fria', 'os_restos'], min: 3, max: 6 },
   vila: { moldes: ['bonde_predio_1', 'bonde_predio_2', 'andar_de_cima'], min: 3, max: 6 },

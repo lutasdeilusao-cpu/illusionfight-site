@@ -1,7 +1,7 @@
 [
   {
     "id": "treinamento",
-    "name": "Bot de Treinamento",
+    "name": "Moleque da Bala",
     "rank": 999999,
     "stats": { "A": 1, "H": 0, "R": 2, "D": 0 },
     "pv_max": 6, "pm_max": 6,
@@ -9,7 +9,7 @@
     "elemental": null, "preferred_mode": "fists",
     "ai_pattern": "básico",
     "difficulty": "easy", "tier": 1,
-    "notes": "Bot de treino. Quase não revida.",
+    "notes": "Moleque novato posto pra treinar quem tá começando na gangue. Quase não revida.",
     "trash_talk": {
       "attack_miss": ["nem encostou 💀", "isso foi um ataque?? 😭", "tô dormindo aqui 😴🥱"],
       "attack_hit": ["SENTIU? 🔥", "dói né 😈", "tem mais vindo 👊💥"],
@@ -81,6 +81,27 @@
       "player_near_death": ["chega, desiste 🙏", "quase lá 💀"],
       "enemy_near_death": ["ainda não acabou 😤", "não subestima não 😡"],
       "defeat": ["caraca... 😨", "não esperava perder pra vocês 😔"]
+    }
+  },
+  {
+    "id": "moleque_c",
+    "name": "Fumacinha",
+    "rank": 82000,
+    "stats": { "A": 1, "H": 1, "R": 2, "D": 2 },
+    "pv_max": 8, "pm_max": 4,
+    "weapon": "estilingue", "weapon_damage": 1,
+    "elemental": null, "preferred_mode": "armed",
+    "ai_pattern": "defensivo",
+    "difficulty": "easy", "tier": 0,
+    "notes": "Modo história, Pista, força 1 (3 pontos de atributo). Andava atrás do Fumaça tentando copiar tudo — apelido colou e não sai mais.",
+    "trash_talk": {
+      "attack_miss": ["quase, mas o Fumaça ensinou melhor 😤", "vish, escapou 💦"],
+      "attack_hit": ["aprendi isso vendo o Fumaça 👊", "sentiu a fumacinha? 😈"],
+      "take_damage": ["isso nem foi nada 🙄", "o Fumaça já bateu mais forte 😬"],
+      "take_critical": ["EI, PESADO DEMAIS 😳", "respeitei esse golpe 👏"],
+      "player_near_death": ["cê já era 😈", "desiste logo 🙏"],
+      "enemy_near_death": ["não... eu não posso perder aqui 😰", "ainda dá pra virar 😤"],
+      "defeat": ["poxa... o Fumaça vai rir de mim 😔", "beleza, você venceu essa 🤝"]
     }
   },
   {
@@ -610,7 +631,7 @@
   },
   {
     "id": "thunderbolt",
-    "name": "Thunderbolt",
+    "name": "Faísca",
     "rank": 30156,
     "stats": { "A": 4, "H": 4, "R": 10, "D": 2 },
     "pv_max": 20, "pm_max": 40,
@@ -618,7 +639,7 @@
     "elemental": "ar", "preferred_mode": "power",
     "ai_pattern": "tático",
     "difficulty": "medium", "tier": 2,
-    "notes": "Usuário de raios. Combina velocidade com poder elemental.",
+    "notes": "Enrola um fio elétrico no bastão antes de entrar na roda — ninguém sabe se é truque ou dom de verdade. Um nome que já correu vários bairros de Marelia.",
     "trash_talk": {
       "attack_miss": ["rápido demais pra você? ⚡😏", "não adianta correr 🏃‍♂️💨⚡", "o trovão SEMPRE alcança ⛈️"],
       "attack_hit": ["sentiu a descarga? ⚡😈", "VOLTAGEM MÁXIMA 🔌💥", "eletrizante não?? 😂⚡"],
@@ -631,7 +652,7 @@
   },
   {
     "id": "stormbyte",
-    "name": "StormByte_91",
+    "name": "Vírus",
     "rank": 847,
     "stats": { "A": 3, "H": 5, "R": 13, "D": 3 },
     "pv_max": 26, "pm_max": 52,
@@ -639,7 +660,7 @@
     "elemental": "trevas", "preferred_mode": "power",
     "ai_pattern": "evasivo",
     "difficulty": "medium", "tier": 2,
-    "notes": "Hacker de elite. Move-se nas sombras do sistema.",
+    "notes": "Clona cartão, invade câmera, some antes da polícia chegar — trabalha pra quem paga mais. Nenhuma gangue confia nele, mas todas precisam dele.",
     "trash_talk": {
       "attack_miss": ["erro 404: ataque não encontrado 💀😂", "debugando sua estratégia... FALHA DETECTADA 🖥️😏", "seu padrão é previsível demais 🤖"],
       "attack_hit": ["dano registrado no log 📋😈", "VULNERABILIDADE EXPLORADA 💻🔥", "patch note: você perdeu 😂💀"],
@@ -652,7 +673,7 @@
   },
   {
     "id": "viran",
-    "name": "Mestre Viran",
+    "name": "Mestre Onça",
     "rank": 156,
     "stats": { "A": 5, "H": 5, "R": 10, "D": 5 },
     "pv_max": 30, "pm_max": 30,
@@ -660,7 +681,7 @@
     "elemental": "terra", "preferred_mode": "fists",
     "ai_pattern": "mestre",
     "difficulty": "hard", "tier": 3,
-    "notes": "Mestre do Dojô de Karnazar. Defesa impenetrável.",
+    "notes": "Treinou metade dos capoeiristas de rua de Marelia num terreiro sem placa. Defesa impenetrável — ninguém encosta nele sem pedir licença primeiro.",
     "trash_talk": {
       "attack_miss": ["você precisa alinhar o centro 🧘‍♂️", "respire. foque. 🌿😤", "a pressa é inimiga da precisão ⏳"],
       "attack_hit": ["técnica impecável. quase. 🗿", "a montanha não se move ⛰️😌", "o chão não treme por qualquer um 🌍"],
@@ -673,7 +694,7 @@
   },
   {
     "id": "campeao",
-    "name": "O Campeão",
+    "name": "O Invicto",
     "rank": 47,
     "stats": { "A": 6, "H": 5, "R": 12, "D": 4 },
     "pv_max": 36, "pm_max": 36,
@@ -681,7 +702,7 @@
     "elemental": "neutro", "preferred_mode": "fists",
     "ai_pattern": "campeao",
     "difficulty": "hard", "tier": 3,
-    "notes": "O lutador que Kim e Jack nunca conseguiram derrotar.",
+    "notes": "Ninguém no rachão clandestino de Marelia nunca colocou esse cara no chão. Defende o título há anos, na porrada.",
     "trash_talk": {
       "attack_miss": ["você é LENTO 😴💀", "já lutei com gente mais rápida 🙄", "tá com medo de acertar?? 😂"],
       "attack_hit": ["ESSE foi de verdade 👊💥", "socos que contam 😈", "nocaute técnico. próximo. 🏆"],
@@ -694,7 +715,7 @@
   },
   {
     "id": "kronos",
-    "name": "Kronos",
+    "name": "O Patrão",
     "rank": 3,
     "stats": { "A": 7, "H": 7, "R": 25, "D": 6 },
     "pv_max": 50, "pm_max": 100,
@@ -702,20 +723,20 @@
     "elemental": "trevas", "preferred_mode": "power",
     "ai_pattern": "primordial",
     "difficulty": "very_hard", "tier": 4,
-    "notes": "Entidade que habita a Torre Kronos. Poder incomensurável.",
+    "notes": "Ninguém sabe o nome dele nem viu o rosto — só sabe que manda em toda Marelia de dentro das sombras. Poder incomensurável.",
     "trash_talk": {
-      "attack_miss": ["você ousa desafiar o vazio? 🌑😐", "séculos e você é o que me mandam? 😒⏳", "sua luz não alcança aqui 🌑"],
-      "attack_hit": ["sinta o peso da eternidade ⏳💀", "cada golpe meu é uma era 🌌😈", "o tempo me obedece ⏰😏"],
-      "take_damage": ["curioso. você fere o tempo. 😳⏳", "isso dói? não sei mais. 🌑", "interessante. continue. 👁️"],
-      "take_critical": ["DOR. FINALMENTE. 😤💢⏳", "há milênios não sentia isso 😳🌌", "você... é real. 👁️😨"],
-      "player_near_death": ["você será esquecido como todos 🌑⏳", "sua linha do tempo termina aqui 💀🌌", "o vazio te recebe 🌑😈"],
-      "enemy_near_death": ["EU SOU O TEMPO 😡⏳💢", "você não pode matar o que sempre existiu 🌌", "o ciclo NÃO termina ♾️😤"],
-      "defeat": ["o tempo... me abandonou... ⏳💀", "você desfez o ciclo... ♾️😶", "finalmente... descanso... 🌑😌"]
+      "attack_miss": ["você ousa desafiar quem manda aqui? 🌑😐", "anos nesse jogo e é isso que mandam pra mim? 😒⏳", "sua luz não alcança aqui 🌑"],
+      "attack_hit": ["sinta o peso de quem manda 💀", "cada golpe meu é uma sentença 🌌😈", "essa cidade me obedece ⏰😏"],
+      "take_damage": ["curioso. você fere o Patrão. 😳⏳", "isso dói? já esqueci a dor 🌑", "interessante. continue. 👁️"],
+      "take_critical": ["DOR. FINALMENTE. 😤💢⏳", "há anos não sentia isso 😳🌌", "você... é real. 👁️😨"],
+      "player_near_death": ["você será esquecido como todos 🌑⏳", "sua história termina aqui 💀🌌", "a sombra te recebe 🌑😈"],
+      "enemy_near_death": ["EU SOU MARELIA 😡⏳💢", "você não pode matar o que sempre mandou 🌌", "meu comando NÃO termina ♾️😤"],
+      "defeat": ["o comando... me escapou... ⏳💀", "você desfez o esquema... ♾️😶", "finalmente... descanso... 🌑😌"]
     }
   },
   {
     "id": "primordial_jack",
-    "name": "Jack Primordial",
+    "name": "Rei do Asfalto",
     "rank": 1,
     "stats": { "A": 8, "H": 6, "R": 30, "D": 5 },
     "pv_max": 60, "pm_max": 120,
@@ -723,15 +744,15 @@
     "elemental": "fogo", "preferred_mode": "power",
     "ai_pattern": "primordial",
     "difficulty": "very_hard", "tier": 4,
-    "notes": "A forma despertada de Jack com chamas negras. O topo do ranking.",
+    "notes": "Luta com chama negra nos punhos, ninguém sabe explicar como. O nome no topo de todo ranking clandestino de Marelia.",
     "trash_talk": {
-      "attack_miss": ["tá com medo do escuro? 🔥😏", "essa arena é MINHA casa 👑🔥", "você não dura um round 💀😂"],
+      "attack_miss": ["tá com medo do escuro? 🔥😏", "essa cidade é MINHA casa 👑🔥", "você não dura um round 💀😂"],
       "attack_hit": ["as chamas não perdoam 🔥😈", "isso é SÓ o começo 🔥💥", "black flame. lembra desse nome. 🖤🔥"],
       "take_damage": ["você tem garra 😤👏", "talvez você sobreviva 🤔🔥", "não é todo dia que alguém me acerta 😳"],
-      "take_critical": ["...desde o Kim ninguém fazia isso 😳💀", "você não é qualquer um 👀🔥", "ok. vou levar a sério agora. 😤🖤"],
+      "take_critical": ["...faz tempo que ninguém fazia isso 😳💀", "você não é qualquer um 👀🔥", "ok. vou levar a sério agora. 😤🖤"],
       "player_near_death": ["acorda. ainda não acabou. 😤🔥", "eu não luto com fracos 👑", "levanta. me enfrenta de novo. 🔥💢"],
-      "enemy_near_death": ["isso... não pode estar acontecendo 😱🔥", "eu sou o PRIMORDIAL 😡🖤🔥", "NINGUÉM ME VENCE 💀👑🔥"],
-      "defeat": ["as chamas... se apagaram... 🖤😶", "você é... como o Kim... 👀🔥", "talvez exista esperança. 🕯️"]
+      "enemy_near_death": ["isso... não pode estar acontecendo 😱🔥", "eu sou O REI DESSA RUA 😡🖤🔥", "NINGUÉM ME VENCE 💀👑🔥"],
+      "defeat": ["as chamas... se apagaram... 🖤😶", "você é... o novo rei... 👀🔥", "talvez exista esperança. 🕯️"]
     }
   }
 ]

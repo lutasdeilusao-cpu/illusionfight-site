@@ -4,17 +4,17 @@
  * Todas as versões do site centralizadas aqui.
  * workflow: 1. alterar versão neste arquivo  2. atualizar SITE_MAP.md  3. build, commit, push, deploy
  *
- * Última atualização: 2026-08-28
+ * Última atualização: 2026-09-06
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.256.0'
+export const SITE_VERSION = '10.257.0'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '2.32.0' // feat: PV/PM de TODOS os 35 inimigos (gangues-enemies.json) agora seguem a mesma regra da ficha do jogador - Resistencia x taxa do caminho (getGanguesResources), nao mais valores escritos a mao sem ligacao com stats.R. escalarInimigo (ganguesEncontros.js) tambem para de escalar pv_max/pm_max por conta propria e passa a recalcular pela mesma formula em cima do R escalado - o invariante "R explica o PV/PM" vale sempre, inclusive depois do bando ser calibrado contra o time do jogador
+export const GANGUES_VERSION   = '2.33.0' // feat: renomeados os 6 inimigos que cruzavam com personagens/lugares essenciais da linha principal (Thunderbolt, StormByte_91, Mestre Viran, O Campeao, Kronos, Jack Primordial -> Faisca, Virus, Mestre Onca, O Invicto, O Patrao, Rei do Asfalto), notas/falas reflavorizadas sem referencia a Kim/Jack/Torre Kronos/Dojo de Karnazar; novo inimigo moleque_c "Fumacinha" adicionado ao pool de encontro da Pista (agora 3 moldes em vez de 2)
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
 export const MINIGAMES_VERSION = '4.3.4'  // Glitch: safe-area lateral no grid-wrap
