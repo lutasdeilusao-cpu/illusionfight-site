@@ -466,6 +466,11 @@
         "sem_poderes": "This fighter has no active powers equipped. Equip them in the sheet progression.",
         "usar_golpe": "Use {nome}"
       },
+      "combat_tutorial": {
+        "iniciativa": "This list shows who attacks first this round — the higher a fighter's Skill, the sooner they act.",
+        "golpes": "Choose the move: NORMAL ATTACK costs nothing. Powers cost PM (or PV, depending on the power) but hit harder.",
+        "atacar": "After choosing, tap ATTACK to resolve the turn. Repeat until you win or lose — you can leave anytime via SAIR."
+      },
       "multidao": {
         "switch_label": "Mob Brawl",
         "switch_titulo": "Turn on Mob Brawl — each round resolves at once, but it's still turn by turn",

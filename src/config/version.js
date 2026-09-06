@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.245.0'
+export const SITE_VERSION = '10.246.0'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '2.21.0' // feat: regra geral - todo evento de batalha da historia deve poder ser repetido pra upar (exceto chefe). "molecada_2" (segunda treta da Pista) agora repetivel, junto com molecada_1/rinha/sinal ja feitos antes - toda a Pista agora tem farm disponivel do inicio ao fim, so o chefe (Fumaca) continua unico
+export const GANGUES_VERSION   = '2.22.0' // feat: tutorial de combate na primeira luta (GanguesCombatTutorial.jsx, novo) - 3 dicas via GangTip (ordem de iniciativa, escolha de golpe, botao ATACAR), so aparece 1x por conta via localStorage, mesmo padrao dos tutoriais NeoGuide de outras telas. fix: .gang-tip--right/--left grudavam na borda real da JANELA (right/left:8px) em vez da coluna mobile (--app-gutter) - agora corrigido, ficava invisivel/longe em desktop largo
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
 export const MINIGAMES_VERSION = '4.3.4'  // Glitch: safe-area lateral no grid-wrap

@@ -8,6 +8,7 @@ import { getEquippedActiveGanguesSpecials } from './engine/ganguesSpecialEffects
 import { getGanguesProgression } from './data/ganguesLoadout.js'
 import { iniciarBrigaMultidao, avancarRodadaMultidao } from './engine/ganguesBrigaMultidao.js'
 import DramaticDice from './components/DramaticDice'
+import GanguesCombatTutorial from './components/GanguesCombatTutorial'
 import { sfx } from '../../../lib/sfx'
 import './GanguesCombatRedesign.css'
 
@@ -574,6 +575,8 @@ export default function GanguesCombat({ onNavigate }) {
           </div>
         </div>
       )}
+
+      {!modoMultidaoAtivo && machine.phase === 'player' && !result && <GanguesCombatTutorial />}
 
       {!modoMultidaoAtivo && machine.phase === 'player' && !result && (
         <div className="gang-actions-bar">

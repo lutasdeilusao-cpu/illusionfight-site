@@ -466,6 +466,11 @@
         "sem_poderes": "Este lutador não tem poderes ativos equipados. Equipe na progressão da ficha.",
         "usar_golpe": "Usar {nome}"
       },
+      "combat_tutorial": {
+        "iniciativa": "Essa lista mostra quem ataca primeiro nessa rodada — quanto maior a Habilidade do lutador, mais cedo ele joga.",
+        "golpes": "Escolha o golpe: ATAQUE NORMAL não custa nada. Poderes gastam PM (ou PV, dependendo do poder) mas causam mais efeito.",
+        "atacar": "Depois de escolher, toque em ATACAR pra resolver o turno. Repita até vencer ou perder — dá pra sair a qualquer momento pelo SAIR."
+      },
       "multidao": {
         "switch_label": "Briga em Multidão",
         "switch_titulo": "Liga a Briga em Multidão — cada rodada resolve de uma vez, mas continua turno a turno",

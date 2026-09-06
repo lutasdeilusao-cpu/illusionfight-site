@@ -2487,8 +2487,10 @@
   border: 1px solid var(--if-amber); box-shadow: inset 3px 0 var(--if-amber), 0 8px 26px rgba(0, 0, 0, 0.5);
   clip-path: polygon(0 0, calc(100% - 9px) 0, 100% 9px, 100% 100%, 0 100%);
 }
-.gang-tip--right { right: 8px; }
-.gang-tip--left { left: 8px; }
+/* right/left:8px sozinho gruda na borda real da JANELA, não da coluna
+   mobile — num desktop largo ele voa longe do resto da tela do jogo. */
+.gang-tip--right { right: calc(var(--app-gutter) + 8px); }
+.gang-tip--left { left: calc(var(--app-gutter) + 8px); }
 .gang-tip-skip {
   position: absolute; top: 6px; right: 8px;
   background: none; border: none; cursor: pointer;

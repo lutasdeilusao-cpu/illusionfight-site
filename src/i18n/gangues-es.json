@@ -466,6 +466,11 @@
         "sem_poderes": "Este luchador no tiene poderes activos equipados. Equípalos en la progresión de la ficha.",
         "usar_golpe": "Usar {nome}"
       },
+      "combat_tutorial": {
+        "iniciativa": "Esta lista muestra quién ataca primero en esta ronda — cuanto mayor la Habilidad del luchador, antes juega.",
+        "golpes": "Elige el golpe: ATAQUE NORMAL no cuesta nada. Los poderes gastan PM (o PV, según el poder) pero pegan más fuerte.",
+        "atacar": "Después de elegir, toca ATACAR para resolver el turno. Repite hasta ganar o perder — puedes salir en cualquier momento con SAIR."
+      },
       "multidao": {
         "switch_label": "Pelea Multitudinaria",
         "switch_titulo": "Activa la Pelea Multitudinaria — cada ronda se resuelve de una vez, pero sigue siendo por turnos",
