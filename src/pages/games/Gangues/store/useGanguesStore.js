@@ -251,6 +251,16 @@ export const useGanguesStore = create((set, get) => ({
     get()._persistStory()
   },
 
+  // Reaproveitamento entre territórios: falar com um informante num bairro
+  // já dominado libera algo em outro (ver `precisaInformante` em
+  // ganguesTerritorios.js). Guardado dentro do próprio storyProgress (chave
+  // reservada __flags) pra não precisar de coluna nova no Supabase — é o
+  // mesmo JSONB que já existe.
+  marcarInformante: (chave) => {
+    set(state => ({ storyProgress: { ...state.storyProgress, __flags: { ...(state.storyProgress.__flags || {}), [chave]: true } } }))
+    get()._persistStory()
+  },
+
   resetStory: () => {
     set({ storyProgress: {}, storyTarget: null, grana: 0, rep: 0, cenaProgresso: {} })
     get()._persistStory()

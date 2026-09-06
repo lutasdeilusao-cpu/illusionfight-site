@@ -1,11 +1,14 @@
 import { useMemo, useState } from 'react'
-import { motion } from 'framer-motion'
 import { useLanguage } from '../../../context/LanguageContext'
 import { useGanguesStore } from './store/useGanguesStore'
 import { sfx } from '../../../lib/sfx'
 import { GANGUES_TERRITORIOS, estadoTerritorio, progressoTerritorio, totalNos } from './data/ganguesTerritorios.js'
 import './GanguesWorldMap.css'
 
+/* Mapa político de Marelia — cada território é uma região desenhada no SVG
+   (poly/pos/cor já existiam nos dados, só nunca tinham sido usados; o
+   carrossel antigo ignorava isso). Tocar numa região seleciona ela; o
+   painel de baixo mostra os detalhes e o botão de entrar. */
 export default function GanguesStoryMap({ onNavigate }) {
   const { t } = useLanguage()
   const store = useGanguesStore()
@@ -17,8 +20,8 @@ export default function GanguesStoryMap({ onNavigate }) {
   const dominados = useMemo(() => GANGUES_TERRITORIOS.filter(territorio => estadoTerritorio(territorio, progress) === 'dominado').length, [progress])
   const domainPct = Math.round((dominados / GANGUES_TERRITORIOS.length) * 100)
 
-  const move = direction => {
-    setActiveIndex(index => Math.max(0, Math.min(GANGUES_TERRITORIOS.length - 1, index + direction)))
+  const selecionar = (territorio) => {
+    setActiveIndex(GANGUES_TERRITORIOS.indexOf(territorio))
     sfx.select?.()
   }
 
@@ -44,32 +47,38 @@ export default function GanguesStoryMap({ onNavigate }) {
           <p>{t('games.gangues.story.world_hint')}</p>
         </div>
 
-        <motion.div className="gang-world__rail" drag="x" dragConstraints={{ left: 0, right: 0 }} dragElastic={0.18}
-          onDragEnd={(_, info) => { if (info.offset.x < -45) move(1); if (info.offset.x > 45) move(-1) }}>
-          {[-1, 0, 1].map(offset => {
-            const index = activeIndex + offset
-            const territorio = GANGUES_TERRITORIOS[index]
-            if (!territorio) return <div key={offset} className="gang-world__ghost" />
+        <div className="gang-world__map" role="group" aria-label={t('games.gangues.story.titulo')}>
+          <svg viewBox="0 0 100 108" className="gang-world__svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+            {GANGUES_TERRITORIOS.map(territorio => {
+              const state = estadoTerritorio(territorio, progress)
+              return (
+                <polygon
+                  key={territorio.id}
+                  points={territorio.poly}
+                  className={`gang-world__region gang-world__region--${state}${territorio.id === active.id ? ' is-selected' : ''}`}
+                  style={{ '--regiao-cor': territorio.cor }}
+                  onClick={() => selecionar(territorio)}
+                />
+              )
+            })}
+          </svg>
+          {GANGUES_TERRITORIOS.map(territorio => {
             const state = estadoTerritorio(territorio, progress)
-            const completed = Math.round(progressoTerritorio(territorio, progress) * totalNos(territorio))
-            return <motion.button key={territorio.id}
-              className={`gang-world-card gang-world-card--${offset === 0 ? 'active' : 'side'} gang-world-card--${state} gang-world-card--${territorio.id}`}
-              onClick={() => offset === 0 ? enter() : setActiveIndex(index)}
-              animate={{ scale: offset === 0 ? 1 : .84, opacity: offset === 0 ? 1 : .42 }}>
-              <span className="gang-world-card__number">{String(territorio.ordem).padStart(2, '0')}</span>
-              <span className="gang-world-card__scene" aria-hidden="true"><i /><i /><i /></span>
-              <span className="gang-world-card__state">{state === 'dominado' ? t('games.gangues.story.dominado') : state === 'trancado' ? t('games.gangues.modes.bloqueado') : t('games.gangues.story.disponivel')}</span>
-              <strong>{t(`games.gangues.story.territorios.${territorio.id}.nome`)}</strong>
-              <small>{t(`games.gangues.story.dificuldades.${territorio.dificuldade}`)}</small>
-              <span className="gang-world-card__progress"><progress max={totalNos(territorio)} value={completed} />{completed}/{totalNos(territorio)}</span>
-            </motion.button>
+            return (
+              <button
+                key={territorio.id}
+                type="button"
+                className={`gang-world__region-label gang-world__region-label--${state}${territorio.id === active.id ? ' is-selected' : ''}`}
+                style={{ top: `${territorio.pos.top}%`, left: `${territorio.pos.left}%`, '--regiao-cor': territorio.cor }}
+                onClick={() => selecionar(territorio)}
+              >
+                <b>{String(territorio.ordem).padStart(2, '0')}</b>
+                <span>{t(`games.gangues.story.territorios.${territorio.id}.nome`)}</span>
+                {state === 'dominado' && <i className="gang-world__region-label-flag" aria-hidden="true">⚑</i>}
+                {state === 'trancado' && <i className="gang-world__region-label-lock" aria-hidden="true">🔒</i>}
+              </button>
+            )
           })}
-        </motion.div>
-
-        <div className="gang-world__controls">
-          <button onClick={() => move(-1)} disabled={activeIndex === 0} aria-label={t('games.gangues.story.anterior')}>‹</button>
-          <div>{GANGUES_TERRITORIOS.map((territorio, index) => <button key={territorio.id} className={index === activeIndex ? 'is-active' : ''} onClick={() => setActiveIndex(index)} aria-label={t(`games.gangues.story.territorios.${territorio.id}.nome`)} />)}</div>
-          <button onClick={() => move(1)} disabled={activeIndex === GANGUES_TERRITORIOS.length - 1} aria-label={t('games.gangues.story.proximo')}>›</button>
         </div>
       </section>
 
@@ -77,6 +86,10 @@ export default function GanguesStoryMap({ onNavigate }) {
         <span>{t('games.gangues.story.territorio_selecionado')}</span>
         <h2>{t(`games.gangues.story.territorios.${active.id}.nome`)}</h2>
         <p>{t(`games.gangues.story.territorios.${active.id}.desc`)}</p>
+        <div className="gang-world__intel-progress">
+          <progress max={totalNos(active)} value={Math.round(progressoTerritorio(active, progress) * totalNos(active))} />
+          <small>{Math.round(progressoTerritorio(active, progress) * totalNos(active))}/{totalNos(active)}</small>
+        </div>
         <button onClick={enter} disabled={activeState === 'trancado'}>{activeState === 'trancado' ? t('games.gangues.story.bloqueado_cta') : t('games.gangues.story.entrar_territorio')} <b>→</b></button>
       </section>
     </main>

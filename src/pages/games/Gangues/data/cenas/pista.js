@@ -107,6 +107,22 @@ export const CENA_PISTA = {
       recompensa: { grana: 8, rep: 3, xp: 10 },
     },
     {
+      // Reaproveitamento: continua na Pista mesmo depois dela virar
+      // território dominado — é assim que ele libera o chefe da Feira
+      // (ver `precisaInformante` em ganguesTerritorios.js). Sempre visível
+      // e repetível: o jogador pode voltar aqui a qualquer momento.
+      id: 'informante',
+      tipo: 'papo',
+      opcional: true,
+      repetivel: true,
+      visivel: true,
+      pino: { x: 30, y: 150 },
+      i18n: 'games.gangues.cena.pista.informante',
+      escolhas: [
+        { id: 'perguntar', informante: 'feira' },
+      ],
+    },
+    {
       id: 'descanso',
       tipo: 'descanso',
       opcional: true,
@@ -162,9 +178,10 @@ export function cenaCompleta(cena, resolvidos = {}, bossFeito = false) {
   return obrig && bossFeito
 }
 
-/** Contagem para o breadcrumb "A Pista · 3/7" (POIs + chefe, sem descanso). */
+/** Contagem para o breadcrumb "A Pista · 3/7" (POIs + chefe, sem repetíveis
+ *  tipo descanso/informante — esses não fazem parte do caminho obrigatório). */
 export function contarCena(cena, resolvidos = {}, bossFeito = false) {
-  const contaveis = cena.pois.filter(poi => poi.tipo !== 'descanso')
+  const contaveis = cena.pois.filter(poi => !poi.repetivel)
   const total = contaveis.length + 1
   const feitos = contaveis.filter(poi => resolvidos[poi.id]).length + (bossFeito ? 1 : 0)
   return { feitos, total }

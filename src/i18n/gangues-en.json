@@ -1650,7 +1650,7 @@
         "dominio": "of Marelia",
         "menu": "Menu",
         "world_title": "Marelia Map",
-        "world_hint": "Swipe to explore the territories",
+        "world_hint": "Tap a region on the map",
         "disponivel": "Route open",
         "anterior": "Previous territory",
         "proximo": "Next territory",
@@ -1668,6 +1668,7 @@
         "ponto_n": "Spot {n}",
         "n_gangues": "{n} gangs",
         "enfrentar": "Face off",
+        "precisa_informante": "🔍 Before facing the boss, go back to the Pista and talk to the informant.",
         "brigar": "Fight",
         "agora_nao": "Not now",
         "continuar_territorio": "Stay on the block",
@@ -1918,6 +1919,20 @@
               "so_papo": {
                 "label": "Just want the information",
                 "resultado": "\"Stubborn. Then straight up: the Molecada's other spot is up there. Take both and Fumaça shows up.\""
+              }
+            }
+          },
+          "informante": {
+            "nome": "Duda, the Ear",
+            "sub": "knows everything that moves in Marelia",
+            "fala": [
+              "Back on the Pista, huh? Good. Everything that happens in Marelia passes through here before it's even a rumor.",
+              "There's something going on at the Feira that the people over there won't tell you for free."
+            ],
+            "escolhas": {
+              "perguntar": {
+                "label": "Ask about the Feira",
+                "resultado": "\"O Turco only comes out of hiding once he knows his enforcers already took a beating. Go settle things there, and come back if you need more.\""
               }
             }
           },

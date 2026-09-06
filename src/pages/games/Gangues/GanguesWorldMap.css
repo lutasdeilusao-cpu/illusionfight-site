@@ -12,29 +12,38 @@
 .gang-world__title small { color:var(--if-teal); font:800 .56rem var(--font-mono); letter-spacing:.22em; }
 .gang-world__title h1 { margin:5px 0 4px; color:var(--text-primary); font:900 2.1rem/.9 var(--font-title); letter-spacing:.06em; text-transform:uppercase; }
 .gang-world__title p { margin:0; color:var(--text-secondary); font:600 .64rem var(--font-mono); }
-.gang-world__rail { position:relative; z-index:3; display:grid; grid-template-columns:18% 64% 18%; align-items:center; height:310px; touch-action:pan-y; cursor:grab; }
-.gang-world__ghost { min-width:1px; }
-.gang-world-card { position:relative; height:270px; padding:15px 13px; overflow:hidden; display:flex; flex-direction:column; align-items:flex-start; justify-content:flex-end; text-align:left; border:1px solid var(--if-teal); background:linear-gradient(160deg,var(--if-cyan-12),var(--if-panel-flat) 52%,var(--bg-primary)); color:var(--text-primary); clip-path:polygon(0 0,calc(100% - 15px) 0,100% 15px,100% 100%,0 100%); }
-.gang-world-card--active { z-index:2; box-shadow:0 20px 56px -24px var(--if-teal); }
-.gang-world-card--side { height:225px; padding-inline:6px; }
-.gang-world-card--trancado { filter:grayscale(.8); }
-.gang-world-card__number { position:absolute; left:14px; top:13px; color:var(--if-teal); font:900 .7rem var(--font-mono); letter-spacing:.18em; }
-.gang-world-card__scene { position:absolute; inset:35px 0 78px; display:flex; align-items:flex-end; justify-content:center; gap:5px; opacity:.7; }
-.gang-world-card__scene i { width:24%; height:45%; border:1px solid var(--if-teal); background:var(--if-cyan-12); transform:skew(-6deg); }
-.gang-world-card__scene i:nth-child(2){height:90%;width:30%}.gang-world-card__scene i:nth-child(3){height:62%}
-.gang-world-card--pista .gang-world-card__scene i:nth-child(2),.gang-world-card--feira .gang-world-card__scene i:first-child { border-color:var(--if-amber); background:var(--if-amber-16); }
-.gang-world-card__state { padding:2px 6px; border:1px solid var(--if-teal); color:var(--if-teal); font:800 .48rem var(--font-mono); letter-spacing:.1em; text-transform:uppercase; }
-.gang-world-card>strong { margin-top:5px; font:900 1.2rem/.95 var(--font-display); text-transform:uppercase; }
-.gang-world-card>small { color:var(--if-amber); font:700 .52rem var(--font-mono); letter-spacing:.1em; text-transform:uppercase; }
-.gang-world-card__progress { width:100%; margin-top:8px; display:flex; align-items:center; gap:6px; color:var(--text-secondary); font:700 .5rem var(--font-mono); }
-.gang-world-card__progress progress { flex:1; height:3px; appearance:none; border:0; background:var(--if-glass); }
-.gang-world-card__progress progress::-webkit-progress-bar{background:var(--if-glass)}.gang-world-card__progress progress::-webkit-progress-value{background:var(--if-amber)}.gang-world-card__progress progress::-moz-progress-bar{background:var(--if-amber)}
-.gang-world__controls { position:relative; z-index:4; display:grid; grid-template-columns:42px 1fr 42px; align-items:center; gap:8px; padding:0 22px; }
-.gang-world__controls>button { height:38px; border:1px solid var(--if-teal); background:var(--if-cyan-12); color:var(--if-teal); font-size:1.6rem; }
-.gang-world__controls>button:disabled { opacity:.2; }
-.gang-world__controls>div { display:flex; justify-content:center; gap:5px; }
-.gang-world__controls>div button { width:10px; height:3px; padding:0; border:0; background:var(--if-hair); }
-.gang-world__controls>div button.is-active { width:24px; background:var(--if-amber); }
+/* Mapa político — regiões desenhadas no SVG (poly/cor de cada território),
+   rótulos numerados sobrepostos via posição percentual (pos.top/left). Cada
+   território é um bairro de Marelia, tipo zona de uma cidade de verdade. */
+.gang-world__map { position:relative; z-index:3; margin:6px 14px 4px; aspect-ratio:100/108; }
+.gang-world__svg { position:absolute; inset:0; width:100%; height:100%; overflow:visible; }
+.gang-world__region {
+  fill:color-mix(in srgb, var(--regiao-cor) 14%, transparent);
+  stroke:color-mix(in srgb, var(--regiao-cor) 55%, transparent);
+  stroke-width:0.6; cursor:pointer; transition:fill .2s, stroke-width .2s, filter .2s;
+}
+.gang-world__region--aberto { fill:color-mix(in srgb, var(--regiao-cor) 30%, transparent); stroke-dasharray:2 1.4; animation:gang-region-pulse 1.6s ease-in-out infinite; }
+.gang-world__region--dominado { fill:color-mix(in srgb, var(--regiao-cor) 62%, transparent); stroke-width:0.9; }
+.gang-world__region--trancado { fill:color-mix(in srgb, #1a1f22 70%, transparent); stroke:var(--if-hair); filter:grayscale(.6); }
+.gang-world__region.is-selected { stroke-width:1.4; filter:brightness(1.25); }
+@keyframes gang-region-pulse { 50% { fill:color-mix(in srgb, var(--regiao-cor) 46%, transparent); } }
+.gang-world__region-label {
+  position:absolute; transform:translate(-50%,-50%); display:flex; flex-direction:column; align-items:center;
+  gap:2px; padding:5px 8px; min-width:64px; border:1px solid color-mix(in srgb, var(--regiao-cor) 55%, var(--if-hair));
+  background:color-mix(in srgb, var(--bg-primary) 78%, transparent); color:var(--text-primary);
+  clip-path:polygon(0 0,calc(100% - 7px) 0,100% 7px,100% 100%,0 100%); pointer-events:auto;
+}
+.gang-world__region-label b { font:900 .68rem var(--font-mono); color:color-mix(in srgb, var(--regiao-cor) 85%, #fff); letter-spacing:.08em; }
+.gang-world__region-label span { font:700 .56rem var(--font-display); letter-spacing:.02em; text-transform:uppercase; text-align:center; line-height:1.15; }
+.gang-world__region-label--trancado { opacity:.55; filter:grayscale(.7); }
+.gang-world__region-label--dominado { border-color:color-mix(in srgb, var(--regiao-cor) 80%, #fff); }
+.gang-world__region-label.is-selected { box-shadow:0 0 0 1px color-mix(in srgb, var(--regiao-cor) 70%, #fff), 0 6px 18px -8px var(--regiao-cor); }
+.gang-world__region-label-flag { color:color-mix(in srgb, var(--regiao-cor) 85%, #fff); font-size:.62rem; }
+.gang-world__region-label-lock { font-size:.6rem; }
+.gang-world__intel-progress { display:flex; align-items:center; gap:8px; margin-bottom:10px; color:var(--text-secondary); font:700 .52rem var(--font-mono); }
+.gang-world__intel-progress progress { flex:1; height:3px; appearance:none; border:0; background:var(--if-glass); }
+.gang-world__intel-progress progress::-webkit-progress-bar{background:var(--if-glass)}.gang-world__intel-progress progress::-webkit-progress-value{background:var(--if-amber)}.gang-world__intel-progress progress::-moz-progress-bar{background:var(--if-amber)}
+@media (prefers-reduced-motion:reduce){.gang-world__region--aberto{animation:none}}
 .gang-world__intel { margin:12px 14px 0; padding:15px; border:1px solid var(--if-hair); border-left:4px solid var(--if-amber); background:var(--if-panel-flat); clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,0 100%); }
 .gang-world__intel>span { color:var(--if-amber); font:800 .52rem var(--font-mono); letter-spacing:.12em; text-transform:uppercase; }
 .gang-world__intel h2 { margin:5px 0; font:900 1.45rem var(--font-display); text-transform:uppercase; }

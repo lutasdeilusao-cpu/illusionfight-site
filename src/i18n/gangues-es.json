@@ -1650,7 +1650,7 @@
         "dominio": "de Marelia",
         "menu": "Menú",
         "world_title": "Mapa de Marelia",
-        "world_hint": "Desliza para explorar los territorios",
+        "world_hint": "Tocá una región del mapa",
         "disponivel": "Ruta abierta",
         "anterior": "Territorio anterior",
         "proximo": "Siguiente territorio",
@@ -1668,6 +1668,7 @@
         "ponto_n": "Punto {n}",
         "n_gangues": "{n} gangas",
         "enfrentar": "Encarar",
+        "precisa_informante": "🔍 Antes de encarar al jefe, volvé a la Pista y hablá con el informante.",
         "brigar": "Pelear",
         "agora_nao": "Ahora no",
         "continuar_territorio": "Seguir en el barrio",
@@ -1918,6 +1919,20 @@
               "so_papo": {
                 "label": "Solo querés la información",
                 "resultado": "\"Terco. Entonces al hueso: el otro punto de la Molecada está allá arriba. Tomá los dos y aparece Fumaça.\""
+              }
+            }
+          },
+          "informante": {
+            "nome": "Duda, la Oreja",
+            "sub": "sabe todo lo que pasa en Marelia",
+            "fala": [
+              "¿Volviste a la Pista? Bien. Todo lo que pasa en Marelia pasa por acá antes de ser rumor.",
+              "Hay algo pasando en la Feria que la gente de allá no te va a contar gratis."
+            ],
+            "escolhas": {
+              "perguntar": {
+                "label": "Preguntá sobre la Feria",
+                "resultado": "\"El Turco solo sale del escondite si sabe que ya le dieron una paliza a sus matones. Andá, resolvé eso, y volvé si necesitás algo más.\""
               }
             }
           },

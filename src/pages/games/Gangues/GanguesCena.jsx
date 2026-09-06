@@ -20,7 +20,7 @@ const WORLD={w:760,h:1840}, SPAWN={x:380,y:1720}, TILE=20, STEP_MS=110, PLAYER_R
 const SCENE_INTRO_KEY='ldi-gangues-cena-intro-vista'
 function cenaIntroJaVista(id){try{return JSON.parse(localStorage.getItem(SCENE_INTRO_KEY)||'[]').includes(id)}catch{return false}}
 function marcarCenaIntroVista(id){try{const atual=JSON.parse(localStorage.getItem(SCENE_INTRO_KEY)||'[]');if(!atual.includes(id))localStorage.setItem(SCENE_INTRO_KEY,JSON.stringify([...atual,id]))}catch{}}
-const POS={sinal:{x:210,y:1570},ferro:{x:150,y:1325},molecada_1:{x:445,y:1190},birosca:{x:170,y:1460},corre:{x:610,y:1010},molecada_2:{x:445,y:505},descanso:{x:205,y:1440},boss:{x:570,y:175}}
+const POS={sinal:{x:210,y:1570},ferro:{x:150,y:1325},molecada_1:{x:445,y:1190},birosca:{x:170,y:1460},corre:{x:610,y:1010},molecada_2:{x:445,y:505},descanso:{x:205,y:1440},informante:{x:150,y:740},boss:{x:570,y:175}}
 const COLLIDERS=[
   {x:0,y:350,w:287,h:326},{x:473,y:350,w:287,h:326},
   {x:0,y:802,w:287,h:370},{x:473,y:802,w:287,h:370},
@@ -30,7 +30,7 @@ const COLLIDERS=[
 const ENTRY_ZONES={
   sinal:{x:243,y:1532,w:70,h:76},ferro:{x:270,y:1288,w:35,h:76},molecada_1:{x:355,y:1155,w:76,h:70},
   birosca:{x:270,y:1418,w:35,h:82},corre:{x:455,y:970,w:35,h:82},molecada_2:{x:350,y:465,w:76,h:82},
-  descanso:{x:270,y:1375,w:35,h:72},boss:{x:530,y:300,w:80,h:45},
+  descanso:{x:270,y:1375,w:35,h:72},informante:{x:270,y:705,w:35,h:76},boss:{x:530,y:300,w:80,h:45},
 }
 const PLACES=[
   ['entrada',380,1745,'⇧','Entrada da Pista'],['banca',95,1600,'▤','Banca fechada'],['bar',155,1450,'♬','Bar do Zé'],['residencial',560,1440,'⌂','Rua residencial'],['cruzamento',380,1270,'╳','Cruzamento'],['mercado',592,1120,'▦','Mercadinho da Cida'],['fliperama',610,990,'▣','Fliperama do Kiko'],['quadra',130,900,'◎','Quadra da Pista'],['praca',370,900,'♣','Praça da Pista'],['ponto',625,770,'▥','Ponto de ônibus'],['oficina',205,650,'⚙','Oficina do Nando'],['escadaria',245,390,'▰','Escadaria / mirante'],['loja',200,240,'◇','Loja abandonada'],['portao',380,300,'▥','Portão da gangue rival','gate']
@@ -78,7 +78,7 @@ export default function GanguesCena({onNavigate}){
   const guardarPosicao=()=>store.salvarPosicaoCena(cena.id,player)
   const abrir=poi=>{if(!poi||poi.estado==='trancado')return;guardarPosicao();sfx.select();setEncontro({poi,vs:poi.tipo==='treta'})}
   const iniciarTreta=(poi,{viraTreta,revela}={})=>{const chefe=Boolean(poi.ehChefe);guardarPosicao();sfx.vs?.();store.setStoryTarget({territorioId:terr.id,cenaId:cena.id,cenaPoiId:poi.id,cenaRevela:viraTreta?(revela||[]):(poi.revela||[]),cenaRecompensa:viraTreta?null:poi.recompensa||null,pontoIds:terr.pontos.map(p=>p.id),noId:chefe?cena.chefe.poiNo:null,enemyId:viraTreta?viraTreta.enemy:poi.enemy,fixo:Boolean(viraTreta),dificuldade:poi.dificuldade,isChefe:chefe,repDelta:viraTreta?.rep||0});onNavigate('story-combat')}
-  const resolver=res=>{const poi=encontro.poi;setEncontro(null);if(res?.viraTreta){iniciarTreta(poi,{viraTreta:res.viraTreta,revela:res.revela});return}if(res?.custoGrana)store.gastarGrana(res.custoGrana);if(typeof res?.folego==='number')store.ajustarFolego(cena.id,res.folego);const r=res?.recompensa||{};if(r.grana)store.ganharGrana(r.grana);if(r.rep)store.ganharRep(r.rep);if(r.grana||r.rep||r.xp||r.item){setToast(r);setTimeout(()=>setToast(null),2600)}if(!poi.repetivel)store.marcarPoiResolvido(cena.id,poi.id,res?.revela||poi.revela||[]);else if(res?.revela)store.revelarPoi(cena.id,res.revela)}
+  const resolver=res=>{const poi=encontro.poi;setEncontro(null);if(res?.viraTreta){iniciarTreta(poi,{viraTreta:res.viraTreta,revela:res.revela});return}if(res?.custoGrana)store.gastarGrana(res.custoGrana);if(typeof res?.folego==='number')store.ajustarFolego(cena.id,res.folego);if(res?.informante)store.marcarInformante(res.informante);const r=res?.recompensa||{};if(r.grana)store.ganharGrana(r.grana);if(r.rep)store.ganharRep(r.rep);if(r.grana||r.rep||r.xp||r.item){setToast(r);setTimeout(()=>setToast(null),2600)}if(!poi.repetivel)store.marcarPoiResolvido(cena.id,poi.id,res?.revela||poi.revela||[]);else if(res?.revela)store.revelarPoi(cena.id,res.revela)}
   if(prog.boss)return <main className="gang-lobby gang-story gang-cena"><div className="gang-cena-tomado"><span className="if-eyebrow">A PISTA // TERRITÓRIO</span><h1>PISTA DOMINADA</h1><p>As ruas agora carregam o nome da sua gangue.</p><button className="gang-cena-btn gang-cena-btn--go" onClick={()=>onNavigate('story')}>VOLTAR A MARÉLIA</button></div></main>
   const vw=viewportRef.current?.clientWidth||390,vh=viewportRef.current?.clientHeight||620,lookX=facing==='right'?52:facing==='left'?-52:0,lookY=facing==='down'?60:facing==='up'?-60:0,camX=Math.max(0,Math.min(WORLD.w-vw,player.x-vw/2+lookX)),camY=Math.max(0,Math.min(WORLD.h-vh,player.y-vh/2+lookY))
   return <main className="gang-cena-worldpage" style={{'--terr-cor':cena.cor}}>

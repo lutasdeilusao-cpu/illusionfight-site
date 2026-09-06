@@ -56,6 +56,12 @@ export const GANGUES_TERRITORIOS = [
     cor: '#7ee787',
     poly: '52,98 96,92 92,74 48,80',
     pos: { top: 80, left: 72 },
+    // Reaproveitamento: os 3 pontos da Feira não bastam pra abrir o chefe —
+    // precisa também ter falado com o informante lá na Pista (POI
+    // repetível `informante`, ver data/cenas/pista.js). É a primeira ponte
+    // entre territórios: o jogo obriga voltar num bairro já dominado pra
+    // avançar num novo, em vez de só progresso linear pra frente.
+    precisaInformante: true,
     pontos: [
       { id: 'feira-1', gangue: 'cobranca_turco', enemy: 'turco_batedor', forca: 2, dificuldade: 'normal' },
       { id: 'feira-2', gangue: 'cobranca_turco', enemy: 'turco_capanga', forca: 3, dificuldade: 'dificil' },
@@ -175,9 +181,20 @@ export function estadoNo(territorio, noId, storyProgress = {}) {
   const isChefe = territorio.chefe.id === noId
   if (isChefe) {
     if (p.chefe) return 'dominado'
-    return (p.pontos?.length || 0) >= (territorio.pontos?.length || 0) ? 'atual' : 'trancado'
+    const pontosFeitos = (p.pontos?.length || 0) >= (territorio.pontos?.length || 0)
+    const informanteOk = !territorio.precisaInformante || Boolean(storyProgress.__flags?.[territorio.id])
+    return pontosFeitos && informanteOk ? 'atual' : 'trancado'
   }
   if ((p.pontos || []).includes(noId)) return 'dominado'
   const proximo = territorio.pontos.find(pt => !(p.pontos || []).includes(pt.id))
   return proximo?.id === noId ? 'atual' : 'trancado'
+}
+
+/** O chefe está com os pontos feitos mas ainda falta o informante de outro
+ *  território? Usado pra dar uma dica específica em vez do cadeado mudo. */
+export function precisaVoltarNoInformante(territorio, storyProgress = {}) {
+  if (!territorio.precisaInformante) return false
+  const p = storyProgress[territorio.id] || { pontos: [], chefe: false }
+  const pontosFeitos = (p.pontos?.length || 0) >= (territorio.pontos?.length || 0)
+  return pontosFeitos && !storyProgress.__flags?.[territorio.id]
 }

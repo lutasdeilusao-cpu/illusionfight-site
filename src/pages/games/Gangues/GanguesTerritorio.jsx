@@ -4,7 +4,7 @@ import { useLanguage } from '../../../context/LanguageContext'
 import { useGanguesStore } from './store/useGanguesStore'
 import { sfx } from '../../../lib/sfx'
 import enemiesData from './data/gangues-enemies.json'
-import { GANGUES_TERRITORIO_POR_ID, estadoNo, estadoTerritorio, totalNos } from './data/ganguesTerritorios.js'
+import { GANGUES_TERRITORIO_POR_ID, estadoNo, estadoTerritorio, precisaVoltarNoInformante, totalNos } from './data/ganguesTerritorios.js'
 import './GanguesStory.css'
 
 /* ══════════════════════════════════════════════════════════════
@@ -35,6 +35,7 @@ export default function GanguesTerritorio({ onNavigate }) {
   const progresso = store.storyProgress
   const estadoTerr = estadoTerritorio(terr, progresso)
   const nos = [...terr.pontos.map(p => ({ ...p, isChefe: false })), { ...terr.chefe, isChefe: true }]
+  const faltaInformante = precisaVoltarNoInformante(terr, progresso)
 
   const abrirConfronto = (no) => {
     const estado = estadoNo(terr, no.id, progresso)
@@ -109,6 +110,9 @@ export default function GanguesTerritorio({ onNavigate }) {
                 {estado === 'atual' && <span className="gang-story-no-vai">{t('games.gangues.story.enfrentar')} →</span>}
                 {estado === 'trancado' && <span className="gang-story-no-lock" aria-hidden="true">🔒</span>}
               </button>
+              {no.isChefe && faltaInformante && (
+                <p className="gang-story-no-hint">{t('games.gangues.story.precisa_informante')}</p>
+              )}
             </motion.li>
           )
         })}

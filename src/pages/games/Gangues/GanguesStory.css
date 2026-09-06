@@ -307,6 +307,11 @@
   text-transform: uppercase; color: color-mix(in srgb, var(--terr-cor) 92%, #fff);
 }
 .gang-story-no-lock { flex-shrink: 0; font-size: 0.8rem; }
+.gang-story-no-hint {
+  margin: 6px 0 0; padding: 6px 10px; border: 1px solid var(--if-hair);
+  border-left: 3px solid var(--if-amber); background: var(--if-panel-flat);
+  color: var(--text-secondary); font: 600 0.62rem var(--font-mono); line-height: 1.4;
+}
 
 .gang-story-no--atual .gang-story-no-btn {
   border-color: color-mix(in srgb, var(--terr-cor) 60%, transparent);

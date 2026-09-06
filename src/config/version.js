@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.231.4'
+export const SITE_VERSION = '10.232.0'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '2.7.0' // feat: tela de LEVEL UP de volta, agora pro sistema de personagens fixos - a virada pra templates removeu o aviso antigo (baseado em xp_unspent, que agora e sempre 0) sem repor nada, entao subir de nivel ficava mudo. gainApForParticipants agora retorna quem subiu de nivel (comparando o campo level antes/depois de hydratar), e a Vitoria mostra um modal com nome, novo nivel, atributo ganho e poder desbloqueado por personagem. Logica de deteccao de nivel/eventos validada com simulacao (10 vitorias, bate certinho nos niveis 2/3/4 com os eventos certos do catalogo)
+export const GANGUES_VERSION   = '2.8.0' // feat: mapa de Marelia vira mapa politico de verdade (SVG com as 7 regioes/poly/cor que ja existiam nos dados mas nunca eram usados, layout tipo cidade subindo bairro por bairro) + sistema de reaproveitamento entre territorios (POI repetivel "informante" na Pista libera o chefe da Feira, guardado em storyProgress.__flags sem precisar de coluna nova no Supabase). Testado: 7 regioes renderizam e reagem por estado (dominado/aberto/trancado), fluxo do informante resolve sem travar
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
 export const MINIGAMES_VERSION = '4.3.4'  // Glitch: safe-area lateral no grid-wrap

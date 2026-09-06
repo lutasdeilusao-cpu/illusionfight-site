@@ -29,7 +29,7 @@ export default function GanguesPapo({ poi, onResolve, onClose }) {
     if (temTexto) {
       setResultado({ texto, escolha })
     } else {
-      onResolve({ ok: true, revela: escolha.revela, recompensa: escolha.recompensa, custoGrana: escolha.custoGrana })
+      onResolve({ ok: true, revela: escolha.revela, recompensa: escolha.recompensa, custoGrana: escolha.custoGrana, informante: escolha.informante })
     }
   }
 
@@ -44,7 +44,7 @@ export default function GanguesPapo({ poi, onResolve, onClose }) {
           <p className="gang-cena-papo-fala">{resultado.texto}</p>
           <button
             className="gang-cena-btn gang-cena-btn--go"
-            onClick={() => onResolve({ ok: true, revela: resultado.escolha.revela, recompensa: resultado.escolha.recompensa, custoGrana: resultado.escolha.custoGrana })}
+            onClick={() => onResolve({ ok: true, revela: resultado.escolha.revela, recompensa: resultado.escolha.recompensa, custoGrana: resultado.escolha.custoGrana, informante: resultado.escolha.informante })}
           >
             {t('games.gangues.cena.fechar')}
           </button>
