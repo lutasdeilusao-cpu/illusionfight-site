@@ -72,7 +72,12 @@ export default function GanguesVictory({ onNavigate }) {
   useEffect(() => {
     if (processed.current) return
     processed.current = true
-    const ap = victory ? 10 : 1
+    // XP bônus da cena (storyAlvo.cenaRecompensa.xp) soma no AP base ANTES de
+    // repartir pelo time — sem isso o `xp` de cada POI em pista.js (inclusive
+    // o das tretas repetíveis) nunca era lido em lugar nenhum e toda vitória
+    // dava sempre o mesmo AP fixo, repetível ou não.
+    const recXp = emCena ? Number(storyAlvo.cenaRecompensa?.xp) || 0 : 0
+    const ap = victory ? 10 + recXp : 1
     const participantIds = match.playerTeam.map(member => member.id)
     setLevelUps(store.gainApForParticipants(ap, participantIds))
     // Dano persiste entre lutas repetíveis dentro da mesma cena — sem isso

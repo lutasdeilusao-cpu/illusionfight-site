@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.258.0'
+export const SITE_VERSION = '10.259.0'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '2.34.0' // feat: TODOS os 36 inimigos (nao so os 6 anteriores) renomeados com apelido "puxado do esgoto" (rua/crime), zero ocorrencia da palavra "moleque" em nomes ou falas de nenhum inimigo/NPC do modo historia (Kaeda->Corte Fundo, Fumaca->Carvao, Turco->O Cobrador, Zefa->A Fera, Doutor->O Contador, Costura->O Retalho, etc) + i18n pt/en/es + GANGUES_DESIGN.md sincronizados; dialogos de bosses/territorios/abertura/final e a gang "Molecada" tambem atualizados pra nao referenciar nomes antigos
+export const GANGUES_VERSION   = '2.35.0' // fix: rec.xp de storyAlvo.cenaRecompensa (pista.js) era lido em lugar nenhum - toda treta da cena (repetivel ou nao) so dava o AP fixo (10), o campo xp de cada POI era 100% morto; agora soma no AP antes de repartir pelo time. Tretas que nao tinham xp nenhum (sinal.aperta, ferro.falha, rinha, chefe da pista) ganharam um valor. feat: botao de ficha (icone 👤) no HUD da cena GanguesCena - da pra ver nivel/XP/atributos de qualquer membro do time ativo sem sair da navegacao da Pista, ciclando com ANTERIOR/PROXIMO (reusa GanguesFichaCard, mesmo padrao do popup de combate). fix: POI 'descanso' da Pista agora visivel desde o inicio (visivel:true) em vez de só depois de molecada_1+ferro+birosca - com PV/PM persistente, o jogador precisa de onde recuperar folego ja nas primeiras tretas repetiveis (sinal/rinha)
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
 export const MINIGAMES_VERSION = '4.3.4'  // Glitch: safe-area lateral no grid-wrap

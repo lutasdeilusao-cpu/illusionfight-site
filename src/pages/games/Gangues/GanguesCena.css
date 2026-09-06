@@ -275,6 +275,7 @@
 .gang-cena-worldhud strong { font:800 .72rem var(--font-display); letter-spacing:.08em; white-space:nowrap; }
 .gang-cena-worldhud strong i { color:var(--terr-cor); font:700 .58rem var(--font-mono); }
 .gang-cena-worldhud>span { color:#b8c2c7; font:700 .58rem var(--font-mono); white-space:nowrap; }
+.gang-cena-ficha-btn { font-size:1rem !important; line-height:1; padding:2px 4px !important; }
 .gang-cena-viewport { position:relative; flex:1 1 auto; min-height:0; overflow:hidden; touch-action:none; background:#081015; }
 .gang-cena-world { position:absolute; left:0; top:0; transform-origin:0 0; will-change:transform; transition:transform .11s ease-out; overflow:hidden; background-color:#10181b; background-image:linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),radial-gradient(circle at 70% 30%,#17241f 0,transparent 30%); background-size:36px 36px,36px 36px,100% 100%; }
 .gang-road { position:absolute; background:#171b1d; box-shadow:inset 0 0 0 3px #22292c,0 0 20px #030608; }

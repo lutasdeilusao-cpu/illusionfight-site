@@ -52,7 +52,7 @@ export const CENA_PISTA = {
       // escolhas do papo: cada uma tem efeito próprio
       escolhas: [
         { id: 'compra', custoGrana: 4, recompensa: { rep: 0 }, revela: ['ferro'] },
-        { id: 'aperta', viraTreta: { enemy: 'treinamento', rep: -1, recompensa: { grana: 4 } }, revela: ['ferro'] },
+        { id: 'aperta', viraTreta: { enemy: 'treinamento', rep: -1, recompensa: { grana: 4, xp: 3 } }, revela: ['ferro'] },
         { id: 'ignora', revela: ['ferro'] },
       ],
     },
@@ -63,7 +63,7 @@ export const CENA_PISTA = {
       i18n: 'games.gangues.cena.pista.ferro',
       puzzle: { type: 'forca', config: { difficulty: 'easy' }, skin: 'gazua' },
       recompensa: { grana: 12, xp: 6, item: 'sucata' },
-      falha: { viraTreta: { enemy: 'treinamento', recompensa: { grana: 3 } } },
+      falha: { viraTreta: { enemy: 'treinamento', recompensa: { grana: 3, xp: 3 } } },
       revela: ['molecada_1'],
     },
     {
@@ -139,7 +139,7 @@ export const CENA_PISTA = {
       enemy: 'moleque_a',
       forca: 1,
       dificuldade: 'normal',
-      recompensa: { grana: 4 },
+      recompensa: { grana: 4, xp: 4 },
     },
     {
       // Reaproveitamento: continua na Pista mesmo depois dela virar
@@ -158,10 +158,15 @@ export const CENA_PISTA = {
       ],
     },
     {
+      // Visível DESDE O COMEÇO (não só depois da birosca) — agora que PV/PM
+      // persiste entre lutas (aplicarDanoPersistente), o jogador precisa de
+      // um jeito de recuperar folego já nas primeiras tretas repetíveis
+      // (sinal/rinha), muito antes de molecada_1+ferro+birosca abrirem.
       id: 'descanso',
       tipo: 'descanso',
       opcional: true,
       repetivel: true,
+      visivel: true,
       pino: { x: 70, y: 118 },
       i18n: 'games.gangues.cena.pista.descanso',
       custoGrana: 10,
@@ -182,7 +187,7 @@ export const CENA_PISTA = {
     enemy: 'fumaca',
     forca: 3,
     boss: 'fumaca',
-    recompensa: { grana: 20, rep: 5 },
+    recompensa: { grana: 20, rep: 5, xp: 20 },
   },
 
   // A área final só abre depois de todo o caminho obrigatório da Pista.
