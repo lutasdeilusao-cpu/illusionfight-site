@@ -418,7 +418,7 @@ export default function GanguesCombat({ onNavigate }) {
       </AnimatePresence>
 
       <div className="gang-vs-bar">
-        <button className="gang-vs-bar-back" onClick={() => onNavigate('lobby')}>{t('games.gangues.btn_sair')}</button>
+        <button className="gang-vs-bar-back" onClick={() => onNavigate('territorio')}>{t('games.gangues.btn_sair')}</button>
         <div className="gang-vs-bar-line" />
         <span className={`gang-vs-bar-turn ${machine.phase === 'player' ? 'gang-vs-bar-turn--player' : machine.phase === 'enemy' ? 'gang-vs-bar-turn--enemy' : ''}`}>
           {t('games.gangues.loadout.round', { n: modoMultidaoAtivo ? (estadoMultidao?.round || 1) : machine.round })}
@@ -567,7 +567,7 @@ export default function GanguesCombat({ onNavigate }) {
             </div>
           </div>
           <div className="gang-actions-row">
-            <button className="gang-exit-btn" onClick={() => onNavigate('lobby')}>{t('games.gangues.btn_sair')}</button>
+            <button className="gang-exit-btn" onClick={() => onNavigate('territorio')}>{t('games.gangues.btn_sair')}</button>
             <button className="gang-attack-btn" disabled={revelandoRodada || !estadoMultidao} onClick={avancarRodada}>
               {t('games.gangues.multidao.avancar_rodada')}
             </button>
@@ -617,7 +617,7 @@ export default function GanguesCombat({ onNavigate }) {
           </div>
 
           <div className="gang-actions-row">
-            <button className="gang-exit-btn" onClick={() => onNavigate('lobby')}>{t('games.gangues.btn_sair')}</button>
+            <button className="gang-exit-btn" onClick={() => onNavigate('territorio')}>{t('games.gangues.btn_sair')}</button>
             <button className="gang-attack-btn" disabled={!selectedActor || !selectedTarget} onClick={handleAttack}>
               {selectedSpecialId
                 ? t('games.gangues.combat_specials.usar_golpe', { nome: t(`games.gangues.progression.skills.${selectedSpecialId}`) })
