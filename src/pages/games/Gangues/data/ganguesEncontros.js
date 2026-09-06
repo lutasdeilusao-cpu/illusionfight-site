@@ -1,3 +1,5 @@
+import { getGanguesResources } from './ganguesLoadout.js'
+
 /* ══════════════════════════════════════════════════════════════
    MODO HISTÓRIA — geração de bando inimigo por encontro (não fixo)
 
@@ -62,20 +64,28 @@ function distribuirPontos(total, qtd) {
   return partes.map(p => Math.max(1, p))
 }
 
+// Mesmo mapeamento usado em prepare() (useGanguesTurnMachine.js) pra achar o
+// "caminho" de combate de um inimigo a partir do preferred_mode do molde —
+// precisa bater os dois lugares, senão a taxa de PV/PM por R diverge.
+function caminhoDoInimigo(preferredMode) {
+  return preferredMode === 'power' ? 'mistico' : preferredMode === 'armed' ? 'defensor' : 'atacante'
+}
+
 function escalarInimigo(molde, pontosAlvo) {
   const pontosOriginais = molde.stats.A + molde.stats.H + molde.stats.R + molde.stats.D
   const fator = pontosOriginais > 0 ? pontosAlvo / pontosOriginais : 1
-  return {
-    ...molde,
-    stats: {
-      A: Math.max(0, Math.round(molde.stats.A * fator)),
-      H: Math.max(0, Math.round(molde.stats.H * fator)),
-      R: Math.max(0, Math.round(molde.stats.R * fator)),
-      D: Math.max(0, Math.round(molde.stats.D * fator)),
-    },
-    pv_max: Math.max(4, Math.round(molde.pv_max * fator)),
-    pm_max: Math.max(2, Math.round(molde.pm_max * fator)),
+  const stats = {
+    A: Math.max(0, Math.round(molde.stats.A * fator)),
+    H: Math.max(0, Math.round(molde.stats.H * fator)),
+    R: Math.max(1, Math.round(molde.stats.R * fator)),
+    D: Math.max(0, Math.round(molde.stats.D * fator)),
   }
+  // PV/PM seguem a MESMA regra da ficha do jogador (Resistência × taxa do
+  // caminho, ver getGanguesResources) — nunca mais escalados por conta
+  // própria, senão a ficha do inimigo (que agora usa o mesmo componente
+  // visual da do jogador) mostra um R que não explica o PV/PM ao lado.
+  const recursos = getGanguesResources(caminhoDoInimigo(molde.preferred_mode), stats.R)
+  return { ...molde, stats, pv_max: recursos.pvMax, pm_max: recursos.pmMax }
 }
 
 /** Sorteia um bando inimigo pro território/dificuldade dados, escalado contra

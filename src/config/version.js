@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.255.0'
+export const SITE_VERSION = '10.256.0'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '2.31.0' // fix: mesmo molde de inimigo (ex: moleque_a) pode sair 2x+ no mesmo bando (sorteio por slot, sem exclusividade em gerarBandoInimigo) - os dois apareciam com nome identico em combate, impossivel diferenciar quem ja apanhou. Bando agora numera duplicatas (numeroInstancia), fighterName/combatantName mostram "Nome (1)"/"Nome (2)"
+export const GANGUES_VERSION   = '2.32.0' // feat: PV/PM de TODOS os 35 inimigos (gangues-enemies.json) agora seguem a mesma regra da ficha do jogador - Resistencia x taxa do caminho (getGanguesResources), nao mais valores escritos a mao sem ligacao com stats.R. escalarInimigo (ganguesEncontros.js) tambem para de escalar pv_max/pm_max por conta propria e passa a recalcular pela mesma formula em cima do R escalado - o invariante "R explica o PV/PM" vale sempre, inclusive depois do bando ser calibrado contra o time do jogador
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
 export const MINIGAMES_VERSION = '4.3.4'  // Glitch: safe-area lateral no grid-wrap
