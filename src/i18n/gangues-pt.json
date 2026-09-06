@@ -484,7 +484,9 @@
         "ver_ficha": "Toque de novo em quem já tá escolhido (ou em qualquer aliado) pra ver a ficha completa: atributos, PV e PM.",
         "trash_talk": "Esse balãozinho 💬 aqui em cima deixa mandar uma provocação pro inimigo — sem custo, só pra zoar.",
         "bolinha": "Aquela bolinha flutuante é onde você age agora. Toque nela: ATACAR resolve na hora sem custo, PODER gasta PM (ou PV) mas causa mais efeito, e ITEM vai mostrar seus itens quando você tiver algum.",
-        "bolinha_mover": "Não gostou de onde ela tá? Segure e arraste pra qualquer canto da tela — a posição fica salva pra próxima luta."
+        "bolinha_mover": "Não gostou de onde ela tá? Segure e arraste pra qualquer canto da tela — a posição fica salva pra próxima luta.",
+        "ko_aviso_tutorial": "Se um aliado cair na luta, um aviso vermelho 💀 aparece na hora avisando — fica de olho.",
+        "xp_regra": "O XP da luta não é dividido igual: quem finaliza mais inimigos ganha bem mais, dano causado desempata. Mas ninguém fica de fora — todo mundo que lutou garante pelo menos 1 XP."
       },
       "multidao": {
         "switch_label": "Briga em Multidão",

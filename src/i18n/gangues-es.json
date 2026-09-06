@@ -484,7 +484,9 @@
         "ver_ficha": "Toca de nuevo a quien ya está elegido (o a cualquier aliado) para ver su ficha completa: atributos, PV y PM.",
         "trash_talk": "Ese globito 💬 aquí arriba deja mandar una provocación al enemigo — gratis, solo para molestar.",
         "bolinha": "Esa bolita flotante es donde actúas ahora. Tócala: ATACAR resuelve al instante gratis, PODER gasta PM (o PV) pero pega más fuerte, e ITEM va a mostrar tus objetos cuando tengas alguno.",
-        "bolinha_mover": "¿No te gusta dónde está? Mantén presionado y arrástrala a cualquier esquina de la pantalla — la posición se guarda para la próxima."
+        "bolinha_mover": "¿No te gusta dónde está? Mantén presionado y arrástrala a cualquier esquina de la pantalla — la posición se guarda para la próxima.",
+        "ko_aviso_tutorial": "Si un aliado cae en la pelea, aparece de inmediato un aviso rojo 💀 — estate atento.",
+        "xp_regra": "El XP de la pelea no se divide igual: quien remata a más enemigos gana bastante más, el daño causado desempata. Pero nadie se queda afuera — todos los que pelearon garantizan al menos 1 XP."
       },
       "multidao": {
         "switch_label": "Pelea Multitudinaria",

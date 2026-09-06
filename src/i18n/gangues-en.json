@@ -484,7 +484,9 @@
         "ver_ficha": "Tap whoever's already targeted again (or any ally) to see their full sheet: attributes, PV and PM.",
         "trash_talk": "That 💬 bubble up top lets you taunt the enemy — free, just for fun.",
         "bolinha": "That floating orb is where you act now. Tap it: ATTACK resolves instantly for free, POWER costs PM (or PV) but hits harder, and ITEM will show your items once you have any.",
-        "bolinha_mover": "Don't like where it's sitting? Hold and drag it to any corner of the screen — the spot is saved for next time."
+        "bolinha_mover": "Don't like where it's sitting? Hold and drag it to any corner of the screen — the spot is saved for next time.",
+        "ko_aviso_tutorial": "If an ally goes down in a fight, a red 💀 warning pops up right away — keep an eye out.",
+        "xp_regra": "Battle XP isn't split evenly: finishing off more enemies earns way more, damage dealt breaks ties. But nobody's left out — everyone who fought is guaranteed at least 1 XP."
       },
       "multidao": {
         "switch_label": "Mob Brawl",
