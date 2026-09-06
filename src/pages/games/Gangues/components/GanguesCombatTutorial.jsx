@@ -2,10 +2,11 @@ import { useState } from 'react'
 import { useLanguage } from '../../../../context/LanguageContext'
 import GangTip from './GangTip'
 
-// v2: tutorial ganhou passos novos (escolher alvo, ver ficha, trash talk) —
-// chave nova pra quem já tinha visto a v1 (só 3 passos) ver a versão
-// completa, em vez de ficar escondido pra sempre por já ter marcado "visto".
-const TUTORIAL_KEY = 'ldi-gangues-combate-tutorial-v2-visto'
+// v3: a barra de ação fixa (grade de golpes + botão ATACAR) virou a bolinha
+// flutuante (GanguesActionOrb) — os passos antigos "golpes"/"atacar" não
+// existem mais, viraram "bolinha"/"bolinha_mover". Chave nova de novo, mesmo
+// motivo do v2: quem já marcou visto precisa ver a mudança de UI.
+const TUTORIAL_KEY = 'ldi-gangues-combate-tutorial-v3-visto'
 // Falha ao ler localStorage (privacidade estrita, storage bloqueado) tem que
 // falhar pro lado de MOSTRAR o tutorial, nunca de escondê-lo — errar
 // mostrando de novo pra quem já viu é bem menos grave que nunca ensinar
@@ -19,8 +20,8 @@ const PASSOS = [
   { chave: 'escolher_alvo', lado: 'left' },
   { chave: 'ver_ficha', lado: 'right' },
   { chave: 'trash_talk', lado: 'left' },
-  { chave: 'golpes', lado: 'right' },
-  { chave: 'atacar', lado: 'left' },
+  { chave: 'bolinha', lado: 'right' },
+  { chave: 'bolinha_mover', lado: 'left' },
 ]
 
 /** Tutorial de combate — só aparece na PRIMEIRA luta da conta (flag no

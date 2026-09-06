@@ -5,6 +5,7 @@
       "escolha_lutador": "CHOOSE YOUR FIGHTER",
       "escolha_alvo": "CHOOSE A TARGET",
       "log_batalha_inicio": "The fight has begun.",
+      "log_usou_item": "{nome} used an item — gave up their attack this round.",
       "neoguide": {
         "pular": "SKIP",
         "proximo": "NEXT ▸",
@@ -470,26 +471,35 @@
         "sem_poderes": "This fighter has no active powers equipped. Equip them in the sheet progression.",
         "usar_golpe": "Use {nome}"
       },
+      "orb": {
+        "atacar": "Attack",
+        "poder": "Power",
+        "item": "Item",
+        "item_vazio": "No items yet — coming soon."
+      },
       "combat_tutorial": {
         "iniciativa": "This list shows who attacks first this round — the higher a fighter's Skill, the sooner they act.",
         "escolher_alvo": "More than one enemy? Tap whoever you want to attack to pick them as your target — kill the weakest first or focus the strongest, your call.",
         "ver_ficha": "Tap whoever's already targeted again (or any ally) to see their full sheet: attributes, PV and PM.",
         "trash_talk": "That 💬 bubble up top lets you taunt the enemy — free, just for fun.",
-        "golpes": "Choose the move: NORMAL ATTACK costs nothing. Powers cost PM (or PV, depending on the power) but hit harder.",
-        "atacar": "After choosing, tap ATTACK to resolve the turn. Repeat until you win or lose — you can leave anytime via SAIR."
+        "bolinha": "That floating orb is where you act now. Tap it: ATTACK resolves instantly for free, POWER costs PM (or PV) but hits harder, and ITEM will show your items once you have any.",
+        "bolinha_mover": "Don't like where it's sitting? Hold and drag it to any corner of the screen — the spot is saved for next time."
       },
       "multidao": {
         "switch_label": "Mob Brawl",
         "switch_titulo": "Turn on Mob Brawl — each round resolves at once, but it's still turn by turn",
         "poderes_titulo": "This round's powers",
         "avancar_rodada": "NEXT ROUND",
-        "resolvendo": "Rolling this round's dice..."
+        "resolvendo": "Rolling this round's dice...",
+        "usar_item": "Use item this round (gives up the attack)",
+        "vai_usar_item": "Will use item"
       },
       "multidao_tutorial": {
         "interruptor": "Your crew got big (6+ in this fight)! MASS BATTLE unlocked — flip this switch up top to resolve round by round, fast, without picking a target every time.",
         "alvo_automatico": "In this mode, each of yours always auto-attacks the weakest enemy — no manual targeting, it's built to clear a big crew fast.",
         "poderes": "Tap a fighter's name down here to cycle between a normal attack and their powers — if they have more than one equipped, it rotates between them each tap.",
-        "avancar": "Then just tap NEXT ROUND as many times as it takes until the fight's over."
+        "avancar": "Then just tap NEXT ROUND as many times as it takes until the fight's over.",
+        "item": "The 🎒 next to a name marks \"use item this round\" — that fighter gives up their attack to use an item instead."
       },
       "pag_atributos": "ATTRIBUTES",
       "pag_identidade": "IDENTITY",

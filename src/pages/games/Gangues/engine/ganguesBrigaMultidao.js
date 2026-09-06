@@ -52,8 +52,10 @@ export function iniciarBrigaMultidao({ playerTeam, enemyTeam }) {
 }
 
 /** Resolve UMA rodada a partir do estado atual — todo combatente vivo age uma vez. Retorna o novo estado + os eventos só dessa rodada.
- *  poderesPorPersonagem/especiaisPorPersonagem são lidos a cada chamada (não travados na iniciação) — o jogador pode trocar o poder escolhido entre uma rodada e outra. */
-export function avancarRodadaMultidao(estado, poderesPorPersonagem = {}, especiaisPorPersonagem = {}) {
+ *  poderesPorPersonagem/especiaisPorPersonagem são lidos a cada chamada (não travados na iniciação) — o jogador pode trocar o poder escolhido entre uma rodada e outra.
+ *  personagensUsandoItem: { [memberId]: true } — quem marcou "usar item" abre mão do ataque nesta rodada (a ação vira usar item, não bater). Ainda não existe
+ *  sistema de item de verdade (sem catálogo/inventário) — isso só reserva o comportamento de "gastar a ação" pra quando existir. */
+export function avancarRodadaMultidao(estado, poderesPorPersonagem = {}, especiaisPorPersonagem = {}, personagensUsandoItem = {}) {
   const byKey = new Map(estado.combatants.map(c => [c.key, { ...c }]))
   const { initiative } = estado
   let { turnIndex, round, lastEnemyTargetKey, seq } = estado
@@ -76,6 +78,18 @@ export function avancarRodadaMultidao(estado, poderesPorPersonagem = {}, especia
     if (!actor || actor.pv <= 0) {
       turnIndex = (turnIndex + 1) % initiative.length
       if (turnIndex === 0) { round += 1; break }
+      continue
+    }
+
+    // Usar item ABRE MÃO do ataque nesta rodada — o personagem ainda consome
+    // seu turno na ordem de iniciativa, só que sem bater em ninguém.
+    if (actor.side === 'player' && personagensUsandoItem[actor.id]) {
+      actor.actedThisRound = true
+      seq += 1
+      eventosRodada.push({ type: 'item', id: `bm-${seq}`, actorKey: actor.key, round: rodadaAlvo })
+      turnIndex = (turnIndex + 1) % initiative.length
+      outcome = checarFim()
+      if (turnIndex === 0 && !outcome) { round += 1; break }
       continue
     }
 

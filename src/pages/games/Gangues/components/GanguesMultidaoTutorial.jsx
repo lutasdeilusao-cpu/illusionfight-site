@@ -2,14 +2,16 @@ import { useState } from 'react'
 import { useLanguage } from '../../../../context/LanguageContext'
 import GangTip from './GangTip'
 
-const TUTORIAL_KEY = 'ldi-gangues-multidao-tutorial-visto'
+// v2: novo passo sobre o botão de usar item por rodada — chave nova pra quem
+// já viu a v1 (sem esse passo) ver a atualização.
+const TUTORIAL_KEY = 'ldi-gangues-multidao-tutorial-v2-visto'
 // Fail-safe tem que cair pro lado de MOSTRAR se o storage falhar (mesmo
 // raciocínio do GanguesCombatTutorial — errar mostrando de novo é bem menos
 // grave que nunca explicar o modo pra quem tá vendo ele pela primeira vez).
 function jaViu() { try { return localStorage.getItem(TUTORIAL_KEY) === '1' } catch { return false } }
 function marcarVisto() { try { localStorage.setItem(TUTORIAL_KEY, '1') } catch {} }
 
-const PASSOS = ['interruptor', 'alvo_automatico', 'poderes', 'avancar']
+const PASSOS = ['interruptor', 'alvo_automatico', 'poderes', 'item', 'avancar']
 
 /** Tutorial da Briga em Multidão — aparece só na PRIMEIRA vez que o jogador
  *  vê o interruptor (bando com 6+ combatentes), autocontido igual o

@@ -1,0 +1,100 @@
+/* ══════════════════════════════════════════════════════════════
+   GanguesActionOrb — bolinha flutuante que substitui a barra de ação fixa.
+   6 posições possíveis (topo/meio/base × direita/esquerda), arrastável,
+   posição salva por dispositivo (ldi-gangues-orb-pos).
+   ══════════════════════════════════════════════════════════════ */
+.gang-orb-wrap {
+  position: fixed;
+  z-index: 60;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.gang-orb-wrap--right-top    { top: 22%; right: 10px; align-items: flex-end; }
+.gang-orb-wrap--right-mid    { top: 50%; right: 10px; transform: translateY(-50%); align-items: flex-end; }
+.gang-orb-wrap--right-bottom { bottom: 96px; right: 10px; align-items: flex-end; }
+.gang-orb-wrap--left-top     { top: 22%; left: 10px; align-items: flex-start; }
+.gang-orb-wrap--left-mid     { top: 50%; left: 10px; transform: translateY(-50%); align-items: flex-start; }
+.gang-orb-wrap--left-bottom  { bottom: 96px; left: 10px; align-items: flex-start; }
+
+.gang-orb {
+  width: 56px; height: 56px; flex-shrink: 0;
+  display: grid; place-items: center;
+  border-radius: 50%;
+  border: 2px solid var(--if-amber);
+  background: radial-gradient(circle at 35% 30%, #2a1c08, #120b03 75%);
+  color: var(--if-amber);
+  font-size: 1.5rem;
+  box-shadow: 0 0 26px -6px rgba(245, 166, 35, 0.65), 0 6px 18px rgba(0, 0, 0, 0.5);
+  touch-action: none;
+  cursor: grab;
+  transition: box-shadow 0.2s ease;
+}
+.gang-orb:active { cursor: grabbing; }
+.gang-orb--aberto { box-shadow: 0 0 34px -4px rgba(245, 166, 35, 0.85), 0 6px 18px rgba(0, 0, 0, 0.5); }
+
+.gang-orb-menu { position: relative; display: flex; }
+.gang-orb-menu--cima { order: -1; margin-bottom: 8px; }
+.gang-orb-menu--baixo { order: 1; margin-top: 8px; }
+
+.gang-orb-panel {
+  width: max(52vw, 190px);
+  max-width: 260px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 8px;
+  border: 1px solid rgba(245, 166, 35, 0.45);
+  background: linear-gradient(160deg, #14100a, #0a0806 80%);
+  box-shadow: 0 10px 34px -8px rgba(0, 0, 0, 0.7);
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
+}
+
+.gang-orb-opt {
+  display: flex; align-items: center; gap: 8px;
+  min-height: 44px; padding: 0 12px;
+  border: 1px solid var(--if-hair);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-primary);
+  font: 700 0.72rem var(--font-mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.gang-orb-opt b { font-size: 1.05rem; }
+.gang-orb-opt:disabled { opacity: 0.35; cursor: not-allowed; }
+.gang-orb-opt--atacar { border-color: color-mix(in srgb, var(--if-amber) 55%, transparent); color: var(--if-amber); }
+.gang-orb-opt--poder { border-color: color-mix(in srgb, var(--if-cyan) 55%, transparent); color: var(--if-cyan); }
+.gang-orb-opt--item { border-color: color-mix(in srgb, var(--if-violet) 55%, transparent); color: var(--if-violet); }
+
+.gang-orb-panel-head {
+  display: flex; align-items: center; gap: 8px;
+  padding-bottom: 4px; margin-bottom: 2px;
+  border-bottom: 1px solid var(--if-hair);
+  font: 800 0.66rem var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--text-secondary);
+}
+.gang-orb-voltar {
+  width: 26px; height: 26px; border: 1px solid var(--if-hair); background: none;
+  color: var(--text-primary); font-size: 0.9rem; cursor: pointer;
+}
+.gang-orb-item-btn {
+  display: flex; flex-direction: column; align-items: flex-start; gap: 2px;
+  min-height: 40px; padding: 6px 10px;
+  border: 1px solid var(--if-hair);
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--text-primary);
+  font: 700 0.68rem var(--font-mono);
+  letter-spacing: 0.03em;
+  text-align: left;
+  cursor: pointer;
+}
+.gang-orb-item-btn small { color: var(--text-secondary); font-weight: 600; letter-spacing: 0.02em; text-transform: none; }
+.gang-orb-item-btn--normal { border-color: color-mix(in srgb, var(--if-amber) 40%, transparent); }
+.gang-orb-item-btn--sem-recurso { opacity: 0.4; cursor: not-allowed; }
+.gang-orb-item-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.gang-orb-vazio { margin: 4px 2px; color: var(--text-secondary); font: 600 0.68rem var(--font-mono); text-align: center; }
+
+@media (max-width: 380px) {
+  .gang-orb { width: 50px; height: 50px; font-size: 1.3rem; }
+}

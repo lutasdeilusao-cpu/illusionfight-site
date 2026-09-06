@@ -5,6 +5,7 @@
       "escolha_lutador": "ESCOLHA SEU LUTADOR",
       "escolha_alvo": "ESCOLHA O ALVO",
       "log_batalha_inicio": "A briga começou.",
+      "log_usou_item": "{nome} usou um item — abriu mão do ataque nessa rodada.",
       "neoguide": {
         "pular": "PULAR",
         "proximo": "PRÓXIMO ▸",
@@ -470,26 +471,35 @@
         "sem_poderes": "Este lutador não tem poderes ativos equipados. Equipe na progressão da ficha.",
         "usar_golpe": "Usar {nome}"
       },
+      "orb": {
+        "atacar": "Atacar",
+        "poder": "Poder",
+        "item": "Item",
+        "item_vazio": "Nenhum item ainda — em breve."
+      },
       "combat_tutorial": {
         "iniciativa": "Essa lista mostra quem ataca primeiro nessa rodada — quanto maior a Habilidade do lutador, mais cedo ele joga.",
         "escolher_alvo": "Tem mais de um inimigo? Toque em quem você quer atacar pra escolher ele como alvo — quer matar o mais fraco primeiro ou focar o mais forte, a escolha é sua.",
         "ver_ficha": "Toque de novo em quem já tá escolhido (ou em qualquer aliado) pra ver a ficha completa: atributos, PV e PM.",
         "trash_talk": "Esse balãozinho 💬 aqui em cima deixa mandar uma provocação pro inimigo — sem custo, só pra zoar.",
-        "golpes": "Escolha o golpe: ATAQUE NORMAL não custa nada. Poderes gastam PM (ou PV, dependendo do poder) mas causam mais efeito.",
-        "atacar": "Depois de escolher, toque em ATACAR pra resolver o turno. Repita até vencer ou perder — dá pra sair a qualquer momento pelo SAIR."
+        "bolinha": "Aquela bolinha flutuante é onde você age agora. Toque nela: ATACAR resolve na hora sem custo, PODER gasta PM (ou PV) mas causa mais efeito, e ITEM vai mostrar seus itens quando você tiver algum.",
+        "bolinha_mover": "Não gostou de onde ela tá? Segure e arraste pra qualquer canto da tela — a posição fica salva pra próxima luta."
       },
       "multidao": {
         "switch_label": "Briga em Multidão",
         "switch_titulo": "Liga a Briga em Multidão — cada rodada resolve de uma vez, mas continua turno a turno",
         "poderes_titulo": "Poderes da rodada",
         "avancar_rodada": "AVANÇAR RODADA",
-        "resolvendo": "Rolando os dados da rodada..."
+        "resolvendo": "Rolando os dados da rodada...",
+        "usar_item": "Usar item nesta rodada (abre mão do ataque)",
+        "vai_usar_item": "Vai usar item"
       },
       "multidao_tutorial": {
         "interruptor": "Seu bando ficou grande (6+ na treta)! Liberou a BRIGA EM MULTIDÃO — ative esse interruptor aqui em cima pra resolver rodada por rodada, rápido, sem precisar escolher alvo toda hora.",
         "alvo_automatico": "Nesse modo cada um dos seus sempre ataca o inimigo mais fraco automaticamente — não dá pra escolher o alvo na mão, é pensado pra limpar bando grande rápido.",
         "poderes": "Toque no nome de um lutador aqui embaixo pra alternar entre ataque normal e os poderes dele — se tiver mais de um equipado, vai revezando entre eles a cada toque.",
-        "avancar": "Depois é só apertar AVANÇAR RODADA quantas vezes precisar até a treta acabar."
+        "avancar": "Depois é só apertar AVANÇAR RODADA quantas vezes precisar até a treta acabar.",
+        "item": "O 🎒 do lado do nome marca \"usar item nesta rodada\" — o lutador abre mão do ataque pra usar um item em vez de bater."
       },
       "pag_atributos": "ATRIBUTOS",
       "pag_identidade": "IDENTIDADE",

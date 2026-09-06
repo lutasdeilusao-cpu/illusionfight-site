@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.262.0'
+export const SITE_VERSION = '10.263.0'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '2.38.0' // feat: painel de recompensa na tela de vitoria (GanguesVictory.jsx) - mostra XP/grana/reputacao ganhos NESSA luta (antes era tudo aplicado em silencio, sem aparecer em lugar nenhum); gainApForParticipants agora retorna totalXp junto com levelUps. feat: tema visual "basico" unico e compartilhado pras 3 tecnicas base (golpe_forcado/guarda/ruptura, uma por caminho, sempre equipadas) em vez de emprestar o visual de um arquetipo de poder de verdade - mesmo efeito simples pras 3 classes, so pra diferenciar do soco puro sem competir com os super poderes. fix: custo de PM das 3 tecnicas base reduzido de 3 para 2 (ganguesSpecialEffects.js + base_technique.pm_cost nos 30 personagens do catalogo)
+export const GANGUES_VERSION   = '2.39.0' // feat: a barra de acao fixa (grade de golpes + botao ATACAR, so ia crescer com mais poderes/itens) virou uma bolinha flutuante arrastavel (novo GanguesActionOrb.jsx) - 6 posicoes possiveis (topo/meio/base x direita/esquerda), posicao salva por dispositivo (localStorage). Toque abre menu compacto ATACAR/PODER/ITEM (ITEM por enquanto so mostra placeholder "nenhum item ainda", sem sistema de inventario). feat: Briga em Multidao ganha toggle "usar item" por personagem (🎒 do lado do chip) - abre mao do ataque naquela rodada (avancarRodadaMultidao aceita personagensUsandoItem), stub estrutural pro dia que existir item de verdade. feat: switch da Briga em Multidao pisca ate o jogador ligar ele pela 1a vez. Tutorial de combate (v3) e de multidao (v2) atualizados pra explicar a bolinha e o usar item
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
 export const MINIGAMES_VERSION = '4.3.4'  // Glitch: safe-area lateral no grid-wrap

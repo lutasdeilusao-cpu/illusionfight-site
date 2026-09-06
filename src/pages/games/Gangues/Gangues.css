@@ -563,6 +563,16 @@
   background: #cfd6db; transition: transform 0.2s ease, background 0.2s;
 }
 .gang-multidao-switch--on .gang-multidao-switch-bolinha { transform: translateX(14px); background: var(--if-amber); }
+/* Pisca até o jogador ligar o modo pela 1a vez — sem isso, quem nunca reparou
+   no switch nunca descobre a Briga em Multidão existe. */
+.gang-multidao-switch--blink .gang-multidao-switch-track { animation: gang-multidao-blink 1.1s ease-in-out infinite; }
+@keyframes gang-multidao-blink {
+  0%, 100% { border-color: rgba(255,255,255,0.15); box-shadow: none; }
+  50% { border-color: var(--if-amber); box-shadow: 0 0 12px 2px rgba(245,166,35,0.6); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .gang-multidao-switch--blink .gang-multidao-switch-track { animation: none; border-color: var(--if-amber); }
+}
 
 /* Fila de poderes por rodada — um chip por personagem, toque pra ciclar
    entre ataque normal e os poderes equipados. */
@@ -579,6 +589,18 @@
 .gang-multidao-chip small { font-size: 0.6rem; }
 .gang-multidao-chip--poder { border-color: rgba(245,166,35,0.5); background: rgba(245,166,35,0.1); }
 .gang-multidao-chip--poder small { color: var(--if-amber); }
+.gang-multidao-chip--item { border-color: color-mix(in srgb, var(--if-violet) 55%, transparent); background: color-mix(in srgb, var(--if-violet) 10%, transparent); }
+.gang-multidao-chip--item small { color: var(--if-violet); }
+
+/* Wrapper: chip (cicla poder) + botão pequeno separado (usar item nesta
+   rodada) — não dá pra aninhar <button> dentro de <button>. */
+.gang-multidao-chip-wrap { display: flex; align-items: stretch; gap: 3px; }
+.gang-multidao-item-toggle {
+  flex-shrink: 0; width: 28px; border-radius: 8px;
+  background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1);
+  font-size: 0.85rem; cursor: pointer; opacity: 0.6;
+}
+.gang-multidao-item-toggle--on { opacity: 1; border-color: var(--if-violet); background: color-mix(in srgb, var(--if-violet) 16%, transparent); }
 
 /* Revelação de UMA rodada — overlay curto por cima do combate, não a tela inteira. */
 .gang-multidao-revela--overlay {

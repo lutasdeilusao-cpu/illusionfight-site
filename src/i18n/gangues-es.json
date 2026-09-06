@@ -5,6 +5,7 @@
       "escolha_lutador": "ELIGE A TU LUCHADOR",
       "escolha_alvo": "ELIGE UN OBJETIVO",
       "log_batalha_inicio": "La pelea ha comenzado.",
+      "log_usou_item": "{nome} usó un objeto — renunció a su ataque esta ronda.",
       "neoguide": {
         "pular": "SALTAR",
         "proximo": "SIGUIENTE ▸",
@@ -470,26 +471,35 @@
         "sem_poderes": "Este luchador no tiene poderes activos equipados. Equípalos en la progresión de la ficha.",
         "usar_golpe": "Usar {nome}"
       },
+      "orb": {
+        "atacar": "Atacar",
+        "poder": "Poder",
+        "item": "Objeto",
+        "item_vazio": "Todavía no hay objetos — pronto."
+      },
       "combat_tutorial": {
         "iniciativa": "Esta lista muestra quién ataca primero en esta ronda — cuanto mayor la Habilidad del luchador, antes juega.",
         "escolher_alvo": "¿Hay más de un enemigo? Toca a quien quieras atacar para elegirlo como objetivo — matar al más débil primero o enfocar al más fuerte, tú decides.",
         "ver_ficha": "Toca de nuevo a quien ya está elegido (o a cualquier aliado) para ver su ficha completa: atributos, PV y PM.",
         "trash_talk": "Ese globito 💬 aquí arriba deja mandar una provocación al enemigo — gratis, solo para molestar.",
-        "golpes": "Elige el golpe: ATAQUE NORMAL no cuesta nada. Los poderes gastan PM (o PV, según el poder) pero pegan más fuerte.",
-        "atacar": "Después de elegir, toca ATACAR para resolver el turno. Repite hasta ganar o perder — puedes salir en cualquier momento con SAIR."
+        "bolinha": "Esa bolita flotante es donde actúas ahora. Tócala: ATACAR resuelve al instante gratis, PODER gasta PM (o PV) pero pega más fuerte, e ITEM va a mostrar tus objetos cuando tengas alguno.",
+        "bolinha_mover": "¿No te gusta dónde está? Mantén presionado y arrástrala a cualquier esquina de la pantalla — la posición se guarda para la próxima."
       },
       "multidao": {
         "switch_label": "Pelea Multitudinaria",
         "switch_titulo": "Activa la Pelea Multitudinaria — cada ronda se resuelve de una vez, pero sigue siendo por turnos",
         "poderes_titulo": "Poderes de la ronda",
         "avancar_rodada": "SIGUIENTE RONDA",
-        "resolvendo": "Tirando los dados de la ronda..."
+        "resolvendo": "Tirando los dados de la ronda...",
+        "usar_item": "Usar objeto esta ronda (renuncia al ataque)",
+        "vai_usar_item": "Va a usar objeto"
       },
       "multidao_tutorial": {
         "interruptor": "¡Tu banda creció (6+ en la pelea)! Se desbloqueó la PELEA EN MULTITUD — activa este interruptor arriba para resolver ronda por ronda, rápido, sin elegir objetivo cada vez.",
         "alvo_automatico": "En este modo, cada uno de los tuyos ataca siempre al enemigo más débil de forma automática — no se puede elegir el objetivo a mano, está pensado para limpiar una banda grande rápido.",
         "poderes": "Toca el nombre de un luchador aquí abajo para alternar entre ataque normal y sus poderes — si tiene más de uno equipado, va alternando entre ellos a cada toque.",
-        "avancar": "Después solo toca AVANZAR RONDA las veces que haga falta hasta que termine la pelea."
+        "avancar": "Después solo toca AVANZAR RONDA las veces que haga falta hasta que termine la pelea.",
+        "item": "El 🎒 junto al nombre marca \"usar objeto esta ronda\" — ese luchador renuncia a su ataque para usar un objeto."
       },
       "pag_atributos": "ATRIBUTOS",
       "pag_identidade": "IDENTIDAD",
