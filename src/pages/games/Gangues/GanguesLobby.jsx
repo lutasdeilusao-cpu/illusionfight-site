@@ -61,10 +61,13 @@ export default function GanguesLobby({ onNavigate }) {
     await store.deleteSheet(member.id)
   }
 
+  // O elenco já foi carregado pela tela de save (GanguesSaveSelect.selecionarSave)
+  // pra quem tem conta — aqui só recarrega se por algum motivo chegou no lobby
+  // sem passar por lá (ex: guest, que não tem save nenhum).
   useEffect(() => {
     store.setEnemyCatalog(enemiesData)
-    if (!user) { setLoading(false); return }
-    store.loadSheets(user.id).finally(() => setLoading(false))
+    if (!user || store._saveId) { setLoading(false); return }
+    setLoading(false)
   }, [user])
 
   // Sem elenco pra escolher de verdade (tudo que existe cabe no limite da

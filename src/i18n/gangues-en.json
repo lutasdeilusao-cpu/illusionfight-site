@@ -381,6 +381,20 @@
           "elemental": "Elemental impact"
         }
       },
+      "saves": {
+        "titulo": "YOUR GANGS",
+        "subtitulo": "Pick a gang to continue, or found a new one.",
+        "carregando": "Loading gangs...",
+        "sem_saves": "You don't have a gang yet. Found the first one.",
+        "nova_gangue": "FOUND NEW GANG",
+        "limite_atingido": "Your plan's limit of {n} gang(s) reached.",
+        "abrir": "CONTINUE",
+        "excluir": "Delete gang",
+        "excluir_confirm": "Delete the gang \"{nome}\"? Roster and progress are gone for good.",
+        "sem_nome": "Unnamed gang",
+        "territorios": "{n}/7 territories",
+        "slot": "Save {n}"
+      },
       "lobby_sub": "create your sheet · fight the CPU · climb the ranking",
       "suas_fichas": "your sheets",
       "carregando": "loading...",

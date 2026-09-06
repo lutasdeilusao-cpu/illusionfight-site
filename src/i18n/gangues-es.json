@@ -381,6 +381,20 @@
           "elemental": "Impacto elemental"
         }
       },
+      "saves": {
+        "titulo": "TUS BANDAS",
+        "subtitulo": "Elige una banda para continuar, o funda una nueva.",
+        "carregando": "Cargando bandas...",
+        "sem_saves": "Todavía no tienes ninguna banda. Funda la primera.",
+        "nova_gangue": "FUNDAR NUEVA BANDA",
+        "limite_atingido": "Límite de {n} banda(s) de tu plan alcanzado.",
+        "abrir": "CONTINUAR",
+        "excluir": "Borrar banda",
+        "excluir_confirm": "¿Borrar la banda \"{nome}\"? El elenco y el progreso se pierden para siempre.",
+        "sem_nome": "Banda sin nombre",
+        "territorios": "{n}/7 territorios",
+        "slot": "Guardado {n}"
+      },
       "lobby_sub": "crea tu ficha · lucha contra la CPU · sube en el ranking",
       "suas_fichas": "tus fichas",
       "carregando": "cargando...",

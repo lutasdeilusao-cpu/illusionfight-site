@@ -381,6 +381,20 @@
           "elemental": "Impacto elemental"
         }
       },
+      "saves": {
+        "titulo": "SUAS GANGUES",
+        "subtitulo": "Escolha uma gangue pra continuar, ou funde uma nova.",
+        "carregando": "Carregando gangues...",
+        "sem_saves": "Você ainda não tem nenhuma gangue. Funde a primeira.",
+        "nova_gangue": "FUNDAR NOVA GANGUE",
+        "limite_atingido": "Limite de {n} gangue(s) do seu plano atingido.",
+        "abrir": "CONTINUAR",
+        "excluir": "Apagar gangue",
+        "excluir_confirm": "Apagar a gangue \"{nome}\"? O elenco e o progresso somem pra sempre.",
+        "sem_nome": "Gangue sem nome",
+        "territorios": "{n}/7 territórios",
+        "slot": "Save {n}"
+      },
       "lobby_sub": "crie sua ficha · lute contra a CPU · suba no ranking",
       "suas_fichas": "suas fichas",
       "carregando": "carregando...",

@@ -1,72 +1,70 @@
 import { supabase } from '../../../../lib/supabase'
 
-const GANGUES_SAVE_VERSION = 2
-
-/** Carrega o progresso do modo história (gangue) do usuário logado. */
-export async function carregarProgressoHistoria(userId) {
-  if (!userId) return null
-  let { data, error } = await supabase
+/** Lista os saves (gangues) do usuário logado, mais antigo primeiro (Save 1, Save 2...). */
+export async function listarSaves(userId) {
+  if (!userId) return []
+  const { data, error } = await supabase
     .from('gangues_story_progress')
-    .select('gang_name, story_progress, cena_progresso, grana, rep, campaign_clears, event_character_ids, save_version')
+    .select('id, gang_name, story_progress, rep, criada_em, atualizada_em')
     .eq('user_id', userId)
+    .order('criada_em', { ascending: true })
+  if (error) { console.error('[GANGUES] Falha ao listar saves:', error.message); return [] }
+  return data || []
+}
+
+/** Cria um novo save (gangue) vazio pro usuário logado. Retorna o id criado. */
+export async function criarSave(userId) {
+  if (!userId) return null
+  const { data, error } = await supabase.from('gangues_story_progress').insert({ user_id: userId }).select('id').single()
+  if (error) { console.error('[GANGUES] Falha ao criar save:', error.message); return null }
+  return data.id
+}
+
+/** Apaga um save inteiro — o elenco vinculado (character_sheets.save_id) cai junto via CASCADE. */
+export async function excluirSave(saveId) {
+  if (!saveId) return false
+  const { error } = await supabase.from('gangues_story_progress').delete().eq('id', saveId)
+  if (error) { console.error('[GANGUES] Falha ao excluir save:', error.message); return false }
+  return true
+}
+
+/** Carrega o progresso do modo história de UM save específico. */
+export async function carregarProgressoHistoria(saveId) {
+  if (!saveId) return null
+  const { data, error } = await supabase
+    .from('gangues_story_progress')
+    .select('gang_name, story_progress, cena_progresso, grana, rep, campaign_clears, event_character_ids')
+    .eq('id', saveId)
     .maybeSingle()
-  if (error && /(campaign_clears|event_character_ids)/i.test(error.message || '')) {
-    const legacy = await supabase.from('gangues_story_progress').select('gang_name, story_progress, cena_progresso, grana, rep').eq('user_id', userId).maybeSingle()
-    data = legacy.data
-    error = legacy.error
-  }
   if (error || !data) return null
-  if (data.save_version !== GANGUES_SAVE_VERSION) {
-    await supabase.from('gangues_story_progress').delete().eq('user_id', userId)
-    return {
-      gangName: '', storyProgress: {}, cenaProgresso: {}, grana: 0, rep: 0,
-      campaignClears: 0, eventCharacterIds: [],
-    }
-  }
   return {
     gangName: data.gang_name || '',
     storyProgress: data.story_progress || {},
     cenaProgresso: data.cena_progresso || {},
     grana: data.grana || 0,
     rep: data.rep || 0,
-    campaignClears: data.campaign_clears || data.story_progress?.__meta?.campaign_clears || 0,
-    eventCharacterIds: data.event_character_ids || data.story_progress?.__meta?.event_character_ids || [],
+    campaignClears: data.campaign_clears || 0,
+    eventCharacterIds: data.event_character_ids || [],
   }
 }
 
-/** Salva (upsert) o progresso do modo história do usuário logado. */
-export async function salvarProgressoHistoria(userId, progresso) {
-  if (!userId) return false
+/** Salva (update) o progresso do save aberto no momento. */
+export async function salvarProgressoHistoria(saveId, progresso) {
+  if (!saveId) return false
   const { gangName, storyProgress, cenaProgresso, grana, rep, campaignClears, eventCharacterIds } = progresso
-  const persistedStoryProgress = {
-    ...(storyProgress || {}),
-    __meta: { campaign_clears: campaignClears || 0, event_character_ids: eventCharacterIds || [] },
-  }
-  let { error } = await supabase
+  const { error } = await supabase
     .from('gangues_story_progress')
-    .upsert({
-      user_id: userId,
+    .update({
       gang_name: gangName || '',
-      story_progress: persistedStoryProgress,
+      story_progress: storyProgress || {},
       cena_progresso: cenaProgresso || {},
       grana: grana || 0,
       rep: rep || 0,
       campaign_clears: campaignClears || 0,
       event_character_ids: eventCharacterIds || [],
-      save_version: GANGUES_SAVE_VERSION,
       atualizada_em: new Date().toISOString(),
-    }, { onConflict: 'user_id' })
-  if (error && /(campaign_clears|event_character_ids)/i.test(error.message || '')) {
-    const legacy = await supabase.from('gangues_story_progress').upsert({
-      user_id: userId,
-      gang_name: gangName || '',
-      story_progress: persistedStoryProgress,
-      cena_progresso: cenaProgresso || {},
-      grana: grana || 0,
-      rep: rep || 0,
-      atualizada_em: new Date().toISOString(),
-    }, { onConflict: 'user_id' })
-    error = legacy.error
-  }
-  return !error
+    })
+    .eq('id', saveId)
+  if (error) { console.error('[GANGUES] Falha ao salvar progresso:', error.message); return false }
+  return true
 }

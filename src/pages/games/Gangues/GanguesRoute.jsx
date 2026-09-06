@@ -4,6 +4,7 @@ import { useReader } from '../../../context/ReaderContext'
 import { useGanguesStore } from './store/useGanguesStore'
 import useGanguesI18n from './hooks/useGanguesI18n'
 import GanguesLobby from './GanguesLobby'
+import GanguesSaveSelect from './GanguesSaveSelect'
 import GanguesModes from './GanguesModes'
 import GanguesEnemyPick from './GanguesEnemyPick'
 import GanguesCreate from './GanguesCreate'
@@ -30,10 +31,13 @@ export default function GanguesRoute() {
   const i18nReady = useGanguesI18n()
   const [fase, setFase] = useState('lobby')
 
+  // Conta logada: cada gangue é um save separado (ver GanguesSaveSelect) — a
+  // primeira coisa a fazer é escolher/criar um save, antes de ver o lobby.
+  // Guest não tem save (joga só em memória), vai direto pro lobby de sempre.
   useEffect(() => {
     if (user) {
       store.setUserId(user.id)
-      store.loadStoryProgress(user.id)
+      setFase(current => (current === 'lobby' ? 'save-select' : current))
     }
   }, [user])
 
@@ -86,6 +90,7 @@ export default function GanguesRoute() {
   return (
     <div className={`gang-page ${fase === 'lobby' ? 'gang-page--lobby' : ''}`}>
       <GuestNotice />
+      {fase === 'save-select' && <GanguesSaveSelect onNavigate={setFase} />}
       {fase === 'lobby' && <GanguesLobby onNavigate={setFase} />}
       {fase === 'create' && (
         <GanguesCreate

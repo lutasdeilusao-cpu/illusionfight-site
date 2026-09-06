@@ -1,7 +1,7 @@
 import { create } from 'zustand'
 import { supabase } from '../../../../lib/supabase'
 import { addGanguesAp, defaultGanguesProgression, getGanguesRosterLimit, normalizeGanguesLoadout } from '../data/ganguesLoadout.js'
-import { carregarProgressoHistoria, salvarProgressoHistoria } from './ganguesStoryProgress.js'
+import { carregarProgressoHistoria, salvarProgressoHistoria, listarSaves, criarSave, excluirSave } from './ganguesStoryProgress.js'
 import { createGanguesTemplateSheet, hydrateGanguesTemplateSheet } from '../data/ganguesCharacters.js'
 
 // Debounce dos writes de progresso do modo história: várias ações batem em sequência
@@ -42,6 +42,40 @@ export const useGanguesStore = create((set, get) => ({
   activeParty: [],
   match: { playerTeam: [], enemyTeam: [], enemy: null, enemy_id: null, score: 0, status: 'idle', battleReport: null },
   _userId: null,
+
+  // ── Save slots: qual gangue (save) está aberta agora ──
+  // Uma conta pode ter várias gangues em paralelo (ver GANGUES_SAVE_SLOT_LIMITS).
+  // _saveId é o save selecionado na tela GanguesSaveSelect — todo load/save de
+  // roster e progresso de história passa a ser escopado por ele, não mais só
+  // pelo user_id. Guest não tem save (joga só em memória).
+  _saveId: null,
+  saves: [],
+
+  listSaves: async (userId) => {
+    const saves = await listarSaves(userId)
+    set({ saves })
+    return saves
+  },
+
+  criarNovoSave: async (userId) => {
+    const id = await criarSave(userId)
+    if (id) await get().listSaves(userId)
+    return id
+  },
+
+  excluirSaveById: async (saveId, userId) => {
+    const ok = await excluirSave(saveId)
+    if (ok) await get().listSaves(userId)
+    return ok
+  },
+
+  // Abre um save: carrega o progresso de história e o elenco daquela gangue
+  // específica, e passa a persistir tudo nela a partir de agora.
+  selecionarSave: async (saveId) => {
+    set({ _saveId: saveId, roster: [], activeParty: [], gangName: '', storyProgress: {}, cenaProgresso: {}, grana: 0, rep: 0 })
+    await Promise.all([get().loadStoryProgress(saveId), get().loadSheets(saveId)])
+  },
+
   // Qual ficha está aberta na tela dedicada de progressão (fase 'progression').
   progressionTargetId: null,
   setProgressionTarget: (id) => set({ progressionTargetId: id }),
@@ -157,7 +191,7 @@ export const useGanguesStore = create((set, get) => ({
     const uid = userId || get()._userId
     if (!uid) return null
     const s = get().sheet
-    const payload = { user_id: uid, sheet_name: s.sheet_name, attributes: s.attributes, elemental: s.elemental, combat_path: s.combat_path, loadout_version: s.loadout_version, xp_total: s.xp_total, enemies_unlocked: s.enemies_unlocked, character_type: s.character_type || 'legacy', character_template_id: s.character_template_id || null }
+    const payload = { user_id: uid, save_id: get()._saveId, sheet_name: s.sheet_name, attributes: s.attributes, elemental: s.elemental, combat_path: s.combat_path, loadout_version: s.loadout_version, xp_total: s.xp_total, enemies_unlocked: s.enemies_unlocked, character_type: s.character_type || 'legacy', character_template_id: s.character_template_id || null }
     const request = s.id
       ? supabase.from('character_sheets').update(payload).eq('id', s.id).select('id').maybeSingle()
       : supabase.from('character_sheets').insert(payload).select('id').maybeSingle()
@@ -171,9 +205,9 @@ export const useGanguesStore = create((set, get) => ({
     return saved
   },
 
-  loadSheets: async (userId) => {
-    if (!userId) return []
-    const { data, error } = await supabase.from('character_sheets').select('id, sheet_name, attributes, elemental, combat_path, loadout_version, xp_total, enemies_unlocked, character_type, character_template_id').eq('user_id', userId).eq('character_type', 'template').order('created_at', { ascending: false })
+  loadSheets: async (saveId) => {
+    if (!saveId) return []
+    const { data, error } = await supabase.from('character_sheets').select('id, sheet_name, attributes, elemental, combat_path, loadout_version, xp_total, enemies_unlocked, character_type, character_template_id').eq('save_id', saveId).eq('character_type', 'template').order('created_at', { ascending: false })
     if (error) console.error('[GANGUES] Falha ao carregar fichas:', error.message)
     const roster = Array.isArray(data) ? data.map(item => {
       const templateId = item.character_template_id || item.attributes?.character_template_id
@@ -218,17 +252,17 @@ export const useGanguesStore = create((set, get) => ({
 
   // ── Modo história ──
   // Progresso salvo em Supabase (tabela `gangues_story_progress`, uma linha por
-  // usuário) quando logado; guest joga só em memória e perde tudo ao sair —
-  // igual à ficha de personagem (ver `addLocalSheet`).
+  // SAVE — ver `_saveId`/`selecionarSave`) quando logado; guest joga só em
+  // memória e perde tudo ao sair — igual à ficha de personagem (ver `addLocalSheet`).
   // storyProgress: { [territorioId]: { pontos: [noId...], chefe: bool } }
   storyProgress: {},
   // Nó em que o jogador entrou: { territorioId, noId, enemyId, isChefe }
   storyTarget: null,
   setStoryTarget: (target) => set({ storyTarget: target }),
 
-  loadStoryProgress: async (userId) => {
-    if (!userId) return
-    const progresso = await carregarProgressoHistoria(userId)
+  loadStoryProgress: async (saveId) => {
+    if (!saveId) return
+    const progresso = await carregarProgressoHistoria(saveId)
     if (progresso) set(progresso)
   },
 
@@ -274,15 +308,16 @@ export const useGanguesStore = create((set, get) => ({
 
   // Escreve no Supabase com debounce — várias ações do modo história disparam
   // essa persistência em sequência (marcar POI + fôlego + grana + rep) e não
-  // faz sentido um upsert por campo. Guest (sem `_userId`) não salva nada,
-  // igual à ficha: o banner já avisa que o progresso não fica.
+  // faz sentido um upsert por campo. Guest e quem ainda não abriu um save
+  // (sem `_saveId`) não salva nada, igual à ficha: o banner já avisa que o
+  // progresso não fica.
   _persistStory: () => {
-    const uid = get()._userId
-    if (!uid) return
+    const saveId = get()._saveId
+    if (!saveId) return
     clearTimeout(storySaveTimer)
     storySaveTimer = setTimeout(() => {
       const { gangName, storyProgress, cenaProgresso, grana, rep, campaignClears, eventCharacterIds } = get()
-      salvarProgressoHistoria(uid, { gangName, storyProgress, cenaProgresso, grana, rep, campaignClears, eventCharacterIds })
+      salvarProgressoHistoria(saveId, { gangName, storyProgress, cenaProgresso, grana, rep, campaignClears, eventCharacterIds })
     }, 800)
   },
 

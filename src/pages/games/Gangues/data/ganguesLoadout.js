@@ -10,6 +10,16 @@ export const GANGUES_INITIAL_PARTY_SIZE = 2
 export const GANGUES_MAX_PARTY_SIZE = 6
 export const GANGUES_ROSTER_LIMITS = { free: 2, elite: 2, primordial: 2 }
 
+// ── Save slots: quantas gangues em paralelo por conta ──
+// Cada save tem seu próprio nome, elenco e progresso no mapa — permite
+// recrutar elencos diferentes sem perder o save anterior. Guest não salva
+// na nuvem, então não tem conceito de save slot (joga só em memória).
+export const GANGUES_SAVE_SLOT_LIMITS = { free: 1, elite: 2, primordial: 3 }
+
+export function getGanguesSaveSlotLimit(tier) {
+  return GANGUES_SAVE_SLOT_LIMITS[tier] || GANGUES_SAVE_SLOT_LIMITS.free
+}
+
 // ── Modo história: teto de time de batalha + elenco que cresce por recrutamento ──
 // Bairro é gangue contra gangue (bando inimigo sorteado, calibrado contra o
 // total de pontos do seu time — ver data/ganguesEncontros.js) — o time que

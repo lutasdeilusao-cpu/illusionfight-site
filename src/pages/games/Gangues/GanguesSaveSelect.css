@@ -1,0 +1,33 @@
+.gang-saves { padding: 22px 14px 28px; }
+.gang-saves__head { margin: 12px 0 20px; text-align: center; }
+.gang-saves__head h1 {
+  margin: 0 0 6px; color: var(--if-amber); font: 900 clamp(1.8rem, calc(9 * var(--app-vw) / 100), 2.6rem)/1 var(--font-title);
+  letter-spacing: .06em; text-transform: uppercase;
+}
+.gang-saves__head p { margin: 0; color: var(--text-secondary); font-size: .78rem; }
+
+.gang-saves__vazio { margin: 24px 0; color: var(--text-secondary); text-align: center; font-size: .82rem; }
+
+.gang-saves__lista { display: grid; gap: 12px; margin-bottom: 16px; }
+
+.gang-saves__card-shell { position: relative; }
+.gang-saves__card {
+  width: 100%; min-height: 96px; padding: 14px 52px 14px 16px; display: grid; gap: 4px; text-align: left;
+  border: 1px solid var(--if-hair); background: linear-gradient(105deg, var(--if-cyan-08), var(--if-panel-flat));
+  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%);
+}
+.gang-saves__card:disabled { opacity: .55; }
+.gang-saves__card-index { color: var(--if-cyan); font: 800 .6rem var(--font-mono); letter-spacing: .16em; text-transform: uppercase; }
+.gang-saves__card-nome { color: var(--text-primary); font: 900 1.3rem/1.05 var(--font-title); text-transform: uppercase; }
+.gang-saves__card-meta { display: flex; justify-content: space-between; color: var(--text-secondary); font: 700 .64rem var(--font-mono); text-transform: uppercase; }
+.gang-saves__card-cta { margin-top: 2px; color: var(--if-amber); font: 800 .66rem var(--font-mono); letter-spacing: .08em; text-transform: uppercase; }
+
+.gang-saves__card-delete {
+  position: absolute; top: 10px; right: 10px; width: 32px; height: 32px;
+  display: grid; place-items: center; border: 1px solid rgba(255, 107, 107, .5);
+  background: rgba(255, 107, 107, .1); color: #ff6b6b; font: 700 15px var(--font-mono);
+  clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 0 100%);
+}
+.gang-saves__card-delete:hover { background: #e0453f; border-color: #ff6b6b; color: #fff; }
+
+.gang-saves__limite { margin-top: 6px; padding: 12px; border: 1px dashed var(--if-hair); color: var(--text-secondary); text-align: center; font-size: .74rem; }

@@ -229,31 +229,33 @@ pra não confundir quem for mexer depois: ou usa esse conteúdo pra inimigos fut
 
 ## 12. Persistência
 
+- **Save slots (migration 034)**: uma conta logada pode ter várias gangues em paralelo — cada
+  gangue é uma linha em `gangues_story_progress`, identificada por `id` (não mais por `user_id`,
+  que agora é só uma FK indexada). `GanguesSaveSelect.jsx` é a tela que lista, cria e apaga saves
+  antes do lobby; `store._saveId`/`store.selecionarSave(saveId)` guardam qual save está aberto.
+  Quantos saves por conta é regra de app (`GANGUES_SAVE_SLOT_LIMITS` em `ganguesLoadout.js`, hoje
+  1/2/3 por tier free/elite/primordial), não constraint de banco.
 - Usuário logado: ficha salva em Supabase, tabela `character_sheets` (`saveToCloud`/`loadSheets`
-  em `store/useGanguesStore.js`). Tem fallback de compatibilidade pra schema antigo
-  (`combat_style` em vez de `combat_path`) até a migration 025 rodar em produção.
-- Guest (sem conta): ficha fica só em memória (`addLocalSheet`), banner avisa que não salva.
-- Progresso de "gangue" (`activeParty`, tamanho liberado) depende do XP salvo nas fichas —
-  se joga sem conta, some ao recarregar a página.
+  em `store/useGanguesStore.js`), escopada por `save_id` (coluna opcional — a tabela é
+  compartilhada com "Lendas do LDI", que nunca preenche essa coluna).
+- Guest (sem conta): ficha fica só em memória (`addLocalSheet`), banner avisa que não salva. Guest
+  não passa pela tela de saves — não existe conceito de save fora de conta logada.
 - **AP/XP/atributos/especiais equipados vão pro Supabase, não pro localStorage.** Todo o estado
   de progressão (`sheet.attributes.progression`: ap, xp_unspent, special_path, special_levels,
   selected_specials) é salvo dentro da própria coluna `attributes` (JSONB) de `character_sheets`
-  — não é uma tabela/coluna separada. `applyProgression` em `GanguesLobby.jsx` chama
-  `store.saveToCloud(user.id)` **a cada ação** de progressão (subir atributo, subir poder, trocar
-  subcaminho, equipar/desequipar) quando o usuário está logado; só cai pra memória da sessão
-  (`updateRosterSheet`) se for guest, igual ao resto da ficha. O módulo Gangues não usa
-  `localStorage`: recarregar a página apaga integralmente a partida do convidado.
+  — não é uma tabela/coluna separada. A tela de Progressão chama `store.saveToCloud(user.id)`
+  **a cada ação** de progressão (subir atributo, subir poder, trocar subcaminho, equipar/
+  desequipar) quando o usuário está logado; guest fica só na memória da sessão. O módulo Gangues
+  não usa `localStorage`: recarregar a página apaga integralmente a partida do convidado.
 - **Modo história (mapa de território + cenas) salva em Supabase, tabela
-  `gangues_story_progress`** (migration 031) — uma linha por usuário com `gang_name`,
-  `story_progress`, `cena_progresso`, `grana`, `rep`. `loadStoryProgress(userId)` carrega ao logar
-  (chamado em `GanguesRoute.jsx`); toda mutação (`marcarNoDominado`, `marcarPoiResolvido`,
-  `ganharGrana`, `ajustarFolego`, etc.) passa por `_persistStory()`, que faz upsert com debounce de
-  800ms — várias ações batem em sequência (marcar POI + fôlego + grana + rep) e não faz sentido um
-  write por campo. Guest (sem `_userId`) não persiste nada — fica só em memória e some ao sair,
-  igual à ficha; o banner do modo standalone já avisa isso. Antes disso o progresso vivia inteiro
-  em `localStorage` (`ldi-gangues-story`/`ldi-gangues-cena`/`ldi-gangues-nome`), então até quem
-  tinha conta perdia tudo ao trocar de dispositivo ou limpar dados do navegador — bug corrigido
-  nesta migration.
+  `gangues_story_progress`** — uma linha por SAVE (não mais por usuário, ver save slots acima)
+  com `gang_name`, `story_progress`, `cena_progresso`, `grana`, `rep`. `loadStoryProgress(saveId)`
+  carrega ao abrir um save (`store.selecionarSave`); toda mutação (`marcarNoDominado`,
+  `marcarPoiResolvido`, `ganharGrana`, `ajustarFolego`, etc.) passa por `_persistStory()`, que faz
+  update com debounce de 800ms — várias ações batem em sequência (marcar POI + fôlego + grana +
+  rep) e não faz sentido um write por campo. Guest ou quem ainda não abriu um save (sem
+  `_saveId`) não persiste nada — fica só em memória e some ao sair, igual à ficha; o banner do
+  modo standalone já avisa isso.
 
 No lobby, fichas com XP disponível recebem um marcador. Ao tocar na ficha, o jogador escolhe
 entre abrir a progressão ou continuar a seleção da gangue. O painel só aparece após confirmação,
@@ -265,6 +267,7 @@ rola automaticamente até a área de evolução e continua usando as funções o
 ```
 src/pages/games/Gangues/
 ├── GanguesRoute.jsx          # shell, troca de fase, carrega i18n dedicado
+├── GanguesSaveSelect.jsx/css # lista/cria/apaga saves (gangues) de uma conta, antes do lobby
 ├── GanguesLobby.jsx          # onboarding, seleção de gangue e oponente
 ├── GanguesCreate.jsx         # criação: caminho → atributos (+ tutoriais NeoGuide)
 ├── GanguesCombat.jsx         # tela de batalha (chat, roster, ataque)
