@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.249.0'
+export const SITE_VERSION = '10.250.0'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '2.25.0' // feat: rodada grande de ajustes pedidos - (1) tela de SUBIU DE NIVEL redesenhada com a linguagem da ficha unificada (avatar por caminho, tags de ganho) em vez de paragrafos sem estilo; (2) lobby: card do elenco nao deixa mais excluir membro (member so sai destruindo a gangue inteira no save-select), tocar no card abre a ficha/progressao direto (igual recrutamento), selecionar pra equipe virou um selo pequeno no canto do card; (3) progressao: removida a linha "NV X: +1 atributo" do rodape (sem utilidade), mantido o grid de poderes por nivel; (4) mapa de Marelia: removida a barra "LDI // MARELIA", painel do territorio selecionado subiu pra cima do mapa e ficou compacto, tentando caber numa tela so sem scroll; (5) fix real: pinos/zonas repetiveis (sinal, molecada_1, molecada_2, rinha) ficavam AZUIS desde o inicio - agora comecam VERDES (padrao do territorio) e so viram azuis depois de vencidos uma vez, tanto o pino quanto a zona de entrada pontilhada; (6) "Bot de Treinamento" renomeado pra "Moleque da Bala", combinando com o resto do elenco de inimigos tematizado
+export const GANGUES_VERSION   = '2.26.0' // fix: mapa de Marelia ficou pequeno demais depois de compactar (2.25.0) - sobrava bastante espaco vazio embaixo. .gang-world__city vira flex-center (deixa o mapa crescer/centralizar de verdade em vez de so ter min-height fixo) e o mapa cresce de 230px pra 320px de largura (345->480px de altura) - usa o espaco que tava sobrando
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
 export const MINIGAMES_VERSION = '4.3.4'  // Glitch: safe-area lateral no grid-wrap

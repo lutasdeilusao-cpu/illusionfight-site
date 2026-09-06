@@ -3,7 +3,7 @@
 .gang-world__top>button { min-height:34px; padding:0 11px; border:1px solid var(--if-teal); background:var(--if-cyan-12); color:var(--if-teal); font:800 .6rem var(--font-mono); letter-spacing:.08em; text-transform:uppercase; }
 .gang-world__top>span { display:grid; text-align:right; color:var(--text-secondary); font:700 .5rem var(--font-mono); letter-spacing:.08em; text-transform:uppercase; }
 .gang-world__top b { color:var(--if-amber); font:900 1.1rem var(--font-display); }
-.gang-world__city { position:relative; min-height:360px; overflow:hidden; border-block:1px solid var(--if-hair); background:linear-gradient(180deg,var(--if-cyan-12),transparent 34%),radial-gradient(circle at 50% 42%,color-mix(in srgb,var(--if-violet) 16%,transparent),transparent 52%),var(--if-panel-flat); }
+.gang-world__city { position:relative; min-height:500px; display:flex; align-items:center; justify-content:center; overflow:hidden; border-block:1px solid var(--if-hair); background:linear-gradient(180deg,var(--if-cyan-12),transparent 34%),radial-gradient(circle at 50% 42%,color-mix(in srgb,var(--if-violet) 16%,transparent),transparent 52%),var(--if-panel-flat); }
 .gang-world__city::after { content:''; position:absolute; inset:0; pointer-events:none; background:repeating-linear-gradient(0deg,transparent 0 3px,var(--if-glass) 4px); opacity:.22; }
 .gang-world__sky { position:absolute; inset:20px 0 auto; height:120px; display:flex; align-items:flex-end; gap:4px; opacity:.22; }
 .gang-world__sky i { flex:1; height:45%; border:1px solid var(--if-teal); border-bottom:0; background:repeating-linear-gradient(90deg,transparent 0 12px,var(--if-cyan-12) 13px 15px); transform:skewY(-7deg); }
@@ -17,7 +17,7 @@
 /* Mapa político — regiões desenhadas no SVG (poly/cor de cada território),
    rótulos numerados sobrepostos via posição percentual (pos.top/left). Cada
    território é um bairro de Marelia, tipo zona de uma cidade de verdade. */
-.gang-world__map { position:relative; z-index:3; margin:6px auto 4px; aspect-ratio:100/150; width:min(100% - 28px, 230px); }
+.gang-world__map { position:relative; z-index:3; aspect-ratio:100/150; width:min(100% - 40px, 320px); max-height:100%; }
 .gang-world__svg { position:absolute; inset:0; width:100%; height:100%; overflow:visible; }
 .gang-world__region {
   fill:color-mix(in srgb, var(--regiao-cor) 14%, transparent);
