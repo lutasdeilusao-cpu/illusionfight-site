@@ -100,7 +100,7 @@ export default function GanguesCena({onNavigate}){
       const party=store.roster.slice(0,GANGUES_STORY_BATTLE_PARTY_MAX)
       pontosFixos=store.travarPontosFarm(cena.id,poi.id,calcularPontosTime(party))
     }
-    store.setStoryTarget({territorioId:terr.id,cenaId:cena.id,cenaPoiId:poi.id,cenaRevela:viraTreta?(revela||[]):(poi.revela||[]),cenaRecompensa:viraTreta?null:poi.recompensa||null,pontoIds:terr.pontos.map(p=>p.id),noId:chefe?cena.chefe.poiNo:null,enemyId:viraTreta?viraTreta.enemy:poi.enemy,fixo:Boolean(viraTreta),dificuldade:poi.dificuldade,isChefe:chefe,repDelta:viraTreta?.rep||0,pontosFixos})
+    store.setStoryTarget({territorioId:terr.id,cenaId:cena.id,cenaPoiId:poi.id,cenaRevela:viraTreta?(revela||[]):(poi.revela||[]),cenaRecompensa:viraTreta?(viraTreta.recompensa||null):poi.recompensa||null,pontoIds:terr.pontos.map(p=>p.id),noId:chefe?cena.chefe.poiNo:null,enemyId:viraTreta?viraTreta.enemy:poi.enemy,fixo:Boolean(viraTreta),dificuldade:poi.dificuldade,isChefe:chefe,repDelta:viraTreta?.rep||0,pontosFixos})
     onNavigate('story-combat')
   }
   const resolver=res=>{const poi=encontro.poi;setEncontro(null);if(res?.viraTreta){iniciarTreta(poi,{viraTreta:res.viraTreta,revela:res.revela});return}if(res?.custoGrana)store.gastarGrana(res.custoGrana);if(typeof res?.folego==='number')store.ajustarFolego(cena.id,res.folego);if(res?.informante)store.marcarInformante(res.informante);const r=res?.recompensa||{};if(r.grana)store.ganharGrana(r.grana);if(r.rep)store.ganharRep(r.rep);if(r.grana||r.rep||r.xp||r.item){setToast(r);setTimeout(()=>setToast(null),2600)}if(!poi.repetivel)store.marcarPoiResolvido(cena.id,poi.id,res?.revela||poi.revela||[]);else if(res?.revela)store.revelarPoi(cena.id,res.revela)}

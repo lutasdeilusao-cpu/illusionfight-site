@@ -468,6 +468,9 @@
       },
       "combat_tutorial": {
         "iniciativa": "Esta lista muestra quién ataca primero en esta ronda — cuanto mayor la Habilidad del luchador, antes juega.",
+        "escolher_alvo": "¿Hay más de un enemigo? Toca a quien quieras atacar para elegirlo como objetivo — matar al más débil primero o enfocar al más fuerte, tú decides.",
+        "ver_ficha": "Toca de nuevo a quien ya está elegido (o a cualquier aliado) para ver su ficha completa: atributos, PV y PM.",
+        "trash_talk": "Ese globito 💬 aquí arriba deja mandar una provocación al enemigo — gratis, solo para molestar.",
         "golpes": "Elige el golpe: ATAQUE NORMAL no cuesta nada. Los poderes gastan PM (o PV, según el poder) pero pegan más fuerte.",
         "atacar": "Después de elegir, toca ATACAR para resolver el turno. Repite hasta ganar o perder — puedes salir en cualquier momento con SAIR."
       },

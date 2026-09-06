@@ -52,7 +52,7 @@ export const CENA_PISTA = {
       // escolhas do papo: cada uma tem efeito próprio
       escolhas: [
         { id: 'compra', custoGrana: 4, recompensa: { rep: 0 }, revela: ['ferro'] },
-        { id: 'aperta', viraTreta: { enemy: 'treinamento', rep: -1 }, revela: ['ferro'] },
+        { id: 'aperta', viraTreta: { enemy: 'treinamento', rep: -1, recompensa: { grana: 4 } }, revela: ['ferro'] },
         { id: 'ignora', revela: ['ferro'] },
       ],
     },

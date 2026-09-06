@@ -468,6 +468,9 @@
       },
       "combat_tutorial": {
         "iniciativa": "This list shows who attacks first this round — the higher a fighter's Skill, the sooner they act.",
+        "escolher_alvo": "More than one enemy? Tap whoever you want to attack to pick them as your target — kill the weakest first or focus the strongest, your call.",
+        "ver_ficha": "Tap whoever's already targeted again (or any ally) to see their full sheet: attributes, PV and PM.",
+        "trash_talk": "That 💬 bubble up top lets you taunt the enemy — free, just for fun.",
         "golpes": "Choose the move: NORMAL ATTACK costs nothing. Powers cost PM (or PV, depending on the power) but hit harder.",
         "atacar": "After choosing, tap ATTACK to resolve the turn. Repeat until you win or lose — you can leave anytime via SAIR."
       },

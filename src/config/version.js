@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.252.0'
+export const SITE_VERSION = '10.253.0'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '2.28.0' // feat: tutorial da Briga em Multidao (GanguesMultidaoTutorial.jsx, novo) - explica o interruptor, que o alvo e sempre automatico (foca o inimigo mais fraco, sem escolha manual - por design), como alternar poderes por personagem e o botao AVANCAR RODADA; aparece 1x na primeira vez que o bando bate 6+. fix: nome dos inimigos no mini-roster de combate cortava em 7 caracteres (nome.slice(0,7)) - "Moleque da Pista" e "Moleque Valentao" ficavam identicos ("Moleque"), impossivel distinguir quem e quem com varios no bando. CSS ja tinha text-overflow:ellipsis pronto pra isso, o corte no JS so atrapalhava - removido, mostra o nome inteiro (trunca por CSS só quando nao cabe)
+export const GANGUES_VERSION   = '2.29.0' // feat: tutorial de combate normal (nao-multidao) ganhou 3 passos novos - escolher_alvo (tocar num inimigo ESCOLHE ele como alvo, ja funcionava, so ninguem sabia), ver_ficha (tocar de novo abre a ficha completa) e trash_talk (o balao de provocacao). Chave do localStorage mudou pra v2 pra quem ja tinha visto a v1 (3 passos) ver a versao completa. fix: fight repetivel "aperta o moleque" (sinal/treinamento) nao dava grana nenhuma no fim (cenaRecompensa sempre null pra qualquer viraTreta) - agora viraTreta aceita seu proprio campo recompensa, "aperta" ganhou +4 grana igual a rinha
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
 export const MINIGAMES_VERSION = '4.3.4'  // Glitch: safe-area lateral no grid-wrap
