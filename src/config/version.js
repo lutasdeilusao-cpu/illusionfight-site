@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.239.0'
+export const SITE_VERSION = '10.240.0'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '2.15.0' // fix: setas do carrossel de elenco no lobby alinhadas com a mesma altura do recrutamento (stage tinha sido encolhido de 390 pra 330px, desalinhando as setas); barra de acoes do card agora ancorada dentro do proprio stage em vez de depender da ordem dos irmaos. fix: "O beco da Molecada" (primeira treta da Pista, a mais facil) agora repetivel - era pra ser o alvo de farm pra quem acaba de recrutar um personagem novo no nivel 1, mas so tinha 1 chance
+export const GANGUES_VERSION   = '2.16.0' // fix: setas </> do carrossel de elenco no lobby estavam coladas no card em vez de nos cantos da tela como no recrutamento - .gang-lobby tem 24px de padding horizontal que o .gang-recruit do recrutamento nao tem, entao o stage nascia 48px mais estreito; agora o stage estoura esse padding (margin -24px) e ocupa a largura cheia da coluna, igual ao recrutamento
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
 export const MINIGAMES_VERSION = '4.3.4'  // Glitch: safe-area lateral no grid-wrap

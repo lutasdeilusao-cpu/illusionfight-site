@@ -241,6 +241,13 @@
    modificador) — os botões ‹/› precisam ficar na mesma altura relativa ao
    card nas duas telas, senão parecem "torto" comparado ao recrutamento. */
 .gang-roster-carousel { margin-top: 18px; }
+/* .gang-lobby tem padding horizontal de 24px (Gangues.css) — .gang-recruit
+   (recrutamento) não tem nenhum, então lá as setas ‹/› (left/right:5px do
+   PRÓPRIO stage) encostam quase na borda real da tela. Aqui, sem isso, o
+   stage nasce 48px mais estreito e as setas ficam bem mais perto do card
+   do que no recrutamento. Estoura o padding só no stage pra ele ocupar a
+   largura cheia da coluna, igual ao recrutamento. */
+.gang-roster-carousel .gang-recruit__stage { margin-left: -24px; margin-right: -24px; }
 /* Barra de ações grudada embaixo do card atual — vive DENTRO do próprio
    .gang-recruit__stage (posicionada em relação a ele), ancorada exatamente
    onde o card termina (top:18px + altura 350px = 368px) — assim não
