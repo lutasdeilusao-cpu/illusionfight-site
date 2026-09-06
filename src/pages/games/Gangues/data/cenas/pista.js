@@ -109,6 +109,11 @@ export const CENA_PISTA = {
     {
       id: 'molecada_2',
       tipo: 'treta',
+      // Regra geral (pedido do Isaias): todo evento de batalha da história
+      // deve poder ser repetido pra upar, exceto o chefe. Continua
+      // OBRIGATÓRIA vencer 1x pra abrir o portão (portao não depende dela
+      // aqui, mas fica revelada só depois de molecada_1+ferro+birosca).
+      repetivel: true,
       pino: { x: 44, y: 48 },
       i18n: 'games.gangues.cena.pista.molecada_2',
       // Segunda treta — dificuldade 'dificil' (o jogador já deve ter 1

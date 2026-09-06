@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.244.0'
+export const SITE_VERSION = '10.245.0'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '2.20.0' // fix: badge azul "is-farm" (cor + selo giratorio) so aplicava em p.repetivel && p.tipo==='treta' - POIs repetiveis que NAO sao treta (ex: 'sinal', tipo papo, virou repetivel na 2.19.0) continuavam verdes pra sempre mesmo sendo reutilizaveis de verdade. Badge azul agora usa so p.repetivel, independente do tipo
+export const GANGUES_VERSION   = '2.21.0' // feat: regra geral - todo evento de batalha da historia deve poder ser repetido pra upar (exceto chefe). "molecada_2" (segunda treta da Pista) agora repetivel, junto com molecada_1/rinha/sinal ja feitos antes - toda a Pista agora tem farm disponivel do inicio ao fim, so o chefe (Fumaca) continua unico
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
 export const MINIGAMES_VERSION = '4.3.4'  // Glitch: safe-area lateral no grid-wrap
