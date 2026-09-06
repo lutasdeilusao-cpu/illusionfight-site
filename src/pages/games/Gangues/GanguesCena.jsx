@@ -13,7 +13,13 @@ import { GANGUES_TERRITORIO_POR_ID } from './data/ganguesTerritorios.js'
 import './GanguesCena.css'
 
 const WORLD={w:760,h:1840}, SPAWN={x:380,y:1720}, TILE=20, STEP_MS=110, PLAYER_RADIUS=18
-const seenSceneIntros = new Set()
+// Igual aos outros tutoriais do NeoGuide (paths/atributos): guarda no
+// localStorage, não só em memória. Um Set em memória esquecia tudo a cada
+// recarregada de página — o jogador via a intro de novo toda vez que
+// voltava a entrar na Pista, mesmo já tendo visto antes.
+const SCENE_INTRO_KEY='ldi-gangues-cena-intro-vista'
+function cenaIntroJaVista(id){try{return JSON.parse(localStorage.getItem(SCENE_INTRO_KEY)||'[]').includes(id)}catch{return false}}
+function marcarCenaIntroVista(id){try{const atual=JSON.parse(localStorage.getItem(SCENE_INTRO_KEY)||'[]');if(!atual.includes(id))localStorage.setItem(SCENE_INTRO_KEY,JSON.stringify([...atual,id]))}catch{}}
 const POS={sinal:{x:210,y:1570},ferro:{x:150,y:1325},molecada_1:{x:445,y:1190},birosca:{x:170,y:1460},corre:{x:610,y:1010},molecada_2:{x:445,y:505},descanso:{x:205,y:1440},boss:{x:570,y:175}}
 const COLLIDERS=[
   {x:0,y:350,w:287,h:326},{x:473,y:350,w:287,h:326},
@@ -34,7 +40,7 @@ export default function GanguesCena({onNavigate}){
   const {t}=useLanguage(), store=useGanguesStore(), territorioId=store.storyTarget?.territorioId
   const cena=CENAS_POR_ID[territorioId]||null, terr=GANGUES_TERRITORIO_POR_ID[territorioId]||null
   const prog=store.cenaProgresso[cena?.id]||{resolvidos:{},revelados:{},boss:false,folego:100}
-  const [intro,setIntro]=useState(()=>Boolean(cena&&!seenSceneIntros.has(cena.id))),[player,setPlayer]=useState(()=>validPosition(prog.posicao)?prog.posicao:SPAWN),[facing,setFacing]=useState('up'),[encontro,setEncontro]=useState(null),[toast,setToast]=useState(null),[hint,setHint]=useState('Use o analógico para andar')
+  const [intro,setIntro]=useState(()=>Boolean(cena&&!cenaIntroJaVista(cena.id))),[player,setPlayer]=useState(()=>validPosition(prog.posicao)?prog.posicao:SPAWN),[facing,setFacing]=useState('up'),[encontro,setEncontro]=useState(null),[toast,setToast]=useState(null),[hint,setHint]=useState('Use o analógico para andar')
   const viewportRef=useRef(null),inputRef=useRef({x:0,y:0}),keysRef=useRef(new Set())
   const bossAberto=cena?portaoAberto(cena,prog.resolvidos):false, folego=prog.folego??100
   const pinos=useMemo(()=>{if(!cena)return[];const a=cena.pois.filter(p=>p.visivel||prog.revelados[p.id]).map(p=>({...p,world:POS[p.id],estado:estadoPoi(p,prog)}));a.push({...cena.chefe,world:POS.boss,estado:prog.boss?'resolvido':bossAberto?'disponivel':'trancado',ehChefe:true});return a.filter(p=>p.world)},[cena,prog,bossAberto])
@@ -68,7 +74,7 @@ export default function GanguesCena({onNavigate}){
     return()=>{cancelado=true;clearTimeout(timer)}
   },[intro,encontro,bossAberto])
   if(!cena||!terr)return <main className="gang-lobby"><button className="gang-new-sheet" onClick={()=>onNavigate('story')}>← MAPA</button></main>
-  const fecharIntro=()=>{seenSceneIntros.add(cena.id);setIntro(false)}
+  const fecharIntro=()=>{marcarCenaIntroVista(cena.id);setIntro(false)}
   const guardarPosicao=()=>store.salvarPosicaoCena(cena.id,player)
   const abrir=poi=>{if(!poi||poi.estado==='trancado')return;guardarPosicao();sfx.select();setEncontro({poi,vs:poi.tipo==='treta'})}
   const iniciarTreta=(poi,{viraTreta,revela}={})=>{const chefe=Boolean(poi.ehChefe);guardarPosicao();sfx.vs?.();store.setStoryTarget({territorioId:terr.id,cenaId:cena.id,cenaPoiId:poi.id,cenaRevela:viraTreta?(revela||[]):(poi.revela||[]),cenaRecompensa:viraTreta?null:poi.recompensa||null,pontoIds:terr.pontos.map(p=>p.id),noId:chefe?cena.chefe.poiNo:null,enemyId:viraTreta?viraTreta.enemy:poi.enemy,fixo:Boolean(viraTreta),dificuldade:poi.dificuldade,isChefe:chefe,repDelta:viraTreta?.rep||0});onNavigate('story-combat')}

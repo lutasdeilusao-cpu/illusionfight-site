@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.231.1'
+export const SITE_VERSION = '10.231.2'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '2.6.1' // fix pos-grade da Pista: reduz TILE de 40 pra 20px (grade grossa demais pulava corredores estreitos de entrada) + sincroniza a transicao CSS do mapa (.gang-cena-world) com a duracao do passo do boneco (STEP_MS) pra parar de tremer/dessincronizar a camera + insideZone vira overlap por raio (igual a colisao) em vez de ponto exato, porque as zonas de entrada tem so 35-80px e o centro do jogador raramente cai pixel-perfeito nelas com grade - testado: entra em contato e interage normalmente
+export const GANGUES_VERSION   = '2.6.2' // fix: intro da cena (NeoGuide "Isso aqui e a Pista...") repetia toda vez que a pagina recarregava - seenSceneIntros era um Set so em memoria, nunca persistia. Agora usa localStorage (ldi-gangues-cena-intro-vista), igual aos outros tutoriais do jogo. Testado: fecha a intro, recarrega a pagina inteira, entra nas mesma cena de novo - nao aparece mais
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
 export const MINIGAMES_VERSION = '4.3.4'  // Glitch: safe-area lateral no grid-wrap
