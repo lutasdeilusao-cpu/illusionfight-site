@@ -261,19 +261,6 @@
 .gang-cena-folego--big .gang-cena-folego-bar { width: 160px; height: 12px; }
 .gang-cena-folego--big b { font: 800 1.1rem var(--font-display); color: #fff; }
 
-/* bairro tomado */
-.gang-cena-tomado {
-  max-width: 38ch; margin: 18vh auto 0; text-align: center;
-  display: flex; flex-direction: column; align-items: center; gap: 12px;
-}
-.gang-cena-tomado h1 {
-  margin: 4px 0 0; font: 800 clamp(1.6rem, calc(9 * var(--app-vw) / 100), 2.1rem)/1 var(--font-display);
-  letter-spacing: 0.04em; color: #fff;
-  text-shadow: 0 0 24px color-mix(in srgb, var(--terr-cor) 45%, transparent);
-}
-.gang-cena-tomado p { margin: 0; font-size: 0.88rem; line-height: 1.55; color: #c7cdd6; }
-.gang-cena-tomado .gang-cena-btn { flex: none; min-width: 200px; margin-top: 8px; }
-
 /* ══ A Pista 2.4 — bairro explorável ═════════════════════════ */
 /* .gang-page (pai) desconta guest-notice + Rádio Nina (topo OU rodapé) via
    padding — quando a Rádio Nina toca ancorada no topo ela soma 54px
