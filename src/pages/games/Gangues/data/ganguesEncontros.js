@@ -101,9 +101,26 @@ export function gerarBandoInimigo({ territorioId, dificuldade = 'normal', player
   const totalAlvo = Math.max(qtd, Math.round(pontosJogador * ratio))
   const partes = distribuirPontos(totalAlvo, qtd)
 
-  return partes.map(pontos => {
+  const bando = partes.map(pontos => {
     const moldeId = config.moldes[Math.floor(Math.random() * config.moldes.length)]
     const molde = enemiesData.find(e => e.id === moldeId)
     return molde ? escalarInimigo(molde, pontos) : null
   }).filter(Boolean)
+
+  // O molde é sorteado por slot, sem exclusividade — é comum o mesmo tipo
+  // (ex: 'moleque_a') sair 2x+ no mesmo bando. Sem uma numeração, os dois
+  // aparecem com o nome idêntico na tela de combate, impossível de
+  // diferenciar (qual "Moleque da Pista" já perdi PV, qual eu quero focar).
+  // numeroInstancia marca a 2ª, 3ª... ocorrência de cada id repetido —
+  // fighterName() usa isso pra por " II", " III" etc no nome exibido.
+  const contagem = {}
+  bando.forEach(inimigo => { contagem[inimigo.id] = (contagem[inimigo.id] || 0) + 1 })
+  const visto = {}
+  bando.forEach(inimigo => {
+    if (contagem[inimigo.id] <= 1) return
+    visto[inimigo.id] = (visto[inimigo.id] || 0) + 1
+    inimigo.numeroInstancia = visto[inimigo.id]
+  })
+
+  return bando
 }

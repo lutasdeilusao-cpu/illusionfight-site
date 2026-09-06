@@ -18,7 +18,11 @@ const ONOMATOPEIAS = ['POW!', 'WHAM!', 'CRACK!', 'SLASH!', 'BOOM!', 'THWACK!']
 const randomOnoma = () => ONOMATOPEIAS[Math.floor(Math.random() * ONOMATOPEIAS.length)]
 function fighterName(t, member) {
   if (!member) return '?'
-  return member.side === 'enemy' ? (t(`games.gangues.enemy_names.${member.id}`) || member.name) : member.sheet_name
+  if (member.side !== 'enemy') return member.sheet_name
+  const base = t(`games.gangues.enemy_names.${member.id}`) || member.name
+  // Mesmo molde pode sair 2x+ no bando (ver gerarBandoInimigo) — sem isso os
+  // dois aparecem com nome idêntico, impossível diferenciar quem já apanhou.
+  return member.numeroInstancia ? `${base} (${member.numeroInstancia})` : base
 }
 
 function pickTrash(t, enemy, category) {

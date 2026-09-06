@@ -11,7 +11,11 @@ import { sfx } from '../../../lib/sfx'
 import './GanguesProgressionFlow.css'
 
 function combatantName(t, member) {
-  return member?.side === 'enemy' ? (t(`games.gangues.enemy_names.${member.id}`) || member.name) : member?.sheet_name
+  if (member?.side !== 'enemy') return member?.sheet_name
+  const base = t(`games.gangues.enemy_names.${member.id}`) || member.name
+  // Mesmo molde pode sair 2x+ no bando (ver gerarBandoInimigo) — numera pra
+  // não aparecer o mesmo nome duas vezes no relatório da batalha.
+  return member.numeroInstancia ? `${base} (${member.numeroInstancia})` : base
 }
 
 // Junta os eventos (atributo ganho, poder desbloqueado) de todo nível
