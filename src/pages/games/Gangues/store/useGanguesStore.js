@@ -162,21 +162,29 @@ export const useGanguesStore = create((set, get) => ({
   // inteiro pra alguém (custa 10 AP no nível 1) e ISSO é o esperado — subir
   // de nível numa primeira luta contra um alvo fraco não devia acontecer.
   gainApForParticipants: (totalAp, pesosPorId = {}) => {
-    const somaPesos = Object.values(pesosPorId).reduce((s, p) => s + (Number(p) || 0), 0) || 1
+    const ids = Object.keys(pesosPorId)
+    const somaPesos = ids.reduce((s, id) => s + (Number(pesosPorId[id]) || 0), 0) || 1
+    const apTotalInteiro = Math.round(Math.max(0, Number(totalAp) || 0))
+    // Fatia EXATA (fracionária) de cada um — usada de verdade pra converter
+    // em XP (addGanguesAp). O que aparece pro jogador (apPorMembro) usa
+    // "maior resto" pra arredondar SEM estourar o total: arredondar cada
+    // fatia sozinha (ex: 50/3 = 16.67 vira 17 pra todo mundo, 17×3=51) podia
+    // fazer a soma exibida passar do total real da luta.
+    const sharesExatas = {}
+    ids.forEach(id => { sharesExatas[id] = (Number(pesosPorId[id]) || 0) / somaPesos * Math.max(0, Number(totalAp) || 0) })
+    const apPorMembro = {}
+    let somaPisos = 0
+    ids.forEach(id => { const piso = Math.floor(sharesExatas[id]); apPorMembro[id] = piso; somaPisos += piso })
+    const sobra = apTotalInteiro - somaPisos
+    const ordemPorResto = [...ids].sort((a, b) => (sharesExatas[b] - Math.floor(sharesExatas[b])) - (sharesExatas[a] - Math.floor(sharesExatas[a])))
+    for (let i = 0; i < sobra && ordemPorResto.length; i++) apPorMembro[ordemPorResto[i % ordemPorResto.length]] += 1
+
     const levelUps = []
     let totalXp = 0
-    // AP (não XP) que cada participante efetivamente recebeu nesta luta —
-    // o que a tela de vitória mostra em destaque agora é ISSO, não o XP
-    // convertido (pedido explícito: "pontos de ação" é o número que importa
-    // pro jogador ver, o XP é só conta interna de conversão).
-    const apPorMembro = {}
     set(state => {
       const advance = member => {
         if (!(member.id in pesosPorId)) return member
-        const peso = Number(pesosPorId[member.id]) || 0
-        const share = (peso / somaPesos) * Math.max(0, Number(totalAp) || 0)
-        apPorMembro[member.id] = Math.round(share)
-        const resultado = addGanguesAp(member, share)
+        const resultado = addGanguesAp(member, sharesExatas[member.id])
         totalXp += resultado.earnedXp
         const next = { ...member, xp_total: (member.xp_total || 0) + resultado.earnedXp, attributes: { ...member.attributes, progression: resultado.progression } }
         const hydrated = member.character_type === 'template' ? hydrateGanguesTemplateSheet(next) : next

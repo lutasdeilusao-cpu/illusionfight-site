@@ -76,16 +76,16 @@ export default function GanguesVictory({ onNavigate }) {
   useEffect(() => {
     if (processed.current) return
     processed.current = true
-    // XP bônus da cena (storyAlvo.cenaRecompensa.xp) soma no AP base ANTES de
-    // repartir pelo time — sem isso o `xp` de cada POI em pista.js (inclusive
-    // o das tretas repetíveis) nunca era lido em lugar nenhum e toda vitória
-    // dava sempre o mesmo AP fixo, repetível ou não.
-    const recXp = emCena ? Number(storyAlvo.cenaRecompensa?.xp) || 0 : 0
-    // O total de AP escala com o tamanho do bando (1 inimigo = 10, 2 = 20,
-    // 3 = 30...) — bando maior, mais pontos pra dividir. Na derrota continua
-    // um AP simbólico fixo, sem relação com o bando.
+    // O total de AP é SEMPRE 10 por inimigo no bando (1 inimigo = 10, 2 = 20,
+    // 3 = 30...), regra fixa do Isaias — nada mais soma em cima disso. O
+    // campo `xp` que existia em alguns `recompensa` de treta em pista.js
+    // (cenaRecompensa.xp) era resquício de uma versão anterior, de ANTES
+    // dessa regra existir — somava por cima do pote e estourava o teto (ex:
+    // 10 do inimigo + 3 do POI = 13, quando o máximo devia ser 10). Removido
+    // por completo; recompensa de treta agora só participa via grana/rep.
+    // Na derrota continua um AP simbólico fixo, sem relação com o bando.
     const enemyCount = Math.max(1, report.combatants.filter(entry => entry.side === 'enemy').length)
-    const ap = victory ? 10 * enemyCount + recXp : 1
+    const ap = victory ? 10 * enemyCount : 1
     const participantIds = match.playerTeam.map(member => member.id)
     // Peso de cada um = quantos inimigos finalizou (peso MUITO maior) + dano
     // total causado — quem só ficou de espectador ainda participa do pote

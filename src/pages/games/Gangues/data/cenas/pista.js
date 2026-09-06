@@ -52,7 +52,7 @@ export const CENA_PISTA = {
       // escolhas do papo: cada uma tem efeito próprio
       escolhas: [
         { id: 'compra', custoGrana: 4, recompensa: { rep: 0 }, revela: ['ferro'] },
-        { id: 'aperta', viraTreta: { enemy: 'treinamento', rep: -1, recompensa: { grana: 4, xp: 3 } }, revela: ['ferro'] },
+        { id: 'aperta', viraTreta: { enemy: 'treinamento', rep: -1, recompensa: { grana: 4 } }, revela: ['ferro'] },
         { id: 'ignora', revela: ['ferro'] },
       ],
     },
@@ -63,7 +63,7 @@ export const CENA_PISTA = {
       i18n: 'games.gangues.cena.pista.ferro',
       puzzle: { type: 'forca', config: { difficulty: 'easy' }, skin: 'gazua' },
       recompensa: { grana: 12, xp: 6, item: 'sucata' },
-      falha: { viraTreta: { enemy: 'treinamento', recompensa: { grana: 3, xp: 3 } } },
+      falha: { viraTreta: { enemy: 'treinamento', recompensa: { grana: 3 } } },
       revela: ['molecada_1'],
     },
     {
@@ -84,7 +84,7 @@ export const CENA_PISTA = {
       enemy: 'moleque_a',
       forca: 1,
       dificuldade: 'normal',
-      recompensa: { grana: 8, rep: 2, xp: 10 },
+      recompensa: { grana: 8, rep: 2 },
       revela: ['birosca'],
     },
     {
@@ -121,7 +121,7 @@ export const CENA_PISTA = {
       enemy: 'moleque_b',
       forca: 2,
       dificuldade: 'dificil',
-      recompensa: { grana: 8, rep: 3, xp: 10 },
+      recompensa: { grana: 8, rep: 3 },
     },
     {
       // Treta repetível de farm: pode ser encarada quantas vezes o jogador
@@ -139,7 +139,7 @@ export const CENA_PISTA = {
       enemy: 'moleque_a',
       forca: 1,
       dificuldade: 'normal',
-      recompensa: { grana: 4, xp: 4 },
+      recompensa: { grana: 4 },
     },
     {
       // Reaproveitamento: continua na Pista mesmo depois dela virar
@@ -187,7 +187,7 @@ export const CENA_PISTA = {
     enemy: 'fumaca',
     forca: 3,
     boss: 'fumaca',
-    recompensa: { grana: 20, rep: 5, xp: 20 },
+    recompensa: { grana: 20, rep: 5 },
   },
 
   // A área final só abre depois de todo o caminho obrigatório da Pista.

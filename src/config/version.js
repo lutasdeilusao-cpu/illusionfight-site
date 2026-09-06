@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.267.0'
+export const SITE_VERSION = '10.268.0'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '2.43.0' // feat: tela de vitoria e a ficha (GanguesFichaCard) agora mostram PONTOS DE AÇÃO (AP), nao XP - o XP era so a conversao interna (10 AP = 1 XP no nivel 1) e nao tinha significado nenhum pro jogador ver, so confundia ("como assim +1 XP e o personagem subiu de nivel?"). gainApForParticipants agora tambem retorna apPorMembro (quanto AP cada personagem realmente recebeu da fatia), a tela de vitoria lista um item por personagem ("Trinca +7", "Muro +3"...) em vez de um unico "+N XP" somado. Ficha (gang-sheet-modal__xp) trocou o rotulo fixo "XP" por "PA"/"AP" (games.gangues.ficha_ap_label) - a barra sempre foi progression.ap, so o rotulo estava errado
+export const GANGUES_VERSION   = '2.44.0' // fix: total de AP de uma batalha estava estourando o teto de 10-por-inimigo (ex: bug real reportado, 1 inimigo dava 13 AP no total) - a causa era o campo `xp` de recompensa de treta em pista.js (cenaRecompensa.xp, resquicio de uma versao ANTERIOR a regra de "10 AP por inimigo" existir) sendo somado por cima do pote em GanguesVictory.jsx; removido o campo `xp` de toda recompensa de treta (sinal.aperta, ferro.falha, molecada_1, molecada_2, rinha, chefe) e a soma em cima do pote. fix: apPorMembro (numero exibido por personagem) agora usa arredondamento por "maior resto" em gainApForParticipants em vez de Math.round por pessoa - evita a soma exibida passar do total real em splits de 3+ personagens (ex: 50 AP / 3 pessoas dava 17+17+17=51 antes, agora fecha em 50). Testado com simulacao numerica reproduzindo o bug reportado antes de publicar
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
 export const MINIGAMES_VERSION = '4.3.4'  // Glitch: safe-area lateral no grid-wrap
