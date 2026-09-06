@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.253.0'
+export const SITE_VERSION = '10.254.0'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '2.29.0' // feat: tutorial de combate normal (nao-multidao) ganhou 3 passos novos - escolher_alvo (tocar num inimigo ESCOLHE ele como alvo, ja funcionava, so ninguem sabia), ver_ficha (tocar de novo abre a ficha completa) e trash_talk (o balao de provocacao). Chave do localStorage mudou pra v2 pra quem ja tinha visto a v1 (3 passos) ver a versao completa. fix: fight repetivel "aperta o moleque" (sinal/treinamento) nao dava grana nenhuma no fim (cenaRecompensa sempre null pra qualquer viraTreta) - agora viraTreta aceita seu proprio campo recompensa, "aperta" ganhou +4 grana igual a rinha
+export const GANGUES_VERSION   = '2.30.0' // feat: toda luta da Pista agora da grana, sem excecao - com PV/PM persistindo entre lutas (2.27.0), toda briga precisa render economicamente pra "descansar" fazer sentido. Faltavam 2: a treta de punicao do "ferro" (falha na gazua vira luta com o treinamento) ganhou +3 grana, e o chefe Fumaca (que nunca teve NENHUMA recompensa configurada) ganhou +20 grana e +5 rep. Os outros territorios (feira/baixada/vila/morro/alto/laje) ainda usam o sistema antigo de trilha, que nunca teve economia nenhuma - fica pendente pra quando esse conteudo for testado de verdade
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
 export const MINIGAMES_VERSION = '4.3.4'  // Glitch: safe-area lateral no grid-wrap

@@ -63,7 +63,7 @@ export const CENA_PISTA = {
       i18n: 'games.gangues.cena.pista.ferro',
       puzzle: { type: 'forca', config: { difficulty: 'easy' }, skin: 'gazua' },
       recompensa: { grana: 12, xp: 6, item: 'sucata' },
-      falha: { viraTreta: { enemy: 'treinamento' } },
+      falha: { viraTreta: { enemy: 'treinamento', recompensa: { grana: 3 } } },
       revela: ['molecada_1'],
     },
     {
@@ -182,6 +182,7 @@ export const CENA_PISTA = {
     enemy: 'fumaca',
     forca: 3,
     boss: 'fumaca',
+    recompensa: { grana: 20, rep: 5 },
   },
 
   // A área final só abre depois de todo o caminho obrigatório da Pista.
