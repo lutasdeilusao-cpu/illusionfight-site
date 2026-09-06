@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { motion } from 'framer-motion'
 import { useLanguage } from '../../../context/LanguageContext'
 import { useAuth } from '../../../context/AuthContext'
 import { useFichas } from '../../../context/FichasContext'
@@ -28,6 +29,8 @@ function lutadoresComPoderPraEquipar(party) {
 import './GanguesLobby.css'
 import './GanguesProgressionFlow.css'
 
+const PATH_MARKS = { atacante: 'A', defensor: 'D', mistico: 'M' }
+
 export default function GanguesLobby({ onNavigate }) {
   const { t } = useLanguage()
   const navigate = useNavigate()
@@ -38,7 +41,7 @@ export default function GanguesLobby({ onNavigate }) {
   const [avisoParty, setAvisoParty] = useState('')
   const [avisoPoderes, setAvisoPoderes] = useState(null) // { nomes } — poderes por equipar
   const [renomeando, setRenomeando] = useState(false)
-  const [elencoAberto, setElencoAberto] = useState(false)
+  const [rosterIndex, setRosterIndex] = useState(0)
   const roster = store.roster
   const party = store.activeParty
   // Cresce por tier pago OU por território dominado na história — vale o maior.
@@ -99,10 +102,10 @@ export default function GanguesLobby({ onNavigate }) {
   // O botão de batalha só avisa quando falta lutador — nunca bloqueia a tela.
   const tentarBatalha = () => {
     if (roster.length < GANGUES_INITIAL_PARTY_SIZE) {
-      sfx.cancel(); setElencoAberto(true); setAvisoParty(t('games.gangues.party.need_two', { n: roster.length })); return
+      sfx.cancel(); setAvisoParty(t('games.gangues.party.need_two', { n: roster.length })); return
     }
     if (party.length < GANGUES_INITIAL_PARTY_SIZE) {
-      sfx.cancel(); setElencoAberto(true); setAvisoParty(t('games.gangues.party.select_two', { n: party.length })); return
+      sfx.cancel(); setAvisoParty(t('games.gangues.party.select_two', { n: party.length })); return
     }
     setAvisoParty('')
 
@@ -138,14 +141,6 @@ export default function GanguesLobby({ onNavigate }) {
       </header>
       }
 
-      {isAdmin && (
-        <button className="gang-training-entry" onClick={() => onNavigate('training')}>
-          <span>⚙</span>
-          <span><strong>{t('games.gangues.training.entry')}</strong><small>{t('games.gangues.training.entry_desc')}</small></span>
-          <b>→</b>
-        </button>
-      )}
-
       {/* Onboarding só quando o elenco está VAZIO. Com 1 ficha, o jogador
           continua vendo a lista pra poder excluir também a última — nunca
           é empurrado pra criação por ter deletado alguém. */}
@@ -162,49 +157,32 @@ export default function GanguesLobby({ onNavigate }) {
         </section>
       ) : (
         <>
-          <div className="gang-home-actions">
-            <button className="gang-home-actions__roster" onClick={() => setElencoAberto(value => !value)}>
-              <span>{t('games.gangues.party.roster')}</span><strong>{party.length}/{partyLimit}</strong><b>{elencoAberto ? '−' : '+'}</b>
-            </button>
-            <button className="gang-home-actions__play" onClick={tentarBatalha}>{t('games.gangues.modes.abrir')} <b>→</b></button>
-          </div>
-          {elencoAberto && <section className="gang-roster-drawer">
-          <div className="gang-lobby-section-label gang-lobby-section-label--row"><span>{t('games.gangues.party.roster')}</span><span>{roster.length}/{rosterLimit}</span></div>
-          <div className="gang-sheet-list">
-            {roster.map(member => {
-              const selected = party.some(item => item.id === member.id)
-              const unavailable = !selected && party.length >= partyLimit
-              const xpDisponivel = getGanguesProgression(member).xp_unspent
-              return (
-                <div key={member.id} className="gang-sheet-card-shell">
-                  <button disabled={unavailable} className={`gang-sheet-card-v ${selected ? 'gang-sheet-card-v--selected' : ''}`} onClick={() => handleSheetClick(member)}>
-                    <span className="gang-sheet-avatar">{member.sheet_name[0].toUpperCase()}</span>
-                    <span className="gang-sheet-info"><strong className="gang-sheet-name-v">{member.sheet_name}</strong><span className="gang-sheet-meta">{t(`games.gangues.loadout.paths.${member.combat_path}.name`)}</span><span className="gang-sheet-stats">{['A', 'H', 'R', 'D'].map(attr => <span key={attr} className="gang-sheet-stat"><span className="gang-sheet-stat-label">{attr}</span><b className="gang-sheet-stat-val">{member.attributes[attr]}</b></span>)}</span></span>
-                    <span className="gang-party-status">{selected ? '✓' : '+'}</span>
-                  </button>
-                  <div className="gang-sheet-card-side">
-                    <button className="gang-sheet-delete-btn gang-sheet-delete-btn--roster" onClick={() => deleteProgressionMember(member)} aria-label={t('games.gangues.progression.delete')}>×</button>
-                    {/* Ver ficha completa — atributos, PV/PM, subcaminho, poderes.
-                        É a mesma tela onde se gasta XP. */}
-                    <button className="gang-sheet-ficha" onClick={() => abrirProgressao(member)}>
-                      {t('games.gangues.progression.open_sheet')}
-                    </button>
-                    {xpDisponivel > 0 && (
-                      <button className="gang-sheet-levelup" onClick={() => abrirProgressao(member)}>
-                        {t('games.gangues.progression.xp_badge', { n: xpDisponivel })}
-                      </button>
-                    )}
-                  </div>
-                </div>
-              )
-            })}
-          </div>
+          <button className="gang-home-actions__play gang-home-actions__play--top" onClick={tentarBatalha}>{t('games.gangues.modes.abrir')} <b>→</b></button>
+
+          <RosterCarousel
+            roster={roster}
+            party={party}
+            partyLimit={partyLimit}
+            rosterLimit={rosterLimit}
+            rosterIndex={rosterIndex}
+            setRosterIndex={setRosterIndex}
+            handleSheetClick={handleSheetClick}
+            abrirProgressao={abrirProgressao}
+            deleteProgressionMember={deleteProgressionMember}
+            startRecruitment={startRecruitment}
+            t={t}
+          />
+
           <p className="gang-party-counter">{t('games.gangues.party_size_atual', { n: party.length, max: partyLimit })}</p>
           {avisoParty && <p className="gang-err">{avisoParty}</p>}
-          {/* Monta a dupla e segue pra seleção de modo (história / batalha).
-              Sempre clicável: se faltar lutador, avisa aqui em vez de bloquear. */}
-          {roster.length < rosterLimit && <button className="gang-new-sheet" onClick={startRecruitment}><span className="gang-new-sheet-icon">+</span>{t('games.gangues.recruitment.title')}</button>}
-          </section>}
+
+          {isAdmin && (
+            <button className="gang-training-entry" onClick={() => onNavigate('training')}>
+              <span>⚙</span>
+              <span><strong>{t('games.gangues.training.entry')}</strong><small>{t('games.gangues.training.entry_desc')}</small></span>
+              <b>→</b>
+            </button>
+          )}
         </>
       )}
       {avisoPoderes && (
@@ -224,5 +202,77 @@ export default function GanguesLobby({ onNavigate }) {
         {t('games.gangues.sair_do_jogo')}
       </button>
     </main>
+  )
+}
+
+/** Elenco em carrossel de cartinhas — mesma linguagem visual do recrutamento
+ *  (GanguesCreate): 3 cartas visíveis (prev/current/next), tocar na do meio
+ *  marca/desmarca pra batalha, tocar nas laterais só navega. */
+function RosterCarousel({ roster, party, partyLimit, rosterLimit, rosterIndex, setRosterIndex, handleSheetClick, abrirProgressao, deleteProgressionMember, startRecruitment, t }) {
+  useEffect(() => {
+    if (rosterIndex >= roster.length) setRosterIndex(0)
+  }, [roster.length, rosterIndex])
+
+  const move = (direction) => {
+    sfx.select()
+    setRosterIndex(index => (index + direction + roster.length) % roster.length)
+  }
+
+  const at = (offset) => roster[(rosterIndex + offset + roster.length) % roster.length]
+  const slides = roster.length > 1
+    ? [{ member: at(-1), position: 'prev' }, { member: at(0), position: 'current' }, { member: at(1), position: 'next' }]
+    : roster.map(member => ({ member, position: 'current' }))
+
+  const atual = at(0)
+  const xpDisponivel = atual ? getGanguesProgression(atual).xp_unspent : 0
+
+  return (
+    <section className="gang-roster-carousel">
+      <div className="gang-lobby-section-label gang-lobby-section-label--row"><span>{t('games.gangues.party.roster')}</span><span>{roster.length}/{rosterLimit}</span></div>
+
+      <div className="gang-recruit__stage gang-recruit__stage--roster">
+        <div className="gang-recruit__street" aria-hidden="true"><i /><i /><i /></div>
+        {roster.length > 1 && <button className="gang-recruit__arrow gang-recruit__arrow--left" onClick={() => move(-1)}>‹</button>}
+        <div className="gang-recruit__slides">
+          {slides.map(({ member, position }) => {
+            const selected = party.some(item => item.id === member.id)
+            const unavailable = !selected && party.length >= partyLimit
+            return (
+              <motion.button
+                key={`${position}-${member.id}`}
+                disabled={position === 'current' && unavailable}
+                className={`gang-fighter-card gang-fighter-card--${position} gang-fighter-card--${member.combat_path}${selected ? ' gang-fighter-card--selected' : ''}`}
+                onClick={() => position === 'current' ? handleSheetClick(member) : move(position === 'prev' ? -1 : 1)}
+                initial={{ opacity: 0, scale: .9 }}
+                animate={{ opacity: 1, scale: 1 }}
+              >
+                <span className="gang-fighter-card__number">#{String(roster.indexOf(member) + 1).padStart(2, '0')}</span>
+                {selected && <span className="gang-fighter-card__selected">✓ {t('games.gangues.party.selected')}</span>}
+                <span className="gang-fighter-card__portrait" aria-hidden="true"><i>{member.sheet_name[0].toUpperCase()}</i><b>{PATH_MARKS[member.combat_path]}</b></span>
+                <span className="gang-fighter-card__copy">
+                  <small>{t(`games.gangues.loadout.paths.${member.combat_path}.name`)}</small>
+                  <strong>{member.sheet_name}</strong>
+                  <em>{['A', 'H', 'R', 'D'].map(attr => `${attr}${member.attributes[attr]}`).join(' · ')}</em>
+                </span>
+                <span className="gang-fighter-card__cta">{selected ? t('games.gangues.party.remover') : t('games.gangues.party.select')}</span>
+              </motion.button>
+            )
+          })}
+        </div>
+        {roster.length > 1 && <button className="gang-recruit__arrow gang-recruit__arrow--right" onClick={() => move(1)}>›</button>}
+      </div>
+
+      {roster.length > 1 && <div className="gang-recruit__dots">
+        {roster.map((member, index) => <button key={member.id} className={index === rosterIndex ? 'is-active' : ''} onClick={() => setRosterIndex(index)} />)}
+      </div>}
+
+      {atual && <div className="gang-roster-carousel__actions">
+        <button className="gang-sheet-delete-btn gang-sheet-delete-btn--roster" onClick={() => deleteProgressionMember(atual)} aria-label={t('games.gangues.progression.delete')}>×</button>
+        <button className="gang-sheet-ficha" onClick={() => abrirProgressao(atual)}>{t('games.gangues.progression.open_sheet')}</button>
+        {xpDisponivel > 0 && <button className="gang-sheet-levelup" onClick={() => abrirProgressao(atual)}>{t('games.gangues.progression.xp_badge', { n: xpDisponivel })}</button>}
+      </div>}
+
+      {roster.length < rosterLimit && <button className="gang-new-sheet" onClick={startRecruitment}><span className="gang-new-sheet-icon">+</span>{t('games.gangues.recruitment.title')}</button>}
+    </section>
   )
 }

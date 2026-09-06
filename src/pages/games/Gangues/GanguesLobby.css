@@ -223,3 +223,22 @@
 .gang-home-actions .gang-home-actions__play { border-color: var(--if-amber); background: var(--if-amber); color: var(--bg-primary); }
 .gang-home-actions .gang-home-actions__play b { margin-left: auto; color: var(--bg-primary); }
 .gang-roster-drawer { margin-top: 12px; padding: 13px 10px; border: 1px solid var(--if-hair); background: var(--if-panel-flat); }
+
+/* Botão de batalha promovido pro topo do lobby — mesma cara do play de
+   dentro de .gang-home-actions, mas sem depender daquele wrapper. */
+.gang-lobby .gang-home-actions__play--top {
+  width: 100%; min-height: 58px; margin-top: 14px; padding: 0 16px;
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  border: 1px solid var(--if-amber); background: var(--if-amber); color: var(--bg-primary);
+  font: 800 .78rem var(--font-mono); letter-spacing: .1em; text-transform: uppercase;
+  clip-path: polygon(0 0, calc(100% - 11px) 0, 100% 11px, 100% 100%, 0 100%);
+}
+.gang-lobby .gang-home-actions__play--top b { color: var(--bg-primary); font-size: 1.1rem; }
+
+/* Elenco em carrossel — reaproveita o visual do recrutamento (.gang-fighter-card
+   e companhia), só mais baixo pois não tem cabeçalho de texto acima. */
+.gang-roster-carousel { margin-top: 18px; }
+.gang-recruit__stage--roster { height: 330px; }
+.gang-recruit__stage--roster .gang-fighter-card--current { top: 4px; }
+.gang-recruit__stage--roster .gang-fighter-card--prev, .gang-recruit__stage--roster .gang-fighter-card--next { top: 30px; }
+.gang-roster-carousel__actions { display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 10px; }

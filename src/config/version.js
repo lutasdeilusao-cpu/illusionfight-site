@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.234.0'
+export const SITE_VERSION = '10.235.0'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '2.10.0' // feat: time de batalha agora cresce com quem voce recrutou, nao com XP acumulado. getGanguesPartySizeLimit exigia 50/150/300/500 XP total pra liberar o 3o/4o/5o/6o lugar - com o sistema novo de personagens fixos isso nao bate mais com "recrutei mais gente, quero levar mais gente". Removida a funcao e o threshold (dead code), GanguesLobby agora usa min(roster.length, GANGUES_MAX_PARTY_SIZE=6) direto
+export const GANGUES_VERSION   = '2.11.0' // feat: lobby redesenhado - "ESCOLHER MODO DE JOGO" subiu pro topo, elenco agora aparece direto em carrossel de cartinhas (mesmo visual do recrutamento) em vez de lista vertical escondida atras de um toggle, Zona de Treinamento (admin) desceu pra perto do SAIR
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
 export const MINIGAMES_VERSION = '4.3.4'  // Glitch: safe-area lateral no grid-wrap
