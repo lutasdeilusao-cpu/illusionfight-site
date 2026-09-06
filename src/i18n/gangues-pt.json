@@ -1360,7 +1360,10 @@
         "comecar_historia": "COMEÇAR A HISTÓRIA",
         "bloqueado": "Bloqueado",
         "batalha_bloqueada_desc": "Confrontos avulsos serão liberados em uma atualização futura. Primeiro, construa sua história em Marelia.",
-        "em_breve": "EM BREVE"
+        "em_breve": "EM BREVE",
+        "multiplayer_titulo": "MULTIPLAYER ONLINE",
+        "multiplayer_tag": "Em grupo",
+        "multiplayer_bloqueada_desc": "Partidas online contra outras gangues chegam em uma atualização futura."
       },
       "naming": {
         "titulo": "FUNDE A SUA GANGUE",

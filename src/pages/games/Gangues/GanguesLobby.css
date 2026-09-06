@@ -241,4 +241,21 @@
 .gang-recruit__stage--roster { height: 330px; }
 .gang-recruit__stage--roster .gang-fighter-card--current { top: 4px; }
 .gang-recruit__stage--roster .gang-fighter-card--prev, .gang-recruit__stage--roster .gang-fighter-card--next { top: 30px; }
-.gang-roster-carousel__actions { display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 10px; }
+/* Barra de ações grudada embaixo do card atual — parece extensão do card
+   (mesma largura, borda contínua), não uma fileira de botões soltos. */
+.gang-roster-carousel__actions {
+  width: 242px; max-width: 100%; margin: -1px auto 0; padding: 0;
+  display: flex; align-items: stretch;
+  border: 1px solid var(--if-hair); border-top: none;
+  background: var(--if-panel-flat);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+  overflow: hidden;
+}
+.gang-roster-carousel__actions button {
+  flex: 1; min-height: 40px; border: 0; border-right: 1px solid var(--if-hair);
+  border-radius: 0; clip-path: none; background: transparent;
+}
+.gang-roster-carousel__actions button:last-child { border-right: 0; }
+.gang-roster-carousel__actions .gang-sheet-delete-btn { flex: 0 0 40px; background: transparent; }
+.gang-roster-carousel__actions .gang-sheet-levelup { animation: none; background: var(--if-amber-16); }
+@media (max-width: 370px) { .gang-roster-carousel__actions { width: 220px; } }

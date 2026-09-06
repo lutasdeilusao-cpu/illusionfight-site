@@ -1770,7 +1770,10 @@
         "comecar_historia": "START THE STORY",
         "bloqueado": "Locked",
         "batalha_bloqueada_desc": "One-off battles will arrive in a future update. First, build your story in Marelia.",
-        "em_breve": "COMING SOON"
+        "em_breve": "COMING SOON",
+        "multiplayer_titulo": "ONLINE MULTIPLAYER",
+        "multiplayer_tag": "Group",
+        "multiplayer_bloqueada_desc": "Online matches against other gangs arrive in a future update."
       },
       "naming": {
         "titulo": "FOUND YOUR GANG",

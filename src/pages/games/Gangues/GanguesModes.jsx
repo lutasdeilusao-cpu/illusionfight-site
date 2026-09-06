@@ -58,6 +58,16 @@ export default function GanguesModes({ onNavigate }) {
           <small className="gang-modes-card-desc">{t('games.gangues.modes.batalha_bloqueada_desc')}</small>
           <span className="gang-modes-card-cta">{t('games.gangues.modes.em_breve')}</span>
         </motion.div>
+
+        <motion.div className="gang-modes-card gang-modes-card--multiplayer gang-modes-card--locked"
+          initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.26 }}>
+          <span className="gang-modes-card-index">03</span>
+          <span className="gang-modes-lock" aria-hidden="true">⊘</span>
+          <span className="gang-modes-card-tag">{t('games.gangues.modes.bloqueado')}</span>
+          <strong className="gang-modes-card-titulo">{t('games.gangues.modes.multiplayer_titulo')}</strong>
+          <small className="gang-modes-card-desc">{t('games.gangues.modes.multiplayer_bloqueada_desc')}</small>
+          <span className="gang-modes-card-cta">{t('games.gangues.modes.em_breve')}</span>
+        </motion.div>
       </div>
 
       {gangueAberta && <div className="gang-modes-party-modal" onClick={() => setGangueAberta(false)}>

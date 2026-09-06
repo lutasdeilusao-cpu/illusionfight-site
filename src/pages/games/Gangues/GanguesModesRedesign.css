@@ -74,8 +74,9 @@ button.gang-modes-card { cursor: pointer; }
 .gang-modes-card-desc { max-width: 35ch; color: var(--text-secondary); font-size: .75rem; line-height: 1.45; }
 .gang-modes-card-cta { margin-top: 7px; color: var(--modo-cor); font: 800 .68rem var(--font-mono); letter-spacing: .1em; }
 .gang-modes-card--batalha { --modo-cor: var(--if-teal); min-height: 145px; }
+.gang-modes-card--multiplayer { --modo-cor: var(--if-violet); min-height: 145px; }
 .gang-modes-card--locked { opacity: .42; filter: grayscale(.6); }
-.gang-modes-lock { position: absolute; right: 20px; top: 28px; color: var(--if-teal); font: 300 3.2rem/1 var(--font-display); }
+.gang-modes-lock { position: absolute; right: 20px; top: 28px; color: var(--modo-cor); font: 300 3.2rem/1 var(--font-display); }
 @media (prefers-reduced-motion: reduce) { .gang-modes-card { transition: none; } }
 .gang-naming { justify-content:center; }
 .gang-naming-poster { width:100%; margin:auto 0; padding:24px 18px 20px; border:1px solid var(--if-amber); border-left-width:4px; background:repeating-linear-gradient(165deg,transparent 0 25px,var(--if-amber-16) 26px 27px),linear-gradient(145deg,var(--if-amber-16),var(--if-panel-flat) 48%,var(--bg-primary)); box-shadow:0 24px 70px -42px var(--if-amber); clip-path:polygon(0 0,calc(100% - 16px) 0,100% 16px,100% 100%,0 100%); }
