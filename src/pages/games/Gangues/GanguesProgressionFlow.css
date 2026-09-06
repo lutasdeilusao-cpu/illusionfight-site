@@ -304,3 +304,52 @@
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
+
+/* ══════════════════════════════════════════════════════════════
+   Painel de RECOMPENSA na tela de vitória — antes o XP/grana/rep
+   ganho na luta era aplicado em silêncio, sem aparecer em lugar
+   nenhum pro jogador. Mesma linguagem visual do resto (clip-path
+   de canto cortado, amber/cyan/violet).
+   ══════════════════════════════════════════════════════════════ */
+.gang-reward-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin: 4px 16px 0;
+  padding: 14px 12px 16px;
+  border: 1px solid var(--if-hair);
+  background: radial-gradient(circle at 50% 0, rgba(245, 166, 35, 0.1), transparent 55%), var(--if-panel-flat);
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%);
+}
+.gang-reward-panel__kicker {
+  font: 800 0.62rem var(--font-mono);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+.gang-reward-panel__items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+.gang-reward-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  min-width: 84px;
+  padding: 10px 14px;
+  border: 1px solid var(--if-hair);
+  background: rgba(255, 255, 255, 0.02);
+}
+.gang-reward-item b { font-size: 1.15rem; line-height: 1; }
+.gang-reward-item strong { font: 900 1.3rem var(--font-display); color: #fff; line-height: 1.1; }
+.gang-reward-item span { font: 700 0.56rem var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-secondary); }
+.gang-reward-item--xp { border-color: color-mix(in srgb, var(--if-cyan) 45%, transparent); box-shadow: 0 0 20px -8px var(--if-cyan-45); }
+.gang-reward-item--xp strong { color: var(--if-cyan); }
+.gang-reward-item--grana { border-color: color-mix(in srgb, #7ed957 45%, transparent); box-shadow: 0 0 20px -8px rgba(126, 217, 87, .45); }
+.gang-reward-item--grana strong { color: #7ed957; }
+.gang-reward-item--rep { border-color: color-mix(in srgb, var(--if-amber) 45%, transparent); box-shadow: 0 0 20px -8px var(--if-amber-45, rgba(245, 166, 35, .45)); }
+.gang-reward-item--rep strong { color: var(--if-amber); }

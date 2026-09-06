@@ -156,10 +156,15 @@ export const useGanguesStore = create((set, get) => ({
     const ids = new Set(participantIds)
     const share = ids.size > 0 ? Math.max(0, Number(amount) || 0) / ids.size : 0
     const levelUps = []
+    // Soma do earnedXp de cada participante — a tela de vitória mostra esse
+    // total pro jogador (sem isso, o XP de fato ganho na batalha nunca
+    // aparecia em lugar nenhum, só o AP bruto sumia em silêncio).
+    let totalXp = 0
     set(state => {
       const advance = member => {
         if (!ids.has(member.id)) return member
         const { progression, earnedXp } = addGanguesAp(member, share)
+        totalXp += earnedXp
         const next = { ...member, xp_total: (member.xp_total || 0) + earnedXp, attributes: { ...member.attributes, progression } }
         const hydrated = member.character_type === 'template' ? hydrateGanguesTemplateSheet(next) : next
         if (member.character_type === 'template' && hydrated.level > (member.level || 1)) {
@@ -175,7 +180,7 @@ export const useGanguesStore = create((set, get) => ({
         sheet: byId.get(state.sheet.id) || state.sheet,
       }
     })
-    return levelUps
+    return { levelUps, totalXp }
   },
 
   // Grava o PV/PM com que cada lutador do time SAIU da luta — é isso que faz

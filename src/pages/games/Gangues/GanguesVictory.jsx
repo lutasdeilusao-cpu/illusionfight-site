@@ -39,6 +39,10 @@ export default function GanguesVictory({ onNavigate }) {
   const victory = report.outcome === 'victory'
   const processed = useRef(false)
   const [levelUps, setLevelUps] = useState([])
+  // Recompensa de verdade ganha NESTA luta (XP total, grana, rep) — sem isso
+  // o jogador nunca via o que realmente ganhou, só via os números mudarem
+  // sozinhos em outra tela.
+  const [rewardSummary, setRewardSummary] = useState(null)
   const attacks = report.entries.filter(entry => entry.kind === 'attack_card')
   const playerDamage = attacks.filter(entry => entry.side === 'player').reduce((sum, entry) => sum + entry.dmg, 0)
   const enemyDamage = attacks.filter(entry => entry.side === 'enemy').reduce((sum, entry) => sum + entry.dmg, 0)
@@ -79,19 +83,24 @@ export default function GanguesVictory({ onNavigate }) {
     const recXp = emCena ? Number(storyAlvo.cenaRecompensa?.xp) || 0 : 0
     const ap = victory ? 10 + recXp : 1
     const participantIds = match.playerTeam.map(member => member.id)
-    setLevelUps(store.gainApForParticipants(ap, participantIds))
+    const { levelUps: newLevelUps, totalXp } = store.gainApForParticipants(ap, participantIds)
+    setLevelUps(newLevelUps)
     // Dano persiste entre lutas repetíveis dentro da mesma cena — sem isso
     // toda reentrada voltava com PV/PM cheios, e "descansar"/gastar grana
     // não tinha motivo de existir (ver prepare() em useGanguesTurnMachine.js).
     store.aplicarDanoPersistente(report.combatants)
     if (victory) {
       store.unlockNextEnemy(match.enemy_id)
+      let granaGanha = 0, repGanha = 0
       // Modo história — cena: marca o POI resolvido, aplica grana/rep e fôlego.
       if (emCena) {
         store.marcarPoiResolvido(storyAlvo.cenaId, storyAlvo.cenaPoiId, storyAlvo.cenaRevela || [])
-        if (storyAlvo.repDelta) store.ganharRep(storyAlvo.repDelta)
+        if (storyAlvo.repDelta) { store.ganharRep(storyAlvo.repDelta); repGanha += storyAlvo.repDelta }
         const rec = storyAlvo.cenaRecompensa
-        if (rec) { if (rec.grana) store.ganharGrana(rec.grana); if (rec.rep) store.ganharRep(rec.rep) }
+        if (rec) {
+          if (rec.grana) { store.ganharGrana(rec.grana); granaGanha += rec.grana }
+          if (rec.rep) { store.ganharRep(rec.rep); repGanha += rec.rep }
+        }
         store.ajustarFolego(storyAlvo.cenaId, -14)
         if (cenaChefe) {
           store.marcarBossCena(storyAlvo.cenaId)
@@ -105,6 +114,7 @@ export default function GanguesVictory({ onNavigate }) {
       }
       if (user?.id) registrarPontuacaoArenaRanking(user.id)
       if (confrontoFinal) store.completeCampaign()
+      setRewardSummary({ xp: totalXp, grana: granaGanha, rep: repGanha })
       sfx.win()
     } else sfx.lose()
     const timer = setTimeout(() => store.saveParticipantProgress(participantIds), 400)
@@ -187,6 +197,31 @@ export default function GanguesVictory({ onNavigate }) {
         <h1>{victory ? t('games.gangues.vitoria') : t('games.gangues.derrota')}</h1>
         <p>{victory ? t('games.gangues.report.victory_message') : t('games.gangues.report.defeat_message')}</p>
       </motion.header>
+
+      {/* Recompensa de verdade ganha nesta luta — logo abaixo do resultado,
+          antes de qualquer outra coisa, com pop-in escalonado por item. */}
+      {victory && rewardSummary && (rewardSummary.xp > 0 || rewardSummary.grana > 0 || rewardSummary.rep > 0) && (
+        <section className="gang-reward-panel">
+          <span className="gang-reward-panel__kicker">{t('games.gangues.report.rewards_title')}</span>
+          <div className="gang-reward-panel__items">
+            {rewardSummary.xp > 0 && (
+              <motion.div className="gang-reward-item gang-reward-item--xp" initial={{ scale: 0.5, opacity: 0, y: 10 }} animate={{ scale: 1, opacity: 1, y: 0 }} transition={{ delay: 0.35, type: 'spring', stiffness: 260, damping: 16 }}>
+                <b>⚡</b><strong>+{rewardSummary.xp}</strong><span>{t('games.gangues.report.reward_xp')}</span>
+              </motion.div>
+            )}
+            {rewardSummary.grana > 0 && (
+              <motion.div className="gang-reward-item gang-reward-item--grana" initial={{ scale: 0.5, opacity: 0, y: 10 }} animate={{ scale: 1, opacity: 1, y: 0 }} transition={{ delay: 0.5, type: 'spring', stiffness: 260, damping: 16 }}>
+                <b>💵</b><strong>+{rewardSummary.grana}</strong><span>{t('games.gangues.report.reward_grana')}</span>
+              </motion.div>
+            )}
+            {rewardSummary.rep > 0 && (
+              <motion.div className="gang-reward-item gang-reward-item--rep" initial={{ scale: 0.5, opacity: 0, y: 10 }} animate={{ scale: 1, opacity: 1, y: 0 }} transition={{ delay: 0.65, type: 'spring', stiffness: 260, damping: 16 }}>
+                <b>⚑</b><strong>+{rewardSummary.rep}</strong><span>{t('games.gangues.report.reward_rep')}</span>
+              </motion.div>
+            )}
+          </div>
+        </section>
+      )}
 
       {/* Ação principal logo abaixo do resultado — é o botão que mais importa
           (seguir em frente), não precisa rolar o log inteiro pra achar.

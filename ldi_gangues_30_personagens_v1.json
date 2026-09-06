@@ -52,19 +52,19 @@
     "atacante": {
       "id": "golpe_forcado",
       "name": "Golpe Forçado",
-      "pm_cost": 3,
+      "pm_cost": 2,
       "effect": "+1 FA no ataque atual"
     },
     "defensor": {
       "id": "guarda",
       "name": "Guarda",
-      "pm_cost": 3,
+      "pm_cost": 2,
       "effect": "+1 FD contra o próximo ataque recebido; o bônus é consumido depois"
     },
     "mistico": {
       "id": "ruptura",
       "name": "Ruptura",
-      "pm_cost": 3,
+      "pm_cost": 2,
       "effect": "-1 FD do alvo durante o ataque atual"
     }
   },
@@ -121,7 +121,7 @@
       "base_technique": {
         "id": "golpe_forcado",
         "name": "Golpe Forçado",
-        "pm_cost": 3,
+        "pm_cost": 2,
         "effect": "+1 FA no ataque atual"
       },
       "base_stats": {
@@ -417,7 +417,7 @@
       "base_technique": {
         "id": "golpe_forcado",
         "name": "Golpe Forçado",
-        "pm_cost": 3,
+        "pm_cost": 2,
         "effect": "+1 FA no ataque atual"
       },
       "base_stats": {
@@ -713,7 +713,7 @@
       "base_technique": {
         "id": "golpe_forcado",
         "name": "Golpe Forçado",
-        "pm_cost": 3,
+        "pm_cost": 2,
         "effect": "+1 FA no ataque atual"
       },
       "base_stats": {
@@ -1009,7 +1009,7 @@
       "base_technique": {
         "id": "golpe_forcado",
         "name": "Golpe Forçado",
-        "pm_cost": 3,
+        "pm_cost": 2,
         "effect": "+1 FA no ataque atual"
       },
       "base_stats": {
@@ -1305,7 +1305,7 @@
       "base_technique": {
         "id": "golpe_forcado",
         "name": "Golpe Forçado",
-        "pm_cost": 3,
+        "pm_cost": 2,
         "effect": "+1 FA no ataque atual"
       },
       "base_stats": {
@@ -1601,7 +1601,7 @@
       "base_technique": {
         "id": "golpe_forcado",
         "name": "Golpe Forçado",
-        "pm_cost": 3,
+        "pm_cost": 2,
         "effect": "+1 FA no ataque atual"
       },
       "base_stats": {
@@ -1897,7 +1897,7 @@
       "base_technique": {
         "id": "golpe_forcado",
         "name": "Golpe Forçado",
-        "pm_cost": 3,
+        "pm_cost": 2,
         "effect": "+1 FA no ataque atual"
       },
       "base_stats": {
@@ -2193,7 +2193,7 @@
       "base_technique": {
         "id": "golpe_forcado",
         "name": "Golpe Forçado",
-        "pm_cost": 3,
+        "pm_cost": 2,
         "effect": "+1 FA no ataque atual"
       },
       "base_stats": {
@@ -2489,7 +2489,7 @@
       "base_technique": {
         "id": "golpe_forcado",
         "name": "Golpe Forçado",
-        "pm_cost": 3,
+        "pm_cost": 2,
         "effect": "+1 FA no ataque atual"
       },
       "base_stats": {
@@ -2785,7 +2785,7 @@
       "base_technique": {
         "id": "golpe_forcado",
         "name": "Golpe Forçado",
-        "pm_cost": 3,
+        "pm_cost": 2,
         "effect": "+1 FA no ataque atual"
       },
       "base_stats": {
@@ -3081,7 +3081,7 @@
       "base_technique": {
         "id": "guarda",
         "name": "Guarda",
-        "pm_cost": 3,
+        "pm_cost": 2,
         "effect": "+1 FD contra o próximo ataque recebido; o bônus é consumido depois"
       },
       "base_stats": {
@@ -3377,7 +3377,7 @@
       "base_technique": {
         "id": "guarda",
         "name": "Guarda",
-        "pm_cost": 3,
+        "pm_cost": 2,
         "effect": "+1 FD contra o próximo ataque recebido; o bônus é consumido depois"
       },
       "base_stats": {
@@ -3673,7 +3673,7 @@
       "base_technique": {
         "id": "guarda",
         "name": "Guarda",
-        "pm_cost": 3,
+        "pm_cost": 2,
         "effect": "+1 FD contra o próximo ataque recebido; o bônus é consumido depois"
       },
       "base_stats": {
@@ -3969,7 +3969,7 @@
       "base_technique": {
         "id": "guarda",
         "name": "Guarda",
-        "pm_cost": 3,
+        "pm_cost": 2,
         "effect": "+1 FD contra o próximo ataque recebido; o bônus é consumido depois"
       },
       "base_stats": {
@@ -4265,7 +4265,7 @@
       "base_technique": {
         "id": "guarda",
         "name": "Guarda",
-        "pm_cost": 3,
+        "pm_cost": 2,
         "effect": "+1 FD contra o próximo ataque recebido; o bônus é consumido depois"
       },
       "base_stats": {
@@ -4561,7 +4561,7 @@
       "base_technique": {
         "id": "guarda",
         "name": "Guarda",
-        "pm_cost": 3,
+        "pm_cost": 2,
         "effect": "+1 FD contra o próximo ataque recebido; o bônus é consumido depois"
       },
       "base_stats": {
@@ -4857,7 +4857,7 @@
       "base_technique": {
         "id": "guarda",
         "name": "Guarda",
-        "pm_cost": 3,
+        "pm_cost": 2,
         "effect": "+1 FD contra o próximo ataque recebido; o bônus é consumido depois"
       },
       "base_stats": {
@@ -5153,7 +5153,7 @@
       "base_technique": {
         "id": "guarda",
         "name": "Guarda",
-        "pm_cost": 3,
+        "pm_cost": 2,
         "effect": "+1 FD contra o próximo ataque recebido; o bônus é consumido depois"
       },
       "base_stats": {
@@ -5449,7 +5449,7 @@
       "base_technique": {
         "id": "guarda",
         "name": "Guarda",
-        "pm_cost": 3,
+        "pm_cost": 2,
         "effect": "+1 FD contra o próximo ataque recebido; o bônus é consumido depois"
       },
       "base_stats": {
@@ -5745,7 +5745,7 @@
       "base_technique": {
         "id": "guarda",
         "name": "Guarda",
-        "pm_cost": 3,
+        "pm_cost": 2,
         "effect": "+1 FD contra o próximo ataque recebido; o bônus é consumido depois"
       },
       "base_stats": {
@@ -6041,7 +6041,7 @@
       "base_technique": {
         "id": "ruptura",
         "name": "Ruptura",
-        "pm_cost": 3,
+        "pm_cost": 2,
         "effect": "-1 FD do alvo durante o ataque atual"
       },
       "base_stats": {
@@ -6337,7 +6337,7 @@
       "base_technique": {
         "id": "ruptura",
         "name": "Ruptura",
-        "pm_cost": 3,
+        "pm_cost": 2,
         "effect": "-1 FD do alvo durante o ataque atual"
       },
       "base_stats": {
@@ -6633,7 +6633,7 @@
       "base_technique": {
         "id": "ruptura",
         "name": "Ruptura",
-        "pm_cost": 3,
+        "pm_cost": 2,
         "effect": "-1 FD do alvo durante o ataque atual"
       },
       "base_stats": {
@@ -6929,7 +6929,7 @@
       "base_technique": {
         "id": "ruptura",
         "name": "Ruptura",
-        "pm_cost": 3,
+        "pm_cost": 2,
         "effect": "-1 FD do alvo durante o ataque atual"
       },
       "base_stats": {
@@ -7225,7 +7225,7 @@
       "base_technique": {
         "id": "ruptura",
         "name": "Ruptura",
-        "pm_cost": 3,
+        "pm_cost": 2,
         "effect": "-1 FD do alvo durante o ataque atual"
       },
       "base_stats": {
@@ -7521,7 +7521,7 @@
       "base_technique": {
         "id": "ruptura",
         "name": "Ruptura",
-        "pm_cost": 3,
+        "pm_cost": 2,
         "effect": "-1 FD do alvo durante o ataque atual"
       },
       "base_stats": {
@@ -7817,7 +7817,7 @@
       "base_technique": {
         "id": "ruptura",
         "name": "Ruptura",
-        "pm_cost": 3,
+        "pm_cost": 2,
         "effect": "-1 FD do alvo durante o ataque atual"
       },
       "base_stats": {
@@ -8113,7 +8113,7 @@
       "base_technique": {
         "id": "ruptura",
         "name": "Ruptura",
-        "pm_cost": 3,
+        "pm_cost": 2,
         "effect": "-1 FD do alvo durante o ataque atual"
       },
       "base_stats": {
@@ -8409,7 +8409,7 @@
       "base_technique": {
         "id": "ruptura",
         "name": "Ruptura",
-        "pm_cost": 3,
+        "pm_cost": 2,
         "effect": "-1 FD do alvo durante o ataque atual"
       },
       "base_stats": {
@@ -8705,7 +8705,7 @@
       "base_technique": {
         "id": "ruptura",
         "name": "Ruptura",
-        "pm_cost": 3,
+        "pm_cost": 2,
         "effect": "-1 FD do alvo durante o ataque atual"
       },
       "base_stats": {

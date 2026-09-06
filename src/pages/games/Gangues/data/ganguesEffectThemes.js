@@ -28,12 +28,15 @@ export const GANGUES_EFFECT_THEMES = {
   terreno: T('138,109,59', ['🪨', '🌱'], 8),
   tempestade: T('201,168,255', ['⚡', '🌀'], 10),
   ilusorio: T('123,47,255', ['👁️', '🌫️'], 8),
+  // Técnicas base (golpe_forcado/guarda/ruptura) — as três SEMPRE equipadas,
+  // uma por caminho, não são "poder de nível" como os 75 de cima. Pedido
+  // explícito: mesmo efeito simples pras três classes (não emprestar visual
+  // de arquétipo nenhum), só pra dar uma diferença clara entre soco comum e
+  // "usei o poder inicial" — sem competir com os poderes de verdade.
+  basico: T('255,241,199', ['✨'], 6),
 }
 
-// Técnicas base (sempre equipadas, não são "poder de nível") — ganham um
-// tema leve emprestado do arquétipo mais próximo, só pra não ficar 100%
-// genérico, mas sem competir visualmente com os poderes de verdade.
-const BASE_TECHNIQUE_THEME = { golpe_forcado: 'bruto', guarda: 'muralha', ruptura: 'ilusorio' }
+const BASE_TECHNIQUE_THEME = { golpe_forcado: 'basico', guarda: 'basico', ruptura: 'basico' }
 
 let specialIdToTheme = null
 function buildSpecialIdToTheme() {

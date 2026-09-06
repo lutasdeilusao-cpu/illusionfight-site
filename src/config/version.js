@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.261.0'
+export const SITE_VERSION = '10.262.0'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '2.37.0' // feat: efeito visual proprio por poder usado em combate (novo data/ganguesEffectThemes.js) - os 75 poderes dos 30 personagens herdam o visual do seu arquetipo/special_path (15 arquetipos: bruto/duelista/furia/especialista/vingador, muralha/guardiao/provocador/reativo/resiliente, igneo/aquatico/terreno/tempestade/ilusorio), cada um com cor+glifos+contagem de particula proprios, tingindo o glow/borda/onda de choque/particulas/nome do poder na tela do dado (DramaticDice) via --fx-rgb, e o card do log de combate tambem ganha borda tingida + tag com nome do poder. Antes todo poder (base ou super poder desbloqueado no nivel 3+) usava o mesmo visual azul/laranja do soco comum - activeSpecialId (ja calculado em ganguesCombatResolver.js) agora chega em GanguesCombat.jsx e alimenta o tema
+export const GANGUES_VERSION   = '2.38.0' // feat: painel de recompensa na tela de vitoria (GanguesVictory.jsx) - mostra XP/grana/reputacao ganhos NESSA luta (antes era tudo aplicado em silencio, sem aparecer em lugar nenhum); gainApForParticipants agora retorna totalXp junto com levelUps. feat: tema visual "basico" unico e compartilhado pras 3 tecnicas base (golpe_forcado/guarda/ruptura, uma por caminho, sempre equipadas) em vez de emprestar o visual de um arquetipo de poder de verdade - mesmo efeito simples pras 3 classes, so pra diferenciar do soco puro sem competir com os super poderes. fix: custo de PM das 3 tecnicas base reduzido de 3 para 2 (ganguesSpecialEffects.js + base_technique.pm_cost nos 30 personagens do catalogo)
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
 export const MINIGAMES_VERSION = '4.3.4'  // Glitch: safe-area lateral no grid-wrap

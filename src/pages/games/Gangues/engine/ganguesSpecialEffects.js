@@ -14,9 +14,9 @@ import { getGanguesCharacter } from '../data/ganguesCharacters.js'
 const E = (type, values, cost = null) => ({ type, values, cost })
 
 const GANGUES_SPECIAL_EFFECTS = {
-  golpe_forcado: E('damage_flat', [1], { kind: 'pm', values: [3] }),
-  guarda: E('shield_next_hit', [1], { kind: 'pm', values: [3] }),
-  ruptura: E('reduce_target_defense', [1], { kind: 'pm', values: [3] }),
+  golpe_forcado: E('damage_flat', [1], { kind: 'pm', values: [2] }),
+  guarda: E('shield_next_hit', [1], { kind: 'pm', values: [2] }),
+  ruptura: E('reduce_target_defense', [1], { kind: 'pm', values: [2] }),
   // Bruto
   soco_de_ferro: E('damage_flat', [3, 5, 7], { kind: 'pm', values: [2, 2, 2] }),
   investida: E('bonus_if_target_fresh', [2, 3, 4], { kind: 'pm', values: [1, 1, 1] }),
