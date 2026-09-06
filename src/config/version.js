@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.251.0'
+export const SITE_VERSION = '10.252.0'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '2.27.0' // feat: PV/PM persistem entre lutas repetiveis na mesma cena - antes todo combatente entrava sempre com a barra cheia (prepare() em useGanguesTurnMachine.js sempre usava pvMax/pmMax), entao "descansar" e gastar grana na birosca nao tinham motivo de existir. Novo pv_atual/pm_atual em attributes (precisou ser preservado manualmente em normalizeGanguesLoadout e hydrateGanguesTemplateSheet, que reconstroem attributes do zero) guarda o dano; store.aplicarDanoPersistente grava ao fim de toda luta, store.restaurarPvPmTodos zera (cura total) ao descansar na birosca ou dominar o territorio. fix: tela de vitoria/derrota - botao principal (continuar) subiu pra logo abaixo do resultado em vez de escondido depois do log inteiro da batalha; removido o botao redundante "VOLTAR AO MAPA" quando ja tem o de continuar no bairro (o bairro tem seu proprio botao de volta ao mapa)
+export const GANGUES_VERSION   = '2.28.0' // feat: tutorial da Briga em Multidao (GanguesMultidaoTutorial.jsx, novo) - explica o interruptor, que o alvo e sempre automatico (foca o inimigo mais fraco, sem escolha manual - por design), como alternar poderes por personagem e o botao AVANCAR RODADA; aparece 1x na primeira vez que o bando bate 6+. fix: nome dos inimigos no mini-roster de combate cortava em 7 caracteres (nome.slice(0,7)) - "Moleque da Pista" e "Moleque Valentao" ficavam identicos ("Moleque"), impossivel distinguir quem e quem com varios no bando. CSS ja tinha text-overflow:ellipsis pronto pra isso, o corte no JS so atrapalhava - removido, mostra o nome inteiro (trunca por CSS só quando nao cabe)
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
 export const MINIGAMES_VERSION = '4.3.4'  // Glitch: safe-area lateral no grid-wrap

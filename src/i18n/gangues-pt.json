@@ -478,6 +478,12 @@
         "avancar_rodada": "AVANÇAR RODADA",
         "resolvendo": "Rolando os dados da rodada..."
       },
+      "multidao_tutorial": {
+        "interruptor": "Seu bando ficou grande (6+ na treta)! Liberou a BRIGA EM MULTIDÃO — ative esse interruptor aqui em cima pra resolver rodada por rodada, rápido, sem precisar escolher alvo toda hora.",
+        "alvo_automatico": "Nesse modo cada um dos seus sempre ataca o inimigo mais fraco automaticamente — não dá pra escolher o alvo na mão, é pensado pra limpar bando grande rápido.",
+        "poderes": "Toque no nome de um lutador aqui embaixo pra alternar entre ataque normal e os poderes dele — se tiver mais de um equipado, vai revezando entre eles a cada toque.",
+        "avancar": "Depois é só apertar AVANÇAR RODADA quantas vezes precisar até a treta acabar."
+      },
       "pag_atributos": "ATRIBUTOS",
       "pag_identidade": "IDENTIDADE",
       "pag_pericias": "PERÍCIAS",

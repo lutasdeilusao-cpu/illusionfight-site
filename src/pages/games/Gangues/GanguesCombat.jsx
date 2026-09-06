@@ -9,6 +9,7 @@ import { getGanguesProgression } from './data/ganguesLoadout.js'
 import { iniciarBrigaMultidao, avancarRodadaMultidao } from './engine/ganguesBrigaMultidao.js'
 import DramaticDice from './components/DramaticDice'
 import GanguesCombatTutorial from './components/GanguesCombatTutorial'
+import GanguesMultidaoTutorial from './components/GanguesMultidaoTutorial'
 import GanguesFichaCard from './components/GanguesFichaCard'
 import { sfx } from '../../../lib/sfx'
 import './GanguesCombatRedesign.css'
@@ -99,7 +100,7 @@ function Roster({ members, side, selectable, selectedKey, onSelect, actingKey, o
               <progress className="gang-mini-hp" max={member.pvMax || 1} value={Math.max(0, member.pv || 0)} />
               {acted && <span className="gang-mini-tag">✓</span>}
             </button>
-            <span className="gang-mini-nome">{nome.slice(0, 7)}</span>
+            <span className="gang-mini-nome">{nome}</span>
             <span className="gang-mini-bars" aria-label={nome}>
               <progress className="gang-mini-resource gang-mini-resource--pv" max={member.pvMax || 1} value={Math.max(0, member.pv || 0)} />
               <progress className="gang-mini-resource gang-mini-resource--pm" max={member.pmMax || 1} value={Math.max(0, member.pm || 0)} />
@@ -432,6 +433,7 @@ export default function GanguesCombat({ onNavigate }) {
             <small>{t('games.gangues.multidao.switch_label')}</small>
           </button>
         )}
+        {multidaoDisponivel && <GanguesMultidaoTutorial />}
         {!modoMultidaoAtivo && machine.phase === 'player' && !result && trashOptions.length >= 3 && (
           <div className="gang-trash-toggle-wrap">
             <button type="button" className="gang-trash-toggle" onClick={() => setTrashAberto(v => !v)} aria-label={t('games.gangues.combat_specials.provocar')}>💬</button>

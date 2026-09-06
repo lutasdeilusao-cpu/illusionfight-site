@@ -478,6 +478,12 @@
         "avancar_rodada": "SIGUIENTE RONDA",
         "resolvendo": "Tirando los dados de la ronda..."
       },
+      "multidao_tutorial": {
+        "interruptor": "¡Tu banda creció (6+ en la pelea)! Se desbloqueó la PELEA EN MULTITUD — activa este interruptor arriba para resolver ronda por ronda, rápido, sin elegir objetivo cada vez.",
+        "alvo_automatico": "En este modo, cada uno de los tuyos ataca siempre al enemigo más débil de forma automática — no se puede elegir el objetivo a mano, está pensado para limpiar una banda grande rápido.",
+        "poderes": "Toca el nombre de un luchador aquí abajo para alternar entre ataque normal y sus poderes — si tiene más de uno equipado, va alternando entre ellos a cada toque.",
+        "avancar": "Después solo toca AVANZAR RONDA las veces que haga falta hasta que termine la pelea."
+      },
       "pag_atributos": "ATRIBUTOS",
       "pag_identidade": "IDENTIDAD",
       "pag_pericias": "PERICIAS",

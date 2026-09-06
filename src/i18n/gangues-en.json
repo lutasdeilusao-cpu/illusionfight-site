@@ -478,6 +478,12 @@
         "avancar_rodada": "NEXT ROUND",
         "resolvendo": "Rolling this round's dice..."
       },
+      "multidao_tutorial": {
+        "interruptor": "Your crew got big (6+ in this fight)! MASS BATTLE unlocked — flip this switch up top to resolve round by round, fast, without picking a target every time.",
+        "alvo_automatico": "In this mode, each of yours always auto-attacks the weakest enemy — no manual targeting, it's built to clear a big crew fast.",
+        "poderes": "Tap a fighter's name down here to cycle between a normal attack and their powers — if they have more than one equipped, it rotates between them each tap.",
+        "avancar": "Then just tap NEXT ROUND as many times as it takes until the fight's over."
+      },
       "pag_atributos": "ATTRIBUTES",
       "pag_identidade": "IDENTITY",
       "pag_pericias": "SKILLS",
