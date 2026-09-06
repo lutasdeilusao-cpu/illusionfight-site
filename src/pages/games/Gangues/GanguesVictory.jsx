@@ -1,15 +1,29 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import { useAuth } from '../../../context/AuthContext'
 import { useLanguage } from '../../../context/LanguageContext'
 import { useGanguesStore } from './store/useGanguesStore'
 import { ehConfrontoFinal } from './data/ganguesTerritorios.js'
 import { getGanguesRosterLimitComHistoria } from './data/ganguesLoadout.js'
+import { getGanguesCharacter } from './data/ganguesCharacters.js'
 import { registrarPontuacaoArenaRanking } from '../../../hooks/useLeaderboardDB'
 import { sfx } from '../../../lib/sfx'
+import './GanguesProgressionFlow.css'
 
 function combatantName(t, member) {
   return member?.side === 'enemy' ? (t(`games.gangues.enemy_names.${member.id}`) || member.name) : member?.sheet_name
+}
+
+// Junta os eventos (atributo ganho, poder desbloqueado) de todo nível
+// cruzado nesta luta — cobre o caso raro de subir mais de um nível de uma
+// vez (bando grande, XP dividido mesmo assim empurrando 2 níveis).
+function eventosDoLevelUp(character, fromLevel, toLevel) {
+  const eventos = []
+  for (let lvl = fromLevel + 1; lvl <= toLevel; lvl++) {
+    const levelData = character.levels.find(item => item.level === lvl)
+    if (levelData) eventos.push(...levelData.events)
+  }
+  return eventos
 }
 
 export default function GanguesVictory({ onNavigate }) {
@@ -20,6 +34,7 @@ export default function GanguesVictory({ onNavigate }) {
   const report = match.battleReport || { outcome: match.status, entries: [], initiative: [], combatants: [], rounds: 0 }
   const victory = report.outcome === 'victory'
   const processed = useRef(false)
+  const [levelUps, setLevelUps] = useState([])
   const attacks = report.entries.filter(entry => entry.kind === 'attack_card')
   const playerDamage = attacks.filter(entry => entry.side === 'player').reduce((sum, entry) => sum + entry.dmg, 0)
   const enemyDamage = attacks.filter(entry => entry.side === 'enemy').reduce((sum, entry) => sum + entry.dmg, 0)
@@ -55,7 +70,7 @@ export default function GanguesVictory({ onNavigate }) {
     processed.current = true
     const ap = victory ? 10 : 1
     const participantIds = match.playerTeam.map(member => member.id)
-    store.gainApForParticipants(ap, participantIds)
+    setLevelUps(store.gainApForParticipants(ap, participantIds))
     if (victory) {
       store.unlockNextEnemy(match.enemy_id)
       // Modo história — cena: marca o POI resolvido, aplica grana/rep e fôlego.
@@ -79,10 +94,6 @@ export default function GanguesVictory({ onNavigate }) {
       sfx.win()
     } else sfx.lose()
     const timer = setTimeout(() => store.saveParticipantProgress(participantIds), 400)
-
-    // Ficha ganhou ponto parado nesta luta (ou já tinha)? Level up de verdade:
-    // manda direto pra tela de distribuição, igual qualquer jogo faria — não
-    // é só um aviso. O "voltar" de lá retoma exatamente o que aconteceria aqui.
     return () => clearTimeout(timer)
   }, [])
 
@@ -124,6 +135,33 @@ export default function GanguesVictory({ onNavigate }) {
 
   return (
     <main className={`gang-report gang-report--${victory ? 'victory' : 'defeat'}`}>
+      {levelUps.length > 0 && (
+        <div className="gang-progression-prompt" role="dialog" aria-modal="true" aria-labelledby="gang-levelup-prompt-title">
+          <div className="gang-progression-prompt__card">
+            <span className="gang-progression-prompt__icon">⬆</span>
+            <h2 id="gang-levelup-prompt-title">{t('games.gangues.levelup.titulo')}</h2>
+            {levelUps.map(lu => {
+              const character = getGanguesCharacter(lu.characterTemplateId)
+              const eventos = character ? eventosDoLevelUp(character, lu.fromLevel, lu.toLevel) : []
+              return (
+                <div key={lu.id} className="gang-levelup-entry">
+                  <p>{t('games.gangues.levelup.subtitulo', { nome: lu.name, nivel: lu.toLevel })}</p>
+                  {eventos.map((evento, index) => (
+                    <p key={index}>
+                      {evento.type === 'attribute'
+                        ? `+${evento.delta} ${t(`games.gangues.attr_labels.${evento.attribute}`)}`
+                        : evento.type === 'unlock_special'
+                          ? `${t('games.gangues.levelup.poder_novo')}: ${t(`games.gangues.progression.skills.${evento.special_id}`)}`
+                          : null}
+                    </p>
+                  ))}
+                </div>
+              )
+            })}
+            <button className="gang-progression-prompt__confirm" onClick={() => setLevelUps([])}>{t('games.gangues.levelup.continuar')}</button>
+          </div>
+        </div>
+      )}
       <motion.header className="gang-report-hero" initial={{ opacity: 0, y: -18 }} animate={{ opacity: 1, y: 0 }}>
         <span className="gang-report-code">{victory ? t('games.gangues.report.mission_complete') : t('games.gangues.report.mission_failed')}</span>
         <h1>{victory ? t('games.gangues.vitoria') : t('games.gangues.derrota')}</h1>

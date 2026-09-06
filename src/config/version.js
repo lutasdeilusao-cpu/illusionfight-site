@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.231.3'
+export const SITE_VERSION = '10.231.4'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '2.6.3' // fix: portao da gangue rival tinha a abertura em x:470-675, mas a estrada por onde o jogador anda fica em x:305-455 - a passagem ficava em cima de predio solido, inalcancavel. Realinhado (CSS do portao + logica de colisao) pra abertura casar exatamente com a estrada. Testado visualmente: a parte listrada do portao fica centralizada na linha tracejada da rua
+export const GANGUES_VERSION   = '2.7.0' // feat: tela de LEVEL UP de volta, agora pro sistema de personagens fixos - a virada pra templates removeu o aviso antigo (baseado em xp_unspent, que agora e sempre 0) sem repor nada, entao subir de nivel ficava mudo. gainApForParticipants agora retorna quem subiu de nivel (comparando o campo level antes/depois de hydratar), e a Vitoria mostra um modal com nome, novo nivel, atributo ganho e poder desbloqueado por personagem. Logica de deteccao de nivel/eventos validada com simulacao (10 vitorias, bate certinho nos niveis 2/3/4 com os eventos certos do catalogo)
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
 export const MINIGAMES_VERSION = '4.3.4'  // Glitch: safe-area lateral no grid-wrap

@@ -245,6 +245,13 @@
         "no_subpath": "No subpath",
         "menu_label": "← Menu"
       },
+      "levelup": {
+        "titulo": "LEVEL UP!",
+        "subtitulo": "{nome} reached level {nivel}",
+        "atributo": "Attribute",
+        "poder_novo": "New power unlocked",
+        "continuar": "Continue"
+      },
       "training": {
         "entry": "TRAINING ZONE",
         "entry_desc": "Add XP to test the real progression flow",

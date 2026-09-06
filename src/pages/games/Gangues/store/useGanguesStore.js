@@ -123,12 +123,17 @@ export const useGanguesStore = create((set, get) => ({
   gainApForParticipants: (amount, participantIds = []) => {
     const ids = new Set(participantIds)
     const share = ids.size > 0 ? Math.max(0, Number(amount) || 0) / ids.size : 0
+    const levelUps = []
     set(state => {
       const advance = member => {
         if (!ids.has(member.id)) return member
         const { progression, earnedXp } = addGanguesAp(member, share)
         const next = { ...member, xp_total: (member.xp_total || 0) + earnedXp, attributes: { ...member.attributes, progression } }
-        return member.character_type === 'template' ? hydrateGanguesTemplateSheet(next) : next
+        const hydrated = member.character_type === 'template' ? hydrateGanguesTemplateSheet(next) : next
+        if (member.character_type === 'template' && hydrated.level > (member.level || 1)) {
+          levelUps.push({ id: member.id, name: hydrated.sheet_name, characterTemplateId: hydrated.character_template_id, fromLevel: member.level || 1, toLevel: hydrated.level })
+        }
+        return hydrated
       }
       const roster = state.roster.map(advance)
       const byId = new Map(roster.map(member => [member.id, member]))
@@ -138,6 +143,7 @@ export const useGanguesStore = create((set, get) => ({
         sheet: byId.get(state.sheet.id) || state.sheet,
       }
     })
+    return levelUps
   },
 
   saveParticipantProgress: async (participantIds = []) => {

@@ -245,6 +245,13 @@
         "no_subpath": "Sem subcaminho",
         "menu_label": "← Menu"
       },
+      "levelup": {
+        "titulo": "SUBIU DE NÍVEL!",
+        "subtitulo": "{nome} chegou ao nível {nivel}",
+        "atributo": "Atributo",
+        "poder_novo": "Novo poder desbloqueado",
+        "continuar": "Continuar"
+      },
       "training": {
         "entry": "ZONA DE TREINAMENTO",
         "entry_desc": "Adicione XP para testar a progressão real",
