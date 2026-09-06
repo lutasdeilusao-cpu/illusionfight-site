@@ -1903,6 +1903,10 @@
             "nome": "The Molecada's alley",
             "fala": "This alley's ours, pal. The new gang doesn't get through for free."
           },
+          "rinha": {
+            "nome": "The back-alley pit",
+            "fala": "There's always somebody here looking to test their luck. Come on, as many times as you can take."
+          },
           "birosca": {
             "nome": "Old Nato's bar",
             "sub": "the corner elder",

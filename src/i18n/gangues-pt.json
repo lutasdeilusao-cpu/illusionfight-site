@@ -1493,6 +1493,10 @@
             "nome": "O beco da Molecada",
             "fala": "Esse beco é nosso, parça. A gangue nova não passa daqui de graça."
           },
+          "rinha": {
+            "nome": "A rinha do beco",
+            "fala": "Sempre tem alguém aqui querendo testar sorte. Bora, quantas vezes você aguentar."
+          },
           "birosca": {
             "nome": "A birosca do Seu Nato",
             "sub": "o coroa da esquina",

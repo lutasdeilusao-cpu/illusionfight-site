@@ -307,6 +307,24 @@ export const useGanguesStore = create((set, get) => ({
     return true
   },
 
+  // Trava o "retrato" de pontos de uma treta repetível na primeira vez que o
+  // jogador entra nela — as próximas vezes usam sempre esse mesmo número em
+  // vez de recalcular contra o time atual, senão o bando cresceria junto com
+  // a gangue e nunca ficaria fácil de farmar de propósito (ver
+  // `gerarBandoInimigo` em data/ganguesEncontros.js). Devolve o retrato
+  // efetivo (o que já existia, se já tinha sido travado, ou o novo).
+  travarPontosFarm: (cenaId, poiId, pontos) => {
+    const atual = get().cenaProgresso[cenaId]
+    const jaTravado = atual?.pontosFarm?.[poiId]
+    if (jaTravado) return jaTravado
+    set(state => {
+      const base = state.cenaProgresso[cenaId] || { resolvidos: {}, revelados: {}, boss: false, folego: 100 }
+      return { cenaProgresso: { ...state.cenaProgresso, [cenaId]: { ...base, pontosFarm: { ...(base.pontosFarm || {}), [poiId]: pontos } } } }
+    })
+    get()._persistCena()
+    return pontos
+  },
+
   revelarPoi: (cenaId, ...poiIds) => {
     set(state => {
       const atual = state.cenaProgresso[cenaId] || { resolvidos: {}, revelados: {}, boss: false, folego: 100 }

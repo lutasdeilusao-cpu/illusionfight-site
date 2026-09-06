@@ -107,6 +107,24 @@ export const CENA_PISTA = {
       recompensa: { grana: 8, rep: 3, xp: 10 },
     },
     {
+      // Treta repetível de farm: pode ser encarada quantas vezes o jogador
+      // quiser, pra upar sem depender de progresso novo. O bando é travado
+      // no primeiro confronto contra o total de pontos da gangue NAQUELE
+      // momento (ver travarPontosFarm/GanguesCena.jsx) — não escala mais
+      // depois disso, então fica mais fácil conforme a gangue cresce.
+      id: 'rinha',
+      tipo: 'treta',
+      opcional: true,
+      repetivel: true,
+      visivel: true,
+      pino: { x: 40, y: 190 },
+      i18n: 'games.gangues.cena.pista.rinha',
+      enemy: 'moleque_a',
+      forca: 1,
+      dificuldade: 'normal',
+      recompensa: { grana: 4 },
+    },
+    {
       // Reaproveitamento: continua na Pista mesmo depois dela virar
       // território dominado — é assim que ele libera o chefe da Feira
       // (ver `precisaInformante` em ganguesTerritorios.js). Sempre visível

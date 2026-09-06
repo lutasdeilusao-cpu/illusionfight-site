@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.232.1'
+export const SITE_VERSION = '10.233.0'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '2.8.1' // fix: primeira versao do mapa politico usava os poly antigos (trapezios soltos com vao entre eles, tipo cards flutuando) - Isaias mandou referencia de mapa politico real (zonas de SP encostadas sem vao) e pediu pra refazer. Redesenhadas as 7 formas do zero como um unico poligono contiguo (cada territorio compartilha o ponto exato da fronteira com o vizinho, viewBox 100x150, silhueta tipo montanha afunilando pra Laje no topo) - testado visualmente, bate com a referencia
+export const GANGUES_VERSION   = '2.9.0' // feat: treta repetivel de farm na Pista ("A rinha do beco", marcador azul com selo de repeticao) - o bando e travado (travarPontosFarm) no total de pontos da gangue na PRIMEIRA vez que entra, gerarBandoInimigo aceita pontosFixos pra nao recalcular contra o time atual nas vezes seguintes, entao a farma fica cada vez mais facil conforme a gangue cresce em vez de escalar junto. Validado com teste direto da funcao: travando no time fraco (8 pontos) e chamando de novo com o time forte (80 pontos), o bando gerado continua fraco
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
 export const MINIGAMES_VERSION = '4.3.4'  // Glitch: safe-area lateral no grid-wrap

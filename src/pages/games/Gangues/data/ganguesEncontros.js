@@ -78,12 +78,18 @@ function escalarInimigo(molde, pontosAlvo) {
   }
 }
 
-/** Sorteia um bando inimigo pro território/dificuldade dados, escalado contra o time atual do jogador. */
-export function gerarBandoInimigo({ territorioId, dificuldade = 'normal', playerTeam, enemiesData }) {
+/** Sorteia um bando inimigo pro território/dificuldade dados, escalado contra
+ *  o time atual do jogador — ou contra `pontosFixos`, se vier preenchido.
+ *  `pontosFixos` é o retrato ("snapshot") congelado de uma treta repetível
+ *  (ver `travarPontosFarm` no store): sem isso, todo bando repetível ficaria
+ *  sempre no mesmo nível de dificuldade do jogador atual, e nunca ficaria
+ *  fácil de "farmar" depois que a gangue evolui — o ponto inteiro de ter
+ *  uma treta pra repetir é ela ficar mais fraca que você com o tempo. */
+export function gerarBandoInimigo({ territorioId, dificuldade = 'normal', playerTeam, enemiesData, pontosFixos }) {
   const config = GANGUES_TERRITORIO_ENCONTRO[territorioId]
   if (!config || !playerTeam?.length) return null
 
-  const pontosJogador = calcularPontosTime(playerTeam)
+  const pontosJogador = pontosFixos > 0 ? pontosFixos : calcularPontosTime(playerTeam)
   // Bando muito concentrado (poucos corpos) é o cenário mais perigoso — o
   // mínimo de corpos acompanha o tamanho do seu time, não só o teto fixo
   // do território.
