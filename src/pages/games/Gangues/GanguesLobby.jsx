@@ -189,9 +189,10 @@ export default function GanguesLobby({ onNavigate }) {
           </div>
         </div>
       )}
-      {/* Saída do jogo: "SAIR", não "voltar aos games" — quem joga sente
-          que está saindo de um jogo, não navegando num site. */}
-      <button className="gang-lobby-quit" onClick={() => navigate('/games')}>
+      {/* Saída do jogo: quem tem save volta pra tela de escolher gangue — sair
+          do jogo (voltar pro catálogo) é uma ação de lá, não daqui. Guest não
+          tem save nenhum, então "sair" continua saindo direto pro catálogo. */}
+      <button className="gang-lobby-quit" onClick={() => store._saveId ? onNavigate('save-select') : navigate('/games')}>
         {t('games.gangues.sair_do_jogo')}
       </button>
     </main>

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useLanguage } from '../../../context/LanguageContext'
 import { useAuth } from '../../../context/AuthContext'
 import { useGanguesStore } from './store/useGanguesStore'
@@ -21,6 +22,7 @@ function formatarData(iso) {
 
 export default function GanguesSaveSelect({ onNavigate }) {
   const { t } = useLanguage()
+  const navigate = useNavigate()
   const { user, perfil } = useAuth()
   const store = useGanguesStore()
   const [loading, setLoading] = useState(true)
@@ -104,6 +106,10 @@ export default function GanguesSaveSelect({ onNavigate }) {
       ) : (
         <p className="gang-saves__limite">{t('games.gangues.saves.limite_atingido', { n: limite })}</p>
       )}
+
+      <button className="gang-lobby-quit" onClick={() => navigate('/games')}>
+        {t('games.gangues.sair_do_jogo')}
+      </button>
     </main>
   )
 }

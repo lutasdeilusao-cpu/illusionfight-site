@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useAuth } from '../../../context/AuthContext'
 import { useReader } from '../../../context/ReaderContext'
 import { useGanguesStore } from './store/useGanguesStore'
@@ -34,11 +34,18 @@ export default function GanguesRoute() {
   // Conta logada: cada gangue é um save separado (ver GanguesSaveSelect) — a
   // primeira coisa a fazer é escolher/criar um save, antes de ver o lobby.
   // Guest não tem save (joga só em memória), vai direto pro lobby de sempre.
+  // O redirect só pode acontecer UMA VEZ por sessão do componente: `user` do
+  // AuthContext ganha uma referência nova toda vez que o Supabase refaz o
+  // token (ex: ao voltar de aba/app em segundo plano) — sem o guard, esse
+  // efeito reagia de novo e chutava o jogador de volta pra tela de saves no
+  // meio do jogo, mesmo sem ele ter feito nada.
+  const saveSelectFeito = useRef(false)
   useEffect(() => {
-    if (user) {
-      store.setUserId(user.id)
-      setFase(current => (current === 'lobby' ? 'save-select' : current))
-    }
+    if (!user) return
+    store.setUserId(user.id)
+    if (saveSelectFeito.current) return
+    saveSelectFeito.current = true
+    setFase(current => (current === 'lobby' ? 'save-select' : current))
   }, [user])
 
   useEffect(() => {

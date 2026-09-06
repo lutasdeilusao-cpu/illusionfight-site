@@ -240,7 +240,11 @@
 /* Mesma altura/posição de .gang-recruit__stage do recrutamento (390px, sem
    modificador) — os botões ‹/› precisam ficar na mesma altura relativa ao
    card nas duas telas, senão parecem "torto" comparado ao recrutamento. */
-.gang-roster-carousel { margin-top: 18px; }
+/* .gang-lobby é flex column com align-items:center (Gangues.css) — sem
+   width:100% explícito, uma section vira shrink-to-fit do próprio conteúdo
+   (o card de ~242px), então a margin negativa abaixo "estoura" um container
+   que já nasceu estreito, e nunca chega na borda real da coluna. */
+.gang-roster-carousel { width: 100%; margin-top: 18px; }
 /* .gang-lobby tem padding horizontal de 24px (Gangues.css) — .gang-recruit
    (recrutamento) não tem nenhum, então lá as setas ‹/› (left/right:5px do
    PRÓPRIO stage) encostam quase na borda real da tela. Aqui, sem isso, o
