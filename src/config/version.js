@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.242.0'
+export const SITE_VERSION = '10.243.0'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '2.18.0' // fix: setas do carrossel de elenco AINDA coladas no card - .gang-roster-carousel nao tinha width:100%, entao dentro do flex column+align-items:center do .gang-lobby a section nascia shrink-to-fit do proprio card, e a margin negativa no stage nunca chegava na borda real da coluna. fix: GanguesRoute redirecionava pra tela de saves toda vez que o Supabase refazia o token (ex: ao voltar de aba em segundo plano) - useEffect dependia so de [user], que ganha referencia nova nesses refreshes; agora um ref garante que o redirect roda 1x por sessao. fix: botao SAIR do lobby ia direto pro catalogo /games - agora volta pra tela de escolher gangue (GanguesSaveSelect ganhou o botao de sair pro catalogo de verdade)
+export const GANGUES_VERSION   = '2.19.0' // feat: "A boca do sinal" (o moleque vendendo bala, primeiro papo do jogo) agora repetivel - a opcao "aperta" (briga com o moleque, enemy:treinamento) pode ser refeita quantas vezes o jogador quiser pra upar, custando -1 rep por vez igual da primeira
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
 export const MINIGAMES_VERSION = '4.3.4'  // Glitch: safe-area lateral no grid-wrap

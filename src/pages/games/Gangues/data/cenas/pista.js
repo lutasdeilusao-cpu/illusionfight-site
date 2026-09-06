@@ -41,6 +41,12 @@ export const CENA_PISTA = {
       id: 'sinal',
       tipo: 'papo',
       visivel: true,
+      // Repetível: a opção "aperta" (brigar com o moleque, enemy:'treinamento')
+      // é a primeira briga que existe no jogo — o jogador pode voltar aqui e
+      // brigar de novo sempre que quiser (custa -1 rep por vez, igual da
+      // primeira). As outras duas opções (compra/ignora) também continuam
+      // reabrindo o papo, mas não têm efeito relevante além da primeira vez.
+      repetivel: true,
       pino: { x: 52, y: 208 },
       i18n: 'games.gangues.cena.pista.sinal',
       // escolhas do papo: cada uma tem efeito próprio
