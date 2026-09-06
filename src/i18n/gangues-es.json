@@ -868,42 +868,42 @@
         }
       },
       "enemy_names": {
-        "treinamento": "Chico de las Balas",
-        "kaeda": "Kaeda",
-        "moleque_a": "Chico de la Calle",
-        "moleque_b": "Chico Matón",
-        "moleque_c": "Humito",
-        "fumaca": "Fumaça",
-        "turco_batedor": "Cobrador del Turco",
-        "turco_capanga": "Matón del Turco",
-        "gato_eletrico": "Gato de la Calle",
-        "turco": "el Turco",
-        "sombra_rubra": "Rubra",
-        "sombra_fria": "Fría",
-        "os_restos": "Resto del Sombra",
-        "espeto": "Pincho",
-        "bonde_predio_1": "Portero del Bonde",
-        "bonde_predio_2": "Capitán del Bonde",
-        "andar_de_cima": "Piso de Arriba",
-        "sala": "Salatiel",
-        "frente_escada_1": "Vigía de la Escalera",
-        "frente_escada_2": "Capitán de la Escalera",
-        "fogueteiro": "Cohetero",
-        "zefa": "Doña Zefa",
-        "os_cinco_1": "Uno de los Cinco",
-        "os_cinco_2": "Mano Derecha de los Cinco",
-        "a_roda": "La Rueda",
-        "doutor": "el Doctor",
-        "bonde_costura_1": "Línea de Frente del Costura",
-        "bonde_costura_2": "Teniente del Costura",
-        "bonde_costura_3": "General del Costura",
-        "costura": "Damião, el Costura",
-        "thunderbolt": "Chispa",
-        "stormbyte": "Virus",
-        "viran": "Maestro Onza",
-        "campeao": "El Invicto",
-        "kronos": "El Patrón",
-        "primordial_jack": "Rey del Asfalto"
+        "treinamento": "Saco de Boxeo",
+        "kaeda": "Corte Profundo",
+        "moleque_a": "Rata",
+        "moleque_b": "Perro Loco",
+        "moleque_c": "Brasa",
+        "fumaca": "Carbón",
+        "turco_batedor": "Uña de Hambre",
+        "turco_capanga": "Mazo",
+        "gato_eletrico": "Choque",
+        "turco": "El Cobrador",
+        "sombra_rubra": "Sangría",
+        "sombra_fria": "Hielo",
+        "os_restos": "Sobra",
+        "espeto": "Perfora-Tripas",
+        "bonde_predio_1": "Candado",
+        "bonde_predio_2": "Pestillo",
+        "andar_de_cima": "Gotera",
+        "sala": "Óxido",
+        "frente_escada_1": "Termita",
+        "frente_escada_2": "Grava",
+        "fogueteiro": "Mecha Corta",
+        "zefa": "La Fiera",
+        "os_cinco_1": "Gusano",
+        "os_cinco_2": "Colmillo",
+        "a_roda": "Engranaje",
+        "doutor": "El Contador",
+        "bonde_costura_1": "Hilacha",
+        "bonde_costura_2": "Aguja",
+        "bonde_costura_3": "Tijera",
+        "costura": "El Retazo",
+        "thunderbolt": "Cortocircuito",
+        "stormbyte": "Polilla",
+        "viran": "El Curtido",
+        "campeao": "Rompe-Quijadas",
+        "kronos": "El Sepulturero",
+        "primordial_jack": "Brea"
       },
       "defeat_fallbacks": [
         "esto no puede ser...",
@@ -1648,7 +1648,7 @@
         "entry": "Modo historia",
         "entry_desc": "Toma Marelia barrio por barrio. De rata de calle a la Azotea.",
         "titulo": "MARELIA SIN DUEÑO",
-        "sub": "Antes de Alan, nadie sostenía Marelia. Una ganga en cada esquina, cada una creyendo que mandaba en el mundo porque mandaba en una calle. Un tipo — el Costura — casi lo junta todo. Casi. Ahora te toca a ti.",
+        "sub": "Antes de Alan, nadie sostenía Marelia. Una ganga en cada esquina, cada una creyendo que mandaba en el mundo porque mandaba en una calle. Un tipo — el Retazo — casi lo junta todo. Casi. Ahora te toca a ti.",
         "dominio": "de Marelia",
         "menu": "Menú",
         "world_title": "Mapa de Marelia",
@@ -1687,7 +1687,7 @@
         "gangues": {
           "rato_pista": "Ratas de Pista",
           "bonde_sinal": "La Banda del Semáforo",
-          "cobranca_turco": "Cobradores del Turco",
+          "cobranca_turco": "El Cobro",
           "os_gato": "Los Gato",
           "sombra_rubra": "Sombra Roja",
           "sombra_fria": "Sombra Fría",
@@ -1698,35 +1698,35 @@
           "os_fogueteiro": "Los Coheteros",
           "os_cinco": "Los Cinco",
           "a_roda": "La Rueda",
-          "bonde_costura": "La banda del Costura"
+          "bonde_costura": "La banda del Retazo"
         },
         "bosses": {
           "fumaca": {
-            "nome": "Humo",
+            "nome": "Carbón",
             "fala": "¿Eres rápido? Yo soy humo, pibe. Parpadeas y desaparezco — y te comes los golpes a oscuras."
           },
           "turco": {
-            "nome": "el Turco",
+            "nome": "El Cobrador",
             "fala": "Marelia entera me debe. Ahora {suaGangue} también. Y aquí el que no paga en plata paga en hueso."
           },
           "espeto": {
-            "nome": "Pincho",
+            "nome": "Perfora-Tripas",
             "fala": "La Bajada es mía desde que el Sombra cayó a la zanja. ¿Tomaste mis puntos? Bien. Ven a tomar el resto."
           },
           "sala": {
-            "nome": "Salatiel",
+            "nome": "Óxido",
             "fala": "¿Subiste diez pisos solo para caer en el último? Respeto el esfuerzo. No cambia nada."
           },
           "zefa": {
-            "nome": "Doña Zefa",
+            "nome": "La Fiera",
             "fala": "Crié a la mitad de los pibes que {suaGangue} golpeó para llegar aquí. Siéntate. Tu castigo va a tardar."
           },
           "doutor": {
-            "nome": "el Doctor",
+            "nome": "El Contador",
             "fala": "Haz la cuenta, pibe. Tienes dos luchadores. Yo tengo a todo Lo Alto del Cerro debiéndome favores. Ahora vete a casa."
           },
           "costura": {
-            "nome": "Damião, el Costura",
+            "nome": "El Retazo",
             "fala": "Marelia entera fue mía una vez. Seis barrios en la mano, la Azotea bajo los pies. Pero esto no cose — ni yo la sostuve. Sube y te lo muestro a la mala."
           }
         },
@@ -1737,7 +1737,7 @@
           },
           "feira": {
             "nome": "La Feria",
-            "desc": "El comercio, los vendedores, la luz colgada. Aquí no hay tiros — hay deuda. El Turco lo anota todo, y el Turco lo cobra todo."
+            "desc": "El comercio, los vendedores, la luz colgada. Aquí no hay tiros — hay deuda. El Cobrador lo anota todo, y el Cobrador lo cobra todo."
           },
           "baixada": {
             "nome": "La Bajada",
@@ -1753,11 +1753,11 @@
           },
           "alto": {
             "nome": "Lo Alto del Cerro",
-            "desc": "Pasada la puerta de acero. Los Cinco casi fueron cúpula — juntaron medio Cerro en una mano antes de que llegara el Costura, y antes que tú."
+            "desc": "Pasada la puerta de acero. Los Cinco casi fueron cúpula — juntaron medio Cerro en una mano antes de que llegara el Retazo, y antes que tú."
           },
           "laje": {
             "nome": "La Azotea",
-            "desc": "La cima. De un lado, Marelia entera mirando. Del otro, el Costura — el único que sostuvo seis barrios a la vez. Aquí se descubre si se pueden sostener siete."
+            "desc": "La cima. De un lado, Marelia entera mirando. Del otro, el Retazo — el único que sostuvo seis barrios a la vez. Aquí se descubre si se pueden sostener siete."
           }
         },
         "falas": {
@@ -1768,14 +1768,14 @@
           "Marelia no tiene dueño. Una ganga en cada callejón, cada una creyendo que manda en el mundo porque manda en una calle.",
           "¿Quieres subir? Empieza en la Pista, abajo. Toma los puntos de las gangas chicas, después encara al duro de la zona — el de la bandera.",
           "Tomas el barrio, se abre el de arriba. Barrio por barrio hasta la Azotea.",
-          "Arriba hay un tipo llamado Damião. El Costura. Juntó seis barrios bajo una bandera. Nadie llegó más cerca de ser dueño de Marelia.",
+          "Arriba hay un tipo del que nadie sabe el nombre de verdad. Solo le dicen El Retazo. Juntó seis barrios bajo una bandera. Nadie llegó más cerca de ser dueño de Marelia.",
           "Vas a tener que pasar por él. Suerte, pibe — la vas a necesitar."
         ],
         "final": {
           "code": "LA SUBIDA TERMINA AQUÍ",
           "titulo": "MARELIA NO COSE",
           "paragrafos": [
-            "{gangue} tumbó al Costura en la Azotea. Marelia entera lo vio.",
+            "{gangue} tumbó al Retazo en la Azotea. Marelia entera lo vio.",
             "Y ahí entendiste lo que él ya sabía. Dos semanas y el mapa estaba partido otra vez — barrios para un lado, puntos para el otro. Nadie sostiene esta ciudad. Él no. Tú tampoco.",
             "Años después un pibe de pelo raro iba a lograr lo que ninguno de los dos pudo. Se llamaba Alan. Pero esa es otra historia — y estás en ella, justo al principio."
           ]
@@ -1826,7 +1826,7 @@
         "abertura": [
           "Antes que nada: tu ganga necesita un nombre.",
           "Los luchadores van y vienen. El nombre de la ganga es lo que queda — corre la boca del cerro, se vuelve leyenda o se vuelve chiste.",
-          "Elige bien. Es el nombre que el Costura va a escupir cuando llegues a la Azotea."
+          "Elige bien. Es el nombre que el Retazo va a escupir cuando llegues a la Azotea."
         ]
       },
       "dialogo": {
@@ -1875,7 +1875,7 @@
         "pista": {
           "chegada": [
             "Esto es la Pista, pibe. El asfalto de abajo.",
-            "Tomá los puntos de las bandas chicas, hacé tu nombre, y cuando toda la calle te conozca Fumaça baja a encararte.",
+            "Tomá los puntos de las bandas chicas, hacé tu nombre, y cuando toda la calle te conozca Carbón baja a encararte.",
             "Andá. Tocá lo que se prenda."
           ],
           "sinal": {
@@ -1905,7 +1905,7 @@
             "intro": "El portón es solo cadena y un candado viejo. El equipo se junta en la ganzúa — el que tiene mano buena labura, el resto vigila al sereno."
           },
           "molecada_1": {
-            "nome": "El callejón de la Molecada",
+            "nome": "El callejón de la Traición",
             "fala": "Este callejón es nuestro, socio. La banda nueva no pasa gratis."
           },
           "rinha": {
@@ -1917,17 +1917,17 @@
             "sub": "el veterano de la esquina",
             "fala": [
               "Sentate. Tomá un mate. Estás subiendo demasiado rápido para alguien que nadie conoce.",
-              "Te digo dónde se mete Fumaça. Pero antes hacéme un mandado — llevá un paquete al otro lado sin que el patrullero te vea.",
+              "Te digo dónde se mete Carbón. Pero antes hacéme un mandado — llevá un paquete al otro lado sin que el patrullero te vea.",
               "Después de eso la Pista te respeta. Y el bar queda abierto para que tu banda descanse."
             ],
             "escolhas": {
               "aceita_corre": {
                 "label": "Aceptá el mandado de Nato",
-                "resultado": "\"Cerrado. El paquete está atrás del mostrador. Y el otro punto de la Molecada es subiendo a la derecha.\""
+                "resultado": "\"Cerrado. El paquete está atrás del mostrador. Y el otro punto de la Traición es subiendo a la derecha.\""
               },
               "so_papo": {
                 "label": "Solo querés la información",
-                "resultado": "\"Terco. Entonces al hueso: el otro punto de la Molecada está allá arriba. Tomá los dos y aparece Fumaça.\""
+                "resultado": "\"Terco. Entonces al hueso: el otro punto de la Traición está allá arriba. Tomá los dos y aparece Carbón.\""
               }
             }
           },
@@ -1941,7 +1941,7 @@
             "escolhas": {
               "perguntar": {
                 "label": "Preguntá sobre la Feria",
-                "resultado": "\"El Turco solo sale del escondite si sabe que ya le dieron una paliza a sus matones. Andá, resolvé eso, y volvé si necesitás algo más.\""
+                "resultado": "\"El Cobrador solo sale del escondite si sabe que ya le dieron una paliza a sus matones. Andá, resolvé eso, y volvé si necesitás algo más.\""
               }
             }
           },
@@ -1951,7 +1951,7 @@
             "intro": "Cruzá la cuadra con el paquete sin entrar en el haz del patrullero. El equipo se abre y te cubre."
           },
           "molecada_2": {
-            "nome": "El otro punto de la Molecada",
+            "nome": "El otro punto de la Traición",
             "fala": "¿¿Vos de nuevo?? ¿Tomaste el callejón de abajo y pensaste que acá también iba a ser fácil?"
           },
           "descanso": {

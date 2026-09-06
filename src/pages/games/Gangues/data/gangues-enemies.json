@@ -1,7 +1,7 @@
 [
   {
     "id": "treinamento",
-    "name": "Moleque da Bala",
+    "name": "Saco de Pancada",
     "rank": 999999,
     "stats": { "A": 1, "H": 0, "R": 2, "D": 0 },
     "pv_max": 6, "pm_max": 6,
@@ -9,7 +9,7 @@
     "elemental": null, "preferred_mode": "fists",
     "ai_pattern": "básico",
     "difficulty": "easy", "tier": 1,
-    "notes": "Moleque novato posto pra treinar quem tá começando na gangue. Quase não revida.",
+    "notes": "Bonequinho de pano que apanha pra quem tá começando na gangue treinar. Quase não revida.",
     "trash_talk": {
       "attack_miss": ["nem encostou 💀", "isso foi um ataque?? 😭", "tô dormindo aqui 😴🥱"],
       "attack_hit": ["SENTIU? 🔥", "dói né 😈", "tem mais vindo 👊💥"],
@@ -22,7 +22,7 @@
   },
   {
     "id": "kaeda",
-    "name": "Kaeda",
+    "name": "Corte Fundo",
     "rank": 3214,
     "stats": { "A": 3, "H": 3, "R": 4, "D": 2 },
     "pv_max": 16, "pm_max": 8,
@@ -43,7 +43,7 @@
   },
   {
     "id": "moleque_a",
-    "name": "Moleque da Pista",
+    "name": "Ratazana",
     "rank": 88000,
     "stats": { "A": 1, "H": 0, "R": 2, "D": 1 },
     "pv_max": 6, "pm_max": 6,
@@ -64,7 +64,7 @@
   },
   {
     "id": "moleque_b",
-    "name": "Moleque Valentão",
+    "name": "Cão Louco",
     "rank": 76000,
     "stats": { "A": 2, "H": 1, "R": 3, "D": 1 },
     "pv_max": 9, "pm_max": 9,
@@ -72,7 +72,7 @@
     "elemental": null, "preferred_mode": "fists",
     "ai_pattern": "agressivo",
     "difficulty": "easy", "tier": 0,
-    "notes": "Modo história, Pista, força 2 (5 pontos) — segunda treta, um degrau acima do primeiro moleque.",
+    "notes": "Modo história, Pista, força 2 (5 pontos) — segunda treta, um degrau acima do primeiro da fila.",
     "trash_talk": {
       "attack_miss": ["escapou dessa vez 😤", "ei, fica parado! 💢"],
       "attack_hit": ["AI QUE DOEU né 🔥", "bateu e levou 👊"],
@@ -85,7 +85,7 @@
   },
   {
     "id": "moleque_c",
-    "name": "Fumacinha",
+    "name": "Brasa",
     "rank": 82000,
     "stats": { "A": 1, "H": 1, "R": 2, "D": 2 },
     "pv_max": 8, "pm_max": 4,
@@ -93,20 +93,20 @@
     "elemental": null, "preferred_mode": "armed",
     "ai_pattern": "defensivo",
     "difficulty": "easy", "tier": 0,
-    "notes": "Modo história, Pista, força 1 (3 pontos de atributo). Andava atrás do Fumaça tentando copiar tudo — apelido colou e não sai mais.",
+    "notes": "Modo história, Pista, força 1 (3 pontos de atributo). Andava atrás do Carvão tentando copiar tudo — apelido colou e não sai mais.",
     "trash_talk": {
-      "attack_miss": ["quase, mas o Fumaça ensinou melhor 😤", "vish, escapou 💦"],
-      "attack_hit": ["aprendi isso vendo o Fumaça 👊", "sentiu a fumacinha? 😈"],
-      "take_damage": ["isso nem foi nada 🙄", "o Fumaça já bateu mais forte 😬"],
+      "attack_miss": ["quase, mas o Carvão ensinou melhor 😤", "vish, escapou 💦"],
+      "attack_hit": ["aprendi isso vendo o Carvão 👊", "sentiu a brasa? 😈"],
+      "take_damage": ["isso nem foi nada 🙄", "o Carvão já bateu mais forte 😬"],
       "take_critical": ["EI, PESADO DEMAIS 😳", "respeitei esse golpe 👏"],
       "player_near_death": ["cê já era 😈", "desiste logo 🙏"],
       "enemy_near_death": ["não... eu não posso perder aqui 😰", "ainda dá pra virar 😤"],
-      "defeat": ["poxa... o Fumaça vai rir de mim 😔", "beleza, você venceu essa 🤝"]
+      "defeat": ["poxa... o Carvão vai rir de mim 😔", "beleza, você venceu essa 🤝"]
     }
   },
   {
     "id": "fumaca",
-    "name": "Fumaça",
+    "name": "Carvão",
     "rank": 52000,
     "stats": { "A": 3, "H": 1, "R": 4, "D": 1 },
     "pv_max": 12, "pm_max": 12,
@@ -120,14 +120,14 @@
       "attack_hit": ["pisca que eu sumo 💨🔥", "sentiu a fumaça? 😈"],
       "take_damage": ["isso é só fumaça 😒", "ok, essa doeu 👀"],
       "take_critical": ["...respeito. 🫡", "a Pista tá diferente hoje 🔥"],
-      "player_near_death": ["cê apanha no escuro, moleque 😈", "a Pista é minha 💨"],
+      "player_near_death": ["cê apanha no escuro, cria 😈", "a Pista é minha 💨"],
       "enemy_near_death": ["ainda não é hoje que eu caio 😤", "fumaça não se apaga fácil 🔥"],
       "defeat": ["...cê tomou meu bairro. 😨", "a Pista agora é sua. 💨"]
     }
   },
   {
     "id": "turco_batedor",
-    "name": "Batedor do Turco",
+    "name": "Unha de Fome",
     "rank": 68000,
     "stats": { "A": 2, "H": 1, "R": 3, "D": 1 },
     "pv_max": 9, "pm_max": 9,
@@ -135,20 +135,20 @@
     "elemental": null, "preferred_mode": "fists",
     "ai_pattern": "básico",
     "difficulty": "easy", "tier": 0,
-    "notes": "Modo história, Feira, força 2 (5 pontos). Cobrador de rua do Turco — bate na porta antes de o Turco cobrar de verdade.",
+    "notes": "Modo história, Feira, força 2 (5 pontos). Cobrador de rua do Cobrador — bate na porta antes de o chefe cobrar de verdade.",
     "trash_talk": {
-      "attack_miss": ["fica quieto que é mais rápido 😤", "o Turco vai gostar de saber disso 😏"],
+      "attack_miss": ["fica quieto que é mais rápido 😤", "o Cobrador vai gostar de saber disso 😏"],
       "attack_hit": ["isso é só o começo da conta 💰", "paga com sangue então 👊"],
       "take_damage": ["não sente nada não 🙄", "vai doer mais lá na frente 😬"],
       "take_critical": ["ei, isso conta em dobro 😳", "beleza, valeu o golpe 👏"],
-      "player_near_death": ["assina que a dívida acaba 🙏", "o Turco cobra até no chão 😈"],
+      "player_near_death": ["assina que a dívida acaba 🙏", "o Cobrador cobra até no chão 😈"],
       "enemy_near_death": ["ainda tenho crédito 😤", "não vou dever essa derrota 💢"],
-      "defeat": ["vou ter que explicar pro Turco... 😨", "essa aqui ele desconta de mim 😔"]
+      "defeat": ["vou ter que explicar pro Cobrador... 😨", "essa aqui ele desconta de mim 😔"]
     }
   },
   {
     "id": "turco_capanga",
-    "name": "Capanga do Turco",
+    "name": "Marreta",
     "rank": 60000,
     "stats": { "A": 2, "H": 2, "R": 3, "D": 1 },
     "pv_max": 12, "pm_max": 6,
@@ -159,17 +159,17 @@
     "notes": "Modo história, Feira, força 3 (7 pontos). Braço de confiança — cobra dívida grande, não perde tempo com conversa.",
     "trash_talk": {
       "attack_miss": ["fugiu da conta dessa vez 😤", "não corre que só piora 😈"],
-      "attack_hit": ["isso vai pro caderno do Turco 📒", "juro que rende 👊💰"],
+      "attack_hit": ["isso vai pro caderno do Cobrador 📒", "juro que rende 👊💰"],
       "take_damage": ["já apanhei pior cobrando fiado 😒", "beleza, essa doeu 😬"],
       "take_critical": ["opa, respeito o golpe 🫡", "cê tem prática nisso hein 😳"],
       "player_near_death": ["assina o nome que eu paro 🙏", "não deve nada além disso não 😈"],
       "enemy_near_death": ["ainda tenho fôlego pra cobrar 😤", "isso não fecha a conta não 💢"],
-      "defeat": ["vou ter que voltar sem o troco... 😨", "o Turco não vai gostar dessa 😔"]
+      "defeat": ["vou ter que voltar sem o troco... 😨", "o Cobrador não vai gostar dessa 😔"]
     }
   },
   {
     "id": "gato_eletrico",
-    "name": "Gato-de-Rua",
+    "name": "Choque",
     "rank": 61000,
     "stats": { "A": 2, "H": 3, "R": 4, "D": 1 },
     "pv_max": 12, "pm_max": 12,
@@ -190,7 +190,7 @@
   },
   {
     "id": "turco",
-    "name": "o Turco",
+    "name": "O Cobrador",
     "rank": 47000,
     "stats": { "A": 3, "H": 2, "R": 4, "D": 2 },
     "pv_max": 16, "pm_max": 8,
@@ -201,17 +201,17 @@
     "notes": "Modo história, chefe da Feira, força 4 (9 pontos). Anota tudo, cobra tudo — bate no braço antes de bater na cara.",
     "trash_talk": {
       "attack_miss": ["cê ainda deve essa 😏", "não escapa da conta não 😤"],
-      "attack_hit": ["isso entra na dívida 💰😈", "juro alto, moleque 👊"],
+      "attack_hit": ["isso entra na dívida 💰😈", "juro alto, cria 👊"],
       "take_damage": ["marca aí, eu cobro depois 😒", "beleza, essa eu senti 😬"],
       "take_critical": ["...respeito. 🫡", "cê tá cobrando caro hoje 😳"],
       "player_near_death": ["paga com o corpo então 🙏", "a Feira inteira me deve 😈"],
       "enemy_near_death": ["ainda não fechei a conta 😤", "isso não paga a dívida não 💢"],
-      "defeat": ["...cê zerou minha conta. 😨", "respeito, moleque. a Feira é sua. 🫡"]
+      "defeat": ["...cê zerou minha conta. 😨", "respeito, parceiro. a Feira é sua. 🫡"]
     }
   },
   {
     "id": "sombra_rubra",
-    "name": "Rubra",
+    "name": "Sangria",
     "rank": 58000,
     "stats": { "A": 3, "H": 1, "R": 4, "D": 2 },
     "pv_max": 12, "pm_max": 12,
@@ -222,17 +222,17 @@
     "notes": "Modo história, Baixada, força 3 (7 pontos). Um dos três pedaços da facção do Sombra depois que ele caiu — a mais brava das três.",
     "trash_talk": {
       "attack_miss": ["quase, mas não foi hoje 😤", "vem que eu não canso 😈"],
-      "attack_hit": ["isso é Rubra de verdade 🔥", "sentiu o sangue subir? 😈"],
+      "attack_hit": ["isso é Sangria de verdade 🔥", "sentiu o sangue subir? 😈"],
       "take_damage": ["isso não é nada 🙄", "gostei dessa 😬"],
       "take_critical": ["opa, valeu o golpe 👏", "cê tem lâmina também? 😳"],
       "player_near_death": ["a Baixada é vermelha hoje 😈", "desiste antes de sangrar mais 🙏"],
       "enemy_near_death": ["ainda tenho sangue pra dar 😤", "não caio fácil não 💢"],
-      "defeat": ["...a Rubra perdeu um ponto. 😨", "respeito. a Baixada te viu chegar. 🤝"]
+      "defeat": ["...a Sangria perdeu um ponto. 😨", "respeito. a Baixada te viu chegar. 🤝"]
     }
   },
   {
     "id": "sombra_fria",
-    "name": "Fria",
+    "name": "Gelo",
     "rank": 50000,
     "stats": { "A": 2, "H": 2, "R": 4, "D": 3 },
     "pv_max": 16, "pm_max": 8,
@@ -242,7 +242,7 @@
     "difficulty": "easy", "tier": 0,
     "notes": "Modo história, Baixada, força 4 (9 pontos). O pedaço mais calculado da antiga facção do Sombra — não se apressa, não erra.",
     "trash_talk": {
-      "attack_miss": ["sem pressa, moleque 😏", "vou acertar na próxima 😤"],
+      "attack_miss": ["sem pressa, cria 😏", "vou acertar na próxima 😤"],
       "attack_hit": ["frio, calculado, certeiro ❄️", "nem esquentei ainda 😈"],
       "take_damage": ["não sinto frio nem dor 😒", "beleza, essa contou 😬"],
       "take_critical": ["...interessante. 🫡", "cê quebrou meu gelo 😳"],
@@ -253,7 +253,7 @@
   },
   {
     "id": "os_restos",
-    "name": "Resto do Sombra",
+    "name": "Sobra",
     "rank": 51000,
     "stats": { "A": 3, "H": 2, "R": 5, "D": 1 },
     "pv_max": 15, "pm_max": 15,
@@ -274,7 +274,7 @@
   },
   {
     "id": "espeto",
-    "name": "Espeto",
+    "name": "Fura-Bucho",
     "rank": 40000,
     "stats": { "A": 4, "H": 2, "R": 5, "D": 2 },
     "pv_max": 20, "pm_max": 10,
@@ -295,7 +295,7 @@
   },
   {
     "id": "bonde_predio_1",
-    "name": "Zelador do Bonde",
+    "name": "Cadeado",
     "rank": 55000,
     "stats": { "A": 2, "H": 1, "R": 4, "D": 3 },
     "pv_max": 16, "pm_max": 8,
@@ -309,14 +309,14 @@
       "attack_hit": ["ninguém sobe sem pagar 👊", "sentiu a chave? 🔧😈"],
       "take_damage": ["esse prédio aguenta mais que isso 🙄", "beleza, essa doeu 😬"],
       "take_critical": ["opa, cê é forte 🫡", "quase me derrubou 😳"],
-      "player_near_death": ["não sobe não, moleque 🙏", "o térreo é meu 😈"],
+      "player_near_death": ["não sobe não, cria 🙏", "o térreo é meu 😈"],
       "enemy_near_death": ["ainda seguro a porta 😤", "não passa por mim não 💢"],
       "defeat": ["...pode subir. 😨", "respeito. passa. 🫡"]
     }
   },
   {
     "id": "bonde_predio_2",
-    "name": "Capitão do Bonde",
+    "name": "Trinco",
     "rank": 46000,
     "stats": { "A": 3, "H": 2, "R": 6, "D": 3 },
     "pv_max": 18, "pm_max": 18,
@@ -326,18 +326,18 @@
     "difficulty": "medium", "tier": 0,
     "notes": "Modo história, Vila, força 5 (11 pontos). Comanda um andar inteiro do prédio — sobe rápido, bate mais rápido ainda.",
     "trash_talk": {
-      "attack_miss": ["esse andar é meu, moleque 😤", "não passa não 😏"],
+      "attack_miss": ["esse andar é meu, cria 😤", "não passa não 😏"],
       "attack_hit": ["bate e sobe 👊🔥", "sentiu esse andar? 😈"],
       "take_damage": ["esse aqui é osso duro 🙄", "beleza, essa contou 😬"],
       "take_critical": ["...forte. 🫡", "cê subiu rápido esse golpe 😳"],
       "player_near_death": ["não sobe pro próximo não 🙏", "esse andar acaba aqui 😈"],
       "enemy_near_death": ["ainda tenho andar pra defender 😤", "não desço fácil não 💢"],
-      "defeat": ["...pode subir pro próximo. 😨", "respeito, moleque. sobe. 🫡"]
+      "defeat": ["...pode subir pro próximo. 😨", "respeito, cria. sobe. 🫡"]
     }
   },
   {
     "id": "andar_de_cima",
-    "name": "Andar de Cima",
+    "name": "Goteira",
     "rank": 47500,
     "stats": { "A": 2, "H": 2, "R": 5, "D": 3 },
     "pv_max": 20, "pm_max": 10,
@@ -358,7 +358,7 @@
   },
   {
     "id": "sala",
-    "name": "Salatiel",
+    "name": "Ferrugem",
     "rank": 35000,
     "stats": { "A": 3, "H": 2, "R": 5, "D": 4 },
     "pv_max": 20, "pm_max": 10,
@@ -372,14 +372,14 @@
       "attack_hit": ["isso é pra respeitar o último andar 👊", "sentiu a escada nas pernas? 😈"],
       "take_damage": ["disposição eu respeito 🙄", "beleza, essa eu senti 😬"],
       "take_critical": ["...respeito a disposição. 🫡", "cê subiu forte esse golpe 😳"],
-      "player_near_death": ["não muda merda nenhuma, moleque 🙏", "desce do jeito que veio 😈"],
+      "player_near_death": ["não muda merda nenhuma, playboy 🙏", "desce do jeito que veio 😈"],
       "enemy_near_death": ["ainda seguro o último andar 😤", "não desço sem lutar 💢"],
       "defeat": ["...cê chegou no topo. 😨", "respeito a disposição. o prédio é seu. 🫡"]
     }
   },
   {
     "id": "frente_escada_1",
-    "name": "Vigia da Escada",
+    "name": "Cupim",
     "rank": 44000,
     "stats": { "A": 3, "H": 3, "R": 6, "D": 2 },
     "pv_max": 18, "pm_max": 18,
@@ -400,7 +400,7 @@
   },
   {
     "id": "frente_escada_2",
-    "name": "Capitão da Escada",
+    "name": "Cascalho",
     "rank": 38000,
     "stats": { "A": 4, "H": 3, "R": 7, "D": 3 },
     "pv_max": 21, "pm_max": 21,
@@ -416,12 +416,12 @@
       "take_critical": ["...forte. 🫡", "cê subiu rápido esse golpe também 😳"],
       "player_near_death": ["quem sobe o Morro não desce igual 😈", "desiste antes de rolar escada abaixo 🙏"],
       "enemy_near_death": ["ainda comando essa escada 😤", "não desço o posto assim 💢"],
-      "defeat": ["...cê é capitão agora. 😨", "respeito, moleque. sobe. 🫡"]
+      "defeat": ["...cê é capitão agora. 😨", "respeito, cria. sobe. 🫡"]
     }
   },
   {
     "id": "fogueteiro",
-    "name": "Fogueteiro",
+    "name": "Pavio Curto",
     "rank": 39000,
     "stats": { "A": 5, "H": 2, "R": 11, "D": 3 },
     "pv_max": 22, "pm_max": 44,
@@ -437,12 +437,12 @@
       "take_critical": ["CARAMBA QUE ESTOURO 😳💥", "cê também solta rojão? 😤"],
       "player_near_death": ["vai estourar de vez 😈", "desiste antes do próximo rojão 🙏"],
       "enemy_near_death": ["ainda tenho pavio pra queimar 😤", "não apago fácil não 💢"],
-      "defeat": ["...apagou meu fogo. 😨", "respeito, moleque. o Morro sabe que cê chegou. 🫡"]
+      "defeat": ["...apagou meu fogo. 😨", "respeito, guerreiro. o Morro sabe que cê chegou. 🫡"]
     }
   },
   {
     "id": "zefa",
-    "name": "Dona Zefa",
+    "name": "A Fera",
     "rank": 30000,
     "stats": { "A": 4, "H": 3, "R": 12, "D": 4 },
     "pv_max": 24, "pm_max": 48,
@@ -450,20 +450,20 @@
     "elemental": null, "preferred_mode": "power",
     "ai_pattern": "tático",
     "difficulty": "medium", "tier": 0,
-    "notes": "Modo história, chefe do Morro, força 7 (15 pontos). Criou metade dos moleque da região — sabe exatamente onde bater pra doer sem machucar de verdade.",
+    "notes": "Modo história, chefe do Morro, força 7 (15 pontos). Criou metade da criançada da região — sabe exatamente onde bater pra doer sem machucar de verdade.",
     "trash_talk": {
-      "attack_miss": ["eu criei moleque mais rápido que você 😏", "senta que ainda não acabou 😤"],
+      "attack_miss": ["eu criei gente mais rápida que você 😏", "senta que ainda não acabou 😤"],
       "attack_hit": ["isso é castigo, não briga 👊", "sentiu a vara? cresce com isso 😈"],
       "take_damage": ["já apanhei coisa pior criando vocês 🙄", "beleza, essa até eu senti 😬"],
       "take_critical": ["...cê aprendeu rápido. 🫡", "olha só quem cresceu 😳"],
-      "player_near_death": ["senta aí, o castigo vai demorar 🙏", "eu avisei, moleque 😈"],
+      "player_near_death": ["senta aí, o castigo vai demorar 🙏", "eu avisei, cria 😈"],
       "enemy_near_death": ["ainda tenho vara pra ensinar 😤", "não solto a régua fácil não 💢"],
-      "defeat": ["...cê aprendeu tudo que eu ensinei. 😨", "orgulho, moleque. o Morro é seu. 🫡"]
+      "defeat": ["...cê aprendeu tudo que eu ensinei. 😨", "orgulho, cria. o Morro é seu. 🫡"]
     }
   },
   {
     "id": "os_cinco_1",
-    "name": "Um dos Cinco",
+    "name": "Verme",
     "rank": 34000,
     "stats": { "A": 4, "H": 3, "R": 5, "D": 2 },
     "pv_max": 20, "pm_max": 10,
@@ -473,7 +473,7 @@
     "difficulty": "medium", "tier": 0,
     "notes": "Modo história, Alto do Morro, força 6 (13 pontos). Um dos cinco que quase viraram cúpula de Marelia — disciplinado, treinado, perigoso em grupo.",
     "trash_talk": {
-      "attack_miss": ["nós somos cinco, moleque 😏", "não passa dos Cinco não 😤"],
+      "attack_miss": ["nós somos cinco, cria 😏", "não passa dos Cinco não 😤"],
       "attack_hit": ["isso é disciplina, não sorte 👊", "sentiu o treino? 😈"],
       "take_damage": ["já treinei coisa pior que isso 🙄", "beleza, essa contou 😬"],
       "take_critical": ["...respeito. 🫡", "cê treinou também, hein 😳"],
@@ -484,7 +484,7 @@
   },
   {
     "id": "os_cinco_2",
-    "name": "Braço-Direito dos Cinco",
+    "name": "Presa",
     "rank": 27000,
     "stats": { "A": 5, "H": 3, "R": 8, "D": 3 },
     "pv_max": 24, "pm_max": 24,
@@ -505,7 +505,7 @@
   },
   {
     "id": "a_roda",
-    "name": "A Roda",
+    "name": "Engrenagem",
     "rank": 20000,
     "stats": { "A": 5, "H": 3, "R": 7, "D": 4 },
     "pv_max": 28, "pm_max": 14,
@@ -513,20 +513,20 @@
     "elemental": null, "preferred_mode": "armed",
     "ai_pattern": "defensivo",
     "difficulty": "hard", "tier": 0,
-    "notes": "Modo história, Alto do Morro, força 8 (17 pontos). O círculo mais fechado antes do Doutor — luta em formação, sempre protegendo o centro.",
+    "notes": "Modo história, Alto do Morro, força 8 (17 pontos). O círculo mais fechado antes do Contador — luta em formação, sempre protegendo o centro, girando que nem engrenagem.",
     "trash_talk": {
-      "attack_miss": ["a Roda não quebra fácil 😏", "gira e erra? tenta de novo 😤"],
-      "attack_hit": ["a Roda sempre volta 👊🔥", "sentiu o giro? 😈"],
-      "take_damage": ["a Roda absorve isso 🙄", "beleza, rachou um pouco 😬"],
-      "take_critical": ["...quebrou a formação. 🫡", "ninguém entra na Roda assim 😳"],
-      "player_near_death": ["o Doutor tá logo ali, mas cê não chega 😈", "desiste antes da porta de aço final 🙏"],
-      "enemy_near_death": ["a Roda ainda gira 😤", "não quebro fácil não 💢"],
-      "defeat": ["...quebrou a Roda. 😨", "respeito. o Doutor te espera. 🫡"]
+      "attack_miss": ["essa engrenagem não emperra fácil 😏", "gira e erra? tenta de novo 😤"],
+      "attack_hit": ["a engrenagem sempre volta 👊🔥", "sentiu o giro? 😈"],
+      "take_damage": ["a engrenagem absorve isso 🙄", "beleza, rachou um pouco 😬"],
+      "take_critical": ["...quebrou a formação. 🫡", "ninguém entra nessa engrenagem assim 😳"],
+      "player_near_death": ["o Contador tá logo ali, mas cê não chega 😈", "desiste antes da porta de aço final 🙏"],
+      "enemy_near_death": ["a engrenagem ainda gira 😤", "não quebro fácil não 💢"],
+      "defeat": ["...quebrou a engrenagem. 😨", "respeito. o Contador te espera. 🫡"]
     }
   },
   {
     "id": "doutor",
-    "name": "o Doutor",
+    "name": "O Contador",
     "rank": 12000,
     "stats": { "A": 5, "H": 4, "R": 15, "D": 5 },
     "pv_max": 30, "pm_max": 60,
@@ -540,14 +540,14 @@
       "attack_hit": ["isso é matemática, não raiva 👊", "sentiu a conta fechando? 😈"],
       "take_damage": ["interessante variável essa 🙄", "beleza, isso muda a conta 😬"],
       "take_critical": ["...recalculando. 🫡", "cê não tava nos meus número 😳"],
-      "player_near_death": ["faz a conta e vai embora, moleque 🙏", "dois lutador contra o Alto inteiro? 😈"],
+      "player_near_death": ["faz a conta e vai embora, playboy 🙏", "dois lutador contra o Alto inteiro? 😈"],
       "enemy_near_death": ["a conta ainda fecha pra mim 😤", "não erro cálculo desse tamanho 💢"],
       "defeat": ["...a conta não fechou. 😨", "recalculado. respeito. o Alto é seu. 🫡"]
     }
   },
   {
     "id": "bonde_costura_1",
-    "name": "Linha de Frente do Costura",
+    "name": "Fiapo",
     "rank": 25000,
     "stats": { "A": 4, "H": 4, "R": 8, "D": 3 },
     "pv_max": 24, "pm_max": 24,
@@ -555,20 +555,20 @@
     "elemental": null, "preferred_mode": "fists",
     "ai_pattern": "agressivo",
     "difficulty": "hard", "tier": 0,
-    "notes": "Modo história, Laje, força 7 (15 pontos). Primeira linha do bonde que segura seis bairro pro Costura — treinado pra cansar quem sobe antes do topo.",
+    "notes": "Modo história, Laje, força 7 (15 pontos). Primeira linha do bonde que segura seis bairro pro Retalho — treinado pra cansar quem sobe antes do topo.",
     "trash_talk": {
       "attack_miss": ["a Laje não se entrega fácil 😏", "ainda tem muito chão até o topo 😤"],
-      "attack_hit": ["sente o peso de seis bairro nisso 👊", "o Costura ensinou bem 😈"],
+      "attack_hit": ["sente o peso de seis bairro nisso 👊", "o Retalho ensinou bem 😈"],
       "take_damage": ["já segurei coisa pior que isso 🙄", "beleza, essa contou 😬"],
       "take_critical": ["...forte. 🫡", "cê tá pronto pro topo, hein 😳"],
-      "player_near_death": ["a Laje é do Costura, sempre foi 😈", "desiste antes do topo de verdade 🙏"],
-      "enemy_near_death": ["ainda seguro a linha 😤", "não caio antes do Costura ver 💢"],
-      "defeat": ["...passou a linha de frente. 😨", "respeito. o Costura te espera lá em cima. 🫡"]
+      "player_near_death": ["a Laje é do Retalho, sempre foi 😈", "desiste antes do topo de verdade 🙏"],
+      "enemy_near_death": ["ainda seguro a linha 😤", "não caio antes do Retalho ver 💢"],
+      "defeat": ["...passou a linha de frente. 😨", "respeito. o Retalho te espera lá em cima. 🫡"]
     }
   },
   {
     "id": "bonde_costura_2",
-    "name": "Tenente do Costura",
+    "name": "Agulha",
     "rank": 18000,
     "stats": { "A": 5, "H": 4, "R": 9, "D": 4 },
     "pv_max": 27, "pm_max": 27,
@@ -576,20 +576,20 @@
     "elemental": null, "preferred_mode": "fists",
     "ai_pattern": "agressivo",
     "difficulty": "hard", "tier": 0,
-    "notes": "Modo história, Laje, força 8 (17 pontos). Segunda linha, mais perto do topo — o Costura confia nele com metade da Laje.",
+    "notes": "Modo história, Laje, força 8 (17 pontos). Segunda linha, mais perto do topo — o Retalho confia nele com metade da Laje.",
     "trash_talk": {
-      "attack_miss": ["quase chega no topo, quase 😏", "não hoje, moleque 😤"],
-      "attack_hit": ["isso é pra provar que merece o topo 👊🔥", "sentiu o tenente? 😈"],
+      "attack_miss": ["quase chega no topo, quase 😏", "não hoje, cria 😤"],
+      "attack_hit": ["isso é pra provar que merece o topo 👊🔥", "sentiu a agulha? 😈"],
       "take_damage": ["já aguentei pior segurando a Laje 🙄", "beleza, essa doeu de verdade 😬"],
-      "take_critical": ["...respeito. 🫡", "cê tá quase no nível do Costura 😳"],
-      "player_near_death": ["o topo não é pra qualquer um 😈", "desiste, moleque, poupa o corpo 🙏"],
+      "take_critical": ["...respeito. 🫡", "cê tá quase no nível do Retalho 😳"],
+      "player_near_death": ["o topo não é pra qualquer um 😈", "desiste, cria, poupa o corpo 🙏"],
       "enemy_near_death": ["ainda seguro metade da Laje 😤", "não caio a essa altura não 💢"],
-      "defeat": ["...cê é osso duro mesmo. 😨", "respeito. sobe pro Costura. 🫡"]
+      "defeat": ["...cê é osso duro mesmo. 😨", "respeito. sobe pro Retalho. 🫡"]
     }
   },
   {
     "id": "bonde_costura_3",
-    "name": "General do Costura",
+    "name": "Tesoura",
     "rank": 9000,
     "stats": { "A": 6, "H": 4, "R": 8, "D": 4 },
     "pv_max": 32, "pm_max": 16,
@@ -597,20 +597,20 @@
     "elemental": null, "preferred_mode": "armed",
     "ai_pattern": "tático",
     "difficulty": "hard", "tier": 0,
-    "notes": "Modo história, Laje, força 9 (19 pontos). Comanda a Laje inteira em nome do Costura — o último degrau antes do topo de Marelia.",
+    "notes": "Modo história, Laje, força 9 (19 pontos). Comanda a Laje inteira em nome do Retalho — o último degrau antes do topo de Marelia.",
     "trash_talk": {
       "attack_miss": ["ninguém passa de general fácil 😏", "o topo espera, mas não por você 😤"],
-      "attack_hit": ["isso é ordem do Costura 👊🔥", "sentiu o comando? 😈"],
+      "attack_hit": ["isso é ordem do Retalho 👊🔥", "sentiu o corte? 😈"],
       "take_damage": ["já dei ordem sob coisa pior 🙄", "beleza, isso eu registro 😬"],
       "take_critical": ["...anotado. 🫡", "cê chega perto de mandar aqui 😳"],
-      "player_near_death": ["o Costura tá esperando, mas cê não chega 😈", "desiste antes do topo de verdade 🙏"],
+      "player_near_death": ["o Retalho tá esperando, mas cê não chega 😈", "desiste antes do topo de verdade 🙏"],
       "enemy_near_death": ["ainda comando essa Laje 😤", "não entrego o posto fácil não 💢"],
-      "defeat": ["...cê é general agora. 😨", "respeito. o Costura sabe que cê tá subindo. 🫡"]
+      "defeat": ["...cê é general agora. 😨", "respeito. o Retalho sabe que cê tá subindo. 🫡"]
     }
   },
   {
     "id": "costura",
-    "name": "Damião, o Costura",
+    "name": "O Retalho",
     "rank": 1500,
     "stats": { "A": 6, "H": 5, "R": 17, "D": 5 },
     "pv_max": 34, "pm_max": 68,
@@ -625,13 +625,13 @@
       "take_damage": ["já levei pior segurando seis bairro 🙄", "beleza, isso eu vou lembrar 😬"],
       "take_critical": ["...cê tá mais perto do que eu esperava. 🫡", "ninguém chegou tão perto de mim 😳"],
       "player_near_death": ["essa porra não costura — nem eu segurei 😈", "desiste, Marelia não é sua ainda 🙏"],
-      "enemy_near_death": ["seis bairro não caem fácil 😤", "ainda seguro a linha, moleque 💢"],
-      "defeat": ["...ninguém nunca chegou mais perto. Marelia é sua agora. 😨", "respeito, moleque. cê fez o que eu não consegui. 🫡"]
+      "enemy_near_death": ["seis bairro não caem fácil 😤", "ainda seguro a linha, cria 💢"],
+      "defeat": ["...ninguém nunca chegou mais perto. Marelia é sua agora. 😨", "respeito, guerreiro. cê fez o que eu não consegui. 🫡"]
     }
   },
   {
     "id": "thunderbolt",
-    "name": "Faísca",
+    "name": "Curto-Circuito",
     "rank": 30156,
     "stats": { "A": 4, "H": 4, "R": 10, "D": 2 },
     "pv_max": 20, "pm_max": 40,
@@ -652,7 +652,7 @@
   },
   {
     "id": "stormbyte",
-    "name": "Vírus",
+    "name": "Traça",
     "rank": 847,
     "stats": { "A": 3, "H": 5, "R": 13, "D": 3 },
     "pv_max": 26, "pm_max": 52,
@@ -673,7 +673,7 @@
   },
   {
     "id": "viran",
-    "name": "Mestre Onça",
+    "name": "Cascudo",
     "rank": 156,
     "stats": { "A": 5, "H": 5, "R": 10, "D": 5 },
     "pv_max": 30, "pm_max": 30,
@@ -694,7 +694,7 @@
   },
   {
     "id": "campeao",
-    "name": "O Invicto",
+    "name": "Quebra-Queixo",
     "rank": 47,
     "stats": { "A": 6, "H": 5, "R": 12, "D": 4 },
     "pv_max": 36, "pm_max": 36,
@@ -715,7 +715,7 @@
   },
   {
     "id": "kronos",
-    "name": "O Patrão",
+    "name": "O Coveiro",
     "rank": 3,
     "stats": { "A": 7, "H": 7, "R": 25, "D": 6 },
     "pv_max": 50, "pm_max": 100,
@@ -727,7 +727,7 @@
     "trash_talk": {
       "attack_miss": ["você ousa desafiar quem manda aqui? 🌑😐", "anos nesse jogo e é isso que mandam pra mim? 😒⏳", "sua luz não alcança aqui 🌑"],
       "attack_hit": ["sinta o peso de quem manda 💀", "cada golpe meu é uma sentença 🌌😈", "essa cidade me obedece ⏰😏"],
-      "take_damage": ["curioso. você fere o Patrão. 😳⏳", "isso dói? já esqueci a dor 🌑", "interessante. continue. 👁️"],
+      "take_damage": ["curioso. você fere o Coveiro. 😳⏳", "isso dói? já esqueci a dor 🌑", "interessante. continue. 👁️"],
       "take_critical": ["DOR. FINALMENTE. 😤💢⏳", "há anos não sentia isso 😳🌌", "você... é real. 👁️😨"],
       "player_near_death": ["você será esquecido como todos 🌑⏳", "sua história termina aqui 💀🌌", "a sombra te recebe 🌑😈"],
       "enemy_near_death": ["EU SOU MARELIA 😡⏳💢", "você não pode matar o que sempre mandou 🌌", "meu comando NÃO termina ♾️😤"],
@@ -736,7 +736,7 @@
   },
   {
     "id": "primordial_jack",
-    "name": "Rei do Asfalto",
+    "name": "Breu",
     "rank": 1,
     "stats": { "A": 8, "H": 6, "R": 30, "D": 5 },
     "pv_max": 60, "pm_max": 120,

@@ -868,42 +868,42 @@
         }
       },
       "enemy_names": {
-        "treinamento": "Candy Kid",
-        "kaeda": "Kaeda",
-        "moleque_a": "Street Kid",
-        "moleque_b": "Tough Kid",
-        "moleque_c": "Little Smoke",
-        "fumaca": "Fumaça",
-        "turco_batedor": "Turk's Enforcer",
-        "turco_capanga": "Turk's Heavy",
-        "gato_eletrico": "Street Cat",
-        "turco": "the Turk",
-        "sombra_rubra": "Crimson",
-        "sombra_fria": "Frost",
-        "os_restos": "Shadow's Leftovers",
-        "espeto": "Skewer",
-        "bonde_predio_1": "Building Super",
-        "bonde_predio_2": "Building Captain",
-        "andar_de_cima": "Upstairs",
-        "sala": "Salatiel",
-        "frente_escada_1": "Stairwell Watch",
-        "frente_escada_2": "Stairwell Captain",
-        "fogueteiro": "Rocketeer",
-        "zefa": "Miss Zefa",
-        "os_cinco_1": "One of the Five",
-        "os_cinco_2": "The Five's Right Hand",
-        "a_roda": "The Wheel",
-        "doutor": "the Doc",
-        "bonde_costura_1": "Stitch's Front Line",
-        "bonde_costura_2": "Stitch's Lieutenant",
-        "bonde_costura_3": "Stitch's General",
-        "costura": "Damião, the Stitch",
-        "thunderbolt": "Sparkfist",
-        "stormbyte": "Virus",
-        "viran": "Master Jaguar",
-        "campeao": "The Unbeaten",
-        "kronos": "The Boss",
-        "primordial_jack": "King of Asphalt"
+        "treinamento": "Punching Bag",
+        "kaeda": "Deep Cut",
+        "moleque_a": "Rat",
+        "moleque_b": "Mad Dog",
+        "moleque_c": "Ember",
+        "fumaca": "Coal",
+        "turco_batedor": "Hungry Claw",
+        "turco_capanga": "Sledge",
+        "gato_eletrico": "Shock",
+        "turco": "The Collector",
+        "sombra_rubra": "Bloodletter",
+        "sombra_fria": "Ice",
+        "os_restos": "Leftover",
+        "espeto": "Gut-Stabber",
+        "bonde_predio_1": "Padlock",
+        "bonde_predio_2": "Deadbolt",
+        "andar_de_cima": "The Leak",
+        "sala": "Rust",
+        "frente_escada_1": "Termite",
+        "frente_escada_2": "Gravel",
+        "fogueteiro": "Short Fuse",
+        "zefa": "The Beast",
+        "os_cinco_1": "Worm",
+        "os_cinco_2": "Fang",
+        "a_roda": "Gear",
+        "doutor": "The Accountant",
+        "bonde_costura_1": "Thread",
+        "bonde_costura_2": "Needle",
+        "bonde_costura_3": "Scissors",
+        "costura": "The Patchwork",
+        "thunderbolt": "Short Circuit",
+        "stormbyte": "Moth",
+        "viran": "Bruiser",
+        "campeao": "Jaw-Breaker",
+        "kronos": "The Gravedigger",
+        "primordial_jack": "Pitch"
       },
       "defeat_fallbacks": [
         "this cannot be...",
@@ -1648,7 +1648,7 @@
         "entry": "Story mode",
         "entry_desc": "Take Marelia block by block. From street rat to the Rooftop.",
         "titulo": "MARELIA HAS NO KING",
-        "sub": "Before Alan, nobody held Marelia. A gang on every corner, each one sure it ran the world because it ran one street. One guy — the Stitch — almost pulled it all together. Almost. Now it's your turn to try.",
+        "sub": "Before Alan, nobody held Marelia. A gang on every corner, each one sure it ran the world because it ran one street. One guy — the Patchwork — almost pulled it all together. Almost. Now it's your turn to try.",
         "dominio": "of Marelia",
         "menu": "Menu",
         "world_title": "Marelia Map",
@@ -1687,7 +1687,7 @@
         "gangues": {
           "rato_pista": "Track Rats",
           "bonde_sinal": "Red-Light Crew",
-          "cobranca_turco": "Turk's Collectors",
+          "cobranca_turco": "The Shakedown",
           "os_gato": "The Splice",
           "sombra_rubra": "Crimson Shadow",
           "sombra_fria": "Cold Shadow",
@@ -1698,35 +1698,35 @@
           "os_fogueteiro": "The Firework Boys",
           "os_cinco": "The Five",
           "a_roda": "The Ring",
-          "bonde_costura": "The Stitch's crew"
+          "bonde_costura": "The Patchwork's crew"
         },
         "bosses": {
           "fumaca": {
-            "nome": "Smoke",
+            "nome": "Coal",
             "fala": "You quick? I'm smoke, kid. Blink and I'm gone — and you eat it in the dark."
           },
           "turco": {
-            "nome": "the Turk",
+            "nome": "The Collector",
             "fala": "All of Marelia owes me. Now {suaGangue} does too. Round here, whoever can't pay in cash pays in bone."
           },
           "espeto": {
-            "nome": "Skewer",
+            "nome": "Gut-Stabber",
             "fala": "The Lowside's been mine since the Shadow hit the ditch. Took my spots? Fine. Come take the rest."
           },
           "sala": {
-            "nome": "Salatiel",
+            "nome": "Rust",
             "fala": "Climbed ten floors just to get dropped on the last one? Respect the effort. Changes nothing."
           },
           "zefa": {
-            "nome": "Miss Zefa",
+            "nome": "The Beast",
             "fala": "I raised half the kids {suaGangue} beat to get up here. Sit down. Your punishment's gonna take a while."
           },
           "doutor": {
-            "nome": "the Doc",
+            "nome": "The Accountant",
             "fala": "Do the math, kid. You've got two fighters. I've got the whole Hilltop owing me favors. Now go home."
           },
           "costura": {
-            "nome": "Damião, the Stitch",
+            "nome": "The Patchwork",
             "fala": "All of Marelia was mine once. Six blocks in hand, the Rooftop under my feet. But this thing won't stitch — not even I held it. Come up here and I'll show you the hard way."
           }
         },
@@ -1737,7 +1737,7 @@
           },
           "feira": {
             "nome": "The Market",
-            "desc": "The stalls, the vendors, the spliced power lines. No shooting here — just debt. The Turk writes it all down, and the Turk collects it all."
+            "desc": "The stalls, the vendors, the spliced power lines. No shooting here — just debt. The Collector writes it all down, and the Collector collects it all."
           },
           "baixada": {
             "nome": "The Lowside",
@@ -1753,11 +1753,11 @@
           },
           "alto": {
             "nome": "The Hilltop",
-            "desc": "Past the steel door. The Five nearly became a council — pulled half the Hill into one hand before the Stitch came, and before you."
+            "desc": "Past the steel door. The Five nearly became a council — pulled half the Hill into one hand before the Patchwork came, and before you."
           },
           "laje": {
             "nome": "The Rooftop",
-            "desc": "The top. On one side, all of Marelia watching. On the other, the Stitch — the only man who ever held six blocks at once. This is where you find out if seven can be held."
+            "desc": "The top. On one side, all of Marelia watching. On the other, the Patchwork — the only one who ever held six blocks at once. This is where you find out if seven can be held."
           }
         },
         "falas": {
@@ -1768,14 +1768,14 @@
           "Marelia has no king. A gang in every alley, each one thinking it rules the world 'cause it rules one street.",
           "Want to rise? Start on the Track, down below. Take the small gangs' spots, then face the region's heavy — the one holding the flag.",
           "Take the block, the next one opens. Block by block up to the Rooftop.",
-          "Up top there's a man named Damião. The Stitch. He once pulled six blocks under one flag. Nobody ever came closer to owning Marelia.",
+          "Up top there's someone nobody knows the real name of. They just call him the Patchwork. He once pulled six blocks under one flag. Nobody ever came closer to owning Marelia.",
           "You'll have to go through him. Good luck, kid — you'll need it."
         ],
         "final": {
           "code": "THE CLIMB ENDS HERE",
           "titulo": "MARELIA WON'T STITCH",
           "paragrafos": [
-            "{gangue} put the Stitch down on the Rooftop. All of Marelia saw it.",
+            "{gangue} put the Patchwork down on the Rooftop. All of Marelia saw it.",
             "And then you understood what he already knew. Two weeks and the map was split again — blocks pulling one way, spots pulling another. Nobody holds this city. He didn't. You didn't.",
             "Years later a kid with weird hair would do what neither of you could. His name was Alan. But that's another story — and you're in it, right at the start."
           ]
@@ -1826,7 +1826,7 @@
         "abertura": [
           "First thing: your gang needs a name.",
           "Fighters come and go. The gang's name is what stays — it runs the mouth of the hill, it turns into a legend or into a joke.",
-          "Choose well. This is the name the Stitch spits when you reach the Rooftop."
+          "Choose well. This is the name the Patchwork spits when you reach the Rooftop."
         ]
       },
       "dialogo": {
@@ -1875,7 +1875,7 @@
         "pista": {
           "chegada": [
             "This is the Track, kid. The asphalt down below.",
-            "Take the little gangs' spots, make your name, and when the whole street knows you Fumaça comes down to face you.",
+            "Take the little gangs' spots, make your name, and when the whole street knows you Coal comes down to face you.",
             "Move. Tap whatever lights up."
           ],
           "sinal": {
@@ -1905,7 +1905,7 @@
             "intro": "The gate's just a chain and an old padlock. The crew gets on the pick — whoever's got the hands works it, the rest watch the guard."
           },
           "molecada_1": {
-            "nome": "The Molecada's alley",
+            "nome": "The Backstab Crew's alley",
             "fala": "This alley's ours, pal. The new gang doesn't get through for free."
           },
           "rinha": {
@@ -1917,17 +1917,17 @@
             "sub": "the corner elder",
             "fala": [
               "Sit down. Have some mate. You're climbing way too fast for someone nobody knows.",
-              "I'll tell you where Fumaça hides. But first do me a run — take a package across without the patrol car seeing.",
+              "I'll tell you where Coal hides. But first do me a run — take a package across without the patrol car seeing.",
               "After that the Track respects you. And the bar stays open for your crew to rest."
             ],
             "escolhas": {
               "aceita_corre": {
                 "label": "Take Nato's run",
-                "resultado": "\"Deal. The package is behind the counter. And the Molecada's other spot is up to the right.\""
+                "resultado": "\"Deal. The package is behind the counter. And the Backstab Crew's other spot is up to the right.\""
               },
               "so_papo": {
                 "label": "Just want the information",
-                "resultado": "\"Stubborn. Then straight up: the Molecada's other spot is up there. Take both and Fumaça shows up.\""
+                "resultado": "\"Stubborn. Then straight up: the other crew's other spot is up there. Take both and Coal shows up.\""
               }
             }
           },
@@ -1941,7 +1941,7 @@
             "escolhas": {
               "perguntar": {
                 "label": "Ask about the Feira",
-                "resultado": "\"O Turco only comes out of hiding once he knows his enforcers already took a beating. Go settle things there, and come back if you need more.\""
+                "resultado": "\"The Collector only comes out of hiding once he knows his enforcers already took a beating. Go settle things there, and come back if you need more.\""
               }
             }
           },
@@ -1951,7 +1951,7 @@
             "intro": "Cross the block with the package without stepping into the patrol car's beam. The crew spreads out and covers you."
           },
           "molecada_2": {
-            "nome": "The Molecada's other spot",
+            "nome": "The Backstab Crew's other spot",
             "fala": "You again?? Took the alley down there and thought this'd be easy too?"
           },
           "descanso": {

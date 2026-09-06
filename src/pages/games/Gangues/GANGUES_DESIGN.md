@@ -121,18 +121,20 @@ avança ao vencer o inimigo atual):
 
 | Ordem | id | Nome | A/H/R/D | PV | PM | Modo |
 |---|---|---|---|---|---|---|
-| 1 | treinamento | Moleque da Bala | 1/0/2/0 | 6 | 6 | fists → atacante |
-| 2 | kaeda | Kaeda | 3/3/3/2 | 15 | 10 | armed → defensor |
-| 3 | thunderbolt | Faísca | 4/4/3/2 | 20 | 15 | power → místico |
-| 4 | stormbyte | Vírus | 3/5/4/3 | 25 | 20 | power → místico |
-| 5 | viran | Mestre Onça | 5/5/5/5 | 30 | 25 | fists → atacante |
-| 6 | campeao | O Invicto | 6/5/6/4 | 35 | 20 | fists → atacante |
-| 7 | kronos | O Patrão | 7/7/8/6 | 50 | 40 | power → místico |
-| 8 | primordial_jack | Rei do Asfalto | 8/6/10/5 | 60 | 50 | power → místico |
+| 1 | treinamento | Saco de Pancada | 1/0/2/0 | 6 | 6 | fists → atacante |
+| 2 | kaeda | Corte Fundo | 3/3/3/2 | 15 | 10 | armed → defensor |
+| 3 | thunderbolt | Curto-Circuito | 4/4/3/2 | 20 | 15 | power → místico |
+| 4 | stormbyte | Traça | 3/5/4/3 | 25 | 20 | power → místico |
+| 5 | viran | Cascudo | 5/5/5/5 | 30 | 25 | fists → atacante |
+| 6 | campeao | Quebra-Queixo | 6/5/6/4 | 35 | 20 | fists → atacante |
+| 7 | kronos | O Coveiro | 7/7/8/6 | 50 | 40 | power → místico |
+| 8 | primordial_jack | Breu | 8/6/10/5 | 60 | 50 | power → místico |
 
-Nomes trocados na v2.33.0: os originais (Thunderbolt, StormByte_91, Mestre Viran, O Campeão,
-Kronos, Jack Primordial) cruzavam com personagens/lugares essenciais da linha principal do LDI
-(Torre Kronos, Dojô de Karnazar, Kim, Jack) — reflavorizados pra tema 100% gangue/rua/crime.
+Nomes trocados na v2.33.0/v2.34.0: todos os 36 inimigos de `gangues-enemies.json` ganharam
+apelido "puxado do esgoto" (rua/crime, sem nomes próprios "soltos" e sem nenhuma ocorrência da
+palavra "moleque" nos nomes ou falas) — inclui reflavorizar os 6 que cruzavam com
+personagens/lugares essenciais da linha principal do LDI (Torre Kronos, Dojô de Karnazar, Kim,
+Jack). Tabela completa de nomes em `data/gangues-enemies.json` + `enemy_names` nos 3 idiomas.
 
 `preferred_mode` do inimigo mapeia pra `combat_path`: `fists→atacante`, `armed→defensor`,
 `power→mistico` (`prepare()` em `useGanguesTurnMachine.js`).

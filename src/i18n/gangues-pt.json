@@ -868,42 +868,42 @@
         }
       },
       "enemy_names": {
-        "treinamento": "Moleque da Bala",
-        "kaeda": "Kaeda",
-        "moleque_a": "Moleque da Pista",
-        "moleque_b": "Moleque Valentão",
-        "moleque_c": "Fumacinha",
-        "fumaca": "Fumaça",
-        "turco_batedor": "Batedor do Turco",
-        "turco_capanga": "Capanga do Turco",
-        "gato_eletrico": "Gato-de-Rua",
-        "turco": "o Turco",
-        "sombra_rubra": "Rubra",
-        "sombra_fria": "Fria",
-        "os_restos": "Resto do Sombra",
-        "espeto": "Espeto",
-        "bonde_predio_1": "Zelador do Bonde",
-        "bonde_predio_2": "Capitão do Bonde",
-        "andar_de_cima": "Andar de Cima",
-        "sala": "Salatiel",
-        "frente_escada_1": "Vigia da Escada",
-        "frente_escada_2": "Capitão da Escada",
-        "fogueteiro": "Fogueteiro",
-        "zefa": "Dona Zefa",
-        "os_cinco_1": "Um dos Cinco",
-        "os_cinco_2": "Braço-Direito dos Cinco",
-        "a_roda": "A Roda",
-        "doutor": "o Doutor",
-        "bonde_costura_1": "Linha de Frente do Costura",
-        "bonde_costura_2": "Tenente do Costura",
-        "bonde_costura_3": "General do Costura",
-        "costura": "Damião, o Costura",
-        "thunderbolt": "Faísca",
-        "stormbyte": "Vírus",
-        "viran": "Mestre Onça",
-        "campeao": "O Invicto",
-        "kronos": "O Patrão",
-        "primordial_jack": "Rei do Asfalto"
+        "treinamento": "Saco de Pancada",
+        "kaeda": "Corte Fundo",
+        "moleque_a": "Ratazana",
+        "moleque_b": "Cão Louco",
+        "moleque_c": "Brasa",
+        "fumaca": "Carvão",
+        "turco_batedor": "Unha de Fome",
+        "turco_capanga": "Marreta",
+        "gato_eletrico": "Choque",
+        "turco": "O Cobrador",
+        "sombra_rubra": "Sangria",
+        "sombra_fria": "Gelo",
+        "os_restos": "Sobra",
+        "espeto": "Fura-Bucho",
+        "bonde_predio_1": "Cadeado",
+        "bonde_predio_2": "Trinco",
+        "andar_de_cima": "Goteira",
+        "sala": "Ferrugem",
+        "frente_escada_1": "Cupim",
+        "frente_escada_2": "Cascalho",
+        "fogueteiro": "Pavio Curto",
+        "zefa": "A Fera",
+        "os_cinco_1": "Verme",
+        "os_cinco_2": "Presa",
+        "a_roda": "Engrenagem",
+        "doutor": "O Contador",
+        "bonde_costura_1": "Fiapo",
+        "bonde_costura_2": "Agulha",
+        "bonde_costura_3": "Tesoura",
+        "costura": "O Retalho",
+        "thunderbolt": "Curto-Circuito",
+        "stormbyte": "Traça",
+        "viran": "Cascudo",
+        "campeao": "Quebra-Queixo",
+        "kronos": "O Coveiro",
+        "primordial_jack": "Breu"
       },
       "defeat_fallbacks": [
         "isso não pode ser...",
@@ -1112,7 +1112,7 @@
       },
       "trash_talk_player": [
         "acha que isso é briga? meu avô bate mais forte dormindo",
-        "volta pra tua rua, moleque",
+        "volta pra tua rua, cria",
         "já foi tarde",
         "aparece quando tiver nível, novato",
         "tua gangue toda junta não me pega",
@@ -1129,7 +1129,7 @@
         "já acabou? achei que ia dar trabalho",
         "foi o barato ou teu reflexo é isso mesmo?",
         "teu HP cai mais rápido que tua moral na quebrada",
-        "até o moleque da pista bate melhor",
+        "até o mais fraco da Pista bate melhor",
         "senta. o troco vem já",
         "tu veio tomar meu ponto com ESSA mão?",
         "anota esse golpe. vai cair de novo",
@@ -1238,7 +1238,7 @@
         "entry": "Modo história",
         "entry_desc": "Sobe Marelia bairro por bairro. Do rato de rua até a Laje.",
         "titulo": "MARELIA SEM DONO",
-        "sub": "Antes do Alan, ninguém segurava Marelia. Era gangue em cada esquina, cada uma dona do próprio quarteirão. Um cara — o Costura — quase juntou tudo. Quase. Agora é a tua vez de tentar.",
+        "sub": "Antes do Alan, ninguém segurava Marelia. Era gangue em cada esquina, cada uma dona do próprio quarteirão. Um cara — o Retalho — quase juntou tudo. Quase. Agora é a tua vez de tentar.",
         "dominio": "de Marelia",
         "menu": "Menu",
         "world_title": "Mapa de Marelia",
@@ -1277,7 +1277,7 @@
         "gangues": {
           "rato_pista": "Rato de Pista",
           "bonde_sinal": "Bonde do Sinal",
-          "cobranca_turco": "Cobrança do Turco",
+          "cobranca_turco": "Acerto de Contas",
           "os_gato": "Os Gato",
           "sombra_rubra": "Sombra Rubra",
           "sombra_fria": "Sombra Fria",
@@ -1288,50 +1288,50 @@
           "os_fogueteiro": "Os Fogueteiro",
           "os_cinco": "Os Cinco",
           "a_roda": "A Roda",
-          "bonde_costura": "O bonde do Costura"
+          "bonde_costura": "O bonde do Retalho"
         },
         "bosses": {
           "fumaca": {
-            "nome": "Fumaça",
-            "fala": "Cê é ligeiro? Eu sou fumaça, moleque. Pisca que eu sumo — e cê apanha no escuro."
+            "nome": "Carvão",
+            "fala": "Cê é ligeiro? Eu sou fumaça, cria. Pisca que eu sumo — e cê apanha no escuro."
           },
           "turco": {
-            "nome": "o Turco",
+            "nome": "O Cobrador",
             "fala": "Marelia inteira me deve. Agora a {suaGangue} também. E aqui quem não paga em dinheiro paga no osso."
           },
           "espeto": {
-            "nome": "Espeto",
+            "nome": "Fura-Bucho",
             "fala": "A Baixada é minha desde que o Sombra caiu no valão. Cê tomou meus ponto? Beleza. Vem tomar o resto."
           },
           "sala": {
-            "nome": "Salatiel",
+            "nome": "Ferrugem",
             "fala": "Subiu os dez andar só pra apanhar no último? Respeito a disposição. Não muda merda nenhuma."
           },
           "zefa": {
-            "nome": "Dona Zefa",
-            "fala": "Eu criei metade dos moleque que a {suaGangue} bateu pra chegar aqui. Senta aí. O teu castigo vai demorar."
+            "nome": "A Fera",
+            "fala": "Eu criei metade da criançada que a {suaGangue} bateu pra chegar aqui. Senta aí. O teu castigo vai demorar."
           },
           "doutor": {
-            "nome": "o Doutor",
-            "fala": "Conta comigo, moleque. Cê tem dois lutador. Eu tenho o Alto do Morro inteiro devendo favor. Faz a conta e vai embora."
+            "nome": "O Contador",
+            "fala": "Conta comigo, cria. Cê tem dois lutador. Eu tenho o Alto do Morro inteiro devendo favor. Faz a conta e vai embora."
           },
           "costura": {
-            "nome": "Damião, o Costura",
+            "nome": "O Retalho",
             "fala": "Marelia inteira já foi minha uma vez. Seis bairro na mão, a Laje no pé. Só que essa porra não costura — nem eu segurei. Sobe aqui que eu te mostro na marra."
           }
         },
         "territorios": {
           "pista": {
             "nome": "A Pista",
-            "desc": "O asfalto lá embaixo. Moleque que corre no farol, arranca corrente, vende bala. Ninguém importante — mas todo mundo começa aqui. O Alan também começou."
+            "desc": "O asfalto lá embaixo. Cria que corre no farol, arranca corrente, vende bala. Ninguém importante — mas todo mundo começa aqui. O Alan também começou."
           },
           "feira": {
             "nome": "A Feira",
-            "desc": "O comércio, os camelô, a luz de gato. Aqui não tem tiro — tem dívida. O Turco anota tudo, e o Turco cobra tudo."
+            "desc": "O comércio, os camelô, a luz de gato. Aqui não tem tiro — tem dívida. O Cobrador anota tudo, e o Cobrador cobra tudo."
           },
           "baixada": {
             "nome": "A Baixada",
-            "desc": "Do outro lado da linha do trem. A facção do Sombra rachou em três quando ele morreu. Rubra, Fria e os Restos se mordem antes de morder você."
+            "desc": "Do outro lado da linha do trem. A facção do Sombra rachou em três quando ele morreu. Sangria, Gelo e a Sobra se mordem antes de morder você."
           },
           "vila": {
             "nome": "A Vila",
@@ -1343,11 +1343,11 @@
           },
           "alto": {
             "nome": "O Alto do Morro",
-            "desc": "Atrás da porta de aço. Os Cinco quase viraram cúpula — juntaram meio Morro numa mão só antes do Costura chegar e antes de você."
+            "desc": "Atrás da porta de aço. Os Cinco quase viraram cúpula — juntaram meio Morro numa mão só antes do Retalho chegar e antes de você."
           },
           "laje": {
             "nome": "A Laje",
-            "desc": "O topo. De um lado, Marelia inteira olhando. Do outro, o Costura — o único que já segurou seis bairro de uma vez. É aqui que se descobre se dá pra segurar sete."
+            "desc": "O topo. De um lado, Marelia inteira olhando. Do outro, o Retalho — o único que já segurou seis bairro de uma vez. É aqui que se descobre se dá pra segurar sete."
           }
         },
         "falas": {
@@ -1358,16 +1358,16 @@
           "Marelia não tem dono. Tem gangue em cada beco, cada uma achando que manda no mundo porque manda numa rua.",
           "Cê quer subir? Começa na Pista, lá embaixo. Toma os ponto das gangue pequena, depois encara o foda da região — o dono da boca, o cara da bandeira.",
           "Toma o bairro, o de cima abre. Bairro por bairro até a Laje.",
-          "Lá em cima tem um cara chamado Damião. O Costura. Ele já juntou seis bairro numa bandeira só. Ninguém nunca chegou mais perto de ser dono de Marelia.",
-          "Cê vai ter que passar por ele. Boa sorte, moleque — cê vai precisar."
+          "Lá em cima tem um cara que ninguém sabe o nome de verdade. Só chamam ele de O Retalho. Ele já juntou seis bairro numa bandeira só. Ninguém nunca chegou mais perto de ser dono de Marelia.",
+          "Cê vai ter que passar por ele. Boa sorte, cria — cê vai precisar."
         ],
         "final": {
           "code": "A SUBIDA ACABA AQUI",
           "titulo": "MARELIA NÃO SE COSTURA",
           "paragrafos": [
-            "A {gangue} derrubou o Costura na Laje. Marelia inteira viu.",
+            "A {gangue} derrubou o Retalho na Laje. Marelia inteira viu.",
             "E aí você entendeu o que ele já sabia. Em duas semana o mapa tava rachado de novo — bairro puxando pra um lado, boca puxando pra outro. Ninguém segura essa cidade. Nem ele segurou. Nem você.",
-            "Anos depois um moleque de cabelo esquisito ia conseguir o que vocês dois não conseguiram. O nome dele era Alan. Mas isso é outra história — e cê tá nela, lá no comecinho."
+            "Anos depois um garoto de cabelo esquisito ia conseguir o que vocês dois não conseguiram. O nome dele era Alan. Mas isso é outra história — e cê tá nela, lá no comecinho."
           ]
         }
       },
@@ -1416,7 +1416,7 @@
         "abertura": [
           "Antes de tudo: tua gangue precisa de nome.",
           "Os lutador vêm e vão. O nome da gangue é o que fica — é ele que corre a boca do morro, é ele que vira lenda ou vira piada.",
-          "Escolhe bem. É esse nome que o Costura vai cuspir quando cê chegar na Laje."
+          "Escolhe bem. É esse nome que o Retalho vai cuspir quando cê chegar na Laje."
         ]
       },
       "dialogo": {
@@ -1464,13 +1464,13 @@
         "descanso_curar": "Descansar (−{grana})",
         "pista": {
           "chegada": [
-            "Isso aqui é a Pista, moleque. O asfalto lá embaixo.",
-            "Toma os ponto das gangue pequena, faz teu nome, e quando a rua toda te conhecer o Fumaça desce pra te encarar.",
+            "Isso aqui é a Pista, cria. O asfalto lá embaixo.",
+            "Toma os ponto das gangue pequena, faz teu nome, e quando a rua toda te conhecer o Carvão desce pra te encarar.",
             "Anda. Toca no que acender."
           ],
           "sinal": {
             "nome": "A boca do sinal",
-            "sub": "moleque vendendo bala",
+            "sub": "cria vendendo bala",
             "fala": [
               "Cê é da gangue nova? Tá maluco de descer aqui sem ninguém.",
               "Óh, eu vejo tudo desse farol. Quer saber de alguma coisa, é só trocar uma ideia — ou um trocado."
@@ -1481,11 +1481,11 @@
                 "resultado": "Ele embolsa o trocado. \"O ferro-velho ali, o portão fica só no cadeado. Dentro tem coisa boa.\""
               },
               "aperta": {
-                "label": "Aperta o moleque pra ele falar de graça"
+                "label": "Aperta a cria pra ele falar de graça"
               },
               "ignora": {
                 "label": "Ignora e segue subindo",
-                "resultado": "Cê passa reto. O moleque cospe no chão. Dá pra ver um ferro-velho logo adiante."
+                "resultado": "Cê passa reto. A cria cospe no chão. Dá pra ver um ferro-velho logo adiante."
               }
             }
           },
@@ -1495,7 +1495,7 @@
             "intro": "O portão é só corrente e um cadeado velho. A equipe se junta na gazua — quem tem mão boa trabalha, o resto fica de olho no vigia."
           },
           "molecada_1": {
-            "nome": "O beco da Molecada",
+            "nome": "O beco da Rasteira",
             "fala": "Esse beco é nosso, parça. A gangue nova não passa daqui de graça."
           },
           "rinha": {
@@ -1507,17 +1507,17 @@
             "sub": "o coroa da esquina",
             "fala": [
               "Senta aí. Toma um mate. Cê tá subindo rápido demais pra quem ninguém conhece.",
-              "Vou te falar onde o Fumaça se enfia. Mas antes me faz um corre — leva um pacote pro outro lado sem a viatura ver.",
+              "Vou te falar onde o Carvão se enfia. Mas antes me faz um corre — leva um pacote pro outro lado sem a viatura ver.",
               "Depois disso a Pista te respeita. E a birosca fica aberta pra vocês descansarem."
             ],
             "escolhas": {
               "aceita_corre": {
                 "label": "Aceita o corre do Nato",
-                "resultado": "\"Fechou. O pacote tá atrás do balcão. E os outro ponto da Molecada é subindo à direita.\""
+                "resultado": "\"Fechou. O pacote tá atrás do balcão. E os outro ponto da Rasteira é subindo à direita.\""
               },
               "so_papo": {
                 "label": "Só quer a informação",
-                "resultado": "\"Teimoso. Então vai no osso: o outro ponto da Molecada é ali em cima. Bata os dois e o Fumaça aparece.\""
+                "resultado": "\"Teimoso. Então vai no osso: o outro ponto da Rasteira é ali em cima. Bata os dois e o Carvão aparece.\""
               }
             }
           },
@@ -1531,7 +1531,7 @@
             "escolhas": {
               "perguntar": {
                 "label": "Pergunta sobre a Feira",
-                "resultado": "\"O Turco só sai da tocaia dele se souber que já bateram nos batedor dele antes. Vai lá, resolve os ponto, e volta se precisar de mais alguma coisa.\""
+                "resultado": "\"O Cobrador só sai da tocaia dele se souber que já bateram nos batedor dele antes. Vai lá, resolve os ponto, e volta se precisar de mais alguma coisa.\""
               }
             }
           },
@@ -1541,7 +1541,7 @@
             "intro": "Atravessa a quadra com o pacote sem entrar no facho da viatura. A equipe se espalha e cobre teu movimento."
           },
           "molecada_2": {
-            "nome": "O outro ponto da Molecada",
+            "nome": "O outro ponto da Rasteira",
             "fala": "Cê de novo?? Bateu o beco lá embaixo e achou que ia ser fácil aqui também?"
           },
           "descanso": {
