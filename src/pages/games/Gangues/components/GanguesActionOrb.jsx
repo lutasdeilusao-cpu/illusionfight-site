@@ -14,7 +14,7 @@ function salvarPos(pos) { try { localStorage.setItem(POS_KEY, pos) } catch {} }
  *  posição salva por dispositivo. Toque abre um menu compacto: ATACAR (na
  *  hora), PODER (lista) ou ITEM (lista, hoje vazia — sem sistema de
  *  inventário ainda). */
-export default function GanguesActionOrb({ t, atorNome, disabled, equippedSpecials, canAffordSpecial, itens = [], onAtacar, onUsarPoder, onUsarItem }) {
+export default function GanguesActionOrb({ t, atorNome, disabled, equippedSpecials, canAffordSpecial, itens = [], onAtacar, onUsarPoder, onUsarItem, autoOn = false, autoBloqueado = false, onToggleAuto }) {
   const [pos, setPos] = useState(posSalva)
   const [open, setOpen] = useState(false)
   const [tab, setTab] = useState('menu') // 'menu' | 'poder' | 'item'
@@ -58,15 +58,26 @@ export default function GanguesActionOrb({ t, atorNome, disabled, equippedSpecia
           {open && tab === 'menu' && (
             <motion.div key="menu" className="gang-orb-panel gang-orb-panel--menu" initial={{ opacity: 0, scale: 0.8, y: vpos === 'top' ? -8 : 8 }} animate={{ opacity: 1, scale: 1, y: 0 }} exit={{ opacity: 0, scale: 0.8 }}>
               {atorNome && <span className="gang-orb-ator">{atorNome}</span>}
-              <button type="button" className="gang-orb-opt gang-orb-opt--atacar" disabled={disabled} onClick={() => { onAtacar(); fechar() }}>
+              <button type="button" className="gang-orb-opt gang-orb-opt--atacar" disabled={disabled || autoOn} onClick={() => { onAtacar(); fechar() }}>
                 <b>⚔️</b>{t('games.gangues.orb.atacar')}
               </button>
-              <button type="button" className="gang-orb-opt gang-orb-opt--poder" disabled={disabled} onClick={() => setTab('poder')}>
+              <button type="button" className="gang-orb-opt gang-orb-opt--poder" disabled={disabled || autoOn} onClick={() => setTab('poder')}>
                 <b>✨</b>{t('games.gangues.orb.poder')}
               </button>
-              <button type="button" className="gang-orb-opt gang-orb-opt--item" onClick={() => setTab('item')}>
+              <button type="button" className="gang-orb-opt gang-orb-opt--item" disabled={autoOn} onClick={() => setTab('item')}>
                 <b>🎒</b>{t('games.gangues.orb.item')}
               </button>
+              {onToggleAuto && (
+                <button
+                  type="button"
+                  className={`gang-orb-auto ${autoOn ? 'gang-orb-auto--on' : ''} ${autoBloqueado ? 'gang-orb-auto--lock' : ''}`}
+                  title={t(autoBloqueado ? 'games.gangues.auto.premium_titulo' : 'games.gangues.auto.switch_titulo')}
+                  onClick={() => onToggleAuto()}
+                >
+                  <span className="gang-orb-auto__track"><span className="gang-orb-auto__dot" /></span>
+                  <span className="gang-orb-auto__label">{t('games.gangues.auto.switch_label')}{autoBloqueado && <b className="gang-orb-auto__crown"> 👑</b>}</span>
+                </button>
+              )}
             </motion.div>
           )}
           {open && tab === 'poder' && (
@@ -116,14 +127,14 @@ export default function GanguesActionOrb({ t, atorNome, disabled, equippedSpecia
       </div>
       <motion.button
         type="button"
-        className={`gang-orb ${open ? 'gang-orb--aberto' : ''}`}
+        className={`gang-orb ${open ? 'gang-orb--aberto' : ''} ${autoOn && !open ? 'gang-orb--auto' : ''}`}
         style={drag ? { transform: `translate(${drag.dx}px, ${drag.dy}px)` } : undefined}
         onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}
         onPointerUp={onPointerUp}
         onPointerCancel={onPointerUp}
       >
-        {open ? '✕' : '👊'}
+        {open ? '✕' : autoOn ? '🅰' : '👊'}
       </motion.button>
     </div>
   )

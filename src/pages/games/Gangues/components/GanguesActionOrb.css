@@ -80,6 +80,34 @@
 .gang-orb-opt--poder { border-color: color-mix(in srgb, var(--if-cyan) 55%, transparent); color: var(--if-cyan); }
 .gang-orb-opt--item { border-color: color-mix(in srgb, var(--if-violet) 55%, transparent); color: var(--if-violet); }
 
+/* Modo automático — vive no menu da bolinha (era um switch na barra do topo).
+   Aparece pra todo mundo; quando virar exclusivo de assinante ganha a coroa
+   e o toque manda pro /assinar (gang-orb-auto--lock). */
+.gang-orb-auto {
+  display: flex; align-items: center; gap: 8px;
+  min-height: 40px; margin-top: 4px; padding: 0 10px;
+  border: 1px solid color-mix(in srgb, var(--if-teal) 45%, transparent);
+  border-top-width: 1px;
+  background: rgba(0, 180, 216, 0.06);
+  color: var(--if-teal);
+  font: 800 0.66rem var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase;
+  cursor: pointer;
+}
+.gang-orb-auto__track {
+  flex-shrink: 0; position: relative; width: 30px; height: 16px;
+  border: 1px solid currentColor; border-radius: 999px; opacity: 0.8;
+}
+.gang-orb-auto__dot {
+  position: absolute; top: 1px; left: 1px; width: 12px; height: 12px;
+  border-radius: 50%; background: currentColor; transition: transform 0.15s;
+}
+.gang-orb-auto--on { background: rgba(0, 180, 216, 0.16); box-shadow: 0 0 14px -2px rgba(0, 180, 216, 0.5); }
+.gang-orb-auto--on .gang-orb-auto__dot { transform: translateX(14px); }
+.gang-orb-auto--lock { border-color: color-mix(in srgb, var(--if-amber) 55%, transparent); color: var(--if-amber); background: rgba(245, 166, 35, 0.07); }
+.gang-orb-auto__crown { font-size: 0.8rem; }
+
+.gang-orb--auto { box-shadow: 0 0 0 2px var(--if-teal), 0 6px 18px rgba(0,0,0,0.4); }
+
 .gang-orb-panel-head {
   display: flex; align-items: center; gap: 8px;
   padding-bottom: 4px; margin-bottom: 2px;

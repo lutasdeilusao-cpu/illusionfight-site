@@ -601,7 +601,8 @@
       "auto": {
         "switch_label": "Automático",
         "switch_titulo": "Liga o modo automático — seus lutadores atacam sozinhos com o ataque normal. Pra usar poder, desliga e volta pro manual.",
-        "ativo_aviso": "MODO AUTOMÁTICO — atacando sozinho com o golpe normal"
+        "ativo_aviso": "MODO AUTOMÁTICO — atacando sozinho com o golpe normal",
+        "premium_titulo": "Modo automático é vantagem de assinante — toque pra assinar"
       },
       "multidao": {
         "switch_label": "Briga em Multidão",

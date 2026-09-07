@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
+import { useNavigate } from 'react-router-dom'
 import { useLanguage } from '../../../context/LanguageContext'
 import { useAuth } from '../../../context/AuthContext'
 import { useEventos } from '../../../context/EventosContext'
@@ -18,10 +19,12 @@ import GanguesActionOrb from './components/GanguesActionOrb'
 import { sfx } from '../../../lib/sfx'
 import './GanguesCombatRedesign.css'
 
-// Modo automático: liberado geral no lançamento (inclusive sem conta) — o
-// Isaias já avisou que quando o site sair do beta isso vira exclusivo pra
-// assinante. Só trocar esse flag pra true (e o check de tier logo abaixo,
-// em `podeUsarModoAuto`) fecha pra quem não assina, sem mexer no resto.
+// Modo automático: vive no menu da bolinha de ação (GanguesActionOrb) e
+// APARECE pra todo mundo — é chamariz de assinatura. Beta: liberado geral.
+// Quando o site sair do beta, trocar este flag pra true fecha o USO pra quem
+// não assina (o botão continua visível, com coroa 👑, e o toque manda pro
+// /assinar via toggleModoAuto). O guard em `podeUsarModoAuto` + o check no
+// efeito de auto-ataque garantem que non-assinante nunca dispara.
 const MODO_AUTO_EXIGE_ASSINATURA = false
 const TIERS_COM_MODO_AUTO = ['elite', 'primordial']
 
@@ -211,9 +214,17 @@ export default function GanguesCombat({ onNavigate }) {
   // ── Modo Automático: liga e os personagens atacam sozinhos com o ataque
   // normal, sempre — quem quiser usar poder tem que desligar e voltar pro
   // manual. Liberado geral por enquanto (ver flag no topo do arquivo).
+  const navigate = useNavigate()
+  // Beta: o botão APARECE pra todo mundo (é chamariz de assinatura — o cara vê
+  // toda hora que podia automatizar). `podeUsarModoAuto` só decide se toca ou
+  // se manda pro /assinar. Hoje o flag está desligado → todo mundo pode.
   const podeUsarModoAuto = !MODO_AUTO_EXIGE_ASSINATURA || TIERS_COM_MODO_AUTO.includes(perfil?.tier)
   const [modoAutoOn, setModoAutoOn] = useState(false)
   const autoQueuedRef = useRef(false)
+  const toggleModoAuto = () => {
+    if (!podeUsarModoAuto) { navigate('/assinar'); return }
+    setModoAutoOn(v => !v)
+  }
 
   // ── Briga em Multidão: um SWITCH na barra do topo (não uma tela separada),
   // visível só quando o bando é grande o bastante (6+ combatentes somados).
@@ -618,17 +629,8 @@ export default function GanguesCombat({ onNavigate }) {
           </button>
         )}
         {multidaoDisponivel && <GanguesMultidaoTutorial />}
-        {!modoMultidaoAtivo && podeUsarModoAuto && !result && (
-          <button
-            type="button"
-            className={`gang-multidao-switch gang-auto-switch ${modoAutoOn ? 'gang-auto-switch--on' : ''}`}
-            title={t('games.gangues.auto.switch_titulo')}
-            onClick={() => setModoAutoOn(v => !v)}
-          >
-            <span className="gang-multidao-switch-track"><span className="gang-multidao-switch-bolinha" /></span>
-            <small>{t('games.gangues.auto.switch_label')}</small>
-          </button>
-        )}
+        {/* Modo automático saiu da barra do topo pro menu da bolinha de ação
+            (pedido do Isaias) — ver <GanguesActionOrb autoOn ... />. */}
         {!modoMultidaoAtivo && machine.phase === 'player' && !result && trashOptions.length >= 3 && (
           <div className="gang-trash-toggle-wrap">
             <button type="button" className="gang-trash-toggle" onClick={() => setTrashAberto(v => !v)} aria-label={t('games.gangues.combat_specials.provocar')}>💬</button>
@@ -782,7 +784,7 @@ export default function GanguesCombat({ onNavigate }) {
         <div className="gang-auto-aviso">{t('games.gangues.auto.ativo_aviso')}</div>
       )}
 
-      {!modoMultidaoAtivo && machine.phase === 'player' && !result && !modoAutoOn && (
+      {!modoMultidaoAtivo && machine.phase === 'player' && !result && (
         <GanguesActionOrb
           t={t}
           atorNome={fighterName(t, machine.currentActor)}
@@ -793,6 +795,9 @@ export default function GanguesCombat({ onNavigate }) {
           onAtacar={() => handleAttack(null)}
           onUsarPoder={specialId => handleAttack(specialId)}
           onUsarItem={itemId => handleUsarItem(itemId)}
+          autoOn={modoAutoOn}
+          autoBloqueado={!podeUsarModoAuto}
+          onToggleAuto={toggleModoAuto}
         />
       )}
       {!modoMultidaoAtivo && machine.phase === 'enemy' && !machine.pending && <div className="gang2-enemy-thinking"><span className="gang-thinking-pulse" /><strong>{t('games.gangues.report.enemy_thinking')}</strong><small>{t('games.gangues.report.enemy_strategy')}</small></div>}

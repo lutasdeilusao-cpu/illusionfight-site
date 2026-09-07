@@ -601,7 +601,8 @@
       "auto": {
         "switch_label": "Automático",
         "switch_titulo": "Activa el modo automático — tus luchadores atacan solos con el ataque normal. Para usar un poder, apágalo y vuelve al modo manual.",
-        "ativo_aviso": "MODO AUTOMÁTICO — atacando solo con el golpe normal"
+        "ativo_aviso": "MODO AUTOMÁTICO — atacando solo con el golpe normal",
+        "premium_titulo": "El modo automático es ventaja de suscriptor — toca para suscribirte"
       },
       "multidao": {
         "switch_label": "Pelea Multitudinaria",

@@ -601,7 +601,8 @@
       "auto": {
         "switch_label": "Auto",
         "switch_titulo": "Turn on auto mode — your fighters attack on their own with the normal attack. To use a power, turn it off and go back to manual.",
-        "ativo_aviso": "AUTO MODE — attacking on its own with the normal move"
+        "ativo_aviso": "AUTO MODE — attacking on its own with the normal move",
+        "premium_titulo": "Auto mode is a subscriber perk — tap to subscribe"
       },
       "multidao": {
         "switch_label": "Mob Brawl",
