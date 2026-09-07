@@ -32,7 +32,9 @@
 }
 
 /* ── Picker (folha que abre ao tocar num slot) ── */
-.gang-equip-picker { position: fixed; inset: 0; z-index: 60; display: flex; align-items: flex-end; justify-content: center; }
+/* z-index acima do modal da cena (.gang-cena-modal = 945) — o picker abre
+   por cima da ficha, que já está num modal. */
+.gang-equip-picker { position: fixed; inset: 0; z-index: 1200; display: flex; align-items: flex-end; justify-content: center; }
 .gang-equip-picker__scrim { position: absolute; inset: 0; border: 0; background: rgba(2,6,9,0.72); backdrop-filter: blur(3px); }
 .gang-equip-picker__card {
   position: relative; width: 100%; max-width: var(--app-w); max-height: 78dvh; overflow-y: auto;

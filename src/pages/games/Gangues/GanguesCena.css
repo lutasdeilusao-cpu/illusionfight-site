@@ -172,6 +172,14 @@
 .gang-cena-modal-card {
   position: relative; width: 100%; max-width: 340px;
 }
+/* Modal da ficha (botão 👤) — agora carrega a ficha + o painel de equipamento,
+   pode passar da altura da tela, então rola por dentro. */
+.gang-cena-ficha-scroll {
+  max-height: 84dvh; overflow-y: auto;
+  padding: 6px 12px 12px; background: linear-gradient(160deg, #0d151b, #070a0d 72%);
+  border: 1px solid #26383d;
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%);
+}
 .gang-cena-enc {
   position: relative;
   display: grid; justify-items: center; gap: 0.55rem;

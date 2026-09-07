@@ -411,6 +411,7 @@
   "409": "Universo.jsx",
   "410": "A7. TRÁFEGO PAGO — HISTÓRICO",
   "411": "GanguesVictory.jsx",
+  "412": "ganguesTerritorios.js",
   "413": "Jokempo.jsx",
   "414": "LDINotification.jsx",
   "415": "drawCombatBoard",
@@ -421,5 +422,8 @@
   "420": "ResultCard.jsx",
   "421": "TypewriterPhrase.jsx",
   "422": "BLOCO F — PROGRAMA DE PARCEIROS DE CONTEÚDO",
-  "424": "BLOCO G — NUNTIUS GAMES — POSICIONAMENTO INSTITUCIONAL"
+  "423": "PowerCard.jsx",
+  "424": "BLOCO G — NUNTIUS GAMES — POSICIONAMENTO INSTITUCIONAL",
+  "425": "GanguesActionOrb.jsx",
+  "426": "SearchModal.jsx"
 }
