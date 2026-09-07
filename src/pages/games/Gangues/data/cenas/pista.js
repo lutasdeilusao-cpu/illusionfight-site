@@ -156,10 +156,13 @@ export const CENA_PISTA = {
       visivel: true,
       pino: { x: 60, y: 150 },
       i18n: 'games.gangues.cena.pista.loja',
-      // Consumíveis + um equipamento básico de cada slot (ver
-      // GANGUES_LOJA_EQUIP_BASICO em data/ganguesEquip.js). Drop de peças
+      // Ids NUMÉRICOS — consumível (1–99, ver data/ganguesItens.js) +
+      // equipamento básico (101+, ver GANGUES_LOJA_EQUIP_BASICO em
+      // data/ganguesEquip.js). No corpo são dois (par PV/PM). Drop de peças
       // melhores vem depois.
-      itens: ['pocao_hp', 'pocao_mp', 'gorro_moletom', 'colete_reforcado', 'colete_leve', 'luva_couro', 'tenis_furado', 'corrente_lata', 'soqueira_lata'],
+      // 1 poção HP · 2 poção MP · 104 gorro · 107 colete PV · 108 colete PM
+      // · 112 luva · 115 tênis · 118 corrente · 101 soqueira
+      itens: [1, 2, 104, 107, 108, 112, 115, 118, 101],
     },
     {
       // Reaproveitamento: continua na Pista mesmo depois dela virar

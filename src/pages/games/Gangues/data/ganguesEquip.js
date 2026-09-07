@@ -1,24 +1,25 @@
 /* ══════════════════════════════════════════════════════════════
    Catálogo de EQUIPAMENTO — pedido do Isaias.
 
-   Cada personagem tem 6 slots (arma + 5 de vestimenta). Cada item dá
-   bônus plano de atributo (A/H/D) ou de recurso (PV/PM cheio, sem passar
-   por R) e tem de 0 a 2 SLOTS DE CARTA (estilo Ragnarok Online) — teto de
-   2 pra não virar apelação. As cartas em si ainda NÃO existem (vêm com o
-   sistema de drop depois); `cardSlots` só reserva os buracos.
+   ⚠️ ID É NÚMERO, NUNCA NOME. O código só referencia item por `id`
+   numérico (mesma regra do catálogo dos 30 personagens). O `slug` é só
+   pra leitura humana aqui no arquivo — nada no código depende dele. O
+   NOME que aparece na tela mora no i18n (`games.gangues.equip.itens.<id>`
+   nos 3 idiomas) — dá pra renomear "Colete de Couro" → "Colete de Pano"
+   mexendo SÓ no JSON de idioma, sem tocar em nada aqui.
 
-   ⚠️ NADA de +R (Resistência): +1 R aumenta PV **e** PM ao mesmo tempo e
-   ficou forte demais (teste do Isaias). Peça que dava R virou peça de
-   PV plano OU PM plano, as duas no MESMO slot (corpo) — o jogador
-   escolhe: tanker pega +PV, personagem "magro"/místico pega +PM.
+   Faixa de id: equipamento é 101+ (consumível em data/ganguesItens.js é
+   1–99) — faixas separadas de propósito, os dois catálogos alimentam o
+   mesmo `poi.itens` da loja e o mesmo resolvedor.
 
-   Fonte de itens HOJE: a loja da Pista vende os básicos
-   (`GANGUES_LOJA_EQUIP_BASICO`) — no slot corpo são DOIS (o par PV/PM).
-   Incomum/raro já catalogados pro sistema de drop preencher.
+   Cada personagem tem 6 slots (arma + 5 de vestimenta). Bônus = atributo
+   plano (A/H/D) OU recurso plano (pv/pm — somado em cima do PV/PM máximo,
+   NÃO passa por R; +R mexia em PV e PM ao mesmo tempo e ficou forte
+   demais). Slot `corpo` é a escolha PV vs PM. `cardSlots` 0–2 (teto 2,
+   estilo Ragnarok) — as cartas em si vêm com o sistema de drop.
 
    Regra de remoção de carta (decisão do Isaias): tirar carta encaixada
-   DESTRÓI a carta. Desequipar o item inteiro NÃO — as cartas continuam
-   nele.
+   DESTRÓI a carta. Desequipar o item inteiro NÃO.
    ══════════════════════════════════════════════════════════════ */
 
 // Ordem dos slots na UI (bonecão de cima pra baixo, arma por último).
@@ -33,54 +34,58 @@ export const GANGUES_EQUIP_SLOTS = [
 
 export const GANGUES_EQUIP_SLOT_IDS = GANGUES_EQUIP_SLOTS.map(slot => slot.id)
 
-// Chaves de bônus que um item pode ter: atributo (A/H/D) ou recurso plano (pv/pm).
+// Chaves de bônus: atributo (A/H/D) ou recurso plano (pv/pm).
 export const GANGUES_EQUIP_ATTR_KEYS = ['A', 'H', 'D']
 export const GANGUES_EQUIP_RES_KEYS = ['pv', 'pm']
 
-const nome = id => `games.gangues.equip.itens.${id}`
+const i18nNome = id => `games.gangues.equip.itens.${id}`
 
-export const GANGUES_EQUIP = {
+// Lista bruta — id numérico + slug só pra humano. O resto é dado de balanço.
+const CATALOGO = [
   // ── ARMA (🥊) — foco em A ──
-  soqueira_lata: { id: 'soqueira_lata', slot: 'arma', raridade: 'comum', bonus: { A: 1 }, cardSlots: 0, custo: 16, icone: '🥊' },
-  faca_serrilhada: { id: 'faca_serrilhada', slot: 'arma', raridade: 'incomum', bonus: { A: 2 }, cardSlots: 1, icone: '🔪' },
-  cano_de_ferro: { id: 'cano_de_ferro', slot: 'arma', raridade: 'raro', bonus: { A: 2, H: 1 }, cardSlots: 2, icone: '🪈' },
+  { id: 101, slug: 'soqueira_lata', slot: 'arma', raridade: 'comum', bonus: { A: 1 }, cardSlots: 0, custo: 16, icone: '🥊' },
+  { id: 102, slug: 'faca_serrilhada', slot: 'arma', raridade: 'incomum', bonus: { A: 2 }, cardSlots: 1, icone: '🔪' },
+  { id: 103, slug: 'cano_de_ferro', slot: 'arma', raridade: 'raro', bonus: { A: 2, H: 1 }, cardSlots: 2, icone: '🪈' },
 
   // ── CABEÇA (🪖) — foco em D ──
-  gorro_moletom: { id: 'gorro_moletom', slot: 'cabeca', raridade: 'comum', bonus: { D: 1 }, cardSlots: 0, custo: 12, icone: '🧢' },
-  capacete_obra: { id: 'capacete_obra', slot: 'cabeca', raridade: 'incomum', bonus: { D: 2 }, cardSlots: 1, icone: '⛑️' },
-  coroa_lata: { id: 'coroa_lata', slot: 'cabeca', raridade: 'raro', bonus: { A: 1, D: 1 }, cardSlots: 2, icone: '👑' },
+  { id: 104, slug: 'gorro_moletom', slot: 'cabeca', raridade: 'comum', bonus: { D: 1 }, cardSlots: 0, custo: 12, icone: '🧢' },
+  { id: 105, slug: 'capacete_obra', slot: 'cabeca', raridade: 'incomum', bonus: { D: 2 }, cardSlots: 1, icone: '⛑️' },
+  { id: 106, slug: 'coroa_lata', slot: 'cabeca', raridade: 'raro', bonus: { A: 1, D: 1 }, cardSlots: 2, icone: '👑' },
 
-  // ── CORPO (🦺) — o slot da ESCOLHA PV vs PM (sem R) ──
-  colete_reforcado: { id: 'colete_reforcado', slot: 'corpo', raridade: 'comum', bonus: { pv: 6 }, cardSlots: 0, custo: 20, icone: '🦺' }, // tanker
-  colete_leve: { id: 'colete_leve', slot: 'corpo', raridade: 'comum', bonus: { pm: 6 }, cardSlots: 0, custo: 20, icone: '🧥' }, // "magro" / místico
-  colete_placa: { id: 'colete_placa', slot: 'corpo', raridade: 'incomum', bonus: { pv: 12 }, cardSlots: 1, icone: '🛡️' },
-  manto_capuz: { id: 'manto_capuz', slot: 'corpo', raridade: 'incomum', bonus: { pm: 12 }, cardSlots: 1, icone: '🥋' },
-  armadura_rua: { id: 'armadura_rua', slot: 'corpo', raridade: 'raro', bonus: { pv: 18 }, cardSlots: 2, icone: '⚙️' },
+  // ── CORPO (🦺) — a escolha PV vs PM (sem R) ──
+  { id: 107, slug: 'colete_reforcado', slot: 'corpo', raridade: 'comum', bonus: { pv: 6 }, cardSlots: 0, custo: 20, icone: '🦺' }, // tanker
+  { id: 108, slug: 'colete_leve', slot: 'corpo', raridade: 'comum', bonus: { pm: 6 }, cardSlots: 0, custo: 20, icone: '🧥' }, // magro / místico
+  { id: 109, slug: 'colete_placa', slot: 'corpo', raridade: 'incomum', bonus: { pv: 12 }, cardSlots: 1, icone: '🛡️' },
+  { id: 110, slug: 'manto_capuz', slot: 'corpo', raridade: 'incomum', bonus: { pm: 12 }, cardSlots: 1, icone: '🥋' },
+  { id: 111, slug: 'armadura_rua', slot: 'corpo', raridade: 'raro', bonus: { pv: 18 }, cardSlots: 2, icone: '⚙️' },
 
   // ── BRAÇOS (🧤) — foco em D/A ──
-  luva_couro: { id: 'luva_couro', slot: 'bracos', raridade: 'comum', bonus: { D: 1 }, cardSlots: 0, custo: 12, icone: '🧤' },
-  manopla_porca: { id: 'manopla_porca', slot: 'bracos', raridade: 'incomum', bonus: { A: 2 }, cardSlots: 1, icone: '🦾' },
-  bracadeira_cravo: { id: 'bracadeira_cravo', slot: 'bracos', raridade: 'raro', bonus: { A: 1, D: 1 }, cardSlots: 2, icone: '⛓️' },
+  { id: 112, slug: 'luva_couro', slot: 'bracos', raridade: 'comum', bonus: { D: 1 }, cardSlots: 0, custo: 12, icone: '🧤' },
+  { id: 113, slug: 'manopla_porca', slot: 'bracos', raridade: 'incomum', bonus: { A: 2 }, cardSlots: 1, icone: '🦾' },
+  { id: 114, slug: 'bracadeira_cravo', slot: 'bracos', raridade: 'raro', bonus: { A: 1, D: 1 }, cardSlots: 2, icone: '⛓️' },
 
   // ── PÉS (🥾) — foco em H ──
-  tenis_furado: { id: 'tenis_furado', slot: 'pes', raridade: 'comum', bonus: { H: 1 }, cardSlots: 0, custo: 12, icone: '👟' },
-  coturno: { id: 'coturno', slot: 'pes', raridade: 'incomum', bonus: { H: 1, D: 1 }, cardSlots: 1, icone: '🥾' },
-  bota_biqueira: { id: 'bota_biqueira', slot: 'pes', raridade: 'raro', bonus: { H: 2 }, cardSlots: 2, icone: '🦿' },
+  { id: 115, slug: 'tenis_furado', slot: 'pes', raridade: 'comum', bonus: { H: 1 }, cardSlots: 0, custo: 12, icone: '👟' },
+  { id: 116, slug: 'coturno', slot: 'pes', raridade: 'incomum', bonus: { H: 1, D: 1 }, cardSlots: 1, icone: '🥾' },
+  { id: 117, slug: 'bota_biqueira', slot: 'pes', raridade: 'raro', bonus: { H: 2 }, cardSlots: 2, icone: '🦿' },
 
   // ── AMULETO (📿) — misto leve ──
-  corrente_lata: { id: 'corrente_lata', slot: 'amuleto', raridade: 'comum', bonus: { H: 1 }, cardSlots: 1, custo: 16, icone: '📿' },
-  dente_de_ouro: { id: 'dente_de_ouro', slot: 'amuleto', raridade: 'incomum', bonus: { A: 1 }, cardSlots: 1, icone: '🦷' },
-  medalha_santa: { id: 'medalha_santa', slot: 'amuleto', raridade: 'raro', bonus: { D: 1, H: 1 }, cardSlots: 2, icone: '🎖️' },
-}
+  { id: 118, slug: 'corrente_lata', slot: 'amuleto', raridade: 'comum', bonus: { H: 1 }, cardSlots: 1, custo: 16, icone: '📿' },
+  { id: 119, slug: 'dente_de_ouro', slot: 'amuleto', raridade: 'incomum', bonus: { A: 1 }, cardSlots: 1, icone: '🦷' },
+  { id: 120, slug: 'medalha_santa', slot: 'amuleto', raridade: 'raro', bonus: { D: 1, H: 1 }, cardSlots: 2, icone: '🎖️' },
+]
 
-// O que a loja da Pista vende — os básicos. No corpo são DOIS (par PV/PM).
-export const GANGUES_LOJA_EQUIP_BASICO = ['gorro_moletom', 'colete_reforcado', 'colete_leve', 'luva_couro', 'tenis_furado', 'corrente_lata', 'soqueira_lata']
+export const GANGUES_EQUIP = Object.fromEntries(CATALOGO.map(item => [item.id, { ...item, nome: i18nNome(item.id) }]))
+export const GANGUES_EQUIP_LISTA = Object.values(GANGUES_EQUIP)
 
-export const GANGUES_EQUIP_LISTA = Object.values(GANGUES_EQUIP).map(item => ({ ...item, nome: nome(item.id) }))
+// O que a loja da Pista vende — os básicos (id numérico). No corpo são
+// DOIS (o par PV/PM). Ver data/cenas/pista.js.
+export const GANGUES_LOJA_EQUIP_BASICO = [104, 107, 108, 112, 115, 118, 101]
 
 export function getGanguesEquip(itemId) {
-  const item = GANGUES_EQUIP[itemId]
-  return item ? { ...item, nome: nome(item.id) } : null
+  const key = Number(itemId)
+  if (!Number.isFinite(key)) return null
+  return GANGUES_EQUIP[key] || null
 }
 
 /** Estrutura vazia dos 6 slots equipados de um personagem. */
@@ -88,7 +93,8 @@ export function emptyGanguesEquipment() {
   return GANGUES_EQUIP_SLOT_IDS.reduce((acc, slot) => { acc[slot] = null; return acc }, {})
 }
 
-/** Normaliza o que veio do banco pro shape esperado (6 chaves, cards do tamanho certo). */
+/** Normaliza o que veio do banco pro shape esperado (6 chaves, cards do tamanho certo,
+ *  itemId numérico). Item que não existe mais no catálogo é descartado do slot. */
 export function normalizeGanguesEquipment(equipment = {}) {
   const safe = emptyGanguesEquipment()
   for (const slot of GANGUES_EQUIP_SLOT_IDS) {
@@ -105,7 +111,7 @@ export function normalizeGanguesEquipment(equipment = {}) {
 export function createGanguesEquipInstance(itemId) {
   const def = getGanguesEquip(itemId)
   if (!def) return null
-  return { uid: `eq-${itemId}-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 6)}`, itemId, cards: Array.from({ length: def.cardSlots }, () => null) }
+  return { uid: `eq-${def.id}-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 6)}`, itemId: def.id, cards: Array.from({ length: def.cardSlots }, () => null) }
 }
 
 /** Soma dos bônus de todos os itens equipados: A/H/D (atributo) + pv/pm (recurso plano). */

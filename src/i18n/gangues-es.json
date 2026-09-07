@@ -482,8 +482,8 @@
         "item_qtd": "×{n}"
       },
       "itens": {
-        "pocao_hp": "Poción de HP",
-        "pocao_mp": "Poción de MP"
+        "1": "Poción de HP",
+        "2": "Poción de MP"
       },
       "loja": {
         "titulo": "Tienda",
@@ -524,26 +524,26 @@
           "epico": "Épico"
         },
         "itens": {
-          "soqueira_lata": "Puño de Lata",
-          "faca_serrilhada": "Cuchillo Serrado",
-          "cano_de_ferro": "Caño de Hierro",
-          "gorro_moletom": "Gorro de Buzo",
-          "capacete_obra": "Casco de Obra",
-          "coroa_lata": "Corona de Lata",
-          "colete_reforcado": "Chaleco Reforzado",
-          "colete_leve": "Chaleco Ligero",
-          "colete_placa": "Chaleco de Placas",
-          "manto_capuz": "Manto con Capucha",
-          "armadura_rua": "Armadura de Calle",
-          "luva_couro": "Guante de Cuero",
-          "manopla_porca": "Manopla de Tuerca",
-          "bracadeira_cravo": "Muñequera con Púas",
-          "tenis_furado": "Zapatillas Rotas",
-          "coturno": "Borcegos",
-          "bota_biqueira": "Bota con Puntera",
-          "corrente_lata": "Cadena de Lata",
-          "dente_de_ouro": "Diente de Oro",
-          "medalha_santa": "Medalla de Santa"
+          "101": "Puño de Lata",
+          "102": "Cuchillo Serrado",
+          "103": "Caño de Hierro",
+          "104": "Gorro de Buzo",
+          "105": "Casco de Obra",
+          "106": "Corona de Lata",
+          "107": "Chaleco Reforzado",
+          "108": "Chaleco Ligero",
+          "109": "Chaleco de Placas",
+          "110": "Manto con Capucha",
+          "111": "Armadura de Calle",
+          "112": "Guante de Cuero",
+          "113": "Manopla de Tuerca",
+          "114": "Muñequera con Púas",
+          "115": "Zapatillas Rotas",
+          "116": "Borcegos",
+          "117": "Bota con Puntera",
+          "118": "Cadena de Lata",
+          "119": "Diente de Oro",
+          "120": "Medalla de Santa"
         }
       },
       "bag": {

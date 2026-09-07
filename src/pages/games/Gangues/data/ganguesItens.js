@@ -1,16 +1,30 @@
 /* ══════════════════════════════════════════════════════════════
-   Catálogo de itens — primeira versão, só pra validar o loop inteiro
-   (comprar → guardar no inventário → usar em combate). Começa pequeno de
-   propósito: 2 poções, custo/efeito fixo. Mais itens depois é só adicionar
-   entrada aqui — loja e combate já leem a lista inteira dinamicamente.
-   ══════════════════════════════════════════════════════════════ */
-export const GANGUES_ITENS = {
-  pocao_hp: { id: 'pocao_hp', nome: 'games.gangues.itens.pocao_hp', custo: 5, tipo: 'cura_pv', valor: 5, icone: '🩹' },
-  pocao_mp: { id: 'pocao_mp', nome: 'games.gangues.itens.pocao_mp', custo: 5, tipo: 'cura_pm', valor: 5, icone: '💧' },
-}
+   Catálogo de CONSUMÍVEL (poções, por enquanto).
 
+   ⚠️ ID É NÚMERO, NUNCA NOME (mesma regra do equipamento e dos 30
+   personagens). `slug` é só leitura humana. O nome que aparece na tela
+   mora no i18n (`games.gangues.itens.<id>` nos 3 idiomas) — renomear é só
+   no JSON de idioma, sem tocar em código.
+
+   Faixa de id: consumível é 1–99, equipamento (data/ganguesEquip.js) é
+   101+ — faixas separadas de propósito (os dois alimentam o mesmo
+   `poi.itens` da loja).
+
+   `tipo` decide o efeito em combate (ver handleUsarItem em
+   GanguesCombat.jsx). Loja e combate leem a lista inteira dinamicamente.
+   ══════════════════════════════════════════════════════════════ */
+const i18nNome = id => `games.gangues.itens.${id}`
+
+const CATALOGO = [
+  { id: 1, slug: 'pocao_hp', custo: 5, tipo: 'cura_pv', valor: 5, icone: '🩹' },
+  { id: 2, slug: 'pocao_mp', custo: 5, tipo: 'cura_pm', valor: 5, icone: '💧' },
+]
+
+export const GANGUES_ITENS = Object.fromEntries(CATALOGO.map(item => [item.id, { ...item, nome: i18nNome(item.id) }]))
 export const GANGUES_ITENS_LISTA = Object.values(GANGUES_ITENS)
 
 export function getGanguesItem(itemId) {
-  return GANGUES_ITENS[itemId] || null
+  const key = Number(itemId)
+  if (!Number.isFinite(key)) return null
+  return GANGUES_ITENS[key] || null
 }

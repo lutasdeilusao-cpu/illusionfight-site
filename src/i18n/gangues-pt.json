@@ -482,8 +482,8 @@
         "item_qtd": "×{n}"
       },
       "itens": {
-        "pocao_hp": "Poção de HP",
-        "pocao_mp": "Poção de MP"
+        "1": "Poção de HP",
+        "2": "Poção de MP"
       },
       "loja": {
         "titulo": "Loja",
@@ -524,26 +524,26 @@
           "epico": "Épico"
         },
         "itens": {
-          "soqueira_lata": "Soqueira de Lata",
-          "faca_serrilhada": "Faca Serrilhada",
-          "cano_de_ferro": "Cano de Ferro",
-          "gorro_moletom": "Gorro de Moletom",
-          "capacete_obra": "Capacete de Obra",
-          "coroa_lata": "Coroa de Lata",
-          "colete_reforcado": "Colete Reforçado",
-          "colete_leve": "Colete Leve",
-          "colete_placa": "Colete de Placa",
-          "manto_capuz": "Manto com Capuz",
-          "armadura_rua": "Armadura de Rua",
-          "luva_couro": "Luva de Couro",
-          "manopla_porca": "Manopla de Porca",
-          "bracadeira_cravo": "Braçadeira de Cravo",
-          "tenis_furado": "Tênis Furado",
-          "coturno": "Coturno",
-          "bota_biqueira": "Bota com Biqueira",
-          "corrente_lata": "Corrente de Lata",
-          "dente_de_ouro": "Dente de Ouro",
-          "medalha_santa": "Medalha de Santa"
+          "101": "Soqueira de Lata",
+          "102": "Faca Serrilhada",
+          "103": "Cano de Ferro",
+          "104": "Gorro de Moletom",
+          "105": "Capacete de Obra",
+          "106": "Coroa de Lata",
+          "107": "Colete Reforçado",
+          "108": "Colete Leve",
+          "109": "Colete de Placa",
+          "110": "Manto com Capuz",
+          "111": "Armadura de Rua",
+          "112": "Luva de Couro",
+          "113": "Manopla de Porca",
+          "114": "Braçadeira de Cravo",
+          "115": "Tênis Furado",
+          "116": "Coturno",
+          "117": "Bota com Biqueira",
+          "118": "Corrente de Lata",
+          "119": "Dente de Ouro",
+          "120": "Medalha de Santa"
         }
       },
       "bag": {

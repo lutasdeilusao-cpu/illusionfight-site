@@ -482,8 +482,8 @@
         "item_qtd": "×{n}"
       },
       "itens": {
-        "pocao_hp": "HP Potion",
-        "pocao_mp": "MP Potion"
+        "1": "HP Potion",
+        "2": "MP Potion"
       },
       "loja": {
         "titulo": "Shop",
@@ -524,26 +524,26 @@
           "epico": "Epic"
         },
         "itens": {
-          "soqueira_lata": "Tin Knuckles",
-          "faca_serrilhada": "Serrated Knife",
-          "cano_de_ferro": "Iron Pipe",
-          "gorro_moletom": "Hoodie Beanie",
-          "capacete_obra": "Hard Hat",
-          "coroa_lata": "Tin Crown",
-          "colete_reforcado": "Reinforced Vest",
-          "colete_leve": "Light Vest",
-          "colete_placa": "Plated Vest",
-          "manto_capuz": "Hooded Cloak",
-          "armadura_rua": "Street Armor",
-          "luva_couro": "Leather Glove",
-          "manopla_porca": "Nut Gauntlet",
-          "bracadeira_cravo": "Spiked Armband",
-          "tenis_furado": "Worn-Out Sneakers",
-          "coturno": "Combat Boots",
-          "bota_biqueira": "Steel-Toe Boot",
-          "corrente_lata": "Tin Chain",
-          "dente_de_ouro": "Gold Tooth",
-          "medalha_santa": "Saint's Medal"
+          "101": "Tin Knuckles",
+          "102": "Serrated Knife",
+          "103": "Iron Pipe",
+          "104": "Hoodie Beanie",
+          "105": "Hard Hat",
+          "106": "Tin Crown",
+          "107": "Reinforced Vest",
+          "108": "Light Vest",
+          "109": "Plated Vest",
+          "110": "Hooded Cloak",
+          "111": "Street Armor",
+          "112": "Leather Glove",
+          "113": "Nut Gauntlet",
+          "114": "Spiked Armband",
+          "115": "Worn-Out Sneakers",
+          "116": "Combat Boots",
+          "117": "Steel-Toe Boot",
+          "118": "Tin Chain",
+          "119": "Gold Tooth",
+          "120": "Saint's Medal"
         }
       },
       "bag": {
