@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.272.0'
+export const SITE_VERSION = '10.273.0'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '2.48.0' // fix: ficha (GanguesFichaCard) mostrava progression.ap com erro de ponto flutuante (ex: "1.5999999999999996 PA") - a fatia de AP de uma luta raramente fecha num numero redondo, e o valor fracionario ia direto pro texto sem arredondar. Math.floor() na exibicao (mantem o valor exato internamente pra continuar acumulando certo entre lutas, so a apresentacao vira inteiro); mesmo fix em GanguesProgressionPanel.jsx (tela sem rota ativa hoje, mas com o mesmo bug)
+export const GANGUES_VERSION   = '2.49.0' // fix: numero de AP mostrado na tela de vitoria e o valor realmente concedido ao personagem podiam DIVERGIR - apPorMembro (o que aparece, ja arredondado por "maior resto") e a fatia de verdade passada pra addGanguesAp (fracoesExatas, nao arredondada) eram duas contas separadas que podiam bater diferente (ex: tela mostrava +6, ficha fechava com 5). Unificado numa fonte unica: gainApForParticipants agora aplica exatamente apPorMembro[id] (o inteiro exibido) no personagem, nao mais a fracao. Validado numericamente confirmando apPorMembro === ap resultante na ficha antes de build/deploy
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
 export const MINIGAMES_VERSION = '4.3.4'  // Glitch: safe-area lateral no grid-wrap

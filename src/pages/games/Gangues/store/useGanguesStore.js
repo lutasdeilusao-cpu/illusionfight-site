@@ -167,12 +167,14 @@ export const useGanguesStore = create((set, get) => ({
     const podeGarantirTodoMundo = ids.length > 0 && apTotalInteiro >= ids.length
     const baseGarantida = podeGarantirTodoMundo ? 1 : 0
     const poteRestante = podeGarantirTodoMundo ? Math.max(0, apTotalInteiro - ids.length) : apTotalInteiro
-    // Fatia EXATA (fracionária) do pote restante, por peso — usada de
-    // verdade pra converter em XP (addGanguesAp), somada à base garantida.
-    // O que aparece pro jogador (apPorMembro) usa "maior resto" pra
-    // arredondar SEM estourar o total: arredondar cada fatia sozinha (ex:
-    // 50/3 = 16.67 vira 17 pra todo mundo, 17×3=51) podia fazer a soma
-    // exibida passar do total real da luta.
+    // apPorMembro é o número INTEIRO que o jogador vê na tela de vitória —
+    // "maior resto" arredonda a fatia de cada um sem deixar a soma passar
+    // do total real (ex: 50/3 = 16.67 não pode virar 17 pra todo mundo,
+    // 17×3=51 estouraria). ESSE é o valor que também é aplicado de verdade
+    // no personagem logo abaixo — antes o número exibido (arredondado) e o
+    // valor realmente concedido (fração exata, ex: 5.8) podiam divergir, e
+    // o jogador via "+6" na tela mas a ficha fechava com 5. Uma fonte única
+    // de verdade agora: o que aparece é exatamente o que é concedido.
     const fracoesExatas = {}
     ids.forEach(id => { fracoesExatas[id] = (Number(pesosPorId[id]) || 0) / somaPesos * poteRestante })
     const apPorMembro = {}
@@ -187,7 +189,7 @@ export const useGanguesStore = create((set, get) => ({
     set(state => {
       const advance = member => {
         if (!(member.id in pesosPorId)) return member
-        const resultado = addGanguesAp(member, baseGarantida + fracoesExatas[member.id])
+        const resultado = addGanguesAp(member, apPorMembro[member.id])
         totalXp += resultado.earnedXp
         const next = { ...member, xp_total: (member.xp_total || 0) + resultado.earnedXp, attributes: { ...member.attributes, progression: resultado.progression } }
         const hydrated = member.character_type === 'template' ? hydrateGanguesTemplateSheet(next) : next
