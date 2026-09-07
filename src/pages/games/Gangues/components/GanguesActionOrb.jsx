@@ -14,7 +14,7 @@ function salvarPos(pos) { try { localStorage.setItem(POS_KEY, pos) } catch {} }
  *  posição salva por dispositivo. Toque abre um menu compacto: ATACAR (na
  *  hora), PODER (lista) ou ITEM (lista, hoje vazia — sem sistema de
  *  inventário ainda). */
-export default function GanguesActionOrb({ t, disabled, equippedSpecials, canAffordSpecial, onAtacar, onUsarPoder }) {
+export default function GanguesActionOrb({ t, atorNome, disabled, equippedSpecials, canAffordSpecial, onAtacar, onUsarPoder }) {
   const [pos, setPos] = useState(posSalva)
   const [open, setOpen] = useState(false)
   const [tab, setTab] = useState('menu') // 'menu' | 'poder' | 'item'
@@ -57,6 +57,7 @@ export default function GanguesActionOrb({ t, disabled, equippedSpecials, canAff
         <AnimatePresence>
           {open && tab === 'menu' && (
             <motion.div key="menu" className="gang-orb-panel gang-orb-panel--menu" initial={{ opacity: 0, scale: 0.8, y: vpos === 'top' ? -8 : 8 }} animate={{ opacity: 1, scale: 1, y: 0 }} exit={{ opacity: 0, scale: 0.8 }}>
+              {atorNome && <span className="gang-orb-ator">{atorNome}</span>}
               <button type="button" className="gang-orb-opt gang-orb-opt--atacar" disabled={disabled} onClick={() => { onAtacar(); fechar() }}>
                 <b>⚔️</b>{t('games.gangues.orb.atacar')}
               </button>
@@ -72,7 +73,7 @@ export default function GanguesActionOrb({ t, disabled, equippedSpecials, canAff
             <motion.div key="poder" className="gang-orb-panel gang-orb-panel--lista" initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.9 }}>
               <div className="gang-orb-panel-head">
                 <button type="button" className="gang-orb-voltar" onClick={() => setTab('menu')}>←</button>
-                <span>{t('games.gangues.orb.poder')}</span>
+                <span>{atorNome ? `${atorNome} · ${t('games.gangues.orb.poder')}` : t('games.gangues.orb.poder')}</span>
               </div>
               {equippedSpecials.map(special => {
                 const affordable = canAffordSpecial(special)

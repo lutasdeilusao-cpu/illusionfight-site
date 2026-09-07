@@ -490,6 +490,11 @@
         "ko_aviso_tutorial": "Se um aliado cair na luta, um aviso vermelho 💀 aparece na hora avisando — fica de olho.",
         "xp_regra": "Os pontos de ação da luta não são divididos igual: quem finaliza mais inimigos ganha bem mais da fatia, dano causado desempata. Uma luta contra pouca coisa dá poucos pontos no total — não espera subir de nível toda hora."
       },
+      "auto": {
+        "switch_label": "Automático",
+        "switch_titulo": "Liga o modo automático — seus lutadores atacam sozinhos com o ataque normal. Pra usar poder, desliga e volta pro manual.",
+        "ativo_aviso": "MODO AUTOMÁTICO — atacando sozinho com o golpe normal"
+      },
       "multidao": {
         "switch_label": "Briga em Multidão",
         "switch_titulo": "Liga a Briga em Multidão — cada rodada resolve de uma vez, mas continua turno a turno",

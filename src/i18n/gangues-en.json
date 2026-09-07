@@ -490,6 +490,11 @@
         "ko_aviso_tutorial": "If an ally goes down in a fight, a red 💀 warning pops up right away — keep an eye out.",
         "xp_regra": "A fight's action points aren't split evenly: finishing off more enemies earns a much bigger slice, damage dealt breaks ties. A fight against weak stuff gives few total points — don't expect to level up every single time."
       },
+      "auto": {
+        "switch_label": "Auto",
+        "switch_titulo": "Turn on auto mode — your fighters attack on their own with the normal attack. To use a power, turn it off and go back to manual.",
+        "ativo_aviso": "AUTO MODE — attacking on its own with the normal move"
+      },
       "multidao": {
         "switch_label": "Mob Brawl",
         "switch_titulo": "Turn on Mob Brawl — each round resolves at once, but it's still turn by turn",

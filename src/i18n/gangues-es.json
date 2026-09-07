@@ -490,6 +490,11 @@
         "ko_aviso_tutorial": "Si un aliado cae en la pelea, aparece de inmediato un aviso rojo 💀 — estate atento.",
         "xp_regra": "Los puntos de acción de la pelea no se dividen igual: quien remata a más enemigos se lleva una porción bastante mayor, el daño causado desempata. Una pelea contra poca cosa da pocos puntos en total — no esperes subir de nivel todo el tiempo."
       },
+      "auto": {
+        "switch_label": "Automático",
+        "switch_titulo": "Activa el modo automático — tus luchadores atacan solos con el ataque normal. Para usar un poder, apágalo y vuelve al modo manual.",
+        "ativo_aviso": "MODO AUTOMÁTICO — atacando solo con el golpe normal"
+      },
       "multidao": {
         "switch_label": "Pelea Multitudinaria",
         "switch_titulo": "Activa la Pelea Multitudinaria — cada ronda se resuelve de una vez, pero sigue siendo por turnos",

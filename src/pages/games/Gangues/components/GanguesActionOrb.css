@@ -55,6 +55,14 @@
   clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
 }
 
+.gang-orb-ator {
+  padding: 2px 4px 4px;
+  color: var(--if-amber);
+  font: 800 0.6rem var(--font-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-align: center;
+}
 .gang-orb-opt {
   display: flex; align-items: center; gap: 8px;
   min-height: 44px; padding: 0 12px;
