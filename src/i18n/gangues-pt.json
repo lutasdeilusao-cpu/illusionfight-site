@@ -494,6 +494,50 @@
         "no_inventario": "Você tem: {n}",
         "compra_feita": "Comprado!"
       },
+      "equip": {
+        "titulo": "Equipamento",
+        "sub": "Cada peça tem espaço pra carta — as cartas vêm com o sistema de drop.",
+        "vazio": "Vazio",
+        "equipar": "Equipar",
+        "desequipar": "Tirar",
+        "sem_itens": "Nada no bolso da gangue pra esse espaço.",
+        "sem_carta": "Sem slot",
+        "carta_em_breve": "Slot de carta — em breve",
+        "slots": {
+          "cabeca": "Cabeça",
+          "corpo": "Corpo",
+          "bracos": "Braços",
+          "pes": "Pés",
+          "amuleto": "Amuleto",
+          "arma": "Arma"
+        },
+        "raridade": {
+          "comum": "Comum",
+          "incomum": "Incomum",
+          "raro": "Raro",
+          "epico": "Épico"
+        },
+        "itens": {
+          "soqueira_lata": "Soqueira de Lata",
+          "faca_serrilhada": "Faca Serrilhada",
+          "cano_de_ferro": "Cano de Ferro",
+          "gorro_moletom": "Gorro de Moletom",
+          "capacete_obra": "Capacete de Obra",
+          "coroa_lata": "Coroa de Lata",
+          "colete_couro": "Colete de Couro",
+          "jaqueta_rebite": "Jaqueta de Rebite",
+          "colete_balistico": "Colete Balístico",
+          "luva_couro": "Luva de Couro",
+          "manopla_porca": "Manopla de Porca",
+          "bracadeira_cravo": "Braçadeira de Cravo",
+          "tenis_furado": "Tênis Furado",
+          "coturno": "Coturno",
+          "bota_biqueira": "Bota com Biqueira",
+          "corrente_lata": "Corrente de Lata",
+          "dente_de_ouro": "Dente de Ouro",
+          "medalha_santa": "Medalha de Santa"
+        }
+      },
       "combat_tutorial": {
         "iniciativa": "Essa lista mostra quem ataca primeiro nessa rodada — quanto maior a Habilidade do lutador, mais cedo ele joga.",
         "escolher_alvo": "Tem mais de um inimigo? Toque em quem você quer atacar pra escolher ele como alvo — quer matar o mais fraco primeiro ou focar o mais forte, a escolha é sua.",

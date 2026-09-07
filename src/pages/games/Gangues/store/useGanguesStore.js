@@ -3,6 +3,7 @@ import { supabase } from '../../../../lib/supabase'
 import { addGanguesAp, defaultGanguesProgression, getGanguesRosterLimit, normalizeGanguesLoadout } from '../data/ganguesLoadout.js'
 import { carregarProgressoHistoria, salvarProgressoHistoria, listarSaves, criarSave, excluirSave } from './ganguesStoryProgress.js'
 import { createGanguesTemplateSheet, hydrateGanguesTemplateSheet, getGanguesLevelFromXp } from '../data/ganguesCharacters.js'
+import { createGanguesEquipInstance, normalizeGanguesEquipment, getGanguesEquip } from '../data/ganguesEquip.js'
 
 // Debounce dos writes de progresso do modo história: várias ações batem em sequência
 // (marcar POI + fôlego + grana + rep) e não faz sentido um upsert por campo.
@@ -72,7 +73,7 @@ export const useGanguesStore = create((set, get) => ({
   // Abre um save: carrega o progresso de história e o elenco daquela gangue
   // específica, e passa a persistir tudo nela a partir de agora.
   selecionarSave: async (saveId) => {
-    set({ _saveId: saveId, roster: [], activeParty: [], gangName: '', storyProgress: {}, cenaProgresso: {}, grana: 0, rep: 0, inventario: {} })
+    set({ _saveId: saveId, roster: [], activeParty: [], gangName: '', storyProgress: {}, cenaProgresso: {}, grana: 0, rep: 0, inventario: {}, equipamentos: [] })
     await Promise.all([get().loadStoryProgress(saveId), get().loadSheets(saveId)])
   },
 
@@ -363,7 +364,7 @@ export const useGanguesStore = create((set, get) => ({
   },
 
   resetStory: () => {
-    set({ storyProgress: {}, storyTarget: null, grana: 0, rep: 0, cenaProgresso: {}, inventario: {} })
+    set({ storyProgress: {}, storyTarget: null, grana: 0, rep: 0, cenaProgresso: {}, inventario: {}, equipamentos: [] })
     get()._persistStory()
   },
 
@@ -380,6 +381,13 @@ export const useGanguesStore = create((set, get) => ({
   // data/ganguesItens.js pro catálogo.
   inventario: {},
 
+  // Inventário de EQUIPAMENTO — lista de instâncias { uid, itemId, cards },
+  // compartilhada pela gangue (comprado/dropado com a grana de todos). Uma
+  // instância sai daqui quando é equipada num personagem
+  // (sheet.attributes.equipment[slot]) e volta pra cá ao ser desequipada,
+  // com as cartas que tiver. Ver data/ganguesEquip.js.
+  equipamentos: [],
+
   completeCampaign: () => {
     set(state => ({ campaignClears: state.campaignClears + 1 }))
     get()._persistStory()
@@ -395,8 +403,8 @@ export const useGanguesStore = create((set, get) => ({
     if (!saveId) return
     clearTimeout(storySaveTimer)
     storySaveTimer = setTimeout(() => {
-      const { gangName, storyProgress, cenaProgresso, grana, rep, campaignClears, eventCharacterIds, inventario } = get()
-      salvarProgressoHistoria(saveId, { gangName, storyProgress, cenaProgresso, grana, rep, campaignClears, eventCharacterIds, inventario })
+      const { gangName, storyProgress, cenaProgresso, grana, rep, campaignClears, eventCharacterIds, inventario, equipamentos } = get()
+      salvarProgressoHistoria(saveId, { gangName, storyProgress, cenaProgresso, grana, rep, campaignClears, eventCharacterIds, inventario, equipamentos })
     }, 800)
   },
 
@@ -431,6 +439,79 @@ export const useGanguesStore = create((set, get) => ({
     set(state => ({ inventario: { ...state.inventario, [itemId]: atual - 1 } }))
     get()._persistCena()
     return true
+  },
+
+  // ── Equipamento ──
+  // Compra 1 instância de equipamento da loja — cobra a grana e só cria a
+  // instância (com sockets vazios) se o pagamento passar.
+  comprarEquip: (itemId, custo) => {
+    const instancia = createGanguesEquipInstance(itemId)
+    if (!instancia || !get().gastarGrana(custo)) return false
+    set(state => ({ equipamentos: [...state.equipamentos, instancia] }))
+    get()._persistCena()
+    return true
+  },
+
+  // Equipa a instância `uid` no `slot` do personagem `memberId`. Se o slot já
+  // tinha um item, ele volta pro inventário (com as cartas). A instância
+  // equipada some do inventário e passa a viver em sheet.attributes.equipment.
+  equiparItem: (memberId, uid) => {
+    const instancia = get().equipamentos.find(eq => eq.uid === uid)
+    const def = instancia && getGanguesEquip(instancia.itemId)
+    if (!def) return false
+    const slot = def.slot
+    let devolvidoAoInventario = null
+
+    const aplicar = member => {
+      if (member.id !== memberId) return member
+      const equipment = normalizeGanguesEquipment(member.attributes?.equipment)
+      const anterior = equipment[slot]
+      if (anterior) devolvidoAoInventario = { uid: `eq-${anterior.itemId}-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 6)}`, itemId: anterior.itemId, cards: anterior.cards }
+      equipment[slot] = { itemId: def.id, cards: instancia.cards }
+      return { ...member, attributes: { ...member.attributes, equipment } }
+    }
+
+    set(state => {
+      const roster = state.roster.map(aplicar)
+      const byId = new Map(roster.map(m => [m.id, m]))
+      const equipamentos = state.equipamentos.filter(eq => eq.uid !== uid)
+      if (devolvidoAoInventario) equipamentos.push(devolvidoAoInventario)
+      return {
+        roster,
+        activeParty: state.activeParty.map(m => byId.get(m.id) || m),
+        sheet: byId.get(state.sheet.id) || state.sheet,
+        equipamentos,
+      }
+    })
+    get().saveParticipantProgress([memberId])
+    get()._persistCena()
+    return true
+  },
+
+  // Tira o item do `slot` do personagem e devolve ao inventário (com cartas).
+  desequiparItem: (memberId, slot) => {
+    let devolvido = null
+    const aplicar = member => {
+      if (member.id !== memberId) return member
+      const equipment = normalizeGanguesEquipment(member.attributes?.equipment)
+      const atual = equipment[slot]
+      if (!atual) return member
+      devolvido = { uid: `eq-${atual.itemId}-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 6)}`, itemId: atual.itemId, cards: atual.cards }
+      equipment[slot] = null
+      return { ...member, attributes: { ...member.attributes, equipment } }
+    }
+    set(state => {
+      const roster = state.roster.map(aplicar)
+      const byId = new Map(roster.map(m => [m.id, m]))
+      return {
+        roster,
+        activeParty: state.activeParty.map(m => byId.get(m.id) || m),
+        sheet: byId.get(state.sheet.id) || state.sheet,
+        equipamentos: devolvido ? [...state.equipamentos, devolvido] : state.equipamentos,
+      }
+    })
+    if (devolvido) { get().saveParticipantProgress([memberId]); get()._persistCena() }
+    return Boolean(devolvido)
   },
 
   // Trava o "retrato" de pontos de uma treta repetível na primeira vez que o
@@ -520,7 +601,7 @@ export const useGanguesStore = create((set, get) => ({
   reset: () => set({ sheet: defaultSheet(), roster: [], activeParty: [], match: { playerTeam: [], enemyTeam: [], enemy: null, enemy_id: null, score: 0, status: 'idle', battleReport: null } }),
 
   resetCena: () => {
-    set({ grana: 0, rep: 0, cenaProgresso: {}, inventario: {} })
+    set({ grana: 0, rep: 0, cenaProgresso: {}, inventario: {}, equipamentos: [] })
     get()._persistStory()
   },
 }))

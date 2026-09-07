@@ -292,7 +292,7 @@ Namespaces de conteúdo relevantes: `nav.links`, `pages.livro`, `pages.contos` (
 
 - Projeto Supabase: `dvxfrzixtetdzmdrzkpx`.
 - Cliente: `src/lib/supabase.js`.
-- Migrações locais: `supabase/migrations/004_*.sql` até `034_gangues_save_slots.sql`; os números podem se repetir porque algumas linhas de evolução foram criadas em paralelo.
+- Migrações locais: `supabase/migrations/004_*.sql` até `036_gangues_equipamentos.sql` (035 = inventário de itens/poções, 036 = inventário de equipamento com slots de carta); os números podem se repetir porque algumas linhas de evolução foram criadas em paralelo.
 - Principais domínios persistidos: perfis, fichas, DIX, conquistas, saves de jogos, Tamagoshi, Arena, decks/ranking/partidas Top Trumps, submissões compartilhadas, playlist da Rádio Nina (`radio_nina_playlists`, 1 por usuário) e progresso do modo história do LDI Gangues (`gangues_story_progress`, N por usuário — 1 por save/gangue, teto por tier em `GANGUES_SAVE_SLOT_LIMITS`).
 - RLS usa o usuário autenticado como autoridade nos dados pessoais.
 
@@ -390,7 +390,7 @@ Fonte única: `src/config/version.js`. Esta tabela registra somente a identifica
 | `PP_VERSION` | Pesadelo Particular | 2.3.1 |
 | `LDI_VERSION` | Lendas do LDI | 2.0.1 |
 | `JACK_VERSION` | Jack Dream Beer | 5.3.2 |
-| `GANGUES_VERSION` | LDI Gangues | 2.55.0 |
+| `GANGUES_VERSION` | LDI Gangues | 2.56.0 |
 | `TAMA_VERSION` | Tamagoshi LDI | 3.4.1 |
 | `DUELO_VERSION` | Duelo LDI | 2.8.1 |
 | `MINIGAMES_VERSION` | MiniGames | 4.3.4 |

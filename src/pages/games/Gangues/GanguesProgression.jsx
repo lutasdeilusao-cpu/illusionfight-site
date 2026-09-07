@@ -2,7 +2,9 @@ import { useLanguage } from '../../../context/LanguageContext'
 import { useGanguesStore } from './store/useGanguesStore'
 import { getGanguesCharacter, getGanguesLevelFromXp, getGanguesUnlockedSpecials } from './data/ganguesCharacters.js'
 import { getGanguesResources, getGanguesProgression, ganguesXpMaxForSheet } from './data/ganguesLoadout.js'
+import { getGanguesAttributesWithEquip } from './data/ganguesEquip.js'
 import GanguesFichaCard from './components/GanguesFichaCard'
+import GanguesEquipPanel from './components/GanguesEquipPanel'
 
 export default function GanguesProgression({ onNavigate }) {
   const { t } = useLanguage()
@@ -24,7 +26,10 @@ export default function GanguesProgression({ onNavigate }) {
   const level = getGanguesLevelFromXp(member.xp_total)
   const unlocked = getGanguesUnlockedSpecials(character.id, member.xp_total)
   const progression = getGanguesProgression(member)
-  const resources = getGanguesResources(character.combat_path, member.attributes?.R)
+  // Atributos e recursos já com o equipamento somado — é o que vale em combate,
+  // então é o que a ficha tem que mostrar.
+  const effAttrs = getGanguesAttributesWithEquip(member.attributes)
+  const resources = getGanguesResources(character.combat_path, effAttrs.R)
 
   return <main className="gang-lobby gang-progression-screen">
     <header className="gang-progression-screen-head">
@@ -36,7 +41,7 @@ export default function GanguesProgression({ onNavigate }) {
         caminho={character.combat_path}
         subcaminho={`${t(`games.gangues.loadout.paths.${character.combat_path}.name`)} · ${t(`games.gangues.progression.paths.${character.special_path}`)}`}
         nivel={level}
-        atributos={member.attributes}
+        atributos={effAttrs}
         pv={{ atual: Math.min(resources.pvMax, member.attributes?.pv_atual ?? resources.pvMax), max: resources.pvMax }}
         pm={{ atual: Math.min(resources.pmMax, member.attributes?.pm_atual ?? resources.pmMax), max: resources.pmMax }}
         xp={{ atual: progression.ap, max: ganguesXpMaxForSheet(member), disponivel: progression.xp_unspent }}
@@ -49,6 +54,7 @@ export default function GanguesProgression({ onNavigate }) {
           return <div key={special.id} className={`gang-skill-node${open ? ' gang-skill-node--equipped' : ' gang-skill-node--locked'}`}><span>NV {3 + index * 2}</span><strong className="gang-skill-node-name">{t(`games.gangues.progression.skills.${special.id}`)}</strong><span className="gang-skill-node-kind">{open ? t(`games.gangues.progression.${special.kind}`) : '🔒'}</span></div>
         })}
       </div>
+      <GanguesEquipPanel member={member} />
     </section>
   </main>
 }

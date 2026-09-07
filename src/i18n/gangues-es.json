@@ -494,6 +494,50 @@
         "no_inventario": "Tienes: {n}",
         "compra_feita": "¡Comprado!"
       },
+      "equip": {
+        "titulo": "Equipo",
+        "sub": "Cada pieza tiene ranura de carta — las cartas llegan con el sistema de drop.",
+        "vazio": "Vacío",
+        "equipar": "Equipar",
+        "desequipar": "Quitar",
+        "sem_itens": "Nada en los bolsillos de la banda para esta ranura.",
+        "sem_carta": "Sin ranura",
+        "carta_em_breve": "Ranura de carta — pronto",
+        "slots": {
+          "cabeca": "Cabeza",
+          "corpo": "Cuerpo",
+          "bracos": "Brazos",
+          "pes": "Pies",
+          "amuleto": "Amuleto",
+          "arma": "Arma"
+        },
+        "raridade": {
+          "comum": "Común",
+          "incomum": "Poco común",
+          "raro": "Raro",
+          "epico": "Épico"
+        },
+        "itens": {
+          "soqueira_lata": "Puño de Lata",
+          "faca_serrilhada": "Cuchillo Serrado",
+          "cano_de_ferro": "Caño de Hierro",
+          "gorro_moletom": "Gorro de Buzo",
+          "capacete_obra": "Casco de Obra",
+          "coroa_lata": "Corona de Lata",
+          "colete_couro": "Chaleco de Cuero",
+          "jaqueta_rebite": "Campera con Tachas",
+          "colete_balistico": "Chaleco Balístico",
+          "luva_couro": "Guante de Cuero",
+          "manopla_porca": "Manopla de Tuerca",
+          "bracadeira_cravo": "Muñequera con Púas",
+          "tenis_furado": "Zapatillas Rotas",
+          "coturno": "Borcegos",
+          "bota_biqueira": "Bota con Puntera",
+          "corrente_lata": "Cadena de Lata",
+          "dente_de_ouro": "Diente de Oro",
+          "medalha_santa": "Medalla de Santa"
+        }
+      },
       "combat_tutorial": {
         "iniciativa": "Esta lista muestra quién ataca primero en esta ronda — cuanto mayor la Habilidad del luchador, antes juega.",
         "escolher_alvo": "¿Hay más de un enemigo? Toca a quien quieras atacar para elegirlo como objetivo — matar al más débil primero o enfocar al más fuerte, tú decides.",

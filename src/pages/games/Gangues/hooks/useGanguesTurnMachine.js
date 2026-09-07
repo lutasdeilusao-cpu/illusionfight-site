@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { resolveGanguesAction, resolveGanguesInitiative } from '../engine/ganguesCombatResolver.js'
 import { getGanguesResources, normalizeGanguesLoadout } from '../data/ganguesLoadout.js'
+import { getGanguesAttributesWithEquip } from '../data/ganguesEquip.js'
 
 const d3 = () => Math.floor(Math.random() * 3) + 1
 const coin = () => Math.random() < 0.5
@@ -21,6 +22,11 @@ export function pickEnemyTarget(combatants, lastTargetKey, roll = Math.random) {
 export function prepare(combatant, side, index) {
   const enemy = side === 'enemy'
   const normalized = enemy ? { ...combatant, attributes: combatant.stats || combatant.attributes || {}, combat_path: combatant.preferred_mode === 'power' ? 'mistico' : combatant.preferred_mode === 'armed' ? 'defensor' : 'atacante' } : { ...combatant, ...normalizeGanguesLoadout(combatant) }
+  // Equipamento (só jogador): soma os bônus planos dos 6 slots antes de
+  // calcular PV/PM — armadura com +R deixa o personagem mais tanky de verdade.
+  // `equipment` continua acessível em `attributes.equipment` pros efeitos de
+  // carta que virão depois.
+  if (!enemy) normalized.attributes = getGanguesAttributesWithEquip(normalized.attributes)
   const resources = enemy ? { pvMax: Number(combatant.pv_max) || 10, pmMax: Number(combatant.pm_max) || 0 } : getGanguesResources(normalized.combat_path, normalized.attributes?.R)
   // Jogador entra com o PV/PM que sobrou da última luta (ver pv_atual/pm_atual
   // em normalizeGanguesLoadout) — só some pra 'full' quando nunca lutou ou

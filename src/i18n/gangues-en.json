@@ -494,6 +494,50 @@
         "no_inventario": "You have: {n}",
         "compra_feita": "Bought!"
       },
+      "equip": {
+        "titulo": "Gear",
+        "sub": "Every piece has a card socket — cards come with the drop system.",
+        "vazio": "Empty",
+        "equipar": "Equip",
+        "desequipar": "Remove",
+        "sem_itens": "Nothing in the gang's pockets for this slot.",
+        "sem_carta": "No socket",
+        "carta_em_breve": "Card socket — coming soon",
+        "slots": {
+          "cabeca": "Head",
+          "corpo": "Body",
+          "bracos": "Arms",
+          "pes": "Feet",
+          "amuleto": "Amulet",
+          "arma": "Weapon"
+        },
+        "raridade": {
+          "comum": "Common",
+          "incomum": "Uncommon",
+          "raro": "Rare",
+          "epico": "Epic"
+        },
+        "itens": {
+          "soqueira_lata": "Tin Knuckles",
+          "faca_serrilhada": "Serrated Knife",
+          "cano_de_ferro": "Iron Pipe",
+          "gorro_moletom": "Hoodie Beanie",
+          "capacete_obra": "Hard Hat",
+          "coroa_lata": "Tin Crown",
+          "colete_couro": "Leather Vest",
+          "jaqueta_rebite": "Studded Jacket",
+          "colete_balistico": "Ballistic Vest",
+          "luva_couro": "Leather Glove",
+          "manopla_porca": "Nut Gauntlet",
+          "bracadeira_cravo": "Spiked Armband",
+          "tenis_furado": "Worn-Out Sneakers",
+          "coturno": "Combat Boots",
+          "bota_biqueira": "Steel-Toe Boot",
+          "corrente_lata": "Tin Chain",
+          "dente_de_ouro": "Gold Tooth",
+          "medalha_santa": "Saint's Medal"
+        }
+      },
       "combat_tutorial": {
         "iniciativa": "This list shows who attacks first this round — the higher a fighter's Skill, the sooner they act.",
         "escolher_alvo": "More than one enemy? Tap whoever you want to attack to pick them as your target — kill the weakest first or focus the strongest, your call.",

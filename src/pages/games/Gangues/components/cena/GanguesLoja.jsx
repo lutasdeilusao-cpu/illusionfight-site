@@ -2,21 +2,30 @@ import { useState } from 'react'
 import { useLanguage } from '../../../../../context/LanguageContext'
 import { useGanguesStore } from '../../store/useGanguesStore'
 import { getGanguesItem } from '../../data/ganguesItens.js'
+import { getGanguesEquip } from '../../data/ganguesEquip.js'
 import { sfx } from '../../../../../lib/sfx'
 
-/* Encontro LOJA — vende os itens do próprio POI (poi.itens: ['pocao_hp',...]).
-   Cada região tem sua loja com seu catálogo próprio (definido em pista.js e
-   nos outros territórios depois) — não é uma loja global. Repetível: fica
-   sempre disponível, nunca marca como "resolvido". */
+/* Encontro LOJA — vende os itens do próprio POI (poi.itens: ['pocao_hp',
+   'colete_couro',...]). O catálogo mistura consumível (data/ganguesItens.js)
+   e equipamento (data/ganguesEquip.js) — cada região tem sua loja com seu
+   catálogo próprio. Repetível: fica sempre disponível, nunca marca resolvido. */
 export default function GanguesLoja({ poi, onClose }) {
   const { t } = useLanguage()
   const store = useGanguesStore()
   const [aviso, setAviso] = useState(null) // { itemId, texto }
 
-  const catalogo = (poi.itens || []).map(getGanguesItem).filter(Boolean)
+  const catalogo = (poi.itens || []).map(id => {
+    const equip = getGanguesEquip(id)
+    if (equip) return { ...equip, _equip: true }
+    return getGanguesItem(id)
+  }).filter(Boolean)
+
+  const contarNoInventario = (item) => item._equip
+    ? store.equipamentos.filter(eq => eq.itemId === item.id).length
+    : (store.inventario[item.id] || 0)
 
   const comprar = (item) => {
-    const ok = store.comprarItem(item.id, item.custo)
+    const ok = item._equip ? store.comprarEquip(item.id, item.custo) : store.comprarItem(item.id, item.custo)
     if (ok) { sfx.reward?.(); setAviso({ itemId: item.id, texto: t('games.gangues.loja.compra_feita') }) }
     else { sfx.cancel(); setAviso({ itemId: item.id, texto: t('games.gangues.loja.sem_grana') }) }
     setTimeout(() => setAviso(null), 1400)
@@ -32,12 +41,13 @@ export default function GanguesLoja({ poi, onClose }) {
 
       <div className="gang-loja-cena-lista">
         {catalogo.map(item => {
-          const quantidade = store.inventario[item.id] || 0
+          const quantidade = contarNoInventario(item)
           return (
             <div key={item.id} className="gang-loja-cena-item">
               <span className="gang-loja-cena-item__icone">{item.icone}</span>
               <div className="gang-loja-cena-item__info">
                 <strong>{t(item.nome)}</strong>
+                {item._equip && <small>{t(`games.gangues.equip.slots.${item.slot}`)}</small>}
                 <small>{t('games.gangues.loja.no_inventario', { n: quantidade })}</small>
               </div>
               <button className="gang-loja-cena-item__comprar" onClick={() => comprar(item)}>

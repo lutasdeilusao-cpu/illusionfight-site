@@ -165,8 +165,12 @@ export function normalizeGanguesLoadout(sheet = {}) {
     // grana. Só volta ao máximo via GanguesDescanso ou dominar o território
     // (ver restaurarPvPmTodos em useGanguesStore.js). Precisa ser copiado
     // manualmente porque esta função reconstrói `attributes` do zero.
-    attributes: { ...Object.fromEntries(['A', 'H', 'R', 'D'].map(attr => [attr, Math.max(0, Number(source[attr]) || 0)])), progression: getGanguesProgression({ combat_path: combatPath, attributes: source, progression: sheet.progression }), pv_atual: source.pv_atual, pm_atual: source.pm_atual },
+    // equipment: 6 slots de equipamento por personagem (ver data/ganguesEquip.js) —
+    // vive dentro de `attributes` (JSONB), precisa ser copiado manualmente porque
+    // esta função reconstrói `attributes` do zero, igual pv_atual/pm_atual.
+    attributes: { ...Object.fromEntries(['A', 'H', 'R', 'D'].map(attr => [attr, Math.max(0, Number(source[attr]) || 0)])), progression: getGanguesProgression({ combat_path: combatPath, attributes: source, progression: sheet.progression }), pv_atual: source.pv_atual, pm_atual: source.pm_atual, equipment: normalizeGanguesEquipment(source.equipment) },
     loadout_version: 2,
   }
 }
 import { GANGUES_SPECIAL_PATHS, getGanguesSpecialPath, isGanguesSpecialAllowed } from './ganguesSpecials.js'
+import { normalizeGanguesEquipment } from './ganguesEquip.js'

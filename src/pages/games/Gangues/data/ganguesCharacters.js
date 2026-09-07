@@ -1,4 +1,5 @@
 import catalog from '../../../../../ldi_gangues_30_personagens_v1.json'
+import { normalizeGanguesEquipment } from './ganguesEquip.js'
 
 export const GANGUES_CHARACTER_CATALOG = Object.freeze(catalog.characters)
 export const GANGUES_CHARACTER_BY_ID = new Map(GANGUES_CHARACTER_CATALOG.map(character => [character.id, character]))
@@ -65,7 +66,9 @@ export function hydrateGanguesTemplateSheet(sheet = {}) {
     // pv_atual/pm_atual: ver comentário em normalizeGanguesLoadout (ganguesLoadout.js) —
     // precisa ser copiado manualmente porque esta função também reconstrói
     // `attributes` do zero a cada hidratação.
-    attributes: { ...levelData.stats, progression, character_type: 'template', character_template_id: character.id, pv_atual: sheet.attributes?.pv_atual, pm_atual: sheet.attributes?.pm_atual },
+    // equipment: ver comentário em normalizeGanguesLoadout — copiado manualmente
+    // porque esta função também reconstrói `attributes` do zero a cada hidratação.
+    attributes: { ...levelData.stats, progression, character_type: 'template', character_template_id: character.id, pv_atual: sheet.attributes?.pv_atual, pm_atual: sheet.attributes?.pm_atual, equipment: normalizeGanguesEquipment(sheet.attributes?.equipment) },
     elemental: 'neutro',
     loadout_version: 3,
   }
