@@ -544,6 +544,15 @@
           "medalha_santa": "Medalla de Santa"
         }
       },
+      "bag": {
+        "eyebrow": "Bolso",
+        "titulo": "Bolso de la Banda",
+        "vazio": "El bolso está vacío. Compra algo en la tienda.",
+        "consumiveis": "Ítems de combate",
+        "equip_bolso": "Equipo guardado",
+        "nota_combate": "Aparecen en el botón 🎒 durante la pelea.",
+        "nota_equip": "Equipa con 👤 → ficha del personaje."
+      },
       "combat_tutorial": {
         "iniciativa": "Esta lista muestra quién ataca primero en esta ronda — cuanto mayor la Habilidad del luchador, antes juega.",
         "escolher_alvo": "¿Hay más de un enemigo? Toca a quien quieras atacar para elegirlo como objetivo — matar al más débil primero o enfocar al más fuerte, tú decides.",

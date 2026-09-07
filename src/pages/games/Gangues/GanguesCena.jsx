@@ -14,7 +14,8 @@ import { GANGUES_TERRITORIO_POR_ID } from './data/ganguesTerritorios.js'
 import { calcularPontosTime } from './data/ganguesEncontros.js'
 import { GANGUES_STORY_BATTLE_PARTY_MAX, getGanguesResources, getGanguesProgression, ganguesXpMaxForSheet } from './data/ganguesLoadout.js'
 import { getGanguesCharacter, getGanguesLevelFromXp } from './data/ganguesCharacters.js'
-import { getGanguesAttributesWithEquip } from './data/ganguesEquip.js'
+import { getGanguesAttributesWithEquip, getGanguesEquip } from './data/ganguesEquip.js'
+import { GANGUES_ITENS_LISTA } from './data/ganguesItens.js'
 import GanguesFichaCard from './components/GanguesFichaCard'
 import GanguesEquipPanel from './components/GanguesEquipPanel'
 import './GanguesCena.css'
@@ -65,6 +66,7 @@ export default function GanguesCena({onNavigate}){
   // voltando pro mapa/lobby, o que perdia a posição e a intenção de quem só
   // queria conferir "em que nível eu tô" no meio da exploração.
   const [fichaIndex,setFichaIndex]=useState(null)
+  const [bagAberta,setBagAberta]=useState(false)
   const viewportRef=useRef(null),inputRef=useRef({x:0,y:0}),keysRef=useRef(new Set())
   const bossAberto=cena?portaoAberto(cena,prog.resolvidos):false, folego=prog.folego??100
   // farmCompleto: só fica azul (visual de "já dá pra farmar") DEPOIS de
@@ -127,13 +129,44 @@ export default function GanguesCena({onNavigate}){
   const vw=viewportRef.current?.clientWidth||390,vh=viewportRef.current?.clientHeight||620,lookX=facing==='right'?52:facing==='left'?-52:0,lookY=facing==='down'?60:facing==='up'?-60:0,camX=Math.max(0,Math.min(WORLD.w-vw,player.x-vw/2+lookX)),camY=Math.max(0,Math.min(WORLD.h-vh,player.y-vh/2+lookY))
   return <main className="gang-cena-worldpage" style={{'--terr-cor':cena.cor}}>
     <AnimatePresence>{intro&&<GangDialog lines={t(cena.chegada)} speaker={t(cena.falante)} sub={t(cena.falanteSub)} onFinish={fecharIntro} onSkip={fecharIntro}/>}</AnimatePresence>
-    <header className="gang-cena-worldhud"><button onClick={()=>{guardarPosicao();onNavigate('story')}}>← MAPA</button><strong>A PISTA {prog.boss?<i className="gang-cena-dominado-selo">⚑ DOMINADA</i>:<i>{feitos}/{total}</i>}</strong><span>💵 {store.grana}　⚑ {store.rep}</span>{store.activeParty.length>0&&<button className="gang-cena-ficha-btn" onClick={()=>setFichaIndex(0)}>👤</button>}</header>
+    <header className="gang-cena-worldhud"><button onClick={()=>{guardarPosicao();onNavigate('story')}}>← MAPA</button><strong>A PISTA {prog.boss?<i className="gang-cena-dominado-selo">⚑ DOMINADA</i>:<i>{feitos}/{total}</i>}</strong><span>💵 {store.grana}　⚑ {store.rep}</span><button className="gang-cena-ficha-btn" onClick={()=>setBagAberta(true)} aria-label={t('games.gangues.bag.titulo')}>🎒</button>{store.activeParty.length>0&&<button className="gang-cena-ficha-btn" onClick={()=>setFichaIndex(0)}>👤</button>}</header>
     <div className="gang-cena-viewport" ref={viewportRef}><div className="gang-cena-world" style={{width:WORLD.w,height:WORLD.h,transform:`translate3d(${-camX}px,${-camY}px,0)`}}><WorldScenery bossAberto={bossAberto}/>{pinos.map(p=><EntryZone key={`zone-${p.id}`} poi={p} active={perto?.id===p.id}/>)}{PLACES.map(p=><div key={p[0]} className={`gang-world-place ${p[5]?'is-gate':''} ${p[5]&&bossAberto?'is-open':''}`} style={{left:p[1],top:p[2]}}><b>{p[3]}</b><span>{p[4]}</span>{p[5]&&<em>{bossAberto?'ABERTO':'FECHADO'}</em>}</div>)}{pinos.map(p=><div key={p.id} className={`gang-world-npc is-${p.estado} ${p.ehChefe?'is-boss':''} ${p.farmCompleto?'is-farm':''}`} style={{left:p.world.x,top:p.world.y}}><span>{p.ehChefe?'★':ICONE[p.tipo]||'•'}</span>{p.estado!=='trancado'&&<small>{p.ehChefe?'FUMAÇA':t(`${p.i18n}.nome`)}</small>}{p.farmCompleto&&<i className="gang-world-npc-farm-tag" aria-hidden="true">↻</i>}</div>)}<GangMarker player={player} facing={facing} gangName={store.gangName}/></div><div className="gang-cena-vignette"/><div className="gang-cena-status"><span>FÔLEGO</span><i><b style={{width:`${folego}%`}}/></i></div>{hint&&<div className="gang-cena-tutorial">{hint}</div>}{!bossAberto&&player.y<420&&<div className="gang-cena-gatelock">🔒 O portão só abre quando todo o trabalho na Pista estiver feito.</div>}</div>
     <WorldControls onInput={v=>{inputRef.current=v}} onInteract={()=>abrir(perto)} action={perto?interactionLabel(perto):null}/>
     <AnimatePresence>{toast&&<motion.div className="gang-cena-toast" initial={{opacity:0,y:12}} animate={{opacity:1,y:0}} exit={{opacity:0}}><b>RECOMPENSA</b>{toast.grana?<span>💵 +{toast.grana}</span>:null}{toast.rep?<span>⚑ +{toast.rep}</span>:null}{toast.xp?<span>⚡ +{toast.xp} XP</span>:null}</motion.div>}</AnimatePresence>
     <AnimatePresence>{encontro&&<motion.div className="gang-cena-modal" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}><div className="gang-cena-modal-bg" onClick={()=>setEncontro(null)}/><motion.div className="gang-cena-modal-card" initial={{y:25}} animate={{y:0}}>{encontro.vs?<TretaVS poi={encontro.poi} folegoBaixo={folego<=30} onSim={()=>iniciarTreta(encontro.poi)} onNao={()=>setEncontro(null)} t={t}/>:encontro.poi.tipo==='papo'?<GanguesPapo poi={encontro.poi} cena={cena} onResolve={resolver} onClose={()=>setEncontro(null)}/>:encontro.poi.tipo==='descanso'?<GanguesDescanso poi={encontro.poi} cena={cena} onClose={()=>setEncontro(null)}/>:encontro.poi.tipo==='loja'?<GanguesLoja poi={encontro.poi} onClose={()=>setEncontro(null)}/>:<GanguesParada poi={encontro.poi} cena={cena} onResolve={resolver} onClose={()=>setEncontro(null)}/>}</motion.div></motion.div>}</AnimatePresence>
     <AnimatePresence>{fichaIndex!==null&&store.activeParty[fichaIndex]&&<motion.div className="gang-cena-modal" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}><div className="gang-cena-modal-bg" onClick={()=>setFichaIndex(null)}/><motion.div className="gang-cena-modal-card gang-cena-ficha-scroll" initial={{y:25}} animate={{y:0}}><FichaCenaCard member={store.activeParty[fichaIndex]} t={t}/><div className="gang-cena-enc-acoes">{store.activeParty.length>1&&<button className="gang-cena-btn" onClick={()=>setFichaIndex(i=>(i+store.activeParty.length-1)%store.activeParty.length)}>◀ ANTERIOR</button>}<button className="gang-cena-btn gang-cena-btn--go" onClick={()=>setFichaIndex(null)}>FECHAR</button>{store.activeParty.length>1&&<button className="gang-cena-btn" onClick={()=>setFichaIndex(i=>(i+1)%store.activeParty.length)}>PRÓXIMO ▶</button>}</div></motion.div></motion.div>}</AnimatePresence>
+    <AnimatePresence>{bagAberta&&<motion.div className="gang-cena-modal" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}><div className="gang-cena-modal-bg" onClick={()=>setBagAberta(false)}/><motion.div className="gang-cena-modal-card gang-cena-ficha-scroll" initial={{y:25}} animate={{y:0}}><BagSheet store={store} t={t} onClose={()=>setBagAberta(false)}/></motion.div></motion.div>}</AnimatePresence>
   </main>
+}
+
+// Bolsa da gangue — o que o bando tem de item (consumível + equipamento
+// guardado). É a MESMA fonte que a loja abastece e que o combate lê pra usar
+// poção (store.inventario / store.equipamentos) — um sistema só.
+function BagSheet({store,t,onClose}){
+  const consumiveis=GANGUES_ITENS_LISTA.map(it=>({...it,qtd:store.inventario[it.id]||0})).filter(it=>it.qtd>0)
+  const pecas=Object.values(store.equipamentos.reduce((acc,eq)=>{
+    const def=getGanguesEquip(eq.itemId); if(!def)return acc
+    acc[eq.itemId]=acc[eq.itemId]||{def,qtd:0}; acc[eq.itemId].qtd++; return acc
+  },{}))
+  const vazio=consumiveis.length===0&&pecas.length===0
+  return <div className="gang-cena-enc gang-cena-enc--bag">
+    <button className="gang-cena-enc-x" onClick={onClose} aria-label={t('games.gangues.cena.fechar')}>✕</button>
+    <span className="gang-cena-eyebrow">{t('games.gangues.bag.eyebrow')}</span>
+    <h3 className="gang-cena-enc-titulo">{t('games.gangues.bag.titulo')}</h3>
+    <p className="gang-cena-enc-sub"><b>💵 {store.grana}　⚑ {store.rep}</b></p>
+    {vazio&&<p className="gang-cena-enc-sub">{t('games.gangues.bag.vazio')}</p>}
+    {consumiveis.length>0&&<>
+      <small className="gang-bag-sec">{t('games.gangues.bag.consumiveis')}</small>
+      <div className="gang-bag-lista">{consumiveis.map(it=><div key={it.id} className="gang-bag-row"><span>{it.icone}</span><strong>{t(it.nome)}</strong><b>×{it.qtd}</b></div>)}</div>
+      <p className="gang-bag-nota">{t('games.gangues.bag.nota_combate')}</p>
+    </>}
+    {pecas.length>0&&<>
+      <small className="gang-bag-sec">{t('games.gangues.bag.equip_bolso')}</small>
+      <div className="gang-bag-lista">{pecas.map(({def,qtd})=><div key={def.id} className="gang-bag-row"><span>{def.icone}</span><strong>{t(def.nome)}</strong><small>{t(`games.gangues.equip.slots.${def.slot}`)}</small><b>×{qtd}</b></div>)}</div>
+      <p className="gang-bag-nota">{t('games.gangues.bag.nota_equip')}</p>
+    </>}
+    <div className="gang-cena-enc-acoes"><button className="gang-cena-btn gang-cena-btn--go" onClick={onClose}>{t('games.gangues.cena.fechar')}</button></div>
+  </div>
 }
 
 function WorldScenery({bossAberto}){return <><div className="gang-road road-main"/><div className="gang-road road-cross r1"/><div className="gang-road road-cross r2"/><div className="gang-road road-cross r3"/><div className="gang-road road-branch left"/><div className="gang-road road-branch right"/><div className="gang-world-zone z-praca">PRAÇA DA PISTA</div><div className="gang-world-zone z-quadra"/><div className={`gang-world-gate ${bossAberto?'is-open':''}`}/><div className="gang-world-graffiti">A RUA<br/>LEMBRA</div>{[120,300,510,680,850,1040,1240,1430,1610].map((y,i)=><span key={y} className="gang-world-lamp" style={{left:i%2?690:45,top:y}}/>)}</>}

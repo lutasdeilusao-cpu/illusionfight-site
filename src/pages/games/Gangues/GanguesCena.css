@@ -355,6 +355,21 @@
 .gang-loja-det__so b { color: #fff; }
 .gang-loja-det__so--buy { border-color: var(--terr-cor); color: var(--terr-cor); background: color-mix(in srgb, var(--terr-cor) 14%, transparent); }
 
+/* ── Bolsa da gangue (botão 🎒 do HUD) ── */
+.gang-bag-sec { width: 100%; margin-top: 10px; text-align: left; font: 700 0.52rem var(--font-mono); letter-spacing: 0.14em; text-transform: uppercase; color: #7b898f; }
+.gang-bag-lista { width: 100%; display: flex; flex-direction: column; gap: 6px; margin-top: 4px; }
+.gang-bag-row {
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px 10px; text-align: left;
+  background: rgba(255, 255, 255, 0.03); border: 1px solid var(--if-hair-strong);
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
+}
+.gang-bag-row span { font-size: 1.2rem; flex-shrink: 0; }
+.gang-bag-row strong { flex: 1; font: 800 0.72rem var(--font-display); text-transform: uppercase; color: #fff; }
+.gang-bag-row small { font: 700 0.5rem var(--font-mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-secondary); }
+.gang-bag-row b { font: 800 0.72rem var(--font-mono); color: var(--if-amber); }
+.gang-bag-nota { width: 100%; margin: 4px 0 0; text-align: left; font: 700 0.5rem var(--font-mono); letter-spacing: 0.04em; color: #7b898f; }
+
 /* ══ A Pista 2.4 — bairro explorável ═════════════════════════ */
 /* .gang-page (pai) desconta guest-notice + Rádio Nina (topo OU rodapé) via
    padding — quando a Rádio Nina toca ancorada no topo ela soma 54px

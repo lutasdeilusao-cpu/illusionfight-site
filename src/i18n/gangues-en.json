@@ -544,6 +544,15 @@
           "medalha_santa": "Saint's Medal"
         }
       },
+      "bag": {
+        "eyebrow": "Bag",
+        "titulo": "Gang Bag",
+        "vazio": "The bag is empty. Buy something at the shop.",
+        "consumiveis": "Combat items",
+        "equip_bolso": "Stashed gear",
+        "nota_combate": "They show up under the 🎒 button during a fight.",
+        "nota_equip": "Equip via 👤 → character sheet."
+      },
       "combat_tutorial": {
         "iniciativa": "This list shows who attacks first this round — the higher a fighter's Skill, the sooner they act.",
         "escolher_alvo": "More than one enemy? Tap whoever you want to attack to pick them as your target — kill the weakest first or focus the strongest, your call.",
