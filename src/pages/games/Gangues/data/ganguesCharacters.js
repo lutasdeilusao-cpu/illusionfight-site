@@ -13,13 +13,17 @@ export function getGanguesCharacter(characterTemplateId) {
   return GANGUES_CHARACTER_BY_ID.get(Number(characterTemplateId)) || null
 }
 
+// 1 ponto de XP = 1 nível, sempre — é essa a regra (custo de AP por XP já
+// cresce a cada nível: 10/15/20/25/30..., ver ganguesApCostForLevel em
+// ganguesLoadout.js). A tabela `xp_total_required_by_level` do catálogo
+// (0,1,3,5,8,11...) era CUMULATIVA e crescente — exigia várias conversões
+// de AP→XP pra subir 1 único nível a partir do nível 2 em diante, mesmo já
+// tendo enchido a barra de PA inteira. Resultado: o jogador enchia a barra,
+// via ela zerar, e não subia de nível — "só passa o primeiro nível" era
+// literal, porque só o nível 1→2 dessa tabela precisava de exatamente 1 XP.
 export function getGanguesLevelFromXp(xpTotal = 0) {
   const xp = Math.max(0, Number(xpTotal) || 0)
-  let level = 1
-  for (const [candidate, required] of Object.entries(catalog.meta.xp_total_required_by_level)) {
-    if (xp >= required) level = Number(candidate)
-  }
-  return Math.min(GANGUES_LEVEL_CAP, level)
+  return Math.min(GANGUES_LEVEL_CAP, 1 + Math.floor(xp))
 }
 
 export function getGanguesTemplateLevel(characterTemplateId, xpTotal = 0) {
