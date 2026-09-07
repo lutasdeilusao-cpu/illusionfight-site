@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.269.0'
+export const SITE_VERSION = '10.270.0'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '2.45.0' // fix: ao remover o "empurrao" que estourava o teto de AP (v2.44.0), a garantia de "todo participante ganha pelo menos 1 AP" foi removida junto por engano - resultado real reportado: 1 inimigo (ap=10) com contribuicao bem desigual deu Trinca+10/Muro+0, participante zerado. Corrigido de vez: gainApForParticipants agora reserva 1 AP garantido POR PARTICIPANTE tirado do PROPRIO pote (nunca inventado por fora, que foi o bug original) - o restante do pote e' dividido por peso entre todos. So cai pra divisao pura por peso (podendo zerar alguem) quando o pote e menor que o numero de gente (time gigante contra 1 inimigo fraco, ou derrota com ap=1). Validado com bateria de 8 cenarios numericos (copia literal do bloco de calculo do arquivo real) confirmando soma exata = total e ninguem zerado nos casos de time normal (ate 6), antes de build/deploy
+export const GANGUES_VERSION   = '2.46.0' // feat: peso de divisao de AP trocado de proporcional direto (abates*100+dano, deixava o campeao com ~90% do pote) pra RANKING fixo - 1o lugar em abates/dano pesa 3, 2o lugar pesa 2, o resto pesa 1 igual pra todos (GanguesVictory.jsx). Splits ficam bem menos extremos (ex: 1 inimigo/2 pessoas: 6/4 em vez de 9/1). feat: chefe de territorio (luta unica, nao repetivel) agora vale 5x o pote normal (multiplicadorChefe) - antes dava a mesma migalha de uma treta comum. Validado com bateria de cenarios numericos (2 pessoas, time cheio de 6 contra chefe, empate exato, e o caso so-1-lutou) antes de build/deploy
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
 export const MINIGAMES_VERSION = '4.3.4'  // Glitch: safe-area lateral no grid-wrap

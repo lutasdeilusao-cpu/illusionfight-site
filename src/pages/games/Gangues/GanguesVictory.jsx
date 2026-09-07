@@ -85,17 +85,29 @@ export default function GanguesVictory({ onNavigate }) {
     // por completo; recompensa de treta agora só participa via grana/rep.
     // Na derrota continua um AP simbólico fixo, sem relação com o bando.
     const enemyCount = Math.max(1, report.combatants.filter(entry => entry.side === 'enemy').length)
-    const ap = victory ? 10 * enemyCount : 1
+    // Chefe é luta ÚNICA (não repetível, muito mais difícil) — vale bem mais
+    // que treta comum, senão o esforço de vencer um chefão rende a mesma
+    // migalha de sempre.
+    const multiplicadorChefe = cenaChefe ? 5 : 1
+    const ap = victory ? 10 * enemyCount * multiplicadorChefe : 1
     const participantIds = match.playerTeam.map(member => member.id)
-    // Peso de cada um = quantos inimigos finalizou (peso MUITO maior) + dano
-    // total causado — quem só ficou de espectador ainda participa do pote
-    // (peso mínimo 1), mas quem carregou a luta ganha claramente mais.
+    // Peso por RANKING de contribuição (não mais proporcional direto a
+    // abates/dano) — 1º lugar (quem mais matou, dano desempata) pesa 3, 2º
+    // lugar pesa 2, o resto pesa 1 igual pra todo mundo. Peso bruto
+    // (abates×100+dano) deixava o campeão com quase tudo (9 de 10) e o
+    // resto com quase nada — bom demais em teoria, extremo demais na prática.
     const contrib = report.contribuicoes || {}
+    const ranking = [...participantIds].sort((a, b) => {
+      const ca = contrib[a] || { dano: 0, abates: 0 }
+      const cb = contrib[b] || { dano: 0, abates: 0 }
+      return (cb.abates - ca.abates) || (cb.dano - ca.dano)
+    })
     const pesosPorId = {}
-    for (const id of participantIds) {
-      const c = contrib[id] || { dano: 0, abates: 0 }
-      pesosPorId[id] = victory ? Math.max(1, c.abates * 100 + c.dano) : 1
-    }
+    participantIds.forEach(id => {
+      if (!victory) { pesosPorId[id] = 1; return }
+      const posicao = ranking.indexOf(id)
+      pesosPorId[id] = posicao === 0 ? 3 : posicao === 1 ? 2 : 1
+    })
     const { levelUps: newLevelUps, apPorMembro } = store.gainApForParticipants(ap, pesosPorId)
     setLevelUps(newLevelUps)
     // O jogador pediu pra ver PONTOS DE AÇÃO (o número que ele realmente
