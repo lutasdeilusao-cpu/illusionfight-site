@@ -503,6 +503,12 @@
         "sem_itens": "Nada no bolso da gangue pra esse espaço.",
         "sem_carta": "Sem slot",
         "carta_em_breve": "Slot de carta — em breve",
+        "o_que_da": "O que dá",
+        "slots_carta": "Slots de carta: {n}",
+        "equipar_em": "Comprar e equipar em",
+        "so_comprar": "Só comprar (guardar)",
+        "sem_elenco": "Recrute um personagem primeiro.",
+        "ver_detalhe": "Ver detalhe ›",
         "slots": {
           "cabeca": "Cabeça",
           "corpo": "Corpo",

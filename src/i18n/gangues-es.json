@@ -503,6 +503,12 @@
         "sem_itens": "Nada en los bolsillos de la banda para esta ranura.",
         "sem_carta": "Sin ranura",
         "carta_em_breve": "Ranura de carta — pronto",
+        "o_que_da": "Qué da",
+        "slots_carta": "Ranuras de carta: {n}",
+        "equipar_em": "Comprar y equipar en",
+        "so_comprar": "Solo comprar (guardar)",
+        "sem_elenco": "Recluta a un personaje primero.",
+        "ver_detalhe": "Ver detalle ›",
         "slots": {
           "cabeca": "Cabeza",
           "corpo": "Cuerpo",

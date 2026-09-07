@@ -292,6 +292,68 @@
   padding: 2px 7px; font: 800 0.52rem var(--font-mono); letter-spacing: 0.04em; text-transform: uppercase;
   background: #0d171b; border: 1px solid var(--if-amber); color: var(--if-amber);
 }
+.gang-loja-cena-item__abrir {
+  flex: 1; display: flex; align-items: center; gap: 10px; min-width: 0;
+  padding: 0; border: 0; background: none; cursor: pointer;
+}
+.gang-loja-cena-item__ver { font: 700 0.5rem var(--font-mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--if-teal); }
+
+/* ── Folha de detalhe do item (loja) ── */
+.gang-loja-det { position: fixed; inset: 0; z-index: 1200; display: flex; align-items: flex-end; justify-content: center; }
+.gang-loja-det__scrim { position: absolute; inset: 0; border: 0; background: rgba(2, 5, 8, 0.82); backdrop-filter: blur(4px); }
+.gang-loja-det__card {
+  position: relative; width: 100%; max-width: var(--app-w); max-height: 86dvh; overflow-y: auto;
+  display: grid; justify-items: center; gap: 6px;
+  padding: 20px 16px 16px; text-align: center;
+  background: linear-gradient(160deg, #0d151b, #070a0d 72%); border: 1px solid #26383d; border-bottom: 0;
+  clip-path: polygon(0 12px, 12px 0, 100% 0, 100% 100%, 0 100%);
+}
+.gang-loja-det__x { position: absolute; top: 8px; right: 10px; border: 0; background: none; color: #8b989e; font-size: 24px; line-height: 1; cursor: pointer; }
+.gang-loja-det__icone { font-size: 2.4rem; line-height: 1; }
+.gang-loja-det__nome { margin: 0; font: 800 1rem var(--font-display); text-transform: uppercase; color: #fff; }
+.gang-loja-det__tag { margin: 0; font: 700 0.56rem var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-secondary); }
+.gang-loja-det__da {
+  width: 100%; margin: 8px 0 2px; padding: 10px;
+  display: grid; gap: 3px; background: rgba(245, 166, 35, 0.07); border: 1px solid rgba(245, 166, 35, 0.35);
+}
+.gang-loja-det__da small { font: 700 0.5rem var(--font-mono); letter-spacing: 0.12em; text-transform: uppercase; color: #7b898f; }
+.gang-loja-det__da strong { font: 800 0.92rem var(--font-display); color: var(--if-amber); }
+.gang-loja-det__cards { margin: 0; font: 700 0.54rem var(--font-mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--if-teal); }
+.gang-loja-det__titulo { width: 100%; margin-top: 10px; text-align: left; font: 700 0.52rem var(--font-mono); letter-spacing: 0.14em; text-transform: uppercase; color: #7b898f; }
+.gang-loja-det__vazio { margin: 6px 0; font-size: 0.75rem; color: #7b898f; }
+
+.gang-loja-cmp {
+  width: 100%; display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+  padding: 9px 10px; text-align: left;
+  background: rgba(255, 255, 255, 0.03); border: 1px solid var(--if-hair-strong);
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
+}
+.gang-loja-cmp__quem { display: flex; flex-direction: column; gap: 1px; min-width: 84px; flex: 1; }
+.gang-loja-cmp__quem strong { font: 800 0.72rem var(--font-display); text-transform: uppercase; color: #fff; }
+.gang-loja-cmp__quem small { font: 700 0.5rem var(--font-mono); letter-spacing: 0.04em; color: var(--text-secondary); }
+.gang-loja-cmp__deltas { display: flex; flex-wrap: wrap; gap: 4px 8px; flex: 1 1 100%; order: 3; }
+.gang-loja-cmp__deltas span { font: 700 0.6rem var(--font-mono); color: #ccd6d9; }
+.gang-loja-cmp__deltas b { color: #8b989e; }
+.gang-loja-cmp__deltas b.is-up { color: #3ddc97; }
+.gang-loja-cmp__troca { color: var(--if-amber); }
+.gang-loja-cmp__btn {
+  flex-shrink: 0; display: flex; flex-direction: column; align-items: center; gap: 2px;
+  padding: 7px 11px; cursor: pointer;
+  border: 1px solid var(--terr-cor); background: color-mix(in srgb, var(--terr-cor) 14%, transparent);
+  color: var(--terr-cor); font: 800 0.56rem var(--font-mono); letter-spacing: 0.05em; text-transform: uppercase;
+}
+.gang-loja-cmp__btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.gang-loja-cmp__btn b { font-size: 0.6rem; color: #fff; }
+
+.gang-loja-det__so {
+  width: 100%; margin-top: 10px; padding: 10px; cursor: pointer;
+  display: flex; justify-content: center; align-items: baseline; gap: 8px;
+  border: 1px solid var(--if-hair-strong); background: rgba(255, 255, 255, 0.04);
+  color: #ccd6d9; font: 800 0.62rem var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase;
+}
+.gang-loja-det__so:disabled { opacity: 0.4; cursor: not-allowed; }
+.gang-loja-det__so b { color: #fff; }
+.gang-loja-det__so--buy { border-color: var(--terr-cor); color: var(--terr-cor); background: color-mix(in srgb, var(--terr-cor) 14%, transparent); }
 
 /* ══ A Pista 2.4 — bairro explorável ═════════════════════════ */
 /* .gang-page (pai) desconta guest-notice + Rádio Nina (topo OU rodapé) via

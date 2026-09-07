@@ -1,16 +1,16 @@
 # Graph Report - SiteLDI  (2026-09-07)
 
 ## Corpus Check
-- 884 files · ~1,039,396 words
+- 884 files · ~1,039,457 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 4231 nodes · 7596 edges · 427 communities (290 shown, 137 thin omitted)
+- 4231 nodes · 7588 edges · 430 communities (294 shown, 136 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 56 edges (avg confidence: 0.67)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `ec51ee83`
+- Built from commit: `c341eda6`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -387,6 +387,9 @@
 - BLOCO G — NUNTIUS GAMES — POSICIONAMENTO INSTITUCIONAL
 - GanguesActionOrb.jsx
 - SearchModal.jsx
+- Leaderboard.jsx
+- ResultScreen.jsx
+- ResultCard.jsx
 
 ## God Nodes (most connected - your core abstractions)
 1. `useLanguage()` - 390 edges
@@ -409,13 +412,13 @@
   src/components/Navbar.jsx → src/pages/games/Gangues/data/ganguesSpecials.js
 - `useRadioNina()` --indirect_call--> `t()`  [INFERRED]
   src/components/RadioNina/useRadioNina.js → src/pages/games/PesadeloParticular/data/pp-i18n.js
-- `SearchModal()` --calls--> `useLanguage()`  [EXTRACTED]
-  src/components/SearchModal/SearchModal.jsx → src/context/LanguageContext.jsx
+- `Universo()` --calls--> `useLanguage()`  [EXTRACTED]
+  src/pages/content/Universo.jsx → src/context/LanguageContext.jsx
 
 ## Import Cycles
 - None detected.
 
-## Communities (427 total, 137 thin omitted)
+## Communities (430 total, 136 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.05
@@ -490,8 +493,8 @@ Cohesion: 0.17
 Nodes (19): ATTRS, buildMainScreen(), calcHP(), calcMP(), clearLog(), confirmCreation(), giveXP(), giveXPTo() (+11 more)
 
 ### Community 20 - "Community 20"
-Cohesion: 0.06
-Nodes (45): FRASES, getFrase(), PALETTES, ResultCard(), DialogoCaso(), PERSONAGEM_STYLE, DICAS, DicaToast() (+37 more)
+Cohesion: 0.07
+Nodes (43): DialogoCaso(), PERSONAGEM_STYLE, DICAS, DicaToast(), getDica(), IntroNoir(), PistaCard(), StatusBar() (+35 more)
 
 ### Community 21 - "Lobby.jsx"
 Cohesion: 0.18
@@ -527,19 +530,19 @@ Nodes (15): BADGES, DIX_BOAS_VINDAS, TEXTOS_PARTIDA, BARRA_PARA_CAMPO, BASE_DECA
 
 ### Community 29 - "Community 29"
 Cohesion: 0.06
-Nodes (38): AchievementToast(), BackToGamesBtn(), GuestNotice(), useLanguage(), ConfirmEndTurn(), Derrota(), Vitoria(), StatusBar() (+30 more)
+Nodes (45): AchievementToast(), BackToGamesBtn(), GuestNotice(), SearchModal(), useLanguage(), index, ConfirmEndTurn(), Derrota() (+37 more)
 
 ### Community 30 - "useTopTrumpsRewards.js"
-Cohesion: 0.08
-Nodes (25): CENA_PISTA, CENAS_POR_ID, contarCena(), portaoAberto(), temCena(), cenaIntroJaVista(), COLLIDERS, ENTRY_ZONES (+17 more)
+Cohesion: 0.07
+Nodes (23): CENA_PISTA, CENAS_POR_ID, temCena(), cenaIntroJaVista(), COLLIDERS, ENTRY_ZONES, estadoPoi(), GanguesCena() (+15 more)
 
 ### Community 31 - "PuzzleStealthGrid.jsx"
 Cohesion: 0.32
 Nodes (12): CityHUD(), DISTRITOS, getBuildingAt(), getBuildingRedSquareRange(), getExitAt(), getExitRedSquareRange(), getNpcAt(), getTileColorName() (+4 more)
 
 ### Community 32 - "initBattle"
-Cohesion: 0.05
-Nodes (57): TEMPLATES, TopTrumpsCard(), getNomePais(), PAISES, atualizarStats(), _carregarPosicao(), carregarPosicaoUsuario(), carregarPosicaoUsuarioArena() (+49 more)
+Cohesion: 0.18
+Nodes (13): atualizarStats(), carregarStats(), carregarTentativas(), consumirTentativa(), getPeriod(), marcarCartaGanha(), registrarPartida(), _registrarPontuacao() (+5 more)
 
 ### Community 33 - "Community 33"
 Cohesion: 0.10
@@ -618,8 +621,8 @@ Cohesion: 0.08
 Nodes (24): For /graphify add and --watch, For /graphify query, For the commit hook and native CLAUDE.md integration, For --update and --cluster-only, /graphify, Honesty Rules, Interpreter guard for subcommands, Part A - Structural extraction for code files (+16 more)
 
 ### Community 53 - "TopTrumpsCard.jsx"
-Cohesion: 0.08
-Nodes (28): BulletHellRafael(), CFG, hexAlpha(), PuzzleBulletHellRafael(), CFG, GlitchRafael(), PuzzleGlitchRafael(), CFG (+20 more)
+Cohesion: 0.06
+Nodes (35): GanguesDescanso(), GanguesPapo(), GangDialog(), GanguesEnemyPick(), pickEnemyTeam(), GanguesNaming(), useGanguesStore, BulletHellRafael() (+27 more)
 
 ### Community 54 - "BLOCO G — NUNTIUS GAMES — POSICIONAMENTO INSTITUCIONAL"
 Cohesion: 0.50
@@ -1118,8 +1121,8 @@ Cohesion: 0.67
 Nodes (3): Value, anyOf, description
 
 ### Community 289 - "DixContext.jsx"
-Cohesion: 0.17
-Nodes (10): GanguesDescanso(), GanguesPapo(), GangDialog(), GangTip(), NeoGuideDialog(), NeoGuideTip(), GanguesEnemyPick(), pickEnemyTeam() (+2 more)
+Cohesion: 0.19
+Nodes (10): TEMPLATES, TopTrumpsCard(), ATTR_META, CARD_LABELS, CurtainReveal(), FireParticles(), GameScreen(), MultiplayerGameScreen() (+2 more)
 
 ### Community 290 - "ganguesEncontros.js"
 Cohesion: 0.40
@@ -1246,8 +1249,8 @@ Cohesion: 0.18
 Nodes (15): addGanguesAp(), contarTerritoriosDominados(), GANGUES_ATTRIBUTE_XP_COSTS, GANGUES_RESOURCE_RATES, GANGUES_ROSTER_LIMITS, GANGUES_SAVE_SLOT_LIMITS, GANGUES_SPECIAL_COSTS, ganguesApCostForLevel() (+7 more)
 
 ### Community 376 - "PuzzleStealthGrid.jsx"
-Cohesion: 0.06
-Nodes (47): BANCO, CONFIGS, prepararUnidades(), PuzzleAnagrama(), shuffleArray(), CONFIGS, gerarAlvo(), PuzzleDecoder() (+39 more)
+Cohesion: 0.08
+Nodes (40): BANCO, CONFIGS, prepararUnidades(), PuzzleAnagrama(), shuffleArray(), CONFIGS, gerarAlvo(), PuzzleDecoder() (+32 more)
 
 ### Community 377 - "audioManager.js"
 Cohesion: 0.12
@@ -1258,8 +1261,8 @@ Cohesion: 0.20
 Nodes (10): A9.1 Baseline histórico — semana 15–22/06/2026, A9.2 Baseline pré-Google Ads — até 21/08/2026, A9.3 Marco oficial — acumulado até 27/08/2026, A9.4 Origem das sessões — 27/08/2026, A9.5 Baseline de páginas — 27/08/2026, A9.6 Ritmo de novos vs. retornantes, A9.7 Protocolo de detecção do "pulo", A9.8 Campanhas a cruzar com futuros saltos (+2 more)
 
 ### Community 379 - "paridade-exata.mjs"
-Cohesion: 0.67
-Nodes (3): loadedLocales, LOADERS, useGanguesI18n()
+Cohesion: 0.20
+Nodes (14): salvarCartasDeck(), substituirDeck(), ACCESS_RANK, canAcquireTopTrumpsCard(), CARD_IDS_BY_TIER, CARD_RANK, filterTopTrumpsCardPool(), filterTopTrumpsInitialAccountPool() (+6 more)
 
 ### Community 396 - "ganguesSpecials.js"
 Cohesion: 0.25
@@ -1357,22 +1360,38 @@ Nodes (4): BLOCO G — NUNTIUS GAMES — POSICIONAMENTO INSTITUCIONAL, G1. TIME 
 Cohesion: 0.70
 Nodes (4): ANCHORS, GanguesActionOrb(), posSalva(), salvarPos()
 
+### Community 426 - "SearchModal.jsx"
+Cohesion: 0.23
+Nodes (8): usePresence(), GameOverScreen(), ONOMATOPEIAS, useGameEffects(), useTopTrumpsRewards(), useTopTrumpsSP(), TopTrumpsSP(), attrNomeKey()
+
+### Community 427 - "Leaderboard.jsx"
+Cohesion: 0.30
+Nodes (12): getNomePais(), PAISES, _carregarPosicao(), carregarPosicaoUsuario(), carregarPosicaoUsuarioArena(), carregarPosicaoUsuarioTama(), carregarRanking, carregarRankingArena() (+4 more)
+
+### Community 428 - "ResultScreen.jsx"
+Cohesion: 0.31
+Nodes (6): useSwipe(), BurstParticles(), ResultScreen(), BANNERS, HeroSlideshow(), SLIDE_KEYS
+
+### Community 429 - "ResultCard.jsx"
+Cohesion: 0.57
+Nodes (4): FRASES, getFrase(), PALETTES, ResultCard()
+
 ## Knowledge Gaps
-- **1768 isolated node(s):** `1. Visão geral`, `2.1 Abertura (vinheta de carregamento)`, `3.1 Site e conteúdo`, `3.2 Plataforma e conta`, `3.3 Catálogo e jogos` (+1763 more)
+- **1769 isolated node(s):** `1. Visão geral`, `2.1 Abertura (vinheta de carregamento)`, `3.1 Site e conteúdo`, `3.2 Plataforma e conta`, `3.3 Catálogo e jogos` (+1764 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **137 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **136 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `useLanguage()` connect `Community 29` to `Community 0`, `Community 1`, `local`, `Community 8`, `Community 9`, `Community 10`, `endBattle`, `useSharedLobbyMachine.js`, `CityOverworld.jsx`, `Create`, `Community 20`, `Lobby.jsx`, `UniversosHub.jsx`, `Universo.jsx`, `levelProgression.js`, `PuzzleStealthGrid.jsx`, `drawCombatBoard`, `DixContext.jsx`, `TopTrumpsMP.jsx`, `PerfilColecao.jsx`, `ResultCard.jsx`, `TypewriterPhrase.jsx`, `getElem`, `useJackStore.js`, `EventosContext.jsx`, `PuzzleForça.jsx`, `SearchModal.jsx`, `react`, `initBattle`, `combat.js`, `PowerCard.jsx`, `Community 33`, `Community 49`, `Perfil.jsx`, `TopTrumpsCard.jsx`, `TypewriterPhrase.jsx`, `PuzzleForça.jsx`, `getElem`, `useScrollReveal`, `Phase0Start.jsx`, `RestaurarSaude.jsx`, `useGameStore.js`, `Number`, `Universo.jsx`, `combat.js`, `Criatura.jsx`, `LDINotification.jsx`, `useGanguesTurnMachine.js`, `PuzzleStealthGrid.jsx`, `audioManager.js`, `paridade-exata.mjs`?**
-  _High betweenness centrality (0.132) - this node is a cross-community bridge._
-- **Why does `useReader()` connect `PerfilColecao.jsx` to `Community 0`, `Community 1`, `initBattle`, `Community 3`, `EventosContext.jsx`, `combat.js`, `useSharedLobbyMachine.js`, `Create`, `Community 20`, `TopTrumpsCard.jsx`, `PuzzleStealthGrid.jsx`, `audioManager.js`, `Community 29`, `getElem`, `drawCombatBoard`?**
+- **Why does `useLanguage()` connect `Community 29` to `Community 0`, `Community 1`, `local`, `Community 8`, `Community 9`, `Community 10`, `endBattle`, `useSharedLobbyMachine.js`, `CityOverworld.jsx`, `Create`, `Community 20`, `Lobby.jsx`, `UniversosHub.jsx`, `Universo.jsx`, `levelProgression.js`, `PuzzleStealthGrid.jsx`, `drawCombatBoard`, `Community 33`, `TopTrumpsMP.jsx`, `PerfilColecao.jsx`, `ResultCard.jsx`, `TypewriterPhrase.jsx`, `getElem`, `useJackStore.js`, `EventosContext.jsx`, `PuzzleForça.jsx`, `react`, `SearchModal.jsx`, `PowerCard.jsx`, `combat.js`, `ResultCard.jsx`, `Leaderboard.jsx`, `ResultScreen.jsx`, `Community 49`, `Perfil.jsx`, `TopTrumpsCard.jsx`, `TypewriterPhrase.jsx`, `PuzzleForça.jsx`, `getElem`, `useScrollReveal`, `Phase0Start.jsx`, `RestaurarSaude.jsx`, `useGameStore.js`, `Number`, `Universo.jsx`, `combat.js`, `Criatura.jsx`, `LDINotification.jsx`, `useGanguesTurnMachine.js`, `PuzzleStealthGrid.jsx`, `audioManager.js`?**
+  _High betweenness centrality (0.133) - this node is a cross-community bridge._
+- **Why does `useReader()` connect `PerfilColecao.jsx` to `Community 0`, `Community 1`, `Community 3`, `EventosContext.jsx`, `SearchModal.jsx`, `combat.js`, `useSharedLobbyMachine.js`, `Create`, `Community 20`, `TopTrumpsCard.jsx`, `PuzzleStealthGrid.jsx`, `audioManager.js`, `Community 29`, `getElem`, `drawCombatBoard`?**
   _High betweenness centrality (0.020) - this node is a cross-community bridge._
 - **Why does `AudioManager` connect `Community 5` to `audioManager.js`, `Community 33`?**
   _High betweenness centrality (0.019) - this node is a cross-community bridge._
 - **What connects `1. Visão geral`, `2.1 Abertura (vinheta de carregamento)`, `3.1 Site e conteúdo` to the rest of the system?**
-  _1768 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _1769 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
   _Cohesion score 0.05016722408026756 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**

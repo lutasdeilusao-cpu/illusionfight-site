@@ -119,3 +119,13 @@ export function getGanguesAttributesWithEquip(attributes = {}) {
   for (const attr of ['A', 'H', 'R', 'D']) out[attr] = Math.max(0, (Number(attributes[attr]) || 0) + bonuses[attr])
   return out
 }
+
+/** Atributos efetivos SE `itemId` fosse equipado (trocando o que estiver no slot dele) —
+ *  usado pela loja pra prever como a ficha de cada personagem ficaria antes de comprar. */
+export function previewGanguesAttributesWithEquip(attributes = {}, itemId) {
+  const def = getGanguesEquip(itemId)
+  if (!def) return getGanguesAttributesWithEquip(attributes)
+  const equipment = normalizeGanguesEquipment(attributes.equipment)
+  equipment[def.slot] = { itemId: def.id, cards: Array.from({ length: def.cardSlots }, () => null) }
+  return getGanguesAttributesWithEquip({ ...attributes, equipment })
+}

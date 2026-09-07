@@ -449,7 +449,16 @@ export const useGanguesStore = create((set, get) => ({
     if (!instancia || !get().gastarGrana(custo)) return false
     set(state => ({ equipamentos: [...state.equipamentos, instancia] }))
     get()._persistCena()
-    return true
+    return instancia.uid
+  },
+
+  // Compra + equipa numa ação só (fluxo da loja — a decisão de comprar já é a
+  // decisão de equipar). Se o slot do personagem já tinha peça, ela volta pro
+  // inventário da gangue com as cartas. Devolve false se não deu pra pagar.
+  comprarEEquipar: (itemId, custo, memberId) => {
+    const uid = get().comprarEquip(itemId, custo)
+    if (!uid) return false
+    return get().equiparItem(memberId, uid)
   },
 
   // Equipa a instância `uid` no `slot` do personagem `memberId`. Se o slot já

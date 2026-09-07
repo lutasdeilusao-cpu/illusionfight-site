@@ -503,6 +503,12 @@
         "sem_itens": "Nothing in the gang's pockets for this slot.",
         "sem_carta": "No socket",
         "carta_em_breve": "Card socket — coming soon",
+        "o_que_da": "What it gives",
+        "slots_carta": "Card sockets: {n}",
+        "equipar_em": "Buy and equip on",
+        "so_comprar": "Just buy (stash)",
+        "sem_elenco": "Recruit a character first.",
+        "ver_detalhe": "Details ›",
         "slots": {
           "cabeca": "Head",
           "corpo": "Body",
