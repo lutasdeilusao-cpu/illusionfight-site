@@ -7,6 +7,10 @@
       "log_batalha_inicio": "The fight has begun.",
       "log_usou_item": "{nome} used an item — gave up their attack this round.",
       "ko_aviso": "{nome} is down!",
+      "ko_cena": {
+        "aliado": "is down",
+        "inimigo": "knocked out"
+      },
       "neoguide": {
         "pular": "SKIP",
         "proximo": "NEXT ▸",

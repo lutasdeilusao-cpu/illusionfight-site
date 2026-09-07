@@ -188,11 +188,25 @@ export default function GanguesCombat({ onNavigate }) {
   // log) acumulados a luta inteira — dá pra calcular quem matou mais/bateu
   // mais dano só no final, sem precisar recomputar nada durante a luta.
   const eventosBrutosRef = useRef([])
-  // Aviso de "fulano caiu" — compara quem tava vivo no render anterior com
-  // quem tá vivo agora; sem isso o jogador só percebia que perdeu alguém
-  // olhando o roster ficar cinza, sem nenhum destaque chamando atenção.
+  // Momento de KO — quando alguém (aliado OU inimigo) cai, para a leitura
+  // com um overlay grande no centro em vez de um aviso discreto no topo que
+  // passava batido. Fila: se cair mais de um no mesmo golpe (multidão),
+  // mostra um de cada vez. Ver dispararProximoKo + o overlay .gang-ko-cena.
   const vivosAnterioresRef = useRef(new Set())
-  const [koAviso, setKoAviso] = useState(null)
+  const koQueueRef = useRef([])
+  const koAtivoRef = useRef(false)
+  const koTimerRef = useRef(null)
+  const [koCena, setKoCena] = useState(null)
+  const dispararProximoKo = useCallback(() => {
+    clearTimeout(koTimerRef.current)
+    const next = koQueueRef.current.shift()
+    if (!next) { koAtivoRef.current = false; setKoCena(null); return }
+    koAtivoRef.current = true
+    setKoCena(next)
+    sfx.explosion?.()
+    koTimerRef.current = setTimeout(() => dispararProximoKo(), 1700)
+  }, [])
+  useEffect(() => () => clearTimeout(koTimerRef.current), [])
 
   // ── Modo Automático: liga e os personagens atacam sozinhos com o ataque
   // normal, sempre — quem quiser usar poder tem que desligar e voltar pro
@@ -279,23 +293,26 @@ export default function GanguesCombat({ onNavigate }) {
     ? (estadoMultidao?.combatants || []).filter(item => item.side === 'enemy')
     : machine.combatants.filter(item => item.side === 'enemy')
 
-  // Avisa quando um ALIADO cai — compara quem tava vivo no render anterior
-  // com quem tá vivo agora (funciona igual nos dois modos, já que `players`
-  // já é a lista unificada acima). Sem isso o jogador só descobria olhando
-  // o roster ficar cinza, fácil de não notar no meio da luta.
+  // Detecta quem caiu — aliado E inimigo — comparando quem tava vivo no
+  // render anterior com quem tá vivo agora (mesma lista dos dois modos).
+  // Enfileira pro overlay de KO; sem isso o jogador só descobria olhando o
+  // roster ficar cinza, fácil de não notar no meio da luta.
   useEffect(() => {
-    const vivosAgora = new Set(players.filter(p => p.pv > 0).map(p => p.key))
+    const todos = [...players, ...enemies]
+    const vivosAgora = new Set(todos.filter(c => c.pv > 0).map(c => c.key))
+    const caiu = []
     for (const key of vivosAnterioresRef.current) {
       if (!vivosAgora.has(key)) {
-        const membro = players.find(p => p.key === key)
-        if (membro) {
-          setKoAviso(fighterName(t, membro))
-          setTimeout(() => setKoAviso(null), 2400)
-        }
+        const c = todos.find(x => x.key === key)
+        if (c) caiu.push({ nome: fighterName(t, c), side: c.side })
       }
     }
+    if (caiu.length) {
+      koQueueRef.current.push(...caiu)
+      if (!koAtivoRef.current) dispararProximoKo()
+    }
     vivosAnterioresRef.current = vivosAgora
-  }, [players])
+  }, [players, enemies])
 
   useEffect(() => {
     if (modoMultidaoAtivo) return
@@ -446,9 +463,24 @@ export default function GanguesCombat({ onNavigate }) {
   return (
     <div className="gang-combat gang-container">
       <AnimatePresence>
-        {koAviso && (
-          <motion.div className="gang-ko-aviso" initial={{ opacity: 0, y: -20, scale: 0.9 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: -12 }}>
-            💀 {t('games.gangues.ko_aviso', { nome: koAviso })}
+        {koCena && (
+          <motion.div
+            className={`gang-ko-cena gang-ko-cena--${koCena.side === 'enemy' ? 'inimigo' : 'aliado'}`}
+            initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+            onClick={() => dispararProximoKo()}
+          >
+            <motion.div
+              className="gang-ko-cena__card"
+              initial={{ scale: 0.65, y: 24 }} animate={{ scale: 1, y: 0 }} exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ type: 'spring', stiffness: 260, damping: 17 }}
+            >
+              <motion.span
+                className="gang-ko-cena__skull"
+                initial={{ rotate: -18, scale: 0.8 }} animate={{ rotate: [-18, 12, -6, 0], scale: 1 }} transition={{ duration: 0.5 }}
+              >💀</motion.span>
+              <strong className="gang-ko-cena__nome">{koCena.nome}</strong>
+              <span className="gang-ko-cena__label">{t(koCena.side === 'enemy' ? 'games.gangues.ko_cena.inimigo' : 'games.gangues.ko_cena.aliado')}</span>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

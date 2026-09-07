@@ -607,20 +607,32 @@
 }
 .gang-multidao-item-toggle--on { opacity: 1; border-color: var(--if-violet); background: color-mix(in srgb, var(--if-violet) 16%, transparent); }
 
-/* Aviso de "fulano caiu" — antes o jogador só percebia olhando o roster
-   ficar cinza, fácil demais de não notar no meio da luta. */
-.gang-ko-aviso {
-  position: fixed; top: 14%; left: 50%; transform: translateX(-50%); z-index: 200;
-  padding: 10px 18px;
-  border: 1px solid #cc4444;
-  background: linear-gradient(160deg, #2a0d0d, #140606 80%);
-  color: #ff8a8a;
-  font: 800 0.82rem var(--font-display);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  box-shadow: 0 0 30px -6px rgba(204, 68, 68, 0.6), 0 8px 20px rgba(0,0,0,0.5);
-  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
-  pointer-events: none;
+/* Momento de KO — para a leitura da luta com um cartão grande no centro.
+   Antes era um aviso pequeno no topo que passava batido. */
+.gang-ko-cena {
+  position: fixed; inset: 0; z-index: 1300;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(2, 4, 8, 0.82); backdrop-filter: blur(3px);
+  cursor: pointer;
+}
+.gang-ko-cena__card {
+  display: grid; justify-items: center; gap: 8px; text-align: center;
+  padding: 32px 40px;
+  border: 1px solid var(--ko-cor);
+  background: linear-gradient(165deg, var(--ko-bg-1), var(--ko-bg-2) 78%);
+  box-shadow: 0 0 60px -12px var(--ko-cor), 0 16px 40px rgba(0,0,0,0.55);
+  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%);
+}
+.gang-ko-cena--aliado { --ko-cor: #e0484c; --ko-bg-1: #2a0d0e; --ko-bg-2: #120506; --ko-txt: #ff9a9c; }
+.gang-ko-cena--inimigo { --ko-cor: var(--if-teal); --ko-bg-1: #062028; --ko-bg-2: #04121a; --ko-txt: #7fe9ff; }
+.gang-ko-cena__skull { font-size: 3.4rem; line-height: 1; filter: drop-shadow(0 0 14px var(--ko-cor)); }
+.gang-ko-cena__nome {
+  font: 800 1.5rem var(--font-display); letter-spacing: 0.02em; text-transform: uppercase; color: #fff;
+  text-shadow: 0 0 18px var(--ko-cor);
+}
+.gang-ko-cena__label {
+  font: 800 0.8rem var(--font-mono); letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--ko-txt);
 }
 
 /* Revelação de UMA rodada — overlay curto por cima do combate, não a tela inteira. */

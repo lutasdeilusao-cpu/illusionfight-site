@@ -7,6 +7,10 @@
       "log_batalha_inicio": "La pelea ha comenzado.",
       "log_usou_item": "{nome} usó un objeto — renunció a su ataque esta ronda.",
       "ko_aviso": "¡{nome} cayó!",
+      "ko_cena": {
+        "aliado": "cayó",
+        "inimigo": "noqueado"
+      },
       "neoguide": {
         "pular": "SALTAR",
         "proximo": "SIGUIENTE ▸",
