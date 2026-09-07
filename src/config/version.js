@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.279.10'
+export const SITE_VERSION = '10.279.11'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '2.62.1' // ui: navegacao (ANTERIOR/FECHAR/PROXIMO) do modal de ficha da cena movida pro TOPO, sticky (era o fim do scroll, depois de skill grid + equipamento). Historico completo do sistema de equipamento/itens/KO/skill grid: 2.55.0-2.62.0 no git log.
+export const GANGUES_VERSION   = '2.63.0' // fix: (1) personagem que CAIU na luta nao ganha AP de participacao - koIds em GanguesVictory filtra os mortos do rateio na vitoria (regra do Isaias); na derrota o AP simbolico continua pra todos. Tela de vitoria mostra o KO'd com +0 e marca "Caiu - sem PA". (2) modo automatico PARA enquanto o cartao de KO ta na tela (gate koCena no efeito de auto-ataque) - antes o proximo golpe saia e o momento passava batido.
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
 export const MINIGAMES_VERSION = '4.3.4'  // Glitch: safe-area lateral no grid-wrap

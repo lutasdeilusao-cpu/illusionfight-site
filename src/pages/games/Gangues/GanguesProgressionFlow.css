@@ -374,3 +374,7 @@
 .gang-reward-ap-item__nome { flex: 1; font: 700 0.72rem var(--font-display); color: var(--text-primary); text-transform: uppercase; letter-spacing: 0.03em; }
 .gang-reward-ap-item__val { font: 900 1rem var(--font-display); color: var(--if-cyan); }
 .gang-reward-ap-item__label { font: 700 0.54rem var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-secondary); }
+/* Personagem que caiu na luta — 0 PA (regra: quem morre não ganha participação). */
+.gang-reward-ap-item--ko { border-color: rgba(224, 72, 76, 0.4); opacity: 0.72; }
+.gang-reward-ap-item--ko .gang-reward-ap-item__val { color: #e0484c; }
+.gang-reward-ap-item--ko .gang-reward-ap-item__label { color: #e0848a; }

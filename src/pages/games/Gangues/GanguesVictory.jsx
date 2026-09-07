@@ -85,12 +85,18 @@ export default function GanguesVictory({ onNavigate }) {
     // por completo; recompensa de treta agora só participa via grana/rep.
     // Na derrota continua um AP simbólico fixo, sem relação com o bando.
     const enemyCount = Math.max(1, report.combatants.filter(entry => entry.side === 'enemy').length)
+    // Personagem que CAIU na luta não ganha AP de participação (regra do
+    // Isaias — "é o único momento que ele recebe zero"). Vale na vitória: quem
+    // morreu fica de fora do rateio, mesmo tendo lutado até cair. Na derrota o
+    // AP simbólico (1) continua dividido entre todos que foram escalados.
+    const koIds = new Set(report.combatants.filter(c => c.side === 'player' && c.pv <= 0).map(c => c.id))
+    const escaladosIds = match.playerTeam.map(member => member.id)
     // Chefe é luta ÚNICA (não repetível, muito mais difícil) — vale bem mais
     // que treta comum, senão o esforço de vencer um chefão rende a mesma
     // migalha de sempre.
     const multiplicadorChefe = cenaChefe ? 5 : 1
     const ap = victory ? 10 * enemyCount * multiplicadorChefe : 1
-    const participantIds = match.playerTeam.map(member => member.id)
+    const participantIds = victory ? escaladosIds.filter(id => !koIds.has(id)) : escaladosIds
     // Peso por RANKING de contribuição (não mais proporcional direto a
     // abates/dano) — 1º lugar (quem mais matou, dano desempata) pesa 3, 2º
     // lugar pesa 2, o resto pesa 1 igual pra todo mundo. Peso bruto
@@ -121,10 +127,13 @@ export default function GanguesVictory({ onNavigate }) {
     // O jogador pediu pra ver PONTOS DE AÇÃO (o número que ele realmente
     // entende e acompanha), não o XP já convertido — isso vira conta interna
     // de bastidor, sem aparecer aqui.
-    const apLista = participantIds.map(id => ({
+    // Mostra TODOS os escalados na tela de vitória (inclusive quem caiu, com
+    // 0 e a marca de KO) — o rateio já ignorou os mortos acima.
+    const apLista = escaladosIds.map(id => ({
       id,
       nome: match.playerTeam.find(member => member.id === id)?.sheet_name || '?',
       ap: apPorMembro[id] || 0,
+      ko: koIds.has(id),
     }))
     if (victory) {
       store.unlockNextEnemy(match.enemy_id)
@@ -154,7 +163,7 @@ export default function GanguesVictory({ onNavigate }) {
       setRewardSummary({ apLista, grana: granaGanha, rep: repGanha })
       sfx.win()
     } else sfx.lose()
-    const timer = setTimeout(() => store.saveParticipantProgress(participantIds), 400)
+    const timer = setTimeout(() => store.saveParticipantProgress(escaladosIds), 400)
     return () => clearTimeout(timer)
   }, [])
 
@@ -245,10 +254,10 @@ export default function GanguesVictory({ onNavigate }) {
               convertido é só conta de bastidor, nunca aparece aqui. */}
           <div className="gang-reward-ap-lista">
             {rewardSummary.apLista.map((item, index) => (
-              <motion.div key={item.id} className="gang-reward-ap-item" initial={{ opacity: 0, x: -8 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.2 + index * 0.12 }}>
+              <motion.div key={item.id} className={`gang-reward-ap-item${item.ko ? ' gang-reward-ap-item--ko' : ''}`} initial={{ opacity: 0, x: -8 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.2 + index * 0.12 }}>
                 <span className="gang-reward-ap-item__nome">{item.nome}</span>
                 <strong className="gang-reward-ap-item__val">+{item.ap}</strong>
-                <small className="gang-reward-ap-item__label">{t('games.gangues.report.reward_ap')}</small>
+                <small className="gang-reward-ap-item__label">{item.ko ? t('games.gangues.report.reward_ap_ko') : t('games.gangues.report.reward_ap')}</small>
               </motion.div>
             ))}
           </div>

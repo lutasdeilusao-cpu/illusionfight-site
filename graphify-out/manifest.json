@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1788800443.1341746,
-    "ast_hash": "5430a1269acf27abe8a205cabf2eeeb9",
+    "mtime": 1788809752.8060832,
+    "ast_hash": "0cdee96d322ff9e1b46f75acc346ae01",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2745,8 +2745,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1788800452.4702442,
-    "ast_hash": "86608a27ff6f1a1a46fb79e5f2557bcc",
+    "mtime": 1788809718.4254,
+    "ast_hash": "e2ee55aa811354ea4597cf37f8c08077",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -4765,8 +4765,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/GanguesCena.jsx": {
-    "mtime": 1788798738.0695503,
-    "ast_hash": "1bd61b12ecd66e9393c272d41de3bf8b",
+    "mtime": 1788809683.5607867,
+    "ast_hash": "bb3df47ceaae0c6aec01970036bb2316",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/cena/GanguesDescanso.jsx": {

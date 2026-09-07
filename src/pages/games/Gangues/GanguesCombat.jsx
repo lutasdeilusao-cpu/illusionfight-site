@@ -396,7 +396,11 @@ export default function GanguesCombat({ onNavigate }) {
   // autoQueuedRef evita disparar de novo enquanto o timer da rodada atual
   // ainda não resolveu (mesmo padrão do aiQueued em useGanguesTurnMachine).
   useEffect(() => {
-    if (modoMultidaoAtivo || !modoAutoOn || !podeUsarModoAuto || machine.phase !== 'player' || result || !selectedActor || !selectedTarget) {
+    // koCena: o modo automático PARA enquanto o cartão de KO está na tela —
+    // senão o próximo golpe já sai e o momento passa batido (era isso que o
+    // Isaias via em auto). Quando o KO fecha, koCena volta a null e o efeito
+    // re-dispara sozinho.
+    if (modoMultidaoAtivo || !modoAutoOn || !podeUsarModoAuto || machine.phase !== 'player' || result || koCena || !selectedActor || !selectedTarget) {
       autoQueuedRef.current = false
       return
     }
@@ -404,7 +408,7 @@ export default function GanguesCombat({ onNavigate }) {
     autoQueuedRef.current = true
     const timer = setTimeout(() => { handleAttack(null); autoQueuedRef.current = false }, 750)
     return () => clearTimeout(timer)
-  }, [modoMultidaoAtivo, modoAutoOn, podeUsarModoAuto, machine.phase, result, selectedActor, selectedTarget])
+  }, [modoMultidaoAtivo, modoAutoOn, podeUsarModoAuto, machine.phase, result, koCena, selectedActor, selectedTarget])
 
   // ── Briga em Multidão: avança exatamente UMA rodada por clique — nunca a
   // luta inteira. Poderes são lidos na hora (o jogador pode trocar entre

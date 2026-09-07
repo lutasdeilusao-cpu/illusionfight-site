@@ -83,6 +83,7 @@
         "rewards_title": "Reward",
         "reward_xp": "XP",
         "reward_ap": "Action Points",
+        "reward_ap_ko": "Went down — no AP",
         "reward_grana": "Cash",
         "reward_rep": "Reputation",
         "rounds": "ROUNDS",
