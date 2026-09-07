@@ -261,6 +261,30 @@
 .gang-cena-folego--big .gang-cena-folego-bar { width: 160px; height: 12px; }
 .gang-cena-folego--big b { font: 800 1.1rem var(--font-display); color: #fff; }
 
+/* ── Loja (encontro dentro da cena) ── */
+.gang-loja-cena-lista { display: flex; flex-direction: column; gap: 8px; width: 100%; }
+.gang-loja-cena-item {
+  position: relative;
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px; border: 1px solid var(--if-hair-strong); background: rgba(255, 255, 255, 0.03);
+}
+.gang-loja-cena-item__icone { font-size: 1.4rem; }
+.gang-loja-cena-item__info { flex: 1; display: flex; flex-direction: column; gap: 2px; text-align: left; }
+.gang-loja-cena-item__info strong { font: 800 0.76rem var(--font-display); color: #fff; text-transform: uppercase; }
+.gang-loja-cena-item__info small { font: 700 0.56rem var(--font-mono); color: var(--text-secondary); }
+.gang-loja-cena-item__comprar {
+  display: flex; flex-direction: column; align-items: center; gap: 2px;
+  padding: 7px 12px; border: 1px solid var(--terr-cor); background: color-mix(in srgb, var(--terr-cor) 14%, transparent);
+  color: var(--terr-cor); font: 800 0.58rem var(--font-mono); letter-spacing: 0.05em; text-transform: uppercase;
+  cursor: pointer;
+}
+.gang-loja-cena-item__comprar b { font-size: 0.62rem; color: #fff; }
+.gang-loja-cena-item__aviso {
+  position: absolute; top: -9px; right: 8px;
+  padding: 2px 7px; font: 800 0.52rem var(--font-mono); letter-spacing: 0.04em; text-transform: uppercase;
+  background: #0d171b; border: 1px solid var(--if-amber); color: var(--if-amber);
+}
+
 /* ══ A Pista 2.4 — bairro explorável ═════════════════════════ */
 /* .gang-page (pai) desconta guest-notice + Rádio Nina (topo OU rodapé) via
    padding — quando a Rádio Nina toca ancorada no topo ela soma 54px

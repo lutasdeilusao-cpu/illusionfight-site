@@ -1491,7 +1491,8 @@
           "papo": "Papo",
           "corre": "Corre",
           "achado": "Achado",
-          "descanso": "Birosca"
+          "descanso": "Birosca",
+          "loja": "Loja"
         },
         "itens": {
           "sucata": "Sucata (item)"
@@ -1586,6 +1587,9 @@
             "nome": "Descanso na birosca",
             "sub": "mate, pão e sossego",
             "intro": "Um tempo sentado, longe da rua. Custa uns trocado, mas a gangue volta inteira pro corre."
+          },
+          "loja": {
+            "nome": "Loja da Pista"
           }
         }
       }

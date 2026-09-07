@@ -8,6 +8,7 @@ import GangDialog from './components/GangDialog'
 import GanguesPapo from './components/cena/GanguesPapo'
 import GanguesParada from './components/cena/GanguesParada'
 import GanguesDescanso from './components/cena/GanguesDescanso'
+import GanguesLoja from './components/cena/GanguesLoja'
 import { CENAS_POR_ID, portaoAberto, contarCena } from './data/cenas/pista.js'
 import { GANGUES_TERRITORIO_POR_ID } from './data/ganguesTerritorios.js'
 import { calcularPontosTime } from './data/ganguesEncontros.js'
@@ -24,7 +25,7 @@ const WORLD={w:760,h:1840}, SPAWN={x:380,y:1720}, TILE=20, STEP_MS=110, PLAYER_R
 const SCENE_INTRO_KEY='ldi-gangues-cena-intro-vista'
 function cenaIntroJaVista(id){try{return JSON.parse(localStorage.getItem(SCENE_INTRO_KEY)||'[]').includes(id)}catch{return false}}
 function marcarCenaIntroVista(id){try{const atual=JSON.parse(localStorage.getItem(SCENE_INTRO_KEY)||'[]');if(!atual.includes(id))localStorage.setItem(SCENE_INTRO_KEY,JSON.stringify([...atual,id]))}catch{}}
-const POS={sinal:{x:210,y:1570},ferro:{x:150,y:1325},molecada_1:{x:445,y:1190},birosca:{x:170,y:1460},corre:{x:610,y:1010},molecada_2:{x:445,y:505},descanso:{x:205,y:1440},informante:{x:150,y:740},rinha:{x:610,y:740},boss:{x:570,y:175}}
+const POS={sinal:{x:210,y:1570},ferro:{x:150,y:1325},molecada_1:{x:445,y:1190},birosca:{x:170,y:1460},corre:{x:610,y:1010},molecada_2:{x:445,y:505},descanso:{x:205,y:1440},informante:{x:150,y:740},rinha:{x:610,y:740},loja:{x:390,y:740},boss:{x:570,y:175}}
 const COLLIDERS=[
   {x:0,y:350,w:287,h:326},{x:473,y:350,w:287,h:326},
   {x:0,y:802,w:287,h:370},{x:473,y:802,w:287,h:370},
@@ -41,7 +42,13 @@ const ENTRY_ZONES={
   // então a zona fica centralizada NO PRÓPRIO ícone — senão o jogador anda
   // até o que vê na tela e nada acontece, porque a zona de verdade tava
   // longe dali.
-  descanso:{x:270,y:1375,w:35,h:72},informante:{x:120,y:710,w:60,h:60},rinha:{x:580,y:710,w:60,h:60},boss:{x:530,y:300,w:80,h:45},
+  descanso:{x:270,y:1375,w:35,h:72},informante:{x:120,y:710,w:60,h:60},rinha:{x:580,y:710,w:60,h:60},
+  // loja: teste inicial (pedido do Isaias) — colocada na MESMA faixa livre
+  // de colisor que informante/rinha (y:705-781), só pra garantir que dá pra
+  // alcançar sem precisar validar visualmente uma posição nova. Provisória:
+  // depois vira visivel:false, liberada só depois do portão (mesma área da
+  // "Loja abandonada" decorativa em PLACES, perto do chefe).
+  loja:{x:360,y:710,w:60,h:60},boss:{x:530,y:300,w:80,h:45},
 }
 const PLACES=[
   ['entrada',380,1745,'⇧','Entrada da Pista'],['banca',95,1600,'▤','Banca fechada'],['bar',155,1450,'♬','Bar do Zé'],['residencial',560,1440,'⌂','Rua residencial'],['cruzamento',380,1270,'╳','Cruzamento'],['mercado',592,1120,'▦','Mercadinho da Cida'],['fliperama',610,990,'▣','Fliperama do Kiko'],['quadra',130,900,'◎','Quadra da Pista'],['praca',370,900,'♣','Praça da Pista'],['ponto',625,770,'▥','Ponto de ônibus'],['oficina',205,650,'⚙','Oficina do Nando'],['escadaria',245,390,'▰','Escadaria / mirante'],['loja',200,240,'◇','Loja abandonada'],['portao',380,300,'▥','Portão da gangue rival','gate']
@@ -122,7 +129,7 @@ export default function GanguesCena({onNavigate}){
     <div className="gang-cena-viewport" ref={viewportRef}><div className="gang-cena-world" style={{width:WORLD.w,height:WORLD.h,transform:`translate3d(${-camX}px,${-camY}px,0)`}}><WorldScenery bossAberto={bossAberto}/>{pinos.map(p=><EntryZone key={`zone-${p.id}`} poi={p} active={perto?.id===p.id}/>)}{PLACES.map(p=><div key={p[0]} className={`gang-world-place ${p[5]?'is-gate':''} ${p[5]&&bossAberto?'is-open':''}`} style={{left:p[1],top:p[2]}}><b>{p[3]}</b><span>{p[4]}</span>{p[5]&&<em>{bossAberto?'ABERTO':'FECHADO'}</em>}</div>)}{pinos.map(p=><div key={p.id} className={`gang-world-npc is-${p.estado} ${p.ehChefe?'is-boss':''} ${p.farmCompleto?'is-farm':''}`} style={{left:p.world.x,top:p.world.y}}><span>{p.ehChefe?'★':ICONE[p.tipo]||'•'}</span>{p.estado!=='trancado'&&<small>{p.ehChefe?'FUMAÇA':t(`${p.i18n}.nome`)}</small>}{p.farmCompleto&&<i className="gang-world-npc-farm-tag" aria-hidden="true">↻</i>}</div>)}<GangMarker player={player} facing={facing} gangName={store.gangName}/></div><div className="gang-cena-vignette"/><div className="gang-cena-status"><span>FÔLEGO</span><i><b style={{width:`${folego}%`}}/></i></div>{hint&&<div className="gang-cena-tutorial">{hint}</div>}{!bossAberto&&player.y<420&&<div className="gang-cena-gatelock">🔒 O portão só abre quando todo o trabalho na Pista estiver feito.</div>}</div>
     <WorldControls onInput={v=>{inputRef.current=v}} onInteract={()=>abrir(perto)} action={perto?interactionLabel(perto):null}/>
     <AnimatePresence>{toast&&<motion.div className="gang-cena-toast" initial={{opacity:0,y:12}} animate={{opacity:1,y:0}} exit={{opacity:0}}><b>RECOMPENSA</b>{toast.grana?<span>💵 +{toast.grana}</span>:null}{toast.rep?<span>⚑ +{toast.rep}</span>:null}{toast.xp?<span>⚡ +{toast.xp} XP</span>:null}</motion.div>}</AnimatePresence>
-    <AnimatePresence>{encontro&&<motion.div className="gang-cena-modal" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}><div className="gang-cena-modal-bg" onClick={()=>setEncontro(null)}/><motion.div className="gang-cena-modal-card" initial={{y:25}} animate={{y:0}}>{encontro.vs?<TretaVS poi={encontro.poi} folegoBaixo={folego<=30} onSim={()=>iniciarTreta(encontro.poi)} onNao={()=>setEncontro(null)} t={t}/>:encontro.poi.tipo==='papo'?<GanguesPapo poi={encontro.poi} cena={cena} onResolve={resolver} onClose={()=>setEncontro(null)}/>:encontro.poi.tipo==='descanso'?<GanguesDescanso poi={encontro.poi} cena={cena} onClose={()=>setEncontro(null)}/>:<GanguesParada poi={encontro.poi} cena={cena} onResolve={resolver} onClose={()=>setEncontro(null)}/>}</motion.div></motion.div>}</AnimatePresence>
+    <AnimatePresence>{encontro&&<motion.div className="gang-cena-modal" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}><div className="gang-cena-modal-bg" onClick={()=>setEncontro(null)}/><motion.div className="gang-cena-modal-card" initial={{y:25}} animate={{y:0}}>{encontro.vs?<TretaVS poi={encontro.poi} folegoBaixo={folego<=30} onSim={()=>iniciarTreta(encontro.poi)} onNao={()=>setEncontro(null)} t={t}/>:encontro.poi.tipo==='papo'?<GanguesPapo poi={encontro.poi} cena={cena} onResolve={resolver} onClose={()=>setEncontro(null)}/>:encontro.poi.tipo==='descanso'?<GanguesDescanso poi={encontro.poi} cena={cena} onClose={()=>setEncontro(null)}/>:encontro.poi.tipo==='loja'?<GanguesLoja poi={encontro.poi} onClose={()=>setEncontro(null)}/>:<GanguesParada poi={encontro.poi} cena={cena} onResolve={resolver} onClose={()=>setEncontro(null)}/>}</motion.div></motion.div>}</AnimatePresence>
     <AnimatePresence>{fichaIndex!==null&&store.activeParty[fichaIndex]&&<motion.div className="gang-cena-modal" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}><div className="gang-cena-modal-bg" onClick={()=>setFichaIndex(null)}/><motion.div className="gang-cena-modal-card" initial={{y:25}} animate={{y:0}}><FichaCenaCard member={store.activeParty[fichaIndex]} t={t}/><div className="gang-cena-enc-acoes">{store.activeParty.length>1&&<button className="gang-cena-btn" onClick={()=>setFichaIndex(i=>(i+store.activeParty.length-1)%store.activeParty.length)}>◀ ANTERIOR</button>}<button className="gang-cena-btn gang-cena-btn--go" onClick={()=>setFichaIndex(null)}>FECHAR</button>{store.activeParty.length>1&&<button className="gang-cena-btn" onClick={()=>setFichaIndex(i=>(i+1)%store.activeParty.length)}>PRÓXIMO ▶</button>}</div></motion.div></motion.div>}</AnimatePresence>
   </main>
 }
@@ -140,8 +147,8 @@ function insideZone(p,z){return Boolean(z&&p.x+PLAYER_RADIUS>z.x&&p.x-PLAYER_RAD
 function hitsSolid(x,y,bossAberto){const hit=COLLIDERS.some(r=>x+PLAYER_RADIUS>r.x&&x-PLAYER_RADIUS<r.x+r.w&&y+PLAYER_RADIUS>r.y&&y-PLAYER_RADIUS<r.y+r.h);if(hit)return true;if(y-PLAYER_RADIUS<350&&y+PLAYER_RADIUS>330){const inOpening=x-PLAYER_RADIUS>=305&&x+PLAYER_RADIUS<=455;return !bossAberto||!inOpening}return false}
 function stepPlayer(p,dx,dy,bossAberto){const x=Math.max(35,Math.min(WORLD.w-35,p.x+dx*TILE)),y=Math.max(70,Math.min(WORLD.h-40,p.y+dy*TILE));return hitsSolid(x,y,bossAberto)?p:{x,y}}
 function WorldControls({onInput,onInteract,action}){const base=useRef(null),active=useRef(null);const update=useCallback((x,y)=>{const r=base.current?.getBoundingClientRect();if(!r)return;let dx=x-(r.left+r.width/2),dy=y-(r.top+r.height/2);const d=Math.hypot(dx,dy),max=42;if(d>max){dx=dx/d*max;dy=dy/d*max}base.current.style.setProperty('--jx',`${dx}px`);base.current.style.setProperty('--jy',`${dy}px`);onInput({x:dx/max,y:dy/max})},[onInput]);const stop=useCallback(()=>{active.current=null;if(base.current){base.current.style.setProperty('--jx','0px');base.current.style.setProperty('--jy','0px')}onInput({x:0,y:0})},[onInput]);return <div className="gang-world-controls"><div ref={base} className="gang-world-stick" onPointerDown={e=>{active.current=e.pointerId;e.currentTarget.setPointerCapture(e.pointerId);update(e.clientX,e.clientY)}} onPointerMove={e=>{if(active.current===e.pointerId)update(e.clientX,e.clientY)}} onPointerUp={stop} onPointerCancel={stop}><i/></div><button disabled={!action} onClick={onInteract}><b>{action||'...'}</b><span>INTERAGIR</span></button></div>}
-function interactionLabel(p){if(p.ehChefe)return'DESAFIAR';return({papo:'FALAR',treta:'ENCARAR',parada:'INVESTIGAR',corre:'SEGUIR',descanso:'ENTRAR'})[p.tipo]||'INTERAGIR'}
-const ICONE={treta:'✊',parada:'🔧',papo:'●',corre:'!',achado:'◆',descanso:'☕'}
+function interactionLabel(p){if(p.ehChefe)return'DESAFIAR';return({papo:'FALAR',treta:'ENCARAR',parada:'INVESTIGAR',corre:'SEGUIR',descanso:'ENTRAR',loja:'COMPRAR'})[p.tipo]||'INTERAGIR'}
+const ICONE={treta:'✊',parada:'🔧',papo:'●',corre:'!',achado:'◆',descanso:'☕',loja:'🏪'}
 function estadoPoi(p,prog){if(!p.visivel&&!prog.revelados[p.id])return'escondido';if(prog.resolvidos[p.id]&&!p.repetivel)return'resolvido';return'disponivel'}
 // Mesma leitura de dados que GanguesProgression.jsx usa pra montar a ficha —
 // aqui é só o card, sem a grade de poderes (é um "conferir rápido", não a

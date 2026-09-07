@@ -142,6 +142,23 @@ export const CENA_PISTA = {
       recompensa: { grana: 4 },
     },
     {
+      // Loja da Pista — TESTE INICIAL (pedido do Isaias): visível desde o
+      // começo, do lado da primeira treta, só pra validar comprar → guardar
+      // no inventário → usar em combate. Plano final: visivel:false aqui,
+      // liberada só depois do portão abrir (mesmo lugar da "Loja
+      // abandonada" decorativa perto do chefe, ver PLACES em
+      // GanguesCena.jsx) — trocar depois que o fluxo estiver validado.
+      // Cada região tem sua própria loja com seu próprio catálogo (`itens`).
+      id: 'loja',
+      tipo: 'loja',
+      opcional: true,
+      repetivel: true,
+      visivel: true,
+      pino: { x: 60, y: 150 },
+      i18n: 'games.gangues.cena.pista.loja',
+      itens: ['pocao_hp', 'pocao_mp'],
+    },
+    {
       // Reaproveitamento: continua na Pista mesmo depois dela virar
       // território dominado — é assim que ele libera o chefe da Feira
       // (ver `precisaInformante` em ganguesTerritorios.js). Sempre visível

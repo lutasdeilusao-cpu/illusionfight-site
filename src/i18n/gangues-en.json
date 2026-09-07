@@ -1901,7 +1901,8 @@
           "papo": "Talk",
           "corre": "Run",
           "achado": "Find",
-          "descanso": "Bar"
+          "descanso": "Bar",
+          "loja": "Shop"
         },
         "itens": {
           "sucata": "Scrap (item)"
@@ -1996,6 +1997,9 @@
             "nome": "Rest at the bar",
             "sub": "mate, bread and quiet",
             "intro": "Some time sitting, off the street. Costs a little change, but the gang comes back whole."
+          },
+          "loja": {
+            "nome": "Track Shop"
           }
         }
       }

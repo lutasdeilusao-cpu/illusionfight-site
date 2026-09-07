@@ -1901,7 +1901,8 @@
           "papo": "Charla",
           "corre": "Mandado",
           "achado": "Hallazgo",
-          "descanso": "Bar"
+          "descanso": "Bar",
+          "loja": "Tienda"
         },
         "itens": {
           "sucata": "Chatarra (ítem)"
@@ -1996,6 +1997,9 @@
             "nome": "Descanso en el bar",
             "sub": "mate, pan y tranquilidad",
             "intro": "Un rato sentado, lejos de la calle. Cuesta unas monedas, pero la banda vuelve entera."
+          },
+          "loja": {
+            "nome": "Tienda de la Pista"
           }
         }
       }
