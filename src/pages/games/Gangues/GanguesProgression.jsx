@@ -2,7 +2,7 @@ import { useLanguage } from '../../../context/LanguageContext'
 import { useGanguesStore } from './store/useGanguesStore'
 import { getGanguesCharacter, getGanguesLevelFromXp, getGanguesUnlockedSpecials } from './data/ganguesCharacters.js'
 import { getGanguesResources, getGanguesProgression, ganguesXpMaxForSheet } from './data/ganguesLoadout.js'
-import { getGanguesAttributesWithEquip } from './data/ganguesEquip.js'
+import { getGanguesAttributesWithEquip, applyGanguesEquipResources } from './data/ganguesEquip.js'
 import GanguesFichaCard from './components/GanguesFichaCard'
 import GanguesEquipPanel from './components/GanguesEquipPanel'
 
@@ -29,7 +29,7 @@ export default function GanguesProgression({ onNavigate }) {
   // Atributos e recursos já com o equipamento somado — é o que vale em combate,
   // então é o que a ficha tem que mostrar.
   const effAttrs = getGanguesAttributesWithEquip(member.attributes)
-  const resources = getGanguesResources(character.combat_path, effAttrs.R)
+  const resources = applyGanguesEquipResources(getGanguesResources(character.combat_path, effAttrs.R), member.attributes?.equipment)
 
   return <main className="gang-lobby gang-progression-screen">
     <header className="gang-progression-screen-head">

@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useLanguage } from '../../../../../context/LanguageContext'
 import { useGanguesStore } from '../../store/useGanguesStore'
 import { getGanguesItem } from '../../data/ganguesItens.js'
-import { getGanguesEquip, getGanguesAttributesWithEquip, previewGanguesAttributesWithEquip, normalizeGanguesEquipment } from '../../data/ganguesEquip.js'
+import { getGanguesEquip, getGanguesAttributesWithEquip, previewGanguesAttributesWithEquip, applyGanguesEquipResources, withGanguesEquip, normalizeGanguesEquipment } from '../../data/ganguesEquip.js'
 import { getGanguesResources } from '../../data/ganguesLoadout.js'
 import { getGanguesCharacter, getGanguesLevelFromXp } from '../../data/ganguesCharacters.js'
 import { sfx } from '../../../../../lib/sfx'
@@ -17,7 +17,10 @@ import { sfx } from '../../../../../lib/sfx'
 const ATTR_ORDER = ['A', 'H', 'R', 'D']
 
 function bonusResumo(t, bonus = {}) {
-  return ATTR_ORDER.filter(attr => bonus[attr]).map(attr => `+${bonus[attr]} ${t(`games.gangues.attr_labels.${attr}`)}`).join(' · ')
+  const parts = ATTR_ORDER.filter(attr => bonus[attr]).map(attr => `+${bonus[attr]} ${t(`games.gangues.attr_labels.${attr}`)}`)
+  if (bonus.pv) parts.push(`+${bonus.pv} PV`)
+  if (bonus.pm) parts.push(`+${bonus.pm} PM`)
+  return parts.join(' · ')
 }
 
 /** Uma linha de comparação: como a ficha do `member` fica com este equipamento. */
@@ -26,8 +29,9 @@ function LinhaComparacao({ t, member, item, onEquipar, podePagar }) {
   if (!character) return null
   const atual = getGanguesAttributesWithEquip(member.attributes)
   const novo = previewGanguesAttributesWithEquip(member.attributes, item.id)
-  const resAtual = getGanguesResources(character.combat_path, atual.R)
-  const resNovo = getGanguesResources(character.combat_path, novo.R)
+  const eqNovo = withGanguesEquip(member.attributes?.equipment, item.id)
+  const resAtual = applyGanguesEquipResources(getGanguesResources(character.combat_path, atual.R), member.attributes?.equipment)
+  const resNovo = applyGanguesEquipResources(getGanguesResources(character.combat_path, novo.R), eqNovo)
   const nivel = getGanguesLevelFromXp(member.xp_total)
 
   const deltas = []

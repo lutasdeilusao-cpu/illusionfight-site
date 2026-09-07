@@ -7,9 +7,12 @@ import './GanguesEquipPanel.css'
 
 const ATTR_ORDER = ['A', 'H', 'R', 'D']
 
-/** Lê o bônus de um item como "+1 A · +1 D" pros dois idiomas (usa attr_labels curtos). */
+/** Lê o bônus de um item como "+1 A · +6 PV" pros três idiomas (usa attr_labels curtos). */
 function bonusResumo(t, bonus = {}) {
-  return ATTR_ORDER.filter(attr => bonus[attr]).map(attr => `+${bonus[attr]} ${t(`games.gangues.attr_labels.${attr}`)}`).join(' · ')
+  const parts = ATTR_ORDER.filter(attr => bonus[attr]).map(attr => `+${bonus[attr]} ${t(`games.gangues.attr_labels.${attr}`)}`)
+  if (bonus.pv) parts.push(`+${bonus.pv} PV`)
+  if (bonus.pm) parts.push(`+${bonus.pm} PM`)
+  return parts.join(' · ')
 }
 
 /** Quadradinhos de slot de carta — vazios por enquanto (cartas vêm com o drop). */

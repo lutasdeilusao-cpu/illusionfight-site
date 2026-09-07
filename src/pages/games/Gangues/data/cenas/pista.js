@@ -159,7 +159,7 @@ export const CENA_PISTA = {
       // Consumíveis + um equipamento básico de cada slot (ver
       // GANGUES_LOJA_EQUIP_BASICO em data/ganguesEquip.js). Drop de peças
       // melhores vem depois.
-      itens: ['pocao_hp', 'pocao_mp', 'gorro_moletom', 'colete_couro', 'luva_couro', 'tenis_furado', 'corrente_lata', 'soqueira_lata'],
+      itens: ['pocao_hp', 'pocao_mp', 'gorro_moletom', 'colete_reforcado', 'colete_leve', 'luva_couro', 'tenis_furado', 'corrente_lata', 'soqueira_lata'],
     },
     {
       // Reaproveitamento: continua na Pista mesmo depois dela virar

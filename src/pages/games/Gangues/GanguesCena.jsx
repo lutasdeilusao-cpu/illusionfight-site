@@ -14,7 +14,7 @@ import { GANGUES_TERRITORIO_POR_ID } from './data/ganguesTerritorios.js'
 import { calcularPontosTime } from './data/ganguesEncontros.js'
 import { GANGUES_STORY_BATTLE_PARTY_MAX, getGanguesResources, getGanguesProgression, ganguesXpMaxForSheet } from './data/ganguesLoadout.js'
 import { getGanguesCharacter, getGanguesLevelFromXp } from './data/ganguesCharacters.js'
-import { getGanguesAttributesWithEquip, getGanguesEquip } from './data/ganguesEquip.js'
+import { getGanguesAttributesWithEquip, applyGanguesEquipResources, getGanguesEquip } from './data/ganguesEquip.js'
 import { GANGUES_ITENS_LISTA } from './data/ganguesItens.js'
 import GanguesFichaCard from './components/GanguesFichaCard'
 import GanguesEquipPanel from './components/GanguesEquipPanel'
@@ -194,7 +194,7 @@ function FichaCenaCard({member,t}){
   const level=getGanguesLevelFromXp(member.xp_total)
   const progression=getGanguesProgression(member)
   const effAttrs=getGanguesAttributesWithEquip(member.attributes)
-  const resources=getGanguesResources(character.combat_path,effAttrs.R)
+  const resources=applyGanguesEquipResources(getGanguesResources(character.combat_path,effAttrs.R),member.attributes?.equipment)
   return <>
     <GanguesFichaCard
       nome={character.name}
