@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.274.0'
+export const SITE_VERSION = '10.275.0'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '2.50.0' // fix: personagem so subia do nivel 1 pro 2, travava depois disso - getGanguesLevelFromXp (ganguesCharacters.js) usava a tabela xp_total_required_by_level do catalogo (0,1,3,5,8,11,15,19,24,30), que e CUMULATIVA e crescente: subir do nivel 2 pro 3 exigia xp_total>=3, ou seja 2 conversoes de AP->XP inteiras, nao 1 - mesmo a barra de PA enchendo e reiniciando direitinho a cada conversao, o nivel nao mudava, porque só a subida 1->2 dessa tabela precisava de exatamente 1 XP. Virou "1 XP = 1 nivel, sempre" (level = 1+floor(xp_total)), que e a regra que da certo com o custo de AP por XP escalando por nivel (10/15/20/25/30...). Validado numericamente reproduzindo o caso exato reportado (Trinca 12 PA -> +6 -> 3/20 nivel 3) antes de build/deploy
+export const GANGUES_VERSION   = '2.51.0' // feat: subir de nivel agora restaura PV/PM cheios do personagem (gainApForParticipants, useGanguesStore.js) - antes o dano acumulado de antes do level-up seguia pro proximo desafio sem nenhum beneficio imediato de ter evoluido. pv_atual/pm_atual viram null (mesma convencao de restaurarPvPmTodos = "usa o maximo") no mesmo instante em que o level-up e detectado, antes de hydratar a ficha
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
 export const MINIGAMES_VERSION = '4.3.4'  // Glitch: safe-area lateral no grid-wrap

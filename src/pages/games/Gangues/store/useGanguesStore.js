@@ -2,7 +2,7 @@ import { create } from 'zustand'
 import { supabase } from '../../../../lib/supabase'
 import { addGanguesAp, defaultGanguesProgression, getGanguesRosterLimit, normalizeGanguesLoadout } from '../data/ganguesLoadout.js'
 import { carregarProgressoHistoria, salvarProgressoHistoria, listarSaves, criarSave, excluirSave } from './ganguesStoryProgress.js'
-import { createGanguesTemplateSheet, hydrateGanguesTemplateSheet } from '../data/ganguesCharacters.js'
+import { createGanguesTemplateSheet, hydrateGanguesTemplateSheet, getGanguesLevelFromXp } from '../data/ganguesCharacters.js'
 
 // Debounce dos writes de progresso do modo história: várias ações batem em sequência
 // (marcar POI + fôlego + grana + rep) e não faz sentido um upsert por campo.
@@ -191,9 +191,24 @@ export const useGanguesStore = create((set, get) => ({
         if (!(member.id in pesosPorId)) return member
         const resultado = addGanguesAp(member, apPorMembro[member.id])
         totalXp += resultado.earnedXp
-        const next = { ...member, xp_total: (member.xp_total || 0) + resultado.earnedXp, attributes: { ...member.attributes, progression: resultado.progression } }
+        const novoXpTotal = (member.xp_total || 0) + resultado.earnedXp
+        const subiuDeNivel = member.character_type === 'template' && getGanguesLevelFromXp(novoXpTotal) > (member.level || 1)
+        const next = {
+          ...member,
+          xp_total: novoXpTotal,
+          attributes: {
+            ...member.attributes,
+            progression: resultado.progression,
+            // Subiu de nível = descansou/treinou pra chegar lá — restaura
+            // PV/PM cheios (null = "usa o máximo", mesma convenção de
+            // restaurarPvPmTodos). Sem isso o personagem levava o dano
+            // acumulado de antes do level-up pro próximo desafio, sem
+            // nenhum benefício imediato de ter evoluído.
+            ...(subiuDeNivel ? { pv_atual: null, pm_atual: null } : {}),
+          },
+        }
         const hydrated = member.character_type === 'template' ? hydrateGanguesTemplateSheet(next) : next
-        if (member.character_type === 'template' && hydrated.level > (member.level || 1)) {
+        if (subiuDeNivel) {
           levelUps.push({ id: member.id, name: hydrated.sheet_name, characterTemplateId: hydrated.character_template_id, fromLevel: member.level || 1, toLevel: hydrated.level })
         }
         return hydrated
