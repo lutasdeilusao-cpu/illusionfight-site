@@ -156,7 +156,7 @@ function Roster({ members, side, selectable, selectedKey, onSelect, actingKey, o
             <span className="gang-mini-bars" aria-label={nome}>
               <progress className="gang-mini-resource gang-mini-resource--pv" max={member.pvMax || 1} value={Math.max(0, member.pv || 0)} />
               <progress className="gang-mini-resource gang-mini-resource--pm" max={member.pmMax || 1} value={Math.max(0, member.pm || 0)} />
-              <progress className="gang-mini-resource gang-mini-resource--xp" max="10" value={progression.ap} />
+              {side === 'player' && <progress className="gang-mini-resource gang-mini-resource--xp" max={ganguesXpMaxForSheet(member)} value={progression.ap} />}
             </span>
           </div>
         )
