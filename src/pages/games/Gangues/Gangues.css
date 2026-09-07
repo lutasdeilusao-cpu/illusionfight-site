@@ -2364,6 +2364,25 @@
 .gang-skill-node-toggle { border-color: rgba(245,166,35,0.4) !important; background: rgba(245,166,35,0.1) !important; color: var(--if-amber) !important; }
 .gang-skill-node-toggle:hover:not(:disabled) { background: rgba(245,166,35,0.2) !important; }
 
+/* Grade de poderes tocável (GanguesSkillGrid — ficha da cena + progressão) */
+.gang-skillgrid { width: 100%; margin-top: 8px; }
+button.gang-skill-node { font-family: inherit; color: #eef4f6; cursor: pointer; }
+button.gang-skill-node:hover { border-color: var(--if-teal); }
+.gang-skill-sheet { position: fixed; inset: 0; z-index: 1200; display: flex; align-items: flex-end; justify-content: center; }
+.gang-skill-sheet__scrim { position: absolute; inset: 0; border: 0; background: rgba(2,5,8,0.8); backdrop-filter: blur(4px); }
+.gang-skill-sheet__card {
+  position: relative; width: 100%; max-width: var(--app-w);
+  display: grid; justify-items: center; gap: 6px; text-align: center;
+  padding: 22px 18px 18px; background: linear-gradient(160deg, #0d151b, #070a0d 72%);
+  border: 1px solid #26383d; border-bottom: 0;
+  clip-path: polygon(0 12px, 12px 0, 100% 0, 100% 100%, 0 100%);
+}
+.gang-skill-sheet__x { position: absolute; top: 8px; right: 10px; border: 0; background: none; color: #8b989e; font-size: 24px; line-height: 1; cursor: pointer; }
+.gang-skill-sheet__kind { font: 700 0.52rem var(--font-mono); letter-spacing: 0.16em; text-transform: uppercase; color: var(--if-teal); }
+.gang-skill-sheet__nome { font: 800 1rem var(--font-display); text-transform: uppercase; color: #fff; }
+.gang-skill-sheet__efeito { margin: 4px 0 0; font-size: 0.82rem; line-height: 1.4; color: #ccd6d9; }
+.gang-skill-sheet__custo { margin: 0; font: 700 0.6rem var(--font-mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--if-amber); }
+
 /* ══════════════════════════════════════════════════════════════
    FICHA — retorno de erro
    `.gang-err` era usada no JSX mas não tinha uma única regra no

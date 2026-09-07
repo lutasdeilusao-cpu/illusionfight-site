@@ -13,11 +13,12 @@ import { CENAS_POR_ID, portaoAberto, contarCena } from './data/cenas/pista.js'
 import { GANGUES_TERRITORIO_POR_ID } from './data/ganguesTerritorios.js'
 import { calcularPontosTime } from './data/ganguesEncontros.js'
 import { GANGUES_STORY_BATTLE_PARTY_MAX, getGanguesResources, getGanguesProgression, ganguesXpMaxForSheet } from './data/ganguesLoadout.js'
-import { getGanguesCharacter, getGanguesLevelFromXp } from './data/ganguesCharacters.js'
+import { getGanguesCharacter, getGanguesLevelFromXp, getGanguesUnlockedSpecials } from './data/ganguesCharacters.js'
 import { getGanguesAttributesWithEquip, applyGanguesEquipResources, getGanguesEquip } from './data/ganguesEquip.js'
 import { GANGUES_ITENS_LISTA } from './data/ganguesItens.js'
 import GanguesFichaCard from './components/GanguesFichaCard'
 import GanguesEquipPanel from './components/GanguesEquipPanel'
+import GanguesSkillGrid from './components/GanguesSkillGrid'
 import './GanguesCena.css'
 
 const WORLD={w:760,h:1840}, SPAWN={x:380,y:1720}, TILE=20, STEP_MS=110, PLAYER_RADIUS=18
@@ -206,6 +207,7 @@ function FichaCenaCard({member,t}){
       pm={{atual:Math.min(resources.pmMax,member.attributes?.pm_atual??resources.pmMax),max:resources.pmMax}}
       xp={{atual:progression.ap,max:ganguesXpMaxForSheet(member),disponivel:progression.xp_unspent}}
     />
+    <GanguesSkillGrid character={character} unlockedIds={getGanguesUnlockedSpecials(character.id,member.xp_total).map(s=>s.id)} levelsById={progression.special_levels}/>
     <GanguesEquipPanel member={member}/>
   </>
 }

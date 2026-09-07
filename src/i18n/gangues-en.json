@@ -555,6 +555,34 @@
         "nota_combate": "They show up under the 🎒 button during a fight.",
         "nota_equip": "Equip via 👤 → character sheet."
       },
+      "skill_info": {
+        "titulo": "Powers",
+        "ativa": "Active",
+        "passiva": "Passive",
+        "custo_pm": "Costs {c} MP",
+        "custo_pv": "Costs some HP",
+        "sem_custo": "No MP cost",
+        "nivel_req": "Unlocks at level {n}"
+      },
+      "skill_desc": {
+        "damage_flat": "Adds +{v} damage to the attack.",
+        "shield_next_hit": "Absorbs {v} damage from the next hit you take.",
+        "reduce_target_defense": "Cuts {v} from the target's Defense on this attack.",
+        "damage_reduction_next_hit": "Cuts {v} from the next damage you take.",
+        "bonus_if_target_fresh": "+{v} damage if the target hasn't acted this round.",
+        "atk_flat_if_pm_above_half": "+{v} damage while your MP is above half.",
+        "low_pv_scale": "Up to +{v} damage — the lower your HP, the stronger the hit.",
+        "habilidade_full_convert": "Uses your full Skill on the attack instead of half.",
+        "ignore_def_pct": "Ignores {v}% of the target's Defense.",
+        "execute_bonus": "Target below 30% HP: ignore {v}% Defense and +2 damage.",
+        "self_sacrifice_damage": "+{v} damage, paid with part of your HP.",
+        "low_pv_gate_bonus": "+{v} damage while you're below 30% HP.",
+        "lifetime_pv_lost_nuke": "Adds {v}% of all the HP you've lost this fight as damage.",
+        "spend_charge_damage": "Unloads your charge: +{v} damage per charge.",
+        "atk_flat": "+{v} attack, always on.",
+        "def_flat": "+{v} defense, always on.",
+        "charge_on_hit_taken": "Every hit you take builds {v} charge."
+      },
       "combat_tutorial": {
         "iniciativa": "This list shows who attacks first this round — the higher a fighter's Skill, the sooner they act.",
         "escolher_alvo": "More than one enemy? Tap whoever you want to attack to pick them as your target — kill the weakest first or focus the strongest, your call.",

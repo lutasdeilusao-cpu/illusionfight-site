@@ -555,6 +555,34 @@
         "nota_combate": "Aparecen en el botón 🎒 durante la pelea.",
         "nota_equip": "Equipa con 👤 → ficha del personaje."
       },
+      "skill_info": {
+        "titulo": "Poderes",
+        "ativa": "Activa",
+        "passiva": "Pasiva",
+        "custo_pm": "Cuesta {c} PM",
+        "custo_pv": "Cuesta parte del PV",
+        "sem_custo": "Sin coste de PM",
+        "nivel_req": "Se abre en el nivel {n}"
+      },
+      "skill_desc": {
+        "damage_flat": "Suma +{v} de daño al ataque.",
+        "shield_next_hit": "Absorbe {v} de daño del próximo golpe que recibas.",
+        "reduce_target_defense": "Quita {v} a la Defensa del objetivo en este ataque.",
+        "damage_reduction_next_hit": "Recorta {v} del próximo daño que recibas.",
+        "bonus_if_target_fresh": "+{v} de daño si el objetivo aún no actuó en la ronda.",
+        "atk_flat_if_pm_above_half": "+{v} de daño mientras tu PM esté por encima de la mitad.",
+        "low_pv_scale": "Hasta +{v} de daño — cuanto menos PV, más fuerte el golpe.",
+        "habilidade_full_convert": "Pasa a usar tu Habilidad entera en el ataque, no la mitad.",
+        "ignore_def_pct": "Ignora {v}% de la Defensa del objetivo.",
+        "execute_bonus": "Objetivo bajo 30% de PV: ignora {v}% de Defensa y +2 de daño.",
+        "self_sacrifice_damage": "+{v} de daño, pagado con parte de tu PV.",
+        "low_pv_gate_bonus": "+{v} de daño cuando estás bajo 30% de PV.",
+        "lifetime_pv_lost_nuke": "Suma {v}% de todo el PV que perdiste en la pelea como daño.",
+        "spend_charge_damage": "Descarga lo acumulado: +{v} de daño por carga.",
+        "atk_flat": "+{v} de ataque, siempre activo.",
+        "def_flat": "+{v} de defensa, siempre activo.",
+        "charge_on_hit_taken": "Cada golpe que recibes acumula {v} de carga."
+      },
       "combat_tutorial": {
         "iniciativa": "Esta lista muestra quién ataca primero en esta ronda — cuanto mayor la Habilidad del luchador, antes juega.",
         "escolher_alvo": "¿Hay más de un enemigo? Toca a quien quieras atacar para elegirlo como objetivo — matar al más débil primero o enfocar al más fuerte, tú decides.",

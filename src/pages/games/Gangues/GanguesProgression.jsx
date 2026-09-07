@@ -5,6 +5,7 @@ import { getGanguesResources, getGanguesProgression, ganguesXpMaxForSheet } from
 import { getGanguesAttributesWithEquip, applyGanguesEquipResources } from './data/ganguesEquip.js'
 import GanguesFichaCard from './components/GanguesFichaCard'
 import GanguesEquipPanel from './components/GanguesEquipPanel'
+import GanguesSkillGrid from './components/GanguesSkillGrid'
 
 export default function GanguesProgression({ onNavigate }) {
   const { t } = useLanguage()
@@ -46,14 +47,7 @@ export default function GanguesProgression({ onNavigate }) {
         pm={{ atual: Math.min(resources.pmMax, member.attributes?.pm_atual ?? resources.pmMax), max: resources.pmMax }}
         xp={{ atual: progression.ap, max: ganguesXpMaxForSheet(member), disponivel: progression.xp_unspent }}
       />
-      <h3 className="gang-progression-section-title">{t('games.gangues.progression.specials')}</h3>
-      <div className="gang-skill-grid">
-        <div className="gang-skill-node gang-skill-node--equipped"><strong className="gang-skill-node-name">{t(`games.gangues.progression.skills.${character.base_technique.id}`)}</strong><span className="gang-skill-node-kind">{character.base_technique.pm_cost} PM</span></div>
-        {character.signature_specials.map((special, index) => {
-          const open = unlocked.some(item => item.id === special.id)
-          return <div key={special.id} className={`gang-skill-node${open ? ' gang-skill-node--equipped' : ' gang-skill-node--locked'}`}><span>NV {3 + index * 2}</span><strong className="gang-skill-node-name">{t(`games.gangues.progression.skills.${special.id}`)}</strong><span className="gang-skill-node-kind">{open ? t(`games.gangues.progression.${special.kind}`) : '🔒'}</span></div>
-        })}
-      </div>
+      <GanguesSkillGrid character={character} unlockedIds={unlocked.map(s => s.id)} levelsById={progression.special_levels} />
       <GanguesEquipPanel member={member} />
     </section>
   </main>

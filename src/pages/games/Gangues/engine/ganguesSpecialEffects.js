@@ -74,6 +74,26 @@ export function getGanguesSpecialEffect(id) {
   return GANGUES_SPECIAL_EFFECTS[id] || genericEffect(id)
 }
 
+/** Descrição do que o poder faz, gerada do efeito real (não do design intent) — o texto
+ *  vem do i18n `games.gangues.skill_desc.<type>` com {v} interpolado pelo nível.
+ *  Usado nas fichas (grade de poderes com toque pra ver o que faz). */
+export function describeGanguesSpecialEffect(t, id, level = 1) {
+  const effect = getGanguesSpecialEffect(id)
+  const values = effect.values || []
+  const v = values[Math.max(0, Math.min(values.length - 1, level - 1))]
+  const key = `games.gangues.skill_desc.${effect.type}`
+  const txt = t(key, { v })
+  return txt === key ? '' : txt
+}
+
+/** Custo do poder (texto localizado) no nível dado. Passivo / base sem custo → string de "sem custo". */
+export function describeGanguesSpecialCost(t, id, level = 1) {
+  const effect = getGanguesSpecialEffect(id)
+  if (!effect.cost) return t('games.gangues.skill_info.sem_custo')
+  const c = effect.cost.values[Math.max(0, Math.min(effect.cost.values.length - 1, level - 1))]
+  return effect.cost.kind === 'pv' ? t('games.gangues.skill_info.custo_pv', { c }) : t('games.gangues.skill_info.custo_pm', { c })
+}
+
 // Monta a lista de efeitos que valem nesta resolução: todos os passivos equipados + a ativa
 // escolhida pelo jogador (se equipada, com nível > 0 e custo pagável). `activeSpecialId` só
 // importa pro lado atacante — quem defende nunca "escolhe" usar uma ativa.
