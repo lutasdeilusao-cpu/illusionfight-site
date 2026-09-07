@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.271.0'
+export const SITE_VERSION = '10.272.0'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '2.47.0' // fix: GanguesActionOrb.css usava right/left fixo em px, ignorando o --app-gutter (site e mobile-only, coluna trava em --app-w:480px e centraliza em telas largas) - a bolinha de acao ficava colada na borda da JANELA em vez da coluna, flutuando longe do conteudo em desktop. Trocado pra calc(var(--app-gutter) + 10px) nas 6 posicoes, mesmo padrao ja usado por .scroll-top-btn/.drawer em index.css
+export const GANGUES_VERSION   = '2.48.0' // fix: ficha (GanguesFichaCard) mostrava progression.ap com erro de ponto flutuante (ex: "1.5999999999999996 PA") - a fatia de AP de uma luta raramente fecha num numero redondo, e o valor fracionario ia direto pro texto sem arredondar. Math.floor() na exibicao (mantem o valor exato internamente pra continuar acumulando certo entre lutas, so a apresentacao vira inteiro); mesmo fix em GanguesProgressionPanel.jsx (tela sem rota ativa hoje, mas com o mesmo bug)
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
 export const MINIGAMES_VERSION = '4.3.4'  // Glitch: safe-area lateral no grid-wrap

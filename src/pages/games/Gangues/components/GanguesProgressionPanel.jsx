@@ -68,7 +68,7 @@ export default function GanguesProgressionPanel({ member, onApply, onDelete, des
 
     <div className="gang-progression-stats">
       <div className="gang-progression-ap">
-        <span>{t('games.gangues.progression.ap', { n: progression.ap })}</span>
+        <span>{t('games.gangues.progression.ap', { n: Math.floor(progression.ap) })}</span>
         <progress className="gang-progression-ap-bar" max="10" value={progression.ap} />
       </div>
       <div className="gang-progression-xp">✦ {t('games.gangues.progression.xp_available', { n: progression.xp_unspent })}</div>
