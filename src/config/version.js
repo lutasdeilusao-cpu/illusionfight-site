@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.270.0'
+export const SITE_VERSION = '10.271.0'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '2.46.0' // feat: peso de divisao de AP trocado de proporcional direto (abates*100+dano, deixava o campeao com ~90% do pote) pra RANKING fixo - 1o lugar em abates/dano pesa 3, 2o lugar pesa 2, o resto pesa 1 igual pra todos (GanguesVictory.jsx). Splits ficam bem menos extremos (ex: 1 inimigo/2 pessoas: 6/4 em vez de 9/1). feat: chefe de territorio (luta unica, nao repetivel) agora vale 5x o pote normal (multiplicadorChefe) - antes dava a mesma migalha de uma treta comum. Validado com bateria de cenarios numericos (2 pessoas, time cheio de 6 contra chefe, empate exato, e o caso so-1-lutou) antes de build/deploy
+export const GANGUES_VERSION   = '2.47.0' // fix: GanguesActionOrb.css usava right/left fixo em px, ignorando o --app-gutter (site e mobile-only, coluna trava em --app-w:480px e centraliza em telas largas) - a bolinha de acao ficava colada na borda da JANELA em vez da coluna, flutuando longe do conteudo em desktop. Trocado pra calc(var(--app-gutter) + 10px) nas 6 posicoes, mesmo padrao ja usado por .scroll-top-btn/.drawer em index.css
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
 export const MINIGAMES_VERSION = '4.3.4'  // Glitch: safe-area lateral no grid-wrap

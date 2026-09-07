@@ -10,12 +10,17 @@
   flex-direction: column;
   align-items: center;
 }
-.gang-orb-wrap--right-top    { top: 22%; right: 10px; align-items: flex-end; }
-.gang-orb-wrap--right-mid    { top: 50%; right: 10px; transform: translateY(-50%); align-items: flex-end; }
-.gang-orb-wrap--right-bottom { bottom: 96px; right: 10px; align-items: flex-end; }
-.gang-orb-wrap--left-top     { top: 22%; left: 10px; align-items: flex-start; }
-.gang-orb-wrap--left-mid     { top: 50%; left: 10px; transform: translateY(-50%); align-items: flex-start; }
-.gang-orb-wrap--left-bottom  { bottom: 96px; left: 10px; align-items: flex-start; }
+/* position:fixed escapa do #root — sem o --app-gutter (mesmo padrão do
+   .scroll-top-btn/.drawer em index.css), a bolinha colava na borda da
+   JANELA em telas largas (desktop), flutuando longe da coluna do app em
+   vez de ficar dentro dela. Site é mobile-only, não existe versão desktop:
+   todo fixed tem que respeitar a coluna --app-w, nunca o viewport cru. */
+.gang-orb-wrap--right-top    { top: 22%; right: calc(var(--app-gutter) + 10px); align-items: flex-end; }
+.gang-orb-wrap--right-mid    { top: 50%; right: calc(var(--app-gutter) + 10px); transform: translateY(-50%); align-items: flex-end; }
+.gang-orb-wrap--right-bottom { bottom: 96px; right: calc(var(--app-gutter) + 10px); align-items: flex-end; }
+.gang-orb-wrap--left-top     { top: 22%; left: calc(var(--app-gutter) + 10px); align-items: flex-start; }
+.gang-orb-wrap--left-mid     { top: 50%; left: calc(var(--app-gutter) + 10px); transform: translateY(-50%); align-items: flex-start; }
+.gang-orb-wrap--left-bottom  { bottom: 96px; left: calc(var(--app-gutter) + 10px); align-items: flex-start; }
 
 .gang-orb {
   width: 56px; height: 56px; flex-shrink: 0;
