@@ -478,7 +478,21 @@
         "atacar": "Attack",
         "poder": "Power",
         "item": "Item",
-        "item_vazio": "No items yet — coming soon."
+        "item_vazio": "No items yet — coming soon.",
+        "item_qtd": "×{n}"
+      },
+      "itens": {
+        "pocao_hp": "HP Potion",
+        "pocao_mp": "MP Potion"
+      },
+      "loja": {
+        "titulo": "Shop",
+        "sub": "Buy with the gang's cash — usable in any fight.",
+        "custo": "{n} 💵",
+        "comprar": "Buy",
+        "sem_grana": "Not enough cash",
+        "no_inventario": "You have: {n}",
+        "compra_feita": "Bought!"
       },
       "combat_tutorial": {
         "iniciativa": "This list shows who attacks first this round — the higher a fighter's Skill, the sooner they act.",

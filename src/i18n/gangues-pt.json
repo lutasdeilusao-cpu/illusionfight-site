@@ -478,7 +478,21 @@
         "atacar": "Atacar",
         "poder": "Poder",
         "item": "Item",
-        "item_vazio": "Nenhum item ainda — em breve."
+        "item_vazio": "Nenhum item ainda — em breve.",
+        "item_qtd": "×{n}"
+      },
+      "itens": {
+        "pocao_hp": "Poção de HP",
+        "pocao_mp": "Poção de MP"
+      },
+      "loja": {
+        "titulo": "Loja",
+        "sub": "Compra com a grana da gangue — dá pra usar em qualquer luta.",
+        "custo": "{n} 💵",
+        "comprar": "Comprar",
+        "sem_grana": "Grana insuficiente",
+        "no_inventario": "Você tem: {n}",
+        "compra_feita": "Comprado!"
       },
       "combat_tutorial": {
         "iniciativa": "Essa lista mostra quem ataca primeiro nessa rodada — quanto maior a Habilidade do lutador, mais cedo ele joga.",

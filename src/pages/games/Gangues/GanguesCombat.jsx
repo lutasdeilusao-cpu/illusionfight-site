@@ -8,6 +8,7 @@ import useGanguesTurnMachine from './hooks/useGanguesTurnMachine'
 import { getEquippedActiveGanguesSpecials } from './engine/ganguesSpecialEffects.js'
 import { getGanguesProgression, ganguesXpMaxForSheet } from './data/ganguesLoadout.js'
 import { getGanguesEffectTheme } from './data/ganguesEffectThemes.js'
+import { GANGUES_ITENS_LISTA, getGanguesItem } from './data/ganguesItens.js'
 import { iniciarBrigaMultidao, avancarRodadaMultidao } from './engine/ganguesBrigaMultidao.js'
 import DramaticDice from './components/DramaticDice'
 import GanguesCombatTutorial from './components/GanguesCombatTutorial'
@@ -351,6 +352,25 @@ export default function GanguesCombat({ onNavigate }) {
     if (!switchTravado) setSwitchTravado(true)
     machine.playerAction(selectedActor, selectedTarget, specialId)
     setSelectedSpecialId(null)
+  }
+
+  // Itens disponíveis (quantidade > 0) — a bolinha só mostra o que a gangue
+  // realmente tem, lido direto do inventário compartilhado (store.inventario).
+  const itensDisponiveis = GANGUES_ITENS_LISTA
+    .map(item => ({ ...item, quantidade: store.inventario[item.id] || 0 }))
+    .filter(item => item.quantidade > 0)
+
+  // Usar item consome o turno do ator igual um ataque (ver useItemAction) —
+  // sem rolar dado, sem escolher alvo inimigo, só aplica a cura na hora.
+  const handleUsarItem = (itemId) => {
+    if (!selectedActor) return
+    const item = getGanguesItem(itemId)
+    if (!item) return
+    if (!store.usarItem(itemId)) return
+    sfx.click()
+    if (!switchTravado) setSwitchTravado(true)
+    const delta = item.tipo === 'cura_pv' ? { pv: item.valor } : item.tipo === 'cura_pm' ? { pm: item.valor } : {}
+    machine.useItemAction(selectedActor, itemId, delta)
   }
 
   // ── Modo Automático: quando é a vez do jogador, ataca sozinho com o
@@ -733,8 +753,10 @@ export default function GanguesCombat({ onNavigate }) {
           disabled={!selectedActor || !selectedTarget}
           equippedSpecials={equippedSpecials}
           canAffordSpecial={canAffordSpecial}
+          itens={itensDisponiveis}
           onAtacar={() => handleAttack(null)}
           onUsarPoder={specialId => handleAttack(specialId)}
+          onUsarItem={itemId => handleUsarItem(itemId)}
         />
       )}
       {!modoMultidaoAtivo && machine.phase === 'enemy' && !machine.pending && <div className="gang2-enemy-thinking"><span className="gang-thinking-pulse" /><strong>{t('games.gangues.report.enemy_thinking')}</strong><small>{t('games.gangues.report.enemy_strategy')}</small></div>}

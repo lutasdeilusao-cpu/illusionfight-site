@@ -33,7 +33,7 @@ export async function carregarProgressoHistoria(saveId) {
   if (!saveId) return null
   const { data, error } = await supabase
     .from('gangues_story_progress')
-    .select('gang_name, story_progress, cena_progresso, grana, rep, campaign_clears, event_character_ids')
+    .select('gang_name, story_progress, cena_progresso, grana, rep, campaign_clears, event_character_ids, inventario')
     .eq('id', saveId)
     .maybeSingle()
   if (error || !data) return null
@@ -45,13 +45,14 @@ export async function carregarProgressoHistoria(saveId) {
     rep: data.rep || 0,
     campaignClears: data.campaign_clears || 0,
     eventCharacterIds: data.event_character_ids || [],
+    inventario: data.inventario || {},
   }
 }
 
 /** Salva (update) o progresso do save aberto no momento. */
 export async function salvarProgressoHistoria(saveId, progresso) {
   if (!saveId) return false
-  const { gangName, storyProgress, cenaProgresso, grana, rep, campaignClears, eventCharacterIds } = progresso
+  const { gangName, storyProgress, cenaProgresso, grana, rep, campaignClears, eventCharacterIds, inventario } = progresso
   const { error } = await supabase
     .from('gangues_story_progress')
     .update({
@@ -62,6 +63,7 @@ export async function salvarProgressoHistoria(saveId, progresso) {
       rep: rep || 0,
       campaign_clears: campaignClears || 0,
       event_character_ids: eventCharacterIds || [],
+      inventario: inventario || {},
       atualizada_em: new Date().toISOString(),
     })
     .eq('id', saveId)

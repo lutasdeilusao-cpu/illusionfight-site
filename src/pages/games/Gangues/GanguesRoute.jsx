@@ -11,6 +11,7 @@ import GanguesCreate from './GanguesCreate'
 import GanguesCombat from './GanguesCombat'
 import GanguesVictory from './GanguesVictory'
 import GanguesProgression from './GanguesProgression'
+import GanguesLoja from './GanguesLoja'
 import GanguesStoryMap from './GanguesStoryMap'
 import GanguesTerritorio from './GanguesTerritorio'
 import GanguesCena from './GanguesCena'
@@ -111,6 +112,7 @@ export default function GanguesRoute() {
         />
       )}
       {fase === 'progression' && <GanguesProgression onNavigate={setFase} />}
+      {fase === 'loja' && <GanguesLoja onNavigate={setFase} />}
       {fase === 'modes' && <GanguesModes onNavigate={setFase} />}
       {fase === 'enemy' && <GanguesEnemyPick onNavigate={setFase} />}
       {fase === 'story' && <GanguesStoryMap onNavigate={setFase} />}

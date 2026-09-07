@@ -115,5 +115,19 @@ export default function useGanguesTurnMachine({ playerTeam = [], enemyTeam = [],
     record({ type: 'initiative', order: initiative })
   }, [initiative, record])
 
-  return { combatants, phase, round, pending, events, initiative, currentActor, playerActors: phase === 'player' && currentActor ? [currentActor] : [], enterCombat, playerAction, completePending }
+  // Usar item: aplica a cura direto no ator (sem rolar dado, sem alvo
+  // inimigo) e consome o turno igual um ataque — quem usa item abre mão de
+  // atacar naquela rodada. `delta` é { pv?, pm? }, sempre positivo (cura).
+  const useItemAction = useCallback((actorKey, itemId, delta) => {
+    if (phase !== 'player' || currentActor?.key !== actorKey) return false
+    const next = combatants.map(item => item.key === actorKey
+      ? { ...item, pv: Math.min(item.pvMax, item.pv + (delta.pv || 0)), pm: Math.min(item.pmMax, item.pm + (delta.pm || 0)), actedThisRound: true }
+      : item)
+    record({ type: 'item', side: 'player', actorKey, itemId, delta, round })
+    setCombatants(next)
+    advanceTurn(next)
+    return true
+  }, [phase, currentActor, combatants, advanceTurn, record, round])
+
+  return { combatants, phase, round, pending, events, initiative, currentActor, playerActors: phase === 'player' && currentActor ? [currentActor] : [], enterCombat, playerAction, completePending, useItemAction }
 }

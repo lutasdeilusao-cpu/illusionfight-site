@@ -478,7 +478,21 @@
         "atacar": "Atacar",
         "poder": "Poder",
         "item": "Objeto",
-        "item_vazio": "Todavía no hay objetos — pronto."
+        "item_vazio": "Todavía no hay objetos — pronto.",
+        "item_qtd": "×{n}"
+      },
+      "itens": {
+        "pocao_hp": "Poción de HP",
+        "pocao_mp": "Poción de MP"
+      },
+      "loja": {
+        "titulo": "Tienda",
+        "sub": "Compra con la plata de la banda — se puede usar en cualquier pelea.",
+        "custo": "{n} 💵",
+        "comprar": "Comprar",
+        "sem_grana": "Plata insuficiente",
+        "no_inventario": "Tienes: {n}",
+        "compra_feita": "¡Comprado!"
       },
       "combat_tutorial": {
         "iniciativa": "Esta lista muestra quién ataca primero en esta ronda — cuanto mayor la Habilidad del luchador, antes juega.",

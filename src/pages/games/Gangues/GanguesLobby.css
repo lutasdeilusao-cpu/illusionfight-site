@@ -21,6 +21,51 @@
 
 .gang-lobby-rename:hover { color: var(--if-teal); border-color: var(--if-teal); }
 
+.gang-lobby-econ-row {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  margin: 10px auto 0;
+}
+.gang-lobby-econ-grana {
+  font: 800 0.72rem var(--font-mono); color: #7ed957; letter-spacing: 0.04em;
+}
+.gang-lobby-loja-btn {
+  padding: 5px 12px;
+  border: 1px solid color-mix(in srgb, var(--if-amber) 55%, transparent);
+  background: rgba(245, 166, 35, 0.1);
+  color: var(--if-amber);
+  font: 800 0.62rem var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.gang-lobby-loja-btn:hover { background: rgba(245, 166, 35, 0.2); }
+
+/* ── Loja (primeira versão do sistema de item) ── */
+.gang-loja-sub { margin: 4px 0 0; color: var(--text-secondary); font: 500 0.68rem var(--font-body); text-align: center; }
+.gang-loja-lista { display: flex; flex-direction: column; gap: 10px; padding: 16px; }
+.gang-loja-item {
+  position: relative;
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px; border: 1px solid var(--if-hair); background: var(--if-panel-flat);
+}
+.gang-loja-item__icone { font-size: 1.6rem; }
+.gang-loja-item__info { flex: 1; display: flex; flex-direction: column; gap: 2px; }
+.gang-loja-item__info strong { font: 800 0.82rem var(--font-display); color: var(--text-primary); text-transform: uppercase; }
+.gang-loja-item__info small { font: 700 0.6rem var(--font-mono); color: var(--text-secondary); }
+.gang-loja-item__comprar {
+  display: flex; flex-direction: column; align-items: center; gap: 2px;
+  padding: 8px 14px; border: 1px solid var(--if-cyan); background: rgba(24,218,251,0.1);
+  color: var(--if-cyan); font: 800 0.6rem var(--font-mono); letter-spacing: 0.06em; text-transform: uppercase;
+  cursor: pointer;
+}
+.gang-loja-item__comprar b { font-size: 0.68rem; color: #fff; }
+.gang-loja-item__comprar:hover { background: rgba(24,218,251,0.2); }
+.gang-loja-item__aviso {
+  position: absolute; top: -10px; right: 10px;
+  padding: 3px 8px; font: 800 0.56rem var(--font-mono); letter-spacing: 0.04em; text-transform: uppercase;
+  background: #0d171b; border: 1px solid var(--if-amber); color: var(--if-amber);
+}
+
 /* Primeiro contato: convocação de rua, não formulário de criação. */
 .gang-lobby .gang-onboarding-panel {
   position: relative;

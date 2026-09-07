@@ -143,6 +143,14 @@ export default function GanguesLobby({ onNavigate }) {
         <button className="gang-lobby-rename" onClick={() => setRenomeando(true)}>✎ {t('games.gangues.naming.renomear')}</button>
       </header>
       }
+      {/* Loja: primeira versão do sistema de item (poções de HP/MP), só pra
+          validar comprar → guardar no inventário → usar em combate. */}
+      {roster.length > 0 && (
+        <div className="gang-lobby-econ-row">
+          <span className="gang-lobby-econ-grana">💵 {store.grana}</span>
+          <button className="gang-lobby-loja-btn" onClick={() => onNavigate('loja')}>🏪 {t('games.gangues.loja.titulo')}</button>
+        </div>
+      )}
 
       {/* Onboarding só quando o elenco está VAZIO. Com 1 ficha, o jogador
           continua vendo a lista pra poder excluir também a última — nunca

@@ -72,7 +72,7 @@ export const useGanguesStore = create((set, get) => ({
   // Abre um save: carrega o progresso de história e o elenco daquela gangue
   // específica, e passa a persistir tudo nela a partir de agora.
   selecionarSave: async (saveId) => {
-    set({ _saveId: saveId, roster: [], activeParty: [], gangName: '', storyProgress: {}, cenaProgresso: {}, grana: 0, rep: 0 })
+    set({ _saveId: saveId, roster: [], activeParty: [], gangName: '', storyProgress: {}, cenaProgresso: {}, grana: 0, rep: 0, inventario: {} })
     await Promise.all([get().loadStoryProgress(saveId), get().loadSheets(saveId)])
   },
 
@@ -363,7 +363,7 @@ export const useGanguesStore = create((set, get) => ({
   },
 
   resetStory: () => {
-    set({ storyProgress: {}, storyTarget: null, grana: 0, rep: 0, cenaProgresso: {} })
+    set({ storyProgress: {}, storyTarget: null, grana: 0, rep: 0, cenaProgresso: {}, inventario: {} })
     get()._persistStory()
   },
 
@@ -375,6 +375,10 @@ export const useGanguesStore = create((set, get) => ({
   campaignClears: 0,
   eventCharacterIds: [],
   cenaProgresso: {},
+  // Inventário de item — { [itemId]: quantidade }, compartilhado pela gangue
+  // inteira (comprado com a grana de todos), não por personagem. Ver
+  // data/ganguesItens.js pro catálogo.
+  inventario: {},
 
   completeCampaign: () => {
     set(state => ({ campaignClears: state.campaignClears + 1 }))
@@ -391,8 +395,8 @@ export const useGanguesStore = create((set, get) => ({
     if (!saveId) return
     clearTimeout(storySaveTimer)
     storySaveTimer = setTimeout(() => {
-      const { gangName, storyProgress, cenaProgresso, grana, rep, campaignClears, eventCharacterIds } = get()
-      salvarProgressoHistoria(saveId, { gangName, storyProgress, cenaProgresso, grana, rep, campaignClears, eventCharacterIds })
+      const { gangName, storyProgress, cenaProgresso, grana, rep, campaignClears, eventCharacterIds, inventario } = get()
+      salvarProgressoHistoria(saveId, { gangName, storyProgress, cenaProgresso, grana, rep, campaignClears, eventCharacterIds, inventario })
     }, 800)
   },
 
@@ -405,6 +409,26 @@ export const useGanguesStore = create((set, get) => ({
   gastarGrana: (n) => {
     if (get().grana < n) return false
     set(state => ({ grana: state.grana - n }))
+    get()._persistCena()
+    return true
+  },
+
+  // Compra 1 unidade de um item da loja (ver data/ganguesItens.js) — cobra a
+  // grana e só adiciona ao inventário se o pagamento passar.
+  comprarItem: (itemId, custo) => {
+    if (!get().gastarGrana(custo)) return false
+    set(state => ({ inventario: { ...state.inventario, [itemId]: (state.inventario[itemId] || 0) + 1 } }))
+    get()._persistCena()
+    return true
+  },
+
+  // Consome 1 unidade do item do inventário (usado em combate) — devolve
+  // false se não tinha nenhum sobrando, pra quem chamar não aplicar o
+  // efeito à toa.
+  usarItem: (itemId) => {
+    const atual = get().inventario[itemId] || 0
+    if (atual <= 0) return false
+    set(state => ({ inventario: { ...state.inventario, [itemId]: atual - 1 } }))
     get()._persistCena()
     return true
   },
@@ -496,7 +520,7 @@ export const useGanguesStore = create((set, get) => ({
   reset: () => set({ sheet: defaultSheet(), roster: [], activeParty: [], match: { playerTeam: [], enemyTeam: [], enemy: null, enemy_id: null, score: 0, status: 'idle', battleReport: null } }),
 
   resetCena: () => {
-    set({ grana: 0, rep: 0, cenaProgresso: {} })
+    set({ grana: 0, rep: 0, cenaProgresso: {}, inventario: {} })
     get()._persistStory()
   },
 }))
