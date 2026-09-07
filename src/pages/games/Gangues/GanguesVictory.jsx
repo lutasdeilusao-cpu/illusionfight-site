@@ -108,6 +108,14 @@ export default function GanguesVictory({ onNavigate }) {
       const posicao = ranking.indexOf(id)
       pesosPorId[id] = posicao === 0 ? 3 : posicao === 1 ? 2 : 1
     })
+    // Dano persiste entre lutas repetíveis dentro da mesma cena — sem isso
+    // toda reentrada voltava com PV/PM cheios, e "descansar"/gastar grana
+    // não tinha motivo de existir (ver prepare() em useGanguesTurnMachine.js).
+    // TEM que rodar ANTES de gainApForParticipants: quem sobe de nível é
+    // curado (pv_atual/pm_atual viram null lá dentro) — se isso rodasse
+    // primeiro, aplicarDanoPersistente reescrevia por cima com o PV/PM que
+    // sobrou da luta, apagando a cura do level-up.
+    store.aplicarDanoPersistente(report.combatants)
     const { levelUps: newLevelUps, apPorMembro } = store.gainApForParticipants(ap, pesosPorId)
     setLevelUps(newLevelUps)
     // O jogador pediu pra ver PONTOS DE AÇÃO (o número que ele realmente
@@ -118,10 +126,6 @@ export default function GanguesVictory({ onNavigate }) {
       nome: match.playerTeam.find(member => member.id === id)?.sheet_name || '?',
       ap: apPorMembro[id] || 0,
     }))
-    // Dano persiste entre lutas repetíveis dentro da mesma cena — sem isso
-    // toda reentrada voltava com PV/PM cheios, e "descansar"/gastar grana
-    // não tinha motivo de existir (ver prepare() em useGanguesTurnMachine.js).
-    store.aplicarDanoPersistente(report.combatants)
     if (victory) {
       store.unlockNextEnemy(match.enemy_id)
       let granaGanha = 0, repGanha = 0
