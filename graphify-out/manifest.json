@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1788798831.9817219,
-    "ast_hash": "c3327e05d389339fddcaeee73c6b963a",
+    "mtime": 1788800443.1341746,
+    "ast_hash": "5430a1269acf27abe8a205cabf2eeeb9",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2745,8 +2745,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1788798842.1650672,
-    "ast_hash": "a82c883b7f563e0c0e3662eed86314c0",
+    "mtime": 1788800452.4702442,
+    "ast_hash": "86608a27ff6f1a1a46fb79e5f2557bcc",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3475,8 +3475,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/GanguesCombat.jsx": {
-    "mtime": 1788797921.491827,
-    "ast_hash": "05d44b2061be9fd9a3839ce8cf2a8370",
+    "mtime": 1788800378.7063508,
+    "ast_hash": "4387585e5f72cd75f0142b54895d2dfa",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/GanguesCreate.jsx": {
@@ -3550,18 +3550,18 @@
     "semantic_hash": ""
   },
   "src/i18n/gangues-en.json": {
-    "mtime": 1788798794.210146,
-    "ast_hash": "fcb6974cbe3db3af85b3e98322ffe01b",
+    "mtime": 1788800409.6569605,
+    "ast_hash": "ab4f59e7a947afba288b34b9a40c3694",
     "semantic_hash": ""
   },
   "src/i18n/gangues-es.json": {
-    "mtime": 1788798804.2327654,
-    "ast_hash": "bc4beb25e6df6d697bfe5d0e00ffdd8a",
+    "mtime": 1788800413.929778,
+    "ast_hash": "447b63ae43cb9cc1d0bf1b0a0135849e",
     "semantic_hash": ""
   },
   "src/i18n/gangues-pt.json": {
-    "mtime": 1788798785.3991725,
-    "ast_hash": "3468cc2fa851e0b9ca1e224eeb62a9ae",
+    "mtime": 1788800405.3730764,
+    "ast_hash": "cbfcf8d07ee8d37c439186b525ece10f",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/hooks/useGanguesI18n.js": {

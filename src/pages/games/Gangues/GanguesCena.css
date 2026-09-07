@@ -176,9 +176,16 @@
    pode passar da altura da tela, então rola por dentro. */
 .gang-cena-ficha-scroll {
   max-height: 84dvh; overflow-y: auto;
-  padding: 6px 12px 12px; background: linear-gradient(160deg, #0d151b, #070a0d 72%);
+  padding: 0 12px 12px; background: linear-gradient(160deg, #0d151b, #070a0d 72%);
   border: 1px solid #26383d;
   clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%);
+}
+/* Navegação (ANTERIOR / FECHAR / PRÓXIMO) fixa no topo do modal — é o que o
+   jogador mais usa ao passar de ficha em ficha, não pode ficar no fim do scroll. */
+.gang-cena-ficha-nav {
+  position: sticky; top: 0; z-index: 3;
+  margin: 0 -12px 10px; padding: 10px 12px;
+  background: #0c141a; border-bottom: 1px solid #26383d;
 }
 .gang-cena-enc {
   position: relative;
