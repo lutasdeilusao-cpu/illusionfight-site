@@ -1,7 +1,7 @@
 /* ══════════════════════════════════════════════════════════════
    MODO HISTÓRIA — A Pista como CENA navegável
    (protótipo da proposta em src/pages/games/Gangues/GANGUES_MODO_HISTORIA_ENCONTROS.md;
-   lore canônica em docs/Games/Gangues/MARELIA_BIBLIA.md)
+   lore canônica em docs/Games/Gangues/LDI_GANGUES_GDD.md)
 
    O bairro deixa de ser "trilha de nós" e vira uma rua desenhada com
    PINOS (POIs). Cada POI tem um TIPO e um estado
