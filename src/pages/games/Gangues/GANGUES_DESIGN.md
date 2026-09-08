@@ -179,7 +179,7 @@ própria). Painel visual em `GanguesLobby.jsx` (seção `.gang-progression` do C
   ativas equipadas usar em cada ataque (chips acima do botão ATACAR em `GanguesCombat.jsx`,
   custam PM ou % do próprio PV, desabilitados se não for possível pagar). Os 25 poderes do
   Atacante seguem o design detalhado em
-  `docs/Games/Gangues/GANGUES_PROGRESSAO_RASCUNHO.md`, com **algumas simplificações** pra caber
+  `src/pages/games/Gangues/GANGUES_PROGRESSAO_RASCUNHO.md`, com **algumas simplificações** pra caber
   no modelo de 1 ação por turno sem fila de status (ex.: Marca/Fratura de Ilusão/Ponto de Pressão
   viraram bônus de dano imediato em vez de efeito com duração; Investida e Fôlego Final
   perderam a manipulação da ordem de turno). Os 50 poderes de Defensor/Místico **não têm design

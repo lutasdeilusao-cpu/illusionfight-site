@@ -108,7 +108,7 @@ Sistema separado da criação: depois que a ficha já existe, ela evolui com XP 
   com duração; Investida e Fôlego Final perderam a parte de furar a ordem de turno/ganhar ação
   extra. O efeito líquido (mais dano, ignora defesa, etc.) foi mantido — o "como" foi
   simplificado. Detalhe de cada mapeamento em
-  `docs/Games/Gangues/GANGUES_PROGRESSAO_RASCUNHO.md`.
+  `src/pages/games/Gangues/GANGUES_PROGRESSAO_RASCUNHO.md`.
 - **Defensor e Místico (50 poderes) ainda não têm design próprio** — nunca tiveram (só existiam
   nomes desde antes). Pra não ficarem inertes, usam um template genérico: passivo dá bônus fixo
   de atributo (+1/+2/+3 por nível), ativo custa PM por dano ou redução de dano fixos. Isso
