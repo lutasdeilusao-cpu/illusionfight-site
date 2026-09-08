@@ -42,6 +42,13 @@ tem "Marelia" sem acento em vários lugares — alinhar quando mexer em texto.
 | 101–999 | Equipamento |
 | 10000+ | Cartas de socket (sistema futuro) |
 
+> **✅ IMPLEMENTADO (v2.66.0, 2026-09-08).** `data/gangues-enemies.json` tem as
+> 106 fichas com id numérico + bloco `album`; `data/ganguesInimigos.js` é o
+> módulo-catálogo (alias string→id p/ saves antigos, cargos, helpers). Tela
+> `GanguesAlbum.jsx` acessível pelo lobby. Crosswalk string→id em §5.7. As 70
+> fichas novas têm stats por fórmula (cargo × território) e trash_talk genérico
+> por cargo — calibrar jogando.
+>
 > **O álbum se organiza por CARGO, não por bairro.** Cada bairro tem inimigos em
 > vários níveis de cargo; a UI do álbum tem abas por cargo
 > (Vigia → Vapor → Gerente → Cobrador → General → Ranking), cada uma enchendo
