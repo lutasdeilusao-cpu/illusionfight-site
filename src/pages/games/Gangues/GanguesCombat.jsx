@@ -494,6 +494,16 @@ export default function GanguesCombat({ onNavigate }) {
 
   return (
     <div className="gang-combat gang-container">
+      {/* Saída do automático — direto no .gang-combat (fora do wrapper que
+          treme no crítico) e com z-index acima de TODOS os overlays
+          (dado/KO/resultado usam 9999). Aparece sempre que o auto está
+          ligado; um toque volta pro manual (a ação em andamento resolve
+          sozinha, o efeito de auto-ataque para de enfileirar). */}
+      {!modoMultidaoAtivo && modoAutoOn && !result && (
+        <button type="button" className="gang-auto-sair" onClick={() => setModoAutoOn(false)}>
+          <b>■</b>{t('games.gangues.auto.sair')}
+        </button>
+      )}
       <AnimatePresence>
         {koCena && (
           <motion.div
@@ -797,16 +807,6 @@ export default function GanguesCombat({ onNavigate }) {
       )}
 
       {!modoMultidaoAtivo && machine.phase === 'player' && !result && <GanguesCombatTutorial />}
-
-      {/* Saída do automático — flutua acima de tudo enquanto o auto está
-          ligado (não só na vez do jogador). Um toque volta pro manual; a
-          ação/round em andamento resolve sozinho (o efeito de auto-ataque
-          já para de enfileirar assim que modoAutoOn vira false). */}
-      {!modoMultidaoAtivo && modoAutoOn && !result && (
-        <button type="button" className="gang-auto-sair" onClick={() => setModoAutoOn(false)}>
-          <b>■</b>{t('games.gangues.auto.sair')}
-        </button>
-      )}
 
       {!modoMultidaoAtivo && machine.phase === 'player' && !result && (
         <GanguesActionOrb

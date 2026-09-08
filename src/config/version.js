@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.279.14'
+export const SITE_VERSION = '10.279.15'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '2.65.0' // feat: critico agora tem som proprio (sfx.attackCritical) + shake de tela (.gang-combat-fx--shake, wrapper novo pra nao reparentar os overlays fixos) toda vez que um golpe critico resolve. KO do ALIADO fica 3s na tela (era 1.7s) - pra ficar bem sinalizado; KO de inimigo caiu pra 1.5s (rapidinho, pedido do Isaias).
+export const GANGUES_VERSION   = '2.65.1' // fix: botao 'Sair do automatico' ficava atras do overlay do dado (DramaticDice z-index 9999). Movido pra fora do .gang-combat-fx (o wrapper que treme no critico) e z-index subiu pra 10000 - agora aparece por cima de TUDO (dado, KO, resultado).
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
 export const MINIGAMES_VERSION = '4.3.4'  // Glitch: safe-area lateral no grid-wrap

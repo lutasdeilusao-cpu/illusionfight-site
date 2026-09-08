@@ -2136,11 +2136,11 @@
   letter-spacing: 0.1em; text-transform: uppercase; text-align: center;
 }
 
-/* Botão de saída do modo automático — flutua acima de TUDO (inclusive o
-   overlay de KO, z-index 1300), sempre presente enquanto o auto está ligado.
-   Um toque = volta pro manual (a ação em andamento termina sozinha). */
+/* Botão de saída do modo automático — flutua acima de TUDO (KO, dado e tela
+   de resultado usam z-index 9999), sempre presente enquanto o auto está
+   ligado. Um toque = volta pro manual (a ação em andamento termina sozinha). */
 .gang-auto-sair {
-  position: fixed; z-index: 1450; top: 60px; left: 50%; transform: translateX(-50%);
+  position: fixed; z-index: 10000; top: 60px; left: 50%; transform: translateX(-50%);
   display: flex; align-items: center; gap: 8px;
   padding: 9px 16px; cursor: pointer;
   border: 1px solid #ff5a5a; background: linear-gradient(160deg, #3a0e0e, #1c0606 85%);
