@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1788900361.7324,
-    "ast_hash": "ef5b84892fe5ef7dba5bf313bcc462f6",
+    "mtime": 1788901059.5292194,
+    "ast_hash": "c632c881d4b1b6b982dd88104cad8238",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2745,8 +2745,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1788900361.7872963,
-    "ast_hash": "e62c1f08e7db1211eafd0e4060a816e3",
+    "mtime": 1788901059.562097,
+    "ast_hash": "37e940eb7406ce2e4eafd8108b325645",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3505,8 +3505,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/gangues-enemies.json": {
-    "mtime": 1788891365.863327,
-    "ast_hash": "59040249a4067993c7d4c541ba9dbff9",
+    "mtime": 1788901036.4752116,
+    "ast_hash": "ef4800a05027bbb8bad296cee8a426f4",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/ganguesLoadout.js": {
@@ -3550,18 +3550,18 @@
     "semantic_hash": ""
   },
   "src/i18n/gangues-en.json": {
-    "mtime": 1788891365.8715053,
-    "ast_hash": "2e0e357f195a8c6771eaa07c03791888",
+    "mtime": 1788900976.5840964,
+    "ast_hash": "b61253b6d8daf79716dd7900ab11cb84",
     "semantic_hash": ""
   },
   "src/i18n/gangues-es.json": {
-    "mtime": 1788891365.8765063,
-    "ast_hash": "f382ff5d04886c14d05db4c51a32f456",
+    "mtime": 1788900976.594712,
+    "ast_hash": "c0bb7845bd1afc6895c23235f02517f6",
     "semantic_hash": ""
   },
   "src/i18n/gangues-pt.json": {
-    "mtime": 1788891365.8675058,
-    "ast_hash": "9feed8cf33abba90dd8a4b216901e5fe",
+    "mtime": 1788901036.4692056,
+    "ast_hash": "b7b6ddee0c3fcf01682606f76fc32d7b",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/hooks/useGanguesI18n.js": {
@@ -4745,8 +4745,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/GanguesCena.jsx": {
-    "mtime": 1788809683.5607867,
-    "ast_hash": "bb3df47ceaae0c6aec01970036bb2316",
+    "mtime": 1788901018.9222443,
+    "ast_hash": "129dd668c7623522733339cf57cb5b39",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/cena/GanguesDescanso.jsx": {
@@ -4765,8 +4765,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/cenas/pista.js": {
-    "mtime": 1788900284.7137518,
-    "ast_hash": "0c611fa7390e4f319c0ae5fbf0ff82e3",
+    "mtime": 1788900976.4815044,
+    "ast_hash": "11ddd3dc3c009e3f4dac82677ebcaad3",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/store/ganguesStoryProgress.js": {
@@ -4885,8 +4885,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/GANGUES_MODO_HISTORIA_ENCONTROS.md": {
-    "mtime": 1788900336.352525,
-    "ast_hash": "dae79c494e3d7de0e6d1b1f4888708ea",
+    "mtime": 1788901044.893292,
+    "ast_hash": "61a9e4272576329ab2cca8bec7799f60",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/GANGUES_PROGRESSAO_RASCUNHO.md": {
@@ -4895,8 +4895,8 @@
     "semantic_hash": ""
   },
   "docs/Games/Gangues/LDI_GANGUES_GDD.md": {
-    "mtime": 1788900353.5490158,
-    "ast_hash": "4614e2aefe24daf43d9a185b98b2562c",
+    "mtime": 1788901044.9302974,
+    "ast_hash": "53edb9e8ecd8b83299304f9183b644e7",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/GanguesAlbum.jsx": {

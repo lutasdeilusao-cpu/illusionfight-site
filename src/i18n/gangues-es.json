@@ -1380,7 +1380,7 @@
         "title_initial": "FORMA TU BANDA",
         "title": "RECLUTAR MIEMBRO",
         "subtitle_initial": "Cinco nombres respondieron al llamado. Examina sus fichas y marca a los dos que fundarán la banda.",
-        "subtitle": "Nuevos nombres llegaron a Marelia. Examina la ficha y elige quién merece tu marca.",
+        "subtitle": "Nuevos nombres llegaron a Marélia. Examina la ficha y elige quién merece tu marca.",
         "candidates": "Candidatos disponibles",
         "previous": "Luchador anterior",
         "next": "Siguiente luchador",
@@ -1866,12 +1866,12 @@
       "story": {
         "new_campaign": "INICIAR NUEVA CAMPAÑA",
         "entry": "Modo historia",
-        "entry_desc": "Toma Marelia barrio por barrio. De rata de calle a la Azotea.",
-        "titulo": "MARELIA SIN DUEÑO",
-        "sub": "Antes de Alan, nadie sostenía Marelia. Una ganga en cada esquina, cada una creyendo que mandaba en el mundo porque mandaba en una calle. Un tipo — el Retazo — casi lo junta todo. Casi. Ahora te toca a ti.",
-        "dominio": "de Marelia",
+        "entry_desc": "Toma Marélia barrio por barrio. De rata de calle a la Azotea.",
+        "titulo": "MARÉLIA SIN DUEÑO",
+        "sub": "Antes de Alan, nadie sostenía Marélia. Una ganga en cada esquina, cada una creyendo que mandaba en el mundo porque mandaba en una calle. Un tipo — el Retazo — casi lo junta todo. Casi. Ahora te toca a ti.",
+        "dominio": "de Marélia",
         "menu": "Menú",
-        "world_title": "Mapa de Marelia",
+        "world_title": "Mapa de Marélia",
         "world_hint": "Tocá una región del mapa",
         "disponivel": "Ruta abierta",
         "anterior": "Territorio anterior",
@@ -1927,7 +1927,7 @@
           },
           "turco": {
             "nome": "El Cobrador",
-            "fala": "Marelia entera me debe. Ahora {suaGangue} también. Y aquí el que no paga en plata paga en hueso."
+            "fala": "Marélia entera me debe. Ahora {suaGangue} también. Y aquí el que no paga en plata paga en hueso."
           },
           "espeto": {
             "nome": "Perfora-Tripas",
@@ -1947,13 +1947,13 @@
           },
           "costura": {
             "nome": "El Retazo",
-            "fala": "Marelia entera fue mía una vez. Seis barrios en la mano, la Azotea bajo los pies. Pero esto no cose — ni yo la sostuve. Sube y te lo muestro a la mala."
+            "fala": "Marélia entera fue mía una vez. Seis barrios en la mano, la Azotea bajo los pies. Pero esto no cose — ni yo la sostuve. Sube y te lo muestro a la mala."
           }
         },
         "territorios": {
           "pista": {
             "nome": "La Pista",
-            "desc": "El asfalto de abajo. Pibes que corren en el semáforo, arrancan cadenas, venden chicle. Nadie importante — pero todos empiezan aquí. Alan también."
+            "desc": "El asfalto de abajo. Pibes que corren en el semáforo, arrancan cadenas, venden chicle. La Rato de Pista sin ambición, el Bonde do Sinal vendiendo lo que ve. Nadie importante — pero todos empezaron aquí. El Retazo. Alan, en otro rincón. Y ahora vos."
           },
           "feira": {
             "nome": "La Feria",
@@ -1977,7 +1977,7 @@
           },
           "laje": {
             "nome": "La Azotea",
-            "desc": "La cima. De un lado, Marelia entera mirando. Del otro, el Retazo — el único que sostuvo seis barrios a la vez. Aquí se descubre si se pueden sostener siete."
+            "desc": "La cima. De un lado, Marélia entera mirando. Del otro, el Retazo — el único que sostuvo seis barrios a la vez. Aquí se descubre si se pueden sostener siete."
           }
         },
         "falas": {
@@ -1985,17 +1985,17 @@
         },
         "abertura": [
           "Siéntate que te explico cómo funciona.",
-          "Marelia no tiene dueño. Una ganga en cada callejón, cada una creyendo que manda en el mundo porque manda en una calle.",
+          "Marélia no tiene dueño. Una ganga en cada callejón, cada una creyendo que manda en el mundo porque manda en una calle.",
           "¿Quieres subir? Empieza en la Pista, abajo. Toma los puntos de las gangas chicas, después encara al duro de la zona — el de la bandera.",
           "Tomas el barrio, se abre el de arriba. Barrio por barrio hasta la Azotea.",
-          "Arriba hay un tipo del que nadie sabe el nombre de verdad. Solo le dicen El Retazo. Juntó seis barrios bajo una bandera. Nadie llegó más cerca de ser dueño de Marelia.",
+          "Arriba hay un tipo del que nadie sabe el nombre de verdad. Solo le dicen El Retazo. Juntó seis barrios bajo una bandera. Nadie llegó más cerca de ser dueño de Marélia.",
           "Vas a tener que pasar por él. Suerte, pibe — la vas a necesitar."
         ],
         "final": {
           "code": "LA SUBIDA TERMINA AQUÍ",
-          "titulo": "MARELIA NO COSE",
+          "titulo": "MARÉLIA NO COSE",
           "paragrafos": [
-            "{gangue} tumbó al Retazo en la Azotea. Marelia entera lo vio.",
+            "{gangue} tumbó al Retazo en la Azotea. Marélia entera lo vio.",
             "Y ahí entendiste lo que él ya sabía. Dos semanas y el mapa estaba partido otra vez — barrios para un lado, puntos para el otro. Nadie sostiene esta ciudad. Él no. Tú tampoco.",
             "Años después un pibe de pelo raro iba a lograr lo que ninguno de los dos pudo. Se llamaba Alan. Pero esa es otra historia — y estás en ella, justo al principio."
           ]
@@ -2008,18 +2008,18 @@
         "jogar": "Jugar",
         "historia_titulo": "MODO HISTORIA",
         "historia_tag": "Campaña",
-        "historia_desc": "Sube el Cerro. Domina Marelia escalón por escalón — cada territorio hasta el jefe, con progreso guardado.",
+        "historia_desc": "Sube el Cerro. Domina Marélia escalón por escalón — cada territorio hasta el jefe, con progreso guardado.",
         "batalha_titulo": "MODO BATALLA",
         "batalha_tag": "Suelto",
         "batalha_desc": "Un enfrentamiento rápido 2×2 contra el oponente que elijas. Sin progreso en el mapa.",
         "dupla_da_gangue": "El dúo de {gangue}",
         "ver_escalacao": "Ver alineación · {n}/6",
         "escalacao": "Tu pandilla",
-        "marelia": "MARELIA",
+        "marelia": "MARÉLIA",
         "intro": "Tu pandilla ha nacido. Ahora toma las calles, territorio por territorio.",
         "comecar_historia": "COMENZAR LA HISTORIA",
         "bloqueado": "Bloqueado",
-        "batalha_bloqueada_desc": "Los combates sueltos llegarán en una actualización futura. Primero, construye tu historia en Marelia.",
+        "batalha_bloqueada_desc": "Los combates sueltos llegarán en una actualización futura. Primero, construye tu historia en Marélia.",
         "em_breve": "PRÓXIMAMENTE",
         "multiplayer_titulo": "MULTIJUGADOR ONLINE",
         "multiplayer_tag": "En grupo",
@@ -2028,8 +2028,8 @@
       "naming": {
         "titulo": "FUNDA TU GANGA",
         "titulo_editar": "RENOMBRAR LA GANGA",
-        "sub": "Los personajes importan. Pero es el nombre de la ganga el que resuena — el que los enemigos escupen, el que va a dominar Marelia.",
-        "poster_pitch": "Cada calle conoce un nombre. Elige el que Marelia aprenderá a respetar.",
+        "sub": "Los personajes importan. Pero es el nombre de la ganga el que resuena — el que los enemigos escupen, el que va a dominar Marélia.",
+        "poster_pitch": "Cada calle conoce un nombre. Elige el que Marélia aprenderá a respetar.",
         "label": "Nombre de la ganga",
         "placeholder": "Ej: La Banda del Fin de Línea",
         "exemplos": "Ideas:",
@@ -2039,7 +2039,7 @@
         "sugestao_sindicato": "Sindicato del Callejón",
         "sugestao_quebrada": "Barrio Nuevo",
         "preview": "«{nome} está subiendo el cerro.»",
-        "preview_vazio": "El nombre que Marelia entera aprenderá a temer.",
+        "preview_vazio": "El nombre que Marélia entera aprenderá a temer.",
         "fundar": "FUNDAR LA GANGA",
         "salvar": "GUARDAR",
         "renomear": "renombrar",
@@ -2052,7 +2052,7 @@
       "dialogo": {
         "voz": "Voz del barrio",
         "veio_nome": "Nego Viejo",
-        "veio_sub": "el veterano de la esquina",
+        "veio_sub": "el veterano de la esquina, dueño del bar",
         "pular": "saltar",
         "proximo": "seguir",
         "fechar": "entendido",
@@ -2095,90 +2095,93 @@
         "descanso_curar": "Descansar (−{grana})",
         "pista": {
           "chegada": [
-            "Esto es la Pista, pibe. El asfalto de abajo.",
-            "Tomá los puntos de las bandas chicas, hacé tu nombre, y cuando toda la calle te conozca Carbón baja a encararte.",
+            "Esto es la Pista, pibe. El asfalto de abajo — donde empieza todo.",
+            "Acá todos empezaron. El Retazo empezó acá. Alan, en otro rincón, también. Ahora te toca a vos.",
+            "Tomá los puntos de la pibada, hacé tu nombre en la calle. Cuando toda la Pista sepa tu nombre, Carbón baja de la oscuridad a encararte.",
             "Andá. Tocá lo que se prenda."
           ],
           "sinal": {
             "nome": "La esquina del semáforo",
-            "sub": "pibe vendiendo caramelos",
+            "sub": "pibe vendiendo caramelos, mirando todo",
             "fala": [
-              "¿Sos de la banda nueva? Estás loco de bajar acá solo.",
-              "Mirá, yo veo todo desde este semáforo. ¿Querés saber algo? Cambiá una idea — o unas monedas."
+              "¿Sos de la banda nueva? Bajaste a la Pista sin nadie atrás. Valiente o boludo — ya voy a saber.",
+              "Acá no vendemos solo caramelos. Vendemos lo que vemos desde este semáforo. Y vemos todo. ¿Querés saber algo? Cambiá una idea — o unas monedas."
             ],
             "escolhas": {
               "compra": {
-                "label": "Comprá el caramelo y escuchá lo que sabe",
-                "resultado": "Se guarda las monedas. \"El depósito de chatarra de ahí, el portón es solo un candado. Adentro hay cosa buena.\""
+                "label": "Comprá el caramelo y escuchá lo que vio",
+                "resultado": "Se guarda las monedas. \"El depósito de chatarra ahí adelante. El portón es solo un candado viejo. Adentro hay chatarra que vale plata — y lo que el dueño guardó bajo llave antes de desaparecer de la Pista.\""
               },
               "aperta": {
                 "label": "Apretá al pibe para que hable gratis"
               },
               "ignora": {
                 "label": "Ignoralo y seguí subiendo",
-                "resultado": "Pasás de largo. El pibe escupe al piso. Se ve un depósito de chatarra más adelante."
+                "resultado": "Pasás de largo. El pibe escupe y se guarda tu cara. Se ve un depósito de chatarra más adelante."
               }
             }
           },
           "ferro": {
             "nome": "El depósito de chatarra",
-            "sub": "portón con candado",
-            "intro": "El portón es solo cadena y un candado viejo. El equipo se junta en la ganzúa — el que tiene mano buena labura, el resto vigila al sereno."
+            "sub": "portón con candado, un secreto adentro",
+            "intro": "El portón es solo cadena y un candado viejo. La banda se junta en la ganzúa — el que tiene mano buena labura, el resto vigila al sereno. Adentro hay chatarra que vale plata... y algo que el dueño guardó bajo llave antes de desaparecer de la Pista."
           },
           "beco": {
-            "nome": "El callejón de la Traición",
-            "fala": "Este callejón es nuestro, socio. La banda nueva no pasa gratis."
+            "nome": "El callejón de la Rasteira",
+            "sub": "punto de la Rato de Pista",
+            "fala": "Este callejón es de la Rato de Pista, socio. No queremos subir, no queremos tu barrio — solo no queremos que nos pisen. Y a la banda nueva que baja acá la pisan."
           },
           "rinha": {
             "nome": "La riña del callejón",
-            "fala": "Siempre hay alguien acá queriendo probar suerte. Dale, las veces que aguantes."
+            "sub": "apuesta clandestina",
+            "fala": "Rueda de apuestas en el fondo del callejón. El que entra, come piña o cobra. Siempre hay alguno que quiere probar la mano contra la banda nueva — dale, las veces que aguantes."
           },
           "birosca": {
             "nome": "El bar de Don Nato",
-            "sub": "el veterano de la esquina",
+            "sub": "el veterano de la esquina — el único adulto de la Pista en quien confiar",
             "fala": [
               "Sentate. Tomá un mate. Estás subiendo demasiado rápido para alguien que nadie conoce.",
-              "Te digo dónde se mete Carbón. Pero antes hacéme un mandado — llevá un paquete al otro lado sin que el patrullero te vea.",
-              "Después de eso la Pista te respeta. Y el bar queda abierto para que tu banda descanse."
+              "Sé dónde se mete Carbón cuando desaparece en la oscuridad. Te digo. Pero antes hacéme un mandado — llevá un paquete al otro lado sin que el haz del patrullero te agarre.",
+              "Hacé eso y la Pista te respeta. Y el bar queda abierto para que tu banda descanse."
             ],
             "escolhas": {
               "aceita_corre": {
                 "label": "Aceptá el mandado de Nato",
-                "resultado": "\"Cerrado. El paquete está atrás del mostrador. Y el otro punto de la Traición es subiendo a la derecha.\""
+                "resultado": "\"Cerrado. El paquete está atrás del mostrador. Y el otro punto de la Rasteira es subiendo a la derecha.\""
               },
               "so_papo": {
                 "label": "Solo querés la información",
-                "resultado": "\"Terco. Entonces al hueso: el otro punto de la Traición está allá arriba. Tomá los dos y aparece Carbón.\""
+                "resultado": "\"Terco. Entonces al hueso: el otro punto de la Rasteira está allá arriba. Tomá los dos y aparece Carbón.\""
               }
             }
           },
           "informante": {
             "nome": "Duda, la Oreja",
-            "sub": "sabe todo lo que pasa en Marelia",
+            "sub": "sabe todo lo que pasa en Marélia antes de ser rumor",
             "fala": [
-              "¿Volviste a la Pista? Bien. Todo lo que pasa en Marelia pasa por acá antes de ser rumor.",
-              "Hay algo pasando en la Feria que la gente de allá no te va a contar gratis."
+              "¿Volviste a la Pista? Eso es la Pista: todo lo que pasa en Marélia pasa por acá antes de ser rumor. Y yo escucho todo.",
+              "Hay algo en la Feria que la gente de allá no te cuenta gratis. El Cobrador está agazapado."
             ],
             "escolhas": {
               "perguntar": {
                 "label": "Preguntá sobre la Feria",
-                "resultado": "\"El Cobrador solo sale del escondite si sabe que ya le dieron una paliza a sus matones. Andá, resolvé eso, y volvé si necesitás algo más.\""
+                "resultado": "\"El Cobrador solo sale del escondite si sabe que ya le dieron una paliza a sus matones. Andá a la Feria, resolvé los puntos — después volvé si necesitás más.\""
               }
             }
           },
           "corre": {
             "nome": "El mandado de Nato",
-            "sub": "llevá el paquete",
-            "intro": "Cruzá la cuadra con el paquete sin entrar en el haz del patrullero. El equipo se abre y te cubre."
+            "sub": "llevá el paquete sin que el patrullero vea",
+            "intro": "Cruzá la cuadra con el paquete sin entrar en el haz del patrullero. La banda se abre y te cubre. Es el precio de la información de Nato — y de la paz en la Pista."
           },
           "beco_2": {
-            "nome": "El otro punto de la Traición",
-            "fala": "¿¿Vos de nuevo?? ¿Tomaste el callejón de abajo y pensaste que acá también iba a ser fácil?"
+            "nome": "El otro punto de la Rasteira",
+            "fala": "¿Vos de nuevo? Tomaste el callejón de abajo y pensaste que la Pista se iba a abrir para vos. La Rato de Pista cambia de dueño todas las semanas — pero no para una banda nueva."
           },
           "descanso": {
             "nome": "Descanso en el bar",
             "sub": "mate, pan y tranquilidad",
-            "intro": "Un rato sentado, lejos de la calle. Cuesta unas monedas, pero la banda vuelve entera."
+            "intro": "Un rato sentado, lejos de la calle, en el bar de Nato. Cuesta unas monedas, pero la banda vuelve entera."
           },
           "loja": {
             "nome": "Tienda de la Pista"

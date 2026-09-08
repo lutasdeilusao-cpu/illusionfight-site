@@ -1380,7 +1380,7 @@
         "title_initial": "BUILD YOUR GANG",
         "title": "RECRUIT MEMBER",
         "subtitle_initial": "Five names answered the call. Examine their sheets and mark the two who will found the gang.",
-        "subtitle": "New names have reached Marelia. Examine the sheet and choose who deserves your mark.",
+        "subtitle": "New names have reached Marélia. Examine the sheet and choose who deserves your mark.",
         "candidates": "Available candidates",
         "previous": "Previous fighter",
         "next": "Next fighter",
@@ -1866,12 +1866,12 @@
       "story": {
         "new_campaign": "START NEW CAMPAIGN",
         "entry": "Story mode",
-        "entry_desc": "Take Marelia block by block. From street rat to the Rooftop.",
-        "titulo": "MARELIA HAS NO KING",
-        "sub": "Before Alan, nobody held Marelia. A gang on every corner, each one sure it ran the world because it ran one street. One guy — the Patchwork — almost pulled it all together. Almost. Now it's your turn to try.",
-        "dominio": "of Marelia",
+        "entry_desc": "Take Marélia block by block. From street rat to the Rooftop.",
+        "titulo": "MARÉLIA HAS NO KING",
+        "sub": "Before Alan, nobody held Marélia. A gang on every corner, each one sure it ran the world because it ran one street. One guy — the Patchwork — almost pulled it all together. Almost. Now it's your turn to try.",
+        "dominio": "of Marélia",
         "menu": "Menu",
-        "world_title": "Marelia Map",
+        "world_title": "Marélia Map",
         "world_hint": "Tap a region on the map",
         "disponivel": "Route open",
         "anterior": "Previous territory",
@@ -1927,7 +1927,7 @@
           },
           "turco": {
             "nome": "The Collector",
-            "fala": "All of Marelia owes me. Now {suaGangue} does too. Round here, whoever can't pay in cash pays in bone."
+            "fala": "All of Marélia owes me. Now {suaGangue} does too. Round here, whoever can't pay in cash pays in bone."
           },
           "espeto": {
             "nome": "Gut-Stabber",
@@ -1947,13 +1947,13 @@
           },
           "costura": {
             "nome": "The Patchwork",
-            "fala": "All of Marelia was mine once. Six blocks in hand, the Rooftop under my feet. But this thing won't stitch — not even I held it. Come up here and I'll show you the hard way."
+            "fala": "All of Marélia was mine once. Six blocks in hand, the Rooftop under my feet. But this thing won't stitch — not even I held it. Come up here and I'll show you the hard way."
           }
         },
         "territorios": {
           "pista": {
             "nome": "The Track",
-            "desc": "The asphalt down below. Kids darting the light, snatching chains, selling gum. Nobody important — but everyone starts here. Alan did too."
+            "desc": "The asphalt down below. Kids darting the light, snatching chains, selling gum. Rato de Pista with no ambition, Bonde do Sinal selling what it sees. Nobody important — but everyone started here. The Patchwork. Alan, in another corner. And now you."
           },
           "feira": {
             "nome": "The Market",
@@ -1977,7 +1977,7 @@
           },
           "laje": {
             "nome": "The Rooftop",
-            "desc": "The top. On one side, all of Marelia watching. On the other, the Patchwork — the only one who ever held six blocks at once. This is where you find out if seven can be held."
+            "desc": "The top. On one side, all of Marélia watching. On the other, the Patchwork — the only one who ever held six blocks at once. This is where you find out if seven can be held."
           }
         },
         "falas": {
@@ -1985,17 +1985,17 @@
         },
         "abertura": [
           "Sit down, I'll tell you how this works.",
-          "Marelia has no king. A gang in every alley, each one thinking it rules the world 'cause it rules one street.",
+          "Marélia has no king. A gang in every alley, each one thinking it rules the world 'cause it rules one street.",
           "Want to rise? Start on the Track, down below. Take the small gangs' spots, then face the region's heavy — the one holding the flag.",
           "Take the block, the next one opens. Block by block up to the Rooftop.",
-          "Up top there's someone nobody knows the real name of. They just call him the Patchwork. He once pulled six blocks under one flag. Nobody ever came closer to owning Marelia.",
+          "Up top there's someone nobody knows the real name of. They just call him the Patchwork. He once pulled six blocks under one flag. Nobody ever came closer to owning Marélia.",
           "You'll have to go through him. Good luck, kid — you'll need it."
         ],
         "final": {
           "code": "THE CLIMB ENDS HERE",
-          "titulo": "MARELIA WON'T STITCH",
+          "titulo": "MARÉLIA WON'T STITCH",
           "paragrafos": [
-            "{gangue} put the Patchwork down on the Rooftop. All of Marelia saw it.",
+            "{gangue} put the Patchwork down on the Rooftop. All of Marélia saw it.",
             "And then you understood what he already knew. Two weeks and the map was split again — blocks pulling one way, spots pulling another. Nobody holds this city. He didn't. You didn't.",
             "Years later a kid with weird hair would do what neither of you could. His name was Alan. But that's another story — and you're in it, right at the start."
           ]
@@ -2008,18 +2008,18 @@
         "jogar": "Play",
         "historia_titulo": "STORY MODE",
         "historia_tag": "Campaign",
-        "historia_desc": "Climb the Hill. Take Marelia one step at a time — every turf up to the boss, progress saved.",
+        "historia_desc": "Climb the Hill. Take Marélia one step at a time — every turf up to the boss, progress saved.",
         "batalha_titulo": "BATTLE MODE",
         "batalha_tag": "One-off",
         "batalha_desc": "A quick 2×2 fight against the opponent you pick. No map progress.",
         "dupla_da_gangue": "{gangue}'s duo",
         "ver_escalacao": "View lineup · {n}/6",
         "escalacao": "Your gang",
-        "marelia": "MARELIA",
+        "marelia": "MARÉLIA",
         "intro": "Your gang is born. Now take the streets, one territory at a time.",
         "comecar_historia": "START THE STORY",
         "bloqueado": "Locked",
-        "batalha_bloqueada_desc": "One-off battles will arrive in a future update. First, build your story in Marelia.",
+        "batalha_bloqueada_desc": "One-off battles will arrive in a future update. First, build your story in Marélia.",
         "em_breve": "COMING SOON",
         "multiplayer_titulo": "ONLINE MULTIPLAYER",
         "multiplayer_tag": "Group",
@@ -2028,8 +2028,8 @@
       "naming": {
         "titulo": "FOUND YOUR GANG",
         "titulo_editar": "RENAME THE GANG",
-        "sub": "The fighters matter. But it's the gang's name that echoes — the one enemies spit out, the one that takes Marelia.",
-        "poster_pitch": "Every street knows a name. Choose the one Marelia will learn to respect.",
+        "sub": "The fighters matter. But it's the gang's name that echoes — the one enemies spit out, the one that takes Marélia.",
+        "poster_pitch": "Every street knows a name. Choose the one Marélia will learn to respect.",
         "label": "Gang name",
         "placeholder": "e.g. End of the Line Crew",
         "exemplos": "Ideas:",
@@ -2039,7 +2039,7 @@
         "sugestao_sindicato": "Alley Syndicate",
         "sugestao_quebrada": "New Block",
         "preview": "\"{nome} is coming up the hill.\"",
-        "preview_vazio": "The name all of Marelia will learn to fear.",
+        "preview_vazio": "The name all of Marélia will learn to fear.",
         "fundar": "FOUND THE GANG",
         "salvar": "SAVE",
         "renomear": "rename",
@@ -2052,7 +2052,7 @@
       "dialogo": {
         "voz": "A voice from the block",
         "veio_nome": "Old Nego",
-        "veio_sub": "the corner elder",
+        "veio_sub": "the corner elder, owner of the bar",
         "pular": "skip",
         "proximo": "go on",
         "fechar": "got it",
@@ -2095,93 +2095,96 @@
         "descanso_curar": "Rest (−{grana})",
         "pista": {
           "chegada": [
-            "This is the Track, kid. The asphalt down below.",
-            "Take the little gangs' spots, make your name, and when the whole street knows you Coal comes down to face you.",
+            "This is the Pista, kid. The asphalt down below — where everything starts.",
+            "Everyone started here. The Patchwork started here. Alan, in another corner, too. Now it's your turn.",
+            "Take the kids' spots, make your name on the street. When the whole Pista knows your name, Coal comes down out of the dark to face you.",
             "Move. Tap whatever lights up."
           ],
           "sinal": {
             "nome": "The stoplight corner",
-            "sub": "kid selling candy",
+            "sub": "kid selling candy, watching everything",
             "fala": [
-              "You with the new gang? You're crazy coming down here alone.",
-              "Look, I see everything from this light. Want to know something, trade a word — or some change."
+              "You with the new gang? Came down to the Pista with nobody behind you. Brave or dumb — I'll find out.",
+              "We don't just sell candy here. We sell what we see from this light. And we see everything. Want to know something? Trade a word — or some change."
             ],
             "escolhas": {
               "compra": {
-                "label": "Buy the candy and hear what he knows",
-                "resultado": "He pockets the change. \"The junkyard over there, the gate's just a padlock. Good stuff inside.\""
+                "label": "Buy the candy and hear what he saw",
+                "resultado": "He pockets the change. \"The junkyard up ahead. Gate's just an old padlock. Inside there's scrap worth money — and whatever the owner locked away before he vanished off the Pista.\""
               },
               "aperta": {
                 "label": "Lean on the kid to make him talk for free"
               },
               "ignora": {
                 "label": "Ignore him and keep climbing",
-                "resultado": "You walk past. The kid spits on the ground. You can see a junkyard just ahead."
+                "resultado": "You walk past. The kid spits and memorizes your face. There's a junkyard just ahead."
               }
             }
           },
           "ferro": {
             "nome": "The junkyard",
-            "sub": "gate on a padlock",
-            "intro": "The gate's just a chain and an old padlock. The crew gets on the pick — whoever's got the hands works it, the rest watch the guard."
+            "sub": "gate on a padlock, a secret inside",
+            "intro": "The gate's just a chain and an old padlock. The gang gets on the pick — whoever's got the hands works it, the rest keep an eye on the guard. Inside there's scrap worth money... and something the owner locked up before he vanished off the Pista."
           },
           "beco": {
-            "nome": "The Backstab Crew's alley",
-            "fala": "This alley's ours, pal. The new gang doesn't get through for free."
+            "nome": "Rasteira's alley",
+            "sub": "a Rato de Pista spot",
+            "fala": "This alley belongs to Rato de Pista, pal. We don't want to climb, don't want your turf — we just don't want to get stepped on. And a new gang coming down here gets stepped on."
           },
           "rinha": {
             "nome": "The back-alley pit",
-            "fala": "There's always somebody here looking to test their luck. Come on, as many times as you can take."
+            "sub": "clandestine betting",
+            "fala": "Betting ring at the back of the alley. You step in, you eat it or you cash out. There's always someone wanting to test their hand against the new gang — come on, as many times as you can take."
           },
           "birosca": {
             "nome": "Old Nato's bar",
-            "sub": "the corner elder",
+            "sub": "the corner elder — the only grown-up on the Pista you can trust",
             "fala": [
               "Sit down. Have some mate. You're climbing way too fast for someone nobody knows.",
-              "I'll tell you where Coal hides. But first do me a run — take a package across without the patrol car seeing.",
-              "After that the Track respects you. And the bar stays open for your crew to rest."
+              "I know where Coal hides when he vanishes into the dark. I'll tell you. But first do me a run — take a package across without the patrol car's beam catching you.",
+              "Do that and the Pista respects you. And the bar stays open for your crew to rest."
             ],
             "escolhas": {
               "aceita_corre": {
                 "label": "Take Nato's run",
-                "resultado": "\"Deal. The package is behind the counter. And the Backstab Crew's other spot is up to the right.\""
+                "resultado": "\"Deal. The package is behind the counter. And Rasteira's other spot is up to the right.\""
               },
               "so_papo": {
                 "label": "Just want the information",
-                "resultado": "\"Stubborn. Then straight up: the other crew's other spot is up there. Take both and Coal shows up.\""
+                "resultado": "\"Stubborn. Then straight up: Rasteira's other spot is up there. Take both and Coal shows up.\""
               }
             }
           },
           "informante": {
             "nome": "Duda, the Ear",
-            "sub": "knows everything that moves in Marelia",
+            "sub": "knows everything that moves in Marélia before it's a rumor",
             "fala": [
-              "Back on the Pista, huh? Good. Everything that happens in Marelia passes through here before it's even a rumor.",
-              "There's something going on at the Feira that the people over there won't tell you for free."
+              "Back on the Pista, huh? That's what the Pista is: everything that happens in Marélia passes through here before it's even a rumor. And I hear all of it.",
+              "There's something at the Feira the people over there won't tell you for free. The Collector's laying low."
             ],
             "escolhas": {
               "perguntar": {
                 "label": "Ask about the Feira",
-                "resultado": "\"The Collector only comes out of hiding once he knows his enforcers already took a beating. Go settle things there, and come back if you need more.\""
+                "resultado": "\"The Collector only comes out of hiding once he knows his enforcers already took a beating. Go to the Feira, settle the spots — then come back if you need more.\""
               }
             }
           },
           "corre": {
             "nome": "Nato's run",
-            "sub": "carry the package",
-            "intro": "Cross the block with the package without stepping into the patrol car's beam. The crew spreads out and covers you."
+            "sub": "carry the package without the patrol car seeing",
+            "intro": "Cross the block with the package without stepping into the patrol car's beam. The gang spreads out and covers your move. It's the price of Nato's information — and of peace on the Pista."
           },
           "beco_2": {
-            "nome": "The Backstab Crew's other spot",
-            "fala": "You again?? Took the alley down there and thought this'd be easy too?"
+            "nome": "Rasteira's other spot",
+            "fala": "You again? Took the alley down there and figured the Pista would open up for you. Rato de Pista changes hands every week — but not for a new gang."
           },
           "descanso": {
             "nome": "Rest at the bar",
             "sub": "mate, bread and quiet",
-            "intro": "Some time sitting, off the street. Costs a little change, but the gang comes back whole."
+            "intro": "Some time sitting, off the street, in Nato's bar. Costs a little change, but the gang comes back whole."
           },
           "loja": {
-            "nome": "Track Shop"
+            "nome": "Pista Shop"
           }
         }
       },

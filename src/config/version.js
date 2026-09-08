@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.279.21'
+export const SITE_VERSION = '10.279.22'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '2.68.1' // limpeza: POIs 'molecada_1/2' da Pista renomeados pra 'beco/beco_2' (id interno; nome exibido ja era 'O beco da Rasteira'). Nome do chefe no pino da cena vem do i18n (era 'FUMACA' hardcoded -> 'Carvao'). Strings hardcoded do card de treta -> i18n. Confirmado: gerarBandoInimigo puxa os 11 moldes do catalogo por territorio.
+export const GANGUES_VERSION   = '2.68.2' // Texto da Pista realinhado com o GDD (a verdade): chegada/sinal/ferro/beco/rinha/birosca/informante/corre + territorios.pista.desc contam a historia da Pista (Origem - o Retalho e o Alan comecaram aqui; Rato de Pista sem ambicao; Bonde do Sinal vende informacao; Seu Nato; Duda o Orelha; Carvao no breu). Grafia oficial 'Marelia' -> 'Marelia' com acento em todo o i18n do jogo.
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
 export const MINIGAMES_VERSION = '4.3.4'  // Glitch: safe-area lateral no grid-wrap
