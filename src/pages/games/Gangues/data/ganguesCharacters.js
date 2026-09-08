@@ -7,8 +7,42 @@ export const GANGUES_INITIAL_CHARACTER_IDS = Object.freeze([...catalog.unlock_pl
 export const GANGUES_FIRST_CAMPAIGN_CHARACTER_IDS = Object.freeze([...catalog.unlock_plan.wave_1_initial, ...catalog.unlock_plan.wave_2_first_clear])
 export const GANGUES_SECOND_CLEAR_CHARACTER_IDS = Object.freeze([...catalog.unlock_plan.wave_3_second_clear])
 export const GANGUES_EVENT_CHARACTER_IDS = Object.freeze([...catalog.unlock_plan.event_only])
-export const GANGUES_LEVEL_CAP = catalog.meta.level_cap
+// `catalog.meta.level_cap` (10) é "até onde o catálogo foi DESENHADO" — os 10
+// níveis autorais carregam títulos + unlock de special. O teto REAL do jogo é
+// 99: acima de 10 os níveis são procedurais (nivelSintetico), só stat, estilo
+// Ragnarok. Nível 99 numa ficha da gangue é o que libera o multiplayer online
+// (ver ganguesTemMultiplayer em ganguesLoadout.js / GanguesModes).
+export const GANGUES_LEVEL_CAP = 99
 export const GANGUES_AP_PER_XP = catalog.meta.ap_per_xp
+
+// Taxas PV/PM por ponto de R, por caminho — MESMOS números de
+// GANGUES_RESOURCE_RATES (ganguesLoadout.js). Duplicados de propósito: aquele
+// módulo já importa `getGanguesLevelFromXp` daqui, então importar de volta
+// fecharia um ciclo. São 3 pares, o custo de duplicar é zero.
+const RES_RATE = { atacante: { pv: 3, pm: 3 }, defensor: { pv: 4, pm: 2 }, mistico: { pv: 2, pm: 4 } }
+
+/** Nível sintético (11–99): continua o padrão dos níveis 2/4/6/8/10 do catálogo
+ *  — +1 num atributo a cada nível PAR, ciclando `growth_order`. PV/PM derivam de
+ *  R pela taxa do caminho, igual à ficha do jogador. */
+function nivelSintetico(character, level) {
+  const base = character.levels[character.levels.length - 1] // L10 autoral
+  const stats = { ...base.stats }
+  const order = character.growth_order?.length ? character.growth_order : ['A', 'R', 'A', 'D', 'A']
+  for (let lvl = base.level + 1; lvl <= level; lvl++) {
+    if (lvl % 2 === 0) {
+      const attr = order[(lvl / 2 - 1) % order.length]
+      stats[attr] = (stats[attr] || 0) + 1
+    }
+  }
+  const rate = RES_RATE[character.combat_path] || { pv: 0, pm: 0 }
+  return {
+    level,
+    xp_total_required: base.xp_total_required + (level - base.level),
+    stats,
+    resources: { pv_max: stats.R * rate.pv, pm_max: stats.R * rate.pm },
+    events: [],
+  }
+}
 
 export function getGanguesCharacter(characterTemplateId) {
   return GANGUES_CHARACTER_BY_ID.get(Number(characterTemplateId)) || null
@@ -31,7 +65,8 @@ export function getGanguesTemplateLevel(characterTemplateId, xpTotal = 0) {
   const character = getGanguesCharacter(characterTemplateId)
   if (!character) return null
   const level = getGanguesLevelFromXp(xpTotal)
-  return character.levels.find(item => item.level === level) || character.levels[0]
+  return character.levels.find(item => item.level === level)
+    || (level > character.levels.length ? nivelSintetico(character, level) : character.levels[0])
 }
 
 export function getGanguesUnlockedSpecials(characterTemplateId, xpTotal = 0) {
@@ -99,6 +134,9 @@ export function getGanguesAvailableCharacterIds({ campaignClears = 0, storyProgr
 
 export function getGanguesNextLevel(characterTemplateId, xpTotal = 0) {
   const character = getGanguesCharacter(characterTemplateId)
+  if (!character) return null
   const level = getGanguesLevelFromXp(xpTotal)
-  return character?.levels.find(item => item.level === level + 1) || null
+  if (level >= GANGUES_LEVEL_CAP) return null
+  return character.levels.find(item => item.level === level + 1)
+    || (level + 1 > character.levels.length ? nivelSintetico(character, level + 1) : null)
 }

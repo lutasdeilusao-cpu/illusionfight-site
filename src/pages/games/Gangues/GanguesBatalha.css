@@ -1,0 +1,138 @@
+/* Modo Batalha — A Torre. Mobile-only, herda a coluna #root, tokens --if-*. */
+
+.gang-torre {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 14px 14px 40px;
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  min-height: 100%;
+}
+
+.gang-torre__top { display: flex; }
+.gang-torre__back {
+  border: 1px solid var(--border-color);
+  background: transparent;
+  color: var(--text-secondary);
+  font: 800 0.72rem var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 8px 12px;
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
+}
+
+.gang-torre__title { display: flex; flex-direction: column; gap: 4px; }
+.gang-torre__eyebrow {
+  font: 800 0.62rem var(--font-mono);
+  letter-spacing: 0.22em;
+  color: var(--if-teal);
+}
+.gang-torre__title h1 {
+  margin: 0;
+  font: 800 1.5rem/1.05 var(--font-title);
+  text-transform: uppercase;
+}
+.gang-torre__title p { margin: 0; font-size: 0.82rem; color: var(--text-secondary); }
+
+.gang-torre__bloco { display: flex; flex-direction: column; gap: 8px; }
+.gang-torre__bloco h2 {
+  margin: 0;
+  font: 800 0.72rem var(--font-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.gang-torre__temas {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+.gang-torre__tema {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  text-align: left;
+  padding: 10px;
+  border: 1px solid var(--if-hair);
+  border-left: 3px solid var(--terr-cor, var(--if-teal));
+  background: var(--if-panel-flat);
+  color: var(--text-primary);
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
+}
+.gang-torre__tema.is-active {
+  border-color: var(--if-amber);
+  border-left-color: var(--terr-cor, var(--if-amber));
+  background: color-mix(in srgb, var(--if-amber) 14%, var(--if-panel-flat));
+}
+.gang-torre__tema strong {
+  font: 800 0.9rem var(--font-title);
+  text-transform: uppercase;
+}
+.gang-torre__tema small {
+  font: 700 0.62rem var(--font-mono);
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+}
+
+.gang-torre__folgas { display: flex; flex-direction: column; gap: 6px; }
+.gang-torre__folga {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-align: left;
+  padding: 10px 12px;
+  border: 1px solid var(--if-hair);
+  background: var(--if-panel-flat);
+  color: var(--text-primary);
+  clip-path: polygon(0 0, calc(100% - 9px) 0, 100% 9px, 100% 100%, 0 100%);
+}
+.gang-torre__folga.is-active { border-color: var(--if-amber); background: color-mix(in srgb, var(--if-amber) 14%, var(--if-panel-flat)); }
+.gang-torre__folga strong { font: 800 0.84rem var(--font-title); text-transform: uppercase; }
+.gang-torre__folga small { font-size: 0.76rem; color: var(--text-secondary); }
+
+.gang-torre__go {
+  margin-top: 4px;
+  border: none;
+  background: var(--if-amber);
+  color: var(--bg-primary);
+  font: 800 0.92rem var(--font-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 14px;
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%);
+}
+.gang-torre__quit {
+  border: 1px solid var(--border-color);
+  background: transparent;
+  color: var(--text-secondary);
+  font: 800 0.8rem var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 12px;
+}
+
+.gang-torre__andar-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 40px 18px;
+  border: 1px solid var(--if-hair);
+  background: var(--if-panel-flat);
+  text-align: center;
+}
+.gang-torre__andar-num {
+  font: 800 2.4rem/1 var(--font-title);
+  text-transform: uppercase;
+  color: var(--if-amber);
+}
+.gang-torre__andar-hero small {
+  font: 800 0.72rem var(--font-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+.gang-torre__acoes { display: flex; flex-direction: column; gap: 8px; }

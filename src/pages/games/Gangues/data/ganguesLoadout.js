@@ -38,6 +38,14 @@ export function contarTerritoriosDominados(storyProgress = {}) {
   return Object.values(storyProgress).filter(t => t?.chefe).length
 }
 
+// Multiplayer online libera quando PELO MENOS UMA ficha da gangue chega no
+// nível 99 (estilo carta de mestre / Ragnarok). O online real ainda é fase
+// futura — por ora isso só destrava o card em GanguesModes.
+export const GANGUES_MULTIPLAYER_LEVEL = 99
+export function ganguesTemMultiplayer(roster = []) {
+  return roster.some(f => getGanguesLevelFromXp(f?.xp_total) >= GANGUES_MULTIPLAYER_LEVEL)
+}
+
 /** Vaga de elenco liberada pelo progresso da história — soma ao limite do tier, nunca substitui. */
 export function getGanguesRosterLimitComHistoria(tier, storyProgress, rep = 0) {
   const dominados = Math.min(GANGUES_STORY_ROSTER_TERRITORIOS_QUE_CONTAM, contarTerritoriosDominados(storyProgress))

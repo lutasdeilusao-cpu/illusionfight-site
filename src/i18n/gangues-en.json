@@ -522,7 +522,8 @@
       },
       "itens": {
         "1": "HP Potion",
-        "2": "MP Potion"
+        "2": "MP Potion",
+        "13": "Scrap"
       },
       "loja": {
         "titulo": "Shop",
@@ -2019,11 +2020,39 @@
         "intro": "Your gang is born. Now take the streets, one territory at a time.",
         "comecar_historia": "START THE STORY",
         "bloqueado": "Locked",
-        "batalha_bloqueada_desc": "One-off battles will arrive in a future update. First, build your story in Marélia.",
+        "liberado": "Unlocked",
+        "entrar_torre": "ENTER THE TOWER",
+        "batalha_bloqueada_desc": "The Tower opens once you clear the campaign. First, take Marélia turf by turf.",
         "em_breve": "COMING SOON",
         "multiplayer_titulo": "ONLINE MULTIPLAYER",
         "multiplayer_tag": "Group",
-        "multiplayer_bloqueada_desc": "Online matches against other gangs arrive in a future update."
+        "multiplayer_bloqueada_desc": "Get one gang sheet to level 99 to unlock online play against other gangs (online itself arrives in a future update).",
+        "multiplayer_liberado_desc": "You have a sheet at level 99 — online play against other gangs is ready to switch on the moment it lands."
+      },
+      "batalha": {
+        "titulo": "THE TOWER",
+        "sub": "Fight after fight to level up fast. Your gang is at average level {n}.",
+        "escolha_tema": "Where the crew comes from",
+        "escolha_folga": "How much heat you want",
+        "recorde": "Best: floor {n}",
+        "andar": "FLOOR {n}",
+        "subir": "CLIMB THE TOWER",
+        "continuar": "TAKE THE FLOOR",
+        "encerrar": "COME DOWN",
+        "proximo_andar": "NEXT FLOOR",
+        "sair_torre": "LEAVE THE TOWER",
+        "folga": {
+          "leve": "Easy",
+          "igual": "Even match",
+          "puxado": "Tough",
+          "brabo": "Brutal"
+        },
+        "folga_desc": {
+          "leve": "Well below your gang — safe farming.",
+          "igual": "Your gang's size — a fair fight.",
+          "puxado": "Above your gang — more AP, more risk.",
+          "brabo": "Way above — to see how far you can go."
+        }
       },
       "naming": {
         "titulo": "FOUND YOUR GANG",
@@ -2195,10 +2224,36 @@
             "nome": "Old Rasteira",
             "sub": "the alley's owner in person",
             "fala": "You beat the kids and figured the Pista was yours? Old Rasteira trained every one of these punks. Beat me first — then Coal comes down."
+          },
+          "oficina": {
+            "nome": "Nando's workshop",
+            "sub": "Mr. Nando fixes what the street breaks",
+            "fala": [
+              "Look at the new gang working the spots. Let me tell you: to face Coal you need iron in your hand, not just guts.",
+              "Bring me two pieces of scrap from that junkyard — one you get cracking the lock, the other's in the back. Bring them and I'll forge you a piece.",
+              "And as a bonus I'll tell you where Coal hides when he vanishes into the dark. Deal?"
+            ],
+            "escolhas": {
+              "forjar": {
+                "label": "Hand over the scrap and take the piece",
+                "resultado": "Nando hammers for a while and passes you a still-warm tin knuckle. \"Coal stays deep in Rasteira's alley, behind the wall. Vanishes in the dark, but always to the same corner. Now go.\""
+              }
+            }
+          },
+          "beco_3": {
+            "nome": "The third spot",
+            "sub": "another piece of Rato de Pista",
+            "fala": "You people don't quit, huh? The Pista's got spots like bullet holes — there's always one more. This one's mine. Come prove you're worth it."
+          },
+          "sinaleiro": {
+            "nome": "The Head Signalman",
+            "sub": "if he whistles, the whole block runs",
+            "fala": "I run the eyes of the Pista, kid. Every lookout, every light, every runner at the signal answers my whistle. You got past all of them — you don't get past me."
           }
         },
         "hint_andar": "Use the stick to walk the block.",
-        "hint_interagir": "You reached a spot — press INTERACT."
+        "hint_interagir": "You reached a spot — press INTERACT.",
+        "hint_sucata": "🔩 Take both scrap pieces to Nando at the workshop."
       },
       "enemy_album": {
         "1101": "Doesn't fight, he runs and warns — facing him is a chase before a beating.",
@@ -2301,14 +2356,26 @@
         "1600": "The only one who ever held six blocks at once."
       },
       "album": {
-        "titulo": "Marélia Album",
-        "sub": "Every name your gang put down.",
+        "titulo": "Collection",
+        "sub": "Everything your gang has seen, beaten and picked up in Marélia.",
         "contador": "{n}/99",
         "bloqueado": "???",
         "ainda_nao": "Hasn't crossed you yet.",
         "arma_label": "Weapon",
         "terr_label": "Turf",
         "voltar": "Back",
+        "secoes": {
+          "inimigos": "Enemies",
+          "itens": "Items",
+          "cartas": "Cards"
+        },
+        "itens_consumivel": "Consumable",
+        "itens_equip": "Gear",
+        "item_dica_loja": "Buy it at a turf shop.",
+        "item_dica_drop": "Drop — from a boss or a fight.",
+        "item_dica_quest": "Earned by running a favor for the block.",
+        "cartas_explica": "Socket cards slot into gear for extra bonuses — master-card style. They come from the drop system, arriving in a future update.",
+        "cartas_em_breve": "— coming soon —",
         "cargos": {
           "vigia": "Lookout",
           "vapor": "Dealer",

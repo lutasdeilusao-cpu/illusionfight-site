@@ -55,6 +55,25 @@ export const GANGUES_CHEFE_EQUIPE = {
   laje: [1600, 1463, 1464],
 }
 
+// Orçamento de pontos FIXO do bando do chefe, por território — NÃO escala com o
+// jogador (ao contrário da treta comum). É de propósito: o chefe é um paredão
+// fixo, e o loop de RPG é você VOLTAR mais forte. Quanto mais nível, mais
+// confortável fica a mesma luta.
+// Só a Pista está calibrada por simulação headless (scratchpad/sim_boss7.py):
+// budget 20 · líder 60% · 2 corpos → time balanceado de 2 fichas vence
+// L5 ~8% · L6-7 ~22% · L8 ~50% · L10 ~69% (tank L10 >95%). Pedido do Isaias:
+// "abaixo do 8 quase errado de encarar, no 8 pau a pau, no 10 confortável".
+// Os outros 6 são 1ª aproximação (~+7 por bairro) — recalibrar quando cada um
+// ganhar cena própria e simulação dedicada.
+export const GANGUES_CHEFE_BUDGET = { pista: 20, feira: 27, baixada: 34, vila: 41, morro: 48, alto: 55, laje: 64 }
+export const GANGUES_CHEFE_LIDER_FRAC = 0.60
+// Quantos CORPOS o bando do chefe tem (o resto de GANGUES_CHEFE_EQUIPE fica só
+// pra lore/álbum). Pista = 2 (Carvão + Rasteira Velha): 2×2 é a única treta
+// justa enquanto o elenco do jogador é travado em 2 fichas (a vaga nº 3 só abre
+// vencendo o próprio chefe). O 3º general (Sinaleiro Chefe, 1451) é
+// colecionável no POI `sinaleiro` da cena da Pista.
+export const GANGUES_CHEFE_CORPOS = { pista: 2 }
+
 // Total de pontos do bando = pontos do jogador × ratio. O ratio SOBE por
 // território ("sempre igualando a ficha do jogador" — pedido do Isaias): a
 // Pista dá ~metade dos teus pontos pro bando, a Laje dá ~três quartos. Sem
@@ -156,12 +175,16 @@ export function gerarBandoInimigo({ territorioId, dificuldade = 'normal', player
     return molde ? escalarInimigo(molde, pontos) : null
   }).filter(Boolean)
 
-  // O molde é sorteado por slot, sem exclusividade — é comum o mesmo tipo
-  // (ex: 1201) sair 2x+ no mesmo bando. Sem uma numeração, os dois
-  // aparecem com o nome idêntico na tela de combate, impossível de
-  // diferenciar (qual "Moleque da Pista" já perdi PV, qual eu quero focar).
-  // numeroInstancia marca a 2ª, 3ª... ocorrência de cada id repetido —
-  // fighterName() usa isso pra por " II", " III" etc no nome exibido.
+  numerarRepetidos(bando)
+  return bando
+}
+
+// O molde é sorteado por slot, sem exclusividade — é comum o mesmo tipo
+// (ex: 1201) sair 2x+ no mesmo bando. Sem uma numeração, os dois aparecem com o
+// nome idêntico na tela de combate, impossível de diferenciar (qual "Moleque da
+// Pista" já perdi PV, qual eu quero focar). numeroInstancia marca a 2ª, 3ª...
+// ocorrência de cada id repetido — fighterName() usa isso pra por " II", " III".
+function numerarRepetidos(bando) {
   const contagem = {}
   bando.forEach(inimigo => { contagem[inimigo.id] = (contagem[inimigo.id] || 0) + 1 })
   const visto = {}
@@ -170,6 +193,40 @@ export function gerarBandoInimigo({ territorioId, dificuldade = 'normal', player
     visto[inimigo.id] = (visto[inimigo.id] || 0) + 1
     inimigo.numeroInstancia = visto[inimigo.id]
   })
+}
 
+/** Bando do CHEFE — orçamento de pontos FIXO (GANGUES_CHEFE_BUDGET), nunca
+ *  escalado contra o jogador. Corpos = os N primeiros ids de GANGUES_CHEFE_EQUIPE
+ *  (N = GANGUES_CHEFE_CORPOS, default 3). O 1º corpo (o chefe) leva a maior
+ *  fatia (piso = budget × GANGUES_CHEFE_LIDER_FRAC), o resto divide o que sobra.
+ *  Sempre a mesma composição — dá pra aprender a luta e voltar mais preparado. */
+export function gerarBandoChefe({ territorioId, playerTeam, enemiesData }) {
+  const ids = GANGUES_CHEFE_EQUIPE[territorioId]
+  if (!ids?.length || !playerTeam?.length || !enemiesData?.length) return null
+
+  const n = Math.min(ids.length, GANGUES_CHEFE_CORPOS[territorioId] || 3)
+  const budget = GANGUES_CHEFE_BUDGET[territorioId]
+    ?? Math.round(calcularPontosTime(playerTeam) * 0.8) // fallback defensivo p/ território sem budget
+  const partes = distribuirPontos(budget, n)
+
+  // Piso do líder — desloca pontos das escoltas pro chefe sem estourar o budget.
+  const piso = Math.round(budget * GANGUES_CHEFE_LIDER_FRAC)
+  if (partes[0] < piso) {
+    let falta = piso - partes[0]
+    partes[0] = piso
+    for (let i = 1; i < n && falta > 0; i++) {
+      const tira = Math.min(partes[i] - 1, Math.ceil(falta / (n - i)))
+      partes[i] -= tira
+      falta -= tira
+    }
+  }
+
+  const bando = ids.slice(0, n).map((id, i) => {
+    const molde = enemiesData.find(e => e.id === id)
+    return molde ? escalarInimigo(molde, partes[i]) : null
+  }).filter(Boolean)
+
+  if (!bando.length) return null
+  numerarRepetidos(bando)
   return bando
 }

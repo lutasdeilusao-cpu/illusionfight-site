@@ -161,3 +161,56 @@
   margin-right: 3px;
   font-size: 0.66rem;
 }
+
+/* Abas de seção da Coleção (Inimigos / Itens / Cartas) — acima das abas de cargo. */
+.gang-album__secoes {
+  display: flex;
+  gap: 6px;
+}
+.gang-album__secao {
+  flex: 1 1 0;
+  border: 1px solid var(--border-color);
+  background: transparent;
+  color: var(--text-secondary);
+  font: 800 0.7rem var(--font-mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 9px 6px;
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
+}
+.gang-album__secao.is-active {
+  border-color: var(--if-teal);
+  background: var(--if-teal);
+  color: var(--bg-primary);
+}
+
+.gang-album__cartas-vazio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+  padding: 32px 18px;
+  border: 1px dashed var(--if-hair);
+  background: var(--if-panel-flat);
+}
+.gang-album__cartas-vazio .gang-album__portrait {
+  width: 52px;
+  height: 52px;
+  flex-basis: 52px;
+  font-size: 1.5rem;
+  border-style: dashed;
+}
+.gang-album__cartas-vazio p {
+  margin: 0;
+  font-size: 0.84rem;
+  color: var(--text-secondary);
+  line-height: 1.35;
+}
+.gang-album__cartas-vazio em {
+  font-style: normal;
+  font: 800 0.72rem var(--font-mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--if-amber);
+}

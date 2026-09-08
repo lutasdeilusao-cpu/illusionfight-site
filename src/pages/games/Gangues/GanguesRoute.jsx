@@ -14,9 +14,10 @@ import GanguesStoryMap from './GanguesStoryMap'
 import GanguesTerritorio from './GanguesTerritorio'
 import GanguesCena from './GanguesCena'
 import GanguesAlbum from './GanguesAlbum'
+import GanguesBatalha from './GanguesBatalha'
 import { temCena } from './data/cenas/pista.js'
 import { GANGUES_STORY_BATTLE_PARTY_MAX } from './data/ganguesLoadout.js'
-import { gerarBandoInimigo, GANGUES_CHEFE_EQUIPE } from './data/ganguesEncontros.js'
+import { gerarBandoInimigo, gerarBandoChefe } from './data/ganguesEncontros.js'
 import GuestNotice from '../../../components/GuestNotice/GuestNotice'
 import enemiesData from './data/gangues-enemies.json'
 import './Gangues.css'
@@ -72,9 +73,10 @@ export default function GanguesRoute() {
 
     let enemyTeam
     if (alvo.isChefe) {
-      const ids = GANGUES_CHEFE_EQUIPE[alvo.territorioId] || [alvo.enemyId]
-      enemyTeam = ids.map(id => enemiesData.find(e => e.id === id)).filter(Boolean)
-      if (!enemyTeam.length) { setFase('story'); return }
+      // Bando do chefe = orçamento de pontos FIXO por território (não escala com
+      // o jogador — o loop é voltar mais forte). Ver gerarBandoChefe.
+      enemyTeam = gerarBandoChefe({ territorioId: alvo.territorioId, playerTeam: party, enemiesData })
+      if (!enemyTeam?.length) { setFase('story'); return }
     } else if (alvo.fixo) {
       const enemy = enemiesData.find(e => e.id === alvo.enemyId)
       if (!enemy) { setFase('story'); return }
@@ -114,6 +116,7 @@ export default function GanguesRoute() {
       {fase === 'modes' && <GanguesModes onNavigate={setFase} />}
       {fase === 'story' && <GanguesStoryMap onNavigate={setFase} />}
       {fase === 'album' && <GanguesAlbum onNavigate={setFase} />}
+      {fase === 'batalha' && <GanguesBatalha onNavigate={setFase} />}
       {fase === 'territorio' && (
         temCena(store.storyTarget?.territorioId)
           ? <GanguesCena onNavigate={setFase} />

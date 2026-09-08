@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { useLanguage } from '../../../context/LanguageContext'
 import { useGanguesStore } from './store/useGanguesStore'
+import { ganguesTemMultiplayer } from './data/ganguesLoadout.js'
 import { sfx } from '../../../lib/sfx'
 import './GanguesModes.css'
 import './GanguesModesRedesign.css'
@@ -19,6 +20,9 @@ export default function GanguesModes({ onNavigate }) {
   const [gangueAberta, setGangueAberta] = useState(false)
 
   if (party.length < 2) { onNavigate('lobby'); return null }
+
+  const torreAberta = store.campaignClears >= 1
+  const mpLiberado = ganguesTemMultiplayer(store.roster)
 
   const ir = () => {
     sfx.select?.()
@@ -49,23 +53,35 @@ export default function GanguesModes({ onNavigate }) {
           <span className="gang-modes-card-cta">{t('games.gangues.modes.comecar_historia')} <b>→</b></span>
         </motion.button>
 
-        <motion.div className="gang-modes-card gang-modes-card--batalha gang-modes-card--locked"
-          initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.18 }}>
-          <span className="gang-modes-card-index">02</span>
-          <span className="gang-modes-lock" aria-hidden="true">⊘</span>
-          <span className="gang-modes-card-tag">{t('games.gangues.modes.bloqueado')}</span>
-          <strong className="gang-modes-card-titulo">{t('games.gangues.modes.batalha_titulo')}</strong>
-          <small className="gang-modes-card-desc">{t('games.gangues.modes.batalha_bloqueada_desc')}</small>
-          <span className="gang-modes-card-cta">{t('games.gangues.modes.em_breve')}</span>
-        </motion.div>
+        {torreAberta ? (
+          <motion.button className="gang-modes-card gang-modes-card--batalha" onClick={() => { sfx.select?.(); onNavigate('batalha') }}
+            initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.18 }}>
+            <span className="gang-modes-card-index">02</span>
+            <span className="gang-modes-card-art" aria-hidden="true"><i /><b>TORRE</b></span>
+            <span className="gang-modes-card-tag">{t('games.gangues.modes.batalha_tag')}</span>
+            <strong className="gang-modes-card-titulo">{t('games.gangues.modes.batalha_titulo')}</strong>
+            <small className="gang-modes-card-desc">{t('games.gangues.modes.batalha_desc')}</small>
+            <span className="gang-modes-card-cta">{t('games.gangues.modes.entrar_torre')} <b>→</b></span>
+          </motion.button>
+        ) : (
+          <motion.div className="gang-modes-card gang-modes-card--batalha gang-modes-card--locked"
+            initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.18 }}>
+            <span className="gang-modes-card-index">02</span>
+            <span className="gang-modes-lock" aria-hidden="true">⊘</span>
+            <span className="gang-modes-card-tag">{t('games.gangues.modes.bloqueado')}</span>
+            <strong className="gang-modes-card-titulo">{t('games.gangues.modes.batalha_titulo')}</strong>
+            <small className="gang-modes-card-desc">{t('games.gangues.modes.batalha_bloqueada_desc')}</small>
+            <span className="gang-modes-card-cta">{t('games.gangues.modes.em_breve')}</span>
+          </motion.div>
+        )}
 
-        <motion.div className="gang-modes-card gang-modes-card--multiplayer gang-modes-card--locked"
+        <motion.div className={`gang-modes-card gang-modes-card--multiplayer${mpLiberado ? '' : ' gang-modes-card--locked'}`}
           initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.26 }}>
           <span className="gang-modes-card-index">03</span>
-          <span className="gang-modes-lock" aria-hidden="true">⊘</span>
-          <span className="gang-modes-card-tag">{t('games.gangues.modes.bloqueado')}</span>
+          <span className="gang-modes-lock" aria-hidden="true">{mpLiberado ? '⧉' : '⊘'}</span>
+          <span className="gang-modes-card-tag">{mpLiberado ? t('games.gangues.modes.liberado') : t('games.gangues.modes.bloqueado')}</span>
           <strong className="gang-modes-card-titulo">{t('games.gangues.modes.multiplayer_titulo')}</strong>
-          <small className="gang-modes-card-desc">{t('games.gangues.modes.multiplayer_bloqueada_desc')}</small>
+          <small className="gang-modes-card-desc">{mpLiberado ? t('games.gangues.modes.multiplayer_liberado_desc') : t('games.gangues.modes.multiplayer_bloqueada_desc')}</small>
           <span className="gang-modes-card-cta">{t('games.gangues.modes.em_breve')}</span>
         </motion.div>
       </div>

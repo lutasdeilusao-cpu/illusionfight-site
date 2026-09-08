@@ -402,6 +402,7 @@ export default function GanguesCombat({ onNavigate }) {
   // Itens disponíveis (quantidade > 0) — a bolinha só mostra o que a gangue
   // realmente tem, lido direto do inventário compartilhado (store.inventario).
   const itensDisponiveis = GANGUES_ITENS_LISTA
+    .filter(item => item.tipo === 'cura_pv' || item.tipo === 'cura_pm')
     .map(item => ({ ...item, quantidade: store.inventario[item.id] || 0 }))
     .filter(item => item.quantidade > 0)
 

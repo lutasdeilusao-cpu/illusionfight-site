@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.279.23'
+export const SITE_VERSION = '10.280.0'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '2.69.0' // Pista versao FINAL (primeira entrada do jogador): conserta puzzles (import Puzzles.css - infiltracao nao aparecia; ferro-velho troca PuzzleForca->PuzzleSimonSays; corre stealth sem timer). Loja pro outro lado do muro (so abre pos-portao). + luta de General (Rasteira Velha, liderFixo 1452), POI de achado, +cenario, dicas de onboarding. Catalogo da loja da Pista finalizado.
+export const GANGUES_VERSION   = '2.71.0' // Teto de nivel 10->99 (extrapolacao de stats 11-99, estilo Ragnarok; nivel 99 destrava multiplayer). Chefe da Pista consertado: bando de BUDGET FIXO (gerarBandoChefe) - antes 0% de vitoria, agora L8 pau a pau / L10 confortavel / L5-7 quase errado. Pista mais longa: fetch quest da oficina do Nando (traz 2 sucata -> peca), 3o ponto (beco_3), 2o general (Sinaleiro). 3o botao na HUD -> Colecao (abas Inimigos/Itens/Cartas). Modo Batalha destravado: a Torre (grind de AP pra L99).
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
 export const MINIGAMES_VERSION = '4.3.4'  // Glitch: safe-area lateral no grid-wrap

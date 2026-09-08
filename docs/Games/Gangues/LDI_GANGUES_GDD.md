@@ -210,14 +210,18 @@ Facção: Rato de Pista (101) / Bonde do Sinal (102). O asfalto lá embaixo. Cri
 que corre no farol, arranca corrente, vende bala. **Todo mundo começa aqui** — o
 Retalho, o jogador, e (noutro bairro) o Alan.
 
-**POIs (versão final, v2.69.0):** A boca do sinal (a cria do farol) · O
-ferro-velho (`PuzzleSimonSays` — a sequência da fechadura) + O fundo do
-ferro-velho (achado opcional) · O beco da Rasteira (1º ponto) · A birosca do Seu
-Nato (hub) · O corre do Nato (stealth opcional, sem timer) · O outro ponto da
-Rasteira (2º ponto) · **A Rasteira Velha** (luta de General — `liderFixo`, o pico
-antes do chefe) · A rinha do beco (farm) · Duda, o Orelha · Descanso na birosca ·
-**A loja da Pista** (do outro lado do muro — só abre depois do portão do chefe).
-Detalhe em `src/pages/games/Gangues/GANGUES_MODO_HISTORIA_ENCONTROS.md §5`.
+**POIs (versão final, v2.71.0 — 9 obrigatórias + chefe, breadcrumb 10/10):** A
+boca do sinal · O ferro-velho (`PuzzleSimonSays`) + O fundo do ferro-velho
+(achado — 2º pedaço de sucata) · **A oficina do Nando** (fetch quest estilo
+Zelda: junta 2× sucata → forja uma peça grátis + dica de onde o Carvão se
+esconde) · O beco da Rasteira (1º ponto) · A birosca do Seu Nato (hub) · O corre
+do Nato (stealth opcional) · O outro ponto da Rasteira (2º ponto) · **O terceiro
+ponto** (`beco_3`) · **O Sinaleiro Chefe** (1451 — 1ª luta de General,
+`liderFixo`) · **A Rasteira Velha** (1452 — 2ª luta de General, `liderFixo`) · A
+rinha do beco (farm) · Duda, o Orelha · Descanso na birosca · **A loja da Pista**
+(do outro lado do muro — só abre depois do portão). Os dois generais da Pista
+caem na cena antes do chefe (entram no Álbum aqui). Detalhe em
+`src/pages/games/Gangues/GANGUES_MODO_HISTORIA_ENCONTROS.md §5`.
 
 **Balanço (v2.68.0):** a primeira treta (`beco`) puxa 1 a 4 corpos
 sorteados dos 11 comuns da Pista — tipo e quantidade mudam a cada tentativa —
@@ -639,6 +643,7 @@ POI, alimenta o % de domínio e o texto do final). Estado em `store.grana` /
 | 10 | Farinha de Guaraná | `cura_pv` + | +7 PV | 9 💵 | 🥣 |
 | 11 | Vela Benta | `buff_defesa` | +2 D por 2 turnos | 7 💵 | 🕯️ |
 | 12 | Sacola de Bala | `cura_pv` mini | +2 PV (flavor: o que o Kim vende) | 2 💵 | 🍬 |
+| 13 | Sucata | `material` | sem efeito em combate — item de quest. Cai no ferro-velho da Pista (POI `ferro` + `achado`); o Seu Nando troca 2× por uma peça (POI `oficina`). | — | 🔩 |
 
 ### 9.4 Equipamento — 6 slots por personagem
 
@@ -769,6 +774,31 @@ pelo Campeão. Peso pesado, canônico.
 | Chefes de território + chefe final (1500–1600) | 8 *(aba própria, fora da contagem)* |
 
 Reserva: cada faixa comporta crescer até ~99 sem remapear.
+
+---
+
+## 12. Endgame — nível 99, a Torre e o multiplayer (v2.71.0)
+
+- **Teto de nível: 99.** O catálogo dos 30 personagens desenha os 10 primeiros
+  níveis (títulos + unlock de poder); 11–99 são **procedurais** — +1 num atributo
+  a cada nível par, ciclando `growth_order`, PV/PM derivados de R (estilo
+  Ragnarok: acima do 10 é só número). `getGanguesTemplateLevel` gera os níveis
+  sintéticos; `GANGUES_LEVEL_CAP = 99`.
+- **Dá pra zerar a campanha em ~L50.** Os 7 chefes usam **orçamento de pontos
+  FIXO** (`GANGUES_CHEFE_BUDGET`, não escala com o jogador) — quanto mais nível,
+  mais confortável a mesma luta. Alvo da Pista (calibrado por sim): **L5–7 quase
+  errado de encarar, L8 pau a pau, L10 confortável**.
+- **Modo Batalha = A Torre** (`GanguesBatalha`). Destrava ao zerar a campanha 1×.
+  Luta atrás de luta, o jogador escolhe o bairro-tema e a *folga de nível*
+  (folgado → brabo). Cada andar sobe a dificuldade e o AP (+100% a cada 5
+  andares). É o grind de L50 → 99. Recorde de andar por bairro em
+  `storyProgress.__torre`.
+- **Multiplayer online libera com 1 ficha no nível 99** (estilo carta de mestre).
+  `ganguesTemMultiplayer(roster)`. O online em si é fase futura — por ora só
+  destrava o card em `GanguesModes`.
+- **A Coleção** (3º botão da HUD da cena + lobby): abas Inimigos (o Álbum),
+  Itens (consumível + equipamento, descoberto via `storyProgress.__itens`) e
+  Cartas (placeholder — sockets, faixa 10000+).
 
 ---
 

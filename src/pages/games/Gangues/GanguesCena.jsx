@@ -29,7 +29,7 @@ const WORLD={w:760,h:1840}, SPAWN={x:380,y:1720}, TILE=20, STEP_MS=110, PLAYER_R
 const SCENE_INTRO_KEY='ldi-gangues-cena-intro-vista'
 function cenaIntroJaVista(id){try{return JSON.parse(localStorage.getItem(SCENE_INTRO_KEY)||'[]').includes(id)}catch{return false}}
 function marcarCenaIntroVista(id){try{const atual=JSON.parse(localStorage.getItem(SCENE_INTRO_KEY)||'[]');if(!atual.includes(id))localStorage.setItem(SCENE_INTRO_KEY,JSON.stringify([...atual,id]))}catch{}}
-const POS={sinal:{x:210,y:1570},ferro:{x:150,y:1325},achado:{x:110,y:1245},beco:{x:445,y:1190},birosca:{x:170,y:1460},corre:{x:610,y:1010},beco_2:{x:445,y:505},rasteira_velha:{x:380,y:460},descanso:{x:205,y:1440},informante:{x:150,y:740},rinha:{x:610,y:740},loja:{x:210,y:250},boss:{x:570,y:175}}
+const POS={sinal:{x:210,y:1570},ferro:{x:150,y:1325},achado:{x:110,y:1245},beco:{x:445,y:1190},birosca:{x:170,y:1460},corre:{x:610,y:1010},beco_2:{x:445,y:505},beco_3:{x:315,y:600},sinaleiro:{x:435,y:640},rasteira_velha:{x:380,y:460},oficina:{x:250,y:705},descanso:{x:205,y:1440},informante:{x:150,y:740},rinha:{x:610,y:740},loja:{x:210,y:250},boss:{x:570,y:175}}
 const COLLIDERS=[
   {x:0,y:350,w:287,h:326},{x:473,y:350,w:287,h:326},
   {x:0,y:802,w:287,h:370},{x:473,y:802,w:287,h:370},
@@ -42,6 +42,9 @@ const ENTRY_ZONES={
   // rasteira_velha: no corredor central logo abaixo do portão — o último
   // desafio antes do muro. loja: já do OUTRO lado do portão (y<350).
   rasteira_velha:{x:345,y:425,w:70,h:80},loja:{x:175,y:216,w:72,h:72},
+  // beco_3 + sinaleiro no corredor central (x287-473) entre o portão e os
+  // prédios; oficina no vão aberto logo abaixo (y>676, x<287).
+  beco_3:{x:290,y:572,w:64,h:64},sinaleiro:{x:406,y:612,w:60,h:60},oficina:{x:220,y:678,w:64,h:62},
   // informante/rinha ficam num trecho SEM colisor nenhum (y:705-781 não tem
   // nenhum COLLIDERS cobrindo essa faixa) — diferente de ferro/corre/etc,
   // que hospedam perto de prédio de verdade e por isso a zona anda longe do
@@ -53,7 +56,7 @@ const ENTRY_ZONES={
   boss:{x:530,y:300,w:80,h:45},
 }
 const PLACES=[
-  ['entrada',380,1745,'⇧','Entrada da Pista'],['banca',95,1600,'▤','Banca fechada'],['bar',155,1450,'♬','Bar do Zé'],['carro',60,1550,'▭','Carro sem roda'],['residencial',560,1440,'⌂','Rua residencial'],['cruzamento',380,1270,'╳','Cruzamento'],['poste',620,1330,'╿','Poste caído'],['mercado',592,1120,'▦','Mercadinho da Cida'],['container',70,1050,'▤','Contêiner'],['fliperama',610,990,'▣','Fliperama do Kiko'],['muro',360,1080,'▨','Muro pichado'],['quadra',130,900,'◎','Quadra da Pista'],['praca',370,900,'♣','Praça da Pista'],['ponto',625,770,'▥','Ponto de ônibus'],['mototaxi',95,820,'◔','Ponto de mototáxi'],['oficina',205,650,'⚙','Oficina do Nando'],['arvore',600,560,'♠','Árvore seca'],['escadaria',245,390,'▰','Escadaria / mirante'],['portao',380,300,'▥','Portão da gangue rival','gate']
+  ['entrada',380,1745,'⇧','Entrada da Pista'],['banca',95,1600,'▤','Banca fechada'],['bar',155,1450,'♬','Bar do Zé'],['carro',60,1550,'▭','Carro sem roda'],['residencial',560,1440,'⌂','Rua residencial'],['cruzamento',380,1270,'╳','Cruzamento'],['poste',620,1330,'╿','Poste caído'],['mercado',592,1120,'▦','Mercadinho da Cida'],['container',70,1050,'▤','Contêiner'],['fliperama',610,990,'▣','Fliperama do Kiko'],['muro',360,1080,'▨','Muro pichado'],['quadra',130,900,'◎','Quadra da Pista'],['praca',370,900,'♣','Praça da Pista'],['ponto',625,770,'▥','Ponto de ônibus'],['mototaxi',95,820,'◔','Ponto de mototáxi'],['oficina',205,650,'⚙','Oficina do Nando'],['grade',300,690,'▦','Grade da oficina'],['entulho',120,560,'▧','Entulho'],['espeto',655,665,'♨','Espeto do Nato'],['arvore',600,560,'♠','Árvore seca'],['escadaria',245,390,'▰','Escadaria / mirante'],['portao',380,300,'▥','Portão da gangue rival','gate']
 ]
 
 export default function GanguesCena({onNavigate}){
@@ -110,6 +113,7 @@ export default function GanguesCena({onNavigate}){
     if(intro||encontro)return
     if(!andou){setHint(t('games.gangues.cena.hint_andar'));return}
     if(perto&&Object.keys(prog.resolvidos).length===0){setHint(t('games.gangues.cena.hint_interagir'));return}
+    if(prog.resolvidos.ferro&&!prog.resolvidos.oficina){setHint(t('games.gangues.cena.hint_sucata'));return}
     setHint(null)
   },[intro,encontro,andou,perto,prog.resolvidos,t])
   if(!cena||!terr)return <main className="gang-lobby"><button className="gang-new-sheet" onClick={()=>onNavigate('story')}>← MAPA</button></main>
@@ -124,6 +128,7 @@ export default function GanguesCena({onNavigate}){
       const r=poi.recompensa||{}
       if(r.grana)store.ganharGrana(r.grana)
       if(r.rep)store.ganharRep(r.rep)
+      if(r.item)store.darItem(r.item,r.qtd||1)
       if(r.grana||r.rep||r.item){setToast(r);setTimeout(()=>setToast(null),2600)}
       store.marcarPoiResolvido(cena.id,poi.id,poi.revela||[])
       return
@@ -144,7 +149,24 @@ export default function GanguesCena({onNavigate}){
     store.setStoryTarget({territorioId:terr.id,cenaId:cena.id,cenaPoiId:poi.id,cenaRevela:viraTreta?(revela||[]):(poi.revela||[]),cenaRecompensa:viraTreta?(viraTreta.recompensa||null):poi.recompensa||null,pontoIds:terr.pontos.map(p=>p.id),noId:chefe?cena.chefe.poiNo:null,enemyId:viraTreta?viraTreta.enemy:poi.enemy,fixo:Boolean(viraTreta),liderFixo:viraTreta?null:poi.liderFixo,dificuldade:poi.dificuldade,isChefe:chefe,repDelta:viraTreta?.rep||0,pontosFixos})
     onNavigate('story-combat')
   }
-  const resolver=res=>{const poi=encontro.poi;setEncontro(null);if(res?.viraTreta){iniciarTreta(poi,{viraTreta:res.viraTreta,revela:res.revela});return}if(res?.custoGrana)store.gastarGrana(res.custoGrana);if(typeof res?.folego==='number')store.ajustarFolego(cena.id,res.folego);if(res?.informante)store.marcarInformante(res.informante);const r=res?.recompensa||{};if(r.grana)store.ganharGrana(r.grana);if(r.rep)store.ganharRep(r.rep);if(r.grana||r.rep||r.xp||r.item){setToast(r);setTimeout(()=>setToast(null),2600)}if(!poi.repetivel)store.marcarPoiResolvido(cena.id,poi.id,res?.revela||poi.revela||[]);else if(res?.revela)store.revelarPoi(cena.id,res.revela)}
+  const resolver=res=>{
+    const poi=encontro.poi;setEncontro(null)
+    if(res?.viraTreta){iniciarTreta(poi,{viraTreta:res.viraTreta,revela:res.revela});return}
+    // Escolha com requisito de item (fetch quest do Nando): consome os itens —
+    // aborta sem marcar nada se faltar (o botão já vem travado, isso é rede).
+    if(res?.precisaItens&&!store.gastarItens(res.precisaItens))return
+    if(res?.custoGrana)store.gastarGrana(res.custoGrana)
+    if(typeof res?.folego==='number')store.ajustarFolego(cena.id,res.folego)
+    if(res?.informante)store.marcarInformante(res.informante)
+    ;(res?.daEquip||[]).forEach(id=>store.comprarEquip(id,0))
+    const r=res?.recompensa||{}
+    if(r.grana)store.ganharGrana(r.grana)
+    if(r.rep)store.ganharRep(r.rep)
+    if(r.item)store.darItem(r.item,r.qtd||1)
+    if(r.grana||r.rep||r.xp||r.item||res?.daEquip?.length){setToast(r);setTimeout(()=>setToast(null),2600)}
+    if(!poi.repetivel)store.marcarPoiResolvido(cena.id,poi.id,res?.revela||poi.revela||[])
+    else if(res?.revela)store.revelarPoi(cena.id,res.revela)
+  }
   // Território dominado NÃO fecha a cena — as tretas repetíveis (rinha) e o
   // informante moram aqui e têm que continuar alcançáveis pra sempre. Antes
   // isso trocava a cena inteira por uma tela de "dominado" sem saída, o que
@@ -153,7 +175,7 @@ export default function GanguesCena({onNavigate}){
   const vw=viewportRef.current?.clientWidth||390,vh=viewportRef.current?.clientHeight||620,lookX=facing==='right'?52:facing==='left'?-52:0,lookY=facing==='down'?60:facing==='up'?-60:0,camX=Math.max(0,Math.min(WORLD.w-vw,player.x-vw/2+lookX)),camY=Math.max(0,Math.min(WORLD.h-vh,player.y-vh/2+lookY))
   return <main className="gang-cena-worldpage" style={{'--terr-cor':cena.cor}}>
     <AnimatePresence>{intro&&<GangDialog lines={t(cena.chegada)} speaker={t(cena.falante)} sub={t(cena.falanteSub)} onFinish={fecharIntro} onSkip={fecharIntro}/>}</AnimatePresence>
-    <header className="gang-cena-worldhud"><button onClick={()=>{guardarPosicao();onNavigate('story')}}>← MAPA</button><strong>A PISTA {prog.boss?<i className="gang-cena-dominado-selo">⚑ DOMINADA</i>:<i>{feitos}/{total}</i>}</strong><span>💵 {store.grana}　⚑ {store.rep}</span><button className="gang-cena-ficha-btn" onClick={()=>setBagAberta(true)} aria-label={t('games.gangues.bag.titulo')}>🎒</button>{store.activeParty.length>0&&<button className="gang-cena-ficha-btn" onClick={()=>setFichaIndex(0)}>👤</button>}</header>
+    <header className="gang-cena-worldhud"><button onClick={()=>{guardarPosicao();onNavigate('story')}}>← MAPA</button><strong>A PISTA {prog.boss?<i className="gang-cena-dominado-selo">⚑ DOMINADA</i>:<i>{feitos}/{total}</i>}</strong><span>💵 {store.grana}　⚑ {store.rep}</span><button className="gang-cena-ficha-btn" onClick={()=>setBagAberta(true)} aria-label={t('games.gangues.bag.titulo')}>🎒</button>{store.activeParty.length>0&&<button className="gang-cena-ficha-btn" onClick={()=>setFichaIndex(0)}>👤</button>}<button className="gang-cena-ficha-btn" onClick={()=>{guardarPosicao();onNavigate('album')}} aria-label={t('games.gangues.album.titulo')}>📕</button></header>
     <div className="gang-cena-viewport" ref={viewportRef}><div className="gang-cena-world" style={{width:WORLD.w,height:WORLD.h,transform:`translate3d(${-camX}px,${-camY}px,0)`}}><WorldScenery bossAberto={bossAberto}/>{pinos.map(p=><EntryZone key={`zone-${p.id}`} poi={p} active={perto?.id===p.id}/>)}{PLACES.map(p=><div key={p[0]} className={`gang-world-place ${p[5]?'is-gate':''} ${p[5]&&bossAberto?'is-open':''}`} style={{left:p[1],top:p[2]}}><b>{p[3]}</b><span>{p[4]}</span>{p[5]&&<em>{bossAberto?'ABERTO':'FECHADO'}</em>}</div>)}{pinos.map(p=><div key={p.id} className={`gang-world-npc is-${p.estado} ${p.ehChefe?'is-boss':''} ${p.farmCompleto?'is-farm':''}`} style={{left:p.world.x,top:p.world.y}}><span>{p.ehChefe?'★':ICONE[p.tipo]||'•'}</span>{p.estado!=='trancado'&&<small>{p.ehChefe?t(`games.gangues.story.bosses.${p.boss}.nome`):t(`${p.i18n}.nome`)}</small>}{p.farmCompleto&&<i className="gang-world-npc-farm-tag" aria-hidden="true">↻</i>}</div>)}<GangMarker player={player} facing={facing} gangName={store.gangName}/></div><div className="gang-cena-vignette"/><div className="gang-cena-status"><span>FÔLEGO</span><i><b style={{width:`${folego}%`}}/></i></div>{hint&&<div className="gang-cena-tutorial">{hint}</div>}{!bossAberto&&player.y<420&&<div className="gang-cena-gatelock">🔒 {t('games.gangues.cena.boss_trancado')}</div>}</div>
     <WorldControls onInput={v=>{inputRef.current=v}} onInteract={()=>abrir(perto)} action={perto?interactionLabel(perto):null}/>
     <AnimatePresence>{toast&&<motion.div className="gang-cena-toast" initial={{opacity:0,y:12}} animate={{opacity:1,y:0}} exit={{opacity:0}}><b>RECOMPENSA</b>{toast.grana?<span>💵 +{toast.grana}</span>:null}{toast.rep?<span>⚑ +{toast.rep}</span>:null}{toast.xp?<span>⚡ +{toast.xp} XP</span>:null}</motion.div>}</AnimatePresence>

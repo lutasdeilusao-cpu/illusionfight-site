@@ -3,6 +3,8 @@ import { motion } from 'framer-motion'
 import { useLanguage } from '../../../../../context/LanguageContext'
 import { useGanguesStore } from '../../store/useGanguesStore'
 import { sfx } from '../../../../../lib/sfx'
+import { getGanguesItem } from '../../data/ganguesItens.js'
+import { getGanguesEquip } from '../../data/ganguesEquip.js'
 
 /* Encontro PAPO — conversa com um local da quebrada. 2–3 escolhas com
    consequência: revela POI, custa grana, ou parte pra treta. Usa a
@@ -10,6 +12,8 @@ import { sfx } from '../../../../../lib/sfx'
 export default function GanguesPapo({ poi, onResolve, onClose }) {
   const { t } = useLanguage()
   const grana = useGanguesStore(s => s.grana)
+  const inventario = useGanguesStore(s => s.inventario)
+  const temItens = (mapa) => Object.entries(mapa || {}).every(([id, q]) => (inventario[id] || 0) >= q)
   const [resultado, setResultado] = useState(null)
 
   const base = poi.i18n
@@ -20,17 +24,19 @@ export default function GanguesPapo({ poi, onResolve, onClose }) {
     return Array.isArray(raw) ? raw : [raw]
   }, [t, base])
 
+  const passa = (escolha) => {
+    onResolve({ ok: true, revela: escolha.revela, recompensa: escolha.recompensa, custoGrana: escolha.custoGrana, informante: escolha.informante, precisaItens: escolha.precisaItens, daEquip: escolha.daEquip })
+  }
+
   const escolher = (escolha) => {
     if (escolha.custoGrana && grana < escolha.custoGrana) { sfx.cancel(); return }
+    if (escolha.precisaItens && !temItens(escolha.precisaItens)) { sfx.cancel(); return }
     sfx.select()
     if (escolha.viraTreta) { onResolve({ viraTreta: escolha.viraTreta, revela: escolha.revela }); return }
     const texto = t(`${base}.escolhas.${escolha.id}.resultado`)
     const temTexto = texto && texto !== `${base}.escolhas.${escolha.id}.resultado`
-    if (temTexto) {
-      setResultado({ texto, escolha })
-    } else {
-      onResolve({ ok: true, revela: escolha.revela, recompensa: escolha.recompensa, custoGrana: escolha.custoGrana, informante: escolha.informante })
-    }
+    if (temTexto) setResultado({ texto, escolha })
+    else passa(escolha)
   }
 
   return (
@@ -44,7 +50,7 @@ export default function GanguesPapo({ poi, onResolve, onClose }) {
           <p className="gang-cena-papo-fala">{resultado.texto}</p>
           <button
             className="gang-cena-btn gang-cena-btn--go"
-            onClick={() => onResolve({ ok: true, revela: resultado.escolha.revela, recompensa: resultado.escolha.recompensa, custoGrana: resultado.escolha.custoGrana, informante: resultado.escolha.informante })}
+            onClick={() => passa(resultado.escolha)}
           >
             {t('games.gangues.cena.fechar')}
           </button>
@@ -65,15 +71,22 @@ export default function GanguesPapo({ poi, onResolve, onClose }) {
           <div className="gang-cena-papo-escolhas">
             {(poi.escolhas || []).map((escolha) => {
               const semGrana = escolha.custoGrana && grana < escolha.custoGrana
+              const semItens = escolha.precisaItens && !temItens(escolha.precisaItens)
+              const custoItens = escolha.precisaItens
+                ? Object.entries(escolha.precisaItens).map(([id, q]) => `${getGanguesItem(id)?.icone || '▪'}×${q}`).join(' ')
+                : null
+              const ganhaEquip = (escolha.daEquip || []).map(id => getGanguesEquip(id)?.icone).filter(Boolean).join(' ')
               return (
                 <button
                   key={escolha.id}
                   className={`gang-cena-btn ${escolha.viraTreta ? 'gang-cena-btn--treta' : ''}`}
                   onClick={() => escolher(escolha)}
-                  disabled={semGrana}
+                  disabled={semGrana || semItens}
                 >
                   {t(`${base}.escolhas.${escolha.id}.label`)}
                   {escolha.custoGrana ? <em className="gang-cena-btn-custo"> −{escolha.custoGrana}</em> : null}
+                  {custoItens ? <em className="gang-cena-btn-custo"> {custoItens}</em> : null}
+                  {ganhaEquip ? <em className="gang-cena-btn-custo"> → {ganhaEquip}</em> : null}
                 </button>
               )
             })}

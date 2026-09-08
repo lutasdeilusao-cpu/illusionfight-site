@@ -521,6 +521,7 @@
         "item_qtd": "×{n}"
       },
       "itens": {
+        "13": "Chatarra",
         "1": "Poción de HP",
         "2": "Poción de MP"
       },
@@ -2019,11 +2020,39 @@
         "intro": "Tu pandilla ha nacido. Ahora toma las calles, territorio por territorio.",
         "comecar_historia": "COMENZAR LA HISTORIA",
         "bloqueado": "Bloqueado",
-        "batalha_bloqueada_desc": "Los combates sueltos llegarán en una actualización futura. Primero, construye tu historia en Marélia.",
+        "liberado": "Desbloqueado",
+        "entrar_torre": "ENTRAR A LA TORRE",
+        "batalha_bloqueada_desc": "La Torre se abre cuando terminás la campaña. Primero, tomá Marélia barrio por barrio.",
         "em_breve": "PRÓXIMAMENTE",
         "multiplayer_titulo": "MULTIJUGADOR ONLINE",
         "multiplayer_tag": "En grupo",
-        "multiplayer_bloqueada_desc": "Las partidas online contra otras bandas llegan en una actualización futura."
+        "multiplayer_bloqueada_desc": "Llevá una ficha de la pandilla al nivel 99 para abrir el online contra otras bandas (el online en sí llega en una actualización futura).",
+        "multiplayer_liberado_desc": "Tenés una ficha en nivel 99 — el online contra otras bandas está listo para encenderse apenas llegue."
+      },
+      "batalha": {
+        "titulo": "LA TORRE",
+        "sub": "Pelea tras pelea para subir rápido. Tu pandilla está en nivel promedio {n}.",
+        "escolha_tema": "De dónde viene el bonde",
+        "escolha_folga": "Cuánta bronca querés",
+        "recorde": "Récord: piso {n}",
+        "andar": "PISO {n}",
+        "subir": "SUBIR LA TORRE",
+        "continuar": "ENCARAR EL PISO",
+        "encerrar": "BAJAR DE LA TORRE",
+        "proximo_andar": "PRÓXIMO PISO",
+        "sair_torre": "SALIR DE LA TORRE",
+        "folga": {
+          "leve": "Holgado",
+          "igual": "Mismo nivel",
+          "puxado": "Difícil",
+          "brabo": "Brutal"
+        },
+        "folga_desc": {
+          "leve": "Bien por debajo de tu pandilla — para farmear tranquilo.",
+          "igual": "Del tamaño de tu pandilla — pelea justa.",
+          "puxado": "Por encima de tu pandilla — más AP, más riesgo.",
+          "brabo": "Muy por encima — para medir hasta dónde llegás."
+        }
       },
       "naming": {
         "titulo": "FUNDA TU GANGA",
@@ -2195,10 +2224,36 @@
             "nome": "La Rasteira Vieja",
             "sub": "la dueña del callejón en persona",
             "fala": "¿Le pegaste a los pibes y pensaste que la Pista era tuya? La Rasteira Vieja entrenó a cada uno de estos pibes. Pegame a mí primero — ahí sí baja Carbón."
+          },
+          "oficina": {
+            "nome": "El taller de Nando",
+            "sub": "Don Nando arregla lo que la calle rompe",
+            "fala": [
+              "Mirá la pandilla nueva laburando los puntos. Te digo una cosa: para encarar a Carbón necesitás fierro en la mano, no solo huevos.",
+              "Traeme dos pedazos de chatarra de ese depósito — uno lo sacás abriendo el candado, el otro está en el fondo. Traélos y te forjo una pieza.",
+              "Y de yapa te digo dónde se esconde Carbón cuando desaparece en la oscuridad. ¿Trato?"
+            ],
+            "escolhas": {
+              "forjar": {
+                "label": "Entregá la chatarra y llevate la pieza",
+                "resultado": "Nando martilla un rato y te pasa un puño de lata todavía caliente. \"Carbón para en el fondo del callejón de la Rasteira, atrás del muro. Desaparece en la oscuridad, pero siempre al mismo rincón. Ahora andá.\""
+              }
+            }
+          },
+          "beco_3": {
+            "nome": "El tercer punto",
+            "sub": "otro pedazo de la Rato de Pista",
+            "fala": "No aflojan, ¿eh? La Pista tiene puntos como agujeros de bala — siempre hay uno más. Este es mío. Vení a demostrar que valés."
+          },
+          "sinaleiro": {
+            "nome": "El Jefe de Señales",
+            "sub": "si él silba, corre todo el barrio",
+            "fala": "Yo manejo los ojos de la Pista, pibe. Cada campana, cada semáforo, cada pibe en la señal responde a mi silbato. Pasaste a todos ellos — a mí no me pasás."
           }
         },
         "hint_andar": "Usá el joystick para caminar el barrio.",
-        "hint_interagir": "Llegaste a un punto — apretá INTERACTUAR."
+        "hint_interagir": "Llegaste a un punto — apretá INTERACTUAR.",
+        "hint_sucata": "🔩 Llevá los dos pedazos de chatarra a Nando en el taller."
       },
       "enemy_album": {
         "1101": "No pelea, corre y avisa — enfrentarlo es una persecución antes de la paliza.",
@@ -2301,14 +2356,26 @@
         "1600": "El único que sostuvo seis barrios a la vez."
       },
       "album": {
-        "titulo": "Álbum de Marélia",
-        "sub": "Cada nombre que tu banda tumbó.",
+        "titulo": "Colección",
+        "sub": "Todo lo que tu banda vio, peleó y juntó en Marélia.",
         "contador": "{n}/99",
         "bloqueado": "???",
         "ainda_nao": "Aún no cayó ante ti.",
         "arma_label": "Arma",
         "terr_label": "Barrio",
         "voltar": "Volver",
+        "secoes": {
+          "inimigos": "Enemigos",
+          "itens": "Ítems",
+          "cartas": "Cartas"
+        },
+        "itens_consumivel": "Consumible",
+        "itens_equip": "Equipo",
+        "item_dica_loja": "Se compra en una tienda de barrio.",
+        "item_dica_drop": "Drop — cae de un jefe o de una pelea.",
+        "item_dica_quest": "Se gana resolviendo un mandado del barrio.",
+        "cartas_explica": "Las cartas de socket encajan en el equipo y dan bonus extra — estilo carta de maestro. Vienen del sistema de drop, que llega en una actualización futura.",
+        "cartas_em_breve": "— próximamente —",
         "cargos": {
           "vigia": "Vigía",
           "vapor": "Vendedor",

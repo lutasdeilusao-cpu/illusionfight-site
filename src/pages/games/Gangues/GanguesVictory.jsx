@@ -48,8 +48,11 @@ export default function GanguesVictory({ onNavigate }) {
   const enemyDamage = attacks.filter(entry => entry.side === 'enemy').reduce((sum, entry) => sum + entry.dmg, 0)
 
   const storyAlvo = store.storyTarget
-  const emCena = Boolean(storyAlvo?.cenaId)
-  const noModoHistoria = Boolean(storyAlvo?.noId) || emCena
+  // Torre (Modo Batalha) — luta avulsa de grind, sem cena/nó/POI. Só AP.
+  const torre = Boolean(storyAlvo?.torre)
+  const torreAndar = Number(storyAlvo?.torreAndar) || 1
+  const emCena = Boolean(storyAlvo?.cenaId) && !torre
+  const noModoHistoria = (Boolean(storyAlvo?.noId) || emCena) && !torre
   const cenaChefe = emCena && storyAlvo.isChefe
   const confrontoFinal = Boolean(storyAlvo?.noId) && ehConfrontoFinal(storyAlvo)
   // Território dominado nesta vitória? (chefe caiu, seja no fluxo de cena
@@ -63,6 +66,7 @@ export default function GanguesVictory({ onNavigate }) {
   // pra distribuir — mesma lógica dos botões do rodapé, sem a opção de recrutar
   // (recrutar é um desvio opcional, não "o que ele tava fazendo").
   const acaoPosVitoria = () => {
+    if (torre) { if (victory) store.torreAvancar(); else store.torreEncerrar(); onNavigate('batalha'); return }
     if (confrontoFinal && victory) { onNavigate('story'); return }
     if (cenaChefe && victory) { onNavigate('story'); return }
     if (noModoHistoria) {
@@ -95,7 +99,9 @@ export default function GanguesVictory({ onNavigate }) {
     // que treta comum, senão o esforço de vencer um chefão rende a mesma
     // migalha de sempre.
     const multiplicadorChefe = cenaChefe ? 5 : 1
-    const ap = victory ? 10 * enemyCount * multiplicadorChefe : 1
+    // Torre: o AP sobe com o andar (grind pra L→99) — +100% a cada 5 andares.
+    const multiplicadorTorre = torre ? 1 + Math.floor(torreAndar / 5) : 1
+    const ap = victory ? 10 * enemyCount * multiplicadorChefe * multiplicadorTorre : 1
     const participantIds = victory ? escaladosIds.filter(id => !koIds.has(id)) : escaladosIds
     // Peso por RANKING de contribuição (não mais proporcional direto a
     // abates/dano) — 1º lugar (quem mais matou, dano desempata) pesa 3, 2º
@@ -147,6 +153,7 @@ export default function GanguesVictory({ onNavigate }) {
         if (rec) {
           if (rec.grana) { store.ganharGrana(rec.grana); granaGanha += rec.grana }
           if (rec.rep) { store.ganharRep(rec.rep); repGanha += rec.rep }
+          if (rec.item) store.darItem(rec.item, rec.qtd || 1)
         }
         store.ajustarFolego(storyAlvo.cenaId, -14)
         if (cenaChefe) {
@@ -283,7 +290,12 @@ export default function GanguesVictory({ onNavigate }) {
           derrotado, bairro dominado); dentro do bairro já tem um botão de
           volta ao mapa pra quem quiser sair por lá. */}
       <footer className="gang-report-actions gang-report-actions--top">
-        {cenaChefe && victory ? (
+        {torre ? (
+          <>
+            {victory && <button className="gang-report-primary" onClick={() => { store.torreAvancar(); onNavigate('batalha') }}>{t('games.gangues.batalha.proximo_andar')}</button>}
+            <button className={victory ? 'gang-report-secondary' : 'gang-report-primary'} onClick={() => { store.torreEncerrar(); onNavigate('batalha') }}>{t('games.gangues.batalha.sair_torre')}</button>
+          </>
+        ) : cenaChefe && victory ? (
           <>
             {podeRecrutar && <button className="gang-report-primary" onClick={recrutar}>{t('games.gangues.report.recrutar')}</button>}
             <button className={podeRecrutar ? 'gang-report-secondary' : 'gang-report-primary'} onClick={() => onNavigate('story')}>{t('games.gangues.story.voltar_mapa')}</button>

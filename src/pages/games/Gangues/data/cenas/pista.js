@@ -65,11 +65,12 @@ export const CENA_PISTA = {
       // "A sequência da fechadura" — decorar e repetir a ordem dos pinos do
       // cadeado (PuzzleSimonSays, self-styled, sem depender de Puzzles.css).
       puzzle: { type: 'simon', config: { difficulty: 'easy' }, skin: 'gazua' },
-      recompensa: { grana: 12, item: 'sucata' },
+      recompensa: { grana: 12, item: 13 },
       falha: { viraTreta: { enemy: 1201, recompensa: { grana: 3 } } },
-      // Abrir o portão revela o beco (caminho principal) E o achado do outro
-      // lado do ferro-velho (loot opcional dentro).
-      revela: ['beco', 'achado'],
+      // Abrir a fechadura revela o beco (caminho principal), o fundo do
+      // ferro-velho (achado — 2º pedaço de sucata) e a oficina do Nando (onde
+      // a sucata vira peça).
+      revela: ['beco', 'achado', 'oficina'],
     },
     {
       // Achado — loot dentro do ferro-velho, sem interação (GanguesCena.abrir
@@ -79,7 +80,21 @@ export const CENA_PISTA = {
       opcional: true,
       pino: { x: 68, y: 150 },
       i18n: 'games.gangues.cena.pista.achado',
-      recompensa: { grana: 15, item: 'sucata' },
+      recompensa: { grana: 15, item: 13 },
+    },
+    {
+      // A OFICINA DO NANDO — o desafio de cenário estilo Zelda clássico: o
+      // jogador junta 2 pedaços de sucata (um no puzzle do ferro-velho, outro
+      // no fundo dele) e traz pro Nando, que forja uma peça E conta onde o
+      // Carvão se enfia. Obrigatório pro portão — sem a peça o time não tem
+      // fôlego pro chefe. (Seu Nando: GDD §8, a oficina já é cena decorativa.)
+      id: 'oficina',
+      tipo: 'papo',
+      pino: { x: 30, y: 62 },
+      i18n: 'games.gangues.cena.pista.oficina',
+      escolhas: [
+        { id: 'forjar', precisaItens: { 13: 2 }, daEquip: [101], recompensa: { rep: 4 } },
+      ],
     },
     {
       id: 'beco',
@@ -142,6 +157,39 @@ export const CENA_PISTA = {
       forca: 2,
       dificuldade: 'normal',
       recompensa: { grana: 8, rep: 3 },
+      revela: ['beco_3'],
+    },
+    {
+      // 3º ponto da Pista — o degrau do meio, mantém o bairro mais longo pra
+      // quem corre sem upar chegar no Carvão já em L6-L7 (e apanhar). Pool
+      // comum da Pista, 'normal'. Repetível pra farm.
+      id: 'beco_3',
+      tipo: 'treta',
+      repetivel: true,
+      pino: { x: 40, y: 40 },
+      i18n: 'games.gangues.cena.pista.beco_3',
+      enemy: 1302,
+      forca: 2,
+      dificuldade: 'normal',
+      recompensa: { grana: 9, rep: 3 },
+      revela: ['sinaleiro'],
+    },
+    {
+      // O SINALEIRO CHEFE (1451) — o outro General da Pista. "Comanda todos os
+      // vigias: se ele apita, o bairro corre." `liderFixo` põe ele sempre na
+      // frente do bando. Obrigatório pro portão — os dois generais (Sinaleiro
+      // + Rasteira Velha) caem antes do Carvão descer. Entra no álbum aqui,
+      // não só na luta de chefe.
+      id: 'sinaleiro',
+      tipo: 'treta',
+      repetivel: true,
+      pino: { x: 66, y: 30 },
+      i18n: 'games.gangues.cena.pista.sinaleiro',
+      enemy: 1451,
+      liderFixo: 1451,
+      forca: 3,
+      dificuldade: 'dificil',
+      recompensa: { grana: 12, rep: 5 },
       revela: ['rasteira_velha'],
     },
     {
@@ -254,7 +302,7 @@ export const CENA_PISTA = {
   // A área final só abre depois de todo o caminho obrigatório da Pista —
   // incluindo a Rasteira Velha (o General). Só aí o Carvão desce.
   portao: {
-    precisa: ['sinal', 'ferro', 'beco', 'birosca', 'beco_2', 'rasteira_velha'],
+    precisa: ['sinal', 'ferro', 'beco', 'birosca', 'beco_2', 'beco_3', 'oficina', 'sinaleiro', 'rasteira_velha'],
   },
 }
 

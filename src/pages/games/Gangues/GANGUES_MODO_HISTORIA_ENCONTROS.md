@@ -10,6 +10,46 @@
 
 ---
 
+## 0. Controle de progressão — nível × pontos × AP (v2.71.0)
+
+Teto de nível = **99** (11–99 procedurais — ver GDD §12). Elenco de história
+**travado em 2 fichas** até dominar o 1º território → a luta do Carvão é sempre
+2×2. AP p/ subir de nível = `5 × (nível+1)` por ficha.
+
+| Nível | Pts/ficha | Time de 2 | AP acum./ficha |
+|---|---|---|---|
+| 1 | ~5 | ~10 | 0 |
+| 3 | ~7 | ~13–14 | 25 |
+| 5 | ~9 | ~14–16 | 70 |
+| 7 | ~10 | ~16–18 | 140 |
+| 8 | ~10–11 | ~18 | 175 |
+| 10 | ~11+ | ~20 | 275 |
+
+**Rush sem upar:** as 9 lutas obrigatórias da Pista rendem ~130–140 AP/ficha ⇒
+o time chega no Carvão em **L6–L7**, apanha, e volta pra grindar as repetíveis
+(beco/beco_2/beco_3/sinaleiro/rinha) até L8. Esse degrau é a aula de que o jogo
+é de upagem. Grind pesado de L→99 é o **Modo Batalha / Torre**.
+
+## 0.1 Chefe da Pista — bando de BUDGET FIXO (v2.71.0)
+
+`gerarBandoChefe` (data/ganguesEncontros.js): orçamento de pontos **fixo** por
+território (`GANGUES_CHEFE_BUDGET`), **não** escala com o jogador. Pista = budget
+20, líder 60%, 2 corpos (Carvão 1500 + Rasteira Velha 1452). Calibrado por
+`scratchpad/sim_boss7.py` — time balanceado de 2 fichas:
+
+| Nível do time | Vitória | Rodadas |
+|---|---|---|
+| L5 | ~8% | 3.2 |
+| L6–7 | ~22% | 3.3 |
+| L8 | ~50% | 3.8 |
+| L10 | ~69% (bal) / >95% (tank) | 3.3 |
+
+= pedido do Isaias: "abaixo do 8 quase errado, no 8 pau a pau, no 10
+confortável". Os budgets de feira→laje (27…64) são 1ª aproximação — recalibrar
+quando cada bairro ganhar cena e sim dedicada.
+
+---
+
 ## 1. O problema hoje
 
 O bairro (`GanguesTerritorio.jsx`) mostra uma **trilha linear de nós já toda

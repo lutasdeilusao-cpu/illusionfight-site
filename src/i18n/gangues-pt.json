@@ -522,7 +522,8 @@
       },
       "itens": {
         "1": "Poção de HP",
-        "2": "Poção de MP"
+        "2": "Poção de MP",
+        "13": "Sucata"
       },
       "loja": {
         "titulo": "Loja",
@@ -1609,11 +1610,39 @@
         "intro": "Sua gangue nasceu. Agora é hora de tomar as ruas, território por território.",
         "comecar_historia": "COMEÇAR A HISTÓRIA",
         "bloqueado": "Bloqueado",
-        "batalha_bloqueada_desc": "Confrontos avulsos serão liberados em uma atualização futura. Primeiro, construa sua história em Marélia.",
+        "liberado": "Liberado",
+        "entrar_torre": "ENTRAR NA TORRE",
+        "batalha_bloqueada_desc": "A Torre abre quando você zera a campanha. Primeiro, domine Marélia bairro por bairro.",
         "em_breve": "EM BREVE",
         "multiplayer_titulo": "MULTIPLAYER ONLINE",
         "multiplayer_tag": "Em grupo",
-        "multiplayer_bloqueada_desc": "Partidas online contra outras gangues chegam em uma atualização futura."
+        "multiplayer_bloqueada_desc": "Leve uma ficha da gangue ao nível 99 pra abrir o online contra outras gangues (o online em si chega numa atualização futura).",
+        "multiplayer_liberado_desc": "Você tem uma ficha no nível 99 — o online contra outras gangues está pronto pra ligar assim que chegar."
+      },
+      "batalha": {
+        "titulo": "A TORRE",
+        "sub": "Luta atrás de luta pra upar rápido. Sua gangue está no nível médio {n}.",
+        "escolha_tema": "De onde vem o bonde",
+        "escolha_folga": "Quanta treta você quer",
+        "recorde": "Recorde: andar {n}",
+        "andar": "ANDAR {n}",
+        "subir": "SUBIR A TORRE",
+        "continuar": "ENCARAR O ANDAR",
+        "encerrar": "DESCER DA TORRE",
+        "proximo_andar": "PRÓXIMO ANDAR",
+        "sair_torre": "SAIR DA TORRE",
+        "folga": {
+          "leve": "Folgado",
+          "igual": "No mesmo nível",
+          "puxado": "Puxado",
+          "brabo": "Brabo"
+        },
+        "folga_desc": {
+          "leve": "Bem abaixo da sua gangue — pra farmar tranquilo.",
+          "igual": "Do tamanho da sua gangue — treta justa.",
+          "puxado": "Acima da sua gangue — mais AP, mais risco.",
+          "brabo": "Muito acima — pra medir até onde dá."
+        }
       },
       "naming": {
         "titulo": "FUNDE A SUA GANGUE",
@@ -1785,10 +1814,36 @@
             "nome": "A Rasteira Velha",
             "sub": "a dona do beco em pessoa",
             "fala": "Cê bateu os moleque e achou que a Pista era tua? A Rasteira Velha treinou cada um desses pivete. Bate em mim primeiro — aí sim o Carvão desce."
+          },
+          "oficina": {
+            "nome": "A oficina do Nando",
+            "sub": "o Seu Nando conserta o que a rua quebra",
+            "fala": [
+              "Ó a gangue nova batendo ponto. Vô te falar: pra encarar o Carvão precisa de ferro na mão, não só de coragem.",
+              "Me traz dois pedaço de sucata daquele ferro-velho ali — um cê pega abrindo o cadeado, o outro tá no fundo. Traz que eu forjo uma peça pra vocês.",
+              "E de brinde eu te conto onde o Carvão se enfia quando some no breu. Fechou?"
+            ],
+            "escolhas": {
+              "forjar": {
+                "label": "Entrega a sucata e pega a peça",
+                "resultado": "O Nando martela um tempo e te passa uma soqueira de lata ainda quente. \"O Carvão fica no fundão do beco da Rasteira, atrás do muro. Some no escuro, mas some sempre pro mesmo canto. Agora vai.\""
+              }
+            }
+          },
+          "beco_3": {
+            "nome": "O terceiro ponto",
+            "sub": "mais um pedaço da Rato de Pista",
+            "fala": "Vocês não cansam, né? A Pista tem ponto que nem buraco de bala — sempre tem mais um. Esse aqui é meu. Vem provar que merece."
+          },
+          "sinaleiro": {
+            "nome": "O Sinaleiro Chefe",
+            "sub": "se ele apita, o bairro inteiro corre",
+            "fala": "Eu comando os olho da Pista, cria. Cada vigia, cada farol, cada pivete no sinal responde pro meu apito. Cê passou por todos eles — mas não passa por mim."
           }
         },
         "hint_andar": "Use o analógico pra andar pela quebrada.",
-        "hint_interagir": "Chegou num ponto — aperte INTERAGIR."
+        "hint_interagir": "Chegou num ponto — aperte INTERAGIR.",
+        "hint_sucata": "🔩 Leva os dois pedaço de sucata pro Nando na oficina."
       },
       "enemy_album": {
         "1101": "Não briga, corre e avisa — enfrentá-lo é perseguição antes de porrada.",
@@ -1891,14 +1946,26 @@
         "1600": "O único que já segurou seis bairros de uma vez."
       },
       "album": {
-        "titulo": "Álbum de Marélia",
-        "sub": "Cada nome que a sua gangue derrubou.",
+        "titulo": "Coleção",
+        "sub": "Tudo que a sua gangue já viu, bateu e juntou em Marélia.",
         "contador": "{n}/99",
         "bloqueado": "???",
         "ainda_nao": "Ainda não caiu na sua frente.",
         "arma_label": "Arma",
         "terr_label": "Bairro",
         "voltar": "Voltar",
+        "secoes": {
+          "inimigos": "Inimigos",
+          "itens": "Itens",
+          "cartas": "Cartas"
+        },
+        "itens_consumivel": "Consumível",
+        "itens_equip": "Equipamento",
+        "item_dica_loja": "Compra numa loja de bairro.",
+        "item_dica_drop": "Drop — cai de chefe ou de treta.",
+        "item_dica_quest": "Ganha resolvendo um corre da quebrada.",
+        "cartas_explica": "Cartas de socket encaixam em equipamento e dão bônus extra — estilo carta de mestre. Vêm do sistema de drop, que chega numa atualização futura.",
+        "cartas_em_breve": "— em breve —",
         "cargos": {
           "vigia": "Vigia",
           "vapor": "Vapor",

@@ -18,6 +18,11 @@ const i18nNome = id => `games.gangues.itens.${id}`
 const CATALOGO = [
   { id: 1, slug: 'pocao_hp', custo: 5, tipo: 'cura_pv', valor: 5, icone: '🩹' },
   { id: 2, slug: 'pocao_mp', custo: 5, tipo: 'cura_pm', valor: 5, icone: '💧' },
+  // `material` = item de quest/crafting, sem efeito em combate (a bolinha de
+  // ação filtra por tipo — ver itensDisponiveis em GanguesCombat.jsx). A Sucata
+  // cai no ferro-velho (POI `ferro` + `achado` da Pista) e o Seu Nando troca
+  // por uma peça (POI `oficina`).
+  { id: 13, slug: 'sucata', custo: 0, tipo: 'material', valor: 0, icone: '🔩' },
 ]
 
 export const GANGUES_ITENS = Object.fromEntries(CATALOGO.map(item => [item.id, { ...item, nome: i18nNome(item.id) }]))
