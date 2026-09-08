@@ -779,15 +779,20 @@ Reserva: cada faixa comporta crescer até ~99 sem remapear.
 
 ## 12. Endgame — nível 99, a Torre e o multiplayer (v2.71.0)
 
-- **Teto de nível: 99.** O catálogo dos 30 personagens desenha os 10 primeiros
-  níveis (títulos + unlock de poder); 11–99 são **procedurais** — +1 num atributo
-  a cada nível par, ciclando `growth_order`, PV/PM derivados de R (estilo
-  Ragnarok: acima do 10 é só número). `getGanguesTemplateLevel` gera os níveis
-  sintéticos; `GANGUES_LEVEL_CAP = 99`.
-- **Dá pra zerar a campanha em ~L50.** Os 7 chefes usam **orçamento de pontos
-  FIXO** (`GANGUES_CHEFE_BUDGET`, não escala com o jogador) — quanto mais nível,
-  mais confortável a mesma luta. Alvo da Pista (calibrado por sim): **L5–7 quase
-  errado de encarar, L8 pau a pau, L10 confortável**.
+- **Teto de nível: 99.** Cada um dos 30 personagens tem os **99 níveis autorados**
+  no catálogo (`ldi_gangues_30_personagens_v1.json`): níveis 1–10 são os stats
+  originais desenhados (balanceamento já simulado); do 11 ao 99 cada personagem
+  **segue o próprio `growth_order`** — +1 atributo por nível, fiel à identidade
+  do caminho (um Bruto termina A altíssimo, um Muralha só D/R, um Resiliente
+  puro R). Nada procedural em runtime. Poderes de assinatura liberam **devagar**
+  (níveis 4 / 12 / 24 / 40) e sobem de rank (→2 nos níveis 52–70, →3 nos 78–96).
+  PV/PM de R pela taxa do caminho. `GANGUES_LEVEL_CAP = 99`.
+- **Dá pra zerar a campanha em ~L49** (~7 níveis por bairro). Os 7 chefes usam
+  **orçamento de pontos FIXO** (`GANGUES_CHEFE_BUDGET`, não escala com o jogador)
+  — quanto mais nível, mais confortável a mesma luta. Alvo da Pista (calibrado
+  por sim): **L5–7 quase errado de encarar, L8 pau a pau, L10 confortável**. Os
+  chefes carregam `nivel` de fachada (Carvão 14 … O Contador 84) — a Laje é o
+  clímax. **O Retalho é o único nível 100 do jogo.**
 - **Modo Batalha = A Torre** (`GanguesBatalha`). Destrava ao zerar a campanha 1×.
   Luta atrás de luta, o jogador escolhe o bairro-tema e a *folga de nível*
   (folgado → brabo). Cada andar sobe a dificuldade e o AP (+100% a cada 5

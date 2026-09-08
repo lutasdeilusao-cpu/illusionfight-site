@@ -230,12 +230,16 @@ export default function GanguesVictory({ onNavigate }) {
                   </div>
                   <div className="gang-levelup-entry__eventos">
                     {eventos.map((evento, index) => (
-                      <span key={index} className={`gang-levelup-tag${evento.type === 'unlock_special' ? ' gang-levelup-tag--poder' : ''}`}>
+                      <span key={index} className={`gang-levelup-tag${evento.type === 'unlock_special' || evento.type === 'special_rank' ? ' gang-levelup-tag--poder' : ''}`}>
                         {evento.type === 'attribute'
                           ? `+${evento.delta} ${t(`games.gangues.attr_labels.${evento.attribute}`)}`
                           : evento.type === 'unlock_special'
                             ? `⚡ ${t(`games.gangues.progression.skills.${evento.special_id}`)}`
-                            : null}
+                            : evento.type === 'special_rank'
+                              ? `⬆ ${t(`games.gangues.progression.skills.${evento.special_id}`)} NV${evento.rank}`
+                              : evento.type === 'max_rank'
+                                ? `★ ${evento.title}`
+                                : null}
                       </span>
                     ))}
                   </div>

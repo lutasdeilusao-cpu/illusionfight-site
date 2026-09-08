@@ -65,7 +65,7 @@ export const GANGUES_CHEFE_EQUIPE = {
 // "abaixo do 8 quase errado de encarar, no 8 pau a pau, no 10 confortável".
 // Os outros 6 são 1ª aproximação (~+7 por bairro) — recalibrar quando cada um
 // ganhar cena própria e simulação dedicada.
-export const GANGUES_CHEFE_BUDGET = { pista: 20, feira: 27, baixada: 34, vila: 41, morro: 48, alto: 55, laje: 64 }
+export const GANGUES_CHEFE_BUDGET = { pista: 20, feira: 30, baixada: 42, vila: 55, morro: 68, alto: 82, laje: 96 }
 export const GANGUES_CHEFE_LIDER_FRAC = 0.60
 // Quantos CORPOS o bando do chefe tem (o resto de GANGUES_CHEFE_EQUIPE fica só
 // pra lore/álbum). Pista = 2 (Carvão + Rasteira Velha): 2×2 é a única treta

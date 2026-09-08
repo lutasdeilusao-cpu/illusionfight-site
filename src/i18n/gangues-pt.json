@@ -1843,7 +1843,8 @@
         },
         "hint_andar": "Use o analógico pra andar pela quebrada.",
         "hint_interagir": "Chegou num ponto — aperte INTERAGIR.",
-        "hint_sucata": "🔩 Leva os dois pedaço de sucata pro Nando na oficina."
+        "hint_sucata": "🔩 Leva os dois pedaço de sucata pro Nando na oficina.",
+        "nivel": "NÍVEL {n}"
       },
       "enemy_album": {
         "1101": "Não briga, corre e avisa — enfrentá-lo é perseguição antes de porrada.",

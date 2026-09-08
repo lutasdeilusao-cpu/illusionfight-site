@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useLanguage } from '../../../../context/LanguageContext'
 import { describeGanguesSpecialEffect, describeGanguesSpecialCost } from '../engine/ganguesSpecialEffects.js'
+import { getGanguesSpecialUnlockLevel } from '../data/ganguesCharacters.js'
 
 /* Grade de poderes do personagem (técnica base + 5 assinaturas), com toque
    pra abrir o que cada um FAZ. Usada na ficha da cena (Pista) e na tela de
@@ -14,8 +15,10 @@ export default function GanguesSkillGrid({ character, unlockedIds = [], levelsBy
 
   const nodes = [
     { id: character.base_technique.id, kind: 'active', nvReq: 1, aberto: true, base: true },
-    ...character.signature_specials.map((special, i) => ({
-      id: special.id, kind: special.kind, nvReq: 3 + i * 2, aberto: unlockedIds.includes(special.id),
+    ...character.signature_specials.map((special) => ({
+      id: special.id, kind: special.kind,
+      nvReq: getGanguesSpecialUnlockLevel(character, special.id) || '—',
+      aberto: unlockedIds.includes(special.id),
     })),
   ]
 

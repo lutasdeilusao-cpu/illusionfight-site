@@ -12,7 +12,8 @@
 
 ## 0. Controle de progressão — nível × pontos × AP (v2.71.0)
 
-Teto de nível = **99** (11–99 procedurais — ver GDD §12). Elenco de história
+Teto de nível = **99** (níveis 1–10 autorais originais; 11–99 autorados por
+personagem seguindo o `growth_order` — ver GDD §12). Elenco de história
 **travado em 2 fichas** até dominar o 1º território → a luta do Carvão é sempre
 2×2. AP p/ subir de nível = `5 × (nível+1)` por ficha.
 

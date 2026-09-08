@@ -521,9 +521,9 @@
         "item_qtd": "×{n}"
       },
       "itens": {
-        "13": "Chatarra",
         "1": "Poción de HP",
-        "2": "Poción de MP"
+        "2": "Poción de MP",
+        "13": "Chatarra"
       },
       "loja": {
         "titulo": "Tienda",
@@ -2253,7 +2253,8 @@
         },
         "hint_andar": "Usá el joystick para caminar el barrio.",
         "hint_interagir": "Llegaste a un punto — apretá INTERACTUAR.",
-        "hint_sucata": "🔩 Llevá los dos pedazos de chatarra a Nando en el taller."
+        "hint_sucata": "🔩 Llevá los dos pedazos de chatarra a Nando en el taller.",
+        "nivel": "NIVEL {n}"
       },
       "enemy_album": {
         "1101": "No pelea, corre y avisa — enfrentarlo es una persecución antes de la paliza.",

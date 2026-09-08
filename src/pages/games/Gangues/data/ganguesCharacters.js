@@ -7,42 +7,16 @@ export const GANGUES_INITIAL_CHARACTER_IDS = Object.freeze([...catalog.unlock_pl
 export const GANGUES_FIRST_CAMPAIGN_CHARACTER_IDS = Object.freeze([...catalog.unlock_plan.wave_1_initial, ...catalog.unlock_plan.wave_2_first_clear])
 export const GANGUES_SECOND_CLEAR_CHARACTER_IDS = Object.freeze([...catalog.unlock_plan.wave_3_second_clear])
 export const GANGUES_EVENT_CHARACTER_IDS = Object.freeze([...catalog.unlock_plan.event_only])
-// `catalog.meta.level_cap` (10) é "até onde o catálogo foi DESENHADO" — os 10
-// níveis autorais carregam títulos + unlock de special. O teto REAL do jogo é
-// 99: acima de 10 os níveis são procedurais (nivelSintetico), só stat, estilo
-// Ragnarok. Nível 99 numa ficha da gangue é o que libera o multiplayer online
-// (ver ganguesTemMultiplayer em ganguesLoadout.js / GanguesModes).
+// Teto de nível dos personagens jogáveis = 99. O catálogo
+// (ldi_gangues_30_personagens_v1.json) traz os 99 níveis AUTORADOS por
+// personagem: níveis 1-10 são os stats originais desenhados (balanceamento já
+// simulado), 11-99 seguem o `growth_order` do personagem (+1 atributo/nível,
+// fiel à identidade do caminho). Poderes de assinatura liberam devagar
+// (níveis 4/12/24/40) e sobem de rank ao longo da 2ª metade. Nível 99 numa
+// ficha da gangue libera o multiplayer (ver ganguesTemMultiplayer). O único
+// nível 100 do jogo é o chefe final, O Retalho (fora deste sistema — é enemy).
 export const GANGUES_LEVEL_CAP = 99
 export const GANGUES_AP_PER_XP = catalog.meta.ap_per_xp
-
-// Taxas PV/PM por ponto de R, por caminho — MESMOS números de
-// GANGUES_RESOURCE_RATES (ganguesLoadout.js). Duplicados de propósito: aquele
-// módulo já importa `getGanguesLevelFromXp` daqui, então importar de volta
-// fecharia um ciclo. São 3 pares, o custo de duplicar é zero.
-const RES_RATE = { atacante: { pv: 3, pm: 3 }, defensor: { pv: 4, pm: 2 }, mistico: { pv: 2, pm: 4 } }
-
-/** Nível sintético (11–99): continua o padrão dos níveis 2/4/6/8/10 do catálogo
- *  — +1 num atributo a cada nível PAR, ciclando `growth_order`. PV/PM derivam de
- *  R pela taxa do caminho, igual à ficha do jogador. */
-function nivelSintetico(character, level) {
-  const base = character.levels[character.levels.length - 1] // L10 autoral
-  const stats = { ...base.stats }
-  const order = character.growth_order?.length ? character.growth_order : ['A', 'R', 'A', 'D', 'A']
-  for (let lvl = base.level + 1; lvl <= level; lvl++) {
-    if (lvl % 2 === 0) {
-      const attr = order[(lvl / 2 - 1) % order.length]
-      stats[attr] = (stats[attr] || 0) + 1
-    }
-  }
-  const rate = RES_RATE[character.combat_path] || { pv: 0, pm: 0 }
-  return {
-    level,
-    xp_total_required: base.xp_total_required + (level - base.level),
-    stats,
-    resources: { pv_max: stats.R * rate.pv, pm_max: stats.R * rate.pm },
-    events: [],
-  }
-}
 
 export function getGanguesCharacter(characterTemplateId) {
   return GANGUES_CHARACTER_BY_ID.get(Number(characterTemplateId)) || null
@@ -65,15 +39,46 @@ export function getGanguesTemplateLevel(characterTemplateId, xpTotal = 0) {
   const character = getGanguesCharacter(characterTemplateId)
   if (!character) return null
   const level = getGanguesLevelFromXp(xpTotal)
-  return character.levels.find(item => item.level === level)
-    || (level > character.levels.length ? nivelSintetico(character, level) : character.levels[0])
+  return character.levels.find(item => item.level === level) || character.levels[0]
 }
 
+/** Especiais já ABERTOS no nível atual — conta os eventos `unlock_special` dos
+ *  níveis autorados até aqui (não é mais um slice cego por nível). */
 export function getGanguesUnlockedSpecials(characterTemplateId, xpTotal = 0) {
   const character = getGanguesCharacter(characterTemplateId)
   if (!character) return []
   const level = getGanguesLevelFromXp(xpTotal)
-  return character.signature_specials.slice(0, Math.floor(Math.max(0, level - 1) / 2))
+  const abertos = new Set()
+  for (const lvl of character.levels) {
+    if (lvl.level > level) break
+    for (const ev of lvl.events || []) if (ev.type === 'unlock_special') abertos.add(ev.special_id)
+  }
+  return character.signature_specials.filter(s => abertos.has(s.id))
+}
+
+/** Nível de cada especial de assinatura no nível atual (rank 1→2→3), a partir
+ *  dos eventos `unlock_special` (rank 1) + `special_rank` dos níveis autorados. */
+export function getGanguesSpecialRanks(characterTemplateId, xpTotal = 0) {
+  const character = getGanguesCharacter(characterTemplateId)
+  if (!character) return {}
+  const level = getGanguesLevelFromXp(xpTotal)
+  const ranks = {}
+  for (const lvl of character.levels) {
+    if (lvl.level > level) break
+    for (const ev of lvl.events || []) {
+      if (ev.type === 'unlock_special') ranks[ev.special_id] = Math.max(ranks[ev.special_id] || 0, 1)
+      else if (ev.type === 'special_rank') ranks[ev.special_id] = Math.max(ranks[ev.special_id] || 0, ev.rank)
+    }
+  }
+  return ranks
+}
+
+/** Em que nível um especial de assinatura abre (pro selo "NV x" da grade). */
+export function getGanguesSpecialUnlockLevel(character, specialId) {
+  for (const lvl of character?.levels || []) {
+    for (const ev of lvl.events || []) if (ev.type === 'unlock_special' && ev.special_id === specialId) return lvl.level
+  }
+  return null
 }
 
 export function hydrateGanguesTemplateSheet(sheet = {}) {
@@ -83,12 +88,13 @@ export function hydrateGanguesTemplateSheet(sheet = {}) {
   const level = getGanguesLevelFromXp(xpTotal)
   const levelData = getGanguesTemplateLevel(character.id, xpTotal)
   const unlocked = getGanguesUnlockedSpecials(character.id, xpTotal)
+  const ranks = getGanguesSpecialRanks(character.id, xpTotal)
   const progression = {
     ap: Math.max(0, Number(sheet.attributes?.progression?.ap) || 0),
     xp_unspent: 0,
     special_path: character.special_path,
     special_path_unlocked: true,
-    special_levels: Object.fromEntries(unlocked.map(special => [special.id, 1])),
+    special_levels: Object.fromEntries(unlocked.map(special => [special.id, ranks[special.id] || 1])),
     selected_specials: unlocked.filter(special => special.kind === 'active').slice(-2).map(special => special.id),
   }
   return {
@@ -137,6 +143,5 @@ export function getGanguesNextLevel(characterTemplateId, xpTotal = 0) {
   if (!character) return null
   const level = getGanguesLevelFromXp(xpTotal)
   if (level >= GANGUES_LEVEL_CAP) return null
-  return character.levels.find(item => item.level === level + 1)
-    || (level + 1 > character.levels.length ? nivelSintetico(character, level + 1) : null)
+  return character.levels.find(item => item.level === level + 1) || null
 }

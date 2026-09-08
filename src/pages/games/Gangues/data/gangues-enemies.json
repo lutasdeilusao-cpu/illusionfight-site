@@ -5170,7 +5170,8 @@
       "cargoId": 205,
       "faccaoId": 101,
       "territorioId": 1
-    }
+    },
+    "nivel": 14
   },
   {
     "id": 1501,
@@ -5226,7 +5227,8 @@
       "cargoId": 205,
       "faccaoId": 103,
       "territorioId": 2
-    }
+    },
+    "nivel": 28
   },
   {
     "id": 1502,
@@ -5282,7 +5284,8 @@
       "cargoId": 205,
       "faccaoId": 105,
       "territorioId": 3
-    }
+    },
+    "nivel": 42
   },
   {
     "id": 1503,
@@ -5338,7 +5341,8 @@
       "cargoId": 205,
       "faccaoId": 108,
       "territorioId": 4
-    }
+    },
+    "nivel": 56
   },
   {
     "id": 1504,
@@ -5394,7 +5398,8 @@
       "cargoId": 205,
       "faccaoId": 110,
       "territorioId": 5
-    }
+    },
+    "nivel": 70
   },
   {
     "id": 1505,
@@ -5450,7 +5455,8 @@
       "cargoId": 205,
       "faccaoId": 112,
       "territorioId": 6
-    }
+    },
+    "nivel": 84
   },
   {
     "id": 1600,
@@ -5506,6 +5512,7 @@
       "cargoId": 205,
       "faccaoId": 114,
       "territorioId": 7
-    }
+    },
+    "nivel": 100
   }
 ]
