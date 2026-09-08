@@ -50,8 +50,13 @@ tem "Marelia" sem acento em vários lugares — alinhar quando mexer em texto.
 > **O Ranking Clandestino foi REMOVIDO do projeto** (v2.66.1) — eram ecos de
 > cânone antigo (O Coveiro/Kronos, Breu/Jack, Corte Fundo/Kaeda, Cascudo/Viran,
 > etc.). O Modo Batalha avulso já estava bloqueado; `enemies_unlocked`,
-> `unlockNextEnemy` e `GanguesEnemyPick` saíram junto. Estamos em beta — sem
-> compatibilidade com saves anteriores (migration `037` faz reset total).
+> `unlockNextEnemy` e `GanguesEnemyPick` saíram junto.
+>
+> **Banco (v2.67.0):** o Gangues tem tabelas próprias — `gangues_saves` (a
+> gangue/save) e `gangues_fichas` (os lutadores). Não toca mais em
+> `character_sheets` (que é da "Lendas do LDI"). Migration única
+> `038_gangues_church_unified.sql` substitui as 031–037 e faz reset total —
+> beta, sem compat de save.
 >
 > **O álbum se organiza por CARGO, não por bairro.** Cada bairro tem inimigos em
 > vários níveis de cargo; a UI do álbum tem abas por cargo
@@ -598,7 +603,7 @@ Marélia** — é a voz meta/tutorial, fora da ficção do crime.
 Duas moedas, só no modo história: **Grana** 💵 (corre, achado, treta, chefe →
 gasta em loja e descanso) e **Nome / Rep** (vitória, escolha ousada → destranca
 POI, alimenta o % de domínio e o texto do final). Estado em `store.grana` /
-`store.rep`, persistido em `gangues_story_progress`.
+`store.rep`, persistido em `gangues_saves`.
 
 ### 9.2 Inventário — é da GANGUE, não do personagem
 - **Consumível:** `store.inventario` `{ [id]: qtd }`, ids **1–99**.

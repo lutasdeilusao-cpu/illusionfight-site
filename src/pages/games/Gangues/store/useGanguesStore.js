@@ -259,7 +259,7 @@ export const useGanguesStore = create((set, get) => ({
     if (!uid) return
     const ids = new Set(participantIds)
     await Promise.all(get().roster.filter(member => ids.has(member.id) && !String(member.id).startsWith('local-')).map(member =>
-      supabase.from('character_sheets').update({ attributes: member.attributes, xp_total: member.xp_total }).eq('id', member.id).eq('user_id', uid)
+      supabase.from('gangues_fichas').update({ attributes: member.attributes, xp_total: member.xp_total }).eq('id', member.id).eq('user_id', uid)
     ))
   },
 
@@ -267,10 +267,10 @@ export const useGanguesStore = create((set, get) => ({
     const uid = userId || get()._userId
     if (!uid) return null
     const s = get().sheet
-    const payload = { user_id: uid, save_id: get()._saveId, sheet_name: s.sheet_name, attributes: s.attributes, elemental: s.elemental, combat_path: s.combat_path, loadout_version: s.loadout_version, xp_total: s.xp_total, character_type: s.character_type || 'legacy', character_template_id: s.character_template_id || null }
+    const payload = { user_id: uid, save_id: get()._saveId, sheet_name: s.sheet_name, attributes: s.attributes, elemental: s.elemental, combat_path: s.combat_path, loadout_version: s.loadout_version, xp_total: s.xp_total, character_template_id: s.character_template_id || null }
     const request = s.id
-      ? supabase.from('character_sheets').update(payload).eq('id', s.id).select('id').maybeSingle()
-      : supabase.from('character_sheets').insert(payload).select('id').maybeSingle()
+      ? supabase.from('gangues_fichas').update(payload).eq('id', s.id).select('id').maybeSingle()
+      : supabase.from('gangues_fichas').insert(payload).select('id').maybeSingle()
     const { data, error } = await request
     if (error) { console.error('[GANGUES] Falha ao salvar ficha:', error.message); return null }
     if (!s.id && data) {
@@ -283,8 +283,10 @@ export const useGanguesStore = create((set, get) => ({
 
   loadSheets: async (saveId) => {
     if (!saveId) return []
-    const { data, error } = await supabase.from('character_sheets').select('id, sheet_name, attributes, elemental, combat_path, loadout_version, xp_total, character_type, character_template_id').eq('save_id', saveId).eq('character_type', 'template').order('created_at', { ascending: false })
+    const { data, error } = await supabase.from('gangues_fichas').select('id, sheet_name, attributes, elemental, combat_path, loadout_version, xp_total, character_template_id').eq('save_id', saveId).order('created_at', { ascending: false })
     if (error) console.error('[GANGUES] Falha ao carregar fichas:', error.message)
+    // Toda linha de gangues_fichas é uma ficha de template — hidrata a partir
+    // do catálogo (ldi_gangues_30_personagens_v1.json) pelo character_template_id.
     const roster = Array.isArray(data) ? data.map(item => {
       const templateId = item.character_template_id || item.attributes?.character_template_id
       return templateId ? hydrateGanguesTemplateSheet({ ...item, character_type: 'template', character_template_id: Number(templateId) }) : ({ ...item, ...normalizeGanguesLoadout(item) })
@@ -296,7 +298,7 @@ export const useGanguesStore = create((set, get) => ({
   deleteSheet: async (sheetId) => {
     if (!sheetId) return false
     if (get()._userId && !String(sheetId).startsWith('local-')) {
-      const { error } = await supabase.from('character_sheets').delete().eq('id', sheetId)
+      const { error } = await supabase.from('gangues_fichas').delete().eq('id', sheetId)
       if (error) { console.error('[GANGUES] Falha ao excluir ficha:', error.message); return false }
     }
     set(state => ({
@@ -333,7 +335,7 @@ export const useGanguesStore = create((set, get) => ({
   },
 
   // ── Modo história ──
-  // Progresso salvo em Supabase (tabela `gangues_story_progress`, uma linha por
+  // Progresso salvo em Supabase (tabela `gangues_saves`, uma linha por
   // SAVE — ver `_saveId`/`selecionarSave`) quando logado; guest joga só em
   // memória e perde tudo ao sair — igual à ficha de personagem (ver `addLocalSheet`).
   // storyProgress: { [territorioId]: { pontos: [noId...], chefe: bool } }

@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.279.18'
+export const SITE_VERSION = '10.279.19'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '2.66.1' // Remove o Ranking Clandestino (Kronos/Jack/Kaeda/Viran... — eco de cânone antigo) + coluna enemies_unlocked + unlockNextEnemy + GanguesEnemyPick + npc_names. Álbum agora tem 91 colecionáveis (só a hierarquia da Banca) + 7 chefes. Migration 037 faz reset total (beta, sem compat de save).
+export const GANGUES_VERSION   = '2.67.0' // Igreja unificada: Gangues ganha tabelas proprias (gangues_saves + gangues_fichas), nao usa mais character_sheets (que e da Lendas do LDI). Migration unica 038 substitui 031-037. Limpa save_id/character_type/character_template_id/enemies_unlocked de character_sheets.
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
 export const MINIGAMES_VERSION = '4.3.4'  // Glitch: safe-area lateral no grid-wrap

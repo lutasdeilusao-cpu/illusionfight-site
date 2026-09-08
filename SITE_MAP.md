@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — MAPA DO SITE E DO PROJETO
 
 > Referência do estado atual do projeto para navegação humana e contexto de IA.
-> Atualizado em 2026-09-07 — `SITE_VERSION` **10.279.18**.
+> Atualizado em 2026-09-07 — `SITE_VERSION` **10.279.19**.
 > Histórico de tarefas, bugfixes e pendências não pertence a este documento.
 > Regras de trabalho, arquivos proibidos e decisões arquiteturais: `AGENTS.md`.
 
@@ -293,7 +293,7 @@ Namespaces de conteúdo relevantes: `nav.links`, `pages.livro`, `pages.contos` (
 - Projeto Supabase: `dvxfrzixtetdzmdrzkpx`.
 - Cliente: `src/lib/supabase.js`.
 - Migrações locais: `supabase/migrations/004_*.sql` até `036_gangues_equipamentos.sql` (035 = inventário de itens/poções, 036 = inventário de equipamento com slots de carta); os números podem se repetir porque algumas linhas de evolução foram criadas em paralelo.
-- Principais domínios persistidos: perfis, fichas, DIX, conquistas, saves de jogos, Tamagoshi, Arena, decks/ranking/partidas Top Trumps, submissões compartilhadas, playlist da Rádio Nina (`radio_nina_playlists`, 1 por usuário) e progresso do modo história do LDI Gangues (`gangues_story_progress`, N por usuário — 1 por save/gangue, teto por tier em `GANGUES_SAVE_SLOT_LIMITS`).
+- Principais domínios persistidos: perfis, fichas, DIX, conquistas, saves de jogos, Tamagoshi, Arena, decks/ranking/partidas Top Trumps, submissões compartilhadas, playlist da Rádio Nina (`radio_nina_playlists`, 1 por usuário) e o LDI Gangues (`gangues_saves` = a gangue/save, N por usuário — teto por tier em `GANGUES_SAVE_SLOT_LIMITS`; `gangues_fichas` = os lutadores recrutados, cascade no save). Migration única `038_gangues_church_unified.sql` (substitui 031–037; o Gangues não usa mais `character_sheets`).
 - RLS usa o usuário autenticado como autoridade nos dados pessoais.
 
 | Edge Function | Função | JWT |
@@ -386,11 +386,11 @@ Fonte única: `src/config/version.js`. Esta tabela registra somente a identifica
 
 | Constante | Módulo | Versão |
 |---|---|---:|
-| `SITE_VERSION` | Site global | **10.279.18** |
+| `SITE_VERSION` | Site global | **10.279.19** |
 | `PP_VERSION` | Pesadelo Particular | 2.3.1 |
 | `LDI_VERSION` | Lendas do LDI | 2.0.1 |
 | `JACK_VERSION` | Jack Dream Beer | 5.3.2 |
-| `GANGUES_VERSION` | LDI Gangues | 2.66.1 |
+| `GANGUES_VERSION` | LDI Gangues | 2.67.0 |
 | `TAMA_VERSION` | Tamagoshi LDI | 3.4.1 |
 | `DUELO_VERSION` | Duelo LDI | 2.8.1 |
 | `MINIGAMES_VERSION` | MiniGames | 4.3.4 |

@@ -12,7 +12,7 @@ export default function PerfilGangues({ userId }) {
     if (!userId) return
     setCarregando(true)
     supabase
-      .from('character_sheets')
+      .from('gangues_fichas')
       .select('id, sheet_name, attributes, xp_total, created_at')
       .eq('user_id', userId)
       .order('created_at', { ascending: false })

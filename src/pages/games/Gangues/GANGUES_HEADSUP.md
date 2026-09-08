@@ -153,7 +153,7 @@ usa esses ids — é conteúdo adiantado pra inimigos futuros, nunca é lido em 
 **Sim, já vai pro Supabase, não pro localStorage.** Conferi o código linha a linha:
 
 - Usuário logado: ficha inteira (incluindo `attributes.progression` — AP, XP, atributos,
-  especiais equipados) salva na tabela `character_sheets`, coluna `attributes` (JSONB), via
+  especiais equipados) salva na tabela `gangues_fichas`, coluna `attributes` (JSONB), via
   `store.saveToCloud()` em `store/useGanguesStore.js`.
 - `applyProgression` em `GanguesLobby.jsx` (o handler chamado toda vez que você sobe atributo,
   sobe poder, equipa/desequipa especial, ou troca de subcaminho) chama `store.saveToCloud(user.id)`

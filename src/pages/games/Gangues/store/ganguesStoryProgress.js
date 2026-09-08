@@ -4,7 +4,7 @@ import { supabase } from '../../../../lib/supabase'
 export async function listarSaves(userId) {
   if (!userId) return []
   const { data, error } = await supabase
-    .from('gangues_story_progress')
+    .from('gangues_saves')
     .select('id, gang_name, story_progress, rep, criada_em, atualizada_em')
     .eq('user_id', userId)
     .order('criada_em', { ascending: true })
@@ -15,15 +15,15 @@ export async function listarSaves(userId) {
 /** Cria um novo save (gangue) vazio pro usuário logado. Retorna o id criado. */
 export async function criarSave(userId) {
   if (!userId) return null
-  const { data, error } = await supabase.from('gangues_story_progress').insert({ user_id: userId }).select('id').single()
+  const { data, error } = await supabase.from('gangues_saves').insert({ user_id: userId }).select('id').single()
   if (error) { console.error('[GANGUES] Falha ao criar save:', error.message); return null }
   return data.id
 }
 
-/** Apaga um save inteiro — o elenco vinculado (character_sheets.save_id) cai junto via CASCADE. */
+/** Apaga um save inteiro — o elenco vinculado (gangues_fichas.save_id) cai junto via CASCADE. */
 export async function excluirSave(saveId) {
   if (!saveId) return false
-  const { error } = await supabase.from('gangues_story_progress').delete().eq('id', saveId)
+  const { error } = await supabase.from('gangues_saves').delete().eq('id', saveId)
   if (error) { console.error('[GANGUES] Falha ao excluir save:', error.message); return false }
   return true
 }
@@ -32,7 +32,7 @@ export async function excluirSave(saveId) {
 export async function carregarProgressoHistoria(saveId) {
   if (!saveId) return null
   const { data, error } = await supabase
-    .from('gangues_story_progress')
+    .from('gangues_saves')
     .select('gang_name, story_progress, cena_progresso, grana, rep, campaign_clears, event_character_ids, inventario, equipamentos')
     .eq('id', saveId)
     .maybeSingle()
@@ -55,7 +55,7 @@ export async function salvarProgressoHistoria(saveId, progresso) {
   if (!saveId) return false
   const { gangName, storyProgress, cenaProgresso, grana, rep, campaignClears, eventCharacterIds, inventario, equipamentos } = progresso
   const { error } = await supabase
-    .from('gangues_story_progress')
+    .from('gangues_saves')
     .update({
       gang_name: gangName || '',
       story_progress: storyProgress || {},
