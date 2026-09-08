@@ -13,7 +13,7 @@ export default function PerfilGangues({ userId }) {
     setCarregando(true)
     supabase
       .from('character_sheets')
-      .select('id, sheet_name, attributes, xp_total, enemies_unlocked, created_at')
+      .select('id, sheet_name, attributes, xp_total, created_at')
       .eq('user_id', userId)
       .order('created_at', { ascending: false })
       .then(({ data }) => {
@@ -38,7 +38,6 @@ export default function PerfilGangues({ userId }) {
           <div className="perfil-trump-stats">
             <div className="perfil-trump-stat"><span className="perfil-trump-stat-val">{sheets.length}</span><span className="perfil-trump-stat-label">{t('site.perfil.gangues_fichas')}</span></div>
             <div className="perfil-trump-stat"><span className="perfil-trump-stat-val">{totalXp}</span><span className="perfil-trump-stat-label">{t('site.perfil.gangues_xp_total')}</span></div>
-            <div className="perfil-trump-stat"><span className="perfil-trump-stat-val">{sheets.reduce((acc, s) => Math.max(acc, (s.enemies_unlocked || []).length), 0)}</span><span className="perfil-trump-stat-label">{t('site.perfil.gangues_inimigos')}</span></div>
           </div>
           <div className="perfil-trump-lista">
             {sheets.map((s, i) => {

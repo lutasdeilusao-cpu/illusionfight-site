@@ -1133,31 +1133,13 @@
         "1503": "Óxido",
         "1504": "La Fiera",
         "1505": "El Contador",
-        "1600": "El Retazo",
-        "2001": "Saco de Boxeo",
-        "2002": "Corte Profundo",
-        "2003": "Cortocircuito",
-        "2004": "Polilla",
-        "2005": "El Curtido",
-        "2006": "Rompe-Quijadas",
-        "2007": "El Sepulturero",
-        "2008": "Brea"
+        "1600": "El Retazo"
       },
       "defeat_fallbacks": [
         "esto no puede ser...",
         "te subestimé. maldición.",
         "imposible."
       ],
-      "npc_names": {
-        "npc_arrogante_marelia": "Chico de Marelia",
-        "npc_frio_azuma": "Visitante de Azuma",
-        "npc_caotico_sdr": "Jugador Caótico del SDR",
-        "npc_veterano_ranqueado": "Veterano del Ranking",
-        "npc_provocador_bravara": "Provocador de Bravara",
-        "npc_mistico_xakaxi": "Descendiente Xakaxi",
-        "npc_hacker_sdr": "Hacker del SDR",
-        "npc_nordico_karnazar": "Luchador de Karnazar"
-      },
       "guest_banner": "Sin cuenta: no se guarda el progreso.",
       "guest_create_account": "Crear cuenta",
       "guest_save_prompt_title": "Crea una cuenta gratis",
@@ -2301,15 +2283,7 @@
         "1503": "Vive en el décimo piso — llegas ya cansado.",
         "1504": "Crió a la mitad de los niños de la zona. Sabe dónde pegar para doler sin dañar.",
         "1505": "No pelea por rabia — pelea porque la cuenta cuadra así.",
-        "1600": "El único que sostuvo seis barrios a la vez.",
-        "2001": "Un muñeco de trapo con el que entrenan los novatos.",
-        "2002": "Luchadora veterana de Marélia. Agresiva con la katana.",
-        "2003": "Enrolla un cable eléctrico en el bastón antes de entrar.",
-        "2004": "Clona tarjetas, hackea cámaras, desaparece antes de la policía.",
-        "2005": "Entrenó a la mitad de los capoeiristas de calle de Marélia.",
-        "2006": "Nadie en las peleas clandestinas de Marélia lo tumbó jamás.",
-        "2007": "Sin nombre ni rostro — manda en toda Marélia desde las sombras.",
-        "2008": "Pelea con llama negra en los puños. Cima de todo ranking clandestino."
+        "1600": "El único que sostuvo seis barrios a la vez."
       },
       "album": {
         "titulo": "Álbum de Marélia",
@@ -2326,7 +2300,6 @@
           "gerente": "Gerente",
           "cobrador": "Cobrador",
           "general": "General",
-          "ranking": "Ranking",
           "chefes": "Jefes"
         },
         "terr": {

@@ -42,7 +42,7 @@ export const CENA_PISTA = {
       id: 'sinal',
       tipo: 'papo',
       visivel: true,
-      // Repetível: a opção "aperta" (brigar com o moleque, enemy:'treinamento')
+      // Repetível: a opção "aperta" (brigar com o moleque, enemy:1201)
       // é a primeira briga que existe no jogo — o jogador pode voltar aqui e
       // brigar de novo sempre que quiser (custa -1 rep por vez, igual da
       // primeira). As outras duas opções (compra/ignora) também continuam
@@ -53,7 +53,7 @@ export const CENA_PISTA = {
       // escolhas do papo: cada uma tem efeito próprio
       escolhas: [
         { id: 'compra', custoGrana: 4, recompensa: { rep: 0 }, revela: ['ferro'] },
-        { id: 'aperta', viraTreta: { enemy: 2001, rep: -1, recompensa: { grana: 4 } }, revela: ['ferro'] },
+        { id: 'aperta', viraTreta: { enemy: 1201, rep: -1, recompensa: { grana: 4 } }, revela: ['ferro'] },
         { id: 'ignora', revela: ['ferro'] },
       ],
     },
@@ -64,7 +64,7 @@ export const CENA_PISTA = {
       i18n: 'games.gangues.cena.pista.ferro',
       puzzle: { type: 'forca', config: { difficulty: 'easy' }, skin: 'gazua' },
       recompensa: { grana: 12, xp: 6, item: 'sucata' },
-      falha: { viraTreta: { enemy: 2001, recompensa: { grana: 3 } } },
+      falha: { viraTreta: { enemy: 1201, recompensa: { grana: 3 } } },
       revela: ['molecada_1'],
     },
     {

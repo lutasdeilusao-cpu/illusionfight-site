@@ -4,7 +4,7 @@ import { addGanguesAp, defaultGanguesProgression, getGanguesRosterLimit, normali
 import { carregarProgressoHistoria, salvarProgressoHistoria, listarSaves, criarSave, excluirSave } from './ganguesStoryProgress.js'
 import { createGanguesTemplateSheet, hydrateGanguesTemplateSheet, getGanguesLevelFromXp } from '../data/ganguesCharacters.js'
 import { createGanguesEquipInstance, normalizeGanguesEquipment, getGanguesEquip } from '../data/ganguesEquip.js'
-import { normalizarEnemyId, normalizarEnemyIds } from '../data/ganguesInimigos.js'
+import { idsValidosUnicos } from '../data/ganguesInimigos.js'
 
 // Debounce dos writes de progresso do modo história: várias ações batem em sequência
 // (marcar POI + fôlego + grana + rep) e não faz sentido um upsert por campo.
@@ -33,7 +33,6 @@ const defaultSheet = () => ({
   combat_path: null,
   loadout_version: 2,
   xp_total: 0,
-  enemies_unlocked: [2001],
   character_type: 'legacy',
   character_template_id: null,
 })
@@ -268,7 +267,7 @@ export const useGanguesStore = create((set, get) => ({
     const uid = userId || get()._userId
     if (!uid) return null
     const s = get().sheet
-    const payload = { user_id: uid, save_id: get()._saveId, sheet_name: s.sheet_name, attributes: s.attributes, elemental: s.elemental, combat_path: s.combat_path, loadout_version: s.loadout_version, xp_total: s.xp_total, enemies_unlocked: s.enemies_unlocked, character_type: s.character_type || 'legacy', character_template_id: s.character_template_id || null }
+    const payload = { user_id: uid, save_id: get()._saveId, sheet_name: s.sheet_name, attributes: s.attributes, elemental: s.elemental, combat_path: s.combat_path, loadout_version: s.loadout_version, xp_total: s.xp_total, character_type: s.character_type || 'legacy', character_template_id: s.character_template_id || null }
     const request = s.id
       ? supabase.from('character_sheets').update(payload).eq('id', s.id).select('id').maybeSingle()
       : supabase.from('character_sheets').insert(payload).select('id').maybeSingle()
@@ -284,14 +283,11 @@ export const useGanguesStore = create((set, get) => ({
 
   loadSheets: async (saveId) => {
     if (!saveId) return []
-    const { data, error } = await supabase.from('character_sheets').select('id, sheet_name, attributes, elemental, combat_path, loadout_version, xp_total, enemies_unlocked, character_type, character_template_id').eq('save_id', saveId).eq('character_type', 'template').order('created_at', { ascending: false })
+    const { data, error } = await supabase.from('character_sheets').select('id, sheet_name, attributes, elemental, combat_path, loadout_version, xp_total, character_type, character_template_id').eq('save_id', saveId).eq('character_type', 'template').order('created_at', { ascending: false })
     if (error) console.error('[GANGUES] Falha ao carregar fichas:', error.message)
     const roster = Array.isArray(data) ? data.map(item => {
-      // Saves anteriores à migração numérica guardam enemies_unlocked em string
-      // ('treinamento', 'kaeda'...). normalizarEnemyIds converte via alias.
-      const base = { ...item, enemies_unlocked: normalizarEnemyIds(item.enemies_unlocked || [2001]) }
-      const templateId = base.character_template_id || base.attributes?.character_template_id
-      return templateId ? hydrateGanguesTemplateSheet({ ...base, character_type: 'template', character_template_id: Number(templateId) }) : ({ ...base, ...normalizeGanguesLoadout(base) })
+      const templateId = item.character_template_id || item.attributes?.character_template_id
+      return templateId ? hydrateGanguesTemplateSheet({ ...item, character_type: 'template', character_template_id: Number(templateId) }) : ({ ...item, ...normalizeGanguesLoadout(item) })
     }) : []
     set({ roster })
     return roster
@@ -311,25 +307,12 @@ export const useGanguesStore = create((set, get) => ({
     return true
   },
 
-  // Progressão do MODO BATALHA (ranking clandestino, faixa 2001–2008). Vencer
-  // o inimigo atual libera o próximo da fila. Ids do modo história (1xxx) não
-  // entram aqui — quem coleciona esses é o Álbum (registrarNoAlbum).
-  unlockNextEnemy: (defeatedEnemyId) => set(state => {
-    const ENEMY_ORDER = [2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008]
-    const current = normalizarEnemyIds(state.sheet.enemies_unlocked || [2001])
-    const idx = ENEMY_ORDER.indexOf(normalizarEnemyId(defeatedEnemyId))
-    if (idx === -1 || idx >= ENEMY_ORDER.length - 1) return state
-    const nextId = ENEMY_ORDER[idx + 1]
-    if (current.includes(nextId)) return state
-    return { sheet: { ...state.sheet, enemies_unlocked: [...current, nextId] } }
-  }),
-
   // Álbum de Marélia — registra os inimigos derrotados (ids numéricos) no
   // progresso do save. Guardado dentro do próprio storyProgress (chave
   // reservada __album), igual ao __flags do informante — sem coluna nova no
   // Supabase. Chamado pela tela de vitória com todo o bando batido.
   registrarNoAlbum: (ids = []) => {
-    const novos = normalizarEnemyIds(ids)
+    const novos = idsValidosUnicos(ids)
     if (!novos.length) return
     set(state => {
       const atual = state.storyProgress.__album || []

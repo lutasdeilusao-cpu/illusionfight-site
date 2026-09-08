@@ -68,7 +68,7 @@ export default function GanguesAlbum({ onNavigate }) {
         {lista.map(inimigo => {
           const on = desbloqueados.has(inimigo.id)
           const terrId = inimigo.album?.territorioId
-          const terr = terrId ? t(`games.gangues.album.terr.${terrId}`) : t('games.gangues.album.cargos.ranking')
+          const terr = t(`games.gangues.album.terr.${terrId}`)
           if (!on) {
             return (
               <li key={inimigo.id} className="gang-album__card gang-album__card--locked">

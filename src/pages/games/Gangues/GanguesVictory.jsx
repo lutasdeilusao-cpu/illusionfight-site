@@ -136,7 +136,6 @@ export default function GanguesVictory({ onNavigate }) {
       ko: koIds.has(id),
     }))
     if (victory) {
-      store.unlockNextEnemy(match.enemy_id)
       // Álbum de Marélia — todo inimigo do bando batido vira entrada.
       store.registrarNoAlbum([match.enemy_id, ...report.combatants.filter(c => c.side === 'enemy').map(c => c.id)])
       let granaGanha = 0, repGanha = 0

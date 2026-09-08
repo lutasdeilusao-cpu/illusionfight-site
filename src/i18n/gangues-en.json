@@ -1133,31 +1133,13 @@
         "1503": "Rust",
         "1504": "The Beast",
         "1505": "The Accountant",
-        "1600": "The Patchwork",
-        "2001": "Punching Bag",
-        "2002": "Deep Cut",
-        "2003": "Short Circuit",
-        "2004": "Moth",
-        "2005": "Bruiser",
-        "2006": "Jaw-Breaker",
-        "2007": "The Gravedigger",
-        "2008": "Pitch"
+        "1600": "The Patchwork"
       },
       "defeat_fallbacks": [
         "this cannot be...",
         "I underestimated you. damn.",
         "impossible."
       ],
-      "npc_names": {
-        "npc_arrogante_marelia": "Marelia Boy",
-        "npc_frio_azuma": "Azuma Visitor",
-        "npc_caotico_sdr": "Chaotic SDR Player",
-        "npc_veterano_ranqueado": "Ranked Veteran",
-        "npc_provocador_bravara": "Bravara Provoker",
-        "npc_mistico_xakaxi": "Xakaxi Descendant",
-        "npc_hacker_sdr": "SDR Hacker",
-        "npc_nordico_karnazar": "Karnazar Fighter"
-      },
       "guest_banner": "No account: progress isn't saved.",
       "guest_create_account": "Create account",
       "guest_save_prompt_title": "Create a free account",
@@ -2301,15 +2283,7 @@
         "1503": "Lives on the tenth floor — you arrive already tired.",
         "1504": "Raised half the kids around here. Knows where to hit to hurt without harm.",
         "1505": "Doesn't fight out of anger — fights because the math works out.",
-        "1600": "The only one who ever held six blocks at once.",
-        "2001": "A cloth dummy the rookies beat on to train.",
-        "2002": "A veteran Marélia fighter. Aggressive with the katana.",
-        "2003": "Wraps a live wire around the staff before stepping in.",
-        "2004": "Clones cards, hacks cameras, gone before the cops arrive.",
-        "2005": "Trained half of Marélia's street capoeiristas in an unmarked yard.",
-        "2006": "No one in Marélia's underground fights ever put him down.",
-        "2007": "No name, no face — he runs all of Marélia from the shadows.",
-        "2008": "Fights with black flame on his fists. Top of every underground ranking."
+        "1600": "The only one who ever held six blocks at once."
       },
       "album": {
         "titulo": "Marélia Album",
@@ -2326,7 +2300,6 @@
           "gerente": "Manager",
           "cobrador": "Collector",
           "general": "General",
-          "ranking": "Ranking",
           "chefes": "Bosses"
         },
         "terr": {

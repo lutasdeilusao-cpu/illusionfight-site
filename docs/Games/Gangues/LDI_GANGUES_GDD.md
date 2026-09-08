@@ -36,27 +36,30 @@ tem "Marelia" sem acento em vários lugares — alinhar quando mexer em texto.
 | **1451–1464** | Inimigo comum — **General / Braço-Direito** (14) |
 | 1500–1599 | Chefes de território (7 bosses) |
 | 1600–1699 | Chefe final + reservado |
-| 2001–2099 | Ranking clandestino (modo batalha avulso) |
 | 3000–3099 | NPCs não-combatentes |
 | 1–99 | Itens consumíveis *(contexto separa de "território")* |
 | 101–999 | Equipamento |
 | 10000+ | Cartas de socket (sistema futuro) |
 
-> **✅ IMPLEMENTADO (v2.66.0, 2026-09-08).** `data/gangues-enemies.json` tem as
-> 106 fichas com id numérico + bloco `album`; `data/ganguesInimigos.js` é o
-> módulo-catálogo (alias string→id p/ saves antigos, cargos, helpers). Tela
-> `GanguesAlbum.jsx` acessível pelo lobby. Crosswalk string→id em §5.7. As 70
-> fichas novas têm stats por fórmula (cargo × território) e trash_talk genérico
-> por cargo — calibrar jogando.
+> **✅ IMPLEMENTADO (v2.66.x, 2026-09-08).** `data/gangues-enemies.json` tem as
+> **98 fichas** com id numérico + bloco `album` (91 da hierarquia + 7 chefes);
+> `data/ganguesInimigos.js` é o módulo-catálogo. Tela `GanguesAlbum.jsx`
+> acessível pelo lobby. As 70 fichas novas têm stats por fórmula
+> (cargo × território) e trash_talk genérico por cargo — calibrar jogando.
+>
+> **O Ranking Clandestino foi REMOVIDO do projeto** (v2.66.1) — eram ecos de
+> cânone antigo (O Coveiro/Kronos, Breu/Jack, Corte Fundo/Kaeda, Cascudo/Viran,
+> etc.). O Modo Batalha avulso já estava bloqueado; `enemies_unlocked`,
+> `unlockNextEnemy` e `GanguesEnemyPick` saíram junto. Estamos em beta — sem
+> compatibilidade com saves anteriores (migration `037` faz reset total).
 >
 > **O álbum se organiza por CARGO, não por bairro.** Cada bairro tem inimigos em
 > vários níveis de cargo; a UI do álbum tem abas por cargo
-> (Vigia → Vapor → Gerente → Cobrador → General → Ranking), cada uma enchendo
+> (Vigia → Vapor → Gerente → Cobrador → General → Chefes), cada uma enchendo
 > conforme o jogador sobe os bairros. A última aba de cada território é sempre o
 > **General** — o "quase-chefe" que sinaliza que o portão vai abrir.
 >
-> Os dados atuais (`data/gangues-enemies.json`, `data/ganguesTerritorios.js`)
-> ainda usam ids em string. O crosswalk string→id novo está em §5.4.
+> Crosswalk das 28 fichas que eram string → id numérico: §5.7.
 
 ---
 
@@ -275,8 +278,9 @@ voltar na Pista e falar com o informante **Duda, o Orelha** (3002).
 ## 5. O Álbum de Marélia — roster de inimigos
 
 Cada inimigo derrotado pela **primeira vez** desbloqueia uma entrada. Organizado
-por **cargo** (§0). **99 entradas colecionáveis** = 91 da hierarquia da Banca + 8
-do Ranking Clandestino. Os 8 chefes (§6) ficam **fora da contagem**.
+por **cargo** (§0). **91 entradas colecionáveis** = a hierarquia da Banca inteira
+(Vigia 21 + Vapor 21 + Gerente 21 + Cobrador 14 + General 14). Os 8 chefes (§6)
+aparecem numa aba própria, **fora da contagem**.
 
 Shape canônico:
 
@@ -428,26 +432,20 @@ fora das lutas de território. **Um por território** (a Laje tem dois).
 | 1463 ★ | Tesoura | Laje | facão | General — comanda a Laje inteira em nome do Retalho. |
 | 1464 | Corte Certo | Laje | facão gêmeo | Braço-direito da Tesoura, nunca erra o corte final. |
 
-### 5.6 Fora da hierarquia — RANKING CLANDESTINO (faixa 2001–2008)
+### 5.6 ~~Ranking Clandestino~~ — REMOVIDO (v2.66.1)
 
-Não respondem à Banca. Existem no **modo batalha avulso**, ordem de desbloqueio
-por tier. Eco distante do cânone maior do LDI (reflavorizados na v2.33/2.34 pra
-cortar o cruzamento direto com Torre Kronos, Dojô de Karnazar, Kim, Jack).
+A faixa **2001–2099 não existe mais**. Eram 8 fichas que ecoavam o cânone maior
+do LDI (O Coveiro ← Kronos, Breu ← primordial Jack, Corte Fundo ← Kaeda, Cascudo
+← Viran, Quebra-Queixo, Curto-Circuito, Traça, Saco de Pancada). Serviam ao Modo
+Batalha avulso, que já estava bloqueado. Removidas do `gangues-enemies.json`, do
+i18n, e junto com elas: `enemies_unlocked`, `unlockNextEnemy`, `GanguesEnemyPick`,
+e o bloco `npc_names` (personas Azuma/Karnazar/SDR/Bravara/Xakaxi — mesma matéria
+de eco de cânone). Se um dia voltar um Modo Batalha, ele puxa da própria
+hierarquia (1101–1464), não de um roster à parte.
 
-| ID | Nome | A/H/R/D · PV/PM | Arma | Elem. | Lore |
-|---|---|---|---|---|---|
-| 2001 ★ | Saco de Pancada | 1/0/2/0 · 6/6 | punhos | — | Bonequinho de treino, quase não revida. |
-| 2002 ★ | Corte Fundo | 3/3/4/2 · 16/8 | katana | fogo | Lutadora veterana, agressiva com a katana. |
-| 2003 ★ | Curto-Circuito | 4/4/10/2 · 20/40 | bastão | ar | Fio elétrico no bastão, ninguém sabe se é truque ou dom. |
-| 2004 ★ | Traça | 3/5/13/3 · 26/52 | lâmina-corrente | trevas | Clona cartão, invade câmera, trabalha pra quem paga mais. |
-| 2005 ★ | Cascudo | 5/5/10/5 · 30/30 | mãos | terra | Treinou capoeiristas de rua num terreiro sem placa. |
-| 2006 ★ | Quebra-Queixo | 6/5/12/4 · 36/36 | punhos | neutro | Ninguém no rachão clandestino o colocou no chão. |
-| 2007 ★ | O Coveiro | 7/7/25/6 · 50/100 | — | trevas | Ninguém sabe o rosto, manda em toda Marélia das sombras. |
-| 2008 ★ | Breu | 8/6/30/5 · 60/120 | bengala | fogo | Chama negra nos punhos, nome no topo do ranking. |
+### 5.7 Crosswalk — fichas migradas de string → id numérico
 
-### 5.7 Crosswalk — fichas atuais (`data/gangues-enemies.json`) → id novo
-
-As 27 fichas que já existem, com stats (A/H/R/D · PV/PM) e o id oficial:
+As 28 fichas que existiam em string, com stats (A/H/R/D · PV/PM) e o id oficial:
 
 | string atual | Nome | stats | id novo |
 |---|---|---|---|
@@ -479,14 +477,6 @@ As 27 fichas que já existem, com stats (A/H/R/D · PV/PM) e o id oficial:
 | `zefa` | A Fera | 4/3/12/4 · 24/48 | 1504 |
 | `doutor` | O Contador | 5/4/15/5 · 30/60 | 1505 |
 | `costura` | O Retalho | 6/5/17/5 · 34/68 | 1600 |
-| `treinamento` | Saco de Pancada | 1/0/2/0 · 6/6 | 2001 |
-| `kaeda` | Corte Fundo | 3/3/4/2 · 16/8 | 2002 |
-| `thunderbolt` | Curto-Circuito | 4/4/10/2 · 20/40 | 2003 |
-| `stormbyte` | Traça | 3/5/13/3 · 26/52 | 2004 |
-| `viran` | Cascudo | 5/5/10/5 · 30/30 | 2005 |
-| `campeao` | Quebra-Queixo | 6/5/12/4 · 36/36 | 2006 |
-| `kronos` | O Coveiro | 7/7/25/6 · 50/100 | 2007 |
-| `primordial_jack` | Breu | 8/6/30/5 · 60/120 | 2008 |
 
 `preferred_mode` → caminho de combate: `fists→atacante`, `armed→defensor`,
 `power→místico`.
@@ -760,12 +750,10 @@ pelo Campeão. Peso pesado, canônico.
 | Gerente de Boca (1301–1321) | 21 |
 | Cobrador (1401–1414) | 14 |
 | General / Braço-Direito (1451–1464) | 14 |
-| **Subtotal hierarquia da Banca** | **91** |
-| Ranking Clandestino (2001–2008) | 8 |
-| **Total colecionável** | **99** |
-| Chefes de território + chefe final (1500–1600) | 8 *(fora da contagem)* |
+| **Total colecionável (hierarquia da Banca)** | **91** |
+| Chefes de território + chefe final (1500–1600) | 8 *(aba própria, fora da contagem)* |
 
-Reserva: a estrutura comporta crescer até ~99 por faixa sem remapear.
+Reserva: cada faixa comporta crescer até ~99 sem remapear.
 
 ---
 

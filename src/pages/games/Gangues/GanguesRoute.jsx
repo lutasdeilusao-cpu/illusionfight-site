@@ -6,7 +6,6 @@ import useGanguesI18n from './hooks/useGanguesI18n'
 import GanguesLobby from './GanguesLobby'
 import GanguesSaveSelect from './GanguesSaveSelect'
 import GanguesModes from './GanguesModes'
-import GanguesEnemyPick from './GanguesEnemyPick'
 import GanguesCreate from './GanguesCreate'
 import GanguesCombat from './GanguesCombat'
 import GanguesVictory from './GanguesVictory'
@@ -113,7 +112,6 @@ export default function GanguesRoute() {
       )}
       {fase === 'progression' && <GanguesProgression onNavigate={setFase} />}
       {fase === 'modes' && <GanguesModes onNavigate={setFase} />}
-      {fase === 'enemy' && <GanguesEnemyPick onNavigate={setFase} />}
       {fase === 'story' && <GanguesStoryMap onNavigate={setFase} />}
       {fase === 'album' && <GanguesAlbum onNavigate={setFase} />}
       {fase === 'territorio' && (

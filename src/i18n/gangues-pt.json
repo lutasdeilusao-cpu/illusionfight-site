@@ -1133,31 +1133,13 @@
         "1503": "Ferrugem",
         "1504": "A Fera",
         "1505": "O Contador",
-        "1600": "O Retalho",
-        "2001": "Saco de Pancada",
-        "2002": "Corte Fundo",
-        "2003": "Curto-Circuito",
-        "2004": "Traça",
-        "2005": "Cascudo",
-        "2006": "Quebra-Queixo",
-        "2007": "O Coveiro",
-        "2008": "Breu"
+        "1600": "O Retalho"
       },
       "defeat_fallbacks": [
         "isso não pode ser...",
         "subestimei você. que droga.",
         "impossível."
       ],
-      "npc_names": {
-        "npc_arrogante_marelia": "Garoto de Marelia",
-        "npc_frio_azuma": "Visitante de Azuma",
-        "npc_caotico_sdr": "Jogador Caótico do SDR",
-        "npc_veterano_ranqueado": "Veterano do Ranking",
-        "npc_provocador_bravara": "Provocador de Bravara",
-        "npc_mistico_xakaxi": "Descendente Xakaxi",
-        "npc_hacker_sdr": "Hacker do SDR",
-        "npc_nordico_karnazar": "Lutador de Karnazar"
-      },
       "guest_banner": "Sem conta: progresso não é salvo.",
       "guest_create_account": "Criar conta",
       "guest_save_prompt_title": "Crie uma conta grátis",
@@ -1891,15 +1873,7 @@
         "1503": "Mora no último dos dez andares — quem sobe já chega cansado.",
         "1504": "Criou metade da criançada da região. Sabe onde bater pra doer sem machucar.",
         "1505": "Não briga por raiva — briga porque a conta fecha assim.",
-        "1600": "O único que já segurou seis bairros de uma vez.",
-        "2001": "Bonequinho de pano que apanha pra quem tá começando na gangue treinar.",
-        "2002": "Lutadora veterana de Marélia. Agressiva com a katana.",
-        "2003": "Enrola um fio elétrico no bastão antes de entrar na roda.",
-        "2004": "Clona cartão, invade câmera, some antes da polícia chegar.",
-        "2005": "Treinou metade dos capoeiristas de rua de Marélia num terreiro sem placa.",
-        "2006": "Ninguém no rachão clandestino de Marélia nunca o colocou no chão.",
-        "2007": "Ninguém sabe o nome dele nem viu o rosto — manda em toda Marélia das sombras.",
-        "2008": "Luta com chama negra nos punhos. O nome no topo de todo ranking clandestino."
+        "1600": "O único que já segurou seis bairros de uma vez."
       },
       "album": {
         "titulo": "Álbum de Marélia",
@@ -1916,7 +1890,6 @@
           "gerente": "Gerente",
           "cobrador": "Cobrador",
           "general": "General",
-          "ranking": "Ranking",
           "chefes": "Chefes"
         },
         "terr": {

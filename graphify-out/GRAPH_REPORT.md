@@ -1,7 +1,7 @@
 # Graph Report - SiteLDI  (2026-09-08)
 
 ## Corpus Check
-- 888 files · ~1,069,490 words
+- 888 files · ~1,069,551 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `bd97a219`
+- Built from commit: `13b87c21`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -1294,11 +1294,11 @@ Nodes (19): LDINotification(), PERSONAGENS, shuffle(), UnifiedNotification(), Ac
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `useLanguage()` connect `TopTrumpsCard.jsx` to `Community 0`, `Community 1`, `TeamSelect.jsx`, `Community 8`, `Community 9`, `Community 10`, `Community 12`, `CityOverworld.jsx`, `Community 20`, `UniversosHub.jsx`, `levelProgression.js`, `PuzzleStealthGrid.jsx`, `initBattle`, `Community 33`, `TopTrumpsMP.jsx`, `PerfilColecao.jsx`, `useTopTrumpsMP.js`, `DixContext.jsx`, `useJackStore.js`, `PuzzleForça.jsx`, `react`, `useRafaelI18n`, `combat.js`, `LDINotification.jsx`, `Community 49`, `Perfil.jsx`, `paridade-exata.mjs`, `PuzzleForça.jsx`, `AnalyticsTracker.jsx`, `getElem`, `Phase0Start.jsx`, `RestaurarSaude.jsx`, `useGameStore.js`, `combat.js`, `Number`, `personalidades.js`, `MazeRafael.jsx`, `sanguinaria.js`, `LDINotification.jsx`, `MazeRafael.jsx`, `sanguinaria.js`, `audioManager.js`, `paridade-exata.mjs`?**
-  _High betweenness centrality (0.112) - this node is a cross-community bridge._
+  _High betweenness centrality (0.111) - this node is a cross-community bridge._
 - **Why does `useReader()` connect `PerfilColecao.jsx` to `Community 0`, `Community 1`, `TopTrumpsMP.jsx`, `useTopTrumpsMP.js`, `initBattle`, `Community 3`, `sanguinaria.js`, `PuzzleForça.jsx`, `LDINotification.jsx`, `combat.js`, `MazeRafael.jsx`, `Phase0Start.jsx`, `Community 20`, `paridade-exata.mjs`, `TopTrumpsCard.jsx`, `audioManager.js`, `getElem`, `PuzzleStealthGrid.jsx`?**
   _High betweenness centrality (0.028) - this node is a cross-community bridge._
 - **Why does `useKpI18n()` connect `Community 0` to `TopTrumpsCard.jsx`?**
-  _High betweenness centrality (0.012) - this node is a cross-community bridge._
+  _High betweenness centrality (0.011) - this node is a cross-community bridge._
 - **What connects `1. Visão geral`, `2.1 Abertura (vinheta de carregamento)`, `3.1 Site e conteúdo` to the rest of the system?**
   _1816 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**

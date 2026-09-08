@@ -83,7 +83,6 @@ export function createGanguesTemplateSheet(characterTemplateId) {
     character_template_id: character.id,
     xp_total: 0,
     attributes: { progression: { ap: 0 } },
-    enemies_unlocked: [2001],
   })
 }
 
