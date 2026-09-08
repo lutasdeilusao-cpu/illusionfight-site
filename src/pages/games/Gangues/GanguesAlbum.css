@@ -1,0 +1,163 @@
+/* Álbum de Marélia — colecionável de inimigos. Mobile-only, herda a coluna
+   #root; nada de max-width nem media query de viewport aqui. */
+
+.gang-album {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 14px 14px 40px;
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  min-height: 100%;
+}
+
+.gang-album__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.gang-album__back {
+  border: 1px solid var(--border-color);
+  background: transparent;
+  color: var(--text-secondary);
+  font: 800 0.72rem var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 8px 12px;
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
+}
+
+.gang-album__count {
+  font: 800 0.9rem var(--font-mono);
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+}
+.gang-album__count b { color: var(--if-amber); font-size: 1.15rem; }
+
+.gang-album__title { display: flex; flex-direction: column; gap: 4px; }
+.gang-album__eyebrow {
+  font: 800 0.62rem var(--font-mono);
+  letter-spacing: 0.22em;
+  color: var(--if-teal);
+}
+.gang-album__title h1 {
+  margin: 0;
+  font: 800 1.4rem/1.05 var(--font-title);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+.gang-album__title p {
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+
+/* Abas por cargo — rolam horizontal dentro do próprio contêiner. */
+.gang-album__tabs {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  scrollbar-width: none;
+}
+.gang-album__tabs::-webkit-scrollbar { display: none; }
+
+.gang-album__tab {
+  flex: 0 0 auto;
+  border: 1px solid var(--border-color);
+  background: transparent;
+  color: var(--text-secondary);
+  font: 800 0.68rem var(--font-mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 8px 12px;
+  clip-path: polygon(0 0, calc(100% - 7px) 0, 100% 7px, 100% 100%, 0 100%);
+}
+.gang-album__tab.is-active {
+  border-color: var(--if-amber);
+  background: var(--if-amber);
+  color: var(--bg-primary);
+}
+
+.gang-album__aba-count {
+  margin: 0;
+  font: 800 0.68rem var(--font-mono);
+  letter-spacing: 0.08em;
+  color: var(--text-muted, var(--text-secondary));
+}
+
+.gang-album__grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.gang-album__card {
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid var(--if-hair);
+  background: var(--if-panel-flat);
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%);
+}
+
+.gang-album__card--locked { opacity: 0.55; }
+
+.gang-album__portrait {
+  flex: 0 0 40px;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--border-color);
+  font: 800 1.1rem var(--font-title);
+  text-transform: uppercase;
+  color: var(--if-amber);
+  background: var(--bg-primary);
+}
+.gang-album__card--locked .gang-album__portrait { color: var(--text-muted, var(--text-secondary)); }
+
+.gang-album__body {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+.gang-album__body strong {
+  font: 800 0.92rem var(--font-title);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+.gang-album__body small {
+  font: 700 0.66rem var(--font-mono);
+  letter-spacing: 0.04em;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+}
+.gang-album__body em {
+  font-style: normal;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  line-height: 1.25;
+}
+
+.gang-album__stats {
+  display: flex;
+  gap: 8px;
+  margin: 2px 0 1px;
+}
+.gang-album__stats span {
+  font: 800 0.78rem var(--font-mono);
+  color: var(--text-primary);
+}
+.gang-album__stats i {
+  font-style: normal;
+  color: var(--text-secondary);
+  margin-right: 3px;
+  font-size: 0.66rem;
+}

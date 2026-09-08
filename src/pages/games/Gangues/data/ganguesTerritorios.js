@@ -47,11 +47,11 @@ export const GANGUES_TERRITORIOS = [
     // só pra bookkeeping de domínio (marcarNoDominado usa os ids); os
     // combates de verdade usam os POIs da cena, não estes.
     pontos: [
-      { id: 'pista-1', gangue: 'rato_pista', enemy: 'moleque_a', forca: 1, dificuldade: 'normal' },
-      { id: 'pista-2', gangue: 'rato_pista', enemy: 'moleque_a', forca: 1, dificuldade: 'dificil' },
-      { id: 'pista-3', gangue: 'bonde_sinal', enemy: 'moleque_b', forca: 2, dificuldade: 'facil' },
+      { id: 'pista-1', gangue: 'rato_pista', enemy: 1201, forca: 1, dificuldade: 'normal' },
+      { id: 'pista-2', gangue: 'rato_pista', enemy: 1201, forca: 1, dificuldade: 'dificil' },
+      { id: 'pista-3', gangue: 'bonde_sinal', enemy: 1301, forca: 2, dificuldade: 'facil' },
     ],
-    chefe: { id: 'pista-chefe', gangue: 'rato_pista', enemy: 'fumaca', forca: 3, boss: 'fumaca' },
+    chefe: { id: 'pista-chefe', gangue: 'rato_pista', enemy: 1500, forca: 3, boss: 'fumaca' },
   },
   {
     id: 'feira',
@@ -67,11 +67,11 @@ export const GANGUES_TERRITORIOS = [
     // avançar num novo, em vez de só progresso linear pra frente.
     precisaInformante: true,
     pontos: [
-      { id: 'feira-1', gangue: 'cobranca_turco', enemy: 'turco_batedor', forca: 2, dificuldade: 'normal' },
-      { id: 'feira-2', gangue: 'cobranca_turco', enemy: 'turco_capanga', forca: 3, dificuldade: 'dificil' },
-      { id: 'feira-3', gangue: 'os_gato', enemy: 'gato_eletrico', forca: 3, dificuldade: 'facil' },
+      { id: 'feira-1', gangue: 'cobranca_turco', enemy: 1304, forca: 2, dificuldade: 'normal' },
+      { id: 'feira-2', gangue: 'cobranca_turco', enemy: 1403, forca: 3, dificuldade: 'dificil' },
+      { id: 'feira-3', gangue: 'os_gato', enemy: 1204, forca: 3, dificuldade: 'facil' },
     ],
-    chefe: { id: 'feira-chefe', gangue: 'cobranca_turco', enemy: 'turco', forca: 4, boss: 'turco' },
+    chefe: { id: 'feira-chefe', gangue: 'cobranca_turco', enemy: 1501, forca: 4, boss: 'turco' },
   },
   {
     id: 'baixada',
@@ -81,11 +81,11 @@ export const GANGUES_TERRITORIOS = [
     poly: '0,120 20,108 40,118 57,112 44,94 56,76 40,82 20,72 0,84 6,100',
     pos: { top: 64, left: 28 },
     pontos: [
-      { id: 'baixada-1', gangue: 'sombra_rubra', enemy: 'sombra_rubra', forca: 3, dificuldade: 'normal' },
-      { id: 'baixada-2', gangue: 'sombra_fria', enemy: 'sombra_fria', forca: 4, dificuldade: 'dificil' },
-      { id: 'baixada-3', gangue: 'os_restos', enemy: 'os_restos', forca: 4, dificuldade: 'facil' },
+      { id: 'baixada-1', gangue: 'sombra_rubra', enemy: 1308, forca: 3, dificuldade: 'normal' },
+      { id: 'baixada-2', gangue: 'sombra_fria', enemy: 1309, forca: 4, dificuldade: 'dificil' },
+      { id: 'baixada-3', gangue: 'os_restos', enemy: 1405, forca: 4, dificuldade: 'facil' },
     ],
-    chefe: { id: 'baixada-chefe', gangue: 'sombra_fria', enemy: 'espeto', forca: 5, boss: 'espeto' },
+    chefe: { id: 'baixada-chefe', gangue: 'sombra_fria', enemy: 1502, forca: 5, boss: 'espeto' },
   },
   {
     id: 'vila',
@@ -95,11 +95,11 @@ export const GANGUES_TERRITORIOS = [
     poly: '57,112 74,120 90,106 100,116 94,98 100,80 90,70 74,84 56,76 44,94',
     pos: { top: 64, left: 78 },
     pontos: [
-      { id: 'vila-1', gangue: 'bonde_predio', enemy: 'bonde_predio_1', forca: 4, dificuldade: 'normal' },
-      { id: 'vila-2', gangue: 'bonde_predio', enemy: 'bonde_predio_2', forca: 5, dificuldade: 'dificil' },
-      { id: 'vila-3', gangue: 'os_andar_de_cima', enemy: 'andar_de_cima', forca: 5, dificuldade: 'facil' },
+      { id: 'vila-1', gangue: 'bonde_predio', enemy: 1310, forca: 4, dificuldade: 'normal' },
+      { id: 'vila-2', gangue: 'bonde_predio', enemy: 1311, forca: 5, dificuldade: 'dificil' },
+      { id: 'vila-3', gangue: 'os_andar_de_cima', enemy: 1407, forca: 5, dificuldade: 'facil' },
     ],
-    chefe: { id: 'vila-chefe', gangue: 'bonde_predio', enemy: 'sala', forca: 6, boss: 'sala' },
+    chefe: { id: 'vila-chefe', gangue: 'bonde_predio', enemy: 1503, forca: 6, boss: 'sala' },
   },
   {
     id: 'morro',
@@ -109,11 +109,11 @@ export const GANGUES_TERRITORIOS = [
     poly: '0,84 20,72 40,82 56,76 43,58 50,54 40,58 28,50 10,60 4,72',
     pos: { top: 44, left: 29 },
     pontos: [
-      { id: 'morro-1', gangue: 'frente_escada', enemy: 'frente_escada_1', forca: 5, dificuldade: 'normal' },
-      { id: 'morro-2', gangue: 'frente_escada', enemy: 'frente_escada_2', forca: 6, dificuldade: 'dificil' },
-      { id: 'morro-3', gangue: 'os_fogueteiro', enemy: 'fogueteiro', forca: 6, dificuldade: 'facil' },
+      { id: 'morro-1', gangue: 'frente_escada', enemy: 1313, forca: 5, dificuldade: 'normal' },
+      { id: 'morro-2', gangue: 'frente_escada', enemy: 1314, forca: 6, dificuldade: 'dificil' },
+      { id: 'morro-3', gangue: 'os_fogueteiro', enemy: 1409, forca: 6, dificuldade: 'facil' },
     ],
-    chefe: { id: 'morro-chefe', gangue: 'frente_escada', enemy: 'zefa', forca: 7, boss: 'zefa' },
+    chefe: { id: 'morro-chefe', gangue: 'frente_escada', enemy: 1504, forca: 7, boss: 'zefa' },
   },
   {
     id: 'alto',
@@ -123,11 +123,11 @@ export const GANGUES_TERRITORIOS = [
     poly: '56,76 74,84 90,70 100,80 96,68 90,60 74,50 62,58 50,54 43,58',
     pos: { top: 44, left: 74 },
     pontos: [
-      { id: 'alto-1', gangue: 'os_cinco', enemy: 'os_cinco_1', forca: 6, dificuldade: 'normal' },
-      { id: 'alto-2', gangue: 'os_cinco', enemy: 'os_cinco_2', forca: 7, dificuldade: 'dificil' },
-      { id: 'alto-3', gangue: 'a_roda', enemy: 'a_roda', forca: 8, dificuldade: 'facil' },
+      { id: 'alto-1', gangue: 'os_cinco', enemy: 1316, forca: 6, dificuldade: 'normal' },
+      { id: 'alto-2', gangue: 'os_cinco', enemy: 1317, forca: 7, dificuldade: 'dificil' },
+      { id: 'alto-3', gangue: 'a_roda', enemy: 1318, forca: 8, dificuldade: 'facil' },
     ],
-    chefe: { id: 'alto-chefe', gangue: 'os_cinco', enemy: 'doutor', forca: 9, boss: 'doutor' },
+    chefe: { id: 'alto-chefe', gangue: 'os_cinco', enemy: 1505, forca: 9, boss: 'doutor' },
   },
   {
     id: 'laje',
@@ -137,11 +137,11 @@ export const GANGUES_TERRITORIOS = [
     poly: '10,60 28,50 40,58 50,54 62,58 74,50 90,60 84,44 74,26 60,10 50,6 40,10 24,26 14,44',
     pos: { top: 27, left: 51 },
     pontos: [
-      { id: 'laje-1', gangue: 'bonde_costura', enemy: 'bonde_costura_1', forca: 7, dificuldade: 'normal' },
-      { id: 'laje-2', gangue: 'bonde_costura', enemy: 'bonde_costura_2', forca: 8, dificuldade: 'dificil' },
-      { id: 'laje-3', gangue: 'bonde_costura', enemy: 'bonde_costura_3', forca: 9, dificuldade: 'facil' },
+      { id: 'laje-1', gangue: 'bonde_costura', enemy: 1319, forca: 7, dificuldade: 'normal' },
+      { id: 'laje-2', gangue: 'bonde_costura', enemy: 1320, forca: 8, dificuldade: 'dificil' },
+      { id: 'laje-3', gangue: 'bonde_costura', enemy: 1463, forca: 9, dificuldade: 'facil' },
     ],
-    chefe: { id: 'laje-chefe', gangue: 'bonde_costura', enemy: 'costura', forca: 10, boss: 'costura', ehFinal: true },
+    chefe: { id: 'laje-chefe', gangue: 'bonde_costura', enemy: 1600, forca: 10, boss: 'costura', ehFinal: true },
   },
 ]
 

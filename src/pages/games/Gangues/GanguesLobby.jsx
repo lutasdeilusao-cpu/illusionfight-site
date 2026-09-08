@@ -8,6 +8,7 @@ import { sfx } from '../../../lib/sfx'
 import { useGanguesStore } from './store/useGanguesStore'
 import { GANGUES_INITIAL_PARTY_SIZE, GANGUES_MAX_PARTY_SIZE, getGanguesProgression, getGanguesRosterLimitComHistoria } from './data/ganguesLoadout.js'
 import { getGanguesSpecials } from './data/ganguesSpecials.js'
+import { GANGUES_ALBUM_TOTAL } from './data/ganguesInimigos.js'
 import enemiesData from './data/gangues-enemies.json'
 
 /** Nomes dos lutadores da party que têm poder ATIVO comprado mas ainda com
@@ -161,6 +162,9 @@ export default function GanguesLobby({ onNavigate }) {
       ) : (
         <>
           <button className="gang-home-actions__play gang-home-actions__play--top" onClick={tentarBatalha}>{t('games.gangues.modes.abrir')} <b>→</b></button>
+          <button className="gang-lobby-album" onClick={() => { sfx.select?.(); onNavigate('album') }}>
+            {t('games.gangues.album.titulo')} <b>{(store.storyProgress.__album || []).length}/{GANGUES_ALBUM_TOTAL}</b>
+          </button>
 
           <RosterCarousel
             roster={roster}

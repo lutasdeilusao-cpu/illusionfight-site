@@ -22,28 +22,37 @@ import { getGanguesResources } from './ganguesLoadout.js'
 // Moldes de inimigo por região (mistura aleatória) + faixa de quantidade de
 // corpos no bando — a quantidade real também respeita o tamanho do time do
 // jogador (ver gerarBandoInimigo).
+// moldes = os inimigos COMUNS daquele território (ids numéricos —
+// data/gangues-enemies.json). São os 11 de cada bairro: 3 Vigia + 3 Vapor +
+// 3 Gerente + 2 Cobrador (a hierarquia da Banca, ver docs/Games/Gangues/
+// LDI_GANGUES_GDD.md §5). gerarBandoInimigo sorteia e escala por pontos
+// (escalarInimigo) — o molde é forma relativa, não stat absoluto. É assim que
+// o Álbum de Marélia se preenche jogando as tretas.
 export const GANGUES_TERRITORIO_ENCONTRO = {
-  pista: { moldes: ['moleque_a', 'moleque_b', 'moleque_c'], min: 1, max: 4 },
-  feira: { moldes: ['turco_batedor', 'turco_capanga', 'gato_eletrico'], min: 2, max: 5 },
-  baixada: { moldes: ['sombra_rubra', 'sombra_fria', 'os_restos'], min: 3, max: 6 },
-  vila: { moldes: ['bonde_predio_1', 'bonde_predio_2', 'andar_de_cima'], min: 3, max: 6 },
-  morro: { moldes: ['frente_escada_1', 'frente_escada_2', 'fogueteiro'], min: 4, max: 8 },
-  alto: { moldes: ['os_cinco_1', 'os_cinco_2', 'a_roda'], min: 5, max: 10 },
-  laje: { moldes: ['bonde_costura_1', 'bonde_costura_2', 'bonde_costura_3'], min: 6, max: 10 },
+  pista:   { moldes: [1101, 1102, 1103, 1201, 1202, 1203, 1301, 1302, 1303, 1401, 1402], min: 1, max: 4 },
+  feira:   { moldes: [1104, 1105, 1106, 1204, 1205, 1206, 1304, 1305, 1306, 1403, 1404], min: 2, max: 5 },
+  baixada: { moldes: [1107, 1108, 1109, 1207, 1208, 1209, 1307, 1308, 1309, 1405, 1406], min: 3, max: 6 },
+  vila:    { moldes: [1110, 1111, 1112, 1210, 1211, 1212, 1310, 1311, 1312, 1407, 1408], min: 3, max: 6 },
+  morro:   { moldes: [1113, 1114, 1115, 1213, 1214, 1215, 1313, 1314, 1315, 1409, 1410], min: 4, max: 8 },
+  alto:    { moldes: [1116, 1117, 1118, 1216, 1217, 1218, 1316, 1317, 1318, 1411, 1412], min: 5, max: 10 },
+  laje:    { moldes: [1119, 1120, 1121, 1219, 1220, 1221, 1319, 1320, 1321, 1413, 1414], min: 6, max: 10 },
 }
 
 // Equipe do CHEFE — fixa, nunca sorteada. O chefe não anda sozinho, leva os
 // melhores da própria gangue junto (o 1º id é sempre o próprio chefe). Sendo
 // sempre a mesma composição, dá pra aprender o combate e voltar mais forte —
 // bem diferente do bando comum, que é aleatório de propósito.
+// O 1º id é sempre o próprio chefe; os outros são os 2 GENERAIS daquele
+// território (faixa 1451+, ver GDD §5.5) — vencer o chefe desbloqueia os
+// generais no Álbum de uma vez, já que eles não aparecem em treta comum.
 export const GANGUES_CHEFE_EQUIPE = {
-  pista: ['fumaca', 'moleque_b'],
-  feira: ['turco', 'turco_capanga'],
-  baixada: ['espeto', 'sombra_fria'],
-  vila: ['sala', 'bonde_predio_2'],
-  morro: ['zefa', 'frente_escada_2'],
-  alto: ['doutor', 'os_cinco_2'],
-  laje: ['costura', 'bonde_costura_3', 'bonde_costura_2'],
+  pista: [1500, 1451, 1452],
+  feira: [1501, 1453, 1454],
+  baixada: [1502, 1455, 1456],
+  vila: [1503, 1457, 1458],
+  morro: [1504, 1459, 1460],
+  alto: [1505, 1461, 1462],
+  laje: [1600, 1463, 1464],
 }
 
 // Total de pontos do bando = pontos do jogador * esse fator. "normal" ~65%
@@ -118,7 +127,7 @@ export function gerarBandoInimigo({ territorioId, dificuldade = 'normal', player
   }).filter(Boolean)
 
   // O molde é sorteado por slot, sem exclusividade — é comum o mesmo tipo
-  // (ex: 'moleque_a') sair 2x+ no mesmo bando. Sem uma numeração, os dois
+  // (ex: 1201) sair 2x+ no mesmo bando. Sem uma numeração, os dois
   // aparecem com o nome idêntico na tela de combate, impossível de
   // diferenciar (qual "Moleque da Pista" já perdi PV, qual eu quero focar).
   // numeroInstancia marca a 2ª, 3ª... ocorrência de cada id repetido —

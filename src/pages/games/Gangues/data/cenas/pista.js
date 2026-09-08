@@ -53,7 +53,7 @@ export const CENA_PISTA = {
       // escolhas do papo: cada uma tem efeito próprio
       escolhas: [
         { id: 'compra', custoGrana: 4, recompensa: { rep: 0 }, revela: ['ferro'] },
-        { id: 'aperta', viraTreta: { enemy: 'treinamento', rep: -1, recompensa: { grana: 4 } }, revela: ['ferro'] },
+        { id: 'aperta', viraTreta: { enemy: 2001, rep: -1, recompensa: { grana: 4 } }, revela: ['ferro'] },
         { id: 'ignora', revela: ['ferro'] },
       ],
     },
@@ -64,7 +64,7 @@ export const CENA_PISTA = {
       i18n: 'games.gangues.cena.pista.ferro',
       puzzle: { type: 'forca', config: { difficulty: 'easy' }, skin: 'gazua' },
       recompensa: { grana: 12, xp: 6, item: 'sucata' },
-      falha: { viraTreta: { enemy: 'treinamento', recompensa: { grana: 3 } } },
+      falha: { viraTreta: { enemy: 2001, recompensa: { grana: 3 } } },
       revela: ['molecada_1'],
     },
     {
@@ -82,7 +82,7 @@ export const CENA_PISTA = {
       // ficha. O bando é sorteado na hora (GanguesRoute → gerarBandoInimigo,
       // moldes da Pista) calibrado contra o time atual — nunca é sempre o
       // mesmo inimigo/quantidade.
-      enemy: 'moleque_a',
+      enemy: 1201,
       forca: 1,
       dificuldade: 'normal',
       recompensa: { grana: 8, rep: 2 },
@@ -119,7 +119,7 @@ export const CENA_PISTA = {
       i18n: 'games.gangues.cena.pista.molecada_2',
       // Segunda treta — dificuldade 'dificil' (o jogador já deve ter 1
       // vitória de AP acumulado até chegar aqui).
-      enemy: 'moleque_b',
+      enemy: 1301,
       forca: 2,
       dificuldade: 'dificil',
       recompensa: { grana: 8, rep: 3 },
@@ -137,7 +137,7 @@ export const CENA_PISTA = {
       visivel: true,
       pino: { x: 40, y: 190 },
       i18n: 'games.gangues.cena.pista.rinha',
-      enemy: 'moleque_a',
+      enemy: 1201,
       forca: 1,
       dificuldade: 'normal',
       recompensa: { grana: 4 },
@@ -208,7 +208,7 @@ export const CENA_PISTA = {
     // Ficha própria (não mais "kaeda" emprestado) — o combate real agora
     // mostra "Fumaça" lutando, batendo com a fala/nome já usados na tela
     // de confronto (games.gangues.story.bosses.fumaca).
-    enemy: 'fumaca',
+    enemy: 1500,
     forca: 3,
     boss: 'fumaca',
     recompensa: { grana: 20, rep: 5 },

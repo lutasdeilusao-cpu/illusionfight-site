@@ -20,7 +20,7 @@ export default function GanguesEnemyPick({ onNavigate }) {
 
   if (party.length < 2) { onNavigate('lobby'); return null }
 
-  const unlocked = new Set(party.flatMap(member => member.enemies_unlocked || ['treinamento']))
+  const unlocked = new Set(party.flatMap(member => member.enemies_unlocked?.length ? member.enemies_unlocked : [2001]))
   const enemyPool = enemiesData.filter(enemy => unlocked.has(enemy.id))
 
   const startBattle = (enemy) => {

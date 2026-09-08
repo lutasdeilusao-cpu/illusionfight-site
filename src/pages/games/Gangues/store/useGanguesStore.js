@@ -4,6 +4,7 @@ import { addGanguesAp, defaultGanguesProgression, getGanguesRosterLimit, normali
 import { carregarProgressoHistoria, salvarProgressoHistoria, listarSaves, criarSave, excluirSave } from './ganguesStoryProgress.js'
 import { createGanguesTemplateSheet, hydrateGanguesTemplateSheet, getGanguesLevelFromXp } from '../data/ganguesCharacters.js'
 import { createGanguesEquipInstance, normalizeGanguesEquipment, getGanguesEquip } from '../data/ganguesEquip.js'
+import { normalizarEnemyId, normalizarEnemyIds } from '../data/ganguesInimigos.js'
 
 // Debounce dos writes de progresso do modo história: várias ações batem em sequência
 // (marcar POI + fôlego + grana + rep) e não faz sentido um upsert por campo.
@@ -32,7 +33,7 @@ const defaultSheet = () => ({
   combat_path: null,
   loadout_version: 2,
   xp_total: 0,
-  enemies_unlocked: ['treinamento'],
+  enemies_unlocked: [2001],
   character_type: 'legacy',
   character_template_id: null,
 })
@@ -286,8 +287,11 @@ export const useGanguesStore = create((set, get) => ({
     const { data, error } = await supabase.from('character_sheets').select('id, sheet_name, attributes, elemental, combat_path, loadout_version, xp_total, enemies_unlocked, character_type, character_template_id').eq('save_id', saveId).eq('character_type', 'template').order('created_at', { ascending: false })
     if (error) console.error('[GANGUES] Falha ao carregar fichas:', error.message)
     const roster = Array.isArray(data) ? data.map(item => {
-      const templateId = item.character_template_id || item.attributes?.character_template_id
-      return templateId ? hydrateGanguesTemplateSheet({ ...item, character_type: 'template', character_template_id: Number(templateId) }) : ({ ...item, ...normalizeGanguesLoadout(item) })
+      // Saves anteriores à migração numérica guardam enemies_unlocked em string
+      // ('treinamento', 'kaeda'...). normalizarEnemyIds converte via alias.
+      const base = { ...item, enemies_unlocked: normalizarEnemyIds(item.enemies_unlocked || [2001]) }
+      const templateId = base.character_template_id || base.attributes?.character_template_id
+      return templateId ? hydrateGanguesTemplateSheet({ ...base, character_type: 'template', character_template_id: Number(templateId) }) : ({ ...base, ...normalizeGanguesLoadout(base) })
     }) : []
     set({ roster })
     return roster
@@ -307,15 +311,34 @@ export const useGanguesStore = create((set, get) => ({
     return true
   },
 
+  // Progressão do MODO BATALHA (ranking clandestino, faixa 2001–2008). Vencer
+  // o inimigo atual libera o próximo da fila. Ids do modo história (1xxx) não
+  // entram aqui — quem coleciona esses é o Álbum (registrarNoAlbum).
   unlockNextEnemy: (defeatedEnemyId) => set(state => {
-    const ENEMY_ORDER = ['treinamento', 'kaeda', 'thunderbolt', 'stormbyte', 'viran', 'campeao', 'kronos', 'primordial_jack']
-    const current = state.sheet.enemies_unlocked || ['treinamento']
-    const idx = ENEMY_ORDER.indexOf(defeatedEnemyId)
+    const ENEMY_ORDER = [2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008]
+    const current = normalizarEnemyIds(state.sheet.enemies_unlocked || [2001])
+    const idx = ENEMY_ORDER.indexOf(normalizarEnemyId(defeatedEnemyId))
     if (idx === -1 || idx >= ENEMY_ORDER.length - 1) return state
     const nextId = ENEMY_ORDER[idx + 1]
     if (current.includes(nextId)) return state
     return { sheet: { ...state.sheet, enemies_unlocked: [...current, nextId] } }
   }),
+
+  // Álbum de Marélia — registra os inimigos derrotados (ids numéricos) no
+  // progresso do save. Guardado dentro do próprio storyProgress (chave
+  // reservada __album), igual ao __flags do informante — sem coluna nova no
+  // Supabase. Chamado pela tela de vitória com todo o bando batido.
+  registrarNoAlbum: (ids = []) => {
+    const novos = normalizarEnemyIds(ids)
+    if (!novos.length) return
+    set(state => {
+      const atual = state.storyProgress.__album || []
+      const merge = [...new Set([...atual, ...novos])]
+      if (merge.length === atual.length) return state
+      return { storyProgress: { ...state.storyProgress, __album: merge } }
+    })
+    get()._persistStory()
+  },
 
   // ── Nome da gangue ──
   // É o que reverbera na história (falas dos inimigos, % de domínio, fim).

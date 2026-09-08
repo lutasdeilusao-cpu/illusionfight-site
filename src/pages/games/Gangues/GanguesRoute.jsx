@@ -14,6 +14,7 @@ import GanguesProgression from './GanguesProgression'
 import GanguesStoryMap from './GanguesStoryMap'
 import GanguesTerritorio from './GanguesTerritorio'
 import GanguesCena from './GanguesCena'
+import GanguesAlbum from './GanguesAlbum'
 import { temCena } from './data/cenas/pista.js'
 import { GANGUES_STORY_BATTLE_PARTY_MAX } from './data/ganguesLoadout.js'
 import { gerarBandoInimigo, GANGUES_CHEFE_EQUIPE } from './data/ganguesEncontros.js'
@@ -114,6 +115,7 @@ export default function GanguesRoute() {
       {fase === 'modes' && <GanguesModes onNavigate={setFase} />}
       {fase === 'enemy' && <GanguesEnemyPick onNavigate={setFase} />}
       {fase === 'story' && <GanguesStoryMap onNavigate={setFase} />}
+      {fase === 'album' && <GanguesAlbum onNavigate={setFase} />}
       {fase === 'territorio' && (
         temCena(store.storyTarget?.territorioId)
           ? <GanguesCena onNavigate={setFase} />

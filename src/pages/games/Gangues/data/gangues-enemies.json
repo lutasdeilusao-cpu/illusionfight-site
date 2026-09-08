@@ -1,758 +1,6015 @@
 [
   {
-    "id": "treinamento",
-    "name": "Saco de Pancada",
-    "rank": 999999,
-    "stats": { "A": 1, "H": 0, "R": 2, "D": 0 },
-    "pv_max": 6, "pm_max": 6,
-    "weapon": "punhos", "weapon_damage": 1,
-    "elemental": null, "preferred_mode": "fists",
-    "ai_pattern": "básico",
-    "difficulty": "easy", "tier": 1,
-    "notes": "Bonequinho de pano que apanha pra quem tá começando na gangue treinar. Quase não revida.",
+    "id": 1101,
+    "name": "Farejador",
+    "stats": {
+      "A": 1,
+      "H": 2,
+      "R": 1,
+      "D": 0
+    },
+    "pv_max": 3,
+    "pm_max": 3,
+    "weapon": null,
+    "elemental": null,
+    "preferred_mode": "fists",
+    "ai_pattern": "evasivo",
+    "difficulty": "easy",
+    "tier": 0,
+    "notes": "Não briga, corre e avisa — enfrentá-lo é perseguição antes de porrada.",
+    "album": {
+      "cargoId": 201,
+      "faccaoId": 101,
+      "territorioId": 1
+    },
     "trash_talk": {
-      "attack_miss": ["nem encostou 💀", "isso foi um ataque?? 😭", "tô dormindo aqui 😴🥱"],
-      "attack_hit": ["SENTIU? 🔥", "dói né 😈", "tem mais vindo 👊💥"],
-      "take_damage": ["sorte sua 🙄", "foi quase nada lol 😒", "interessante... 🤨"],
-      "take_critical": ["OK ISSO DOEU 😤💢", "não esperava isso ngl 😳", "bom golpe. respeitei. 👏"],
-      "player_near_death": ["acabou pra você mano 💀💀", "devia ter fugido quando teve chance 🏃‍♂️💨", "quer que eu pare? 🥹"],
-      "enemy_near_death": ["ainda não acabou NÃO 😤", "tô só aquecendo juro 🔥", "me subestimou hein 😏"],
-      "defeat": ["isso não pode ser... 😨", "subestimei você. que droga. 😤", "impossível. 💀"]
+      "attack_miss": [
+        "passou longe, cria 😮‍💨",
+        "nem me viu direito 👀",
+        "tô só de olho, não de mão 🫥"
+      ],
+      "attack_hit": [
+        "avisei que ia doer 📣",
+        "toma pra parar de subir 👊",
+        "o bonde já sabe que cê tá aqui 🔊"
+      ],
+      "take_damage": [
+        "ei, sem essa 😤",
+        "isso não me segura não 🏃",
+        "já apanhei mais só de vigiar 🙄"
+      ],
+      "take_critical": [
+        "opa, essa entrou 😳",
+        "beleza, cê tem mão 👏"
+      ],
+      "player_near_death": [
+        "some daqui enquanto dá 🙏",
+        "o bairro todo já te viu 😈"
+      ],
+      "enemy_near_death": [
+        "ainda dou o grito 😤",
+        "não caio calado 📣"
+      ],
+      "defeat": [
+        "...vou ter que avisar que cê passou 😔",
+        "beleza, o bonde que se vire 🫡"
+      ]
     }
   },
   {
-    "id": "kaeda",
-    "name": "Corte Fundo",
-    "rank": 3214,
-    "stats": { "A": 3, "H": 3, "R": 4, "D": 2 },
-    "pv_max": 16, "pm_max": 8,
-    "weapon": "katana", "weapon_damage": 3,
-    "elemental": "fogo", "preferred_mode": "armed",
-    "ai_pattern": "agressivo",
-    "difficulty": "easy", "tier": 1,
-    "notes": "Lutadora veterana de Marelia. Agressiva com a katana.",
+    "id": 1102,
+    "name": "Dedo-Duro",
+    "stats": {
+      "A": 1,
+      "H": 2,
+      "R": 1,
+      "D": 0
+    },
+    "pv_max": 3,
+    "pm_max": 3,
+    "weapon": "faca pequena",
+    "elemental": null,
+    "preferred_mode": "fists",
+    "ai_pattern": "evasivo",
+    "difficulty": "easy",
+    "tier": 0,
+    "notes": "Vende informação pros dois lados, ninguém confia.",
+    "album": {
+      "cargoId": 201,
+      "faccaoId": 101,
+      "territorioId": 1
+    },
     "trash_talk": {
-      "attack_miss": ["você teve sorte DESSA VEZ 😤", "minha katana não perdoa duas vezes ⚔️😈", "esquiva barata 🙄"],
-      "attack_hit": ["a lâmina não mente 🗡️🔥", "SANGUE NA ARENA 😈💢", "corte limpo. próximo. ⚔️"],
-      "take_damage": ["isso é tudo?? 😒", "já levei pior treinando 💅", "não vai me derrubar com isso 😤"],
-      "take_critical": ["...respeito. 🫡", "FINALMENTE um oponente de verdade 😳🔥", "assim a luta fica interessante 😏⚔️"],
-      "player_near_death": ["desiste enquanto pode 🙏", "não preciso te matar 😌", "a derrota também é honrosa 🫂"],
-      "enemy_near_death": ["ainda tenho fôlego 😤💨", "NÃO me subestime 😡", "a luta SÓ COMEÇOU ⚔️🔥"],
-      "defeat": ["isso não pode ser... 😨", "minha katana... falhou... ⚔️💔", "você é digno. 🫡"]
+      "attack_miss": [
+        "passou longe, cria 😮‍💨",
+        "nem me viu direito 👀",
+        "tô só de olho, não de mão 🫥"
+      ],
+      "attack_hit": [
+        "avisei que ia doer 📣",
+        "toma pra parar de subir 👊",
+        "o bonde já sabe que cê tá aqui 🔊"
+      ],
+      "take_damage": [
+        "ei, sem essa 😤",
+        "isso não me segura não 🏃",
+        "já apanhei mais só de vigiar 🙄"
+      ],
+      "take_critical": [
+        "opa, essa entrou 😳",
+        "beleza, cê tem mão 👏"
+      ],
+      "player_near_death": [
+        "some daqui enquanto dá 🙏",
+        "o bairro todo já te viu 😈"
+      ],
+      "enemy_near_death": [
+        "ainda dou o grito 😤",
+        "não caio calado 📣"
+      ],
+      "defeat": [
+        "...vou ter que avisar que cê passou 😔",
+        "beleza, o bonde que se vire 🫡"
+      ]
     }
   },
   {
-    "id": "moleque_a",
+    "id": 1103,
+    "name": "Pingo",
+    "stats": {
+      "A": 1,
+      "H": 2,
+      "R": 1,
+      "D": 0
+    },
+    "pv_max": 3,
+    "pm_max": 3,
+    "weapon": "estilingue",
+    "elemental": null,
+    "preferred_mode": "fists",
+    "ai_pattern": "evasivo",
+    "difficulty": "easy",
+    "tier": 0,
+    "notes": "O mais rápido da Pista — foge se levar 2 golpes seguidos.",
+    "album": {
+      "cargoId": 201,
+      "faccaoId": 101,
+      "territorioId": 1
+    },
+    "trash_talk": {
+      "attack_miss": [
+        "passou longe, cria 😮‍💨",
+        "nem me viu direito 👀",
+        "tô só de olho, não de mão 🫥"
+      ],
+      "attack_hit": [
+        "avisei que ia doer 📣",
+        "toma pra parar de subir 👊",
+        "o bonde já sabe que cê tá aqui 🔊"
+      ],
+      "take_damage": [
+        "ei, sem essa 😤",
+        "isso não me segura não 🏃",
+        "já apanhei mais só de vigiar 🙄"
+      ],
+      "take_critical": [
+        "opa, essa entrou 😳",
+        "beleza, cê tem mão 👏"
+      ],
+      "player_near_death": [
+        "some daqui enquanto dá 🙏",
+        "o bairro todo já te viu 😈"
+      ],
+      "enemy_near_death": [
+        "ainda dou o grito 😤",
+        "não caio calado 📣"
+      ],
+      "defeat": [
+        "...vou ter que avisar que cê passou 😔",
+        "beleza, o bonde que se vire 🫡"
+      ]
+    }
+  },
+  {
+    "id": 1104,
+    "name": "Extensão",
+    "stats": {
+      "A": 1,
+      "H": 2,
+      "R": 2,
+      "D": 1
+    },
+    "pv_max": 6,
+    "pm_max": 6,
+    "weapon": "fio elétrico",
+    "elemental": null,
+    "preferred_mode": "fists",
+    "ai_pattern": "evasivo",
+    "difficulty": "easy",
+    "tier": 0,
+    "notes": "Um dos Gato mais ousados, liga até poste vigiado.",
+    "album": {
+      "cargoId": 201,
+      "faccaoId": 103,
+      "territorioId": 2
+    },
+    "trash_talk": {
+      "attack_miss": [
+        "passou longe, cria 😮‍💨",
+        "nem me viu direito 👀",
+        "tô só de olho, não de mão 🫥"
+      ],
+      "attack_hit": [
+        "avisei que ia doer 📣",
+        "toma pra parar de subir 👊",
+        "o bonde já sabe que cê tá aqui 🔊"
+      ],
+      "take_damage": [
+        "ei, sem essa 😤",
+        "isso não me segura não 🏃",
+        "já apanhei mais só de vigiar 🙄"
+      ],
+      "take_critical": [
+        "opa, essa entrou 😳",
+        "beleza, cê tem mão 👏"
+      ],
+      "player_near_death": [
+        "some daqui enquanto dá 🙏",
+        "o bairro todo já te viu 😈"
+      ],
+      "enemy_near_death": [
+        "ainda dou o grito 😤",
+        "não caio calado 📣"
+      ],
+      "defeat": [
+        "...vou ter que avisar que cê passou 😔",
+        "beleza, o bonde que se vire 🫡"
+      ]
+    }
+  },
+  {
+    "id": 1105,
+    "name": "Cliente Ruim",
+    "stats": {
+      "A": 1,
+      "H": 2,
+      "R": 2,
+      "D": 1
+    },
+    "pv_max": 6,
+    "pm_max": 6,
+    "weapon": "garrafa quebrada",
+    "elemental": null,
+    "preferred_mode": "fists",
+    "ai_pattern": "evasivo",
+    "difficulty": "easy",
+    "tier": 0,
+    "notes": "Devedor que virou capanga pra pagar a própria dívida.",
+    "album": {
+      "cargoId": 201,
+      "faccaoId": 103,
+      "territorioId": 2
+    },
+    "trash_talk": {
+      "attack_miss": [
+        "passou longe, cria 😮‍💨",
+        "nem me viu direito 👀",
+        "tô só de olho, não de mão 🫥"
+      ],
+      "attack_hit": [
+        "avisei que ia doer 📣",
+        "toma pra parar de subir 👊",
+        "o bonde já sabe que cê tá aqui 🔊"
+      ],
+      "take_damage": [
+        "ei, sem essa 😤",
+        "isso não me segura não 🏃",
+        "já apanhei mais só de vigiar 🙄"
+      ],
+      "take_critical": [
+        "opa, essa entrou 😳",
+        "beleza, cê tem mão 👏"
+      ],
+      "player_near_death": [
+        "some daqui enquanto dá 🙏",
+        "o bairro todo já te viu 😈"
+      ],
+      "enemy_near_death": [
+        "ainda dou o grito 😤",
+        "não caio calado 📣"
+      ],
+      "defeat": [
+        "...vou ter que avisar que cê passou 😔",
+        "beleza, o bonde que se vire 🫡"
+      ]
+    }
+  },
+  {
+    "id": 1106,
+    "name": "Luz de Gato",
+    "stats": {
+      "A": 1,
+      "H": 2,
+      "R": 2,
+      "D": 1
+    },
+    "pv_max": 6,
+    "pm_max": 6,
+    "weapon": "fiapo elétrico",
+    "elemental": "ar",
+    "preferred_mode": "fists",
+    "ai_pattern": "evasivo",
+    "difficulty": "easy",
+    "tier": 0,
+    "notes": "Choque leve, atordoante — o alerta vivo da Feira.",
+    "album": {
+      "cargoId": 201,
+      "faccaoId": 103,
+      "territorioId": 2
+    },
+    "trash_talk": {
+      "attack_miss": [
+        "passou longe, cria 😮‍💨",
+        "nem me viu direito 👀",
+        "tô só de olho, não de mão 🫥"
+      ],
+      "attack_hit": [
+        "avisei que ia doer 📣",
+        "toma pra parar de subir 👊",
+        "o bonde já sabe que cê tá aqui 🔊"
+      ],
+      "take_damage": [
+        "ei, sem essa 😤",
+        "isso não me segura não 🏃",
+        "já apanhei mais só de vigiar 🙄"
+      ],
+      "take_critical": [
+        "opa, essa entrou 😳",
+        "beleza, cê tem mão 👏"
+      ],
+      "player_near_death": [
+        "some daqui enquanto dá 🙏",
+        "o bairro todo já te viu 😈"
+      ],
+      "enemy_near_death": [
+        "ainda dou o grito 😤",
+        "não caio calado 📣"
+      ],
+      "defeat": [
+        "...vou ter que avisar que cê passou 😔",
+        "beleza, o bonde que se vire 🫡"
+      ]
+    }
+  },
+  {
+    "id": 1107,
+    "name": "Maré Baixa",
+    "stats": {
+      "A": 1,
+      "H": 3,
+      "R": 2,
+      "D": 1
+    },
+    "pv_max": 6,
+    "pm_max": 6,
+    "weapon": "corrente curta",
+    "elemental": null,
+    "preferred_mode": "fists",
+    "ai_pattern": "evasivo",
+    "difficulty": "easy",
+    "tier": 0,
+    "notes": "O mais jovem dos cacos, ainda provando valor.",
+    "album": {
+      "cargoId": 201,
+      "faccaoId": 105,
+      "territorioId": 3
+    },
+    "trash_talk": {
+      "attack_miss": [
+        "passou longe, cria 😮‍💨",
+        "nem me viu direito 👀",
+        "tô só de olho, não de mão 🫥"
+      ],
+      "attack_hit": [
+        "avisei que ia doer 📣",
+        "toma pra parar de subir 👊",
+        "o bonde já sabe que cê tá aqui 🔊"
+      ],
+      "take_damage": [
+        "ei, sem essa 😤",
+        "isso não me segura não 🏃",
+        "já apanhei mais só de vigiar 🙄"
+      ],
+      "take_critical": [
+        "opa, essa entrou 😳",
+        "beleza, cê tem mão 👏"
+      ],
+      "player_near_death": [
+        "some daqui enquanto dá 🙏",
+        "o bairro todo já te viu 😈"
+      ],
+      "enemy_near_death": [
+        "ainda dou o grito 😤",
+        "não caio calado 📣"
+      ],
+      "defeat": [
+        "...vou ter que avisar que cê passou 😔",
+        "beleza, o bonde que se vire 🫡"
+      ]
+    }
+  },
+  {
+    "id": 1108,
+    "name": "Trilho",
+    "stats": {
+      "A": 1,
+      "H": 3,
+      "R": 2,
+      "D": 1
+    },
+    "pv_max": 8,
+    "pm_max": 4,
+    "weapon": "barra de ferro",
+    "elemental": null,
+    "preferred_mode": "armed",
+    "ai_pattern": "evasivo",
+    "difficulty": "easy",
+    "tier": 0,
+    "notes": "Ataca em cima do tempo do trem passar.",
+    "album": {
+      "cargoId": 201,
+      "faccaoId": 105,
+      "territorioId": 3
+    },
+    "trash_talk": {
+      "attack_miss": [
+        "passou longe, cria 😮‍💨",
+        "nem me viu direito 👀",
+        "tô só de olho, não de mão 🫥"
+      ],
+      "attack_hit": [
+        "avisei que ia doer 📣",
+        "toma pra parar de subir 👊",
+        "o bonde já sabe que cê tá aqui 🔊"
+      ],
+      "take_damage": [
+        "ei, sem essa 😤",
+        "isso não me segura não 🏃",
+        "já apanhei mais só de vigiar 🙄"
+      ],
+      "take_critical": [
+        "opa, essa entrou 😳",
+        "beleza, cê tem mão 👏"
+      ],
+      "player_near_death": [
+        "some daqui enquanto dá 🙏",
+        "o bairro todo já te viu 😈"
+      ],
+      "enemy_near_death": [
+        "ainda dou o grito 😤",
+        "não caio calado 📣"
+      ],
+      "defeat": [
+        "...vou ter que avisar que cê passou 😔",
+        "beleza, o bonde que se vire 🫡"
+      ]
+    }
+  },
+  {
+    "id": 1109,
+    "name": "Boato",
+    "stats": {
+      "A": 1,
+      "H": 3,
+      "R": 2,
+      "D": 1
+    },
+    "pv_max": 6,
+    "pm_max": 6,
+    "weapon": "faca",
+    "elemental": null,
+    "preferred_mode": "fists",
+    "ai_pattern": "evasivo",
+    "difficulty": "easy",
+    "tier": 0,
+    "notes": "Espalha rumor sobre rival antes de brigar.",
+    "album": {
+      "cargoId": 201,
+      "faccaoId": 105,
+      "territorioId": 3
+    },
+    "trash_talk": {
+      "attack_miss": [
+        "passou longe, cria 😮‍💨",
+        "nem me viu direito 👀",
+        "tô só de olho, não de mão 🫥"
+      ],
+      "attack_hit": [
+        "avisei que ia doer 📣",
+        "toma pra parar de subir 👊",
+        "o bonde já sabe que cê tá aqui 🔊"
+      ],
+      "take_damage": [
+        "ei, sem essa 😤",
+        "isso não me segura não 🏃",
+        "já apanhei mais só de vigiar 🙄"
+      ],
+      "take_critical": [
+        "opa, essa entrou 😳",
+        "beleza, cê tem mão 👏"
+      ],
+      "player_near_death": [
+        "some daqui enquanto dá 🙏",
+        "o bairro todo já te viu 😈"
+      ],
+      "enemy_near_death": [
+        "ainda dou o grito 😤",
+        "não caio calado 📣"
+      ],
+      "defeat": [
+        "...vou ter que avisar que cê passou 😔",
+        "beleza, o bonde que se vire 🫡"
+      ]
+    }
+  },
+  {
+    "id": 1110,
+    "name": "Portaria",
+    "stats": {
+      "A": 2,
+      "H": 3,
+      "R": 2,
+      "D": 1
+    },
+    "pv_max": 8,
+    "pm_max": 4,
+    "weapon": "cassetete",
+    "elemental": null,
+    "preferred_mode": "armed",
+    "ai_pattern": "evasivo",
+    "difficulty": "easy",
+    "tier": 0,
+    "notes": "Vigia da entrada principal, avisa o bonde inteiro.",
+    "album": {
+      "cargoId": 201,
+      "faccaoId": 108,
+      "territorioId": 4
+    },
+    "trash_talk": {
+      "attack_miss": [
+        "passou longe, cria 😮‍💨",
+        "nem me viu direito 👀",
+        "tô só de olho, não de mão 🫥"
+      ],
+      "attack_hit": [
+        "avisei que ia doer 📣",
+        "toma pra parar de subir 👊",
+        "o bonde já sabe que cê tá aqui 🔊"
+      ],
+      "take_damage": [
+        "ei, sem essa 😤",
+        "isso não me segura não 🏃",
+        "já apanhei mais só de vigiar 🙄"
+      ],
+      "take_critical": [
+        "opa, essa entrou 😳",
+        "beleza, cê tem mão 👏"
+      ],
+      "player_near_death": [
+        "some daqui enquanto dá 🙏",
+        "o bairro todo já te viu 😈"
+      ],
+      "enemy_near_death": [
+        "ainda dou o grito 😤",
+        "não caio calado 📣"
+      ],
+      "defeat": [
+        "...vou ter que avisar que cê passou 😔",
+        "beleza, o bonde que se vire 🫡"
+      ]
+    }
+  },
+  {
+    "id": 1111,
+    "name": "Escada Cega",
+    "stats": {
+      "A": 2,
+      "H": 3,
+      "R": 2,
+      "D": 1
+    },
+    "pv_max": 8,
+    "pm_max": 4,
+    "weapon": "lanterna-cassetete",
+    "elemental": null,
+    "preferred_mode": "armed",
+    "ai_pattern": "evasivo",
+    "difficulty": "easy",
+    "tier": 0,
+    "notes": "Patrulha a escada sem luz, usa a luz como arma tática.",
+    "album": {
+      "cargoId": 201,
+      "faccaoId": 108,
+      "territorioId": 4
+    },
+    "trash_talk": {
+      "attack_miss": [
+        "passou longe, cria 😮‍💨",
+        "nem me viu direito 👀",
+        "tô só de olho, não de mão 🫥"
+      ],
+      "attack_hit": [
+        "avisei que ia doer 📣",
+        "toma pra parar de subir 👊",
+        "o bonde já sabe que cê tá aqui 🔊"
+      ],
+      "take_damage": [
+        "ei, sem essa 😤",
+        "isso não me segura não 🏃",
+        "já apanhei mais só de vigiar 🙄"
+      ],
+      "take_critical": [
+        "opa, essa entrou 😳",
+        "beleza, cê tem mão 👏"
+      ],
+      "player_near_death": [
+        "some daqui enquanto dá 🙏",
+        "o bairro todo já te viu 😈"
+      ],
+      "enemy_near_death": [
+        "ainda dou o grito 😤",
+        "não caio calado 📣"
+      ],
+      "defeat": [
+        "...vou ter que avisar que cê passou 😔",
+        "beleza, o bonde que se vire 🫡"
+      ]
+    }
+  },
+  {
+    "id": 1112,
+    "name": "Vizinho Barulhento",
+    "stats": {
+      "A": 2,
+      "H": 3,
+      "R": 2,
+      "D": 1
+    },
+    "pv_max": 6,
+    "pm_max": 6,
+    "weapon": "cabo de vassoura",
+    "elemental": null,
+    "preferred_mode": "fists",
+    "ai_pattern": "evasivo",
+    "difficulty": "easy",
+    "tier": 0,
+    "notes": "Briga por qualquer motivo pequeno, sempre alerta.",
+    "album": {
+      "cargoId": 201,
+      "faccaoId": 108,
+      "territorioId": 4
+    },
+    "trash_talk": {
+      "attack_miss": [
+        "passou longe, cria 😮‍💨",
+        "nem me viu direito 👀",
+        "tô só de olho, não de mão 🫥"
+      ],
+      "attack_hit": [
+        "avisei que ia doer 📣",
+        "toma pra parar de subir 👊",
+        "o bonde já sabe que cê tá aqui 🔊"
+      ],
+      "take_damage": [
+        "ei, sem essa 😤",
+        "isso não me segura não 🏃",
+        "já apanhei mais só de vigiar 🙄"
+      ],
+      "take_critical": [
+        "opa, essa entrou 😳",
+        "beleza, cê tem mão 👏"
+      ],
+      "player_near_death": [
+        "some daqui enquanto dá 🙏",
+        "o bairro todo já te viu 😈"
+      ],
+      "enemy_near_death": [
+        "ainda dou o grito 😤",
+        "não caio calado 📣"
+      ],
+      "defeat": [
+        "...vou ter que avisar que cê passou 😔",
+        "beleza, o bonde que se vire 🫡"
+      ]
+    }
+  },
+  {
+    "id": 1113,
+    "name": "Vento do Alto",
+    "stats": {
+      "A": 2,
+      "H": 4,
+      "R": 3,
+      "D": 1
+    },
+    "pv_max": 9,
+    "pm_max": 9,
+    "weapon": "estilingue",
+    "elemental": null,
+    "preferred_mode": "fists",
+    "ai_pattern": "evasivo",
+    "difficulty": "easy",
+    "tier": 0,
+    "notes": "Ataca de longe antes de você chegar perto.",
+    "album": {
+      "cargoId": 201,
+      "faccaoId": 110,
+      "territorioId": 5
+    },
+    "trash_talk": {
+      "attack_miss": [
+        "passou longe, cria 😮‍💨",
+        "nem me viu direito 👀",
+        "tô só de olho, não de mão 🫥"
+      ],
+      "attack_hit": [
+        "avisei que ia doer 📣",
+        "toma pra parar de subir 👊",
+        "o bonde já sabe que cê tá aqui 🔊"
+      ],
+      "take_damage": [
+        "ei, sem essa 😤",
+        "isso não me segura não 🏃",
+        "já apanhei mais só de vigiar 🙄"
+      ],
+      "take_critical": [
+        "opa, essa entrou 😳",
+        "beleza, cê tem mão 👏"
+      ],
+      "player_near_death": [
+        "some daqui enquanto dá 🙏",
+        "o bairro todo já te viu 😈"
+      ],
+      "enemy_near_death": [
+        "ainda dou o grito 😤",
+        "não caio calado 📣"
+      ],
+      "defeat": [
+        "...vou ter que avisar que cê passou 😔",
+        "beleza, o bonde que se vire 🫡"
+      ]
+    }
+  },
+  {
+    "id": 1114,
+    "name": "Fumaça de Rojão",
+    "stats": {
+      "A": 2,
+      "H": 4,
+      "R": 3,
+      "D": 1
+    },
+    "pv_max": 6,
+    "pm_max": 12,
+    "weapon": "rojão",
+    "elemental": "fogo",
+    "preferred_mode": "power",
+    "ai_pattern": "evasivo",
+    "difficulty": "easy",
+    "tier": 0,
+    "notes": "Solta dois de uma vez, imprevisível.",
+    "album": {
+      "cargoId": 201,
+      "faccaoId": 110,
+      "territorioId": 5
+    },
+    "trash_talk": {
+      "attack_miss": [
+        "passou longe, cria 😮‍💨",
+        "nem me viu direito 👀",
+        "tô só de olho, não de mão 🫥"
+      ],
+      "attack_hit": [
+        "avisei que ia doer 📣",
+        "toma pra parar de subir 👊",
+        "o bonde já sabe que cê tá aqui 🔊"
+      ],
+      "take_damage": [
+        "ei, sem essa 😤",
+        "isso não me segura não 🏃",
+        "já apanhei mais só de vigiar 🙄"
+      ],
+      "take_critical": [
+        "opa, essa entrou 😳",
+        "beleza, cê tem mão 👏"
+      ],
+      "player_near_death": [
+        "some daqui enquanto dá 🙏",
+        "o bairro todo já te viu 😈"
+      ],
+      "enemy_near_death": [
+        "ainda dou o grito 😤",
+        "não caio calado 📣"
+      ],
+      "defeat": [
+        "...vou ter que avisar que cê passou 😔",
+        "beleza, o bonde que se vire 🫡"
+      ]
+    }
+  },
+  {
+    "id": 1115,
+    "name": "Beco sem Saída",
+    "stats": {
+      "A": 2,
+      "H": 4,
+      "R": 3,
+      "D": 1
+    },
+    "pv_max": 9,
+    "pm_max": 9,
+    "weapon": "faca de cozinha",
+    "elemental": null,
+    "preferred_mode": "fists",
+    "ai_pattern": "evasivo",
+    "difficulty": "easy",
+    "tier": 0,
+    "notes": "Conhece toda passagem escondida do Morro.",
+    "album": {
+      "cargoId": 201,
+      "faccaoId": 110,
+      "territorioId": 5
+    },
+    "trash_talk": {
+      "attack_miss": [
+        "passou longe, cria 😮‍💨",
+        "nem me viu direito 👀",
+        "tô só de olho, não de mão 🫥"
+      ],
+      "attack_hit": [
+        "avisei que ia doer 📣",
+        "toma pra parar de subir 👊",
+        "o bonde já sabe que cê tá aqui 🔊"
+      ],
+      "take_damage": [
+        "ei, sem essa 😤",
+        "isso não me segura não 🏃",
+        "já apanhei mais só de vigiar 🙄"
+      ],
+      "take_critical": [
+        "opa, essa entrou 😳",
+        "beleza, cê tem mão 👏"
+      ],
+      "player_near_death": [
+        "some daqui enquanto dá 🙏",
+        "o bairro todo já te viu 😈"
+      ],
+      "enemy_near_death": [
+        "ainda dou o grito 😤",
+        "não caio calado 📣"
+      ],
+      "defeat": [
+        "...vou ter que avisar que cê passou 😔",
+        "beleza, o bonde que se vire 🫡"
+      ]
+    }
+  },
+  {
+    "id": 1116,
+    "name": "Porta de Aço",
+    "stats": {
+      "A": 2,
+      "H": 5,
+      "R": 4,
+      "D": 1
+    },
+    "pv_max": 16,
+    "pm_max": 8,
+    "weapon": "barra de ferro",
+    "elemental": null,
+    "preferred_mode": "armed",
+    "ai_pattern": "evasivo",
+    "difficulty": "easy",
+    "tier": 0,
+    "notes": "Guarda literal da entrada, não sai do posto.",
+    "album": {
+      "cargoId": 201,
+      "faccaoId": 112,
+      "territorioId": 6
+    },
+    "trash_talk": {
+      "attack_miss": [
+        "passou longe, cria 😮‍💨",
+        "nem me viu direito 👀",
+        "tô só de olho, não de mão 🫥"
+      ],
+      "attack_hit": [
+        "avisei que ia doer 📣",
+        "toma pra parar de subir 👊",
+        "o bonde já sabe que cê tá aqui 🔊"
+      ],
+      "take_damage": [
+        "ei, sem essa 😤",
+        "isso não me segura não 🏃",
+        "já apanhei mais só de vigiar 🙄"
+      ],
+      "take_critical": [
+        "opa, essa entrou 😳",
+        "beleza, cê tem mão 👏"
+      ],
+      "player_near_death": [
+        "some daqui enquanto dá 🙏",
+        "o bairro todo já te viu 😈"
+      ],
+      "enemy_near_death": [
+        "ainda dou o grito 😤",
+        "não caio calado 📣"
+      ],
+      "defeat": [
+        "...vou ter que avisar que cê passou 😔",
+        "beleza, o bonde que se vire 🫡"
+      ]
+    }
+  },
+  {
+    "id": 1117,
+    "name": "Sala Fechada",
+    "stats": {
+      "A": 2,
+      "H": 5,
+      "R": 4,
+      "D": 1
+    },
+    "pv_max": 16,
+    "pm_max": 8,
+    "weapon": "cassetete",
+    "elemental": null,
+    "preferred_mode": "armed",
+    "ai_pattern": "evasivo",
+    "difficulty": "easy",
+    "tier": 0,
+    "notes": "Guarda a sala privada dos Cinco.",
+    "album": {
+      "cargoId": 201,
+      "faccaoId": 112,
+      "territorioId": 6
+    },
+    "trash_talk": {
+      "attack_miss": [
+        "passou longe, cria 😮‍💨",
+        "nem me viu direito 👀",
+        "tô só de olho, não de mão 🫥"
+      ],
+      "attack_hit": [
+        "avisei que ia doer 📣",
+        "toma pra parar de subir 👊",
+        "o bonde já sabe que cê tá aqui 🔊"
+      ],
+      "take_damage": [
+        "ei, sem essa 😤",
+        "isso não me segura não 🏃",
+        "já apanhei mais só de vigiar 🙄"
+      ],
+      "take_critical": [
+        "opa, essa entrou 😳",
+        "beleza, cê tem mão 👏"
+      ],
+      "player_near_death": [
+        "some daqui enquanto dá 🙏",
+        "o bairro todo já te viu 😈"
+      ],
+      "enemy_near_death": [
+        "ainda dou o grito 😤",
+        "não caio calado 📣"
+      ],
+      "defeat": [
+        "...vou ter que avisar que cê passou 😔",
+        "beleza, o bonde que se vire 🫡"
+      ]
+    }
+  },
+  {
+    "id": 1118,
+    "name": "Favor Devido",
+    "stats": {
+      "A": 2,
+      "H": 5,
+      "R": 4,
+      "D": 1
+    },
+    "pv_max": 12,
+    "pm_max": 12,
+    "weapon": "faca",
+    "elemental": null,
+    "preferred_mode": "fists",
+    "ai_pattern": "evasivo",
+    "difficulty": "easy",
+    "tier": 0,
+    "notes": "Deve ao Contador, luta pra pagar.",
+    "album": {
+      "cargoId": 201,
+      "faccaoId": 112,
+      "territorioId": 6
+    },
+    "trash_talk": {
+      "attack_miss": [
+        "passou longe, cria 😮‍💨",
+        "nem me viu direito 👀",
+        "tô só de olho, não de mão 🫥"
+      ],
+      "attack_hit": [
+        "avisei que ia doer 📣",
+        "toma pra parar de subir 👊",
+        "o bonde já sabe que cê tá aqui 🔊"
+      ],
+      "take_damage": [
+        "ei, sem essa 😤",
+        "isso não me segura não 🏃",
+        "já apanhei mais só de vigiar 🙄"
+      ],
+      "take_critical": [
+        "opa, essa entrou 😳",
+        "beleza, cê tem mão 👏"
+      ],
+      "player_near_death": [
+        "some daqui enquanto dá 🙏",
+        "o bairro todo já te viu 😈"
+      ],
+      "enemy_near_death": [
+        "ainda dou o grito 😤",
+        "não caio calado 📣"
+      ],
+      "defeat": [
+        "...vou ter que avisar que cê passou 😔",
+        "beleza, o bonde que se vire 🫡"
+      ]
+    }
+  },
+  {
+    "id": 1119,
+    "name": "Última Guarda",
+    "stats": {
+      "A": 3,
+      "H": 5,
+      "R": 4,
+      "D": 1
+    },
+    "pv_max": 12,
+    "pm_max": 12,
+    "weapon": "facão curto",
+    "elemental": null,
+    "preferred_mode": "fists",
+    "ai_pattern": "evasivo",
+    "difficulty": "easy",
+    "tier": 0,
+    "notes": "Último degrau antes da sala de costura — nada passa sem ser visto.",
+    "album": {
+      "cargoId": 201,
+      "faccaoId": 114,
+      "territorioId": 7
+    },
+    "trash_talk": {
+      "attack_miss": [
+        "passou longe, cria 😮‍💨",
+        "nem me viu direito 👀",
+        "tô só de olho, não de mão 🫥"
+      ],
+      "attack_hit": [
+        "avisei que ia doer 📣",
+        "toma pra parar de subir 👊",
+        "o bonde já sabe que cê tá aqui 🔊"
+      ],
+      "take_damage": [
+        "ei, sem essa 😤",
+        "isso não me segura não 🏃",
+        "já apanhei mais só de vigiar 🙄"
+      ],
+      "take_critical": [
+        "opa, essa entrou 😳",
+        "beleza, cê tem mão 👏"
+      ],
+      "player_near_death": [
+        "some daqui enquanto dá 🙏",
+        "o bairro todo já te viu 😈"
+      ],
+      "enemy_near_death": [
+        "ainda dou o grito 😤",
+        "não caio calado 📣"
+      ],
+      "defeat": [
+        "...vou ter que avisar que cê passou 😔",
+        "beleza, o bonde que se vire 🫡"
+      ]
+    }
+  },
+  {
+    "id": 1120,
+    "name": "Olho da Costura",
+    "stats": {
+      "A": 3,
+      "H": 5,
+      "R": 4,
+      "D": 1
+    },
+    "pv_max": 12,
+    "pm_max": 12,
+    "weapon": null,
+    "elemental": null,
+    "preferred_mode": "fists",
+    "ai_pattern": "evasivo",
+    "difficulty": "easy",
+    "tier": 0,
+    "notes": "Vê tudo que entra e sai da Laje, reporta direto ao Retalho.",
+    "album": {
+      "cargoId": 201,
+      "faccaoId": 114,
+      "territorioId": 7
+    },
+    "trash_talk": {
+      "attack_miss": [
+        "passou longe, cria 😮‍💨",
+        "nem me viu direito 👀",
+        "tô só de olho, não de mão 🫥"
+      ],
+      "attack_hit": [
+        "avisei que ia doer 📣",
+        "toma pra parar de subir 👊",
+        "o bonde já sabe que cê tá aqui 🔊"
+      ],
+      "take_damage": [
+        "ei, sem essa 😤",
+        "isso não me segura não 🏃",
+        "já apanhei mais só de vigiar 🙄"
+      ],
+      "take_critical": [
+        "opa, essa entrou 😳",
+        "beleza, cê tem mão 👏"
+      ],
+      "player_near_death": [
+        "some daqui enquanto dá 🙏",
+        "o bairro todo já te viu 😈"
+      ],
+      "enemy_near_death": [
+        "ainda dou o grito 😤",
+        "não caio calado 📣"
+      ],
+      "defeat": [
+        "...vou ter que avisar que cê passou 😔",
+        "beleza, o bonde que se vire 🫡"
+      ]
+    }
+  },
+  {
+    "id": 1121,
+    "name": "Sentinela do Topo",
+    "stats": {
+      "A": 3,
+      "H": 5,
+      "R": 4,
+      "D": 1
+    },
+    "pv_max": 12,
+    "pm_max": 12,
+    "weapon": "estilingue",
+    "elemental": null,
+    "preferred_mode": "fists",
+    "ai_pattern": "evasivo",
+    "difficulty": "easy",
+    "tier": 0,
+    "notes": "Avista Marélia inteira antes de qualquer ataque chegar.",
+    "album": {
+      "cargoId": 201,
+      "faccaoId": 114,
+      "territorioId": 7
+    },
+    "trash_talk": {
+      "attack_miss": [
+        "passou longe, cria 😮‍💨",
+        "nem me viu direito 👀",
+        "tô só de olho, não de mão 🫥"
+      ],
+      "attack_hit": [
+        "avisei que ia doer 📣",
+        "toma pra parar de subir 👊",
+        "o bonde já sabe que cê tá aqui 🔊"
+      ],
+      "take_damage": [
+        "ei, sem essa 😤",
+        "isso não me segura não 🏃",
+        "já apanhei mais só de vigiar 🙄"
+      ],
+      "take_critical": [
+        "opa, essa entrou 😳",
+        "beleza, cê tem mão 👏"
+      ],
+      "player_near_death": [
+        "some daqui enquanto dá 🙏",
+        "o bairro todo já te viu 😈"
+      ],
+      "enemy_near_death": [
+        "ainda dou o grito 😤",
+        "não caio calado 📣"
+      ],
+      "defeat": [
+        "...vou ter que avisar que cê passou 😔",
+        "beleza, o bonde que se vire 🫡"
+      ]
+    }
+  },
+  {
+    "id": 1201,
     "name": "Ratazana",
     "rank": 88000,
-    "stats": { "A": 1, "H": 0, "R": 2, "D": 1 },
-    "pv_max": 6, "pm_max": 6,
-    "weapon": "facao", "weapon_damage": 1,
-    "elemental": null, "preferred_mode": "fists",
+    "stats": {
+      "A": 1,
+      "H": 0,
+      "R": 2,
+      "D": 1
+    },
+    "pv_max": 6,
+    "pm_max": 6,
+    "weapon": "facao",
+    "weapon_damage": 1,
+    "elemental": null,
+    "preferred_mode": "fists",
     "ai_pattern": "básico",
-    "difficulty": "easy", "tier": 0,
+    "difficulty": "easy",
+    "tier": 0,
     "notes": "Modo história, Pista, força 1 (3 pontos de atributo) — a primeira treta de verdade do jogo, logo após criar a ficha (5 pontos).",
     "trash_talk": {
-      "attack_miss": ["quase, quase 😅", "vish, errei 💦"],
-      "attack_hit": ["toma! 👊", "sentiu isso? 🔥"],
-      "take_damage": ["ow! mas não foi nada 🙄", "isso doeu um pouco 😬"],
-      "take_critical": ["EI, PESADO DEMAIS 😳", "respeitei esse golpe 👏"],
-      "player_near_death": ["cê já era 😈", "desiste logo 🙏"],
-      "enemy_near_death": ["não... eu não posso perder aqui 😰", "ainda dá pra virar 😤"],
-      "defeat": ["poxa, mano... 😔", "beleza, você venceu essa 🤝"]
+      "attack_miss": [
+        "quase, quase 😅",
+        "vish, errei 💦"
+      ],
+      "attack_hit": [
+        "toma! 👊",
+        "sentiu isso? 🔥"
+      ],
+      "take_damage": [
+        "ow! mas não foi nada 🙄",
+        "isso doeu um pouco 😬"
+      ],
+      "take_critical": [
+        "EI, PESADO DEMAIS 😳",
+        "respeitei esse golpe 👏"
+      ],
+      "player_near_death": [
+        "cê já era 😈",
+        "desiste logo 🙏"
+      ],
+      "enemy_near_death": [
+        "não... eu não posso perder aqui 😰",
+        "ainda dá pra virar 😤"
+      ],
+      "defeat": [
+        "poxa, mano... 😔",
+        "beleza, você venceu essa 🤝"
+      ]
+    },
+    "album": {
+      "cargoId": 202,
+      "faccaoId": 101,
+      "territorioId": 1
     }
   },
   {
-    "id": "moleque_b",
-    "name": "Cão Louco",
-    "rank": 76000,
-    "stats": { "A": 2, "H": 1, "R": 3, "D": 1 },
-    "pv_max": 9, "pm_max": 9,
-    "weapon": "corrente", "weapon_damage": 2,
-    "elemental": null, "preferred_mode": "fists",
-    "ai_pattern": "agressivo",
-    "difficulty": "easy", "tier": 0,
-    "notes": "Modo história, Pista, força 2 (5 pontos) — segunda treta, um degrau acima do primeiro da fila.",
-    "trash_talk": {
-      "attack_miss": ["escapou dessa vez 😤", "ei, fica parado! 💢"],
-      "attack_hit": ["AI QUE DOEU né 🔥", "bateu e levou 👊"],
-      "take_damage": ["isso não vai me derrubar 😒", "gostei do golpe 👏"],
-      "take_critical": ["PUTA QUE PARIU 😳💢", "cê é osso duro 😤"],
-      "player_near_death": ["chega, desiste 🙏", "quase lá 💀"],
-      "enemy_near_death": ["ainda não acabou 😤", "não subestima não 😡"],
-      "defeat": ["caraca... 😨", "não esperava perder pra vocês 😔"]
-    }
-  },
-  {
-    "id": "moleque_c",
+    "id": 1202,
     "name": "Brasa",
     "rank": 82000,
-    "stats": { "A": 1, "H": 1, "R": 2, "D": 2 },
-    "pv_max": 8, "pm_max": 4,
-    "weapon": "estilingue", "weapon_damage": 1,
-    "elemental": null, "preferred_mode": "armed",
+    "stats": {
+      "A": 1,
+      "H": 1,
+      "R": 2,
+      "D": 2
+    },
+    "pv_max": 8,
+    "pm_max": 4,
+    "weapon": "estilingue",
+    "weapon_damage": 1,
+    "elemental": null,
+    "preferred_mode": "armed",
     "ai_pattern": "defensivo",
-    "difficulty": "easy", "tier": 0,
+    "difficulty": "easy",
+    "tier": 0,
     "notes": "Modo história, Pista, força 1 (3 pontos de atributo). Andava atrás do Carvão tentando copiar tudo — apelido colou e não sai mais.",
     "trash_talk": {
-      "attack_miss": ["quase, mas o Carvão ensinou melhor 😤", "vish, escapou 💦"],
-      "attack_hit": ["aprendi isso vendo o Carvão 👊", "sentiu a brasa? 😈"],
-      "take_damage": ["isso nem foi nada 🙄", "o Carvão já bateu mais forte 😬"],
-      "take_critical": ["EI, PESADO DEMAIS 😳", "respeitei esse golpe 👏"],
-      "player_near_death": ["cê já era 😈", "desiste logo 🙏"],
-      "enemy_near_death": ["não... eu não posso perder aqui 😰", "ainda dá pra virar 😤"],
-      "defeat": ["poxa... o Carvão vai rir de mim 😔", "beleza, você venceu essa 🤝"]
+      "attack_miss": [
+        "quase, mas o Carvão ensinou melhor 😤",
+        "vish, escapou 💦"
+      ],
+      "attack_hit": [
+        "aprendi isso vendo o Carvão 👊",
+        "sentiu a brasa? 😈"
+      ],
+      "take_damage": [
+        "isso nem foi nada 🙄",
+        "o Carvão já bateu mais forte 😬"
+      ],
+      "take_critical": [
+        "EI, PESADO DEMAIS 😳",
+        "respeitei esse golpe 👏"
+      ],
+      "player_near_death": [
+        "cê já era 😈",
+        "desiste logo 🙏"
+      ],
+      "enemy_near_death": [
+        "não... eu não posso perder aqui 😰",
+        "ainda dá pra virar 😤"
+      ],
+      "defeat": [
+        "poxa... o Carvão vai rir de mim 😔",
+        "beleza, você venceu essa 🤝"
+      ]
+    },
+    "album": {
+      "cargoId": 202,
+      "faccaoId": 101,
+      "territorioId": 1
     }
   },
   {
-    "id": "fumaca",
-    "name": "Carvão",
-    "rank": 52000,
-    "stats": { "A": 3, "H": 1, "R": 4, "D": 1 },
-    "pv_max": 12, "pm_max": 12,
-    "weapon": "facao", "weapon_damage": 3,
-    "elemental": null, "preferred_mode": "fists",
-    "ai_pattern": "agressivo",
-    "difficulty": "medium", "tier": 0,
-    "notes": "Modo história, chefe da Pista, força 3 (7 pontos) — só aparece depois que o portão do bairro abre. O jogador já chega com pelo menos 2 vitórias de AP acumulado e briga em dupla.",
-    "trash_talk": {
-      "attack_miss": ["cê é ligeiro, hein 😏", "some que nem fumaça? não vai rolar 😈"],
-      "attack_hit": ["pisca que eu sumo 💨🔥", "sentiu a fumaça? 😈"],
-      "take_damage": ["isso é só fumaça 😒", "ok, essa doeu 👀"],
-      "take_critical": ["...respeito. 🫡", "a Pista tá diferente hoje 🔥"],
-      "player_near_death": ["cê apanha no escuro, cria 😈", "a Pista é minha 💨"],
-      "enemy_near_death": ["ainda não é hoje que eu caio 😤", "fumaça não se apaga fácil 🔥"],
-      "defeat": ["...cê tomou meu bairro. 😨", "a Pista agora é sua. 💨"]
-    }
-  },
-  {
-    "id": "turco_batedor",
-    "name": "Unha de Fome",
-    "rank": 68000,
-    "stats": { "A": 2, "H": 1, "R": 3, "D": 1 },
-    "pv_max": 9, "pm_max": 9,
-    "weapon": "porrete", "weapon_damage": 2,
-    "elemental": null, "preferred_mode": "fists",
+    "id": 1203,
+    "name": "Chinelada",
+    "stats": {
+      "A": 1,
+      "H": 1,
+      "R": 2,
+      "D": 1
+    },
+    "pv_max": 6,
+    "pm_max": 6,
+    "weapon": "sandália reforçada",
+    "elemental": null,
+    "preferred_mode": "fists",
     "ai_pattern": "básico",
-    "difficulty": "easy", "tier": 0,
-    "notes": "Modo história, Feira, força 2 (5 pontos). Cobrador de rua do Cobrador — bate na porta antes de o chefe cobrar de verdade.",
+    "difficulty": "easy",
+    "tier": 0,
+    "notes": "Briga suja, ataca rápido, dano baixo.",
+    "album": {
+      "cargoId": 202,
+      "faccaoId": 101,
+      "territorioId": 1
+    },
     "trash_talk": {
-      "attack_miss": ["fica quieto que é mais rápido 😤", "o Cobrador vai gostar de saber disso 😏"],
-      "attack_hit": ["isso é só o começo da conta 💰", "paga com sangue então 👊"],
-      "take_damage": ["não sente nada não 🙄", "vai doer mais lá na frente 😬"],
-      "take_critical": ["ei, isso conta em dobro 😳", "beleza, valeu o golpe 👏"],
-      "player_near_death": ["assina que a dívida acaba 🙏", "o Cobrador cobra até no chão 😈"],
-      "enemy_near_death": ["ainda tenho crédito 😤", "não vou dever essa derrota 💢"],
-      "defeat": ["vou ter que explicar pro Cobrador... 😨", "essa aqui ele desconta de mim 😔"]
+      "attack_miss": [
+        "errou feio 😏",
+        "tá nervoso, cria? 😅",
+        "vem com calma que a fila anda 🥱"
+      ],
+      "attack_hit": [
+        "é troco na hora 👊",
+        "sentiu o ponto? 😈",
+        "aqui ninguém fia 💢"
+      ],
+      "take_damage": [
+        "isso é só o começo 🙄",
+        "beleza, essa contou 😬"
+      ],
+      "take_critical": [
+        "caraca, respeitei 😳",
+        "cê bate mais que cliente atrasado 👏"
+      ],
+      "player_near_death": [
+        "fecha a conta e vaza 🙏",
+        "o ponto é meu, cria 😈"
+      ],
+      "enemy_near_death": [
+        "ainda tenho o que vender 😤",
+        "não fecho a boca fácil 💢"
+      ],
+      "defeat": [
+        "...o ponto é teu por hoje 😔",
+        "beleza, cê levou 🤝"
+      ]
     }
   },
   {
-    "id": "turco_capanga",
-    "name": "Marreta",
-    "rank": 60000,
-    "stats": { "A": 2, "H": 2, "R": 3, "D": 1 },
-    "pv_max": 12, "pm_max": 6,
-    "weapon": "porrete", "weapon_damage": 2,
-    "elemental": null, "preferred_mode": "armed",
-    "ai_pattern": "tático",
-    "difficulty": "easy", "tier": 0,
-    "notes": "Modo história, Feira, força 3 (7 pontos). Braço de confiança — cobra dívida grande, não perde tempo com conversa.",
-    "trash_talk": {
-      "attack_miss": ["fugiu da conta dessa vez 😤", "não corre que só piora 😈"],
-      "attack_hit": ["isso vai pro caderno do Cobrador 📒", "juro que rende 👊💰"],
-      "take_damage": ["já apanhei pior cobrando fiado 😒", "beleza, essa doeu 😬"],
-      "take_critical": ["opa, respeito o golpe 🫡", "cê tem prática nisso hein 😳"],
-      "player_near_death": ["assina o nome que eu paro 🙏", "não deve nada além disso não 😈"],
-      "enemy_near_death": ["ainda tenho fôlego pra cobrar 😤", "isso não fecha a conta não 💢"],
-      "defeat": ["vou ter que voltar sem o troco... 😨", "o Cobrador não vai gostar dessa 😔"]
-    }
-  },
-  {
-    "id": "gato_eletrico",
+    "id": 1204,
     "name": "Choque",
     "rank": 61000,
-    "stats": { "A": 2, "H": 3, "R": 4, "D": 1 },
-    "pv_max": 12, "pm_max": 12,
-    "weapon": "faca", "weapon_damage": 2,
-    "elemental": null, "preferred_mode": "fists",
+    "stats": {
+      "A": 2,
+      "H": 3,
+      "R": 4,
+      "D": 1
+    },
+    "pv_max": 12,
+    "pm_max": 12,
+    "weapon": "faca",
+    "weapon_damage": 2,
+    "elemental": null,
+    "preferred_mode": "fists",
     "ai_pattern": "agressivo",
-    "difficulty": "easy", "tier": 0,
+    "difficulty": "easy",
+    "tier": 0,
     "notes": "Modo história, Feira, força 3 (7 pontos). Faz ligação clandestina de energia pros barraco da Feira — rápido, ligeiro, ataca e some no meio das banca.",
     "trash_talk": {
-      "attack_miss": ["passou raspando 😏", "quase que eu te ligo direto 😈"],
-      "attack_hit": ["é rápido, é sujo, é meu golpe ⚡", "sentiu o fio? 😤"],
-      "take_damage": ["ainda tô ligado 🙄", "isso não desliga não 😬"],
-      "take_critical": ["caraca, choquei de verdade 😳", "beleza, curto-circuito nesse 👏"],
-      "player_near_death": ["desliga logo essa luta 🙏", "cê tá no escuro agora 😈"],
-      "enemy_near_death": ["a luz não apaga fácil 😤", "ainda tenho corrente 💢"],
-      "defeat": ["caiu a energia... 😨", "beleza, cê é mais rápido 🤝"]
+      "attack_miss": [
+        "passou raspando 😏",
+        "quase que eu te ligo direto 😈"
+      ],
+      "attack_hit": [
+        "é rápido, é sujo, é meu golpe ⚡",
+        "sentiu o fio? 😤"
+      ],
+      "take_damage": [
+        "ainda tô ligado 🙄",
+        "isso não desliga não 😬"
+      ],
+      "take_critical": [
+        "caraca, choquei de verdade 😳",
+        "beleza, curto-circuito nesse 👏"
+      ],
+      "player_near_death": [
+        "desliga logo essa luta 🙏",
+        "cê tá no escuro agora 😈"
+      ],
+      "enemy_near_death": [
+        "a luz não apaga fácil 😤",
+        "ainda tenho corrente 💢"
+      ],
+      "defeat": [
+        "caiu a energia... 😨",
+        "beleza, cê é mais rápido 🤝"
+      ]
+    },
+    "album": {
+      "cargoId": 202,
+      "faccaoId": 103,
+      "territorioId": 2
     }
   },
   {
-    "id": "turco",
-    "name": "O Cobrador",
-    "rank": 47000,
-    "stats": { "A": 3, "H": 2, "R": 4, "D": 2 },
-    "pv_max": 16, "pm_max": 8,
-    "weapon": "porrete", "weapon_damage": 3,
-    "elemental": null, "preferred_mode": "armed",
-    "ai_pattern": "tático",
-    "difficulty": "medium", "tier": 0,
-    "notes": "Modo história, chefe da Feira, força 4 (9 pontos). Anota tudo, cobra tudo — bate no braço antes de bater na cara.",
+    "id": 1205,
+    "name": "Balconista",
+    "stats": {
+      "A": 3,
+      "H": 1,
+      "R": 2,
+      "D": 1
+    },
+    "pv_max": 6,
+    "pm_max": 6,
+    "weapon": "faca de cozinha",
+    "elemental": null,
+    "preferred_mode": "fists",
+    "ai_pattern": "básico",
+    "difficulty": "easy",
+    "tier": 0,
+    "notes": "Trabalha na banca de dia, cobra à noite.",
+    "album": {
+      "cargoId": 202,
+      "faccaoId": 103,
+      "territorioId": 2
+    },
     "trash_talk": {
-      "attack_miss": ["cê ainda deve essa 😏", "não escapa da conta não 😤"],
-      "attack_hit": ["isso entra na dívida 💰😈", "juro alto, cria 👊"],
-      "take_damage": ["marca aí, eu cobro depois 😒", "beleza, essa eu senti 😬"],
-      "take_critical": ["...respeito. 🫡", "cê tá cobrando caro hoje 😳"],
-      "player_near_death": ["paga com o corpo então 🙏", "a Feira inteira me deve 😈"],
-      "enemy_near_death": ["ainda não fechei a conta 😤", "isso não paga a dívida não 💢"],
-      "defeat": ["...cê zerou minha conta. 😨", "respeito, parceiro. a Feira é sua. 🫡"]
+      "attack_miss": [
+        "errou feio 😏",
+        "tá nervoso, cria? 😅",
+        "vem com calma que a fila anda 🥱"
+      ],
+      "attack_hit": [
+        "é troco na hora 👊",
+        "sentiu o ponto? 😈",
+        "aqui ninguém fia 💢"
+      ],
+      "take_damage": [
+        "isso é só o começo 🙄",
+        "beleza, essa contou 😬"
+      ],
+      "take_critical": [
+        "caraca, respeitei 😳",
+        "cê bate mais que cliente atrasado 👏"
+      ],
+      "player_near_death": [
+        "fecha a conta e vaza 🙏",
+        "o ponto é meu, cria 😈"
+      ],
+      "enemy_near_death": [
+        "ainda tenho o que vender 😤",
+        "não fecho a boca fácil 💢"
+      ],
+      "defeat": [
+        "...o ponto é teu por hoje 😔",
+        "beleza, cê levou 🤝"
+      ]
     }
   },
   {
-    "id": "sombra_rubra",
+    "id": 1206,
+    "name": "Fiado Vencido",
+    "stats": {
+      "A": 3,
+      "H": 1,
+      "R": 2,
+      "D": 1
+    },
+    "pv_max": 6,
+    "pm_max": 6,
+    "weapon": "facão curto",
+    "elemental": null,
+    "preferred_mode": "fists",
+    "ai_pattern": "básico",
+    "difficulty": "easy",
+    "tier": 0,
+    "notes": "Cobra dívida velha que só ele lembra.",
+    "album": {
+      "cargoId": 202,
+      "faccaoId": 103,
+      "territorioId": 2
+    },
+    "trash_talk": {
+      "attack_miss": [
+        "errou feio 😏",
+        "tá nervoso, cria? 😅",
+        "vem com calma que a fila anda 🥱"
+      ],
+      "attack_hit": [
+        "é troco na hora 👊",
+        "sentiu o ponto? 😈",
+        "aqui ninguém fia 💢"
+      ],
+      "take_damage": [
+        "isso é só o começo 🙄",
+        "beleza, essa contou 😬"
+      ],
+      "take_critical": [
+        "caraca, respeitei 😳",
+        "cê bate mais que cliente atrasado 👏"
+      ],
+      "player_near_death": [
+        "fecha a conta e vaza 🙏",
+        "o ponto é meu, cria 😈"
+      ],
+      "enemy_near_death": [
+        "ainda tenho o que vender 😤",
+        "não fecho a boca fácil 💢"
+      ],
+      "defeat": [
+        "...o ponto é teu por hoje 😔",
+        "beleza, cê levou 🤝"
+      ]
+    }
+  },
+  {
+    "id": 1207,
+    "name": "Água Parada",
+    "stats": {
+      "A": 3,
+      "H": 1,
+      "R": 3,
+      "D": 1
+    },
+    "pv_max": 9,
+    "pm_max": 9,
+    "weapon": "faca enferrujada",
+    "elemental": null,
+    "preferred_mode": "fists",
+    "ai_pattern": "básico",
+    "difficulty": "easy",
+    "tier": 0,
+    "notes": "Devoto do Sombra morto, ainda \"fala com ele\".",
+    "album": {
+      "cargoId": 202,
+      "faccaoId": 105,
+      "territorioId": 3
+    },
+    "trash_talk": {
+      "attack_miss": [
+        "errou feio 😏",
+        "tá nervoso, cria? 😅",
+        "vem com calma que a fila anda 🥱"
+      ],
+      "attack_hit": [
+        "é troco na hora 👊",
+        "sentiu o ponto? 😈",
+        "aqui ninguém fia 💢"
+      ],
+      "take_damage": [
+        "isso é só o começo 🙄",
+        "beleza, essa contou 😬"
+      ],
+      "take_critical": [
+        "caraca, respeitei 😳",
+        "cê bate mais que cliente atrasado 👏"
+      ],
+      "player_near_death": [
+        "fecha a conta e vaza 🙏",
+        "o ponto é meu, cria 😈"
+      ],
+      "enemy_near_death": [
+        "ainda tenho o que vender 😤",
+        "não fecho a boca fácil 💢"
+      ],
+      "defeat": [
+        "...o ponto é teu por hoje 😔",
+        "beleza, cê levou 🤝"
+      ]
+    }
+  },
+  {
+    "id": 1208,
+    "name": "Ferro Velho",
+    "stats": {
+      "A": 3,
+      "H": 1,
+      "R": 3,
+      "D": 1
+    },
+    "pv_max": 12,
+    "pm_max": 6,
+    "weapon": "cano",
+    "elemental": null,
+    "preferred_mode": "armed",
+    "ai_pattern": "básico",
+    "difficulty": "easy",
+    "tier": 0,
+    "notes": "Recicla arma de sucata — dano imprevisível.",
+    "album": {
+      "cargoId": 202,
+      "faccaoId": 105,
+      "territorioId": 3
+    },
+    "trash_talk": {
+      "attack_miss": [
+        "errou feio 😏",
+        "tá nervoso, cria? 😅",
+        "vem com calma que a fila anda 🥱"
+      ],
+      "attack_hit": [
+        "é troco na hora 👊",
+        "sentiu o ponto? 😈",
+        "aqui ninguém fia 💢"
+      ],
+      "take_damage": [
+        "isso é só o começo 🙄",
+        "beleza, essa contou 😬"
+      ],
+      "take_critical": [
+        "caraca, respeitei 😳",
+        "cê bate mais que cliente atrasado 👏"
+      ],
+      "player_near_death": [
+        "fecha a conta e vaza 🙏",
+        "o ponto é meu, cria 😈"
+      ],
+      "enemy_near_death": [
+        "ainda tenho o que vender 😤",
+        "não fecho a boca fácil 💢"
+      ],
+      "defeat": [
+        "...o ponto é teu por hoje 😔",
+        "beleza, cê levou 🤝"
+      ]
+    }
+  },
+  {
+    "id": 1209,
+    "name": "Valão",
+    "stats": {
+      "A": 3,
+      "H": 1,
+      "R": 3,
+      "D": 1
+    },
+    "pv_max": 12,
+    "pm_max": 6,
+    "weapon": "remo improvisado",
+    "elemental": null,
+    "preferred_mode": "armed",
+    "ai_pattern": "básico",
+    "difficulty": "easy",
+    "tier": 0,
+    "notes": "Vive perto de onde o Sombra caiu, os outros o evitam.",
+    "album": {
+      "cargoId": 202,
+      "faccaoId": 105,
+      "territorioId": 3
+    },
+    "trash_talk": {
+      "attack_miss": [
+        "errou feio 😏",
+        "tá nervoso, cria? 😅",
+        "vem com calma que a fila anda 🥱"
+      ],
+      "attack_hit": [
+        "é troco na hora 👊",
+        "sentiu o ponto? 😈",
+        "aqui ninguém fia 💢"
+      ],
+      "take_damage": [
+        "isso é só o começo 🙄",
+        "beleza, essa contou 😬"
+      ],
+      "take_critical": [
+        "caraca, respeitei 😳",
+        "cê bate mais que cliente atrasado 👏"
+      ],
+      "player_near_death": [
+        "fecha a conta e vaza 🙏",
+        "o ponto é meu, cria 😈"
+      ],
+      "enemy_near_death": [
+        "ainda tenho o que vender 😤",
+        "não fecho a boca fácil 💢"
+      ],
+      "defeat": [
+        "...o ponto é teu por hoje 😔",
+        "beleza, cê levou 🤝"
+      ]
+    }
+  },
+  {
+    "id": 1210,
+    "name": "Varal",
+    "stats": {
+      "A": 4,
+      "H": 1,
+      "R": 3,
+      "D": 1
+    },
+    "pv_max": 9,
+    "pm_max": 9,
+    "weapon": "fio de roupa",
+    "elemental": null,
+    "preferred_mode": "fists",
+    "ai_pattern": "básico",
+    "difficulty": "easy",
+    "tier": 0,
+    "notes": "Estrangula com corda de varal, arma improvisada.",
+    "album": {
+      "cargoId": 202,
+      "faccaoId": 108,
+      "territorioId": 4
+    },
+    "trash_talk": {
+      "attack_miss": [
+        "errou feio 😏",
+        "tá nervoso, cria? 😅",
+        "vem com calma que a fila anda 🥱"
+      ],
+      "attack_hit": [
+        "é troco na hora 👊",
+        "sentiu o ponto? 😈",
+        "aqui ninguém fia 💢"
+      ],
+      "take_damage": [
+        "isso é só o começo 🙄",
+        "beleza, essa contou 😬"
+      ],
+      "take_critical": [
+        "caraca, respeitei 😳",
+        "cê bate mais que cliente atrasado 👏"
+      ],
+      "player_near_death": [
+        "fecha a conta e vaza 🙏",
+        "o ponto é meu, cria 😈"
+      ],
+      "enemy_near_death": [
+        "ainda tenho o que vender 😤",
+        "não fecho a boca fácil 💢"
+      ],
+      "defeat": [
+        "...o ponto é teu por hoje 😔",
+        "beleza, cê levou 🤝"
+      ]
+    }
+  },
+  {
+    "id": 1211,
+    "name": "Condomínio",
+    "stats": {
+      "A": 4,
+      "H": 1,
+      "R": 3,
+      "D": 1
+    },
+    "pv_max": 12,
+    "pm_max": 6,
+    "weapon": "chave mestra",
+    "elemental": null,
+    "preferred_mode": "armed",
+    "ai_pattern": "básico",
+    "difficulty": "easy",
+    "tier": 0,
+    "notes": "Acesso a todo apartamento, informação valiosa.",
+    "album": {
+      "cargoId": 202,
+      "faccaoId": 108,
+      "territorioId": 4
+    },
+    "trash_talk": {
+      "attack_miss": [
+        "errou feio 😏",
+        "tá nervoso, cria? 😅",
+        "vem com calma que a fila anda 🥱"
+      ],
+      "attack_hit": [
+        "é troco na hora 👊",
+        "sentiu o ponto? 😈",
+        "aqui ninguém fia 💢"
+      ],
+      "take_damage": [
+        "isso é só o começo 🙄",
+        "beleza, essa contou 😬"
+      ],
+      "take_critical": [
+        "caraca, respeitei 😳",
+        "cê bate mais que cliente atrasado 👏"
+      ],
+      "player_near_death": [
+        "fecha a conta e vaza 🙏",
+        "o ponto é meu, cria 😈"
+      ],
+      "enemy_near_death": [
+        "ainda tenho o que vender 😤",
+        "não fecho a boca fácil 💢"
+      ],
+      "defeat": [
+        "...o ponto é teu por hoje 😔",
+        "beleza, cê levou 🤝"
+      ]
+    }
+  },
+  {
+    "id": 1212,
+    "name": "Zelador",
+    "stats": {
+      "A": 4,
+      "H": 1,
+      "R": 3,
+      "D": 1
+    },
+    "pv_max": 12,
+    "pm_max": 6,
+    "weapon": "chave-de-fenda",
+    "elemental": null,
+    "preferred_mode": "armed",
+    "ai_pattern": "básico",
+    "difficulty": "easy",
+    "tier": 0,
+    "notes": "Infiltrado — parece morador comum.",
+    "album": {
+      "cargoId": 202,
+      "faccaoId": 108,
+      "territorioId": 4
+    },
+    "trash_talk": {
+      "attack_miss": [
+        "errou feio 😏",
+        "tá nervoso, cria? 😅",
+        "vem com calma que a fila anda 🥱"
+      ],
+      "attack_hit": [
+        "é troco na hora 👊",
+        "sentiu o ponto? 😈",
+        "aqui ninguém fia 💢"
+      ],
+      "take_damage": [
+        "isso é só o começo 🙄",
+        "beleza, essa contou 😬"
+      ],
+      "take_critical": [
+        "caraca, respeitei 😳",
+        "cê bate mais que cliente atrasado 👏"
+      ],
+      "player_near_death": [
+        "fecha a conta e vaza 🙏",
+        "o ponto é meu, cria 😈"
+      ],
+      "enemy_near_death": [
+        "ainda tenho o que vender 😤",
+        "não fecho a boca fácil 💢"
+      ],
+      "defeat": [
+        "...o ponto é teu por hoje 😔",
+        "beleza, cê levou 🤝"
+      ]
+    }
+  },
+  {
+    "id": 1213,
+    "name": "Ladeira",
+    "stats": {
+      "A": 3,
+      "H": 2,
+      "R": 4,
+      "D": 2
+    },
+    "pv_max": 12,
+    "pm_max": 12,
+    "weapon": "facão curto",
+    "elemental": null,
+    "preferred_mode": "fists",
+    "ai_pattern": "básico",
+    "difficulty": "easy",
+    "tier": 0,
+    "notes": "Usa a inclinação do Morro como arma.",
+    "album": {
+      "cargoId": 202,
+      "faccaoId": 110,
+      "territorioId": 5
+    },
+    "trash_talk": {
+      "attack_miss": [
+        "errou feio 😏",
+        "tá nervoso, cria? 😅",
+        "vem com calma que a fila anda 🥱"
+      ],
+      "attack_hit": [
+        "é troco na hora 👊",
+        "sentiu o ponto? 😈",
+        "aqui ninguém fia 💢"
+      ],
+      "take_damage": [
+        "isso é só o começo 🙄",
+        "beleza, essa contou 😬"
+      ],
+      "take_critical": [
+        "caraca, respeitei 😳",
+        "cê bate mais que cliente atrasado 👏"
+      ],
+      "player_near_death": [
+        "fecha a conta e vaza 🙏",
+        "o ponto é meu, cria 😈"
+      ],
+      "enemy_near_death": [
+        "ainda tenho o que vender 😤",
+        "não fecho a boca fácil 💢"
+      ],
+      "defeat": [
+        "...o ponto é teu por hoje 😔",
+        "beleza, cê levou 🤝"
+      ]
+    }
+  },
+  {
+    "id": 1214,
+    "name": "Laje Nova",
+    "stats": {
+      "A": 3,
+      "H": 2,
+      "R": 4,
+      "D": 2
+    },
+    "pv_max": 16,
+    "pm_max": 8,
+    "weapon": "pá",
+    "elemental": null,
+    "preferred_mode": "armed",
+    "ai_pattern": "básico",
+    "difficulty": "easy",
+    "tier": 0,
+    "notes": "Construtor improvisado, usa ferramenta como arma.",
+    "album": {
+      "cargoId": 202,
+      "faccaoId": 110,
+      "territorioId": 5
+    },
+    "trash_talk": {
+      "attack_miss": [
+        "errou feio 😏",
+        "tá nervoso, cria? 😅",
+        "vem com calma que a fila anda 🥱"
+      ],
+      "attack_hit": [
+        "é troco na hora 👊",
+        "sentiu o ponto? 😈",
+        "aqui ninguém fia 💢"
+      ],
+      "take_damage": [
+        "isso é só o começo 🙄",
+        "beleza, essa contou 😬"
+      ],
+      "take_critical": [
+        "caraca, respeitei 😳",
+        "cê bate mais que cliente atrasado 👏"
+      ],
+      "player_near_death": [
+        "fecha a conta e vaza 🙏",
+        "o ponto é meu, cria 😈"
+      ],
+      "enemy_near_death": [
+        "ainda tenho o que vender 😤",
+        "não fecho a boca fácil 💢"
+      ],
+      "defeat": [
+        "...o ponto é teu por hoje 😔",
+        "beleza, cê levou 🤝"
+      ]
+    }
+  },
+  {
+    "id": 1215,
+    "name": "Criação da Zefa",
+    "stats": {
+      "A": 3,
+      "H": 2,
+      "R": 4,
+      "D": 2
+    },
+    "pv_max": 12,
+    "pm_max": 12,
+    "weapon": "punhos",
+    "elemental": null,
+    "preferred_mode": "fists",
+    "ai_pattern": "básico",
+    "difficulty": "easy",
+    "tier": 0,
+    "notes": "Um dos moleques que ela criou, técnica emprestada.",
+    "album": {
+      "cargoId": 202,
+      "faccaoId": 110,
+      "territorioId": 5
+    },
+    "trash_talk": {
+      "attack_miss": [
+        "errou feio 😏",
+        "tá nervoso, cria? 😅",
+        "vem com calma que a fila anda 🥱"
+      ],
+      "attack_hit": [
+        "é troco na hora 👊",
+        "sentiu o ponto? 😈",
+        "aqui ninguém fia 💢"
+      ],
+      "take_damage": [
+        "isso é só o começo 🙄",
+        "beleza, essa contou 😬"
+      ],
+      "take_critical": [
+        "caraca, respeitei 😳",
+        "cê bate mais que cliente atrasado 👏"
+      ],
+      "player_near_death": [
+        "fecha a conta e vaza 🙏",
+        "o ponto é meu, cria 😈"
+      ],
+      "enemy_near_death": [
+        "ainda tenho o que vender 😤",
+        "não fecho a boca fácil 💢"
+      ],
+      "defeat": [
+        "...o ponto é teu por hoje 😔",
+        "beleza, cê levou 🤝"
+      ]
+    }
+  },
+  {
+    "id": 1216,
+    "name": "Círculo",
+    "stats": {
+      "A": 4,
+      "H": 2,
+      "R": 5,
+      "D": 2
+    },
+    "pv_max": 15,
+    "pm_max": 15,
+    "weapon": "corrente dupla",
+    "elemental": null,
+    "preferred_mode": "fists",
+    "ai_pattern": "básico",
+    "difficulty": "easy",
+    "tier": 0,
+    "notes": "Luta sempre em par, nunca sozinho.",
+    "album": {
+      "cargoId": 202,
+      "faccaoId": 112,
+      "territorioId": 6
+    },
+    "trash_talk": {
+      "attack_miss": [
+        "errou feio 😏",
+        "tá nervoso, cria? 😅",
+        "vem com calma que a fila anda 🥱"
+      ],
+      "attack_hit": [
+        "é troco na hora 👊",
+        "sentiu o ponto? 😈",
+        "aqui ninguém fia 💢"
+      ],
+      "take_damage": [
+        "isso é só o começo 🙄",
+        "beleza, essa contou 😬"
+      ],
+      "take_critical": [
+        "caraca, respeitei 😳",
+        "cê bate mais que cliente atrasado 👏"
+      ],
+      "player_near_death": [
+        "fecha a conta e vaza 🙏",
+        "o ponto é meu, cria 😈"
+      ],
+      "enemy_near_death": [
+        "ainda tenho o que vender 😤",
+        "não fecho a boca fácil 💢"
+      ],
+      "defeat": [
+        "...o ponto é teu por hoje 😔",
+        "beleza, cê levou 🤝"
+      ]
+    }
+  },
+  {
+    "id": 1217,
+    "name": "Disciplina",
+    "stats": {
+      "A": 4,
+      "H": 2,
+      "R": 5,
+      "D": 2
+    },
+    "pv_max": 10,
+    "pm_max": 20,
+    "weapon": "vara de bambu",
+    "elemental": null,
+    "preferred_mode": "power",
+    "ai_pattern": "básico",
+    "difficulty": "easy",
+    "tier": 0,
+    "notes": "Pune quem sai da formação da Roda.",
+    "album": {
+      "cargoId": 202,
+      "faccaoId": 112,
+      "territorioId": 6
+    },
+    "trash_talk": {
+      "attack_miss": [
+        "errou feio 😏",
+        "tá nervoso, cria? 😅",
+        "vem com calma que a fila anda 🥱"
+      ],
+      "attack_hit": [
+        "é troco na hora 👊",
+        "sentiu o ponto? 😈",
+        "aqui ninguém fia 💢"
+      ],
+      "take_damage": [
+        "isso é só o começo 🙄",
+        "beleza, essa contou 😬"
+      ],
+      "take_critical": [
+        "caraca, respeitei 😳",
+        "cê bate mais que cliente atrasado 👏"
+      ],
+      "player_near_death": [
+        "fecha a conta e vaza 🙏",
+        "o ponto é meu, cria 😈"
+      ],
+      "enemy_near_death": [
+        "ainda tenho o que vender 😤",
+        "não fecho a boca fácil 💢"
+      ],
+      "defeat": [
+        "...o ponto é teu por hoje 😔",
+        "beleza, cê levou 🤝"
+      ]
+    }
+  },
+  {
+    "id": 1218,
+    "name": "Doutrina",
+    "stats": {
+      "A": 4,
+      "H": 2,
+      "R": 5,
+      "D": 2
+    },
+    "pv_max": 20,
+    "pm_max": 10,
+    "weapon": "bastão",
+    "elemental": null,
+    "preferred_mode": "armed",
+    "ai_pattern": "básico",
+    "difficulty": "easy",
+    "tier": 0,
+    "notes": "Recruta e treina pros Cinco.",
+    "album": {
+      "cargoId": 202,
+      "faccaoId": 112,
+      "territorioId": 6
+    },
+    "trash_talk": {
+      "attack_miss": [
+        "errou feio 😏",
+        "tá nervoso, cria? 😅",
+        "vem com calma que a fila anda 🥱"
+      ],
+      "attack_hit": [
+        "é troco na hora 👊",
+        "sentiu o ponto? 😈",
+        "aqui ninguém fia 💢"
+      ],
+      "take_damage": [
+        "isso é só o começo 🙄",
+        "beleza, essa contou 😬"
+      ],
+      "take_critical": [
+        "caraca, respeitei 😳",
+        "cê bate mais que cliente atrasado 👏"
+      ],
+      "player_near_death": [
+        "fecha a conta e vaza 🙏",
+        "o ponto é meu, cria 😈"
+      ],
+      "enemy_near_death": [
+        "ainda tenho o que vender 😤",
+        "não fecho a boca fácil 💢"
+      ],
+      "defeat": [
+        "...o ponto é teu por hoje 😔",
+        "beleza, cê levou 🤝"
+      ]
+    }
+  },
+  {
+    "id": 1219,
+    "name": "Retalho Solto",
+    "stats": {
+      "A": 5,
+      "H": 2,
+      "R": 5,
+      "D": 2
+    },
+    "pv_max": 15,
+    "pm_max": 15,
+    "weapon": "facão pequeno",
+    "elemental": null,
+    "preferred_mode": "fists",
+    "ai_pattern": "básico",
+    "difficulty": "easy",
+    "tier": 0,
+    "notes": "Recém-recrutado, ainda provando valor pro bonde.",
+    "album": {
+      "cargoId": 202,
+      "faccaoId": 114,
+      "territorioId": 7
+    },
+    "trash_talk": {
+      "attack_miss": [
+        "errou feio 😏",
+        "tá nervoso, cria? 😅",
+        "vem com calma que a fila anda 🥱"
+      ],
+      "attack_hit": [
+        "é troco na hora 👊",
+        "sentiu o ponto? 😈",
+        "aqui ninguém fia 💢"
+      ],
+      "take_damage": [
+        "isso é só o começo 🙄",
+        "beleza, essa contou 😬"
+      ],
+      "take_critical": [
+        "caraca, respeitei 😳",
+        "cê bate mais que cliente atrasado 👏"
+      ],
+      "player_near_death": [
+        "fecha a conta e vaza 🙏",
+        "o ponto é meu, cria 😈"
+      ],
+      "enemy_near_death": [
+        "ainda tenho o que vender 😤",
+        "não fecho a boca fácil 💢"
+      ],
+      "defeat": [
+        "...o ponto é teu por hoje 😔",
+        "beleza, cê levou 🤝"
+      ]
+    }
+  },
+  {
+    "id": 1220,
+    "name": "Ponto da Laje",
+    "stats": {
+      "A": 5,
+      "H": 2,
+      "R": 5,
+      "D": 2
+    },
+    "pv_max": 15,
+    "pm_max": 15,
+    "weapon": "faca pequena",
+    "elemental": null,
+    "preferred_mode": "fists",
+    "ai_pattern": "básico",
+    "difficulty": "easy",
+    "tier": 0,
+    "notes": "O único ponto de venda que resta no topo — pequeno, simbólico.",
+    "album": {
+      "cargoId": 202,
+      "faccaoId": 114,
+      "territorioId": 7
+    },
+    "trash_talk": {
+      "attack_miss": [
+        "errou feio 😏",
+        "tá nervoso, cria? 😅",
+        "vem com calma que a fila anda 🥱"
+      ],
+      "attack_hit": [
+        "é troco na hora 👊",
+        "sentiu o ponto? 😈",
+        "aqui ninguém fia 💢"
+      ],
+      "take_damage": [
+        "isso é só o começo 🙄",
+        "beleza, essa contou 😬"
+      ],
+      "take_critical": [
+        "caraca, respeitei 😳",
+        "cê bate mais que cliente atrasado 👏"
+      ],
+      "player_near_death": [
+        "fecha a conta e vaza 🙏",
+        "o ponto é meu, cria 😈"
+      ],
+      "enemy_near_death": [
+        "ainda tenho o que vender 😤",
+        "não fecho a boca fácil 💢"
+      ],
+      "defeat": [
+        "...o ponto é teu por hoje 😔",
+        "beleza, cê levou 🤝"
+      ]
+    }
+  },
+  {
+    "id": 1221,
+    "name": "Fio Cortado",
+    "stats": {
+      "A": 5,
+      "H": 2,
+      "R": 5,
+      "D": 2
+    },
+    "pv_max": 15,
+    "pm_max": 15,
+    "weapon": "tesoura de tecido",
+    "elemental": null,
+    "preferred_mode": "fists",
+    "ai_pattern": "básico",
+    "difficulty": "easy",
+    "tier": 0,
+    "notes": "Vende o que sobra da costura — retalho literal.",
+    "album": {
+      "cargoId": 202,
+      "faccaoId": 114,
+      "territorioId": 7
+    },
+    "trash_talk": {
+      "attack_miss": [
+        "errou feio 😏",
+        "tá nervoso, cria? 😅",
+        "vem com calma que a fila anda 🥱"
+      ],
+      "attack_hit": [
+        "é troco na hora 👊",
+        "sentiu o ponto? 😈",
+        "aqui ninguém fia 💢"
+      ],
+      "take_damage": [
+        "isso é só o começo 🙄",
+        "beleza, essa contou 😬"
+      ],
+      "take_critical": [
+        "caraca, respeitei 😳",
+        "cê bate mais que cliente atrasado 👏"
+      ],
+      "player_near_death": [
+        "fecha a conta e vaza 🙏",
+        "o ponto é meu, cria 😈"
+      ],
+      "enemy_near_death": [
+        "ainda tenho o que vender 😤",
+        "não fecho a boca fácil 💢"
+      ],
+      "defeat": [
+        "...o ponto é teu por hoje 😔",
+        "beleza, cê levou 🤝"
+      ]
+    }
+  },
+  {
+    "id": 1301,
+    "name": "Cão Louco",
+    "rank": 76000,
+    "stats": {
+      "A": 2,
+      "H": 1,
+      "R": 3,
+      "D": 1
+    },
+    "pv_max": 9,
+    "pm_max": 9,
+    "weapon": "corrente",
+    "weapon_damage": 2,
+    "elemental": null,
+    "preferred_mode": "fists",
+    "ai_pattern": "agressivo",
+    "difficulty": "easy",
+    "tier": 0,
+    "notes": "Modo história, Pista, força 2 (5 pontos) — segunda treta, um degrau acima do primeiro da fila.",
+    "trash_talk": {
+      "attack_miss": [
+        "escapou dessa vez 😤",
+        "ei, fica parado! 💢"
+      ],
+      "attack_hit": [
+        "AI QUE DOEU né 🔥",
+        "bateu e levou 👊"
+      ],
+      "take_damage": [
+        "isso não vai me derrubar 😒",
+        "gostei do golpe 👏"
+      ],
+      "take_critical": [
+        "PUTA QUE PARIU 😳💢",
+        "cê é osso duro 😤"
+      ],
+      "player_near_death": [
+        "chega, desiste 🙏",
+        "quase lá 💀"
+      ],
+      "enemy_near_death": [
+        "ainda não acabou 😤",
+        "não subestima não 😡"
+      ],
+      "defeat": [
+        "caraca... 😨",
+        "não esperava perder pra vocês 😔"
+      ]
+    },
+    "album": {
+      "cargoId": 203,
+      "faccaoId": 101,
+      "territorioId": 1
+    }
+  },
+  {
+    "id": 1302,
+    "name": "Riscado",
+    "stats": {
+      "A": 2,
+      "H": 1,
+      "R": 3,
+      "D": 1
+    },
+    "pv_max": 9,
+    "pm_max": 9,
+    "weapon": "canivete",
+    "elemental": null,
+    "preferred_mode": "fists",
+    "ai_pattern": "tático",
+    "difficulty": "medium",
+    "tier": 0,
+    "notes": "Cicatrizes de quem já perdeu pra ele — troféus de guerra.",
+    "album": {
+      "cargoId": 203,
+      "faccaoId": 101,
+      "territorioId": 1
+    },
+    "trash_talk": {
+      "attack_miss": [
+        "disciplina, cria — cê não tem 😏",
+        "aqui a boca é organizada 😤",
+        "erra assim na minha frente não 🙄"
+      ],
+      "attack_hit": [
+        "isso é como se administra 👊",
+        "a boca tem dono 😈",
+        "aprende rápido apanhando 💢"
+      ],
+      "take_damage": [
+        "já segurei confusão pior 🙄",
+        "beleza, anotei essa 😬"
+      ],
+      "take_critical": [
+        "...respeito. 🫡",
+        "cê tem prática nisso 😳"
+      ],
+      "player_near_death": [
+        "a boca não é sua, playboy 😈",
+        "desiste antes de fechar 🙏"
+      ],
+      "enemy_near_death": [
+        "ainda mando nesse ponto 😤",
+        "não entrego a boca assim 💢"
+      ],
+      "defeat": [
+        "...a boca é sua agora. 😨",
+        "respeito. toma conta. 🫡"
+      ]
+    }
+  },
+  {
+    "id": 1303,
+    "name": "Mão de Cola",
+    "stats": {
+      "A": 2,
+      "H": 1,
+      "R": 3,
+      "D": 1
+    },
+    "pv_max": 9,
+    "pm_max": 9,
+    "weapon": "corrente curta",
+    "elemental": null,
+    "preferred_mode": "fists",
+    "ai_pattern": "tático",
+    "difficulty": "medium",
+    "tier": 0,
+    "notes": "Rouba o que vê, não solta o que pega.",
+    "album": {
+      "cargoId": 203,
+      "faccaoId": 101,
+      "territorioId": 1
+    },
+    "trash_talk": {
+      "attack_miss": [
+        "disciplina, cria — cê não tem 😏",
+        "aqui a boca é organizada 😤",
+        "erra assim na minha frente não 🙄"
+      ],
+      "attack_hit": [
+        "isso é como se administra 👊",
+        "a boca tem dono 😈",
+        "aprende rápido apanhando 💢"
+      ],
+      "take_damage": [
+        "já segurei confusão pior 🙄",
+        "beleza, anotei essa 😬"
+      ],
+      "take_critical": [
+        "...respeito. 🫡",
+        "cê tem prática nisso 😳"
+      ],
+      "player_near_death": [
+        "a boca não é sua, playboy 😈",
+        "desiste antes de fechar 🙏"
+      ],
+      "enemy_near_death": [
+        "ainda mando nesse ponto 😤",
+        "não entrego a boca assim 💢"
+      ],
+      "defeat": [
+        "...a boca é sua agora. 😨",
+        "respeito. toma conta. 🫡"
+      ]
+    }
+  },
+  {
+    "id": 1304,
+    "name": "Unha de Fome",
+    "rank": 68000,
+    "stats": {
+      "A": 2,
+      "H": 1,
+      "R": 3,
+      "D": 1
+    },
+    "pv_max": 9,
+    "pm_max": 9,
+    "weapon": "porrete",
+    "weapon_damage": 2,
+    "elemental": null,
+    "preferred_mode": "fists",
+    "ai_pattern": "básico",
+    "difficulty": "easy",
+    "tier": 0,
+    "notes": "Modo história, Feira, força 2 (5 pontos). Cobrador de rua do Cobrador — bate na porta antes de o chefe cobrar de verdade.",
+    "trash_talk": {
+      "attack_miss": [
+        "fica quieto que é mais rápido 😤",
+        "o Cobrador vai gostar de saber disso 😏"
+      ],
+      "attack_hit": [
+        "isso é só o começo da conta 💰",
+        "paga com sangue então 👊"
+      ],
+      "take_damage": [
+        "não sente nada não 🙄",
+        "vai doer mais lá na frente 😬"
+      ],
+      "take_critical": [
+        "ei, isso conta em dobro 😳",
+        "beleza, valeu o golpe 👏"
+      ],
+      "player_near_death": [
+        "assina que a dívida acaba 🙏",
+        "o Cobrador cobra até no chão 😈"
+      ],
+      "enemy_near_death": [
+        "ainda tenho crédito 😤",
+        "não vou dever essa derrota 💢"
+      ],
+      "defeat": [
+        "vou ter que explicar pro Cobrador... 😨",
+        "essa aqui ele desconta de mim 😔"
+      ]
+    },
+    "album": {
+      "cargoId": 203,
+      "faccaoId": 103,
+      "territorioId": 2
+    }
+  },
+  {
+    "id": 1305,
+    "name": "Caderneta",
+    "stats": {
+      "A": 3,
+      "H": 1,
+      "R": 3,
+      "D": 2
+    },
+    "pv_max": 9,
+    "pm_max": 9,
+    "weapon": null,
+    "elemental": null,
+    "preferred_mode": "fists",
+    "ai_pattern": "tático",
+    "difficulty": "medium",
+    "tier": 0,
+    "notes": "Sabe o que cada morador deve, usa como arma psicológica.",
+    "album": {
+      "cargoId": 203,
+      "faccaoId": 103,
+      "territorioId": 2
+    },
+    "trash_talk": {
+      "attack_miss": [
+        "disciplina, cria — cê não tem 😏",
+        "aqui a boca é organizada 😤",
+        "erra assim na minha frente não 🙄"
+      ],
+      "attack_hit": [
+        "isso é como se administra 👊",
+        "a boca tem dono 😈",
+        "aprende rápido apanhando 💢"
+      ],
+      "take_damage": [
+        "já segurei confusão pior 🙄",
+        "beleza, anotei essa 😬"
+      ],
+      "take_critical": [
+        "...respeito. 🫡",
+        "cê tem prática nisso 😳"
+      ],
+      "player_near_death": [
+        "a boca não é sua, playboy 😈",
+        "desiste antes de fechar 🙏"
+      ],
+      "enemy_near_death": [
+        "ainda mando nesse ponto 😤",
+        "não entrego a boca assim 💢"
+      ],
+      "defeat": [
+        "...a boca é sua agora. 😨",
+        "respeito. toma conta. 🫡"
+      ]
+    }
+  },
+  {
+    "id": 1306,
+    "name": "Pesagem",
+    "stats": {
+      "A": 3,
+      "H": 1,
+      "R": 3,
+      "D": 2
+    },
+    "pv_max": 12,
+    "pm_max": 6,
+    "weapon": "balança de ferro",
+    "elemental": null,
+    "preferred_mode": "armed",
+    "ai_pattern": "tático",
+    "difficulty": "medium",
+    "tier": 0,
+    "notes": "\"Pesa\" tudo — inclusive gente, literalmente.",
+    "album": {
+      "cargoId": 203,
+      "faccaoId": 103,
+      "territorioId": 2
+    },
+    "trash_talk": {
+      "attack_miss": [
+        "disciplina, cria — cê não tem 😏",
+        "aqui a boca é organizada 😤",
+        "erra assim na minha frente não 🙄"
+      ],
+      "attack_hit": [
+        "isso é como se administra 👊",
+        "a boca tem dono 😈",
+        "aprende rápido apanhando 💢"
+      ],
+      "take_damage": [
+        "já segurei confusão pior 🙄",
+        "beleza, anotei essa 😬"
+      ],
+      "take_critical": [
+        "...respeito. 🫡",
+        "cê tem prática nisso 😳"
+      ],
+      "player_near_death": [
+        "a boca não é sua, playboy 😈",
+        "desiste antes de fechar 🙏"
+      ],
+      "enemy_near_death": [
+        "ainda mando nesse ponto 😤",
+        "não entrego a boca assim 💢"
+      ],
+      "defeat": [
+        "...a boca é sua agora. 😨",
+        "respeito. toma conta. 🫡"
+      ]
+    }
+  },
+  {
+    "id": 1307,
+    "name": "Herdeiro",
+    "stats": {
+      "A": 3,
+      "H": 2,
+      "R": 3,
+      "D": 2
+    },
+    "pv_max": 9,
+    "pm_max": 9,
+    "weapon": "faca dupla",
+    "elemental": null,
+    "preferred_mode": "fists",
+    "ai_pattern": "tático",
+    "difficulty": "medium",
+    "tier": 0,
+    "notes": "Afirma ser sucessor legítimo, ninguém reconhece.",
+    "album": {
+      "cargoId": 203,
+      "faccaoId": 105,
+      "territorioId": 3
+    },
+    "trash_talk": {
+      "attack_miss": [
+        "disciplina, cria — cê não tem 😏",
+        "aqui a boca é organizada 😤",
+        "erra assim na minha frente não 🙄"
+      ],
+      "attack_hit": [
+        "isso é como se administra 👊",
+        "a boca tem dono 😈",
+        "aprende rápido apanhando 💢"
+      ],
+      "take_damage": [
+        "já segurei confusão pior 🙄",
+        "beleza, anotei essa 😬"
+      ],
+      "take_critical": [
+        "...respeito. 🫡",
+        "cê tem prática nisso 😳"
+      ],
+      "player_near_death": [
+        "a boca não é sua, playboy 😈",
+        "desiste antes de fechar 🙏"
+      ],
+      "enemy_near_death": [
+        "ainda mando nesse ponto 😤",
+        "não entrego a boca assim 💢"
+      ],
+      "defeat": [
+        "...a boca é sua agora. 😨",
+        "respeito. toma conta. 🫡"
+      ]
+    }
+  },
+  {
+    "id": 1308,
     "name": "Sangria",
     "rank": 58000,
-    "stats": { "A": 3, "H": 1, "R": 4, "D": 2 },
-    "pv_max": 12, "pm_max": 12,
-    "weapon": "faca", "weapon_damage": 3,
-    "elemental": null, "preferred_mode": "fists",
+    "stats": {
+      "A": 3,
+      "H": 1,
+      "R": 4,
+      "D": 2
+    },
+    "pv_max": 12,
+    "pm_max": 12,
+    "weapon": "faca",
+    "weapon_damage": 3,
+    "elemental": null,
+    "preferred_mode": "fists",
     "ai_pattern": "agressivo",
-    "difficulty": "easy", "tier": 0,
+    "difficulty": "easy",
+    "tier": 0,
     "notes": "Modo história, Baixada, força 3 (7 pontos). Um dos três pedaços da facção do Sombra depois que ele caiu — a mais brava das três.",
     "trash_talk": {
-      "attack_miss": ["quase, mas não foi hoje 😤", "vem que eu não canso 😈"],
-      "attack_hit": ["isso é Sangria de verdade 🔥", "sentiu o sangue subir? 😈"],
-      "take_damage": ["isso não é nada 🙄", "gostei dessa 😬"],
-      "take_critical": ["opa, valeu o golpe 👏", "cê tem lâmina também? 😳"],
-      "player_near_death": ["a Baixada é vermelha hoje 😈", "desiste antes de sangrar mais 🙏"],
-      "enemy_near_death": ["ainda tenho sangue pra dar 😤", "não caio fácil não 💢"],
-      "defeat": ["...a Sangria perdeu um ponto. 😨", "respeito. a Baixada te viu chegar. 🤝"]
+      "attack_miss": [
+        "quase, mas não foi hoje 😤",
+        "vem que eu não canso 😈"
+      ],
+      "attack_hit": [
+        "isso é Sangria de verdade 🔥",
+        "sentiu o sangue subir? 😈"
+      ],
+      "take_damage": [
+        "isso não é nada 🙄",
+        "gostei dessa 😬"
+      ],
+      "take_critical": [
+        "opa, valeu o golpe 👏",
+        "cê tem lâmina também? 😳"
+      ],
+      "player_near_death": [
+        "a Baixada é vermelha hoje 😈",
+        "desiste antes de sangrar mais 🙏"
+      ],
+      "enemy_near_death": [
+        "ainda tenho sangue pra dar 😤",
+        "não caio fácil não 💢"
+      ],
+      "defeat": [
+        "...a Sangria perdeu um ponto. 😨",
+        "respeito. a Baixada te viu chegar. 🤝"
+      ]
+    },
+    "album": {
+      "cargoId": 203,
+      "faccaoId": 105,
+      "territorioId": 3
     }
   },
   {
-    "id": "sombra_fria",
+    "id": 1309,
     "name": "Gelo",
     "rank": 50000,
-    "stats": { "A": 2, "H": 2, "R": 4, "D": 3 },
-    "pv_max": 16, "pm_max": 8,
-    "weapon": "faca", "weapon_damage": 2,
-    "elemental": null, "preferred_mode": "armed",
+    "stats": {
+      "A": 2,
+      "H": 2,
+      "R": 4,
+      "D": 3
+    },
+    "pv_max": 16,
+    "pm_max": 8,
+    "weapon": "faca",
+    "weapon_damage": 2,
+    "elemental": null,
+    "preferred_mode": "armed",
     "ai_pattern": "tático",
-    "difficulty": "easy", "tier": 0,
+    "difficulty": "easy",
+    "tier": 0,
     "notes": "Modo história, Baixada, força 4 (9 pontos). O pedaço mais calculado da antiga facção do Sombra — não se apressa, não erra.",
     "trash_talk": {
-      "attack_miss": ["sem pressa, cria 😏", "vou acertar na próxima 😤"],
-      "attack_hit": ["frio, calculado, certeiro ❄️", "nem esquentei ainda 😈"],
-      "take_damage": ["não sinto frio nem dor 😒", "beleza, essa contou 😬"],
-      "take_critical": ["...interessante. 🫡", "cê quebrou meu gelo 😳"],
-      "player_near_death": ["já era, sem drama 🙏", "a Baixada esfria rápido 😈"],
-      "enemy_near_death": ["ainda não congelei 😤", "frio não é fraqueza 💢"],
-      "defeat": ["...derreteu meu plano. 😨", "frio, calculado — perdi. 🫡"]
+      "attack_miss": [
+        "sem pressa, cria 😏",
+        "vou acertar na próxima 😤"
+      ],
+      "attack_hit": [
+        "frio, calculado, certeiro ❄️",
+        "nem esquentei ainda 😈"
+      ],
+      "take_damage": [
+        "não sinto frio nem dor 😒",
+        "beleza, essa contou 😬"
+      ],
+      "take_critical": [
+        "...interessante. 🫡",
+        "cê quebrou meu gelo 😳"
+      ],
+      "player_near_death": [
+        "já era, sem drama 🙏",
+        "a Baixada esfria rápido 😈"
+      ],
+      "enemy_near_death": [
+        "ainda não congelei 😤",
+        "frio não é fraqueza 💢"
+      ],
+      "defeat": [
+        "...derreteu meu plano. 😨",
+        "frio, calculado — perdi. 🫡"
+      ]
+    },
+    "album": {
+      "cargoId": 203,
+      "faccaoId": 105,
+      "territorioId": 3
     }
   },
   {
-    "id": "os_restos",
-    "name": "Sobra",
-    "rank": 51000,
-    "stats": { "A": 3, "H": 2, "R": 5, "D": 1 },
-    "pv_max": 15, "pm_max": 15,
-    "weapon": "corrente", "weapon_damage": 3,
-    "elemental": null, "preferred_mode": "fists",
-    "ai_pattern": "agressivo",
-    "difficulty": "easy", "tier": 0,
-    "notes": "Modo história, Baixada, força 4 (9 pontos). O terceiro pedaço da facção rachada — o mais desesperado, o que não tem mais nada a perder.",
-    "trash_talk": {
-      "attack_miss": ["não tenho mais nada a perder 😤", "vem, eu não paro 😈"],
-      "attack_hit": ["isso é tudo que sobrou de mim 💢", "sentiu o desespero? 😤"],
-      "take_damage": ["já perdi mais que isso 😒", "não sinto mais nada 😬"],
-      "take_critical": ["...forte. 👏", "quase acabou com o resto 😳"],
-      "player_near_death": ["a Baixada não perdoa 😈", "desiste, não sobrou nada pra ganhar 🙏"],
-      "enemy_near_death": ["não sobrou mas ainda luto 😤", "o resto ainda briga 💢"],
-      "defeat": ["...acabou. de vez. 😨", "não sobrou mais nada. respeito. 🫡"]
-    }
-  },
-  {
-    "id": "espeto",
-    "name": "Fura-Bucho",
-    "rank": 40000,
-    "stats": { "A": 4, "H": 2, "R": 5, "D": 2 },
-    "pv_max": 20, "pm_max": 10,
-    "weapon": "espeto", "weapon_damage": 4,
-    "elemental": null, "preferred_mode": "armed",
-    "ai_pattern": "agressivo",
-    "difficulty": "medium", "tier": 0,
-    "notes": "Modo história, chefe da Baixada, força 5 (11 pontos). Assumiu a Baixada inteira quando o Sombra caiu no valão — não solta o espeto de jeito nenhum.",
-    "trash_talk": {
-      "attack_miss": ["o espeto sempre alcança 😏", "cê corre mas eu furo 😈"],
-      "attack_hit": ["ESPETADO 💢🔥", "sentiu a ponta? 😈"],
-      "take_damage": ["isso não fura nada 🙄", "beleza, essa passou 😬"],
-      "take_critical": ["...opa. 🫡", "cê também tem lâmina, hein 😳"],
-      "player_near_death": ["a Baixada é minha desde que o Sombra caiu 😈", "vem tomar o resto 🙏"],
-      "enemy_near_death": ["ainda tenho ponta pra dar 😤", "não caio no valão não 💢"],
-      "defeat": ["...cê tomou meus ponto. 😨", "respeito. a Baixada agora é sua. 🫡"]
-    }
-  },
-  {
-    "id": "bonde_predio_1",
+    "id": 1310,
     "name": "Cadeado",
     "rank": 55000,
-    "stats": { "A": 2, "H": 1, "R": 4, "D": 3 },
-    "pv_max": 16, "pm_max": 8,
-    "weapon": "chave_de_cano", "weapon_damage": 2,
-    "elemental": null, "preferred_mode": "armed",
+    "stats": {
+      "A": 2,
+      "H": 1,
+      "R": 4,
+      "D": 3
+    },
+    "pv_max": 16,
+    "pm_max": 8,
+    "weapon": "chave_de_cano",
+    "weapon_damage": 2,
+    "elemental": null,
+    "preferred_mode": "armed",
     "ai_pattern": "defensivo",
-    "difficulty": "easy", "tier": 0,
+    "difficulty": "easy",
+    "tier": 0,
     "notes": "Modo história, Vila, força 4 (9 pontos). Toma conta do térreo do prédio pro bonde — não deixa ninguém passar sem raspar.",
     "trash_talk": {
-      "attack_miss": ["esse prédio não passa fácil não 😤", "aqui embaixo eu mando 😏"],
-      "attack_hit": ["ninguém sobe sem pagar 👊", "sentiu a chave? 🔧😈"],
-      "take_damage": ["esse prédio aguenta mais que isso 🙄", "beleza, essa doeu 😬"],
-      "take_critical": ["opa, cê é forte 🫡", "quase me derrubou 😳"],
-      "player_near_death": ["não sobe não, cria 🙏", "o térreo é meu 😈"],
-      "enemy_near_death": ["ainda seguro a porta 😤", "não passa por mim não 💢"],
-      "defeat": ["...pode subir. 😨", "respeito. passa. 🫡"]
+      "attack_miss": [
+        "esse prédio não passa fácil não 😤",
+        "aqui embaixo eu mando 😏"
+      ],
+      "attack_hit": [
+        "ninguém sobe sem pagar 👊",
+        "sentiu a chave? 🔧😈"
+      ],
+      "take_damage": [
+        "esse prédio aguenta mais que isso 🙄",
+        "beleza, essa doeu 😬"
+      ],
+      "take_critical": [
+        "opa, cê é forte 🫡",
+        "quase me derrubou 😳"
+      ],
+      "player_near_death": [
+        "não sobe não, cria 🙏",
+        "o térreo é meu 😈"
+      ],
+      "enemy_near_death": [
+        "ainda seguro a porta 😤",
+        "não passa por mim não 💢"
+      ],
+      "defeat": [
+        "...pode subir. 😨",
+        "respeito. passa. 🫡"
+      ]
+    },
+    "album": {
+      "cargoId": 203,
+      "faccaoId": 108,
+      "territorioId": 4
     }
   },
   {
-    "id": "bonde_predio_2",
+    "id": 1311,
     "name": "Trinco",
     "rank": 46000,
-    "stats": { "A": 3, "H": 2, "R": 6, "D": 3 },
-    "pv_max": 18, "pm_max": 18,
-    "weapon": "chave_de_cano", "weapon_damage": 3,
-    "elemental": null, "preferred_mode": "fists",
+    "stats": {
+      "A": 3,
+      "H": 2,
+      "R": 6,
+      "D": 3
+    },
+    "pv_max": 18,
+    "pm_max": 18,
+    "weapon": "chave_de_cano",
+    "weapon_damage": 3,
+    "elemental": null,
+    "preferred_mode": "fists",
     "ai_pattern": "agressivo",
-    "difficulty": "medium", "tier": 0,
+    "difficulty": "medium",
+    "tier": 0,
     "notes": "Modo história, Vila, força 5 (11 pontos). Comanda um andar inteiro do prédio — sobe rápido, bate mais rápido ainda.",
     "trash_talk": {
-      "attack_miss": ["esse andar é meu, cria 😤", "não passa não 😏"],
-      "attack_hit": ["bate e sobe 👊🔥", "sentiu esse andar? 😈"],
-      "take_damage": ["esse aqui é osso duro 🙄", "beleza, essa contou 😬"],
-      "take_critical": ["...forte. 🫡", "cê subiu rápido esse golpe 😳"],
-      "player_near_death": ["não sobe pro próximo não 🙏", "esse andar acaba aqui 😈"],
-      "enemy_near_death": ["ainda tenho andar pra defender 😤", "não desço fácil não 💢"],
-      "defeat": ["...pode subir pro próximo. 😨", "respeito, cria. sobe. 🫡"]
+      "attack_miss": [
+        "esse andar é meu, cria 😤",
+        "não passa não 😏"
+      ],
+      "attack_hit": [
+        "bate e sobe 👊🔥",
+        "sentiu esse andar? 😈"
+      ],
+      "take_damage": [
+        "esse aqui é osso duro 🙄",
+        "beleza, essa contou 😬"
+      ],
+      "take_critical": [
+        "...forte. 🫡",
+        "cê subiu rápido esse golpe 😳"
+      ],
+      "player_near_death": [
+        "não sobe pro próximo não 🙏",
+        "esse andar acaba aqui 😈"
+      ],
+      "enemy_near_death": [
+        "ainda tenho andar pra defender 😤",
+        "não desço fácil não 💢"
+      ],
+      "defeat": [
+        "...pode subir pro próximo. 😨",
+        "respeito, cria. sobe. 🫡"
+      ]
+    },
+    "album": {
+      "cargoId": 203,
+      "faccaoId": 108,
+      "territorioId": 4
     }
   },
   {
-    "id": "andar_de_cima",
-    "name": "Goteira",
-    "rank": 47500,
-    "stats": { "A": 2, "H": 2, "R": 5, "D": 3 },
-    "pv_max": 20, "pm_max": 10,
-    "weapon": "taco", "weapon_damage": 2,
-    "elemental": null, "preferred_mode": "armed",
-    "ai_pattern": "defensivo",
-    "difficulty": "medium", "tier": 0,
-    "notes": "Modo história, Vila, força 5 (11 pontos). Mora nos andares de cima, olha o bonde de cima pra baixo — literal e figurado.",
+    "id": 1312,
+    "name": "Elevador",
+    "stats": {
+      "A": 3,
+      "H": 2,
+      "R": 4,
+      "D": 2
+    },
+    "pv_max": 16,
+    "pm_max": 8,
+    "weapon": "cano curto",
+    "elemental": null,
+    "preferred_mode": "armed",
+    "ai_pattern": "tático",
+    "difficulty": "medium",
+    "tier": 0,
+    "notes": "Só ataca em espaço fechado, luta suja em corredor.",
+    "album": {
+      "cargoId": 203,
+      "faccaoId": 108,
+      "territorioId": 4
+    },
     "trash_talk": {
-      "attack_miss": ["daqui de cima eu vejo tudo 😏", "cê nem chegou perto 😤"],
-      "attack_hit": ["lá de cima dói mais 👊😈", "sentiu a queda? 🔥"],
-      "take_damage": ["não desço por isso não 🙄", "beleza, essa subiu 😬"],
-      "take_critical": ["opa, cê alcançou 🫡", "quase me derrubou daqui de cima 😳"],
-      "player_near_death": ["daqui de cima é fácil acabar 😈", "desiste, o andar é meu 🙏"],
-      "enemy_near_death": ["ainda não caí do prédio 😤", "não desço sem levar alguém 💢"],
-      "defeat": ["...caí. 😨", "respeito. cê chegou lá em cima. 🫡"]
+      "attack_miss": [
+        "disciplina, cria — cê não tem 😏",
+        "aqui a boca é organizada 😤",
+        "erra assim na minha frente não 🙄"
+      ],
+      "attack_hit": [
+        "isso é como se administra 👊",
+        "a boca tem dono 😈",
+        "aprende rápido apanhando 💢"
+      ],
+      "take_damage": [
+        "já segurei confusão pior 🙄",
+        "beleza, anotei essa 😬"
+      ],
+      "take_critical": [
+        "...respeito. 🫡",
+        "cê tem prática nisso 😳"
+      ],
+      "player_near_death": [
+        "a boca não é sua, playboy 😈",
+        "desiste antes de fechar 🙏"
+      ],
+      "enemy_near_death": [
+        "ainda mando nesse ponto 😤",
+        "não entrego a boca assim 💢"
+      ],
+      "defeat": [
+        "...a boca é sua agora. 😨",
+        "respeito. toma conta. 🫡"
+      ]
     }
   },
   {
-    "id": "sala",
-    "name": "Ferrugem",
-    "rank": 35000,
-    "stats": { "A": 3, "H": 2, "R": 5, "D": 4 },
-    "pv_max": 20, "pm_max": 10,
-    "weapon": "taco", "weapon_damage": 3,
-    "elemental": null, "preferred_mode": "armed",
-    "ai_pattern": "defensivo",
-    "difficulty": "medium", "tier": 0,
-    "notes": "Modo história, chefe da Vila, força 6 (13 pontos). Mora no último andar — quem sobe os dez lances já chega cansado.",
-    "trash_talk": {
-      "attack_miss": ["subiu os dez andar e ainda erra? 😏", "não vai adiantar não 😤"],
-      "attack_hit": ["isso é pra respeitar o último andar 👊", "sentiu a escada nas pernas? 😈"],
-      "take_damage": ["disposição eu respeito 🙄", "beleza, essa eu senti 😬"],
-      "take_critical": ["...respeito a disposição. 🫡", "cê subiu forte esse golpe 😳"],
-      "player_near_death": ["não muda merda nenhuma, playboy 🙏", "desce do jeito que veio 😈"],
-      "enemy_near_death": ["ainda seguro o último andar 😤", "não desço sem lutar 💢"],
-      "defeat": ["...cê chegou no topo. 😨", "respeito a disposição. o prédio é seu. 🫡"]
-    }
-  },
-  {
-    "id": "frente_escada_1",
+    "id": 1313,
     "name": "Cupim",
     "rank": 44000,
-    "stats": { "A": 3, "H": 3, "R": 6, "D": 2 },
-    "pv_max": 18, "pm_max": 18,
-    "weapon": "faca", "weapon_damage": 3,
-    "elemental": null, "preferred_mode": "fists",
+    "stats": {
+      "A": 3,
+      "H": 3,
+      "R": 6,
+      "D": 2
+    },
+    "pv_max": 18,
+    "pm_max": 18,
+    "weapon": "faca",
+    "weapon_damage": 3,
+    "elemental": null,
+    "preferred_mode": "fists",
     "ai_pattern": "agressivo",
-    "difficulty": "medium", "tier": 0,
+    "difficulty": "medium",
+    "tier": 0,
     "notes": "Modo história, Morro, força 5 (11 pontos). Fica na frente da escadaria de cimento avisando quem sobe — e brigando com quem não devia.",
     "trash_talk": {
-      "attack_miss": ["ninguém sobe sem eu ver 😏", "escapou dessa vez 😤"],
-      "attack_hit": ["a escada é minha 👊🔥", "sentiu o degrau? 😈"],
-      "take_damage": ["o Morro é mais duro que isso 🙄", "beleza, essa doeu 😬"],
-      "take_critical": ["opa, cê tem fôlego 🫡", "quase escorreguei nessa 😳"],
-      "player_near_death": ["quem sobe o Morro não desce igual 😈", "desiste antes da próxima laje 🙏"],
-      "enemy_near_death": ["ainda vigio essa escada 😤", "não desço sem avisar todo mundo 💢"],
-      "defeat": ["...pode subir. 😨", "respeito. a escada é sua agora. 🫡"]
+      "attack_miss": [
+        "ninguém sobe sem eu ver 😏",
+        "escapou dessa vez 😤"
+      ],
+      "attack_hit": [
+        "a escada é minha 👊🔥",
+        "sentiu o degrau? 😈"
+      ],
+      "take_damage": [
+        "o Morro é mais duro que isso 🙄",
+        "beleza, essa doeu 😬"
+      ],
+      "take_critical": [
+        "opa, cê tem fôlego 🫡",
+        "quase escorreguei nessa 😳"
+      ],
+      "player_near_death": [
+        "quem sobe o Morro não desce igual 😈",
+        "desiste antes da próxima laje 🙏"
+      ],
+      "enemy_near_death": [
+        "ainda vigio essa escada 😤",
+        "não desço sem avisar todo mundo 💢"
+      ],
+      "defeat": [
+        "...pode subir. 😨",
+        "respeito. a escada é sua agora. 🫡"
+      ]
+    },
+    "album": {
+      "cargoId": 203,
+      "faccaoId": 110,
+      "territorioId": 5
     }
   },
   {
-    "id": "frente_escada_2",
+    "id": 1314,
     "name": "Cascalho",
     "rank": 38000,
-    "stats": { "A": 4, "H": 3, "R": 7, "D": 3 },
-    "pv_max": 21, "pm_max": 21,
-    "weapon": "faca", "weapon_damage": 4,
-    "elemental": null, "preferred_mode": "fists",
+    "stats": {
+      "A": 4,
+      "H": 3,
+      "R": 7,
+      "D": 3
+    },
+    "pv_max": 21,
+    "pm_max": 21,
+    "weapon": "faca",
+    "weapon_damage": 4,
+    "elemental": null,
+    "preferred_mode": "fists",
     "ai_pattern": "agressivo",
-    "difficulty": "medium", "tier": 0,
+    "difficulty": "medium",
+    "tier": 0,
     "notes": "Modo história, Morro, força 6 (13 pontos). Comanda a frente de escada inteira — subiu rápido na hierarquia porque bate mais forte que todo mundo.",
     "trash_talk": {
-      "attack_miss": ["subiu rápido mas erra igual 😤", "essa escada não é sua não 😏"],
-      "attack_hit": ["capitão bate mais forte 👊🔥", "sentiu o Morro inteiro nesse? 😈"],
-      "take_damage": ["esse aqui é osso do Morro 🙄", "beleza, essa contou 😬"],
-      "take_critical": ["...forte. 🫡", "cê subiu rápido esse golpe também 😳"],
-      "player_near_death": ["quem sobe o Morro não desce igual 😈", "desiste antes de rolar escada abaixo 🙏"],
-      "enemy_near_death": ["ainda comando essa escada 😤", "não desço o posto assim 💢"],
-      "defeat": ["...cê é capitão agora. 😨", "respeito, cria. sobe. 🫡"]
+      "attack_miss": [
+        "subiu rápido mas erra igual 😤",
+        "essa escada não é sua não 😏"
+      ],
+      "attack_hit": [
+        "capitão bate mais forte 👊🔥",
+        "sentiu o Morro inteiro nesse? 😈"
+      ],
+      "take_damage": [
+        "esse aqui é osso do Morro 🙄",
+        "beleza, essa contou 😬"
+      ],
+      "take_critical": [
+        "...forte. 🫡",
+        "cê subiu rápido esse golpe também 😳"
+      ],
+      "player_near_death": [
+        "quem sobe o Morro não desce igual 😈",
+        "desiste antes de rolar escada abaixo 🙏"
+      ],
+      "enemy_near_death": [
+        "ainda comando essa escada 😤",
+        "não desço o posto assim 💢"
+      ],
+      "defeat": [
+        "...cê é capitão agora. 😨",
+        "respeito, cria. sobe. 🫡"
+      ]
+    },
+    "album": {
+      "cargoId": 203,
+      "faccaoId": 110,
+      "territorioId": 5
     }
   },
   {
-    "id": "fogueteiro",
-    "name": "Pavio Curto",
-    "rank": 39000,
-    "stats": { "A": 5, "H": 2, "R": 11, "D": 3 },
-    "pv_max": 22, "pm_max": 44,
-    "weapon": "rojao", "weapon_damage": 5,
-    "elemental": "fogo", "preferred_mode": "power",
-    "ai_pattern": "explosivo",
-    "difficulty": "medium", "tier": 0,
-    "notes": "Modo história, Morro, força 6 (13 pontos). Solta rojão de aviso quando alguém estranho sobe — e não se importa de soltar um em cima de você também.",
-    "trash_talk": {
-      "attack_miss": ["errei a mira dessa vez 😅", "o próximo rojão não erra 😈"],
-      "attack_hit": ["ESTOUROU 💥🔥", "sentiu o fogo subir? 😈"],
-      "take_damage": ["isso não apaga meu pavio 🙄", "beleza, essa acendeu 😬"],
-      "take_critical": ["CARAMBA QUE ESTOURO 😳💥", "cê também solta rojão? 😤"],
-      "player_near_death": ["vai estourar de vez 😈", "desiste antes do próximo rojão 🙏"],
-      "enemy_near_death": ["ainda tenho pavio pra queimar 😤", "não apago fácil não 💢"],
-      "defeat": ["...apagou meu fogo. 😨", "respeito, guerreiro. o Morro sabe que cê chegou. 🫡"]
-    }
-  },
-  {
-    "id": "zefa",
-    "name": "A Fera",
-    "rank": 30000,
-    "stats": { "A": 4, "H": 3, "R": 12, "D": 4 },
-    "pv_max": 24, "pm_max": 48,
-    "weapon": "vara", "weapon_damage": 4,
-    "elemental": null, "preferred_mode": "power",
+    "id": 1315,
+    "name": "Última Escada",
+    "stats": {
+      "A": 4,
+      "H": 2,
+      "R": 4,
+      "D": 3
+    },
+    "pv_max": 16,
+    "pm_max": 8,
+    "weapon": "bastão",
+    "elemental": null,
+    "preferred_mode": "armed",
     "ai_pattern": "tático",
-    "difficulty": "medium", "tier": 0,
-    "notes": "Modo história, chefe do Morro, força 7 (15 pontos). Criou metade da criançada da região — sabe exatamente onde bater pra doer sem machucar de verdade.",
+    "difficulty": "medium",
+    "tier": 0,
+    "notes": "Guarda a última curva antes do Alto do Morro.",
+    "album": {
+      "cargoId": 203,
+      "faccaoId": 110,
+      "territorioId": 5
+    },
     "trash_talk": {
-      "attack_miss": ["eu criei gente mais rápida que você 😏", "senta que ainda não acabou 😤"],
-      "attack_hit": ["isso é castigo, não briga 👊", "sentiu a vara? cresce com isso 😈"],
-      "take_damage": ["já apanhei coisa pior criando vocês 🙄", "beleza, essa até eu senti 😬"],
-      "take_critical": ["...cê aprendeu rápido. 🫡", "olha só quem cresceu 😳"],
-      "player_near_death": ["senta aí, o castigo vai demorar 🙏", "eu avisei, cria 😈"],
-      "enemy_near_death": ["ainda tenho vara pra ensinar 😤", "não solto a régua fácil não 💢"],
-      "defeat": ["...cê aprendeu tudo que eu ensinei. 😨", "orgulho, cria. o Morro é seu. 🫡"]
+      "attack_miss": [
+        "disciplina, cria — cê não tem 😏",
+        "aqui a boca é organizada 😤",
+        "erra assim na minha frente não 🙄"
+      ],
+      "attack_hit": [
+        "isso é como se administra 👊",
+        "a boca tem dono 😈",
+        "aprende rápido apanhando 💢"
+      ],
+      "take_damage": [
+        "já segurei confusão pior 🙄",
+        "beleza, anotei essa 😬"
+      ],
+      "take_critical": [
+        "...respeito. 🫡",
+        "cê tem prática nisso 😳"
+      ],
+      "player_near_death": [
+        "a boca não é sua, playboy 😈",
+        "desiste antes de fechar 🙏"
+      ],
+      "enemy_near_death": [
+        "ainda mando nesse ponto 😤",
+        "não entrego a boca assim 💢"
+      ],
+      "defeat": [
+        "...a boca é sua agora. 😨",
+        "respeito. toma conta. 🫡"
+      ]
     }
   },
   {
-    "id": "os_cinco_1",
+    "id": 1316,
     "name": "Verme",
     "rank": 34000,
-    "stats": { "A": 4, "H": 3, "R": 5, "D": 2 },
-    "pv_max": 20, "pm_max": 10,
-    "weapon": "porrete", "weapon_damage": 4,
-    "elemental": null, "preferred_mode": "armed",
+    "stats": {
+      "A": 4,
+      "H": 3,
+      "R": 5,
+      "D": 2
+    },
+    "pv_max": 20,
+    "pm_max": 10,
+    "weapon": "porrete",
+    "weapon_damage": 4,
+    "elemental": null,
+    "preferred_mode": "armed",
     "ai_pattern": "tático",
-    "difficulty": "medium", "tier": 0,
+    "difficulty": "medium",
+    "tier": 0,
     "notes": "Modo história, Alto do Morro, força 6 (13 pontos). Um dos cinco que quase viraram cúpula de Marelia — disciplinado, treinado, perigoso em grupo.",
     "trash_talk": {
-      "attack_miss": ["nós somos cinco, cria 😏", "não passa dos Cinco não 😤"],
-      "attack_hit": ["isso é disciplina, não sorte 👊", "sentiu o treino? 😈"],
-      "take_damage": ["já treinei coisa pior que isso 🙄", "beleza, essa contou 😬"],
-      "take_critical": ["...respeito. 🫡", "cê treinou também, hein 😳"],
-      "player_near_death": ["quase viramos cúpula, cê acha que vai passar? 😈", "desiste antes da porta de aço 🙏"],
-      "enemy_near_death": ["ainda somos cinco 😤", "não caio sozinho não 💢"],
-      "defeat": ["...cê passou de um dos Cinco. 😨", "respeito. a porta de aço te espera. 🫡"]
+      "attack_miss": [
+        "nós somos cinco, cria 😏",
+        "não passa dos Cinco não 😤"
+      ],
+      "attack_hit": [
+        "isso é disciplina, não sorte 👊",
+        "sentiu o treino? 😈"
+      ],
+      "take_damage": [
+        "já treinei coisa pior que isso 🙄",
+        "beleza, essa contou 😬"
+      ],
+      "take_critical": [
+        "...respeito. 🫡",
+        "cê treinou também, hein 😳"
+      ],
+      "player_near_death": [
+        "quase viramos cúpula, cê acha que vai passar? 😈",
+        "desiste antes da porta de aço 🙏"
+      ],
+      "enemy_near_death": [
+        "ainda somos cinco 😤",
+        "não caio sozinho não 💢"
+      ],
+      "defeat": [
+        "...cê passou de um dos Cinco. 😨",
+        "respeito. a porta de aço te espera. 🫡"
+      ]
+    },
+    "album": {
+      "cargoId": 203,
+      "faccaoId": 112,
+      "territorioId": 6
     }
   },
   {
-    "id": "os_cinco_2",
+    "id": 1317,
     "name": "Presa",
     "rank": 27000,
-    "stats": { "A": 5, "H": 3, "R": 8, "D": 3 },
-    "pv_max": 24, "pm_max": 24,
-    "weapon": "porrete", "weapon_damage": 5,
-    "elemental": null, "preferred_mode": "fists",
+    "stats": {
+      "A": 5,
+      "H": 3,
+      "R": 8,
+      "D": 3
+    },
+    "pv_max": 24,
+    "pm_max": 24,
+    "weapon": "porrete",
+    "weapon_damage": 5,
+    "elemental": null,
+    "preferred_mode": "fists",
     "ai_pattern": "agressivo",
-    "difficulty": "hard", "tier": 0,
+    "difficulty": "hard",
+    "tier": 0,
     "notes": "Modo história, Alto do Morro, força 7 (15 pontos). O braço-direito da cúpula quase formada — o mais forte dos cinco, o que resta antes da Roda.",
     "trash_talk": {
-      "attack_miss": ["quase chegou na Roda 😏", "não passa de mim não 😤"],
-      "attack_hit": ["isso é pra fechar a cúpula 👊🔥", "sentiu o braço-direito? 😈"],
-      "take_damage": ["já segurei golpe pior que isso 🙄", "beleza, essa doeu 😬"],
-      "take_critical": ["...forte. 🫡", "cê chega perto da cúpula com isso 😳"],
-      "player_near_death": ["a Roda ainda tá atrás de mim, desiste 😈", "não passa da porta de aço 🙏"],
-      "enemy_near_death": ["ainda seguro a cúpula 😤", "não caio antes da Roda não 💢"],
-      "defeat": ["...cê chegou na Roda. 😨", "respeito. segue em frente. 🫡"]
+      "attack_miss": [
+        "quase chegou na Roda 😏",
+        "não passa de mim não 😤"
+      ],
+      "attack_hit": [
+        "isso é pra fechar a cúpula 👊🔥",
+        "sentiu o braço-direito? 😈"
+      ],
+      "take_damage": [
+        "já segurei golpe pior que isso 🙄",
+        "beleza, essa doeu 😬"
+      ],
+      "take_critical": [
+        "...forte. 🫡",
+        "cê chega perto da cúpula com isso 😳"
+      ],
+      "player_near_death": [
+        "a Roda ainda tá atrás de mim, desiste 😈",
+        "não passa da porta de aço 🙏"
+      ],
+      "enemy_near_death": [
+        "ainda seguro a cúpula 😤",
+        "não caio antes da Roda não 💢"
+      ],
+      "defeat": [
+        "...cê chegou na Roda. 😨",
+        "respeito. segue em frente. 🫡"
+      ]
+    },
+    "album": {
+      "cargoId": 203,
+      "faccaoId": 112,
+      "territorioId": 6
     }
   },
   {
-    "id": "a_roda",
+    "id": 1318,
     "name": "Engrenagem",
     "rank": 20000,
-    "stats": { "A": 5, "H": 3, "R": 7, "D": 4 },
-    "pv_max": 28, "pm_max": 14,
-    "weapon": "corrente", "weapon_damage": 5,
-    "elemental": null, "preferred_mode": "armed",
+    "stats": {
+      "A": 5,
+      "H": 3,
+      "R": 7,
+      "D": 4
+    },
+    "pv_max": 28,
+    "pm_max": 14,
+    "weapon": "corrente",
+    "weapon_damage": 5,
+    "elemental": null,
+    "preferred_mode": "armed",
     "ai_pattern": "defensivo",
-    "difficulty": "hard", "tier": 0,
+    "difficulty": "hard",
+    "tier": 0,
     "notes": "Modo história, Alto do Morro, força 8 (17 pontos). O círculo mais fechado antes do Contador — luta em formação, sempre protegendo o centro, girando que nem engrenagem.",
     "trash_talk": {
-      "attack_miss": ["essa engrenagem não emperra fácil 😏", "gira e erra? tenta de novo 😤"],
-      "attack_hit": ["a engrenagem sempre volta 👊🔥", "sentiu o giro? 😈"],
-      "take_damage": ["a engrenagem absorve isso 🙄", "beleza, rachou um pouco 😬"],
-      "take_critical": ["...quebrou a formação. 🫡", "ninguém entra nessa engrenagem assim 😳"],
-      "player_near_death": ["o Contador tá logo ali, mas cê não chega 😈", "desiste antes da porta de aço final 🙏"],
-      "enemy_near_death": ["a engrenagem ainda gira 😤", "não quebro fácil não 💢"],
-      "defeat": ["...quebrou a engrenagem. 😨", "respeito. o Contador te espera. 🫡"]
+      "attack_miss": [
+        "essa engrenagem não emperra fácil 😏",
+        "gira e erra? tenta de novo 😤"
+      ],
+      "attack_hit": [
+        "a engrenagem sempre volta 👊🔥",
+        "sentiu o giro? 😈"
+      ],
+      "take_damage": [
+        "a engrenagem absorve isso 🙄",
+        "beleza, rachou um pouco 😬"
+      ],
+      "take_critical": [
+        "...quebrou a formação. 🫡",
+        "ninguém entra nessa engrenagem assim 😳"
+      ],
+      "player_near_death": [
+        "o Contador tá logo ali, mas cê não chega 😈",
+        "desiste antes da porta de aço final 🙏"
+      ],
+      "enemy_near_death": [
+        "a engrenagem ainda gira 😤",
+        "não quebro fácil não 💢"
+      ],
+      "defeat": [
+        "...quebrou a engrenagem. 😨",
+        "respeito. o Contador te espera. 🫡"
+      ]
+    },
+    "album": {
+      "cargoId": 203,
+      "faccaoId": 112,
+      "territorioId": 6
     }
   },
   {
-    "id": "doutor",
-    "name": "O Contador",
-    "rank": 12000,
-    "stats": { "A": 5, "H": 4, "R": 15, "D": 5 },
-    "pv_max": 30, "pm_max": 60,
-    "weapon": "bengala", "weapon_damage": 5,
-    "elemental": null, "preferred_mode": "power",
-    "ai_pattern": "tático",
-    "difficulty": "hard", "tier": 0,
-    "notes": "Modo história, chefe do Alto do Morro, força 9 (19 pontos). Não briga por raiva — briga porque a conta fecha assim. Tem o Alto inteiro devendo favor.",
-    "trash_talk": {
-      "attack_miss": ["a conta ainda não fechou 😏", "calma, chego lá 😤"],
-      "attack_hit": ["isso é matemática, não raiva 👊", "sentiu a conta fechando? 😈"],
-      "take_damage": ["interessante variável essa 🙄", "beleza, isso muda a conta 😬"],
-      "take_critical": ["...recalculando. 🫡", "cê não tava nos meus número 😳"],
-      "player_near_death": ["faz a conta e vai embora, playboy 🙏", "dois lutador contra o Alto inteiro? 😈"],
-      "enemy_near_death": ["a conta ainda fecha pra mim 😤", "não erro cálculo desse tamanho 💢"],
-      "defeat": ["...a conta não fechou. 😨", "recalculado. respeito. o Alto é seu. 🫡"]
-    }
-  },
-  {
-    "id": "bonde_costura_1",
+    "id": 1319,
     "name": "Fiapo",
     "rank": 25000,
-    "stats": { "A": 4, "H": 4, "R": 8, "D": 3 },
-    "pv_max": 24, "pm_max": 24,
-    "weapon": "facao", "weapon_damage": 4,
-    "elemental": null, "preferred_mode": "fists",
+    "stats": {
+      "A": 4,
+      "H": 4,
+      "R": 8,
+      "D": 3
+    },
+    "pv_max": 24,
+    "pm_max": 24,
+    "weapon": "facao",
+    "weapon_damage": 4,
+    "elemental": null,
+    "preferred_mode": "fists",
     "ai_pattern": "agressivo",
-    "difficulty": "hard", "tier": 0,
+    "difficulty": "hard",
+    "tier": 0,
     "notes": "Modo história, Laje, força 7 (15 pontos). Primeira linha do bonde que segura seis bairro pro Retalho — treinado pra cansar quem sobe antes do topo.",
     "trash_talk": {
-      "attack_miss": ["a Laje não se entrega fácil 😏", "ainda tem muito chão até o topo 😤"],
-      "attack_hit": ["sente o peso de seis bairro nisso 👊", "o Retalho ensinou bem 😈"],
-      "take_damage": ["já segurei coisa pior que isso 🙄", "beleza, essa contou 😬"],
-      "take_critical": ["...forte. 🫡", "cê tá pronto pro topo, hein 😳"],
-      "player_near_death": ["a Laje é do Retalho, sempre foi 😈", "desiste antes do topo de verdade 🙏"],
-      "enemy_near_death": ["ainda seguro a linha 😤", "não caio antes do Retalho ver 💢"],
-      "defeat": ["...passou a linha de frente. 😨", "respeito. o Retalho te espera lá em cima. 🫡"]
+      "attack_miss": [
+        "a Laje não se entrega fácil 😏",
+        "ainda tem muito chão até o topo 😤"
+      ],
+      "attack_hit": [
+        "sente o peso de seis bairro nisso 👊",
+        "o Retalho ensinou bem 😈"
+      ],
+      "take_damage": [
+        "já segurei coisa pior que isso 🙄",
+        "beleza, essa contou 😬"
+      ],
+      "take_critical": [
+        "...forte. 🫡",
+        "cê tá pronto pro topo, hein 😳"
+      ],
+      "player_near_death": [
+        "a Laje é do Retalho, sempre foi 😈",
+        "desiste antes do topo de verdade 🙏"
+      ],
+      "enemy_near_death": [
+        "ainda seguro a linha 😤",
+        "não caio antes do Retalho ver 💢"
+      ],
+      "defeat": [
+        "...passou a linha de frente. 😨",
+        "respeito. o Retalho te espera lá em cima. 🫡"
+      ]
+    },
+    "album": {
+      "cargoId": 203,
+      "faccaoId": 114,
+      "territorioId": 7
     }
   },
   {
-    "id": "bonde_costura_2",
+    "id": 1320,
     "name": "Agulha",
     "rank": 18000,
-    "stats": { "A": 5, "H": 4, "R": 9, "D": 4 },
-    "pv_max": 27, "pm_max": 27,
-    "weapon": "facao", "weapon_damage": 5,
-    "elemental": null, "preferred_mode": "fists",
+    "stats": {
+      "A": 5,
+      "H": 4,
+      "R": 9,
+      "D": 4
+    },
+    "pv_max": 27,
+    "pm_max": 27,
+    "weapon": "facao",
+    "weapon_damage": 5,
+    "elemental": null,
+    "preferred_mode": "fists",
     "ai_pattern": "agressivo",
-    "difficulty": "hard", "tier": 0,
+    "difficulty": "hard",
+    "tier": 0,
     "notes": "Modo história, Laje, força 8 (17 pontos). Segunda linha, mais perto do topo — o Retalho confia nele com metade da Laje.",
     "trash_talk": {
-      "attack_miss": ["quase chega no topo, quase 😏", "não hoje, cria 😤"],
-      "attack_hit": ["isso é pra provar que merece o topo 👊🔥", "sentiu a agulha? 😈"],
-      "take_damage": ["já aguentei pior segurando a Laje 🙄", "beleza, essa doeu de verdade 😬"],
-      "take_critical": ["...respeito. 🫡", "cê tá quase no nível do Retalho 😳"],
-      "player_near_death": ["o topo não é pra qualquer um 😈", "desiste, cria, poupa o corpo 🙏"],
-      "enemy_near_death": ["ainda seguro metade da Laje 😤", "não caio a essa altura não 💢"],
-      "defeat": ["...cê é osso duro mesmo. 😨", "respeito. sobe pro Retalho. 🫡"]
+      "attack_miss": [
+        "quase chega no topo, quase 😏",
+        "não hoje, cria 😤"
+      ],
+      "attack_hit": [
+        "isso é pra provar que merece o topo 👊🔥",
+        "sentiu a agulha? 😈"
+      ],
+      "take_damage": [
+        "já aguentei pior segurando a Laje 🙄",
+        "beleza, essa doeu de verdade 😬"
+      ],
+      "take_critical": [
+        "...respeito. 🫡",
+        "cê tá quase no nível do Retalho 😳"
+      ],
+      "player_near_death": [
+        "o topo não é pra qualquer um 😈",
+        "desiste, cria, poupa o corpo 🙏"
+      ],
+      "enemy_near_death": [
+        "ainda seguro metade da Laje 😤",
+        "não caio a essa altura não 💢"
+      ],
+      "defeat": [
+        "...cê é osso duro mesmo. 😨",
+        "respeito. sobe pro Retalho. 🫡"
+      ]
+    },
+    "album": {
+      "cargoId": 203,
+      "faccaoId": 114,
+      "territorioId": 7
     }
   },
   {
-    "id": "bonde_costura_3",
+    "id": 1321,
+    "name": "Linha Reta",
+    "stats": {
+      "A": 5,
+      "H": 2,
+      "R": 6,
+      "D": 3
+    },
+    "pv_max": 18,
+    "pm_max": 18,
+    "weapon": "facão longo",
+    "elemental": null,
+    "preferred_mode": "fists",
+    "ai_pattern": "tático",
+    "difficulty": "medium",
+    "tier": 0,
+    "notes": "General mais antigo, sem movimento desperdiçado.",
+    "album": {
+      "cargoId": 203,
+      "faccaoId": 114,
+      "territorioId": 7
+    },
+    "trash_talk": {
+      "attack_miss": [
+        "disciplina, cria — cê não tem 😏",
+        "aqui a boca é organizada 😤",
+        "erra assim na minha frente não 🙄"
+      ],
+      "attack_hit": [
+        "isso é como se administra 👊",
+        "a boca tem dono 😈",
+        "aprende rápido apanhando 💢"
+      ],
+      "take_damage": [
+        "já segurei confusão pior 🙄",
+        "beleza, anotei essa 😬"
+      ],
+      "take_critical": [
+        "...respeito. 🫡",
+        "cê tem prática nisso 😳"
+      ],
+      "player_near_death": [
+        "a boca não é sua, playboy 😈",
+        "desiste antes de fechar 🙏"
+      ],
+      "enemy_near_death": [
+        "ainda mando nesse ponto 😤",
+        "não entrego a boca assim 💢"
+      ],
+      "defeat": [
+        "...a boca é sua agora. 😨",
+        "respeito. toma conta. 🫡"
+      ]
+    }
+  },
+  {
+    "id": 1401,
+    "name": "Bala Solta",
+    "stats": {
+      "A": 4,
+      "H": 1,
+      "R": 3,
+      "D": 1
+    },
+    "pv_max": 9,
+    "pm_max": 9,
+    "weapon": "estilingue de metal",
+    "elemental": null,
+    "preferred_mode": "fists",
+    "ai_pattern": "agressivo",
+    "difficulty": "medium",
+    "tier": 0,
+    "notes": "Vendedor de bala que guarda pedra no bolso.",
+    "album": {
+      "cargoId": 204,
+      "faccaoId": 101,
+      "territorioId": 1
+    },
+    "trash_talk": {
+      "attack_miss": [
+        "cê ainda me deve 😏",
+        "não corre da conta 😤",
+        "isso entra nos juros 💰"
+      ],
+      "attack_hit": [
+        "isso é a primeira parcela 💰😈",
+        "juro alto, cria 👊",
+        "paga no osso então 💢"
+      ],
+      "take_damage": [
+        "marca aí, eu cobro depois 🙄",
+        "beleza, essa eu senti 😬"
+      ],
+      "take_critical": [
+        "...isso conta em dobro 😳",
+        "cê cobra caro hoje 🫡"
+      ],
+      "player_near_death": [
+        "paga com o corpo então 🙏",
+        "a dívida não some não 😈"
+      ],
+      "enemy_near_death": [
+        "ainda não fechei a conta 😤",
+        "isso não quita nada 💢"
+      ],
+      "defeat": [
+        "...cê zerou a conta. 😨",
+        "respeito. tá quite. 🫡"
+      ]
+    }
+  },
+  {
+    "id": 1402,
+    "name": "Troco Certo",
+    "stats": {
+      "A": 4,
+      "H": 1,
+      "R": 3,
+      "D": 1
+    },
+    "pv_max": 12,
+    "pm_max": 6,
+    "weapon": "porrete",
+    "elemental": null,
+    "preferred_mode": "armed",
+    "ai_pattern": "agressivo",
+    "difficulty": "medium",
+    "tier": 0,
+    "notes": "Cobra até a última moeda, nunca erra a conta.",
+    "album": {
+      "cargoId": 204,
+      "faccaoId": 101,
+      "territorioId": 1
+    },
+    "trash_talk": {
+      "attack_miss": [
+        "cê ainda me deve 😏",
+        "não corre da conta 😤",
+        "isso entra nos juros 💰"
+      ],
+      "attack_hit": [
+        "isso é a primeira parcela 💰😈",
+        "juro alto, cria 👊",
+        "paga no osso então 💢"
+      ],
+      "take_damage": [
+        "marca aí, eu cobro depois 🙄",
+        "beleza, essa eu senti 😬"
+      ],
+      "take_critical": [
+        "...isso conta em dobro 😳",
+        "cê cobra caro hoje 🫡"
+      ],
+      "player_near_death": [
+        "paga com o corpo então 🙏",
+        "a dívida não some não 😈"
+      ],
+      "enemy_near_death": [
+        "ainda não fechei a conta 😤",
+        "isso não quita nada 💢"
+      ],
+      "defeat": [
+        "...cê zerou a conta. 😨",
+        "respeito. tá quite. 🫡"
+      ]
+    }
+  },
+  {
+    "id": 1403,
+    "name": "Marreta",
+    "rank": 60000,
+    "stats": {
+      "A": 2,
+      "H": 2,
+      "R": 3,
+      "D": 1
+    },
+    "pv_max": 12,
+    "pm_max": 6,
+    "weapon": "porrete",
+    "weapon_damage": 2,
+    "elemental": null,
+    "preferred_mode": "armed",
+    "ai_pattern": "tático",
+    "difficulty": "easy",
+    "tier": 0,
+    "notes": "Modo história, Feira, força 3 (7 pontos). Braço de confiança — cobra dívida grande, não perde tempo com conversa.",
+    "trash_talk": {
+      "attack_miss": [
+        "fugiu da conta dessa vez 😤",
+        "não corre que só piora 😈"
+      ],
+      "attack_hit": [
+        "isso vai pro caderno do Cobrador 📒",
+        "juro que rende 👊💰"
+      ],
+      "take_damage": [
+        "já apanhei pior cobrando fiado 😒",
+        "beleza, essa doeu 😬"
+      ],
+      "take_critical": [
+        "opa, respeito o golpe 🫡",
+        "cê tem prática nisso hein 😳"
+      ],
+      "player_near_death": [
+        "assina o nome que eu paro 🙏",
+        "não deve nada além disso não 😈"
+      ],
+      "enemy_near_death": [
+        "ainda tenho fôlego pra cobrar 😤",
+        "isso não fecha a conta não 💢"
+      ],
+      "defeat": [
+        "vou ter que voltar sem o troco... 😨",
+        "o Cobrador não vai gostar dessa 😔"
+      ]
+    },
+    "album": {
+      "cargoId": 204,
+      "faccaoId": 103,
+      "territorioId": 2
+    }
+  },
+  {
+    "id": 1404,
+    "name": "Juro Alto",
+    "stats": {
+      "A": 4,
+      "H": 2,
+      "R": 3,
+      "D": 2
+    },
+    "pv_max": 12,
+    "pm_max": 6,
+    "weapon": "porrete de metal",
+    "elemental": null,
+    "preferred_mode": "armed",
+    "ai_pattern": "agressivo",
+    "difficulty": "medium",
+    "tier": 0,
+    "notes": "Dobra a dívida se o prazo passar.",
+    "album": {
+      "cargoId": 204,
+      "faccaoId": 103,
+      "territorioId": 2
+    },
+    "trash_talk": {
+      "attack_miss": [
+        "cê ainda me deve 😏",
+        "não corre da conta 😤",
+        "isso entra nos juros 💰"
+      ],
+      "attack_hit": [
+        "isso é a primeira parcela 💰😈",
+        "juro alto, cria 👊",
+        "paga no osso então 💢"
+      ],
+      "take_damage": [
+        "marca aí, eu cobro depois 🙄",
+        "beleza, essa eu senti 😬"
+      ],
+      "take_critical": [
+        "...isso conta em dobro 😳",
+        "cê cobra caro hoje 🫡"
+      ],
+      "player_near_death": [
+        "paga com o corpo então 🙏",
+        "a dívida não some não 😈"
+      ],
+      "enemy_near_death": [
+        "ainda não fechei a conta 😤",
+        "isso não quita nada 💢"
+      ],
+      "defeat": [
+        "...cê zerou a conta. 😨",
+        "respeito. tá quite. 🫡"
+      ]
+    }
+  },
+  {
+    "id": 1405,
+    "name": "Sobra",
+    "rank": 51000,
+    "stats": {
+      "A": 3,
+      "H": 2,
+      "R": 5,
+      "D": 1
+    },
+    "pv_max": 15,
+    "pm_max": 15,
+    "weapon": "corrente",
+    "weapon_damage": 3,
+    "elemental": null,
+    "preferred_mode": "fists",
+    "ai_pattern": "agressivo",
+    "difficulty": "easy",
+    "tier": 0,
+    "notes": "Modo história, Baixada, força 4 (9 pontos). O terceiro pedaço da facção rachada — o mais desesperado, o que não tem mais nada a perder.",
+    "trash_talk": {
+      "attack_miss": [
+        "não tenho mais nada a perder 😤",
+        "vem, eu não paro 😈"
+      ],
+      "attack_hit": [
+        "isso é tudo que sobrou de mim 💢",
+        "sentiu o desespero? 😤"
+      ],
+      "take_damage": [
+        "já perdi mais que isso 😒",
+        "não sinto mais nada 😬"
+      ],
+      "take_critical": [
+        "...forte. 👏",
+        "quase acabou com o resto 😳"
+      ],
+      "player_near_death": [
+        "a Baixada não perdoa 😈",
+        "desiste, não sobrou nada pra ganhar 🙏"
+      ],
+      "enemy_near_death": [
+        "não sobrou mas ainda luto 😤",
+        "o resto ainda briga 💢"
+      ],
+      "defeat": [
+        "...acabou. de vez. 😨",
+        "não sobrou mais nada. respeito. 🫡"
+      ]
+    },
+    "album": {
+      "cargoId": 204,
+      "faccaoId": 105,
+      "territorioId": 3
+    }
+  },
+  {
+    "id": 1406,
+    "name": "Resto de Faca",
+    "stats": {
+      "A": 4,
+      "H": 2,
+      "R": 4,
+      "D": 2
+    },
+    "pv_max": 12,
+    "pm_max": 12,
+    "weapon": "faca dupla",
+    "elemental": null,
+    "preferred_mode": "fists",
+    "ai_pattern": "agressivo",
+    "difficulty": "medium",
+    "tier": 0,
+    "notes": "Cobra em nome dos três cacos ao mesmo tempo.",
+    "album": {
+      "cargoId": 204,
+      "faccaoId": 105,
+      "territorioId": 3
+    },
+    "trash_talk": {
+      "attack_miss": [
+        "cê ainda me deve 😏",
+        "não corre da conta 😤",
+        "isso entra nos juros 💰"
+      ],
+      "attack_hit": [
+        "isso é a primeira parcela 💰😈",
+        "juro alto, cria 👊",
+        "paga no osso então 💢"
+      ],
+      "take_damage": [
+        "marca aí, eu cobro depois 🙄",
+        "beleza, essa eu senti 😬"
+      ],
+      "take_critical": [
+        "...isso conta em dobro 😳",
+        "cê cobra caro hoje 🫡"
+      ],
+      "player_near_death": [
+        "paga com o corpo então 🙏",
+        "a dívida não some não 😈"
+      ],
+      "enemy_near_death": [
+        "ainda não fechei a conta 😤",
+        "isso não quita nada 💢"
+      ],
+      "defeat": [
+        "...cê zerou a conta. 😨",
+        "respeito. tá quite. 🫡"
+      ]
+    }
+  },
+  {
+    "id": 1407,
+    "name": "Goteira",
+    "rank": 47500,
+    "stats": {
+      "A": 2,
+      "H": 2,
+      "R": 5,
+      "D": 3
+    },
+    "pv_max": 20,
+    "pm_max": 10,
+    "weapon": "taco",
+    "weapon_damage": 2,
+    "elemental": null,
+    "preferred_mode": "armed",
+    "ai_pattern": "defensivo",
+    "difficulty": "medium",
+    "tier": 0,
+    "notes": "Modo história, Vila, força 5 (11 pontos). Mora nos andares de cima, olha o bonde de cima pra baixo — literal e figurado.",
+    "trash_talk": {
+      "attack_miss": [
+        "daqui de cima eu vejo tudo 😏",
+        "cê nem chegou perto 😤"
+      ],
+      "attack_hit": [
+        "lá de cima dói mais 👊😈",
+        "sentiu a queda? 🔥"
+      ],
+      "take_damage": [
+        "não desço por isso não 🙄",
+        "beleza, essa subiu 😬"
+      ],
+      "take_critical": [
+        "opa, cê alcançou 🫡",
+        "quase me derrubou daqui de cima 😳"
+      ],
+      "player_near_death": [
+        "daqui de cima é fácil acabar 😈",
+        "desiste, o andar é meu 🙏"
+      ],
+      "enemy_near_death": [
+        "ainda não caí do prédio 😤",
+        "não desço sem levar alguém 💢"
+      ],
+      "defeat": [
+        "...caí. 😨",
+        "respeito. cê chegou lá em cima. 🫡"
+      ]
+    },
+    "album": {
+      "cargoId": 204,
+      "faccaoId": 108,
+      "territorioId": 4
+    }
+  },
+  {
+    "id": 1408,
+    "name": "Aluguel Vencido",
+    "stats": {
+      "A": 5,
+      "H": 2,
+      "R": 4,
+      "D": 2
+    },
+    "pv_max": 16,
+    "pm_max": 8,
+    "weapon": "chave de cano",
+    "elemental": null,
+    "preferred_mode": "armed",
+    "ai_pattern": "agressivo",
+    "difficulty": "medium",
+    "tier": 0,
+    "notes": "Cobra o \"aluguel\" que o bonde impõe em cada andar.",
+    "album": {
+      "cargoId": 204,
+      "faccaoId": 108,
+      "territorioId": 4
+    },
+    "trash_talk": {
+      "attack_miss": [
+        "cê ainda me deve 😏",
+        "não corre da conta 😤",
+        "isso entra nos juros 💰"
+      ],
+      "attack_hit": [
+        "isso é a primeira parcela 💰😈",
+        "juro alto, cria 👊",
+        "paga no osso então 💢"
+      ],
+      "take_damage": [
+        "marca aí, eu cobro depois 🙄",
+        "beleza, essa eu senti 😬"
+      ],
+      "take_critical": [
+        "...isso conta em dobro 😳",
+        "cê cobra caro hoje 🫡"
+      ],
+      "player_near_death": [
+        "paga com o corpo então 🙏",
+        "a dívida não some não 😈"
+      ],
+      "enemy_near_death": [
+        "ainda não fechei a conta 😤",
+        "isso não quita nada 💢"
+      ],
+      "defeat": [
+        "...cê zerou a conta. 😨",
+        "respeito. tá quite. 🫡"
+      ]
+    }
+  },
+  {
+    "id": 1409,
+    "name": "Pavio Curto",
+    "rank": 39000,
+    "stats": {
+      "A": 5,
+      "H": 2,
+      "R": 11,
+      "D": 3
+    },
+    "pv_max": 22,
+    "pm_max": 44,
+    "weapon": "rojao",
+    "weapon_damage": 5,
+    "elemental": "fogo",
+    "preferred_mode": "power",
+    "ai_pattern": "explosivo",
+    "difficulty": "medium",
+    "tier": 0,
+    "notes": "Modo história, Morro, força 6 (13 pontos). Solta rojão de aviso quando alguém estranho sobe — e não se importa de soltar um em cima de você também.",
+    "trash_talk": {
+      "attack_miss": [
+        "errei a mira dessa vez 😅",
+        "o próximo rojão não erra 😈"
+      ],
+      "attack_hit": [
+        "ESTOUROU 💥🔥",
+        "sentiu o fogo subir? 😈"
+      ],
+      "take_damage": [
+        "isso não apaga meu pavio 🙄",
+        "beleza, essa acendeu 😬"
+      ],
+      "take_critical": [
+        "CARAMBA QUE ESTOURO 😳💥",
+        "cê também solta rojão? 😤"
+      ],
+      "player_near_death": [
+        "vai estourar de vez 😈",
+        "desiste antes do próximo rojão 🙏"
+      ],
+      "enemy_near_death": [
+        "ainda tenho pavio pra queimar 😤",
+        "não apago fácil não 💢"
+      ],
+      "defeat": [
+        "...apagou meu fogo. 😨",
+        "respeito, guerreiro. o Morro sabe que cê chegou. 🫡"
+      ]
+    },
+    "album": {
+      "cargoId": 204,
+      "faccaoId": 110,
+      "territorioId": 5
+    }
+  },
+  {
+    "id": 1410,
+    "name": "Conta do Morro",
+    "stats": {
+      "A": 7,
+      "H": 2,
+      "R": 4,
+      "D": 2
+    },
+    "pv_max": 8,
+    "pm_max": 16,
+    "weapon": "vara curta",
+    "elemental": null,
+    "preferred_mode": "power",
+    "ai_pattern": "agressivo",
+    "difficulty": "medium",
+    "tier": 0,
+    "notes": "Guarda as contas de quem deve favor à Zefa.",
+    "album": {
+      "cargoId": 204,
+      "faccaoId": 110,
+      "territorioId": 5
+    },
+    "trash_talk": {
+      "attack_miss": [
+        "cê ainda me deve 😏",
+        "não corre da conta 😤",
+        "isso entra nos juros 💰"
+      ],
+      "attack_hit": [
+        "isso é a primeira parcela 💰😈",
+        "juro alto, cria 👊",
+        "paga no osso então 💢"
+      ],
+      "take_damage": [
+        "marca aí, eu cobro depois 🙄",
+        "beleza, essa eu senti 😬"
+      ],
+      "take_critical": [
+        "...isso conta em dobro 😳",
+        "cê cobra caro hoje 🫡"
+      ],
+      "player_near_death": [
+        "paga com o corpo então 🙏",
+        "a dívida não some não 😈"
+      ],
+      "enemy_near_death": [
+        "ainda não fechei a conta 😤",
+        "isso não quita nada 💢"
+      ],
+      "defeat": [
+        "...cê zerou a conta. 😨",
+        "respeito. tá quite. 🫡"
+      ]
+    }
+  },
+  {
+    "id": 1411,
+    "name": "Quase-Cúpula",
+    "stats": {
+      "A": 6,
+      "H": 3,
+      "R": 5,
+      "D": 3
+    },
+    "pv_max": 10,
+    "pm_max": 20,
+    "weapon": "espada curta",
+    "elemental": null,
+    "preferred_mode": "power",
+    "ai_pattern": "agressivo",
+    "difficulty": "medium",
+    "tier": 0,
+    "notes": "O mais ambicioso dos Cinco.",
+    "album": {
+      "cargoId": 204,
+      "faccaoId": 112,
+      "territorioId": 6
+    },
+    "trash_talk": {
+      "attack_miss": [
+        "cê ainda me deve 😏",
+        "não corre da conta 😤",
+        "isso entra nos juros 💰"
+      ],
+      "attack_hit": [
+        "isso é a primeira parcela 💰😈",
+        "juro alto, cria 👊",
+        "paga no osso então 💢"
+      ],
+      "take_damage": [
+        "marca aí, eu cobro depois 🙄",
+        "beleza, essa eu senti 😬"
+      ],
+      "take_critical": [
+        "...isso conta em dobro 😳",
+        "cê cobra caro hoje 🫡"
+      ],
+      "player_near_death": [
+        "paga com o corpo então 🙏",
+        "a dívida não some não 😈"
+      ],
+      "enemy_near_death": [
+        "ainda não fechei a conta 😤",
+        "isso não quita nada 💢"
+      ],
+      "defeat": [
+        "...cê zerou a conta. 😨",
+        "respeito. tá quite. 🫡"
+      ]
+    }
+  },
+  {
+    "id": 1412,
+    "name": "Dívida do Alto",
+    "stats": {
+      "A": 6,
+      "H": 3,
+      "R": 5,
+      "D": 3
+    },
+    "pv_max": 10,
+    "pm_max": 20,
+    "weapon": "bengala fina",
+    "elemental": null,
+    "preferred_mode": "power",
+    "ai_pattern": "agressivo",
+    "difficulty": "medium",
+    "tier": 0,
+    "notes": "Trabalha direto pro Contador.",
+    "album": {
+      "cargoId": 204,
+      "faccaoId": 112,
+      "territorioId": 6
+    },
+    "trash_talk": {
+      "attack_miss": [
+        "cê ainda me deve 😏",
+        "não corre da conta 😤",
+        "isso entra nos juros 💰"
+      ],
+      "attack_hit": [
+        "isso é a primeira parcela 💰😈",
+        "juro alto, cria 👊",
+        "paga no osso então 💢"
+      ],
+      "take_damage": [
+        "marca aí, eu cobro depois 🙄",
+        "beleza, essa eu senti 😬"
+      ],
+      "take_critical": [
+        "...isso conta em dobro 😳",
+        "cê cobra caro hoje 🫡"
+      ],
+      "player_near_death": [
+        "paga com o corpo então 🙏",
+        "a dívida não some não 😈"
+      ],
+      "enemy_near_death": [
+        "ainda não fechei a conta 😤",
+        "isso não quita nada 💢"
+      ],
+      "defeat": [
+        "...cê zerou a conta. 😨",
+        "respeito. tá quite. 🫡"
+      ]
+    }
+  },
+  {
+    "id": 1413,
+    "name": "Costura Fina",
+    "stats": {
+      "A": 7,
+      "H": 3,
+      "R": 5,
+      "D": 3
+    },
+    "pv_max": 15,
+    "pm_max": 15,
+    "weapon": "agulha longa",
+    "elemental": null,
+    "preferred_mode": "fists",
+    "ai_pattern": "agressivo",
+    "difficulty": "medium",
+    "tier": 0,
+    "notes": "Poucos ataques, mas certeiros.",
+    "album": {
+      "cargoId": 204,
+      "faccaoId": 114,
+      "territorioId": 7
+    },
+    "trash_talk": {
+      "attack_miss": [
+        "cê ainda me deve 😏",
+        "não corre da conta 😤",
+        "isso entra nos juros 💰"
+      ],
+      "attack_hit": [
+        "isso é a primeira parcela 💰😈",
+        "juro alto, cria 👊",
+        "paga no osso então 💢"
+      ],
+      "take_damage": [
+        "marca aí, eu cobro depois 🙄",
+        "beleza, essa eu senti 😬"
+      ],
+      "take_critical": [
+        "...isso conta em dobro 😳",
+        "cê cobra caro hoje 🫡"
+      ],
+      "player_near_death": [
+        "paga com o corpo então 🙏",
+        "a dívida não some não 😈"
+      ],
+      "enemy_near_death": [
+        "ainda não fechei a conta 😤",
+        "isso não quita nada 💢"
+      ],
+      "defeat": [
+        "...cê zerou a conta. 😨",
+        "respeito. tá quite. 🫡"
+      ]
+    }
+  },
+  {
+    "id": 1414,
+    "name": "Conta Fechada",
+    "stats": {
+      "A": 7,
+      "H": 3,
+      "R": 5,
+      "D": 3
+    },
+    "pv_max": 15,
+    "pm_max": 15,
+    "weapon": "facão",
+    "elemental": null,
+    "preferred_mode": "fists",
+    "ai_pattern": "agressivo",
+    "difficulty": "medium",
+    "tier": 0,
+    "notes": "Fecha a conta de quem tenta subir sem pagar passagem.",
+    "album": {
+      "cargoId": 204,
+      "faccaoId": 114,
+      "territorioId": 7
+    },
+    "trash_talk": {
+      "attack_miss": [
+        "cê ainda me deve 😏",
+        "não corre da conta 😤",
+        "isso entra nos juros 💰"
+      ],
+      "attack_hit": [
+        "isso é a primeira parcela 💰😈",
+        "juro alto, cria 👊",
+        "paga no osso então 💢"
+      ],
+      "take_damage": [
+        "marca aí, eu cobro depois 🙄",
+        "beleza, essa eu senti 😬"
+      ],
+      "take_critical": [
+        "...isso conta em dobro 😳",
+        "cê cobra caro hoje 🫡"
+      ],
+      "player_near_death": [
+        "paga com o corpo então 🙏",
+        "a dívida não some não 😈"
+      ],
+      "enemy_near_death": [
+        "ainda não fechei a conta 😤",
+        "isso não quita nada 💢"
+      ],
+      "defeat": [
+        "...cê zerou a conta. 😨",
+        "respeito. tá quite. 🫡"
+      ]
+    }
+  },
+  {
+    "id": 1451,
+    "name": "Sinaleiro Chefe",
+    "stats": {
+      "A": 4,
+      "H": 3,
+      "R": 4,
+      "D": 2
+    },
+    "pv_max": 16,
+    "pm_max": 8,
+    "weapon": "cassetete",
+    "elemental": null,
+    "preferred_mode": "armed",
+    "ai_pattern": "tático",
+    "difficulty": "hard",
+    "tier": 0,
+    "notes": "Comanda todos os vigias — se ele apita, o bairro corre.",
+    "album": {
+      "cargoId": 205,
+      "faccaoId": 101,
+      "territorioId": 1
+    },
+    "trash_talk": {
+      "attack_miss": [
+        "cê nem chegou perto do chefe 😏",
+        "eu sou o último degrau, cria 😤",
+        "erra assim e quer subir? 🙄"
+      ],
+      "attack_hit": [
+        "isso é pra respeitar o topo 👊🔥",
+        "sentiu o peso do bonde? 😈",
+        "eu resolvo o que o chefe não suja a mão 💢"
+      ],
+      "take_damage": [
+        "já aguentei pior segurando isso aqui 🙄",
+        "beleza, essa doeu de verdade 😬"
+      ],
+      "take_critical": [
+        "...forte. o chefe vai gostar de saber 🫡",
+        "cê chega perto de mandar aqui 😳"
+      ],
+      "player_near_death": [
+        "o chefe tá logo ali, mas cê não passa 😈",
+        "desiste antes do portão 🙏"
+      ],
+      "enemy_near_death": [
+        "ainda seguro a linha 😤",
+        "não caio antes do chefe ver 💢"
+      ],
+      "defeat": [
+        "...cê passou de mim. o chefe te espera. 😨",
+        "respeito. sobe. 🫡"
+      ]
+    }
+  },
+  {
+    "id": 1452,
+    "name": "Rasteira Velha",
+    "stats": {
+      "A": 4,
+      "H": 3,
+      "R": 4,
+      "D": 2
+    },
+    "pv_max": 12,
+    "pm_max": 12,
+    "weapon": "corrente",
+    "elemental": null,
+    "preferred_mode": "fists",
+    "ai_pattern": "tático",
+    "difficulty": "hard",
+    "tier": 0,
+    "notes": "A mais antiga do Bonde do Sinal, treinou a molecada.",
+    "album": {
+      "cargoId": 205,
+      "faccaoId": 101,
+      "territorioId": 1
+    },
+    "trash_talk": {
+      "attack_miss": [
+        "cê nem chegou perto do chefe 😏",
+        "eu sou o último degrau, cria 😤",
+        "erra assim e quer subir? 🙄"
+      ],
+      "attack_hit": [
+        "isso é pra respeitar o topo 👊🔥",
+        "sentiu o peso do bonde? 😈",
+        "eu resolvo o que o chefe não suja a mão 💢"
+      ],
+      "take_damage": [
+        "já aguentei pior segurando isso aqui 🙄",
+        "beleza, essa doeu de verdade 😬"
+      ],
+      "take_critical": [
+        "...forte. o chefe vai gostar de saber 🫡",
+        "cê chega perto de mandar aqui 😳"
+      ],
+      "player_near_death": [
+        "o chefe tá logo ali, mas cê não passa 😈",
+        "desiste antes do portão 🙏"
+      ],
+      "enemy_near_death": [
+        "ainda seguro a linha 😤",
+        "não caio antes do chefe ver 💢"
+      ],
+      "defeat": [
+        "...cê passou de mim. o chefe te espera. 😨",
+        "respeito. sobe. 🫡"
+      ]
+    }
+  },
+  {
+    "id": 1453,
+    "name": "Mão do Turco",
+    "stats": {
+      "A": 4,
+      "H": 3,
+      "R": 6,
+      "D": 2
+    },
+    "pv_max": 24,
+    "pm_max": 12,
+    "weapon": "porrete grande",
+    "elemental": null,
+    "preferred_mode": "armed",
+    "ai_pattern": "tático",
+    "difficulty": "hard",
+    "tier": 0,
+    "notes": "Braço mais próximo do Cobrador, resolve o que ele não suja a mão.",
+    "album": {
+      "cargoId": 205,
+      "faccaoId": 103,
+      "territorioId": 2
+    },
+    "trash_talk": {
+      "attack_miss": [
+        "cê nem chegou perto do chefe 😏",
+        "eu sou o último degrau, cria 😤",
+        "erra assim e quer subir? 🙄"
+      ],
+      "attack_hit": [
+        "isso é pra respeitar o topo 👊🔥",
+        "sentiu o peso do bonde? 😈",
+        "eu resolvo o que o chefe não suja a mão 💢"
+      ],
+      "take_damage": [
+        "já aguentei pior segurando isso aqui 🙄",
+        "beleza, essa doeu de verdade 😬"
+      ],
+      "take_critical": [
+        "...forte. o chefe vai gostar de saber 🫡",
+        "cê chega perto de mandar aqui 😳"
+      ],
+      "player_near_death": [
+        "o chefe tá logo ali, mas cê não passa 😈",
+        "desiste antes do portão 🙏"
+      ],
+      "enemy_near_death": [
+        "ainda seguro a linha 😤",
+        "não caio antes do chefe ver 💢"
+      ],
+      "defeat": [
+        "...cê passou de mim. o chefe te espera. 😨",
+        "respeito. sobe. 🫡"
+      ]
+    }
+  },
+  {
+    "id": 1454,
+    "name": "Caixa Forte",
+    "stats": {
+      "A": 4,
+      "H": 3,
+      "R": 6,
+      "D": 2
+    },
+    "pv_max": 24,
+    "pm_max": 12,
+    "weapon": "cassetete de ferro",
+    "elemental": null,
+    "preferred_mode": "armed",
+    "ai_pattern": "tático",
+    "difficulty": "hard",
+    "tier": 0,
+    "notes": "Guarda o dinheiro da Feira inteira.",
+    "album": {
+      "cargoId": 205,
+      "faccaoId": 103,
+      "territorioId": 2
+    },
+    "trash_talk": {
+      "attack_miss": [
+        "cê nem chegou perto do chefe 😏",
+        "eu sou o último degrau, cria 😤",
+        "erra assim e quer subir? 🙄"
+      ],
+      "attack_hit": [
+        "isso é pra respeitar o topo 👊🔥",
+        "sentiu o peso do bonde? 😈",
+        "eu resolvo o que o chefe não suja a mão 💢"
+      ],
+      "take_damage": [
+        "já aguentei pior segurando isso aqui 🙄",
+        "beleza, essa doeu de verdade 😬"
+      ],
+      "take_critical": [
+        "...forte. o chefe vai gostar de saber 🫡",
+        "cê chega perto de mandar aqui 😳"
+      ],
+      "player_near_death": [
+        "o chefe tá logo ali, mas cê não passa 😈",
+        "desiste antes do portão 🙏"
+      ],
+      "enemy_near_death": [
+        "ainda seguro a linha 😤",
+        "não caio antes do chefe ver 💢"
+      ],
+      "defeat": [
+        "...cê passou de mim. o chefe te espera. 😨",
+        "respeito. sobe. 🫡"
+      ]
+    }
+  },
+  {
+    "id": 1455,
+    "name": "Caco Maior",
+    "stats": {
+      "A": 5,
+      "H": 3,
+      "R": 6,
+      "D": 2
+    },
+    "pv_max": 18,
+    "pm_max": 18,
+    "weapon": "faca ritual",
+    "elemental": null,
+    "preferred_mode": "fists",
+    "ai_pattern": "tático",
+    "difficulty": "hard",
+    "tier": 0,
+    "notes": "O mais respeitado dos três cacos, quase reunificou a Baixada sozinho.",
+    "album": {
+      "cargoId": 205,
+      "faccaoId": 105,
+      "territorioId": 3
+    },
+    "trash_talk": {
+      "attack_miss": [
+        "cê nem chegou perto do chefe 😏",
+        "eu sou o último degrau, cria 😤",
+        "erra assim e quer subir? 🙄"
+      ],
+      "attack_hit": [
+        "isso é pra respeitar o topo 👊🔥",
+        "sentiu o peso do bonde? 😈",
+        "eu resolvo o que o chefe não suja a mão 💢"
+      ],
+      "take_damage": [
+        "já aguentei pior segurando isso aqui 🙄",
+        "beleza, essa doeu de verdade 😬"
+      ],
+      "take_critical": [
+        "...forte. o chefe vai gostar de saber 🫡",
+        "cê chega perto de mandar aqui 😳"
+      ],
+      "player_near_death": [
+        "o chefe tá logo ali, mas cê não passa 😈",
+        "desiste antes do portão 🙏"
+      ],
+      "enemy_near_death": [
+        "ainda seguro a linha 😤",
+        "não caio antes do chefe ver 💢"
+      ],
+      "defeat": [
+        "...cê passou de mim. o chefe te espera. 😨",
+        "respeito. sobe. 🫡"
+      ]
+    }
+  },
+  {
+    "id": 1456,
+    "name": "Nome do Sombra",
+    "stats": {
+      "A": 5,
+      "H": 3,
+      "R": 6,
+      "D": 2
+    },
+    "pv_max": 18,
+    "pm_max": 18,
+    "weapon": "faca enferrujada",
+    "elemental": null,
+    "preferred_mode": "fists",
+    "ai_pattern": "tático",
+    "difficulty": "hard",
+    "tier": 0,
+    "notes": "Usa o nome do chefe morto como arma psicológica.",
+    "album": {
+      "cargoId": 205,
+      "faccaoId": 105,
+      "territorioId": 3
+    },
+    "trash_talk": {
+      "attack_miss": [
+        "cê nem chegou perto do chefe 😏",
+        "eu sou o último degrau, cria 😤",
+        "erra assim e quer subir? 🙄"
+      ],
+      "attack_hit": [
+        "isso é pra respeitar o topo 👊🔥",
+        "sentiu o peso do bonde? 😈",
+        "eu resolvo o que o chefe não suja a mão 💢"
+      ],
+      "take_damage": [
+        "já aguentei pior segurando isso aqui 🙄",
+        "beleza, essa doeu de verdade 😬"
+      ],
+      "take_critical": [
+        "...forte. o chefe vai gostar de saber 🫡",
+        "cê chega perto de mandar aqui 😳"
+      ],
+      "player_near_death": [
+        "o chefe tá logo ali, mas cê não passa 😈",
+        "desiste antes do portão 🙏"
+      ],
+      "enemy_near_death": [
+        "ainda seguro a linha 😤",
+        "não caio antes do chefe ver 💢"
+      ],
+      "defeat": [
+        "...cê passou de mim. o chefe te espera. 😨",
+        "respeito. sobe. 🫡"
+      ]
+    }
+  },
+  {
+    "id": 1457,
+    "name": "Bloco Inteiro",
+    "stats": {
+      "A": 5,
+      "H": 3,
+      "R": 6,
+      "D": 3
+    },
+    "pv_max": 24,
+    "pm_max": 12,
+    "weapon": "chave-mestra grande",
+    "elemental": null,
+    "preferred_mode": "armed",
+    "ai_pattern": "tático",
+    "difficulty": "hard",
+    "tier": 0,
+    "notes": "Comanda um prédio inteiro sozinho.",
+    "album": {
+      "cargoId": 205,
+      "faccaoId": 108,
+      "territorioId": 4
+    },
+    "trash_talk": {
+      "attack_miss": [
+        "cê nem chegou perto do chefe 😏",
+        "eu sou o último degrau, cria 😤",
+        "erra assim e quer subir? 🙄"
+      ],
+      "attack_hit": [
+        "isso é pra respeitar o topo 👊🔥",
+        "sentiu o peso do bonde? 😈",
+        "eu resolvo o que o chefe não suja a mão 💢"
+      ],
+      "take_damage": [
+        "já aguentei pior segurando isso aqui 🙄",
+        "beleza, essa doeu de verdade 😬"
+      ],
+      "take_critical": [
+        "...forte. o chefe vai gostar de saber 🫡",
+        "cê chega perto de mandar aqui 😳"
+      ],
+      "player_near_death": [
+        "o chefe tá logo ali, mas cê não passa 😈",
+        "desiste antes do portão 🙏"
+      ],
+      "enemy_near_death": [
+        "ainda seguro a linha 😤",
+        "não caio antes do chefe ver 💢"
+      ],
+      "defeat": [
+        "...cê passou de mim. o chefe te espera. 😨",
+        "respeito. sobe. 🫡"
+      ]
+    }
+  },
+  {
+    "id": 1458,
+    "name": "Chave Mestra Maior",
+    "stats": {
+      "A": 5,
+      "H": 3,
+      "R": 6,
+      "D": 3
+    },
+    "pv_max": 24,
+    "pm_max": 12,
+    "weapon": "molho de chaves pesado",
+    "elemental": null,
+    "preferred_mode": "armed",
+    "ai_pattern": "tático",
+    "difficulty": "hard",
+    "tier": 0,
+    "notes": "Acesso a todo apartamento — informação que vale mais que dinheiro.",
+    "album": {
+      "cargoId": 205,
+      "faccaoId": 108,
+      "territorioId": 4
+    },
+    "trash_talk": {
+      "attack_miss": [
+        "cê nem chegou perto do chefe 😏",
+        "eu sou o último degrau, cria 😤",
+        "erra assim e quer subir? 🙄"
+      ],
+      "attack_hit": [
+        "isso é pra respeitar o topo 👊🔥",
+        "sentiu o peso do bonde? 😈",
+        "eu resolvo o que o chefe não suja a mão 💢"
+      ],
+      "take_damage": [
+        "já aguentei pior segurando isso aqui 🙄",
+        "beleza, essa doeu de verdade 😬"
+      ],
+      "take_critical": [
+        "...forte. o chefe vai gostar de saber 🫡",
+        "cê chega perto de mandar aqui 😳"
+      ],
+      "player_near_death": [
+        "o chefe tá logo ali, mas cê não passa 😈",
+        "desiste antes do portão 🙏"
+      ],
+      "enemy_near_death": [
+        "ainda seguro a linha 😤",
+        "não caio antes do chefe ver 💢"
+      ],
+      "defeat": [
+        "...cê passou de mim. o chefe te espera. 😨",
+        "respeito. sobe. 🫡"
+      ]
+    }
+  },
+  {
+    "id": 1459,
+    "name": "Segunda Mãe",
+    "stats": {
+      "A": 6,
+      "H": 4,
+      "R": 6,
+      "D": 3
+    },
+    "pv_max": 12,
+    "pm_max": 24,
+    "weapon": "vara",
+    "elemental": null,
+    "preferred_mode": "power",
+    "ai_pattern": "tático",
+    "difficulty": "hard",
+    "tier": 0,
+    "notes": "Cuida da criançada quando a Zefa não pode.",
+    "album": {
+      "cargoId": 205,
+      "faccaoId": 110,
+      "territorioId": 5
+    },
+    "trash_talk": {
+      "attack_miss": [
+        "cê nem chegou perto do chefe 😏",
+        "eu sou o último degrau, cria 😤",
+        "erra assim e quer subir? 🙄"
+      ],
+      "attack_hit": [
+        "isso é pra respeitar o topo 👊🔥",
+        "sentiu o peso do bonde? 😈",
+        "eu resolvo o que o chefe não suja a mão 💢"
+      ],
+      "take_damage": [
+        "já aguentei pior segurando isso aqui 🙄",
+        "beleza, essa doeu de verdade 😬"
+      ],
+      "take_critical": [
+        "...forte. o chefe vai gostar de saber 🫡",
+        "cê chega perto de mandar aqui 😳"
+      ],
+      "player_near_death": [
+        "o chefe tá logo ali, mas cê não passa 😈",
+        "desiste antes do portão 🙏"
+      ],
+      "enemy_near_death": [
+        "ainda seguro a linha 😤",
+        "não caio antes do chefe ver 💢"
+      ],
+      "defeat": [
+        "...cê passou de mim. o chefe te espera. 😨",
+        "respeito. sobe. 🫡"
+      ]
+    }
+  },
+  {
+    "id": 1460,
+    "name": "Escadaria Inteira",
+    "stats": {
+      "A": 6,
+      "H": 4,
+      "R": 6,
+      "D": 3
+    },
+    "pv_max": 24,
+    "pm_max": 12,
+    "weapon": "bastão longo",
+    "elemental": null,
+    "preferred_mode": "armed",
+    "ai_pattern": "tático",
+    "difficulty": "hard",
+    "tier": 0,
+    "notes": "Controla a subida sozinho, ninguém passa sem aval.",
+    "album": {
+      "cargoId": 205,
+      "faccaoId": 110,
+      "territorioId": 5
+    },
+    "trash_talk": {
+      "attack_miss": [
+        "cê nem chegou perto do chefe 😏",
+        "eu sou o último degrau, cria 😤",
+        "erra assim e quer subir? 🙄"
+      ],
+      "attack_hit": [
+        "isso é pra respeitar o topo 👊🔥",
+        "sentiu o peso do bonde? 😈",
+        "eu resolvo o que o chefe não suja a mão 💢"
+      ],
+      "take_damage": [
+        "já aguentei pior segurando isso aqui 🙄",
+        "beleza, essa doeu de verdade 😬"
+      ],
+      "take_critical": [
+        "...forte. o chefe vai gostar de saber 🫡",
+        "cê chega perto de mandar aqui 😳"
+      ],
+      "player_near_death": [
+        "o chefe tá logo ali, mas cê não passa 😈",
+        "desiste antes do portão 🙏"
+      ],
+      "enemy_near_death": [
+        "ainda seguro a linha 😤",
+        "não caio antes do chefe ver 💢"
+      ],
+      "defeat": [
+        "...cê passou de mim. o chefe te espera. 😨",
+        "respeito. sobe. 🫡"
+      ]
+    }
+  },
+  {
+    "id": 1461,
+    "name": "Quarto Nome",
+    "stats": {
+      "A": 6,
+      "H": 4,
+      "R": 8,
+      "D": 3
+    },
+    "pv_max": 32,
+    "pm_max": 16,
+    "weapon": "porrete",
+    "elemental": null,
+    "preferred_mode": "armed",
+    "ai_pattern": "tático",
+    "difficulty": "hard",
+    "tier": 0,
+    "notes": "Um dos Cinco mais próximos de virar cúpula de verdade.",
+    "album": {
+      "cargoId": 205,
+      "faccaoId": 112,
+      "territorioId": 6
+    },
+    "trash_talk": {
+      "attack_miss": [
+        "cê nem chegou perto do chefe 😏",
+        "eu sou o último degrau, cria 😤",
+        "erra assim e quer subir? 🙄"
+      ],
+      "attack_hit": [
+        "isso é pra respeitar o topo 👊🔥",
+        "sentiu o peso do bonde? 😈",
+        "eu resolvo o que o chefe não suja a mão 💢"
+      ],
+      "take_damage": [
+        "já aguentei pior segurando isso aqui 🙄",
+        "beleza, essa doeu de verdade 😬"
+      ],
+      "take_critical": [
+        "...forte. o chefe vai gostar de saber 🫡",
+        "cê chega perto de mandar aqui 😳"
+      ],
+      "player_near_death": [
+        "o chefe tá logo ali, mas cê não passa 😈",
+        "desiste antes do portão 🙏"
+      ],
+      "enemy_near_death": [
+        "ainda seguro a linha 😤",
+        "não caio antes do chefe ver 💢"
+      ],
+      "defeat": [
+        "...cê passou de mim. o chefe te espera. 😨",
+        "respeito. sobe. 🫡"
+      ]
+    }
+  },
+  {
+    "id": 1462,
+    "name": "Formação Completa",
+    "stats": {
+      "A": 6,
+      "H": 4,
+      "R": 8,
+      "D": 3
+    },
+    "pv_max": 24,
+    "pm_max": 24,
+    "weapon": "corrente dupla",
+    "elemental": null,
+    "preferred_mode": "fists",
+    "ai_pattern": "tático",
+    "difficulty": "hard",
+    "tier": 0,
+    "notes": "Comanda a Roda em batalha — a doutrina virou corpo.",
+    "album": {
+      "cargoId": 205,
+      "faccaoId": 112,
+      "territorioId": 6
+    },
+    "trash_talk": {
+      "attack_miss": [
+        "cê nem chegou perto do chefe 😏",
+        "eu sou o último degrau, cria 😤",
+        "erra assim e quer subir? 🙄"
+      ],
+      "attack_hit": [
+        "isso é pra respeitar o topo 👊🔥",
+        "sentiu o peso do bonde? 😈",
+        "eu resolvo o que o chefe não suja a mão 💢"
+      ],
+      "take_damage": [
+        "já aguentei pior segurando isso aqui 🙄",
+        "beleza, essa doeu de verdade 😬"
+      ],
+      "take_critical": [
+        "...forte. o chefe vai gostar de saber 🫡",
+        "cê chega perto de mandar aqui 😳"
+      ],
+      "player_near_death": [
+        "o chefe tá logo ali, mas cê não passa 😈",
+        "desiste antes do portão 🙏"
+      ],
+      "enemy_near_death": [
+        "ainda seguro a linha 😤",
+        "não caio antes do chefe ver 💢"
+      ],
+      "defeat": [
+        "...cê passou de mim. o chefe te espera. 😨",
+        "respeito. sobe. 🫡"
+      ]
+    }
+  },
+  {
+    "id": 1463,
     "name": "Tesoura",
     "rank": 9000,
-    "stats": { "A": 6, "H": 4, "R": 8, "D": 4 },
-    "pv_max": 32, "pm_max": 16,
-    "weapon": "facao", "weapon_damage": 6,
-    "elemental": null, "preferred_mode": "armed",
+    "stats": {
+      "A": 6,
+      "H": 4,
+      "R": 8,
+      "D": 4
+    },
+    "pv_max": 32,
+    "pm_max": 16,
+    "weapon": "facao",
+    "weapon_damage": 6,
+    "elemental": null,
+    "preferred_mode": "armed",
     "ai_pattern": "tático",
-    "difficulty": "hard", "tier": 0,
+    "difficulty": "hard",
+    "tier": 0,
     "notes": "Modo história, Laje, força 9 (19 pontos). Comanda a Laje inteira em nome do Retalho — o último degrau antes do topo de Marelia.",
     "trash_talk": {
-      "attack_miss": ["ninguém passa de general fácil 😏", "o topo espera, mas não por você 😤"],
-      "attack_hit": ["isso é ordem do Retalho 👊🔥", "sentiu o corte? 😈"],
-      "take_damage": ["já dei ordem sob coisa pior 🙄", "beleza, isso eu registro 😬"],
-      "take_critical": ["...anotado. 🫡", "cê chega perto de mandar aqui 😳"],
-      "player_near_death": ["o Retalho tá esperando, mas cê não chega 😈", "desiste antes do topo de verdade 🙏"],
-      "enemy_near_death": ["ainda comando essa Laje 😤", "não entrego o posto fácil não 💢"],
-      "defeat": ["...cê é general agora. 😨", "respeito. o Retalho sabe que cê tá subindo. 🫡"]
+      "attack_miss": [
+        "ninguém passa de general fácil 😏",
+        "o topo espera, mas não por você 😤"
+      ],
+      "attack_hit": [
+        "isso é ordem do Retalho 👊🔥",
+        "sentiu o corte? 😈"
+      ],
+      "take_damage": [
+        "já dei ordem sob coisa pior 🙄",
+        "beleza, isso eu registro 😬"
+      ],
+      "take_critical": [
+        "...anotado. 🫡",
+        "cê chega perto de mandar aqui 😳"
+      ],
+      "player_near_death": [
+        "o Retalho tá esperando, mas cê não chega 😈",
+        "desiste antes do topo de verdade 🙏"
+      ],
+      "enemy_near_death": [
+        "ainda comando essa Laje 😤",
+        "não entrego o posto fácil não 💢"
+      ],
+      "defeat": [
+        "...cê é general agora. 😨",
+        "respeito. o Retalho sabe que cê tá subindo. 🫡"
+      ]
+    },
+    "album": {
+      "cargoId": 205,
+      "faccaoId": 114,
+      "territorioId": 7
     }
   },
   {
-    "id": "costura",
+    "id": 1464,
+    "name": "Corte Certo",
+    "stats": {
+      "A": 7,
+      "H": 4,
+      "R": 8,
+      "D": 3
+    },
+    "pv_max": 24,
+    "pm_max": 24,
+    "weapon": "facão gêmeo",
+    "elemental": null,
+    "preferred_mode": "fists",
+    "ai_pattern": "tático",
+    "difficulty": "hard",
+    "tier": 0,
+    "notes": "Braço-direito da Tesoura, nunca erra o corte final.",
+    "album": {
+      "cargoId": 205,
+      "faccaoId": 114,
+      "territorioId": 7
+    },
+    "trash_talk": {
+      "attack_miss": [
+        "cê nem chegou perto do chefe 😏",
+        "eu sou o último degrau, cria 😤",
+        "erra assim e quer subir? 🙄"
+      ],
+      "attack_hit": [
+        "isso é pra respeitar o topo 👊🔥",
+        "sentiu o peso do bonde? 😈",
+        "eu resolvo o que o chefe não suja a mão 💢"
+      ],
+      "take_damage": [
+        "já aguentei pior segurando isso aqui 🙄",
+        "beleza, essa doeu de verdade 😬"
+      ],
+      "take_critical": [
+        "...forte. o chefe vai gostar de saber 🫡",
+        "cê chega perto de mandar aqui 😳"
+      ],
+      "player_near_death": [
+        "o chefe tá logo ali, mas cê não passa 😈",
+        "desiste antes do portão 🙏"
+      ],
+      "enemy_near_death": [
+        "ainda seguro a linha 😤",
+        "não caio antes do chefe ver 💢"
+      ],
+      "defeat": [
+        "...cê passou de mim. o chefe te espera. 😨",
+        "respeito. sobe. 🫡"
+      ]
+    }
+  },
+  {
+    "id": 1500,
+    "name": "Carvão",
+    "rank": 52000,
+    "stats": {
+      "A": 3,
+      "H": 1,
+      "R": 4,
+      "D": 1
+    },
+    "pv_max": 12,
+    "pm_max": 12,
+    "weapon": "facao",
+    "weapon_damage": 3,
+    "elemental": null,
+    "preferred_mode": "fists",
+    "ai_pattern": "agressivo",
+    "difficulty": "medium",
+    "tier": 0,
+    "notes": "Modo história, chefe da Pista, força 3 (7 pontos) — só aparece depois que o portão do bairro abre. O jogador já chega com pelo menos 2 vitórias de AP acumulado e briga em dupla.",
+    "trash_talk": {
+      "attack_miss": [
+        "cê é ligeiro, hein 😏",
+        "some que nem fumaça? não vai rolar 😈"
+      ],
+      "attack_hit": [
+        "pisca que eu sumo 💨🔥",
+        "sentiu a fumaça? 😈"
+      ],
+      "take_damage": [
+        "isso é só fumaça 😒",
+        "ok, essa doeu 👀"
+      ],
+      "take_critical": [
+        "...respeito. 🫡",
+        "a Pista tá diferente hoje 🔥"
+      ],
+      "player_near_death": [
+        "cê apanha no escuro, cria 😈",
+        "a Pista é minha 💨"
+      ],
+      "enemy_near_death": [
+        "ainda não é hoje que eu caio 😤",
+        "fumaça não se apaga fácil 🔥"
+      ],
+      "defeat": [
+        "...cê tomou meu bairro. 😨",
+        "a Pista agora é sua. 💨"
+      ]
+    },
+    "album": {
+      "cargoId": 205,
+      "faccaoId": 101,
+      "territorioId": 1
+    }
+  },
+  {
+    "id": 1501,
+    "name": "O Cobrador",
+    "rank": 47000,
+    "stats": {
+      "A": 3,
+      "H": 2,
+      "R": 4,
+      "D": 2
+    },
+    "pv_max": 16,
+    "pm_max": 8,
+    "weapon": "porrete",
+    "weapon_damage": 3,
+    "elemental": null,
+    "preferred_mode": "armed",
+    "ai_pattern": "tático",
+    "difficulty": "medium",
+    "tier": 0,
+    "notes": "Modo história, chefe da Feira, força 4 (9 pontos). Anota tudo, cobra tudo — bate no braço antes de bater na cara.",
+    "trash_talk": {
+      "attack_miss": [
+        "cê ainda deve essa 😏",
+        "não escapa da conta não 😤"
+      ],
+      "attack_hit": [
+        "isso entra na dívida 💰😈",
+        "juro alto, cria 👊"
+      ],
+      "take_damage": [
+        "marca aí, eu cobro depois 😒",
+        "beleza, essa eu senti 😬"
+      ],
+      "take_critical": [
+        "...respeito. 🫡",
+        "cê tá cobrando caro hoje 😳"
+      ],
+      "player_near_death": [
+        "paga com o corpo então 🙏",
+        "a Feira inteira me deve 😈"
+      ],
+      "enemy_near_death": [
+        "ainda não fechei a conta 😤",
+        "isso não paga a dívida não 💢"
+      ],
+      "defeat": [
+        "...cê zerou minha conta. 😨",
+        "respeito, parceiro. a Feira é sua. 🫡"
+      ]
+    },
+    "album": {
+      "cargoId": 205,
+      "faccaoId": 103,
+      "territorioId": 2
+    }
+  },
+  {
+    "id": 1502,
+    "name": "Fura-Bucho",
+    "rank": 40000,
+    "stats": {
+      "A": 4,
+      "H": 2,
+      "R": 5,
+      "D": 2
+    },
+    "pv_max": 20,
+    "pm_max": 10,
+    "weapon": "espeto",
+    "weapon_damage": 4,
+    "elemental": null,
+    "preferred_mode": "armed",
+    "ai_pattern": "agressivo",
+    "difficulty": "medium",
+    "tier": 0,
+    "notes": "Modo história, chefe da Baixada, força 5 (11 pontos). Assumiu a Baixada inteira quando o Sombra caiu no valão — não solta o espeto de jeito nenhum.",
+    "trash_talk": {
+      "attack_miss": [
+        "o espeto sempre alcança 😏",
+        "cê corre mas eu furo 😈"
+      ],
+      "attack_hit": [
+        "ESPETADO 💢🔥",
+        "sentiu a ponta? 😈"
+      ],
+      "take_damage": [
+        "isso não fura nada 🙄",
+        "beleza, essa passou 😬"
+      ],
+      "take_critical": [
+        "...opa. 🫡",
+        "cê também tem lâmina, hein 😳"
+      ],
+      "player_near_death": [
+        "a Baixada é minha desde que o Sombra caiu 😈",
+        "vem tomar o resto 🙏"
+      ],
+      "enemy_near_death": [
+        "ainda tenho ponta pra dar 😤",
+        "não caio no valão não 💢"
+      ],
+      "defeat": [
+        "...cê tomou meus ponto. 😨",
+        "respeito. a Baixada agora é sua. 🫡"
+      ]
+    },
+    "album": {
+      "cargoId": 205,
+      "faccaoId": 105,
+      "territorioId": 3
+    }
+  },
+  {
+    "id": 1503,
+    "name": "Ferrugem",
+    "rank": 35000,
+    "stats": {
+      "A": 3,
+      "H": 2,
+      "R": 5,
+      "D": 4
+    },
+    "pv_max": 20,
+    "pm_max": 10,
+    "weapon": "taco",
+    "weapon_damage": 3,
+    "elemental": null,
+    "preferred_mode": "armed",
+    "ai_pattern": "defensivo",
+    "difficulty": "medium",
+    "tier": 0,
+    "notes": "Modo história, chefe da Vila, força 6 (13 pontos). Mora no último andar — quem sobe os dez lances já chega cansado.",
+    "trash_talk": {
+      "attack_miss": [
+        "subiu os dez andar e ainda erra? 😏",
+        "não vai adiantar não 😤"
+      ],
+      "attack_hit": [
+        "isso é pra respeitar o último andar 👊",
+        "sentiu a escada nas pernas? 😈"
+      ],
+      "take_damage": [
+        "disposição eu respeito 🙄",
+        "beleza, essa eu senti 😬"
+      ],
+      "take_critical": [
+        "...respeito a disposição. 🫡",
+        "cê subiu forte esse golpe 😳"
+      ],
+      "player_near_death": [
+        "não muda merda nenhuma, playboy 🙏",
+        "desce do jeito que veio 😈"
+      ],
+      "enemy_near_death": [
+        "ainda seguro o último andar 😤",
+        "não desço sem lutar 💢"
+      ],
+      "defeat": [
+        "...cê chegou no topo. 😨",
+        "respeito a disposição. o prédio é seu. 🫡"
+      ]
+    },
+    "album": {
+      "cargoId": 205,
+      "faccaoId": 108,
+      "territorioId": 4
+    }
+  },
+  {
+    "id": 1504,
+    "name": "A Fera",
+    "rank": 30000,
+    "stats": {
+      "A": 4,
+      "H": 3,
+      "R": 12,
+      "D": 4
+    },
+    "pv_max": 24,
+    "pm_max": 48,
+    "weapon": "vara",
+    "weapon_damage": 4,
+    "elemental": null,
+    "preferred_mode": "power",
+    "ai_pattern": "tático",
+    "difficulty": "medium",
+    "tier": 0,
+    "notes": "Modo história, chefe do Morro, força 7 (15 pontos). Criou metade da criançada da região — sabe exatamente onde bater pra doer sem machucar de verdade.",
+    "trash_talk": {
+      "attack_miss": [
+        "eu criei gente mais rápida que você 😏",
+        "senta que ainda não acabou 😤"
+      ],
+      "attack_hit": [
+        "isso é castigo, não briga 👊",
+        "sentiu a vara? cresce com isso 😈"
+      ],
+      "take_damage": [
+        "já apanhei coisa pior criando vocês 🙄",
+        "beleza, essa até eu senti 😬"
+      ],
+      "take_critical": [
+        "...cê aprendeu rápido. 🫡",
+        "olha só quem cresceu 😳"
+      ],
+      "player_near_death": [
+        "senta aí, o castigo vai demorar 🙏",
+        "eu avisei, cria 😈"
+      ],
+      "enemy_near_death": [
+        "ainda tenho vara pra ensinar 😤",
+        "não solto a régua fácil não 💢"
+      ],
+      "defeat": [
+        "...cê aprendeu tudo que eu ensinei. 😨",
+        "orgulho, cria. o Morro é seu. 🫡"
+      ]
+    },
+    "album": {
+      "cargoId": 205,
+      "faccaoId": 110,
+      "territorioId": 5
+    }
+  },
+  {
+    "id": 1505,
+    "name": "O Contador",
+    "rank": 12000,
+    "stats": {
+      "A": 5,
+      "H": 4,
+      "R": 15,
+      "D": 5
+    },
+    "pv_max": 30,
+    "pm_max": 60,
+    "weapon": "bengala",
+    "weapon_damage": 5,
+    "elemental": null,
+    "preferred_mode": "power",
+    "ai_pattern": "tático",
+    "difficulty": "hard",
+    "tier": 0,
+    "notes": "Modo história, chefe do Alto do Morro, força 9 (19 pontos). Não briga por raiva — briga porque a conta fecha assim. Tem o Alto inteiro devendo favor.",
+    "trash_talk": {
+      "attack_miss": [
+        "a conta ainda não fechou 😏",
+        "calma, chego lá 😤"
+      ],
+      "attack_hit": [
+        "isso é matemática, não raiva 👊",
+        "sentiu a conta fechando? 😈"
+      ],
+      "take_damage": [
+        "interessante variável essa 🙄",
+        "beleza, isso muda a conta 😬"
+      ],
+      "take_critical": [
+        "...recalculando. 🫡",
+        "cê não tava nos meus número 😳"
+      ],
+      "player_near_death": [
+        "faz a conta e vai embora, playboy 🙏",
+        "dois lutador contra o Alto inteiro? 😈"
+      ],
+      "enemy_near_death": [
+        "a conta ainda fecha pra mim 😤",
+        "não erro cálculo desse tamanho 💢"
+      ],
+      "defeat": [
+        "...a conta não fechou. 😨",
+        "recalculado. respeito. o Alto é seu. 🫡"
+      ]
+    },
+    "album": {
+      "cargoId": 205,
+      "faccaoId": 112,
+      "territorioId": 6
+    }
+  },
+  {
+    "id": 1600,
     "name": "O Retalho",
     "rank": 1500,
-    "stats": { "A": 6, "H": 5, "R": 17, "D": 5 },
-    "pv_max": 34, "pm_max": 68,
-    "weapon": "facao", "weapon_damage": 6,
-    "elemental": null, "preferred_mode": "power",
+    "stats": {
+      "A": 6,
+      "H": 5,
+      "R": 17,
+      "D": 5
+    },
+    "pv_max": 34,
+    "pm_max": 68,
+    "weapon": "facao",
+    "weapon_damage": 6,
+    "elemental": null,
+    "preferred_mode": "power",
     "ai_pattern": "tático",
-    "difficulty": "very_hard", "tier": 0,
+    "difficulty": "very_hard",
+    "tier": 0,
     "notes": "Modo história, chefe final (Laje), força 10 (21 pontos). Único que já segurou seis bairro de uma vez. O jogador chega aqui depois de vencer todo o resto de Marelia — deve ter ganhado várias fichas de AP no caminho.",
     "trash_talk": {
-      "attack_miss": ["seis bairro e cê acha que escapa de mim 😏", "Marelia inteira já viu golpe melhor 😤"],
-      "attack_hit": ["isso aqui é costurado com sangue 👊🔥", "sentiu Marelia inteira nesse golpe? 😈"],
-      "take_damage": ["já levei pior segurando seis bairro 🙄", "beleza, isso eu vou lembrar 😬"],
-      "take_critical": ["...cê tá mais perto do que eu esperava. 🫡", "ninguém chegou tão perto de mim 😳"],
-      "player_near_death": ["essa porra não costura — nem eu segurei 😈", "desiste, Marelia não é sua ainda 🙏"],
-      "enemy_near_death": ["seis bairro não caem fácil 😤", "ainda seguro a linha, cria 💢"],
-      "defeat": ["...ninguém nunca chegou mais perto. Marelia é sua agora. 😨", "respeito, guerreiro. cê fez o que eu não consegui. 🫡"]
+      "attack_miss": [
+        "seis bairro e cê acha que escapa de mim 😏",
+        "Marelia inteira já viu golpe melhor 😤"
+      ],
+      "attack_hit": [
+        "isso aqui é costurado com sangue 👊🔥",
+        "sentiu Marelia inteira nesse golpe? 😈"
+      ],
+      "take_damage": [
+        "já levei pior segurando seis bairro 🙄",
+        "beleza, isso eu vou lembrar 😬"
+      ],
+      "take_critical": [
+        "...cê tá mais perto do que eu esperava. 🫡",
+        "ninguém chegou tão perto de mim 😳"
+      ],
+      "player_near_death": [
+        "essa porra não costura — nem eu segurei 😈",
+        "desiste, Marelia não é sua ainda 🙏"
+      ],
+      "enemy_near_death": [
+        "seis bairro não caem fácil 😤",
+        "ainda seguro a linha, cria 💢"
+      ],
+      "defeat": [
+        "...ninguém nunca chegou mais perto. Marelia é sua agora. 😨",
+        "respeito, guerreiro. cê fez o que eu não consegui. 🫡"
+      ]
+    },
+    "album": {
+      "cargoId": 205,
+      "faccaoId": 114,
+      "territorioId": 7
     }
   },
   {
-    "id": "thunderbolt",
+    "id": 2001,
+    "name": "Saco de Pancada",
+    "rank": 999999,
+    "stats": {
+      "A": 1,
+      "H": 0,
+      "R": 2,
+      "D": 0
+    },
+    "pv_max": 6,
+    "pm_max": 6,
+    "weapon": "punhos",
+    "weapon_damage": 1,
+    "elemental": null,
+    "preferred_mode": "fists",
+    "ai_pattern": "básico",
+    "difficulty": "easy",
+    "tier": 1,
+    "notes": "Bonequinho de pano que apanha pra quem tá começando na gangue treinar. Quase não revida.",
+    "trash_talk": {
+      "attack_miss": [
+        "nem encostou 💀",
+        "isso foi um ataque?? 😭",
+        "tô dormindo aqui 😴🥱"
+      ],
+      "attack_hit": [
+        "SENTIU? 🔥",
+        "dói né 😈",
+        "tem mais vindo 👊💥"
+      ],
+      "take_damage": [
+        "sorte sua 🙄",
+        "foi quase nada lol 😒",
+        "interessante... 🤨"
+      ],
+      "take_critical": [
+        "OK ISSO DOEU 😤💢",
+        "não esperava isso ngl 😳",
+        "bom golpe. respeitei. 👏"
+      ],
+      "player_near_death": [
+        "acabou pra você mano 💀💀",
+        "devia ter fugido quando teve chance 🏃‍♂️💨",
+        "quer que eu pare? 🥹"
+      ],
+      "enemy_near_death": [
+        "ainda não acabou NÃO 😤",
+        "tô só aquecendo juro 🔥",
+        "me subestimou hein 😏"
+      ],
+      "defeat": [
+        "isso não pode ser... 😨",
+        "subestimei você. que droga. 😤",
+        "impossível. 💀"
+      ]
+    },
+    "album": {
+      "cargoId": 206,
+      "faccaoId": null,
+      "territorioId": null
+    }
+  },
+  {
+    "id": 2002,
+    "name": "Corte Fundo",
+    "rank": 3214,
+    "stats": {
+      "A": 3,
+      "H": 3,
+      "R": 4,
+      "D": 2
+    },
+    "pv_max": 16,
+    "pm_max": 8,
+    "weapon": "katana",
+    "weapon_damage": 3,
+    "elemental": "fogo",
+    "preferred_mode": "armed",
+    "ai_pattern": "agressivo",
+    "difficulty": "easy",
+    "tier": 1,
+    "notes": "Lutadora veterana de Marelia. Agressiva com a katana.",
+    "trash_talk": {
+      "attack_miss": [
+        "você teve sorte DESSA VEZ 😤",
+        "minha katana não perdoa duas vezes ⚔️😈",
+        "esquiva barata 🙄"
+      ],
+      "attack_hit": [
+        "a lâmina não mente 🗡️🔥",
+        "SANGUE NA ARENA 😈💢",
+        "corte limpo. próximo. ⚔️"
+      ],
+      "take_damage": [
+        "isso é tudo?? 😒",
+        "já levei pior treinando 💅",
+        "não vai me derrubar com isso 😤"
+      ],
+      "take_critical": [
+        "...respeito. 🫡",
+        "FINALMENTE um oponente de verdade 😳🔥",
+        "assim a luta fica interessante 😏⚔️"
+      ],
+      "player_near_death": [
+        "desiste enquanto pode 🙏",
+        "não preciso te matar 😌",
+        "a derrota também é honrosa 🫂"
+      ],
+      "enemy_near_death": [
+        "ainda tenho fôlego 😤💨",
+        "NÃO me subestime 😡",
+        "a luta SÓ COMEÇOU ⚔️🔥"
+      ],
+      "defeat": [
+        "isso não pode ser... 😨",
+        "minha katana... falhou... ⚔️💔",
+        "você é digno. 🫡"
+      ]
+    },
+    "album": {
+      "cargoId": 206,
+      "faccaoId": null,
+      "territorioId": null
+    }
+  },
+  {
+    "id": 2003,
     "name": "Curto-Circuito",
     "rank": 30156,
-    "stats": { "A": 4, "H": 4, "R": 10, "D": 2 },
-    "pv_max": 20, "pm_max": 40,
-    "weapon": "bastao", "weapon_damage": 4,
-    "elemental": "ar", "preferred_mode": "power",
+    "stats": {
+      "A": 4,
+      "H": 4,
+      "R": 10,
+      "D": 2
+    },
+    "pv_max": 20,
+    "pm_max": 40,
+    "weapon": "bastao",
+    "weapon_damage": 4,
+    "elemental": "ar",
+    "preferred_mode": "power",
     "ai_pattern": "tático",
-    "difficulty": "medium", "tier": 2,
+    "difficulty": "medium",
+    "tier": 2,
     "notes": "Enrola um fio elétrico no bastão antes de entrar na roda — ninguém sabe se é truque ou dom de verdade. Um nome que já correu vários bairros de Marelia.",
     "trash_talk": {
-      "attack_miss": ["rápido demais pra você? ⚡😏", "não adianta correr 🏃‍♂️💨⚡", "o trovão SEMPRE alcança ⛈️"],
-      "attack_hit": ["sentiu a descarga? ⚡😈", "VOLTAGEM MÁXIMA 🔌💥", "eletrizante não?? 😂⚡"],
-      "take_damage": ["boa tentativa 👏", "vou sentir isso amanhã 😬", "continua assim... 😏"],
-      "take_critical": ["CARAMBA 😱⚡", "isso foi ELÉTRICO 💀💥", "tá tentando me dar choque também?? 😭😂"],
-      "player_near_death": ["o ranking vai subir hoje 📈😈", "nada pessoal viu 🤷‍♂️⚡", "acaba logo não gosto de sofrimento 😮‍💨"],
-      "enemy_near_death": ["tempestade ainda não passou ⛈️😤", "você não viu NADA ainda ⚡💢", "hora de acelerar 🚀⚡"],
-      "defeat": ["a tempestade... passou... ⛈️😶", "não pode ser... ⚡💀", "você... venceu. 😤👏"]
+      "attack_miss": [
+        "rápido demais pra você? ⚡😏",
+        "não adianta correr 🏃‍♂️💨⚡",
+        "o trovão SEMPRE alcança ⛈️"
+      ],
+      "attack_hit": [
+        "sentiu a descarga? ⚡😈",
+        "VOLTAGEM MÁXIMA 🔌💥",
+        "eletrizante não?? 😂⚡"
+      ],
+      "take_damage": [
+        "boa tentativa 👏",
+        "vou sentir isso amanhã 😬",
+        "continua assim... 😏"
+      ],
+      "take_critical": [
+        "CARAMBA 😱⚡",
+        "isso foi ELÉTRICO 💀💥",
+        "tá tentando me dar choque também?? 😭😂"
+      ],
+      "player_near_death": [
+        "o ranking vai subir hoje 📈😈",
+        "nada pessoal viu 🤷‍♂️⚡",
+        "acaba logo não gosto de sofrimento 😮‍💨"
+      ],
+      "enemy_near_death": [
+        "tempestade ainda não passou ⛈️😤",
+        "você não viu NADA ainda ⚡💢",
+        "hora de acelerar 🚀⚡"
+      ],
+      "defeat": [
+        "a tempestade... passou... ⛈️😶",
+        "não pode ser... ⚡💀",
+        "você... venceu. 😤👏"
+      ]
+    },
+    "album": {
+      "cargoId": 206,
+      "faccaoId": null,
+      "territorioId": null
     }
   },
   {
-    "id": "stormbyte",
+    "id": 2004,
     "name": "Traça",
     "rank": 847,
-    "stats": { "A": 3, "H": 5, "R": 13, "D": 3 },
-    "pv_max": 26, "pm_max": 52,
-    "weapon": "lamina_corrente", "weapon_damage": 3,
-    "elemental": "trevas", "preferred_mode": "power",
+    "stats": {
+      "A": 3,
+      "H": 5,
+      "R": 13,
+      "D": 3
+    },
+    "pv_max": 26,
+    "pm_max": 52,
+    "weapon": "lamina_corrente",
+    "weapon_damage": 3,
+    "elemental": "trevas",
+    "preferred_mode": "power",
     "ai_pattern": "evasivo",
-    "difficulty": "medium", "tier": 2,
+    "difficulty": "medium",
+    "tier": 2,
     "notes": "Clona cartão, invade câmera, some antes da polícia chegar — trabalha pra quem paga mais. Nenhuma gangue confia nele, mas todas precisam dele.",
     "trash_talk": {
-      "attack_miss": ["erro 404: ataque não encontrado 💀😂", "debugando sua estratégia... FALHA DETECTADA 🖥️😏", "seu padrão é previsível demais 🤖"],
-      "attack_hit": ["dano registrado no log 📋😈", "VULNERABILIDADE EXPLORADA 💻🔥", "patch note: você perdeu 😂💀"],
-      "take_damage": ["isso não vai me crashar 😒💻", "firewall aguentou 🛡️", "precisa de mais processamento 🖥️😤"],
-      "take_critical": ["SISTEMA SOBRECARREGADO 🚨💢", "isso... não estava no algoritmo 😳", "exceção não tratada 💀💻"],
-      "player_near_death": ["seu HP se aproxima de zero 📉💀", "log de derrota sendo gerado... 🖥️😈", "sessão encerrando em 3... 2... ⏳😂"],
-      "enemy_near_death": ["reboot em andamento 🔄😤", "ainda tenho exploits 💻😏", "você não vai me dar shutdown 😡🔌"],
-      "defeat": ["SISTEMA... FALHA CRÍTICA... 🚨💀", "reboot... falhou... 🔄😶", "você hackeou... o hacker... 💻😈"]
+      "attack_miss": [
+        "erro 404: ataque não encontrado 💀😂",
+        "debugando sua estratégia... FALHA DETECTADA 🖥️😏",
+        "seu padrão é previsível demais 🤖"
+      ],
+      "attack_hit": [
+        "dano registrado no log 📋😈",
+        "VULNERABILIDADE EXPLORADA 💻🔥",
+        "patch note: você perdeu 😂💀"
+      ],
+      "take_damage": [
+        "isso não vai me crashar 😒💻",
+        "firewall aguentou 🛡️",
+        "precisa de mais processamento 🖥️😤"
+      ],
+      "take_critical": [
+        "SISTEMA SOBRECARREGADO 🚨💢",
+        "isso... não estava no algoritmo 😳",
+        "exceção não tratada 💀💻"
+      ],
+      "player_near_death": [
+        "seu HP se aproxima de zero 📉💀",
+        "log de derrota sendo gerado... 🖥️😈",
+        "sessão encerrando em 3... 2... ⏳😂"
+      ],
+      "enemy_near_death": [
+        "reboot em andamento 🔄😤",
+        "ainda tenho exploits 💻😏",
+        "você não vai me dar shutdown 😡🔌"
+      ],
+      "defeat": [
+        "SISTEMA... FALHA CRÍTICA... 🚨💀",
+        "reboot... falhou... 🔄😶",
+        "você hackeou... o hacker... 💻😈"
+      ]
+    },
+    "album": {
+      "cargoId": 206,
+      "faccaoId": null,
+      "territorioId": null
     }
   },
   {
-    "id": "viran",
+    "id": 2005,
     "name": "Cascudo",
     "rank": 156,
-    "stats": { "A": 5, "H": 5, "R": 10, "D": 5 },
-    "pv_max": 30, "pm_max": 30,
-    "weapon": "maos", "weapon_damage": 5,
-    "elemental": "terra", "preferred_mode": "fists",
+    "stats": {
+      "A": 5,
+      "H": 5,
+      "R": 10,
+      "D": 5
+    },
+    "pv_max": 30,
+    "pm_max": 30,
+    "weapon": "maos",
+    "weapon_damage": 5,
+    "elemental": "terra",
+    "preferred_mode": "fists",
     "ai_pattern": "mestre",
-    "difficulty": "hard", "tier": 3,
+    "difficulty": "hard",
+    "tier": 3,
     "notes": "Treinou metade dos capoeiristas de rua de Marelia num terreiro sem placa. Defesa impenetrável — ninguém encosta nele sem pedir licença primeiro.",
     "trash_talk": {
-      "attack_miss": ["você precisa alinhar o centro 🧘‍♂️", "respire. foque. 🌿😤", "a pressa é inimiga da precisão ⏳"],
-      "attack_hit": ["técnica impecável. quase. 🗿", "a montanha não se move ⛰️😌", "o chão não treme por qualquer um 🌍"],
-      "take_damage": ["isso é bom. continue. 😤🙏", "aprendendo com a dor 💪", "cada golpe ensina algo 🧠"],
-      "take_critical": ["HA! FINALMENTE 😤🔥", "você tem disciplina 🫡", "o discípulo supera o mestre? 👀😳"],
-      "player_near_death": ["a luta já ensinou o que precisava 🙏", "não há vergonha em recuar 🌿", "você lutou bem. descanse. 😌"],
-      "enemy_near_death": ["a rocha ainda não rachou ⛰️😤", "minha defesa É meu ataque 🛡️", "o Dojô não cai 🏯💢"],
-      "defeat": ["o discípulo... superou... 👀😌", "você honrou o Dojô 🏯🙏", "siga em frente. 🛤️"]
+      "attack_miss": [
+        "você precisa alinhar o centro 🧘‍♂️",
+        "respire. foque. 🌿😤",
+        "a pressa é inimiga da precisão ⏳"
+      ],
+      "attack_hit": [
+        "técnica impecável. quase. 🗿",
+        "a montanha não se move ⛰️😌",
+        "o chão não treme por qualquer um 🌍"
+      ],
+      "take_damage": [
+        "isso é bom. continue. 😤🙏",
+        "aprendendo com a dor 💪",
+        "cada golpe ensina algo 🧠"
+      ],
+      "take_critical": [
+        "HA! FINALMENTE 😤🔥",
+        "você tem disciplina 🫡",
+        "o discípulo supera o mestre? 👀😳"
+      ],
+      "player_near_death": [
+        "a luta já ensinou o que precisava 🙏",
+        "não há vergonha em recuar 🌿",
+        "você lutou bem. descanse. 😌"
+      ],
+      "enemy_near_death": [
+        "a rocha ainda não rachou ⛰️😤",
+        "minha defesa É meu ataque 🛡️",
+        "o Dojô não cai 🏯💢"
+      ],
+      "defeat": [
+        "o discípulo... superou... 👀😌",
+        "você honrou o Dojô 🏯🙏",
+        "siga em frente. 🛤️"
+      ]
+    },
+    "album": {
+      "cargoId": 206,
+      "faccaoId": null,
+      "territorioId": null
     }
   },
   {
-    "id": "campeao",
+    "id": 2006,
     "name": "Quebra-Queixo",
     "rank": 47,
-    "stats": { "A": 6, "H": 5, "R": 12, "D": 4 },
-    "pv_max": 36, "pm_max": 36,
-    "weapon": "punhos", "weapon_damage": 6,
-    "elemental": "neutro", "preferred_mode": "fists",
+    "stats": {
+      "A": 6,
+      "H": 5,
+      "R": 12,
+      "D": 4
+    },
+    "pv_max": 36,
+    "pm_max": 36,
+    "weapon": "punhos",
+    "weapon_damage": 6,
+    "elemental": "neutro",
+    "preferred_mode": "fists",
     "ai_pattern": "campeao",
-    "difficulty": "hard", "tier": 3,
+    "difficulty": "hard",
+    "tier": 3,
     "notes": "Ninguém no rachão clandestino de Marelia nunca colocou esse cara no chão. Defende o título há anos, na porrada.",
     "trash_talk": {
-      "attack_miss": ["você é LENTO 😴💀", "já lutei com gente mais rápida 🙄", "tá com medo de acertar?? 😂"],
-      "attack_hit": ["ESSE foi de verdade 👊💥", "socos que contam 😈", "nocaute técnico. próximo. 🏆"],
-      "take_damage": ["isso é sparring 😒💪", "meu queixo é de ferro 🗿", "continua tentando lol 😏"],
-      "take_critical": ["AGORA SIM!!! 😤🔥", "faz tempo que não sangrava 😳", "você tem meu respeito 🫡👊"],
-      "player_near_death": ["fica de pé 😤", "não me decepcione agora 👀", "o público quer ver sangue 😈🩸"],
-      "enemy_near_death": ["o campeão não cai fácil 😡🏆", "EU SOU o ranking 👑", "ninguém tira esse cinturão 🏆💢"],
-      "defeat": ["perdi... o cinturão... 🏆💔", "você mereceu. 👊😤", "volto mais forte. 🏆🔥"]
+      "attack_miss": [
+        "você é LENTO 😴💀",
+        "já lutei com gente mais rápida 🙄",
+        "tá com medo de acertar?? 😂"
+      ],
+      "attack_hit": [
+        "ESSE foi de verdade 👊💥",
+        "socos que contam 😈",
+        "nocaute técnico. próximo. 🏆"
+      ],
+      "take_damage": [
+        "isso é sparring 😒💪",
+        "meu queixo é de ferro 🗿",
+        "continua tentando lol 😏"
+      ],
+      "take_critical": [
+        "AGORA SIM!!! 😤🔥",
+        "faz tempo que não sangrava 😳",
+        "você tem meu respeito 🫡👊"
+      ],
+      "player_near_death": [
+        "fica de pé 😤",
+        "não me decepcione agora 👀",
+        "o público quer ver sangue 😈🩸"
+      ],
+      "enemy_near_death": [
+        "o campeão não cai fácil 😡🏆",
+        "EU SOU o ranking 👑",
+        "ninguém tira esse cinturão 🏆💢"
+      ],
+      "defeat": [
+        "perdi... o cinturão... 🏆💔",
+        "você mereceu. 👊😤",
+        "volto mais forte. 🏆🔥"
+      ]
+    },
+    "album": {
+      "cargoId": 206,
+      "faccaoId": null,
+      "territorioId": null
     }
   },
   {
-    "id": "kronos",
+    "id": 2007,
     "name": "O Coveiro",
     "rank": 3,
-    "stats": { "A": 7, "H": 7, "R": 25, "D": 6 },
-    "pv_max": 50, "pm_max": 100,
-    "weapon": null, "weapon_damage": 0,
-    "elemental": "trevas", "preferred_mode": "power",
+    "stats": {
+      "A": 7,
+      "H": 7,
+      "R": 25,
+      "D": 6
+    },
+    "pv_max": 50,
+    "pm_max": 100,
+    "weapon": null,
+    "weapon_damage": 0,
+    "elemental": "trevas",
+    "preferred_mode": "power",
     "ai_pattern": "primordial",
-    "difficulty": "very_hard", "tier": 4,
+    "difficulty": "very_hard",
+    "tier": 4,
     "notes": "Ninguém sabe o nome dele nem viu o rosto — só sabe que manda em toda Marelia de dentro das sombras. Poder incomensurável.",
     "trash_talk": {
-      "attack_miss": ["você ousa desafiar quem manda aqui? 🌑😐", "anos nesse jogo e é isso que mandam pra mim? 😒⏳", "sua luz não alcança aqui 🌑"],
-      "attack_hit": ["sinta o peso de quem manda 💀", "cada golpe meu é uma sentença 🌌😈", "essa cidade me obedece ⏰😏"],
-      "take_damage": ["curioso. você fere o Coveiro. 😳⏳", "isso dói? já esqueci a dor 🌑", "interessante. continue. 👁️"],
-      "take_critical": ["DOR. FINALMENTE. 😤💢⏳", "há anos não sentia isso 😳🌌", "você... é real. 👁️😨"],
-      "player_near_death": ["você será esquecido como todos 🌑⏳", "sua história termina aqui 💀🌌", "a sombra te recebe 🌑😈"],
-      "enemy_near_death": ["EU SOU MARELIA 😡⏳💢", "você não pode matar o que sempre mandou 🌌", "meu comando NÃO termina ♾️😤"],
-      "defeat": ["o comando... me escapou... ⏳💀", "você desfez o esquema... ♾️😶", "finalmente... descanso... 🌑😌"]
+      "attack_miss": [
+        "você ousa desafiar quem manda aqui? 🌑😐",
+        "anos nesse jogo e é isso que mandam pra mim? 😒⏳",
+        "sua luz não alcança aqui 🌑"
+      ],
+      "attack_hit": [
+        "sinta o peso de quem manda 💀",
+        "cada golpe meu é uma sentença 🌌😈",
+        "essa cidade me obedece ⏰😏"
+      ],
+      "take_damage": [
+        "curioso. você fere o Coveiro. 😳⏳",
+        "isso dói? já esqueci a dor 🌑",
+        "interessante. continue. 👁️"
+      ],
+      "take_critical": [
+        "DOR. FINALMENTE. 😤💢⏳",
+        "há anos não sentia isso 😳🌌",
+        "você... é real. 👁️😨"
+      ],
+      "player_near_death": [
+        "você será esquecido como todos 🌑⏳",
+        "sua história termina aqui 💀🌌",
+        "a sombra te recebe 🌑😈"
+      ],
+      "enemy_near_death": [
+        "EU SOU MARELIA 😡⏳💢",
+        "você não pode matar o que sempre mandou 🌌",
+        "meu comando NÃO termina ♾️😤"
+      ],
+      "defeat": [
+        "o comando... me escapou... ⏳💀",
+        "você desfez o esquema... ♾️😶",
+        "finalmente... descanso... 🌑😌"
+      ]
+    },
+    "album": {
+      "cargoId": 206,
+      "faccaoId": null,
+      "territorioId": null
     }
   },
   {
-    "id": "primordial_jack",
+    "id": 2008,
     "name": "Breu",
     "rank": 1,
-    "stats": { "A": 8, "H": 6, "R": 30, "D": 5 },
-    "pv_max": 60, "pm_max": 120,
-    "weapon": "bengala", "weapon_damage": 5,
-    "elemental": "fogo", "preferred_mode": "power",
+    "stats": {
+      "A": 8,
+      "H": 6,
+      "R": 30,
+      "D": 5
+    },
+    "pv_max": 60,
+    "pm_max": 120,
+    "weapon": "bengala",
+    "weapon_damage": 5,
+    "elemental": "fogo",
+    "preferred_mode": "power",
     "ai_pattern": "primordial",
-    "difficulty": "very_hard", "tier": 4,
+    "difficulty": "very_hard",
+    "tier": 4,
     "notes": "Luta com chama negra nos punhos, ninguém sabe explicar como. O nome no topo de todo ranking clandestino de Marelia.",
     "trash_talk": {
-      "attack_miss": ["tá com medo do escuro? 🔥😏", "essa cidade é MINHA casa 👑🔥", "você não dura um round 💀😂"],
-      "attack_hit": ["as chamas não perdoam 🔥😈", "isso é SÓ o começo 🔥💥", "black flame. lembra desse nome. 🖤🔥"],
-      "take_damage": ["você tem garra 😤👏", "talvez você sobreviva 🤔🔥", "não é todo dia que alguém me acerta 😳"],
-      "take_critical": ["...faz tempo que ninguém fazia isso 😳💀", "você não é qualquer um 👀🔥", "ok. vou levar a sério agora. 😤🖤"],
-      "player_near_death": ["acorda. ainda não acabou. 😤🔥", "eu não luto com fracos 👑", "levanta. me enfrenta de novo. 🔥💢"],
-      "enemy_near_death": ["isso... não pode estar acontecendo 😱🔥", "eu sou O REI DESSA RUA 😡🖤🔥", "NINGUÉM ME VENCE 💀👑🔥"],
-      "defeat": ["as chamas... se apagaram... 🖤😶", "você é... o novo rei... 👀🔥", "talvez exista esperança. 🕯️"]
+      "attack_miss": [
+        "tá com medo do escuro? 🔥😏",
+        "essa cidade é MINHA casa 👑🔥",
+        "você não dura um round 💀😂"
+      ],
+      "attack_hit": [
+        "as chamas não perdoam 🔥😈",
+        "isso é SÓ o começo 🔥💥",
+        "black flame. lembra desse nome. 🖤🔥"
+      ],
+      "take_damage": [
+        "você tem garra 😤👏",
+        "talvez você sobreviva 🤔🔥",
+        "não é todo dia que alguém me acerta 😳"
+      ],
+      "take_critical": [
+        "...faz tempo que ninguém fazia isso 😳💀",
+        "você não é qualquer um 👀🔥",
+        "ok. vou levar a sério agora. 😤🖤"
+      ],
+      "player_near_death": [
+        "acorda. ainda não acabou. 😤🔥",
+        "eu não luto com fracos 👑",
+        "levanta. me enfrenta de novo. 🔥💢"
+      ],
+      "enemy_near_death": [
+        "isso... não pode estar acontecendo 😱🔥",
+        "eu sou O REI DESSA RUA 😡🖤🔥",
+        "NINGUÉM ME VENCE 💀👑🔥"
+      ],
+      "defeat": [
+        "as chamas... se apagaram... 🖤😶",
+        "você é... o novo rei... 👀🔥",
+        "talvez exista esperança. 🕯️"
+      ]
+    },
+    "album": {
+      "cargoId": 206,
+      "faccaoId": null,
+      "territorioId": null
     }
   }
 ]

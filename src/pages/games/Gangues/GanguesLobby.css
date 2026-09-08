@@ -263,6 +263,16 @@
 }
 .gang-lobby .gang-home-actions__play--top b { color: var(--bg-primary); font-size: 1.1rem; }
 
+/* Acesso ao Álbum de Marélia — secundário, logo abaixo do play. */
+.gang-lobby .gang-lobby-album {
+  width: 100%; min-height: 46px; margin-top: 8px; padding: 0 16px;
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  border: 1px solid var(--border-color); background: transparent; color: var(--text-secondary);
+  font: 800 .72rem var(--font-mono); letter-spacing: .1em; text-transform: uppercase;
+  clip-path: polygon(0 0, calc(100% - 9px) 0, 100% 9px, 100% 100%, 0 100%);
+}
+.gang-lobby .gang-lobby-album b { margin-left: auto; color: var(--if-amber); }
+
 /* Elenco em carrossel — reaproveita o visual do recrutamento (.gang-fighter-card
    e companhia), só mais baixo pois não tem cabeçalho de texto acima. */
 /* Mesma altura/posição de .gang-recruit__stage do recrutamento (390px, sem

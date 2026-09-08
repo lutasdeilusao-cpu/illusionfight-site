@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — MAPA DO SITE E DO PROJETO
 
 > Referência do estado atual do projeto para navegação humana e contexto de IA.
-> Atualizado em 2026-09-07 — `SITE_VERSION` **10.279.0**.
+> Atualizado em 2026-09-07 — `SITE_VERSION` **10.279.16**.
 > Histórico de tarefas, bugfixes e pendências não pertence a este documento.
 > Regras de trabalho, arquivos proibidos e decisões arquiteturais: `AGENTS.md`.
 
@@ -386,11 +386,11 @@ Fonte única: `src/config/version.js`. Esta tabela registra somente a identifica
 
 | Constante | Módulo | Versão |
 |---|---|---:|
-| `SITE_VERSION` | Site global | **10.279.0** |
+| `SITE_VERSION` | Site global | **10.279.16** |
 | `PP_VERSION` | Pesadelo Particular | 2.3.1 |
 | `LDI_VERSION` | Lendas do LDI | 2.0.1 |
 | `JACK_VERSION` | Jack Dream Beer | 5.3.2 |
-| `GANGUES_VERSION` | LDI Gangues | 2.65.1 |
+| `GANGUES_VERSION` | LDI Gangues | 2.66.0 |
 | `TAMA_VERSION` | Tamagoshi LDI | 3.4.1 |
 | `DUELO_VERSION` | Duelo LDI | 2.8.1 |
 | `MINIGAMES_VERSION` | MiniGames | 4.3.4 |
@@ -426,3 +426,4 @@ Fonte única: `src/config/version.js`. Esta tabela registra somente a identifica
 | SEO indexável | `public/sitemap.xml` e `scripts/prerender-routes.js` |
 | Mapa detalhado do Arena Testbed | `src/pages/lab/Prototype/ArenaTestbed/ARENATESTBED_MAPA.md` |
 | Regras e estado atual do LDI Gangues | `src/pages/games/Gangues/GANGUES_DESIGN.md` |
+| Lore / GDD do LDI Gangues (mundo, facções, Álbum de Marélia, itens) | `docs/Games/Gangues/LDI_GANGUES_GDD.md` |
