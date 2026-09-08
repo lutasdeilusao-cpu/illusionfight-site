@@ -348,6 +348,8 @@
   "346": "regrasFicha.js",
   "347": "ContoCapitulo.jsx",
   "348": "ContoHistoria.jsx",
+  "349": "Quiz.jsx",
+  "350": "MazeRafael.jsx",
   "351": "sanguinaria.js",
   "352": "LDINotification.jsx",
   "353": "@vitejs/plugin-react-oxc",
@@ -411,16 +413,13 @@
   "411": "GanguesVictory.jsx",
   "412": "ganguesTerritorios.js",
   "413": "Jokempo.jsx",
+  "414": "Universo.jsx",
   "416": "BLOCO C — STEAM",
   "417": "A10. ESTRATÉGIA DE MONETIZAÇÃO DO YOUTUBE — DOUTRINA OFICIAL",
   "418": "Phase2Customize.jsx",
-  "421": "GanguesActionOrb.jsx",
   "422": "BLOCO F — PROGRAMA DE PARCEIROS DE CONTEÚDO",
   "423": "GanguesLobby.jsx",
   "424": "BLOCO G — NUNTIUS GAMES — POSICIONAMENTO INSTITUCIONAL",
-  "425": "PowerCard.jsx",
-  "426": "Jokempo.jsx",
   "427": "Leaderboard.jsx",
-  "428": "LDINotification.jsx",
-  "429": "drawCombatBoard"
+  "428": "LDINotification.jsx"
 }

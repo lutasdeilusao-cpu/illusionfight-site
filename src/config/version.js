@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.279.12'
+export const SITE_VERSION = '10.279.13'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '2.64.0' // ui: botao MODO AUTOMATICO saiu da barra do topo e foi pro menu da bolinha de acao (Atacar/Poder/Item) - pedido do Isaias, o cara ve toda vez que vai atacar. Aparece pra TODO mundo (chamariz de assinatura). Estrutura pronta pra virar premium: MODO_AUTO_EXIGE_ASSINATURA=true -> non-assinante ve o botao com coroa 👑 e o toque vai pro /assinar (toggleModoAuto). Auto pausa no KO ja estava (2.63.0).
+export const GANGUES_VERSION   = '2.64.1' // ui: botao vermelho 'Sair do automatico' flutuando FIXO acima de tudo (z-index 1450, inclusive por cima do overlay de KO) sempre que o auto esta ligado - antes so tinha como sair pelo menu da bolinha na vez do jogador. Um toque = volta pro manual, a acao/round em andamento termina sozinho (nao aborta a luta).
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
 export const MINIGAMES_VERSION = '4.3.4'  // Glitch: safe-area lateral no grid-wrap

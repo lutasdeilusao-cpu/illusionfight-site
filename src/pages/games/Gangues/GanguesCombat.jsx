@@ -780,8 +780,14 @@ export default function GanguesCombat({ onNavigate }) {
 
       {!modoMultidaoAtivo && machine.phase === 'player' && !result && <GanguesCombatTutorial />}
 
-      {!modoMultidaoAtivo && machine.phase === 'player' && !result && modoAutoOn && (
-        <div className="gang-auto-aviso">{t('games.gangues.auto.ativo_aviso')}</div>
+      {/* Saída do automático — flutua acima de tudo enquanto o auto está
+          ligado (não só na vez do jogador). Um toque volta pro manual; a
+          ação/round em andamento resolve sozinho (o efeito de auto-ataque
+          já para de enfileirar assim que modoAutoOn vira false). */}
+      {!modoMultidaoAtivo && modoAutoOn && !result && (
+        <button type="button" className="gang-auto-sair" onClick={() => setModoAutoOn(false)}>
+          <b>■</b>{t('games.gangues.auto.sair')}
+        </button>
       )}
 
       {!modoMultidaoAtivo && machine.phase === 'player' && !result && (

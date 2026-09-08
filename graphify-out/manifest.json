@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1788811820.2355175,
-    "ast_hash": "af47605ef0bb17a5c6526562e1d1daa1",
+    "mtime": 1788822431.944791,
+    "ast_hash": "8e3ec6c508fc7f36f671c2d4305c99a3",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2745,8 +2745,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1788811820.2723446,
-    "ast_hash": "42cd8d8947a289c84bac5e1fd0b9a41b",
+    "mtime": 1788822431.9804914,
+    "ast_hash": "76a95ebdd8b168f588275ce51be00f22",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3475,8 +3475,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/GanguesCombat.jsx": {
-    "mtime": 1788811726.281033,
-    "ast_hash": "969033b404d1878d7c26f8914d524fa7",
+    "mtime": 1788822410.0131567,
+    "ast_hash": "b93fa1cc217b34efc98b4093317d563e",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/GanguesCreate.jsx": {
@@ -3550,18 +3550,18 @@
     "semantic_hash": ""
   },
   "src/i18n/gangues-en.json": {
-    "mtime": 1788811777.368627,
-    "ast_hash": "aeffdb0b3db5c4c65c60b43dd3d9d07d",
+    "mtime": 1788822393.9687934,
+    "ast_hash": "e573d1bcf5dc9ba5a07bc10438cce75b",
     "semantic_hash": ""
   },
   "src/i18n/gangues-es.json": {
-    "mtime": 1788811781.173513,
-    "ast_hash": "48c06e4301d9f71644912e67e26095fe",
+    "mtime": 1788822399.611248,
+    "ast_hash": "af65154430a9846ed04a868992e9e5e5",
     "semantic_hash": ""
   },
   "src/i18n/gangues-pt.json": {
-    "mtime": 1788811773.621335,
-    "ast_hash": "54258b06e1b2e1530ea7d0a9e6908dcf",
+    "mtime": 1788822389.5463085,
+    "ast_hash": "04deaeaeb226c8cfdfc3109d5345ecd7",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/hooks/useGanguesI18n.js": {
@@ -4860,8 +4860,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/GanguesActionOrb.jsx": {
-    "mtime": 1788754539.1780694,
-    "ast_hash": "541caddbf0be7b4d306f96aea47f2977",
+    "mtime": 1788822331.2294831,
+    "ast_hash": "45c566b935c8535db84f9038910edab4",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/ganguesItens.js": {

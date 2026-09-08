@@ -2123,6 +2123,25 @@
   color: var(--if-cyan); font: 800 0.62rem var(--font-mono);
   letter-spacing: 0.1em; text-transform: uppercase; text-align: center;
 }
+
+/* Botão de saída do modo automático — flutua acima de TUDO (inclusive o
+   overlay de KO, z-index 1300), sempre presente enquanto o auto está ligado.
+   Um toque = volta pro manual (a ação em andamento termina sozinha). */
+.gang-auto-sair {
+  position: fixed; z-index: 1450; top: 60px; left: 50%; transform: translateX(-50%);
+  display: flex; align-items: center; gap: 8px;
+  padding: 9px 16px; cursor: pointer;
+  border: 1px solid #ff5a5a; background: linear-gradient(160deg, #3a0e0e, #1c0606 85%);
+  color: #ff9a9a; font: 800 0.68rem var(--font-mono); letter-spacing: 0.12em; text-transform: uppercase;
+  box-shadow: 0 0 26px -4px rgba(255, 70, 70, 0.7), 0 8px 22px rgba(0,0,0,0.55);
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
+  animation: gang-auto-sair-pulse 1.4s ease-in-out infinite;
+}
+.gang-auto-sair b { font-size: 0.8rem; color: #ff5a5a; }
+@keyframes gang-auto-sair-pulse {
+  50% { box-shadow: 0 0 34px 0 rgba(255, 70, 70, 0.85), 0 8px 22px rgba(0,0,0,0.55); }
+}
+@media (prefers-reduced-motion: reduce) { .gang-auto-sair { animation: none; } }
 .gang2-enemy-thinking strong { color: var(--if-amber); font-size: 10px; letter-spacing: 2px; }
 .gang2-enemy-thinking small { grid-column: 2; color: #667078; font-size: 8px; letter-spacing: 1px; text-transform: none; }
 .gang-thinking-pulse { grid-row: span 2; width: 10px; height: 10px; margin-right: 12px; border-radius: 50%; background: var(--if-amber); box-shadow: 0 0 12px var(--if-amber); animation: gang-thinking 0.8s ease-in-out infinite alternate; }
