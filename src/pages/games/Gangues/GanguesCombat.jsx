@@ -207,9 +207,24 @@ export default function GanguesCombat({ onNavigate }) {
     koAtivoRef.current = true
     setKoCena(next)
     sfx.explosion?.()
-    koTimerRef.current = setTimeout(() => dispararProximoKo(), 1700)
+    // Aliado caindo fica MAIS tempo na tela (pedido do Isaias — precisa ser
+    // bem sinalizado); inimigo pode ser rapidinho.
+    koTimerRef.current = setTimeout(() => dispararProximoKo(), next.side === 'enemy' ? 1500 : 3000)
   }, [])
   useEffect(() => () => clearTimeout(koTimerRef.current), [])
+
+  // Shake + som de crítico — dispara toda vez que um golpe crítico resolve
+  // (qualquer lado). Ver .gang-combat-fx--shake e sfx.attackCritical.
+  const [critShake, setCritShake] = useState(false)
+  const critShakeTimerRef = useRef(null)
+  const dispararCriticoFx = useCallback(() => {
+    sfx.attackCritical?.()
+    setCritShake(false)
+    requestAnimationFrame(() => setCritShake(true))
+    clearTimeout(critShakeTimerRef.current)
+    critShakeTimerRef.current = setTimeout(() => setCritShake(false), 450)
+  }, [])
+  useEffect(() => () => clearTimeout(critShakeTimerRef.current), [])
 
   // ── Modo Automático: liga e os personagens atacam sozinhos com o ataque
   // normal, sempre — quem quiser usar poder tem que desligar e voltar pro
@@ -355,6 +370,8 @@ export default function GanguesCombat({ onNavigate }) {
     const newEvents = machine.events.slice(processedEvents.current)
     processedEvents.current = machine.events.length
     eventosBrutosRef.current = [...eventosBrutosRef.current, ...newEvents]
+
+    if (newEvents.some(event => event.type === 'attack' && event.result?.critical)) dispararCriticoFx()
 
     setLog(prev => {
       let next = prev
@@ -606,6 +623,7 @@ export default function GanguesCombat({ onNavigate }) {
         )}
       </AnimatePresence>
 
+      <div className={`gang-combat-fx${critShake ? ' gang-combat-fx--shake' : ''}`}>
       <div className="gang-vs-bar">
         <button className="gang-vs-bar-back" onClick={() => onNavigate('territorio')}>{t('games.gangues.btn_sair')}</button>
         <div className="gang-vs-bar-line" />
@@ -807,6 +825,7 @@ export default function GanguesCombat({ onNavigate }) {
         />
       )}
       {!modoMultidaoAtivo && machine.phase === 'enemy' && !machine.pending && <div className="gang2-enemy-thinking"><span className="gang-thinking-pulse" /><strong>{t('games.gangues.report.enemy_thinking')}</strong><small>{t('games.gangues.report.enemy_strategy')}</small></div>}
+      </div>
     </div>
   )
 }
