@@ -216,7 +216,7 @@ ferro-velho** (portão trancado, guarda sucata e segredo) · **O beco da Rasteir
 de briga, opcional) · **A birosca do Seu Nato** (o único adulto confiável do
 bairro, dá descanso) · **A loja da Pista** (primeiro comércio de equipamento).
 
-**Balanço (v2.68.0):** a primeira treta (`molecada_1`) puxa 1 a 4 corpos
+**Balanço (v2.68.0):** a primeira treta (`beco`) puxa 1 a 4 corpos
 sorteados dos 11 comuns da Pista — tipo e quantidade mudam a cada tentativa —
 num `ratio` de 0.42 (fácil de propósito, ~97% de vitória). O bando escala com os
 pontos do time e o `ratio` sobe bairro por bairro até a Laje (0.74), pra o jogo
@@ -306,7 +306,7 @@ Shape canônico:
   "elemento": null,
   "album": {
     "titulo": "Ratazana",
-    "linha": "Molecada de ponto — a primeira treta de verdade.",
+    "linha": "Cria de ponto — a primeira treta de verdade da Pista.",
     "desbloqueadoEm": "primeira_vitoria"
   }
 }
@@ -350,7 +350,7 @@ Vende, sustenta a boca, cara a cara com o cliente. Dano baixo, mas em número.
 
 | ID | Nome | Território | Arma | Lore |
 |---|---|---|---|---|
-| 1201 ★ | Ratazana | Pista | facão | Molecada de ponto — a primeira treta de verdade. |
+| 1201 ★ | Ratazana | Pista | facão | Cria de ponto — a primeira treta de verdade da Pista. |
 | 1202 ★ | Brasa | Pista | estilingue | Copiava o Carvão até o apelido colar. |
 | 1203 | Chinelada | Pista | sandália reforçada | Briga suja, ataca 2× mais rápido, dano baixo. |
 | 1204 ★ | Choque | Feira | faca | Faz ligação clandestina, some no meio das bancas. |
@@ -378,7 +378,7 @@ Administra um ponto de verdade. Dano e defesa acima da média, disciplina própr
 
 | ID | Nome | Território | Arma | Lore |
 |---|---|---|---|---|
-| 1301 ★ | Cão Louco | Pista | corrente | Agressivo, um degrau acima da molecada comum. |
+| 1301 ★ | Cão Louco | Pista | corrente | Agressivo, um degrau acima da cria de ponto. |
 | 1302 | Riscado | Pista | canivete | Cicatrizes de quem já perdeu pra ele — troféus de guerra. |
 | 1303 | Mão de Cola | Pista | corrente curta | Rouba o que vê, não solta o que pega. |
 | 1304 ★ | Unha de Fome | Feira | porrete | Cobrador de rua — bate antes do chefe cobrar de verdade. |
@@ -430,7 +430,7 @@ fora das lutas de território. **Um por território** (a Laje tem dois).
 | ID | Nome | Território | Arma | Lore |
 |---|---|---|---|---|
 | 1451 | Sinaleiro Chefe | Pista | apito + cassetete | Comanda todos os vigias — se ele apita, o bairro corre. |
-| 1452 | Rasteira Velha | Pista | corrente | A mais antiga do Bonde do Sinal, treinou a molecada. |
+| 1452 | Rasteira Velha | Pista | corrente | A mais antiga do Bonde do Sinal, treinou os pivete novo. |
 | 1453 | Mão do Turco | Feira | porrete grande | Braço mais próximo do Cobrador, resolve o que ele não suja a mão. |
 | 1454 | Caixa Forte | Feira | cassetete de ferro | Guarda o dinheiro da Feira inteira. |
 | 1455 | Caco Maior | Baixada | faca ritual | O mais respeitado dos três cacos, quase reunificou a Baixada sozinho. |

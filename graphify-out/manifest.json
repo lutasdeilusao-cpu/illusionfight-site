@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1788892909.9420347,
-    "ast_hash": "fb7ee025e7fa56bc06b3063378c828f8",
+    "mtime": 1788900361.7324,
+    "ast_hash": "ef5b84892fe5ef7dba5bf313bcc462f6",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2745,8 +2745,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1788892909.9857326,
-    "ast_hash": "62f25d338854a0bde9f2ef7100507381",
+    "mtime": 1788900361.7872963,
+    "ast_hash": "e62c1f08e7db1211eafd0e4060a816e3",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -4765,8 +4765,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/cenas/pista.js": {
-    "mtime": 1788891459.7515683,
-    "ast_hash": "f05d502b16d630f195d291857b78e9de",
+    "mtime": 1788900284.7137518,
+    "ast_hash": "0c611fa7390e4f319c0ae5fbf0ff82e3",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/store/ganguesStoryProgress.js": {
@@ -4785,8 +4785,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/ganguesEncontros.js": {
-    "mtime": 1788890714.4696188,
-    "ast_hash": "c75e6ba555d252b08cd6147b821ca289",
+    "mtime": 1788900257.2225246,
+    "ast_hash": "d6132f0f00fb47abbc172883723088cb",
     "semantic_hash": ""
   },
   "ldi_gangues_30_personagens_v1.json": {
@@ -4885,8 +4885,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/GANGUES_MODO_HISTORIA_ENCONTROS.md": {
-    "mtime": 1788494836.4690087,
-    "ast_hash": "9bc9d199464e09163fb8bfacf86ba69c",
+    "mtime": 1788900336.352525,
+    "ast_hash": "dae79c494e3d7de0e6d1b1f4888708ea",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/GANGUES_PROGRESSAO_RASCUNHO.md": {
@@ -4895,8 +4895,8 @@
     "semantic_hash": ""
   },
   "docs/Games/Gangues/LDI_GANGUES_GDD.md": {
-    "mtime": 1788892892.8955288,
-    "ast_hash": "581d0c1bc1a864017d0ffc2eae3ccf23",
+    "mtime": 1788900353.5490158,
+    "ast_hash": "4614e2aefe24daf43d9a185b98b2562c",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/GanguesAlbum.jsx": {

@@ -2125,7 +2125,7 @@
             "sub": "gate on a padlock",
             "intro": "The gate's just a chain and an old padlock. The crew gets on the pick — whoever's got the hands works it, the rest watch the guard."
           },
-          "molecada_1": {
+          "beco": {
             "nome": "The Backstab Crew's alley",
             "fala": "This alley's ours, pal. The new gang doesn't get through for free."
           },
@@ -2171,7 +2171,7 @@
             "sub": "carry the package",
             "intro": "Cross the block with the package without stepping into the patrol car's beam. The crew spreads out and covers you."
           },
-          "molecada_2": {
+          "beco_2": {
             "nome": "The Backstab Crew's other spot",
             "fala": "You again?? Took the alley down there and thought this'd be easy too?"
           },

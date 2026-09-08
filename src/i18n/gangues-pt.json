@@ -1715,7 +1715,7 @@
             "sub": "portão no cadeado",
             "intro": "O portão é só corrente e um cadeado velho. A equipe se junta na gazua — quem tem mão boa trabalha, o resto fica de olho no vigia."
           },
-          "molecada_1": {
+          "beco": {
             "nome": "O beco da Rasteira",
             "fala": "Esse beco é nosso, parça. A gangue nova não passa daqui de graça."
           },
@@ -1761,7 +1761,7 @@
             "sub": "leva o pacote",
             "intro": "Atravessa a quadra com o pacote sem entrar no facho da viatura. A equipe se espalha e cobre teu movimento."
           },
-          "molecada_2": {
+          "beco_2": {
             "nome": "O outro ponto da Rasteira",
             "fala": "Cê de novo?? Bateu o beco lá embaixo e achou que ia ser fácil aqui também?"
           },
@@ -1797,7 +1797,7 @@
         "1119": "Último degrau antes da sala de costura — nada passa sem ser visto.",
         "1120": "Vê tudo que entra e sai da Laje, reporta direto ao Retalho.",
         "1121": "Avista Marélia inteira antes de qualquer ataque chegar.",
-        "1201": "Molecada de ponto — a primeira treta de verdade.",
+        "1201": "Cria de ponto — a primeira treta de verdade da Pista.",
         "1202": "Copiava o Carvão até o apelido colar.",
         "1203": "Briga suja, ataca rápido, dano baixo.",
         "1204": "Faz ligação clandestina de energia — some no meio das bancas.",
@@ -1818,7 +1818,7 @@
         "1219": "Recém-recrutado, ainda provando valor pro bonde.",
         "1220": "O único ponto de venda que resta no topo — pequeno, simbólico.",
         "1221": "Vende o que sobra da costura — retalho literal.",
-        "1301": "Agressivo, um degrau acima da molecada comum.",
+        "1301": "Agressivo, um degrau acima da cria de ponto.",
         "1302": "Cicatrizes de quem já perdeu pra ele — troféus de guerra.",
         "1303": "Rouba o que vê, não solta o que pega.",
         "1304": "Cobrador de rua — bate antes do chefe cobrar de verdade.",
@@ -1854,7 +1854,7 @@
         "1413": "Poucos ataques, mas certeiros.",
         "1414": "Fecha a conta de quem tenta subir sem pagar passagem.",
         "1451": "Comanda todos os vigias — se ele apita, o bairro corre.",
-        "1452": "A mais antiga do Bonde do Sinal, treinou a molecada.",
+        "1452": "A mais antiga do Bonde do Sinal, treinou os pivete novo.",
         "1453": "Braço mais próximo do Cobrador, resolve o que ele não suja a mão.",
         "1454": "Guarda o dinheiro da Feira inteira.",
         "1455": "O mais respeitado dos três cacos, quase reunificou a Baixada sozinho.",

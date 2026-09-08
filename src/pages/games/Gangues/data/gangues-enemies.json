@@ -1215,7 +1215,7 @@
     "ai_pattern": "básico",
     "difficulty": "easy",
     "tier": 0,
-    "notes": "Modo história, Pista, força 1 (3 pontos de atributo) — a primeira treta de verdade do jogo, logo após criar a ficha (5 pontos).",
+    "notes": "Cria de ponto — a primeira treta de verdade da Pista.",
     "trash_talk": {
       "attack_miss": [
         "quase, quase 😅",
@@ -2391,7 +2391,7 @@
     "ai_pattern": "agressivo",
     "difficulty": "easy",
     "tier": 0,
-    "notes": "Modo história, Pista, força 2 (5 pontos) — segunda treta, um degrau acima do primeiro da fila.",
+    "notes": "Agressivo, um degrau acima da cria de ponto.",
     "trash_talk": {
       "attack_miss": [
         "escapou dessa vez 😤",
@@ -4405,7 +4405,7 @@
     "ai_pattern": "tático",
     "difficulty": "hard",
     "tier": 0,
-    "notes": "A mais antiga do Bonde do Sinal, treinou a molecada.",
+    "notes": "A mais antiga do Bonde do Sinal, treinou os pivete novo.",
     "album": {
       "cargoId": 205,
       "faccaoId": 101,

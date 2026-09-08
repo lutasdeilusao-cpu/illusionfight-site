@@ -104,10 +104,10 @@ Cena com **6 POIs + chefe**, descobertos em ordem:
 |---|---|---|---|---|
 | 1 | **A boca do sinal** *(visível)* | Papo | moleque vendendo bala. Escolhas: *compra* (−trocado, ele solta info), *aperta ele* (treta fácil, −rep), *ignora* | revela #2 |
 | 2 | **O ferro-velho** | Parada | `PuzzleForça` (gazua no portão). Falha → o vigia acorda → treta | revela #3; achado dentro (grana + sucata=item) |
-| 3 | **O beco da Molecada da Pista** | Treta | 1º ponto de gangue de verdade | +rep, revela #4 |
+| 3 | **O beco da Rasteira** | Treta | 1º ponto de gangue de verdade | +rep, revela #4 |
 | 4 | **A birosca do Seu Nato** | Papo (hub) | o coroa da esquina (o mesmo "Nego Véio"). Dá 1 corre e conta onde o Fumaça tá | revela #5 e #6 |
 | 5 | **O corre do Nato** *(opcional)* | Corre | `PuzzleStealthGrid` (leva o pacote sem a viatura ver) | grana + rep |
-| 6 | **O outro ponto da Molecada** | Treta | 2º ponto | +rep |
+| 6 | **O outro ponto da Rasteira** | Treta | 2º ponto | +rep |
 | ★ | **BOSS: Fumaça** *(trancado)* | Treta | abre com #3 + #6 + (#2 ou #5) feitos | **A Pista dominada → A Feira abre** |
 
 **Experiência do jogador:** chega na Pista → só vê o farol e o ferro-velho →
@@ -265,7 +265,7 @@ diferentes, então dupla 100% glass é uma escolha consciente do jogador.
 
 ### 10.4 A primeira luta da Pista
 
-`molecada_1` (POI obrigatório) usa `dificuldade: 'facil'` → ratio 0.42. O bando
+`beco` (POI obrigatório) usa `dificuldade: 'facil'` → ratio 0.42. O bando
 vem dos 11 moldes comuns da Pista (Vigia/Vapor/Gerente/Cobrador), sorteados por
-slot: **tipo e quantidade (1 a 4 corpos) mudam a cada tentativa**. `molecada_2`
+slot: **tipo e quantidade (1 a 4 corpos) mudam a cada tentativa**. `beco_2`
 sobe pra `'normal'`. `'dificil'` fica reservado pros bairros de cima.

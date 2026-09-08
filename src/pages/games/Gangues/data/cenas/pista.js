@@ -65,10 +65,10 @@ export const CENA_PISTA = {
       puzzle: { type: 'forca', config: { difficulty: 'easy' }, skin: 'gazua' },
       recompensa: { grana: 12, xp: 6, item: 'sucata' },
       falha: { viraTreta: { enemy: 1201, recompensa: { grana: 3 } } },
-      revela: ['molecada_1'],
+      revela: ['beco'],
     },
     {
-      id: 'molecada_1',
+      id: 'beco',
       tipo: 'treta',
       // Continua OBRIGATÓRIA pra abrir o portão (portao.precisa) — repetivel
       // só faz ela continuar desafiável DEPOIS de vencida uma vez, igual a
@@ -77,7 +77,7 @@ export const CENA_PISTA = {
       // de ser recrutado e começa do nível 1.
       repetivel: true,
       pino: { x: 50, y: 132 },
-      i18n: 'games.gangues.cena.pista.molecada_1',
+      i18n: 'games.gangues.cena.pista.beco',
       // É a primeira treta de verdade do jogo, logo depois da criação da
       // ficha. O bando é sorteado na hora (GanguesRoute → gerarBandoInimigo)
       // dos 11 moldes comuns da Pista (Vigia/Vapor/Gerente/Cobrador), sempre
@@ -96,8 +96,8 @@ export const CENA_PISTA = {
       pino: { x: 62, y: 100 },
       i18n: 'games.gangues.cena.pista.birosca',
       escolhas: [
-        { id: 'aceita_corre', revela: ['corre', 'molecada_2', 'descanso'] },
-        { id: 'so_papo', revela: ['molecada_2', 'descanso'] },
+        { id: 'aceita_corre', revela: ['corre', 'beco_2', 'descanso'] },
+        { id: 'so_papo', revela: ['beco_2', 'descanso'] },
       ],
     },
     {
@@ -110,15 +110,15 @@ export const CENA_PISTA = {
       recompensa: { grana: 16, rep: 2 },
     },
     {
-      id: 'molecada_2',
+      id: 'beco_2',
       tipo: 'treta',
       // Regra geral (pedido do Isaias): todo evento de batalha da história
       // deve poder ser repetido pra upar, exceto o chefe. Continua
       // OBRIGATÓRIA vencer 1x pra abrir o portão (portao não depende dela
-      // aqui, mas fica revelada só depois de molecada_1+ferro+birosca).
+      // aqui, mas fica revelada só depois de beco+ferro+birosca).
       repetivel: true,
       pino: { x: 44, y: 48 },
-      i18n: 'games.gangues.cena.pista.molecada_2',
+      i18n: 'games.gangues.cena.pista.beco_2',
       // Segunda treta — um degrau acima da primeira: 'normal' (ratio 0.52 na
       // Pista) em vez de 'facil'. 'dificil' fica reservado pros bairros de
       // cima; aqui ainda é a rampa de entrada.
@@ -188,7 +188,7 @@ export const CENA_PISTA = {
       // Visível DESDE O COMEÇO (não só depois da birosca) — agora que PV/PM
       // persiste entre lutas (aplicarDanoPersistente), o jogador precisa de
       // um jeito de recuperar folego já nas primeiras tretas repetíveis
-      // (sinal/rinha), muito antes de molecada_1+ferro+birosca abrirem.
+      // (sinal/rinha), muito antes de beco+ferro+birosca abrirem.
       id: 'descanso',
       tipo: 'descanso',
       opcional: true,
@@ -219,7 +219,7 @@ export const CENA_PISTA = {
 
   // A área final só abre depois de todo o caminho obrigatório da Pista.
   portao: {
-    precisa: ['sinal', 'ferro', 'molecada_1', 'birosca', 'molecada_2'],
+    precisa: ['sinal', 'ferro', 'beco', 'birosca', 'beco_2'],
   },
 }
 

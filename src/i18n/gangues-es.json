@@ -2125,7 +2125,7 @@
             "sub": "portón con candado",
             "intro": "El portón es solo cadena y un candado viejo. El equipo se junta en la ganzúa — el que tiene mano buena labura, el resto vigila al sereno."
           },
-          "molecada_1": {
+          "beco": {
             "nome": "El callejón de la Traición",
             "fala": "Este callejón es nuestro, socio. La banda nueva no pasa gratis."
           },
@@ -2171,7 +2171,7 @@
             "sub": "llevá el paquete",
             "intro": "Cruzá la cuadra con el paquete sin entrar en el haz del patrullero. El equipo se abre y te cubre."
           },
-          "molecada_2": {
+          "beco_2": {
             "nome": "El otro punto de la Traición",
             "fala": "¿¿Vos de nuevo?? ¿Tomaste el callejón de abajo y pensaste que acá también iba a ser fácil?"
           },
