@@ -216,6 +216,13 @@ ferro-velho** (portão trancado, guarda sucata e segredo) · **O beco da Rasteir
 de briga, opcional) · **A birosca do Seu Nato** (o único adulto confiável do
 bairro, dá descanso) · **A loja da Pista** (primeiro comércio de equipamento).
 
+**Balanço (v2.68.0):** a primeira treta (`molecada_1`) puxa 1 a 4 corpos
+sorteados dos 11 comuns da Pista — tipo e quantidade mudam a cada tentativa —
+num `ratio` de 0.42 (fácil de propósito, ~97% de vitória). O bando escala com os
+pontos do time e o `ratio` sobe bairro por bairro até a Laje (0.74), pra o jogo
+"sempre ir igualando a ficha do jogador". Curva completa + resultados de
+simulação em `src/pages/games/Gangues/GANGUES_MODO_HISTORIA_ENCONTROS.md §10`.
+
 ### Território 2 — A Feira · Muvuca · `#7ee787`
 Facção: Acerto de Contas (103) / Os Gato (104). O comércio, os camelô, a luz de
 gato. Aqui não tem tiro — tem **dívida**. Primeiro território costurado pelo

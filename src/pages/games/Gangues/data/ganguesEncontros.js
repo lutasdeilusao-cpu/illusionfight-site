@@ -55,11 +55,20 @@ export const GANGUES_CHEFE_EQUIPE = {
   laje: [1600, 1463, 1464],
 }
 
-// Total de pontos do bando = pontos do jogador * esse fator. "normal" ~65%
-// deu, na simulação, algo entre "ralado" e "vencível" na maioria dos
-// tamanhos de time testados. "dificil"/"facil" alternam dentro do
-// território pra não empilhar luta puxada atrás de luta puxada.
-export const GANGUES_DIFICULDADE_RATIO = { facil: 0.5, normal: 0.65, dificil: 0.78 }
+// Total de pontos do bando = pontos do jogador × ratio. O ratio SOBE por
+// território ("sempre igualando a ficha do jogador" — pedido do Isaias): a
+// Pista dá ~metade dos teus pontos pro bando, a Laje dá ~três quartos. Sem
+// isso, um time que subiu de nível zerava os bairros de cima sem tomar dano.
+// Validado por simulação headless (3000 batalhas/célula, porta fiel do
+// resolver + turn machine) — a curva e a tabela de resultados estão em
+// src/pages/games/Gangues/GANGUES_MODO_HISTORIA_ENCONTROS.md §"Balanceamento".
+export const GANGUES_TERRITORIO_RATIO = {
+  pista: 0.52, feira: 0.58, baixada: 0.64, vila: 0.68,
+  morro: 0.70, alto: 0.72, laje: 0.74,
+}
+// facil/normal/dificil = deslocamento DENTRO do bairro, pra não empilhar luta
+// puxada atrás de luta puxada.
+export const GANGUES_DIFICULDADE_OFFSET = { facil: -0.10, normal: 0, dificil: 0.10 }
 
 export function calcularPontosTime(team) {
   return team.reduce((sum, m) => sum + ['A', 'H', 'R', 'D'].reduce((s, k) => s + (Number(m.attributes?.[k]) || 0), 0), 0)
@@ -113,10 +122,16 @@ export function gerarBandoInimigo({ territorioId, dificuldade = 'normal', player
   // mínimo de corpos acompanha o tamanho do seu time, não só o teto fixo
   // do território.
   const qtdMin = Math.max(config.min, Math.ceil(playerTeam.length * 0.6))
-  const qtdMax = Math.max(qtdMin, config.max)
+  // CAP de "action economy": o bando nunca tem muito mais corpos que o teu
+  // time. Sem isso, ratio alto vira 8-10 corpos, cada um agindo no turno, e a
+  // guerra de atrito flipa contra o jogador (a simulação mostrou 34 rodadas /
+  // 18% de vitória na Laje). Com o cap, cada corpo fica mais "gordo" — combina
+  // com a hierarquia de cargo (um Gerente pesa mais que um Vigia).
+  const qtdMax = Math.max(qtdMin, Math.min(config.max, playerTeam.length + 2))
   const qtd = qtdMin + Math.floor(Math.random() * (qtdMax - qtdMin + 1))
 
-  const ratio = GANGUES_DIFICULDADE_RATIO[dificuldade] || GANGUES_DIFICULDADE_RATIO.normal
+  const ratioBase = GANGUES_TERRITORIO_RATIO[territorioId] ?? 0.60
+  const ratio = Math.max(0.30, ratioBase + (GANGUES_DIFICULDADE_OFFSET[dificuldade] ?? 0))
   const totalAlvo = Math.max(qtd, Math.round(pontosJogador * ratio))
   const partes = distribuirPontos(totalAlvo, qtd)
 

@@ -79,12 +79,14 @@ export const CENA_PISTA = {
       pino: { x: 50, y: 132 },
       i18n: 'games.gangues.cena.pista.molecada_1',
       // É a primeira treta de verdade do jogo, logo depois da criação da
-      // ficha. O bando é sorteado na hora (GanguesRoute → gerarBandoInimigo,
-      // moldes da Pista) calibrado contra o time atual — nunca é sempre o
-      // mesmo inimigo/quantidade.
+      // ficha. O bando é sorteado na hora (GanguesRoute → gerarBandoInimigo)
+      // dos 11 moldes comuns da Pista (Vigia/Vapor/Gerente/Cobrador), sempre
+      // uma composição diferente — tipo e quantidade (1 a 4 corpos) variam a
+      // cada tentativa. `dificuldade: 'facil'` (ratio 0.42 na Pista) deixa a
+      // porta de entrada gentil: ~97% de vitória num time balanceado.
       enemy: 1201,
       forca: 1,
-      dificuldade: 'normal',
+      dificuldade: 'facil',
       recompensa: { grana: 8, rep: 2 },
       revela: ['birosca'],
     },
@@ -117,11 +119,12 @@ export const CENA_PISTA = {
       repetivel: true,
       pino: { x: 44, y: 48 },
       i18n: 'games.gangues.cena.pista.molecada_2',
-      // Segunda treta — dificuldade 'dificil' (o jogador já deve ter 1
-      // vitória de AP acumulado até chegar aqui).
+      // Segunda treta — um degrau acima da primeira: 'normal' (ratio 0.52 na
+      // Pista) em vez de 'facil'. 'dificil' fica reservado pros bairros de
+      // cima; aqui ainda é a rampa de entrada.
       enemy: 1301,
       forca: 2,
-      dificuldade: 'dificil',
+      dificuldade: 'normal',
       recompensa: { grana: 8, rep: 3 },
     },
     {
@@ -139,7 +142,7 @@ export const CENA_PISTA = {
       i18n: 'games.gangues.cena.pista.rinha',
       enemy: 1201,
       forca: 1,
-      dificuldade: 'normal',
+      dificuldade: 'facil',
       recompensa: { grana: 4 },
     },
     {

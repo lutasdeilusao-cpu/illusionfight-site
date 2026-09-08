@@ -204,3 +204,68 @@ aposta (Top Trumps), corre de bike / perseguição (KernelGames).
 - Seleção de modo (História × Batalha), fundação da gangue, o mapa em polígonos.
 - O combate em si (`GanguesCombat`), progressão de ficha, o boss final (o Costura).
 - Modo Batalha (avulso) — não é tocado.
+
+---
+
+## 10. Balanceamento do bando (validado por simulação · v2.68.0)
+
+`gerarBandoInimigo` (`data/ganguesEncontros.js`) monta o bando inimigo contra o
+**total de pontos A/H/R/D do time do jogador** (`calcularPontosTime`). Agora que
+os inimigos usam as MESMAS regras de ficha que os personagens (99 fichas, PV/PM =
+R × taxa do caminho), o balanço tem duas alavancas:
+
+### 10.1 Ratio por território — "sempre igualando a ficha do jogador"
+
+`totalDoBando = pontosDoTime × ratio`, com **`ratio` subindo por bairro**
+(`GANGUES_TERRITORIO_RATIO`) + deslocamento de `facil/normal/dificil`
+(`GANGUES_DIFICULDADE_OFFSET`, ±0.10). Sem isso, um time que subiu de nível
+zerava os bairros de cima sem tomar dano.
+
+| Território | ratio base | facil | normal | dificil |
+|---|---|---|---|---|
+| Pista | 0.52 | 0.42 | 0.52 | 0.62 |
+| Feira | 0.58 | 0.48 | 0.58 | 0.68 |
+| Baixada | 0.64 | 0.54 | 0.64 | 0.74 |
+| Vila | 0.68 | 0.58 | 0.68 | 0.78 |
+| Morro | 0.70 | 0.60 | 0.70 | 0.80 |
+| Alto do Morro | 0.72 | 0.62 | 0.72 | 0.82 |
+| Laje | 0.74 | 0.64 | 0.74 | 0.84 |
+
+### 10.2 Cap de action-economy
+
+`qtdMax = min(config.max, tamanhoDoTime + 2)`. Sem o cap, ratio alto virava
+8–10 corpos, cada um agindo no turno → guerra de atrito que o jogador PERDE
+(a sim deu 34 rodadas / 18% de vitória na Laje). Com o cap, cada corpo fica mais
+"gordo" — combina com a hierarquia de cargo (um Gerente pesa mais que um Vigia).
+
+### 10.3 Resultados do simulador
+
+Porta headless fiel de `ganguesCombatResolver.js` + `useGanguesTurnMachine.js`
+(sem specials/bônus de caminho — ambos stubbed no código real). 3000 batalhas por
+célula, time "no nível apropriado" de cada bairro (foco de fogo no alvo mais
+fraco dos dois lados).
+
+| Território | pts do time | facil (win/pv/rd) | normal | dificil |
+|---|---|---|---|---|
+| Pista | 10 | 97% / 73% / 3.0 | 96% / 70% / 3.2 | 94% / 64% / 3.2 |
+| Feira | 15 | 98% / 74% / 2.7 | 95% / 66% / 3.0 | 91% / 59% / 3.3 |
+| Baixada | 19 | 100% / 80% / 2.6 | 100% / 75% / 2.9 | 99% / 66% / 3.4 |
+| Vila | 26 | 100% / 79% / 3.0 | 99% / 68% / 4.0 | 97% / 62% / 4.8 |
+| Morro | 28 | 100% / 78% / 3.1 | 100% / 71% / 3.9 | 99% / 67% / 4.6 |
+| Alto | 41 | 100% / 77% / 2.9 | 95% / 62% / 4.4 | 88% / 52% / 5.7 |
+| Laje | 50 | 100% / 77% / 3.2 | 97% / 65% / 5.2 | 86% / 50% / 9.4 |
+
+Estresse ±5 pontos (mesmo bairro, `normal`): under-leveled fica mais puxado mas
+vencível (~70–99%), over-leveled amacia (~98%). A curva absorve o desvio.
+
+**Caveat — glass cannon.** Time 2× A-alto/D-zero na 1ª luta da Pista: ~74% de
+vitória (vs 97% balanceado). É trade-off de build — a matemática swingy sem piso
+de dano pune quem não investe em D/R. Não é bug; o onboarding força 2 caminhos
+diferentes, então dupla 100% glass é uma escolha consciente do jogador.
+
+### 10.4 A primeira luta da Pista
+
+`molecada_1` (POI obrigatório) usa `dificuldade: 'facil'` → ratio 0.42. O bando
+vem dos 11 moldes comuns da Pista (Vigia/Vapor/Gerente/Cobrador), sorteados por
+slot: **tipo e quantidade (1 a 4 corpos) mudam a cada tentativa**. `molecada_2`
+sobe pra `'normal'`. `'dificil'` fica reservado pros bairros de cima.

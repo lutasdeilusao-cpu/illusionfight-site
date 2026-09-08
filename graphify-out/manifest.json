@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1788891627.1876607,
-    "ast_hash": "95cd5582c2bc87236677efe08fe41305",
+    "mtime": 1788892909.9420347,
+    "ast_hash": "fb7ee025e7fa56bc06b3063378c828f8",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2745,8 +2745,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1788891632.4249458,
-    "ast_hash": "2745ecedf823ec79cf58ab00c48e8ecb",
+    "mtime": 1788892909.9857326,
+    "ast_hash": "62f25d338854a0bde9f2ef7100507381",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3530,13 +3530,13 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/store/useGanguesStore.js": {
-    "mtime": 1788891436.8368318,
-    "ast_hash": "5607d15c75fc7a7490faa97d3e8f4157",
+    "mtime": 1788892872.502608,
+    "ast_hash": "203bfb10fc0a6fa8a722fe24c7a59388",
     "semantic_hash": ""
   },
   "src/pages/platform/Perfil/abas/PerfilGangues.jsx": {
-    "mtime": 1788891495.3689206,
-    "ast_hash": "33304eba3756e5bcdc959d9d4d3ff909",
+    "mtime": 1788892847.4127593,
+    "ast_hash": "48f013e9bb1410d5561c85a80e725072",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/NeoGuideDialog.jsx": {
@@ -3570,8 +3570,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/GANGUES_DESIGN.md": {
-    "mtime": 1788887712.3376095,
-    "ast_hash": "ef09fbbff0d22292229efa7261ece4fd",
+    "mtime": 1788892881.5582306,
+    "ast_hash": "6e7c7a5e71e0dc7e07660cac3e8603e5",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/GanguesProgressionPanel.jsx": {
@@ -4770,8 +4770,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/store/ganguesStoryProgress.js": {
-    "mtime": 1788790790.4528337,
-    "ast_hash": "4adc0293468511b072ae55e3b7fa74d2",
+    "mtime": 1788892844.24033,
+    "ast_hash": "8d6a114f79eabe13a0b720e380a07be3",
     "semantic_hash": ""
   },
   "supabase/migrations/031_gangues_story_progress.sql": {
@@ -4880,8 +4880,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/GANGUES_HEADSUP.md": {
-    "mtime": 1788887712.3471446,
-    "ast_hash": "e037ad42d97242a810db97f2a2720da5",
+    "mtime": 1788892881.5662372,
+    "ast_hash": "d00b7b31ab7b5e42aafd7a1a86a959d5",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/GANGUES_MODO_HISTORIA_ENCONTROS.md": {
@@ -4895,8 +4895,8 @@
     "semantic_hash": ""
   },
   "docs/Games/Gangues/LDI_GANGUES_GDD.md": {
-    "mtime": 1788891589.877958,
-    "ast_hash": "2a0aea9972c4e220ace67956c24ce4b4",
+    "mtime": 1788892892.8955288,
+    "ast_hash": "581d0c1bc1a864017d0ffc2eae3ccf23",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/GanguesAlbum.jsx": {
@@ -4912,6 +4912,11 @@
   "supabase/migrations/037_gangues_v2_66_reset.sql": {
     "mtime": 1788891604.102307,
     "ast_hash": "a5253dff76e64a0c58b8840549d36702",
+    "semantic_hash": ""
+  },
+  "supabase/migrations/038_gangues_church_unified.sql": {
+    "mtime": 1788892839.7616627,
+    "ast_hash": "3fc2a05c10258e18257f25b6d9f1e804",
     "semantic_hash": ""
   }
 }
