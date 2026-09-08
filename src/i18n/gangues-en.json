@@ -2124,7 +2124,7 @@
           "ferro": {
             "nome": "The junkyard",
             "sub": "gate on a padlock, a secret inside",
-            "intro": "The gate's just a chain and an old padlock. The gang gets on the pick — whoever's got the hands works it, the rest keep an eye on the guard. Inside there's scrap worth money... and something the owner locked up before he vanished off the Pista."
+            "intro": "The gate's just a chain and a combination lock. The gang watches the pins turn once — then it's memorize the sequence and repeat it without a slip. Miss it and the guard wakes up."
           },
           "beco": {
             "nome": "Rasteira's alley",
@@ -2185,8 +2185,20 @@
           },
           "loja": {
             "nome": "Pista Shop"
+          },
+          "achado": {
+            "nome": "The back of the junkyard",
+            "sub": "what the owner left behind",
+            "linha": "Behind a pile of scrap: a crate with some change and iron that still works. Nobody will miss it — the owner vanished off the Pista a long time ago."
+          },
+          "rasteira_velha": {
+            "nome": "Old Rasteira",
+            "sub": "the alley's owner in person",
+            "fala": "You beat the kids and figured the Pista was yours? Old Rasteira trained every one of these punks. Beat me first — then Coal comes down."
           }
-        }
+        },
+        "hint_andar": "Use the stick to walk the block.",
+        "hint_interagir": "You reached a spot — press INTERACT."
       },
       "enemy_album": {
         "1101": "Doesn't fight, he runs and warns — facing him is a chase before a beating.",

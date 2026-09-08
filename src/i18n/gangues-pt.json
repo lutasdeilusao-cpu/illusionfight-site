@@ -1714,7 +1714,7 @@
           "ferro": {
             "nome": "O ferro-velho",
             "sub": "portão no cadeado, segredo dentro",
-            "intro": "O portão é só corrente e um cadeado velho. A gangue se junta na gazua — quem tem mão boa trabalha, o resto fica de zóio no vigia. Dentro tem sucata que vira grana... e alguma coisa que o dono trancou antes de sumir da Pista."
+            "intro": "O portão é só corrente e um cadeado de segredo. A gangue observa os pinos girarem uma vez — depois é decorar a sequência e repetir sem errar. Erra, o vigia acorda."
           },
           "beco": {
             "nome": "O beco da Rasteira",
@@ -1775,8 +1775,20 @@
           },
           "loja": {
             "nome": "Loja da Pista"
+          },
+          "achado": {
+            "nome": "O fundo do ferro-velho",
+            "sub": "o que o dono deixou pra trás",
+            "linha": "Atrás de uma pilha de sucata: um caixote com uns trocado e ferro que ainda serve. Ninguém vai sentir falta — o dono sumiu da Pista faz tempo."
+          },
+          "rasteira_velha": {
+            "nome": "A Rasteira Velha",
+            "sub": "a dona do beco em pessoa",
+            "fala": "Cê bateu os moleque e achou que a Pista era tua? A Rasteira Velha treinou cada um desses pivete. Bate em mim primeiro — aí sim o Carvão desce."
           }
-        }
+        },
+        "hint_andar": "Use o analógico pra andar pela quebrada.",
+        "hint_interagir": "Chegou num ponto — aperte INTERAGIR."
       },
       "enemy_album": {
         "1101": "Não briga, corre e avisa — enfrentá-lo é perseguição antes de porrada.",

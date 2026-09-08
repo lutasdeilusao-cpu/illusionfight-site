@@ -62,10 +62,24 @@ export const CENA_PISTA = {
       tipo: 'parada',
       pino: { x: 60, y: 168 },
       i18n: 'games.gangues.cena.pista.ferro',
-      puzzle: { type: 'forca', config: { difficulty: 'easy' }, skin: 'gazua' },
-      recompensa: { grana: 12, xp: 6, item: 'sucata' },
+      // "A sequência da fechadura" — decorar e repetir a ordem dos pinos do
+      // cadeado (PuzzleSimonSays, self-styled, sem depender de Puzzles.css).
+      puzzle: { type: 'simon', config: { difficulty: 'easy' }, skin: 'gazua' },
+      recompensa: { grana: 12, item: 'sucata' },
       falha: { viraTreta: { enemy: 1201, recompensa: { grana: 3 } } },
-      revela: ['beco'],
+      // Abrir o portão revela o beco (caminho principal) E o achado do outro
+      // lado do ferro-velho (loot opcional dentro).
+      revela: ['beco', 'achado'],
+    },
+    {
+      // Achado — loot dentro do ferro-velho, sem interação (GanguesCena.abrir
+      // resolve na hora com toast). Revelado só depois de abrir a gazua.
+      id: 'achado',
+      tipo: 'achado',
+      opcional: true,
+      pino: { x: 68, y: 150 },
+      i18n: 'games.gangues.cena.pista.achado',
+      recompensa: { grana: 15, item: 'sucata' },
     },
     {
       id: 'beco',
@@ -106,7 +120,9 @@ export const CENA_PISTA = {
       opcional: true,
       pino: { x: 56, y: 70 },
       i18n: 'games.gangues.cena.pista.corre',
-      puzzle: { type: 'stealth', config: { size: 4, hasTimer: true, timerSegundos: 34 }, skin: 'viatura' },
+      // Corre opcional, primeira vez do jogador com stealth: grade 5×5, só 2
+      // câmeras de alcance 1, sem timer. Falhar aqui só custa fôlego.
+      puzzle: { type: 'stealth', config: { size: 5, cameraCount: 2, visionRange: 1, hasTimer: false }, skin: 'viatura' },
       recompensa: { grana: 16, rep: 2 },
     },
     {
@@ -126,6 +142,24 @@ export const CENA_PISTA = {
       forca: 2,
       dificuldade: 'normal',
       recompensa: { grana: 8, rep: 3 },
+      revela: ['rasteira_velha'],
+    },
+    {
+      // A luta de GENERAL — o "quase-chefe" que sinaliza que o Carvão vai
+      // descer (GDD §4/§5.5). A Rasteira Velha (1452, "a mais antiga do Bonde
+      // do Sinal, treinou os pivete novo") é a dona do beco — por isso o beco
+      // tem o nome dela. `liderFixo` força o bando a vir SEMPRE com ela na
+      // frente (+ escolta sorteada). 'dificil' + obrigatória pro portão.
+      id: 'rasteira_velha',
+      tipo: 'treta',
+      repetivel: true,
+      pino: { x: 58, y: 30 },
+      i18n: 'games.gangues.cena.pista.rasteira_velha',
+      enemy: 1452,
+      liderFixo: 1452,
+      forca: 3,
+      dificuldade: 'dificil',
+      recompensa: { grana: 10, rep: 6 },
     },
     {
       // Treta repetível de farm: pode ser encarada quantas vezes o jogador
@@ -146,27 +180,27 @@ export const CENA_PISTA = {
       recompensa: { grana: 4 },
     },
     {
-      // Loja da Pista — TESTE INICIAL (pedido do Isaias): visível desde o
-      // começo, do lado da primeira treta, só pra validar comprar → guardar
-      // no inventário → usar em combate. Plano final: visivel:false aqui,
-      // liberada só depois do portão abrir (mesmo lugar da "Loja
-      // abandonada" decorativa perto do chefe, ver PLACES em
-      // GanguesCena.jsx) — trocar depois que o fluxo estiver validado.
-      // Cada região tem sua própria loja com seu próprio catálogo (`itens`).
+      // A "loja abandonada" do outro lado do muro. Só aparece e fica
+      // alcançável DEPOIS que o portão do chefe abre (todo o trabalho da base
+      // feito — é o Proceder: "não se desafia o topo sem rachar a base").
+      // A partir daí é a loja permanente da Pista: equipa a gangue pra Feira
+      // e pro farm. `pos_portao` = GanguesCena só mostra o pino com bossAberto.
       id: 'loja',
       tipo: 'loja',
       opcional: true,
       repetivel: true,
-      visivel: true,
-      pino: { x: 60, y: 150 },
+      visivel: false,
+      pos_portao: true,
+      pino: { x: 26, y: 13 },
       i18n: 'games.gangues.cena.pista.loja',
-      // Ids NUMÉRICOS — consumível (1–99, ver data/ganguesItens.js) +
-      // equipamento básico (101+, ver GANGUES_LOJA_EQUIP_BASICO em
-      // data/ganguesEquip.js). No corpo são dois (par PV/PM). Drop de peças
-      // melhores vem depois.
-      // 1 poção HP · 2 poção MP · 104 gorro · 107 colete PV · 108 colete PM
-      // · 112 luva · 115 tênis · 118 corrente · 101 soqueira
-      itens: [1, 2, 104, 107, 108, 112, 115, 118, 101],
+      // Catálogo final da Pista (ids numéricos — consumível 1–99 em
+      // data/ganguesItens.js, equipamento 101+ em data/ganguesEquip.js):
+      //  1/2   poção HP / MP
+      //  comum, 1 por slot: 101 soqueira · 104 gorro · 107/108 colete PV/PM
+      //                     · 112 luva · 115 tênis · 118 corrente
+      //  incomum ("junta grana"): 102 faca · 105 capacete · 109 colete placa
+      //                           · 113 manopla · 116 coturno
+      itens: [1, 2, 101, 102, 104, 105, 107, 108, 109, 112, 113, 115, 116, 118],
     },
     {
       // Reaproveitamento: continua na Pista mesmo depois dela virar
@@ -217,9 +251,10 @@ export const CENA_PISTA = {
     recompensa: { grana: 20, rep: 5 },
   },
 
-  // A área final só abre depois de todo o caminho obrigatório da Pista.
+  // A área final só abre depois de todo o caminho obrigatório da Pista —
+  // incluindo a Rasteira Velha (o General). Só aí o Carvão desce.
   portao: {
-    precisa: ['sinal', 'ferro', 'beco', 'birosca', 'beco_2'],
+    precisa: ['sinal', 'ferro', 'beco', 'birosca', 'beco_2', 'rasteira_velha'],
   },
 }
 
@@ -246,11 +281,12 @@ export function cenaCompleta(cena, resolvidos = {}, bossFeito = false) {
   return obrig && bossFeito
 }
 
-/** Contagem para o breadcrumb "A Pista · 3/7" (POIs + chefe, sem repetíveis
- *  tipo descanso/informante — esses não fazem parte do caminho obrigatório). */
+/** Contagem para o breadcrumb "A Pista · 3/7" — o caminho obrigatório é
+ *  exatamente `portao.precisa` + o chefe. POIs opcionais (rinha, corre,
+ *  informante, descanso, achado) e o farm não entram. */
 export function contarCena(cena, resolvidos = {}, bossFeito = false) {
-  const contaveis = cena.pois.filter(poi => !poi.repetivel)
-  const total = contaveis.length + 1
-  const feitos = contaveis.filter(poi => resolvidos[poi.id]).length + (bossFeito ? 1 : 0)
+  const obrig = cena.portao?.precisa || []
+  const total = obrig.length + 1
+  const feitos = obrig.filter(id => resolvidos[id]).length + (bossFeito ? 1 : 0)
   return { feitos, total }
 }

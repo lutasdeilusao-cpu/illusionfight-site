@@ -2124,7 +2124,7 @@
           "ferro": {
             "nome": "El depósito de chatarra",
             "sub": "portón con candado, un secreto adentro",
-            "intro": "El portón es solo cadena y un candado viejo. La banda se junta en la ganzúa — el que tiene mano buena labura, el resto vigila al sereno. Adentro hay chatarra que vale plata... y algo que el dueño guardó bajo llave antes de desaparecer de la Pista."
+            "intro": "El portón es solo cadena y un candado de combinación. La banda mira los pines girar una vez — después es memorizar la secuencia y repetirla sin fallar. Si fallás, el sereno se despierta."
           },
           "beco": {
             "nome": "El callejón de la Rasteira",
@@ -2185,8 +2185,20 @@
           },
           "loja": {
             "nome": "Tienda de la Pista"
+          },
+          "achado": {
+            "nome": "El fondo del depósito de chatarra",
+            "sub": "lo que el dueño dejó atrás",
+            "linha": "Detrás de una pila de chatarra: un cajón con unas monedas y fierro que todavía sirve. Nadie lo va a extrañar — el dueño desapareció de la Pista hace rato."
+          },
+          "rasteira_velha": {
+            "nome": "La Rasteira Vieja",
+            "sub": "la dueña del callejón en persona",
+            "fala": "¿Le pegaste a los pibes y pensaste que la Pista era tuya? La Rasteira Vieja entrenó a cada uno de estos pibes. Pegame a mí primero — ahí sí baja Carbón."
           }
-        }
+        },
+        "hint_andar": "Usá el joystick para caminar el barrio.",
+        "hint_interagir": "Llegaste a un punto — apretá INTERACTUAR."
       },
       "enemy_album": {
         "1101": "No pelea, corre y avisa — enfrentarlo es una persecución antes de la paliza.",

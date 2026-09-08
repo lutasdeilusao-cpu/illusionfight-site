@@ -5,6 +5,10 @@ import { sfx } from '../../../../../lib/sfx'
 import PuzzleForça from '../../../../../components/Puzzles/PuzzleForça'
 import PuzzleStealthGrid from '../../../../../components/Puzzles/PuzzleStealthGrid'
 import PuzzleDecoder from '../../../../../components/Puzzles/PuzzleDecoder'
+import PuzzleSimonSays from '../../../../../components/Puzzles/PuzzleSimonSays'
+// Os puzzles da lib (stealth/decoder/força) dependem das classes .puzzle-* —
+// sem este import a grade de infiltração renderiza em branco e falha sozinha.
+import '../../../../../components/Puzzles/Puzzles.css'
 
 /* Encontro de PUZZLE — atende PARADA (problema pra equipe resolver) e
    CORRE (tarefa da gangue: entrega/fuga). Base técnica é a lib
@@ -16,6 +20,7 @@ const PUZZLES = {
   forca: PuzzleForça,
   stealth: PuzzleStealthGrid,
   decoder: PuzzleDecoder,
+  simon: PuzzleSimonSays,
 }
 
 export default function GanguesParada({ poi, onResolve, onClose }) {

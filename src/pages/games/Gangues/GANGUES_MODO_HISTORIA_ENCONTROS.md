@@ -96,24 +96,42 @@ Mini-jogo dá XP + grana + rep. Briga dá tudo, mais.
 
 ---
 
-## 5. A Pista — a primeira interação completa (protótipo)
+## 5. A Pista — versão FINAL (a primeira entrada do jogador)
 
-Cena com **6 POIs + chefe**, descobertos em ordem:
+Não é mais protótipo. É o que o jogador vê na 1ª vez que entra no jogo — tem que
+funcionar 100% e ensinar o loop sozinho. `data/cenas/pista.js`, v2.69.0.
 
-| # | POI | Tipo | Mini-jogo / conteúdo | Ao resolver |
+**Caminho obrigatório (portão do Carvão):** sinal → ferro → beco → birosca →
+beco_2 → **rasteira_velha**. Opcionais: corre, rinha, informante, descanso,
+achado, loja (pós-portão).
+
+| # | POI | Tipo | Conteúdo | Ao resolver |
 |---|---|---|---|---|
-| 1 | **A boca do sinal** *(visível)* | Papo | moleque vendendo bala. Escolhas: *compra* (−trocado, ele solta info), *aperta ele* (treta fácil, −rep), *ignora* | revela #2 |
-| 2 | **O ferro-velho** | Parada | `PuzzleForça` (gazua no portão). Falha → o vigia acorda → treta | revela #3; achado dentro (grana + sucata=item) |
-| 3 | **O beco da Rasteira** | Treta | 1º ponto de gangue de verdade | +rep, revela #4 |
-| 4 | **A birosca do Seu Nato** | Papo (hub) | o coroa da esquina (o mesmo "Nego Véio"). Dá 1 corre e conta onde o Fumaça tá | revela #5 e #6 |
-| 5 | **O corre do Nato** *(opcional)* | Corre | `PuzzleStealthGrid` (leva o pacote sem a viatura ver) | grana + rep |
-| 6 | **O outro ponto da Rasteira** | Treta | 2º ponto | +rep |
-| ★ | **BOSS: Fumaça** *(trancado)* | Treta | abre com #3 + #6 + (#2 ou #5) feitos | **A Pista dominada → A Feira abre** |
+| 1 | **A boca do sinal** *(visível)* | Papo | a cria do farol (Bonde do Sinal — informação é a moeda). *compra* (−trocado, info), *aperta* (treta fácil, −rep), *ignora* | revela ferro |
+| 2 | **O ferro-velho** | Parada | **`PuzzleSimonSays`** — a sequência da fechadura. Falha → o vigia acorda → treta | revela beco + achado |
+| — | **O fundo do ferro-velho** *(opcional)* | Achado | loot sem modal — grana + sucata | — |
+| 3 | **O beco da Rasteira** | Treta | 1º ponto — Rato de Pista (`facil`) | +rep, revela birosca |
+| 4 | **A birosca do Seu Nato** | Papo (hub) | o coroa da esquina (Nego Véio). Dá 1 corre e conta onde o Carvão se enfia | revela corre + beco_2 + descanso |
+| — | **O corre do Nato** *(opcional)* | Corre | **`PuzzleStealthGrid`** 5×5, 2 câmeras alcance 1, **sem timer** | grana + rep |
+| 5 | **O outro ponto da Rasteira** | Treta | 2º ponto (`normal`) | +rep, revela rasteira_velha |
+| 6 | **A Rasteira Velha** | Treta (GENERAL) | `liderFixo: 1452` — o bando vem SEMPRE com ela na frente. `dificil`, piso de 30% dos pontos originais dela. É o "quase-chefe" | +rep, **abre o portão** |
+| ★ | **BOSS: Carvão** *(trancado)* | Treta | Carvão + Sinaleiro Chefe + Rasteira Velha. Abre com os 6 obrigatórios | **A Pista dominada → A Feira abre** |
+| — | **Loja da Pista** *(pós-portão)* | Loja | `visivel:false` até o portão abrir. Do outro lado do muro — equipa pra Feira. Catálogo: 2 poções + comum por slot + incomum "junta grana" | — |
+| — | **Descanso na birosca** *(visível)* | Descanso | recupera fôlego + cura PV/PM, gasta grana | — |
+| — | **A rinha do beco** *(visível, farm)* | Treta | aposta clandestina, repetível pra upar | — |
+| — | **Duda, o Orelha** *(visível, farm)* | Papo | destranca o chefe da Feira | flag `feira` |
 
-**Experiência do jogador:** chega na Pista → só vê o farol e o ferro-velho →
-conversa com o moleque → força a gazua → cai numa treta com o vigia → acha a
-birosca do Nato → faz o corre dele → bate os dois pontos → o Fumaça sai pra
-brigar. **Nunca viu tudo de uma vez. Sentiu que andou pela quebrada.**
+**Onboarding — o que a Pista ensina, nessa ordem:** andar (analógico) →
+interagir (botão, dica contextual) → papo com escolha → parada (a equipe resolve)
+→ treta (combate por turno) → recompensa (grana/rep/item) → 🎒 bolsa / 👤 ficha →
+fôlego (a gangue cansa, birosca) → o Proceder (o Carvão só desce depois da base
+rachada — o portão) → General (a Rasteira Velha, o pico antes do chefe) → loja
+(equipa pra Feira, depois de merecer).
+
+**Simulação da luta de General** (liderFixo 1452, Pista `dificil` r0.62, 5000
+batalhas): time L1 recém-criado ~88% win / pv 57%; L2 ~97%; L3 ~99%; glass cannon
+~58% (build de risco). Um degrau real acima da treta normal (fresh: 96% / pv 70%),
+sem ser paredão.
 
 ---
 

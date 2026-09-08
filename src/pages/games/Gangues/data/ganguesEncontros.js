@@ -113,7 +113,11 @@ function escalarInimigo(molde, pontosAlvo) {
  *  sempre no mesmo nível de dificuldade do jogador atual, e nunca ficaria
  *  fácil de "farmar" depois que a gangue evolui — o ponto inteiro de ter
  *  uma treta pra repetir é ela ficar mais fraca que você com o tempo. */
-export function gerarBandoInimigo({ territorioId, dificuldade = 'normal', playerTeam, enemiesData, pontosFixos }) {
+/** `liderFixo`: id de inimigo (ex: um General, 1451+) que SEMPRE entra como o
+ *  1º corpo do bando, com a maior fatia de pontos. O resto do bando segue
+ *  sorteado do pool do território. É como se monta a luta de General ("a
+ *  Rasteira Velha e o bonde dela"). */
+export function gerarBandoInimigo({ territorioId, dificuldade = 'normal', playerTeam, enemiesData, pontosFixos, liderFixo }) {
   const config = GANGUES_TERRITORIO_ENCONTRO[territorioId]
   if (!config || !playerTeam?.length) return null
 
@@ -135,8 +139,19 @@ export function gerarBandoInimigo({ territorioId, dificuldade = 'normal', player
   const totalAlvo = Math.max(qtd, Math.round(pontosJogador * ratio))
   const partes = distribuirPontos(totalAlvo, qtd)
 
-  const bando = partes.map(pontos => {
-    const moldeId = config.moldes[Math.floor(Math.random() * config.moldes.length)]
+  // liderFixo: o 1º corpo é o líder (um General). Ele fica com a maior fatia
+  // (distribuirPontos já front-carrega a sobra) + um piso amarrado aos pontos
+  // ORIGINAIS da ficha dele (~30%) — pra ele parecer um General mesmo num
+  // bando pequeno, sem virar um muro. Simulado: ~88% de vitória pra time L1
+  // recém-criado, ~97% no L2. Um degrau acima da treta normal, não um paredão.
+  const liderMolde = liderFixo && enemiesData.find(e => e.id === liderFixo)
+  if (liderMolde && partes.length) {
+    const s = liderMolde.stats
+    partes[0] = Math.max(partes[0], Math.round((s.A + s.H + s.R + s.D) * 0.3))
+  }
+
+  const bando = partes.map((pontos, i) => {
+    const moldeId = (i === 0 && liderFixo) ? liderFixo : config.moldes[Math.floor(Math.random() * config.moldes.length)]
     const molde = enemiesData.find(e => e.id === moldeId)
     return molde ? escalarInimigo(molde, pontos) : null
   }).filter(Boolean)

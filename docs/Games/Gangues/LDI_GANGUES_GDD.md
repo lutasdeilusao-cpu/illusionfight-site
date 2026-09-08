@@ -210,11 +210,14 @@ Facção: Rato de Pista (101) / Bonde do Sinal (102). O asfalto lá embaixo. Cri
 que corre no farol, arranca corrente, vende bala. **Todo mundo começa aqui** — o
 Retalho, o jogador, e (noutro bairro) o Alan.
 
-POIs: **A boca do sinal** (o farol onde a molecada vende bala e vigia) · **O
-ferro-velho** (portão trancado, guarda sucata e segredo) · **O beco da Rasteira**
-(território disputado ponto a ponto) · **A rinha do beco** (apostas clandestinas
-de briga, opcional) · **A birosca do Seu Nato** (o único adulto confiável do
-bairro, dá descanso) · **A loja da Pista** (primeiro comércio de equipamento).
+**POIs (versão final, v2.69.0):** A boca do sinal (a cria do farol) · O
+ferro-velho (`PuzzleSimonSays` — a sequência da fechadura) + O fundo do
+ferro-velho (achado opcional) · O beco da Rasteira (1º ponto) · A birosca do Seu
+Nato (hub) · O corre do Nato (stealth opcional, sem timer) · O outro ponto da
+Rasteira (2º ponto) · **A Rasteira Velha** (luta de General — `liderFixo`, o pico
+antes do chefe) · A rinha do beco (farm) · Duda, o Orelha · Descanso na birosca ·
+**A loja da Pista** (do outro lado do muro — só abre depois do portão do chefe).
+Detalhe em `src/pages/games/Gangues/GANGUES_MODO_HISTORIA_ENCONTROS.md §5`.
 
 **Balanço (v2.68.0):** a primeira treta (`beco`) puxa 1 a 4 corpos
 sorteados dos 11 comuns da Pista — tipo e quantidade mudam a cada tentativa —
