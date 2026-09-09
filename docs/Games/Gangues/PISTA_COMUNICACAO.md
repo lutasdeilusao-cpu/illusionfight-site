@@ -14,7 +14,15 @@
 >
 > **Fonte:** `src/pages/games/Gangues/data/cenas/pista.js` +
 > `src/i18n/gangues-{pt,en,es}.json`. Lore em `LDI_GANGUES_GDD.md`.
-> Estado: GANGUES_VERSION 2.74.6.
+>
+> ⚠️ **A reescrita com gíria pesada já foi aplicada nos 3 JSONs em GANGUES 2.74.8.**
+> As tabelas abaixo mostram o texto ORIGINAL (pré-gíria) — servem de mapa de
+> chaves, não do texto atual. O JSON é a fonte da verdade. Trash talk de
+> combate: `cena.pista.<poi>.fala` de treta agora pode ser um array; o
+> `TretaVS` sorteia uma linha por encontro (`escolherFala` em GanguesCena.jsx)
+> — cobre v1 (abertura) + v2 (revanche). As falas v3 (perdendo, meio de
+> combate) e v4 (derrota do chefe) ainda precisam de fiação na tela de
+> combate — pendente.
 
 ---
 

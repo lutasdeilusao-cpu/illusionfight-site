@@ -67,9 +67,9 @@
       "escolher_outra": "CHOOSE ANOTHER SHEET",
       "voltar_games": "← BACK TO GAMES",
       "escolher_oponente": "← CHOOSE OPPONENT",
-      "derrota": "DEFEAT",
-      "derrota_sub": "Defeat only makes the warrior stronger.",
-      "vitoria": "VICTORY",
+      "derrota": "TOUGH BREAK",
+      "derrota_sub": "The ones who fall and get back up are the ones who run it later.",
+      "vitoria": "THAT'S US",
       "vitoria_sub": "You defeated <strong>{name}</strong> and proved your worth in the arena.",
       "report": {
         "enemy_thinking": "ENEMY IS THINKING",
@@ -1880,7 +1880,7 @@
         "territorio_selecionado": "Selected territory",
         "entrar_territorio": "Enter territory",
         "bloqueado_cta": "Take the previous route",
-        "dominado": "Block taken",
+        "dominado": "Block's ours",
         "voltar_mapa": "Map",
         "sem_territorio": "No block selected.",
         "desafiante": "Spot gang",
@@ -1891,7 +1891,7 @@
         "ponto_n": "Spot {n}",
         "n_gangues": "{n} gangs",
         "enfrentar": "Face off",
-        "precisa_informante": "🔍 Before facing the boss, go back to the Pista and talk to the informant.",
+        "precisa_informante": "🔍 Before you face the Feira's heavy, go back to the Pista and have a word with Duda. He knows things worth gold.",
         "brigar": "Fight",
         "agora_nao": "Not now",
         "continuar_territorio": "Stay on the block",
@@ -1924,7 +1924,7 @@
         "bosses": {
           "fumaca": {
             "nome": "Coal",
-            "fala": "You quick? I'm smoke, kid. Blink and I'm gone — and you eat it in the dark."
+            "fala": "You quick, kid? I'm smoke. Blink and I'm already gone — and you eat it in the dark without even seeing where the hit came from."
           },
           "turco": {
             "nome": "The Collector",
@@ -1954,7 +1954,7 @@
         "territorios": {
           "pista": {
             "nome": "The Track",
-            "desc": "The asphalt down below. Kids darting the light, snatching chains, selling gum. Rato de Pista with no ambition, Bonde do Sinal selling what it sees. Nobody important — but everyone started here. The Patchwork. Alan, in another corner. And now you."
+            "desc": "The raw asphalt down below. Kids chasing chains, selling gum, eyes everywhere. Rato de Pista with no big dreams, Bonde do Sinal cashing in on information. Nobody heavy yet — but every flag holder walked here first. The Patchwork did. Alan did, elsewhere. Now it's your turn."
           },
           "feira": {
             "nome": "The Market",
@@ -1985,12 +1985,12 @@
           "ponto": "{territorio}. This spot belongs to {gangue}, pal. {suaGangue} doesn't walk through here for free."
         },
         "abertura": [
-          "Sit down, I'll tell you how this works.",
-          "Marélia has no king. A gang in every alley, each one thinking it rules the world 'cause it rules one street.",
-          "Want to rise? Start on the Track, down below. Take the small gangs' spots, then face the region's heavy — the one holding the flag.",
-          "Take the block, the next one opens. Block by block up to the Rooftop.",
-          "Up top there's someone nobody knows the real name of. They just call him the Patchwork. He once pulled six blocks under one flag. Nobody ever came closer to owning Marélia.",
-          "You'll have to go through him. Good luck, kid — you'll need it."
+          "Sit down, kid, let me give you the real deal.",
+          "Marélia never had an owner. A crew in every alley, each one thinking they run the world 'cause they run one street.",
+          "Want to rise? Start down here, on the ground, with the kids. Take the small fish's spots, grow, then face the region's real heavy — the flag holder, the one nobody walks over.",
+          "Take a block, the next opens up. Block by block, blood by blood, up to the Rooftop.",
+          "Up there's a guy nobody knows the real name of. They just call him the Patchwork. Stitched six blocks under one flag — something NOBODY else ever got close to.",
+          "You'll have to go through him. It's not about wanting it, it's about surviving it. Good luck, kid — you'll need more than luck."
         ],
         "final": {
           "code": "THE CLIMB ENDS HERE",
@@ -2057,8 +2057,8 @@
       "naming": {
         "titulo": "FOUND YOUR GANG",
         "titulo_editar": "RENAME THE GANG",
-        "sub": "The fighters matter. But it's the gang's name that echoes — the one enemies spit out, the one that takes Marélia.",
-        "poster_pitch": "Every street knows a name. Choose the one Marélia will learn to respect.",
+        "sub": "The crew matters, but it's the gang's name that echoes across the whole block — the one enemies spit out when they hit the dirt, the one that takes Marélia or turns into a corner joke.",
+        "poster_pitch": "Every street knows a name. Choose the one all of Marélia learns to respect — or to fear.",
         "label": "Gang name",
         "placeholder": "e.g. End of the Line Crew",
         "exemplos": "Ideas:",
@@ -2067,49 +2067,49 @@
         "sugestao_trilha": "The High Trail",
         "sugestao_sindicato": "Alley Syndicate",
         "sugestao_quebrada": "New Block",
-        "preview": "\"{nome} is coming up the hill.\"",
-        "preview_vazio": "The name all of Marélia will learn to fear.",
+        "preview": "\"{nome} is coming up the hill. Pray you don't cross its path.\"",
+        "preview_vazio": "The name that makes all of Marélia freeze when they hear it coming.",
         "fundar": "FOUND THE GANG",
         "salvar": "SAVE",
         "renomear": "rename",
         "abertura": [
-          "First thing: your gang needs a name.",
-          "Fighters come and go. The gang's name is what stays — it runs the mouth of the hill, it turns into a legend or into a joke.",
-          "Choose well. This is the name the Patchwork spits when you reach the Rooftop."
+          "So you're thinking about starting a gang, huh? Think you can hang with Marélia's heavy hitters?",
+          "Careful what you wish for, kid. Up there are people who've swallowed whole flags for breakfast. The Patchwork once held six blocks in one hand — and you're here, out of nowhere, thinking it'll go different for you.",
+          "Fine. Just don't go nameless. A street name becomes a legend or a joke — and it's the one they'll spit back in your face when you're on the Rooftop, face to face with the real deal. Choose wisely."
         ]
       },
       "dialogo": {
         "voz": "A voice from the block",
         "veio_nome": "Old Nego",
         "veio_sub": "the corner elder, owner of the bar",
-        "pular": "skip",
-        "proximo": "go on",
-        "fechar": "got it",
-        "comecar": "let's go"
+        "pular": "get on with it",
+        "proximo": "keep going",
+        "fechar": "got it, boss",
+        "comecar": "let's roll"
       },
       "cena": {
         "grana": "Cash",
         "rep": "Name",
-        "folego": "Gang's wind",
-        "folego_baixo": "The gang's spent. Hit the bar before fighting again.",
-        "bairro_tomado": "Block taken",
+        "folego": "Crew's wind",
+        "folego_baixo": "The crew's running on empty. Hit the bar before you risk another fight.",
+        "bairro_tomado": "Block's ours",
         "opcional": "optional",
-        "boss_trancado": "Lock the spots down before going up",
-        "recompensa": "You got",
-        "treta_nao": "Not now",
-        "treta_sim": "Fight",
+        "boss_trancado": "Lock the spots down before you level up, kid.",
+        "recompensa": "Came out with",
+        "treta_nao": "Not now, chill",
+        "treta_sim": "Let's scrap",
         "fechar": "Close",
-        "parada_pular": "Leave it",
+        "parada_pular": "Leave it alone",
         "parada_tentar": "Take it on",
-        "parada_ok": "Worked. The street opened up.",
-        "parada_falha": "Botched it — and now there's a fight.",
-        "parada_falha_leve": "Didn't work. Next time.",
-        "corre_ok": "Run done. Nato pays what he owes.",
-        "corre_falha": "The patrol car saw you. Drop the package and run.",
+        "parada_ok": "Nice. The street opened up for the crew.",
+        "parada_falha": "That went bad — and it woke folks up. Fight's coming.",
+        "parada_falha_leve": "Didn't stick this time. Next time, kid.",
+        "corre_ok": "Run done, no drama. Nato pays what was agreed, end of story.",
+        "corre_falha": "The patrol car clocked you. Drop the package and bounce, now!",
         "tipo": {
-          "treta": "Fight",
-          "parada": "Job",
-          "papo": "Talk",
+          "treta": "Scrap",
+          "parada": "Tricky run",
+          "papo": "Word",
           "corre": "Run",
           "achado": "Find",
           "descanso": "Bar",
@@ -2118,69 +2118,73 @@
         "itens": {
           "sucata": "Scrap (item)"
         },
-        "descanso_curou": "The gang caught its breath. +{n} wind.",
-        "descanso_cheio": "The gang's already at full.",
-        "descanso_sem_grana": "Not enough cash for a rest.",
+        "descanso_curou": "The crew caught its breath. +{n} wind back.",
+        "descanso_cheio": "The crew's already maxed, no need.",
+        "descanso_sem_grana": "Cash is short for a rest, kid.",
         "descanso_curar": "Rest (−{grana})",
         "pista": {
           "chegada": [
-            "This is the Pista, kid. The asphalt down below — where everything starts.",
-            "Everyone started here. The Patchwork started here. Alan, in another corner, too. Now it's your turn.",
-            "Take the kids' spots, make your name on the street. When the whole Pista knows your name, Coal comes down out of the dark to face you.",
-            "Move. Tap whatever lights up."
+            "This is the Pista, kid. The asphalt down below — the root of it all.",
+            "Everybody worth something today crawled on this ground first. The Patchwork started here. Alan, elsewhere, started from zero just like you. Now it's your turn to prove you're not just another face.",
+            "Take the kids' spots, get your name running mouth to mouth. When the whole Pista knows you exist, Coal comes down out of the dark to face you — and that's when you find out if you've got what it takes.",
+            "Move. Touch whatever's lighting up."
           ],
           "sinal": {
             "nome": "The stoplight corner",
-            "sub": "kid selling candy, watching everything",
+            "sub": "kid selling candy, sharp eyes on everything",
             "fala": [
-              "You with the new gang? Came down to the Pista with nobody behind you. Brave or dumb — I'll find out.",
-              "We don't just sell candy here. We sell what we see from this light. And we see everything. Want to know something? Trade a word — or some change."
+              "Hey, you with the new gang? Came down to the Pista alone, no crew behind you. Either you're brave or you're stupid — I'll know real soon.",
+              "We don't just sell candy here, man. We sell what we see from this light. And we see EVERYTHING that moves on this block. Want to know something? Trade a word — or trade some cash."
             ],
             "escolhas": {
               "compra": {
                 "label": "Buy the candy and hear what he saw",
-                "resultado": "He pockets the change. \"The junkyard up ahead. Gate's just an old padlock. Inside there's scrap worth money — and whatever the owner locked away before he vanished off the Pista.\""
+                "resultado": "He closes his fist on the change without even counting it. \"The junkyard right up ahead. Old padlock, easy to crack. Inside there's scrap worth real money — and whatever the owner left before he vanished off the Pista for good.\""
               },
               "aperta": {
-                "label": "Lean on the kid to make him talk for free"
+                "label": "Lean on the kid so he talks for free"
               },
               "ignora": {
                 "label": "Ignore him and keep climbing",
-                "resultado": "You walk past. The kid spits and memorizes your face. There's a junkyard just ahead."
+                "resultado": "You walk past without even a glance. The kid spits and burns your face into memory — information's a currency too, and now he owes you one. There's a junkyard up ahead."
               }
             }
           },
           "ferro": {
             "nome": "The junkyard",
-            "sub": "gate on a padlock, a secret inside",
-            "intro": "The gate's just a chain and a combination lock. The gang watches the pins turn once — then it's memorize the sequence and repeat it without a slip. Miss it and the guard wakes up."
+            "sub": "locked gate, a secret kept inside",
+            "intro": "The gate's just a chain with a combination lock — nothing a trained hand can't handle. The crew watches the pins turn once, then it's memorize the sequence and repeat it without a shake. Slip a hand and the guard wakes up and the game turns into a fight on the spot."
           },
           "beco": {
             "nome": "Rasteira's alley",
             "sub": "a Rato de Pista spot",
-            "fala": "This alley belongs to Rato de Pista, pal. We don't want to climb, don't want your turf — we just don't want to get stepped on. And a new gang coming down here gets stepped on."
+            "fala": [
+              "This alley's Rato de Pista, pal. We don't want to climb, don't want your turf, don't want to own anything — we just don't want to get stepped on. And a fresh gang coming down here thinking it owns the street... this one gets stepped on, no tears.",
+              "Well, look who's here. Fresh little crew thinking the Pista's a playground.",
+              "This face again? Maybe this time you learn."
+            ]
           },
           "rinha": {
             "nome": "The back-alley pit",
             "sub": "clandestine betting",
-            "fala": "Betting ring at the back of the alley. You step in, you eat it or you cash out. There's always someone wanting to test their hand against the new gang — come on, as many times as you can take."
+            "fala": "Betting ring at the back of the alley, kid. You step in, you eat it or you cash out. There's always some nutcase wanting to test their hand against the fresh gang — come on, take it as many times as you can stay standing."
           },
           "birosca": {
             "nome": "Old Nato's bar",
             "sub": "the corner elder — the only grown-up on the Pista you can trust",
             "fala": [
-              "Sit down. Have some mate. You're climbing way too fast for someone nobody knows.",
-              "I know where Coal hides when he vanishes into the dark. I'll tell you. But first do me a run — take a package across without the patrol car's beam catching you.",
-              "Do that and the Pista respects you. And the bar stays open for your crew to rest."
+              "Sit, kid. Have some mate. You're climbing way too fast for someone nobody around here knows by name.",
+              "I know where Coal hides when he vanishes into the dark. I'll tell you, no runaround. But first do me a run — take a package across without the patrol car's beam catching your trail.",
+              "Handle that and the Pista starts to respect you, not just fear you. And the bar keeps its door open for your crew to rest whenever it needs to."
             ],
             "escolhas": {
               "aceita_corre": {
                 "label": "Take Nato's run",
-                "resultado": "\"Deal. The package is behind the counter. And Rasteira's other spot is up to the right.\""
+                "resultado": "\"Done, kid. Package is behind the counter. And a bonus: Rasteira's other spot is right up to the right.\""
               },
               "so_papo": {
                 "label": "Just want the information",
-                "resultado": "\"Stubborn. Then straight up: Rasteira's other spot is up there. Take both and Coal shows up.\""
+                "resultado": "\"Stubborn, huh. Then straight to the bone: Rasteira's other spot is up there. Lock both down and Coal shows up on his own, wanting to know who you are.\""
               }
             }
           },
@@ -2188,29 +2192,29 @@
             "nome": "Duda, the Ear",
             "sub": "knows everything that moves in Marélia before it's a rumor",
             "fala": [
-              "Back on the Pista, huh? That's what the Pista is: everything that happens in Marélia passes through here before it's even a rumor. And I hear all of it.",
-              "There's something at the Feira the people over there won't tell you for free. The Collector's laying low."
+              "Hey, back on the Pista? That's what this block is: everything that happens in Marélia passes through here before it's even corner gossip. And I hear ALL of it, kid.",
+              "There's something going on over at the Feira the folks there won't tell you for free. The Collector's lying low, waiting for the right moment to show."
             ],
             "escolhas": {
               "perguntar": {
                 "label": "Ask about the Feira",
-                "resultado": "\"The Collector only comes out of hiding once he knows his enforcers already took a beating. Go to the Feira, settle the spots — then come back if you need more.\""
+                "resultado": "\"The Collector only comes out of hiding once he knows his enforcers already took a beating. Go to the Feira, handle the spots — then come back if you need more intel.\""
               }
             }
           },
           "corre": {
             "nome": "Nato's run",
             "sub": "carry the package without the patrol car seeing",
-            "intro": "Cross the block with the package without stepping into the patrol car's beam. The gang spreads out and covers your move. It's the price of Nato's information — and of peace on the Pista."
+            "intro": "Cross the block with the package without stepping into the patrol car's beam — one wrong turn and it's a sure fight with a badge. The crew spreads out and covers your move. It's the price of Nato's information, and also the price of peace here on the Pista."
           },
           "beco_2": {
             "nome": "Rasteira's other spot",
-            "fala": "You again? Took the alley down there and figured the Pista would open up for you. Rato de Pista changes hands every week — but not for a new gang."
+            "fala": "You again? Took the alley down there and already figured the whole Pista would kneel for the fresh gang. Changes hands every week here, man — but not for whoever shows up thinking they own a corner on day one."
           },
           "descanso": {
             "nome": "Rest at the bar",
             "sub": "mate, bread and quiet",
-            "intro": "Some time sitting, off the street, in Nato's bar. Costs a little change, but the gang comes back whole."
+            "intro": "Some time sitting, out of the hot street sun, in Nato's bar. Costs a little change, but the crew comes back whole — no wind, no fight gets won."
           },
           "loja": {
             "nome": "Pista Shop"
@@ -2218,37 +2222,45 @@
           "achado": {
             "nome": "The back of the junkyard",
             "sub": "what the owner left behind",
-            "linha": "Behind a pile of scrap: a crate with some change and iron that still works. Nobody will miss it — the owner vanished off the Pista a long time ago."
+            "linha": "Behind a pile of scrap, a forgotten crate: some change and iron that still works. Nobody will miss it — the owner's long gone, vanished off the Pista, and nobody asks why."
           },
           "rasteira_velha": {
             "nome": "Old Rasteira",
             "sub": "the alley's owner in person",
-            "fala": "You beat the kids and figured the Pista was yours? Old Rasteira trained every one of these punks. Beat me first — then Coal comes down."
+            "fala": [
+              "You beat the kids and already figured the Pista was yours? I trained every one of these punks with my own hands. Face me first — then Coal comes down to see you up close.",
+              "Trained every one of these kids with these hands. Come see what's left to teach you.",
+              "Back? Good. Now I get to teach it again, with more feeling."
+            ]
           },
           "oficina": {
             "nome": "Nando's workshop",
             "sub": "Mr. Nando fixes what the street breaks",
             "fala": [
-              "Look at the new gang working the spots. Let me tell you: to face Coal you need iron in your hand, not just guts.",
-              "Bring me two pieces of scrap from that junkyard — one you get cracking the lock, the other's in the back. Bring them and I'll forge you a piece.",
-              "And as a bonus I'll tell you where Coal hides when he vanishes into the dark. Deal?"
+              "Look at the fresh little gang already working the spots. Let me tell you something, kid: to face Coal you need iron in your hand, not just chest.",
+              "Bring me two pieces of scrap from that junkyard — one you pull cracking the lock, the other's hidden in the back. Bring them and I'll forge you a piece on the spot for your crew.",
+              "And as a bonus I'll drop where Coal hides when he vanishes into the dark. That's worth more than any weapon, kid. We got a deal?"
             ],
             "escolhas": {
               "forjar": {
                 "label": "Hand over the scrap and take the piece",
-                "resultado": "Nando hammers for a while and passes you a still-warm tin knuckle. \"Coal stays deep in Rasteira's alley, behind the wall. Vanishes in the dark, but always to the same corner. Now go.\""
+                "resultado": "Nando hammers a while, blows off the smoke and passes you a still-warm tin knuckle. \"Coal parks deep in Rasteira's alley, behind the wall. Vanishes in the dark, but always to the same corner — a crook always repeats a pattern. Now go up and get him.\""
               }
             }
           },
           "beco_3": {
             "nome": "The third spot",
             "sub": "another piece of Rato de Pista",
-            "fala": "You people don't quit, huh? The Pista's got spots like bullet holes — there's always one more. This one's mine. Come prove you're worth it."
+            "fala": "You people don't quit, huh? The Pista's got spots like bullet holes — there's always one more hidden in some corner. This one's mine. Come prove you're worth it, or go back where you came from."
           },
           "sinaleiro": {
             "nome": "The Head Signalman",
             "sub": "if he whistles, the whole block runs",
-            "fala": "I run the eyes of the Pista, kid. Every lookout, every light, every runner at the signal answers my whistle. You got past all of them — you don't get past me."
+            "fala": [
+              "I run the eyes of the whole Pista, kid. Every lookout, every signal, every runner at the light answers to my whistle. You got past all of them without anyone whistling — but you don't get past me. With me it's different.",
+              "I whistle, the whole block runs to help. Who do you whistle to?",
+              "Thought it'd be easy the second time? Wrong, kid."
+            ]
           },
           "predio": {
             "bar": "Zé's Bar",
@@ -2257,8 +2269,8 @@
             "fliperama": "Kiko's Arcade",
             "oficina": "Nando's Workshop",
             "lojapista": "Pista Shop",
-            "tunel_ent": "Alley shack",
-            "tunel_sai": "Shack on the other side"
+            "tunel_ent": "Shack at the end of the alley",
+            "tunel_sai": "Shack on the other side of the wall"
           },
           "grafite": "THE STREET\nREMEMBERS",
           "int": {
@@ -2266,33 +2278,40 @@
             "oficina": "Nando's Workshop",
             "loja": "Cida's Corner Store",
             "galpao": "Coal's Warehouse",
-            "tunel": "The way under the wall"
+            "tunel": "The gap under the wall"
           },
           "galpao": {
             "m1": {
               "nome": "Vapor on lookout",
-              "fala": "Look at the new gang's kids trying to get in the warehouse. No playboys in here."
+              "fala": [
+                "Look at the fresh gang's kids trying to walk into the warehouse like it's nothing. No playboys who think they own the place in here, kid. This is the real thing.",
+                "No playboys in here, kid. This is bone."
+              ]
             },
             "m2": {
               "nome": "Mad Dog",
-              "fala": "Past the dock? Lucky I was dozing. Now wake up for the fight."
+              "fala": [
+                "Past the dock? Lucky I was sleeping light. Wake up now, 'cause the fight already started.",
+                "Dozed off a second and look what's left to beat on.",
+                "This time I was waiting, see. Come on."
+              ]
             },
             "achado": {
               "nome": "Stockroom shelf",
               "sub": "what the operation keeps",
-              "linha": "Back of the shelf, under some rags: something useful."
+              "linha": "Back of the shelf, under some old rags: something useful. Nobody's going to notice it's gone."
             },
             "contador": {
               "nome": "The operation's bookkeeper",
               "sub": "keeps every tally, takes a beating for anyone",
               "fala": [
-                "Don't hit me! I just do the math! I'll talk, I'll talk...",
-                "Coal stays in the dark, way in the back. He only comes down once the whole warehouse knows you're here. Now they know."
+                "Don't hit me, kid! I just do the math, I swear to God! I'll talk, I'll talk, all of it...",
+                "Coal stays in the dark, way in the back of it all. He only comes down once the whole warehouse knows you're here. And guess what — it knows."
               ],
               "escolhas": {
                 "escuta": {
                   "label": "Hear him out",
-                  "resultado": "\"That board back there is the operation schedule. Coal crosses the last room every dawn. Good luck, kid.\""
+                  "resultado": "\"That board back there is the operation schedule, for real. Coal crosses the last room every dawn, same time always. Good luck, kid — you'll need it.\""
                 },
                 "aperta": {
                   "label": "Rough the poor guy up (−rep)"
@@ -2303,38 +2322,50 @@
           "tunel": {
             "m1": {
               "nome": "Mouth lookout",
-              "fala": "Nobody goes down this hole without going through me. Back to your side, kid."
+              "fala": [
+                "Nobody goes down this hole without going through me first, kid. Back to your side while you still can.",
+                "This hole's mine, kid. Nobody passes for free.",
+                "Still trying this gap? You really are stubborn."
+              ]
             },
             "m2": {
               "nome": "Tunnel tracker",
-              "fala": "Think you're the first to try digging under? The ones who tried are still down here in the dark."
+              "fala": [
+                "You really think you're the first to try digging under? The ones who tried before are still down here in the dark, no way out.",
+                "This hole's mine, kid. Nobody passes for free.",
+                "Still trying this gap? You really are stubborn."
+              ]
             },
             "m3": {
               "nome": "Exit lookout",
-              "fala": "Made it to the other side? Only over me. And I don't go down easy."
+              "fala": [
+                "Made it to the other side, huh? Only over me, kid. And I don't go down easy.",
+                "This hole's mine, kid. Nobody passes for free.",
+                "Still trying this gap? You really are stubborn."
+              ]
             },
             "achado": {
               "nome": "Hole in the tunnel wall",
               "sub": "what someone stashed here",
-              "linha": "Jammed into a crack in the dirt wall: something useful."
+              "linha": "Jammed into a crack in the dirt wall, half hidden: something that still works for the crew."
             }
           }
         },
-        "hint_andar": "Use the stick to walk the block.",
-        "hint_interagir": "You reached a spot — press INTERACT.",
-        "hint_sucata": "🔩 Take both scrap pieces to Nando at the workshop.",
+        "hint_andar": "Use the stick and head down to the street.",
+        "hint_interagir": "You hit a hot spot — press INTERACT.",
+        "hint_sucata": "🔩 Take both scrap pieces to Nando at the workshop. He'll sort you out.",
         "nivel": "LEVEL {n}",
         "acao": {
-          "entrar": "ENTER",
-          "sair": "EXIT",
+          "entrar": "GO IN",
+          "sair": "BOUNCE",
           "voltar": "BACK",
-          "avancar": "GO IN",
+          "avancar": "PUSH IN",
           "subir": "GO UP",
-          "desafiar": "CHALLENGE",
-          "trancado": "LOCKED"
+          "desafiar": "STEP UP",
+          "trancado": "SHUT"
         },
         "comodo": "ROOM {n}/{de}",
-        "muro_tunel": "The wall won't open. Find the way under it."
+        "muro_tunel": "The wall's not opening, straight up. Find the gap under it."
       },
       "enemy_album": {
         "1101": "Doesn't fight, he runs and warns — facing him is a chase before a beating.",

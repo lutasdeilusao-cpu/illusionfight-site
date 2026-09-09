@@ -67,9 +67,9 @@
       "escolher_outra": "ESCOLHER OUTRA FICHA",
       "voltar_games": "← VOLTAR AOS GAMES",
       "escolher_oponente": "← ESCOLHER OPONENTE",
-      "derrota": "DERROTA",
-      "derrota_sub": "A derrota só fortalece quem luta.",
-      "vitoria": "VITÓRIA",
+      "derrota": "DEU RUIM",
+      "derrota_sub": "Quem cai e levanta é quem manda de verdade depois.",
+      "vitoria": "FOI NÓS",
       "vitoria_sub": "Você derrotou <strong>{name}</strong> e provou seu valor na arena.",
       "report": {
         "enemy_thinking": "INIMIGO ESTÁ PENSANDO",
@@ -1470,7 +1470,7 @@
         "territorio_selecionado": "Território selecionado",
         "entrar_territorio": "Entrar no território",
         "bloqueado_cta": "Domine a rota anterior",
-        "dominado": "Bairro tomado",
+        "dominado": "Bairro na mão",
         "voltar_mapa": "Mapa",
         "sem_territorio": "Nenhum bairro selecionado.",
         "desafiante": "Gangue do ponto",
@@ -1481,10 +1481,10 @@
         "ponto_n": "Ponto {n}",
         "n_gangues": "{n} gangues",
         "enfrentar": "Encarar",
-        "precisa_informante": "🔍 Antes de encarar o chefe, volte na Pista e converse com o informante.",
+        "precisa_informante": "🔍 Antes de encarar o foda da Feira, volta na Pista e troca uma ideia com o Duda. Ele sabe umas fita que valem ouro.",
         "brigar": "Brigar",
         "agora_nao": "Agora não",
-        "continuar_territorio": "Continuar no bairro",
+        "continuar_territorio": "Segue no bairro",
         "tentar_de_novo": "Voltar pra cima",
         "dificuldades": {
           "rato": "Rato de rua",
@@ -1514,7 +1514,7 @@
         "bosses": {
           "fumaca": {
             "nome": "Carvão",
-            "fala": "Cê é ligeiro? Eu sou fumaça, cria. Pisca que eu sumo — e cê apanha no escuro."
+            "fala": "Cê é ligeiro, cria? Eu sou fumaça. Pisca o olho e eu já sumi — e cê apanha no escuro sem nem ver de onde veio o golpe."
           },
           "turco": {
             "nome": "O Cobrador",
@@ -1544,7 +1544,7 @@
         "territorios": {
           "pista": {
             "nome": "A Pista",
-            "desc": "O asfalto lá embaixo. Cria que corre no farol, arranca corrente, vende bala. A Rato de Pista sem ambição, o Bonde do Sinal vendendo o que vê. Ninguém importante — mas todo mundo começou aqui. O Retalho. O Alan, noutro canto. E agora você."
+            "desc": "O asfalto lá embaixo, cru. Cria correndo atrás de corrente, vendendo bala, virando os olho pra tudo. A Rato de Pista sem sonho grande, o Bonde do Sinal fazendo dinheiro com informação. Ninguém de peso ainda — mas todo dono de bandeira já pisou aqui primeiro. O Retalho pisou. O Alan pisou, noutro canto. Agora é tua vez."
           },
           "feira": {
             "nome": "A Feira",
@@ -1575,12 +1575,12 @@
           "ponto": "{territorio}. Esse ponto é da {gangue}, parça. A {suaGangue} não passa daqui de graça."
         },
         "abertura": [
-          "Senta aí que eu te explico como funciona.",
-          "Marélia não tem dono. Tem gangue em cada beco, cada uma achando que manda no mundo porque manda numa rua.",
-          "Cê quer subir? Começa na Pista, lá embaixo. Toma os ponto das gangue pequena, depois encara o foda da região — o dono da boca, o cara da bandeira.",
-          "Toma o bairro, o de cima abre. Bairro por bairro até a Laje.",
-          "Lá em cima tem um cara que ninguém sabe o nome de verdade. Só chamam ele de O Retalho. Ele já juntou seis bairro numa bandeira só. Ninguém nunca chegou mais perto de ser dono de Marélia.",
-          "Cê vai ter que passar por ele. Boa sorte, cria — cê vai precisar."
+          "Senta aí, cria, que eu vou te dar o real.",
+          "Marélia não tem dono, nunca teve. É facção em cada beco, cada uma se achando o auê do pedaço só porque manda numa rua de nada.",
+          "Cê quer subir na vida? Começa aqui embaixo, na Pista — no chão, com os moleque. Toma os ponto dos peixe pequeno, cresce, e depois encara o foda de verdade da região: o dono da bandeira, aquele que ninguém passa por cima.",
+          "Domina um bairro, o de cima libera. Assim vai — bairro por bairro, sangue por sangue, até a Laje.",
+          "Lá em cima tem um tal que ninguém sabe o nome de batismo. Só chamam de O Retalho. Já costurou seis bairro numa bandeira só — coisa que ninguém, NINGUÉM chegou perto de fazer.",
+          "Cê vai ter que passar por ele. Não é sobre querer, é sobre aguentar. Boa sorte, cria — vai precisar de mais que sorte."
         ],
         "final": {
           "code": "A SUBIDA ACABA AQUI",
@@ -1645,10 +1645,10 @@
         }
       },
       "naming": {
-        "titulo": "FUNDE A SUA GANGUE",
+        "titulo": "FUNDA A TUA GANGUE",
         "titulo_editar": "RENOMEAR A GANGUE",
-        "sub": "Os personagens importam. Mas é o nome da gangue que reverbera — é ele que os inimigos vão cuspir, é ele que vai dominar Marélia.",
-        "poster_pitch": "Toda rua conhece um nome. Escolha o que Marélia vai aprender a respeitar.",
+        "sub": "Os cria importam, mas é o nome da gangue que ecoa na quebrada inteira — é ele que os inimigo vão cuspir quando cair de boca no chão, é ele que vai dominar Marélia ou vai virar piada de esquina.",
+        "poster_pitch": "Toda rua conhece um nome. Escolhe o que Marélia inteira vai aprender a respeitar — ou a temer.",
         "label": "Nome da gangue",
         "placeholder": "Ex: Bonde do Fim de Linha",
         "exemplos": "Ideias:",
@@ -1657,49 +1657,49 @@
         "sugestao_trilha": "Trilha de Cima",
         "sugestao_sindicato": "Sindicato do Beco",
         "sugestao_quebrada": "Quebrada Nova",
-        "preview": "“A {nome} tá subindo o morro.”",
-        "preview_vazio": "O nome que Marélia inteira vai aprender a temer.",
+        "preview": "“A {nome} tá subindo o morro. Reza pra não cruzar o caminho dela.”",
+        "preview_vazio": "O nome que vai fazer Marélia inteira travar quando ouvir de longe.",
         "fundar": "FUNDAR A GANGUE",
         "salvar": "SALVAR",
         "renomear": "renomear",
         "abertura": [
-          "Antes de tudo: tua gangue precisa de nome.",
-          "Os lutador vêm e vão. O nome da gangue é o que fica — é ele que corre a boca do morro, é ele que vira lenda ou vira piada.",
-          "Escolhe bem. É esse nome que o Retalho vai cuspir quando cê chegar na Laje."
+          "Então cê tá pensando em montar uma gangue, é? Achando que dá conta das grande de Marélia?",
+          "Toma cuidado com o que cê deseja, cria. Lá em cima tem gente que já comeu bandeira inteira no café da manhã. O Retalho já juntou seis bairro numa mão só — e cê tá aqui, do nada, achando que vai ser diferente.",
+          "Mas beleza. Só passa não sem nome. Nome de rua vira lenda ou vira piada — e é ele que vão cuspir na tua cara quando cê tiver na Laje, de frente pro foda de verdade. Escolhe direito."
         ]
       },
       "dialogo": {
         "voz": "Voz da quebrada",
         "veio_nome": "Nego Véio",
         "veio_sub": "o coroa da esquina, dono da birosca",
-        "pular": "pular",
-        "proximo": "continuar",
-        "fechar": "entendi",
-        "comecar": "bora"
+        "pular": "avança logo",
+        "proximo": "segue",
+        "fechar": "entendido, patrão",
+        "comecar": "partiu"
       },
       "cena": {
         "grana": "Grana",
         "rep": "Nome",
-        "folego": "Fôlego da gangue",
-        "folego_baixo": "A gangue tá acabada. Passa na birosca antes de brigar de novo.",
-        "bairro_tomado": "Bairro tomado",
+        "folego": "Fôlego da tropa",
+        "folego_baixo": "A tropa tá zerada. Passa na birosca antes de arriscar outra treta.",
+        "bairro_tomado": "Bairro na mão",
         "opcional": "de boa",
-        "boss_trancado": "Fecha os ponto antes de subir",
-        "recompensa": "Levou",
-        "treta_nao": "Agora não",
-        "treta_sim": "Brigar",
+        "boss_trancado": "Fecha os ponto antes de subir o nível, cria.",
+        "recompensa": "Rendeu",
+        "treta_nao": "Agora não, sussa",
+        "treta_sim": "Partiu porrada",
         "fechar": "Fechar",
-        "parada_pular": "Deixa pra lá",
+        "parada_pular": "Deixa quieto",
         "parada_tentar": "Encarar",
-        "parada_ok": "Deu certo. A rua abriu.",
-        "parada_falha": "Foi mal — e agora acordou treta.",
-        "parada_falha_leve": "Não rolou. Fica pra próxima.",
-        "corre_ok": "Corre feito. O Nato paga o combinado.",
-        "corre_falha": "A viatura te viu. Larga o pacote e corre.",
+        "parada_ok": "Deu bom. A rua abriu pra tropa.",
+        "parada_falha": "Deu ruim — e acordou o pessoal. Treta na certa.",
+        "parada_falha_leve": "Não colou dessa vez. Fica pra próxima, cria.",
+        "corre_ok": "Corre feito, sem stress. O Nato paga o combinado, ponto final.",
+        "corre_falha": "A viatura te flagrou. Larga o pacote e vaza, agora!",
         "tipo": {
           "treta": "Treta",
-          "parada": "Parada",
-          "papo": "Papo",
+          "parada": "Corre difícil",
+          "papo": "Resenha",
           "corre": "Corre",
           "achado": "Achado",
           "descanso": "Birosca",
@@ -1708,69 +1708,73 @@
         "itens": {
           "sucata": "Sucata (item)"
         },
-        "descanso_curou": "A gangue respirou. +{n} de fôlego.",
-        "descanso_cheio": "A gangue já tá inteira.",
-        "descanso_sem_grana": "Sem grana pro descanso.",
+        "descanso_curou": "A tropa respirou fundo. +{n} de fôlego de volta.",
+        "descanso_cheio": "A tropa já tá no talo, não precisa não.",
+        "descanso_sem_grana": "Grana curta pro descanso, cria.",
         "descanso_curar": "Descansar (−{grana})",
         "pista": {
           "chegada": [
-            "Isso aqui é a Pista, cria. O asfalto lá embaixo — o começo de tudo.",
-            "Aqui todo mundo começou. O Retalho começou. O Alan, noutro canto, também. Agora é a tua vez.",
-            "Toma os ponto da molecada, faz teu nome na rua. Quando a Pista inteira souber teu nome, o Carvão desce do breu pra te encarar.",
-            "Anda. Toca no que acender."
+            "Essa aqui é a Pista, cria. O asfalto lá embaixo — a raiz de tudo.",
+            "Todo mundo que é alguém hoje começou raspando o chão aqui. O Retalho começou. O Alan, noutro canto, também começou do zero igual cê. Agora é a tua vez de provar que não é só mais um.",
+            "Toma os ponto da molecada, faz teu nome correr boca a boca. Quando a Pista inteira souber que cê existe, o Carvão desce do breu pra te encarar de frente — e aí sim cê descobre se tem estofo.",
+            "Bora. Toca em tudo que tiver acendendo."
           ],
           "sinal": {
             "nome": "A boca do sinal",
-            "sub": "cria vendendo bala, olhando tudo",
+            "sub": "cria vendendo bala, de olho vivo em tudo",
             "fala": [
-              "Cê é da gangue nova? Desceu na Pista sem ninguém atrás. Corajoso ou burro — ainda vou saber.",
-              "Aqui a gente não vende só bala. Vende o que a gente vê desse farol. E a gente vê tudo. Quer saber de alguma coisa? Troca uma ideia — ou um trocado."
+              "Ô, cê é da gangue nova? Desceu na Pista sozinho, sem tropa atrás. Ou cê é corajoso, ou é burro — vou saber já já.",
+              "Aqui a gente não vende só bala não, mano. A gente vende o que vê desse sinal. E a gente vê TUDO que rola nessa quebrada. Quer saber de um bagulho? Troca uma ideia — ou troca uma grana."
             ],
             "escolhas": {
               "compra": {
                 "label": "Compra a bala e escuta o que ele viu",
-                "resultado": "Ele embolsa o trocado. \"O ferro-velho ali na frente. O portão é só cadeado velho. Dentro tem sucata que vale grana — e o que o dono trancou antes de sumir da Pista.\""
+                "resultado": "Ele fecha a mão no trocado sem nem contar. \"O ferro-velho ali na frente, memo. Cadeado veio, moleza pra abrir. Lá dentro tem sucata que vale rocha — e o que o dono deixou antes de sumir da Pista de vez.\""
               },
               "aperta": {
-                "label": "Aperta a cria pra ele falar de graça"
+                "label": "Aperta o pivete pra falar sem custar nada"
               },
               "ignora": {
                 "label": "Ignora e segue subindo",
-                "resultado": "Cê passa reto. A cria cospe no chão e anota teu rosto. Logo adiante dá pra ver um ferro-velho."
+                "resultado": "Cê passa reto, sem nem trocar olhar. O moleque cospe no chão e grava tua cara na memória — informação também é moeda, e agora ele te deve uma. Mais na frente dá pra ver um ferro-velho."
               }
             }
           },
           "ferro": {
             "nome": "O ferro-velho",
-            "sub": "portão no cadeado, segredo dentro",
-            "intro": "O portão é só corrente e um cadeado de segredo. A gangue observa os pinos girarem uma vez — depois é decorar a sequência e repetir sem errar. Erra, o vigia acorda."
+            "sub": "portão trancado, segredo guardado",
+            "intro": "O portão é só corrente com cadeado de segredo — nada que uma mão treinada não resolva. A tropa presta atenção nos pino girando uma vez, depois é decorar a sequência e repetir sem tremer. Erra a mão, o vigia acorda e a brincadeira vira treta na hora."
           },
           "beco": {
             "nome": "O beco da Rasteira",
             "sub": "ponto da Rato de Pista",
-            "fala": "Esse beco é da Rato de Pista, parça. A gente não quer subir, não quer teu bairro — só não quer ser pisado. E gangue nova que desce aqui é pisada."
+            "fala": [
+              "Esse beco é da Rato de Pista, parça. A gente não quer subir, não quer teu bairro, não quer ser dono de nada — só não quer ser pisado. E gangue novinha que desce achando que é dona da rua... essa aqui é pisada, sem choro.",
+              "Ó quem chegou. Bando novinho achando que Pista é playground.",
+              "De novo essa cara aqui? Vai que dessa vez cê aprende."
+            ]
           },
           "rinha": {
             "nome": "A rinha do beco",
             "sub": "aposta clandestina",
-            "fala": "Roda de aposta no fundo do beco. Quem entra, apanha ou embolsa. Sempre tem um querendo testar a mão contra a gangue nova — bora, quantas vezes cê aguentar."
+            "fala": "Roda de aposta no fundo do beco, cria. Quem entra, ou apanha ou embolsa. Sempre tem um doido querendo testar a mão contra a gangue novinha da vez — bora, encara quantas vez aguentar de pé."
           },
           "birosca": {
             "nome": "A birosca do Seu Nato",
             "sub": "o coroa da esquina — o único adulto de confiança da Pista",
             "fala": [
-              "Senta aí. Toma um mate. Cê tá subindo rápido demais pra quem ninguém conhece.",
-              "Eu sei onde o Carvão se enfia quando some no breu. Te falo. Mas antes me faz um corre — leva um pacote pro outro lado sem a viatura pegar no facho.",
-              "Faz isso e a Pista te respeita. E a birosca fica aberta pra vocês descansarem."
+              "Senta, cria. Toma um mate. Cê tá subindo rápido demais pra alguém que ninguém aqui conhece de nome.",
+              "Eu sei onde o Carvão se enfia quando some no breu. Te falo, sem enrolação. Mas antes cê me faz um corre — leva um pacote pro outro lado sem o giro do facho da viatura pegar teu rastro.",
+              "Resolve isso e a Pista passa a te respeitar, não só te temer. E a birosca fica de porta aberta pra tua tropa descansar sempre que precisar."
             ],
             "escolhas": {
               "aceita_corre": {
                 "label": "Aceita o corre do Nato",
-                "resultado": "\"Fechou. O pacote tá atrás do balcão. E o outro ponto da Rasteira é subindo à direita.\""
+                "resultado": "\"Fechado, cria. O pacote tá atrás do balcão. E de bônus: o outro ponto da Rasteira é subindo ali à direita.\""
               },
               "so_papo": {
                 "label": "Só quer a informação",
-                "resultado": "\"Teimoso. Então vai no osso: o outro ponto da Rasteira é ali em cima. Bate os dois e o Carvão aparece.\""
+                "resultado": "\"Teimoso, hein. Então vai no osso mesmo: o outro ponto da Rasteira é ali em cima. Fecha os dois e o Carvão aparece sozinho, atrás de saber quem é cê.\""
               }
             }
           },
@@ -1778,29 +1782,29 @@
             "nome": "Duda, o Orelha",
             "sub": "sabe tudo que rola em Marélia antes de virar boato",
             "fala": [
-              "Ô, voltou na Pista? A Pista é isso: tudo que rola em Marélia passa aqui antes de virar boato. E eu escuto tudo.",
-              "Tem um bagulho na Feira que o pessoal de lá não te conta de graça. O Cobrador tá na tocaia."
+              "Ô, voltou pra Pista? É isso que essa quebrada é: tudo que rola em Marélia passa por aqui antes de virar boato de esquina. E eu escuto TUDO, cria.",
+              "Tem um bagulho rolando lá na Feira que aquele povo não te fala de graça não. O Cobrador tá na surdina, esperando o momento certo pra aparecer."
             ],
             "escolhas": {
               "perguntar": {
                 "label": "Pergunta sobre a Feira",
-                "resultado": "\"O Cobrador só sai da toca se souber que já bateram nos batedor dele. Vai na Feira, resolve os ponto — depois volta aqui se precisar de mais.\""
+                "resultado": "\"O Cobrador só sai da toca quando souber que os batedor dele já apanharam. Vai lá na Feira, resolve os ponto — depois volta aqui se precisar de mais fita.\""
               }
             }
           },
           "corre": {
             "nome": "O corre do Nato",
             "sub": "leva o pacote sem a viatura ver",
-            "intro": "Atravessa a quadra com o pacote sem entrar no facho da viatura. A gangue se espalha e cobre teu movimento. É o preço da informação do Nato — e da paz na Pista."
+            "intro": "Atravessa a quadra com o pacote sem entrar no facho da viatura — um giro errado e é treta certa com farda. A tropa se espalha e cobre teu movimento. É o preço da informação do Nato, e também o preço da paz aqui na Pista."
           },
           "beco_2": {
             "nome": "O outro ponto da Rasteira",
-            "fala": "Cê de novo? Bateu o beco lá embaixo e achou que a Pista ia abrir pra vocês. A Rato de Pista muda de dono toda semana — mas não pra gangue nova."
+            "fala": "Cê de novo? Bateu o beco lá embaixo e já achou que a Pista inteira ia se ajoelhar pra gangue novinha. Aqui muda de dono toda semana, mano — mas não pra quem chega achando que é dono de esquina no primeiro dia."
           },
           "descanso": {
             "nome": "Descanso na birosca",
             "sub": "mate, pão e sossego",
-            "intro": "Um tempo sentado, longe da rua, na birosca do Nato. Custa uns trocado, mas a gangue volta inteira pro corre."
+            "intro": "Um tempo sentado, longe do sol quente da rua, na birosca do Nato. Custa uns trocado, mas a tropa volta inteira pro corre — sem fôlego não tem treta que se vença."
           },
           "loja": {
             "nome": "Loja da Pista"
@@ -1808,37 +1812,45 @@
           "achado": {
             "nome": "O fundo do ferro-velho",
             "sub": "o que o dono deixou pra trás",
-            "linha": "Atrás de uma pilha de sucata: um caixote com uns trocado e ferro que ainda serve. Ninguém vai sentir falta — o dono sumiu da Pista faz tempo."
+            "linha": "Atrás de uma pilha de sucata, um caixote esquecido: uns trocado e ferro que ainda presta. Ninguém vai sentir falta — o dono já era, sumiu da Pista faz tempo e ninguém pergunta o porquê."
           },
           "rasteira_velha": {
             "nome": "A Rasteira Velha",
             "sub": "a dona do beco em pessoa",
-            "fala": "Cê bateu os moleque e achou que a Pista era tua? A Rasteira Velha treinou cada um desses pivete. Bate em mim primeiro — aí sim o Carvão desce."
+            "fala": [
+              "Cê bateu os moleque e já foi achando que a Pista era sua? Eu treinei cada um desses pivete com minhas próprias mão. Encara eu primeiro — aí sim o Carvão desce pra te ver de perto.",
+              "Treinei cada um desses moleque com essas mão. Vem ver o que sobrou pra ensinar pra cê.",
+              "Voltou? Bom. Assim eu ensino de novo, com mais gosto."
+            ]
           },
           "oficina": {
             "nome": "A oficina do Nando",
             "sub": "o Seu Nando conserta o que a rua quebra",
             "fala": [
-              "Ó a gangue nova batendo ponto. Vô te falar: pra encarar o Carvão precisa de ferro na mão, não só de coragem.",
-              "Me traz dois pedaço de sucata daquele ferro-velho ali — um cê pega abrindo o cadeado, o outro tá no fundo. Traz que eu forjo uma peça pra vocês.",
-              "E de brinde eu te conto onde o Carvão se enfia quando some no breu. Fechou?"
+              "Ó a gangue novinha já batendo ponto. Vô te falar uma coisa, cria: pra encarar o Carvão precisa de ferro na mão, não só peito.",
+              "Me traz dois pedaço de sucata daquele ferro-velho — um cê tira abrindo o cadeado, o outro tá escondido no fundo. Traz que eu forjo uma peça na hora pra tua tropa.",
+              "E de brinde eu solto onde o Carvão se enfia quando some no breu. Isso vale mais que qualquer arma, cria. Fechamos?"
             ],
             "escolhas": {
               "forjar": {
                 "label": "Entrega a sucata e pega a peça",
-                "resultado": "O Nando martela um tempo e te passa uma soqueira de lata ainda quente. \"O Carvão fica no fundão do beco da Rasteira, atrás do muro. Some no escuro, mas some sempre pro mesmo canto. Agora vai.\""
+                "resultado": "O Nando martela um tempo, sopra a fumaça e te passa uma soqueira de lata ainda quente. \"O Carvão para no fundão do beco da Rasteira, atrás do muro. Some no escuro, mas sempre pro mesmo canto — malandro repete padrão. Agora sobe e vai atrás.\""
               }
             }
           },
           "beco_3": {
             "nome": "O terceiro ponto",
             "sub": "mais um pedaço da Rato de Pista",
-            "fala": "Vocês não cansam, né? A Pista tem ponto que nem buraco de bala — sempre tem mais um. Esse aqui é meu. Vem provar que merece."
+            "fala": "Vocês não cansa, hein? A Pista tem ponto igual buraco de bala — sempre tem mais um escondido em algum canto. Esse aqui é meu. Vem provar que merece, ou volta de onde veio."
           },
           "sinaleiro": {
             "nome": "O Sinaleiro Chefe",
             "sub": "se ele apita, o bairro inteiro corre",
-            "fala": "Eu comando os olho da Pista, cria. Cada vigia, cada farol, cada pivete no sinal responde pro meu apito. Cê passou por todos eles — mas não passa por mim."
+            "fala": [
+              "Eu comando os olho da Pista inteira, cria. Cada vigia, cada sinal, cada pivete no farol responde é pro meu apito. Cê passou por todos eles sem ninguém apitar — mas por mim cê não passa não. Comigo é diferente.",
+              "Eu apito, o bairro inteiro corre pra ajudar. Cê apita pra quem?",
+              "Achou que ia ser fácil na segunda vez? Errado, cria."
+            ]
           },
           "predio": {
             "bar": "Bar do Zé",
@@ -1847,8 +1859,8 @@
             "fliperama": "Fliperama do Kiko",
             "oficina": "Oficina do Nando",
             "lojapista": "Loja da Pista",
-            "tunel_ent": "Barraco do beco",
-            "tunel_sai": "Barraco do outro lado"
+            "tunel_ent": "Barraco do fundo do beco",
+            "tunel_sai": "Barraco do outro lado do muro"
           },
           "grafite": "A RUA\nLEMBRA",
           "int": {
@@ -1856,33 +1868,40 @@
             "oficina": "Oficina do Nando",
             "loja": "Mercearia da Cida",
             "galpao": "Galpão do Carvão",
-            "tunel": "A passagem por baixo do muro"
+            "tunel": "A brecha por baixo do muro"
           },
           "galpao": {
             "m1": {
               "nome": "Vapor de tocaia",
-              "fala": "Ó os pivete da gangue nova querendo entrar no galpão. Aqui não entra playboy, cria."
+              "fala": [
+                "Ó os pivete da gangue nova querendo entrar no galpão assim, no talento. Aqui não entra playboy achando que é dono, cria. Aqui é osso.",
+                "Playboy não entra aqui não, cria. Aqui é osso puro."
+              ]
             },
             "m2": {
               "nome": "Cão Louco",
-              "fala": "Passou da doca? Sorte sua que eu tava cochilando. Agora acorda pra briga."
+              "fala": [
+                "Passou da doca? Sorte tua que eu tava de sono leve. Agora acorda, porque a briga já começou.",
+                "Cochilei um pouquinho e olha o que sobrou pra apanhar.",
+                "Dessa vez eu tava esperando, viu. Vem."
+              ]
             },
             "achado": {
               "nome": "Prateleira do estoque",
               "sub": "o que o movimento guarda",
-              "linha": "No fundo da prateleira, embaixo de uns pano: um bagulho que serve."
+              "linha": "Fundo da prateleira, embaixo de uns pano velho: um bagulho que serve. Ninguém vai notar que sumiu."
             },
             "contador": {
               "nome": "O contador do movimento",
               "sub": "anota tudo, apanha por qualquer um",
               "fala": [
-                "Não me bate, não! Eu só faço a conta! Eu falo, eu falo…",
-                "O Carvão fica no breu, lá no fundão. Ele só desce quando o galpão inteiro já sabe que cê chegou. Agora cê chegou."
+                "Não bate, não, cria! Eu só faço a conta, juro por Deus! Eu falo, eu falo tudo…",
+                "O Carvão fica no breu, lá no fundão de tudo. Ele só desce quando o galpão inteiro já sabe que cê chegou. E adivinha — já sabe."
               ],
               "escolhas": {
                 "escuta": {
                   "label": "Escuta o que ele tem pra falar",
-                  "resultado": "\"O quadro ali atrás é o horário do movimento. O Carvão passa no último cômodo toda madrugada. Boa sorte, cria.\""
+                  "resultado": "\"O quadro ali atrás é o horário do movimento, memo. O Carvão cruza o último cômodo toda madrugada, sempre no mesmo horário. Boa sorte, cria — vai precisar.\""
                 },
                 "aperta": {
                   "label": "Aperta o coitado (−rep)"
@@ -1893,38 +1912,50 @@
           "tunel": {
             "m1": {
               "nome": "Vigia da boca",
-              "fala": "Ó, ninguém entra nesse buraco sem passar por mim. Volta pro teu lado, cria."
+              "fala": [
+                "Ninguém desce nesse buraco sem passar por cima de mim primeiro, cria. Volta pro teu lado enquanto é tempo.",
+                "Esse buraco é meu, cria. Ninguém passa de graça.",
+                "Ainda tentando essa brecha? Cê é teimoso mesmo."
+              ]
             },
             "m2": {
               "nome": "Farejador do túnel",
-              "fala": "Cê acha que é o primeiro a tentar furar por baixo? Os que tentaram tão aí no escuro até hoje."
+              "fala": [
+                "Cê acha mesmo que é o primeiro a tentar furar por baixo? Os que tentaram antes ainda tão aqui, no escuro, sem sair.",
+                "Esse buraco é meu, cria. Ninguém passa de graça.",
+                "Ainda tentando essa brecha? Cê é teimoso mesmo."
+              ]
             },
             "m3": {
               "nome": "Vigia da saída",
-              "fala": "Chegou do outro lado? Só passando por cima de mim. E eu não caio fácil."
+              "fala": [
+                "Chegou do outro lado, foi? Só passando por cima de mim, cria. E eu não sou de cair fácil não.",
+                "Esse buraco é meu, cria. Ninguém passa de graça.",
+                "Ainda tentando essa brecha? Cê é teimoso mesmo."
+              ]
             },
             "achado": {
               "nome": "Buraco na parede do túnel",
               "sub": "o que alguém escondeu aqui",
-              "linha": "Enfiado numa fresta da parede de terra: um bagulho que serve."
+              "linha": "Enfiado numa fresta da parede de terra, meio escondido: um bagulho que ainda serve pra tropa."
             }
           }
         },
-        "hint_andar": "Use o analógico pra andar pela quebrada.",
-        "hint_interagir": "Chegou num ponto — aperte INTERAGIR.",
-        "hint_sucata": "🔩 Leva os dois pedaço de sucata pro Nando na oficina.",
+        "hint_andar": "Usa o analógico e desce pra rua.",
+        "hint_interagir": "Chegou num ponto quente — aperta INTERAGIR.",
+        "hint_sucata": "🔩 Leva os dois pedaço de sucata pro Nando, na oficina. Ele te retorna.",
         "nivel": "NÍVEL {n}",
         "acao": {
-          "entrar": "ENTRAR",
-          "sair": "SAIR",
+          "entrar": "ENTRA",
+          "sair": "VAZA",
           "voltar": "VOLTAR",
           "avancar": "AVANÇAR",
           "subir": "SUBIR",
-          "desafiar": "DESAFIAR",
-          "trancado": "TRANCADO"
+          "desafiar": "ENCARA",
+          "trancado": "FECHADO"
         },
         "comodo": "CÔMODO {n}/{de}",
-        "muro_tunel": "O muro não abre. Acha a passagem por baixo."
+        "muro_tunel": "O muro não abre assim, na moral. Acha a brecha por baixo."
       },
       "enemy_album": {
         "1101": "Não briga, corre e avisa — enfrentá-lo é perseguição antes de porrada.",
