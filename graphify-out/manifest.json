@@ -275,9 +275,9 @@
     "semantic_hash": "12a0f042e767ac7175bd8170ea959e4b"
   },
   "src/components/Puzzles/PuzzleStealthGrid.jsx": {
-    "mtime": 1781917844.0431414,
-    "ast_hash": "72c8e2018a9a4c35a438473c729447b8",
-    "semantic_hash": "72c8e2018a9a4c35a438473c729447b8"
+    "mtime": 1788995111.1330974,
+    "ast_hash": "26df7baa5a7dac7a7944972878d2ad6b",
+    "semantic_hash": ""
   },
   "src/components/Puzzles/index.js": {
     "mtime": 1783195634.083733,
@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1788993780.1622157,
-    "ast_hash": "065f2c5e390d1450199fb5a2caf0bf4f",
+    "mtime": 1788995332.8320847,
+    "ast_hash": "ed78254e04de007916e11ed9d1e44e57",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2745,8 +2745,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1788993796.372513,
-    "ast_hash": "4cfc6c2fce84575006318b0f97f51c39",
+    "mtime": 1788995332.9376316,
+    "ast_hash": "d3fc509bfb5bc613f033db18ca4aba91",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -4665,18 +4665,18 @@
     "semantic_hash": ""
   },
   "src/i18n/games/en.json": {
-    "mtime": 1788409608.9635682,
-    "ast_hash": "4c2299d2133e08f9cb6f1eede37a21ff",
+    "mtime": 1788995301.6202354,
+    "ast_hash": "62c462ba417bea6932c4f59613e45238",
     "semantic_hash": ""
   },
   "src/i18n/games/es.json": {
-    "mtime": 1788409608.9695675,
-    "ast_hash": "1aa0c810939932980708ad0e9d9711ad",
+    "mtime": 1788995306.2391036,
+    "ast_hash": "941317d79a586fbf623dac1c6b56abd4",
     "semantic_hash": ""
   },
   "src/i18n/games/pt.json": {
-    "mtime": 1788409608.9565532,
-    "ast_hash": "751ffeb42b48339855bbd3f2869b55d2",
+    "mtime": 1788995301.5114524,
+    "ast_hash": "b0502ac737a770eabb706791ea7369ba",
     "semantic_hash": ""
   },
   "src/i18n/prototype/en.json": {

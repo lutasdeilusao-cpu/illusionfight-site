@@ -31,7 +31,13 @@ const WORLD={w:760,h:1840}, SPAWN={x:380,y:1720}, TILE=20, STEP_MS=110, PLAYER_R
 const SCENE_INTRO_KEY='ldi-gangues-cena-intro-vista'
 function cenaIntroJaVista(id){try{return JSON.parse(localStorage.getItem(SCENE_INTRO_KEY)||'[]').includes(id)}catch{return false}}
 function marcarCenaIntroVista(id){try{const atual=JSON.parse(localStorage.getItem(SCENE_INTRO_KEY)||'[]');if(!atual.includes(id))localStorage.setItem(SCENE_INTRO_KEY,JSON.stringify([...atual,id]))}catch{}}
-const POS={sinal:{x:210,y:1570},ferro:{x:150,y:1325},achado:{x:110,y:1245},beco:{x:445,y:1190},birosca:{x:170,y:1460},corre:{x:610,y:1010},beco_2:{x:445,y:505},beco_3:{x:315,y:600},sinaleiro:{x:435,y:640},rasteira_velha:{x:380,y:460},oficina:{x:250,y:705},descanso:{x:205,y:1440},informante:{x:150,y:740},rinha:{x:610,y:740},loja:{x:210,y:250},boss:{x:570,y:175}}
+// Os 4 pontos do corredor antes do muro (rasteira_velha, beco_2, beco_3,
+// sinaleiro) ficavam empilhados num quadrado de ~180px — pino/label um em cima
+// do outro, difícil voltar pra farmar um específico. Corredor alargado (ver
+// QUARTEIROES_PISTA) + zigue-zague esquerda/direita com ~75px de folga na
+// altura: cada pino se separa bem. beco_2 fica à ESQUERDA da boca do túnel
+// (tunel_ent, x476), sinaleiro embaixo dela.
+const POS={sinal:{x:210,y:1570},ferro:{x:150,y:1325},achado:{x:110,y:1245},beco:{x:445,y:1190},birosca:{x:170,y:1460},corre:{x:610,y:1010},beco_2:{x:430,y:466},beco_3:{x:288,y:550},sinaleiro:{x:445,y:632},rasteira_velha:{x:300,y:396},oficina:{x:250,y:705},descanso:{x:205,y:1440},informante:{x:150,y:740},rinha:{x:610,y:740},loja:{x:210,y:250},boss:{x:570,y:175}}
 // Um obstáculo `solido` vira um retângulo de colisão PEQUENO em volta do ponto
 // (o jogador tem raio 18; corredor da pista ~186px — colisor grande trancava).
 function obstRect(o){return {x:o.x-15,y:o.y-11,w:30,h:22}}
@@ -46,13 +52,13 @@ function collidersDaCena(cena,bossAberto){
 }
 const ENTRY_ZONES={
   sinal:{x:243,y:1532,w:70,h:76},ferro:{x:270,y:1288,w:35,h:76},achado:{x:75,y:1212,w:72,h:72},beco:{x:355,y:1155,w:76,h:70},
-  birosca:{x:270,y:1418,w:35,h:82},corre:{x:455,y:970,w:35,h:82},beco_2:{x:350,y:465,w:76,h:82},
-  // rasteira_velha: no corredor central logo abaixo do portão — o último
-  // desafio antes do muro. loja: já do OUTRO lado do portão (y<350).
-  rasteira_velha:{x:345,y:425,w:70,h:80},loja:{x:175,y:216,w:72,h:72},
-  // beco_3 + sinaleiro no corredor central (x287-473) entre o portão e os
-  // prédios; oficina no vão aberto logo abaixo (y>676, x<287).
-  beco_3:{x:290,y:572,w:64,h:64},sinaleiro:{x:406,y:612,w:60,h:60},oficina:{x:220,y:678,w:64,h:62},
+  birosca:{x:270,y:1418,w:35,h:82},corre:{x:455,y:970,w:35,h:82},
+  // Os 4 pontos do corredor alargado antes do muro (x250-510) — cada zona
+  // embaixo do seu pino, espalhados. loja: já do OUTRO lado do portão (y<350).
+  // oficina no vão aberto logo abaixo (y>676, x<287).
+  rasteira_velha:{x:270,y:374,w:60,h:52},beco_2:{x:402,y:444,w:58,h:52},
+  beco_3:{x:258,y:528,w:60,h:52},sinaleiro:{x:417,y:610,w:58,h:52},
+  loja:{x:175,y:216,w:72,h:72},oficina:{x:220,y:678,w:64,h:62},
   // informante/rinha ficam num trecho SEM colisor nenhum (y:705-781 não tem
   // nenhum COLLIDERS cobrindo essa faixa) — diferente de ferro/corre/etc,
   // que hospedam perto de prédio de verdade e por isso a zona anda longe do
