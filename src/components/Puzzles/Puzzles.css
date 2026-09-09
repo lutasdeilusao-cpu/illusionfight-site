@@ -92,7 +92,11 @@
 
 .puzzle-stealth-grid {
   display: grid;
-  gap: 2px;
+  /* gap 0: a largura da grade é exatamente size*cellSize, batendo com o
+     cálculo de viewportPx em JS. Com gap>0 a última coluna vazava do
+     viewport (overflow:hidden) e a bandeira do fim ficava cortada. As
+     linhas da grade vêm da borda de cada .puzzle-stealth-cell. */
+  gap: 0;
 }
 
 .puzzle-stealth-cell {
@@ -152,6 +156,10 @@
 @keyframes toast-in { from{opacity:0;transform:translate(-50%,-50%) scale(0.8)} to{opacity:1;transform:translate(-50%,-50%) scale(1)} }
 
 .puzzle-stealth-viewport {
+  /* content-box: a `width` vinda do JS (viewportPx = colunas*cellSize) é a
+     área ÚTIL — a borda fica por fora e não empurra a grade pra dentro,
+     senão a última coluna era cortada mesmo sem gap. */
+  box-sizing: content-box;
   border: 1px solid #222;
   border-radius: 4px;
   overflow: hidden;
