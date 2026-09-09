@@ -137,7 +137,7 @@
       },
       "stealth": {
         "titulo_jogo": "🥷 Infiltration Grid",
-        "instrucao": "avoid the cameras and their vision cones. use WASD, arrows or swipe.",
+        "instrucao": "avoid the cameras and their vision cones. use the buttons, arrow keys or swipe.",
         "capturado": "you've been caught"
       },
       "timer": "⏱ {s}s",

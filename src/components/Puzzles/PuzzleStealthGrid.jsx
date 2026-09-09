@@ -288,7 +288,10 @@ export default function PuzzleStealthGrid({ onSolve, onFail, config = {} }) {
         {showGoalArrow && <div className="puzzle-stealth-goal-arrow">{goalArrowDir}</div>}
       </div>
 
-      {isMobile && (
+      {/* Zoom só faz sentido quando a grade é maior que a janela e precisa
+          rolar (grids grandes do MiniGames). Nos grids pequenos — o corre da
+          Pista (5×5) — não aparece: não tem o que enquadrar. */}
+      {isMobile && size > viewportCells && (
         <div className="puzzle-stealth-zoom-btns" style={{ opacity: controlsVisible ? 1 : 0.2, transition: 'opacity 0.3s' }}>
           <button onClick={() => { setZoom(z => Math.max(1, z-1)); showControls() }} className="puzzle-stealth-zoom-btn">−</button>
           <span className="puzzle-stealth-zoom-label">{zoom === 1 ? 'NORMAL' : zoom === 2 ? 'WIDE' : 'MAPA'}</span>
@@ -296,14 +299,15 @@ export default function PuzzleStealthGrid({ onSolve, onFail, config = {} }) {
         </div>
       )}
 
-      {!isMobile && (
-        <div className="puzzle-dpad">
-          <button className="puzzle-dpad-btn puzzle-dpad-btn--up" onClick={() => handleMove(-1,0)} disabled={done}>▲</button>
-          <button className="puzzle-dpad-btn puzzle-dpad-btn--left" onClick={() => handleMove(0,-1)} disabled={done}>◀</button>
-          <button className="puzzle-dpad-btn puzzle-dpad-btn--down" onClick={() => handleMove(1,0)} disabled={done}>▼</button>
-          <button className="puzzle-dpad-btn puzzle-dpad-btn--right" onClick={() => handleMove(0,1)} disabled={done}>▶</button>
-        </div>
-      )}
+      {/* D-pad na tela SEMPRE (mobile e desktop) — no celular o swipe no grid
+          existe mas é um alvo pequeno dentro do modal; sem os botões o jogador
+          não descobre como andar. */}
+      <div className="puzzle-dpad">
+        <button className="puzzle-dpad-btn puzzle-dpad-btn--up" onClick={() => handleMove(-1,0)} disabled={done} aria-label="cima">▲</button>
+        <button className="puzzle-dpad-btn puzzle-dpad-btn--left" onClick={() => handleMove(0,-1)} disabled={done} aria-label="esquerda">◀</button>
+        <button className="puzzle-dpad-btn puzzle-dpad-btn--down" onClick={() => handleMove(1,0)} disabled={done} aria-label="baixo">▼</button>
+        <button className="puzzle-dpad-btn puzzle-dpad-btn--right" onClick={() => handleMove(0,1)} disabled={done} aria-label="direita">▶</button>
+      </div>
     </div>
   )
 }

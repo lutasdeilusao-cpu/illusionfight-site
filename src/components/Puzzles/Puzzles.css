@@ -263,21 +263,25 @@
     ". up ."
     "left . right"
     ". down .";
-  gap: 4px;
-  max-width: 140px;
-  margin: 0.75rem auto 0;
+  gap: 6px;
+  max-width: 172px;
+  margin: 0.85rem auto 0;
 }
 
 .puzzle-dpad-btn {
   background: #111;
-  border: 1px solid #333;
-  color: #888;
+  border: 1px solid #3a3a3a;
+  color: #cfcfcf;
   font-family: 'Share Tech Mono', monospace;
-  font-size: 0.9rem;
+  font-size: 1.15rem;
+  min-width: 52px;
+  min-height: 52px;
   padding: 0.4rem;
   cursor: pointer;
   transition: all 0.15s;
+  touch-action: manipulation;
 }
+.puzzle-dpad-btn:active:not(:disabled) { background: rgba(245,166,35,0.18); border-color: var(--if-amber); }
 
 .puzzle-dpad-btn:hover:not(:disabled) { border-color: var(--if-amber); color: var(--if-amber); }
 .puzzle-dpad-btn:disabled { opacity: 0.3; }

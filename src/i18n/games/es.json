@@ -137,7 +137,7 @@
       },
       "stealth": {
         "titulo_jogo": "🥷 Cuadrícula de Infiltración",
-        "instrucao": "evita las cámaras y sus conos de visión. usa WASD, flechas o swipe.",
+        "instrucao": "evita las cámaras y sus conos de visión. usá los botones, las flechas o deslizá.",
         "capturado": "has sido capturado"
       },
       "timer": "⏱ {s}s",

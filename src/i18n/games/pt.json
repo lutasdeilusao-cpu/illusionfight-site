@@ -137,7 +137,7 @@
       },
       "stealth": {
         "titulo_jogo": "🥷 Grade de Infiltração",
-        "instrucao": "evite as câmeras e seus cones de visão. use WASD, setas ou swipe.",
+        "instrucao": "evite as câmeras e seus cones de visão. use os botões, as setas ou arraste.",
         "capturado": "você foi capturado"
       },
       "timer": "⏱ {s}s",
