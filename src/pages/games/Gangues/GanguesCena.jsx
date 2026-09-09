@@ -139,11 +139,17 @@ function montarAmbiente(cena,local,prog,baseFeita,muroAberto){
   }).filter(Boolean)
   const alvos=[...pois]
   if(com.saida) alvos.push({id:'__saida',ehSaida:true,paraPredio:com.saida.paraPredio,world:{x:com.saida.x+com.saida.w/2,y:com.saida.y+com.saida.h/2},zona:com.saida,estado:'disponivel'})
-  if(com.voltaPara!=null){const zw=com.world.w;alvos.push({id:'__volta',ehVolta:true,para:com.voltaPara,world:{x:zw/2,y:com.world.h-16},zona:{x:0,y:com.world.h-22,w:zw,h:22},estado:'disponivel'})}
+  if(com.voltaPara!=null){const zw=com.world.w;alvos.push({id:'__volta',ehVolta:true,para:com.voltaPara,world:{x:zw/2,y:com.world.h-16},zona:{x:0,y:com.world.h-34,w:zw,h:34},estado:'disponivel'})}
   if(com.passagem){const pg=com.passagem;const trancada=pg.precisa&&!prog.resolvidos[pg.precisa]
     alvos.push({id:'__passagem',ehPassagem:true,para:pg.para,label:pg.label,precisa:pg.precisa,
       world:{x:pg.x+pg.w/2,y:pg.y+pg.h/2},zona:pg,estado:trancada?'trancado':'disponivel'})}
-  return {interior:true,world:com.world,colliders:com.colliders||[],gateAtivo:false,
+  // Cômodo com "voltar" (túnel/galpão): a zona de volta fica na borda de baixo,
+  // mas TODO cômodo tem uma parede sólida de fundo ({x:0,y:h-28,w:tudo,h:28})
+  // que cobria a zona inteira — o jogador só conseguia AVANÇAR, nunca voltar.
+  // Aqui a gente remove qualquer colisor colado no rodapé quando o cômodo tem
+  // `voltaPara`, deixando o caminho de volta livre.
+  const colliders=(com.colliders||[]).filter(c=>com.voltaPara==null||c.y<com.world.h-34)
+  return {interior:true,world:com.world,colliders,gateAtivo:false,
     alvos,nomeLugar:inter.nome,comodoIdx:local.comodo,comodoTotal:inter.comodos.length,cenario:com.cenario||[]}
 }
 
