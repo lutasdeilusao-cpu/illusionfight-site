@@ -2098,6 +2098,9 @@
         "recompensa": "Came out with",
         "treta_nao": "Not now, chill",
         "treta_sim": "Let's scrap",
+        "evento_tag": "AMBUSH",
+        "evento_sim": "Take it",
+        "evento_nao": "Slip past",
         "fechar": "Close",
         "parada_pular": "Leave it alone",
         "parada_tentar": "Take it on",
@@ -2123,6 +2126,14 @@
         "descanso_sem_grana": "Cash is short for a rest, kid.",
         "descanso_curar": "Rest (−{grana})",
         "pista": {
+          "evento": {
+            "nome": "Road blocked",
+            "fala": [
+              "Some guys just cut you off. Not Pista crew — outsiders testing the new gang.",
+              "Ambush at the corner. Half a dozen waiting for you to walk by, just to run their mouths.",
+              "The street narrowed all of a sudden and some tougher kids cut your path. They want to see if you're bone or paper."
+            ]
+          },
           "chegada": [
             "This is the Pista, kid. The asphalt down below — the root of it all.",
             "Everybody worth something today crawled on this ground first. The Patchwork started here. Alan, elsewhere, started from zero just like you. Now it's your turn to prove you're not just another face.",
@@ -2142,7 +2153,11 @@
                 "resultado": "He closes his fist on the change without even counting it. \"The junkyard right up ahead. Old padlock, easy to crack. Inside there's scrap worth real money — and whatever the owner left before he vanished off the Pista for good.\""
               },
               "aperta": {
-                "label": "Lean on the kid so he talks for free"
+                "label": "Lean on the kid so he talks for free",
+                "resultado": [
+                  "The kid backs off but doesn't run. \"Ugh, now it's really gone bad. Should've bought the candy.\"",
+                  "\"You lean on a kid like that and then want respect? Not happening.\" He whistles — and he's not alone."
+                ]
               },
               "ignora": {
                 "label": "Ignore him and keep climbing",

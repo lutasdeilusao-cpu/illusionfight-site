@@ -17,7 +17,7 @@ import GanguesAlbum from './GanguesAlbum'
 import GanguesBatalha from './GanguesBatalha'
 import { temCena } from './data/cenas/pista.js'
 import { GANGUES_STORY_BATTLE_PARTY_MAX } from './data/ganguesLoadout.js'
-import { gerarBandoInimigo, gerarBandoChefe, gerarBandoRevezamento } from './data/ganguesEncontros.js'
+import { gerarBandoInimigo, gerarBandoChefe, gerarBandoRevezamento, gerarBandoEvento } from './data/ganguesEncontros.js'
 import GuestNotice from '../../../components/GuestNotice/GuestNotice'
 import enemiesData from './data/gangues-enemies.json'
 import './Gangues.css'
@@ -70,10 +70,14 @@ export default function GanguesRoute() {
     const selected = store.activeParty.filter(member => store.roster.some(item => item.id === member.id))
     const party = (selected.length ? selected : store.roster).slice(0, GANGUES_STORY_BATTLE_PARTY_MAX)
     const temRevezamento = alvo?.revezamento?.pool?.length
-    if ((!alvo?.enemyId && !temRevezamento) || party.length < 1) { setFase('story'); return }
+    if ((!alvo?.enemyId && !temRevezamento && !alvo?.evento) || party.length < 1) { setFase('story'); return }
 
     let enemyTeam
-    if (alvo.isChefe) {
+    if (alvo.evento) {
+      // Encontro aleatório de rua — bando um pouco acima da ficha, com teto.
+      enemyTeam = gerarBandoEvento({ territorioId: alvo.territorioId, playerTeam: party, enemiesData })
+      if (!enemyTeam?.length) { setFase('story'); return }
+    } else if (alvo.isChefe) {
       // Bando do chefe = orçamento de pontos FIXO por território (não escala com
       // o jogador — o loop é voltar mais forte). Ver gerarBandoChefe.
       enemyTeam = gerarBandoChefe({ territorioId: alvo.territorioId, playerTeam: party, enemiesData })

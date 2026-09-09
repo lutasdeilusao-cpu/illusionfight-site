@@ -145,8 +145,15 @@ export default function GanguesVictory({ onNavigate }) {
       // Álbum de Marélia — todo inimigo do bando batido vira entrada.
       store.registrarNoAlbum([match.enemy_id, ...report.combatants.filter(c => c.side === 'enemy').map(c => c.id)])
       let granaGanha = 0, repGanha = 0
-      // Modo história — cena: marca o POI resolvido, aplica grana/rep e fôlego.
-      if (emCena) {
+      // Encontro aleatório de rua — só recompensa e fôlego, não mexe em POI/nó.
+      if (emCena && storyAlvo.evento) {
+        const rec = storyAlvo.cenaRecompensa
+        if (rec?.grana) { store.ganharGrana(rec.grana); granaGanha += rec.grana }
+        if (rec?.rep) { store.ganharRep(rec.rep); repGanha += rec.rep }
+        if (rec?.item) store.darItem(rec.item, rec.qtd || 1)
+        store.ajustarFolego(storyAlvo.cenaId, -10)
+      } else if (emCena) {
+        // Modo história — cena: marca o POI resolvido, aplica grana/rep e fôlego.
         store.marcarPoiResolvido(storyAlvo.cenaId, storyAlvo.cenaPoiId, storyAlvo.cenaRevela || [])
         if (storyAlvo.repDelta) { store.ganharRep(storyAlvo.repDelta); repGanha += storyAlvo.repDelta }
         const rec = storyAlvo.cenaRecompensa

@@ -1688,6 +1688,9 @@
         "recompensa": "Rendeu",
         "treta_nao": "Agora não, sussa",
         "treta_sim": "Partiu porrada",
+        "evento_tag": "ENCONTRO",
+        "evento_sim": "Encara",
+        "evento_nao": "Passa reto",
         "fechar": "Fechar",
         "parada_pular": "Deixa quieto",
         "parada_tentar": "Encarar",
@@ -1713,6 +1716,14 @@
         "descanso_sem_grana": "Grana curta pro descanso, cria.",
         "descanso_curar": "Descansar (−{grana})",
         "pista": {
+          "evento": {
+            "nome": "Fecharam a rua",
+            "fala": [
+              "Uns cara fecharam a tua frente. Não são da Rato de Pista — é gente de fora testando a gangue nova.",
+              "Emboscada na esquina. Meia dúzia esperando cê passar só pra tirar onda.",
+              "A rua estreitou de repente e uns moleque mais casca grossa cortaram teu caminho. Querem ver se cê é osso ou papel."
+            ]
+          },
           "chegada": [
             "Essa aqui é a Pista, cria. O asfalto lá embaixo — a raiz de tudo.",
             "Todo mundo que é alguém hoje começou raspando o chão aqui. O Retalho começou. O Alan, noutro canto, também começou do zero igual cê. Agora é a tua vez de provar que não é só mais um.",
@@ -1732,7 +1743,11 @@
                 "resultado": "Ele fecha a mão no trocado sem nem contar. \"O ferro-velho ali na frente, memo. Cadeado veio, moleza pra abrir. Lá dentro tem sucata que vale rocha — e o que o dono deixou antes de sumir da Pista de vez.\""
               },
               "aperta": {
-                "label": "Aperta o pivete pra falar sem custar nada"
+                "label": "Aperta o pivete pra falar sem custar nada",
+                "resultado": [
+                  "O moleque recua, mas não corre. \"Ih, agora deu ruim de verdade. Devia ter comprado a bala.\"",
+                  "\"Cê aperta pivete assim e depois quer respeito? Não rola.\" Ele assobia — e não tá sozinho."
+                ]
               },
               "ignora": {
                 "label": "Ignora e segue subindo",

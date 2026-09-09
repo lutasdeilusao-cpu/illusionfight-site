@@ -25,6 +25,7 @@ export default function GanguesPapo({ poi, onResolve, onClose }) {
   }, [t, base])
 
   const passa = (escolha) => {
+    if (escolha.viraTreta) { onResolve({ viraTreta: escolha.viraTreta, revela: escolha.revela }); return }
     onResolve({ ok: true, revela: escolha.revela, recompensa: escolha.recompensa, custoGrana: escolha.custoGrana, informante: escolha.informante, precisaItens: escolha.precisaItens, daEquip: escolha.daEquip })
   }
 
@@ -32,11 +33,16 @@ export default function GanguesPapo({ poi, onResolve, onClose }) {
     if (escolha.custoGrana && grana < escolha.custoGrana) { sfx.cancel(); return }
     if (escolha.precisaItens && !temItens(escolha.precisaItens)) { sfx.cancel(); return }
     sfx.select()
-    if (escolha.viraTreta) { onResolve({ viraTreta: escolha.viraTreta, revela: escolha.revela }); return }
-    const texto = t(`${base}.escolhas.${escolha.id}.resultado`)
-    const temTexto = texto && texto !== `${base}.escolhas.${escolha.id}.resultado`
-    if (temTexto) setResultado({ texto, escolha })
-    else passa(escolha)
+    // Mesmo pras escolhas que viram treta (ex: apertar o pivete do sinal),
+    // se tiver um `.resultado` no i18n, mostra a linha ANTES de partir pro
+    // combate — antes ia direto, sem fala nenhuma.
+    const raw = t(`${base}.escolhas.${escolha.id}.resultado`)
+    const temTexto = raw && raw !== `${base}.escolhas.${escolha.id}.resultado`
+    if (temTexto) {
+      setResultado({ texto: Array.isArray(raw) ? raw[Math.floor(Math.random() * raw.length)] : raw, escolha })
+      return
+    }
+    passa(escolha)
   }
 
   return (

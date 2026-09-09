@@ -186,6 +186,9 @@ export default function GanguesCombat({ onNavigate }) {
   const [trashAberto, setTrashAberto] = useState(false)
   const [fichaAberta, setFichaAberta] = useState(null) // combatant ou null — popup de status completo
   const processedEvents = useRef(0)
+  // Inimigos que já soltaram a fala de "tô caindo" (enemy_near_death) — uma
+  // vez por corpo, quando cruza ~1/3 do PV.
+  const nearDeathFalou = useRef(new Set())
   const logEndRef = useRef(null)
   // Eventos brutos (com actorKey/targetKey, não só o texto já traduzido do
   // log) acumulados a luta inteira — dá pra calcular quem matou mais/bateu
@@ -376,6 +379,16 @@ export default function GanguesCombat({ onNavigate }) {
     setLog(prev => {
       let next = prev
       for (const event of newEvents) next = [...next, ...transformarEvento(t, event, machine.combatants)]
+      // Fala de "tô caindo": inimigo abaixo de ~1/3 do PV, ainda vivo, que
+      // ainda não falou. Segue o mesmo contexto do trash-talk do encontro.
+      for (const c of machine.combatants) {
+        if (c.side !== 'enemy' || c.pv <= 0 || nearDeathFalou.current.has(c.key)) continue
+        if (c.pv / (c.pvMax || 1) > 0.34) continue
+        nearDeathFalou.current.add(c.key)
+        if (Math.random() > 0.8) continue
+        const line = pickTrash(t, c, 'enemy_near_death')
+        if (line) next = [...next, { id: `nd-${c.key}-${Date.now()}`, kind: 'trash', sender: fighterName(t, c), text: line }]
+      }
       return next
     })
   }, [machine.events, machine.combatants, t, modoMultidaoAtivo])

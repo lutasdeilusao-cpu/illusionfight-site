@@ -168,6 +168,10 @@ export default function GanguesCena({onNavigate}){
   const collidersRef=useRef(null); collidersRef.current=amb?.colliders||[]
   const worldRef=useRef(null); worldRef.current=amb?.world||WORLD
   const gateRef=useRef(null); gateRef.current=amb?.gateAtivo||null
+  // Encontro aleatório de rua ("selvagem"): conta passos e, com cooldown +
+  // teto, dispara vez ou outra enquanto anda na rua (nunca em interior).
+  const localRef=useRef(local); localRef.current=local
+  const passosRef=useRef(0), eventoStepRef=useRef(0), eventosDadosRef=useRef(0)
   const perto=useMemo(()=>(amb?.alvos||[]).find(a=>(a.estado==='disponivel'||a.repetivel)&&insideZone(player,a.zona))||null,[amb,player])
   const {feitos,total}=cena?contarCena(cena,prog.resolvidos,prog.boss):{feitos:0,total:0}
   // local aponta pra um interior/cômodo que não existe (save antigo, cena
@@ -188,13 +192,16 @@ export default function GanguesCena({onNavigate}){
         const dy=dx===0?(iy>0?1:-1):0
         setFacing(dx>0?'right':dx<0?'left':dy>0?'down':'up')
         setAndou(true)
-        setPlayer(p=>stepPlayer(p,dx,dy,gateRef.current,collidersRef.current,worldRef.current))
+        setPlayer(p=>{const np=stepPlayer(p,dx,dy,gateRef.current,collidersRef.current,worldRef.current);if(np!==p)passosRef.current++;return np})
       }
       timer=setTimeout(passo,STEP_MS)
     }
     timer=setTimeout(passo,0)
     return()=>{cancelado=true;clearTimeout(timer)}
   },[intro,encontro,fade])
+  // Roll de encontro aleatório a cada mudança de posição (o passosRef só sobe
+  // quando o jogador ANDA de fato — ver o updater acima).
+  useEffect(()=>{ tentarEvento() },[player])
   useEffect(()=>{
     if(intro||encontro)return
     if(!andou){setHint(t('games.gangues.cena.hint_andar'));return}
@@ -266,6 +273,25 @@ export default function GanguesCena({onNavigate}){
       : t(`${poi.i18n}.fala`)
     return Array.isArray(raw)?raw[Math.floor(Math.random()*raw.length)]:raw
   }
+  // Encontro aleatório de rua: roll a cada passo, com cooldown de ~55 passos,
+  // teto de 3 por visita e nunca antes do 25º passo / nunca em interior.
+  const tentarEvento=()=>{
+    if(localRef.current||encontro||fade||intro)return
+    if(passosRef.current<25||eventosDadosRef.current>=3)return
+    if(passosRef.current-eventoStepRef.current<50)return
+    if(Math.random()>=0.035)return
+    eventoStepRef.current=passosRef.current;eventosDadosRef.current++
+    const raw=t(`games.gangues.cena.${cena.id}.evento.fala`)
+    sfx.select?.()
+    setEncontro({evento:true,fala:Array.isArray(raw)?raw[Math.floor(Math.random()*raw.length)]:raw})
+  }
+  const iniciarEvento=()=>{
+    guardarPosicao();sfx.vs?.()
+    const grana=6+Math.floor(Math.random()*7)
+    store.setStoryTarget({territorioId:terr.id,cenaId:cena.id,evento:true,
+      cenaRecompensa:{grana,rep:1},pontoIds:terr.pontos.map(p=>p.id)})
+    onNavigate('story-combat')
+  }
   const iniciarTreta=(poi,{viraTreta,revela}={})=>{
     const chefe=Boolean(poi.ehChefe)
     guardarPosicao();sfx.vs?.()
@@ -321,7 +347,7 @@ export default function GanguesCena({onNavigate}){
     </div><div className="gang-cena-vignette"/><div className="gang-cena-status"><span>FÔLEGO</span><i><b style={{width:`${folego}%`}}/></i></div>{hint&&<div className="gang-cena-tutorial">{hint}</div>}{!local&&!muroAberto&&player.y<430&&<div className="gang-cena-gatelock">🔒 {t(baseFeita?'games.gangues.cena.muro_tunel':'games.gangues.cena.boss_trancado')}</div>}<AnimatePresence>{fade&&<motion.div className="gang-cena-fade" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} transition={{duration:.16}}/>}</AnimatePresence></div>
     <WorldControls onInput={v=>{inputRef.current=v}} onInteract={()=>abrir(perto)} action={perto?interactionLabel(perto,t):null}/>
     <AnimatePresence>{toast&&<motion.div className="gang-cena-toast" initial={{opacity:0,y:12}} animate={{opacity:1,y:0}} exit={{opacity:0}}><b>RECOMPENSA</b>{toast.grana?<span>💵 +{toast.grana}</span>:null}{toast.rep?<span>⚑ +{toast.rep}</span>:null}{toast.xp?<span>⚡ +{toast.xp} XP</span>:null}</motion.div>}</AnimatePresence>
-    <AnimatePresence>{encontro&&<motion.div className="gang-cena-modal" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}><div className="gang-cena-modal-bg" onClick={()=>setEncontro(null)}/><motion.div className="gang-cena-modal-card" initial={{y:25}} animate={{y:0}}>{encontro.vs?<TretaVS poi={encontro.poi} fala={encontro.fala} folegoBaixo={folego<=30} onSim={()=>iniciarTreta(encontro.poi)} onNao={()=>setEncontro(null)} t={t}/>:encontro.poi.tipo==='papo'?<GanguesPapo poi={encontro.poi} cena={cena} onResolve={resolver} onClose={()=>setEncontro(null)}/>:encontro.poi.tipo==='descanso'?<GanguesDescanso poi={encontro.poi} cena={cena} onClose={()=>setEncontro(null)}/>:encontro.poi.tipo==='loja'?<GanguesLoja poi={encontro.poi} onClose={()=>setEncontro(null)}/>:<GanguesParada poi={encontro.poi} cena={cena} onResolve={resolver} onClose={()=>setEncontro(null)}/>}</motion.div></motion.div>}</AnimatePresence>
+    <AnimatePresence>{encontro&&<motion.div className="gang-cena-modal" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}><div className="gang-cena-modal-bg" onClick={()=>setEncontro(null)}/><motion.div className="gang-cena-modal-card" initial={{y:25}} animate={{y:0}}>{encontro.evento?<EventoVS fala={encontro.fala} folegoBaixo={folego<=30} onSim={iniciarEvento} onNao={()=>setEncontro(null)} cenaId={cena.id} t={t}/>:encontro.vs?<TretaVS poi={encontro.poi} fala={encontro.fala} folegoBaixo={folego<=30} onSim={()=>iniciarTreta(encontro.poi)} onNao={()=>setEncontro(null)} t={t}/>:encontro.poi.tipo==='papo'?<GanguesPapo poi={encontro.poi} cena={cena} onResolve={resolver} onClose={()=>setEncontro(null)}/>:encontro.poi.tipo==='descanso'?<GanguesDescanso poi={encontro.poi} cena={cena} onClose={()=>setEncontro(null)}/>:encontro.poi.tipo==='loja'?<GanguesLoja poi={encontro.poi} onClose={()=>setEncontro(null)}/>:<GanguesParada poi={encontro.poi} cena={cena} onResolve={resolver} onClose={()=>setEncontro(null)}/>}</motion.div></motion.div>}</AnimatePresence>
     <AnimatePresence>{fichaIndex!==null&&store.activeParty[fichaIndex]&&<motion.div className="gang-cena-modal" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}><div className="gang-cena-modal-bg" onClick={()=>setFichaIndex(null)}/><motion.div className="gang-cena-modal-card gang-cena-ficha-scroll" initial={{y:25}} animate={{y:0}}><div className="gang-cena-enc-acoes gang-cena-ficha-nav">{store.activeParty.length>1&&<button className="gang-cena-btn" onClick={()=>setFichaIndex(i=>(i+store.activeParty.length-1)%store.activeParty.length)}>◀ ANTERIOR</button>}<button className="gang-cena-btn gang-cena-btn--go" onClick={()=>setFichaIndex(null)}>FECHAR</button>{store.activeParty.length>1&&<button className="gang-cena-btn" onClick={()=>setFichaIndex(i=>(i+1)%store.activeParty.length)}>PRÓXIMO ▶</button>}</div><FichaCenaCard member={store.activeParty[fichaIndex]} t={t}/></motion.div></motion.div>}</AnimatePresence>
     <AnimatePresence>{bagAberta&&<motion.div className="gang-cena-modal" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}><div className="gang-cena-modal-bg" onClick={()=>setBagAberta(false)}/><motion.div className="gang-cena-modal-card gang-cena-ficha-scroll" initial={{y:25}} animate={{y:0}}><BagSheet store={store} t={t} onClose={()=>setBagAberta(false)}/></motion.div></motion.div>}</AnimatePresence>
   </main>
@@ -425,5 +451,19 @@ function FichaCenaCard({member,t}){
     <GanguesSkillGrid character={character} unlockedIds={getGanguesUnlockedSpecials(character.id,member.xp_total).map(s=>s.id)} levelsById={progression.special_levels}/>
     <GanguesEquipPanel member={member}/>
   </>
+}
+function EventoVS({fala,folegoBaixo,onSim,onNao,cenaId,t}){
+  const b=`games.gangues.cena.${cenaId}.evento`
+  return <div className="gang-cena-enc gang-cena-enc--vs gang-cena-enc--evento">
+    <span className="gang-cena-enc-selo">!</span>
+    <span className="gang-cena-eyebrow">{t('games.gangues.cena.evento_tag')}</span>
+    <h3 className="gang-cena-enc-titulo">{t(`${b}.nome`)}</h3>
+    <p className="gang-cena-papo-fala">{fala}</p>
+    {folegoBaixo&&<p className="gang-cena-vs-aviso">{t('games.gangues.cena.folego_baixo')}</p>}
+    <div className="gang-cena-enc-acoes">
+      <button className="gang-cena-btn" onClick={onNao}>{t('games.gangues.cena.evento_nao')}</button>
+      <button className="gang-cena-btn gang-cena-btn--go" onClick={onSim}>{t('games.gangues.cena.evento_sim')}</button>
+    </div>
+  </div>
 }
 function TretaVS({poi,fala,folegoBaixo,onSim,onNao,t}){const enemy=enemiesData.find(e=>e.id===poi.enemy),nome=poi.ehChefe?t(`games.gangues.story.bosses.${poi.boss}.nome`):t(`${poi.i18n}.nome`);const falaRaw=fala??(poi.ehChefe?t(`games.gangues.story.bosses.${poi.boss}.fala`,{suaGangue:t('games.gangues.report.your_gang')}):t(`${poi.i18n}.fala`));const falaShow=Array.isArray(falaRaw)?falaRaw[0]:falaRaw;return <div className="gang-cena-enc gang-cena-enc--vs"><span className="gang-cena-enc-selo">{(nome||'?')[0]}</span><span className="gang-cena-eyebrow">{poi.ehChefe?t('games.gangues.story.boss_tag'):t('games.gangues.cena.tipo.treta')}</span><h3 className="gang-cena-enc-titulo">{nome}{poi.ehChefe&&enemy?.nivel?<em className="gang-cena-vs-nivel"> · {t('games.gangues.cena.nivel',{n:enemy.nivel})}</em>:null}</h3><p className="gang-cena-papo-fala">{falaShow}</p>{enemy&&<span className="gang-cena-vs-stats">{['A','H','R','D'].map(a=><span key={a}><i>{a}</i>{enemy.stats?.[a]??'—'}</span>)}</span>}{folegoBaixo&&<p className="gang-cena-vs-aviso">{t('games.gangues.cena.folego_baixo')}</p>}<div className="gang-cena-enc-acoes"><button className="gang-cena-btn" onClick={onNao}>{t('games.gangues.cena.treta_nao')}</button><button className="gang-cena-btn gang-cena-btn--go" onClick={onSim}>{t('games.gangues.cena.treta_sim')}</button></div></div>}

@@ -195,6 +195,35 @@ function numerarRepetidos(bando) {
   })
 }
 
+// Encontro ALEATÓRIO de rua — o "encontro selvagem" que aparece vez ou outra
+// enquanto o jogador anda pela cena (não é um POI programado). Pedido do
+// Isaias: o bando vem um pouquinho ACIMA da ficha atual do jogador, mas com um
+// TETO fixo por território pra nunca virar paredão — no nível em que o chefe já
+// é confortável de bater (Pista = L8), o encontro aleatório também é "numa boa".
+// O teto fica ~70% do orçamento do chefe daquele bairro.
+export const GANGUES_EVENTO_CAP = { pista: 14, feira: 22, baixada: 30, vila: 40, morro: 50, alto: 62, laje: 74 }
+
+/** Sorteia o bando de um encontro aleatório de rua. Total de pontos =
+ *  min(pontos do time × 1.1, teto do território). 1 corpo (45% de chance de 2).
+ *  Escalado do pool comum do bairro. */
+export function gerarBandoEvento({ territorioId, playerTeam, enemiesData }) {
+  const config = GANGUES_TERRITORIO_ENCONTRO[territorioId]
+  if (!config || !playerTeam?.length || !enemiesData?.length) return null
+  const pontosJogador = calcularPontosTime(playerTeam)
+  const teto = GANGUES_EVENTO_CAP[territorioId] ?? Math.round(pontosJogador * 1.2)
+  const totalAlvo = Math.max(5, Math.min(Math.round(pontosJogador * 1.1), teto))
+  const qtd = 1 + (Math.random() < 0.45 ? 1 : 0)
+  const partes = distribuirPontos(totalAlvo, qtd)
+  const bando = partes.map(pontos => {
+    const moldeId = config.moldes[Math.floor(Math.random() * config.moldes.length)]
+    const molde = enemiesData.find(e => e.id === moldeId)
+    return molde ? escalarInimigo(molde, pontos) : null
+  }).filter(Boolean)
+  if (!bando.length) return null
+  numerarRepetidos(bando)
+  return bando
+}
+
 /** Bando de REVEZAMENTO — pros encontros de dungeon (túnel, galpão) onde o
  *  Isaias quer "estilo Pokémon": um punhado de capangas fracos que se revezam,
  *  quase sempre 1 sozinho, às vezes uma dupla, sempre leves. Ignora o pool do

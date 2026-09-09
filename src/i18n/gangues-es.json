@@ -2098,6 +2098,9 @@
         "recompensa": "Rindió",
         "treta_nao": "Ahora no, tranqui",
         "treta_sim": "A los golpes",
+        "evento_tag": "EMBOSCADA",
+        "evento_sim": "Encará",
+        "evento_nao": "Rajá de largo",
         "fechar": "Cerrar",
         "parada_pular": "Dejalo quieto",
         "parada_tentar": "Encarar",
@@ -2123,6 +2126,14 @@
         "descanso_sem_grana": "La plata está corta para el descanso, pibe.",
         "descanso_curar": "Descansar (−{grana})",
         "pista": {
+          "evento": {
+            "nome": "Cortaron la calle",
+            "fala": [
+              "Unos tipos te cortaron el paso. No son de la Rato de Pista — es gente de afuera probando a la banda nueva.",
+              "Emboscada en la esquina. Media docena esperando que pases solo para tirar labia.",
+              "La calle se estrechó de golpe y unos pibes más picantes te cortaron el camino. Quieren ver si sos hueso o papel."
+            ]
+          },
           "chegada": [
             "Esta es la Pista, pibe. El asfalto de abajo — la raíz de todo.",
             "Todo el que hoy es alguien empezó rasguñando este piso. El Retazo empezó acá. Alan, en otro lado, también arrancó de cero como vos. Ahora te toca demostrar que no sos uno más.",
@@ -2142,7 +2153,11 @@
                 "resultado": "Cierra la mano sobre las monedas sin ni contarlas. \"El depósito de chatarra ahí adelante, ese. Candado viejo, fácil de abrir. Adentro hay chatarra que vale plata de verdad — y lo que el dueño dejó antes de desaparecer de la Pista para siempre.\""
               },
               "aperta": {
-                "label": "Apretá al pibe para que hable sin cobrar"
+                "label": "Apretá al pibe para que hable sin cobrar",
+                "resultado": [
+                  "El pibe retrocede pero no corre. \"Uh, ahora sí que se pudrió. Tendrías que haber comprado el caramelo.\"",
+                  "\"¿Apretás a un pibe así y después querés respeto? No va.\" Silba — y no está solo."
+                ]
               },
               "ignora": {
                 "label": "Ignoralo y seguí subiendo",
