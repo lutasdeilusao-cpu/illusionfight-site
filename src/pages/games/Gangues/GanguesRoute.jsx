@@ -31,6 +31,13 @@ export default function GanguesRoute() {
   const store = useGanguesStore()
   const i18nReady = useGanguesI18n()
   const [fase, setFase] = useState('lobby')
+  // De onde a Coleção foi aberta (lobby OU território) — pra o "← Voltar" dela
+  // devolver o jogador exatamente onde estava, e não sempre pro lobby.
+  const faseAntesAlbum = useRef('lobby')
+  const navegar = (destino) => {
+    if (destino === 'album') faseAntesAlbum.current = fase
+    setFase(destino)
+  }
 
   // Conta logada: cada gangue é um save separado (ver GanguesSaveSelect) — a
   // primeira coisa a fazer é escolher/criar um save, antes de ver o lobby.
@@ -111,7 +118,7 @@ export default function GanguesRoute() {
     <div className={`gang-page ${fase === 'lobby' ? 'gang-page--lobby' : ''}`}>
       <GuestNotice />
       {fase === 'save-select' && <GanguesSaveSelect onNavigate={setFase} />}
-      {fase === 'lobby' && <GanguesLobby onNavigate={setFase} />}
+      {fase === 'lobby' && <GanguesLobby onNavigate={navegar} />}
       {fase === 'create' && (
         <GanguesCreate
           onNavigate={setFase}
@@ -126,12 +133,12 @@ export default function GanguesRoute() {
       {fase === 'progression' && <GanguesProgression onNavigate={setFase} />}
       {fase === 'modes' && <GanguesModes onNavigate={setFase} />}
       {fase === 'story' && <GanguesStoryMap onNavigate={setFase} />}
-      {fase === 'album' && <GanguesAlbum onNavigate={setFase} />}
+      {fase === 'album' && <GanguesAlbum onNavigate={navegar} voltar={() => setFase(faseAntesAlbum.current)} />}
       {fase === 'batalha' && <GanguesBatalha onNavigate={setFase} />}
       {fase === 'territorio' && (
         temCena(store.storyTarget?.territorioId)
-          ? <GanguesCena onNavigate={setFase} />
-          : <GanguesTerritorio onNavigate={setFase} />
+          ? <GanguesCena onNavigate={navegar} />
+          : <GanguesTerritorio onNavigate={navegar} />
       )}
       {fase === 'combat' && <GanguesCombat onNavigate={setFase} />}
       {fase === 'victory' && <GanguesVictory onNavigate={setFase} />}

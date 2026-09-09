@@ -19,7 +19,7 @@ const SECOES = ['inimigos', 'itens', 'cartas']
    + equipamento, descoberto vs "???") e CARTAS (sistema de socket, GDD §9.4,
    ainda em breve). Acessível do lobby E do 3º botão da HUD da cena — o back
    volta pro lugar certo. Mobile-only, tokens --if-*. */
-export default function GanguesAlbum({ onNavigate }) {
+export default function GanguesAlbum({ onNavigate, voltar: voltarProp }) {
   const { t } = useLanguage()
   const store = useGanguesStore()
   const [secao, setSecao] = useState('inimigos')
@@ -27,6 +27,9 @@ export default function GanguesAlbum({ onNavigate }) {
 
   const voltar = () => {
     sfx.cancel?.()
+    // `voltarProp` (do GanguesRoute) devolve o jogador exatamente pra fase de
+    // onde a Coleção foi aberta — lobby OU território (na posição salva).
+    if (voltarProp) { voltarProp(); return }
     onNavigate(store.storyTarget?.cenaId ? 'territorio' : 'lobby')
   }
 
