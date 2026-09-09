@@ -1,16 +1,16 @@
 # Graph Report - SiteLDI  (2026-09-09)
 
 ## Corpus Check
-- 892 files · ~1,128,217 words
+- 892 files · ~1,128,272 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 4345 nodes · 7730 edges · 421 communities (287 shown, 134 thin omitted)
+- 4345 nodes · 7726 edges · 421 communities (287 shown, 134 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 57 edges (avg confidence: 0.67)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `29729bbb`
+- Built from commit: `a303697b`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 

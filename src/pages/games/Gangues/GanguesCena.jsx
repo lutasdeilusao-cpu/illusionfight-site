@@ -215,9 +215,11 @@ export default function GanguesCena({onNavigate}){
   const sair=()=>{
     const inter=cena.interiores?.[local.id]
     const pr=(cena.predios||[]).find(p=>p.id===inter?.porta?.predio)
-    const dx=pr?(pr.portaX!=null?pr.portaX+(pr.portaW||60)/2:pr.x+pr.w/2):player.x
-    const dy=pr?pr.y+pr.h+26:player.y
-    trocarPara(null,{x:dx,y:dy})
+    // Sai EXATAMENTE na porta pela qual entrou (a zona porta.zx/zy) — em prédio
+    // pequeno entrada = saída. `+8` no y só pra não re-acionar o ENTRAR no ato.
+    const zx=pr?.porta?.zx??(pr?(pr.x+pr.w/2):player.x)
+    const zy=(pr?.porta?.zy??(pr?pr.y+pr.h+16:player.y))+8
+    trocarPara(null,{x:zx,y:zy})
   }
   const irComodo=(n)=>{
     const inter=cena.interiores?.[local.id]; const com=inter?.comodos?.[n]; if(!com) return
