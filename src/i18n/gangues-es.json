@@ -497,6 +497,7 @@
       "card_ataque_inimigo": "⚔ ataque enemigo",
       "card_poder": "poder",
       "card_dano": "daño",
+      "card_escudo": "la guardia aguantó",
       "card_bloqueado": "bloqueado",
       "combat_specials": {
         "normal_attack": "Ataque normal",

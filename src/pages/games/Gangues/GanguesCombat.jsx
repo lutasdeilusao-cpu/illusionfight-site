@@ -99,6 +99,7 @@ function transformarEvento(t, event, combatants) {
     actorName: fighterName(t, actor), targetName: fighterName(t, target), round: event.round,
     fa: event.result.fa, fd: event.result.fd, dice: event.result.rolls.fa, defenseDice: event.result.rolls.fd,
     dmg: event.result.damage, onoma: randomOnoma(),
+    shieldConsumed: event.result.shieldConsumed || 0,
     attackerBonus: event.result.attackerBonus, defenderBonus: event.result.defenderBonus,
     critical: event.result.critical, criticalBonus: event.result.criticalBonus,
     activeSpecialId: event.result.activeSpecialId || null,
@@ -749,6 +750,11 @@ export default function GanguesCombat({ onNavigate }) {
                     {entry.defenderBonus?.path && (
                       <div className={`gang-attack-card-bonus ${entry.defenderBonus.applied ? 'gang-attack-card-bonus--hit' : 'gang-attack-card-bonus--miss'}`}>
                         {entry.defenderBonus.applied ? '🛡️' : '✕'} {t(`games.gangues.loadout.paths.${entry.defenderBonus.path}.name`)} {t('games.gangues.bonus_defesa')} {entry.defenderBonus.applied ? `+${entry.defenderBonus.amount}` : t('games.gangues.bonus_falhou')}
+                      </div>
+                    )}
+                    {entry.shieldConsumed > 0 && (
+                      <div className="gang-attack-card-bonus gang-attack-card-bonus--hit">
+                        🛡️ {t('games.gangues.card_escudo')} −{entry.shieldConsumed}
                       </div>
                     )}
                     <div className="gang-attack-card-divider" />

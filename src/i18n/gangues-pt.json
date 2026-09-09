@@ -497,6 +497,7 @@
       "card_ataque_inimigo": "⚔ ataque inimigo",
       "card_poder": "poder",
       "card_dano": "dano",
+      "card_escudo": "guarda segurou",
       "card_bloqueado": "bloqueado",
       "combat_specials": {
         "normal_attack": "Ataque normal",

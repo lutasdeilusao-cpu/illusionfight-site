@@ -497,6 +497,7 @@
       "card_ataque_inimigo": "⚔ enemy attack",
       "card_poder": "power",
       "card_dano": "damage",
+      "card_escudo": "guard held",
       "card_bloqueado": "blocked",
       "combat_specials": {
         "normal_attack": "Normal attack",
