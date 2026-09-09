@@ -56,7 +56,7 @@ const PREDIOS_PISTA = [
   { id: 'e3', tipo: 'barraco', x: 486, y: 1648, w: 140, h: 110, cor: '#6f6350' },
   { id: 'e4', tipo: 'sobrado', x: 620, y: 1622, w: 138, h: 170, cor: '#4a6a63', luz: 1, varal: 1 },
   // ── Miolo baixo (Bar do Zé / Banca, y1302–1492) ──
-  { id: 'c1', tipo: 'comercio', x: 137, y: 1330, w: 150, h: 152, cor: '#b8863b', nome: 'games.gangues.cena.pista.predio.bar', porta: { para: 'birosca', zx: 302, zy: 1400 }, toldo: 1, solo: 1 },
+  { id: 'c1', tipo: 'comercio', x: 137, y: 1330, w: 150, h: 152, cor: '#b8863b', nome: 'games.gangues.cena.pista.predio.bar', porta: { para: 'birosca', zx: 332, zy: 1405 }, toldo: 1, solo: 1 },
   { id: 'c2', tipo: 'laje', x: 156, y: 1310, w: 126, h: 170, andares: 2, cor: '#8a8074', pich: 1 },
   { id: 'c3', tipo: 'comercio', x: 476, y: 1322, w: 150, h: 158, cor: '#3f6f8a', nome: 'games.gangues.cena.pista.predio.banca', portao_aco: 1 },
   { id: 'c4', tipo: 'barraco', x: 628, y: 1332, w: 128, h: 150, cor: '#726552', luz: 1 },
@@ -68,32 +68,35 @@ const PREDIOS_PISTA = [
   { id: 'b5', tipo: 'comercio', x: 476, y: 970, w: 154, h: 110, cor: '#5a4a8a', nome: 'games.gangues.cena.pista.predio.fliperama', luz: 1 },
   { id: 'b6', tipo: 'laje', x: 630, y: 812, w: 126, h: 180, andares: 2, cor: '#8f8578', varal: 1 },
   // ── Oficina do Nando (miolo baixo-esq, y676+) ── nasce fora de quarteirão
-  { id: 'of', tipo: 'comercio', x: 150, y: 610, w: 128, h: 92, cor: '#c2a03b', nome: 'games.gangues.cena.pista.predio.oficina', porta: { para: 'oficina', zx: 214, zy: 728 }, oficina: 1, solo: 1 },
+  { id: 'of', tipo: 'comercio', x: 150, y: 610, w: 128, h: 92, cor: '#c2a03b', nome: 'games.gangues.cena.pista.predio.oficina', porta: { para: 'oficina', zx: 232, zy: 744 }, oficina: 1, solo: 1 },
   // ── Território da gangue rival (passado o portão, y350–676) ──
   { id: 'a1', tipo: 'laje', x: 4, y: 356, w: 150, h: 200, andares: 3, cor: '#7d7468', pich: 1 },
   { id: 'a2', tipo: 'barraco', x: 152, y: 500, w: 130, h: 160, cor: '#5f5545' },
   { id: 'a3', tipo: 'laje', x: 152, y: 356, w: 130, h: 140, andares: 2, cor: '#867c70', varal: 1 },
   { id: 'a4', tipo: 'laje', x: 476, y: 356, w: 130, h: 150, andares: 2, cor: '#7a7165', luz: 1 },
   // ── O GALPÃO DO CARVÃO (topo-direita, porta virada pra abertura do portão) ──
-  { id: 'galpao', tipo: 'galpao', x: 452, y: 60, w: 300, h: 248, cor: '#3a4247', pich: 1, porta: { para: 'galpao', zx: 566, zy: 332 }, portaX: 520, portaW: 92, solo: 1, pos_portao: 1 },
+  { id: 'galpao', tipo: 'galpao', x: 452, y: 60, w: 300, h: 248, cor: '#3a4247', pich: 1, porta: { para: 'galpao', zx: 560, zy: 336 }, portaX: 520, portaW: 92, solo: 1, pos_portao: 1 },
   // ── A loja da Pista (topo-esq, só faz sentido pós-portão) ──
-  { id: 'loja', tipo: 'comercio', x: 120, y: 150, w: 150, h: 120, cor: '#c25a2a', nome: 'games.gangues.cena.pista.predio.lojapista', porta: { para: 'loja', zx: 195, zy: 292 }, toldo: 1, pos_portao: 1, solo: 1 },
+  { id: 'loja', tipo: 'comercio', x: 120, y: 150, w: 150, h: 120, cor: '#c25a2a', nome: 'games.gangues.cena.pista.predio.lojapista', porta: { para: 'loja', zx: 210, zy: 300 }, toldo: 1, pos_portao: 1, solo: 1 },
 ]
 
-// Empecilhos de rua — `solido:true` vira colisão (o jogador desvia).
+// Empecilhos de rua. `solido:true` vira colisão — MAS só no MIOLO da pista
+// (x340–420, o corredor tem ~186px de largura x287–473): perto da parede vira
+// um "pinch" que tranca o jogador. Os sólidos aqui ficam centrados e pequenos,
+// o jogador contorna por um dos lados. O resto é decoração (não colide).
 const OBSTACULOS_PISTA = [
-  { id: 'o1', tipo: 'buraco', x: 360, y: 1660, solido: true },
-  { id: 'o2', tipo: 'entulho', x: 330, y: 1400, solido: true },
-  { id: 'o3', tipo: 'buraco', x: 405, y: 1330, solido: true },
-  { id: 'o4', tipo: 'lixo', x: 320, y: 1240 },
-  { id: 'o5', tipo: 'lombada', x: 380, y: 1200 },
-  { id: 'o6', tipo: 'pneu', x: 430, y: 1120 },
-  { id: 'o7', tipo: 'geladeira', x: 300, y: 1050, solido: true },
+  { id: 'o1', tipo: 'buraco', x: 378, y: 1660, solido: true },
+  { id: 'o2', tipo: 'entulho', x: 360, y: 1400 },
+  { id: 'o3', tipo: 'buraco', x: 392, y: 1330, solido: true },
+  { id: 'o4', tipo: 'lixo', x: 300, y: 1240 },
+  { id: 'o5', tipo: 'lombada', x: 380, y: 1190 },
+  { id: 'o6', tipo: 'pneu', x: 440, y: 1120 },
+  { id: 'o7', tipo: 'geladeira', x: 300, y: 1050 },
   { id: 'o8', tipo: 'poca', x: 400, y: 900 },
-  { id: 'o9', tipo: 'buraco', x: 350, y: 760, solido: true },
-  { id: 'o10', tipo: 'bueiro', x: 420, y: 700, solido: true },
-  { id: 'o11', tipo: 'entulho', x: 330, y: 470, solido: true },
-  { id: 'o12', tipo: 'cone', x: 400, y: 380 },
+  { id: 'o9', tipo: 'buraco', x: 372, y: 760, solido: true },
+  { id: 'o10', tipo: 'bueiro', x: 388, y: 640, solido: true },
+  { id: 'o11', tipo: 'entulho', x: 300, y: 470 },
+  { id: 'o12', tipo: 'cone', x: 400, y: 400 },
   { id: 'o13', tipo: 'lixo', x: 620, y: 1200 },
   { id: 'o14', tipo: 'sofa', x: 120, y: 1240 },
 ]
@@ -403,7 +406,10 @@ export const CENA_PISTA = {
     birosca: {
       nome: 'games.gangues.cena.pista.int.birosca',
       porta: { predio: 'c1' },
-      abreCom: 'birosca', // o interior só é "útil" depois que a birosca é revelada
+      // A birosca do Nato tá sempre aberta (é a única esquina de confiança da
+      // Pista). O papo do Nato (`birosca`, obrigatório pro portão) só aparece
+      // DEPOIS do beco — antes disso o Nato nem te reconhece. O descanso e o
+      // Duda (informante) ficam disponíveis desde sempre.
       comodos: [{
         id: 'sala',
         world: { w: 460, h: 320 }, spawn: { x: 230, y: 236 },
@@ -420,8 +426,9 @@ export const CENA_PISTA = {
           { tipo: 'cartaz', x: 230, y: 40 },
         ],
         pois: [
-          { ref: 'birosca', pos: { x: 200, y: 120 } },
-          { ref: 'informante', pos: { x: 396, y: 210 } },
+          { ref: 'birosca', pos: { x: 200, y: 118 }, precisa: 'beco' },
+          { ref: 'informante', pos: { x: 400, y: 200 } },
+          { ref: 'descanso', pos: { x: 74, y: 210 } },
         ],
       }],
     },

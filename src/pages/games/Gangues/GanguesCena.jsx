@@ -32,8 +32,9 @@ const SCENE_INTRO_KEY='ldi-gangues-cena-intro-vista'
 function cenaIntroJaVista(id){try{return JSON.parse(localStorage.getItem(SCENE_INTRO_KEY)||'[]').includes(id)}catch{return false}}
 function marcarCenaIntroVista(id){try{const atual=JSON.parse(localStorage.getItem(SCENE_INTRO_KEY)||'[]');if(!atual.includes(id))localStorage.setItem(SCENE_INTRO_KEY,JSON.stringify([...atual,id]))}catch{}}
 const POS={sinal:{x:210,y:1570},ferro:{x:150,y:1325},achado:{x:110,y:1245},beco:{x:445,y:1190},birosca:{x:170,y:1460},corre:{x:610,y:1010},beco_2:{x:445,y:505},beco_3:{x:315,y:600},sinaleiro:{x:435,y:640},rasteira_velha:{x:380,y:460},oficina:{x:250,y:705},descanso:{x:205,y:1440},informante:{x:150,y:740},rinha:{x:610,y:740},loja:{x:210,y:250},boss:{x:570,y:175}}
-// Um obstáculo `solido` vira um retângulo de colisão pequeno em volta do ponto.
-function obstRect(o){return {x:o.x-18,y:o.y-14,w:36,h:28}}
+// Um obstáculo `solido` vira um retângulo de colisão PEQUENO em volta do ponto
+// (o jogador tem raio 18; corredor da pista ~186px — colisor grande trancava).
+function obstRect(o){return {x:o.x-15,y:o.y-11,w:30,h:22}}
 function collidersDaCena(cena,bossAberto){
   if(!cena) return []
   const q=cena.quarteiroes||[]
@@ -119,6 +120,7 @@ function montarAmbiente(cena,local,prog,bossAberto){
   const com=inter?.comodos?.[local.comodo]||inter?.comodos?.[0]
   if(!com) return null
   const pois=(com.pois||[]).map(pd=>{
+    if(pd.precisa&&!prog.resolvidos[pd.precisa]) return null
     const def=pd.ref?resolverRefPoi(cena,pd.ref):pd.poi
     if(!def) return null
     return {...def,world:pd.pos,zona:{x:pd.pos.x-34,y:pd.pos.y-34,w:68,h:68},
@@ -364,7 +366,7 @@ function hitsSolid(x,y,gate,colliders=[]){const hit=colliders.some(r=>x+PLAYER_R
   return false}
 function stepPlayer(p,dx,dy,gate,colliders,world){const W=world||WORLD;const x=Math.max(20,Math.min(W.w-20,p.x+dx*TILE)),y=Math.max(20,Math.min(W.h-24,p.y+dy*TILE));return hitsSolid(x,y,gate,colliders)?p:{x,y}}
 function WorldControls({onInput,onInteract,action}){const base=useRef(null),active=useRef(null);const update=useCallback((x,y)=>{const r=base.current?.getBoundingClientRect();if(!r)return;let dx=x-(r.left+r.width/2),dy=y-(r.top+r.height/2);const d=Math.hypot(dx,dy),max=42;if(d>max){dx=dx/d*max;dy=dy/d*max}base.current.style.setProperty('--jx',`${dx}px`);base.current.style.setProperty('--jy',`${dy}px`);onInput({x:dx/max,y:dy/max})},[onInput]);const stop=useCallback(()=>{active.current=null;if(base.current){base.current.style.setProperty('--jx','0px');base.current.style.setProperty('--jy','0px')}onInput({x:0,y:0})},[onInput]);return <div className="gang-world-controls"><div ref={base} className="gang-world-stick" onPointerDown={e=>{active.current=e.pointerId;e.currentTarget.setPointerCapture(e.pointerId);update(e.clientX,e.clientY)}} onPointerMove={e=>{if(active.current===e.pointerId)update(e.clientX,e.clientY)}} onPointerUp={stop} onPointerCancel={stop}><i/></div><button disabled={!action} onClick={onInteract}><b>{action||'...'}</b><span>INTERAGIR</span></button></div>}
-const LABEL_TIPO={papo:'FALAR',treta:'ENCARAR',parada:'INVESTIGAR',corre:'SEGUIR',descanso:'ENTRAR',loja:'COMPRAR',achado:'PEGAR'}
+const LABEL_TIPO={papo:'FALAR',treta:'ENCARAR',parada:'INVESTIGAR',corre:'SEGUIR',descanso:'DESCANSAR',loja:'COMPRAR',achado:'PEGAR'}
 function interactionLabel(p,t){
   if(p.ehChefe)return t('games.gangues.cena.acao.desafiar')
   if(p.ehPorta)return t('games.gangues.cena.acao.entrar')
