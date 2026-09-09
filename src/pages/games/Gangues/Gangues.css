@@ -3,7 +3,13 @@
   width: 100%;
   max-width: 480px;
   margin: 0 auto;
-  height: 100dvh;
+  /* position:fixed + inset:0 trava a página no viewport VISÍVEL do celular.
+     Antes era height:100dvh dentro do #root (min-height:100vh): com a barra de
+     endereço do navegador visível, 100dvh < 100vh e sobrava uma tira preta do
+     #root embaixo, que só sumia mexendo na Rádio Nina (forçava reflow + a
+     barra de URL assentava). Fixed acompanha o viewport visual e cobre o #root. */
+  position: fixed;
+  inset: 0;
   /* Reserva o espaço da tira de guest (topo) e da Rádio Nina (topo OU rodapé,
      conforme a posição escolhida) — sem isso os dois ficam fixos por cima do
      jogo em vez de empurrar o conteúdo, como acontecia no combate. */
@@ -17,7 +23,6 @@
     repeating-linear-gradient(0deg, transparent, transparent 80px, rgba(0,180,216,0.015) 80px, rgba(0,180,216,0.015) 81px);
   color: var(--if-teal);
   font-family: 'Courier New', monospace;
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
