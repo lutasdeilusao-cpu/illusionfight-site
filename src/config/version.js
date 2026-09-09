@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.280.4'
+export const SITE_VERSION = '10.280.5'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '2.74.1' // Pista v3 (mapa de RPG): exterior de favela + interiores navegaveis + galpao-dungeon do Carvao. Fix 2.74.1: empecilho solido encostado na parede trancava o jogador; descanso virou area interna da birosca (label DESCANSAR); Nato so aparece depois do beco; zonas de porta afastadas da parede.
+export const GANGUES_VERSION   = '2.74.2' // Pista v3 (mapa de RPG): exterior de favela + interiores navegaveis + galpao-dungeon. FIX 2.74.2: buraco solido bem na coluna de spawn travava o jogador ja no 1o passo -> todos os obstaculos viraram decoracao (sem colisao); descanso virou canto interno da birosca (label DESCANSAR); Colecao rola por dentro + botao VOLTAR fixo no topo (era height:100dvh+overflow:hidden do pai). Fluxo verificado com Playwright (entra na birosca, anda, sai).
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
 export const MINIGAMES_VERSION = '4.3.4'  // Glitch: safe-area lateral no grid-wrap

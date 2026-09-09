@@ -686,3 +686,9 @@ export const useGanguesStore = create((set, get) => ({
     get()._persistStory()
   },
 }))
+
+// Gancho de debug — só em dev (npm run dev). Deixa um teste headless (Playwright)
+// montar gangue/time/alvo direto no store, sem clicar a UI inteira.
+if (import.meta.env?.DEV && typeof window !== 'undefined') {
+  window.__ganguesStore = useGanguesStore
+}

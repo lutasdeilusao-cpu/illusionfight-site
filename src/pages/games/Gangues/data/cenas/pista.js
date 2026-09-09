@@ -80,23 +80,23 @@ const PREDIOS_PISTA = [
   { id: 'loja', tipo: 'comercio', x: 120, y: 150, w: 150, h: 120, cor: '#c25a2a', nome: 'games.gangues.cena.pista.predio.lojapista', porta: { para: 'loja', zx: 210, zy: 300 }, toldo: 1, pos_portao: 1, solo: 1 },
 ]
 
-// Empecilhos de rua. `solido:true` vira colisão — MAS só no MIOLO da pista
-// (x340–420, o corredor tem ~186px de largura x287–473): perto da parede vira
-// um "pinch" que tranca o jogador. Os sólidos aqui ficam centrados e pequenos,
-// o jogador contorna por um dos lados. O resto é decoração (não colide).
+// Empecilhos de rua — POR ENQUANTO todos são DECORAÇÃO (sem colisão). Buraco
+// sólido no meio do corredor estreito (~186px) travava o jogador logo no 1º
+// passo, sem sinal nenhum de que era pra contornar. O "desvia do buraco" volta
+// depois, com desenho de nível pensado (buraco fora da coluna de spawn, dica).
 const OBSTACULOS_PISTA = [
-  { id: 'o1', tipo: 'buraco', x: 378, y: 1660, solido: true },
-  { id: 'o2', tipo: 'entulho', x: 360, y: 1400 },
-  { id: 'o3', tipo: 'buraco', x: 392, y: 1330, solido: true },
+  { id: 'o1', tipo: 'buraco', x: 300, y: 1660 },
+  { id: 'o2', tipo: 'entulho', x: 320, y: 1400 },
+  { id: 'o3', tipo: 'buraco', x: 448, y: 1330 },
   { id: 'o4', tipo: 'lixo', x: 300, y: 1240 },
   { id: 'o5', tipo: 'lombada', x: 380, y: 1190 },
-  { id: 'o6', tipo: 'pneu', x: 440, y: 1120 },
+  { id: 'o6', tipo: 'pneu', x: 448, y: 1120 },
   { id: 'o7', tipo: 'geladeira', x: 300, y: 1050 },
   { id: 'o8', tipo: 'poca', x: 400, y: 900 },
-  { id: 'o9', tipo: 'buraco', x: 372, y: 760, solido: true },
-  { id: 'o10', tipo: 'bueiro', x: 388, y: 640, solido: true },
+  { id: 'o9', tipo: 'buraco', x: 300, y: 760 },
+  { id: 'o10', tipo: 'bueiro', x: 448, y: 640 },
   { id: 'o11', tipo: 'entulho', x: 300, y: 470 },
-  { id: 'o12', tipo: 'cone', x: 400, y: 400 },
+  { id: 'o12', tipo: 'cone', x: 448, y: 400 },
   { id: 'o13', tipo: 'lixo', x: 620, y: 1200 },
   { id: 'o14', tipo: 'sofa', x: 120, y: 1240 },
 ]
