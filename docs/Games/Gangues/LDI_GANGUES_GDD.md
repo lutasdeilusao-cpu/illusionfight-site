@@ -263,6 +263,14 @@ com o jogador). É o "estilo Pokémon" pedido pelo Isaias: quase sempre 1 sozinh
 de vez em quando uma dupla, sempre leve. Túnel da Pista: m1 `[1101,1102,1103]`
 b4/0.22 · m2 `[1101,1102,1103,1201]` b6/0.45 · m3 `[1101,1102,1103]` b5/0.30.
 
+**Também nas primeiras tretas de rua (v2.74.6):** `beco` (a 1ª treta de
+verdade), a `rinha` (farm) e as brigas-punição (`sinal`→apertar o pivete,
+falhar a gazua do `ferro`) trocaram o `enemy` fixo / o sorteio dos 11 moldes
+por `revezamento` do pool fraco `[1101,1102,1103,1201,1203]`
+(Farejador/Dedo-Duro/Pingo/Ratazana/Chinelada). Antes a `aperta`/`falha`
+davam SEMPRE uma Ratazana sozinha; agora rodam os 5, quase sempre solo. Isso
+vale para `viraTreta.revezamento` (não só `poi.revezamento`).
+
 ### Território 2 — A Feira · Muvuca · `#7ee787`
 Facção: Acerto de Contas (103) / Os Gato (104). O comércio, os camelô, a luz de
 gato. Aqui não tem tiro — tem **dívida**. Primeiro território costurado pelo

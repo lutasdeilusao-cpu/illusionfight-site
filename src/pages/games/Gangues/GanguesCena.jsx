@@ -268,7 +268,7 @@ export default function GanguesCena({onNavigate}){
       const party=store.roster.slice(0,GANGUES_STORY_BATTLE_PARTY_MAX)
       pontosFixos=store.travarPontosFarm(cena.id,poi.id,calcularPontosTime(party))
     }
-    store.setStoryTarget({territorioId:terr.id,cenaId:cena.id,cenaPoiId:poi.id,cenaRevela:viraTreta?(revela||[]):(poi.revela||[]),cenaRecompensa:viraTreta?(viraTreta.recompensa||null):poi.recompensa||null,pontoIds:terr.pontos.map(p=>p.id),noId:chefe?cena.chefe.poiNo:null,enemyId:viraTreta?viraTreta.enemy:poi.enemy,fixo:Boolean(viraTreta),liderFixo:viraTreta?null:poi.liderFixo,revezamento:viraTreta?null:poi.revezamento,dificuldade:poi.dificuldade,isChefe:chefe,repDelta:viraTreta?.rep||0,pontosFixos})
+    store.setStoryTarget({territorioId:terr.id,cenaId:cena.id,cenaPoiId:poi.id,cenaRevela:viraTreta?(revela||[]):(poi.revela||[]),cenaRecompensa:viraTreta?(viraTreta.recompensa||null):poi.recompensa||null,pontoIds:terr.pontos.map(p=>p.id),noId:chefe?cena.chefe.poiNo:null,enemyId:viraTreta?viraTreta.enemy:poi.enemy,fixo:Boolean(viraTreta),liderFixo:viraTreta?null:poi.liderFixo,revezamento:viraTreta?(viraTreta.revezamento||null):poi.revezamento,dificuldade:poi.dificuldade,isChefe:chefe,repDelta:viraTreta?.rep||0,pontosFixos})
     onNavigate('story-combat')
   }
   const resolver=res=>{

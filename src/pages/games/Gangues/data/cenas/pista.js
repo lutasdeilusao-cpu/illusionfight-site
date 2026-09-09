@@ -173,7 +173,7 @@ export const CENA_PISTA = {
       // escolhas do papo: cada uma tem efeito próprio
       escolhas: [
         { id: 'compra', custoGrana: 4, recompensa: { rep: 0 }, revela: ['ferro'] },
-        { id: 'aperta', viraTreta: { enemy: 1201, rep: -1, recompensa: { grana: 4 } }, revela: ['ferro'] },
+        { id: 'aperta', viraTreta: { enemy: 1201, rep: -1, recompensa: { grana: 4 }, revezamento: { pool: [1101, 1102, 1103, 1201, 1203], budgetPorCorpo: 4, chanceDupla: 0.15 } }, revela: ['ferro'] },
         { id: 'ignora', revela: ['ferro'] },
       ],
     },
@@ -186,7 +186,7 @@ export const CENA_PISTA = {
       // cadeado (PuzzleSimonSays, self-styled, sem depender de Puzzles.css).
       puzzle: { type: 'simon', config: { difficulty: 'easy' }, skin: 'gazua' },
       recompensa: { grana: 12, item: 13 },
-      falha: { viraTreta: { enemy: 1201, recompensa: { grana: 3 } } },
+      falha: { viraTreta: { enemy: 1201, recompensa: { grana: 3 }, revezamento: { pool: [1101, 1102, 1103, 1201], budgetPorCorpo: 4, chanceDupla: 0.1 } } },
       // Abrir a fechadura revela o beco (caminho principal), o fundo do
       // ferro-velho (achado — 2º pedaço de sucata) e a oficina do Nando (onde
       // a sucata vira peça).
@@ -228,12 +228,14 @@ export const CENA_PISTA = {
       pino: { x: 50, y: 132 },
       i18n: 'games.gangues.cena.pista.beco',
       // É a primeira treta de verdade do jogo, logo depois da criação da
-      // ficha. O bando é sorteado na hora (GanguesRoute → gerarBandoInimigo)
-      // dos 11 moldes comuns da Pista (Vigia/Vapor/Gerente/Cobrador), sempre
-      // uma composição diferente — tipo e quantidade (1 a 4 corpos) variam a
-      // cada tentativa. `dificuldade: 'facil'` (ratio 0.42 na Pista) deixa a
-      // porta de entrada gentil: ~97% de vitória num time balanceado.
+      // ficha. REVEZAMENTO (v2.74.6): em vez de sortear dos 11 moldes da Pista
+      // (que podia trazer Gerente/Cobrador escalado logo de cara), roda um
+      // punhado de fracos — Farejador/Dedo-Duro/Pingo/Ratazana/Chinelada —
+      // quase sempre 1 sozinho, às vezes uma dupla. Orçamento leve e FIXO por
+      // corpo (não escala com o time): a porta de entrada fica gentil e continua
+      // farmável pra sempre.
       enemy: 1201,
+      revezamento: { pool: [1101, 1102, 1103, 1201, 1203], budgetPorCorpo: 5, chanceDupla: 0.4 },
       forca: 1,
       dificuldade: 'facil',
       recompensa: { grana: 8, rep: 2 },
@@ -343,6 +345,7 @@ export const CENA_PISTA = {
       pino: { x: 40, y: 190 },
       i18n: 'games.gangues.cena.pista.rinha',
       enemy: 1201,
+      revezamento: { pool: [1101, 1102, 1103, 1201, 1203], budgetPorCorpo: 5, chanceDupla: 0.35 },
       forca: 1,
       dificuldade: 'facil',
       recompensa: { grana: 4 },
