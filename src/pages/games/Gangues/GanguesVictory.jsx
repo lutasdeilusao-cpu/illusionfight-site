@@ -5,7 +5,7 @@ import { useLanguage } from '../../../context/LanguageContext'
 import { useGanguesStore } from './store/useGanguesStore'
 import { ehConfrontoFinal } from './data/ganguesTerritorios.js'
 import { getGanguesRosterLimitComHistoria } from './data/ganguesLoadout.js'
-import { getGanguesCharacter } from './data/ganguesCharacters.js'
+import { getGanguesCharacter, eventosDoNivel } from './data/ganguesCharacters.js'
 import { registrarPontuacaoArenaRanking } from '../../../hooks/useLeaderboardDB'
 import { sfx } from '../../../lib/sfx'
 import './GanguesProgressionFlow.css'
@@ -25,7 +25,7 @@ function eventosDoLevelUp(character, fromLevel, toLevel) {
   const eventos = []
   for (let lvl = fromLevel + 1; lvl <= toLevel; lvl++) {
     const levelData = character.levels.find(item => item.level === lvl)
-    if (levelData) eventos.push(...levelData.events)
+    if (levelData) eventos.push(...eventosDoNivel(levelData))
   }
   return eventos
 }

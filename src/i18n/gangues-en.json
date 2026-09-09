@@ -2258,12 +2258,60 @@
             "oficina": "Nando's Workshop",
             "lojapista": "Pista Shop"
           },
-          "grafite": "THE STREET\nREMEMBERS"
+          "grafite": "THE STREET\nREMEMBERS",
+          "int": {
+            "birosca": "Nato's Bar",
+            "oficina": "Nando's Workshop",
+            "loja": "Cida's Corner Store",
+            "galpao": "Coal's Warehouse"
+          },
+          "galpao": {
+            "m1": {
+              "nome": "Vapor on lookout",
+              "fala": "Look at the new gang's kids trying to get in the warehouse. No playboys in here."
+            },
+            "m2": {
+              "nome": "Mad Dog",
+              "fala": "Past the dock? Lucky I was dozing. Now wake up for the fight."
+            },
+            "achado": {
+              "nome": "Stockroom shelf",
+              "sub": "what the operation keeps",
+              "linha": "Back of the shelf, under some rags: something useful."
+            },
+            "contador": {
+              "nome": "The operation's bookkeeper",
+              "sub": "keeps every tally, takes a beating for anyone",
+              "fala": [
+                "Don't hit me! I just do the math! I'll talk, I'll talk...",
+                "Coal stays in the dark, way in the back. He only comes down once the whole warehouse knows you're here. Now they know."
+              ],
+              "escolhas": {
+                "escuta": {
+                  "label": "Hear him out",
+                  "resultado": "\"That board back there is the operation schedule. Coal crosses the last room every dawn. Good luck, kid.\""
+                },
+                "aperta": {
+                  "label": "Rough the poor guy up (−rep)"
+                }
+              }
+            }
+          }
         },
         "hint_andar": "Use the stick to walk the block.",
         "hint_interagir": "You reached a spot — press INTERACT.",
         "hint_sucata": "🔩 Take both scrap pieces to Nando at the workshop.",
-        "nivel": "LEVEL {n}"
+        "nivel": "LEVEL {n}",
+        "acao": {
+          "entrar": "ENTER",
+          "sair": "EXIT",
+          "voltar": "BACK",
+          "avancar": "GO IN",
+          "subir": "GO UP",
+          "desafiar": "CHALLENGE",
+          "trancado": "LOCKED"
+        },
+        "comodo": "ROOM {n}/{de}"
       },
       "enemy_album": {
         "1101": "Doesn't fight, he runs and warns — facing him is a chase before a beating.",

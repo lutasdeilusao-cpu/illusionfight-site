@@ -56,7 +56,7 @@ const PREDIOS_PISTA = [
   { id: 'e3', tipo: 'barraco', x: 486, y: 1648, w: 140, h: 110, cor: '#6f6350' },
   { id: 'e4', tipo: 'sobrado', x: 620, y: 1622, w: 138, h: 170, cor: '#4a6a63', luz: 1, varal: 1 },
   // ── Miolo baixo (Bar do Zé / Banca, y1302–1492) ──
-  { id: 'c1', tipo: 'comercio', x: 6, y: 1330, w: 150, h: 150, cor: '#b8863b', nome: 'games.gangues.cena.pista.predio.bar', porta: { para: 'birosca' }, toldo: 1 },
+  { id: 'c1', tipo: 'comercio', x: 137, y: 1330, w: 150, h: 152, cor: '#b8863b', nome: 'games.gangues.cena.pista.predio.bar', porta: { para: 'birosca', zx: 302, zy: 1400 }, toldo: 1, solo: 1 },
   { id: 'c2', tipo: 'laje', x: 156, y: 1310, w: 126, h: 170, andares: 2, cor: '#8a8074', pich: 1 },
   { id: 'c3', tipo: 'comercio', x: 476, y: 1322, w: 150, h: 158, cor: '#3f6f8a', nome: 'games.gangues.cena.pista.predio.banca', portao_aco: 1 },
   { id: 'c4', tipo: 'barraco', x: 628, y: 1332, w: 128, h: 150, cor: '#726552', luz: 1 },
@@ -64,20 +64,20 @@ const PREDIOS_PISTA = [
   { id: 'b1', tipo: 'laje', x: 4, y: 812, w: 150, h: 180, andares: 3, cor: '#948a7c', varal: 1, pich: 1 },
   { id: 'b2', tipo: 'barraco', x: 150, y: 900, w: 132, h: 122, cor: '#6b5f4d' },
   { id: 'b3', tipo: 'laje', x: 150, y: 806, w: 132, h: 96, cor: '#8b8175', luz: 1 },
-  { id: 'b4', tipo: 'comercio', x: 476, y: 820, w: 154, h: 150, cor: '#a85f3b', nome: 'games.gangues.cena.pista.predio.mercado', porta: { para: 'loja' }, toldo: 1 },
+  { id: 'b4', tipo: 'comercio', x: 476, y: 820, w: 154, h: 150, cor: '#a85f3b', nome: 'games.gangues.cena.pista.predio.mercado', toldo: 1 },
   { id: 'b5', tipo: 'comercio', x: 476, y: 970, w: 154, h: 110, cor: '#5a4a8a', nome: 'games.gangues.cena.pista.predio.fliperama', luz: 1 },
   { id: 'b6', tipo: 'laje', x: 630, y: 812, w: 126, h: 180, andares: 2, cor: '#8f8578', varal: 1 },
   // ── Oficina do Nando (miolo baixo-esq, y676+) ── nasce fora de quarteirão
-  { id: 'of', tipo: 'comercio', x: 150, y: 620, w: 128, h: 96, cor: '#c2a03b', nome: 'games.gangues.cena.pista.predio.oficina', porta: { para: 'oficina' }, oficina: 1, livre: 1 },
+  { id: 'of', tipo: 'comercio', x: 150, y: 610, w: 128, h: 92, cor: '#c2a03b', nome: 'games.gangues.cena.pista.predio.oficina', porta: { para: 'oficina', zx: 214, zy: 728 }, oficina: 1, solo: 1 },
   // ── Território da gangue rival (passado o portão, y350–676) ──
   { id: 'a1', tipo: 'laje', x: 4, y: 356, w: 150, h: 200, andares: 3, cor: '#7d7468', pich: 1 },
   { id: 'a2', tipo: 'barraco', x: 152, y: 500, w: 130, h: 160, cor: '#5f5545' },
   { id: 'a3', tipo: 'laje', x: 152, y: 356, w: 130, h: 140, andares: 2, cor: '#867c70', varal: 1 },
   { id: 'a4', tipo: 'laje', x: 476, y: 356, w: 130, h: 150, andares: 2, cor: '#7a7165', luz: 1 },
   // ── O GALPÃO DO CARVÃO (topo-direita, porta virada pra abertura do portão) ──
-  { id: 'galpao', tipo: 'galpao', x: 452, y: 70, w: 300, h: 250, cor: '#3a4247', pich: 1, porta: { para: 'galpao' }, portaX: 520, portaW: 92 },
+  { id: 'galpao', tipo: 'galpao', x: 452, y: 60, w: 300, h: 248, cor: '#3a4247', pich: 1, porta: { para: 'galpao', zx: 566, zy: 332 }, portaX: 520, portaW: 92, solo: 1, pos_portao: 1 },
   // ── A loja da Pista (topo-esq, só faz sentido pós-portão) ──
-  { id: 'loja', tipo: 'comercio', x: 120, y: 150, w: 150, h: 130, cor: '#c25a2a', nome: 'games.gangues.cena.pista.predio.lojapista', porta: { para: 'loja' }, toldo: 1, pos_portao: 1 },
+  { id: 'loja', tipo: 'comercio', x: 120, y: 150, w: 150, h: 120, cor: '#c25a2a', nome: 'games.gangues.cena.pista.predio.lojapista', porta: { para: 'loja', zx: 195, zy: 292 }, toldo: 1, pos_portao: 1, solo: 1 },
 ]
 
 // Empecilhos de rua — `solido:true` vira colisão (o jogador desvia).
@@ -392,6 +392,159 @@ export const CENA_PISTA = {
       cura: 40,
     },
   ],
+
+  // ── INTERIORES navegáveis (fase 2) ──────────────────────────
+  // Cada interior tem 1+ cômodos. Um cômodo é um mundo pequeno próprio:
+  //  world/spawn/saida/colliders/cenario/pois (+ passagem pro próximo cômodo).
+  // `pois[].ref` reaproveita um POI de `pois` acima (mesma lógica de combate/
+  // papo/loja); `pois[].poi` é um POI completo próprio (mobs do galpão).
+  // `porta.predio` = qual prédio do exterior abre este interior.
+  interiores: {
+    birosca: {
+      nome: 'games.gangues.cena.pista.int.birosca',
+      porta: { predio: 'c1' },
+      abreCom: 'birosca', // o interior só é "útil" depois que a birosca é revelada
+      comodos: [{
+        id: 'sala',
+        world: { w: 460, h: 320 }, spawn: { x: 230, y: 236 },
+        saida: { x: 202, y: 300, w: 56, h: 20 },
+        colliders: [
+          { x: 0, y: 0, w: 460, h: 30 }, { x: 0, y: 0, w: 14, h: 320 }, { x: 446, y: 0, w: 14, h: 320 },
+          { x: 0, y: 292, w: 188, h: 28 }, { x: 258, y: 292, w: 202, h: 28 },
+          { x: 108, y: 66, w: 244, h: 40 }, // balcão
+        ],
+        cenario: [
+          { tipo: 'balcao', x: 230, y: 86, w: 240 },
+          { tipo: 'geladeira-refri', x: 66, y: 120 }, { tipo: 'tv', x: 396, y: 62 },
+          { tipo: 'mesa', x: 120, y: 210 }, { tipo: 'mesa', x: 340, y: 220 },
+          { tipo: 'cartaz', x: 230, y: 40 },
+        ],
+        pois: [
+          { ref: 'birosca', pos: { x: 200, y: 120 } },
+          { ref: 'informante', pos: { x: 396, y: 210 } },
+        ],
+      }],
+    },
+    oficina: {
+      nome: 'games.gangues.cena.pista.int.oficina',
+      porta: { predio: 'of' },
+      abreCom: 'oficina',
+      comodos: [{
+        id: 'bancada',
+        world: { w: 420, h: 300 }, spawn: { x: 210, y: 218 },
+        saida: { x: 184, y: 280, w: 52, h: 20 },
+        colliders: [
+          { x: 0, y: 0, w: 420, h: 28 }, { x: 0, y: 0, w: 14, h: 300 }, { x: 406, y: 0, w: 14, h: 300 },
+          { x: 0, y: 272, w: 172, h: 28 }, { x: 236, y: 272, w: 184, h: 28 },
+          { x: 90, y: 60, w: 240, h: 44 }, // bancada
+        ],
+        cenario: [
+          { tipo: 'bancada', x: 210, y: 82, w: 236 }, { tipo: 'ferramentas', x: 210, y: 44 },
+          { tipo: 'pneu', x: 60, y: 210 }, { tipo: 'peca-exposta', x: 360, y: 120 },
+        ],
+        pois: [{ ref: 'oficina', pos: { x: 200, y: 120 } }],
+      }],
+    },
+    loja: {
+      nome: 'games.gangues.cena.pista.int.loja',
+      porta: { predio: 'loja' },
+      comodos: [{
+        id: 'mercearia',
+        world: { w: 440, h: 320 }, spawn: { x: 220, y: 236 },
+        saida: { x: 194, y: 300, w: 52, h: 20 },
+        colliders: [
+          { x: 0, y: 0, w: 440, h: 28 }, { x: 0, y: 0, w: 14, h: 320 }, { x: 426, y: 0, w: 14, h: 320 },
+          { x: 0, y: 292, w: 182, h: 28 }, { x: 262, y: 292, w: 178, h: 28 },
+          { x: 96, y: 70, w: 250, h: 40 }, // caixa
+          { x: 20, y: 140, w: 80, h: 120 }, { x: 340, y: 140, w: 80, h: 120 }, // prateleiras
+        ],
+        cenario: [
+          { tipo: 'caixa-loja', x: 220, y: 90, w: 246 },
+          { tipo: 'prateleira', x: 60, y: 200, w: 76, h: 116 }, { tipo: 'prateleira', x: 380, y: 200, w: 76, h: 116 },
+          { tipo: 'cartaz', x: 220, y: 44 },
+        ],
+        pois: [{ ref: 'loja', pos: { x: 200, y: 122 } }],
+      }],
+    },
+    // ── O GALPÃO DO CARVÃO — mini dungeon de 4 cômodos ──
+    galpao: {
+      nome: 'games.gangues.cena.pista.int.galpao',
+      porta: { predio: 'galpao', posPortao: true },
+      comodos: [
+        {
+          id: 'doca',
+          world: { w: 480, h: 340 }, spawn: { x: 240, y: 256 },
+          saida: { x: 212, y: 320, w: 56, h: 20 },
+          colliders: [
+            { x: 0, y: 0, w: 480, h: 30 }, { x: 0, y: 0, w: 14, h: 340 }, { x: 466, y: 0, w: 14, h: 340 },
+            { x: 0, y: 312, w: 200, h: 28 }, { x: 280, y: 312, w: 200, h: 28 },
+            { x: 40, y: 90, w: 90, h: 70 }, { x: 360, y: 200, w: 90, h: 70 }, // caixotes/empilhadeira
+          ],
+          cenario: [
+            { tipo: 'caixote', x: 85, y: 125 }, { tipo: 'caixote', x: 110, y: 90 },
+            { tipo: 'empilhadeira', x: 405, y: 235 }, { tipo: 'chao-galpao' },
+          ],
+          pois: [
+            { poi: { id: 'galpao_m1', tipo: 'treta', repetivel: true, enemy: 1202, dificuldade: 'facil', i18n: 'games.gangues.cena.pista.galpao.m1', recompensa: { grana: 6, rep: 2 } }, pos: { x: 300, y: 130 } },
+          ],
+          passagem: { x: 220, y: 34, w: 80, h: 24, para: 1, precisa: 'galpao_m1', label: 'avancar' },
+        },
+        {
+          id: 'estoque',
+          world: { w: 440, h: 380 }, spawn: { x: 220, y: 300 },
+          saida: null,
+          voltaPara: 0,
+          colliders: [
+            { x: 0, y: 0, w: 440, h: 30 }, { x: 0, y: 0, w: 14, h: 380 }, { x: 426, y: 0, w: 14, h: 380 }, { x: 0, y: 352, w: 440, h: 28 },
+            { x: 20, y: 120, w: 60, h: 200 }, { x: 360, y: 120, w: 60, h: 200 }, // prateleiras altas
+          ],
+          cenario: [
+            { tipo: 'prateleira-alta', x: 50, y: 220, w: 56, h: 196 }, { tipo: 'prateleira-alta', x: 390, y: 220, w: 56, h: 196 },
+            { tipo: 'chao-galpao' },
+          ],
+          pois: [
+            { poi: { id: 'galpao_m2', tipo: 'treta', repetivel: true, enemy: 1301, liderFixo: 1301, dificuldade: 'normal', i18n: 'games.gangues.cena.pista.galpao.m2', recompensa: { grana: 8, rep: 3 } }, pos: { x: 220, y: 180 } },
+            { poi: { id: 'galpao_achado', tipo: 'achado', opcional: true, i18n: 'games.gangues.cena.pista.galpao.achado', recompensa: { grana: 18, item: 1 } }, pos: { x: 388, y: 150 } },
+          ],
+          passagem: { x: 200, y: 34, w: 80, h: 24, para: 2, precisa: 'galpao_m2', label: 'avancar' },
+        },
+        {
+          id: 'escritorio',
+          world: { w: 420, h: 320 }, spawn: { x: 210, y: 246 },
+          saida: null,
+          voltaPara: 1,
+          colliders: [
+            { x: 0, y: 0, w: 420, h: 30 }, { x: 0, y: 0, w: 14, h: 320 }, { x: 406, y: 0, w: 14, h: 320 }, { x: 0, y: 292, w: 420, h: 28 },
+            { x: 120, y: 90, w: 180, h: 56 }, // mesa
+          ],
+          cenario: [
+            { tipo: 'mesa-escritorio', x: 210, y: 118, w: 176 }, { tipo: 'cofre', x: 360, y: 210 },
+            { tipo: 'quadro-horarios', x: 60, y: 90 }, { tipo: 'chao-galpao' },
+          ],
+          pois: [
+            { poi: { id: 'galpao_contador', tipo: 'papo', opcional: true, repetivel: true, i18n: 'games.gangues.cena.pista.galpao.contador', escolhas: [{ id: 'escuta' }, { id: 'aperta', viraTreta: { enemy: 1203, rep: -1, recompensa: { grana: 6 } } }] }, pos: { x: 120, y: 210 } },
+          ],
+          passagem: { x: 300, y: 34, w: 80, h: 24, para: 3, label: 'avancar' },
+        },
+        {
+          id: 'breu',
+          world: { w: 520, h: 400 }, spawn: { x: 260, y: 320 },
+          saida: null,
+          voltaPara: 2,
+          colliders: [
+            { x: 0, y: 0, w: 520, h: 30 }, { x: 0, y: 0, w: 14, h: 400 }, { x: 506, y: 0, w: 14, h: 400 }, { x: 0, y: 372, w: 520, h: 28 },
+          ],
+          cenario: [
+            { tipo: 'chao-galpao' }, { tipo: 'luz-facho', x: 260, y: 150 },
+            { tipo: 'pilha-sucata', x: 90, y: 300 }, { tipo: 'pilha-sucata', x: 430, y: 310 },
+          ],
+          pois: [
+            { ref: '__chefe', pos: { x: 260, y: 120 } },
+          ],
+        },
+      ],
+    },
+  },
 
   // O chefe — só aparece quando o portão abre.
   chefe: {

@@ -2258,12 +2258,60 @@
             "oficina": "Taller de Nando",
             "lojapista": "Tienda de la Pista"
           },
-          "grafite": "LA CALLE\nRECUERDA"
+          "grafite": "LA CALLE\nRECUERDA",
+          "int": {
+            "birosca": "Bar de Don Nato",
+            "oficina": "Taller de Nando",
+            "loja": "Almacén de Cida",
+            "galpao": "Galpón de Carbón"
+          },
+          "galpao": {
+            "m1": {
+              "nome": "Vapor de guardia",
+              "fala": "Mirá los pibes de la banda nueva queriendo entrar al galpón. Acá no entra ningún playboy."
+            },
+            "m2": {
+              "nome": "Perro Loco",
+              "fala": "¿Pasaste la dársena? Suerte que estaba dormitando. Ahora despertate para la pelea."
+            },
+            "achado": {
+              "nome": "Estante del depósito",
+              "sub": "lo que guarda el movimiento",
+              "linha": "Al fondo del estante, bajo unos trapos: algo que sirve."
+            },
+            "contador": {
+              "nome": "El contador del movimiento",
+              "sub": "anota todo, cobra por cualquiera",
+              "fala": [
+                "¡No me pegues! ¡Yo solo hago la cuenta! Hablo, hablo...",
+                "Carbón está en la oscuridad, bien al fondo. Solo baja cuando todo el galpón sabe que llegaste. Ahora saben."
+              ],
+              "escolhas": {
+                "escuta": {
+                  "label": "Escuchá lo que tiene para decir",
+                  "resultado": "\"Ese cuadro de atrás es el horario del movimiento. Carbón cruza el último cuarto cada madrugada. Suerte, pibe.\""
+                },
+                "aperta": {
+                  "label": "Apretá al pobre tipo (−rep)"
+                }
+              }
+            }
+          }
         },
         "hint_andar": "Usá el joystick para caminar el barrio.",
         "hint_interagir": "Llegaste a un punto — apretá INTERACTUAR.",
         "hint_sucata": "🔩 Llevá los dos pedazos de chatarra a Nando en el taller.",
-        "nivel": "NIVEL {n}"
+        "nivel": "NIVEL {n}",
+        "acao": {
+          "entrar": "ENTRAR",
+          "sair": "SALIR",
+          "voltar": "VOLVER",
+          "avancar": "AVANZAR",
+          "subir": "SUBIR",
+          "desafiar": "DESAFIAR",
+          "trancado": "TRABADO"
+        },
+        "comodo": "CUARTO {n}/{de}"
       },
       "enemy_album": {
         "1101": "No pelea, corre y avisa — enfrentarlo es una persecución antes de la paliza.",

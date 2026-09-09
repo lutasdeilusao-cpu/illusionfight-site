@@ -656,11 +656,14 @@ export const useGanguesStore = create((set, get) => ({
 
   restaurarFolego: (cenaId) => get().ajustarFolego(cenaId, 100),
 
+  // posicao: { x, y, local? } — `local` guarda em qual prédio/cômodo o jogador
+  // estava (null = rua), pra reentrar na cena exatamente onde parou, mesmo
+  // dentro do galpão.
   salvarPosicaoCena: (cenaId, posicao) => {
     if (!cenaId || !Number.isFinite(posicao?.x) || !Number.isFinite(posicao?.y)) return
     set(state => {
       const atual = state.cenaProgresso[cenaId] || { resolvidos: {}, revelados: {}, boss: false, folego: 100 }
-      return { cenaProgresso: { ...state.cenaProgresso, [cenaId]: { ...atual, posicao: { x: Math.round(posicao.x), y: Math.round(posicao.y) } } } }
+      return { cenaProgresso: { ...state.cenaProgresso, [cenaId]: { ...atual, posicao: { x: Math.round(posicao.x), y: Math.round(posicao.y), local: posicao.local || null } } } }
     })
     get()._persistCena()
   },

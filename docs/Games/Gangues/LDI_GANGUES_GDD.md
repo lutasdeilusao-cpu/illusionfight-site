@@ -223,6 +223,18 @@ rinha do beco (farm) · Duda, o Orelha · Descanso na birosca · **A loja da Pis
 caem na cena antes do chefe (entram no Álbum aqui). Detalhe em
 `src/pages/games/Gangues/GANGUES_MODO_HISTORIA_ENCONTROS.md §5`.
 
+**Mapa de RPG (v2.73–2.74):** o exterior é favela desenhada em CSS (barraco /
+laje com caixa d'água / sobrado / comércio com toldo / galpão) com rua de
+periferia (buracos, entulho, fiação/gato) e praça de verdade. **Interiores
+navegáveis**: encosta na porta → `ENTRAR` → fade → cômodo pequeno onde você anda
+até o dono e fala (birosca do Nato, oficina do Nando, mercearia da Cida). **O
+covil do Carvão é um galpão-dungeon de 4 cômodos** (doca → estoque → escritório
+→ o breu): mobs da Pista trancam a passagem entre os cômodos, uma prateleira dá
+achado, o contador do movimento entrega a dica, e no último cômodo o Carvão está
+parado no escuro → `DESAFIAR`. Motor único (`montarAmbiente`/`ctx`) serve rua e
+cômodo; comando contextual (`ENTRAR`/`SAIR`/`VOLTAR`/`AVANÇAR`/`DESAFIAR`); a
+posição salva inclui o interior. É o **template dos 7 bairros**.
+
 **Balanço (v2.68.0):** a primeira treta (`beco`) puxa 1 a 4 corpos
 sorteados dos 11 comuns da Pista — tipo e quantidade mudam a cada tentativa —
 num `ratio` de 0.42 (fácil de propósito, ~97% de vitória). O bando escala com os

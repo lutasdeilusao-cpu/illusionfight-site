@@ -35,11 +35,39 @@ export function getGanguesLevelFromXp(xpTotal = 0) {
   return Math.min(GANGUES_LEVEL_CAP, 1 + Math.floor(xp))
 }
 
+// Taxas PV/PM por ponto de R (iguais a GANGUES_RESOURCE_RATES em ganguesLoadout
+// — duplicadas de propósito pra evitar ciclo de import). Níveis 11–99 no
+// catálogo guardam só `stats` (o resto é derivável) — aqui recompomos.
+const RES_RATE = { atacante: { pv: 3, pm: 3 }, defensor: { pv: 4, pm: 2 }, mistico: { pv: 2, pm: 4 } }
+
+/** Eventos de um nível — normaliza a forma compacta dos níveis 11–99
+ *  (`up` = atributo +1, `ev` = unlock_special / special_rank) na forma cheia
+ *  dos níveis 1–10 (`events: [...]`). */
+export function eventosDoNivel(lvl) {
+  if (!lvl) return []
+  if (lvl.events) return lvl.events
+  const out = []
+  if (lvl.up) out.push({ type: 'attribute', attribute: lvl.up, delta: 1 })
+  if (lvl.ev) out.push(...lvl.ev)
+  return out
+}
+
+function completarNivel(character, lvl) {
+  if (!lvl || lvl.resources) return lvl
+  const r = RES_RATE[character.combat_path] || { pv: 0, pm: 0 }
+  return {
+    xp_total_required: lvl.level - 1,
+    resources: { pv_max: (lvl.stats?.R || 0) * r.pv, pm_max: (lvl.stats?.R || 0) * r.pm },
+    ...lvl,
+    events: eventosDoNivel(lvl),
+  }
+}
+
 export function getGanguesTemplateLevel(characterTemplateId, xpTotal = 0) {
   const character = getGanguesCharacter(characterTemplateId)
   if (!character) return null
   const level = getGanguesLevelFromXp(xpTotal)
-  return character.levels.find(item => item.level === level) || character.levels[0]
+  return completarNivel(character, character.levels.find(item => item.level === level) || character.levels[0])
 }
 
 /** Especiais já ABERTOS no nível atual — conta os eventos `unlock_special` dos
@@ -51,7 +79,7 @@ export function getGanguesUnlockedSpecials(characterTemplateId, xpTotal = 0) {
   const abertos = new Set()
   for (const lvl of character.levels) {
     if (lvl.level > level) break
-    for (const ev of lvl.events || []) if (ev.type === 'unlock_special') abertos.add(ev.special_id)
+    for (const ev of eventosDoNivel(lvl)) if (ev.type === 'unlock_special') abertos.add(ev.special_id)
   }
   return character.signature_specials.filter(s => abertos.has(s.id))
 }
@@ -65,7 +93,7 @@ export function getGanguesSpecialRanks(characterTemplateId, xpTotal = 0) {
   const ranks = {}
   for (const lvl of character.levels) {
     if (lvl.level > level) break
-    for (const ev of lvl.events || []) {
+    for (const ev of eventosDoNivel(lvl)) {
       if (ev.type === 'unlock_special') ranks[ev.special_id] = Math.max(ranks[ev.special_id] || 0, 1)
       else if (ev.type === 'special_rank') ranks[ev.special_id] = Math.max(ranks[ev.special_id] || 0, ev.rank)
     }
@@ -76,7 +104,7 @@ export function getGanguesSpecialRanks(characterTemplateId, xpTotal = 0) {
 /** Em que nível um especial de assinatura abre (pro selo "NV x" da grade). */
 export function getGanguesSpecialUnlockLevel(character, specialId) {
   for (const lvl of character?.levels || []) {
-    for (const ev of lvl.events || []) if (ev.type === 'unlock_special' && ev.special_id === specialId) return lvl.level
+    for (const ev of eventosDoNivel(lvl)) if (ev.type === 'unlock_special' && ev.special_id === specialId) return lvl.level
   }
   return null
 }
@@ -143,5 +171,5 @@ export function getGanguesNextLevel(characterTemplateId, xpTotal = 0) {
   if (!character) return null
   const level = getGanguesLevelFromXp(xpTotal)
   if (level >= GANGUES_LEVEL_CAP) return null
-  return character.levels.find(item => item.level === level + 1) || null
+  return completarNivel(character, character.levels.find(item => item.level === level + 1) || null)
 }

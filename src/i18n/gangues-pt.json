@@ -1848,12 +1848,60 @@
             "oficina": "Oficina do Nando",
             "lojapista": "Loja da Pista"
           },
-          "grafite": "A RUA\nLEMBRA"
+          "grafite": "A RUA\nLEMBRA",
+          "int": {
+            "birosca": "Birosca do Seu Nato",
+            "oficina": "Oficina do Nando",
+            "loja": "Mercearia da Cida",
+            "galpao": "Galpão do Carvão"
+          },
+          "galpao": {
+            "m1": {
+              "nome": "Vapor de tocaia",
+              "fala": "Ó os pivete da gangue nova querendo entrar no galpão. Aqui não entra playboy, cria."
+            },
+            "m2": {
+              "nome": "Cão Louco",
+              "fala": "Passou da doca? Sorte sua que eu tava cochilando. Agora acorda pra briga."
+            },
+            "achado": {
+              "nome": "Prateleira do estoque",
+              "sub": "o que o movimento guarda",
+              "linha": "No fundo da prateleira, embaixo de uns pano: um bagulho que serve."
+            },
+            "contador": {
+              "nome": "O contador do movimento",
+              "sub": "anota tudo, apanha por qualquer um",
+              "fala": [
+                "Não me bate, não! Eu só faço a conta! Eu falo, eu falo…",
+                "O Carvão fica no breu, lá no fundão. Ele só desce quando o galpão inteiro já sabe que cê chegou. Agora cê chegou."
+              ],
+              "escolhas": {
+                "escuta": {
+                  "label": "Escuta o que ele tem pra falar",
+                  "resultado": "\"O quadro ali atrás é o horário do movimento. O Carvão passa no último cômodo toda madrugada. Boa sorte, cria.\""
+                },
+                "aperta": {
+                  "label": "Aperta o coitado (−rep)"
+                }
+              }
+            }
+          }
         },
         "hint_andar": "Use o analógico pra andar pela quebrada.",
         "hint_interagir": "Chegou num ponto — aperte INTERAGIR.",
         "hint_sucata": "🔩 Leva os dois pedaço de sucata pro Nando na oficina.",
-        "nivel": "NÍVEL {n}"
+        "nivel": "NÍVEL {n}",
+        "acao": {
+          "entrar": "ENTRAR",
+          "sair": "SAIR",
+          "voltar": "VOLTAR",
+          "avancar": "AVANÇAR",
+          "subir": "SUBIR",
+          "desafiar": "DESAFIAR",
+          "trancado": "TRANCADO"
+        },
+        "comodo": "CÔMODO {n}/{de}"
       },
       "enemy_album": {
         "1101": "Não briga, corre e avisa — enfrentá-lo é perseguição antes de porrada.",

@@ -598,3 +598,40 @@
 .gang-fiacao path{fill:none;stroke:rgba(0,0,0,.55);stroke-width:2;}
 
 @media(prefers-reduced-motion:reduce){.gang-deco--crianca,.gang-deco--cachorro{animation:none}}
+
+/* ══ Interiores navegáveis (fase 2) ══════════════════════════════════ */
+.gang-cena-fade{position:absolute;inset:0;z-index:40;background:#05070a;pointer-events:none;}
+.gang-cena-worldpage.is-interior .gang-cena-world{background:#0c0f12;background-image:none;}
+
+.gang-int-chao{position:absolute;left:0;top:0;z-index:1;
+  background:repeating-linear-gradient(90deg,#3a352d 0 46px,#332e27 46px 48px),repeating-linear-gradient(#3a352d 0 46px,#332e27 46px 48px),#37322b;
+  box-shadow:inset 0 0 90px rgba(0,0,0,.6);}
+.gang-int-chao.is-galpao{background:repeating-linear-gradient(90deg,#26292b 0 60px,#202325 60px 62px),#24272a;box-shadow:inset 0 0 120px rgba(0,0,0,.8);}
+.gang-int-parede{position:absolute;left:0;top:0;height:40px;z-index:2;
+  background:linear-gradient(#20242a,#171b1f);box-shadow:0 6px 12px rgba(0,0,0,.6);}
+
+.gang-int-obj{position:absolute;z-index:5;transform:translate(-50%,-50%);pointer-events:none;}
+.gang-int-obj--balcao,.gang-int-obj--bancada,.gang-int-obj--caixa-loja,.gang-int-obj--mesa-escritorio{
+  height:40px;background:linear-gradient(#5a4a38,#3c3025);box-shadow:0 8px 0 -3px #2a2118,0 10px 14px rgba(0,0,0,.5),inset 0 3px 0 rgba(255,255,255,.06);}
+.gang-int-obj--geladeira-refri{width:34px;height:52px;background:linear-gradient(#c23b3b,#8a2626);box-shadow:inset 0 0 0 2px #5a1a1a,0 6px 10px rgba(0,0,0,.5);}
+.gang-int-obj--tv{width:40px;height:30px;background:#111;box-shadow:inset 0 0 0 4px #2a2a2a,0 0 16px rgba(120,180,255,.25);}
+.gang-int-obj--mesa{width:44px;height:26px;background:#4a3d2e;border-radius:50%;box-shadow:0 8px 0 -4px #2e251a,0 10px 12px rgba(0,0,0,.4);}
+.gang-int-obj--cartaz{width:70px;height:24px;background:repeating-linear-gradient(90deg,#c9432f 0 10px,#e0c8a0 10px 20px);opacity:.85;box-shadow:0 2px 6px rgba(0,0,0,.4);}
+.gang-int-obj--prateleira,.gang-int-obj--prateleira-alta{background:linear-gradient(90deg,#463a2c,#2e261c);
+  box-shadow:inset 0 12px 0 -10px #6a5a44,inset 0 40px 0 -38px #6a5a44,inset 0 80px 0 -78px #6a5a44,0 8px 12px rgba(0,0,0,.5);}
+.gang-int-obj--pneu{width:28px;height:28px;border-radius:50%;background:#111;box-shadow:inset 0 0 0 7px #1c1c1c;}
+.gang-int-obj--ferramentas{width:60px;height:16px;background:repeating-linear-gradient(90deg,#8a8f92 0 4px,transparent 4px 12px);opacity:.7;}
+.gang-int-obj--peca-exposta{width:24px;height:24px;background:linear-gradient(135deg,#c9a24a,#7a5f22);box-shadow:0 0 14px rgba(230,190,90,.4),inset 0 0 0 2px #4a3a12;}
+.gang-int-obj--caixote{width:38px;height:34px;background:repeating-linear-gradient(#7a5c3a 0 8px,#5f4630 8px 10px);box-shadow:inset 0 0 0 2px #3a2c1c,0 5px 8px rgba(0,0,0,.4);}
+.gang-int-obj--empilhadeira{width:52px;height:40px;background:linear-gradient(#d9a12a,#a8791c);box-shadow:0 6px 0 -3px #111,-12px 6px 0 -6px #111,12px 6px 0 -6px #111,0 5px 8px rgba(0,0,0,.4);}
+.gang-int-obj--cofre{width:34px;height:34px;background:linear-gradient(#3a3f42,#23272a);box-shadow:inset 0 0 0 3px #14171a,0 5px 8px rgba(0,0,0,.5);}
+.gang-int-obj--cofre::after{content:'';position:absolute;left:50%;top:50%;width:8px;height:8px;border-radius:50%;transform:translate(-50%,-50%);background:#8a8f92;}
+.gang-int-obj--quadro-horarios{width:44px;height:34px;background:#1a1e12;box-shadow:inset 0 0 0 3px #3a4a2a,0 0 12px rgba(61,220,151,.15);}
+.gang-int-obj--luz-facho{width:200px;height:220px;z-index:3;background:radial-gradient(ellipse at 50% 0,rgba(255,240,200,.22),transparent 70%);}
+.gang-int-obj--pilha-sucata{width:44px;height:30px;background:repeating-linear-gradient(40deg,#6a6f72 0 5px,#3f4448 5px 8px);clip-path:polygon(6% 100%,24% 40%,46% 62%,64% 26%,86% 54%,96% 100%);box-shadow:0 4px 6px rgba(0,0,0,.5);}
+
+/* pinos de navegação (porta/saída/passagem) — visual mais discreto que POI */
+.gang-world-npc.is-nav>span{border-radius:6px;background:color-mix(in srgb,var(--terr-cor) 25%,#0a1a14);border-color:color-mix(in srgb,var(--terr-cor) 60%,#e8f1f2);animation:none;}
+.gang-world-npc.is-nav.is-trancado{opacity:.45;}
+.gang-world-npc.is-nav.is-trancado>span{background:#3a2020;border-color:#8a5a5a;}
+.gang-world-entry.is-porta{border-radius:6px;border-color:color-mix(in srgb,var(--terr-cor) 62%,transparent);}
