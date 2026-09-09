@@ -408,6 +408,23 @@
 .gang-cena-worldhud button { color:var(--if-cyan); border:0; background:none; font:800 .62rem var(--font-mono); letter-spacing:.1em; }
 .gang-cena-worldhud strong { font:800 .72rem var(--font-display); letter-spacing:.08em; white-space:nowrap; }
 .gang-cena-worldhud strong i { color:var(--terr-cor); font:700 .58rem var(--font-mono); }
+.gang-cena-meta-btn { color:var(--terr-cor)!important; font:700 .58rem var(--font-mono)!important; letter-spacing:.04em!important; padding:2px 4px!important; }
+
+/* Checklist do que falta fechar na cena (abre pelo "X/10" do topo) */
+.gang-cena-checklist {
+  position:absolute; z-index:31; left:12px; right:12px;
+  top:calc(max(12px, env(safe-area-inset-top, 0px) + 8px) + 48px);
+  max-width:300px; margin:0 auto; padding:12px 14px;
+  border:1px solid var(--terr-cor); background:rgba(4,10,13,.96); backdrop-filter:blur(10px);
+  clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,0 100%);
+}
+.gang-cena-checklist b { display:block; font:800 .6rem var(--font-mono); letter-spacing:.1em; text-transform:uppercase; color:var(--terr-cor); margin-bottom:8px; }
+.gang-cena-checklist ul { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:5px; }
+.gang-cena-checklist li { display:flex; gap:8px; align-items:baseline; font:600 .74rem var(--font-body); color:#cdd6da; }
+.gang-cena-checklist li span { color:#5f6f75; font:800 .7rem var(--font-mono); }
+.gang-cena-checklist li.is-feito { color:#5f6f75; text-decoration:line-through; }
+.gang-cena-checklist li.is-feito span { color:#6be07a; }
+.gang-cena-checklist p { margin:9px 0 0; font:600 .68rem var(--font-body); line-height:1.4; color:#8fa0a6; border-top:1px solid #223338; padding-top:8px; }
 .gang-cena-worldhud>span { color:#b8c2c7; font:700 .58rem var(--font-mono); white-space:nowrap; }
 .gang-cena-ficha-btn { font-size:1rem !important; line-height:1; padding:2px 4px !important; }
 .gang-cena-viewport { position:relative; flex:1 1 auto; min-height:0; overflow:hidden; touch-action:none; background:#081015; }

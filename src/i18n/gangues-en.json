@@ -2400,6 +2400,7 @@
         "hint_andar": "Use the stick and head down to the street.",
         "hint_interagir": "You hit a hot spot — press INTERACT.",
         "hint_sucata": "🔩 Take both scrap pieces to Nando at the workshop. He'll sort you out.",
+        "hint_sucata_falta": "🔩 You're missing a scrap piece — it's in the back of the junkyard. Grab both and take them to Nando.",
         "nivel": "LEVEL {n}",
         "acao": {
           "entrar": "GO IN",
@@ -2411,7 +2412,11 @@
           "trancado": "SHUT"
         },
         "comodo": "ROOM {n}/{de}",
-        "muro_tunel": "The wall's not opening, straight up. Find the gap under it."
+        "muro_tunel": "The wall's not opening, straight up. Find the gap under it.",
+        "checklist_titulo": "What's left to close",
+        "checklist_dica": "Close all of this and the gap under the wall opens — that's how you reach Carvão.",
+        "checklist_tunel_aberto": "The gap's open. Head to the shack against the wall and go down under it.",
+        "checklist_dominada": "Strip's yours. The wall's open now, come and go as you please."
       },
       "enemy_album": {
         "1101": "Doesn't fight, he runs and warns — facing him is a chase before a beating.",

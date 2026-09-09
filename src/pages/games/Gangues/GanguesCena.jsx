@@ -159,6 +159,8 @@ export default function GanguesCena({onNavigate}){
   const [bagAberta,setBagAberta]=useState(false)
   // Aviso: a tropa inteira caiu — não entra em luta até se recuperar na birosca.
   const [aviso,setAviso]=useState(null)
+  // Checklist: o que ainda falta fechar na cena (toca no "X/10" do topo).
+  const [checklist,setChecklist]=useState(false)
   const viewportRef=useRef(null),inputRef=useRef({x:0,y:0}),keysRef=useRef(new Set())
   // baseFeita = fechou os ponto (portao.precisa) → destranca o TÚNEL e libera o
   // lado de lá. muroAberto = bateu o Carvão → aí sim o muro abre de vez (pra
@@ -208,9 +210,14 @@ export default function GanguesCena({onNavigate}){
     if(!andou){setHint(t('games.gangues.cena.hint_andar'));return}
     if(local){setHint(null);return}
     if(perto&&Object.keys(prog.resolvidos).length===0){setHint(t('games.gangues.cena.hint_interagir'));return}
-    if(prog.resolvidos.ferro&&!prog.resolvidos.oficina){setHint(t('games.gangues.cena.hint_sucata'));return}
+    if(prog.resolvidos.ferro&&!prog.resolvidos.oficina){
+      // Oficina do Nando é OBRIGATÓRIA pro portão e só fecha com 2× sucata
+      // (item 13) — 1 no puzzle do ferro-velho, 1 no fundo dele (`achado`).
+      // Se o jogador só tem 1, aponta pro achado (senão a oficina trava tudo).
+      setHint(t((store.inventario?.[13]||0)>=2?'games.gangues.cena.hint_sucata':'games.gangues.cena.hint_sucata_falta'));return
+    }
     setHint(null)
-  },[intro,encontro,andou,perto,prog.resolvidos,local,t])
+  },[intro,encontro,andou,perto,prog.resolvidos,local,t,store.inventario])
   if(!cena||!terr)return <main className="gang-lobby"><button className="gang-new-sheet" onClick={()=>onNavigate('story')}>← MAPA</button></main>
   // `local` aponta pra um interior inválido — o efeito acima já vai zerar; só
   // não renderiza esse frame pra não quebrar em amb null.
@@ -274,13 +281,17 @@ export default function GanguesCena({onNavigate}){
       : t(`${poi.i18n}.fala`)
     return Array.isArray(raw)?raw[Math.floor(Math.random()*raw.length)]:raw
   }
-  // Encontro aleatório de rua: roll a cada passo, com cooldown de ~55 passos,
-  // teto de 3 por visita e nunca antes do 25º passo / nunca em interior.
+  // Encontro aleatório de rua: RARO de propósito (é uma luta acima da ficha).
+  // Nunca em interior, nunca antes do 60º passo da visita, cooldown longo
+  // (~140 passos), teto de 2 por visita, roll baixinho por passo. E só libera
+  // quando o jogador tem ALGUÉM nível 6+ — antes disso o bando do evento
+  // massacra (o Carvão já exige L8 pra bater confortável).
+  const podeEvento=useMemo(()=>store.roster.some(m=>getGanguesLevelFromXp(m.xp_total??0)>=6),[store.roster])
   const tentarEvento=()=>{
-    if(localRef.current||encontro||fade||intro)return
-    if(passosRef.current<25||eventosDadosRef.current>=3)return
-    if(passosRef.current-eventoStepRef.current<50)return
-    if(Math.random()>=0.035)return
+    if(localRef.current||encontro||fade||intro||!podeEvento)return
+    if(passosRef.current<60||eventosDadosRef.current>=2)return
+    if(passosRef.current-eventoStepRef.current<140)return
+    if(Math.random()>=0.012)return
     eventoStepRef.current=passosRef.current;eventosDadosRef.current++
     const raw=t(`games.gangues.cena.${cena.id}.evento.fala`)
     sfx.select?.()
@@ -354,9 +365,23 @@ export default function GanguesCena({onNavigate}){
   const breadcrumb=local
     ? `${t(amb.nomeLugar)}${amb.comodoTotal>1?` · ${t('games.gangues.cena.comodo',{n:amb.comodoIdx+1,de:amb.comodoTotal})}`:''}`
     : `A PISTA `
+  // Metas obrigatórias da cena (portao.precisa + o chefe) — o que abre o
+  // caminho por baixo do muro. Vira a lista do checklist do topo.
+  const metas=local?[]:[
+    ...(cena.portao?.precisa||[]).map(id=>{
+      const p=cena.pois.find(x=>x.id===id)
+      return {id,nome:p?.i18n?t(`${p.i18n}.nome`):id,feito:Boolean(prog.resolvidos[id])}
+    }),
+    {id:'__boss',nome:t(`games.gangues.story.bosses.${cena.chefe.boss}.nome`),feito:Boolean(prog.boss)},
+  ]
   return <main className={`gang-cena-worldpage${local?' is-interior':''}`} style={{'--terr-cor':cena.cor}}>
     <AnimatePresence>{intro&&<GangDialog lines={t(cena.chegada)} speaker={t(cena.falante)} sub={t(cena.falanteSub)} onFinish={fecharIntro} onSkip={fecharIntro}/>}</AnimatePresence>
-    <header className="gang-cena-worldhud"><button onClick={()=>{local?sair():(guardarPosicao(),onNavigate('story'))}}>← {local?t('games.gangues.cena.acao.sair'):'MAPA'}</button><strong>{breadcrumb}{!local&&(prog.boss?<i className="gang-cena-dominado-selo">⚑ DOMINADA</i>:<i>{feitos}/{total}</i>)}</strong><span>💵 {store.grana}　⚑ {store.rep}</span><button className="gang-cena-ficha-btn" onClick={()=>setBagAberta(true)} aria-label={t('games.gangues.bag.titulo')}>🎒</button>{store.activeParty.length>0&&<button className="gang-cena-ficha-btn" onClick={()=>setFichaIndex(0)}>👤</button>}<button className="gang-cena-ficha-btn" onClick={()=>{guardarPosicao();onNavigate('album')}} aria-label={t('games.gangues.album.titulo')}>📕</button></header>
+    <header className="gang-cena-worldhud"><button onClick={()=>{local?sair():(guardarPosicao(),onNavigate('story'))}}>← {local?t('games.gangues.cena.acao.sair'):'MAPA'}</button><strong>{breadcrumb}{!local&&(prog.boss?<i className="gang-cena-dominado-selo">⚑ DOMINADA</i>:<button className="gang-cena-meta-btn" onClick={()=>setChecklist(v=>!v)}>{feitos}/{total} ▾</button>)}</strong><span>💵 {store.grana}　⚑ {store.rep}</span><button className="gang-cena-ficha-btn" onClick={()=>setBagAberta(true)} aria-label={t('games.gangues.bag.titulo')}>🎒</button>{store.activeParty.length>0&&<button className="gang-cena-ficha-btn" onClick={()=>setFichaIndex(0)}>👤</button>}<button className="gang-cena-ficha-btn" onClick={()=>{guardarPosicao();onNavigate('album')}} aria-label={t('games.gangues.album.titulo')}>📕</button></header>
+    <AnimatePresence>{checklist&&!local&&<motion.div className="gang-cena-checklist" initial={{opacity:0,y:-8}} animate={{opacity:1,y:0}} exit={{opacity:0,y:-8}}>
+      <b>{t('games.gangues.cena.checklist_titulo')}</b>
+      <ul>{metas.map(m=><li key={m.id} className={m.feito?'is-feito':''}><span>{m.feito?'✓':'○'}</span>{m.nome}</li>)}</ul>
+      <p>{t(baseFeita?(prog.boss?'games.gangues.cena.checklist_dominada':'games.gangues.cena.checklist_tunel_aberto'):'games.gangues.cena.checklist_dica')}</p>
+    </motion.div>}</AnimatePresence>
     <div className="gang-cena-viewport" ref={viewportRef}><div className="gang-cena-world" style={{width:W.w,height:W.h,transform:`translate3d(${-camX}px,${-camY}px,0)`}}>
       {local?<CenaInterior amb={amb}/>:<CenaCenario cena={cena} bossAberto={baseFeita||muroAberto} muroAberto={muroAberto}/>}
       {(amb?.alvos||[]).map(p=><EntryZone key={`zone-${p.id}`} poi={p} active={perto?.id===p.id}/>)}

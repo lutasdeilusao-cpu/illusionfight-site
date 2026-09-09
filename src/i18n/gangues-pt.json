@@ -1990,6 +1990,7 @@
         "hint_andar": "Usa o analógico e desce pra rua.",
         "hint_interagir": "Chegou num ponto quente — aperta INTERAGIR.",
         "hint_sucata": "🔩 Leva os dois pedaço de sucata pro Nando, na oficina. Ele te retorna.",
+        "hint_sucata_falta": "🔩 Falta um pedaço de sucata — tá no fundo do ferro-velho. Pega os dois e leva pro Nando.",
         "nivel": "NÍVEL {n}",
         "acao": {
           "entrar": "ENTRA",
@@ -2001,7 +2002,11 @@
           "trancado": "FECHADO"
         },
         "comodo": "CÔMODO {n}/{de}",
-        "muro_tunel": "O muro não abre assim, na moral. Acha a brecha por baixo."
+        "muro_tunel": "O muro não abre assim, na moral. Acha a brecha por baixo.",
+        "checklist_titulo": "O que falta fechar",
+        "checklist_dica": "Fecha tudo isso e abre a brecha por baixo do muro — é por ali que se chega no Carvão.",
+        "checklist_tunel_aberto": "A brecha abriu. Vai lá pro barraco encostado no muro e desce por baixo.",
+        "checklist_dominada": "Pista dominada. O muro tá aberto agora, vai e volta à vontade."
       },
       "enemy_album": {
         "1101": "Não briga, corre e avisa — enfrentá-lo é perseguição antes de porrada.",
