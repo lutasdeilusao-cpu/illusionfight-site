@@ -2249,7 +2249,16 @@
             "nome": "El Jefe de Señales",
             "sub": "si él silba, corre todo el barrio",
             "fala": "Yo manejo los ojos de la Pista, pibe. Cada campana, cada semáforo, cada pibe en la señal responde a mi silbato. Pasaste a todos ellos — a mí no me pasás."
-          }
+          },
+          "predio": {
+            "bar": "Bar de Zé",
+            "banca": "Puesto cerrado",
+            "mercado": "Almacén de Cida",
+            "fliperama": "Fliper de Kiko",
+            "oficina": "Taller de Nando",
+            "lojapista": "Tienda de la Pista"
+          },
+          "grafite": "LA CALLE\nRECUERDA"
         },
         "hint_andar": "Usá el joystick para caminar el barrio.",
         "hint_interagir": "Llegaste a un punto — apretá INTERACTUAR.",

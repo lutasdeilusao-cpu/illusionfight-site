@@ -2249,7 +2249,16 @@
             "nome": "The Head Signalman",
             "sub": "if he whistles, the whole block runs",
             "fala": "I run the eyes of the Pista, kid. Every lookout, every light, every runner at the signal answers my whistle. You got past all of them — you don't get past me."
-          }
+          },
+          "predio": {
+            "bar": "Zé's Bar",
+            "banca": "Shut-down stand",
+            "mercado": "Cida's Corner Store",
+            "fliperama": "Kiko's Arcade",
+            "oficina": "Nando's Workshop",
+            "lojapista": "Pista Shop"
+          },
+          "grafite": "THE STREET\nREMEMBERS"
         },
         "hint_andar": "Use the stick to walk the block.",
         "hint_interagir": "You reached a spot — press INTERACT.",

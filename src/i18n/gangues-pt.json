@@ -1839,7 +1839,16 @@
             "nome": "O Sinaleiro Chefe",
             "sub": "se ele apita, o bairro inteiro corre",
             "fala": "Eu comando os olho da Pista, cria. Cada vigia, cada farol, cada pivete no sinal responde pro meu apito. Cê passou por todos eles — mas não passa por mim."
-          }
+          },
+          "predio": {
+            "bar": "Bar do Zé",
+            "banca": "Banca fechada",
+            "mercado": "Mercadinho da Cida",
+            "fliperama": "Fliperama do Kiko",
+            "oficina": "Oficina do Nando",
+            "lojapista": "Loja da Pista"
+          },
+          "grafite": "A RUA\nLEMBRA"
         },
         "hint_andar": "Use o analógico pra andar pela quebrada.",
         "hint_interagir": "Chegou num ponto — aperte INTERAGIR.",
