@@ -145,15 +145,14 @@ export default function GanguesVictory({ onNavigate }) {
       // Álbum de Marélia — todo inimigo do bando batido vira entrada.
       store.registrarNoAlbum([match.enemy_id, ...report.combatants.filter(c => c.side === 'enemy').map(c => c.id)])
       let granaGanha = 0, repGanha = 0
-      // Encontro aleatório de rua — só recompensa e fôlego, não mexe em POI/nó.
+      // Encontro aleatório de rua — só recompensa, não mexe em POI/nó.
       if (emCena && storyAlvo.evento) {
         const rec = storyAlvo.cenaRecompensa
         if (rec?.grana) { store.ganharGrana(rec.grana); granaGanha += rec.grana }
         if (rec?.rep) { store.ganharRep(rec.rep); repGanha += rec.rep }
         if (rec?.item) store.darItem(rec.item, rec.qtd || 1)
-        store.ajustarFolego(storyAlvo.cenaId, -10)
       } else if (emCena) {
-        // Modo história — cena: marca o POI resolvido, aplica grana/rep e fôlego.
+        // Modo história — cena: marca o POI resolvido, aplica grana/rep.
         store.marcarPoiResolvido(storyAlvo.cenaId, storyAlvo.cenaPoiId, storyAlvo.cenaRevela || [])
         if (storyAlvo.repDelta) { store.ganharRep(storyAlvo.repDelta); repGanha += storyAlvo.repDelta }
         const rec = storyAlvo.cenaRecompensa
@@ -162,11 +161,9 @@ export default function GanguesVictory({ onNavigate }) {
           if (rec.rep) { store.ganharRep(rec.rep); repGanha += rec.rep }
           if (rec.item) store.darItem(rec.item, rec.qtd || 1)
         }
-        store.ajustarFolego(storyAlvo.cenaId, -14)
         if (cenaChefe) {
           store.marcarBossCena(storyAlvo.cenaId)
           store.dominarTerritorioViaCena(storyAlvo.territorioId, storyAlvo.pontoIds || [])
-          store.restaurarFolego(storyAlvo.cenaId)
           store.restaurarPvPmTodos()
         }
       } else if (noModoHistoria) {

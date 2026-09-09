@@ -1680,8 +1680,6 @@
       "cena": {
         "grana": "Grana",
         "rep": "Nome",
-        "folego": "Fôlego da tropa",
-        "folego_baixo": "A tropa tá zerada. Passa na birosca antes de arriscar outra treta.",
         "bairro_tomado": "Bairro na mão",
         "opcional": "de boa",
         "boss_trancado": "Fecha os ponto antes de subir o nível, cria.",
@@ -1711,8 +1709,8 @@
         "itens": {
           "sucata": "Sucata (item)"
         },
-        "descanso_curou": "A tropa respirou fundo. +{n} de fôlego de volta.",
-        "descanso_cheio": "A tropa já tá no talo, não precisa não.",
+        "descanso_titulo": "A tropa descansou. Cada um recuperou:",
+        "descanso_ja_inteira": "A tropa já tá inteira, cria. Guarda a grana.",
         "descanso_sem_grana": "Grana curta pro descanso, cria.",
         "descanso_curar": "Descansar (−{grana})",
         "pista": {
@@ -1819,7 +1817,7 @@
           "descanso": {
             "nome": "Descanso na birosca",
             "sub": "mate, pão e sossego",
-            "intro": "Um tempo sentado, longe do sol quente da rua, na birosca do Nato. Custa uns trocado, mas a tropa volta inteira pro corre — sem fôlego não tem treta que se vença."
+            "intro": "Um tempo sentado, longe do sol quente da rua, na birosca do Nato. Custa uns trocado, mas cura a tropa e todo mundo volta inteiro pro corre — machucado ninguém ganha treta."
           },
           "loja": {
             "nome": "Loja da Pista"

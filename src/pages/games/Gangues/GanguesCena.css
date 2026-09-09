@@ -33,21 +33,22 @@
 }
 .gang-cena-moeda b { font-size: 0.95rem; color: #fff; }
 .gang-cena-moeda i { font-style: normal; font-size: 0.54rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-secondary); }
-.gang-cena-folego { margin-left: auto; display: flex; align-items: center; }
-.gang-cena-folego-bar {
-  display: block; width: 74px; height: 8px;
-  border: 1px solid var(--if-hair-strong); background: rgba(0, 0, 0, 0.4);
+/* Descanso na birosca — lista de quem foi curado e quanto. */
+.gang-cena-descanso-lista {
+  list-style: none; margin: 8px 0 0; padding: 0; width: 100%;
+  display: flex; flex-direction: column; gap: 5px;
 }
-.gang-cena-folego-bar i {
-  display: block; height: 100%; width: var(--pct, 100%);
-  background: color-mix(in srgb, var(--terr-cor) 80%, #fff);
-  transition: width 0.4s ease;
+.gang-cena-descanso-lista li {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  padding: 6px 10px; border: 1px solid var(--if-hair, rgba(255,255,255,0.12));
+  background: rgba(255,255,255,0.04);
+  clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 0 100%);
 }
-.gang-cena-folego.is-low .gang-cena-folego-bar i { background: #ff6b6b; }
-.gang-cena-folego-aviso {
-  margin: 6px 0 0; font: 600 0.68rem var(--font-mono);
-  color: #ff9a9a; letter-spacing: 0.02em;
-}
+.gang-cena-descanso-lista strong { font: 800 0.78rem var(--font-display); letter-spacing: 0.04em; }
+.gang-cena-descanso-lista span { display: flex; gap: 8px; }
+.gang-cena-descanso-lista em { font-style: normal; font: 800 0.72rem var(--font-mono); }
+.gang-cena-descanso-lista .is-pv { color: #6be07a; }
+.gang-cena-descanso-lista .is-pm { color: var(--if-cyan); }
 
 /* ── A rua ── */
 .gang-cena-rua-wrap { margin: 12px 0 4px; }
@@ -386,7 +387,7 @@
    baixo — foi o que aconteceu: o teste automatizado nunca tinha a Rádio Nina
    tocando, então nunca reproduziu o corte que aparece com ela ativa. */
 .gang-cena-worldpage { position:relative; width:100%; align-self:stretch; flex:1 1 auto; min-width:0; height:calc(100dvh - var(--guest-notice-h, 0px) - var(--radio-nina-top-h, 0px) - var(--radio-nina-h, 0px)); min-height:620px; overflow:hidden; background:#030609; color:#fff; display:flex; flex-direction:column; }
-.gang-cena-worldhud { position:absolute; z-index:30; inset:12px 12px auto; height:42px; display:flex; align-items:center; justify-content:space-between; gap:8px; padding:0 10px; border:1px solid #284047; background:rgba(3,8,11,.9); backdrop-filter:blur(8px); clip-path:polygon(0 0,calc(100% - 9px) 0,100% 9px,100% 100%,0 100%); }
+.gang-cena-worldhud { position:absolute; z-index:30; left:12px; right:12px; top:max(12px, calc(env(safe-area-inset-top, 0px) + 8px)); height:42px; display:flex; align-items:center; justify-content:space-between; gap:8px; padding:0 10px; border:1px solid #284047; background:rgba(3,8,11,.9); backdrop-filter:blur(8px); clip-path:polygon(0 0,calc(100% - 9px) 0,100% 9px,100% 100%,0 100%); }
 .gang-cena-worldhud button { color:var(--if-cyan); border:0; background:none; font:800 .62rem var(--font-mono); letter-spacing:.1em; }
 .gang-cena-worldhud strong { font:800 .72rem var(--font-display); letter-spacing:.08em; white-space:nowrap; }
 .gang-cena-worldhud strong i { color:var(--terr-cor); font:700 .58rem var(--font-mono); }
@@ -431,8 +432,7 @@
 @keyframes gang-entry-pulse{to{filter:brightness(1.35)}}
 @keyframes gang-person-breathe{50%{transform:translateY(-3px)}}
 .gang-cena-vignette { position:absolute;inset:0;z-index:20;pointer-events:none;box-shadow:inset 0 0 90px 24px rgba(0,0,0,.72);background:linear-gradient(rgba(0,0,0,.22),transparent 25%,transparent 68%,rgba(0,0,0,.58)); }
-.gang-cena-status { position:absolute;z-index:24;top:65px;left:14px;display:flex;align-items:center;gap:7px;color:#aab5b9;font:700 .5rem var(--font-mono); }.gang-cena-status>i{display:block;width:92px;height:6px;background:#0a0d0e;border:1px solid #536064}.gang-cena-status b{display:block;height:100%;background:var(--terr-cor);transition:width .4s}
-.gang-cena-tutorial,.gang-cena-gatelock { position:absolute;z-index:26;left:50%;transform:translateX(-50%);width:max-content;max-width:86%;padding:8px 12px;text-align:center;background:#071014e8;border:1px solid var(--terr-cor);font:700 .62rem var(--font-mono); }.gang-cena-tutorial{bottom:14px}.gang-cena-gatelock{top:118px;border-color:#87434a;color:#ffc1c1}
+.gang-cena-tutorial,.gang-cena-gatelock { position:absolute;z-index:26;left:50%;transform:translateX(-50%);width:max-content;max-width:86%;padding:8px 12px;text-align:center;background:#071014e8;border:1px solid var(--terr-cor);font:700 .62rem var(--font-mono); }.gang-cena-tutorial{bottom:14px}.gang-cena-gatelock{top:calc(max(12px, env(safe-area-inset-top, 0px) + 8px) + 52px);border-color:#87434a;color:#ffc1c1}
 /* Faixa dedicada aos controles, tipo Game Boy: o mapa (.gang-cena-viewport) ocupa só o
    espaço acima dela agora (flex column no .gang-cena-worldpage), então o jogador nunca "anda"
    por trás do analógico/botão — a área de navegação é só a tela de cima. */

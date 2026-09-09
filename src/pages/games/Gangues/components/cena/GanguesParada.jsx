@@ -45,7 +45,7 @@ export default function GanguesParada({ poi, onResolve, onClose }) {
     } else if (poi.falha?.viraTreta) {
       onResolve({ ok: false, viraTreta: poi.falha.viraTreta, revela: poi.revela })
     } else {
-      onResolve({ ok: false, revela: poi.revela, folego: -12 })
+      onResolve({ ok: false, revela: poi.revela })
     }
   }
 

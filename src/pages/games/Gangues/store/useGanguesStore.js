@@ -1,13 +1,13 @@
 import { create } from 'zustand'
 import { supabase } from '../../../../lib/supabase'
-import { addGanguesAp, defaultGanguesProgression, getGanguesRosterLimit, normalizeGanguesLoadout } from '../data/ganguesLoadout.js'
+import { addGanguesAp, defaultGanguesProgression, getGanguesRosterLimit, normalizeGanguesLoadout, getGanguesResources } from '../data/ganguesLoadout.js'
 import { carregarProgressoHistoria, salvarProgressoHistoria, listarSaves, criarSave, excluirSave } from './ganguesStoryProgress.js'
 import { createGanguesTemplateSheet, hydrateGanguesTemplateSheet, getGanguesLevelFromXp } from '../data/ganguesCharacters.js'
-import { createGanguesEquipInstance, normalizeGanguesEquipment, getGanguesEquip } from '../data/ganguesEquip.js'
+import { createGanguesEquipInstance, normalizeGanguesEquipment, getGanguesEquip, getGanguesAttributesWithEquip, applyGanguesEquipResources } from '../data/ganguesEquip.js'
 import { idsValidosUnicos } from '../data/ganguesInimigos.js'
 
 // Debounce dos writes de progresso do modo história: várias ações batem em sequência
-// (marcar POI + fôlego + grana + rep) e não faz sentido um upsert por campo.
+// (marcar POI + grana + rep) e não faz sentido um upsert por campo.
 let storySaveTimer = null
 
 /**
@@ -437,7 +437,7 @@ export const useGanguesStore = create((set, get) => ({
 
   // ── Modo história: a CENA (bairro navegável) ──
   // Economia leve + progresso por cena.
-  // cenaProgresso: { [cenaId]: { resolvidos, revelados, boss, folego, posicao:{x,y} } }
+  // cenaProgresso: { [cenaId]: { resolvidos, revelados, boss, posicao:{x,y} } }
   grana: 0,
   rep: 0,
   campaignClears: 0,
@@ -461,7 +461,7 @@ export const useGanguesStore = create((set, get) => ({
   },
 
   // Escreve no Supabase com debounce — várias ações do modo história disparam
-  // essa persistência em sequência (marcar POI + fôlego + grana + rep) e não
+  // essa persistência em sequência (marcar POI + grana + rep) e não
   // faz sentido um upsert por campo. Guest e quem ainda não abriu um save
   // (sem `_saveId`) não salva nada, igual à ficha: o banner já avisa que o
   // progresso não fica.
@@ -477,7 +477,7 @@ export const useGanguesStore = create((set, get) => ({
 
   _persistCena: () => get()._persistStory(),
 
-  _cena: (cenaId) => get().cenaProgresso[cenaId] || { resolvidos: {}, revelados: {}, boss: false, folego: 100 },
+  _cena: (cenaId) => get().cenaProgresso[cenaId] || { resolvidos: {}, revelados: {}, boss: false },
 
   ganharGrana: (n) => { set(state => ({ grana: Math.max(0, state.grana + (n || 0)) })); get()._persistCena() },
   ganharRep: (n) => { set(state => ({ rep: Math.max(0, state.rep + (n || 0)) })); get()._persistCena() },
@@ -603,7 +603,7 @@ export const useGanguesStore = create((set, get) => ({
     const jaTravado = atual?.pontosFarm?.[poiId]
     if (jaTravado) return jaTravado
     set(state => {
-      const base = state.cenaProgresso[cenaId] || { resolvidos: {}, revelados: {}, boss: false, folego: 100 }
+      const base = state.cenaProgresso[cenaId] || { resolvidos: {}, revelados: {}, boss: false }
       return { cenaProgresso: { ...state.cenaProgresso, [cenaId]: { ...base, pontosFarm: { ...(base.pontosFarm || {}), [poiId]: pontos } } } }
     })
     get()._persistCena()
@@ -612,7 +612,7 @@ export const useGanguesStore = create((set, get) => ({
 
   revelarPoi: (cenaId, ...poiIds) => {
     set(state => {
-      const atual = state.cenaProgresso[cenaId] || { resolvidos: {}, revelados: {}, boss: false, folego: 100 }
+      const atual = state.cenaProgresso[cenaId] || { resolvidos: {}, revelados: {}, boss: false }
       const revelados = { ...atual.revelados }
       poiIds.flat().forEach(id => { if (id) revelados[id] = true })
       return { cenaProgresso: { ...state.cenaProgresso, [cenaId]: { ...atual, revelados } } }
@@ -622,7 +622,7 @@ export const useGanguesStore = create((set, get) => ({
 
   marcarPoiResolvido: (cenaId, poiId, revela = []) => {
     set(state => {
-      const atual = state.cenaProgresso[cenaId] || { resolvidos: {}, revelados: {}, boss: false, folego: 100 }
+      const atual = state.cenaProgresso[cenaId] || { resolvidos: {}, revelados: {}, boss: false }
       const revelados = { ...atual.revelados }
       ;[].concat(revela).forEach(id => { if (id) revelados[id] = true })
       return {
@@ -637,24 +637,36 @@ export const useGanguesStore = create((set, get) => ({
 
   marcarBossCena: (cenaId) => {
     set(state => {
-      const atual = state.cenaProgresso[cenaId] || { resolvidos: {}, revelados: {}, boss: false, folego: 100 }
+      const atual = state.cenaProgresso[cenaId] || { resolvidos: {}, revelados: {}, boss: false }
       return { cenaProgresso: { ...state.cenaProgresso, [cenaId]: { ...atual, boss: true } } }
     })
     get()._persistCena()
   },
 
-  // Fôlego da gangue: cai nas tretas/paradas falhadas, cura na birosca,
-  // volta ao cheio ao dominar / sair do bairro.
-  ajustarFolego: (cenaId, delta) => {
-    set(state => {
-      const atual = state.cenaProgresso[cenaId] || { resolvidos: {}, revelados: {}, boss: false, folego: 100 }
-      const folego = Math.max(0, Math.min(100, (atual.folego ?? 100) + delta))
-      return { cenaProgresso: { ...state.cenaProgresso, [cenaId]: { ...atual, folego } } }
+  // Descanso na birosca — cobra a grana, restaura o PV/PM de TODA a tropa pro
+  // máximo e devolve o quanto cada um recuperou (pra a tela mostrar o detalhe).
+  // Se ninguém estava ferido, não cobra nada e devolve motivo: 'inteira'.
+  descansarTropa: (custo = 0) => {
+    const detalhe = get().roster.map(m => {
+      const norm = normalizeGanguesLoadout(m)
+      const attrs = getGanguesAttributesWithEquip(norm.attributes)
+      const res = applyGanguesEquipResources(getGanguesResources(norm.combat_path, attrs?.R), norm.attributes?.equipment)
+      const pvAtual = Math.min(res.pvMax, Number(norm.attributes?.pv_atual ?? res.pvMax))
+      const pmAtual = Math.min(res.pmMax, Number(norm.attributes?.pm_atual ?? res.pmMax))
+      return {
+        id: m.id,
+        nome: m.sheet_name || '?',
+        pv: Math.max(0, Math.round(res.pvMax - pvAtual)),
+        pm: Math.max(0, Math.round(res.pmMax - pmAtual)),
+      }
     })
-    get()._persistCena()
+    const ferido = detalhe.some(d => d.pv > 0 || d.pm > 0)
+    if (!ferido) return { ok: false, motivo: 'inteira', detalhe: [] }
+    if (get().grana < custo) return { ok: false, motivo: 'grana', detalhe: [] }
+    get().gastarGrana(custo)
+    get().restaurarPvPmTodos()
+    return { ok: true, detalhe: detalhe.filter(d => d.pv > 0 || d.pm > 0) }
   },
-
-  restaurarFolego: (cenaId) => get().ajustarFolego(cenaId, 100),
 
   // posicao: { x, y, local? } — `local` guarda em qual prédio/cômodo o jogador
   // estava (null = rua), pra reentrar na cena exatamente onde parou, mesmo
@@ -662,7 +674,7 @@ export const useGanguesStore = create((set, get) => ({
   salvarPosicaoCena: (cenaId, posicao) => {
     if (!cenaId || !Number.isFinite(posicao?.x) || !Number.isFinite(posicao?.y)) return
     set(state => {
-      const atual = state.cenaProgresso[cenaId] || { resolvidos: {}, revelados: {}, boss: false, folego: 100 }
+      const atual = state.cenaProgresso[cenaId] || { resolvidos: {}, revelados: {}, boss: false }
       return { cenaProgresso: { ...state.cenaProgresso, [cenaId]: { ...atual, posicao: { x: Math.round(posicao.x), y: Math.round(posicao.y), local: posicao.local || null } } } }
     })
     get()._persistCena()

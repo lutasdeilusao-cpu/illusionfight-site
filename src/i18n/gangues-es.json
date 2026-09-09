@@ -2090,8 +2090,6 @@
       "cena": {
         "grana": "Plata",
         "rep": "Nombre",
-        "folego": "Aliento de la tropa",
-        "folego_baixo": "La tropa está en cero. Pasá por el bar antes de arriesgar otra pelea.",
         "bairro_tomado": "Barrio en la mano",
         "opcional": "opcional",
         "boss_trancado": "Cerrá los puntos antes de subir de nivel, pibe.",
@@ -2121,8 +2119,8 @@
         "itens": {
           "sucata": "Chatarra (ítem)"
         },
-        "descanso_curou": "La tropa respiró hondo. +{n} de aliento de vuelta.",
-        "descanso_cheio": "La tropa ya está a full, no hace falta.",
+        "descanso_titulo": "La tropa descansó. Cada uno recuperó:",
+        "descanso_ja_inteira": "La tropa ya está entera, pibe. Guardate la plata.",
         "descanso_sem_grana": "La plata está corta para el descanso, pibe.",
         "descanso_curar": "Descansar (−{grana})",
         "pista": {
@@ -2229,7 +2227,7 @@
           "descanso": {
             "nome": "Descanso en el bar",
             "sub": "mate, pan y tranquilidad",
-            "intro": "Un rato sentado, lejos del sol caliente de la calle, en el bar de Nato. Cuesta unas monedas, pero la tropa vuelve entera — sin aliento no hay pelea que se gane."
+            "intro": "Un rato sentado, lejos del sol caliente de la calle, en el bar de Nato. Cuesta unas monedas, pero cura a la tropa y todos vuelven enteros — lastimado nadie gana una pelea."
           },
           "loja": {
             "nome": "Tienda de la Pista"

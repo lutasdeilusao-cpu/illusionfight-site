@@ -390,9 +390,9 @@ export const CENA_PISTA = {
       ],
     },
     {
-      // Visível DESDE O COMEÇO (não só depois da birosca) — agora que PV/PM
+      // Visível DESDE O COMEÇO (não só depois da birosca) — como o PV/PM
       // persiste entre lutas (aplicarDanoPersistente), o jogador precisa de
-      // um jeito de recuperar folego já nas primeiras tretas repetíveis
+      // um jeito de curar a tropa já nas primeiras tretas repetíveis
       // (sinal/rinha), muito antes de beco+ferro+birosca abrirem.
       id: 'descanso',
       tipo: 'descanso',
@@ -402,7 +402,6 @@ export const CENA_PISTA = {
       pino: { x: 70, y: 118 },
       i18n: 'games.gangues.cena.pista.descanso',
       custoGrana: 10,
-      cura: 40,
     },
   ],
 

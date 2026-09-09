@@ -2090,8 +2090,6 @@
       "cena": {
         "grana": "Cash",
         "rep": "Name",
-        "folego": "Crew's wind",
-        "folego_baixo": "The crew's running on empty. Hit the bar before you risk another fight.",
         "bairro_tomado": "Block's ours",
         "opcional": "optional",
         "boss_trancado": "Lock the spots down before you level up, kid.",
@@ -2121,8 +2119,8 @@
         "itens": {
           "sucata": "Scrap (item)"
         },
-        "descanso_curou": "The crew caught its breath. +{n} wind back.",
-        "descanso_cheio": "The crew's already maxed, no need.",
+        "descanso_titulo": "The crew rested. Each one recovered:",
+        "descanso_ja_inteira": "The crew's already whole, kid. Keep the cash.",
         "descanso_sem_grana": "Cash is short for a rest, kid.",
         "descanso_curar": "Rest (−{grana})",
         "pista": {
@@ -2229,7 +2227,7 @@
           "descanso": {
             "nome": "Rest at the bar",
             "sub": "mate, bread and quiet",
-            "intro": "Some time sitting, out of the hot street sun, in Nato's bar. Costs a little change, but the crew comes back whole — no wind, no fight gets won."
+            "intro": "Some time sitting, out of the hot street sun, in Nato's bar. Costs a little change, but it patches the crew up and everyone comes back whole — hurt, nobody wins a fight."
           },
           "loja": {
             "nome": "Pista Shop"

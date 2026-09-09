@@ -144,7 +144,7 @@ function montarAmbiente(cena,local,prog,baseFeita,muroAberto){
 export default function GanguesCena({onNavigate}){
   const {t}=useLanguage(), store=useGanguesStore(), territorioId=store.storyTarget?.territorioId
   const cena=CENAS_POR_ID[territorioId]||null, terr=GANGUES_TERRITORIO_POR_ID[territorioId]||null
-  const prog=store.cenaProgresso[cena?.id]||{resolvidos:{},revelados:{},boss:false,folego:100}
+  const prog=store.cenaProgresso[cena?.id]||{resolvidos:{},revelados:{},boss:false}
   // `local` = null (rua) OU { id: <interiorId>, comodo: <n> }. Restaurado do
   // save junto da posição, pra reentrar na cena onde parou (até dentro do galpão).
   const [local,setLocal]=useState(()=>prog.posicao?.local||null)
@@ -163,7 +163,6 @@ export default function GanguesCena({onNavigate}){
   // facilitar o vai-e-vem). O muro NUNCA abre só por fechar os ponto.
   const baseFeita=cena?portaoAberto(cena,prog.resolvidos):false
   const muroAberto=Boolean(prog.boss)
-  const folego=prog.folego??100
   const amb=useMemo(()=>montarAmbiente(cena,local,prog,baseFeita,muroAberto),[cena,local,prog,baseFeita,muroAberto])
   const collidersRef=useRef(null); collidersRef.current=amb?.colliders||[]
   const worldRef=useRef(null); worldRef.current=amb?.world||WORLD
@@ -313,7 +312,6 @@ export default function GanguesCena({onNavigate}){
     // aborta sem marcar nada se faltar (o botão já vem travado, isso é rede).
     if(res?.precisaItens&&!store.gastarItens(res.precisaItens))return
     if(res?.custoGrana)store.gastarGrana(res.custoGrana)
-    if(typeof res?.folego==='number')store.ajustarFolego(cena.id,res.folego)
     if(res?.informante)store.marcarInformante(res.informante)
     ;(res?.daEquip||[]).forEach(id=>store.comprarEquip(id,0))
     const r=res?.recompensa||{}
@@ -344,10 +342,10 @@ export default function GanguesCena({onNavigate}){
       {(amb?.alvos||[]).map(p=><EntryZone key={`zone-${p.id}`} poi={p} active={perto?.id===p.id}/>)}
       {(amb?.alvos||[]).map(p=><PinoAlvo key={p.id} p={p} t={t}/>)}
       <GangMarker player={player} facing={facing} gangName={store.gangName}/>
-    </div><div className="gang-cena-vignette"/><div className="gang-cena-status"><span>FÔLEGO</span><i><b style={{width:`${folego}%`}}/></i></div>{hint&&<div className="gang-cena-tutorial">{hint}</div>}{!local&&!muroAberto&&player.y<430&&<div className="gang-cena-gatelock">🔒 {t(baseFeita?'games.gangues.cena.muro_tunel':'games.gangues.cena.boss_trancado')}</div>}<AnimatePresence>{fade&&<motion.div className="gang-cena-fade" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} transition={{duration:.16}}/>}</AnimatePresence></div>
+    </div><div className="gang-cena-vignette"/>{hint&&<div className="gang-cena-tutorial">{hint}</div>}{!local&&!muroAberto&&player.y<430&&<div className="gang-cena-gatelock">🔒 {t(baseFeita?'games.gangues.cena.muro_tunel':'games.gangues.cena.boss_trancado')}</div>}<AnimatePresence>{fade&&<motion.div className="gang-cena-fade" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} transition={{duration:.16}}/>}</AnimatePresence></div>
     <WorldControls onInput={v=>{inputRef.current=v}} onInteract={()=>abrir(perto)} action={perto?interactionLabel(perto,t):null}/>
     <AnimatePresence>{toast&&<motion.div className="gang-cena-toast" initial={{opacity:0,y:12}} animate={{opacity:1,y:0}} exit={{opacity:0}}><b>RECOMPENSA</b>{toast.grana?<span>💵 +{toast.grana}</span>:null}{toast.rep?<span>⚑ +{toast.rep}</span>:null}{toast.xp?<span>⚡ +{toast.xp} XP</span>:null}</motion.div>}</AnimatePresence>
-    <AnimatePresence>{encontro&&<motion.div className="gang-cena-modal" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}><div className="gang-cena-modal-bg" onClick={()=>setEncontro(null)}/><motion.div className="gang-cena-modal-card" initial={{y:25}} animate={{y:0}}>{encontro.evento?<EventoVS fala={encontro.fala} folegoBaixo={folego<=30} onSim={iniciarEvento} onNao={()=>setEncontro(null)} cenaId={cena.id} t={t}/>:encontro.vs?<TretaVS poi={encontro.poi} fala={encontro.fala} folegoBaixo={folego<=30} onSim={()=>iniciarTreta(encontro.poi)} onNao={()=>setEncontro(null)} t={t}/>:encontro.poi.tipo==='papo'?<GanguesPapo poi={encontro.poi} cena={cena} onResolve={resolver} onClose={()=>setEncontro(null)}/>:encontro.poi.tipo==='descanso'?<GanguesDescanso poi={encontro.poi} cena={cena} onClose={()=>setEncontro(null)}/>:encontro.poi.tipo==='loja'?<GanguesLoja poi={encontro.poi} onClose={()=>setEncontro(null)}/>:<GanguesParada poi={encontro.poi} cena={cena} onResolve={resolver} onClose={()=>setEncontro(null)}/>}</motion.div></motion.div>}</AnimatePresence>
+    <AnimatePresence>{encontro&&<motion.div className="gang-cena-modal" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}><div className="gang-cena-modal-bg" onClick={()=>setEncontro(null)}/><motion.div className="gang-cena-modal-card" initial={{y:25}} animate={{y:0}}>{encontro.evento?<EventoVS fala={encontro.fala} onSim={iniciarEvento} onNao={()=>setEncontro(null)} cenaId={cena.id} t={t}/>:encontro.vs?<TretaVS poi={encontro.poi} fala={encontro.fala} onSim={()=>iniciarTreta(encontro.poi)} onNao={()=>setEncontro(null)} t={t}/>:encontro.poi.tipo==='papo'?<GanguesPapo poi={encontro.poi} cena={cena} onResolve={resolver} onClose={()=>setEncontro(null)}/>:encontro.poi.tipo==='descanso'?<GanguesDescanso poi={encontro.poi} cena={cena} onClose={()=>setEncontro(null)}/>:encontro.poi.tipo==='loja'?<GanguesLoja poi={encontro.poi} onClose={()=>setEncontro(null)}/>:<GanguesParada poi={encontro.poi} cena={cena} onResolve={resolver} onClose={()=>setEncontro(null)}/>}</motion.div></motion.div>}</AnimatePresence>
     <AnimatePresence>{fichaIndex!==null&&store.activeParty[fichaIndex]&&<motion.div className="gang-cena-modal" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}><div className="gang-cena-modal-bg" onClick={()=>setFichaIndex(null)}/><motion.div className="gang-cena-modal-card gang-cena-ficha-scroll" initial={{y:25}} animate={{y:0}}><div className="gang-cena-enc-acoes gang-cena-ficha-nav">{store.activeParty.length>1&&<button className="gang-cena-btn" onClick={()=>setFichaIndex(i=>(i+store.activeParty.length-1)%store.activeParty.length)}>◀ ANTERIOR</button>}<button className="gang-cena-btn gang-cena-btn--go" onClick={()=>setFichaIndex(null)}>FECHAR</button>{store.activeParty.length>1&&<button className="gang-cena-btn" onClick={()=>setFichaIndex(i=>(i+1)%store.activeParty.length)}>PRÓXIMO ▶</button>}</div><FichaCenaCard member={store.activeParty[fichaIndex]} t={t}/></motion.div></motion.div>}</AnimatePresence>
     <AnimatePresence>{bagAberta&&<motion.div className="gang-cena-modal" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}><div className="gang-cena-modal-bg" onClick={()=>setBagAberta(false)}/><motion.div className="gang-cena-modal-card gang-cena-ficha-scroll" initial={{y:25}} animate={{y:0}}><BagSheet store={store} t={t} onClose={()=>setBagAberta(false)}/></motion.div></motion.div>}</AnimatePresence>
   </main>
@@ -452,18 +450,17 @@ function FichaCenaCard({member,t}){
     <GanguesEquipPanel member={member}/>
   </>
 }
-function EventoVS({fala,folegoBaixo,onSim,onNao,cenaId,t}){
+function EventoVS({fala,onSim,onNao,cenaId,t}){
   const b=`games.gangues.cena.${cenaId}.evento`
   return <div className="gang-cena-enc gang-cena-enc--vs gang-cena-enc--evento">
     <span className="gang-cena-enc-selo">!</span>
     <span className="gang-cena-eyebrow">{t('games.gangues.cena.evento_tag')}</span>
     <h3 className="gang-cena-enc-titulo">{t(`${b}.nome`)}</h3>
     <p className="gang-cena-papo-fala">{fala}</p>
-    {folegoBaixo&&<p className="gang-cena-vs-aviso">{t('games.gangues.cena.folego_baixo')}</p>}
     <div className="gang-cena-enc-acoes">
       <button className="gang-cena-btn" onClick={onNao}>{t('games.gangues.cena.evento_nao')}</button>
       <button className="gang-cena-btn gang-cena-btn--go" onClick={onSim}>{t('games.gangues.cena.evento_sim')}</button>
     </div>
   </div>
 }
-function TretaVS({poi,fala,folegoBaixo,onSim,onNao,t}){const enemy=enemiesData.find(e=>e.id===poi.enemy),nome=poi.ehChefe?t(`games.gangues.story.bosses.${poi.boss}.nome`):t(`${poi.i18n}.nome`);const falaRaw=fala??(poi.ehChefe?t(`games.gangues.story.bosses.${poi.boss}.fala`,{suaGangue:t('games.gangues.report.your_gang')}):t(`${poi.i18n}.fala`));const falaShow=Array.isArray(falaRaw)?falaRaw[0]:falaRaw;return <div className="gang-cena-enc gang-cena-enc--vs"><span className="gang-cena-enc-selo">{(nome||'?')[0]}</span><span className="gang-cena-eyebrow">{poi.ehChefe?t('games.gangues.story.boss_tag'):t('games.gangues.cena.tipo.treta')}</span><h3 className="gang-cena-enc-titulo">{nome}{poi.ehChefe&&enemy?.nivel?<em className="gang-cena-vs-nivel"> · {t('games.gangues.cena.nivel',{n:enemy.nivel})}</em>:null}</h3><p className="gang-cena-papo-fala">{falaShow}</p>{enemy&&<span className="gang-cena-vs-stats">{['A','H','R','D'].map(a=><span key={a}><i>{a}</i>{enemy.stats?.[a]??'—'}</span>)}</span>}{folegoBaixo&&<p className="gang-cena-vs-aviso">{t('games.gangues.cena.folego_baixo')}</p>}<div className="gang-cena-enc-acoes"><button className="gang-cena-btn" onClick={onNao}>{t('games.gangues.cena.treta_nao')}</button><button className="gang-cena-btn gang-cena-btn--go" onClick={onSim}>{t('games.gangues.cena.treta_sim')}</button></div></div>}
+function TretaVS({poi,fala,onSim,onNao,t}){const enemy=enemiesData.find(e=>e.id===poi.enemy),nome=poi.ehChefe?t(`games.gangues.story.bosses.${poi.boss}.nome`):t(`${poi.i18n}.nome`);const falaRaw=fala??(poi.ehChefe?t(`games.gangues.story.bosses.${poi.boss}.fala`,{suaGangue:t('games.gangues.report.your_gang')}):t(`${poi.i18n}.fala`));const falaShow=Array.isArray(falaRaw)?falaRaw[0]:falaRaw;return <div className="gang-cena-enc gang-cena-enc--vs"><span className="gang-cena-enc-selo">{(nome||'?')[0]}</span><span className="gang-cena-eyebrow">{poi.ehChefe?t('games.gangues.story.boss_tag'):t('games.gangues.cena.tipo.treta')}</span><h3 className="gang-cena-enc-titulo">{nome}{poi.ehChefe&&enemy?.nivel?<em className="gang-cena-vs-nivel"> · {t('games.gangues.cena.nivel',{n:enemy.nivel})}</em>:null}</h3><p className="gang-cena-papo-fala">{falaShow}</p>{enemy&&<span className="gang-cena-vs-stats">{['A','H','R','D'].map(a=><span key={a}><i>{a}</i>{enemy.stats?.[a]??'—'}</span>)}</span>}<div className="gang-cena-enc-acoes"><button className="gang-cena-btn" onClick={onNao}>{t('games.gangues.cena.treta_nao')}</button><button className="gang-cena-btn gang-cena-btn--go" onClick={onSim}>{t('games.gangues.cena.treta_sim')}</button></div></div>}
