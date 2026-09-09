@@ -289,3 +289,28 @@ export function gerarBandoChefe({ territorioId, playerTeam, enemiesData }) {
   numerarRepetidos(bando)
   return bando
 }
+
+/** Pool e bando do CLUBE DA LUTA — a roda clandestina do Nato. Brigões de
+ *  galpão (vapores e cobradores mais casca-grossa da Pista/Feira). Orçamento
+ *  FIXO e alto (não escala com o jogador): é pra doer, o cara só cai aqui em
+ *  último caso, endividado até o pescoço. 2–3 corpos. */
+export const GANGUES_CLUBE_POOL = [1211, 1212, 1213, 1219, 1311, 1312, 1411, 1412]
+export const GANGUES_CLUBE_BUDGET = 26
+export function gerarBandoClube({ enemiesData }) {
+  if (!enemiesData?.length) return null
+  const qtd = 2 + (Math.random() < 0.5 ? 1 : 0)
+  const partes = distribuirPontos(GANGUES_CLUBE_BUDGET, qtd)
+  const bag = []
+  const sortear = () => {
+    if (!bag.length) bag.push(...GANGUES_CLUBE_POOL)
+    return bag.splice(Math.floor(Math.random() * bag.length), 1)[0]
+  }
+  const bando = partes.map(pontos => {
+    const id = sortear()
+    const molde = enemiesData.find(e => e.id === id)
+    return molde ? escalarInimigo(molde, pontos) : null
+  }).filter(Boolean)
+  if (!bando.length) return null
+  numerarRepetidos(bando)
+  return bando
+}

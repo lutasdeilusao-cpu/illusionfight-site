@@ -730,6 +730,39 @@ export const useGanguesStore = create((set, get) => ({
     return { ok: true, pago, restante }
   },
 
+  // Elegível pro Clube da Luta: já tomou os 2 fiados, tem dívida aberta, a
+  // tropa inteira caiu (desespero) e não tem grana pra pagar. É a única saída
+  // desse beco — o Nato oferece o 3º fiado (15×) que já enfia o cara na roda.
+  clubeDaLutaElegivel: () => {
+    const rec = get()._birosca()
+    return rec.fiados >= 2 && rec.divida > 0 && get().tropaNoChao() && get().grana < rec.divida
+  },
+
+  // Aceitou o Clube da Luta: 3º fiado 15× o descanso, cura a tropa toda,
+  // fiados = 3. A luta roda com storyTarget { clube: true }.
+  entrarClubeDaLuta: (custoBase = 10) => {
+    const rec = get()._birosca()
+    const valor = 15 * Math.max(1, Math.round(custoBase))
+    const divida = rec.divida + valor
+    set(state => ({ storyProgress: { ...state.storyProgress, __birosca: { divida, fiados: 3 } } }))
+    get().restaurarPvPmTodos()
+    get()._persistStory()
+    return { valor, divida }
+  },
+
+  // Fim da luta do Clube. Venceu: quita TUDO, nome limpa (divida 0, fiados 0).
+  // Perdeu: te remendam (cura a tropa), a dívida CRESCE mais 15× (juros do
+  // agiota) e o Clube segue disponível pra tentar de novo — nunca é game over.
+  resolverClubeDaLuta: (venceu, custoBase = 10) => {
+    const rec = get()._birosca()
+    const proximo = venceu
+      ? { divida: 0, fiados: 0 }
+      : { divida: rec.divida + 15 * Math.max(1, Math.round(custoBase)), fiados: 3 }
+    set(state => ({ storyProgress: { ...state.storyProgress, __birosca: proximo } }))
+    get().restaurarPvPmTodos()
+    get()._persistStory()
+  },
+
   // posicao: { x, y, local? } — `local` guarda em qual prédio/cômodo o jogador
   // estava (null = rua), pra reentrar na cena exatamente onde parou, mesmo
   // dentro do galpão.

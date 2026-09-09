@@ -15,9 +15,10 @@ import GanguesTerritorio from './GanguesTerritorio'
 import GanguesCena from './GanguesCena'
 import GanguesAlbum from './GanguesAlbum'
 import GanguesBatalha from './GanguesBatalha'
+import GanguesClube from './GanguesClube'
 import { temCena } from './data/cenas/pista.js'
 import { GANGUES_STORY_BATTLE_PARTY_MAX } from './data/ganguesLoadout.js'
-import { gerarBandoInimigo, gerarBandoChefe, gerarBandoRevezamento, gerarBandoEvento } from './data/ganguesEncontros.js'
+import { gerarBandoInimigo, gerarBandoChefe, gerarBandoRevezamento, gerarBandoEvento, gerarBandoClube } from './data/ganguesEncontros.js'
 import GuestNotice from '../../../components/GuestNotice/GuestNotice'
 import enemiesData from './data/gangues-enemies.json'
 import './Gangues.css'
@@ -77,18 +78,23 @@ export default function GanguesRoute() {
     const selected = store.activeParty.filter(member => store.roster.some(item => item.id === member.id))
     const party = (selected.length ? selected : store.roster).slice(0, GANGUES_STORY_BATTLE_PARTY_MAX)
     const temRevezamento = alvo?.revezamento?.pool?.length
-    if ((!alvo?.enemyId && !temRevezamento && !alvo?.evento) || party.length < 1) { setFase('story'); return }
+    if ((!alvo?.enemyId && !temRevezamento && !alvo?.evento && !alvo?.clube) || party.length < 1) { setFase('story'); return }
     // Tropa inteira no chão (todos PV 0) — não entra em luta até se recuperar
     // na birosca. Na cena o aviso aparece antes de sair; aqui (mapa/trilha) é
-    // rede de segurança pra não cair numa derrota garantida em loop.
-    if (party.every(m => Number(m.attributes?.pv_atual ?? 1) <= 0)) {
+    // rede de segurança pra não cair numa derrota garantida em loop. O Clube
+    // da Luta é exceção: o 3º fiado já curou a tropa antes de vir pra cá.
+    if (!alvo?.clube && party.every(m => Number(m.attributes?.pv_atual ?? 1) <= 0)) {
       console.warn('[GANGUES] tropa no chão — luta bloqueada, volta pro mapa')
       setFase(temCena(alvo?.territorioId) ? 'territorio' : 'story')
       return
     }
 
     let enemyTeam
-    if (alvo.evento) {
+    if (alvo.clube) {
+      // Clube da Luta — bando fixo e casca-grossa (não escala com o jogador).
+      enemyTeam = gerarBandoClube({ enemiesData })
+      if (!enemyTeam?.length) { setFase('territorio'); return }
+    } else if (alvo.evento) {
       // Encontro aleatório de rua — bando um pouco acima da ficha, com teto.
       enemyTeam = gerarBandoEvento({ territorioId: alvo.territorioId, playerTeam: party, enemiesData })
       if (!enemyTeam?.length) { setFase('story'); return }
@@ -143,6 +149,7 @@ export default function GanguesRoute() {
       {fase === 'story' && <GanguesStoryMap onNavigate={setFase} />}
       {fase === 'album' && <GanguesAlbum onNavigate={navegar} voltar={() => setFase(faseAntesAlbum.current)} />}
       {fase === 'batalha' && <GanguesBatalha onNavigate={setFase} />}
+      {fase === 'clube' && <GanguesClube onNavigate={navegar} />}
       {fase === 'territorio' && (
         temCena(store.storyTarget?.territorioId)
           ? <GanguesCena onNavigate={navegar} />

@@ -595,6 +595,25 @@
         "nota_combate": "Aparecem no botão 🎒 durante a luta.",
         "nota_equip": "Equipa pelo 👤 → ficha do personagem."
       },
+      "clube": {
+        "nome": "Clube da Luta",
+        "saguao_tag": "Jaula de espera",
+        "roda": "A roda",
+        "sequestro_1": "Puseram um saco na tua cabeça antes de você entender o que tava rolando.",
+        "sequestro_2": "Kombi véia, cheiro de óleo, um puxando teu braço, outro rindo.",
+        "sequestro_3": "Tiram o saco. Luz forte no rosto. Você acorda numa jaula de tela, e do outro lado tem gente gritando.",
+        "pular": "Toca pra pular",
+        "dica_anda": "Anda até a porta da roda.",
+        "dica_porta": "É agora. Toca em ENTRAR.",
+        "entrar": "ENTRAR NA RODA",
+        "interagir": "INTERAGIR",
+        "result_code": "Clube da Luta · acerto de contas",
+        "venceu_titulo": "VOCÊ SAIU INTEIRO",
+        "venceu_texto": "A roda foi tua. O Nato rasga a caderneta na tua frente, cospe no chão e manda te levarem de volta. Vendaram você de novo, te largaram numa esquina qualquer da Pista. Tá quites com ele. Por enquanto.",
+        "perdeu_titulo": "TE REMENDARAM",
+        "perdeu_texto": "Caiu no meio da roda. Acordou num colchão fedido, alguém já tinha costurado teu supercílio. O Nato não perde investimento: te curam, te vendam e te largam na Pista. Mas a conta cresceu — e ele quer você de volta na roda.",
+        "voltar": "Voltar pra Pista"
+      },
       "skill_info": {
         "titulo": "Poderes",
         "ativa": "Ativa",
@@ -1722,6 +1741,10 @@
         "fiado_pagar": "Pagar o Nato (−{grana})",
         "fiado_pago_parcial": "Abateu {pago}. Ainda falta {restante} pro Nato.",
         "fiado_pago_total": "Quitou os {pago}. Teu nome limpou na birosca.",
+        "clube_oferta_tag": "Proposta · última saída",
+        "clube_oferta": "O Nato te chama num canto. \"Tua tropa tá no chão, teu nome tá sujo e tu não tem como pagar. Mas eu tenho um corre. Roda de aposta, minha. Tu entra, tu ganha, tua dívida some. Perdeu, a gente te remenda e tu tenta de novo. Topô?\" Ele já tá te fiando a terceira — 15 vezes — e curando a tropa toda pra você aguentar em pé.",
+        "clube_recusar": "Agora não",
+        "clube_aceitar": "Topar (te vendam agora)",
         "pista": {
           "evento": {
             "nome": "Fecharam a rua",

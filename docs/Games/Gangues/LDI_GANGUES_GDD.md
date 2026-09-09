@@ -239,6 +239,25 @@ parado no escuro → `DESAFIAR`. Motor único (`montarAmbiente`/`ctx`) serve rua
 cômodo; comando contextual (`ENTRAR`/`SAIR`/`VOLTAR`/`AVANÇAR`/`DESAFIAR`); a
 posição salva inclui o interior. É o **template dos 7 bairros**.
 
+**Agiotagem da birosca + Clube da Luta (v2.74.14–15):** o Seu Nato **fia o
+descanso** quando falta grana. A dívida é **global** (uma caderneta pra toda
+birosca de todo bairro) e **silenciosa** — sem HUD, o jogador só topa com ela ao
+abrir o descanso. O preço do fiado **não aparece antes de aceitar**: só depois,
+no "contrato". 1º fiado = **5×** o descanso, 2º = **10×**; depois de 2 o nome
+suja e ele não fia mais. Dá pra passar só pra pagar (parcial/total) — quitou,
+nome limpa. **Trava:** tropa inteira no chão (todos PV 0) não entra em luta
+nenhuma. Quando o cara está nesse beco — 2 fiados, dívida aberta, tropa no chão,
+sem grana — o Nato oferece **o Clube da Luta** (o 3º fiado, **15×**, que já cura
+a tropa e enfia o cara na roda). O Clube é **negócio do Nato** — é assim que ele
+arruma lutadores. O jogador é **vendado**, levado sem saber pra onde, atravessa
+uma jaula de espera e cai numa luta dura de bando fixo (`gerarBandoClube`,
+budget fixo 26, pool de brigões 12xx/13xx/14xx). **Vitória = dívida zerada, só
+isso** (zero AP, zero grana). **Derrota = te remendam, a dívida cresce +15× e o
+Clube continua disponível** — nunca é game over. Store: `fiarDescanso`,
+`pagarBirosca`, `tropaNoChao`, `clubeDaLutaElegivel`, `entrarClubeDaLuta`,
+`resolverClubeDaLuta` (persistido em `storyProgress.__birosca`). Componentes:
+`GanguesClube.jsx` (sequestro + saguão), branch `clube` em `GanguesVictory`.
+
 **O túnel por baixo do muro (v2.74.4):** o portão/muro no fim da rua **não abre
 mais sozinho**. Fechados todos os `portao.precisa`, destranca a **boca do túnel**
 (prédio `tunel_ent`, "Barraco do beco") — mini-dungeon de 3 cômodos com vigias do

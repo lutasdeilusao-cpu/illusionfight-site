@@ -595,6 +595,25 @@
         "nota_combate": "Aparecen en el botón 🎒 durante la pelea.",
         "nota_equip": "Equipa con 👤 → ficha del personaje."
       },
+      "clube": {
+        "nome": "Club de la Pelea",
+        "saguao_tag": "Jaula de espera",
+        "roda": "La rueda",
+        "sequestro_1": "Te pusieron una bolsa en la cabeza antes de que entendieras qué pasaba.",
+        "sequestro_2": "Furgón viejo, olor a aceite, uno tirándote del brazo, otro riéndose.",
+        "sequestro_3": "Te sacan la bolsa. Luz fuerte en la cara. Despertás en una jaula de tela, y del otro lado hay gente gritando.",
+        "pular": "Tocá para saltar",
+        "dica_anda": "Caminá hasta la puerta de la rueda.",
+        "dica_porta": "Es ahora. Tocá ENTRAR.",
+        "entrar": "ENTRAR A LA RUEDA",
+        "interagir": "INTERACTUAR",
+        "result_code": "Club de la Pelea · ajuste de cuentas",
+        "venceu_titulo": "SALISTE ENTERO",
+        "venceu_texto": "La rueda fue tuya. El Nato rompe la libreta frente a vos, escupe al piso y te manda de vuelta. Vendado otra vez, tirado en una esquina cualquiera de la Pista. Estás a mano con él. Por ahora.",
+        "perdeu_titulo": "TE REMENDARON",
+        "perdeu_texto": "Caíste en el medio de la rueda. Despertaste en un colchón hediondo, alguien ya te había cosido la ceja. El Nato no pierde una inversión: te curan, te vendan y te tiran en la Pista. Pero la cuenta creció — y te quiere de vuelta en la rueda.",
+        "voltar": "Volver a la Pista"
+      },
       "skill_info": {
         "titulo": "Poderes",
         "ativa": "Activa",
@@ -2132,6 +2151,10 @@
         "fiado_pagar": "Pagarle al Nato (−{grana})",
         "fiado_pago_parcial": "Bajaste {pago}. Todavía faltan {restante} para el Nato.",
         "fiado_pago_total": "Saldaste los {pago}. Tu nombre quedó limpio en el kiosco.",
+        "clube_oferta_tag": "Propuesta · última salida",
+        "clube_oferta": "El Nato te lleva a un costado. \"Tu tropa está en el piso, tu nombre está sucio y no tenés cómo pagar. Pero tengo un laburo. Rueda de apuestas, mía. Entrás, ganás, tu deuda desaparece. Perdés, te remendamos y probás de nuevo. ¿Arreglamos?\" Ya te está fiando la tercera — 15 veces — y curando a toda la tropa para que aguantes en pie.",
+        "clube_recusar": "Ahora no",
+        "clube_aceitar": "Aceptar (te vendan ya)",
         "pista": {
           "evento": {
             "nome": "Cortaron la calle",

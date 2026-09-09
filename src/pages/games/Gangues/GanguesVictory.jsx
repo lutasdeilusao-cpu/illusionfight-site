@@ -51,6 +51,7 @@ export default function GanguesVictory({ onNavigate }) {
   // Torre (Modo Batalha) — luta avulsa de grind, sem cena/nó/POI. Só AP.
   const torre = Boolean(storyAlvo?.torre)
   const torreAndar = Number(storyAlvo?.torreAndar) || 1
+  const clube = Boolean(storyAlvo?.clube)
   const emCena = Boolean(storyAlvo?.cenaId) && !torre
   const noModoHistoria = (Boolean(storyAlvo?.noId) || emCena) && !torre
   const cenaChefe = emCena && storyAlvo.isChefe
@@ -80,6 +81,14 @@ export default function GanguesVictory({ onNavigate }) {
   useEffect(() => {
     if (processed.current) return
     processed.current = true
+    // Clube da Luta: NÃO dá AP nem grana. Venceu quita a dívida, perdeu ela
+    // cresce (juros) — e a tropa é remendada nos dois casos. Resto do fluxo
+    // de vitória (level-up, recompensa, dano persistente) não roda aqui.
+    if (clube) {
+      store.resolverClubeDaLuta(victory, storyAlvo.clubeBase || 10)
+      victory ? sfx.win() : sfx.lose()
+      return
+    }
     // O total de AP é SEMPRE 10 por inimigo no bando (1 inimigo = 10, 2 = 20,
     // 3 = 30...), regra fixa do Isaias — nada mais soma em cima disso. O
     // campo `xp` que existia em alguns `recompensa` de treta em pista.js
@@ -178,6 +187,24 @@ export default function GanguesVictory({ onNavigate }) {
     const timer = setTimeout(() => store.saveParticipantProgress(escaladosIds), 400)
     return () => clearTimeout(timer)
   }, [])
+
+  // ── Clube da Luta — sem AP, sem grana: só o acerto de contas com o Nato ──
+  if (clube) {
+    const voltar = () => {
+      store.setStoryTarget(storyAlvo.voltar?.territorioId ? { territorioId: storyAlvo.voltar.territorioId } : null)
+      onNavigate(storyAlvo.voltar?.territorioId ? 'territorio' : 'lobby')
+    }
+    return (
+      <main className={`gang-report gang-report--${victory ? 'victory' : 'defeat'} gang-report--clube`}>
+        <motion.div className="gang-final" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
+          <span className="gang-report-code">{t('games.gangues.clube.result_code')}</span>
+          <h1 className="gang-final-titulo">{t(victory ? 'games.gangues.clube.venceu_titulo' : 'games.gangues.clube.perdeu_titulo')}</h1>
+          <p className="gang-final-par">{t(victory ? 'games.gangues.clube.venceu_texto' : 'games.gangues.clube.perdeu_texto')}</p>
+          <button className="gang-report-primary" onClick={voltar}>{t('games.gangues.clube.voltar')}</button>
+        </motion.div>
+      </main>
+    )
+  }
 
   // ── Confronto final contra o Alan — canon: Marelia não fica com você ──
   if (confrontoFinal && victory) {

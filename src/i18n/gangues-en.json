@@ -595,6 +595,25 @@
         "nota_combate": "They show up under the 🎒 button during a fight.",
         "nota_equip": "Equip via 👤 → character sheet."
       },
+      "clube": {
+        "nome": "Fight Club",
+        "saguao_tag": "Holding cage",
+        "roda": "The pit",
+        "sequestro_1": "They pulled a sack over your head before you knew what was happening.",
+        "sequestro_2": "Beat-up van, smell of oil, one guy yanking your arm, another laughing.",
+        "sequestro_3": "They rip the sack off. Bright light in your face. You wake up in a wire cage, and there's a crowd screaming on the other side.",
+        "pular": "Tap to skip",
+        "dica_anda": "Walk to the pit door.",
+        "dica_porta": "This is it. Tap ENTER.",
+        "entrar": "ENTER THE PIT",
+        "interagir": "INTERACT",
+        "result_code": "Fight Club · settling up",
+        "venceu_titulo": "YOU WALKED OUT WHOLE",
+        "venceu_texto": "The pit was yours. Nato tears up the book in front of you, spits on the floor and has them take you back. Blindfolded again, dumped on some corner of the Strip. You're square with him. For now.",
+        "perdeu_titulo": "THEY PATCHED YOU UP",
+        "perdeu_texto": "Went down in the middle of the pit. Woke up on a stinking mattress, somebody had already stitched your brow. Nato doesn't waste an investment: they heal you, blindfold you and dump you on the Strip. But the tab grew — and he wants you back in the pit.",
+        "voltar": "Back to the Strip"
+      },
       "skill_info": {
         "titulo": "Powers",
         "ativa": "Active",
@@ -2132,6 +2151,10 @@
         "fiado_pagar": "Pay Nato (−{grana})",
         "fiado_pago_parcial": "Knocked {pago} off. Still {restante} left for Nato.",
         "fiado_pago_total": "Cleared the {pago}. Your name's clean at the store.",
+        "clube_oferta_tag": "Offer · last way out",
+        "clube_oferta": "Nato pulls you aside. \"Your crew's down, your name's dirty and you can't pay. But I got a job. Betting pit, mine. You go in, you win, your debt's gone. You lose, we patch you up and you try again. Deal?\" He's already floating you the third tab — fifteen times — and healing your whole crew so you can stand.",
+        "clube_recusar": "Not now",
+        "clube_aceitar": "Take it (blindfold now)",
         "pista": {
           "evento": {
             "nome": "Road blocked",

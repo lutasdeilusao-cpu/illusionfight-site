@@ -11,7 +11,7 @@ import { sfx } from '../../../../../lib/sfx'
    dívida total). 1º fiado = 5× o preço normal, 2º = 10×. Depois de 2 o nome
    suja e ele não fia mais. A dívida é global e silenciosa (store.__birosca) —
    o jogador só topa com ela aqui. Pode passar só pra pagar. */
-export default function GanguesDescanso({ poi, onClose }) {
+export default function GanguesDescanso({ poi, onClose, onClube }) {
   const { t } = useLanguage()
   const store = useGanguesStore()
   const [res, setRes] = useState(null)         // resultado do descanso à vista
@@ -23,6 +23,10 @@ export default function GanguesDescanso({ poi, onClose }) {
   const { divida, fiados } = store.storyProgress.__birosca || { divida: 0, fiados: 0 }
   const podeFiar = fiados < 2
   const aPagar = Math.min(store.grana, divida)
+  // Beco sem saída: 2 fiados, dívida aberta, tropa toda no chão e sem grana pra
+  // pagar. O Nato oferece o Clube da Luta (o 3º fiado, 15×, que já enfia o cara
+  // na roda). É a única saída.
+  const clube = !contrato && !res?.ok && Boolean(onClube) && store.clubeDaLutaElegivel()
 
   const descansar = () => {
     const r = store.descansarTropa(custo)
@@ -54,6 +58,25 @@ export default function GanguesDescanso({ poi, onClose }) {
       ))}
     </ul>
   )
+
+  // ── O Nato oferece o Clube da Luta (beco sem saída) ──
+  if (clube) {
+    return (
+      <div className="gang-cena-enc gang-cena-enc--descanso gang-cena-enc--clube">
+        <button className="gang-cena-enc-x" onClick={onClose} aria-label={t('games.gangues.cena.fechar')}>✕</button>
+        <span className="gang-cena-eyebrow">{t('games.gangues.cena.clube_oferta_tag')}</span>
+        <h3 className="gang-cena-enc-titulo">{t(`${poi.i18n}.nome`)}</h3>
+        <p className="gang-cena-enc-intro">{t('games.gangues.cena.clube_oferta')}</p>
+        <div className="gang-cena-fiado-caderneta">
+          <p className="gang-cena-fiado-linha">{t('games.gangues.cena.fiado_devendo', { divida })}</p>
+        </div>
+        <div className="gang-cena-enc-acoes">
+          <button className="gang-cena-btn" onClick={onClose}>{t('games.gangues.cena.clube_recusar')}</button>
+          <button className="gang-cena-btn gang-cena-btn--go" onClick={() => onClube(custo)}>{t('games.gangues.cena.clube_aceitar')}</button>
+        </div>
+      </div>
+    )
+  }
 
   // ── Tela do contrato (depois de aceitar o fiado) ──
   if (contrato) {
