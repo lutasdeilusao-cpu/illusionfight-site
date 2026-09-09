@@ -195,6 +195,36 @@ function numerarRepetidos(bando) {
   })
 }
 
+/** Bando de REVEZAMENTO — pros encontros de dungeon (túnel, galpão) onde o
+ *  Isaias quer "estilo Pokémon": um punhado de capangas fracos que se revezam,
+ *  quase sempre 1 sozinho, às vezes uma dupla, sempre leves. Ignora o pool do
+ *  território e a amarra de qtdMin (ceil(time × 0.6)) que fazia toda treta vir
+ *  com 2+ corpos. `pool` = ids que podem aparecer; `budgetPorCorpo` = pontos de
+ *  cada capanga (o molde é escalado pra esse total — os vigias 11xx nascem com
+ *  4); `chanceDupla` = prob. de vir 2 em vez de 1 (a dupla vem mais magra,
+ *  ×0.75, pra não ser só o dobro). */
+export function gerarBandoRevezamento({ pool, budgetPorCorpo = 5, chanceDupla = 0.3, enemiesData }) {
+  if (!pool?.length || !enemiesData?.length) return null
+  const dupla = Math.random() < chanceDupla
+  const qtd = dupla ? 2 : 1
+  const orcamento = dupla ? Math.max(2, Math.round(budgetPorCorpo * 0.75)) : budgetPorCorpo
+
+  const bag = []
+  const sortear = () => {
+    if (!bag.length) bag.push(...pool)
+    return bag.splice(Math.floor(Math.random() * bag.length), 1)[0]
+  }
+  const bando = Array.from({ length: qtd }, () => {
+    const id = sortear()
+    const molde = enemiesData.find(e => e.id === id)
+    return molde ? escalarInimigo(molde, orcamento) : null
+  }).filter(Boolean)
+
+  if (!bando.length) return null
+  numerarRepetidos(bando)
+  return bando
+}
+
 /** Bando do CHEFE — orçamento de pontos FIXO (GANGUES_CHEFE_BUDGET), nunca
  *  escalado contra o jogador. Corpos = os N primeiros ids de GANGUES_CHEFE_EQUIPE
  *  (N = GANGUES_CHEFE_CORPOS, default 3). O 1º corpo (o chefe) leva a maior

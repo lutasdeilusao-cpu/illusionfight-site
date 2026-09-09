@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.280.7'
+export const SITE_VERSION = '10.280.8'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '2.74.4' // Pista v3: o MURO nao abre mais sozinho. Depois de fechar todos os ponto, abre a boca de um tunel ("Barraco do beco") que fura por baixo do muro — mini-dungeon de 3 comodos com vigias (tunel_m1/m2/m3) e um achado, saindo no "Barraco do outro lado" ja do outro lado. O muro fisico so abre depois de bater o chefao (prog.boss). Verificado com Playwright.
+export const GANGUES_VERSION   = '2.74.5' // Tunel: vigias com REVEZAMENTO (gerarBandoRevezamento) — pool de capangas fracos (Farejador/Dedo-Duro/Pingo + Ratazana no meio), quase sempre 1 sozinho, as vezes dupla, orcamento leve e fixo (nao escala com o jogador). Antes toda treta vinha com 2+ corpos do pool inteiro do bairro. 2.74.4: o MURO nao abre mais sozinho. Depois de fechar todos os ponto, abre a boca de um tunel ("Barraco do beco") que fura por baixo do muro — mini-dungeon de 3 comodos com vigias (tunel_m1/m2/m3) e um achado, saindo no "Barraco do outro lado" ja do outro lado. O muro fisico so abre depois de bater o chefao (prog.boss). Verificado com Playwright.
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
 export const MINIGAMES_VERSION = '4.3.4'  // Glitch: safe-area lateral no grid-wrap

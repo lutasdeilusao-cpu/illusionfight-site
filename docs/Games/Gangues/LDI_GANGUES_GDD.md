@@ -118,7 +118,11 @@ preso, **desaparece**.
    sem avisar é declaração de guerra.
 4. **Ninguém desafia o topo de um bairro sem provar que já rachou a base dele
    por baixo.** É a lógica por trás do **portão do chefe** em cada território —
-   você só encara o Geral depois de bater os pontos.
+   você só encara o Geral depois de bater os pontos. Na Pista isso virou
+   literal (v2.74.4): o **muro** no fim da rua nunca abre por fora; depois de
+   fechar os pontos você acha a **boca de um túnel** que fura *por baixo* do
+   muro — uns vigias no caminho — e emerge do outro lado. O muro físico só
+   abre depois que você derruba o chefe, como atalho.
 5. **Criança não é dono, mas também não é intocável.** É a brecha que o Alan
    usou a vida inteira — bucha primeiro, cria de proteção depois. Personagens
    jovens recrutados carregam essa dualidade: menos suspeita narrativa, menos R
@@ -219,8 +223,8 @@ do Nato (stealth opcional) · O outro ponto da Rasteira (2º ponto) · **O terce
 ponto** (`beco_3`) · **O Sinaleiro Chefe** (1451 — 1ª luta de General,
 `liderFixo`) · **A Rasteira Velha** (1452 — 2ª luta de General, `liderFixo`) · A
 rinha do beco (farm) · Duda, o Orelha · Descanso na birosca · **A loja da Pista**
-(do outro lado do muro — só abre depois do portão). Os dois generais da Pista
-caem na cena antes do chefe (entram no Álbum aqui). Detalhe em
+(do outro lado do muro — só alcançável pelo túnel, depois de fechar os pontos).
+Os dois generais da Pista caem na cena antes do chefe (entram no Álbum aqui). Detalhe em
 `src/pages/games/Gangues/GANGUES_MODO_HISTORIA_ENCONTROS.md §5`.
 
 **Mapa de RPG (v2.73–2.74):** o exterior é favela desenhada em CSS (barraco /
@@ -235,12 +239,29 @@ parado no escuro → `DESAFIAR`. Motor único (`montarAmbiente`/`ctx`) serve rua
 cômodo; comando contextual (`ENTRAR`/`SAIR`/`VOLTAR`/`AVANÇAR`/`DESAFIAR`); a
 posição salva inclui o interior. É o **template dos 7 bairros**.
 
+**O túnel por baixo do muro (v2.74.4):** o portão/muro no fim da rua **não abre
+mais sozinho**. Fechados todos os `portao.precisa`, destranca a **boca do túnel**
+(prédio `tunel_ent`, "Barraco do beco") — mini-dungeon de 3 cômodos com vigias do
+Sinal (`tunel_m1/m2/m3`), passagem trancada até vencer cada um, e um achado
+("Buraco na parede"). Você sai no `tunel_sai` ("Barraco do outro lado"), já do
+lado de lá do muro, onde ficam a loja e o galpão. Túnel bidirecional. O muro
+físico só abre com `prog.boss` (chefe derrotado), aí vira atalho.
+
 **Balanço (v2.68.0):** a primeira treta (`beco`) puxa 1 a 4 corpos
 sorteados dos 11 comuns da Pista — tipo e quantidade mudam a cada tentativa —
 num `ratio` de 0.42 (fácil de propósito, ~97% de vitória). O bando escala com os
 pontos do time e o `ratio` sobe bairro por bairro até a Laje (0.74), pra o jogo
 "sempre ir igualando a ficha do jogador". Curva completa + resultados de
 simulação em `src/pages/games/Gangues/GANGUES_MODO_HISTORIA_ENCONTROS.md §10`.
+
+**Encontro de revezamento — dungeon (v2.74.5):** as tretas dentro do túnel (e
+futuramente do galpão) NÃO usam a geração de bando do território. Um POI `treta`
+com `revezamento: { pool:[ids], budgetPorCorpo, chanceDupla }` chama
+`gerarBandoRevezamento` — sorteia 1 capanga (às vezes 2, pela `chanceDupla`) de
+um punhado de fracos que se alternam, orçamento leve e FIXO por corpo (não escala
+com o jogador). É o "estilo Pokémon" pedido pelo Isaias: quase sempre 1 sozinho,
+de vez em quando uma dupla, sempre leve. Túnel da Pista: m1 `[1101,1102,1103]`
+b4/0.22 · m2 `[1101,1102,1103,1201]` b6/0.45 · m3 `[1101,1102,1103]` b5/0.30.
 
 ### Território 2 — A Feira · Muvuca · `#7ee787`
 Facção: Acerto de Contas (103) / Os Gato (104). O comércio, os camelô, a luz de

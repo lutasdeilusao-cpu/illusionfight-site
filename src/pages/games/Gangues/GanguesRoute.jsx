@@ -17,7 +17,7 @@ import GanguesAlbum from './GanguesAlbum'
 import GanguesBatalha from './GanguesBatalha'
 import { temCena } from './data/cenas/pista.js'
 import { GANGUES_STORY_BATTLE_PARTY_MAX } from './data/ganguesLoadout.js'
-import { gerarBandoInimigo, gerarBandoChefe } from './data/ganguesEncontros.js'
+import { gerarBandoInimigo, gerarBandoChefe, gerarBandoRevezamento } from './data/ganguesEncontros.js'
 import GuestNotice from '../../../components/GuestNotice/GuestNotice'
 import enemiesData from './data/gangues-enemies.json'
 import './Gangues.css'
@@ -69,13 +69,20 @@ export default function GanguesRoute() {
     const alvo = store.storyTarget
     const selected = store.activeParty.filter(member => store.roster.some(item => item.id === member.id))
     const party = (selected.length ? selected : store.roster).slice(0, GANGUES_STORY_BATTLE_PARTY_MAX)
-    if (!alvo?.enemyId || party.length < 1) { setFase('story'); return }
+    const temRevezamento = alvo?.revezamento?.pool?.length
+    if ((!alvo?.enemyId && !temRevezamento) || party.length < 1) { setFase('story'); return }
 
     let enemyTeam
     if (alvo.isChefe) {
       // Bando do chefe = orçamento de pontos FIXO por território (não escala com
       // o jogador — o loop é voltar mais forte). Ver gerarBandoChefe.
       enemyTeam = gerarBandoChefe({ territorioId: alvo.territorioId, playerTeam: party, enemiesData })
+      if (!enemyTeam?.length) { setFase('story'); return }
+    } else if (temRevezamento) {
+      // Encontro de dungeon (túnel/galpão): capangas fracos que se revezam,
+      // quase sempre 1 sozinho. Não escala com o jogador nem usa o pool do
+      // território — orçamento leve e fixo por corpo.
+      enemyTeam = gerarBandoRevezamento({ ...alvo.revezamento, enemiesData })
       if (!enemyTeam?.length) { setFase('story'); return }
     } else if (alvo.fixo) {
       const enemy = enemiesData.find(e => e.id === alvo.enemyId)

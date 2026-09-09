@@ -501,7 +501,7 @@ export const CENA_PISTA = {
           ],
           cenario: [{ tipo: 'chao-tunel' }, { tipo: 'escombro', x: 75, y: 100 }, { tipo: 'lampada-tunel', x: 190, y: 40 }],
           pois: [
-            { poi: { id: 'tunel_m1', tipo: 'treta', repetivel: true, enemy: 1101, dificuldade: 'facil', i18n: 'games.gangues.cena.pista.tunel.m1', recompensa: { grana: 5, rep: 2 } }, pos: { x: 190, y: 130 } },
+            { poi: { id: 'tunel_m1', tipo: 'treta', repetivel: true, revezamento: { pool: [1101, 1102, 1103], budgetPorCorpo: 4, chanceDupla: 0.22 }, i18n: 'games.gangues.cena.pista.tunel.m1', recompensa: { grana: 5, rep: 2 } }, pos: { x: 190, y: 130 } },
           ],
           passagem: { x: 150, y: 30, w: 80, h: 24, para: 1, precisa: 'tunel_m1', label: 'avancar' },
         },
@@ -514,7 +514,7 @@ export const CENA_PISTA = {
           ],
           cenario: [{ tipo: 'chao-tunel' }, { tipo: 'lampada-tunel', x: 180, y: 40 }, { tipo: 'lampada-tunel', x: 180, y: 230 }, { tipo: 'escombro', x: 300, y: 300 }],
           pois: [
-            { poi: { id: 'tunel_m2', tipo: 'treta', repetivel: true, enemy: 1102, liderFixo: 1102, dificuldade: 'normal', i18n: 'games.gangues.cena.pista.tunel.m2', recompensa: { grana: 7, rep: 3 } }, pos: { x: 180, y: 210 } },
+            { poi: { id: 'tunel_m2', tipo: 'treta', repetivel: true, revezamento: { pool: [1101, 1102, 1103, 1201], budgetPorCorpo: 6, chanceDupla: 0.45 }, i18n: 'games.gangues.cena.pista.tunel.m2', recompensa: { grana: 7, rep: 3 } }, pos: { x: 180, y: 210 } },
             { poi: { id: 'tunel_achado', tipo: 'achado', opcional: true, i18n: 'games.gangues.cena.pista.tunel.achado', recompensa: { grana: 14, item: 13 } }, pos: { x: 290, y: 120 } },
           ],
           passagem: { x: 140, y: 30, w: 80, h: 24, para: 2, precisa: 'tunel_m2', label: 'avancar' },
@@ -532,7 +532,7 @@ export const CENA_PISTA = {
           ],
           cenario: [{ tipo: 'chao-tunel' }, { tipo: 'lampada-tunel', x: 190, y: 60 }, { tipo: 'escombro', x: 295, y: 110 }],
           pois: [
-            { poi: { id: 'tunel_m3', tipo: 'treta', repetivel: true, enemy: 1103, dificuldade: 'facil', i18n: 'games.gangues.cena.pista.tunel.m3', recompensa: { grana: 6, rep: 2 } }, pos: { x: 190, y: 180 } },
+            { poi: { id: 'tunel_m3', tipo: 'treta', repetivel: true, revezamento: { pool: [1101, 1102, 1103], budgetPorCorpo: 5, chanceDupla: 0.3 }, i18n: 'games.gangues.cena.pista.tunel.m3', recompensa: { grana: 6, rep: 2 } }, pos: { x: 190, y: 180 } },
           ],
         },
       ],
