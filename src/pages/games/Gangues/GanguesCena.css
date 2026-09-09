@@ -629,6 +629,10 @@
 .gang-int-obj--quadro-horarios{width:44px;height:34px;background:#1a1e12;box-shadow:inset 0 0 0 3px #3a4a2a,0 0 12px rgba(61,220,151,.15);}
 .gang-int-obj--luz-facho{width:200px;height:220px;z-index:3;background:radial-gradient(ellipse at 50% 0,rgba(255,240,200,.22),transparent 70%);}
 .gang-int-obj--pilha-sucata{width:44px;height:30px;background:repeating-linear-gradient(40deg,#6a6f72 0 5px,#3f4448 5px 8px);clip-path:polygon(6% 100%,24% 40%,46% 62%,64% 26%,86% 54%,96% 100%);box-shadow:0 4px 6px rgba(0,0,0,.5);}
+/* túnel — chão de terra batida, escombro, lâmpada pendurada */
+.gang-int-chao.is-tunel{background:repeating-linear-gradient(92deg,#3a2e22 0 40px,#332920 40px 42px),#37291c;box-shadow:inset 0 0 140px rgba(0,0,0,.9);}
+.gang-int-obj--escombro{width:46px;height:32px;background:repeating-linear-gradient(38deg,#5a4632 0 6px,#3e2f20 6px 9px);clip-path:polygon(4% 100%,22% 44%,44% 64%,62% 28%,84% 56%,96% 100%);box-shadow:0 4px 8px rgba(0,0,0,.6);}
+.gang-int-obj--lampada-tunel{width:12px;height:12px;border-radius:50%;background:#ffd782;box-shadow:0 0 22px 10px rgba(255,200,110,.28),0 -14px 0 -5px #2a2a2a;}
 
 /* pinos de navegação (porta/saída/passagem) — visual mais discreto que POI */
 .gang-world-npc.is-nav>span{border-radius:6px;background:color-mix(in srgb,var(--terr-cor) 25%,#0a1a14);border-color:color-mix(in srgb,var(--terr-cor) 60%,#e8f1f2);animation:none;}

@@ -2256,14 +2256,17 @@
             "mercado": "Cida's Corner Store",
             "fliperama": "Kiko's Arcade",
             "oficina": "Nando's Workshop",
-            "lojapista": "Pista Shop"
+            "lojapista": "Pista Shop",
+            "tunel_ent": "Alley shack",
+            "tunel_sai": "Shack on the other side"
           },
           "grafite": "THE STREET\nREMEMBERS",
           "int": {
             "birosca": "Nato's Bar",
             "oficina": "Nando's Workshop",
             "loja": "Cida's Corner Store",
-            "galpao": "Coal's Warehouse"
+            "galpao": "Coal's Warehouse",
+            "tunel": "The way under the wall"
           },
           "galpao": {
             "m1": {
@@ -2296,6 +2299,25 @@
                 }
               }
             }
+          },
+          "tunel": {
+            "m1": {
+              "nome": "Mouth lookout",
+              "fala": "Nobody goes down this hole without going through me. Back to your side, kid."
+            },
+            "m2": {
+              "nome": "Tunnel tracker",
+              "fala": "Think you're the first to try digging under? The ones who tried are still down here in the dark."
+            },
+            "m3": {
+              "nome": "Exit lookout",
+              "fala": "Made it to the other side? Only over me. And I don't go down easy."
+            },
+            "achado": {
+              "nome": "Hole in the tunnel wall",
+              "sub": "what someone stashed here",
+              "linha": "Jammed into a crack in the dirt wall: something useful."
+            }
           }
         },
         "hint_andar": "Use the stick to walk the block.",
@@ -2311,7 +2333,8 @@
           "desafiar": "CHALLENGE",
           "trancado": "LOCKED"
         },
-        "comodo": "ROOM {n}/{de}"
+        "comodo": "ROOM {n}/{de}",
+        "muro_tunel": "The wall won't open. Find the way under it."
       },
       "enemy_album": {
         "1101": "Doesn't fight, he runs and warns — facing him is a chase before a beating.",

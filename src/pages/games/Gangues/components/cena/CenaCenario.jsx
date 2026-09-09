@@ -61,7 +61,7 @@ function ItemCenario({ c, t }) {
   return <i className={`gang-deco gang-deco--${c.tipo}`} style={base} aria-hidden="true" />
 }
 
-export default function CenaCenario({ cena, bossAberto }) {
+export default function CenaCenario({ cena, bossAberto, muroAberto }) {
   const { t } = useLanguage()
   const W = cena.mundo?.w || 760
   const H = cena.mundo?.h || 1840
@@ -84,8 +84,8 @@ export default function CenaCenario({ cena, bossAberto }) {
       {/* prédios */}
       {(cena.predios || []).map(p => <Predio key={p.id} p={p} bossAberto={bossAberto} t={t} />)}
 
-      {/* o portão da gangue rival */}
-      <div className={`gang-world-gate ${bossAberto ? 'is-open' : ''}`} aria-hidden="true" />
+      {/* o muro da gangue rival — só abre depois de bater o Carvão */}
+      <div className={`gang-world-gate ${muroAberto ? 'is-open' : ''}`} aria-hidden="true" />
 
       {/* cenário de frente (árvores, bancos, vida) — depois dos prédios */}
       {(cena.cenario || []).filter(c => !['praca', 'quadra', 'mural', 'varal', 'grafite'].includes(c.tipo)).map((c, i) => (

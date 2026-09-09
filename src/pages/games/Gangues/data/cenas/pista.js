@@ -69,15 +69,22 @@ const PREDIOS_PISTA = [
   { id: 'b6', tipo: 'laje', x: 630, y: 812, w: 126, h: 180, andares: 2, cor: '#8f8578', varal: 1 },
   // ── Oficina do Nando (miolo baixo-esq, y676+) ── nasce fora de quarteirão
   { id: 'of', tipo: 'comercio', x: 150, y: 610, w: 128, h: 92, cor: '#c2a03b', nome: 'games.gangues.cena.pista.predio.oficina', porta: { para: 'oficina', zx: 232, zy: 744 }, oficina: 1, solo: 1 },
-  // ── Território da gangue rival (passado o portão, y350–676) ──
+  // ── Antes do MURO (y350–676) — a base da gangue rival ──
   { id: 'a1', tipo: 'laje', x: 4, y: 356, w: 150, h: 200, andares: 3, cor: '#7d7468', pich: 1 },
   { id: 'a2', tipo: 'barraco', x: 152, y: 500, w: 130, h: 160, cor: '#5f5545' },
   { id: 'a3', tipo: 'laje', x: 152, y: 356, w: 130, h: 140, andares: 2, cor: '#867c70', varal: 1 },
-  { id: 'a4', tipo: 'laje', x: 476, y: 356, w: 130, h: 150, andares: 2, cor: '#7a7165', luz: 1 },
-  // ── O GALPÃO DO CARVÃO (topo-direita, porta virada pra abertura do portão) ──
+  // A BOCA DO TÚNEL — barraco encostado no muro; por dentro dele desce a
+  // passagem "secreta" que fura por BAIXO do muro. Só abre depois de fechar os
+  // ponto (portao.precisa). O muro em si NUNCA abre — só depois de bater o
+  // Carvão, aí libera a abertura pra facilitar o vai-e-vem.
+  { id: 'tunel_ent', tipo: 'barraco', x: 476, y: 352, w: 132, h: 122, cor: '#544b3d', pich: 1, nome: 'games.gangues.cena.pista.predio.tunel_ent', porta: { para: 'tunel', comodo: 0, zx: 452, zy: 404 }, solo: 1 },
+  // ── DEPOIS do muro (y<330) — só se chega tunelando ──
+  // A saída do túnel — barraco do outro lado, é onde você emerge.
+  { id: 'tunel_sai', tipo: 'barraco', x: 92, y: 150, w: 128, h: 120, cor: '#4e463a', pich: 1, nome: 'games.gangues.cena.pista.predio.tunel_sai', porta: { para: 'tunel', comodo: 2, zx: 180, zy: 300, spawn: { x: 260, y: 60 } }, solo: 1, pos_portao: 1 },
+  // A loja da Pista — do outro lado, equipa a gangue pro que vem.
+  { id: 'loja', tipo: 'comercio', x: 250, y: 158, w: 150, h: 118, cor: '#c25a2a', nome: 'games.gangues.cena.pista.predio.lojapista', porta: { para: 'loja', zx: 330, zy: 300 }, toldo: 1, pos_portao: 1, solo: 1 },
+  // ── O GALPÃO DO CARVÃO (topo-direita) ──
   { id: 'galpao', tipo: 'galpao', x: 452, y: 60, w: 300, h: 248, cor: '#3a4247', pich: 1, porta: { para: 'galpao', zx: 560, zy: 336 }, portaX: 520, portaW: 92, solo: 1, pos_portao: 1 },
-  // ── A loja da Pista (topo-esq, só faz sentido pós-portão) ──
-  { id: 'loja', tipo: 'comercio', x: 120, y: 150, w: 150, h: 120, cor: '#c25a2a', nome: 'games.gangues.cena.pista.predio.lojapista', porta: { para: 'loja', zx: 210, zy: 300 }, toldo: 1, pos_portao: 1, solo: 1 },
 ]
 
 // Empecilhos de rua — POR ENQUANTO todos são DECORAÇÃO (sem colisão). Buraco
@@ -472,6 +479,63 @@ export const CENA_PISTA = {
         ],
         pois: [{ ref: 'loja', pos: { x: 200, y: 122 } }],
       }],
+    },
+    // ── O TÚNEL "secreto" — fura por baixo do muro (3 cômodos) ──
+    // O muro NUNCA abre sozinho. Depois de fechar os ponto (portao.precisa) a
+    // boca do túnel destranca; você atravessa (uns vigia no caminho) e emerge
+    // no barraco do outro lado. Bidirecional: entra pela boca (cômodo 0) ou
+    // pela saída do outro lado (cômodo 2).
+    tunel: {
+      nome: 'games.gangues.cena.pista.int.tunel',
+      porta: { predio: 'tunel_ent' },
+      gate: 'portao', // destranca só com portao.precisa TODO feito
+      comodos: [
+        {
+          id: 'boca',
+          world: { w: 380, h: 340 }, spawn: { x: 190, y: 288 },
+          saida: { x: 162, y: 302, w: 56, h: 20 }, // volta pra rua (lado de cá)
+          colliders: [
+            { x: 0, y: 0, w: 380, h: 28 }, { x: 0, y: 0, w: 34, h: 340 }, { x: 346, y: 0, w: 34, h: 340 },
+            { x: 0, y: 294, w: 150, h: 46 }, { x: 230, y: 294, w: 150, h: 46 },
+            { x: 40, y: 70, w: 70, h: 60 }, // entulho/escombro
+          ],
+          cenario: [{ tipo: 'chao-tunel' }, { tipo: 'escombro', x: 75, y: 100 }, { tipo: 'lampada-tunel', x: 190, y: 40 }],
+          pois: [
+            { poi: { id: 'tunel_m1', tipo: 'treta', repetivel: true, enemy: 1101, dificuldade: 'facil', i18n: 'games.gangues.cena.pista.tunel.m1', recompensa: { grana: 5, rep: 2 } }, pos: { x: 190, y: 130 } },
+          ],
+          passagem: { x: 150, y: 30, w: 80, h: 24, para: 1, precisa: 'tunel_m1', label: 'avancar' },
+        },
+        {
+          id: 'meio',
+          world: { w: 360, h: 420 }, spawn: { x: 180, y: 378 },
+          voltaPara: 0,
+          colliders: [
+            { x: 0, y: 0, w: 360, h: 28 }, { x: 0, y: 0, w: 40, h: 420 }, { x: 320, y: 0, w: 40, h: 420 }, { x: 0, y: 392, w: 360, h: 28 },
+          ],
+          cenario: [{ tipo: 'chao-tunel' }, { tipo: 'lampada-tunel', x: 180, y: 40 }, { tipo: 'lampada-tunel', x: 180, y: 230 }, { tipo: 'escombro', x: 300, y: 300 }],
+          pois: [
+            { poi: { id: 'tunel_m2', tipo: 'treta', repetivel: true, enemy: 1102, liderFixo: 1102, dificuldade: 'normal', i18n: 'games.gangues.cena.pista.tunel.m2', recompensa: { grana: 7, rep: 3 } }, pos: { x: 180, y: 210 } },
+            { poi: { id: 'tunel_achado', tipo: 'achado', opcional: true, i18n: 'games.gangues.cena.pista.tunel.achado', recompensa: { grana: 14, item: 13 } }, pos: { x: 290, y: 120 } },
+          ],
+          passagem: { x: 140, y: 30, w: 80, h: 24, para: 2, precisa: 'tunel_m2', label: 'avancar' },
+        },
+        {
+          id: 'saida',
+          world: { w: 380, h: 340 }, spawn: { x: 190, y: 288 },
+          voltaPara: 1,
+          // emerge no barraco do OUTRO lado do muro
+          saida: { x: 162, y: 30, w: 56, h: 22, paraPredio: 'tunel_sai' },
+          colliders: [
+            { x: 0, y: 0, w: 150, h: 46 }, { x: 230, y: 0, w: 150, h: 46 },
+            { x: 0, y: 0, w: 34, h: 340 }, { x: 346, y: 0, w: 34, h: 340 }, { x: 0, y: 312, w: 380, h: 28 },
+            { x: 260, y: 80, w: 70, h: 60 },
+          ],
+          cenario: [{ tipo: 'chao-tunel' }, { tipo: 'lampada-tunel', x: 190, y: 60 }, { tipo: 'escombro', x: 295, y: 110 }],
+          pois: [
+            { poi: { id: 'tunel_m3', tipo: 'treta', repetivel: true, enemy: 1103, dificuldade: 'facil', i18n: 'games.gangues.cena.pista.tunel.m3', recompensa: { grana: 6, rep: 2 } }, pos: { x: 190, y: 180 } },
+          ],
+        },
+      ],
     },
     // ── O GALPÃO DO CARVÃO — mini dungeon de 4 cômodos ──
     galpao: {

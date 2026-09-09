@@ -2256,14 +2256,17 @@
             "mercado": "Almacén de Cida",
             "fliperama": "Fliper de Kiko",
             "oficina": "Taller de Nando",
-            "lojapista": "Tienda de la Pista"
+            "lojapista": "Tienda de la Pista",
+            "tunel_ent": "Casilla del callejón",
+            "tunel_sai": "Casilla del otro lado"
           },
           "grafite": "LA CALLE\nRECUERDA",
           "int": {
             "birosca": "Bar de Don Nato",
             "oficina": "Taller de Nando",
             "loja": "Almacén de Cida",
-            "galpao": "Galpón de Carbón"
+            "galpao": "Galpón de Carbón",
+            "tunel": "El paso por debajo del muro"
           },
           "galpao": {
             "m1": {
@@ -2296,6 +2299,25 @@
                 }
               }
             }
+          },
+          "tunel": {
+            "m1": {
+              "nome": "Vigía de la boca",
+              "fala": "Nadie baja a este pozo sin pasar por mí. Volvé a tu lado, pibe."
+            },
+            "m2": {
+              "nome": "Rastreador del túnel",
+              "fala": "¿Te creés el primero en intentar cavar por debajo? Los que intentaron siguen acá en la oscuridad."
+            },
+            "m3": {
+              "nome": "Vigía de la salida",
+              "fala": "¿Llegaste al otro lado? Solo pasando por encima de mí. Y no caigo fácil."
+            },
+            "achado": {
+              "nome": "Agujero en la pared del túnel",
+              "sub": "lo que alguien escondió acá",
+              "linha": "Metido en una grieta de la pared de tierra: algo que sirve."
+            }
           }
         },
         "hint_andar": "Usá el joystick para caminar el barrio.",
@@ -2311,7 +2333,8 @@
           "desafiar": "DESAFIAR",
           "trancado": "TRABADO"
         },
-        "comodo": "CUARTO {n}/{de}"
+        "comodo": "CUARTO {n}/{de}",
+        "muro_tunel": "El muro no se abre. Encontrá el paso por debajo."
       },
       "enemy_album": {
         "1101": "No pelea, corre y avisa — enfrentarlo es una persecución antes de la paliza.",

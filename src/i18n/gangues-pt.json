@@ -1846,14 +1846,17 @@
             "mercado": "Mercadinho da Cida",
             "fliperama": "Fliperama do Kiko",
             "oficina": "Oficina do Nando",
-            "lojapista": "Loja da Pista"
+            "lojapista": "Loja da Pista",
+            "tunel_ent": "Barraco do beco",
+            "tunel_sai": "Barraco do outro lado"
           },
           "grafite": "A RUA\nLEMBRA",
           "int": {
             "birosca": "Birosca do Seu Nato",
             "oficina": "Oficina do Nando",
             "loja": "Mercearia da Cida",
-            "galpao": "Galpão do Carvão"
+            "galpao": "Galpão do Carvão",
+            "tunel": "A passagem por baixo do muro"
           },
           "galpao": {
             "m1": {
@@ -1886,6 +1889,25 @@
                 }
               }
             }
+          },
+          "tunel": {
+            "m1": {
+              "nome": "Vigia da boca",
+              "fala": "Ó, ninguém entra nesse buraco sem passar por mim. Volta pro teu lado, cria."
+            },
+            "m2": {
+              "nome": "Farejador do túnel",
+              "fala": "Cê acha que é o primeiro a tentar furar por baixo? Os que tentaram tão aí no escuro até hoje."
+            },
+            "m3": {
+              "nome": "Vigia da saída",
+              "fala": "Chegou do outro lado? Só passando por cima de mim. E eu não caio fácil."
+            },
+            "achado": {
+              "nome": "Buraco na parede do túnel",
+              "sub": "o que alguém escondeu aqui",
+              "linha": "Enfiado numa fresta da parede de terra: um bagulho que serve."
+            }
           }
         },
         "hint_andar": "Use o analógico pra andar pela quebrada.",
@@ -1901,7 +1923,8 @@
           "desafiar": "DESAFIAR",
           "trancado": "TRANCADO"
         },
-        "comodo": "CÔMODO {n}/{de}"
+        "comodo": "CÔMODO {n}/{de}",
+        "muro_tunel": "O muro não abre. Acha a passagem por baixo."
       },
       "enemy_album": {
         "1101": "Não briga, corre e avisa — enfrentá-lo é perseguição antes de porrada.",

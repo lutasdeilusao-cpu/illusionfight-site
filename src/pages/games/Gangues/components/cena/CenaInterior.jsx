@@ -7,13 +7,14 @@
 
 export default function CenaInterior({ amb }) {
   const W = amb.world || { w: 440, h: 320 }
-  const galpao = (amb.cenario || []).some(c => c.tipo === 'chao-galpao')
+  const piso = (amb.cenario || []).find(c => c.tipo === 'chao-galpao') ? 'is-galpao'
+    : (amb.cenario || []).find(c => c.tipo === 'chao-tunel') ? 'is-tunel' : ''
   return (
     <>
-      <div className={`gang-int-chao ${galpao ? 'is-galpao' : ''}`} style={{ width: W.w, height: W.h }} aria-hidden="true" />
+      <div className={`gang-int-chao ${piso}`} style={{ width: W.w, height: W.h }} aria-hidden="true" />
       <div className="gang-int-parede" style={{ width: W.w }} aria-hidden="true" />
       {(amb.cenario || []).map((c, i) => {
-        if (c.tipo === 'chao-galpao' || c.tipo === 'chao-interno') return null
+        if (c.tipo === 'chao-galpao' || c.tipo === 'chao-interno' || c.tipo === 'chao-tunel') return null
         const st = { left: c.x, top: c.y }
         if (c.w) st.width = c.w
         if (c.h) st.height = c.h
