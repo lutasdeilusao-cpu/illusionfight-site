@@ -163,6 +163,23 @@
   font: 700 0.56rem var(--font-mono); letter-spacing: 0.1em;
   text-transform: uppercase; color: var(--text-secondary);
 }
+/* Aviso (tropa no chão) — texto corrido, tom de alerta, some sozinho */
+.gang-cena-toast--aviso {
+  display: block; text-align: center; line-height: 1.4; white-space: normal;
+  border-color: #ff6b6b;
+  box-shadow: 0 0 30px -8px rgba(255, 107, 107, 0.6);
+}
+
+/* ── Caderneta do fiado (dentro do descanso) ── */
+.gang-cena-fiado-caderneta {
+  margin: 0.5rem 0 0; padding: 8px 10px;
+  border: 1px dashed color-mix(in srgb, var(--if-amber) 55%, transparent);
+  background: rgba(255, 174, 50, 0.06);
+}
+.gang-cena-fiado-linha {
+  margin: 0; font: 700 0.78rem var(--font-mono); color: var(--if-amber); line-height: 1.4;
+}
+.gang-cena-enc--fiado .gang-cena-enc-desfecho { color: #f3e2c4; }
 
 /* ── Modal de encontro ── */
 .gang-cena-modal {

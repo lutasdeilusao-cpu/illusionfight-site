@@ -157,6 +157,8 @@ export default function GanguesCena({onNavigate}){
   const [intro,setIntro]=useState(()=>Boolean(cena&&!cenaIntroJaVista(cena.id))),[player,setPlayer]=useState(posInicial),[facing,setFacing]=useState('up'),[encontro,setEncontro]=useState(null),[toast,setToast]=useState(null),[hint,setHint]=useState(()=>t('games.gangues.cena.hint_andar')),[andou,setAndou]=useState(false),[fade,setFade]=useState(false)
   const [fichaIndex,setFichaIndex]=useState(null)
   const [bagAberta,setBagAberta]=useState(false)
+  // Aviso: a tropa inteira caiu — não entra em luta até se recuperar na birosca.
+  const [aviso,setAviso]=useState(null)
   const viewportRef=useRef(null),inputRef=useRef({x:0,y:0}),keysRef=useRef(new Set())
   // baseFeita = fechou os ponto (portao.precisa) → destranca o TÚNEL e libera o
   // lado de lá. muroAberto = bateu o Carvão → aí sim o muro abre de vez (pra
@@ -284,7 +286,16 @@ export default function GanguesCena({onNavigate}){
     sfx.select?.()
     setEncontro({evento:true,fala:Array.isArray(raw)?raw[Math.floor(Math.random()*raw.length)]:raw})
   }
+  // Tropa toda no chão → barra a entrada em qualquer luta e manda pra birosca.
+  const barraSeChao=()=>{
+    if(!store.tropaNoChao())return false
+    setEncontro(null);sfx.cancel?.()
+    setAviso(t('games.gangues.cena.tropa_no_chao'))
+    setTimeout(()=>setAviso(null),3600)
+    return true
+  }
   const iniciarEvento=()=>{
+    if(barraSeChao())return
     guardarPosicao();sfx.vs?.()
     const grana=6+Math.floor(Math.random()*7)
     store.setStoryTarget({territorioId:terr.id,cenaId:cena.id,evento:true,
@@ -292,6 +303,7 @@ export default function GanguesCena({onNavigate}){
     onNavigate('story-combat')
   }
   const iniciarTreta=(poi,{viraTreta,revela}={})=>{
+    if(barraSeChao())return
     const chefe=Boolean(poi.ehChefe)
     guardarPosicao();sfx.vs?.()
     // Treta repetível ("farma"): trava o retrato de pontos na primeira vez —
@@ -345,6 +357,7 @@ export default function GanguesCena({onNavigate}){
     </div><div className="gang-cena-vignette"/>{hint&&<div className="gang-cena-tutorial">{hint}</div>}{!local&&!muroAberto&&player.y<430&&<div className="gang-cena-gatelock">🔒 {t(baseFeita?'games.gangues.cena.muro_tunel':'games.gangues.cena.boss_trancado')}</div>}<AnimatePresence>{fade&&<motion.div className="gang-cena-fade" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} transition={{duration:.16}}/>}</AnimatePresence></div>
     <WorldControls onInput={v=>{inputRef.current=v}} onInteract={()=>abrir(perto)} action={perto?interactionLabel(perto,t):null}/>
     <AnimatePresence>{toast&&<motion.div className="gang-cena-toast" initial={{opacity:0,y:12}} animate={{opacity:1,y:0}} exit={{opacity:0}}><b>RECOMPENSA</b>{toast.grana?<span>💵 +{toast.grana}</span>:null}{toast.rep?<span>⚑ +{toast.rep}</span>:null}{toast.xp?<span>⚡ +{toast.xp} XP</span>:null}</motion.div>}</AnimatePresence>
+    <AnimatePresence>{aviso&&<motion.div className="gang-cena-toast gang-cena-toast--aviso" initial={{opacity:0,y:12}} animate={{opacity:1,y:0}} exit={{opacity:0}}>{aviso}</motion.div>}</AnimatePresence>
     <AnimatePresence>{encontro&&<motion.div className="gang-cena-modal" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}><div className="gang-cena-modal-bg" onClick={()=>setEncontro(null)}/><motion.div className="gang-cena-modal-card" initial={{y:25}} animate={{y:0}}>{encontro.evento?<EventoVS fala={encontro.fala} onSim={iniciarEvento} onNao={()=>setEncontro(null)} cenaId={cena.id} t={t}/>:encontro.vs?<TretaVS poi={encontro.poi} fala={encontro.fala} onSim={()=>iniciarTreta(encontro.poi)} onNao={()=>setEncontro(null)} t={t}/>:encontro.poi.tipo==='papo'?<GanguesPapo poi={encontro.poi} cena={cena} onResolve={resolver} onClose={()=>setEncontro(null)}/>:encontro.poi.tipo==='descanso'?<GanguesDescanso poi={encontro.poi} cena={cena} onClose={()=>setEncontro(null)}/>:encontro.poi.tipo==='loja'?<GanguesLoja poi={encontro.poi} onClose={()=>setEncontro(null)}/>:<GanguesParada poi={encontro.poi} cena={cena} onResolve={resolver} onClose={()=>setEncontro(null)}/>}</motion.div></motion.div>}</AnimatePresence>
     <AnimatePresence>{fichaIndex!==null&&store.activeParty[fichaIndex]&&<motion.div className="gang-cena-modal" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}><div className="gang-cena-modal-bg" onClick={()=>setFichaIndex(null)}/><motion.div className="gang-cena-modal-card gang-cena-ficha-scroll" initial={{y:25}} animate={{y:0}}><div className="gang-cena-enc-acoes gang-cena-ficha-nav">{store.activeParty.length>1&&<button className="gang-cena-btn" onClick={()=>setFichaIndex(i=>(i+store.activeParty.length-1)%store.activeParty.length)}>◀ ANTERIOR</button>}<button className="gang-cena-btn gang-cena-btn--go" onClick={()=>setFichaIndex(null)}>FECHAR</button>{store.activeParty.length>1&&<button className="gang-cena-btn" onClick={()=>setFichaIndex(i=>(i+1)%store.activeParty.length)}>PRÓXIMO ▶</button>}</div><FichaCenaCard member={store.activeParty[fichaIndex]} t={t}/></motion.div></motion.div>}</AnimatePresence>
     <AnimatePresence>{bagAberta&&<motion.div className="gang-cena-modal" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}><div className="gang-cena-modal-bg" onClick={()=>setBagAberta(false)}/><motion.div className="gang-cena-modal-card gang-cena-ficha-scroll" initial={{y:25}} animate={{y:0}}><BagSheet store={store} t={t} onClose={()=>setBagAberta(false)}/></motion.div></motion.div>}</AnimatePresence>

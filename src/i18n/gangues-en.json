@@ -2123,6 +2123,15 @@
         "descanso_ja_inteira": "The crew's already whole, kid. Keep the cash.",
         "descanso_sem_grana": "Cash is short for a rest, kid.",
         "descanso_curar": "Rest (−{grana})",
+        "tropa_no_chao": "Your whole crew's down, kid. Nobody's facing anyone like this. Hit Nato's corner store first.",
+        "fiado_pedir": "Put it on the tab",
+        "fiado_contrato_tag": "Contract · no deadline",
+        "fiado_contrato": "Nato sized up your crew, spat on the floor and told them to rest. Slapped {valor} cash onto your name. Now you owe him {divida}. No deadline, no chasing — he just remembers.",
+        "fiado_nome_sujo": "Your name's dirty here, kid. Nato's floated you twice already. No more tab — pay up or get lost.",
+        "fiado_devendo": "Nato's book: you owe {divida} cash.",
+        "fiado_pagar": "Pay Nato (−{grana})",
+        "fiado_pago_parcial": "Knocked {pago} off. Still {restante} left for Nato.",
+        "fiado_pago_total": "Cleared the {pago}. Your name's clean at the store.",
         "pista": {
           "evento": {
             "nome": "Road blocked",

@@ -2123,6 +2123,15 @@
         "descanso_ja_inteira": "La tropa ya está entera, pibe. Guardate la plata.",
         "descanso_sem_grana": "La plata está corta para el descanso, pibe.",
         "descanso_curar": "Descansar (−{grana})",
+        "tropa_no_chao": "Tu tropa está toda en el piso, pibe. Así nadie encara a nadie. Pasá por el kiosco del Nato antes.",
+        "fiado_pedir": "Fiado con el Nato",
+        "fiado_contrato_tag": "Contrato · sin plazo",
+        "fiado_contrato": "El Nato miró a tu tropa, escupió al piso y los mandó a descansar. Te clavó {valor} de plata en la cuenta. Ahora le debés {divida}. Sin plazo, sin reclamo — él sólo se acuerda.",
+        "fiado_nome_sujo": "Tu nombre está sucio acá, pibe. El Nato ya te fio dos veces. No hay más fiado — o pagás, o desaparecés.",
+        "fiado_devendo": "Libreta del Nato: le debés {divida} de plata.",
+        "fiado_pagar": "Pagarle al Nato (−{grana})",
+        "fiado_pago_parcial": "Bajaste {pago}. Todavía faltan {restante} para el Nato.",
+        "fiado_pago_total": "Saldaste los {pago}. Tu nombre quedó limpio en el kiosco.",
         "pista": {
           "evento": {
             "nome": "Cortaron la calle",

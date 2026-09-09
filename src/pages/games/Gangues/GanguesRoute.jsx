@@ -78,6 +78,14 @@ export default function GanguesRoute() {
     const party = (selected.length ? selected : store.roster).slice(0, GANGUES_STORY_BATTLE_PARTY_MAX)
     const temRevezamento = alvo?.revezamento?.pool?.length
     if ((!alvo?.enemyId && !temRevezamento && !alvo?.evento) || party.length < 1) { setFase('story'); return }
+    // Tropa inteira no chão (todos PV 0) — não entra em luta até se recuperar
+    // na birosca. Na cena o aviso aparece antes de sair; aqui (mapa/trilha) é
+    // rede de segurança pra não cair numa derrota garantida em loop.
+    if (party.every(m => Number(m.attributes?.pv_atual ?? 1) <= 0)) {
+      console.warn('[GANGUES] tropa no chão — luta bloqueada, volta pro mapa')
+      setFase(temCena(alvo?.territorioId) ? 'territorio' : 'story')
+      return
+    }
 
     let enemyTeam
     if (alvo.evento) {

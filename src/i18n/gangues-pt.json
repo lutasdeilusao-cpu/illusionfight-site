@@ -1713,6 +1713,15 @@
         "descanso_ja_inteira": "A tropa já tá inteira, cria. Guarda a grana.",
         "descanso_sem_grana": "Grana curta pro descanso, cria.",
         "descanso_curar": "Descansar (−{grana})",
+        "tropa_no_chao": "Tua tropa tá toda no chão, cria. Ninguém encara nada assim. Passa na birosca do Nato antes.",
+        "fiado_pedir": "Fiar com o Nato",
+        "fiado_contrato_tag": "Contrato · sem prazo",
+        "fiado_contrato": "O Nato encarou tua tropa, cuspiu no chão e mandou descansar. Colou {valor} de grana na tua conta. Agora tu deve {divida} pra ele. Sem prazo, sem cobrança — ele só lembra.",
+        "fiado_nome_sujo": "Teu nome tá sujo aqui, cria. O Nato já te fiou duas. Sem mais fiado — ou paga, ou some.",
+        "fiado_devendo": "Caderneta do Nato: tu deve {divida} de grana.",
+        "fiado_pagar": "Pagar o Nato (−{grana})",
+        "fiado_pago_parcial": "Abateu {pago}. Ainda falta {restante} pro Nato.",
+        "fiado_pago_total": "Quitou os {pago}. Teu nome limpou na birosca.",
         "pista": {
           "evento": {
             "nome": "Fecharam a rua",

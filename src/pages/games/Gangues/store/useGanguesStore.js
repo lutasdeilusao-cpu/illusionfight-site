@@ -668,6 +668,68 @@ export const useGanguesStore = create((set, get) => ({
     return { ok: true, detalhe: detalhe.filter(d => d.pv > 0 || d.pm > 0) }
   },
 
+  // ── Agiotagem da birosca (o Nato fia o descanso) ──────────────
+  // A dívida é GLOBAL (uma caderneta só pra todas as biroscas de todos os
+  // bairros) e SILENCIOSA — não tem HUD, o jogador só vê quando abre o
+  // descanso. Guardada dentro do próprio storyProgress (chave reservada
+  // __birosca), igual __album/__flags — sem coluna nova no Supabase.
+  //   { divida: <grana devida>, fiados: <0|1|2|3> }
+  // fiados 1 = 5× o preço do descanso, 2 = 10×. Depois de 2, "nome sujo":
+  // não fia mais (o 3º fiado, 15×, é o Clube da Luta — outra entrega).
+  _birosca: () => get().storyProgress.__birosca || { divida: 0, fiados: 0 },
+
+  // Déficit de PV/PM de toda a tropa (usado pelo descanso e pelo fiado pra
+  // saber se tem alguém ferido e mostrar o quanto cada um recuperou).
+  _deficitTropa: () => get().roster.map(m => {
+    const norm = normalizeGanguesLoadout(m)
+    const attrs = getGanguesAttributesWithEquip(norm.attributes)
+    const res = applyGanguesEquipResources(getGanguesResources(norm.combat_path, attrs?.R), norm.attributes?.equipment)
+    const pvAtual = Math.min(res.pvMax, Number(norm.attributes?.pv_atual ?? res.pvMax))
+    const pmAtual = Math.min(res.pmMax, Number(norm.attributes?.pm_atual ?? res.pmMax))
+    return { id: m.id, nome: m.sheet_name || '?', pv: Math.max(0, Math.round(res.pvMax - pvAtual)), pm: Math.max(0, Math.round(res.pmMax - pmAtual)) }
+  }),
+
+  // A tropa inteira que iria pra luta está com PV zerado (todos caídos) — aí
+  // não dá pra entrar em combate, tem que se recuperar antes (é o gatilho do
+  // desespero que leva ao Clube da Luta). pv_atual null/ausente = cheio.
+  tropaNoChao: () => {
+    const party = (get().activeParty.length ? get().activeParty : get().roster).slice(0, 6)
+    if (!party.length) return false
+    return party.every(m => Number(m.attributes?.pv_atual ?? 1) <= 0)
+  },
+
+  // Fiar o descanso com o Nato. `custoBase` = o preço normal do descanso
+  // daquela birosca. NÃO mostra o valor antes — quem chama revela o contrato
+  // (o quanto ficou a dívida) só DEPOIS, com o retorno desta função.
+  fiarDescanso: (custoBase = 10) => {
+    const rec = get()._birosca()
+    if (rec.fiados >= 2) return { ok: false, motivo: 'sujo' }
+    const detalhe = get()._deficitTropa()
+    if (!detalhe.some(d => d.pv > 0 || d.pm > 0)) return { ok: false, motivo: 'inteira' }
+    const mult = rec.fiados === 0 ? 5 : 10
+    const valor = mult * Math.max(1, Math.round(custoBase))
+    const divida = rec.divida + valor
+    const fiados = rec.fiados + 1
+    set(state => ({ storyProgress: { ...state.storyProgress, __birosca: { divida, fiados } } }))
+    get().restaurarPvPmTodos()
+    get()._persistStory()
+    return { ok: true, mult, valor, divida, fiadoN: fiados, detalhe: detalhe.filter(d => d.pv > 0 || d.pm > 0) }
+  },
+
+  // Pagar a dívida (parcial ou total). Abate de `grana` o que der. Quando
+  // zera, o "nome limpa" e o fiado volta a ser oferecido.
+  pagarBirosca: (quanto) => {
+    const rec = get()._birosca()
+    if (rec.divida <= 0) return { ok: false, motivo: 'quitado' }
+    const pago = Math.min(Number.isFinite(quanto) ? quanto : rec.divida, get().grana, rec.divida)
+    if (pago <= 0) return { ok: false, motivo: 'grana' }
+    get().gastarGrana(pago)
+    const restante = Math.max(0, rec.divida - pago)
+    set(state => ({ storyProgress: { ...state.storyProgress, __birosca: { divida: restante, fiados: restante <= 0 ? 0 : rec.fiados } } }))
+    get()._persistStory()
+    return { ok: true, pago, restante }
+  },
+
   // posicao: { x, y, local? } — `local` guarda em qual prédio/cômodo o jogador
   // estava (null = rua), pra reentrar na cena exatamente onde parou, mesmo
   // dentro do galpão.
