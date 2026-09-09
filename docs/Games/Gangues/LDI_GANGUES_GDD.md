@@ -267,7 +267,7 @@ b4/0.22 · m2 `[1101,1102,1103,1201]` b6/0.45 · m3 `[1101,1102,1103]` b5/0.30.
 verdade), a `rinha` (farm) e as brigas-punição (`sinal`→apertar o pivete,
 falhar a gazua do `ferro`) trocaram o `enemy` fixo / o sorteio dos 11 moldes
 por `revezamento` do pool fraco `[1101,1102,1103,1201,1203]`
-(Farejador/Dedo-Duro/Pingo/Ratazana/Chinelada). Antes a `aperta`/`falha`
+(Farejador/Zóio/Pingo/Ratazana/Chinelada). Antes a `aperta`/`falha`
 davam SEMPRE uma Ratazana sozinha; agora rodam os 5, quase sempre solo. Isso
 vale para `viraTreta.revezamento` (não só `poi.revezamento`).
 
@@ -371,7 +371,7 @@ raramente batem de frente.
 | ID | Nome | Território | Arma | Lore |
 |---|---|---|---|---|
 | 1101 | Farejador | Pista | — | Não briga, corre e avisa — enfrentá-lo é perseguição antes de porrada. |
-| 1102 | Dedo-Duro | Pista | faca pequena | Vende informação pros dois lados, ninguém confia. |
+| 1102 | Zóio | Pista | faca pequena | O olho da esquina — vê tudo que sobe e desce a Pista, e comenta tudo. |
 | 1103 | Pingo | Pista | estilingue | O mais rápido da Pista — foge se levar 2 golpes seguidos. |
 | 1104 | Extensão | Feira | fio elétrico | Um dos Gato mais ousados, liga até poste vigiado. |
 | 1105 | Cliente Ruim | Feira | garrafa quebrada | Devedor que virou capanga pra pagar a própria dívida. |

@@ -58,7 +58,7 @@
   },
   {
     "id": 1102,
-    "name": "Dedo-Duro",
+    "name": "Zóio",
     "stats": {
       "A": 1,
       "H": 2,
@@ -73,7 +73,7 @@
     "ai_pattern": "evasivo",
     "difficulty": "easy",
     "tier": 0,
-    "notes": "Vende informação pros dois lados, ninguém confia.",
+    "notes": "O olho da esquina — vigia tudo que passa na Pista e fala pelos cotovelos.",
     "album": {
       "cargoId": 201,
       "faccaoId": 101,
