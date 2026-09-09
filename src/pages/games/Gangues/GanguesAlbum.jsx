@@ -78,7 +78,6 @@ export default function GanguesAlbum({ onNavigate }) {
       </header>
 
       <div className="gang-album__title">
-        <span className="gang-album__eyebrow">IF // MARÉLIA</span>
         <h1>{t('games.gangues.album.titulo')}</h1>
         <p>{t('games.gangues.album.sub')}</p>
       </div>

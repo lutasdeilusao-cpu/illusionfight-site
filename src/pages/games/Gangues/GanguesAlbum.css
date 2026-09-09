@@ -49,11 +49,6 @@
 .gang-album__count b { color: var(--if-amber); font-size: 1.15rem; }
 
 .gang-album__title { display: flex; flex-direction: column; gap: 4px; }
-.gang-album__eyebrow {
-  font: 800 0.62rem var(--font-mono);
-  letter-spacing: 0.22em;
-  color: var(--if-teal);
-}
 .gang-album__title h1 {
   margin: 0;
   font: 800 1.4rem/1.05 var(--font-title);
@@ -66,25 +61,23 @@
   color: var(--text-secondary);
 }
 
-/* Abas por cargo — rolam horizontal dentro do próprio contêiner. */
+/* Abas por cargo — quebram em linha pra as 6 aparecerem de uma vez no mobile. */
 .gang-album__tabs {
   display: flex;
+  flex-wrap: wrap;
   gap: 6px;
-  overflow-x: auto;
   padding-bottom: 4px;
-  scrollbar-width: none;
 }
-.gang-album__tabs::-webkit-scrollbar { display: none; }
 
 .gang-album__tab {
   flex: 0 0 auto;
-  border: 1px solid var(--border-color);
-  background: transparent;
-  color: var(--text-secondary);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-primary, #e9e9ec);
   font: 800 0.68rem var(--font-mono);
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  padding: 8px 12px;
+  padding: 8px 13px;
   clip-path: polygon(0 0, calc(100% - 7px) 0, 100% 7px, 100% 100%, 0 100%);
 }
 .gang-album__tab.is-active {
