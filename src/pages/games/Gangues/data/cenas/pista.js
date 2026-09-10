@@ -94,7 +94,7 @@ const PREDIOS_PISTA = [
   // encolheram e se espalharam no topo, deixando uma faixa larga e aberta em
   // baixo (y~220-330) pra atravessar sem corredor apertado. A porta do galpão
   // fica NESSA faixa aberta, embaixo do prédio.
-  { id: 'tunel_sai', tipo: 'barraco', x: 300, y: 620, w: 132, h: 110, cor: '#4e463a', pich: 1, nome: 'games.gangues.cena.pista.predio.tunel_sai', porta: { para: 'tunel', comodo: 2, zx: 366, zy: 748, spawn: { x: 260, y: 60 } }, solo: 1, pos_portao: 1 },
+  { id: 'tunel_sai', tipo: 'barraco', x: 300, y: 620, w: 132, h: 110, cor: '#4e463a', pich: 1, nome: 'games.gangues.cena.pista.predio.tunel_sai', porta: { para: 'tunel', comodo: 2, zx: 366, zy: 748 }, solo: 1, pos_portao: 1 },
   // A loja da Pista — do outro lado, equipa a gangue pro que vem.
   { id: 'loja', tipo: 'comercio', x: 40, y: 300, w: 150, h: 120, cor: '#c25a2a', nome: 'games.gangues.cena.pista.predio.lojapista', porta: { para: 'loja', zx: 115, zy: 444 }, toldo: 1, pos_portao: 1, solo: 1 },
   // ── O GALPÃO DO CARVÃO (topo-direita) ──
