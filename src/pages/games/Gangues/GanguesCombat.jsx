@@ -88,7 +88,10 @@ function transformarEvento(t, event, combatants) {
   }
   if (event.type === 'item') {
     const actor = combatants.find(m => m.key === event.actorKey)
-    return [{ id: event.id, kind: 'system', text: t('games.gangues.log_usou_item', { nome: fighterName(t, actor) }) }]
+    const alvo = combatants.find(m => m.key === event.targetKey)
+    const mesmo = !event.targetKey || event.targetKey === event.actorKey
+    const chave = mesmo ? 'games.gangues.log_usou_item' : 'games.gangues.log_usou_item_em'
+    return [{ id: event.id, kind: 'system', text: t(chave, { nome: fighterName(t, actor), alvo: fighterName(t, alvo), n: event.curado || 0 }) }]
   }
   if (event.type !== 'attack') return []
   const actor = combatants.find(m => m.key === event.actorKey) || { side: event.side }
@@ -153,8 +156,8 @@ function Roster({ members, side, selectable, selectedKey, onSelect, actingKey, o
         return (
           <div key={member.key} className={`gang-mini-wrap${wrapFx}`}>
             {pops.map(p => (
-              <span key={p.id} className={`gang-dmg-pop${p.amount > 0 ? '' : ' gang-dmg-pop--zero'}${p.critical ? ' gang-dmg-pop--crit' : ''}${p.fatal ? ' gang-dmg-pop--fatal' : ''}`}>
-                <b>{p.amount > 0 ? `−${p.amount}` : p.shield > 0 ? '🛡' : '0'}{p.critical && p.amount > 0 ? '!' : ''}</b>
+              <span key={p.id} className={`gang-dmg-pop${p.heal ? ' gang-dmg-pop--heal' : p.amount > 0 ? '' : ' gang-dmg-pop--zero'}${p.critical ? ' gang-dmg-pop--crit' : ''}${p.fatal ? ' gang-dmg-pop--fatal' : ''}`}>
+                <b>{p.heal ? `+${p.heal}` : p.amount > 0 ? `−${p.amount}` : p.shield > 0 ? '🛡' : '0'}{p.critical && p.amount > 0 ? '!' : ''}</b>
                 <small>{p.actorName}</small>
               </span>
             ))}
@@ -219,6 +222,23 @@ export default function GanguesCombat({ onNavigate }) {
   const koAtivoRef = useRef(false)
   const koTimerRef = useRef(null)
   const [koCena, setKoCena] = useState(null)
+  const [aviso, setAviso] = useState(null)   // toast curto (ex: item não serve)
+  // Callout GRANDE de dano no centro — fila própria (respeita o KO). O Isaias
+  // reclamou 3× que o dano passava batido: agora é "FULANO LEVOU −7" no meio
+  // da tela, um de cada vez.
+  const [danoCena, setDanoCena] = useState(null)
+  const danoQueueRef = useRef([])
+  const danoAtivoRef = useRef(false)
+  const danoTimerRef = useRef(null)
+  const dispararProximoDano = useCallback(() => {
+    clearTimeout(danoTimerRef.current)
+    const next = danoQueueRef.current.shift()
+    if (!next) { danoAtivoRef.current = false; setDanoCena(null); return }
+    danoAtivoRef.current = true
+    setDanoCena(next)
+    danoTimerRef.current = setTimeout(() => dispararProximoDano(), next.dur || 820)
+  }, [])
+  useEffect(() => () => clearTimeout(danoTimerRef.current), [])
   // Números de dano flutuantes sobre quem apanhou (some sozinho ~1,4s depois).
   const [dmgPops, setDmgPops] = useState([])
   const dmgTimersRef = useRef([])
@@ -412,25 +432,49 @@ export default function GanguesCombat({ onNavigate }) {
 
     if (newEvents.some(event => event.type === 'attack' && event.result?.critical)) dispararCriticoFx()
 
-    // Destaque de dano: número flutuante sobre o alvo + shake do alvo + nudge
-    // de tela quando quem apanha é do jogador.
+    // Destaque de dano: callout GRANDE no centro (fila) + número flutuante +
+    // shake do alvo + nudge de tela quando quem apanha é do jogador.
     for (const event of newEvents) {
-      if (event.type !== 'attack') continue
       const alvo = machine.combatants.find(c => c.key === event.targetKey)
       const atacante = machine.combatants.find(c => c.key === event.actorKey)
-      const dano = event.result?.damage || 0
-      soltarDmgPop({
-        id: event.id,
-        targetKey: event.targetKey,
-        actorName: fighterName(t, atacante) || '?',
-        amount: dano,
-        critical: Boolean(event.result?.critical),
-        shield: event.result?.shieldConsumed || 0,
-        fatal: (alvo?.pv ?? 1) <= 0,
-      })
-      if (dano > 0 && !event.result?.critical) {
-        sfx.attackPunch?.()
-        if (event.side === 'enemy') dispararNudge()
+      if (event.type === 'attack') {
+        const dano = event.result?.damage || 0
+        const fatal = (alvo?.pv ?? 1) <= 0
+        soltarDmgPop({
+          id: event.id, targetKey: event.targetKey,
+          actorName: fighterName(t, atacante) || '?', amount: dano,
+          critical: Boolean(event.result?.critical), shield: event.result?.shieldConsumed || 0, fatal,
+        })
+        // callout central — pula quando é fatal (o card de KO já cobre isso)
+        if (!fatal && (dano > 0 || (event.result?.shieldConsumed || 0) > 0)) {
+          danoQueueRef.current.push({
+            id: event.id,
+            alvoNome: fighterName(t, alvo) || '?',
+            atacanteNome: fighterName(t, atacante) || '?',
+            valor: dano, critico: Boolean(event.result?.critical),
+            escudo: event.result?.shieldConsumed || 0,
+            side: alvo?.side || (event.side === 'player' ? 'enemy' : 'player'),
+            dur: event.side === 'enemy' ? 950 : 680,
+          })
+          if (!danoAtivoRef.current) dispararProximoDano()
+        }
+        if (dano > 0 && !event.result?.critical) {
+          sfx.attackPunch?.()
+          if (event.side === 'enemy') dispararNudge()
+        }
+      } else if (event.type === 'item' && (event.curado || 0) > 0) {
+        soltarDmgPop({
+          id: event.id, targetKey: event.targetKey,
+          actorName: fighterName(t, atacante) || '?', amount: 0, heal: event.curado,
+          critical: false, shield: 0, fatal: false,
+        })
+        danoQueueRef.current.push({
+          id: event.id, cura: true,
+          alvoNome: fighterName(t, alvo) || '?',
+          atacanteNome: fighterName(t, atacante) || '?',
+          valor: event.curado, side: 'player', dur: 820,
+        })
+        if (!danoAtivoRef.current) dispararProximoDano()
       }
     }
 
@@ -477,17 +521,24 @@ export default function GanguesCombat({ onNavigate }) {
     .map(item => ({ ...item, quantidade: store.inventario[item.id] || 0 }))
     .filter(item => item.quantidade > 0)
 
-  // Usar item consome o turno do ator igual um ataque (ver useItemAction) —
-  // sem rolar dado, sem escolher alvo inimigo, só aplica a cura na hora.
-  const handleUsarItem = (itemId) => {
+  // Usar item consome o turno do ATOR (quem tá na vez) igual um ataque, mas a
+  // cura vai pro ALIADO escolhido — o tanque pode ficar curando o atacante.
+  const handleUsarItem = (itemId, alvoKey) => {
     if (!selectedActor) return
     const item = getGanguesItem(itemId)
     if (!item) return
+    const alvo = alvoKey || selectedActor
+    // Não desperdiça o item se o alvo já tá cheio no recurso que ele cura.
+    const alvoC = players.find(p => p.key === alvo)
+    if (alvoC) {
+      if (item.tipo === 'cura_pv' && alvoC.pv >= alvoC.pvMax) { setAviso(t('games.gangues.combat_item_cheio')); setTimeout(() => setAviso(null), 2200); return }
+      if (item.tipo === 'cura_pm' && alvoC.pm >= alvoC.pmMax) { setAviso(t('games.gangues.combat_item_cheio')); setTimeout(() => setAviso(null), 2200); return }
+    }
     if (!store.usarItem(itemId)) return
-    sfx.click()
+    sfx.reward?.()
     if (!switchTravado) setSwitchTravado(true)
     const delta = item.tipo === 'cura_pv' ? { pv: item.valor } : item.tipo === 'cura_pm' ? { pm: item.valor } : {}
-    machine.useItemAction(selectedActor, itemId, delta)
+    machine.useItemAction(selectedActor, alvo, itemId, delta)
   }
 
   // ── Modo Automático: quando é a vez do jogador, ataca sozinho com o
@@ -576,6 +627,38 @@ export default function GanguesCombat({ onNavigate }) {
           <b>■</b>{t('games.gangues.auto.sair')}
         </button>
       )}
+      <AnimatePresence>
+        {aviso && (
+          <motion.div className="gang-combat-aviso" initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}>
+            {aviso}
+          </motion.div>
+        )}
+      </AnimatePresence>
+      <AnimatePresence>
+        {danoCena && !koCena && (
+          <motion.div
+            key={danoCena.id}
+            className={`gang-dano-cena gang-dano-cena--${danoCena.cura ? 'cura' : danoCena.side === 'player' ? 'aliado' : 'inimigo'}${danoCena.critico ? ' gang-dano-cena--crit' : ''}`}
+            initial={{ opacity: 0, scale: 0.6, y: 14 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.9, y: -10 }}
+            transition={{ type: 'spring', stiffness: 320, damping: 16 }}
+          >
+            {danoCena.critico && <span className="gang-dano-cena__tag">{t('games.gangues.critico')}</span>}
+            <strong className="gang-dano-cena__nome">{danoCena.alvoNome}</strong>
+            <span className="gang-dano-cena__valor">
+              {danoCena.cura ? `+${danoCena.valor}` : danoCena.valor > 0 ? `−${danoCena.valor}` : danoCena.escudo > 0 ? '🛡' : '0'}
+            </span>
+            <span className="gang-dano-cena__rot">
+              {danoCena.cura
+                ? t('games.gangues.dano_cena_cura', { nome: danoCena.atacanteNome })
+                : danoCena.valor > 0
+                  ? t('games.gangues.dano_cena_dano', { nome: danoCena.atacanteNome })
+                  : t('games.gangues.dano_cena_guarda', { n: danoCena.escudo })}
+            </span>
+          </motion.div>
+        )}
+      </AnimatePresence>
       <AnimatePresence>
         {koCena && (
           <motion.div
@@ -893,9 +976,10 @@ export default function GanguesCombat({ onNavigate }) {
           equippedSpecials={equippedSpecials}
           canAffordSpecial={canAffordSpecial}
           itens={itensDisponiveis}
+          aliados={players.map(p => ({ key: p.key, nome: fighterName(t, p), pv: Math.max(0, p.pv || 0), pvMax: p.pvMax || 1, pm: Math.max(0, p.pm || 0), pmMax: p.pmMax || 0, dead: p.pv <= 0 }))}
           onAtacar={() => handleAttack(null)}
           onUsarPoder={specialId => handleAttack(specialId)}
-          onUsarItem={itemId => handleUsarItem(itemId)}
+          onUsarItem={(itemId, alvoKey) => handleUsarItem(itemId, alvoKey)}
           autoOn={modoAutoOn}
           autoBloqueado={!podeUsarModoAuto}
           onToggleAuto={toggleModoAuto}

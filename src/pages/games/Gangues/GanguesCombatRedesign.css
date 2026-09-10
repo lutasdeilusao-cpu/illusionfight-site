@@ -87,6 +87,7 @@
 .gang-combat .gang-roster--enemy .gang-dmg-pop b { color:#ffd24a; }
 .gang-combat .gang-roster--player .gang-dmg-pop b { color:#ff5050; }
 .gang-combat .gang-dmg-pop--zero b { color:#9aa6ad; font-size:1rem; }
+.gang-combat .gang-dmg-pop--heal b { color:#4be08a; }
 .gang-combat .gang-dmg-pop--crit b { font-size:1.95rem; color:#fff; -webkit-text-stroke:1px #ff3b3b; }
 .gang-combat .gang-dmg-pop--fatal b { color:#ff2d2d; }
 @keyframes gang-dmg-pop {

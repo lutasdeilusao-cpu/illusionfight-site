@@ -6,6 +6,11 @@
       "escolha_alvo": "ELIGE UN OBJETIVO",
       "log_batalha_inicio": "La pelea ha comenzado.",
       "log_usou_item": "{nome} usó un objeto — renunció a su ataque esta ronda.",
+      "log_usou_item_em": "{nome} le pasó un objeto a {alvo} (+{n}) — renunció al ataque.",
+      "combat_item_cheio": "Ese ya está a full — elegí a otro para curar.",
+      "dano_cena_dano": "golpe de {nome}",
+      "dano_cena_cura": "{nome} le pasó la cura",
+      "dano_cena_guarda": "la guardia aguantó −{n}",
       "ko_aviso": "¡{nome} cayó!",
       "ko_cena": {
         "aliado": "cayó",
@@ -519,7 +524,10 @@
         "poder": "Poder",
         "item": "Objeto",
         "item_vazio": "Todavía no hay objetos — pronto.",
-        "item_qtd": "×{n}"
+        "item_qtd": "×{n}",
+        "item_em_quem": "¿a quién?",
+        "alvo_caido": "caído",
+        "alvo_cheio": "ya está lleno"
       },
       "itens": {
         "1": "Poción de HP",
@@ -616,6 +624,8 @@
         "sequestro_2": "Baúl de furgón. Aceite, cigarrillo, el caño caliente contra la espalda. Una mano sosteniéndote el cuello hacia abajo todo el viaje.",
         "sequestro_3": "Frenan. Te arrastran afuera. Te arrancan el trapo de un tirón — y la luz te ciega. Tela de alambre a los dos lados. Y un ruido de gente que no para de crecer.",
         "pular": "Tocá para saltar",
+        "venda_seguir": "tocá para seguir ›",
+        "venda_entrar": "tocá para entrar a la rueda ›",
         "dica_anda": "Caminá hasta la puerta de la rueda.",
         "dica_porta": "Es ahora. Tocá ENTRAR.",
         "entrar": "ENTRAR A LA RUEDA",

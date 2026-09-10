@@ -6,6 +6,11 @@
       "escolha_alvo": "ESCOLHA O ALVO",
       "log_batalha_inicio": "A briga começou.",
       "log_usou_item": "{nome} usou um item — abriu mão do ataque nessa rodada.",
+      "log_usou_item_em": "{nome} passou um item pro {alvo} (+{n}) — abriu mão do ataque.",
+      "combat_item_cheio": "Esse aí já tá no talo — escolhe outro pra curar.",
+      "dano_cena_dano": "golpe de {nome}",
+      "dano_cena_cura": "{nome} passou a cura",
+      "dano_cena_guarda": "a guarda segurou −{n}",
       "ko_aviso": "{nome} caiu!",
       "ko_cena": {
         "aliado": "caiu",
@@ -519,7 +524,10 @@
         "poder": "Poder",
         "item": "Item",
         "item_vazio": "Nenhum item ainda — em breve.",
-        "item_qtd": "×{n}"
+        "item_qtd": "×{n}",
+        "item_em_quem": "usar em quem?",
+        "alvo_caido": "caído",
+        "alvo_cheio": "já tá cheio"
       },
       "itens": {
         "1": "Poção de HP",
@@ -616,6 +624,8 @@
         "sequestro_2": "Bagageiro de Kombi. Óleo, cigarro, o cano quente nas costas. Uma mão te segurando o pescoço pra baixo o trajeto inteiro.",
         "sequestro_3": "Param. Te arrastam pra fora. Arrancam o pano de uma vez — e a luz te cega. Tela de arame dos dois lados. E um barulho de gente que não para de crescer.",
         "pular": "Toca pra pular",
+        "venda_seguir": "toca pra continuar ›",
+        "venda_entrar": "toca pra entrar na roda ›",
         "dica_anda": "Anda até a porta da roda.",
         "dica_porta": "É agora. Toca em ENTRAR.",
         "entrar": "ENTRAR NA RODA",

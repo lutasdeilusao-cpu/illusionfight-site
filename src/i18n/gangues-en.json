@@ -6,6 +6,11 @@
       "escolha_alvo": "CHOOSE A TARGET",
       "log_batalha_inicio": "The fight has begun.",
       "log_usou_item": "{nome} used an item — gave up their attack this round.",
+      "log_usou_item_em": "{nome} handed {alvo} an item (+{n}) — gave up the attack.",
+      "combat_item_cheio": "That one's already maxed — pick someone else to heal.",
+      "dano_cena_dano": "{nome}'s hit",
+      "dano_cena_cura": "{nome} patched it up",
+      "dano_cena_guarda": "guard held −{n}",
       "ko_aviso": "{nome} is down!",
       "ko_cena": {
         "aliado": "is down",
@@ -519,7 +524,10 @@
         "poder": "Power",
         "item": "Item",
         "item_vazio": "No items yet — coming soon.",
-        "item_qtd": "×{n}"
+        "item_qtd": "×{n}",
+        "item_em_quem": "on who?",
+        "alvo_caido": "down",
+        "alvo_cheio": "already full"
       },
       "itens": {
         "1": "HP Potion",
@@ -616,6 +624,8 @@
         "sequestro_2": "Back of a van. Oil, cigarettes, the hot exhaust pipe against your back. A hand holding your neck down the whole way.",
         "sequestro_3": "They stop. They drag you out. They rip the cloth off in one pull — and the light blinds you. Wire mesh on both sides. And a roar of people that won't stop growing.",
         "pular": "Tap to skip",
+        "venda_seguir": "tap to continue ›",
+        "venda_entrar": "tap to enter the pit ›",
         "dica_anda": "Walk to the pit door.",
         "dica_porta": "This is it. Tap ENTER.",
         "entrar": "ENTER THE PIT",

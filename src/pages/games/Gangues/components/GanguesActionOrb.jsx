@@ -14,16 +14,17 @@ function salvarPos(pos) { try { localStorage.setItem(POS_KEY, pos) } catch {} }
  *  posição salva por dispositivo. Toque abre um menu compacto: ATACAR (na
  *  hora), PODER (lista) ou ITEM (lista, hoje vazia — sem sistema de
  *  inventário ainda). */
-export default function GanguesActionOrb({ t, atorNome, disabled, equippedSpecials, canAffordSpecial, itens = [], onAtacar, onUsarPoder, onUsarItem, autoOn = false, autoBloqueado = false, onToggleAuto }) {
+export default function GanguesActionOrb({ t, atorNome, disabled, equippedSpecials, canAffordSpecial, itens = [], aliados = [], onAtacar, onUsarPoder, onUsarItem, autoOn = false, autoBloqueado = false, onToggleAuto }) {
   const [pos, setPos] = useState(posSalva)
   const [open, setOpen] = useState(false)
-  const [tab, setTab] = useState('menu') // 'menu' | 'poder' | 'item'
+  const [tab, setTab] = useState('menu') // 'menu' | 'poder' | 'item' | 'item-alvo'
+  const [itemEscolhido, setItemEscolhido] = useState(null)
   const [drag, setDrag] = useState(null) // {dx,dy} enquanto arrasta, ou null
   const dragRef = useRef({ dragging: false, moved: false, x: 0, y: 0 })
 
   const [side, vpos] = pos.split('-')
 
-  const fechar = () => { setOpen(false); setTab('menu') }
+  const fechar = () => { setOpen(false); setTab('menu'); setItemEscolhido(null) }
 
   const onPointerDown = e => {
     dragRef.current = { dragging: true, moved: false, x: e.clientX, y: e.clientY }
@@ -114,13 +115,36 @@ export default function GanguesActionOrb({ t, atorNome, disabled, equippedSpecia
                 <button
                   key={item.id} type="button" disabled={disabled}
                   className="gang-orb-item-btn"
-                  onClick={() => { onUsarItem(item.id); fechar() }}
+                  onClick={() => { setItemEscolhido(item); setTab('item-alvo') }}
                 >
                   {item.icone} {t(item.nome)}
                   <small>{t('games.gangues.orb.item_qtd', { n: item.quantidade })}</small>
                 </button>
               ))}
               {itens.length === 0 && <p className="gang-orb-vazio">{t('games.gangues.orb.item_vazio')}</p>}
+            </motion.div>
+          )}
+          {open && tab === 'item-alvo' && itemEscolhido && (
+            <motion.div key="item-alvo" className="gang-orb-panel gang-orb-panel--lista" initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.9 }}>
+              <div className="gang-orb-panel-head">
+                <button type="button" className="gang-orb-voltar" onClick={() => { setTab('item'); setItemEscolhido(null) }}>←</button>
+                <span>{itemEscolhido.icone} {t(itemEscolhido.nome)} · {t('games.gangues.orb.item_em_quem')}</span>
+              </div>
+              {aliados.map(a => {
+                const cheio = itemEscolhido.tipo === 'cura_pm' ? a.pm >= a.pmMax : a.pv >= a.pvMax
+                return (
+                  <button
+                    key={a.key} type="button" disabled={disabled || a.dead || cheio}
+                    className={`gang-orb-item-btn ${cheio || a.dead ? 'gang-orb-item-btn--sem-recurso' : ''}`}
+                    onClick={() => { onUsarItem(itemEscolhido.id, a.key); fechar() }}
+                  >
+                    {a.nome}
+                    <small>
+                      {a.dead ? t('games.gangues.orb.alvo_caido') : `PV ${a.pv}/${a.pvMax}${a.pmMax > 0 ? ` · PM ${a.pm}/${a.pmMax}` : ''}${cheio ? ` · ${t('games.gangues.orb.alvo_cheio')}` : ''}`}
+                    </small>
+                  </button>
+                )
+              })}
             </motion.div>
           )}
         </AnimatePresence>

@@ -37,7 +37,12 @@ export default function GanguesClube({ onNavigate }) {
   const alvo = store.storyTarget
   const [fase, setFase] = useState('venda')       // venda | saguao | indo
   const [vendaCena, setVendaCena] = useState(0)    // 0 escuro/saco · 1 arranca · 2 luz+roar
+  const [vendaStep, setVendaStep] = useState(1)    // quantos beats do sequestro já apareceram
   const [player, setPlayer] = useState(SPAWN)
+  const beatsSequestro = (() => {
+    const raw = t('games.gangues.clube.sequestro')
+    return Array.isArray(raw) ? raw : [raw]
+  })()
   const [facing, setFacing] = useState('up')
   const inputRef = useRef({ x: 0, y: 0 })
   const keysRef = useRef(new Set())
@@ -45,19 +50,36 @@ export default function GanguesClube({ onNavigate }) {
   // Sem alvo de clube → não deveria estar aqui.
   useEffect(() => { if (!alvo?.clube) onNavigate('territorio') }, [alvo, onNavigate])
 
-  // Cutscene do sequestro: saco na cabeça (respirando) → arrancam → luz forte +
-  // rugido da plateia → cai no saguão. Toque pula tudo.
+  // Cutscene do sequestro: os beats aparecem UM A UM (auto a cada ~3,4s OU no
+  // toque). Quando todos estão na tela, o toque dá início ao "arrancam o saco
+  // → luz → rugido" e só então cai no saguão. Nada de pular a história inteira
+  // num toque só — é máquina de estados, cada passo espera o anterior.
   useEffect(() => {
     if (fase !== 'venda') return
-    const R = prefersReduced()
     sfx.heartbeat?.()
-    const ts = []
-    ts.push(setTimeout(() => sfx.heartbeat?.(), 1400))
-    ts.push(setTimeout(() => { setVendaCena(1); sfx.vs?.() }, R ? 150 : 2600))
-    ts.push(setTimeout(() => { setVendaCena(2); sfx.explosion?.(); sfx.attackHeavy?.() }, R ? 300 : 3050))
-    ts.push(setTimeout(() => setFase('saguao'), R ? 550 : 5200))
-    return () => ts.forEach(clearTimeout)
+    const bt = setInterval(() => sfx.heartbeat?.(), 2600)
+    return () => clearInterval(bt)
   }, [fase])
+  useEffect(() => {
+    if (fase !== 'venda' || vendaCena > 0) return
+    if (vendaStep >= beatsSequestro.length) return
+    const to = setTimeout(() => setVendaStep(s => Math.min(beatsSequestro.length, s + 1)), 3400)
+    return () => clearTimeout(to)
+  }, [fase, vendaCena, vendaStep, beatsSequestro.length])
+  // Sequência final (arrancam → luz → saguão), disparada pelo toque no fim.
+  const arrancarSaco = () => {
+    if (vendaCena > 0) return
+    const R = prefersReduced()
+    setVendaCena(1); sfx.vs?.()
+    setTimeout(() => { setVendaCena(2); sfx.explosion?.(); sfx.attackHeavy?.() }, R ? 120 : 480)
+    setTimeout(() => setFase('saguao'), R ? 300 : 2200)
+  }
+  const tocarVenda = () => {
+    if (vendaCena > 0) return
+    if (vendaStep < beatsSequestro.length) { setVendaStep(s => Math.min(beatsSequestro.length, s + 1)); sfx.select?.() }
+    else arrancarSaco()
+  }
+  const prontoPraEntrar = vendaStep >= beatsSequestro.length && vendaCena === 0
 
   // Teclado (desktop).
   useEffect(() => {
@@ -103,25 +125,23 @@ export default function GanguesClube({ onNavigate }) {
         {fase === 'venda' && (
           <motion.div className={`gang-clube-venda gang-clube-venda--c${vendaCena}`}
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-            onClick={() => setFase('saguao')}>
+            onClick={tocarVenda}>
             <div className="gang-clube-saco" aria-hidden="true" />
             <div className="gang-clube-holofote" aria-hidden="true" />
             <Plateia />
             <div className="gang-clube-venda-flash" aria-hidden="true" />
             <div className="gang-clube-venda-txt">
-              {(() => {
-                const raw = t('games.gangues.clube.sequestro')
-                const beats = Array.isArray(raw)
-                  ? raw
-                  : [t('games.gangues.clube.sequestro_1'), t('games.gangues.clube.sequestro_2'), t('games.gangues.clube.sequestro_3')]
-                return beats.map((linha, i) => (
-                  <p key={i} className={`gang-clube-venda-bloco${i === beats.length - 1 ? ' is-fecho' : ''}`} style={{ '--i': i }}>
-                    {linha}
-                  </p>
-                ))
-              })()}
+              {beatsSequestro.slice(0, vendaStep).map((linha, i) => (
+                <motion.p key={i}
+                  className={`gang-clube-venda-bloco${i === beatsSequestro.length - 1 ? ' is-fecho' : ''}`}
+                  initial={{ opacity: 0, x: -12 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5 }}>
+                  {linha}
+                </motion.p>
+              ))}
             </div>
-            <span className="gang-clube-venda-skip">{t('games.gangues.clube.pular')}</span>
+            <span className="gang-clube-venda-skip">
+              {prontoPraEntrar ? t('games.gangues.clube.venda_entrar') : t('games.gangues.clube.venda_seguir')}
+            </span>
           </motion.div>
         )}
       </AnimatePresence>

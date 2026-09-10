@@ -124,15 +124,24 @@ export default function useGanguesTurnMachine({ playerTeam = [], enemyTeam = [],
     record({ type: 'initiative', order: initiative })
   }, [initiative, record])
 
-  // Usar item: aplica a cura direto no ator (sem rolar dado, sem alvo
-  // inimigo) e consome o turno igual um ataque — quem usa item abre mão de
-  // atacar naquela rodada. `delta` é { pv?, pm? }, sempre positivo (cura).
-  const useItemAction = useCallback((actorKey, itemId, delta) => {
+  // Usar item: aplica a cura num ALIADO (o próprio ator OU outro personagem da
+  // gangue — dá pra o tanque ficar curando o atacante). Consome o turno do
+  // ATOR igual um ataque. `delta` é { pv?, pm? }, sempre positivo (cura).
+  const useItemAction = useCallback((actorKey, targetKey, itemId, delta) => {
     if (phase !== 'player' || currentActor?.key !== actorKey) return false
-    const next = combatants.map(item => item.key === actorKey
-      ? { ...item, pv: Math.min(item.pvMax, item.pv + (delta.pv || 0)), pm: Math.min(item.pmMax, item.pm + (delta.pm || 0)), actedThisRound: true }
-      : item)
-    record({ type: 'item', side: 'player', actorKey, itemId, delta, round })
+    const alvoKey = targetKey || actorKey
+    const alvoAntes = combatants.find(item => item.key === alvoKey)
+    const curado = alvoAntes
+      ? Math.max(0, Math.min(alvoAntes.pvMax, alvoAntes.pv + (delta.pv || 0)) - alvoAntes.pv) + Math.max(0, Math.min(alvoAntes.pmMax, alvoAntes.pm + (delta.pm || 0)) - alvoAntes.pm)
+      : 0
+    const next = combatants.map(item => {
+      const cura = item.key === alvoKey
+        ? { pv: Math.min(item.pvMax, item.pv + (delta.pv || 0)), pm: Math.min(item.pmMax, item.pm + (delta.pm || 0)) }
+        : {}
+      const agiu = item.key === actorKey ? { actedThisRound: true } : {}
+      return { ...item, ...cura, ...agiu }
+    })
+    record({ type: 'item', side: 'player', actorKey, targetKey: alvoKey, itemId, delta, curado, round })
     setCombatants(next)
     advanceTurn(next)
     return true
