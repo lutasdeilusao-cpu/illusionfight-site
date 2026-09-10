@@ -100,7 +100,7 @@ export const GANGUES_CHEFE_CORPOS = { pista: 2 }
 // em qualquer game. `facil` é a curva simulada original (bando de rua da Pista
 // com ~52% dos teus pontos); `medio` e `dificil` sobem. Pedido do Isaias
 // (jan/2027 — "tá muito fácil, mato no automático com uma porrada").
-export const GANGUES_MODO_RATIO = { facil: 0.52, medio: 0.70, dificil: 0.80 }
+export const GANGUES_MODO_RATIO = { facil: 0.50, medio: 0.65, dificil: 0.80 }
 // degrau por território, somado ao ratio do modo (a Pista continua mais leve
 // que a Laje). Provisório pros bairros sem cena — recalibrar com simulação.
 export const GANGUES_TERRITORIO_STEP = {

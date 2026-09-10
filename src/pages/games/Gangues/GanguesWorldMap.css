@@ -53,4 +53,9 @@
 .gang-world__intel button { width:100%; min-height:38px; border:1px solid var(--if-amber); background:var(--if-amber); color:var(--bg-primary); font:900 .62rem var(--font-mono); letter-spacing:.1em; text-transform:uppercase; }
 .gang-world__intel button:disabled { border-color:var(--if-hair); background:transparent; color:var(--text-secondary); }
 .gang-world__intel button b { margin-left:8px; }
+/* zuera do modo fácil no último bairro — texto inteiro, vermelho */
+.gang-world__intel--facil { border-left-color:#ff5a5a; }
+.gang-world__intel--facil>span { color:#ff8a8a; }
+.gang-world__intel--facil p { -webkit-line-clamp:unset; display:block; color:#e7cfcf; font-size:.72rem; line-height:1.5; }
+.gang-world__intel--facil button { border-color:#ff5a5a; background:#ff5a5a; }
 @media (prefers-reduced-motion:reduce){.gang-world-card{transition:none}}

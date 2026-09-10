@@ -20,6 +20,14 @@ export default function GanguesStoryMap({ onNavigate }) {
   const dominados = useMemo(() => GANGUES_TERRITORIOS.filter(territorio => estadoTerritorio(territorio, progress) === 'dominado').length, [progress])
   const domainPct = Math.round((dominados / GANGUES_TERRITORIOS.length) * 100)
 
+  // NO FÁCIL você joga até o PENÚLTIMO bairro (estilo Doom). Ao tentar entrar
+  // no 7º e último, o jogo te zoa e manda subir a dificuldade — o chefão final
+  // não se rebaixa a encarar pivete.
+  const modo = store.dificuldadeJogo?.() || 'medio'
+  const ultimoId = GANGUES_TERRITORIOS[GANGUES_TERRITORIOS.length - 1]?.id
+  const bloqueadoNoFacil = modo === 'facil' && active.id === ultimoId
+    && activeState !== 'trancado' && activeState !== 'dominado'
+
   const selecionar = (territorio) => {
     setActiveIndex(GANGUES_TERRITORIOS.indexOf(territorio))
     sfx.select?.()
@@ -27,6 +35,7 @@ export default function GanguesStoryMap({ onNavigate }) {
 
   const enter = () => {
     if (activeState === 'trancado') { sfx.cancel(); return }
+    if (bloqueadoNoFacil) { sfx.cancel(); onNavigate('modes'); return }
     sfx.select?.()
     store.setStoryTarget({ territorioId: active.id })
     onNavigate('territorio')
@@ -44,15 +53,23 @@ export default function GanguesStoryMap({ onNavigate }) {
         <p>{t('games.gangues.story.world_hint')}</p>
       </div>
 
-      <section className="gang-world__intel">
+      <section className={`gang-world__intel${bloqueadoNoFacil ? ' gang-world__intel--facil' : ''}`}>
         <span>{t('games.gangues.story.territorio_selecionado')}</span>
         <h2>{t(`games.gangues.story.territorios.${active.id}.nome`)}</h2>
-        <p>{t(`games.gangues.story.territorios.${active.id}.desc`)}</p>
-        <div className="gang-world__intel-progress">
-          <progress max={totalNos(active)} value={Math.round(progressoTerritorio(active, progress) * totalNos(active))} />
-          <small>{Math.round(progressoTerritorio(active, progress) * totalNos(active))}/{totalNos(active)}</small>
-        </div>
-        <button onClick={enter} disabled={activeState === 'trancado'}>{activeState === 'trancado' ? t('games.gangues.story.bloqueado_cta') : t('games.gangues.story.entrar_territorio')} <b>→</b></button>
+        <p>{bloqueadoNoFacil ? t('games.gangues.story.facil_ultimo') : t(`games.gangues.story.territorios.${active.id}.desc`)}</p>
+        {!bloqueadoNoFacil && (
+          <div className="gang-world__intel-progress">
+            <progress max={totalNos(active)} value={Math.round(progressoTerritorio(active, progress) * totalNos(active))} />
+            <small>{Math.round(progressoTerritorio(active, progress) * totalNos(active))}/{totalNos(active)}</small>
+          </div>
+        )}
+        <button onClick={enter} disabled={activeState === 'trancado'}>
+          {activeState === 'trancado'
+            ? t('games.gangues.story.bloqueado_cta')
+            : bloqueadoNoFacil
+              ? t('games.gangues.story.facil_ultimo_cta')
+              : t('games.gangues.story.entrar_territorio')} <b>→</b>
+        </button>
       </section>
 
       <section className="gang-world__city" aria-label={t('games.gangues.story.titulo')}>
