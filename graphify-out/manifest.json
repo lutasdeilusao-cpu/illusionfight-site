@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1788997178.9458134,
-    "ast_hash": "359d10aac38a025335465be4af65bb03",
+    "mtime": 1788999415.4575694,
+    "ast_hash": "a194cf5745ea77db145c2ddbbdfe45a0",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2745,8 +2745,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1788997191.9133825,
-    "ast_hash": "2e18263ab1f022ba63f649ad311fbd12",
+    "mtime": 1788999421.539245,
+    "ast_hash": "10aa77ab0770e6b8e84127c5c401fec1",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3550,18 +3550,18 @@
     "semantic_hash": ""
   },
   "src/i18n/gangues-en.json": {
-    "mtime": 1788991862.6963253,
-    "ast_hash": "3e1073e629a567a40a8c5fec6350b047",
+    "mtime": 1788999289.4471064,
+    "ast_hash": "9c71487d1a65e7b5843fa4f0ecf80e83",
     "semantic_hash": ""
   },
   "src/i18n/gangues-es.json": {
-    "mtime": 1788991868.4706647,
-    "ast_hash": "3ff77707231fd04f2f70cf930bd9a48c",
+    "mtime": 1788999293.951164,
+    "ast_hash": "e0ba3e940c76bde0707f64c3977a9cc1",
     "semantic_hash": ""
   },
   "src/i18n/gangues-pt.json": {
-    "mtime": 1788991857.5481565,
-    "ast_hash": "94066f8f99a136f2859739997d848bca",
+    "mtime": 1788999279.0975213,
+    "ast_hash": "73ad7c2bd3a6f1dc02fc54adc14f502e",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/hooks/useGanguesI18n.js": {
@@ -4745,8 +4745,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/GanguesCena.jsx": {
-    "mtime": 1788997074.238675,
-    "ast_hash": "2a9b98d72ad5212e00d9d780256b9245",
+    "mtime": 1788999237.209998,
+    "ast_hash": "008ecb88d5869a9f8dc671596a2f40fe",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/cena/GanguesDescanso.jsx": {
@@ -4942,6 +4942,11 @@
   "src/pages/games/Gangues/GanguesClube.jsx": {
     "mtime": 1788989176.3178258,
     "ast_hash": "f2f2f46ce1447799b024ff44943e6e65",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/components/cena/GanguesMiniMapa.jsx": {
+    "mtime": 1788999173.2888572,
+    "ast_hash": "8b43b95c73976ee820c1051d6969ba16",
     "semantic_hash": ""
   }
 }

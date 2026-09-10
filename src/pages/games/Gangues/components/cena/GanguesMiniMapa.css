@@ -1,12 +1,13 @@
 /* Mini-mapa da cena — radar de setinhas pro próximo objetivo.
-   Canto inferior direito, acima dos controles. Recolhe pra bolinha. */
+   Canto superior direito, logo abaixo do HUD (embaixo atrapalhava o
+   analógico/ação). Recolhe pra bolinha. */
 
 .gang-minimapa,
 .gang-minimapa-bolinha {
   position: absolute;
   z-index: 28;
   right: calc(var(--app-gutter, 0px) + 12px);
-  bottom: calc(158px + env(safe-area-inset-bottom, 0px));
+  top: calc(max(12px, env(safe-area-inset-top, 0px) + 8px) + 50px);
 }
 
 /* ── Bolinha (recolhido) ── */
