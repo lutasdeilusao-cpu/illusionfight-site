@@ -79,12 +79,15 @@ const PREDIOS_PISTA = [
   // Carvão, aí libera a abertura pra facilitar o vai-e-vem.
   { id: 'tunel_ent', tipo: 'barraco', x: 476, y: 352, w: 132, h: 122, cor: '#544b3d', pich: 1, nome: 'games.gangues.cena.pista.predio.tunel_ent', porta: { para: 'tunel', comodo: 0, zx: 452, zy: 404 }, solo: 1 },
   // ── DEPOIS do muro (y<330) — só se chega tunelando ──
-  // A saída do túnel — barraco do outro lado, é onde você emerge.
-  { id: 'tunel_sai', tipo: 'barraco', x: 92, y: 150, w: 128, h: 120, cor: '#4e463a', pich: 1, nome: 'games.gangues.cena.pista.predio.tunel_sai', porta: { para: 'tunel', comodo: 2, zx: 180, zy: 300, spawn: { x: 260, y: 60 } }, solo: 1, pos_portao: 1 },
+  // Área pós-muro ESPAÇOSA: os 3 prédios (saída do túnel, loja, galpão)
+  // encolheram e se espalharam no topo, deixando uma faixa larga e aberta em
+  // baixo (y~220-330) pra atravessar sem corredor apertado. A porta do galpão
+  // fica NESSA faixa aberta, embaixo do prédio.
+  { id: 'tunel_sai', tipo: 'barraco', x: 40, y: 40, w: 116, h: 104, cor: '#4e463a', pich: 1, nome: 'games.gangues.cena.pista.predio.tunel_sai', porta: { para: 'tunel', comodo: 2, zx: 96, zy: 172, spawn: { x: 260, y: 60 } }, solo: 1, pos_portao: 1 },
   // A loja da Pista — do outro lado, equipa a gangue pro que vem.
-  { id: 'loja', tipo: 'comercio', x: 250, y: 158, w: 150, h: 118, cor: '#c25a2a', nome: 'games.gangues.cena.pista.predio.lojapista', porta: { para: 'loja', zx: 330, zy: 300 }, toldo: 1, pos_portao: 1, solo: 1 },
+  { id: 'loja', tipo: 'comercio', x: 300, y: 36, w: 140, h: 108, cor: '#c25a2a', nome: 'games.gangues.cena.pista.predio.lojapista', porta: { para: 'loja', zx: 366, zy: 168 }, toldo: 1, pos_portao: 1, solo: 1 },
   // ── O GALPÃO DO CARVÃO (topo-direita) ──
-  { id: 'galpao', tipo: 'galpao', x: 452, y: 60, w: 300, h: 248, cor: '#3a4247', pich: 1, porta: { para: 'galpao', zx: 560, zy: 336 }, portaX: 520, portaW: 92, solo: 1, pos_portao: 1 },
+  { id: 'galpao', tipo: 'galpao', x: 512, y: 30, w: 216, h: 186, cor: '#3a4247', pich: 1, porta: { para: 'galpao', zx: 612, zy: 244 }, portaX: 560, portaW: 92, solo: 1, pos_portao: 1 },
 ]
 
 // Empecilhos de rua — POR ENQUANTO todos são DECORAÇÃO (sem colisão). Buraco

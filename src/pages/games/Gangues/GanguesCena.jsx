@@ -393,7 +393,11 @@ export default function GanguesCena({onNavigate}){
   // tudo fechou mas o muro ainda não abriu, o alvo vira a boca do túnel.
   const minimapaAlvos=local?[]:metas.filter(m=>!m.feito).map(m=>{
     if(m.id==='__boss'&&baseFeita&&!muroAberto)
-      return {id:'__tunel',nome:t('games.gangues.cena.minimapa.tunel'),pos:{x:452,y:404}}
+      // antes do muro: aponta pra boca do túnel. Já do outro lado (y<340):
+      // aponta pra porta do galpão do Carvão.
+      return player.y<340
+        ? {id:'__galpao',nome:t('games.gangues.cena.minimapa.galpao'),pos:{x:612,y:244}}
+        : {id:'__tunel',nome:t('games.gangues.cena.minimapa.tunel'),pos:{x:452,y:404}}
     if(m.id==='__boss') return {...m,pos:POS.boss}
     const pd=cena.pois.find(x=>x.id===m.id)
     if(!pd||!(pd.visivel||prog.revelados[m.id])) return null
