@@ -123,13 +123,19 @@ function transformarEvento(t, event, combatants) {
 // nada de novo (já tá selecionado, ou não dá pra selecionar agora — morto,
 // já agiu, ou fora da sua vez) — sem precisar de botãozinho separado
 // pequeno demais pra tocar no celular.
-function Roster({ members, side, selectable, selectedKey, onSelect, actingKey, onAbrirFicha, t }) {
+function Roster({ members, side, selectable, selectedKey, onSelect, actingKey, onAbrirFicha, dmgPops, t }) {
   return (
     <div className={`gang-roster gang-roster--${side}`}>
       {members.map(member => {
         const dead = member.pv <= 0
         const acted = side === 'player' && member.actedThisRound
         const acting = member.key === actingKey && !dead
+        // ── Destaque de dano: barrinha "de sangue" drenando + número flutuante
+        // + aviso quando a vida tá baixa (o Isaias reclamou que morria sem ver).
+        const pvPct = Math.max(0, Math.min(100, (member.pv || 0) / (member.pvMax || 1) * 100))
+        const pops = (dmgPops || []).filter(p => p.targetKey === member.key)
+        const baixo = !dead && pvPct <= 20 ? (pvPct <= 10 ? 'gang-mini-wrap--critico' : 'gang-mini-wrap--baixo') : ''
+        const wrapFx = `${pops.length ? ' gang-mini-wrap--hit' : ''}${baixo ? ` ${baixo}` : ''}`
         // No lado do jogador só quem tá agindo AGORA é selecionável de
         // verdade (a ordem de turno decide quem ataca, não o toque) — sem
         // isso o segundo personagem nunca teria "nada a selecionar" e o
@@ -145,7 +151,13 @@ function Roster({ members, side, selectable, selectedKey, onSelect, actingKey, o
           else onAbrirFicha?.(member)
         }
         return (
-          <div key={member.key} className="gang-mini-wrap">
+          <div key={member.key} className={`gang-mini-wrap${wrapFx}`}>
+            {pops.map(p => (
+              <span key={p.id} className={`gang-dmg-pop${p.amount > 0 ? '' : ' gang-dmg-pop--zero'}${p.critical ? ' gang-dmg-pop--crit' : ''}${p.fatal ? ' gang-dmg-pop--fatal' : ''}`}>
+                <b>{p.amount > 0 ? `−${p.amount}` : p.shield > 0 ? '🛡' : '0'}{p.critical && p.amount > 0 ? '!' : ''}</b>
+                <small>{p.actorName}</small>
+              </span>
+            ))}
             <button
               type="button"
               title={nome}
@@ -158,7 +170,10 @@ function Roster({ members, side, selectable, selectedKey, onSelect, actingKey, o
             </button>
             <span className="gang-mini-nome">{nome}</span>
             <span className="gang-mini-bars" aria-label={nome}>
-              <progress className="gang-mini-resource gang-mini-resource--pv" max={member.pvMax || 1} value={Math.max(0, member.pv || 0)} />
+              <span className="gang-hpbar" role="progressbar" aria-valuenow={Math.max(0, member.pv || 0)} aria-valuemax={member.pvMax || 1}>
+                <i className="gang-hpbar-ghost" style={{ width: `${pvPct}%` }} />
+                <i className="gang-hpbar-fill" style={{ width: `${pvPct}%` }} />
+              </span>
               <progress className="gang-mini-resource gang-mini-resource--pm" max={member.pmMax || 1} value={Math.max(0, member.pm || 0)} />
               {side === 'player' && <progress className="gang-mini-resource gang-mini-resource--xp" max={ganguesXpMaxForSheet(member)} value={progression.ap} />}
             </span>
@@ -204,6 +219,26 @@ export default function GanguesCombat({ onNavigate }) {
   const koAtivoRef = useRef(false)
   const koTimerRef = useRef(null)
   const [koCena, setKoCena] = useState(null)
+  // Números de dano flutuantes sobre quem apanhou (some sozinho ~1,4s depois).
+  const [dmgPops, setDmgPops] = useState([])
+  const dmgTimersRef = useRef([])
+  useEffect(() => () => dmgTimersRef.current.forEach(clearTimeout), [])
+  const soltarDmgPop = useCallback((pop) => {
+    setDmgPops(prev => [...prev, pop])
+    const to = setTimeout(() => setDmgPops(prev => prev.filter(x => x.id !== pop.id)), 1400)
+    dmgTimersRef.current.push(to)
+  }, [])
+  // Nudge de tela quando um PERSONAGEM DO JOGADOR leva pancada (mais fraco que
+  // o shake de crítico) — pra o dano não passar batido.
+  const [hitNudge, setHitNudge] = useState(false)
+  const hitNudgeTimerRef = useRef(null)
+  const dispararNudge = useCallback(() => {
+    setHitNudge(false)
+    requestAnimationFrame(() => setHitNudge(true))
+    clearTimeout(hitNudgeTimerRef.current)
+    hitNudgeTimerRef.current = setTimeout(() => setHitNudge(false), 320)
+  }, [])
+  useEffect(() => () => clearTimeout(hitNudgeTimerRef.current), [])
   const dispararProximoKo = useCallback(() => {
     clearTimeout(koTimerRef.current)
     const next = koQueueRef.current.shift()
@@ -376,6 +411,28 @@ export default function GanguesCombat({ onNavigate }) {
     eventosBrutosRef.current = [...eventosBrutosRef.current, ...newEvents]
 
     if (newEvents.some(event => event.type === 'attack' && event.result?.critical)) dispararCriticoFx()
+
+    // Destaque de dano: número flutuante sobre o alvo + shake do alvo + nudge
+    // de tela quando quem apanha é do jogador.
+    for (const event of newEvents) {
+      if (event.type !== 'attack') continue
+      const alvo = machine.combatants.find(c => c.key === event.targetKey)
+      const atacante = machine.combatants.find(c => c.key === event.actorKey)
+      const dano = event.result?.damage || 0
+      soltarDmgPop({
+        id: event.id,
+        targetKey: event.targetKey,
+        actorName: fighterName(t, atacante) || '?',
+        amount: dano,
+        critical: Boolean(event.result?.critical),
+        shield: event.result?.shieldConsumed || 0,
+        fatal: (alvo?.pv ?? 1) <= 0,
+      })
+      if (dano > 0 && !event.result?.critical) {
+        sfx.attackPunch?.()
+        if (event.side === 'enemy') dispararNudge()
+      }
+    }
 
     setLog(prev => {
       let next = prev
@@ -648,7 +705,7 @@ export default function GanguesCombat({ onNavigate }) {
         )}
       </AnimatePresence>
 
-      <div className={`gang-combat-fx${critShake ? ' gang-combat-fx--shake' : ''}`}>
+      <div className={`gang-combat-fx${critShake ? ' gang-combat-fx--shake' : ''}${hitNudge ? ' gang-combat-fx--nudge' : ''}`}>
       <div className="gang-vs-bar">
         <button className="gang-vs-bar-back" onClick={() => onNavigate('territorio')}>{t('games.gangues.btn_sair')}</button>
         <div className="gang-vs-bar-line" />
@@ -695,7 +752,7 @@ export default function GanguesCombat({ onNavigate }) {
         selectable={!modoMultidaoAtivo && machine.phase === 'player'}
         selectedKey={selectedActor} onSelect={modoMultidaoAtivo ? undefined : setSelectedActor}
         actingKey={modoMultidaoAtivo ? null : machine.currentActor?.key}
-        onAbrirFicha={setFichaAberta} t={t}
+        onAbrirFicha={setFichaAberta} dmgPops={dmgPops} t={t}
       />
 
       <div className="gang-log-area">
@@ -779,7 +836,7 @@ export default function GanguesCombat({ onNavigate }) {
         selectable={!modoMultidaoAtivo && machine.phase === 'player'}
         selectedKey={selectedTarget} onSelect={modoMultidaoAtivo ? undefined : setSelectedTarget}
         actingKey={modoMultidaoAtivo ? null : machine.currentActor?.key}
-        onAbrirFicha={setFichaAberta} t={t}
+        onAbrirFicha={setFichaAberta} dmgPops={dmgPops} t={t}
       />
 
       {/* ── Modo Briga em Multidão: poderes configuráveis por toque + avançar rodada ── */}

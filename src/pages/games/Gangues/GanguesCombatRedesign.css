@@ -27,3 +27,90 @@
 .gang-combat .gang-sheet-modal__hero h2 { font-size: 28px; }
 .gang-combat .gang-sheet-modal__stats { width: 100%; }
 .gang-combat .gang-ficha-modal-card .gang-modo-fugir { align-self:stretch; margin-top:7px; }
+
+/* ══════════════════════════════════════════════════════════════
+   DESTAQUE DE DANO — barra "de sangue" drenando, número flutuante,
+   shake de quem apanhou e aviso de vida baixa (pisca).
+   ══════════════════════════════════════════════════════════════ */
+.gang-combat .gang-mini-wrap { position:relative; }
+
+/* barra de PV: fill snap rápido + ghost (rastro de sangue) drenando devagar */
+.gang-combat .gang-hpbar { position:relative; width:100%; height:4px; background:var(--if-glass); overflow:hidden; }
+.gang-combat .gang-hpbar-ghost,
+.gang-combat .gang-hpbar-fill { position:absolute; left:0; top:0; height:100%; }
+.gang-combat .gang-hpbar-ghost { background:#ff4d4d; transition:width .8s cubic-bezier(.2,.7,.25,1) .12s; }
+.gang-combat .gang-hpbar-fill { background:var(--if-teal); transition:width .22s ease-out; }
+.gang-combat .gang-roster--enemy .gang-hpbar-fill { background:var(--if-danger); }
+.gang-combat .gang-roster--enemy .gang-hpbar-ghost { background:#ffd24a; }
+.gang-combat .gang-mini-wrap--baixo .gang-hpbar-fill { background:var(--if-amber); }
+.gang-combat .gang-mini-wrap--critico .gang-hpbar-fill { background:#ff3b3b; }
+
+/* aviso de vida baixa — o lado do JOGADOR pisca forte (era o que passava batido) */
+.gang-combat .gang-roster--player .gang-mini-wrap--baixo { animation:gang-lowhp 1.1s ease-in-out infinite; }
+.gang-combat .gang-roster--player .gang-mini-wrap--critico { animation:gang-lowhp 0.5s ease-in-out infinite; }
+.gang-combat .gang-roster--player .gang-mini-wrap--baixo .gang-mini-nome,
+.gang-combat .gang-roster--player .gang-mini-wrap--critico .gang-mini-nome { color:#ff7a7a; }
+.gang-combat .gang-roster--enemy .gang-mini-wrap--critico { animation:gang-lowhp-soft 0.9s ease-in-out infinite; }
+@keyframes gang-lowhp {
+  0%,100% { box-shadow:0 0 0 1px transparent; }
+  50% { box-shadow:0 0 0 1px #ff3b3b, 0 0 13px rgba(255,59,59,.65); }
+}
+@keyframes gang-lowhp-soft {
+  0%,100% { box-shadow:0 0 0 1px transparent; }
+  50% { box-shadow:0 0 0 1px rgba(255,138,59,.7); }
+}
+
+/* shake de quem levou o golpe */
+.gang-combat .gang-mini-wrap--hit { animation:gang-hit-shake .4s ease; }
+@keyframes gang-hit-shake {
+  0%,100% { transform:translateX(0); }
+  15% { transform:translateX(-4px); } 30% { transform:translateX(4px); }
+  45% { transform:translateX(-3px); } 60% { transform:translateX(2px); }
+  75% { transform:translateX(-1px); }
+}
+
+/* número de dano flutuante */
+.gang-combat .gang-dmg-pop {
+  position:absolute; left:50%; top:-4px; z-index:20;
+  display:flex; flex-direction:column; align-items:center; gap:1px;
+  pointer-events:none; transform:translateX(-50%);
+  animation:gang-dmg-pop 1.35s ease-out forwards;
+}
+.gang-combat .gang-dmg-pop b {
+  font:900 1.4rem var(--font-display); line-height:1;
+  text-shadow:0 2px 5px #000, 0 0 12px currentColor;
+}
+.gang-combat .gang-dmg-pop small {
+  font:700 .48rem var(--font-mono); letter-spacing:.03em; color:var(--text-secondary);
+  text-shadow:0 1px 3px #000; max-width:70px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+}
+.gang-combat .gang-roster--enemy .gang-dmg-pop b { color:#ffd24a; }
+.gang-combat .gang-roster--player .gang-dmg-pop b { color:#ff5050; }
+.gang-combat .gang-dmg-pop--zero b { color:#9aa6ad; font-size:1rem; }
+.gang-combat .gang-dmg-pop--crit b { font-size:1.95rem; color:#fff; -webkit-text-stroke:1px #ff3b3b; }
+.gang-combat .gang-dmg-pop--fatal b { color:#ff2d2d; }
+@keyframes gang-dmg-pop {
+  0% { opacity:0; transform:translate(-50%,8px) scale(.4); }
+  14% { opacity:1; transform:translate(-50%,-4px) scale(1.18); }
+  28% { transform:translate(-50%,-9px) scale(1); }
+  100% { opacity:0; transform:translate(-50%,-38px) scale(.92); }
+}
+
+/* nudge de tela (player apanhou) — mais leve que o shake de crítico */
+.gang-combat-fx--nudge { animation:gang-nudge .3s ease; }
+@keyframes gang-nudge {
+  0%,100% { transform:translate(0,0); }
+  30% { transform:translate(-3px,2px); }
+  70% { transform:translate(2px,-1px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gang-combat .gang-mini-wrap--hit,
+  .gang-combat .gang-roster--player .gang-mini-wrap--baixo,
+  .gang-combat .gang-roster--player .gang-mini-wrap--critico,
+  .gang-combat .gang-roster--enemy .gang-mini-wrap--critico,
+  .gang-combat-fx--nudge { animation:none; }
+  .gang-combat .gang-dmg-pop { animation:gang-dmg-pop-reduced 1.35s ease forwards; }
+  @keyframes gang-dmg-pop-reduced { 0%,80% { opacity:1; transform:translate(-50%,-14px); } 100% { opacity:0; transform:translate(-50%,-14px); } }
+  .gang-combat .gang-hpbar-ghost, .gang-combat .gang-hpbar-fill { transition:none; }
+}
