@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from 'react'
+import { createContext, useContext, useEffect, useRef, useState } from 'react'
 import { supabase } from '../lib/supabase'
 import { filterTopTrumpsInitialAccountPool } from '../lib/topTrumpsCardAccess'
 import { ensureUserProfile } from '../lib/profileProvisioning'
@@ -23,6 +23,9 @@ export function AuthProvider({ children }) {
   const [carregando, setCarregando] = useState(true)
   const [session, setSession] = useState(null)
   const [horasDesdeUltimaSessao, setHorasDesdeUltimaSessao] = useState(0)
+  // ids já provisionados nesta carga de página — evita repetir o trabalho
+  // pesado a cada SIGNED_IN (que dispara também em foco de aba / refresh).
+  const provisionadosRef = useRef(new Set())
 
   // ── Registrar sessão (lazy evaluation) ──
   async function registrarSessao(userId) {
@@ -69,72 +72,80 @@ export function AuthProvider({ children }) {
   }, [user])
 
   useEffect(() => {
-    // Se a sessão existe, o usuário ENTRA. O provisionamento de perfil é
-    // rede de segurança da trigger — nunca pode barrar o login. E o
-    // `carregando` sempre termina, aconteça o que acontecer.
-    async function entrar(session, { primeiroLogin = false } = {}) {
+    let vivo = true
+
+    // ── Trabalho PESADO pós-login (provisionamento, perfil, conquistas, deck,
+    // registro de sessão). RODA FORA do callback de onAuthStateChange.
+    //
+    // Por quê: o supabase-js faz `await` de TODOS os callbacks de
+    // onAuthStateChange antes de resolver a promise do signInWithPassword /
+    // signUp (GoTrueClient._notifyAllSubscribers). Se o callback for `async` e
+    // fizer 7+ idas ao banco (como fazia aqui), o login/cadastro "estoura o
+    // tempo" no cliente e mostra erro — MESMO tendo dado certo (a sessão já
+    // foi gravada). Era esse o bug do "recarrego e já estou logado".
+    //
+    // Solução (recomendação oficial do Supabase): o callback é SÍNCRONO e
+    // rápido; tudo que fala com o banco vai pra um setTimeout(…, 0).
+    async function provisionar(session, { primeiroLogin }) {
+      if (!vivo || !session?.user) return
+      const uid = session.user.id
+      const jaFeito = provisionadosRef.current.has(uid)
+      provisionadosRef.current.add(uid)
+
       const pendentes = lerCadastroPendente()
-      let created = false
       try {
         const r = await ensureUserProfile(session.user, pendentes)
-        created = r.created
         if (r.error) console.error('[Auth] provisionamento de perfil:', r.error)
       } catch (e) {
         console.error('[Auth] provisionamento lançou:', e)
       }
-
-      // Entra de qualquer jeito — a conta existe.
-      setUser(session.user)
       limparCadastroPendente()
+      if (!vivo) return
 
-      try { await carregarPerfil(session.user.id) } catch (e) { console.error('[Auth] carregarPerfil:', e) }
+      try { await carregarPerfil(uid) } catch (e) { console.error('[Auth] carregarPerfil:', e) }
 
-      if (primeiroLogin) {
+      if (primeiroLogin && !jaFeito) {
         try {
           await supabase.from('user_achievements').upsert(
-            { user_id: session.user.id, achievement_id: 'recrutado' },
+            { user_id: uid, achievement_id: 'recrutado' },
             { onConflict: 'user_id,achievement_id' },
           )
         } catch (e) { console.error('[Auth] achievement recrutado:', e) }
-        try { await garantirDeckInicial(session.user.id) } catch (e) { console.error('[Auth] deck inicial:', e) }
+        try { await garantirDeckInicial(uid) } catch (e) { console.error('[Auth] deck inicial:', e) }
+        if (!vivo) return
       }
 
       try {
-        const horas = await registrarSessao(session.user.id)
-        setHorasDesdeUltimaSessao(horas)
+        const horas = await registrarSessao(uid)
+        if (vivo) setHorasDesdeUltimaSessao(horas)
       } catch (e) { console.error('[Auth] registrarSessao:', e) }
     }
 
-    supabase.auth.getSession().then(async ({ data: { session } }) => {
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      if (!vivo) return
       setSession(session)
-      try {
-        if (session?.user) await entrar(session)
-        else setUser(null)
-      } catch (e) {
-        console.error('[Auth] getSession:', e)
-        if (session?.user) setUser(session.user)
-      } finally {
-        setCarregando(false)
-      }
-    }).catch(e => { console.error('[Auth] getSession rejeitou:', e); setCarregando(false) })
+      setUser(session?.user ?? null)
+      setCarregando(false)
+      if (session?.user) setTimeout(() => provisionar(session, { primeiroLogin: false }), 0)
+    }).catch(e => { console.error('[Auth] getSession rejeitou:', e); if (vivo) setCarregando(false) })
 
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(async (event, session) => {
+    // ⚠️ NÃO tornar este callback `async` e NÃO chamar supabase.* direto aqui.
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
       setSession(session)
-      try {
-        if (session?.user) {
-          await entrar(session, { primeiroLogin: event === 'SIGNED_IN' })
-        } else {
-          setUser(null)
-          setPerfil(null)
-        }
-      } catch (e) {
-        console.error('[Auth] onAuthStateChange:', e)
-        if (session?.user) setUser(session.user)
-      } finally {
-        setCarregando(false)
+      setUser(session?.user ?? null)
+      setCarregando(false)
+      if (!session?.user) {
+        setPerfil(null)
+        provisionadosRef.current.clear()
+        return
+      }
+      // getSession() acima já cobre a sessão de carga de página; aqui só o
+      // que é AO VIVO (login agora, dados do usuário mudaram).
+      if (event === 'SIGNED_IN' || event === 'USER_UPDATED') {
+        setTimeout(() => provisionar(session, { primeiroLogin: event === 'SIGNED_IN' }), 0)
       }
     })
-    return () => subscription.unsubscribe()
+    return () => { vivo = false; subscription.unsubscribe() }
   }, [])
 
   async function carregarPerfil(userId) {

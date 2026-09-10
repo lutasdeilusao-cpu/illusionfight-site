@@ -36,6 +36,16 @@ export default function Login() {
       trackEvent('login', { method: 'email' })
       navigate('/perfil')
     } catch {
+      // Timeout / erro de rede: o login pode ter dado certo mesmo assim — a
+      // sessão é gravada ANTES da promise resolver. Confere antes de acusar erro.
+      try {
+        const { data: { session } } = await supabase.auth.getSession()
+        if (session?.user) {
+          trackEvent('login', { method: 'email' })
+          navigate('/perfil')
+          return
+        }
+      } catch { /* segue pro erro */ }
       trackEvent('login_error', { method: 'email', error_type: 'exception' })
       setErro(t('site.login.erro_generico'))
     } finally {

@@ -125,7 +125,17 @@ export default function Cadastro() {
       }
       setPrecisaConfirmar(true)
     } catch (err) {
-      // Timeout, exceção de rede, storage — qualquer coisa cai aqui.
+      // Timeout, exceção de rede, storage — qualquer coisa cai aqui. Mas o
+      // signUp/login grava a sessão ANTES da promise resolver: se já tem
+      // sessão, o cadastro deu certo — entra em vez de mostrar erro.
+      try {
+        const { data: { session } } = await supabase.auth.getSession()
+        if (session?.user) {
+          trackEvent('signup_complete', { via: 'timeout_recovery' })
+          navigate('/perfil')
+          return
+        }
+      } catch { /* segue pro erro */ }
       trackEvent('signup_error', { error_code: String(err?.message || 'exception').slice(0, 40) })
       setErro(t('site.cadastro.erro_generico'))
     } finally {
