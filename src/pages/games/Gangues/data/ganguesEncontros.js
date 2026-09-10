@@ -74,9 +74,13 @@ export const GANGUES_CHEFE_EQUIPE = {
 //   morro  L70 · 6 fichas · 420 pts → budget ~483
 //   alto   L84 · 6 fichas · 504 pts → budget ~580
 //   laje   L99 · 6 fichas · 594 pts → budget ~700 (paredão, ~1.18×)
-// Só a Pista está pra ser confirmada em playtest; as outras 6 recalibrar
-// quando cada uma ganhar cena própria + simulação dedicada.
-export const GANGUES_CHEFE_BUDGET = { pista: 35, feira: 97, baixada: 193, vila: 322, morro: 483, alto: 580, laje: 700 }
+//
+// AJUSTE jan/2027 (feedback do Isaias — "tô matando no automático com uma
+// porrada, sou muito de upar"): +~4 níveis por ficha em cada chefe (o Isaias
+// pediu "3 a 5 pontos"), +5 na Laje. Não é soft-scaling (o chefe continua
+// fixo — o loop de RPG é voltar mais forte), só um piso mais alto pra não
+// virar pushover pra quem chega no nível-alvo. Playtest pra confirmar.
+export const GANGUES_CHEFE_BUDGET = { pista: 44, feira: 110, baixada: 210, vila: 345, morro: 510, alto: 606, laje: 732 }
 export const GANGUES_CHEFE_LIDER_FRAC = 0.60
 // Quantos CORPOS o bando do chefe tem (o resto de GANGUES_CHEFE_EQUIPE fica só
 // pra lore/álbum). Pista = 2 (Carvão + Rasteira Velha): 2×2 é a única treta

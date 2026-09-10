@@ -440,30 +440,31 @@ export default function GanguesCombat({ onNavigate }) {
       if (event.type === 'attack') {
         const dano = event.result?.damage || 0
         const fatal = (alvo?.pv ?? 1) <= 0
-        soltarDmgPop({
-          id: event.id, targetKey: event.targetKey,
-          actorName: fighterName(t, atacante) || '?', amount: dano,
-          critical: Boolean(event.result?.critical), shield: event.result?.shieldConsumed || 0, fatal,
-        })
-        // callout central — sempre (menos no fatal, que o card de KO já cobre).
-        // Dano 0 vira "DEFENDEU / não passou" pra o jogador saber que NÃO perdeu
-        // vida (o Isaias viu DANO 0 e ficou achando que perdeu 1).
-        if (!fatal) {
-          const escudo = event.result?.shieldConsumed || 0
-          danoQueueRef.current.push({
-            id: event.id,
-            alvoNome: fighterName(t, alvo) || '?',
-            atacanteNome: fighterName(t, atacante) || '?',
-            valor: dano, critico: Boolean(event.result?.critical),
-            escudo, defendeu: dano === 0 && escudo === 0,
-            side: alvo?.side || (event.side === 'player' ? 'enemy' : 'player'),
-            dur: dano === 0 && escudo === 0 ? 620 : event.side === 'enemy' ? 950 : 680,
+        const escudo = event.result?.shieldConsumed || 0
+        // Golpe que NÃO tirou nada (guarda segurou, sem escudo consumido) não
+        // mostra nada — nem número flutuante, nem callout (pedido do Isaias:
+        // "quando não tá dando dano não precisa mostrar nada").
+        if (dano > 0 || escudo > 0) {
+          soltarDmgPop({
+            id: event.id, targetKey: event.targetKey,
+            actorName: fighterName(t, atacante) || '?', amount: dano,
+            critical: Boolean(event.result?.critical), shield: escudo, fatal,
           })
-          if (!danoAtivoRef.current) dispararProximoDano()
-        }
-        if (dano > 0 && !event.result?.critical) {
-          sfx.attackPunch?.()
-          if (event.side === 'enemy') dispararNudge()
+          if (!fatal) {
+            danoQueueRef.current.push({
+              id: event.id,
+              alvoNome: fighterName(t, alvo) || '?',
+              atacanteNome: fighterName(t, atacante) || '?',
+              valor: dano, critico: Boolean(event.result?.critical), escudo,
+              side: alvo?.side || (event.side === 'player' ? 'enemy' : 'player'),
+              dur: event.side === 'enemy' ? 1500 : 1050,
+            })
+            if (!danoAtivoRef.current) dispararProximoDano()
+          }
+          if (dano > 0 && !event.result?.critical) {
+            sfx.attackPunch?.()
+            if (event.side === 'enemy') dispararNudge()
+          }
         }
       } else if (event.type === 'item' && (event.curado || 0) > 0) {
         soltarDmgPop({
@@ -475,7 +476,7 @@ export default function GanguesCombat({ onNavigate }) {
           id: event.id, cura: true,
           alvoNome: fighterName(t, alvo) || '?',
           atacanteNome: fighterName(t, atacante) || '?',
-          valor: event.curado, side: 'player', dur: 820,
+          valor: event.curado, side: 'player', dur: 1150,
         })
         if (!danoAtivoRef.current) dispararProximoDano()
       }
@@ -641,7 +642,7 @@ export default function GanguesCombat({ onNavigate }) {
         {danoCena && !koCena && (
           <motion.div
             key={danoCena.id}
-            className={`gang-dano-cena gang-dano-cena--${danoCena.cura ? 'cura' : danoCena.defendeu ? 'defesa' : danoCena.side === 'player' ? 'aliado' : 'inimigo'}${danoCena.critico ? ' gang-dano-cena--crit' : ''}`}
+            className={`gang-dano-cena gang-dano-cena--${danoCena.cura ? 'cura' : danoCena.side === 'player' ? 'aliado' : 'inimigo'}${danoCena.critico ? ' gang-dano-cena--crit' : ''}`}
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
           >
             <motion.i className="gang-dano-cena__faixa" aria-hidden="true"
@@ -653,16 +654,14 @@ export default function GanguesCombat({ onNavigate }) {
               {danoCena.critico && <span className="gang-dano-cena__tag">{t('games.gangues.critico')}</span>}
               <strong className="gang-dano-cena__nome">{danoCena.alvoNome}</strong>
               <span className="gang-dano-cena__valor">
-                {danoCena.cura ? `+${danoCena.valor}` : danoCena.defendeu ? t('games.gangues.dano_cena_defendeu') : danoCena.valor > 0 ? `−${danoCena.valor}` : '🛡'}
+                {danoCena.cura ? `+${danoCena.valor}` : danoCena.valor > 0 ? `−${danoCena.valor}` : '🛡'}
               </span>
               <span className="gang-dano-cena__rot">
                 {danoCena.cura
                   ? t('games.gangues.dano_cena_cura', { nome: danoCena.atacanteNome })
-                  : danoCena.defendeu
-                    ? t('games.gangues.dano_cena_sem_dano')
-                    : danoCena.valor > 0
-                      ? t('games.gangues.dano_cena_dano', { nome: danoCena.atacanteNome })
-                      : t('games.gangues.dano_cena_guarda', { n: danoCena.escudo })}
+                  : danoCena.valor > 0
+                    ? t('games.gangues.dano_cena_dano', { nome: danoCena.atacanteNome })
+                    : t('games.gangues.dano_cena_guarda', { n: danoCena.escudo })}
               </span>
             </motion.div>
           </motion.div>

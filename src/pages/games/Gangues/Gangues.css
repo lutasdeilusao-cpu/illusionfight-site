@@ -657,8 +657,9 @@
    reclamou 3× que o dano passava batido, e que texto seco sobre texto seco
    não dava destaque. */
 .gang-dano-cena {
-  position: fixed; left: 0; right: 0; top: 22%; z-index: 1250;
-  display: grid; place-items: center;
+  position: fixed; left: 0; right: 0; top: 20%; z-index: 1250;
+  min-height: 128px;
+  display: flex; align-items: center; justify-content: center;
   pointer-events: none;
   --dc-cor: #ff5252; --dc-ink: #1a0505;
 }
@@ -667,10 +668,9 @@
 .gang-dano-cena--cura    { --dc-cor: #3fdc85; --dc-ink: #052015; }
 .gang-dano-cena--defesa  { --dc-cor: #8aa0ad; --dc-ink: #0c1418; }
 
-/* a faixa lateral — cobre a largura toda, escala de dentro pra fora */
+/* a faixa lateral — preenche a caixa inteira do callout (mesmo centro do texto) */
 .gang-dano-cena__faixa {
-  position: absolute; left: 0; right: 0; top: 50%; height: 118px;
-  transform: translateY(-50%);
+  position: absolute; inset: 0;
   transform-origin: center;
   background:
     linear-gradient(90deg, transparent, color-mix(in srgb, var(--dc-cor) 22%, transparent) 18%,
@@ -681,11 +681,12 @@
   border-bottom: 2px solid color-mix(in srgb, var(--dc-cor) 70%, transparent);
   box-shadow: 0 0 40px -6px color-mix(in srgb, var(--dc-cor) 45%, transparent);
 }
-.gang-dano-cena--crit .gang-dano-cena__faixa { height: 150px; }
+.gang-dano-cena--crit .gang-dano-cena__faixa { box-shadow: 0 0 60px -4px color-mix(in srgb, var(--dc-cor) 60%, transparent); }
 
 .gang-dano-cena__txt {
   position: relative; z-index: 1;
-  display: grid; justify-items: center; gap: 2px; text-align: center;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 1px; text-align: center; line-height: 1;
 }
 .gang-dano-cena__tag {
   font: 900 0.66rem var(--font-mono); letter-spacing: 0.24em; text-transform: uppercase;
