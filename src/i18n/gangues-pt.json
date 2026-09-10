@@ -1790,6 +1790,8 @@
         "recompensa": "Rendeu",
         "treta_nao": "Agora não, sussa",
         "treta_sim": "Partiu porrada",
+        "treta_sim_risco": "Vou assim mesmo",
+        "nivel_rec_baixo": "Recomendado: tropa no nível {rec}. A tua tá em média no {atual} — vai apanhar feio. Farma umas tretas mais fáceis antes de encarar essa.",
         "evento_tag": "ENCONTRO",
         "evento_sim": "Encara",
         "evento_nao": "Passa reto",

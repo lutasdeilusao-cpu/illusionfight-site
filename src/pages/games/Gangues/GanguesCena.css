@@ -298,7 +298,12 @@
   font: 700 0.62rem var(--font-mono); color: var(--text-secondary);
 }
 .gang-cena-vs-stats i { font-style: normal; color: var(--if-cyan); margin-right: 2px; }
-.gang-cena-vs-aviso { margin: 0.2rem 0 0; font: 600 0.7rem var(--font-mono); color: #ff9a9a; }
+.gang-cena-vs-aviso {
+  margin: 0.35rem 0 0; padding: 7px 10px; width: 100%;
+  font: 700 0.68rem var(--font-mono); line-height: 1.4; color: #ffcf9a; text-align: left;
+  border: 1px dashed #b56a2e; background: rgba(255, 140, 40, 0.08);
+}
+.gang-cena-btn--risco { background: #c9642e; border-color: #c9642e; color: #1a0a03; }
 
 /* descanso */
 .gang-cena-folego--big { gap: 8px; }

@@ -266,6 +266,7 @@ export const CENA_PISTA = {
     },
     {
       id: 'beco',
+      nivelRec: 2,
       tipo: 'treta',
       // Continua OBRIGATÓRIA pra abrir o portão (portao.precisa) — repetivel
       // só faz ela continuar desafiável DEPOIS de vencida uma vez, igual a
@@ -312,6 +313,7 @@ export const CENA_PISTA = {
     },
     {
       id: 'beco_2',
+      nivelRec: 4,
       tipo: 'treta',
       // Regra geral (pedido do Isaias): todo evento de batalha da história
       // deve poder ser repetido pra upar, exceto o chefe. Continua
@@ -334,6 +336,7 @@ export const CENA_PISTA = {
       // quem corre sem upar chegar no Carvão já em L6-L7 (e apanhar). Pool
       // comum da Pista, 'normal'. Repetível pra farm.
       id: 'beco_3',
+      nivelRec: 6,
       tipo: 'treta',
       repetivel: true,
       pino: { x: 40, y: 40 },
@@ -351,6 +354,7 @@ export const CENA_PISTA = {
       // + Rasteira Velha) caem antes do Carvão descer. Entra no álbum aqui,
       // não só na luta de chefe.
       id: 'sinaleiro',
+      nivelRec: 8,
       tipo: 'treta',
       repetivel: true,
       pino: { x: 66, y: 30 },
@@ -369,6 +373,7 @@ export const CENA_PISTA = {
       // tem o nome dela. `liderFixo` força o bando a vir SEMPRE com ela na
       // frente (+ escolta sorteada). 'dificil' + obrigatória pro portão.
       id: 'rasteira_velha',
+      nivelRec: 10,
       tipo: 'treta',
       repetivel: true,
       pino: { x: 58, y: 30 },
@@ -470,6 +475,7 @@ export const CENA_PISTA = {
       // tocaia. Tem que bater os dois pra a porta do galpão destrancar
       // (galpao.abreComResolvido). Repetíveis pra farm depois.
       id: 'posmuro_1',
+      nivelRec: 11,
       tipo: 'treta',
       repetivel: true,
       pos_portao: true,
@@ -484,6 +490,7 @@ export const CENA_PISTA = {
     },
     {
       id: 'posmuro_2',
+      nivelRec: 13,
       tipo: 'treta',
       repetivel: true,
       pino: { x: 60, y: 60 },
@@ -633,7 +640,7 @@ export const CENA_PISTA = {
           ],
           cenario: [{ tipo: 'chao-tunel' }, { tipo: 'lampada-tunel', x: 180, y: 40 }, { tipo: 'lampada-tunel', x: 180, y: 230 }, { tipo: 'escombro', x: 300, y: 300 }],
           pois: [
-            { poi: { id: 'tunel_m2', tipo: 'treta', repetivel: true, revezamento: { pool: PISTA_POOL_RUA, budgetPorCorpo: 6, chanceDupla: 0.45 }, i18n: 'games.gangues.cena.pista.tunel.m2', recompensa: { grana: 7, rep: 3 } }, pos: { x: 180, y: 210 } },
+            { poi: { id: 'tunel_m2', tipo: 'treta', repetivel: true, nivelRec: 8, revezamento: { pool: PISTA_POOL_RUA, budgetPorCorpo: 6, chanceDupla: 0.45 }, i18n: 'games.gangues.cena.pista.tunel.m2', recompensa: { grana: 7, rep: 3 } }, pos: { x: 180, y: 210 } },
             { poi: { id: 'tunel_achado', tipo: 'achado', opcional: true, i18n: 'games.gangues.cena.pista.tunel.achado', recompensa: { grana: 14, item: 13 } }, pos: { x: 290, y: 120 } },
           ],
           passagem: { x: 140, y: 30, w: 80, h: 24, para: 2, precisa: 'tunel_m2', label: 'avancar' },
@@ -678,7 +685,7 @@ export const CENA_PISTA = {
             { tipo: 'empilhadeira', x: 405, y: 235 }, { tipo: 'chao-galpao' },
           ],
           pois: [
-            { poi: { id: 'galpao_m1', tipo: 'treta', repetivel: true, enemy: 1202, dificuldade: 'facil', i18n: 'games.gangues.cena.pista.galpao.m1', recompensa: { grana: 6, rep: 2 } }, pos: { x: 300, y: 130 } },
+            { poi: { id: 'galpao_m1', tipo: 'treta', repetivel: true, nivelRec: 12, enemy: 1202, dificuldade: 'facil', i18n: 'games.gangues.cena.pista.galpao.m1', recompensa: { grana: 6, rep: 2 } }, pos: { x: 300, y: 130 } },
           ],
           passagem: { x: 220, y: 34, w: 80, h: 24, para: 1, precisa: 'galpao_m1', label: 'avancar' },
         },
@@ -696,7 +703,7 @@ export const CENA_PISTA = {
             { tipo: 'chao-galpao' },
           ],
           pois: [
-            { poi: { id: 'galpao_m2', tipo: 'treta', repetivel: true, enemy: 1301, liderFixo: 1301, dificuldade: 'normal', i18n: 'games.gangues.cena.pista.galpao.m2', recompensa: { grana: 8, rep: 3 } }, pos: { x: 220, y: 180 } },
+            { poi: { id: 'galpao_m2', tipo: 'treta', repetivel: true, nivelRec: 14, enemy: 1301, liderFixo: 1301, dificuldade: 'normal', i18n: 'games.gangues.cena.pista.galpao.m2', recompensa: { grana: 8, rep: 3 } }, pos: { x: 220, y: 180 } },
             { poi: { id: 'galpao_achado', tipo: 'achado', opcional: true, i18n: 'games.gangues.cena.pista.galpao.achado', recompensa: { grana: 18, item: 1 } }, pos: { x: 388, y: 150 } },
           ],
           passagem: { x: 200, y: 34, w: 80, h: 24, para: 2, precisa: 'galpao_m2', label: 'avancar' },
@@ -745,6 +752,9 @@ export const CENA_PISTA = {
     poiNo: 'pista-chefe', // nó real em ganguesTerritorios.js (marcarNoDominado)
     tipo: 'treta',
     pino: { x: 50, y: 12 },
+    // Nível recomendado da tropa pra encarar (aviso no TretaVS quando abaixo).
+    // O Carvão tem orçamento fixo ~L15+; abaixo disso é pau feio.
+    nivelRec: 15,
     i18n: 'games.gangues.cena.pista.boss',
     // Ficha própria (não mais "kaeda" emprestado) — o combate real agora
     // mostra "Fumaça" lutando, batendo com a fala/nome já usados na tela
