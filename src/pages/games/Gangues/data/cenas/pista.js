@@ -30,15 +30,15 @@ const RUA_PISTA =
 // ── Mundo navegável do exterior ──────────────────────────────
 // (antes eram consts soltas em GanguesCena.jsx — agora moram no dado da cena,
 //  pra o mesmo motor servir os interiores na fase 2)
-const MUNDO_PISTA = { w: 760, h: 1840, spawn: { x: 380, y: 1720 } }
+const MUNDO_PISTA = { w: 760, h: 2340, spawn: { x: 380, y: 2220 } }
 
 // Quarteirões — os blocos SÓLIDOS de construção (colisão). São exatamente os
 // COLLIDERS antigos: o motor não muda, só ganha prédio desenhado por cima.
 const QUARTEIROES_PISTA = [
-  { x: 0, y: 350, w: 287, h: 326 }, { x: 473, y: 350, w: 287, h: 326 },
-  { x: 0, y: 802, w: 287, h: 370 }, { x: 473, y: 802, w: 287, h: 370 },
-  { x: 0, y: 1302, w: 287, h: 190 }, { x: 473, y: 1302, w: 287, h: 190 },
-  { x: 0, y: 1622, w: 287, h: 218 }, { x: 473, y: 1622, w: 287, h: 218 },
+  { x: 0, y: 850, w: 287, h: 326 }, { x: 473, y: 850, w: 287, h: 326 },
+  { x: 0, y: 1302, w: 287, h: 370 }, { x: 473, y: 1302, w: 287, h: 370 },
+  { x: 0, y: 1802, w: 287, h: 190 }, { x: 473, y: 1802, w: 287, h: 190 },
+  { x: 0, y: 2122, w: 287, h: 218 }, { x: 473, y: 2122, w: 287, h: 218 },
 ]
 
 // Moldes que as tretas de rua da Pista revezam ("estilo Pokémon"). Antes eram
@@ -48,6 +48,9 @@ const QUARTEIROES_PISTA = [
 const PISTA_POOL_RUA = [1101, 1102, 1103, 1104, 1105, 1106, 1107, 1108, 1109, 1201, 1202, 1203, 1204, 1205]
 // Só vigia (sem vapor) pro corredor do túnel — o degrau mais fácil.
 const PISTA_POOL_TUNEL = [1101, 1102, 1103, 1104, 1105, 1106, 1107, 1108, 1109, 1110]
+// Guarda-costas do Carvão (pós-muro, antes do galpão) — o bonde de verdade:
+// vapor casca-grossa + gerente. Um degrau acima da rua.
+const PISTA_POOL_GALPAO = [1206, 1207, 1208, 1301, 1302, 1303, 1401, 1402]
 
 // Prédios (só VISUAL — a colisão vem dos quarteirões). Cada bloco de favela é
 // vários barracos/lajes desalinhados, não uma caixa só. `tipo`:
@@ -59,43 +62,43 @@ const PISTA_POOL_TUNEL = [1101, 1102, 1103, 1104, 1105, 1106, 1107, 1108, 1109, 
 // `porta`: { para } marca onde a fase 2 abre um interior (na fase 1 é decorativa).
 const PREDIOS_PISTA = [
   // ── Entrada da Pista (base, y>1622) ──
-  { id: 'e1', tipo: 'barraco', x: 8, y: 1636, w: 150, h: 118, cor: '#7a6a52', luz: 1 },
-  { id: 'e2', tipo: 'laje', x: 150, y: 1622, w: 132, h: 150, andares: 2, cor: '#8f8577', varal: 1 },
-  { id: 'e3', tipo: 'barraco', x: 486, y: 1648, w: 140, h: 110, cor: '#6f6350' },
-  { id: 'e4', tipo: 'sobrado', x: 620, y: 1622, w: 138, h: 170, cor: '#4a6a63', luz: 1, varal: 1 },
+  { id: 'e1', tipo: 'barraco', x: 8, y: 2136, w: 150, h: 118, cor: '#7a6a52', luz: 1 },
+  { id: 'e2', tipo: 'laje', x: 150, y: 2122, w: 132, h: 150, andares: 2, cor: '#8f8577', varal: 1 },
+  { id: 'e3', tipo: 'barraco', x: 486, y: 2148, w: 140, h: 110, cor: '#6f6350' },
+  { id: 'e4', tipo: 'sobrado', x: 620, y: 2122, w: 138, h: 170, cor: '#4a6a63', luz: 1, varal: 1 },
   // ── Miolo baixo (Bar do Zé / Banca, y1302–1492) ──
-  { id: 'c1', tipo: 'comercio', x: 137, y: 1330, w: 150, h: 152, cor: '#b8863b', nome: 'games.gangues.cena.pista.predio.bar', porta: { para: 'birosca', zx: 332, zy: 1405 }, toldo: 1, solo: 1 },
-  { id: 'c2', tipo: 'laje', x: 156, y: 1310, w: 126, h: 170, andares: 2, cor: '#8a8074', pich: 1 },
-  { id: 'c3', tipo: 'comercio', x: 476, y: 1322, w: 150, h: 158, cor: '#3f6f8a', nome: 'games.gangues.cena.pista.predio.banca', portao_aco: 1 },
-  { id: 'c4', tipo: 'barraco', x: 628, y: 1332, w: 128, h: 150, cor: '#726552', luz: 1 },
+  { id: 'c1', tipo: 'comercio', x: 137, y: 1830, w: 150, h: 152, cor: '#b8863b', nome: 'games.gangues.cena.pista.predio.bar', porta: { para: 'birosca', zx: 332, zy: 1905 }, toldo: 1, solo: 1 },
+  { id: 'c2', tipo: 'laje', x: 156, y: 1810, w: 126, h: 170, andares: 2, cor: '#8a8074', pich: 1 },
+  { id: 'c3', tipo: 'comercio', x: 476, y: 1822, w: 150, h: 158, cor: '#3f6f8a', nome: 'games.gangues.cena.pista.predio.banca', portao_aco: 1 },
+  { id: 'c4', tipo: 'barraco', x: 628, y: 1832, w: 128, h: 150, cor: '#726552', luz: 1 },
   // ── Banda da praça (mercadinho, fliperama, y802–1172) ──
-  { id: 'b1', tipo: 'laje', x: 4, y: 812, w: 150, h: 180, andares: 3, cor: '#948a7c', varal: 1, pich: 1 },
-  { id: 'b2', tipo: 'barraco', x: 150, y: 900, w: 132, h: 122, cor: '#6b5f4d' },
-  { id: 'b3', tipo: 'laje', x: 150, y: 806, w: 132, h: 96, cor: '#8b8175', luz: 1 },
-  { id: 'b4', tipo: 'comercio', x: 476, y: 820, w: 154, h: 150, cor: '#a85f3b', nome: 'games.gangues.cena.pista.predio.mercado', toldo: 1 },
-  { id: 'b5', tipo: 'comercio', x: 476, y: 970, w: 154, h: 110, cor: '#5a4a8a', nome: 'games.gangues.cena.pista.predio.fliperama', luz: 1 },
-  { id: 'b6', tipo: 'laje', x: 630, y: 812, w: 126, h: 180, andares: 2, cor: '#8f8578', varal: 1 },
+  { id: 'b1', tipo: 'laje', x: 4, y: 1312, w: 150, h: 180, andares: 3, cor: '#948a7c', varal: 1, pich: 1 },
+  { id: 'b2', tipo: 'barraco', x: 150, y: 1400, w: 132, h: 122, cor: '#6b5f4d' },
+  { id: 'b3', tipo: 'laje', x: 150, y: 1306, w: 132, h: 96, cor: '#8b8175', luz: 1 },
+  { id: 'b4', tipo: 'comercio', x: 476, y: 1320, w: 154, h: 150, cor: '#a85f3b', nome: 'games.gangues.cena.pista.predio.mercado', toldo: 1 },
+  { id: 'b5', tipo: 'comercio', x: 476, y: 1470, w: 154, h: 110, cor: '#5a4a8a', nome: 'games.gangues.cena.pista.predio.fliperama', luz: 1 },
+  { id: 'b6', tipo: 'laje', x: 630, y: 1312, w: 126, h: 180, andares: 2, cor: '#8f8578', varal: 1 },
   // ── Oficina do Nando (miolo baixo-esq, y676+) ── nasce fora de quarteirão
-  { id: 'of', tipo: 'comercio', x: 150, y: 610, w: 128, h: 92, cor: '#c2a03b', nome: 'games.gangues.cena.pista.predio.oficina', porta: { para: 'oficina', zx: 232, zy: 744 }, oficina: 1, solo: 1 },
+  { id: 'of', tipo: 'comercio', x: 150, y: 1110, w: 128, h: 92, cor: '#c2a03b', nome: 'games.gangues.cena.pista.predio.oficina', porta: { para: 'oficina', zx: 232, zy: 1244 }, oficina: 1, solo: 1 },
   // ── Antes do MURO (y350–676) — a base da gangue rival ──
-  { id: 'a1', tipo: 'laje', x: 4, y: 356, w: 150, h: 200, andares: 3, cor: '#7d7468', pich: 1 },
-  { id: 'a2', tipo: 'barraco', x: 152, y: 500, w: 130, h: 160, cor: '#5f5545' },
-  { id: 'a3', tipo: 'laje', x: 152, y: 356, w: 130, h: 140, andares: 2, cor: '#867c70', varal: 1 },
+  { id: 'a1', tipo: 'laje', x: 4, y: 856, w: 150, h: 200, andares: 3, cor: '#7d7468', pich: 1 },
+  { id: 'a2', tipo: 'barraco', x: 152, y: 1000, w: 130, h: 160, cor: '#5f5545' },
+  { id: 'a3', tipo: 'laje', x: 152, y: 856, w: 130, h: 140, andares: 2, cor: '#867c70', varal: 1 },
   // A BOCA DO TÚNEL — barraco encostado no muro; por dentro dele desce a
   // passagem "secreta" que fura por BAIXO do muro. Só abre depois de fechar os
   // ponto (portao.precisa). O muro em si NUNCA abre — só depois de bater o
   // Carvão, aí libera a abertura pra facilitar o vai-e-vem.
-  { id: 'tunel_ent', tipo: 'barraco', x: 476, y: 352, w: 132, h: 122, cor: '#544b3d', pich: 1, nome: 'games.gangues.cena.pista.predio.tunel_ent', porta: { para: 'tunel', comodo: 0, zx: 452, zy: 404 }, solo: 1 },
+  { id: 'tunel_ent', tipo: 'barraco', x: 476, y: 852, w: 132, h: 122, cor: '#544b3d', pich: 1, nome: 'games.gangues.cena.pista.predio.tunel_ent', porta: { para: 'tunel', comodo: 0, zx: 452, zy: 904 }, solo: 1 },
   // ── DEPOIS do muro (y<330) — só se chega tunelando ──
   // Área pós-muro ESPAÇOSA: os 3 prédios (saída do túnel, loja, galpão)
   // encolheram e se espalharam no topo, deixando uma faixa larga e aberta em
   // baixo (y~220-330) pra atravessar sem corredor apertado. A porta do galpão
   // fica NESSA faixa aberta, embaixo do prédio.
-  { id: 'tunel_sai', tipo: 'barraco', x: 40, y: 40, w: 116, h: 104, cor: '#4e463a', pich: 1, nome: 'games.gangues.cena.pista.predio.tunel_sai', porta: { para: 'tunel', comodo: 2, zx: 96, zy: 172, spawn: { x: 260, y: 60 } }, solo: 1, pos_portao: 1 },
+  { id: 'tunel_sai', tipo: 'barraco', x: 300, y: 620, w: 132, h: 110, cor: '#4e463a', pich: 1, nome: 'games.gangues.cena.pista.predio.tunel_sai', porta: { para: 'tunel', comodo: 2, zx: 366, zy: 748, spawn: { x: 260, y: 60 } }, solo: 1, pos_portao: 1 },
   // A loja da Pista — do outro lado, equipa a gangue pro que vem.
-  { id: 'loja', tipo: 'comercio', x: 300, y: 36, w: 140, h: 108, cor: '#c25a2a', nome: 'games.gangues.cena.pista.predio.lojapista', porta: { para: 'loja', zx: 366, zy: 168 }, toldo: 1, pos_portao: 1, solo: 1 },
+  { id: 'loja', tipo: 'comercio', x: 40, y: 300, w: 150, h: 120, cor: '#c25a2a', nome: 'games.gangues.cena.pista.predio.lojapista', porta: { para: 'loja', zx: 115, zy: 444 }, toldo: 1, pos_portao: 1, solo: 1 },
   // ── O GALPÃO DO CARVÃO (topo-direita) ──
-  { id: 'galpao', tipo: 'galpao', x: 512, y: 30, w: 216, h: 186, cor: '#3a4247', pich: 1, porta: { para: 'galpao', zx: 612, zy: 244 }, portaX: 560, portaW: 92, solo: 1, pos_portao: 1 },
+  { id: 'galpao', tipo: 'galpao', x: 470, y: 24, w: 250, h: 210, cor: '#3a4247', pich: 1, porta: { para: 'galpao', zx: 596, zy: 262 }, portaX: 546, portaW: 100, solo: 1, pos_portao: 1 },
 ]
 
 // Empecilhos de rua — POR ENQUANTO todos são DECORAÇÃO (sem colisão). Buraco
@@ -103,53 +106,53 @@ const PREDIOS_PISTA = [
 // passo, sem sinal nenhum de que era pra contornar. O "desvia do buraco" volta
 // depois, com desenho de nível pensado (buraco fora da coluna de spawn, dica).
 const OBSTACULOS_PISTA = [
-  { id: 'o1', tipo: 'buraco', x: 300, y: 1660 },
-  { id: 'o2', tipo: 'entulho', x: 320, y: 1400 },
-  { id: 'o3', tipo: 'buraco', x: 448, y: 1330 },
-  { id: 'o4', tipo: 'lixo', x: 300, y: 1240 },
-  { id: 'o5', tipo: 'lombada', x: 380, y: 1190 },
-  { id: 'o6', tipo: 'pneu', x: 448, y: 1120 },
-  { id: 'o7', tipo: 'geladeira', x: 300, y: 1050 },
-  { id: 'o8', tipo: 'poca', x: 400, y: 900 },
-  { id: 'o9', tipo: 'buraco', x: 300, y: 760 },
-  { id: 'o10', tipo: 'bueiro', x: 448, y: 640 },
-  { id: 'o11', tipo: 'entulho', x: 300, y: 470 },
-  { id: 'o12', tipo: 'cone', x: 448, y: 400 },
-  { id: 'o13', tipo: 'lixo', x: 620, y: 1200 },
-  { id: 'o14', tipo: 'sofa', x: 120, y: 1240 },
+  { id: 'o1', tipo: 'buraco', x: 300, y: 2160 },
+  { id: 'o2', tipo: 'entulho', x: 320, y: 1900 },
+  { id: 'o3', tipo: 'buraco', x: 448, y: 1830 },
+  { id: 'o4', tipo: 'lixo', x: 300, y: 1740 },
+  { id: 'o5', tipo: 'lombada', x: 380, y: 1690 },
+  { id: 'o6', tipo: 'pneu', x: 448, y: 1620 },
+  { id: 'o7', tipo: 'geladeira', x: 300, y: 1550 },
+  { id: 'o8', tipo: 'poca', x: 400, y: 1400 },
+  { id: 'o9', tipo: 'buraco', x: 300, y: 1260 },
+  { id: 'o10', tipo: 'bueiro', x: 448, y: 1140 },
+  { id: 'o11', tipo: 'entulho', x: 300, y: 970 },
+  { id: 'o12', tipo: 'cone', x: 448, y: 900 },
+  { id: 'o13', tipo: 'lixo', x: 620, y: 1700 },
+  { id: 'o14', tipo: 'sofa', x: 120, y: 1740 },
 ]
 
 // Cenário — decoração pura, sem colisão. `tipo` desenha em CSS.
 const CENARIO_PISTA = [
   // praça (miolo, y790–1000, x210–550) — árvores, bancos, mural, quadra
-  { tipo: 'praca', x: 380, y: 895, w: 330, h: 200 },
-  { tipo: 'arvore', x: 300, y: 840 }, { tipo: 'arvore', x: 470, y: 860 },
-  { tipo: 'arvore', x: 360, y: 960 }, { tipo: 'arvore-seca', x: 250, y: 930 },
-  { tipo: 'banco', x: 330, y: 900 }, { tipo: 'banco', x: 430, y: 940 },
-  { tipo: 'coreto', x: 385, y: 880 },
-  { tipo: 'quadra', x: 130, y: 900, w: 150, h: 180 },
-  { tipo: 'cesta', x: 130, y: 830 },
-  { tipo: 'mural', x: 478, y: 1120, w: 150, h: 46 },
-  { tipo: 'orelhao', x: 300, y: 770 },
-  { tipo: 'bica', x: 470, y: 1000 },
+  { tipo: 'praca', x: 380, y: 1395, w: 330, h: 200 },
+  { tipo: 'arvore', x: 300, y: 1340 }, { tipo: 'arvore', x: 470, y: 1360 },
+  { tipo: 'arvore', x: 360, y: 1460 }, { tipo: 'arvore-seca', x: 250, y: 1430 },
+  { tipo: 'banco', x: 330, y: 1400 }, { tipo: 'banco', x: 430, y: 1440 },
+  { tipo: 'coreto', x: 385, y: 1380 },
+  { tipo: 'quadra', x: 130, y: 1400, w: 150, h: 180 },
+  { tipo: 'cesta', x: 130, y: 1330 },
+  { tipo: 'mural', x: 478, y: 1620, w: 150, h: 46 },
+  { tipo: 'orelhao', x: 300, y: 1270 },
+  { tipo: 'bica', x: 470, y: 1500 },
   // vida
-  { tipo: 'crianca', x: 340, y: 920 }, { tipo: 'crianca', x: 415, y: 890 },
-  { tipo: 'cachorro', x: 300, y: 1010 },
-  { tipo: 'moto', x: 95, y: 720 },
-  { tipo: 'carro-sem-roda', x: 620, y: 1470 },
-  { tipo: 'ponto-onibus', x: 640, y: 730 },
-  { tipo: 'caixa-dagua-com', x: 60, y: 1180 },
+  { tipo: 'crianca', x: 340, y: 1420 }, { tipo: 'crianca', x: 415, y: 1390 },
+  { tipo: 'cachorro', x: 300, y: 1510 },
+  { tipo: 'moto', x: 95, y: 1220 },
+  { tipo: 'carro-sem-roda', x: 620, y: 1970 },
+  { tipo: 'ponto-onibus', x: 640, y: 1230 },
+  { tipo: 'caixa-dagua-com', x: 60, y: 1680 },
   // varais entre prédios
-  { tipo: 'varal', x: 285, y: 1400, w: 60 }, { tipo: 'varal', x: 285, y: 900, w: 60 },
+  { tipo: 'varal', x: 285, y: 1900, w: 60 }, { tipo: 'varal', x: 285, y: 1400, w: 60 },
   // grafite / pichação no chão e muro
   { tipo: 'grafite', x: 70, y: 250, texto: 'games.gangues.cena.pista.grafite' },
-  { tipo: 'tenis-no-fio', x: 305, y: 1130 },
+  { tipo: 'tenis-no-fio', x: 305, y: 1630 },
 ]
 
 // Fiação aérea — pares [xA, yA, xB, yB] no mundo; puro visual (o gato).
 const FIACAO_PISTA = [
-  [45, 300, 690, 320], [45, 700, 690, 690], [45, 1120, 690, 1140],
-  [45, 1430, 690, 1420], [305, 250, 305, 1600], [455, 250, 455, 1600],
+  [45, 300, 690, 320], [45, 1200, 690, 1190], [45, 1620, 690, 1640],
+  [45, 1930, 690, 1920], [305, 250, 305, 2100], [455, 250, 455, 2100],
 ]
 
 export const CENA_PISTA = {
@@ -427,6 +430,37 @@ export const CENA_PISTA = {
       i18n: 'games.gangues.cena.pista.descanso_2',
       custoGrana: 10,
     },
+    {
+      // ── Guarda-costas do Carvão, PÓS-MURO — gate do galpão ──
+      // O caminho até o galpão (lá no fundo do mundo agora) tem dois bondes de
+      // tocaia. Tem que bater os dois pra a porta do galpão destrancar
+      // (galpao.abreComResolvido). Repetíveis pra farm depois.
+      id: 'posmuro_1',
+      tipo: 'treta',
+      repetivel: true,
+      pos_portao: true,
+      pino: { x: 40, y: 90 },
+      i18n: 'games.gangues.cena.pista.posmuro_1',
+      enemy: 1206,
+      revezamento: { pool: PISTA_POOL_GALPAO, budgetPorCorpo: 6, chanceDupla: 0.5 },
+      forca: 2,
+      dificuldade: 'normal',
+      recompensa: { grana: 9, rep: 3 },
+      revela: ['posmuro_2'],
+    },
+    {
+      id: 'posmuro_2',
+      tipo: 'treta',
+      repetivel: true,
+      pino: { x: 60, y: 60 },
+      i18n: 'games.gangues.cena.pista.posmuro_2',
+      enemy: 1301,
+      liderFixo: 1301,
+      revezamento: { pool: PISTA_POOL_GALPAO, budgetPorCorpo: 7, chanceDupla: 0.6 },
+      forca: 3,
+      dificuldade: 'dificil',
+      recompensa: { grana: 12, rep: 4 },
+    },
   ],
 
   // ── INTERIORES navegáveis (fase 2) ──────────────────────────
@@ -567,6 +601,9 @@ export const CENA_PISTA = {
     galpao: {
       nome: 'games.gangues.cena.pista.int.galpao',
       porta: { predio: 'galpao', posPortao: true },
+      // Porta só destranca depois de BATER os dois bondes de tocaia do
+      // caminho pós-muro (posmuro_1 → posmuro_2).
+      abreComResolvido: 'posmuro_2',
       comodos: [
         {
           id: 'doca',

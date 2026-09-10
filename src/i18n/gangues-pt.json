@@ -1869,6 +1869,14 @@
             "sub": "do outro lado do muro",
             "intro": "O primo do Nato toca uma birosca improvisada aqui do lado de lá. Mesma coisa: paga uns trocado e a tropa se ajeita antes de entrar no galpão do Carvão."
           },
+          "posmuro_1": {
+            "nome": "Os cão de guarda",
+            "fala": ["\"Cê perdeu a mão pra tá aqui, mano?\" O primeiro bonde do Carvão barra o caminho.", "Dois vapor casca-grossa fumando no batente do galpão. Te viram, já cospem no chão."]
+          },
+          "posmuro_2": {
+            "nome": "O gerente da boca",
+            "fala": ["O braço-direito do Carvão em pessoa, com escolta. \"Do muro pra cá quem entra é convidado. Cê foi convidado?\"", "Esse aqui não corre. Cruza os braço, faz sinal pros capanga: \"resolve.\""]
+          },
           "loja": {
             "nome": "Loja da Pista"
           },

@@ -64,8 +64,10 @@ function ItemCenario({ c, t }) {
 export default function CenaCenario({ cena, bossAberto, muroAberto }) {
   const { t } = useLanguage()
   const W = cena.mundo?.w || 760
-  const H = cena.mundo?.h || 1840
-  const lamps = [120, 300, 510, 680, 850, 1040, 1240, 1430, 1610]
+  const H = cena.mundo?.h || 2340
+  // postes: 2 na faixa pós-muro nova (o galpão fica lá no fundo) + os da rua
+  // (todos +500 pós a expansão do mundo).
+  const lamps = [120, 340, 520, 700, 1010, 1180, 1360, 1540, 1740, 1930, 2110]
 
   return (
     <>

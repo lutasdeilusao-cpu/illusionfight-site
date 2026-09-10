@@ -2279,6 +2279,14 @@
             "sub": "del otro lado del muro",
             "intro": "El primo de Nato tiene un bar improvisado de este lado. Lo mismo: pagás unas monedas y la tropa se acomoda antes de meterse en el galpón del Carvão."
           },
+          "posmuro_1": {
+            "nome": "Los perros guardianes",
+            "fala": ["\"¿Perdiste la cabeza para venir acá, chabón?\" El primer bonde del Carvão te cierra el paso.", "Dos vaporeros pesados fumando en la puerta del galpón. Te ven y escupen al piso."]
+          },
+          "posmuro_2": {
+            "nome": "El gerente de la boca",
+            "fala": ["La mano derecha del Carvão en persona, con escolta. \"Del muro para acá se entra por invitación. ¿Te invitaron?\"", "Este no corre. Cruza los brazos, hace seña a los matones: \"resolvé\"."]
+          },
           "loja": {
             "nome": "Tienda de la Pista"
           },

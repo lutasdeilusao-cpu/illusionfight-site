@@ -24,7 +24,7 @@ import GanguesEquipPanel from './components/GanguesEquipPanel'
 import GanguesSkillGrid from './components/GanguesSkillGrid'
 import './GanguesCena.css'
 
-const WORLD={w:760,h:1840}, SPAWN={x:380,y:1720}, TILE=20, STEP_MS=110, PLAYER_RADIUS=18
+const WORLD={w:760,h:2340}, SPAWN={x:380,y:2220}, TILE=20, STEP_MS=110, PLAYER_RADIUS=18
 // Igual aos outros tutoriais do NeoGuide (paths/atributos): guarda no
 // localStorage, não só em memória. Um Set em memória esquecia tudo a cada
 // recarregada de página — o jogador via a intro de novo toda vez que
@@ -38,7 +38,7 @@ function marcarCenaIntroVista(id){try{const atual=JSON.parse(localStorage.getIte
 // na ordem em que se revelam: birosca → beco_2 (baixo) → beco_3 (praça) →
 // sinaleiro (vão aberto) → rasteira_velha (o último, colado no muro). O
 // jogador sobe a Pista batendo um por um.
-const POS={sinal:{x:210,y:1570},ferro:{x:150,y:1325},achado:{x:110,y:1245},beco:{x:445,y:1190},birosca:{x:170,y:1460},corre:{x:610,y:1010},beco_2:{x:330,y:1270},beco_3:{x:380,y:950},sinaleiro:{x:440,y:755},rasteira_velha:{x:360,y:440},oficina:{x:250,y:705},descanso:{x:205,y:1440},descanso_2:{x:230,y:288},informante:{x:150,y:740},rinha:{x:610,y:740},loja:{x:210,y:250},boss:{x:570,y:175}}
+const POS={sinal:{x:210,y:2070},ferro:{x:150,y:1825},achado:{x:110,y:1745},beco:{x:445,y:1690},birosca:{x:170,y:1960},corre:{x:610,y:1510},beco_2:{x:330,y:1770},beco_3:{x:380,y:1450},sinaleiro:{x:440,y:1255},rasteira_velha:{x:360,y:940},oficina:{x:250,y:1205},descanso:{x:205,y:1940},descanso_2:{x:500,y:430},posmuro_1:{x:230,y:620},posmuro_2:{x:350,y:400},informante:{x:150,y:1240},rinha:{x:610,y:1240},loja:{x:210,y:250},boss:{x:570,y:175}}
 // Um obstáculo `solido` vira um retângulo de colisão PEQUENO em volta do ponto
 // (o jogador tem raio 18; corredor da pista ~186px — colisor grande trancava).
 function obstRect(o){return {x:o.x-15,y:o.y-11,w:30,h:22}}
@@ -52,25 +52,26 @@ function collidersDaCena(cena,bossAberto){
   return [...q,...s,...p]
 }
 const ENTRY_ZONES={
-  sinal:{x:243,y:1532,w:70,h:76},ferro:{x:270,y:1288,w:35,h:76},achado:{x:75,y:1212,w:72,h:72},beco:{x:355,y:1155,w:76,h:70},
-  birosca:{x:270,y:1418,w:35,h:82},corre:{x:455,y:970,w:35,h:82},
+  sinal:{x:243,y:2032,w:70,h:76},ferro:{x:270,y:1788,w:35,h:76},achado:{x:75,y:1712,w:72,h:72},beco:{x:355,y:1655,w:76,h:70},
+  birosca:{x:270,y:1918,w:35,h:82},corre:{x:455,y:1470,w:35,h:82},
   // Os 4 pontos da linha da Rasteira espalhados pela rua toda (o radar guia).
   // Cada zona no corredor andável da sua faixa. beco_2: vão aberto y1172-1302.
   // beco_3: corredor da praça (x287-473). sinaleiro: vão aberto y676-802.
   // rasteira_velha: corredor colado no muro. loja: já do outro lado (y<350).
-  beco_2:{x:300,y:1246,w:60,h:52},beco_3:{x:350,y:926,w:60,h:52},
-  sinaleiro:{x:410,y:731,w:60,h:52},rasteira_velha:{x:330,y:416,w:60,h:52},
-  loja:{x:175,y:216,w:72,h:72},oficina:{x:220,y:678,w:64,h:62},
+  beco_2:{x:300,y:1746,w:60,h:52},beco_3:{x:350,y:1426,w:60,h:52},
+  sinaleiro:{x:410,y:1231,w:60,h:52},rasteira_velha:{x:330,y:916,w:60,h:52},
+  loja:{x:175,y:216,w:72,h:72},oficina:{x:220,y:1178,w:64,h:62},
   // descanso_2: birosca improvisada na faixa aberta pós-muro (nenhum colisor ali).
-  descanso_2:{x:200,y:264,w:64,h:56},
-  // informante/rinha ficam num trecho SEM colisor nenhum (y:705-781 não tem
+  descanso_2:{x:470,y:406,w:64,h:56},
+  posmuro_1:{x:200,y:596,w:62,h:54},posmuro_2:{x:320,y:376,w:62,h:54},
+  // informante/rinha ficam num trecho SEM colisor nenhum (y:1205-781 não tem
   // nenhum COLLIDERS cobrindo essa faixa) — diferente de ferro/corre/etc,
   // que hospedam perto de prédio de verdade e por isso a zona anda longe do
   // pino (encosta na borda do prédio, não no ícone). Aqui não existe prédio,
   // então a zona fica centralizada NO PRÓPRIO ícone — senão o jogador anda
   // até o que vê na tela e nada acontece, porque a zona de verdade tava
   // longe dali.
-  descanso:{x:270,y:1375,w:35,h:72},informante:{x:120,y:710,w:60,h:60},rinha:{x:580,y:710,w:60,h:60},
+  descanso:{x:270,y:1875,w:35,h:72},informante:{x:120,y:1210,w:60,h:60},rinha:{x:580,y:1210,w:60,h:60},
   boss:{x:530,y:300,w:80,h:45},
 }
 
@@ -110,9 +111,12 @@ function montarAmbiente(cena,local,prog,baseFeita,muroAberto){
     const portas=(cena.predios||[]).filter(pr=>pr.porta?.para&&(!pr.pos_portao||laDeCima)).map(pr=>{
       const inter=cena.interiores?.[pr.porta.para]
       const gatePorPoi=inter?.abreCom
+      const gateResolvido=inter?.abreComResolvido // exige o POI VENCIDO (não só revelado)
       const liberada=inter?.gate==='portao'
         ? baseFeita
-        : (!gatePorPoi||prog.revelados[gatePorPoi]||prog.resolvidos[gatePorPoi]||prog.boss)
+        : gateResolvido
+          ? (Boolean(prog.resolvidos[gateResolvido])||prog.boss)
+          : (!gatePorPoi||prog.revelados[gatePorPoi]||prog.resolvidos[gatePorPoi]||prog.boss)
       const zx=pr.porta.zx??(pr.x+pr.w/2), zy=pr.porta.zy??(pr.y+pr.h+16)
       return {id:`porta_${pr.id}`,ehPorta:true,interId:pr.porta.para,predioId:pr.id,
         comodo:pr.porta.comodo||0,spawn:pr.porta.spawn,
@@ -383,23 +387,29 @@ export default function GanguesCena({onNavigate}){
     : `A PISTA `
   // Metas obrigatórias da cena (portao.precisa + o chefe) — o que abre o
   // caminho por baixo do muro. Vira a lista do checklist do topo.
+  const metaDe=id=>{
+    const p=cena.pois.find(x=>x.id===id)
+    return {id,nome:p?.i18n?t(`${p.i18n}.nome`):id,feito:Boolean(prog.resolvidos[id])}
+  }
   const metas=local?[]:[
-    ...(cena.portao?.precisa||[]).map(id=>{
-      const p=cena.pois.find(x=>x.id===id)
-      return {id,nome:p?.i18n?t(`${p.i18n}.nome`):id,feito:Boolean(prog.resolvidos[id])}
-    }),
+    ...(cena.portao?.precisa||[]).map(metaDe),
+    // depois que a brecha abre, os 2 bondes de tocaia pós-muro entram na lista
+    ...(baseFeita?['posmuro_1','posmuro_2'].map(metaDe):[]),
     {id:'__boss',nome:t(`games.gangues.story.bosses.${cena.chefe.boss}.nome`),feito:Boolean(prog.boss)},
   ]
   // Setinhas do mini-mapa: só os objetivos PENDENTES E JÁ REVELADOS (não
   // spoila o que o jogador ainda nem descobriu), com a posição no mundo. Se
   // tudo fechou mas o muro ainda não abriu, o alvo vira a boca do túnel.
   const minimapaAlvos=local?[]:metas.filter(m=>!m.feito).map(m=>{
-    if(m.id==='__boss'&&baseFeita&&!muroAberto)
-      // antes do muro: aponta pra boca do túnel. Já do outro lado (y<340):
-      // aponta pra porta do galpão do Carvão.
-      return player.y<340
-        ? {id:'__galpao',nome:t('games.gangues.cena.minimapa.galpao'),pos:{x:612,y:244}}
-        : {id:'__tunel',nome:t('games.gangues.cena.minimapa.tunel'),pos:{x:452,y:404}}
+    if(m.id==='__boss'&&baseFeita&&!muroAberto){
+      // Antes do muro: aponta pra boca do túnel.
+      if(player.y>=830) return {id:'__tunel',nome:t('games.gangues.cena.minimapa.tunel'),pos:{x:452,y:904}}
+      // Já do outro lado: primeiro os 2 bondes de tocaia (posmuro_1 → posmuro_2),
+      // depois a porta do galpão.
+      if(!prog.resolvidos.posmuro_1) return {id:'posmuro_1',nome:t('games.gangues.cena.pista.posmuro_1.nome'),pos:POS.posmuro_1}
+      if(!prog.resolvidos.posmuro_2) return {id:'posmuro_2',nome:t('games.gangues.cena.pista.posmuro_2.nome'),pos:POS.posmuro_2}
+      return {id:'__galpao',nome:t('games.gangues.cena.minimapa.galpao'),pos:{x:596,y:262}}
+    }
     if(m.id==='__boss') return {...m,pos:POS.boss}
     const pd=cena.pois.find(x=>x.id===m.id)
     if(!pd||!(pd.visivel||prog.revelados[m.id])) return null
@@ -418,7 +428,7 @@ export default function GanguesCena({onNavigate}){
       {(amb?.alvos||[]).map(p=><EntryZone key={`zone-${p.id}`} poi={p} active={perto?.id===p.id}/>)}
       {(amb?.alvos||[]).map(p=><PinoAlvo key={p.id} p={p} t={t}/>)}
       <GangMarker player={player} facing={facing} gangName={store.gangName}/>
-    </div><div className="gang-cena-vignette"/>{hint&&<div className="gang-cena-tutorial">{hint}</div>}{!local&&!muroAberto&&player.y<430&&<div className="gang-cena-gatelock">🔒 {t(baseFeita?'games.gangues.cena.muro_tunel':'games.gangues.cena.boss_trancado')}</div>}<AnimatePresence>{fade&&<motion.div className="gang-cena-fade" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} transition={{duration:.16}}/>}</AnimatePresence></div>
+    </div><div className="gang-cena-vignette"/>{hint&&<div className="gang-cena-tutorial">{hint}</div>}{!local&&!muroAberto&&player.y<930&&<div className="gang-cena-gatelock">🔒 {t(baseFeita?'games.gangues.cena.muro_tunel':'games.gangues.cena.boss_trancado')}</div>}<AnimatePresence>{fade&&<motion.div className="gang-cena-fade" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} transition={{duration:.16}}/>}</AnimatePresence></div>
     {!local&&!intro&&<GanguesMiniMapa player={player} alvos={minimapaAlvos}/>}
     <WorldControls onInput={v=>{inputRef.current=v}} onInteract={()=>abrir(perto)} action={perto?interactionLabel(perto,t):null}/>
     <AnimatePresence>{toast&&<motion.div className="gang-cena-toast" initial={{opacity:0,y:12}} animate={{opacity:1,y:0}} exit={{opacity:0}}><b>RECOMPENSA</b>{toast.grana?<span>💵 +{toast.grana}</span>:null}{toast.rep?<span>⚑ +{toast.rep}</span>:null}{toast.xp?<span>⚡ +{toast.xp} XP</span>:null}</motion.div>}</AnimatePresence>
@@ -554,7 +564,7 @@ function insideZone(p,z){return Boolean(z&&p.x+PLAYER_RADIUS>z.x&&p.x-PLAYER_RAD
 function hitsSolid(x,y,gate,colliders=[]){const hit=colliders.some(r=>x+PLAYER_RADIUS>r.x&&x-PLAYER_RADIUS<r.x+r.w&&y+PLAYER_RADIUS>r.y&&y-PLAYER_RADIUS<r.y+r.h);if(hit)return true;
   // portão da gangue rival — enquanto FECHADO barra a faixa y330-350; depois
   // de aberto (chefe/galpão liberados) a faixa fica livre.
-  if(gate==='fechado'&&y-PLAYER_RADIUS<350&&y+PLAYER_RADIUS>330)return true
+  if(gate==='fechado'&&y-PLAYER_RADIUS<850&&y+PLAYER_RADIUS>830)return true
   return false}
 function stepPlayer(p,dx,dy,gate,colliders,world){const W=world||WORLD;const x=Math.max(20,Math.min(W.w-20,p.x+dx*TILE)),y=Math.max(20,Math.min(W.h-24,p.y+dy*TILE));return hitsSolid(x,y,gate,colliders)?p:{x,y}}
 function WorldControls({onInput,onInteract,action}){const base=useRef(null),active=useRef(null);const update=useCallback((x,y)=>{const r=base.current?.getBoundingClientRect();if(!r)return;let dx=x-(r.left+r.width/2),dy=y-(r.top+r.height/2);const d=Math.hypot(dx,dy),max=42;if(d>max){dx=dx/d*max;dy=dy/d*max}base.current.style.setProperty('--jx',`${dx}px`);base.current.style.setProperty('--jy',`${dy}px`);onInput({x:dx/max,y:dy/max})},[onInput]);const stop=useCallback(()=>{active.current=null;if(base.current){base.current.style.setProperty('--jx','0px');base.current.style.setProperty('--jy','0px')}onInput({x:0,y:0})},[onInput]);return <div className="gang-world-controls"><div ref={base} className="gang-world-stick" onPointerDown={e=>{active.current=e.pointerId;e.currentTarget.setPointerCapture(e.pointerId);update(e.clientX,e.clientY)}} onPointerMove={e=>{if(active.current===e.pointerId)update(e.clientX,e.clientY)}} onPointerUp={stop} onPointerCancel={stop}><i/></div><button disabled={!action} onClick={onInteract}><b>{action||'...'}</b><span>INTERAGIR</span></button></div>}

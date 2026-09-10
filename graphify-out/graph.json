@@ -767,7 +767,7 @@
       "label": "12. \u00cdndice de fontes",
       "file_type": "document",
       "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L876",
+      "source_location": "L885",
       "_origin": "ast",
       "id": "docs_games_gangues_ldi_gangues_gdd_12_\u00edndice_de_fontes",
       "community": 4,
@@ -789,9 +789,9 @@
       "source_file": "src/pages/games/Gangues/GanguesVictory.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_ganguesvictory",
       "community": 439,
-      "norm_label": "ganguesvictory.jsx"
+      "norm_label": "ganguesvictory.jsx",
+      "id": "src_pages_games_gangues_ganguesvictory"
     },
     {
       "label": "combatantName()",
@@ -799,9 +799,9 @@
       "source_file": "src/pages/games/Gangues/GanguesVictory.jsx",
       "source_location": "L13",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_ganguesvictory_combatantname",
       "community": 439,
-      "norm_label": "combatantname()"
+      "norm_label": "combatantname()",
+      "id": "src_pages_games_gangues_ganguesvictory_combatantname"
     },
     {
       "label": "eventosDoLevelUp()",
@@ -809,9 +809,9 @@
       "source_file": "src/pages/games/Gangues/GanguesVictory.jsx",
       "source_location": "L24",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_ganguesvictory_eventosdolevelup",
       "community": 439,
-      "norm_label": "eventosdolevelup()"
+      "norm_label": "eventosdolevelup()",
+      "id": "src_pages_games_gangues_ganguesvictory_eventosdolevelup"
     },
     {
       "label": "GanguesVictory()",
@@ -819,9 +819,9 @@
       "source_file": "src/pages/games/Gangues/GanguesVictory.jsx",
       "source_location": "L33",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_ganguesvictory_ganguesvictory",
       "community": 439,
-      "norm_label": "ganguesvictory()"
+      "norm_label": "ganguesvictory()",
+      "id": "src_pages_games_gangues_ganguesvictory_ganguesvictory"
     },
     {
       "label": "ganguesEncontros.js",
@@ -829,9 +829,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesEncontros.js",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_data_ganguesencontros",
       "community": 420,
-      "norm_label": "ganguesencontros.js"
+      "norm_label": "ganguesencontros.js",
+      "id": "src_pages_games_gangues_data_ganguesencontros"
     },
     {
       "label": "GANGUES_TERRITORIO_ENCONTRO",
@@ -839,9 +839,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesEncontros.js",
       "source_location": "L31",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_data_ganguesencontros_gangues_territorio_encontro",
       "community": 40,
-      "norm_label": "gangues_territorio_encontro"
+      "norm_label": "gangues_territorio_encontro",
+      "id": "src_pages_games_gangues_data_ganguesencontros_gangues_territorio_encontro"
     },
     {
       "label": "GANGUES_CHEFE_EQUIPE",
@@ -849,9 +849,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesEncontros.js",
       "source_location": "L48",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_data_ganguesencontros_gangues_chefe_equipe",
       "community": 420,
-      "norm_label": "gangues_chefe_equipe"
+      "norm_label": "gangues_chefe_equipe",
+      "id": "src_pages_games_gangues_data_ganguesencontros_gangues_chefe_equipe"
     },
     {
       "label": "GANGUES_CHEFE_BUDGET",
@@ -859,9 +859,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesEncontros.js",
       "source_location": "L79",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_data_ganguesencontros_gangues_chefe_budget",
       "community": 420,
-      "norm_label": "gangues_chefe_budget"
+      "norm_label": "gangues_chefe_budget",
+      "id": "src_pages_games_gangues_data_ganguesencontros_gangues_chefe_budget"
     },
     {
       "label": "GANGUES_CHEFE_CORPOS",
@@ -869,9 +869,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesEncontros.js",
       "source_location": "L86",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_data_ganguesencontros_gangues_chefe_corpos",
       "community": 420,
-      "norm_label": "gangues_chefe_corpos"
+      "norm_label": "gangues_chefe_corpos",
+      "id": "src_pages_games_gangues_data_ganguesencontros_gangues_chefe_corpos"
     },
     {
       "label": "GANGUES_TERRITORIO_RATIO",
@@ -879,9 +879,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesEncontros.js",
       "source_location": "L95",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_data_ganguesencontros_gangues_territorio_ratio",
       "community": 420,
-      "norm_label": "gangues_territorio_ratio"
+      "norm_label": "gangues_territorio_ratio",
+      "id": "src_pages_games_gangues_data_ganguesencontros_gangues_territorio_ratio"
     },
     {
       "label": "GANGUES_DIFICULDADE_OFFSET",
@@ -889,9 +889,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesEncontros.js",
       "source_location": "L101",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_data_ganguesencontros_gangues_dificuldade_offset",
       "community": 420,
-      "norm_label": "gangues_dificuldade_offset"
+      "norm_label": "gangues_dificuldade_offset",
+      "id": "src_pages_games_gangues_data_ganguesencontros_gangues_dificuldade_offset"
     },
     {
       "label": "calcularPontosTime()",
@@ -899,9 +899,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesEncontros.js",
       "source_location": "L103",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_data_ganguesencontros_calcularpontostime",
       "community": 420,
-      "norm_label": "calcularpontostime()"
+      "norm_label": "calcularpontostime()",
+      "id": "src_pages_games_gangues_data_ganguesencontros_calcularpontostime"
     },
     {
       "label": "distribuirPontos()",
@@ -909,9 +909,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesEncontros.js",
       "source_location": "L107",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_data_ganguesencontros_distribuirpontos",
       "community": 420,
-      "norm_label": "distribuirpontos()"
+      "norm_label": "distribuirpontos()",
+      "id": "src_pages_games_gangues_data_ganguesencontros_distribuirpontos"
     },
     {
       "label": "caminhoDoInimigo()",
@@ -919,9 +919,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesEncontros.js",
       "source_location": "L118",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_data_ganguesencontros_caminhodoinimigo",
       "community": 420,
-      "norm_label": "caminhodoinimigo()"
+      "norm_label": "caminhodoinimigo()",
+      "id": "src_pages_games_gangues_data_ganguesencontros_caminhodoinimigo"
     },
     {
       "label": "escalarInimigo()",
@@ -929,9 +929,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesEncontros.js",
       "source_location": "L122",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_data_ganguesencontros_escalarinimigo",
       "community": 420,
-      "norm_label": "escalarinimigo()"
+      "norm_label": "escalarinimigo()",
+      "id": "src_pages_games_gangues_data_ganguesencontros_escalarinimigo"
     },
     {
       "label": "gerarBandoInimigo()",
@@ -939,9 +939,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesEncontros.js",
       "source_location": "L150",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_data_ganguesencontros_gerarbandoinimigo",
       "community": 420,
-      "norm_label": "gerarbandoinimigo()"
+      "norm_label": "gerarbandoinimigo()",
+      "id": "src_pages_games_gangues_data_ganguesencontros_gerarbandoinimigo"
     },
     {
       "label": "numerarRepetidos()",
@@ -949,9 +949,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesEncontros.js",
       "source_location": "L198",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_data_ganguesencontros_numerarrepetidos",
       "community": 420,
-      "norm_label": "numerarrepetidos()"
+      "norm_label": "numerarrepetidos()",
+      "id": "src_pages_games_gangues_data_ganguesencontros_numerarrepetidos"
     },
     {
       "label": "GANGUES_EVENTO_CAP",
@@ -959,9 +959,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesEncontros.js",
       "source_location": "L215",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_data_ganguesencontros_gangues_evento_cap",
       "community": 420,
-      "norm_label": "gangues_evento_cap"
+      "norm_label": "gangues_evento_cap",
+      "id": "src_pages_games_gangues_data_ganguesencontros_gangues_evento_cap"
     },
     {
       "label": "gerarBandoEvento()",
@@ -969,9 +969,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesEncontros.js",
       "source_location": "L220",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_data_ganguesencontros_gerarbandoevento",
       "community": 420,
-      "norm_label": "gerarbandoevento()"
+      "norm_label": "gerarbandoevento()",
+      "id": "src_pages_games_gangues_data_ganguesencontros_gerarbandoevento"
     },
     {
       "label": "gerarBandoRevezamento()",
@@ -979,9 +979,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesEncontros.js",
       "source_location": "L246",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_data_ganguesencontros_gerarbandorevezamento",
       "community": 420,
-      "norm_label": "gerarbandorevezamento()"
+      "norm_label": "gerarbandorevezamento()",
+      "id": "src_pages_games_gangues_data_ganguesencontros_gerarbandorevezamento"
     },
     {
       "label": "gerarBandoChefe()",
@@ -989,9 +989,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesEncontros.js",
       "source_location": "L273",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_data_ganguesencontros_gerarbandochefe",
       "community": 420,
-      "norm_label": "gerarbandochefe()"
+      "norm_label": "gerarbandochefe()",
+      "id": "src_pages_games_gangues_data_ganguesencontros_gerarbandochefe"
     },
     {
       "label": "GANGUES_CLUBE_POOL",
@@ -999,9 +999,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesEncontros.js",
       "source_location": "L308",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_data_ganguesencontros_gangues_clube_pool",
       "community": 420,
-      "norm_label": "gangues_clube_pool"
+      "norm_label": "gangues_clube_pool",
+      "id": "src_pages_games_gangues_data_ganguesencontros_gangues_clube_pool"
     },
     {
       "label": "gerarBandoClube()",
@@ -1009,9 +1009,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesEncontros.js",
       "source_location": "L310",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_data_ganguesencontros_gerarbandoclube",
       "community": 420,
-      "norm_label": "gerarbandoclube()"
+      "norm_label": "gerarbandoclube()",
+      "id": "src_pages_games_gangues_data_ganguesencontros_gerarbandoclube"
     },
     {
       "label": "GanguesCena.jsx",
@@ -44469,7 +44469,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L876",
+      "source_location": "L885",
       "weight": 1.0,
       "source": "docs_games_gangues_ldi_gangues_gdd_ldi_gangues_gdd_game_design_document_lore_mundo",
       "target": "docs_games_gangues_ldi_gangues_gdd_12_\u00edndice_de_fontes",
@@ -45056,9 +45056,9 @@
       "source_file": "src/pages/games/Gangues/GanguesVictory.jsx",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_ganguesvictory",
-      "target": "src_pages_games_gangues_ganguesvictory_combatantname",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_ganguesvictory_combatantname"
     },
     {
       "relation": "contains",
@@ -45066,9 +45066,9 @@
       "source_file": "src/pages/games/Gangues/GanguesVictory.jsx",
       "source_location": "L24",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_ganguesvictory",
-      "target": "src_pages_games_gangues_ganguesvictory_eventosdolevelup",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_ganguesvictory_eventosdolevelup"
     },
     {
       "relation": "contains",
@@ -45076,9 +45076,9 @@
       "source_file": "src/pages/games/Gangues/GanguesVictory.jsx",
       "source_location": "L33",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_ganguesvictory",
-      "target": "src_pages_games_gangues_ganguesvictory_ganguesvictory",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_ganguesvictory_ganguesvictory"
     },
     {
       "relation": "calls",
@@ -45087,9 +45087,9 @@
       "source_file": "src/pages/games/Gangues/GanguesVictory.jsx",
       "source_location": "L366",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_ganguesvictory_ganguesvictory",
-      "target": "src_pages_games_gangues_ganguesvictory_combatantname",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_ganguesvictory_combatantname"
     },
     {
       "relation": "calls",
@@ -45098,9 +45098,9 @@
       "source_file": "src/pages/games/Gangues/GanguesVictory.jsx",
       "source_location": "L260",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_ganguesvictory_ganguesvictory",
-      "target": "src_pages_games_gangues_ganguesvictory_eventosdolevelup",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_ganguesvictory_eventosdolevelup"
     },
     {
       "relation": "imports",
@@ -45119,9 +45119,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesEncontros.js",
       "source_location": "L103",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguesencontros",
-      "target": "src_pages_games_gangues_data_ganguesencontros_calcularpontostime",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguesencontros_calcularpontostime"
     },
     {
       "relation": "contains",
@@ -45129,9 +45129,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesEncontros.js",
       "source_location": "L118",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguesencontros",
-      "target": "src_pages_games_gangues_data_ganguesencontros_caminhodoinimigo",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguesencontros_caminhodoinimigo"
     },
     {
       "relation": "contains",
@@ -45139,9 +45139,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesEncontros.js",
       "source_location": "L107",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguesencontros",
-      "target": "src_pages_games_gangues_data_ganguesencontros_distribuirpontos",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguesencontros_distribuirpontos"
     },
     {
       "relation": "contains",
@@ -45149,9 +45149,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesEncontros.js",
       "source_location": "L122",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguesencontros",
-      "target": "src_pages_games_gangues_data_ganguesencontros_escalarinimigo",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguesencontros_escalarinimigo"
     },
     {
       "relation": "contains",
@@ -45159,9 +45159,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesEncontros.js",
       "source_location": "L79",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguesencontros",
-      "target": "src_pages_games_gangues_data_ganguesencontros_gangues_chefe_budget",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguesencontros_gangues_chefe_budget"
     },
     {
       "relation": "contains",
@@ -45169,9 +45169,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesEncontros.js",
       "source_location": "L86",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguesencontros",
-      "target": "src_pages_games_gangues_data_ganguesencontros_gangues_chefe_corpos",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguesencontros_gangues_chefe_corpos"
     },
     {
       "relation": "contains",
@@ -45179,9 +45179,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesEncontros.js",
       "source_location": "L48",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguesencontros",
-      "target": "src_pages_games_gangues_data_ganguesencontros_gangues_chefe_equipe",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguesencontros_gangues_chefe_equipe"
     },
     {
       "relation": "contains",
@@ -45189,9 +45189,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesEncontros.js",
       "source_location": "L308",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguesencontros",
-      "target": "src_pages_games_gangues_data_ganguesencontros_gangues_clube_pool",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguesencontros_gangues_clube_pool"
     },
     {
       "relation": "contains",
@@ -45199,9 +45199,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesEncontros.js",
       "source_location": "L101",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguesencontros",
-      "target": "src_pages_games_gangues_data_ganguesencontros_gangues_dificuldade_offset",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguesencontros_gangues_dificuldade_offset"
     },
     {
       "relation": "contains",
@@ -45209,9 +45209,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesEncontros.js",
       "source_location": "L215",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguesencontros",
-      "target": "src_pages_games_gangues_data_ganguesencontros_gangues_evento_cap",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguesencontros_gangues_evento_cap"
     },
     {
       "relation": "contains",
@@ -45219,9 +45219,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesEncontros.js",
       "source_location": "L31",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguesencontros",
-      "target": "src_pages_games_gangues_data_ganguesencontros_gangues_territorio_encontro",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguesencontros_gangues_territorio_encontro"
     },
     {
       "relation": "contains",
@@ -45229,9 +45229,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesEncontros.js",
       "source_location": "L95",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguesencontros",
-      "target": "src_pages_games_gangues_data_ganguesencontros_gangues_territorio_ratio",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguesencontros_gangues_territorio_ratio"
     },
     {
       "relation": "contains",
@@ -45239,9 +45239,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesEncontros.js",
       "source_location": "L273",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguesencontros",
-      "target": "src_pages_games_gangues_data_ganguesencontros_gerarbandochefe",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguesencontros_gerarbandochefe"
     },
     {
       "relation": "contains",
@@ -45249,9 +45249,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesEncontros.js",
       "source_location": "L310",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguesencontros",
-      "target": "src_pages_games_gangues_data_ganguesencontros_gerarbandoclube",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguesencontros_gerarbandoclube"
     },
     {
       "relation": "contains",
@@ -45259,9 +45259,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesEncontros.js",
       "source_location": "L220",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguesencontros",
-      "target": "src_pages_games_gangues_data_ganguesencontros_gerarbandoevento",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguesencontros_gerarbandoevento"
     },
     {
       "relation": "contains",
@@ -45269,9 +45269,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesEncontros.js",
       "source_location": "L150",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguesencontros",
-      "target": "src_pages_games_gangues_data_ganguesencontros_gerarbandoinimigo",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguesencontros_gerarbandoinimigo"
     },
     {
       "relation": "contains",
@@ -45279,9 +45279,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesEncontros.js",
       "source_location": "L246",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguesencontros",
-      "target": "src_pages_games_gangues_data_ganguesencontros_gerarbandorevezamento",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguesencontros_gerarbandorevezamento"
     },
     {
       "relation": "contains",
@@ -45289,9 +45289,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesEncontros.js",
       "source_location": "L198",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguesencontros",
-      "target": "src_pages_games_gangues_data_ganguesencontros_numerarrepetidos",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguesencontros_numerarrepetidos"
     },
     {
       "relation": "imports_from",
@@ -45344,9 +45344,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesEncontros.js",
       "source_location": "L279",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguesencontros_gerarbandochefe",
-      "target": "src_pages_games_gangues_data_ganguesencontros_calcularpontostime",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguesencontros_calcularpontostime"
     },
     {
       "relation": "calls",
@@ -45355,9 +45355,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesEncontros.js",
       "source_location": "L223",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguesencontros_gerarbandoevento",
-      "target": "src_pages_games_gangues_data_ganguesencontros_calcularpontostime",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguesencontros_calcularpontostime"
     },
     {
       "relation": "calls",
@@ -45366,9 +45366,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesEncontros.js",
       "source_location": "L154",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguesencontros_gerarbandoinimigo",
-      "target": "src_pages_games_gangues_data_ganguesencontros_calcularpontostime",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguesencontros_calcularpontostime"
     },
     {
       "relation": "imports",
@@ -45421,9 +45421,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesEncontros.js",
       "source_location": "L280",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguesencontros_gerarbandochefe",
-      "target": "src_pages_games_gangues_data_ganguesencontros_distribuirpontos",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguesencontros_distribuirpontos"
     },
     {
       "relation": "calls",
@@ -45432,9 +45432,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesEncontros.js",
       "source_location": "L313",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguesencontros_gerarbandoclube",
-      "target": "src_pages_games_gangues_data_ganguesencontros_distribuirpontos",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguesencontros_distribuirpontos"
     },
     {
       "relation": "calls",
@@ -45443,9 +45443,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesEncontros.js",
       "source_location": "L227",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguesencontros_gerarbandoevento",
-      "target": "src_pages_games_gangues_data_ganguesencontros_distribuirpontos",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguesencontros_distribuirpontos"
     },
     {
       "relation": "calls",
@@ -45454,9 +45454,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesEncontros.js",
       "source_location": "L170",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguesencontros_gerarbandoinimigo",
-      "target": "src_pages_games_gangues_data_ganguesencontros_distribuirpontos",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguesencontros_distribuirpontos"
     },
     {
       "relation": "calls",
@@ -45465,9 +45465,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesEncontros.js",
       "source_location": "L135",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguesencontros_escalarinimigo",
-      "target": "src_pages_games_gangues_data_ganguesencontros_caminhodoinimigo",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguesencontros_caminhodoinimigo"
     },
     {
       "relation": "calls",
@@ -45476,9 +45476,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesEncontros.js",
       "source_location": "L296",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguesencontros_gerarbandochefe",
-      "target": "src_pages_games_gangues_data_ganguesencontros_escalarinimigo",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguesencontros_escalarinimigo"
     },
     {
       "relation": "calls",
@@ -45487,9 +45487,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesEncontros.js",
       "source_location": "L322",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguesencontros_gerarbandoclube",
-      "target": "src_pages_games_gangues_data_ganguesencontros_escalarinimigo",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguesencontros_escalarinimigo"
     },
     {
       "relation": "calls",
@@ -45498,9 +45498,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesEncontros.js",
       "source_location": "L231",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguesencontros_gerarbandoevento",
-      "target": "src_pages_games_gangues_data_ganguesencontros_escalarinimigo",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguesencontros_escalarinimigo"
     },
     {
       "relation": "calls",
@@ -45509,9 +45509,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesEncontros.js",
       "source_location": "L186",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguesencontros_gerarbandoinimigo",
-      "target": "src_pages_games_gangues_data_ganguesencontros_escalarinimigo",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguesencontros_escalarinimigo"
     },
     {
       "relation": "calls",
@@ -45520,9 +45520,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesEncontros.js",
       "source_location": "L260",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguesencontros_gerarbandorevezamento",
-      "target": "src_pages_games_gangues_data_ganguesencontros_escalarinimigo",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguesencontros_escalarinimigo"
     },
     {
       "relation": "calls",
@@ -45531,9 +45531,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesEncontros.js",
       "source_location": "L189",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguesencontros_gerarbandoinimigo",
-      "target": "src_pages_games_gangues_data_ganguesencontros_numerarrepetidos",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguesencontros_numerarrepetidos"
     },
     {
       "relation": "imports",
@@ -45564,9 +45564,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesEncontros.js",
       "source_location": "L300",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguesencontros_gerarbandochefe",
-      "target": "src_pages_games_gangues_data_ganguesencontros_numerarrepetidos",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguesencontros_numerarrepetidos"
     },
     {
       "relation": "calls",
@@ -45575,9 +45575,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesEncontros.js",
       "source_location": "L325",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguesencontros_gerarbandoclube",
-      "target": "src_pages_games_gangues_data_ganguesencontros_numerarrepetidos",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguesencontros_numerarrepetidos"
     },
     {
       "relation": "calls",
@@ -45586,9 +45586,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesEncontros.js",
       "source_location": "L234",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguesencontros_gerarbandoevento",
-      "target": "src_pages_games_gangues_data_ganguesencontros_numerarrepetidos",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguesencontros_numerarrepetidos"
     },
     {
       "relation": "calls",
@@ -45597,9 +45597,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesEncontros.js",
       "source_location": "L264",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguesencontros_gerarbandorevezamento",
-      "target": "src_pages_games_gangues_data_ganguesencontros_numerarrepetidos",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguesencontros_numerarrepetidos"
     },
     {
       "relation": "imports",
@@ -125686,5 +125686,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "3508de49169662d9a552750418ea64fe909fdead"
+  "built_at_commit": "98225b1c518b8dfea65e1e3c7b46374e1688e713"
 }

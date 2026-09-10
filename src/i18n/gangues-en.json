@@ -2279,6 +2279,14 @@
             "sub": "on the other side of the wall",
             "intro": "Nato's cousin runs a makeshift bar over on this side. Same deal: pay a little change and the crew sorts itself out before heading into Carvão's warehouse."
           },
+          "posmuro_1": {
+            "nome": "The watchdogs",
+            "fala": ["\"You lost your mind coming here, huh?\" Carvão's first crew blocks the way.", "Two heavy dealers smoking on the warehouse steps. They spot you and spit on the ground."]
+          },
+          "posmuro_2": {
+            "nome": "The block manager",
+            "fala": ["Carvão's right hand in person, with an escort. \"Past the wall, you come in by invitation. Were you invited?\"", "This one doesn't run. Folds his arms, signals the goons: \"handle it.\""]
+          },
           "loja": {
             "nome": "Pista Shop"
           },
