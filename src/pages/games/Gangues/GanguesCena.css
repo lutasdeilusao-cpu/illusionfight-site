@@ -304,6 +304,11 @@
   border: 1px dashed #b56a2e; background: rgba(255, 140, 40, 0.08);
 }
 .gang-cena-btn--risco { background: #c9642e; border-color: #c9642e; color: #1a0a03; }
+.gang-cena-vs-aviso-off {
+  display: block; margin-top: 6px; padding: 0;
+  font: 700 0.6rem var(--font-mono); letter-spacing: .04em; text-decoration: underline;
+  color: #b58a6a; background: none; border: 0; cursor: pointer;
+}
 
 /* descanso */
 .gang-cena-folego--big { gap: 8px; }

@@ -2201,6 +2201,7 @@
         "treta_nao": "Not now, chill",
         "treta_sim": "Let's scrap",
         "treta_sim_risco": "Going in anyway",
+        "nivel_rec_ocultar": "don't warn me again in this hood",
         "nivel_rec_baixo": "Recommended: crew at level {rec}. Yours averages {atual} — you'll get wrecked. Run some jobs, level up on easier scraps, then come back.",
         "evento_tag": "AMBUSH",
         "evento_sim": "Take it",

@@ -313,6 +313,9 @@ export default function GanguesCena({onNavigate}){
     if(!time.length) return 1
     return Math.max(1,Math.floor(time.reduce((s,m)=>s+getGanguesLevelFromXp(m.xp_total??0),0)/time.length))
   },[store.activeParty,store.roster])
+  // "não ver mais o aviso de nível" — só neste território (reseta ao trocar,
+  // porque a cena remonta com outro territorioId).
+  const [avisoNivelOff,setAvisoNivelOff]=useState(false)
   const tentarEvento=()=>{
     if(localRef.current||encontro||fade||intro||!podeEvento)return
     if(passosRef.current<60||eventosDadosRef.current>=2)return
@@ -442,7 +445,7 @@ export default function GanguesCena({onNavigate}){
     <WorldControls onInput={v=>{inputRef.current=v}} onInteract={()=>abrir(perto)} action={perto?interactionLabel(perto,t):null}/>
     <AnimatePresence>{toast&&<motion.div className="gang-cena-toast" initial={{opacity:0,y:12}} animate={{opacity:1,y:0}} exit={{opacity:0}}><b>RECOMPENSA</b>{toast.grana?<span>💵 +{toast.grana}</span>:null}{toast.rep?<span>⚑ +{toast.rep}</span>:null}{toast.xp?<span>⚡ +{toast.xp} XP</span>:null}</motion.div>}</AnimatePresence>
     <AnimatePresence>{aviso&&<motion.div className="gang-cena-toast gang-cena-toast--aviso" initial={{opacity:0,y:12}} animate={{opacity:1,y:0}} exit={{opacity:0}}>{aviso}</motion.div>}</AnimatePresence>
-    <AnimatePresence>{encontro&&<motion.div className="gang-cena-modal" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}><div className="gang-cena-modal-bg" onClick={()=>setEncontro(null)}/><motion.div className="gang-cena-modal-card" initial={{y:25}} animate={{y:0}}>{encontro.evento?<EventoVS fala={encontro.fala} onSim={iniciarEvento} onNao={()=>setEncontro(null)} cenaId={cena.id} t={t}/>:encontro.vs?<TretaVS poi={encontro.poi} fala={encontro.fala} nivelTropa={nivelTropa} onSim={()=>iniciarTreta(encontro.poi)} onNao={()=>setEncontro(null)} t={t}/>:encontro.poi.tipo==='papo'?<GanguesPapo poi={encontro.poi} cena={cena} onResolve={resolver} onClose={()=>setEncontro(null)}/>:encontro.poi.tipo==='descanso'?<GanguesDescanso poi={encontro.poi} cena={cena} onClose={()=>setEncontro(null)} onClube={iniciarClube}/>:encontro.poi.tipo==='loja'?<GanguesLoja poi={encontro.poi} onClose={()=>setEncontro(null)}/>:<GanguesParada poi={encontro.poi} cena={cena} onResolve={resolver} onClose={()=>setEncontro(null)}/>}</motion.div></motion.div>}</AnimatePresence>
+    <AnimatePresence>{encontro&&<motion.div className="gang-cena-modal" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}><div className="gang-cena-modal-bg" onClick={()=>setEncontro(null)}/><motion.div className="gang-cena-modal-card" initial={{y:25}} animate={{y:0}}>{encontro.evento?<EventoVS fala={encontro.fala} onSim={iniciarEvento} onNao={()=>setEncontro(null)} cenaId={cena.id} t={t}/>:encontro.vs?<TretaVS poi={encontro.poi} fala={encontro.fala} nivelTropa={nivelTropa} avisoOff={avisoNivelOff} onOcultarAviso={()=>setAvisoNivelOff(true)} onSim={()=>iniciarTreta(encontro.poi)} onNao={()=>setEncontro(null)} t={t}/>:encontro.poi.tipo==='papo'?<GanguesPapo poi={encontro.poi} cena={cena} onResolve={resolver} onClose={()=>setEncontro(null)}/>:encontro.poi.tipo==='descanso'?<GanguesDescanso poi={encontro.poi} cena={cena} onClose={()=>setEncontro(null)} onClube={iniciarClube}/>:encontro.poi.tipo==='loja'?<GanguesLoja poi={encontro.poi} onClose={()=>setEncontro(null)}/>:<GanguesParada poi={encontro.poi} cena={cena} onResolve={resolver} onClose={()=>setEncontro(null)}/>}</motion.div></motion.div>}</AnimatePresence>
     <AnimatePresence>{fichaIndex!==null&&store.activeParty[fichaIndex]&&<motion.div className="gang-cena-modal" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}><div className="gang-cena-modal-bg" onClick={()=>setFichaIndex(null)}/><motion.div className="gang-cena-modal-card gang-cena-ficha-scroll" initial={{y:25}} animate={{y:0}}><div className="gang-cena-enc-acoes gang-cena-ficha-nav">{store.activeParty.length>1&&<button className="gang-cena-btn" onClick={()=>setFichaIndex(i=>(i+store.activeParty.length-1)%store.activeParty.length)}>◀ ANTERIOR</button>}<button className="gang-cena-btn gang-cena-btn--go" onClick={()=>setFichaIndex(null)}>FECHAR</button>{store.activeParty.length>1&&<button className="gang-cena-btn" onClick={()=>setFichaIndex(i=>(i+1)%store.activeParty.length)}>PRÓXIMO ▶</button>}</div><FichaCenaCard member={store.activeParty[fichaIndex]} t={t}/></motion.div></motion.div>}</AnimatePresence>
     <AnimatePresence>{bagAberta&&<motion.div className="gang-cena-modal" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}><div className="gang-cena-modal-bg" onClick={()=>setBagAberta(false)}/><motion.div className="gang-cena-modal-card gang-cena-ficha-scroll" initial={{y:25}} animate={{y:0}}><BagSheet store={store} t={t} onClose={()=>setBagAberta(false)}/></motion.div></motion.div>}</AnimatePresence>
   </main>
@@ -626,21 +629,22 @@ function EventoVS({fala,onSim,onNao,cenaId,t}){
     </div>
   </div>
 }
-function TretaVS({poi,fala,nivelTropa,onSim,onNao,t}){
+function TretaVS({poi,fala,nivelTropa,avisoOff,onOcultarAviso,onSim,onNao,t}){
   const enemy=enemiesData.find(e=>e.id===poi.enemy),nome=poi.ehChefe?t(`games.gangues.story.bosses.${poi.boss}.nome`):t(`${poi.i18n}.nome`)
   const falaRaw=fala??(poi.ehChefe?t(`games.gangues.story.bosses.${poi.boss}.fala`,{suaGangue:t('games.gangues.report.your_gang')}):t(`${poi.i18n}.fala`))
   const falaShow=Array.isArray(falaRaw)?falaRaw[0]:falaRaw
   // Aviso de nível: só quando a tropa tá 2+ níveis ABAIXO do recomendado — 1 de
   // diferença não conta (dado, equipamento e estratégia cobrem). Igual/acima
-  // ou só 1 abaixo: nada.
-  const abaixo=poi.nivelRec&&Number.isFinite(nivelTropa)&&(poi.nivelRec-nivelTropa)>=2
+  // ou só 1 abaixo: nada. `avisoOff` = o jogador pediu pra não ver mais nesse
+  // território (reseta ao trocar de bairro).
+  const abaixo=!avisoOff&&poi.nivelRec&&Number.isFinite(nivelTropa)&&(poi.nivelRec-nivelTropa)>=2
   return <div className="gang-cena-enc gang-cena-enc--vs">
     <span className="gang-cena-enc-selo">{(nome||'?')[0]}</span>
     <span className="gang-cena-eyebrow">{poi.ehChefe?t('games.gangues.story.boss_tag'):t('games.gangues.cena.tipo.treta')}</span>
     <h3 className="gang-cena-enc-titulo">{nome}{poi.ehChefe&&enemy?.nivel?<em className="gang-cena-vs-nivel"> · {t('games.gangues.cena.nivel',{n:enemy.nivel})}</em>:null}</h3>
     <p className="gang-cena-papo-fala">{falaShow}</p>
     {enemy&&<span className="gang-cena-vs-stats">{['A','H','R','D'].map(a=><span key={a}><i>{a}</i>{enemy.stats?.[a]??'—'}</span>)}</span>}
-    {abaixo&&<div className="gang-cena-vs-aviso">⚠ {t('games.gangues.cena.nivel_rec_baixo',{rec:poi.nivelRec,atual:nivelTropa})}</div>}
+    {abaixo&&<div className="gang-cena-vs-aviso">⚠ {t('games.gangues.cena.nivel_rec_baixo',{rec:poi.nivelRec,atual:nivelTropa})}<button type="button" className="gang-cena-vs-aviso-off" onClick={onOcultarAviso}>{t('games.gangues.cena.nivel_rec_ocultar')}</button></div>}
     <div className="gang-cena-enc-acoes">
       <button className="gang-cena-btn" onClick={onNao}>{t('games.gangues.cena.treta_nao')}</button>
       <button className={`gang-cena-btn gang-cena-btn--go${abaixo?' gang-cena-btn--risco':''}`} onClick={onSim}>{t(abaixo?'games.gangues.cena.treta_sim_risco':'games.gangues.cena.treta_sim')}</button>
