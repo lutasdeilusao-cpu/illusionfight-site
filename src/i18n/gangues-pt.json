@@ -600,10 +600,13 @@
         "consumiveis": "Itens de combate",
         "equip_bolso": "Equipamento guardado",
         "nota_combate": "Também aparecem no botão 🎒 durante a luta.",
-        "nota_equip": "Equipa pelo 👤 → ficha do personagem.",
+        "nota_equip": "Equipa aqui ou pelo 👤 → ficha do personagem.",
         "usar": "Usar",
         "usar_em": "Usar {item} em quem?",
-        "ja_cheio": "{nome} já tá no talo. Guarda a poção."
+        "ja_cheio": "{nome} já tá no talo. Guarda a poção.",
+        "equipar_em": "Botar {item} ({slot}) em quem?",
+        "equipou": "{nome} equipou {item} ({slot}).",
+        "ja_equipado": "já tá com essa"
       },
       "clube": {
         "nome": "Clube da Luta",

@@ -427,8 +427,9 @@ export default function GanguesCena({onNavigate}){
 // guardado). É a MESMA fonte que a loja abastece e que o combate lê pra usar
 // poção (store.inventario / store.equipamentos) — um sistema só.
 function BagSheet({store,t,onClose}){
-  const [usando,setUsando]=useState(null) // consumível escolhido pra usar (mostra o picker de personagem)
-  const [feito,setFeito]=useState(null)   // feedback: "Trinca +5 PV"
+  const [usando,setUsando]=useState(null)     // consumível escolhido pra usar (mostra o picker de personagem)
+  const [equipando,setEquipando]=useState(null) // { def } — peça escolhida pra equipar da bolsa
+  const [feito,setFeito]=useState(null)       // feedback
   const consumiveis=GANGUES_ITENS_LISTA.map(it=>({...it,qtd:store.inventario[it.id]||0})).filter(it=>it.qtd>0)
   const pecas=Object.values(store.equipamentos.reduce((acc,eq)=>{
     const def=getGanguesEquip(eq.itemId); if(!def)return acc
@@ -449,6 +450,17 @@ function BagSheet({store,t,onClose}){
     if(r.curou>0){store.usarItem(item.id);sfx.reward?.();setFeito(`${r.nome} +${r.curou} ${r.campo}`)}
     else{sfx.cancel();setFeito(t('games.gangues.bag.ja_cheio',{nome:r.nome}))}
     setUsando(null);setTimeout(()=>setFeito(null),2200)
+  }
+  // Time pro picker de equipar (só fichas de template — legado não equipa).
+  const timeEquip=(store.activeParty.length?store.activeParty:store.roster).filter(m=>m.character_type==='template').slice(0,GANGUES_STORY_BATTLE_PARTY_MAX)
+  const equiparEm=(def,memberId)=>{
+    const inst=store.equipamentos.find(eq=>eq.itemId===def.id)
+    const membro=store.roster.find(m=>m.id===memberId)
+    if(inst&&store.equiparItem(memberId,inst.uid)){
+      sfx.select?.()
+      setFeito(t('games.gangues.bag.equipou',{nome:membro?.sheet_name||'?',item:t(def.nome),slot:t(`games.gangues.equip.slots.${def.slot}`)}))
+    }else sfx.cancel()
+    setEquipando(null);setTimeout(()=>setFeito(null),2800)
   }
   return <div className="gang-cena-enc gang-cena-enc--bag">
     <button className="gang-cena-enc-x" onClick={onClose} aria-label={t('games.gangues.cena.fechar')}>✕</button>
@@ -480,7 +492,27 @@ function BagSheet({store,t,onClose}){
     </>}
     {pecas.length>0&&<>
       <small className="gang-bag-sec">{t('games.gangues.bag.equip_bolso')}</small>
-      <div className="gang-bag-lista">{pecas.map(({def,qtd})=><div key={def.id} className="gang-bag-row"><span>{def.icone}</span><strong>{t(def.nome)}</strong><small>{t(`games.gangues.equip.slots.${def.slot}`)}</small><b>×{qtd}</b></div>)}</div>
+      <div className="gang-bag-lista">{pecas.map(({def,qtd})=>(
+        <div key={def.id} className="gang-bag-row">
+          <span>{def.icone}</span>
+          <strong>{t(def.nome)}</strong>
+          <small>{t(`games.gangues.equip.slots.${def.slot}`)}</small>
+          {timeEquip.length>0&&<button className="gang-bag-usar" onClick={()=>setEquipando(e=>e?.def?.id===def.id?null:{def})}>{t('games.gangues.equip.equipar')}</button>}
+          <b>×{qtd}</b>
+        </div>
+      ))}</div>
+      {equipando&&<div className="gang-bag-alvos">
+        <small>{t('games.gangues.bag.equipar_em',{item:t(equipando.def.nome),slot:t(`games.gangues.equip.slots.${equipando.def.slot}`)})}</small>
+        {timeEquip.map(m=>{
+          const noSlot=m.attributes?.equipment?.[equipando.def.slot]
+          const defAtual=noSlot&&getGanguesEquip(noSlot.itemId)
+          const jaEssa=noSlot&&noSlot.itemId===equipando.def.id
+          return <button key={m.id} className="gang-bag-alvo" disabled={jaEssa} onClick={()=>equiparEm(equipando.def,m.id)}>
+            <strong>{m.sheet_name||'?'}</strong>
+            <em>{jaEssa?t('games.gangues.bag.ja_equipado'):defAtual?`↺ ${t(defAtual.nome)}`:t('games.gangues.equip.vazio')}</em>
+          </button>
+        })}
+      </div>}
       <p className="gang-bag-nota">{t('games.gangues.bag.nota_equip')}</p>
     </>}
     <div className="gang-cena-enc-acoes"><button className="gang-cena-btn gang-cena-btn--go" onClick={onClose}>{t('games.gangues.cena.fechar')}</button></div>

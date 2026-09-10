@@ -600,10 +600,13 @@
         "consumiveis": "Combat items",
         "equip_bolso": "Stashed gear",
         "nota_combate": "They also show up under the 🎒 button during a fight.",
-        "nota_equip": "Equip via 👤 → character sheet.",
+        "nota_equip": "Equip here or via 👤 → character sheet.",
         "usar": "Use",
         "usar_em": "Use {item} on who?",
-        "ja_cheio": "{nome} is already maxed. Save the potion."
+        "ja_cheio": "{nome} is already maxed. Save the potion.",
+        "equipar_em": "Put {item} ({slot}) on who?",
+        "equipou": "{nome} equipped {item} ({slot}).",
+        "ja_equipado": "already has it"
       },
       "clube": {
         "nome": "Fight Club",

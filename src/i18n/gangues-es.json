@@ -600,10 +600,13 @@
         "consumiveis": "Ítems de combate",
         "equip_bolso": "Equipo guardado",
         "nota_combate": "También aparecen en el botón 🎒 durante la pelea.",
-        "nota_equip": "Equipa con 👤 → ficha del personaje.",
+        "nota_equip": "Equipa acá o con 👤 → ficha del personaje.",
         "usar": "Usar",
         "usar_em": "¿Usar {item} en quién?",
-        "ja_cheio": "{nome} ya está al mango. Guardá la poción."
+        "ja_cheio": "{nome} ya está al mango. Guardá la poción.",
+        "equipar_em": "¿Ponerle {item} ({slot}) a quién?",
+        "equipou": "{nome} equipó {item} ({slot}).",
+        "ja_equipado": "ya la tiene"
       },
       "clube": {
         "nome": "Club de la Pelea",
