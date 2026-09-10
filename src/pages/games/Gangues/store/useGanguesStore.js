@@ -161,7 +161,7 @@ export const useGanguesStore = create((set, get) => ({
   // "empurrão" que dava AP extra além do total real). Só quando o pote é
   // menor que o número de gente (time gigante contra 1 inimigo fraco) é que
   // não dá pra garantir pra todo mundo — aí cai pra divisão só por peso.
-  gainApForParticipants: (totalAp, pesosPorId = {}) => {
+  gainApForParticipants: (totalAp, pesosPorId = {}, nivelPorId = {}) => {
     const ids = Object.keys(pesosPorId)
     const somaPesos = ids.reduce((s, id) => s + (Number(pesosPorId[id]) || 0), 0) || 1
     const apTotalInteiro = Math.round(Math.max(0, Number(totalAp) || 0))
@@ -182,8 +182,15 @@ export const useGanguesStore = create((set, get) => ({
     let somaPisos = 0
     ids.forEach(id => { const piso = Math.floor(fracoesExatas[id]); apPorMembro[id] = baseGarantida + piso; somaPisos += piso })
     const sobra = poteRestante - somaPisos
-    const ordemPorResto = [...ids].sort((a, b) => (fracoesExatas[b] - Math.floor(fracoesExatas[b])) - (fracoesExatas[a] - Math.floor(fracoesExatas[a])))
-    for (let i = 0; i < sobra && ordemPorResto.length; i++) apPorMembro[ordemPorResto[i % ordemPorResto.length]] += 1
+    // A sobra (divisão que não fecha, número ímpar) vai pro personagem de
+    // MENOR nível — é quem o jogador normalmente quer upar (trazer o elo fraco
+    // pra cima). Empate de nível: quem tem o maior resto fracionário. Sem
+    // nível informado: só o resto fracionário (comportamento antigo).
+    const resto = id => fracoesExatas[id] - Math.floor(fracoesExatas[id])
+    const temNivel = Object.keys(nivelPorId).length > 0
+    const ordemSobra = [...ids].sort((a, b) =>
+      (temNivel ? (Number(nivelPorId[a] ?? 999) - Number(nivelPorId[b] ?? 999)) : 0) || (resto(b) - resto(a)))
+    for (let i = 0; i < sobra && ordemSobra.length; i++) apPorMembro[ordemSobra[i % ordemSobra.length]] += 1
 
     const levelUps = []
     let totalXp = 0

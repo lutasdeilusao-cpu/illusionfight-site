@@ -5,7 +5,7 @@ import { useLanguage } from '../../../context/LanguageContext'
 import { useGanguesStore } from './store/useGanguesStore'
 import { ehConfrontoFinal } from './data/ganguesTerritorios.js'
 import { getGanguesRosterLimitComHistoria } from './data/ganguesLoadout.js'
-import { getGanguesCharacter, eventosDoNivel } from './data/ganguesCharacters.js'
+import { getGanguesCharacter, eventosDoNivel, getGanguesLevelFromXp } from './data/ganguesCharacters.js'
 import { registrarPontuacaoArenaRanking } from '../../../hooks/useLeaderboardDB'
 import { sfx } from '../../../lib/sfx'
 import GanguesClubeResultado from './GanguesClubeResultado'
@@ -128,22 +128,28 @@ export default function GanguesVictory({ onNavigate }) {
     const apPorInimigo = torre ? 10 : 30
     const ap = victory ? apPorInimigo * enemyCount * multiplicadorChefe * multiplicadorTorre : 1
     const participantIds = victory ? escaladosIds.filter(id => !koIds.has(id)) : escaladosIds
-    // Peso por RANKING de contribuição (não mais proporcional direto a
-    // abates/dano) — 1º lugar (quem mais matou, dano desempata) pesa 3, 2º
-    // lugar pesa 2, o resto pesa 1 igual pra todo mundo. Peso bruto
-    // (abates×100+dano) deixava o campeão com quase tudo (9 de 10) e o
-    // resto com quase nada — bom demais em teoria, extremo demais na prática.
+    // Peso por FAIXA de contribuição (não por posição estrita): quem mais
+    // contribuiu (abates, dano desempata) pesa 3, a 2ª faixa pesa 2, o resto 1.
+    // Quem EMPATOU fica na MESMA faixa — antes o 2º e o 3º "colega de banco"
+    // (ambos com 0 de dano) recebiam pesos diferentes só pela ordem do sort,
+    // e o Isaias reclamou: empate tem que dividir igual.
     const contrib = report.contribuicoes || {}
-    const ranking = [...participantIds].sort((a, b) => {
-      const ca = contrib[a] || { dano: 0, abates: 0 }
-      const cb = contrib[b] || { dano: 0, abates: 0 }
-      return (cb.abates - ca.abates) || (cb.dano - ca.dano)
-    })
+    const score = id => { const c = contrib[id] || { dano: 0, abates: 0 }; return (c.abates || 0) * 100000 + (c.dano || 0) }
+    const faixas = [...new Set(participantIds.map(score))].sort((a, b) => b - a)
     const pesosPorId = {}
     participantIds.forEach(id => {
       if (!victory) { pesosPorId[id] = 1; return }
-      const posicao = ranking.indexOf(id)
-      pesosPorId[id] = posicao === 0 ? 3 : posicao === 1 ? 2 : 1
+      // ninguém se destacou (todos empatados) → divisão igual
+      if (faixas.length <= 1) { pesosPorId[id] = 1; return }
+      const faixa = faixas.indexOf(score(id))
+      pesosPorId[id] = faixa === 0 ? 3 : faixa === 1 ? 2 : 1
+    })
+    // Sobra da divisão (número ímpar) → vai pro personagem de MENOR nível: é o
+    // que o jogador normalmente quer upar (trazer o elo fraco pra cima).
+    const nivelPorId = {}
+    participantIds.forEach(id => {
+      const m = match.playerTeam.find(x => x.id === id)
+      nivelPorId[id] = getGanguesLevelFromXp(m?.xp_total ?? 0)
     })
     // Dano persiste entre lutas repetíveis dentro da mesma cena — sem isso
     // toda reentrada voltava com PV/PM cheios, e "descansar"/gastar grana
@@ -153,7 +159,7 @@ export default function GanguesVictory({ onNavigate }) {
     // primeiro, aplicarDanoPersistente reescrevia por cima com o PV/PM que
     // sobrou da luta, apagando a cura do level-up.
     store.aplicarDanoPersistente(report.combatants)
-    const { levelUps: newLevelUps, apPorMembro } = store.gainApForParticipants(ap, pesosPorId)
+    const { levelUps: newLevelUps, apPorMembro } = store.gainApForParticipants(ap, pesosPorId, nivelPorId)
     setLevelUps(newLevelUps)
     // O jogador pediu pra ver PONTOS DE AÇÃO (o número que ele realmente
     // entende e acompanha), não o XP já convertido — isso vira conta interna
