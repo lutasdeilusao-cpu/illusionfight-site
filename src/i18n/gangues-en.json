@@ -11,6 +11,8 @@
       "dano_cena_dano": "{nome}'s hit",
       "dano_cena_cura": "{nome} patched it up",
       "dano_cena_guarda": "guard held −{n}",
+      "dano_cena_defendeu": "NO DAMAGE",
+      "dano_cena_sem_dano": "didn't get through the guard",
       "ko_aviso": "{nome} is down!",
       "ko_cena": {
         "aliado": "is down",

@@ -445,16 +445,19 @@ export default function GanguesCombat({ onNavigate }) {
           actorName: fighterName(t, atacante) || '?', amount: dano,
           critical: Boolean(event.result?.critical), shield: event.result?.shieldConsumed || 0, fatal,
         })
-        // callout central — pula quando é fatal (o card de KO já cobre isso)
-        if (!fatal && (dano > 0 || (event.result?.shieldConsumed || 0) > 0)) {
+        // callout central — sempre (menos no fatal, que o card de KO já cobre).
+        // Dano 0 vira "DEFENDEU / não passou" pra o jogador saber que NÃO perdeu
+        // vida (o Isaias viu DANO 0 e ficou achando que perdeu 1).
+        if (!fatal) {
+          const escudo = event.result?.shieldConsumed || 0
           danoQueueRef.current.push({
             id: event.id,
             alvoNome: fighterName(t, alvo) || '?',
             atacanteNome: fighterName(t, atacante) || '?',
             valor: dano, critico: Boolean(event.result?.critical),
-            escudo: event.result?.shieldConsumed || 0,
+            escudo, defendeu: dano === 0 && escudo === 0,
             side: alvo?.side || (event.side === 'player' ? 'enemy' : 'player'),
-            dur: event.side === 'enemy' ? 950 : 680,
+            dur: dano === 0 && escudo === 0 ? 620 : event.side === 'enemy' ? 950 : 680,
           })
           if (!danoAtivoRef.current) dispararProximoDano()
         }
@@ -638,24 +641,30 @@ export default function GanguesCombat({ onNavigate }) {
         {danoCena && !koCena && (
           <motion.div
             key={danoCena.id}
-            className={`gang-dano-cena gang-dano-cena--${danoCena.cura ? 'cura' : danoCena.side === 'player' ? 'aliado' : 'inimigo'}${danoCena.critico ? ' gang-dano-cena--crit' : ''}`}
-            initial={{ opacity: 0, scale: 0.6, y: 14 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.9, y: -10 }}
-            transition={{ type: 'spring', stiffness: 320, damping: 16 }}
+            className={`gang-dano-cena gang-dano-cena--${danoCena.cura ? 'cura' : danoCena.defendeu ? 'defesa' : danoCena.side === 'player' ? 'aliado' : 'inimigo'}${danoCena.critico ? ' gang-dano-cena--crit' : ''}`}
+            initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
           >
-            {danoCena.critico && <span className="gang-dano-cena__tag">{t('games.gangues.critico')}</span>}
-            <strong className="gang-dano-cena__nome">{danoCena.alvoNome}</strong>
-            <span className="gang-dano-cena__valor">
-              {danoCena.cura ? `+${danoCena.valor}` : danoCena.valor > 0 ? `−${danoCena.valor}` : danoCena.escudo > 0 ? '🛡' : '0'}
-            </span>
-            <span className="gang-dano-cena__rot">
-              {danoCena.cura
-                ? t('games.gangues.dano_cena_cura', { nome: danoCena.atacanteNome })
-                : danoCena.valor > 0
-                  ? t('games.gangues.dano_cena_dano', { nome: danoCena.atacanteNome })
-                  : t('games.gangues.dano_cena_guarda', { n: danoCena.escudo })}
-            </span>
+            <motion.i className="gang-dano-cena__faixa" aria-hidden="true"
+              initial={{ scaleX: 0, opacity: 0.9 }} animate={{ scaleX: 1, opacity: 1 }} exit={{ opacity: 0 }}
+              transition={{ type: 'spring', stiffness: 260, damping: 22 }} />
+            <motion.div className="gang-dano-cena__txt"
+              initial={{ scale: 0.7, y: 10 }} animate={{ scale: 1, y: 0 }} exit={{ scale: 0.92, y: -8 }}
+              transition={{ type: 'spring', stiffness: 340, damping: 16 }}>
+              {danoCena.critico && <span className="gang-dano-cena__tag">{t('games.gangues.critico')}</span>}
+              <strong className="gang-dano-cena__nome">{danoCena.alvoNome}</strong>
+              <span className="gang-dano-cena__valor">
+                {danoCena.cura ? `+${danoCena.valor}` : danoCena.defendeu ? t('games.gangues.dano_cena_defendeu') : danoCena.valor > 0 ? `−${danoCena.valor}` : '🛡'}
+              </span>
+              <span className="gang-dano-cena__rot">
+                {danoCena.cura
+                  ? t('games.gangues.dano_cena_cura', { nome: danoCena.atacanteNome })
+                  : danoCena.defendeu
+                    ? t('games.gangues.dano_cena_sem_dano')
+                    : danoCena.valor > 0
+                      ? t('games.gangues.dano_cena_dano', { nome: danoCena.atacanteNome })
+                      : t('games.gangues.dano_cena_guarda', { n: danoCena.escudo })}
+              </span>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

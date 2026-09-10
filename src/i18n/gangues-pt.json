@@ -11,6 +11,8 @@
       "dano_cena_dano": "golpe de {nome}",
       "dano_cena_cura": "{nome} passou a cura",
       "dano_cena_guarda": "a guarda segurou −{n}",
+      "dano_cena_defendeu": "SEM DANO",
+      "dano_cena_sem_dano": "não passou a guarda",
       "ko_aviso": "{nome} caiu!",
       "ko_cena": {
         "aliado": "caiu",
