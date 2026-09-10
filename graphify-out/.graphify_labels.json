@@ -349,7 +349,6 @@
   "347": "ContoCapitulo.jsx",
   "348": "ContoHistoria.jsx",
   "349": "Quiz.jsx",
-  "350": "MazeRafael.jsx",
   "351": "Phase0Start.jsx",
   "352": "SearchModal.jsx",
   "353": "@vitejs/plugin-react-oxc",
@@ -402,7 +401,6 @@
   "400": "PowerCard.jsx",
   "401": "ResultScreen.jsx",
   "402": "ganguesStoryProgress.js",
-  "403": "Jokempo.jsx",
   "404": "drawCombatBoard",
   "405": "ganguesEffectThemes.js",
   "406": "DramaticDice.jsx",
@@ -436,6 +434,5 @@
   "434": "CenaInterior.jsx",
   "435": "TypewriterPhrase.jsx",
   "436": "useGanguesI18n.js",
-  "437": "AnalyticsTracker.jsx",
   "438": "Criatura.jsx"
 }

@@ -2274,6 +2274,11 @@
             "sub": "mate, pan y tranquilidad",
             "intro": "Un rato sentado, lejos del sol caliente de la calle, en el bar de Nato. Cuesta unas monedas, pero cura a la tropa y todos vuelven enteros — lastimado nadie gana una pelea."
           },
+          "descanso_2": {
+            "nome": "El bar del primo",
+            "sub": "del otro lado del muro",
+            "intro": "El primo de Nato tiene un bar improvisado de este lado. Lo mismo: pagás unas monedas y la tropa se acomoda antes de meterse en el galpón del Carvão."
+          },
           "loja": {
             "nome": "Tienda de la Pista"
           },

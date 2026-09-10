@@ -29,7 +29,7 @@ import { getGanguesResources } from './ganguesLoadout.js'
 // (escalarInimigo) — o molde é forma relativa, não stat absoluto. É assim que
 // o Álbum de Marélia se preenche jogando as tretas.
 export const GANGUES_TERRITORIO_ENCONTRO = {
-  pista:   { moldes: [1101, 1102, 1103, 1201, 1202, 1203, 1301, 1302, 1303, 1401, 1402], min: 1, max: 4 },
+  pista:   { moldes: [1101, 1102, 1103, 1104, 1105, 1106, 1107, 1108, 1109, 1201, 1202, 1203, 1204, 1205, 1206, 1301, 1302, 1303, 1401, 1402], min: 1, max: 4 },
   feira:   { moldes: [1104, 1105, 1106, 1204, 1205, 1206, 1304, 1305, 1306, 1403, 1404], min: 2, max: 5 },
   baixada: { moldes: [1107, 1108, 1109, 1207, 1208, 1209, 1307, 1308, 1309, 1405, 1406], min: 3, max: 6 },
   vila:    { moldes: [1110, 1111, 1112, 1210, 1211, 1212, 1310, 1311, 1312, 1407, 1408], min: 3, max: 6 },

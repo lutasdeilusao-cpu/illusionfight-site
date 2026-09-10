@@ -2274,6 +2274,11 @@
             "sub": "mate, bread and quiet",
             "intro": "Some time sitting, out of the hot street sun, in Nato's bar. Costs a little change, but it patches the crew up and everyone comes back whole — hurt, nobody wins a fight."
           },
+          "descanso_2": {
+            "nome": "The cousin's corner bar",
+            "sub": "on the other side of the wall",
+            "intro": "Nato's cousin runs a makeshift bar over on this side. Same deal: pay a little change and the crew sorts itself out before heading into Carvão's warehouse."
+          },
           "loja": {
             "nome": "Pista Shop"
           },

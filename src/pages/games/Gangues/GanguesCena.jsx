@@ -38,7 +38,7 @@ function marcarCenaIntroVista(id){try{const atual=JSON.parse(localStorage.getIte
 // na ordem em que se revelam: birosca → beco_2 (baixo) → beco_3 (praça) →
 // sinaleiro (vão aberto) → rasteira_velha (o último, colado no muro). O
 // jogador sobe a Pista batendo um por um.
-const POS={sinal:{x:210,y:1570},ferro:{x:150,y:1325},achado:{x:110,y:1245},beco:{x:445,y:1190},birosca:{x:170,y:1460},corre:{x:610,y:1010},beco_2:{x:330,y:1270},beco_3:{x:380,y:950},sinaleiro:{x:440,y:755},rasteira_velha:{x:360,y:440},oficina:{x:250,y:705},descanso:{x:205,y:1440},informante:{x:150,y:740},rinha:{x:610,y:740},loja:{x:210,y:250},boss:{x:570,y:175}}
+const POS={sinal:{x:210,y:1570},ferro:{x:150,y:1325},achado:{x:110,y:1245},beco:{x:445,y:1190},birosca:{x:170,y:1460},corre:{x:610,y:1010},beco_2:{x:330,y:1270},beco_3:{x:380,y:950},sinaleiro:{x:440,y:755},rasteira_velha:{x:360,y:440},oficina:{x:250,y:705},descanso:{x:205,y:1440},descanso_2:{x:230,y:288},informante:{x:150,y:740},rinha:{x:610,y:740},loja:{x:210,y:250},boss:{x:570,y:175}}
 // Um obstáculo `solido` vira um retângulo de colisão PEQUENO em volta do ponto
 // (o jogador tem raio 18; corredor da pista ~186px — colisor grande trancava).
 function obstRect(o){return {x:o.x-15,y:o.y-11,w:30,h:22}}
@@ -61,6 +61,8 @@ const ENTRY_ZONES={
   beco_2:{x:300,y:1246,w:60,h:52},beco_3:{x:350,y:926,w:60,h:52},
   sinaleiro:{x:410,y:731,w:60,h:52},rasteira_velha:{x:330,y:416,w:60,h:52},
   loja:{x:175,y:216,w:72,h:72},oficina:{x:220,y:678,w:64,h:62},
+  // descanso_2: birosca improvisada na faixa aberta pós-muro (nenhum colisor ali).
+  descanso_2:{x:200,y:264,w:64,h:56},
   // informante/rinha ficam num trecho SEM colisor nenhum (y:705-781 não tem
   // nenhum COLLIDERS cobrindo essa faixa) — diferente de ferro/corre/etc,
   // que hospedam perto de prédio de verdade e por isso a zona anda longe do

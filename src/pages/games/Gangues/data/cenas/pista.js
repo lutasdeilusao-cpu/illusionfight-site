@@ -41,6 +41,14 @@ const QUARTEIROES_PISTA = [
   { x: 0, y: 1622, w: 287, h: 218 }, { x: 473, y: 1622, w: 287, h: 218 },
 ]
 
+// Moldes que as tretas de rua da Pista revezam ("estilo Pokémon"). Antes eram
+// só 5 ids repetidos à exaustão — o Isaias reclamou de encarar Ratazana toda
+// hora. Agora ~14: vigia fraco de esquina (11xx) + vapor de rua (12xx). O
+// escalarInimigo ajusta a força, então o molde é só a "cara".
+const PISTA_POOL_RUA = [1101, 1102, 1103, 1104, 1105, 1106, 1107, 1108, 1109, 1201, 1202, 1203, 1204, 1205]
+// Só vigia (sem vapor) pro corredor do túnel — o degrau mais fácil.
+const PISTA_POOL_TUNEL = [1101, 1102, 1103, 1104, 1105, 1106, 1107, 1108, 1109, 1110]
+
 // Prédios (só VISUAL — a colisão vem dos quarteirões). Cada bloco de favela é
 // vários barracos/lajes desalinhados, não uma caixa só. `tipo`:
 //  barraco  — 1 pavimento, madeirite + tijolo, telha de amianto
@@ -176,7 +184,7 @@ export const CENA_PISTA = {
       // escolhas do papo: cada uma tem efeito próprio
       escolhas: [
         { id: 'compra', custoGrana: 4, recompensa: { rep: 0 }, revela: ['ferro'] },
-        { id: 'aperta', viraTreta: { enemy: 1201, rep: -1, recompensa: { grana: 4 }, revezamento: { pool: [1101, 1102, 1103, 1201, 1203], budgetPorCorpo: 4, chanceDupla: 0.15 } }, revela: ['ferro'] },
+        { id: 'aperta', viraTreta: { enemy: 1201, rep: -1, recompensa: { grana: 4 }, revezamento: { pool: PISTA_POOL_RUA, budgetPorCorpo: 4, chanceDupla: 0.15 } }, revela: ['ferro'] },
         { id: 'ignora', revela: ['ferro'] },
       ],
     },
@@ -189,7 +197,7 @@ export const CENA_PISTA = {
       // cadeado (PuzzleSimonSays, self-styled, sem depender de Puzzles.css).
       puzzle: { type: 'simon', config: { difficulty: 'easy' }, skin: 'gazua' },
       recompensa: { grana: 12, item: 13 },
-      falha: { viraTreta: { enemy: 1201, recompensa: { grana: 3 }, revezamento: { pool: [1101, 1102, 1103, 1201], budgetPorCorpo: 4, chanceDupla: 0.1 } } },
+      falha: { viraTreta: { enemy: 1201, recompensa: { grana: 3 }, revezamento: { pool: PISTA_POOL_RUA, budgetPorCorpo: 4, chanceDupla: 0.1 } } },
       // Abrir a fechadura revela o beco (caminho principal), o fundo do
       // ferro-velho (achado — 2º pedaço de sucata) e a oficina do Nando (onde
       // a sucata vira peça).
@@ -238,7 +246,7 @@ export const CENA_PISTA = {
       // corpo (não escala com o time): a porta de entrada fica gentil e continua
       // farmável pra sempre.
       enemy: 1201,
-      revezamento: { pool: [1101, 1102, 1103, 1201, 1203], budgetPorCorpo: 5, chanceDupla: 0.4 },
+      revezamento: { pool: PISTA_POOL_RUA, budgetPorCorpo: 5, chanceDupla: 0.4 },
       forca: 1,
       dificuldade: 'facil',
       recompensa: { grana: 8, rep: 2 },
@@ -348,7 +356,7 @@ export const CENA_PISTA = {
       pino: { x: 40, y: 190 },
       i18n: 'games.gangues.cena.pista.rinha',
       enemy: 1201,
-      revezamento: { pool: [1101, 1102, 1103, 1201, 1203], budgetPorCorpo: 5, chanceDupla: 0.35 },
+      revezamento: { pool: PISTA_POOL_RUA, budgetPorCorpo: 5, chanceDupla: 0.35 },
       forca: 1,
       dificuldade: 'facil',
       recompensa: { grana: 4 },
@@ -404,6 +412,19 @@ export const CENA_PISTA = {
       visivel: true,
       pino: { x: 70, y: 118 },
       i18n: 'games.gangues.cena.pista.descanso',
+      custoGrana: 10,
+    },
+    {
+      // Birosca improvisada do OUTRO lado do muro — o Nato tem um primo lá.
+      // Mesma função (curar a tropa antes do galpão), só que já pós-muro, pra
+      // não ter que voltar tunelando toda vez. Aparece só quando o portão abre.
+      id: 'descanso_2',
+      tipo: 'descanso',
+      opcional: true,
+      repetivel: true,
+      pos_portao: true,
+      pino: { x: 30, y: 40 },
+      i18n: 'games.gangues.cena.pista.descanso_2',
       custoGrana: 10,
     },
   ],
@@ -506,7 +527,7 @@ export const CENA_PISTA = {
           ],
           cenario: [{ tipo: 'chao-tunel' }, { tipo: 'escombro', x: 75, y: 100 }, { tipo: 'lampada-tunel', x: 190, y: 40 }],
           pois: [
-            { poi: { id: 'tunel_m1', tipo: 'treta', repetivel: true, revezamento: { pool: [1101, 1102, 1103], budgetPorCorpo: 4, chanceDupla: 0.22 }, i18n: 'games.gangues.cena.pista.tunel.m1', recompensa: { grana: 5, rep: 2 } }, pos: { x: 190, y: 130 } },
+            { poi: { id: 'tunel_m1', tipo: 'treta', repetivel: true, revezamento: { pool: PISTA_POOL_TUNEL, budgetPorCorpo: 4, chanceDupla: 0.22 }, i18n: 'games.gangues.cena.pista.tunel.m1', recompensa: { grana: 5, rep: 2 } }, pos: { x: 190, y: 130 } },
           ],
           passagem: { x: 150, y: 30, w: 80, h: 24, para: 1, precisa: 'tunel_m1', label: 'avancar' },
         },
@@ -519,7 +540,7 @@ export const CENA_PISTA = {
           ],
           cenario: [{ tipo: 'chao-tunel' }, { tipo: 'lampada-tunel', x: 180, y: 40 }, { tipo: 'lampada-tunel', x: 180, y: 230 }, { tipo: 'escombro', x: 300, y: 300 }],
           pois: [
-            { poi: { id: 'tunel_m2', tipo: 'treta', repetivel: true, revezamento: { pool: [1101, 1102, 1103, 1201], budgetPorCorpo: 6, chanceDupla: 0.45 }, i18n: 'games.gangues.cena.pista.tunel.m2', recompensa: { grana: 7, rep: 3 } }, pos: { x: 180, y: 210 } },
+            { poi: { id: 'tunel_m2', tipo: 'treta', repetivel: true, revezamento: { pool: PISTA_POOL_RUA, budgetPorCorpo: 6, chanceDupla: 0.45 }, i18n: 'games.gangues.cena.pista.tunel.m2', recompensa: { grana: 7, rep: 3 } }, pos: { x: 180, y: 210 } },
             { poi: { id: 'tunel_achado', tipo: 'achado', opcional: true, i18n: 'games.gangues.cena.pista.tunel.achado', recompensa: { grana: 14, item: 13 } }, pos: { x: 290, y: 120 } },
           ],
           passagem: { x: 140, y: 30, w: 80, h: 24, para: 2, precisa: 'tunel_m2', label: 'avancar' },
@@ -537,7 +558,7 @@ export const CENA_PISTA = {
           ],
           cenario: [{ tipo: 'chao-tunel' }, { tipo: 'lampada-tunel', x: 190, y: 60 }, { tipo: 'escombro', x: 295, y: 110 }],
           pois: [
-            { poi: { id: 'tunel_m3', tipo: 'treta', repetivel: true, revezamento: { pool: [1101, 1102, 1103], budgetPorCorpo: 5, chanceDupla: 0.3 }, i18n: 'games.gangues.cena.pista.tunel.m3', recompensa: { grana: 6, rep: 2 } }, pos: { x: 190, y: 180 } },
+            { poi: { id: 'tunel_m3', tipo: 'treta', repetivel: true, revezamento: { pool: PISTA_POOL_TUNEL, budgetPorCorpo: 5, chanceDupla: 0.3 }, i18n: 'games.gangues.cena.pista.tunel.m3', recompensa: { grana: 6, rep: 2 } }, pos: { x: 190, y: 180 } },
           ],
         },
       ],

@@ -1864,6 +1864,11 @@
             "sub": "mate, pão e sossego",
             "intro": "Um tempo sentado, longe do sol quente da rua, na birosca do Nato. Custa uns trocado, mas cura a tropa e todo mundo volta inteiro pro corre — machucado ninguém ganha treta."
           },
+          "descanso_2": {
+            "nome": "A birosca do primo",
+            "sub": "do outro lado do muro",
+            "intro": "O primo do Nato toca uma birosca improvisada aqui do lado de lá. Mesma coisa: paga uns trocado e a tropa se ajeita antes de entrar no galpão do Carvão."
+          },
           "loja": {
             "nome": "Loja da Pista"
           },
