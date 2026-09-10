@@ -427,7 +427,13 @@
   "425": "classTree.js",
   "426": "Universo.jsx",
   "427": "PuzzleStealthGrid",
+  "428": "ResultCard.jsx",
   "429": "CenaCenario.jsx",
+  "430": "Create",
   "431": "GanguesPapo.jsx",
-  "434": "CenaInterior.jsx"
+  "432": "AnalyticsTracker.jsx",
+  "433": "SearchModal.jsx",
+  "434": "CenaInterior.jsx",
+  "435": "TypewriterPhrase.jsx",
+  "436": "useGanguesI18n.js"
 }

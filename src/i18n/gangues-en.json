@@ -559,7 +559,7 @@
         "slots": {
           "cabeca": "Head",
           "corpo": "Body",
-          "bracos": "Arms",
+          "bracos": "Hands",
           "pes": "Feet",
           "amuleto": "Amulet",
           "arma": "Weapon"
@@ -599,8 +599,11 @@
         "vazio": "The bag is empty. Buy something at the shop.",
         "consumiveis": "Combat items",
         "equip_bolso": "Stashed gear",
-        "nota_combate": "They show up under the 🎒 button during a fight.",
-        "nota_equip": "Equip via 👤 → character sheet."
+        "nota_combate": "They also show up under the 🎒 button during a fight.",
+        "nota_equip": "Equip via 👤 → character sheet.",
+        "usar": "Use",
+        "usar_em": "Use {item} on who?",
+        "ja_cheio": "{nome} is already maxed. Save the potion."
       },
       "clube": {
         "nome": "Fight Club",

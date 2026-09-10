@@ -254,6 +254,40 @@ export const useGanguesStore = create((set, get) => ({
     get().saveParticipantProgress(get().roster.map(member => member.id))
   },
 
+  // Cura UM personagem fora de combate (poção usada pela Bolsa da Gangue).
+  // `tipo` = 'cura_pm' → PM, qualquer outro → PV. `valor` = quanto restaura.
+  // Devolve { curou, nome, campo } — se curou === 0 o membro já estava cheio
+  // e quem chamou NÃO deve consumir a poção.
+  curarMembro: (memberId, tipo, valor) => {
+    const campo = tipo === 'cura_pm' ? 'pm_atual' : 'pv_atual'
+    const maxKey = tipo === 'cura_pm' ? 'pmMax' : 'pvMax'
+    let curou = 0, nome = '?'
+    const aplicar = m => {
+      if (m.id !== memberId) return m
+      const norm = normalizeGanguesLoadout(m)
+      const attrs = getGanguesAttributesWithEquip(norm.attributes)
+      const res = applyGanguesEquipResources(getGanguesResources(norm.combat_path, attrs?.R), norm.attributes?.equipment)
+      const max = res[maxKey]
+      const atual = Math.min(max, Number(m.attributes?.[campo] ?? max))
+      const novo = Math.min(max, atual + Math.max(0, valor))
+      curou = novo - atual
+      nome = m.sheet_name || '?'
+      if (curou <= 0) return m
+      return { ...m, attributes: { ...m.attributes, [campo]: novo } }
+    }
+    set(state => {
+      const roster = state.roster.map(aplicar)
+      const byId = new Map(roster.map(m => [m.id, m]))
+      return {
+        roster,
+        activeParty: state.activeParty.map(m => byId.get(m.id) || m),
+        sheet: byId.get(state.sheet.id) || state.sheet,
+      }
+    })
+    if (curou > 0) { get().saveParticipantProgress([memberId]); get()._persistCena() }
+    return { curou, nome, campo: campo === 'pm_atual' ? 'PM' : 'PV' }
+  },
+
   saveParticipantProgress: async (participantIds = []) => {
     const uid = get()._userId
     if (!uid) return

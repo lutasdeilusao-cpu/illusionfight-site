@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import { createPortal } from 'react-dom'
 import { useLanguage } from '../../../../context/LanguageContext'
 import { useGanguesStore } from '../store/useGanguesStore'
 import { GANGUES_EQUIP_SLOTS, getGanguesEquip, normalizeGanguesEquipment } from '../data/ganguesEquip.js'
@@ -78,7 +79,7 @@ export default function GanguesEquipPanel({ member }) {
         })}
       </ul>
 
-      {slotAberto && (
+      {slotAberto && createPortal((
         <div className="gang-equip-picker" role="dialog" aria-modal="true">
           <button className="gang-equip-picker__scrim" onClick={fechar} aria-label={t('games.gangues.cena.fechar')} />
           <div className="gang-equip-picker__card">
@@ -119,7 +120,7 @@ export default function GanguesEquipPanel({ member }) {
             </div>
           </div>
         </div>
-      )}
+      ), document.body)}
     </div>
   )
 }

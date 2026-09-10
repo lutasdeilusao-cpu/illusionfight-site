@@ -559,7 +559,7 @@
         "slots": {
           "cabeca": "Cabeza",
           "corpo": "Cuerpo",
-          "bracos": "Brazos",
+          "bracos": "Manos",
           "pes": "Pies",
           "amuleto": "Amuleto",
           "arma": "Arma"
@@ -599,8 +599,11 @@
         "vazio": "El bolso está vacío. Compra algo en la tienda.",
         "consumiveis": "Ítems de combate",
         "equip_bolso": "Equipo guardado",
-        "nota_combate": "Aparecen en el botón 🎒 durante la pelea.",
-        "nota_equip": "Equipa con 👤 → ficha del personaje."
+        "nota_combate": "También aparecen en el botón 🎒 durante la pelea.",
+        "nota_equip": "Equipa con 👤 → ficha del personaje.",
+        "usar": "Usar",
+        "usar_em": "¿Usar {item} en quién?",
+        "ja_cheio": "{nome} ya está al mango. Guardá la poción."
       },
       "clube": {
         "nome": "Club de la Pelea",

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { createPortal } from 'react-dom'
 import { useLanguage } from '../../../../../context/LanguageContext'
 import { useGanguesStore } from '../../store/useGanguesStore'
 import { getGanguesItem } from '../../data/ganguesItens.js'
@@ -84,7 +85,7 @@ function DetalheItem({ item, store, t, onClose, notificar }) {
     else { sfx.cancel(); notificar(t('games.gangues.loja.sem_grana')) }
   }
 
-  return (
+  return createPortal((
     <div className="gang-loja-det" role="dialog" aria-modal="true">
       <button className="gang-loja-det__scrim" onClick={onClose} aria-label={t('games.gangues.cena.fechar')} />
       <div className="gang-loja-det__card">
@@ -129,7 +130,7 @@ function DetalheItem({ item, store, t, onClose, notificar }) {
         )}
       </div>
     </div>
-  )
+  ), document.body)
 }
 
 export default function GanguesLoja({ poi, onClose }) {

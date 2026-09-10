@@ -427,21 +427,55 @@ export default function GanguesCena({onNavigate}){
 // guardado). É a MESMA fonte que a loja abastece e que o combate lê pra usar
 // poção (store.inventario / store.equipamentos) — um sistema só.
 function BagSheet({store,t,onClose}){
+  const [usando,setUsando]=useState(null) // consumível escolhido pra usar (mostra o picker de personagem)
+  const [feito,setFeito]=useState(null)   // feedback: "Trinca +5 PV"
   const consumiveis=GANGUES_ITENS_LISTA.map(it=>({...it,qtd:store.inventario[it.id]||0})).filter(it=>it.qtd>0)
   const pecas=Object.values(store.equipamentos.reduce((acc,eq)=>{
     const def=getGanguesEquip(eq.itemId); if(!def)return acc
     acc[eq.itemId]=acc[eq.itemId]||{def,qtd:0}; acc[eq.itemId].qtd++; return acc
   },{}))
   const vazio=consumiveis.length===0&&pecas.length===0
+  // PV/PM atuais de cada ficha do time — pro picker de "usar poção".
+  const time=(store.activeParty.length?store.activeParty:store.roster).slice(0,GANGUES_STORY_BATTLE_PARTY_MAX).map(m=>{
+    const attrs=getGanguesAttributesWithEquip(m.attributes)
+    const res=applyGanguesEquipResources(getGanguesResources(m.combat_path,attrs?.R),m.attributes?.equipment)
+    return {id:m.id,nome:m.sheet_name||'?',
+      pv:Math.min(res.pvMax,Number(m.attributes?.pv_atual??res.pvMax)),pvMax:res.pvMax,
+      pm:Math.min(res.pmMax,Number(m.attributes?.pm_atual??res.pmMax)),pmMax:res.pmMax}
+  })
+  const podeUsar=it=>it.tipo==='cura_pv'||it.tipo==='cura_pm'
+  const usarEm=(item,memberId)=>{
+    const r=store.curarMembro(memberId,item.tipo,item.valor)
+    if(r.curou>0){store.usarItem(item.id);sfx.reward?.();setFeito(`${r.nome} +${r.curou} ${r.campo}`)}
+    else{sfx.cancel();setFeito(t('games.gangues.bag.ja_cheio',{nome:r.nome}))}
+    setUsando(null);setTimeout(()=>setFeito(null),2200)
+  }
   return <div className="gang-cena-enc gang-cena-enc--bag">
     <button className="gang-cena-enc-x" onClick={onClose} aria-label={t('games.gangues.cena.fechar')}>✕</button>
     <span className="gang-cena-eyebrow">{t('games.gangues.bag.eyebrow')}</span>
     <h3 className="gang-cena-enc-titulo">{t('games.gangues.bag.titulo')}</h3>
     <p className="gang-cena-enc-sub"><b>💵 {store.grana}　⚑ {store.rep}</b></p>
+    {feito&&<p className="gang-bag-feito">{feito}</p>}
     {vazio&&<p className="gang-cena-enc-sub">{t('games.gangues.bag.vazio')}</p>}
     {consumiveis.length>0&&<>
       <small className="gang-bag-sec">{t('games.gangues.bag.consumiveis')}</small>
-      <div className="gang-bag-lista">{consumiveis.map(it=><div key={it.id} className="gang-bag-row"><span>{it.icone}</span><strong>{t(it.nome)}</strong><b>×{it.qtd}</b></div>)}</div>
+      <div className="gang-bag-lista">{consumiveis.map(it=>(
+        <div key={it.id} className="gang-bag-row">
+          <span>{it.icone}</span><strong>{t(it.nome)}</strong>
+          {podeUsar(it)&&time.length>0&&<button className="gang-bag-usar" onClick={()=>setUsando(u=>u?.id===it.id?null:it)}>{t('games.gangues.bag.usar')}</button>}
+          <b>×{it.qtd}</b>
+        </div>
+      ))}</div>
+      {usando&&<div className="gang-bag-alvos">
+        <small>{t('games.gangues.bag.usar_em',{item:t(usando.nome)})}</small>
+        {time.map(m=>{
+          const cheio=usando.tipo==='cura_pm'?m.pm>=m.pmMax:m.pv>=m.pvMax
+          return <button key={m.id} className="gang-bag-alvo" disabled={cheio} onClick={()=>usarEm(usando,m.id)}>
+            <strong>{m.nome}</strong>
+            <em>{usando.tipo==='cura_pm'?`${m.pm}/${m.pmMax} PM`:`${m.pv}/${m.pvMax} PV`}</em>
+          </button>
+        })}
+      </div>}
       <p className="gang-bag-nota">{t('games.gangues.bag.nota_combate')}</p>
     </>}
     {pecas.length>0&&<>

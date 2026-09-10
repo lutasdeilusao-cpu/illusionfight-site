@@ -447,6 +447,61 @@
 .gang-bag-row b { font: 800 0.72rem var(--font-mono); color: var(--if-amber); }
 .gang-bag-nota { width: 100%; margin: 4px 0 0; text-align: left; font: 700 0.5rem var(--font-mono); letter-spacing: 0.04em; color: #7b898f; }
 
+/* Bolsa pode passar da tela (poções + equipamento + picker) — rola por dentro */
+.gang-cena-enc--bag { max-height: min(84dvh, 640px); overflow-y: auto; scrollbar-width: thin; }
+
+/* Usar poção fora de combate */
+.gang-bag-usar {
+  flex-shrink: 0;
+  padding: 5px 10px;
+  border: 1px solid var(--terr-cor);
+  background: color-mix(in srgb, var(--terr-cor) 14%, transparent);
+  color: var(--terr-cor);
+  font: 800 0.54rem var(--font-mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.gang-bag-alvos {
+  width: 100%;
+  margin-top: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 8px;
+  border: 1px dashed color-mix(in srgb, var(--terr-cor) 45%, transparent);
+  background: color-mix(in srgb, var(--terr-cor) 6%, transparent);
+}
+.gang-bag-alvos > small {
+  text-align: left;
+  font: 700 0.5rem var(--font-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #8fa0a6;
+}
+.gang-bag-alvo {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 7px 10px;
+  border: 1px solid var(--if-hair-strong);
+  background: rgba(255, 255, 255, 0.03);
+  cursor: pointer;
+}
+.gang-bag-alvo strong { font: 800 0.72rem var(--font-display); color: #fff; text-transform: uppercase; }
+.gang-bag-alvo em { font-style: normal; font: 700 0.6rem var(--font-mono); color: var(--if-amber); }
+.gang-bag-alvo:disabled { opacity: 0.4; cursor: default; }
+.gang-bag-feito {
+  width: 100%;
+  margin: 2px 0 0;
+  padding: 6px 10px;
+  font: 800 0.66rem var(--font-mono);
+  color: #6be07a;
+  background: rgba(107, 224, 122, 0.1);
+  border: 1px solid rgba(107, 224, 122, 0.4);
+}
+
 /* ══ A Pista 2.4 — bairro explorável ═════════════════════════ */
 /* .gang-page (pai) desconta guest-notice + Rádio Nina (topo OU rodapé) via
    padding — quando a Rádio Nina toca ancorada no topo ela soma 54px
