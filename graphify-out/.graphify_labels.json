@@ -431,8 +431,12 @@
   "429": "CenaCenario.jsx",
   "430": "Create",
   "431": "GanguesPapo.jsx",
+  "432": "BulletHellRafael.jsx",
   "433": "SearchModal.jsx",
   "434": "CenaInterior.jsx",
+  "435": "sfx.js",
   "436": "useGanguesI18n.js",
-  "438": "Criatura.jsx"
+  "437": ".stopHeartbeatLoop",
+  "438": "Criatura.jsx",
+  "439": "GanguesVictory.jsx"
 }

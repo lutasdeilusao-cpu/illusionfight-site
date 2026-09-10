@@ -859,6 +859,15 @@ Reserva: cada faixa comporta crescer até ~99 sem remapear.
   história = **30** (era 10) pra a escada subir no ritmo dos ~15 eventos de cada
   bairro. Os chefes carregam `nivel` de fachada. **O Retalho é o único nível 100
   do jogo.**
+- **Estrutura de cada chefe** (rev. Isaias dez/2026 — só a Pista existe hoje, o
+  resto é o plano pra quando cada bairro ganhar cena):
+  | # | Bairro | Estrutura |
+  |---|---|---|
+  | 1–3 | Pista · Feira · Baixada | Chefe único, 1 luta. |
+  | 4 | Vila | **Chefe falso.** Você derruba o cara achando que zerou → isso revela +2 eventos → aí aparece o **chefe real** (2 lutas separadas, POIs encadeados pelo grafo `revela`). |
+  | 5 | Morro | **Os Três Irmãos** (trigêmeos). 3 POIs de chefe espalhados no mapa, 1 luta por irmão, caçados um de cada vez. O 3º é o casca-grossa. Budget do bairro dividido entre os 3 (o 3º leva a maior fatia). |
+  | 6 | Alto | **Dupla equilibrada.** Os 2 líderes no MESMO bando, 1 luta. `gerarBandoChefe` com 2 ids-líder em vez de 1 líder + escoltas; budget dividido ~50/50 entre eles. |
+  | 7 | Laje | **3 formas, 3 lutas ENCADEADAS** (sem motor novo). Vence a forma 1 → tela curta "ele levantou diferente" → forma 2 (mais forte) → forma 3 (final). Cada forma tem seu bando. Entre formas: definir se o PV/PM do jogador restaura (provável que sim, senão 3 seguidas é impossível). |
 - **Modo Batalha = A Torre** (`GanguesBatalha`). Destrava ao zerar a campanha 1×.
   Luta atrás de luta, o jogador escolhe o bairro-tema e a *folga de nível*
   (folgado → brabo). Cada andar sobe a dificuldade e o AP (+100% a cada 5

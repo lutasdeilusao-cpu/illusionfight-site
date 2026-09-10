@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1789006540.8548372,
-    "ast_hash": "777bd31db6eab17b73234883efb6a19a",
+    "mtime": 1789008343.0335898,
+    "ast_hash": "24bf77fc8b20ba78fa3dc5f7c4255229",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2745,8 +2745,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1789006540.8958368,
-    "ast_hash": "12f0f65bb478abed1777e871a4788da1",
+    "mtime": 1789008343.0743697,
+    "ast_hash": "aca569c023f58dbf57203c3b40343d06",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3495,8 +3495,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/GanguesVictory.jsx": {
-    "mtime": 1788989253.599706,
-    "ast_hash": "a1d38d4f6689039e33e8560e2d014106",
+    "mtime": 1789008256.3974843,
+    "ast_hash": "7998776eba278d8d854e308dce618c89",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/DramaticDice.jsx": {
@@ -3550,18 +3550,18 @@
     "semantic_hash": ""
   },
   "src/i18n/gangues-en.json": {
-    "mtime": 1789006449.9202485,
-    "ast_hash": "691fb1e46573786afc06e6956b589e7b",
+    "mtime": 1789008273.1768467,
+    "ast_hash": "86dff0e67f7fc4d3e9d148aa36637a48",
     "semantic_hash": ""
   },
   "src/i18n/gangues-es.json": {
-    "mtime": 1789006460.2325447,
-    "ast_hash": "8c65aea6421d1c83fa3a5b50de71b455",
+    "mtime": 1789008273.21213,
+    "ast_hash": "7af61bd0e98d5c4a68d4f18e00dfa083",
     "semantic_hash": ""
   },
   "src/i18n/gangues-pt.json": {
-    "mtime": 1789006440.4565873,
-    "ast_hash": "4d9518c0be86bd309eec0586a069002d",
+    "mtime": 1789008273.1418483,
+    "ast_hash": "f27f3adf7e3d581ecfe86b5ea3038e8a",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/hooks/useGanguesI18n.js": {
@@ -4785,8 +4785,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/ganguesEncontros.js": {
-    "mtime": 1789006384.388343,
-    "ast_hash": "086f926fcd903dbcbd4fbe166d788ce1",
+    "mtime": 1789008245.1700683,
+    "ast_hash": "d02d671bd1f3c17c24a2f8d44a6af7e2",
     "semantic_hash": ""
   },
   "ldi_gangues_30_personagens_v1.json": {
@@ -4895,8 +4895,8 @@
     "semantic_hash": ""
   },
   "docs/Games/Gangues/LDI_GANGUES_GDD.md": {
-    "mtime": 1788989508.4662092,
-    "ast_hash": "5725fb3386a9f22957c479a7ddc914df",
+    "mtime": 1789008295.5300846,
+    "ast_hash": "42aa71179be2daeae2ca86ee47eb64a1",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/GanguesAlbum.jsx": {
