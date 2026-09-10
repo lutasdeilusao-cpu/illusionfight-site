@@ -533,7 +533,13 @@
         "comprar": "Buy",
         "sem_grana": "Not enough cash",
         "no_inventario": "You have: {n}",
-        "compra_feita": "Bought!"
+        "compra_feita": "Bought!",
+        "abas": {
+          "pocao": "Potion",
+          "arma": "Weapon",
+          "protecao": "Armor",
+          "amuleto": "Charm"
+        }
       },
       "equip": {
         "titulo": "Gear",

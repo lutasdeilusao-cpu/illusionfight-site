@@ -533,7 +533,13 @@
         "comprar": "Comprar",
         "sem_grana": "Grana insuficiente",
         "no_inventario": "Você tem: {n}",
-        "compra_feita": "Comprado!"
+        "compra_feita": "Comprado!",
+        "abas": {
+          "pocao": "Poção",
+          "arma": "Arma",
+          "protecao": "Proteção",
+          "amuleto": "Amuleto"
+        }
       },
       "equip": {
         "titulo": "Equipamento",

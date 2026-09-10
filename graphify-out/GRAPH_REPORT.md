@@ -1,16 +1,16 @@
 # Graph Report - SiteLDI  (2026-09-09)
 
 ## Corpus Check
-- 895 files · ~1,149,731 words
+- 895 files · ~1,149,831 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 4409 nodes · 7747 edges · 431 communities (295 shown, 136 thin omitted)
+- 4409 nodes · 7751 edges · 431 communities (295 shown, 136 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 57 edges (avg confidence: 0.67)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `1002ca8f`
+- Built from commit: `40354eec`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -77,7 +77,6 @@
 - useEventos
 - PuzzleForça.jsx
 - AnalyticsTracker.jsx
-- pista.js
 - Community 63
 - Community 64
 - Community 65
@@ -535,8 +534,8 @@ Cohesion: 0.09
 Nodes (24): PuzzleSimonSays(), EventosContext, EventosProvider(), METAS_PROGRESSO, useEventos(), registrarPartida(), usePresence(), Create() (+16 more)
 
 ### Community 30 - "useTopTrumpsRewards.js"
-Cohesion: 0.09
-Nodes (23): GanguesMiniMapa(), cenaIntroJaVista(), collidersDaCena(), ENTRY_ZONES, estadoInternoPoi(), estadoPoi(), GanguesCena(), hitsSolid() (+15 more)
+Cohesion: 0.07
+Nodes (32): CENA_PISTA, CENARIO_PISTA, CENAS_POR_ID, contarCena(), FIACAO_PISTA, MUNDO_PISTA, OBSTACULOS_PISTA, portaoAberto() (+24 more)
 
 ### Community 31 - "PuzzleStealthGrid.jsx"
 Cohesion: 0.32
@@ -657,10 +656,6 @@ Nodes (30): DanoPopup(), STATUS_ICONS, StatusBar(), resolverAcaoIA(), sortearIAs
 ### Community 61 - "AnalyticsTracker.jsx"
 Cohesion: 0.12
 Nodes (26): estaNoPool(), getCartaInfo(), getKarauksDisponiveis(), getMorakiOuTivaraDisponiveis(), getPool(), poolCompleto(), sortearCartaInicial1(), sortearCartaInicial2() (+18 more)
-
-### Community 62 - "pista.js"
-Cohesion: 0.15
-Nodes (8): CENA_PISTA, CENARIO_PISTA, CENAS_POR_ID, FIACAO_PISTA, MUNDO_PISTA, OBSTACULOS_PISTA, PREDIOS_PISTA, QUARTEIROES_PISTA
 
 ### Community 63 - "Community 63"
 Cohesion: 0.11
@@ -1367,7 +1362,7 @@ Cohesion: 0.60
 Nodes (5): calculateAllVision(), gerarCameras(), getVisionCone(), PuzzleStealthGrid(), temCaminhoLivre()
 
 ## Knowledge Gaps
-- **1877 isolated node(s):** `1. Visão geral`, `2.1 Abertura (vinheta de carregamento)`, `3.1 Site e conteúdo`, `3.2 Plataforma e conta`, `3.3 Catálogo e jogos` (+1872 more)
+- **1876 isolated node(s):** `1. Visão geral`, `2.1 Abertura (vinheta de carregamento)`, `3.1 Site e conteúdo`, `3.2 Plataforma e conta`, `3.3 Catálogo e jogos` (+1871 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **136 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -1381,7 +1376,7 @@ _Questions this graph is uniquely positioned to answer:_
 - **Why does `useGanguesStore` connect `EventosContext.jsx` to `LDINotification.jsx`, `PerfilColecao.jsx`, `ganguesEncontros.js`, `ganguesInimigos.js`?**
   _High betweenness centrality (0.021) - this node is a cross-community bridge._
 - **What connects `1. Visão geral`, `2.1 Abertura (vinheta de carregamento)`, `3.1 Site e conteúdo` to the rest of the system?**
-  _1877 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _1876 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
   _Cohesion score 0.05016722408026756 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**

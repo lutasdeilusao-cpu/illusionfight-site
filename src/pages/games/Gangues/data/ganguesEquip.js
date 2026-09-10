@@ -44,29 +44,29 @@ const i18nNome = id => `games.gangues.equip.itens.${id}`
 const CATALOGO = [
   // ── ARMA (🥊) — foco em A ──
   { id: 101, slug: 'soqueira_lata', slot: 'arma', raridade: 'comum', bonus: { A: 1 }, cardSlots: 0, custo: 16, icone: '🥊' },
-  { id: 102, slug: 'faca_serrilhada', slot: 'arma', raridade: 'incomum', bonus: { A: 2 }, cardSlots: 1, icone: '🔪' },
+  { id: 102, slug: 'faca_serrilhada', slot: 'arma', raridade: 'incomum', bonus: { A: 2 }, cardSlots: 1, custo: 32, icone: '🔪' },
   { id: 103, slug: 'cano_de_ferro', slot: 'arma', raridade: 'raro', bonus: { A: 2, H: 1 }, cardSlots: 2, icone: '🪈' },
 
   // ── CABEÇA (🪖) — foco em D ──
   { id: 104, slug: 'gorro_moletom', slot: 'cabeca', raridade: 'comum', bonus: { D: 1 }, cardSlots: 0, custo: 12, icone: '🧢' },
-  { id: 105, slug: 'capacete_obra', slot: 'cabeca', raridade: 'incomum', bonus: { D: 2 }, cardSlots: 1, icone: '⛑️' },
+  { id: 105, slug: 'capacete_obra', slot: 'cabeca', raridade: 'incomum', bonus: { D: 2 }, cardSlots: 1, custo: 24, icone: '⛑️' },
   { id: 106, slug: 'coroa_lata', slot: 'cabeca', raridade: 'raro', bonus: { A: 1, D: 1 }, cardSlots: 2, icone: '👑' },
 
   // ── CORPO (🦺) — a escolha PV vs PM (sem R) ──
   { id: 107, slug: 'colete_reforcado', slot: 'corpo', raridade: 'comum', bonus: { pv: 6 }, cardSlots: 0, custo: 20, icone: '🦺' }, // tanker
   { id: 108, slug: 'colete_leve', slot: 'corpo', raridade: 'comum', bonus: { pm: 6 }, cardSlots: 0, custo: 20, icone: '🧥' }, // magro / místico
-  { id: 109, slug: 'colete_placa', slot: 'corpo', raridade: 'incomum', bonus: { pv: 12 }, cardSlots: 1, icone: '🛡️' },
+  { id: 109, slug: 'colete_placa', slot: 'corpo', raridade: 'incomum', bonus: { pv: 12 }, cardSlots: 1, custo: 44, icone: '🛡️' },
   { id: 110, slug: 'manto_capuz', slot: 'corpo', raridade: 'incomum', bonus: { pm: 12 }, cardSlots: 1, icone: '🥋' },
   { id: 111, slug: 'armadura_rua', slot: 'corpo', raridade: 'raro', bonus: { pv: 18 }, cardSlots: 2, icone: '⚙️' },
 
   // ── BRAÇOS (🧤) — foco em D/A ──
   { id: 112, slug: 'luva_couro', slot: 'bracos', raridade: 'comum', bonus: { D: 1 }, cardSlots: 0, custo: 12, icone: '🧤' },
-  { id: 113, slug: 'manopla_porca', slot: 'bracos', raridade: 'incomum', bonus: { A: 2 }, cardSlots: 1, icone: '🦾' },
+  { id: 113, slug: 'manopla_porca', slot: 'bracos', raridade: 'incomum', bonus: { A: 2 }, cardSlots: 1, custo: 26, icone: '🦾' },
   { id: 114, slug: 'bracadeira_cravo', slot: 'bracos', raridade: 'raro', bonus: { A: 1, D: 1 }, cardSlots: 2, icone: '⛓️' },
 
   // ── PÉS (🥾) — foco em H ──
   { id: 115, slug: 'tenis_furado', slot: 'pes', raridade: 'comum', bonus: { H: 1 }, cardSlots: 0, custo: 12, icone: '👟' },
-  { id: 116, slug: 'coturno', slot: 'pes', raridade: 'incomum', bonus: { H: 1, D: 1 }, cardSlots: 1, icone: '🥾' },
+  { id: 116, slug: 'coturno', slot: 'pes', raridade: 'incomum', bonus: { H: 1, D: 1 }, cardSlots: 1, custo: 24, icone: '🥾' },
   { id: 117, slug: 'bota_biqueira', slot: 'pes', raridade: 'raro', bonus: { H: 2 }, cardSlots: 2, icone: '🦿' },
 
   // ── AMULETO (📿) — misto leve ──

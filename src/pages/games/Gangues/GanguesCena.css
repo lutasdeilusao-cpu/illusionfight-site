@@ -183,8 +183,11 @@
 
 /* ── Modal de encontro ── */
 .gang-cena-modal {
-  position: fixed; inset: 0; z-index: 945;
-  display: grid; place-items: center; padding: 1.4rem;
+  position: fixed; inset: 0; z-index: 1010; /* acima da Rádio Nina (topo=1001) — o modal não pode ficar por baixo dela, senão o ✕ some */
+  display: grid; place-items: center;
+  padding:
+    calc(1.4rem + var(--radio-nina-top-h, 0px)) 1.4rem
+    calc(1.4rem + var(--radio-nina-h, 0px));
 }
 .gang-cena-modal-bg { position: absolute; inset: 0; background: rgba(2, 5, 8, 0.86); backdrop-filter: blur(7px); }
 .gang-cena-modal-card {
@@ -295,7 +298,56 @@
 .gang-cena-folego--big b { font: 800 1.1rem var(--font-display); color: #fff; }
 
 /* ── Loja (encontro dentro da cena) ── */
-.gang-loja-cena-lista { display: flex; flex-direction: column; gap: 8px; width: 100%; }
+/* A loja tem catálogo longo — vira coluna com altura limitada, cabeçalho +
+   abas fixos em cima, botão fechar fixo embaixo e a LISTA rolando no meio.
+   (Antes estourava a tela sem scroll e o ✕ ficava fora de alcance.) */
+.gang-cena-enc--loja {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  max-height: min(84dvh, 660px);
+}
+.gang-cena-enc--loja > .gang-cena-eyebrow,
+.gang-cena-enc--loja > .gang-cena-enc-titulo,
+.gang-cena-enc--loja > .gang-cena-enc-sub,
+.gang-cena-enc--loja > .gang-loja-abas,
+.gang-cena-enc--loja > .gang-cena-enc-acoes { flex: 0 0 auto; }
+
+/* Abas por tipo de item */
+.gang-loja-abas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5px;
+  width: 100%;
+}
+.gang-loja-aba {
+  flex: 1 1 60px;
+  min-height: 30px;
+  padding: 5px 6px;
+  border: 1px solid var(--if-hair-strong);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-secondary);
+  font: 800 0.56rem var(--font-mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.gang-loja-aba.is-ativa {
+  border-color: var(--terr-cor);
+  background: color-mix(in srgb, var(--terr-cor) 16%, transparent);
+  color: #fff;
+}
+
+.gang-loja-cena-lista {
+  display: flex; flex-direction: column; gap: 8px; width: 100%;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
 .gang-loja-cena-item {
   position: relative;
   display: flex; align-items: center; gap: 10px;

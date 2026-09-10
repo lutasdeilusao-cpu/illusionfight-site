@@ -16,6 +16,15 @@ import { sfx } from '../../../../../lib/sfx'
 
 const ATTR_ORDER = ['A', 'H', 'R', 'D']
 
+// Abas da loja — tipo de item. Ordem fixa; só aparecem as que têm item.
+const ABAS = ['pocao', 'arma', 'protecao', 'amuleto']
+const abaDoItem = (item) => {
+  if (!item._equip) return 'pocao'
+  if (item.slot === 'arma') return 'arma'
+  if (item.slot === 'amuleto') return 'amuleto'
+  return 'protecao' // cabeca / corpo / bracos / pes
+}
+
 function bonusResumo(t, bonus = {}) {
   const parts = ATTR_ORDER.filter(attr => bonus[attr]).map(attr => `+${bonus[attr]} ${t(`games.gangues.attr_labels.${attr}`)}`)
   if (bonus.pv) parts.push(`+${bonus.pv} PV`)
@@ -128,12 +137,17 @@ export default function GanguesLoja({ poi, onClose }) {
   const store = useGanguesStore()
   const [aviso, setAviso] = useState(null) // { itemId, texto }
   const [detalhe, setDetalhe] = useState(null)
+  const [aba, setAba] = useState('pocao')
 
   const catalogo = (poi.itens || []).map(id => {
     const equip = getGanguesEquip(id)
     if (equip) return { ...equip, _equip: true }
     return getGanguesItem(id)
-  }).filter(Boolean)
+  }).filter(Boolean).filter(item => Number.isFinite(item.custo)) // sem preço = fora da loja (rede pra não mostrar "UNDEFINED")
+
+  const abasComItem = ABAS.filter(a => catalogo.some(item => abaDoItem(item) === a))
+  const abaAtiva = abasComItem.includes(aba) ? aba : (abasComItem[0] || 'pocao')
+  const visiveis = catalogo.filter(item => abaDoItem(item) === abaAtiva)
 
   const contarNoInventario = (item) => item._equip
     ? store.equipamentos.filter(eq => eq.itemId === item.id).length
@@ -156,8 +170,22 @@ export default function GanguesLoja({ poi, onClose }) {
       <p className="gang-cena-enc-sub">{t('games.gangues.loja.sub')}</p>
       <p className="gang-cena-enc-sub"><b>💵 {store.grana}</b>{aviso?.itemId === '_global' && <span className="gang-loja-cena-item__aviso"> {aviso.texto}</span>}</p>
 
+      <div className="gang-loja-abas" role="tablist">
+        {abasComItem.map(a => (
+          <button
+            key={a}
+            role="tab"
+            aria-selected={a === abaAtiva}
+            className={`gang-loja-aba${a === abaAtiva ? ' is-ativa' : ''}`}
+            onClick={() => { sfx.click?.(); setAba(a) }}
+          >
+            {t(`games.gangues.loja.abas.${a}`)}
+          </button>
+        ))}
+      </div>
+
       <div className="gang-loja-cena-lista">
-        {catalogo.map(item => {
+        {visiveis.map(item => {
           const quantidade = contarNoInventario(item)
           return (
             <div key={item.id} className="gang-loja-cena-item">
