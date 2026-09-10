@@ -9,6 +9,7 @@ import GanguesPapo from './components/cena/GanguesPapo'
 import GanguesParada from './components/cena/GanguesParada'
 import GanguesDescanso from './components/cena/GanguesDescanso'
 import GanguesLoja from './components/cena/GanguesLoja'
+import GanguesMiniMapa from './components/cena/GanguesMiniMapa'
 import CenaCenario from './components/cena/CenaCenario'
 import CenaInterior from './components/cena/CenaInterior'
 import { CENAS_POR_ID, portaoAberto, contarCena } from './data/cenas/pista.js'
@@ -386,6 +387,13 @@ export default function GanguesCena({onNavigate}){
     }),
     {id:'__boss',nome:t(`games.gangues.story.bosses.${cena.chefe.boss}.nome`),feito:Boolean(prog.boss)},
   ]
+  // Setinhas do mini-mapa: só os objetivos PENDENTES, com a posição no mundo.
+  // Se tudo fechou mas o muro ainda não abriu, o alvo vira a boca do túnel.
+  const minimapaAlvos=local?[]:metas.filter(m=>!m.feito).map(m=>{
+    if(m.id==='__boss'&&baseFeita&&!muroAberto)
+      return {id:'__tunel',nome:t('games.gangues.cena.minimapa.tunel'),pos:{x:452,y:404}}
+    return {...m,pos:m.id==='__boss'?POS.boss:POS[m.id]}
+  }).filter(m=>m.pos)
   return <main className={`gang-cena-worldpage${local?' is-interior':''}`} style={{'--terr-cor':cena.cor}}>
     <AnimatePresence>{intro&&<GangDialog lines={t(cena.chegada)} speaker={t(cena.falante)} sub={t(cena.falanteSub)} onFinish={fecharIntro} onSkip={fecharIntro}/>}</AnimatePresence>
     <header className="gang-cena-worldhud"><button onClick={()=>{local?sair():(guardarPosicao(),onNavigate('story'))}}>← {local?t('games.gangues.cena.acao.sair'):'MAPA'}</button><strong>{breadcrumb}{!local&&(prog.boss?<i className="gang-cena-dominado-selo">⚑ DOMINADA</i>:<button className="gang-cena-meta-btn" onClick={()=>setChecklist(v=>!v)}>{feitos}/{total} ▾</button>)}</strong><span>💵 {store.grana}　⚑ {store.rep}</span><button className="gang-cena-ficha-btn" onClick={()=>setBagAberta(true)} aria-label={t('games.gangues.bag.titulo')}>🎒</button>{store.activeParty.length>0&&<button className="gang-cena-ficha-btn" onClick={()=>setFichaIndex(0)}>👤</button>}<button className="gang-cena-ficha-btn" onClick={()=>{guardarPosicao();onNavigate('album')}} aria-label={t('games.gangues.album.titulo')}>📕</button></header>
@@ -400,6 +408,7 @@ export default function GanguesCena({onNavigate}){
       {(amb?.alvos||[]).map(p=><PinoAlvo key={p.id} p={p} t={t}/>)}
       <GangMarker player={player} facing={facing} gangName={store.gangName}/>
     </div><div className="gang-cena-vignette"/>{hint&&<div className="gang-cena-tutorial">{hint}</div>}{!local&&!muroAberto&&player.y<430&&<div className="gang-cena-gatelock">🔒 {t(baseFeita?'games.gangues.cena.muro_tunel':'games.gangues.cena.boss_trancado')}</div>}<AnimatePresence>{fade&&<motion.div className="gang-cena-fade" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} transition={{duration:.16}}/>}</AnimatePresence></div>
+    {!local&&!intro&&<GanguesMiniMapa player={player} alvos={minimapaAlvos}/>}
     <WorldControls onInput={v=>{inputRef.current=v}} onInteract={()=>abrir(perto)} action={perto?interactionLabel(perto,t):null}/>
     <AnimatePresence>{toast&&<motion.div className="gang-cena-toast" initial={{opacity:0,y:12}} animate={{opacity:1,y:0}} exit={{opacity:0}}><b>RECOMPENSA</b>{toast.grana?<span>💵 +{toast.grana}</span>:null}{toast.rep?<span>⚑ +{toast.rep}</span>:null}{toast.xp?<span>⚡ +{toast.xp} XP</span>:null}</motion.div>}</AnimatePresence>
     <AnimatePresence>{aviso&&<motion.div className="gang-cena-toast gang-cena-toast--aviso" initial={{opacity:0,y:12}} animate={{opacity:1,y:0}} exit={{opacity:0}}>{aviso}</motion.div>}</AnimatePresence>

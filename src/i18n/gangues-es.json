@@ -2416,7 +2416,15 @@
         "checklist_titulo": "Lo que falta cerrar",
         "checklist_dica": "Cerrá todo esto y se abre la brecha por debajo del muro — por ahí se llega al Carvão.",
         "checklist_tunel_aberto": "La brecha se abrió. Andá al rancho pegado al muro y bajá por debajo.",
-        "checklist_dominada": "La Pista es tuya. El muro está abierto ahora, entrá y salí cuando quieras."
+        "checklist_dominada": "La Pista es tuya. El muro está abierto ahora, entrá y salí cuando quieras.",
+        "minimapa": {
+          "titulo": "Radar",
+          "abrir": "Abrir el radar",
+          "fechar": "Recoger el radar",
+          "passos": "{n} pasos",
+          "tunel": "La boca del túnel",
+          "limpo": "Zona limpia, pibe."
+        }
       },
       "enemy_album": {
         "1101": "No pelea, corre y avisa — enfrentarlo es una persecución antes de la paliza.",

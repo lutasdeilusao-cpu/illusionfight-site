@@ -2006,7 +2006,15 @@
         "checklist_titulo": "O que falta fechar",
         "checklist_dica": "Fecha tudo isso e abre a brecha por baixo do muro — é por ali que se chega no Carvão.",
         "checklist_tunel_aberto": "A brecha abriu. Vai lá pro barraco encostado no muro e desce por baixo.",
-        "checklist_dominada": "Pista dominada. O muro tá aberto agora, vai e volta à vontade."
+        "checklist_dominada": "Pista dominada. O muro tá aberto agora, vai e volta à vontade.",
+        "minimapa": {
+          "titulo": "Radar",
+          "abrir": "Abrir o radar",
+          "fechar": "Recolher o radar",
+          "passos": "{n} passos",
+          "tunel": "A boca do túnel",
+          "limpo": "Área limpa, cria."
+        }
       },
       "enemy_album": {
         "1101": "Não briga, corre e avisa — enfrentá-lo é perseguição antes de porrada.",

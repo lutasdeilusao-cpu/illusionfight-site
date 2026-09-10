@@ -1,0 +1,139 @@
+/* Mini-mapa da cena — radar de setinhas pro próximo objetivo.
+   Canto inferior direito, acima dos controles. Recolhe pra bolinha. */
+
+.gang-minimapa,
+.gang-minimapa-bolinha {
+  position: absolute;
+  z-index: 28;
+  right: calc(var(--app-gutter, 0px) + 12px);
+  bottom: calc(158px + env(safe-area-inset-bottom, 0px));
+}
+
+/* ── Bolinha (recolhido) ── */
+.gang-minimapa-bolinha {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--terr-cor, #3ddc97);
+  border-radius: 50%;
+  background: rgba(4, 10, 13, 0.92);
+  color: #fff;
+  font-size: 1.15rem;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
+}
+
+.gang-minimapa-bolinha-num {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 3px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  background: var(--terr-cor, #3ddc97);
+  color: #041014;
+  font: 800 0.6rem var(--font-mono, monospace);
+  font-style: normal;
+}
+
+/* ── Painel (aberto) ── */
+.gang-minimapa {
+  width: 148px;
+  padding: 10px 10px 8px;
+  border: 1px solid var(--terr-cor, #3ddc97);
+  background: rgba(4, 10, 13, 0.94);
+  backdrop-filter: blur(10px);
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
+  text-align: center;
+}
+
+.gang-minimapa-x {
+  position: absolute;
+  top: 4px;
+  right: 6px;
+  width: 20px;
+  height: 20px;
+  border: 0;
+  background: none;
+  color: var(--text-secondary, #8b8f96);
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.gang-minimapa-eyebrow {
+  display: block;
+  font: 700 0.52rem var(--font-mono, monospace);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--terr-cor, #3ddc97);
+  margin-bottom: 6px;
+}
+
+.gang-minimapa-radar {
+  position: relative;
+  width: 108px;
+  height: 108px;
+  margin: 0 auto;
+  border: 1px solid color-mix(in srgb, var(--terr-cor, #3ddc97) 40%, transparent);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, color-mix(in srgb, var(--terr-cor, #3ddc97) 12%, transparent) 0%, transparent 62%);
+}
+
+/* linhas de mira do radar */
+.gang-minimapa-radar::before,
+.gang-minimapa-radar::after {
+  content: '';
+  position: absolute;
+  background: color-mix(in srgb, var(--terr-cor, #3ddc97) 22%, transparent);
+}
+.gang-minimapa-radar::before { left: 50%; top: 8px; bottom: 8px; width: 1px; }
+.gang-minimapa-radar::after { top: 50%; left: 8px; right: 8px; height: 1px; }
+
+.gang-minimapa-eu {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
+}
+
+.gang-minimapa-seta {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  transform: translate(-50%, -50%) translate(var(--mx), var(--my)) rotate(var(--ang));
+  background: color-mix(in srgb, var(--terr-cor, #3ddc97) 55%, transparent);
+  /* triângulo apontando pra DIREITA — o rotate(--ang) gira pro alvo real */
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+}
+
+.gang-minimapa-seta.is-proximo {
+  width: 13px;
+  height: 13px;
+  background: var(--terr-cor, #3ddc97);
+  filter: drop-shadow(0 0 5px var(--terr-cor, #3ddc97));
+}
+
+.gang-minimapa-legenda {
+  margin: 7px 0 0;
+  font: 700 0.62rem var(--font-mono, monospace);
+  line-height: 1.35;
+  color: #cdd6da;
+  word-break: break-word;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gang-minimapa { transition: none; }
+}

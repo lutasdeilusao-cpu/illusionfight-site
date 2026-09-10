@@ -2416,7 +2416,15 @@
         "checklist_titulo": "What's left to close",
         "checklist_dica": "Close all of this and the gap under the wall opens — that's how you reach Carvão.",
         "checklist_tunel_aberto": "The gap's open. Head to the shack against the wall and go down under it.",
-        "checklist_dominada": "Strip's yours. The wall's open now, come and go as you please."
+        "checklist_dominada": "Strip's yours. The wall's open now, come and go as you please.",
+        "minimapa": {
+          "titulo": "Radar",
+          "abrir": "Open the radar",
+          "fechar": "Collapse the radar",
+          "passos": "{n} steps",
+          "tunel": "The tunnel mouth",
+          "limpo": "Area's clear, kid."
+        }
       },
       "enemy_album": {
         "1101": "Doesn't fight, he runs and warns — facing him is a chase before a beating.",
