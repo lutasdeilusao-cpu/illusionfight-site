@@ -2202,7 +2202,7 @@
         "treta_sim": "A los golpes",
         "treta_sim_risco": "Voy igual",
         "nivel_rec_ocultar": "no me avises más en este barrio",
-        "nivel_rec_baixo": "Recomendado: tropa en nivel {rec}. La tuya promedia {atual} — vas a comer feo. Hacé unas changas, subí nivel en peleas más tranquilas y volvé.",
+        "nivel_rec_baixo": "Recomendado: tropa en nivel {rec}. Contando el equipo, la tuya promedia {atual} — vas a comer feo. Hacé unas changas, subí nivel en peleas más tranquilas y volvé.",
         "evento_tag": "EMBOSCADA",
         "evento_sim": "Encará",
         "evento_nao": "Rajá de largo",

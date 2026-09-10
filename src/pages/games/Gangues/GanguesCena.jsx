@@ -311,7 +311,16 @@ export default function GanguesCena({onNavigate}){
   const nivelTropa=useMemo(()=>{
     const time=store.activeParty.length?store.activeParty:store.roster
     if(!time.length) return 1
-    return Math.max(1,Math.floor(time.reduce((s,m)=>s+getGanguesLevelFromXp(m.xp_total??0),0)/time.length))
+    // Nível EFETIVO: o nível de XP + o que o equipamento soma de atributo
+    // (1 ponto de atributo ≈ 1 nível, já que o crescimento autorado é +1/nível).
+    // Assim o aviso conta a soqueira/colete que o cara já pôs.
+    const nivelEf=m=>{
+      const base=getGanguesLevelFromXp(m.xp_total??0)
+      const eff=getGanguesAttributesWithEquip(m.attributes)
+      const bonus=['A','H','D','R'].reduce((s,k)=>s+Math.max(0,(Number(eff?.[k])||0)-(Number(m.attributes?.[k])||0)),0)
+      return base+bonus
+    }
+    return Math.max(1,Math.round(time.reduce((s,m)=>s+nivelEf(m),0)/time.length))
   },[store.activeParty,store.roster])
   // "não ver mais o aviso de nível" — só neste território (reseta ao trocar,
   // porque a cena remonta com outro territorioId).

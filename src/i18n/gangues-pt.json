@@ -1792,7 +1792,7 @@
         "treta_sim": "Partiu porrada",
         "treta_sim_risco": "Vou assim mesmo",
         "nivel_rec_ocultar": "não me avisa mais nesse bairro",
-        "nivel_rec_baixo": "Recomendado: tropa no nível {rec}. A tua tá em média no {atual} — vai apanhar feio. Faz uns corre, upa numas tretas mais tranquilas e volta.",
+        "nivel_rec_baixo": "Recomendado: tropa no nível {rec}. Contando o equipamento, a tua tá em média no {atual} — vai apanhar feio. Faz uns corre, upa numas tretas mais tranquilas e volta.",
         "evento_tag": "ENCONTRO",
         "evento_sim": "Encara",
         "evento_nao": "Passa reto",
