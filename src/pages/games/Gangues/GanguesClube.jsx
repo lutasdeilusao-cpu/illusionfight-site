@@ -109,9 +109,17 @@ export default function GanguesClube({ onNavigate }) {
             <Plateia />
             <div className="gang-clube-venda-flash" aria-hidden="true" />
             <div className="gang-clube-venda-txt">
-              <p>{t('games.gangues.clube.sequestro_1')}</p>
-              <p>{t('games.gangues.clube.sequestro_2')}</p>
-              <p>{t('games.gangues.clube.sequestro_3')}</p>
+              {(() => {
+                const raw = t('games.gangues.clube.sequestro')
+                const beats = Array.isArray(raw)
+                  ? raw
+                  : [t('games.gangues.clube.sequestro_1'), t('games.gangues.clube.sequestro_2'), t('games.gangues.clube.sequestro_3')]
+                return beats.map((linha, i) => (
+                  <p key={i} className={`gang-clube-venda-bloco${i === beats.length - 1 ? ' is-fecho' : ''}`} style={{ '--i': i }}>
+                    {linha}
+                  </p>
+                ))
+              })()}
             </div>
             <span className="gang-clube-venda-skip">{t('games.gangues.clube.pular')}</span>
           </motion.div>

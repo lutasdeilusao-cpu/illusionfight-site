@@ -5,10 +5,10 @@ import { sfx } from '../../../lib/sfx'
 import './GanguesClube.css'
 
 /* CLUBE DA LUTA — tela de desfecho: fim do gauntlet (vitória), derrota em
-   qualquer ronda, ou fuga no meio. É a cena mais pesada do modo história:
-   holofote, plateia em silhueta, grão de filme, faíscas / caco de caderneta
-   na vitória, vinheta pulsando e dessaturação na derrota/fuga. Tudo CSS/framer
-   + sfx sintetizado (sem arquivo de áudio). */
+   qualquer ronda, ou fuga no meio. Holofote, plateia em silhueta, grão de
+   filme, faíscas / caco de caderneta na vitória, vinheta pulsando e
+   dessaturação na derrota/fuga. O texto vem em BLOCOS que entram um a um
+   (i18n array). Tudo CSS/framer + sfx sintetizado. */
 
 const prefersReduced = () =>
   typeof window !== 'undefined' &&
@@ -22,43 +22,49 @@ function Plateia() {
   )
 }
 
+const ehFala = (s) => /^[«»"“”].+/.test(String(s).trim())
+const limpaAspas = (s) => String(s).replace(/[«»]/g, '').trim()
+
 // modo: 'vitoria' | 'derrota' | 'fuga'
 export default function GanguesClubeResultado({ modo = 'derrota', entrouLimpo = false, divida = 0, onVoltar }) {
   const { t } = useLanguage()
-  const [etapa, setEtapa] = useState(0) // 0 selo/impacto · 1 texto · 2 botão
-  const reduced = useRef(prefersReduced())
-  const R = reduced.current
+  const R = useRef(prefersReduced()).current
   const venceu = modo === 'vitoria'
+  const chave = venceu ? 'venceu' : modo === 'fuga' ? 'fuga' : 'perdeu'
+
+  const titulo = t(`games.gangues.clube.${chave}_titulo`)
+  const blocosKey = venceu
+    ? (entrouLimpo ? 'games.gangues.clube.venceu_blocos_grana' : 'games.gangues.clube.venceu_blocos')
+    : `games.gangues.clube.${chave}_blocos`
+  const raw = t(blocosKey)
+  const blocos = Array.isArray(raw) ? raw : String(raw).split('\n').filter(Boolean)
+
+  const D0 = R ? 0.1 : 0.7          // atraso do 1º bloco (depois do título)
+  const STEP = R ? 0.06 : 0.62      // entre blocos
+  const [mostraBtn, setMostraBtn] = useState(false)
 
   useEffect(() => {
     let vivo = true
-    const marca = (ms, n, fn) => setTimeout(() => { if (vivo) { setEtapa(s => Math.max(s, n)); fn?.() } }, R ? Math.min(ms, 200) : ms)
-    const timers = []
+    const T = []
     if (venceu) {
       sfx.explosion?.()
-      timers.push(marca(120, 0, () => sfx.attackCritical?.()))
-      timers.push(marca(320, 0, () => sfx.attackHeavy?.()))
-      timers.push(marca(680, 0, () => sfx.vs?.()))
-      timers.push(marca(1500, 1, () => sfx.win?.()))
-      timers.push(marca(3200, 2))
+      T.push(setTimeout(() => vivo && sfx.attackCritical?.(), 120))
+      T.push(setTimeout(() => vivo && sfx.attackHeavy?.(), 320))
+      T.push(setTimeout(() => vivo && sfx.vs?.(), 640))
+      T.push(setTimeout(() => vivo && sfx.win?.(), 1500))
     } else {
       sfx.lose?.()
-      timers.push(marca(500, 0, () => sfx.heartbeat?.()))
-      timers.push(marca(1400, 1, () => sfx.heartbeat?.()))
-      timers.push(marca(2600, 1, () => sfx.heartbeat?.()))
-      timers.push(marca(3600, 2))
+      T.push(setTimeout(() => vivo && sfx.heartbeat?.(), 500))
+      T.push(setTimeout(() => vivo && sfx.heartbeat?.(), 1500))
+      T.push(setTimeout(() => vivo && sfx.heartbeat?.(), 2600))
     }
-    return () => { vivo = false; timers.forEach(clearTimeout) }
-  }, [venceu, R])
-
-  const titulo = t(`games.gangues.clube.${modo}_titulo`)
-  const texto = venceu
-    ? t(entrouLimpo ? 'games.gangues.clube.venceu_texto_grana' : 'games.gangues.clube.venceu_texto')
-    : t(`games.gangues.clube.${modo}_texto`)
-  const cor = venceu ? 'vitoria' : 'derrota'
+    const btnMs = (R ? 400 : 900) + (D0 + blocos.length * STEP) * 1000 + 300
+    T.push(setTimeout(() => vivo && setMostraBtn(true), btnMs))
+    return () => { vivo = false; T.forEach(clearTimeout) }
+  }, [venceu, R, blocos.length, D0, STEP])
 
   return (
-    <main className={`gang-clube-cena gang-clube-cena--${cor}${R ? ' is-reduced' : ''}`}>
+    <main className={`gang-clube-cena gang-clube-cena--${venceu ? 'vitoria' : 'derrota'}${R ? ' is-reduced' : ''}`}>
       <div className="gang-clube-holofote" aria-hidden="true" />
       <Plateia />
       <div className="gang-clube-vinheta" aria-hidden="true" />
@@ -85,28 +91,34 @@ export default function GanguesClubeResultado({ modo = 'derrota', entrouLimpo = 
         <motion.h1 className="gang-clube-cena-titulo"
           initial={R ? { opacity: 0 } : { opacity: 0, scale: 1.35, filter: 'blur(6px)' }}
           animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
-          transition={{ delay: R ? 0.1 : 0.55, type: 'spring', stiffness: 220, damping: 12 }}>
+          transition={{ delay: R ? 0.1 : 0.5, type: 'spring', stiffness: 220, damping: 12 }}>
           {titulo}
         </motion.h1>
 
-        <AnimatePresence>
-          {etapa >= 1 && (
-            <motion.p className="gang-clube-cena-par"
-              initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-              {texto}
-            </motion.p>
-          )}
-        </AnimatePresence>
+        <div className="gang-clube-cena-regua" aria-hidden="true" />
 
-        {!venceu && divida > 0 && etapa >= 1 && (
+        <div className="gang-clube-cena-blocos">
+          {blocos.map((b, i) => (
+            <motion.p key={i}
+              className={`gang-clube-cena-bloco${ehFala(b) ? ' is-fala' : ''}${i === blocos.length - 1 ? ' is-fecho' : ''}`}
+              initial={{ opacity: 0, x: -14 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: D0 + i * STEP, duration: R ? 0.15 : 0.5 }}>
+              {limpaAspas(b)}
+            </motion.p>
+          ))}
+        </div>
+
+        {!venceu && divida > 0 && (
           <motion.div className="gang-clube-cena-caderneta"
-            initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}>
+            initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+            transition={{ delay: D0 + blocos.length * STEP }}>
             {t('games.gangues.clube.sala_caderneta', { divida })}
           </motion.div>
         )}
 
         <AnimatePresence>
-          {etapa >= 2 && (
+          {mostraBtn && (
             <motion.button className="gang-clube-cena-btn"
               initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
               onClick={onVoltar}>

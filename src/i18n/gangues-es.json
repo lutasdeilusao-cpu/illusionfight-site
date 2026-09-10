@@ -635,6 +635,37 @@
         "sala_vazar_aviso": "salís de la rueda cargando los {divida} de deuda",
         "fuga_titulo": "TE RAJASTE",
         "fuga_texto": "Saltaste la tela antes de la próxima y te metiste en la calle. Nadie te corrió — no hace falta. La libreta del Nato es tuya ahora, gorda como quedó, y te encuentra en cualquier bar de cualquier barrio.",
+        "sequestro": [
+          "Ni viste de dónde vino.",
+          "Un trapo grueso sobre la cabeza. Un tirón que te levanta del piso.",
+          "Baúl de furgón. Aceite, cigarrillo, el caño caliente contra la espalda. Una mano clavándote el cuello hacia abajo todo el viaje.",
+          "Frenan. Te arrastran afuera del cuello de la remera.",
+          "Te arrancan el trapo de un tirón — y la luz te quema los ojos. Tela de alambre a los dos lados. Y un ruido de gente que no para de crecer."
+        ],
+        "venceu_blocos": [
+          "El último en pie sos vos. Lo vio toda la rueda.",
+          "El Nato entra pisando fuerte, agarra la libreta y la rompe hoja por hoja en tu cara.",
+          "«Estás limpio conmigo. Rajá.»",
+          "Te vendan de nuevo. Despertás en una esquina cualquiera de la Pista — el cuerpo doliendo, el nombre en cero."
+        ],
+        "venceu_blocos_grana": [
+          "El último en pie sos vos.",
+          "El Nato te cuenta doscientos en la mano. Seco, sin mirarte a la cara.",
+          "«Negocio es negocio.»",
+          "No te llevaste nada más — de la rueda nadie sale más listo, solo más marcado. Te vendan, te tiran en la Pista con el bolsillo pesado."
+        ],
+        "perdeu_blocos": [
+          "El piso de la rueda vino rápido.",
+          "Despertás después: colchón en el suelo, gusto a sangre, alguien cerrándote la ceja con hilo de coser.",
+          "El Nato ni aparece. Manda a decir con los matones.",
+          "«La entrada es deuda. Y la rueda no cierra nunca.»"
+        ],
+        "fuga_blocos": [
+          "Saltaste la tela de alambre antes de la próxima y te metiste en la calle.",
+          "Nadie te corrió. No hace falta.",
+          "La libreta del Nato es tuya ahora, gorda como quedó.",
+          "«Te encuentra. En cualquier bar. De cualquier barrio.»"
+        ],
         "venceu_titulo": "SALISTE ENTERO",
         "venceu_texto": "El último en pie sos vos. La gente todavía grita cuando el Nato entra a la rueda, agarra la libreta y la rompe hoja por hoja en tu cara. \"Estás limpio conmigo.\" Te vendan de nuevo. Despertás en una esquina de la Pista, el cuerpo doliendo y el nombre en cero.",
         "venceu_texto_grana": "El último en pie sos vos. El Nato te cuenta 200 en la mano, seco, sin mirarte a la cara — negocio es negocio. No te llevaste nada más: de la rueda nadie sale más listo, solo más marcado. Te vendan, te tiran en la Pista con el bolsillo pesado.",

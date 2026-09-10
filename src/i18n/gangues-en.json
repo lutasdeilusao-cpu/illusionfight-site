@@ -635,6 +635,37 @@
         "sala_vazar_aviso": "walk out of the pit carrying the {divida} debt",
         "fuga_titulo": "YOU BAILED",
         "fuga_texto": "Jumped the mesh before the next one and slipped into the street. Nobody chased you — no need. Nato's book is yours now, fat as it got, and it finds you at any bar in any hood.",
+        "sequestro": [
+          "You never saw where it came from.",
+          "A thick cloth over your head. A yank that lifts you off your feet.",
+          "Back of a van. Oil, cigarettes, the hot exhaust against your back. A hand pinning your neck down the whole way.",
+          "They brake. They drag you out by the collar.",
+          "They rip the cloth off in one pull — and the light burns your eyes. Wire mesh on both sides. And a roar of people that won't stop growing."
+        ],
+        "venceu_blocos": [
+          "Last one standing is you. The whole pit saw it.",
+          "Nato walks in hard, takes the book and tears it page by page in your face.",
+          "«You're clean with me. Get lost.»",
+          "They blindfold you again. You wake up on some corner of the Strip — body aching, name back to zero."
+        ],
+        "venceu_blocos_grana": [
+          "Last one standing is you.",
+          "Nato counts two hundred into your hand. Dry, without looking at you.",
+          "«Business is business.»",
+          "You got nothing else — nobody leaves the pit smarter, just more marked up. They blindfold you, dump you on the Strip with a heavy pocket."
+        ],
+        "perdeu_blocos": [
+          "The pit floor came up fast.",
+          "You wake up later: mattress on the ground, taste of blood, somebody closing your brow with sewing thread.",
+          "Nato doesn't even show. He sends word through the muscle.",
+          "«The buy-in is debt. And the pit never closes.»"
+        ],
+        "fuga_blocos": [
+          "Jumped the wire mesh before the next one and slipped into the street.",
+          "Nobody chased you. No need.",
+          "Nato's book is yours now, fat as it got.",
+          "«It finds you. At any bar. In any hood.»"
+        ],
         "venceu_titulo": "YOU WALKED OUT WHOLE",
         "venceu_texto": "Last one standing is you. The crowd's still screaming when Nato steps into the pit, takes the book and tears it page by page in your face. \"You're clean with me.\" They blindfold you again. You wake up on a corner of the Strip, body aching, name back to zero.",
         "venceu_texto_grana": "Last one standing is you. Nato counts 200 into your hand, dry, without looking at you — business is business. You got nothing else: nobody leaves the pit smarter, just more marked up. They blindfold you, dump you on the Strip with a heavy pocket.",
