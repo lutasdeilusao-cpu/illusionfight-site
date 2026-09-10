@@ -6,7 +6,10 @@ const SITE_URL = 'https://illusionfight.com'
 const DIST_DIR = path.resolve(process.cwd(), 'dist')
 const INDEX_PATH = path.join(DIST_DIR, 'index.html')
 const PUBLIC_SITEMAP_PATH = path.resolve(process.cwd(), 'public', 'sitemap.xml')
-const LAST_MODIFIED = '2026-08-27'
+const BUILD_DATE = new Date().toISOString().slice(0, 10)
+// Data de "última modificação" pro sitemap: usa a data real quando ela já passou,
+// senão a data do build. Evita lastmod uniforme (sem sinal de novidade pro Google).
+const pastOr = date => (date && date <= BUILD_DATE ? date : BUILD_DATE)
 
 const readJson = file => JSON.parse(fs.readFileSync(path.resolve(process.cwd(), file), 'utf-8'))
 const personagens = readJson('src/data/personagens-pt.json')
@@ -58,6 +61,38 @@ const ROUTES = [
   ['/games/duelo', 'Duelo LDI — Illusion Fight', 'Conheça Duelo LDI, o jogo de cartas um contra um de Illusion Fight.', 'Duelo LDI', 'Prepare suas cartas para os duelos do universo LDI.', '0.5', 'monthly'],
 ].map(([path, title, description, heading, content, priority, changefreq, indexable = true]) => ({ path, title, description, heading, content, priority, changefreq, indexable }))
 
+// Links contextuais pros hubs — dá caminhos reais pro Googlebot circular em vez de
+// só o menu repetido em toda página.
+const RELATED_BY_PATH = {
+  '/personagens': ['kim', 'jack', 'nina', 'helena', 'shuntaro', 'yawanari'].map(id => ({ name: id[0].toUpperCase() + id.slice(1), path: `/personagens/${id}/` })),
+  '/historias': [
+    { name: 'Livro — Lutas de Ilusão', path: '/historias/lutas-de-ilusao/' },
+    { name: 'Contos de Ilusão', path: '/historias/contos/' },
+    { name: 'O Mundo das Sombras', path: '/historias/mundo-das-sombras/' },
+    { name: 'Mar de Cinzas', path: '/historias/mar-de-cinzas/' },
+  ],
+  '/historias/lutas-de-ilusao': [
+    { name: 'Capítulo 1', path: '/historias/lutas-de-ilusao/capitulo-01/' },
+    { name: 'Contos de Ilusão', path: '/historias/contos/' },
+    { name: 'Personagens', path: '/personagens/' },
+  ],
+  '/games': [
+    { name: 'Lendas do LDI', path: '/games/ldi/' },
+    { name: 'LDI Gangues', path: '/games/ldi-gangues/' },
+    { name: 'LDI Tactics', path: '/games/ldi-tatics/' },
+    { name: 'Top Trumps', path: '/games/toptrumps/' },
+  ],
+  '/universos': [
+    { name: 'Mundo de Lutas de Ilusão', path: '/universos/lutas-de-ilusao/' },
+    { name: 'O Mundo das Sombras', path: '/universos/mundo-das-sombras/' },
+    { name: 'Mar de Cinzas', path: '/universos/mar-de-cinzas/' },
+  ],
+  '/webtoon': [
+    { name: 'Episódio 00', path: '/webtoon/00/' },
+    { name: 'Personagens', path: '/personagens/' },
+  ],
+}
+
 const extraGameRoutes = [
   ['/games/kernel-panic', 'Kernel Panic — jogo de puzzle hacker grátis', 'Jogue Kernel Panic, um puzzle hacker grátis de dedução, comandos e sobrevivência digital no portal Illusion Fight.', 'Kernel Panic', 'Resolva desafios de terminal e sobreviva a um sistema digital hostil neste jogo de puzzle gratuito.'],
   ['/games/sliding-rafael', 'Sliding Rafael — puzzle deslizante grátis', 'Jogue Sliding Rafael, um puzzle deslizante gratuito com desafios de raciocínio no portal Illusion Fight.', 'Sliding Rafael', 'Organize o tabuleiro, resolva o quebra-cabeça e complete o desafio no menor número de movimentos.'],
@@ -70,32 +105,76 @@ const extraGameRoutes = [
 
 extraGameRoutes.forEach(([routePath, title, description, heading, content]) => ROUTES.push({ path: routePath, title, description, heading, content, priority: '0.6', changefreq: 'monthly', indexable: true, schemaType: 'game', parent: { name: 'Games', path: '/games/' } }))
 
-personagens.forEach(personagem => ROUTES.push({
-  path: `/personagens/${personagem.id}`,
-  title: `${personagem.nome} — personagem de Illusion Fight`,
-  description: personagem.descricaoBreve,
-  heading: personagem.nomeCompleto || personagem.nome,
-  content: personagem.descricaoCompleta,
-  priority: '0.8', changefreq: 'monthly', indexable: true, schemaType: 'character', image: personagem.imagem,
-  parent: { name: 'Personagens', path: '/personagens/' },
-}))
+personagens.forEach((personagem, i) => {
+  const outros = personagens.filter(p => p.id !== personagem.id).slice(0, 5)
+  ROUTES.push({
+    path: `/personagens/${personagem.id}`,
+    title: `${personagem.nome} — personagem de Illusion Fight`,
+    description: personagem.descricaoBreve,
+    heading: personagem.nomeCompleto || personagem.nome,
+    content: personagem.descricaoCompleta,
+    extra: [
+      personagem.frase && `"${personagem.frase}"`,
+      personagem.descricaoBreve,
+    ].filter(Boolean),
+    facts: [
+      ['Apelido', personagem.apelido],
+      ['Idade', personagem.idade],
+      ['Grupo', personagem.grupo],
+      ['Arma', personagem.arma],
+      ['Estilo de combate', personagem.estilo],
+      ['Afinidade elemental', personagem.elemental],
+      ['Ranking', personagem.ranking],
+    ],
+    related: [
+      ...outros.map(p => ({ name: p.nome, path: `/personagens/${p.id}/` })),
+      { name: 'Todos os personagens', path: '/personagens/' },
+      { name: 'Ler as histórias', path: '/historias/' },
+    ],
+    priority: '0.8', changefreq: 'monthly', indexable: true, schemaType: 'character', image: personagem.imagem,
+    parent: { name: 'Personagens', path: '/personagens/' },
+  })
+})
 
-capitulos.forEach(capitulo => ROUTES.push({
-  path: `/historias/lutas-de-ilusao/${capitulo.id}`,
-  title: `${capitulo.titulo} — livro Illusion Fight, capítulo ${capitulo.numero}`,
-  description: capitulo.resumo_pt || capitulo.tagline_pt,
-  heading: `Capítulo ${capitulo.numero} — ${capitulo.titulo}`,
-  content: `${capitulo.tagline_pt} ${capitulo.resumo_pt || ''} Leia online e gratuitamente em português; versões em inglês e espanhol também estão disponíveis no portal.`,
-  priority: '0.9', changefreq: 'monthly', indexable: true, schemaType: 'chapter', datePublished: capitulo.liberacao.publico,
-  parent: { name: 'Histórias', path: '/historias/lutas-de-ilusao/' },
-}))
+capitulos.forEach((capitulo, i) => {
+  const anterior = capitulos[i - 1]
+  const proximo = capitulos[i + 1]
+  ROUTES.push({
+    path: `/historias/lutas-de-ilusao/${capitulo.id}`,
+    title: `${capitulo.titulo} — livro Illusion Fight, capítulo ${capitulo.numero}`,
+    description: capitulo.resumo_pt || capitulo.tagline_pt,
+    heading: `Capítulo ${capitulo.numero} — ${capitulo.titulo}`,
+    content: capitulo.resumo_pt || capitulo.tagline_pt,
+    extra: [
+      capitulo.tagline_pt,
+      'Leia online e de graça em português. Versões em inglês e espanhol também estão disponíveis no portal Illusion Fight.',
+    ].filter(Boolean),
+    related: [
+      anterior && { name: `Capítulo ${anterior.numero} — ${anterior.titulo}`, path: `/historias/lutas-de-ilusao/${anterior.id}/` },
+      proximo && { name: `Capítulo ${proximo.numero} — ${proximo.titulo}`, path: `/historias/lutas-de-ilusao/${proximo.id}/` },
+      { name: 'Todos os capítulos', path: '/historias/lutas-de-ilusao/' },
+    ].filter(Boolean),
+    lastmod: pastOr(capitulo.liberacao.publico),
+    priority: '0.9', changefreq: 'monthly', indexable: true, schemaType: 'chapter', datePublished: capitulo.liberacao.publico,
+    parent: { name: 'Livro — Lutas de Ilusão', path: '/historias/lutas-de-ilusao/' },
+  })
+})
 
 episodios.filter(episodio => episodio.id === '00').forEach(episodio => ROUTES.push({
   path: `/webtoon/${episodio.id}`,
   title: `${episodio.titulo_pt} — webtoon Illusion Fight, episódio ${episodio.numero}`,
   description: episodio.descricao_pt,
   heading: `Episódio ${episodio.numero} — ${episodio.titulo_pt}`,
-  content: `${episodio.frase_pt} Leia online este episódio do webtoon brasileiro de ação Illusion Fight.`,
+  content: episodio.descricao_pt,
+  extra: [
+    episodio.frase_pt,
+    'Leia online este episódio do webtoon brasileiro de ação e ficção científica Illusion Fight.',
+  ].filter(Boolean),
+  related: [
+    { name: 'Todos os episódios', path: '/webtoon/' },
+    { name: 'Conheça os personagens', path: '/personagens/' },
+  ],
+  lastmod: pastOr(episodio.data_publicacao),
   priority: '0.9', changefreq: 'monthly', indexable: true, schemaType: 'webtoon', datePublished: episodio.data_publicacao,
   parent: { name: 'Webtoon', path: '/webtoon/' },
 }))
@@ -107,6 +186,13 @@ const REDIRECTS = [
   { path: '/livro', target: '/historias' },
   { path: '/livro/contos', target: '/historias/contos' },
 ]
+
+// Enriquecimento final, depois de todos os push: links contextuais nos hubs e um
+// segundo parágrafo quando a descrição acrescenta algo ao content.
+ROUTES.forEach(route => {
+  if (!route.related && RELATED_BY_PATH[route.path]) route.related = RELATED_BY_PATH[route.path]
+  if (!route.extra && route.description && route.description !== route.content) route.extra = [route.description]
+})
 
 const escapeHtml = value => value.replace(/[&<>'"]/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' })[char])
 const canonicalUrl = route => `${SITE_URL}${route.path}/`
@@ -132,11 +218,35 @@ function breadcrumbFor(route, url) {
   return { '@type': 'BreadcrumbList', itemListElement: items }
 }
 
+const SITE_NAV = [
+  ['/historias/', 'Histórias'],
+  ['/webtoon/', 'Webtoon'],
+  ['/games/', 'Games'],
+  ['/personagens/', 'Personagens'],
+  ['/universos/', 'Universos'],
+]
+
 function staticContent(route, heroImage = '') {
   const parentLink = route.parent ? `<a href="${route.parent.path}">${escapeHtml(route.parent.name)}</a> · ` : ''
+  const navLinks = SITE_NAV
+    .filter(([href]) => href !== route.parent?.path)
+    .map(([href, label]) => `<a href="${href}">${label}</a>`)
+    .join(' · ')
   const homeClass = route.path === '' ? ' class="seo-static-home"' : ''
   const hero = route.path === '' && heroImage ? `<img class="seo-static-hero" src="${heroImage}" alt="" width="1258" height="768" fetchpriority="high">` : ''
-  return `<main data-seo-static${homeClass}>${hero}<nav aria-label="Navegação estrutural"><a href="/">Illusion Fight</a> · ${parentLink}<a href="/historias/">Histórias</a> · <a href="/webtoon/">Webtoon</a> · <a href="/games/">Games</a> · <a href="/personagens/">Personagens</a></nav><article><h1>${escapeHtml(route.heading)}</h1><p>${escapeHtml(route.content)}</p></article></main>`
+  const paragraphs = [route.content, ...(route.extra || [])]
+    .filter(Boolean)
+    .map(text => `<p>${escapeHtml(text)}</p>`)
+    .join('')
+  const facts = (route.facts || []).filter(([, value]) => value !== undefined && value !== null && value !== '')
+  const factList = facts.length
+    ? `<dl>${facts.map(([label, value]) => `<dt>${escapeHtml(label)}</dt><dd>${escapeHtml(String(value))}</dd>`).join('')}</dl>`
+    : ''
+  const related = (route.related || []).filter(item => item && item.path && item.name)
+  const relatedNav = related.length
+    ? `<nav aria-label="Veja também"><h2>Veja também</h2><ul>${related.map(item => `<li><a href="${item.path}">${escapeHtml(item.name)}</a></li>`).join('')}</ul></nav>`
+    : ''
+  return `<main data-seo-static${homeClass}>${hero}<nav aria-label="Navegação estrutural"><a href="/">Illusion Fight</a> · ${parentLink}${navLinks}</nav><article><h1>${escapeHtml(route.heading)}</h1>${paragraphs}${factList}</article>${relatedNav}</main>`
 }
 
 function pageHtml(baseHtml, route) {
@@ -174,7 +284,7 @@ function redirectHtml(route) {
 
 function sitemapXml() {
   const urls = [{ path: '/', priority: '1.0', changefreq: 'weekly' }, ...ROUTES.filter(route => route.indexable)]
-  const entries = urls.map(route => `  <url>\n    <loc>${route.path === '/' ? `${SITE_URL}/` : canonicalUrl(route)}</loc>\n    <lastmod>${LAST_MODIFIED}</lastmod>\n    <changefreq>${route.changefreq}</changefreq>\n    <priority>${route.priority}</priority>\n  </url>`)
+  const entries = urls.map(route => `  <url>\n    <loc>${route.path === '/' ? `${SITE_URL}/` : canonicalUrl(route)}</loc>\n    <lastmod>${route.lastmod || BUILD_DATE}</lastmod>\n    <changefreq>${route.changefreq}</changefreq>\n    <priority>${route.priority}</priority>\n  </url>`)
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${entries.join('\n')}\n</urlset>\n`
 }
 
