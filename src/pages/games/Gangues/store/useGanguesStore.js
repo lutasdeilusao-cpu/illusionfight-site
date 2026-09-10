@@ -446,6 +446,18 @@ export const useGanguesStore = create((set, get) => ({
     get()._persistStory()
   },
 
+  // ── Dificuldade do modo história (escolha do jogador) ──────────
+  // 'facil' | 'medio' | 'dificil'. Guardada em storyProgress.__dificuldade
+  // (mesmo JSONB, sem coluna nova). Afeta o orçamento de TODO bando
+  // (gerarBando* em ganguesEncontros.js). NO FÁCIL o túnel/muro NÃO abre —
+  // o Carvão não se rebaixa a encarar pivete (ver GanguesCena).
+  dificuldadeJogo: () => get().storyProgress.__dificuldade || 'medio',
+  setDificuldadeJogo: (modo) => {
+    if (!['facil', 'medio', 'dificil'].includes(modo)) return
+    set(state => ({ storyProgress: { ...state.storyProgress, __dificuldade: modo } }))
+    get()._persistStory()
+  },
+
   // ── Modo Batalha: a Torre (grind de AP pra L→99) ──
   // `torre` = a subida ATIVA (só em memória — some ao sair). O recorde de andar
   // por território fica em storyProgress.__torre (mesmo padrão de __flags).

@@ -91,6 +91,9 @@ export default function GanguesRoute() {
       return
     }
 
+    // Modo de dificuldade escolhido pelo jogador — escala TODO bando.
+    const modo = store.storyProgress?.__dificuldade || 'medio'
+
     let enemyTeam
     if (alvo.clube) {
       // Clube da Luta — gauntlet de 3 rondas, bando fixo (não escala com o
@@ -99,25 +102,25 @@ export default function GanguesRoute() {
       if (!enemyTeam?.length) { setFase('territorio'); return }
     } else if (alvo.evento) {
       // Encontro aleatório de rua — bando um pouco acima da ficha, com teto.
-      enemyTeam = gerarBandoEvento({ territorioId: alvo.territorioId, playerTeam: party, enemiesData })
+      enemyTeam = gerarBandoEvento({ territorioId: alvo.territorioId, playerTeam: party, enemiesData, modo })
       if (!enemyTeam?.length) { setFase('story'); return }
     } else if (alvo.isChefe) {
       // Bando do chefe = orçamento de pontos FIXO por território (não escala com
       // o jogador — o loop é voltar mais forte). Ver gerarBandoChefe.
-      enemyTeam = gerarBandoChefe({ territorioId: alvo.territorioId, playerTeam: party, enemiesData })
+      enemyTeam = gerarBandoChefe({ territorioId: alvo.territorioId, playerTeam: party, enemiesData, modo })
       if (!enemyTeam?.length) { setFase('story'); return }
     } else if (temRevezamento) {
       // Encontro de dungeon (túnel/galpão): capangas fracos que se revezam,
       // quase sempre 1 sozinho. Não escala com o jogador nem usa o pool do
       // território — orçamento leve e fixo por corpo.
-      enemyTeam = gerarBandoRevezamento({ ...alvo.revezamento, enemiesData })
+      enemyTeam = gerarBandoRevezamento({ ...alvo.revezamento, enemiesData, modo })
       if (!enemyTeam?.length) { setFase('story'); return }
     } else if (alvo.fixo) {
       const enemy = enemiesData.find(e => e.id === alvo.enemyId)
       if (!enemy) { setFase('story'); return }
       enemyTeam = [enemy]
     } else {
-      enemyTeam = gerarBandoInimigo({ territorioId: alvo.territorioId, dificuldade: alvo.dificuldade, playerTeam: party, enemiesData, pontosFixos: alvo.pontosFixos, liderFixo: alvo.liderFixo })
+      enemyTeam = gerarBandoInimigo({ territorioId: alvo.territorioId, dificuldade: alvo.dificuldade, modo, playerTeam: party, enemiesData, pontosFixos: alvo.pontosFixos, liderFixo: alvo.liderFixo })
       if (!enemyTeam?.length) { setFase('story'); return }
     }
     store.startMatch(enemyTeam[0], enemyTeam, party)

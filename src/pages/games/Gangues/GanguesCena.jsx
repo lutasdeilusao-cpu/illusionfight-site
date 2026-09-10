@@ -184,7 +184,13 @@ export default function GanguesCena({onNavigate}){
   // baseFeita = fechou os ponto (portao.precisa) → destranca o TÚNEL e libera o
   // lado de lá. muroAberto = bateu o Carvão → aí sim o muro abre de vez (pra
   // facilitar o vai-e-vem). O muro NUNCA abre só por fechar os ponto.
-  const baseFeita=cena?portaoAberto(cena,prog.resolvidos):false
+  // NO MODO FÁCIL o túnel NÃO abre nem com tudo fechado — o Carvão não desce
+  // pra encarar pivete (pedido do Isaias). `fechouTudo` = fez a lição; só que
+  // no fácil isso não vira `baseFeita`.
+  const modoJogo=store.dificuldadeJogo?.()||'medio'
+  const fechouTudo=cena?portaoAberto(cena,prog.resolvidos):false
+  const trancadoNoFacil=fechouTudo&&modoJogo==='facil'&&!prog.boss
+  const baseFeita=fechouTudo&&!trancadoNoFacil
   const muroAberto=Boolean(prog.boss)
   const amb=useMemo(()=>montarAmbiente(cena,local,prog,baseFeita,muroAberto),[cena,local,prog,baseFeita,muroAberto])
   const collidersRef=useRef(null); collidersRef.current=amb?.colliders||[]
@@ -423,14 +429,14 @@ export default function GanguesCena({onNavigate}){
     <AnimatePresence>{checklist&&!local&&<motion.div className="gang-cena-checklist" initial={{opacity:0,y:-8}} animate={{opacity:1,y:0}} exit={{opacity:0,y:-8}}>
       <b>{t('games.gangues.cena.checklist_titulo')}</b>
       <ul>{metas.map(m=><li key={m.id} className={m.feito?'is-feito':''}><span>{m.feito?'✓':'○'}</span>{m.nome}</li>)}</ul>
-      <p>{t(baseFeita?(prog.boss?'games.gangues.cena.checklist_dominada':'games.gangues.cena.checklist_tunel_aberto'):'games.gangues.cena.checklist_dica')}</p>
+      <p>{t(trancadoNoFacil?'games.gangues.cena.checklist_facil':baseFeita?(prog.boss?'games.gangues.cena.checklist_dominada':'games.gangues.cena.checklist_tunel_aberto'):'games.gangues.cena.checklist_dica')}</p>
     </motion.div>}</AnimatePresence>
     <div className="gang-cena-viewport" ref={viewportRef}><div className="gang-cena-world" style={{width:W.w,height:W.h,transform:`translate3d(${-camX}px,${-camY}px,0)`}}>
       {local?<CenaInterior amb={amb}/>:<CenaCenario cena={cena} bossAberto={baseFeita||muroAberto} muroAberto={muroAberto}/>}
       {(amb?.alvos||[]).map(p=><EntryZone key={`zone-${p.id}`} poi={p} active={perto?.id===p.id}/>)}
       {(amb?.alvos||[]).map(p=><PinoAlvo key={p.id} p={p} t={t}/>)}
       <GangMarker player={player} facing={facing} gangName={store.gangName}/>
-    </div><div className="gang-cena-vignette"/>{hint&&<div className="gang-cena-tutorial">{hint}</div>}{!local&&!muroAberto&&player.y<1430&&<div className="gang-cena-gatelock">🔒 {t(baseFeita?'games.gangues.cena.muro_tunel':'games.gangues.cena.boss_trancado')}</div>}<AnimatePresence>{fade&&<motion.div className="gang-cena-fade" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} transition={{duration:.16}}/>}</AnimatePresence></div>
+    </div><div className="gang-cena-vignette"/>{hint&&<div className="gang-cena-tutorial">{hint}</div>}{!local&&!muroAberto&&player.y<1430&&<div className={`gang-cena-gatelock${trancadoNoFacil?' gang-cena-gatelock--facil':''}`}>🔒 {t(trancadoNoFacil?'games.gangues.cena.facil_trancado':baseFeita?'games.gangues.cena.muro_tunel':'games.gangues.cena.boss_trancado')}</div>}<AnimatePresence>{fade&&<motion.div className="gang-cena-fade" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} transition={{duration:.16}}/>}</AnimatePresence></div>
     {!local&&!intro&&<GanguesMiniMapa player={player} alvos={minimapaAlvos}/>}
     <WorldControls onInput={v=>{inputRef.current=v}} onInteract={()=>abrir(perto)} action={perto?interactionLabel(perto,t):null}/>
     <AnimatePresence>{toast&&<motion.div className="gang-cena-toast" initial={{opacity:0,y:12}} animate={{opacity:1,y:0}} exit={{opacity:0}}><b>RECOMPENSA</b>{toast.grana?<span>💵 +{toast.grana}</span>:null}{toast.rep?<span>⚑ +{toast.rep}</span>:null}{toast.xp?<span>⚡ +{toast.xp} XP</span>:null}</motion.div>}</AnimatePresence>

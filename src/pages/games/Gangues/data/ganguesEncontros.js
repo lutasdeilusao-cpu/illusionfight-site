@@ -96,12 +96,21 @@ export const GANGUES_CHEFE_CORPOS = { pista: 2 }
 // Validado por simulação headless (3000 batalhas/célula, porta fiel do
 // resolver + turn machine) — a curva e a tabela de resultados estão em
 // src/pages/games/Gangues/GANGUES_MODO_HISTORIA_ENCONTROS.md §"Balanceamento".
-export const GANGUES_TERRITORIO_RATIO = {
-  pista: 0.52, feira: 0.58, baixada: 0.64, vila: 0.68,
-  morro: 0.70, alto: 0.72, laje: 0.74,
+// MODO de dificuldade — escolha do jogador (storyProgress.__dificuldade), como
+// em qualquer game. `facil` é a curva simulada original (bando de rua da Pista
+// com ~52% dos teus pontos); `medio` e `dificil` sobem. Pedido do Isaias
+// (jan/2027 — "tá muito fácil, mato no automático com uma porrada").
+export const GANGUES_MODO_RATIO = { facil: 0.52, medio: 0.70, dificil: 0.80 }
+// degrau por território, somado ao ratio do modo (a Pista continua mais leve
+// que a Laje). Provisório pros bairros sem cena — recalibrar com simulação.
+export const GANGUES_TERRITORIO_STEP = {
+  pista: 0, feira: 0.03, baixada: 0.06, vila: 0.08, morro: 0.10, alto: 0.11, laje: 0.12,
 }
-// facil/normal/dificil = deslocamento DENTRO do bairro, pra não empilhar luta
-// puxada atrás de luta puxada.
+// multiplicador do modo pro que NÃO usa ratio (revezamento de dungeon, encontro
+// aleatório, orçamento do chefe).
+export const GANGUES_MODO_MULT = { facil: 0.82, medio: 1, dificil: 1.18 }
+// facil/normal/dificil = deslocamento DENTRO do bairro (tag do POI), pra não
+// empilhar luta puxada atrás de luta puxada. NÃO confundir com o MODO acima.
 export const GANGUES_DIFICULDADE_OFFSET = { facil: -0.10, normal: 0, dificil: 0.10 }
 
 export function calcularPontosTime(team) {
@@ -151,7 +160,7 @@ function escalarInimigo(molde, pontosAlvo) {
  *  1º corpo do bando, com a maior fatia de pontos. O resto do bando segue
  *  sorteado do pool do território. É como se monta a luta de General ("a
  *  Rasteira Velha e o bonde dela"). */
-export function gerarBandoInimigo({ territorioId, dificuldade = 'normal', playerTeam, enemiesData, pontosFixos, liderFixo }) {
+export function gerarBandoInimigo({ territorioId, dificuldade = 'normal', modo = 'medio', playerTeam, enemiesData, pontosFixos, liderFixo }) {
   const config = GANGUES_TERRITORIO_ENCONTRO[territorioId]
   if (!config || !playerTeam?.length) return null
 
@@ -168,8 +177,8 @@ export function gerarBandoInimigo({ territorioId, dificuldade = 'normal', player
   const qtdMax = Math.max(qtdMin, Math.min(config.max, playerTeam.length + 2))
   const qtd = qtdMin + Math.floor(Math.random() * (qtdMax - qtdMin + 1))
 
-  const ratioBase = GANGUES_TERRITORIO_RATIO[territorioId] ?? 0.60
-  const ratio = Math.max(0.30, ratioBase + (GANGUES_DIFICULDADE_OFFSET[dificuldade] ?? 0))
+  const ratioBase = (GANGUES_MODO_RATIO[modo] ?? GANGUES_MODO_RATIO.medio) + (GANGUES_TERRITORIO_STEP[territorioId] ?? 0.10)
+  const ratio = Math.min(0.95, Math.max(0.30, ratioBase + (GANGUES_DIFICULDADE_OFFSET[dificuldade] ?? 0)))
   const totalAlvo = Math.max(qtd, Math.round(pontosJogador * ratio))
   const partes = distribuirPontos(totalAlvo, qtd)
 
@@ -221,12 +230,13 @@ export const GANGUES_EVENTO_CAP = { pista: 14, feira: 22, baixada: 30, vila: 40,
 /** Sorteia o bando de um encontro aleatório de rua. Total de pontos =
  *  min(pontos do time × 1.1, teto do território). 1 corpo (45% de chance de 2).
  *  Escalado do pool comum do bairro. */
-export function gerarBandoEvento({ territorioId, playerTeam, enemiesData }) {
+export function gerarBandoEvento({ territorioId, playerTeam, enemiesData, modo = 'medio' }) {
   const config = GANGUES_TERRITORIO_ENCONTRO[territorioId]
   if (!config || !playerTeam?.length || !enemiesData?.length) return null
   const pontosJogador = calcularPontosTime(playerTeam)
-  const teto = GANGUES_EVENTO_CAP[territorioId] ?? Math.round(pontosJogador * 1.2)
-  const totalAlvo = Math.max(5, Math.min(Math.round(pontosJogador * 1.1), teto))
+  const mult = GANGUES_MODO_MULT[modo] ?? 1
+  const teto = Math.round((GANGUES_EVENTO_CAP[territorioId] ?? Math.round(pontosJogador * 1.2)) * mult)
+  const totalAlvo = Math.max(5, Math.min(Math.round(pontosJogador * 1.1 * mult), teto))
   const qtd = 1 + (Math.random() < 0.45 ? 1 : 0)
   const partes = distribuirPontos(totalAlvo, qtd)
   const bando = partes.map(pontos => {
@@ -247,11 +257,12 @@ export function gerarBandoEvento({ territorioId, playerTeam, enemiesData }) {
  *  cada capanga (o molde é escalado pra esse total — os vigias 11xx nascem com
  *  4); `chanceDupla` = prob. de vir 2 em vez de 1 (a dupla vem mais magra,
  *  ×0.75, pra não ser só o dobro). */
-export function gerarBandoRevezamento({ pool, budgetPorCorpo = 5, chanceDupla = 0.3, enemiesData }) {
+export function gerarBandoRevezamento({ pool, budgetPorCorpo = 5, chanceDupla = 0.3, enemiesData, modo = 'medio' }) {
   if (!pool?.length || !enemiesData?.length) return null
   const dupla = Math.random() < chanceDupla
   const qtd = dupla ? 2 : 1
-  const orcamento = dupla ? Math.max(2, Math.round(budgetPorCorpo * 0.75)) : budgetPorCorpo
+  const mult = GANGUES_MODO_MULT[modo] ?? 1
+  const orcamento = Math.max(2, Math.round((dupla ? budgetPorCorpo * 0.75 : budgetPorCorpo) * mult))
 
   const bag = []
   const sortear = () => {
@@ -274,13 +285,14 @@ export function gerarBandoRevezamento({ pool, budgetPorCorpo = 5, chanceDupla = 
  *  (N = GANGUES_CHEFE_CORPOS, default 3). O 1º corpo (o chefe) leva a maior
  *  fatia (piso = budget × GANGUES_CHEFE_LIDER_FRAC), o resto divide o que sobra.
  *  Sempre a mesma composição — dá pra aprender a luta e voltar mais preparado. */
-export function gerarBandoChefe({ territorioId, playerTeam, enemiesData }) {
+export function gerarBandoChefe({ territorioId, playerTeam, enemiesData, modo = 'medio' }) {
   const ids = GANGUES_CHEFE_EQUIPE[territorioId]
   if (!ids?.length || !playerTeam?.length || !enemiesData?.length) return null
 
   const n = Math.min(ids.length, GANGUES_CHEFE_CORPOS[territorioId] || 3)
-  const budget = GANGUES_CHEFE_BUDGET[territorioId]
+  const budgetBase = GANGUES_CHEFE_BUDGET[territorioId]
     ?? Math.round(calcularPontosTime(playerTeam) * 0.8) // fallback defensivo p/ território sem budget
+  const budget = Math.round(budgetBase * (GANGUES_MODO_MULT[modo] ?? 1))
   const partes = distribuirPontos(budget, n)
 
   // Piso do líder — desloca pontos das escoltas pro chefe sem estourar o budget.

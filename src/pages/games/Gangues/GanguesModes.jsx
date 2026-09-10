@@ -41,6 +41,30 @@ export default function GanguesModes({ onNavigate }) {
         <span>{store.gangName}</span><small>{t('games.gangues.modes.ver_escalacao', { n: party.length })}</small><b>→</b>
       </button>
 
+      {(() => {
+        const modo = store.dificuldadeJogo?.() || 'medio'
+        const opcoes = ['facil', 'medio', 'dificil']
+        return (
+          <div className="gang-modes-dif">
+            <span className="gang-modes-dif-tag">{t('games.gangues.modes.dif_titulo')}</span>
+            <div className="gang-modes-dif-row">
+              {opcoes.map(op => (
+                <button
+                  key={op}
+                  type="button"
+                  className={`gang-modes-dif-btn gang-modes-dif-btn--${op}${modo === op ? ' is-ativo' : ''}`}
+                  onClick={() => { sfx.select?.(); store.setDificuldadeJogo(op) }}
+                >
+                  <b>{t(`games.gangues.modes.dif_${op}`)}</b>
+                  <small>{t(`games.gangues.modes.dif_${op}_sub`)}</small>
+                </button>
+              ))}
+            </div>
+            <p className="gang-modes-dif-nota">{t(`games.gangues.modes.dif_${modo}_desc`)}</p>
+          </div>
+        )
+      })()}
+
       <div className="gang-modes-grid">
         <motion.button className="gang-modes-card gang-modes-card--historia" onClick={ir}
           initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }}
