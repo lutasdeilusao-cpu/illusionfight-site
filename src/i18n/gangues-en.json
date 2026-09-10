@@ -623,8 +623,9 @@
         "result_code": "Fight Club · settling up",
         "venceu_titulo": "YOU WALKED OUT WHOLE",
         "venceu_texto": "The pit was yours. Nato tears up the book in front of you, spits on the floor and has them take you back. Blindfolded again, dumped on some corner of the Strip. You're square with him. For now.",
+        "venceu_texto_grana": "The pit was yours. Since you owed nothing, Nato pays what was agreed: 200 in hand. No experience — nobody learns a thing in the pit, you just take hits or land them. They blindfolded you and dumped you on the Strip with fuller pockets.",
         "perdeu_titulo": "THEY PATCHED YOU UP",
-        "perdeu_texto": "Went down in the middle of the pit. Woke up on a stinking mattress, somebody had already stitched your brow. Nato doesn't waste an investment: they heal you, blindfold you and dump you on the Strip. But the tab grew — and he wants you back in the pit.",
+        "perdeu_texto": "Went down in the middle of the pit. Woke up on a stinking mattress, somebody had already stitched your brow. They heal you, blindfold you and dump you on the Strip. The stake for getting in became debt — Nato doesn't refund what he floated. Come back whenever you want to try again.",
         "voltar": "Back to the Strip"
       },
       "skill_info": {
@@ -2164,8 +2165,10 @@
         "fiado_pagar": "Pay Nato (−{grana})",
         "fiado_pago_parcial": "Knocked {pago} off. Still {restante} left for Nato.",
         "fiado_pago_total": "Cleared the {pago}. Your name's clean at the store.",
-        "clube_oferta_tag": "Offer · last way out",
-        "clube_oferta": "Nato pulls you aside. \"Your crew's down, your name's dirty and you can't pay. But I got a job. Betting pit, mine. You go in, you win, your debt's gone. You lose, we patch you up and you try again. Deal?\" He's already floating you the third tab — fifteen times — and healing your whole crew so you can stand.",
+        "clube_botao": "▸ The Fight Club",
+        "clube_oferta_tag": "Offer · Nato's pit",
+        "clube_oferta_limpo": "Nato looks you over. \"You're clean with me. But I got a job: betting pit, mine. You go in, you win, you walk with 200 in hand. No experience — nobody learns anything in the pit. You lose, we patch you up and you try again. Only the buy-in's on credit: I heal you now and it turns into debt if you don't win. Deal?\"",
+        "clube_oferta_divida": "Nato taps the book. \"You owe me. But I got a job for that: betting pit, mine. You go in, you win, your debt's gone — all of it, no matter the size. No money, no experience, just settling up. You lose, we patch you up and you try again. The buy-in I float you — fifteen times — and I heal the whole crew. Deal?\"",
         "clube_recusar": "Not now",
         "clube_aceitar": "Take it (blindfold now)",
         "pista": {

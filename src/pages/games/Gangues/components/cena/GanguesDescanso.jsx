@@ -17,16 +17,17 @@ export default function GanguesDescanso({ poi, onClose, onClube }) {
   const [res, setRes] = useState(null)         // resultado do descanso à vista
   const [contrato, setContrato] = useState(null) // resultado do fiado (contrato + cura)
   const [pgto, setPgto] = useState(null)        // resultado de "pagar dívida"
+  const [verClube, setVerClube] = useState(false) // abriu o painel do Clube da Luta
 
   const custo = poi.custoGrana || 10
   const semGrana = store.grana < custo
   const { divida, fiados } = store.storyProgress.__birosca || { divida: 0, fiados: 0 }
   const podeFiar = fiados < 2
   const aPagar = Math.min(store.grana, divida)
-  // Beco sem saída: 2 fiados, dívida aberta, tropa toda no chão e sem grana pra
-  // pagar. O Nato oferece o Clube da Luta (o 3º fiado, 15×, que já enfia o cara
-  // na roda). É a única saída.
-  const clube = !contrato && !res?.ok && Boolean(onClube) && store.clubeDaLutaElegivel()
+  // O Clube da Luta é oferecido SEMPRE (desde a 1ª visita à birosca), não só
+  // num beco sem saída. Sem dívida: ganha 200 de grana. Com dívida: quita a
+  // dívida. Nunca dá XP. Perdeu, te remendam e te largam na Pista.
+  const clube = verClube && Boolean(onClube)
 
   const descansar = () => {
     const r = store.descansarTropa(custo)
@@ -59,19 +60,23 @@ export default function GanguesDescanso({ poi, onClose, onClube }) {
     </ul>
   )
 
-  // ── O Nato oferece o Clube da Luta (beco sem saída) ──
+  // ── O Nato oferece o Clube da Luta ──
   if (clube) {
     return (
       <div className="gang-cena-enc gang-cena-enc--descanso gang-cena-enc--clube">
         <button className="gang-cena-enc-x" onClick={onClose} aria-label={t('games.gangues.cena.fechar')}>✕</button>
         <span className="gang-cena-eyebrow">{t('games.gangues.cena.clube_oferta_tag')}</span>
-        <h3 className="gang-cena-enc-titulo">{t(`${poi.i18n}.nome`)}</h3>
-        <p className="gang-cena-enc-intro">{t('games.gangues.cena.clube_oferta')}</p>
-        <div className="gang-cena-fiado-caderneta">
-          <p className="gang-cena-fiado-linha">{t('games.gangues.cena.fiado_devendo', { divida })}</p>
-        </div>
+        <h3 className="gang-cena-enc-titulo">{t('games.gangues.clube.nome')}</h3>
+        <p className="gang-cena-enc-intro">
+          {t(divida > 0 ? 'games.gangues.cena.clube_oferta_divida' : 'games.gangues.cena.clube_oferta_limpo')}
+        </p>
+        {divida > 0 && (
+          <div className="gang-cena-fiado-caderneta">
+            <p className="gang-cena-fiado-linha">{t('games.gangues.cena.fiado_devendo', { divida })}</p>
+          </div>
+        )}
         <div className="gang-cena-enc-acoes">
-          <button className="gang-cena-btn" onClick={onClose}>{t('games.gangues.cena.clube_recusar')}</button>
+          <button className="gang-cena-btn" onClick={() => setVerClube(false)}>{t('games.gangues.cena.clube_recusar')}</button>
           <button className="gang-cena-btn gang-cena-btn--go" onClick={() => onClube(custo)}>{t('games.gangues.cena.clube_aceitar')}</button>
         </div>
       </div>
@@ -159,6 +164,13 @@ export default function GanguesDescanso({ poi, onClose, onClube }) {
           </>
         )}
       </div>
+
+      {/* O Clube da Luta — sempre no menu da birosca, desde a 1ª visita. */}
+      {Boolean(onClube) && !res?.ok && !contrato && (
+        <button className="gang-cena-btn gang-cena-clube-link" onClick={() => setVerClube(true)}>
+          {t('games.gangues.cena.clube_botao')}
+        </button>
+      )}
     </div>
   )
 }

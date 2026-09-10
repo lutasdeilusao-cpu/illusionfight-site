@@ -623,8 +623,9 @@
         "result_code": "Club de la Pelea · ajuste de cuentas",
         "venceu_titulo": "SALISTE ENTERO",
         "venceu_texto": "La rueda fue tuya. El Nato rompe la libreta frente a vos, escupe al piso y te manda de vuelta. Vendado otra vez, tirado en una esquina cualquiera de la Pista. Estás a mano con él. Por ahora.",
+        "venceu_texto_grana": "La rueda fue tuya. Como no debías nada, el Nato paga lo acordado: 200 en la mano. Sin experiencia — en la rueda nadie aprende nada, solo comés o das. Te vendaron y te tiraron en la Pista con los bolsillos más llenos.",
         "perdeu_titulo": "TE REMENDARON",
-        "perdeu_texto": "Caíste en el medio de la rueda. Despertaste en un colchón hediondo, alguien ya te había cosido la ceja. El Nato no pierde una inversión: te curan, te vendan y te tiran en la Pista. Pero la cuenta creció — y te quiere de vuelta en la rueda.",
+        "perdeu_texto": "Caíste en el medio de la rueda. Despertaste en un colchón hediondo, alguien ya te había cosido la ceja. Te curan, te vendan y te tiran en la Pista. La entrada quedó como deuda — el Nato no devuelve lo que fió. Volvé cuando quieras probar de nuevo.",
         "voltar": "Volver a la Pista"
       },
       "skill_info": {
@@ -2164,8 +2165,10 @@
         "fiado_pagar": "Pagarle al Nato (−{grana})",
         "fiado_pago_parcial": "Bajaste {pago}. Todavía faltan {restante} para el Nato.",
         "fiado_pago_total": "Saldaste los {pago}. Tu nombre quedó limpio en el kiosco.",
-        "clube_oferta_tag": "Propuesta · última salida",
-        "clube_oferta": "El Nato te lleva a un costado. \"Tu tropa está en el piso, tu nombre está sucio y no tenés cómo pagar. Pero tengo un laburo. Rueda de apuestas, mía. Entrás, ganás, tu deuda desaparece. Perdés, te remendamos y probás de nuevo. ¿Arreglamos?\" Ya te está fiando la tercera — 15 veces — y curando a toda la tropa para que aguantes en pie.",
+        "clube_botao": "▸ El Club de la Pelea",
+        "clube_oferta_tag": "Propuesta · la rueda del Nato",
+        "clube_oferta_limpo": "El Nato te encara. \"Estás limpio conmigo. Pero tengo un laburo: rueda de apuestas, mía. Entrás, ganás, salís con 200 en la mano. No da experiencia — en la rueda nadie aprende nada. Perdés, te remendamos y probás de nuevo. Solo que la entrada te la fío: te curo ahora y eso queda como deuda si no ganás. ¿Arreglamos?\"",
+        "clube_oferta_divida": "El Nato golpea la libreta. \"Me debés. Pero tengo un laburo para eso: rueda de apuestas, mía. Entrás, ganás, tu deuda desaparece — toda, no importa el tamaño. Sin plata, sin experiencia, solo el arreglo de cuentas. Perdés, te remendamos y probás de nuevo. La entrada ya te la fío — 15 veces — y curo a toda la tropa. ¿Arreglamos?\"",
         "clube_recusar": "Ahora no",
         "clube_aceitar": "Aceptar (te vendan ya)",
         "pista": {

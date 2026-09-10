@@ -324,12 +324,15 @@ export default function GanguesCena({onNavigate}){
     setTimeout(()=>setAviso(null),3600)
     return true
   }
-  // Aceitou o Clube da Luta na birosca: 3º fiado (15×) já cura a tropa, e o
-  // jogador é vendado e levado pra roda (fase 'clube' → sequestro → combate).
+  // Aceitou o Clube da Luta na birosca: a entrada já fia 15× e cura a tropa, e
+  // o jogador é vendado e levado pra roda (fase 'clube' → sequestro → combate).
+  // `clubeDividaPrevia` = dívida ANTES da entrada — decide se a vitória paga os
+  // 200 de grana (entrou limpo) ou só quita a dívida.
   const iniciarClube=(custoBase)=>{
     setEncontro(null);guardarPosicao();sfx.vs?.()
+    const dividaPrevia=store.storyProgress.__birosca?.divida||0
     store.entrarClubeDaLuta(custoBase||10)
-    store.setStoryTarget({clube:true,clubeBase:custoBase||10,voltar:{territorioId:terr.id}})
+    store.setStoryTarget({clube:true,clubeBase:custoBase||10,clubeDividaPrevia:dividaPrevia,voltar:{territorioId:terr.id}})
     onNavigate('clube')
   }
   const iniciarEvento=()=>{

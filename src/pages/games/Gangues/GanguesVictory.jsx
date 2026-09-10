@@ -85,7 +85,7 @@ export default function GanguesVictory({ onNavigate }) {
     // cresce (juros) — e a tropa é remendada nos dois casos. Resto do fluxo
     // de vitória (level-up, recompensa, dano persistente) não roda aqui.
     if (clube) {
-      store.resolverClubeDaLuta(victory, storyAlvo.clubeBase || 10)
+      store.resolverClubeDaLuta(victory, storyAlvo.clubeBase || 10, storyAlvo.clubeDividaPrevia || 0)
       victory ? sfx.win() : sfx.lose()
       return
     }
@@ -194,8 +194,11 @@ export default function GanguesVictory({ onNavigate }) {
     return () => clearTimeout(timer)
   }, [])
 
-  // ── Clube da Luta — sem AP, sem grana: só o acerto de contas com o Nato ──
+  // ── Clube da Luta — sem AP, sem XP: acerto de contas com o Nato ──
+  //  vitória entrando LIMPO (sem dívida prévia) = 200 de grana na mão;
+  //  entrando devendo = quita a dívida. derrota = te remendam e te largam.
   if (clube) {
+    const entrouLimpo = Math.round(storyAlvo?.clubeDividaPrevia || 0) <= 0
     const voltar = () => {
       store.setStoryTarget(storyAlvo.voltar?.territorioId ? { territorioId: storyAlvo.voltar.territorioId } : null)
       onNavigate(storyAlvo.voltar?.territorioId ? 'territorio' : 'lobby')
@@ -205,7 +208,7 @@ export default function GanguesVictory({ onNavigate }) {
         <motion.div className="gang-final" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
           <span className="gang-report-code">{t('games.gangues.clube.result_code')}</span>
           <h1 className="gang-final-titulo">{t(victory ? 'games.gangues.clube.venceu_titulo' : 'games.gangues.clube.perdeu_titulo')}</h1>
-          <p className="gang-final-par">{t(victory ? 'games.gangues.clube.venceu_texto' : 'games.gangues.clube.perdeu_texto')}</p>
+          <p className="gang-final-par">{t(victory ? (entrouLimpo ? 'games.gangues.clube.venceu_texto_grana' : 'games.gangues.clube.venceu_texto') : 'games.gangues.clube.perdeu_texto')}</p>
           <button className="gang-report-primary" onClick={voltar}>{t('games.gangues.clube.voltar')}</button>
         </motion.div>
       </main>

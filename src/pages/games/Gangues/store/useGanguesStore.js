@@ -764,35 +764,37 @@ export const useGanguesStore = create((set, get) => ({
     return { ok: true, pago, restante }
   },
 
-  // Elegível pro Clube da Luta: já tomou os 2 fiados, tem dívida aberta, a
-  // tropa inteira caiu (desespero) e não tem grana pra pagar. É a única saída
-  // desse beco — o Nato oferece o 3º fiado (15×) que já enfia o cara na roda.
+  // (legado — o Clube agora é oferecido SEMPRE na birosca, não só num beco sem
+  // saída. Mantido caso algum código antigo referencie.)
   clubeDaLutaElegivel: () => {
     const rec = get()._birosca()
     return rec.fiados >= 2 && rec.divida > 0 && get().tropaNoChao() && get().grana < rec.divida
   },
 
-  // Aceitou o Clube da Luta: 3º fiado 15× o descanso, cura a tropa toda,
-  // fiados = 3. A luta roda com storyTarget { clube: true }.
+  // Aceitou o Clube da Luta. Ao entrar, o Nato já te fia 15× o descanso
+  // (te "curam adiantado" — a tropa toda volta pro máximo) e a dívida sobe
+  // na hora. A luta roda com storyTarget { clube: true }.
   entrarClubeDaLuta: (custoBase = 10) => {
     const rec = get()._birosca()
     const valor = 15 * Math.max(1, Math.round(custoBase))
     const divida = rec.divida + valor
-    set(state => ({ storyProgress: { ...state.storyProgress, __birosca: { divida, fiados: 3 } } }))
+    set(state => ({ storyProgress: { ...state.storyProgress, __birosca: { divida, fiados: Math.max(3, rec.fiados) } } }))
     get().restaurarPvPmTodos()
     get()._persistStory()
     return { valor, divida }
   },
 
-  // Fim da luta do Clube. Venceu: quita TUDO, nome limpa (divida 0, fiados 0).
-  // Perdeu: te remendam (cura a tropa), a dívida CRESCE mais 15× (juros do
-  // agiota) e o Clube segue disponível pra tentar de novo — nunca é game over.
-  resolverClubeDaLuta: (venceu, custoBase = 10) => {
-    const rec = get()._birosca()
-    const proximo = venceu
-      ? { divida: 0, fiados: 0 }
-      : { divida: rec.divida + 15 * Math.max(1, Math.round(custoBase)), fiados: 3 }
-    set(state => ({ storyProgress: { ...state.storyProgress, __birosca: proximo } }))
+  // Fim da luta do Clube. `dividaPrevia` = a dívida ANTES de aceitar (antes do
+  // 15× de entrada).
+  //  • Venceu: quita TUDO, nome limpa (divida 0, fiados 0). Se entrou LIMPO
+  //    (dividaPrevia 0), ainda leva 200 de grana na mão. Nunca dá XP.
+  //  • Perdeu: te remendam e te largam na Pista. A dívida NÃO cresce mais —
+  //    fica só o 15× que entrou na conta ao aceitar. Nunca é game over.
+  resolverClubeDaLuta: (venceu, custoBase = 10, dividaPrevia = 0) => {
+    if (venceu) {
+      set(state => ({ storyProgress: { ...state.storyProgress, __birosca: { divida: 0, fiados: 0 } } }))
+      if (Math.round(dividaPrevia) <= 0) get().ganharGrana(200)
+    }
     get().restaurarPvPmTodos()
     get()._persistStory()
   },

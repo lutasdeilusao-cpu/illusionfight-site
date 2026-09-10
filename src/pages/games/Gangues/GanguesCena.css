@@ -181,6 +181,14 @@
 }
 .gang-cena-enc--fiado .gang-cena-enc-desfecho { color: #f3e2c4; }
 
+/* Link "O Clube da Luta" — abaixo das ações do descanso, largura total,
+   discreto (não é a ação principal, mas tá sempre lá). */
+.gang-cena-clube-link {
+  width: 100%; margin-top: 6px;
+  font-size: 0.74rem; letter-spacing: 0.12em;
+  color: #ff9a9a; border-color: #ff6b6b55; background: rgba(255, 107, 107, 0.07);
+}
+
 /* ── Modal de encontro ── */
 .gang-cena-modal {
   position: fixed; inset: 0; z-index: 1010; /* acima da Rádio Nina (topo=1001) — o modal não pode ficar por baixo dela, senão o ✕ some */

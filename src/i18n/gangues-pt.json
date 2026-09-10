@@ -623,8 +623,9 @@
         "result_code": "Clube da Luta · acerto de contas",
         "venceu_titulo": "VOCÊ SAIU INTEIRO",
         "venceu_texto": "A roda foi tua. O Nato rasga a caderneta na tua frente, cospe no chão e manda te levarem de volta. Vendaram você de novo, te largaram numa esquina qualquer da Pista. Tá quites com ele. Por enquanto.",
+        "venceu_texto_grana": "A roda foi tua. Como você não devia nada, o Nato paga o combinado: 200 na mão. Sem experiência — na roda ninguém aprende porrada, só apanha ou bate. Te vendaram, te largaram na Pista com o bolso mais cheio.",
         "perdeu_titulo": "TE REMENDARAM",
-        "perdeu_texto": "Caiu no meio da roda. Acordou num colchão fedido, alguém já tinha costurado teu supercílio. O Nato não perde investimento: te curam, te vendam e te largam na Pista. Mas a conta cresceu — e ele quer você de volta na roda.",
+        "perdeu_texto": "Caiu no meio da roda. Acordou num colchão fedido, alguém já tinha costurado teu supercílio. Te curam, te vendam e te largam na Pista. A grana da entrada virou dívida — o Nato não devolve o que fiou. Volta quando quiser tentar de novo.",
         "voltar": "Voltar pra Pista"
       },
       "skill_info": {
@@ -1754,8 +1755,10 @@
         "fiado_pagar": "Pagar o Nato (−{grana})",
         "fiado_pago_parcial": "Abateu {pago}. Ainda falta {restante} pro Nato.",
         "fiado_pago_total": "Quitou os {pago}. Teu nome limpou na birosca.",
-        "clube_oferta_tag": "Proposta · última saída",
-        "clube_oferta": "O Nato te chama num canto. \"Tua tropa tá no chão, teu nome tá sujo e tu não tem como pagar. Mas eu tenho um corre. Roda de aposta, minha. Tu entra, tu ganha, tua dívida some. Perdeu, a gente te remenda e tu tenta de novo. Topô?\" Ele já tá te fiando a terceira — 15 vezes — e curando a tropa toda pra você aguentar em pé.",
+        "clube_botao": "▸ O Clube da Luta",
+        "clube_oferta_tag": "Proposta · a roda do Nato",
+        "clube_oferta_limpo": "O Nato te encara. \"Tu tá limpo comigo. Mas tenho um corre: roda de aposta, minha. Tu entra, tu ganha, sai com 200 na mão. Não dá experiência — na roda ninguém aprende nada. Perdeu, a gente te remenda e tu tenta de novo. Só que a entrada eu fio: te curo agora e isso vira dívida se tu não ganhar. Topô?\"",
+        "clube_oferta_divida": "O Nato bate na caderneta. \"Tu me deve. Mas eu tenho um corre pra isso: roda de aposta, minha. Tu entra, tu ganha, tua dívida some — toda ela, não importa o tamanho. Sem grana, sem experiência, só o acerto de conta. Perdeu, a gente te remenda e tu tenta de novo. A entrada eu já te fio — 15 vezes — e curo a tropa toda. Topô?\"",
         "clube_recusar": "Agora não",
         "clube_aceitar": "Topar (te vendam agora)",
         "pista": {
