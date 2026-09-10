@@ -785,17 +785,25 @@ export const useGanguesStore = create((set, get) => ({
     return { valor, divida }
   },
 
-  // Entre uma ronda e outra do gauntlet, o Nato oferece te ajeitar de graça —
-  // "de graça" na hora, mas engorda a caderneta em 10× o descanso. Cura a
-  // tropa toda. É opcional (dá pra encarar a próxima ronda machucado).
-  curarNoClubeSala: (custoBase = 10) => {
+  // Entre uma ronda e outra do gauntlet, o Nato oferece te ajeitar — cura a
+  // tropa toda na hora, e DOBRA a dívida na tua cara, na maior cara de pau.
+  // É opcional (dá pra encarar a próxima ronda machucado).
+  curarNoClubeSala: () => {
     const rec = get()._birosca()
-    const valor = 10 * Math.max(1, Math.round(custoBase))
-    const divida = rec.divida + valor
+    const antes = Math.max(1, Math.round(rec.divida))
+    const divida = antes * 2
     set(state => ({ storyProgress: { ...state.storyProgress, __birosca: { divida, fiados: Math.max(3, rec.fiados) } } }))
     get().restaurarPvPmTodos()
     get()._persistStory()
-    return { valor, divida }
+    return { antes, divida }
+  },
+
+  // Vazou no meio do gauntlet: te arrastam pra fora e te largam (a tropa é
+  // remendada), mas a dívida acumulada FICA — não quita nada.
+  desistirDoClube: () => {
+    get().restaurarPvPmTodos()
+    get()._persistStory()
+    return get()._birosca().divida
   },
 
   // Fim do gauntlet do Clube (só chamado na 3ª ronda ou numa derrota).

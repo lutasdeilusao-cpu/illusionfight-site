@@ -27,7 +27,6 @@ export default function GanguesClubeSala({ onNavigate }) {
   const store = useGanguesStore()
   const alvo = store.storyTarget
   const ronda = Number(alvo?.clubeRonda) || 1        // a ronda que ACABOU de vencer
-  const base = Number(alvo?.clubeBase) || 10
   const [fase, setFase] = useState('impacto')        // impacto → nato
   const [indo, setIndo] = useState(false)
   const reduced = useRef(prefersReduced())
@@ -36,6 +35,7 @@ export default function GanguesClubeSala({ onNavigate }) {
     () => (store._deficitTropa?.() || []).filter(d => d.pv > 0 || d.pm > 0),
     [store],
   )
+  const divida = Math.round(store.storyProgress?.__birosca?.divida || 0)
 
   useEffect(() => { if (!alvo?.clube) onNavigate('territorio') }, [alvo, onNavigate])
 
@@ -51,9 +51,16 @@ export default function GanguesClubeSala({ onNavigate }) {
     setIndo(true)
     sfx.vs?.()
     let heals = Number(alvo?.clubeHeals) || 0
-    if (comAjeite) { store.curarNoClubeSala(base); heals += 1; sfx.reward?.() }
+    if (comAjeite) { store.curarNoClubeSala(); heals += 1; sfx.cancel?.() }
     store.setStoryTarget({ ...alvo, clube: true, clubeRonda: ronda + 1, clubeHeals: heals })
     onNavigate('story-combat')
+  }
+  const vazar = () => {
+    if (indo) return
+    setIndo(true)
+    sfx.cancel?.()
+    store.desistirDoClube()
+    onNavigate('clube-fuga')
   }
 
   return (
@@ -93,6 +100,10 @@ export default function GanguesClubeSala({ onNavigate }) {
                 : t('games.gangues.clube.sala_tropa_ok')}
             </div>
 
+            <div className="gang-clube-sala-caderneta">
+              {t('games.gangues.clube.sala_caderneta', { divida })}
+            </div>
+
             <div className="gang-clube-sala-acoes">
               <button className="gang-clube-cena-btn gang-clube-cena-btn--ghost" disabled={indo}
                 onClick={() => proximaRonda(false)}>
@@ -101,7 +112,12 @@ export default function GanguesClubeSala({ onNavigate }) {
               <button className="gang-clube-cena-btn" disabled={indo || feridos.length === 0}
                 onClick={() => proximaRonda(true)}>
                 {t('games.gangues.clube.sala_ajeitar')}
-                <small>{t('games.gangues.clube.sala_ajeitar_aviso')}</small>
+                <small>{t('games.gangues.clube.sala_ajeitar_aviso', { antes: divida, depois: divida * 2 })}</small>
+              </button>
+              <button className="gang-clube-cena-btn gang-clube-cena-btn--sair" disabled={indo}
+                onClick={vazar}>
+                {t('games.gangues.clube.sala_vazar')}
+                <small>{t('games.gangues.clube.sala_vazar_aviso', { divida })}</small>
               </button>
             </div>
           </motion.div>

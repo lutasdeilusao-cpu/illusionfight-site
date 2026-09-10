@@ -295,6 +295,16 @@
 .gang-clube-sala-tropa {
   font: 700 0.68rem var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase; color: #b79a9a;
 }
+.gang-clube-sala-caderneta, .gang-clube-cena-caderneta {
+  padding: 6px 12px;
+  font: 800 0.82rem var(--font-mono); letter-spacing: 0.04em; color: var(--if-amber, #ffb020);
+  border: 1px dashed color-mix(in srgb, var(--if-amber, #ffb020) 55%, transparent);
+  background: rgba(255, 174, 50, 0.07);
+}
+.gang-clube-cena-caderneta { margin-top: 0.2rem; }
+.gang-clube-cena-btn--sair {
+  background: transparent; color: #9aa0a6; border: 1px solid #6b6b6b55;
+}
 .gang-clube-sala-acoes { display: flex; flex-direction: column; gap: 10px; width: 100%; margin-top: 0.3rem; }
 .gang-clube-sala-acoes .gang-clube-cena-btn { width: 100%; }
 

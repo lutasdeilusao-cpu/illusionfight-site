@@ -17,6 +17,7 @@ import GanguesAlbum from './GanguesAlbum'
 import GanguesBatalha from './GanguesBatalha'
 import GanguesClube from './GanguesClube'
 import GanguesClubeSala from './GanguesClubeSala'
+import GanguesClubeResultado from './GanguesClubeResultado'
 import { temCena } from './data/cenas/pista.js'
 import { GANGUES_STORY_BATTLE_PARTY_MAX } from './data/ganguesLoadout.js'
 import { gerarBandoInimigo, gerarBandoChefe, gerarBandoRevezamento, gerarBandoEvento, gerarBandoClube } from './data/ganguesEncontros.js'
@@ -153,6 +154,17 @@ export default function GanguesRoute() {
       {fase === 'batalha' && <GanguesBatalha onNavigate={setFase} />}
       {fase === 'clube' && <GanguesClube onNavigate={navegar} />}
       {fase === 'clube-sala' && <GanguesClubeSala onNavigate={navegar} />}
+      {fase === 'clube-fuga' && (
+        <GanguesClubeResultado
+          modo="fuga"
+          divida={Math.round(store.storyProgress?.__birosca?.divida || 0)}
+          onVoltar={() => {
+            const v = store.storyTarget?.voltar
+            store.setStoryTarget(v?.territorioId ? { territorioId: v.territorioId } : null)
+            navegar(v?.territorioId ? 'territorio' : 'lobby')
+          }}
+        />
+      )}
       {fase === 'territorio' && (
         temCena(store.storyTarget?.territorioId)
           ? <GanguesCena onNavigate={navegar} />

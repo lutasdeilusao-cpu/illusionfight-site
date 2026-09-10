@@ -218,7 +218,14 @@ export default function GanguesVictory({ onNavigate }) {
       store.setStoryTarget(storyAlvo.voltar?.territorioId ? { territorioId: storyAlvo.voltar.territorioId } : null)
       onNavigate(storyAlvo.voltar?.territorioId ? 'territorio' : 'lobby')
     }
-    return <GanguesClubeResultado victory={victory} entrouLimpo={entrouLimpo} t={t} onVoltar={voltar} />
+    return (
+      <GanguesClubeResultado
+        modo={victory ? 'vitoria' : 'derrota'}
+        entrouLimpo={entrouLimpo}
+        divida={Math.round(store.storyProgress?.__birosca?.divida || 0)}
+        onVoltar={voltar}
+      />
+    )
   }
 
   // ── Confronto final contra o Alan — canon: Marelia não fica com você ──
