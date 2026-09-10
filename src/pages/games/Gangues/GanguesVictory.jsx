@@ -110,7 +110,13 @@ export default function GanguesVictory({ onNavigate }) {
     const multiplicadorChefe = cenaChefe ? 5 : 1
     // Torre: o AP sobe com o andar (grind pra L→99) — +100% a cada 5 andares.
     const multiplicadorTorre = torre ? 1 + Math.floor(torreAndar / 5) : 1
-    const ap = victory ? 10 * enemyCount * multiplicadorChefe * multiplicadorTorre : 1
+    // AP por inimigo: 30 no modo história (era 10) — a escada de nível dos
+    // chefes subiu (Carvão = L15 pau a pau, ver GANGUES_CHEFE_BUDGET) e o
+    // caminho da Pista tem ~15 eventos; nesse ritmo o jogador chega perto do
+    // L15 fazendo tudo. A Torre mantém a base 10 (tem seu próprio multiplicador
+    // por andar pro grind de L→99, não pode inflar junto).
+    const apPorInimigo = torre ? 10 : 30
+    const ap = victory ? apPorInimigo * enemyCount * multiplicadorChefe * multiplicadorTorre : 1
     const participantIds = victory ? escaladosIds.filter(id => !koIds.has(id)) : escaladosIds
     // Peso por RANKING de contribuição (não mais proporcional direto a
     // abates/dano) — 1º lugar (quem mais matou, dano desempata) pesa 3, 2º

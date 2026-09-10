@@ -847,12 +847,18 @@ Reserva: cada faixa comporta crescer até ~99 sem remapear.
   puro R). Nada procedural em runtime. Poderes de assinatura liberam **devagar**
   (níveis 4 / 12 / 24 / 40) e sobem de rank (→2 nos níveis 52–70, →3 nos 78–96).
   PV/PM de R pela taxa do caminho. `GANGUES_LEVEL_CAP = 99`.
-- **Dá pra zerar a campanha em ~L49** (~7 níveis por bairro). Os 7 chefes usam
-  **orçamento de pontos FIXO** (`GANGUES_CHEFE_BUDGET`, não escala com o jogador)
-  — quanto mais nível, mais confortável a mesma luta. Alvo da Pista (calibrado
-  por sim): **L5–7 quase errado de encarar, L8 pau a pau, L10 confortável**. Os
-  chefes carregam `nivel` de fachada (Carvão 14 … O Contador 84) — a Laje é o
-  clímax. **O Retalho é o único nível 100 do jogo.**
+- **Escada de nível dos 7 chefes** (rev. dez/2026): cada chefe é **pau a pau**
+  no nível-alvo — **Pista 15 · Feira 28 · Baixada 42 · Vila 56 · Morro 70 ·
+  Alto 84 · Laje 99+** (~14 níveis entre cada). O 7º (Laje) é PAREDÃO: encara no
+  L99 e ainda apanha, tem que voltar. Os 7 chefes usam **orçamento de pontos
+  FIXO** (`GANGUES_CHEFE_BUDGET`, não escala com o jogador) — como o crescimento
+  autorado é +1 ponto por nível, 1 ficha nível N = N pontos; o budget de cada
+  chefe ≈ 1.15× o total do time no nível-alvo (`{pista:35, feira:97, baixada:193,
+  vila:322, morro:483, alto:580, laje:700}`). Só a Pista está pra confirmar em
+  playtest; as outras recalibrar com cena + sim próprios. AP por inimigo no modo
+  história = **30** (era 10) pra a escada subir no ritmo dos ~15 eventos de cada
+  bairro. Os chefes carregam `nivel` de fachada. **O Retalho é o único nível 100
+  do jogo.**
 - **Modo Batalha = A Torre** (`GanguesBatalha`). Destrava ao zerar a campanha 1×.
   Luta atrás de luta, o jogador escolhe o bairro-tema e a *folga de nível*
   (folgado → brabo). Cada andar sobe a dificuldade e o AP (+100% a cada 5

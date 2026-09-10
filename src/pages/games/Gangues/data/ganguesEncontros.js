@@ -57,15 +57,26 @@ export const GANGUES_CHEFE_EQUIPE = {
 
 // Orçamento de pontos FIXO do bando do chefe, por território — NÃO escala com o
 // jogador (ao contrário da treta comum). É de propósito: o chefe é um paredão
-// fixo, e o loop de RPG é você VOLTAR mais forte. Quanto mais nível, mais
-// confortável fica a mesma luta.
-// Só a Pista está calibrada por simulação headless (scratchpad/sim_boss7.py):
-// budget 20 · líder 60% · 2 corpos → time balanceado de 2 fichas vence
-// L5 ~8% · L6-7 ~22% · L8 ~50% · L10 ~69% (tank L10 >95%). Pedido do Isaias:
-// "abaixo do 8 quase errado de encarar, no 8 pau a pau, no 10 confortável".
-// Os outros 6 são 1ª aproximação (~+7 por bairro) — recalibrar quando cada um
-// ganhar cena própria e simulação dedicada.
-export const GANGUES_CHEFE_BUDGET = { pista: 20, feira: 30, baixada: 42, vila: 55, morro: 68, alto: 82, laje: 96 }
+// fixo, e o loop de RPG é você VOLTAR mais forte.
+//
+// ESCADA DE NÍVEL DOS 7 CHEFES (pedido do Isaias, dez/2026): 7 territórios,
+// teto do jogador L99. Cada chefe é "pau a pau" no nível-alvo abaixo:
+//   pista 15 · feira 28 · baixada 42 · vila 56 · morro 70 · alto 84 · laje 99+
+// (~14 níveis entre cada; o 7º é PAREDÃO — encara no L99 e ainda apanha).
+//
+// calcularPontosTime = soma de A+H+D+R, e o crescimento autorado é EXATAMENTE
+// +1 ponto por nível → 1 ficha nível N = N pontos. O time cresce 1 vaga por
+// território dominado (2 na Pista, 3 na Feira, ... até 6 = teto de batalha):
+//   pista  L15 · 2 fichas ·  30 pts → budget ~35  (~1.15×, pau a pau)
+//   feira  L28 · 3 fichas ·  84 pts → budget ~97
+//   baixada L42 · 4 fichas · 168 pts → budget ~193
+//   vila   L56 · 5 fichas · 280 pts → budget ~322
+//   morro  L70 · 6 fichas · 420 pts → budget ~483
+//   alto   L84 · 6 fichas · 504 pts → budget ~580
+//   laje   L99 · 6 fichas · 594 pts → budget ~700 (paredão, ~1.18×)
+// Só a Pista está pra ser confirmada em playtest; as outras 6 recalibrar
+// quando cada uma ganhar cena própria + simulação dedicada.
+export const GANGUES_CHEFE_BUDGET = { pista: 35, feira: 97, baixada: 193, vila: 322, morro: 483, alto: 580, laje: 700 }
 export const GANGUES_CHEFE_LIDER_FRAC = 0.60
 // Quantos CORPOS o bando do chefe tem (o resto de GANGUES_CHEFE_EQUIPE fica só
 // pra lore/álbum). Pista = 2 (Carvão + Rasteira Velha): 2×2 é a única treta
