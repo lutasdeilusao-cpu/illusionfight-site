@@ -630,9 +630,10 @@ function TretaVS({poi,fala,nivelTropa,onSim,onNao,t}){
   const enemy=enemiesData.find(e=>e.id===poi.enemy),nome=poi.ehChefe?t(`games.gangues.story.bosses.${poi.boss}.nome`):t(`${poi.i18n}.nome`)
   const falaRaw=fala??(poi.ehChefe?t(`games.gangues.story.bosses.${poi.boss}.fala`,{suaGangue:t('games.gangues.report.your_gang')}):t(`${poi.i18n}.fala`))
   const falaShow=Array.isArray(falaRaw)?falaRaw[0]:falaRaw
-  // Aviso de nível: só quando a tropa tá ABAIXO do recomendado — pra o jogador
-  // entrar consciente (ou upar antes). Igual ou acima: nada.
-  const abaixo=poi.nivelRec&&Number.isFinite(nivelTropa)&&nivelTropa<poi.nivelRec
+  // Aviso de nível: só quando a tropa tá 2+ níveis ABAIXO do recomendado — 1 de
+  // diferença não conta (dado, equipamento e estratégia cobrem). Igual/acima
+  // ou só 1 abaixo: nada.
+  const abaixo=poi.nivelRec&&Number.isFinite(nivelTropa)&&(poi.nivelRec-nivelTropa)>=2
   return <div className="gang-cena-enc gang-cena-enc--vs">
     <span className="gang-cena-enc-selo">{(nome||'?')[0]}</span>
     <span className="gang-cena-eyebrow">{poi.ehChefe?t('games.gangues.story.boss_tag'):t('games.gangues.cena.tipo.treta')}</span>
