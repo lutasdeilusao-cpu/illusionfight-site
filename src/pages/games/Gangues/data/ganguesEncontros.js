@@ -307,10 +307,17 @@ export function gerarBandoChefe({ territorioId, playerTeam, enemiesData }) {
  *  último caso, endividado até o pescoço. 2–3 corpos. */
 export const GANGUES_CLUBE_POOL = [1211, 1212, 1213, 1219, 1311, 1312, 1411, 1412]
 export const GANGUES_CLUBE_BUDGET = 26
-export function gerarBandoClube({ enemiesData }) {
+// Gauntlet de 3 rondas: 1 corpo fraco → 2 → 3 casca-grossa (o bando de antes).
+const GANGUES_CLUBE_RONDAS = {
+  1: { qtd: 1, budget: 7 },
+  2: { qtd: 2, budget: 15 },
+  3: { qtd: 3, budget: GANGUES_CLUBE_BUDGET },
+}
+export function gerarBandoClube({ enemiesData, ronda = 3 }) {
   if (!enemiesData?.length) return null
-  const qtd = 2 + (Math.random() < 0.5 ? 1 : 0)
-  const partes = distribuirPontos(GANGUES_CLUBE_BUDGET, qtd)
+  const cfg = GANGUES_CLUBE_RONDAS[ronda] || GANGUES_CLUBE_RONDAS[3]
+  const qtd = cfg.qtd
+  const partes = distribuirPontos(cfg.budget, qtd)
   const bag = []
   const sortear = () => {
     if (!bag.length) bag.push(...GANGUES_CLUBE_POOL)

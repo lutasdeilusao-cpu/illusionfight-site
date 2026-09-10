@@ -16,6 +16,7 @@ import GanguesCena from './GanguesCena'
 import GanguesAlbum from './GanguesAlbum'
 import GanguesBatalha from './GanguesBatalha'
 import GanguesClube from './GanguesClube'
+import GanguesClubeSala from './GanguesClubeSala'
 import { temCena } from './data/cenas/pista.js'
 import { GANGUES_STORY_BATTLE_PARTY_MAX } from './data/ganguesLoadout.js'
 import { gerarBandoInimigo, gerarBandoChefe, gerarBandoRevezamento, gerarBandoEvento, gerarBandoClube } from './data/ganguesEncontros.js'
@@ -91,8 +92,9 @@ export default function GanguesRoute() {
 
     let enemyTeam
     if (alvo.clube) {
-      // Clube da Luta — bando fixo e casca-grossa (não escala com o jogador).
-      enemyTeam = gerarBandoClube({ enemiesData })
+      // Clube da Luta — gauntlet de 3 rondas, bando fixo (não escala com o
+      // jogador). A ronda vem do storyTarget (1 → 2 → 3).
+      enemyTeam = gerarBandoClube({ enemiesData, ronda: Number(alvo.clubeRonda) || 3 })
       if (!enemyTeam?.length) { setFase('territorio'); return }
     } else if (alvo.evento) {
       // Encontro aleatório de rua — bando um pouco acima da ficha, com teto.
@@ -150,6 +152,7 @@ export default function GanguesRoute() {
       {fase === 'album' && <GanguesAlbum onNavigate={navegar} voltar={() => setFase(faseAntesAlbum.current)} />}
       {fase === 'batalha' && <GanguesBatalha onNavigate={setFase} />}
       {fase === 'clube' && <GanguesClube onNavigate={navegar} />}
+      {fase === 'clube-sala' && <GanguesClubeSala onNavigate={navegar} />}
       {fase === 'territorio' && (
         temCena(store.storyTarget?.territorioId)
           ? <GanguesCena onNavigate={navegar} />

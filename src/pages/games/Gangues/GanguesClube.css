@@ -78,6 +78,235 @@
   animation: gang-clube-fadein 0.6s ease 3.4s both;
 }
 @keyframes gang-clube-fadein { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+/* ═══════════════════════════════════════════════════════════════
+   CLUBE DA LUTA — cenas épicas (entrada, sala entre rondas, desfecho)
+   Tudo CSS/framer + sfx sintetizado. Sem imagem, sem áudio de arquivo.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ---- cutscene do sequestro (entrada) ---- */
+.gang-clube-venda { overflow: hidden; }
+.gang-clube-venda .gang-clube-holofote,
+.gang-clube-venda .gang-clube-plateia { opacity: 0; transition: opacity 0.6s ease; }
+.gang-clube-venda-txt { display: flex; flex-direction: column; gap: 14px; align-items: center; z-index: 3; }
+.gang-clube-venda-txt p {
+  margin: 0; max-width: 320px;
+  font: 600 0.98rem var(--font-body); line-height: 1.55; color: #d8d8dc;
+  animation: gang-clube-fadein 0.6s ease both;
+}
+.gang-clube-venda-txt p:nth-child(2) { animation-delay: 1s; }
+.gang-clube-venda-txt p:nth-child(3) { animation-delay: 1.9s; }
+/* o saco na cabeça: tela quase preta "respirando" */
+.gang-clube-saco {
+  position: absolute; inset: -10%; z-index: 2; pointer-events: none;
+  background:
+    radial-gradient(60% 45% at 50% 48%, rgba(30, 24, 22, 0.35), #000 78%),
+    repeating-linear-gradient(18deg, rgba(255,255,255,0.02) 0 2px, transparent 2px 5px);
+  animation: gang-clube-respira 3.4s ease-in-out infinite;
+}
+@keyframes gang-clube-respira { 0%, 100% { transform: scale(1.03); opacity: 0.96; } 50% { transform: scale(1.09); opacity: 1; } }
+.gang-clube-venda-flash {
+  position: absolute; inset: 0; z-index: 6; background: #fff; opacity: 0; pointer-events: none;
+}
+/* cena 1: arrancam o saco — lurch + flash */
+.gang-clube-venda--c1 { animation: gang-clube-lurch 0.4s ease both; }
+.gang-clube-venda--c1 .gang-clube-saco { animation: gang-clube-saco-off 0.35s ease forwards; }
+.gang-clube-venda--c1 .gang-clube-venda-flash { animation: gang-clube-strobe 0.4s steps(1) forwards; }
+@keyframes gang-clube-saco-off { to { transform: translateY(-120%) scale(1.4); opacity: 0; } }
+@keyframes gang-clube-lurch { 0% { transform: none; } 30% { transform: translateX(-10px) rotate(-1.4deg); } 60% { transform: translateX(8px) rotate(1deg); } 100% { transform: none; } }
+/* cena 2: luz forte + rugido — plateia e holofote entram */
+.gang-clube-venda--c2 .gang-clube-holofote,
+.gang-clube-venda--c2 .gang-clube-plateia { opacity: 1; }
+.gang-clube-venda--c2 .gang-clube-venda-txt { opacity: 0; transition: opacity 0.5s ease; }
+.gang-clube-venda--c2 { animation: gang-clube-shake 0.5s ease both; }
+.gang-clube-venda-skip {
+  position: absolute; bottom: calc(16px + var(--radio-nina-h, 0px)); z-index: 5;
+  font: 700 0.6rem var(--font-mono); letter-spacing: 0.14em;
+  color: #555; text-transform: uppercase;
+  animation: gang-clube-fadein 0.6s ease 2.8s both;
+}
+
+/* ---- base das cenas (sala + desfecho) ---- */
+.gang-clube-cena {
+  position: fixed; inset: 0; z-index: 20;
+  padding-bottom: var(--radio-nina-h, 0px);
+  display: flex; align-items: center; justify-content: center;
+  background: #04040a; color: #f0eef0; overflow: hidden;
+  isolation: isolate;
+}
+.gang-clube-holofote {
+  position: absolute; left: 50%; top: -8%; z-index: 1;
+  width: 74%; height: 116%; transform: translateX(-50%);
+  background: radial-gradient(52% 60% at 50% 0%, rgba(255, 236, 210, 0.16), rgba(255, 180, 120, 0.05) 42%, transparent 68%);
+  filter: blur(2px);
+  animation: gang-clube-holo 5s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes gang-clube-holo { 0%, 100% { transform: translateX(-50%) rotate(-1.5deg); } 50% { transform: translateX(-50%) rotate(1.5deg); } }
+
+.gang-clube-plateia {
+  position: absolute; left: 0; right: 0; bottom: 0; z-index: 1;
+  height: 34%;
+  display: flex; align-items: flex-end; justify-content: center; gap: 3%;
+  padding: 0 4%;
+  background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.85) 62%, #000);
+  pointer-events: none;
+}
+.gang-clube-plateia i {
+  position: relative;
+  flex: 1 1 0; max-width: 40px;
+  height: calc(46% + (var(--i) % 4) * 16%);
+  background: #000;
+  border-radius: 40% 40% 0 0;
+  box-shadow: 0 0 12px 2px rgba(255, 90, 90, 0.06);
+  transform-origin: bottom center;
+  animation: gang-clube-torcida 1.6s ease-in-out infinite;
+  animation-delay: calc(var(--i) * -0.21s);
+}
+.gang-clube-plateia i::after {
+  content: ''; position: absolute; left: 50%; top: -14%;
+  width: 62%; aspect-ratio: 1; transform: translateX(-50%);
+  background: #000; border-radius: 50%;
+}
+@keyframes gang-clube-torcida { 0%, 100% { transform: translateY(0) scaleY(1); } 50% { transform: translateY(-6%) scaleY(1.04); } }
+
+.gang-clube-vinheta {
+  position: absolute; inset: 0; z-index: 2; pointer-events: none;
+  background: radial-gradient(78% 62% at 50% 42%, transparent 40%, rgba(0, 0, 0, 0.62) 78%, rgba(0, 0, 0, 0.92));
+}
+.gang-clube-grain {
+  position: absolute; inset: -50%; z-index: 3; pointer-events: none;
+  opacity: 0.06; mix-blend-mode: overlay;
+  background-image: repeating-conic-gradient(#fff 0 0.0008turn, #000 0 0.0016turn);
+  background-size: 3px 3px;
+  animation: gang-clube-grain 0.6s steps(3) infinite;
+}
+@keyframes gang-clube-grain {
+  0% { transform: translate(0, 0); } 33% { transform: translate(-2%, 1%); } 66% { transform: translate(1%, -2%); } 100% { transform: translate(0, 0); }
+}
+
+.gang-clube-cena-conteudo {
+  position: relative; z-index: 5;
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  gap: 0.7rem; padding: 1.6rem; max-width: calc(0.86 * var(--app-w, 480px));
+}
+.gang-clube-cena-code {
+  font: 800 0.58rem var(--font-mono); letter-spacing: 0.32em; text-transform: uppercase;
+  color: #8a6bff;
+}
+.gang-clube-cena-titulo, .gang-clube-impacto-titulo {
+  margin: 0; font: 900 clamp(1.9rem, 9vw, 2.9rem) var(--font-display);
+  letter-spacing: 0.02em; line-height: 1.02; text-transform: uppercase;
+  text-shadow: 0 0 26px rgba(255, 90, 90, 0.45), 0 4px 0 rgba(0, 0, 0, 0.6);
+}
+.gang-clube-cena--vitoria .gang-clube-cena-titulo {
+  color: #fff;
+  animation: gang-clube-title-hit 0.5s ease both;
+}
+.gang-clube-cena--derrota .gang-clube-cena-titulo {
+  color: #d98a8a;
+  filter: blur(0.4px);
+  animation: gang-clube-title-wobble 3s ease-in-out infinite;
+}
+@keyframes gang-clube-title-hit { 0% { letter-spacing: 0.4em; } 100% { letter-spacing: 0.02em; } }
+@keyframes gang-clube-title-wobble { 0%, 100% { transform: skewX(0) translateX(0); } 25% { transform: skewX(-2deg) translateX(-2px); } 75% { transform: skewX(1.5deg) translateX(2px); } }
+.gang-clube-cena-par {
+  margin: 0; font: 500 0.92rem var(--font-body); line-height: 1.6; color: #cfc9cd;
+}
+.gang-clube-cena--derrota .gang-clube-cena-par { color: #a99ea1; }
+.gang-clube-cena-btn {
+  margin-top: 0.4rem; padding: 0.85rem 1.4rem;
+  display: flex; flex-direction: column; align-items: center; gap: 2px;
+  font: 800 0.82rem var(--font-display); letter-spacing: 0.12em; text-transform: uppercase;
+  color: #04141a; background: #ff5a5a; border: 0;
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
+  cursor: pointer;
+}
+.gang-clube-cena-btn small { font: 600 0.58rem var(--font-mono); letter-spacing: 0.06em; text-transform: none; opacity: 0.8; }
+.gang-clube-cena-btn:disabled { opacity: 0.4; }
+.gang-clube-cena-btn--ghost { background: transparent; color: #ffb3b3; border: 1px solid #ff5a5a66; }
+
+/* ---- desfecho: vitória (faíscas, caco de caderneta, strobe) ---- */
+.gang-clube-flash {
+  position: absolute; inset: 0; z-index: 4; background: #fff; pointer-events: none;
+  animation: gang-clube-strobe-in 0.9s steps(1) forwards;
+}
+@keyframes gang-clube-strobe-in {
+  0% { opacity: 0.9; } 8% { opacity: 0; } 14% { opacity: 0.7; } 20% { opacity: 0; }
+  30% { opacity: 0.5; } 36% { opacity: 0; } 100% { opacity: 0; }
+}
+@keyframes gang-clube-strobe { 0% { opacity: 0.95; } 40% { opacity: 0.2; } 100% { opacity: 0; } }
+.gang-clube-faiscas, .gang-clube-papel { position: absolute; inset: 0; z-index: 4; pointer-events: none; overflow: hidden; }
+.gang-clube-faiscas i {
+  position: absolute; bottom: -6%; left: calc(6% + var(--i) * 6%);
+  width: 3px; height: 3px; border-radius: 50%;
+  background: #ffcf7a; box-shadow: 0 0 8px 2px rgba(255, 180, 90, 0.7);
+  animation: gang-clube-faisca 2.6s ease-in infinite;
+  animation-delay: calc(var(--i) * -0.18s);
+}
+@keyframes gang-clube-faisca {
+  0% { transform: translateY(0) translateX(0); opacity: 0; }
+  10% { opacity: 1; }
+  100% { transform: translateY(-88vh) translateX(calc((var(--i) - 8) * 6px)); opacity: 0; }
+}
+.gang-clube-papel i {
+  position: absolute; top: -8%; left: calc(12% + var(--i) * 8%);
+  width: 10px; height: 13px; background: #e8e2d2;
+  animation: gang-clube-papel 3.4s ease-in infinite;
+  animation-delay: calc(0.4s + var(--i) * -0.24s);
+}
+@keyframes gang-clube-papel {
+  0% { transform: translateY(0) rotate(0); opacity: 0; }
+  12% { opacity: 0.9; }
+  100% { transform: translateY(96vh) rotate(540deg); opacity: 0; }
+}
+
+/* ---- desfecho: derrota (vinheta pulsando, dessaturado) ---- */
+.gang-clube-cena--derrota { filter: saturate(0.5) contrast(1.05); }
+.gang-clube-cena--derrota .gang-clube-vinheta { animation: gang-clube-concussao 2.4s ease-in-out infinite; }
+@keyframes gang-clube-concussao { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; transform: scale(1.04); } }
+
+/* ---- sala entre rondas ---- */
+.gang-clube-impacto { position: relative; z-index: 5; display: flex; flex-direction: column; align-items: center; gap: 0.4rem; }
+.gang-clube-impacto-tag {
+  font: 800 0.62rem var(--font-mono); letter-spacing: 0.3em; text-transform: uppercase; color: #ff8a8a;
+}
+.gang-clube-sala-nato {
+  position: relative; z-index: 5;
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  gap: 0.85rem; padding: 1.4rem; max-width: calc(0.88 * var(--app-w, 480px));
+}
+.gang-clube-nato-vulto {
+  position: relative; width: 120px; height: 150px; margin-bottom: 0.2rem;
+  background: #000;
+  clip-path: polygon(50% 0, 66% 8%, 70% 26%, 100% 46%, 88% 62%, 92% 100%, 8% 100%, 12% 60%, 0 44%, 30% 26%, 34% 8%);
+  box-shadow: -14px 0 26px -6px rgba(255, 90, 90, 0.55), 14px 0 26px -10px rgba(120, 90, 255, 0.35);
+}
+.gang-clube-nato-brasa {
+  position: absolute; right: 24px; top: 30px; width: 6px; height: 6px; border-radius: 50%;
+  background: #ff7a3a; box-shadow: 0 0 10px 3px rgba(255, 120, 50, 0.8);
+  animation: gang-clube-brasa 2.2s ease-in-out infinite;
+}
+@keyframes gang-clube-brasa { 0%, 100% { opacity: 0.5; } 45% { opacity: 1; } 55% { opacity: 0.7; } }
+.gang-clube-nato-fala {
+  margin: 0; font: 600 1rem var(--font-body); line-height: 1.55; color: #ede6e6;
+  text-shadow: 0 2px 10px #000;
+}
+.gang-clube-sala-tropa {
+  font: 700 0.68rem var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase; color: #b79a9a;
+}
+.gang-clube-sala-acoes { display: flex; flex-direction: column; gap: 10px; width: 100%; margin-top: 0.3rem; }
+.gang-clube-sala-acoes .gang-clube-cena-btn { width: 100%; }
+
 @media (prefers-reduced-motion: reduce) {
-  .gang-clube-venda p, .gang-clube-venda-skip { animation: none; opacity: 1; }
+  .gang-clube-venda-txt p, .gang-clube-venda-skip,
+  .gang-clube-holofote, .gang-clube-plateia i, .gang-clube-grain,
+  .gang-clube-saco, .gang-clube-nato-brasa, .gang-clube-flash,
+  .gang-clube-faiscas i, .gang-clube-papel i,
+  .gang-clube-cena--derrota .gang-clube-vinheta,
+  .gang-clube-cena--derrota .gang-clube-cena-titulo,
+  .gang-clube-cena--vitoria .gang-clube-cena-titulo { animation: none !important; }
+  .gang-clube-venda-txt p, .gang-clube-venda-skip { opacity: 1; }
+  .gang-clube-cena--sala .gang-clube-holofote, .gang-clube-cena--sala .gang-clube-plateia,
+  .gang-clube-venda--c2 .gang-clube-holofote, .gang-clube-venda--c2 .gang-clube-plateia { opacity: 1; }
 }

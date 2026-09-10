@@ -332,7 +332,7 @@ export default function GanguesCena({onNavigate}){
     setEncontro(null);guardarPosicao();sfx.vs?.()
     const dividaPrevia=store.storyProgress.__birosca?.divida||0
     store.entrarClubeDaLuta(custoBase||10)
-    store.setStoryTarget({clube:true,clubeBase:custoBase||10,clubeDividaPrevia:dividaPrevia,voltar:{territorioId:terr.id}})
+    store.setStoryTarget({clube:true,clubeBase:custoBase||10,clubeDividaPrevia:dividaPrevia,clubeRonda:1,clubeHeals:0,voltar:{territorioId:terr.id}})
     onNavigate('clube')
   }
   const iniciarEvento=()=>{

@@ -773,7 +773,8 @@ export const useGanguesStore = create((set, get) => ({
 
   // Aceitou o Clube da Luta. Ao entrar, o Nato já te fia 15× o descanso
   // (te "curam adiantado" — a tropa toda volta pro máximo) e a dívida sobe
-  // na hora. A luta roda com storyTarget { clube: true }.
+  // na hora. A luta roda com storyTarget { clube: true, clubeRonda: 1 } —
+  // é um gauntlet de 3 rondas (1 fraco → 2 → 3 casca-grossa).
   entrarClubeDaLuta: (custoBase = 10) => {
     const rec = get()._birosca()
     const valor = 15 * Math.max(1, Math.round(custoBase))
@@ -784,16 +785,30 @@ export const useGanguesStore = create((set, get) => ({
     return { valor, divida }
   },
 
-  // Fim da luta do Clube. `dividaPrevia` = a dívida ANTES de aceitar (antes do
-  // 15× de entrada).
-  //  • Venceu: quita TUDO, nome limpa (divida 0, fiados 0). Se entrou LIMPO
-  //    (dividaPrevia 0), ainda leva 200 de grana na mão. Nunca dá XP.
-  //  • Perdeu: te remendam e te largam na Pista. A dívida NÃO cresce mais —
-  //    fica só o 15× que entrou na conta ao aceitar. Nunca é game over.
-  resolverClubeDaLuta: (venceu, custoBase = 10, dividaPrevia = 0) => {
+  // Entre uma ronda e outra do gauntlet, o Nato oferece te ajeitar de graça —
+  // "de graça" na hora, mas engorda a caderneta em 10× o descanso. Cura a
+  // tropa toda. É opcional (dá pra encarar a próxima ronda machucado).
+  curarNoClubeSala: (custoBase = 10) => {
+    const rec = get()._birosca()
+    const valor = 10 * Math.max(1, Math.round(custoBase))
+    const divida = rec.divida + valor
+    set(state => ({ storyProgress: { ...state.storyProgress, __birosca: { divida, fiados: Math.max(3, rec.fiados) } } }))
+    get().restaurarPvPmTodos()
+    get()._persistStory()
+    return { valor, divida }
+  },
+
+  // Fim do gauntlet do Clube (só chamado na 3ª ronda ou numa derrota).
+  //  `dividaPrevia` = a dívida ANTES de aceitar (antes do 15× de entrada).
+  //  `heals` = quantas vezes deixou o Nato ajeitar entre as rondas.
+  //  • Venceu (ronda 3): quita TUDO, nome limpa. Se entrou LIMPO e não pediu
+  //    nenhum ajeite (dividaPrevia 0 e heals 0), ainda leva 200 na mão. Sem XP.
+  //  • Perdeu: te remendam e te largam. A dívida NÃO cresce mais — fica o que
+  //    acumulou (15× da entrada + 10× de cada ajeite). Nunca é game over.
+  resolverClubeDaLuta: (venceu, custoBase = 10, dividaPrevia = 0, heals = 0) => {
     if (venceu) {
       set(state => ({ storyProgress: { ...state.storyProgress, __birosca: { divida: 0, fiados: 0 } } }))
-      if (Math.round(dividaPrevia) <= 0) get().ganharGrana(200)
+      if (Math.round(dividaPrevia) <= 0 && Number(heals) <= 0) get().ganharGrana(200)
     }
     get().restaurarPvPmTodos()
     get()._persistStory()

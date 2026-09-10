@@ -8,6 +8,7 @@ import { getGanguesRosterLimitComHistoria } from './data/ganguesLoadout.js'
 import { getGanguesCharacter, eventosDoNivel } from './data/ganguesCharacters.js'
 import { registrarPontuacaoArenaRanking } from '../../../hooks/useLeaderboardDB'
 import { sfx } from '../../../lib/sfx'
+import GanguesClubeResultado from './GanguesClubeResultado'
 import './GanguesProgressionFlow.css'
 
 function combatantName(t, member) {
@@ -81,11 +82,20 @@ export default function GanguesVictory({ onNavigate }) {
   useEffect(() => {
     if (processed.current) return
     processed.current = true
-    // Clube da Luta: NÃO dá AP nem grana. Venceu quita a dívida, perdeu ela
-    // cresce (juros) — e a tropa é remendada nos dois casos. Resto do fluxo
-    // de vitória (level-up, recompensa, dano persistente) não roda aqui.
+    // Clube da Luta: NÃO dá AP nem grana. Gauntlet de 3 rondas.
+    //  • venceu ronda 1 ou 2 → vai pra sala do Nato (não acerta contas ainda).
+    //  • venceu a 3 → quita tudo (e +200 se entrou limpo, sem ajeites).
+    //  • perdeu qualquer ronda → te remendam, dívida acumulada fica.
     if (clube) {
-      store.resolverClubeDaLuta(victory, storyAlvo.clubeBase || 10, storyAlvo.clubeDividaPrevia || 0)
+      const ronda = Number(storyAlvo?.clubeRonda) || 3
+      if (victory && ronda < 3) {
+        // guarda o estrago da ronda: se não pedir o ajeite do Nato, a próxima
+        // começa machucado. (o resolverClubeDaLuta só no fim do gauntlet.)
+        store.aplicarDanoPersistente(report.combatants)
+        onNavigate('clube-sala')
+        return
+      }
+      store.resolverClubeDaLuta(victory, storyAlvo.clubeBase || 10, storyAlvo.clubeDividaPrevia || 0, storyAlvo.clubeHeals || 0)
       victory ? sfx.win() : sfx.lose()
       return
     }
@@ -194,25 +204,21 @@ export default function GanguesVictory({ onNavigate }) {
     return () => clearTimeout(timer)
   }, [])
 
-  // ── Clube da Luta — sem AP, sem XP: acerto de contas com o Nato ──
-  //  vitória entrando LIMPO (sem dívida prévia) = 200 de grana na mão;
-  //  entrando devendo = quita a dívida. derrota = te remendam e te largam.
+  // ── Clube da Luta — desfecho do gauntlet (ou derrota). Tela própria, épica. ──
+  //  vitória LIMPA (sem dívida prévia e sem ajeites) = 200 de grana na mão;
+  //  senão = quita a dívida. derrota = te remendam e te largam.
   if (clube) {
-    const entrouLimpo = Math.round(storyAlvo?.clubeDividaPrevia || 0) <= 0
+    // venceu ronda 1/2 → o efeito acima já mandou pra 'clube-sala'; não pisca
+    // a tela de desfecho (nem dispara o som dela) nesse frame.
+    if (victory && (Number(storyAlvo?.clubeRonda) || 3) < 3) return null
+    const entrouLimpo =
+      Math.round(storyAlvo?.clubeDividaPrevia || 0) <= 0 &&
+      Number(storyAlvo?.clubeHeals || 0) <= 0
     const voltar = () => {
       store.setStoryTarget(storyAlvo.voltar?.territorioId ? { territorioId: storyAlvo.voltar.territorioId } : null)
       onNavigate(storyAlvo.voltar?.territorioId ? 'territorio' : 'lobby')
     }
-    return (
-      <main className={`gang-report gang-report--${victory ? 'victory' : 'defeat'} gang-report--clube`}>
-        <motion.div className="gang-final" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
-          <span className="gang-report-code">{t('games.gangues.clube.result_code')}</span>
-          <h1 className="gang-final-titulo">{t(victory ? 'games.gangues.clube.venceu_titulo' : 'games.gangues.clube.perdeu_titulo')}</h1>
-          <p className="gang-final-par">{t(victory ? (entrouLimpo ? 'games.gangues.clube.venceu_texto_grana' : 'games.gangues.clube.venceu_texto') : 'games.gangues.clube.perdeu_texto')}</p>
-          <button className="gang-report-primary" onClick={voltar}>{t('games.gangues.clube.voltar')}</button>
-        </motion.div>
-      </main>
-    )
+    return <GanguesClubeResultado victory={victory} entrouLimpo={entrouLimpo} t={t} onVoltar={voltar} />
   }
 
   // ── Confronto final contra o Alan — canon: Marelia não fica com você ──

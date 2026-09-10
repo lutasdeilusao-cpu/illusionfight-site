@@ -19,12 +19,24 @@ const PORTA = { x: 130, y: 40, w: 80, h: 44 }   // zona da porta da roda (topo)
 const STEP = 18, TICK = 110, R = 16
 
 const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v))
+const prefersReduced = () =>
+  typeof window !== 'undefined' &&
+  window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
+
+function Plateia() {
+  return (
+    <div className="gang-clube-plateia" aria-hidden="true">
+      {Array.from({ length: 11 }).map((_, i) => <i key={i} style={{ '--i': i }} />)}
+    </div>
+  )
+}
 
 export default function GanguesClube({ onNavigate }) {
   const { t } = useLanguage()
   const store = useGanguesStore()
   const alvo = store.storyTarget
   const [fase, setFase] = useState('venda')       // venda | saguao | indo
+  const [vendaCena, setVendaCena] = useState(0)    // 0 escuro/saco · 1 arranca · 2 luz+roar
   const [player, setPlayer] = useState(SPAWN)
   const [facing, setFacing] = useState('up')
   const inputRef = useRef({ x: 0, y: 0 })
@@ -33,12 +45,18 @@ export default function GanguesClube({ onNavigate }) {
   // Sem alvo de clube → não deveria estar aqui.
   useEffect(() => { if (!alvo?.clube) onNavigate('territorio') }, [alvo, onNavigate])
 
-  // Cutscene do sequestro: ~4s ou toque pra pular.
+  // Cutscene do sequestro: saco na cabeça (respirando) → arrancam → luz forte +
+  // rugido da plateia → cai no saguão. Toque pula tudo.
   useEffect(() => {
     if (fase !== 'venda') return
-    sfx.select?.()
-    const to = setTimeout(() => setFase('saguao'), 4200)
-    return () => clearTimeout(to)
+    const R = prefersReduced()
+    sfx.heartbeat?.()
+    const ts = []
+    ts.push(setTimeout(() => sfx.heartbeat?.(), 1400))
+    ts.push(setTimeout(() => { setVendaCena(1); sfx.vs?.() }, R ? 150 : 2600))
+    ts.push(setTimeout(() => { setVendaCena(2); sfx.explosion?.(); sfx.attackHeavy?.() }, R ? 300 : 3050))
+    ts.push(setTimeout(() => setFase('saguao'), R ? 550 : 5200))
+    return () => ts.forEach(clearTimeout)
   }, [fase])
 
   // Teclado (desktop).
@@ -83,11 +101,18 @@ export default function GanguesClube({ onNavigate }) {
     <main className="gang-clube">
       <AnimatePresence>
         {fase === 'venda' && (
-          <motion.div className="gang-clube-venda" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+          <motion.div className={`gang-clube-venda gang-clube-venda--c${vendaCena}`}
+            initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
             onClick={() => setFase('saguao')}>
-            <p>{t('games.gangues.clube.sequestro_1')}</p>
-            <p>{t('games.gangues.clube.sequestro_2')}</p>
-            <p>{t('games.gangues.clube.sequestro_3')}</p>
+            <div className="gang-clube-saco" aria-hidden="true" />
+            <div className="gang-clube-holofote" aria-hidden="true" />
+            <Plateia />
+            <div className="gang-clube-venda-flash" aria-hidden="true" />
+            <div className="gang-clube-venda-txt">
+              <p>{t('games.gangues.clube.sequestro_1')}</p>
+              <p>{t('games.gangues.clube.sequestro_2')}</p>
+              <p>{t('games.gangues.clube.sequestro_3')}</p>
+            </div>
             <span className="gang-clube-venda-skip">{t('games.gangues.clube.pular')}</span>
           </motion.div>
         )}
