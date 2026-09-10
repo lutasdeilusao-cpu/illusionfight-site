@@ -35,10 +35,7 @@ const MUNDO_PISTA = { w: 760, h: 1840, spawn: { x: 380, y: 1720 } }
 // Quarteirões — os blocos SÓLIDOS de construção (colisão). São exatamente os
 // COLLIDERS antigos: o motor não muda, só ganha prédio desenhado por cima.
 const QUARTEIROES_PISTA = [
-  // Faixa antes do muro: corredor alargado (250↔510, era 287↔473) pra caber os
-  // 4 pontos (rasteira_velha/beco_2/beco_3/sinaleiro) espalhados sem empilhar.
-  // Os barracos da esquerda encostam um pouco na calçada agora — é favela.
-  { x: 0, y: 350, w: 250, h: 326 }, { x: 510, y: 350, w: 250, h: 326 },
+  { x: 0, y: 350, w: 287, h: 326 }, { x: 473, y: 350, w: 287, h: 326 },
   { x: 0, y: 802, w: 287, h: 370 }, { x: 473, y: 802, w: 287, h: 370 },
   { x: 0, y: 1302, w: 287, h: 190 }, { x: 473, y: 1302, w: 287, h: 190 },
   { x: 0, y: 1622, w: 287, h: 218 }, { x: 473, y: 1622, w: 287, h: 218 },

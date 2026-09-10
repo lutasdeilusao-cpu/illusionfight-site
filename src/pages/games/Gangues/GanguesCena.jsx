@@ -32,13 +32,13 @@ const WORLD={w:760,h:1840}, SPAWN={x:380,y:1720}, TILE=20, STEP_MS=110, PLAYER_R
 const SCENE_INTRO_KEY='ldi-gangues-cena-intro-vista'
 function cenaIntroJaVista(id){try{return JSON.parse(localStorage.getItem(SCENE_INTRO_KEY)||'[]').includes(id)}catch{return false}}
 function marcarCenaIntroVista(id){try{const atual=JSON.parse(localStorage.getItem(SCENE_INTRO_KEY)||'[]');if(!atual.includes(id))localStorage.setItem(SCENE_INTRO_KEY,JSON.stringify([...atual,id]))}catch{}}
-// Os 4 pontos do corredor antes do muro (rasteira_velha, beco_2, beco_3,
-// sinaleiro) ficavam empilhados num quadrado de ~180px — pino/label um em cima
-// do outro, difícil voltar pra farmar um específico. Corredor alargado (ver
-// QUARTEIROES_PISTA) + zigue-zague esquerda/direita com ~75px de folga na
-// altura: cada pino se separa bem. beco_2 fica à ESQUERDA da boca do túnel
-// (tunel_ent, x476), sinaleiro embaixo dela.
-const POS={sinal:{x:210,y:1570},ferro:{x:150,y:1325},achado:{x:110,y:1245},beco:{x:445,y:1190},birosca:{x:170,y:1460},corre:{x:610,y:1010},beco_2:{x:430,y:466},beco_3:{x:288,y:550},sinaleiro:{x:445,y:632},rasteira_velha:{x:300,y:396},oficina:{x:250,y:705},descanso:{x:205,y:1440},informante:{x:150,y:740},rinha:{x:610,y:740},loja:{x:210,y:250},boss:{x:570,y:175}}
+// Os 4 pontos da linha da Rasteira (beco_2, beco_3, sinaleiro, rasteira_velha)
+// ficavam TODOS empilhados no corredor antes do muro — visão poluída. Agora
+// que tem radar (GanguesMiniMapa) pra guiar, eles se espalham pela rua toda,
+// na ordem em que se revelam: birosca → beco_2 (baixo) → beco_3 (praça) →
+// sinaleiro (vão aberto) → rasteira_velha (o último, colado no muro). O
+// jogador sobe a Pista batendo um por um.
+const POS={sinal:{x:210,y:1570},ferro:{x:150,y:1325},achado:{x:110,y:1245},beco:{x:445,y:1190},birosca:{x:170,y:1460},corre:{x:610,y:1010},beco_2:{x:330,y:1270},beco_3:{x:380,y:950},sinaleiro:{x:440,y:755},rasteira_velha:{x:360,y:440},oficina:{x:250,y:705},descanso:{x:205,y:1440},informante:{x:150,y:740},rinha:{x:610,y:740},loja:{x:210,y:250},boss:{x:570,y:175}}
 // Um obstáculo `solido` vira um retângulo de colisão PEQUENO em volta do ponto
 // (o jogador tem raio 18; corredor da pista ~186px — colisor grande trancava).
 function obstRect(o){return {x:o.x-15,y:o.y-11,w:30,h:22}}
@@ -54,11 +54,12 @@ function collidersDaCena(cena,bossAberto){
 const ENTRY_ZONES={
   sinal:{x:243,y:1532,w:70,h:76},ferro:{x:270,y:1288,w:35,h:76},achado:{x:75,y:1212,w:72,h:72},beco:{x:355,y:1155,w:76,h:70},
   birosca:{x:270,y:1418,w:35,h:82},corre:{x:455,y:970,w:35,h:82},
-  // Os 4 pontos do corredor alargado antes do muro (x250-510) — cada zona
-  // embaixo do seu pino, espalhados. loja: já do OUTRO lado do portão (y<350).
-  // oficina no vão aberto logo abaixo (y>676, x<287).
-  rasteira_velha:{x:270,y:374,w:60,h:52},beco_2:{x:402,y:444,w:58,h:52},
-  beco_3:{x:258,y:528,w:60,h:52},sinaleiro:{x:417,y:610,w:58,h:52},
+  // Os 4 pontos da linha da Rasteira espalhados pela rua toda (o radar guia).
+  // Cada zona no corredor andável da sua faixa. beco_2: vão aberto y1172-1302.
+  // beco_3: corredor da praça (x287-473). sinaleiro: vão aberto y676-802.
+  // rasteira_velha: corredor colado no muro. loja: já do outro lado (y<350).
+  beco_2:{x:300,y:1246,w:60,h:52},beco_3:{x:350,y:926,w:60,h:52},
+  sinaleiro:{x:410,y:731,w:60,h:52},rasteira_velha:{x:330,y:416,w:60,h:52},
   loja:{x:175,y:216,w:72,h:72},oficina:{x:220,y:678,w:64,h:62},
   // informante/rinha ficam num trecho SEM colisor nenhum (y:705-781 não tem
   // nenhum COLLIDERS cobrindo essa faixa) — diferente de ferro/corre/etc,
@@ -387,13 +388,17 @@ export default function GanguesCena({onNavigate}){
     }),
     {id:'__boss',nome:t(`games.gangues.story.bosses.${cena.chefe.boss}.nome`),feito:Boolean(prog.boss)},
   ]
-  // Setinhas do mini-mapa: só os objetivos PENDENTES, com a posição no mundo.
-  // Se tudo fechou mas o muro ainda não abriu, o alvo vira a boca do túnel.
+  // Setinhas do mini-mapa: só os objetivos PENDENTES E JÁ REVELADOS (não
+  // spoila o que o jogador ainda nem descobriu), com a posição no mundo. Se
+  // tudo fechou mas o muro ainda não abriu, o alvo vira a boca do túnel.
   const minimapaAlvos=local?[]:metas.filter(m=>!m.feito).map(m=>{
     if(m.id==='__boss'&&baseFeita&&!muroAberto)
       return {id:'__tunel',nome:t('games.gangues.cena.minimapa.tunel'),pos:{x:452,y:404}}
-    return {...m,pos:m.id==='__boss'?POS.boss:POS[m.id]}
-  }).filter(m=>m.pos)
+    if(m.id==='__boss') return {...m,pos:POS.boss}
+    const pd=cena.pois.find(x=>x.id===m.id)
+    if(!pd||!(pd.visivel||prog.revelados[m.id])) return null
+    return {...m,pos:POS[m.id]}
+  }).filter(m=>m?.pos)
   return <main className={`gang-cena-worldpage${local?' is-interior':''}`} style={{'--terr-cor':cena.cor}}>
     <AnimatePresence>{intro&&<GangDialog lines={t(cena.chegada)} speaker={t(cena.falante)} sub={t(cena.falanteSub)} onFinish={fecharIntro} onSkip={fecharIntro}/>}</AnimatePresence>
     <header className="gang-cena-worldhud"><button onClick={()=>{local?sair():(guardarPosicao(),onNavigate('story'))}}>← {local?t('games.gangues.cena.acao.sair'):'MAPA'}</button><strong>{breadcrumb}{!local&&(prog.boss?<i className="gang-cena-dominado-selo">⚑ DOMINADA</i>:<button className="gang-cena-meta-btn" onClick={()=>setChecklist(v=>!v)}>{feitos}/{total} ▾</button>)}</strong><span>💵 {store.grana}　⚑ {store.rep}</span><button className="gang-cena-ficha-btn" onClick={()=>setBagAberta(true)} aria-label={t('games.gangues.bag.titulo')}>🎒</button>{store.activeParty.length>0&&<button className="gang-cena-ficha-btn" onClick={()=>setFichaIndex(0)}>👤</button>}<button className="gang-cena-ficha-btn" onClick={()=>{guardarPosicao();onNavigate('album')}} aria-label={t('games.gangues.album.titulo')}>📕</button></header>
