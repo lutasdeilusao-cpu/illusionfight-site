@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 import { supabase } from '../../../../lib/supabase'
-import { addGanguesAp, defaultGanguesProgression, getGanguesRosterLimit, normalizeGanguesLoadout, getGanguesResources } from '../data/ganguesLoadout.js'
+import { addGanguesAp, defaultGanguesProgression, getGanguesRosterLimit, normalizeGanguesLoadout, getGanguesResources, GANGUES_STORY_BATTLE_PARTY_MAX } from '../data/ganguesLoadout.js'
 import { carregarProgressoHistoria, salvarProgressoHistoria, listarSaves, criarSave, excluirSave } from './ganguesStoryProgress.js'
 import { createGanguesTemplateSheet, hydrateGanguesTemplateSheet, getGanguesLevelFromXp } from '../data/ganguesCharacters.js'
 import { createGanguesEquipInstance, normalizeGanguesEquipment, getGanguesEquip, getGanguesAttributesWithEquip, applyGanguesEquipResources } from '../data/ganguesEquip.js'
@@ -325,7 +325,14 @@ export const useGanguesStore = create((set, get) => ({
       const templateId = item.character_template_id || item.attributes?.character_template_id
       return templateId ? hydrateGanguesTemplateSheet({ ...item, character_type: 'template', character_template_id: Number(templateId) }) : ({ ...item, ...normalizeGanguesLoadout(item) })
     }) : []
-    set({ roster })
+    set(state => {
+      // Time de batalha: se ainda não tem um escolhido, começa com os N
+      // primeiros do elenco (até o teto). Assim dá pra pular o lobby e ir
+      // direto pro mapa com um save que já tem gangue.
+      const validos = state.activeParty.filter(m => roster.some(r => r.id === m.id))
+      const activeParty = validos.length ? validos : roster.slice(0, GANGUES_STORY_BATTLE_PARTY_MAX)
+      return { roster, activeParty }
+    })
     return roster
   },
 

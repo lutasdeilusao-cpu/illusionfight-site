@@ -1962,6 +1962,8 @@
         "sub": "Before Alan, nobody held Marélia. A gang on every corner, each one sure it ran the world because it ran one street. One guy — the Patchwork — almost pulled it all together. Almost. Now it's your turn to try.",
         "dominio": "of Marélia",
         "menu": "Menu",
+        "gerenciar_gangue": "Crew",
+        "voltar_mapa": "Map",
         "world_title": "Marélia Map",
         "world_hint": "Tap a region on the map",
         "disponivel": "Route open",

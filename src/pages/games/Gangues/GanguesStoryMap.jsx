@@ -46,6 +46,9 @@ export default function GanguesStoryMap({ onNavigate }) {
       <header className="gang-world__top">
         <button onClick={() => onNavigate('modes')}>← {t('games.gangues.story.menu')}</button>
         <span><b>{domainPct}%</b>{t('games.gangues.story.dominio')}</span>
+        <button className="gang-world__top-gang" onClick={() => { sfx.select?.(); onNavigate('lobby') }}>
+          👥 {t('games.gangues.story.gerenciar_gangue')}
+        </button>
       </header>
 
       <div className="gang-world__title">

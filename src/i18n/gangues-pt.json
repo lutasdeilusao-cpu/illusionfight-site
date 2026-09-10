@@ -1552,6 +1552,8 @@
         "sub": "Antes do Alan, ninguém segurava Marélia. Era gangue em cada esquina, cada uma dona do próprio quarteirão. Um cara — o Retalho — quase juntou tudo. Quase. Agora é a tua vez de tentar.",
         "dominio": "de Marélia",
         "menu": "Menu",
+        "gerenciar_gangue": "Gangue",
+        "voltar_mapa": "Mapa",
         "world_title": "Mapa de Marélia",
         "world_hint": "Toque numa região do mapa",
         "disponivel": "Rota aberta",

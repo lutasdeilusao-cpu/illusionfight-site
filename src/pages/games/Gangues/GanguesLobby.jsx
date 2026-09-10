@@ -140,6 +140,7 @@ export default function GanguesLobby({ onNavigate }) {
   return (
     <main className="gang-lobby">
       {roster.length > 0 && <header className="gang-lobby-hero gang-lobby-hero--compact">
+        {store._saveId && <button className="gang-lobby-mapa" onClick={() => { sfx.select?.(); onNavigate('story') }}>← {t('games.gangues.story.voltar_mapa')}</button>}
         <h1 className="gang-lobby-nome">{store.gangName}</h1>
         <button className="gang-lobby-rename" onClick={() => setRenomeando(true)}>✎ {t('games.gangues.naming.renomear')}</button>
       </header>

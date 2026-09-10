@@ -290,3 +290,12 @@
    do que no recrutamento. Estoura o padding só no stage pra ele ocupar a
    largura cheia da coluna, igual ao recrutamento. */
 .gang-roster-carousel .gang-recruit__stage { margin-left: -24px; margin-right: -24px; }
+
+/* botão "← Mapa" no header do lobby (quando entrou pelo mapa pra gerenciar) */
+.gang-lobby .gang-lobby-hero--compact { position: relative; }
+.gang-lobby .gang-lobby-hero--compact .gang-lobby-mapa {
+  position: absolute; left: 0; top: 2px;
+  min-height: 30px; padding: 0 10px; border: 1px solid var(--if-teal);
+  background: var(--if-cyan-12); color: var(--if-teal);
+  font: 800 .56rem var(--font-mono); letter-spacing: .06em; text-transform: uppercase;
+}

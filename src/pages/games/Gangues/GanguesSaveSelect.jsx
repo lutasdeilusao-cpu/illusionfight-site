@@ -42,7 +42,11 @@ export default function GanguesSaveSelect({ onNavigate }) {
     sfx.select?.()
     setAbrindo(saveId)
     await store.selecionarSave(saveId)
-    onNavigate('lobby')
+    // Save que já tem gangue montada → direto pro MAPA (escolher território).
+    // Não faz sentido refazer o recrutamento toda vez. Save vazio cai no
+    // lobby, que é onde mora o onboarding de recrutar.
+    const temGangue = useGanguesStore.getState().roster.length >= 2
+    onNavigate(temGangue ? 'story' : 'lobby')
   }
 
   const criar = async () => {
@@ -90,8 +94,8 @@ export default function GanguesSaveSelect({ onNavigate }) {
                   </span>
                   <span className="gang-saves__card-cta">{abrindo === save.id ? t('games.gangues.carregando') : t('games.gangues.saves.abrir')} <b>→</b></span>
                 </button>
-                <button className="gang-saves__card-delete" disabled={Boolean(abrindo)} aria-label={t('games.gangues.saves.excluir')} onClick={(event) => excluir(event, save)}>
-                  {excluindo === save.id ? '…' : '×'}
+                <button className="gang-saves__card-delete" disabled={Boolean(abrindo)} onClick={(event) => excluir(event, save)}>
+                  🗑 {excluindo === save.id ? '…' : t('games.gangues.saves.excluir')}
                 </button>
               </div>
             )
