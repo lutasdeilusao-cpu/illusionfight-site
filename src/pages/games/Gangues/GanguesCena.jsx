@@ -38,7 +38,7 @@ function marcarCenaIntroVista(id){try{const atual=JSON.parse(localStorage.getIte
 // na ordem em que se revelam: birosca → beco_2 (baixo) → beco_3 (praça) →
 // sinaleiro (vão aberto) → rasteira_velha (o último, colado no muro). O
 // jogador sobe a Pista batendo um por um.
-const POS={sinal:{x:210,y:2570},ferro:{x:150,y:2325},achado:{x:110,y:2245},beco:{x:445,y:2190},birosca:{x:170,y:2460},corre:{x:610,y:2010},beco_2:{x:330,y:2270},beco_3:{x:380,y:1950},sinaleiro:{x:440,y:1755},rasteira_velha:{x:360,y:1440},oficina:{x:250,y:1705},descanso:{x:205,y:2440},descanso_2:{x:530,y:1030},posmuro_1:{x:300,y:860},posmuro_2:{x:430,y:600},informante:{x:150,y:1740},rinha:{x:610,y:1740},loja:{x:210,y:486},boss:{x:570,y:175}}
+const POS={sinal:{x:210,y:2570},ferro:{x:150,y:2325},achado:{x:110,y:2245},beco:{x:445,y:2190},birosca:{x:170,y:2460},corre:{x:610,y:2010},beco_2:{x:330,y:2270},beco_3:{x:380,y:1950},sinaleiro:{x:440,y:1755},rasteira_velha:{x:360,y:1440},oficina:{x:250,y:1705},descanso:{x:205,y:2440},posmuro_1:{x:300,y:860},posmuro_2:{x:430,y:600},informante:{x:150,y:1740},rinha:{x:610,y:1740},loja:{x:210,y:486},boss:{x:570,y:175}}
 // Um obstáculo `solido` vira um retângulo de colisão PEQUENO em volta do ponto
 // (o jogador tem raio 18; corredor da pista ~186px — colisor grande trancava).
 function obstRect(o){return {x:o.x-15,y:o.y-11,w:30,h:22}}
@@ -61,8 +61,7 @@ const ENTRY_ZONES={
   beco_2:{x:300,y:2246,w:60,h:52},beco_3:{x:350,y:1926,w:60,h:52},
   sinaleiro:{x:410,y:1731,w:60,h:52},rasteira_velha:{x:330,y:1416,w:60,h:52},
   loja:{x:196,y:456,w:64,h:64},oficina:{x:220,y:1678,w:64,h:62},
-  // descanso_2: birosca improvisada na rua longa pós-muro (miolo livre, sem colisor).
-  descanso_2:{x:498,y:1004,w:64,h:56},
+  // descanso_2 não tem zona de rua — mora dentro do barraco pm1 (interiores.birosca_2).
   posmuro_1:{x:270,y:834,w:64,h:56},posmuro_2:{x:400,y:574,w:64,h:56},
   // informante/rinha ficam num trecho SEM colisor nenhum (y:1705-781 não tem
   // nenhum COLLIDERS cobrindo essa faixa) — diferente de ferro/corre/etc,

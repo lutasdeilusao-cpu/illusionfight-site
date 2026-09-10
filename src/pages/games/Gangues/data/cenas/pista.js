@@ -101,7 +101,10 @@ const PREDIOS_PISTA = [
   // ── O GALPÃO DO CARVÃO (topo-direita, o fundão) ──
   { id: 'galpao', tipo: 'galpao', x: 470, y: 24, w: 250, h: 210, cor: '#3a4247', pich: 1, porta: { para: 'galpao', zx: 596, zy: 262 }, portaX: 546, portaW: 100, solo: 1, pos_portao: 1 },
   // ── Favela pós-muro (só decoração + colisão; forra as beiras da rua longa) ──
-  { id: 'pm1', tipo: 'barraco', x: 8, y: 1150, w: 150, h: 118, cor: '#6b5f4d', pos_portao: 1, solo: 1, luz: 1 },
+  // pm1 = A BIROSCA DO PRIMO: primeiro barraco depois da saída do túnel, tem
+  // porta (interior birosca_2) — descanso + caderneta do Nato lá DENTRO, sem
+  // pino solto na rua. É a "franquia" pós-muro: paga/descansa sem voltar tunelando.
+  { id: 'pm1', tipo: 'barraco', x: 8, y: 1150, w: 150, h: 118, cor: '#6b5f4d', pos_portao: 1, solo: 1, luz: 1, nome: 'games.gangues.cena.pista.predio.birosca_2', porta: { para: 'birosca_2', zx: 178, zy: 1206 } },
   { id: 'pm2', tipo: 'laje', x: 600, y: 1170, w: 152, h: 150, andares: 2, cor: '#867c70', pos_portao: 1, solo: 1, varal: 1 },
   { id: 'pm3', tipo: 'laje', x: 8, y: 940, w: 140, h: 170, andares: 2, cor: '#8f8578', pos_portao: 1, solo: 1, pich: 1 },
   { id: 'pm4', tipo: 'sobrado', x: 590, y: 930, w: 160, h: 168, cor: '#4a6a63', pos_portao: 1, solo: 1, luz: 1, varal: 1 },
@@ -450,14 +453,14 @@ export const CENA_PISTA = {
     },
     {
       // Birosca improvisada do OUTRO lado do muro — o Nato tem um primo lá.
-      // Mesma função (curar a tropa antes do galpão), só que já pós-muro, pra
-      // não ter que voltar tunelando toda vez. Aparece só quando o portão abre.
+      // Mesma função (curar a tropa + caderneta do Nato pra pagar a dívida),
+      // só que já pós-muro. NÃO fica solta na rua: mora DENTRO do barraco pm1
+      // (interiores.birosca_2) — o jogador entra pela porta. É a "franquia"
+      // pós-muro: descansa/paga sem voltar tunelando.
       id: 'descanso_2',
       tipo: 'descanso',
       opcional: true,
       repetivel: true,
-      pos_portao: true,
-      pino: { x: 30, y: 40 },
       i18n: 'games.gangues.cena.pista.descanso_2',
       custoGrana: 10,
     },
@@ -527,6 +530,31 @@ export const CENA_PISTA = {
           { ref: 'birosca', pos: { x: 200, y: 118 }, precisa: 'beco' },
           { ref: 'informante', pos: { x: 400, y: 200 } },
           { ref: 'descanso', pos: { x: 74, y: 210 } },
+        ],
+      }],
+    },
+    // ── A BIROSCA DO PRIMO (pós-muro) — dentro do barraco pm1 ──
+    // Mesma cara da birosca do Nato, do outro lado do muro. Um cômodo só:
+    // o descanso_2 (descansar a tropa + caderneta do Nato pra quitar a dívida).
+    birosca_2: {
+      nome: 'games.gangues.cena.pista.int.birosca_2',
+      porta: { predio: 'pm1', posPortao: true },
+      comodos: [{
+        id: 'sala',
+        world: { w: 440, h: 300 }, spawn: { x: 220, y: 220 },
+        saida: { x: 194, y: 280, w: 52, h: 20 },
+        colliders: [
+          { x: 0, y: 0, w: 440, h: 28 }, { x: 0, y: 0, w: 14, h: 300 }, { x: 426, y: 0, w: 14, h: 300 },
+          { x: 0, y: 272, w: 182, h: 28 }, { x: 258, y: 272, w: 182, h: 28 },
+          { x: 100, y: 58, w: 240, h: 40 }, // balcão
+        ],
+        cenario: [
+          { tipo: 'balcao', x: 220, y: 78, w: 236 },
+          { tipo: 'geladeira-refri', x: 60, y: 118 }, { tipo: 'tv', x: 380, y: 58 },
+          { tipo: 'mesa', x: 120, y: 200 }, { tipo: 'cartaz', x: 220, y: 40 },
+        ],
+        pois: [
+          { ref: 'descanso_2', pos: { x: 220, y: 118 } },
         ],
       }],
     },

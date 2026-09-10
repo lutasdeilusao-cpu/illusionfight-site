@@ -2341,7 +2341,8 @@
             "oficina": "Nando's Workshop",
             "lojapista": "Pista Shop",
             "tunel_ent": "Shack at the end of the alley",
-            "tunel_sai": "Shack on the other side of the wall"
+            "tunel_sai": "Shack on the other side of the wall",
+            "birosca_2": "The cousin's bar"
           },
           "grafite": "THE STREET\nREMEMBERS",
           "int": {
@@ -2349,7 +2350,8 @@
             "oficina": "Nando's Workshop",
             "loja": "Cida's Corner Store",
             "galpao": "Coal's Warehouse",
-            "tunel": "The gap under the wall"
+            "tunel": "The gap under the wall",
+            "birosca_2": "The cousin's bar"
           },
           "galpao": {
             "m1": {

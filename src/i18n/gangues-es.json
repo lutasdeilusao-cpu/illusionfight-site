@@ -2341,7 +2341,8 @@
             "oficina": "Taller de Nando",
             "lojapista": "Tienda de la Pista",
             "tunel_ent": "Casilla del fondo del callejón",
-            "tunel_sai": "Casilla del otro lado del muro"
+            "tunel_sai": "Casilla del otro lado del muro",
+            "birosca_2": "Bar del primo"
           },
           "grafite": "LA CALLE\nRECUERDA",
           "int": {
@@ -2349,7 +2350,8 @@
             "oficina": "Taller de Nando",
             "loja": "Almacén de Cida",
             "galpao": "Galpón de Carbón",
-            "tunel": "La brecha por debajo del muro"
+            "tunel": "La brecha por debajo del muro",
+            "birosca_2": "Bar del primo"
           },
           "galpao": {
             "m1": {

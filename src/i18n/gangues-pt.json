@@ -1931,7 +1931,8 @@
             "oficina": "Oficina do Nando",
             "lojapista": "Loja da Pista",
             "tunel_ent": "Barraco do fundo do beco",
-            "tunel_sai": "Barraco do outro lado do muro"
+            "tunel_sai": "Barraco do outro lado do muro",
+            "birosca_2": "Birosca do primo"
           },
           "grafite": "A RUA\nLEMBRA",
           "int": {
@@ -1939,7 +1940,8 @@
             "oficina": "Oficina do Nando",
             "loja": "Mercearia da Cida",
             "galpao": "Galpão do Carvão",
-            "tunel": "A brecha por baixo do muro"
+            "tunel": "A brecha por baixo do muro",
+            "birosca_2": "Birosca do primo"
           },
           "galpao": {
             "m1": {
