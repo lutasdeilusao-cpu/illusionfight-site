@@ -16,6 +16,8 @@ function Ruas() {
       <div className="gang-road road-cross r1" />
       <div className="gang-road road-cross r2" />
       <div className="gang-road road-cross r3" />
+      <div className="gang-road road-cross r4" />
+      <div className="gang-road road-cross r5" />
       <div className="gang-road road-branch left" />
       <div className="gang-road road-branch right" />
     </>
@@ -64,10 +66,10 @@ function ItemCenario({ c, t }) {
 export default function CenaCenario({ cena, bossAberto, muroAberto }) {
   const { t } = useLanguage()
   const W = cena.mundo?.w || 760
-  const H = cena.mundo?.h || 2340
+  const H = cena.mundo?.h || 2840
   // postes: 2 na faixa pós-muro nova (o galpão fica lá no fundo) + os da rua
   // (todos +500 pós a expansão do mundo).
-  const lamps = [120, 340, 520, 700, 1010, 1180, 1360, 1540, 1740, 1930, 2110]
+  const lamps = [120, 340, 520, 700, 880, 1060, 1240, 1510, 1690, 1870, 2050, 2260, 2440, 2620]
 
   return (
     <>
