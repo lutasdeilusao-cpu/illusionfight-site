@@ -167,6 +167,10 @@
           "kind": "active",
           "source_status": "existing",
           "design_intent": "finalizador para encerrar alvo enfraquecido"
+        },
+        {
+          "id": "avalanche_de_socos",
+          "kind": "active"
         }
       ],
       "levels": [
@@ -819,7 +823,13 @@
             "D": 6,
             "PV": 5,
             "PM": 4
-          }
+          },
+          "ev": [
+            {
+              "type": "unlock_special",
+              "special_id": "avalanche_de_socos"
+            }
+          ]
         },
         {
           "level": 51,
@@ -1462,6 +1472,10 @@
           "kind": "active",
           "source_status": "existing",
           "design_intent": "finalizador para encerrar alvo enfraquecido"
+        },
+        {
+          "id": "britadeira",
+          "kind": "active"
         }
       ],
       "levels": [
@@ -2113,7 +2127,13 @@
             "PV": 4,
             "PM": 3
           },
-          "up": "PV"
+          "up": "PV",
+          "ev": [
+            {
+              "type": "unlock_special",
+              "special_id": "britadeira"
+            }
+          ]
         },
         {
           "level": 51,
@@ -2755,6 +2775,10 @@
           "kind": "active",
           "source_status": "existing",
           "design_intent": "finalizador técnico"
+        },
+        {
+          "id": "corte_preciso",
+          "kind": "active"
         }
       ],
       "levels": [
@@ -3412,7 +3436,13 @@
             "D": 5,
             "PV": 1,
             "PM": 1
-          }
+          },
+          "ev": [
+            {
+              "type": "unlock_special",
+              "special_id": "corte_preciso"
+            }
+          ]
         },
         {
           "level": 51,
@@ -4058,6 +4088,10 @@
           "kind": "active",
           "source_status": "existing",
           "design_intent": "finalizador técnico"
+        },
+        {
+          "id": "danca_da_lamina",
+          "kind": "active"
         }
       ],
       "levels": [
@@ -4711,7 +4745,13 @@
             "D": 5,
             "PV": 1,
             "PM": 1
-          }
+          },
+          "ev": [
+            {
+              "type": "unlock_special",
+              "special_id": "danca_da_lamina"
+            }
+          ]
         },
         {
           "level": 51,
@@ -5356,6 +5396,10 @@
           "kind": "active",
           "source_status": "existing",
           "design_intent": "ataque desesperado de alto risco"
+        },
+        {
+          "id": "furia_cega",
+          "kind": "active"
         }
       ],
       "levels": [
@@ -6016,7 +6060,13 @@
             "D": 5,
             "PV": 9,
             "PM": 8
-          }
+          },
+          "ev": [
+            {
+              "type": "unlock_special",
+              "special_id": "furia_cega"
+            }
+          ]
         },
         {
           "level": 51,
@@ -6663,6 +6713,10 @@
           "kind": "active",
           "source_status": "existing",
           "design_intent": "ataque desesperado de alto risco"
+        },
+        {
+          "id": "instinto_de_sangue",
+          "kind": "active"
         }
       ],
       "levels": [
@@ -7313,7 +7367,13 @@
             "D": 0,
             "PV": 4,
             "PM": 3
-          }
+          },
+          "ev": [
+            {
+              "type": "unlock_special",
+              "special_id": "instinto_de_sangue"
+            }
+          ]
         },
         {
           "level": 51,
@@ -7956,6 +8016,10 @@
           "kind": "active",
           "source_status": "existing",
           "design_intent": "finalizador do Especialista"
+        },
+        {
+          "id": "tiro_certeiro",
+          "kind": "active"
         }
       ],
       "levels": [
@@ -8614,7 +8678,13 @@
             "D": 5,
             "PV": 1,
             "PM": 1
-          }
+          },
+          "ev": [
+            {
+              "type": "unlock_special",
+              "special_id": "tiro_certeiro"
+            }
+          ]
         },
         {
           "level": 51,
@@ -9260,6 +9330,10 @@
           "kind": "active",
           "source_status": "existing",
           "design_intent": "finalizador do Especialista"
+        },
+        {
+          "id": "ponto_fatal",
+          "kind": "active"
         }
       ],
       "levels": [
@@ -9917,7 +9991,13 @@
             "D": 5,
             "PV": 1,
             "PM": 1
-          }
+          },
+          "ev": [
+            {
+              "type": "unlock_special",
+              "special_id": "ponto_fatal"
+            }
+          ]
         },
         {
           "level": 51,
@@ -10563,6 +10643,10 @@
           "kind": "active",
           "source_status": "existing",
           "design_intent": "grande retaliação acumulada"
+        },
+        {
+          "id": "marca_de_guerra",
+          "kind": "passive"
         }
       ],
       "levels": [
@@ -11228,7 +11312,13 @@
             "PV": 9,
             "PM": 8
           },
-          "up": "A"
+          "up": "A",
+          "ev": [
+            {
+              "type": "unlock_special",
+              "special_id": "marca_de_guerra"
+            }
+          ]
         },
         {
           "level": 51,
@@ -11874,6 +11964,10 @@
           "kind": "active",
           "source_status": "existing",
           "design_intent": "grande retaliação acumulada"
+        },
+        {
+          "id": "juro_composto",
+          "kind": "active"
         }
       ],
       "levels": [
@@ -12538,7 +12632,13 @@
             "PV": 5,
             "PM": 4
           },
-          "up": "A"
+          "up": "A",
+          "ev": [
+            {
+              "type": "unlock_special",
+              "special_id": "juro_composto"
+            }
+          ]
         },
         {
           "level": 51,
@@ -13184,6 +13284,10 @@
           "kind": "active",
           "source_status": "existing_example",
           "design_intent": "ativa defensiva máxima; usar/refinar o efeito atual do catálogo"
+        },
+        {
+          "id": "linha_de_frente",
+          "kind": "passive"
         }
       ],
       "levels": [
@@ -13833,7 +13937,13 @@
             "D": 16,
             "PV": 9,
             "PM": 4
-          }
+          },
+          "ev": [
+            {
+              "type": "unlock_special",
+              "special_id": "linha_de_frente"
+            }
+          ]
         },
         {
           "level": 51,
@@ -14475,6 +14585,10 @@
           "kind": "active",
           "source_status": "existing_example",
           "design_intent": "ativa defensiva máxima; usar/refinar o efeito atual do catálogo"
+        },
+        {
+          "id": "fundacao",
+          "kind": "passive"
         }
       ],
       "levels": [
@@ -15129,7 +15243,13 @@
             "D": 12,
             "PV": 11,
             "PM": 6
-          }
+          },
+          "ev": [
+            {
+              "type": "unlock_special",
+              "special_id": "fundacao"
+            }
+          ]
         },
         {
           "level": 51,
@@ -15777,6 +15897,10 @@
           "kind": "active",
           "source_status": "proposed",
           "design_intent": "redireciona um ataque para o Guardião"
+        },
+        {
+          "id": "escudo_vivo",
+          "kind": "active"
         }
       ],
       "levels": [
@@ -16437,7 +16561,13 @@
             "D": 13,
             "PV": 10,
             "PM": 5
-          }
+          },
+          "ev": [
+            {
+              "type": "unlock_special",
+              "special_id": "escudo_vivo"
+            }
+          ]
         },
         {
           "level": 51,
@@ -17084,6 +17214,10 @@
           "kind": "passive",
           "source_status": "proposed",
           "design_intent": "fica mais resistente quando aliados caem"
+        },
+        {
+          "id": "no_meu_ombro",
+          "kind": "active"
         }
       ],
       "levels": [
@@ -17744,7 +17878,13 @@
             "D": 13,
             "PV": 10,
             "PM": 5
-          }
+          },
+          "ev": [
+            {
+              "type": "unlock_special",
+              "special_id": "no_meu_ombro"
+            }
+          ]
         },
         {
           "level": 51,
@@ -18391,6 +18531,10 @@
           "kind": "passive",
           "source_status": "proposed",
           "design_intent": "benefício quando múltiplos inimigos o atacam"
+        },
+        {
+          "id": "grito_de_rua",
+          "kind": "active"
         }
       ],
       "levels": [
@@ -19049,7 +19193,13 @@
             "D": 12,
             "PV": 5,
             "PM": 2
-          }
+          },
+          "ev": [
+            {
+              "type": "unlock_special",
+              "special_id": "grito_de_rua"
+            }
+          ]
         },
         {
           "level": 51,
@@ -19695,6 +19845,10 @@
           "kind": "passive",
           "source_status": "proposed",
           "design_intent": "benefício quando múltiplos inimigos o atacam"
+        },
+        {
+          "id": "alvo_facil",
+          "kind": "active"
         }
       ],
       "levels": [
@@ -20358,7 +20512,13 @@
             "PV": 5,
             "PM": 3
           },
-          "up": "PM"
+          "up": "PM",
+          "ev": [
+            {
+              "type": "unlock_special",
+              "special_id": "alvo_facil"
+            }
+          ]
         },
         {
           "level": 51,
@@ -21005,6 +21165,10 @@
           "kind": "passive",
           "source_status": "proposed",
           "design_intent": "retaliação mais forte após grande dano"
+        },
+        {
+          "id": "giro_de_catraca",
+          "kind": "active"
         }
       ],
       "levels": [
@@ -21664,7 +21828,13 @@
             "PV": 1,
             "PM": 1
           },
-          "up": "D"
+          "up": "D",
+          "ev": [
+            {
+              "type": "unlock_special",
+              "special_id": "giro_de_catraca"
+            }
+          ]
         },
         {
           "level": 51,
@@ -22309,6 +22479,10 @@
           "kind": "passive",
           "source_status": "proposed",
           "design_intent": "retaliação mais forte após grande dano"
+        },
+        {
+          "id": "efeito_bumerangue",
+          "kind": "active"
         }
       ],
       "levels": [
@@ -22968,7 +23142,13 @@
             "PV": 1,
             "PM": 1
           },
-          "up": "H"
+          "up": "H",
+          "ev": [
+            {
+              "type": "unlock_special",
+              "special_id": "efeito_bumerangue"
+            }
+          ]
         },
         {
           "level": 51,
@@ -23613,6 +23793,10 @@
           "kind": "passive",
           "source_status": "proposed",
           "design_intent": "passiva máxima de sobrevivência"
+        },
+        {
+          "id": "pele_de_ferro",
+          "kind": "passive"
         }
       ],
       "levels": [
@@ -24259,7 +24443,13 @@
             "PV": 15,
             "PM": 7
           },
-          "up": "PV"
+          "up": "PV",
+          "ev": [
+            {
+              "type": "unlock_special",
+              "special_id": "pele_de_ferro"
+            }
+          ]
         },
         {
           "level": 51,
@@ -24904,6 +25094,10 @@
           "kind": "passive",
           "source_status": "proposed",
           "design_intent": "passiva máxima de sobrevivência"
+        },
+        {
+          "id": "osso_duro",
+          "kind": "passive"
         }
       ],
       "levels": [
@@ -25563,7 +25757,13 @@
             "D": 11,
             "PV": 11,
             "PM": 6
-          }
+          },
+          "ev": [
+            {
+              "type": "unlock_special",
+              "special_id": "osso_duro"
+            }
+          ]
         },
         {
           "level": 51,
@@ -26210,6 +26410,10 @@
           "kind": "active",
           "source_status": "proposed",
           "design_intent": "finalizador ígneo"
+        },
+        {
+          "id": "chama_eterna",
+          "kind": "active"
         }
       ],
       "levels": [
@@ -26862,7 +27066,13 @@
             "D": 1,
             "PV": 2,
             "PM": 5
-          }
+          },
+          "ev": [
+            {
+              "type": "unlock_special",
+              "special_id": "chama_eterna"
+            }
+          ]
         },
         {
           "level": 51,
@@ -27505,6 +27715,10 @@
           "kind": "active",
           "source_status": "proposed",
           "design_intent": "finalizador ígneo"
+        },
+        {
+          "id": "cinzas_ao_vento",
+          "kind": "passive"
         }
       ],
       "levels": [
@@ -28166,7 +28380,13 @@
             "D": 1,
             "PV": 5,
             "PM": 10
-          }
+          },
+          "ev": [
+            {
+              "type": "unlock_special",
+              "special_id": "cinzas_ao_vento"
+            }
+          ]
         },
         {
           "level": 51,
@@ -28814,6 +29034,10 @@
           "kind": "active",
           "source_status": "proposed",
           "design_intent": "efeito forte de controle e sustentação"
+        },
+        {
+          "id": "onda_de_choque",
+          "kind": "active"
         }
       ],
       "levels": [
@@ -29475,7 +29699,13 @@
             "D": 12,
             "PV": 5,
             "PM": 10
-          }
+          },
+          "ev": [
+            {
+              "type": "unlock_special",
+              "special_id": "onda_de_choque"
+            }
+          ]
         },
         {
           "level": 51,
@@ -30123,6 +30353,10 @@
           "kind": "active",
           "source_status": "proposed",
           "design_intent": "efeito forte de controle e sustentação"
+        },
+        {
+          "id": "temporal",
+          "kind": "active"
         }
       ],
       "levels": [
@@ -30783,7 +31017,13 @@
             "PV": 4,
             "PM": 9
           },
-          "up": "H"
+          "up": "H",
+          "ev": [
+            {
+              "type": "unlock_special",
+              "special_id": "temporal"
+            }
+          ]
         },
         {
           "level": 51,
@@ -31429,6 +31669,10 @@
           "kind": "active",
           "source_status": "proposed",
           "design_intent": "grande quebra defensiva de Terreno"
+        },
+        {
+          "id": "raizes_profundas",
+          "kind": "passive"
         }
       ],
       "levels": [
@@ -32088,7 +32332,13 @@
             "D": 13,
             "PV": 5,
             "PM": 10
-          }
+          },
+          "ev": [
+            {
+              "type": "unlock_special",
+              "special_id": "raizes_profundas"
+            }
+          ]
         },
         {
           "level": 51,
@@ -32735,6 +32985,10 @@
           "kind": "active",
           "source_status": "proposed",
           "design_intent": "grande quebra defensiva de Terreno"
+        },
+        {
+          "id": "fenda_no_chao",
+          "kind": "active"
         }
       ],
       "levels": [
@@ -33402,7 +33656,13 @@
             "D": 7,
             "PV": 4,
             "PM": 6
-          }
+          },
+          "ev": [
+            {
+              "type": "unlock_special",
+              "special_id": "fenda_no_chao"
+            }
+          ]
         },
         {
           "level": 51,
@@ -34049,6 +34309,10 @@
           "kind": "active",
           "source_status": "proposed",
           "design_intent": "finalizador de Tempestade"
+        },
+        {
+          "id": "descarga",
+          "kind": "active"
         }
       ],
       "levels": [
@@ -34699,7 +34963,13 @@
             "PV": 2,
             "PM": 4
           },
-          "up": "H"
+          "up": "H",
+          "ev": [
+            {
+              "type": "unlock_special",
+              "special_id": "descarga"
+            }
+          ]
         },
         {
           "level": 51,
@@ -35342,6 +35612,10 @@
           "kind": "active",
           "source_status": "proposed",
           "design_intent": "finalizador de Tempestade"
+        },
+        {
+          "id": "trovoada",
+          "kind": "active"
         }
       ],
       "levels": [
@@ -35994,7 +36268,13 @@
             "D": 0,
             "PV": 2,
             "PM": 5
-          }
+          },
+          "ev": [
+            {
+              "type": "unlock_special",
+              "special_id": "trovoada"
+            }
+          ]
         },
         {
           "level": 51,
@@ -36636,6 +36916,10 @@
           "kind": "active",
           "source_status": "proposed",
           "design_intent": "finalizador de Ilusão"
+        },
+        {
+          "id": "veu_de_nevoa",
+          "kind": "passive"
         }
       ],
       "levels": [
@@ -37289,7 +37573,13 @@
             "D": 11,
             "PV": 2,
             "PM": 5
-          }
+          },
+          "ev": [
+            {
+              "type": "unlock_special",
+              "special_id": "veu_de_nevoa"
+            }
+          ]
         },
         {
           "level": 51,
@@ -37935,6 +38225,10 @@
           "kind": "active",
           "source_status": "proposed",
           "design_intent": "finalizador de Ilusão"
+        },
+        {
+          "id": "espelho_quebrado",
+          "kind": "active"
         }
       ],
       "levels": [
@@ -38598,7 +38892,13 @@
             "PV": 1,
             "PM": 1
           },
-          "up": "D"
+          "up": "D",
+          "ev": [
+            {
+              "type": "unlock_special",
+              "special_id": "espelho_quebrado"
+            }
+          ]
         },
         {
           "level": 51,
