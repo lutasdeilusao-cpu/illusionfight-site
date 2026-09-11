@@ -1,4 +1,4 @@
-import catalog from '../../../../../ldi_gangues_30_personagens_v1.json'
+import catalog from './ldi_gangues_30_personagens_v1.json'
 import { normalizeGanguesEquipment } from './ganguesEquip.js'
 
 export const GANGUES_CHARACTER_CATALOG = Object.freeze(catalog.characters)
@@ -149,7 +149,7 @@ export function hydrateGanguesTemplateSheet(sheet = {}) {
   // L21) — esta função reidrata a ficha inteira toda vez que ela carrega
   // (login, troca de tela, cada save), e SEMPRE recalculava selected_specials
   // do zero como "os 2 últimos poderes abertos", jogando fora qualquer
-  // escolha feita na tela de Progressão (GanguesProgressionPanel) — a escolha
+  // escolha feita na tela de Progressão (GanguesProgression.jsx) — a escolha
   // do jogador nunca sobrevivia a um recarregamento. Agora: se já existe uma
   // seleção salva, ela é PRESERVADA (só tira poder que não existe mais). O
   // auto-default "últimos 2 abertos" só roda na hidratação BEM primeira

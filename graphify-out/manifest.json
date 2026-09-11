@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1789148680.9406064,
-    "ast_hash": "5cca02f13a46dc354f19667b5ae981ac",
+    "mtime": 1789150384.8873346,
+    "ast_hash": "15d424898d47ddeae4066e3bec929cc6",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2745,8 +2745,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1789148687.4086094,
-    "ast_hash": "a4ef4eb47ed958879c26545429a49a3f",
+    "mtime": 1789150393.6494277,
+    "ast_hash": "a3a7a7bc32fe62c0a6fa32b84a1405d7",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3550,13 +3550,13 @@
     "semantic_hash": ""
   },
   "src/i18n/gangues-en.json": {
-    "mtime": 1789148626.9136841,
-    "ast_hash": "420a5639e2647953259df22c0bfb026a",
+    "mtime": 1789150207.5873034,
+    "ast_hash": "a7b2e51976755ddf7ce44f47d297124b",
     "semantic_hash": ""
   },
   "src/i18n/gangues-es.json": {
-    "mtime": 1789148636.242909,
-    "ast_hash": "2cfe31fe2cebb7b2b6a15189db909650",
+    "mtime": 1789150207.5923295,
+    "ast_hash": "2e8ec4b1544229e4bc38c1e508356792",
     "semantic_hash": ""
   },
   "src/i18n/gangues-pt.json": {
@@ -3570,8 +3570,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/GANGUES_DESIGN.md": {
-    "mtime": 1788892881.5582306,
-    "ast_hash": "6e7c7a5e71e0dc7e07660cac3e8603e5",
+    "mtime": 1789150336.7720654,
+    "ast_hash": "a97f4e261165fecdbfb78ff380169ed8",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/GanguesProgressionPanel.jsx": {
@@ -4880,8 +4880,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/GANGUES_HEADSUP.md": {
-    "mtime": 1788892881.5662372,
-    "ast_hash": "d00b7b31ab7b5e42aafd7a1a86a959d5",
+    "mtime": 1789150352.485571,
+    "ast_hash": "503762e991b980b92be059c47d28cc8f",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/GANGUES_MODO_HISTORIA_ENCONTROS.md": {
@@ -4890,8 +4890,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/GANGUES_PROGRESSAO_RASCUNHO.md": {
-    "mtime": 1787355246.2166307,
-    "ast_hash": "c945b0a019badd4f12b56f4efc7c7d86",
+    "mtime": 1789150319.0519037,
+    "ast_hash": "ff701540373f347424b9df6a92489b1d",
     "semantic_hash": ""
   },
   "docs/Games/Gangues/LDI_GANGUES_GDD.md": {
