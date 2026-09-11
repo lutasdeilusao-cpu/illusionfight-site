@@ -120,7 +120,7 @@ export default function GanguesRoute() {
       if (!enemy) { setFase('story'); return }
       enemyTeam = [enemy]
     } else {
-      enemyTeam = gerarBandoInimigo({ territorioId: alvo.territorioId, dificuldade: alvo.dificuldade, modo, playerTeam: party, enemiesData, pontosFixos: alvo.pontosFixos, liderFixo: alvo.liderFixo })
+      enemyTeam = gerarBandoInimigo({ territorioId: alvo.territorioId, dificuldade: alvo.dificuldade, modo, playerTeam: party, enemiesData, pontosFixos: alvo.pontosFixos, liderFixo: alvo.liderFixo, moldesPool: alvo.moldesPool })
       if (!enemyTeam?.length) { setFase('story'); return }
     }
     store.startMatch(enemyTeam[0], enemyTeam, party)

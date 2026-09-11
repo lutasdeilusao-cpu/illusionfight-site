@@ -685,7 +685,13 @@ export const CENA_PISTA = {
             { tipo: 'empilhadeira', x: 405, y: 235 }, { tipo: 'chao-galpao' },
           ],
           pois: [
-            { poi: { id: 'galpao_m1', tipo: 'treta', repetivel: true, nivelRec: 12, enemy: 1202, dificuldade: 'facil', i18n: 'games.gangues.cena.pista.galpao.m1', recompensa: { grana: 6, rep: 2 } }, pos: { x: 300, y: 130 } },
+            // Perto do chefe: NÃO pode sortear do pool genérico da rua toda
+            // (o Isaias pegou um "Chinelada" — vigia de esquina fraquinho —
+            // aqui dentro, óbvio que parecia fácil demais mesmo com o budget
+            // "certo": pouco ponto espalhado num corpo de flavor fraco ainda
+            // parece fraco). revezamento concentra tudo num corpo só (raro 2)
+            // sorteado do pool casca-grossa do galpão.
+            { poi: { id: 'galpao_m1', tipo: 'treta', repetivel: true, nivelRec: 12, revezamento: { pool: PISTA_POOL_GALPAO, budgetPorCorpo: 7, chanceDupla: 0.4 }, i18n: 'games.gangues.cena.pista.galpao.m1', recompensa: { grana: 6, rep: 2 } }, pos: { x: 300, y: 130 } },
           ],
           passagem: { x: 220, y: 34, w: 80, h: 24, para: 1, precisa: 'galpao_m1', label: 'avancar' },
         },
@@ -703,7 +709,10 @@ export const CENA_PISTA = {
             { tipo: 'chao-galpao' },
           ],
           pois: [
-            { poi: { id: 'galpao_m2', tipo: 'treta', repetivel: true, nivelRec: 14, enemy: 1301, liderFixo: 1301, dificuldade: 'normal', i18n: 'games.gangues.cena.pista.galpao.m2', recompensa: { grana: 8, rep: 3 } }, pos: { x: 220, y: 180 } },
+            // Mantém liderFixo (o Cão Louco sempre lidera essa sala), mas a
+            // escolta (se vier) sorteia do pool casca-grossa do galpão, não
+            // do pool genérico da Pista inteira — mesmo motivo do m1.
+            { poi: { id: 'galpao_m2', tipo: 'treta', repetivel: true, nivelRec: 14, enemy: 1301, liderFixo: 1301, moldesPool: PISTA_POOL_GALPAO, dificuldade: 'normal', i18n: 'games.gangues.cena.pista.galpao.m2', recompensa: { grana: 8, rep: 3 } }, pos: { x: 220, y: 180 } },
             { poi: { id: 'galpao_achado', tipo: 'achado', opcional: true, i18n: 'games.gangues.cena.pista.galpao.achado', recompensa: { grana: 18, item: 1 } }, pos: { x: 388, y: 150 } },
           ],
           passagem: { x: 200, y: 34, w: 80, h: 24, para: 2, precisa: 'galpao_m2', label: 'avancar' },

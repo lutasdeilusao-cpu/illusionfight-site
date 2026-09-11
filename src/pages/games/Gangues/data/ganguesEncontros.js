@@ -160,9 +160,13 @@ function escalarInimigo(molde, pontosAlvo) {
  *  1º corpo do bando, com a maior fatia de pontos. O resto do bando segue
  *  sorteado do pool do território. É como se monta a luta de General ("a
  *  Rasteira Velha e o bonde dela"). */
-export function gerarBandoInimigo({ territorioId, dificuldade = 'normal', modo = 'medio', playerTeam, enemiesData, pontosFixos, liderFixo }) {
+export function gerarBandoInimigo({ territorioId, dificuldade = 'normal', modo = 'medio', playerTeam, enemiesData, pontosFixos, liderFixo, moldesPool }) {
   const config = GANGUES_TERRITORIO_ENCONTRO[territorioId]
   if (!config || !playerTeam?.length) return null
+  // moldesPool: restringe QUEM pode sortear (escolta), pra POIs perto do
+  // fim (ex: sala do galpão com liderFixo) não puxarem vigia fraquinho do
+  // pool genérico do território inteiro — mesmo budget, cara mais séria.
+  const moldes = moldesPool?.length ? moldesPool : config.moldes
 
   const pontosJogador = pontosFixos > 0 ? pontosFixos : calcularPontosTime(playerTeam)
   // Bando muito concentrado (poucos corpos) é o cenário mais perigoso — o
@@ -194,7 +198,7 @@ export function gerarBandoInimigo({ territorioId, dificuldade = 'normal', modo =
   }
 
   const bando = partes.map((pontos, i) => {
-    const moldeId = (i === 0 && liderFixo) ? liderFixo : config.moldes[Math.floor(Math.random() * config.moldes.length)]
+    const moldeId = (i === 0 && liderFixo) ? liderFixo : moldes[Math.floor(Math.random() * moldes.length)]
     const molde = enemiesData.find(e => e.id === moldeId)
     return molde ? escalarInimigo(molde, pontos) : null
   }).filter(Boolean)
