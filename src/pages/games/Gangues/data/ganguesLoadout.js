@@ -1,10 +1,14 @@
-import { getGanguesLevelFromXp } from './ganguesCharacters.js'
+import { getGanguesLevelFromXp, custoAtributoGangues, GANGUES_ATTRS } from './ganguesCharacters.js'
 
 export const GANGUES_PATHS = ['atacante', 'defensor', 'mistico']
 export const GANGUES_CREATION_POINTS = 5
 export const GANGUES_ATTRIBUTE_MAX = 5
 export const GANGUES_AP_PER_XP = 10
-export const GANGUES_ATTRIBUTE_XP_COSTS = { 0: 1, 1: 1, 2: 1, 3: 1, 4: 1, 5: 3, 6: 5, 7: 7, 8: 9, 9: 12 }
+// Custo de atributo agora é UMA fonte só (custoAtributoGangues, escalonado
+// por faixa) — usada tanto pra ficha de catálogo (autorada por nível) quanto
+// pra esta ficha "custom" legada. GANGUES_ATTRIBUTE_XP_COSTS existia como
+// tabela fixa separada; virou wrapper pra não duplicar a curva de custo.
+export const GANGUES_ATTRIBUTE_XP_COSTS = new Proxy({}, { get: (_, prop) => custoAtributoGangues(Number(prop)) })
 export const GANGUES_SPECIAL_COSTS = { 0: 1, 1: 2, 2: 3 }
 export const GANGUES_SPECIAL_PATH_ATTRIBUTE_REQUIREMENT = 10
 export const GANGUES_SPECIAL_PATH_XP_COST = 1
@@ -85,7 +89,7 @@ export function getGanguesProgression(sheet = {}) {
 export function selectGanguesSpecialPath(sheet, specialPath) {
   const progression = getGanguesProgression(sheet)
   const nextPath = getGanguesSpecialPath(sheet.combat_path, specialPath)
-  const attributeTotal = ['A', 'H', 'R', 'D'].reduce((sum, attribute) => sum + (Number(sheet.attributes?.[attribute]) || 0), 0)
+  const attributeTotal = GANGUES_ATTRS.reduce((sum, attribute) => sum + (Number(sheet.attributes?.[attribute]) || 0), 0)
   if (!nextPath || progression.special_path || attributeTotal < GANGUES_SPECIAL_PATH_ATTRIBUTE_REQUIREMENT || progression.xp_unspent < GANGUES_SPECIAL_PATH_XP_COST) return null
   return { attributes: { ...sheet.attributes, progression: { ...progression, xp_unspent: progression.xp_unspent - GANGUES_SPECIAL_PATH_XP_COST, special_path: nextPath.id, special_path_unlocked: true, selected_specials: [] } } }
 }
@@ -151,12 +155,14 @@ export function toggleGanguesSpecial(sheet, specialId) {
   return { attributes: { ...sheet.attributes, progression: { ...progression, selected_specials: selected } } }
 }
 
-export function getGanguesResources(combatPath, resistance = 0) {
+// PV e PM são DOIS atributos compráveis independentes agora (era só um R
+// alimentando os dois) — cada um multiplicado pela taxa do caminho, igual
+// sempre foi (atacante 3/3, defensor 4/2, místico 2/4).
+export function getGanguesResources(combatPath, pv = 0, pm = 0) {
   const rate = GANGUES_RESOURCE_RATES[combatPath] || { pvPerR: 0, pmPerR: 0 }
-  const safeResistance = Math.max(0, Number(resistance) || 0)
   return {
-    pvMax: safeResistance * rate.pvPerR,
-    pmMax: safeResistance * rate.pmPerR,
+    pvMax: Math.max(0, Number(pv) || 0) * rate.pvPerR,
+    pmMax: Math.max(0, Number(pm) || 0) * rate.pmPerR,
     ...rate,
   }
 }
@@ -176,7 +182,7 @@ export function normalizeGanguesLoadout(sheet = {}) {
     // equipment: 6 slots de equipamento por personagem (ver data/ganguesEquip.js) —
     // vive dentro de `attributes` (JSONB), precisa ser copiado manualmente porque
     // esta função reconstrói `attributes` do zero, igual pv_atual/pm_atual.
-    attributes: { ...Object.fromEntries(['A', 'H', 'R', 'D'].map(attr => [attr, Math.max(0, Number(source[attr]) || 0)])), progression: getGanguesProgression({ combat_path: combatPath, attributes: source, progression: sheet.progression }), pv_atual: source.pv_atual, pm_atual: source.pm_atual, equipment: normalizeGanguesEquipment(source.equipment) },
+    attributes: { ...Object.fromEntries(GANGUES_ATTRS.map(attr => [attr, Math.max(0, Number(source[attr]) || 0)])), progression: getGanguesProgression({ combat_path: combatPath, attributes: source, progression: sheet.progression }), pv_atual: source.pv_atual, pm_atual: source.pm_atual, equipment: normalizeGanguesEquipment(source.equipment) },
     loadout_version: 2,
   }
 }

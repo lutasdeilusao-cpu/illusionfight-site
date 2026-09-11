@@ -251,7 +251,7 @@ function RosterCarousel({ roster, party, partyLimit, rosterLimit, rosterIndex, s
                   <span className="gang-fighter-card__copy">
                     <small>{t(`games.gangues.loadout.paths.${member.combat_path}.name`)}</small>
                     <strong>{member.sheet_name}</strong>
-                    <em>{['A', 'H', 'R', 'D'].map(attr => `${attr}${member.attributes[attr]}`).join(' · ')}</em>
+                    <em>{['A', 'H', 'D', 'PV', 'PM'].map(attr => `${attr}${member.attributes[attr]}`).join(' · ')}</em>
                   </span>
                 </motion.button>
               )
@@ -279,7 +279,7 @@ function RosterCarousel({ roster, party, partyLimit, rosterLimit, rosterIndex, s
                   <span className="gang-fighter-card__copy">
                     <small>{t(`games.gangues.loadout.paths.${member.combat_path}.name`)}</small>
                     <strong>{member.sheet_name}</strong>
-                    <em>{['A', 'H', 'R', 'D'].map(attr => `${attr}${member.attributes[attr]}`).join(' · ')}</em>
+                    <em>{['A', 'H', 'D', 'PV', 'PM'].map(attr => `${attr}${member.attributes[attr]}`).join(' · ')}</em>
                   </span>
                   <span className="gang-fighter-card__cta">{xpMembro > 0 ? t('games.gangues.progression.xp_badge', { n: xpMembro }) : t('games.gangues.progression.open_sheet')}</span>
                 </button>

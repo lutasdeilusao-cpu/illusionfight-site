@@ -11,7 +11,7 @@ import { GANGUES_ITENS_LISTA } from './data/ganguesItens.js'
 import { GANGUES_EQUIP_LISTA, normalizeGanguesEquipment } from './data/ganguesEquip.js'
 import './GanguesAlbum.css'
 
-const ATTRS = ['A', 'H', 'R', 'D']
+const ATTRS = ['A', 'H', 'D', 'PV', 'PM']
 const SECOES = ['inimigos', 'itens', 'cartas']
 
 /* Coleção — o "grande catálogo" do jogador (driver de replay). Três abas:

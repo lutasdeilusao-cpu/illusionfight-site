@@ -114,7 +114,7 @@ export const GANGUES_MODO_MULT = { facil: 0.82, medio: 1, dificil: 1.18 }
 export const GANGUES_DIFICULDADE_OFFSET = { facil: -0.10, normal: 0, dificil: 0.10 }
 
 export function calcularPontosTime(team) {
-  return team.reduce((sum, m) => sum + ['A', 'H', 'R', 'D'].reduce((s, k) => s + (Number(m.attributes?.[k]) || 0), 0), 0)
+  return team.reduce((sum, m) => sum + ['A', 'H', 'D', 'PV', 'PM'].reduce((s, k) => s + (Number(m.attributes?.[k]) || 0), 0), 0)
 }
 
 function distribuirPontos(total, qtd) {
@@ -133,19 +133,21 @@ function caminhoDoInimigo(preferredMode) {
 }
 
 function escalarInimigo(molde, pontosAlvo) {
-  const pontosOriginais = molde.stats.A + molde.stats.H + molde.stats.R + molde.stats.D
+  const pontosOriginais = molde.stats.A + molde.stats.H + molde.stats.D + molde.stats.PV + molde.stats.PM
   const fator = pontosOriginais > 0 ? pontosAlvo / pontosOriginais : 1
   const stats = {
     A: Math.max(0, Math.round(molde.stats.A * fator)),
     H: Math.max(0, Math.round(molde.stats.H * fator)),
-    R: Math.max(1, Math.round(molde.stats.R * fator)),
     D: Math.max(0, Math.round(molde.stats.D * fator)),
+    PV: Math.max(1, Math.round(molde.stats.PV * fator)),
+    PM: Math.max(0, Math.round(molde.stats.PM * fator)),
   }
-  // PV/PM seguem a MESMA regra da ficha do jogador (Resistência × taxa do
-  // caminho, ver getGanguesResources) — nunca mais escalados por conta
-  // própria, senão a ficha do inimigo (que agora usa o mesmo componente
-  // visual da do jogador) mostra um R que não explica o PV/PM ao lado.
-  const recursos = getGanguesResources(caminhoDoInimigo(molde.preferred_mode), stats.R)
+  // PV/PM seguem a MESMA regra da ficha do jogador (PV e PM são atributos
+  // próprios agora, cada um × a taxa do caminho, ver getGanguesResources) —
+  // nunca mais escalados por conta própria, senão a ficha do inimigo (que
+  // usa o mesmo componente visual da do jogador) mostra um número que não
+  // explica o PV/PM ao lado.
+  const recursos = getGanguesResources(caminhoDoInimigo(molde.preferred_mode), stats.PV, stats.PM)
   return { ...molde, stats, pv_max: recursos.pvMax, pm_max: recursos.pmMax }
 }
 

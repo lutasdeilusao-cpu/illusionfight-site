@@ -30,7 +30,7 @@ export default function GanguesProgression({ onNavigate }) {
   // Atributos e recursos já com o equipamento somado — é o que vale em combate,
   // então é o que a ficha tem que mostrar.
   const effAttrs = getGanguesAttributesWithEquip(member.attributes)
-  const resources = applyGanguesEquipResources(getGanguesResources(character.combat_path, effAttrs.R), member.attributes?.equipment)
+  const resources = applyGanguesEquipResources(getGanguesResources(character.combat_path, effAttrs.PV, effAttrs.PM), member.attributes?.equipment)
 
   return <main className="gang-lobby gang-progression-screen">
     <header className="gang-progression-screen-head">

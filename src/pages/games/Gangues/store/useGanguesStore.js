@@ -279,7 +279,7 @@ export const useGanguesStore = create((set, get) => ({
       if (m.id !== memberId) return m
       const norm = normalizeGanguesLoadout(m)
       const attrs = getGanguesAttributesWithEquip(norm.attributes)
-      const res = applyGanguesEquipResources(getGanguesResources(norm.combat_path, attrs?.R), norm.attributes?.equipment)
+      const res = applyGanguesEquipResources(getGanguesResources(norm.combat_path, attrs?.PV, attrs?.PM), norm.attributes?.equipment)
       const max = res[maxKey]
       const atual = Math.min(max, Number(m.attributes?.[campo] ?? max))
       const novo = Math.min(max, atual + Math.max(0, valor))
@@ -742,7 +742,7 @@ export const useGanguesStore = create((set, get) => ({
     const detalhe = get().roster.map(m => {
       const norm = normalizeGanguesLoadout(m)
       const attrs = getGanguesAttributesWithEquip(norm.attributes)
-      const res = applyGanguesEquipResources(getGanguesResources(norm.combat_path, attrs?.R), norm.attributes?.equipment)
+      const res = applyGanguesEquipResources(getGanguesResources(norm.combat_path, attrs?.PV, attrs?.PM), norm.attributes?.equipment)
       const pvAtual = Math.min(res.pvMax, Number(norm.attributes?.pv_atual ?? res.pvMax))
       const pmAtual = Math.min(res.pmMax, Number(norm.attributes?.pm_atual ?? res.pmMax))
       return {
@@ -775,7 +775,7 @@ export const useGanguesStore = create((set, get) => ({
   _deficitTropa: () => get().roster.map(m => {
     const norm = normalizeGanguesLoadout(m)
     const attrs = getGanguesAttributesWithEquip(norm.attributes)
-    const res = applyGanguesEquipResources(getGanguesResources(norm.combat_path, attrs?.R), norm.attributes?.equipment)
+    const res = applyGanguesEquipResources(getGanguesResources(norm.combat_path, attrs?.PV, attrs?.PM), norm.attributes?.equipment)
     const pvAtual = Math.min(res.pvMax, Number(norm.attributes?.pv_atual ?? res.pvMax))
     const pmAtual = Math.min(res.pmMax, Number(norm.attributes?.pm_atual ?? res.pmMax))
     return { id: m.id, nome: m.sheet_name || '?', pv: Math.max(0, Math.round(res.pvMax - pvAtual)), pm: Math.max(0, Math.round(res.pmMax - pmAtual)) }

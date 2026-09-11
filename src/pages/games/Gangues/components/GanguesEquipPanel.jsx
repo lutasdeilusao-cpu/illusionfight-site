@@ -6,7 +6,7 @@ import { GANGUES_EQUIP_SLOTS, getGanguesEquip, normalizeGanguesEquipment } from 
 import { sfx } from '../../../../lib/sfx'
 import './GanguesEquipPanel.css'
 
-const ATTR_ORDER = ['A', 'H', 'R', 'D']
+const ATTR_ORDER = ['A', 'H', 'D']
 
 /** Lê o bônus de um item como "+1 A · +6 PV" pros três idiomas (usa attr_labels curtos). */
 function bonusResumo(t, bonus = {}) {

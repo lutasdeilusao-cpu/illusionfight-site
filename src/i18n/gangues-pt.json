@@ -763,6 +763,8 @@
         "R": "Resistência",
         "A": "Ataque",
         "D": "Defesa",
+        "PV": "Vida",
+        "PM": "Magia",
         "PdF": "Poder Elemental"
       },
       "attr_desc": {

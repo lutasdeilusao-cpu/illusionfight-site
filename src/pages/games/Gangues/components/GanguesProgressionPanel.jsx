@@ -15,7 +15,7 @@ import {
 import { getGanguesSpecialPath, getGanguesSpecialPaths } from '../data/ganguesSpecials.js'
 
 const SPECIAL_ICON = { bruto: '⚔', duelista: '†', furia: '♦', especialista: '◈', vingador: '▣', muralha: '▰', guardiao: '◇', provocador: '!', reativo: '↯', resiliente: '✚', igneo: '♨', aquatico: '≋', terreno: '◆', tempestade: 'ϟ', ilusorio: '◉' }
-const ATTRIBUTES = ['A', 'H', 'R', 'D']
+const ATTRIBUTES = ['A', 'H', 'D', 'PV', 'PM']
 
 /** onApply(member, change, meta) — meta.cost e meta.label alimentam a
  *  confirmação na tela de progressão. cost 0 = aplica direto (ex: equipar). */
@@ -48,7 +48,7 @@ export default function GanguesProgressionPanel({ member, onApply, onDelete, des
     {/* ── Ficha: os números que valem em batalha ── */}
     <div className="gang-ficha-strip">
       {(() => {
-        const res = getGanguesResources(member.combat_path, Number(member.attributes?.R) || 0)
+        const res = getGanguesResources(member.combat_path, Number(member.attributes?.PV) || 0, Number(member.attributes?.PM) || 0)
         const equipadas = progression.selected_specials?.length || 0
         return (
           <>

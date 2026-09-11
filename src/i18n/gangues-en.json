@@ -763,6 +763,8 @@
         "R": "Resistance",
         "A": "Attack",
         "D": "Defense",
+        "PV": "Health",
+        "PM": "Magic",
         "PdF": "Elemental Power"
       },
       "attr_desc": {

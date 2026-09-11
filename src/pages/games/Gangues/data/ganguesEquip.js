@@ -41,36 +41,45 @@ export const GANGUES_EQUIP_RES_KEYS = ['pv', 'pm']
 const i18nNome = id => `games.gangues.equip.itens.${id}`
 
 // Lista bruta — id numérico + slug só pra humano. O resto é dado de balanço.
+//
+// REPRECIFICAÇÃO (revisão jan/2027, junto da curva de custo escalonada de
+// atributo): antes, 1 ponto de atributo custava sempre 1 XP fixo — um item
+// com +1/+2 era um "empurrãozinho" barato perto do que a ficha ganhava só
+// jogando. Agora um ponto de atributo custa de 1 a dezenas de XP dependendo
+// de quão alto ele já está (custoAtributoGangues) — um item que dá +1/+2 de
+// atributo de graça é MUITO mais valioso do que era. Preços subiram
+// proporcionalmente (~2.2-2.6x nos itens de atributo A/H/D; ~1.6x nos de
+// PV/PM, que continuam bônus plano fora do atributo, menos afetados).
 const CATALOGO = [
   // ── ARMA (🥊) — foco em A ──
-  { id: 101, slug: 'soqueira_lata', slot: 'arma', raridade: 'comum', bonus: { A: 1 }, cardSlots: 0, custo: 28, icone: '🥊' },
-  { id: 102, slug: 'faca_serrilhada', slot: 'arma', raridade: 'incomum', bonus: { A: 2 }, cardSlots: 1, custo: 58, icone: '🔪' },
+  { id: 101, slug: 'soqueira_lata', slot: 'arma', raridade: 'comum', bonus: { A: 1 }, cardSlots: 0, custo: 65, icone: '🥊' },
+  { id: 102, slug: 'faca_serrilhada', slot: 'arma', raridade: 'incomum', bonus: { A: 2 }, cardSlots: 1, custo: 140, icone: '🔪' },
   { id: 103, slug: 'cano_de_ferro', slot: 'arma', raridade: 'raro', bonus: { A: 2, H: 1 }, cardSlots: 2, icone: '🪈' },
 
   // ── CABEÇA (🪖) — foco em D ──
-  { id: 104, slug: 'gorro_moletom', slot: 'cabeca', raridade: 'comum', bonus: { D: 1 }, cardSlots: 0, custo: 22, icone: '🧢' },
-  { id: 105, slug: 'capacete_obra', slot: 'cabeca', raridade: 'incomum', bonus: { D: 2 }, cardSlots: 1, custo: 44, icone: '⛑️' },
+  { id: 104, slug: 'gorro_moletom', slot: 'cabeca', raridade: 'comum', bonus: { D: 1 }, cardSlots: 0, custo: 50, icone: '🧢' },
+  { id: 105, slug: 'capacete_obra', slot: 'cabeca', raridade: 'incomum', bonus: { D: 2 }, cardSlots: 1, custo: 105, icone: '⛑️' },
   { id: 106, slug: 'coroa_lata', slot: 'cabeca', raridade: 'raro', bonus: { A: 1, D: 1 }, cardSlots: 2, icone: '👑' },
 
-  // ── CORPO (🦺) — a escolha PV vs PM (sem R) ──
-  { id: 107, slug: 'colete_reforcado', slot: 'corpo', raridade: 'comum', bonus: { pv: 6 }, cardSlots: 0, custo: 36, icone: '🦺' }, // tanker
-  { id: 108, slug: 'colete_leve', slot: 'corpo', raridade: 'comum', bonus: { pm: 6 }, cardSlots: 0, custo: 36, icone: '🧥' }, // magro / místico
-  { id: 109, slug: 'colete_placa', slot: 'corpo', raridade: 'incomum', bonus: { pv: 12 }, cardSlots: 1, custo: 80, icone: '🛡️' },
+  // ── CORPO (🦺) — a escolha PV vs PM (bônus plano, fora do atributo) ──
+  { id: 107, slug: 'colete_reforcado', slot: 'corpo', raridade: 'comum', bonus: { pv: 6 }, cardSlots: 0, custo: 58, icone: '🦺' }, // tanker
+  { id: 108, slug: 'colete_leve', slot: 'corpo', raridade: 'comum', bonus: { pm: 6 }, cardSlots: 0, custo: 58, icone: '🧥' }, // magro / místico
+  { id: 109, slug: 'colete_placa', slot: 'corpo', raridade: 'incomum', bonus: { pv: 12 }, cardSlots: 1, custo: 128, icone: '🛡️' },
   { id: 110, slug: 'manto_capuz', slot: 'corpo', raridade: 'incomum', bonus: { pm: 12 }, cardSlots: 1, icone: '🥋' },
   { id: 111, slug: 'armadura_rua', slot: 'corpo', raridade: 'raro', bonus: { pv: 18 }, cardSlots: 2, icone: '⚙️' },
 
   // ── BRAÇOS (🧤) — foco em D/A ──
-  { id: 112, slug: 'luva_couro', slot: 'bracos', raridade: 'comum', bonus: { D: 1 }, cardSlots: 0, custo: 22, icone: '🧤' },
-  { id: 113, slug: 'manopla_porca', slot: 'bracos', raridade: 'incomum', bonus: { A: 2 }, cardSlots: 1, custo: 48, icone: '🦾' },
+  { id: 112, slug: 'luva_couro', slot: 'bracos', raridade: 'comum', bonus: { D: 1 }, cardSlots: 0, custo: 50, icone: '🧤' },
+  { id: 113, slug: 'manopla_porca', slot: 'bracos', raridade: 'incomum', bonus: { A: 2 }, cardSlots: 1, custo: 115, icone: '🦾' },
   { id: 114, slug: 'bracadeira_cravo', slot: 'bracos', raridade: 'raro', bonus: { A: 1, D: 1 }, cardSlots: 2, icone: '⛓️' },
 
   // ── PÉS (🥾) — foco em H ──
-  { id: 115, slug: 'tenis_furado', slot: 'pes', raridade: 'comum', bonus: { H: 1 }, cardSlots: 0, custo: 22, icone: '👟' },
-  { id: 116, slug: 'coturno', slot: 'pes', raridade: 'incomum', bonus: { H: 1, D: 1 }, cardSlots: 1, custo: 44, icone: '🥾' },
+  { id: 115, slug: 'tenis_furado', slot: 'pes', raridade: 'comum', bonus: { H: 1 }, cardSlots: 0, custo: 50, icone: '👟' },
+  { id: 116, slug: 'coturno', slot: 'pes', raridade: 'incomum', bonus: { H: 1, D: 1 }, cardSlots: 1, custo: 105, icone: '🥾' },
   { id: 117, slug: 'bota_biqueira', slot: 'pes', raridade: 'raro', bonus: { H: 2 }, cardSlots: 2, icone: '🦿' },
 
   // ── AMULETO (📿) — misto leve ──
-  { id: 118, slug: 'corrente_lata', slot: 'amuleto', raridade: 'comum', bonus: { H: 1 }, cardSlots: 1, custo: 28, icone: '📿' },
+  { id: 118, slug: 'corrente_lata', slot: 'amuleto', raridade: 'comum', bonus: { H: 1 }, cardSlots: 1, custo: 65, icone: '📿' },
   { id: 119, slug: 'dente_de_ouro', slot: 'amuleto', raridade: 'incomum', bonus: { A: 1 }, cardSlots: 1, icone: '🦷' },
   { id: 120, slug: 'medalha_santa', slot: 'amuleto', raridade: 'raro', bonus: { D: 1, H: 1 }, cardSlots: 2, icone: '🎖️' },
 ]
@@ -116,7 +125,7 @@ export function createGanguesEquipInstance(itemId) {
 
 /** Soma dos bônus de todos os itens equipados: A/H/D (atributo) + pv/pm (recurso plano). */
 export function getGanguesEquipBonuses(equipment = {}) {
-  const total = { A: 0, H: 0, R: 0, D: 0, pv: 0, pm: 0 }
+  const total = { A: 0, H: 0, D: 0, pv: 0, pm: 0 }
   const safe = normalizeGanguesEquipment(equipment)
   for (const slot of GANGUES_EQUIP_SLOT_IDS) {
     const def = safe[slot] && getGanguesEquip(safe[slot].itemId)
@@ -126,11 +135,14 @@ export function getGanguesEquipBonuses(equipment = {}) {
   return total
 }
 
-/** Atributos A/H/R/D já com os bônus de equipamento somados (nunca abaixo de 0). */
+/** Atributos A/H/D já com os bônus de equipamento somados (nunca abaixo de
+ *  0) — PV/PM NÃO entram aqui: o bônus de equipamento pra eles é plano,
+ *  somado direto no PV_max/PM_max (ver applyGanguesEquipResources), não no
+ *  atributo em si (nunca foi, mesmo antes com R). */
 export function getGanguesAttributesWithEquip(attributes = {}) {
   const bonuses = getGanguesEquipBonuses(attributes.equipment)
   const out = { ...attributes }
-  for (const attr of ['A', 'H', 'R', 'D']) out[attr] = Math.max(0, (Number(attributes[attr]) || 0) + (bonuses[attr] || 0))
+  for (const attr of ['A', 'H', 'D']) out[attr] = Math.max(0, (Number(attributes[attr]) || 0) + (bonuses[attr] || 0))
   return out
 }
 

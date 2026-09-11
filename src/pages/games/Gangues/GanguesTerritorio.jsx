@@ -163,7 +163,7 @@ export default function GanguesTerritorio({ onNavigate }) {
                   aqui seria mentira. */}
               {confronto.isChefe && confronto.enemy && (
                 <span className="gang-story-vs-stats">
-                  {['A', 'H', 'R', 'D'].map(a => (
+                  {['A', 'H', 'D', 'PV', 'PM'].map(a => (
                     <span key={a}><i>{a}</i>{confronto.enemy.stats?.[a] ?? '—'}</span>
                   ))}
                 </span>

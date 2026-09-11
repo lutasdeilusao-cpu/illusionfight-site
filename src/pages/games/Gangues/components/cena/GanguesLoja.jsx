@@ -15,7 +15,7 @@ import { sfx } from '../../../../../lib/sfx'
    comprar já equipa no personagem escolhido (o item anterior do slot volta
    pro inventário da gangue). Repetível: sempre disponível. */
 
-const ATTR_ORDER = ['A', 'H', 'R', 'D']
+const ATTR_ORDER = ['A', 'H', 'D']
 
 // Abas da loja — tipo de item. Ordem fixa; só aparecem as que têm item.
 const ABAS = ['pocao', 'arma', 'protecao', 'amuleto']
@@ -40,8 +40,8 @@ function LinhaComparacao({ t, member, item, onEquipar, podePagar }) {
   const atual = getGanguesAttributesWithEquip(member.attributes)
   const novo = previewGanguesAttributesWithEquip(member.attributes, item.id)
   const eqNovo = withGanguesEquip(member.attributes?.equipment, item.id)
-  const resAtual = applyGanguesEquipResources(getGanguesResources(character.combat_path, atual.R), member.attributes?.equipment)
-  const resNovo = applyGanguesEquipResources(getGanguesResources(character.combat_path, novo.R), eqNovo)
+  const resAtual = applyGanguesEquipResources(getGanguesResources(character.combat_path, atual.PV, atual.PM), member.attributes?.equipment)
+  const resNovo = applyGanguesEquipResources(getGanguesResources(character.combat_path, novo.PV, novo.PM), eqNovo)
   const nivel = getGanguesLevelFromXp(member.xp_total)
 
   const deltas = []

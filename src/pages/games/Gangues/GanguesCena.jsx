@@ -312,12 +312,13 @@ export default function GanguesCena({onNavigate}){
     const time=store.activeParty.length?store.activeParty:store.roster
     if(!time.length) return 1
     // Nível EFETIVO: o nível de XP + o que o equipamento soma de atributo
-    // (1 ponto de atributo ≈ 1 nível, já que o crescimento autorado é +1/nível).
-    // Assim o aviso conta a soqueira/colete que o cara já pôs.
+    // (aproximação — desde a curva de custo escalonada, 1 ponto de atributo
+    // já não vale sempre 1 nível igualzinho, mas ainda é uma boa régua pro
+    // aviso). Assim o aviso conta a soqueira/colete que o cara já pôs.
     const nivelEf=m=>{
       const base=getGanguesLevelFromXp(m.xp_total??0)
       const eff=getGanguesAttributesWithEquip(m.attributes)
-      const bonus=['A','H','D','R'].reduce((s,k)=>s+Math.max(0,(Number(eff?.[k])||0)-(Number(m.attributes?.[k])||0)),0)
+      const bonus=['A','H','D'].reduce((s,k)=>s+Math.max(0,(Number(eff?.[k])||0)-(Number(m.attributes?.[k])||0)),0)
       return base+bonus
     }
     return Math.max(1,Math.round(time.reduce((s,m)=>s+nivelEf(m),0)/time.length))
@@ -476,7 +477,7 @@ function BagSheet({store,t,onClose}){
   // PV/PM atuais de cada ficha do time — pro picker de "usar poção".
   const time=(store.activeParty.length?store.activeParty:store.roster).slice(0,GANGUES_STORY_BATTLE_PARTY_MAX).map(m=>{
     const attrs=getGanguesAttributesWithEquip(m.attributes)
-    const res=applyGanguesEquipResources(getGanguesResources(m.combat_path,attrs?.R),m.attributes?.equipment)
+    const res=applyGanguesEquipResources(getGanguesResources(m.combat_path,attrs?.PV,attrs?.PM),m.attributes?.equipment)
     return {id:m.id,nome:m.sheet_name||'?',
       pv:Math.min(res.pvMax,Number(m.attributes?.pv_atual??res.pvMax)),pvMax:res.pvMax,
       pm:Math.min(res.pmMax,Number(m.attributes?.pm_atual??res.pmMax)),pmMax:res.pmMax}
@@ -610,7 +611,7 @@ function FichaCenaCard({member,t,onToggleEspecial}){
   const level=getGanguesLevelFromXp(member.xp_total)
   const progression=getGanguesProgression(member)
   const effAttrs=getGanguesAttributesWithEquip(member.attributes)
-  const resources=applyGanguesEquipResources(getGanguesResources(character.combat_path,effAttrs.R),member.attributes?.equipment)
+  const resources=applyGanguesEquipResources(getGanguesResources(character.combat_path,effAttrs.PV,effAttrs.PM),member.attributes?.equipment)
   return <>
     <GanguesFichaCard
       nome={character.name}
@@ -662,7 +663,7 @@ function TretaVS({poi,fala,nivelTropa,avisoOff,onOcultarAviso,onSim,onNao,t}){
     <span className="gang-cena-eyebrow">{poi.ehChefe?t('games.gangues.story.boss_tag'):t('games.gangues.cena.tipo.treta')}</span>
     <h3 className="gang-cena-enc-titulo">{nome}{poi.ehChefe&&enemy?.nivel?<em className="gang-cena-vs-nivel"> · {t('games.gangues.cena.nivel',{n:enemy.nivel})}</em>:null}</h3>
     <p className="gang-cena-papo-fala">{falaShow}</p>
-    {enemy&&<span className="gang-cena-vs-stats">{['A','H','R','D'].map(a=><span key={a}><i>{a}</i>{enemy.stats?.[a]??'—'}</span>)}</span>}
+    {enemy&&<span className="gang-cena-vs-stats">{['A','H','D','PV','PM'].map(a=><span key={a}><i>{a}</i>{enemy.stats?.[a]??'—'}</span>)}</span>}
     {abaixo&&<div className="gang-cena-vs-aviso">⚠ {t('games.gangues.cena.nivel_rec_baixo',{rec:poi.nivelRec,atual:nivelTropa})}<button type="button" className="gang-cena-vs-aviso-off" onClick={onOcultarAviso}>{t('games.gangues.cena.nivel_rec_ocultar')}</button></div>}
     <div className="gang-cena-enc-acoes">
       <button className="gang-cena-btn" onClick={onNao}>{t('games.gangues.cena.treta_nao')}</button>

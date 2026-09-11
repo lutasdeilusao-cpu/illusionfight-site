@@ -30,7 +30,7 @@ export function prepare(combatant, side, index) {
   if (!enemy) normalized.attributes = getGanguesAttributesWithEquip(normalized.attributes)
   const resources = enemy
     ? { pvMax: Number(combatant.pv_max) || 10, pmMax: Number(combatant.pm_max) || 0 }
-    : applyGanguesEquipResources(getGanguesResources(normalized.combat_path, normalized.attributes?.R), equipment)
+    : applyGanguesEquipResources(getGanguesResources(normalized.combat_path, normalized.attributes?.PV, normalized.attributes?.PM), equipment)
   // Jogador entra com o PV/PM que sobrou da última luta (ver pv_atual/pm_atual
   // em normalizeGanguesLoadout) — só some pra 'full' quando nunca lutou ou
   // quando descansou/dominou o território. Inimigo sempre entra cheio.

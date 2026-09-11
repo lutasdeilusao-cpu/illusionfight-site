@@ -18,6 +18,31 @@ export const GANGUES_EVENT_CHARACTER_IDS = Object.freeze([...catalog.unlock_plan
 export const GANGUES_LEVEL_CAP = 99
 export const GANGUES_AP_PER_XP = catalog.meta.ap_per_xp
 
+// REVISÃO GERAL (pedido do Isaias, jan/2027 — "os meus chegaram fácil a 14
+// de atributo, tá bem alto, era pra ter bem menos"): Resistência (R) sai de
+// cena — vira DOIS atributos compráveis separados, PV e PM (cada um com sua
+// própria taxa por caminho, igual a R tinha antes — só que agora o jogador
+// investe nos dois de forma independente, não os dois de uma vez). O ganho
+// de atributo por nível CONTINUA sendo autorado por personagem (a direção
+// que aquela ficha evolui é identidade dela, não escolha livre) — o que
+// muda é só o CUSTO: cada nível não compra mais 1 ponto cheio de atributo.
+// Agora cada ponto tem um preço em XP que sobe por faixa — quanto mais alto
+// o atributo, mais XP (níveis) precisa acumular pra comprar o próximo ponto.
+export const GANGUES_ATTRS = ['A', 'H', 'D', 'PV', 'PM']
+
+/** Custo em XP pra subir o atributo de `valorAtual` pro próximo ponto.
+ *  1-5: 1 XP · 6-8: 2 XP · 9-15: 3 XP · 16-20: 5 XP · 21+: 8 XP, +3 a cada
+ *  faixa de 5 pontos dali pra frente (21-25: 8 · 26-30: 11 · 31-35: 14 ...).
+ *  1 XP = 10 PA (GANGUES_AP_PER_XP) — mesma moeda de sempre. */
+export function custoAtributoGangues(valorAtual = 0) {
+  const v = Math.max(0, Number(valorAtual) || 0)
+  if (v <= 4) return 1
+  if (v <= 7) return 2
+  if (v <= 14) return 3
+  if (v <= 19) return 5
+  return 8 + 3 * Math.floor((v - 20) / 5)
+}
+
 export function getGanguesCharacter(characterTemplateId) {
   return GANGUES_CHARACTER_BY_ID.get(Number(characterTemplateId)) || null
 }
@@ -55,9 +80,12 @@ export function eventosDoNivel(lvl) {
 function completarNivel(character, lvl) {
   if (!lvl || lvl.resources) return lvl
   const r = RES_RATE[character.combat_path] || { pv: 0, pm: 0 }
+  // PV e PM agora são DOIS atributos comprados separadamente (ver
+  // GANGUES_ATTRS acima) — cada um com sua taxa própria por caminho, igual
+  // R tinha antes (era um atributo só alimentando os dois de uma vez).
   return {
     xp_total_required: lvl.level - 1,
-    resources: { pv_max: (lvl.stats?.R || 0) * r.pv, pm_max: (lvl.stats?.R || 0) * r.pm },
+    resources: { pv_max: (lvl.stats?.PV || 0) * r.pv, pm_max: (lvl.stats?.PM || 0) * r.pm },
     ...lvl,
     events: eventosDoNivel(lvl),
   }

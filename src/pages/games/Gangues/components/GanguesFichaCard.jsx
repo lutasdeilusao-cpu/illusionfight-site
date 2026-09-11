@@ -1,6 +1,6 @@
 import { useLanguage } from '../../../../context/LanguageContext'
 
-const ATTRS = ['A', 'H', 'R', 'D']
+const ATTRS = ['A', 'H', 'D', 'PV', 'PM']
 
 /** Conteúdo visual de uma ficha — usado dentro de QUALQUER moldura (o modal
  *  de recrutamento, o popup rápido de combate, o topo da tela de progressão)
