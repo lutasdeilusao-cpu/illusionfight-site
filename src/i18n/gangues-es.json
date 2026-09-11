@@ -793,8 +793,8 @@
         "R": "Resistencia",
         "A": "Ataque",
         "D": "Defensa",
-        "PV": "Vida",
-        "PM": "Magia",
+        "PV": "Aguante",
+        "PM": "Pila",
         "PdF": "Poder Elemental"
       },
       "attr_desc": {

@@ -1,7 +1,7 @@
 # Graph Report - SiteLDI  (2026-09-11)
 
 ## Corpus Check
-- 933 files · ~1,196,329 words
+- 933 files · ~1,196,904 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `0ca30d84`
+- Built from commit: `ffb3ec09`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -1408,11 +1408,11 @@ Nodes (3): Cadastro(), comTimeout(), guardarPendente()
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `useLanguage()` connect `Community 20` to `Community 0`, `PerfilColecao.jsx`, `Community 9`, `Community 10`, `runtimePlatform.js`, `Community 12`, `endBattle`, `Brincadeira.jsx`, `Community 19`, `RestaurarSaude.jsx`, `Lobby.jsx`, `AuthContext.jsx`, `UniversosHub.jsx`, `TypewriterPhrase.jsx`, `Criatura.jsx`, `useReader`, `Community 29`, `BuildingInterior.jsx`, `PuzzleStealthGrid.jsx`, `Community 33`, `Vila.jsx`, `PerfilColecao.jsx`, `MazeRafael.jsx`, `getElem`, `TopTrumpsMP.jsx`, `useJackStore.js`, `PuzzleForça.jsx`, `react`, `ResultCard.jsx`, `useRafaelI18n`, `combat.js`, `sfx.js`, `BulletHellRafael.jsx`, `SlidingRafael.jsx`, `Community 49`, `runtimePlatform.js`, `ResultScreen.jsx`, `useSharedLobbyMachine.js`, `TopTrumpsMP.jsx`, `PuzzleForça.jsx`, `Phase0Start.jsx`, `Phase0Start.jsx`, `RestaurarSaude.jsx`, `useGameStore.js`, `RestaurarSaude.jsx`, `SearchModal.jsx`, `notificationManager.js`, `sanguinaria.js`, `audioManager.js`, `Create`?**
-  _High betweenness centrality (0.108) - this node is a cross-community bridge._
+  _High betweenness centrality (0.106) - this node is a cross-community bridge._
 - **Why does `useReader()` connect `Community 33` to `Community 0`, `Phase0Start.jsx`, `PerfilColecao.jsx`, `MazeRafael.jsx`, `TopTrumpsMP.jsx`, `Community 12`, `combat.js`, `BulletHellRafael.jsx`, `SlidingRafael.jsx`, `endBattle`, `Community 20`, `audioManager.js`, `useReader`, `Community 29`, `RestaurarSaude.jsx`, `PuzzleStealthGrid.jsx`?**
   _High betweenness centrality (0.023) - this node is a cross-community bridge._
 - **Why does `useGanguesStore` connect `EventosContext.jsx` to `ganguesEncontros.js`, `sfx.js`, `sfx.js`, `drawCombatBoard`, `test-arena-refactor.mjs`, `PuzzleAnagrama.jsx`?**
-  _High betweenness centrality (0.021) - this node is a cross-community bridge._
+  _High betweenness centrality (0.019) - this node is a cross-community bridge._
 - **What connects `1. Visão geral`, `2.1 Abertura (vinheta de carregamento)`, `3.1 Site e conteúdo` to the rest of the system?**
   _1878 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
