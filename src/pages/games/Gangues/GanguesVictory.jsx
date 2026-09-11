@@ -1,36 +1,18 @@
-import { useEffect, useRef, useState } from 'react'
-import { motion } from 'framer-motion'
 import { useAuth } from '../../../context/AuthContext'
 import { useLanguage } from '../../../context/LanguageContext'
 import { useGanguesStore } from './store/useGanguesStore'
 import { ehConfrontoFinal } from './data/ganguesTerritorios.js'
 import { getGanguesRosterLimitComHistoria } from './data/ganguesLoadout.js'
-import { getGanguesCharacter, eventosDoNivel, getGanguesLevelFromXp } from './data/ganguesCharacters.js'
-import { registrarPontuacaoArenaRanking } from '../../../hooks/useLeaderboardDB'
-import { sfx } from '../../../lib/sfx'
+import useGanguesVictoryResolution from './hooks/useGanguesVictoryResolution.js'
+import GanguesVictoryFinal from './GanguesVictoryFinal'
+import GanguesVictoryReport from './GanguesVictoryReport'
 import GanguesClubeResultado from './GanguesClubeResultado'
 import './GanguesProgressionFlow.css'
 
-function combatantName(t, member) {
-  if (member?.side !== 'enemy') return member?.sheet_name
-  const base = t(`games.gangues.enemy_names.${member.id}`) || member.name
-  // Mesmo molde pode sair 2x+ no bando (ver gerarBandoInimigo) — numera pra
-  // não aparecer o mesmo nome duas vezes no relatório da batalha.
-  return member.numeroInstancia ? `${base} (${member.numeroInstancia})` : base
-}
-
-// Junta os eventos (atributo ganho, poder desbloqueado) de todo nível
-// cruzado nesta luta — cobre o caso raro de subir mais de um nível de uma
-// vez (bando grande, XP dividido mesmo assim empurrando 2 níveis).
-function eventosDoLevelUp(character, fromLevel, toLevel) {
-  const eventos = []
-  for (let lvl = fromLevel + 1; lvl <= toLevel; lvl++) {
-    const levelData = character.levels.find(item => item.level === lvl)
-    if (levelData) eventos.push(...eventosDoNivel(levelData))
-  }
-  return eventos
-}
-
+// Orquestrador: decide qual das 3 telas finais mostrar (Clube da Luta,
+// confronto final contra o Alan, ou o relatório normal) e resolve a
+// vitória/derrota via useGanguesVictoryResolution. Extração completa em
+// PLANO_REFATORACAO_ARQUIVOS_GRANDES_GANGUES_2026-09-11.md §2.
 export default function GanguesVictory({ onNavigate }) {
   const { t } = useLanguage()
   const { user, perfil } = useAuth()
@@ -38,15 +20,6 @@ export default function GanguesVictory({ onNavigate }) {
   const { match } = store
   const report = match.battleReport || { outcome: match.status, entries: [], initiative: [], combatants: [], rounds: 0 }
   const victory = report.outcome === 'victory'
-  const processed = useRef(false)
-  const [levelUps, setLevelUps] = useState([])
-  // Recompensa de verdade ganha NESTA luta (XP total, grana, rep) — sem isso
-  // o jogador nunca via o que realmente ganhou, só via os números mudarem
-  // sozinhos em outra tela.
-  const [rewardSummary, setRewardSummary] = useState(null)
-  const attacks = report.entries.filter(entry => entry.kind === 'attack_card')
-  const playerDamage = attacks.filter(entry => entry.side === 'player').reduce((sum, entry) => sum + entry.dmg, 0)
-  const enemyDamage = attacks.filter(entry => entry.side === 'enemy').reduce((sum, entry) => sum + entry.dmg, 0)
 
   const storyAlvo = store.storyTarget
   // Torre (Modo Batalha) — luta avulsa de grind, sem cena/nó/POI. Só AP.
@@ -64,158 +37,18 @@ export default function GanguesVictory({ onNavigate }) {
     && store.roster.length < getGanguesRosterLimitComHistoria(perfil?.tier, store.storyProgress, store.rep)
   const recrutar = () => { store.newSheet(); onNavigate('create') }
 
-  // Pra onde o jogador iria depois desta vitória, se não tivesse ponto parado
-  // pra distribuir — mesma lógica dos botões do rodapé, sem a opção de recrutar
-  // (recrutar é um desvio opcional, não "o que ele tava fazendo").
-  const acaoPosVitoria = () => {
-    if (torre) { if (victory) store.torreAvancar(); else store.torreEncerrar(); onNavigate('batalha'); return }
-    if (confrontoFinal && victory) { onNavigate('story'); return }
-    if (cenaChefe && victory) { onNavigate('story'); return }
-    if (noModoHistoria) {
-      store.setStoryTarget({ territorioId: storyAlvo.territorioId })
-      onNavigate('territorio')
-      return
-    }
-    onNavigate('lobby')
-  }
-
-  useEffect(() => {
-    if (processed.current) return
-    processed.current = true
-    // Clube da Luta: NÃO dá AP nem grana. Gauntlet de 3 rondas.
-    //  • venceu ronda 1 ou 2 → vai pra sala do Nato (não acerta contas ainda).
-    //  • venceu a 3 → quita tudo (e +200 se entrou limpo, sem ajeites).
-    //  • perdeu qualquer ronda → te remendam, dívida acumulada fica.
-    if (clube) {
-      const ronda = Number(storyAlvo?.clubeRonda) || 3
-      if (victory && ronda < 3) {
-        // guarda o estrago da ronda: se não pedir o ajeite do Nato, a próxima
-        // começa machucado. (o resolverClubeDaLuta só no fim do gauntlet.)
-        store.aplicarDanoPersistente(report.combatants)
-        onNavigate('clube-sala')
-        return
-      }
-      store.resolverClubeDaLuta(victory, storyAlvo.clubeBase || 10, storyAlvo.clubeDividaPrevia || 0, storyAlvo.clubeHeals || 0)
-      victory ? sfx.win() : sfx.lose()
-      return
-    }
-    // O total de AP é SEMPRE 10 por inimigo no bando (1 inimigo = 10, 2 = 20,
-    // 3 = 30...), regra fixa do Isaias — nada mais soma em cima disso. O
-    // campo `xp` que existia em alguns `recompensa` de treta em pista.js
-    // (cenaRecompensa.xp) era resquício de uma versão anterior, de ANTES
-    // dessa regra existir — somava por cima do pote e estourava o teto (ex:
-    // 10 do inimigo + 3 do POI = 13, quando o máximo devia ser 10). Removido
-    // por completo; recompensa de treta agora só participa via grana/rep.
-    // Na derrota continua um AP simbólico fixo, sem relação com o bando.
-    const enemyCount = Math.max(1, report.combatants.filter(entry => entry.side === 'enemy').length)
-    // Personagem que CAIU na luta não ganha AP de participação (regra do
-    // Isaias — "é o único momento que ele recebe zero"). Vale na vitória: quem
-    // morreu fica de fora do rateio, mesmo tendo lutado até cair. Na derrota o
-    // AP simbólico (1) continua dividido entre todos que foram escalados.
-    const koIds = new Set(report.combatants.filter(c => c.side === 'player' && c.pv <= 0).map(c => c.id))
-    const escaladosIds = match.playerTeam.map(member => member.id)
-    // Chefe é luta ÚNICA (não repetível, muito mais difícil) — vale bem mais
-    // que treta comum, senão o esforço de vencer um chefão rende a mesma
-    // migalha de sempre.
-    const multiplicadorChefe = cenaChefe ? 5 : 1
-    // Torre: o AP sobe com o andar (grind pra L→99) — +100% a cada 5 andares.
-    const multiplicadorTorre = torre ? 1 + Math.floor(torreAndar / 5) : 1
-    // AP por inimigo: 30 no modo história (era 10) — a escada de nível dos
-    // chefes subiu (Carvão = L15 pau a pau, ver GANGUES_CHEFE_BUDGET) e o
-    // caminho da Pista tem ~15 eventos; nesse ritmo o jogador chega perto do
-    // L15 fazendo tudo. A Torre mantém a base 10 (tem seu próprio multiplicador
-    // por andar pro grind de L→99, não pode inflar junto).
-    const apPorInimigo = torre ? 10 : 30
-    const ap = victory ? apPorInimigo * enemyCount * multiplicadorChefe * multiplicadorTorre : 1
-    const participantIds = victory ? escaladosIds.filter(id => !koIds.has(id)) : escaladosIds
-    // Peso por FAIXA de contribuição (não por posição estrita): quem mais
-    // contribuiu (abates, dano desempata) pesa 3, a 2ª faixa pesa 2, o resto 1.
-    // Quem EMPATOU fica na MESMA faixa — antes o 2º e o 3º "colega de banco"
-    // (ambos com 0 de dano) recebiam pesos diferentes só pela ordem do sort,
-    // e o Isaias reclamou: empate tem que dividir igual.
-    const contrib = report.contribuicoes || {}
-    const score = id => { const c = contrib[id] || { dano: 0, abates: 0 }; return (c.abates || 0) * 100000 + (c.dano || 0) }
-    const faixas = [...new Set(participantIds.map(score))].sort((a, b) => b - a)
-    const pesosPorId = {}
-    participantIds.forEach(id => {
-      if (!victory) { pesosPorId[id] = 1; return }
-      // ninguém se destacou (todos empatados) → divisão igual
-      if (faixas.length <= 1) { pesosPorId[id] = 1; return }
-      const faixa = faixas.indexOf(score(id))
-      pesosPorId[id] = faixa === 0 ? 3 : faixa === 1 ? 2 : 1
-    })
-    // Sobra da divisão (número ímpar) → vai pro personagem de MENOR nível: é o
-    // que o jogador normalmente quer upar (trazer o elo fraco pra cima).
-    const nivelPorId = {}
-    participantIds.forEach(id => {
-      const m = match.playerTeam.find(x => x.id === id)
-      nivelPorId[id] = getGanguesLevelFromXp(m?.xp_total ?? 0)
-    })
-    // Dano persiste entre lutas repetíveis dentro da mesma cena — sem isso
-    // toda reentrada voltava com PV/PM cheios, e "descansar"/gastar grana
-    // não tinha motivo de existir (ver prepare() em useGanguesTurnMachine.js).
-    // TEM que rodar ANTES de gainApForParticipants: quem sobe de nível é
-    // curado (pv_atual/pm_atual viram null lá dentro) — se isso rodasse
-    // primeiro, aplicarDanoPersistente reescrevia por cima com o PV/PM que
-    // sobrou da luta, apagando a cura do level-up.
-    store.aplicarDanoPersistente(report.combatants)
-    const { levelUps: newLevelUps, apPorMembro } = store.gainApForParticipants(ap, pesosPorId, nivelPorId)
-    setLevelUps(newLevelUps)
-    // O jogador pediu pra ver PONTOS DE AÇÃO (o número que ele realmente
-    // entende e acompanha), não o XP já convertido — isso vira conta interna
-    // de bastidor, sem aparecer aqui.
-    // Mostra TODOS os escalados na tela de vitória (inclusive quem caiu, com
-    // 0 e a marca de KO) — o rateio já ignorou os mortos acima.
-    const apLista = escaladosIds.map(id => ({
-      id,
-      nome: match.playerTeam.find(member => member.id === id)?.sheet_name || '?',
-      ap: apPorMembro[id] || 0,
-      ko: koIds.has(id),
-    }))
-    if (victory) {
-      // Álbum de Marélia — todo inimigo do bando batido vira entrada.
-      store.registrarNoAlbum([match.enemy_id, ...report.combatants.filter(c => c.side === 'enemy').map(c => c.id)])
-      let granaGanha = 0, repGanha = 0
-      // Encontro aleatório de rua — só recompensa, não mexe em POI/nó.
-      if (emCena && storyAlvo.evento) {
-        const rec = storyAlvo.cenaRecompensa
-        if (rec?.grana) { store.ganharGrana(rec.grana); granaGanha += rec.grana }
-        if (rec?.rep) { store.ganharRep(rec.rep); repGanha += rec.rep }
-        if (rec?.item) store.darItem(rec.item, rec.qtd || 1)
-      } else if (emCena) {
-        // Modo história — cena: marca o POI resolvido, aplica grana/rep.
-        store.marcarPoiResolvido(storyAlvo.cenaId, storyAlvo.cenaPoiId, storyAlvo.cenaRevela || [])
-        if (storyAlvo.repDelta) { store.ganharRep(storyAlvo.repDelta); repGanha += storyAlvo.repDelta }
-        const rec = storyAlvo.cenaRecompensa
-        if (rec) {
-          if (rec.grana) { store.ganharGrana(rec.grana); granaGanha += rec.grana }
-          if (rec.rep) { store.ganharRep(rec.rep); repGanha += rec.rep }
-          if (rec.item) store.darItem(rec.item, rec.qtd || 1)
-        }
-        if (cenaChefe) {
-          store.marcarBossCena(storyAlvo.cenaId)
-          store.dominarTerritorioViaCena(storyAlvo.territorioId, storyAlvo.pontoIds || [])
-          store.restaurarPvPmTodos()
-        }
-      } else if (noModoHistoria) {
-        // Modo história — trilha: marca o nó dominado.
-        store.marcarNoDominado(storyAlvo.territorioId, storyAlvo.noId, storyAlvo.isChefe)
-      }
-      if (user?.id) registrarPontuacaoArenaRanking(user.id)
-      if (confrontoFinal) store.completeCampaign()
-      setRewardSummary({ apLista, grana: granaGanha, rep: repGanha })
-      sfx.win()
-    } else sfx.lose()
-    const timer = setTimeout(() => store.saveParticipantProgress(escaladosIds), 400)
-    return () => clearTimeout(timer)
-  }, [])
+  const { levelUps, rewardSummary, clearLevelUps } = useGanguesVictoryResolution({
+    store, user, report, victory, storyAlvo, match, torre, torreAndar,
+    clube, emCena, noModoHistoria, cenaChefe, confrontoFinal, onNavigate,
+  })
 
   // ── Clube da Luta — desfecho do gauntlet (ou derrota). Tela própria, épica. ──
   //  vitória LIMPA (sem dívida prévia e sem ajeites) = 200 de grana na mão;
   //  senão = quita a dívida. derrota = te remendam e te largam.
   if (clube) {
-    // venceu ronda 1/2 → o efeito acima já mandou pra 'clube-sala'; não pisca
-    // a tela de desfecho (nem dispara o som dela) nesse frame.
+    // venceu ronda 1/2 → o hook já aplicou o dano persistente e mandou pra
+    // 'clube-sala' (ver useGanguesVictoryResolution); não pisca a tela de
+    // desfecho nesse frame.
     if (victory && (Number(storyAlvo?.clubeRonda) || 3) < 3) return null
     const entrouLimpo =
       Math.round(storyAlvo?.clubeDividaPrevia || 0) <= 0 &&
@@ -236,176 +69,15 @@ export default function GanguesVictory({ onNavigate }) {
 
   // ── Confronto final contra o Alan — canon: Marelia não fica com você ──
   if (confrontoFinal && victory) {
-    const suaGangue = store.gangName || t('games.gangues.report.your_gang')
-    const paragrafos = (t('games.gangues.story.final.paragrafos') || []).map(par =>
-      String(par).replace(/\{gangue\}/g, suaGangue))
-    return (
-      <main className="gang-report gang-report--final">
-        <motion.div className="gang-final" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
-          <span className="gang-report-code">{t('games.gangues.story.final.code')}</span>
-          <h1 className="gang-final-titulo">{t('games.gangues.story.final.titulo')}</h1>
-          {paragrafos.map((par, i) => (
-            <motion.p
-              key={i}
-              className="gang-final-par"
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 + i * 0.6 }}
-            >
-              {par}
-            </motion.p>
-          ))}
-          <motion.button
-            className="gang-report-primary"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5 + paragrafos.length * 0.6 }}
-            onClick={() => onNavigate('story')}
-          >
-            {t('games.gangues.story.voltar_mapa')}
-          </motion.button>
-          {podeRecrutar && <button className="gang-report-secondary" onClick={recrutar}>{t('games.gangues.report.recrutar')}</button>}
-        </motion.div>
-      </main>
-    )
+    return <GanguesVictoryFinal t={t} gangName={store.gangName} podeRecrutar={podeRecrutar} recrutar={recrutar} onNavigate={onNavigate} />
   }
 
   return (
-    <main className={`gang-report gang-report--${victory ? 'victory' : 'defeat'}`}>
-      {levelUps.length > 0 && (
-        <div className="gang-progression-prompt" role="dialog" aria-modal="true" aria-labelledby="gang-levelup-prompt-title">
-          <div className="gang-progression-prompt__card">
-            <span className="gang-progression-prompt__icon">⬆</span>
-            <h2 id="gang-levelup-prompt-title">{t('games.gangues.levelup.titulo')}</h2>
-            {levelUps.map(lu => {
-              const character = getGanguesCharacter(lu.characterTemplateId)
-              const eventos = character ? eventosDoLevelUp(character, lu.fromLevel, lu.toLevel) : []
-              return (
-                <div key={lu.id} className="gang-levelup-entry">
-                  <div className="gang-levelup-entry__head">
-                    <span className={`gang-levelup-entry__avatar gang-path--${character?.combat_path}`}>{lu.name?.[0]?.toUpperCase()}</span>
-                    <span className="gang-levelup-entry__nome">{lu.name}</span>
-                    <span className="gang-levelup-entry__nivel">NV {lu.toLevel}</span>
-                  </div>
-                  <div className="gang-levelup-entry__eventos">
-                    {eventos.map((evento, index) => (
-                      <span key={index} className={`gang-levelup-tag${evento.type === 'unlock_special' || evento.type === 'special_rank' ? ' gang-levelup-tag--poder' : ''}`}>
-                        {evento.type === 'attribute'
-                          ? `+${evento.delta} ${t(`games.gangues.attr_labels.${evento.attribute}`)}`
-                          : evento.type === 'unlock_special'
-                            ? `⚡ ${t(`games.gangues.progression.skills.${evento.special_id}`)}`
-                            : evento.type === 'special_rank'
-                              ? `⬆ ${t(`games.gangues.progression.skills.${evento.special_id}`)} NV${evento.rank}`
-                              : evento.type === 'max_rank'
-                                ? `★ ${evento.title}`
-                                : null}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              )
-            })}
-            <button className="gang-progression-prompt__confirm" onClick={() => setLevelUps([])}>{t('games.gangues.levelup.continuar')}</button>
-          </div>
-        </div>
-      )}
-      <motion.header className="gang-report-hero" initial={{ opacity: 0, y: -18 }} animate={{ opacity: 1, y: 0 }}>
-        <span className="gang-report-code">{victory ? t('games.gangues.report.mission_complete') : t('games.gangues.report.mission_failed')}</span>
-        <h1>{victory ? t('games.gangues.vitoria') : t('games.gangues.derrota')}</h1>
-        <p>{victory ? t('games.gangues.report.victory_message') : t('games.gangues.report.defeat_message')}</p>
-      </motion.header>
-
-      {/* Recompensa de verdade ganha nesta luta — logo abaixo do resultado,
-          antes de qualquer outra coisa, com pop-in escalonado por item. */}
-      {victory && rewardSummary && (
-        <section className="gang-reward-panel">
-          <span className="gang-reward-panel__kicker">{t('games.gangues.report.rewards_title')}</span>
-          {/* Pontos de Ação por personagem — não XP. O jogador acompanha AP
-              (é o número que ele entende e decidiu como regra); o XP
-              convertido é só conta de bastidor, nunca aparece aqui. */}
-          <div className="gang-reward-ap-lista">
-            {rewardSummary.apLista.map((item, index) => (
-              <motion.div key={item.id} className={`gang-reward-ap-item${item.ko ? ' gang-reward-ap-item--ko' : ''}`} initial={{ opacity: 0, x: -8 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.2 + index * 0.12 }}>
-                <span className="gang-reward-ap-item__nome">{item.nome}</span>
-                <strong className="gang-reward-ap-item__val">+{item.ap}</strong>
-                <small className="gang-reward-ap-item__label">{item.ko ? t('games.gangues.report.reward_ap_ko') : t('games.gangues.report.reward_ap')}</small>
-              </motion.div>
-            ))}
-          </div>
-          <div className="gang-reward-panel__items">
-            {rewardSummary.grana > 0 && (
-              <motion.div className="gang-reward-item gang-reward-item--grana" initial={{ scale: 0.5, opacity: 0, y: 10 }} animate={{ scale: 1, opacity: 1, y: 0 }} transition={{ delay: 0.5, type: 'spring', stiffness: 260, damping: 16 }}>
-                <b>💵</b><strong>+{rewardSummary.grana}</strong><span>{t('games.gangues.report.reward_grana')}</span>
-              </motion.div>
-            )}
-            {rewardSummary.rep > 0 && (
-              <motion.div className="gang-reward-item gang-reward-item--rep" initial={{ scale: 0.5, opacity: 0, y: 10 }} animate={{ scale: 1, opacity: 1, y: 0 }} transition={{ delay: 0.65, type: 'spring', stiffness: 260, damping: 16 }}>
-                <b>⚑</b><strong>+{rewardSummary.rep}</strong><span>{t('games.gangues.report.reward_rep')}</span>
-              </motion.div>
-            )}
-          </div>
-        </section>
-      )}
-
-      {/* Ação principal logo abaixo do resultado — é o botão que mais importa
-          (seguir em frente), não precisa rolar o log inteiro pra achar.
-          "Voltar pro mapa" só aparece aqui quando é a ÚNICA opção real (chefe
-          derrotado, bairro dominado); dentro do bairro já tem um botão de
-          volta ao mapa pra quem quiser sair por lá. */}
-      <footer className="gang-report-actions gang-report-actions--top">
-        {torre ? (
-          <>
-            {victory && <button className="gang-report-primary" onClick={() => { store.torreAvancar(); onNavigate('batalha') }}>{t('games.gangues.batalha.proximo_andar')}</button>}
-            <button className={victory ? 'gang-report-secondary' : 'gang-report-primary'} onClick={() => { store.torreEncerrar(); onNavigate('batalha') }}>{t('games.gangues.batalha.sair_torre')}</button>
-          </>
-        ) : cenaChefe && victory ? (
-          <>
-            {podeRecrutar && <button className="gang-report-primary" onClick={recrutar}>{t('games.gangues.report.recrutar')}</button>}
-            <button className={podeRecrutar ? 'gang-report-secondary' : 'gang-report-primary'} onClick={() => onNavigate('story')}>{t('games.gangues.story.voltar_mapa')}</button>
-          </>
-        ) : noModoHistoria ? (
-          <>
-            {podeRecrutar && <button className="gang-report-primary" onClick={recrutar}>{t('games.gangues.report.recrutar')}</button>}
-            <button className={podeRecrutar ? 'gang-report-secondary' : 'gang-report-primary'} onClick={() => { store.setStoryTarget({ territorioId: storyAlvo.territorioId }); onNavigate('territorio') }}>
-              {victory ? t('games.gangues.story.continuar_territorio') : t('games.gangues.story.tentar_de_novo')}
-            </button>
-          </>
-        ) : (
-          <button className="gang-report-primary" onClick={() => onNavigate('lobby')}>{t('games.gangues.report.back_to_gang')}</button>
-        )}
-      </footer>
-
-      <section className="gang-report-summary">
-        <div><span>{t('games.gangues.report.rounds')}</span><strong>{report.rounds}</strong></div>
-        <div><span>{t('games.gangues.report.attacks')}</span><strong>{attacks.length}</strong></div>
-        <div><span>{t('games.gangues.report.damage_dealt')}</span><strong>{playerDamage}</strong></div>
-        <div><span>{t('games.gangues.report.damage_taken')}</span><strong>{enemyDamage}</strong></div>
-      </section>
-
-      <section className="gang-report-section">
-        <h2>{t('games.gangues.report.final_state')}</h2>
-        <div className="gang-report-roster">
-          {report.combatants.map(member => <div key={member.key} className={`gang-report-member gang-report-member--${member.side} ${member.pv <= 0 ? 'gang-report-member--ko' : ''}`}><span>{combatantName(t, member)?.[0] || '?'}</span><div><strong>{combatantName(t, member)}</strong><small>{member.side === 'player' ? (store.gangName || t('games.gangues.report.your_gang')) : t('games.gangues.report.enemy_gang')}</small></div><b>{member.pv}/{member.pvMax} PV</b></div>)}
-        </div>
-      </section>
-
-      <section className="gang-report-section">
-        <h2>{t('games.gangues.report.initiative_order')}</h2>
-        <div className="gang-report-initiative">
-          {report.initiative.map((item, index) => {
-            const member = report.combatants.find(entry => entry.key === item.key)
-            return <div key={item.key}><b>{index + 1}</b><span>{combatantName(t, member)}</span><small>H {item.ability} + d3 {item.die}</small><strong>{item.total}</strong></div>
-          })}
-        </div>
-      </section>
-
-      <section className="gang-report-section gang-report-section--log">
-        <h2>{t('games.gangues.report.complete_log')}</h2>
-        <div className="gang-report-log">
-          {attacks.map((entry, index) => <article key={entry.id} className={`gang-report-attack gang-report-attack--${entry.side}`}><span>{String(index + 1).padStart(2, '0')}</span><div><small>{t('games.gangues.report.round_number', { n: entry.round })}</small><strong>{entry.actorName} → {entry.targetName}</strong><p>FA {entry.fa} · FD {entry.fd} · D3 {entry.dice}/{entry.defenseDice}{entry.critical ? ` · 💥 ${t('games.gangues.critico')} +${entry.criticalBonus}` : ''}{entry.attackerBonus?.applied ? ` · +${entry.attackerBonus.amount} ${t(`games.gangues.loadout.paths.${entry.attackerBonus.path}.name`)}` : ''}{entry.defenderBonus?.applied ? ` · +${entry.defenderBonus.amount} ${t(`games.gangues.loadout.paths.${entry.defenderBonus.path}.name`)} (def)` : ''}</p></div><b>−{entry.dmg} PV</b></article>)}
-          {!attacks.length && <p className="gang-report-empty">{t('games.gangues.report.no_log')}</p>}
-        </div>
-      </section>
-    </main>
+    <GanguesVictoryReport
+      t={t} store={store} report={report} victory={victory} torre={torre}
+      cenaChefe={cenaChefe} noModoHistoria={noModoHistoria} storyAlvo={storyAlvo}
+      podeRecrutar={podeRecrutar} recrutar={recrutar} levelUps={levelUps}
+      clearLevelUps={clearLevelUps} rewardSummary={rewardSummary} onNavigate={onNavigate}
+    />
   )
 }

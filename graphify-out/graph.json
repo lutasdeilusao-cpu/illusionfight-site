@@ -4,6 +4,176 @@
   "graph": {},
   "nodes": [
     {
+      "label": "AGENTS.md",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "agents",
+      "community": 75,
+      "norm_label": "agents.md"
+    },
+    {
+      "label": "AGENTS.md \u2014 Illusion Fight Site",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "agents_agents_md_illusion_fight_site",
+      "community": 75,
+      "norm_label": "agents.md \u2014 illusion fight site"
+    },
+    {
+      "label": "Mandatory workflow for every code change",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "agents_mandatory_workflow_for_every_code_change",
+      "community": 75,
+      "norm_label": "mandatory workflow for every code change"
+    },
+    {
+      "label": "Stack",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L25",
+      "_origin": "ast",
+      "id": "agents_stack",
+      "community": 75,
+      "norm_label": "stack"
+    },
+    {
+      "label": "Environment",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L38",
+      "_origin": "ast",
+      "id": "agents_environment",
+      "community": 75,
+      "norm_label": "environment"
+    },
+    {
+      "label": "\ud83e\udd16 Custom Agents",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L46",
+      "_origin": "ast",
+      "id": "agents_custom_agents",
+      "community": 75,
+      "norm_label": "\ud83e\udd16 custom agents"
+    },
+    {
+      "label": "Deploy commands (must run in this order)",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L54",
+      "_origin": "ast",
+      "id": "agents_deploy_commands_must_run_in_this_order",
+      "community": 75,
+      "norm_label": "deploy commands (must run in this order)"
+    },
+    {
+      "label": "SPA on GitHub Pages",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L64",
+      "_origin": "ast",
+      "id": "agents_spa_on_github_pages",
+      "community": 75,
+      "norm_label": "spa on github pages"
+    },
+    {
+      "label": "Version constants (every game has its own)",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L68",
+      "_origin": "ast",
+      "id": "agents_version_constants_every_game_has_its_own",
+      "community": 75,
+      "norm_label": "version constants (every game has its own)"
+    },
+    {
+      "label": "Conduct rules",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L100",
+      "_origin": "ast",
+      "id": "agents_conduct_rules",
+      "community": 75,
+      "norm_label": "conduct rules"
+    },
+    {
+      "label": "Decis\u00f5es e Hurdles Documentados",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L113",
+      "_origin": "ast",
+      "id": "agents_decis\u00f5es_e_hurdles_documentados",
+      "community": 75,
+      "norm_label": "decisoes e hurdles documentados"
+    },
+    {
+      "label": "Regra Anti-Over-Engineering",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L143",
+      "_origin": "ast",
+      "id": "agents_regra_anti_over_engineering",
+      "community": 75,
+      "norm_label": "regra anti-over-engineering"
+    },
+    {
+      "label": "Regra de Tamanho de Arquivo",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L147",
+      "_origin": "ast",
+      "id": "agents_regra_de_tamanho_de_arquivo",
+      "community": 75,
+      "norm_label": "regra de tamanho de arquivo"
+    },
+    {
+      "label": "Seguran\u00e7a \u00e9 h\u00e1bito, n\u00e3o fase",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L153",
+      "_origin": "ast",
+      "id": "agents_seguran\u00e7a_\u00e9_h\u00e1bito_n\u00e3o_fase",
+      "community": 75,
+      "norm_label": "seguranca e habito, nao fase"
+    },
+    {
+      "label": "Este documento \u00e9 trabalho em progresso",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L161",
+      "_origin": "ast",
+      "id": "agents_este_documento_\u00e9_trabalho_em_progresso",
+      "community": 75,
+      "norm_label": "este documento e trabalho em progresso"
+    },
+    {
+      "label": "Architecture notes",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L165",
+      "_origin": "ast",
+      "id": "agents_architecture_notes",
+      "community": 75,
+      "norm_label": "architecture notes"
+    },
+    {
+      "label": "graphify",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": "L185",
+      "_origin": "ast",
+      "id": "agents_graphify",
+      "community": 75,
+      "norm_label": "graphify"
+    },
+    {
       "label": "SITE_MAP.md",
       "file_type": "document",
       "source_file": "SITE_MAP.md",
@@ -309,9 +479,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesCharacters.js",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_data_ganguescharacters",
       "community": 290,
-      "norm_label": "ganguescharacters.js"
+      "norm_label": "ganguescharacters.js",
+      "id": "src_pages_games_gangues_data_ganguescharacters"
     },
     {
       "label": "GANGUES_CHARACTER_CATALOG",
@@ -319,9 +489,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesCharacters.js",
       "source_location": "L4",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_data_ganguescharacters_gangues_character_catalog",
       "community": 290,
-      "norm_label": "gangues_character_catalog"
+      "norm_label": "gangues_character_catalog",
+      "id": "src_pages_games_gangues_data_ganguescharacters_gangues_character_catalog"
     },
     {
       "label": "GANGUES_CHARACTER_BY_ID",
@@ -329,9 +499,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesCharacters.js",
       "source_location": "L5",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_data_ganguescharacters_gangues_character_by_id",
       "community": 290,
-      "norm_label": "gangues_character_by_id"
+      "norm_label": "gangues_character_by_id",
+      "id": "src_pages_games_gangues_data_ganguescharacters_gangues_character_by_id"
     },
     {
       "label": "GANGUES_INITIAL_CHARACTER_IDS",
@@ -339,9 +509,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesCharacters.js",
       "source_location": "L6",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_data_ganguescharacters_gangues_initial_character_ids",
       "community": 290,
-      "norm_label": "gangues_initial_character_ids"
+      "norm_label": "gangues_initial_character_ids",
+      "id": "src_pages_games_gangues_data_ganguescharacters_gangues_initial_character_ids"
     },
     {
       "label": "GANGUES_FIRST_CAMPAIGN_CHARACTER_IDS",
@@ -349,9 +519,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesCharacters.js",
       "source_location": "L7",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_data_ganguescharacters_gangues_first_campaign_character_ids",
       "community": 290,
-      "norm_label": "gangues_first_campaign_character_ids"
+      "norm_label": "gangues_first_campaign_character_ids",
+      "id": "src_pages_games_gangues_data_ganguescharacters_gangues_first_campaign_character_ids"
     },
     {
       "label": "GANGUES_SECOND_CLEAR_CHARACTER_IDS",
@@ -359,9 +529,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesCharacters.js",
       "source_location": "L8",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_data_ganguescharacters_gangues_second_clear_character_ids",
       "community": 290,
-      "norm_label": "gangues_second_clear_character_ids"
+      "norm_label": "gangues_second_clear_character_ids",
+      "id": "src_pages_games_gangues_data_ganguescharacters_gangues_second_clear_character_ids"
     },
     {
       "label": "GANGUES_EVENT_CHARACTER_IDS",
@@ -369,9 +539,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesCharacters.js",
       "source_location": "L9",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_data_ganguescharacters_gangues_event_character_ids",
       "community": 290,
-      "norm_label": "gangues_event_character_ids"
+      "norm_label": "gangues_event_character_ids",
+      "id": "src_pages_games_gangues_data_ganguescharacters_gangues_event_character_ids"
     },
     {
       "label": "GANGUES_ATTRS",
@@ -379,9 +549,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesCharacters.js",
       "source_location": "L31",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_data_ganguescharacters_gangues_attrs",
       "community": 375,
-      "norm_label": "gangues_attrs"
+      "norm_label": "gangues_attrs",
+      "id": "src_pages_games_gangues_data_ganguescharacters_gangues_attrs"
     },
     {
       "label": "custoAtributoGangues()",
@@ -389,9 +559,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesCharacters.js",
       "source_location": "L37",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_data_ganguescharacters_custoatributogangues",
       "community": 375,
-      "norm_label": "custoatributogangues()"
+      "norm_label": "custoatributogangues()",
+      "id": "src_pages_games_gangues_data_ganguescharacters_custoatributogangues"
     },
     {
       "label": "getGanguesCharacter()",
@@ -399,9 +569,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesCharacters.js",
       "source_location": "L46",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_data_ganguescharacters_getganguescharacter",
       "community": 290,
-      "norm_label": "getganguescharacter()"
+      "norm_label": "getganguescharacter()",
+      "id": "src_pages_games_gangues_data_ganguescharacters_getganguescharacter"
     },
     {
       "label": "getGanguesLevelFromXp()",
@@ -409,9 +579,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesCharacters.js",
       "source_location": "L58",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_data_ganguescharacters_getgangueslevelfromxp",
       "community": 290,
-      "norm_label": "getgangueslevelfromxp()"
+      "norm_label": "getgangueslevelfromxp()",
+      "id": "src_pages_games_gangues_data_ganguescharacters_getgangueslevelfromxp"
     },
     {
       "label": "RES_RATE",
@@ -419,9 +589,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesCharacters.js",
       "source_location": "L66",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_data_ganguescharacters_res_rate",
       "community": 290,
-      "norm_label": "res_rate"
+      "norm_label": "res_rate",
+      "id": "src_pages_games_gangues_data_ganguescharacters_res_rate"
     },
     {
       "label": "eventosDoNivel()",
@@ -429,9 +599,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesCharacters.js",
       "source_location": "L71",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_data_ganguescharacters_eventosdonivel",
       "community": 290,
-      "norm_label": "eventosdonivel()"
+      "norm_label": "eventosdonivel()",
+      "id": "src_pages_games_gangues_data_ganguescharacters_eventosdonivel"
     },
     {
       "label": "completarNivel()",
@@ -439,9 +609,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesCharacters.js",
       "source_location": "L80",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_data_ganguescharacters_completarnivel",
       "community": 290,
-      "norm_label": "completarnivel()"
+      "norm_label": "completarnivel()",
+      "id": "src_pages_games_gangues_data_ganguescharacters_completarnivel"
     },
     {
       "label": "getGanguesTemplateLevel()",
@@ -449,9 +619,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesCharacters.js",
       "source_location": "L94",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_data_ganguescharacters_getganguestemplatelevel",
       "community": 290,
-      "norm_label": "getganguestemplatelevel()"
+      "norm_label": "getganguestemplatelevel()",
+      "id": "src_pages_games_gangues_data_ganguescharacters_getganguestemplatelevel"
     },
     {
       "label": "getGanguesUnlockedSpecials()",
@@ -459,9 +629,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesCharacters.js",
       "source_location": "L103",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_data_ganguescharacters_getganguesunlockedspecials",
       "community": 290,
-      "norm_label": "getganguesunlockedspecials()"
+      "norm_label": "getganguesunlockedspecials()",
+      "id": "src_pages_games_gangues_data_ganguescharacters_getganguesunlockedspecials"
     },
     {
       "label": "getGanguesSpecialRanks()",
@@ -469,9 +639,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesCharacters.js",
       "source_location": "L117",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_data_ganguescharacters_getganguesspecialranks",
       "community": 290,
-      "norm_label": "getganguesspecialranks()"
+      "norm_label": "getganguesspecialranks()",
+      "id": "src_pages_games_gangues_data_ganguescharacters_getganguesspecialranks"
     },
     {
       "label": "getGanguesSpecialUnlockLevel()",
@@ -479,9 +649,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesCharacters.js",
       "source_location": "L133",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_data_ganguescharacters_getganguesspecialunlocklevel",
       "community": 290,
-      "norm_label": "getganguesspecialunlocklevel()"
+      "norm_label": "getganguesspecialunlocklevel()",
+      "id": "src_pages_games_gangues_data_ganguescharacters_getganguesspecialunlocklevel"
     },
     {
       "label": "hydrateGanguesTemplateSheet()",
@@ -489,9 +659,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesCharacters.js",
       "source_location": "L140",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_data_ganguescharacters_hydrateganguestemplatesheet",
       "community": 290,
-      "norm_label": "hydrateganguestemplatesheet()"
+      "norm_label": "hydrateganguestemplatesheet()",
+      "id": "src_pages_games_gangues_data_ganguescharacters_hydrateganguestemplatesheet"
     },
     {
       "label": "toggleGanguesTemplateSpecial()",
@@ -499,9 +669,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesCharacters.js",
       "source_location": "L198",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_data_ganguescharacters_toggleganguestemplatespecial",
       "community": 40,
-      "norm_label": "toggleganguestemplatespecial()"
+      "norm_label": "toggleganguestemplatespecial()",
+      "id": "src_pages_games_gangues_data_ganguescharacters_toggleganguestemplatespecial"
     },
     {
       "label": "createGanguesTemplateSheet()",
@@ -509,9 +679,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesCharacters.js",
       "source_location": "L212",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_data_ganguescharacters_createganguestemplatesheet",
       "community": 290,
-      "norm_label": "createganguestemplatesheet()"
+      "norm_label": "createganguestemplatesheet()",
+      "id": "src_pages_games_gangues_data_ganguescharacters_createganguestemplatesheet"
     },
     {
       "label": "getGanguesAvailableCharacterIds()",
@@ -519,9 +689,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesCharacters.js",
       "source_location": "L224",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_data_ganguescharacters_getganguesavailablecharacterids",
       "community": 290,
-      "norm_label": "getganguesavailablecharacterids()"
+      "norm_label": "getganguesavailablecharacterids()",
+      "id": "src_pages_games_gangues_data_ganguescharacters_getganguesavailablecharacterids"
     },
     {
       "label": "getGanguesNextLevel()",
@@ -529,9 +699,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesCharacters.js",
       "source_location": "L235",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_data_ganguescharacters_getganguesnextlevel",
       "community": 290,
-      "norm_label": "getganguesnextlevel()"
+      "norm_label": "getganguesnextlevel()",
+      "id": "src_pages_games_gangues_data_ganguescharacters_getganguesnextlevel"
     },
     {
       "label": "GANGUES_DESIGN.md",
@@ -5562,176 +5732,6 @@
       "community": 8,
       "norm_label": "resolveganguesaction()",
       "id": "src_pages_games_gangues_engine_ganguescombatresolver_resolveganguesaction"
-    },
-    {
-      "label": "AGENTS.md",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 75,
-      "norm_label": "agents.md",
-      "id": "agents"
-    },
-    {
-      "label": "AGENTS.md \u2014 Illusion Fight Site",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 75,
-      "norm_label": "agents.md \u2014 illusion fight site",
-      "id": "agents_agents_md_illusion_fight_site"
-    },
-    {
-      "label": "Mandatory workflow for every code change",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L3",
-      "_origin": "ast",
-      "community": 75,
-      "norm_label": "mandatory workflow for every code change",
-      "id": "agents_mandatory_workflow_for_every_code_change"
-    },
-    {
-      "label": "Stack",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L25",
-      "_origin": "ast",
-      "community": 75,
-      "norm_label": "stack",
-      "id": "agents_stack"
-    },
-    {
-      "label": "Environment",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L38",
-      "_origin": "ast",
-      "community": 75,
-      "norm_label": "environment",
-      "id": "agents_environment"
-    },
-    {
-      "label": "\ud83e\udd16 Custom Agents",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L46",
-      "_origin": "ast",
-      "community": 75,
-      "norm_label": "\ud83e\udd16 custom agents",
-      "id": "agents_custom_agents"
-    },
-    {
-      "label": "Deploy commands (must run in this order)",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L54",
-      "_origin": "ast",
-      "community": 75,
-      "norm_label": "deploy commands (must run in this order)",
-      "id": "agents_deploy_commands_must_run_in_this_order"
-    },
-    {
-      "label": "SPA on GitHub Pages",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L64",
-      "_origin": "ast",
-      "community": 75,
-      "norm_label": "spa on github pages",
-      "id": "agents_spa_on_github_pages"
-    },
-    {
-      "label": "Version constants (every game has its own)",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L68",
-      "_origin": "ast",
-      "community": 75,
-      "norm_label": "version constants (every game has its own)",
-      "id": "agents_version_constants_every_game_has_its_own"
-    },
-    {
-      "label": "Conduct rules",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L100",
-      "_origin": "ast",
-      "community": 75,
-      "norm_label": "conduct rules",
-      "id": "agents_conduct_rules"
-    },
-    {
-      "label": "Decis\u00f5es e Hurdles Documentados",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L113",
-      "_origin": "ast",
-      "community": 75,
-      "norm_label": "decisoes e hurdles documentados",
-      "id": "agents_decis\u00f5es_e_hurdles_documentados"
-    },
-    {
-      "label": "Regra Anti-Over-Engineering",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L143",
-      "_origin": "ast",
-      "community": 75,
-      "norm_label": "regra anti-over-engineering",
-      "id": "agents_regra_anti_over_engineering"
-    },
-    {
-      "label": "Regra de Tamanho de Arquivo",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L147",
-      "_origin": "ast",
-      "community": 75,
-      "norm_label": "regra de tamanho de arquivo",
-      "id": "agents_regra_de_tamanho_de_arquivo"
-    },
-    {
-      "label": "Seguran\u00e7a \u00e9 h\u00e1bito, n\u00e3o fase",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L151",
-      "_origin": "ast",
-      "community": 75,
-      "norm_label": "seguranca e habito, nao fase",
-      "id": "agents_seguran\u00e7a_\u00e9_h\u00e1bito_n\u00e3o_fase"
-    },
-    {
-      "label": "Este documento \u00e9 trabalho em progresso",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L159",
-      "_origin": "ast",
-      "community": 75,
-      "norm_label": "este documento e trabalho em progresso",
-      "id": "agents_este_documento_\u00e9_trabalho_em_progresso"
-    },
-    {
-      "label": "Architecture notes",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L163",
-      "_origin": "ast",
-      "community": 75,
-      "norm_label": "architecture notes",
-      "id": "agents_architecture_notes"
-    },
-    {
-      "label": "graphify",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L183",
-      "_origin": "ast",
-      "community": 75,
-      "norm_label": "graphify",
-      "id": "agents_graphify"
     },
     {
       "label": "GanguesCombatTutorial.jsx",
@@ -44348,6 +44348,166 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "agents",
+      "target": "agents_agents_md_illusion_fight_site",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L165",
+      "weight": 1.0,
+      "source": "agents_agents_md_illusion_fight_site",
+      "target": "agents_architecture_notes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L100",
+      "weight": 1.0,
+      "source": "agents_agents_md_illusion_fight_site",
+      "target": "agents_conduct_rules",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L46",
+      "weight": 1.0,
+      "source": "agents_agents_md_illusion_fight_site",
+      "target": "agents_custom_agents",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L113",
+      "weight": 1.0,
+      "source": "agents_agents_md_illusion_fight_site",
+      "target": "agents_decis\u00f5es_e_hurdles_documentados",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L54",
+      "weight": 1.0,
+      "source": "agents_agents_md_illusion_fight_site",
+      "target": "agents_deploy_commands_must_run_in_this_order",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L38",
+      "weight": 1.0,
+      "source": "agents_agents_md_illusion_fight_site",
+      "target": "agents_environment",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L161",
+      "weight": 1.0,
+      "source": "agents_agents_md_illusion_fight_site",
+      "target": "agents_este_documento_\u00e9_trabalho_em_progresso",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L185",
+      "weight": 1.0,
+      "source": "agents_agents_md_illusion_fight_site",
+      "target": "agents_graphify",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "agents_agents_md_illusion_fight_site",
+      "target": "agents_mandatory_workflow_for_every_code_change",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L143",
+      "weight": 1.0,
+      "source": "agents_agents_md_illusion_fight_site",
+      "target": "agents_regra_anti_over_engineering",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L147",
+      "weight": 1.0,
+      "source": "agents_agents_md_illusion_fight_site",
+      "target": "agents_regra_de_tamanho_de_arquivo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L153",
+      "weight": 1.0,
+      "source": "agents_agents_md_illusion_fight_site",
+      "target": "agents_seguran\u00e7a_\u00e9_h\u00e1bito_n\u00e3o_fase",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L64",
+      "weight": 1.0,
+      "source": "agents_agents_md_illusion_fight_site",
+      "target": "agents_spa_on_github_pages",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "agents_agents_md_illusion_fight_site",
+      "target": "agents_stack",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "AGENTS.md",
+      "source_location": "L68",
+      "weight": 1.0,
+      "source": "agents_agents_md_illusion_fight_site",
+      "target": "agents_version_constants_every_game_has_its_own",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "SITE_MAP.md",
       "source_location": "L1",
       "weight": 1.0,
@@ -44807,9 +44967,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesCharacters.js",
       "source_location": "L80",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguescharacters",
-      "target": "src_pages_games_gangues_data_ganguescharacters_completarnivel",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguescharacters_completarnivel"
     },
     {
       "relation": "contains",
@@ -44817,9 +44977,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesCharacters.js",
       "source_location": "L212",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguescharacters",
-      "target": "src_pages_games_gangues_data_ganguescharacters_createganguestemplatesheet",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguescharacters_createganguestemplatesheet"
     },
     {
       "relation": "contains",
@@ -44827,9 +44987,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesCharacters.js",
       "source_location": "L37",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguescharacters",
-      "target": "src_pages_games_gangues_data_ganguescharacters_custoatributogangues",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguescharacters_custoatributogangues"
     },
     {
       "relation": "contains",
@@ -44837,9 +44997,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesCharacters.js",
       "source_location": "L71",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguescharacters",
-      "target": "src_pages_games_gangues_data_ganguescharacters_eventosdonivel",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguescharacters_eventosdonivel"
     },
     {
       "relation": "contains",
@@ -44847,9 +45007,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesCharacters.js",
       "source_location": "L31",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguescharacters",
-      "target": "src_pages_games_gangues_data_ganguescharacters_gangues_attrs",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguescharacters_gangues_attrs"
     },
     {
       "relation": "contains",
@@ -44857,9 +45017,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesCharacters.js",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguescharacters",
-      "target": "src_pages_games_gangues_data_ganguescharacters_gangues_character_by_id",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguescharacters_gangues_character_by_id"
     },
     {
       "relation": "contains",
@@ -44867,9 +45027,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesCharacters.js",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguescharacters",
-      "target": "src_pages_games_gangues_data_ganguescharacters_gangues_character_catalog",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguescharacters_gangues_character_catalog"
     },
     {
       "relation": "contains",
@@ -44877,9 +45037,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesCharacters.js",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguescharacters",
-      "target": "src_pages_games_gangues_data_ganguescharacters_gangues_event_character_ids",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguescharacters_gangues_event_character_ids"
     },
     {
       "relation": "contains",
@@ -44887,9 +45047,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesCharacters.js",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguescharacters",
-      "target": "src_pages_games_gangues_data_ganguescharacters_gangues_first_campaign_character_ids",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguescharacters_gangues_first_campaign_character_ids"
     },
     {
       "relation": "contains",
@@ -44897,9 +45057,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesCharacters.js",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguescharacters",
-      "target": "src_pages_games_gangues_data_ganguescharacters_gangues_initial_character_ids",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguescharacters_gangues_initial_character_ids"
     },
     {
       "relation": "contains",
@@ -44907,9 +45067,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesCharacters.js",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguescharacters",
-      "target": "src_pages_games_gangues_data_ganguescharacters_gangues_second_clear_character_ids",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguescharacters_gangues_second_clear_character_ids"
     },
     {
       "relation": "contains",
@@ -44917,9 +45077,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesCharacters.js",
       "source_location": "L224",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguescharacters",
-      "target": "src_pages_games_gangues_data_ganguescharacters_getganguesavailablecharacterids",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguescharacters_getganguesavailablecharacterids"
     },
     {
       "relation": "contains",
@@ -44927,9 +45087,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesCharacters.js",
       "source_location": "L46",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguescharacters",
-      "target": "src_pages_games_gangues_data_ganguescharacters_getganguescharacter",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguescharacters_getganguescharacter"
     },
     {
       "relation": "contains",
@@ -44937,9 +45097,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesCharacters.js",
       "source_location": "L58",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguescharacters",
-      "target": "src_pages_games_gangues_data_ganguescharacters_getgangueslevelfromxp",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguescharacters_getgangueslevelfromxp"
     },
     {
       "relation": "contains",
@@ -44947,9 +45107,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesCharacters.js",
       "source_location": "L235",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguescharacters",
-      "target": "src_pages_games_gangues_data_ganguescharacters_getganguesnextlevel",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguescharacters_getganguesnextlevel"
     },
     {
       "relation": "contains",
@@ -44957,9 +45117,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesCharacters.js",
       "source_location": "L117",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguescharacters",
-      "target": "src_pages_games_gangues_data_ganguescharacters_getganguesspecialranks",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguescharacters_getganguesspecialranks"
     },
     {
       "relation": "contains",
@@ -44967,9 +45127,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesCharacters.js",
       "source_location": "L133",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguescharacters",
-      "target": "src_pages_games_gangues_data_ganguescharacters_getganguesspecialunlocklevel",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguescharacters_getganguesspecialunlocklevel"
     },
     {
       "relation": "contains",
@@ -44977,9 +45137,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesCharacters.js",
       "source_location": "L94",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguescharacters",
-      "target": "src_pages_games_gangues_data_ganguescharacters_getganguestemplatelevel",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguescharacters_getganguestemplatelevel"
     },
     {
       "relation": "contains",
@@ -44987,9 +45147,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesCharacters.js",
       "source_location": "L103",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguescharacters",
-      "target": "src_pages_games_gangues_data_ganguescharacters_getganguesunlockedspecials",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguescharacters_getganguesunlockedspecials"
     },
     {
       "relation": "contains",
@@ -44997,9 +45157,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesCharacters.js",
       "source_location": "L140",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguescharacters",
-      "target": "src_pages_games_gangues_data_ganguescharacters_hydrateganguestemplatesheet",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguescharacters_hydrateganguestemplatesheet"
     },
     {
       "relation": "contains",
@@ -45007,9 +45167,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesCharacters.js",
       "source_location": "L66",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguescharacters",
-      "target": "src_pages_games_gangues_data_ganguescharacters_res_rate",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguescharacters_res_rate"
     },
     {
       "relation": "contains",
@@ -45017,9 +45177,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesCharacters.js",
       "source_location": "L198",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguescharacters",
-      "target": "src_pages_games_gangues_data_ganguescharacters_toggleganguestemplatespecial",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguescharacters_toggleganguestemplatespecial"
     },
     {
       "relation": "imports_from",
@@ -45204,9 +45364,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesCharacters.js",
       "source_location": "L213",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguescharacters_createganguestemplatesheet",
-      "target": "src_pages_games_gangues_data_ganguescharacters_getganguescharacter",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguescharacters_getganguescharacter"
     },
     {
       "relation": "calls",
@@ -45215,9 +45375,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesCharacters.js",
       "source_location": "L236",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguescharacters_getganguesnextlevel",
-      "target": "src_pages_games_gangues_data_ganguescharacters_getganguescharacter",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguescharacters_getganguescharacter"
     },
     {
       "relation": "calls",
@@ -45226,9 +45386,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesCharacters.js",
       "source_location": "L118",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguescharacters_getganguesspecialranks",
-      "target": "src_pages_games_gangues_data_ganguescharacters_getganguescharacter",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguescharacters_getganguescharacter"
     },
     {
       "relation": "calls",
@@ -45237,9 +45397,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesCharacters.js",
       "source_location": "L95",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguescharacters_getganguestemplatelevel",
-      "target": "src_pages_games_gangues_data_ganguescharacters_getganguescharacter",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguescharacters_getganguescharacter"
     },
     {
       "relation": "calls",
@@ -45248,9 +45408,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesCharacters.js",
       "source_location": "L104",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguescharacters_getganguesunlockedspecials",
-      "target": "src_pages_games_gangues_data_ganguescharacters_getganguescharacter",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguescharacters_getganguescharacter"
     },
     {
       "relation": "calls",
@@ -45259,9 +45419,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesCharacters.js",
       "source_location": "L141",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguescharacters_hydrateganguestemplatesheet",
-      "target": "src_pages_games_gangues_data_ganguescharacters_getganguescharacter",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguescharacters_getganguescharacter"
     },
     {
       "relation": "imports",
@@ -45336,9 +45496,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesCharacters.js",
       "source_location": "L238",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguescharacters_getganguesnextlevel",
-      "target": "src_pages_games_gangues_data_ganguescharacters_getgangueslevelfromxp",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguescharacters_getgangueslevelfromxp"
     },
     {
       "relation": "calls",
@@ -45347,9 +45507,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesCharacters.js",
       "source_location": "L120",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguescharacters_getganguesspecialranks",
-      "target": "src_pages_games_gangues_data_ganguescharacters_getgangueslevelfromxp",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguescharacters_getgangueslevelfromxp"
     },
     {
       "relation": "calls",
@@ -45358,9 +45518,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesCharacters.js",
       "source_location": "L97",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguescharacters_getganguestemplatelevel",
-      "target": "src_pages_games_gangues_data_ganguescharacters_getgangueslevelfromxp",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguescharacters_getgangueslevelfromxp"
     },
     {
       "relation": "calls",
@@ -45369,9 +45529,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesCharacters.js",
       "source_location": "L106",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguescharacters_getganguesunlockedspecials",
-      "target": "src_pages_games_gangues_data_ganguescharacters_getgangueslevelfromxp",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguescharacters_getgangueslevelfromxp"
     },
     {
       "relation": "calls",
@@ -45380,9 +45540,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesCharacters.js",
       "source_location": "L144",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguescharacters_hydrateganguestemplatesheet",
-      "target": "src_pages_games_gangues_data_ganguescharacters_getgangueslevelfromxp",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguescharacters_getgangueslevelfromxp"
     },
     {
       "relation": "imports",
@@ -45523,9 +45683,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesCharacters.js",
       "source_location": "L90",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguescharacters_completarnivel",
-      "target": "src_pages_games_gangues_data_ganguescharacters_eventosdonivel",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguescharacters_eventosdonivel"
     },
     {
       "relation": "calls",
@@ -45534,9 +45694,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesCharacters.js",
       "source_location": "L124",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguescharacters_getganguesspecialranks",
-      "target": "src_pages_games_gangues_data_ganguescharacters_eventosdonivel",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguescharacters_eventosdonivel"
     },
     {
       "relation": "calls",
@@ -45545,9 +45705,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesCharacters.js",
       "source_location": "L135",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguescharacters_getganguesspecialunlocklevel",
-      "target": "src_pages_games_gangues_data_ganguescharacters_eventosdonivel",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguescharacters_eventosdonivel"
     },
     {
       "relation": "calls",
@@ -45556,9 +45716,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesCharacters.js",
       "source_location": "L110",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguescharacters_getganguesunlockedspecials",
-      "target": "src_pages_games_gangues_data_ganguescharacters_eventosdonivel",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguescharacters_eventosdonivel"
     },
     {
       "relation": "calls",
@@ -45567,9 +45727,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesCharacters.js",
       "source_location": "L240",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguescharacters_getganguesnextlevel",
-      "target": "src_pages_games_gangues_data_ganguescharacters_completarnivel",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguescharacters_completarnivel"
     },
     {
       "relation": "calls",
@@ -45578,9 +45738,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesCharacters.js",
       "source_location": "L98",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguescharacters_getganguestemplatelevel",
-      "target": "src_pages_games_gangues_data_ganguescharacters_completarnivel",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguescharacters_completarnivel"
     },
     {
       "relation": "calls",
@@ -45589,9 +45749,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesCharacters.js",
       "source_location": "L145",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguescharacters_hydrateganguestemplatesheet",
-      "target": "src_pages_games_gangues_data_ganguescharacters_getganguestemplatelevel",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguescharacters_getganguestemplatelevel"
     },
     {
       "relation": "calls",
@@ -45600,9 +45760,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesCharacters.js",
       "source_location": "L146",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguescharacters_hydrateganguestemplatesheet",
-      "target": "src_pages_games_gangues_data_ganguescharacters_getganguesunlockedspecials",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguescharacters_getganguesunlockedspecials"
     },
     {
       "relation": "calls",
@@ -45611,9 +45771,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesCharacters.js",
       "source_location": "L199",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguescharacters_toggleganguestemplatespecial",
-      "target": "src_pages_games_gangues_data_ganguescharacters_getganguesunlockedspecials",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguescharacters_getganguesunlockedspecials"
     },
     {
       "relation": "imports",
@@ -45666,9 +45826,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesCharacters.js",
       "source_location": "L147",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguescharacters_hydrateganguestemplatesheet",
-      "target": "src_pages_games_gangues_data_ganguescharacters_getganguesspecialranks",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguescharacters_getganguesspecialranks"
     },
     {
       "relation": "imports",
@@ -45699,9 +45859,9 @@
       "source_file": "src/pages/games/Gangues/data/ganguesCharacters.js",
       "source_location": "L215",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_ganguescharacters_createganguestemplatesheet",
-      "target": "src_pages_games_gangues_data_ganguescharacters_hydrateganguestemplatesheet",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_ganguescharacters_hydrateganguestemplatesheet"
     },
     {
       "relation": "imports",
@@ -55856,166 +56016,6 @@
       "confidence_score": 1.0,
       "source": "scripts_test_arena_refactor",
       "target": "src_pages_games_gangues_engine_ganguescombatresolver_resolveganguesaction"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "agents",
-      "target": "agents_agents_md_illusion_fight_site"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L163",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "agents_agents_md_illusion_fight_site",
-      "target": "agents_architecture_notes"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L100",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "agents_agents_md_illusion_fight_site",
-      "target": "agents_conduct_rules"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L46",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "agents_agents_md_illusion_fight_site",
-      "target": "agents_custom_agents"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L113",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "agents_agents_md_illusion_fight_site",
-      "target": "agents_decis\u00f5es_e_hurdles_documentados"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L54",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "agents_agents_md_illusion_fight_site",
-      "target": "agents_deploy_commands_must_run_in_this_order"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L38",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "agents_agents_md_illusion_fight_site",
-      "target": "agents_environment"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L159",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "agents_agents_md_illusion_fight_site",
-      "target": "agents_este_documento_\u00e9_trabalho_em_progresso"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L183",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "agents_agents_md_illusion_fight_site",
-      "target": "agents_graphify"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "agents_agents_md_illusion_fight_site",
-      "target": "agents_mandatory_workflow_for_every_code_change"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L143",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "agents_agents_md_illusion_fight_site",
-      "target": "agents_regra_anti_over_engineering"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L147",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "agents_agents_md_illusion_fight_site",
-      "target": "agents_regra_de_tamanho_de_arquivo"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L151",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "agents_agents_md_illusion_fight_site",
-      "target": "agents_seguran\u00e7a_\u00e9_h\u00e1bito_n\u00e3o_fase"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L64",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "agents_agents_md_illusion_fight_site",
-      "target": "agents_spa_on_github_pages"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L25",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "agents_agents_md_illusion_fight_site",
-      "target": "agents_stack"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L68",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "agents_agents_md_illusion_fight_site",
-      "target": "agents_version_constants_every_game_has_its_own"
     },
     {
       "relation": "contains",
@@ -127405,5 +127405,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "8e541ca293a916e183310a92568a1a4fcc74f6cf"
+  "built_at_commit": "849ef0b4b94e5be4ff078a095c511ccb5b180cdd"
 }

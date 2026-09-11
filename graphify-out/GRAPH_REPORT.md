@@ -1,7 +1,7 @@
 # Graph Report - SiteLDI  (2026-09-11)
 
 ## Corpus Check
-- 895 files · ~1,188,432 words
+- 895 files · ~1,188,544 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `8e541ca2`
+- Built from commit: `849ef0b4`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -1354,7 +1354,7 @@ Cohesion: 0.83
 Nodes (3): Cadastro(), comTimeout(), guardarPendente()
 
 ## Knowledge Gaps
-- **1883 isolated node(s):** `1. Visão geral`, `2.1 Abertura (vinheta de carregamento)`, `3.1 Site e conteúdo`, `3.2 Plataforma e conta`, `3.3 Catálogo e jogos` (+1878 more)
+- **1883 isolated node(s):** `Mandatory workflow for every code change`, `Stack`, `Environment`, `🤖 Custom Agents`, `Deploy commands (must run in this order)` (+1878 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **133 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -1362,12 +1362,12 @@ Nodes (3): Cadastro(), comTimeout(), guardarPendente()
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `useLanguage()` connect `TopTrumpsCard.jsx` to `Community 0`, `PerfilColecao.jsx`, `Community 9`, `Community 10`, `Community 12`, `runtimePlatform.js`, `RadioNina.jsx`, `Community 19`, `Community 20`, `AuthContext.jsx`, `UniversosHub.jsx`, `Quiz.jsx`, `Calendario.jsx`, `PerfilConta.jsx`, `Community 29`, `useReader`, `PuzzleStealthGrid.jsx`, `Community 33`, `DixContext.jsx`, `PerfilColecao.jsx`, `TopTrumpsMP.jsx`, `getElem`, `personalidades.js`, `PuzzleForça.jsx`, `react`, `useRafaelI18n`, `combat.js`, `Community 49`, `Perfil.jsx`, `ResultScreen.jsx`, `useSharedLobbyMachine.js`, `TopTrumpsMP.jsx`, `PuzzleForça.jsx`, `AnalyticsTracker.jsx`, `Phase0Start.jsx`, `DeckBuilder.jsx`, `RestaurarSaude.jsx`, `useGameStore.js`, `index.js`, `RestaurarSaude.jsx`, `SearchModal.jsx`, `Calendario.jsx`, `sanguinaria.js`, `audioManager.js`, `paridade-exata.mjs`?**
-  _High betweenness centrality (0.113) - this node is a cross-community bridge._
+  _High betweenness centrality (0.122) - this node is a cross-community bridge._
 - **Why does `SFX` connect `Community 7` to `DixContext.jsx`, `DeckBuilder.jsx`, `PerfilColecao.jsx`, `TopTrumpsCard.jsx`, `TopTrumpsMP.jsx`?**
   _High betweenness centrality (0.020) - this node is a cross-community bridge._
 - **Why does `useReader()` connect `PerfilColecao.jsx` to `Community 0`, `Community 33`, `Phase0Start.jsx`, `DixContext.jsx`, `Community 3`, `personalidades.js`, `Community 9`, `combat.js`, `Community 20`, `TopTrumpsCard.jsx`, `audioManager.js`, `TopTrumpsMP.jsx`, `Community 29`, `PuzzleStealthGrid.jsx`?**
-  _High betweenness centrality (0.019) - this node is a cross-community bridge._
-- **What connects `1. Visão geral`, `2.1 Abertura (vinheta de carregamento)`, `3.1 Site e conteúdo` to the rest of the system?**
+  _High betweenness centrality (0.020) - this node is a cross-community bridge._
+- **What connects `Mandatory workflow for every code change`, `Stack`, `Environment` to the rest of the system?**
   _1883 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
   _Cohesion score 0.05016722408026756 - nodes in this community are weakly interconnected._
