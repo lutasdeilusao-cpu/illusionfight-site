@@ -117,13 +117,27 @@ export function hydrateGanguesTemplateSheet(sheet = {}) {
   const levelData = getGanguesTemplateLevel(character.id, xpTotal)
   const unlocked = getGanguesUnlockedSpecials(character.id, xpTotal)
   const ranks = getGanguesSpecialRanks(character.id, xpTotal)
+  // BUG (o Isaias reportou: "ainda tô com os 2 poderes iniciais" mesmo no
+  // L21) — esta função reidrata a ficha inteira toda vez que ela carrega
+  // (login, troca de tela, cada save), e SEMPRE recalculava selected_specials
+  // do zero como "os 2 últimos poderes abertos", jogando fora qualquer
+  // escolha feita na tela de Progressão (GanguesProgressionPanel) — a escolha
+  // do jogador nunca sobrevivia a um recarregamento. Agora: se já existe uma
+  // seleção salva, ela é PRESERVADA (só tira poder que não existe mais). O
+  // auto-default "últimos 2 abertos" só roda na hidratação BEM primeira
+  // (recruta novo, `selected_specials` ainda nem existe na ficha).
+  const unlockedActiveIds = new Set(unlocked.filter(special => special.kind === 'active').map(special => special.id))
+  const salvos = sheet.attributes?.progression?.selected_specials
+  const selectedSpecials = Array.isArray(salvos)
+    ? salvos.filter(id => unlockedActiveIds.has(id))
+    : unlocked.filter(special => special.kind === 'active').slice(-2).map(special => special.id)
   const progression = {
     ap: Math.max(0, Number(sheet.attributes?.progression?.ap) || 0),
     xp_unspent: 0,
     special_path: character.special_path,
     special_path_unlocked: true,
     special_levels: Object.fromEntries(unlocked.map(special => [special.id, ranks[special.id] || 1])),
-    selected_specials: unlocked.filter(special => special.kind === 'active').slice(-2).map(special => special.id),
+    selected_specials: selectedSpecials,
   }
   return {
     ...sheet,
