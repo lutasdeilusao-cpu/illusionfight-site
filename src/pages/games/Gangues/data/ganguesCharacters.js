@@ -143,14 +143,17 @@ export function hydrateGanguesTemplateSheet(sheet = {}) {
   }
 }
 
-export function createGanguesTemplateSheet(characterTemplateId) {
+// `xpTotal` deixa o recruta nascer já ADIANTADO (ver recrutamento escalonado
+// em GanguesCreate.jsx — o 1º recruta pós-fundação vem L5, o 2º L10, e por
+// aí vai, +5 em +5). Default 0 = nasce no nível 1, como a dupla fundadora.
+export function createGanguesTemplateSheet(characterTemplateId, xpTotal = 0) {
   const character = getGanguesCharacter(characterTemplateId)
   if (!character) return null
   return hydrateGanguesTemplateSheet({
     id: null,
     character_type: 'template',
     character_template_id: character.id,
-    xp_total: 0,
+    xp_total: Math.max(0, Number(xpTotal) || 0),
     attributes: { progression: { ap: 0 } },
   })
 }

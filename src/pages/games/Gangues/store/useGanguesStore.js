@@ -111,8 +111,8 @@ export const useGanguesStore = create((set, get) => ({
     return saved
   },
 
-  recruitTemplate: async (characterTemplateId, userId) => {
-    const templateSheet = createGanguesTemplateSheet(characterTemplateId)
+  recruitTemplate: async (characterTemplateId, userId, xpTotal = 0) => {
+    const templateSheet = createGanguesTemplateSheet(characterTemplateId, xpTotal)
     if (!templateSheet || get().roster.some(item => item.character_template_id === templateSheet.character_template_id)) return null
     set({ sheet: templateSheet })
     return (userId || get()._userId) ? get().saveToCloud(userId) : get().addLocalSheet(templateSheet)

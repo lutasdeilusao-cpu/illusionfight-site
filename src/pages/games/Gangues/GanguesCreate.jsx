@@ -4,6 +4,7 @@ import { useLanguage } from '../../../context/LanguageContext'
 import { useAuth } from '../../../context/AuthContext'
 import { useGanguesStore } from './store/useGanguesStore'
 import { GANGUES_CHARACTER_CATALOG, getGanguesAvailableCharacterIds } from './data/ganguesCharacters.js'
+import { GANGUES_INITIAL_PARTY_SIZE } from './data/ganguesLoadout.js'
 import { sfx } from '../../../lib/sfx'
 import GanguesFichaCard from './components/GanguesFichaCard'
 
@@ -64,13 +65,29 @@ export default function GanguesCreate({ onNavigate, onCreated }) {
     setDetailId(null)
   }
 
+  // A DUPLA FUNDADORA (initialRecruitment) nasce no nível 1, do jeito clássico.
+  // Todo recruta DEPOIS disso vem já ADIANTADO — pedido do Isaias: chegar no
+  // nível 1 numa gangue que já rodou o bairro faz o novato virar peso morto
+  // por um tempão. Cada recrutamento pós-fundação sobe +5: o 1º recruta vem
+  // L5, o 2º L10, o 3º L15... `N` conta pelo tamanho do elenco JÁ formado
+  // (não precisa de contador novo salvo em lugar nenhum).
+  const nivelDoProximoRecruta = () => {
+    if (initialRecruitment) return 1
+    // .getState() (não o `store` do render) pra pegar o elenco ATUALIZADO,
+    // caso essa função rode mais de uma vez no mesmo confirmRecruitment.
+    const n = Math.max(1, useGanguesStore.getState().roster.length - GANGUES_INITIAL_PARTY_SIZE + 1)
+    return 5 * n
+  }
+
   const confirmRecruitment = async () => {
     if (selectedIds.length !== required || saving) return
     setSaving(true)
     setError('')
     const saved = []
     for (const characterId of selectedIds) {
-      const member = await store.recruitTemplate(characterId, user?.id)
+      const nivel = nivelDoProximoRecruta()
+      const xpTotal = Math.max(0, nivel - 1)
+      const member = await store.recruitTemplate(characterId, user?.id, xpTotal)
       if (!member) break
       saved.push(member)
     }
