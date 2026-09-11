@@ -42,7 +42,7 @@ export const GANGUES_TERRITORIOS = [
     // mapa é "0 0 100 150" (ver GanguesStoryMap.jsx).
     poly: '0,138 16,150 32,140 50,148 43,130 57,112 40,118 20,108 0,120',
     pos: { top: 86, left: 29 },
-    // A Pista tem CENA própria (ver data/cenas/pista.js) — GanguesCena
+    // A Pista tem CENA própria (ver data/cenas/pista/) — GanguesCena
     // substitui essa trilha em jogo. Os campos abaixo (enemy/forca) ficam
     // só pra bookkeeping de domínio (marcarNoDominado usa os ids); os
     // combates de verdade usam os POIs da cena, não estes.
@@ -62,7 +62,7 @@ export const GANGUES_TERRITORIOS = [
     pos: { top: 85, left: 74 },
     // Reaproveitamento: os 3 pontos da Feira não bastam pra abrir o chefe —
     // precisa também ter falado com o informante lá na Pista (POI
-    // repetível `informante`, ver data/cenas/pista.js). É a primeira ponte
+    // repetível `informante`, ver data/cenas/pista/). É a primeira ponte
     // entre territórios: o jogo obriga voltar num bairro já dominado pra
     // avançar num novo, em vez de só progresso linear pra frente.
     precisaInformante: true,

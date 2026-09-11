@@ -88,7 +88,7 @@ export const GANGUES_EQUIP = Object.fromEntries(CATALOGO.map(item => [item.id, {
 export const GANGUES_EQUIP_LISTA = Object.values(GANGUES_EQUIP)
 
 // O que a loja da Pista vende — os básicos (id numérico). No corpo são
-// DOIS (o par PV/PM). Ver data/cenas/pista.js.
+// DOIS (o par PV/PM). Ver data/cenas/pista/.
 export const GANGUES_LOJA_EQUIP_BASICO = [104, 107, 108, 112, 115, 118, 101]
 
 export function getGanguesEquip(itemId) {
