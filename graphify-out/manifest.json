@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1789154187.963588,
-    "ast_hash": "d4e0c27c376254e585d527d5ed91e5ae",
+    "mtime": 1789155015.457564,
+    "ast_hash": "dce23e443796a8c12394c3aa8f4dd043",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2745,8 +2745,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1789154195.0808058,
-    "ast_hash": "b612173d473b6de644f9e5032f654807",
+    "mtime": 1789155022.4017234,
+    "ast_hash": "1a103e10a41d50d97a0b572e6bd16afc",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -4735,8 +4735,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/GanguesCena.jsx": {
-    "mtime": 1789154047.8925142,
-    "ast_hash": "5129f206329ad271dddb9aa1acc2df63",
+    "mtime": 1789154570.627761,
+    "ast_hash": "0f2c0f256310d844cb5c124077e34506",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/cena/GanguesDescanso.jsx": {
@@ -5020,8 +5020,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/cenas/pista/index.js": {
-    "mtime": 1789154030.8958435,
-    "ast_hash": "a3dcb5635550d5bf0c916bf44fffa772",
+    "mtime": 1789154352.657188,
+    "ast_hash": "c85b82f112370768723e7fe064545f23",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/cenas/pista/interiores.js": {
@@ -5042,6 +5042,46 @@
   "src/pages/games/Gangues/data/cenas/pista/pools.js": {
     "mtime": 1789153833.154235,
     "ast_hash": "c2d4fc2dbaa70c230430e15125f2026e",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx": {
+    "mtime": 1789154403.4756057,
+    "ast_hash": "a5a57beba74f8234933d99c5c5508de0",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/components/cena/GanguesCenaBagSheet.jsx": {
+    "mtime": 1789154381.5709164,
+    "ast_hash": "085632de0f9344e024060a3fe79f0e11",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/components/cena/GanguesCenaEncontros.jsx": {
+    "mtime": 1789154421.2594533,
+    "ast_hash": "8ac46f49b25d38d7c724db9601a7bbc8",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/components/cena/GanguesCenaFichaCard.jsx": {
+    "mtime": 1789154435.5573182,
+    "ast_hash": "1a66bf8f738e173e15cd779844daf874",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/data/cenas/pista/posicoes.js": {
+    "mtime": 1789154322.0754194,
+    "ast_hash": "74a50c97ddb86fda81c7553d83d15732",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/engine/ganguesCenaMotor.js": {
+    "mtime": 1789154300.1350777,
+    "ast_hash": "e9b9c9b574ecb9cb7b04409a69d5a3ff",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/hooks/useGanguesCenaEventoAleatorio.js": {
+    "mtime": 1789154475.4006698,
+    "ast_hash": "71793d4ed4870241011249aa34a03afb",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/hooks/useGanguesCenaMovimento.js": {
+    "mtime": 1789154454.5083134,
+    "ast_hash": "155268c2b1c9acbd78f2b37b9244c4e0",
     "semantic_hash": ""
   }
 }
