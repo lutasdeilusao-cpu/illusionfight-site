@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1789150384.8873346,
-    "ast_hash": "15d424898d47ddeae4066e3bec929cc6",
+    "mtime": 1789150991.1863837,
+    "ast_hash": "272a5f6b761e81102b0390afe1c66a23",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2745,8 +2745,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1789150393.6494277,
-    "ast_hash": "a3a7a7bc32fe62c0a6fa32b84a1405d7",
+    "mtime": 1789150997.008957,
+    "ast_hash": "4d5f91c67f6055af41c3fabf92152439",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3514,11 +3514,6 @@
     "ast_hash": "1abaadc1642d735790842598ccfb014e",
     "semantic_hash": ""
   },
-  "src/pages/games/Gangues/data/trash_talk.json": {
-    "mtime": 1788488754.5266178,
-    "ast_hash": "dd77905e5797a2a36a484e4bbebe4ce8",
-    "semantic_hash": ""
-  },
   "src/pages/games/Gangues/engine/ganguesCombatResolver.js": {
     "mtime": 1788887698.6558242,
     "ast_hash": "bd9f32785e4596b0932deae94369ba5e",
@@ -3572,11 +3567,6 @@
   "src/pages/games/Gangues/GANGUES_DESIGN.md": {
     "mtime": 1789150336.7720654,
     "ast_hash": "a97f4e261165fecdbfb78ff380169ed8",
-    "semantic_hash": ""
-  },
-  "src/pages/games/Gangues/components/GanguesProgressionPanel.jsx": {
-    "mtime": 1789146522.8244147,
-    "ast_hash": "dada49879c575e81eb42922052fa4afc",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/ganguesSpecials.js": {
@@ -4789,14 +4779,9 @@
     "ast_hash": "f3a12cfe56768f863709e207ea2e069d",
     "semantic_hash": ""
   },
-  "ldi_gangues_30_personagens_v1.json": {
-    "mtime": 1789148586.706394,
-    "ast_hash": "35faff8ee75707fff09bf051582b9835",
-    "semantic_hash": ""
-  },
   "src/pages/games/Gangues/data/ganguesCharacters.js": {
-    "mtime": 1789146269.778573,
-    "ast_hash": "1f7c5c6c9526057f3054949c4fd1d6db",
+    "mtime": 1789150954.2828453,
+    "ast_hash": "04938f13805f62e3bf159cbb9a7f0eaf",
     "semantic_hash": ""
   },
   "supabase/migrations/032_gangues_character_templates.sql": {
@@ -4957,6 +4942,11 @@
   "src/pages/games/Gangues/GanguesClubeSala.jsx": {
     "mtime": 1789052852.0424113,
     "ast_hash": "fd581662fb5995b08d3e12efb84c2598",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/data/ldi_gangues_30_personagens_v1.json": {
+    "mtime": 1789148586.706394,
+    "ast_hash": "35faff8ee75707fff09bf051582b9835",
     "semantic_hash": ""
   }
 }

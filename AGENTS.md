@@ -148,6 +148,8 @@ Antes de criar **mais de 2 arquivos novos** para resolver qualquer problema, o a
 
 Todo arquivo tocado com **mais de 300 linhas** deve ser avaliado para extração antes de adicionar mais código. Propor a extração, não executar sem aprovação.
 
+**Exceção documentada:** `src/pages/games/Gangues/data/ganguesEncontros.js` (356 linhas, avaliado em set/2026 no `PLANO_REFATORACAO_ARQUIVOS_GRANDES_GANGUES_2026-09-11.md` §1). Não divide: é um módulo único e coeso (geração de bando inimigo), não uma mistura de concerns — o tamanho vem de tabelas de configuração fortemente comentadas (histórico de calibração, resultado de simulação), não de responsabilidades empilhadas. Dividir config de lógica ali seria corte artificial sem ganho de legibilidade.
+
 ## Segurança é hábito, não fase
 
 Nenhum commit pode passar com:
