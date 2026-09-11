@@ -529,9 +529,12 @@
    baixo — foi o que aconteceu: o teste automatizado nunca tinha a Rádio Nina
    tocando, então nunca reproduziu o corte que aparece com ela ativa. */
 .gang-cena-worldpage { position:relative; width:100%; align-self:stretch; flex:1 1 auto; min-width:0; height:calc(100dvh - var(--guest-notice-h, 0px) - var(--radio-nina-top-h, 0px) - var(--radio-nina-h, 0px)); min-height:620px; overflow:hidden; background:#030609; color:#fff; display:flex; flex-direction:column; }
-.gang-cena-worldhud { position:absolute; z-index:30; left:12px; right:12px; top:max(12px, calc(env(safe-area-inset-top, 0px) + 8px)); height:42px; display:flex; align-items:center; justify-content:space-between; gap:8px; padding:0 10px; border:1px solid #284047; background:rgba(3,8,11,.9); backdrop-filter:blur(8px); clip-path:polygon(0 0,calc(100% - 9px) 0,100% 9px,100% 100%,0 100%); }
-.gang-cena-worldhud button { color:var(--if-cyan); border:0; background:none; font:800 .62rem var(--font-mono); letter-spacing:.1em; }
-.gang-cena-worldhud strong { font:800 .72rem var(--font-display); letter-spacing:.08em; white-space:nowrap; }
+.gang-cena-worldhud { position:absolute; z-index:30; left:12px; right:12px; top:max(12px, calc(env(safe-area-inset-top, 0px) + 8px)); height:42px; display:flex; align-items:center; justify-content:space-between; gap:8px; padding:0 10px; border:1px solid #284047; background:rgba(3,8,11,.9); backdrop-filter:blur(8px); clip-path:polygon(0 0,calc(100% - 9px) 0,100% 9px,100% 100%,0 100%); overflow:hidden; }
+.gang-cena-worldhud button { flex:0 0 auto; color:var(--if-cyan); border:0; background:none; font:800 .62rem var(--font-mono); letter-spacing:.1em; }
+/* Nome do lugar (bairro OU "Galpão · CÔMODO 3/4") tem tamanho variável — sem
+   min-width:0 + ellipsis, um nome comprido empurrava os ícones da direita
+   pra fora do HUD (estourava de lado). Some texto MEIO, nunca layout. */
+.gang-cena-worldhud strong { flex:1 1 auto; min-width:0; overflow:hidden; text-overflow:ellipsis; font:800 .72rem var(--font-display); letter-spacing:.08em; white-space:nowrap; }
 .gang-cena-worldhud strong i { color:var(--terr-cor); font:700 .58rem var(--font-mono); }
 .gang-cena-meta-btn { color:var(--terr-cor)!important; font:700 .58rem var(--font-mono)!important; letter-spacing:.04em!important; padding:2px 4px!important; }
 
@@ -550,7 +553,7 @@
 .gang-cena-checklist li.is-feito { color:#5f6f75; text-decoration:line-through; }
 .gang-cena-checklist li.is-feito span { color:#6be07a; }
 .gang-cena-checklist p { margin:9px 0 0; font:600 .68rem var(--font-body); line-height:1.4; color:#8fa0a6; border-top:1px solid #223338; padding-top:8px; }
-.gang-cena-worldhud>span { color:#b8c2c7; font:700 .58rem var(--font-mono); white-space:nowrap; }
+.gang-cena-worldhud>span { flex:0 0 auto; color:#b8c2c7; font:700 .58rem var(--font-mono); white-space:nowrap; }
 .gang-cena-ficha-btn { font-size:1rem !important; line-height:1; padding:2px 4px !important; }
 .gang-cena-viewport { position:relative; flex:1 1 auto; min-height:0; overflow:hidden; touch-action:none; background:#081015; }
 .gang-cena-world { position:absolute; left:0; top:0; transform-origin:0 0; will-change:transform; transition:transform .11s ease-out; overflow:hidden; background-color:#10181b; background-image:linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),radial-gradient(circle at 70% 30%,#17241f 0,transparent 30%); background-size:36px 36px,36px 36px,100% 100%; }

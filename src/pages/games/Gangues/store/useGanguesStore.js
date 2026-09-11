@@ -182,14 +182,20 @@ export const useGanguesStore = create((set, get) => ({
     let somaPisos = 0
     ids.forEach(id => { const piso = Math.floor(fracoesExatas[id]); apPorMembro[id] = baseGarantida + piso; somaPisos += piso })
     const sobra = poteRestante - somaPisos
-    // A sobra (divisão que não fecha, número ímpar) vai pro personagem de
-    // MENOR nível — é quem o jogador normalmente quer upar (trazer o elo fraco
-    // pra cima). Empate de nível: quem tem o maior resto fracionário. Sem
-    // nível informado: só o resto fracionário (comportamento antigo).
+    // A sobra (divisão que não fecha, número ímpar) respeita PRIMEIRO o peso
+    // (quem contribuiu mais tem prioridade — não faz sentido alguém que nem
+    // lutou furar na frente de quem matou). SÓ entre pesos EMPATADOS (ex: dois
+    // que não atacaram) o desempate vai pro de MENOR nível — o elo fraco que o
+    // jogador normalmente quer upar. Por último, maior resto fracionário.
+    // BUG CORRIGIDO: antes o nível mandava sozinho, e um recruta novo/fraco
+    // (nível baixo) SEMPRE vencia o desempate mesmo sem ter lutado — "o Marreta
+    // sempre recebe mais que todo mundo" mesmo parado.
     const resto = id => fracoesExatas[id] - Math.floor(fracoesExatas[id])
     const temNivel = Object.keys(nivelPorId).length > 0
     const ordemSobra = [...ids].sort((a, b) =>
-      (temNivel ? (Number(nivelPorId[a] ?? 999) - Number(nivelPorId[b] ?? 999)) : 0) || (resto(b) - resto(a)))
+      ((Number(pesosPorId[b]) || 0) - (Number(pesosPorId[a]) || 0)) ||
+      (temNivel ? (Number(nivelPorId[a] ?? 999) - Number(nivelPorId[b] ?? 999)) : 0) ||
+      (resto(b) - resto(a)))
     for (let i = 0; i < sobra && ordemSobra.length; i++) apPorMembro[ordemSobra[i % ordemSobra.length]] += 1
 
     const levelUps = []
