@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1789151589.274725,
-    "ast_hash": "3045149a4c2f5531a4a7c2251a002330",
+    "mtime": 1789153206.7450204,
+    "ast_hash": "eaa778a1131e27e34b880a5e47643476",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2745,8 +2745,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1789151595.6446414,
-    "ast_hash": "eb3e15cb018fbf191e90882fe25c4d89",
+    "mtime": 1789153213.8555138,
+    "ast_hash": "ef123d3daf9e426c5cd054a1f57d7837",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3495,8 +3495,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/GanguesVictory.jsx": {
-    "mtime": 1789082300.6311388,
-    "ast_hash": "bc7af5a2c23fddc9dc888317a308d3de",
+    "mtime": 1789151938.3083367,
+    "ast_hash": "431a0fffc5d69560bbc3732b3777efe9",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/DramaticDice.jsx": {
@@ -4947,6 +4947,26 @@
   "src/pages/games/Gangues/data/ldi_gangues_30_personagens_v1.json": {
     "mtime": 1789148586.706394,
     "ast_hash": "35faff8ee75707fff09bf051582b9835",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/GanguesVictoryFinal.jsx": {
+    "mtime": 1789151856.3033488,
+    "ast_hash": "d71d60d928aa89f2c4259ab17f67dea9",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/GanguesVictoryReport.jsx": {
+    "mtime": 1789151890.3087778,
+    "ast_hash": "3af262f1006de52646eef400577e5dc8",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/engine/ganguesVictoryResolver.js": {
+    "mtime": 1789151798.5835738,
+    "ast_hash": "ec87824cd459acfc03b45fdb1ba0d795",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/hooks/useGanguesVictoryResolution.js": {
+    "mtime": 1789153109.6670363,
+    "ast_hash": "ec3134b03cafcd612e1f84e4e5f1148a",
     "semantic_hash": ""
   }
 }
