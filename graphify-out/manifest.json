@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1789155015.457564,
-    "ast_hash": "dce23e443796a8c12394c3aa8f4dd043",
+    "mtime": 1789155925.1428685,
+    "ast_hash": "437645094d62b856e1d8940d8335b8ca",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2745,8 +2745,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1789155022.4017234,
-    "ast_hash": "1a103e10a41d50d97a0b572e6bd16afc",
+    "mtime": 1789155932.0665646,
+    "ast_hash": "0d046ac6d2fc52151da81fdd3bf1c31a",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3475,8 +3475,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/GanguesCombat.jsx": {
-    "mtime": 1789060095.0988693,
-    "ast_hash": "0c7021efe5d767495f568c4f61bd299a",
+    "mtime": 1789155457.6813874,
+    "ast_hash": "d81deafddf80293ce20e4fdc78833ca1",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/GanguesCreate.jsx": {
@@ -5082,6 +5082,61 @@
   "src/pages/games/Gangues/hooks/useGanguesCenaMovimento.js": {
     "mtime": 1789154454.5083134,
     "ast_hash": "155268c2b1c9acbd78f2b37b9244c4e0",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/components/GanguesCombatLogList.jsx": {
+    "mtime": 1789155159.600202,
+    "ast_hash": "77d0be905537cca25541fc5f0054ff36",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/components/GanguesCombatOverlays.jsx": {
+    "mtime": 1789155211.3254724,
+    "ast_hash": "ef6e3c2692a9bc03e1b3626b31eb64d3",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/components/GanguesCombatRoster.jsx": {
+    "mtime": 1789155119.2162507,
+    "ast_hash": "c3d55b0bb09f8ae65dc6f96addfc2d71",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/components/GanguesCombatTopBar.jsx": {
+    "mtime": 1789155136.7137532,
+    "ast_hash": "5ad929532cfec84eeecdc86be1b0abb3",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/components/GanguesMultidaoActionBar.jsx": {
+    "mtime": 1789155174.2758563,
+    "ast_hash": "1241833518d75aaa5b776de39e509f54",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/engine/ganguesCombatPresentation.js": {
+    "mtime": 1789155095.9237995,
+    "ast_hash": "461c45d74745c90755aa3672d70dba4a",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/hooks/useGanguesBattleOutcome.js": {
+    "mtime": 1789155388.8513665,
+    "ast_hash": "1bae5212414bbbb4ea3a076e66630a24",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/hooks/useGanguesCombatFx.js": {
+    "mtime": 1789155234.9242084,
+    "ast_hash": "ddbddf4fba61d1cc7228890f92f7cd78",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/hooks/useGanguesCombatLog.js": {
+    "mtime": 1789155343.73944,
+    "ast_hash": "2eae29d578d0cabb91cee89c074d7163",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/hooks/useGanguesModoAuto.js": {
+    "mtime": 1789155254.003415,
+    "ast_hash": "e235453783af4b9b8ebeec9ccf30417d",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/hooks/useGanguesModoMultidao.js": {
+    "mtime": 1789155293.3059413,
+    "ast_hash": "bbbb3ba158d73f2f494c70803f14b82a",
     "semantic_hash": ""
   }
 }
