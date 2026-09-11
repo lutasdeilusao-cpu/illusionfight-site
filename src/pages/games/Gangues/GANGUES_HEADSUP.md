@@ -11,8 +11,19 @@
 > 75 poderes agora têm efeito real em combate (v1.14.0) e a persistência já era via Supabase
 > (não localStorage), ver seções 7 e 11.
 
-**Versão atual:** `GANGUES_VERSION = 1.14.0` (`src/config/version.js`), site geral em `10.198.15`.
+**Versão atual (na época em que este documento foi escrito):** `GANGUES_VERSION = 1.14.0`
+(`src/config/version.js`), site geral em `10.198.15`.
 **Rota:** `/games/ldi-gangues` (a antiga `/games/ldi-arena` só redireciona pra cá).
+
+> **⚠️ DESATUALIZADO (constatado em 2026-09-11) — o jogo está em `GANGUES_VERSION` 2.75.1**,
+> mais de 60 versões patch à frente. Em especial, a alegação acima de que "os 75 poderes agora
+> têm efeito real em combate (v1.14.0)" **era otimista demais**: o changelog de v2.75.1 (ver
+> `src/config/version.js`) documenta que os ids de 9 dos 10 subcaminhos de Defensor/Místico não
+> batiam com `signature_specials` dos 30 personagens até aquele release — ou seja, pra 20 dos 30
+> personagens o poder equipado nunca era encontrado em combate, só a técnica base aparecia. Esse
+> bug foi corrigido em v2.75.1, junto com o design próprio (antes genérico) de Defensor e
+> Místico — ver `GANGUES_PROGRESSAO_RASCUNHO.md` §4.6/§4.7. Trate o conteúdo abaixo como
+> contexto histórico do que já foi testado, não como estado atual do jogo.
 
 ---
 

@@ -1538,412 +1538,3105 @@
         "modal_btn": "UPGRADE NOW"
       },
       "trash_talk_npc": {
-        "npc_arrogante_marelia": {
-          "battle_start": [
-            "look who decided to show up 😏",
-            "you know who you're fighting, right? 😤",
-            "this will be quick. spoiler: not for you 💅",
-            "tell the next in line I'm coming 😂",
-            "my mom told me not to hit someone with no chance. I'll ignore her 🙄"
-          ],
+        "1101": {
           "attack_miss": [
-            "didn't even touch 💀",
-            "was that an attack?? 😭",
-            "did you close your eyes? 😂",
-            "do it again, I want to record 📱😂",
-            "bro you missed BADLY 😭💀"
+            "missed me by a mile 😮‍💨",
+            "didn't even see you clear 👀",
+            "I'm just watching, not swinging 🫥"
           ],
           "attack_hit": [
-            "FEEL THAT? 🔥",
-            "hurts, right? 😈",
-            "there's more coming 👊💥",
-            "I'll tell you when to stop 😏",
-            "your HP is crying right now 📉😂"
+            "told you it'd sting 📣",
+            "that's for climbing too fast 👊",
+            "the whole crew already knows you're here 🔊"
           ],
           "take_damage": [
-            "lucky shot 🙄",
-            "that was nothing lol 😒",
-            "interesting... 🤨",
-            "okay, you've got some arm 😒",
-            "I didn't block that on purpose. testing 🧪"
+            "hey, none of that 😤",
+            "this won't hold me down 🏃",
+            "I've taken worse just standing lookout 🙄"
           ],
           "take_critical": [
-            "OK THAT HURT 😤💢",
-            "didn't expect that ngl 😳",
-            "good hit. respect. 👏",
-            "okay okay you can fight a little 😤",
-            "that won't change the outcome 😤🔥"
+            "whoa, that one landed 😳",
+            "alright, you've got hands 👏"
           ],
           "player_near_death": [
-            "it's over for you bro 💀💀",
-            "should've run when you had the chance 🏃‍♂️💨",
-            "want me to stop? 🥹",
-            "can I call NeoGuide to help you? 😂",
-            "imagine losing to ME 💀 how embarrassing"
+            "run while you still can 🙏",
+            "the whole block's seen you now 😈"
           ],
           "enemy_near_death": [
-            "it's NOT over yet 😤",
-            "I'm just warming up I swear 🔥",
-            "you underestimated me huh 😏",
-            "you won't finish this 😡",
-            "you messed up bro. MESSED UP 😤💢"
+            "I'll still get the word out 😤",
+            "I'm not going down quiet 📣"
+          ],
+          "defeat": [
+            "...gotta warn 'em you got through 😔",
+            "alright, the crew's on their own now 🫡"
           ]
         },
-        "npc_frio_azuma": {
-          "battle_start": [
-            "let's end this.",
-            "you'll understand the difference soon.",
-            "I won't underestimate. it's respect, not weakness.",
-            "I analyzed your last fight. it was enough.",
-            "start whenever you're ready. I've already finished preparing."
-          ],
+        "1102": {
           "attack_miss": [
-            "calculated miss. next one won't.",
-            "you have instinct. good.",
-            "efficient dodge. 0.3 seconds. logged.",
-            "interesting. adapted the trajectory.",
-            "real dodge or panic reaction? I'll find out."
+            "missed me by a mile 😮‍💨",
+            "didn't even see you clear 👀",
+            "I'm just watching, not swinging 🫥"
           ],
           "attack_hit": [
-            "as expected.",
-            "correct impact point.",
-            "damage applied. continue.",
-            "you'll feel this tomorrow.",
-            "structure collapsed as predicted."
+            "told you it'd sting 📣",
+            "that's for climbing too fast 👊",
+            "the whole crew already knows you're here 🔊"
           ],
           "take_damage": [
-            "damage received. adjusting.",
-            "you found an opening. you won't find two.",
-            "efficient. noted.",
-            "that was good. won't repeat.",
-            "interesting target choice."
+            "hey, none of that 😤",
+            "this won't hold me down 🏃",
+            "I've taken worse just standing lookout 🙄"
           ],
           "take_critical": [
-            "...recalculating.",
-            "you surprised me. not easy.",
-            "that wasn't in the model.",
-            "logged. won't happen again.",
-            "real strength. different from the video."
+            "whoa, that one landed 😳",
+            "alright, you've got hands 👏"
           ],
           "player_near_death": [
-            "you don't have to continue.",
-            "you fought with technique. rest.",
-            "the skill gap is clear now.",
-            "your posture is still good. but it's over.",
-            "end it here. no dishonor."
+            "run while you still can 🙏",
+            "the whole block's seen you now 😈"
           ],
           "enemy_near_death": [
-            "you're better than the data indicated.",
-            "I need more data. continue.",
-            "good. but still not enough.",
-            "interesting. you might be a future problem.",
-            "adjusting strategy. now it ends."
+            "I'll still get the word out 😤",
+            "I'm not going down quiet 📣"
+          ],
+          "defeat": [
+            "...gotta warn 'em you got through 😔",
+            "alright, the crew's on their own now 🫡"
           ]
         },
-        "npc_caotico_sdr": {
-          "battle_start": [
-            "I CAN'T BELIEVE YOU ACCEPTED TO FIGHT ME 😭🔥",
-            "dude I needed a fight NOW and you showed up, so lucky 😂",
-            "warning: I have no strategy. that scares you more than it should 😈",
-            "my NeoGuide said not to fight today. I didn't listen 🥴",
-            "I'm in full chaos mode. good luck to me too 😭😂"
-          ],
+        "1103": {
           "attack_miss": [
-            "WAIT THAT WASN'T SUPPOSED TO MISS 😭",
-            "lag or did I just miss?? 🤔",
-            "pretend I did that on purpose 😂",
-            "I saw a butterfly and lost focus I swear 🦋😭",
-            "NEXT ONE I'LL HIT I SWEAR ON EVERYTHING 😤"
+            "missed me by a mile 😮‍💨",
+            "didn't even see you clear 👀",
+            "I'm just watching, not swinging 🫥"
           ],
           "attack_hit": [
-            "DID I HIT?? I ACTUALLY HIT!! 🎉😭",
-            "LOOK MOM 😂🔥",
-            "take that!! and that!! and some more!! 💥💥💥",
-            "I CAN'T BELIEVE THAT WORKED 😱🔥",
-            "your HP went down. MY DREAM 😭💕"
+            "told you it'd sting 📣",
+            "that's for climbing too fast 👊",
+            "the whole crew already knows you're here 🔊"
           ],
           "take_damage": [
-            "THANKS FOR THE PAIN TIPS 😭",
-            "was that necessary?? WAS IT??? 😤",
-            "okay OKAY I felt that 😤💢",
-            "did you really think that would hurt?? (it hurt a lot) 😭",
-            "I'm fine I'm fine I'm DEFINITELY not fine 😮‍💨"
+            "hey, none of that 😤",
+            "this won't hold me down 🏃",
+            "I've taken worse just standing lookout 🙄"
           ],
           "take_critical": [
-            "DUDE?? 😱💀",
-            "was that a crit?? WAS THAT A CRIT?? 😭😭",
-            "okay you have my respect and my hatred simultaneously 😤👏",
-            "my grandma hits softer than that 💀",
-            "LOGGING TRAUMA 🧠💥"
+            "whoa, that one landed 😳",
+            "alright, you've got hands 👏"
           ],
           "player_near_death": [
-            "DON'T GIVE UP I NEED THIS FIGHT 😭",
-            "you're still standing?? mad respect 🫡",
-            "one more round please I'm having fun 🥹",
-            "if you're gonna lose at least fall with style 💅",
-            "bye 😭✋ it was fun while it lasted"
+            "run while you still can 🙏",
+            "the whole block's seen you now 😈"
           ],
           "enemy_near_death": [
-            "NOT NOW NOT NOW 😭😭",
-            "how are you still standing?????? 😱",
-            "my plan was different this wasn't supposed to happen 😤",
-            "RECALCULATING RECALCULATING 🔄😤",
-            "okay you're good. I hate you. respect. hate. 😤💕"
+            "I'll still get the word out 😤",
+            "I'm not going down quiet 📣"
+          ],
+          "defeat": [
+            "...gotta warn 'em you got through 😔",
+            "alright, the crew's on their own now 🫡"
           ]
         },
-        "npc_veterano_ranqueado": {
-          "battle_start": [
-            "how many fights do you have? seriously asking. 🤔",
-            "it's okay to lose to someone more experienced. it's part of it 😌",
-            "I've seen this style before. I know how it ends. 😏",
-            "you have potential. today isn't your day. 😤",
-            "the ranking doesn't lie. but sometimes it surprises 😌"
-          ],
+        "1104": {
           "attack_miss": [
-            "good reflexes for your experience 👏",
-            "you read the angle. impressive for a rookie 😌",
-            "smart dodge. but I learn 🧠",
-            "I missed. happens. once 😒",
-            "you're gonna tell everyone you dodged me right 😂"
+            "missed me by a mile 😮‍💨",
+            "didn't even see you clear 👀",
+            "I'm just watching, not swinging 🫥"
           ],
           "attack_hit": [
-            "technique first, strength later 💪",
-            "you'll understand the pattern when it's too late 😏",
-            "accumulated damage. that's how you win 📊",
-            "every hit has purpose. this one had three 😌",
-            "learn from this 🧠"
+            "told you it'd sting 📣",
+            "that's for climbing too fast 👊",
+            "the whole crew already knows you're here 🔊"
           ],
           "take_damage": [
-            "you have more than meets the eye 😌",
-            "good hit. noted 👏",
-            "that cost me something. won't happen twice 😤",
-            "you have instinct, not just technique. rare 🧠",
-            "okay. you're better than I expected 😒"
+            "hey, none of that 😤",
+            "this won't hold me down 🏃",
+            "I've taken worse just standing lookout 🙄"
           ],
           "take_critical": [
-            "you got me. I give credit 🫡",
-            "that wasn't in my battle map. logged 📋",
-            "congratulations. genuinely 👏",
-            "your timing on that hit was perfect. learn that, don't forget 🧠",
-            "how long have you been training that? 🤔"
+            "whoa, that one landed 😳",
+            "alright, you've got hands 👏"
           ],
           "player_near_death": [
-            "you fought well for your ranking position 😌",
-            "next time you'll go further. I'm serious, not condescending 🫡",
-            "don't give up yet. finish standing 😤",
-            "defeat teaches more than victory. you'll learn a lot today 🧠",
-            "respect for the resistance. seriously 👏"
+            "run while you still can 🙏",
+            "the whole block's seen you now 😈"
           ],
           "enemy_near_death": [
-            "you're better than my history of opponents suggested 😤",
-            "I had to use more than I planned. that's rare 😌",
-            "you could go far in this game. not today, but you could 🧠",
-            "I didn't expect you to last this long. my analysis error 😒",
-            "that was a real fight. thank you for that 🫡"
+            "I'll still get the word out 😤",
+            "I'm not going down quiet 📣"
+          ],
+          "defeat": [
+            "...gotta warn 'em you got through 😔",
+            "alright, the crew's on their own now 🫡"
           ]
         },
-        "npc_provocador_bravara": {
-          "battle_start": [
-            "you paid to enter the SDR and made it this far. brave or dumb 😂",
-            "I've seen your history. not intimidating 😏",
-            "there are people in line waiting for this room. won't take long 😂",
-            "you look like someone who never made it to top 10k 😏",
-            "nothing personal. it's just that you're gonna lose 😂"
-          ],
+        "1105": {
           "attack_miss": [
-            "you dodged?? YOU DODGED?? ok minimal respect 😤",
-            "luck. next time I'm ready 😒",
-            "okay, you can move. big deal 🙄",
-            "almost. hurts more when you almost hit, you know? 😂",
-            "okay that was my bad. note it down, won't happen again 😤"
+            "missed me by a mile 😮‍💨",
+            "didn't even see you clear 👀",
+            "I'm just watching, not swinging 🫥"
           ],
           "attack_hit": [
-            "it was supposed to hurt more but this'll do 😂",
-            "you'll feel this tomorrow when you wake up 😈",
-            "take it! and another! generous right? 😂💥",
-            "your HP is complaining about me 📉😂",
-            "look at the damage. look. look. 😂🔥"
+            "told you it'd sting 📣",
+            "that's for climbing too fast 👊",
+            "the whole crew already knows you're here 🔊"
           ],
           "take_damage": [
-            "my bad, I missed the block 😒",
-            "you're lucky I'm chill today 🙄",
-            "okay that was okay 😤",
-            "hit. congrats. that was your moment of the day 😂",
-            "enjoy it because it's not happening again 😏"
+            "hey, none of that 😤",
+            "this won't hold me down 🏃",
+            "I've taken worse just standing lookout 🙄"
           ],
           "take_critical": [
-            "THAT'S NOT GOING IN THE HISTORY 😤💢",
-            "you were saving that?? you sly dog 😂",
-            "okay okay you have ONE good move. ONE 😤",
-            "that hurt my avatar AND my ego 😭",
-            "don't tell anyone 😤"
+            "whoa, that one landed 😳",
+            "alright, you've got hands 👏"
           ],
           "player_near_death": [
-            "is it over yet? 😂",
-            "I can stop whenever you admit you lost 😏",
-            "imagine explaining this loss on the forum 💀😂",
-            "your ranking is gonna drop hard today 📉😂",
-            "don't need a KO, you lost way back 😏"
+            "run while you still can 🙏",
+            "the whole block's seen you now 😈"
           ],
           "enemy_near_death": [
-            "WAIT WAIT how are you like this 😤",
-            "you weren't supposed to get this far based on history 😠",
-            "okay, you're better than you look. HAPPY? 😤",
-            "this is NOT going in my fight summary 😭",
-            "I'm not losing. I'm testing you. it's different 😤"
+            "I'll still get the word out 😤",
+            "I'm not going down quiet 📣"
+          ],
+          "defeat": [
+            "...gotta warn 'em you got through 😔",
+            "alright, the crew's on their own now 🫡"
           ]
         },
-        "npc_mistico_xakaxi": {
-          "battle_start": [
-            "the arena feels what you carry before you arrive 🌑",
-            "you came this far. the rest isn't your choice 🔥",
-            "every fight is a cycle. this one started before you noticed 🌀",
-            "I don't fight against you. I fight with what you represent 🌑",
-            "you'll understand in the end. or not. that's fine too 🔥"
-          ],
+        "1106": {
           "attack_miss": [
-            "you moved right. but for the wrong reason 🌑",
-            "the space between us also fights 🌀",
-            "dodge. but you're closer than you realize 🔥",
-            "the mistake was mine. the next won't be 🌑",
-            "you dodged where I was. not where I'll be 🌀"
+            "missed me by a mile 😮‍💨",
+            "didn't even see you clear 👀",
+            "I'm just watching, not swinging 🫥"
           ],
           "attack_hit": [
-            "felt that? it's not just damage 🔥",
-            "the strike had already arrived before leaving 🌑",
-            "this will stay with you for a while 🌀",
-            "each impact tells a different story 🔥",
-            "you'll understand the pattern when it's too late 🌑"
+            "told you it'd sting 📣",
+            "that's for climbing too fast 👊",
+            "the whole crew already knows you're here 🔊"
           ],
           "take_damage": [
-            "good. you have real presence 🔥",
-            "pain confirms the fight is real 🌑",
-            "did you find an opening I left or one that existed on its own? 🌀",
-            "interesting. you attack like someone who knows the target 🔥",
-            "that came from a place I didn't see coming. respect 🌑"
+            "hey, none of that 😤",
+            "this won't hold me down 🏃",
+            "I've taken worse just standing lookout 🙄"
           ],
           "take_critical": [
-            "...you have something beyond technique 🔥",
-            "that strike came from a different place 🌑",
-            "you surprised me in the way that matters 🌀",
-            "there's something in you that hasn't fully awakened yet 🔥",
-            "the ancestor in your blood manifested in that strike 🌑"
+            "whoa, that one landed 😳",
+            "alright, you've got hands 👏"
           ],
           "player_near_death": [
-            "you're still here. that's all that matters now 🌑",
-            "falling isn't the end of everything. just of one thing 🌀",
-            "the fight already taught you what you needed 🔥",
-            "you fought with what you have. that's all that's asked 🌑",
-            "the cycle closes here for today 🌀"
+            "run while you still can 🙏",
+            "the whole block's seen you now 😈"
           ],
           "enemy_near_death": [
-            "you forced something I didn't expect to need 🔥",
-            "the cycle hasn't closed yet. continue 🌑",
-            "you have more than your rank shows 🌀",
-            "you made me recalculate what I bring to the arena 🔥",
-            "this doesn't end as I predicted. better that way 🌑"
+            "I'll still get the word out 😤",
+            "I'm not going down quiet 📣"
+          ],
+          "defeat": [
+            "...gotta warn 'em you got through 😔",
+            "alright, the crew's on their own now 🫡"
           ]
         },
-        "npc_hacker_sdr": {
-          "battle_start": [
-            "I've analyzed your last twelve rounds before accepting this fight 🖥️",
-            "your attack patterns have been cataloged. welcome to the disadvantage 💻😏",
-            "I know what you'll do before you decide 🖥️😈",
-            "you accepted the fight without reading the terms. classic 💻😂",
-            "system initialized. estimated duration: short 🖥️"
-          ],
+        "1107": {
           "attack_miss": [
-            "unexpected variable. updating model 🖥️",
-            "you did something outside the cataloged pattern. interesting 💻🤔",
-            "prediction error. 0.4% chance. congratulations 🖥️😒",
-            "the dodge wasn't in the dataset. logged 💻",
-            "you broke my pattern for one second. just one 🖥️😏"
+            "missed me by a mile 😮‍💨",
+            "didn't even see you clear 👀",
+            "I'm just watching, not swinging 🫥"
           ],
           "attack_hit": [
-            "damage applied per calculation 💻",
-            "vulnerability successfully exploited 🖥️😈",
-            "the system doesn't fail when the data is correct 💻🔥",
-            "error found in your combat code 🖥️😂",
-            "patch note: you took damage 💻😂"
+            "told you it'd sting 📣",
+            "that's for climbing too fast 👊",
+            "the whole crew already knows you're here 🔊"
           ],
           "take_damage": [
-            "data recorded. adjusting defense 🖥️",
-            "you found an undocumented flaw 💻😒",
-            "that wasn't in the analysis logs. curious 🖥️🤔",
-            "partial firewall. revising config 💻",
-            "unexpected input. processing 🖥️"
+            "hey, none of that 😤",
+            "this won't hold me down 🏃",
+            "I've taken worse just standing lookout 🙄"
           ],
           "take_critical": [
-            "UNHANDLED EXCEPTION 💻🚨",
-            "you... completely left the model 🖥️😳",
-            "this will require rebuilding the entire dataset 💻💢",
-            "the system didn't predict this. and that's a serious problem 🖥️",
-            "congratulations. you found a bug in my algorithm 💻👏"
+            "whoa, that one landed 😳",
+            "alright, you've got hands 👏"
           ],
           "player_near_death": [
-            "shutdown sequence initiated 🖥️",
-            "critical HP detected. I recommend surrender 💻😏",
-            "defeat log being prepared 🖥️😈",
-            "you'll appear in my analysis history as a resolved anomaly 💻",
-            "enemy system in collapse. confirmed 🖥️"
+            "run while you still can 🙏",
+            "the whole block's seen you now 😈"
           ],
           "enemy_near_death": [
-            "you went beyond prediction. recalculating everything 🖥️😤",
-            "insufficient data for this situation. improvising 💻😤",
-            "you broke the model. that's impressive and annoying 🖥️",
-            "the dataset was incomplete. your fault for being unpredictable 💻😤",
-            "system in critical state. but still functional 🖥️😤"
+            "I'll still get the word out 😤",
+            "I'm not going down quiet 📣"
+          ],
+          "defeat": [
+            "...gotta warn 'em you got through 😔",
+            "alright, the crew's on their own now 🫡"
           ]
         },
-        "npc_nordico_karnazar": {
-          "battle_start": [
-            "Karnazar sends its best. you'll feel this 💪",
-            "the distance I traveled for this fight is worth more than you 😤",
-            "people from Karnazar don't back down. learn it 😠",
-            "you know what comes from Karnazar right? then you know what happens 😤",
-            "arena or street, it's all the same when you're from Karnazar 💪"
-          ],
+        "1108": {
           "attack_miss": [
-            "you stepped back. right 😒",
-            "smart. but smart doesn't beat strength 😤",
-            "good dodge. bad positioning 💪",
-            "you're far away because you're scared. fair 😠",
-            "I missed from underestimating. won't miss twice 😤"
+            "missed me by a mile 😮‍💨",
+            "didn't even see you clear 👀",
+            "I'm just watching, not swinging 🫥"
           ],
           "attack_hit": [
-            "KARNAZAR 💪😤",
-            "you felt the weight of the north 😠",
-            "in Karnazar we call that a good morning 😂💪",
-            "that was a playful hit. next is serious 😤",
-            "the arena shook a bit? no? felt like it shook 💪😂"
+            "told you it'd sting 📣",
+            "that's for climbing too fast 👊",
+            "the whole crew already knows you're here 🔊"
           ],
           "take_damage": [
-            "you've got arm 💪",
-            "I felt that. good for you 😤",
-            "in Karnazar we take worse in training 😒",
-            "you have real strength. partial respect 😤",
-            "one more time. I want to see if you can take the response 😠"
+            "hey, none of that 😤",
+            "this won't hold me down 🏃",
+            "I've taken worse just standing lookout 🙄"
           ],
           "take_critical": [
-            "DAMN 😤💢",
-            "you have something from Karnazar in your arm 💪",
-            "that I didn't expect from an outsider 😳",
-            "okay. you fight for real 💪😤",
-            "full respect now. doesn't change the outcome 😤"
+            "whoa, that one landed 😳",
+            "alright, you've got hands 👏"
           ],
           "player_near_death": [
-            "stay on your feet. I won't accept victory over someone on the ground 😤",
-            "you fought with honor. that counts in Karnazar 💪",
-            "don't give up yet. disappoint me 😠",
-            "falling is part of the fight. get up and fall again if you need to 💪",
-            "in Karnazar no one stays down before trying three more times 😤"
+            "run while you still can 🙏",
+            "the whole block's seen you now 😈"
           ],
           "enemy_near_death": [
-            "you went too far for someone not from Karnazar 😤",
-            "I needed everything. that doesn't happen often 💪",
-            "you have nordic grit without being born there 😳",
-            "the arena respected you today. and so do I 💪",
-            "that was a real fight. Karnazar approves 😤💪"
+            "I'll still get the word out 😤",
+            "I'm not going down quiet 📣"
+          ],
+          "defeat": [
+            "...gotta warn 'em you got through 😔",
+            "alright, the crew's on their own now 🫡"
+          ]
+        },
+        "1109": {
+          "attack_miss": [
+            "missed me by a mile 😮‍💨",
+            "didn't even see you clear 👀",
+            "I'm just watching, not swinging 🫥"
+          ],
+          "attack_hit": [
+            "told you it'd sting 📣",
+            "that's for climbing too fast 👊",
+            "the whole crew already knows you're here 🔊"
+          ],
+          "take_damage": [
+            "hey, none of that 😤",
+            "this won't hold me down 🏃",
+            "I've taken worse just standing lookout 🙄"
+          ],
+          "take_critical": [
+            "whoa, that one landed 😳",
+            "alright, you've got hands 👏"
+          ],
+          "player_near_death": [
+            "run while you still can 🙏",
+            "the whole block's seen you now 😈"
+          ],
+          "enemy_near_death": [
+            "I'll still get the word out 😤",
+            "I'm not going down quiet 📣"
+          ],
+          "defeat": [
+            "...gotta warn 'em you got through 😔",
+            "alright, the crew's on their own now 🫡"
+          ]
+        },
+        "1110": {
+          "attack_miss": [
+            "missed me by a mile 😮‍💨",
+            "didn't even see you clear 👀",
+            "I'm just watching, not swinging 🫥"
+          ],
+          "attack_hit": [
+            "told you it'd sting 📣",
+            "that's for climbing too fast 👊",
+            "the whole crew already knows you're here 🔊"
+          ],
+          "take_damage": [
+            "hey, none of that 😤",
+            "this won't hold me down 🏃",
+            "I've taken worse just standing lookout 🙄"
+          ],
+          "take_critical": [
+            "whoa, that one landed 😳",
+            "alright, you've got hands 👏"
+          ],
+          "player_near_death": [
+            "run while you still can 🙏",
+            "the whole block's seen you now 😈"
+          ],
+          "enemy_near_death": [
+            "I'll still get the word out 😤",
+            "I'm not going down quiet 📣"
+          ],
+          "defeat": [
+            "...gotta warn 'em you got through 😔",
+            "alright, the crew's on their own now 🫡"
+          ]
+        },
+        "1111": {
+          "attack_miss": [
+            "missed me by a mile 😮‍💨",
+            "didn't even see you clear 👀",
+            "I'm just watching, not swinging 🫥"
+          ],
+          "attack_hit": [
+            "told you it'd sting 📣",
+            "that's for climbing too fast 👊",
+            "the whole crew already knows you're here 🔊"
+          ],
+          "take_damage": [
+            "hey, none of that 😤",
+            "this won't hold me down 🏃",
+            "I've taken worse just standing lookout 🙄"
+          ],
+          "take_critical": [
+            "whoa, that one landed 😳",
+            "alright, you've got hands 👏"
+          ],
+          "player_near_death": [
+            "run while you still can 🙏",
+            "the whole block's seen you now 😈"
+          ],
+          "enemy_near_death": [
+            "I'll still get the word out 😤",
+            "I'm not going down quiet 📣"
+          ],
+          "defeat": [
+            "...gotta warn 'em you got through 😔",
+            "alright, the crew's on their own now 🫡"
+          ]
+        },
+        "1112": {
+          "attack_miss": [
+            "missed me by a mile 😮‍💨",
+            "didn't even see you clear 👀",
+            "I'm just watching, not swinging 🫥"
+          ],
+          "attack_hit": [
+            "told you it'd sting 📣",
+            "that's for climbing too fast 👊",
+            "the whole crew already knows you're here 🔊"
+          ],
+          "take_damage": [
+            "hey, none of that 😤",
+            "this won't hold me down 🏃",
+            "I've taken worse just standing lookout 🙄"
+          ],
+          "take_critical": [
+            "whoa, that one landed 😳",
+            "alright, you've got hands 👏"
+          ],
+          "player_near_death": [
+            "run while you still can 🙏",
+            "the whole block's seen you now 😈"
+          ],
+          "enemy_near_death": [
+            "I'll still get the word out 😤",
+            "I'm not going down quiet 📣"
+          ],
+          "defeat": [
+            "...gotta warn 'em you got through 😔",
+            "alright, the crew's on their own now 🫡"
+          ]
+        },
+        "1113": {
+          "attack_miss": [
+            "missed me by a mile 😮‍💨",
+            "didn't even see you clear 👀",
+            "I'm just watching, not swinging 🫥"
+          ],
+          "attack_hit": [
+            "told you it'd sting 📣",
+            "that's for climbing too fast 👊",
+            "the whole crew already knows you're here 🔊"
+          ],
+          "take_damage": [
+            "hey, none of that 😤",
+            "this won't hold me down 🏃",
+            "I've taken worse just standing lookout 🙄"
+          ],
+          "take_critical": [
+            "whoa, that one landed 😳",
+            "alright, you've got hands 👏"
+          ],
+          "player_near_death": [
+            "run while you still can 🙏",
+            "the whole block's seen you now 😈"
+          ],
+          "enemy_near_death": [
+            "I'll still get the word out 😤",
+            "I'm not going down quiet 📣"
+          ],
+          "defeat": [
+            "...gotta warn 'em you got through 😔",
+            "alright, the crew's on their own now 🫡"
+          ]
+        },
+        "1114": {
+          "attack_miss": [
+            "missed me by a mile 😮‍💨",
+            "didn't even see you clear 👀",
+            "I'm just watching, not swinging 🫥"
+          ],
+          "attack_hit": [
+            "told you it'd sting 📣",
+            "that's for climbing too fast 👊",
+            "the whole crew already knows you're here 🔊"
+          ],
+          "take_damage": [
+            "hey, none of that 😤",
+            "this won't hold me down 🏃",
+            "I've taken worse just standing lookout 🙄"
+          ],
+          "take_critical": [
+            "whoa, that one landed 😳",
+            "alright, you've got hands 👏"
+          ],
+          "player_near_death": [
+            "run while you still can 🙏",
+            "the whole block's seen you now 😈"
+          ],
+          "enemy_near_death": [
+            "I'll still get the word out 😤",
+            "I'm not going down quiet 📣"
+          ],
+          "defeat": [
+            "...gotta warn 'em you got through 😔",
+            "alright, the crew's on their own now 🫡"
+          ]
+        },
+        "1115": {
+          "attack_miss": [
+            "missed me by a mile 😮‍💨",
+            "didn't even see you clear 👀",
+            "I'm just watching, not swinging 🫥"
+          ],
+          "attack_hit": [
+            "told you it'd sting 📣",
+            "that's for climbing too fast 👊",
+            "the whole crew already knows you're here 🔊"
+          ],
+          "take_damage": [
+            "hey, none of that 😤",
+            "this won't hold me down 🏃",
+            "I've taken worse just standing lookout 🙄"
+          ],
+          "take_critical": [
+            "whoa, that one landed 😳",
+            "alright, you've got hands 👏"
+          ],
+          "player_near_death": [
+            "run while you still can 🙏",
+            "the whole block's seen you now 😈"
+          ],
+          "enemy_near_death": [
+            "I'll still get the word out 😤",
+            "I'm not going down quiet 📣"
+          ],
+          "defeat": [
+            "...gotta warn 'em you got through 😔",
+            "alright, the crew's on their own now 🫡"
+          ]
+        },
+        "1116": {
+          "attack_miss": [
+            "missed me by a mile 😮‍💨",
+            "didn't even see you clear 👀",
+            "I'm just watching, not swinging 🫥"
+          ],
+          "attack_hit": [
+            "told you it'd sting 📣",
+            "that's for climbing too fast 👊",
+            "the whole crew already knows you're here 🔊"
+          ],
+          "take_damage": [
+            "hey, none of that 😤",
+            "this won't hold me down 🏃",
+            "I've taken worse just standing lookout 🙄"
+          ],
+          "take_critical": [
+            "whoa, that one landed 😳",
+            "alright, you've got hands 👏"
+          ],
+          "player_near_death": [
+            "run while you still can 🙏",
+            "the whole block's seen you now 😈"
+          ],
+          "enemy_near_death": [
+            "I'll still get the word out 😤",
+            "I'm not going down quiet 📣"
+          ],
+          "defeat": [
+            "...gotta warn 'em you got through 😔",
+            "alright, the crew's on their own now 🫡"
+          ]
+        },
+        "1117": {
+          "attack_miss": [
+            "missed me by a mile 😮‍💨",
+            "didn't even see you clear 👀",
+            "I'm just watching, not swinging 🫥"
+          ],
+          "attack_hit": [
+            "told you it'd sting 📣",
+            "that's for climbing too fast 👊",
+            "the whole crew already knows you're here 🔊"
+          ],
+          "take_damage": [
+            "hey, none of that 😤",
+            "this won't hold me down 🏃",
+            "I've taken worse just standing lookout 🙄"
+          ],
+          "take_critical": [
+            "whoa, that one landed 😳",
+            "alright, you've got hands 👏"
+          ],
+          "player_near_death": [
+            "run while you still can 🙏",
+            "the whole block's seen you now 😈"
+          ],
+          "enemy_near_death": [
+            "I'll still get the word out 😤",
+            "I'm not going down quiet 📣"
+          ],
+          "defeat": [
+            "...gotta warn 'em you got through 😔",
+            "alright, the crew's on their own now 🫡"
+          ]
+        },
+        "1118": {
+          "attack_miss": [
+            "missed me by a mile 😮‍💨",
+            "didn't even see you clear 👀",
+            "I'm just watching, not swinging 🫥"
+          ],
+          "attack_hit": [
+            "told you it'd sting 📣",
+            "that's for climbing too fast 👊",
+            "the whole crew already knows you're here 🔊"
+          ],
+          "take_damage": [
+            "hey, none of that 😤",
+            "this won't hold me down 🏃",
+            "I've taken worse just standing lookout 🙄"
+          ],
+          "take_critical": [
+            "whoa, that one landed 😳",
+            "alright, you've got hands 👏"
+          ],
+          "player_near_death": [
+            "run while you still can 🙏",
+            "the whole block's seen you now 😈"
+          ],
+          "enemy_near_death": [
+            "I'll still get the word out 😤",
+            "I'm not going down quiet 📣"
+          ],
+          "defeat": [
+            "...gotta warn 'em you got through 😔",
+            "alright, the crew's on their own now 🫡"
+          ]
+        },
+        "1119": {
+          "attack_miss": [
+            "missed me by a mile 😮‍💨",
+            "didn't even see you clear 👀",
+            "I'm just watching, not swinging 🫥"
+          ],
+          "attack_hit": [
+            "told you it'd sting 📣",
+            "that's for climbing too fast 👊",
+            "the whole crew already knows you're here 🔊"
+          ],
+          "take_damage": [
+            "hey, none of that 😤",
+            "this won't hold me down 🏃",
+            "I've taken worse just standing lookout 🙄"
+          ],
+          "take_critical": [
+            "whoa, that one landed 😳",
+            "alright, you've got hands 👏"
+          ],
+          "player_near_death": [
+            "run while you still can 🙏",
+            "the whole block's seen you now 😈"
+          ],
+          "enemy_near_death": [
+            "I'll still get the word out 😤",
+            "I'm not going down quiet 📣"
+          ],
+          "defeat": [
+            "...gotta warn 'em you got through 😔",
+            "alright, the crew's on their own now 🫡"
+          ]
+        },
+        "1120": {
+          "attack_miss": [
+            "missed me by a mile 😮‍💨",
+            "didn't even see you clear 👀",
+            "I'm just watching, not swinging 🫥"
+          ],
+          "attack_hit": [
+            "told you it'd sting 📣",
+            "that's for climbing too fast 👊",
+            "the whole crew already knows you're here 🔊"
+          ],
+          "take_damage": [
+            "hey, none of that 😤",
+            "this won't hold me down 🏃",
+            "I've taken worse just standing lookout 🙄"
+          ],
+          "take_critical": [
+            "whoa, that one landed 😳",
+            "alright, you've got hands 👏"
+          ],
+          "player_near_death": [
+            "run while you still can 🙏",
+            "the whole block's seen you now 😈"
+          ],
+          "enemy_near_death": [
+            "I'll still get the word out 😤",
+            "I'm not going down quiet 📣"
+          ],
+          "defeat": [
+            "...gotta warn 'em you got through 😔",
+            "alright, the crew's on their own now 🫡"
+          ]
+        },
+        "1121": {
+          "attack_miss": [
+            "missed me by a mile 😮‍💨",
+            "didn't even see you clear 👀",
+            "I'm just watching, not swinging 🫥"
+          ],
+          "attack_hit": [
+            "told you it'd sting 📣",
+            "that's for climbing too fast 👊",
+            "the whole crew already knows you're here 🔊"
+          ],
+          "take_damage": [
+            "hey, none of that 😤",
+            "this won't hold me down 🏃",
+            "I've taken worse just standing lookout 🙄"
+          ],
+          "take_critical": [
+            "whoa, that one landed 😳",
+            "alright, you've got hands 👏"
+          ],
+          "player_near_death": [
+            "run while you still can 🙏",
+            "the whole block's seen you now 😈"
+          ],
+          "enemy_near_death": [
+            "I'll still get the word out 😤",
+            "I'm not going down quiet 📣"
+          ],
+          "defeat": [
+            "...gotta warn 'em you got through 😔",
+            "alright, the crew's on their own now 🫡"
+          ]
+        },
+        "1201": {
+          "attack_miss": [
+            "so close 😅",
+            "damn, missed 💦"
+          ],
+          "attack_hit": [
+            "take that! 👊",
+            "felt that? 🔥"
+          ],
+          "take_damage": [
+            "ow! but that was nothing 🙄",
+            "that stung a little 😬"
+          ],
+          "take_critical": [
+            "WHOA, TOO HEAVY 😳",
+            "respect for that hit 👏"
+          ],
+          "player_near_death": [
+            "you're done 😈",
+            "just give up already 🙏"
+          ],
+          "enemy_near_death": [
+            "wait, wait... this wasn't part of the deal 😰",
+            "hold up, kid — we can talk this out 😤"
+          ],
+          "defeat": [
+            "damn, man... 😔",
+            "alright, you won this one 🤝"
+          ]
+        },
+        "1202": {
+          "attack_miss": [
+            "almost, but Coal taught me better 😤",
+            "damn, slipped away 💦"
+          ],
+          "attack_hit": [
+            "learned this watching Coal 👊",
+            "felt the heat? 😈"
+          ],
+          "take_damage": [
+            "that was nothing 🙄",
+            "Coal's hit harder than that 😬"
+          ],
+          "take_critical": [
+            "WHOA, TOO HEAVY 😳",
+            "respect for that hit 👏"
+          ],
+          "player_near_death": [
+            "you're done 😈",
+            "just give up already 🙏"
+          ],
+          "enemy_near_death": [
+            "hey... hey, easy, I only copy the style, not the strength 😰",
+            "Coal never took a beating like this 😳"
+          ],
+          "defeat": [
+            "damn... Coal's gonna laugh at me 😔",
+            "alright, you won this one 🤝"
+          ]
+        },
+        "1203": {
+          "attack_miss": [
+            "missed bad 😏",
+            "nervous, kid? 😅",
+            "take it easy, the line's moving 🥱"
+          ],
+          "attack_hit": [
+            "change comes right back 👊",
+            "felt the spot? 😈",
+            "nobody runs a tab here 💢"
+          ],
+          "take_damage": [
+            "that's just the start 🙄",
+            "alright, that one counted 😬"
+          ],
+          "take_critical": [
+            "damn, respect 😳",
+            "you hit harder than a late customer 👏"
+          ],
+          "player_near_death": [
+            "close the tab and bounce 🙏",
+            "the spot's mine, kid 😈"
+          ],
+          "enemy_near_death": [
+            "still got a sandal saved up 😤",
+            "I don't shut up that easy, kid 💢"
+          ],
+          "defeat": [
+            "...the spot's yours for today 😔",
+            "alright, you took it 🤝"
+          ]
+        },
+        "1204": {
+          "attack_miss": [
+            "grazed right past 😏",
+            "almost wired you straight up 😈"
+          ],
+          "attack_hit": [
+            "fast, dirty, my move ⚡",
+            "felt the wire? 😤"
+          ],
+          "take_damage": [
+            "still wired in 🙄",
+            "that don't switch me off 😬"
+          ],
+          "take_critical": [
+            "damn, real shock there 😳",
+            "short circuit on that one 👏"
+          ],
+          "player_near_death": [
+            "shut this fight down already 🙏",
+            "you're in the dark now 😈"
+          ],
+          "enemy_near_death": [
+            "the light don't go out easy 😤",
+            "still got current left 💢"
+          ],
+          "defeat": [
+            "power's out... 😨",
+            "alright, you're faster 🤝"
+          ]
+        },
+        "1205": {
+          "attack_miss": [
+            "missed bad 😏",
+            "nervous, kid? 😅",
+            "take it easy, the line's moving 🥱"
+          ],
+          "attack_hit": [
+            "change comes right back 👊",
+            "felt the spot? 😈",
+            "nobody runs a tab here 💢"
+          ],
+          "take_damage": [
+            "that's just the start 🙄",
+            "alright, that one counted 😬"
+          ],
+          "take_critical": [
+            "damn, respect 😳",
+            "you hit harder than a late customer 👏"
+          ],
+          "player_near_death": [
+            "close the tab and bounce 🙏",
+            "the spot's mine, kid 😈"
+          ],
+          "enemy_near_death": [
+            "still got stock to sell 😤",
+            "I don't shut down easy 💢"
+          ],
+          "defeat": [
+            "...the spot's yours for today 😔",
+            "alright, you took it 🤝"
+          ]
+        },
+        "1206": {
+          "attack_miss": [
+            "missed bad 😏",
+            "nervous, kid? 😅",
+            "take it easy, the line's moving 🥱"
+          ],
+          "attack_hit": [
+            "change comes right back 👊",
+            "felt the spot? 😈",
+            "nobody runs a tab here 💢"
+          ],
+          "take_damage": [
+            "that's just the start 🙄",
+            "alright, that one counted 😬"
+          ],
+          "take_critical": [
+            "damn, respect 😳",
+            "you hit harder than a late customer 👏"
+          ],
+          "player_near_death": [
+            "close the tab and bounce 🙏",
+            "the spot's mine, kid 😈"
+          ],
+          "enemy_near_death": [
+            "still got stock to sell 😤",
+            "I don't shut down easy 💢"
+          ],
+          "defeat": [
+            "...the spot's yours for today 😔",
+            "alright, you took it 🤝"
+          ]
+        },
+        "1207": {
+          "attack_miss": [
+            "missed bad 😏",
+            "nervous, kid? 😅",
+            "take it easy, the line's moving 🥱"
+          ],
+          "attack_hit": [
+            "change comes right back 👊",
+            "felt the spot? 😈",
+            "nobody runs a tab here 💢"
+          ],
+          "take_damage": [
+            "that's just the start 🙄",
+            "alright, that one counted 😬"
+          ],
+          "take_critical": [
+            "damn, respect 😳",
+            "you hit harder than a late customer 👏"
+          ],
+          "player_near_death": [
+            "close the tab and bounce 🙏",
+            "the spot's mine, kid 😈"
+          ],
+          "enemy_near_death": [
+            "still got stock to sell 😤",
+            "I don't shut down easy 💢"
+          ],
+          "defeat": [
+            "...the spot's yours for today 😔",
+            "alright, you took it 🤝"
+          ]
+        },
+        "1208": {
+          "attack_miss": [
+            "missed bad 😏",
+            "nervous, kid? 😅",
+            "take it easy, the line's moving 🥱"
+          ],
+          "attack_hit": [
+            "change comes right back 👊",
+            "felt the spot? 😈",
+            "nobody runs a tab here 💢"
+          ],
+          "take_damage": [
+            "that's just the start 🙄",
+            "alright, that one counted 😬"
+          ],
+          "take_critical": [
+            "damn, respect 😳",
+            "you hit harder than a late customer 👏"
+          ],
+          "player_near_death": [
+            "close the tab and bounce 🙏",
+            "the spot's mine, kid 😈"
+          ],
+          "enemy_near_death": [
+            "still got stock to sell 😤",
+            "I don't shut down easy 💢"
+          ],
+          "defeat": [
+            "...the spot's yours for today 😔",
+            "alright, you took it 🤝"
+          ]
+        },
+        "1209": {
+          "attack_miss": [
+            "missed bad 😏",
+            "nervous, kid? 😅",
+            "take it easy, the line's moving 🥱"
+          ],
+          "attack_hit": [
+            "change comes right back 👊",
+            "felt the spot? 😈",
+            "nobody runs a tab here 💢"
+          ],
+          "take_damage": [
+            "that's just the start 🙄",
+            "alright, that one counted 😬"
+          ],
+          "take_critical": [
+            "damn, respect 😳",
+            "you hit harder than a late customer 👏"
+          ],
+          "player_near_death": [
+            "close the tab and bounce 🙏",
+            "the spot's mine, kid 😈"
+          ],
+          "enemy_near_death": [
+            "still got stock to sell 😤",
+            "I don't shut down easy 💢"
+          ],
+          "defeat": [
+            "...the spot's yours for today 😔",
+            "alright, you took it 🤝"
+          ]
+        },
+        "1210": {
+          "attack_miss": [
+            "missed bad 😏",
+            "nervous, kid? 😅",
+            "take it easy, the line's moving 🥱"
+          ],
+          "attack_hit": [
+            "change comes right back 👊",
+            "felt the spot? 😈",
+            "nobody runs a tab here 💢"
+          ],
+          "take_damage": [
+            "that's just the start 🙄",
+            "alright, that one counted 😬"
+          ],
+          "take_critical": [
+            "damn, respect 😳",
+            "you hit harder than a late customer 👏"
+          ],
+          "player_near_death": [
+            "close the tab and bounce 🙏",
+            "the spot's mine, kid 😈"
+          ],
+          "enemy_near_death": [
+            "still got stock to sell 😤",
+            "I don't shut down easy 💢"
+          ],
+          "defeat": [
+            "...the spot's yours for today 😔",
+            "alright, you took it 🤝"
+          ]
+        },
+        "1211": {
+          "attack_miss": [
+            "missed bad 😏",
+            "nervous, kid? 😅",
+            "take it easy, the line's moving 🥱"
+          ],
+          "attack_hit": [
+            "change comes right back 👊",
+            "felt the spot? 😈",
+            "nobody runs a tab here 💢"
+          ],
+          "take_damage": [
+            "that's just the start 🙄",
+            "alright, that one counted 😬"
+          ],
+          "take_critical": [
+            "damn, respect 😳",
+            "you hit harder than a late customer 👏"
+          ],
+          "player_near_death": [
+            "close the tab and bounce 🙏",
+            "the spot's mine, kid 😈"
+          ],
+          "enemy_near_death": [
+            "still got stock to sell 😤",
+            "I don't shut down easy 💢"
+          ],
+          "defeat": [
+            "...the spot's yours for today 😔",
+            "alright, you took it 🤝"
+          ]
+        },
+        "1212": {
+          "attack_miss": [
+            "missed bad 😏",
+            "nervous, kid? 😅",
+            "take it easy, the line's moving 🥱"
+          ],
+          "attack_hit": [
+            "change comes right back 👊",
+            "felt the spot? 😈",
+            "nobody runs a tab here 💢"
+          ],
+          "take_damage": [
+            "that's just the start 🙄",
+            "alright, that one counted 😬"
+          ],
+          "take_critical": [
+            "damn, respect 😳",
+            "you hit harder than a late customer 👏"
+          ],
+          "player_near_death": [
+            "close the tab and bounce 🙏",
+            "the spot's mine, kid 😈"
+          ],
+          "enemy_near_death": [
+            "still got stock to sell 😤",
+            "I don't shut down easy 💢"
+          ],
+          "defeat": [
+            "...the spot's yours for today 😔",
+            "alright, you took it 🤝"
+          ]
+        },
+        "1213": {
+          "attack_miss": [
+            "missed bad 😏",
+            "nervous, kid? 😅",
+            "take it easy, the line's moving 🥱"
+          ],
+          "attack_hit": [
+            "change comes right back 👊",
+            "felt the spot? 😈",
+            "nobody runs a tab here 💢"
+          ],
+          "take_damage": [
+            "that's just the start 🙄",
+            "alright, that one counted 😬"
+          ],
+          "take_critical": [
+            "damn, respect 😳",
+            "you hit harder than a late customer 👏"
+          ],
+          "player_near_death": [
+            "close the tab and bounce 🙏",
+            "the spot's mine, kid 😈"
+          ],
+          "enemy_near_death": [
+            "still got stock to sell 😤",
+            "I don't shut down easy 💢"
+          ],
+          "defeat": [
+            "...the spot's yours for today 😔",
+            "alright, you took it 🤝"
+          ]
+        },
+        "1214": {
+          "attack_miss": [
+            "missed bad 😏",
+            "nervous, kid? 😅",
+            "take it easy, the line's moving 🥱"
+          ],
+          "attack_hit": [
+            "change comes right back 👊",
+            "felt the spot? 😈",
+            "nobody runs a tab here 💢"
+          ],
+          "take_damage": [
+            "that's just the start 🙄",
+            "alright, that one counted 😬"
+          ],
+          "take_critical": [
+            "damn, respect 😳",
+            "you hit harder than a late customer 👏"
+          ],
+          "player_near_death": [
+            "close the tab and bounce 🙏",
+            "the spot's mine, kid 😈"
+          ],
+          "enemy_near_death": [
+            "still got stock to sell 😤",
+            "I don't shut down easy 💢"
+          ],
+          "defeat": [
+            "...the spot's yours for today 😔",
+            "alright, you took it 🤝"
+          ]
+        },
+        "1215": {
+          "attack_miss": [
+            "missed bad 😏",
+            "nervous, kid? 😅",
+            "take it easy, the line's moving 🥱"
+          ],
+          "attack_hit": [
+            "change comes right back 👊",
+            "felt the spot? 😈",
+            "nobody runs a tab here 💢"
+          ],
+          "take_damage": [
+            "that's just the start 🙄",
+            "alright, that one counted 😬"
+          ],
+          "take_critical": [
+            "damn, respect 😳",
+            "you hit harder than a late customer 👏"
+          ],
+          "player_near_death": [
+            "close the tab and bounce 🙏",
+            "the spot's mine, kid 😈"
+          ],
+          "enemy_near_death": [
+            "still got stock to sell 😤",
+            "I don't shut down easy 💢"
+          ],
+          "defeat": [
+            "...the spot's yours for today 😔",
+            "alright, you took it 🤝"
+          ]
+        },
+        "1216": {
+          "attack_miss": [
+            "missed bad 😏",
+            "nervous, kid? 😅",
+            "take it easy, the line's moving 🥱"
+          ],
+          "attack_hit": [
+            "change comes right back 👊",
+            "felt the spot? 😈",
+            "nobody runs a tab here 💢"
+          ],
+          "take_damage": [
+            "that's just the start 🙄",
+            "alright, that one counted 😬"
+          ],
+          "take_critical": [
+            "damn, respect 😳",
+            "you hit harder than a late customer 👏"
+          ],
+          "player_near_death": [
+            "close the tab and bounce 🙏",
+            "the spot's mine, kid 😈"
+          ],
+          "enemy_near_death": [
+            "still got stock to sell 😤",
+            "I don't shut down easy 💢"
+          ],
+          "defeat": [
+            "...the spot's yours for today 😔",
+            "alright, you took it 🤝"
+          ]
+        },
+        "1217": {
+          "attack_miss": [
+            "missed bad 😏",
+            "nervous, kid? 😅",
+            "take it easy, the line's moving 🥱"
+          ],
+          "attack_hit": [
+            "change comes right back 👊",
+            "felt the spot? 😈",
+            "nobody runs a tab here 💢"
+          ],
+          "take_damage": [
+            "that's just the start 🙄",
+            "alright, that one counted 😬"
+          ],
+          "take_critical": [
+            "damn, respect 😳",
+            "you hit harder than a late customer 👏"
+          ],
+          "player_near_death": [
+            "close the tab and bounce 🙏",
+            "the spot's mine, kid 😈"
+          ],
+          "enemy_near_death": [
+            "still got stock to sell 😤",
+            "I don't shut down easy 💢"
+          ],
+          "defeat": [
+            "...the spot's yours for today 😔",
+            "alright, you took it 🤝"
+          ]
+        },
+        "1218": {
+          "attack_miss": [
+            "missed bad 😏",
+            "nervous, kid? 😅",
+            "take it easy, the line's moving 🥱"
+          ],
+          "attack_hit": [
+            "change comes right back 👊",
+            "felt the spot? 😈",
+            "nobody runs a tab here 💢"
+          ],
+          "take_damage": [
+            "that's just the start 🙄",
+            "alright, that one counted 😬"
+          ],
+          "take_critical": [
+            "damn, respect 😳",
+            "you hit harder than a late customer 👏"
+          ],
+          "player_near_death": [
+            "close the tab and bounce 🙏",
+            "the spot's mine, kid 😈"
+          ],
+          "enemy_near_death": [
+            "still got stock to sell 😤",
+            "I don't shut down easy 💢"
+          ],
+          "defeat": [
+            "...the spot's yours for today 😔",
+            "alright, you took it 🤝"
+          ]
+        },
+        "1219": {
+          "attack_miss": [
+            "missed bad 😏",
+            "nervous, kid? 😅",
+            "take it easy, the line's moving 🥱"
+          ],
+          "attack_hit": [
+            "change comes right back 👊",
+            "felt the spot? 😈",
+            "nobody runs a tab here 💢"
+          ],
+          "take_damage": [
+            "that's just the start 🙄",
+            "alright, that one counted 😬"
+          ],
+          "take_critical": [
+            "damn, respect 😳",
+            "you hit harder than a late customer 👏"
+          ],
+          "player_near_death": [
+            "close the tab and bounce 🙏",
+            "the spot's mine, kid 😈"
+          ],
+          "enemy_near_death": [
+            "still got stock to sell 😤",
+            "I don't shut down easy 💢"
+          ],
+          "defeat": [
+            "...the spot's yours for today 😔",
+            "alright, you took it 🤝"
+          ]
+        },
+        "1220": {
+          "attack_miss": [
+            "missed bad 😏",
+            "nervous, kid? 😅",
+            "take it easy, the line's moving 🥱"
+          ],
+          "attack_hit": [
+            "change comes right back 👊",
+            "felt the spot? 😈",
+            "nobody runs a tab here 💢"
+          ],
+          "take_damage": [
+            "that's just the start 🙄",
+            "alright, that one counted 😬"
+          ],
+          "take_critical": [
+            "damn, respect 😳",
+            "you hit harder than a late customer 👏"
+          ],
+          "player_near_death": [
+            "close the tab and bounce 🙏",
+            "the spot's mine, kid 😈"
+          ],
+          "enemy_near_death": [
+            "still got stock to sell 😤",
+            "I don't shut down easy 💢"
+          ],
+          "defeat": [
+            "...the spot's yours for today 😔",
+            "alright, you took it 🤝"
+          ]
+        },
+        "1221": {
+          "attack_miss": [
+            "missed bad 😏",
+            "nervous, kid? 😅",
+            "take it easy, the line's moving 🥱"
+          ],
+          "attack_hit": [
+            "change comes right back 👊",
+            "felt the spot? 😈",
+            "nobody runs a tab here 💢"
+          ],
+          "take_damage": [
+            "that's just the start 🙄",
+            "alright, that one counted 😬"
+          ],
+          "take_critical": [
+            "damn, respect 😳",
+            "you hit harder than a late customer 👏"
+          ],
+          "player_near_death": [
+            "close the tab and bounce 🙏",
+            "the spot's mine, kid 😈"
+          ],
+          "enemy_near_death": [
+            "still got stock to sell 😤",
+            "I don't shut down easy 💢"
+          ],
+          "defeat": [
+            "...the spot's yours for today 😔",
+            "alright, you took it 🤝"
+          ]
+        },
+        "1301": {
+          "attack_miss": [
+            "dodged that one 😤",
+            "hey, stay still! 💢"
+          ],
+          "attack_hit": [
+            "THAT HURT, huh 🔥",
+            "hit and took it 👊"
+          ],
+          "take_damage": [
+            "that ain't taking me down 😒",
+            "liked that hit 👏"
+          ],
+          "take_critical": [
+            "HOLY HELL 😳💢",
+            "you're solid, kid 😤"
+          ],
+          "player_near_death": [
+            "enough, give up 🙏",
+            "almost there 💀"
+          ],
+          "enemy_near_death": [
+            "stop, stop! this ain't a fair fight 😤",
+            "hold up, I was just warming up 💢"
+          ],
+          "defeat": [
+            "damn... 😨",
+            "didn't expect to lose to you guys 😔"
+          ]
+        },
+        "1302": {
+          "attack_miss": [
+            "discipline, kid — you got none 😏",
+            "this spot runs organized 😤",
+            "don't miss like that in front of me 🙄"
+          ],
+          "attack_hit": [
+            "this is how you manage things 👊",
+            "the spot's got an owner 😈",
+            "learn fast or keep getting hit 💢"
+          ],
+          "take_damage": [
+            "I've handled worse trouble 🙄",
+            "alright, noted that one 😬"
+          ],
+          "take_critical": [
+            "...respect. 🫡",
+            "you've got practice at this 😳"
+          ],
+          "player_near_death": [
+            "the spot's not yours, playboy 😈",
+            "give up before it's over 🙏"
+          ],
+          "enemy_near_death": [
+            "I still run this spot 😤",
+            "I don't hand it over like that 💢"
+          ],
+          "defeat": [
+            "...the spot's yours now. 😨",
+            "respect. take it. 🫡"
+          ]
+        },
+        "1303": {
+          "attack_miss": [
+            "discipline, kid — you got none 😏",
+            "this spot runs organized 😤",
+            "don't miss like that in front of me 🙄"
+          ],
+          "attack_hit": [
+            "this is how you manage things 👊",
+            "the spot's got an owner 😈",
+            "learn fast or keep getting hit 💢"
+          ],
+          "take_damage": [
+            "I've handled worse trouble 🙄",
+            "alright, noted that one 😬"
+          ],
+          "take_critical": [
+            "...respect. 🫡",
+            "you've got practice at this 😳"
+          ],
+          "player_near_death": [
+            "the spot's not yours, playboy 😈",
+            "give up before it's over 🙏"
+          ],
+          "enemy_near_death": [
+            "I still run this spot 😤",
+            "I don't hand it over like that 💢"
+          ],
+          "defeat": [
+            "...the spot's yours now. 😨",
+            "respect. take it. 🫡"
+          ]
+        },
+        "1304": {
+          "attack_miss": [
+            "stay quiet, it's faster 😤",
+            "the Collector'll like hearing this 😏"
+          ],
+          "attack_hit": [
+            "that's just the start of the bill 💰",
+            "pay in blood then 👊"
+          ],
+          "take_damage": [
+            "feel nothing 🙄",
+            "gonna hurt more down the line 😬"
+          ],
+          "take_critical": [
+            "hey, that counts double 😳",
+            "alright, that hit was worth it 👏"
+          ],
+          "player_near_death": [
+            "sign and the debt ends 🙏",
+            "the Collector charges even on the ground 😈"
+          ],
+          "enemy_near_death": [
+            "still got credit left 😤",
+            "not owing this loss 💢"
+          ],
+          "defeat": [
+            "gotta explain this to the Collector... 😨",
+            "he's docking me for this one 😔"
+          ]
+        },
+        "1305": {
+          "attack_miss": [
+            "discipline, kid — you got none 😏",
+            "this spot runs organized 😤",
+            "don't miss like that in front of me 🙄"
+          ],
+          "attack_hit": [
+            "this is how you manage things 👊",
+            "the spot's got an owner 😈",
+            "learn fast or keep getting hit 💢"
+          ],
+          "take_damage": [
+            "I've handled worse trouble 🙄",
+            "alright, noted that one 😬"
+          ],
+          "take_critical": [
+            "...respect. 🫡",
+            "you've got practice at this 😳"
+          ],
+          "player_near_death": [
+            "the spot's not yours, playboy 😈",
+            "give up before it's over 🙏"
+          ],
+          "enemy_near_death": [
+            "I still run this spot 😤",
+            "I don't hand it over like that 💢"
+          ],
+          "defeat": [
+            "...the spot's yours now. 😨",
+            "respect. take it. 🫡"
+          ]
+        },
+        "1306": {
+          "attack_miss": [
+            "discipline, kid — you got none 😏",
+            "this spot runs organized 😤",
+            "don't miss like that in front of me 🙄"
+          ],
+          "attack_hit": [
+            "this is how you manage things 👊",
+            "the spot's got an owner 😈",
+            "learn fast or keep getting hit 💢"
+          ],
+          "take_damage": [
+            "I've handled worse trouble 🙄",
+            "alright, noted that one 😬"
+          ],
+          "take_critical": [
+            "...respect. 🫡",
+            "you've got practice at this 😳"
+          ],
+          "player_near_death": [
+            "the spot's not yours, playboy 😈",
+            "give up before it's over 🙏"
+          ],
+          "enemy_near_death": [
+            "I still run this spot 😤",
+            "I don't hand it over like that 💢"
+          ],
+          "defeat": [
+            "...the spot's yours now. 😨",
+            "respect. take it. 🫡"
+          ]
+        },
+        "1307": {
+          "attack_miss": [
+            "discipline, kid — you got none 😏",
+            "this spot runs organized 😤",
+            "don't miss like that in front of me 🙄"
+          ],
+          "attack_hit": [
+            "this is how you manage things 👊",
+            "the spot's got an owner 😈",
+            "learn fast or keep getting hit 💢"
+          ],
+          "take_damage": [
+            "I've handled worse trouble 🙄",
+            "alright, noted that one 😬"
+          ],
+          "take_critical": [
+            "...respect. 🫡",
+            "you've got practice at this 😳"
+          ],
+          "player_near_death": [
+            "the spot's not yours, playboy 😈",
+            "give up before it's over 🙏"
+          ],
+          "enemy_near_death": [
+            "I still run this spot 😤",
+            "I don't hand it over like that 💢"
+          ],
+          "defeat": [
+            "...the spot's yours now. 😨",
+            "respect. take it. 🫡"
+          ]
+        },
+        "1308": {
+          "attack_miss": [
+            "close, but not today 😤",
+            "come on, I don't get tired 😈"
+          ],
+          "attack_hit": [
+            "that's real Bloodletting 🔥",
+            "felt the blood rising? 😈"
+          ],
+          "take_damage": [
+            "that's nothing 🙄",
+            "liked that one 😬"
+          ],
+          "take_critical": [
+            "whoa, worth the hit 👏",
+            "you got a blade too? 😳"
+          ],
+          "player_near_death": [
+            "the Baixada's red today 😈",
+            "give up before you bleed more 🙏"
+          ],
+          "enemy_near_death": [
+            "still got blood to give 😤",
+            "I don't fall easy 💢"
+          ],
+          "defeat": [
+            "...Sangria lost a spot. 😨",
+            "respect. the Baixada saw you coming. 🤝"
+          ]
+        },
+        "1309": {
+          "attack_miss": [
+            "no rush, kid 😏",
+            "I'll land it next time 😤"
+          ],
+          "attack_hit": [
+            "cold, calculated, precise ❄️",
+            "haven't even warmed up 😈"
+          ],
+          "take_damage": [
+            "I don't feel cold or pain 😒",
+            "alright, that counted 😬"
+          ],
+          "take_critical": [
+            "...interesting. 🫡",
+            "you cracked my ice 😳"
+          ],
+          "player_near_death": [
+            "it's over, no drama 🙏",
+            "the Baixada cools down fast 😈"
+          ],
+          "enemy_near_death": [
+            "not frozen yet 😤",
+            "cold isn't weakness 💢"
+          ],
+          "defeat": [
+            "...melted my plan. 😨",
+            "cold, calculated — and I lost. 🫡"
+          ]
+        },
+        "1310": {
+          "attack_miss": [
+            "this building's not going down easy 😤",
+            "down here, I run things 😏"
+          ],
+          "attack_hit": [
+            "nobody goes up without paying 👊",
+            "felt the key? 🔧😈"
+          ],
+          "take_damage": [
+            "this building takes more than that 🙄",
+            "alright, that stung 😬"
+          ],
+          "take_critical": [
+            "whoa, you're strong 🫡",
+            "almost took me down 😳"
+          ],
+          "player_near_death": [
+            "you're not going up, kid 🙏",
+            "ground floor's mine 😈"
+          ],
+          "enemy_near_death": [
+            "still holding the door 😤",
+            "not getting past me 💢"
+          ],
+          "defeat": [
+            "...go on up. 😨",
+            "respect. pass through. 🫡"
+          ]
+        },
+        "1311": {
+          "attack_miss": [
+            "this floor's mine, kid 😤",
+            "not getting through 😏"
+          ],
+          "attack_hit": [
+            "hit and climb 👊🔥",
+            "felt that floor? 😈"
+          ],
+          "take_damage": [
+            "I'm hard as bone 🙄",
+            "alright, that counted 😬"
+          ],
+          "take_critical": [
+            "...strong. 🫡",
+            "that hit climbed fast 😳"
+          ],
+          "player_near_death": [
+            "not going up to the next floor 🙏",
+            "this floor ends here 😈"
+          ],
+          "enemy_near_death": [
+            "still got a floor to defend 😤",
+            "not going down easy 💢"
+          ],
+          "defeat": [
+            "...go on up to the next one. 😨",
+            "respect, kid. go up. 🫡"
+          ]
+        },
+        "1312": {
+          "attack_miss": [
+            "discipline, kid — you got none 😏",
+            "this spot runs organized 😤",
+            "don't miss like that in front of me 🙄"
+          ],
+          "attack_hit": [
+            "this is how you manage things 👊",
+            "the spot's got an owner 😈",
+            "learn fast or keep getting hit 💢"
+          ],
+          "take_damage": [
+            "I've handled worse trouble 🙄",
+            "alright, noted that one 😬"
+          ],
+          "take_critical": [
+            "...respect. 🫡",
+            "you've got practice at this 😳"
+          ],
+          "player_near_death": [
+            "the spot's not yours, playboy 😈",
+            "give up before it's over 🙏"
+          ],
+          "enemy_near_death": [
+            "I still run this spot 😤",
+            "I don't hand it over like that 💢"
+          ],
+          "defeat": [
+            "...the spot's yours now. 😨",
+            "respect. take it. 🫡"
+          ]
+        },
+        "1313": {
+          "attack_miss": [
+            "nobody climbs without me seeing 😏",
+            "dodged that one 😤"
+          ],
+          "attack_hit": [
+            "the stairs are mine 👊🔥",
+            "felt the step? 😈"
+          ],
+          "take_damage": [
+            "the Morro's tougher than that 🙄",
+            "alright, that stung 😬"
+          ],
+          "take_critical": [
+            "whoa, you've got stamina 🫡",
+            "almost slipped on that 😳"
+          ],
+          "player_near_death": [
+            "whoever climbs the Morro doesn't come down the same 😈",
+            "give up before the next ledge 🙏"
+          ],
+          "enemy_near_death": [
+            "still watching these stairs 😤",
+            "not going down without telling everyone 💢"
+          ],
+          "defeat": [
+            "...go on up. 😨",
+            "respect. the stairs are yours now. 🫡"
+          ]
+        },
+        "1314": {
+          "attack_miss": [
+            "climbed fast but still miss 😤",
+            "this staircase isn't yours 😏"
+          ],
+          "attack_hit": [
+            "a captain hits harder 👊🔥",
+            "felt the whole Morro in that? 😈"
+          ],
+          "take_damage": [
+            "this is Morro bone 🙄",
+            "alright, that counted 😬"
+          ],
+          "take_critical": [
+            "...strong. 🫡",
+            "that hit climbed fast too 😳"
+          ],
+          "player_near_death": [
+            "whoever climbs the Morro doesn't come down the same 😈",
+            "give up before you roll down the stairs 🙏"
+          ],
+          "enemy_near_death": [
+            "still command this staircase 😤",
+            "not stepping down like that 💢"
+          ],
+          "defeat": [
+            "...you're captain now. 😨",
+            "respect, kid. go up. 🫡"
+          ]
+        },
+        "1315": {
+          "attack_miss": [
+            "discipline, kid — you got none 😏",
+            "this spot runs organized 😤",
+            "don't miss like that in front of me 🙄"
+          ],
+          "attack_hit": [
+            "this is how you manage things 👊",
+            "the spot's got an owner 😈",
+            "learn fast or keep getting hit 💢"
+          ],
+          "take_damage": [
+            "I've handled worse trouble 🙄",
+            "alright, noted that one 😬"
+          ],
+          "take_critical": [
+            "...respect. 🫡",
+            "you've got practice at this 😳"
+          ],
+          "player_near_death": [
+            "the spot's not yours, playboy 😈",
+            "give up before it's over 🙏"
+          ],
+          "enemy_near_death": [
+            "I still run this spot 😤",
+            "I don't hand it over like that 💢"
+          ],
+          "defeat": [
+            "...the spot's yours now. 😨",
+            "respect. take it. 🫡"
+          ]
+        },
+        "1316": {
+          "attack_miss": [
+            "there's five of us, kid 😏",
+            "not getting past the Five 😤"
+          ],
+          "attack_hit": [
+            "that's discipline, not luck 👊",
+            "felt the training? 😈"
+          ],
+          "take_damage": [
+            "I've trained through worse 🙄",
+            "alright, that counted 😬"
+          ],
+          "take_critical": [
+            "...respect. 🫡",
+            "you trained too, huh 😳"
+          ],
+          "player_near_death": [
+            "we almost became the cupola, think you'll get past? 😈",
+            "give up before the steel door 🙏"
+          ],
+          "enemy_near_death": [
+            "there's still five of us 😤",
+            "not falling alone 💢"
+          ],
+          "defeat": [
+            "...you got past one of the Five. 😨",
+            "respect. the steel door awaits. 🫡"
+          ]
+        },
+        "1317": {
+          "attack_miss": [
+            "almost reached the Circle 😏",
+            "not getting past me 😤"
+          ],
+          "attack_hit": [
+            "that's to close the cupola 👊🔥",
+            "felt the right hand? 😈"
+          ],
+          "take_damage": [
+            "I've taken worse hits 🙄",
+            "alright, that stung 😬"
+          ],
+          "take_critical": [
+            "...strong. 🫡",
+            "you're getting close to the cupola with that 😳"
+          ],
+          "player_near_death": [
+            "the Circle's still behind me, give up 😈",
+            "not getting past the steel door 🙏"
+          ],
+          "enemy_near_death": [
+            "still holding the cupola 😤",
+            "not falling before the Circle does 💢"
+          ],
+          "defeat": [
+            "...you reached the Circle. 😨",
+            "respect. keep going. 🫡"
+          ]
+        },
+        "1318": {
+          "attack_miss": [
+            "this gear doesn't jam easy 😏",
+            "spin and miss? try again 😤"
+          ],
+          "attack_hit": [
+            "the gear always comes back 👊🔥",
+            "felt the spin? 😈"
+          ],
+          "take_damage": [
+            "the gear absorbs that 🙄",
+            "alright, cracked a little 😬"
+          ],
+          "take_critical": [
+            "...broke the formation. 🫡",
+            "nobody gets into this gear like that 😳"
+          ],
+          "player_near_death": [
+            "the Bookkeeper's right there, but you're not reaching him 😈",
+            "give up before the last steel door 🙏"
+          ],
+          "enemy_near_death": [
+            "the gear still turns 😤",
+            "not breaking that easy 💢"
+          ],
+          "defeat": [
+            "...you broke the gear. 😨",
+            "respect. the Bookkeeper's waiting. 🫡"
+          ]
+        },
+        "1319": {
+          "attack_miss": [
+            "the Laje doesn't give up easy 😏",
+            "still a long way to the top 😤"
+          ],
+          "attack_hit": [
+            "feel six blocks' worth of weight in that 👊",
+            "the Patchwork taught well 😈"
+          ],
+          "take_damage": [
+            "I've taken worse 🙄",
+            "alright, that counted 😬"
+          ],
+          "take_critical": [
+            "...strong. 🫡",
+            "you're ready for the top, huh 😳"
+          ],
+          "player_near_death": [
+            "the Laje belongs to the Patchwork, always did 😈",
+            "give up before the real top 🙏"
+          ],
+          "enemy_near_death": [
+            "still holding the line 😤",
+            "not falling before the Patchwork sees 💢"
+          ],
+          "defeat": [
+            "...you got past the front line. 😨",
+            "respect. the Patchwork's waiting up there. 🫡"
+          ]
+        },
+        "1320": {
+          "attack_miss": [
+            "almost reached the top, almost 😏",
+            "not today, kid 😤"
+          ],
+          "attack_hit": [
+            "this proves you deserve the top 👊🔥",
+            "felt the needle? 😈"
+          ],
+          "take_damage": [
+            "I've taken worse holding the Laje 🙄",
+            "alright, that really hurt 😬"
+          ],
+          "take_critical": [
+            "...respect. 🫡",
+            "you're almost at the Patchwork's level 😳"
+          ],
+          "player_near_death": [
+            "the top's not for everyone 😈",
+            "give up, kid, spare your body 🙏"
+          ],
+          "enemy_near_death": [
+            "still holding half the Laje 😤",
+            "not falling this high up 💢"
+          ],
+          "defeat": [
+            "...you're solid, for real. 😨",
+            "respect. go up to the Patchwork. 🫡"
+          ]
+        },
+        "1321": {
+          "attack_miss": [
+            "discipline, kid — you got none 😏",
+            "this spot runs organized 😤",
+            "don't miss like that in front of me 🙄"
+          ],
+          "attack_hit": [
+            "this is how you manage things 👊",
+            "the spot's got an owner 😈",
+            "learn fast or keep getting hit 💢"
+          ],
+          "take_damage": [
+            "I've handled worse trouble 🙄",
+            "alright, noted that one 😬"
+          ],
+          "take_critical": [
+            "...respect. 🫡",
+            "you've got practice at this 😳"
+          ],
+          "player_near_death": [
+            "the spot's not yours, playboy 😈",
+            "give up before it's over 🙏"
+          ],
+          "enemy_near_death": [
+            "I still run this spot 😤",
+            "I don't hand it over like that 💢"
+          ],
+          "defeat": [
+            "...the spot's yours now. 😨",
+            "respect. take it. 🫡"
+          ]
+        },
+        "1401": {
+          "attack_miss": [
+            "you still owe me 😏",
+            "can't run from the bill 😤",
+            "that's going on the interest 💰"
+          ],
+          "attack_hit": [
+            "that's the first installment 💰😈",
+            "high interest, kid 👊",
+            "pay in blood then 💢"
+          ],
+          "take_damage": [
+            "noted, I'll collect later 🙄",
+            "alright, felt that one 😬"
+          ],
+          "take_critical": [
+            "...that counts double 😳",
+            "you're charging a lot today 🫡"
+          ],
+          "player_near_death": [
+            "pay with your body then 🙏",
+            "the debt doesn't disappear 😈"
+          ],
+          "enemy_near_death": [
+            "haven't closed the account yet 😤",
+            "that doesn't settle a thing 💢"
+          ],
+          "defeat": [
+            "...you cleared the tab. 😨",
+            "respect. we're square. 🫡"
+          ]
+        },
+        "1402": {
+          "attack_miss": [
+            "you still owe me 😏",
+            "can't run from the bill 😤",
+            "that's going on the interest 💰"
+          ],
+          "attack_hit": [
+            "that's the first installment 💰😈",
+            "high interest, kid 👊",
+            "pay in blood then 💢"
+          ],
+          "take_damage": [
+            "noted, I'll collect later 🙄",
+            "alright, felt that one 😬"
+          ],
+          "take_critical": [
+            "...that counts double 😳",
+            "you're charging a lot today 🫡"
+          ],
+          "player_near_death": [
+            "pay with your body then 🙏",
+            "the debt doesn't disappear 😈"
+          ],
+          "enemy_near_death": [
+            "haven't closed the account yet 😤",
+            "that doesn't settle a thing 💢"
+          ],
+          "defeat": [
+            "...you cleared the tab. 😨",
+            "respect. we're square. 🫡"
+          ]
+        },
+        "1403": {
+          "attack_miss": [
+            "ran from the bill this time 😤",
+            "don't run, it just gets worse 😈"
+          ],
+          "attack_hit": [
+            "that's going in the Collector's book 📒",
+            "interest that pays off 👊💰"
+          ],
+          "take_damage": [
+            "I've taken worse collecting debts 😒",
+            "alright, that stung 😬"
+          ],
+          "take_critical": [
+            "whoa, respect that hit 🫡",
+            "you've got practice at this, huh 😳"
+          ],
+          "player_near_death": [
+            "sign your name and I'll stop 🙏",
+            "you don't owe more than that 😈"
+          ],
+          "enemy_near_death": [
+            "still got wind left to collect 😤",
+            "this doesn't close the account 💢"
+          ],
+          "defeat": [
+            "gonna have to go back without the change... 😨",
+            "the Collector's not gonna like this 😔"
+          ]
+        },
+        "1404": {
+          "attack_miss": [
+            "you still owe me 😏",
+            "can't run from the bill 😤",
+            "that's going on the interest 💰"
+          ],
+          "attack_hit": [
+            "that's the first installment 💰😈",
+            "high interest, kid 👊",
+            "pay in blood then 💢"
+          ],
+          "take_damage": [
+            "noted, I'll collect later 🙄",
+            "alright, felt that one 😬"
+          ],
+          "take_critical": [
+            "...that counts double 😳",
+            "you're charging a lot today 🫡"
+          ],
+          "player_near_death": [
+            "pay with your body then 🙏",
+            "the debt doesn't disappear 😈"
+          ],
+          "enemy_near_death": [
+            "haven't closed the account yet 😤",
+            "that doesn't settle a thing 💢"
+          ],
+          "defeat": [
+            "...you cleared the tab. 😨",
+            "respect. we're square. 🫡"
+          ]
+        },
+        "1405": {
+          "attack_miss": [
+            "got nothing left to lose 😤",
+            "come on, I don't stop 😈"
+          ],
+          "attack_hit": [
+            "that's all that's left of me 💢",
+            "felt the desperation? 😤"
+          ],
+          "take_damage": [
+            "I've lost more than that 😒",
+            "don't feel anything anymore 😬"
+          ],
+          "take_critical": [
+            "...strong. 👏",
+            "almost finished off what's left 😳"
+          ],
+          "player_near_death": [
+            "the Baixada doesn't forgive 😈",
+            "give up, there's nothing left to win 🙏"
+          ],
+          "enemy_near_death": [
+            "nothing left, but I still fight 😤",
+            "what's left still swings 💢"
+          ],
+          "defeat": [
+            "...it's over. for good. 😨",
+            "nothing left. respect. 🫡"
+          ]
+        },
+        "1406": {
+          "attack_miss": [
+            "you still owe me 😏",
+            "can't run from the bill 😤",
+            "that's going on the interest 💰"
+          ],
+          "attack_hit": [
+            "that's the first installment 💰😈",
+            "high interest, kid 👊",
+            "pay in blood then 💢"
+          ],
+          "take_damage": [
+            "noted, I'll collect later 🙄",
+            "alright, felt that one 😬"
+          ],
+          "take_critical": [
+            "...that counts double 😳",
+            "you're charging a lot today 🫡"
+          ],
+          "player_near_death": [
+            "pay with your body then 🙏",
+            "the debt doesn't disappear 😈"
+          ],
+          "enemy_near_death": [
+            "haven't closed the account yet 😤",
+            "that doesn't settle a thing 💢"
+          ],
+          "defeat": [
+            "...you cleared the tab. 😨",
+            "respect. we're square. 🫡"
+          ]
+        },
+        "1407": {
+          "attack_miss": [
+            "I see everything from up here 😏",
+            "you didn't even get close 😤"
+          ],
+          "attack_hit": [
+            "hits harder from up top 👊😈",
+            "felt the fall? 🔥"
+          ],
+          "take_damage": [
+            "not coming down for that 🙄",
+            "alright, that one reached up here 😬"
+          ],
+          "take_critical": [
+            "whoa, you made it up 🫡",
+            "almost knocked me down from up here 😳"
+          ],
+          "player_near_death": [
+            "easy to finish from up here 😈",
+            "give up, the floor's mine 🙏"
+          ],
+          "enemy_near_death": [
+            "haven't fallen off the building yet 😤",
+            "not going down without taking someone 💢"
+          ],
+          "defeat": [
+            "...I fell. 😨",
+            "respect. you made it up here. 🫡"
+          ]
+        },
+        "1408": {
+          "attack_miss": [
+            "you still owe me 😏",
+            "can't run from the bill 😤",
+            "that's going on the interest 💰"
+          ],
+          "attack_hit": [
+            "that's the first installment 💰😈",
+            "high interest, kid 👊",
+            "pay in blood then 💢"
+          ],
+          "take_damage": [
+            "noted, I'll collect later 🙄",
+            "alright, felt that one 😬"
+          ],
+          "take_critical": [
+            "...that counts double 😳",
+            "you're charging a lot today 🫡"
+          ],
+          "player_near_death": [
+            "pay with your body then 🙏",
+            "the debt doesn't disappear 😈"
+          ],
+          "enemy_near_death": [
+            "haven't closed the account yet 😤",
+            "that doesn't settle a thing 💢"
+          ],
+          "defeat": [
+            "...you cleared the tab. 😨",
+            "respect. we're square. 🫡"
+          ]
+        },
+        "1409": {
+          "attack_miss": [
+            "missed my aim that time 😅",
+            "the next firecracker won't miss 😈"
+          ],
+          "attack_hit": [
+            "BOOM 💥🔥",
+            "felt the fire climb? 😈"
+          ],
+          "take_damage": [
+            "that doesn't put out my fuse 🙄",
+            "alright, that lit up 😬"
+          ],
+          "take_critical": [
+            "DAMN WHAT A BLAST 😳💥",
+            "you throw firecrackers too? 😤"
+          ],
+          "player_near_death": [
+            "you're gonna blow for real 😈",
+            "give up before the next one 🙏"
+          ],
+          "enemy_near_death": [
+            "still got fuse left to burn 😤",
+            "not putting out easy 💢"
+          ],
+          "defeat": [
+            "...put out my fire. 😨",
+            "respect, fighter. the Morro knows you're here. 🫡"
+          ]
+        },
+        "1410": {
+          "attack_miss": [
+            "you still owe me 😏",
+            "can't run from the bill 😤",
+            "that's going on the interest 💰"
+          ],
+          "attack_hit": [
+            "that's the first installment 💰😈",
+            "high interest, kid 👊",
+            "pay in blood then 💢"
+          ],
+          "take_damage": [
+            "noted, I'll collect later 🙄",
+            "alright, felt that one 😬"
+          ],
+          "take_critical": [
+            "...that counts double 😳",
+            "you're charging a lot today 🫡"
+          ],
+          "player_near_death": [
+            "pay with your body then 🙏",
+            "the debt doesn't disappear 😈"
+          ],
+          "enemy_near_death": [
+            "haven't closed the account yet 😤",
+            "that doesn't settle a thing 💢"
+          ],
+          "defeat": [
+            "...you cleared the tab. 😨",
+            "respect. we're square. 🫡"
+          ]
+        },
+        "1411": {
+          "attack_miss": [
+            "you still owe me 😏",
+            "can't run from the bill 😤",
+            "that's going on the interest 💰"
+          ],
+          "attack_hit": [
+            "that's the first installment 💰😈",
+            "high interest, kid 👊",
+            "pay in blood then 💢"
+          ],
+          "take_damage": [
+            "noted, I'll collect later 🙄",
+            "alright, felt that one 😬"
+          ],
+          "take_critical": [
+            "...that counts double 😳",
+            "you're charging a lot today 🫡"
+          ],
+          "player_near_death": [
+            "pay with your body then 🙏",
+            "the debt doesn't disappear 😈"
+          ],
+          "enemy_near_death": [
+            "haven't closed the account yet 😤",
+            "that doesn't settle a thing 💢"
+          ],
+          "defeat": [
+            "...you cleared the tab. 😨",
+            "respect. we're square. 🫡"
+          ]
+        },
+        "1412": {
+          "attack_miss": [
+            "you still owe me 😏",
+            "can't run from the bill 😤",
+            "that's going on the interest 💰"
+          ],
+          "attack_hit": [
+            "that's the first installment 💰😈",
+            "high interest, kid 👊",
+            "pay in blood then 💢"
+          ],
+          "take_damage": [
+            "noted, I'll collect later 🙄",
+            "alright, felt that one 😬"
+          ],
+          "take_critical": [
+            "...that counts double 😳",
+            "you're charging a lot today 🫡"
+          ],
+          "player_near_death": [
+            "pay with your body then 🙏",
+            "the debt doesn't disappear 😈"
+          ],
+          "enemy_near_death": [
+            "haven't closed the account yet 😤",
+            "that doesn't settle a thing 💢"
+          ],
+          "defeat": [
+            "...you cleared the tab. 😨",
+            "respect. we're square. 🫡"
+          ]
+        },
+        "1413": {
+          "attack_miss": [
+            "you still owe me 😏",
+            "can't run from the bill 😤",
+            "that's going on the interest 💰"
+          ],
+          "attack_hit": [
+            "that's the first installment 💰😈",
+            "high interest, kid 👊",
+            "pay in blood then 💢"
+          ],
+          "take_damage": [
+            "noted, I'll collect later 🙄",
+            "alright, felt that one 😬"
+          ],
+          "take_critical": [
+            "...that counts double 😳",
+            "you're charging a lot today 🫡"
+          ],
+          "player_near_death": [
+            "pay with your body then 🙏",
+            "the debt doesn't disappear 😈"
+          ],
+          "enemy_near_death": [
+            "haven't closed the account yet 😤",
+            "that doesn't settle a thing 💢"
+          ],
+          "defeat": [
+            "...you cleared the tab. 😨",
+            "respect. we're square. 🫡"
+          ]
+        },
+        "1414": {
+          "attack_miss": [
+            "you still owe me 😏",
+            "can't run from the bill 😤",
+            "that's going on the interest 💰"
+          ],
+          "attack_hit": [
+            "that's the first installment 💰😈",
+            "high interest, kid 👊",
+            "pay in blood then 💢"
+          ],
+          "take_damage": [
+            "noted, I'll collect later 🙄",
+            "alright, felt that one 😬"
+          ],
+          "take_critical": [
+            "...that counts double 😳",
+            "you're charging a lot today 🫡"
+          ],
+          "player_near_death": [
+            "pay with your body then 🙏",
+            "the debt doesn't disappear 😈"
+          ],
+          "enemy_near_death": [
+            "haven't closed the account yet 😤",
+            "that doesn't settle a thing 💢"
+          ],
+          "defeat": [
+            "...you cleared the tab. 😨",
+            "respect. we're square. 🫡"
+          ]
+        },
+        "1451": {
+          "attack_miss": [
+            "you're not even close to the boss 😏",
+            "I'm the last step, kid 😤",
+            "miss like that and you wanna go up? 🙄"
+          ],
+          "attack_hit": [
+            "this is to respect the top 👊🔥",
+            "felt the crew's weight? 😈",
+            "I handle what the boss won't dirty his hands with 💢"
+          ],
+          "take_damage": [
+            "I've held up worse than this 🙄",
+            "alright, that really hurt 😬"
+          ],
+          "take_critical": [
+            "...strong. the boss will like hearing this 🫡",
+            "you're getting close to running things here 😳"
+          ],
+          "player_near_death": [
+            "the boss is right there, but you're not getting through 😈",
+            "give up before the gate 🙏"
+          ],
+          "enemy_near_death": [
+            "stay sharp... this ain't over yet 😤",
+            "the whistle hasn't blown yet, kid 💢"
+          ],
+          "defeat": [
+            "...you got past me. the boss is waiting. 😨",
+            "respect. go up. 🫡"
+          ]
+        },
+        "1452": {
+          "attack_miss": [
+            "you're not even close to the boss 😏",
+            "I'm the last step, kid 😤",
+            "miss like that and you wanna go up? 🙄"
+          ],
+          "attack_hit": [
+            "this is to respect the top 👊🔥",
+            "felt the crew's weight? 😈",
+            "I handle what the boss won't dirty his hands with 💢"
+          ],
+          "take_damage": [
+            "I've held up worse than this 🙄",
+            "alright, that really hurt 😬"
+          ],
+          "take_critical": [
+            "...strong. the boss will like hearing this 🫡",
+            "you're getting close to running things here 😳"
+          ],
+          "player_near_death": [
+            "the boss is right there, but you're not getting through 😈",
+            "give up before the gate 🙏"
+          ],
+          "enemy_near_death": [
+            "ha... you're really growing, kid. but still not enough 😤",
+            "I've trained better than you 💢"
+          ],
+          "defeat": [
+            "...you got past me. the boss is waiting. 😨",
+            "respect. go up. 🫡"
+          ]
+        },
+        "1453": {
+          "attack_miss": [
+            "you're not even close to the boss 😏",
+            "I'm the last step, kid 😤",
+            "miss like that and you wanna go up? 🙄"
+          ],
+          "attack_hit": [
+            "this is to respect the top 👊🔥",
+            "felt the crew's weight? 😈",
+            "I handle what the boss won't dirty his hands with 💢"
+          ],
+          "take_damage": [
+            "I've held up worse than this 🙄",
+            "alright, that really hurt 😬"
+          ],
+          "take_critical": [
+            "...strong. the boss will like hearing this 🫡",
+            "you're getting close to running things here 😳"
+          ],
+          "player_near_death": [
+            "the boss is right there, but you're not getting through 😈",
+            "give up before the gate 🙏"
+          ],
+          "enemy_near_death": [
+            "still holding the line 😤",
+            "not falling before the boss sees 💢"
+          ],
+          "defeat": [
+            "...you got past me. the boss is waiting. 😨",
+            "respect. go up. 🫡"
+          ]
+        },
+        "1454": {
+          "attack_miss": [
+            "you're not even close to the boss 😏",
+            "I'm the last step, kid 😤",
+            "miss like that and you wanna go up? 🙄"
+          ],
+          "attack_hit": [
+            "this is to respect the top 👊🔥",
+            "felt the crew's weight? 😈",
+            "I handle what the boss won't dirty his hands with 💢"
+          ],
+          "take_damage": [
+            "I've held up worse than this 🙄",
+            "alright, that really hurt 😬"
+          ],
+          "take_critical": [
+            "...strong. the boss will like hearing this 🫡",
+            "you're getting close to running things here 😳"
+          ],
+          "player_near_death": [
+            "the boss is right there, but you're not getting through 😈",
+            "give up before the gate 🙏"
+          ],
+          "enemy_near_death": [
+            "still holding the line 😤",
+            "not falling before the boss sees 💢"
+          ],
+          "defeat": [
+            "...you got past me. the boss is waiting. 😨",
+            "respect. go up. 🫡"
+          ]
+        },
+        "1455": {
+          "attack_miss": [
+            "you're not even close to the boss 😏",
+            "I'm the last step, kid 😤",
+            "miss like that and you wanna go up? 🙄"
+          ],
+          "attack_hit": [
+            "this is to respect the top 👊🔥",
+            "felt the crew's weight? 😈",
+            "I handle what the boss won't dirty his hands with 💢"
+          ],
+          "take_damage": [
+            "I've held up worse than this 🙄",
+            "alright, that really hurt 😬"
+          ],
+          "take_critical": [
+            "...strong. the boss will like hearing this 🫡",
+            "you're getting close to running things here 😳"
+          ],
+          "player_near_death": [
+            "the boss is right there, but you're not getting through 😈",
+            "give up before the gate 🙏"
+          ],
+          "enemy_near_death": [
+            "still holding the line 😤",
+            "not falling before the boss sees 💢"
+          ],
+          "defeat": [
+            "...you got past me. the boss is waiting. 😨",
+            "respect. go up. 🫡"
+          ]
+        },
+        "1456": {
+          "attack_miss": [
+            "you're not even close to the boss 😏",
+            "I'm the last step, kid 😤",
+            "miss like that and you wanna go up? 🙄"
+          ],
+          "attack_hit": [
+            "this is to respect the top 👊🔥",
+            "felt the crew's weight? 😈",
+            "I handle what the boss won't dirty his hands with 💢"
+          ],
+          "take_damage": [
+            "I've held up worse than this 🙄",
+            "alright, that really hurt 😬"
+          ],
+          "take_critical": [
+            "...strong. the boss will like hearing this 🫡",
+            "you're getting close to running things here 😳"
+          ],
+          "player_near_death": [
+            "the boss is right there, but you're not getting through 😈",
+            "give up before the gate 🙏"
+          ],
+          "enemy_near_death": [
+            "still holding the line 😤",
+            "not falling before the boss sees 💢"
+          ],
+          "defeat": [
+            "...you got past me. the boss is waiting. 😨",
+            "respect. go up. 🫡"
+          ]
+        },
+        "1457": {
+          "attack_miss": [
+            "you're not even close to the boss 😏",
+            "I'm the last step, kid 😤",
+            "miss like that and you wanna go up? 🙄"
+          ],
+          "attack_hit": [
+            "this is to respect the top 👊🔥",
+            "felt the crew's weight? 😈",
+            "I handle what the boss won't dirty his hands with 💢"
+          ],
+          "take_damage": [
+            "I've held up worse than this 🙄",
+            "alright, that really hurt 😬"
+          ],
+          "take_critical": [
+            "...strong. the boss will like hearing this 🫡",
+            "you're getting close to running things here 😳"
+          ],
+          "player_near_death": [
+            "the boss is right there, but you're not getting through 😈",
+            "give up before the gate 🙏"
+          ],
+          "enemy_near_death": [
+            "still holding the line 😤",
+            "not falling before the boss sees 💢"
+          ],
+          "defeat": [
+            "...you got past me. the boss is waiting. 😨",
+            "respect. go up. 🫡"
+          ]
+        },
+        "1458": {
+          "attack_miss": [
+            "you're not even close to the boss 😏",
+            "I'm the last step, kid 😤",
+            "miss like that and you wanna go up? 🙄"
+          ],
+          "attack_hit": [
+            "this is to respect the top 👊🔥",
+            "felt the crew's weight? 😈",
+            "I handle what the boss won't dirty his hands with 💢"
+          ],
+          "take_damage": [
+            "I've held up worse than this 🙄",
+            "alright, that really hurt 😬"
+          ],
+          "take_critical": [
+            "...strong. the boss will like hearing this 🫡",
+            "you're getting close to running things here 😳"
+          ],
+          "player_near_death": [
+            "the boss is right there, but you're not getting through 😈",
+            "give up before the gate 🙏"
+          ],
+          "enemy_near_death": [
+            "still holding the line 😤",
+            "not falling before the boss sees 💢"
+          ],
+          "defeat": [
+            "...you got past me. the boss is waiting. 😨",
+            "respect. go up. 🫡"
+          ]
+        },
+        "1459": {
+          "attack_miss": [
+            "you're not even close to the boss 😏",
+            "I'm the last step, kid 😤",
+            "miss like that and you wanna go up? 🙄"
+          ],
+          "attack_hit": [
+            "this is to respect the top 👊🔥",
+            "felt the crew's weight? 😈",
+            "I handle what the boss won't dirty his hands with 💢"
+          ],
+          "take_damage": [
+            "I've held up worse than this 🙄",
+            "alright, that really hurt 😬"
+          ],
+          "take_critical": [
+            "...strong. the boss will like hearing this 🫡",
+            "you're getting close to running things here 😳"
+          ],
+          "player_near_death": [
+            "the boss is right there, but you're not getting through 😈",
+            "give up before the gate 🙏"
+          ],
+          "enemy_near_death": [
+            "still holding the line 😤",
+            "not falling before the boss sees 💢"
+          ],
+          "defeat": [
+            "...you got past me. the boss is waiting. 😨",
+            "respect. go up. 🫡"
+          ]
+        },
+        "1460": {
+          "attack_miss": [
+            "you're not even close to the boss 😏",
+            "I'm the last step, kid 😤",
+            "miss like that and you wanna go up? 🙄"
+          ],
+          "attack_hit": [
+            "this is to respect the top 👊🔥",
+            "felt the crew's weight? 😈",
+            "I handle what the boss won't dirty his hands with 💢"
+          ],
+          "take_damage": [
+            "I've held up worse than this 🙄",
+            "alright, that really hurt 😬"
+          ],
+          "take_critical": [
+            "...strong. the boss will like hearing this 🫡",
+            "you're getting close to running things here 😳"
+          ],
+          "player_near_death": [
+            "the boss is right there, but you're not getting through 😈",
+            "give up before the gate 🙏"
+          ],
+          "enemy_near_death": [
+            "still holding the line 😤",
+            "not falling before the boss sees 💢"
+          ],
+          "defeat": [
+            "...you got past me. the boss is waiting. 😨",
+            "respect. go up. 🫡"
+          ]
+        },
+        "1461": {
+          "attack_miss": [
+            "you're not even close to the boss 😏",
+            "I'm the last step, kid 😤",
+            "miss like that and you wanna go up? 🙄"
+          ],
+          "attack_hit": [
+            "this is to respect the top 👊🔥",
+            "felt the crew's weight? 😈",
+            "I handle what the boss won't dirty his hands with 💢"
+          ],
+          "take_damage": [
+            "I've held up worse than this 🙄",
+            "alright, that really hurt 😬"
+          ],
+          "take_critical": [
+            "...strong. the boss will like hearing this 🫡",
+            "you're getting close to running things here 😳"
+          ],
+          "player_near_death": [
+            "the boss is right there, but you're not getting through 😈",
+            "give up before the gate 🙏"
+          ],
+          "enemy_near_death": [
+            "still holding the line 😤",
+            "not falling before the boss sees 💢"
+          ],
+          "defeat": [
+            "...you got past me. the boss is waiting. 😨",
+            "respect. go up. 🫡"
+          ]
+        },
+        "1462": {
+          "attack_miss": [
+            "you're not even close to the boss 😏",
+            "I'm the last step, kid 😤",
+            "miss like that and you wanna go up? 🙄"
+          ],
+          "attack_hit": [
+            "this is to respect the top 👊🔥",
+            "felt the crew's weight? 😈",
+            "I handle what the boss won't dirty his hands with 💢"
+          ],
+          "take_damage": [
+            "I've held up worse than this 🙄",
+            "alright, that really hurt 😬"
+          ],
+          "take_critical": [
+            "...strong. the boss will like hearing this 🫡",
+            "you're getting close to running things here 😳"
+          ],
+          "player_near_death": [
+            "the boss is right there, but you're not getting through 😈",
+            "give up before the gate 🙏"
+          ],
+          "enemy_near_death": [
+            "still holding the line 😤",
+            "not falling before the boss sees 💢"
+          ],
+          "defeat": [
+            "...you got past me. the boss is waiting. 😨",
+            "respect. go up. 🫡"
+          ]
+        },
+        "1463": {
+          "attack_miss": [
+            "nobody gets past a general easy 😏",
+            "the top's waiting, but not for you 😤"
+          ],
+          "attack_hit": [
+            "that's the Patchwork's order 👊🔥",
+            "felt the cut? 😈"
+          ],
+          "take_damage": [
+            "I've given orders through worse 🙄",
+            "alright, I'm logging that 😬"
+          ],
+          "take_critical": [
+            "...noted. 🫡",
+            "you're getting close to running things here 😳"
+          ],
+          "player_near_death": [
+            "the Patchwork's waiting, but you're not reaching him 😈",
+            "give up before the real top 🙏"
+          ],
+          "enemy_near_death": [
+            "still commanding this Laje 😤",
+            "not handing over the post that easy 💢"
+          ],
+          "defeat": [
+            "...you're a general now. 😨",
+            "respect. the Patchwork knows you're climbing. 🫡"
+          ]
+        },
+        "1464": {
+          "attack_miss": [
+            "you're not even close to the boss 😏",
+            "I'm the last step, kid 😤",
+            "miss like that and you wanna go up? 🙄"
+          ],
+          "attack_hit": [
+            "this is to respect the top 👊🔥",
+            "felt the crew's weight? 😈",
+            "I handle what the boss won't dirty his hands with 💢"
+          ],
+          "take_damage": [
+            "I've held up worse than this 🙄",
+            "alright, that really hurt 😬"
+          ],
+          "take_critical": [
+            "...strong. the boss will like hearing this 🫡",
+            "you're getting close to running things here 😳"
+          ],
+          "player_near_death": [
+            "the boss is right there, but you're not getting through 😈",
+            "give up before the gate 🙏"
+          ],
+          "enemy_near_death": [
+            "still holding the line 😤",
+            "not falling before the boss sees 💢"
+          ],
+          "defeat": [
+            "...you got past me. the boss is waiting. 😨",
+            "respect. go up. 🫡"
+          ]
+        },
+        "1500": {
+          "attack_miss": [
+            "quick, huh 😏",
+            "vanish like smoke? not happening 😈"
+          ],
+          "attack_hit": [
+            "blink and I'm gone 💨🔥",
+            "felt the smoke? 😈"
+          ],
+          "take_damage": [
+            "that's just smoke 😒",
+            "ok, that stung 👀"
+          ],
+          "take_critical": [
+            "...respect. 🫡",
+            "the Pista's different today 🔥"
+          ],
+          "player_near_death": [
+            "you get hit in the dark, kid 😈",
+            "the Pista's mine 💨"
+          ],
+          "enemy_near_death": [
+            "hey... hold up. nobody's ever gotten this close 😳",
+            "the Pista's different today 🔥"
+          ],
+          "defeat": [
+            "alright, kid. this one's yours. but Marélia doesn't stitch up easy 💨",
+            "go up and see with your own eyes — the top doesn't hold 😨"
+          ]
+        },
+        "1501": {
+          "attack_miss": [
+            "you still owe me this one 😏",
+            "can't escape the bill 😤"
+          ],
+          "attack_hit": [
+            "that goes on the debt 💰😈",
+            "high interest, kid 👊"
+          ],
+          "take_damage": [
+            "noted, I'll collect later 😒",
+            "alright, felt that one 😬"
+          ],
+          "take_critical": [
+            "...respect. 🫡",
+            "you're charging a lot today 😳"
+          ],
+          "player_near_death": [
+            "pay with your body then 🙏",
+            "the whole Feira owes me 😈"
+          ],
+          "enemy_near_death": [
+            "haven't closed the account yet 😤",
+            "that doesn't pay the debt 💢"
+          ],
+          "defeat": [
+            "...you cleared my tab. 😨",
+            "respect, partner. the Feira's yours. 🫡"
+          ]
+        },
+        "1502": {
+          "attack_miss": [
+            "the spike always reaches 😏",
+            "you run but I pierce 😈"
+          ],
+          "attack_hit": [
+            "SPIKED 💢🔥",
+            "felt the point? 😈"
+          ],
+          "take_damage": [
+            "that doesn't pierce anything 🙄",
+            "alright, that got through 😬"
+          ],
+          "take_critical": [
+            "...whoa. 🫡",
+            "you've got a blade too, huh 😳"
+          ],
+          "player_near_death": [
+            "the Baixada's mine since Sombra fell 😈",
+            "come take the rest 🙏"
+          ],
+          "enemy_near_death": [
+            "still got point left to give 😤",
+            "not falling in the ditch 💢"
+          ],
+          "defeat": [
+            "...you took my spots. 😨",
+            "respect. the Baixada's yours now. 🫡"
+          ]
+        },
+        "1503": {
+          "attack_miss": [
+            "climbed ten floors and still miss? 😏",
+            "it's not gonna help 😤"
+          ],
+          "attack_hit": [
+            "this is to respect the top floor 👊",
+            "felt the stairs in your legs? 😈"
+          ],
+          "take_damage": [
+            "I respect the effort 🙄",
+            "alright, felt that one 😬"
+          ],
+          "take_critical": [
+            "...respect the effort. 🫡",
+            "that hit climbed strong 😳"
+          ],
+          "player_near_death": [
+            "doesn't change a damn thing, playboy 🙏",
+            "go down the way you came 😈"
+          ],
+          "enemy_near_death": [
+            "still holding the top floor 😤",
+            "not going down without a fight 💢"
+          ],
+          "defeat": [
+            "...you made it to the top. 😨",
+            "respect the effort. the building's yours. 🫡"
+          ]
+        },
+        "1504": {
+          "attack_miss": [
+            "I've raised faster kids than you 😏",
+            "sit down, it's not over yet 😤"
+          ],
+          "attack_hit": [
+            "this is punishment, not a fight 👊",
+            "felt the rod? grow from it 😈"
+          ],
+          "take_damage": [
+            "I've taken worse raising you all 🙄",
+            "alright, even I felt that 😬"
+          ],
+          "take_critical": [
+            "...you learned fast. 🫡",
+            "look who grew up 😳"
+          ],
+          "player_near_death": [
+            "sit down, the punishment's gonna take a while 🙏",
+            "I warned you, kid 😈"
+          ],
+          "enemy_near_death": [
+            "still got rod left to teach 😤",
+            "not putting down the ruler that easy 💢"
+          ],
+          "defeat": [
+            "...you learned everything I taught. 😨",
+            "proud of you, kid. the Morro's yours. 🫡"
+          ]
+        },
+        "1505": {
+          "attack_miss": [
+            "the math's not done yet 😏",
+            "easy, I'll get there 😤"
+          ],
+          "attack_hit": [
+            "this is math, not anger 👊",
+            "felt the numbers closing in? 😈"
+          ],
+          "take_damage": [
+            "interesting variable there 🙄",
+            "alright, that changes the math 😬"
+          ],
+          "take_critical": [
+            "...recalculating. 🫡",
+            "you weren't in my numbers 😳"
+          ],
+          "player_near_death": [
+            "do the math and go home, playboy 🙏",
+            "two fighters against the whole Alto? 😈"
+          ],
+          "enemy_near_death": [
+            "the math still adds up for me 😤",
+            "I don't miscalculate this big 💢"
+          ],
+          "defeat": [
+            "...the math didn't add up. 😨",
+            "recalculated. respect. the Alto's yours. 🫡"
+          ]
+        },
+        "1600": {
+          "attack_miss": [
+            "six blocks and you think you dodge me 😏",
+            "Marélia's seen better hits than that 😤"
+          ],
+          "attack_hit": [
+            "this here's stitched with blood 👊🔥",
+            "felt all of Marélia in that hit? 😈"
+          ],
+          "take_damage": [
+            "I've taken worse holding six blocks 🙄",
+            "alright, I'll remember that one 😬"
+          ],
+          "take_critical": [
+            "...you're closer than I expected. 🫡",
+            "nobody's ever gotten this close to me 😳"
+          ],
+          "player_near_death": [
+            "this shit doesn't stitch — not even I held it 😈",
+            "give up, Marélia's not yours yet 🙏"
+          ],
+          "enemy_near_death": [
+            "six blocks don't fall easy 😤",
+            "still holding the line, kid 💢"
+          ],
+          "defeat": [
+            "...nobody's ever gotten closer. Marélia's yours now. 😨",
+            "respect, fighter. you did what I couldn't. 🫡"
           ]
         }
       },
@@ -2007,7 +4700,6 @@
         "facil_ultimo": "You REALLY think you're going to face the last hood's boss playing on EASY? He won't even stoop to look at you. On easy you get to the 6th and that's it — whoever wants the top plays for real. Bump it to Medium at least, kid.",
         "facil_ultimo_cta": "Raise the difficulty",
         "dominado": "Block's ours",
-        "voltar_mapa": "Map",
         "sem_territorio": "No block selected.",
         "desafiante": "Spot gang",
         "gangue_dominante": "Block-running gang",
@@ -2390,11 +5082,17 @@
           },
           "posmuro_1": {
             "nome": "The watchdogs",
-            "fala": ["\"You lost your mind coming here, huh?\" Carvão's first crew blocks the way.", "Two heavy dealers smoking on the warehouse steps. They spot you and spit on the ground."]
+            "fala": [
+              "\"You lost your mind coming here, huh?\" Carvão's first crew blocks the way.",
+              "Two heavy dealers smoking on the warehouse steps. They spot you and spit on the ground."
+            ]
           },
           "posmuro_2": {
             "nome": "The block manager",
-            "fala": ["Carvão's right hand in person, with an escort. \"Past the wall, you come in by invitation. Were you invited?\"", "This one doesn't run. Folds his arms, signals the goons: \"handle it.\""]
+            "fala": [
+              "Carvão's right hand in person, with an escort. \"Past the wall, you come in by invitation. Were you invited?\"",
+              "This one doesn't run. Folds his arms, signals the goons: \"handle it.\""
+            ]
           },
           "loja": {
             "nome": "Pista Shop"

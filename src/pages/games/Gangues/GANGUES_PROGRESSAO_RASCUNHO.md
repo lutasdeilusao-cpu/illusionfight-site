@@ -1,20 +1,31 @@
 # LDI Gangues — Novo Sistema de Progressão e Especializações
 
-> Rascunho de sistema, pra correção pontual depois. Cobre a estrutura geral de XP/AP e os
-> 5 subcaminhos completos do **Atacante**. Defensor e Místico ficam pro próximo round.
+> Rascunho de sistema original: cobria a estrutura geral de XP/AP e os 5 subcaminhos completos
+> do **Atacante**, com Defensor e Místico marcados pra "próximo round". **Isso já não é mais
+> verdade** — ver aviso de v2.75.1 abaixo. O §4 (Atacante, com os 25 poderes detalhados
+> nível a nível) continua sendo a referência de design completa; §4.6/§4.7 documentam a
+> identidade de Defensor e Místico no nível que existe hoje.
 >
-> **Status de implementação (2026-08-18, atualizado no mesmo dia)**: o catálogo dos 5
-> subcaminhos do Atacante (ids, nomes, active/passive) foi implementado em
-> `data/ganguesSpecials.js`, com nomes traduzidos em `src/i18n/gangues-{pt,en,es}.json`. Na
-> sequência, os **valores numéricos dos 25 poderes do Atacante foram implementados e ligados ao
-> combate** em `engine/ganguesSpecialEffects.js` (v1.14.0) — com simplificações pontuais pra
-> caber no modelo atual de 1 ação por turno sem fila de status/duração: efeitos com duração
-> (Marca, Fratura de Ilusão, Ponto de Pressão) viraram bônus imediato de dano; efeitos que
-> mexiam na ordem de turno (Investida furar a fila, Fôlego Final dar ação extra) perderam essa
-> parte, mantendo só o bônus numérico. Os valores usados (custo de PM/PV, bônus por nível) estão
-> documentados nos comentários de `ganguesSpecialEffects.js`, próximos ao que está descrito
-> abaixo. **Defensor e Místico continuam sem design próprio** (usam um template genérico) — este
-> documento segue sendo a referência de design pra quando alguém escrever a versão deles.
+> **Status de implementação (2026-08-18)**: o catálogo dos 5 subcaminhos do Atacante (ids,
+> nomes, active/passive) foi implementado em `data/ganguesSpecials.js`, com nomes traduzidos em
+> `src/i18n/gangues-{pt,en,es}.json`. Na sequência, os **valores numéricos dos 25 poderes do
+> Atacante foram implementados e ligados ao combate** em `engine/ganguesSpecialEffects.js`
+> (v1.14.0) — com simplificações pontuais pra caber no modelo atual de 1 ação por turno sem fila
+> de status/duração: efeitos com duração (Marca, Fratura de Ilusão, Ponto de Pressão) viraram
+> bônus imediato de dano; efeitos que mexiam na ordem de turno (Investida furar a fila, Fôlego
+> Final dar ação extra) perderam essa parte, mantendo só o bônus numérico. Os valores usados
+> (custo de PM/PV, bônus por nível) estão documentados nos comentários de
+> `ganguesSpecialEffects.js`, próximos ao que está descrito abaixo.
+>
+> **Atualização v2.75.1 (2026-09-11) — isto CORRIGE a frase acima, que ficou desatualizada**:
+> Defensor e Místico **não usam mais template genérico**. Os 50 poderes (25 de cada caminho)
+> ganharam efeito próprio em `engine/ganguesSpecialEffects.js`, cada subcaminho com identidade
+> mecânica distinta — ver §4.6 e §4.7. Esse mesmo release também corrigiu um bug crítico em
+> `data/ganguesSpecials.js`: os ids de 9 dos 10 subcaminhos de Defensor/Místico (todos exceto
+> Muralha) não batiam com `signature_specials` dos 30 personagens, então o motor de combate
+> nunca achava a ativa equipada pra 20 dos 30 personagens — só a técnica base aparecia em luta.
+> Além disso, cada personagem ganhou um **6º poder** (nível 50, exclusivo, não repetido dentro do
+> mesmo subcaminho).
 
 ---
 
@@ -287,12 +298,49 @@ Soma todo o dano recebido pelo Vingador na batalha inteira e devolve numa única
 
 ---
 
+## 4.6 Defensor — os 5 subcaminhos (implementado em v2.75.1)
+
+Ao contrário do Atacante, este documento **não** detalha os 25 poderes nível a nível — a
+referência de valores exatos (custo de PM, % de bônus por nível) vive nos comentários de
+`engine/ganguesSpecialEffects.js`. Aqui vai só a identidade mecânica de cada subcaminho, pra
+quem for calibrar ou expandir:
+
+| Subcaminho | Personagens | Foco mecânico |
+|---|---|---|
+| Muralha | Muro, Concreto | Parede pura — `def_flat` em camadas, quanto mais nível mais Defesa soma |
+| Guardião | Guarda, Ombro | Escudo pro time — protege outros, maior e mais barato que a Muralha porque é reativo aos aliados, não só a si mesmo |
+| Provocador | Boca, Isca | Abre a guarda do alvo (`reduce_target_defense`) — reduz a Defesa do inimigo em vez de aumentar a própria |
+| Reativo | Catraca, Rebote | Mesma lógica de carrega-e-descarrega do Vingador (§4.5) — acumula com o dano recebido, devolve depois |
+| Resiliente | Ferro, Osso | O corpo que não cai — passivos que só ligam quando a vida está crítica (mesmo espírito do Sangue Fervente do Fúria, mas defensivo) |
+
+## 4.7 Místico — os 5 subcaminhos (implementado em v2.75.1)
+
+| Subcaminho | Personagens | Foco mecânico |
+|---|---|---|
+| Ígneo | Brasa, Cinza | Fogo que queima através da guarda — dano que ignora parte da Defesa, como o Duelista, mas por elemento em vez de técnica |
+| Aquático | Maré, Chuva | Fluxo que abre brecha na guarda alheia — reduz Defesa do alvo por um tempo, efeito próximo ao Provocador mas com sabor elemental |
+| Terreno | Raiz, Racha | Prende o alvo no chão (`reduce_target_defense`) e estilhaça em seguida — combo de controle + payoff |
+| Tempestade | Faísca, Trovão | Velocidade — golpeia antes do alvo reagir, textura parecida com a Investida do Bruto |
+| Ilusório | Névoa, Espelho | Engana em vez de bloquear — escudo que se comporta diferente de um bloqueio normal, identidade única do caminho |
+
+> Cada um dos 10 subcaminhos acima tem exatamente o mesmo padrão do Atacante: 5 poderes por
+> subcaminho, 3 níveis cada, custo de XP idêntico à tabela do §3. A única coisa que este
+> documento não repete aqui é a redação nível-a-nível (Nv1/Nv2/Nv3) de cada um dos 50 poderes —
+> ela existe em código, não em prosa, e deveria ser transcrita pra cá na próxima vez que alguém
+> mexer nesses valores.
+
+---
+
 ## 5. Pontos em aberto (pra próxima rodada)
 
-- Valores numéricos exatos (PM de custo, % de bônus, quantidade fixa de dano) ainda não
-  definidos — ficaram como "base/melhora/máximo" propositalmente, pra calibrar depois de ver
-  o jogo rodando.
-- Defensor e Místico ainda não desenhados nesse nível de detalhe.
+- Valores numéricos exatos (PM de custo, % de bônus, quantidade fixa de dano) do Atacante ainda
+  não estão nesta versão do documento — ficaram como "base/melhora/máximo" propositalmente, pra
+  calibrar depois de ver o jogo rodando. Defensor e Místico (§4.6/§4.7) têm o mesmo problema,
+  mais agudo: nem a versão "base/melhora/máximo" foi transcrita pra prosa ainda, só existe em
+  código.
+- O **6º poder por personagem** (nível 50, ver aviso de v2.75.1 no topo) ainda não tem nenhum
+  registro de design neste documento — só existe como dado em `signature_specials` de cada
+  ficha e efeito em `ganguesSpecialEffects.js`.
 - Falta decidir se upar atributo e upar especial competem 1:1 pela mesma "panela" de XP sem
   nenhuma restrição adicional, ou se algum marco da ficha bloqueia um dos dois temporariamente.
 - Interações entre especiais de caminhos diferentes (ex: efeito de Especialista + dano de

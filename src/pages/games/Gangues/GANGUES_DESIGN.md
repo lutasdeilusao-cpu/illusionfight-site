@@ -1,8 +1,17 @@
 # LDI GANGUES — Estado atual do jogo
 
 > Snapshot de referência para continuar a evolução do jogo. Não é histórico de mudanças —
-> reflete como o jogo funciona agora. `GANGUES_VERSION` atual: **1.12.0** (`src/config/version.js`).
-> Rota: `/games/ldi-gangues` (a antiga `/games/ldi-arena` redireciona pra cá).
+> reflete como o jogo funcionava na **v1.12.0**. Rota: `/games/ldi-gangues` (a antiga
+> `/games/ldi-arena` redireciona pra cá).
+>
+> **⚠️ DESATUALIZADO (constatado em 2026-09-11) — o jogo está em `GANGUES_VERSION` 2.75.1**
+> (`src/config/version.js`), mais de 60 versões patch à frente deste snapshot. O conteúdo
+> abaixo não foi revalidado contra o código atual; use como referência histórica, não como
+> verdade corrente. Pra progressão/especiais, `GANGUES_PROGRESSAO_RASCUNHO.md` está mais em dia
+> (Defensor e Místico já têm design próprio, ver §4.6/§4.7 lá). Pra lore, `LDI_GANGUES_GDD.md`
+> é a fonte oficial. Pra fluxo de POI/cena do Modo História, `GANGUES_MODO_HISTORIA_ENCONTROS.md`.
+> Este documento precisa de uma nova passada completa comparando cada seção contra o código —
+> não fizemos isso agora porque o pedido era só sinalizar e corrigir o descompasso de versão.
 
 ## 1. Visão geral
 

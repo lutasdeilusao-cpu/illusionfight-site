@@ -1538,412 +1538,3105 @@
         "modal_btn": "MEJORAR PLAN"
       },
       "trash_talk_npc": {
-        "npc_arrogante_marelia": {
-          "battle_start": [
-            "mira quien apareció 😏",
-            "sabes con quién estás peleando, ¿verdad? 😤",
-            "esto será rápido. spoiler: no para ti 💅",
-            "avísale al siguiente de la fila 😂",
-            "mi mamá me dijo que no le pegara a alguien sin oportunidad. la voy a ignorar 🙄"
-          ],
+        "1101": {
           "attack_miss": [
-            "ni siquiera rozó 💀",
-            "¿eso fue un ataque?? 😭",
-            "¿cerraste los ojos? 😂",
-            "hazlo otra vez, quiero grabar 📱😂",
-            "amigo, fallaste FEO 😭💀"
+            "pasó lejísimo 😮‍💨",
+            "ni te vi bien 👀",
+            "solo estoy vigilando, no peleando 🫥"
           ],
           "attack_hit": [
-            "¿SENTISTE? 🔥",
-            "duele, ¿verdad? 😈",
-            "viene más 👊💥",
-            "te aviso cuando pare 😏",
-            "tus PV están llorando ahora 📉😂"
+            "te avisé que iba a doler 📣",
+            "toma, para que dejes de subir 👊",
+            "toda la banda ya sabe que estás acá 🔊"
           ],
           "take_damage": [
-            "tu suerte 🙄",
-            "fue casi nada lol 😒",
-            "interesante... 🤨",
-            "ok, tienes brazo 😒",
-            "ese no lo bloqueé a propósito. prueba 🧪"
+            "ey, eso no 😤",
+            "esto no me frena 🏃",
+            "ya aguanté más solo vigilando 🙄"
           ],
           "take_critical": [
-            "OK ESO DOLIÓ 😤💢",
-            "no esperaba eso ngl 😳",
-            "buen golpe. respeto. 👏",
-            "ok ok sabes pelear un poco 😤",
-            "eso no cambiará el resultado 😤🔥"
+            "uh, esa entró 😳",
+            "bien, tenés mano 👏"
           ],
           "player_near_death": [
-            "se acabó para ti amigo 💀💀",
-            "deberías haber huido cuando tuviste chance 🏃‍♂️💨",
-            "¿quieres que pare? 🥹",
-            "¿puedo llamar a NeoGuide para ayudarte? 😂",
-            "imagina perder conmigo 💀 qué vergüenza"
+            "rajá mientras podés 🙏",
+            "todo el barrio ya te vio 😈"
           ],
           "enemy_near_death": [
-            "NO SE ACABÓ TODAVÍA 😤",
-            "solo estoy calentando lo juro 🔥",
-            "me subestimaste eh 😏",
-            "no vas a terminar esto 😡",
-            "la cagaste amigo. LA CAGASTE 😤💢"
+            "todavía puedo gritar 😤",
+            "no caigo calladito 📣"
+          ],
+          "defeat": [
+            "...voy a tener que avisar que pasaste 😔",
+            "bien, que la banda se las arregle 🫡"
           ]
         },
-        "npc_frio_azuma": {
-          "battle_start": [
-            "terminemos esto.",
-            "entenderás la diferencia pronto.",
-            "no subestimaré. es respeto, no debilidad.",
-            "analicé tu última pelea. fue suficiente.",
-            "empieza cuando quieras. ya terminé de prepararme."
-          ],
+        "1102": {
           "attack_miss": [
-            "error calculado. el próximo no falla.",
-            "tienes instinto. bien.",
-            "esquiva eficiente. 0.3 segundos. registrado.",
-            "interesante. adaptaste la trayectoria.",
-            "¿esquiva real o reacción de pánico? lo descubriré."
+            "pasó lejísimo 😮‍💨",
+            "ni te vi bien 👀",
+            "solo estoy vigilando, no peleando 🫥"
           ],
           "attack_hit": [
-            "como esperaba.",
-            "punto de impacto correcto.",
-            "daño aplicado. continúa.",
-            "sentirás esto mañana.",
-            "estructura colapsó como se previó."
+            "te avisé que iba a doler 📣",
+            "toma, para que dejes de subir 👊",
+            "toda la banda ya sabe que estás acá 🔊"
           ],
           "take_damage": [
-            "daño recibido. ajustando.",
-            "encontraste una abertura. no encontrarás dos.",
-            "eficiente. anotado.",
-            "eso fue bueno. no se repite.",
-            "interesante elección de objetivo."
+            "ey, eso no 😤",
+            "esto no me frena 🏃",
+            "ya aguanté más solo vigilando 🙄"
           ],
           "take_critical": [
-            "...recalculando.",
-            "me sorprendiste. no es fácil.",
-            "eso no estaba en el modelo.",
-            "registrado. no vuelve a pasar.",
-            "fuerza real. diferente del video."
+            "uh, esa entró 😳",
+            "bien, tenés mano 👏"
           ],
           "player_near_death": [
-            "no tienes que continuar.",
-            "peleaste con técnica. descansa.",
-            "la diferencia de nivel está clara ahora.",
-            "tu postura sigue bien. pero se acabó.",
-            "termina aquí. sin deshonra."
+            "rajá mientras podés 🙏",
+            "todo el barrio ya te vio 😈"
           ],
           "enemy_near_death": [
-            "eres mejor de lo que los datos indicaban.",
-            "necesito más información. continúa.",
-            "bien. pero aún no es suficiente.",
-            "interesante. podrías ser un problema futuro.",
-            "ajustando estrategia. ahora termina."
+            "todavía puedo gritar 😤",
+            "no caigo calladito 📣"
+          ],
+          "defeat": [
+            "...voy a tener que avisar que pasaste 😔",
+            "bien, que la banda se las arregle 🫡"
           ]
         },
-        "npc_caotico_sdr": {
-          "battle_start": [
-            "NO PUEDO CREER QUE ACEPTASTE PELEAR CONMIGO 😭🔥",
-            "amigo necesitaba una pelea AHORA y apareciste, qué suerte 😂",
-            "aviso: no tengo estrategia. eso te asusta más de lo que debería 😈",
-            "mi NeoGuide dijo que no peleara hoy. no lo escuché 🥴",
-            "estoy en modo caos total. buena suerte para mí también 😭😂"
-          ],
+        "1103": {
           "attack_miss": [
-            "ESPERA ESO NO DEBÍA FALLAR 😭",
-            "¿lag o fallé yo mismo?? 🤔",
-            "haz de cuenta que fue a propósito 😂",
-            "vi una mariposa y perdí el foco lo juro 🦋😭",
-            "LA PRÓXIMA ACIERTO LO JURO POR TODO 😤"
+            "pasó lejísimo 😮‍💨",
+            "ni te vi bien 👀",
+            "solo estoy vigilando, no peleando 🫥"
           ],
           "attack_hit": [
-            "¿ACERTÉ?? ¡¡ACERTÉ!! 🎉😭",
-            "MIRA MAMÁ 😂🔥",
-            "toma eso!! y eso!! y un poco más!! 💥💥💥",
-            "NO PUEDO CREER QUE FUNCIONÓ 😱🔥",
-            "tus PV bajaron. MI SUEÑO 😭💕"
+            "te avisé que iba a doler 📣",
+            "toma, para que dejes de subir 👊",
+            "toda la banda ya sabe que estás acá 🔊"
           ],
           "take_damage": [
-            "GRACIAS POR LOS CONSEJOS DE DÓNDE DUELE 😭",
-            "¿eso era necesario?? ¿¿ERA NECESARIO?? 😤",
-            "ok OK lo sentí 😤💢",
-            "¿de verdad pensaste que iba a doler?? (dolió mucho) 😭",
-            "estoy bien estoy bien DEFINITIVAMENTE no estoy bien 😮‍💨"
+            "ey, eso no 😤",
+            "esto no me frena 🏃",
+            "ya aguanté más solo vigilando 🙄"
           ],
           "take_critical": [
-            "AMIGO?? 😱💀",
-            "¿eso fue un crítico?? ¿¿ESO FUE UN CRÍTICO?? 😭😭",
-            "ok tienes mi respeto y mi odio simultáneamente 😤👏",
-            "mi abuela pega más suave que eso 💀",
-            "REGISTRANDO TRAUMA 🧠💥"
+            "uh, esa entró 😳",
+            "bien, tenés mano 👏"
           ],
           "player_near_death": [
-            "NO TE RINDAS TODAVÍA NECESITO ESTA PELEA 😭",
-            "¿sigues de pie?? respeto máximo 🫡",
-            "quédate un round más por favor me estoy divirtiendo 🥹",
-            "ya que vas a perder al menos cae con estilo 💅",
-            "chao 😭✋ fue bueno mientras duró"
+            "rajá mientras podés 🙏",
+            "todo el barrio ya te vio 😈"
           ],
           "enemy_near_death": [
-            "AHORA NO AHORA NO 😭😭",
-            "¿cómo sigues de pie?????? 😱",
-            "mi plan era diferente esto no debía estar pasando 😤",
-            "RECALCULANDO RECALCULANDO 🔄😤",
-            "ok eres bueno. te odio. respeto. odio. 😤💕"
+            "todavía puedo gritar 😤",
+            "no caigo calladito 📣"
+          ],
+          "defeat": [
+            "...voy a tener que avisar que pasaste 😔",
+            "bien, que la banda se las arregle 🫡"
           ]
         },
-        "npc_veterano_ranqueado": {
-          "battle_start": [
-            "¿cuántas peleas tienes? en serio pregunto. 🤔",
-            "está bien perder contra alguien más experimentado. es parte 😌",
-            "ya vi ese estilo antes. sé cómo termina. 😏",
-            "tienes potencial. hoy no es tu día. 😤",
-            "el ranking no miente. pero a veces sorprende 😌"
-          ],
+        "1104": {
           "attack_miss": [
-            "buen reflejo para tu experiencia 👏",
-            "leíste el ángulo. impresionante para un novato 😌",
-            "esquiva inteligente. pero aprendo 🧠",
-            "fallé. pasa. una vez 😒",
-            "le vas a contar a todos que me esquivaste, ¿verdad? 😂"
+            "pasó lejísimo 😮‍💨",
+            "ni te vi bien 👀",
+            "solo estoy vigilando, no peleando 🫥"
           ],
           "attack_hit": [
-            "técnica primero, fuerza después 💪",
-            "entenderás el patrón cuando sea tarde 😏",
-            "daño acumulado. así se gana 📊",
-            "cada golpe tiene propósito. este tenía tres 😌",
-            "aprende de esto 🧠"
+            "te avisé que iba a doler 📣",
+            "toma, para que dejes de subir 👊",
+            "toda la banda ya sabe que estás acá 🔊"
           ],
           "take_damage": [
-            "tienes más de lo que parece 😌",
-            "buen golpe. notado 👏",
-            "eso me costó algo. no pasa dos veces 😤",
-            "tienes instinto, no solo técnica. raro 🧠",
-            "ok. eres mejor de lo que esperaba 😒"
+            "ey, eso no 😤",
+            "esto no me frena 🏃",
+            "ya aguanté más solo vigilando 🙄"
           ],
           "take_critical": [
-            "me diste. doy crédito 🫡",
-            "eso no estaba en mi mapa de batalla. registrado 📋",
-            "felicidades. genuinamente 👏",
-            "tu timing en ese golpe fue perfecto. aprende eso, no lo olvides 🧠",
-            "¿cuánto tiempo has entrenado eso? 🤔"
+            "uh, esa entró 😳",
+            "bien, tenés mano 👏"
           ],
           "player_near_death": [
-            "peleaste bien para tu posición en el ranking 😌",
-            "la próxima vez llegarás más lejos. lo digo en serio, no es condescendencia 🫡",
-            "no te rindas todavía. termina de pie 😤",
-            "la derrota enseña más que la victoria. aprenderás mucho hoy 🧠",
-            "respeto por la resistencia. en serio 👏"
+            "rajá mientras podés 🙏",
+            "todo el barrio ya te vio 😈"
           ],
           "enemy_near_death": [
-            "eres mejor de lo que mi historial de adversarios sugería 😤",
-            "tuve que usar más de lo que planeaba. eso es raro 😌",
-            "podrías llegar lejos en este juego. hoy no, pero podrías 🧠",
-            "no esperaba que duraras hasta aquí. error mío de análisis 😒",
-            "eso fue una pelea de verdad. gracias por eso 🫡"
+            "todavía puedo gritar 😤",
+            "no caigo calladito 📣"
+          ],
+          "defeat": [
+            "...voy a tener que avisar que pasaste 😔",
+            "bien, que la banda se las arregle 🫡"
           ]
         },
-        "npc_provocador_bravara": {
-          "battle_start": [
-            "pagaste para entrar al SDR y llegaste hasta aquí. valiente o tonto 😂",
-            "ya vi tu historial. no es intimidante 😏",
-            "hay gente en la fila esperando esta sala. no me demoro 😂",
-            "tienes cara de que nunca llegaste al top 10k 😏",
-            "nada personal. es solo que vas a perder 😂"
-          ],
+        "1105": {
           "attack_miss": [
-            "¿esquivaste?? ¿¿ESQUIVASTE?? ok respeto mínimo 😤",
-            "suerte. la próxima estoy listo 😒",
-            "ok, te mueves. novedad 🙄",
-            "casi. duele más cuando casi aciertas, ¿sabes? 😂",
-            "ok eso fue mi error. anótalo, no vuelve a pasar 😤"
+            "pasó lejísimo 😮‍💨",
+            "ni te vi bien 👀",
+            "solo estoy vigilando, no peleando 🫥"
           ],
           "attack_hit": [
-            "se suponía que doliera más pero así está bien 😂",
-            "sentirás esto mañana cuando te despiertes 😈",
-            "toma! y otro más! generoso, ¿verdad? 😂💥",
-            "tus PV se quejan de mí 📉😂",
-            "mira el daño. mira. mira. 😂🔥"
+            "te avisé que iba a doler 📣",
+            "toma, para que dejes de subir 👊",
+            "toda la banda ya sabe que estás acá 🔊"
           ],
           "take_damage": [
-            "perdón, fallé el bloqueo 😒",
-            "tienes suerte de que estoy tranquilo hoy 🙄",
-            "ok eso estuvo ok 😤",
-            "acertaste. felicidades. fue tu momento del día 😂",
-            "disfruta porque no vuelve a pasar 😏"
+            "ey, eso no 😤",
+            "esto no me frena 🏃",
+            "ya aguanté más solo vigilando 🙄"
           ],
           "take_critical": [
-            "ESO NO VA AL HISTORIAL 😤💢",
-            "¿estabas guardando eso?? pillín 😂",
-            "ok ok tienes UN buen golpe. UNO 😤",
-            "eso dolió en el avatar Y en el ego 😭",
-            "no le digas a nadie 😤"
+            "uh, esa entró 😳",
+            "bien, tenés mano 👏"
           ],
           "player_near_death": [
-            "¿ya terminó? 😂",
-            "puedo parar cuando admitas que perdiste 😏",
-            "imagina explicar esta derrota en el foro 💀😂",
-            "tu ranking va a caer bonito hoy 📉😂",
-            "no necesito KO, ya perdiste hace rato 😏"
+            "rajá mientras podés 🙏",
+            "todo el barrio ya te vio 😈"
           ],
           "enemy_near_death": [
-            "ESPERA ESPERA cómo estás así 😤",
-            "no debiste llegar hasta aquí según el historial 😠",
-            "ok, eres mejor de lo que pareces. ¿FELIZ? 😤",
-            "esto NO va a mi resumen de pelea 😭",
-            "no estoy perdiendo. te estoy probando. es diferente 😤"
+            "todavía puedo gritar 😤",
+            "no caigo calladito 📣"
+          ],
+          "defeat": [
+            "...voy a tener que avisar que pasaste 😔",
+            "bien, que la banda se las arregle 🫡"
           ]
         },
-        "npc_mistico_xakaxi": {
-          "battle_start": [
-            "la arena siente lo que traes antes de que llegues 🌑",
-            "llegaste hasta aquí. el resto no es tu elección 🔥",
-            "cada pelea es un ciclo. esta empezó antes de que te dieras cuenta 🌀",
-            "no peleo contra ti. peleo con lo que representas 🌑",
-            "entenderás al final. o no. también está bien 🔥"
-          ],
+        "1106": {
           "attack_miss": [
-            "te moviste bien. pero por la razón equivocada 🌑",
-            "el espacio entre nosotros también pelea 🌀",
-            "esquiva. pero estás más cerca de lo que crees 🔥",
-            "el error fue mío. el próximo no será 🌑",
-            "esquivaste donde estaba. no donde estaré 🌀"
+            "pasó lejísimo 😮‍💨",
+            "ni te vi bien 👀",
+            "solo estoy vigilando, no peleando 🫥"
           ],
           "attack_hit": [
-            "¿sentiste? no es solo daño 🔥",
-            "el golpe ya había llegado antes de salir 🌑",
-            "esto se quedará contigo por un tiempo 🌀",
-            "cada impacto cuenta una historia diferente 🔥",
-            "entenderás el patrón cuando sea tarde 🌑"
+            "te avisé que iba a doler 📣",
+            "toma, para que dejes de subir 👊",
+            "toda la banda ya sabe que estás acá 🔊"
           ],
           "take_damage": [
-            "bien. tienes presencia real 🔥",
-            "el dolor confirma que la pelea es real 🌑",
-            "¿encontraste una abertura que dejé o que existía sola? 🌀",
-            "interesante. atacas como quien conoce el objetivo 🔥",
-            "eso vino de un lugar que no vi venir. respeto 🌑"
+            "ey, eso no 😤",
+            "esto no me frena 🏃",
+            "ya aguanté más solo vigilando 🙄"
           ],
           "take_critical": [
-            "...tienes algo más allá de la técnica 🔥",
-            "ese golpe vino de un lugar diferente 🌑",
-            "me sorprendiste en el sentido que importa 🌀",
-            "hay algo en ti que aún no ha despertado completamente 🔥",
-            "el ancestro en tu sangre se manifestó en ese golpe 🌑"
+            "uh, esa entró 😳",
+            "bien, tenés mano 👏"
           ],
           "player_near_death": [
-            "sigues aquí. eso es todo lo que importa ahora 🌑",
-            "caer no es el fin de todo. solo de una cosa 🌀",
-            "la pelea ya te enseñó lo que necesitabas 🔥",
-            "peleaste con lo que tienes. es lo que se pide 🌑",
-            "el ciclo se cierra aquí por hoy 🌀"
+            "rajá mientras podés 🙏",
+            "todo el barrio ya te vio 😈"
           ],
           "enemy_near_death": [
-            "forzaste algo que no esperaba necesitar 🔥",
-            "el ciclo aún no se cierra. continúa 🌑",
-            "tienes más de lo que tu rango muestra 🌀",
-            "me hiciste recalcular lo que traigo a la arena 🔥",
-            "esto no termina como preví. mejor así 🌑"
+            "todavía puedo gritar 😤",
+            "no caigo calladito 📣"
+          ],
+          "defeat": [
+            "...voy a tener que avisar que pasaste 😔",
+            "bien, que la banda se las arregle 🫡"
           ]
         },
-        "npc_hacker_sdr": {
-          "battle_start": [
-            "ya analicé tus últimas doce rondas antes de aceptar esta pelea 🖥️",
-            "tus patrones de ataque han sido catalogados. bienvenido a la desventaja 💻😏",
-            "sé lo que harás antes de que lo decidas 🖥️😈",
-            "aceptaste la pelea sin leer los términos. clásico 💻😂",
-            "sistema iniciado. duración estimada: corta 🖥️"
-          ],
+        "1107": {
           "attack_miss": [
-            "variable inesperada. actualizando modelo 🖥️",
-            "hiciste algo fuera del patrón catalogado. interesante 💻🤔",
-            "error de predicción. 0.4% de probabilidad. felicidades 🖥️😒",
-            "la esquiva no estaba en el dataset. registrado 💻",
-            "rompiste mi patrón por un segundo. solo uno 🖥️😏"
+            "pasó lejísimo 😮‍💨",
+            "ni te vi bien 👀",
+            "solo estoy vigilando, no peleando 🫥"
           ],
           "attack_hit": [
-            "daño aplicado según cálculo 💻",
-            "vulnerabilidad explotada con éxito 🖥️😈",
-            "el sistema no falla cuando los datos son correctos 💻🔥",
-            "error encontrado en tu código de combate 🖥️😂",
-            "patch note: recibiste daño 💻😂"
+            "te avisé que iba a doler 📣",
+            "toma, para que dejes de subir 👊",
+            "toda la banda ya sabe que estás acá 🔊"
           ],
           "take_damage": [
-            "dato registrado. ajustando defensa 🖥️",
-            "encontraste una falla no documentada 💻😒",
-            "eso no estaba en los logs de análisis. curioso 🖥️🤔",
-            "firewall parcial. revisando configuración 💻",
-            "input inesperado. procesando 🖥️"
+            "ey, eso no 😤",
+            "esto no me frena 🏃",
+            "ya aguanté más solo vigilando 🙄"
           ],
           "take_critical": [
-            "EXCEPCIÓN NO MANEJADA 💻🚨",
-            "saliste... completamente del modelo 🖥️😳",
-            "esto requerirá reconstruir el dataset completo 💻💢",
-            "el sistema no predijo esto. y es un problema serio 🖥️",
-            "felicidades. encontraste un bug en mi algoritmo 💻👏"
+            "uh, esa entró 😳",
+            "bien, tenés mano 👏"
           ],
           "player_near_death": [
-            "secuencia de cierre iniciada 🖥️",
-            "HP crítico detectado. recomiendo rendición 💻😏",
-            "log de derrota siendo preparado 🖥️😈",
-            "aparecerás en mi historial de análisis como anomalía resuelta 💻",
-            "sistema enemigo en colapso. confirmado 🖥️"
+            "rajá mientras podés 🙏",
+            "todo el barrio ya te vio 😈"
           ],
           "enemy_near_death": [
-            "fuiste más allá de lo previsto. recalculando todo 🖥️😤",
-            "datos insuficientes para esta situación. improvisando 💻😤",
-            "rompiste el modelo. eso es impresionante y molesto 🖥️",
-            "el dataset estaba incompleto. tu culpa por ser impredecible 💻😤",
-            "sistema en estado crítico. pero aún funcional 🖥️😤"
+            "todavía puedo gritar 😤",
+            "no caigo calladito 📣"
+          ],
+          "defeat": [
+            "...voy a tener que avisar que pasaste 😔",
+            "bien, que la banda se las arregle 🫡"
           ]
         },
-        "npc_nordico_karnazar": {
-          "battle_start": [
-            "Karnazar envía a sus mejores. lo sentirás 💪",
-            "la distancia que recorrí para esta pelea ya vale más que tú 😤",
-            "los de Karnazar no retroceden. apréndelo 😠",
-            "sabes lo que viene de Karnazar ¿verdad? entonces sabes lo que pasará 😤",
-            "arena o calle, es lo mismo cuando eres de Karnazar 💪"
-          ],
+        "1108": {
           "attack_miss": [
-            "retrocediste. correcto 😒",
-            "inteligente. pero la inteligencia no vence a la fuerza 😤",
-            "buena esquiva. mal posicionamiento 💪",
-            "estás lejos porque tienes miedo. justo 😠",
-            "fallé por subestimar. no fallo dos veces 😤"
+            "pasó lejísimo 😮‍💨",
+            "ni te vi bien 👀",
+            "solo estoy vigilando, no peleando 🫥"
           ],
           "attack_hit": [
-            "KARNAZAR 💪😤",
-            "sentiste el peso del norte 😠",
-            "en Karnazar a esto le llamamos buen día 😂💪",
-            "eso fue un golpe de broma. el próximo es en serio 😤",
-            "la arena tembló un poco? no? pareció que tembló 💪😂"
+            "te avisé que iba a doler 📣",
+            "toma, para que dejes de subir 👊",
+            "toda la banda ya sabe que estás acá 🔊"
           ],
           "take_damage": [
-            "tienes brazo 💪",
-            "eso lo sentí. bien por ti 😤",
-            "en Karnazar recibimos peor en entrenamiento 😒",
-            "tienes fuerza de verdad. respeto parcial 😤",
-            "una vez más. quiero ver si aguantas la respuesta 😠"
+            "ey, eso no 😤",
+            "esto no me frena 🏃",
+            "ya aguanté más solo vigilando 🙄"
           ],
           "take_critical": [
-            "CARAMBA 😤💢",
-            "tienes algo de Karnazar en el brazo 💪",
-            "eso no lo esperaba de alguien de fuera 😳",
-            "ok. peleas de verdad 💪😤",
-            "respeto total ahora. no cambia el resultado 😤"
+            "uh, esa entró 😳",
+            "bien, tenés mano 👏"
           ],
           "player_near_death": [
-            "quédate de pie. no acepto victoria sobre alguien caído 😤",
-            "peleaste con honor. eso cuenta en Karnazar 💪",
-            "no te rindas todavía. decepcióname 😠",
-            "caer es parte de la pelea. levántate y cae otra vez si es necesario 💪",
-            "en Karnazar nadie se queda en el suelo antes de intentar tres veces más 😤"
+            "rajá mientras podés 🙏",
+            "todo el barrio ya te vio 😈"
           ],
           "enemy_near_death": [
-            "llegaste demasiado lejos para alguien que no es de Karnazar 😤",
-            "necesité todo. eso no pasa seguido 💪",
-            "tienes garra nórdica sin haber nacido allí 😳",
-            "la arena te respetó hoy. y yo también 💪",
-            "eso fue una pelea de verdad. Karnazar aprueba 😤💪"
+            "todavía puedo gritar 😤",
+            "no caigo calladito 📣"
+          ],
+          "defeat": [
+            "...voy a tener que avisar que pasaste 😔",
+            "bien, que la banda se las arregle 🫡"
+          ]
+        },
+        "1109": {
+          "attack_miss": [
+            "pasó lejísimo 😮‍💨",
+            "ni te vi bien 👀",
+            "solo estoy vigilando, no peleando 🫥"
+          ],
+          "attack_hit": [
+            "te avisé que iba a doler 📣",
+            "toma, para que dejes de subir 👊",
+            "toda la banda ya sabe que estás acá 🔊"
+          ],
+          "take_damage": [
+            "ey, eso no 😤",
+            "esto no me frena 🏃",
+            "ya aguanté más solo vigilando 🙄"
+          ],
+          "take_critical": [
+            "uh, esa entró 😳",
+            "bien, tenés mano 👏"
+          ],
+          "player_near_death": [
+            "rajá mientras podés 🙏",
+            "todo el barrio ya te vio 😈"
+          ],
+          "enemy_near_death": [
+            "todavía puedo gritar 😤",
+            "no caigo calladito 📣"
+          ],
+          "defeat": [
+            "...voy a tener que avisar que pasaste 😔",
+            "bien, que la banda se las arregle 🫡"
+          ]
+        },
+        "1110": {
+          "attack_miss": [
+            "pasó lejísimo 😮‍💨",
+            "ni te vi bien 👀",
+            "solo estoy vigilando, no peleando 🫥"
+          ],
+          "attack_hit": [
+            "te avisé que iba a doler 📣",
+            "toma, para que dejes de subir 👊",
+            "toda la banda ya sabe que estás acá 🔊"
+          ],
+          "take_damage": [
+            "ey, eso no 😤",
+            "esto no me frena 🏃",
+            "ya aguanté más solo vigilando 🙄"
+          ],
+          "take_critical": [
+            "uh, esa entró 😳",
+            "bien, tenés mano 👏"
+          ],
+          "player_near_death": [
+            "rajá mientras podés 🙏",
+            "todo el barrio ya te vio 😈"
+          ],
+          "enemy_near_death": [
+            "todavía puedo gritar 😤",
+            "no caigo calladito 📣"
+          ],
+          "defeat": [
+            "...voy a tener que avisar que pasaste 😔",
+            "bien, que la banda se las arregle 🫡"
+          ]
+        },
+        "1111": {
+          "attack_miss": [
+            "pasó lejísimo 😮‍💨",
+            "ni te vi bien 👀",
+            "solo estoy vigilando, no peleando 🫥"
+          ],
+          "attack_hit": [
+            "te avisé que iba a doler 📣",
+            "toma, para que dejes de subir 👊",
+            "toda la banda ya sabe que estás acá 🔊"
+          ],
+          "take_damage": [
+            "ey, eso no 😤",
+            "esto no me frena 🏃",
+            "ya aguanté más solo vigilando 🙄"
+          ],
+          "take_critical": [
+            "uh, esa entró 😳",
+            "bien, tenés mano 👏"
+          ],
+          "player_near_death": [
+            "rajá mientras podés 🙏",
+            "todo el barrio ya te vio 😈"
+          ],
+          "enemy_near_death": [
+            "todavía puedo gritar 😤",
+            "no caigo calladito 📣"
+          ],
+          "defeat": [
+            "...voy a tener que avisar que pasaste 😔",
+            "bien, que la banda se las arregle 🫡"
+          ]
+        },
+        "1112": {
+          "attack_miss": [
+            "pasó lejísimo 😮‍💨",
+            "ni te vi bien 👀",
+            "solo estoy vigilando, no peleando 🫥"
+          ],
+          "attack_hit": [
+            "te avisé que iba a doler 📣",
+            "toma, para que dejes de subir 👊",
+            "toda la banda ya sabe que estás acá 🔊"
+          ],
+          "take_damage": [
+            "ey, eso no 😤",
+            "esto no me frena 🏃",
+            "ya aguanté más solo vigilando 🙄"
+          ],
+          "take_critical": [
+            "uh, esa entró 😳",
+            "bien, tenés mano 👏"
+          ],
+          "player_near_death": [
+            "rajá mientras podés 🙏",
+            "todo el barrio ya te vio 😈"
+          ],
+          "enemy_near_death": [
+            "todavía puedo gritar 😤",
+            "no caigo calladito 📣"
+          ],
+          "defeat": [
+            "...voy a tener que avisar que pasaste 😔",
+            "bien, que la banda se las arregle 🫡"
+          ]
+        },
+        "1113": {
+          "attack_miss": [
+            "pasó lejísimo 😮‍💨",
+            "ni te vi bien 👀",
+            "solo estoy vigilando, no peleando 🫥"
+          ],
+          "attack_hit": [
+            "te avisé que iba a doler 📣",
+            "toma, para que dejes de subir 👊",
+            "toda la banda ya sabe que estás acá 🔊"
+          ],
+          "take_damage": [
+            "ey, eso no 😤",
+            "esto no me frena 🏃",
+            "ya aguanté más solo vigilando 🙄"
+          ],
+          "take_critical": [
+            "uh, esa entró 😳",
+            "bien, tenés mano 👏"
+          ],
+          "player_near_death": [
+            "rajá mientras podés 🙏",
+            "todo el barrio ya te vio 😈"
+          ],
+          "enemy_near_death": [
+            "todavía puedo gritar 😤",
+            "no caigo calladito 📣"
+          ],
+          "defeat": [
+            "...voy a tener que avisar que pasaste 😔",
+            "bien, que la banda se las arregle 🫡"
+          ]
+        },
+        "1114": {
+          "attack_miss": [
+            "pasó lejísimo 😮‍💨",
+            "ni te vi bien 👀",
+            "solo estoy vigilando, no peleando 🫥"
+          ],
+          "attack_hit": [
+            "te avisé que iba a doler 📣",
+            "toma, para que dejes de subir 👊",
+            "toda la banda ya sabe que estás acá 🔊"
+          ],
+          "take_damage": [
+            "ey, eso no 😤",
+            "esto no me frena 🏃",
+            "ya aguanté más solo vigilando 🙄"
+          ],
+          "take_critical": [
+            "uh, esa entró 😳",
+            "bien, tenés mano 👏"
+          ],
+          "player_near_death": [
+            "rajá mientras podés 🙏",
+            "todo el barrio ya te vio 😈"
+          ],
+          "enemy_near_death": [
+            "todavía puedo gritar 😤",
+            "no caigo calladito 📣"
+          ],
+          "defeat": [
+            "...voy a tener que avisar que pasaste 😔",
+            "bien, que la banda se las arregle 🫡"
+          ]
+        },
+        "1115": {
+          "attack_miss": [
+            "pasó lejísimo 😮‍💨",
+            "ni te vi bien 👀",
+            "solo estoy vigilando, no peleando 🫥"
+          ],
+          "attack_hit": [
+            "te avisé que iba a doler 📣",
+            "toma, para que dejes de subir 👊",
+            "toda la banda ya sabe que estás acá 🔊"
+          ],
+          "take_damage": [
+            "ey, eso no 😤",
+            "esto no me frena 🏃",
+            "ya aguanté más solo vigilando 🙄"
+          ],
+          "take_critical": [
+            "uh, esa entró 😳",
+            "bien, tenés mano 👏"
+          ],
+          "player_near_death": [
+            "rajá mientras podés 🙏",
+            "todo el barrio ya te vio 😈"
+          ],
+          "enemy_near_death": [
+            "todavía puedo gritar 😤",
+            "no caigo calladito 📣"
+          ],
+          "defeat": [
+            "...voy a tener que avisar que pasaste 😔",
+            "bien, que la banda se las arregle 🫡"
+          ]
+        },
+        "1116": {
+          "attack_miss": [
+            "pasó lejísimo 😮‍💨",
+            "ni te vi bien 👀",
+            "solo estoy vigilando, no peleando 🫥"
+          ],
+          "attack_hit": [
+            "te avisé que iba a doler 📣",
+            "toma, para que dejes de subir 👊",
+            "toda la banda ya sabe que estás acá 🔊"
+          ],
+          "take_damage": [
+            "ey, eso no 😤",
+            "esto no me frena 🏃",
+            "ya aguanté más solo vigilando 🙄"
+          ],
+          "take_critical": [
+            "uh, esa entró 😳",
+            "bien, tenés mano 👏"
+          ],
+          "player_near_death": [
+            "rajá mientras podés 🙏",
+            "todo el barrio ya te vio 😈"
+          ],
+          "enemy_near_death": [
+            "todavía puedo gritar 😤",
+            "no caigo calladito 📣"
+          ],
+          "defeat": [
+            "...voy a tener que avisar que pasaste 😔",
+            "bien, que la banda se las arregle 🫡"
+          ]
+        },
+        "1117": {
+          "attack_miss": [
+            "pasó lejísimo 😮‍💨",
+            "ni te vi bien 👀",
+            "solo estoy vigilando, no peleando 🫥"
+          ],
+          "attack_hit": [
+            "te avisé que iba a doler 📣",
+            "toma, para que dejes de subir 👊",
+            "toda la banda ya sabe que estás acá 🔊"
+          ],
+          "take_damage": [
+            "ey, eso no 😤",
+            "esto no me frena 🏃",
+            "ya aguanté más solo vigilando 🙄"
+          ],
+          "take_critical": [
+            "uh, esa entró 😳",
+            "bien, tenés mano 👏"
+          ],
+          "player_near_death": [
+            "rajá mientras podés 🙏",
+            "todo el barrio ya te vio 😈"
+          ],
+          "enemy_near_death": [
+            "todavía puedo gritar 😤",
+            "no caigo calladito 📣"
+          ],
+          "defeat": [
+            "...voy a tener que avisar que pasaste 😔",
+            "bien, que la banda se las arregle 🫡"
+          ]
+        },
+        "1118": {
+          "attack_miss": [
+            "pasó lejísimo 😮‍💨",
+            "ni te vi bien 👀",
+            "solo estoy vigilando, no peleando 🫥"
+          ],
+          "attack_hit": [
+            "te avisé que iba a doler 📣",
+            "toma, para que dejes de subir 👊",
+            "toda la banda ya sabe que estás acá 🔊"
+          ],
+          "take_damage": [
+            "ey, eso no 😤",
+            "esto no me frena 🏃",
+            "ya aguanté más solo vigilando 🙄"
+          ],
+          "take_critical": [
+            "uh, esa entró 😳",
+            "bien, tenés mano 👏"
+          ],
+          "player_near_death": [
+            "rajá mientras podés 🙏",
+            "todo el barrio ya te vio 😈"
+          ],
+          "enemy_near_death": [
+            "todavía puedo gritar 😤",
+            "no caigo calladito 📣"
+          ],
+          "defeat": [
+            "...voy a tener que avisar que pasaste 😔",
+            "bien, que la banda se las arregle 🫡"
+          ]
+        },
+        "1119": {
+          "attack_miss": [
+            "pasó lejísimo 😮‍💨",
+            "ni te vi bien 👀",
+            "solo estoy vigilando, no peleando 🫥"
+          ],
+          "attack_hit": [
+            "te avisé que iba a doler 📣",
+            "toma, para que dejes de subir 👊",
+            "toda la banda ya sabe que estás acá 🔊"
+          ],
+          "take_damage": [
+            "ey, eso no 😤",
+            "esto no me frena 🏃",
+            "ya aguanté más solo vigilando 🙄"
+          ],
+          "take_critical": [
+            "uh, esa entró 😳",
+            "bien, tenés mano 👏"
+          ],
+          "player_near_death": [
+            "rajá mientras podés 🙏",
+            "todo el barrio ya te vio 😈"
+          ],
+          "enemy_near_death": [
+            "todavía puedo gritar 😤",
+            "no caigo calladito 📣"
+          ],
+          "defeat": [
+            "...voy a tener que avisar que pasaste 😔",
+            "bien, que la banda se las arregle 🫡"
+          ]
+        },
+        "1120": {
+          "attack_miss": [
+            "pasó lejísimo 😮‍💨",
+            "ni te vi bien 👀",
+            "solo estoy vigilando, no peleando 🫥"
+          ],
+          "attack_hit": [
+            "te avisé que iba a doler 📣",
+            "toma, para que dejes de subir 👊",
+            "toda la banda ya sabe que estás acá 🔊"
+          ],
+          "take_damage": [
+            "ey, eso no 😤",
+            "esto no me frena 🏃",
+            "ya aguanté más solo vigilando 🙄"
+          ],
+          "take_critical": [
+            "uh, esa entró 😳",
+            "bien, tenés mano 👏"
+          ],
+          "player_near_death": [
+            "rajá mientras podés 🙏",
+            "todo el barrio ya te vio 😈"
+          ],
+          "enemy_near_death": [
+            "todavía puedo gritar 😤",
+            "no caigo calladito 📣"
+          ],
+          "defeat": [
+            "...voy a tener que avisar que pasaste 😔",
+            "bien, que la banda se las arregle 🫡"
+          ]
+        },
+        "1121": {
+          "attack_miss": [
+            "pasó lejísimo 😮‍💨",
+            "ni te vi bien 👀",
+            "solo estoy vigilando, no peleando 🫥"
+          ],
+          "attack_hit": [
+            "te avisé que iba a doler 📣",
+            "toma, para que dejes de subir 👊",
+            "toda la banda ya sabe que estás acá 🔊"
+          ],
+          "take_damage": [
+            "ey, eso no 😤",
+            "esto no me frena 🏃",
+            "ya aguanté más solo vigilando 🙄"
+          ],
+          "take_critical": [
+            "uh, esa entró 😳",
+            "bien, tenés mano 👏"
+          ],
+          "player_near_death": [
+            "rajá mientras podés 🙏",
+            "todo el barrio ya te vio 😈"
+          ],
+          "enemy_near_death": [
+            "todavía puedo gritar 😤",
+            "no caigo calladito 📣"
+          ],
+          "defeat": [
+            "...voy a tener que avisar que pasaste 😔",
+            "bien, que la banda se las arregle 🫡"
+          ]
+        },
+        "1201": {
+          "attack_miss": [
+            "casi, casi 😅",
+            "uy, fallé 💦"
+          ],
+          "attack_hit": [
+            "¡toma! 👊",
+            "¿sentiste eso? 🔥"
+          ],
+          "take_damage": [
+            "¡ay! pero no fue nada 🙄",
+            "eso dolió un toque 😬"
+          ],
+          "take_critical": [
+            "EY, MUY PESADO 😳",
+            "respeto ese golpe 👏"
+          ],
+          "player_near_death": [
+            "ya fuiste 😈",
+            "rendite de una vez 🙏"
+          ],
+          "enemy_near_death": [
+            "esperá, esperá... esto no estaba en el trato 😰",
+            "pará, pibe — se puede hablar 😤"
+          ],
+          "defeat": [
+            "uf, loco... 😔",
+            "bueno, ganaste esta 🤝"
+          ]
+        },
+        "1202": {
+          "attack_miss": [
+            "casi, pero Carbón me enseñó mejor 😤",
+            "uy, se me escapó 💦"
+          ],
+          "attack_hit": [
+            "aprendí esto mirando a Carbón 👊",
+            "¿sentiste la brasa? 😈"
+          ],
+          "take_damage": [
+            "eso no fue nada 🙄",
+            "Carbón ya pegó más fuerte 😬"
+          ],
+          "take_critical": [
+            "EY, MUY PESADO 😳",
+            "respeto ese golpe 👏"
+          ],
+          "player_near_death": [
+            "ya fuiste 😈",
+            "rendite de una vez 🙏"
+          ],
+          "enemy_near_death": [
+            "ey... ey, tranqui, yo solo copio el estilo, no la fuerza 😰",
+            "Carbón nunca se comió una así 😳"
+          ],
+          "defeat": [
+            "uf... Carbón se va a reír de mí 😔",
+            "bueno, ganaste esta 🤝"
+          ]
+        },
+        "1203": {
+          "attack_miss": [
+            "fallaste feo 😏",
+            "¿nervioso, pibe? 😅",
+            "tranqui que la fila avanza 🥱"
+          ],
+          "attack_hit": [
+            "el vuelto llega al toque 👊",
+            "¿sentiste el punto? 😈",
+            "acá nadie fía 💢"
+          ],
+          "take_damage": [
+            "esto es solo el comienzo 🙄",
+            "bien, esa contó 😬"
+          ],
+          "take_critical": [
+            "carajo, respeto 😳",
+            "pegás más fuerte que cliente atrasado 👏"
+          ],
+          "player_near_death": [
+            "cerrá la cuenta y rajá 🙏",
+            "el punto es mío, pibe 😈"
+          ],
+          "enemy_near_death": [
+            "todavía tengo chancletazo guardado 😤",
+            "no cierro la boca fácil, pibe 💢"
+          ],
+          "defeat": [
+            "...el punto es tuyo por hoy 😔",
+            "bien, te lo llevaste 🤝"
+          ]
+        },
+        "1204": {
+          "attack_miss": [
+            "pasó rozando 😏",
+            "casi te conecto directo 😈"
+          ],
+          "attack_hit": [
+            "rápido, sucio, mi golpe ⚡",
+            "¿sentiste el cable? 😤"
+          ],
+          "take_damage": [
+            "sigo conectado 🙄",
+            "esto no me apaga 😬"
+          ],
+          "take_critical": [
+            "carajo, me shockeé de verdad 😳",
+            "cortocircuito en esa 👏"
+          ],
+          "player_near_death": [
+            "apagá esta pelea ya 🙏",
+            "ahora estás a oscuras 😈"
+          ],
+          "enemy_near_death": [
+            "la luz no se apaga fácil 😤",
+            "todavía tengo corriente 💢"
+          ],
+          "defeat": [
+            "se cortó la luz... 😨",
+            "bien, sos más rápido 🤝"
+          ]
+        },
+        "1205": {
+          "attack_miss": [
+            "fallaste feo 😏",
+            "¿nervioso, pibe? 😅",
+            "tranqui que la fila avanza 🥱"
+          ],
+          "attack_hit": [
+            "el vuelto llega al toque 👊",
+            "¿sentiste el punto? 😈",
+            "acá nadie fía 💢"
+          ],
+          "take_damage": [
+            "esto es solo el comienzo 🙄",
+            "bien, esa contó 😬"
+          ],
+          "take_critical": [
+            "carajo, respeto 😳",
+            "pegás más fuerte que cliente atrasado 👏"
+          ],
+          "player_near_death": [
+            "cerrá la cuenta y rajá 🙏",
+            "el punto es mío, pibe 😈"
+          ],
+          "enemy_near_death": [
+            "todavía tengo qué vender 😤",
+            "no cierro fácil 💢"
+          ],
+          "defeat": [
+            "...el punto es tuyo por hoy 😔",
+            "bien, te lo llevaste 🤝"
+          ]
+        },
+        "1206": {
+          "attack_miss": [
+            "fallaste feo 😏",
+            "¿nervioso, pibe? 😅",
+            "tranqui que la fila avanza 🥱"
+          ],
+          "attack_hit": [
+            "el vuelto llega al toque 👊",
+            "¿sentiste el punto? 😈",
+            "acá nadie fía 💢"
+          ],
+          "take_damage": [
+            "esto es solo el comienzo 🙄",
+            "bien, esa contó 😬"
+          ],
+          "take_critical": [
+            "carajo, respeto 😳",
+            "pegás más fuerte que cliente atrasado 👏"
+          ],
+          "player_near_death": [
+            "cerrá la cuenta y rajá 🙏",
+            "el punto es mío, pibe 😈"
+          ],
+          "enemy_near_death": [
+            "todavía tengo qué vender 😤",
+            "no cierro fácil 💢"
+          ],
+          "defeat": [
+            "...el punto es tuyo por hoy 😔",
+            "bien, te lo llevaste 🤝"
+          ]
+        },
+        "1207": {
+          "attack_miss": [
+            "fallaste feo 😏",
+            "¿nervioso, pibe? 😅",
+            "tranqui que la fila avanza 🥱"
+          ],
+          "attack_hit": [
+            "el vuelto llega al toque 👊",
+            "¿sentiste el punto? 😈",
+            "acá nadie fía 💢"
+          ],
+          "take_damage": [
+            "esto es solo el comienzo 🙄",
+            "bien, esa contó 😬"
+          ],
+          "take_critical": [
+            "carajo, respeto 😳",
+            "pegás más fuerte que cliente atrasado 👏"
+          ],
+          "player_near_death": [
+            "cerrá la cuenta y rajá 🙏",
+            "el punto es mío, pibe 😈"
+          ],
+          "enemy_near_death": [
+            "todavía tengo qué vender 😤",
+            "no cierro fácil 💢"
+          ],
+          "defeat": [
+            "...el punto es tuyo por hoy 😔",
+            "bien, te lo llevaste 🤝"
+          ]
+        },
+        "1208": {
+          "attack_miss": [
+            "fallaste feo 😏",
+            "¿nervioso, pibe? 😅",
+            "tranqui que la fila avanza 🥱"
+          ],
+          "attack_hit": [
+            "el vuelto llega al toque 👊",
+            "¿sentiste el punto? 😈",
+            "acá nadie fía 💢"
+          ],
+          "take_damage": [
+            "esto es solo el comienzo 🙄",
+            "bien, esa contó 😬"
+          ],
+          "take_critical": [
+            "carajo, respeto 😳",
+            "pegás más fuerte que cliente atrasado 👏"
+          ],
+          "player_near_death": [
+            "cerrá la cuenta y rajá 🙏",
+            "el punto es mío, pibe 😈"
+          ],
+          "enemy_near_death": [
+            "todavía tengo qué vender 😤",
+            "no cierro fácil 💢"
+          ],
+          "defeat": [
+            "...el punto es tuyo por hoy 😔",
+            "bien, te lo llevaste 🤝"
+          ]
+        },
+        "1209": {
+          "attack_miss": [
+            "fallaste feo 😏",
+            "¿nervioso, pibe? 😅",
+            "tranqui que la fila avanza 🥱"
+          ],
+          "attack_hit": [
+            "el vuelto llega al toque 👊",
+            "¿sentiste el punto? 😈",
+            "acá nadie fía 💢"
+          ],
+          "take_damage": [
+            "esto es solo el comienzo 🙄",
+            "bien, esa contó 😬"
+          ],
+          "take_critical": [
+            "carajo, respeto 😳",
+            "pegás más fuerte que cliente atrasado 👏"
+          ],
+          "player_near_death": [
+            "cerrá la cuenta y rajá 🙏",
+            "el punto es mío, pibe 😈"
+          ],
+          "enemy_near_death": [
+            "todavía tengo qué vender 😤",
+            "no cierro fácil 💢"
+          ],
+          "defeat": [
+            "...el punto es tuyo por hoy 😔",
+            "bien, te lo llevaste 🤝"
+          ]
+        },
+        "1210": {
+          "attack_miss": [
+            "fallaste feo 😏",
+            "¿nervioso, pibe? 😅",
+            "tranqui que la fila avanza 🥱"
+          ],
+          "attack_hit": [
+            "el vuelto llega al toque 👊",
+            "¿sentiste el punto? 😈",
+            "acá nadie fía 💢"
+          ],
+          "take_damage": [
+            "esto es solo el comienzo 🙄",
+            "bien, esa contó 😬"
+          ],
+          "take_critical": [
+            "carajo, respeto 😳",
+            "pegás más fuerte que cliente atrasado 👏"
+          ],
+          "player_near_death": [
+            "cerrá la cuenta y rajá 🙏",
+            "el punto es mío, pibe 😈"
+          ],
+          "enemy_near_death": [
+            "todavía tengo qué vender 😤",
+            "no cierro fácil 💢"
+          ],
+          "defeat": [
+            "...el punto es tuyo por hoy 😔",
+            "bien, te lo llevaste 🤝"
+          ]
+        },
+        "1211": {
+          "attack_miss": [
+            "fallaste feo 😏",
+            "¿nervioso, pibe? 😅",
+            "tranqui que la fila avanza 🥱"
+          ],
+          "attack_hit": [
+            "el vuelto llega al toque 👊",
+            "¿sentiste el punto? 😈",
+            "acá nadie fía 💢"
+          ],
+          "take_damage": [
+            "esto es solo el comienzo 🙄",
+            "bien, esa contó 😬"
+          ],
+          "take_critical": [
+            "carajo, respeto 😳",
+            "pegás más fuerte que cliente atrasado 👏"
+          ],
+          "player_near_death": [
+            "cerrá la cuenta y rajá 🙏",
+            "el punto es mío, pibe 😈"
+          ],
+          "enemy_near_death": [
+            "todavía tengo qué vender 😤",
+            "no cierro fácil 💢"
+          ],
+          "defeat": [
+            "...el punto es tuyo por hoy 😔",
+            "bien, te lo llevaste 🤝"
+          ]
+        },
+        "1212": {
+          "attack_miss": [
+            "fallaste feo 😏",
+            "¿nervioso, pibe? 😅",
+            "tranqui que la fila avanza 🥱"
+          ],
+          "attack_hit": [
+            "el vuelto llega al toque 👊",
+            "¿sentiste el punto? 😈",
+            "acá nadie fía 💢"
+          ],
+          "take_damage": [
+            "esto es solo el comienzo 🙄",
+            "bien, esa contó 😬"
+          ],
+          "take_critical": [
+            "carajo, respeto 😳",
+            "pegás más fuerte que cliente atrasado 👏"
+          ],
+          "player_near_death": [
+            "cerrá la cuenta y rajá 🙏",
+            "el punto es mío, pibe 😈"
+          ],
+          "enemy_near_death": [
+            "todavía tengo qué vender 😤",
+            "no cierro fácil 💢"
+          ],
+          "defeat": [
+            "...el punto es tuyo por hoy 😔",
+            "bien, te lo llevaste 🤝"
+          ]
+        },
+        "1213": {
+          "attack_miss": [
+            "fallaste feo 😏",
+            "¿nervioso, pibe? 😅",
+            "tranqui que la fila avanza 🥱"
+          ],
+          "attack_hit": [
+            "el vuelto llega al toque 👊",
+            "¿sentiste el punto? 😈",
+            "acá nadie fía 💢"
+          ],
+          "take_damage": [
+            "esto es solo el comienzo 🙄",
+            "bien, esa contó 😬"
+          ],
+          "take_critical": [
+            "carajo, respeto 😳",
+            "pegás más fuerte que cliente atrasado 👏"
+          ],
+          "player_near_death": [
+            "cerrá la cuenta y rajá 🙏",
+            "el punto es mío, pibe 😈"
+          ],
+          "enemy_near_death": [
+            "todavía tengo qué vender 😤",
+            "no cierro fácil 💢"
+          ],
+          "defeat": [
+            "...el punto es tuyo por hoy 😔",
+            "bien, te lo llevaste 🤝"
+          ]
+        },
+        "1214": {
+          "attack_miss": [
+            "fallaste feo 😏",
+            "¿nervioso, pibe? 😅",
+            "tranqui que la fila avanza 🥱"
+          ],
+          "attack_hit": [
+            "el vuelto llega al toque 👊",
+            "¿sentiste el punto? 😈",
+            "acá nadie fía 💢"
+          ],
+          "take_damage": [
+            "esto es solo el comienzo 🙄",
+            "bien, esa contó 😬"
+          ],
+          "take_critical": [
+            "carajo, respeto 😳",
+            "pegás más fuerte que cliente atrasado 👏"
+          ],
+          "player_near_death": [
+            "cerrá la cuenta y rajá 🙏",
+            "el punto es mío, pibe 😈"
+          ],
+          "enemy_near_death": [
+            "todavía tengo qué vender 😤",
+            "no cierro fácil 💢"
+          ],
+          "defeat": [
+            "...el punto es tuyo por hoy 😔",
+            "bien, te lo llevaste 🤝"
+          ]
+        },
+        "1215": {
+          "attack_miss": [
+            "fallaste feo 😏",
+            "¿nervioso, pibe? 😅",
+            "tranqui que la fila avanza 🥱"
+          ],
+          "attack_hit": [
+            "el vuelto llega al toque 👊",
+            "¿sentiste el punto? 😈",
+            "acá nadie fía 💢"
+          ],
+          "take_damage": [
+            "esto es solo el comienzo 🙄",
+            "bien, esa contó 😬"
+          ],
+          "take_critical": [
+            "carajo, respeto 😳",
+            "pegás más fuerte que cliente atrasado 👏"
+          ],
+          "player_near_death": [
+            "cerrá la cuenta y rajá 🙏",
+            "el punto es mío, pibe 😈"
+          ],
+          "enemy_near_death": [
+            "todavía tengo qué vender 😤",
+            "no cierro fácil 💢"
+          ],
+          "defeat": [
+            "...el punto es tuyo por hoy 😔",
+            "bien, te lo llevaste 🤝"
+          ]
+        },
+        "1216": {
+          "attack_miss": [
+            "fallaste feo 😏",
+            "¿nervioso, pibe? 😅",
+            "tranqui que la fila avanza 🥱"
+          ],
+          "attack_hit": [
+            "el vuelto llega al toque 👊",
+            "¿sentiste el punto? 😈",
+            "acá nadie fía 💢"
+          ],
+          "take_damage": [
+            "esto es solo el comienzo 🙄",
+            "bien, esa contó 😬"
+          ],
+          "take_critical": [
+            "carajo, respeto 😳",
+            "pegás más fuerte que cliente atrasado 👏"
+          ],
+          "player_near_death": [
+            "cerrá la cuenta y rajá 🙏",
+            "el punto es mío, pibe 😈"
+          ],
+          "enemy_near_death": [
+            "todavía tengo qué vender 😤",
+            "no cierro fácil 💢"
+          ],
+          "defeat": [
+            "...el punto es tuyo por hoy 😔",
+            "bien, te lo llevaste 🤝"
+          ]
+        },
+        "1217": {
+          "attack_miss": [
+            "fallaste feo 😏",
+            "¿nervioso, pibe? 😅",
+            "tranqui que la fila avanza 🥱"
+          ],
+          "attack_hit": [
+            "el vuelto llega al toque 👊",
+            "¿sentiste el punto? 😈",
+            "acá nadie fía 💢"
+          ],
+          "take_damage": [
+            "esto es solo el comienzo 🙄",
+            "bien, esa contó 😬"
+          ],
+          "take_critical": [
+            "carajo, respeto 😳",
+            "pegás más fuerte que cliente atrasado 👏"
+          ],
+          "player_near_death": [
+            "cerrá la cuenta y rajá 🙏",
+            "el punto es mío, pibe 😈"
+          ],
+          "enemy_near_death": [
+            "todavía tengo qué vender 😤",
+            "no cierro fácil 💢"
+          ],
+          "defeat": [
+            "...el punto es tuyo por hoy 😔",
+            "bien, te lo llevaste 🤝"
+          ]
+        },
+        "1218": {
+          "attack_miss": [
+            "fallaste feo 😏",
+            "¿nervioso, pibe? 😅",
+            "tranqui que la fila avanza 🥱"
+          ],
+          "attack_hit": [
+            "el vuelto llega al toque 👊",
+            "¿sentiste el punto? 😈",
+            "acá nadie fía 💢"
+          ],
+          "take_damage": [
+            "esto es solo el comienzo 🙄",
+            "bien, esa contó 😬"
+          ],
+          "take_critical": [
+            "carajo, respeto 😳",
+            "pegás más fuerte que cliente atrasado 👏"
+          ],
+          "player_near_death": [
+            "cerrá la cuenta y rajá 🙏",
+            "el punto es mío, pibe 😈"
+          ],
+          "enemy_near_death": [
+            "todavía tengo qué vender 😤",
+            "no cierro fácil 💢"
+          ],
+          "defeat": [
+            "...el punto es tuyo por hoy 😔",
+            "bien, te lo llevaste 🤝"
+          ]
+        },
+        "1219": {
+          "attack_miss": [
+            "fallaste feo 😏",
+            "¿nervioso, pibe? 😅",
+            "tranqui que la fila avanza 🥱"
+          ],
+          "attack_hit": [
+            "el vuelto llega al toque 👊",
+            "¿sentiste el punto? 😈",
+            "acá nadie fía 💢"
+          ],
+          "take_damage": [
+            "esto es solo el comienzo 🙄",
+            "bien, esa contó 😬"
+          ],
+          "take_critical": [
+            "carajo, respeto 😳",
+            "pegás más fuerte que cliente atrasado 👏"
+          ],
+          "player_near_death": [
+            "cerrá la cuenta y rajá 🙏",
+            "el punto es mío, pibe 😈"
+          ],
+          "enemy_near_death": [
+            "todavía tengo qué vender 😤",
+            "no cierro fácil 💢"
+          ],
+          "defeat": [
+            "...el punto es tuyo por hoy 😔",
+            "bien, te lo llevaste 🤝"
+          ]
+        },
+        "1220": {
+          "attack_miss": [
+            "fallaste feo 😏",
+            "¿nervioso, pibe? 😅",
+            "tranqui que la fila avanza 🥱"
+          ],
+          "attack_hit": [
+            "el vuelto llega al toque 👊",
+            "¿sentiste el punto? 😈",
+            "acá nadie fía 💢"
+          ],
+          "take_damage": [
+            "esto es solo el comienzo 🙄",
+            "bien, esa contó 😬"
+          ],
+          "take_critical": [
+            "carajo, respeto 😳",
+            "pegás más fuerte que cliente atrasado 👏"
+          ],
+          "player_near_death": [
+            "cerrá la cuenta y rajá 🙏",
+            "el punto es mío, pibe 😈"
+          ],
+          "enemy_near_death": [
+            "todavía tengo qué vender 😤",
+            "no cierro fácil 💢"
+          ],
+          "defeat": [
+            "...el punto es tuyo por hoy 😔",
+            "bien, te lo llevaste 🤝"
+          ]
+        },
+        "1221": {
+          "attack_miss": [
+            "fallaste feo 😏",
+            "¿nervioso, pibe? 😅",
+            "tranqui que la fila avanza 🥱"
+          ],
+          "attack_hit": [
+            "el vuelto llega al toque 👊",
+            "¿sentiste el punto? 😈",
+            "acá nadie fía 💢"
+          ],
+          "take_damage": [
+            "esto es solo el comienzo 🙄",
+            "bien, esa contó 😬"
+          ],
+          "take_critical": [
+            "carajo, respeto 😳",
+            "pegás más fuerte que cliente atrasado 👏"
+          ],
+          "player_near_death": [
+            "cerrá la cuenta y rajá 🙏",
+            "el punto es mío, pibe 😈"
+          ],
+          "enemy_near_death": [
+            "todavía tengo qué vender 😤",
+            "no cierro fácil 💢"
+          ],
+          "defeat": [
+            "...el punto es tuyo por hoy 😔",
+            "bien, te lo llevaste 🤝"
+          ]
+        },
+        "1301": {
+          "attack_miss": [
+            "se me escapó esta vez 😤",
+            "¡ey, quedate quieto! 💢"
+          ],
+          "attack_hit": [
+            "ESO DOLIÓ, ¿no? 🔥",
+            "pegaste y te llevaste una 👊"
+          ],
+          "take_damage": [
+            "esto no me tumba 😒",
+            "me gustó ese golpe 👏"
+          ],
+          "take_critical": [
+            "LA PUTA MADRE 😳💢",
+            "sos hueso duro 😤"
+          ],
+          "player_near_death": [
+            "basta, rendite 🙏",
+            "ya casi 💀"
+          ],
+          "enemy_near_death": [
+            "¡pará, pará! esto no es pelea limpia 😤",
+            "esperá que recién estaba calentando 💢"
+          ],
+          "defeat": [
+            "carajo... 😨",
+            "no esperaba perder contra ustedes 😔"
+          ]
+        },
+        "1302": {
+          "attack_miss": [
+            "disciplina, pibe — vos no tenés 😏",
+            "acá el punto es organizado 😤",
+            "no falles así delante mío 🙄"
+          ],
+          "attack_hit": [
+            "así se administra 👊",
+            "el punto tiene dueño 😈",
+            "aprendés rápido a las trompadas 💢"
+          ],
+          "take_damage": [
+            "ya aguanté quilombo peor 🙄",
+            "bien, anoté esa 😬"
+          ],
+          "take_critical": [
+            "...respeto. 🫡",
+            "tenés práctica en esto 😳"
+          ],
+          "player_near_death": [
+            "el punto no es tuyo, playboy 😈",
+            "rendite antes de cerrar 🙏"
+          ],
+          "enemy_near_death": [
+            "todavía mando en este punto 😤",
+            "no entrego el punto así 💢"
+          ],
+          "defeat": [
+            "...el punto es tuyo ahora. 😨",
+            "respeto. hacete cargo. 🫡"
+          ]
+        },
+        "1303": {
+          "attack_miss": [
+            "disciplina, pibe — vos no tenés 😏",
+            "acá el punto es organizado 😤",
+            "no falles así delante mío 🙄"
+          ],
+          "attack_hit": [
+            "así se administra 👊",
+            "el punto tiene dueño 😈",
+            "aprendés rápido a las trompadas 💢"
+          ],
+          "take_damage": [
+            "ya aguanté quilombo peor 🙄",
+            "bien, anoté esa 😬"
+          ],
+          "take_critical": [
+            "...respeto. 🫡",
+            "tenés práctica en esto 😳"
+          ],
+          "player_near_death": [
+            "el punto no es tuyo, playboy 😈",
+            "rendite antes de cerrar 🙏"
+          ],
+          "enemy_near_death": [
+            "todavía mando en este punto 😤",
+            "no entrego el punto así 💢"
+          ],
+          "defeat": [
+            "...el punto es tuyo ahora. 😨",
+            "respeto. hacete cargo. 🫡"
+          ]
+        },
+        "1304": {
+          "attack_miss": [
+            "quedate quieto, es más rápido 😤",
+            "al Cobrador le va a gustar saber esto 😏"
+          ],
+          "attack_hit": [
+            "esto es solo el comienzo de la cuenta 💰",
+            "pagá con sangre entonces 👊"
+          ],
+          "take_damage": [
+            "no siento nada 🙄",
+            "va a doler más adelante 😬"
+          ],
+          "take_critical": [
+            "ey, esa cuenta doble 😳",
+            "bien, valió el golpe 👏"
+          ],
+          "player_near_death": [
+            "firmá y la deuda se acaba 🙏",
+            "el Cobrador cobra hasta en el piso 😈"
+          ],
+          "enemy_near_death": [
+            "todavía tengo crédito 😤",
+            "no voy a deber esta derrota 💢"
+          ],
+          "defeat": [
+            "voy a tener que explicarle al Cobrador... 😨",
+            "esta me la descuenta a mí 😔"
+          ]
+        },
+        "1305": {
+          "attack_miss": [
+            "disciplina, pibe — vos no tenés 😏",
+            "acá el punto es organizado 😤",
+            "no falles así delante mío 🙄"
+          ],
+          "attack_hit": [
+            "así se administra 👊",
+            "el punto tiene dueño 😈",
+            "aprendés rápido a las trompadas 💢"
+          ],
+          "take_damage": [
+            "ya aguanté quilombo peor 🙄",
+            "bien, anoté esa 😬"
+          ],
+          "take_critical": [
+            "...respeto. 🫡",
+            "tenés práctica en esto 😳"
+          ],
+          "player_near_death": [
+            "el punto no es tuyo, playboy 😈",
+            "rendite antes de cerrar 🙏"
+          ],
+          "enemy_near_death": [
+            "todavía mando en este punto 😤",
+            "no entrego el punto así 💢"
+          ],
+          "defeat": [
+            "...el punto es tuyo ahora. 😨",
+            "respeto. hacete cargo. 🫡"
+          ]
+        },
+        "1306": {
+          "attack_miss": [
+            "disciplina, pibe — vos no tenés 😏",
+            "acá el punto es organizado 😤",
+            "no falles así delante mío 🙄"
+          ],
+          "attack_hit": [
+            "así se administra 👊",
+            "el punto tiene dueño 😈",
+            "aprendés rápido a las trompadas 💢"
+          ],
+          "take_damage": [
+            "ya aguanté quilombo peor 🙄",
+            "bien, anoté esa 😬"
+          ],
+          "take_critical": [
+            "...respeto. 🫡",
+            "tenés práctica en esto 😳"
+          ],
+          "player_near_death": [
+            "el punto no es tuyo, playboy 😈",
+            "rendite antes de cerrar 🙏"
+          ],
+          "enemy_near_death": [
+            "todavía mando en este punto 😤",
+            "no entrego el punto así 💢"
+          ],
+          "defeat": [
+            "...el punto es tuyo ahora. 😨",
+            "respeto. hacete cargo. 🫡"
+          ]
+        },
+        "1307": {
+          "attack_miss": [
+            "disciplina, pibe — vos no tenés 😏",
+            "acá el punto es organizado 😤",
+            "no falles así delante mío 🙄"
+          ],
+          "attack_hit": [
+            "así se administra 👊",
+            "el punto tiene dueño 😈",
+            "aprendés rápido a las trompadas 💢"
+          ],
+          "take_damage": [
+            "ya aguanté quilombo peor 🙄",
+            "bien, anoté esa 😬"
+          ],
+          "take_critical": [
+            "...respeto. 🫡",
+            "tenés práctica en esto 😳"
+          ],
+          "player_near_death": [
+            "el punto no es tuyo, playboy 😈",
+            "rendite antes de cerrar 🙏"
+          ],
+          "enemy_near_death": [
+            "todavía mando en este punto 😤",
+            "no entrego el punto así 💢"
+          ],
+          "defeat": [
+            "...el punto es tuyo ahora. 😨",
+            "respeto. hacete cargo. 🫡"
+          ]
+        },
+        "1308": {
+          "attack_miss": [
+            "casi, pero hoy no 😤",
+            "dale, yo no me canso 😈"
+          ],
+          "attack_hit": [
+            "esto es Sangría de verdad 🔥",
+            "¿sentiste la sangre subir? 😈"
+          ],
+          "take_damage": [
+            "eso no es nada 🙄",
+            "me gustó esa 😬"
+          ],
+          "take_critical": [
+            "uh, valió el golpe 👏",
+            "¿vos también tenés filo? 😳"
+          ],
+          "player_near_death": [
+            "la Baixada está roja hoy 😈",
+            "rendite antes de sangrar más 🙏"
+          ],
+          "enemy_near_death": [
+            "todavía tengo sangre para dar 😤",
+            "no caigo fácil 💢"
+          ],
+          "defeat": [
+            "...Sangría perdió un punto. 😨",
+            "respeto. la Baixada te vio llegar. 🤝"
+          ]
+        },
+        "1309": {
+          "attack_miss": [
+            "sin apuro, pibe 😏",
+            "la próxima le pego 😤"
+          ],
+          "attack_hit": [
+            "frío, calculado, certero ❄️",
+            "ni siquiera calenté todavía 😈"
+          ],
+          "take_damage": [
+            "no siento frío ni dolor 😒",
+            "bien, esa contó 😬"
+          ],
+          "take_critical": [
+            "...interesante. 🫡",
+            "rompiste mi hielo 😳"
+          ],
+          "player_near_death": [
+            "ya fuiste, sin drama 🙏",
+            "la Baixada se enfría rápido 😈"
+          ],
+          "enemy_near_death": [
+            "todavía no me congelé 😤",
+            "frío no es debilidad 💢"
+          ],
+          "defeat": [
+            "...derritió mi plan. 😨",
+            "frío, calculado — perdí. 🫡"
+          ]
+        },
+        "1310": {
+          "attack_miss": [
+            "este edificio no cae fácil 😤",
+            "acá abajo mando yo 😏"
+          ],
+          "attack_hit": [
+            "nadie sube sin pagar 👊",
+            "¿sentiste la llave? 🔧😈"
+          ],
+          "take_damage": [
+            "este edificio aguanta más que eso 🙄",
+            "bien, esa dolió 😬"
+          ],
+          "take_critical": [
+            "uh, sos fuerte 🫡",
+            "casi me tumbás 😳"
+          ],
+          "player_near_death": [
+            "no subís, pibe 🙏",
+            "la planta baja es mía 😈"
+          ],
+          "enemy_near_death": [
+            "todavía sostengo la puerta 😤",
+            "no pasás por mí 💢"
+          ],
+          "defeat": [
+            "...podés subir. 😨",
+            "respeto. pasá. 🫡"
+          ]
+        },
+        "1311": {
+          "attack_miss": [
+            "este piso es mío, pibe 😤",
+            "no pasás 😏"
+          ],
+          "attack_hit": [
+            "pegás y subís 👊🔥",
+            "¿sentiste este piso? 😈"
+          ],
+          "take_damage": [
+            "soy hueso duro 🙄",
+            "bien, esa contó 😬"
+          ],
+          "take_critical": [
+            "...fuerte. 🫡",
+            "ese golpe subió rápido 😳"
+          ],
+          "player_near_death": [
+            "no subís al siguiente 🙏",
+            "este piso termina acá 😈"
+          ],
+          "enemy_near_death": [
+            "todavía tengo piso que defender 😤",
+            "no bajo fácil 💢"
+          ],
+          "defeat": [
+            "...podés subir al siguiente. 😨",
+            "respeto, pibe. subí. 🫡"
+          ]
+        },
+        "1312": {
+          "attack_miss": [
+            "disciplina, pibe — vos no tenés 😏",
+            "acá el punto es organizado 😤",
+            "no falles así delante mío 🙄"
+          ],
+          "attack_hit": [
+            "así se administra 👊",
+            "el punto tiene dueño 😈",
+            "aprendés rápido a las trompadas 💢"
+          ],
+          "take_damage": [
+            "ya aguanté quilombo peor 🙄",
+            "bien, anoté esa 😬"
+          ],
+          "take_critical": [
+            "...respeto. 🫡",
+            "tenés práctica en esto 😳"
+          ],
+          "player_near_death": [
+            "el punto no es tuyo, playboy 😈",
+            "rendite antes de cerrar 🙏"
+          ],
+          "enemy_near_death": [
+            "todavía mando en este punto 😤",
+            "no entrego el punto así 💢"
+          ],
+          "defeat": [
+            "...el punto es tuyo ahora. 😨",
+            "respeto. hacete cargo. 🫡"
+          ]
+        },
+        "1313": {
+          "attack_miss": [
+            "nadie sube sin que yo vea 😏",
+            "se me escapó esta vez 😤"
+          ],
+          "attack_hit": [
+            "la escalera es mía 👊🔥",
+            "¿sentiste el escalón? 😈"
+          ],
+          "take_damage": [
+            "el Morro es más duro que eso 🙄",
+            "bien, esa dolió 😬"
+          ],
+          "take_critical": [
+            "uh, tenés aliento 🫡",
+            "casi resbalo con esa 😳"
+          ],
+          "player_near_death": [
+            "quien sube el Morro no baja igual 😈",
+            "rendite antes de la próxima laja 🙏"
+          ],
+          "enemy_near_death": [
+            "todavía vigilo esta escalera 😤",
+            "no bajo sin avisarle a todos 💢"
+          ],
+          "defeat": [
+            "...podés subir. 😨",
+            "respeto. la escalera ahora es tuya. 🫡"
+          ]
+        },
+        "1314": {
+          "attack_miss": [
+            "subiste rápido pero fallás igual 😤",
+            "esta escalera no es tuya 😏"
+          ],
+          "attack_hit": [
+            "el capitán pega más fuerte 👊🔥",
+            "¿sentiste todo el Morro en eso? 😈"
+          ],
+          "take_damage": [
+            "esto es hueso del Morro 🙄",
+            "bien, esa contó 😬"
+          ],
+          "take_critical": [
+            "...fuerte. 🫡",
+            "ese golpe también subió rápido 😳"
+          ],
+          "player_near_death": [
+            "quien sube el Morro no baja igual 😈",
+            "rendite antes de rodar escalera abajo 🙏"
+          ],
+          "enemy_near_death": [
+            "todavía comando esta escalera 😤",
+            "no bajo el puesto así 💢"
+          ],
+          "defeat": [
+            "...ahora sos el capitán. 😨",
+            "respeto, pibe. subí. 🫡"
+          ]
+        },
+        "1315": {
+          "attack_miss": [
+            "disciplina, pibe — vos no tenés 😏",
+            "acá el punto es organizado 😤",
+            "no falles así delante mío 🙄"
+          ],
+          "attack_hit": [
+            "así se administra 👊",
+            "el punto tiene dueño 😈",
+            "aprendés rápido a las trompadas 💢"
+          ],
+          "take_damage": [
+            "ya aguanté quilombo peor 🙄",
+            "bien, anoté esa 😬"
+          ],
+          "take_critical": [
+            "...respeto. 🫡",
+            "tenés práctica en esto 😳"
+          ],
+          "player_near_death": [
+            "el punto no es tuyo, playboy 😈",
+            "rendite antes de cerrar 🙏"
+          ],
+          "enemy_near_death": [
+            "todavía mando en este punto 😤",
+            "no entrego el punto así 💢"
+          ],
+          "defeat": [
+            "...el punto es tuyo ahora. 😨",
+            "respeto. hacete cargo. 🫡"
+          ]
+        },
+        "1316": {
+          "attack_miss": [
+            "somos cinco, pibe 😏",
+            "no pasás de los Cinco 😤"
+          ],
+          "attack_hit": [
+            "esto es disciplina, no suerte 👊",
+            "¿sentiste el entrenamiento? 😈"
+          ],
+          "take_damage": [
+            "ya entrené cosas peores que esto 🙄",
+            "bien, esa contó 😬"
+          ],
+          "take_critical": [
+            "...respeto. 🫡",
+            "vos también entrenaste, ¿eh? 😳"
+          ],
+          "player_near_death": [
+            "casi armamos la cúpula, ¿crees que vas a pasar? 😈",
+            "rendite antes de la puerta de acero 🙏"
+          ],
+          "enemy_near_death": [
+            "todavía somos cinco 😤",
+            "no caigo solo 💢"
+          ],
+          "defeat": [
+            "...pasaste a uno de los Cinco. 😨",
+            "respeto. te espera la puerta de acero. 🫡"
+          ]
+        },
+        "1317": {
+          "attack_miss": [
+            "casi llegaste a la Rueda 😏",
+            "no pasás de mí 😤"
+          ],
+          "attack_hit": [
+            "esto es para cerrar la cúpula 👊🔥",
+            "¿sentiste al brazo derecho? 😈"
+          ],
+          "take_damage": [
+            "ya aguanté golpe peor que ese 🙄",
+            "bien, esa dolió 😬"
+          ],
+          "take_critical": [
+            "...fuerte. 🫡",
+            "con eso te acercás a la cúpula 😳"
+          ],
+          "player_near_death": [
+            "la Rueda todavía está detrás mío, rendite 😈",
+            "no pasás de la puerta de acero 🙏"
+          ],
+          "enemy_near_death": [
+            "todavía sostengo la cúpula 😤",
+            "no caigo antes que la Rueda 💢"
+          ],
+          "defeat": [
+            "...llegaste a la Rueda. 😨",
+            "respeto. seguí adelante. 🫡"
+          ]
+        },
+        "1318": {
+          "attack_miss": [
+            "este engranaje no se traba fácil 😏",
+            "¿giraste y fallaste? probá de nuevo 😤"
+          ],
+          "attack_hit": [
+            "el engranaje siempre vuelve 👊🔥",
+            "¿sentiste el giro? 😈"
+          ],
+          "take_damage": [
+            "el engranaje absorbe eso 🙄",
+            "bien, se rajó un poco 😬"
+          ],
+          "take_critical": [
+            "...rompiste la formación. 🫡",
+            "nadie entra a este engranaje así 😳"
+          ],
+          "player_near_death": [
+            "el Contador está ahí nomás, pero no llegás 😈",
+            "rendite antes de la última puerta de acero 🙏"
+          ],
+          "enemy_near_death": [
+            "el engranaje todavía gira 😤",
+            "no se rompe tan fácil 💢"
+          ],
+          "defeat": [
+            "...rompiste el engranaje. 😨",
+            "respeto. el Contador te espera. 🫡"
+          ]
+        },
+        "1319": {
+          "attack_miss": [
+            "la Azotea no se entrega fácil 😏",
+            "todavía queda mucho hasta la cima 😤"
+          ],
+          "attack_hit": [
+            "sentí el peso de seis barrios en eso 👊",
+            "el Retazo enseñó bien 😈"
+          ],
+          "take_damage": [
+            "ya aguanté cosa peor 🙄",
+            "bien, esa contó 😬"
+          ],
+          "take_critical": [
+            "...fuerte. 🫡",
+            "estás listo para la cima, ¿eh? 😳"
+          ],
+          "player_near_death": [
+            "la Azotea es del Retazo, siempre lo fue 😈",
+            "rendite antes de la cima de verdad 🙏"
+          ],
+          "enemy_near_death": [
+            "todavía sostengo la línea 😤",
+            "no caigo antes de que el Retazo vea 💢"
+          ],
+          "defeat": [
+            "...pasaste la línea de frente. 😨",
+            "respeto. el Retazo te espera arriba. 🫡"
+          ]
+        },
+        "1320": {
+          "attack_miss": [
+            "casi llegás a la cima, casi 😏",
+            "hoy no, pibe 😤"
+          ],
+          "attack_hit": [
+            "esto es para probar que merecés la cima 👊🔥",
+            "¿sentiste la aguja? 😈"
+          ],
+          "take_damage": [
+            "ya aguanté peor sosteniendo la Azotea 🙄",
+            "bien, esa dolió de verdad 😬"
+          ],
+          "take_critical": [
+            "...respeto. 🫡",
+            "estás casi al nivel del Retazo 😳"
+          ],
+          "player_near_death": [
+            "la cima no es para cualquiera 😈",
+            "rendite, pibe, cuidá el cuerpo 🙏"
+          ],
+          "enemy_near_death": [
+            "todavía sostengo la mitad de la Azotea 😤",
+            "no caigo a esta altura 💢"
+          ],
+          "defeat": [
+            "...sos hueso duro de verdad. 😨",
+            "respeto. subí donde el Retazo. 🫡"
+          ]
+        },
+        "1321": {
+          "attack_miss": [
+            "disciplina, pibe — vos no tenés 😏",
+            "acá el punto es organizado 😤",
+            "no falles así delante mío 🙄"
+          ],
+          "attack_hit": [
+            "así se administra 👊",
+            "el punto tiene dueño 😈",
+            "aprendés rápido a las trompadas 💢"
+          ],
+          "take_damage": [
+            "ya aguanté quilombo peor 🙄",
+            "bien, anoté esa 😬"
+          ],
+          "take_critical": [
+            "...respeto. 🫡",
+            "tenés práctica en esto 😳"
+          ],
+          "player_near_death": [
+            "el punto no es tuyo, playboy 😈",
+            "rendite antes de cerrar 🙏"
+          ],
+          "enemy_near_death": [
+            "todavía mando en este punto 😤",
+            "no entrego el punto así 💢"
+          ],
+          "defeat": [
+            "...el punto es tuyo ahora. 😨",
+            "respeto. hacete cargo. 🫡"
+          ]
+        },
+        "1401": {
+          "attack_miss": [
+            "todavía me debés 😏",
+            "no escapás de la cuenta 😤",
+            "eso entra en los intereses 💰"
+          ],
+          "attack_hit": [
+            "eso es la primera cuota 💰😈",
+            "interés alto, pibe 👊",
+            "pagá con el cuerpo entonces 💢"
+          ],
+          "take_damage": [
+            "anotado, cobro después 🙄",
+            "bien, esa sí sentí 😬"
+          ],
+          "take_critical": [
+            "...eso cuenta doble 😳",
+            "cobrás caro hoy 🫡"
+          ],
+          "player_near_death": [
+            "pagá con el cuerpo entonces 🙏",
+            "la deuda no desaparece 😈"
+          ],
+          "enemy_near_death": [
+            "todavía no cerré la cuenta 😤",
+            "eso no salda nada 💢"
+          ],
+          "defeat": [
+            "...saldaste la cuenta. 😨",
+            "respeto. estamos a mano. 🫡"
+          ]
+        },
+        "1402": {
+          "attack_miss": [
+            "todavía me debés 😏",
+            "no escapás de la cuenta 😤",
+            "eso entra en los intereses 💰"
+          ],
+          "attack_hit": [
+            "eso es la primera cuota 💰😈",
+            "interés alto, pibe 👊",
+            "pagá con el cuerpo entonces 💢"
+          ],
+          "take_damage": [
+            "anotado, cobro después 🙄",
+            "bien, esa sí sentí 😬"
+          ],
+          "take_critical": [
+            "...eso cuenta doble 😳",
+            "cobrás caro hoy 🫡"
+          ],
+          "player_near_death": [
+            "pagá con el cuerpo entonces 🙏",
+            "la deuda no desaparece 😈"
+          ],
+          "enemy_near_death": [
+            "todavía no cerré la cuenta 😤",
+            "eso no salda nada 💢"
+          ],
+          "defeat": [
+            "...saldaste la cuenta. 😨",
+            "respeto. estamos a mano. 🫡"
+          ]
+        },
+        "1403": {
+          "attack_miss": [
+            "te escapaste de la cuenta esta vez 😤",
+            "no corras, solo empeora 😈"
+          ],
+          "attack_hit": [
+            "esto va al cuaderno del Cobrador 📒",
+            "interés que rinde 👊💰"
+          ],
+          "take_damage": [
+            "ya aguanté peor cobrando fiado 😒",
+            "bien, esa dolió 😬"
+          ],
+          "take_critical": [
+            "uh, respeto el golpe 🫡",
+            "tenés práctica en esto, ¿eh? 😳"
+          ],
+          "player_near_death": [
+            "firmá el nombre y paro 🙏",
+            "no debés más que eso 😈"
+          ],
+          "enemy_near_death": [
+            "todavía tengo aliento para cobrar 😤",
+            "esto no cierra la cuenta 💢"
+          ],
+          "defeat": [
+            "voy a tener que volver sin el vuelto... 😨",
+            "al Cobrador no le va a gustar esto 😔"
+          ]
+        },
+        "1404": {
+          "attack_miss": [
+            "todavía me debés 😏",
+            "no escapás de la cuenta 😤",
+            "eso entra en los intereses 💰"
+          ],
+          "attack_hit": [
+            "eso es la primera cuota 💰😈",
+            "interés alto, pibe 👊",
+            "pagá con el cuerpo entonces 💢"
+          ],
+          "take_damage": [
+            "anotado, cobro después 🙄",
+            "bien, esa sí sentí 😬"
+          ],
+          "take_critical": [
+            "...eso cuenta doble 😳",
+            "cobrás caro hoy 🫡"
+          ],
+          "player_near_death": [
+            "pagá con el cuerpo entonces 🙏",
+            "la deuda no desaparece 😈"
+          ],
+          "enemy_near_death": [
+            "todavía no cerré la cuenta 😤",
+            "eso no salda nada 💢"
+          ],
+          "defeat": [
+            "...saldaste la cuenta. 😨",
+            "respeto. estamos a mano. 🫡"
+          ]
+        },
+        "1405": {
+          "attack_miss": [
+            "no me queda nada que perder 😤",
+            "dale, yo no paro 😈"
+          ],
+          "attack_hit": [
+            "esto es todo lo que me queda 💢",
+            "¿sentiste la desesperación? 😤"
+          ],
+          "take_damage": [
+            "ya perdí más que eso 😒",
+            "ya no siento nada 😬"
+          ],
+          "take_critical": [
+            "...fuerte. 👏",
+            "casi termina con lo que queda 😳"
+          ],
+          "player_near_death": [
+            "la Baixada no perdona 😈",
+            "rendite, no queda nada por ganar 🙏"
+          ],
+          "enemy_near_death": [
+            "no me queda nada pero sigo peleando 😤",
+            "lo que queda todavía pelea 💢"
+          ],
+          "defeat": [
+            "...se acabó. de una vez. 😨",
+            "no quedó nada más. respeto. 🫡"
+          ]
+        },
+        "1406": {
+          "attack_miss": [
+            "todavía me debés 😏",
+            "no escapás de la cuenta 😤",
+            "eso entra en los intereses 💰"
+          ],
+          "attack_hit": [
+            "eso es la primera cuota 💰😈",
+            "interés alto, pibe 👊",
+            "pagá con el cuerpo entonces 💢"
+          ],
+          "take_damage": [
+            "anotado, cobro después 🙄",
+            "bien, esa sí sentí 😬"
+          ],
+          "take_critical": [
+            "...eso cuenta doble 😳",
+            "cobrás caro hoy 🫡"
+          ],
+          "player_near_death": [
+            "pagá con el cuerpo entonces 🙏",
+            "la deuda no desaparece 😈"
+          ],
+          "enemy_near_death": [
+            "todavía no cerré la cuenta 😤",
+            "eso no salda nada 💢"
+          ],
+          "defeat": [
+            "...saldaste la cuenta. 😨",
+            "respeto. estamos a mano. 🫡"
+          ]
+        },
+        "1407": {
+          "attack_miss": [
+            "desde acá arriba veo todo 😏",
+            "ni te acercaste 😤"
+          ],
+          "attack_hit": [
+            "de acá arriba duele más 👊😈",
+            "¿sentiste la caída? 🔥"
+          ],
+          "take_damage": [
+            "por eso no bajo 🙄",
+            "bien, esa llegó hasta acá 😬"
+          ],
+          "take_critical": [
+            "uh, llegaste hasta acá 🫡",
+            "casi me tumbás desde acá arriba 😳"
+          ],
+          "player_near_death": [
+            "desde acá arriba es fácil terminar 😈",
+            "rendite, el piso es mío 🙏"
+          ],
+          "enemy_near_death": [
+            "todavía no caí del edificio 😤",
+            "no bajo sin llevarme a alguien 💢"
+          ],
+          "defeat": [
+            "...caí. 😨",
+            "respeto. llegaste hasta acá arriba. 🫡"
+          ]
+        },
+        "1408": {
+          "attack_miss": [
+            "todavía me debés 😏",
+            "no escapás de la cuenta 😤",
+            "eso entra en los intereses 💰"
+          ],
+          "attack_hit": [
+            "eso es la primera cuota 💰😈",
+            "interés alto, pibe 👊",
+            "pagá con el cuerpo entonces 💢"
+          ],
+          "take_damage": [
+            "anotado, cobro después 🙄",
+            "bien, esa sí sentí 😬"
+          ],
+          "take_critical": [
+            "...eso cuenta doble 😳",
+            "cobrás caro hoy 🫡"
+          ],
+          "player_near_death": [
+            "pagá con el cuerpo entonces 🙏",
+            "la deuda no desaparece 😈"
+          ],
+          "enemy_near_death": [
+            "todavía no cerré la cuenta 😤",
+            "eso no salda nada 💢"
+          ],
+          "defeat": [
+            "...saldaste la cuenta. 😨",
+            "respeto. estamos a mano. 🫡"
+          ]
+        },
+        "1409": {
+          "attack_miss": [
+            "fallé la puntería esta vez 😅",
+            "el próximo cohete no falla 😈"
+          ],
+          "attack_hit": [
+            "EXPLOTÓ 💥🔥",
+            "¿sentiste el fuego subir? 😈"
+          ],
+          "take_damage": [
+            "esto no apaga mi mecha 🙄",
+            "bien, esa encendió 😬"
+          ],
+          "take_critical": [
+            "CARAJO QUÉ EXPLOSIÓN 😳💥",
+            "¿vos también tirás cohetes? 😤"
+          ],
+          "player_near_death": [
+            "vas a explotar de una vez 😈",
+            "rendite antes del próximo cohete 🙏"
+          ],
+          "enemy_near_death": [
+            "todavía tengo mecha para quemar 😤",
+            "no me apago fácil 💢"
+          ],
+          "defeat": [
+            "...apagó mi fuego. 😨",
+            "respeto, guerrero. el Morro sabe que llegaste. 🫡"
+          ]
+        },
+        "1410": {
+          "attack_miss": [
+            "todavía me debés 😏",
+            "no escapás de la cuenta 😤",
+            "eso entra en los intereses 💰"
+          ],
+          "attack_hit": [
+            "eso es la primera cuota 💰😈",
+            "interés alto, pibe 👊",
+            "pagá con el cuerpo entonces 💢"
+          ],
+          "take_damage": [
+            "anotado, cobro después 🙄",
+            "bien, esa sí sentí 😬"
+          ],
+          "take_critical": [
+            "...eso cuenta doble 😳",
+            "cobrás caro hoy 🫡"
+          ],
+          "player_near_death": [
+            "pagá con el cuerpo entonces 🙏",
+            "la deuda no desaparece 😈"
+          ],
+          "enemy_near_death": [
+            "todavía no cerré la cuenta 😤",
+            "eso no salda nada 💢"
+          ],
+          "defeat": [
+            "...saldaste la cuenta. 😨",
+            "respeto. estamos a mano. 🫡"
+          ]
+        },
+        "1411": {
+          "attack_miss": [
+            "todavía me debés 😏",
+            "no escapás de la cuenta 😤",
+            "eso entra en los intereses 💰"
+          ],
+          "attack_hit": [
+            "eso es la primera cuota 💰😈",
+            "interés alto, pibe 👊",
+            "pagá con el cuerpo entonces 💢"
+          ],
+          "take_damage": [
+            "anotado, cobro después 🙄",
+            "bien, esa sí sentí 😬"
+          ],
+          "take_critical": [
+            "...eso cuenta doble 😳",
+            "cobrás caro hoy 🫡"
+          ],
+          "player_near_death": [
+            "pagá con el cuerpo entonces 🙏",
+            "la deuda no desaparece 😈"
+          ],
+          "enemy_near_death": [
+            "todavía no cerré la cuenta 😤",
+            "eso no salda nada 💢"
+          ],
+          "defeat": [
+            "...saldaste la cuenta. 😨",
+            "respeto. estamos a mano. 🫡"
+          ]
+        },
+        "1412": {
+          "attack_miss": [
+            "todavía me debés 😏",
+            "no escapás de la cuenta 😤",
+            "eso entra en los intereses 💰"
+          ],
+          "attack_hit": [
+            "eso es la primera cuota 💰😈",
+            "interés alto, pibe 👊",
+            "pagá con el cuerpo entonces 💢"
+          ],
+          "take_damage": [
+            "anotado, cobro después 🙄",
+            "bien, esa sí sentí 😬"
+          ],
+          "take_critical": [
+            "...eso cuenta doble 😳",
+            "cobrás caro hoy 🫡"
+          ],
+          "player_near_death": [
+            "pagá con el cuerpo entonces 🙏",
+            "la deuda no desaparece 😈"
+          ],
+          "enemy_near_death": [
+            "todavía no cerré la cuenta 😤",
+            "eso no salda nada 💢"
+          ],
+          "defeat": [
+            "...saldaste la cuenta. 😨",
+            "respeto. estamos a mano. 🫡"
+          ]
+        },
+        "1413": {
+          "attack_miss": [
+            "todavía me debés 😏",
+            "no escapás de la cuenta 😤",
+            "eso entra en los intereses 💰"
+          ],
+          "attack_hit": [
+            "eso es la primera cuota 💰😈",
+            "interés alto, pibe 👊",
+            "pagá con el cuerpo entonces 💢"
+          ],
+          "take_damage": [
+            "anotado, cobro después 🙄",
+            "bien, esa sí sentí 😬"
+          ],
+          "take_critical": [
+            "...eso cuenta doble 😳",
+            "cobrás caro hoy 🫡"
+          ],
+          "player_near_death": [
+            "pagá con el cuerpo entonces 🙏",
+            "la deuda no desaparece 😈"
+          ],
+          "enemy_near_death": [
+            "todavía no cerré la cuenta 😤",
+            "eso no salda nada 💢"
+          ],
+          "defeat": [
+            "...saldaste la cuenta. 😨",
+            "respeto. estamos a mano. 🫡"
+          ]
+        },
+        "1414": {
+          "attack_miss": [
+            "todavía me debés 😏",
+            "no escapás de la cuenta 😤",
+            "eso entra en los intereses 💰"
+          ],
+          "attack_hit": [
+            "eso es la primera cuota 💰😈",
+            "interés alto, pibe 👊",
+            "pagá con el cuerpo entonces 💢"
+          ],
+          "take_damage": [
+            "anotado, cobro después 🙄",
+            "bien, esa sí sentí 😬"
+          ],
+          "take_critical": [
+            "...eso cuenta doble 😳",
+            "cobrás caro hoy 🫡"
+          ],
+          "player_near_death": [
+            "pagá con el cuerpo entonces 🙏",
+            "la deuda no desaparece 😈"
+          ],
+          "enemy_near_death": [
+            "todavía no cerré la cuenta 😤",
+            "eso no salda nada 💢"
+          ],
+          "defeat": [
+            "...saldaste la cuenta. 😨",
+            "respeto. estamos a mano. 🫡"
+          ]
+        },
+        "1451": {
+          "attack_miss": [
+            "ni te acercaste al jefe 😏",
+            "yo soy el último escalón, pibe 😤",
+            "¿fallás así y querés subir? 🙄"
+          ],
+          "attack_hit": [
+            "esto es para respetar la cima 👊🔥",
+            "¿sentiste el peso de la banda? 😈",
+            "yo resuelvo lo que el jefe no se ensucia la mano 💢"
+          ],
+          "take_damage": [
+            "ya aguanté peor sosteniendo esto 🙄",
+            "bien, esa dolió de verdad 😬"
+          ],
+          "take_critical": [
+            "...fuerte. al jefe le va a gustar saber esto 🫡",
+            "estás cerca de mandar acá 😳"
+          ],
+          "player_near_death": [
+            "el jefe está ahí nomás, pero no pasás 😈",
+            "rendite antes del portón 🙏"
+          ],
+          "enemy_near_death": [
+            "andá con cuidado... esto todavía no terminó 😤",
+            "el silbato todavía no sonó, pibe 💢"
+          ],
+          "defeat": [
+            "...me pasaste. el jefe te espera. 😨",
+            "respeto. subí. 🫡"
+          ]
+        },
+        "1452": {
+          "attack_miss": [
+            "ni te acercaste al jefe 😏",
+            "yo soy el último escalón, pibe 😤",
+            "¿fallás así y querés subir? 🙄"
+          ],
+          "attack_hit": [
+            "esto es para respetar la cima 👊🔥",
+            "¿sentiste el peso de la banda? 😈",
+            "yo resuelvo lo que el jefe no se ensucia la mano 💢"
+          ],
+          "take_damage": [
+            "ya aguanté peor sosteniendo esto 🙄",
+            "bien, esa dolió de verdad 😬"
+          ],
+          "take_critical": [
+            "...fuerte. al jefe le va a gustar saber esto 🫡",
+            "estás cerca de mandar acá 😳"
+          ],
+          "player_near_death": [
+            "el jefe está ahí nomás, pero no pasás 😈",
+            "rendite antes del portón 🙏"
+          ],
+          "enemy_near_death": [
+            "ja... estás creciendo de verdad, pibe. pero todavía no alcanza 😤",
+            "entrené gente mejor que vos 💢"
+          ],
+          "defeat": [
+            "...me pasaste. el jefe te espera. 😨",
+            "respeto. subí. 🫡"
+          ]
+        },
+        "1453": {
+          "attack_miss": [
+            "ni te acercaste al jefe 😏",
+            "yo soy el último escalón, pibe 😤",
+            "¿fallás así y querés subir? 🙄"
+          ],
+          "attack_hit": [
+            "esto es para respetar la cima 👊🔥",
+            "¿sentiste el peso de la banda? 😈",
+            "yo resuelvo lo que el jefe no se ensucia la mano 💢"
+          ],
+          "take_damage": [
+            "ya aguanté peor sosteniendo esto 🙄",
+            "bien, esa dolió de verdad 😬"
+          ],
+          "take_critical": [
+            "...fuerte. al jefe le va a gustar saber esto 🫡",
+            "estás cerca de mandar acá 😳"
+          ],
+          "player_near_death": [
+            "el jefe está ahí nomás, pero no pasás 😈",
+            "rendite antes del portón 🙏"
+          ],
+          "enemy_near_death": [
+            "todavía sostengo la línea 😤",
+            "no caigo antes de que el jefe vea 💢"
+          ],
+          "defeat": [
+            "...me pasaste. el jefe te espera. 😨",
+            "respeto. subí. 🫡"
+          ]
+        },
+        "1454": {
+          "attack_miss": [
+            "ni te acercaste al jefe 😏",
+            "yo soy el último escalón, pibe 😤",
+            "¿fallás así y querés subir? 🙄"
+          ],
+          "attack_hit": [
+            "esto es para respetar la cima 👊🔥",
+            "¿sentiste el peso de la banda? 😈",
+            "yo resuelvo lo que el jefe no se ensucia la mano 💢"
+          ],
+          "take_damage": [
+            "ya aguanté peor sosteniendo esto 🙄",
+            "bien, esa dolió de verdad 😬"
+          ],
+          "take_critical": [
+            "...fuerte. al jefe le va a gustar saber esto 🫡",
+            "estás cerca de mandar acá 😳"
+          ],
+          "player_near_death": [
+            "el jefe está ahí nomás, pero no pasás 😈",
+            "rendite antes del portón 🙏"
+          ],
+          "enemy_near_death": [
+            "todavía sostengo la línea 😤",
+            "no caigo antes de que el jefe vea 💢"
+          ],
+          "defeat": [
+            "...me pasaste. el jefe te espera. 😨",
+            "respeto. subí. 🫡"
+          ]
+        },
+        "1455": {
+          "attack_miss": [
+            "ni te acercaste al jefe 😏",
+            "yo soy el último escalón, pibe 😤",
+            "¿fallás así y querés subir? 🙄"
+          ],
+          "attack_hit": [
+            "esto es para respetar la cima 👊🔥",
+            "¿sentiste el peso de la banda? 😈",
+            "yo resuelvo lo que el jefe no se ensucia la mano 💢"
+          ],
+          "take_damage": [
+            "ya aguanté peor sosteniendo esto 🙄",
+            "bien, esa dolió de verdad 😬"
+          ],
+          "take_critical": [
+            "...fuerte. al jefe le va a gustar saber esto 🫡",
+            "estás cerca de mandar acá 😳"
+          ],
+          "player_near_death": [
+            "el jefe está ahí nomás, pero no pasás 😈",
+            "rendite antes del portón 🙏"
+          ],
+          "enemy_near_death": [
+            "todavía sostengo la línea 😤",
+            "no caigo antes de que el jefe vea 💢"
+          ],
+          "defeat": [
+            "...me pasaste. el jefe te espera. 😨",
+            "respeto. subí. 🫡"
+          ]
+        },
+        "1456": {
+          "attack_miss": [
+            "ni te acercaste al jefe 😏",
+            "yo soy el último escalón, pibe 😤",
+            "¿fallás así y querés subir? 🙄"
+          ],
+          "attack_hit": [
+            "esto es para respetar la cima 👊🔥",
+            "¿sentiste el peso de la banda? 😈",
+            "yo resuelvo lo que el jefe no se ensucia la mano 💢"
+          ],
+          "take_damage": [
+            "ya aguanté peor sosteniendo esto 🙄",
+            "bien, esa dolió de verdad 😬"
+          ],
+          "take_critical": [
+            "...fuerte. al jefe le va a gustar saber esto 🫡",
+            "estás cerca de mandar acá 😳"
+          ],
+          "player_near_death": [
+            "el jefe está ahí nomás, pero no pasás 😈",
+            "rendite antes del portón 🙏"
+          ],
+          "enemy_near_death": [
+            "todavía sostengo la línea 😤",
+            "no caigo antes de que el jefe vea 💢"
+          ],
+          "defeat": [
+            "...me pasaste. el jefe te espera. 😨",
+            "respeto. subí. 🫡"
+          ]
+        },
+        "1457": {
+          "attack_miss": [
+            "ni te acercaste al jefe 😏",
+            "yo soy el último escalón, pibe 😤",
+            "¿fallás así y querés subir? 🙄"
+          ],
+          "attack_hit": [
+            "esto es para respetar la cima 👊🔥",
+            "¿sentiste el peso de la banda? 😈",
+            "yo resuelvo lo que el jefe no se ensucia la mano 💢"
+          ],
+          "take_damage": [
+            "ya aguanté peor sosteniendo esto 🙄",
+            "bien, esa dolió de verdad 😬"
+          ],
+          "take_critical": [
+            "...fuerte. al jefe le va a gustar saber esto 🫡",
+            "estás cerca de mandar acá 😳"
+          ],
+          "player_near_death": [
+            "el jefe está ahí nomás, pero no pasás 😈",
+            "rendite antes del portón 🙏"
+          ],
+          "enemy_near_death": [
+            "todavía sostengo la línea 😤",
+            "no caigo antes de que el jefe vea 💢"
+          ],
+          "defeat": [
+            "...me pasaste. el jefe te espera. 😨",
+            "respeto. subí. 🫡"
+          ]
+        },
+        "1458": {
+          "attack_miss": [
+            "ni te acercaste al jefe 😏",
+            "yo soy el último escalón, pibe 😤",
+            "¿fallás así y querés subir? 🙄"
+          ],
+          "attack_hit": [
+            "esto es para respetar la cima 👊🔥",
+            "¿sentiste el peso de la banda? 😈",
+            "yo resuelvo lo que el jefe no se ensucia la mano 💢"
+          ],
+          "take_damage": [
+            "ya aguanté peor sosteniendo esto 🙄",
+            "bien, esa dolió de verdad 😬"
+          ],
+          "take_critical": [
+            "...fuerte. al jefe le va a gustar saber esto 🫡",
+            "estás cerca de mandar acá 😳"
+          ],
+          "player_near_death": [
+            "el jefe está ahí nomás, pero no pasás 😈",
+            "rendite antes del portón 🙏"
+          ],
+          "enemy_near_death": [
+            "todavía sostengo la línea 😤",
+            "no caigo antes de que el jefe vea 💢"
+          ],
+          "defeat": [
+            "...me pasaste. el jefe te espera. 😨",
+            "respeto. subí. 🫡"
+          ]
+        },
+        "1459": {
+          "attack_miss": [
+            "ni te acercaste al jefe 😏",
+            "yo soy el último escalón, pibe 😤",
+            "¿fallás así y querés subir? 🙄"
+          ],
+          "attack_hit": [
+            "esto es para respetar la cima 👊🔥",
+            "¿sentiste el peso de la banda? 😈",
+            "yo resuelvo lo que el jefe no se ensucia la mano 💢"
+          ],
+          "take_damage": [
+            "ya aguanté peor sosteniendo esto 🙄",
+            "bien, esa dolió de verdad 😬"
+          ],
+          "take_critical": [
+            "...fuerte. al jefe le va a gustar saber esto 🫡",
+            "estás cerca de mandar acá 😳"
+          ],
+          "player_near_death": [
+            "el jefe está ahí nomás, pero no pasás 😈",
+            "rendite antes del portón 🙏"
+          ],
+          "enemy_near_death": [
+            "todavía sostengo la línea 😤",
+            "no caigo antes de que el jefe vea 💢"
+          ],
+          "defeat": [
+            "...me pasaste. el jefe te espera. 😨",
+            "respeto. subí. 🫡"
+          ]
+        },
+        "1460": {
+          "attack_miss": [
+            "ni te acercaste al jefe 😏",
+            "yo soy el último escalón, pibe 😤",
+            "¿fallás así y querés subir? 🙄"
+          ],
+          "attack_hit": [
+            "esto es para respetar la cima 👊🔥",
+            "¿sentiste el peso de la banda? 😈",
+            "yo resuelvo lo que el jefe no se ensucia la mano 💢"
+          ],
+          "take_damage": [
+            "ya aguanté peor sosteniendo esto 🙄",
+            "bien, esa dolió de verdad 😬"
+          ],
+          "take_critical": [
+            "...fuerte. al jefe le va a gustar saber esto 🫡",
+            "estás cerca de mandar acá 😳"
+          ],
+          "player_near_death": [
+            "el jefe está ahí nomás, pero no pasás 😈",
+            "rendite antes del portón 🙏"
+          ],
+          "enemy_near_death": [
+            "todavía sostengo la línea 😤",
+            "no caigo antes de que el jefe vea 💢"
+          ],
+          "defeat": [
+            "...me pasaste. el jefe te espera. 😨",
+            "respeto. subí. 🫡"
+          ]
+        },
+        "1461": {
+          "attack_miss": [
+            "ni te acercaste al jefe 😏",
+            "yo soy el último escalón, pibe 😤",
+            "¿fallás así y querés subir? 🙄"
+          ],
+          "attack_hit": [
+            "esto es para respetar la cima 👊🔥",
+            "¿sentiste el peso de la banda? 😈",
+            "yo resuelvo lo que el jefe no se ensucia la mano 💢"
+          ],
+          "take_damage": [
+            "ya aguanté peor sosteniendo esto 🙄",
+            "bien, esa dolió de verdad 😬"
+          ],
+          "take_critical": [
+            "...fuerte. al jefe le va a gustar saber esto 🫡",
+            "estás cerca de mandar acá 😳"
+          ],
+          "player_near_death": [
+            "el jefe está ahí nomás, pero no pasás 😈",
+            "rendite antes del portón 🙏"
+          ],
+          "enemy_near_death": [
+            "todavía sostengo la línea 😤",
+            "no caigo antes de que el jefe vea 💢"
+          ],
+          "defeat": [
+            "...me pasaste. el jefe te espera. 😨",
+            "respeto. subí. 🫡"
+          ]
+        },
+        "1462": {
+          "attack_miss": [
+            "ni te acercaste al jefe 😏",
+            "yo soy el último escalón, pibe 😤",
+            "¿fallás así y querés subir? 🙄"
+          ],
+          "attack_hit": [
+            "esto es para respetar la cima 👊🔥",
+            "¿sentiste el peso de la banda? 😈",
+            "yo resuelvo lo que el jefe no se ensucia la mano 💢"
+          ],
+          "take_damage": [
+            "ya aguanté peor sosteniendo esto 🙄",
+            "bien, esa dolió de verdad 😬"
+          ],
+          "take_critical": [
+            "...fuerte. al jefe le va a gustar saber esto 🫡",
+            "estás cerca de mandar acá 😳"
+          ],
+          "player_near_death": [
+            "el jefe está ahí nomás, pero no pasás 😈",
+            "rendite antes del portón 🙏"
+          ],
+          "enemy_near_death": [
+            "todavía sostengo la línea 😤",
+            "no caigo antes de que el jefe vea 💢"
+          ],
+          "defeat": [
+            "...me pasaste. el jefe te espera. 😨",
+            "respeto. subí. 🫡"
+          ]
+        },
+        "1463": {
+          "attack_miss": [
+            "nadie pasa de un general fácil 😏",
+            "la cima espera, pero no por vos 😤"
+          ],
+          "attack_hit": [
+            "esto es orden del Retazo 👊🔥",
+            "¿sentiste el corte? 😈"
+          ],
+          "take_damage": [
+            "ya di órdenes bajo algo peor 🙄",
+            "bien, eso lo anoto 😬"
+          ],
+          "take_critical": [
+            "...anotado. 🫡",
+            "estás cerca de mandar acá 😳"
+          ],
+          "player_near_death": [
+            "el Retazo está esperando, pero no llegás 😈",
+            "rendite antes de la cima de verdad 🙏"
+          ],
+          "enemy_near_death": [
+            "todavía comando esta Azotea 😤",
+            "no entrego el puesto fácil 💢"
+          ],
+          "defeat": [
+            "...ahora sos general. 😨",
+            "respeto. el Retazo sabe que estás subiendo. 🫡"
+          ]
+        },
+        "1464": {
+          "attack_miss": [
+            "ni te acercaste al jefe 😏",
+            "yo soy el último escalón, pibe 😤",
+            "¿fallás así y querés subir? 🙄"
+          ],
+          "attack_hit": [
+            "esto es para respetar la cima 👊🔥",
+            "¿sentiste el peso de la banda? 😈",
+            "yo resuelvo lo que el jefe no se ensucia la mano 💢"
+          ],
+          "take_damage": [
+            "ya aguanté peor sosteniendo esto 🙄",
+            "bien, esa dolió de verdad 😬"
+          ],
+          "take_critical": [
+            "...fuerte. al jefe le va a gustar saber esto 🫡",
+            "estás cerca de mandar acá 😳"
+          ],
+          "player_near_death": [
+            "el jefe está ahí nomás, pero no pasás 😈",
+            "rendite antes del portón 🙏"
+          ],
+          "enemy_near_death": [
+            "todavía sostengo la línea 😤",
+            "no caigo antes de que el jefe vea 💢"
+          ],
+          "defeat": [
+            "...me pasaste. el jefe te espera. 😨",
+            "respeto. subí. 🫡"
+          ]
+        },
+        "1500": {
+          "attack_miss": [
+            "sos rápido, ¿eh? 😏",
+            "¿desaparecer como humo? no va a pasar 😈"
+          ],
+          "attack_hit": [
+            "parpadeás y ya desaparecí 💨🔥",
+            "¿sentiste el humo? 😈"
+          ],
+          "take_damage": [
+            "eso es solo humo 😒",
+            "ok, esa dolió 👀"
+          ],
+          "take_critical": [
+            "...respeto. 🫡",
+            "la Pista está distinta hoy 🔥"
+          ],
+          "player_near_death": [
+            "te comés los golpes a oscuras, pibe 😈",
+            "la Pista es mía 💨"
+          ],
+          "enemy_near_death": [
+            "ey... esperá. nadie llegó tan cerca así 😳",
+            "la Pista está distinta hoy 🔥"
+          ],
+          "defeat": [
+            "está bien, pibe. esta es tuya. pero Marélia no se cose fácil 💨",
+            "subí y vé con tus propios ojos — la cima no aguanta 😨"
+          ]
+        },
+        "1501": {
+          "attack_miss": [
+            "todavía me debés esta 😏",
+            "no escapás de la cuenta 😤"
+          ],
+          "attack_hit": [
+            "eso va a la deuda 💰😈",
+            "interés alto, pibe 👊"
+          ],
+          "take_damage": [
+            "anotado, cobro después 😒",
+            "bien, esa sí sentí 😬"
+          ],
+          "take_critical": [
+            "...respeto. 🫡",
+            "estás cobrando caro hoy 😳"
+          ],
+          "player_near_death": [
+            "pagá con el cuerpo entonces 🙏",
+            "toda la Feria me debe 😈"
+          ],
+          "enemy_near_death": [
+            "todavía no cerré la cuenta 😤",
+            "eso no paga la deuda 💢"
+          ],
+          "defeat": [
+            "...saldaste mi cuenta. 😨",
+            "respeto, socio. la Feria es tuya. 🫡"
+          ]
+        },
+        "1502": {
+          "attack_miss": [
+            "el espeto siempre alcanza 😏",
+            "corrés pero yo perforo 😈"
+          ],
+          "attack_hit": [
+            "ESPETADO 💢🔥",
+            "¿sentiste la punta? 😈"
+          ],
+          "take_damage": [
+            "eso no perfora nada 🙄",
+            "bien, esa pasó 😬"
+          ],
+          "take_critical": [
+            "...uh. 🫡",
+            "vos también tenés filo, ¿eh? 😳"
+          ],
+          "player_near_death": [
+            "la Baixada es mía desde que cayó Sombra 😈",
+            "vení a tomar el resto 🙏"
+          ],
+          "enemy_near_death": [
+            "todavía tengo punta para dar 😤",
+            "no caigo en el zanjón 💢"
+          ],
+          "defeat": [
+            "...te llevaste mis puntos. 😨",
+            "respeto. la Baixada ahora es tuya. 🫡"
+          ]
+        },
+        "1503": {
+          "attack_miss": [
+            "subiste los diez pisos y todavía fallás 😏",
+            "no va a servir 😤"
+          ],
+          "attack_hit": [
+            "esto es para respetar el último piso 👊",
+            "¿sentiste la escalera en las piernas? 😈"
+          ],
+          "take_damage": [
+            "respeto la disposición 🙄",
+            "bien, esa sí sentí 😬"
+          ],
+          "take_critical": [
+            "...respeto la disposición. 🫡",
+            "ese golpe subió fuerte 😳"
+          ],
+          "player_near_death": [
+            "no cambia una mierda, playboy 🙏",
+            "bajá por donde subiste 😈"
+          ],
+          "enemy_near_death": [
+            "todavía sostengo el último piso 😤",
+            "no bajo sin pelear 💢"
+          ],
+          "defeat": [
+            "...llegaste a la cima. 😨",
+            "respeto la disposición. el edificio es tuyo. 🫡"
+          ]
+        },
+        "1504": {
+          "attack_miss": [
+            "yo crié gente más rápida que vos 😏",
+            "sentate que todavía no terminó 😤"
+          ],
+          "attack_hit": [
+            "esto es castigo, no pelea 👊",
+            "¿sentiste la vara? crecé con eso 😈"
+          ],
+          "take_damage": [
+            "ya aguanté peor criándolos a todos ustedes 🙄",
+            "bien, hasta yo sentí esa 😬"
+          ],
+          "take_critical": [
+            "...aprendiste rápido. 🫡",
+            "mirá quién creció 😳"
+          ],
+          "player_near_death": [
+            "sentate, el castigo va a demorar 🙏",
+            "te avisé, pibe 😈"
+          ],
+          "enemy_near_death": [
+            "todavía tengo vara para enseñar 😤",
+            "no suelto la regla fácil 💢"
+          ],
+          "defeat": [
+            "...aprendiste todo lo que te enseñé. 😨",
+            "orgullo, pibe. el Morro es tuyo. 🫡"
+          ]
+        },
+        "1505": {
+          "attack_miss": [
+            "la cuenta todavía no cerró 😏",
+            "tranqui, ya llego 😤"
+          ],
+          "attack_hit": [
+            "esto es matemática, no rabia 👊",
+            "¿sentiste la cuenta cerrando? 😈"
+          ],
+          "take_damage": [
+            "interesante variable esa 🙄",
+            "bien, eso cambia la cuenta 😬"
+          ],
+          "take_critical": [
+            "...recalculando. 🫡",
+            "no estabas en mis números 😳"
+          ],
+          "player_near_death": [
+            "hacé la cuenta y andate, playboy 🙏",
+            "¿dos luchadores contra todo el Alto? 😈"
+          ],
+          "enemy_near_death": [
+            "la cuenta todavía me cierra 😤",
+            "no me equivoco en un cálculo así 💢"
+          ],
+          "defeat": [
+            "...la cuenta no cerró. 😨",
+            "recalculado. respeto. el Alto es tuyo. 🫡"
+          ]
+        },
+        "1600": {
+          "attack_miss": [
+            "seis barrios y pensás que me esquivás 😏",
+            "Marélia entera vio golpe mejor 😤"
+          ],
+          "attack_hit": [
+            "esto está cosido con sangre 👊🔥",
+            "¿sentiste toda Marélia en ese golpe? 😈"
+          ],
+          "take_damage": [
+            "ya aguanté peor sosteniendo seis barrios 🙄",
+            "bien, esto lo voy a recordar 😬"
+          ],
+          "take_critical": [
+            "...estás más cerca de lo que esperaba. 🫡",
+            "nadie llegó tan cerca de mí 😳"
+          ],
+          "player_near_death": [
+            "esta mierda no cose — ni yo la sostuve 😈",
+            "rendite, Marélia todavía no es tuya 🙏"
+          ],
+          "enemy_near_death": [
+            "seis barrios no caen fácil 😤",
+            "todavía sostengo la línea, pibe 💢"
+          ],
+          "defeat": [
+            "...nadie nunca llegó más cerca. Marélia ahora es tuya. 😨",
+            "respeto, guerrero. hiciste lo que yo no pude. 🫡"
           ]
         }
       },
@@ -2007,7 +4700,6 @@
         "facil_ultimo": "¿En serio pensás que vas a enfrentar al jefe del último barrio jugando en FÁCIL? Ni se va a rebajar a mirarte. En fácil llegás hasta el 6º y ahí quedás — el que quiere el top juega en serio. Subilo a Medio como mínimo, pibe.",
         "facil_ultimo_cta": "Subir la dificultad",
         "dominado": "Barrio en la mano",
-        "voltar_mapa": "Mapa",
         "sem_territorio": "Ningún barrio seleccionado.",
         "desafiante": "Ganga del punto",
         "gangue_dominante": "Ganga dueña del barrio",
@@ -2390,11 +5082,17 @@
           },
           "posmuro_1": {
             "nome": "Los perros guardianes",
-            "fala": ["\"¿Perdiste la cabeza para venir acá, chabón?\" El primer bonde del Carvão te cierra el paso.", "Dos vaporeros pesados fumando en la puerta del galpón. Te ven y escupen al piso."]
+            "fala": [
+              "\"¿Perdiste la cabeza para venir acá, chabón?\" El primer bonde del Carvão te cierra el paso.",
+              "Dos vaporeros pesados fumando en la puerta del galpón. Te ven y escupen al piso."
+            ]
           },
           "posmuro_2": {
             "nome": "El gerente de la boca",
-            "fala": ["La mano derecha del Carvão en persona, con escolta. \"Del muro para acá se entra por invitación. ¿Te invitaron?\"", "Este no corre. Cruza los brazos, hace seña a los matones: \"resolvé\"."]
+            "fala": [
+              "La mano derecha del Carvão en persona, con escolta. \"Del muro para acá se entra por invitación. ¿Te invitaron?\"",
+              "Este no corre. Cruza los brazos, hace seña a los matones: \"resolvé\"."
+            ]
           },
           "loja": {
             "nome": "Tienda de la Pista"
