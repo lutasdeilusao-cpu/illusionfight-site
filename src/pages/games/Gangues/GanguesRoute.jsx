@@ -52,11 +52,23 @@ export default function GanguesRoute() {
   // meio do jogo, mesmo sem ele ter feito nada.
   const saveSelectFeito = useRef(false)
   useEffect(() => {
-    if (!user) return
-    store.setUserId(user.id)
-    if (saveSelectFeito.current) return
-    saveSelectFeito.current = true
-    setFase(current => (current === 'lobby' ? 'save-select' : current))
+    if (user) {
+      store.setUserId(user.id)
+      if (saveSelectFeito.current) return
+      saveSelectFeito.current = true
+      setFase(current => (current === 'lobby' ? 'save-select' : current))
+      return
+    }
+    // `user` virou falso DEPOIS de já ter estado logado nesta aba (logout,
+    // sem recarregar a página) — sem isso, _userId/roster/saves da conta
+    // anterior ficavam presos no store, e o próximo guest/login na MESMA aba
+    // herdava um _userId órfão (ver logoutReset no useGanguesStore.js: o
+    // sintoma era "a gangue não pode ser fundada" pro próximo a jogar ali).
+    if (saveSelectFeito.current) {
+      store.logoutReset()
+      saveSelectFeito.current = false
+      setFase('lobby')
+    }
   }, [user])
 
   useEffect(() => {
