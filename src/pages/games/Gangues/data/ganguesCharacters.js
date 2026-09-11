@@ -157,6 +157,27 @@ export function hydrateGanguesTemplateSheet(sheet = {}) {
   }
 }
 
+// Troca (equipa/desequipa) um poder ATIVO na seleção de batalha (máx. 2) de
+// uma ficha de personagem (template). Existia FICHA NENHUMA que chamasse isso
+// de verdade — GanguesProgression.jsx (a tela real que o jogador abre) usava
+// só GanguesSkillGrid, que é SÓ LEITURA (mostra o que já abriu, sem botão de
+// equipar); o toggle antigo (toggleGanguesSpecial, em ganguesLoadout.js) é de
+// um sistema PARALELO e incompatível (o "caminho especial" genérico de
+// ganguesSpecials.js, com ids tipo bruto/duelista) que não reconhece os ids
+// dos signature_specials autorados por personagem (ex: soco_de_ferro) — não
+// dava pra usar pra template nenhum. Esta função trabalha direto em cima de
+// getGanguesUnlockedSpecials (a lista certa) e do array cru salvo na ficha.
+export function toggleGanguesTemplateSpecial(sheet, specialId) {
+  const unlocked = getGanguesUnlockedSpecials(sheet.character_template_id, sheet.xp_total)
+  const podeEquipar = unlocked.some(special => special.id === specialId && special.kind === 'active')
+  if (!podeEquipar) return null
+  const atuais = Array.isArray(sheet.attributes?.progression?.selected_specials) ? sheet.attributes.progression.selected_specials : []
+  const selected = atuais.includes(specialId)
+    ? atuais.filter(id => id !== specialId)
+    : atuais.length < 2 ? [...atuais, specialId] : atuais
+  return { attributes: { ...sheet.attributes, progression: { ...sheet.attributes?.progression, selected_specials: selected } } }
+}
+
 // `xpTotal` deixa o recruta nascer já ADIANTADO (ver recrutamento escalonado
 // em GanguesCreate.jsx — o 1º recruta pós-fundação vem L5, o 2º L10, e por
 // aí vai, +5 em +5). Default 0 = nasce no nível 1, como a dupla fundadora.

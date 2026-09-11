@@ -731,7 +731,15 @@ export const CENA_PISTA = {
             { tipo: 'quadro-horarios', x: 60, y: 90 }, { tipo: 'chao-galpao' },
           ],
           pois: [
-            { poi: { id: 'galpao_contador', tipo: 'papo', opcional: true, repetivel: true, i18n: 'games.gangues.cena.pista.galpao.contador', escolhas: [{ id: 'escuta' }, { id: 'aperta', viraTreta: { enemy: 1203, rep: -1, recompensa: { grana: 6 } } }] }, pos: { x: 120, y: 210 } },
+            // "aperta" era enemy:1203 (Chinelada) FIXO, sem escalar — igual ao
+            // Chinelada do galpao_m1/m2 (2.74.54), mas esse escapou porque não
+            // é um POI de treta, é a punição de uma escolha de papo (o motor
+            // trata viraTreta SEM revezamento como `fixo`, direto do molde
+            // cru, sem calcular pontos contra o time). O Isaias pegou um
+            // Chinelada A1/H1/R2/D1 de 6 PV bem na sala antes do breu do
+            // Carvão. Agora escala igual o resto do galpão (revezamento,
+            // pool casca-grossa).
+            { poi: { id: 'galpao_contador', tipo: 'papo', opcional: true, repetivel: true, i18n: 'games.gangues.cena.pista.galpao.contador', escolhas: [{ id: 'escuta' }, { id: 'aperta', viraTreta: { enemy: 1203, rep: -1, recompensa: { grana: 6 }, revezamento: { pool: PISTA_POOL_GALPAO, budgetPorCorpo: 6, chanceDupla: 0.3 } } }] }, pos: { x: 120, y: 210 } },
           ],
           passagem: { x: 300, y: 34, w: 80, h: 24, para: 3, label: 'avancar' },
         },

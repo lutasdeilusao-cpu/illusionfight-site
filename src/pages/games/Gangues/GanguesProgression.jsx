@@ -47,7 +47,19 @@ export default function GanguesProgression({ onNavigate }) {
         pm={{ atual: Math.min(resources.pmMax, member.attributes?.pm_atual ?? resources.pmMax), max: resources.pmMax }}
         xp={{ atual: progression.ap, max: ganguesXpMaxForSheet(member), disponivel: progression.xp_unspent }}
       />
-      <GanguesSkillGrid character={character} unlockedIds={unlocked.map(s => s.id)} levelsById={progression.special_levels} />
+      <GanguesSkillGrid
+        character={character}
+        unlockedIds={unlocked.map(s => s.id)}
+        levelsById={progression.special_levels}
+        // NÃO usa progression.selected_specials (getGanguesProgression) aqui —
+        // aquele getter filtra pelo sistema de "caminho especial" GENÉRICO
+        // (ganguesSpecials.js), que não reconhece os ids dos signature_specials
+        // autorados por personagem (ex: soco_de_ferro) e zeraria a seleção.
+        // O valor cru salvo na ficha (já validado por toggleGanguesTemplateSpecial
+        // / hydrateGanguesTemplateSheet) é a fonte certa pra template.
+        selectedIds={Array.isArray(member.attributes?.progression?.selected_specials) ? member.attributes.progression.selected_specials : []}
+        onToggle={specialId => store.toggleEspecial(member.id, specialId)}
+      />
       <GanguesEquipPanel member={member} />
     </section>
   </main>

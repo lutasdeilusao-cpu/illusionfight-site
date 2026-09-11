@@ -2,7 +2,7 @@ import { create } from 'zustand'
 import { supabase } from '../../../../lib/supabase'
 import { addGanguesAp, defaultGanguesProgression, getGanguesRosterLimit, normalizeGanguesLoadout, getGanguesResources, GANGUES_STORY_BATTLE_PARTY_MAX } from '../data/ganguesLoadout.js'
 import { carregarProgressoHistoria, salvarProgressoHistoria, listarSaves, criarSave, excluirSave } from './ganguesStoryProgress.js'
-import { createGanguesTemplateSheet, hydrateGanguesTemplateSheet, getGanguesLevelFromXp } from '../data/ganguesCharacters.js'
+import { createGanguesTemplateSheet, hydrateGanguesTemplateSheet, getGanguesLevelFromXp, toggleGanguesTemplateSpecial } from '../data/ganguesCharacters.js'
 import { createGanguesEquipInstance, normalizeGanguesEquipment, getGanguesEquip, getGanguesAttributesWithEquip, applyGanguesEquipResources } from '../data/ganguesEquip.js'
 import { idsValidosUnicos } from '../data/ganguesInimigos.js'
 
@@ -656,6 +656,32 @@ export const useGanguesStore = create((set, get) => ({
     })
     if (devolvido) { get().saveParticipantProgress([memberId]); get()._persistCena() }
     return Boolean(devolvido)
+  },
+
+  // Equipa/desequipa um dos até-2 poderes ativos levados pra batalha (pedido
+  // do Isaias: a única tela que existia pra isso, GanguesProgression, era
+  // 100% leitura — nem no lobby dava pra trocar). Usável de qualquer lugar
+  // que tenha o member (lobby E a ficha da cena/combate).
+  toggleEspecial: (memberId, specialId) => {
+    let mudou = false
+    const aplicar = member => {
+      if (member.id !== memberId) return member
+      const change = toggleGanguesTemplateSpecial(member, specialId)
+      if (!change) return member
+      mudou = true
+      return { ...member, ...change }
+    }
+    set(state => {
+      const roster = state.roster.map(aplicar)
+      const byId = new Map(roster.map(m => [m.id, m]))
+      return {
+        roster,
+        activeParty: state.activeParty.map(m => byId.get(m.id) || m),
+        sheet: byId.get(state.sheet.id) || state.sheet,
+      }
+    })
+    if (mudou) { get().saveParticipantProgress([memberId]); get()._persistCena() }
+    return mudou
   },
 
   // Trava o "retrato" de pontos de uma treta repetível na primeira vez que o

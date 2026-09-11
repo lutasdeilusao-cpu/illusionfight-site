@@ -2481,6 +2481,18 @@
 .gang-skillgrid { width: 100%; margin-top: 8px; }
 button.gang-skill-node { font-family: inherit; color: #eef4f6; cursor: pointer; }
 button.gang-skill-node:hover { border-color: var(--if-teal); }
+/* Quando a grade fica EDITÁVEL (equipar/desequipar), .gang-skill-node vira um
+   <div> (não dá mais pra clicar o card inteiro) com um botão interno só pra
+   abrir o detalhe + o botão de equipar embaixo. */
+.gang-skill-node-open {
+  all: unset; box-sizing: border-box; width: 100%; cursor: pointer;
+  display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center;
+  font-family: inherit; color: #eef4f6;
+}
+.gang-skill-node-badge {
+  position: absolute; top: -7px; right: 6px; padding: 1px 6px; border-radius: 999px;
+  background: var(--if-amber); color: #1a1204; font: 800 7px 'Rajdhani', sans-serif; letter-spacing: 1px; text-transform: uppercase;
+}
 .gang-skill-sheet { position: fixed; inset: 0; z-index: 1200; display: flex; align-items: flex-end; justify-content: center; }
 .gang-skill-sheet__scrim { position: absolute; inset: 0; border: 0; background: rgba(2,5,8,0.8); backdrop-filter: blur(4px); }
 .gang-skill-sheet__card {

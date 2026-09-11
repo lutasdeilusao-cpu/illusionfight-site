@@ -6,12 +6,18 @@ import { getGanguesSpecialUnlockLevel } from '../data/ganguesCharacters.js'
 /* Grade de poderes do personagem (técnica base + 5 assinaturas), com toque
    pra abrir o que cada um FAZ. Usada na ficha da cena (Pista) e na tela de
    progressão — uma fonte só. `unlockedIds` = ids já abertos pelo nível;
-   `levelsById` = nível de cada poder (special_levels da progressão). */
-export default function GanguesSkillGrid({ character, unlockedIds = [], levelsById = {} }) {
+   `levelsById` = nível de cada poder (special_levels da progressão).
+   `selectedIds` + `onToggle` (opcionais): quando vêm preenchidos, cada poder
+   ATIVO desbloqueado ganha um botão EQUIPAR/DESEQUIPAR (máx. 2 selecionados
+   por vez — o jogador escolhe quais 2 leva pra batalha). Sem eles a grade
+   fica só leitura, do jeito que já era. */
+export default function GanguesSkillGrid({ character, unlockedIds = [], levelsById = {}, selectedIds = null, onToggle = null }) {
   const { t } = useLanguage()
   const [aberta, setAberta] = useState(null)
 
   if (!character?.base_technique) return null
+
+  const editavel = Array.isArray(selectedIds) && typeof onToggle === 'function'
 
   const nodes = [
     { id: character.base_technique.id, kind: 'active', nvReq: 1, aberto: true, base: true },
@@ -38,20 +44,35 @@ export default function GanguesSkillGrid({ character, unlockedIds = [], levelsBy
 
   return (
     <div className="gang-skillgrid">
-      <h3 className="gang-progression-section-title">{t('games.gangues.skill_info.titulo')}</h3>
+      <h3 className="gang-progression-section-title">
+        {t('games.gangues.skill_info.titulo')}
+        {editavel && <span className="gang-progression-loadout">{t('games.gangues.progression.loadout', { n: selectedIds.length })}</span>}
+      </h3>
       <div className="gang-skill-grid">
-        {nodes.map(node => (
-          <button
-            key={node.id}
-            type="button"
-            className={`gang-skill-node${node.aberto ? ' gang-skill-node--equipped' : ' gang-skill-node--locked'}`}
-            onClick={() => setAberta(node)}
-          >
-            {!node.base && <span>NV {node.nvReq}</span>}
-            <strong className="gang-skill-node-name">{t(`games.gangues.progression.skills.${node.id}`)}</strong>
-            <span className="gang-skill-node-kind">{node.aberto ? kindLabel(node.kind) : '🔒'}</span>
-          </button>
-        ))}
+        {nodes.map(node => {
+          const podeEquipar = editavel && !node.base && node.aberto && node.kind === 'active'
+          const equipado = podeEquipar && selectedIds.includes(node.id)
+          return (
+            <div key={node.id} className={`gang-skill-node${node.aberto ? ' gang-skill-node--equipped' : ' gang-skill-node--locked'}`}>
+              {equipado && <span className="gang-skill-node-badge">{t('games.gangues.progression.equipped_badge')}</span>}
+              <button type="button" className="gang-skill-node-open" onClick={() => setAberta(node)}>
+                {!node.base && <span>NV {node.nvReq}</span>}
+                <strong className="gang-skill-node-name">{t(`games.gangues.progression.skills.${node.id}`)}</strong>
+                <span className="gang-skill-node-kind">{node.aberto ? kindLabel(node.kind) : '🔒'}</span>
+              </button>
+              {podeEquipar && (
+                <div className="gang-skill-node-actions">
+                  <button
+                    type="button"
+                    className="gang-skill-node-toggle"
+                    disabled={!equipado && selectedIds.length >= 2}
+                    onClick={() => onToggle(node.id)}
+                  >{t(`games.gangues.progression.${equipado ? 'unequip' : 'equip'}`)}</button>
+                </div>
+              )}
+            </div>
+          )
+        })}
       </div>
 
       {detalhe && (
