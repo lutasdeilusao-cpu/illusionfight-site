@@ -137,6 +137,34 @@ export function AuthProvider({ children }) {
       if (!session?.user) {
         setPerfil(null)
         provisionadosRef.current.clear()
+        // BUG CORRIGIDO (relatado pelo Isaias): deslogar sem recarregar a
+        // página deixava o `_userId` de jogos com store próprio (Gangues
+        // confirmado; ArenaTatics/JackCandy/PesadeloParticular/Tamagoshi têm
+        // o mesmo padrão setUserId-no-login-sem-clear-no-logout, avaliar
+        // depois) PRESO na memória — a tela do jogo só reage a "user ficou
+        // verdadeiro" (login), nunca a "ficou falso" de novo, e o botão de
+        // Sair fica na Navbar, que só existe FORA do jogo (ReaderContext
+        // esconde ela lá dentro) — ou seja, a tela do jogo nem está montada
+        // no momento do logout pra reagir. O próximo guest/login na MESMA
+        // aba herdava esse _userId órfão e tentava salvar dado na nuvem com
+        // uma sessão que a Supabase já invalidou (RLS rejeita, "a gangue não
+        // pode ser fundada"). Fix aqui, não na tela do jogo: só o
+        // AuthContext existe o tempo todo, então só ele pode garantir a
+        // limpeza não importa onde o jogador esteja quando desloga. Só no
+        // evento SIGNED_OUT de verdade — nunca na sessão inicial sem login
+        // (INITIAL_SESSION), que também cai neste `if` mas não é logout.
+        // import() dinâmico (não estático no topo do arquivo) pra não puxar
+        // o bundle pesado do Gangues (catálogo de personagens) pra dentro do
+        // carregamento inicial do site inteiro — só carrega quando alguém de
+        // fato desloga. Trabalho fica no setTimeout, igual ao resto deste
+        // callback (documentado acima: nunca bloquear o callback síncrono).
+        if (event === 'SIGNED_OUT') {
+          setTimeout(() => {
+            import('../pages/games/Gangues/store/useGanguesStore.js')
+              .then(m => m.useGanguesStore.getState().logoutReset?.())
+              .catch(e => console.error('[Auth] logoutReset do Gangues falhou:', e))
+          }, 0)
+        }
         return
       }
       // getSession() acima já cobre a sessão de carga de página; aqui só o

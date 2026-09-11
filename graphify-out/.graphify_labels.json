@@ -432,9 +432,17 @@
   "430": "sfx.js",
   "431": "GanguesPapo.jsx",
   "432": ".stopHeartbeatLoop",
+  "433": "ganguesBiroscaSlice.js",
   "434": "CenaInterior.jsx",
+  "435": "ganguesCenaEconomiaSlice.js",
+  "436": "ganguesCenaProgressoSlice.js",
+  "437": "ganguesColecaoSlice.js",
+  "438": "ganguesEquipSlice.js",
   "439": "GanguesClube.jsx",
+  "440": "ganguesMatchSlice.js",
+  "441": "ganguesProgressionSlice.js",
   "442": "GanguesVictory.jsx",
   "443": "Cadastro.jsx",
+  "444": "ganguesSaveSlice.js",
   "445": "Login.jsx"
 }
