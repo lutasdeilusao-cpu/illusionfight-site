@@ -1,9 +1,8 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useLanguage } from '../../../context/LanguageContext'
 import { useGanguesStore } from './store/useGanguesStore'
 import { sfx } from '../../../lib/sfx'
-import enemiesData from './data/gangues-enemies.json'
 import GangDialog from './components/GangDialog'
 import GanguesPapo from './components/cena/GanguesPapo'
 import GanguesParada from './components/cena/GanguesParada'
@@ -12,662 +11,280 @@ import GanguesLoja from './components/cena/GanguesLoja'
 import GanguesMiniMapa from './components/cena/GanguesMiniMapa'
 import CenaCenario from './components/cena/CenaCenario'
 import CenaInterior from './components/cena/CenaInterior'
+import GanguesCenaBagSheet from './components/cena/GanguesCenaBagSheet'
+import GanguesCenaFichaCard from './components/cena/GanguesCenaFichaCard'
+import { GangMarker, EntryZone, PinoAlvo, WorldControls, interactionLabel } from './components/cena/GanguesCenaAtores'
+import { EventoVS, TretaVS } from './components/cena/GanguesCenaEncontros'
 import { CENAS_POR_ID, portaoAberto, contarCena } from './data/cenas/cenaHelpers.js'
 import { GANGUES_TERRITORIO_POR_ID } from './data/ganguesTerritorios.js'
 import { calcularPontosTime } from './data/ganguesEncontros.js'
-import { GANGUES_STORY_BATTLE_PARTY_MAX, getGanguesResources, getGanguesProgression, ganguesXpMaxForSheet } from './data/ganguesLoadout.js'
-import { getGanguesCharacter, getGanguesLevelFromXp, getGanguesUnlockedSpecials } from './data/ganguesCharacters.js'
-import { getGanguesAttributesWithEquip, applyGanguesEquipResources, getGanguesEquip } from './data/ganguesEquip.js'
-import { GANGUES_ITENS_LISTA } from './data/ganguesItens.js'
-import GanguesFichaCard from './components/GanguesFichaCard'
-import GanguesEquipPanel from './components/GanguesEquipPanel'
-import GanguesSkillGrid from './components/GanguesSkillGrid'
+import { GANGUES_STORY_BATTLE_PARTY_MAX } from './data/ganguesLoadout.js'
+import { WORLD, SPAWN, montarAmbiente, insideZone, validPosition, validPos } from './engine/ganguesCenaMotor.js'
+import useGanguesCenaMovimento from './hooks/useGanguesCenaMovimento.js'
+import useGanguesCenaEventoAleatorio from './hooks/useGanguesCenaEventoAleatorio.js'
 import './GanguesCena.css'
 
-const WORLD={w:760,h:2840}, SPAWN={x:380,y:2720}, TILE=20, STEP_MS=110, PLAYER_RADIUS=18
 // Igual aos outros tutoriais do NeoGuide (paths/atributos): guarda no
 // localStorage, não só em memória. Um Set em memória esquecia tudo a cada
 // recarregada de página — o jogador via a intro de novo toda vez que
 // voltava a entrar na Pista, mesmo já tendo visto antes.
-const SCENE_INTRO_KEY='ldi-gangues-cena-intro-vista'
-function cenaIntroJaVista(id){try{return JSON.parse(localStorage.getItem(SCENE_INTRO_KEY)||'[]').includes(id)}catch{return false}}
-function marcarCenaIntroVista(id){try{const atual=JSON.parse(localStorage.getItem(SCENE_INTRO_KEY)||'[]');if(!atual.includes(id))localStorage.setItem(SCENE_INTRO_KEY,JSON.stringify([...atual,id]))}catch{}}
-// Os 4 pontos da linha da Rasteira (beco_2, beco_3, sinaleiro, rasteira_velha)
-// ficavam TODOS empilhados no corredor antes do muro — visão poluída. Agora
-// que tem radar (GanguesMiniMapa) pra guiar, eles se espalham pela rua toda,
-// na ordem em que se revelam: birosca → beco_2 (baixo) → beco_3 (praça) →
-// sinaleiro (vão aberto) → rasteira_velha (o último, colado no muro). O
-// jogador sobe a Pista batendo um por um.
-const POS={sinal:{x:210,y:2570},ferro:{x:150,y:2325},achado:{x:110,y:2245},beco:{x:445,y:2190},birosca:{x:170,y:2460},corre:{x:610,y:2010},beco_2:{x:330,y:2270},beco_3:{x:380,y:1950},sinaleiro:{x:440,y:1755},rasteira_velha:{x:360,y:1440},oficina:{x:250,y:1705},descanso:{x:205,y:2440},posmuro_1:{x:300,y:860},posmuro_2:{x:430,y:600},informante:{x:150,y:1740},rinha:{x:610,y:1740},loja:{x:210,y:486},boss:{x:570,y:175}}
-// Um obstáculo `solido` vira um retângulo de colisão PEQUENO em volta do ponto
-// (o jogador tem raio 18; corredor da pista ~186px — colisor grande trancava).
-function obstRect(o){return {x:o.x-15,y:o.y-11,w:30,h:22}}
-function collidersDaCena(cena,bossAberto){
-  if(!cena) return []
-  const q=cena.quarteiroes||[]
-  const s=(cena.obstaculos||[]).filter(o=>o.solido).map(obstRect)
-  // prédios `solo` (fora dos quarteirões): a fachada é sólida; a porta é uma
-  // zona à parte no chão (porta.zx/zy), então não precisa de "vão".
-  const p=(cena.predios||[]).filter(pr=>pr.solo&&(!pr.pos_portao||bossAberto)).map(pr=>({x:pr.x,y:pr.y,w:pr.w,h:pr.h}))
-  return [...q,...s,...p]
-}
-const ENTRY_ZONES={
-  sinal:{x:243,y:2532,w:70,h:76},ferro:{x:270,y:2288,w:35,h:76},achado:{x:75,y:2212,w:72,h:72},beco:{x:355,y:2155,w:76,h:70},
-  birosca:{x:270,y:2418,w:35,h:82},corre:{x:455,y:1970,w:35,h:82},
-  // Os 4 pontos da linha da Rasteira espalhados pela rua toda (o radar guia).
-  // Cada zona no corredor andável da sua faixa. beco_2: vão aberto y1172-1302.
-  // beco_3: corredor da praça (x287-473). sinaleiro: vão aberto y676-802.
-  // rasteira_velha: corredor colado no muro. loja: já do outro lado (y<350).
-  beco_2:{x:300,y:2246,w:60,h:52},beco_3:{x:350,y:1926,w:60,h:52},
-  sinaleiro:{x:410,y:1731,w:60,h:52},rasteira_velha:{x:330,y:1416,w:60,h:52},
-  loja:{x:196,y:456,w:64,h:64},oficina:{x:220,y:1678,w:64,h:62},
-  // descanso_2 não tem zona de rua — mora dentro do barraco pm1 (interiores.birosca_2).
-  posmuro_1:{x:270,y:834,w:64,h:56},posmuro_2:{x:400,y:574,w:64,h:56},
-  // informante/rinha ficam num trecho SEM colisor nenhum (y:1705-781 não tem
-  // nenhum COLLIDERS cobrindo essa faixa) — diferente de ferro/corre/etc,
-  // que hospedam perto de prédio de verdade e por isso a zona anda longe do
-  // pino (encosta na borda do prédio, não no ícone). Aqui não existe prédio,
-  // então a zona fica centralizada NO PRÓPRIO ícone — senão o jogador anda
-  // até o que vê na tela e nada acontece, porque a zona de verdade tava
-  // longe dali.
-  descanso:{x:270,y:2375,w:35,h:72},informante:{x:120,y:1710,w:60,h:60},rinha:{x:580,y:1710,w:60,h:60},
-  boss:{x:530,y:300,w:80,h:45},
-}
+const SCENE_INTRO_KEY = 'ldi-gangues-cena-intro-vista'
+function cenaIntroJaVista(id) { try { return JSON.parse(localStorage.getItem(SCENE_INTRO_KEY) || '[]').includes(id) } catch { return false } }
+function marcarCenaIntroVista(id) { try { const atual = JSON.parse(localStorage.getItem(SCENE_INTRO_KEY) || '[]'); if (!atual.includes(id)) localStorage.setItem(SCENE_INTRO_KEY, JSON.stringify([...atual, id])) } catch {} }
 
-// ── Ambiente ativo (rua OU cômodo de interior) ────────────────
-// Um "ambiente" abstrai o que o motor precisa: mundo, colisão e a lista de
-// ALVOS (pinos de POI + porta + saída + passagem). Rua e interior usam o
-// mesmo código de navegação e o mesmo botão de ação contextual.
-function resolverRefPoi(cena,refId){
-  if(refId==='__chefe') return {...cena.chefe,id:'boss',ehChefe:true}
-  return cena.pois.find(p=>p.id===refId)||null
-}
-function estadoInternoPoi(def,prog){
-  if(def.ehChefe) return prog.boss?'resolvido':'disponivel'
-  if(prog.resolvidos[def.id]&&!def.repetivel) return 'resolvido'
-  return 'disponivel'
-}
-// ids de POI que "moram dentro" de um interior — somem do mapa da rua.
-function refsInternos(cena){
-  const s=new Set()
-  for(const inter of Object.values(cena.interiores||{}))
-    for(const com of inter.comodos||[])
-      for(const pd of com.pois||[]) if(pd.ref&&pd.ref!=='__chefe') s.add(pd.ref)
-  return s
-}
-function montarAmbiente(cena,local,prog,baseFeita,muroAberto){
-  if(!cena) return null
-  const laDeCima=baseFeita||muroAberto // pode chegar do outro lado do muro (tunelando ou pelo muro aberto)
-  if(!local){
-    const dentro=refsInternos(cena)
-    const pois=cena.pois
-      .filter(p=>!dentro.has(p.id)&&(p.visivel||prog.revelados[p.id]||(p.pos_portao&&laDeCima)))
-      .map(p=>({...p,world:POS[p.id],zona:ENTRY_ZONES[p.id],
-        estado:(p.pos_portao&&laDeCima)?estadoPoi({...p,visivel:true},prog):estadoPoi(p,prog),
-        farmCompleto:Boolean(p.repetivel&&prog.resolvidos[p.id])}))
-      .filter(p=>p.world)
-    // portas dos prédios que abrem interior (porta.zx/zy = zona no chão)
-    const portas=(cena.predios||[]).filter(pr=>pr.porta?.para&&(!pr.pos_portao||laDeCima)).map(pr=>{
-      const inter=cena.interiores?.[pr.porta.para]
-      const gatePorPoi=inter?.abreCom
-      const gateResolvido=inter?.abreComResolvido // exige o POI VENCIDO (não só revelado)
-      const liberada=inter?.gate==='portao'
-        ? baseFeita
-        : gateResolvido
-          ? (Boolean(prog.resolvidos[gateResolvido])||prog.boss)
-          : (!gatePorPoi||prog.revelados[gatePorPoi]||prog.resolvidos[gatePorPoi]||prog.boss)
-      const zx=pr.porta.zx??(pr.x+pr.w/2), zy=pr.porta.zy??(pr.y+pr.h+16)
-      return {id:`porta_${pr.id}`,ehPorta:true,interId:pr.porta.para,predioId:pr.id,
-        comodo:pr.porta.comodo||0,spawn:pr.porta.spawn,
-        world:{x:zx,y:zy},zona:{x:zx-34,y:zy-30,w:68,h:60},
-        estado:inter?(liberada?'disponivel':'trancado'):'trancado'}
-    })
-    // se existe galpão-interior, o pino de chefe da RUA some (a luta é dentro)
-    const temGalpaoInterno=Boolean(cena.interiores?.galpao)
-    const alvos=[...pois,...portas]
-    if(!temGalpaoInterno){
-      alvos.push({...cena.chefe,world:POS.boss,zona:ENTRY_ZONES.boss,ehChefe:true,
-        estado:prog.boss?'resolvido':laDeCima?'disponivel':'trancado'})
-    }
-    return {interior:false,world:cena.mundo||WORLD,colliders:collidersDaCena(cena,laDeCima),
-      gateAtivo:muroAberto?null:'fechado', // o muro só abre depois do Carvão
-      alvos:alvos.filter(a=>a.world),nomeLugar:null}
-  }
-  // interior
-  const inter=cena.interiores?.[local.id]
-  const com=inter?.comodos?.[local.comodo]||inter?.comodos?.[0]
-  if(!com) return null
-  const pois=(com.pois||[]).map(pd=>{
-    if(pd.precisa&&!prog.resolvidos[pd.precisa]) return null
-    const def=pd.ref?resolverRefPoi(cena,pd.ref):pd.poi
-    if(!def) return null
-    return {...def,world:pd.pos,zona:{x:pd.pos.x-34,y:pd.pos.y-34,w:68,h:68},
-      estado:estadoInternoPoi(def,prog),farmCompleto:Boolean(def.repetivel&&prog.resolvidos[def.id])}
-  }).filter(Boolean)
-  const alvos=[...pois]
-  if(com.saida) alvos.push({id:'__saida',ehSaida:true,paraPredio:com.saida.paraPredio,world:{x:com.saida.x+com.saida.w/2,y:com.saida.y+com.saida.h/2},zona:com.saida,estado:'disponivel'})
-  if(com.voltaPara!=null){const zw=com.world.w;alvos.push({id:'__volta',ehVolta:true,para:com.voltaPara,world:{x:zw/2,y:com.world.h-16},zona:{x:0,y:com.world.h-34,w:zw,h:34},estado:'disponivel'})}
-  if(com.passagem){const pg=com.passagem;const trancada=pg.precisa&&!prog.resolvidos[pg.precisa]
-    alvos.push({id:'__passagem',ehPassagem:true,para:pg.para,label:pg.label,precisa:pg.precisa,
-      world:{x:pg.x+pg.w/2,y:pg.y+pg.h/2},zona:pg,estado:trancada?'trancado':'disponivel'})}
-  // Cômodo com "voltar" (túnel/galpão): a zona de volta fica na borda de baixo,
-  // mas TODO cômodo tem uma parede sólida de fundo ({x:0,y:h-28,w:tudo,h:28})
-  // que cobria a zona inteira — o jogador só conseguia AVANÇAR, nunca voltar.
-  // Aqui a gente remove qualquer colisor colado no rodapé quando o cômodo tem
-  // `voltaPara`, deixando o caminho de volta livre.
-  const colliders=(com.colliders||[]).filter(c=>com.voltaPara==null||c.y<com.world.h-34)
-  return {interior:true,world:com.world,colliders,gateAtivo:false,
-    alvos,nomeLugar:inter.nome,comodoIdx:local.comodo,comodoTotal:inter.comodos.length,cenario:com.cenario||[]}
-}
-
-export default function GanguesCena({onNavigate}){
-  const {t}=useLanguage(), store=useGanguesStore(), territorioId=store.storyTarget?.territorioId
-  const cena=CENAS_POR_ID[territorioId]||null, terr=GANGUES_TERRITORIO_POR_ID[territorioId]||null
-  const prog=store.cenaProgresso[cena?.id]||{resolvidos:{},revelados:{},boss:false}
+export default function GanguesCena({ onNavigate }) {
+  const { t } = useLanguage(), store = useGanguesStore(), territorioId = store.storyTarget?.territorioId
+  const cena = CENAS_POR_ID[territorioId] || null, terr = GANGUES_TERRITORIO_POR_ID[territorioId] || null
+  const prog = store.cenaProgresso[cena?.id] || { resolvidos: {}, revelados: {}, boss: false }
   // `local` = null (rua) OU { id: <interiorId>, comodo: <n> }. Restaurado do
   // save junto da posição, pra reentrar na cena onde parou (até dentro do galpão).
-  const [local,setLocal]=useState(()=>prog.posicao?.local||null)
-  const posInicial=()=>{
-    const p=prog.posicao
-    if(p?.local){const c=cena?.interiores?.[p.local.id]?.comodos?.[p.local.comodo]
-      return c?(validPos(p,c.world)?{x:p.x,y:p.y}:c.spawn):SPAWN}
-    return validPosition(p)?{x:p.x,y:p.y}:(cena?.mundo?.spawn||SPAWN)
+  const [local, setLocal] = useState(() => prog.posicao?.local || null)
+  const posInicial = () => {
+    const p = prog.posicao
+    if (p?.local) { const c = cena?.interiores?.[p.local.id]?.comodos?.[p.local.comodo]; return c ? (validPos(p, c.world) ? { x: p.x, y: p.y } : c.spawn) : SPAWN }
+    return validPosition(p) ? { x: p.x, y: p.y } : (cena?.mundo?.spawn || SPAWN)
   }
-  const [intro,setIntro]=useState(()=>Boolean(cena&&!cenaIntroJaVista(cena.id))),[player,setPlayer]=useState(posInicial),[facing,setFacing]=useState('up'),[encontro,setEncontro]=useState(null),[toast,setToast]=useState(null),[hint,setHint]=useState(()=>t('games.gangues.cena.hint_andar')),[andou,setAndou]=useState(false),[fade,setFade]=useState(false)
-  const [fichaIndex,setFichaIndex]=useState(null)
-  const [bagAberta,setBagAberta]=useState(false)
+  const [intro, setIntro] = useState(() => Boolean(cena && !cenaIntroJaVista(cena.id)))
+  const [encontro, setEncontro] = useState(null), [toast, setToast] = useState(null)
+  const [hint, setHint] = useState(() => t('games.gangues.cena.hint_andar'))
+  const [fade, setFade] = useState(false)
+  const [fichaIndex, setFichaIndex] = useState(null)
+  const [bagAberta, setBagAberta] = useState(false)
   // Aviso: a tropa inteira caiu — não entra em luta até se recuperar na birosca.
-  const [aviso,setAviso]=useState(null)
+  const [aviso, setAviso] = useState(null)
   // Checklist: o que ainda falta fechar na cena (toca no "X/10" do topo).
-  const [checklist,setChecklist]=useState(false)
-  const viewportRef=useRef(null),inputRef=useRef({x:0,y:0}),keysRef=useRef(new Set())
+  const [checklist, setChecklist] = useState(false)
+  const viewportRef = useRef(null)
   // baseFeita = fechou os ponto (portao.precisa) → destranca o TÚNEL e libera o
   // lado de lá. muroAberto = bateu o Carvão → aí sim o muro abre de vez (pra
   // facilitar o vai-e-vem). O muro NUNCA abre só por fechar os ponto.
-  const baseFeita=cena?portaoAberto(cena,prog.resolvidos):false
-  const muroAberto=Boolean(prog.boss)
-  const amb=useMemo(()=>montarAmbiente(cena,local,prog,baseFeita,muroAberto),[cena,local,prog,baseFeita,muroAberto])
-  const collidersRef=useRef(null); collidersRef.current=amb?.colliders||[]
-  const worldRef=useRef(null); worldRef.current=amb?.world||WORLD
-  const gateRef=useRef(null); gateRef.current=amb?.gateAtivo||null
+  const baseFeita = cena ? portaoAberto(cena, prog.resolvidos) : false
+  const muroAberto = Boolean(prog.boss)
+  const amb = useMemo(() => montarAmbiente(cena, local, prog, baseFeita, muroAberto), [cena, local, prog, baseFeita, muroAberto])
+  const collidersRef = useRef(null); collidersRef.current = amb?.colliders || []
+  const worldRef = useRef(null); worldRef.current = amb?.world || WORLD
+  const gateRef = useRef(null); gateRef.current = amb?.gateAtivo || null
+
+  const { player, setPlayer, facing, andou, inputRef, passosRef } = useGanguesCenaMovimento({
+    intro, encontro, fade, gateRef, collidersRef, worldRef, initialPlayer: posInicial,
+  })
+
   // Encontro aleatório de rua ("selvagem"): conta passos e, com cooldown +
   // teto, dispara vez ou outra enquanto anda na rua (nunca em interior).
-  const localRef=useRef(local); localRef.current=local
-  const passosRef=useRef(0), eventoStepRef=useRef(0), eventosDadosRef=useRef(0)
-  const perto=useMemo(()=>(amb?.alvos||[]).find(a=>(a.estado==='disponivel'||a.repetivel)&&insideZone(player,a.zona))||null,[amb,player])
-  const {feitos,total}=cena?contarCena(cena,prog.resolvidos,prog.boss):{feitos:0,total:0}
+  const localRef = useRef(local); localRef.current = local
+  const { nivelTropa, tentarEvento } = useGanguesCenaEventoAleatorio({ store, t, cena, localRef, encontro, fade, intro, passosRef, setEncontro })
+
+  const perto = useMemo(() => (amb?.alvos || []).find(a => (a.estado === 'disponivel' || a.repetivel) && insideZone(player, a.zona)) || null, [amb, player])
+  const { feitos, total } = cena ? contarCena(cena, prog.resolvidos, prog.boss) : { feitos: 0, total: 0 }
   // local aponta pra um interior/cômodo que não existe (save antigo, cena
   // diferente) → volta pra rua.
-  useEffect(()=>{if(cena&&local&&!amb){setLocal(null);setPlayer(cena.mundo?.spawn||SPAWN)}},[cena,local,amb])
+  useEffect(() => { if (cena && local && !amb) { setLocal(null); setPlayer(cena.mundo?.spawn || SPAWN) } }, [cena, local, amb])
 
-  useEffect(()=>{const down=e=>{if(['arrowup','arrowdown','arrowleft','arrowright','w','a','s','d'].includes(e.key.toLowerCase())){e.preventDefault();keysRef.current.add(e.key.toLowerCase())}},up=e=>keysRef.current.delete(e.key.toLowerCase());window.addEventListener('keydown',down);window.addEventListener('keyup',up);return()=>{window.removeEventListener('keydown',down);window.removeEventListener('keyup',up)}},[])
-  useEffect(()=>{
-    if(intro||encontro||fade) return
-    let cancelado=false, timer
-    const passo=()=>{
-      if(cancelado) return
-      const k=keysRef.current
-      const ix=inputRef.current.x+(k.has('arrowright')||k.has('d')?1:0)-(k.has('arrowleft')||k.has('a')?1:0)
-      const iy=inputRef.current.y+(k.has('arrowdown')||k.has('s')?1:0)-(k.has('arrowup')||k.has('w')?1:0)
-      if(Math.hypot(ix,iy)>.35){
-        const dx=Math.abs(ix)>=Math.abs(iy)?(ix>0?1:-1):0
-        const dy=dx===0?(iy>0?1:-1):0
-        setFacing(dx>0?'right':dx<0?'left':dy>0?'down':'up')
-        setAndou(true)
-        setPlayer(p=>{const np=stepPlayer(p,dx,dy,gateRef.current,collidersRef.current,worldRef.current);if(np!==p)passosRef.current++;return np})
-      }
-      timer=setTimeout(passo,STEP_MS)
-    }
-    timer=setTimeout(passo,0)
-    return()=>{cancelado=true;clearTimeout(timer)}
-  },[intro,encontro,fade])
   // Roll de encontro aleatório a cada mudança de posição (o passosRef só sobe
-  // quando o jogador ANDA de fato — ver o updater acima).
-  useEffect(()=>{ tentarEvento() },[player])
-  useEffect(()=>{
-    if(intro||encontro)return
-    if(!andou){setHint(t('games.gangues.cena.hint_andar'));return}
-    if(local){setHint(null);return}
-    if(perto&&Object.keys(prog.resolvidos).length===0){setHint(t('games.gangues.cena.hint_interagir'));return}
-    if(prog.resolvidos.ferro&&!prog.resolvidos.oficina){
+  // quando o jogador ANDA de fato — ver useGanguesCenaMovimento).
+  useEffect(() => { tentarEvento() }, [player])
+  useEffect(() => {
+    if (intro || encontro) return
+    if (!andou) { setHint(t('games.gangues.cena.hint_andar')); return }
+    if (local) { setHint(null); return }
+    if (perto && Object.keys(prog.resolvidos).length === 0) { setHint(t('games.gangues.cena.hint_interagir')); return }
+    if (prog.resolvidos.ferro && !prog.resolvidos.oficina) {
       // Oficina do Nando é OBRIGATÓRIA pro portão e só fecha com 2× sucata
       // (item 13) — 1 no puzzle do ferro-velho, 1 no fundo dele (`achado`).
       // Se o jogador só tem 1, aponta pro achado (senão a oficina trava tudo).
-      setHint(t((store.inventario?.[13]||0)>=2?'games.gangues.cena.hint_sucata':'games.gangues.cena.hint_sucata_falta'));return
+      setHint(t((store.inventario?.[13] || 0) >= 2 ? 'games.gangues.cena.hint_sucata' : 'games.gangues.cena.hint_sucata_falta')); return
     }
     setHint(null)
-  },[intro,encontro,andou,perto,prog.resolvidos,local,t,store.inventario])
-  if(!cena||!terr)return <main className="gang-lobby"><button className="gang-new-sheet" onClick={()=>onNavigate('story')}>← MAPA</button></main>
+  }, [intro, encontro, andou, perto, prog.resolvidos, local, t, store.inventario])
+  if (!cena || !terr) return <main className="gang-lobby"><button className="gang-new-sheet" onClick={() => onNavigate('story')}>← MAPA</button></main>
   // `local` aponta pra um interior inválido — o efeito acima já vai zerar; só
   // não renderiza esse frame pra não quebrar em amb null.
-  if(local&&!amb)return <main className="gang-cena-worldpage" style={{'--terr-cor':cena.cor}}><div className="gang-cena-viewport"/></main>
-  const fecharIntro=()=>{marcarCenaIntroVista(cena.id);setIntro(false)}
-  const guardarPosicao=(over)=>store.salvarPosicaoCena(cena.id,{...(over||player),local:over?.local!==undefined?over.local:local})
+  if (local && !amb) return <main className="gang-cena-worldpage" style={{ '--terr-cor': cena.cor }}><div className="gang-cena-viewport" /></main>
+  const fecharIntro = () => { marcarCenaIntroVista(cena.id); setIntro(false) }
+  const guardarPosicao = (over) => store.salvarPosicaoCena(cena.id, { ...(over || player), local: over?.local !== undefined ? over.local : local })
   // troca de ambiente com fade curto (rua↔interior, cômodo↔cômodo)
-  const trocarPara=(novoLocal,spawn)=>{
-    sfx.select?.();setFade(true)
-    setTimeout(()=>{
-      setLocal(novoLocal); if(spawn)setPlayer(spawn)
-      guardarPosicao({...(spawn||player),local:novoLocal})
+  const trocarPara = (novoLocal, spawn) => {
+    sfx.select?.(); setFade(true)
+    setTimeout(() => {
+      setLocal(novoLocal); if (spawn) setPlayer(spawn)
+      guardarPosicao({ ...(spawn || player), local: novoLocal })
       setFade(false)
-    },170)
+    }, 170)
   }
-  const entrar=(interId,comodo=0,spawnOver)=>{
-    const inter=cena.interiores?.[interId]; if(!inter?.comodos?.length) return
-    const idx=inter.comodos[comodo]?comodo:0
-    trocarPara({id:interId,comodo:idx},spawnOver||inter.comodos[idx].spawn)
+  const entrar = (interId, comodo = 0, spawnOver) => {
+    const inter = cena.interiores?.[interId]; if (!inter?.comodos?.length) return
+    const idx = inter.comodos[comodo] ? comodo : 0
+    trocarPara({ id: interId, comodo: idx }, spawnOver || inter.comodos[idx].spawn)
   }
   // `paraPredio` = túnel que emerge no OUTRO lado do muro; senão volta pela
   // porta pela qual entrou (prédio pequeno: entrada = saída). `+8` no y pra
   // não re-acionar o ENTRAR no ato.
-  const sair=(paraPredio)=>{
-    const inter=cena.interiores?.[local.id]
-    const predId=paraPredio||inter?.porta?.predio
-    const pr=(cena.predios||[]).find(p=>p.id===predId)
-    const zx=pr?.porta?.zx??(pr?(pr.x+pr.w/2):player.x)
-    const zy=(pr?.porta?.zy??(pr?pr.y+pr.h+16:player.y))+8
-    trocarPara(null,{x:zx,y:zy})
+  const sair = (paraPredio) => {
+    const inter = cena.interiores?.[local.id]
+    const predId = paraPredio || inter?.porta?.predio
+    const pr = (cena.predios || []).find(p => p.id === predId)
+    const zx = pr?.porta?.zx ?? (pr ? (pr.x + pr.w / 2) : player.x)
+    const zy = (pr?.porta?.zy ?? (pr ? pr.y + pr.h + 16 : player.y)) + 8
+    trocarPara(null, { x: zx, y: zy })
   }
-  const irComodo=(n)=>{
-    const inter=cena.interiores?.[local.id]; const com=inter?.comodos?.[n]; if(!com) return
-    trocarPara({id:local.id,comodo:n},com.spawn)
+  const irComodo = (n) => {
+    const inter = cena.interiores?.[local.id]; const com = inter?.comodos?.[n]; if (!com) return
+    trocarPara({ id: local.id, comodo: n }, com.spawn)
   }
-  const abrir=poi=>{
-    if(!poi||poi.estado==='trancado')return
-    if(poi.ehPorta){entrar(poi.interId,poi.comodo||0,poi.spawn);return}
-    if(poi.ehSaida){sair(poi.paraPredio);return}
-    if(poi.ehVolta){irComodo(poi.para);return}
-    if(poi.ehPassagem){irComodo(poi.para);return}
+  const abrir = poi => {
+    if (!poi || poi.estado === 'trancado') return
+    if (poi.ehPorta) { entrar(poi.interId, poi.comodo || 0, poi.spawn); return }
+    if (poi.ehSaida) { sair(poi.paraPredio); return }
+    if (poi.ehVolta) { irComodo(poi.para); return }
+    if (poi.ehPassagem) { irComodo(poi.para); return }
     guardarPosicao()
-    if(poi.tipo==='achado'){
+    if (poi.tipo === 'achado') {
       sfx.reward?.()
-      const r=poi.recompensa||{}
-      if(r.grana)store.ganharGrana(r.grana)
-      if(r.rep)store.ganharRep(r.rep)
-      if(r.item)store.darItem(r.item,r.qtd||1)
-      if(r.grana||r.rep||r.item){setToast(r);setTimeout(()=>setToast(null),2600)}
-      store.marcarPoiResolvido(cena.id,poi.id,poi.revela||[])
+      const r = poi.recompensa || {}
+      if (r.grana) store.ganharGrana(r.grana)
+      if (r.rep) store.ganharRep(r.rep)
+      if (r.item) store.darItem(r.item, r.qtd || 1)
+      if (r.grana || r.rep || r.item) { setToast(r); setTimeout(() => setToast(null), 2600) }
+      store.marcarPoiResolvido(cena.id, poi.id, poi.revela || [])
       return
     }
-    sfx.select();setEncontro({poi,vs:poi.tipo==='treta',fala:poi.tipo==='treta'?escolherFala(poi):null})
+    sfx.select(); setEncontro({ poi, vs: poi.tipo === 'treta', fala: poi.tipo === 'treta' ? escolherFala(poi) : null })
   }
   // fala pré-treta: se o i18n traz um array (variações de trash talk, ver
   // gangues-pt.json cena.pista.*.fala), sorteia uma linha — assim não repete
   // sempre a mesma quando o jogador reencara o mesmo ponto.
-  const escolherFala=poi=>{
-    const raw=poi.ehChefe
-      ? t(`games.gangues.story.bosses.${poi.boss}.fala`,{suaGangue:t('games.gangues.report.your_gang')})
+  const escolherFala = poi => {
+    const raw = poi.ehChefe
+      ? t(`games.gangues.story.bosses.${poi.boss}.fala`, { suaGangue: t('games.gangues.report.your_gang') })
       : t(`${poi.i18n}.fala`)
-    return Array.isArray(raw)?raw[Math.floor(Math.random()*raw.length)]:raw
+    return Array.isArray(raw) ? raw[Math.floor(Math.random() * raw.length)] : raw
   }
-  // Encontro aleatório de rua: RARO de propósito (é uma luta acima da ficha).
-  // Nunca em interior, nunca antes do 60º passo da visita, cooldown longo
-  // (~140 passos), teto de 2 por visita, roll baixinho por passo. E só libera
-  // quando o jogador tem ALGUÉM nível 6+ — antes disso o bando do evento
-  // massacra (o Carvão já exige L8 pra bater confortável).
-  const podeEvento=useMemo(()=>store.roster.some(m=>getGanguesLevelFromXp(m.xp_total??0)>=6),[store.roster])
-  // Nível MÉDIO da tropa de batalha — base do aviso "recomendado nível X" no
-  // TretaVS (o Isaias: o cara entra consciente ou upa antes).
-  const nivelTropa=useMemo(()=>{
-    const time=store.activeParty.length?store.activeParty:store.roster
-    if(!time.length) return 1
-    // Nível EFETIVO: o nível de XP + o que o equipamento soma de atributo
-    // (aproximação — desde a curva de custo escalonada, 1 ponto de atributo
-    // já não vale sempre 1 nível igualzinho, mas ainda é uma boa régua pro
-    // aviso). Assim o aviso conta a soqueira/colete que o cara já pôs.
-    const nivelEf=m=>{
-      const base=getGanguesLevelFromXp(m.xp_total??0)
-      const eff=getGanguesAttributesWithEquip(m.attributes)
-      const bonus=['A','H','D'].reduce((s,k)=>s+Math.max(0,(Number(eff?.[k])||0)-(Number(m.attributes?.[k])||0)),0)
-      return base+bonus
-    }
-    return Math.max(1,Math.round(time.reduce((s,m)=>s+nivelEf(m),0)/time.length))
-  },[store.activeParty,store.roster])
   // "não ver mais o aviso de nível" — só neste território (reseta ao trocar,
   // porque a cena remonta com outro territorioId).
-  const [avisoNivelOff,setAvisoNivelOff]=useState(false)
-  const tentarEvento=()=>{
-    if(localRef.current||encontro||fade||intro||!podeEvento)return
-    if(passosRef.current<60||eventosDadosRef.current>=2)return
-    if(passosRef.current-eventoStepRef.current<140)return
-    if(Math.random()>=0.012)return
-    eventoStepRef.current=passosRef.current;eventosDadosRef.current++
-    const raw=t(`games.gangues.cena.${cena.id}.evento.fala`)
-    sfx.select?.()
-    setEncontro({evento:true,fala:Array.isArray(raw)?raw[Math.floor(Math.random()*raw.length)]:raw})
-  }
+  const [avisoNivelOff, setAvisoNivelOff] = useState(false)
   // Tropa toda no chão → barra a entrada em qualquer luta e manda pra birosca.
-  const barraSeChao=()=>{
-    if(!store.tropaNoChao())return false
-    setEncontro(null);sfx.cancel?.()
+  const barraSeChao = () => {
+    if (!store.tropaNoChao()) return false
+    setEncontro(null); sfx.cancel?.()
     setAviso(t('games.gangues.cena.tropa_no_chao'))
-    setTimeout(()=>setAviso(null),3600)
+    setTimeout(() => setAviso(null), 3600)
     return true
   }
   // Aceitou o Clube da Luta na birosca: a entrada já fia 15× e cura a tropa, e
   // o jogador é vendado e levado pra roda (fase 'clube' → sequestro → combate).
   // `clubeDividaPrevia` = dívida ANTES da entrada — decide se a vitória paga os
   // 200 de grana (entrou limpo) ou só quita a dívida.
-  const iniciarClube=(custoBase)=>{
-    setEncontro(null);guardarPosicao();sfx.vs?.()
-    const dividaPrevia=store.storyProgress.__birosca?.divida||0
-    store.entrarClubeDaLuta(custoBase||10)
-    store.setStoryTarget({clube:true,clubeBase:custoBase||10,clubeDividaPrevia:dividaPrevia,clubeRonda:1,clubeHeals:0,voltar:{territorioId:terr.id}})
+  const iniciarClube = (custoBase) => {
+    setEncontro(null); guardarPosicao(); sfx.vs?.()
+    const dividaPrevia = store.storyProgress.__birosca?.divida || 0
+    store.entrarClubeDaLuta(custoBase || 10)
+    store.setStoryTarget({ clube: true, clubeBase: custoBase || 10, clubeDividaPrevia: dividaPrevia, clubeRonda: 1, clubeHeals: 0, voltar: { territorioId: terr.id } })
     onNavigate('clube')
   }
-  const iniciarEvento=()=>{
-    if(barraSeChao())return
-    guardarPosicao();sfx.vs?.()
-    const grana=6+Math.floor(Math.random()*7)
-    store.setStoryTarget({territorioId:terr.id,cenaId:cena.id,evento:true,
-      cenaRecompensa:{grana,rep:1},pontoIds:terr.pontos.map(p=>p.id)})
+  const iniciarEvento = () => {
+    if (barraSeChao()) return
+    guardarPosicao(); sfx.vs?.()
+    const grana = 6 + Math.floor(Math.random() * 7)
+    store.setStoryTarget({
+      territorioId: terr.id, cenaId: cena.id, evento: true,
+      cenaRecompensa: { grana, rep: 1 }, pontoIds: terr.pontos.map(p => p.id),
+    })
     onNavigate('story-combat')
   }
-  const iniciarTreta=(poi,{viraTreta,revela}={})=>{
-    if(barraSeChao())return
-    const chefe=Boolean(poi.ehChefe)
-    guardarPosicao();sfx.vs?.()
+  const iniciarTreta = (poi, { viraTreta, revela } = {}) => {
+    if (barraSeChao()) return
+    const chefe = Boolean(poi.ehChefe)
+    guardarPosicao(); sfx.vs?.()
     // Treta repetível ("farma"): trava o retrato de pontos na primeira vez —
     // as próximas entradas usam sempre esse mesmo número, então o bando não
     // cresce junto com a gangue (ver travarPontosFarm no store).
-    let pontosFixos=null
-    if(poi.repetivel && !viraTreta && !chefe){
-      const party=store.roster.slice(0,GANGUES_STORY_BATTLE_PARTY_MAX)
-      pontosFixos=store.travarPontosFarm(cena.id,poi.id,calcularPontosTime(party))
+    let pontosFixos = null
+    if (poi.repetivel && !viraTreta && !chefe) {
+      const party = store.roster.slice(0, GANGUES_STORY_BATTLE_PARTY_MAX)
+      pontosFixos = store.travarPontosFarm(cena.id, poi.id, calcularPontosTime(party))
     }
-    store.setStoryTarget({territorioId:terr.id,cenaId:cena.id,cenaPoiId:poi.id,cenaRevela:viraTreta?(revela||[]):(poi.revela||[]),cenaRecompensa:viraTreta?(viraTreta.recompensa||null):poi.recompensa||null,pontoIds:terr.pontos.map(p=>p.id),noId:chefe?cena.chefe.poiNo:null,enemyId:viraTreta?viraTreta.enemy:poi.enemy,fixo:Boolean(viraTreta),liderFixo:viraTreta?null:poi.liderFixo,moldesPool:viraTreta?null:poi.moldesPool,revezamento:viraTreta?(viraTreta.revezamento||null):poi.revezamento,dificuldade:poi.dificuldade,isChefe:chefe,repDelta:viraTreta?.rep||0,pontosFixos})
+    store.setStoryTarget({ territorioId: terr.id, cenaId: cena.id, cenaPoiId: poi.id, cenaRevela: viraTreta ? (revela || []) : (poi.revela || []), cenaRecompensa: viraTreta ? (viraTreta.recompensa || null) : poi.recompensa || null, pontoIds: terr.pontos.map(p => p.id), noId: chefe ? cena.chefe.poiNo : null, enemyId: viraTreta ? viraTreta.enemy : poi.enemy, fixo: Boolean(viraTreta), liderFixo: viraTreta ? null : poi.liderFixo, moldesPool: viraTreta ? null : poi.moldesPool, revezamento: viraTreta ? (viraTreta.revezamento || null) : poi.revezamento, dificuldade: poi.dificuldade, isChefe: chefe, repDelta: viraTreta?.rep || 0, pontosFixos })
     onNavigate('story-combat')
   }
-  const resolver=res=>{
-    const poi=encontro.poi;setEncontro(null)
-    if(res?.viraTreta){iniciarTreta(poi,{viraTreta:res.viraTreta,revela:res.revela});return}
+  const resolver = res => {
+    const poi = encontro.poi; setEncontro(null)
+    if (res?.viraTreta) { iniciarTreta(poi, { viraTreta: res.viraTreta, revela: res.revela }); return }
     // Escolha com requisito de item (fetch quest do Nando): consome os itens —
     // aborta sem marcar nada se faltar (o botão já vem travado, isso é rede).
-    if(res?.precisaItens&&!store.gastarItens(res.precisaItens))return
-    if(res?.custoGrana)store.gastarGrana(res.custoGrana)
-    if(res?.informante)store.marcarInformante(res.informante)
-    ;(res?.daEquip||[]).forEach(id=>store.comprarEquip(id,0))
-    const r=res?.recompensa||{}
-    if(r.grana)store.ganharGrana(r.grana)
-    if(r.rep)store.ganharRep(r.rep)
-    if(r.item)store.darItem(r.item,r.qtd||1)
-    if(r.grana||r.rep||r.xp||r.item||res?.daEquip?.length){setToast(r);setTimeout(()=>setToast(null),2600)}
-    if(!poi.repetivel)store.marcarPoiResolvido(cena.id,poi.id,res?.revela||poi.revela||[])
-    else if(res?.revela)store.revelarPoi(cena.id,res.revela)
+    if (res?.precisaItens && !store.gastarItens(res.precisaItens)) return
+    if (res?.custoGrana) store.gastarGrana(res.custoGrana)
+    if (res?.informante) store.marcarInformante(res.informante)
+    ;(res?.daEquip || []).forEach(id => store.comprarEquip(id, 0))
+    const r = res?.recompensa || {}
+    if (r.grana) store.ganharGrana(r.grana)
+    if (r.rep) store.ganharRep(r.rep)
+    if (r.item) store.darItem(r.item, r.qtd || 1)
+    if (r.grana || r.rep || r.xp || r.item || res?.daEquip?.length) { setToast(r); setTimeout(() => setToast(null), 2600) }
+    if (!poi.repetivel) store.marcarPoiResolvido(cena.id, poi.id, res?.revela || poi.revela || [])
+    else if (res?.revela) store.revelarPoi(cena.id, res.revela)
   }
   // Território dominado NÃO fecha a cena — as tretas repetíveis (rinha) e o
   // informante moram aqui e têm que continuar alcançáveis pra sempre. Antes
   // isso trocava a cena inteira por uma tela de "dominado" sem saída, o que
   // trancava o jogador pra fora do próprio conteúdo de farm que ele tinha
   // que revisitar. Agora só mostra um selo no cabeçalho.
-  const W=amb?.world||WORLD
-  const vw=viewportRef.current?.clientWidth||390,vh=viewportRef.current?.clientHeight||620,lookX=facing==='right'?52:facing==='left'?-52:0,lookY=facing==='down'?60:facing==='up'?-60:0
-  const camX=W.w<=vw?(W.w-vw)/2:Math.max(0,Math.min(W.w-vw,player.x-vw/2+lookX))
-  const camY=W.h<=vh?(W.h-vh)/2:Math.max(0,Math.min(W.h-vh,player.y-vh/2+lookY))
-  const breadcrumb=local
-    ? `${t(amb.nomeLugar)}${amb.comodoTotal>1?` · ${t('games.gangues.cena.comodo',{n:amb.comodoIdx+1,de:amb.comodoTotal})}`:''}`
+  const W = amb?.world || WORLD
+  const vw = viewportRef.current?.clientWidth || 390, vh = viewportRef.current?.clientHeight || 620, lookX = facing === 'right' ? 52 : facing === 'left' ? -52 : 0, lookY = facing === 'down' ? 60 : facing === 'up' ? -60 : 0
+  const camX = W.w <= vw ? (W.w - vw) / 2 : Math.max(0, Math.min(W.w - vw, player.x - vw / 2 + lookX))
+  const camY = W.h <= vh ? (W.h - vh) / 2 : Math.max(0, Math.min(W.h - vh, player.y - vh / 2 + lookY))
+  const breadcrumb = local
+    ? `${t(amb.nomeLugar)}${amb.comodoTotal > 1 ? ` · ${t('games.gangues.cena.comodo', { n: amb.comodoIdx + 1, de: amb.comodoTotal })}` : ''}`
     : `A PISTA `
   // Metas obrigatórias da cena (portao.precisa + o chefe) — o que abre o
   // caminho por baixo do muro. Vira a lista do checklist do topo.
-  const metaDe=id=>{
-    const p=cena.pois.find(x=>x.id===id)
-    return {id,nome:p?.i18n?t(`${p.i18n}.nome`):id,feito:Boolean(prog.resolvidos[id])}
+  const metaDe = id => {
+    const p = cena.pois.find(x => x.id === id)
+    return { id, nome: p?.i18n ? t(`${p.i18n}.nome`) : id, feito: Boolean(prog.resolvidos[id]) }
   }
-  const metas=local?[]:[
-    ...(cena.portao?.precisa||[]).map(metaDe),
+  const metas = local ? [] : [
+    ...(cena.portao?.precisa || []).map(metaDe),
     // depois que a brecha abre, os 2 bondes de tocaia pós-muro entram na lista
-    ...(baseFeita?['posmuro_1','posmuro_2'].map(metaDe):[]),
-    {id:'__boss',nome:t(`games.gangues.story.bosses.${cena.chefe.boss}.nome`),feito:Boolean(prog.boss)},
+    ...(baseFeita ? ['posmuro_1', 'posmuro_2'].map(metaDe) : []),
+    { id: '__boss', nome: t(`games.gangues.story.bosses.${cena.chefe.boss}.nome`), feito: Boolean(prog.boss) },
   ]
   // Setinhas do mini-mapa: só os objetivos PENDENTES E JÁ REVELADOS (não
   // spoila o que o jogador ainda nem descobriu), com a posição no mundo. Se
   // tudo fechou mas o muro ainda não abriu, o alvo vira a boca do túnel.
-  const minimapaAlvos=local?[]:metas.filter(m=>!m.feito).map(m=>{
-    if(m.id==='__boss'&&baseFeita&&!muroAberto){
+  const minimapaAlvos = local ? [] : metas.filter(m => !m.feito).map(m => {
+    if (m.id === '__boss' && baseFeita && !muroAberto) {
       // Antes do muro: aponta pra boca do túnel.
-      if(player.y>=1330) return {id:'__tunel',nome:t('games.gangues.cena.minimapa.tunel'),pos:{x:452,y:1404}}
+      if (player.y >= 1330) return { id: '__tunel', nome: t('games.gangues.cena.minimapa.tunel'), pos: { x: 452, y: 1404 } }
       // Já do outro lado: primeiro os 2 bondes de tocaia (posmuro_1 → posmuro_2),
       // depois a porta do galpão.
-      if(!prog.resolvidos.posmuro_1) return {id:'posmuro_1',nome:t('games.gangues.cena.pista.posmuro_1.nome'),pos:POS.posmuro_1}
-      if(!prog.resolvidos.posmuro_2) return {id:'posmuro_2',nome:t('games.gangues.cena.pista.posmuro_2.nome'),pos:POS.posmuro_2}
-      return {id:'__galpao',nome:t('games.gangues.cena.minimapa.galpao'),pos:{x:596,y:262}}
+      if (!prog.resolvidos.posmuro_1) return { id: 'posmuro_1', nome: t('games.gangues.cena.pista.posmuro_1.nome'), pos: cena.pos.posmuro_1 }
+      if (!prog.resolvidos.posmuro_2) return { id: 'posmuro_2', nome: t('games.gangues.cena.pista.posmuro_2.nome'), pos: cena.pos.posmuro_2 }
+      return { id: '__galpao', nome: t('games.gangues.cena.minimapa.galpao'), pos: { x: 596, y: 262 } }
     }
-    if(m.id==='__boss') return {...m,pos:POS.boss}
-    const pd=cena.pois.find(x=>x.id===m.id)
-    if(!pd||!(pd.visivel||prog.revelados[m.id])) return null
-    return {...m,pos:POS[m.id]}
-  }).filter(m=>m?.pos)
-  return <main className={`gang-cena-worldpage${local?' is-interior':''}`} style={{'--terr-cor':cena.cor}}>
-    <AnimatePresence>{intro&&<GangDialog lines={t(cena.chegada)} speaker={t(cena.falante)} sub={t(cena.falanteSub)} onFinish={fecharIntro} onSkip={fecharIntro}/>}</AnimatePresence>
-    <header className="gang-cena-worldhud"><button onClick={()=>{local?sair():(guardarPosicao(),onNavigate('story'))}}>← {local?t('games.gangues.cena.acao.sair'):'MAPA'}</button><strong>{breadcrumb}{!local&&(prog.boss?<i className="gang-cena-dominado-selo">⚑ DOMINADA</i>:<button className="gang-cena-meta-btn" onClick={()=>setChecklist(v=>!v)}>{feitos}/{total} ▾</button>)}</strong><span>💵 {store.grana}　⚑ {store.rep}</span><button className="gang-cena-ficha-btn" onClick={()=>setBagAberta(true)} aria-label={t('games.gangues.bag.titulo')}>🎒</button>{store.activeParty.length>0&&<button className="gang-cena-ficha-btn" onClick={()=>setFichaIndex(0)}>👤</button>}<button className="gang-cena-ficha-btn" onClick={()=>{guardarPosicao();onNavigate('album')}} aria-label={t('games.gangues.album.titulo')}>📕</button></header>
-    <AnimatePresence>{checklist&&!local&&<motion.div className="gang-cena-checklist" initial={{opacity:0,y:-8}} animate={{opacity:1,y:0}} exit={{opacity:0,y:-8}}>
+    if (m.id === '__boss') return { ...m, pos: cena.pos.boss }
+    const pd = cena.pois.find(x => x.id === m.id)
+    if (!pd || !(pd.visivel || prog.revelados[m.id])) return null
+    return { ...m, pos: cena.pos[m.id] }
+  }).filter(m => m?.pos)
+  return <main className={`gang-cena-worldpage${local ? ' is-interior' : ''}`} style={{ '--terr-cor': cena.cor }}>
+    <AnimatePresence>{intro && <GangDialog lines={t(cena.chegada)} speaker={t(cena.falante)} sub={t(cena.falanteSub)} onFinish={fecharIntro} onSkip={fecharIntro} />}</AnimatePresence>
+    <header className="gang-cena-worldhud"><button onClick={() => { local ? sair() : (guardarPosicao(), onNavigate('story')) }}>← {local ? t('games.gangues.cena.acao.sair') : 'MAPA'}</button><strong>{breadcrumb}{!local && (prog.boss ? <i className="gang-cena-dominado-selo">⚑ DOMINADA</i> : <button className="gang-cena-meta-btn" onClick={() => setChecklist(v => !v)}>{feitos}/{total} ▾</button>)}</strong><span>💵 {store.grana}　⚑ {store.rep}</span><button className="gang-cena-ficha-btn" onClick={() => setBagAberta(true)} aria-label={t('games.gangues.bag.titulo')}>🎒</button>{store.activeParty.length > 0 && <button className="gang-cena-ficha-btn" onClick={() => setFichaIndex(0)}>👤</button>}<button className="gang-cena-ficha-btn" onClick={() => { guardarPosicao(); onNavigate('album') }} aria-label={t('games.gangues.album.titulo')}>📕</button></header>
+    <AnimatePresence>{checklist && !local && <motion.div className="gang-cena-checklist" initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }}>
       <b>{t('games.gangues.cena.checklist_titulo')}</b>
-      <ul>{metas.map(m=><li key={m.id} className={m.feito?'is-feito':''}><span>{m.feito?'✓':'○'}</span>{m.nome}</li>)}</ul>
-      <p>{t(baseFeita?(prog.boss?'games.gangues.cena.checklist_dominada':'games.gangues.cena.checklist_tunel_aberto'):'games.gangues.cena.checklist_dica')}</p>
+      <ul>{metas.map(m => <li key={m.id} className={m.feito ? 'is-feito' : ''}><span>{m.feito ? '✓' : '○'}</span>{m.nome}</li>)}</ul>
+      <p>{t(baseFeita ? (prog.boss ? 'games.gangues.cena.checklist_dominada' : 'games.gangues.cena.checklist_tunel_aberto') : 'games.gangues.cena.checklist_dica')}</p>
     </motion.div>}</AnimatePresence>
-    <div className="gang-cena-viewport" ref={viewportRef}><div className="gang-cena-world" style={{width:W.w,height:W.h,transform:`translate3d(${-camX}px,${-camY}px,0)`}}>
-      {local?<CenaInterior amb={amb}/>:<CenaCenario cena={cena} bossAberto={baseFeita||muroAberto} muroAberto={muroAberto}/>}
-      {(amb?.alvos||[]).map(p=><EntryZone key={`zone-${p.id}`} poi={p} active={perto?.id===p.id}/>)}
-      {(amb?.alvos||[]).map(p=><PinoAlvo key={p.id} p={p} t={t}/>)}
-      <GangMarker player={player} facing={facing} gangName={store.gangName}/>
-    </div><div className="gang-cena-vignette"/>{hint&&<div className="gang-cena-tutorial">{hint}</div>}{!local&&!muroAberto&&player.y<1430&&<div className="gang-cena-gatelock">🔒 {t(baseFeita?'games.gangues.cena.muro_tunel':'games.gangues.cena.boss_trancado')}</div>}<AnimatePresence>{fade&&<motion.div className="gang-cena-fade" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} transition={{duration:.16}}/>}</AnimatePresence></div>
-    {!local&&!intro&&<GanguesMiniMapa player={player} alvos={minimapaAlvos}/>}
-    <WorldControls onInput={v=>{inputRef.current=v}} onInteract={()=>abrir(perto)} action={perto?interactionLabel(perto,t):null}/>
-    <AnimatePresence>{toast&&<motion.div className="gang-cena-toast" initial={{opacity:0,y:12}} animate={{opacity:1,y:0}} exit={{opacity:0}}><b>RECOMPENSA</b>{toast.grana?<span>💵 +{toast.grana}</span>:null}{toast.rep?<span>⚑ +{toast.rep}</span>:null}{toast.xp?<span>⚡ +{toast.xp} XP</span>:null}</motion.div>}</AnimatePresence>
-    <AnimatePresence>{aviso&&<motion.div className="gang-cena-toast gang-cena-toast--aviso" initial={{opacity:0,y:12}} animate={{opacity:1,y:0}} exit={{opacity:0}}>{aviso}</motion.div>}</AnimatePresence>
-    <AnimatePresence>{encontro&&<motion.div className="gang-cena-modal" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}><div className="gang-cena-modal-bg" onClick={()=>setEncontro(null)}/><motion.div className="gang-cena-modal-card" initial={{y:25}} animate={{y:0}}>{encontro.evento?<EventoVS fala={encontro.fala} onSim={iniciarEvento} onNao={()=>setEncontro(null)} cenaId={cena.id} t={t}/>:encontro.vs?<TretaVS poi={encontro.poi} fala={encontro.fala} nivelTropa={nivelTropa} avisoOff={avisoNivelOff} onOcultarAviso={()=>setAvisoNivelOff(true)} onSim={()=>iniciarTreta(encontro.poi)} onNao={()=>setEncontro(null)} t={t}/>:encontro.poi.tipo==='papo'?<GanguesPapo poi={encontro.poi} cena={cena} onResolve={resolver} onClose={()=>setEncontro(null)}/>:encontro.poi.tipo==='descanso'?<GanguesDescanso poi={encontro.poi} cena={cena} onClose={()=>setEncontro(null)} onClube={iniciarClube}/>:encontro.poi.tipo==='loja'?<GanguesLoja poi={encontro.poi} onClose={()=>setEncontro(null)}/>:<GanguesParada poi={encontro.poi} cena={cena} onResolve={resolver} onClose={()=>setEncontro(null)}/>}</motion.div></motion.div>}</AnimatePresence>
-    <AnimatePresence>{fichaIndex!==null&&store.activeParty[fichaIndex]&&<motion.div className="gang-cena-modal" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}><div className="gang-cena-modal-bg" onClick={()=>setFichaIndex(null)}/><motion.div className="gang-cena-modal-card gang-cena-ficha-scroll" initial={{y:25}} animate={{y:0}}><div className="gang-cena-enc-acoes gang-cena-ficha-nav">{store.activeParty.length>1&&<button className="gang-cena-btn" onClick={()=>setFichaIndex(i=>(i+store.activeParty.length-1)%store.activeParty.length)}>◀ ANTERIOR</button>}<button className="gang-cena-btn gang-cena-btn--go" onClick={()=>setFichaIndex(null)}>FECHAR</button>{store.activeParty.length>1&&<button className="gang-cena-btn" onClick={()=>setFichaIndex(i=>(i+1)%store.activeParty.length)}>PRÓXIMO ▶</button>}</div><FichaCenaCard member={store.activeParty[fichaIndex]} t={t} onToggleEspecial={store.toggleEspecial}/></motion.div></motion.div>}</AnimatePresence>
-    <AnimatePresence>{bagAberta&&<motion.div className="gang-cena-modal" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}><div className="gang-cena-modal-bg" onClick={()=>setBagAberta(false)}/><motion.div className="gang-cena-modal-card gang-cena-ficha-scroll" initial={{y:25}} animate={{y:0}}><BagSheet store={store} t={t} onClose={()=>setBagAberta(false)}/></motion.div></motion.div>}</AnimatePresence>
+    <div className="gang-cena-viewport" ref={viewportRef}><div className="gang-cena-world" style={{ width: W.w, height: W.h, transform: `translate3d(${-camX}px,${-camY}px,0)` }}>
+      {local ? <CenaInterior amb={amb} /> : <CenaCenario cena={cena} bossAberto={baseFeita || muroAberto} muroAberto={muroAberto} />}
+      {(amb?.alvos || []).map(p => <EntryZone key={`zone-${p.id}`} poi={p} active={perto?.id === p.id} />)}
+      {(amb?.alvos || []).map(p => <PinoAlvo key={p.id} p={p} t={t} />)}
+      <GangMarker player={player} facing={facing} gangName={store.gangName} />
+    </div><div className="gang-cena-vignette" />{hint && <div className="gang-cena-tutorial">{hint}</div>}{!local && !muroAberto && player.y < 1430 && <div className="gang-cena-gatelock">🔒 {t(baseFeita ? 'games.gangues.cena.muro_tunel' : 'games.gangues.cena.boss_trancado')}</div>}<AnimatePresence>{fade && <motion.div className="gang-cena-fade" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: .16 }} />}</AnimatePresence></div>
+    {!local && !intro && <GanguesMiniMapa player={player} alvos={minimapaAlvos} />}
+    <WorldControls onInput={v => { inputRef.current = v }} onInteract={() => abrir(perto)} action={perto ? interactionLabel(perto, t) : null} />
+    <AnimatePresence>{toast && <motion.div className="gang-cena-toast" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}><b>RECOMPENSA</b>{toast.grana ? <span>💵 +{toast.grana}</span> : null}{toast.rep ? <span>⚑ +{toast.rep}</span> : null}{toast.xp ? <span>⚡ +{toast.xp} XP</span> : null}</motion.div>}</AnimatePresence>
+    <AnimatePresence>{aviso && <motion.div className="gang-cena-toast gang-cena-toast--aviso" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}>{aviso}</motion.div>}</AnimatePresence>
+    <AnimatePresence>{encontro && <motion.div className="gang-cena-modal" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}><div className="gang-cena-modal-bg" onClick={() => setEncontro(null)} /><motion.div className="gang-cena-modal-card" initial={{ y: 25 }} animate={{ y: 0 }}>{encontro.evento ? <EventoVS fala={encontro.fala} onSim={iniciarEvento} onNao={() => setEncontro(null)} cenaId={cena.id} t={t} /> : encontro.vs ? <TretaVS poi={encontro.poi} fala={encontro.fala} nivelTropa={nivelTropa} avisoOff={avisoNivelOff} onOcultarAviso={() => setAvisoNivelOff(true)} onSim={() => iniciarTreta(encontro.poi)} onNao={() => setEncontro(null)} t={t} /> : encontro.poi.tipo === 'papo' ? <GanguesPapo poi={encontro.poi} cena={cena} onResolve={resolver} onClose={() => setEncontro(null)} /> : encontro.poi.tipo === 'descanso' ? <GanguesDescanso poi={encontro.poi} cena={cena} onClose={() => setEncontro(null)} onClube={iniciarClube} /> : encontro.poi.tipo === 'loja' ? <GanguesLoja poi={encontro.poi} onClose={() => setEncontro(null)} /> : <GanguesParada poi={encontro.poi} cena={cena} onResolve={resolver} onClose={() => setEncontro(null)} />}</motion.div></motion.div>}</AnimatePresence>
+    <AnimatePresence>{fichaIndex !== null && store.activeParty[fichaIndex] && <motion.div className="gang-cena-modal" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}><div className="gang-cena-modal-bg" onClick={() => setFichaIndex(null)} /><motion.div className="gang-cena-modal-card gang-cena-ficha-scroll" initial={{ y: 25 }} animate={{ y: 0 }}><div className="gang-cena-enc-acoes gang-cena-ficha-nav">{store.activeParty.length > 1 && <button className="gang-cena-btn" onClick={() => setFichaIndex(i => (i + store.activeParty.length - 1) % store.activeParty.length)}>◀ ANTERIOR</button>}<button className="gang-cena-btn gang-cena-btn--go" onClick={() => setFichaIndex(null)}>FECHAR</button>{store.activeParty.length > 1 && <button className="gang-cena-btn" onClick={() => setFichaIndex(i => (i + 1) % store.activeParty.length)}>PRÓXIMO ▶</button>}</div><GanguesCenaFichaCard member={store.activeParty[fichaIndex]} t={t} onToggleEspecial={store.toggleEspecial} /></motion.div></motion.div>}</AnimatePresence>
+    <AnimatePresence>{bagAberta && <motion.div className="gang-cena-modal" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}><div className="gang-cena-modal-bg" onClick={() => setBagAberta(false)} /><motion.div className="gang-cena-modal-card gang-cena-ficha-scroll" initial={{ y: 25 }} animate={{ y: 0 }}><GanguesCenaBagSheet store={store} t={t} onClose={() => setBagAberta(false)} /></motion.div></motion.div>}</AnimatePresence>
   </main>
-}
-
-// Bolsa da gangue — o que o bando tem de item (consumível + equipamento
-// guardado). É a MESMA fonte que a loja abastece e que o combate lê pra usar
-// poção (store.inventario / store.equipamentos) — um sistema só.
-function BagSheet({store,t,onClose}){
-  const [usando,setUsando]=useState(null)     // consumível escolhido pra usar (mostra o picker de personagem)
-  const [equipando,setEquipando]=useState(null) // { def } — peça escolhida pra equipar da bolsa
-  const [feito,setFeito]=useState(null)       // feedback
-  const consumiveis=GANGUES_ITENS_LISTA.map(it=>({...it,qtd:store.inventario[it.id]||0})).filter(it=>it.qtd>0)
-  const pecas=Object.values(store.equipamentos.reduce((acc,eq)=>{
-    const def=getGanguesEquip(eq.itemId); if(!def)return acc
-    acc[eq.itemId]=acc[eq.itemId]||{def,qtd:0}; acc[eq.itemId].qtd++; return acc
-  },{}))
-  const vazio=consumiveis.length===0&&pecas.length===0
-  // PV/PM atuais de cada ficha do time — pro picker de "usar poção".
-  const time=(store.activeParty.length?store.activeParty:store.roster).slice(0,GANGUES_STORY_BATTLE_PARTY_MAX).map(m=>{
-    const attrs=getGanguesAttributesWithEquip(m.attributes)
-    const res=applyGanguesEquipResources(getGanguesResources(m.combat_path,attrs?.PV,attrs?.PM),m.attributes?.equipment)
-    return {id:m.id,nome:m.sheet_name||'?',
-      pv:Math.min(res.pvMax,Number(m.attributes?.pv_atual??res.pvMax)),pvMax:res.pvMax,
-      pm:Math.min(res.pmMax,Number(m.attributes?.pm_atual??res.pmMax)),pmMax:res.pmMax}
-  })
-  const podeUsar=it=>it.tipo==='cura_pv'||it.tipo==='cura_pm'
-  const usarEm=(item,memberId)=>{
-    const r=store.curarMembro(memberId,item.tipo,item.valor)
-    if(r.curou>0){store.usarItem(item.id);sfx.reward?.();setFeito(`${r.nome} +${r.curou} ${r.campo}`)}
-    else{sfx.cancel();setFeito(t('games.gangues.bag.ja_cheio',{nome:r.nome}))}
-    setUsando(null);setTimeout(()=>setFeito(null),2200)
-  }
-  // Time pro picker de equipar (só fichas de template — legado não equipa).
-  const timeEquip=(store.activeParty.length?store.activeParty:store.roster).filter(m=>m.character_type==='template').slice(0,GANGUES_STORY_BATTLE_PARTY_MAX)
-  const equiparEm=(def,memberId)=>{
-    const inst=store.equipamentos.find(eq=>eq.itemId===def.id)
-    const membro=store.roster.find(m=>m.id===memberId)
-    if(inst&&store.equiparItem(memberId,inst.uid)){
-      sfx.select?.()
-      setFeito(t('games.gangues.bag.equipou',{nome:membro?.sheet_name||'?',item:t(def.nome),slot:t(`games.gangues.equip.slots.${def.slot}`)}))
-    }else sfx.cancel()
-    setEquipando(null);setTimeout(()=>setFeito(null),2800)
-  }
-  return <div className="gang-cena-enc gang-cena-enc--bag">
-    <button className="gang-cena-enc-x" onClick={onClose} aria-label={t('games.gangues.cena.fechar')}>✕</button>
-    <span className="gang-cena-eyebrow">{t('games.gangues.bag.eyebrow')}</span>
-    <h3 className="gang-cena-enc-titulo">{t('games.gangues.bag.titulo')}</h3>
-    <p className="gang-cena-enc-sub"><b>💵 {store.grana}　⚑ {store.rep}</b></p>
-    {feito&&<p className="gang-bag-feito">{feito}</p>}
-    {vazio&&<p className="gang-cena-enc-sub">{t('games.gangues.bag.vazio')}</p>}
-    {consumiveis.length>0&&<>
-      <small className="gang-bag-sec">{t('games.gangues.bag.consumiveis')}</small>
-      <div className="gang-bag-lista">{consumiveis.map(it=>(
-        <div key={it.id} className="gang-bag-row">
-          <span>{it.icone}</span><strong>{t(it.nome)}</strong>
-          {podeUsar(it)&&time.length>0&&<button className="gang-bag-usar" onClick={()=>setUsando(u=>u?.id===it.id?null:it)}>{t('games.gangues.bag.usar')}</button>}
-          <b>×{it.qtd}</b>
-        </div>
-      ))}</div>
-      {usando&&<div className="gang-bag-alvos">
-        <small>{t('games.gangues.bag.usar_em',{item:t(usando.nome)})}</small>
-        {time.map(m=>{
-          const cheio=usando.tipo==='cura_pm'?m.pm>=m.pmMax:m.pv>=m.pvMax
-          return <button key={m.id} className="gang-bag-alvo" disabled={cheio} onClick={()=>usarEm(usando,m.id)}>
-            <strong>{m.nome}</strong>
-            <em>{usando.tipo==='cura_pm'?`${m.pm}/${m.pmMax} PM`:`${m.pv}/${m.pvMax} PV`}</em>
-          </button>
-        })}
-      </div>}
-      <p className="gang-bag-nota">{t('games.gangues.bag.nota_combate')}</p>
-    </>}
-    {pecas.length>0&&<>
-      <small className="gang-bag-sec">{t('games.gangues.bag.equip_bolso')}</small>
-      <div className="gang-bag-lista">{pecas.map(({def,qtd})=>(
-        <div key={def.id} className="gang-bag-row">
-          <span>{def.icone}</span>
-          <strong>{t(def.nome)}</strong>
-          <small>{t(`games.gangues.equip.slots.${def.slot}`)}</small>
-          {timeEquip.length>0&&<button className="gang-bag-usar" onClick={()=>setEquipando(e=>e?.def?.id===def.id?null:{def})}>{t('games.gangues.equip.equipar')}</button>}
-          <b>×{qtd}</b>
-        </div>
-      ))}</div>
-      {equipando&&<div className="gang-bag-alvos">
-        <small>{t('games.gangues.bag.equipar_em',{item:t(equipando.def.nome),slot:t(`games.gangues.equip.slots.${equipando.def.slot}`)})}</small>
-        {timeEquip.map(m=>{
-          const noSlot=m.attributes?.equipment?.[equipando.def.slot]
-          const defAtual=noSlot&&getGanguesEquip(noSlot.itemId)
-          const jaEssa=noSlot&&noSlot.itemId===equipando.def.id
-          return <button key={m.id} className="gang-bag-alvo" disabled={jaEssa} onClick={()=>equiparEm(equipando.def,m.id)}>
-            <strong>{m.sheet_name||'?'}</strong>
-            <em>{jaEssa?t('games.gangues.bag.ja_equipado'):defAtual?`↺ ${t(defAtual.nome)}`:t('games.gangues.equip.vazio')}</em>
-          </button>
-        })}
-      </div>}
-      <p className="gang-bag-nota">{t('games.gangues.bag.nota_equip')}</p>
-    </>}
-    <div className="gang-cena-enc-acoes"><button className="gang-cena-btn gang-cena-btn--go" onClick={onClose}>{t('games.gangues.cena.fechar')}</button></div>
-  </div>
-}
-
-function GangMarker({player,facing,gangName}){return <motion.div className={`gang-world-player is-gang facing-${facing}`} animate={{left:player.x,top:player.y}} transition={{duration:STEP_MS/1000,ease:'easeOut'}}><span><i/><i/><i/></span><small>{gangName||'GANGUE'}</small></motion.div>}
-function EntryZone({poi,active}){const z=poi.zona;if(!z||poi.estado==='trancado'||poi.estado==='resolvido')return null;return <div className={`gang-world-entry${active?' is-active':''}${poi.farmCompleto?' is-farm-completo':''}${poi.ehPorta||poi.ehSaida||poi.ehVolta||poi.ehPassagem?' is-porta':''}`} style={{left:z.x,top:z.y,width:z.w,height:z.h}}/>}
-// Pino do alvo (POI, porta, saída, passagem). `ehChefe`/`ehPorta`/... decidem o ícone e o rótulo.
-function PinoAlvo({p,t}){
-  if(p.estado==='trancado'&&!(p.ehPassagem||p.ehChefe))return null
-  const icone=p.ehChefe?'★':p.ehPorta?'🚪':p.ehSaida?'↩':p.ehVolta?'↩':p.ehPassagem?(p.label==='subir'?'▲':'▶'):(ICONE[p.tipo]||'•')
-  const nome=p.ehChefe?t(`games.gangues.story.bosses.${p.boss}.nome`)
-    :p.ehPorta?t('games.gangues.cena.acao.entrar')
-    :p.ehSaida?t('games.gangues.cena.acao.sair')
-    :p.ehVolta?t('games.gangues.cena.acao.voltar')
-    :p.ehPassagem?(p.estado==='trancado'?t('games.gangues.cena.acao.trancado'):t(`games.gangues.cena.acao.${p.label||'avancar'}`))
-    :(p.i18n?t(`${p.i18n}.nome`):'')
-  return <div className={`gang-world-npc is-${p.estado} ${p.ehChefe?'is-boss':''} ${p.farmCompleto?'is-farm':''} ${p.ehPorta||p.ehSaida||p.ehVolta||p.ehPassagem?'is-nav':''}`} style={{left:p.world.x,top:p.world.y}}>
-    <span>{icone}</span>
-    {p.estado!=='trancado'||p.ehPassagem||p.ehChefe?<small>{nome}</small>:null}
-    {p.farmCompleto&&<i className="gang-world-npc-farm-tag" aria-hidden="true">↻</i>}
-  </div>
-}
-function validPosition(p){return Number.isFinite(p?.x)&&Number.isFinite(p?.y)&&p.x>=35&&p.x<=WORLD.w-35&&p.y>=70&&p.y<=WORLD.h-40}
-function validPos(p,w){return Number.isFinite(p?.x)&&Number.isFinite(p?.y)&&p.x>=20&&p.x<=(w?.w||WORLD.w)-20&&p.y>=20&&p.y<=(w?.h||WORLD.h)-20}
-// Overlap do "corpo" do jogador (mesmo raio da colisão) com a zona, não um
-// ponto exato — com movimento em grade, o centro do jogador raramente cai
-// pixel-perfeito dentro de corredores estreitos de 35-80px; exigir isso
-// deixaria zonas inalcançáveis dependendo de por onde a grade passa perto
-// delas. "Chegou perto o suficiente" é o comportamento certo pra interação.
-function insideZone(p,z){return Boolean(z&&p.x+PLAYER_RADIUS>z.x&&p.x-PLAYER_RADIUS<z.x+z.w&&p.y+PLAYER_RADIUS>z.y&&p.y-PLAYER_RADIUS<z.y+z.h)}
-function hitsSolid(x,y,gate,colliders=[]){const hit=colliders.some(r=>x+PLAYER_RADIUS>r.x&&x-PLAYER_RADIUS<r.x+r.w&&y+PLAYER_RADIUS>r.y&&y-PLAYER_RADIUS<r.y+r.h);if(hit)return true;
-  // portão da gangue rival — enquanto FECHADO barra a faixa y330-350; depois
-  // de aberto (chefe/galpão liberados) a faixa fica livre.
-  if(gate==='fechado'&&y-PLAYER_RADIUS<1350&&y+PLAYER_RADIUS>1330)return true
-  return false}
-function stepPlayer(p,dx,dy,gate,colliders,world){const W=world||WORLD;const x=Math.max(20,Math.min(W.w-20,p.x+dx*TILE)),y=Math.max(20,Math.min(W.h-24,p.y+dy*TILE));return hitsSolid(x,y,gate,colliders)?p:{x,y}}
-function WorldControls({onInput,onInteract,action}){const base=useRef(null),active=useRef(null);const update=useCallback((x,y)=>{const r=base.current?.getBoundingClientRect();if(!r)return;let dx=x-(r.left+r.width/2),dy=y-(r.top+r.height/2);const d=Math.hypot(dx,dy),max=42;if(d>max){dx=dx/d*max;dy=dy/d*max}base.current.style.setProperty('--jx',`${dx}px`);base.current.style.setProperty('--jy',`${dy}px`);onInput({x:dx/max,y:dy/max})},[onInput]);const stop=useCallback(()=>{active.current=null;if(base.current){base.current.style.setProperty('--jx','0px');base.current.style.setProperty('--jy','0px')}onInput({x:0,y:0})},[onInput]);return <div className="gang-world-controls"><div ref={base} className="gang-world-stick" onPointerDown={e=>{active.current=e.pointerId;e.currentTarget.setPointerCapture(e.pointerId);update(e.clientX,e.clientY)}} onPointerMove={e=>{if(active.current===e.pointerId)update(e.clientX,e.clientY)}} onPointerUp={stop} onPointerCancel={stop}><i/></div><button disabled={!action} onClick={onInteract}><b>{action||'...'}</b><span>INTERAGIR</span></button></div>}
-const LABEL_TIPO={papo:'FALAR',treta:'ENCARAR',parada:'INVESTIGAR',corre:'SEGUIR',descanso:'DESCANSAR',loja:'COMPRAR',achado:'PEGAR'}
-function interactionLabel(p,t){
-  if(p.ehChefe)return t('games.gangues.cena.acao.desafiar')
-  if(p.ehPorta)return t('games.gangues.cena.acao.entrar')
-  if(p.ehSaida)return t('games.gangues.cena.acao.sair')
-  if(p.ehVolta)return t('games.gangues.cena.acao.voltar')
-  if(p.ehPassagem)return t(`games.gangues.cena.acao.${p.label||'avancar'}`)
-  return LABEL_TIPO[p.tipo]||'INTERAGIR'
-}
-const ICONE={treta:'✊',parada:'🔧',papo:'●',corre:'!',achado:'◆',descanso:'☕',loja:'🏪'}
-function estadoPoi(p,prog){if(!p.visivel&&!prog.revelados[p.id])return'escondido';if(prog.resolvidos[p.id]&&!p.repetivel)return'resolvido';return'disponivel'}
-// Mesma leitura de dados que GanguesProgression.jsx usa pra montar a ficha —
-// aqui a grade de poderes JÁ VEM EDITÁVEL também (pedido do Isaias: trocar o
-// poder levado pra batalha direto daqui, sem ter que voltar pro lobby só pra
-// isso). `onToggleEspecial` = store.toggleEspecial, injetado pelo caller.
-function FichaCenaCard({member,t,onToggleEspecial}){
-  if(member.character_type!=='template')return null
-  const character=getGanguesCharacter(member.character_template_id)
-  const level=getGanguesLevelFromXp(member.xp_total)
-  const progression=getGanguesProgression(member)
-  const effAttrs=getGanguesAttributesWithEquip(member.attributes)
-  const resources=applyGanguesEquipResources(getGanguesResources(character.combat_path,effAttrs.PV,effAttrs.PM),member.attributes?.equipment)
-  return <>
-    <GanguesFichaCard
-      nome={character.name}
-      caminho={character.combat_path}
-      subcaminho={`${t(`games.gangues.loadout.paths.${character.combat_path}.name`)} · ${t(`games.gangues.progression.paths.${character.special_path}`)}`}
-      nivel={level}
-      atributos={effAttrs}
-      pv={{atual:Math.min(resources.pvMax,member.attributes?.pv_atual??resources.pvMax),max:resources.pvMax}}
-      pm={{atual:Math.min(resources.pmMax,member.attributes?.pm_atual??resources.pmMax),max:resources.pmMax}}
-      xp={{atual:progression.ap,max:ganguesXpMaxForSheet(member),disponivel:progression.xp_unspent}}
-    />
-    <GanguesSkillGrid
-      character={character}
-      unlockedIds={getGanguesUnlockedSpecials(character.id,member.xp_total).map(s=>s.id)}
-      levelsById={progression.special_levels}
-      // Raw da ficha, não getGanguesProgression().selected_specials — ver
-      // comentário igual em GanguesProgression.jsx (filtro incompatível com
-      // os ids autorados por personagem).
-      selectedIds={Array.isArray(member.attributes?.progression?.selected_specials)?member.attributes.progression.selected_specials:[]}
-      onToggle={onToggleEspecial?(specialId=>onToggleEspecial(member.id,specialId)):null}
-    />
-    <GanguesEquipPanel member={member}/>
-  </>
-}
-function EventoVS({fala,onSim,onNao,cenaId,t}){
-  const b=`games.gangues.cena.${cenaId}.evento`
-  return <div className="gang-cena-enc gang-cena-enc--vs gang-cena-enc--evento">
-    <span className="gang-cena-enc-selo">!</span>
-    <span className="gang-cena-eyebrow">{t('games.gangues.cena.evento_tag')}</span>
-    <h3 className="gang-cena-enc-titulo">{t(`${b}.nome`)}</h3>
-    <p className="gang-cena-papo-fala">{fala}</p>
-    <div className="gang-cena-enc-acoes">
-      <button className="gang-cena-btn" onClick={onNao}>{t('games.gangues.cena.evento_nao')}</button>
-      <button className="gang-cena-btn gang-cena-btn--go" onClick={onSim}>{t('games.gangues.cena.evento_sim')}</button>
-    </div>
-  </div>
-}
-function TretaVS({poi,fala,nivelTropa,avisoOff,onOcultarAviso,onSim,onNao,t}){
-  const enemy=enemiesData.find(e=>e.id===poi.enemy),nome=poi.ehChefe?t(`games.gangues.story.bosses.${poi.boss}.nome`):t(`${poi.i18n}.nome`)
-  const falaRaw=fala??(poi.ehChefe?t(`games.gangues.story.bosses.${poi.boss}.fala`,{suaGangue:t('games.gangues.report.your_gang')}):t(`${poi.i18n}.fala`))
-  const falaShow=Array.isArray(falaRaw)?falaRaw[0]:falaRaw
-  // Aviso de nível: só quando a tropa tá 2+ níveis ABAIXO do recomendado — 1 de
-  // diferença não conta (dado, equipamento e estratégia cobrem). Igual/acima
-  // ou só 1 abaixo: nada. `avisoOff` = o jogador pediu pra não ver mais nesse
-  // território (reseta ao trocar de bairro).
-  const abaixo=!avisoOff&&poi.nivelRec&&Number.isFinite(nivelTropa)&&(poi.nivelRec-nivelTropa)>=2
-  return <div className="gang-cena-enc gang-cena-enc--vs">
-    <span className="gang-cena-enc-selo">{(nome||'?')[0]}</span>
-    <span className="gang-cena-eyebrow">{poi.ehChefe?t('games.gangues.story.boss_tag'):t('games.gangues.cena.tipo.treta')}</span>
-    <h3 className="gang-cena-enc-titulo">{nome}{poi.ehChefe&&enemy?.nivel?<em className="gang-cena-vs-nivel"> · {t('games.gangues.cena.nivel',{n:enemy.nivel})}</em>:null}</h3>
-    <p className="gang-cena-papo-fala">{falaShow}</p>
-    {enemy&&<span className="gang-cena-vs-stats">{['A','H','D','PV','PM'].map(a=><span key={a}><i>{a}</i>{enemy.stats?.[a]??'—'}</span>)}</span>}
-    {abaixo&&<div className="gang-cena-vs-aviso">⚠ {t('games.gangues.cena.nivel_rec_baixo',{rec:poi.nivelRec,atual:nivelTropa})}<button type="button" className="gang-cena-vs-aviso-off" onClick={onOcultarAviso}>{t('games.gangues.cena.nivel_rec_ocultar')}</button></div>}
-    <div className="gang-cena-enc-acoes">
-      <button className="gang-cena-btn" onClick={onNao}>{t('games.gangues.cena.treta_nao')}</button>
-      <button className={`gang-cena-btn gang-cena-btn--go${abaixo?' gang-cena-btn--risco':''}`} onClick={onSim}>{t(abaixo?'games.gangues.cena.treta_sim_risco':'games.gangues.cena.treta_sim')}</button>
-    </div>
-  </div>
 }

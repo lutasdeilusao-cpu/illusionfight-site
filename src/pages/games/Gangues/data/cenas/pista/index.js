@@ -22,17 +22,22 @@
    • descanso → GanguesDescanso (cura fôlego gastando grana)
 
    Este arquivo (antes um único data/cenas/pista.js de 823 linhas) hoje só
-   compõe as 4 partes que moram nesta pasta — ver
-   PLANO_REFATORACAO_ARQUIVOS_GRANDES_GANGUES_2026-09-11.md §4:
+   compõe as partes que moram nesta pasta — ver
+   PLANO_REFATORACAO_ARQUIVOS_GRANDES_GANGUES_2026-09-11.md §4/§5:
    ./mundo.js (geometria: rua/quarteirões/prédios/obstáculos/cenário/fiação),
    ./pools.js (moldes de inimigo por revezamento), ./pois.js (POIs do
-   exterior), ./interiores.js (interiores navegáveis). As 4 funções
-   genéricas de cena (temCena/portaoAberto/cenaCompleta/contarCena) saíram
-   pra ../cenaHelpers.js — elas não são específicas da Pista.
+   exterior), ./interiores.js (interiores navegáveis), ./posicoes.js
+   (coordenadas de pino/zona de cada POI, lidas pelo motor genérico via
+   cena.pos/cena.entryZones). As 4 funções genéricas de cena
+   (temCena/portaoAberto/cenaCompleta/contarCena) saíram pra
+   ../cenaHelpers.js, e o motor de navegação (montarAmbiente e cia) saiu
+   pra ../../engine/ganguesCenaMotor.js — nenhum dos dois é específico
+   da Pista.
    ══════════════════════════════════════════════════════════════ */
 import { RUA_PISTA, MUNDO_PISTA, QUARTEIROES_PISTA, PREDIOS_PISTA, OBSTACULOS_PISTA, CENARIO_PISTA, FIACAO_PISTA } from './mundo.js'
 import { POIS_PISTA } from './pois.js'
 import { INTERIORES_PISTA } from './interiores.js'
+import { POS_PISTA, ENTRY_ZONES_PISTA } from './posicoes.js'
 
 export const CENA_PISTA = {
   id: 'pista',
@@ -51,6 +56,11 @@ export const CENA_PISTA = {
   falanteSub: 'games.gangues.dialogo.veio_sub',
 
   pois: POIS_PISTA,
+  // Coordenadas de pino/zona de interação — lidas pelo motor genérico
+  // (engine/ganguesCenaMotor.js) via cena.pos/cena.entryZones, nunca de uma
+  // constante global (ver data/cenas/pista/posicoes.js).
+  pos: POS_PISTA,
+  entryZones: ENTRY_ZONES_PISTA,
 
   // ── INTERIORES navegáveis (fase 2) ──────────────────────────
   interiores: INTERIORES_PISTA,
