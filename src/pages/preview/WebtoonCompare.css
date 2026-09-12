@@ -1,0 +1,42 @@
+.webtoon-compare {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 20px 14px 60px;
+  background: #05080b;
+  color: #f5f7fa;
+  font-family: system-ui, sans-serif;
+}
+
+.webtoon-compare__head h1 {
+  font-size: 1.1rem;
+  margin: 0 0 6px;
+}
+
+.webtoon-compare__head p {
+  font-size: 0.8rem;
+  color: #9aa6ad;
+  margin: 0 0 24px;
+}
+
+.webtoon-compare__col {
+  margin-bottom: 40px;
+}
+
+.webtoon-compare__col h2 {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: #05080b;
+  padding: 8px 0;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  border-bottom: 1px solid rgba(0, 229, 255, 0.35);
+}
+
+.webtoon-compare__col img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-top: 10px;
+}

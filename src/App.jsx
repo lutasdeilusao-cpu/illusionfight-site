@@ -28,6 +28,10 @@ const ObraCapitulo = lazyWithReload(() => import('./pages/content/ObraCapitulo')
 const Assinar = lazyWithReload(() => import('./pages/platform/Assinar'))
 const Autor = lazyWithReload(() => import('./pages/site/Autor'))
 const Webtoon = lazyWithReload(() => import('./pages/content/Webtoon'))
+// Rota PRIVADA de revisão (set/2026) — sem link em navbar/footer/sitemap/
+// prerender-routes.js. Só acessível por quem tem a URL direta. Apagar
+// este import + a <Route> abaixo quando a comparação acabar.
+const WebtoonCompare = lazyWithReload(() => import('./pages/preview/WebtoonCompare'))
 const WebtoonEpisodio = lazyWithReload(() => import('./pages/content/WebtoonEpisodio'))
 const Mundo = lazyWithReload(() => import('./pages/content/Mundo'))
 const UniversosHub = lazyWithReload(() => import('./pages/content/UniversosHub/UniversosHub'))
@@ -170,6 +174,8 @@ export default function App() {
         <Route path="/mundo/:universo" element={<LegacyLivroRedirect to="/universos/:universo" />} />
         <Route path="/webtoon" element={<Webtoon />} />
         <Route path="/webtoon/:id" element={<WebtoonEpisodio />} />
+        {/* privada, sem link em lugar nenhum — ver comentário no import acima */}
+        <Route path="/preview-privado/webtoon-00-comparar" element={<WebtoonCompare />} />
         <Route path="/games/toptrumps/v2" element={<TopTrumpsSP />} />
         <Route path="/games/toptrumps" element={<TopTrumpsSP />} />
         <Route path="/games/toptrumps/lobby" element={<Navigate to="/games/multiplayer/lobby?game=toptrumps&mode=free" replace />} />
