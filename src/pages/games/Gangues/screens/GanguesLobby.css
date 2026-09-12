@@ -253,6 +253,34 @@
 .gang-sheet-modal__select { width: 100%; min-height: 50px; margin-top: 12px; border: 1px solid var(--if-cyan); background: var(--if-cyan); color: var(--bg-primary); font: 900 12px var(--font-mono); letter-spacing: 2px; text-transform: uppercase; }
 .gang-sheet-modal__select.is-selected { border-color: var(--if-amber); background: transparent; color: var(--if-amber); }
 
+/* Linha de ações — quando existe bio de recrutamento (nem todo personagem
+   tem, ver ganguesBiografias.js), o botão HISTÓRIA divide espaço com o de
+   selecionar em vez do select sozinho ocupando a largura toda. */
+.gang-sheet-modal__actions-row { display: flex; gap: 8px; margin-top: 12px; }
+.gang-sheet-modal__actions-row .gang-sheet-modal__select { margin-top: 0; flex: 1; }
+.gang-sheet-modal__historia {
+  flex: 0 0 auto; min-height: 50px; padding: 0 16px;
+  border: 1px solid var(--if-hair); background: transparent; color: var(--text-primary);
+  font: 800 11px var(--font-mono); letter-spacing: 1px; text-transform: uppercase;
+}
+.gang-sheet-modal__historia:active { border-color: var(--if-cyan); color: var(--if-cyan); }
+
+/* ── Painel de história/lore — sobe por cima da ficha, mesma linguagem
+   visual do gang-sheet-modal (clip-path de canto cortado, borda cyan). ── */
+.gang-ficha-bio {
+  position: absolute; inset: 0; z-index: 4;
+  display: flex; flex-direction: column;
+  padding: 18px 16px 16px; overflow-y: auto;
+  background: var(--if-panel);
+  border-top: 1px solid var(--if-cyan);
+  clip-path: polygon(0 0, calc(100% - 22px) 0, 100% 22px, 100% 100%, 0 100%);
+}
+.gang-ficha-bio__close { position: absolute; top: 10px; right: 10px; width: 34px; height: 34px; border: 1px solid var(--if-hair); background: var(--bg-primary); color: var(--text-primary); font-size: 22px; }
+.gang-ficha-bio h3 { margin: 0 22px 14px 0; color: var(--if-cyan); font: 900 18px var(--font-title); text-transform: uppercase; }
+.gang-ficha-bio__body { display: flex; flex-direction: column; gap: 14px; }
+.gang-ficha-bio__body section b { display: block; margin-bottom: 4px; color: var(--if-amber); font: 800 10px var(--font-mono); letter-spacing: 1.5px; text-transform: uppercase; }
+.gang-ficha-bio__body section p { margin: 0; color: var(--text-secondary); font: 400 13px/1.55 var(--font-desc, inherit); }
+
 @media (max-width: 370px) {
   .gang-fighter-card { width: 220px; left: calc(50% - 110px); }
   .gang-recruit__head h1 { font-size: 26px; }

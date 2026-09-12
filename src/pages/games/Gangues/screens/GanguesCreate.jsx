@@ -8,6 +8,8 @@ import { getGanguesPortrait } from '../data/ganguesPortraits.js'
 import { GANGUES_INITIAL_PARTY_SIZE } from '../data/ganguesLoadout.js'
 import { sfx } from '../../../../lib/sfx'
 import GanguesFichaCard from '../components/GanguesFichaCard'
+import GanguesFichaBio from '../components/GanguesFichaBio'
+import { getGanguesBiografia } from '../data/ganguesBiografias.js'
 
 const PATH_MARKS = { atacante: 'A', defensor: 'D', mistico: 'M' }
 
@@ -19,6 +21,7 @@ export default function GanguesCreate({ onNavigate, onCreated }) {
   const required = initialRecruitment ? 2 : 1
   const [activeIndex, setActiveIndex] = useState(0)
   const [detailId, setDetailId] = useState(null)
+  const [bioAberta, setBioAberta] = useState(false)
   const [selectedIds, setSelectedIds] = useState([])
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState('')
@@ -162,9 +165,9 @@ export default function GanguesCreate({ onNavigate, onCreated }) {
 
       <AnimatePresence>
         {detail && <motion.div className="gang-sheet-modal" role="dialog" aria-modal="true" aria-labelledby="gang-sheet-name" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-          <button className="gang-sheet-modal__scrim" onClick={() => setDetailId(null)} aria-label={t('games.gangues.recruitment.close')} />
+          <button className="gang-sheet-modal__scrim" onClick={() => { setDetailId(null); setBioAberta(false) }} aria-label={t('games.gangues.recruitment.close')} />
           <motion.article className={`gang-sheet-modal__card gang-sheet-modal__card--${detail.combat_path}`} initial={{ y: 60, scale: .94 }} animate={{ y: 0, scale: 1 }} exit={{ y: 40, opacity: 0 }} transition={{ type: 'spring', stiffness: 240, damping: 24 }}>
-            <button className="gang-sheet-modal__close" onClick={() => setDetailId(null)} aria-label={t('games.gangues.recruitment.close')}>×</button>
+            <button className="gang-sheet-modal__close" onClick={() => { setDetailId(null); setBioAberta(false) }} aria-label={t('games.gangues.recruitment.close')}>×</button>
             <GanguesFichaCard
               tituloId="gang-sheet-name"
               numero={detail.id}
@@ -177,7 +180,15 @@ export default function GanguesCreate({ onNavigate, onCreated }) {
               pm={{ max: detail.base_resources.pm_max }}
               tecnica={{ nome: t(`games.gangues.progression.skills.${detail.base_technique.id}`), custo: detail.base_technique.pm_cost }}
             />
-            <button className={`gang-sheet-modal__select${selectedIds.includes(detail.id) ? ' is-selected' : ''}`} onClick={() => toggleSelection(detail)}>{selectedIds.includes(detail.id) ? t('games.gangues.recruitment.remove') : t('games.gangues.recruitment.select')}</button>
+            <div className="gang-sheet-modal__actions-row">
+              {getGanguesBiografia(detail.id) && (
+                <button className="gang-sheet-modal__historia" onClick={() => setBioAberta(true)}>{t('games.gangues.recruitment.bio_botao')}</button>
+              )}
+              <button className={`gang-sheet-modal__select${selectedIds.includes(detail.id) ? ' is-selected' : ''}`} onClick={() => toggleSelection(detail)}>{selectedIds.includes(detail.id) ? t('games.gangues.recruitment.remove') : t('games.gangues.recruitment.select')}</button>
+            </div>
+            <AnimatePresence>
+              {bioAberta && <GanguesFichaBio characterTemplateId={detail.id} nome={detail.name} onClose={() => setBioAberta(false)} />}
+            </AnimatePresence>
           </motion.article>
         </motion.div>}
       </AnimatePresence>
