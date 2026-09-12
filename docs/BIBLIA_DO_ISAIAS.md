@@ -54,6 +54,8 @@ Não substitui grep/prova de leitura em tasks de bug — a regra de colar output
 
 **MOBILE ONLY — não é mobile-first, é mobile e ponto.** O portal tem UMA visão só, a do celular, não importa a plataforma que acessa. Não existe visão desktop, nem "versão desktop do componente X", nem breakpoint que revela algo a mais em tela grande. Num monitor de 1920px o site é exatamente o mesmo app de celular, numa coluna centralizada — o resto da tela é só moldura. Isso vale para TODA página, jogo, overlay e componente. Detalhes de implementação em §4.
 
+**SÓ VERTICAL — o produto nunca é visto na horizontal.** Em celular/tablet físico, girar pra paisagem mostra uma tela bloqueante pedindo pra girar de volta (`#ldi-rotate-lock` em `index.html`), em vez de tentar adaptar o layout pra landscape. Vale para todo ambiente: site, todos os jogos, todo overlay. Implementação e o motivo de não usar a Screen Orientation API em §4/AGENTS.md ("Trava de orientação").
+
 **Uma linguagem visual só — a base é a navbar.** O portal inteiro fala a língua da navbar/drawer, codificada em `src/styles/design-system.css`. O visitante tem que sentir que está no mesmo aplicativo o tempo todo, sem quebra brusca ao passar de Histórias para Games ou para a conta. Antes era um Frankenstein: 4 âmbares e 4 cianos diferentes, cada área com seu tema. Agora existe token e primitiva — `--if-cyan`, `--if-amber`, `.if-panel`, `.if-btn`, `.if-field`. Hex novo numa página é regressão. Detalhes em §4.
 
 **Cada pixel é intencional.** Nada de padding/margem/gap arbitrário — ver tabela exata em §4. Se não tiver certeza do resultado visual, ler o CSS existente e entender o fluxo antes de editar. "Fazer por fazer" não é aceito; correção esperada já na primeira tentativa, mas refazer 2-3x até acertar é normal.

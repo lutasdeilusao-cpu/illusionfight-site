@@ -8,7 +8,7 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.280.100' // fix: mini-mapa (radar) do Gangues comecava expandido em jogo novo - localStorage vazio caia em true; agora só abre se o jogador já tiver optado por deixar aberto.
+export const SITE_VERSION = '10.280.101' // feat: trava de orientacao - produto inteiro so vertical. Overlay #ldi-rotate-lock em index.html bloqueia a tela quando o aparelho gira pra landscape (media query orientation:landscape + hover:none + pointer:coarse, restrito a touchscreen pra nao afetar desktop widescreen). manifest.webmanifest ganhou orientation:portrait-primary pra PWA instalada.
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
