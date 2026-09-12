@@ -13,7 +13,10 @@
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600;700&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&family=Orbitron:wght@400;500;600;700;800;900&family=Bangers&family=Cinzel:wght@500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Fira+Code:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Bebas+Neue&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
     <noscript><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600;700&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&family=Orbitron:wght@400;500;600;700;800;900&family=Bangers&family=Cinzel:wght@500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Fira+Code:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Bebas+Neue&display=swap" rel="stylesheet" /></noscript>
     <style>@font-face { font-family: 'RacingGames'; src: url('/fonts/RacingGames.ttf') format('truetype'); font-weight: 900; font-style: normal; font-display: swap; }</style>
-    <!-- Abertura (vinheta): só no 1º acesso do dia, 2s mín / 4s máx, some assim que o app monta. Vive antes do React de propósito. -->
+    <!-- Abertura (vinheta): sempre cobre o carregamento. Cache hit (hash do build bate
+         com o último que montou com sucesso) = modo silencioso, sem espera; cache miss
+         (deploy novo/1ª visita) = show completo, 2s mín / 4s máx. Some assim que o app
+         monta. Vive antes do React de propósito — ver o script logo antes de #root. -->
     <style>
       html.ldi-intro-on { overflow: hidden; }
       #ldi-intro { position: fixed; inset: 0; z-index: 2147483000; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 22px; background: radial-gradient(900px 520px at 50% 45%, rgba(0,229,255,.10), transparent 62%), #06080b; color: #f6f8fa; }
@@ -169,7 +172,7 @@
       "keywords": "illusion fight, lutas de ilusão, webtoon, jogos táticos, arena virtual, ficção científica"
     }
     </script>
-    <script type="module" crossorigin src="/assets/index-qeKNvZ-p.js"></script>
+    <script type="module" crossorigin src="/assets/index-aUxIzo-V.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/react-GZhdek4G.js">
     <link rel="modulepreload" crossorigin href="/assets/preload-helper-zJ_50EbN.js">
     <link rel="modulepreload" crossorigin href="/assets/supabase-ByYxoL3g.js">
@@ -177,7 +180,8 @@
     <link rel="modulepreload" crossorigin href="/assets/proxy-CeAU0sk1.js">
     <link rel="modulepreload" crossorigin href="/assets/AuthContext-CJGC2Lgf.js">
     <link rel="stylesheet" crossorigin href="/assets/index-CR1jX1Z9.css">
-      <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","name":"Sliding Rafael","description":"Jogue Sliding Rafael, um puzzle deslizante gratuito com desafios de raciocínio no portal Illusion Fight.","url":"https://illusionfight.com/games/sliding-rafael/","inLanguage":"pt-BR","gamePlatform":"Web Browser","playMode":"SinglePlayer","genre":["Indie game","Action","Strategy"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Illusion Fight","item":"https://illusionfight.com/"},{"@type":"ListItem","position":2,"name":"Games","item":"https://illusionfight.com/games/"},{"@type":"ListItem","position":3,"name":"Sliding Rafael","item":"https://illusionfight.com/games/sliding-rafael/"}]}]}</script>
+      <meta name="ldi-build" content="/assets/index-aUxIzo-V.js">
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","name":"Sliding Rafael","description":"Jogue Sliding Rafael, um puzzle deslizante gratuito com desafios de raciocínio no portal Illusion Fight.","url":"https://illusionfight.com/games/sliding-rafael/","inLanguage":"pt-BR","gamePlatform":"Web Browser","playMode":"SinglePlayer","genre":["Indie game","Action","Strategy"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Illusion Fight","item":"https://illusionfight.com/"},{"@type":"ListItem","position":2,"name":"Games","item":"https://illusionfight.com/games/"},{"@type":"ListItem","position":3,"name":"Sliding Rafael","item":"https://illusionfight.com/games/sliding-rafael/"}]}]}</script>
   </head>
   <body>
     <div id="ldi-rotate-lock" aria-hidden="true">
@@ -211,31 +215,37 @@
       // de SEO (prerender-routes.js) — texto cru, sem o visual real do app — e
       // só vira a página de verdade quando o bundle React monta. Esse vão SEMPRE
       // precisa de cobertura, senão o visitante vê o texto cru piscando antes do
-      // site oficial (bug reportado pelo Isaias em 12/09/2026). Por isso a vinheta
-      // nunca é removida sem mostrar nada: no primeiro acesso do dia toca o show
-      // completo (logo animado, som, mín 2s/600ms reduced-motion, teto 4s); em
-      // qualquer outra carga no mesmo dia (reload, aba nova, link externo) cobre
-      // em modo silencioso — logo estático, sem som, sem espera mínima — e some
-      // assim que o React avisa que montou (evento 'ldi:ready'), com o mesmo teto
-      // de 4s como rede de segurança caso o evento nunca chegue.
+      // site oficial (bug reportado pelo Isaias em 12/09/2026).
+      //
+      // A decisão de mostrar o show completo (logo animado + som) ou só cobrir
+      // em silêncio NÃO é por dia de calendário — é por cache de verdade: o
+      // script de entrada tem hash de conteúdo no nome (ex.: index-qeKNvZ-p.js),
+      // gravado no <meta name="ldi-build"> pelo prerender-routes.js. Se o hash
+      // bate com o último build que terminou de montar com sucesso neste
+      // navegador, o bundle quase certamente já está em cache (deploy não
+      // mudou) — cobre rápido e silencioso, sem forçar espera. Se o hash é
+      // novo (deploy novo) ou nunca vimos essa marca (1ª visita), é cache miss
+      // de verdade — toca o show completo, já que o carregamento real vai
+      // demorar mesmo.
       (function () {
         var el = document.getElementById('ldi-intro');
         if (!el) return;
-        var KEY = 'ldi-intro-day', today = new Date().toISOString().slice(0, 10), seen = null, lang = 'pt';
-        try { seen = localStorage.getItem(KEY); lang = localStorage.getItem('ldi-locale') || 'pt'; } catch (e) {}
-        var primeiroAcessoHoje = seen !== today;
-        if (primeiroAcessoHoje) { try { localStorage.setItem(KEY, today); } catch (e) {} }
+        var KEY = 'ldi-intro-build', lang = 'pt', lastBuild = null;
+        var buildMeta = document.querySelector('meta[name="ldi-build"]');
+        var currentBuild = buildMeta && buildMeta.content;
+        try { lastBuild = localStorage.getItem(KEY); lang = localStorage.getItem('ldi-locale') || 'pt'; } catch (e) {}
+        var provavelCache = !!currentBuild && currentBuild === lastBuild;
         var reduce = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
         var word = el.querySelector('.ldi-intro__word');
         if (word) word.textContent = lang === 'en' ? 'ILLUSION FIGHT' : 'LUTAS DE ILUSÃO';
         document.documentElement.classList.add('ldi-intro-on');
-        if (primeiroAcessoHoje) {
+        if (provavelCache) {
+          el.classList.add('ldi-intro--static');
+        } else {
           el.classList.add(reduce ? 'ldi-intro--static' : 'ldi-intro--play');
           try { var a = new Audio('/sounds/intro.mp3'); a.volume = 0.22; var p = a.play(); if (p && p.catch) p.catch(function () {}); } catch (e) {}
-        } else {
-          el.classList.add('ldi-intro--static')
         }
-        var MIN = primeiroAcessoHoje ? (reduce ? 600 : 2000) : 0, MAX = 4000, start = Date.now(), ready = false, done = false;
+        var MIN = provavelCache ? 0 : (reduce ? 600 : 2000), MAX = 4000, start = Date.now(), ready = false, done = false;
         function finish() {
           if (done) return; done = true;
           el.classList.add('ldi-intro--out');
@@ -247,7 +257,15 @@
           var left = MIN - (Date.now() - start);
           left > 0 ? setTimeout(finish, left) : finish();
         }
-        window.addEventListener('ldi:ready', function () { ready = true; tryFinish(); }, { once: true });
+        window.addEventListener('ldi:ready', function () {
+          ready = true;
+          // Montou de verdade (evento real, não o teto de segurança) — só
+          // agora grava o hash como "cache confirmado". Gravar também no
+          // teto de segurança marcaria falso-positivo num load que travou
+          // ou quebrou antes do React montar.
+          if (currentBuild) { try { localStorage.setItem(KEY, currentBuild); } catch (e) {} }
+          tryFinish();
+        }, { once: true });
         setTimeout(function () { ready = true; tryFinish(); }, MAX);
       })();
     </script>
