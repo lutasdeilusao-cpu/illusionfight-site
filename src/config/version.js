@@ -8,7 +8,7 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.280.98' // rota privada de comparacao de webtoon (/preview-privado/webtoon-00-comparar) + favicon/icone PWA trocados pra marca IF nova (ver GANGUES_VERSION 2.75.32 pro botao de historia do recrutamento).
+export const SITE_VERSION = '10.280.99' // fix: favicon/icone PWA tinham fundo branco forcado por engano (o PNG fonte era transparente, alpha 0) - o Isaias reportou. Regerado com background alpha:0 no canvas do sharp em vez de branco - confirmado pixel a pixel (canto RGBA 0,0,0,0).
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
