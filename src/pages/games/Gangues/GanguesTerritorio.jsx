@@ -4,7 +4,7 @@ import { useLanguage } from '../../../context/LanguageContext'
 import { useGanguesStore } from './store/useGanguesStore'
 import { sfx } from '../../../lib/sfx'
 import enemiesData from './data/gangues-enemies.json'
-import { GANGUES_TERRITORIO_POR_ID, estadoNo, estadoTerritorio, precisaVoltarNoInformante, totalNos } from './data/ganguesTerritorios.js'
+import { GANGUES_TERRITORIO_POR_ID, estadoNo, estadoTerritorio, precisaVoltarNoInformante } from './data/ganguesTerritorios.js'
 import './GanguesStory.css'
 
 /* ══════════════════════════════════════════════════════════════
