@@ -657,7 +657,7 @@
    reclamou 3× que o dano passava batido, e que texto seco sobre texto seco
    não dava destaque. */
 .gang-dano-cena {
-  position: fixed; left: 0; right: 0; top: 20%; z-index: 1250;
+  position: fixed; left: var(--app-gutter); right: var(--app-gutter); top: 20%; z-index: 1250;
   min-height: 128px;
   display: flex; align-items: center; justify-content: center;
   pointer-events: none;
@@ -710,8 +710,8 @@
 
 /* Toast curto no combate (ex: item não serve nesse alvo). */
 .gang-combat-aviso {
-  position: fixed; left: 50%; top: 12%; transform: translateX(-50%); z-index: 1260;
-  max-width: 84vw; padding: 8px 14px; text-align: center;
+  position: fixed; left: var(--app-gutter); right: var(--app-gutter); top: 12%; z-index: 1260;
+  margin: 0 auto; width: max-content; max-width: calc(0.84 * var(--app-vw, 480px)); padding: 8px 14px; text-align: center;
   font: 700 0.8rem var(--font-mono); color: #ffdf9a;
   background: rgba(20, 12, 4, 0.94); border: 1px solid #7a5a1e;
   clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
