@@ -855,10 +855,13 @@ Reserva: cada faixa comporta crescer até ~99 sem remapear.
   autorado é +1 ponto por nível, 1 ficha nível N = N pontos; o budget de cada
   chefe ≈ 1.15× o total do time no nível-alvo (`{pista:35, feira:97, baixada:193,
   vila:322, morro:483, alto:580, laje:700}`). Só a Pista está pra confirmar em
-  playtest; as outras recalibrar com cena + sim próprios. AP por inimigo no modo
-  história = **30** (era 10) pra a escada subir no ritmo dos ~15 eventos de cada
-  bairro. Os chefes carregam `nivel` de fachada. **O Retalho é o único nível 100
-  do jogo.**
+  playtest; as outras recalibrar com cena + sim próprios. AP por inimigo é
+  **10 fixo em qualquer modo** (chegou a subir pra 30 no modo história pra
+  acompanhar o ritmo dos ~15 eventos de cada bairro, mas o Isaias reverteu em
+  set/2026 — rendia AP demais numa luta só, 2 inimigos já davam 60 AP. A
+  escada de nível dos chefes acima **ainda não foi recalibrada** pro ritmo
+  mais lento de 10/inimigo — pendente). Os chefes carregam `nivel` de fachada.
+  **O Retalho é o único nível 100 do jogo.**
 - **Estrutura de cada chefe** (rev. Isaias dez/2026 — só a Pista existe hoje, o
   resto é o plano pra quando cada bairro ganhar cena):
   | # | Bairro | Estrutura |

@@ -17,18 +17,12 @@ export default function DramaticDice({ finalValue, sides = 6, side, onComplete, 
   const { t } = useLanguage()
   const [display, setDisplay] = useState(null)       // null = fase de "aquecimento"
   const [phase, setPhase] = useState('intro')        // intro → rolling → reveal → done
-  const displayRef = useRef(null)                    // ref para usar dentro do rAF sem causar re-render
+  const displayRef = useRef(null)                    // ref para usar dentro do timer sem causar re-render
   const lastSoundRef = useRef(0)
-  const phaseRef = useRef('intro')
   const isCritical = finalValue === sides
   // Crítico sempre ganha (visual já é o "uau" da tela) — o tema por poder só
   // aparece fora do crítico, senão os dois efeitos brigam pela mesma cor.
   const fx = !isCritical && theme ? theme : null
-
-  // Mantém phaseRef sincronizado com o state phase (evita stale closure no rAF)
-  useEffect(() => {
-    phaseRef.current = phase
-  }, [phase])
 
   // Duração: normal 1.5s~2s, crítico 2s fixo para mais drama
   const totalDuration = useRef(
@@ -48,7 +42,6 @@ export default function DramaticDice({ finalValue, sides = 6, side, onComplete, 
     if (phase !== 'rolling') return
 
     let stopped = false
-    const start = performance.now()
     const rollDuration = totalDuration.current
 
     // Gera delays com easing CÚBICO (começa rápido, desacelera MUITO no final)
@@ -61,50 +54,50 @@ export default function DramaticDice({ finalValue, sides = 6, side, onComplete, 
       const rawDelay = 30 + Math.pow(progress, 1.8) * 320
       const jitter = (Math.random() - 0.5) * 20
       const delay = Math.max(20, Math.min(400, rawDelay + jitter))
-      steps.push({ delay, at: accum })
+      steps.push(delay)
       accum += delay
     }
 
+    // Corrente de setTimeout (NÃO requestAnimationFrame): rAF simplesmente
+    // não dispara com a aba/app em segundo plano — o combate ficava
+    // congelado esperando a revelação do dado até o jogador voltar pro
+    // app. setTimeout continua rodando em background (o navegador só
+    // aumenta o intervalo mínimo, não para de vez), então a luta segue
+    // sozinha se o jogador trocar de app no modo automático.
     let stepIdx = 0
-    let frameId
+    let timerId
 
     function tick() {
-      if (stopped || phaseRef.current !== 'rolling') return
+      if (stopped) return
 
-      const elapsed = performance.now() - start
-      const step = steps[stepIdx]
-
-      if (step && elapsed >= step.at) {
-        // Sorteia um número diferente do atual (usa ref p/ não causar loop)
-        let next
-        do {
-          next = Math.floor(Math.random() * sides) + 1
-        } while (next === displayRef.current && steps.length > 3)
-        displayRef.current = next
-        setDisplay(next)
-
-        // Som de tick a cada troca de número (com debounce)
-        const now = Date.now()
-        if (now - lastSoundRef.current > 30) {
-          lastSoundRef.current = now
-          sfx.diceTick()
-        }
-
-        stepIdx++
-      }
-
-      if (elapsed < rollDuration) {
-        frameId = requestAnimationFrame(tick)
-      } else {
-        // Roll acabou → fase de REVELAÇÃO
+      if (stepIdx >= steps.length) {
         sfx.diceLand()
         setPhase('reveal')
         setDisplay(finalValue)
+        return
       }
+
+      // Sorteia um número diferente do atual (usa ref p/ não causar loop)
+      let next
+      do {
+        next = Math.floor(Math.random() * sides) + 1
+      } while (next === displayRef.current && steps.length > 3)
+      displayRef.current = next
+      setDisplay(next)
+
+      // Som de tick a cada troca de número (com debounce)
+      const now = Date.now()
+      if (now - lastSoundRef.current > 30) {
+        lastSoundRef.current = now
+        sfx.diceTick()
+      }
+
+      timerId = setTimeout(tick, steps[stepIdx])
+      stepIdx++
     }
 
-    frameId = requestAnimationFrame(tick)
-    return () => { stopped = true; cancelAnimationFrame(frameId) }
+    timerId = setTimeout(tick, steps[0] || 0)
+    return () => { stopped = true; clearTimeout(timerId) }
   }, [phase, finalValue, sides]) // ← sem display! ref evita o loop infinito
 
   // Na fase reveal, espera 1s (normal) ou 1.2s (crítico) e chama onComplete

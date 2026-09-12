@@ -209,6 +209,32 @@ export function gerarBandoInimigo({ territorioId, dificuldade = 'normal', modo =
   return bando
 }
 
+// PRIMEIRA LUTA da conta — "tapa na cara" ao contrário (pedido do Isaias,
+// set/2026): criou a gangue agora e a 1ª treta já engoliu um personagem +
+// zerou a grana → já nasce endividado na birosca, experiência péssima de
+// entrada. Não importa o nível/dificuldade escolhida: a 1ª luta de toda
+// conta nova vem 1 corpo só, na METADE dos pontos que teria normalmente —
+// dá uma vitória fácil de propósito (falsa sensação de segurança), só essa
+// vez. Da 2ª luta em diante volta pro normal (ver GanguesRoute.jsx,
+// storyProgress.__primeiraLutaFeita). Não mexe em chefe/clube/torre —
+// aqueles já são gated por progresso, nunca caem como 1ª luta na prática.
+export function suavizarPrimeiraLuta(bando) {
+  if (!bando?.length) return bando
+  const alvo = bando[0]
+  const stats = {
+    A: Math.max(0, Math.round(alvo.stats.A * 0.5)),
+    H: Math.max(0, Math.round(alvo.stats.H * 0.5)),
+    D: Math.max(0, Math.round(alvo.stats.D * 0.5)),
+    PV: Math.max(1, Math.round(alvo.stats.PV * 0.5)),
+    PM: Math.max(0, Math.round(alvo.stats.PM * 0.5)),
+  }
+  const recursos = getGanguesResources(caminhoDoInimigo(alvo.preferred_mode), stats.PV, stats.PM)
+  // Sobrando só 1 corpo não tem mais repetição — tira o "(2)" etc. que
+  // numerarRepetidos possa ter marcado no bando original antes do corte.
+  const { numeroInstancia, ...resto } = alvo
+  return [{ ...resto, stats, pv_max: recursos.pvMax, pm_max: recursos.pmMax }]
+}
+
 // O molde é sorteado por slot, sem exclusividade — é comum o mesmo tipo
 // (ex: 1201) sair 2x+ no mesmo bando. Sem uma numeração, os dois aparecem com o
 // nome idêntico na tela de combate, impossível de diferenciar (qual "Moleque da

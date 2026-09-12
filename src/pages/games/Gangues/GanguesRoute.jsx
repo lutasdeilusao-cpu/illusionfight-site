@@ -20,7 +20,7 @@ import GanguesClubeSala from './GanguesClubeSala'
 import GanguesClubeResultado from './GanguesClubeResultado'
 import { temCena } from './data/cenas/cenaHelpers.js'
 import { GANGUES_STORY_BATTLE_PARTY_MAX } from './data/ganguesLoadout.js'
-import { gerarBandoInimigo, gerarBandoChefe, gerarBandoRevezamento, gerarBandoEvento, gerarBandoClube } from './data/ganguesEncontros.js'
+import { gerarBandoInimigo, gerarBandoChefe, gerarBandoRevezamento, gerarBandoEvento, gerarBandoClube, suavizarPrimeiraLuta } from './data/ganguesEncontros.js'
 import GuestNotice from '../../../components/GuestNotice/GuestNotice'
 import enemiesData from './data/gangues-enemies.json'
 import './Gangues.css'
@@ -105,6 +105,10 @@ export default function GanguesRoute() {
 
     // Modo de dificuldade escolhido pelo jogador — escala TODO bando.
     const modo = store.storyProgress?.__dificuldade || 'medio'
+    // 1ª luta de toda conta nova vem suavizada (1 corpo, metade dos pontos),
+    // não importa nível/dificuldade — ver suavizarPrimeiraLuta. Chefe/clube/
+    // torre ficam de fora (gated por progresso, nunca são a 1ª luta na prática).
+    const primeiraLuta = !store.storyProgress?.__primeiraLutaFeita
 
     let enemyTeam
     if (alvo.clube) {
@@ -116,6 +120,7 @@ export default function GanguesRoute() {
       // Encontro aleatório de rua — bando um pouco acima da ficha, com teto.
       enemyTeam = gerarBandoEvento({ territorioId: alvo.territorioId, playerTeam: party, enemiesData, modo })
       if (!enemyTeam?.length) { setFase('story'); return }
+      if (primeiraLuta) enemyTeam = suavizarPrimeiraLuta(enemyTeam)
     } else if (alvo.isChefe) {
       // Bando do chefe = orçamento de pontos FIXO por território (não escala com
       // o jogador — o loop é voltar mais forte). Ver gerarBandoChefe.
@@ -127,14 +132,18 @@ export default function GanguesRoute() {
       // território — orçamento leve e fixo por corpo.
       enemyTeam = gerarBandoRevezamento({ ...alvo.revezamento, enemiesData, modo })
       if (!enemyTeam?.length) { setFase('story'); return }
+      if (primeiraLuta) enemyTeam = suavizarPrimeiraLuta(enemyTeam)
     } else if (alvo.fixo) {
       const enemy = enemiesData.find(e => e.id === alvo.enemyId)
       if (!enemy) { setFase('story'); return }
       enemyTeam = [enemy]
+      if (primeiraLuta) enemyTeam = suavizarPrimeiraLuta(enemyTeam)
     } else {
       enemyTeam = gerarBandoInimigo({ territorioId: alvo.territorioId, dificuldade: alvo.dificuldade, modo, playerTeam: party, enemiesData, pontosFixos: alvo.pontosFixos, liderFixo: alvo.liderFixo, moldesPool: alvo.moldesPool })
       if (!enemyTeam?.length) { setFase('story'); return }
+      if (primeiraLuta) enemyTeam = suavizarPrimeiraLuta(enemyTeam)
     }
+    if (primeiraLuta && !alvo.clube && !alvo.isChefe) store.marcarPrimeiraLutaFeita()
     store.startMatch(enemyTeam[0], enemyTeam, party)
     setFase('combat')
   }, [fase])

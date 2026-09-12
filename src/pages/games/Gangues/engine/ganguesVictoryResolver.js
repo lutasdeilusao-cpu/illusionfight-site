@@ -24,14 +24,17 @@ export function eventosDoLevelUp(character, fromLevel, toLevel, eventosDoNivel) 
   return eventos
 }
 
-// O total de AP é SEMPRE 10 por inimigo no bando no Modo Batalha (Torre), e 30
-// no modo história (a escada de nível dos chefes subiu — ver GANGUES_CHEFE_BUDGET
-// — e o caminho de cada bairro tem ~15 eventos; nesse ritmo o jogador chega perto
-// do nível-alvo fazendo tudo). Chefe é luta única, vale 5×. Torre escala +100%
-// a cada 5 andares. Na derrota é sempre 1 AP simbólico, sem relação com o bando.
+// O total de AP é SEMPRE 10 por inimigo no bando, em QUALQUER modo (Torre ou
+// história). Chegou a subir pra 30 no modo história em dez/2026 pra escada de
+// nível dos chefes acompanhar o ritmo — o Isaias reverteu isso em set/2026
+// (ficava rápido/quebrado demais: 2 inimigos já rendiam 60 AP numa luta só).
+// A escada de nível dos 7 chefes (ver GANGUES_CHEFE_BUDGET no GDD) fica mais
+// lenta de acompanhar com 10 fixo — ainda não recalibrada, ver seção 12 do GDD.
+// Chefe é luta única, vale 5×. Torre escala +100% a cada 5 andares. Na derrota
+// é sempre 1 AP simbólico, sem relação com o bando.
 export function calcularApTotal({ victory, enemyCount, cenaChefe, torre, torreAndar }) {
   if (!victory) return 1
-  const apPorInimigo = torre ? 10 : 30
+  const apPorInimigo = 10
   const multiplicadorChefe = cenaChefe ? 5 : 1
   const multiplicadorTorre = torre ? 1 + Math.floor(torreAndar / 5) : 1
   return apPorInimigo * Math.max(1, enemyCount) * multiplicadorChefe * multiplicadorTorre

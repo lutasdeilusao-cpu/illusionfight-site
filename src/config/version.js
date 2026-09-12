@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.280.77'
+export const SITE_VERSION = '10.280.78'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '2.75.14' // correcao de overlays fixed do combate (faixa de dano + toast de aviso) que vazavam pra fora da coluna mobile em telas largas (left:0/right:0 em vez de --app-gutter) - Isaias reportou print mostrando a faixa vermelha do CRITICO esticada ate a borda da janela do navegador, fora da coluna de 480px. Fix: gang-dano-cena e gang-combat-aviso agora usam --app-gutter/--app-vw como todo overlay position:fixed do site (mesmo padrao de src/index.css). Verificado com Playwright injetando os elementos numa janela de 1600px: antes ocupavam 0-1600px, depois ficam confinados aos 480px centrais da coluna.
+export const GANGUES_VERSION   = '2.75.15' // 1) fix: dado giratorio (DramaticDice) usava requestAnimationFrame, que NAO dispara com a aba/app em segundo plano - o combate travava esperando a revelacao ate o jogador voltar. Trocado por corrente de setTimeout (mesma animacao em 1o plano, continua avancando em 2o plano). Pedido do Isaias: modo automatico tem que continuar lutando sozinho mesmo trocando de app. 2) fix: AP por inimigo no modo historia estava 30 (era 10) - revertido pra 10 fixo em qualquer modo (o Isaias achou 60 AP numa luta de 2 inimigos exagerado). 3) feat: 1a luta de toda conta nova vem suavizada (1 corpo so, metade dos pontos) nao importa nivel/dificuldade - pedido do Isaias: 1a luta perdendo personagem + endividado na birosca de cara e pessimo pra quem esta comecando. So essa vez, da 2a luta em diante volta ao normal (storyProgress.__primeiraLutaFeita). Ver suavizarPrimeiraLuta em ganguesEncontros.js.
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
 export const MINIGAMES_VERSION = '4.3.6'  // PuzzleStealthGrid: d-pad na tela sempre (mobile tambem) + grade nao vaza mais do viewport

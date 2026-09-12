@@ -87,6 +87,16 @@ export default function createGanguesStorySlice(set, get) {
       get()._persistStory()
     },
 
+    // 1ª luta da conta mais fácil de propósito (metade dos pontos, 1 corpo só)
+    // — ver suavizarPrimeiraLuta em ganguesEncontros.js. Marcado assim que a
+    // 1ª luta COMEÇA (não espera o resultado): é uma cortesia de entrada,
+    // vale só uma vez, ganhando ou perdendo.
+    marcarPrimeiraLutaFeita: () => {
+      if (get().storyProgress.__primeiraLutaFeita) return
+      set(state => ({ storyProgress: { ...state.storyProgress, __primeiraLutaFeita: true } }))
+      get()._persistStory()
+    },
+
     campaignClears: 0,
     eventCharacterIds: [],
     completeCampaign: () => {
