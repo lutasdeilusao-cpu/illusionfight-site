@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.280.90'
+export const SITE_VERSION = '10.280.91'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '2.75.27' // fix: radar/minimapa da cena somava --app-gutter em cima de um pai que ja e a coluna mobile confinada (mesma base do header .gang-cena-worldhud, que usa so left/right:12px sem gutter) - duplicava o recuo e em telas largas empurrava o radar pra fora/torto (reportado pelo Isaias: "radar fora da tela, no lugar errado"). GanguesMiniMapa.css: right: calc(var(--app-gutter)+12px) -> right:12px. Tambem adicionada a secao 17.9 no GDD: tabela de referencia completa (atributos a cada 5 niveis + nivel exato de cada poder) dos 30 personagens, gerada via novo script scripts/gangues-gdd-referencia-personagens.cjs (versionado, roda de novo apos qualquer regeracao do catalogo).
+export const GANGUES_VERSION   = '2.75.28' // fix: botao METE O PE (sair/fugir da luta) na barra de combate era so texto colorido (background:none) - o Isaias reportou de novo com print que "nao aparece um botao". Ganhou chip de verdade (fundo + borda no mesmo tom de alerta), igual o resto dos controles da gang-vs-bar.
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
 export const MINIGAMES_VERSION = '4.3.6'  // PuzzleStealthGrid: d-pad na tela sempre (mobile tambem) + grade nao vaza mais do viewport
