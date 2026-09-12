@@ -68,10 +68,6 @@
   font: 700 10px var(--font-mono); letter-spacing: .04em; text-transform: uppercase;
 }
 .gang-levelup-tag--poder { border-color: var(--if-amber); color: var(--if-amber); background: var(--if-amber-16); }
-/* Nível sem ganho de atributo (custo escalonado ainda bancando XP pro próximo
-   ponto) — tom apagado/tracejado de propósito, pra não competir visualmente
-   com um ganho de verdade (atributo ou poder), só avisar que não travou. */
-.gang-levelup-tag--vazio { border-style: dashed; border-color: var(--if-hair); color: var(--text-tertiary, #6d7a80); background: transparent; }
 
 /* ══════════════════════════════════════════════════════════════
    PROGRESSÃO — tela dedicada (v10.208)

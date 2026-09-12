@@ -64,28 +64,24 @@ export const GANGUES_CHEFE_EQUIPE = {
 //   pista 15 · feira 28 · baixada 42 · vila 56 · morro 70 · alto 84 · laje 99+
 // (~14 níveis entre cada; o 7º é PAREDÃO — encara no L99 e ainda apanha).
 //
-// calcularPontosTime = soma de A+H+D+PV+PM. Essa tabela FOI calibrada
-// assumindo "1 ficha nível N = N pontos" (+1 ponto cheio por nível) — isso
-// deixou de ser verdade em set/2026, quando o custo por atributo virou
-// escalonado de verdade (custoAtributoGangues, ver ganguesCharacters.js):
-// atributo alto fica MUITO mais caro, então pontos crescem bem mais devagar
-// que o nível (ex: Trinca NV99 tem 41 pontos flat, não 99). RECALIBRADO
-// pra essa curva real (soma flat dos 30 personagens no nível-alvo de cada
-// chefe, via scripts/gangues-regen-catalog.js):
-//   pista   L15 · 2 fichas · ~35 pts/time  → budget ~40  (1.15×, pau a pau)
-//   feira   L28 · 3 fichas · ~73 pts/time  → budget ~84
-//   baixada L42 · 4 fichas · ~119 pts/time → budget ~138  (1.16×)
-//   vila    L56 · 5 fichas · ~173 pts/time → budget ~202  (1.17×)
-//   morro   L70 · 6 fichas · ~234 pts/time → budget ~276  (1.18×)
-//   alto    L84 · 6 fichas · ~254 pts/time → budget ~302  (1.19×)
-//   laje    L99 · 6 fichas · ~275 pts/time → budget ~330  (paredão, 1.20×)
-// O ratio crescente (1.15→1.20) preserva a intenção original ("chefe sempre
-// um pouco acima do time no nível-alvo, mais folgado no paredão final") —
-// só os números absolutos mudaram, porque a régua (pontos por nível) mudou.
-// Precisa de novo playtest pra confirmar a sensação de dificuldade — os
-// valores antigos (44…732) estavam calibrados pra uma escala que não existe
-// mais no jogo.
-export const GANGUES_CHEFE_BUDGET = { pista: 40, feira: 84, baixada: 138, vila: 202, morro: 276, alto: 302, laje: 330 }
+// calcularPontosTime = soma de A+H+D+PV+PM, e o crescimento autorado é
+// EXATAMENTE +1 ponto por nível → 1 ficha nível N = N pontos (+ o total
+// inicial de nível 1). O time cresce 1 vaga por território dominado (2 na
+// Pista, 3 na Feira, ... até 6 = teto de batalha):
+//   pista  L15 · 2 fichas ·  30 pts → budget ~35  (~1.15×, pau a pau)
+//   feira  L28 · 3 fichas ·  84 pts → budget ~97
+//   baixada L42 · 4 fichas · 168 pts → budget ~193
+//   vila   L56 · 5 fichas · 280 pts → budget ~322
+//   morro  L70 · 6 fichas · 420 pts → budget ~483
+//   alto   L84 · 6 fichas · 504 pts → budget ~580
+//   laje   L99 · 6 fichas · 594 pts → budget ~700 (paredão, ~1.18×)
+//
+// AJUSTE jan/2027 (feedback do Isaias — "tô matando no automático com uma
+// porrada, sou muito de upar"): +~4 níveis por ficha em cada chefe (o Isaias
+// pediu "3 a 5 pontos"), +5 na Laje. Não é soft-scaling (o chefe continua
+// fixo — o loop de RPG é voltar mais forte), só um piso mais alto pra não
+// virar pushover pra quem chega no nível-alvo. Playtest pra confirmar.
+export const GANGUES_CHEFE_BUDGET = { pista: 44, feira: 110, baixada: 210, vila: 345, morro: 510, alto: 606, laje: 732 }
 export const GANGUES_CHEFE_LIDER_FRAC = 0.60
 // Quantos CORPOS o bando do chefe tem (o resto de GANGUES_CHEFE_EQUIPE fica só
 // pra lore/álbum). Pista = 2 (Carvão + Rasteira Velha): 2×2 é a única treta
