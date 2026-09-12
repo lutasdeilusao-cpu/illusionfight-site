@@ -1,6 +1,7 @@
 import { getGanguesResources, getGanguesProgression, ganguesXpMaxForSheet } from '../../data/ganguesLoadout.js'
 import { getGanguesCharacter, getGanguesLevelFromXp, getGanguesUnlockedSpecials } from '../../data/ganguesCharacters.js'
 import { getGanguesAttributesWithEquip, applyGanguesEquipResources } from '../../data/ganguesEquip.js'
+import { getGanguesPortrait } from '../../data/ganguesPortraits.js'
 import GanguesFichaCard from '../GanguesFichaCard'
 import GanguesEquipPanel from '../GanguesEquipPanel'
 import GanguesSkillGrid from '../GanguesSkillGrid'
@@ -23,6 +24,7 @@ export default function GanguesCenaFichaCard({ member, t, onToggleEspecial }) {
       caminho={character.combat_path}
       subcaminho={`${t(`games.gangues.loadout.paths.${character.combat_path}.name`)} · ${t(`games.gangues.progression.paths.${character.special_path}`)}`}
       nivel={level}
+      retrato={getGanguesPortrait(character.slug)}
       atributos={effAttrs}
       pv={{ atual: Math.min(resources.pvMax, member.attributes?.pv_atual ?? resources.pvMax), max: resources.pvMax }}
       pm={{ atual: Math.min(resources.pmMax, member.attributes?.pm_atual ?? resources.pmMax), max: resources.pmMax }}

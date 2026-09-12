@@ -81,7 +81,7 @@ export default function GanguesBatalha({ onNavigate }) {
           </button>
         </header>
         <div className="gang-torre__andar-hero">
-          <span className="gang-torre__eyebrow">IF // {t(`games.gangues.story.territorios.${torre.territorioId}.nome`)}</span>
+          <span className="gang-torre__eyebrow">{t(`games.gangues.story.territorios.${torre.territorioId}.nome`)}</span>
           <b className="gang-torre__andar-num">{t('games.gangues.batalha.andar', { n: torre.andar })}</b>
           <small>{t(`games.gangues.batalha.folga.${torre.folga}`)}</small>
         </div>
@@ -107,7 +107,6 @@ export default function GanguesBatalha({ onNavigate }) {
       </header>
 
       <div className="gang-torre__title">
-        <span className="gang-torre__eyebrow">IF // MARÉLIA</span>
         <h1>{t('games.gangues.batalha.titulo')}</h1>
         <p>{t('games.gangues.batalha.sub', { n: nivelMedio })}</p>
       </div>

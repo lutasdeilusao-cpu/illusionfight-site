@@ -8,13 +8,13 @@ const ATTRS = ['A', 'H', 'D', 'PV', 'PM']
  *  Cada seção é opcional: quem chama passa só o que faz sentido no contexto
  *  (recrutamento não tem PV/PM atual porque o personagem nunca lutou; fora
  *  de combate não tem "atual" de PV/PM, só o máximo). */
-export default function GanguesFichaCard({ numero, nome, caminho, subcaminho, nivel, atributos, pv, pm, xp, tecnica, tituloId }) {
+export default function GanguesFichaCard({ numero, nome, caminho, subcaminho, nivel, atributos, pv, pm, xp, tecnica, tituloId, retrato }) {
   const { t } = useLanguage()
   return (
     <>
       <div className="gang-sheet-modal__hero">
         {numero != null && <span>#{String(numero).padStart(2, '0')}</span>}
-        <i>{nome?.[0]?.toUpperCase()}</i>
+        {retrato ? <img className="gang-sheet-modal__retrato" src={retrato} alt="" /> : <i>{nome?.[0]?.toUpperCase()}</i>}
         {caminho && <small>{t(`games.gangues.loadout.paths.${caminho}.name`)}</small>}
         <h2 id={tituloId}>{nome}{nivel != null && <b className="gang-ficha-nivel"> · NV {nivel}</b>}</h2>
         {subcaminho && <p>{subcaminho}</p>}

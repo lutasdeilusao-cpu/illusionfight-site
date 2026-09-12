@@ -98,6 +98,11 @@ export default function GanguesCreate({ onNavigate, onCreated }) {
       return
     }
     store.setActiveParty([...store.activeParty, ...saved].slice(0, 2))
+    // O 1º personagem que o jogador escolheu (selectedIds[0] -> saved[0], a
+    // ordem do for...of bate com a ordem da escolha) vira líder da gangue de
+    // cara — só na fundação; recrutas depois disso não mexem no líder já
+    // escolhido. Aviso disso aparece pro jogador em recruitment.lobby_pitch.
+    if (initialRecruitment && saved[0]) store.definirLider(saved[0].id)
     sfx.reward()
     onCreated?.(saved[saved.length - 1])
     if (!onCreated) onNavigate('lobby')
@@ -109,6 +114,7 @@ export default function GanguesCreate({ onNavigate, onCreated }) {
         <button className="gang-recruit__back" onClick={() => onNavigate('lobby')} aria-label={t('games.gangues.btn_voltar')}>←</button>
         <h1>{initialRecruitment ? t('games.gangues.recruitment.title_initial') : t('games.gangues.recruitment.title')}</h1>
         <p>{t(`games.gangues.recruitment.${initialRecruitment ? 'subtitle_initial' : 'subtitle'}`, { n: required })}</p>
+        {initialRecruitment && <p className="gang-recruit__aviso-lider">⭐ {t('games.gangues.recruitment.aviso_lider')}</p>}
       </header>
 
       <section className="gang-recruit__stage" aria-label={t('games.gangues.recruitment.candidates')}>
@@ -164,6 +170,7 @@ export default function GanguesCreate({ onNavigate, onCreated }) {
               numero={detail.id}
               nome={detail.name}
               caminho={detail.combat_path}
+              retrato={getGanguesPortrait(detail.slug)}
               subcaminho={t(`games.gangues.progression.paths.${detail.special_path}`)}
               atributos={detail.base_stats}
               pv={{ max: detail.base_resources.pv_max }}

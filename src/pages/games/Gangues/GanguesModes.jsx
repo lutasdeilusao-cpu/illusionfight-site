@@ -112,7 +112,7 @@ export default function GanguesModes({ onNavigate }) {
 
       {gangueAberta && <div className="gang-modes-party-modal" onClick={() => setGangueAberta(false)}>
         <section onClick={event => event.stopPropagation()}>
-          <span className="if-eyebrow">LDI // {store.gangName}</span>
+          <span className="if-eyebrow">{store.gangName}</span>
           <h2>{t('games.gangues.modes.escalacao')}</h2>
           <div>{party.map(member => <article key={member.id}><i>{member.sheet_name[0]}</i><span><strong>{member.sheet_name}</strong><small>{t(`games.gangues.loadout.paths.${member.combat_path}.name`)}</small></span><b>✓</b></article>)}</div>
           <button onClick={() => setGangueAberta(false)}>{t('games.gangues.ficha_fechar')}</button>

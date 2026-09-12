@@ -74,7 +74,8 @@
   clip-path: polygon(0 0, calc(100% - var(--if-cut)) 0, 100% var(--if-cut), 100% 100%, 0 100%);
 }
 
-/* ══ Eyebrow mono — "IF // ALGUMA COISA" ══ */
+/* ══ Eyebrow mono — rótulo pequeno acima de título/nome (sem o prefixo
+   "IF //" decorativo — removido do produto inteiro, set/2026) ══ */
 .if-eyebrow {
   display: block;
   color: var(--if-cyan-58);

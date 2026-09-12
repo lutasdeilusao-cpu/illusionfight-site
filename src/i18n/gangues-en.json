@@ -627,6 +627,10 @@
       "recruitment": {
         "title_initial": "BUILD YOUR GANG",
         "subtitle_initial": "Five names answered the call. Examine their sheets and mark the two who will found the gang.",
+        "aviso_lider": "Whoever you mark first becomes your gang's leader — you can switch it later at HQ.",
+        "lider_tag": "LEADER",
+        "lider_atual": "Gang leader",
+        "tornar_lider": "Make gang leader",
         "subtitle": "New names have reached Marélia. Examine the sheet and choose who deserves your mark.",
         "title": "RECRUIT MEMBER",
         "candidates": "Available candidates",

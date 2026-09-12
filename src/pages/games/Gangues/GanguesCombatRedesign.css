@@ -24,6 +24,7 @@
    pra não sobrar o respiro de altura pensado pro modal estreito. */
 .gang-combat .gang-sheet-modal__hero { min-height: 0; padding: 6px 100px 4px 0; }
 .gang-combat .gang-sheet-modal__hero > i { font-size: 110px; right: 4px; bottom: -10px; }
+.gang-combat .gang-sheet-modal__hero .gang-sheet-modal__retrato { width: 96px; height: 96px; right: 4px; bottom: -6px; }
 .gang-combat .gang-sheet-modal__hero h2 { font-size: 28px; }
 .gang-combat .gang-sheet-modal__stats { width: 100%; }
 .gang-combat .gang-ficha-modal-card .gang-modo-fugir { align-self:stretch; margin-top:7px; }

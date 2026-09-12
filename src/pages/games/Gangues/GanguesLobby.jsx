@@ -177,6 +177,8 @@ export default function GanguesLobby({ onNavigate }) {
             handleSheetClick={handleSheetClick}
             abrirProgressao={abrirProgressao}
             startRecruitment={startRecruitment}
+            liderId={store.getLiderId()}
+            definirLider={store.definirLider}
             t={t}
           />
 
@@ -208,7 +210,7 @@ export default function GanguesLobby({ onNavigate }) {
 /** Elenco em carrossel de cartinhas — mesma linguagem visual do recrutamento
  *  (GanguesCreate): 3 cartas visíveis (prev/current/next), tocar na do meio
  *  marca/desmarca pra batalha, tocar nas laterais só navega. */
-function RosterCarousel({ roster, party, partyLimit, rosterLimit, rosterIndex, setRosterIndex, handleSheetClick, abrirProgressao, startRecruitment, t }) {
+function RosterCarousel({ roster, party, partyLimit, rosterLimit, rosterIndex, setRosterIndex, handleSheetClick, abrirProgressao, startRecruitment, liderId, definirLider, t }) {
   useEffect(() => {
     if (rosterIndex >= roster.length) setRosterIndex(0)
   }, [roster.length, rosterIndex])
@@ -277,13 +279,25 @@ function RosterCarousel({ roster, party, partyLimit, rosterLimit, rosterIndex, s
                 >
                   {selected ? '✓' : '+'}
                 </button>
+                {/* Líder: prioridade de sobrevivência futura (tanque protege
+                    ele primeiro) e a cara que flutua navegando pela cena —
+                    ver getLiderId()/definirLider() em ganguesStorySlice.js.
+                    Só troca, nunca "desliga" (sempre tem que ter um). */}
+                <button
+                  type="button"
+                  className={`gang-fighter-card__lider-toggle${liderId === member.id ? ' is-lider' : ''}`}
+                  aria-label={liderId === member.id ? t('games.gangues.recruitment.lider_atual') : t('games.gangues.recruitment.tornar_lider')}
+                  onClick={() => definirLider(member.id)}
+                >
+                  {liderId === member.id ? '★' : '☆'}
+                </button>
                 <button type="button" className="gang-fighter-card__tapzone" onClick={() => abrirProgressao(member)}>
                   <span className={`gang-fighter-card__portrait${getGanguesPortraitByTemplateId(member.character_template_id) ? ' gang-fighter-card__portrait--foto' : ''}`} aria-hidden="true">
                     {getGanguesPortraitByTemplateId(member.character_template_id) ? <img src={getGanguesPortraitByTemplateId(member.character_template_id)} alt="" /> : <i>{member.sheet_name[0].toUpperCase()}</i>}
                     <b>{PATH_MARKS[member.combat_path]}</b>
                   </span>
                   <span className="gang-fighter-card__copy">
-                    <small>{t(`games.gangues.loadout.paths.${member.combat_path}.name`)}</small>
+                    <small>{t(`games.gangues.loadout.paths.${member.combat_path}.name`)}{liderId === member.id ? ` · ★ ${t('games.gangues.recruitment.lider_tag')}` : ''}</small>
                     <strong>{member.sheet_name}</strong>
                     <em>{['A', 'H', 'D', 'PV', 'PM'].map(attr => `${attr}${member.attributes[attr]}`).join(' · ')}</em>
                   </span>

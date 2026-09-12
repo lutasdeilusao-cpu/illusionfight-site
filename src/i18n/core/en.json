@@ -953,7 +953,7 @@
   },
   "calendar": {
     "meta_title": "Season 1 Calendar — Illusion Fight",
-    "kicker": "Release protocol // S1",
+    "kicker": "Release protocol — S1",
     "title": "The future has a date.",
     "manifesto": "Nothing here stays locked forever. Every chapter becomes free for everyone. The only difference is when.",
     "cadence": "Every other Monday, without fail. First drop: Nov 30, 2026.",
@@ -990,7 +990,6 @@
     "earlier_elite": "Subscribe and read on"
   },
   "home": {
-    "eyebrow": "PORTAL // LIVE TRANSMISSION",
     "section_latest": "New releases",
     "section_webtoon": "Webtoon",
     "section_webtoon_hint": "New episodes and releases",

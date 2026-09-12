@@ -52,6 +52,34 @@ export default function createGanguesStorySlice(set, get) {
       get()._persistStory()
     },
 
+    // ── Líder da gangue (pedido do Isaias, set/2026) ──────
+    // O 1º personagem recrutado vira líder automaticamente (ver GanguesCreate.jsx
+    // no fim do recrutamento inicial) — mas o jogador pode trocar depois. Guardado
+    // em storyProgress.__lider (mesmo JSONB, mesmo padrão de __dificuldade/__torre)
+    // em vez de depender da ORDEM do array `roster`: o roster recarregado da nuvem
+    // vem ordenado por created_at (mais novo primeiro), então "roster[0] = líder"
+    // quebraria silenciosamente pra quem já tem gangue formada antes desse recurso
+    // existir. Serve pra: a cabeça dele flutuar na navegação da cena (GanguesCena),
+    // e — visão futura, ainda não implementada — poder virar prioridade de defesa
+    // de aliado tanque e mote de desafio "líder contra líder" em territórios futuros.
+    getLiderId: () => {
+      const guardado = get().storyProgress.__lider
+      const roster = get().roster
+      if (guardado && roster.some(m => m.id === guardado)) return guardado
+      // Sem líder definido ainda (save antigo, ou gangue recém-criada antes do
+      // primeiro recrutamento fechar) — cai no primeiro do elenco.
+      return roster[0]?.id ?? null
+    },
+    getLider: () => {
+      const id = get().getLiderId()
+      return get().roster.find(m => m.id === id) || null
+    },
+    definirLider: (sheetId) => {
+      if (!get().roster.some(m => m.id === sheetId)) return
+      set(state => ({ storyProgress: { ...state.storyProgress, __lider: sheetId } }))
+      get()._persistStory()
+    },
+
     // ── Dificuldade do modo história (escolha do jogador) ──────────
     // 'facil' | 'medio' | 'dificil'. Guardada em storyProgress.__dificuldade
     // (mesmo JSONB, sem coluna nova). Afeta o orçamento de TODO bando

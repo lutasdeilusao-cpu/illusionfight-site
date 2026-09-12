@@ -122,7 +122,6 @@ export default function UniversosHub() {
       </Helmet>
 
       <header className="universos-hub__head">
-        <span className="if-eyebrow">IF // UNIVERSOS</span>
         <h1 className="universos-hub__titulo">{t('pages.mundoHub.titulo')}</h1>
         <p className="universos-hub__intro">{t('pages.mundoHub.intro')}</p>
       </header>

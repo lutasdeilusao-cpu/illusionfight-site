@@ -1047,3 +1047,35 @@ expressões futuras).
   (instalado isolado num scratch dir, não polui `package.json` do site) —
   ficou ~25KB cada (−97%), mantendo a transparência. Nunca commitar a arte
   de origem em tamanho grande.
+- **Retrato na ficha detalhada:** `GanguesFichaCard.jsx` (componente único
+  usado no recrutamento, no popup rápido de combate e no topo da tela de
+  progressão) recebe a prop `retrato` — quando existe, substitui a letra
+  gigante translúcida do canto por a cabeça de verdade.
+
+## 16. Líder da gangue (set/2026)
+
+Pedido do Isaias: dar personalidade real ao "quem manda" da gangue, não só
+decoração. Regras de hoje:
+
+- **O 1º personagem que o jogador marca na fundação vira líder automático.**
+  Aviso explícito na tela de recrutamento inicial
+  (`recruitment.aviso_lider`) pra ninguém escolher sem saber disso.
+- **Guardado em `storyProgress.__lider`** (mesmo JSONB/padrão de
+  `__dificuldade`/`__torre`) — **não depende da ordem do array `roster`**.
+  Isso importa: o roster recarregado da nuvem vem ordenado por
+  `created_at DESC` (mais novo primeiro), então "líder = roster[0]" quebraria
+  silenciosamente assim que o jogador desse F5 numa conta logada. `getLiderId()`
+  valida que o id salvo ainda existe no elenco (cai pro primeiro do roster
+  como fallback de save antigo/sem líder definido ainda).
+- **Troca livre:** estrela clicável (`☆`/`★`) no card do elenco no lobby —
+  `store.definirLider(sheetId)`. Sempre tem que ter um líder (não dá pra
+  "desligar", só trocar).
+- **Onde aparece hoje:** a cabeça do líder (via retrato — ver seção 15) é o
+  marcador de navegação flutuante na cena (`GangMarker`). Se ele ainda não
+  tem retrato, cai no escudo genérico de sempre.
+- **Visão futura (ainda NÃO implementada — só documentada aqui pra não
+  esquecer):** (1) IA de combate — um aliado tanque, quando existir a
+  mecânica de "proteger", prioriza o líder como alvo de proteção antes de
+  qualquer outro; (2) desafio "líder contra líder" como modalidade de
+  confronto em territórios futuros (não a Pista — pedido explícito do
+  Isaias foi "pra frente", não confundir com o chefe comum de cada bairro).

@@ -100,6 +100,7 @@
 .gang-recruit__head { position: relative; z-index: 2; padding: 0 46px 10px; text-align: center; }
 .gang-recruit__head h1 { margin: 8px 0 5px; color: var(--if-amber); font: 900 30px/.9 var(--font-title); letter-spacing: 2px; text-transform: uppercase; }
 .gang-recruit__head p { margin: 0; color: var(--text-secondary); font-size: 11px; line-height: 1.45; }
+.gang-recruit__aviso-lider { margin: 8px 0 0 !important; color: var(--if-amber) !important; font: 800 10px var(--font-mono) !important; letter-spacing: .04em; }
 .gang-recruit__back { position: absolute; top: 0; left: 10px; width: 34px; height: 34px; border: 1px solid var(--if-hair); background: var(--if-panel); color: var(--if-cyan); font-size: 20px; }
 
 .gang-recruit__stage { position: relative; height: 390px; display: grid; place-items: center; }
@@ -167,6 +168,18 @@
 .gang-fighter-card__team-toggle.is-selected { border-color: var(--if-amber); background: var(--if-amber); color: var(--bg-primary); }
 .gang-fighter-card__team-toggle:disabled { opacity: .55; cursor: not-allowed; }
 
+/* Estrela de líder — mesmo canto do toggle de equipe, empilhada embaixo.
+   Vazia = "tornar líder" (troca na hora, um toque); cheia = já é o líder
+   (continua clicável, mas não faz nada de novo — sempre tem que ter um). */
+.gang-fighter-card__lider-toggle {
+  position: absolute; z-index: 5; top: 46px; right: 13px; width: 30px; height: 30px;
+  display: grid; place-items: center; border: 1px solid var(--if-hair);
+  background: color-mix(in srgb, var(--bg-primary) 78%, transparent); color: var(--text-secondary);
+  font-size: 16px; cursor: pointer;
+  clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 0 100%);
+}
+.gang-fighter-card__lider-toggle.is-lider { border-color: var(--if-cyan); background: var(--if-cyan); color: var(--bg-primary); }
+
 .gang-recruit__arrow { position: absolute; z-index: 5; top: 44%; width: 38px; height: 52px; border: 1px solid var(--if-hair); background: color-mix(in srgb, var(--bg-primary) 86%, transparent); color: var(--if-cyan); font-size: 30px; }
 .gang-recruit__arrow--left { left: 5px; }
 .gang-recruit__arrow--right { right: 5px; }
@@ -196,6 +209,9 @@
 .gang-sheet-modal__hero { min-height: 154px; padding: 12px 112px 10px 4px; position: relative; overflow: hidden; }
 .gang-sheet-modal__hero > span { color: var(--if-cyan); font: 700 10px var(--font-mono); letter-spacing: 2px; }
 .gang-sheet-modal__hero > i { position: absolute; right: 12px; bottom: -14px; color: color-mix(in srgb, var(--if-cyan) 16%, transparent); font: 900 150px/.8 var(--font-title); font-style: normal; }
+/* Retrato de verdade (cabeça, pixel art) no lugar da letra gigante
+   translúcida — mesmo canto, tamanho legível em vez de decoração de fundo. */
+.gang-sheet-modal__retrato { position: absolute; right: 12px; bottom: -6px; width: 130px; height: 130px; object-fit: contain; image-rendering: pixelated; filter: drop-shadow(0 8px 14px rgba(0,0,0,.5)); }
 .gang-sheet-modal__hero small { display: block; margin-top: 28px; color: var(--if-amber); font: 800 9px var(--font-mono); letter-spacing: 2px; text-transform: uppercase; }
 .gang-sheet-modal__hero h2 { position: relative; margin: 2px 0 0; font: 900 38px/.9 var(--font-title); text-transform: uppercase; }
 .gang-sheet-modal__hero p { position: relative; margin: 4px 0 0; color: var(--text-secondary); font: 700 11px var(--font-mono); text-transform: uppercase; }

@@ -95,7 +95,6 @@ export default function Games() {
       </Helmet>
     <div className="extras-page">
       <div className="extras-header">
-        <span className="if-eyebrow">IF // GAMES</span>
         <h1 className="extras-titulo">{t('site.games.titulo')}</h1>
         <p className="extras-subtitulo">{t('site.games.subtitulo')}</p>
       </div>

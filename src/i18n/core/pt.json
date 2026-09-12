@@ -953,7 +953,7 @@
   },
   "calendar": {
     "meta_title": "Calendário da Temporada 1 — Illusion Fight",
-    "kicker": "Protocolo de lançamento // T1",
+    "kicker": "Protocolo de lançamento — T1",
     "title": "O futuro já tem data.",
     "manifesto": "Nada aqui é permanente. Todo capítulo fica gratuito para todo mundo. A única diferença é quando.",
     "cadence": "Toda segunda-feira alternada, sem falhar. Primeiro drop: 30/11/2026.",
@@ -990,7 +990,6 @@
     "earlier_elite": "Assine e leia em"
   },
   "home": {
-    "eyebrow": "PORTAL // TRANSMISSÃO ATIVA",
     "section_latest": "Lançamentos",
     "section_webtoon": "Webtoon",
     "section_webtoon_hint": "Novos episódios e lançamentos",
