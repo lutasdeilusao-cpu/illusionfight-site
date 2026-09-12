@@ -37,6 +37,41 @@
       @media (prefers-reduced-motion: reduce) { #ldi-intro.ldi-intro--play .ldi-intro__logo, #ldi-intro.ldi-intro--play .ldi-intro__word, #ldi-intro.ldi-intro--play .ldi-intro__word::after, #ldi-intro.ldi-intro--play .ldi-intro__bar::before { animation: none; opacity: 1; } }
     </style>
 
+    <!-- Trava de orientação: o produto inteiro é pensado só na vertical (ver Bíblia §1).
+         Não existe API confiável de orientation-lock pra site comum (Screen Orientation
+         API só funciona em PWA instalada em fullscreen, e só no Chrome/Android) — a
+         solução é bloquear visualmente com um overlay quando o aparelho physically gira.
+         hover:none + pointer:coarse restringe a touchscreen (celular/tablet); um desktop
+         com monitor widescreen tem orientation:landscape sempre e não deve ser afetado. -->
+    <style>
+      #ldi-rotate-lock { display: none; }
+      @media (orientation: landscape) and (hover: none) and (pointer: coarse) {
+        #root, #ldi-intro { display: none !important; }
+        #ldi-rotate-lock {
+          display: flex;
+          position: fixed;
+          inset: 0;
+          z-index: 2147483647;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 18px;
+          background: #06080b;
+          color: #f6f8fa;
+          text-align: center;
+          padding: 24px;
+          font-family: 'Rajdhani', 'Segoe UI', sans-serif;
+        }
+        #ldi-rotate-lock svg { width: 60px; height: 60px; animation: ldi-rotate-spin 1.8s ease-in-out infinite; }
+        #ldi-rotate-lock p { margin: 0; font-size: 1rem; font-weight: 600; letter-spacing: .01em; max-width: 300px; }
+      }
+      @keyframes ldi-rotate-spin {
+        0%, 15% { transform: rotate(0deg); }
+        50%, 65% { transform: rotate(-90deg); }
+        100% { transform: rotate(-90deg); }
+      }
+    </style>
+
     <!-- SEO básico -->
     <meta name="description" content="Jogue os games de Illusion Fight: RPG tático, cartas, puzzles, desafios e aventuras no universo LDI.">
     <meta name="keywords" content="illusion fight, lutas de ilusão, webtoon, jogos táticos, arena virtual, ficção científica, LDI">
@@ -134,7 +169,7 @@
       "keywords": "illusion fight, lutas de ilusão, webtoon, jogos táticos, arena virtual, ficção científica"
     }
     </script>
-    <script type="module" crossorigin src="/assets/index-COZfEEJ8.js"></script>
+    <script type="module" crossorigin src="/assets/index-DJ0r6gxL.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/react-GZhdek4G.js">
     <link rel="modulepreload" crossorigin href="/assets/preload-helper-zJ_50EbN.js">
     <link rel="modulepreload" crossorigin href="/assets/supabase-ByYxoL3g.js">
@@ -145,6 +180,27 @@
       <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","name":"Jogos de Illusion Fight","description":"Jogue os games de Illusion Fight: RPG tático, cartas, puzzles, desafios e aventuras no universo LDI.","url":"https://illusionfight.com/games/","inLanguage":"pt-BR"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Illusion Fight","item":"https://illusionfight.com/"},{"@type":"ListItem","position":2,"name":"Jogos de Illusion Fight","item":"https://illusionfight.com/games/"}]}]}</script>
   </head>
   <body>
+    <div id="ldi-rotate-lock" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#00e5ff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="6" y="2" width="12" height="20" rx="2"></rect>
+        <line x1="10" y1="19" x2="14" y2="19"></line>
+      </svg>
+      <p data-rotate-text>Gire seu aparelho — o app funciona só na vertical.</p>
+    </div>
+    <script>
+      (function () {
+        var el = document.querySelector('#ldi-rotate-lock [data-rotate-text]');
+        if (!el) return;
+        var lang = 'pt';
+        try { lang = localStorage.getItem('ldi-locale') || 'pt'; } catch (e) {}
+        var msgs = {
+          pt: 'Gire seu aparelho — o app funciona só na vertical.',
+          en: 'Rotate your device — the app only works in portrait mode.',
+          es: 'Gira tu dispositivo — la app solo funciona en modo vertical.'
+        };
+        el.textContent = msgs[lang] || msgs.pt;
+      })();
+    </script>
     <div id="ldi-intro" aria-hidden="true">
       <img class="ldi-intro__logo" src="/favicon-ldi.png" alt="" width="124" height="124" decoding="sync" fetchpriority="high">
       <p class="ldi-intro__word">LUTAS DE ILUSÃO</p>
