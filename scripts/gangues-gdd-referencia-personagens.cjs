@@ -39,7 +39,7 @@ for (const ch of catalog.characters) {
   // Níveis a mostrar: 1, múltiplos de 5, e qualquer nível com evento de poder
   // que não caia num múltiplo de 5 (pra não perder o marco exato).
   const poderLevels = new Set(ch.levels.filter(l => nonAttrEvents(l).length > 0).map(l => l.level))
-  const grade = new Set([1])
+  const grade = new Set([1, LEVEL_CAP])
   for (let l = 5; l <= LEVEL_CAP; l += 5) grade.add(l)
   for (const l of poderLevels) grade.add(l)
   const niveis = [...grade].sort((a, b) => a - b)

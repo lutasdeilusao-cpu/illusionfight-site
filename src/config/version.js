@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.280.105' // fix: reverte 100% o sistema de custo escalonado por atributo do Gangues, volta pro flat +1/nivel (Isaias pediu, jogou de verdade e se arrependeu: "isso aqui e estilo Ragnarok, todo nivel tem que subir atributo, como era antes"). custoAtributoGangues deletado (nao so desativado), gangues-regen-catalog.cjs reescrito flat e catalogo dos 30 personagens regenerado (0 gaps), GANGUES_CHEFE_BUDGET e precos de equipamento A/H/D voltaram aos valores pre-84094fe, tag "sem_atributo" removida (UI+CSS+i18n x3). PV/PM como atributos separados NAO foi revertido - so o custo escalonado era o problema.
+export const SITE_VERSION = '10.280.106' // docs: GDD sec.17.9 (referencia atributo+poder por nivel dos 30 personagens) regenerada com o catalogo flat pos-revert - estava desatualizada com os numeros do custo escalonado antigo.
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '2.75.35' // fix: revert total do custo escalonado por atributo, volta pro flat +1/nivel pra jogador E inimigo (chefes). Isaias: "vamos retornar pro sistema de nivelamento anterior... descarta totalmente essa ideia, apaga tudo, nao deixa codigo morto". custoAtributoGangues (data/ganguesCharacters.js) deletado; scripts/gangues-regen-catalog.cjs reescrito sem banco de XP/custo, catalogo dos 30 personagens regenerado (0 gaps de atributo verificados, ex: Trinca NV96-99 que antes zerava agora sobe todo nivel); GANGUES_CHEFE_BUDGET (ganguesEncontros.js) e precos de equipamento A/H/D (ganguesEquip.js) voltaram aos valores pre-84094fe; tag "sem_atributo" removida (GanguesVictoryReport.jsx, GanguesProgressionFlow.css, i18n pt/en/es); GDD sec.17.4 reescrita. PV/PM como atributos separados fica como estava (nao era o problema).
+export const GANGUES_VERSION   = '2.75.36' // docs: GDD sec.17.9 regenerada via scripts/gangues-gdd-referencia-personagens.cjs (pedido do Isaias) - tabela por personagem (atributo a cada 5 niveis + nivel exato de cada poder) estava com os numeros antigos do custo escalonado, agora reflete o catalogo flat pos-revert. Script tambem ajustado pra sempre incluir o nivel 99 (teto) na tabela, mesmo sem evento naquele nivel exato.
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
 export const MINIGAMES_VERSION = '4.3.6'  // PuzzleStealthGrid: d-pad na tela sempre (mobile tambem) + grade nao vaza mais do viewport
