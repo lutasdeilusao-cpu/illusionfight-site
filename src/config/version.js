@@ -8,7 +8,7 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.280.94'
+export const SITE_VERSION = '10.280.95' // logos novas por idioma: navbar troca a marca curta (LF em/en, LDI pt/es) em vez do icone generico, rodape ganhou a marca completa por extenso (nao existia nenhuma imagem la antes). Assets antigos (logo-pt.png/logo-en.png, zero uso confirmado) apagados; os 5 novos (3 completas + 2 curtas) otimizados de ~1.5MB pra 27-140KB cada via sharp, em src/assets/images/logos/.
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json

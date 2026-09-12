@@ -8,9 +8,15 @@ import { TRIAL_ACTIVE } from '../config/trial'
 import { useAuth } from '../context/AuthContext'
 import SocialBar from './SocialBar'
 import { trackEvent } from '../lib/analytics'
+import logoMarkEn from '../assets/images/logos/logo-mark-en.png'
+import logoMarkPtEs from '../assets/images/logos/logo-mark-pt-es.png'
 import './Navbar.css'
 
 const LOCALES = ['pt', 'es', 'en']
+// Marca curta do navbar — "LF" em inglês (Illusion Fight), "LDI" em
+// pt/es (Lutas de Ilusão/Luchas de Ilusión). Antes era o ícone genérico
+// (icon-192.png) igual pros 3 idiomas.
+const LOGO_MARK = { en: logoMarkEn, pt: logoMarkPtEs, es: logoMarkPtEs }
 
 export default function Navbar({ hidden, onSearchOpen }) {
   const scrolled = useScrollPosition(20)
@@ -49,7 +55,7 @@ export default function Navbar({ hidden, onSearchOpen }) {
       <nav className={classList}>
         <div className="navbar__inner container">
           <Link to="/" className="navbar__logo">
-            <img src="/icon-192.png" alt="Illusion Fight" className="navbar__logo-img" width="36" height="36" />
+            <img src={LOGO_MARK[locale] || LOGO_MARK.pt} alt="Illusion Fight" className="navbar__logo-img" />
           </Link>
 
           <button

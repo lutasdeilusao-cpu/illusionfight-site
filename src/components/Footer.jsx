@@ -3,7 +3,15 @@ import { Link } from 'react-router-dom'
 import { useLanguage } from '../context/LanguageContext'
 import { trackEvent } from '../lib/analytics'
 import SocialBar from './SocialBar'
+import logoCompletaPt from '../assets/images/logos/logo-completa-pt.png'
+import logoCompletaEn from '../assets/images/logos/logo-completa-en.png'
+import logoCompletaEs from '../assets/images/logos/logo-completa-es.png'
 import './Footer.css'
+
+// Marca completa (wordmark) — só o navbar usava logo até agora (a marca
+// curta "LF"/"LDI"); o rodapé não tinha nenhuma imagem, só texto. Aqui
+// entra a versão por extenso, por idioma.
+const LOGO_COMPLETA = { pt: logoCompletaPt, en: logoCompletaEn, es: logoCompletaEs }
 
 const routeMap = {
   'Histórias': '/historias/',
@@ -25,7 +33,7 @@ const externalMap = {
 }
 
 export default function Footer({ hidden }) {
-  const { t } = useLanguage()
+  const { t, locale } = useLanguage()
   const [openSections, setOpenSections] = useState(new Set())
 
   const colKeys = ['footer.columns.0', 'footer.columns.1', 'footer.columns.2']
@@ -43,6 +51,7 @@ export default function Footer({ hidden }) {
   return (
     <footer className="footer">
       <div className="container">
+        <img className="footer__logo" src={LOGO_COMPLETA[locale] || LOGO_COMPLETA.pt} alt="Illusion Fight" />
         <div className="footer__grid">
           {colKeys.map((colKey, ci) => {
             const links = t(`${colKey}.links`)

@@ -489,7 +489,9 @@
 }
 
 .navbar__logo-img {
-  width: 24px;
+  /* A marca "LF"/"LDI" não é quadrada como o ícone antigo — largura fixa
+     distorcia. height auto + width:auto mantém a proporção real. */
+  width: auto;
   height: 24px;
 }
 
