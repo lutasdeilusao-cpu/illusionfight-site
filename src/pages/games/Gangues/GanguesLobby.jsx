@@ -152,7 +152,6 @@ export default function GanguesLobby({ onNavigate }) {
       {roster.length === 0 ? (
         <section className="gang-onboarding-panel gang-onboarding-panel--solo">
           <div className="gang-onboarding-panel__stamp" aria-hidden="true"><span>LDI</span><b>GANGUES</b></div>
-          <span className="gang-onboarding-step">{t('games.gangues.recruitment.first_mission')}</span>
           <h2>{t('games.gangues.recruitment.assemble')}</h2>
           <p>{t('games.gangues.recruitment.lobby_pitch')}</p>
           <div className="gang-onboarding-panel__slots" aria-hidden="true"><i>?</i><span>+</span><i>?</i></div>

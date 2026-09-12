@@ -97,7 +97,7 @@
         "damage_taken": "DAMAGE TAKEN",
         "final_state": "FINAL GANG STATUS",
         "your_gang": "YOUR GANG",
-        "enemy_gang": "THE MARK'S CREW",
+        "enemy_gang": "RIVAL CREW",
         "initiative_order": "INITIATIVE — H + D3",
         "complete_log": "COMPLETE BATTLE LOG",
         "round_number": "ROUND {n}",
@@ -1497,7 +1497,6 @@
         "quick_desc": "A one-off fight, no map progress."
       },
       "recruitment": {
-        "eyebrow": "STREET RECRUITMENT",
         "title_initial": "BUILD YOUR GANG",
         "title": "RECRUIT MEMBER",
         "subtitle_initial": "Five names answered the call. Examine their sheets and mark the two who will found the gang.",
@@ -1514,7 +1513,6 @@
         "starting_technique": "Starting technique",
         "select": "MARK FOR THE GANG",
         "remove": "REMOVE FROM SELECTION",
-        "first_mission": "FIRST MISSION // RECRUIT",
         "assemble": "YOU CAN'T RULE THE STREETS ALONE",
         "lobby_pitch": "Five fighters heard your gang's name. Enter the meeting point, read each sheet and choose your first two members.",
         "enter": "ENTER THE MEETING POINT"

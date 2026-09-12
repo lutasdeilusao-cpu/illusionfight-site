@@ -97,7 +97,7 @@
         "damage_taken": "DANO RECEBIDO",
         "final_state": "ESTADO FINAL DAS GANGUES",
         "your_gang": "SUA GANGUE",
-        "enemy_gang": "GANGUE DO SOBRINHO",
+        "enemy_gang": "GANGUE RIVAL",
         "initiative_order": "INICIATIVA — H + D3",
         "complete_log": "LOG COMPLETO DA BATALHA",
         "round_number": "RODADA {n}",
@@ -1523,7 +1523,6 @@
         "quick_desc": "Um confronto avulso, sem progresso no mapa."
       },
       "recruitment": {
-        "eyebrow": "RECRUTAMENTO DE RUA",
         "title_initial": "MONTE SUA GANGUE",
         "title": "RECRUTAR MEMBRO",
         "subtitle_initial": "Cinco nomes responderam ao chamado. Examine as fichas e marque os dois que vão fundar a gangue.",
@@ -1540,7 +1539,6 @@
         "starting_technique": "Técnica inicial",
         "select": "MARCAR PARA A GANGUE",
         "remove": "REMOVER DA SELEÇÃO",
-        "first_mission": "PRIMEIRA MISSÃO // RECRUTAR",
         "assemble": "A RUA NÃO SE DOMINA SOZINHO",
         "lobby_pitch": "Cinco lutadores ouviram o nome da sua gangue. Entre no ponto de encontro, leia cada ficha e escolha os dois primeiros membros.",
         "enter": "ENTRAR NO PONTO DE ENCONTRO"

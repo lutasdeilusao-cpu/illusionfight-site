@@ -106,7 +106,6 @@ export default function GanguesCreate({ onNavigate, onCreated }) {
     <main className="gang-recruit">
       <header className="gang-recruit__head">
         <button className="gang-recruit__back" onClick={() => onNavigate('lobby')} aria-label={t('games.gangues.btn_voltar')}>←</button>
-        <span className="if-eyebrow">IF // {t('games.gangues.recruitment.eyebrow')}</span>
         <h1>{initialRecruitment ? t('games.gangues.recruitment.title_initial') : t('games.gangues.recruitment.title')}</h1>
         <p>{t(`games.gangues.recruitment.${initialRecruitment ? 'subtitle_initial' : 'subtitle'}`, { n: required })}</p>
       </header>

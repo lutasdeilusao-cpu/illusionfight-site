@@ -848,12 +848,16 @@
   padding: 6px 12px; background: rgba(0,0,0,0.3); flex-shrink: 0;
 }
 .gang-vs-bar-line { flex: 0 1 24px; height: 1px; background: rgba(255,255,255,0.04); }
+/* Era quase invisível (#2a2a2a em cima de fundo quase preto) — o Isaias
+   reclamou que não dava pra ver o botão de sair/fugir da luta. Agora tem
+   contraste de verdade (tom de alerta, combina com a ação de largar a
+   briga no meio). */
 .gang-vs-bar-back {
-  background: none; border: none; color: #2a2a2a; font-size: 10px;
-  font-family: 'Courier New', monospace; cursor: pointer; letter-spacing: 1px;
+  background: none; border: none; color: #dc5961; font-size: 10px;
+  font-family: 'Courier New', monospace; font-weight: 700; cursor: pointer; letter-spacing: 1px;
   padding: 0; transition: color 0.2s; flex-shrink: 0;
 }
-.gang-vs-bar-back:hover { color: #9aa3ad; }
+.gang-vs-bar-back:hover { color: #ff8189; }
 
 .gang-vs-bar-turn {
   display: flex; align-items: center; gap: 6px; flex: 1; justify-content: center;

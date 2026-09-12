@@ -53,7 +53,6 @@ export default function GanguesNaming({ onDone, modoEdicao = false }) {
 
       <div className="gang-naming-poster">
         <div className="gang-naming-poster__stamp" aria-hidden="true"><span>LDI</span><b>GANGUES</b></div>
-        <span className="if-eyebrow">IF // MARELIA</span>
         <h1 className="gang-modes-titulo">
           {modoEdicao ? t('games.gangues.naming.titulo_editar') : t('games.gangues.naming.titulo')}
         </h1>

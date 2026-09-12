@@ -97,7 +97,7 @@
         "damage_taken": "DAÑO RECIBIDO",
         "final_state": "ESTADO FINAL DE LAS PANDILLAS",
         "your_gang": "TU PANDILLA",
-        "enemy_gang": "LA BANDA DEL GIL",
+        "enemy_gang": "BANDA RIVAL",
         "initiative_order": "INICIATIVA — H + D3",
         "complete_log": "REGISTRO COMPLETO DEL COMBATE",
         "round_number": "RONDA {n}",
@@ -1497,7 +1497,6 @@
         "quick_desc": "Un enfrentamiento suelto, sin progreso en el mapa."
       },
       "recruitment": {
-        "eyebrow": "RECLUTAMIENTO CALLEJERO",
         "title_initial": "FORMA TU BANDA",
         "title": "RECLUTAR MIEMBRO",
         "subtitle_initial": "Cinco nombres respondieron al llamado. Examina sus fichas y marca a los dos que fundarán la banda.",
@@ -1514,7 +1513,6 @@
         "starting_technique": "Técnica inicial",
         "select": "MARCAR PARA LA BANDA",
         "remove": "QUITAR DE LA SELECCIÓN",
-        "first_mission": "PRIMERA MISIÓN // RECLUTAR",
         "assemble": "LA CALLE NO SE DOMINA SOLO",
         "lobby_pitch": "Cinco luchadores oyeron el nombre de tu banda. Entra al punto de encuentro, lee cada ficha y elige a tus dos primeros miembros.",
         "enter": "ENTRAR AL PUNTO DE ENCUENTRO"

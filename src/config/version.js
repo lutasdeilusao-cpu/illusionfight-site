@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.280.80'
+export const SITE_VERSION = '10.280.81'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '2.75.17' // correcao imediata pedida pelo Isaias em cima da v2.75.16: "O INIMIGO TA TRAMANDO" nao tava certo - trocado por SOBRINHO (giria de rua de verdade pro rival/mané que vai apanhar), tambem em enemy_gang (GANGUE INIMIGA -> GANGUE DO SOBRINHO). EN/ES adaptados com giria equivalente (THE MARK / EL GIL, termo argentino pra trouxa). E btn_fugir: nao e FUGIR, e METE O PE (giria de sair correndo) - EN BOUNCE, ES RAJAR (giria argentina de fugir).
+export const GANGUES_VERSION   = '2.75.18' // 3 correcoes pedidas pelo Isaias em cima da v2.75.17: 1) botao METE O PE no topo do combate tava quase invisivel (#2a2a2a em cima de fundo quase preto, cor de placeholder esquecida) - agora tem contraste de verdade (tom de alerta #dc5961); 2) SOBRINHO repetido 2x na mesma tela de combate (enemy_thinking + enemy_gang) ficava redundante - enemy_gang virou GANGUE RIVAL (label coletivo, diferente do indicador individual de turno que continua SOBRINHO), EN RIVAL CREW, ES BANDA RIVAL. Removidas tambem as eyebrows decorativas sem uso real: IF // MARELIA (tela de nomear a gangue), IF // RECRUTAMENTO DE RUA e PRIMEIRA MISSAO // RECRUTAR (telas de recrutamento) - pedido do Isaias, poluiam a tela sem informar nada que o titulo abaixo ja nao dissesse.
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
 export const MINIGAMES_VERSION = '4.3.6'  // PuzzleStealthGrid: d-pad na tela sempre (mobile tambem) + grade nao vaza mais do viewport
