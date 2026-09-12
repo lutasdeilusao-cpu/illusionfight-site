@@ -8,7 +8,7 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.280.102' // fix: vinheta de abertura (#ldi-intro) so cobria o vao entre o HTML estatico de SEO e o React montar no primeiro acesso do dia - em qualquer outra carga ela fazia el.remove() na hora, expondo o texto cru do prerender. Agora sempre cobre: primeiro acesso = show completo (logo animado + som), demais cargas do mesmo dia = modo silencioso (--static, sem som, MIN=0, some assim que ldi:ready dispara).
+export const SITE_VERSION = '10.280.103' // fix: vinheta de abertura detectava "1a carga do dia" (localStorage por data), nao cache de verdade - Isaias pediu pra trocar. Agora prerender-routes.js grava o hash do chunk de entrada em <meta name="ldi-build"> e o script compara com localStorage['ldi-intro-build'] (hash do ultimo build que montou com sucesso). Hash bate = cache hit (deploy nao mudou) = modo silencioso sem som/espera. Hash novo ou 1a visita = cache miss real = show completo.
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
