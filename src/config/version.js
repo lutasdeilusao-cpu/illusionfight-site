@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.280.99' // fix: favicon/icone PWA tinham fundo branco forcado por engano (o PNG fonte era transparente, alpha 0) - o Isaias reportou. Regerado com background alpha:0 no canvas do sharp em vez de branco - confirmado pixel a pixel (canto RGBA 0,0,0,0).
+export const SITE_VERSION = '10.280.100' // fix: mini-mapa (radar) do Gangues comecava expandido em jogo novo - localStorage vazio caia em true; agora só abre se o jogador já tiver optado por deixar aberto.
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '2.75.32' // botao HISTORIA na ficha de recrutamento (pedido do Isaias, com o texto de lore dos 30 personagens pronto). Novo data/ganguesBiografias.js (chave = character_template_id) + components/GanguesFichaBio.jsx (painel que sobe por cima da ficha, quem-e/historia/por-que-recrutar). PT-first de proposito - so a UI ao redor (botao/titulo/fechar) respeita pt/en/es, o texto de lore em si ainda so existe em portugues (traduzir os 30 e trabalho futuro). GDD sec.7.1 documenta a mesma biografia como fonte cruzada. Botao só aparece se o personagem tiver bio cadastrada.
+export const GANGUES_VERSION   = '2.75.33' // fix: mini-mapa (radar) da cena comecava aberto/expandido em jogo novo, deveria comecar recolhido (so a bolinha da bussola). GanguesMiniMapa.jsx: localStorage.getItem(KEY) !== '0' caia em true quando nao havia nada salvo; troquei pra === '1', so abre se o jogador ja escolheu deixar aberto antes.
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
 export const MINIGAMES_VERSION = '4.3.6'  // PuzzleStealthGrid: d-pad na tela sempre (mobile tambem) + grade nao vaza mais do viewport
