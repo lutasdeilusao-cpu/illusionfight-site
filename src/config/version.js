@@ -8,7 +8,7 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.280.101' // feat: trava de orientacao - produto inteiro so vertical. Overlay #ldi-rotate-lock em index.html bloqueia a tela quando o aparelho gira pra landscape (media query orientation:landscape + hover:none + pointer:coarse, restrito a touchscreen pra nao afetar desktop widescreen). manifest.webmanifest ganhou orientation:portrait-primary pra PWA instalada.
+export const SITE_VERSION = '10.280.102' // fix: vinheta de abertura (#ldi-intro) so cobria o vao entre o HTML estatico de SEO e o React montar no primeiro acesso do dia - em qualquer outra carga ela fazia el.remove() na hora, expondo o texto cru do prerender. Agora sempre cobre: primeiro acesso = show completo (logo animado + som), demais cargas do mesmo dia = modo silencioso (--static, sem som, MIN=0, some assim que ldi:ready dispara).
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
