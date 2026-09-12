@@ -233,6 +233,7 @@
       },
       "levelup": {
         "titulo": "¡SUBIÓ DE NIVEL!",
+        "sem_atributo": "Todavía sin atributo — se está juntando pa'l próximo punto",
         "continuar": "Continuar"
       },
       "loadout": {

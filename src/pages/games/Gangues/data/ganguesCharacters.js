@@ -33,7 +33,24 @@ export const GANGUES_ATTRS = ['A', 'H', 'D', 'PV', 'PM']
 /** Custo em XP pra subir o atributo de `valorAtual` pro próximo ponto.
  *  1-5: 1 XP · 6-8: 2 XP · 9-15: 3 XP · 16-20: 5 XP · 21+: 8 XP, +3 a cada
  *  faixa de 5 pontos dali pra frente (21-25: 8 · 26-30: 11 · 31-35: 14 ...).
- *  1 XP = 10 PA (GANGUES_AP_PER_XP) — mesma moeda de sempre. */
+ *  1 XP = 10 PA (GANGUES_AP_PER_XP) — mesma moeda de sempre.
+ *
+ *  ESTA É A REGRA REAL DE CRESCIMENTO DE ATRIBUTO — não é vestígio nem
+ *  ferramenta de bastidor. O gerador de jan/2027 (commit 84094fe5c) já
+ *  criou esta função mas não a usava de verdade: só aplicava +1 flat por
+ *  nível seguindo o growth_order, ignorando o custo — resultado, um
+ *  personagem chegava em atributo alto rápido demais, sem gap nenhum (bug
+ *  que o Isaias flagrou olhando as próprias fichas NV8/NV9). Corrigido em
+ *  set/2026: `levels[]` de cada personagem no catálogo
+ *  (ldi_gangues_30_personagens_v1.json) foi TODO regenerado gastando de
+ *  verdade este custo (ver scripts/gangues-regen-catalog.cjs, na raiz do
+ *  projeto — script de geração, roda fora do bundle, duplica esta fórmula
+ *  porque não faz import direto do módulo da aplicação) — por isso o
+ *  runtime (esta função incluída) não tem NENHUM caller em tempo de
+ *  execução hoje: os números já vêm prontos e corretos no JSON. NÃO APAGAR
+ *  como "morto" numa futura varredura — é a fonte de verdade que gerou os
+ *  dados, e regenerar de novo (novo personagem, rebalance) depende dela.
+ *  Ver GDD §17.4. */
 export function custoAtributoGangues(valorAtual = 0) {
   const v = Math.max(0, Number(valorAtual) || 0)
   if (v <= 4) return 1

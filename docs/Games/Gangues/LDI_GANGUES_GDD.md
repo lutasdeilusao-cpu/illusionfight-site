@@ -848,26 +848,26 @@ Reserva: cada faixa comporta crescer até ~99 sem remapear.
 - **Teto de nível: 99.** Cada um dos 30 personagens tem os **99 níveis autorados**
   no catálogo (`ldi_gangues_30_personagens_v1.json`): níveis 1–10 são os stats
   originais desenhados (balanceamento já simulado); do 11 ao 99 cada personagem
-  **segue o próprio `growth_order`** — +1 atributo por nível, fiel à identidade
-  do caminho (um Bruto termina A altíssimo, um Muralha só D/R, um Resiliente
-  puro R). Nada procedural em runtime. Poderes de assinatura liberam **devagar**
-  (níveis 4 / 12 / 24 / 40) e sobem de rank (→2 nos níveis 52–70, →3 nos 78–96).
-  PV/PM de R pela taxa do caminho. `GANGUES_LEVEL_CAP = 99`.
+  **segue o próprio `growth_order`**, mas o ganho já não é mais +1 atributo
+  garantido por nível — ver §17.4 (custo escalonado por atributo, restaurado
+  em set/2026). Nada procedural em runtime (o catálogo já vem gerado, ver
+  `scripts/gangues-regen-catalog.cjs`). Poderes de assinatura liberam **devagar**
+  (níveis 4 / 12 / 24 / 40) e sobem de rank (→2 nos níveis 52–70, →3 nos 78–96)
+  — isso continua fixo por nível, independente do atributo. `GANGUES_LEVEL_CAP = 99`.
 - **Escada de nível dos 7 chefes** (rev. dez/2026): cada chefe é **pau a pau**
   no nível-alvo — **Pista 15 · Feira 28 · Baixada 42 · Vila 56 · Morro 70 ·
   Alto 84 · Laje 99+** (~14 níveis entre cada). O 7º (Laje) é PAREDÃO: encara no
   L99 e ainda apanha, tem que voltar. Os 7 chefes usam **orçamento de pontos
-  FIXO** (`GANGUES_CHEFE_BUDGET`, não escala com o jogador) — como o crescimento
-  autorado é +1 ponto por nível, 1 ficha nível N = N pontos; o budget de cada
-  chefe ≈ 1.15× o total do time no nível-alvo (`{pista:35, feira:97, baixada:193,
-  vila:322, morro:483, alto:580, laje:700}`). Só a Pista está pra confirmar em
-  playtest; as outras recalibrar com cena + sim próprios. AP por inimigo é
+  FIXO** (`GANGUES_CHEFE_BUDGET`, não escala com o jogador) — RECALIBRADO em
+  set/2026 junto com o custo escalonado por atributo (o custo faz o total de
+  pontos crescer bem mais devagar que o nível agora — NV99 tem ~41 pontos
+  flat, não 99): `{pista:40, feira:84, baixada:138, vila:202, morro:276,
+  alto:302, laje:330}` ≈ 1.15×→1.20× o total do time no nível-alvo. Precisa de
+  novo playtest pra confirmar sensação (a régua toda mudou). AP por inimigo é
   **10 fixo em qualquer modo** (chegou a subir pra 30 no modo história pra
   acompanhar o ritmo dos ~15 eventos de cada bairro, mas o Isaias reverteu em
-  set/2026 — rendia AP demais numa luta só, 2 inimigos já davam 60 AP. A
-  escada de nível dos chefes acima **ainda não foi recalibrada** pro ritmo
-  mais lento de 10/inimigo — pendente). Os chefes carregam `nivel` de fachada.
-  **O Retalho é o único nível 100 do jogo.**
+  set/2026 — rendia AP demais numa luta só, 2 inimigos já davam 60 AP). Os
+  chefes carregam `nivel` de fachada. **O Retalho é o único nível 100 do jogo.**
 - **Estrutura de cada chefe** (rev. Isaias dez/2026 — só a Pista existe hoje, o
   resto é o plano pra quando cada bairro ganhar cena):
   | # | Bairro | Estrutura |
@@ -1182,7 +1182,7 @@ DANO = max(0, FA − FD)   // SEM piso de dano — defesa bem investida pode zer
 - Poderes liberam/sobem via **AP → XP**, não mais via pontos de criação:
   ver §17.4.
 
-### 17.4 Progressão (AP, XP, nível)
+### 17.4 Progressão (AP, XP, nível, custo de atributo)
 
 - **AP por inimigo = 10, fixo em qualquer modo** (história ou Torre) —
   chegou a subir pra 30 no modo história (dez/2026) mas foi revertido
@@ -1190,8 +1190,46 @@ DANO = max(0, FA − FD)   // SEM piso de dano — defesa bem investida pode zer
   Chefe vale 5×; Torre escala +100% a cada 5 andares.
 - **Custo de AP por nível**: `ganguesApCostForLevel(nível) = 5 × (nível + 1)`
   — nível 1 custa 10 AP, nível 2 custa 15, sobe 5 a cada nível
-  (`data/ganguesLoadout.js`). Ao virar XP, o jogador escolhe gastar em
-  poder do subcaminho (nunca mais em atributo livre — isso não existe mais).
+  (`data/ganguesLoadout.js`). 10 AP = 1 XP; 1 XP = 1 nível
+  (`getGanguesLevelFromXp`). Isso continua igual — é só o "quanto custa
+  SUBIR de nível". O que mudou é o que aquele nível te dá.
+- **Custo escalonado por ATRIBUTO — RESTAURADO em set/2026, é o sistema
+  real** (`custoAtributoGangues`, `data/ganguesCharacters.js`): cada ponto de
+  atributo custa mais XP quanto mais alto o atributo já está (1-4→1 XP,
+  5-7→2, 8-14→3, 15-19→5, 20+→8 +3 a cada faixa de 5). O gerador de jan/2027
+  (commit `84094fe5c`) já tinha criado essa função mas NÃO a usava de
+  verdade — só aplicava +1 flat por nível no `growth_order`, sem gate de
+  custo nenhum. O Isaias flagrou isso olhando os próprios personagens
+  (NV8/NV9 sem gap nenhum entre atributos) e pediu a correção de verdade,
+  rejeitando explicitamente a alternativa de só apagar a função morta:
+  *"esquece essa merda de sistema por nível, ele foi criado como teste (...)
+  vai ter nível que nenhum atributo vai subir até acumular PA o suficiente
+  (...) nesse vácuo ele pode ganhar os poderes"*.
+  - Mecânica: cada nível banca +1 XP num "banco" que **acumula entre
+    níveis** (não zera). Assim que o banco alcança o custo do próximo ponto
+    na fila do `growth_order` daquele personagem, gasta e sobe o atributo —
+    podendo estourar e gastar **mais de um ponto no mesmo nível** se o banco
+    tiver ficado parado vários níveis. Resultado: crescimento rápido no
+    início (todo nível dá atributo), cada vez mais espaçado depois (do meio
+    pro fim do nível 99, passam vários níveis "vazios" de atributo).
+  - Os "níveis vazios" de atributo **continuam dando poder normalmente**
+    quando calham de bater num dos marcos autorados (4/12/24/40, ranks
+    52-70/78-96) — atributo e poder são eventos independentes por nível.
+  - `levels[]` dos 30 personagens no catálogo (`ldi_gangues_30_personagens_v1.json`)
+    foi **inteiramente regenerado** aplicando essa regra de verdade —
+    ver `scripts/gangues-regen-catalog.cjs` (script versionado, roda
+    `node scripts/gangues-regen-catalog.cjs` e reescreve o catálogo inteiro;
+    é a fonte de verdade pra rebalancear ou adicionar personagem). Efeito
+    colateral: o total de pontos (`calcularPontosTime`) de uma ficha nível
+    99 caiu de ~99 (assumido antes) pra ~41 (real) — por isso
+    `GANGUES_CHEFE_BUDGET` também foi recalibrado, ver §17.6/§17 nota acima.
+  - **Tela de level-up** (`GanguesVictoryReport.jsx`) agora mostra
+    explicitamente quando um nível não trouxe atributo (tag apagada/tracejada,
+    `games.gangues.levelup.sem_atributo`) — sem isso o jogador lê "subiu de
+    nível" e não vê ganho nenhum, achando que travou.
+  - `'R'` residual em alguns `growth_order` autorados (de antes de PV/PM
+    virarem atributos separados) é mapeado alternando PV/PM pelo gerador —
+    não existe mais como atributo de verdade em lugar nenhum do runtime.
 - **1ª luta de toda conta nova é suavizada** (1 corpo só, metade dos
   pontos) — ver §13/§14 desta bíblia.
 

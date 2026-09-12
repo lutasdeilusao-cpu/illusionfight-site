@@ -233,6 +233,7 @@
       },
       "levelup": {
         "titulo": "SUBIU DE NÍVEL!",
+        "sem_atributo": "Ainda sem atributo — o corpo tá acumulando pro próximo ponto",
         "continuar": "Continuar"
       },
       "loadout": {

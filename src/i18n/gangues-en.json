@@ -233,6 +233,7 @@
       },
       "levelup": {
         "titulo": "LEVEL UP!",
+        "sem_atributo": "No stat gain yet — still banking toward the next point",
         "continuar": "Continue"
       },
       "loadout": {

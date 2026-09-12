@@ -24,6 +24,15 @@ export default function GanguesVictoryReport({
             {levelUps.map(lu => {
               const character = getGanguesCharacter(lu.characterTemplateId)
               const eventos = character ? eventosDoLevelUp(character, lu.fromLevel, lu.toLevel, eventosDoNivel) : []
+              // O custo de atributo agora é escalonado (ver custoAtributoGangues em
+              // data/ganguesCharacters.js) — é normal e ESPERADO subir de nível sem
+              // nenhum atributo junto (o XP fica "bancado" até dar pra pagar o próximo
+              // ponto). Sem esse aviso, o jogador acha que travou/bugou, igual o
+              // Isaias reportou olhando as fichas dele (NV8/NV9 sem gap nenhum antes
+              // desta revisão — pedido dele: "demonstrar de alguma maneira na tela de
+              // level up que sim vc passou de level, mas só daqui um ou dois levels
+              // vc vai sentir a diferença").
+              const temAtributo = eventos.some(evento => evento.type === 'attribute')
               return (
                 <div key={lu.id} className="gang-levelup-entry">
                   <div className="gang-levelup-entry__head">
@@ -32,6 +41,9 @@ export default function GanguesVictoryReport({
                     <span className="gang-levelup-entry__nivel">NV {lu.toLevel}</span>
                   </div>
                   <div className="gang-levelup-entry__eventos">
+                    {!temAtributo && (
+                      <span className="gang-levelup-tag gang-levelup-tag--vazio">{t('games.gangues.levelup.sem_atributo')}</span>
+                    )}
                     {eventos.map((evento, index) => (
                       <span key={index} className={`gang-levelup-tag${evento.type === 'unlock_special' || evento.type === 'special_rank' ? ' gang-levelup-tag--poder' : ''}`}>
                         {evento.type === 'attribute'
