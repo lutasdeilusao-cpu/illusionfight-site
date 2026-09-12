@@ -6,8 +6,9 @@ import './GanguesMiniMapa.css'
 
 /* MINI-MAPA da cena (só na rua). Setinhas apontando pra onde ir — cada
    objetivo pendente vira uma seta no aro do radar, na direção real dele a
-   partir do jogador. Some/aparece: recolhido é só uma bolinha no canto, um
-   toque abre, o "–" fecha de volta pra bolinha. A escolha fica salva.
+   partir do jogador. Some/aparece: começa recolhido, só uma bolinha no
+   canto; um toque abre, o "–" fecha de volta pra bolinha. A escolha fica
+   salva.
 
    Props:
    - player: { x, y }  posição atual no mundo
@@ -19,7 +20,7 @@ const RAIO = 44 // px — onde os marcadores ficam no aro do radar
 export default function GanguesMiniMapa({ player, alvos = [] }) {
   const { t } = useLanguage()
   const [aberto, setAberto] = useState(() => {
-    try { return localStorage.getItem(KEY) !== '0' } catch { return true }
+    try { return localStorage.getItem(KEY) === '1' } catch { return false }
   })
 
   const alternar = (v) => {
