@@ -183,18 +183,21 @@ export default function GanguesCombat({ onNavigate }) {
 
   if (!store.match.playerTeam?.length) return null
 
-  // Alguém do SEU lado tá quase apagando (<=10% PV)? O farol de cada
-  // quadradinho no roster (GanguesCombatRedesign.css .gang-mini-wrap--critico)
-  // some fácil no meio da luta — coberto pelo modal de dado, ficha aberta,
-  // toast de recompensa etc. O Isaias pediu algo "sobre tudo, em tempo
-  // real": uma vinheta na borda da tela inteira, no z-index mais alto do
-  // combate, que nenhum overlay consegue tampar — atualiza sozinha a cada
-  // render porque `players` já é o estado vivo do turno.
-  const algumJogadorCritico = players.some(p => p.pv > 0 && (p.pv / (p.pvMax || 1)) <= 0.10)
+  // Vinheta de PV baixo — o farol de cada quadradinho no roster
+  // (GanguesCombatRedesign.css .gang-mini-wrap--baixo/--critico) some fácil
+  // no meio da luta, coberto pelo modal de dado, ficha aberta, toast etc. O
+  // Isaias pediu "sobre tudo, em tempo real" E a régua certa de farol: <=50%
+  // PV já começa um aviso leve, <=25% já é o efeito pesado/vermelho de "tá
+  // perto de morrer" (não só nos últimos 10%). Duas vinhetas, a mais forte
+  // tem prioridade; atualiza sozinha a cada render (`players` = estado vivo).
+  const menorPvPctJogador = players.reduce((min, p) => p.pv > 0 ? Math.min(min, (p.pv / (p.pvMax || 1)) * 100) : min, 100)
+  const algumJogadorCritico = menorPvPctJogador <= 25
+  const algumJogadorAviso = !algumJogadorCritico && menorPvPctJogador <= 50
 
   return (
     <div className="gang-combat gang-container">
-      {algumJogadorCritico && !result && <div className="gang-critico-vinheta" aria-hidden="true" />}
+      {!result && algumJogadorCritico && <div className="gang-critico-vinheta" aria-hidden="true" />}
+      {!result && algumJogadorAviso && <div className="gang-critico-vinheta gang-critico-vinheta--aviso" aria-hidden="true" />}
       {/* Saída do automático — direto no .gang-combat (fora do wrapper que
           treme no crítico) e com z-index acima de TODOS os overlays
           (dado/KO/resultado usam 9999). Aparece sempre que o auto está

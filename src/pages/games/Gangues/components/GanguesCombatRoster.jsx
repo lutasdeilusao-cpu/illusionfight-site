@@ -19,10 +19,12 @@ export default function GanguesCombatRoster({ members, side, selectable, selecte
         const acted = side === 'player' && member.actedThisRound
         const acting = member.key === actingKey && !dead
         // ── Destaque de dano: barrinha "de sangue" drenando + número flutuante
-        // + aviso quando a vida tá baixa (o Isaias reclamou que morria sem ver).
+        // + farol de vida baixa (o Isaias reclamou que morria sem ver, depois
+        // pediu a régua certa: <=50% já começa aviso leve, <=25% já é efeito
+        // pesado/vermelho de "tá perto de morrer" — não só nos últimos 10%).
         const pvPct = Math.max(0, Math.min(100, (member.pv || 0) / (member.pvMax || 1) * 100))
         const pops = (dmgPops || []).filter(p => p.targetKey === member.key)
-        const baixo = !dead && pvPct <= 20 ? (pvPct <= 10 ? 'gang-mini-wrap--critico' : 'gang-mini-wrap--baixo') : ''
+        const baixo = !dead && pvPct <= 50 ? (pvPct <= 25 ? 'gang-mini-wrap--critico' : 'gang-mini-wrap--baixo') : ''
         const wrapFx = `${pops.length ? ' gang-mini-wrap--hit' : ''}${baixo ? ` ${baixo}` : ''}`
         // No lado do jogador só quem tá agindo AGORA é selecionável de
         // verdade (a ordem de turno decide quem ataca, não o toque) — sem

@@ -31,7 +31,10 @@
 
 /* ══════════════════════════════════════════════════════════════
    DESTAQUE DE DANO — barra "de sangue" drenando, número flutuante,
-   shake de quem apanhou e aviso de vida baixa (pisca).
+   shake de quem apanhou e farol de vida baixa (pisca). Régua (pedido do
+   Isaias): <=50% PV = aviso leve (--baixo, âmbar), <=25% PV = efeito
+   pesado/vermelho de "tá perto de morrer" (--critico) — não só nos
+   últimos 10%.
    ══════════════════════════════════════════════════════════════ */
 .gang-combat .gang-mini-wrap { position:relative; }
 
@@ -62,25 +65,36 @@
 }
 
 /* ══════════════════════════════════════════════════════════════
-   VINHETA DE PV CRÍTICO — pedido do Isaias: o farol do quadradinho
-   (gang-mini-wrap--critico acima) some fácil no meio da luta, tampado por
-   modal de dado/ficha/toast. Isto é uma borda pulsando sobre a tela de
-   combate INTEIRA, no z-index mais alto de todos os overlays de combate
-   (9999/10000 acima) — nada tampa. `pointer-events:none` pra não atrapalhar
-   toque; confinada à coluna mobile (--app-gutter) igual todo fixed do jogo,
-   nunca a janela crua. Liga/desliga sozinha a cada render (React já refaz
-   o cálculo em tempo real conforme o PV muda). ═══════════════════════ */
+   VINHETA DE PV BAIXO — pedido do Isaias: o farol do quadradinho
+   (gang-mini-wrap--baixo/--critico acima) some fácil no meio da luta,
+   tampado por modal de dado/ficha/toast. Isto é uma borda pulsando sobre a
+   tela de combate INTEIRA, no z-index mais alto de todos os overlays de
+   combate (9999/10000 acima) — nada tampa. Duas etapas, mesma régua do
+   roster: <=50% PV = aviso leve (âmbar, pulso lento), <=25% PV = efeito
+   pesado vermelho de "tá perto de morrer" (pulso rápido e mais forte) — só
+   uma aparece de cada vez, a mais grave manda. `pointer-events:none` pra
+   não atrapalhar toque; confinada à coluna mobile (--app-gutter) igual
+   todo fixed do jogo, nunca a janela crua. Liga/desliga sozinha a cada
+   render (React refaz o cálculo em tempo real conforme o PV muda). ══ */
 .gang-critico-vinheta {
   position: fixed; inset: 0; left: var(--app-gutter); right: var(--app-gutter);
   z-index: 10050; pointer-events: none;
   animation: gang-critico-vinheta-pulso 0.9s ease-in-out infinite;
 }
+.gang-critico-vinheta--aviso {
+  animation: gang-aviso-vinheta-pulso 1.6s ease-in-out infinite;
+}
 @keyframes gang-critico-vinheta-pulso {
   0%, 100% { box-shadow: inset 0 0 24px 2px rgba(255,59,59,.15); }
   50% { box-shadow: inset 0 0 46px 6px rgba(255,59,59,.55); }
 }
+@keyframes gang-aviso-vinheta-pulso {
+  0%, 100% { box-shadow: inset 0 0 16px 1px rgba(255,183,77,.10); }
+  50% { box-shadow: inset 0 0 28px 3px rgba(255,183,77,.32); }
+}
 @media (prefers-reduced-motion: reduce) {
   .gang-critico-vinheta { animation: none; box-shadow: inset 0 0 30px 4px rgba(255,59,59,.35); }
+  .gang-critico-vinheta--aviso { box-shadow: inset 0 0 20px 2px rgba(255,183,77,.22); }
 }
 
 /* shake de quem levou o golpe */

@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.280.93'
+export const SITE_VERSION = '10.280.94'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '2.75.30' // vinheta de PV critico em tempo real, sobre TUDO no combate (pedido do Isaias: "tem que aparecer sobre tudo na batlha, quero que demonstre em tempo real"). O farol do quadradinho no roster (gang-mini-wrap--critico) some facil no meio da luta, tampado por modal de dado/ficha/toast. Agora, sempre que algum personagem do jogador esta com PV <=10%, uma borda vermelha pulsando cobre a tela de combate inteira no z-index mais alto de todos os overlays (10050, acima dos 9999/10000 existentes) - pointer-events:none pra nao atrapalhar toque, confinada a --app-gutter como todo fixed do jogo. Liga/desliga sozinha a cada render (estado vivo do turno).
+export const GANGUES_VERSION   = '2.75.31' // farol de PV virou 2 estagios de verdade (pedido do Isaias: "quando cair 50% ja tem que comecar um efeito leve, um warning, ai 25% ja um efeito mais pesado e vermelho mostrando que ja ta perto de morrer"). Antes a regua era so 20%/10% (quase imperceptivel). Agora, em TODO lugar que mostra PV: <=50% = aviso leve (ambar), <=25% = efeito pesado vermelho - roster de combate (GanguesCombatRoster.jsx), ficha modal (GanguesFichaCard.jsx) e a vinheta de tela inteira (GanguesCombat.jsx, adicionada na versao anterior) agora tem as DUAS etapas: vinheta ambar suave em <=50%, vinheta vermelha forte em <=25% (a mais grave manda).
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
 export const MINIGAMES_VERSION = '4.3.6'  // PuzzleStealthGrid: d-pad na tela sempre (mobile tambem) + grade nao vaza mais do viewport

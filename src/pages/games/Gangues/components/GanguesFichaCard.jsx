@@ -34,12 +34,12 @@ export default function GanguesFichaCard({ numero, nome, caminho, subcaminho, ni
         <div className="gang-sheet-modal__resources">
           {pv && (() => {
             // Farol de sangue baixo — mesma régua do roster compacto de combate
-            // (GanguesCombatRoster.jsx: ≤20% âmbar, ≤10% vermelho pulsando). Sem
-            // isso a barra de PV aqui (lobby, cena, popup de combate, progressão)
-            // ficava sempre verde mesmo com o personagem quase inconsciente —
-            // o Isaias pediu esse aviso pra qualquer lugar que mostre PV.
+            // (GanguesCombatRoster.jsx: <=50% aviso leve, <=25% efeito pesado
+            // vermelho de "perto de morrer"). Sem isso a barra de PV aqui
+            // (lobby, cena, popup de combate, progressão) ficava sempre verde
+            // mesmo com o personagem quase inconsciente.
             const pvPct = pv.atual != null ? Math.max(0, Math.min(100, (pv.atual / pv.max) * 100)) : 100
-            const faroClasse = pv.atual != null ? (pvPct <= 10 ? ' gang-ficha-bar--pv-critico' : pvPct <= 20 ? ' gang-ficha-bar--pv-baixo' : '') : ''
+            const faroClasse = pv.atual != null ? (pvPct <= 25 ? ' gang-ficha-bar--pv-critico' : pvPct <= 50 ? ' gang-ficha-bar--pv-baixo' : '') : ''
             return (
               <span>
                 <span className="gang-sheet-modal__resource-row"><small>PV</small><strong>{pv.atual != null ? `${Math.max(0, pv.atual)}/${pv.max}` : pv.max}</strong></span>
