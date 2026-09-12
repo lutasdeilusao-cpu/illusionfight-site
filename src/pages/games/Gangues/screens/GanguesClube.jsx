@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useLanguage } from '../../../../context/LanguageContext'
 import { useGanguesStore } from '../store/useGanguesStore'
+import { getGanguesPortraitByTemplateId } from '../data/ganguesPortraits.js'
 import { sfx } from '../../../../lib/sfx'
 import './GanguesCena.css'
 import './GanguesClube.css'
@@ -157,9 +158,14 @@ export default function GanguesClube({ onNavigate }) {
             <span>{t('games.gangues.clube.roda')}</span>
           </div>
           <div className="gang-clube-luz" />
-          <motion.div className={`gang-world-player is-gang facing-${facing}`} animate={{ left: player.x, top: player.y }} transition={{ duration: TICK / 1000, ease: 'easeOut' }}>
-            <span><i /><i /><i /></span>
-          </motion.div>
+          {(() => {
+            const retrato = getGanguesPortraitByTemplateId(store.getLider()?.character_template_id)
+            return (
+              <motion.div className={`gang-world-player is-gang facing-${facing}${retrato ? ' gang-world-player--retrato' : ''}`} animate={{ left: player.x, top: player.y }} transition={{ duration: TICK / 1000, ease: 'easeOut' }}>
+                <span>{retrato ? <img src={retrato} alt="" /> : <><i /><i /><i /></>}</span><small>{store.gangName || 'GANGUE'}</small>
+              </motion.div>
+            )
+          })()}
         </div>
       </div>
 

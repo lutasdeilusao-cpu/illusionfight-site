@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.280.107' // fix: vinheta de abertura (#ldi-intro) e o overlay de trava de orientacao (#ldi-rotate-lock) ganharam overscroll-behavior:none + touch-action:none (Isaias reportou scroll lateral/embaixo na vinheta ao recarregar). html.ldi-intro-on { overflow:hidden } so bloqueia scroll programatico/wheel - num toque real (Android) o dedo ainda arrasta a pagina e dispara o bounce/rubber-band nativo do navegador, que parece scroll por um instante. Mesma causa raiz ja corrigida no log de combate do Gangues (Gangues.css .gang-log-area, commit anterior) - overscroll-behavior e quem desliga o gesto de verdade.
+export const SITE_VERSION = '10.280.108' // fix: Clube da Luta (GanguesClube.jsx) mostrava o escudo generico no marcador do jogador em vez da cabecinha do lider da gangue - a tela principal (GanguesCena.jsx/GangMarker) ja usa retrato={getGanguesPortraitByTemplateId(store.getLider()?.character_template_id)}, mas o Clube tinha seu proprio marcador duplicado sem essa logica. Portado o mesmo padrao (retrato + fallback pro escudo + label do nome da gangue).
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '2.75.36' // docs: GDD sec.17.9 regenerada via scripts/gangues-gdd-referencia-personagens.cjs (pedido do Isaias) - tabela por personagem (atributo a cada 5 niveis + nivel exato de cada poder) estava com os numeros antigos do custo escalonado, agora reflete o catalogo flat pos-revert. Script tambem ajustado pra sempre incluir o nivel 99 (teto) na tabela, mesmo sem evento naquele nivel exato.
+export const GANGUES_VERSION   = '2.75.37' // fix: marcador do jogador no Clube da Luta (GanguesClube.jsx, tela "Jaula de Espera") voltou a mostrar o escudo generico (<i/><i/><i/>) em vez da cabecinha do lider da gangue - esse arquivo tem seu proprio marcador duplicado (nao reusa o GangMarker de GanguesCenaAtores.jsx), e nunca ganhou a logica de retrato quando ela foi adicionada. Portado retrato={getGanguesPortraitByTemplateId(store.getLider()?.character_template_id)} + label do nome da gangue, identico ao padrao ja usado na cena principal. Confirmado via DOM: marcador agora renderiza <img> com o retrato certo + classe gang-world-player--retrato.
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
 export const MINIGAMES_VERSION = '4.3.6'  // PuzzleStealthGrid: d-pad na tela sempre (mobile tambem) + grade nao vaza mais do viewport
