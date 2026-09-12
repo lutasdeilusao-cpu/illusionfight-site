@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.280.78'
+export const SITE_VERSION = '10.280.79'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '2.75.15' // 1) fix: dado giratorio (DramaticDice) usava requestAnimationFrame, que NAO dispara com a aba/app em segundo plano - o combate travava esperando a revelacao ate o jogador voltar. Trocado por corrente de setTimeout (mesma animacao em 1o plano, continua avancando em 2o plano). Pedido do Isaias: modo automatico tem que continuar lutando sozinho mesmo trocando de app. 2) fix: AP por inimigo no modo historia estava 30 (era 10) - revertido pra 10 fixo em qualquer modo (o Isaias achou 60 AP numa luta de 2 inimigos exagerado). 3) feat: 1a luta de toda conta nova vem suavizada (1 corpo so, metade dos pontos) nao importa nivel/dificuldade - pedido do Isaias: 1a luta perdendo personagem + endividado na birosca de cara e pessimo pra quem esta comecando. So essa vez, da 2a luta em diante volta ao normal (storyProgress.__primeiraLutaFeita). Ver suavizarPrimeiraLuta em ganguesEncontros.js.
+export const GANGUES_VERSION   = '2.75.16' // ajustes de linguagem/UX pedidos pelo Isaias: 1) vitoria "FOI NOS" virou "NOIS E CRIA" (giria de verdade, adaptado tambem em EN/ES); 2) todas as ~25 ocorrencias de "bairro" no pt viraram "quebrada" (falas/lore inclusive, nao so botoes) - bairro soava formal demais pro tema de gangue de rua; 3) removido o cabecalho "RELATORIO // OPERACAO CONCLUIDA/FRACASSADA" da tela de resultado (chaves mission_complete/mission_failed removidas dos 3 idiomas, sem uso); 4) botao "segue no bairro" -> "segue na quebrada", e o botao principal do relatorio (gang-report-primary) trocou de contorno translucido quase invisivel pra preenchido solido com destaque; 5) "INIMIGO ESTA PENSANDO" -> "O INIMIGO TA TRAMANDO" (giria) nos 3 idiomas; 6) botao de sair do combate durante a luta agora usa o rotulo FUGIR (chave btn_fugir, ja traduzida nos 3 idiomas mas orfa) em vez de SAIR, deixando claro que da pra fugir da luta; 7) removido o icone "🅰" (bolinha "A") que aparecia flutuando por cima da bolinha de acao quando o modo automatico tava ligado - era redundante com o anel de destaque (.gang-orb--auto) e o switch claro dentro do menu, que ja avisam e ja permitem desligar.
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
 export const MINIGAMES_VERSION = '4.3.6'  // PuzzleStealthGrid: d-pad na tela sempre (mobile tambem) + grade nao vaza mais do viewport

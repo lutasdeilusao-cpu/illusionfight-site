@@ -12,7 +12,10 @@ export default function GanguesCombatTopBar({
 }) {
   return (
     <div className="gang-vs-bar">
-      <button className="gang-vs-bar-back" onClick={() => onNavigate('territorio')}>{t('games.gangues.btn_sair')}</button>
+      {/* Sair do combate no meio da luta = fugir (nenhuma recompensa, volta
+          direto pra quebrada) — usa o rótulo FUGIR (não SAIR), já traduzido
+          nos 3 idiomas, pra deixar claro que é isso que o botão faz. */}
+      <button className="gang-vs-bar-back" onClick={() => onNavigate('territorio')}>{t('games.gangues.btn_fugir')}</button>
       <div className="gang-vs-bar-line" />
       <span className={`gang-vs-bar-turn ${machine.phase === 'player' ? 'gang-vs-bar-turn--player' : machine.phase === 'enemy' ? 'gang-vs-bar-turn--enemy' : ''}`}>
         {t('games.gangues.loadout.round', { n: modoMultidaoAtivo ? (estadoMultidao?.round || 1) : machine.round })}

@@ -54,7 +54,6 @@ export default function GanguesVictoryReport({
         </div>
       )}
       <motion.header className="gang-report-hero" initial={{ opacity: 0, y: -18 }} animate={{ opacity: 1, y: 0 }}>
-        <span className="gang-report-code">{victory ? t('games.gangues.report.mission_complete') : t('games.gangues.report.mission_failed')}</span>
         <h1>{victory ? t('games.gangues.vitoria') : t('games.gangues.derrota')}</h1>
         <p>{victory ? t('games.gangues.report.victory_message') : t('games.gangues.report.defeat_message')}</p>
       </motion.header>

@@ -158,7 +158,11 @@ export default function GanguesActionOrb({ t, atorNome, disabled, equippedSpecia
         onPointerUp={onPointerUp}
         onPointerCancel={onPointerUp}
       >
-        {open ? '✕' : autoOn ? '🅰' : '👊'}
+        {/* Ícone "🅰" removido (pedido do Isaias) — o anel/glow de
+            .gang-orb--auto já avisa que o automático tá ligado, e o switch
+            claro dentro do menu (autoOn/autoBloqueado acima) já é o jeito
+            simples e destacado de desligar. Bolinha extra era redundante. */}
+        {open ? '✕' : '👊'}
       </motion.button>
     </div>
   )

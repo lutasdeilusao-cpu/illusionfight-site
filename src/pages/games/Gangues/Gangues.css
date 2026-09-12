@@ -2280,8 +2280,11 @@
 /* Ação principal promovida pro topo (logo abaixo do resultado) — o log
    completo da batalha continua embaixo pra quem quiser rolar e conferir. */
 .gang-report-actions--top { padding: 4px 0 14px; }
-.gang-report-primary { border: 1px solid var(--if-teal); background: rgba(0,180,216,0.08); color: var(--if-teal); }
-.gang-report--defeat .gang-report-primary { border-color: #dc3b45; background: rgba(220,59,69,0.08); color: #dc5961; }
+/* Preenchido de propósito (era um contorno translúcido quase invisível em
+   cima do fundo escuro — o Isaias pediu mais destaque, é a ação que leva
+   o jogador pra próxima luta). */
+.gang-report-primary { border: none; background: linear-gradient(135deg, var(--if-teal), #0ea5c4); color: #04222b; font-weight: 900; box-shadow: 0 4px 18px -6px rgba(0,180,216,0.55); }
+.gang-report--defeat .gang-report-primary { background: linear-gradient(135deg, #dc3b45, #b5232c); color: #fff; box-shadow: 0 4px 18px -6px rgba(220,59,69,0.55); }
 .gang-report-secondary { border: 1px solid rgba(245,166,35,0.35); background: transparent; color: var(--if-amber); }
 @media (max-width: 520px) { .gang-report { padding-inline: 10px; } .gang-report-summary { grid-template-columns: repeat(2, 1fr); } .gang-report-summary div:nth-child(2) { border-right: 0; } .gang-report-roster { grid-template-columns: 1fr; } }
 

@@ -76,14 +76,12 @@
       "escolher_oponente": "← ESCOLHER OPONENTE",
       "derrota": "DEU RUIM",
       "derrota_sub": "Quem cai e levanta é quem manda de verdade depois.",
-      "vitoria": "FOI NÓS",
+      "vitoria": "NÓIS É CRIA",
       "vitoria_sub": "Você derrotou <strong>{name}</strong> e provou seu valor na arena.",
       "report": {
-        "enemy_thinking": "INIMIGO ESTÁ PENSANDO",
-        "enemy_strategy": "Analisando o último ataque e escolhendo a melhor estratégia...",
+        "enemy_thinking": "O INIMIGO TÁ TRAMANDO",
+        "enemy_strategy": "Vendo o último golpe e bolando a próxima jogada...",
         "initiative": "ORDEM DE INICIATIVA",
-        "mission_complete": "RELATÓRIO // OPERAÇÃO CONCLUÍDA",
-        "mission_failed": "RELATÓRIO // OPERAÇÃO FRACASSADA",
         "victory_message": "Sua gangue controlou o combate. Analise cada decisão abaixo.",
         "defeat_message": "A gangue caiu, mas o registro mostra onde a luta foi perdida.",
         "rewards_title": "Recompensa",
@@ -676,7 +674,7 @@
         "sala_vazar": "Cair fora",
         "sala_vazar_aviso": "sai da roda carregando os {divida} de dívida",
         "fuga_titulo": "VOCÊ VAZOU",
-        "fuga_texto": "Pulou a tela antes da próxima e se enfiou no meio da rua. Ninguém correu atrás — não precisa. A caderneta do Nato tá contigo agora, gorda do jeito que ficou, e ela te acha em qualquer birosca de qualquer bairro.",
+        "fuga_texto": "Pulou a tela antes da próxima e se enfiou no meio da rua. Ninguém correu atrás — não precisa. A caderneta do Nato tá contigo agora, gorda do jeito que ficou, e ela te acha em qualquer birosca de qualquer quebrada.",
         "sequestro": [
           "Você nem viu de onde veio.",
           "Um pano grosso por cima da cabeça. Um puxão que te arranca do chão.",
@@ -706,7 +704,7 @@
           "Pulou a tela de arame antes da próxima e se enfiou no meio da rua.",
           "Ninguém correu atrás. Não precisa.",
           "A caderneta do Nato tá contigo agora, gorda do jeito que ficou.",
-          "«Ela te acha. Em qualquer birosca. De qualquer bairro.»"
+          "«Ela te acha. Em qualquer birosca. De qualquer quebrada.»"
         ],
         "venceu_titulo": "VOCÊ SAIU INTEIRO",
         "venceu_texto": "Última em pé é você. A plateia ainda grita quando o Nato entra na roda, pega a caderneta e rasga folha por folha na tua cara. \"Tá limpo comigo.\" Te vendam de novo. Acorda numa esquina da Pista com o corpo doendo e o nome zerado.",
@@ -1460,7 +1458,7 @@
         "aparece quando tiver nível, novato",
         "tua gangue toda junta não me pega",
         "esse ponto não é teu. nunca foi",
-        "brigar contigo é perder tempo que eu podia tá tomando bairro",
+        "brigar contigo é perder tempo que eu podia tá tomando quebrada",
         "tô no modo mole ou tu é assim mesmo?",
         "para de tremer e briga direito",
         "esse golpe veio de graça. o próximo é cobrado",
@@ -1579,7 +1577,7 @@
       "story": {
         "new_campaign": "INICIAR NOVA CAMPANHA",
         "entry": "Modo história",
-        "entry_desc": "Sobe Marélia bairro por bairro. Do rato de rua até a Laje.",
+        "entry_desc": "Sobe Marélia quebrada por quebrada. Do rato de rua até a Laje.",
         "titulo": "MARÉLIA SEM DONO",
         "sub": "Antes do Alan, ninguém segurava Marélia. Era gangue em cada esquina, cada uma dona do próprio quarteirão. Um cara — o Retalho — quase juntou tudo. Quase. Agora é a tua vez de tentar.",
         "dominio": "de Marélia",
@@ -1594,13 +1592,13 @@
         "territorio_selecionado": "Território selecionado",
         "entrar_territorio": "Entrar no território",
         "bloqueado_cta": "Domine a rota anterior",
-        "facil_ultimo": "Você acha MESMO que vai encarar o chefão do último bairro jogando no FÁCIL? Ele nem vai se rebaixar pra te ver. No fácil tu vai até o 6º e para por aí — quem quer o topo joga sério. Sobe pro Médio no mínimo, pivete.",
+        "facil_ultimo": "Você acha MESMO que vai encarar o chefão da última quebrada jogando no FÁCIL? Ele nem vai se rebaixar pra te ver. No fácil tu vai até a 6ª e para por aí — quem quer o topo joga sério. Sobe pro Médio no mínimo, pivete.",
         "facil_ultimo_cta": "Subir a dificuldade",
-        "dominado": "Bairro na mão",
+        "dominado": "Quebrada na mão",
         "voltar_mapa": "Mapa",
-        "sem_territorio": "Nenhum bairro selecionado.",
+        "sem_territorio": "Nenhuma quebrada selecionada.",
         "desafiante": "Gangue do ponto",
-        "gangue_dominante": "Gangue dona do bairro",
+        "gangue_dominante": "Gangue dona da quebrada",
         "boss_tag": "O foda da região",
         "boss_de": "manda na {gangue}",
         "confronto_final": "O cara que quase conseguiu",
@@ -1610,7 +1608,7 @@
         "precisa_informante": "🔍 Antes de encarar o foda da Feira, volta na Pista e troca uma ideia com o Duda. Ele sabe umas fita que valem ouro.",
         "brigar": "Brigar",
         "agora_nao": "Agora não",
-        "continuar_territorio": "Segue no bairro",
+        "continuar_territorio": "Segue na quebrada",
         "tentar_de_novo": "Voltar pra cima",
         "dificuldades": {
           "rato": "Rato de rua",
@@ -1664,7 +1662,7 @@
           },
           "costura": {
             "nome": "O Retalho",
-            "fala": "Marélia inteira já foi minha uma vez. Seis bairro na mão, a Laje no pé. Só que essa porra não costura — nem eu segurei. Sobe aqui que eu te mostro na marra."
+            "fala": "Marélia inteira já foi minha uma vez. Seis quebrada na mão, a Laje no pé. Só que essa porra não costura — nem eu segurei. Sobe aqui que eu te mostro na marra."
           }
         },
         "territorios": {
@@ -1694,7 +1692,7 @@
           },
           "laje": {
             "nome": "A Laje",
-            "desc": "O topo. De um lado, Marélia inteira olhando. Do outro, o Retalho — o único que já segurou seis bairro de uma vez. É aqui que se descobre se dá pra segurar sete."
+            "desc": "O topo. De um lado, Marélia inteira olhando. Do outro, o Retalho — o único que já segurou seis quebrada de uma vez. É aqui que se descobre se dá pra segurar sete."
           }
         },
         "falas": {
@@ -1704,8 +1702,8 @@
           "Senta aí, cria, que eu vou te dar o real.",
           "Marélia não tem dono, nunca teve. É facção em cada beco, cada uma se achando o auê do pedaço só porque manda numa rua de nada.",
           "Cê quer subir na vida? Começa aqui embaixo, na Pista — no chão, com os moleque. Toma os ponto dos peixe pequeno, cresce, e depois encara o foda de verdade da região: o dono da bandeira, aquele que ninguém passa por cima.",
-          "Domina um bairro, o de cima libera. Assim vai — bairro por bairro, sangue por sangue, até a Laje.",
-          "Lá em cima tem um tal que ninguém sabe o nome de batismo. Só chamam de O Retalho. Já costurou seis bairro numa bandeira só — coisa que ninguém, NINGUÉM chegou perto de fazer.",
+          "Domina uma quebrada, a de cima libera. Assim vai — quebrada por quebrada, sangue por sangue, até a Laje.",
+          "Lá em cima tem um tal que ninguém sabe o nome de batismo. Só chamam de O Retalho. Já costurou seis quebrada numa bandeira só — coisa que ninguém, NINGUÉM chegou perto de fazer.",
           "Cê vai ter que passar por ele. Não é sobre querer, é sobre aguentar. Boa sorte, cria — vai precisar de mais que sorte."
         ],
         "final": {
@@ -1713,7 +1711,7 @@
           "titulo": "MARÉLIA NÃO SE COSTURA",
           "paragrafos": [
             "A {gangue} derrubou o Retalho na Laje. Marélia inteira viu.",
-            "E aí você entendeu o que ele já sabia. Em duas semana o mapa tava rachado de novo — bairro puxando pra um lado, boca puxando pra outro. Ninguém segura essa cidade. Nem ele segurou. Nem você.",
+            "E aí você entendeu o que ele já sabia. Em duas semana o mapa tava rachado de novo — quebrada puxando pra um lado, boca puxando pra outro. Ninguém segura essa cidade. Nem ele segurou. Nem você.",
             "Anos depois um garoto de cabelo esquisito ia conseguir o que vocês dois não conseguiram. O nome dele era Alan. Mas isso é outra história — e cê tá nela, lá no comecinho."
           ]
         }
@@ -1723,7 +1721,7 @@
         "dif_titulo": "Escolhe o corre",
         "dif_facil": "Fácil",
         "dif_facil_sub": "só de boa",
-        "dif_facil_desc": "O bando vem fraco. Só que no fácil tu vai até o 6º bairro e para — o chefão do último não se rebaixa a encarar pivete. Quer o topo? Sobe pro Médio.",
+        "dif_facil_desc": "O bando vem fraco. Só que no fácil tu vai até a 6ª quebrada e para — o chefão da última não se rebaixa a encarar pivete. Quer o topo? Sobe pro Médio.",
         "dif_medio": "Médio",
         "dif_medio_sub": "de cria",
         "dif_medio_desc": "O jeito que foi pensado. O bando vem na tua medida e o Carvão te recebe. É de cria.",
@@ -1748,7 +1746,7 @@
         "bloqueado": "Bloqueado",
         "liberado": "Liberado",
         "entrar_torre": "ENTRAR NA TORRE",
-        "batalha_bloqueada_desc": "A Torre abre quando você zera a campanha. Primeiro, domine Marélia bairro por bairro.",
+        "batalha_bloqueada_desc": "A Torre abre quando você zera a campanha. Primeiro, domine Marélia quebrada por quebrada.",
         "em_breve": "EM BREVE",
         "multiplayer_titulo": "MULTIPLAYER ONLINE",
         "multiplayer_tag": "Em grupo",
@@ -1800,7 +1798,7 @@
         "renomear": "renomear",
         "abertura": [
           "Então cê tá pensando em montar uma gangue, é? Achando que dá conta das grande de Marélia?",
-          "Toma cuidado com o que cê deseja, cria. Lá em cima tem gente que já comeu bandeira inteira no café da manhã. O Retalho já juntou seis bairro numa mão só — e cê tá aqui, do nada, achando que vai ser diferente.",
+          "Toma cuidado com o que cê deseja, cria. Lá em cima tem gente que já comeu bandeira inteira no café da manhã. O Retalho já juntou seis quebrada numa mão só — e cê tá aqui, do nada, achando que vai ser diferente.",
           "Mas beleza. Só passa não sem nome. Nome de rua vira lenda ou vira piada — e é ele que vão cuspir na tua cara quando cê tiver na Laje, de frente pro foda de verdade. Escolhe direito."
         ]
       },
@@ -1816,14 +1814,14 @@
       "cena": {
         "grana": "Grana",
         "rep": "Nome",
-        "bairro_tomado": "Bairro na mão",
+        "bairro_tomado": "Quebrada na mão",
         "opcional": "de boa",
         "boss_trancado": "Fecha os ponto antes de subir o nível, cria.",
         "recompensa": "Rendeu",
         "treta_nao": "Agora não, sussa",
         "treta_sim": "Partiu porrada",
         "treta_sim_risco": "Vou assim mesmo",
-        "nivel_rec_ocultar": "não me avisa mais nesse bairro",
+        "nivel_rec_ocultar": "não me avisa mais nessa quebrada",
         "nivel_rec_baixo": "Recomendado: tropa no nível {rec}. Contando o equipamento, a tua tá em média no {atual} — vai apanhar feio. Faz uns corre, upa numas tretas mais tranquilas e volta.",
         "evento_tag": "ENCONTRO",
         "evento_sim": "Encara",
@@ -1916,7 +1914,7 @@
             "nome": "O beco da Rasteira",
             "sub": "ponto da Rato de Pista",
             "fala": [
-              "Esse beco é da Rato de Pista, parça. A gente não quer subir, não quer teu bairro, não quer ser dono de nada — só não quer ser pisado. E gangue novinha que desce achando que é dona da rua... essa aqui é pisada, sem choro.",
+              "Esse beco é da Rato de Pista, parça. A gente não quer subir, não quer tua quebrada, não quer ser dono de nada — só não quer ser pisado. E gangue novinha que desce achando que é dona da rua... essa aqui é pisada, sem choro.",
               "Ó quem chegou. Bando novinho achando que Pista é playground.",
               "De novo essa cara aqui? Vai que dessa vez cê aprende."
             ]
@@ -2025,10 +2023,10 @@
           },
           "sinaleiro": {
             "nome": "O Sinaleiro Chefe",
-            "sub": "se ele apita, o bairro inteiro corre",
+            "sub": "se ele apita, a quebrada inteira corre",
             "fala": [
               "Eu comando os olho da Pista inteira, cria. Cada vigia, cada sinal, cada pivete no farol responde é pro meu apito. Cê passou por todos eles sem ninguém apitar — mas por mim cê não passa não. Comigo é diferente.",
-              "Eu apito, o bairro inteiro corre pra ajudar. Cê apita pra quem?",
+              "Eu apito, a quebrada inteira corre pra ajudar. Cê apita pra quem?",
               "Achou que ia ser fácil na segunda vez? Errado, cria."
             ]
           },
@@ -2231,7 +2229,7 @@
         "1412": "Trabalha direto pro Contador.",
         "1413": "Poucos ataques, mas certeiros.",
         "1414": "Fecha a conta de quem tenta subir sem pagar passagem.",
-        "1451": "Comanda todos os vigias — se ele apita, o bairro corre.",
+        "1451": "Comanda todos os vigias — se ele apita, a quebrada corre.",
         "1452": "A mais antiga do Bonde do Sinal, treinou os pivete novo.",
         "1453": "Braço mais próximo do Cobrador, resolve o que ele não suja a mão.",
         "1454": "Guarda o dinheiro da Feira inteira.",
@@ -2251,7 +2249,7 @@
         "1503": "Mora no último dos dez andares — quem sobe já chega cansado.",
         "1504": "Criou metade da criançada da região. Sabe onde bater pra doer sem machucar.",
         "1505": "Não briga por raiva — briga porque a conta fecha assim.",
-        "1600": "O único que já segurou seis bairros de uma vez."
+        "1600": "O único que já segurou seis quebradas de uma vez."
       },
       "album": {
         "titulo": "Coleção",
@@ -2260,7 +2258,7 @@
         "bloqueado": "???",
         "ainda_nao": "Ainda não caiu na sua frente.",
         "arma_label": "Arma",
-        "terr_label": "Bairro",
+        "terr_label": "Quebrada",
         "voltar": "Voltar",
         "secoes": {
           "inimigos": "Inimigos",
@@ -2269,7 +2267,7 @@
         },
         "itens_consumivel": "Consumível",
         "itens_equip": "Equipamento",
-        "item_dica_loja": "Compra numa loja de bairro.",
+        "item_dica_loja": "Compra numa loja de quebrada.",
         "item_dica_drop": "Drop — cai de chefe ou de treta.",
         "item_dica_quest": "Ganha resolvendo um corre da quebrada.",
         "cartas_explica": "Cartas de socket encaixam em equipamento e dão bônus extra — estilo carta de mestre. Vêm do sistema de drop, que chega numa atualização futura.",
