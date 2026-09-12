@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.280.89'
+export const SITE_VERSION = '10.280.90'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '2.75.26' // custo escalonado por atributo RESTAURADO como sistema real (pedido do Isaias, apos flagrar NV8/NV9 sem gap nenhum de atributo: "esquece essa merda de sistema por nivel, foi criado como teste... vai ter nivel que nenhum atributo vai subir ate acumular PA o suficiente... nesse vacuo ele pode ganhar os poderes"). custoAtributoGangues (data/ganguesCharacters.js) ja existia desde jan/2027 mas nunca era usado de verdade pelo gerador do catalogo - so aplicava +1 flat por nivel no growth_order. Escrito scripts/gangues-regen-catalog.cjs (versionado, idempotente) que regenera os 99 niveis dos 30 personagens gastando o custo de verdade (banco de XP acumula entre niveis ate dar pra pagar o proximo ponto do growth_order daquele personagem; eventos de poder - 4/12/24/40 + ranks - continuam 100% independentes e preservados). Efeito: personagem NV99 tem ~41 pontos flat agora, nao ~99 - por isso GANGUES_CHEFE_BUDGET (data/ganguesEncontros.js) tambem foi recalibrado pra essa curva real (era calibrado assumindo 1 ponto por nivel, ficaria impossivel de vencer chefe de territorio alto sem isso). Tela de level-up (GanguesVictoryReport.jsx) agora avisa explicitamente quando um nivel nao trouxe atributo (tag apagada "sem_atributo" em pt/en/es), pra nao parecer bug. GDD sec.17.4 reescrita com a mecanica real. Build ok.
+export const GANGUES_VERSION   = '2.75.27' // fix: radar/minimapa da cena somava --app-gutter em cima de um pai que ja e a coluna mobile confinada (mesma base do header .gang-cena-worldhud, que usa so left/right:12px sem gutter) - duplicava o recuo e em telas largas empurrava o radar pra fora/torto (reportado pelo Isaias: "radar fora da tela, no lugar errado"). GanguesMiniMapa.css: right: calc(var(--app-gutter)+12px) -> right:12px. Tambem adicionada a secao 17.9 no GDD: tabela de referencia completa (atributos a cada 5 niveis + nivel exato de cada poder) dos 30 personagens, gerada via novo script scripts/gangues-gdd-referencia-personagens.cjs (versionado, roda de novo apos qualquer regeracao do catalogo).
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
 export const MINIGAMES_VERSION = '4.3.6'  // PuzzleStealthGrid: d-pad na tela sempre (mobile tambem) + grade nao vaza mais do viewport

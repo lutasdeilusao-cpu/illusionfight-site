@@ -6,7 +6,12 @@
 .gang-minimapa-bolinha {
   position: absolute;
   z-index: 28;
-  right: calc(var(--app-gutter, 0px) + 12px);
+  /* SEM --app-gutter aqui: o pai (.gang-cena-worldpage) já é a coluna mobile
+     confinada (mesma base que o header .gang-cena-worldhud, que usa só
+     left/right:12px) — somar o gutter de novo empurrava o radar pra dentro
+     em telas largas, a ponto de sumir/ficar torto (bug reportado pelo
+     Isaias: "radar fora da tela, no lugar errado"). */
+  right: 12px;
   top: calc(max(12px, env(safe-area-inset-top, 0px) + 8px) + 50px);
 }
 

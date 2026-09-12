@@ -1309,3 +1309,1036 @@ src/pages/games/Gangues/
 `GANGUES_DESIGN.md`/`GANGUES_HEADSUP.md`/`GANGUES_PROGRESSAO_RASCUNHO.md`/
 `GANGUES_MODO_HISTORIA_ENCONTROS.md` deveria apontar pra esta seção do GDD
 a partir de agora — os 4 arquivos foram removidos do repositório.
+
+### 17.9 Referência completa — atributos e poderes por personagem (a cada 5 níveis)
+
+Pedido do Isaias: ver como cada um dos 30 personagens evolui, atributo por
+atributo, a cada 5 níveis até o teto (99), e em qual nível exato cada poder
+abre/sobe de rank. Gerado direto do catálogo real
+(`ldi_gangues_30_personagens_v1.json`) via
+`scripts/gangues-gdd-referencia-personagens.cjs` — **rodar esse script de
+novo e colar a saída aqui sempre que o catálogo for regenerado**
+(`scripts/gangues-regen-catalog.cjs`), senão esta tabela fica desatualizada.
+Colunas Osso/Gás = PV/PM (ver §17.1). Linhas fora do múltiplo de 5 aparecem
+só quando cai um poder exatamente naquele nível (pra não perder o marco).
+
+### Trinca — atacante (bruto)
+
+| Nível | A | H | D | Osso | Gás | Poder/evento neste nível |
+|---|---|---|---|---|---|---|
+| 1 | 2 | 0 | 1 | 2 | 2 | Técnica base (class_basic) |
+| 4 | 4 | 0 | 1 | 3 | 2 | ⚡ abre **soco_de_ferro** |
+| 5 | 4 | 0 | 2 | 3 | 2 | — |
+| 10 | 6 | 0 | 2 | 4 | 2 | ★ O Quebra-Linha |
+| 12 | 7 | 0 | 3 | 4 | 2 | ⚡ abre **peso_bruto** |
+| 15 | 8 | 0 | 3 | 4 | 2 | — |
+| 20 | 9 | 0 | 3 | 5 | 2 | — |
+| 24 | 10 | 0 | 4 | 5 | 2 | ⚡ abre **marreta** |
+| 25 | 11 | 0 | 4 | 5 | 2 | — |
+| 30 | 12 | 0 | 4 | 6 | 2 | — |
+| 35 | 13 | 0 | 5 | 6 | 2 | — |
+| 40 | 15 | 0 | 5 | 6 | 2 | ⚡ abre **fim_de_linha** |
+| 45 | 15 | 0 | 5 | 7 | 2 | — |
+| 50 | 16 | 0 | 6 | 7 | 2 | ⚡ abre **avalanche_de_socos** |
+| 52 | 16 | 0 | 6 | 7 | 2 | ⬆ **soco_de_ferro** vira rank 2 |
+| 55 | 17 | 0 | 6 | 7 | 2 | — |
+| 58 | 17 | 0 | 6 | 7 | 2 | ⬆ **peso_bruto** vira rank 2 |
+| 60 | 18 | 0 | 6 | 7 | 2 | — |
+| 64 | 18 | 0 | 6 | 8 | 2 | ⬆ **marreta** vira rank 2 |
+| 65 | 18 | 0 | 6 | 8 | 2 | — |
+| 70 | 19 | 0 | 7 | 8 | 2 | ⬆ **fim_de_linha** vira rank 2 |
+| 75 | 20 | 0 | 7 | 8 | 2 | — |
+| 78 | 20 | 0 | 7 | 8 | 2 | ⬆ **soco_de_ferro** vira rank 3 |
+| 80 | 20 | 0 | 7 | 8 | 2 | — |
+| 84 | 21 | 0 | 7 | 9 | 2 | ⬆ **peso_bruto** vira rank 3 |
+| 85 | 21 | 0 | 7 | 9 | 2 | — |
+| 90 | 21 | 0 | 7 | 9 | 2 | ⬆ **marreta** vira rank 3 |
+| 95 | 22 | 0 | 8 | 9 | 2 | — |
+| 96 | 22 | 0 | 8 | 9 | 2 | ⬆ **fim_de_linha** vira rank 3 |
+
+### Marreta — atacante (bruto)
+
+| Nível | A | H | D | Osso | Gás | Poder/evento neste nível |
+|---|---|---|---|---|---|---|
+| 1 | 3 | 0 | 1 | 1 | 1 | Técnica base (class_basic) |
+| 4 | 5 | 1 | 1 | 1 | 1 | ⚡ abre **investida** |
+| 5 | 5 | 1 | 1 | 2 | 1 | — |
+| 10 | 7 | 2 | 1 | 2 | 1 | ★ Demolidor |
+| 12 | 8 | 2 | 1 | 2 | 1 | ⚡ abre **peso_bruto** |
+| 15 | 8 | 2 | 1 | 3 | 1 | — |
+| 20 | 10 | 3 | 1 | 3 | 1 | — |
+| 24 | 11 | 3 | 1 | 4 | 1 | ⚡ abre **marreta** |
+| 25 | 11 | 3 | 1 | 4 | 1 | — |
+| 30 | 13 | 3 | 1 | 4 | 1 | — |
+| 35 | 14 | 4 | 1 | 5 | 1 | — |
+| 40 | 15 | 4 | 1 | 5 | 1 | ⚡ abre **fim_de_linha** |
+| 45 | 16 | 5 | 1 | 5 | 1 | — |
+| 50 | 17 | 5 | 1 | 5 | 1 | ⚡ abre **britadeira** |
+| 52 | 17 | 5 | 1 | 6 | 1 | ⬆ **investida** vira rank 2 |
+| 55 | 17 | 5 | 1 | 6 | 1 | — |
+| 58 | 18 | 5 | 1 | 6 | 1 | ⬆ **peso_bruto** vira rank 2 |
+| 60 | 18 | 5 | 1 | 6 | 1 | — |
+| 64 | 19 | 6 | 1 | 6 | 1 | ⬆ **marreta** vira rank 2 |
+| 65 | 19 | 6 | 1 | 6 | 1 | — |
+| 70 | 20 | 6 | 1 | 7 | 1 | ⬆ **fim_de_linha** vira rank 2 |
+| 75 | 20 | 6 | 1 | 7 | 1 | — |
+| 78 | 21 | 6 | 1 | 7 | 1 | ⬆ **investida** vira rank 3 |
+| 80 | 21 | 6 | 1 | 7 | 1 | — |
+| 84 | 21 | 6 | 1 | 7 | 1 | ⬆ **peso_bruto** vira rank 3 |
+| 85 | 21 | 6 | 1 | 7 | 1 | — |
+| 90 | 22 | 7 | 1 | 7 | 1 | ⬆ **marreta** vira rank 3 |
+| 95 | 22 | 7 | 1 | 7 | 1 | — |
+| 96 | 23 | 7 | 1 | 7 | 1 | ⬆ **fim_de_linha** vira rank 3 |
+
+### Fenda — atacante (duelista)
+
+| Nível | A | H | D | Osso | Gás | Poder/evento neste nível |
+|---|---|---|---|---|---|---|
+| 1 | 2 | 2 | 0 | 1 | 1 | Técnica base (class_basic) |
+| 4 | 3 | 4 | 0 | 1 | 1 | ⚡ abre **golpe_certeiro** |
+| 5 | 3 | 4 | 1 | 1 | 1 | — |
+| 10 | 5 | 6 | 1 | 1 | 1 | ★ Primeiro Corte |
+| 12 | 5 | 6 | 2 | 1 | 1 | ⚡ abre **leitura_de_combate** |
+| 15 | 6 | 7 | 2 | 1 | 1 | — |
+| 20 | 7 | 8 | 3 | 1 | 1 | — |
+| 24 | 8 | 8 | 3 | 1 | 1 | ⚡ abre **marca** |
+| 25 | 8 | 9 | 3 | 1 | 1 | — |
+| 30 | 9 | 9 | 3 | 1 | 1 | — |
+| 35 | 10 | 10 | 4 | 1 | 1 | — |
+| 40 | 10 | 11 | 4 | 1 | 1 | ⚡ abre **execucao** |
+| 45 | 11 | 12 | 5 | 1 | 1 | — |
+| 50 | 12 | 12 | 5 | 1 | 1 | ⚡ abre **corte_preciso** |
+| 52 | 12 | 13 | 5 | 1 | 1 | ⬆ **golpe_certeiro** vira rank 2 |
+| 55 | 13 | 13 | 5 | 1 | 1 | — |
+| 58 | 13 | 14 | 5 | 1 | 1 | ⬆ **leitura_de_combate** vira rank 2 |
+| 60 | 13 | 14 | 6 | 1 | 1 | — |
+| 64 | 14 | 14 | 6 | 1 | 1 | ⬆ **marca** vira rank 2 |
+| 65 | 14 | 15 | 6 | 1 | 1 | — |
+| 70 | 15 | 15 | 6 | 1 | 1 | ⬆ **execucao** vira rank 2 |
+| 75 | 15 | 16 | 7 | 1 | 1 | — |
+| 78 | 15 | 16 | 7 | 1 | 1 | ⬆ **golpe_certeiro** vira rank 3 |
+| 80 | 16 | 16 | 7 | 1 | 1 | — |
+| 84 | 16 | 16 | 7 | 1 | 1 | ⬆ **leitura_de_combate** vira rank 3 |
+| 85 | 16 | 17 | 7 | 1 | 1 | — |
+| 90 | 17 | 17 | 7 | 1 | 1 | ⬆ **marca** vira rank 3 |
+| 95 | 17 | 18 | 7 | 1 | 1 | — |
+| 96 | 17 | 18 | 7 | 1 | 1 | ⬆ **execucao** vira rank 3 |
+
+### Navalha — atacante (duelista)
+
+| Nível | A | H | D | Osso | Gás | Poder/evento neste nível |
+|---|---|---|---|---|---|---|
+| 1 | 1 | 3 | 0 | 1 | 1 | Técnica base (class_basic) |
+| 4 | 2 | 5 | 0 | 1 | 1 | ⚡ abre **fluidez** |
+| 5 | 3 | 5 | 0 | 1 | 1 | — |
+| 10 | 4 | 6 | 1 | 1 | 1 | ★ Sem Aviso |
+| 12 | 5 | 7 | 1 | 1 | 1 | ⚡ abre **leitura_de_combate** |
+| 15 | 5 | 8 | 2 | 1 | 1 | — |
+| 20 | 6 | 9 | 2 | 1 | 1 | — |
+| 24 | 7 | 9 | 3 | 1 | 1 | ⚡ abre **golpe_certeiro** |
+| 25 | 7 | 9 | 3 | 1 | 1 | — |
+| 30 | 8 | 10 | 3 | 1 | 1 | — |
+| 35 | 9 | 11 | 4 | 1 | 1 | — |
+| 40 | 9 | 12 | 4 | 1 | 1 | ⚡ abre **execucao** |
+| 45 | 10 | 13 | 4 | 1 | 1 | — |
+| 50 | 11 | 13 | 5 | 1 | 1 | ⚡ abre **danca_da_lamina** |
+| 52 | 11 | 14 | 5 | 1 | 1 | ⬆ **fluidez** vira rank 2 |
+| 55 | 12 | 14 | 5 | 1 | 1 | — |
+| 58 | 12 | 15 | 5 | 1 | 1 | ⬆ **leitura_de_combate** vira rank 2 |
+| 60 | 13 | 15 | 5 | 1 | 1 | — |
+| 64 | 13 | 15 | 6 | 1 | 1 | ⬆ **golpe_certeiro** vira rank 2 |
+| 65 | 13 | 15 | 6 | 1 | 1 | — |
+| 70 | 14 | 16 | 6 | 1 | 1 | ⬆ **execucao** vira rank 2 |
+| 75 | 14 | 17 | 6 | 1 | 1 | — |
+| 78 | 15 | 17 | 6 | 1 | 1 | ⬆ **fluidez** vira rank 3 |
+| 80 | 15 | 17 | 7 | 1 | 1 | — |
+| 84 | 15 | 17 | 7 | 1 | 1 | ⬆ **leitura_de_combate** vira rank 3 |
+| 85 | 15 | 18 | 7 | 1 | 1 | — |
+| 90 | 16 | 18 | 7 | 1 | 1 | ⬆ **golpe_certeiro** vira rank 3 |
+| 95 | 16 | 19 | 7 | 1 | 1 | — |
+| 96 | 16 | 19 | 7 | 1 | 1 | ⬆ **execucao** vira rank 3 |
+
+### Touro — atacante (furia)
+
+| Nível | A | H | D | Osso | Gás | Poder/evento neste nível |
+|---|---|---|---|---|---|---|
+| 1 | 2 | 0 | 0 | 3 | 3 | Técnica base (class_basic) |
+| 4 | 3 | 0 | 0 | 4 | 4 | ⚡ abre **sangue_fervente** |
+| 5 | 4 | 0 | 0 | 4 | 4 | — |
+| 10 | 5 | 0 | 1 | 5 | 5 | ★ Último de Pé |
+| 12 | 6 | 0 | 2 | 5 | 5 | ⚡ abre **grito_de_guerra** |
+| 15 | 6 | 0 | 2 | 6 | 5 | — |
+| 20 | 8 | 0 | 2 | 6 | 6 | — |
+| 24 | 8 | 0 | 3 | 7 | 6 | ⚡ abre **ignorar_a_dor** |
+| 25 | 8 | 0 | 3 | 7 | 6 | — |
+| 30 | 9 | 0 | 3 | 7 | 7 | — |
+| 35 | 10 | 0 | 4 | 8 | 7 | — |
+| 40 | 11 | 0 | 4 | 8 | 8 | ⚡ abre **ultima_investida** |
+| 45 | 12 | 0 | 5 | 8 | 8 | — |
+| 50 | 13 | 0 | 5 | 9 | 8 | ⚡ abre **furia_cega** |
+| 52 | 13 | 0 | 5 | 9 | 9 | ⬆ **sangue_fervente** vira rank 2 |
+| 55 | 14 | 0 | 5 | 9 | 9 | — |
+| 58 | 14 | 0 | 6 | 9 | 9 | ⬆ **grito_de_guerra** vira rank 2 |
+| 60 | 14 | 0 | 6 | 10 | 9 | — |
+| 64 | 15 | 0 | 6 | 10 | 9 | ⬆ **ignorar_a_dor** vira rank 2 |
+| 65 | 15 | 0 | 6 | 10 | 9 | — |
+| 70 | 15 | 0 | 6 | 10 | 10 | ⬆ **ultima_investida** vira rank 2 |
+| 75 | 16 | 0 | 7 | 10 | 10 | — |
+| 78 | 16 | 0 | 7 | 11 | 10 | ⬆ **sangue_fervente** vira rank 3 |
+| 80 | 16 | 0 | 7 | 11 | 10 | — |
+| 84 | 17 | 0 | 7 | 11 | 11 | ⬆ **grito_de_guerra** vira rank 3 |
+| 85 | 17 | 0 | 7 | 11 | 11 | — |
+| 90 | 18 | 0 | 7 | 11 | 11 | ⬆ **ignorar_a_dor** vira rank 3 |
+| 95 | 18 | 0 | 8 | 12 | 11 | — |
+| 96 | 18 | 0 | 8 | 12 | 11 | ⬆ **ultima_investida** vira rank 3 |
+
+### Sangue — atacante (furia)
+
+| Nível | A | H | D | Osso | Gás | Poder/evento neste nível |
+|---|---|---|---|---|---|---|
+| 1 | 3 | 1 | 0 | 1 | 1 | Técnica base (class_basic) |
+| 4 | 5 | 1 | 0 | 2 | 1 | ⚡ abre **grito_de_guerra** |
+| 5 | 5 | 2 | 0 | 2 | 1 | — |
+| 10 | 7 | 2 | 0 | 3 | 1 | ★ Tudo ou Nada |
+| 12 | 8 | 2 | 0 | 3 | 1 | ⚡ abre **sangue_fervente** |
+| 15 | 8 | 3 | 0 | 3 | 1 | — |
+| 20 | 10 | 3 | 0 | 4 | 1 | — |
+| 24 | 11 | 4 | 0 | 4 | 1 | ⚡ abre **folego_final** |
+| 25 | 11 | 4 | 0 | 4 | 1 | — |
+| 30 | 13 | 4 | 0 | 4 | 1 | — |
+| 35 | 14 | 5 | 0 | 5 | 1 | — |
+| 40 | 15 | 5 | 0 | 5 | 1 | ⚡ abre **ultima_investida** |
+| 45 | 16 | 5 | 0 | 6 | 1 | — |
+| 50 | 17 | 5 | 0 | 6 | 1 | ⚡ abre **instinto_de_sangue** |
+| 52 | 17 | 6 | 0 | 6 | 1 | ⬆ **grito_de_guerra** vira rank 2 |
+| 55 | 17 | 6 | 0 | 6 | 1 | — |
+| 58 | 18 | 6 | 0 | 6 | 1 | ⬆ **sangue_fervente** vira rank 2 |
+| 60 | 18 | 6 | 0 | 6 | 1 | — |
+| 64 | 19 | 6 | 0 | 7 | 1 | ⬆ **folego_final** vira rank 2 |
+| 65 | 19 | 6 | 0 | 7 | 1 | — |
+| 70 | 20 | 6 | 0 | 7 | 1 | ⬆ **ultima_investida** vira rank 2 |
+| 75 | 20 | 7 | 0 | 7 | 1 | — |
+| 78 | 20 | 7 | 0 | 7 | 1 | ⬆ **grito_de_guerra** vira rank 3 |
+| 80 | 21 | 7 | 0 | 7 | 1 | — |
+| 84 | 21 | 7 | 0 | 7 | 1 | ⬆ **sangue_fervente** vira rank 3 |
+| 85 | 21 | 7 | 0 | 7 | 1 | — |
+| 90 | 22 | 7 | 0 | 8 | 1 | ⬆ **folego_final** vira rank 3 |
+| 95 | 22 | 7 | 0 | 8 | 1 | — |
+| 96 | 22 | 7 | 0 | 8 | 1 | ⬆ **ultima_investida** vira rank 3 |
+
+### Mira — atacante (especialista)
+
+| Nível | A | H | D | Osso | Gás | Poder/evento neste nível |
+|---|---|---|---|---|---|---|
+| 1 | 2 | 2 | 0 | 1 | 1 | Técnica base (class_basic) |
+| 4 | 3 | 3 | 1 | 1 | 1 | ⚡ abre **precisao_absoluta** |
+| 5 | 3 | 4 | 1 | 1 | 1 | — |
+| 10 | 5 | 5 | 2 | 1 | 1 | ★ Cirúrgica |
+| 12 | 5 | 6 | 2 | 1 | 1 | ⚡ abre **ponto_de_pressao** |
+| 15 | 6 | 7 | 2 | 1 | 1 | — |
+| 20 | 7 | 8 | 3 | 1 | 1 | — |
+| 24 | 8 | 8 | 3 | 1 | 1 | ⚡ abre **foco_cirurgico** |
+| 25 | 8 | 9 | 3 | 1 | 1 | — |
+| 30 | 9 | 9 | 4 | 1 | 1 | — |
+| 35 | 10 | 10 | 4 | 1 | 1 | — |
+| 40 | 10 | 11 | 4 | 1 | 1 | ⚡ abre **colapso_mental** |
+| 45 | 11 | 12 | 5 | 1 | 1 | — |
+| 50 | 12 | 12 | 5 | 1 | 1 | ⚡ abre **tiro_certeiro** |
+| 52 | 12 | 13 | 5 | 1 | 1 | ⬆ **precisao_absoluta** vira rank 2 |
+| 55 | 13 | 13 | 5 | 1 | 1 | — |
+| 58 | 13 | 13 | 6 | 1 | 1 | ⬆ **ponto_de_pressao** vira rank 2 |
+| 60 | 13 | 14 | 6 | 1 | 1 | — |
+| 64 | 14 | 14 | 6 | 1 | 1 | ⬆ **foco_cirurgico** vira rank 2 |
+| 65 | 14 | 15 | 6 | 1 | 1 | — |
+| 70 | 15 | 15 | 7 | 1 | 1 | ⬆ **colapso_mental** vira rank 2 |
+| 75 | 15 | 16 | 7 | 1 | 1 | — |
+| 78 | 15 | 16 | 7 | 1 | 1 | ⬆ **precisao_absoluta** vira rank 3 |
+| 80 | 16 | 16 | 7 | 1 | 1 | — |
+| 84 | 16 | 16 | 7 | 1 | 1 | ⬆ **ponto_de_pressao** vira rank 3 |
+| 85 | 16 | 17 | 7 | 1 | 1 | — |
+| 90 | 17 | 17 | 7 | 1 | 1 | ⬆ **foco_cirurgico** vira rank 3 |
+| 95 | 17 | 17 | 8 | 1 | 1 | — |
+| 96 | 17 | 17 | 8 | 1 | 1 | ⬆ **colapso_mental** vira rank 3 |
+
+### Ponto — atacante (especialista)
+
+| Nível | A | H | D | Osso | Gás | Poder/evento neste nível |
+|---|---|---|---|---|---|---|
+| 1 | 1 | 3 | 0 | 1 | 1 | Técnica base (class_basic) |
+| 4 | 3 | 4 | 0 | 1 | 1 | ⚡ abre **ponto_de_pressao** |
+| 5 | 3 | 4 | 1 | 1 | 1 | — |
+| 10 | 5 | 6 | 1 | 1 | 1 | ★ Ponto Cego |
+| 12 | 5 | 6 | 2 | 1 | 1 | ⚡ abre **precisao_absoluta** |
+| 15 | 6 | 7 | 2 | 1 | 1 | — |
+| 20 | 7 | 8 | 3 | 1 | 1 | — |
+| 24 | 7 | 9 | 3 | 1 | 1 | ⚡ abre **fratura_de_ilusao** |
+| 25 | 8 | 9 | 3 | 1 | 1 | — |
+| 30 | 8 | 10 | 3 | 1 | 1 | — |
+| 35 | 9 | 11 | 4 | 1 | 1 | — |
+| 40 | 10 | 11 | 4 | 1 | 1 | ⚡ abre **colapso_mental** |
+| 45 | 11 | 12 | 5 | 1 | 1 | — |
+| 50 | 11 | 13 | 5 | 1 | 1 | ⚡ abre **ponto_fatal** |
+| 52 | 12 | 13 | 5 | 1 | 1 | ⬆ **ponto_de_pressao** vira rank 2 |
+| 55 | 12 | 14 | 5 | 1 | 1 | — |
+| 58 | 13 | 14 | 5 | 1 | 1 | ⬆ **precisao_absoluta** vira rank 2 |
+| 60 | 13 | 14 | 6 | 1 | 1 | — |
+| 64 | 13 | 15 | 6 | 1 | 1 | ⬆ **fratura_de_ilusao** vira rank 2 |
+| 65 | 14 | 15 | 6 | 1 | 1 | — |
+| 70 | 14 | 16 | 6 | 1 | 1 | ⬆ **colapso_mental** vira rank 2 |
+| 75 | 15 | 16 | 7 | 1 | 1 | — |
+| 78 | 15 | 16 | 7 | 1 | 1 | ⬆ **ponto_de_pressao** vira rank 3 |
+| 80 | 15 | 17 | 7 | 1 | 1 | — |
+| 84 | 15 | 17 | 7 | 1 | 1 | ⬆ **precisao_absoluta** vira rank 3 |
+| 85 | 16 | 17 | 7 | 1 | 1 | — |
+| 90 | 16 | 18 | 7 | 1 | 1 | ⬆ **fratura_de_ilusao** vira rank 3 |
+| 95 | 17 | 18 | 7 | 1 | 1 | — |
+| 96 | 17 | 18 | 7 | 1 | 1 | ⬆ **colapso_mental** vira rank 3 |
+
+### Cicatriz — atacante (vingador)
+
+| Nível | A | H | D | Osso | Gás | Poder/evento neste nível |
+|---|---|---|---|---|---|---|
+| 1 | 1 | 0 | 1 | 3 | 3 | Técnica base (class_basic) |
+| 4 | 2 | 0 | 2 | 4 | 3 | ⚡ abre **casca_dura** |
+| 5 | 2 | 0 | 2 | 4 | 4 | — |
+| 10 | 3 | 0 | 4 | 5 | 5 | ★ Dívida Antiga |
+| 12 | 3 | 0 | 5 | 5 | 5 | ⚡ abre **absorver_impacto** |
+| 15 | 3 | 0 | 6 | 6 | 5 | — |
+| 20 | 4 | 0 | 7 | 6 | 6 | — |
+| 24 | 4 | 0 | 8 | 7 | 6 | ⚡ abre **postura_firme** |
+| 25 | 5 | 0 | 8 | 7 | 6 | — |
+| 30 | 5 | 0 | 9 | 7 | 7 | — |
+| 35 | 5 | 0 | 10 | 8 | 7 | — |
+| 40 | 6 | 0 | 10 | 8 | 8 | ⚡ abre **retribuicao_final** |
+| 45 | 6 | 0 | 11 | 9 | 8 | — |
+| 50 | 7 | 0 | 12 | 9 | 8 | ⚡ abre **marca_de_guerra** |
+| 52 | 7 | 0 | 12 | 9 | 8 | ⬆ **casca_dura** vira rank 2 |
+| 55 | 7 | 0 | 12 | 9 | 9 | — |
+| 58 | 7 | 0 | 13 | 9 | 9 | ⬆ **absorver_impacto** vira rank 2 |
+| 60 | 7 | 0 | 13 | 10 | 9 | — |
+| 64 | 8 | 0 | 14 | 10 | 9 | ⬆ **postura_firme** vira rank 2 |
+| 65 | 8 | 0 | 14 | 10 | 9 | — |
+| 70 | 8 | 0 | 15 | 10 | 10 | ⬆ **retribuicao_final** vira rank 2 |
+| 75 | 8 | 0 | 15 | 11 | 10 | — |
+| 78 | 8 | 0 | 16 | 11 | 10 | ⬆ **casca_dura** vira rank 3 |
+| 80 | 8 | 0 | 16 | 11 | 10 | — |
+| 84 | 9 | 0 | 16 | 11 | 11 | ⬆ **absorver_impacto** vira rank 3 |
+| 85 | 9 | 0 | 16 | 11 | 11 | — |
+| 90 | 9 | 0 | 17 | 11 | 11 | ⬆ **postura_firme** vira rank 3 |
+| 95 | 9 | 0 | 17 | 12 | 11 | — |
+| 96 | 9 | 0 | 17 | 12 | 11 | ⬆ **retribuicao_final** vira rank 3 |
+
+### Troco — atacante (vingador)
+
+| Nível | A | H | D | Osso | Gás | Poder/evento neste nível |
+|---|---|---|---|---|---|---|
+| 1 | 1 | 1 | 1 | 2 | 2 | Técnica base (class_basic) |
+| 4 | 2 | 1 | 2 | 3 | 2 | ⚡ abre **contragolpe** |
+| 5 | 2 | 1 | 3 | 3 | 2 | — |
+| 10 | 4 | 1 | 5 | 4 | 2 | ★ Cobrança |
+| 12 | 5 | 1 | 5 | 4 | 2 | ⚡ abre **casca_dura** |
+| 15 | 6 | 1 | 6 | 4 | 2 | — |
+| 20 | 7 | 1 | 7 | 5 | 2 | — |
+| 24 | 8 | 1 | 8 | 5 | 2 | ⚡ abre **absorver_impacto** |
+| 25 | 8 | 1 | 8 | 5 | 2 | — |
+| 30 | 8 | 1 | 9 | 6 | 2 | — |
+| 35 | 9 | 1 | 10 | 6 | 2 | — |
+| 40 | 10 | 1 | 10 | 7 | 2 | ⚡ abre **retribuicao_final** |
+| 45 | 10 | 1 | 11 | 7 | 2 | — |
+| 50 | 11 | 1 | 12 | 7 | 2 | ⚡ abre **juro_composto** |
+| 52 | 12 | 1 | 12 | 7 | 2 | ⬆ **contragolpe** vira rank 2 |
+| 55 | 12 | 1 | 12 | 8 | 2 | — |
+| 58 | 12 | 1 | 13 | 8 | 2 | ⬆ **casca_dura** vira rank 2 |
+| 60 | 13 | 1 | 13 | 8 | 2 | — |
+| 64 | 13 | 1 | 14 | 8 | 2 | ⬆ **absorver_impacto** vira rank 2 |
+| 65 | 13 | 1 | 14 | 8 | 2 | — |
+| 70 | 14 | 1 | 14 | 9 | 2 | ⬆ **retribuicao_final** vira rank 2 |
+| 75 | 15 | 1 | 15 | 9 | 2 | — |
+| 78 | 15 | 1 | 15 | 9 | 2 | ⬆ **contragolpe** vira rank 3 |
+| 80 | 15 | 1 | 16 | 9 | 2 | — |
+| 84 | 15 | 1 | 16 | 9 | 2 | ⬆ **casca_dura** vira rank 3 |
+| 85 | 16 | 1 | 16 | 9 | 2 | — |
+| 90 | 16 | 1 | 16 | 10 | 2 | ⬆ **absorver_impacto** vira rank 3 |
+| 95 | 16 | 1 | 17 | 10 | 2 | — |
+| 96 | 16 | 1 | 17 | 10 | 2 | ⬆ **retribuicao_final** vira rank 3 |
+
+### Muro — defensor (muralha)
+
+| Nível | A | H | D | Osso | Gás | Poder/evento neste nível |
+|---|---|---|---|---|---|---|
+| 1 | 0 | 0 | 3 | 2 | 2 | Técnica base (class_basic) |
+| 4 | 0 | 0 | 5 | 3 | 2 | ⚡ abre **pele_de_aco** |
+| 5 | 0 | 0 | 5 | 3 | 3 | — |
+| 10 | 0 | 0 | 7 | 4 | 3 | ★ Fortaleza |
+| 12 | 0 | 0 | 8 | 4 | 3 | ⚡ abre **postura_defensiva** |
+| 15 | 0 | 0 | 8 | 4 | 4 | — |
+| 20 | 0 | 0 | 10 | 5 | 4 | — |
+| 24 | 0 | 0 | 11 | 5 | 5 | ⚡ abre **bastiao** |
+| 25 | 0 | 0 | 11 | 5 | 5 | — |
+| 30 | 0 | 0 | 13 | 5 | 5 | — |
+| 35 | 0 | 0 | 14 | 6 | 5 | — |
+| 40 | 0 | 0 | 15 | 6 | 6 | ⚡ abre **muralha_impenetravel** |
+| 45 | 0 | 0 | 16 | 6 | 6 | — |
+| 50 | 0 | 0 | 16 | 7 | 6 | ⚡ abre **linha_de_frente** |
+| 52 | 0 | 0 | 17 | 7 | 6 | ⬆ **pele_de_aco** vira rank 2 |
+| 55 | 0 | 0 | 17 | 7 | 7 | — |
+| 58 | 0 | 0 | 17 | 7 | 7 | ⬆ **postura_defensiva** vira rank 2 |
+| 60 | 0 | 0 | 18 | 7 | 7 | — |
+| 64 | 0 | 0 | 19 | 7 | 7 | ⬆ **bastiao** vira rank 2 |
+| 65 | 0 | 0 | 19 | 7 | 7 | — |
+| 70 | 0 | 0 | 19 | 8 | 7 | ⬆ **muralha_impenetravel** vira rank 2 |
+| 75 | 0 | 0 | 20 | 8 | 8 | — |
+| 78 | 0 | 0 | 20 | 8 | 8 | ⬆ **pele_de_aco** vira rank 3 |
+| 80 | 0 | 0 | 20 | 8 | 8 | — |
+| 84 | 0 | 0 | 21 | 8 | 8 | ⬆ **postura_defensiva** vira rank 3 |
+| 85 | 0 | 0 | 21 | 8 | 8 | — |
+| 90 | 0 | 0 | 22 | 8 | 8 | ⬆ **bastiao** vira rank 3 |
+| 95 | 0 | 0 | 22 | 9 | 8 | — |
+| 96 | 0 | 0 | 22 | 9 | 8 | ⬆ **muralha_impenetravel** vira rank 3 |
+
+### Concreto — defensor (muralha)
+
+| Nível | A | H | D | Osso | Gás | Poder/evento neste nível |
+|---|---|---|---|---|---|---|
+| 1 | 0 | 0 | 2 | 3 | 3 | Técnica base (class_basic) |
+| 4 | 0 | 0 | 3 | 4 | 4 | ⚡ abre **casco_robusto** |
+| 5 | 0 | 0 | 4 | 4 | 4 | — |
+| 10 | 1 | 0 | 5 | 5 | 5 | ★ Bloco Vivo |
+| 12 | 2 | 0 | 6 | 5 | 5 | ⚡ abre **postura_defensiva** |
+| 15 | 2 | 0 | 6 | 6 | 5 | — |
+| 20 | 2 | 0 | 8 | 6 | 6 | — |
+| 24 | 3 | 0 | 8 | 7 | 6 | ⚡ abre **pele_de_aco** |
+| 25 | 3 | 0 | 8 | 7 | 6 | — |
+| 30 | 3 | 0 | 9 | 7 | 7 | — |
+| 35 | 4 | 0 | 10 | 8 | 7 | — |
+| 40 | 4 | 0 | 11 | 8 | 8 | ⚡ abre **muralha_impenetravel** |
+| 45 | 5 | 0 | 12 | 8 | 8 | — |
+| 50 | 5 | 0 | 13 | 9 | 8 | ⚡ abre **fundacao** |
+| 52 | 5 | 0 | 13 | 9 | 9 | ⬆ **casco_robusto** vira rank 2 |
+| 55 | 5 | 0 | 14 | 9 | 9 | — |
+| 58 | 6 | 0 | 14 | 9 | 9 | ⬆ **postura_defensiva** vira rank 2 |
+| 60 | 6 | 0 | 14 | 10 | 9 | — |
+| 64 | 6 | 0 | 15 | 10 | 9 | ⬆ **pele_de_aco** vira rank 2 |
+| 65 | 6 | 0 | 15 | 10 | 9 | — |
+| 70 | 6 | 0 | 15 | 10 | 10 | ⬆ **muralha_impenetravel** vira rank 2 |
+| 75 | 7 | 0 | 16 | 10 | 10 | — |
+| 78 | 7 | 0 | 16 | 11 | 10 | ⬆ **casco_robusto** vira rank 3 |
+| 80 | 7 | 0 | 16 | 11 | 10 | — |
+| 84 | 7 | 0 | 17 | 11 | 11 | ⬆ **postura_defensiva** vira rank 3 |
+| 85 | 7 | 0 | 17 | 11 | 11 | — |
+| 90 | 7 | 0 | 18 | 11 | 11 | ⬆ **pele_de_aco** vira rank 3 |
+| 95 | 8 | 0 | 18 | 12 | 11 | — |
+| 96 | 8 | 0 | 18 | 12 | 11 | ⬆ **muralha_impenetravel** vira rank 3 |
+
+### Guarda — defensor (guardiao)
+
+| Nível | A | H | D | Osso | Gás | Poder/evento neste nível |
+|---|---|---|---|---|---|---|
+| 1 | 0 | 1 | 2 | 2 | 2 | Técnica base (class_basic) |
+| 4 | 0 | 2 | 3 | 3 | 2 | ⚡ abre **escudo_humano** |
+| 5 | 0 | 2 | 4 | 3 | 2 | — |
+| 10 | 0 | 3 | 5 | 4 | 3 | ★ Linha de Frente |
+| 12 | 0 | 3 | 6 | 4 | 4 | ⚡ abre **guarda_compartilhada** |
+| 15 | 0 | 3 | 7 | 5 | 4 | — |
+| 20 | 0 | 4 | 8 | 5 | 5 | — |
+| 24 | 0 | 4 | 9 | 6 | 5 | ⚡ abre **cobertura** |
+| 25 | 0 | 5 | 9 | 6 | 5 | — |
+| 30 | 0 | 5 | 10 | 6 | 6 | — |
+| 35 | 0 | 5 | 11 | 7 | 6 | — |
+| 40 | 0 | 6 | 12 | 7 | 6 | ⚡ abre **interceptar** |
+| 45 | 0 | 6 | 13 | 7 | 7 | — |
+| 50 | 0 | 7 | 13 | 8 | 7 | ⚡ abre **escudo_vivo** |
+| 52 | 0 | 7 | 14 | 8 | 7 | ⬆ **escudo_humano** vira rank 2 |
+| 55 | 0 | 7 | 14 | 8 | 8 | — |
+| 58 | 0 | 7 | 15 | 8 | 8 | ⬆ **guarda_compartilhada** vira rank 2 |
+| 60 | 0 | 7 | 15 | 9 | 8 | — |
+| 64 | 0 | 8 | 15 | 9 | 8 | ⬆ **cobertura** vira rank 2 |
+| 65 | 0 | 8 | 15 | 9 | 8 | — |
+| 70 | 0 | 8 | 16 | 9 | 9 | ⬆ **interceptar** vira rank 2 |
+| 75 | 0 | 8 | 17 | 9 | 9 | — |
+| 78 | 0 | 8 | 17 | 10 | 9 | ⬆ **escudo_humano** vira rank 3 |
+| 80 | 0 | 8 | 17 | 10 | 9 | — |
+| 84 | 0 | 9 | 17 | 10 | 9 | ⬆ **guarda_compartilhada** vira rank 3 |
+| 85 | 0 | 9 | 17 | 10 | 9 | — |
+| 90 | 0 | 9 | 18 | 10 | 10 | ⬆ **cobertura** vira rank 3 |
+| 95 | 0 | 9 | 19 | 10 | 10 | — |
+| 96 | 0 | 9 | 19 | 10 | 10 | ⬆ **interceptar** vira rank 3 |
+
+### Ombro — defensor (guardiao)
+
+| Nível | A | H | D | Osso | Gás | Poder/evento neste nível |
+|---|---|---|---|---|---|---|
+| 1 | 1 | 0 | 2 | 2 | 2 | Técnica base (class_basic) |
+| 4 | 2 | 0 | 3 | 3 | 2 | ⚡ abre **guarda_compartilhada** |
+| 5 | 2 | 0 | 3 | 3 | 3 | — |
+| 10 | 3 | 0 | 5 | 4 | 4 | ★ Ninguém Passa |
+| 12 | 3 | 0 | 6 | 4 | 4 | ⚡ abre **escudo_humano** |
+| 15 | 3 | 0 | 7 | 5 | 4 | — |
+| 20 | 4 | 0 | 8 | 5 | 5 | — |
+| 24 | 4 | 0 | 9 | 6 | 5 | ⚡ abre **interceptar** |
+| 25 | 5 | 0 | 9 | 6 | 5 | — |
+| 30 | 5 | 0 | 10 | 6 | 6 | — |
+| 35 | 5 | 0 | 11 | 7 | 6 | — |
+| 40 | 6 | 0 | 11 | 7 | 7 | ⚡ abre **ultimo_bastiao** |
+| 45 | 6 | 0 | 12 | 8 | 7 | — |
+| 50 | 7 | 0 | 13 | 8 | 7 | ⚡ abre **no_meu_ombro** |
+| 52 | 7 | 0 | 13 | 8 | 8 | ⬆ **guarda_compartilhada** vira rank 2 |
+| 55 | 7 | 0 | 14 | 8 | 8 | — |
+| 58 | 7 | 0 | 14 | 9 | 8 | ⬆ **escudo_humano** vira rank 2 |
+| 60 | 7 | 0 | 15 | 9 | 8 | — |
+| 64 | 8 | 0 | 15 | 9 | 8 | ⬆ **interceptar** vira rank 2 |
+| 65 | 8 | 0 | 15 | 9 | 9 | — |
+| 70 | 8 | 0 | 16 | 9 | 9 | ⬆ **ultimo_bastiao** vira rank 2 |
+| 75 | 8 | 0 | 16 | 10 | 9 | — |
+| 78 | 8 | 0 | 17 | 10 | 9 | ⬆ **guarda_compartilhada** vira rank 3 |
+| 80 | 8 | 0 | 17 | 10 | 9 | — |
+| 84 | 9 | 0 | 17 | 10 | 10 | ⬆ **escudo_humano** vira rank 3 |
+| 85 | 9 | 0 | 17 | 10 | 10 | — |
+| 90 | 9 | 0 | 18 | 10 | 10 | ⬆ **interceptar** vira rank 3 |
+| 95 | 9 | 0 | 18 | 11 | 10 | — |
+| 96 | 9 | 0 | 18 | 11 | 10 | ⬆ **ultimo_bastiao** vira rank 3 |
+
+### Boca — defensor (provocador)
+
+| Nível | A | H | D | Osso | Gás | Poder/evento neste nível |
+|---|---|---|---|---|---|---|
+| 1 | 0 | 2 | 2 | 1 | 1 | Técnica base (class_basic) |
+| 4 | 0 | 3 | 3 | 2 | 1 | ⚡ abre **voz_de_comando** |
+| 5 | 0 | 4 | 3 | 2 | 1 | — |
+| 10 | 0 | 5 | 5 | 3 | 1 | ★ Olha Pra Mim |
+| 12 | 0 | 6 | 5 | 3 | 1 | ⚡ abre **provocacao** |
+| 15 | 0 | 7 | 6 | 3 | 1 | — |
+| 20 | 0 | 8 | 7 | 4 | 1 | — |
+| 24 | 0 | 8 | 8 | 4 | 1 | ⚡ abre **casca_de_rua** |
+| 25 | 0 | 9 | 8 | 4 | 1 | — |
+| 30 | 0 | 9 | 9 | 5 | 1 | — |
+| 35 | 0 | 10 | 10 | 5 | 1 | — |
+| 40 | 0 | 11 | 10 | 5 | 1 | ⚡ abre **centro_das_atencoes** |
+| 45 | 0 | 11 | 11 | 6 | 1 | — |
+| 50 | 0 | 12 | 12 | 6 | 1 | ⚡ abre **grito_de_rua** |
+| 52 | 0 | 13 | 12 | 6 | 1 | ⬆ **voz_de_comando** vira rank 2 |
+| 55 | 0 | 13 | 13 | 6 | 1 | — |
+| 58 | 0 | 13 | 13 | 7 | 1 | ⬆ **provocacao** vira rank 2 |
+| 60 | 0 | 14 | 13 | 7 | 1 | — |
+| 64 | 0 | 14 | 14 | 7 | 1 | ⬆ **casca_de_rua** vira rank 2 |
+| 65 | 0 | 14 | 14 | 7 | 1 | — |
+| 70 | 0 | 15 | 15 | 7 | 1 | ⬆ **centro_das_atencoes** vira rank 2 |
+| 75 | 0 | 15 | 15 | 8 | 1 | — |
+| 78 | 0 | 16 | 15 | 8 | 1 | ⬆ **voz_de_comando** vira rank 3 |
+| 80 | 0 | 16 | 15 | 8 | 1 | — |
+| 84 | 0 | 16 | 16 | 8 | 1 | ⬆ **provocacao** vira rank 3 |
+| 85 | 0 | 16 | 16 | 8 | 1 | — |
+| 90 | 0 | 17 | 16 | 8 | 1 | ⬆ **casca_de_rua** vira rank 3 |
+| 95 | 0 | 17 | 17 | 9 | 1 | — |
+| 96 | 0 | 17 | 17 | 9 | 1 | ⬆ **centro_das_atencoes** vira rank 3 |
+
+### Isca — defensor (provocador)
+
+| Nível | A | H | D | Osso | Gás | Poder/evento neste nível |
+|---|---|---|---|---|---|---|
+| 1 | 1 | 2 | 1 | 1 | 1 | Técnica base (class_basic) |
+| 4 | 2 | 3 | 2 | 1 | 1 | ⚡ abre **marcar_alvo** |
+| 5 | 2 | 4 | 2 | 1 | 1 | — |
+| 10 | 3 | 5 | 3 | 2 | 1 | ★ Alvo Perfeito |
+| 12 | 3 | 6 | 3 | 3 | 1 | ⚡ abre **provocacao** |
+| 15 | 4 | 7 | 3 | 3 | 1 | — |
+| 20 | 4 | 8 | 4 | 4 | 1 | — |
+| 24 | 5 | 9 | 5 | 4 | 1 | ⚡ abre **voz_de_comando** |
+| 25 | 5 | 9 | 5 | 4 | 1 | — |
+| 30 | 5 | 10 | 5 | 5 | 1 | — |
+| 35 | 6 | 11 | 6 | 5 | 1 | — |
+| 40 | 6 | 12 | 6 | 6 | 1 | ⚡ abre **centro_das_atencoes** |
+| 45 | 7 | 13 | 6 | 6 | 1 | — |
+| 50 | 7 | 14 | 7 | 6 | 1 | ⚡ abre **alvo_facil** |
+| 52 | 7 | 14 | 7 | 7 | 1 | ⬆ **marcar_alvo** vira rank 2 |
+| 55 | 7 | 15 | 7 | 7 | 1 | — |
+| 58 | 8 | 15 | 7 | 7 | 1 | ⬆ **provocacao** vira rank 2 |
+| 60 | 8 | 15 | 8 | 7 | 1 | — |
+| 64 | 8 | 16 | 8 | 7 | 1 | ⬆ **voz_de_comando** vira rank 2 |
+| 65 | 8 | 16 | 8 | 7 | 1 | — |
+| 70 | 8 | 16 | 8 | 8 | 1 | ⬆ **centro_das_atencoes** vira rank 2 |
+| 75 | 9 | 17 | 8 | 8 | 1 | — |
+| 78 | 9 | 17 | 9 | 8 | 1 | ⬆ **marcar_alvo** vira rank 3 |
+| 80 | 9 | 17 | 9 | 8 | 1 | — |
+| 84 | 9 | 18 | 9 | 8 | 1 | ⬆ **provocacao** vira rank 3 |
+| 85 | 9 | 18 | 9 | 9 | 1 | — |
+| 90 | 9 | 19 | 9 | 9 | 1 | ⬆ **voz_de_comando** vira rank 3 |
+| 95 | 10 | 19 | 9 | 9 | 1 | — |
+| 96 | 10 | 19 | 10 | 9 | 1 | ⬆ **centro_das_atencoes** vira rank 3 |
+
+### Catraca — defensor (reativo)
+
+| Nível | A | H | D | Osso | Gás | Poder/evento neste nível |
+|---|---|---|---|---|---|---|
+| 1 | 1 | 1 | 2 | 1 | 1 | Técnica base (class_basic) |
+| 4 | 2 | 2 | 3 | 1 | 1 | ⚡ abre **reflexo_defensivo** |
+| 5 | 2 | 2 | 4 | 1 | 1 | — |
+| 10 | 3 | 4 | 5 | 1 | 1 | ★ Bateu, Voltou |
+| 12 | 3 | 5 | 6 | 1 | 1 | ⚡ abre **aparar** |
+| 15 | 3 | 5 | 7 | 1 | 1 | — |
+| 20 | 4 | 6 | 8 | 1 | 1 | — |
+| 24 | 4 | 7 | 9 | 1 | 1 | ⚡ abre **contragolpe_defensivo** |
+| 25 | 4 | 7 | 9 | 1 | 1 | — |
+| 30 | 5 | 8 | 10 | 1 | 1 | — |
+| 35 | 5 | 9 | 10 | 1 | 1 | — |
+| 40 | 5 | 10 | 11 | 1 | 1 | ⚡ abre **retorno_de_impacto** |
+| 45 | 6 | 10 | 12 | 1 | 1 | — |
+| 50 | 6 | 11 | 13 | 1 | 1 | ⚡ abre **giro_de_catraca** |
+| 52 | 6 | 11 | 13 | 1 | 1 | ⬆ **reflexo_defensivo** vira rank 2 |
+| 55 | 7 | 12 | 13 | 1 | 1 | — |
+| 58 | 7 | 12 | 14 | 1 | 1 | ⬆ **aparar** vira rank 2 |
+| 60 | 7 | 12 | 14 | 1 | 1 | — |
+| 64 | 7 | 13 | 15 | 1 | 1 | ⬆ **contragolpe_defensivo** vira rank 2 |
+| 65 | 7 | 13 | 15 | 1 | 1 | — |
+| 70 | 8 | 14 | 15 | 1 | 1 | ⬆ **retorno_de_impacto** vira rank 2 |
+| 75 | 8 | 14 | 16 | 1 | 1 | — |
+| 78 | 8 | 15 | 16 | 1 | 1 | ⬆ **reflexo_defensivo** vira rank 3 |
+| 80 | 8 | 15 | 16 | 1 | 1 | — |
+| 84 | 8 | 15 | 17 | 1 | 1 | ⬆ **aparar** vira rank 3 |
+| 85 | 8 | 15 | 17 | 1 | 1 | — |
+| 90 | 9 | 16 | 17 | 1 | 1 | ⬆ **contragolpe_defensivo** vira rank 3 |
+| 95 | 9 | 16 | 18 | 1 | 1 | — |
+| 96 | 9 | 16 | 18 | 1 | 1 | ⬆ **retorno_de_impacto** vira rank 3 |
+
+### Rebote — defensor (reativo)
+
+| Nível | A | H | D | Osso | Gás | Poder/evento neste nível |
+|---|---|---|---|---|---|---|
+| 1 | 1 | 2 | 1 | 1 | 1 | Técnica base (class_basic) |
+| 4 | 2 | 3 | 2 | 1 | 1 | ⚡ abre **aparar** |
+| 5 | 2 | 4 | 2 | 1 | 1 | — |
+| 10 | 3 | 5 | 4 | 1 | 1 | ★ Volta em Dobro |
+| 12 | 3 | 6 | 5 | 1 | 1 | ⚡ abre **reflexo_defensivo** |
+| 15 | 3 | 7 | 5 | 1 | 1 | — |
+| 20 | 4 | 8 | 6 | 1 | 1 | — |
+| 24 | 4 | 9 | 7 | 1 | 1 | ⚡ abre **resposta_automatica** |
+| 25 | 4 | 9 | 7 | 1 | 1 | — |
+| 30 | 5 | 10 | 8 | 1 | 1 | — |
+| 35 | 5 | 10 | 9 | 1 | 1 | — |
+| 40 | 5 | 11 | 10 | 1 | 1 | ⚡ abre **retorno_de_impacto** |
+| 45 | 6 | 12 | 10 | 1 | 1 | — |
+| 50 | 6 | 13 | 11 | 1 | 1 | ⚡ abre **efeito_bumerangue** |
+| 52 | 6 | 13 | 11 | 1 | 1 | ⬆ **aparar** vira rank 2 |
+| 55 | 7 | 13 | 12 | 1 | 1 | — |
+| 58 | 7 | 14 | 12 | 1 | 1 | ⬆ **reflexo_defensivo** vira rank 2 |
+| 60 | 7 | 14 | 12 | 1 | 1 | — |
+| 64 | 7 | 15 | 13 | 1 | 1 | ⬆ **resposta_automatica** vira rank 2 |
+| 65 | 7 | 15 | 13 | 1 | 1 | — |
+| 70 | 8 | 15 | 14 | 1 | 1 | ⬆ **retorno_de_impacto** vira rank 2 |
+| 75 | 8 | 16 | 14 | 1 | 1 | — |
+| 78 | 8 | 16 | 15 | 1 | 1 | ⬆ **aparar** vira rank 3 |
+| 80 | 8 | 16 | 15 | 1 | 1 | — |
+| 84 | 8 | 17 | 15 | 1 | 1 | ⬆ **reflexo_defensivo** vira rank 3 |
+| 85 | 8 | 17 | 15 | 1 | 1 | — |
+| 90 | 9 | 17 | 16 | 1 | 1 | ⬆ **resposta_automatica** vira rank 3 |
+| 95 | 9 | 18 | 16 | 1 | 1 | — |
+| 96 | 9 | 18 | 16 | 1 | 1 | ⬆ **retorno_de_impacto** vira rank 3 |
+
+### Ferro — defensor (resiliente)
+
+| Nível | A | H | D | Osso | Gás | Poder/evento neste nível |
+|---|---|---|---|---|---|---|
+| 1 | 0 | 0 | 1 | 4 | 4 | Técnica base (class_basic) |
+| 4 | 0 | 0 | 2 | 5 | 5 | ⚡ abre **carne_dura** |
+| 5 | 0 | 0 | 3 | 5 | 5 | — |
+| 10 | 0 | 0 | 4 | 7 | 5 | ★ Não Cai |
+| 12 | 0 | 0 | 4 | 7 | 6 | ⚡ abre **firme_no_chao** |
+| 15 | 0 | 0 | 5 | 8 | 6 | — |
+| 20 | 0 | 0 | 6 | 9 | 6 | — |
+| 24 | 0 | 0 | 7 | 9 | 7 | ⚡ abre **segunda_respiracao** |
+| 25 | 0 | 0 | 7 | 9 | 7 | — |
+| 30 | 0 | 0 | 7 | 11 | 7 | — |
+| 35 | 0 | 0 | 8 | 11 | 8 | — |
+| 40 | 0 | 0 | 9 | 12 | 8 | ⚡ abre **inquebravel** |
+| 45 | 0 | 0 | 9 | 13 | 8 | — |
+| 50 | 0 | 0 | 10 | 13 | 9 | ⚡ abre **pele_de_ferro** |
+| 52 | 0 | 0 | 11 | 13 | 9 | ⬆ **carne_dura** vira rank 2 |
+| 55 | 0 | 0 | 11 | 14 | 9 | — |
+| 58 | 0 | 0 | 11 | 15 | 9 | ⬆ **firme_no_chao** vira rank 2 |
+| 60 | 0 | 0 | 11 | 15 | 9 | — |
+| 64 | 0 | 0 | 12 | 15 | 10 | ⬆ **segunda_respiracao** vira rank 2 |
+| 65 | 0 | 0 | 12 | 15 | 10 | — |
+| 70 | 0 | 0 | 13 | 15 | 10 | ⬆ **inquebravel** vira rank 2 |
+| 75 | 0 | 0 | 13 | 16 | 10 | — |
+| 78 | 0 | 0 | 13 | 17 | 10 | ⬆ **carne_dura** vira rank 3 |
+| 80 | 0 | 0 | 14 | 17 | 10 | — |
+| 84 | 0 | 0 | 14 | 17 | 11 | ⬆ **firme_no_chao** vira rank 3 |
+| 85 | 0 | 0 | 14 | 17 | 11 | — |
+| 90 | 0 | 0 | 15 | 17 | 11 | ⬆ **segunda_respiracao** vira rank 3 |
+| 95 | 0 | 0 | 15 | 18 | 11 | — |
+| 96 | 0 | 0 | 15 | 19 | 11 | ⬆ **inquebravel** vira rank 3 |
+
+### Osso — defensor (resiliente)
+
+| Nível | A | H | D | Osso | Gás | Poder/evento neste nível |
+|---|---|---|---|---|---|---|
+| 1 | 1 | 0 | 1 | 3 | 3 | Técnica base (class_basic) |
+| 4 | 2 | 0 | 2 | 4 | 3 | ⚡ abre **firme_no_chao** |
+| 5 | 2 | 0 | 2 | 4 | 4 | — |
+| 10 | 3 | 0 | 4 | 5 | 5 | ★ Ainda de Pé |
+| 12 | 3 | 0 | 5 | 5 | 5 | ⚡ abre **carne_dura** |
+| 15 | 4 | 0 | 5 | 6 | 5 | — |
+| 20 | 4 | 0 | 7 | 6 | 6 | — |
+| 24 | 5 | 0 | 7 | 7 | 6 | ⚡ abre **recusar_queda** |
+| 25 | 5 | 0 | 8 | 7 | 6 | — |
+| 30 | 5 | 0 | 9 | 7 | 7 | — |
+| 35 | 6 | 0 | 9 | 8 | 7 | — |
+| 40 | 6 | 0 | 10 | 8 | 8 | ⚡ abre **inquebravel** |
+| 45 | 6 | 0 | 11 | 9 | 8 | — |
+| 50 | 7 | 0 | 12 | 9 | 8 | ⚡ abre **osso_duro** |
+| 52 | 7 | 0 | 12 | 9 | 8 | ⬆ **firme_no_chao** vira rank 2 |
+| 55 | 7 | 0 | 12 | 9 | 9 | — |
+| 58 | 7 | 0 | 13 | 9 | 9 | ⬆ **carne_dura** vira rank 2 |
+| 60 | 7 | 0 | 13 | 10 | 9 | — |
+| 64 | 8 | 0 | 14 | 10 | 9 | ⬆ **recusar_queda** vira rank 2 |
+| 65 | 8 | 0 | 14 | 10 | 9 | — |
+| 70 | 8 | 0 | 15 | 10 | 10 | ⬆ **inquebravel** vira rank 2 |
+| 75 | 8 | 0 | 15 | 11 | 10 | — |
+| 78 | 9 | 0 | 15 | 11 | 10 | ⬆ **firme_no_chao** vira rank 3 |
+| 80 | 9 | 0 | 15 | 11 | 10 | — |
+| 84 | 9 | 0 | 16 | 11 | 11 | ⬆ **carne_dura** vira rank 3 |
+| 85 | 9 | 0 | 16 | 11 | 11 | — |
+| 90 | 9 | 0 | 17 | 11 | 11 | ⬆ **recusar_queda** vira rank 3 |
+| 95 | 10 | 0 | 17 | 12 | 11 | — |
+| 96 | 10 | 0 | 17 | 12 | 11 | ⬆ **inquebravel** vira rank 3 |
+
+### Brasa — mistico (igneo)
+
+| Nível | A | H | D | Osso | Gás | Poder/evento neste nível |
+|---|---|---|---|---|---|---|
+| 1 | 2 | 1 | 1 | 1 | 1 | Técnica base (class_basic) |
+| 4 | 4 | 2 | 1 | 1 | 1 | ⚡ abre **bola_de_fogo** |
+| 5 | 4 | 2 | 1 | 2 | 1 | — |
+| 10 | 6 | 3 | 1 | 2 | 1 | ★ Incêndio |
+| 12 | 7 | 3 | 1 | 3 | 1 | ⚡ abre **brasa_viva** |
+| 15 | 8 | 3 | 1 | 3 | 1 | — |
+| 20 | 9 | 4 | 1 | 3 | 1 | — |
+| 24 | 10 | 4 | 1 | 4 | 1 | ⚡ abre **explosao_termica** |
+| 25 | 11 | 4 | 1 | 4 | 1 | — |
+| 30 | 12 | 5 | 1 | 4 | 1 | — |
+| 35 | 13 | 5 | 1 | 5 | 1 | — |
+| 40 | 15 | 5 | 1 | 5 | 1 | ⚡ abre **inferno_de_rua** |
+| 45 | 15 | 6 | 1 | 5 | 1 | — |
+| 50 | 16 | 6 | 1 | 6 | 1 | ⚡ abre **chama_eterna** |
+| 52 | 16 | 6 | 1 | 6 | 1 | ⬆ **bola_de_fogo** vira rank 2 |
+| 55 | 17 | 6 | 1 | 6 | 1 | — |
+| 58 | 18 | 6 | 1 | 6 | 1 | ⬆ **brasa_viva** vira rank 2 |
+| 60 | 18 | 7 | 1 | 6 | 1 | — |
+| 64 | 18 | 7 | 1 | 6 | 1 | ⬆ **explosao_termica** vira rank 2 |
+| 65 | 19 | 7 | 1 | 6 | 1 | — |
+| 70 | 19 | 7 | 1 | 7 | 1 | ⬆ **inferno_de_rua** vira rank 2 |
+| 75 | 20 | 7 | 1 | 7 | 1 | — |
+| 78 | 20 | 7 | 1 | 7 | 1 | ⬆ **bola_de_fogo** vira rank 3 |
+| 80 | 21 | 7 | 1 | 7 | 1 | — |
+| 84 | 21 | 8 | 1 | 7 | 1 | ⬆ **brasa_viva** vira rank 3 |
+| 85 | 21 | 8 | 1 | 7 | 1 | — |
+| 90 | 22 | 8 | 1 | 7 | 1 | ⬆ **explosao_termica** vira rank 3 |
+| 95 | 22 | 8 | 1 | 8 | 1 | — |
+| 96 | 22 | 8 | 1 | 8 | 1 | ⬆ **inferno_de_rua** vira rank 3 |
+
+### Cinza — mistico (igneo)
+
+| Nível | A | H | D | Osso | Gás | Poder/evento neste nível |
+|---|---|---|---|---|---|---|
+| 1 | 1 | 1 | 1 | 2 | 2 | Técnica base (class_basic) |
+| 4 | 2 | 2 | 1 | 3 | 2 | ⚡ abre **brasa_viva** |
+| 5 | 2 | 2 | 1 | 3 | 3 | — |
+| 10 | 4 | 3 | 1 | 4 | 4 | ★ Depois do Fogo |
+| 12 | 5 | 3 | 1 | 5 | 4 | ⚡ abre **combustao** |
+| 15 | 6 | 4 | 1 | 5 | 4 | — |
+| 20 | 7 | 4 | 1 | 6 | 5 | — |
+| 24 | 8 | 5 | 1 | 6 | 5 | ⚡ abre **bola_de_fogo** |
+| 25 | 8 | 5 | 1 | 6 | 6 | — |
+| 30 | 9 | 5 | 1 | 7 | 6 | — |
+| 35 | 10 | 6 | 1 | 7 | 6 | — |
+| 40 | 11 | 6 | 1 | 7 | 7 | ⚡ abre **inferno_de_rua** |
+| 45 | 12 | 6 | 1 | 8 | 7 | — |
+| 50 | 12 | 7 | 1 | 8 | 8 | ⚡ abre **cinzas_ao_vento** |
+| 52 | 13 | 7 | 1 | 8 | 8 | ⬆ **brasa_viva** vira rank 2 |
+| 55 | 13 | 7 | 1 | 9 | 8 | — |
+| 58 | 14 | 7 | 1 | 9 | 8 | ⬆ **combustao** vira rank 2 |
+| 60 | 14 | 8 | 1 | 9 | 8 | — |
+| 64 | 14 | 8 | 1 | 9 | 9 | ⬆ **bola_de_fogo** vira rank 2 |
+| 65 | 14 | 8 | 1 | 9 | 9 | — |
+| 70 | 15 | 8 | 1 | 10 | 9 | ⬆ **inferno_de_rua** vira rank 2 |
+| 75 | 16 | 8 | 1 | 10 | 9 | — |
+| 78 | 16 | 9 | 1 | 10 | 9 | ⬆ **brasa_viva** vira rank 3 |
+| 80 | 16 | 9 | 1 | 10 | 10 | — |
+| 84 | 16 | 9 | 1 | 10 | 10 | ⬆ **combustao** vira rank 3 |
+| 85 | 17 | 9 | 1 | 10 | 10 | — |
+| 90 | 17 | 9 | 1 | 11 | 10 | ⬆ **bola_de_fogo** vira rank 3 |
+| 95 | 18 | 9 | 1 | 11 | 10 | — |
+| 96 | 18 | 10 | 1 | 11 | 10 | ⬆ **inferno_de_rua** vira rank 3 |
+
+### Maré — mistico (aquatico)
+
+| Nível | A | H | D | Osso | Gás | Poder/evento neste nível |
+|---|---|---|---|---|---|---|
+| 1 | 1 | 1 | 1 | 2 | 2 | Técnica base (class_basic) |
+| 4 | 1 | 2 | 2 | 3 | 2 | ⚡ abre **correnteza** |
+| 5 | 1 | 2 | 2 | 3 | 3 | — |
+| 10 | 1 | 3 | 4 | 4 | 4 | ★ Maré Cheia |
+| 12 | 1 | 3 | 5 | 5 | 4 | ⚡ abre **neblina** |
+| 15 | 1 | 4 | 6 | 5 | 4 | — |
+| 20 | 1 | 4 | 7 | 6 | 5 | — |
+| 24 | 1 | 5 | 8 | 6 | 5 | ⚡ abre **fluxo_restaurador** |
+| 25 | 1 | 5 | 8 | 6 | 6 | — |
+| 30 | 1 | 5 | 9 | 7 | 6 | — |
+| 35 | 1 | 6 | 10 | 7 | 6 | — |
+| 40 | 1 | 6 | 11 | 7 | 7 | ⚡ abre **mare_alta** |
+| 45 | 1 | 6 | 12 | 8 | 7 | — |
+| 50 | 1 | 7 | 12 | 8 | 8 | ⚡ abre **onda_de_choque** |
+| 52 | 1 | 7 | 13 | 8 | 8 | ⬆ **correnteza** vira rank 2 |
+| 55 | 1 | 7 | 13 | 9 | 8 | — |
+| 58 | 1 | 7 | 14 | 9 | 8 | ⬆ **neblina** vira rank 2 |
+| 60 | 1 | 8 | 14 | 9 | 8 | — |
+| 64 | 1 | 8 | 14 | 9 | 9 | ⬆ **fluxo_restaurador** vira rank 2 |
+| 65 | 1 | 8 | 14 | 9 | 9 | — |
+| 70 | 1 | 8 | 15 | 10 | 9 | ⬆ **mare_alta** vira rank 2 |
+| 75 | 1 | 8 | 16 | 10 | 9 | — |
+| 78 | 1 | 9 | 16 | 10 | 9 | ⬆ **correnteza** vira rank 3 |
+| 80 | 1 | 9 | 16 | 10 | 10 | — |
+| 84 | 1 | 9 | 16 | 10 | 10 | ⬆ **neblina** vira rank 3 |
+| 85 | 1 | 9 | 17 | 10 | 10 | — |
+| 90 | 1 | 9 | 17 | 11 | 10 | ⬆ **fluxo_restaurador** vira rank 3 |
+| 95 | 1 | 9 | 18 | 11 | 10 | — |
+| 96 | 1 | 10 | 18 | 11 | 10 | ⬆ **mare_alta** vira rank 3 |
+
+### Chuva — mistico (aquatico)
+
+| Nível | A | H | D | Osso | Gás | Poder/evento neste nível |
+|---|---|---|---|---|---|---|
+| 1 | 1 | 2 | 1 | 1 | 1 | Técnica base (class_basic) |
+| 4 | 1 | 4 | 1 | 2 | 1 | ⚡ abre **jato_pressurizado** |
+| 5 | 2 | 4 | 1 | 2 | 1 | — |
+| 10 | 2 | 6 | 1 | 3 | 2 | ★ Temporal |
+| 12 | 3 | 6 | 1 | 3 | 3 | ⚡ abre **correnteza** |
+| 15 | 3 | 7 | 1 | 4 | 3 | — |
+| 20 | 4 | 8 | 1 | 4 | 4 | — |
+| 24 | 4 | 9 | 1 | 5 | 4 | ⚡ abre **neblina** |
+| 25 | 4 | 9 | 1 | 5 | 4 | — |
+| 30 | 5 | 10 | 1 | 5 | 5 | — |
+| 35 | 5 | 11 | 1 | 6 | 5 | — |
+| 40 | 6 | 12 | 1 | 6 | 6 | ⚡ abre **mare_alta** |
+| 45 | 6 | 13 | 1 | 7 | 6 | — |
+| 50 | 7 | 14 | 1 | 7 | 6 | ⚡ abre **temporal** |
+| 52 | 7 | 14 | 1 | 7 | 7 | ⬆ **jato_pressurizado** vira rank 2 |
+| 55 | 7 | 15 | 1 | 7 | 7 | — |
+| 58 | 7 | 15 | 1 | 8 | 7 | ⬆ **correnteza** vira rank 2 |
+| 60 | 7 | 15 | 1 | 8 | 7 | — |
+| 64 | 8 | 16 | 1 | 8 | 7 | ⬆ **neblina** vira rank 2 |
+| 65 | 8 | 16 | 1 | 8 | 7 | — |
+| 70 | 8 | 16 | 1 | 8 | 8 | ⬆ **mare_alta** vira rank 2 |
+| 75 | 8 | 17 | 1 | 9 | 8 | — |
+| 78 | 8 | 17 | 1 | 9 | 8 | ⬆ **jato_pressurizado** vira rank 3 |
+| 80 | 8 | 18 | 1 | 9 | 8 | — |
+| 84 | 9 | 18 | 1 | 9 | 8 | ⬆ **correnteza** vira rank 3 |
+| 85 | 9 | 18 | 1 | 9 | 9 | — |
+| 90 | 9 | 19 | 1 | 9 | 9 | ⬆ **neblina** vira rank 3 |
+| 95 | 9 | 19 | 1 | 10 | 9 | — |
+| 96 | 9 | 19 | 1 | 10 | 9 | ⬆ **mare_alta** vira rank 3 |
+
+### Raiz — mistico (terreno)
+
+| Nível | A | H | D | Osso | Gás | Poder/evento neste nível |
+|---|---|---|---|---|---|---|
+| 1 | 0 | 1 | 2 | 2 | 2 | Técnica base (class_basic) |
+| 4 | 0 | 1 | 3 | 3 | 3 | ⚡ abre **pele_de_pedra** |
+| 5 | 0 | 2 | 3 | 3 | 3 | — |
+| 10 | 0 | 3 | 5 | 4 | 4 | ★ Chão Fechado |
+| 12 | 0 | 3 | 6 | 4 | 4 | ⚡ abre **raiz_prendente** |
+| 15 | 0 | 3 | 7 | 5 | 4 | — |
+| 20 | 0 | 4 | 8 | 5 | 5 | — |
+| 24 | 0 | 4 | 9 | 6 | 5 | ⚡ abre **tremor** |
+| 25 | 0 | 4 | 9 | 6 | 5 | — |
+| 30 | 0 | 5 | 10 | 6 | 6 | — |
+| 35 | 0 | 5 | 11 | 7 | 6 | — |
+| 40 | 0 | 6 | 11 | 7 | 7 | ⚡ abre **ruptura_do_solo** |
+| 45 | 0 | 6 | 12 | 8 | 7 | — |
+| 50 | 0 | 6 | 13 | 8 | 8 | ⚡ abre **raizes_profundas** |
+| 52 | 0 | 7 | 13 | 8 | 8 | ⬆ **pele_de_pedra** vira rank 2 |
+| 55 | 0 | 7 | 14 | 8 | 8 | — |
+| 58 | 0 | 7 | 14 | 9 | 8 | ⬆ **raiz_prendente** vira rank 2 |
+| 60 | 0 | 7 | 15 | 9 | 8 | — |
+| 64 | 0 | 7 | 15 | 9 | 9 | ⬆ **tremor** vira rank 2 |
+| 65 | 0 | 8 | 15 | 9 | 9 | — |
+| 70 | 0 | 8 | 16 | 9 | 9 | ⬆ **ruptura_do_solo** vira rank 2 |
+| 75 | 0 | 8 | 16 | 10 | 9 | — |
+| 78 | 0 | 8 | 17 | 10 | 9 | ⬆ **pele_de_pedra** vira rank 3 |
+| 80 | 0 | 8 | 17 | 10 | 9 | — |
+| 84 | 0 | 9 | 17 | 10 | 10 | ⬆ **raiz_prendente** vira rank 3 |
+| 85 | 0 | 9 | 17 | 10 | 10 | — |
+| 90 | 0 | 9 | 18 | 10 | 10 | ⬆ **tremor** vira rank 3 |
+| 95 | 0 | 9 | 18 | 11 | 10 | — |
+| 96 | 0 | 9 | 18 | 11 | 10 | ⬆ **ruptura_do_solo** vira rank 3 |
+
+### Racha — mistico (terreno)
+
+| Nível | A | H | D | Osso | Gás | Poder/evento neste nível |
+|---|---|---|---|---|---|---|
+| 1 | 1 | 1 | 1 | 2 | 2 | Técnica base (class_basic) |
+| 4 | 2 | 1 | 2 | 3 | 2 | ⚡ abre **estilhaco_terrestre** |
+| 5 | 3 | 1 | 2 | 3 | 2 | — |
+| 10 | 5 | 2 | 3 | 4 | 2 | ★ Falha Sísmica |
+| 12 | 5 | 3 | 3 | 4 | 2 | ⚡ abre **pele_de_pedra** |
+| 15 | 6 | 3 | 4 | 5 | 2 | — |
+| 20 | 8 | 4 | 4 | 5 | 2 | — |
+| 24 | 8 | 4 | 5 | 6 | 2 | ⚡ abre **tremor** |
+| 25 | 8 | 4 | 5 | 6 | 2 | — |
+| 30 | 10 | 5 | 5 | 6 | 2 | — |
+| 35 | 10 | 5 | 6 | 7 | 2 | — |
+| 40 | 11 | 6 | 6 | 7 | 2 | ⚡ abre **ruptura_do_solo** |
+| 45 | 12 | 6 | 6 | 8 | 2 | — |
+| 50 | 13 | 6 | 7 | 8 | 2 | ⚡ abre **fenda_no_chao** |
+| 52 | 13 | 7 | 7 | 8 | 2 | ⬆ **estilhaco_terrestre** vira rank 2 |
+| 55 | 14 | 7 | 7 | 8 | 2 | — |
+| 58 | 14 | 7 | 7 | 9 | 2 | ⬆ **pele_de_pedra** vira rank 2 |
+| 60 | 14 | 7 | 8 | 9 | 2 | — |
+| 64 | 15 | 8 | 8 | 9 | 2 | ⬆ **tremor** vira rank 2 |
+| 65 | 15 | 8 | 8 | 9 | 2 | — |
+| 70 | 16 | 8 | 8 | 9 | 2 | ⬆ **ruptura_do_solo** vira rank 2 |
+| 75 | 16 | 8 | 9 | 10 | 2 | — |
+| 78 | 16 | 8 | 9 | 10 | 2 | ⬆ **estilhaco_terrestre** vira rank 3 |
+| 80 | 17 | 8 | 9 | 10 | 2 | — |
+| 84 | 17 | 9 | 9 | 10 | 2 | ⬆ **pele_de_pedra** vira rank 3 |
+| 85 | 17 | 9 | 9 | 10 | 2 | — |
+| 90 | 18 | 9 | 9 | 10 | 2 | ⬆ **tremor** vira rank 3 |
+| 95 | 18 | 9 | 10 | 11 | 2 | — |
+| 96 | 18 | 9 | 10 | 11 | 2 | ⬆ **ruptura_do_solo** vira rank 3 |
+
+### Faísca — mistico (tempestade)
+
+| Nível | A | H | D | Osso | Gás | Poder/evento neste nível |
+|---|---|---|---|---|---|---|
+| 1 | 1 | 3 | 0 | 1 | 1 | Técnica base (class_basic) |
+| 4 | 2 | 5 | 0 | 1 | 1 | ⚡ abre **raio_curto** |
+| 5 | 2 | 5 | 0 | 2 | 1 | — |
+| 10 | 3 | 7 | 0 | 2 | 1 | ★ Antes do Trovão |
+| 12 | 3 | 8 | 0 | 2 | 1 | ⚡ abre **eletricidade_estatica** |
+| 15 | 3 | 8 | 0 | 3 | 1 | — |
+| 20 | 4 | 10 | 0 | 3 | 1 | — |
+| 24 | 4 | 11 | 0 | 4 | 1 | ⚡ abre **passo_eletrico** |
+| 25 | 4 | 11 | 0 | 4 | 1 | — |
+| 30 | 4 | 13 | 0 | 4 | 1 | — |
+| 35 | 5 | 14 | 0 | 5 | 1 | — |
+| 40 | 5 | 15 | 0 | 5 | 1 | ⚡ abre **tempestade_total** |
+| 45 | 6 | 16 | 0 | 5 | 1 | — |
+| 50 | 6 | 17 | 0 | 5 | 1 | ⚡ abre **descarga** |
+| 52 | 6 | 17 | 0 | 6 | 1 | ⬆ **raio_curto** vira rank 2 |
+| 55 | 6 | 17 | 0 | 6 | 1 | — |
+| 58 | 6 | 18 | 0 | 6 | 1 | ⬆ **eletricidade_estatica** vira rank 2 |
+| 60 | 6 | 18 | 0 | 6 | 1 | — |
+| 64 | 7 | 19 | 0 | 6 | 1 | ⬆ **passo_eletrico** vira rank 2 |
+| 65 | 7 | 19 | 0 | 6 | 1 | — |
+| 70 | 7 | 20 | 0 | 6 | 1 | ⬆ **tempestade_total** vira rank 2 |
+| 75 | 7 | 20 | 0 | 7 | 1 | — |
+| 78 | 7 | 20 | 0 | 7 | 1 | ⬆ **raio_curto** vira rank 3 |
+| 80 | 7 | 21 | 0 | 7 | 1 | — |
+| 84 | 7 | 21 | 0 | 7 | 1 | ⬆ **eletricidade_estatica** vira rank 3 |
+| 85 | 7 | 21 | 0 | 7 | 1 | — |
+| 90 | 8 | 22 | 0 | 7 | 1 | ⬆ **passo_eletrico** vira rank 3 |
+| 95 | 8 | 22 | 0 | 7 | 1 | — |
+| 96 | 8 | 22 | 0 | 7 | 1 | ⬆ **tempestade_total** vira rank 3 |
+
+### Trovão — mistico (tempestade)
+
+| Nível | A | H | D | Osso | Gás | Poder/evento neste nível |
+|---|---|---|---|---|---|---|
+| 1 | 2 | 2 | 0 | 1 | 1 | Técnica base (class_basic) |
+| 4 | 4 | 3 | 0 | 1 | 1 | ⚡ abre **eletricidade_estatica** |
+| 5 | 4 | 3 | 0 | 2 | 1 | — |
+| 10 | 6 | 4 | 0 | 2 | 1 | ★ Queda do Céu |
+| 12 | 7 | 4 | 0 | 3 | 1 | ⚡ abre **raio_curto** |
+| 15 | 8 | 4 | 0 | 3 | 1 | — |
+| 20 | 9 | 5 | 0 | 3 | 1 | — |
+| 24 | 10 | 5 | 0 | 4 | 1 | ⚡ abre **cadeia_de_raios** |
+| 25 | 11 | 5 | 0 | 4 | 1 | — |
+| 30 | 12 | 6 | 0 | 4 | 1 | — |
+| 35 | 13 | 6 | 0 | 5 | 1 | — |
+| 40 | 15 | 6 | 0 | 5 | 1 | ⚡ abre **tempestade_total** |
+| 45 | 15 | 7 | 0 | 5 | 1 | — |
+| 50 | 16 | 7 | 0 | 6 | 1 | ⚡ abre **trovoada** |
+| 52 | 16 | 7 | 0 | 6 | 1 | ⬆ **eletricidade_estatica** vira rank 2 |
+| 55 | 17 | 7 | 0 | 6 | 1 | — |
+| 58 | 17 | 7 | 0 | 6 | 1 | ⬆ **raio_curto** vira rank 2 |
+| 60 | 18 | 7 | 0 | 6 | 1 | — |
+| 64 | 18 | 8 | 0 | 6 | 1 | ⬆ **cadeia_de_raios** vira rank 2 |
+| 65 | 18 | 8 | 0 | 6 | 1 | — |
+| 70 | 19 | 8 | 0 | 7 | 1 | ⬆ **tempestade_total** vira rank 2 |
+| 75 | 20 | 8 | 0 | 7 | 1 | — |
+| 78 | 20 | 8 | 0 | 7 | 1 | ⬆ **eletricidade_estatica** vira rank 3 |
+| 80 | 20 | 8 | 0 | 7 | 1 | — |
+| 84 | 21 | 9 | 0 | 7 | 1 | ⬆ **raio_curto** vira rank 3 |
+| 85 | 21 | 9 | 0 | 7 | 1 | — |
+| 90 | 21 | 9 | 0 | 7 | 1 | ⬆ **cadeia_de_raios** vira rank 3 |
+| 95 | 22 | 9 | 0 | 8 | 1 | — |
+| 96 | 22 | 9 | 0 | 8 | 1 | ⬆ **tempestade_total** vira rank 3 |
+
+### Névoa — mistico (ilusorio)
+
+| Nível | A | H | D | Osso | Gás | Poder/evento neste nível |
+|---|---|---|---|---|---|---|
+| 1 | 0 | 3 | 1 | 1 | 1 | Técnica base (class_basic) |
+| 4 | 0 | 5 | 2 | 1 | 1 | ⚡ abre **mente_nebulosa** |
+| 5 | 0 | 5 | 2 | 2 | 1 | — |
+| 10 | 0 | 6 | 4 | 2 | 1 | ★ Sem Rosto |
+| 12 | 0 | 7 | 4 | 3 | 1 | ⚡ abre **reflexo_falso** |
+| 15 | 0 | 8 | 5 | 3 | 1 | — |
+| 20 | 0 | 9 | 6 | 3 | 1 | — |
+| 24 | 0 | 9 | 7 | 4 | 1 | ⚡ abre **distorcao** |
+| 25 | 0 | 9 | 7 | 4 | 1 | — |
+| 30 | 0 | 10 | 8 | 4 | 1 | — |
+| 35 | 0 | 11 | 9 | 5 | 1 | — |
+| 40 | 0 | 12 | 9 | 5 | 1 | ⚡ abre **quebra_de_realidade** |
+| 45 | 0 | 13 | 10 | 5 | 1 | — |
+| 50 | 0 | 13 | 11 | 6 | 1 | ⚡ abre **veu_de_nevoa** |
+| 52 | 0 | 14 | 11 | 6 | 1 | ⬆ **mente_nebulosa** vira rank 2 |
+| 55 | 0 | 14 | 12 | 6 | 1 | — |
+| 58 | 0 | 15 | 12 | 6 | 1 | ⬆ **reflexo_falso** vira rank 2 |
+| 60 | 0 | 15 | 12 | 7 | 1 | — |
+| 64 | 0 | 15 | 13 | 7 | 1 | ⬆ **distorcao** vira rank 2 |
+| 65 | 0 | 15 | 13 | 7 | 1 | — |
+| 70 | 0 | 16 | 13 | 7 | 1 | ⬆ **quebra_de_realidade** vira rank 2 |
+| 75 | 0 | 16 | 14 | 7 | 1 | — |
+| 78 | 0 | 17 | 14 | 8 | 1 | ⬆ **mente_nebulosa** vira rank 3 |
+| 80 | 0 | 17 | 14 | 8 | 1 | — |
+| 84 | 0 | 17 | 15 | 8 | 1 | ⬆ **reflexo_falso** vira rank 3 |
+| 85 | 0 | 17 | 15 | 8 | 1 | — |
+| 90 | 0 | 18 | 15 | 8 | 1 | ⬆ **distorcao** vira rank 3 |
+| 95 | 0 | 18 | 16 | 8 | 1 | — |
+| 96 | 0 | 19 | 16 | 8 | 1 | ⬆ **quebra_de_realidade** vira rank 3 |
+
+### Espelho — mistico (ilusorio)
+
+| Nível | A | H | D | Osso | Gás | Poder/evento neste nível |
+|---|---|---|---|---|---|---|
+| 1 | 1 | 2 | 1 | 1 | 1 | Técnica base (class_basic) |
+| 4 | 2 | 3 | 2 | 1 | 1 | ⚡ abre **reflexo_falso** |
+| 5 | 2 | 3 | 3 | 1 | 1 | — |
+| 10 | 3 | 5 | 5 | 1 | 1 | ★ Duas Verdades |
+| 12 | 3 | 6 | 5 | 1 | 1 | ⚡ abre **mente_nebulosa** |
+| 15 | 3 | 6 | 6 | 1 | 1 | — |
+| 20 | 4 | 7 | 7 | 1 | 1 | — |
+| 24 | 4 | 8 | 8 | 1 | 1 | ⚡ abre **duplo_ilusorio** |
+| 25 | 4 | 8 | 8 | 1 | 1 | — |
+| 30 | 5 | 9 | 9 | 1 | 1 | — |
+| 35 | 5 | 10 | 9 | 1 | 1 | — |
+| 40 | 5 | 11 | 10 | 1 | 1 | ⚡ abre **quebra_de_realidade** |
+| 45 | 6 | 11 | 11 | 1 | 1 | — |
+| 50 | 6 | 12 | 12 | 1 | 1 | ⚡ abre **espelho_quebrado** |
+| 52 | 6 | 12 | 12 | 1 | 1 | ⬆ **reflexo_falso** vira rank 2 |
+| 55 | 7 | 13 | 12 | 1 | 1 | — |
+| 58 | 7 | 13 | 13 | 1 | 1 | ⬆ **mente_nebulosa** vira rank 2 |
+| 60 | 7 | 13 | 13 | 1 | 1 | — |
+| 64 | 7 | 14 | 14 | 1 | 1 | ⬆ **duplo_ilusorio** vira rank 2 |
+| 65 | 7 | 14 | 14 | 1 | 1 | — |
+| 70 | 8 | 15 | 14 | 1 | 1 | ⬆ **quebra_de_realidade** vira rank 2 |
+| 75 | 8 | 15 | 15 | 1 | 1 | — |
+| 78 | 8 | 16 | 15 | 1 | 1 | ⬆ **reflexo_falso** vira rank 3 |
+| 80 | 8 | 16 | 15 | 1 | 1 | — |
+| 84 | 8 | 16 | 16 | 1 | 1 | ⬆ **mente_nebulosa** vira rank 3 |
+| 85 | 8 | 16 | 16 | 1 | 1 | — |
+| 90 | 9 | 17 | 16 | 1 | 1 | ⬆ **duplo_ilusorio** vira rank 3 |
+| 95 | 9 | 17 | 17 | 1 | 1 | — |
+| 96 | 9 | 17 | 17 | 1 | 1 | ⬆ **quebra_de_realidade** vira rank 3 |
+
