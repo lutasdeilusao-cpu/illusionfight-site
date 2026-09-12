@@ -170,7 +170,7 @@
       "keywords": "illusion fight, lutas de ilusão, webtoon, jogos táticos, arena virtual, ficção científica"
     }
     </script>
-    <script type="module" crossorigin src="/assets/index-DJ0r6gxL.js"></script>
+    <script type="module" crossorigin src="/assets/index-qeKNvZ-p.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/react-GZhdek4G.js">
     <link rel="modulepreload" crossorigin href="/assets/preload-helper-zJ_50EbN.js">
     <link rel="modulepreload" crossorigin href="/assets/supabase-ByYxoL3g.js">
@@ -208,22 +208,35 @@
       <div class="ldi-intro__bar"></div>
     </div>
     <script>
-      // Vinheta de abertura — só no primeiro acesso do dia. Mín 2s (600ms c/ reduced-motion), teto 4s.
-      // Encerra assim que o React avisa (evento 'ldi:ready'). O som é opcional: se o navegador bloquear, segue sem.
+      // Vinheta de abertura. O #root já chega pro navegador com o HTML estático
+      // de SEO (prerender-routes.js) — texto cru, sem o visual real do app — e
+      // só vira a página de verdade quando o bundle React monta. Esse vão SEMPRE
+      // precisa de cobertura, senão o visitante vê o texto cru piscando antes do
+      // site oficial (bug reportado pelo Isaias em 12/09/2026). Por isso a vinheta
+      // nunca é removida sem mostrar nada: no primeiro acesso do dia toca o show
+      // completo (logo animado, som, mín 2s/600ms reduced-motion, teto 4s); em
+      // qualquer outra carga no mesmo dia (reload, aba nova, link externo) cobre
+      // em modo silencioso — logo estático, sem som, sem espera mínima — e some
+      // assim que o React avisa que montou (evento 'ldi:ready'), com o mesmo teto
+      // de 4s como rede de segurança caso o evento nunca chegue.
       (function () {
         var el = document.getElementById('ldi-intro');
         if (!el) return;
         var KEY = 'ldi-intro-day', today = new Date().toISOString().slice(0, 10), seen = null, lang = 'pt';
         try { seen = localStorage.getItem(KEY); lang = localStorage.getItem('ldi-locale') || 'pt'; } catch (e) {}
-        if (seen === today) { el.remove(); return; }
-        try { localStorage.setItem(KEY, today); } catch (e) {}
+        var primeiroAcessoHoje = seen !== today;
+        if (primeiroAcessoHoje) { try { localStorage.setItem(KEY, today); } catch (e) {} }
         var reduce = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
         var word = el.querySelector('.ldi-intro__word');
         if (word) word.textContent = lang === 'en' ? 'ILLUSION FIGHT' : 'LUTAS DE ILUSÃO';
         document.documentElement.classList.add('ldi-intro-on');
-        el.classList.add(reduce ? 'ldi-intro--static' : 'ldi-intro--play');
-        try { var a = new Audio('/sounds/intro.mp3'); a.volume = 0.22; var p = a.play(); if (p && p.catch) p.catch(function () {}); } catch (e) {}
-        var MIN = reduce ? 600 : 2000, MAX = 4000, start = Date.now(), ready = false, done = false;
+        if (primeiroAcessoHoje) {
+          el.classList.add(reduce ? 'ldi-intro--static' : 'ldi-intro--play');
+          try { var a = new Audio('/sounds/intro.mp3'); a.volume = 0.22; var p = a.play(); if (p && p.catch) p.catch(function () {}); } catch (e) {}
+        } else {
+          el.classList.add('ldi-intro--static')
+        }
+        var MIN = primeiroAcessoHoje ? (reduce ? 600 : 2000) : 0, MAX = 4000, start = Date.now(), ready = false, done = false;
         function finish() {
           if (done) return; done = true;
           el.classList.add('ldi-intro--out');
