@@ -95,7 +95,7 @@ export const GANGUES_CHEFE_CORPOS = { pista: 2 }
 // isso, um time que subiu de nível zerava os bairros de cima sem tomar dano.
 // Validado por simulação headless (3000 batalhas/célula, porta fiel do
 // resolver + turn machine) — a curva e a tabela de resultados estão em
-// src/pages/games/Gangues/GANGUES_MODO_HISTORIA_ENCONTROS.md §"Balanceamento".
+// docs/Games/Gangues/LDI_GANGUES_GDD.md §17.6.
 // MODO de dificuldade — escolha do jogador (storyProgress.__dificuldade), como
 // em qualquer game. `facil` é a curva simulada original (bando de rua da Pista
 // com ~52% dos teus pontos); `medio` e `dificil` sobem. Pedido do Isaias

@@ -1,5 +1,5 @@
 // Moldes de inimigo que as tretas de rua/dungeon da Pista revezam ("estilo
-// Pokémon" — ver GANGUES_MODO_HISTORIA_ENCONTROS.md §10). Extraído de
+// Pokémon" — ver docs/Games/Gangues/LDI_GANGUES_GDD.md §17.6). Extraído de
 // data/cenas/pista.js (PLANO_REFATORACAO_ARQUIVOS_GRANDES_GANGUES_2026-09-11.md §4).
 
 // Antes eram só 5 ids repetidos à exaustão — o Isaias reclamou de encarar

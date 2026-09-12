@@ -35,7 +35,7 @@ export const CRITICAL_BONUS = 2
 //
 // `activeSpecialId`: id do poder ativo equipado que o atacante escolheu usar nesta ação (ou
 // null pra ataque normal). Efeitos passivos equipados de ambos os lados aplicam sempre. Ver
-// engine/ganguesSpecialEffects.js pros valores e src/pages/games/Gangues/GANGUES_PROGRESSAO_RASCUNHO.md
+// engine/ganguesSpecialEffects.js pros valores e docs/Games/Gangues/LDI_GANGUES_GDD.md §17.3
 // pro design original (com as simplificações feitas pra caber no modelo de 1 ação por turno).
 export function resolveGanguesAction({ attacker, defender, action, rolls, activeSpecialId = null }) {
   const attack = Number(attacker.attributes?.A) || 0

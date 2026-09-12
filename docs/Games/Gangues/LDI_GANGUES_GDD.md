@@ -1,18 +1,24 @@
-# LDI GANGUES — GDD (Game Design Document · lore + mundo)
+# LDI GANGUES — GDD (Game Design Document · a bíblia única)
 
-> **Base oficial e única da lore do LDI Gangues.** v1 — 2026-09-08.
-> Tudo aqui é **cânone fechado**. Substitui todos os docs de lore anteriores.
+> **Base oficial e única de tudo sobre o LDI Gangues — lore E mecânica.**
+> v1 — 2026-09-08, consolidado em bíblia única em set/2026 (pedido do
+> Isaias: "o GDD tem que ser a única bíblia... a documentação tem que
+> estar num único lugar"). Tudo aqui é **cânone fechado**. Substitui todos
+> os docs de lore E de mecânica anteriores — os 4 `.md` que viviam soltos
+> em `src/pages/games/Gangues/` (`GANGUES_DESIGN.md`, `GANGUES_HEADSUP.md`,
+> `GANGUES_PROGRESSAO_RASCUNHO.md`, `GANGUES_MODO_HISTORIA_ENCONTROS.md`)
+> foram fundidos aqui (ver seção 17) e **removidos do repositório**.
 >
 > **Fonte narrativa:** o conto **"Alan, o Campeão"** (`src/data/livro/contos/pt/02/01.md`
 > … `19.md`, contos-index id `02`). O jogo é o pano de fundo histórico desse
 > conto: a década final da fragmentação de Marélia, terminando pouco antes de o
 > Alan reivindicar a coroa.
 >
-> **Mecânica de combate / skill tree / turno** não mora aqui — está em
-> `src/pages/games/Gangues/GANGUES_DESIGN.md`, `GANGUES_HEADSUP.md`,
-> `GANGUES_PROGRESSAO_RASCUNHO.md`, `GANGUES_MODO_HISTORIA_ENCONTROS.md`.
-> Este GDD é **o mundo**: quem manda, como o crime funciona, o que aconteceu
-> antes, quem o jogador enfrenta e por quê, o que ele coleciona e equipa.
+> Seções 1–14 = **o mundo** (quem manda, como o crime funciona, o que
+> aconteceu antes, quem o jogador enfrenta e por quê, o que ele coleciona e
+> equipa). Seções 15–17 = **mecânica** (combate, progressão, retratos,
+> líder, estrutura de arquivos) — nasceram depois, quando a lore e a
+> mecânica pararam de fazer sentido separadas.
 
 Grafia oficial: **Marélia** com acento (o conto usa assim). O i18n do jogo ainda
 tem "Marelia" sem acento em vários lugares — alinhar quando mexer em texto.
@@ -225,7 +231,7 @@ ponto** (`beco_3`) · **O Sinaleiro Chefe** (1451 — 1ª luta de General,
 rinha do beco (farm) · Duda, o Orelha · Descanso na birosca · **A loja da Pista**
 (do outro lado do muro — só alcançável pelo túnel, depois de fechar os pontos).
 Os dois generais da Pista caem na cena antes do chefe (entram no Álbum aqui). Detalhe em
-`src/pages/games/Gangues/GANGUES_MODO_HISTORIA_ENCONTROS.md §5`.
+§17.6 desta bíblia.
 
 **Mapa de RPG (v2.73–2.74):** o exterior é favela desenhada em CSS (barraco /
 laje com caixa d'água / sobrado / comércio com toldo / galpão) com rua de
@@ -271,7 +277,7 @@ sorteados dos 11 comuns da Pista — tipo e quantidade mudam a cada tentativa �
 num `ratio` de 0.42 (fácil de propósito, ~97% de vitória). O bando escala com os
 pontos do time e o `ratio` sobe bairro por bairro até a Laje (0.74), pra o jogo
 "sempre ir igualando a ficha do jogador". Curva completa + resultados de
-simulação em `src/pages/games/Gangues/GANGUES_MODO_HISTORIA_ENCONTROS.md §10`.
+simulação em §17.6 desta bíblia.
 
 **Encontro de revezamento — dungeon (v2.74.5):** as tretas dentro do túnel (e
 futuramente do galpão) NÃO usam a geração de bando do território. Um POI `treta`
@@ -893,13 +899,13 @@ Reserva: cada faixa comporta crescer até ~99 sem remapear.
 | Mapa, territórios, gangues, chefes, portões | `src/pages/games/Gangues/data/ganguesTerritorios.js` |
 | Fichas dos inimigos + trash talk | `src/pages/games/Gangues/data/gangues-enemies.json` |
 | Geração de bando + equipe fixa dos chefes | `src/pages/games/Gangues/data/ganguesEncontros.js` |
-| Cena navegável da Pista (POIs, NPCs, diálogos) | `src/pages/games/Gangues/data/cenas/pista.js` |
-| 30 lutadores recrutáveis | `ldi_gangues_30_personagens_v1.json` |
+| Cena navegável da Pista (POIs, NPCs, diálogos) | `src/pages/games/Gangues/data/cenas/pista/` |
+| 30 lutadores recrutáveis | `data/ldi_gangues_30_personagens_v1.json` |
 | Consumíveis / equipamento | `src/pages/games/Gangues/data/ganguesItens.js`, `data/ganguesEquip.js` |
 | Loja / painel de equipamento | `src/pages/games/Gangues/components/cena/GanguesLoja.jsx`, `components/GanguesEquipPanel.jsx` |
-| Inventário + economia (store) | `src/pages/games/Gangues/store/useGanguesStore.js` |
+| Inventário + economia (store) | `src/pages/games/Gangues/store/useGanguesStore.js` + `store/slices/` |
 | Textos de história / itens (i18n) | `src/i18n/gangues-{pt,en,es}.json` → `games.gangues.{story,cena,dialogo,naming,itens,equip,loja,bag}` |
-| **Mecânica** (não é lore) | `src/pages/games/Gangues/GANGUES_DESIGN.md`, `GANGUES_HEADSUP.md`, `GANGUES_PROGRESSAO_RASCUNHO.md`, `GANGUES_MODO_HISTORIA_ENCONTROS.md` |
+| **Mecânica** (combate, progressão, skill tree, modo história) | Seção 17 desta bíblia |
 
 ---
 
@@ -1079,3 +1085,189 @@ decoração. Regras de hoje:
   qualquer outro; (2) desafio "líder contra líder" como modalidade de
   confronto em territórios futuros (não a Pista — pedido explícito do
   Isaias foi "pra frente", não confundir com o chefe comum de cada bairro).
+
+---
+
+## 17. Mecânica de combate e progressão (fonte única — set/2026)
+
+Pedido do Isaias: **o GDD tem que ser a única bíblia**. Até aqui, a mecânica
+(combate/skill tree/progressão/modo história) vivia espalhada em 4 arquivos
+`.md` soltos na raiz de `src/pages/games/Gangues/` (`GANGUES_DESIGN.md`,
+`GANGUES_HEADSUP.md`, `GANGUES_PROGRESSAO_RASCUNHO.md`,
+`GANGUES_MODO_HISTORIA_ENCONTROS.md`) — **todos deletados** depois desta
+seção ser escrita. Dois deles (`GANGUES_DESIGN.md`, `GANGUES_HEADSUP.md`)
+descreviam o jogo na versão **v1.12–v1.14** (mais de 60 versões atrás):
+atributos `{A,H,R,D}` com Resistência genérica, 8 inimigos fixos, criação
+por 5 pontos livres, XP fixo de 10/1 por vitória/derrota, `GanguesTrainingZone`,
+mascote NeoGuide — **nada disso existe mais**. O que segue abaixo foi
+reconferido contra o código de verdade em set/2026, não copiado dos docs
+antigos.
+
+### 17.1 Ficha e atributos
+
+- Cada personagem tem 5 atributos: **A** (Ataque), **H** (Habilidade),
+  **D** (Defesa), **PV/Osso** e **PM/Gás** (`GANGUES_ATTRS` em
+  `data/ganguesCharacters.js`). **Não existe mais Resistência** — PV e PM
+  são atributos próprios desde a revisão "PV/PM separados" (v2.75.x);
+  crescem por nível seguindo o `growth_order` autorado de cada um dos 30
+  personagens do catálogo (não são mais alocação livre do jogador).
+- **PV máx / PM máx** = atributo PV/PM × uma taxa por caminho
+  (`GANGUES_RESOURCE_RATES` em `data/ganguesLoadout.js`):
+
+  | Caminho | PV máx por ponto de PV | PM máx por ponto de PM |
+  |---|---|---|
+  | Atacante | 3 | 3 |
+  | Defensor | 4 | 2 |
+  | Místico | 2 | 4 |
+
+- **Criação de gangue não distribui pontos livres** — o jogador escolhe 2
+  dos 30 personagens pré-autorados do catálogo (`ldi_gangues_30_personagens_v1.json`),
+  cada um já vem com `base_stats`/`base_resources` fixos do nível 1. Os
+  outros 28 liberam por reputação/campanha/evento — ver `getGanguesAvailableCharacterIds`.
+  Nome/rótulo dos atributos: `attr_labels` no i18n (Osso/Gás em pt, Grit/Gas
+  em en, Aguante/Pila em es).
+- **Nível teto: 99** (`GANGUES_LEVEL_CAP`). Níveis 1–10 são estatísticas
+  autoradas à mão; 11–99 crescem +1 ponto por nível seguindo o
+  `growth_order` de cada ficha (fiel à identidade dela — um Bruto termina
+  A altíssimo, um Muralha só D/PV).
+
+### 17.2 Fórmula de combate
+
+Tudo em `engine/ganguesCombatResolver.js`:
+
+```
+FA = Ataque + floor(Habilidade/2) + d3[+2 se crítico] + efeitos de poder ativo
+FD = Defesa efetiva + d3 + efeitos de poder passivo
+DANO = max(0, FA − FD)   // SEM piso de dano — defesa bem investida pode zerar o golpe
+```
+
+- **Dado d3** (1 a 3) pros dois lados, ataque e defesa. Crítico = tirar o
+  valor máximo (3) no dado de ataque, soma **+2** na rolagem (vira 5 no
+  cálculo de FA). Só o ataque critica.
+- **Sem dano mínimo garantido** — o clamp é `Math.max(0, ...)`, não
+  `Math.max(1, ...)`. Foi tirado de propósito depois de muito playtest: com
+  bandos grandes, "sempre acerta pelo menos 1" deixava toda defesa
+  irrelevante.
+- **Iniciativa**: `Habilidade + d3` por combatente, sorteada uma vez no
+  início da luta, maior age primeiro, segue em loop pulando quem já caiu
+  (empate por Habilidade, depois aleatório).
+- **IA inimiga**: ataca depois de um delay fixo. Escolha de alvo evita
+  repetir o último quando dá — ~55% mira em quem tem menos PV entre os
+  vivos, ~45% escolhe aleatório (`pickEnemyTarget` em `useGanguesTurnMachine.js`).
+- **⚠️ Achado nesta auditoria: o bônus de caminho está DESLIGADO no código
+  hoje.** Os 3 docs antigos (e a UI do log de combate, que ainda mostra
+  "bônus de ataque: ativado/não ativou") descrevem Atacante +1 ataque
+  ~50%, Defensor +1 defesa ~50%, Místico +1 garantido — mas
+  `resolveAttackerBonus`/`resolveDefenderBonus` em `ganguesCombatResolver.js`
+  **ignoram os parâmetros e sempre retornam `applied: false, amount: 0`**,
+  hoje só stub. Não foi corrigido nesta auditoria (o pedido era consolidar
+  documentação, não mexer em mecânica) — fica registrado aqui como bug real
+  a decidir: religar o bônus, ou tirar de vez o texto/UI que promete ele.
+
+### 17.3 Poderes / especiais (skill tree)
+
+- **15 subcaminhos** (5 por caminho × 3 caminhos), **5 poderes cada** = 75
+  poderes catalogados (`data/ganguesSpecials.js`), valores reais aplicados
+  em `engine/ganguesSpecialEffects.js`. Atacante: Bruto, Duelista, Fúria,
+  Especialista, Vingador. Defensor: Muralha, Guardião, Provocador, Reativo,
+  Resiliente. Místico: Ígneo, Aquático, Terreno, Tempestade, Ilusório.
+- **Os 3 caminhos têm design próprio** desde a v2.75.1 — Defensor e
+  Místico deixaram de usar template genérico (bug corrigido na mesma
+  versão: os ids de 9 dos 10 subcaminhos de Defensor/Místico não batiam
+  com `signature_specials` dos personagens, então o poder equipado nunca
+  era achado em combate pra 20 dos 30 personagens). Cada poder tem 3
+  níveis; só dá pra equipar **2 por vez** (`selected_specials`).
+- **6º poder exclusivo por personagem**, nível 50, não repetido dentro do
+  mesmo subcaminho — veio junto da correção acima.
+- Poderes liberam/sobem via **AP → XP**, não mais via pontos de criação:
+  ver §17.4.
+
+### 17.4 Progressão (AP, XP, nível)
+
+- **AP por inimigo = 10, fixo em qualquer modo** (história ou Torre) —
+  chegou a subir pra 30 no modo história (dez/2026) mas foi revertido
+  (set/2026, pedido do Isaias: "2 inimigos já davam 60 AP numa luta só").
+  Chefe vale 5×; Torre escala +100% a cada 5 andares.
+- **Custo de AP por nível**: `ganguesApCostForLevel(nível) = 5 × (nível + 1)`
+  — nível 1 custa 10 AP, nível 2 custa 15, sobe 5 a cada nível
+  (`data/ganguesLoadout.js`). Ao virar XP, o jogador escolhe gastar em
+  poder do subcaminho (nunca mais em atributo livre — isso não existe mais).
+- **1ª luta de toda conta nova é suavizada** (1 corpo só, metade dos
+  pontos) — ver §13/§14 desta bíblia.
+
+### 17.5 Tamanho de gangue e elenco
+
+- Batalha da história começa travada em **2 fichas** (`GANGUES_INITIAL_PARTY_SIZE`),
+  cresce **+1 vaga por território dominado** até o teto de **6**
+  (`GANGUES_STORY_BATTLE_PARTY_MAX`, `getGanguesRosterLimitComHistoria`) —
+  o maior valor entre "quanto o tier paga" e "quanto a história liberou"
+  vale, não soma os dois.
+- Limite de **fichas no roster** por tier: hoje achatado em 2 pra todos os
+  planos (`GANGUES_ROSTER_LIMITS`) — cresce de verdade é pela história, não
+  pela assinatura.
+- **Saves**: 1/2/3 por tier free/elite/primordial (`GANGUES_SAVE_SLOT_LIMITS`).
+
+### 17.6 Modo História — a cena navegável (hoje só a Pista)
+
+Sistema descrito originalmente em `GANGUES_MODO_HISTORIA_ENCONTROS.md`
+(2026-09-04) e já implementado pra Pista (`data/cenas/pista/`) — os outros
+6 bairros ainda usam a trilha antiga de nós (`GanguesTerritorio.jsx`).
+
+- Cada bairro-cena é um mapa navegável com **5 tipos de POI**: **Treta**
+  (combate), **Parada** (mini-jogo, falhar pode virar treta), **Papo**
+  (diálogo com escolhas), **Corre** (tarefa/stealth), **Achado** (loot sem
+  interação) — mais `Descanso` (birosca) e `Loja`.
+- **Grafo de descoberta**: POI escondido não aparece; resolver um revela o
+  próximo. Portão do chefe só abre com os POIs-chave batidos.
+- **Economia**: Grana (gasta em descanso/loja) e Rep/Nome (destranca POI,
+  alimenta % de domínio). PV/PM perdido persiste dentro do bairro; só volta
+  ao cheio saindo ou dominando.
+- **Agiotagem da birosca**: o Nato fia o descanso (dívida que dobra se
+  "remendado" de novo), e o **Clube da Luta** é um gauntlet de 3 rondas
+  sempre oferecido como saída da dívida — ver [[gangues-agiotagem-birosca-clube-luta]].
+- **Bando inimigo escala contra o time do jogador** (`gerarBandoInimigo`),
+  ratio sobe por território (Pista ~0.52 até Laje ~0.74) + offset por
+  dificuldade (fácil/médio/difícil, ±0.10) — calibrado por simulação
+  headless (script `sim_boss7.py`, 3000+ batalhas por célula), não por
+  fórmula no papel. Chefe usa orçamento **fixo** (`GANGUES_CHEFE_BUDGET`),
+  não escala — o loop de RPG é o jogador voltar mais forte, não o chefe
+  ficar mais fraco.
+
+### 17.7 Persistência
+
+- Logado: ficha inteira (incluindo XP/poderes equipados) salva em
+  `gangues_fichas` (Supabase), progresso de história em `gangues_saves` —
+  ambos com debounce de escrita, sem depender de `localStorage` pra dado
+  de jogo.
+- Guest: tudo em memória, perde ao recarregar — banner avisa.
+- **Logout limpa o store do Gangues de verdade** (`AuthContext.jsx`, ver
+  memória [[gangues-supabase-acesso-manutencao]] e a correção desta sessão
+  no `onAuthStateChange`) — sem isso, o próximo guest/login na mesma aba
+  herdava `_userId` órfão.
+
+### 17.8 Estrutura de arquivos (atual, pós-reorganização de set/2026)
+
+```
+src/pages/games/Gangues/
+├── GanguesRoute.jsx      # shell/router — troca de fase, carrega i18n dedicado
+├── Gangues.css           # folha de estilo base do módulo inteiro
+├── screens/              # uma tela por fase (Lobby, Combat, Cena, Create,
+│                         # Modes, Victory*, Album, Batalha, Clube*, Naming,
+│                         # Progression, SaveSelect, StoryMap, Territorio)
+│                         # + CSS de cada uma, co-localizado
+├── assets/               # retratos de personagem (personagens/<slug>/neutro.png)
+├── components/           # peças reutilizadas por mais de uma screen
+│   └── cena/             # peças específicas da cena navegável
+├── data/                 # catálogo de personagens/inimigos/itens/território,
+│   └── cenas/pista/      # regras de pontos, especiais — dados, não lógica de UI
+├── engine/               # resolver de combate, efeitos de poder, motor de cena
+├── hooks/                # turno, i18n sob demanda, movimento de cena, etc.
+└── store/
+    ├── useGanguesStore.js    # composição das slices (zustand)
+    └── slices/               # um arquivo por fatia de estado
+```
+
+**Índice cruzado**: qualquer comentário de código que ainda citar
+`GANGUES_DESIGN.md`/`GANGUES_HEADSUP.md`/`GANGUES_PROGRESSAO_RASCUNHO.md`/
+`GANGUES_MODO_HISTORIA_ENCONTROS.md` deveria apontar pra esta seção do GDD
+a partir de agora — os 4 arquivos foram removidos do repositório.

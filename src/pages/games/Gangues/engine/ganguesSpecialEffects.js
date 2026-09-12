@@ -4,7 +4,7 @@ import { getGanguesCharacter } from '../data/ganguesCharacters.js'
 
 // Valores numéricos padrão da skill tree — ponto de partida pra testar e balancear, não é
 // balanceamento final. Design detalhado do Atacante em
-// src/pages/games/Gangues/GANGUES_PROGRESSAO_RASCUNHO.md; alguns mecanismos de duração/fila de turno
+// docs/Games/Gangues/LDI_GANGUES_GDD.md §17.3; alguns mecanismos de duração/fila de turno
 // descritos lá (Investida furar iniciativa, Marca/Fratura durarem N turnos, Fôlego Final dar
 // ação extra) foram simplificados aqui pra caber no modelo atual de 1 ação por turno, sem fila
 // de status — o efeito líquido (bônus/penalidade) foi mantido, o "como" foi simplificado.
