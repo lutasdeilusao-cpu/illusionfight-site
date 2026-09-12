@@ -231,11 +231,3 @@ export function getGanguesAvailableCharacterIds({ campaignClears = 0, storyProgr
   eventCharacterIds.filter(id => GANGUES_EVENT_CHARACTER_IDS.includes(Number(id))).forEach(id => available.add(Number(id)))
   return [...available]
 }
-
-export function getGanguesNextLevel(characterTemplateId, xpTotal = 0) {
-  const character = getGanguesCharacter(characterTemplateId)
-  if (!character) return null
-  const level = getGanguesLevelFromXp(xpTotal)
-  if (level >= GANGUES_LEVEL_CAP) return null
-  return completarNivel(character, character.levels.find(item => item.level === level + 1) || null)
-}

@@ -24,11 +24,6 @@ import catalogo from './gangues-enemies.json'
 export const GANGUES_INIMIGOS_LISTA = Object.freeze(catalogo)
 export const GANGUES_INIMIGOS = new Map(catalogo.map(inimigo => [inimigo.id, inimigo]))
 
-export function getGanguesInimigo(id) {
-  const key = Number(id)
-  return Number.isFinite(key) ? (GANGUES_INIMIGOS.get(key) || null) : null
-}
-
 /** Ids válidos, únicos, numéricos — usado ao registrar o bando batido no álbum. */
 export function idsValidosUnicos(lista = []) {
   const vistos = new Set()

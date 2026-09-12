@@ -45,8 +45,6 @@ export const GANGUES_SPECIAL_PATHS = {
   ],
 }
 
-export const GANGUES_ALL_SPECIALS = Object.values(GANGUES_SPECIAL_PATHS).flat().flatMap(item => item.specials)
-
 export function getGanguesSpecialPaths(combatPath) {
   return GANGUES_SPECIAL_PATHS[combatPath] || []
 }

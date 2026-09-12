@@ -1,17 +1,7 @@
-import { getGanguesLevelFromXp, custoAtributoGangues, GANGUES_ATTRS } from './ganguesCharacters.js'
+import { getGanguesLevelFromXp, GANGUES_ATTRS } from './ganguesCharacters.js'
 
 export const GANGUES_PATHS = ['atacante', 'defensor', 'mistico']
-export const GANGUES_CREATION_POINTS = 5
-export const GANGUES_ATTRIBUTE_MAX = 5
 export const GANGUES_AP_PER_XP = 10
-// Custo de atributo agora é UMA fonte só (custoAtributoGangues, escalonado
-// por faixa) — usada tanto pra ficha de catálogo (autorada por nível) quanto
-// pra esta ficha "custom" legada. GANGUES_ATTRIBUTE_XP_COSTS existia como
-// tabela fixa separada; virou wrapper pra não duplicar a curva de custo.
-export const GANGUES_ATTRIBUTE_XP_COSTS = new Proxy({}, { get: (_, prop) => custoAtributoGangues(Number(prop)) })
-export const GANGUES_SPECIAL_COSTS = { 0: 1, 1: 2, 2: 3 }
-export const GANGUES_SPECIAL_PATH_ATTRIBUTE_REQUIREMENT = 10
-export const GANGUES_SPECIAL_PATH_XP_COST = 1
 export const GANGUES_INITIAL_PARTY_SIZE = 2
 export const GANGUES_MAX_PARTY_SIZE = 6
 export const GANGUES_ROSTER_LIMITS = { free: 2, elite: 2, primordial: 2 }
@@ -68,8 +58,6 @@ export const GANGUES_RESOURCE_RATES = {
   mistico: { pvPerR: 2, pmPerR: 4 },
 }
 
-export const GANGUES_ATTACKER_SPECIALS = GANGUES_SPECIAL_PATHS.atacante[0].specials
-
 export function defaultGanguesProgression() {
   return { ap: 0, xp_unspent: 0, special_path: null, special_path_unlocked: false, special_levels: {}, selected_specials: [] }
 }
@@ -84,14 +72,6 @@ export function getGanguesProgression(sheet = {}) {
   const selectedPath = pathUnlocked ? pathCandidate.id : null
   const selected = Array.isArray(source.selected_specials) ? source.selected_specials.filter(id => specialLevels[id] > 0 && isGanguesSpecialAllowed(combatPath, selectedPath, id)).slice(0, 2) : []
   return { ...defaultGanguesProgression(), ...source, ap: Math.max(0, Number(source.ap) || 0), xp_unspent: Math.max(0, Number(source.xp_unspent) || 0), special_path: selectedPath, special_path_unlocked: pathUnlocked, special_levels: specialLevels, selected_specials: selected }
-}
-
-export function selectGanguesSpecialPath(sheet, specialPath) {
-  const progression = getGanguesProgression(sheet)
-  const nextPath = getGanguesSpecialPath(sheet.combat_path, specialPath)
-  const attributeTotal = GANGUES_ATTRS.reduce((sum, attribute) => sum + (Number(sheet.attributes?.[attribute]) || 0), 0)
-  if (!nextPath || progression.special_path || attributeTotal < GANGUES_SPECIAL_PATH_ATTRIBUTE_REQUIREMENT || progression.xp_unspent < GANGUES_SPECIAL_PATH_XP_COST) return null
-  return { attributes: { ...sheet.attributes, progression: { ...progression, xp_unspent: progression.xp_unspent - GANGUES_SPECIAL_PATH_XP_COST, special_path: nextPath.id, special_path_unlocked: true, selected_specials: [] } } }
 }
 
 // Custo de AP por ponto de XP cresce com o nível do personagem (catálogo dos
@@ -127,23 +107,6 @@ export function addGanguesAp(sheet, amount) {
     ap = ap % GANGUES_AP_PER_XP
   }
   return { progression: { ...progression, ap, xp_unspent: progression.xp_unspent + earnedXp }, earnedXp }
-}
-
-export function upgradeGanguesAttribute(sheet, attribute) {
-  const current = Number(sheet.attributes?.[attribute]) || 0
-  const cost = GANGUES_ATTRIBUTE_XP_COSTS[current]
-  const progression = getGanguesProgression(sheet)
-  if (!cost || progression.xp_unspent < cost) return null
-  return { attributes: { ...sheet.attributes, [attribute]: current + 1, progression: { ...progression, xp_unspent: progression.xp_unspent - cost } } }
-}
-
-export function upgradeGanguesSpecial(sheet, specialId) {
-  const progression = getGanguesProgression(sheet)
-  if (!isGanguesSpecialAllowed(sheet.combat_path, progression.special_path, specialId)) return null
-  const level = progression.special_levels[specialId] || 0
-  const cost = GANGUES_SPECIAL_COSTS[level]
-  if (!cost || progression.xp_unspent < cost) return null
-  return { attributes: { ...sheet.attributes, progression: { ...progression, xp_unspent: progression.xp_unspent - cost, special_levels: { ...progression.special_levels, [specialId]: level + 1 } } } }
 }
 
 export function toggleGanguesSpecial(sheet, specialId) {
@@ -186,5 +149,5 @@ export function normalizeGanguesLoadout(sheet = {}) {
     loadout_version: 2,
   }
 }
-import { GANGUES_SPECIAL_PATHS, getGanguesSpecialPath, isGanguesSpecialAllowed } from './ganguesSpecials.js'
+import { getGanguesSpecialPath, isGanguesSpecialAllowed } from './ganguesSpecials.js'
 import { normalizeGanguesEquipment } from './ganguesEquip.js'

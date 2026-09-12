@@ -27,9 +27,6 @@
    • `poly` / `pos` são coords no SVG do mapa (viewBox 0 0 100 108).
    ══════════════════════════════════════════════════════════════ */
 
-// As 7 "dificuldades" = o quão quente é a disputa na região. Sem fácil/difícil.
-export const GANGUES_DIFICULDADES = ['rato', 'muvuca', 'correria', 'disputa', 'guerra', 'sangue', 'coroa']
-
 export const GANGUES_TERRITORIOS = [
   {
     id: 'pista',
