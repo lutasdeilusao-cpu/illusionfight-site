@@ -5,9 +5,12 @@ import { STEP_MS } from '../../engine/ganguesCenaMotor.js'
 // Marcador do jogador (a gangue) no mundo — anda com transição suave entre
 // passos. Extraído de GanguesCena.jsx
 // (PLANO_REFATORACAO_ARQUIVOS_GRANDES_GANGUES_2026-09-11.md §5).
-export function GangMarker({ player, facing, gangName }) {
-  return <motion.div className={`gang-world-player is-gang facing-${facing}`} animate={{ left: player.x, top: player.y }} transition={{ duration: STEP_MS / 1000, ease: 'easeOut' }}>
-    <span><i /><i /><i /></span><small>{gangName || 'GANGUE'}</small>
+// `retrato`: a cabecinha do líder (1º recrutado) flutuando no lugar do
+// escudo genérico, quando existe arte pra ele (pedido do Isaias, set/2026 —
+// "juice"/identidade visual) — sem retrato ainda, cai no escudo de sempre.
+export function GangMarker({ player, facing, gangName, retrato }) {
+  return <motion.div className={`gang-world-player is-gang facing-${facing}${retrato ? ' gang-world-player--retrato' : ''}`} animate={{ left: player.x, top: player.y }} transition={{ duration: STEP_MS / 1000, ease: 'easeOut' }}>
+    <span>{retrato ? <img src={retrato} alt="" /> : <><i /><i /><i /></>}</span><small>{gangName || 'GANGUE'}</small>
   </motion.div>
 }
 

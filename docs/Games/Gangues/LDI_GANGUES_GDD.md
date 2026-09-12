@@ -997,3 +997,53 @@ demais ou inventado sem checar gíria real). Não tem mais lixo de tom
 solto pelo jogo — o que sobrou de "genérico" é rótulo de UI neutro de
 propósito (ATACAR, EQUIPAR, Comprar, Fechar) ou nome de poder/habilidade
 (estilizado por natureza, não é narração).
+
+**Nota pós-limpeza (importante pra próxima auditoria):** a remoção acima
+apagou por engano 5 chaves de verdade — todas escondidas atrás de um
+ternário DENTRO de uma template string (ex.:
+`` `games.gangues.progression.${equipado ? 'unequip' : 'equip'}` ``), padrão
+que o grep automático (que só entende `${var.path}` simples) não enxerga.
+Achado durante o teste visual do sistema de retratos (seção 15) — a chave
+`recruitment.subtitle_initial` apareceu crua na tela. Restauradas as 5
+(`recruitment.subtitle`/`subtitle_initial`, `progression.equip`/`unequip`,
+`cena.acao.avancar`) com o texto exato do histórico do git, nos 3 idiomas.
+Se for fazer outra varredura de chave morta no i18n do jogo, procure por
+`\$\{[^}]*[?|][^}]*\}` (ternário ou `||` dentro de `${}`) ANTES de rodar
+qualquer remoção automática — cada resultado precisa ter os dois lados do
+ternário conferidos manualmente contra o arquivo final, não só o padrão
+dinâmico simples.
+
+## 15. Retratos de personagem (cabeça, pixel art) — set/2026
+
+Pedido do Isaias: identidade visual que faltava — "juice" nas telas de
+seleção, combate e navegação. Arte é só a CABEÇA, estilo pixel art,
+transparente, uma por personagem (por ora — arquitetura já pensa em
+expressões futuras).
+
+- **Onde mora:** `src/pages/games/Gangues/assets/personagens/<slug>/<expressao>.png`
+  — uma pasta por personagem, não um arquivo direto. `<slug>` é o mesmo
+  campo `.slug` de cada entrada em `ldi_gangues_30_personagens_v1.json`
+  (já existia, não é convenção nova). Hoje só existe a expressão `neutro`;
+  quando entrarem expressões (raiva, dor, vitória...), cada uma vira outro
+  arquivo na mesma pasta — nenhum código muda.
+- **Resolução:** `src/pages/games/Gangues/data/ganguesPortraits.js` usa
+  `import.meta.glob('../assets/personagens/*/neutro.png', { eager: true })`
+  pra descobrir sozinho o que existe — adicionar personagem novo é só criar
+  a pasta/arquivo, zero linha de código. `getGanguesPortrait(slug)` e
+  `getGanguesPortraitByTemplateId(characterTemplateId)` (resolve o slug
+  pelo catálogo) retornam `null` quando não tem arte — todo consumidor cai
+  no fallback de sempre (inicial do nome) nesse caso.
+- **Cobertura hoje:** só os 5 personagens iniciais (Trinca, Fenda, Muro,
+  Catraca, Faísca) — os outros 25 do catálogo ainda não têm arte, caem no
+  fallback normalmente.
+- **Onde aparece:** card de recrutamento (`GanguesCreate.jsx`), card do
+  elenco no lobby (`GanguesLobby.jsx`), avatar do quadradinho de combate
+  (`GanguesCombatRoster.jsx`, só lado do jogador — inimigo não tem arte
+  ainda), e o marcador de navegação da cena (`GanguesCenaAtores.jsx`
+  `GangMarker` — a cabeça do LÍDER, `roster[0]`, flutua no lugar do escudo
+  genérico quando existe retrato pra ele).
+- **Pipeline de import:** arte de origem chegou em ~950KB/1254×1254 cada
+  (5 arquivos). Redimensionada pra 256×256 com paleta indexada via `sharp`
+  (instalado isolado num scratch dir, não polui `package.json` do site) —
+  ficou ~25KB cada (−97%), mantendo a transparência. Nunca commitar a arte
+  de origem em tamanho grande.

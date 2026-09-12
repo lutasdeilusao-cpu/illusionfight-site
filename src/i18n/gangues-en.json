@@ -53,6 +53,8 @@
       },
       "progression": {
         "loadout": "Equipped: {n}/2",
+        "equip": "EQUIP",
+        "unequip": "REMOVE",
         "xp_badge": "★ LEVEL UP · {n}",
         "paths": {
           "bruto": "Brute",
@@ -624,6 +626,8 @@
       },
       "recruitment": {
         "title_initial": "BUILD YOUR GANG",
+        "subtitle_initial": "Five names answered the call. Examine their sheets and mark the two who will found the gang.",
+        "subtitle": "New names have reached Marélia. Examine the sheet and choose who deserves your mark.",
         "title": "RECRUIT MEMBER",
         "candidates": "Available candidates",
         "previous": "Previous fighter",
@@ -4301,6 +4305,7 @@
           "entrar": "GO IN",
           "sair": "BOUNCE",
           "voltar": "BACK",
+          "avancar": "PUSH IN",
           "desafiar": "STEP UP",
           "trancado": "SHUT"
         },

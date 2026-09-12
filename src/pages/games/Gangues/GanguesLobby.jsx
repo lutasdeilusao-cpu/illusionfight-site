@@ -9,6 +9,7 @@ import { useGanguesStore } from './store/useGanguesStore'
 import { GANGUES_INITIAL_PARTY_SIZE, GANGUES_MAX_PARTY_SIZE, getGanguesProgression, getGanguesRosterLimitComHistoria } from './data/ganguesLoadout.js'
 import { getGanguesSpecials } from './data/ganguesSpecials.js'
 import { GANGUES_ALBUM_TOTAL } from './data/ganguesInimigos.js'
+import { getGanguesPortraitByTemplateId } from './data/ganguesPortraits.js'
 import enemiesData from './data/gangues-enemies.json'
 
 /** Nomes dos lutadores da party que têm poder ATIVO comprado mas ainda com
@@ -246,7 +247,10 @@ function RosterCarousel({ roster, party, partyLimit, rosterLimit, rosterIndex, s
                 >
                   <span className="gang-fighter-card__number">#{String(roster.indexOf(member) + 1).padStart(2, '0')}</span>
                   {selected && <span className="gang-fighter-card__selected">✓ {t('games.gangues.party.selected')}</span>}
-                  <span className="gang-fighter-card__portrait" aria-hidden="true"><i>{member.sheet_name[0].toUpperCase()}</i><b>{PATH_MARKS[member.combat_path]}</b></span>
+                  <span className={`gang-fighter-card__portrait${getGanguesPortraitByTemplateId(member.character_template_id) ? ' gang-fighter-card__portrait--foto' : ''}`} aria-hidden="true">
+                    {getGanguesPortraitByTemplateId(member.character_template_id) ? <img src={getGanguesPortraitByTemplateId(member.character_template_id)} alt="" /> : <i>{member.sheet_name[0].toUpperCase()}</i>}
+                    <b>{PATH_MARKS[member.combat_path]}</b>
+                  </span>
                   <span className="gang-fighter-card__copy">
                     <small>{t(`games.gangues.loadout.paths.${member.combat_path}.name`)}</small>
                     <strong>{member.sheet_name}</strong>
@@ -274,7 +278,10 @@ function RosterCarousel({ roster, party, partyLimit, rosterLimit, rosterIndex, s
                   {selected ? '✓' : '+'}
                 </button>
                 <button type="button" className="gang-fighter-card__tapzone" onClick={() => abrirProgressao(member)}>
-                  <span className="gang-fighter-card__portrait" aria-hidden="true"><i>{member.sheet_name[0].toUpperCase()}</i><b>{PATH_MARKS[member.combat_path]}</b></span>
+                  <span className={`gang-fighter-card__portrait${getGanguesPortraitByTemplateId(member.character_template_id) ? ' gang-fighter-card__portrait--foto' : ''}`} aria-hidden="true">
+                    {getGanguesPortraitByTemplateId(member.character_template_id) ? <img src={getGanguesPortraitByTemplateId(member.character_template_id)} alt="" /> : <i>{member.sheet_name[0].toUpperCase()}</i>}
+                    <b>{PATH_MARKS[member.combat_path]}</b>
+                  </span>
                   <span className="gang-fighter-card__copy">
                     <small>{t(`games.gangues.loadout.paths.${member.combat_path}.name`)}</small>
                     <strong>{member.sheet_name}</strong>

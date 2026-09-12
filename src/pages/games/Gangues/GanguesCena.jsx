@@ -18,6 +18,7 @@ import { EventoVS, TretaVS } from './components/cena/GanguesCenaEncontros'
 import { CENAS_POR_ID, portaoAberto, contarCena } from './data/cenas/cenaHelpers.js'
 import { GANGUES_TERRITORIO_POR_ID } from './data/ganguesTerritorios.js'
 import { calcularPontosTime } from './data/ganguesEncontros.js'
+import { getGanguesPortraitByTemplateId } from './data/ganguesPortraits.js'
 import { GANGUES_STORY_BATTLE_PARTY_MAX } from './data/ganguesLoadout.js'
 import { WORLD, SPAWN, montarAmbiente, insideZone, validPosition, validPos } from './engine/ganguesCenaMotor.js'
 import useGanguesCenaMovimento from './hooks/useGanguesCenaMovimento.js'
@@ -277,7 +278,7 @@ export default function GanguesCena({ onNavigate }) {
       {local ? <CenaInterior amb={amb} /> : <CenaCenario cena={cena} bossAberto={baseFeita || muroAberto} muroAberto={muroAberto} />}
       {(amb?.alvos || []).map(p => <EntryZone key={`zone-${p.id}`} poi={p} active={perto?.id === p.id} />)}
       {(amb?.alvos || []).map(p => <PinoAlvo key={p.id} p={p} t={t} />)}
-      <GangMarker player={player} facing={facing} gangName={store.gangName} />
+      <GangMarker player={player} facing={facing} gangName={store.gangName} retrato={getGanguesPortraitByTemplateId(store.roster[0]?.character_template_id)} />
     </div><div className="gang-cena-vignette" />{hint && <div className="gang-cena-tutorial">{hint}</div>}{!local && !muroAberto && player.y < 1430 && <div className="gang-cena-gatelock">🔒 {t(baseFeita ? 'games.gangues.cena.muro_tunel' : 'games.gangues.cena.boss_trancado')}</div>}<AnimatePresence>{fade && <motion.div className="gang-cena-fade" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: .16 }} />}</AnimatePresence></div>
     {!local && !intro && <GanguesMiniMapa player={player} alvos={minimapaAlvos} />}
     <WorldControls onInput={v => { inputRef.current = v }} onInteract={() => abrir(perto)} action={perto ? interactionLabel(perto, t) : null} />

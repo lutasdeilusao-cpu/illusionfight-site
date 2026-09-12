@@ -1,5 +1,6 @@
 import { getGanguesProgression, ganguesXpMaxForSheet } from '../data/ganguesLoadout.js'
 import { fighterName } from '../engine/ganguesCombatPresentation.js'
+import { getGanguesPortraitByTemplateId } from '../data/ganguesPortraits.js'
 
 // Roster compacto: quadradinho (avatar + anel de PV) + nome curto e PM
 // sempre visíveis embaixo — com 6 personagens em campo, "quem é quem" tem
@@ -33,6 +34,10 @@ export default function GanguesCombatRoster({ members, side, selectable, selecte
         const pathClass = member.combat_path ? `gang-path--${member.combat_path}` : ''
         const progression = getGanguesProgression(member)
         const nome = fighterName(t, member)
+        // Retrato só existe pro lado do jogador (os inimigos têm o próprio
+        // pool de ids, sem arte de cabeça ainda) — cai pra inicial do nome
+        // quando não tiver (a maioria do elenco, por ora).
+        const foto = side === 'player' ? getGanguesPortraitByTemplateId(member.character_template_id) : null
         const tocar = () => {
           if (podeSelecionar && !jaSelecionado) onSelect?.(member.key)
           else onAbrirFicha?.(member)
@@ -51,7 +56,7 @@ export default function GanguesCombatRoster({ members, side, selectable, selecte
               className={`gang-mini ${pathClass} ${!podeSelecionar ? 'gang-mini--indisponivel' : ''} ${dead ? 'gang-mini--dead' : ''} ${jaSelecionado ? 'gang-mini--selected' : ''} ${acting ? 'gang-mini--acting' : ''}`}
               onClick={tocar}
             >
-              <span className="gang-mini-avatar">{nome[0]}</span>
+              <span className={`gang-mini-avatar${foto ? ' gang-mini-avatar--foto' : ''}`}>{foto ? <img src={foto} alt="" /> : nome[0]}</span>
               <progress className="gang-mini-hp" max={member.pvMax || 1} value={Math.max(0, member.pv || 0)} />
               {acted && <span className="gang-mini-tag">✓</span>}
             </button>

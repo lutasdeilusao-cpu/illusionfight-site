@@ -4,6 +4,7 @@ import { useLanguage } from '../../../context/LanguageContext'
 import { useAuth } from '../../../context/AuthContext'
 import { useGanguesStore } from './store/useGanguesStore'
 import { GANGUES_CHARACTER_CATALOG, getGanguesAvailableCharacterIds } from './data/ganguesCharacters.js'
+import { getGanguesPortrait } from './data/ganguesPortraits.js'
 import { GANGUES_INITIAL_PARTY_SIZE } from './data/ganguesLoadout.js'
 import { sfx } from '../../../lib/sfx'
 import GanguesFichaCard from './components/GanguesFichaCard'
@@ -116,6 +117,7 @@ export default function GanguesCreate({ onNavigate, onCreated }) {
         <div className="gang-recruit__slides">
           {slides.map(({ character, position }) => {
             const selected = selectedIds.includes(character.id)
+            const foto = getGanguesPortrait(character.slug)
             return (
               <motion.button
                 key={`${position}-${character.id}`}
@@ -125,7 +127,10 @@ export default function GanguesCreate({ onNavigate, onCreated }) {
               >
                 <span className="gang-fighter-card__number">#{String(character.id).padStart(2, '0')}</span>
                 {selected && <span className="gang-fighter-card__selected">✓ {t('games.gangues.recruitment.marked')}</span>}
-                <span className="gang-fighter-card__portrait" aria-hidden="true"><i>{character.name[0]}</i><b>{PATH_MARKS[character.combat_path]}</b></span>
+                <span className={`gang-fighter-card__portrait${foto ? ' gang-fighter-card__portrait--foto' : ''}`} aria-hidden="true">
+                  {foto ? <img src={foto} alt="" /> : <i>{character.name[0]}</i>}
+                  <b>{PATH_MARKS[character.combat_path]}</b>
+                </span>
                 <span className="gang-fighter-card__copy"><small>{t(`games.gangues.loadout.paths.${character.combat_path}.name`)}</small><strong>{character.name}</strong><em>{t(`games.gangues.progression.paths.${character.special_path}`)}</em></span>
                 <span className="gang-fighter-card__cta">{t('games.gangues.recruitment.open_sheet')} →</span>
               </motion.button>

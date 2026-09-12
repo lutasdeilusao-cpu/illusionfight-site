@@ -53,6 +53,8 @@
       },
       "progression": {
         "loadout": "Equipados: {n}/2",
+        "equip": "EQUIPAR",
+        "unequip": "QUITAR",
         "xp_badge": "★ LEVEL UP · {n}",
         "paths": {
           "bruto": "Bruto",
@@ -624,6 +626,8 @@
       },
       "recruitment": {
         "title_initial": "FORMA TU BANDA",
+        "subtitle_initial": "Cinco nombres respondieron al llamado. Examina sus fichas y marca a los dos que fundarán la banda.",
+        "subtitle": "Nuevos nombres llegaron a Marélia. Examina la ficha y elige quién merece tu marca.",
         "title": "RECLUTAR MIEMBRO",
         "candidates": "Candidatos disponibles",
         "previous": "Luchador anterior",
@@ -4301,6 +4305,7 @@
           "entrar": "ENTRÁ",
           "sair": "RAJÁ",
           "voltar": "VOLVER",
+          "avancar": "AVANZAR",
           "desafiar": "ENCARÁ",
           "trancado": "CERRADO"
         },

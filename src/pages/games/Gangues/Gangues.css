@@ -2175,6 +2175,11 @@
 
 .gang-mini-avatar { font-weight: 700; font-size: 13px; color: var(--if-teal); font-family: 'Rajdhani', sans-serif; }
 .gang-roster--enemy .gang-mini-avatar { color: #cc4444; }
+/* Retrato de verdade (cabeça, pixel art) no quadradinho do combate — só o
+   jogador tem arte por ora (ver ganguesPortraits.js), inimigo continua na
+   inicial. Preenche o quadrado inteiro, cantos seguem o .gang-mini. */
+.gang-mini-avatar--foto { display: block; width: 100%; height: 100%; }
+.gang-mini-avatar--foto img { width: 100%; height: 100%; object-fit: cover; border-radius: 9px; image-rendering: pixelated; display: block; }
 
 /* Anel de PV fino contornando o quadrado — dá pra ler de relance sem barra. */
 .gang-mini-hp {

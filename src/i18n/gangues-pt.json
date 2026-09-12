@@ -53,6 +53,8 @@
       },
       "progression": {
         "loadout": "Equipados: {n}/2",
+        "equip": "EQUIPAR",
+        "unequip": "REMOVER",
         "xp_badge": "★ LEVEL UP · {n}",
         "paths": {
           "bruto": "Bruto",
@@ -651,6 +653,8 @@
       "recruitment": {
         "title_initial": "MONTE SUA GANGUE",
         "title": "RECRUTAR MEMBRO",
+        "subtitle_initial": "Cinco nomes responderam ao chamado. Examine as fichas e marque os dois que vão fundar a gangue.",
+        "subtitle": "Novos nomes chegaram a Marélia. Examine a ficha e escolha quem merece sua marca.",
         "candidates": "Candidatos disponíveis",
         "previous": "Lutador anterior",
         "next": "Próximo lutador",
@@ -1198,6 +1202,7 @@
           "entrar": "ENTRA",
           "sair": "VAZA",
           "voltar": "VOLTAR",
+          "avancar": "AVANÇAR",
           "desafiar": "ENCARA",
           "trancado": "FECHADO"
         },
