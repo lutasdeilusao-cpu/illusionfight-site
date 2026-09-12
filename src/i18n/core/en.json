@@ -1021,9 +1021,7 @@
       "secondary": "LEARN MORE"
     },
     "aria": {
-      "slide": "Slide",
-      "previous": "Previous slide",
-      "next": "Next slide"
+      "slide": "Slide"
     },
     "slide1": {
       "tag": "Illusion Fight — Book 1",

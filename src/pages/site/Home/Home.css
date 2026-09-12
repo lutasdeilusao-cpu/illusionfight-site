@@ -54,73 +54,11 @@
   background: linear-gradient(145deg, rgba(18, 9, 29, 0.96), rgba(5, 8, 11, 0.99) 62%);
 }
 
-.home-page .hero-slideshow {
-  min-height: 92svh;
-  border-bottom: 1px solid rgba(0, 229, 255, 0.5);
-  box-shadow: inset 3px 0 0 rgba(0, 229, 255, 0.85), inset 0 -30px 65px #05080b;
-}
+/* Hero em si: ver src/pages/site/Home/components/HeroSlideshow.css — fonte
+   única, co-localizada com o componente (não duplicar/pisar regra daqui;
+   já existiu uma versão sobrescrevendo min-height/padding/edge daqui que
+   brigava com o próprio CSS do componente e quebrava o layout — set/2026). */
 
-.home-page .hero-slideshow::after {
-  content: '';
-  position: absolute;
-  inset: 12px 10px;
-  z-index: 4;
-  pointer-events: none;
-  border: 1px solid rgba(0, 229, 255, 0.16);
-  clip-path: polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 0 100%);
-}
-
-.home-page .hero-slideshow__content {
-  min-height: 92svh;
-  padding: 92px 34px 118px;
-}
-
-.home-page .hero-slideshow__bg {
-  object-position: 58% center;
-  filter: saturate(0.9) contrast(1.08);
-}
-
-.home-page .hero-slideshow__overlay {
-  background: linear-gradient(180deg, rgba(3, 7, 10, 0.15), rgba(3, 7, 10, 0.97) 88%), linear-gradient(90deg, rgba(3, 7, 10, 0.7), transparent 72%);
-}
-
-.hero-slideshow__edge {
-  position: absolute;
-  right: 15px;
-  top: 22%;
-  bottom: 25%;
-  z-index: 6;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  color: rgba(0, 229, 255, 0.65);
-  font: 600 0.55rem 'JetBrains Mono', monospace;
-}
-
-.hero-slideshow__edge i {
-  width: 1px;
-  flex: 1;
-  background: linear-gradient(var(--home-cyan), rgba(168, 85, 247, 0.12));
-  box-shadow: 0 0 9px var(--home-cyan);
-}
-
-.home-page .hero-slideshow__title {
-  max-width: 360px;
-  font-size: clamp(2.5rem, calc(12 * var(--app-vw) / 100), 4.15rem);
-  line-height: 0.88;
-  text-wrap: balance;
-}
-
-.home-page .hero-slideshow__subtitle {
-  max-width: 340px;
-}
-
-.home-page .hero-slideshow__actions {
-  width: calc(100% - 12px);
-}
-
-.home-page .hero-slideshow__actions button,
 .home-page .btn,
 .home-support__cta,
 .newsletter-cta__btn {

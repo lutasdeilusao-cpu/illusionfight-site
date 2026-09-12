@@ -1021,9 +1021,7 @@
       "secondary": "SAIBA MAIS"
     },
     "aria": {
-      "slide": "Slide",
-      "previous": "Slide anterior",
-      "next": "Próximo slide"
+      "slide": "Slide"
     },
     "slide1": {
       "tag": "Lutas de Ilusão — Livro 1",

@@ -1,19 +1,56 @@
 /* ═══════════════════════════════════════════
-   HeroSlideshow — Visual Redesign v2.0
+   HeroSlideshow — v3.0 (set/2026)
+   Mobile-only de verdade: este site NUNCA tem visão desktop (ver
+   src/index.css, --app-w/--app-vw/--app-gutter). A v2.0 tinha uma seção
+   "desktop" (min-height:100vh, setas, texto à esquerda) que NENHUM
+   viewport real via — era sempre sobrescrita por um bloco "mobile" sem
+   media query nenhuma, sempre ativo por baixo. Isso é código morto: dá a
+   ilusão de que existe um layout desktop, mas ele nunca roda. Reescrito
+   como UMA fonte de verdade só, pro único layout que existe de verdade.
+
+   Mudança de fundo: as artes novas (banner-0X.webp) foram desenhadas já
+   pensando nesse formato vertical — o palco (.hero-slideshow__stage) usa
+   a proporção REAL de cada imagem (aspect-ratio, setado inline por
+   HeroSlideshow.jsx) em vez de forçar min-height:100vh + object-fit:cover
+   cortando a composição. Resultado: a arte aparece inteira, do jeito que
+   foi desenhada — nada de cabeça ou perna cortada por um corte pensado
+   pra outro formato.
    ═══════════════════════════════════════════ */
 
-/* ── Container ── */
 .hero-slideshow {
   position: relative;
   width: 100%;
-  min-height: 100vh;
   overflow: hidden;
   background: var(--bg-primary);
+  border-bottom: 1px solid rgba(0, 229, 255, 0.5);
+  box-shadow: inset 3px 0 0 rgba(0, 229, 255, 0.85);
 }
 
-/* ═══════════════════════════════════════════
-   TRACK — Slides
-   ═══════════════════════════════════════════ */
+/* Moldura decorativa (cantos cortados) por cima de tudo — puramente
+   estética, não interfere no layout do conteúdo abaixo. */
+.hero-slideshow::after {
+  content: '';
+  position: absolute;
+  inset: 12px 10px;
+  z-index: 4;
+  pointer-events: none;
+  border: 1px solid rgba(0, 229, 255, 0.16);
+  clip-path: polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 0 100%);
+}
+
+/* Palco — a altura vem do aspect-ratio (inline, por slide), a largura é a
+   coluna mobile inteira. Tudo dentro dele (imagem, overlay, texto, nav)
+   é relativo a este box, não à janela crua. NUNCA setar min-height/padding
+   vertical fixo aqui nem em nenhum outro arquivo (ex: Home.css já fez
+   isso uma vez e brigou com o aspect-ratio, empurrando o texto pra fora
+   da imagem) — a altura tem que vir SÓ do aspect-ratio. */
+.hero-slideshow__stage {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* ── Track / slides ── */
 .hero-slideshow__track {
   position: absolute;
   inset: 0;
@@ -28,99 +65,94 @@
   z-index: 1;
 }
 
-/* Active slide sits on top */
 .hero-slideshow__slide--active {
   z-index: 2;
   pointer-events: auto;
 }
 
-/* Image background — separate layer for parallax */
+/* A imagem cobre o palco 1:1 — o aspect-ratio do palco já é o da imagem
+   ativa, então object-fit:cover aqui é só uma rede de segurança (não
+   deveria sobrar nem faltar pixel nenhum na prática). */
 .hero-slideshow__bg {
   position: absolute;
-  inset: -5%; /* overscroll to avoid edge gaps during parallax */
-  width: 110%;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   max-width: none;
-  height: 110%;
   object-fit: cover;
   object-position: center;
-  transition: transform 700ms cubic-bezier(0.4, 0, 0.2, 1),
-              opacity 700ms cubic-bezier(0.4, 0, 0.2, 1);
-  will-change: transform, opacity;
-}
-
-/* Default inactive state */
-.hero-slideshow__slide .hero-slideshow__bg {
   opacity: 0;
-  transform: translateX(0);
+  transition: opacity 700ms cubic-bezier(0.4, 0, 0.2, 1),
+              transform 700ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Active slide bg: image estática no centro */
 .hero-slideshow__slide--active .hero-slideshow__bg {
   opacity: 1;
   transform: translateX(0);
 }
 
-/* Slide saindo: imagem escorrega pra direita (ou esquerda) e fade out */
 .hero-slideshow__slide--exit .hero-slideshow__bg {
   opacity: 0;
-  transition: transform 700ms cubic-bezier(0.4, 0, 0.2, 1),
-              opacity 700ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hero-slideshow__slide--exit-left .hero-slideshow__bg {
-  transform: translateX(-8%);
+  transform: translateX(-6%);
 }
 
 .hero-slideshow__slide--exit-right .hero-slideshow__bg {
-  transform: translateX(8%);
+  transform: translateX(6%);
 }
 
-/* Slide entrando (active): imagem vem de 8% oposto */
-.hero-slideshow__slide--active .hero-slideshow__bg {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-/* ═══════════════════════════════════════════
-   OVERLAY — Vinheta Direcional
-   ═══════════════════════════════════════════ */
+/* ── Overlay — vinheta só embaixo (é onde mora o texto agora, a imagem
+   inteira aparece por cima) ── */
 .hero-slideshow__overlay {
   position: absolute;
   inset: 0;
   z-index: 3;
   background:
-    linear-gradient(to right, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 50%, transparent 100%),
-    linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%);
+    linear-gradient(180deg, rgba(3, 7, 10, 0.1) 0%, rgba(3, 7, 10, 0.97) 82%),
+    linear-gradient(90deg, rgba(3, 7, 10, 0.55), transparent 65%);
   pointer-events: none;
 }
 
-/* ═══════════════════════════════════════════
-   CONTENT — Texto + CTAs
-   ═══════════════════════════════════════════ */
-.hero-slideshow__content {
-  position: relative;
+/* ── Marca completa (por idioma), topo do palco — primeiro lugar do site
+   a usar a versão por extenso (navbar/rodapé usam só a curta). ── */
+.hero-slideshow__logo {
+  position: absolute;
   z-index: 5;
-  padding: clamp(2rem, 8vh, 6rem) clamp(1.5rem, calc(6 * var(--app-vw) / 100), 6rem);
-  max-width: 700px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  min-height: 100vh;
+  top: max(0.9rem, env(safe-area-inset-top, 0px));
+  left: 1.1rem;
+  height: 26px;
+  width: auto;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.7));
 }
 
-/* ── Tag Pill com Glow Pulsante ── */
+/* ── Conteúdo — ancorado embaixo do palco, dentro da vinheta ── */
+.hero-slideshow__content {
+  position: absolute;
+  z-index: 5;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1.25rem 1.25rem 3.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
 .hero-slideshow__tag {
   display: inline-block;
   background: #00e5cc;
   color: #000;
   font-family: var(--font-desc);
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  padding: 4px 12px;
+  padding: 4px 11px;
   border-radius: 100px;
-  margin-bottom: 1.25rem;
+  margin-bottom: 0.7rem;
   animation: tag-pulse 3s ease-in-out infinite;
 }
 
@@ -129,16 +161,25 @@
   50% { box-shadow: 0 0 20px rgba(0, 229, 204, 0.8), 0 0 40px rgba(0, 229, 204, 0.3); }
 }
 
-/* ── Título com Glitch ── */
+/* Os títulos dos 5 slides não são headline curta — são frase inteira
+   ("Comecei isso com 17 anos. Levei 23 pra realizar.", 49 caracteres). Um
+   tamanho de "hero dramático" (2.5rem+) força a frase mais longa a
+   quebrar NO MEIO DE PALAVRA (overflow-wrap:break-word não tem escolha
+   quando a palavra sozinha não cabe na linha) — era o "texto estourando"
+   que o Isaias reportou. Corrigido tratando como frase mesmo: menor,
+   várias linhas, só quebra em espaço (nunca no meio da palavra). */
 .hero-slideshow__title {
   font-family: var(--font-title);
-  font-size: clamp(2.5rem, calc(5.5 * var(--app-vw) / 100), 5rem);
-  line-height: 1.05;
+  font-size: clamp(1.35rem, 6.2vw, 1.75rem);
+  line-height: 1.18;
   color: #fff;
-  margin: 0.5rem 0 1rem;
-  max-width: 600px;
-  text-shadow: 0 2px 16px rgba(0,0,0,0.5);
+  margin: 0 0 0.5rem;
+  max-width: 94%;
+  text-shadow: 0 2px 16px rgba(0,0,0,0.6);
   position: relative;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
 }
 
 .hero-slideshow__title::before,
@@ -179,144 +220,138 @@
   99% { transform: translateX(0); opacity: 0; }
 }
 
-/* ── Subtítulo ── */
 .hero-slideshow__subtitle {
   font-family: var(--font-desc);
-  font-size: clamp(1rem, calc(2 * var(--app-vw) / 100), 1.2rem);
+  font-size: clamp(0.82rem, 3.6vw, 0.95rem);
   color: var(--text-secondary);
   font-weight: 300;
-  letter-spacing: 0.04em;
-  text-shadow: 0 1px 8px rgba(0,0,0,0.4);
-  margin: 0 0 2rem;
-  max-width: 540px;
-  line-height: 1.5;
+  letter-spacing: 0.02em;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.5);
+  margin: 0 0 1.1rem;
+  max-width: 100%;
+  line-height: 1.45;
+  /* trava em 3 linhas — subtítulo mais longo num idioma não estoura o
+     palco nem empurra os botões pra fora da área visível. */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
-/* ── CTA Buttons ── */
 .hero-slideshow__actions {
   display: flex;
-  gap: 1rem;
+  gap: 0.6rem;
   flex-wrap: wrap;
+  width: 100%;
 }
 
-.hero-slideshow__cta--primary {
+.hero-slideshow__cta--primary,
+.hero-slideshow__cta--secondary {
   display: inline-flex;
   align-items: center;
-  padding: 12px 28px;
-  background: #c74617;
-  color: #fff;
-  border: none;
+  justify-content: center;
+  padding: 10px 20px;
   font-family: var(--font-desc);
-  font-size: 0.9rem;
+  font-size: 0.78rem;
   font-weight: 600;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   border-radius: 4px;
   cursor: pointer;
-  transition: background 200ms, box-shadow 200ms, transform 150ms;
+  white-space: nowrap;
+  transition: background 200ms, box-shadow 200ms, border-color 200ms, color 200ms, transform 150ms;
 }
 
-.hero-slideshow__cta--primary:hover {
+.hero-slideshow__cta--primary {
+  background: #c74617;
+  color: #fff;
+  border: none;
+}
+
+.hero-slideshow__cta--primary:active {
   background: #ff8555;
-  box-shadow: 0 0 20px rgba(255, 107, 53, 0.5);
   transform: translateY(-1px);
 }
 
 .hero-slideshow__cta--secondary {
-  display: inline-flex;
-  align-items: center;
-  padding: 12px 28px;
-  background: transparent;
+  background: rgba(0,0,0,0.25);
   color: #fff;
   border: 1.5px solid rgba(255,255,255,0.5);
-  font-family: var(--font-desc);
-  font-size: 0.9rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: border-color 200ms, color 200ms, background 200ms, transform 150ms;
 }
 
-.hero-slideshow__cta--secondary:hover {
+.hero-slideshow__cta--secondary:active {
   border-color: #00e5cc;
   color: #00e5cc;
-  background: rgba(0, 229, 204, 0.05);
   transform: translateY(-1px);
 }
 
-/* ═══════════════════════════════════════════
-   STAGGER — Entrada com delay progressivo
-   ═══════════════════════════════════════════ */
+/* ── Contador de slide (canto, discreto) ── */
+.hero-slideshow__edge {
+  position: absolute;
+  z-index: 5;
+  top: max(0.9rem, env(safe-area-inset-top, 0px));
+  right: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.65rem;
+  letter-spacing: 0.06em;
+  color: rgba(255,255,255,0.75);
+  text-shadow: 0 1px 4px rgba(0,0,0,0.6);
+}
+
+.hero-slideshow__edge i {
+  display: block;
+  width: 14px;
+  height: 1px;
+  background: rgba(255,255,255,0.4);
+}
+
+/* ── Stagger de entrada ── */
 .hero-stagger {
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(16px);
   animation: stagger-in 400ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
-.hero-slideshow__tag.hero-stagger {
-  animation-delay: 0ms;
-  animation-duration: 400ms;
-  transform: translateY(20px);
-}
-
-.hero-slideshow__title.hero-stagger {
-  animation-delay: 100ms;
-  animation-duration: 500ms;
-  transform: translateY(30px);
-}
-
-.hero-slideshow__subtitle.hero-stagger {
-  animation-delay: 250ms;
-  animation-duration: 400ms;
-  transform: translateY(20px);
-}
-
-.hero-slideshow__actions.hero-stagger {
-  animation-delay: 400ms;
-  animation-duration: 350ms;
-  transform: translateY(15px);
-}
+.hero-slideshow__tag.hero-stagger { animation-delay: 0ms; }
+.hero-slideshow__title.hero-stagger { animation-delay: 90ms; }
+.hero-slideshow__subtitle.hero-stagger { animation-delay: 200ms; }
+.hero-slideshow__actions.hero-stagger { animation-delay: 320ms; }
 
 @keyframes stagger-in {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-/* ═══════════════════════════════════════════
-   PROGRESS BARS — Substitui dots
-   ═══════════════════════════════════════════ */
+/* ── Barras de progresso ── */
 .hero-slideshow__nav {
   position: absolute;
-  bottom: 2rem;
-  left: clamp(1.5rem, calc(6 * var(--app-vw) / 100), 6rem);
-  right: clamp(1.5rem, calc(6 * var(--app-vw) / 100), 6rem);
+  z-index: 6;
+  left: 1.25rem;
+  right: 1.25rem;
+  bottom: 1.1rem;
   display: flex;
   align-items: center;
-  gap: 8px;
-  z-index: 6;
+  gap: 6px;
 }
 
 .hero-slideshow__progress {
   flex: 1;
-  height: 24px;
+  height: 20px;
   background: transparent;
   border: none;
-  border-radius: 2px;
-  overflow: hidden;
-  cursor: pointer;
   padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
 }
 
 .hero-slideshow__progress-fill {
   display: block;
   height: 3px;
   width: 0%;
-  margin-top: 10px;
-  background: rgba(255,255,255,0.4);
+  background: rgba(255,255,255,0.35);
   border-radius: 2px;
 }
 
@@ -334,77 +369,13 @@
   to { width: 100%; }
 }
 
-/* ═══════════════════════════════════════════
-   SETAS — Navegação
-   ═══════════════════════════════════════════ */
-.hero-slideshow__setas {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  padding: 0 1rem;
-  z-index: 6;
-  pointer-events: none;
+@media (prefers-reduced-motion: reduce) {
+  .hero-slideshow__bg,
+  .hero-slideshow__tag,
+  .hero-stagger,
+  .hero-slideshow__progress-fill {
+    animation: none !important;
+    transition: none !important;
+  }
+  .hero-stagger { opacity: 1; transform: none; }
 }
-
-.hero-slideshow__seta {
-  width: 44px;
-  height: 44px;
-  border: 1.5px solid rgba(255,255,255,0.3);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: border-color 200ms, background 200ms;
-  background: rgba(0,0,0,0.3);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  color: #fff;
-  pointer-events: all;
-  padding: 0;
-  line-height: 1;
-}
-
-.hero-slideshow__seta:hover {
-  border-color: #00e5cc;
-  background: rgba(0, 229, 204, 0.1);
-}
-
-/* ═══════════════════════════════════════════
-   RESPONSIVE — Mobile
-   ═══════════════════════════════════════════ */
-.hero-slideshow {
-  min-height: 70vh;
-}
-
-.hero-slideshow__content {
-  min-height: 70vh;
-  padding: 1.5rem;
-  align-items: center;
-  text-align: center;
-}
-
-.hero-slideshow__overlay {
-  background:
-    linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.2) 100%);
-}
-
-.hero-slideshow__setas {
-  display: none;
-}
-
-.hero-slideshow__subtitle {
-  max-width: 100%;
-}
-
-.hero-slideshow__actions {
-  justify-content: center;
-}
-
-.hero-slideshow__nav {
-  bottom: 0.5rem;
-}
-
