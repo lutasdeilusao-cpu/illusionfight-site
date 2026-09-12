@@ -8,7 +8,7 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.280.106' // docs: GDD sec.17.9 (referencia atributo+poder por nivel dos 30 personagens) regenerada com o catalogo flat pos-revert - estava desatualizada com os numeros do custo escalonado antigo.
+export const SITE_VERSION = '10.280.107' // fix: vinheta de abertura (#ldi-intro) e o overlay de trava de orientacao (#ldi-rotate-lock) ganharam overscroll-behavior:none + touch-action:none (Isaias reportou scroll lateral/embaixo na vinheta ao recarregar). html.ldi-intro-on { overflow:hidden } so bloqueia scroll programatico/wheel - num toque real (Android) o dedo ainda arrasta a pagina e dispara o bounce/rubber-band nativo do navegador, que parece scroll por um instante. Mesma causa raiz ja corrigida no log de combate do Gangues (Gangues.css .gang-log-area, commit anterior) - overscroll-behavior e quem desliga o gesto de verdade.
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
