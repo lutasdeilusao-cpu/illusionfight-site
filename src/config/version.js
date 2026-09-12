@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.280.92'
+export const SITE_VERSION = '10.280.93'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '2.75.29' // farol de sangue baixo estendido pra ficha modal (GanguesFichaCard.jsx, usada no lobby/cena/popup de combate/progressao) - ja existia no roster compacto de combate (GanguesCombatRoster.jsx: ambar <=20%, vermelho pulsando <=10%), mas a ficha detalhada mostrava a barra de PV sempre verde mesmo com o personagem quase inconsciente. Isaias pediu pra auditar se existia esse feedback em todo lugar que mostra PV - achei essa lacuna e corrigi (mesma regua de cor, keyframe self-contido em GanguesLobby.css pra funcionar em qualquer tela que monte a ficha).
+export const GANGUES_VERSION   = '2.75.30' // vinheta de PV critico em tempo real, sobre TUDO no combate (pedido do Isaias: "tem que aparecer sobre tudo na batlha, quero que demonstre em tempo real"). O farol do quadradinho no roster (gang-mini-wrap--critico) some facil no meio da luta, tampado por modal de dado/ficha/toast. Agora, sempre que algum personagem do jogador esta com PV <=10%, uma borda vermelha pulsando cobre a tela de combate inteira no z-index mais alto de todos os overlays (10050, acima dos 9999/10000 existentes) - pointer-events:none pra nao atrapalhar toque, confinada a --app-gutter como todo fixed do jogo. Liga/desliga sozinha a cada render (estado vivo do turno).
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
 export const MINIGAMES_VERSION = '4.3.6'  // PuzzleStealthGrid: d-pad na tela sempre (mobile tambem) + grade nao vaza mais do viewport
