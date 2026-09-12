@@ -231,9 +231,18 @@
    (fora de combate/recrutamento não existe "atual" de PV/PM, só o máximo). */
 .gang-ficha-bar { display: block; height: 5px; border-radius: 3px; background: var(--if-hair); overflow: hidden; }
 .gang-ficha-bar b { display: block; height: 100%; border-radius: inherit; }
-.gang-ficha-bar--pv b { background: linear-gradient(90deg, #3ddc97, #22a06b); }
+.gang-ficha-bar--pv b { background: linear-gradient(90deg, #3ddc97, #22a06b); transition: background 0.25s; }
 .gang-ficha-bar--pm b { background: linear-gradient(90deg, #8b6df0, #5b3fc9); }
 .gang-ficha-bar--xp b { background: var(--if-amber); }
+/* Farol de sangue baixo — mesma régua do roster compacto de combate
+   (GanguesCombatRoster.jsx/GanguesCombatRedesign.css: ≤20% âmbar, ≤10%
+   vermelho pulsando). Essa ficha aparece em lobby/cena/popup de combate/
+   progressão, então o keyframe vive aqui (self-contido), não depende do
+   CSS de combate estar carregado. */
+.gang-ficha-bar--pv-baixo b { background: var(--if-amber); }
+.gang-ficha-bar--pv-critico b { background: #ff3b3b; animation: gang-ficha-pv-pulso 0.6s ease-in-out infinite; }
+@keyframes gang-ficha-pv-pulso { 0%, 100% { opacity: 1; } 50% { opacity: 0.45; } }
+@media (prefers-reduced-motion: reduce) { .gang-ficha-bar--pv-critico b { animation: none; } }
 .gang-sheet-modal__xp { margin-top: 8px; padding: 8px 12px; border: 1px solid var(--if-hair); display: grid; gap: 5px; }
 .gang-ficha-xp-disponivel { color: var(--if-amber) !important; text-transform: none !important; letter-spacing: 0 !important; font-weight: 700 !important; }
 .gang-ficha-nivel { color: var(--if-cyan); font-size: .55em; letter-spacing: .06em; }

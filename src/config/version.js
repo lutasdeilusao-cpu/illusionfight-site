@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.280.91'
+export const SITE_VERSION = '10.280.92'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '2.75.28' // fix: botao METE O PE (sair/fugir da luta) na barra de combate era so texto colorido (background:none) - o Isaias reportou de novo com print que "nao aparece um botao". Ganhou chip de verdade (fundo + borda no mesmo tom de alerta), igual o resto dos controles da gang-vs-bar.
+export const GANGUES_VERSION   = '2.75.29' // farol de sangue baixo estendido pra ficha modal (GanguesFichaCard.jsx, usada no lobby/cena/popup de combate/progressao) - ja existia no roster compacto de combate (GanguesCombatRoster.jsx: ambar <=20%, vermelho pulsando <=10%), mas a ficha detalhada mostrava a barra de PV sempre verde mesmo com o personagem quase inconsciente. Isaias pediu pra auditar se existia esse feedback em todo lugar que mostra PV - achei essa lacuna e corrigi (mesma regua de cor, keyframe self-contido em GanguesLobby.css pra funcionar em qualquer tela que monte a ficha).
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
 export const MINIGAMES_VERSION = '4.3.6'  // PuzzleStealthGrid: d-pad na tela sempre (mobile tambem) + grade nao vaza mais do viewport
