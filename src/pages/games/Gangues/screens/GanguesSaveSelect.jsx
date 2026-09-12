@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useLanguage } from '../../../context/LanguageContext'
-import { useAuth } from '../../../context/AuthContext'
-import { useGanguesStore } from './store/useGanguesStore'
-import { contarTerritoriosDominados, getGanguesSaveSlotLimit } from './data/ganguesLoadout.js'
-import { sfx } from '../../../lib/sfx'
+import { useLanguage } from '../../../../context/LanguageContext'
+import { useAuth } from '../../../../context/AuthContext'
+import { useGanguesStore } from '../store/useGanguesStore'
+import { contarTerritoriosDominados, getGanguesSaveSlotLimit } from '../data/ganguesLoadout.js'
+import { sfx } from '../../../../lib/sfx'
 import './GanguesSaveSelect.css'
 
 /* ══════════════════════════════════════════════════════════════

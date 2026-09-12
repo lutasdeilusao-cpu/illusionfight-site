@@ -1,14 +1,14 @@
 import { useMemo, useState } from 'react'
-import { useLanguage } from '../../../context/LanguageContext'
-import { useGanguesStore } from './store/useGanguesStore'
-import { sfx } from '../../../lib/sfx'
+import { useLanguage } from '../../../../context/LanguageContext'
+import { useGanguesStore } from '../store/useGanguesStore'
+import { sfx } from '../../../../lib/sfx'
 import {
   GANGUES_ALBUM_CARGOS,
   GANGUES_ALBUM_TOTAL,
   inimigosDoAlbumPorCargo,
-} from './data/ganguesInimigos.js'
-import { GANGUES_ITENS_LISTA } from './data/ganguesItens.js'
-import { GANGUES_EQUIP_LISTA, normalizeGanguesEquipment } from './data/ganguesEquip.js'
+} from '../data/ganguesInimigos.js'
+import { GANGUES_ITENS_LISTA } from '../data/ganguesItens.js'
+import { GANGUES_EQUIP_LISTA, normalizeGanguesEquipment } from '../data/ganguesEquip.js'
 import './GanguesAlbum.css'
 
 const ATTRS = ['A', 'H', 'D', 'PV', 'PM']

@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
-import { useLanguage } from '../../../context/LanguageContext'
-import { useGanguesStore } from './store/useGanguesStore'
-import { ganguesTemMultiplayer } from './data/ganguesLoadout.js'
-import { sfx } from '../../../lib/sfx'
+import { useLanguage } from '../../../../context/LanguageContext'
+import { useGanguesStore } from '../store/useGanguesStore'
+import { ganguesTemMultiplayer } from '../data/ganguesLoadout.js'
+import { sfx } from '../../../../lib/sfx'
 import './GanguesModes.css'
 import './GanguesModesRedesign.css'
 

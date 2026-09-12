@@ -1,12 +1,12 @@
-import { useLanguage } from '../../../context/LanguageContext'
-import { useGanguesStore } from './store/useGanguesStore'
-import { getGanguesCharacter, getGanguesLevelFromXp, getGanguesUnlockedSpecials } from './data/ganguesCharacters.js'
-import { getGanguesResources, getGanguesProgression, ganguesXpMaxForSheet } from './data/ganguesLoadout.js'
-import { getGanguesAttributesWithEquip, applyGanguesEquipResources } from './data/ganguesEquip.js'
-import { getGanguesPortrait } from './data/ganguesPortraits.js'
-import GanguesFichaCard from './components/GanguesFichaCard'
-import GanguesEquipPanel from './components/GanguesEquipPanel'
-import GanguesSkillGrid from './components/GanguesSkillGrid'
+import { useLanguage } from '../../../../context/LanguageContext'
+import { useGanguesStore } from '../store/useGanguesStore'
+import { getGanguesCharacter, getGanguesLevelFromXp, getGanguesUnlockedSpecials } from '../data/ganguesCharacters.js'
+import { getGanguesResources, getGanguesProgression, ganguesXpMaxForSheet } from '../data/ganguesLoadout.js'
+import { getGanguesAttributesWithEquip, applyGanguesEquipResources } from '../data/ganguesEquip.js'
+import { getGanguesPortrait } from '../data/ganguesPortraits.js'
+import GanguesFichaCard from '../components/GanguesFichaCard'
+import GanguesEquipPanel from '../components/GanguesEquipPanel'
+import GanguesSkillGrid from '../components/GanguesSkillGrid'
 
 export default function GanguesProgression({ onNavigate }) {
   const { t } = useLanguage()

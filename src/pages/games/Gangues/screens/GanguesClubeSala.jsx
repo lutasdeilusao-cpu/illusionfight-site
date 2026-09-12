@@ -1,8 +1,8 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { useLanguage } from '../../../context/LanguageContext'
-import { useGanguesStore } from './store/useGanguesStore'
-import { sfx } from '../../../lib/sfx'
+import { useLanguage } from '../../../../context/LanguageContext'
+import { useGanguesStore } from '../store/useGanguesStore'
+import { sfx } from '../../../../lib/sfx'
 import './GanguesClube.css'
 
 /* CLUBE DA LUTA — a SALA do Nato entre as rondas do gauntlet.

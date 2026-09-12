@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { useLanguage } from '../../../context/LanguageContext'
-import { useGanguesStore } from './store/useGanguesStore'
-import { sfx } from '../../../lib/sfx'
+import { useLanguage } from '../../../../context/LanguageContext'
+import { useGanguesStore } from '../store/useGanguesStore'
+import { sfx } from '../../../../lib/sfx'
 import './GanguesCena.css'
 import './GanguesClube.css'
 

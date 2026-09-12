@@ -1,8 +1,8 @@
 import { useMemo, useState } from 'react'
-import { useLanguage } from '../../../context/LanguageContext'
-import { useGanguesStore } from './store/useGanguesStore'
-import { sfx } from '../../../lib/sfx'
-import { GANGUES_TERRITORIOS, estadoTerritorio, progressoTerritorio, totalNos } from './data/ganguesTerritorios.js'
+import { useLanguage } from '../../../../context/LanguageContext'
+import { useGanguesStore } from '../store/useGanguesStore'
+import { sfx } from '../../../../lib/sfx'
+import { GANGUES_TERRITORIOS, estadoTerritorio, progressoTerritorio, totalNos } from '../data/ganguesTerritorios.js'
 import './GanguesWorldMap.css'
 
 /* Mapa político de Marelia — cada território é uma região desenhada no SVG

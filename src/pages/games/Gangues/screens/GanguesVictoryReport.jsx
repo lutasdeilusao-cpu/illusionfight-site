@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
-import { getGanguesCharacter, eventosDoNivel } from './data/ganguesCharacters.js'
-import { combatantName, eventosDoLevelUp } from './engine/ganguesVictoryResolver.js'
+import { getGanguesCharacter, eventosDoNivel } from '../data/ganguesCharacters.js'
+import { combatantName, eventosDoLevelUp } from '../engine/ganguesVictoryResolver.js'
 
 // Tela normal de relatório de batalha (vitória ou derrota) — modal de
 // level-up, painel de recompensa, resumo, roster final, ordem de iniciativa

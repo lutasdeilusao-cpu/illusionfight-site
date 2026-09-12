@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { useLanguage } from '../../../context/LanguageContext'
-import { useGanguesStore } from './store/useGanguesStore'
-import { sfx } from '../../../lib/sfx'
-import GangDialog from './components/GangDialog'
+import { useLanguage } from '../../../../context/LanguageContext'
+import { useGanguesStore } from '../store/useGanguesStore'
+import { sfx } from '../../../../lib/sfx'
+import GangDialog from '../components/GangDialog'
 import './GanguesModes.css'
 
 /* ══════════════════════════════════════════════════════════════

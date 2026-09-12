@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { useLanguage } from '../../../context/LanguageContext'
-import { sfx } from '../../../lib/sfx'
+import { useLanguage } from '../../../../context/LanguageContext'
+import { sfx } from '../../../../lib/sfx'
 import './GanguesClube.css'
 
 /* CLUBE DA LUTA — tela de desfecho: fim do gauntlet (vitória), derrota em

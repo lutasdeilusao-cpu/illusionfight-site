@@ -1,13 +1,13 @@
 import { useEffect, useMemo, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { useLanguage } from '../../../context/LanguageContext'
-import { useAuth } from '../../../context/AuthContext'
-import { useGanguesStore } from './store/useGanguesStore'
-import { GANGUES_CHARACTER_CATALOG, getGanguesAvailableCharacterIds } from './data/ganguesCharacters.js'
-import { getGanguesPortrait } from './data/ganguesPortraits.js'
-import { GANGUES_INITIAL_PARTY_SIZE } from './data/ganguesLoadout.js'
-import { sfx } from '../../../lib/sfx'
-import GanguesFichaCard from './components/GanguesFichaCard'
+import { useLanguage } from '../../../../context/LanguageContext'
+import { useAuth } from '../../../../context/AuthContext'
+import { useGanguesStore } from '../store/useGanguesStore'
+import { GANGUES_CHARACTER_CATALOG, getGanguesAvailableCharacterIds } from '../data/ganguesCharacters.js'
+import { getGanguesPortrait } from '../data/ganguesPortraits.js'
+import { GANGUES_INITIAL_PARTY_SIZE } from '../data/ganguesLoadout.js'
+import { sfx } from '../../../../lib/sfx'
+import GanguesFichaCard from '../components/GanguesFichaCard'
 
 const PATH_MARKS = { atacante: 'A', defensor: 'D', mistico: 'M' }
 
