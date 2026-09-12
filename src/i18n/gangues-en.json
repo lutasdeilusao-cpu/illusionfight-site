@@ -1,9 +1,6 @@
 {
   "games": {
     "gangues": {
-      "titulo": "LDI GANGUES",
-      "escolha_lutador": "CHOOSE YOUR FIGHTER",
-      "escolha_alvo": "CHOOSE A TARGET",
       "log_batalha_inicio": "The fight has begun.",
       "log_usou_item": "{nome} used an item — gave up their attack this round.",
       "log_usou_item_em": "{nome} handed {alvo} an item (+{n}) — gave up the attack.",
@@ -11,9 +8,6 @@
       "dano_cena_dano": "{nome}'s hit",
       "dano_cena_cura": "{nome} patched it up",
       "dano_cena_guarda": "guard held −{n}",
-      "dano_cena_defendeu": "NO DAMAGE",
-      "dano_cena_sem_dano": "didn't get through the guard",
-      "ko_aviso": "{nome} is down!",
       "ko_cena": {
         "aliado": "is down",
         "inimigo": "knocked out"
@@ -21,59 +15,13 @@
       "neoguide": {
         "pular": "SKIP",
         "proximo": "NEXT ▸",
-        "comecar": "START →",
-        "intro": [
-          "Hi! I'm NeoGuide.",
-          "Welcome to LDI Gangues, fighter.",
-          "Here, gangs clash in the streets — every hit counts, every ally matters.",
-          "Let's put together your first gang?"
-        ],
-        "avisos": {
-          "nome": {
-            "erro": "Your fighter needs a name.",
-            "dica": "Hold up! Your fighter has no name yet. Scroll up to the field at the top and name them — nobody hits the streets nameless."
-          },
-          "caminho": {
-            "erro": "Pick a combat path.",
-            "dica": "You still have to decide how they fight: Attacker, Defender or Mystic. Tap one of the three cards below."
-          },
-          "pontos": {
-            "erro": "You still have {n} point(s) to spend.",
-            "dica": "There's still {n} point(s) on the table. Use the + buttons on each attribute until the counter hits zero."
-          },
-          "resistencia": {
-            "erro": "Resistance needs at least 1 point.",
-            "dica": "With no Resistance your fighter drops on the first hit. Put at least 1 point into R before you close the sheet."
-          }
-        },
-        "entendi": "GOT IT ✓"
+        "comecar": "START →"
       },
       "party_size_atual": "Current gang: {n}/{max}",
-      "party_size_bloqueado": "Win more battles to unlock another gang slot.",
       "bonus_ataque": "attack bonus",
       "bonus_defesa": "defense bonus",
       "bonus_falhou": "didn't trigger",
       "critico": "CRITICAL",
-      "tutorial_paths": [
-        "First things first: pick a combat path for your fighter. Each one fights differently.",
-        "ATTACKER is pure offense: less health, but hits that really hurt. Great for fast strikes.",
-        "DEFENDER takes more punishment and even has a chance to block part of the damage.",
-        "MYSTIC is balanced and uses magic: every attack already comes with a guaranteed bonus.",
-        "Pick whatever fits your style — you can go different on the next character."
-      ],
-      "tutorial_attrs": [
-        "You have 5 points to spend across 4 attributes. Let me walk you through each one.",
-        "ATTACK increases the damage you deal with every hit. More points here, harder your punch.",
-        "ABILITY decides who acts first each round and also gives your attack an extra bonus.",
-        "RESISTANCE sets your max PV and PM. Without at least 1 point here, you go down on the first hit.",
-        "DEFENSE reduces the damage you take when attacked.",
-        "Each path — Attacker, Defender or Mystic — also has its own bonus. Now it's your turn: build your sheet!"
-      ],
-      "nova_ficha": "NEW SHEET",
-      "inserir_ficha": "INSERT TOKEN",
-      "escolher_outra": "CHOOSE ANOTHER SHEET",
-      "voltar_games": "← BACK TO GAMES",
-      "escolher_oponente": "← CHOOSE OPPONENT",
       "derrota": "TOUGH BREAK",
       "derrota_sub": "The ones who fall and get back up are the ones who run it later.",
       "vitoria": "THAT'S THE CREW",
@@ -83,10 +31,8 @@
         "enemy_strategy": "Sizing up that last hit and cooking up the next move...",
         "initiative": "INITIATIVE ORDER",
         "victory_message": "Your gang controlled the fight. Analyze every decision below.",
-        "pontos_parados": "{nome} has {n} point(s) waiting to be spent — tap here to go to Progression",
         "defeat_message": "The gang fell, but the record shows where the fight was lost.",
         "rewards_title": "Reward",
-        "reward_xp": "XP",
         "reward_ap": "Action Points",
         "reward_ap_ko": "Went down — no AP",
         "reward_grana": "Cash",
@@ -103,45 +49,11 @@
         "round_number": "ROUND {n}",
         "no_log": "No attacks recorded.",
         "back_to_gang": "BACK TO GANG",
-        "new_battle": "NEW BATTLE",
         "recrutar": "RECRUIT NEW MEMBER"
       },
-      "ko": "K.O.!",
-      "lutar_novamente": "FIGHT AGAIN",
-      "pv": "HP: {n}",
-      "pm": "MP: {n}",
-      "xp": "XP: {n}",
-      "xp_gain": "+{n} XP",
-      "xp_faltam": "{n} XP until next level",
-      "xp_level_up_ready": "⚡ READY TO LEVEL UP!",
       "progression": {
-        "title": "SHEET PROGRESSION",
-        "ap": "AP: {n}/10",
-        "xp_available": "XP available: {n}",
-        "attributes": "Advanced attributes",
-        "special_path": "Subpath",
-        "specials": "Subpath powers",
         "loadout": "Equipped: {n}/2",
-        "upgrade": "UPGRADE ({n} XP)",
-        "equip": "EQUIP",
-        "unequip": "REMOVE",
-        "active": "active",
-        "passive": "passive",
         "xp_badge": "★ LEVEL UP · {n}",
-        "prompt_title": "XP AVAILABLE",
-        "prompt_body": "{name} has {n} XP points. Would you like to spend them now?",
-        "prompt_confirm": "USE XP",
-        "prompt_later": "NOT NOW",
-        "close": "Close progression",
-        "delete": "Delete sheet",
-        "delete_confirm": "Permanently delete {name}’s sheet? This action cannot be undone.",
-        "attributes_help": "Total attributes: {n}/{required} to unlock a subpath. Attributes remain available afterward.",
-        "path_unlocked": "Subpath set. You can now upgrade and equip its powers.",
-        "path_help": "Preview each option. At {required} total attribute points, unlock one subpath for {cost} XP.",
-        "unlock_path": "UNLOCK {name} ({n} XP)",
-        "path_requirement": "ATTRIBUTES REQUIRED: {n}/{required}",
-        "preview": "Preview — unlock the path to purchase powers",
-        "unlock_path_first": "UNLOCK THE PATH FIRST",
         "paths": {
           "bruto": "Brute",
           "duelista": "Duelist",
@@ -314,153 +226,28 @@
         },
         "back_to_roster": "Menu",
         "no_member": "No fighter selected for progression.",
-        "xp_label": "XP to spend",
-        "cost_xp": "{n} XP",
-        "maxed": "maxed",
-        "confirm_title": "Spend XP?",
-        "confirm_body": "You'll spend <b>{n} XP</b> on <b>{label}</b>. This can't be undone once confirmed.",
-        "confirm_cancel": "Cancel",
-        "confirm_ok": "Spend {n} XP",
         "equipped_badge": "EQUIPPED",
-        "open_sheet": "Sheet",
-        "no_subpath": "No subpath",
-        "menu_label": "← Menu"
+        "open_sheet": "Sheet"
       },
       "levelup": {
         "titulo": "LEVEL UP!",
-        "subtitulo": "{nome} reached level {nivel}",
-        "atributo": "Attribute",
-        "poder_novo": "New power unlocked",
         "continuar": "Continue"
       },
-      "novo_oponente": "🔓 NEW OPPONENT UNLOCKED: {name}",
-      "sem_fichas": "NO TOKENS",
-      "criar_ficha": "CREATE SHEET",
-      "lobby_titulo": "SELECT YOUR SHEET",
-      "combate_titulo": "COMBAT",
-      "hp": "HP",
-      "mp": "MP",
-      "atacar": "ATTACK",
-      "defender": "DEFEND",
-      "habilidade": "ABILITY",
-      "fugir": "FLEE",
-      "inimigo": "ENEMY",
-      "player": "PLAYER",
-      "elemental": "ELEMENTAL",
-      "arma": "WEAPON",
-      "vantagens": "ADVANTAGES",
-      "desvantagens": "DISADVANTAGES",
-      "unicas": "UNIQUE",
-      "nome_ficha": "Sheet Name",
-      "ex_arma": "ex: katana, fists, staff...",
-      "confirmar_ficha": "CONFIRM SHEET",
-      "escolher_elemento": "Choose your Elemental",
-      "pts_disponiveis": "pts available",
-      "precisa_ser_zero": "(must be 0)",
-      "proximo": "NEXT →",
-      "voltar": "BACK",
-      "modo_standalone": "standalone mode",
       "loadout": {
-        "intro": "Choose your character's starting path. This is the sheet's only decision in this phase.",
-        "path_title": "CHOOSE YOUR PATH",
-        "path_intro": "A is Attack, H is Skill, R is Resistance and D is Defense.",
-        "resource_rate": "Each R grants {pvPerR} HP and {pmPerR} MP.",
         "paths": {
           "atacante": {
-            "name": "Attacker",
-            "desc": "Offensive pressure. A 3 · H 1 · R 1 · D 0",
-            "bonus": "⚡ Bonus: +1 on attack, by luck (~50%)"
+            "name": "Attacker"
           },
           "defensor": {
-            "name": "Defender",
-            "desc": "Resistance and protection. A 1 · H 0 · R 2 · D 2",
-            "bonus": "🛡️ Bonus: +1 on defense, by luck (~50%)"
+            "name": "Defender"
           },
           "mistico": {
-            "name": "Mystic",
-            "desc": "A balanced path into the mystic arts. A 2 · H 1 · R 1 · D 1",
-            "bonus": "✨ Bonus: guaranteed +1 on attack (magic) · +1 on defense vs another Mystic"
+            "name": "Mystic"
           }
         },
-        "style_title": "COMBAT STYLE",
-        "techniques_title": "TECHNIQUES — CHOOSE 2",
-        "weakness_title": "WEAKNESS — CHOOSE 1",
-        "styles": {
-          "brutamontes": {
-            "name": "Bruiser",
-            "desc": "+2 AF on unarmed attacks. Fights with bare hands."
-          },
-          "duelista": {
-            "name": "Duelist",
-            "desc": "+2 AF and weapon bonus 2 on armed attacks."
-          },
-          "canalizador": {
-            "name": "Channeler",
-            "desc": "+2 AF when using powers. An arcane focus is your weapon."
-          }
-        },
-        "techniques": {
-          "bloqueio": {
-            "name": "Block",
-            "desc": "Spend your action to reduce the next incoming damage by 3."
-          },
-          "esquiva": {
-            "name": "Dodge",
-            "desc": "+2 DF against every attack."
-          },
-          "furia": {
-            "name": "Fury",
-            "desc": "Spend 2 MP for +2 AF on one unarmed attack."
-          },
-          "regeneracao": {
-            "name": "Regeneration",
-            "desc": "Recover 1 HP at the end of every round."
-          },
-          "mira_letal": {
-            "name": "Deadly Aim",
-            "desc": "Spend your action aiming; the next attack gains +3 AF."
-          },
-          "contra_ataque": {
-            "name": "Counterattack",
-            "desc": "After taking damage, immediately deal 1 damage back."
-          }
-        },
-        "weaknesses": {
-          "lento": {
-            "name": "Slow",
-            "desc": "−2 initiative."
-          },
-          "franzino": {
-            "name": "Frail",
-            "desc": "−1 AF on physical attacks."
-          },
-          "sedento": {
-            "name": "Thirsty",
-            "desc": "Powers cost 1 additional MP."
-          },
-          "sensivel": {
-            "name": "Sensitive",
-            "desc": "Take +2 damage from elemental powers."
-          }
-        },
-        "errors": {
-          "path": "Choose Attacker, Defender or Mystic.",
-          "style": "Choose a style.",
-          "techniques": "Choose exactly two techniques.",
-          "weakness": "Choose a weakness."
-        },
-        "technique_action": "USE {name}",
-        "passive": "PASSIVE",
         "round": "ROUND {n}",
-        "effect": "Effect: {name}",
         "round_heal_player": "You recovered {n} HP",
-        "round_heal_enemy": "{enemyName} recovered {n} HP",
-        "effect_labels": {
-          "thunder_charge": "Electric charge",
-          "thunder_discharge": "Electric discharge",
-          "kaeda_momentum": "Aggressive momentum",
-          "elemental": "Elemental impact"
-        }
+        "round_heal_enemy": "{enemyName} recovered {n} HP"
       },
       "saves": {
         "titulo": "YOUR GANGS",
@@ -476,78 +263,28 @@
         "territorios": "{n}/7 territories",
         "slot": "Save {n}"
       },
-      "lobby_sub": "create your sheet · fight the CPU · climb the ranking",
-      "suas_fichas": "your sheets",
       "carregando": "loading...",
-      "inimigos_desbloqueados": "unlocked enemies",
-      "intro_linha1": "Welcome to LDI Gangues, fighter.",
-      "intro_linha2": "Here, every battle is real. Choose your sheet or build a new warrior.",
-      "mostrar_fichas": "SHOW SHEETS",
-      "confirmar_excluir": "Delete this sheet permanently?",
-      "excluir_ficha": "Delete sheet",
-      "diff_easy": "EASY",
-      "diff_medium": "MEDIUM",
-      "diff_hard": "HARD",
-      "diff_very_hard": "VERY HARD",
-      "lv": "LV {n}",
-      "erro_pontos": "You still have points to distribute.",
-      "erro_nome": "Give your sheet a name.",
-      "erro_r_min": "Resistance (R) needs at least 1 point.",
-      "erro_custo_pos": "Advantages outweigh disadvantages. Balance the score.",
-      "erro_custo_neg": "Disadvantages outweigh advantages. Balance the score.",
-      "balanco": "advantages {v} + unique {p} − disadvantages {d} = {total} (must be 0)",
-      "placeholder_nome": "fighter name...",
-      "modo_fists": "Fists",
-      "modo_armed": "Armed",
-      "modo_power": "Power",
-      "combat_power_titulo": "Prepare Powers",
-      "combat_power_sub": "Select up to 2 elemental powers ({elemental})",
-      "combat_entrar_sem": "ENTER (no powers)",
-      "combat_entrar_com": "ENTER ({n} powers)",
-      "combat_vez_inimigo": "=== ENEMY'S TURN ===",
-      "perto_morte": "⚠ NEAR DEATH",
-      "dice_critico": "⚡ CRITICAL!",
-      "dice_resultado": "result: {n}",
-      "log_iniciativa": "🎲 Initiative: You {pInit} vs {enemyName} {eInit}",
-      "log_vitoria": "⚔️ VICTORY!",
-      "log_derrota": "💀 You were defeated!",
-      "btn_lobby": "← lobby",
       "btn_proximo": "next →",
       "btn_voltar": "← back",
-      "btn_salvar_lutar": "SAVE & FIGHT",
       "btn_fugir": "BOUNCE",
       "btn_sair": "EXIT",
-      "erro_excluir": "Error deleting sheet. Try again.",
-      "btn_atacar": "ATTACK",
-      "ficha_ver": "View sheet",
       "ficha_fechar": "Close",
       "ficha_dossie": "Member dossier",
       "ficha_xp_disponivel": "{n} XP available for progression",
       "ficha_ap_label": "AP",
-      "selecionados": "{n}/4 selected",
-      "fa_label": "FA",
-      "fd_label": "FD",
-      "sfx_toggle": "Toggle SFX",
-      "card_ataque": "⚔ attack",
-      "card_ataque_inimigo": "⚔ enemy attack",
-      "card_poder": "power",
       "card_dano": "damage",
       "card_escudo": "guard held",
-      "card_bloqueado": "blocked",
       "combat_specials": {
         "normal_attack": "Normal attack",
         "cost_pm": "{n} PM",
         "cost_pv": "{n}% HP",
         "sem_pm": "not enough MP",
         "sem_pv": "HP too low",
-        "vez_de": "Turn:",
         "sua_vez": "Your turn",
         "vez_inimiga": "Enemy turn",
         "provocar": "Taunt",
-        "escolha_golpe": "Choose your move",
         "sem_custo": "free",
-        "sem_poderes": "This fighter has no active powers equipped. Equip them in the sheet progression.",
-        "usar_golpe": "Use {nome}"
+        "sem_poderes": "This fighter has no active powers equipped. Equip them in the sheet progression."
       },
       "orb": {
         "atacar": "Attack",
@@ -565,7 +302,6 @@
         "13": "Scrap"
       },
       "loja": {
-        "titulo": "Shop",
         "sub": "Buy with the gang's cash — usable in any fight.",
         "custo": "{n} 💵",
         "comprar": "Buy",
@@ -653,7 +389,6 @@
         "sequestro_1": "You never saw where it came from. A cloth over your head, a hard yank, the ground gone from under your feet.",
         "sequestro_2": "Back of a van. Oil, cigarettes, the hot exhaust pipe against your back. A hand holding your neck down the whole way.",
         "sequestro_3": "They stop. They drag you out. They rip the cloth off in one pull — and the light blinds you. Wire mesh on both sides. And a roar of people that won't stop growing.",
-        "pular": "Tap to skip",
         "venda_seguir": "tap to continue ›",
         "venda_entrar": "tap to enter the pit ›",
         "dica_anda": "Walk to the pit door.",
@@ -674,7 +409,6 @@
         "sala_vazar": "Bail out",
         "sala_vazar_aviso": "walk out of the pit carrying the {divida} debt",
         "fuga_titulo": "YOU BAILED",
-        "fuga_texto": "Jumped the mesh before the next one and slipped into the street. Nobody chased you — no need. Nato's book is yours now, fat as it got, and it finds you at any bar in any hood.",
         "sequestro": [
           "You never saw where it came from.",
           "A thick cloth over your head. A yank that lifts you off your feet.",
@@ -707,10 +441,7 @@
           "«It finds you. At any bar. In any hood.»"
         ],
         "venceu_titulo": "YOU WALKED OUT WHOLE",
-        "venceu_texto": "Last one standing is you. The crowd's still screaming when Nato steps into the pit, takes the book and tears it page by page in your face. \"You're clean with me.\" They blindfold you again. You wake up on a corner of the Strip, body aching, name back to zero.",
-        "venceu_texto_grana": "Last one standing is you. Nato counts 200 into your hand, dry, without looking at you — business is business. You got nothing else: nobody leaves the pit smarter, just more marked up. They blindfold you, dump you on the Strip with a heavy pocket.",
         "perdeu_titulo": "THEY PATCHED YOU UP",
-        "perdeu_texto": "The pit floor came up fast. You wake up later: mattress on the ground, taste of blood, somebody closing your brow with sewing thread. Nato doesn't even show — he sent word. The buy-in became debt, and the pit never closes. They dump you on the Strip.",
         "voltar": "Back to the Strip"
       },
       "skill_info": {
@@ -754,7 +485,6 @@
       "auto": {
         "switch_label": "Auto",
         "switch_titulo": "Turn on auto mode — your fighters attack on their own with the normal attack. To use a power, turn it off and go back to manual.",
-        "ativo_aviso": "AUTO MODE — attacking on its own with the normal move",
         "premium_titulo": "Auto mode is a subscriber perk — tap to subscribe",
         "sair": "Exit auto mode"
       },
@@ -767,24 +497,6 @@
         "usar_item": "Use item this round (gives up the attack)",
         "vai_usar_item": "Will use item"
       },
-      "multidao_tutorial": {
-        "interruptor": "Your crew got big (6+ in this fight)! MASS BATTLE unlocked — flip this switch up top to resolve round by round, fast, without picking a target every time.",
-        "alvo_automatico": "In this mode, each of yours always auto-attacks the weakest enemy — no manual targeting, it's built to clear a big crew fast.",
-        "poderes": "Tap a fighter's name down here to cycle between a normal attack and their powers — if they have more than one equipped, it rotates between them each tap.",
-        "avancar": "Then just tap NEXT ROUND as many times as it takes until the fight's over.",
-        "item": "The 🎒 next to a name marks \"use item this round\" — that fighter gives up their attack to use an item instead."
-      },
-      "pag_atributos": "ATTRIBUTES",
-      "pag_identidade": "IDENTITY",
-      "pag_pericias": "SKILLS",
-      "manual_titulo": "BATTLE MANUAL",
-      "intro_sabe_sistema": "do you already know the battle system?",
-      "intro_ler_manual": "READ THE MANUAL",
-      "intro_ler_manual_sub": "learn the system before creating your sheet",
-      "intro_criar_direto": "CREATE DIRECTLY",
-      "intro_criar_direto_sub": "I already know what I'm doing",
-      "intro_dica_manual": "💡 the manual is accessible via the <strong>?</strong> button during creation",
-      "attrs_pontos_restantes": "{n} pts remaining",
       "attr_labels": {
         "F": "Strength",
         "H": "Skill",
@@ -795,373 +507,12 @@
         "PM": "Gas",
         "PdF": "Elemental Power"
       },
-      "attr_desc": {
-        "F": "melee damage",
-        "H": "initiative and combat support",
-        "R": "HP and MP base",
-        "A": "physical attack strength",
-        "D": "protection from physical attacks",
-        "PdF": "elemental attacks"
-      },
-      "elements": {
-        "fogo": {
-          "label": "Fire",
-          "desc": "explosive, aggressive"
-        },
-        "agua": {
-          "label": "Water",
-          "desc": "fluid, adaptable"
-        },
-        "terra": {
-          "label": "Earth",
-          "desc": "solid, resistant"
-        },
-        "ar": {
-          "label": "Wind",
-          "desc": "fast, evasive"
-        },
-        "trevas": {
-          "label": "Darkness",
-          "desc": "corrosive, draining"
-        },
-        "luz": {
-          "label": "Light",
-          "desc": "purifying, protective"
-        },
-        "neutro": {
-          "label": "Neutral",
-          "desc": "balanced, versatile"
-        }
-      },
-      "advantages": [
-        {
-          "label": "Acrobat",
-          "desc": "+1 on dodge and movement tests. Costs 1 MP per use."
-        },
-        {
-          "label": "Adapter",
-          "desc": "Ignores 1 penalty from unfavorable environments."
-        },
-        {
-          "label": "Lucky",
-          "desc": "Gains +1 on initiative rolls."
-        },
-        {
-          "label": "Ally",
-          "desc": "Summons ally with Strength 1 to aid in combat."
-        },
-        {
-          "label": "Arcane",
-          "desc": "+1d on elemental power damage. Costs 2 extra MP."
-        },
-        {
-          "label": "Archer",
-          "desc": "Can perform ranged attacks with 1d damage."
-        },
-        {
-          "label": "Block",
-          "desc": "Declares block against physical attack; reduces damage by 1d."
-        },
-        {
-          "label": "Bomber",
-          "desc": "+1d on attacks with gunpowder weapons."
-        },
-        {
-          "label": "Boxing",
-          "desc": "+1d on unarmed attacks while in guard."
-        },
-        {
-          "label": "Camouflage",
-          "desc": "+1 on stealth when in favorable terrain."
-        },
-        {
-          "label": "Charismatic",
-          "desc": "+1 on social interactions before combat."
-        },
-        {
-          "label": "Counterattack",
-          "desc": "After being hit, can counterattack with 1d."
-        },
-        {
-          "label": "Determined",
-          "desc": "When below half HP, +1 on attack and defense."
-        },
-        {
-          "label": "Dual Wield",
-          "desc": "+1 extra attack with secondary hand, -1 on roll."
-        },
-        {
-          "label": "Dodge",
-          "desc": "+1 on FD against direct attacks."
-        },
-        {
-          "label": "Evocation",
-          "desc": "Allows summoning elemental creature of PdF 1."
-        },
-        {
-          "label": "Fury",
-          "desc": "Spends 3 MP for +2 Strength for 3 rounds."
-        },
-        {
-          "label": "Immunity",
-          "desc": "Immune to poisons and diseases below your R."
-        },
-        {
-          "label": "Intuition",
-          "desc": "+1 on perception tests for traps and ambushes."
-        },
-        {
-          "label": "Leadership",
-          "desc": "+1 for allies within 3m while visible."
-        },
-        {
-          "label": "Medicine",
-          "desc": "Heals 1 HP per round on adjacent ally."
-        },
-        {
-          "label": "Deadly Aim",
-          "desc": "Spends 1 round aiming for +1d on next attack."
-        },
-        {
-          "label": "Parkour",
-          "desc": "Ignores terrain penalty for 3 rounds."
-        },
-        {
-          "label": "Reflexes",
-          "desc": "+1 on initiative and reaction tests."
-        },
-        {
-          "label": "Regeneration",
-          "desc": "Heals 1 HP per round while in combat."
-        },
-        {
-          "label": "Senses",
-          "desc": "+1 on sensory perception tests."
-        },
-        {
-          "label": "Luck",
-          "desc": "Gains 3 extra MP at the start of combat."
-        },
-        {
-          "label": "Technique",
-          "desc": "Draws, stows and attacks in same turn without penalty."
-        },
-        {
-          "label": "Sprinter",
-          "desc": "+2 on running and movement tests."
-        },
-        {
-          "label": "Veteran",
-          "desc": "+1 on critical rolls (15+)."
-        },
-        {
-          "label": "Vigor",
-          "desc": "Suffers no penalty from light wounds."
-        }
-      ],
-      "disadvantages": [
-        {
-          "label": "Unlucky",
-          "desc": "Rolls 1 less die on luck tests."
-        },
-        {
-          "label": "Code",
-          "desc": "Cannot attack unarmed or back-turned enemies."
-        },
-        {
-          "label": "Dependence",
-          "desc": "Loses 1 HP per round if not consuming item."
-        },
-        {
-          "label": "Disease",
-          "desc": "Max HP permanently reduced by 2."
-        },
-        {
-          "label": "Phobia",
-          "desc": "If Skill test fails, loses the action."
-        },
-        {
-          "label": "Slim",
-          "desc": "Strength reduced by 1 for physical damage."
-        },
-        {
-          "label": "Honor",
-          "desc": "Does not attack first; always lets opponent act."
-        },
-        {
-          "label": "Age",
-          "desc": "Skill reduced by 1; experience gives +1 XP per victory."
-        },
-        {
-          "label": "Insomniac",
-          "desc": "Recovers half MP between combats."
-        },
-        {
-          "label": "Slow",
-          "desc": "Acts last on initiative ties."
-        },
-        {
-          "label": "Lame",
-          "desc": "Movement reduced by half."
-        },
-        {
-          "label": "Fearful",
-          "desc": "If Escape test fails, loses the action."
-        },
-        {
-          "label": "Proud",
-          "desc": "Never refuses a duel or provocation."
-        },
-        {
-          "label": "Poor",
-          "desc": "Cannot buy items between combats."
-        },
-        {
-          "label": "Thirsty",
-          "desc": "Spends 1 extra MP per power used."
-        },
-        {
-          "label": "Sensitive",
-          "desc": "+1d damage taken from opposite element."
-        },
-        {
-          "label": "Deafness",
-          "desc": "-1 on auditory perception tests."
-        },
-        {
-          "label": "Stubborn",
-          "desc": "Cannot change tactic once declared."
-        },
-        {
-          "label": "Addiction",
-          "desc": "Loses 1 HP after each victory."
-        },
-        {
-          "label": "Cursed",
-          "desc": "+1d damage taken if enemy shouts your name."
-        }
-      ],
-      "perks": [
-        {
-          "label": "Inner Flame",
-          "desc": "PdF +1 for 2 rounds, costs 3 MP."
-        },
-        {
-          "label": "Imposing Presence",
-          "desc": "Enemy loses 1 on attack for 1 round. Costs 2 MP."
-        },
-        {
-          "label": "Mark of Destiny",
-          "desc": "If defeated, enemy loses 3 extra HP."
-        },
-        {
-          "label": "Vital Breath",
-          "desc": "Gains 2 extra HP per round for 3 rounds."
-        },
-        {
-          "label": "Silent Gaze",
-          "desc": "Ignores 1 surprise attack from enemy."
-        },
-        {
-          "label": "Shadow Step",
-          "desc": "Reveals after 1 round of partial darkness invisibility."
-        }
-      ],
-      "specializations": [
-        "Melee combat",
-        "Ranged combat",
-        "Firearms",
-        "Bladed weapons",
-        "Elemental manipulation",
-        "Stealth",
-        "Persuasion",
-        "Investigation",
-        "Survival",
-        "First aid"
-      ],
-      "manual": {
-        "fundamentos": {
-          "titulo": "Fundamentals",
-          "conteudo": "LDI is a virtual combat system where pain is real.\nThree billion players compete for position in the SDR ranking.\nEach fighter chooses a primary elemental that defines their powers."
-        },
-        "atributos": {
-          "titulo": "Attributes",
-          "tabela": [
-            [
-              "F — Power",
-              "Melee damage"
-            ],
-            [
-              "H — Agility",
-              "Initiative, dodge, speed"
-            ],
-            [
-              "R — Resistance",
-              "HP and MP base"
-            ],
-            [
-              "A — Protection",
-              "Damage absorption, passive defense"
-            ],
-            [
-              "PdF — Elemental Power",
-              "Damage and strength of elemental attacks"
-            ]
-          ],
-          "extra": "Scale: 0 = common | 1 = practitioner | 2 = experienced | 3 = veteran | 4 = elite | 5 = absolute top\nHP = R × 5 | MP = PdF × 5"
-        },
-        "combate": {
-          "titulo": "Battle System",
-          "conteudo": "INITIATIVE: H + 1d6 — highest acts first\n\nFA (Melee): F + H + 1d6\nFA (Elemental): PdF + H + 1d6\n\nFD (Normal): A + H + 1d6\nFD (Helpless): A + 1d6\n\nDAMAGE: FA − FD (minimum 0)\nCRITICAL: die = 6 → doubles F, PdF or A"
-        },
-        "elementais": {
-          "titulo": "The 7 Elementals",
-          "tabela": [
-            [
-              "🔥 Fire",
-              "Explosive, aggressive. High damage, constant pressure"
-            ],
-            [
-              "💧 Water",
-              "Fluid, adaptable. Control, healing, versatility"
-            ],
-            [
-              "🪨 Earth",
-              "Solid, resistant. Defense, stun, sustain"
-            ],
-            [
-              "💨 Wind",
-              "Fast, evasive. Initiative, evasion, mobility"
-            ],
-            [
-              "🌑 Darkness",
-              "Corrosive, draining. Absorption, debuff, weakening"
-            ],
-            [
-              "✨ Light",
-              "Purifying, protective. Healing, protection, blindness"
-            ],
-            [
-              "⚪ Neutral",
-              "Balanced. Versatile, no weaknesses, no peaks"
-            ]
-          ]
-        },
-        "vantagens": {
-          "titulo": "Advantages and Disadvantages",
-          "conteudo": "Advantages cost character points and represent special techniques and powers.\nDisadvantages grant extra points but impose real restrictions.\n\nThe final balance must be zero: cost of advantages = gain from disadvantages."
-        },
-        "xp": {
-          "titulo": "XP and Evolution",
-          "conteudo": "Victory in fair battle: +10 XP\nDefeat in fair battle: +1 XP\n\nEvery 100 XP: 1 character point to spend on attribute or advantage."
-        }
-      },
       "enemy_names": {
         "1101": "Sniffer",
         "1102": "Eyes",
         "1103": "Speck",
         "1104": "Extension",
-        "1105": "Bad Customer",
+        "1105": "Red Ink",
         "1106": "Live Wire",
         "1107": "Low Tide",
         "1108": "Rail",
@@ -1256,251 +607,24 @@
         "1505": "The Accountant",
         "1600": "The Patchwork"
       },
-      "defeat_fallbacks": [
-        "this cannot be...",
-        "I underestimated you. damn.",
-        "impossible."
-      ],
       "guest_banner": "No account: progress isn't saved.",
       "guest_create_account": "Create account",
-      "guest_save_prompt_title": "Create a free account",
-      "guest_save_prompt_desc": "Create a free account to save this sheet and your progress. Your character is ready — don't lose your data!",
-      "guest_continue_without_saving": "Continue with temporary sheet",
-      "guest_temp_badge": "🕐 Temporary sheet",
-      "powers": {
-        "fogo": {
-          "chama_rapida": {
-            "name": "Quick Flame",
-            "desc": "Fires a fast flame dealing +2 elemental damage."
-          },
-          "explosao": {
-            "name": "Explosion",
-            "desc": "A fire explosion around you. Area damage (doubles FD but hits multiple targets)."
-          },
-          "labareda": {
-            "name": "Blaze",
-            "desc": "An intense blaze. On hit, causes burn (-1 FD on enemy's next turn)."
-          },
-          "inferno": {
-            "name": "Inferno",
-            "desc": "Pure flames consume the enemy. Deals double elemental damage."
-          },
-          "escudo_fogo": {
-            "name": "Fire Shield",
-            "desc": "Flames protect you. +2 FD this turn, deals 1 damage if the enemy hits you."
-          },
-          "pilar_fogo": {
-            "name": "Pillar of Fire",
-            "desc": "A pillar of fire erupts from the ground. Medium damage but ignores 3 FD."
-          }
-        },
-        "agua": {
-          "projetil_agua": {
-            "name": "Water Projectile",
-            "desc": "Fires pressurized water. Deals +2 elemental damage."
-          },
-          "onda": {
-            "name": "Wave",
-            "desc": "A wave pushes the enemy. Damage + reduces enemy FA by 1 next turn."
-          },
-          "nevoeiro": {
-            "name": "Fog",
-            "desc": "Creates dense fog. Enemy has -2 FA on next attack."
-          },
-          "cura": {
-            "name": "Light Heal",
-            "desc": "Revitalizing water. Recovers 2 HP (cannot exceed max)."
-          },
-          "torrente": {
-            "name": "Torrent",
-            "desc": "A massive water jet. Deals double elemental damage."
-          },
-          "gelo": {
-            "name": "Ice",
-            "desc": "Frozen water. Damage + enemy loses 1 Skill next turn."
-          }
-        },
-        "terra": {
-          "projetil_pedra": {
-            "name": "Stone Projectile",
-            "desc": "Throws a stone. Deals +2 elemental damage."
-          },
-          "muralha": {
-            "name": "Wall",
-            "desc": "Raises a stone wall. +3 FD this turn."
-          },
-          "terremoto": {
-            "name": "Earthquake",
-            "desc": "The ground shakes. Deals double elemental damage and stuns enemy (-1 FA and FD next turn)."
-          },
-          "armadura": {
-            "name": "Earth Armor",
-            "desc": "Coats your body in stone. +2 FD for 2 turns."
-          },
-          "areia_movel": {
-            "name": "Quicksand",
-            "desc": "The ground becomes unstable. Enemy loses next turn (cannot attack)."
-          },
-          "lanca_pedra": {
-            "name": "Stone Lance",
-            "desc": "A stone lance pierces the enemy. Ignores 4 FD."
-          }
-        },
-        "ar": {
-          "rajada": {
-            "name": "Gust",
-            "desc": "A gust of wind. Deals +2 elemental damage."
-          },
-          "ciclone": {
-            "name": "Cyclone",
-            "desc": "A cyclone surrounds the enemy. Deals double elemental damage."
-          },
-          "escudo_vento": {
-            "name": "Wind Shield",
-            "desc": "Wind deflects attacks. +2 FD this turn."
-          },
-          "passos_leves": {
-            "name": "Light Steps",
-            "desc": "Wind carries you. +2 Skill for one turn (more initiative)."
-          },
-          "sopro": {
-            "name": "Big Blow",
-            "desc": "A strong gust pushes the enemy away. Enemy loses 1 Skill next turn."
-          },
-          "tempestade": {
-            "name": "Storm",
-            "desc": "Small air explosions. Deals damage + -1 FD on enemy for 2 turns."
-          }
-        },
-        "trevas": {
-          "sombra_atacante": {
-            "name": "Shadow Strike",
-            "desc": "Shadows attack the enemy. Deals +2 elemental damage."
-          },
-          "dreno": {
-            "name": "Drain",
-            "desc": "Drains enemy energy. Deals damage and recovers 1 HP."
-          },
-          "nevoa_escura": {
-            "name": "Dark Fog",
-            "desc": "Darkness envelops the arena. Enemy has -2 FA on next attack."
-          },
-          "toque_sombrio": {
-            "name": "Shadow Touch",
-            "desc": "A consuming touch. Deals double elemental damage."
-          },
-          "medo": {
-            "name": "Fear",
-            "desc": "Projects fear into the enemy's mind. Enemy skips next attack (but still defends)."
-          },
-          "absorcao": {
-            "name": "Absorption",
-            "desc": "Absorbs elemental energy. Recovers 1 MP."
-          }
-        },
-        "luz": {
-          "raio_luz": {
-            "name": "Light Ray",
-            "desc": "A blinding light ray. Deals +2 elemental damage."
-          },
-          "cura_luz": {
-            "name": "Radiant Heal",
-            "desc": "Revitalizing light. Recovers 3 HP."
-          },
-          "escudo_luz": {
-            "name": "Light Shield",
-            "desc": "Luminous barrier. +2 FD this turn."
-          },
-          "explosao_luz": {
-            "name": "Light Explosion",
-            "desc": "Blinding explosion. Deals double elemental damage and enemy has -1 FA next turn."
-          },
-          "purificacao": {
-            "name": "Purification",
-            "desc": "Removes a negative status or heals 1 additional HP."
-          },
-          "fulgor": {
-            "name": "Radiance",
-            "desc": "Intense light. Deals damage + enemy has -1 FD next turn."
-          }
-        },
-        "neutro": {
-          "impacto": {
-            "name": "Impact",
-            "desc": "A neutral energy strike. Deals +2 damage."
-          },
-          "barreira": {
-            "name": "Barrier",
-            "desc": "Energy barrier. +2 FD this turn."
-          },
-          "pulso": {
-            "name": "Pulse",
-            "desc": "Energy pulse. Deals damage and pushes enemy back (-1 FA next turn)."
-          },
-          "carga_total": {
-            "name": "Full Charge",
-            "desc": "All your energy in one blow. Deals double damage."
-          },
-          "recuperacao": {
-            "name": "Recovery",
-            "desc": "Recovers 1 MP."
-          },
-          "sobrecarga": {
-            "name": "Overload",
-            "desc": "Overloads your circuits. Next attack deals +3 damage."
-          }
-        }
-      },
       "party": {
-        "title": "BUILD YOUR TEAM",
-        "subtitle": "Your gang needs people. Choose who will take the streets by your side.",
         "roster": "YOUR ROSTER",
-        "onboarding": "Recruit the first two members of your gang.",
-        "second_member": "First fighter confirmed. Now choose a different path to complete your duo.",
-        "create_team": "CREATE STARTING TEAM",
-        "create_member": "RECRUIT MEMBER {n}",
-        "path_unavailable": "Path already used by this team",
         "selected": "ON TEAM",
         "select": "SELECT",
         "remover": "REMOVE FROM TEAM",
-        "obrigatorio": "REQUIRED ON TEAM",
-        "progression": "The team starts with 2 slots and may grow to {max} through progression.",
-        "single_title": "TEAM BATTLE",
-        "single_desc": "Current foundation: your duo faces an enemy duo.",
-        "battle_ready": "CHOOSE BATTLE ({n}/2)",
-        "multiplayer_title": "GROUP MULTIPLAYER",
-        "multiplayer_locked": "Exclusive to Elite and Primordial subscribers.",
-        "multiplayer_subscriber": "Your plan unlocks multiplayer formats.",
-        "multiplayer_size": "{n} PLAYERS",
-        "multiplayer_coming": "Formats reserved; group matchmaking arrives in the next stage.",
-        "see_plans": "SEE PLANS",
-        "enemy_team_desc": "Each opponent enters with another unlocked fighter.",
-        "enemy_duo": "ENEMY DUO",
-        "your_team": "YOUR TEAM",
-        "enemy_team": "ENEMY TEAM",
-        "start": "OPEN RECRUITMENT",
-        "continue": "RECRUIT SECOND FIGHTER",
-        "enter_gangues": "QUICK BATTLE · 2×2",
-        "save_member": "CONFIRM FIGHTER",
         "save_error": "The fighter could not be saved. Please try again.",
-        "distribute_title": "DISTRIBUTE YOUR POINTS",
-        "points_remaining": "POINTS REMAINING",
-        "spend_all": "Distribute the remaining {n} point(s).",
-        "resistance_required": "The character needs at least 1 Resistance point.",
-        "finish_member": "FINISH SHEET",
         "need_two": "You have {n} fighter in the gang. You need 2 to start a fight — recruit another.",
         "select_two": "Pick 2 fighters for battle (you picked {n}).",
         "equipar_titulo": "Powers not equipped",
         "equipar_corpo": "{nomes} bought an active power but hasn’t equipped it. In battle, without equipping, only the normal attack is available. Each fighter carries up to 2 powers — build differently per matchup.",
         "equipar_agora": "Equip now",
-        "equipar_depois": "Enter anyway",
-        "quick_desc": "A one-off fight, no map progress."
+        "equipar_depois": "Enter anyway"
       },
       "recruitment": {
         "title_initial": "BUILD YOUR GANG",
         "title": "RECRUIT MEMBER",
-        "subtitle_initial": "Five names answered the call. Examine their sheets and mark the two who will found the gang.",
-        "subtitle": "New names have reached Marélia. Examine the sheet and choose who deserves your mark.",
         "candidates": "Available candidates",
         "previous": "Previous fighter",
         "next": "Next fighter",
@@ -1516,22 +640,6 @@
         "assemble": "YOU CAN'T RULE THE STREETS ALONE",
         "lobby_pitch": "Five fighters heard your gang's name. Enter the meeting point, read each sheet and choose your first two members.",
         "enter": "ENTER THE MEETING POINT"
-      },
-      "limite": {
-        "titulo": "SHEET LIMIT",
-        "fichas_usadas": "{n}/{limite} sheets",
-        "upgrade": "UPGRADE",
-        "modal_titulo": "Sheet limit reached",
-        "modal_body": "Your {tier} account allows up to {limite} sheet(s). Upgrade to Elite or Primordial to create more.",
-        "modal_body_sem_tier": "Free accounts allow up to {limite} sheet(s). Upgrade to create more.",
-        "modal_btn": "UPGRADE NOW"
-      },
-      "multiplayer_titulo": "MULTIPLAYER",
-      "multiplayer": {
-        "apenas_elite": "Available for Elite and Primordial subscribers",
-        "modal_titulo": "Multiplayer restricted",
-        "modal_body": "Gangues Multiplayer mode is only available for Elite and Primordial subscribers.",
-        "modal_btn": "UPGRADE NOW"
       },
       "trash_talk_npc": {
         "1101": {
@@ -4673,23 +3781,15 @@
       "beat": {
         "derrotado": "DEFEATED"
       },
-      "escolha_oponente": "Choose your opponent",
       "sair_do_jogo": "QUIT",
       "story": {
-        "new_campaign": "START NEW CAMPAIGN",
-        "entry": "Story mode",
-        "entry_desc": "Take Marélia block by block. From street rat to the Rooftop.",
         "titulo": "MARÉLIA HAS NO KING",
-        "sub": "Before Alan, nobody held Marélia. A gang on every corner, each one sure it ran the world because it ran one street. One guy — the Patchwork — almost pulled it all together. Almost. Now it's your turn to try.",
         "dominio": "of Marélia",
         "menu": "Menu",
         "gerenciar_gangue": "Crew",
         "voltar_mapa": "Map",
         "world_title": "Marélia Map",
         "world_hint": "Tap a region on the map",
-        "disponivel": "Route open",
-        "anterior": "Previous territory",
-        "proximo": "Next territory",
         "territorio_selecionado": "Selected territory",
         "entrar_territorio": "Enter territory",
         "bloqueado_cta": "Take the previous route",
@@ -4698,12 +3798,10 @@
         "dominado": "Block's ours",
         "sem_territorio": "No block selected.",
         "desafiante": "Spot gang",
-        "gangue_dominante": "Block-running gang",
         "boss_tag": "The region’s heavy",
         "boss_de": "runs {gangue}",
         "confronto_final": "The one who almost made it",
         "ponto_n": "Spot {n}",
-        "n_gangues": "{n} gangs",
         "enfrentar": "Face off",
         "precisa_informante": "🔍 Before you face the Feira's heavy, go back to the Pista and have a word with Duda. He knows things worth gold.",
         "brigar": "Fight",
@@ -4798,14 +3896,6 @@
         "falas": {
           "ponto": "{territorio}. This spot belongs to {gangue}, pal. {suaGangue} doesn't walk through here for free."
         },
-        "abertura": [
-          "Sit down, kid, let me give you the real deal.",
-          "Marélia never had an owner. A crew in every alley, each one thinking they run the world 'cause they run one street.",
-          "Want to rise? Start down here, on the ground, with the kids. Take the small fish's spots, grow, then face the region's real heavy — the flag holder, the one nobody walks over.",
-          "Take a block, the next opens up. Block by block, blood by blood, up to the Rooftop.",
-          "Up there's a guy nobody knows the real name of. They just call him the Patchwork. Stitched six blocks under one flag — something NOBODY else ever got close to.",
-          "You'll have to go through him. It's not about wanting it, it's about surviving it. Good luck, kid — you'll need more than luck."
-        ],
         "final": {
           "code": "THE CLIMB ENDS HERE",
           "titulo": "MARÉLIA WON'T STITCH",
@@ -4817,7 +3907,6 @@
         }
       },
       "modes": {
-        "titulo": "CHOOSE A MODE",
         "dif_titulo": "Pick your hustle",
         "dif_facil": "Easy",
         "dif_facil_sub": "taking it slow",
@@ -4828,20 +3917,15 @@
         "dif_dificil": "Hard",
         "dif_dificil_sub": "roots",
         "dif_dificil_desc": "The crew comes with almost everything you've got, and Carvão still brings backup. For those who don't cry.",
-        "sua_dupla": "Your duo",
         "abrir": "CHOOSE GAME MODE",
-        "jogar": "Play",
         "historia_titulo": "STORY MODE",
         "historia_tag": "Campaign",
         "historia_desc": "Climb the Hill. Take Marélia one step at a time — every turf up to the boss, progress saved.",
         "batalha_titulo": "BATTLE MODE",
         "batalha_tag": "One-off",
         "batalha_desc": "A quick 2×2 fight against the opponent you pick. No map progress.",
-        "dupla_da_gangue": "{gangue}'s duo",
         "ver_escalacao": "View lineup · {n}/6",
         "escalacao": "Your gang",
-        "marelia": "MARÉLIA",
-        "intro": "Your gang is born. Now take the streets, one territory at a time.",
         "comecar_historia": "START THE STORY",
         "bloqueado": "Locked",
         "liberado": "Unlocked",
@@ -4849,7 +3933,6 @@
         "batalha_bloqueada_desc": "The Tower opens once you clear the campaign. First, take Marélia turf by turf.",
         "em_breve": "COMING SOON",
         "multiplayer_titulo": "ONLINE MULTIPLAYER",
-        "multiplayer_tag": "Group",
         "multiplayer_bloqueada_desc": "Get one gang sheet to level 99 to unlock online play against other gangs (online itself arrives in a future update).",
         "multiplayer_liberado_desc": "You have a sheet at level 99 — online play against other gangs is ready to switch on the moment it lands."
       },
@@ -4881,18 +3964,9 @@
       "naming": {
         "titulo": "FOUND YOUR GANG",
         "titulo_editar": "RENAME THE GANG",
-        "sub": "The crew matters, but it's the gang's name that echoes across the whole block — the one enemies spit out when they hit the dirt, the one that takes Marélia or turns into a corner joke.",
         "poster_pitch": "Every street knows a name. Choose the one all of Marélia learns to respect — or to fear.",
         "label": "Gang name",
         "placeholder": "e.g. End of the Line Crew",
-        "exemplos": "Ideas:",
-        "sugestao_bonde": "End of the Line Crew",
-        "sugestao_firma": "The Firm",
-        "sugestao_trilha": "The High Trail",
-        "sugestao_sindicato": "Alley Syndicate",
-        "sugestao_quebrada": "New Block",
-        "preview": "\"{nome} is coming up the hill. Pray you don't cross its path.\"",
-        "preview_vazio": "The name that makes all of Marélia freeze when they hear it coming.",
         "fundar": "FOUND THE GANG",
         "salvar": "SAVE",
         "renomear": "rename",
@@ -4908,16 +3982,10 @@
         "veio_sub": "the corner elder, owner of the bar",
         "pular": "get on with it",
         "proximo": "keep going",
-        "fechar": "got it, boss",
-        "comecar": "let's roll"
+        "fechar": "got it, boss"
       },
       "cena": {
-        "grana": "Cash",
-        "rep": "Name",
-        "bairro_tomado": "Block's ours",
-        "opcional": "optional",
         "boss_trancado": "Lock the spots down before you level up, kid.",
-        "recompensa": "Came out with",
         "treta_nao": "Not now, chill",
         "treta_sim": "Let's scrap",
         "treta_sim_risco": "Going in anyway",
@@ -4942,9 +4010,6 @@
           "achado": "Find",
           "descanso": "Bar",
           "loja": "Shop"
-        },
-        "itens": {
-          "sucata": "Scrap (item)"
         },
         "descanso_titulo": "The crew rested. Each one recovered:",
         "descanso_ja_inteira": "The crew's already whole, kid. Keep the cash.",
@@ -5236,8 +4301,6 @@
           "entrar": "GO IN",
           "sair": "BOUNCE",
           "voltar": "BACK",
-          "avancar": "PUSH IN",
-          "subir": "GO UP",
           "desafiar": "STEP UP",
           "trancado": "SHUT"
         },
@@ -5360,11 +4423,8 @@
       "album": {
         "titulo": "Collection",
         "sub": "Everything your gang has seen, beaten and picked up in Marélia.",
-        "contador": "{n}/99",
         "bloqueado": "???",
         "ainda_nao": "Hasn't crossed you yet.",
-        "arma_label": "Weapon",
-        "terr_label": "Turf",
         "voltar": "Back",
         "secoes": {
           "inimigos": "Enemies",

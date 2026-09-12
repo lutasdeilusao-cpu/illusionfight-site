@@ -233,7 +233,7 @@
   },
   {
     "id": 1105,
-    "name": "Cliente Ruim",
+    "name": "Boleto Vencido",
     "stats": {
       "A": 1,
       "H": 2,

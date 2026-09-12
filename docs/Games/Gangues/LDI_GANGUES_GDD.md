@@ -393,7 +393,7 @@ raramente batem de frente.
 | 1102 | Zóio | Pista | faca pequena | O olho da esquina — vê tudo que sobe e desce a Pista, e comenta tudo. |
 | 1103 | Pingo | Pista | estilingue | O mais rápido da Pista — foge se levar 2 golpes seguidos. |
 | 1104 | Extensão | Feira | fio elétrico | Um dos Gato mais ousados, liga até poste vigiado. |
-| 1105 | Cliente Ruim | Feira | garrafa quebrada | Devedor que virou capanga pra pagar a própria dívida. |
+| 1105 | Boleto Vencido | Feira | garrafa quebrada | Devedor que virou capanga pra pagar a própria dívida. |
 | 1106 | Luz de Gato | Feira | fiapo elétrico | Choque leve, atordoante — o alerta vivo da Feira. |
 | 1107 | Maré Baixa | Baixada | corrente curta | O mais jovem dos cacos, ainda provando valor. |
 | 1108 | Trilho | Baixada | barra de ferro | Ataca em cima do tempo do trem passar. |
@@ -964,5 +964,36 @@ bonito)*, Bárbaro *(impecável)*.
 Rango, Gororoba, Xepa *(comida de baixa qualidade)*.
 
 **Onde já foi aplicado:** `src/i18n/gangues-{pt,en,es}.json` →
-`games.gangues.{vitoria, report.enemy_thinking, report.enemy_gang,
+`games.gangues.{vitoria, vitoria_sub, report.enemy_thinking, report.enemy_gang,
 attr_labels, btn_fugir}`. Ver também [[gangues-lore-biblia-mundo]].
+
+## 14. Auditoria de comunicação (set/2026) — i18n morto removido
+
+Pedido do Isaias: revisar TODA fala/texto do jogo. Antes de revisar tom, foi
+preciso separar o que é **conteúdo vivo** do que é **lixo de uma versão
+anterior do jogo** — os `gangues-{pt,en,es}.json` tinham ~430 chaves de texto
+(quase 1000 linhas em cada idioma) de um sistema de personagem **completamente
+abandonado**: atributos F/H/R/A/PdF (não confundir com o A/H/D/R atual), um
+sistema de 7 elementos (Fogo/Água/Terra/Ar/Trevas/Luz/Neutro — não confundir
+com os 5 subcaminhos místicos atuais: Ígneo/Aquático/Terreno/Tempestade/
+Ilusório), vantagens/desvantagens/perks/especializações estilo GURPS, um
+"manual" que fala de "3 bilhões de jogadores num ranking SDR", uma tela de
+criação de ficha "party.*" duplicada, e por aí vai. Confirmado com uma
+varredura cruzada (grep de toda referência i18n em todo componente `.jsx`,
+inclusive dentro de template strings com `${}` e ternários) que **nenhuma**
+dessas chaves é lida por nenhum componente hoje. Removidas dos 3 idiomas de
+uma vez (mesma estrutura, mesma remoção) — `gangues-pt.json` caiu de 2293
+para 1358 linhas. Verificado com Playwright que a tela mais densa em i18n
+(progressão/poderes da ficha) continua renderizando 100% certo, zero erro de
+console, depois da limpeza.
+
+Depois da limpeza, o que sobrou de comunicação **viva** (história, cena da
+Pista, Clube da Luta, diálogos dos NPCs, nomes e álbum dos inimigos,
+provocação de combate) já estava no tom certo — gíria de verdade, registro
+consistente. Os únicos pontos fora do tom eram os já listados no início
+desta seção 13 (e agora corrigidos): "FOI NÓS"/"provou seu valor na arena"
+(fala de e-sports), "bairro"/"INIMIGO"/"GANGUE RIVAL"/"FUGIR" (formal
+demais ou inventado sem checar gíria real). Não tem mais lixo de tom
+solto pelo jogo — o que sobrou de "genérico" é rótulo de UI neutro de
+propósito (ATACAR, EQUIPAR, Comprar, Fechar) ou nome de poder/habilidade
+(estilizado por natureza, não é narração).
