@@ -900,3 +900,69 @@ Reserva: cada faixa comporta crescer até ~99 sem remapear.
 | Inventário + economia (store) | `src/pages/games/Gangues/store/useGanguesStore.js` |
 | Textos de história / itens (i18n) | `src/i18n/gangues-{pt,en,es}.json` → `games.gangues.{story,cena,dialogo,naming,itens,equip,loja,bag}` |
 | **Mecânica** (não é lore) | `src/pages/games/Gangues/GANGUES_DESIGN.md`, `GANGUES_HEADSUP.md`, `GANGUES_PROGRESSAO_RASCUNHO.md`, `GANGUES_MODO_HISTORIA_ENCONTROS.md` |
+
+---
+
+## 13. Vocabulário de gíria de rua (referência pra escrever texto)
+
+Banco de palavras pra puxar quando for escrever diálogo, nome de item, rótulo
+de UI ou texto de flavor — **não é lista de tarefa**, é fonte de consulta.
+Curada em cima de um dicionário de gírias do crime/cadeia brasileiro (pedido
+do Isaias, set/2026): a lista original tinha ~300 verbetes; ficaram de fora
+de propósito os termos racistas, homofóbicos/transfóbicos e a gíria de droga
+pesada (a economia de vício do jogo já é fictícia — birosca/agiotagem — não
+precisa emprestar vocabulário de droga real). O que sobrou é neutro o
+bastante pro tom do jogo (rua, gangue, delegacia, cadeia, dinheiro, covardia,
+coragem) sem alterar a faixa etária.
+
+Regra de uso: **adaptação livre por idioma**, nunca tradução literal — isso já
+é convenção do projeto (ver Osso/Gás, Sobrinho, Patota, Mete o Pé). EN/ES
+puxam o próprio banco de gíria de rua/crime equivalente, não uma tradução
+palavra-por-palavra do português.
+
+### Dinheiro
+Grana, Bufunfa, Carvão, Bronze, Quirela, Vento, Pila, Toco *(dinheiro de
+suborno)*, Pororó, Picho, Misterioso.
+
+### Fugir / sair correndo
+Mete o pé ✅ *(já em uso — `btn_fugir`)*, Dar no pé, Abrir no pé, Asas no pé,
+Sebo nas canelas, Arrastar o pé, Puxar o carro, Espiantar, Desaparecer na
+curva, Cair fora.
+
+### Covardia / bravura
+Amarelar *(ficar com medo)*, Bunda mole, Coió, Pedra 90 *(boa pessoa, fiel —
+o oposto, um elogio)*, Durão *(briguento)*, Marrudo *(provocador)*, Cartear
+marra *(mostrar valentia)*.
+
+### Delatar / confiança
+Dedo duro, Caguêta, Dar o serviço, X-9, Totó, Queixo duro *(o oposto — quem
+nunca dedura)*, Truta *(malandro de confiança, parceiro)*.
+
+### A lei / autoridade
+Gambé, Tira, A Justa, Meganha, Coruja *(guarda noturno)*, Samango.
+
+### Cadeia / apuros
+Cana *(prisão)*, Gaiola, Tranca, Rodar *(ser preso)*, Puxar cana *(cumprir
+pena)*, Zica *(problema, rolo — já combina com o tom do jogo)*.
+
+### Roubar / pegar algo
+Aliviar, Afanador *(ladrão)*, Garfar, Agadanhar, Rato *(ladrão, genérico)*.
+
+### Insulto leve / trouxa
+Sobrinho ✅ *(já em uso — `enemy_thinking`)*, Otário, Bobo, Anastácio, Migué,
+Chupa-lelé, Coió.
+
+### Grupo / gangue
+Patota ✅ *(já em uso — `enemy_gang`)*, Turma, Curriola *(turma de
+vadiagem)*, Tranqueira *(companhia ruim, sentido negativo)*.
+
+### Elogio / respeito
+Bacanaço *(rico, elegante)*, Simpatia *(gente boa)*, Transado *(coisa boa,
+bonito)*, Bárbaro *(impecável)*.
+
+### Comida
+Rango, Gororoba, Xepa *(comida de baixa qualidade)*.
+
+**Onde já foi aplicado:** `src/i18n/gangues-{pt,en,es}.json` →
+`games.gangues.{vitoria, report.enemy_thinking, report.enemy_gang,
+attr_labels, btn_fugir}`. Ver também [[gangues-lore-biblia-mundo]].

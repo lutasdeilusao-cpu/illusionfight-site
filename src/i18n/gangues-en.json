@@ -77,7 +77,7 @@
       "derrota": "TOUGH BREAK",
       "derrota_sub": "The ones who fall and get back up are the ones who run it later.",
       "vitoria": "THAT'S THE CREW",
-      "vitoria_sub": "You defeated <strong>{name}</strong> and proved your worth in the arena.",
+      "vitoria_sub": "You threw hands with <strong>{name}</strong> and showed you've got grit.",
       "report": {
         "enemy_thinking": "THE MARK'S PLOTTING",
         "enemy_strategy": "Sizing up that last hit and cooking up the next move...",
@@ -97,7 +97,7 @@
         "damage_taken": "DAMAGE TAKEN",
         "final_state": "FINAL GANG STATUS",
         "your_gang": "YOUR GANG",
-        "enemy_gang": "RIVAL CREW",
+        "enemy_gang": "THE OTHER CREW",
         "initiative_order": "INITIATIVE — H + D3",
         "complete_log": "COMPLETE BATTLE LOG",
         "round_number": "ROUND {n}",

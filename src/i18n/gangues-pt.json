@@ -77,7 +77,7 @@
       "derrota": "DEU RUIM",
       "derrota_sub": "Quem cai e levanta é quem manda de verdade depois.",
       "vitoria": "NÓIS É CRIA",
-      "vitoria_sub": "Você derrotou <strong>{name}</strong> e provou seu valor na arena.",
+      "vitoria_sub": "Você meteu a mão em <strong>{name}</strong> e mostrou que aqui é osso.",
       "report": {
         "enemy_thinking": "O SOBRINHO TÁ TRAMANDO",
         "enemy_strategy": "Vendo o último golpe e bolando a próxima jogada...",
@@ -97,7 +97,7 @@
         "damage_taken": "DANO RECEBIDO",
         "final_state": "ESTADO FINAL DAS GANGUES",
         "your_gang": "SUA GANGUE",
-        "enemy_gang": "GANGUE RIVAL",
+        "enemy_gang": "A OUTRA PATOTA",
         "initiative_order": "INICIATIVA — H + D3",
         "complete_log": "LOG COMPLETO DA BATALHA",
         "round_number": "RODADA {n}",

@@ -77,7 +77,7 @@
       "derrota": "SE PUDRIÓ",
       "derrota_sub": "El que cae y se levanta es el que manda de verdad después.",
       "vitoria": "SOMOS BANDA",
-      "vitoria_sub": "Derrotaste a <strong>{name}</strong> y probaste tu valor en la arena.",
+      "vitoria_sub": "Le entraste a las trompadas a <strong>{name}</strong> y demostraste que tenés aguante.",
       "report": {
         "enemy_thinking": "EL GIL ESTÁ TRAMANDO ALGO",
         "enemy_strategy": "Mirando ese último golpe y armando la próxima jugada...",
@@ -97,7 +97,7 @@
         "damage_taken": "DAÑO RECIBIDO",
         "final_state": "ESTADO FINAL DE LAS PANDILLAS",
         "your_gang": "TU PANDILLA",
-        "enemy_gang": "BANDA RIVAL",
+        "enemy_gang": "LA OTRA BANDA",
         "initiative_order": "INICIATIVA — H + D3",
         "complete_log": "REGISTRO COMPLETO DEL COMBATE",
         "round_number": "RONDA {n}",

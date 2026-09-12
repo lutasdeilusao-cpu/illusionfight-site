@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.280.81'
+export const SITE_VERSION = '10.280.82'
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '2.75.18' // 3 correcoes pedidas pelo Isaias em cima da v2.75.17: 1) botao METE O PE no topo do combate tava quase invisivel (#2a2a2a em cima de fundo quase preto, cor de placeholder esquecida) - agora tem contraste de verdade (tom de alerta #dc5961); 2) SOBRINHO repetido 2x na mesma tela de combate (enemy_thinking + enemy_gang) ficava redundante - enemy_gang virou GANGUE RIVAL (label coletivo, diferente do indicador individual de turno que continua SOBRINHO), EN RIVAL CREW, ES BANDA RIVAL. Removidas tambem as eyebrows decorativas sem uso real: IF // MARELIA (tela de nomear a gangue), IF // RECRUTAMENTO DE RUA e PRIMEIRA MISSAO // RECRUTAR (telas de recrutamento) - pedido do Isaias, poluiam a tela sem informar nada que o titulo abaixo ja nao dissesse.
+export const GANGUES_VERSION   = '2.75.19' // correcoes finais de vocabulario pedidas pelo Isaias em cima da v2.75.18: 1) GANGUE RIVAL nao e giria de ninguem (jargao esportivo/jornalistico) - virou A OUTRA PATOTA (patota = giria real de rua pra turma/gang, EN THE OTHER CREW, ES LA OTRA BANDA); 2) vitoria_sub "provou seu valor na arena" tambem nao e coisa que se fala na rua, era fala de torneio de esports - virou "Voce meteu a mao em {name} e mostrou que aqui e osso" (callback pro proprio "aqui e osso"/"no osso" que ja e fala dos inimigos no jogo, e pro atributo OSSO=PV), EN "threw hands... showed you have got grit" (callback pro GRIT=PV em ingles), ES "le entraste a las trompadas... demostraste que tenes aguante" (callback pro AGUANTE=PV em espanhol). 3) adicionado ao GDD (secao 13) um banco curado de girias de rua/crime brasileiras pra puxar em textos futuros - curado a partir de uma lista de ~300 verbetes que o Isaias mandou, removendo de proposito racismo/homofobia/transfobia e giria de droga pesada.
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
 export const MINIGAMES_VERSION = '4.3.6'  // PuzzleStealthGrid: d-pad na tela sempre (mobile tambem) + grade nao vaza mais do viewport
