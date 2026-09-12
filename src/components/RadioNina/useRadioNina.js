@@ -15,7 +15,6 @@ const {
 } = CONFIG
 const COR_STORAGE = 'ldi-radio-nina-cor'
 const VOL_STORAGE = 'ldi-radio-nina-vol'
-const OUVIU_STORAGE = 'ldi-radio-nina-ouviu'
 const ABERTURA_KEYS = Object.values(ABERTURAS)
 
 /** Sessão: null (nunca perguntou) | 'aceitou' | 'recusou'. Reseta em F5. */
@@ -400,7 +399,6 @@ export function useRadioNina() {
       const atual = filaRef.current[idxRef.current]
       if (atual && anunciadaRef.current !== atual.key) {
         anunciadaRef.current = atual.key
-        localStorage.setItem(OUVIU_STORAGE, '1')
         trackEvent('radio_play', { musica: atual.titulo, origem: origemRef.current })
       }
     }
@@ -481,15 +479,6 @@ export function useRadioNina() {
     if (!user?.id) { setPlaylistSalva([]); return }
     carregarPlaylistSalva(user.id).then(setPlaylistSalva)
   }, [user?.id])
-
-  // Logado + já ouviu antes → sobe a barra automaticamente (uma vez por sessão)
-  useEffect(() => {
-    if (memoriaSessao !== null) return
-    if (user?.id && localStorage.getItem(OUVIU_STORAGE) === '1') {
-      memoriaSessao = 'aceitou'
-      ligar('auto')
-    }
-  }, [user?.id, ligar])
 
   // Retoma quando volta pro foreground (ou o áudio fica pronto após um stall):
   // baseia-se na INTENÇÃO (querTocarRef), não no estado atual — o play() da faixa
