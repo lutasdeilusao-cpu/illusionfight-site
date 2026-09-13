@@ -34,9 +34,20 @@
   border-bottom: 1px solid rgba(0, 229, 255, 0.35);
 }
 
-.webtoon-compare__col img {
+.webtoon-compare__pagina {
+  margin: 0 0 18px;
+}
+
+.webtoon-compare__pagina figcaption {
+  font-size: 0.7rem;
+  color: #6f7b82;
+  letter-spacing: 0.04em;
+  margin-bottom: 4px;
+}
+
+.webtoon-compare__pagina img {
   display: block;
   width: 100%;
   height: auto;
-  margin-top: 10px;
+  border: 1px solid rgba(0, 229, 255, 0.15);
 }

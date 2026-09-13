@@ -1,40 +1,42 @@
-// Restaura os 2 PNGs grandes (webtoon-00-novo.png ~90MB, webtoon-00-antigo.png
-// ~28MB) da página privada de comparação (src/pages/preview/WebtoonCompare.jsx,
-// rota /preview-privado/webtoon-00-comparar) dentro de dist/preview-privado/
-// depois do build.
+// Restaura, dentro de dist/preview-privado/paginas/{novo,antigo}/NN.png, as
+// páginas individuais da página privada de comparação
+// (src/pages/preview/WebtoonCompare.jsx, rota
+// /preview-privado/webtoon-00-comparar) depois do build.
 //
-// Por quê: essas imagens NUNCA ficaram em src/assets nem em public/ (grandes
-// demais pro histórico do git principal) — foram coladas manualmente dentro
-// de dist/ e publicadas direto com `gh-pages -d dist`, sem passar pelo `npm
-// run deploy` normal. Isso funcionou até alguém (inclusive este agente, em
-// 12-13/09/2026) rodar `npm run deploy` de novo pra outra coisa qualquer: o
-// hook `predeploy` roda `npm run build`, o Vite limpa `dist/` inteiro
-// (emptyOutDir padrão), e como essas imagens não fazem parte do build normal,
-// elas somem — a página privada quebra silenciosamente (ícone de imagem
-// quebrada) sem nenhum erro de build. Foi exatamente o que aconteceu: Isaias
-// reportou a página funcionando com o sócio e quebrada no dia seguinte, sem
-// nenhuma mudança relacionada a ela.
+// Por quê: essas imagens NUNCA ficaram em src/assets nem em public/ (o total
+// passa de 80MB — grande demais pro histórico do git principal). Foram
+// coladas manualmente dentro de dist/ e publicadas direto com
+// `gh-pages -d dist`, sem passar pelo `npm run deploy` normal. Isso quebrou
+// em set/2026: alguém (inclusive este agente) rodou `npm run deploy` de novo
+// pra outra coisa qualquer do site; o hook `predeploy` roda `npm run build`,
+// o Vite limpa `dist/` inteiro (emptyOutDir padrão), e como essas imagens
+// não fazem parte do build normal, elas somem — a página privada quebra
+// silenciosamente (ícone de imagem quebrada) sem nenhum erro de build. Foi
+// exatamente o que aconteceu: Isaias reportou a página funcionando com o
+// sócio e quebrada no dia seguinte, sem nenhuma mudança relacionada a ela.
 //
-// A cópia definitiva das 2 imagens sobrevive no HISTÓRICO do branch gh-pages
-// (commit onde o Isaias colou elas manualmente pela 1ª vez, 12/09/2026) — a
-// gh-pages nunca reescreve/squasha esse histórico, só adiciona commit novo a
-// cada deploy. Este script busca esse branch e reextrai os blobs de lá,
-// então todo `npm run deploy` daqui pra frente restaura sozinho, sem
-// depender de ninguém lembrar de copiar manualmente de novo.
+// A cópia definitiva sobrevive no HISTÓRICO do branch gh-pages (nunca
+// reescrito/squashado, cada deploy só soma um commit novo) — o commit fixo
+// abaixo é onde as 69 páginas (32 do remake + 37 da versão antiga, já
+// recortadas da imagem unificada original) foram publicadas uma vez. Este
+// script busca esse branch e reextrai os arquivos de lá, então todo
+// `npm run deploy` daqui pra frente restaura sozinho, sem depender de
+// ninguém lembrar de copiar manualmente de novo.
 //
 // Quando a comparação acabar (Isaias: "depois vamos destruir ela"), apagar:
 // este script, a chamada dele em package.json (predeploy), e
-// src/pages/preview/WebtoonCompare.jsx.
+// src/pages/preview/WebtoonCompare.jsx (+ .css).
 const { execSync } = require('child_process')
 const fs = require('fs')
 const path = require('path')
 
-const COMMIT = 'd314ef12d8d0eaca30762ddf46a4c7584d151c1f' // gh-pages: 1ª cópia manual das imagens (Isaias, 12/09/2026)
-const ARQUIVOS = ['webtoon-00-novo.png', 'webtoon-00-antigo.png']
-const DEST_DIR = path.join(__dirname, '..', 'dist', 'preview-privado')
+const COMMIT = 'e78392b158334b9b38de3dce630a00d48c24daa7' // gh-pages: paginas/{novo 01-32, antigo 01-37}.png (recortadas da imagem unificada, set/2026)
+const TOTAL_PAGINAS = { novo: 32, antigo: 37 }
+const ROOT = path.join(__dirname, '..')
+const DEST_BASE = path.join(ROOT, 'dist', 'preview-privado', 'paginas')
 
 function run(cmd) {
-  return execSync(cmd, { cwd: path.join(__dirname, '..'), stdio: ['ignore', 'pipe', 'inherit'] })
+  return execSync(cmd, { cwd: ROOT, stdio: ['ignore', 'pipe', 'inherit'] })
 }
 
 try {
@@ -44,26 +46,31 @@ try {
     console.log('[preview-privado] buscando histórico do gh-pages...')
     run('git fetch origin gh-pages --quiet')
   } catch (e) {
-    console.warn('[preview-privado] AVISO: não deu pra buscar gh-pages (sem rede/permissão?) — pulando restauração das imagens da página privada de comparação.')
+    console.warn('[preview-privado] AVISO: não deu pra buscar gh-pages (sem rede/permissão?) — pulando restauração das páginas da comparação privada.')
     process.exit(0)
   }
 }
 
-fs.mkdirSync(DEST_DIR, { recursive: true })
-
-let algumFalhou = false
-for (const nome of ARQUIVOS) {
-  const destino = path.join(DEST_DIR, nome)
-  try {
-    const buf = execSync(`git show ${COMMIT}:preview-privado/${nome}`, { cwd: path.join(__dirname, '..'), maxBuffer: 1024 * 1024 * 200 })
-    fs.writeFileSync(destino, buf)
-    console.log(`[preview-privado] restaurado: ${nome} (${(buf.length / 1024 / 1024).toFixed(1)}MB)`)
-  } catch (e) {
-    algumFalhou = true
-    console.warn(`[preview-privado] AVISO: não deu pra restaurar ${nome} — ${e.message}`)
+let restauradas = 0
+let falhas = 0
+for (const [versao, total] of Object.entries(TOTAL_PAGINAS)) {
+  const destDir = path.join(DEST_BASE, versao)
+  fs.mkdirSync(destDir, { recursive: true })
+  for (let n = 1; n <= total; n++) {
+    const nome = `${String(n).padStart(2, '0')}.png`
+    const destino = path.join(destDir, nome)
+    try {
+      const buf = execSync(`git show ${COMMIT}:preview-privado/paginas/${versao}/${nome}`, { cwd: ROOT, maxBuffer: 1024 * 1024 * 20 })
+      fs.writeFileSync(destino, buf)
+      restauradas++
+    } catch (e) {
+      falhas++
+      console.warn(`[preview-privado] AVISO: não deu pra restaurar paginas/${versao}/${nome} — ${e.message}`)
+    }
   }
 }
 
-if (algumFalhou) {
-  console.warn('[preview-privado] alguma imagem não foi restaurada — a página privada pode ficar quebrada, mas o deploy do site principal segue normalmente.')
+console.log(`[preview-privado] ${restauradas} página(s) restaurada(s)${falhas ? `, ${falhas} falha(s)` : ''}.`)
+if (falhas) {
+  console.warn('[preview-privado] alguma página não foi restaurada — a comparação privada pode ficar incompleta, mas o deploy do site principal segue normalmente.')
 }
