@@ -29,7 +29,15 @@ import { getGanguesResources } from './ganguesLoadout.js'
 // (escalarInimigo) — o molde é forma relativa, não stat absoluto. É assim que
 // o Álbum de Marélia se preenche jogando as tretas.
 export const GANGUES_TERRITORIO_ENCONTRO = {
-  pista:   { moldes: [1101, 1102, 1103, 1104, 1105, 1106, 1107, 1108, 1109, 1201, 1202, 1203, 1204, 1205, 1206, 1301, 1302, 1303, 1401, 1402], min: 1, max: 4 },
+  // `max: 5` + `folgaMax: 3` (pedido do Isaias, 13/09/2026 — Pista tá "fácil
+  // demais", quer nivelar pra cima pra punir quem tenta avançar sem grindar):
+  // sem `folgaMax`, o teto real de corpos em gerarBandoInimigo é
+  // `min(config.max, playerTeam.length + 2)` — com o time da Pista travado em
+  // 2 fichas (3 com rep≥50), isso já batia em 4 ANTES mesmo de mexer no `max`
+  // (2+2=4), então só subir `max` pra 5 não mudava nada na prática. `folgaMax`
+  // sobrescreve esse `+2` só pra Pista, liberando o teto de verdade (2+3=5)
+  // sem tocar no cálculo dos outros territórios.
+  pista:   { moldes: [1101, 1102, 1103, 1104, 1105, 1106, 1107, 1108, 1109, 1201, 1202, 1203, 1204, 1205, 1206, 1301, 1302, 1303, 1401, 1402], min: 1, max: 5, folgaMax: 3 },
   feira:   { moldes: [1104, 1105, 1106, 1204, 1205, 1206, 1304, 1305, 1306, 1403, 1404], min: 2, max: 5 },
   baixada: { moldes: [1107, 1108, 1109, 1207, 1208, 1209, 1307, 1308, 1309, 1405, 1406], min: 3, max: 6 },
   vila:    { moldes: [1110, 1111, 1112, 1210, 1211, 1212, 1310, 1311, 1312, 1407, 1408], min: 3, max: 6 },
@@ -104,8 +112,12 @@ export const GANGUES_CHEFE_CORPOS = { pista: 2 }
 export const GANGUES_MODO_RATIO = { facil: 0.50, medio: 0.65, dificil: 0.80 }
 // degrau por território, somado ao ratio do modo (a Pista continua mais leve
 // que a Laje). Provisório pros bairros sem cena — recalibrar com simulação.
+// pista subiu de 0 pra 0.02 (pedido do Isaias, 13/09/2026 — achou a Pista
+// fácil demais jogando de verdade, quer nivelar um pouco pra cima pra quem
+// tenta avançar sem grindar sentir a diferença); continua abaixo do degrau
+// da Feira (0.03) de propósito, pra manter a escada de dificuldade subindo.
 export const GANGUES_TERRITORIO_STEP = {
-  pista: 0, feira: 0.03, baixada: 0.06, vila: 0.08, morro: 0.10, alto: 0.11, laje: 0.12,
+  pista: 0.02, feira: 0.03, baixada: 0.06, vila: 0.08, morro: 0.10, alto: 0.11, laje: 0.12,
 }
 // multiplicador do modo pro que NÃO usa ratio (revezamento de dungeon, encontro
 // aleatório, orçamento do chefe).
@@ -183,7 +195,9 @@ export function gerarBandoInimigo({ territorioId, dificuldade = 'normal', modo =
   // com a hierarquia de cargo (um Gerente pesa mais que um Vigia).
   // `qtdMax` do POI (ex: o galpão do Carvão, que precisa ser SEMPRE multidão)
   // ignora esse cap de propósito — é uma exceção autorada, não o bando comum.
-  const qtdMax = qtdMaxPoi != null ? Math.max(qtdMin, qtdMaxPoi) : Math.max(qtdMin, Math.min(config.max, playerTeam.length + 2))
+  // Sem override, usa `folgaMax` do território se existir (Pista, 13/09/2026)
+  // ou o `+2` padrão.
+  const qtdMax = qtdMaxPoi != null ? Math.max(qtdMin, qtdMaxPoi) : Math.max(qtdMin, Math.min(config.max, playerTeam.length + (config.folgaMax ?? 2)))
   const qtd = qtdMin + Math.floor(Math.random() * (qtdMax - qtdMin + 1))
 
   const ratioBase = (GANGUES_MODO_RATIO[modo] ?? GANGUES_MODO_RATIO.medio) + (GANGUES_TERRITORIO_STEP[territorioId] ?? 0.10) + ratioBonus

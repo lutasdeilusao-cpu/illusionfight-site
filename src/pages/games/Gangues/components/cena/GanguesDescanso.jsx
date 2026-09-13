@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useLanguage } from '../../../../../context/LanguageContext'
 import { useGanguesStore } from '../../store/useGanguesStore'
 import { sfx } from '../../../../../lib/sfx'
+import { GanguesDescansoTutorial, GanguesClubeTutorial } from './GanguesDescansoTutorial'
 
 /* Encontro DESCANSO — a birosca. Restaura o PV/PM de TODA a tropa gastando
    grana e mostra quanto cada personagem recuperou. Repetível.
@@ -79,6 +80,7 @@ export default function GanguesDescanso({ poi, onClose, onClube }) {
           <button className="gang-cena-btn" onClick={() => setVerClube(false)}>{t('games.gangues.cena.clube_recusar')}</button>
           <button className="gang-cena-btn gang-cena-btn--go" onClick={() => onClube(custo)}>{t('games.gangues.cena.clube_aceitar')}</button>
         </div>
+        <GanguesClubeTutorial />
       </div>
     )
   }
@@ -171,6 +173,7 @@ export default function GanguesDescanso({ poi, onClose, onClube }) {
           {t('games.gangues.cena.clube_botao')}
         </button>
       )}
+      <GanguesDescansoTutorial />
     </div>
   )
 }

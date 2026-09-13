@@ -9,6 +9,7 @@ import GanguesParada from '../components/cena/GanguesParada'
 import GanguesDescanso from '../components/cena/GanguesDescanso'
 import GanguesLoja from '../components/cena/GanguesLoja'
 import GanguesMiniMapa from '../components/cena/GanguesMiniMapa'
+import GanguesAlvoTutorial from '../components/cena/GanguesAlvoTutorial'
 import CenaCenario from '../components/cena/CenaCenario'
 import CenaInterior from '../components/cena/CenaInterior'
 import GanguesCenaBagSheet from '../components/cena/GanguesCenaBagSheet'
@@ -29,9 +30,12 @@ import './GanguesCena.css'
 // localStorage, não só em memória. Um Set em memória esquecia tudo a cada
 // recarregada de página — o jogador via a intro de novo toda vez que
 // voltava a entrar na Pista, mesmo já tendo visto antes.
+// Escopado por save (`saveId`) — pedido do Isaias (13/09/2026): excluiu a
+// gangue, começou outra, e a intro não voltou a aparecer porque essa flag
+// ficava presa pro browser inteiro pra sempre, nunca por conta/gangue.
 const SCENE_INTRO_KEY = 'ldi-gangues-cena-intro-vista'
-function cenaIntroJaVista(id) { try { return JSON.parse(localStorage.getItem(SCENE_INTRO_KEY) || '[]').includes(id) } catch { return false } }
-function marcarCenaIntroVista(id) { try { const atual = JSON.parse(localStorage.getItem(SCENE_INTRO_KEY) || '[]'); if (!atual.includes(id)) localStorage.setItem(SCENE_INTRO_KEY, JSON.stringify([...atual, id])) } catch {} }
+function cenaIntroJaVista(saveId, id) { try { return JSON.parse(localStorage.getItem(`${SCENE_INTRO_KEY}:${saveId || 'guest'}`) || '[]').includes(id) } catch { return false } }
+function marcarCenaIntroVista(saveId, id) { try { const key = `${SCENE_INTRO_KEY}:${saveId || 'guest'}`; const atual = JSON.parse(localStorage.getItem(key) || '[]'); if (!atual.includes(id)) localStorage.setItem(key, JSON.stringify([...atual, id])) } catch {} }
 
 export default function GanguesCena({ onNavigate }) {
   const { t } = useLanguage(), store = useGanguesStore(), territorioId = store.storyTarget?.territorioId
@@ -45,7 +49,7 @@ export default function GanguesCena({ onNavigate }) {
     if (p?.local) { const c = cena?.interiores?.[p.local.id]?.comodos?.[p.local.comodo]; return c ? (validPos(p, c.world) ? { x: p.x, y: p.y } : c.spawn) : SPAWN }
     return validPosition(p) ? { x: p.x, y: p.y } : (cena?.mundo?.spawn || SPAWN)
   }
-  const [intro, setIntro] = useState(() => Boolean(cena && !cenaIntroJaVista(cena.id)))
+  const [intro, setIntro] = useState(() => Boolean(cena && !cenaIntroJaVista(store._saveId, cena.id)))
   const [encontro, setEncontro] = useState(null), [toast, setToast] = useState(null)
   const [hint, setHint] = useState(() => t('games.gangues.cena.hint_andar'))
   const [fade, setFade] = useState(false)
@@ -92,8 +96,14 @@ export default function GanguesCena({ onNavigate }) {
     if (prog.resolvidos.ferro && !prog.resolvidos.oficina) {
       // Oficina do Nando é OBRIGATÓRIA pro portão e só fecha com 2× sucata
       // (item 13) — 1 no puzzle do ferro-velho, 1 no fundo dele (`achado`).
-      // Se o jogador só tem 1, aponta pro achado (senão a oficina trava tudo).
-      setHint(t((store.inventario?.[13] || 0) >= 2 ? 'games.gangues.cena.hint_sucata' : 'games.gangues.cena.hint_sucata_falta')); return
+      // Se o jogador só tem 1, aponta pro achado — MAS só enquanto o achado
+      // ainda existir pra pegar. Se falhou a gazua (perdeu aquele pedaço pra
+      // sempre) e já pegou o achado, não sobra fonte nenhuma: apontar de
+      // novo pro "fundo do ferro-velho" (que ele já esvaziou) é mentira —
+      // era exatamente o bug reportado pelo Isaias (13/09/2026).
+      if ((store.inventario?.[13] || 0) >= 2) { setHint(t('games.gangues.cena.hint_sucata')); return }
+      if (!prog.resolvidos.achado) { setHint(t('games.gangues.cena.hint_sucata_falta')); return }
+      setHint(null); return
     }
     setHint(null)
   }, [intro, encontro, andou, perto, prog.resolvidos, local, t, store.inventario])
@@ -101,7 +111,7 @@ export default function GanguesCena({ onNavigate }) {
   // `local` aponta pra um interior inválido — o efeito acima já vai zerar; só
   // não renderiza esse frame pra não quebrar em amb null.
   if (local && !amb) return <main className="gang-cena-worldpage" style={{ '--terr-cor': cena.cor }}><div className="gang-cena-viewport" /></main>
-  const fecharIntro = () => { marcarCenaIntroVista(cena.id); setIntro(false) }
+  const fecharIntro = () => { marcarCenaIntroVista(store._saveId, cena.id); setIntro(false) }
   const guardarPosicao = (over) => store.salvarPosicaoCena(cena.id, { ...(over || player), local: over?.local !== undefined ? over.local : local })
   // troca de ambiente com fade curto (rua↔interior, cômodo↔cômodo)
   const trocarPara = (novoLocal, spawn) => {
@@ -204,7 +214,7 @@ export default function GanguesCena({ onNavigate }) {
       const party = store.roster.slice(0, GANGUES_STORY_BATTLE_PARTY_MAX)
       pontosFixos = store.travarPontosFarm(cena.id, poi.id, calcularPontosTime(party))
     }
-    store.setStoryTarget({ territorioId: terr.id, cenaId: cena.id, cenaPoiId: poi.id, cenaRevela: viraTreta ? (revela || []) : (poi.revela || []), cenaRecompensa: viraTreta ? (viraTreta.recompensa || null) : poi.recompensa || null, pontoIds: terr.pontos.map(p => p.id), noId: chefe ? cena.chefe.poiNo : null, enemyId: viraTreta ? viraTreta.enemy : poi.enemy, fixo: Boolean(viraTreta), liderFixo: viraTreta ? null : poi.liderFixo, moldesPool: viraTreta ? null : poi.moldesPool, revezamento: viraTreta ? (viraTreta.revezamento || null) : poi.revezamento, dificuldade: poi.dificuldade, isChefe: chefe, repDelta: viraTreta?.rep || 0, pontosFixos, qtdMin: viraTreta ? null : (poi.qtdMin ?? null), qtdMax: viraTreta ? null : (poi.qtdMax ?? null), ratioBonus: viraTreta ? 0 : (poi.ratioBonus || 0) })
+    store.setStoryTarget({ territorioId: terr.id, cenaId: cena.id, cenaPoiId: poi.id, cenaRevela: viraTreta ? (revela || []) : (poi.revela || []), cenaRecompensa: viraTreta ? (viraTreta.recompensa || null) : poi.recompensa || null, cenaSemTravar: Boolean(viraTreta?.semTravar), pontoIds: terr.pontos.map(p => p.id), noId: chefe ? cena.chefe.poiNo : null, enemyId: viraTreta ? viraTreta.enemy : poi.enemy, fixo: Boolean(viraTreta), liderFixo: viraTreta ? null : poi.liderFixo, moldesPool: viraTreta ? null : poi.moldesPool, revezamento: viraTreta ? (viraTreta.revezamento || null) : poi.revezamento, dificuldade: poi.dificuldade, isChefe: chefe, repDelta: viraTreta?.rep || 0, pontosFixos, qtdMin: viraTreta ? null : (poi.qtdMin ?? null), qtdMax: viraTreta ? null : (poi.qtdMax ?? null), ratioBonus: viraTreta ? 0 : (poi.ratioBonus || 0) })
     onNavigate('story-combat')
   }
   const resolver = res => {
@@ -221,8 +231,15 @@ export default function GanguesCena({ onNavigate }) {
     if (r.rep) store.ganharRep(r.rep)
     if (r.item) store.darItem(r.item, r.qtd || 1)
     if (r.grana || r.rep || r.xp || r.item || res?.daEquip?.length) { setToast(r); setTimeout(() => setToast(null), 2600) }
-    if (!poi.repetivel) store.marcarPoiResolvido(cena.id, poi.id, res?.revela || poi.revela || [])
-    else if (res?.revela) store.revelarPoi(cena.id, res.revela)
+    // marcarPoiResolvido também pra papo repetível (ex: Duda/informante) —
+    // não trava a interação de novo (estadoPoi trata repetível como sempre
+    // disponível), só liga farmCompleto (pino vira azul, igual treta
+    // repetível já vencida) pra sinalizar "já conversei com esse aqui".
+    // Antes só marcava POI não-repetível; papo repetível ficava verde pra
+    // sempre mesmo depois de conversar, porque nada chamava
+    // marcarPoiResolvido nesse caminho (pedido do Isaias, 13/09/2026: "verde
+    // é o que precisa visitar, azul é o que já está visitado").
+    store.marcarPoiResolvido(cena.id, poi.id, res?.revela || poi.revela || [])
   }
   // Território dominado NÃO fecha a cena — as tretas repetíveis (rinha) e o
   // informante moram aqui e têm que continuar alcançáveis pra sempre. Antes
@@ -274,7 +291,22 @@ export default function GanguesCena({ onNavigate }) {
       <ul>{metas.map(m => <li key={m.id} className={m.feito ? 'is-feito' : ''}><span>{m.feito ? '✓' : '○'}</span>{m.nome}</li>)}</ul>
       <p>{t(baseFeita ? (prog.boss ? 'games.gangues.cena.checklist_dominada' : 'games.gangues.cena.checklist_tunel_aberto') : 'games.gangues.cena.checklist_dica')}</p>
     </motion.div>}</AnimatePresence>
-    <div className="gang-cena-viewport" ref={viewportRef}><div className="gang-cena-world" style={{ width: W.w, height: W.h, transform: `translate3d(${-camX}px,${-camY}px,0)` }}>
+    <div className="gang-cena-viewport" ref={viewportRef}>
+    {/* key=local, igual o GangMarker logo abaixo: `.gang-cena-world` tem
+        `transition:transform .11s` (CSS, pra suavizar a câmera acompanhando
+        o passo a passo normal DENTRO do mesmo espaço). Sem essa key, trocar
+        de local (rua↔interior) só muda `camX/camY` num elemento que
+        continua vivo — o navegador anima essa transição normalmente,
+        varrendo a câmera pela tela toda entre dois espaços de coordenada
+        incompatíveis (cômodo pequeno vs WORLD gigante da rua), o mesmo
+        glitch de "lançado num lugar aleatório antes de assentar" que o
+        GangMarker já tinha (ver nota abaixo) — só que na câmera em vez do
+        boneco. Isaias reportou de novo em 13/09/2026 achando que era a
+        MESMA regressão; na verdade nunca tinha sido corrigido aqui, só no
+        marcador. Forçar remontagem via key evita o navegador ter um valor
+        anterior pra transicionar (elemento novo já nasce no transform
+        final), sem tocar a suavização do passo a passo normal. */}
+    <div key={local ? `${local.id}-${local.comodo}` : 'rua'} className="gang-cena-world" style={{ width: W.w, height: W.h, transform: `translate3d(${-camX}px,${-camY}px,0)` }}>
       {local ? <CenaInterior amb={amb} /> : <CenaCenario cena={cena} bossAberto={baseFeita || muroAberto} muroAberto={muroAberto} />}
       {(amb?.alvos || []).map(p => <EntryZone key={`zone-${p.id}`} poi={p} active={perto?.id === p.id} />)}
       {(amb?.alvos || []).map(p => <PinoAlvo key={p.id} p={p} t={t} />)}
@@ -288,6 +320,7 @@ export default function GanguesCena({ onNavigate }) {
       <GangMarker key={local ? `${local.id}-${local.comodo}` : 'rua'} player={player} facing={facing} gangName={store.gangName} retrato={getGanguesPortraitByTemplateId(store.getLider()?.character_template_id)} />
     </div><div className="gang-cena-vignette" />{hint && <div className="gang-cena-tutorial">{hint}</div>}{!local && !muroAberto && player.y < 1430 && <div className="gang-cena-gatelock">🔒 {t(baseFeita ? 'games.gangues.cena.muro_tunel' : 'games.gangues.cena.boss_trancado')}</div>}<AnimatePresence>{fade && <motion.div className="gang-cena-fade" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: .16 }} />}</AnimatePresence></div>
     {!local && !intro && <GanguesMiniMapa player={player} alvos={minimapaAlvos} />}
+    {!local && !intro && !encontro && !fade && <GanguesAlvoTutorial alvos={amb?.alvos} />}
     <WorldControls onInput={v => { inputRef.current = v }} onInteract={() => abrir(perto)} action={perto ? interactionLabel(perto, t) : null} />
     <AnimatePresence>{toast && <motion.div className="gang-cena-toast" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}><b>RECOMPENSA</b>{toast.grana ? <span>💵 +{toast.grana}</span> : null}{toast.rep ? <span>⚑ +{toast.rep}</span> : null}{toast.xp ? <span>⚡ +{toast.xp} XP</span> : null}</motion.div>}</AnimatePresence>
     <AnimatePresence>{aviso && <motion.div className="gang-cena-toast gang-cena-toast--aviso" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}>{aviso}</motion.div>}</AnimatePresence>

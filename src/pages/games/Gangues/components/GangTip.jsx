@@ -1,17 +1,24 @@
+import { createPortal } from 'react-dom'
 import { motion } from 'framer-motion'
 import { useLanguage } from '../../../../context/LanguageContext'
 import { sfx } from '../../../../lib/sfx'
 
 /* Balão de dica de rua — mesma mecânica do antigo NeoGuideTip, mas sem
    mascote: é um recado seco, voz de quebrada. `nextLabel` sobrescreve o
-   rótulo do botão. */
+   rótulo do botão.
+   Renderiza via PORTAL pro <body> — sem isso, montado dentro de um card
+   animado pelo Framer Motion (`transform` vira containing block novo pra
+   `position:fixed`), o `z-index:9998` do balão só compete DENTRO do
+   stacking context do card, podendo ficar abaixo do backdrop de um modal
+   por trás — clique no botão fechava o modal inteiro em vez de avançar o
+   tutorial (achado com os tutoriais do descanso/clube, 13/09/2026). */
 export default function GangTip({ text, side = 'right', isLast, nextLabel, onNext, onSkip }) {
   const { t } = useLanguage()
   const fromRight = side === 'right'
   const advance = () => { sfx.click(); onNext?.() }
   const skip = (event) => { event.stopPropagation(); sfx.click(); onSkip?.() }
 
-  return (
+  return createPortal(
     <motion.div
       className={`gang-tip gang-tip--${side}`}
       initial={{ opacity: 0, x: fromRight ? 50 : -50 }}
@@ -24,6 +31,7 @@ export default function GangTip({ text, side = 'right', isLast, nextLabel, onNex
       <button className="gang-tip-next" onClick={advance}>
         {nextLabel || (isLast ? t('games.gangues.dialogo.fechar') : t('games.gangues.dialogo.proximo'))}
       </button>
-    </motion.div>
+    </motion.div>,
+    document.body
   )
 }

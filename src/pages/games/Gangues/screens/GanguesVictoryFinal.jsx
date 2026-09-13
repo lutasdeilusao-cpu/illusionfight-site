@@ -1,6 +1,10 @@
 import { motion } from 'framer-motion'
 
-// Confronto final contra o Alan — canon: Marélia não fica com você.
+// Confronto final contra o Retalho (O Costura), na Laje — canon: Marélia não
+// fica com você. Comentário antigo dizia "contra o Alan" por engano — Alan
+// NUNCA aparece como personagem no jogo (ver ganguesTerritorios.js), só é
+// citado de leve como nome do futuro; quem o jogador derruba aqui de
+// verdade é o Retalho (ver GANGUES_NO_FINAL/ehConfrontoFinal).
 // Extraído de GanguesVictory.jsx (PLANO_REFATORACAO_ARQUIVOS_GRANDES_GANGUES_2026-09-11.md §2).
 export default function GanguesVictoryFinal({ t, gangName, podeRecrutar, recrutar, onNavigate }) {
   const suaGangue = gangName || t('games.gangues.report.your_gang')

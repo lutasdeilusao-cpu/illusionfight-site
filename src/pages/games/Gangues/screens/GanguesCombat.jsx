@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { useLanguage } from '../../../../context/LanguageContext'
 import { useAuth } from '../../../../context/AuthContext'
 import { useEventos } from '../../../../context/EventosContext'
@@ -13,6 +13,7 @@ import { fighterName } from '../engine/ganguesCombatPresentation.js'
 import { getEquippedActiveGanguesSpecials } from '../engine/ganguesSpecialEffects.js'
 import { GANGUES_ITENS_LISTA, getGanguesItem } from '../data/ganguesItens.js'
 import GanguesCombatTutorial from '../components/GanguesCombatTutorial'
+import GanguesKoTutorial from '../components/GanguesKoTutorial'
 import GanguesCombatRoster from '../components/GanguesCombatRoster'
 import GanguesCombatTopBar from '../components/GanguesCombatTopBar'
 import GanguesCombatLogList from '../components/GanguesCombatLogList'
@@ -39,6 +40,25 @@ export default function GanguesCombat({ onNavigate }) {
   const [trashAberto, setTrashAberto] = useState(false)
   const [fichaAberta, setFichaAberta] = useState(null) // combatant ou null — popup de status completo
   const logEndRef = useRef(null)
+  // Botão de sair do automático: a ÚNICA coisa que dá pra monitorar em modo
+  // automático é o PV dos próprios lutadores (pedido do Isaias, 13/09/2026,
+  // depois de ver o botão tampando a barra de PV do roster do jogador) — por
+  // isso a posição dele NUNCA pode ser um número de "top" chutado, tem que
+  // sempre respeitar a altura de verdade do roster do jogador (que muda com o
+  // tamanho do time e pode quebrar linha). Medido de verdade via
+  // ResizeObserver, com fallback pro valor antigo enquanto não mediu ainda.
+  const playerRosterRef = useRef(null)
+  const [autoSairTop, setAutoSairTop] = useState(null)
+  useLayoutEffect(() => {
+    const el = playerRosterRef.current
+    if (!el) return
+    const medir = () => setAutoSairTop(el.getBoundingClientRect().bottom + 10)
+    medir()
+    const ro = new ResizeObserver(medir)
+    ro.observe(el)
+    window.addEventListener('resize', medir)
+    return () => { ro.disconnect(); window.removeEventListener('resize', medir) }
+  }, [])
   // Eventos brutos (com actorKey/targetKey, não só o texto já traduzido do
   // log) acumulados a luta inteira — dá pra calcular quem matou mais/bateu
   // mais dano só no final, sem precisar recomputar nada durante a luta.
@@ -46,7 +66,6 @@ export default function GanguesCombat({ onNavigate }) {
   // openBattleReport — por isso vive aqui, não dentro de nenhum hook.
   const eventosBrutosRef = useRef([])
   const [aviso, setAviso] = useState(null)   // toast curto (ex: item não serve)
-  const [switchTravado, setSwitchTravado] = useState(false)
 
   const fx = useGanguesCombatFx()
   const battleOutcome = useGanguesBattleOutcome({ store, t, registrarEvento, onNavigate })
@@ -54,10 +73,8 @@ export default function GanguesCombat({ onNavigate }) {
 
   const machine = useGanguesTurnMachine({ playerTeam: store.match.playerTeam, enemyTeam: store.match.enemyTeam, onFinish: finish })
 
-  const multidao = useGanguesModoMultidao({
-    store, machine, t, setLog, eventosBrutosRef, finish, result, switchTravado, setSwitchTravado,
-  })
-  const { modoMultidaoAtivo, estadoMultidao, multidaoDisponivel, modoMultidaoOn, setModoMultidaoOn, multidaoBlinkVisto, marcarBlinkVisto, poderesMultidao, itensMultidao, cicloPoderMultidao, toggleItemMultidao, avancarRodada, revelandoRodada } = multidao
+  const multidao = useGanguesModoMultidao({ store, machine, t, setLog, eventosBrutosRef, finish, result })
+  const { modoMultidaoAtivo, estadoMultidao, multidaoDisponivel, modoMultidaoOn, alternarMultidao, multidaoBlinkVisto, poderesMultidao, itensMultidao, cicloPoderMultidao, toggleItemMultidao, avancarRodada, revelandoRodada } = multidao
 
   const players = modoMultidaoAtivo
     ? (estadoMultidao?.combatants || []).filter(item => item.side === 'player')
@@ -133,7 +150,6 @@ export default function GanguesCombat({ onNavigate }) {
   const handleAttack = (specialId = selectedSpecialId) => {
     if (!selectedActor || !selectedTarget) return
     sfx.click()
-    if (!switchTravado) setSwitchTravado(true)
     machine.playerAction(selectedActor, selectedTarget, specialId)
     setSelectedSpecialId(null)
   }
@@ -165,7 +181,6 @@ export default function GanguesCombat({ onNavigate }) {
     }
     if (!store.usarItem(itemId)) return
     sfx.reward?.()
-    if (!switchTravado) setSwitchTravado(true)
     const delta = item.tipo === 'cura_pv' ? { pv: item.valor } : item.tipo === 'cura_pm' ? { pm: item.valor } : {}
     machine.useItemAction(selectedActor, alvo, itemId, delta)
   }
@@ -204,7 +219,12 @@ export default function GanguesCombat({ onNavigate }) {
           ligado; um toque volta pro manual (a ação em andamento resolve
           sozinha, o efeito de auto-ataque para de enfileirar). */}
       {!modoMultidaoAtivo && modoAuto.modoAutoOn && !result && (
-        <button type="button" className="gang-auto-sair" onClick={() => modoAuto.setModoAutoOn(false)}>
+        <button
+          type="button"
+          className="gang-auto-sair"
+          style={autoSairTop != null ? { top: `${autoSairTop}px` } : undefined}
+          onClick={() => modoAuto.setModoAutoOn(false)}
+        >
           <b>■</b>{t('games.gangues.auto.sair')}
         </button>
       )}
@@ -221,13 +241,14 @@ export default function GanguesCombat({ onNavigate }) {
       <div className={`gang-combat-fx${fx.critShake ? ' gang-combat-fx--shake' : ''}${fx.hitNudge ? ' gang-combat-fx--nudge' : ''}`}>
       <GanguesCombatTopBar
         t={t} onNavigate={onNavigate} machine={machine} modoMultidaoAtivo={modoMultidaoAtivo}
-        estadoMultidao={estadoMultidao} result={result}
-        multidaoDisponivel={multidaoDisponivel} modoMultidaoOn={modoMultidaoOn} setModoMultidaoOn={setModoMultidaoOn}
-        switchTravado={switchTravado} multidaoBlinkVisto={multidaoBlinkVisto} marcarBlinkVisto={marcarBlinkVisto}
+        estadoMultidao={estadoMultidao} result={result} revelandoRodada={revelandoRodada}
+        multidaoDisponivel={multidaoDisponivel} modoMultidaoOn={modoMultidaoOn} alternarMultidao={alternarMultidao}
+        multidaoBlinkVisto={multidaoBlinkVisto}
         trashOptions={trashOptions} trashAberto={trashAberto} setTrashAberto={setTrashAberto} sendPlayerTrash={sendPlayerTrash}
       />
 
       <GanguesCombatRoster
+        ref={playerRosterRef}
         members={players} side="player"
         selectable={!modoMultidaoAtivo && machine.phase === 'player'}
         selectedKey={selectedActor} onSelect={modoMultidaoAtivo ? undefined : setSelectedActor}
@@ -256,6 +277,7 @@ export default function GanguesCombat({ onNavigate }) {
       )}
 
       {!modoMultidaoAtivo && machine.phase === 'player' && !result && <GanguesCombatTutorial />}
+      <GanguesKoTutorial koSide={fx.koCena?.side} />
 
       {!modoMultidaoAtivo && machine.phase === 'player' && !result && (
         <GanguesActionOrb

@@ -18,8 +18,8 @@
         "comecar": "START →"
       },
       "party_size_atual": "Current gang: {n}/{max}",
-      "bonus_ataque": "attack bonus",
-      "bonus_defesa": "defense bonus",
+      "bonus_ataque": "wallop bonus",
+      "bonus_defesa": "hide bonus",
       "bonus_falhou": "didn't trigger",
       "critico": "CRITICAL",
       "derrota": "TOUGH BREAK",
@@ -286,11 +286,11 @@
         "vez_inimiga": "Enemy turn",
         "provocar": "Taunt",
         "sem_custo": "free",
-        "sem_poderes": "This fighter has no active powers equipped. Equip them in the sheet progression."
+        "sem_poderes": "This fighter has no active talents equipped. Equip them in the sheet progression."
       },
       "orb": {
         "atacar": "Attack",
-        "poder": "Power",
+        "poder": "Talent",
         "item": "Item",
         "item_vazio": "No items yet — coming soon.",
         "item_qtd": "×{n}",
@@ -447,7 +447,7 @@
         "voltar": "Back to the Strip"
       },
       "skill_info": {
-        "titulo": "Powers",
+        "titulo": "Talents",
         "ativa": "Active",
         "passiva": "Passive",
         "custo_pm": "Costs {c} MP",
@@ -458,53 +458,71 @@
       "skill_desc": {
         "damage_flat": "Adds +{v} damage to the attack.",
         "shield_next_hit": "Absorbs {v} damage from the next hit you take.",
-        "reduce_target_defense": "Cuts {v} from the target's Defense on this attack.",
+        "reduce_target_defense": "Cuts {v} from the target's Hide on this attack.",
         "damage_reduction_next_hit": "Cuts {v} from the next damage you take.",
         "bonus_if_target_fresh": "+{v} damage if the target hasn't acted this round.",
         "atk_flat_if_pm_above_half": "+{v} damage while your MP is above half.",
         "low_pv_scale": "Up to +{v} damage — the lower your HP, the stronger the hit.",
-        "habilidade_full_convert": "Uses your full Skill on the attack instead of half.",
-        "ignore_def_pct": "Ignores {v}% of the target's Defense.",
-        "execute_bonus": "Target below 30% HP: ignore {v}% Defense and +2 damage.",
+        "habilidade_full_convert": "Uses your full Slick on the attack instead of half.",
+        "ignore_def_pct": "Ignores {v}% of the target's Hide.",
+        "execute_bonus": "Target below 30% HP: ignore {v}% Hide and +2 damage.",
         "self_sacrifice_damage": "+{v} damage, paid with part of your HP.",
         "low_pv_gate_bonus": "+{v} damage while you're below 30% HP.",
         "lifetime_pv_lost_nuke": "Adds {v}% of all the HP you've lost this fight as damage.",
         "spend_charge_damage": "Unloads your charge: +{v} damage per charge.",
-        "atk_flat": "+{v} attack, always on.",
-        "def_flat": "+{v} defense, always on.",
+        "atk_flat": "+{v} wallop, always on.",
+        "def_flat": "+{v} hide, always on.",
         "charge_on_hit_taken": "Every hit you take builds {v} charge."
       },
       "combat_tutorial": {
-        "iniciativa": "This list shows who attacks first this round — the higher a fighter's Skill, the sooner they act.",
+        "iniciativa": "This list shows who attacks first this round — the higher a fighter's Slick, the sooner they act.",
         "escolher_alvo": "More than one enemy? Tap whoever you want to attack to pick them as your target — kill the weakest first or focus the strongest, your call.",
-        "ver_ficha": "Tap whoever's already targeted again (or any ally) to see their full sheet: attributes, PV and PM.",
-        "trash_talk": "That 💬 bubble up top lets you taunt the enemy — free, just for fun.",
-        "bolinha": "That floating orb is where you act now. Tap it: ATTACK resolves instantly for free, POWER costs PM (or PV) but hits harder, and ITEM will show your items once you have any.",
-        "bolinha_mover": "Don't like where it's sitting? Hold and drag it to any corner of the screen — the spot is saved for next time.",
-        "ko_aviso_tutorial": "If an ally goes down in a fight, a red 💀 warning pops up right away — keep an eye out.",
-        "xp_regra": "A fight's action points aren't split evenly: finishing off more enemies earns a much bigger slice, damage dealt breaks ties. A fight against weak stuff gives few total points — don't expect to level up every single time."
+        "bolinha": "That floating orb is where you act now. Tap it: ATTACK resolves instantly for free, TALENT costs PM (or PV) but hits harder, and ITEM will show your items once you have any."
+      },
+      "alvo_tutorial": {
+        "farol": "Check the color of the markers: red is mandatory to clear the path, yellow is optional (skips nothing, but pays out cash or an item). Walk up to one and the action opens on its own.",
+        "feito": "Turned green? Already handled. If it was a repeatable fight, you can still go back and run it again to grind."
+      },
+      "ko_tutorial": {
+        "aliado": "An ally went down? They're out for the rest of the fight, but the rest of your crew keeps swinging. Keep an eye on everyone's PV."
+      },
+      "xp_tutorial": {
+        "regra": "A fight's action points aren't split evenly: finishing off more enemies earns a much bigger slice, damage dealt breaks ties. A fight against weak stuff gives few total points — don't expect to level up every single time."
+      },
+      "descanso_tutorial": {
+        "recuperar": "This is where your crew heals up PV and PM in full, for some cash. Sit down at the birosca and nobody starts trouble.",
+        "fiado": "Short on cash? You can run a tab with Nato — he heals you now, but the debt grows. After 2 tabs he cuts you off: no deadline, no collector, he just remembers."
+      },
+      "clube_tutorial": {
+        "como_funciona": "The Fight Club is a betting ring: 3 rounds back to back, no resting in between. Win and you walk out with cash (or clear your debt); lose and they patch you up — doesn't count as a real defeat. The entry's always on credit though: saying yes means walking in already owing.",
+        "cura_dobra": "Between rounds you can patch yourself up — but healing again DOUBLES what you owe. Running mid-fight keeps the debt as it was."
       },
       "auto": {
         "switch_label": "Auto",
-        "switch_titulo": "Turn on auto mode — your fighters attack on their own with the normal attack. To use a power, turn it off and go back to manual.",
+        "switch_titulo": "Turn on auto mode — your fighters attack on their own with the normal attack. To use a talent, turn it off and go back to manual.",
         "premium_titulo": "Auto mode is a subscriber perk — tap to subscribe",
         "sair": "Exit auto mode"
       },
       "multidao": {
         "switch_label": "Mob Brawl",
         "switch_titulo": "Turn on Mob Brawl — each round resolves at once, but it's still turn by turn",
-        "poderes_titulo": "This round's powers",
+        "poderes_titulo": "This round's talents",
         "avancar_rodada": "NEXT ROUND",
         "resolvendo": "Rolling this round's dice...",
         "usar_item": "Use item this round (gives up the attack)",
         "vai_usar_item": "Will use item"
       },
+      "multidao_tutorial": {
+        "interruptor": "This switch turns on Mob Brawl mode: instead of one hit at a time, each round resolves everyone at once.",
+        "alvo_automatico": "On auto, your crew always focuses whoever's closest to falling — good for clearing a big mob fast.",
+        "avancar": "Tap NEXT ROUND whenever you're ready. You can swap a talent or flag an item first, and the switch flips on and off whenever you want."
+      },
       "attr_labels": {
         "F": "Strength",
-        "H": "Skill",
+        "H": "Slick",
         "R": "Resistance",
-        "A": "Attack",
-        "D": "Defense",
+        "A": "Wallop",
+        "D": "Hide",
         "PV": "Grit",
         "PM": "Gas",
         "PdF": "Elemental Power"
@@ -619,8 +637,8 @@
         "save_error": "The fighter could not be saved. Please try again.",
         "need_two": "You have {n} fighter in the gang. You need 2 to start a fight — recruit another.",
         "select_two": "Pick 2 fighters for battle (you picked {n}).",
-        "equipar_titulo": "Powers not equipped",
-        "equipar_corpo": "{nomes} bought an active power but hasn’t equipped it. In battle, without equipping, only the normal attack is available. Each fighter carries up to 2 powers — build differently per matchup.",
+        "equipar_titulo": "Talents not equipped",
+        "equipar_corpo": "{nomes} bought an active talent but hasn’t equipped it. In battle, without equipping, only the normal attack is available. Each fighter carries up to 2 talents — build differently per matchup.",
         "equipar_agora": "Equip now",
         "equipar_depois": "Enter anyway"
       },
@@ -3878,7 +3896,7 @@
         "territorios": {
           "pista": {
             "nome": "The Track",
-            "desc": "The raw asphalt down below. Kids chasing chains, selling gum, eyes everywhere. Rato de Pista with no big dreams, Bonde do Sinal cashing in on information. Nobody heavy yet — but every flag holder walked here first. The Patchwork did. Alan did, elsewhere. Now it's your turn."
+            "desc": "The raw asphalt down below. Kids chasing chains, selling gum, eyes everywhere. Rato de Pista with no big dreams, Bonde do Sinal cashing in on information. Nobody heavy yet — but every flag holder walked here first. The Patchwork did. A kid named Alan will walk it too, somewhere else — his turn just hasn't come yet. Now it's your turn."
           },
           "feira": {
             "nome": "The Market",
@@ -4053,7 +4071,7 @@
           },
           "chegada": [
             "This is the Pista, kid. The asphalt down below — the root of it all.",
-            "Everybody worth something today crawled on this ground first. The Patchwork started here. Alan, elsewhere, started from zero just like you. Now it's your turn to prove you're not just another face.",
+            "Everybody worth something today crawled on this ground first. The Patchwork started here. A kid named Alan is going to start the same way, somewhere else — his turn just hasn't come yet. Now it's your turn to prove you're not just another face.",
             "Take the kids' spots, get your name running mouth to mouth. When the whole Pista knows you exist, Coal comes down out of the dark to face you — and that's when you find out if you've got what it takes.",
             "Move. Touch whatever's lighting up."
           ],

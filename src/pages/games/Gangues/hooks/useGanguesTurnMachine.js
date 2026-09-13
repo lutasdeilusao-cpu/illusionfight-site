@@ -41,11 +41,14 @@ export function prepare(combatant, side, index) {
 
 export default function useGanguesTurnMachine({ playerTeam = [], enemyTeam = [], onFinish, attackRoll = d3, defenseRoll = d3, initiativeRoll = d3, bonusRoll = coin, targetRoll = Math.random, enemyDelay = 2200 }) {
   const initial = useMemo(() => [...playerTeam.map((member, index) => prepare(member, 'player', index)), ...enemyTeam.map((member, index) => prepare(member, 'enemy', index))], [])
-  const initiative = useMemo(() => initial.map(combatant => {
+  // `initiative` precisa ser STATE (não useMemo fixo) pra dar pra sobrescrever
+  // em `syncFrom` — ver comentário ali (voltar da Briga em Multidão pro modo
+  // normal com a ordem de iniciativa e a rodada que a Multidão já tinha).
+  const [initiative, setInitiative] = useState(() => initial.map(combatant => {
     const die = initiativeRoll()
     const resolved = resolveGanguesInitiative({ combatant, roll: die })
     return { key: combatant.key, side: combatant.side, ...resolved, tie: Math.random() }
-  }).sort((a, b) => b.total - a.total || b.ability - a.ability || b.tie - a.tie), [])
+  }).sort((a, b) => b.total - a.total || b.ability - a.ability || b.tie - a.tie))
   const [combatants, setCombatants] = useState(initial)
   const [round, setRound] = useState(1)
   const [turnIndex, setTurnIndex] = useState(0)
@@ -124,6 +127,23 @@ export default function useGanguesTurnMachine({ playerTeam = [], enemyTeam = [],
     record({ type: 'initiative', order: initiative })
   }, [initiative, record])
 
+  // Volta da Briga em Multidão pro motor normal (switch desligado no meio da
+  // luta) — recebe o `estado` de ganguesBrigaMultidao.js (mesmo formato de
+  // `combatant`, já que os dois motores usam o mesmo `prepare()`) e substitui
+  // o combatants/initiative/round/turnIndex INTEIROS por ele, preservando
+  // PV/PM/status de quem já apanhou na Multidão. Sem isso o switch só podia
+  // ligar (nunca desligar) — travava assim que a 1ª ação acontecia, pra não
+  // ter 2 motores com HP divergente (ver useGanguesModoMultidao.js).
+  const syncFrom = useCallback((estado) => {
+    setCombatants(estado.combatants.map(c => ({ ...c })))
+    setInitiative(estado.initiative)
+    setRound(estado.round)
+    setTurnIndex(estado.turnIndex || 0)
+    setPending(null)
+    setStarted(true)
+    entered.current = true
+  }, [])
+
   // Usar item: aplica a cura num ALIADO (o próprio ator OU outro personagem da
   // gangue — dá pra o tanque ficar curando o atacante). Consome o turno do
   // ATOR igual um ataque. `delta` é { pv?, pm? }, sempre positivo (cura).
@@ -147,5 +167,5 @@ export default function useGanguesTurnMachine({ playerTeam = [], enemyTeam = [],
     return true
   }, [phase, currentActor, combatants, advanceTurn, record, round])
 
-  return { combatants, phase, round, pending, events, initiative, currentActor, playerActors: phase === 'player' && currentActor ? [currentActor] : [], enterCombat, playerAction, completePending, useItemAction }
+  return { combatants, phase, round, pending, events, initiative, currentActor, playerActors: phase === 'player' && currentActor ? [currentActor] : [], enterCombat, playerAction, completePending, useItemAction, syncFrom }
 }

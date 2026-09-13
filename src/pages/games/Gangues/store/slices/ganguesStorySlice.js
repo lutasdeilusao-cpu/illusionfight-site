@@ -28,7 +28,24 @@ export default function createGanguesStorySlice(set, get) {
     loadStoryProgress: async (saveId) => {
       if (!saveId) return
       const progresso = await carregarProgressoHistoria(saveId)
-      if (progresso) set(progresso)
+      if (!progresso) return
+      // Reparo de save antigo (13/09/2026, ver AGENTS.md): ANTES do fix do
+      // POI "ferro" (Pista), falhar a gazua marcava aquele ponto resolvido
+      // pra sempre sem dar a sucata — quem só tinha 1x (a do achado) e a
+      // Oficina ainda fechada ficava travado sem conseguir progredir. O fix
+      // só evita CRIAR esse estado daqui pra frente; save que já carregava
+      // essa marca continua preso mesmo depois do fix, porque o dado já
+      // estava gravado. Corrige na hora de carregar: se a Oficina ainda não
+      // fechou e não tem as 2 sucatas, devolve "ferro" pra disponível de
+      // novo. Idempotente e sem efeito nenhum pra quem nunca travou.
+      const pistaProg = progresso.cenaProgresso?.pista
+      if (pistaProg?.resolvidos?.ferro && !pistaProg.resolvidos.oficina && (progresso.inventario?.[13] || 0) < 2) {
+        progresso.cenaProgresso = {
+          ...progresso.cenaProgresso,
+          pista: { ...pistaProg, resolvidos: { ...pistaProg.resolvidos, ferro: false } },
+        }
+      }
+      set(progresso)
     },
 
     marcarNoDominado: (territorioId, noId, isChefe) => {

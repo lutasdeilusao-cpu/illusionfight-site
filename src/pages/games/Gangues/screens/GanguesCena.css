@@ -578,13 +578,17 @@
 .gang-world-lamp { position:absolute; width:10px;height:10px;border-radius:50%;background:#ffd680;box-shadow:0 0 26px 12px rgba(255,205,100,.12); }
 .gang-world-place { position:absolute; z-index:3; transform:translate(-50%,-50%); width:130px; min-height:64px; display:grid; justify-items:center; align-content:center; padding:8px; color:#aab5b9; border:1px solid #2c393d; background:linear-gradient(145deg,#152024,#0a0f12); box-shadow:0 7px 18px #020405; clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,0 100%); }
 .gang-world-place b { color:#d6e0e3; font:900 1.25rem var(--font-display); }.gang-world-place span { text-align:center; font:700 .58rem var(--font-mono); text-transform:uppercase; letter-spacing:.05em; }.gang-world-place em { color:#ff8b8b; font:800 .48rem var(--font-mono); }.gang-world-place.is-open em{color:var(--terr-cor)}
-.gang-world-npc { position:absolute; z-index:12; transform:translate(-50%,-50%); display:grid; justify-items:center; width:80px; pointer-events:none; }.gang-world-npc>span { display:grid;place-items:center;width:34px;height:42px;border:2px solid color-mix(in srgb, var(--terr-cor, #3ddc97) 70%, #e8f1f2);border-radius:45% 45% 30% 30%;background:color-mix(in srgb, var(--terr-cor, #3ddc97) 38%, #0a1a14);color:#fff;box-shadow:0 8px 15px #000;animation:gang-person-breathe 1.8s ease-in-out infinite; }.gang-world-npc small { margin-top:5px; padding:2px 5px; color:#fff;background:rgba(0,0,0,.82);font:800 .51rem var(--font-mono);text-align:center; }.gang-world-npc.is-resolvido{opacity:.3}.gang-world-npc.is-trancado{opacity:0}.gang-world-npc.is-boss>span{background:#671f27;border-color:#ff8a8a;box-shadow:0 0 24px rgba(255,70,70,.5)}
-/* Treta repetível ("farma") — azul, pra separar visualmente do conteúdo
-   normal da história (verde do território, ver --terr-cor acima). Nunca
-   fica opaco de "resolvido" porque estadoPoi trata repetível como sempre
-   disponível. Antes o padrão era um teal fixo (#0f5e65) quase idêntico ao
-   azul do farm — sem contraste real, então "virou azul" não dava pra notar. */
-.gang-world-npc.is-farm>span{background:#0b3a66;border-color:#4fb4ff;box-shadow:0 0 20px rgba(79,180,255,.45)}
+.gang-world-npc { position:absolute; z-index:12; transform:translate(-50%,-50%); display:grid; justify-items:center; width:80px; pointer-events:none; }.gang-world-npc>span { display:grid;place-items:center;width:34px;height:42px;border:2px solid color-mix(in srgb, var(--terr-cor, #3ddc97) 70%, #e8f1f2);border-radius:45% 45% 30% 30%;background:color-mix(in srgb, var(--terr-cor, #3ddc97) 38%, #0a1a14);color:#fff;box-shadow:0 8px 15px #000;animation:gang-person-breathe 1.8s ease-in-out infinite; }.gang-world-npc small { margin-top:5px; padding:2px 5px; color:#fff;background:rgba(0,0,0,.82);font:800 .51rem var(--font-mono);text-align:center; }.gang-world-npc.is-resolvido:not(.is-feito){opacity:.3}.gang-world-npc.is-trancado{opacity:0}.gang-world-npc.is-boss>span{background:#671f27;border-color:#ff8a8a;box-shadow:0 0 24px rgba(255,70,70,.5)}
+/* Farol universal de status (pedido do Isaias, 13/09/2026): substitui a cor
+   do território + o azul de "farm" por vermelho/amarelo/verde
+   autoexplicativo — vermelho = obrigatório e ainda não feito, amarelo =
+   opcional e ainda não feito, verde = já feito (inclusive treta repetível já
+   vencida 1x, que o motor mantém sempre `'disponivel'` de propósito pra
+   continuar farmável — ver farolDe() em GanguesCenaAtores.jsx). Não pulsa
+   (`animation:none`) só quando feito — sem urgência de voltar lá. */
+.gang-world-npc.is-obrigatorio>span{background:color-mix(in srgb, var(--if-danger) 42%, #0a1a14);border-color:color-mix(in srgb, var(--if-danger) 78%, #e8f1f2);box-shadow:0 0 20px rgba(255,0,85,.45)}
+.gang-world-npc.is-opcional>span{background:color-mix(in srgb, var(--if-amber) 42%, #0a1a14);border-color:color-mix(in srgb, var(--if-amber) 78%, #e8f1f2);box-shadow:0 0 20px rgba(255,174,50,.4)}
+.gang-world-npc.is-feito>span{background:color-mix(in srgb, #6be07a 40%, #0a1a14);border-color:color-mix(in srgb, #6be07a 75%, #e8f1f2);box-shadow:0 0 16px rgba(107,224,122,.4);animation:none}
 .gang-world-npc-farm-tag{position:absolute;top:-4px;right:14px;width:16px;height:16px;display:grid;place-items:center;border-radius:50%;background:#0b3a66;border:1px solid #4fb4ff;color:#9fd8ff;font-size:.6rem;font-style:normal;animation:gang-farm-spin 2.4s linear infinite}
 @keyframes gang-farm-spin{to{transform:rotate(360deg)}}
 .gang-world-player { position:absolute; z-index:18; transform:translate(-50%,-50%); display:grid;justify-items:center;pointer-events:none; }.gang-world-player>span { position:relative;display:block;width:46px;height:46px;border:2px solid #fff;clip-path:polygon(50% 0,92% 18%,86% 76%,50% 100%,14% 76%,8% 18%);background:linear-gradient(#16b8c8,#086070);box-shadow:0 8px 17px #000,0 0 16px rgba(0,220,255,.28);animation:gang-person-breathe 1.2s ease-in-out infinite; }.gang-world-player>span i{position:absolute;width:10px;height:18px;top:14px;border:1px solid #fff;background:var(--if-cyan-20)}.gang-world-player>span i:nth-child(1){left:7px;transform:rotate(-12deg)}.gang-world-player>span i:nth-child(2){left:16px;top:9px;height:23px;z-index:2}.gang-world-player>span i:nth-child(3){right:7px;transform:rotate(12deg)}.gang-world-player small{margin-top:2px;color:#fff;background:#02080bcc;padding:2px 5px;font:800 .52rem var(--font-mono);text-transform:uppercase}.gang-world-player.facing-left>span{transform:rotate(-5deg)}.gang-world-player.facing-right>span{transform:rotate(5deg)}
@@ -596,10 +600,15 @@
 .gang-world-player--retrato>span img{width:100%;height:100%;object-fit:cover;display:block;image-rendering:pixelated}
 .gang-world-player--retrato.facing-left>span{transform:none}.gang-world-player--retrato.facing-right>span{transform:none}
 .gang-world-entry{position:absolute;z-index:9;border:2px dashed color-mix(in srgb,var(--terr-cor) 62%,transparent);background:color-mix(in srgb,var(--terr-cor) 7%,transparent);box-shadow:inset 0 0 16px #0008;transition:.18s;pointer-events:none}.gang-world-entry.is-active{border-style:solid;background:color-mix(in srgb,var(--terr-cor) 24%,transparent);box-shadow:0 0 22px color-mix(in srgb,var(--terr-cor) 40%,transparent),inset 0 0 18px color-mix(in srgb,var(--terr-cor) 14%,transparent);animation:gang-entry-pulse .85s ease-in-out infinite alternate}
-/* Depois de vencer 1x, a zona de farm vira azul (igual o pino) em vez do
-   verde padrão do território — mesmo antes/depois do is-farm dos pinos. */
-.gang-world-entry.is-farm-completo{border-color:#4fb4ff;background:rgba(11,58,102,.18)}
-.gang-world-entry.is-farm-completo.is-active{background:rgba(11,58,102,.32);box-shadow:0 0 22px rgba(79,180,255,.45),inset 0 0 18px rgba(79,180,255,.16)}
+/* Mesmo farol vermelho/amarelo/verde do pino (ver farolDe() em
+   GanguesCenaAtores.jsx), só que na zona de aproximação — a área toda pisca
+   na cor do status em vez do verde/território padrão. */
+.gang-world-entry.is-obrigatorio{border-color:color-mix(in srgb, var(--if-danger) 70%, transparent);background:color-mix(in srgb, var(--if-danger) 8%, transparent)}
+.gang-world-entry.is-obrigatorio.is-active{background:color-mix(in srgb, var(--if-danger) 26%, transparent);box-shadow:0 0 22px color-mix(in srgb, var(--if-danger) 42%, transparent),inset 0 0 18px color-mix(in srgb, var(--if-danger) 16%, transparent)}
+.gang-world-entry.is-opcional{border-color:color-mix(in srgb, var(--if-amber) 70%, transparent);background:color-mix(in srgb, var(--if-amber) 8%, transparent)}
+.gang-world-entry.is-opcional.is-active{background:color-mix(in srgb, var(--if-amber) 26%, transparent);box-shadow:0 0 22px color-mix(in srgb, var(--if-amber) 42%, transparent),inset 0 0 18px color-mix(in srgb, var(--if-amber) 16%, transparent)}
+.gang-world-entry.is-feito{border-color:rgba(107,224,122,.7);background:rgba(107,224,122,.08)}
+.gang-world-entry.is-feito.is-active{background:rgba(107,224,122,.26);box-shadow:0 0 22px rgba(107,224,122,.42),inset 0 0 18px rgba(107,224,122,.16)}
 @keyframes gang-entry-pulse{to{filter:brightness(1.35)}}
 @keyframes gang-person-breathe{50%{transform:translateY(-3px)}}
 .gang-cena-vignette { position:absolute;inset:0;z-index:20;pointer-events:none;box-shadow:inset 0 0 90px 24px rgba(0,0,0,.72);background:linear-gradient(rgba(0,0,0,.22),transparent 25%,transparent 68%,rgba(0,0,0,.58)); }

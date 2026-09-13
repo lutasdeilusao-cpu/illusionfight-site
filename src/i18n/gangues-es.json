@@ -18,8 +18,8 @@
         "comecar": "EMPEZAR →"
       },
       "party_size_atual": "Pandilla actual: {n}/{max}",
-      "bonus_ataque": "bono de ataque",
-      "bonus_defesa": "bono de defensa",
+      "bonus_ataque": "bono de trompada",
+      "bonus_defesa": "bono de cuero",
       "bonus_falhou": "no se activó",
       "critico": "CRÍTICO",
       "derrota": "SE PUDRIÓ",
@@ -286,11 +286,11 @@
         "vez_inimiga": "Turno enemigo",
         "provocar": "Provocar",
         "sem_custo": "sin costo",
-        "sem_poderes": "Este luchador no tiene poderes activos equipados. Equípalos en la progresión de la ficha."
+        "sem_poderes": "Este luchador no tiene talentos activos equipados. Equípalos en la progresión de la ficha."
       },
       "orb": {
         "atacar": "Atacar",
-        "poder": "Poder",
+        "poder": "Talento",
         "item": "Objeto",
         "item_vazio": "Todavía no hay objetos — pronto.",
         "item_qtd": "×{n}",
@@ -447,7 +447,7 @@
         "voltar": "Volver a la Pista"
       },
       "skill_info": {
-        "titulo": "Poderes",
+        "titulo": "Talentos",
         "ativa": "Activa",
         "passiva": "Pasiva",
         "custo_pm": "Cuesta {c} PM",
@@ -458,53 +458,71 @@
       "skill_desc": {
         "damage_flat": "Suma +{v} de daño al ataque.",
         "shield_next_hit": "Absorbe {v} de daño del próximo golpe que recibas.",
-        "reduce_target_defense": "Quita {v} a la Defensa del objetivo en este ataque.",
+        "reduce_target_defense": "Quita {v} al Cuero del objetivo en este ataque.",
         "damage_reduction_next_hit": "Recorta {v} del próximo daño que recibas.",
         "bonus_if_target_fresh": "+{v} de daño si el objetivo aún no actuó en la ronda.",
         "atk_flat_if_pm_above_half": "+{v} de daño mientras tu PM esté por encima de la mitad.",
         "low_pv_scale": "Hasta +{v} de daño — cuanto menos PV, más fuerte el golpe.",
-        "habilidade_full_convert": "Pasa a usar tu Habilidad entera en el ataque, no la mitad.",
-        "ignore_def_pct": "Ignora {v}% de la Defensa del objetivo.",
-        "execute_bonus": "Objetivo bajo 30% de PV: ignora {v}% de Defensa y +2 de daño.",
+        "habilidade_full_convert": "Pasa a usar tu Malicia entera en el ataque, no la mitad.",
+        "ignore_def_pct": "Ignora {v}% del Cuero del objetivo.",
+        "execute_bonus": "Objetivo bajo 30% de PV: ignora {v}% de Cuero y +2 de daño.",
         "self_sacrifice_damage": "+{v} de daño, pagado con parte de tu PV.",
         "low_pv_gate_bonus": "+{v} de daño cuando estás bajo 30% de PV.",
         "lifetime_pv_lost_nuke": "Suma {v}% de todo el PV que perdiste en la pelea como daño.",
         "spend_charge_damage": "Descarga lo acumulado: +{v} de daño por carga.",
-        "atk_flat": "+{v} de ataque, siempre activo.",
-        "def_flat": "+{v} de defensa, siempre activo.",
+        "atk_flat": "+{v} de trompada, siempre activo.",
+        "def_flat": "+{v} de cuero, siempre activo.",
         "charge_on_hit_taken": "Cada golpe que recibes acumula {v} de carga."
       },
       "combat_tutorial": {
-        "iniciativa": "Esta lista muestra quién ataca primero en esta ronda — cuanto mayor la Habilidad del luchador, antes juega.",
+        "iniciativa": "Esta lista muestra quién ataca primero en esta ronda — cuanto mayor la Malicia del luchador, antes juega.",
         "escolher_alvo": "¿Hay más de un enemigo? Toca a quien quieras atacar para elegirlo como objetivo — matar al más débil primero o enfocar al más fuerte, tú decides.",
-        "ver_ficha": "Toca de nuevo a quien ya está elegido (o a cualquier aliado) para ver su ficha completa: atributos, PV y PM.",
-        "trash_talk": "Ese globito 💬 aquí arriba deja mandar una provocación al enemigo — gratis, solo para molestar.",
-        "bolinha": "Esa bolita flotante es donde actúas ahora. Tócala: ATACAR resuelve al instante gratis, PODER gasta PM (o PV) pero pega más fuerte, e ITEM va a mostrar tus objetos cuando tengas alguno.",
-        "bolinha_mover": "¿No te gusta dónde está? Mantén presionado y arrástrala a cualquier esquina de la pantalla — la posición se guarda para la próxima.",
-        "ko_aviso_tutorial": "Si un aliado cae en la pelea, aparece de inmediato un aviso rojo 💀 — estate atento.",
-        "xp_regra": "Los puntos de acción de la pelea no se dividen igual: quien remata a más enemigos se lleva una porción bastante mayor, el daño causado desempata. Una pelea contra poca cosa da pocos puntos en total — no esperes subir de nivel todo el tiempo."
+        "bolinha": "Esa bolita flotante es donde actúas ahora. Tócala: ATACAR resuelve al instante gratis, TALENTO gasta PM (o PV) pero pega más fuerte, e ITEM va a mostrar tus objetos cuando tengas alguno."
+      },
+      "alvo_tutorial": {
+        "farol": "Fijate en el color de los puntos: rojo es obligatorio pra abrir el camino, amarillo es opcional (no traba nada, pero da plata o un objeto). Camina hasta ahí y la acción se abre sola.",
+        "feito": "¿Se puso verde? Ya está resuelto. Si era una pelea repetible, todavía podés volver y pelear de nuevo las veces que quieras."
+      },
+      "ko_tutorial": {
+        "aliado": "¿Cayó un aliado? Se queda fuera el resto de la pelea, pero el resto de tu banda sigue peleando. Ojo con el PV de todos."
+      },
+      "xp_tutorial": {
+        "regra": "Los puntos de acción de la pelea no se dividen igual: quien remata a más enemigos se lleva una porción bastante mayor, el daño causado desempata. Una pelea contra poca cosa da pocos puntos en total — no esperes subir de nivel todo el tiempo."
+      },
+      "descanso_tutorial": {
+        "recuperar": "Aquí tu banda recupera todo el PV y el PM, pagando una plata. Sentado en la birosca, nadie busca pelea.",
+        "fiado": "¿Corto de plata? Puedes fiar con Nato — te cura al toque, pero la cuenta crece. Después de 2 fiados te corta el crédito: sin plazo, sin cobrador, él solo se acuerda."
+      },
+      "clube_tutorial": {
+        "como_funciona": "El Clube da Luta es una ronda de apuestas: 3 rondas seguidas, sin descansar entre medio. Ganas y sales con plata (o saldas tu deuda); pierdes y te recomponen — no cuenta como derrota de verdad. Eso sí, la entrada siempre es fiada: aceptar ya es entrar debiendo.",
+        "cura_dobra": "Entre ronda y ronda puedes curarte — pero curarte de nuevo DUPLICA lo que debes. Huir a la mitad deja la deuda como estaba."
       },
       "auto": {
         "switch_label": "Automático",
-        "switch_titulo": "Activa el modo automático — tus luchadores atacan solos con el ataque normal. Para usar un poder, apágalo y vuelve al modo manual.",
+        "switch_titulo": "Activa el modo automático — tus luchadores atacan solos con el ataque normal. Para usar un talento, apágalo y vuelve al modo manual.",
         "premium_titulo": "El modo automático es ventaja de suscriptor — toca para suscribirte",
         "sair": "Salir del automático"
       },
       "multidao": {
         "switch_label": "Pelea Multitudinaria",
         "switch_titulo": "Activa la Pelea Multitudinaria — cada ronda se resuelve de una vez, pero sigue siendo por turnos",
-        "poderes_titulo": "Poderes de la ronda",
+        "poderes_titulo": "Talentos de la ronda",
         "avancar_rodada": "SIGUIENTE RONDA",
         "resolvendo": "Tirando los dados de la ronda...",
         "usar_item": "Usar objeto esta ronda (renuncia al ataque)",
         "vai_usar_item": "Va a usar objeto"
       },
+      "multidao_tutorial": {
+        "interruptor": "Este interruptor activa el modo Pelea Multitudinaria: en vez de golpe a golpe, cada ronda resuelve a todos de una vez.",
+        "alvo_automatico": "En automático, tu banda siempre enfoca al enemigo más cerca de caer — bueno para limpiar una bandita grande rápido.",
+        "avancar": "Toca SIGUIENTE RONDA cuando estés listo. Puedes cambiar de talento o marcar un objeto antes, y el interruptor se prende y apaga cuando quieras."
+      },
       "attr_labels": {
         "F": "Fuerza",
-        "H": "Habilidad",
+        "H": "Malicia",
         "R": "Resistencia",
-        "A": "Ataque",
-        "D": "Defensa",
+        "A": "Trompada",
+        "D": "Cuero",
         "PV": "Aguante",
         "PM": "Pila",
         "PdF": "Poder Elemental"
@@ -619,8 +637,8 @@
         "save_error": "No se pudo guardar el luchador. Inténtalo de nuevo.",
         "need_two": "Tienes {n} luchador en la banda. Necesitas 2 para pelear — recluta otro.",
         "select_two": "Elige 2 luchadores para la batalla (marcaste {n}).",
-        "equipar_titulo": "Poderes sin equipar",
-        "equipar_corpo": "{nomes} compró un poder activo pero no lo equipó. En batalla, sin equipar, solo se puede usar el ataque normal. Cada luchador lleva hasta 2 poderes — arma distinto por enfrentamiento.",
+        "equipar_titulo": "Talentos sin equipar",
+        "equipar_corpo": "{nomes} compró un talento activo pero no lo equipó. En batalla, sin equipar, solo se puede usar el ataque normal. Cada luchador lleva hasta 2 talentos — arma distinto por enfrentamiento.",
         "equipar_agora": "Equipar ahora",
         "equipar_depois": "Entrar igual"
       },
@@ -3878,7 +3896,7 @@
         "territorios": {
           "pista": {
             "nome": "La Pista",
-            "desc": "El asfalto crudo de abajo. Pibes corriendo atrás de cadenas, vendiendo chicle, con el ojo en todo. La Rato de Pista sin sueños grandes, el Bonde do Sinal haciendo plata con información. Nadie de peso todavía — pero todo dueño de bandera pisó acá primero. El Retazo pisó. Alan pisó, en otro rincón. Ahora es tu turno."
+            "desc": "El asfalto crudo de abajo. Pibes corriendo atrás de cadenas, vendiendo chicle, con el ojo en todo. La Rato de Pista sin sueños grandes, el Bonde do Sinal haciendo plata con información. Nadie de peso todavía — pero todo dueño de bandera pisó acá primero. El Retazo pisó. Un pibe llamado Alan también va a pisar, más adelante — solo que a él todavía no le tocó. Ahora es tu turno."
           },
           "feira": {
             "nome": "La Feria",
@@ -4053,7 +4071,7 @@
           },
           "chegada": [
             "Esta es la Pista, pibe. El asfalto de abajo — la raíz de todo.",
-            "Todo el que hoy es alguien empezó rasguñando este piso. El Retazo empezó acá. Alan, en otro lado, también arrancó de cero como vos. Ahora te toca demostrar que no sos uno más.",
+            "Todo el que hoy es alguien empezó rasguñando este piso. El Retazo empezó acá. Un pibe llamado Alan también va a arrancar así, en otro lado — solo que a él todavía no le tocó. Ahora te toca demostrar que no sos uno más.",
             "Tomá los puntos de la pibada, hacé correr tu nombre boca a boca. Cuando toda la Pista sepa que existís, Carbón baja de la oscuridad a encararte de frente — ahí vas a saber si tenés madera.",
             "Dale. Tocá todo lo que se prenda."
           ],

@@ -34,7 +34,14 @@ export const POIS_PISTA = [
     // cadeado (PuzzleSimonSays, self-styled, sem depender de Puzzles.css).
     puzzle: { type: 'simon', config: { difficulty: 'easy' }, skin: 'gazua' },
     recompensa: { grana: 12, item: 13 },
-    falha: { viraTreta: { enemy: 1201, recompensa: { grana: 3 }, revezamento: { pool: PISTA_POOL_RUA, budgetPorCorpo: 4, chanceDupla: 0.1 } } },
+    // semTravar: falhar a gazua NÃO tranca o ponto pra sempre — sem isso, o
+    // jogador perdia essa sucata de vez (só sobra a do `achado`, e a Oficina
+    // do Nando exige 2×), softlock real de progresso (achado 13/09/2026,
+    // Isaias: "eu falhei e ela nunca mais... deveria repetir"). Com
+    // semTravar, ganhar a treta da falha só revela o mapa (igual sempre) mas
+    // NÃO marca `ferro` resolvido — o jogador pode voltar e tentar a gazua de
+    // novo quantas vezes quiser, até acertar e ganhar a sucata de verdade.
+    falha: { viraTreta: { enemy: 1201, recompensa: { grana: 3 }, revezamento: { pool: PISTA_POOL_RUA, budgetPorCorpo: 4, chanceDupla: 0.1 }, semTravar: true } },
     // Abrir a fechadura revela o beco (caminho principal), o fundo do
     // ferro-velho (achado — 2º pedaço de sucata) e a oficina do Nando (onde
     // a sucata vira peça).
