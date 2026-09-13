@@ -18,7 +18,7 @@
         "comecar": "COMEÇAR →"
       },
       "party_size_atual": "Gangue atual: {n}/{max}",
-      "bonus_ataque": "bônus de veneno",
+      "bonus_ataque": "bônus de porrada",
       "bonus_defesa": "bônus de couro",
       "bonus_falhou": "não ativou",
       "critico": "CRÍTICO",
@@ -470,7 +470,7 @@
         "low_pv_gate_bonus": "+{v} de dano quando você está abaixo de 30% de PV.",
         "lifetime_pv_lost_nuke": "Soma {v}% de todo o PV que você já perdeu na luta como dano.",
         "spend_charge_damage": "Descarrega o que acumulou: +{v} de dano por carga.",
-        "atk_flat": "+{v} de veneno, sempre ativo.",
+        "atk_flat": "+{v} de porrada, sempre ativo.",
         "def_flat": "+{v} de couro, sempre ativo.",
         "charge_on_hit_taken": "Cada golpe que você leva acumula {v} de carga."
       },
@@ -521,7 +521,7 @@
         "F": "Força",
         "H": "Malícia",
         "R": "Resistência",
-        "A": "Veneno",
+        "A": "Porrada",
         "D": "Couro",
         "PV": "Osso",
         "PM": "Gás",

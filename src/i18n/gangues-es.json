@@ -18,7 +18,7 @@
         "comecar": "EMPEZAR →"
       },
       "party_size_atual": "Pandilla actual: {n}/{max}",
-      "bonus_ataque": "bono de veneno",
+      "bonus_ataque": "bono de trompada",
       "bonus_defesa": "bono de cuero",
       "bonus_falhou": "no se activó",
       "critico": "CRÍTICO",
@@ -470,7 +470,7 @@
         "low_pv_gate_bonus": "+{v} de daño cuando estás bajo 30% de PV.",
         "lifetime_pv_lost_nuke": "Suma {v}% de todo el PV que perdiste en la pelea como daño.",
         "spend_charge_damage": "Descarga lo acumulado: +{v} de daño por carga.",
-        "atk_flat": "+{v} de veneno, siempre activo.",
+        "atk_flat": "+{v} de trompada, siempre activo.",
         "def_flat": "+{v} de cuero, siempre activo.",
         "charge_on_hit_taken": "Cada golpe que recibes acumula {v} de carga."
       },
@@ -521,7 +521,7 @@
         "F": "Fuerza",
         "H": "Malicia",
         "R": "Resistencia",
-        "A": "Veneno",
+        "A": "Trompada",
         "D": "Cuero",
         "PV": "Aguante",
         "PM": "Pila",
