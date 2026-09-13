@@ -5,9 +5,9 @@ import GanguesMultidaoTutorial from './GanguesMultidaoTutorial'
 // Multidão, e o toggle de provocação (trash talk do jogador).
 // Extraído de GanguesCombat.jsx (PLANO_REFATORACAO_ARQUIVOS_GRANDES_GANGUES_2026-09-11.md §6).
 export default function GanguesCombatTopBar({
-  t, onNavigate, machine, modoMultidaoAtivo, estadoMultidao, result,
-  multidaoDisponivel, modoMultidaoOn, setModoMultidaoOn, switchTravado,
-  multidaoBlinkVisto, marcarBlinkVisto,
+  t, onNavigate, machine, modoMultidaoAtivo, estadoMultidao, result, revelandoRodada,
+  multidaoDisponivel, modoMultidaoOn, alternarMultidao,
+  multidaoBlinkVisto,
   trashOptions, trashAberto, setTrashAberto, sendPlayerTrash,
 }) {
   return (
@@ -29,9 +29,9 @@ export default function GanguesCombatTopBar({
         <button
           type="button"
           className={`gang-multidao-switch ${modoMultidaoOn ? 'gang-multidao-switch--on' : ''} ${!multidaoBlinkVisto && !modoMultidaoOn ? 'gang-multidao-switch--blink' : ''}`}
-          disabled={switchTravado}
+          disabled={revelandoRodada || Boolean(result)}
           title={t('games.gangues.multidao.switch_titulo')}
-          onClick={() => { setModoMultidaoOn(!modoMultidaoOn); if (!multidaoBlinkVisto) marcarBlinkVisto() }}
+          onClick={alternarMultidao}
         >
           <span className="gang-multidao-switch-track"><span className="gang-multidao-switch-bolinha" /></span>
           <small>{t('games.gangues.multidao.switch_label')}</small>

@@ -29,9 +29,12 @@ import './GanguesCena.css'
 // localStorage, não só em memória. Um Set em memória esquecia tudo a cada
 // recarregada de página — o jogador via a intro de novo toda vez que
 // voltava a entrar na Pista, mesmo já tendo visto antes.
+// Escopado por save (`saveId`) — pedido do Isaias (13/09/2026): excluiu a
+// gangue, começou outra, e a intro não voltou a aparecer porque essa flag
+// ficava presa pro browser inteiro pra sempre, nunca por conta/gangue.
 const SCENE_INTRO_KEY = 'ldi-gangues-cena-intro-vista'
-function cenaIntroJaVista(id) { try { return JSON.parse(localStorage.getItem(SCENE_INTRO_KEY) || '[]').includes(id) } catch { return false } }
-function marcarCenaIntroVista(id) { try { const atual = JSON.parse(localStorage.getItem(SCENE_INTRO_KEY) || '[]'); if (!atual.includes(id)) localStorage.setItem(SCENE_INTRO_KEY, JSON.stringify([...atual, id])) } catch {} }
+function cenaIntroJaVista(saveId, id) { try { return JSON.parse(localStorage.getItem(`${SCENE_INTRO_KEY}:${saveId || 'guest'}`) || '[]').includes(id) } catch { return false } }
+function marcarCenaIntroVista(saveId, id) { try { const key = `${SCENE_INTRO_KEY}:${saveId || 'guest'}`; const atual = JSON.parse(localStorage.getItem(key) || '[]'); if (!atual.includes(id)) localStorage.setItem(key, JSON.stringify([...atual, id])) } catch {} }
 
 export default function GanguesCena({ onNavigate }) {
   const { t } = useLanguage(), store = useGanguesStore(), territorioId = store.storyTarget?.territorioId
@@ -45,7 +48,7 @@ export default function GanguesCena({ onNavigate }) {
     if (p?.local) { const c = cena?.interiores?.[p.local.id]?.comodos?.[p.local.comodo]; return c ? (validPos(p, c.world) ? { x: p.x, y: p.y } : c.spawn) : SPAWN }
     return validPosition(p) ? { x: p.x, y: p.y } : (cena?.mundo?.spawn || SPAWN)
   }
-  const [intro, setIntro] = useState(() => Boolean(cena && !cenaIntroJaVista(cena.id)))
+  const [intro, setIntro] = useState(() => Boolean(cena && !cenaIntroJaVista(store._saveId, cena.id)))
   const [encontro, setEncontro] = useState(null), [toast, setToast] = useState(null)
   const [hint, setHint] = useState(() => t('games.gangues.cena.hint_andar'))
   const [fade, setFade] = useState(false)
@@ -101,7 +104,7 @@ export default function GanguesCena({ onNavigate }) {
   // `local` aponta pra um interior inválido — o efeito acima já vai zerar; só
   // não renderiza esse frame pra não quebrar em amb null.
   if (local && !amb) return <main className="gang-cena-worldpage" style={{ '--terr-cor': cena.cor }}><div className="gang-cena-viewport" /></main>
-  const fecharIntro = () => { marcarCenaIntroVista(cena.id); setIntro(false) }
+  const fecharIntro = () => { marcarCenaIntroVista(store._saveId, cena.id); setIntro(false) }
   const guardarPosicao = (over) => store.salvarPosicaoCena(cena.id, { ...(over || player), local: over?.local !== undefined ? over.local : local })
   // troca de ambiente com fade curto (rua↔interior, cômodo↔cômodo)
   const trocarPara = (novoLocal, spawn) => {

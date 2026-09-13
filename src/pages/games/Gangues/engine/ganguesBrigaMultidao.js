@@ -51,6 +51,27 @@ export function iniciarBrigaMultidao({ playerTeam, enemyTeam }) {
   }
 }
 
+/** Como iniciarBrigaMultidao, mas a partir de combatentes JÁ preparados (com
+ *  pv/pm/status atuais) — usado ao LIGAR o switch no meio da luta, depois de
+ *  já ter batido no modo normal. `iniciarBrigaMultidao` sempre monta do zero
+ *  a partir do time cru (pv_atual salvo), o que resetaria o HP de quem já
+ *  apanhou nessa luta; aqui o HP/PM/status atual é preservado. `roundAtual`
+ *  mantém a contagem de rodada contínua entre os dois motores. */
+export function iniciarBrigaMultidaoDeCombatentes(combatants, roundAtual = 1) {
+  const clone = combatants.map(c => ({ ...c }))
+  const initiative = clone
+    .map(c => {
+      const resolved = resolveGanguesInitiative({ combatant: c, roll: d3() })
+      return { key: c.key, side: c.side, ...resolved, tie: Math.random() }
+    })
+    .sort((a, b) => b.total - a.total || b.ability - a.ability || b.tie - a.tie)
+
+  return {
+    combatants: clone, initiative, turnIndex: 0, round: roundAtual, lastEnemyTargetKey: null,
+    terminado: false, outcome: null, eventosIniciais: [], seq: 0,
+  }
+}
+
 /** Resolve UMA rodada a partir do estado atual — todo combatente vivo age uma vez. Retorna o novo estado + os eventos só dessa rodada.
  *  poderesPorPersonagem/especiaisPorPersonagem são lidos a cada chamada (não travados na iniciação) — o jogador pode trocar o poder escolhido entre uma rodada e outra.
  *  personagensUsandoItem: { [memberId]: true } — quem marcou "usar item" abre mão do ataque nesta rodada (a ação vira usar item, não bater). Ainda não existe

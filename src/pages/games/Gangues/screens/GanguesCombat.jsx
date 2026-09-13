@@ -46,7 +46,6 @@ export default function GanguesCombat({ onNavigate }) {
   // openBattleReport — por isso vive aqui, não dentro de nenhum hook.
   const eventosBrutosRef = useRef([])
   const [aviso, setAviso] = useState(null)   // toast curto (ex: item não serve)
-  const [switchTravado, setSwitchTravado] = useState(false)
 
   const fx = useGanguesCombatFx()
   const battleOutcome = useGanguesBattleOutcome({ store, t, registrarEvento, onNavigate })
@@ -54,10 +53,8 @@ export default function GanguesCombat({ onNavigate }) {
 
   const machine = useGanguesTurnMachine({ playerTeam: store.match.playerTeam, enemyTeam: store.match.enemyTeam, onFinish: finish })
 
-  const multidao = useGanguesModoMultidao({
-    store, machine, t, setLog, eventosBrutosRef, finish, result, switchTravado, setSwitchTravado,
-  })
-  const { modoMultidaoAtivo, estadoMultidao, multidaoDisponivel, modoMultidaoOn, setModoMultidaoOn, multidaoBlinkVisto, marcarBlinkVisto, poderesMultidao, itensMultidao, cicloPoderMultidao, toggleItemMultidao, avancarRodada, revelandoRodada } = multidao
+  const multidao = useGanguesModoMultidao({ store, machine, t, setLog, eventosBrutosRef, finish, result })
+  const { modoMultidaoAtivo, estadoMultidao, multidaoDisponivel, modoMultidaoOn, alternarMultidao, multidaoBlinkVisto, poderesMultidao, itensMultidao, cicloPoderMultidao, toggleItemMultidao, avancarRodada, revelandoRodada } = multidao
 
   const players = modoMultidaoAtivo
     ? (estadoMultidao?.combatants || []).filter(item => item.side === 'player')
@@ -133,7 +130,6 @@ export default function GanguesCombat({ onNavigate }) {
   const handleAttack = (specialId = selectedSpecialId) => {
     if (!selectedActor || !selectedTarget) return
     sfx.click()
-    if (!switchTravado) setSwitchTravado(true)
     machine.playerAction(selectedActor, selectedTarget, specialId)
     setSelectedSpecialId(null)
   }
@@ -165,7 +161,6 @@ export default function GanguesCombat({ onNavigate }) {
     }
     if (!store.usarItem(itemId)) return
     sfx.reward?.()
-    if (!switchTravado) setSwitchTravado(true)
     const delta = item.tipo === 'cura_pv' ? { pv: item.valor } : item.tipo === 'cura_pm' ? { pm: item.valor } : {}
     machine.useItemAction(selectedActor, alvo, itemId, delta)
   }
@@ -221,9 +216,9 @@ export default function GanguesCombat({ onNavigate }) {
       <div className={`gang-combat-fx${fx.critShake ? ' gang-combat-fx--shake' : ''}${fx.hitNudge ? ' gang-combat-fx--nudge' : ''}`}>
       <GanguesCombatTopBar
         t={t} onNavigate={onNavigate} machine={machine} modoMultidaoAtivo={modoMultidaoAtivo}
-        estadoMultidao={estadoMultidao} result={result}
-        multidaoDisponivel={multidaoDisponivel} modoMultidaoOn={modoMultidaoOn} setModoMultidaoOn={setModoMultidaoOn}
-        switchTravado={switchTravado} multidaoBlinkVisto={multidaoBlinkVisto} marcarBlinkVisto={marcarBlinkVisto}
+        estadoMultidao={estadoMultidao} result={result} revelandoRodada={revelandoRodada}
+        multidaoDisponivel={multidaoDisponivel} modoMultidaoOn={modoMultidaoOn} alternarMultidao={alternarMultidao}
+        multidaoBlinkVisto={multidaoBlinkVisto}
         trashOptions={trashOptions} trashAberto={trashAberto} setTrashAberto={setTrashAberto} sendPlayerTrash={sendPlayerTrash}
       />
 
