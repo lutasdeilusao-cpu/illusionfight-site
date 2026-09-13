@@ -163,7 +163,7 @@ function escalarInimigo(molde, pontosAlvo) {
  *  1º corpo do bando, com a maior fatia de pontos. O resto do bando segue
  *  sorteado do pool do território. É como se monta a luta de General ("a
  *  Rasteira Velha e o bonde dela"). */
-export function gerarBandoInimigo({ territorioId, dificuldade = 'normal', modo = 'medio', playerTeam, enemiesData, pontosFixos, liderFixo, moldesPool }) {
+export function gerarBandoInimigo({ territorioId, dificuldade = 'normal', modo = 'medio', playerTeam, enemiesData, pontosFixos, liderFixo, moldesPool, qtdMin: qtdMinPoi, qtdMax: qtdMaxPoi, ratioBonus = 0 }) {
   const config = GANGUES_TERRITORIO_ENCONTRO[territorioId]
   if (!config || !playerTeam?.length) return null
   // moldesPool: restringe QUEM pode sortear (escolta), pra POIs perto do
@@ -175,16 +175,18 @@ export function gerarBandoInimigo({ territorioId, dificuldade = 'normal', modo =
   // Bando muito concentrado (poucos corpos) é o cenário mais perigoso — o
   // mínimo de corpos acompanha o tamanho do seu time, não só o teto fixo
   // do território.
-  const qtdMin = Math.max(config.min, Math.ceil(playerTeam.length * 0.6))
+  const qtdMin = Math.max(qtdMinPoi ?? config.min, Math.ceil(playerTeam.length * 0.6))
   // CAP de "action economy": o bando nunca tem muito mais corpos que o teu
   // time. Sem isso, ratio alto vira 8-10 corpos, cada um agindo no turno, e a
   // guerra de atrito flipa contra o jogador (a simulação mostrou 34 rodadas /
   // 18% de vitória na Laje). Com o cap, cada corpo fica mais "gordo" — combina
   // com a hierarquia de cargo (um Gerente pesa mais que um Vigia).
-  const qtdMax = Math.max(qtdMin, Math.min(config.max, playerTeam.length + 2))
+  // `qtdMax` do POI (ex: o galpão do Carvão, que precisa ser SEMPRE multidão)
+  // ignora esse cap de propósito — é uma exceção autorada, não o bando comum.
+  const qtdMax = qtdMaxPoi != null ? Math.max(qtdMin, qtdMaxPoi) : Math.max(qtdMin, Math.min(config.max, playerTeam.length + 2))
   const qtd = qtdMin + Math.floor(Math.random() * (qtdMax - qtdMin + 1))
 
-  const ratioBase = (GANGUES_MODO_RATIO[modo] ?? GANGUES_MODO_RATIO.medio) + (GANGUES_TERRITORIO_STEP[territorioId] ?? 0.10)
+  const ratioBase = (GANGUES_MODO_RATIO[modo] ?? GANGUES_MODO_RATIO.medio) + (GANGUES_TERRITORIO_STEP[territorioId] ?? 0.10) + ratioBonus
   const ratio = Math.min(0.95, Math.max(0.30, ratioBase + (GANGUES_DIFICULDADE_OFFSET[dificuldade] ?? 0)))
   const totalAlvo = Math.max(qtd, Math.round(pontosJogador * ratio))
   const partes = distribuirPontos(totalAlvo, qtd)
@@ -194,10 +196,14 @@ export function gerarBandoInimigo({ territorioId, dificuldade = 'normal', modo =
   // ORIGINAIS da ficha dele (~30%) — pra ele parecer um General mesmo num
   // bando pequeno, sem virar um muro. Simulado: ~88% de vitória pra time L1
   // recém-criado, ~97% no L2. Um degrau acima da treta normal, não um paredão.
+  // Bug encontrado 2026-09-13: usava `s.R`, atributo que não existe mais nos
+  // moldes (viraram A/H/D/PV/PM — ver nota em escalarInimigo sobre PV/PM
+  // terem virado atributos próprios). Resultado: NaN se propagava pro piso
+  // do líder inteiro, quebrando qualquer POI com liderFixo (ex: galpao_m2).
   const liderMolde = liderFixo && enemiesData.find(e => e.id === liderFixo)
   if (liderMolde && partes.length) {
     const s = liderMolde.stats
-    partes[0] = Math.max(partes[0], Math.round((s.A + s.H + s.R + s.D) * 0.3))
+    partes[0] = Math.max(partes[0], Math.round((s.A + s.H + s.D + s.PV + s.PM) * 0.3))
   }
 
   const bando = partes.map((pontos, i) => {
@@ -289,13 +295,27 @@ export function gerarBandoEvento({ territorioId, playerTeam, enemiesData, modo =
  *  com 2+ corpos. `pool` = ids que podem aparecer; `budgetPorCorpo` = pontos de
  *  cada capanga (o molde é escalado pra esse total — os vigias 11xx nascem com
  *  4); `chanceDupla` = prob. de vir 2 em vez de 1 (a dupla vem mais magra,
- *  ×0.75, pra não ser só o dobro). */
-export function gerarBandoRevezamento({ pool, budgetPorCorpo = 5, chanceDupla = 0.3, enemiesData, modo = 'medio' }) {
+ *  ×0.75, pra não ser só o dobro).
+ *
+ *  `qtdMin`/`qtdMax`: opcional — troca o "1, às vezes 2" pelo modo "multidão
+ *  GARANTIDA" (ex: o galpão do Carvão, que o Isaias pediu pra ser sempre osso
+ *  duro de 3-5, não mais o revezamento fraquinho do túnel). Quando presentes,
+ *  ignoram `chanceDupla` por completo.
+ *  `playerTeam`/`ratioComTime`: opcional — soma ao `budgetPorCorpo` autorado
+ *  uma fatia dos pontos do time do jogador (dividida pelos corpos do bando),
+ *  pra deixar de ser um orçamento cego (nível 1 == nível 12) sem tirar o "piso"
+ *  de personalidade do budget autorado (o galpão nunca fica mole demais nem
+ *  vira paredão puro pra quem chegou fraco). Reportado pelo Isaias
+ *  (2026-09-13): nível 11/12 matava tudo com um golpe no galpão. */
+export function gerarBandoRevezamento({ pool, budgetPorCorpo = 5, chanceDupla = 0.3, enemiesData, modo = 'medio', qtdMin, qtdMax, playerTeam, ratioComTime = 0 }) {
   if (!pool?.length || !enemiesData?.length) return null
-  const dupla = Math.random() < chanceDupla
-  const qtd = dupla ? 2 : 1
+  const multidaoGarantida = qtdMin != null && qtdMax != null
+  const dupla = !multidaoGarantida && Math.random() < chanceDupla
+  const qtd = multidaoGarantida ? (qtdMin + Math.floor(Math.random() * (qtdMax - qtdMin + 1))) : (dupla ? 2 : 1)
   const mult = GANGUES_MODO_MULT[modo] ?? 1
-  const orcamento = Math.max(2, Math.round((dupla ? budgetPorCorpo * 0.75 : budgetPorCorpo) * mult))
+  const bonusTime = (playerTeam?.length && ratioComTime > 0) ? (calcularPontosTime(playerTeam) * ratioComTime) / qtd : 0
+  const baseCorpo = multidaoGarantida ? budgetPorCorpo : (dupla ? budgetPorCorpo * 0.75 : budgetPorCorpo)
+  const orcamento = Math.max(2, Math.round((baseCorpo + bonusTime) * mult))
 
   const bag = []
   const sortear = () => {

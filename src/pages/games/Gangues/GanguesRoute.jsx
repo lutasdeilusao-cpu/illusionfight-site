@@ -128,9 +128,10 @@ export default function GanguesRoute() {
       if (!enemyTeam?.length) { setFase('story'); return }
     } else if (temRevezamento) {
       // Encontro de dungeon (túnel/galpão): capangas fracos que se revezam,
-      // quase sempre 1 sozinho. Não escala com o jogador nem usa o pool do
-      // território — orçamento leve e fixo por corpo.
-      enemyTeam = gerarBandoRevezamento({ ...alvo.revezamento, enemiesData, modo })
+      // quase sempre 1 sozinho, orçamento leve e fixo por corpo — A MENOS que
+      // o POI peça "multidão garantida" (qtdMin/qtdMax) e/ou escalonamento
+      // pelo time (ratioComTime), caso do galpão do Carvão (ver interiores.js).
+      enemyTeam = gerarBandoRevezamento({ ...alvo.revezamento, enemiesData, modo, playerTeam: party })
       if (!enemyTeam?.length) { setFase('story'); return }
       if (primeiraLuta) enemyTeam = suavizarPrimeiraLuta(enemyTeam)
     } else if (alvo.fixo) {
@@ -139,7 +140,7 @@ export default function GanguesRoute() {
       enemyTeam = [enemy]
       if (primeiraLuta) enemyTeam = suavizarPrimeiraLuta(enemyTeam)
     } else {
-      enemyTeam = gerarBandoInimigo({ territorioId: alvo.territorioId, dificuldade: alvo.dificuldade, modo, playerTeam: party, enemiesData, pontosFixos: alvo.pontosFixos, liderFixo: alvo.liderFixo, moldesPool: alvo.moldesPool })
+      enemyTeam = gerarBandoInimigo({ territorioId: alvo.territorioId, dificuldade: alvo.dificuldade, modo, playerTeam: party, enemiesData, pontosFixos: alvo.pontosFixos, liderFixo: alvo.liderFixo, moldesPool: alvo.moldesPool, qtdMin: alvo.qtdMin, qtdMax: alvo.qtdMax, ratioBonus: alvo.ratioBonus })
       if (!enemyTeam?.length) { setFase('story'); return }
       if (primeiraLuta) enemyTeam = suavizarPrimeiraLuta(enemyTeam)
     }

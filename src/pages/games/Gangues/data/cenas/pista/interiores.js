@@ -214,7 +214,11 @@ export const INTERIORES_PISTA = {
           // "certo": pouco ponto espalhado num corpo de flavor fraco ainda
           // parece fraco). revezamento concentra tudo num corpo só (raro 2)
           // sorteado do pool casca-grossa do galpão.
-          { poi: { id: 'galpao_m1', tipo: 'treta', repetivel: true, nivelRec: 12, revezamento: { pool: PISTA_POOL_GALPAO, budgetPorCorpo: 7, chanceDupla: 0.4 }, i18n: 'games.gangues.cena.pista.galpao.m1', recompensa: { grana: 6, rep: 2 } }, pos: { x: 300, y: 130 } },
+          // "Multidão garantida" (qtdMin/qtdMax) + ratioComTime escalando com o
+          // time do jogador — antes vinha quase sempre 1 capanga só, num
+          // orçamento fixo que não crescia com o nível (Isaias matava tudo com
+          // um golpe no nível 11/12, 2026-09-13). Ver gerarBandoRevezamento.
+          { poi: { id: 'galpao_m1', tipo: 'treta', repetivel: true, nivelRec: 12, revezamento: { pool: PISTA_POOL_GALPAO, budgetPorCorpo: 6, qtdMin: 3, qtdMax: 5, ratioComTime: 0.4 }, i18n: 'games.gangues.cena.pista.galpao.m1', recompensa: { grana: 6, rep: 2 } }, pos: { x: 300, y: 130 } },
         ],
         passagem: { x: 220, y: 34, w: 80, h: 24, para: 1, precisa: 'galpao_m1', label: 'avancar' },
       },
@@ -235,7 +239,10 @@ export const INTERIORES_PISTA = {
           // Mantém liderFixo (o Cão Louco sempre lidera essa sala), mas a
           // escolta (se vier) sorteia do pool casca-grossa do galpão, não
           // do pool genérico da Pista inteira — mesmo motivo do m1.
-          { poi: { id: 'galpao_m2', tipo: 'treta', repetivel: true, nivelRec: 14, enemy: 1301, liderFixo: 1301, moldesPool: PISTA_POOL_GALPAO, dificuldade: 'normal', i18n: 'games.gangues.cena.pista.galpao.m2', recompensa: { grana: 8, rep: 3 } }, pos: { x: 220, y: 180 } },
+          // qtdMin/qtdMax + ratioBonus: mesmo motivo do galpao_m1 (ver nota
+          // ali) — o líder fixo (Cão Louco) já dava uma cara mais séria, mas
+          // sozinho + escolta de 1-2 ainda caía com um golpe no nível 11/12.
+          { poi: { id: 'galpao_m2', tipo: 'treta', repetivel: true, nivelRec: 14, enemy: 1301, liderFixo: 1301, moldesPool: PISTA_POOL_GALPAO, dificuldade: 'normal', qtdMin: 3, qtdMax: 5, ratioBonus: 0.15, i18n: 'games.gangues.cena.pista.galpao.m2', recompensa: { grana: 8, rep: 3 } }, pos: { x: 220, y: 180 } },
           { poi: { id: 'galpao_achado', tipo: 'achado', opcional: true, i18n: 'games.gangues.cena.pista.galpao.achado', recompensa: { grana: 18, item: 1 } }, pos: { x: 388, y: 150 } },
         ],
         passagem: { x: 200, y: 34, w: 80, h: 24, para: 2, precisa: 'galpao_m2', label: 'avancar' },
@@ -262,7 +269,10 @@ export const INTERIORES_PISTA = {
           // Chinelada A1/H1/R2/D1 de 6 PV bem na sala antes do breu do
           // Carvão. Agora escala igual o resto do galpão (revezamento,
           // pool casca-grossa).
-          { poi: { id: 'galpao_contador', tipo: 'papo', opcional: true, repetivel: true, i18n: 'games.gangues.cena.pista.galpao.contador', escolhas: [{ id: 'escuta' }, { id: 'aperta', viraTreta: { enemy: 1203, rep: -1, recompensa: { grana: 6 }, revezamento: { pool: PISTA_POOL_GALPAO, budgetPorCorpo: 6, chanceDupla: 0.3 } } }] }, pos: { x: 120, y: 210 } },
+          // qtdMin/qtdMax + ratioComTime: mesmo motivo do galpao_m1 (ver nota
+          // ali) — um degrau abaixo (3-4, não 3-5) por ser punição de escolha
+          // de papo, não o corredor principal do galpão.
+          { poi: { id: 'galpao_contador', tipo: 'papo', opcional: true, repetivel: true, i18n: 'games.gangues.cena.pista.galpao.contador', escolhas: [{ id: 'escuta' }, { id: 'aperta', viraTreta: { enemy: 1203, rep: -1, recompensa: { grana: 6 }, revezamento: { pool: PISTA_POOL_GALPAO, budgetPorCorpo: 5, qtdMin: 3, qtdMax: 4, ratioComTime: 0.3 } } }] }, pos: { x: 120, y: 210 } },
         ],
         passagem: { x: 300, y: 34, w: 80, h: 24, para: 3, label: 'avancar' },
       },
