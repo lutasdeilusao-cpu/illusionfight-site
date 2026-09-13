@@ -149,11 +149,17 @@ export function useRadioNina() {
   // Aquece a próxima URL: baixa e joga no ralo (memória mínima — 1 chunk por vez
   // via WritableStream), o que faz o Service Worker terminar de gravar o arquivo
   // no cache de disco. É 1 faixa de lookahead; tudo fica cacheado pra sempre.
-  // Respeita "economia de dados" do sistema.
+  // NÃO respeita mais "economia de dados" do sistema (revertido — ver AGENTS.md
+  // 13/09/2026): com o dado economizado, esse fetch nunca rodava, então a
+  // próxima faixa só ia pra rede na hora da troca — e rede de aba em segundo
+  // plano/tela apagada trava ou atrasa fetch novo, deixando a rádio muda até o
+  // usuário reabrir o app na mão. O total de dados baixados no fim é o mesmo
+  // (a faixa ia ser baixada mais tarde de qualquer forma); a diferença é só
+  // baixar um pouco antes, com a aba ainda em primeiro plano, pra já estar em
+  // disco (Cache Storage) quando a troca acontecer.
   const prefetchRef = useRef(new Set())
   const prefetch = useCallback((url) => {
     if (!url || prefetchRef.current.has(url)) return
-    if (navigator.connection?.saveData) return
     prefetchRef.current.add(url)
     fetch(url)
       .then((r) => (r.body?.pipeTo ? r.body.pipeTo(new WritableStream()) : null))
@@ -497,6 +503,25 @@ export function useRadioNina() {
       document.removeEventListener('visibilitychange', onVis)
       window.removeEventListener('focus', retomar)
     }
+  }, [])
+
+  // Vigia periódico de recuperação em segundo plano — rede de segurança além do
+  // retomar() acima. Em aba em 2º plano/tela apagada, nem sempre sobra um evento
+  // (canplay/loadeddata/visibilitychange/focus) pra disparar a retomada: às vezes
+  // o play() da próxima faixa fica parado à espera de dado (rede de aba em
+  // segundo plano é mais lenta/despriorizada) sem nunca soltar um evento de erro
+  // nem de sucesso nesse meio-tempo. Sem isso, a rádio ficava muda até o usuário
+  // reabrir o app na mão pra "acordar" a aba. O navegador pode jogar esse
+  // intervalo pra ~1x/min em segundo plano (throttling padrão) — mesmo assim é
+  // bem melhor que travar de vez até uma ação manual.
+  useEffect(() => {
+    const id = setInterval(() => {
+      const audio = audioRef.current
+      if (querTocarRef.current && !desligadoRef.current && audio && audio.paused && audio.src) {
+        audio.play().catch(() => {})
+      }
+    }, 8000)
+    return () => clearInterval(id)
   }, [])
 
   // Aviso antes de recarregar tocando
