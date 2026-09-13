@@ -70,7 +70,12 @@ export default function useGanguesVictoryResolution({ store, user, report, victo
           // Modo história — cena: marca o POI resolvido. O repDelta (rep de
           // uma escolha tipo "aperta") já está somado dentro de `rep` por
           // calcularRecompensaCena — não somar de novo aqui.
-          store.marcarPoiResolvido(storyAlvo.cenaId, storyAlvo.cenaPoiId, storyAlvo.cenaRevela || [])
+          // cenaSemTravar (ex: falhar a gazua do ferro-velho) só revela o
+          // mapa sem travar o ponto como resolvido — o jogador pode voltar e
+          // tentar de novo (evita perder pra sempre um item obrigatório de
+          // progresso por causa de UM minigame falhado, ver AGENTS.md 13/09/2026).
+          if (storyAlvo.cenaSemTravar) store.revelarPoi(storyAlvo.cenaId, storyAlvo.cenaRevela || [])
+          else store.marcarPoiResolvido(storyAlvo.cenaId, storyAlvo.cenaPoiId, storyAlvo.cenaRevela || [])
         }
         if (grana) { store.ganharGrana(grana); granaGanha += grana }
         if (rep) { store.ganharRep(rep); repGanha += rep }

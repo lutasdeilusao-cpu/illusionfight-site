@@ -18,8 +18,8 @@
         "comecar": "COMEÇAR →"
       },
       "party_size_atual": "Gangue atual: {n}/{max}",
-      "bonus_ataque": "bônus de ataque",
-      "bonus_defesa": "bônus de defesa",
+      "bonus_ataque": "bônus de veneno",
+      "bonus_defesa": "bônus de couro",
       "bonus_falhou": "não ativou",
       "critico": "CRÍTICO",
       "derrota": "DEU RUIM",
@@ -286,11 +286,11 @@
         "vez_inimiga": "Vez inimiga",
         "provocar": "Provocar",
         "sem_custo": "sem custo",
-        "sem_poderes": "Este lutador não tem poderes ativos equipados. Equipe na progressão da ficha."
+        "sem_poderes": "Este lutador não tem talentos ativos equipados. Equipe na progressão da ficha."
       },
       "orb": {
         "atacar": "Atacar",
-        "poder": "Poder",
+        "poder": "Talento",
         "item": "Item",
         "item_vazio": "Nenhum item ainda — em breve.",
         "item_qtd": "×{n}",
@@ -447,7 +447,7 @@
         "voltar": "Voltar pra Pista"
       },
       "skill_info": {
-        "titulo": "Poderes",
+        "titulo": "Talentos",
         "ativa": "Ativa",
         "passiva": "Passiva",
         "custo_pm": "Custa {c} PM",
@@ -458,26 +458,26 @@
       "skill_desc": {
         "damage_flat": "Soma +{v} de dano no ataque.",
         "shield_next_hit": "Absorve {v} de dano do próximo golpe que você levar.",
-        "reduce_target_defense": "Tira {v} da Defesa do alvo neste ataque.",
+        "reduce_target_defense": "Tira {v} do Couro do alvo neste ataque.",
         "damage_reduction_next_hit": "Corta {v} do próximo dano que você receber.",
         "bonus_if_target_fresh": "+{v} de dano se o alvo ainda não agiu na rodada.",
         "atk_flat_if_pm_above_half": "+{v} de dano enquanto seu PM estiver acima da metade.",
         "low_pv_scale": "Até +{v} de dano — quanto menos PV, mais forte o golpe.",
-        "habilidade_full_convert": "Passa a usar sua Habilidade inteira no ataque, não a metade.",
-        "ignore_def_pct": "Ignora {v}% da Defesa do alvo.",
-        "execute_bonus": "Alvo abaixo de 30% de PV: ignora {v}% da Defesa e +2 de dano.",
+        "habilidade_full_convert": "Passa a usar sua Malícia inteira no ataque, não a metade.",
+        "ignore_def_pct": "Ignora {v}% do Couro do alvo.",
+        "execute_bonus": "Alvo abaixo de 30% de PV: ignora {v}% do Couro e +2 de dano.",
         "self_sacrifice_damage": "+{v} de dano, pago com parte do seu PV.",
         "low_pv_gate_bonus": "+{v} de dano quando você está abaixo de 30% de PV.",
         "lifetime_pv_lost_nuke": "Soma {v}% de todo o PV que você já perdeu na luta como dano.",
         "spend_charge_damage": "Descarrega o que acumulou: +{v} de dano por carga.",
-        "atk_flat": "+{v} de ataque, sempre ativo.",
-        "def_flat": "+{v} de defesa, sempre ativo.",
+        "atk_flat": "+{v} de veneno, sempre ativo.",
+        "def_flat": "+{v} de couro, sempre ativo.",
         "charge_on_hit_taken": "Cada golpe que você leva acumula {v} de carga."
       },
       "combat_tutorial": {
-        "iniciativa": "Essa lista mostra quem ataca primeiro nessa rodada — quanto maior a Habilidade do lutador, mais cedo ele joga.",
+        "iniciativa": "Essa lista mostra quem ataca primeiro nessa rodada — quanto maior a Malícia do lutador, mais cedo ele joga.",
         "escolher_alvo": "Tem mais de um inimigo? Toque em quem você quer atacar pra escolher ele como alvo — quer matar o mais fraco primeiro ou focar o mais forte, a escolha é sua.",
-        "bolinha": "Aquela bolinha flutuante é onde você age agora. Toque nela: ATACAR resolve na hora sem custo, PODER gasta PM (ou PV) mas causa mais efeito, e ITEM vai mostrar seus itens quando você tiver algum."
+        "bolinha": "Aquela bolinha flutuante é onde você age agora. Toque nela: ATACAR resolve na hora sem custo, TALENTO gasta PM (ou PV) mas causa mais efeito, e ITEM vai mostrar seus itens quando você tiver algum."
       },
       "alvo_tutorial": {
         "verde": "Os pontos que acendem na cor da área são teu alvo — anda até lá que a ação abre sozinha.",
@@ -499,14 +499,14 @@
       },
       "auto": {
         "switch_label": "Automático",
-        "switch_titulo": "Liga o modo automático — seus lutadores atacam sozinhos com o ataque normal. Pra usar poder, desliga e volta pro manual.",
+        "switch_titulo": "Liga o modo automático — seus lutadores atacam sozinhos com o ataque normal. Pra usar talento, desliga e volta pro manual.",
         "premium_titulo": "Modo automático é vantagem de assinante — toque pra assinar",
         "sair": "Sair do automático"
       },
       "multidao": {
         "switch_label": "Briga em Multidão",
         "switch_titulo": "Liga a Briga em Multidão — cada rodada resolve de uma vez, mas continua turno a turno",
-        "poderes_titulo": "Poderes da rodada",
+        "poderes_titulo": "Talentos da rodada",
         "avancar_rodada": "AVANÇAR RODADA",
         "resolvendo": "Rolando os dados da rodada...",
         "usar_item": "Usar item nesta rodada (abre mão do ataque)",
@@ -515,14 +515,14 @@
       "multidao_tutorial": {
         "interruptor": "Esse interruptor liga o modo Multidão: em vez de golpe a golpe, cada rodada resolve todo mundo de uma vez.",
         "alvo_automatico": "No automático, sua tropa sempre foca o inimigo mais perto de cair — bom pra limpar um bando grande rápido.",
-        "avancar": "Toca em AVANÇAR RODADA quando tiver pronto. Dá pra trocar poder ou marcar item antes, e o interruptor liga/desliga quando cê quiser."
+        "avancar": "Toca em AVANÇAR RODADA quando tiver pronto. Dá pra trocar talento ou marcar item antes, e o interruptor liga/desliga quando cê quiser."
       },
       "attr_labels": {
         "F": "Força",
-        "H": "Habilidade",
+        "H": "Malícia",
         "R": "Resistência",
-        "A": "Ataque",
-        "D": "Defesa",
+        "A": "Veneno",
+        "D": "Couro",
         "PV": "Osso",
         "PM": "Gás",
         "PdF": "Poder Elemental"
@@ -663,8 +663,8 @@
         "save_error": "Não foi possível salvar o lutador. Tente novamente.",
         "need_two": "Você tem {n} lutador na gangue. Pra entrar na briga precisa de 2 — recrute mais um.",
         "select_two": "Selecione 2 lutadores pra batalha (você marcou {n}).",
-        "equipar_titulo": "Poderes por equipar",
-        "equipar_corpo": "{nomes} tem poder ativo comprado mas não equipado. Em batalha, sem equipar, só dá pra usar o ataque normal. Cada lutador leva até 2 poderes — dá pra montar diferente por confronto.",
+        "equipar_titulo": "Talentos por equipar",
+        "equipar_corpo": "{nomes} tem talento ativo comprado mas não equipado. Em batalha, sem equipar, só dá pra usar o ataque normal. Cada lutador leva até 2 talentos — dá pra montar diferente por confronto.",
         "equipar_agora": "Equipar agora",
         "equipar_depois": "Entrar assim mesmo"
       },
