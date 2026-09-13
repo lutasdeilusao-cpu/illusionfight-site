@@ -480,8 +480,8 @@
         "bolinha": "Esa bolita flotante es donde actúas ahora. Tócala: ATACAR resuelve al instante gratis, TALENTO gasta PM (o PV) pero pega más fuerte, e ITEM va a mostrar tus objetos cuando tengas alguno."
       },
       "alvo_tutorial": {
-        "verde": "Los puntos que brillan en el mapa son tu objetivo — camina hasta ahí y la acción se abre sola.",
-        "azul": "¿Viste que se puso azul? Es una pelea que ya ganaste — no significa que no puedas repetirla, vuelve cuando quieras."
+        "farol": "Fijate en el color de los puntos: rojo es obligatorio pra abrir el camino, amarillo es opcional (no traba nada, pero da plata o un objeto). Camina hasta ahí y la acción se abre sola.",
+        "feito": "¿Se puso verde? Ya está resuelto. Si era una pelea repetible, todavía podés volver y pelear de nuevo las veces que quieras."
       },
       "ko_tutorial": {
         "aliado": "¿Cayó un aliado? Se queda fuera el resto de la pelea, pero el resto de tu banda sigue peleando. Ojo con el PV de todos."

@@ -22,12 +22,31 @@ export function GangMarker({ player, facing, gangName, retrato }) {
   </motion.div>
 }
 
+// Farol universal de status (pedido do Isaias, 13/09/2026 — "vermelho = não
+// enfrentou, amarelo = opcional, verde = já enfrentou"): substitui a cor do
+// território + o azul de farm nos pontos de CONTEÚDO por um status
+// autoexplicativo, sem precisar de tutorial pra ensinar a paleta. Não se
+// aplica a navegação (porta/saída/volta/passagem) nem ao chefe — esses
+// mantêm a identidade visual própria (neutro/território pra nav, vermelho
+// escuro dedicado pro showdown final). Treta repetível já vencida 1x nunca
+// vira estado `'resolvido'` de propósito (fica sempre `'disponivel'` pra
+// continuar farmável — ver `estadoPoi`/`estadoInternoPoi` em
+// ganguesCenaMotor.js); é o `farmCompleto` que sinaliza "já venceu, mas pode
+// repetir", e por isso conta como "feito" (verde) aqui também.
+function farolDe(p) {
+  if (p.ehPorta || p.ehSaida || p.ehVolta || p.ehPassagem || p.ehChefe) return ''
+  if (p.estado === 'resolvido' || p.farmCompleto) return 'is-feito'
+  if (p.estado !== 'disponivel') return ''
+  return p.opcional ? 'is-opcional' : 'is-obrigatorio'
+}
+
 // Zona de interação (retângulo invisível em volta do pino) — acende quando o
 // jogador está perto o bastante pra interagir.
 export function EntryZone({ poi, active }) {
   const z = poi.zona
   if (!z || poi.estado === 'trancado' || poi.estado === 'resolvido') return null
-  return <div className={`gang-world-entry${active ? ' is-active' : ''}${poi.farmCompleto ? ' is-farm-completo' : ''}${poi.ehPorta || poi.ehSaida || poi.ehVolta || poi.ehPassagem ? ' is-porta' : ''}`} style={{ left: z.x, top: z.y, width: z.w, height: z.h }} />
+  const farol = farolDe(poi)
+  return <div className={`gang-world-entry${active ? ' is-active' : ''}${farol ? ` ${farol}` : ''}${poi.ehPorta || poi.ehSaida || poi.ehVolta || poi.ehPassagem ? ' is-porta' : ''}`} style={{ left: z.x, top: z.y, width: z.w, height: z.h }} />
 }
 
 const ICONE = { treta: '✊', parada: '🔧', papo: '●', corre: '!', achado: '◆', descanso: '☕', loja: '🏪' }
@@ -42,7 +61,7 @@ export function PinoAlvo({ p, t }) {
     : p.ehVolta ? t('games.gangues.cena.acao.voltar')
     : p.ehPassagem ? (p.estado === 'trancado' ? t('games.gangues.cena.acao.trancado') : t(`games.gangues.cena.acao.${p.label || 'avancar'}`))
     : (p.i18n ? t(`${p.i18n}.nome`) : '')
-  return <div className={`gang-world-npc is-${p.estado} ${p.ehChefe ? 'is-boss' : ''} ${p.farmCompleto ? 'is-farm' : ''} ${p.ehPorta || p.ehSaida || p.ehVolta || p.ehPassagem ? 'is-nav' : ''}`} style={{ left: p.world.x, top: p.world.y }}>
+  return <div className={`gang-world-npc is-${p.estado} ${farolDe(p)} ${p.ehChefe ? 'is-boss' : ''} ${p.farmCompleto ? 'is-farm' : ''} ${p.ehPorta || p.ehSaida || p.ehVolta || p.ehPassagem ? 'is-nav' : ''}`} style={{ left: p.world.x, top: p.world.y }}>
     <span>{icone}</span>
     {p.estado !== 'trancado' || p.ehPassagem || p.ehChefe ? <small>{nome}</small> : null}
     {p.farmCompleto && <i className="gang-world-npc-farm-tag" aria-hidden="true">↻</i>}

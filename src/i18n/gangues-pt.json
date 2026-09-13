@@ -480,8 +480,8 @@
         "bolinha": "Aquela bolinha flutuante é onde você age agora. Toque nela: ATACAR resolve na hora sem custo, TALENTO gasta PM (ou PV) mas causa mais efeito, e ITEM vai mostrar seus itens quando você tiver algum."
       },
       "alvo_tutorial": {
-        "verde": "Os pontos que acendem na cor da área são teu alvo — anda até lá que a ação abre sozinha.",
-        "azul": "Reparou que ficou azul? É treta que cê já bateu — mas pode voltar quando quiser, dá pra farmar à vontade."
+        "farol": "Repara na cor dos pontos: vermelho é obrigatório pra abrir o caminho, amarelo é opcional (não trava nada, mas rende grana ou item). Anda até lá que a ação abre sozinha.",
+        "feito": "Ficou verde? Já tá resolvido. Se era treta repetível, ainda dá pra voltar e brigar de novo à vontade pra farmar."
       },
       "ko_tutorial": {
         "aliado": "Caiu um aliado? Ele para de agir até a luta acabar, mas o resto da tropa segue brigando. Fica de olho no PV de todo mundo."

@@ -480,8 +480,8 @@
         "bolinha": "That floating orb is where you act now. Tap it: ATTACK resolves instantly for free, TALENT costs PM (or PV) but hits harder, and ITEM will show your items once you have any."
       },
       "alvo_tutorial": {
-        "verde": "Those glowing spots on the map are your targets — walk up to one and the action opens on its own.",
-        "azul": "Noticed it turned blue? That's a fight you already won — doesn't mean you can't run it back, farm it whenever you want."
+        "farol": "Check the color of the markers: red is mandatory to clear the path, yellow is optional (skips nothing, but pays out cash or an item). Walk up to one and the action opens on its own.",
+        "feito": "Turned green? Already handled. If it was a repeatable fight, you can still go back and run it again to grind."
       },
       "ko_tutorial": {
         "aliado": "An ally went down? They're out for the rest of the fight, but the rest of your crew keeps swinging. Keep an eye on everyone's PV."
