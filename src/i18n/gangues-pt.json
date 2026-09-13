@@ -793,7 +793,7 @@
         "territorios": {
           "pista": {
             "nome": "A Pista",
-            "desc": "O asfalto lá embaixo, cru. Cria correndo atrás de corrente, vendendo bala, virando os olho pra tudo. A Rato de Pista sem sonho grande, o Bonde do Sinal fazendo dinheiro com informação. Ninguém de peso ainda — mas todo dono de bandeira já pisou aqui primeiro. O Retalho pisou. O Alan pisou, noutro canto. Agora é tua vez."
+            "desc": "O asfalto lá embaixo, cru. Cria correndo atrás de corrente, vendendo bala, virando os olho pra tudo. A Rato de Pista sem sonho grande, o Bonde do Sinal fazendo dinheiro com informação. Ninguém de peso ainda — mas todo dono de bandeira já pisou aqui primeiro. O Retalho pisou. Um moleque chamado Alan também vai pisar, mais pra frente — só que a vez dele ainda nem chegou. Agora é tua vez."
           },
           "feira": {
             "nome": "A Feira",
@@ -968,7 +968,7 @@
           },
           "chegada": [
             "Essa aqui é a Pista, cria. O asfalto lá embaixo — a raiz de tudo.",
-            "Todo mundo que é alguém hoje começou raspando o chão aqui. O Retalho começou. O Alan, noutro canto, também começou do zero igual cê. Agora é a tua vez de provar que não é só mais um.",
+            "Todo mundo que é alguém hoje começou raspando o chão aqui. O Retalho começou. Um moleque chamado Alan também vai começar assim, noutro canto — só que a vez dele ainda nem chegou. Agora é a tua vez de provar que não é só mais um.",
             "Toma os ponto da molecada, faz teu nome correr boca a boca. Quando a Pista inteira souber que cê existe, o Carvão desce do breu pra te encarar de frente — e aí sim cê descobre se tem estofo.",
             "Bora. Toca em tudo que tiver acendendo."
           ],

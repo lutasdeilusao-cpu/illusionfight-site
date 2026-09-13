@@ -3896,7 +3896,7 @@
         "territorios": {
           "pista": {
             "nome": "La Pista",
-            "desc": "El asfalto crudo de abajo. Pibes corriendo atrás de cadenas, vendiendo chicle, con el ojo en todo. La Rato de Pista sin sueños grandes, el Bonde do Sinal haciendo plata con información. Nadie de peso todavía — pero todo dueño de bandera pisó acá primero. El Retazo pisó. Alan pisó, en otro rincón. Ahora es tu turno."
+            "desc": "El asfalto crudo de abajo. Pibes corriendo atrás de cadenas, vendiendo chicle, con el ojo en todo. La Rato de Pista sin sueños grandes, el Bonde do Sinal haciendo plata con información. Nadie de peso todavía — pero todo dueño de bandera pisó acá primero. El Retazo pisó. Un pibe llamado Alan también va a pisar, más adelante — solo que a él todavía no le tocó. Ahora es tu turno."
           },
           "feira": {
             "nome": "La Feria",
@@ -4071,7 +4071,7 @@
           },
           "chegada": [
             "Esta es la Pista, pibe. El asfalto de abajo — la raíz de todo.",
-            "Todo el que hoy es alguien empezó rasguñando este piso. El Retazo empezó acá. Alan, en otro lado, también arrancó de cero como vos. Ahora te toca demostrar que no sos uno más.",
+            "Todo el que hoy es alguien empezó rasguñando este piso. El Retazo empezó acá. Un pibe llamado Alan también va a arrancar así, en otro lado — solo que a él todavía no le tocó. Ahora te toca demostrar que no sos uno más.",
             "Tomá los puntos de la pibada, hacé correr tu nombre boca a boca. Cuando toda la Pista sepa que existís, Carbón baja de la oscuridad a encararte de frente — ahí vas a saber si tenés madera.",
             "Dale. Tocá todo lo que se prenda."
           ],

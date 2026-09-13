@@ -3896,7 +3896,7 @@
         "territorios": {
           "pista": {
             "nome": "The Track",
-            "desc": "The raw asphalt down below. Kids chasing chains, selling gum, eyes everywhere. Rato de Pista with no big dreams, Bonde do Sinal cashing in on information. Nobody heavy yet — but every flag holder walked here first. The Patchwork did. Alan did, elsewhere. Now it's your turn."
+            "desc": "The raw asphalt down below. Kids chasing chains, selling gum, eyes everywhere. Rato de Pista with no big dreams, Bonde do Sinal cashing in on information. Nobody heavy yet — but every flag holder walked here first. The Patchwork did. A kid named Alan will walk it too, somewhere else — his turn just hasn't come yet. Now it's your turn."
           },
           "feira": {
             "nome": "The Market",
@@ -4071,7 +4071,7 @@
           },
           "chegada": [
             "This is the Pista, kid. The asphalt down below — the root of it all.",
-            "Everybody worth something today crawled on this ground first. The Patchwork started here. Alan, elsewhere, started from zero just like you. Now it's your turn to prove you're not just another face.",
+            "Everybody worth something today crawled on this ground first. The Patchwork started here. A kid named Alan is going to start the same way, somewhere else — his turn just hasn't come yet. Now it's your turn to prove you're not just another face.",
             "Take the kids' spots, get your name running mouth to mouth. When the whole Pista knows you exist, Coal comes down out of the dark to face you — and that's when you find out if you've got what it takes.",
             "Move. Touch whatever's lighting up."
           ],
