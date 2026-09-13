@@ -19,7 +19,14 @@ function marcarVisto(saveId) { try { localStorage.setItem(`${TUTORIAL_KEY}:${sav
 export default function GanguesKoTutorial({ koSide }) {
   const { t } = useLanguage()
   const saveId = useGanguesStore(s => s._saveId)
-  const [elegivel] = useState(() => !jaViu(saveId))
+  // Começa NÃO elegível (não "não visto" direto) e só confirma depois que
+  // `saveId` estabiliza — ver nota igual em GanguesMultidaoTutorial.jsx (race
+  // de F5: `_saveId` podia ainda não ter hidratado no 1º render; aqui a
+  // consequência seria pior que nas outras dicas — `elegivel` ficaria preso
+  // em `true` mesmo pra quem já viu, já que checar sob a chave errada
+  // `guest` sempre dá "não visto").
+  const [elegivel, setElegivel] = useState(false)
+  useEffect(() => { setElegivel(!jaViu(saveId)) }, [saveId])
   const [mostrando, setMostrando] = useState(false)
 
   useEffect(() => {

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useLanguage } from '../../../../context/LanguageContext'
 import { useGanguesStore } from '../store/useGanguesStore'
 import GangTip from './GangTip'
@@ -41,7 +41,12 @@ const PASSOS = [
 export default function GanguesCombatTutorial() {
   const { t } = useLanguage()
   const saveId = useGanguesStore(s => s._saveId)
-  const [visto] = useState(() => jaViu(saveId))
+  // Começa "já visto" e corrige assim que `saveId` estabiliza — ver nota
+  // igual em GanguesMultidaoTutorial.jsx (race de F5: `_saveId` podia ainda
+  // não ter hidratado no 1º render, e o `useState` preguiçoso não reavalia
+  // sozinho depois).
+  const [visto, setVisto] = useState(true)
+  useEffect(() => { setVisto(jaViu(saveId)) }, [saveId])
   const [passo, setPasso] = useState(0)
   const [fechado, setFechado] = useState(false)
 

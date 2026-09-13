@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useLanguage } from '../../../../../context/LanguageContext'
 import { useGanguesStore } from '../../store/useGanguesStore'
 import GangTip from '../GangTip'
@@ -23,8 +23,16 @@ function marcarVisto(key, saveId) { try { localStorage.setItem(`${key}:${saveId 
 export default function GanguesAlvoTutorial({ alvos }) {
   const { t } = useLanguage()
   const saveId = useGanguesStore(s => s._saveId)
-  const [vistoVerde, setVistoVerde] = useState(() => jaViu(KEY_VERDE, saveId))
-  const [vistoAzul, setVistoAzul] = useState(() => jaViu(KEY_AZUL, saveId))
+  // Começa "já visto" (os dois) e corrige assim que `saveId` estabiliza — ver
+  // nota igual em GanguesMultidaoTutorial.jsx (race de F5: `_saveId` podia
+  // ainda não ter hidratado no 1º render, e o `useState` preguiçoso não
+  // reavalia sozinho depois — mostrava de novo pra quem já tinha visto).
+  const [vistoVerde, setVistoVerde] = useState(true)
+  const [vistoAzul, setVistoAzul] = useState(true)
+  useEffect(() => {
+    setVistoVerde(jaViu(KEY_VERDE, saveId))
+    setVistoAzul(jaViu(KEY_AZUL, saveId))
+  }, [saveId])
 
   if (!alvos?.length) return null
 

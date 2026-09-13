@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.280.122' // fix: "Veneno" (Ataque) não soou legal pro Isaias - trocado por Porrada (gíria de rua mais direta pra pancada/força de briga). Adaptação por idioma: en Wallop, es Trompada. Habilidade/Malícia, Defesa/Couro e Poderes/Talento(s) ficaram como estavam.
+export const SITE_VERSION = '10.280.123' // fix: LDI Gangues - reforço nos 6 tutoriais "só 1x por save" (combate, Multidão, alvo verde/azul, descanso, Clube da Luta, dica de XP, aviso de KO) contra uma corrida de hidratação. Isaias reportou um tutorial reaparecendo 1x isolada num F5 (não repetiu depois). Causa possível: cada um checava "já vi isso?" com um useState PREGUIÇOSO que só roda 1x na montagem - se `_saveId` ainda não tivesse hidratado nesse exato instante, o check rodava sob a chave errada (`guest`) e travava nesse valor pra sempre (useState preguiçoso não reavalia sozinho depois). Não consegui confirmar 100% esse mecanismo pro caso relatado (a navegação normal já fixa `_saveId` antes da tela de cena montar), mas o padrão em si era frágil de qualquer jeito - trocado por um efeito que reavalia sempre que `_saveId` muda, começando "já visto" por padrão (evita pipocar o tutorial errado enquanto ainda não confirmou).
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '2.75.46' // fix: atributo Ataque renomeado de Veneno pra Porrada (Isaias achou Veneno sem graça) - en Venom->Wallop, es Veneno->Trompada. attr_labels.A, bonus_ataque e skill_desc.atk_flat atualizados nos 3 idiomas.
+export const GANGUES_VERSION   = '2.75.47' // fix: os 6 tutoriais "só 1x por save" (GanguesCombatTutorial, GanguesMultidaoTutorial, GanguesAlvoTutorial x2, GanguesDescansoTutorial/GanguesClubeTutorial, GanguesVictoryReport xpTip, GanguesKoTutorial) trocaram o check "já visto" de useState preguiçoso (roda 1x na montagem, não reavalia) pra um efeito que reage a mudança de `_saveId` - protege contra qualquer corrida de hidratação onde o saveId ainda não tava pronto no 1º render.
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
 export const MINIGAMES_VERSION = '4.3.6'  // PuzzleStealthGrid: d-pad na tela sempre (mobile tambem) + grade nao vaza mais do viewport

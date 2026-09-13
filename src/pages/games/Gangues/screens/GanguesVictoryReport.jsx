@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { getGanguesCharacter, eventosDoNivel } from '../data/ganguesCharacters.js'
 import { combatantName, eventosDoLevelUp } from '../engine/ganguesVictoryResolver.js'
@@ -21,7 +21,12 @@ export default function GanguesVictoryReport({
   t, store, report, victory, torre, cenaChefe, noModoHistoria, storyAlvo,
   podeRecrutar, recrutar, levelUps, clearLevelUps, rewardSummary, onNavigate,
 }) {
-  const [xpTipVisto, setXpTipVisto] = useState(() => jaViuXp(store._saveId))
+  // Começa "já visto" e corrige assim que `_saveId` estabiliza — ver nota
+  // igual em GanguesMultidaoTutorial.jsx (race de F5: `_saveId` podia ainda
+  // não ter hidratado no 1º render, e o `useState` preguiçoso não reavalia
+  // sozinho depois — mostrava de novo pra quem já tinha visto).
+  const [xpTipVisto, setXpTipVisto] = useState(true)
+  useEffect(() => { setXpTipVisto(jaViuXp(store._saveId)) }, [store._saveId])
   const fecharXpTip = () => { marcarXpVisto(store._saveId); setXpTipVisto(true) }
   const attacks = report.entries.filter(entry => entry.kind === 'attack_card')
   const playerDamage = attacks.filter(entry => entry.side === 'player').reduce((sum, entry) => sum + entry.dmg, 0)

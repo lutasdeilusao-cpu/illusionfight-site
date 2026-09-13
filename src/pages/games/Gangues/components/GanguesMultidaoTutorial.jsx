@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useLanguage } from '../../../../context/LanguageContext'
 import { useGanguesStore } from '../store/useGanguesStore'
 import GangTip from './GangTip'
@@ -28,7 +28,15 @@ const PASSOS = ['interruptor', 'alvo_automatico', 'avancar']
 export default function GanguesMultidaoTutorial() {
   const { t } = useLanguage()
   const saveId = useGanguesStore(s => s._saveId)
-  const [visto] = useState(() => jaViu(saveId))
+  // Começa assumindo "já visto" (não `jaViu(saveId)` direto) — no 1º render
+  // depois de um F5 dentro do jogo, `_saveId` ainda pode não ter terminado
+  // de hidratar; um `useState` preguiçoso travaria nesse valor pra sempre
+  // (não reavalia sozinho) e podia reabrir o tutorial de quem já viu, sob a
+  // chave errada (`guest` em vez do save de verdade). Corrige assim que
+  // `saveId` estabiliza. Achado 13/09/2026 — Isaias viu o tutorial reaparecer
+  // 1x isolada num F5, sem repetir depois.
+  const [visto, setVisto] = useState(true)
+  useEffect(() => { setVisto(jaViu(saveId)) }, [saveId])
   const [passo, setPasso] = useState(0)
   const [fechado, setFechado] = useState(false)
 
