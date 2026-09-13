@@ -291,7 +291,22 @@ export default function GanguesCena({ onNavigate }) {
       <ul>{metas.map(m => <li key={m.id} className={m.feito ? 'is-feito' : ''}><span>{m.feito ? '✓' : '○'}</span>{m.nome}</li>)}</ul>
       <p>{t(baseFeita ? (prog.boss ? 'games.gangues.cena.checklist_dominada' : 'games.gangues.cena.checklist_tunel_aberto') : 'games.gangues.cena.checklist_dica')}</p>
     </motion.div>}</AnimatePresence>
-    <div className="gang-cena-viewport" ref={viewportRef}><div className="gang-cena-world" style={{ width: W.w, height: W.h, transform: `translate3d(${-camX}px,${-camY}px,0)` }}>
+    <div className="gang-cena-viewport" ref={viewportRef}>
+    {/* key=local, igual o GangMarker logo abaixo: `.gang-cena-world` tem
+        `transition:transform .11s` (CSS, pra suavizar a câmera acompanhando
+        o passo a passo normal DENTRO do mesmo espaço). Sem essa key, trocar
+        de local (rua↔interior) só muda `camX/camY` num elemento que
+        continua vivo — o navegador anima essa transição normalmente,
+        varrendo a câmera pela tela toda entre dois espaços de coordenada
+        incompatíveis (cômodo pequeno vs WORLD gigante da rua), o mesmo
+        glitch de "lançado num lugar aleatório antes de assentar" que o
+        GangMarker já tinha (ver nota abaixo) — só que na câmera em vez do
+        boneco. Isaias reportou de novo em 13/09/2026 achando que era a
+        MESMA regressão; na verdade nunca tinha sido corrigido aqui, só no
+        marcador. Forçar remontagem via key evita o navegador ter um valor
+        anterior pra transicionar (elemento novo já nasce no transform
+        final), sem tocar a suavização do passo a passo normal. */}
+    <div key={local ? `${local.id}-${local.comodo}` : 'rua'} className="gang-cena-world" style={{ width: W.w, height: W.h, transform: `translate3d(${-camX}px,${-camY}px,0)` }}>
       {local ? <CenaInterior amb={amb} /> : <CenaCenario cena={cena} bossAberto={baseFeita || muroAberto} muroAberto={muroAberto} />}
       {(amb?.alvos || []).map(p => <EntryZone key={`zone-${p.id}`} poi={p} active={perto?.id === p.id} />)}
       {(amb?.alvos || []).map(p => <PinoAlvo key={p.id} p={p} t={t} />)}

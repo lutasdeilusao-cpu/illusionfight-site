@@ -12,6 +12,13 @@ export default function useGanguesCenaEventoAleatorio({ store, t, cena, localRef
   // (~140 passos), teto de 2 por visita, roll baixinho por passo. E só libera
   // quando o jogador tem ALGUÉM nível 6+ — antes disso o bando do evento
   // massacra (o Carvão já exige L8 pra bater confortável).
+  // Ajuste 13/09/2026 (Isaias: "tá aparecendo muito, muito mesmo"): o roll
+  // roda a cada TICK de movimento (STEP_MS=110ms), não a cada "passo" no
+  // sentido de tile andado — 0.012 por tick dava média de só ~9s de
+  // caminhada contínua pra disparar (1/0.012 ticks × 110ms), bem mais
+  // frequente do que "raro" sugere. Caído pra 0.0022 (~1/0.0022 ticks × 110ms
+  // ≈ 45s de média) — ainda pode surpreender numa caminhada longa, mas não
+  // interrompe o passeio a cada 10 segundos.
   const podeEvento = useMemo(() => store.roster.some(m => getGanguesLevelFromXp(m.xp_total ?? 0) >= 6), [store.roster])
   const eventoStepRef = useRef(0), eventosDadosRef = useRef(0)
 
@@ -37,7 +44,7 @@ export default function useGanguesCenaEventoAleatorio({ store, t, cena, localRef
     if (localRef.current || encontro || fade || intro || !podeEvento) return
     if (passosRef.current < 60 || eventosDadosRef.current >= 2) return
     if (passosRef.current - eventoStepRef.current < 140) return
-    if (Math.random() >= 0.012) return
+    if (Math.random() >= 0.0022) return
     eventoStepRef.current = passosRef.current; eventosDadosRef.current++
     const raw = t(`games.gangues.cena.${cena.id}.evento.fala`)
     sfx.select?.()
