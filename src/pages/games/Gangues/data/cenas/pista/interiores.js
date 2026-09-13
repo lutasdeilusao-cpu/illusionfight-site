@@ -23,9 +23,17 @@ export const INTERIORES_PISTA = {
       // pro raio do jogador passar sem trombar na parede. Isaias reportou
       // "ficar travado, só passa numa posição certinha" (2026-09-12).
       saida: { x: 150, y: 300, w: 160, h: 20 },
+      // Os dois cantos de baixo (fora do vão da porta) NÃO precisam de um
+      // colisor tão alto quanto a parede visual: o próprio limite do mundo
+      // (stepPlayer clampa em h-24) já impede sair do cômodo por ali. Um
+      // colisor até y:292 SOMA seu raio (18px) e travava o jogador ~40px
+      // acima do fundo real da sala — um "chão fantasma" que parecia andável
+      // mas não era (Isaias reportou e marcou print, 2026-09-13). O colisor
+      // agora só cobre a franja mínima pra não abrir espaço extra além do
+      // limite natural do mundo.
       colliders: [
         { x: 0, y: 0, w: 460, h: 30 }, { x: 0, y: 0, w: 14, h: 320 }, { x: 446, y: 0, w: 14, h: 320 },
-        { x: 0, y: 292, w: 150, h: 28 }, { x: 310, y: 292, w: 150, h: 28 },
+        { x: 0, y: 314, w: 150, h: 10 }, { x: 310, y: 314, w: 150, h: 10 },
         { x: 108, y: 66, w: 244, h: 40 }, // balcão
       ],
       cenario: [
@@ -54,7 +62,8 @@ export const INTERIORES_PISTA = {
       saida: { x: 140, y: 280, w: 160, h: 20 },
       colliders: [
         { x: 0, y: 0, w: 440, h: 28 }, { x: 0, y: 0, w: 14, h: 300 }, { x: 426, y: 0, w: 14, h: 300 },
-        { x: 0, y: 272, w: 140, h: 28 }, { x: 300, y: 272, w: 140, h: 28 },
+        // Cantos de baixo: ver nota em INTERIORES_PISTA.birosca.comodos[0].colliders.
+        { x: 0, y: 294, w: 140, h: 10 }, { x: 300, y: 294, w: 140, h: 10 },
         { x: 100, y: 58, w: 240, h: 40 }, // balcão
       ],
       cenario: [
@@ -78,7 +87,8 @@ export const INTERIORES_PISTA = {
       saida: { x: 130, y: 280, w: 160, h: 20 },
       colliders: [
         { x: 0, y: 0, w: 420, h: 28 }, { x: 0, y: 0, w: 14, h: 300 }, { x: 406, y: 0, w: 14, h: 300 },
-        { x: 0, y: 272, w: 130, h: 28 }, { x: 290, y: 272, w: 130, h: 28 },
+        // Cantos de baixo: ver nota em INTERIORES_PISTA.birosca.comodos[0].colliders.
+        { x: 0, y: 294, w: 130, h: 10 }, { x: 290, y: 294, w: 130, h: 10 },
         { x: 90, y: 60, w: 240, h: 44 }, // bancada
       ],
       cenario: [
@@ -98,7 +108,8 @@ export const INTERIORES_PISTA = {
       saida: { x: 140, y: 300, w: 160, h: 20 },
       colliders: [
         { x: 0, y: 0, w: 440, h: 28 }, { x: 0, y: 0, w: 14, h: 320 }, { x: 426, y: 0, w: 14, h: 320 },
-        { x: 0, y: 292, w: 140, h: 28 }, { x: 300, y: 292, w: 140, h: 28 },
+        // Cantos de baixo: ver nota em INTERIORES_PISTA.birosca.comodos[0].colliders.
+        { x: 0, y: 314, w: 140, h: 10 }, { x: 300, y: 314, w: 140, h: 10 },
         { x: 96, y: 70, w: 250, h: 40 }, // caixa
         { x: 20, y: 140, w: 80, h: 120 }, { x: 340, y: 140, w: 80, h: 120 }, // prateleiras
       ],
@@ -127,7 +138,8 @@ export const INTERIORES_PISTA = {
         saida: { x: 110, y: 302, w: 160, h: 20 }, // volta pra rua (lado de cá)
         colliders: [
           { x: 0, y: 0, w: 380, h: 28 }, { x: 0, y: 0, w: 34, h: 340 }, { x: 346, y: 0, w: 34, h: 340 },
-          { x: 0, y: 294, w: 110, h: 46 }, { x: 270, y: 294, w: 110, h: 46 },
+          // Cantos de baixo: ver nota em INTERIORES_PISTA.birosca.comodos[0].colliders.
+          { x: 0, y: 334, w: 110, h: 10 }, { x: 270, y: 334, w: 110, h: 10 },
           { x: 40, y: 70, w: 70, h: 60 }, // entulho/escombro
         ],
         cenario: [{ tipo: 'chao-tunel' }, { tipo: 'escombro', x: 75, y: 100 }, { tipo: 'lampada-tunel', x: 190, y: 40 }],
@@ -158,7 +170,10 @@ export const INTERIORES_PISTA = {
         // INTERIORES_PISTA.birosca.comodos[0].saida.
         saida: { x: 110, y: 30, w: 160, h: 22, paraPredio: 'tunel_sai' },
         colliders: [
-          { x: 0, y: 0, w: 110, h: 46 }, { x: 270, y: 0, w: 110, h: 46 },
+          // Cantos de cima (espelhado — o vão aqui fica no topo): mesmo motivo
+          // da nota em INTERIORES_PISTA.birosca.comodos[0].colliders, só que
+          // o limite natural do mundo aqui é y:20 (topo), não h-24.
+          { x: 0, y: 0, w: 110, h: 2 }, { x: 270, y: 0, w: 110, h: 2 },
           { x: 0, y: 0, w: 34, h: 340 }, { x: 346, y: 0, w: 34, h: 340 }, { x: 0, y: 312, w: 380, h: 28 },
           { x: 260, y: 80, w: 70, h: 60 },
         ],
@@ -184,7 +199,8 @@ export const INTERIORES_PISTA = {
         saida: { x: 160, y: 320, w: 160, h: 20 },
         colliders: [
           { x: 0, y: 0, w: 480, h: 30 }, { x: 0, y: 0, w: 14, h: 340 }, { x: 466, y: 0, w: 14, h: 340 },
-          { x: 0, y: 312, w: 160, h: 28 }, { x: 320, y: 312, w: 160, h: 28 },
+          // Cantos de baixo: ver nota em INTERIORES_PISTA.birosca.comodos[0].colliders.
+          { x: 0, y: 334, w: 160, h: 10 }, { x: 320, y: 334, w: 160, h: 10 },
           { x: 40, y: 90, w: 90, h: 70 }, { x: 360, y: 200, w: 90, h: 70 }, // caixotes/empilhadeira
         ],
         cenario: [
