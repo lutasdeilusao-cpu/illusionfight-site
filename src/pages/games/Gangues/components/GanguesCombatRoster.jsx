@@ -1,3 +1,4 @@
+import { forwardRef } from 'react'
 import { getGanguesProgression, ganguesXpMaxForSheet } from '../data/ganguesLoadout.js'
 import { fighterName } from '../engine/ganguesCombatPresentation.js'
 import { getGanguesPortraitByTemplateId } from '../data/ganguesPortraits.js'
@@ -11,9 +12,9 @@ import { getGanguesPortraitByTemplateId } from '../data/ganguesPortraits.js'
 // já agiu, ou fora da sua vez) — sem precisar de botãozinho separado
 // pequeno demais pra tocar no celular.
 // Extraído de GanguesCombat.jsx (PLANO_REFATORACAO_ARQUIVOS_GRANDES_GANGUES_2026-09-11.md §6).
-export default function GanguesCombatRoster({ members, side, selectable, selectedKey, onSelect, actingKey, onAbrirFicha, dmgPops, t }) {
+const GanguesCombatRoster = forwardRef(function GanguesCombatRoster({ members, side, selectable, selectedKey, onSelect, actingKey, onAbrirFicha, dmgPops, t }, ref) {
   return (
-    <div className={`gang-roster gang-roster--${side}`}>
+    <div ref={ref} className={`gang-roster gang-roster--${side}`}>
       {members.map(member => {
         const dead = member.pv <= 0
         const acted = side === 'player' && member.actedThisRound
@@ -76,4 +77,6 @@ export default function GanguesCombatRoster({ members, side, selectable, selecte
       })}
     </div>
   )
-}
+})
+
+export default GanguesCombatRoster

@@ -96,8 +96,14 @@ export default function GanguesCena({ onNavigate }) {
     if (prog.resolvidos.ferro && !prog.resolvidos.oficina) {
       // Oficina do Nando é OBRIGATÓRIA pro portão e só fecha com 2× sucata
       // (item 13) — 1 no puzzle do ferro-velho, 1 no fundo dele (`achado`).
-      // Se o jogador só tem 1, aponta pro achado (senão a oficina trava tudo).
-      setHint(t((store.inventario?.[13] || 0) >= 2 ? 'games.gangues.cena.hint_sucata' : 'games.gangues.cena.hint_sucata_falta')); return
+      // Se o jogador só tem 1, aponta pro achado — MAS só enquanto o achado
+      // ainda existir pra pegar. Se falhou a gazua (perdeu aquele pedaço pra
+      // sempre) e já pegou o achado, não sobra fonte nenhuma: apontar de
+      // novo pro "fundo do ferro-velho" (que ele já esvaziou) é mentira —
+      // era exatamente o bug reportado pelo Isaias (13/09/2026).
+      if ((store.inventario?.[13] || 0) >= 2) { setHint(t('games.gangues.cena.hint_sucata')); return }
+      if (!prog.resolvidos.achado) { setHint(t('games.gangues.cena.hint_sucata_falta')); return }
+      setHint(null); return
     }
     setHint(null)
   }, [intro, encontro, andou, perto, prog.resolvidos, local, t, store.inventario])
@@ -225,8 +231,15 @@ export default function GanguesCena({ onNavigate }) {
     if (r.rep) store.ganharRep(r.rep)
     if (r.item) store.darItem(r.item, r.qtd || 1)
     if (r.grana || r.rep || r.xp || r.item || res?.daEquip?.length) { setToast(r); setTimeout(() => setToast(null), 2600) }
-    if (!poi.repetivel) store.marcarPoiResolvido(cena.id, poi.id, res?.revela || poi.revela || [])
-    else if (res?.revela) store.revelarPoi(cena.id, res.revela)
+    // marcarPoiResolvido também pra papo repetível (ex: Duda/informante) —
+    // não trava a interação de novo (estadoPoi trata repetível como sempre
+    // disponível), só liga farmCompleto (pino vira azul, igual treta
+    // repetível já vencida) pra sinalizar "já conversei com esse aqui".
+    // Antes só marcava POI não-repetível; papo repetível ficava verde pra
+    // sempre mesmo depois de conversar, porque nada chamava
+    // marcarPoiResolvido nesse caminho (pedido do Isaias, 13/09/2026: "verde
+    // é o que precisa visitar, azul é o que já está visitado").
+    store.marcarPoiResolvido(cena.id, poi.id, res?.revela || poi.revela || [])
   }
   // Território dominado NÃO fecha a cena — as tretas repetíveis (rinha) e o
   // informante moram aqui e têm que continuar alcançáveis pra sempre. Antes
