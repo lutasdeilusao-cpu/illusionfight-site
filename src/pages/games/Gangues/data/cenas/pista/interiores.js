@@ -18,10 +18,14 @@ export const INTERIORES_PISTA = {
     comodos: [{
       id: 'sala',
       world: { w: 460, h: 320 }, spawn: { x: 230, y: 236 },
-      saida: { x: 202, y: 300, w: 56, h: 20 },
+      // Porta larga (janela de passagem ~124px, ~7 colunas de grade) — antes
+      // o vão tinha só 70px, sobrando uma janela de 34px (2 colunas exatas)
+      // pro raio do jogador passar sem trombar na parede. Isaias reportou
+      // "ficar travado, só passa numa posição certinha" (2026-09-12).
+      saida: { x: 150, y: 300, w: 160, h: 20 },
       colliders: [
         { x: 0, y: 0, w: 460, h: 30 }, { x: 0, y: 0, w: 14, h: 320 }, { x: 446, y: 0, w: 14, h: 320 },
-        { x: 0, y: 292, w: 188, h: 28 }, { x: 258, y: 292, w: 202, h: 28 },
+        { x: 0, y: 292, w: 150, h: 28 }, { x: 310, y: 292, w: 150, h: 28 },
         { x: 108, y: 66, w: 244, h: 40 }, // balcão
       ],
       cenario: [
@@ -46,10 +50,11 @@ export const INTERIORES_PISTA = {
     comodos: [{
       id: 'sala',
       world: { w: 440, h: 300 }, spawn: { x: 220, y: 220 },
-      saida: { x: 194, y: 280, w: 52, h: 20 },
+      // Porta larga — ver nota em INTERIORES_PISTA.birosca.comodos[0].saida.
+      saida: { x: 140, y: 280, w: 160, h: 20 },
       colliders: [
         { x: 0, y: 0, w: 440, h: 28 }, { x: 0, y: 0, w: 14, h: 300 }, { x: 426, y: 0, w: 14, h: 300 },
-        { x: 0, y: 272, w: 182, h: 28 }, { x: 258, y: 272, w: 182, h: 28 },
+        { x: 0, y: 272, w: 140, h: 28 }, { x: 300, y: 272, w: 140, h: 28 },
         { x: 100, y: 58, w: 240, h: 40 }, // balcão
       ],
       cenario: [
@@ -69,10 +74,11 @@ export const INTERIORES_PISTA = {
     comodos: [{
       id: 'bancada',
       world: { w: 420, h: 300 }, spawn: { x: 210, y: 218 },
-      saida: { x: 184, y: 280, w: 52, h: 20 },
+      // Porta larga — ver nota em INTERIORES_PISTA.birosca.comodos[0].saida.
+      saida: { x: 130, y: 280, w: 160, h: 20 },
       colliders: [
         { x: 0, y: 0, w: 420, h: 28 }, { x: 0, y: 0, w: 14, h: 300 }, { x: 406, y: 0, w: 14, h: 300 },
-        { x: 0, y: 272, w: 172, h: 28 }, { x: 236, y: 272, w: 184, h: 28 },
+        { x: 0, y: 272, w: 130, h: 28 }, { x: 290, y: 272, w: 130, h: 28 },
         { x: 90, y: 60, w: 240, h: 44 }, // bancada
       ],
       cenario: [
@@ -88,10 +94,11 @@ export const INTERIORES_PISTA = {
     comodos: [{
       id: 'mercearia',
       world: { w: 440, h: 320 }, spawn: { x: 220, y: 236 },
-      saida: { x: 194, y: 300, w: 52, h: 20 },
+      // Porta larga — ver nota em INTERIORES_PISTA.birosca.comodos[0].saida.
+      saida: { x: 140, y: 300, w: 160, h: 20 },
       colliders: [
         { x: 0, y: 0, w: 440, h: 28 }, { x: 0, y: 0, w: 14, h: 320 }, { x: 426, y: 0, w: 14, h: 320 },
-        { x: 0, y: 292, w: 182, h: 28 }, { x: 262, y: 292, w: 178, h: 28 },
+        { x: 0, y: 292, w: 140, h: 28 }, { x: 300, y: 292, w: 140, h: 28 },
         { x: 96, y: 70, w: 250, h: 40 }, // caixa
         { x: 20, y: 140, w: 80, h: 120 }, { x: 340, y: 140, w: 80, h: 120 }, // prateleiras
       ],
@@ -116,10 +123,11 @@ export const INTERIORES_PISTA = {
       {
         id: 'boca',
         world: { w: 380, h: 340 }, spawn: { x: 190, y: 288 },
-        saida: { x: 162, y: 302, w: 56, h: 20 }, // volta pra rua (lado de cá)
+        // Porta larga — ver nota em INTERIORES_PISTA.birosca.comodos[0].saida.
+        saida: { x: 110, y: 302, w: 160, h: 20 }, // volta pra rua (lado de cá)
         colliders: [
           { x: 0, y: 0, w: 380, h: 28 }, { x: 0, y: 0, w: 34, h: 340 }, { x: 346, y: 0, w: 34, h: 340 },
-          { x: 0, y: 294, w: 150, h: 46 }, { x: 230, y: 294, w: 150, h: 46 },
+          { x: 0, y: 294, w: 110, h: 46 }, { x: 270, y: 294, w: 110, h: 46 },
           { x: 40, y: 70, w: 70, h: 60 }, // entulho/escombro
         ],
         cenario: [{ tipo: 'chao-tunel' }, { tipo: 'escombro', x: 75, y: 100 }, { tipo: 'lampada-tunel', x: 190, y: 40 }],
@@ -146,10 +154,11 @@ export const INTERIORES_PISTA = {
         id: 'saida',
         world: { w: 380, h: 340 }, spawn: { x: 190, y: 288 },
         voltaPara: 1,
-        // emerge no barraco do OUTRO lado do muro
-        saida: { x: 162, y: 30, w: 56, h: 22, paraPredio: 'tunel_sai' },
+        // emerge no barraco do OUTRO lado do muro. Porta larga — ver nota em
+        // INTERIORES_PISTA.birosca.comodos[0].saida.
+        saida: { x: 110, y: 30, w: 160, h: 22, paraPredio: 'tunel_sai' },
         colliders: [
-          { x: 0, y: 0, w: 150, h: 46 }, { x: 230, y: 0, w: 150, h: 46 },
+          { x: 0, y: 0, w: 110, h: 46 }, { x: 270, y: 0, w: 110, h: 46 },
           { x: 0, y: 0, w: 34, h: 340 }, { x: 346, y: 0, w: 34, h: 340 }, { x: 0, y: 312, w: 380, h: 28 },
           { x: 260, y: 80, w: 70, h: 60 },
         ],
@@ -171,10 +180,11 @@ export const INTERIORES_PISTA = {
       {
         id: 'doca',
         world: { w: 480, h: 340 }, spawn: { x: 240, y: 256 },
-        saida: { x: 212, y: 320, w: 56, h: 20 },
+        // Porta larga — ver nota em INTERIORES_PISTA.birosca.comodos[0].saida.
+        saida: { x: 160, y: 320, w: 160, h: 20 },
         colliders: [
           { x: 0, y: 0, w: 480, h: 30 }, { x: 0, y: 0, w: 14, h: 340 }, { x: 466, y: 0, w: 14, h: 340 },
-          { x: 0, y: 312, w: 200, h: 28 }, { x: 280, y: 312, w: 200, h: 28 },
+          { x: 0, y: 312, w: 160, h: 28 }, { x: 320, y: 312, w: 160, h: 28 },
           { x: 40, y: 90, w: 90, h: 70 }, { x: 360, y: 200, w: 90, h: 70 }, // caixotes/empilhadeira
         ],
         cenario: [

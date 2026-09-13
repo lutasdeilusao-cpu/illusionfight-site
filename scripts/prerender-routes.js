@@ -267,7 +267,7 @@ function pageHtml(baseHtml, route) {
   html = replace(html, /<meta name="twitter:url" content="[^"]*">/i, `<meta name="twitter:url" content="${url}">`)
   html = replace(html, /<meta name="twitter:title" content="[^"]*">/i, `<meta name="twitter:title" content="${title}">`)
   html = replace(html, /<meta name="twitter:description" content="[^"]*">/i, `<meta name="twitter:description" content="${description}">`)
-  html = html.replace('</head>', `    <script type="application/ld+json">${structuredData}</script>\n  </head>`)
+  html = html.replace('</head>', `    <meta name="ldi-build" content="${escapeHtml(BUILD_HASH)}">\n    <script type="application/ld+json">${structuredData}</script>\n  </head>`)
   return html.replace('<div id="root"></div>', `<div id="root">${staticContent(route, heroImage)}</div><noscript>${staticContent(route, heroImage)}</noscript>`)
 }
 
@@ -294,6 +294,12 @@ if (!fs.existsSync(INDEX_PATH)) {
 }
 
 const indexHtml = fs.readFileSync(INDEX_PATH, 'utf-8')
+// Hash do chunk de entrada (igual em toda rota — Vite injeta o mesmo <script
+// type="module"> no shell inteiro). A vinheta de abertura (index.html) usa
+// esse hash pra saber se o navegador já tem o bundle em cache: nome de
+// arquivo com hash de conteúdo só muda quando o deploy muda o código, então
+// "mesmo hash de antes" é o sinal real de cache, ao contrário de "mesmo dia".
+const BUILD_HASH = (indexHtml.match(/<script[^>]*type="module"[^>]*src="([^"]+)"/) || [])[1] || ''
 ROUTES.forEach(route => writeRoute(route, pageHtml(indexHtml, route)))
 REDIRECTS.forEach(route => writeRoute(route, redirectHtml(route)))
 const homeRoute = {

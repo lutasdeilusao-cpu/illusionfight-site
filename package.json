@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build && node scripts/prerender-routes.js",
     "preview": "vite preview",
-    "predeploy": "npm run build",
+    "predeploy": "npm run build && node scripts/restaurar-preview-privado.cjs",
     "deploy": "gh-pages -d dist",
     "migration": "node scripts/run-migration.js",
     "desktop:dev": "tauri dev --no-watch",

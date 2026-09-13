@@ -9,7 +9,15 @@ import { STEP_MS } from '../../engine/ganguesCenaMotor.js'
 // escudo genérico, quando existe arte pra ele (pedido do Isaias, set/2026 —
 // "juice"/identidade visual) — sem retrato ainda, cai no escudo de sempre.
 export function GangMarker({ player, facing, gangName, retrato }) {
-  return <motion.div className={`gang-world-player is-gang facing-${facing}${retrato ? ' gang-world-player--retrato' : ''}`} animate={{ left: player.x, top: player.y }} transition={{ duration: STEP_MS / 1000, ease: 'easeOut' }}>
+  // initial={false}: sem isso, toda REMONTAGEM (troca de `key` ao entrar/sair
+  // de um interior — ver GanguesCena.jsx) ainda animava a partir de um valor
+  // inicial medido do DOM (perto de 0,0), não do alvo — o jogador via o
+  // próprio marcador "voar" de um canto vazio até a posição certa mesmo com
+  // o `key` forçando remontagem. `initial={false}` diz pro Framer Motion
+  // renderizar JÁ no valor de `animate` na primeira pintura, sem transição;
+  // o passo a passo normal (mesma instância, só troca de `animate`) continua
+  // suave como sempre, porque `initial` só importa na montagem.
+  return <motion.div className={`gang-world-player is-gang facing-${facing}${retrato ? ' gang-world-player--retrato' : ''}`} initial={false} animate={{ left: player.x, top: player.y }} transition={{ duration: STEP_MS / 1000, ease: 'easeOut' }}>
     <span>{retrato ? <img src={retrato} alt="" /> : <><i /><i /><i /></>}</span><small>{gangName || 'GANGUE'}</small>
   </motion.div>
 }

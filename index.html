@@ -13,10 +13,20 @@
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600;700&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&family=Orbitron:wght@400;500;600;700;800;900&family=Bangers&family=Cinzel:wght@500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Fira+Code:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Bebas+Neue&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
     <noscript><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600;700&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&family=Orbitron:wght@400;500;600;700;800;900&family=Bangers&family=Cinzel:wght@500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Fira+Code:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Bebas+Neue&display=swap" rel="stylesheet" /></noscript>
     <style>@font-face { font-family: 'RacingGames'; src: url('/fonts/RacingGames.ttf') format('truetype'); font-weight: 900; font-style: normal; font-display: swap; }</style>
-    <!-- Abertura (vinheta): só no 1º acesso do dia, 2s mín / 4s máx, some assim que o app monta. Vive antes do React de propósito. -->
+    <!-- Abertura (vinheta): sempre cobre o carregamento. Cache hit (hash do build bate
+         com o último que montou com sucesso) = modo silencioso, sem espera; cache miss
+         (deploy novo/1ª visita) = show completo, 2s mín / 4s máx. Some assim que o app
+         monta. Vive antes do React de propósito — ver o script logo antes de #root. -->
     <style>
-      html.ldi-intro-on { overflow: hidden; }
-      #ldi-intro { position: fixed; inset: 0; z-index: 2147483000; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 22px; background: radial-gradient(900px 520px at 50% 45%, rgba(0,229,255,.10), transparent 62%), #06080b; color: #f6f8fa; }
+      /* overflow:hidden só barra scroll PROGRAMÁTICO/wheel — num toque real
+         (Android) o dedo ainda consegue arrastar a página e disparar o
+         bounce/rubber-band nativo do navegador (escapa por baixo/lado por um
+         instante, como se tivesse scroll). overscroll-behavior:none é quem
+         desliga esse gesto de verdade; touch-action:none no overlay some com
+         o pan em si. Mesmo bug já corrigido no log de combate do Gangues
+         (ver Gangues.css .gang-log-area) — aqui é a mesma causa. */
+      html.ldi-intro-on { overflow: hidden; overscroll-behavior: none; }
+      #ldi-intro { position: fixed; inset: 0; z-index: 2147483000; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 22px; background: radial-gradient(900px 520px at 50% 45%, rgba(0,229,255,.10), transparent 62%), #06080b; color: #f6f8fa; touch-action: none; overscroll-behavior: none; }
       #ldi-intro .ldi-intro__logo { width: 124px; height: 124px; opacity: 0; filter: drop-shadow(0 0 0 rgba(0,229,255,0)); will-change: transform, opacity, filter; }
       #ldi-intro .ldi-intro__word { position: relative; margin: 0; font: 900 clamp(1.15rem, 5.4vw, 1.9rem)/1 'RacingGames', 'Rajdhani', 'Segoe UI', sans-serif; letter-spacing: .34em; text-transform: uppercase; opacity: 0; overflow: hidden; }
       #ldi-intro .ldi-intro__word::after { content: ''; position: absolute; top: 0; bottom: 0; left: -40%; width: 40%; background: linear-gradient(90deg, transparent, rgba(255,255,255,.85), transparent); transform: skewX(-20deg); opacity: 0; }
@@ -35,6 +45,43 @@
       @keyframes ldi-bar { to { transform: scaleX(1); } }
       @keyframes ldi-out { to { opacity: 0; transform: scale(1.04); } }
       @media (prefers-reduced-motion: reduce) { #ldi-intro.ldi-intro--play .ldi-intro__logo, #ldi-intro.ldi-intro--play .ldi-intro__word, #ldi-intro.ldi-intro--play .ldi-intro__word::after, #ldi-intro.ldi-intro--play .ldi-intro__bar::before { animation: none; opacity: 1; } }
+    </style>
+
+    <!-- Trava de orientação: o produto inteiro é pensado só na vertical (ver Bíblia §1).
+         Não existe API confiável de orientation-lock pra site comum (Screen Orientation
+         API só funciona em PWA instalada em fullscreen, e só no Chrome/Android) — a
+         solução é bloquear visualmente com um overlay quando o aparelho physically gira.
+         hover:none + pointer:coarse restringe a touchscreen (celular/tablet); um desktop
+         com monitor widescreen tem orientation:landscape sempre e não deve ser afetado. -->
+    <style>
+      #ldi-rotate-lock { display: none; }
+      @media (orientation: landscape) and (hover: none) and (pointer: coarse) {
+        #root, #ldi-intro { display: none !important; }
+        #ldi-rotate-lock {
+          display: flex;
+          position: fixed;
+          inset: 0;
+          z-index: 2147483647;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 18px;
+          background: #06080b;
+          color: #f6f8fa;
+          text-align: center;
+          padding: 24px;
+          font-family: 'Rajdhani', 'Segoe UI', sans-serif;
+          touch-action: none;
+          overscroll-behavior: none;
+        }
+        #ldi-rotate-lock svg { width: 60px; height: 60px; animation: ldi-rotate-spin 1.8s ease-in-out infinite; }
+        #ldi-rotate-lock p { margin: 0; font-size: 1rem; font-weight: 600; letter-spacing: .01em; max-width: 300px; }
+      }
+      @keyframes ldi-rotate-spin {
+        0%, 15% { transform: rotate(0deg); }
+        50%, 65% { transform: rotate(-90deg); }
+        100% { transform: rotate(-90deg); }
+      }
     </style>
 
     <!-- SEO básico -->
@@ -137,28 +184,68 @@
     </script>
   </head>
   <body>
+    <div id="ldi-rotate-lock" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#00e5ff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="6" y="2" width="12" height="20" rx="2"></rect>
+        <line x1="10" y1="19" x2="14" y2="19"></line>
+      </svg>
+      <p data-rotate-text>Gire seu aparelho — o app funciona só na vertical.</p>
+    </div>
+    <script>
+      (function () {
+        var el = document.querySelector('#ldi-rotate-lock [data-rotate-text]');
+        if (!el) return;
+        var lang = 'pt';
+        try { lang = localStorage.getItem('ldi-locale') || 'pt'; } catch (e) {}
+        var msgs = {
+          pt: 'Gire seu aparelho — o app funciona só na vertical.',
+          en: 'Rotate your device — the app only works in portrait mode.',
+          es: 'Gira tu dispositivo — la app solo funciona en modo vertical.'
+        };
+        el.textContent = msgs[lang] || msgs.pt;
+      })();
+    </script>
     <div id="ldi-intro" aria-hidden="true">
       <img class="ldi-intro__logo" src="/favicon-ldi.png" alt="" width="124" height="124" decoding="sync" fetchpriority="high">
       <p class="ldi-intro__word">LUTAS DE ILUSÃO</p>
       <div class="ldi-intro__bar"></div>
     </div>
     <script>
-      // Vinheta de abertura — só no primeiro acesso do dia. Mín 2s (600ms c/ reduced-motion), teto 4s.
-      // Encerra assim que o React avisa (evento 'ldi:ready'). O som é opcional: se o navegador bloquear, segue sem.
+      // Vinheta de abertura. O #root já chega pro navegador com o HTML estático
+      // de SEO (prerender-routes.js) — texto cru, sem o visual real do app — e
+      // só vira a página de verdade quando o bundle React monta. Esse vão SEMPRE
+      // precisa de cobertura, senão o visitante vê o texto cru piscando antes do
+      // site oficial (bug reportado pelo Isaias em 12/09/2026).
+      //
+      // A decisão de mostrar o show completo (logo animado + som) ou só cobrir
+      // em silêncio NÃO é por dia de calendário — é por cache de verdade: o
+      // script de entrada tem hash de conteúdo no nome (ex.: index-qeKNvZ-p.js),
+      // gravado no <meta name="ldi-build"> pelo prerender-routes.js. Se o hash
+      // bate com o último build que terminou de montar com sucesso neste
+      // navegador, o bundle quase certamente já está em cache (deploy não
+      // mudou) — cobre rápido e silencioso, sem forçar espera. Se o hash é
+      // novo (deploy novo) ou nunca vimos essa marca (1ª visita), é cache miss
+      // de verdade — toca o show completo, já que o carregamento real vai
+      // demorar mesmo.
       (function () {
         var el = document.getElementById('ldi-intro');
         if (!el) return;
-        var KEY = 'ldi-intro-day', today = new Date().toISOString().slice(0, 10), seen = null, lang = 'pt';
-        try { seen = localStorage.getItem(KEY); lang = localStorage.getItem('ldi-locale') || 'pt'; } catch (e) {}
-        if (seen === today) { el.remove(); return; }
-        try { localStorage.setItem(KEY, today); } catch (e) {}
+        var KEY = 'ldi-intro-build', lang = 'pt', lastBuild = null;
+        var buildMeta = document.querySelector('meta[name="ldi-build"]');
+        var currentBuild = buildMeta && buildMeta.content;
+        try { lastBuild = localStorage.getItem(KEY); lang = localStorage.getItem('ldi-locale') || 'pt'; } catch (e) {}
+        var provavelCache = !!currentBuild && currentBuild === lastBuild;
         var reduce = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
         var word = el.querySelector('.ldi-intro__word');
         if (word) word.textContent = lang === 'en' ? 'ILLUSION FIGHT' : 'LUTAS DE ILUSÃO';
         document.documentElement.classList.add('ldi-intro-on');
-        el.classList.add(reduce ? 'ldi-intro--static' : 'ldi-intro--play');
-        try { var a = new Audio('/sounds/intro.mp3'); a.volume = 0.22; var p = a.play(); if (p && p.catch) p.catch(function () {}); } catch (e) {}
-        var MIN = reduce ? 600 : 2000, MAX = 4000, start = Date.now(), ready = false, done = false;
+        if (provavelCache) {
+          el.classList.add('ldi-intro--static');
+        } else {
+          el.classList.add(reduce ? 'ldi-intro--static' : 'ldi-intro--play');
+          try { var a = new Audio('/sounds/intro.mp3'); a.volume = 0.22; var p = a.play(); if (p && p.catch) p.catch(function () {}); } catch (e) {}
+        }
+        var MIN = provavelCache ? 0 : (reduce ? 600 : 2000), MAX = 4000, start = Date.now(), ready = false, done = false;
         function finish() {
           if (done) return; done = true;
           el.classList.add('ldi-intro--out');
@@ -170,7 +257,15 @@
           var left = MIN - (Date.now() - start);
           left > 0 ? setTimeout(finish, left) : finish();
         }
-        window.addEventListener('ldi:ready', function () { ready = true; tryFinish(); }, { once: true });
+        window.addEventListener('ldi:ready', function () {
+          ready = true;
+          // Montou de verdade (evento real, não o teto de segurança) — só
+          // agora grava o hash como "cache confirmado". Gravar também no
+          // teto de segurança marcaria falso-positivo num load que travou
+          // ou quebrou antes do React montar.
+          if (currentBuild) { try { localStorage.setItem(KEY, currentBuild); } catch (e) {} }
+          tryFinish();
+        }, { once: true });
         setTimeout(function () { ready = true; tryFinish(); }, MAX);
       })();
     </script>

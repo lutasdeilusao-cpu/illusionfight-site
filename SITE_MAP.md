@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — MAPA DO SITE E DO PROJETO
 
 > Referência do estado atual do projeto para navegação humana e contexto de IA.
-> Atualizado em 2026-09-12 — `SITE_VERSION` **10.280.88**.
+> Atualizado em 2026-09-13 — `SITE_VERSION` **10.280.113**.
 > Histórico de tarefas, bugfixes e pendências não pertence a este documento.
 > Regras de trabalho, arquivos proibidos e decisões arquiteturais: `AGENTS.md`.
 
@@ -36,12 +36,15 @@
 
 ### 2.1 Abertura (vinheta de carregamento)
 
-Inline em `index.html`, **antes** do React — um componente montaria tarde demais. Objetivo: dar feedback visual enquanto o primeiro acesso forma o cache, sem prender o visitante.
+Inline em `index.html`, **antes** do React — um componente montaria tarde demais. Objetivo: cobrir o vão entre o HTML estático de SEO que já vem no `#root` (gerado por `prerender-routes.js`, texto cru sem o visual real) e o momento em que o bundle React monta por cima. Esse vão **sempre** precisa de cobertura — sem ela o visitante vê o texto cru piscando antes do site oficial (bug reportado pelo Isaias em 12/09/2026).
 
-- Exibida **só no primeiro acesso do dia** (`localStorage['ldi-intro-day'] = YYYY-MM-DD`); reload no mesmo dia nem injeta o overlay.
-- Duração: **mínimo 2 s, teto absoluto 4 s**. `App.jsx` dispara `window.dispatchEvent(new Event('ldi:ready'))` ao montar; a vinheta encerra assim que recebe o evento, respeitando o mínimo. Com `prefers-reduced-motion` vira `--static` (sem keyframes, mínimo 600 ms).
-- Visual: `#ldi-intro` fixo (z-index 2147483000, acima de tudo), símbolo IF (`/favicon-ldi.png`, já em cache pelo ícone da aba — zero download extra) com scale-in + glow pulsante, wordmark em `RacingGames` com varredura de luz, barra de progresso ciano→roxo de 4 s no rodapé. Texto: `LUTAS DE ILUSÃO` (pt/es) ou `ILLUSION FIGHT` (en) via `ldi-locale`.
-- Som: `public/sounds/intro.mp3` (Mixkit #164, licença Mixkit, 1,9 s, mono 64 kbps, `loudnorm` + fade) tocado a `volume 0.22`. Autoplay pode ser bloqueado pelo navegador antes da 1ª interação — o `play()` rejeitado é engolido e **a entrada nunca depende do som**.
+- **Detecção é por cache real, não por dia de calendário.** `prerender-routes.js` extrai o hash de conteúdo do chunk de entrada (ex.: `index-qeKNvZ-p.js` — o mesmo em toda rota) e grava em `<meta name="ldi-build">`. O script compara esse hash com `localStorage['ldi-intro-build']` (o hash do último build que **terminou de montar com sucesso** nesse navegador — só grava no evento `ldi:ready` de verdade, nunca no teto de segurança, senão um load que travou marcaria falso-positivo).
+  - **Hash bate** (`provavelCache = true`, bundle quase certo já em cache — deploy não mudou): modo silencioso — mesma classe `--static` (logo/wordmark visíveis na hora, sem animação), **sem som**, **sem espera mínima** (`MIN = 0`). Cobre só o necessário e some assim que o React monta.
+  - **Hash não bate ou nunca visitou** (deploy novo ou 1ª visita — cache miss de verdade): show completo — logo com scale-in + glow pulsante, wordmark em `RacingGames` com varredura de luz, barra de progresso ciano→roxo, som. Duração **mínimo 2 s, teto absoluto 4 s**. Com `prefers-reduced-motion` vira `--static` (sem keyframes, mínimo 600 ms).
+  - Em ambos os casos, teto de **4 s** como rede de segurança caso `ldi:ready` nunca dispare.
+- `App.jsx` dispara `window.dispatchEvent(new Event('ldi:ready'))` ao montar; a vinheta encerra assim que recebe o evento, respeitando o mínimo (0 ou 2000/600ms conforme o caso).
+- Visual: `#ldi-intro` fixo (z-index 2147483000, acima de tudo), símbolo IF (`/favicon-ldi.png`, já em cache pelo ícone da aba — zero download extra). Texto: `LUTAS DE ILUSÃO` (pt/es) ou `ILLUSION FIGHT` (en) via `ldi-locale`.
+- Som: `public/sounds/intro.mp3` (Mixkit #164, licença Mixkit, 1,9 s, mono 64 kbps, `loudnorm` + fade) tocado a `volume 0.22`, só quando é cache miss de verdade. Autoplay pode ser bloqueado pelo navegador antes da 1ª interação — o `play()` rejeitado é engolido e **a entrada nunca depende do som**.
 - Ao terminar, o overlay é removido do DOM (não só escondido) e `html.ldi-intro-on` (trava de scroll) é retirada.
 
 Ordem dos providers em `src/main.jsx`:
@@ -386,11 +389,11 @@ Fonte única: `src/config/version.js`. Esta tabela registra somente a identifica
 
 | Constante | Módulo | Versão |
 |---|---|---:|
-| `SITE_VERSION` | Site global | **10.280.88** |
+| `SITE_VERSION` | Site global | **10.280.113** |
 | `PP_VERSION` | Pesadelo Particular | 2.3.1 |
 | `LDI_VERSION` | Lendas do LDI | 2.0.1 |
 | `JACK_VERSION` | Jack Dream Beer | 5.3.2 |
-| `GANGUES_VERSION` | LDI Gangues | 2.75.25 |
+| `GANGUES_VERSION` | LDI Gangues | 2.75.38 |
 | `TAMA_VERSION` | Tamagoshi LDI | 3.4.1 |
 | `DUELO_VERSION` | Duelo LDI | 2.8.1 |
 | `MINIGAMES_VERSION` | MiniGames | 4.3.6 |

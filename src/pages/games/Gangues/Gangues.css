@@ -16,6 +16,11 @@
   padding-top: calc(var(--guest-notice-h, 0px) + var(--radio-nina-top-h, 0px));
   padding-bottom: var(--radio-nina-h, 0px);
   overflow: hidden;
+  /* Defesa extra contra scroll-chaining vazando de uma área rolável interna
+     (ex.: .gang-log-area no combate) pro documento — sem isso um swipe na
+     borda de um scroll interno pode disparar o bounce/pull-to-refresh do
+     Android na página inteira, mesmo com overflow:hidden aqui. */
+  overscroll-behavior: none;
   background: #0a0a0a;
   background-image: 
     radial-gradient(ellipse at 50% 0%, #0d1f2a 0%, #0a0a0a 55%),
@@ -900,10 +905,17 @@
 }
 .gang-trash-pop-btn:hover { background: rgba(245, 166, 35, 0.16); border-color: rgba(245, 166, 35, 0.4); color: var(--if-amber); }
 
-/* --- Chat log --- */
+/* --- Chat log ---
+   overscroll-behavior:contain trava o scroll-chaining nas bordas do log:
+   sem isso, um swipe que chega no topo/fim da lista "vaza" pro documento e o
+   Android dispara o bounce/pull-to-refresh nativo — parece a tela toda
+   rolando durante a batalha, mesmo o layout cabendo certinho (mesmo padrão
+   já usado em GanguesAlbum.css e Tamagoshi.css). */
 .gang-log-area {
   flex: 1 1 0; overflow-y: auto; padding: 12px 16px;
   display: flex; flex-direction: column; gap: 8px; min-height: 0;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
 }
 
 .gang-msg-wrap { display: flex; align-items: flex-end; gap: 8px; }

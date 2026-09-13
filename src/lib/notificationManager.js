@@ -21,6 +21,16 @@ const STORAGE_QUEUE = 'ldi-notif-queue'
 const COOLDOWN_MS = 15 * 60 * 1000 // 15 minutos
 const NOTIF_TTL_MS = 5 * 60 * 1000 // 5 minutos — itens mais velhos são descartados silenciosamente
 
+// Desligado a pedido do Isaias (13/09/2026): achou o sistema de notificação
+// chato e invasivo demais em uso real — "vira uma piscina de notificação".
+// Por enquanto, sem reformular o conceito. Escopo explícito do Isaias:
+// NÃO mexer em conquistas/troféis (achievement continua gravando E avisando
+// normal) nem na Rádio Nina (não passa por aqui — convite dela usa
+// window.__ninaPendingNotification direto, ver RadioNina.jsx). É só "os
+// outros": CTA de conta pro guest e as "dicas" promocionais do LDI Tip.
+// Reativar: tirar o tipo da lista.
+const TIPOS_DESATIVADOS = new Set(['cta_conta', 'ldi_tip'])
+
 export const NotificationType = {
   ACHIEVEMENT: 'achievement',
   CTA_CONTA: 'cta_conta',
@@ -50,6 +60,7 @@ export const notificationManager = {
    * @param {object} data - dados específicos do tipo
    */
   push(type, data) {
+    if (TIPOS_DESATIVADOS.has(type)) return
     const queue = this._getQueue()
     // Evita duplicatas do mesmo tipo consecutivas
     if (queue.length > 0 && queue[queue.length - 1].type === type) {
