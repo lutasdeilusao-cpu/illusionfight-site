@@ -16,7 +16,10 @@ import { transformarEvento, multidaoBlinkJaVisto, marcarMultidaoBlinkVisto } fro
 
 export default function useGanguesModoMultidao({ store, machine, t, setLog, eventosBrutosRef, finish, result }) {
   const totalCombatentes = (store.match.playerTeam?.length || 0) + (store.match.enemyTeam?.length || 0)
-  const multidaoDisponivel = totalCombatentes >= 6
+  // Piso baixado de 6 pra 5 (pedido do Isaias, 13/09/2026): "é jogo de gangue,
+  // não RPG clássico, precisa ter mais briga em multidão" — com o time da
+  // Pista travado em 2-3 fichas o jogo inteiro, 6 quase nunca batia.
+  const multidaoDisponivel = totalCombatentes >= 5
   const [modoMultidaoOn, setModoMultidaoOn] = useState(false)
   const [multidaoBlinkVisto, setMultidaoBlinkVisto] = useState(() => multidaoBlinkJaVisto(store._saveId))
   const modoMultidaoAtivo = multidaoDisponivel && modoMultidaoOn
