@@ -8,7 +8,7 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.280.110' // fix: sistema de notificacao (achievement toast, CTA de conta, "dicas" promocionais do LDI Tip) desligado a pedido do Isaias - achou o sistema invasivo/chato em uso real, "vira uma piscina de notificacao". notificationManager.push() agora e no-op (flag SISTEMA_ATIVO=false em notificationManager.js) - unico ponto de entrada dos 3 produtores (AchievementsContext, LDINotification, notificationStore/Tamagoshi), entao um so flag desliga tudo. Radio Nina NAO usa esse pipeline (convite dela vai por window.__ninaPendingNotification direto em RadioNina.jsx) e continua 100% intacta. Achievements continuam sendo gravados no Supabase normalmente, so o toast que nao aparece mais. Temporario - Isaias quer repensar o sistema depois.
+export const SITE_VERSION = '10.280.111' // fix: escopo do desligamento de notificacao (10.280.110) ajustado - Isaias pediu explicitamente pra NAO mexer em conquistas/trofeis nem na Radio Nina, "e os outros". notificationManager.js trocou o gate de global (SISTEMA_ATIVO=false bloqueava TUDO, achievement incluido) pra seletivo por tipo (TIPOS_DESATIVADOS = Set(['cta_conta','ldi_tip'])) - achievement volta a gravar E avisar normal (toast completo), so CTA de conta pro guest e as "dicas" promocionais do LDI Tip continuam bloqueadas. Radio Nina nunca foi afetada (nao usa esse pipeline).
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
