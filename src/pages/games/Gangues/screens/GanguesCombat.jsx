@@ -13,6 +13,7 @@ import { fighterName } from '../engine/ganguesCombatPresentation.js'
 import { getEquippedActiveGanguesSpecials } from '../engine/ganguesSpecialEffects.js'
 import { GANGUES_ITENS_LISTA, getGanguesItem } from '../data/ganguesItens.js'
 import GanguesCombatTutorial from '../components/GanguesCombatTutorial'
+import GanguesKoTutorial from '../components/GanguesKoTutorial'
 import GanguesCombatRoster from '../components/GanguesCombatRoster'
 import GanguesCombatTopBar from '../components/GanguesCombatTopBar'
 import GanguesCombatLogList from '../components/GanguesCombatLogList'
@@ -251,6 +252,7 @@ export default function GanguesCombat({ onNavigate }) {
       )}
 
       {!modoMultidaoAtivo && machine.phase === 'player' && !result && <GanguesCombatTutorial />}
+      <GanguesKoTutorial koSide={fx.koCena?.side} />
 
       {!modoMultidaoAtivo && machine.phase === 'player' && !result && (
         <GanguesActionOrb

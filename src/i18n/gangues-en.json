@@ -477,12 +477,25 @@
       "combat_tutorial": {
         "iniciativa": "This list shows who attacks first this round — the higher a fighter's Skill, the sooner they act.",
         "escolher_alvo": "More than one enemy? Tap whoever you want to attack to pick them as your target — kill the weakest first or focus the strongest, your call.",
-        "ver_ficha": "Tap whoever's already targeted again (or any ally) to see their full sheet: attributes, PV and PM.",
-        "trash_talk": "That 💬 bubble up top lets you taunt the enemy — free, just for fun.",
-        "bolinha": "That floating orb is where you act now. Tap it: ATTACK resolves instantly for free, POWER costs PM (or PV) but hits harder, and ITEM will show your items once you have any.",
-        "bolinha_mover": "Don't like where it's sitting? Hold and drag it to any corner of the screen — the spot is saved for next time.",
-        "ko_aviso_tutorial": "If an ally goes down in a fight, a red 💀 warning pops up right away — keep an eye out.",
-        "xp_regra": "A fight's action points aren't split evenly: finishing off more enemies earns a much bigger slice, damage dealt breaks ties. A fight against weak stuff gives few total points — don't expect to level up every single time."
+        "bolinha": "That floating orb is where you act now. Tap it: ATTACK resolves instantly for free, POWER costs PM (or PV) but hits harder, and ITEM will show your items once you have any."
+      },
+      "alvo_tutorial": {
+        "verde": "Those glowing spots on the map are your targets — walk up to one and the action opens on its own.",
+        "azul": "Noticed it turned blue? That's a fight you already won — doesn't mean you can't run it back, farm it whenever you want."
+      },
+      "ko_tutorial": {
+        "aliado": "An ally went down? They're out for the rest of the fight, but the rest of your crew keeps swinging. Keep an eye on everyone's PV."
+      },
+      "xp_tutorial": {
+        "regra": "A fight's action points aren't split evenly: finishing off more enemies earns a much bigger slice, damage dealt breaks ties. A fight against weak stuff gives few total points — don't expect to level up every single time."
+      },
+      "descanso_tutorial": {
+        "recuperar": "This is where your crew heals up PV and PM in full, for some cash. Sit down at the birosca and nobody starts trouble.",
+        "fiado": "Short on cash? You can run a tab with Nato — he heals you now, but the debt grows. After 2 tabs he cuts you off: no deadline, no collector, he just remembers."
+      },
+      "clube_tutorial": {
+        "como_funciona": "The Fight Club is a betting ring: 3 rounds back to back, no resting in between. Win and you walk out with cash (or clear your debt); lose and they patch you up — doesn't count as a real defeat. The entry's always on credit though: saying yes means walking in already owing.",
+        "cura_dobra": "Between rounds you can patch yourself up — but healing again DOUBLES what you owe. Running mid-fight keeps the debt as it was."
       },
       "auto": {
         "switch_label": "Auto",
@@ -498,6 +511,11 @@
         "resolvendo": "Rolling this round's dice...",
         "usar_item": "Use item this round (gives up the attack)",
         "vai_usar_item": "Will use item"
+      },
+      "multidao_tutorial": {
+        "interruptor": "This switch turns on Mob Brawl mode: instead of one hit at a time, each round resolves everyone at once.",
+        "alvo_automatico": "On auto, your crew always focuses whoever's closest to falling — good for clearing a big mob fast.",
+        "avancar": "Tap NEXT ROUND whenever you're ready. You can swap a power or flag an item first, and the switch flips on and off whenever you want."
       },
       "attr_labels": {
         "F": "Strength",

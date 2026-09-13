@@ -477,12 +477,25 @@
       "combat_tutorial": {
         "iniciativa": "Esta lista muestra quién ataca primero en esta ronda — cuanto mayor la Habilidad del luchador, antes juega.",
         "escolher_alvo": "¿Hay más de un enemigo? Toca a quien quieras atacar para elegirlo como objetivo — matar al más débil primero o enfocar al más fuerte, tú decides.",
-        "ver_ficha": "Toca de nuevo a quien ya está elegido (o a cualquier aliado) para ver su ficha completa: atributos, PV y PM.",
-        "trash_talk": "Ese globito 💬 aquí arriba deja mandar una provocación al enemigo — gratis, solo para molestar.",
-        "bolinha": "Esa bolita flotante es donde actúas ahora. Tócala: ATACAR resuelve al instante gratis, PODER gasta PM (o PV) pero pega más fuerte, e ITEM va a mostrar tus objetos cuando tengas alguno.",
-        "bolinha_mover": "¿No te gusta dónde está? Mantén presionado y arrástrala a cualquier esquina de la pantalla — la posición se guarda para la próxima.",
-        "ko_aviso_tutorial": "Si un aliado cae en la pelea, aparece de inmediato un aviso rojo 💀 — estate atento.",
-        "xp_regra": "Los puntos de acción de la pelea no se dividen igual: quien remata a más enemigos se lleva una porción bastante mayor, el daño causado desempata. Una pelea contra poca cosa da pocos puntos en total — no esperes subir de nivel todo el tiempo."
+        "bolinha": "Esa bolita flotante es donde actúas ahora. Tócala: ATACAR resuelve al instante gratis, PODER gasta PM (o PV) pero pega más fuerte, e ITEM va a mostrar tus objetos cuando tengas alguno."
+      },
+      "alvo_tutorial": {
+        "verde": "Los puntos que brillan en el mapa son tu objetivo — camina hasta ahí y la acción se abre sola.",
+        "azul": "¿Viste que se puso azul? Es una pelea que ya ganaste — no significa que no puedas repetirla, vuelve cuando quieras."
+      },
+      "ko_tutorial": {
+        "aliado": "¿Cayó un aliado? Se queda fuera el resto de la pelea, pero el resto de tu banda sigue peleando. Ojo con el PV de todos."
+      },
+      "xp_tutorial": {
+        "regra": "Los puntos de acción de la pelea no se dividen igual: quien remata a más enemigos se lleva una porción bastante mayor, el daño causado desempata. Una pelea contra poca cosa da pocos puntos en total — no esperes subir de nivel todo el tiempo."
+      },
+      "descanso_tutorial": {
+        "recuperar": "Aquí tu banda recupera todo el PV y el PM, pagando una plata. Sentado en la birosca, nadie busca pelea.",
+        "fiado": "¿Corto de plata? Puedes fiar con Nato — te cura al toque, pero la cuenta crece. Después de 2 fiados te corta el crédito: sin plazo, sin cobrador, él solo se acuerda."
+      },
+      "clube_tutorial": {
+        "como_funciona": "El Clube da Luta es una ronda de apuestas: 3 rondas seguidas, sin descansar entre medio. Ganas y sales con plata (o saldas tu deuda); pierdes y te recomponen — no cuenta como derrota de verdad. Eso sí, la entrada siempre es fiada: aceptar ya es entrar debiendo.",
+        "cura_dobra": "Entre ronda y ronda puedes curarte — pero curarte de nuevo DUPLICA lo que debes. Huir a la mitad deja la deuda como estaba."
       },
       "auto": {
         "switch_label": "Automático",
@@ -498,6 +511,11 @@
         "resolvendo": "Tirando los dados de la ronda...",
         "usar_item": "Usar objeto esta ronda (renuncia al ataque)",
         "vai_usar_item": "Va a usar objeto"
+      },
+      "multidao_tutorial": {
+        "interruptor": "Este interruptor activa el modo Pelea Multitudinaria: en vez de golpe a golpe, cada ronda resuelve a todos de una vez.",
+        "alvo_automatico": "En automático, tu banda siempre enfoca al enemigo más cerca de caer — bueno para limpiar una bandita grande rápido.",
+        "avancar": "Toca SIGUIENTE RONDA cuando estés listo. Puedes cambiar de poder o marcar un objeto antes, y el interruptor se prende y apaga cuando quieras."
       },
       "attr_labels": {
         "F": "Fuerza",

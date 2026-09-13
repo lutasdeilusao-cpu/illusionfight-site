@@ -3,19 +3,24 @@ import { useLanguage } from '../../../../context/LanguageContext'
 import { useGanguesStore } from '../store/useGanguesStore'
 import GangTip from './GangTip'
 
-// v2: novo passo sobre o botão de usar item por rodada — chave nova pra quem
-// já viu a v1 (sem esse passo) ver a atualização.
+// v3 (13/09/2026): a v2 apontava pra `games.gangues.multidao_tutorial.*`,
+// chave que NUNCA existiu no i18n — todo jogador que chegava aqui via o
+// texto cru da chave na tela (bug real, achado revisando os tutoriais).
+// Escrito de verdade agora, e reduzido de 5 pra 3 passos junto (mesmo pedido
+// do Isaias do GanguesCombatTutorial: menos texto de uma vez, só o
+// essencial). Chave nova de propósito pra reexibir pra quem só viu a versão
+// quebrada.
 // Escopado por save (`saveId`) — pedido do Isaias (13/09/2026): excluiu a
 // gangue, começou outra, e o tutorial não voltou a aparecer porque essa
 // flag ficava presa pro browser inteiro pra sempre, nunca por conta/gangue.
-const TUTORIAL_KEY = 'ldi-gangues-multidao-tutorial-v2-visto'
+const TUTORIAL_KEY = 'ldi-gangues-multidao-tutorial-v3-visto'
 // Fail-safe tem que cair pro lado de MOSTRAR se o storage falhar (mesmo
 // raciocínio do GanguesCombatTutorial — errar mostrando de novo é bem menos
 // grave que nunca explicar o modo pra quem tá vendo ele pela primeira vez).
 function jaViu(saveId) { try { return localStorage.getItem(`${TUTORIAL_KEY}:${saveId || 'guest'}`) === '1' } catch { return false } }
 function marcarVisto(saveId) { try { localStorage.setItem(`${TUTORIAL_KEY}:${saveId || 'guest'}`, '1') } catch {} }
 
-const PASSOS = ['interruptor', 'alvo_automatico', 'poderes', 'item', 'avancar']
+const PASSOS = ['interruptor', 'alvo_automatico', 'avancar']
 
 /** Tutorial da Briga em Multidão — aparece só na PRIMEIRA vez que o jogador
  *  vê o interruptor (bando com 6+ combatentes), autocontido igual o

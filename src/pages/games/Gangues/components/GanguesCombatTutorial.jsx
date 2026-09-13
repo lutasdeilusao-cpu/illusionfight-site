@@ -18,15 +18,20 @@ const TUTORIAL_KEY = 'ldi-gangues-combate-tutorial-v4-visto'
 function jaViu(saveId) { try { return localStorage.getItem(`${TUTORIAL_KEY}:${saveId || 'guest'}`) === '1' } catch { return false } }
 function marcarVisto(saveId) { try { localStorage.setItem(`${TUTORIAL_KEY}:${saveId || 'guest'}`, '1') } catch {} }
 
+// Reduzido de 8 pra 3 passos (pedido do Isaias, 13/09/2026 — achou o
+// tutorial "com muita informação, muito texto de uma vez só", quer
+// progressivo: só o essencial pra começar a lutar aqui; ver ficha/trash
+// talk/arrastar a bolinha viram descoberta natural (detalhe de UI, não
+// travam nada); aviso de KO e regra de XP viram tutoriais PRÓPRIOS,
+// contextuais ao momento certo (ver GanguesKoTutorial.jsx, mostrado só
+// quando um aliado cai de verdade, e o tip de XP em GanguesVictoryReport.jsx,
+// mostrado na 1ª tela de vitória) — não faz sentido explicar "o que acontece
+// quando alguém cai" ou "como o XP é dividido" ANTES de qualquer um dos dois
+// ter acontecido.
 const PASSOS = [
   { chave: 'iniciativa', lado: 'right' },
   { chave: 'escolher_alvo', lado: 'left' },
-  { chave: 'ver_ficha', lado: 'right' },
-  { chave: 'trash_talk', lado: 'left' },
   { chave: 'bolinha', lado: 'right' },
-  { chave: 'bolinha_mover', lado: 'left' },
-  { chave: 'ko_aviso_tutorial', lado: 'right' },
-  { chave: 'xp_regra', lado: 'left' },
 ]
 
 /** Tutorial de combate — só aparece na PRIMEIRA luta da conta (flag no

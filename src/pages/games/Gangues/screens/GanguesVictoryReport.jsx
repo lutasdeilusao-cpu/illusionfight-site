@@ -1,6 +1,17 @@
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { getGanguesCharacter, eventosDoNivel } from '../data/ganguesCharacters.js'
 import { combatantName, eventosDoLevelUp } from '../engine/ganguesVictoryResolver.js'
+import GangTip from '../components/GangTip'
+
+// Explica a regra de divisão de XP só na 1ª tela de vitória de verdade
+// (pedido do Isaias, 13/09/2026 — tutorial progressivo: a regra só importa
+// quando o jogador já tem uma recompensa na tela pra olhar, não antes).
+// Escopado por save, mesmo padrão dos outros tutoriais autocontidos do
+// Gangues (ver GanguesCombatTutorial.jsx).
+const XP_TUTORIAL_KEY = 'ldi-gangues-xp-tutorial-visto'
+function jaViuXp(saveId) { try { return localStorage.getItem(`${XP_TUTORIAL_KEY}:${saveId || 'guest'}`) === '1' } catch { return false } }
+function marcarXpVisto(saveId) { try { localStorage.setItem(`${XP_TUTORIAL_KEY}:${saveId || 'guest'}`, '1') } catch {} }
 
 // Tela normal de relatório de batalha (vitória ou derrota) — modal de
 // level-up, painel de recompensa, resumo, roster final, ordem de iniciativa
@@ -10,6 +21,8 @@ export default function GanguesVictoryReport({
   t, store, report, victory, torre, cenaChefe, noModoHistoria, storyAlvo,
   podeRecrutar, recrutar, levelUps, clearLevelUps, rewardSummary, onNavigate,
 }) {
+  const [xpTipVisto, setXpTipVisto] = useState(() => jaViuXp(store._saveId))
+  const fecharXpTip = () => { marcarXpVisto(store._saveId); setXpTipVisto(true) }
   const attacks = report.entries.filter(entry => entry.kind === 'attack_card')
   const playerDamage = attacks.filter(entry => entry.side === 'player').reduce((sum, entry) => sum + entry.dmg, 0)
   const enemyDamage = attacks.filter(entry => entry.side === 'enemy').reduce((sum, entry) => sum + entry.dmg, 0)
@@ -88,6 +101,9 @@ export default function GanguesVictoryReport({
             )}
           </div>
         </section>
+      )}
+      {victory && rewardSummary && !xpTipVisto && (
+        <GangTip text={t('games.gangues.xp_tutorial.regra')} side="right" isLast onNext={fecharXpTip} onSkip={fecharXpTip} />
       )}
 
       {/* Ação principal logo abaixo do resultado — é o botão que mais importa
