@@ -9,6 +9,7 @@ import { TRIAL_ACTIVE } from '../../config/trial'
 import { contoLiberado } from '../../config/site'
 import index from '../../data/contos-index.json'
 import { readerMdComponents } from '../../lib/mdComponents'
+import { useTrackedSession } from '../../lib/sessionAnalytics'
 import './LivroCapitulo.css'
 import './Contos.css'
 
@@ -58,6 +59,14 @@ export default function ContoCapitulo() {
   const h = index.find(x => x.id === historia)
   const capitulo = h?.capitulos.find(c => c.id === cap)
   const tituloKey = locale === 'en' ? 'titulo_en' : locale === 'es' ? 'titulo_es' : 'titulo'
+
+  // chapter_open/chapter_time: content_type 'conto' + story_id = qual conto
+  // (ryan/alan/banda/nina/jack) — distingue de linha principal e outras
+  // obras. Pedido do Isaias (2026-09-14).
+  useTrackedSession('chapter_open', 'chapter_time', {
+    content_type: 'conto', story_id: historia,
+    chapter_id: cap, chapter_numero: capitulo?.numero, chapter_titulo: capitulo?.[tituloKey],
+  }, { active: Boolean(h) && Boolean(capitulo) })
 
   useEffect(() => {
     setNotFound(false)

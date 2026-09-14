@@ -10,6 +10,7 @@ import { useAchievements } from '../../context/AchievementsContext'
 import { useEventos } from '../../context/EventosContext'
 import { useReadingCompletionGate } from '../../hooks/useReadingCompletionGate'
 import { notificationManager } from '../../lib/notificationManager'
+import { useTrackedSession } from '../../lib/sessionAnalytics'
 import episodios from '../../data/episodios.json'
 import './WebtoonEpisodio.css'
 
@@ -66,6 +67,14 @@ export default function WebtoonEpisodio() {
   const next = idx < episodios.length - 1 ? episodios[idx + 1] : null
 
   const tituloKey = locale === 'en' ? 'titulo_en' : locale === 'es' ? 'titulo_es' : 'titulo_pt'
+
+  // webtoon_open/webtoon_time: cobre quem chega direto pela URL (não só quem
+  // clica na grade em Webtoon.jsx) e mede tempo de leitura de verdade —
+  // pedido do Isaias (2026-09-14): "eu vejo que leem webtoon, mas não sei
+  // qual capítulo, até quando as pessoas ficam lendo".
+  useTrackedSession('webtoon_open', 'webtoon_time', {
+    episode_id: id, episode_numero: ep?.numero, episode_titulo: ep?.[tituloKey],
+  }, { active: Boolean(ep) })
 
   if (!ep || (id !== '00' && !estaDisponivel(ep, isAdmin, { user, perfil }) && !TRIAL_ACTIVE)) {
     return (

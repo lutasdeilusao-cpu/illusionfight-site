@@ -66,7 +66,10 @@ export default function Webtoon() {
                   className={`webtoon-card${liberado ? '' : ' webtoon-card--locked'}`}
                   onClick={() => {
                     if (!liberado) return
-                    trackEvent('webtoon_open', { episode_id: ep.id })
+                    // O "de verdade abriu" (webtoon_open) agora dispara dentro
+                    // do leitor (WebtoonEpisodio.jsx), com tempo de leitura —
+                    // cobre deep link também. Aqui só o clique no card.
+                    trackEvent('webtoon_card_click', { episode_id: ep.id })
                     navigate(`/webtoon/${ep.id}`)
                   }}
                 >

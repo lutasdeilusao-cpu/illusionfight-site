@@ -70,7 +70,10 @@ export default function Games() {
   const handleJogoClick = (jogo) => {
     const bloqueado = jogo.emBreve && !isAdmin
     if (bloqueado || !jogo.rota) return
-    trackEvent('game_open', { game_id: jogo.id, category: 'ldi' })
+    // `game_card_click` = clicou no card (topo do funil); `game_open` (mais
+    // confiável, cobre deep link também) dispara de verdade dentro do jogo —
+    // ver FichaGateRoute.jsx/GameSessionRoute.jsx.
+    trackEvent('game_card_click', { game_id: jogo.id, game_name: t(jogo.nomeKey), category: 'ldi' })
     const gate = gates[jogo.id]
     if (gate) {
       gate.tentarEntrar(() => navigate(jogo.rota))
@@ -144,7 +147,7 @@ export default function Games() {
             {KERNEL_JOGOS.map(jogo => (
               <div key={jogo.id} className="extras-jogo-card"
                 style={{ '--cor-neon': jogo.cor, '--cor-badge': BADGE_CORES[jogo.badgeKey.split('.').pop()] || 'var(--text-muted)' }}
-                onClick={() => { trackEvent('game_open', { game_id: jogo.id, category: 'kernel' }); navigate(jogo.rota) }}>
+                onClick={() => { trackEvent('game_card_click', { game_id: jogo.id, game_name: t(jogo.nomeKey), category: 'kernel' }); navigate(jogo.rota) }}>
                 <div className="extras-jogo-card-inner">
                   <div className="extras-jogo-badge">{t(jogo.badgeKey)}</div>
                   <div className="extras-jogo-emoji">{jogo.emoji}</div>
