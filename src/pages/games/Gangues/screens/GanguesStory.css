@@ -400,24 +400,27 @@
 /* ── Saída — precisa de destaque de verdade, não uma linha discreta
    perdida no fim da tela (pedido do Isaias, 14/09/2026: "os usuários são
    complicados... tem que ser maior, tem que mostrar que existe uma
-   saída"). Largura cheia, ícone, cor de alerta — sem competir com o CTA
-   principal (que continua âmbar/spray), mas bem mais visível que antes. */
+   saída"). Ajuste no mesmo dia: o vermelho não aparecia direito por cima
+   do marrom avermelhado da parede de tijolo (cor de fundo perto demais
+   da cor do botão) e a fonte mono destoava do resto do redesign — fundo
+   sólido bem escuro (não mais um vermelho translúcido que deixa o tijolo
+   vazar por trás) garante contraste em qualquer parede, e o texto virou
+   'Permanent Marker' (a mesma fonte de rua do resto das telas novas). */
 .gang-lobby-quit {
   display: flex; align-items: center; justify-content: center; gap: 8px;
-  width: 100%; max-width: 360px; margin: 18px auto 0; min-height: 44px;
+  width: 100%; max-width: 360px; margin: 18px auto 0; min-height: 46px;
   padding: 10px 22px;
-  font: 800 0.78rem var(--font-mono);
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: #ff9a9a;
-  background: rgba(255, 107, 107, 0.06);
-  border: 1px solid rgba(255, 107, 107, 0.4);
+  font: 400 1.05rem/1 'Permanent Marker', cursive;
+  color: #ff6b6b;
+  background: #170a08;
+  border: 2px solid #ff4d4d;
   cursor: pointer;
   transition: color 0.2s, border-color 0.2s, background 0.2s;
+  box-shadow: 0 10px 24px -14px rgba(255, 77, 77, .6);
   clip-path: polygon(0 0, calc(100% - 9px) 0, 100% 9px, 100% 100%, 0 100%);
 }
-.gang-lobby-quit::before { content: '←'; font-size: .9rem; }
-.gang-lobby-quit:hover { color: #fff; border-color: #ff6b6b; background: rgba(255, 107, 107, 0.14); }
+.gang-lobby-quit::before { content: '←'; font-size: 1rem; font-family: var(--font-mono); }
+.gang-lobby-quit:hover { color: #fff; border-color: #ff8080; background: #240c0a; }
 
 /* ══ Confronto final contra o Alan — tela de canon ══ */
 .gang-report--final {

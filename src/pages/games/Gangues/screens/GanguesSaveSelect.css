@@ -239,36 +239,57 @@
 }
 .gang-saves__spray--ghost { --cor: var(--if-teal); margin: 18px auto 0; min-height: 56px; }
 
-/* ── Cards de save: bem maiores, cor por índice, meta com ícone. ── */
+/* ── Cards de save: reconstruídos pra usar a MESMA identidade das outras
+   telas (pedido do Isaias, 14/09/2026: "o card inicial ainda tá usando a
+   versão antiga, tudo tem que vir pro novo design") — borda irregular
+   (clip-path recortado, não mais o chanfro técnico), nome em fonte de
+   pichação. Meta (território/data) e o marcador SAVE N continuam em mono
+   — são dado utilitário pequeno, não texto de "voz" do jogo. ── */
 .gang-saves__lista { display: grid; gap: 16px; }
-.gang-saves__card-shell { --save-cor: var(--if-amber); position: relative; }
+.gang-saves__card-shell {
+  --save-cor: var(--if-amber); --card-corte: polygon(0 4%, 6% 0, 94% 1%, 100% 5%, 99% 40%, 100% 78%, 96% 100%, 60% 98%, 30% 100%, 4% 97%, 0 60%);
+  position: relative;
+}
 .gang-saves__card-shell--teal { --save-cor: var(--if-teal); }
 .gang-saves__card-shell--violet { --save-cor: var(--if-violet); }
 
 .gang-saves__card {
-  position: relative; overflow: hidden; width: 100%; min-height: 128px; padding: 18px 20px 46px;
+  position: relative; overflow: hidden; width: 100%; min-height: 128px; padding: 20px 22px 48px 28px;
   display: grid; gap: 6px; text-align: left;
-  border: 1px solid var(--save-cor); border-left-width: 4px;
-  background: linear-gradient(150deg, color-mix(in srgb, var(--save-cor) 20%, #0d0605 88%), #0a0605);
+  background: linear-gradient(155deg, #241108, #150a05 55%, #0c0603);
+  clip-path: var(--card-corte);
   box-shadow: 0 18px 42px -30px var(--save-cor);
-  clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 0 100%);
+}
+/* Tarja de cor à esquerda (a pista de qual save é qual) — só uma faixa
+   fina, não a face inteira do card (isso deixava o card inteiro parecendo
+   um bloco sólido da cor de destaque em vez de um cartão escuro com um
+   toque de cor, achado testando a 1ª versão). */
+.gang-saves__card::before {
+  content: ''; position: absolute; inset: 0 auto 0 0; width: 7px; z-index: 1;
+  background: var(--save-cor); clip-path: polygon(0 4%, 100% 0, 100% 100%, 0 96%);
 }
 .gang-saves__card:disabled { opacity: .55; }
-.gang-saves__card::before {
+.gang-saves__card::after {
   content: ''; position: absolute; inset: 0; translate: -140% 0;
-  background: linear-gradient(100deg, transparent, color-mix(in srgb, var(--save-cor) 22%, transparent), transparent);
+  background: linear-gradient(100deg, transparent, color-mix(in srgb, var(--save-cor) 25%, transparent), transparent);
   transition: translate .55s ease;
 }
-.gang-saves__card:active::before { translate: 140% 0; }
-.gang-saves__card-index { color: var(--save-cor); font: 800 .64rem var(--font-mono); letter-spacing: .2em; text-transform: uppercase; }
-.gang-saves__card-nome { color: var(--text-primary); font: 900 1.5rem/1.05 var(--font-display); letter-spacing: .02em; text-transform: uppercase; }
-.gang-saves__card-meta { display: flex; justify-content: space-between; color: #cfd6d8; font: 700 .68rem var(--font-mono); }
-.gang-saves__card-cta { position: absolute; left: 20px; bottom: 14px; color: var(--save-cor); font: 800 .7rem var(--font-mono); letter-spacing: .1em; text-transform: uppercase; }
+.gang-saves__card:active::after { translate: 140% 0; }
+.gang-saves__card-index { position: relative; z-index: 1; color: var(--save-cor); font: 800 .64rem var(--font-mono); letter-spacing: .2em; text-transform: uppercase; }
+.gang-saves__card-nome {
+  position: relative; z-index: 1; color: #fff8ec; font: 400 1.7rem/1.05 'Permanent Marker', cursive;
+  text-shadow: 0 2px 0 rgba(0, 0, 0, .55); transform: rotate(-.6deg);
+}
+.gang-saves__card-meta { position: relative; z-index: 1; display: flex; justify-content: space-between; color: #d9d0c4; font: 700 .68rem var(--font-mono); }
+.gang-saves__card-cta {
+  position: absolute; left: 22px; bottom: 16px; z-index: 1; color: var(--save-cor);
+  font: 400 1rem/1 'Permanent Marker', cursive; text-shadow: 0 1px 0 rgba(0, 0, 0, .5);
+}
 
 .gang-saves__card-delete {
   position: absolute; top: 10px; right: 10px; z-index: 2; width: 30px; height: 30px;
   display: grid; place-items: center; border: 1px solid rgba(255, 107, 107, .45);
-  background: color-mix(in srgb, var(--bg-primary) 65%, transparent); color: #ff8a8a; font-size: .82rem;
+  background: color-mix(in srgb, #0a0605 75%, transparent); color: #ff8a8a; font-size: .82rem;
 }
 .gang-saves__card-delete:hover, .gang-saves__card-delete:active { background: #e0453f; border-color: #ff6b6b; color: #fff; }
 .gang-saves__card-delete:disabled { opacity: .4; }
