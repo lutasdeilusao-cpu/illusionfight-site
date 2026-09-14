@@ -113,15 +113,15 @@
   transform: rotate(-1deg);
 }
 
-/* Recrutamento */
+/* Recrutamento — redesign completo v2.85: sai o cyan tecnico/chevron
+   sci-fi, entra a identidade da parede de tijolos + Permanent Marker +
+   cards rasgados, igual as outras 3 telas ja refeitas (Naming, SaveSelect,
+   onboarding do Lobby). Zero resquicio do design antigo aqui. */
 .gang-recruit {
   position: relative;
   min-height: 100dvh;
   overflow: hidden;
   padding: 22px 0 28px;
-  background:
-    radial-gradient(circle at 50% 28%, color-mix(in srgb, var(--if-cyan) 13%, transparent), transparent 37%),
-    linear-gradient(180deg, var(--bg-primary), color-mix(in srgb, var(--if-amber) 5%, var(--bg-primary)));
 }
 
 .gang-recruit::before {
@@ -129,63 +129,73 @@
   position: absolute;
   inset: 0;
   pointer-events: none;
-  opacity: .22;
-  background: repeating-linear-gradient(90deg, transparent 0 31px, var(--if-hair) 32px);
+  z-index: 0;
+  background: radial-gradient(60% 40% at 50% 0%, color-mix(in srgb, var(--if-amber) 16%, transparent), transparent 70%);
 }
 
 .gang-recruit__head { position: relative; z-index: 2; padding: 0 46px 10px; text-align: center; }
-.gang-recruit__head h1 { margin: 8px 0 5px; color: var(--if-amber); font: 900 30px/.9 var(--font-title); letter-spacing: 2px; text-transform: uppercase; }
+.gang-recruit__head h1 {
+  margin: 8px 0 5px; color: #ffd9a0; font: 400 2rem/1.05 'Permanent Marker', cursive;
+  text-shadow: 0 2px 0 rgba(0, 0, 0, .6), 0 0 20px color-mix(in srgb, var(--if-amber) 40%, transparent);
+  transform: rotate(-1deg);
+}
 .gang-recruit__head p { margin: 0; color: var(--text-secondary); font-size: 11px; line-height: 1.45; }
 .gang-recruit__aviso-lider { margin: 8px 0 0 !important; color: var(--if-amber) !important; font: 800 10px var(--font-mono) !important; letter-spacing: .04em; }
-.gang-recruit__back { position: absolute; top: 0; left: 10px; width: 34px; height: 34px; border: 1px solid var(--if-hair); background: var(--if-panel); color: var(--if-cyan); font-size: 20px; }
+.gang-recruit__back {
+  position: absolute; top: 0; left: 10px; z-index: 3; width: 34px; height: 34px;
+  border: 1px solid color-mix(in srgb, var(--if-amber) 45%, transparent); background: #1a0f08; color: #ffd9a0; font-size: 20px;
+  clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 0 100%);
+  transition: background .15s;
+}
+.gang-recruit__back:active { background: #241408; }
 
-.gang-recruit__stage { position: relative; height: 390px; display: grid; place-items: center; }
-.gang-recruit__street { position: absolute; inset: 15% 0 0; overflow: hidden; background: linear-gradient(transparent, color-mix(in srgb, var(--if-panel) 92%, transparent)); }
-.gang-recruit__street::before, .gang-recruit__street::after { content: ''; position: absolute; bottom: 0; width: 32%; height: 70%; border-top: 2px solid var(--if-hair); background: repeating-linear-gradient(90deg, var(--if-panel) 0 17px, color-mix(in srgb, var(--if-cyan) 8%, var(--if-panel)) 18px 24px); transform: skewY(-14deg); }
-.gang-recruit__street::before { left: -4%; }
-.gang-recruit__street::after { right: -4%; transform: skewY(14deg); }
-.gang-recruit__street i { position: absolute; bottom: 0; left: 49.5%; width: 1px; height: 48%; background: var(--if-amber); opacity: .45; transform: rotate(12deg); transform-origin: bottom; }
+.gang-recruit__stage { position: relative; z-index: 1; height: 390px; display: grid; place-items: center; }
 .gang-recruit__slides { position: relative; width: 100%; height: 100%; }
 
 .gang-fighter-card {
+  --corte: polygon(0 3%, 8% 0, 92% 1%, 100% 4%, 99% 55%, 100% 92%, 92% 100%, 8% 99%, 0 94%);
   position: absolute;
   top: 18px;
   width: 242px;
   height: 350px;
   padding: 0;
   overflow: hidden;
-  border: 1px solid var(--if-hair);
-  background: var(--if-panel);
+  border: 1px solid color-mix(in srgb, var(--if-amber) 20%, transparent);
+  background: linear-gradient(155deg, #241108, #150a05 55%, #0c0603);
   color: var(--text-primary);
   text-align: left;
-  clip-path: polygon(0 0, calc(100% - 22px) 0, 100% 22px, 100% 100%, 0 100%);
-  transition: filter .2s, border-color .2s;
+  clip-path: var(--corte);
+  transition: filter .2s, box-shadow .2s;
 }
 
-.gang-fighter-card--current { left: calc(50% - 121px); z-index: 3; border-color: color-mix(in srgb, var(--if-cyan) 60%, var(--if-hair)); box-shadow: 0 18px 50px color-mix(in srgb, var(--bg-primary) 70%, transparent); }
+.gang-fighter-card--current { left: calc(50% - 121px); z-index: 3; box-shadow: 0 18px 50px rgba(0, 0, 0, .6), 0 0 0 1px color-mix(in srgb, var(--if-amber) 35%, transparent) inset; }
 .gang-fighter-card--prev, .gang-fighter-card--next { top: 48px; width: 188px; height: 292px; z-index: 1; opacity: .36 !important; filter: saturate(.25); }
 .gang-fighter-card--prev { right: calc(50% + 92px); }
 .gang-fighter-card--next { left: calc(50% + 92px); }
-.gang-fighter-card--selected { border-color: var(--if-amber); box-shadow: inset 0 -4px var(--if-amber), 0 0 34px color-mix(in srgb, var(--if-amber) 20%, transparent); }
-.gang-fighter-card__number { position: absolute; z-index: 3; top: 13px; left: 14px; color: var(--text-secondary); font: 700 10px var(--font-mono); letter-spacing: 2px; }
-.gang-fighter-card__selected { position: absolute; z-index: 4; top: 10px; right: 13px; padding: 4px 7px; background: var(--if-amber); color: var(--bg-primary); font: 900 9px var(--font-mono); text-transform: uppercase; }
+.gang-fighter-card--selected { box-shadow: 0 0 0 3px var(--if-amber) inset, 0 0 34px color-mix(in srgb, var(--if-amber) 45%, transparent); }
+.gang-fighter-card__number { position: absolute; z-index: 3; top: 13px; left: 14px; color: #d9c9a8; font: 700 10px var(--font-mono); letter-spacing: 2px; }
+.gang-fighter-card__selected {
+  position: absolute; z-index: 4; top: 10px; right: 13px; padding: 4px 8px; background: var(--if-amber); color: #1a0f08;
+  font: 400 12px/1 'Permanent Marker', cursive; text-transform: uppercase;
+  clip-path: polygon(4% 0, 100% 6%, 96% 100%, 0 92%);
+}
 
-.gang-fighter-card__portrait { position: relative; height: 232px; display: grid; place-items: end center; overflow: hidden; background: linear-gradient(150deg, color-mix(in srgb, var(--if-cyan) 14%, var(--if-panel-flat)), var(--if-panel-flat)); }
-.gang-fighter-card--defensor .gang-fighter-card__portrait { background: linear-gradient(150deg, color-mix(in srgb, var(--if-amber) 17%, var(--if-panel-flat)), var(--if-panel-flat)); }
-.gang-fighter-card--mistico .gang-fighter-card__portrait { background: linear-gradient(150deg, color-mix(in srgb, var(--if-violet) 18%, var(--if-panel-flat)), var(--if-panel-flat)); }
-.gang-fighter-card__portrait::before { content: ''; position: absolute; width: 132px; height: 195px; bottom: -24px; border-radius: 52% 52% 8% 8%; background: currentColor; opacity: .13; box-shadow: 0 -72px 0 -28px currentColor; }
-.gang-fighter-card__portrait i { position: relative; z-index: 2; margin-bottom: 20px; color: color-mix(in srgb, var(--text-primary) 25%, transparent); font: 900 138px/.7 var(--font-title); font-style: normal; text-shadow: 5px 5px 0 color-mix(in srgb, var(--if-cyan) 22%, transparent); }
-.gang-fighter-card__portrait b { position: absolute; right: 12px; bottom: 10px; color: var(--if-cyan); font: 900 42px var(--font-title); opacity: .36; }
+.gang-fighter-card__portrait { position: relative; height: 232px; display: grid; place-items: end center; overflow: hidden; background: linear-gradient(150deg, color-mix(in srgb, var(--if-amber) 16%, #1a0f08), #0c0603); }
+.gang-fighter-card--defensor .gang-fighter-card__portrait { background: linear-gradient(150deg, color-mix(in srgb, var(--if-cyan) 16%, #1a0f08), #0c0603); }
+.gang-fighter-card--mistico .gang-fighter-card__portrait { background: linear-gradient(150deg, color-mix(in srgb, var(--if-violet) 20%, #1a0f08), #0c0603); }
+.gang-fighter-card__portrait::before { content: ''; position: absolute; width: 132px; height: 195px; bottom: -24px; border-radius: 52% 52% 8% 8%; background: currentColor; opacity: .16; box-shadow: 0 -72px 0 -28px currentColor; }
+.gang-fighter-card__portrait i { position: relative; z-index: 2; margin-bottom: 20px; color: color-mix(in srgb, var(--text-primary) 28%, transparent); font: 900 138px/.7 var(--font-title); font-style: normal; text-shadow: 5px 5px 0 rgba(0, 0, 0, .4); }
+.gang-fighter-card__portrait b { position: absolute; right: 12px; bottom: 10px; color: var(--if-amber); font: 900 42px var(--font-title); opacity: .4; }
 /* Retrato de verdade (pixel art, cabeça) — quando existe, some com a
    silhueta+inicial gigante e mostra a arte por cima do mesmo fundo
    gradiente (pra combinar com os cards que ainda não têm arte). */
 .gang-fighter-card__portrait--foto::before { opacity: .12; }
 .gang-fighter-card__portrait--foto img { position: relative; z-index: 2; width: 176px; height: 176px; object-fit: contain; image-rendering: pixelated; filter: drop-shadow(0 10px 16px rgba(0,0,0,.5)); margin-bottom: 8px; }
-.gang-fighter-card__copy { display: grid; padding: 12px 14px 6px; }
-.gang-fighter-card__copy small { color: var(--if-cyan); font: 800 9px var(--font-mono); letter-spacing: 2px; text-transform: uppercase; }
-.gang-fighter-card__copy strong { font: 900 30px/.95 var(--font-title); letter-spacing: 1px; text-transform: uppercase; }
+.gang-fighter-card__copy { position: relative; z-index: 2; display: grid; padding: 12px 14px 6px; }
+.gang-fighter-card__copy small { color: var(--if-amber); font: 800 9px var(--font-mono); letter-spacing: 2px; text-transform: uppercase; }
+.gang-fighter-card__copy strong { color: #fff8ec; font: 400 1.9rem/.95 'Permanent Marker', cursive; text-shadow: 0 2px 0 rgba(0, 0, 0, .6); }
 .gang-fighter-card__copy em { color: var(--text-secondary); font: 700 11px var(--font-mono); font-style: normal; text-transform: uppercase; }
-.gang-fighter-card__cta { position: absolute; right: 13px; bottom: 10px; color: var(--if-amber); font: 800 9px var(--font-mono); letter-spacing: 1px; text-transform: uppercase; }
+.gang-fighter-card__cta { position: absolute; z-index: 2; right: 14px; bottom: 10px; color: var(--if-amber); font: 400 1rem/1 'Permanent Marker', cursive; }
 
 /* Card do elenco (lobby): o corpo inteiro abre a ficha (tapzone) — a
    seleção pra equipe vira um selo pequeno no canto, tocável separado,
@@ -196,12 +206,12 @@
 }
 .gang-fighter-card__team-toggle {
   position: absolute; z-index: 5; top: 10px; right: 13px; width: 30px; height: 30px;
-  display: grid; place-items: center; border: 1px solid var(--if-hair);
-  background: color-mix(in srgb, var(--bg-primary) 78%, transparent); color: var(--text-secondary);
+  display: grid; place-items: center; border: 1px solid color-mix(in srgb, var(--if-amber) 30%, transparent);
+  background: rgba(12, 6, 3, .78); color: var(--text-secondary);
   font: 900 15px var(--font-title); cursor: pointer;
   clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 0 100%);
 }
-.gang-fighter-card__team-toggle.is-selected { border-color: var(--if-amber); background: var(--if-amber); color: var(--bg-primary); }
+.gang-fighter-card__team-toggle.is-selected { border-color: var(--if-amber); background: var(--if-amber); color: #1a0f08; }
 .gang-fighter-card__team-toggle:disabled { opacity: .55; cursor: not-allowed; }
 
 /* Estrela de líder — mesmo canto do toggle de equipe, empilhada embaixo.
@@ -209,31 +219,63 @@
    (continua clicável, mas não faz nada de novo — sempre tem que ter um). */
 .gang-fighter-card__lider-toggle {
   position: absolute; z-index: 5; top: 46px; right: 13px; width: 30px; height: 30px;
-  display: grid; place-items: center; border: 1px solid var(--if-hair);
-  background: color-mix(in srgb, var(--bg-primary) 78%, transparent); color: var(--text-secondary);
+  display: grid; place-items: center; border: 1px solid color-mix(in srgb, var(--if-amber) 30%, transparent);
+  background: rgba(12, 6, 3, .78); color: var(--text-secondary);
   font-size: 16px; cursor: pointer;
   clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 0 100%);
 }
-.gang-fighter-card__lider-toggle.is-lider { border-color: var(--if-cyan); background: var(--if-cyan); color: var(--bg-primary); }
+.gang-fighter-card__lider-toggle.is-lider { border-color: var(--if-amber); background: var(--if-amber); color: #1a0f08; }
 
-.gang-recruit__arrow { position: absolute; z-index: 5; top: 44%; width: 38px; height: 52px; border: 1px solid var(--if-hair); background: color-mix(in srgb, var(--bg-primary) 86%, transparent); color: var(--if-cyan); font-size: 30px; }
+.gang-recruit__arrow {
+  position: absolute; z-index: 5; top: 44%; width: 38px; height: 52px;
+  border: 1px solid color-mix(in srgb, var(--if-amber) 35%, transparent); background: rgba(12, 6, 3, .82);
+  color: #ffd9a0; font-size: 30px;
+}
 .gang-recruit__arrow--left { left: 5px; }
 .gang-recruit__arrow--right { right: 5px; }
 .gang-recruit__dots { position: relative; z-index: 3; display: flex; justify-content: center; gap: 8px; margin-top: -6px; }
-.gang-recruit__dots button { width: 18px; height: 3px; padding: 0; border: 0; background: var(--if-hair); }
-.gang-recruit__dots button.is-active { width: 34px; background: var(--if-cyan); }
+.gang-recruit__dots button { width: 18px; height: 3px; padding: 0; border: 0; background: color-mix(in srgb, var(--if-amber) 25%, transparent); }
+.gang-recruit__dots button.is-active { width: 34px; background: var(--if-amber); }
 
-.gang-recruit__picks { position: relative; z-index: 2; margin: 18px 8px 0; padding: 15px; border-top: 1px solid var(--if-hair); background: color-mix(in srgb, var(--if-panel-flat) 76%, transparent); }
+.gang-recruit__picks {
+  position: relative; z-index: 2; margin: 18px 8px 0; padding: 15px;
+  border-top: 1px dashed color-mix(in srgb, var(--if-amber) 35%, transparent);
+  background: rgba(12, 6, 3, .5);
+}
 .gang-recruit__picks > div:first-child { display: flex; justify-content: space-between; color: var(--text-secondary); font: 700 10px var(--font-mono); letter-spacing: 2px; text-transform: uppercase; }
-.gang-recruit__picks > div:first-child strong { color: var(--if-amber); }
+.gang-recruit__picks > div:first-child strong { color: var(--if-amber); font: 400 1rem/1 'Permanent Marker', cursive; }
 .gang-recruit__slots { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-top: 10px; }
-.gang-recruit__slots button { min-height: 48px; padding: 6px 9px; border: 1px dashed var(--if-hair); background: transparent; color: var(--text-secondary); display: flex; align-items: center; gap: 8px; }
+.gang-recruit__slots button {
+  min-height: 48px; padding: 6px 9px; border: 1px dashed color-mix(in srgb, var(--if-amber) 35%, transparent);
+  background: transparent; color: var(--text-secondary); display: flex; align-items: center; gap: 8px;
+}
 .gang-recruit__slots button.is-filled { border-style: solid; border-color: var(--if-amber); color: var(--text-primary); }
-.gang-recruit__slots b { width: 30px; height: 30px; display: grid; place-items: center; background: color-mix(in srgb, var(--if-cyan) 12%, transparent); color: var(--if-cyan); font: 900 18px var(--font-title); }
-.gang-recruit__slots span { font: 800 11px var(--font-mono); text-transform: uppercase; }
+.gang-recruit__slots b { width: 30px; height: 30px; display: grid; place-items: center; background: color-mix(in srgb, var(--if-amber) 16%, transparent); color: var(--if-amber); font: 400 1.2rem/1 'Permanent Marker', cursive; }
+.gang-recruit__slots span { font: 400 .95rem/1 'Permanent Marker', cursive; }
 .gang-recruit__slots i { margin-left: auto; color: var(--if-amber); font-style: normal; }
-.gang-recruit__confirm { width: 100%; min-height: 50px; margin-top: 12px; border: 1px solid var(--if-amber); background: var(--if-amber); color: var(--bg-primary); font: 900 12px var(--font-mono); letter-spacing: 2px; text-transform: uppercase; clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%); }
-.gang-recruit__confirm:disabled { border-color: var(--if-hair); background: transparent; color: var(--text-secondary); opacity: .45; }
+
+/* CTA spray-paint — igual as outras telas, halo pintado direto no botão
+   (sem span extra) já que aqui não tem texto duplo pra separar camadas. */
+.gang-recruit__confirm {
+  --cor: var(--if-amber);
+  position: relative;
+  width: 100%; min-height: 58px; margin-top: 14px;
+  background: transparent; border: none;
+  color: #fff8ec; font: 400 1.3rem/1 'Permanent Marker', cursive;
+  text-shadow: 0 2px 0 rgba(0, 0, 0, .6), 0 0 18px color-mix(in srgb, var(--cor) 70%, transparent);
+}
+.gang-recruit__confirm::before {
+  content: ''; position: absolute; inset: -6px; z-index: -1;
+  background:
+    radial-gradient(38% 60% at 22% 30%, color-mix(in srgb, var(--cor) 40%, transparent), transparent 70%),
+    radial-gradient(30% 50% at 78% 70%, color-mix(in srgb, var(--cor) 32%, transparent), transparent 70%),
+    radial-gradient(70% 80% at 50% 50%, color-mix(in srgb, var(--cor) 20%, transparent), transparent 75%);
+  border: 2px solid color-mix(in srgb, var(--cor) 60%, transparent);
+  border-radius: 52% 48% 55% 45% / 44% 56% 44% 56%;
+}
+.gang-recruit__confirm:active::before { background: color-mix(in srgb, var(--cor) 30%, transparent); }
+.gang-recruit__confirm:disabled { opacity: .4; }
+.gang-recruit__confirm:disabled::before { border-color: rgba(255, 255, 255, .15); background: none; }
 
 /* Ficha modal */
 .gang-sheet-modal { position: fixed; z-index: 1200; inset: 0 var(--app-gutter); display: grid; align-items: end; padding: 10px; }

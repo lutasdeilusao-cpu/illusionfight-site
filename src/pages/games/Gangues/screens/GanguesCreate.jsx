@@ -10,6 +10,8 @@ import { sfx } from '../../../../lib/sfx'
 import GanguesFichaCard from '../components/GanguesFichaCard'
 import GanguesFichaBio from '../components/GanguesFichaBio'
 import { getGanguesBiografia } from '../data/ganguesBiografias.js'
+import '../Gangues.css' // .gang-brickwall-bg mora lá
+import './GanguesLobby.css' // .gang-recruit / .gang-fighter-card / .gang-sheet-modal moram lá
 
 const PATH_MARKS = { atacante: 'A', defensor: 'D', mistico: 'M' }
 
@@ -116,7 +118,7 @@ export default function GanguesCreate({ onNavigate, onCreated }) {
   }
 
   return (
-    <main className="gang-recruit">
+    <main className="gang-recruit gang-brickwall-bg">
       <header className="gang-recruit__head">
         <button className="gang-recruit__back" onClick={() => onNavigate('lobby')} aria-label={t('games.gangues.btn_voltar')}>←</button>
         <h1>{initialRecruitment ? t('games.gangues.recruitment.title_initial') : t('games.gangues.recruitment.title')}</h1>
@@ -125,7 +127,6 @@ export default function GanguesCreate({ onNavigate, onCreated }) {
       </header>
 
       <section className="gang-recruit__stage" aria-label={t('games.gangues.recruitment.candidates')}>
-        <div className="gang-recruit__street" aria-hidden="true"><i /><i /><i /></div>
         <button className="gang-recruit__arrow gang-recruit__arrow--left" onClick={() => move(-1)} aria-label={t('games.gangues.recruitment.previous')}>‹</button>
         <div className="gang-recruit__slides">
           {slides.map(({ character, position }) => {
