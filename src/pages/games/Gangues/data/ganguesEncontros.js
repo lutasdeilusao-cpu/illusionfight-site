@@ -181,7 +181,13 @@ export function gerarBandoInimigo({ territorioId, dificuldade = 'normal', modo =
   // moldesPool: restringe QUEM pode sortear (escolta), pra POIs perto do
   // fim (ex: sala do galpão com liderFixo) não puxarem vigia fraquinho do
   // pool genérico do território inteiro — mesmo budget, cara mais séria.
-  const moldes = moldesPool?.length ? moldesPool : config.moldes
+  // Exclui o próprio liderFixo da escolta — sem isso, a escolta podia
+  // sortear o MESMO id do líder e o bando saía com "Cão Louco" (1) e (2)
+  // (bug reportado pelo Isaias, 2026-09-14: "não é pra ter dois personagens
+  // com o mesmo nome, nunca aconteceu com nenhum outro personagem").
+  const poolBase = moldesPool?.length ? moldesPool : config.moldes
+  const poolSemLider = liderFixo ? poolBase.filter(id => id !== liderFixo) : poolBase
+  const moldes = poolSemLider.length ? poolSemLider : poolBase
 
   const pontosJogador = pontosFixos > 0 ? pontosFixos : calcularPontosTime(playerTeam)
   // Bando muito concentrado (poucos corpos) é o cenário mais perigoso — o

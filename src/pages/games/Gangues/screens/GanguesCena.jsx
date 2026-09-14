@@ -209,8 +209,13 @@ export default function GanguesCena({ onNavigate }) {
     // Treta repetível ("farma"): trava o retrato de pontos na primeira vez —
     // as próximas entradas usam sempre esse mesmo número, então o bando não
     // cresce junto com a gangue (ver travarPontosFarm no store).
+    // `semTravarPontos`: exceção pra treta repetível que também é passagem
+    // obrigatória/osso duro (ex: galpao_m2) — o Isaias usa ela pra TREINAR,
+    // então precisa continuar repetível, mas sem congelar força pra sempre
+    // no retrato da 1ª vitória (2026-09-14, depois de reportar o galpão
+    // fraco de novo porque o retrato tinha travado antes do rebalanceamento).
     let pontosFixos = null
-    if (poi.repetivel && !viraTreta && !chefe) {
+    if (poi.repetivel && !poi.semTravarPontos && !viraTreta && !chefe) {
       const party = store.roster.slice(0, GANGUES_STORY_BATTLE_PARTY_MAX)
       pontosFixos = store.travarPontosFarm(cena.id, poi.id, calcularPontosTime(party))
     }
