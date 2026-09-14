@@ -506,6 +506,10 @@
       "multidao": {
         "switch_label": "Briga em Multidão",
         "switch_titulo": "Liga a Briga em Multidão — cada rodada resolve de uma vez, mas continua turno a turno",
+        "switch_titulo_bloqueado": "Só dá pra ligar na SUA vez — espera terminar o turno em andamento",
+        "prompt_pergunta": "Esse bando é grande — quer começar a luta em modo Briga em Multidão?",
+        "prompt_sim": "SIM, MULTIDÃO",
+        "prompt_nao": "NÃO, GOLPE A GOLPE",
         "poderes_titulo": "Talentos da rodada",
         "avancar_rodada": "AVANÇAR RODADA",
         "resolvendo": "Rolando os dados da rodada...",

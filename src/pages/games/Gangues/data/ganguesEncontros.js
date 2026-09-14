@@ -226,8 +226,21 @@ export function gerarBandoInimigo({ territorioId, dificuldade = 'normal', modo =
     partes[0] = Math.max(partes[0], Math.round((s.A + s.H + s.D + s.PV + s.PM) * 0.3))
   }
 
+  // Sorteio da escolta SEM reposição (mesmo "saco" de gerarBandoRevezamento/
+  // gerarBandoClube) — antes sorteava com reposição (`moldes[random]`), podia
+  // sair o MESMO molde 2x no mesmo bando ("Fiado Vencido (1)"/"Fiado Vencido
+  // (2)"). Isaias reportou (2026-09-14): "não é pra ter nome repetido, temos
+  // um catálogo enorme de inimigos, usa melhor ele". Em todo território o
+  // pool tem ids suficientes pra nunca precisar repetir dentro de um bando
+  // (ver comentário de GANGUES_TERRITORIO_ENCONTRO); só reenche o saco se
+  // esvaziar meio a meio de um sorteio muito grande.
+  const bag = []
+  const sortearMolde = () => {
+    if (!bag.length) bag.push(...moldes)
+    return bag.splice(Math.floor(Math.random() * bag.length), 1)[0]
+  }
   const bando = partes.map((pontos, i) => {
-    const moldeId = (i === 0 && liderFixo) ? liderFixo : moldes[Math.floor(Math.random() * moldes.length)]
+    const moldeId = (i === 0 && liderFixo) ? liderFixo : sortearMolde()
     const molde = enemiesData.find(e => e.id === moldeId)
     return molde ? escalarInimigo(molde, pontos) : null
   }).filter(Boolean)
@@ -298,8 +311,12 @@ export function gerarBandoEvento({ territorioId, playerTeam, enemiesData, modo =
   const totalAlvo = Math.max(5, Math.min(Math.round(pontosJogador * 1.1 * mult), teto))
   const qtd = 1 + (Math.random() < 0.45 ? 1 : 0)
   const partes = distribuirPontos(totalAlvo, qtd)
+  // Mesmo fix de gerarBandoInimigo: sorteio sem reposição (só importa aqui
+  // quando qtd=2, mas o mesmo bug existia).
+  const bag = []
   const bando = partes.map(pontos => {
-    const moldeId = config.moldes[Math.floor(Math.random() * config.moldes.length)]
+    if (!bag.length) bag.push(...config.moldes)
+    const moldeId = bag.splice(Math.floor(Math.random() * bag.length), 1)[0]
     const molde = enemiesData.find(e => e.id === moldeId)
     return molde ? escalarInimigo(molde, pontos) : null
   }).filter(Boolean)

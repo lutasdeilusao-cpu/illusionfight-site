@@ -506,6 +506,10 @@
       "multidao": {
         "switch_label": "Pelea Multitudinaria",
         "switch_titulo": "Activa la Pelea Multitudinaria — cada ronda se resuelve de una vez, pero sigue siendo por turnos",
+        "switch_titulo_bloqueado": "Solo puedes activarlo en TU turno — espera a que termine el turno actual",
+        "prompt_pergunta": "Es una banda grande — ¿quieres empezar la pelea en modo Pelea Multitudinaria?",
+        "prompt_sim": "SÍ, MULTITUDINARIA",
+        "prompt_nao": "NO, GOLPE A GOLPE",
         "poderes_titulo": "Talentos de la ronda",
         "avancar_rodada": "SIGUIENTE RONDA",
         "resolvendo": "Tirando los dados de la ronda...",

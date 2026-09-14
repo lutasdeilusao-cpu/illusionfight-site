@@ -1,42 +1,34 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useLanguage } from '../../../../../context/LanguageContext'
-import { useGanguesStore } from '../../store/useGanguesStore'
+import { useTutorialProgress } from '../../../../../context/TutorialProgressContext'
 import GangTip from '../GangTip'
 
 // 2 tutoriais autocontidos da birosca (pedido do Isaias, 13/09/2026 —
 // tutorial progressivo, cada um só na 1ª vez que a tela em questão abre):
 //  - GanguesDescansoTutorial: a tela normal do descanso (cura PV/PM + fiado).
 //  - GanguesClubeTutorial: a tela de oferta do Clube da Luta.
-// Mesmo padrão de save-scoping/fail-open dos outros tutoriais do Gangues
-// (ver GanguesCombatTutorial.jsx).
-function jaViu(key, saveId) { try { return localStorage.getItem(`${key}:${saveId || 'guest'}`) === '1' } catch { return false } }
-function marcarVisto(key, saveId) { try { localStorage.setItem(`${key}:${saveId || 'guest'}`, '1') } catch {} }
+// Escopado por CONTA (TutorialProgressContext), não mais por save/aparelho —
+// pedido do Isaias (14/09/2026).
 
-function useTutorialPassos(key, passos) {
-  const saveId = useGanguesStore(s => s._saveId)
-  // Começa "já visto" e corrige assim que `saveId` estabiliza — ver nota
-  // igual em GanguesMultidaoTutorial.jsx (race de F5: `_saveId` podia ainda
-  // não ter hidratado no 1º render, e o `useState` preguiçoso não reavalia
-  // sozinho depois — mostrava de novo pra quem já tinha visto).
-  const [visto, setVisto] = useState(true)
-  useEffect(() => { setVisto(jaViu(key, saveId)) }, [key, saveId])
+function useTutorialPassos(tutorialId, passos) {
+  const { jaViu, marcarVisto, carregado } = useTutorialProgress()
   const [passo, setPasso] = useState(0)
   const [fechado, setFechado] = useState(false)
-  if (visto || fechado) return null
+  if (!carregado || jaViu(tutorialId) || fechado) return null
   const ultimo = passo === passos.length - 1
   return {
     chave: passos[passo],
     ultimo,
-    avancar: () => { if (ultimo) { marcarVisto(key, saveId); setFechado(true) } else setPasso(p => p + 1) },
-    pular: () => { marcarVisto(key, saveId); setFechado(true) },
+    avancar: () => { if (ultimo) { marcarVisto(tutorialId); setFechado(true) } else setPasso(p => p + 1) },
+    pular: () => { marcarVisto(tutorialId); setFechado(true) },
   }
 }
 
-const DESCANSO_KEY = 'ldi-gangues-descanso-tutorial-visto'
+const DESCANSO_ID = 'descanso'
 const DESCANSO_PASSOS = ['recuperar', 'fiado']
 export function GanguesDescansoTutorial() {
   const { t } = useLanguage()
-  const estado = useTutorialPassos(DESCANSO_KEY, DESCANSO_PASSOS)
+  const estado = useTutorialPassos(DESCANSO_ID, DESCANSO_PASSOS)
   if (!estado) return null
   return (
     <GangTip
@@ -47,11 +39,11 @@ export function GanguesDescansoTutorial() {
   )
 }
 
-const CLUBE_KEY = 'ldi-gangues-clube-tutorial-visto'
+const CLUBE_ID = 'clube'
 const CLUBE_PASSOS = ['como_funciona', 'cura_dobra']
 export function GanguesClubeTutorial() {
   const { t } = useLanguage()
-  const estado = useTutorialPassos(CLUBE_KEY, CLUBE_PASSOS)
+  const estado = useTutorialPassos(CLUBE_ID, CLUBE_PASSOS)
   if (!estado) return null
   return (
     <GangTip

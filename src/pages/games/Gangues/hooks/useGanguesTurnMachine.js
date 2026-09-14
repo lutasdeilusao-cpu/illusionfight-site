@@ -39,7 +39,7 @@ export function prepare(combatant, side, index) {
   return { ...normalized, key: `${side}-${index}-${combatant.id}`, side, statuses: [], pv: pvInicial, pm: pmInicial, pvMax: resources.pvMax, pmMax: resources.pmMax, actedThisRound: false, specialState: { charge: 0, shield: 0, totalPvLost: 0 } }
 }
 
-export default function useGanguesTurnMachine({ playerTeam = [], enemyTeam = [], onFinish, attackRoll = d3, defenseRoll = d3, initiativeRoll = d3, bonusRoll = coin, targetRoll = Math.random, enemyDelay = 2200 }) {
+export default function useGanguesTurnMachine({ playerTeam = [], enemyTeam = [], onFinish, attackRoll = d3, defenseRoll = d3, initiativeRoll = d3, bonusRoll = coin, targetRoll = Math.random, enemyDelay = 2200, pausado = false }) {
   const initial = useMemo(() => [...playerTeam.map((member, index) => prepare(member, 'player', index)), ...enemyTeam.map((member, index) => prepare(member, 'enemy', index))], [])
   // `initiative` precisa ser STATE (não useMemo fixo) pra dar pra sobrescrever
   // em `syncFrom` — ver comentário ali (voltar da Briga em Multidão pro modo
@@ -108,7 +108,16 @@ export default function useGanguesTurnMachine({ playerTeam = [], enemyTeam = [],
   }, [pending, combatants, advanceTurn, record, round])
 
   useEffect(() => {
-    if (phase !== 'enemy' || pending || aiQueued.current || !currentActor) return
+    // `pausado` (Briga em Multidão ativa): o motor normal PARA de agir
+    // sozinho enquanto a Multidão estiver no controle — sem isso, esse timer
+    // continuava rodando ESCONDIDO atrás da UI da Multidão (nada aqui olhava
+    // pro switch), e o inimigo cujo turno já estava agendado ANTES de ligar
+    // a Multidão atacava em segredo (o dano aplicava no `combatants` do motor
+    // normal, invisível, e a briga da Multidão nem sabia disso). Bug
+    // reportado pelo Isaias (2026-09-14): "só de apertar o botãozinho já para
+    // os inimigos de atacar" — na real o ataque acontecia sim, só que
+    // escondido, dando a impressão de que os inimigos "pararam".
+    if (pausado || phase !== 'enemy' || pending || aiQueued.current || !currentActor) return
     aiQueued.current = true
     const timer = setTimeout(() => {
       const target = pickEnemyTarget(combatants, lastEnemyTargetKey.current, targetRoll)
@@ -117,7 +126,7 @@ export default function useGanguesTurnMachine({ playerTeam = [], enemyTeam = [],
       aiQueued.current = false
     }, enemyDelay)
     return () => { clearTimeout(timer); aiQueued.current = false }
-  }, [phase, pending, currentActor, combatants, queueAction, enemyDelay, targetRoll])
+  }, [pausado, phase, pending, currentActor, combatants, queueAction, enemyDelay, targetRoll])
 
   const enterCombat = useCallback(() => {
     if (entered.current) return

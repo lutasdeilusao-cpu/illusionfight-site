@@ -16,17 +16,11 @@ export const ONOMATOPEIAS = ['POW!', 'WHAM!', 'CRACK!', 'SLASH!', 'BOOM!', 'THWA
 export const randomOnoma = () => ONOMATOPEIAS[Math.floor(Math.random() * ONOMATOPEIAS.length)]
 
 // Pisca o switch da Briga em Multidão até o jogador ligar ele PELO MENOS UMA
-// vez — sem isso, quem nunca reparou no switch nunca descobre o modo (mesmo
-// padrão de flag no localStorage dos outros tutoriais autocontidos).
-// Escopado por save (`saveId`) — pedido do Isaias (13/09/2026): excluiu a
-// gangue, começou outra, e os tutoriais não voltaram a aparecer porque essa
-// flag (e as dos outros tutoriais autocontidos) ficava presa pro browser
-// inteiro pra sempre, nunca por conta/gangue. Ver mesmo padrão em
-// GanguesCena.jsx (cenaIntroJaVista), GanguesCombatTutorial.jsx e
-// GanguesMultidaoTutorial.jsx.
-const MULTIDAO_BLINK_KEY = 'ldi-gangues-multidao-blink-visto'
-export function multidaoBlinkJaVisto(saveId) { try { return localStorage.getItem(`${MULTIDAO_BLINK_KEY}:${saveId || 'guest'}`) === '1' } catch { return false } }
-export function marcarMultidaoBlinkVisto(saveId) { try { localStorage.setItem(`${MULTIDAO_BLINK_KEY}:${saveId || 'guest'}`, '1') } catch {} }
+// vez — sem isso, quem nunca reparou no switch nunca descobre o modo. Vive
+// no dicionário de tutoriais vistos por CONTA agora (ver
+// TutorialProgressContext.jsx, tutorial_id 'multidao_blink', usado em
+// useGanguesModoMultidao.js) — não mais aqui como par jaVisto/marcarVisto de
+// localStorage.
 
 export function fighterName(t, member) {
   if (!member) return '?'

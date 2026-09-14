@@ -1,22 +1,15 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useLanguage } from '../../../../context/LanguageContext'
-import { useGanguesStore } from '../store/useGanguesStore'
+import { useTutorialProgress } from '../../../../context/TutorialProgressContext'
 import GangTip from './GangTip'
 
 // v4: dois passos novos — aviso de KO (aliado caído) e a regra de divisão de
 // XP por contribuição (matar pesa mais que só bater, mas todo mundo garante
-// pelo menos 1 XP). Chave nova de novo, mesmo motivo das versões anteriores.
-// Escopado por save (`saveId`) — pedido do Isaias (13/09/2026): excluiu a
-// gangue, começou outra, e o tutorial não voltou a aparecer porque essa
-// flag ficava presa pro browser inteiro pra sempre, nunca por conta/gangue.
-const TUTORIAL_KEY = 'ldi-gangues-combate-tutorial-v4-visto'
-// Falha ao ler localStorage (privacidade estrita, storage bloqueado) tem que
-// falhar pro lado de MOSTRAR o tutorial, nunca de escondê-lo — errar
-// mostrando de novo pra quem já viu é bem menos grave que nunca ensinar
-// quem tá vendo o jogo pela primeira vez (mesmo padrão de cenaIntroJaVista
-// em GanguesCena.jsx).
-function jaViu(saveId) { try { return localStorage.getItem(`${TUTORIAL_KEY}:${saveId || 'guest'}`) === '1' } catch { return false } }
-function marcarVisto(saveId) { try { localStorage.setItem(`${TUTORIAL_KEY}:${saveId || 'guest'}`, '1') } catch {} }
+// pelo menos 1 XP). Id novo de novo, mesmo motivo das versões anteriores.
+// Escopado por CONTA (TutorialProgressContext), não mais por save/aparelho —
+// pedido do Isaias (14/09/2026): "toda vez que abro num aparelho novo o
+// tutorial aparece de novo, grava isso no Supabase".
+const TUTORIAL_ID = 'combate_v4'
 
 // Reduzido de 8 pra 3 passos (pedido do Isaias, 13/09/2026 — achou o
 // tutorial "com muita informação, muito texto de uma vez só", quer
@@ -40,22 +33,16 @@ const PASSOS = [
  *  primeira luta ou não, ele mesmo decide e renderiza null depois disso. */
 export default function GanguesCombatTutorial() {
   const { t } = useLanguage()
-  const saveId = useGanguesStore(s => s._saveId)
-  // Começa "já visto" e corrige assim que `saveId` estabiliza — ver nota
-  // igual em GanguesMultidaoTutorial.jsx (race de F5: `_saveId` podia ainda
-  // não ter hidratado no 1º render, e o `useState` preguiçoso não reavalia
-  // sozinho depois).
-  const [visto, setVisto] = useState(true)
-  useEffect(() => { setVisto(jaViu(saveId)) }, [saveId])
+  const { jaViu, marcarVisto, carregado } = useTutorialProgress()
   const [passo, setPasso] = useState(0)
   const [fechado, setFechado] = useState(false)
 
-  if (visto || fechado) return null
+  if (!carregado || jaViu(TUTORIAL_ID) || fechado) return null
 
   const atual = PASSOS[passo]
   const ultimo = passo === PASSOS.length - 1
-  const avancar = () => { if (ultimo) { marcarVisto(saveId); setFechado(true) } else setPasso(p => p + 1) }
-  const pular = () => { marcarVisto(saveId); setFechado(true) }
+  const avancar = () => { if (ultimo) { marcarVisto(TUTORIAL_ID); setFechado(true) } else setPasso(p => p + 1) }
+  const pular = () => { marcarVisto(TUTORIAL_ID); setFechado(true) }
 
   return (
     <GangTip

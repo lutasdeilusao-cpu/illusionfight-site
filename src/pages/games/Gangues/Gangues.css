@@ -1044,6 +1044,32 @@
   transition: all 0.15s;
 }
 .gang-multidao-auto-btn--on { background: rgba(0, 180, 216, 0.16); box-shadow: 0 0 14px -2px rgba(0, 180, 216, 0.5); }
+
+/* Pergunta de início de luta (Sim/Não pra já começar em Briga em Multidão) —
+   backdrop sólido, acima de TUDO (dado/KO/resultado usam 9999). */
+.gang-multidao-prompt-overlay {
+  position: fixed; inset: 0; z-index: 10000;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(5, 8, 12, 0.88); padding: 20px;
+}
+.gang-multidao-prompt-box {
+  max-width: 360px; width: 100%; padding: 24px 20px;
+  background: #0e1318; border: 1px solid color-mix(in srgb, var(--if-teal) 45%, transparent);
+  border-radius: 8px; box-shadow: 0 0 30px -6px rgba(0, 180, 216, 0.4);
+  text-align: center;
+}
+.gang-multidao-prompt-texto { color: #eee; font-size: 14px; line-height: 1.5; margin: 0 0 18px; }
+.gang-multidao-prompt-acoes { display: flex; gap: 10px; }
+.gang-multidao-prompt-btn {
+  flex: 1; padding: 12px; background: none; border: 1px solid rgba(255,255,255,0.25);
+  color: #ccc; cursor: pointer; font-family: 'Courier New', monospace; font-size: 12px;
+  font-weight: bold; letter-spacing: 1px; border-radius: 4px; transition: all 0.15s;
+}
+.gang-multidao-prompt-btn:hover { border-color: rgba(255,255,255,0.5); }
+.gang-multidao-prompt-btn--sim {
+  border-color: var(--if-teal); color: var(--if-teal); background: rgba(0, 180, 216, 0.08);
+}
+.gang-multidao-prompt-btn--sim:hover { background: rgba(0, 180, 216, 0.16); }
 /* ── Escolha do golpe — quem age e o PM já aparecem no quadradinho piscando
    no roster (gang-mini--acting), então esse bloco só precisa dos golpes ── */
 .gang-power-attacks { display: flex; flex-direction: column; gap: 4px; }

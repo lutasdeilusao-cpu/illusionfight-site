@@ -102,7 +102,13 @@ export function avancarRodadaMultidao(estado, poderesPorPersonagem = {}, especia
   while (!outcome) {
     const turn = initiative[turnIndex]
     const actor = byKey.get(turn.key)
-    if (!actor || actor.pv <= 0) {
+    // Pula quem já agiu nessa rodada (ex: um combatente que atacou no motor
+    // NORMAL antes de ligar a Multidão no meio da luta — iniciarBrigaMultidaoDe
+    // Combatentes preserva o `actedThisRound` dele, mas reseta o turnIndex pra
+    // 0). Sem essa checagem, esse combatente agia de NOVO aqui, ganhando uma
+    // ação extra de graça (exploit reportado pelo Isaias, 2026-09-14: "ligo a
+    // Multidão no meio da rodada e facilita a luta").
+    if (!actor || actor.pv <= 0 || actor.actedThisRound) {
       turnIndex = (turnIndex + 1) % initiative.length
       if (turnIndex === 0) { round += 1; resetActedThisRound(); break }
       continue

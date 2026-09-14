@@ -12,16 +12,25 @@ import { useEffect, useState } from 'react'
 import { sfx } from '../../../../lib/sfx'
 import { getEquippedActiveGanguesSpecials } from '../engine/ganguesSpecialEffects.js'
 import { iniciarBrigaMultidao, iniciarBrigaMultidaoDeCombatentes, avancarRodadaMultidao } from '../engine/ganguesBrigaMultidao.js'
-import { transformarEvento, multidaoBlinkJaVisto, marcarMultidaoBlinkVisto } from '../engine/ganguesCombatPresentation.js'
+import { transformarEvento } from '../engine/ganguesCombatPresentation.js'
+import { useTutorialProgress } from '../../../../context/TutorialProgressContext'
 
-export default function useGanguesModoMultidao({ store, machine, t, setLog, eventosBrutosRef, finish, result }) {
+const MULTIDAO_BLINK_ID = 'multidao_blink'
+
+// `modoMultidaoOn`/`setModoMultidaoOn` agora vêm de FORA (levantados pro
+// componente, GanguesCombat.jsx) em vez de um useState próprio aqui — o motor
+// normal (useGanguesTurnMachine) precisa saber se a Multidão está ativa ANTES
+// de decidir se roda seu próprio efeito de IA, e precisa saber isso já na
+// hora de ser construído. Ver nota grande em GanguesCombat.jsx sobre o bug do
+// "ataque fantasma" que isso corrige.
+export default function useGanguesModoMultidao({ store, machine, t, setLog, eventosBrutosRef, finish, result, modoMultidaoOn, setModoMultidaoOn }) {
   const totalCombatentes = (store.match.playerTeam?.length || 0) + (store.match.enemyTeam?.length || 0)
   // Piso baixado de 6 pra 5 (pedido do Isaias, 13/09/2026): "é jogo de gangue,
   // não RPG clássico, precisa ter mais briga em multidão" — com o time da
   // Pista travado em 2-3 fichas o jogo inteiro, 6 quase nunca batia.
   const multidaoDisponivel = totalCombatentes >= 5
-  const [modoMultidaoOn, setModoMultidaoOn] = useState(false)
-  const [multidaoBlinkVisto, setMultidaoBlinkVisto] = useState(() => multidaoBlinkJaVisto(store._saveId))
+  const { jaViu: jaViuTutorial, marcarVisto: marcarTutorialVisto } = useTutorialProgress()
+  const multidaoBlinkVisto = jaViuTutorial(MULTIDAO_BLINK_ID)
   const modoMultidaoAtivo = multidaoDisponivel && modoMultidaoOn
 
   const [poderesMultidao, setPoderesMultidao] = useState({}) // sheetId -> specialId | null
@@ -32,7 +41,7 @@ export default function useGanguesModoMultidao({ store, machine, t, setLog, even
   const [estadoMultidao, setEstadoMultidao] = useState(null)
   const [revelandoRodada, setRevelandoRodada] = useState(false)
 
-  const marcarBlinkVisto = () => { marcarMultidaoBlinkVisto(store._saveId); setMultidaoBlinkVisto(true) }
+  const marcarBlinkVisto = () => marcarTutorialVisto(MULTIDAO_BLINK_ID)
 
   const cicloPoderMultidao = (member) => {
     const especiais = getEquippedActiveGanguesSpecials(member)
@@ -52,6 +61,22 @@ export default function useGanguesModoMultidao({ store, machine, t, setLog, even
   // resolve a luta é o estadoMultidao (avancarRodadaMultidao).
   useEffect(() => { if (!modoMultidaoAtivo && machine.phase === 'select') machine.enterCombat() }, [modoMultidaoAtivo, machine.phase, machine.enterCombat])
 
+  // Inicializa o estadoMultidao sempre que `modoMultidaoOn` vira true e ainda
+  // não existe um — não importa QUEM ligou (o switch via alternarMultidao,
+  // ou a pergunta de início de luta em GanguesCombat.jsx, que liga direto sem
+  // passar pelo gate de "só na sua vez" porque no início da luta ninguém
+  // agiu ainda de qualquer jeito).
+  useEffect(() => {
+    if (!modoMultidaoOn || estadoMultidao) return
+    const jaAgiu = machine.combatants.some(c => c.actedThisRound) || machine.round > 1
+    const inicial = jaAgiu
+      ? iniciarBrigaMultidaoDeCombatentes(machine.combatants, machine.round)
+      : iniciarBrigaMultidao({ playerTeam: store.match.playerTeam, enemyTeam: store.match.enemyTeam })
+    setEstadoMultidao(inicial)
+    setLog(prev => [...prev, ...inicial.eventosIniciais.flatMap(event => transformarEvento(t, event, inicial.combatants))])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [modoMultidaoOn])
+
   // Liga/desliga o modo Multidão a qualquer momento da luta, sincronizando o
   // HP/PM/status atual entre os dois motores — nunca reseta ninguém pra
   // cheio nem perde dano já levado, não importa quantas vezes o jogador
@@ -60,19 +85,18 @@ export default function useGanguesModoMultidao({ store, machine, t, setLog, even
   const alternarMultidao = () => {
     if (revelandoRodada || result) return
     if (!modoMultidaoOn) {
-      // LIGANDO — parte do estado VIVO do motor normal quando ele já andou
-      // (preserva PV/PM/rodada); se ninguém agiu ainda, tanto faz partir do
-      // time cru (idêntico ao vivo nesse ponto, mas já pronto antes do 1º
-      // render da Multidão).
-      if (!estadoMultidao) {
-        const jaAgiu = machine.combatants.some(c => c.actedThisRound) || machine.round > 1
-        const inicial = jaAgiu
-          ? iniciarBrigaMultidaoDeCombatentes(machine.combatants, machine.round)
-          : iniciarBrigaMultidao({ playerTeam: store.match.playerTeam, enemyTeam: store.match.enemyTeam })
-        setEstadoMultidao(inicial)
-        setLog(prev => [...prev, ...inicial.eventosIniciais.flatMap(event => transformarEvento(t, event, inicial.combatants))])
-      }
-      setModoMultidaoOn(true)
+      // LIGANDO (pelo switch, no meio da luta) só é permitido na SUA vez,
+      // sem nada pendente — nunca no meio do turno de um inimigo.
+      // `phase === 'player'` já garante que todo mundo antes do jogador na
+      // ordem de iniciativa (inclusive inimigos) já agiu nessa passada;
+      // ligar nesse momento não pula ataque de ninguém. Antes disso,
+      // qualquer combatente que ainda não tinha agido sumia da tela sem
+      // atacar (o motor normal ficava pausado por trás da Multidão) —
+      // exploit reportado pelo Isaias (2026-09-14): "só de apertar o
+      // botãozinho já para os inimigos de atacar". DESLIGAR continua
+      // liberado a qualquer momento (pedido de 13/09/2026).
+      if (machine.phase !== 'player' || machine.pending) return
+      setModoMultidaoOn(true) // a inicialização do estadoMultidao é o useEffect acima
     } else {
       // DESLIGANDO — devolve o estado atual da Multidão pro motor normal.
       if (estadoMultidao) machine.syncFrom(estadoMultidao)

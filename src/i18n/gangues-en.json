@@ -506,6 +506,10 @@
       "multidao": {
         "switch_label": "Mob Brawl",
         "switch_titulo": "Turn on Mob Brawl — each round resolves at once, but it's still turn by turn",
+        "switch_titulo_bloqueado": "You can only turn it on during YOUR turn — wait for the current turn to finish",
+        "prompt_pergunta": "This is a big mob — want to start the fight in Mob Brawl mode?",
+        "prompt_sim": "YES, MOB BRAWL",
+        "prompt_nao": "NO, ONE BY ONE",
         "poderes_titulo": "This round's talents",
         "avancar_rodada": "NEXT ROUND",
         "resolvendo": "Rolling this round's dice...",

@@ -72,10 +72,31 @@ export default function GanguesCombat({ onNavigate }) {
   const battleOutcome = useGanguesBattleOutcome({ store, t, registrarEvento, onNavigate })
   const { result, falaFinal, showResultBtn, finish, openBattleReport } = battleOutcome
 
-  const machine = useGanguesTurnMachine({ playerTeam: store.match.playerTeam, enemyTeam: store.match.enemyTeam, onFinish: finish })
+  // O switch da Briga em Multidão precisa ser conhecido ANTES de construir o
+  // motor normal (useGanguesTurnMachine) — ele usa isso pra PAUSAR o próprio
+  // efeito de IA enquanto a Multidão estiver no controle. Sem isso, o motor
+  // normal continuava rodando escondido atrás da UI da Multidão e resolvia o
+  // ataque do inimigo em segredo (bug reportado pelo Isaias, 2026-09-14: "só
+  // de apertar o botãozinho já para os inimigos de atacar" — na real o
+  // ataque acontecia sim, só que invisível). Por isso o estado mora aqui
+  // (não mais dentro de useGanguesModoMultidao) e é passado pros dois lados.
+  const [modoMultidaoOn, setModoMultidaoOn] = useState(false)
+  const multidaoDisponivelPreMachine = ((store.match.playerTeam?.length || 0) + (store.match.enemyTeam?.length || 0)) >= 5
+  const modoMultidaoAtivoPreMachine = multidaoDisponivelPreMachine && modoMultidaoOn
+  // Pergunta de início de luta (pedido do Isaias, 2026-09-14): toda luta
+  // elegível pra Multidão (5+ combatentes) PARA TUDO antes do 1º ataque e
+  // pergunta Sim/Não. Sim = já começa a rodada 1 em Multidão (contínua até o
+  // jogador desligar no switch); Não = combate normal, jogador liga o switch
+  // manualmente depois se quiser (respeitando a trava de "só na sua vez").
+  // Só combates SEM elegibilidade (menos de 5 combatentes) pulam a pergunta
+  // direto (`respondida` já nasce true).
+  const [multidaoPromptRespondida, setMultidaoPromptRespondida] = useState(!multidaoDisponivelPreMachine)
+  const perguntaMultidaoAtiva = multidaoDisponivelPreMachine && !multidaoPromptRespondida
 
-  const multidao = useGanguesModoMultidao({ store, machine, t, setLog, eventosBrutosRef, finish, result })
-  const { modoMultidaoAtivo, estadoMultidao, multidaoDisponivel, modoMultidaoOn, alternarMultidao, multidaoBlinkVisto, poderesMultidao, itensMultidao, cicloPoderMultidao, toggleItemMultidao, avancarRodada, revelandoRodada } = multidao
+  const machine = useGanguesTurnMachine({ playerTeam: store.match.playerTeam, enemyTeam: store.match.enemyTeam, onFinish: finish, pausado: modoMultidaoAtivoPreMachine || perguntaMultidaoAtiva })
+
+  const multidao = useGanguesModoMultidao({ store, machine, t, setLog, eventosBrutosRef, finish, result, modoMultidaoOn, setModoMultidaoOn })
+  const { modoMultidaoAtivo, estadoMultidao, multidaoDisponivel, alternarMultidao, multidaoBlinkVisto, poderesMultidao, itensMultidao, cicloPoderMultidao, toggleItemMultidao, avancarRodada, revelandoRodada } = multidao
   const modoAutoMultidao = useGanguesModoAutoMultidao({
     modoMultidaoAtivo, estadoMultidao, revelandoRodada, result, koCena: fx.koCena, avancarRodada,
   })
@@ -215,6 +236,34 @@ export default function GanguesCombat({ onNavigate }) {
 
   return (
     <div className="gang-combat gang-container">
+      {/* Pergunta de início de luta (pedido do Isaias, 2026-09-14): toda luta
+          elegível pra Multidão para tudo (motor normal pausado — ver
+          `pausado` em useGanguesTurnMachine — e nada de roster/orb clicável
+          aqui embaixo) até o jogador escolher Sim/Não. Backdrop sólido de
+          propósito: nenhum ataque pode acontecer atrás dela. */}
+      {perguntaMultidaoAtiva && (
+        <div className="gang-multidao-prompt-overlay">
+          <div className="gang-multidao-prompt-box">
+            <p className="gang-multidao-prompt-texto">{t('games.gangues.multidao.prompt_pergunta')}</p>
+            <div className="gang-multidao-prompt-acoes">
+              <button
+                type="button"
+                className="gang-multidao-prompt-btn gang-multidao-prompt-btn--sim"
+                onClick={() => { setModoMultidaoOn(true); setMultidaoPromptRespondida(true) }}
+              >
+                {t('games.gangues.multidao.prompt_sim')}
+              </button>
+              <button
+                type="button"
+                className="gang-multidao-prompt-btn"
+                onClick={() => setMultidaoPromptRespondida(true)}
+              >
+                {t('games.gangues.multidao.prompt_nao')}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
       {!result && algumJogadorCritico && <div className="gang-critico-vinheta" aria-hidden="true" />}
       {!result && algumJogadorAviso && <div className="gang-critico-vinheta gang-critico-vinheta--aviso" aria-hidden="true" />}
       {/* Saída do automático — direto no .gang-combat (fora do wrapper que
@@ -264,7 +313,7 @@ export default function GanguesCombat({ onNavigate }) {
       <GanguesCombatRoster
         ref={playerRosterRef}
         members={players} side="player"
-        selectable={!modoMultidaoAtivo && machine.phase === 'player'}
+        selectable={!modoMultidaoAtivo && !perguntaMultidaoAtiva && machine.phase === 'player'}
         selectedKey={selectedActor} onSelect={modoMultidaoAtivo ? undefined : setSelectedActor}
         actingKey={modoMultidaoAtivo ? null : machine.currentActor?.key}
         onAbrirFicha={setFichaAberta} dmgPops={fx.dmgPops} t={t}
@@ -274,7 +323,7 @@ export default function GanguesCombat({ onNavigate }) {
 
       <GanguesCombatRoster
         members={enemies} side="enemy"
-        selectable={!modoMultidaoAtivo && machine.phase === 'player'}
+        selectable={!modoMultidaoAtivo && !perguntaMultidaoAtiva && machine.phase === 'player'}
         selectedKey={selectedTarget} onSelect={modoMultidaoAtivo ? undefined : setSelectedTarget}
         actingKey={modoMultidaoAtivo ? null : machine.currentActor?.key}
         onAbrirFicha={setFichaAberta} dmgPops={fx.dmgPops} t={t}
@@ -291,10 +340,10 @@ export default function GanguesCombat({ onNavigate }) {
         />
       )}
 
-      {!modoMultidaoAtivo && machine.phase === 'player' && !result && <GanguesCombatTutorial />}
+      {!modoMultidaoAtivo && !perguntaMultidaoAtiva && machine.phase === 'player' && !result && <GanguesCombatTutorial />}
       <GanguesKoTutorial koSide={fx.koCena?.side} />
 
-      {!modoMultidaoAtivo && machine.phase === 'player' && !result && (
+      {!modoMultidaoAtivo && !perguntaMultidaoAtiva && machine.phase === 'player' && !result && (
         <GanguesActionOrb
           t={t}
           atorNome={fighterName(t, machine.currentActor)}

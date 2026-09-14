@@ -10,6 +10,7 @@ import GanguesDescanso from '../components/cena/GanguesDescanso'
 import GanguesLoja from '../components/cena/GanguesLoja'
 import GanguesMiniMapa from '../components/cena/GanguesMiniMapa'
 import GanguesAlvoTutorial from '../components/cena/GanguesAlvoTutorial'
+import { useTutorialProgress } from '../../../../context/TutorialProgressContext'
 import CenaCenario from '../components/cena/CenaCenario'
 import CenaInterior from '../components/cena/CenaInterior'
 import GanguesCenaBagSheet from '../components/cena/GanguesCenaBagSheet'
@@ -26,16 +27,11 @@ import useGanguesCenaMovimento from '../hooks/useGanguesCenaMovimento.js'
 import useGanguesCenaEventoAleatorio from '../hooks/useGanguesCenaEventoAleatorio.js'
 import './GanguesCena.css'
 
-// Igual aos outros tutoriais do NeoGuide (paths/atributos): guarda no
-// localStorage, não só em memória. Um Set em memória esquecia tudo a cada
-// recarregada de página — o jogador via a intro de novo toda vez que
-// voltava a entrar na Pista, mesmo já tendo visto antes.
-// Escopado por save (`saveId`) — pedido do Isaias (13/09/2026): excluiu a
-// gangue, começou outra, e a intro não voltou a aparecer porque essa flag
-// ficava presa pro browser inteiro pra sempre, nunca por conta/gangue.
-const SCENE_INTRO_KEY = 'ldi-gangues-cena-intro-vista'
-function cenaIntroJaVista(saveId, id) { try { return JSON.parse(localStorage.getItem(`${SCENE_INTRO_KEY}:${saveId || 'guest'}`) || '[]').includes(id) } catch { return false } }
-function marcarCenaIntroVista(saveId, id) { try { const key = `${SCENE_INTRO_KEY}:${saveId || 'guest'}`; const atual = JSON.parse(localStorage.getItem(key) || '[]'); if (!atual.includes(id)) localStorage.setItem(key, JSON.stringify([...atual, id])) } catch {} }
+// Cada cena vira um tutorial_id próprio (`cena_intro:<cenaId>`) dentro do
+// mesmo dicionário de tutoriais vistos por CONTA (TutorialProgressContext) —
+// não mais localStorage por save/aparelho. Pedido do Isaias (14/09/2026):
+// "toda vez que abro num aparelho novo, aparece de novo, grava no Supabase".
+function cenaIntroTutorialId(cenaId) { return `cena_intro:${cenaId}` }
 
 export default function GanguesCena({ onNavigate }) {
   const { t } = useLanguage(), store = useGanguesStore(), territorioId = store.storyTarget?.territorioId
@@ -49,7 +45,15 @@ export default function GanguesCena({ onNavigate }) {
     if (p?.local) { const c = cena?.interiores?.[p.local.id]?.comodos?.[p.local.comodo]; return c ? (validPos(p, c.world) ? { x: p.x, y: p.y } : c.spawn) : SPAWN }
     return validPosition(p) ? { x: p.x, y: p.y } : (cena?.mundo?.spawn || SPAWN)
   }
-  const [intro, setIntro] = useState(() => Boolean(cena && !cenaIntroJaVista(store._saveId, cena.id)))
+  const { jaViu: jaViuTutorial, marcarVisto: marcarTutorialVisto, carregado: tutoriaisCarregados } = useTutorialProgress()
+  // Começa assumindo "não visto" (mostra a intro) e corrige assim que os
+  // tutoriais da conta terminam de carregar — falha pro lado de MOSTRAR,
+  // nunca de esconder (mesmo raciocínio de fail-open dos outros tutoriais).
+  const [intro, setIntro] = useState(Boolean(cena))
+  useEffect(() => {
+    if (!cena || !tutoriaisCarregados) return
+    setIntro(!jaViuTutorial(cenaIntroTutorialId(cena.id)))
+  }, [cena?.id, tutoriaisCarregados, jaViuTutorial])
   const [encontro, setEncontro] = useState(null), [toast, setToast] = useState(null)
   const [hint, setHint] = useState(() => t('games.gangues.cena.hint_andar'))
   const [fade, setFade] = useState(false)
@@ -111,7 +115,7 @@ export default function GanguesCena({ onNavigate }) {
   // `local` aponta pra um interior inválido — o efeito acima já vai zerar; só
   // não renderiza esse frame pra não quebrar em amb null.
   if (local && !amb) return <main className="gang-cena-worldpage" style={{ '--terr-cor': cena.cor }}><div className="gang-cena-viewport" /></main>
-  const fecharIntro = () => { marcarCenaIntroVista(store._saveId, cena.id); setIntro(false) }
+  const fecharIntro = () => { marcarTutorialVisto(cenaIntroTutorialId(cena.id)); setIntro(false) }
   const guardarPosicao = (over) => store.salvarPosicaoCena(cena.id, { ...(over || player), local: over?.local !== undefined ? over.local : local })
   // troca de ambiente com fade curto (rua↔interior, cômodo↔cômodo)
   const trocarPara = (novoLocal, spawn) => {
