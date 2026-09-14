@@ -2391,7 +2391,15 @@
    o texto) e um balão de fala de verdade saindo dela, sobre a parede de
    tijolo oficial. Substitui o antigo layout NeoGuide (barra no rodapé). */
 .gang-dlg-overlay {
-  position: fixed; inset: 0; z-index: 9999; cursor: pointer;
+  /* Mobile only: `position:fixed` escapa da coluna de #root e cola nas
+     bordas do VIEWPORT físico, não da coluna de 480px — a "armadilha"
+     documentada em AGENTS.md/index.css. `inset:0` sozinho vira full-bleed
+     de tela larga (bug real reportado pelo Isaias, 14/09/2026, com
+     DevTools em 825px: a parede de tijolo esticava até a borda da janela
+     em vez de ficar confinada na coluna). Corrigido com left/right:
+     var(--app-gutter), o mesmo bloco pronto que todo overlay fixed do
+     site usa (ver index.css e outros exemplos aqui em Gangues.css). */
+  position: fixed; top: 0; bottom: 0; left: var(--app-gutter); right: var(--app-gutter); z-index: 9999; cursor: pointer;
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   padding: 24px 18px calc(24px + env(safe-area-inset-bottom));
 }
