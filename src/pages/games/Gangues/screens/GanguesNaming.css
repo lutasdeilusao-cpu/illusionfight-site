@@ -4,6 +4,16 @@
    genérico antigo). Fita nos cantos + borda irregular vendem o cartaz
    "colado às pressas"; título em fonte de pichação; CTA no mesmo desenho
    "spray-paint" de GanguesSaveSelect. ══ */
+/* `.gang-lobby` (Gangues.css) é `max-height:100%; overflow-y:auto` mas
+   nunca ganha `height` — só encolhe pro tamanho do conteúdo. Sem uma
+   altura mínima aqui, o cartaz (mais curto que a tela) deixa a parede de
+   tijolo cortada no meio e o resto vira o preto liso de `.gang-page` por
+   baixo (bug real reportado pelo Isaias, 14/09/2026, com print
+   mostrando o corte). `min-height:100%` resolve contra `.gang-page`
+   (`position:fixed;inset:0`, altura definida) — a parede agora cobre a
+   tela inteira e o `margin:auto 0` do cartaz ganha espaço de verdade
+   pra centralizar. */
+.gang-naming { min-height: 100%; }
 .gang-naming-poster {
   --corte: polygon(2% 3%, 30% 0%, 55% 2%, 78% 0%, 98% 3%, 100% 22%, 97% 45%, 100% 68%, 98% 92%, 72% 100%, 45% 97%, 20% 100%, 2% 96%, 0% 70%, 3% 45%, 0% 20%);
   position: relative; width: 100%; margin: auto 0; padding: 28px 22px 26px;
