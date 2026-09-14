@@ -135,10 +135,26 @@ export default function useGanguesTurnMachine({ playerTeam = [], enemyTeam = [],
   // ligar (nunca desligar) — travava assim que a 1ª ação acontecia, pra não
   // ter 2 motores com HP divergente (ver useGanguesModoMultidao.js).
   const syncFrom = useCallback((estado) => {
-    setCombatants(estado.combatants.map(c => ({ ...c })))
+    const nextCombatants = estado.combatants.map(c => ({ ...c }))
+    // O `turnIndex` da Multidão pode apontar pra alguém que JÁ MORREU durante
+    // as rodadas resolvidas lá (avancarRodadaMultidao não recalcula isso ao
+    // sincronizar de volta) — sem essa checagem, o motor normal fazia um
+    // combatente MORTO agir (currentActor existe mesmo com pv<=0, phase vira
+    // 'enemy' e a IA ataca com um inimigo já derrotado). Anda pra frente
+    // (com wraparound, mesma lógica de advanceTurn) até achar alguém vivo.
+    // Bug reportado pelo Isaias (2026-09-13): "desligo a Multidão e os
+    // inimigos voltam a me atacar, dá um erro muito horrível".
+    let idx = estado.turnIndex || 0
+    for (let tentativas = 0; tentativas < estado.initiative.length; tentativas++) {
+      const turno = estado.initiative[idx]
+      const vivo = (nextCombatants.find(c => c.key === turno?.key)?.pv || 0) > 0
+      if (vivo) break
+      idx = (idx + 1) % estado.initiative.length
+    }
+    setCombatants(nextCombatants)
     setInitiative(estado.initiative)
     setRound(estado.round)
-    setTurnIndex(estado.turnIndex || 0)
+    setTurnIndex(idx)
     setPending(null)
     setStarted(true)
     entered.current = true
