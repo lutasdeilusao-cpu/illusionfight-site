@@ -1,78 +1,149 @@
+/* `.gang-lobby` (Gangues.css) já dá o container de scroll mobile certo
+   (flex column, overflow-y:auto, overscroll-behavior). Aqui só
+   sobrescrevemos o padding padrão (60px/24px) pra virar full-bleed —
+   a logo precisa encostar nas bordas e no topo pra ser o hero de verdade. */
 .gang-saves {
-  position: relative; padding: 0 14px 28px;
-  background: repeating-linear-gradient(112deg, transparent 0 38px, var(--if-amber-16) 39px 40px), var(--bg-primary);
+  padding: 0 0 32px; position: relative; background: var(--bg-primary); overflow-x: clip;
 }
-.gang-saves::before {
-  content: ''; position: absolute; inset: 0; pointer-events: none; opacity: .2;
-  background: repeating-linear-gradient(0deg, transparent 0 3px, var(--if-glass) 4px);
-}
-.gang-saves > * { position: relative; z-index: 1; }
+.gang-saves__hero, .gang-saves__body { width: 100%; }
+.gang-saves__loading { padding: 40px 16px; text-align: center; color: var(--text-secondary); font-size: .82rem; }
 
-/* ── Hero: logo oficial, uma arte por idioma (assets/logos/) ── */
+/* ── Voltar: seta discreta no canto, padrão já usado no resto do jogo
+   (gang-recruit__back / gang-progression-screen-back) — nunca mais uma
+   caixa de "SAIR" solta flutuando no fim da tela. ── */
+.gang-saves__voltar {
+  position: absolute; top: 12px; left: 12px; z-index: 5;
+  width: 34px; height: 34px; display: grid; place-items: center;
+  border: 1px solid var(--if-hair-strong); background: color-mix(in srgb, var(--bg-primary) 70%, transparent);
+  color: var(--text-secondary); font-size: 1.1rem; backdrop-filter: blur(4px);
+}
+.gang-saves__voltar:hover, .gang-saves__voltar:active { color: var(--if-cyan); border-color: var(--if-cyan); }
+
+/* ══ HERO — a logo é o ÚNICO título; nada de repetir "Suas Gangues"
+   gigante embaixo dela (era redundante, pedido do Isaias). Glow
+   pulsante + fumaça de spray subindo (ecoa os sprays desenhados na
+   própria arte da logo) + vinheta escurecendo as bordas. ══ */
 .gang-saves__hero {
-  position: relative; margin: 0 -14px 6px; padding: 30px 14px 22px;
-  display: grid; place-items: center; overflow: hidden;
-  background: radial-gradient(120% 100% at 50% 0%, var(--if-blood) 0%, transparent 62%), var(--bg-primary);
-  border-bottom: 1px solid var(--if-hair);
+  position: relative; padding: 54px 20px 30px; display: grid; justify-items: center; gap: 14px;
+  overflow: hidden; text-align: center;
+  background: radial-gradient(120% 90% at 50% -10%, color-mix(in srgb, var(--if-blood) 55%, transparent), transparent 65%), var(--bg-primary);
+}
+.gang-saves__hero::before {
+  content: ''; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background: radial-gradient(60% 55% at 50% 38%, color-mix(in srgb, var(--if-amber) 30%, transparent), transparent 70%);
+  animation: gang-saves-glow 3.6s ease-in-out infinite;
 }
 .gang-saves__hero::after {
-  content: ''; position: absolute; inset: 0; pointer-events: none;
-  background: repeating-linear-gradient(-14deg, transparent 0 22px, rgba(0, 0, 0, .3) 23px 24px);
-  mask-image: linear-gradient(180deg, transparent, #000 40%, #000 70%, transparent);
+  content: ''; position: absolute; inset: 0; z-index: 0; pointer-events: none; opacity: .35;
+  background: repeating-linear-gradient(-14deg, transparent 0 22px, color-mix(in srgb, var(--if-cyan) 8%, transparent) 23px 24px);
+  mask-image: radial-gradient(70% 70% at 50% 40%, #000, transparent 85%);
 }
-.gang-saves__logo {
-  position: relative; width: 100%; max-width: 360px; height: auto;
-  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, .55));
+@keyframes gang-saves-glow {
+  0%, 100% { opacity: .55; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.08); }
 }
 
-.gang-saves__head { margin: 18px 0 20px; text-align: center; }
-.gang-saves__head h1 {
-  margin: 0 0 6px; color: var(--if-amber); font: 900 clamp(1.8rem, calc(9 * var(--app-vw) / 100), 2.6rem)/1 var(--font-title);
-  letter-spacing: .06em; text-transform: uppercase;
+.gang-saves__logo { position: relative; z-index: 1; width: 100%; max-width: 340px; height: auto; filter: drop-shadow(0 14px 34px rgba(0, 0, 0, .6)); }
+.gang-saves__tagline {
+  position: relative; z-index: 1; max-width: 30ch; margin: 0; padding: 6px 14px;
+  color: #f2ede4; font: 600 .8rem/1.5 var(--font-mono);
+  background: color-mix(in srgb, var(--bg-primary) 55%, transparent); border-radius: 2px;
 }
-.gang-saves__head p { margin: 0; color: var(--text-secondary); font-size: .78rem; }
 
-.gang-saves__vazio { margin: 24px 0; color: var(--text-secondary); text-align: center; font-size: .82rem; }
+/* Fumaça de spray — 6 partículas CSS puras, sem inline style (regra do
+   projeto): cada uma tem sua própria posição/atraso via nth-child. */
+.gang-saves__embers { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+.gang-saves__embers i {
+  position: absolute; bottom: -10px; width: 5px; height: 5px; border-radius: 50%;
+  background: color-mix(in srgb, var(--if-amber) 70%, transparent);
+  box-shadow: 0 0 8px 2px color-mix(in srgb, var(--if-amber) 55%, transparent);
+  animation: gang-saves-rise 5.5s ease-in infinite;
+}
+.gang-saves__embers i:nth-child(1) { left: 12%; animation-delay: 0s; }
+.gang-saves__embers i:nth-child(2) { left: 28%; animation-delay: .9s; background: color-mix(in srgb, var(--if-cyan) 65%, transparent); }
+.gang-saves__embers i:nth-child(3) { left: 46%; animation-delay: 1.8s; }
+.gang-saves__embers i:nth-child(4) { left: 63%; animation-delay: 2.6s; background: color-mix(in srgb, var(--if-cyan) 65%, transparent); }
+.gang-saves__embers i:nth-child(5) { left: 79%; animation-delay: 3.4s; }
+.gang-saves__embers i:nth-child(6) { left: 92%; animation-delay: 4.2s; }
+@keyframes gang-saves-rise {
+  0% { transform: translateY(0) scale(.6); opacity: 0; }
+  12% { opacity: .9; }
+  85% { opacity: 0; }
+  100% { transform: translateY(-230px) scale(1.3); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .gang-saves__hero::before, .gang-saves__embers i { animation: none; }
+}
 
-.gang-saves__lista { display: grid; gap: 14px; margin-bottom: 16px; }
+/* ══ CORPO — fundo sólido, sem ruído, pra legibilidade real ══ */
+.gang-saves__body { position: relative; z-index: 1; padding: 22px 16px 0; }
 
-.gang-saves__card-shell { position: relative; }
+/* ── Estado vazio: o convite pra fundar a 1ª gangue vira o momento
+   principal da tela, não uma linha de texto cinza perdida. ── */
+.gang-saves__empty {
+  display: grid; justify-items: center; gap: 14px; padding: 34px 20px;
+  text-align: center; border: 1px solid color-mix(in srgb, var(--if-amber) 40%, transparent);
+  background: linear-gradient(165deg, color-mix(in srgb, var(--if-amber) 10%, transparent), var(--if-panel-flat));
+  clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 0 100%);
+}
+.gang-saves__empty-badge { font-size: 2.1rem; filter: drop-shadow(0 0 14px color-mix(in srgb, var(--if-amber) 60%, transparent)); }
+.gang-saves__empty p { margin: 0; max-width: 30ch; color: #e7e2d8; font: 700 .92rem/1.5 var(--font-display); text-transform: none; }
+
+/* ── CTA principal (fundar gangue): peça de destaque, com a varredura
+   de luz no toque — gesto de assinatura do site (AGENTS.md). ── */
+.gang-saves__cta {
+  --cta-cor: var(--if-amber); position: relative; overflow: hidden; width: 100%; max-width: 320px;
+  min-height: 56px; padding: 0 20px; display: flex; align-items: center; gap: 12px;
+  border: 1px solid var(--cta-cor); background: linear-gradient(100deg, color-mix(in srgb, var(--cta-cor) 20%, transparent), var(--if-panel-flat));
+  color: var(--text-primary); box-shadow: 0 16px 36px -22px var(--cta-cor);
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%);
+}
+.gang-saves__cta:disabled { opacity: .55; }
+.gang-saves__cta::before {
+  content: ''; position: absolute; inset: 0; translate: -140% 0;
+  background: linear-gradient(100deg, transparent, color-mix(in srgb, var(--cta-cor) 45%, transparent), transparent);
+  transition: translate .55s ease;
+}
+.gang-saves__cta:active::before { translate: 140% 0; }
+.gang-saves__cta-icon { font-size: 1.35rem; color: var(--cta-cor); }
+.gang-saves__cta strong { flex: 1; text-align: left; font: 900 .95rem var(--font-display); text-transform: uppercase; letter-spacing: .02em; }
+.gang-saves__cta-arrow { color: var(--cta-cor); font: 900 1.2rem var(--font-display); }
+.gang-saves__cta--ghost { --cta-cor: var(--if-teal); margin: 16px auto 0; min-height: 50px; background: linear-gradient(100deg, var(--if-cyan-12), var(--if-panel-flat)); }
+
+/* ── Cards de save: bem maiores, cor por índice, meta com ícone. ── */
+.gang-saves__lista { display: grid; gap: 16px; }
+.gang-saves__card-shell {
+  --save-cor: var(--if-amber); position: relative;
+}
+.gang-saves__card-shell--teal { --save-cor: var(--if-teal); }
+.gang-saves__card-shell--violet { --save-cor: var(--if-violet); }
+
 .gang-saves__card {
-  --save-cor: var(--if-amber); position: relative; width: 100%; min-height: 108px; padding: 16px 18px 44px;
-  display: grid; gap: 5px; text-align: left; overflow: hidden;
+  position: relative; overflow: hidden; width: 100%; min-height: 128px; padding: 18px 20px 46px;
+  display: grid; gap: 6px; text-align: left;
   border: 1px solid var(--save-cor); border-left-width: 4px;
-  background: linear-gradient(145deg, color-mix(in srgb, var(--save-cor) 14%, var(--if-panel-flat)), var(--bg-primary));
-  box-shadow: 0 16px 40px -30px var(--save-cor);
-  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%);
+  background: linear-gradient(150deg, color-mix(in srgb, var(--save-cor) 16%, var(--if-panel-flat)), var(--bg-primary));
+  box-shadow: 0 18px 42px -30px var(--save-cor);
+  clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 0 100%);
 }
 .gang-saves__card:disabled { opacity: .55; }
-.gang-saves__card-index { color: var(--save-cor); font: 800 .6rem var(--font-mono); letter-spacing: .18em; text-transform: uppercase; }
-.gang-saves__card-nome { color: var(--text-primary); font: 900 1.35rem/1.05 var(--font-display); letter-spacing: .02em; text-transform: uppercase; }
-.gang-saves__card-meta { display: flex; justify-content: space-between; color: var(--text-secondary); font: 700 .64rem var(--font-mono); text-transform: uppercase; }
-.gang-saves__card-cta { margin-top: 2px; color: var(--save-cor); font: 800 .66rem var(--font-mono); letter-spacing: .08em; text-transform: uppercase; }
+.gang-saves__card::before {
+  content: ''; position: absolute; inset: 0; translate: -140% 0;
+  background: linear-gradient(100deg, transparent, color-mix(in srgb, var(--save-cor) 22%, transparent), transparent);
+  transition: translate .55s ease;
+}
+.gang-saves__card:active::before { translate: 140% 0; }
+.gang-saves__card-index { color: var(--save-cor); font: 800 .64rem var(--font-mono); letter-spacing: .2em; text-transform: uppercase; }
+.gang-saves__card-nome { color: var(--text-primary); font: 900 1.5rem/1.05 var(--font-display); letter-spacing: .02em; text-transform: uppercase; }
+.gang-saves__card-meta { display: flex; justify-content: space-between; color: #cfd6d8; font: 700 .68rem var(--font-mono); }
+.gang-saves__card-cta { position: absolute; left: 20px; bottom: 14px; color: var(--save-cor); font: 800 .7rem var(--font-mono); letter-spacing: .1em; text-transform: uppercase; }
 
 .gang-saves__card-delete {
-  position: absolute; left: 14px; right: 14px; bottom: 10px; height: 26px;
-  display: flex; align-items: center; justify-content: center; gap: 5px;
-  border: 1px solid rgba(255, 107, 107, .5);
-  background: rgba(255, 107, 107, .12); color: #ff8a8a;
-  font: 800 .58rem var(--font-mono); letter-spacing: .1em; text-transform: uppercase;
-  clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 0 100%);
+  position: absolute; top: 10px; right: 10px; z-index: 2; width: 30px; height: 30px;
+  display: grid; place-items: center; border: 1px solid rgba(255, 107, 107, .45);
+  background: color-mix(in srgb, var(--bg-primary) 65%, transparent); color: #ff8a8a; font-size: .82rem;
 }
 .gang-saves__card-delete:hover, .gang-saves__card-delete:active { background: #e0453f; border-color: #ff6b6b; color: #fff; }
 .gang-saves__card-delete:disabled { opacity: .4; }
 
-/* ── Nova gangue: mesmo desenho de cartão, cor teal pra se distinguir dos saves existentes ── */
-.gang-saves__nova {
-  --save-cor: var(--if-teal); width: 100%; min-height: 64px; margin-top: 2px; padding: 12px 16px;
-  display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 12px; text-align: left;
-  border: 1px solid var(--save-cor); border-left-width: 4px;
-  background: linear-gradient(100deg, var(--if-cyan-12), var(--if-panel-flat));
-  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
-}
-.gang-saves__nova:disabled { opacity: .55; }
-.gang-saves__nova-icon { font-size: 1.3rem; }
-.gang-saves__nova-copy strong { color: var(--text-primary); font: 900 .92rem var(--font-display); text-transform: uppercase; letter-spacing: .02em; }
-.gang-saves__nova-cta { color: var(--save-cor); font: 900 1.1rem var(--font-display); }
-
-.gang-saves__limite { margin-top: 6px; padding: 12px; border: 1px dashed var(--if-hair); color: var(--text-secondary); text-align: center; font-size: .74rem; }
+.gang-saves__limite { margin-top: 16px; padding: 12px; border: 1px dashed var(--if-hair); color: var(--text-secondary); text-align: center; font-size: .74rem; }
