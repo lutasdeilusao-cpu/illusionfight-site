@@ -142,7 +142,7 @@ export default function Leaderboard() {
         {['toptrumps', 'gangues', 'cuidadores'].map(a => (
           <button key={a} className={`lb-aba ${aba === a ? 'lb-aba--ativa' : ''}`} onClick={() => setAba(a)}>
             {a === 'toptrumps' ? 'TOP TRUMPS'
-              : a === 'gangues' ? 'LDI GANGUES'
+              : a === 'gangues' ? t('site.games.nomes.gangues')
               : 'CUIDADORES'}
           </button>
         ))}
