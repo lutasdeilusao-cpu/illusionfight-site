@@ -1033,6 +1033,17 @@
 }
 .gang-attack-btn:hover:not(:disabled) { box-shadow: 0 0 20px rgba(139,0,0,0.4); }
 .gang-attack-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+/* Automático da Briga em Multidão — mesma cor de destaque (teal) do toggle
+   do automático normal (gang-orb-auto), só que como botão de linha em vez de
+   switch, pra caber ao lado de AVANÇAR RODADA sem precisar de outro menu. */
+.gang-multidao-auto-btn {
+  flex-shrink: 0; padding: 12px 14px; background: rgba(0, 180, 216, 0.06);
+  border: 1px solid color-mix(in srgb, var(--if-teal) 45%, transparent);
+  color: var(--if-teal); cursor: pointer; font-family: 'Courier New', monospace;
+  font-size: 11px; font-weight: bold; letter-spacing: 2px; border-radius: 4px;
+  transition: all 0.15s;
+}
+.gang-multidao-auto-btn--on { background: rgba(0, 180, 216, 0.16); box-shadow: 0 0 14px -2px rgba(0, 180, 216, 0.5); }
 /* ── Escolha do golpe — quem age e o PM já aparecem no quadradinho piscando
    no roster (gang-mini--acting), então esse bloco só precisa dos golpes ── */
 .gang-power-attacks { display: flex; flex-direction: column; gap: 4px; }

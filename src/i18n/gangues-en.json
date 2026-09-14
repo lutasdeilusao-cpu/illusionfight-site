@@ -510,7 +510,8 @@
         "avancar_rodada": "NEXT ROUND",
         "resolvendo": "Rolling this round's dice...",
         "usar_item": "Use item this round (gives up the attack)",
-        "vai_usar_item": "Will use item"
+        "vai_usar_item": "Will use item",
+        "auto_switch_titulo": "Turn on auto — rounds advance by themselves, respecting the skills/items you've already picked. Turn it off anytime."
       },
       "multidao_tutorial": {
         "interruptor": "This switch turns on Mob Brawl mode: instead of one hit at a time, each round resolves everyone at once.",

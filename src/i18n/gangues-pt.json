@@ -510,7 +510,8 @@
         "avancar_rodada": "AVANÇAR RODADA",
         "resolvendo": "Rolando os dados da rodada...",
         "usar_item": "Usar item nesta rodada (abre mão do ataque)",
-        "vai_usar_item": "Vai usar item"
+        "vai_usar_item": "Vai usar item",
+        "auto_switch_titulo": "Liga o automático — avança as rodadas sozinho, respeitando os talentos/itens já marcados. Desliga a qualquer momento."
       },
       "multidao_tutorial": {
         "interruptor": "Esse interruptor liga o modo Multidão: em vez de golpe a golpe, cada rodada resolve todo mundo de uma vez.",

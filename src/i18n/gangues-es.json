@@ -510,7 +510,8 @@
         "avancar_rodada": "SIGUIENTE RONDA",
         "resolvendo": "Tirando los dados de la ronda...",
         "usar_item": "Usar objeto esta ronda (renuncia al ataque)",
-        "vai_usar_item": "Va a usar objeto"
+        "vai_usar_item": "Va a usar objeto",
+        "auto_switch_titulo": "Activa el automático — las rondas avanzan solas, respetando los talentos/objetos ya marcados. Desactívalo cuando quieras."
       },
       "multidao_tutorial": {
         "interruptor": "Este interruptor activa el modo Pelea Multitudinaria: en vez de golpe a golpe, cada ronda resuelve a todos de una vez.",

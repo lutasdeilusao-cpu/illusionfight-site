@@ -6,6 +6,7 @@ import { useGanguesStore } from '../store/useGanguesStore'
 import useGanguesTurnMachine from '../hooks/useGanguesTurnMachine'
 import useGanguesCombatFx from '../hooks/useGanguesCombatFx.js'
 import useGanguesModoAuto from '../hooks/useGanguesModoAuto.js'
+import useGanguesModoAutoMultidao from '../hooks/useGanguesModoAutoMultidao.js'
 import useGanguesModoMultidao from '../hooks/useGanguesModoMultidao.js'
 import useGanguesBattleOutcome from '../hooks/useGanguesBattleOutcome.js'
 import useGanguesCombatLog from '../hooks/useGanguesCombatLog.js'
@@ -75,6 +76,9 @@ export default function GanguesCombat({ onNavigate }) {
 
   const multidao = useGanguesModoMultidao({ store, machine, t, setLog, eventosBrutosRef, finish, result })
   const { modoMultidaoAtivo, estadoMultidao, multidaoDisponivel, modoMultidaoOn, alternarMultidao, multidaoBlinkVisto, poderesMultidao, itensMultidao, cicloPoderMultidao, toggleItemMultidao, avancarRodada, revelandoRodada } = multidao
+  const modoAutoMultidao = useGanguesModoAutoMultidao({
+    modoMultidaoAtivo, estadoMultidao, revelandoRodada, result, koCena: fx.koCena, avancarRodada,
+  })
 
   const players = modoMultidaoAtivo
     ? (estadoMultidao?.combatants || []).filter(item => item.side === 'player')
@@ -228,6 +232,16 @@ export default function GanguesCombat({ onNavigate }) {
           <b>■</b>{t('games.gangues.auto.sair')}
         </button>
       )}
+      {modoMultidaoAtivo && modoAutoMultidao.modoAutoMultidaoOn && !result && (
+        <button
+          type="button"
+          className="gang-auto-sair"
+          style={autoSairTop != null ? { top: `${autoSairTop}px` } : undefined}
+          onClick={() => modoAutoMultidao.setModoAutoMultidaoOn(false)}
+        >
+          <b>■</b>{t('games.gangues.auto.sair')}
+        </button>
+      )}
 
       <GanguesCombatOverlays
         t={t} aviso={aviso} danoCena={fx.danoCena} koCena={fx.koCena}
@@ -273,6 +287,7 @@ export default function GanguesCombat({ onNavigate }) {
           poderesMultidao={poderesMultidao} itensMultidao={itensMultidao}
           cicloPoderMultidao={cicloPoderMultidao} toggleItemMultidao={toggleItemMultidao}
           avancarRodada={avancarRodada} revelandoRodada={revelandoRodada} estadoMultidao={estadoMultidao}
+          autoOn={modoAutoMultidao.modoAutoMultidaoOn} onToggleAuto={modoAutoMultidao.toggleModoAutoMultidao}
         />
       )}
 
