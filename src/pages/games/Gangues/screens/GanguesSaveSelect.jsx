@@ -17,43 +17,50 @@ import './GanguesSaveSelect.css'
    em paralelo, cada uma com seu próprio nome, elenco e progresso no
    mapa. Também é daqui que se apaga uma gangue.
 
-   4ª reconstrução (pedido do Isaias, 14/09/2026, 3ª rejeição da mesma
-   tela): a versão anterior (logo já nascendo travada + tijolo de fundo
-   fraco) ainda não convenceu — "a parte de trás não parece tijolos" e
-   "os tijolos caíram muito pouco". Pedido explícito, na ordem certa:
-   (1) tijolos caem primeiro e MONTAM a parede de verdade (muito mais
-   peça, espalhados), (2) SÓ DEPOIS a logo cai de cima e ESTILHAÇA a
-   parede, os pedaços voam pra todo lado, (3) a logo assenta na posição
-   final. Também pediu fonte de pichação/arte de rua pro texto (não a
-   fonte mono técnica de antes) e um botão de CTA desenhado do zero no
-   mesmo estilo (nada do visual genérico anterior). Sequência final,
-   100% CSS-timed (constantes abaixo espelham os keyframes do CSS —
-   mudar um lado sem o outro desincroniza):
+   5ª reconstrução (pedido do Isaias, 14/09/2026, ajuste fino depois de
+   aprovar a 4ª): "parabéns, tá muito melhor" — só pediu mais fôlego:
+   mais tijolo caindo, animação mais longa, SOM de cada batida ("tu tu
+   tu") e um "buraco" de estado vazio que não parecesse mais uma bolha
+   preta solta sem nada a ver com a parede. Sequência final, 100%
+   CSS-timed (constantes abaixo espelham os keyframes do CSS — mudar um
+   lado sem o outro desincroniza):
 
-     t=0-620ms   → ~14 tijolos caem de cima em posições/atrasos variados
-                   e se encaixam na parede (nth-child, sem inline style)
-     t=520-950ms → a logo cai de cima (já visível, não escondida) e
+     t=0-1020ms  → ~18 tijolos caem de cima em posições/atrasos variados
+                   e se encaixam na parede (nth-child, sem inline style),
+                   com uma cadência de batidas sonoras (TIJOLO_KNOCK_MS)
+     t=980-1400  → a logo cai de cima (já visível, não escondida) e
                    acelera até bater na posição final
-     t=950ms     → IMPACTO: flash + tremor de tela + estilhaços de
+     t=1400ms    → IMPACTO: flash + tremor de tela + estilhaços de
                    tijolo voando pra todo lado a partir do centro + SOM
                    de verdade (mp3 baixado de banco de efeitos royalty-
                    free via curl — nunca os bips sintetizados do
                    sfx.js), tudo disparado no mesmo instante
-     t~1150ms    → tagline + corpo da tela entram (Framer Motion, delay
+     t~1600ms    → tagline + corpo da tela entram (Framer Motion, delay
                    deslocado por IMPACT_MS pra nunca competir com o
                    impacto)
 
    Fonte de rua: 'Permanent Marker' (Google Fonts, já carregada no
    index.html) na tagline e no CTA — nenhuma fonte nova de peso pro
    bundle (só CSS, carregamento único do documento). O "boxing glove"
-   genérico já tinha saído; agora o CTA de fundar a 1ª gangue ganhou um
-   desenho próprio "spray-paint" (halo de neblina de tinta + respingos),
-   nada reaproveitado do resto do site.
+   genérico já tinha saído; o CTA de fundar a 1ª gangue tem um desenho
+   próprio "spray-paint" (halo de neblina de tinta + respingos), e o
+   "buraco" do estado vazio agora tem borda quebrada/irregular (tijolo
+   estilhaçado de verdade), não mais uma bolha preta lisa.
    ══════════════════════════════════════════════════════════════ */
 
 const LOGOS = { pt: logoPt, en: logoEn, es: logoEs }
 const CORES_CARD = ['amber', 'teal', 'violet']
-const IMPACT_MS = 950
+// Retimado (pedido do Isaias, 14/09/2026, ajuste fino: "mais tijolo caindo
+// no começo e pra durar mais tempo essa animação") — precisa bater com a
+// duração da animação da logo em GanguesSaveSelect.css (gang-saves-queda)
+// e os animation-delay do flash/tremor/estilhaços, todos == IMPACT_MS.
+const IMPACT_MS = 1400
+// Cada "tu" da parede se montando — som de verdade (não sintetizado),
+// agendado pra bater perto do instante em que cada leva de tijolos pousa
+// (ver --pouso/animation-delay em GanguesSaveSelect.css). Não é 1 som por
+// tijolo (com ~18 peças ficaria uma zoeira só) — uma cadência de batidas
+// representando a parede sendo erguida.
+const TIJOLO_KNOCK_MS = [60, 220, 380, 540, 700, 860, 1020]
 
 function formatarData(iso) {
   if (!iso) return ''
@@ -71,6 +78,12 @@ export default function GanguesSaveSelect({ onNavigate }) {
 
   const limite = getGanguesSaveSlotLimit(perfil?.tier)
   const saves = store.saves
+  // Save sem gang_name = gangue nunca batizada de verdade (o jogador saiu
+  // no meio da tela de nome) — não conta como gangue de verdade pro
+  // jogador nem pro limite de vagas; fica invisível na lista até ganhar
+  // um nome (ver `criar()`, que reaproveita esse registro em vez de criar
+  // outro toda vez que o jogador tenta de novo).
+  const savesNomeados = saves.filter(save => save.gang_name)
 
   useEffect(() => {
     if (!user) return
@@ -92,6 +105,20 @@ export default function GanguesSaveSelect({ onNavigate }) {
     return () => clearTimeout(timer)
   }, [])
 
+  // "Tu-tu-tu" da parede se montando — pedido do Isaias: "esse tijolo tem
+  // que ter som quando ele caindo". `playbackRate`/volume levemente
+  // variados por batida pra não soar como o mesmo som robótico repetido.
+  useEffect(() => {
+    if (!sfx.enabled) return
+    const timers = TIJOLO_KNOCK_MS.map((ms, i) => setTimeout(() => {
+      const audio = new Audio('/sounds/gangues-saves-tijolo.mp3')
+      audio.volume = 0.32
+      audio.playbackRate = 0.92 + (i % 3) * 0.09
+      audio.play().catch(() => {})
+    }, ms))
+    return () => timers.forEach(clearTimeout)
+  }, [])
+
   const abrir = async (saveId) => {
     if (abrindo) return
     sfx.select?.()
@@ -105,10 +132,18 @@ export default function GanguesSaveSelect({ onNavigate }) {
   }
 
   const criar = async () => {
-    if (abrindo || saves.length >= limite) return
+    if (abrindo || savesNomeados.length >= limite) return
     sfx.click()
     setAbrindo('novo')
-    const id = await store.criarNovoSave(user.id)
+    // Já existe um save criado mas nunca batizado (o jogador abriu "fundar
+    // nova gangue" antes e saiu/recarregou no meio do nome) — reaproveita
+    // em vez de criar outro registro no Supabase. Sem isso, cada tentativa
+    // abandonada de fundar deixava uma "Gangue Sem Nome" fantasma pra
+    // sempre, ocupando vaga sem o jogador nunca ter fundado de verdade
+    // (pedido do Isaias, 14/09/2026: "enquanto o cara não fundou a gangue
+    // oficialmente, não é pra aparecer uma gangue sem nome").
+    const fantasma = saves.find(save => !save.gang_name)
+    const id = fantasma ? fantasma.id : await store.criarNovoSave(user.id)
     if (!id) { setAbrindo(null); return }
     await store.selecionarSave(id)
     onNavigate('lobby')
@@ -123,7 +158,7 @@ export default function GanguesSaveSelect({ onNavigate }) {
     setExcluindo(null)
   }
 
-  const podeCriar = saves.length < limite
+  const podeCriar = savesNomeados.length < limite
   const s = (base) => base / 1000 + IMPACT_MS / 1000
 
   // A hero (logo + entrada de impacto) SEMPRE monta na hora, mesmo antes da
@@ -133,10 +168,11 @@ export default function GanguesSaveSelect({ onNavigate }) {
   return (
     <main className="gang-lobby gang-saves">
       <span className="gang-saves__flash" aria-hidden="true" />
-      {/* Parede se montando — ~14 tijolos caindo, espalhados, ANTES da
-          logo cair (pedido do Isaias: "cair mais, que caiu muito pouco"). */}
+      {/* Parede se montando — ~18 tijolos caindo, espalhados, ANTES da
+          logo cair (pedido do Isaias: "mais tijolo caindo, e pra durar
+          mais tempo essa animação"). */}
       <span className="gang-saves__tijolos" aria-hidden="true">
-        <i /><i /><i /><i /><i /><i /><i /><i /><i /><i /><i /><i /><i /><i />
+        <i /><i /><i /><i /><i /><i /><i /><i /><i /><i /><i /><i /><i /><i /><i /><i /><i /><i />
       </span>
       {/* Estilhaços do impacto — a logo bate na parede e os pedaços voam
           pra todo lado (dispara junto com o flash/tremor, ver IMPACT_MS). */}
@@ -159,9 +195,9 @@ export default function GanguesSaveSelect({ onNavigate }) {
           <motion.p className="gang-saves__loading" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: s(150) }}>
             {t('games.gangues.saves.carregando')}
           </motion.p>
-        ) : saves.length === 0 ? (
+        ) : savesNomeados.length === 0 ? (
           <motion.div className="gang-saves__buraco" initial={{ opacity: 0, scale: .85 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: s(150), type: 'spring', stiffness: 210, damping: 20 }}>
-            <span className="gang-saves__buraco-estilhaco" aria-hidden="true"><i /><i /><i /><i /><i /></span>
+            <span className="gang-saves__buraco-estilhaco" aria-hidden="true"><i /><i /><i /><i /><i /><i /><i /><i /></span>
             <p>{t('games.gangues.saves.sem_saves')}</p>
             <motion.button className="gang-saves__spray gang-saves__spray--primary" disabled={Boolean(abrindo)} onClick={criar} whileTap={{ scale: .96 }}>
               <span className="gang-saves__spray-halo" aria-hidden="true" />
@@ -172,7 +208,7 @@ export default function GanguesSaveSelect({ onNavigate }) {
           <>
             <div className="gang-saves__lista">
               <AnimatePresence>
-                {saves.map((save, index) => {
+                {savesNomeados.map((save, index) => {
                   const dominados = contarTerritoriosDominados(save.story_progress)
                   const cor = CORES_CARD[index % CORES_CARD.length]
                   return (
@@ -205,7 +241,7 @@ export default function GanguesSaveSelect({ onNavigate }) {
             {podeCriar ? (
               <motion.button
                 className="gang-saves__spray gang-saves__spray--ghost" disabled={Boolean(abrindo)} onClick={criar} whileTap={{ scale: .96 }}
-                initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: s(150) + saves.length * 0.08 + .08 }}
+                initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: s(150) + savesNomeados.length * 0.08 + .08 }}
               >
                 <span className="gang-saves__spray-halo" aria-hidden="true" />
                 <strong>{abrindo === 'novo' ? t('games.gangues.carregando') : t('games.gangues.saves.nova_gangue')}</strong>

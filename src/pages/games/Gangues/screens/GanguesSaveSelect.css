@@ -31,46 +31,50 @@
 .gang-saves__voltar:hover, .gang-saves__voltar:active { color: var(--if-cyan); border-color: var(--if-cyan); }
 
 /* ══ FLASH + TREMOR do impacto — disparam no momento em que a LOGO bate
-   na parede (IMPACT_MS no JSX, hoje 950ms), não na montagem. ══ */
+   na parede (IMPACT_MS no JSX, hoje 1400ms), não na montagem. ══ */
 .gang-saves__flash {
   position: absolute; inset: 0; z-index: 30; pointer-events: none;
   background: #fff4dd; opacity: 0;
-  animation: gang-saves-flash .5s ease-out .95s both;
+  animation: gang-saves-flash .5s ease-out 1.4s both;
 }
 @keyframes gang-saves-flash {
   0% { opacity: 0; } 10% { opacity: .92; } 100% { opacity: 0; }
 }
-.gang-saves__hero--treme { animation: gang-saves-shake .38s cubic-bezier(.36,.07,.19,.97) .95s both; }
+.gang-saves__hero--treme { animation: gang-saves-shake .38s cubic-bezier(.36,.07,.19,.97) 1.4s both; }
 @keyframes gang-saves-shake {
   0%, 100% { translate: 0 0; }
   12% { translate: -7px 3px; } 24% { translate: 6px -4px; } 36% { translate: -5px 3px; }
   48% { translate: 4px -2px; } 62% { translate: -3px 1px; } 78% { translate: 1px -1px; }
 }
 
-/* ── FASE 1 — a parede se monta: ~14 tijolos caem de cima, espalhados em
+/* ── FASE 1 — a parede se monta: ~18 tijolos caem de cima, espalhados em
    posição/atraso/pouso diferentes (nth-child, sem inline style), ANTES da
-   logo cair (pedido do Isaias: mais peça, mais impacto de "montagem"). ── */
+   logo cair (pedido do Isaias: mais peça, animação mais longa). ── */
 .gang-saves__tijolos { position: absolute; inset: 0; z-index: 5; pointer-events: none; overflow: hidden; }
 .gang-saves__tijolos i {
   position: absolute; top: -120px; width: 13%; height: 40px;
   background: linear-gradient(160deg, #6b3a28, #3d1f16);
   border: 1px solid rgba(0, 0, 0, .5); box-shadow: 0 10px 18px -6px rgba(0, 0, 0, .6);
-  opacity: 0; animation: gang-saves-tijolo-cai .8s cubic-bezier(.34,1.2,.64,1) both;
+  opacity: 0; animation: gang-saves-tijolo-cai .85s cubic-bezier(.34,1.2,.64,1) both;
 }
 .gang-saves__tijolos i:nth-child(1)  { left: 1%;  --pouso: 30px;  animation-delay: .00s; rotate: -6deg; }
-.gang-saves__tijolos i:nth-child(2)  { left: 14%; --pouso: 96px;  animation-delay: .09s; rotate: 4deg; }
-.gang-saves__tijolos i:nth-child(3)  { left: 27%; --pouso: 20px;  animation-delay: .04s; rotate: -3deg; }
-.gang-saves__tijolos i:nth-child(4)  { left: 40%; --pouso: 150px; animation-delay: .16s; rotate: 7deg; }
-.gang-saves__tijolos i:nth-child(5)  { left: 53%; --pouso: 60px;  animation-delay: .07s; rotate: -8deg; }
-.gang-saves__tijolos i:nth-child(6)  { left: 66%; --pouso: 200px; animation-delay: .2s;  rotate: 5deg; }
-.gang-saves__tijolos i:nth-child(7)  { left: 79%; --pouso: 40px;  animation-delay: .12s; rotate: -5deg; }
-.gang-saves__tijolos i:nth-child(8)  { left: 90%; --pouso: 120px; animation-delay: .22s; rotate: 6deg; }
-.gang-saves__tijolos i:nth-child(9)  { left: 8%;  --pouso: 180px; animation-delay: .28s; rotate: -4deg; }
-.gang-saves__tijolos i:nth-child(10) { left: 34%; --pouso: 230px; animation-delay: .33s; rotate: 8deg; }
-.gang-saves__tijolos i:nth-child(11) { left: 60%; --pouso: 260px; animation-delay: .3s;  rotate: -7deg; }
-.gang-saves__tijolos i:nth-child(12) { left: 47%; --pouso: 10px;  animation-delay: .38s; rotate: 3deg; }
-.gang-saves__tijolos i:nth-child(13) { left: 73%; --pouso: 150px; animation-delay: .42s; rotate: -6deg; }
-.gang-saves__tijolos i:nth-child(14) { left: 20%; --pouso: 260px; animation-delay: .45s; rotate: 5deg; }
+.gang-saves__tijolos i:nth-child(2)  { left: 14%; --pouso: 96px;  animation-delay: .12s; rotate: 4deg; }
+.gang-saves__tijolos i:nth-child(3)  { left: 27%; --pouso: 20px;  animation-delay: .05s; rotate: -3deg; }
+.gang-saves__tijolos i:nth-child(4)  { left: 40%; --pouso: 150px; animation-delay: .22s; rotate: 7deg; }
+.gang-saves__tijolos i:nth-child(5)  { left: 53%; --pouso: 60px;  animation-delay: .09s; rotate: -8deg; }
+.gang-saves__tijolos i:nth-child(6)  { left: 66%; --pouso: 200px; animation-delay: .28s; rotate: 5deg; }
+.gang-saves__tijolos i:nth-child(7)  { left: 79%; --pouso: 40px;  animation-delay: .16s; rotate: -5deg; }
+.gang-saves__tijolos i:nth-child(8)  { left: 90%; --pouso: 120px; animation-delay: .32s; rotate: 6deg; }
+.gang-saves__tijolos i:nth-child(9)  { left: 8%;  --pouso: 180px; animation-delay: .4s;  rotate: -4deg; }
+.gang-saves__tijolos i:nth-child(10) { left: 34%; --pouso: 230px; animation-delay: .48s; rotate: 8deg; }
+.gang-saves__tijolos i:nth-child(11) { left: 60%; --pouso: 260px; animation-delay: .44s; rotate: -7deg; }
+.gang-saves__tijolos i:nth-child(12) { left: 47%; --pouso: 10px;  animation-delay: .55s; rotate: 3deg; }
+.gang-saves__tijolos i:nth-child(13) { left: 73%; --pouso: 150px; animation-delay: .6s;  rotate: -6deg; }
+.gang-saves__tijolos i:nth-child(14) { left: 20%; --pouso: 260px; animation-delay: .65s; rotate: 5deg; }
+.gang-saves__tijolos i:nth-child(15) { left: 5%;  --pouso: 130px; animation-delay: .72s; rotate: -5deg; }
+.gang-saves__tijolos i:nth-child(16) { left: 45%; --pouso: 200px; animation-delay: .78s; rotate: 6deg; }
+.gang-saves__tijolos i:nth-child(17) { left: 85%; --pouso: 170px; animation-delay: .85s; rotate: -4deg; }
+.gang-saves__tijolos i:nth-child(18) { left: 62%; --pouso: 60px;  animation-delay: .92s; rotate: 5deg; }
 @keyframes gang-saves-tijolo-cai {
   0% { top: -120px; opacity: 1; }
   62% { top: var(--pouso, 60px); opacity: 1; }
@@ -85,7 +89,7 @@
 .gang-saves__estilhacos i {
   position: absolute; top: 45%; left: 50%; width: 14px; height: 14px;
   background: linear-gradient(160deg, #6b3a28, #3d1f16); clip-path: polygon(50% 0, 100% 100%, 0 100%);
-  opacity: 0; animation: gang-saves-estilhaco .6s cubic-bezier(.25,.8,.4,1) .95s both;
+  opacity: 0; animation: gang-saves-estilhaco .6s cubic-bezier(.25,.8,.4,1) 1.4s both;
 }
 .gang-saves__estilhacos i:nth-child(1) { --dx: -160px; --dy: -90px; --rot: -140deg; }
 .gang-saves__estilhacos i:nth-child(2) { --dx: -80px;  --dy: -160px; --rot: 90deg; }
@@ -127,11 +131,11 @@
   position: relative; z-index: 1; width: 100%; max-width: 340px; height: auto;
   filter: drop-shadow(0 14px 34px rgba(0, 0, 0, .6));
 }
-.gang-saves__logo--porrada { animation: gang-saves-queda .95s cubic-bezier(.55,0,.85,.45) both; }
+.gang-saves__logo--porrada { animation: gang-saves-queda 1.4s cubic-bezier(.55,0,.85,.45) both; }
 @keyframes gang-saves-queda {
   0% { translate: 0 -240%; scale: 1.12; }
-  78% { translate: 0 -240%; scale: 1.12; }
-  92% { translate: 0 4%; scale: .97; }
+  84% { translate: 0 -240%; scale: 1.12; }
+  94% { translate: 0 4%; scale: .97; }
   100% { translate: 0 0; scale: 1; }
 }
 
@@ -166,26 +170,37 @@
 /* ══ CORPO ══ */
 .gang-saves__body { position: relative; z-index: 1; padding: 18px 16px 0; }
 
-/* ── Estado vazio: um buraco arrebentado na própria parede de tijolo (a
-   parede já é o fundo de página inteira), não uma caixa qualquer. Sem
-   ícone de luva — a logo já é a identidade visual. Borda orgânica
-   (border-radius assimétrico) + estilhaços na borda vendem o "buraco". ── */
+/* ── Estado vazio: um buraco ARREBENTADO de verdade na parede de tijolo
+   (a parede já é o fundo de página inteira) — borda quebrada/irregular
+   (clip-path recortado, não mais a bolha preta lisa que o Isaias achou
+   "sem nada a ver": "esse fundo preto... não tem nada a ver"), com um
+   aro de tijolo estilhaçado (::before, cor de tijolo, atrás do buraco
+   escuro) e cacos espalhados por toda a borda. Sem ícone de luva — a
+   logo já é a identidade visual. ── */
 .gang-saves__buraco {
-  position: relative; padding: 38px 22px 26px; display: grid; justify-items: center; gap: 14px;
-  text-align: center; background: radial-gradient(120% 100% at 50% 35%, #000 0%, #0a0705 70%, transparent 100%);
-  border-radius: 46% 54% 51% 49% / 58% 44% 56% 42%;
-  box-shadow: inset 0 0 50px 10px rgba(0, 0, 0, .8), 0 20px 50px -20px rgba(0, 0, 0, .7);
+  --buraco-corte: polygon(8% 6%, 24% 0%, 40% 5%, 58% 1%, 74% 7%, 92% 2%, 100% 16%, 95% 30%, 100% 46%, 92% 60%, 100% 76%, 90% 92%, 74% 100%, 56% 94%, 40% 100%, 22% 95%, 4% 100%, 8% 82%, 0% 62%, 6% 40%, 0% 20%);
+  position: relative; margin: 6px; padding: 40px 24px 28px; display: grid; justify-items: center; gap: 14px;
+  text-align: center;
+  background: radial-gradient(120% 100% at 50% 40%, #050302 0%, #1c0f09 55%, #2c150e 100%);
+  clip-path: var(--buraco-corte);
+}
+.gang-saves__buraco::before {
+  content: ''; position: absolute; inset: -9px; z-index: -1;
+  background: linear-gradient(160deg, #6b3a28, #3d1f16); clip-path: var(--buraco-corte);
 }
 .gang-saves__buraco-estilhaco { position: absolute; inset: 0; pointer-events: none; }
 .gang-saves__buraco-estilhaco i {
   position: absolute; width: 12px; height: 12px;
   background: linear-gradient(160deg, #6b3a28, #3d1f16); clip-path: polygon(50% 0, 100% 100%, 0 100%);
 }
-.gang-saves__buraco-estilhaco i:nth-child(1) { top: -4px; left: 14%; rotate: -12deg; }
-.gang-saves__buraco-estilhaco i:nth-child(2) { top: -2px; left: 38%; rotate: 8deg; scale: 1.3; }
-.gang-saves__buraco-estilhaco i:nth-child(3) { top: -6px; right: 20%; rotate: -6deg; }
-.gang-saves__buraco-estilhaco i:nth-child(4) { bottom: -4px; left: 22%; rotate: 175deg; scale: 1.15; }
-.gang-saves__buraco-estilhaco i:nth-child(5) { bottom: -2px; right: 16%; rotate: 200deg; }
+.gang-saves__buraco-estilhaco i:nth-child(1) { top: -8px; left: 10%; rotate: -12deg; }
+.gang-saves__buraco-estilhaco i:nth-child(2) { top: -10px; left: 34%; rotate: 8deg; scale: 1.3; }
+.gang-saves__buraco-estilhaco i:nth-child(3) { top: -6px; right: 18%; rotate: -6deg; }
+.gang-saves__buraco-estilhaco i:nth-child(4) { top: 30%; left: -8px; rotate: -80deg; scale: 1.1; }
+.gang-saves__buraco-estilhaco i:nth-child(5) { top: 34%; right: -8px; rotate: 80deg; }
+.gang-saves__buraco-estilhaco i:nth-child(6) { bottom: -8px; left: 20%; rotate: 175deg; scale: 1.15; }
+.gang-saves__buraco-estilhaco i:nth-child(7) { bottom: -6px; right: 24%; rotate: 200deg; }
+.gang-saves__buraco-estilhaco i:nth-child(8) { bottom: 8%; left: -6px; rotate: 100deg; scale: .9; }
 .gang-saves__buraco p { margin: 0; max-width: 28ch; color: #f2ede1; font: 400 1.05rem/1.5 'Permanent Marker', cursive; text-shadow: 0 2px 0 rgba(0, 0, 0, .5); }
 
 /* ── CTA "spray-paint": nada reaproveitado do resto do site — halo de
