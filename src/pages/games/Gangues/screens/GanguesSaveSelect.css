@@ -3,19 +3,22 @@
    sobrescrevemos o padding padrão (60px/24px) pra virar full-bleed. */
 .gang-saves {
   padding: 0 0 32px; position: relative; overflow-x: clip;
-  /* Parede de tijolo — pano de fundo da tela inteira, não só da hero
-     (pedido do Isaias: "por trás poderia ser uma parede de tijolos").
-     Truque clássico de tijolo em CSS puro: uma junta horizontal a cada
-     26px + uma vertical a cada 52px, deslocada meio-tijolo por fiada. */
-  background:
-    repeating-linear-gradient(0deg, rgba(0, 0, 0, .55) 0 2px, transparent 2px 26px),
-    repeating-linear-gradient(90deg, rgba(0, 0, 0, .5) 0 2px, transparent 2px 52px),
-    repeating-linear-gradient(90deg, rgba(0, 0, 0, .5) 26px 28px, transparent 28px 78px),
-    linear-gradient(175deg, #2a1410, #180b09 55%, #0d0605);
-  background-size: 100% 26px, 52px 52px, 52px 52px, 100% 100%;
-  background-position: 0 0, 0 0, 0 13px, 0 0;
+  /* Parede de tijolo — pano de fundo da tela inteira (pedido do Isaias:
+     "por trás poderia ser uma parede de tijolos", a versão anterior "não
+     parece tijolos"). Truque clássico de 4 gradientes diagonais cruzados
+     por tijolo — lê como fiada de tijolo de verdade, não só uma grade. */
+  background-color: #351611;
+  background-image:
+    linear-gradient(335deg, rgba(0, 0, 0, .7) 23px, transparent 23px),
+    linear-gradient(155deg, rgba(0, 0, 0, .7) 23px, transparent 23px),
+    linear-gradient(335deg, rgba(0, 0, 0, .7) 23px, transparent 23px),
+    linear-gradient(155deg, rgba(0, 0, 0, .7) 23px, transparent 23px),
+    radial-gradient(120% 90% at 50% 0%, rgba(139, 0, 0, .35), transparent 60%);
+  background-size: 58px 58px, 58px 58px, 58px 58px, 58px 58px, 100% 100%;
+  background-position: 0 2px, 4px 35px, 29px 32px, 33px 65px, 0 0;
+  background-attachment: fixed;
 }
-.gang-saves__loading { padding: 40px 16px; text-align: center; color: var(--text-secondary); font-size: .82rem; }
+.gang-saves__loading { padding: 20px 16px 0; text-align: center; color: #cfc6bb; font-size: .82rem; }
 
 /* ── Voltar: seta discreta no canto, padrão já usado no resto do jogo
    (gang-recruit__back / gang-progression-screen-back). ── */
@@ -27,50 +30,78 @@
 }
 .gang-saves__voltar:hover, .gang-saves__voltar:active { color: var(--if-cyan); border-color: var(--if-cyan); }
 
-/* ══ FLASH de impacto — um clarão só, na entrada, sincronizado com o
-   som e a logo travando (ver IMPACT_MS no JSX). ══ */
+/* ══ FLASH + TREMOR do impacto — disparam no momento em que a LOGO bate
+   na parede (IMPACT_MS no JSX, hoje 950ms), não na montagem. ══ */
 .gang-saves__flash {
   position: absolute; inset: 0; z-index: 30; pointer-events: none;
   background: #fff4dd; opacity: 0;
-  animation: gang-saves-flash .5s ease-out both;
+  animation: gang-saves-flash .5s ease-out .95s both;
 }
 @keyframes gang-saves-flash {
-  0% { opacity: 0; } 4% { opacity: .92; } 100% { opacity: 0; }
+  0% { opacity: 0; } 10% { opacity: .92; } 100% { opacity: 0; }
 }
-
-/* ══ Tremor de tela na entrada — some sozinho depois de ~0.35s. ══ */
-.gang-saves__hero--treme { animation: gang-saves-shake .38s cubic-bezier(.36,.07,.19,.97) both; }
+.gang-saves__hero--treme { animation: gang-saves-shake .38s cubic-bezier(.36,.07,.19,.97) .95s both; }
 @keyframes gang-saves-shake {
   0%, 100% { translate: 0 0; }
-  12% { translate: -6px 2px; } 24% { translate: 5px -3px; } 36% { translate: -4px 3px; }
-  48% { translate: 3px -2px; } 62% { translate: -2px 1px; } 78% { translate: 1px -1px; }
+  12% { translate: -7px 3px; } 24% { translate: 6px -4px; } 36% { translate: -5px 3px; }
+  48% { translate: 4px -2px; } 62% { translate: -3px 1px; } 78% { translate: 1px -1px; }
 }
 
-/* ── Blocos de tijolo caindo de cima na entrada, se encaixando na parede
-   de fundo (ilusão de "a parede tá se montando") — 6 blocos, cada um com
-   posição/atraso/rotação próprios via nth-child, sem inline style. Some
-   de vez depois de aterrissar (fill-mode:forwards mantém a posição final,
-   invisível porque já virou parte do fundo). ── */
-.gang-saves__tijolos { position: absolute; inset: 0; z-index: 15; pointer-events: none; overflow: hidden; }
+/* ── FASE 1 — a parede se monta: ~14 tijolos caem de cima, espalhados em
+   posição/atraso/pouso diferentes (nth-child, sem inline style), ANTES da
+   logo cair (pedido do Isaias: mais peça, mais impacto de "montagem"). ── */
+.gang-saves__tijolos { position: absolute; inset: 0; z-index: 5; pointer-events: none; overflow: hidden; }
 .gang-saves__tijolos i {
-  position: absolute; top: -120px; width: 15%; height: 44px;
+  position: absolute; top: -120px; width: 13%; height: 40px;
   background: linear-gradient(160deg, #6b3a28, #3d1f16);
   border: 1px solid rgba(0, 0, 0, .5); box-shadow: 0 10px 18px -6px rgba(0, 0, 0, .6);
-  opacity: 0; animation: gang-saves-tijolo-cai .6s cubic-bezier(.34,1.56,.64,1) both;
+  opacity: 0; animation: gang-saves-tijolo-cai .8s cubic-bezier(.34,1.2,.64,1) both;
 }
-.gang-saves__tijolos i:nth-child(1) { left: 2%; animation-delay: .02s; rotate: -6deg; }
-.gang-saves__tijolos i:nth-child(2) { left: 19%; animation-delay: .12s; rotate: 4deg; }
-.gang-saves__tijolos i:nth-child(3) { left: 37%; animation-delay: .05s; rotate: -3deg; }
-.gang-saves__tijolos i:nth-child(4) { left: 55%; animation-delay: .2s; rotate: 7deg; }
-.gang-saves__tijolos i:nth-child(5) { left: 72%; animation-delay: .09s; rotate: -8deg; }
-.gang-saves__tijolos i:nth-child(6) { left: 88%; animation-delay: .17s; rotate: 5deg; }
+.gang-saves__tijolos i:nth-child(1)  { left: 1%;  --pouso: 30px;  animation-delay: .00s; rotate: -6deg; }
+.gang-saves__tijolos i:nth-child(2)  { left: 14%; --pouso: 96px;  animation-delay: .09s; rotate: 4deg; }
+.gang-saves__tijolos i:nth-child(3)  { left: 27%; --pouso: 20px;  animation-delay: .04s; rotate: -3deg; }
+.gang-saves__tijolos i:nth-child(4)  { left: 40%; --pouso: 150px; animation-delay: .16s; rotate: 7deg; }
+.gang-saves__tijolos i:nth-child(5)  { left: 53%; --pouso: 60px;  animation-delay: .07s; rotate: -8deg; }
+.gang-saves__tijolos i:nth-child(6)  { left: 66%; --pouso: 200px; animation-delay: .2s;  rotate: 5deg; }
+.gang-saves__tijolos i:nth-child(7)  { left: 79%; --pouso: 40px;  animation-delay: .12s; rotate: -5deg; }
+.gang-saves__tijolos i:nth-child(8)  { left: 90%; --pouso: 120px; animation-delay: .22s; rotate: 6deg; }
+.gang-saves__tijolos i:nth-child(9)  { left: 8%;  --pouso: 180px; animation-delay: .28s; rotate: -4deg; }
+.gang-saves__tijolos i:nth-child(10) { left: 34%; --pouso: 230px; animation-delay: .33s; rotate: 8deg; }
+.gang-saves__tijolos i:nth-child(11) { left: 60%; --pouso: 260px; animation-delay: .3s;  rotate: -7deg; }
+.gang-saves__tijolos i:nth-child(12) { left: 47%; --pouso: 10px;  animation-delay: .38s; rotate: 3deg; }
+.gang-saves__tijolos i:nth-child(13) { left: 73%; --pouso: 150px; animation-delay: .42s; rotate: -6deg; }
+.gang-saves__tijolos i:nth-child(14) { left: 20%; --pouso: 260px; animation-delay: .45s; rotate: 5deg; }
 @keyframes gang-saves-tijolo-cai {
   0% { top: -120px; opacity: 1; }
-  70% { opacity: 1; }
-  100% { top: 46px; opacity: 0; }
+  62% { top: var(--pouso, 60px); opacity: 1; }
+  100% { top: var(--pouso, 60px); opacity: 0; }
+}
+
+/* ── FASE 2 — a logo cai de cima (já visível, acelerando) e bate na
+   posição final; FASE 3 — no instante do impacto (mesmo IMPACT_MS do
+   flash/tremor), estilhaços de tijolo voam pra todo lado a partir do
+   centro e desaparecem. ── */
+.gang-saves__estilhacos { position: absolute; inset: 0; z-index: 6; pointer-events: none; overflow: hidden; }
+.gang-saves__estilhacos i {
+  position: absolute; top: 45%; left: 50%; width: 14px; height: 14px;
+  background: linear-gradient(160deg, #6b3a28, #3d1f16); clip-path: polygon(50% 0, 100% 100%, 0 100%);
+  opacity: 0; animation: gang-saves-estilhaco .6s cubic-bezier(.25,.8,.4,1) .95s both;
+}
+.gang-saves__estilhacos i:nth-child(1) { --dx: -160px; --dy: -90px; --rot: -140deg; }
+.gang-saves__estilhacos i:nth-child(2) { --dx: -80px;  --dy: -160px; --rot: 90deg; }
+.gang-saves__estilhacos i:nth-child(3) { --dx: 40px;   --dy: -180px; --rot: -60deg; }
+.gang-saves__estilhacos i:nth-child(4) { --dx: 150px;  --dy: -100px; --rot: 120deg; }
+.gang-saves__estilhacos i:nth-child(5) { --dx: 170px;  --dy: 40px;  --rot: -90deg; }
+.gang-saves__estilhacos i:nth-child(6) { --dx: 90px;   --dy: 120px; --rot: 70deg; }
+.gang-saves__estilhacos i:nth-child(7) { --dx: -100px; --dy: 110px; --rot: -110deg; }
+.gang-saves__estilhacos i:nth-child(8) { --dx: -170px; --dy: 20px;  --rot: 100deg; }
+@keyframes gang-saves-estilhaco {
+  0% { translate: 0 0; rotate: 0deg; opacity: 1; }
+  100% { translate: var(--dx) var(--dy); rotate: var(--rot); opacity: 0; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .gang-saves__flash, .gang-saves__hero--treme, .gang-saves__tijolos i, .gang-saves__logo--porrada, .gang-saves__embers i { animation: none !important; }
+  .gang-saves__flash, .gang-saves__hero--treme, .gang-saves__tijolos i, .gang-saves__estilhacos i,
+  .gang-saves__logo--porrada, .gang-saves__embers i { animation: none !important; }
 }
 
 /* ══ HERO — a logo é o ÚNICO título; nada de repetir "Suas Gangues"
@@ -90,25 +121,24 @@
   50% { opacity: 1; transform: scale(1.08); }
 }
 
-/* Entrada em "porrada": nasce gigante e trava com estouro, sincronizada
-   com o flash/tremor/som (todos disparam junto, t=0). */
+/* A logo já nasce visível caindo de cima (não escondida) e acelera até
+   bater na posição final por volta de IMPACT_MS — ver constante no JSX. */
 .gang-saves__logo {
   position: relative; z-index: 1; width: 100%; max-width: 340px; height: auto;
   filter: drop-shadow(0 14px 34px rgba(0, 0, 0, .6));
 }
-.gang-saves__logo--porrada { animation: gang-saves-punch .75s cubic-bezier(.2,1.4,.4,1) both; }
-@keyframes gang-saves-punch {
-  0% { scale: 2.4; opacity: 0; }
-  10% { opacity: 1; }
-  55% { scale: .93; }
-  75% { scale: 1.04; }
-  100% { scale: 1; }
+.gang-saves__logo--porrada { animation: gang-saves-queda .95s cubic-bezier(.55,0,.85,.45) both; }
+@keyframes gang-saves-queda {
+  0% { translate: 0 -240%; scale: 1.12; }
+  78% { translate: 0 -240%; scale: 1.12; }
+  92% { translate: 0 4%; scale: .97; }
+  100% { translate: 0 0; scale: 1; }
 }
 
 .gang-saves__tagline {
-  position: relative; z-index: 1; max-width: 30ch; margin: 0; padding: 6px 14px;
-  color: #f2ede4; font: 600 .8rem/1.5 var(--font-mono);
-  background: color-mix(in srgb, var(--bg-primary) 55%, transparent); border-radius: 2px;
+  position: relative; z-index: 1; max-width: 26ch; margin: 0; padding: 4px 14px;
+  color: #ffd9a0; font: 400 1.15rem/1.4 'Permanent Marker', cursive;
+  text-shadow: 0 2px 0 rgba(0, 0, 0, .55); transform: rotate(-1.2deg);
 }
 
 /* Fumaça de spray — 6 partículas CSS puras, cada uma com posição/atraso
@@ -156,28 +186,41 @@
 .gang-saves__buraco-estilhaco i:nth-child(3) { top: -6px; right: 20%; rotate: -6deg; }
 .gang-saves__buraco-estilhaco i:nth-child(4) { bottom: -4px; left: 22%; rotate: 175deg; scale: 1.15; }
 .gang-saves__buraco-estilhaco i:nth-child(5) { bottom: -2px; right: 16%; rotate: 200deg; }
-.gang-saves__buraco p { margin: 0; max-width: 30ch; color: #e7e2d8; font: 700 .92rem/1.5 var(--font-display); text-transform: none; }
+.gang-saves__buraco p { margin: 0; max-width: 28ch; color: #f2ede1; font: 400 1.05rem/1.5 'Permanent Marker', cursive; text-shadow: 0 2px 0 rgba(0, 0, 0, .5); }
 
-/* ── CTA principal (fundar gangue): peça de destaque, com a varredura
-   de luz no toque — gesto de assinatura do site (AGENTS.md). ── */
-.gang-saves__cta {
-  --cta-cor: var(--if-amber); position: relative; overflow: hidden; width: 100%; max-width: 300px;
-  min-height: 56px; padding: 0 20px; display: flex; align-items: center; gap: 12px;
-  border: 1px solid var(--cta-cor); background: linear-gradient(100deg, color-mix(in srgb, var(--cta-cor) 20%, transparent), var(--if-panel-flat));
-  color: var(--text-primary); box-shadow: 0 16px 36px -22px var(--cta-cor);
-  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%);
+/* ── CTA "spray-paint": nada reaproveitado do resto do site — halo de
+   neblina de tinta atrás (múltiplos radiais imprecisos, tipo respingo),
+   texto em fonte de pichação, contorno solto (não o chanfro técnico do
+   resto do jogo). Continua com a varredura de luz no toque (gesto de
+   assinatura do site, AGENTS.md) por baixo do estilo novo. ── */
+.gang-saves__spray {
+  --cor: var(--if-amber); position: relative; width: 100%; max-width: 300px; min-height: 64px;
+  padding: 10px 26px; display: grid; place-items: center; overflow: visible;
+  background: transparent; border: none;
 }
-.gang-saves__cta:disabled { opacity: .55; }
-.gang-saves__cta::before {
-  content: ''; position: absolute; inset: 0; translate: -140% 0;
-  background: linear-gradient(100deg, transparent, color-mix(in srgb, var(--cta-cor) 45%, transparent), transparent);
+.gang-saves__spray:disabled { opacity: .55; }
+.gang-saves__spray-halo {
+  position: absolute; inset: -14px; z-index: 0; pointer-events: none;
+  background:
+    radial-gradient(38% 60% at 22% 30%, color-mix(in srgb, var(--cor) 40%, transparent), transparent 70%),
+    radial-gradient(30% 50% at 78% 70%, color-mix(in srgb, var(--cor) 32%, transparent), transparent 70%),
+    radial-gradient(70% 80% at 50% 50%, color-mix(in srgb, var(--cor) 20%, transparent), transparent 75%);
+  border: 2px solid color-mix(in srgb, var(--cor) 60%, transparent);
+  border-radius: 52% 48% 55% 45% / 44% 56% 44% 56%;
+}
+.gang-saves__spray::after {
+  content: ''; position: absolute; inset: -14px; z-index: 0; pointer-events: none; translate: -140% 0;
+  background: linear-gradient(100deg, transparent, color-mix(in srgb, var(--cor) 40%, transparent), transparent);
+  border-radius: 52% 48% 55% 45% / 44% 56% 44% 56%;
   transition: translate .55s ease;
 }
-.gang-saves__cta:active::before { translate: 140% 0; }
-.gang-saves__cta-icon { font-size: 1.35rem; color: var(--cta-cor); }
-.gang-saves__cta strong { flex: 1; text-align: left; font: 900 .95rem var(--font-display); text-transform: uppercase; letter-spacing: .02em; }
-.gang-saves__cta-arrow { color: var(--cta-cor); font: 900 1.2rem var(--font-display); }
-.gang-saves__cta--ghost { --cta-cor: var(--if-teal); margin: 16px auto 0; min-height: 50px; background: linear-gradient(100deg, var(--if-cyan-12), var(--if-panel-flat)); }
+.gang-saves__spray:active::after { translate: 140% 0; }
+.gang-saves__spray strong {
+  position: relative; z-index: 1; color: #fff8ec; font: 400 1.5rem/1 'Permanent Marker', cursive;
+  letter-spacing: .01em; text-shadow: 0 2px 0 rgba(0, 0, 0, .6), 0 0 18px color-mix(in srgb, var(--cor) 70%, transparent);
+  transform: rotate(-1deg);
+}
+.gang-saves__spray--ghost { --cor: var(--if-teal); margin: 18px auto 0; min-height: 56px; }
 
 /* ── Cards de save: bem maiores, cor por índice, meta com ícone. ── */
 .gang-saves__lista { display: grid; gap: 16px; }

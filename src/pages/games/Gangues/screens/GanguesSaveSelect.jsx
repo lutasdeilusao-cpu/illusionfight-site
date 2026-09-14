@@ -17,34 +17,43 @@ import './GanguesSaveSelect.css'
    em paralelo, cada uma com seu próprio nome, elenco e progresso no
    mapa. Também é daqui que se apaga uma gangue.
 
-   3ª reconstrução (pedido do Isaias, 14/09/2026, 2 rejeições seguidas):
-   1ª tentativa só trocou o fundo atrás da logo; 2ª tentativa ("umas
-   particulazinhas atrás") ainda foi considerada fraca demais — ele pediu
-   uma ENTRADA de verdade: "a logo aparece grande, dando uma porrada, a
-   tela pisca, e a tela vai se montando por trás como se fosse uma parede
-   de tijolos caindo", e SOM de impacto (nunca os bips sintetizados do
-   sfx.js — "áudio bom", banco de som de verdade). Sequência final,
-   100% CSS-timed (sincronismo preciso, ver IMPACT_MS abaixo):
+   4ª reconstrução (pedido do Isaias, 14/09/2026, 3ª rejeição da mesma
+   tela): a versão anterior (logo já nascendo travada + tijolo de fundo
+   fraco) ainda não convenceu — "a parte de trás não parece tijolos" e
+   "os tijolos caíram muito pouco". Pedido explícito, na ordem certa:
+   (1) tijolos caem primeiro e MONTAM a parede de verdade (muito mais
+   peça, espalhados), (2) SÓ DEPOIS a logo cai de cima e ESTILHAÇA a
+   parede, os pedaços voam pra todo lado, (3) a logo assenta na posição
+   final. Também pediu fonte de pichação/arte de rua pro texto (não a
+   fonte mono técnica de antes) e um botão de CTA desenhado do zero no
+   mesmo estilo (nada do visual genérico anterior). Sequência final,
+   100% CSS-timed (constantes abaixo espelham os keyframes do CSS —
+   mudar um lado sem o outro desincroniza):
 
-     t=0ms    → flash branco na tela + logo entra GIGANTE e trava com
-                impacto (overshoot) + tela treme + SOM (mp3 de verdade,
-                public/sounds/gangues-saves-impact.mp3 — baixado de um
-                banco de efeitos sonoros royalty-free, não é sintetizado)
-     t=0-650  → 6 blocos de tijolo caem de cima e se encaixam na parede
-                de fundo (nth-child, sem inline style, como as brasas)
-     t~900ms  → logo estabiliza no tamanho final da hero
-     t~1050ms → tagline + corpo da tela entram (Framer Motion, delay
-                deslocado por IMPACT_MS pra nunca competir com o impacto)
+     t=0-620ms   → ~14 tijolos caem de cima em posições/atrasos variados
+                   e se encaixam na parede (nth-child, sem inline style)
+     t=520-950ms → a logo cai de cima (já visível, não escondida) e
+                   acelera até bater na posição final
+     t=950ms     → IMPACTO: flash + tremor de tela + estilhaços de
+                   tijolo voando pra todo lado a partir do centro + SOM
+                   de verdade (mp3 baixado de banco de efeitos royalty-
+                   free via curl — nunca os bips sintetizados do
+                   sfx.js), tudo disparado no mesmo instante
+     t~1150ms    → tagline + corpo da tela entram (Framer Motion, delay
+                   deslocado por IMPACT_MS pra nunca competir com o
+                   impacto)
 
-   O "boxing glove" genérico saiu — já temos identidade visual própria
-   (a logo). O convite de fundar a 1ª gangue agora vive dentro de um
-   buraco escuro arrebentado na própria parede de tijolo (border-radius
-   orgânico + estilhaços na borda), não numa caixa qualquer.
+   Fonte de rua: 'Permanent Marker' (Google Fonts, já carregada no
+   index.html) na tagline e no CTA — nenhuma fonte nova de peso pro
+   bundle (só CSS, carregamento único do documento). O "boxing glove"
+   genérico já tinha saído; agora o CTA de fundar a 1ª gangue ganhou um
+   desenho próprio "spray-paint" (halo de neblina de tinta + respingos),
+   nada reaproveitado do resto do site.
    ══════════════════════════════════════════════════════════════ */
 
 const LOGOS = { pt: logoPt, en: logoEn, es: logoEs }
 const CORES_CARD = ['amber', 'teal', 'violet']
-const IMPACT_MS = 1050
+const IMPACT_MS = 950
 
 function formatarData(iso) {
   if (!iso) return ''
@@ -68,15 +77,19 @@ export default function GanguesSaveSelect({ onNavigate }) {
     store.listSaves(user.id).finally(() => setLoading(false))
   }, [user])
 
-  // Som de impacto da entrada — UMA vez, na primeira montagem real da tela
-  // (não em cada re-render). Respeita o mute global do jogo (sfx.enabled),
-  // mas é um arquivo de áudio de verdade, não os bips sintetizados do
-  // resto do sfx.js — o Isaias pediu especificamente por isso.
+  // Som de impacto — toca no momento exato em que a logo "bate" na parede
+  // (IMPACT_MS, sincronizado com o flash/tremor/estilhaços no CSS), não no
+  // instante de montar o componente. Respeita o mute global do jogo
+  // (sfx.enabled), mas é um arquivo de áudio de verdade, não os bips
+  // sintetizados do resto do sfx.js — o Isaias pediu especificamente por isso.
   useEffect(() => {
     if (!sfx.enabled) return
-    const audio = new Audio('/sounds/gangues-saves-impact.mp3')
-    audio.volume = 0.55
-    audio.play().catch(() => {})
+    const timer = setTimeout(() => {
+      const audio = new Audio('/sounds/gangues-saves-impact.mp3')
+      audio.volume = 0.55
+      audio.play().catch(() => {})
+    }, IMPACT_MS)
+    return () => clearTimeout(timer)
   }, [])
 
   const abrir = async (saveId) => {
@@ -120,7 +133,16 @@ export default function GanguesSaveSelect({ onNavigate }) {
   return (
     <main className="gang-lobby gang-saves">
       <span className="gang-saves__flash" aria-hidden="true" />
-      <span className="gang-saves__tijolos" aria-hidden="true"><i /><i /><i /><i /><i /><i /></span>
+      {/* Parede se montando — ~14 tijolos caindo, espalhados, ANTES da
+          logo cair (pedido do Isaias: "cair mais, que caiu muito pouco"). */}
+      <span className="gang-saves__tijolos" aria-hidden="true">
+        <i /><i /><i /><i /><i /><i /><i /><i /><i /><i /><i /><i /><i /><i />
+      </span>
+      {/* Estilhaços do impacto — a logo bate na parede e os pedaços voam
+          pra todo lado (dispara junto com o flash/tremor, ver IMPACT_MS). */}
+      <span className="gang-saves__estilhacos" aria-hidden="true">
+        <i /><i /><i /><i /><i /><i /><i /><i />
+      </span>
 
       <button className="gang-saves__voltar" onClick={() => navigate('/games')} aria-label={t('games.gangues.sair_do_jogo')}>←</button>
 
@@ -141,10 +163,9 @@ export default function GanguesSaveSelect({ onNavigate }) {
           <motion.div className="gang-saves__buraco" initial={{ opacity: 0, scale: .85 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: s(150), type: 'spring', stiffness: 210, damping: 20 }}>
             <span className="gang-saves__buraco-estilhaco" aria-hidden="true"><i /><i /><i /><i /><i /></span>
             <p>{t('games.gangues.saves.sem_saves')}</p>
-            <motion.button className="gang-saves__cta gang-saves__cta--primary" disabled={Boolean(abrindo)} onClick={criar} whileTap={{ scale: .97 }}>
-              <span className="gang-saves__cta-icon" aria-hidden="true">⚡</span>
+            <motion.button className="gang-saves__spray gang-saves__spray--primary" disabled={Boolean(abrindo)} onClick={criar} whileTap={{ scale: .96 }}>
+              <span className="gang-saves__spray-halo" aria-hidden="true" />
               <strong>{abrindo === 'novo' ? t('games.gangues.carregando') : t('games.gangues.saves.nova_gangue')}</strong>
-              <b className="gang-saves__cta-arrow">→</b>
             </motion.button>
           </motion.div>
         ) : (
@@ -183,10 +204,10 @@ export default function GanguesSaveSelect({ onNavigate }) {
 
             {podeCriar ? (
               <motion.button
-                className="gang-saves__cta gang-saves__cta--ghost" disabled={Boolean(abrindo)} onClick={criar} whileTap={{ scale: .97 }}
+                className="gang-saves__spray gang-saves__spray--ghost" disabled={Boolean(abrindo)} onClick={criar} whileTap={{ scale: .96 }}
                 initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: s(150) + saves.length * 0.08 + .08 }}
               >
-                <span className="gang-saves__cta-icon" aria-hidden="true">+</span>
+                <span className="gang-saves__spray-halo" aria-hidden="true" />
                 <strong>{abrindo === 'novo' ? t('games.gangues.carregando') : t('games.gangues.saves.nova_gangue')}</strong>
               </motion.button>
             ) : (
