@@ -21,42 +21,40 @@
 
 .gang-lobby-rename:hover { color: var(--if-teal); border-color: var(--if-teal); }
 
-/* Primeiro contato: convocação de rua, não formulário de criação. */
-.gang-lobby .gang-onboarding-panel {
-  position: relative;
-  width: calc(100% - 16px);
-  max-width: none;
-  padding: 32px 18px 22px;
-  overflow: hidden;
-  border: 1px solid color-mix(in srgb, var(--if-amber) 45%, transparent);
-  background:
-    linear-gradient(155deg, color-mix(in srgb, var(--if-amber) 13%, transparent), transparent 45%),
-    repeating-linear-gradient(-12deg, transparent 0 15px, color-mix(in srgb, var(--if-cyan) 5%, transparent) 16px 17px),
-    var(--if-panel);
-  box-shadow: 8px 8px 0 color-mix(in srgb, var(--if-cyan) 10%, transparent);
-  clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 0 100%);
+/* Primeiro contato: convocação de rua, não formulário de criação.
+   Reconstruído (pedido do Isaias, 14/09/2026: "seguir a identidade das
+   telas anteriores") — parede de tijolo oficial + cartaz rasgado/fita
+   nos cantos (mesma técnica de GanguesNaming.css) + logo oficial por
+   idioma no lugar do carimbo de texto. */
+.gang-lobby .gang-onboarding-panel { position: relative; width: calc(100% - 16px); max-width: none; padding: 0; }
+.gang-onboarding-panel__cartaz {
+  --corte: polygon(2% 3%, 30% 0%, 55% 2%, 78% 0%, 98% 3%, 100% 22%, 97% 45%, 100% 68%, 98% 92%, 72% 100%, 45% 97%, 20% 100%, 2% 96%, 0% 70%, 3% 45%, 0% 20%);
+  position: relative; padding: 30px 20px 26px; text-align: center;
+  background: linear-gradient(155deg, #241108, #150a05 55%, #0c0603);
+  clip-path: var(--corte);
+  box-shadow: 0 26px 60px -30px rgba(0, 0, 0, .85);
 }
-
-.gang-onboarding-panel__stamp {
-  width: 98px;
-  height: 98px;
-  margin: 0 auto 20px;
-  border: 3px solid var(--if-amber);
-  color: var(--if-amber);
-  display: grid;
-  place-content: center;
-  transform: rotate(-4deg);
-  text-transform: uppercase;
-  box-shadow: inset 0 0 0 5px var(--if-panel), inset 0 0 0 6px var(--if-amber);
+.gang-onboarding-panel__cartaz::before {
+  content: ''; position: absolute; inset: -8px; z-index: -1;
+  background: linear-gradient(160deg, #6b3a28, #3d1f16); clip-path: var(--corte);
 }
+.gang-onboarding-panel__fita {
+  position: absolute; top: -10px; width: 62px; height: 26px; z-index: 2;
+  background: rgba(230, 220, 200, .22); border: 1px solid rgba(230, 220, 200, .3);
+  box-shadow: 0 4px 8px -2px rgba(0, 0, 0, .5);
+}
+.gang-onboarding-panel__fita--esq { left: 8%; rotate: -8deg; }
+.gang-onboarding-panel__fita--dir { right: 8%; rotate: 7deg; }
 
-.gang-onboarding-panel__stamp span { font: 900 30px var(--font-title); line-height: .8; }
-.gang-onboarding-panel__stamp b { font: 700 10px var(--font-mono); letter-spacing: 3px; }
-.gang-lobby .gang-onboarding-panel h2 { margin: 12px 0 8px; font-size: 30px; line-height: .95; }
-.gang-lobby .gang-onboarding-panel p { max-width: 330px; font-size: 12px; }
+.gang-onboarding-panel__logo { display: block; width: min(58%, 200px); height: auto; margin: 0 auto 14px; filter: drop-shadow(0 8px 18px rgba(0, 0, 0, .55)); }
+.gang-lobby .gang-onboarding-panel h2 {
+  margin: 0 0 8px; color: #ffd9a0; font: 400 1.7rem/1.1 'Permanent Marker', cursive;
+  text-shadow: 0 2px 0 rgba(0, 0, 0, .6); transform: rotate(-1deg);
+}
+.gang-lobby .gang-onboarding-panel p { max-width: 330px; margin: 0 auto; color: #cfc6bb; font-size: 12px; line-height: 1.55; }
 
 .gang-onboarding-panel__slots {
-  margin: 24px auto 4px;
+  margin: 22px auto 4px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -68,14 +66,43 @@
   height: 68px;
   display: grid;
   place-items: center;
-  border: 1px dashed var(--if-cyan);
-  color: var(--if-cyan);
-  background: color-mix(in srgb, var(--if-cyan) 7%, transparent);
+  border: 1px dashed var(--if-amber);
+  color: var(--if-amber);
+  background: color-mix(in srgb, var(--if-amber) 8%, transparent);
   font: 700 24px var(--font-title);
   transform: skew(-3deg);
 }
 
 .gang-onboarding-panel__slots span { color: var(--if-amber); font: 700 22px var(--font-title); }
+
+/* CTA "spray-paint" — mesmo desenho de GanguesSaveSelect/GanguesNaming
+   (repetido, o projeto não usa mixin/CSS-in-JS). */
+.gang-onboarding-spray {
+  --cor: var(--if-amber); position: relative; width: 100%; min-height: 58px; margin-top: 22px;
+  padding: 10px 22px; display: grid; place-items: center; overflow: visible;
+  background: transparent; border: none;
+}
+.gang-onboarding-spray-halo {
+  position: absolute; inset: -12px; z-index: 0; pointer-events: none;
+  background:
+    radial-gradient(38% 60% at 22% 30%, color-mix(in srgb, var(--cor) 40%, transparent), transparent 70%),
+    radial-gradient(30% 50% at 78% 70%, color-mix(in srgb, var(--cor) 32%, transparent), transparent 70%),
+    radial-gradient(70% 80% at 50% 50%, color-mix(in srgb, var(--cor) 20%, transparent), transparent 75%);
+  border: 2px solid color-mix(in srgb, var(--cor) 60%, transparent);
+  border-radius: 52% 48% 55% 45% / 44% 56% 44% 56%;
+}
+.gang-onboarding-spray::after {
+  content: ''; position: absolute; inset: -12px; z-index: 0; pointer-events: none; translate: -140% 0;
+  background: linear-gradient(100deg, transparent, color-mix(in srgb, var(--cor) 40%, transparent), transparent);
+  border-radius: 52% 48% 55% 45% / 44% 56% 44% 56%;
+  transition: translate .55s ease;
+}
+.gang-onboarding-spray:active::after { translate: 140% 0; }
+.gang-onboarding-spray strong {
+  position: relative; z-index: 1; color: #fff8ec; font: 400 1.3rem/1 'Permanent Marker', cursive;
+  text-shadow: 0 2px 0 rgba(0, 0, 0, .6), 0 0 18px color-mix(in srgb, var(--cor) 70%, transparent);
+  transform: rotate(-1deg);
+}
 
 /* Recrutamento */
 .gang-recruit {
@@ -296,7 +323,15 @@
   margin: 0; color: var(--if-amber); font: 900 clamp(2.6rem, calc(15 * var(--app-vw) / 100), 4rem)/.9 var(--font-title);
   letter-spacing: .08em; text-transform: uppercase; text-shadow: 0 0 34px var(--if-amber-16);
 }
-.gang-lobby .gang-onboarding-panel--solo { margin-top: 18px; min-height: calc(100% - 72px); justify-content: center; }
+/* `.gang-lobby` (Gangues.css) é max-height:100%;overflow-y:auto mas nunca
+   ganha height próprio — só encolhe pro conteúdo. Com a parede de tijolo
+   agora fazendo parte do painel, isso viraria o mesmo corte-pra-preto já
+   corrigido em GanguesNaming.css (bug real reportado pelo Isaias,
+   14/09/2026): `.gang-lobby--vazio` (só na tela de onboarding, quando o
+   elenco está vazio) força a altura cheia contra `.gang-page`, e o
+   `margin:auto 0` do painel usa esse espaço de verdade pra centralizar. */
+.gang-lobby--vazio { min-height: 100%; }
+.gang-lobby .gang-onboarding-panel--solo { margin: auto 0; }
 .gang-home-actions { display: grid; gap: 10px; margin-top: 12px; }
 .gang-home-actions button {
   width: 100%; min-height: 58px; padding: 0 16px; display: flex; align-items: center; gap: 10px;
