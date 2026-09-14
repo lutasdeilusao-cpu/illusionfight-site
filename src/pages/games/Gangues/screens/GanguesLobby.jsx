@@ -33,6 +33,7 @@ function lutadoresComPoderPraEquipar(party) {
     .map(member => member.sheet_name)
 }
 import './GanguesLobby.css'
+import './GanguesStory.css' // .gang-lobby-quit (botão de sair) mora lá
 import './GanguesProgressionFlow.css'
 
 const PATH_MARKS = { atacante: 'A', defensor: 'D', mistico: 'M' }
@@ -140,7 +141,10 @@ export default function GanguesLobby({ onNavigate }) {
   if (loading) return <main className="gang-lobby"><div className="gang-lobby-empty">{t('games.gangues.carregando')}</div></main>
 
   // Primeira coisa ao entrar: batizar a gangue. É o nome que reverbera.
-  if (!store.gangName) return <GanguesNaming onDone={() => {}} />
+  // `onSair` — o mesmo destino do botão de sair do onboarding logo depois
+  // (save-select se tiver save, catálogo se for guest); sem isso essa tela
+  // não tinha NENHUMA saída visível (pedido do Isaias, 14/09/2026).
+  if (!store.gangName) return <GanguesNaming onDone={() => {}} onSair={() => store._saveId ? onNavigate('save-select') : navigate('/games')} />
   if (renomeando) return <GanguesNaming modoEdicao onDone={() => setRenomeando(false)} />
 
   return (

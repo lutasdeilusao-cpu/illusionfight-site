@@ -397,22 +397,27 @@
 }
 .gang-story-vs-card--chefe .gang-story-vs-yes { background: var(--if-amber); border-color: var(--if-amber); color: #1b1000; }
 
-/* ── Saída ── */
+/* ── Saída — precisa de destaque de verdade, não uma linha discreta
+   perdida no fim da tela (pedido do Isaias, 14/09/2026: "os usuários são
+   complicados... tem que ser maior, tem que mostrar que existe uma
+   saída"). Largura cheia, ícone, cor de alerta — sem competir com o CTA
+   principal (que continua âmbar/spray), mas bem mais visível que antes. */
 .gang-lobby-quit {
-  display: block;
-  margin: 16px auto 0;
-  padding: 9px 22px;
-  font: 800 0.68rem var(--font-mono);
-  letter-spacing: 0.16em;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  width: 100%; max-width: 360px; margin: 18px auto 0; min-height: 44px;
+  padding: 10px 22px;
+  font: 800 0.78rem var(--font-mono);
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--text-secondary);
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid var(--if-hair-strong);
+  color: #ff9a9a;
+  background: rgba(255, 107, 107, 0.06);
+  border: 1px solid rgba(255, 107, 107, 0.4);
   cursor: pointer;
-  transition: color 0.2s, border-color 0.2s;
-  clip-path: polygon(0 0, calc(100% - 7px) 0, 100% 7px, 100% 100%, 0 100%);
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+  clip-path: polygon(0 0, calc(100% - 9px) 0, 100% 9px, 100% 100%, 0 100%);
 }
-.gang-lobby-quit:hover { color: #ff9a9a; border-color: rgba(255, 107, 107, 0.5); }
+.gang-lobby-quit::before { content: '←'; font-size: .9rem; }
+.gang-lobby-quit:hover { color: #fff; border-color: #ff6b6b; background: rgba(255, 107, 107, 0.14); }
 
 /* ══ Confronto final contra o Alan — tela de canon ══ */
 .gang-report--final {

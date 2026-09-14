@@ -26,7 +26,16 @@
    telas anteriores") — parede de tijolo oficial + cartaz rasgado/fita
    nos cantos (mesma técnica de GanguesNaming.css) + logo oficial por
    idioma no lugar do carimbo de texto. */
-.gang-lobby .gang-onboarding-panel { position: relative; width: calc(100% - 16px); max-width: none; padding: 0; }
+/* Zera o visual antigo (border/background/box-shadow ciano) que ainda
+   vem de `.gang-onboarding-panel` genérico em Gangues.css (usado por
+   outro empty-state do jogo) — sem isso sobrava uma borda azul feia
+   contornando o retângulo por trás do cartaz recortado (bug real
+   reportado pelo Isaias, 14/09/2026, com print mostrando o contorno).
+   Todo o visual agora vem só do `__cartaz` (clip-path próprio). */
+.gang-lobby .gang-onboarding-panel {
+  position: relative; width: calc(100% - 16px); max-width: none; padding: 0;
+  border: none; background: none; box-shadow: none;
+}
 .gang-onboarding-panel__cartaz {
   --corte: polygon(2% 3%, 30% 0%, 55% 2%, 78% 0%, 98% 3%, 100% 22%, 97% 45%, 100% 68%, 98% 92%, 72% 100%, 45% 97%, 20% 100%, 2% 96%, 0% 70%, 3% 45%, 0% 20%);
   position: relative; padding: 30px 20px 26px; text-align: center;

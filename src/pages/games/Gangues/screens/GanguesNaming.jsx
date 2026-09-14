@@ -9,6 +9,7 @@ import logoPt from '../assets/logos/logo-pt.png'
 import logoEn from '../assets/logos/logo-en.png'
 import logoEs from '../assets/logos/logo-es.png'
 import './GanguesModes.css'
+import './GanguesStory.css' // .gang-lobby-quit (botão de sair) mora lá
 import './GanguesNaming.css'
 
 /* ══════════════════════════════════════════════════════════════
@@ -28,7 +29,7 @@ import './GanguesNaming.css'
 
 const LOGOS = { pt: logoPt, en: logoEn, es: logoEs }
 
-export default function GanguesNaming({ onDone, modoEdicao = false }) {
+export default function GanguesNaming({ onDone, modoEdicao = false, onSair }) {
   const { t, locale } = useLanguage()
   const store = useGanguesStore()
   const [nome, setNome] = useState(store.gangName || '')
@@ -97,6 +98,13 @@ export default function GanguesNaming({ onDone, modoEdicao = false }) {
           <strong>{modoEdicao ? t('games.gangues.naming.salvar') : t('games.gangues.naming.fundar')}</strong>
         </button>
       </motion.div>
+
+      {/* Sem isso, a fundação da gangue não tinha NENHUMA saída visível —
+          só aparece fora do modo de edição (que já tem seu próprio botão
+          de voltar no header acima). */}
+      {!modoEdicao && onSair && (
+        <button className="gang-lobby-quit" onClick={onSair}>{t('games.gangues.sair_do_jogo')}</button>
+      )}
     </main>
   )
 }

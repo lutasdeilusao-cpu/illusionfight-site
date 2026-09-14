@@ -9,6 +9,7 @@ import { sfx } from '../../../../lib/sfx'
 import logoPt from '../assets/logos/logo-pt.png'
 import logoEn from '../assets/logos/logo-en.png'
 import logoEs from '../assets/logos/logo-es.png'
+import './GanguesStory.css' // .gang-lobby-quit (botão de sair) mora lá
 import './GanguesSaveSelect.css'
 
 /* ══════════════════════════════════════════════════════════════
@@ -180,8 +181,6 @@ export default function GanguesSaveSelect({ onNavigate }) {
         <i /><i /><i /><i /><i /><i /><i /><i />
       </span>
 
-      <button className="gang-saves__voltar" onClick={() => navigate('/games')} aria-label={t('games.gangues.sair_do_jogo')}>←</button>
-
       <section className="gang-saves__hero gang-saves__hero--treme">
         <span className="gang-saves__embers" aria-hidden="true"><i /><i /><i /><i /><i /><i /></span>
         <img className="gang-saves__logo gang-saves__logo--porrada" src={LOGOS[locale] || logoPt} alt="LDI Gangues" />
@@ -252,6 +251,8 @@ export default function GanguesSaveSelect({ onNavigate }) {
           </>
         )}
       </div>
+
+      <button className="gang-lobby-quit" onClick={() => navigate('/games')}>{t('games.gangues.sair_do_jogo')}</button>
     </main>
   )
 }
