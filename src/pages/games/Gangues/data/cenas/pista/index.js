@@ -53,6 +53,7 @@ export const CENA_PISTA = {
   chegada: 'games.gangues.cena.pista.chegada',
   falante: 'games.gangues.dialogo.veio_nome',
   falanteSub: 'games.gangues.dialogo.veio_sub',
+  falanteSlug: 'nego_veio',
 
   pois: POIS_PISTA,
   // Coordenadas de pino/zona de interação — lidas pelo motor genérico

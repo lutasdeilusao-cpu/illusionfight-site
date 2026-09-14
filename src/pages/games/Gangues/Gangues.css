@@ -2416,12 +2416,16 @@
 }
 .gang-dlg-box { border-top-color: var(--if-amber); box-shadow: 0 -8px 30px rgba(255, 174, 50, 0.12); }
 .gang-dlg-face {
-  display: grid; place-items: center;
+  display: grid; place-items: center; overflow: hidden;
   width: 46px; height: 46px; margin-bottom: 8px;
   font: 800 1.3rem var(--font-display); color: #1b1000;
   background: linear-gradient(150deg, var(--if-amber), #b56a1e);
   clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
 }
+/* Retrato de verdade (ganguesNpcPortraits.js) em vez da inicial do nome —
+   fundo continua âmbar por baixo até a imagem carregar, sem flash de vazio. */
+.gang-dlg-face--foto { background: var(--if-panel-flat); }
+.gang-dlg-face--foto img { width: 100%; height: 100%; object-fit: cover; image-rendering: pixelated; }
 .gang-dlg-name { background: rgba(255, 174, 50, 0.14); border-color: rgba(255, 174, 50, 0.4); color: var(--if-amber); }
 .gang-dlg-sub { font-style: normal; opacity: 0.72; font-weight: 600; letter-spacing: 1px; }
 .gang-dlg-overlay .neoguide-next {

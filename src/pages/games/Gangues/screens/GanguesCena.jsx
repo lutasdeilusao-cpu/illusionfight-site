@@ -23,6 +23,7 @@ import { CENAS_POR_ID, portaoAberto, contarCena } from '../data/cenas/cenaHelper
 import { GANGUES_TERRITORIO_POR_ID } from '../data/ganguesTerritorios.js'
 import { calcularPontosTime } from '../data/ganguesEncontros.js'
 import { getGanguesPortraitByTemplateId } from '../data/ganguesPortraits.js'
+import { getGanguesNpcPortrait } from '../data/ganguesNpcPortraits.js'
 import { GANGUES_STORY_BATTLE_PARTY_MAX, getGanguesRosterLimitComHistoria, GANGUES_REP_GATE_EVENTO, GANGUES_REP_GATE_GALPAO, GANGUES_REP_GATE_CLUBE } from '../data/ganguesLoadout.js'
 import { WORLD, SPAWN, montarAmbiente, insideZone, validPosition, validPos } from '../engine/ganguesCenaMotor.js'
 import useGanguesCenaMovimento from '../hooks/useGanguesCenaMovimento.js'
@@ -333,7 +334,7 @@ export default function GanguesCena({ onNavigate }) {
     return { ...m, pos: cena.pos[m.id] }
   }).filter(m => m?.pos)
   return <main className={`gang-cena-worldpage${local ? ' is-interior' : ''}`} style={{ '--terr-cor': cena.cor }}>
-    <AnimatePresence>{intro && <GangDialog lines={t(cena.chegada)} speaker={t(cena.falante)} sub={t(cena.falanteSub)} onFinish={fecharIntro} onSkip={fecharIntro} />}</AnimatePresence>
+    <AnimatePresence>{intro && <GangDialog lines={t(cena.chegada)} speaker={t(cena.falante)} sub={t(cena.falanteSub)} retrato={getGanguesNpcPortrait(cena.falanteSlug)} onFinish={fecharIntro} onSkip={fecharIntro} />}</AnimatePresence>
     <header className="gang-cena-worldhud"><button onClick={() => { local ? sair() : (guardarPosicao(), onNavigate('story')) }}>← {local ? t('games.gangues.cena.acao.sair') : 'MAPA'}</button><strong>{breadcrumb}{!local && (prog.boss ? <i className="gang-cena-dominado-selo">⚑ DOMINADA</i> : <button className="gang-cena-meta-btn" onClick={() => setChecklist(v => !v)}>{feitos}/{total} ▾</button>)}</strong><span>💵 {store.grana}　⚑ {store.rep}</span><button className="gang-cena-ficha-btn" onClick={() => setBagAberta(true)} aria-label={t('games.gangues.bag.titulo')}>🎒</button>{store.activeParty.length > 0 && <button className="gang-cena-ficha-btn" onClick={() => setFichaIndex(0)}>👤</button>}<button className="gang-cena-ficha-btn" onClick={() => { guardarPosicao(); onNavigate('album') }} aria-label={t('games.gangues.album.titulo')}>📕</button></header>
     <AnimatePresence>{checklist && !local && <motion.div className="gang-cena-checklist" initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }}>
       <b>{t('games.gangues.cena.checklist_titulo')}</b>

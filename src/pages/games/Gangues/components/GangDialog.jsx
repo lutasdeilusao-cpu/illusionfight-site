@@ -7,9 +7,11 @@ const TYPE_SPEED = 20
 
 /* Diálogo de rua — alguém de Marelia falando com você. Sem mascote, sem
    NeoGuide: é um humano, voz de quebrada. `speaker` é o nome/vulgo de
-   quem fala; `sub` é a legenda (ex: "dono da Baixada"). O Isaias troca
-   por retrato dos bosses depois — o slot fica em .gang-dlg-face. */
-export default function GangDialog({ lines = [], speaker, sub, onFinish, onSkip }) {
+   quem fala; `sub` é a legenda (ex: "dono da Baixada"). `retrato` é a URL
+   do PNG da cabeça (ver ganguesNpcPortraits.js) — quando ausente, cai no
+   fallback de sempre (inicial do nome em .gang-dlg-face). Primeiro NPC
+   com arte: o Nego Véio (pedido do Isaias, 14/09/2026). */
+export default function GangDialog({ lines = [], speaker, sub, retrato, onFinish, onSkip }) {
   const { t } = useLanguage()
   const [lineIndex, setLineIndex] = useState(0)
   const [charIndex, setCharIndex] = useState(0)
@@ -49,7 +51,9 @@ export default function GangDialog({ lines = [], speaker, sub, onFinish, onSkip 
         className="neoguide-box gang-dlg-box" onClick={event => event.stopPropagation()}
         initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1, duration: 0.35 }}
       >
-        <span className="gang-dlg-face" aria-hidden="true">{nome[0]}</span>
+        <span className={`gang-dlg-face${retrato ? ' gang-dlg-face--foto' : ''}`} aria-hidden="true">
+          {retrato ? <img src={retrato} alt="" /> : nome[0]}
+        </span>
         <span className="neoguide-name gang-dlg-name">
           {nome}{sub ? <em className="gang-dlg-sub"> · {sub}</em> : null}
         </span>

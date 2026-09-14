@@ -4,6 +4,7 @@ import { useLanguage } from '../../../../context/LanguageContext'
 import { useGanguesStore } from '../store/useGanguesStore'
 import { sfx } from '../../../../lib/sfx'
 import GangDialog from '../components/GangDialog'
+import { getGanguesNpcPortrait } from '../data/ganguesNpcPortraits.js'
 import './GanguesModes.css'
 
 /* ══════════════════════════════════════════════════════════════
@@ -37,6 +38,7 @@ export default function GanguesNaming({ onDone, modoEdicao = false }) {
             lines={t('games.gangues.naming.abertura')}
             speaker={t('games.gangues.dialogo.veio_nome')}
             sub={t('games.gangues.dialogo.veio_sub')}
+            retrato={getGanguesNpcPortrait('nego_veio')}
             onFinish={fecharIntro}
             onSkip={fecharIntro}
           />

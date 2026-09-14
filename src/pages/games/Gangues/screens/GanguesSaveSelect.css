@@ -1,57 +1,118 @@
 /* `.gang-lobby` (Gangues.css) já dá o container de scroll mobile certo
    (flex column, overflow-y:auto, overscroll-behavior). Aqui só
-   sobrescrevemos o padding padrão (60px/24px) pra virar full-bleed —
-   a logo precisa encostar nas bordas e no topo pra ser o hero de verdade. */
+   sobrescrevemos o padding padrão (60px/24px) pra virar full-bleed. */
 .gang-saves {
-  padding: 0 0 32px; position: relative; background: var(--bg-primary); overflow-x: clip;
+  padding: 0 0 32px; position: relative; overflow-x: clip;
+  /* Parede de tijolo — pano de fundo da tela inteira, não só da hero
+     (pedido do Isaias: "por trás poderia ser uma parede de tijolos").
+     Truque clássico de tijolo em CSS puro: uma junta horizontal a cada
+     26px + uma vertical a cada 52px, deslocada meio-tijolo por fiada. */
+  background:
+    repeating-linear-gradient(0deg, rgba(0, 0, 0, .55) 0 2px, transparent 2px 26px),
+    repeating-linear-gradient(90deg, rgba(0, 0, 0, .5) 0 2px, transparent 2px 52px),
+    repeating-linear-gradient(90deg, rgba(0, 0, 0, .5) 26px 28px, transparent 28px 78px),
+    linear-gradient(175deg, #2a1410, #180b09 55%, #0d0605);
+  background-size: 100% 26px, 52px 52px, 52px 52px, 100% 100%;
+  background-position: 0 0, 0 0, 0 13px, 0 0;
 }
-.gang-saves__hero, .gang-saves__body { width: 100%; }
 .gang-saves__loading { padding: 40px 16px; text-align: center; color: var(--text-secondary); font-size: .82rem; }
 
 /* ── Voltar: seta discreta no canto, padrão já usado no resto do jogo
-   (gang-recruit__back / gang-progression-screen-back) — nunca mais uma
-   caixa de "SAIR" solta flutuando no fim da tela. ── */
+   (gang-recruit__back / gang-progression-screen-back). ── */
 .gang-saves__voltar {
-  position: absolute; top: 12px; left: 12px; z-index: 5;
+  position: absolute; top: 12px; left: 12px; z-index: 20;
   width: 34px; height: 34px; display: grid; place-items: center;
   border: 1px solid var(--if-hair-strong); background: color-mix(in srgb, var(--bg-primary) 70%, transparent);
   color: var(--text-secondary); font-size: 1.1rem; backdrop-filter: blur(4px);
 }
 .gang-saves__voltar:hover, .gang-saves__voltar:active { color: var(--if-cyan); border-color: var(--if-cyan); }
 
+/* ══ FLASH de impacto — um clarão só, na entrada, sincronizado com o
+   som e a logo travando (ver IMPACT_MS no JSX). ══ */
+.gang-saves__flash {
+  position: absolute; inset: 0; z-index: 30; pointer-events: none;
+  background: #fff4dd; opacity: 0;
+  animation: gang-saves-flash .5s ease-out both;
+}
+@keyframes gang-saves-flash {
+  0% { opacity: 0; } 4% { opacity: .92; } 100% { opacity: 0; }
+}
+
+/* ══ Tremor de tela na entrada — some sozinho depois de ~0.35s. ══ */
+.gang-saves__hero--treme { animation: gang-saves-shake .38s cubic-bezier(.36,.07,.19,.97) both; }
+@keyframes gang-saves-shake {
+  0%, 100% { translate: 0 0; }
+  12% { translate: -6px 2px; } 24% { translate: 5px -3px; } 36% { translate: -4px 3px; }
+  48% { translate: 3px -2px; } 62% { translate: -2px 1px; } 78% { translate: 1px -1px; }
+}
+
+/* ── Blocos de tijolo caindo de cima na entrada, se encaixando na parede
+   de fundo (ilusão de "a parede tá se montando") — 6 blocos, cada um com
+   posição/atraso/rotação próprios via nth-child, sem inline style. Some
+   de vez depois de aterrissar (fill-mode:forwards mantém a posição final,
+   invisível porque já virou parte do fundo). ── */
+.gang-saves__tijolos { position: absolute; inset: 0; z-index: 15; pointer-events: none; overflow: hidden; }
+.gang-saves__tijolos i {
+  position: absolute; top: -120px; width: 15%; height: 44px;
+  background: linear-gradient(160deg, #6b3a28, #3d1f16);
+  border: 1px solid rgba(0, 0, 0, .5); box-shadow: 0 10px 18px -6px rgba(0, 0, 0, .6);
+  opacity: 0; animation: gang-saves-tijolo-cai .6s cubic-bezier(.34,1.56,.64,1) both;
+}
+.gang-saves__tijolos i:nth-child(1) { left: 2%; animation-delay: .02s; rotate: -6deg; }
+.gang-saves__tijolos i:nth-child(2) { left: 19%; animation-delay: .12s; rotate: 4deg; }
+.gang-saves__tijolos i:nth-child(3) { left: 37%; animation-delay: .05s; rotate: -3deg; }
+.gang-saves__tijolos i:nth-child(4) { left: 55%; animation-delay: .2s; rotate: 7deg; }
+.gang-saves__tijolos i:nth-child(5) { left: 72%; animation-delay: .09s; rotate: -8deg; }
+.gang-saves__tijolos i:nth-child(6) { left: 88%; animation-delay: .17s; rotate: 5deg; }
+@keyframes gang-saves-tijolo-cai {
+  0% { top: -120px; opacity: 1; }
+  70% { opacity: 1; }
+  100% { top: 46px; opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .gang-saves__flash, .gang-saves__hero--treme, .gang-saves__tijolos i, .gang-saves__logo--porrada, .gang-saves__embers i { animation: none !important; }
+}
+
 /* ══ HERO — a logo é o ÚNICO título; nada de repetir "Suas Gangues"
-   gigante embaixo dela (era redundante, pedido do Isaias). Glow
-   pulsante + fumaça de spray subindo (ecoa os sprays desenhados na
-   própria arte da logo) + vinheta escurecendo as bordas. ══ */
+   gigante embaixo dela. Glow pulsante + fumaça de spray subindo (ecoa
+   os sprays desenhados na própria arte da logo). ══ */
 .gang-saves__hero {
-  position: relative; padding: 54px 20px 30px; display: grid; justify-items: center; gap: 14px;
+  position: relative; padding: 46px 20px 26px; display: grid; justify-items: center; gap: 14px;
   overflow: hidden; text-align: center;
-  background: radial-gradient(120% 90% at 50% -10%, color-mix(in srgb, var(--if-blood) 55%, transparent), transparent 65%), var(--bg-primary);
 }
 .gang-saves__hero::before {
   content: ''; position: absolute; inset: 0; z-index: 0; pointer-events: none;
-  background: radial-gradient(60% 55% at 50% 38%, color-mix(in srgb, var(--if-amber) 30%, transparent), transparent 70%);
+  background: radial-gradient(60% 60% at 50% 34%, color-mix(in srgb, var(--if-amber) 32%, transparent), transparent 70%);
   animation: gang-saves-glow 3.6s ease-in-out infinite;
 }
-.gang-saves__hero::after {
-  content: ''; position: absolute; inset: 0; z-index: 0; pointer-events: none; opacity: .35;
-  background: repeating-linear-gradient(-14deg, transparent 0 22px, color-mix(in srgb, var(--if-cyan) 8%, transparent) 23px 24px);
-  mask-image: radial-gradient(70% 70% at 50% 40%, #000, transparent 85%);
-}
 @keyframes gang-saves-glow {
-  0%, 100% { opacity: .55; transform: scale(1); }
+  0%, 100% { opacity: .5; transform: scale(1); }
   50% { opacity: 1; transform: scale(1.08); }
 }
 
-.gang-saves__logo { position: relative; z-index: 1; width: 100%; max-width: 340px; height: auto; filter: drop-shadow(0 14px 34px rgba(0, 0, 0, .6)); }
+/* Entrada em "porrada": nasce gigante e trava com estouro, sincronizada
+   com o flash/tremor/som (todos disparam junto, t=0). */
+.gang-saves__logo {
+  position: relative; z-index: 1; width: 100%; max-width: 340px; height: auto;
+  filter: drop-shadow(0 14px 34px rgba(0, 0, 0, .6));
+}
+.gang-saves__logo--porrada { animation: gang-saves-punch .75s cubic-bezier(.2,1.4,.4,1) both; }
+@keyframes gang-saves-punch {
+  0% { scale: 2.4; opacity: 0; }
+  10% { opacity: 1; }
+  55% { scale: .93; }
+  75% { scale: 1.04; }
+  100% { scale: 1; }
+}
+
 .gang-saves__tagline {
   position: relative; z-index: 1; max-width: 30ch; margin: 0; padding: 6px 14px;
   color: #f2ede4; font: 600 .8rem/1.5 var(--font-mono);
   background: color-mix(in srgb, var(--bg-primary) 55%, transparent); border-radius: 2px;
 }
 
-/* Fumaça de spray — 6 partículas CSS puras, sem inline style (regra do
-   projeto): cada uma tem sua própria posição/atraso via nth-child. */
+/* Fumaça de spray — 6 partículas CSS puras, cada uma com posição/atraso
+   próprios via nth-child (mesmo padrão dos tijolos). */
 .gang-saves__embers { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
 .gang-saves__embers i {
   position: absolute; bottom: -10px; width: 5px; height: 5px; border-radius: 50%;
@@ -71,28 +132,36 @@
   85% { opacity: 0; }
   100% { transform: translateY(-230px) scale(1.3); opacity: 0; }
 }
-@media (prefers-reduced-motion: reduce) {
-  .gang-saves__hero::before, .gang-saves__embers i { animation: none; }
-}
 
-/* ══ CORPO — fundo sólido, sem ruído, pra legibilidade real ══ */
-.gang-saves__body { position: relative; z-index: 1; padding: 22px 16px 0; }
+/* ══ CORPO ══ */
+.gang-saves__body { position: relative; z-index: 1; padding: 18px 16px 0; }
 
-/* ── Estado vazio: o convite pra fundar a 1ª gangue vira o momento
-   principal da tela, não uma linha de texto cinza perdida. ── */
-.gang-saves__empty {
-  display: grid; justify-items: center; gap: 14px; padding: 34px 20px;
-  text-align: center; border: 1px solid color-mix(in srgb, var(--if-amber) 40%, transparent);
-  background: linear-gradient(165deg, color-mix(in srgb, var(--if-amber) 10%, transparent), var(--if-panel-flat));
-  clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 0 100%);
+/* ── Estado vazio: um buraco arrebentado na própria parede de tijolo (a
+   parede já é o fundo de página inteira), não uma caixa qualquer. Sem
+   ícone de luva — a logo já é a identidade visual. Borda orgânica
+   (border-radius assimétrico) + estilhaços na borda vendem o "buraco". ── */
+.gang-saves__buraco {
+  position: relative; padding: 38px 22px 26px; display: grid; justify-items: center; gap: 14px;
+  text-align: center; background: radial-gradient(120% 100% at 50% 35%, #000 0%, #0a0705 70%, transparent 100%);
+  border-radius: 46% 54% 51% 49% / 58% 44% 56% 42%;
+  box-shadow: inset 0 0 50px 10px rgba(0, 0, 0, .8), 0 20px 50px -20px rgba(0, 0, 0, .7);
 }
-.gang-saves__empty-badge { font-size: 2.1rem; filter: drop-shadow(0 0 14px color-mix(in srgb, var(--if-amber) 60%, transparent)); }
-.gang-saves__empty p { margin: 0; max-width: 30ch; color: #e7e2d8; font: 700 .92rem/1.5 var(--font-display); text-transform: none; }
+.gang-saves__buraco-estilhaco { position: absolute; inset: 0; pointer-events: none; }
+.gang-saves__buraco-estilhaco i {
+  position: absolute; width: 12px; height: 12px;
+  background: linear-gradient(160deg, #6b3a28, #3d1f16); clip-path: polygon(50% 0, 100% 100%, 0 100%);
+}
+.gang-saves__buraco-estilhaco i:nth-child(1) { top: -4px; left: 14%; rotate: -12deg; }
+.gang-saves__buraco-estilhaco i:nth-child(2) { top: -2px; left: 38%; rotate: 8deg; scale: 1.3; }
+.gang-saves__buraco-estilhaco i:nth-child(3) { top: -6px; right: 20%; rotate: -6deg; }
+.gang-saves__buraco-estilhaco i:nth-child(4) { bottom: -4px; left: 22%; rotate: 175deg; scale: 1.15; }
+.gang-saves__buraco-estilhaco i:nth-child(5) { bottom: -2px; right: 16%; rotate: 200deg; }
+.gang-saves__buraco p { margin: 0; max-width: 30ch; color: #e7e2d8; font: 700 .92rem/1.5 var(--font-display); text-transform: none; }
 
 /* ── CTA principal (fundar gangue): peça de destaque, com a varredura
    de luz no toque — gesto de assinatura do site (AGENTS.md). ── */
 .gang-saves__cta {
-  --cta-cor: var(--if-amber); position: relative; overflow: hidden; width: 100%; max-width: 320px;
+  --cta-cor: var(--if-amber); position: relative; overflow: hidden; width: 100%; max-width: 300px;
   min-height: 56px; padding: 0 20px; display: flex; align-items: center; gap: 12px;
   border: 1px solid var(--cta-cor); background: linear-gradient(100deg, color-mix(in srgb, var(--cta-cor) 20%, transparent), var(--if-panel-flat));
   color: var(--text-primary); box-shadow: 0 16px 36px -22px var(--cta-cor);
@@ -112,9 +181,7 @@
 
 /* ── Cards de save: bem maiores, cor por índice, meta com ícone. ── */
 .gang-saves__lista { display: grid; gap: 16px; }
-.gang-saves__card-shell {
-  --save-cor: var(--if-amber); position: relative;
-}
+.gang-saves__card-shell { --save-cor: var(--if-amber); position: relative; }
 .gang-saves__card-shell--teal { --save-cor: var(--if-teal); }
 .gang-saves__card-shell--violet { --save-cor: var(--if-violet); }
 
@@ -122,7 +189,7 @@
   position: relative; overflow: hidden; width: 100%; min-height: 128px; padding: 18px 20px 46px;
   display: grid; gap: 6px; text-align: left;
   border: 1px solid var(--save-cor); border-left-width: 4px;
-  background: linear-gradient(150deg, color-mix(in srgb, var(--save-cor) 16%, var(--if-panel-flat)), var(--bg-primary));
+  background: linear-gradient(150deg, color-mix(in srgb, var(--save-cor) 20%, #0d0605 88%), #0a0605);
   box-shadow: 0 18px 42px -30px var(--save-cor);
   clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 0 100%);
 }
@@ -146,4 +213,4 @@
 .gang-saves__card-delete:hover, .gang-saves__card-delete:active { background: #e0453f; border-color: #ff6b6b; color: #fff; }
 .gang-saves__card-delete:disabled { opacity: .4; }
 
-.gang-saves__limite { margin-top: 16px; padding: 12px; border: 1px dashed var(--if-hair); color: var(--text-secondary); text-align: center; font-size: .74rem; }
+.gang-saves__limite { margin-top: 16px; padding: 12px; border: 1px dashed var(--if-hair); color: var(--text-secondary); text-align: center; font-size: .74rem; background: rgba(0, 0, 0, .4); }
