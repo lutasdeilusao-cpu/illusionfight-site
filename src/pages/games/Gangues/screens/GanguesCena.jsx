@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useLanguage } from '../../../../context/LanguageContext'
+import { useAuth } from '../../../../context/AuthContext'
 import { useGanguesStore } from '../store/useGanguesStore'
 import { sfx } from '../../../../lib/sfx'
 import GangDialog from '../components/GangDialog'
@@ -21,7 +22,7 @@ import { CENAS_POR_ID, portaoAberto, contarCena } from '../data/cenas/cenaHelper
 import { GANGUES_TERRITORIO_POR_ID } from '../data/ganguesTerritorios.js'
 import { calcularPontosTime } from '../data/ganguesEncontros.js'
 import { getGanguesPortraitByTemplateId } from '../data/ganguesPortraits.js'
-import { GANGUES_STORY_BATTLE_PARTY_MAX } from '../data/ganguesLoadout.js'
+import { GANGUES_STORY_BATTLE_PARTY_MAX, getGanguesRosterLimitComHistoria } from '../data/ganguesLoadout.js'
 import { WORLD, SPAWN, montarAmbiente, insideZone, validPosition, validPos } from '../engine/ganguesCenaMotor.js'
 import useGanguesCenaMovimento from '../hooks/useGanguesCenaMovimento.js'
 import useGanguesCenaEventoAleatorio from '../hooks/useGanguesCenaEventoAleatorio.js'
@@ -34,6 +35,7 @@ import './GanguesCena.css'
 function cenaIntroTutorialId(cenaId) { return `cena_intro:${cenaId}` }
 
 export default function GanguesCena({ onNavigate }) {
+  const { perfil } = useAuth()
   const { t } = useLanguage(), store = useGanguesStore(), territorioId = store.storyTarget?.territorioId
   const cena = CENAS_POR_ID[territorioId] || null, terr = GANGUES_TERRITORIO_POR_ID[territorioId] || null
   const prog = store.cenaProgresso[cena?.id] || { resolvidos: {}, revelados: {}, boss: false }
@@ -59,6 +61,12 @@ export default function GanguesCena({ onNavigate }) {
   const [fade, setFade] = useState(false)
   const [fichaIndex, setFichaIndex] = useState(null)
   const [bagAberta, setBagAberta] = useState(false)
+  // Vaga de recrutamento liberada (por rep>=50 ou território dominado) — a
+  // ficha do personagem (aberta daqui, na rua) é onde o Isaias esperava ver
+  // isso, não só um toast que passa (pedido do Isaias, 2026-09-14: "deveria
+  // aparecer aqui algo como recrutamento liberado").
+  const podeRecrutarAgora = store.roster.length < getGanguesRosterLimitComHistoria(perfil?.tier, store.storyProgress, store.rep)
+  const irRecrutar = () => { store.newSheet(); setFichaIndex(null); onNavigate('create') }
   // Aviso: a tropa inteira caiu — não entra em luta até se recuperar na birosca.
   const [aviso, setAviso] = useState(null)
   // Checklist: o que ainda falta fechar na cena (toca no "X/10" do topo).
@@ -338,7 +346,18 @@ export default function GanguesCena({ onNavigate }) {
     </motion.div>}</AnimatePresence>
     <AnimatePresence>{aviso && <motion.div className="gang-cena-toast gang-cena-toast--aviso" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}>{aviso}</motion.div>}</AnimatePresence>
     <AnimatePresence>{encontro && <motion.div className="gang-cena-modal" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}><div className="gang-cena-modal-bg" onClick={() => setEncontro(null)} /><motion.div className="gang-cena-modal-card" initial={{ y: 25 }} animate={{ y: 0 }}>{encontro.evento ? <EventoVS fala={encontro.fala} onSim={iniciarEvento} onNao={() => setEncontro(null)} cenaId={cena.id} t={t} /> : encontro.vs ? <TretaVS poi={encontro.poi} fala={encontro.fala} nivelTropa={nivelTropa} avisoOff={avisoNivelOff} onOcultarAviso={() => setAvisoNivelOff(true)} onSim={() => iniciarTreta(encontro.poi)} onNao={() => setEncontro(null)} t={t} /> : encontro.poi.tipo === 'papo' ? <GanguesPapo poi={encontro.poi} cena={cena} onResolve={resolver} onClose={() => setEncontro(null)} /> : encontro.poi.tipo === 'descanso' ? <GanguesDescanso poi={encontro.poi} cena={cena} onClose={() => setEncontro(null)} onClube={iniciarClube} /> : encontro.poi.tipo === 'loja' ? <GanguesLoja poi={encontro.poi} onClose={() => setEncontro(null)} /> : <GanguesParada poi={encontro.poi} cena={cena} onResolve={resolver} onClose={() => setEncontro(null)} />}</motion.div></motion.div>}</AnimatePresence>
-    <AnimatePresence>{fichaIndex !== null && store.activeParty[fichaIndex] && <motion.div className="gang-cena-modal" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}><div className="gang-cena-modal-bg" onClick={() => setFichaIndex(null)} /><motion.div className="gang-cena-modal-card gang-cena-ficha-scroll" initial={{ y: 25 }} animate={{ y: 0 }}><div className="gang-cena-enc-acoes gang-cena-ficha-nav">{store.activeParty.length > 1 && <button className="gang-cena-btn" onClick={() => setFichaIndex(i => (i + store.activeParty.length - 1) % store.activeParty.length)}>◀ ANTERIOR</button>}<button className="gang-cena-btn gang-cena-btn--go" onClick={() => setFichaIndex(null)}>FECHAR</button>{store.activeParty.length > 1 && <button className="gang-cena-btn" onClick={() => setFichaIndex(i => (i + 1) % store.activeParty.length)}>PRÓXIMO ▶</button>}</div><GanguesCenaFichaCard member={store.activeParty[fichaIndex]} t={t} onToggleEspecial={store.toggleEspecial} /></motion.div></motion.div>}</AnimatePresence>
+    <AnimatePresence>{fichaIndex !== null && store.activeParty[fichaIndex] && <motion.div className="gang-cena-modal" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}><div className="gang-cena-modal-bg" onClick={() => setFichaIndex(null)} /><motion.div className="gang-cena-modal-card gang-cena-ficha-scroll" initial={{ y: 25 }} animate={{ y: 0 }}><div className="gang-cena-enc-acoes gang-cena-ficha-nav">{store.activeParty.length > 1 && <button className="gang-cena-btn" onClick={() => setFichaIndex(i => (i + store.activeParty.length - 1) % store.activeParty.length)}>◀ ANTERIOR</button>}<button className="gang-cena-btn gang-cena-btn--go" onClick={() => setFichaIndex(null)}>FECHAR</button>{store.activeParty.length > 1 && <button className="gang-cena-btn" onClick={() => setFichaIndex(i => (i + 1) % store.activeParty.length)}>PRÓXIMO ▶</button>}</div>
+      {/* Vaga de recrutamento liberada — nunca silencioso (mesmo motivo do
+          marco de reputação): quem abre a ficha vê na hora que dá pra chamar
+          mais alguém, com o botão pra ir direto lá. */}
+      {podeRecrutarAgora && (
+        <div className="gang-cena-recrutar-banner">
+          <b>🎖 {t('games.gangues.recrutar_banner.titulo')}</b>
+          <span>{t('games.gangues.recrutar_banner.desc')}</span>
+          <button className="gang-cena-btn gang-cena-btn--go" onClick={irRecrutar}>{t('games.gangues.recrutar_banner.cta')}</button>
+        </div>
+      )}
+      <GanguesCenaFichaCard member={store.activeParty[fichaIndex]} t={t} onToggleEspecial={store.toggleEspecial} /></motion.div></motion.div>}</AnimatePresence>
     <AnimatePresence>{bagAberta && <motion.div className="gang-cena-modal" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}><div className="gang-cena-modal-bg" onClick={() => setBagAberta(false)} /><motion.div className="gang-cena-modal-card gang-cena-ficha-scroll" initial={{ y: 25 }} animate={{ y: 0 }}><GanguesCenaBagSheet store={store} t={t} onClose={() => setBagAberta(false)} /></motion.div></motion.div>}</AnimatePresence>
   </main>
 }

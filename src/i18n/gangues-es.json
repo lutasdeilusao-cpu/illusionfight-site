@@ -521,6 +521,11 @@
         "titulo_50": "¡Reputación 50 alcanzada!",
         "desc_50": "Nueva vacante de reclutamiento liberada — ve a la Sede para llamar a alguien más."
       },
+      "recrutar_banner": {
+        "titulo": "¡Reclutamiento liberado!",
+        "desc": "Tu banda tiene espacio para un miembro más.",
+        "cta": "Elegir nuevo miembro →"
+      },
       "multidao_tutorial": {
         "interruptor": "Este interruptor activa el modo Pelea Multitudinaria: en vez de golpe a golpe, cada ronda resuelve a todos de una vez.",
         "alvo_automatico": "En automático, tu banda siempre enfoca al enemigo más cerca de caer — bueno para limpiar una bandita grande rápido.",

@@ -521,6 +521,11 @@
         "titulo_50": "Reputation 50 reached!",
         "desc_50": "New recruitment slot unlocked — head to the HQ to bring in someone new."
       },
+      "recrutar_banner": {
+        "titulo": "Recruitment unlocked!",
+        "desc": "Your gang has room for one more member.",
+        "cta": "Choose new member →"
+      },
       "multidao_tutorial": {
         "interruptor": "This switch turns on Mob Brawl mode: instead of one hit at a time, each round resolves everyone at once.",
         "alvo_automatico": "On auto, your crew always focuses whoever's closest to falling — good for clearing a big mob fast.",

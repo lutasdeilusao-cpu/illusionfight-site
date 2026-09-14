@@ -521,6 +521,11 @@
         "titulo_50": "Reputação 50 alcançada!",
         "desc_50": "Nova vaga de recrutamento liberada — vai na Sede pra chamar mais alguém."
       },
+      "recrutar_banner": {
+        "titulo": "Recrutamento liberado!",
+        "desc": "Sua gangue tem vaga pra mais um membro.",
+        "cta": "Escolher novo membro →"
+      },
       "multidao_tutorial": {
         "interruptor": "Esse interruptor liga o modo Multidão: em vez de golpe a golpe, cada rodada resolve todo mundo de uma vez.",
         "alvo_automatico": "No automático, sua tropa sempre foca o inimigo mais perto de cair — bom pra limpar um bando grande rápido.",
