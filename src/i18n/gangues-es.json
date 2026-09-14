@@ -301,7 +301,10 @@
       "itens": {
         "1": "Poción de HP",
         "2": "Poción de MP",
-        "13": "Chatarra"
+        "13": "Chatarra",
+        "20": "Chip del Bruto (uso único: da el poder Puño de Hierro por 1 golpe)",
+        "21": "Chip de la Muralla (uso único: da el poder Postura Defensiva por 1 golpe)",
+        "22": "Chip Ígneo (uso único: da el poder Bola de Fuego por 1 golpe)"
       },
       "loja": {
         "sub": "Compra con la plata de la banda — se puede usar en cualquier pelea.",
@@ -516,10 +519,6 @@
         "usar_item": "Usar objeto esta ronda (renuncia al ataque)",
         "vai_usar_item": "Va a usar objeto",
         "auto_switch_titulo": "Activa el automático — las rondas avanzan solas, respetando los talentos/objetos ya marcados. Desactívalo cuando quieras."
-      },
-      "rep_marco": {
-        "titulo_50": "¡Reputación 50 alcanzada!",
-        "desc_50": "Nueva vacante de reclutamiento liberada — ve a la Sede para llamar a alguien más."
       },
       "recrutar_banner": {
         "titulo": "¡Reclutamiento liberado!",
@@ -4060,6 +4059,14 @@
         "descanso_sem_grana": "La plata está corta para el descanso, pibe.",
         "descanso_curar": "Descansar (−{grana})",
         "tropa_no_chao": "Tu tropa está toda en el piso, pibe. Así nadie encara a nadie. Pasá por el kiosco del Nato antes.",
+        "aviso_rep_evento": "Esto huele a bardo, pibe. Todavía no tenés el prestigio pa' meterte en esa — hacete nombre en la calle primero (rep {rep}).",
+        "aviso_rep_treta": "Esa es harina de otro costal, pibe. No es hora de hacerte el guapo sin nombre hecho en la calle — juntá más reputación antes de encarar (rep {rep}).",
+        "aviso_rep_clube": "El Nato ni te deja entrar a la rueda sin que tengas nombre en la calle. Juntá más reputación antes de aparecer por acá (rep {rep}).",
+        "rep_recompensa": {
+          "titulo": "¡REPUTACIÓN {valor}!",
+          "sub": "Tu nombre ya suena en la calle, pibe. Agarrá esto.",
+          "pegar": "AGARRAR"
+        },
         "fiado_pedir": "Fiado con el Nato",
         "fiado_contrato_tag": "Contrato · sin plazo",
         "fiado_contrato": "El Nato miró a tu tropa, escupió al piso y los mandó a descansar. Te clavó {valor} de plata en la cuenta. Ahora le debés {divida}. Sin plazo, sin reclamo — él sólo se acuerda.",

@@ -187,16 +187,27 @@ export default function GanguesCombat({ onNavigate }) {
   // Itens disponíveis (quantidade > 0) — a bolinha só mostra o que a gangue
   // realmente tem, lido direto do inventário compartilhado (store.inventario).
   const itensDisponiveis = GANGUES_ITENS_LISTA
-    .filter(item => item.tipo === 'cura_pv' || item.tipo === 'cura_pm')
+    .filter(item => item.tipo === 'cura_pv' || item.tipo === 'cura_pm' || item.tipo === 'poder_unico')
     .map(item => ({ ...item, quantidade: store.inventario[item.id] || 0 }))
     .filter(item => item.quantidade > 0)
 
   // Usar item consome o turno do ATOR (quem tá na vez) igual um ataque, mas a
   // cura vai pro ALIADO escolhido — o tanque pode ficar curando o atacante.
+  // `poder_unico` é diferente: é um golpe de ataque (chip emprestando um
+  // poder que o personagem nem treinou), então o alvo é um INIMIGO — usa o
+  // `selectedTarget` que o fluxo de ataque normal já mantém, não o
+  // aliado/`alvoKey` que a cura usa.
   const handleUsarItem = (itemId, alvoKey) => {
     if (!selectedActor) return
     const item = getGanguesItem(itemId)
     if (!item) return
+    if (item.tipo === 'poder_unico') {
+      if (!selectedTarget) return
+      if (!store.usarItem(itemId)) return
+      sfx.reward?.()
+      machine.playerAction(selectedActor, selectedTarget, item.poderId, { id: item.poderId, level: item.poderNivel || 1 })
+      return
+    }
     const alvo = alvoKey || selectedActor
     // Não desperdiça o item se o alvo já tá cheio no recurso que ele cura.
     const alvoC = players.find(p => p.key === alvo)

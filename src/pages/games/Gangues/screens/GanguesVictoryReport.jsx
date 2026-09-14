@@ -1,8 +1,10 @@
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { getGanguesCharacter, eventosDoNivel } from '../data/ganguesCharacters.js'
 import { combatantName, eventosDoLevelUp } from '../engine/ganguesVictoryResolver.js'
 import { useTutorialProgress } from '../../../../context/TutorialProgressContext'
 import GangTip from '../components/GangTip'
+import GanguesRepRecompensaModal from '../components/GanguesRepRecompensaModal'
 
 // Explica a regra de divisão de XP só na 1ª tela de vitória de verdade
 // (pedido do Isaias, 13/09/2026 — tutorial progressivo: a regra só importa
@@ -19,6 +21,9 @@ export default function GanguesVictoryReport({
   t, store, report, victory, torre, cenaChefe, noModoHistoria, storyAlvo,
   podeRecrutar, recrutar, levelUps, clearLevelUps, rewardSummary, onNavigate,
 }) {
+  // Modal bloqueante do marco de reputação (a cada 50, ver
+  // GANGUES_REP_MARCO_INTERVALO) — fecha só no clique, nunca sozinho.
+  const [repMarcoFechado, setRepMarcoFechado] = useState(false)
   const { jaViu, marcarVisto, carregado } = useTutorialProgress()
   const xpTipVisto = !carregado || jaViu(XP_TUTORIAL_ID)
   const fecharXpTip = () => marcarVisto(XP_TUTORIAL_ID)
@@ -99,16 +104,14 @@ export default function GanguesVictoryReport({
               </motion.div>
             )}
           </div>
-          {/* Marco de reputação cruzado NESSA luta (ex: chegou em 50) — nunca
-              silencioso (pedido do Isaias, 2026-09-14: bateu 66 de rep e não
-              tinha nenhum aviso de que a vaga extra de recrutamento tinha
-              acabado de abrir). */}
-          {rewardSummary.repMarco && (
-            <motion.div className="gang-reward-marco" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8 }}>
-              <b>🎖 {t(rewardSummary.repMarco.tituloKey)}</b><span>{t(rewardSummary.repMarco.descricaoKey)}</span>
-            </motion.div>
-          )}
         </section>
+      )}
+      {/* Marco de reputação cruzado NESSA luta (ex: chegou em 50) — modal
+          BLOQUEANTE, não banner solto: nunca silencioso (pedido do Isaias,
+          2026-09-14: bateu 66 de rep e não tinha nenhum aviso), e só fecha no
+          clique (pedido seguinte, mesmo dia: "tem que esparmar na tela"). */}
+      {victory && rewardSummary?.repMarco && !repMarcoFechado && (
+        <GanguesRepRecompensaModal t={t} marco={rewardSummary.repMarco} onClose={() => setRepMarcoFechado(true)} />
       )}
       {victory && rewardSummary && !xpTipVisto && (
         <GangTip text={t('games.gangues.xp_tutorial.regra')} side="right" isLast onNext={fecharXpTip} onSkip={fecharXpTip} />

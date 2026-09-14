@@ -31,6 +31,9 @@ export default function useGanguesVictoryResolution({ store, user, report, victo
         return
       }
       store.resolverClubeDaLuta(victory, storyAlvo.clubeBase || 10, storyAlvo.clubeDividaPrevia || 0, storyAlvo.clubeHeals || 0)
+      // Chip Ígneo: só na vitória da RONDA FINAL (ronda 3) — as vitórias das
+      // rondas 1/2 caem no branch acima (vão pra sala do Nato) e não chegam aqui.
+      if (victory) store.darItem(22, 1)
       victory ? sfx.win() : sfx.lose()
       return
     }
@@ -63,7 +66,7 @@ export default function useGanguesVictoryResolution({ store, user, report, victo
     if (victory) {
       // Álbum de Marélia — todo inimigo do bando batido vira entrada.
       store.registrarNoAlbum([match.enemy_id, ...report.combatants.filter(c => c.side === 'enemy').map(c => c.id)])
-      let granaGanha = 0, repGanha = 0, repMarco = null
+      let granaGanha = 0, repGanha = 0, repMarcos = []
       if (emCena || noModoHistoria) {
         const { grana, rep, itens } = calcularRecompensaCena({ emCena, storyAlvo })
         if (emCena && !storyAlvo.evento) {
@@ -78,7 +81,7 @@ export default function useGanguesVictoryResolution({ store, user, report, victo
           else store.marcarPoiResolvido(storyAlvo.cenaId, storyAlvo.cenaPoiId, storyAlvo.cenaRevela || [])
         }
         if (grana) { store.ganharGrana(grana); granaGanha += grana }
-        if (rep) { repMarco = store.ganharRep(rep); repGanha += rep }
+        if (rep) { repMarcos = store.ganharRep(rep); repGanha += rep }
         itens.forEach(({ id, qtd }) => store.darItem(id, qtd))
         if (emCena && !storyAlvo.evento && cenaChefe) {
           store.marcarBossCena(storyAlvo.cenaId)
@@ -92,7 +95,9 @@ export default function useGanguesVictoryResolution({ store, user, report, victo
       }
       if (user?.id) registrarPontuacaoArenaRanking(user.id)
       if (confrontoFinal) store.completeCampaign()
-      setRewardSummary({ apLista, grana: granaGanha, rep: repGanha, repMarco })
+      // repMarco: só o ÚLTIMO marco cruzado (pra mostrar 1 modal) — todos os
+      // itens já foram concedidos de verdade no inventário dentro de ganharRep.
+      setRewardSummary({ apLista, grana: granaGanha, rep: repGanha, repMarco: repMarcos[repMarcos.length - 1] || null })
       sfx.win()
     } else sfx.lose()
 

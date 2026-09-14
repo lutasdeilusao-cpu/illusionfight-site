@@ -3,7 +3,7 @@
 // _persistCena). Extraído de store/useGanguesStore.js
 // (PLANO_REFATORACAO_ARQUIVOS_GRANDES_GANGUES_2026-09-11.md §3).
 import { salvarProgressoHistoria } from '../ganguesStoryProgress.js'
-import { repMarcoCruzado } from '../../data/ganguesLoadout.js'
+import { repMarcosCruzados } from '../../data/ganguesLoadout.js'
 
 // Debounce dos writes de progresso do modo história: várias ações batem em
 // sequência (marcar POI + grana + rep) e não faz sentido um upsert por campo.
@@ -49,15 +49,19 @@ export default function createGanguesCenaEconomiaSlice(set, get) {
     _cena: (cenaId) => get().cenaProgresso[cenaId] || { resolvidos: {}, revelados: {}, boss: false },
 
     ganharGrana: (n) => { set(state => ({ grana: Math.max(0, state.grana + (n || 0)) })); get()._persistCena() },
-    // Devolve o MARCO cruzado nesse ganho (ex: { valor: 50, ... }) ou null —
-    // quem chama usa isso pra avisar o jogador na hora (nunca silencioso, ver
-    // repMarcoCruzado em ganguesLoadout.js).
+    // Devolve os MARCOS cruzados nesse ganho (array, normalmente 0 ou 1 item;
+    // ex: [{ valor: 50, itemId: 20, nivel: 1 }]) — concede o item de CADA
+    // marco cruzado de verdade no inventário, e quem chama usa o retorno pra
+    // mostrar o modal de recompensa na hora (nunca silencioso, ver
+    // repMarcosCruzados em ganguesLoadout.js).
     ganharRep: (n) => {
       const antes = get().rep
       const depois = Math.max(0, antes + (n || 0))
       set({ rep: depois })
       get()._persistCena()
-      return repMarcoCruzado(antes, depois)
+      const marcos = repMarcosCruzados(antes, depois)
+      marcos.forEach(marco => get().darItem(marco.itemId, 1))
+      return marcos
     },
     gastarGrana: (n) => {
       if (get().grana < n) return false

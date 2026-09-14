@@ -77,21 +77,21 @@ export default function useGanguesTurnMachine({ playerTeam = [], enemyTeam = [],
     setTurnIndex(nextIndex)
   }, [initiative, onFinish, turnIndex])
 
-  const queueAction = useCallback((actor, target, activeSpecialId = null) => {
+  const queueAction = useCallback((actor, target, activeSpecialId = null, forcedSpecial = null) => {
     if (!actor || !target || pending) return false
     const result = resolveGanguesAction({
       attacker: actor, defender: target, action: { type: 'attack', mode: 'attack' },
       rolls: { fa: attackRoll(), fd: defenseRoll(), attackerBonus: bonusRoll(), defenderBonus: bonusRoll() },
-      activeSpecialId,
+      activeSpecialId, forcedSpecial,
     })
     setPending({ actorKey: actor.key, targetKey: target.key, side: actor.side, result })
     return true
   }, [attackRoll, defenseRoll, bonusRoll, pending])
 
-  const playerAction = useCallback((actorKey, targetKey, activeSpecialId = null) => {
+  const playerAction = useCallback((actorKey, targetKey, activeSpecialId = null, forcedSpecial = null) => {
     if (phase !== 'player' || currentActor?.key !== actorKey) return false
     const target = combatants.find(item => item.key === targetKey && item.side === 'enemy' && item.pv > 0)
-    return queueAction(currentActor, target, activeSpecialId)
+    return queueAction(currentActor, target, activeSpecialId, forcedSpecial)
   }, [phase, currentActor, combatants, queueAction])
 
   const completePending = useCallback(() => {

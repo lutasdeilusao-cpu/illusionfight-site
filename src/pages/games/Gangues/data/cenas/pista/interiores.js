@@ -6,6 +6,7 @@
 // `porta.predio` = qual prédio do exterior abre este interior.
 // Extraído de data/cenas/pista.js (PLANO_REFATORACAO_ARQUIVOS_GRANDES_GANGUES_2026-09-11.md §4).
 import { PISTA_POOL_RUA, PISTA_POOL_TUNEL, PISTA_POOL_GALPAO } from './pools.js'
+import { GANGUES_REP_GATE_GALPAO } from '../../ganguesLoadout.js'
 
 export const INTERIORES_PISTA = {
   birosca: {
@@ -251,7 +252,7 @@ export const INTERIORES_PISTA = {
           // repetível (dá pra treinar aqui de novo e de novo) MAS o
           // orçamento nunca congela — sempre `calcularPontosTime(playerTeam)`
           // fresco, então treinar aqui não vira fácil-pra-sempre.
-          { poi: { id: 'galpao_m2', tipo: 'treta', repetivel: true, semTravarPontos: true, nivelRec: 14, enemy: 1301, liderFixo: 1301, moldesPool: PISTA_POOL_GALPAO, dificuldade: 'normal', qtdMin: 3, qtdMax: 5, ratioBonus: 0.15, i18n: 'games.gangues.cena.pista.galpao.m2', recompensa: { grana: 8, rep: 3 } }, pos: { x: 220, y: 180 } },
+          { poi: { id: 'galpao_m2', tipo: 'treta', repetivel: true, semTravarPontos: true, nivelRec: 14, enemy: 1301, liderFixo: 1301, repGate: GANGUES_REP_GATE_GALPAO, moldesPool: PISTA_POOL_GALPAO, dificuldade: 'normal', qtdMin: 3, qtdMax: 5, ratioBonus: 0.15, i18n: 'games.gangues.cena.pista.galpao.m2', recompensa: { grana: 8, rep: 3, item: 21, qtd: 1 } }, pos: { x: 220, y: 180 } },
           { poi: { id: 'galpao_achado', tipo: 'achado', opcional: true, i18n: 'games.gangues.cena.pista.galpao.achado', recompensa: { grana: 18, item: 1 } }, pos: { x: 388, y: 150 } },
         ],
         passagem: { x: 200, y: 34, w: 80, h: 24, para: 2, precisa: 'galpao_m2', label: 'avancar' },

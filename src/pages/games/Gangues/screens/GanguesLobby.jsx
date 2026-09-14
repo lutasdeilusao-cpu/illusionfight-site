@@ -45,7 +45,7 @@ export default function GanguesLobby({ onNavigate }) {
   const roster = store.roster
   const party = store.activeParty
   // Cresce por tier pago OU por território dominado na história — vale o maior.
-  const rosterLimit = getGanguesRosterLimitComHistoria(perfil?.tier, store.storyProgress, store.rep)
+  const rosterLimit = getGanguesRosterLimitComHistoria(perfil?.tier, store.storyProgress)
   // Time de batalha = quantos você recrutou, até o teto — não depende mais
   // de XP acumulado. Antes era "cresce só grindando", o que não bate com a
   // fantasia de "recrutar mais = levar mais gente pra briga".

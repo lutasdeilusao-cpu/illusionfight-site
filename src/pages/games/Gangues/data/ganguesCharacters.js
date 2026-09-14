@@ -205,11 +205,11 @@ export function createGanguesTemplateSheet(characterTemplateId, xpTotal = 0) {
   })
 }
 
-export function getGanguesAvailableCharacterIds({ campaignClears = 0, storyProgress = {}, rep = 0, eventCharacterIds = [] } = {}) {
+export function getGanguesAvailableCharacterIds({ campaignClears = 0, storyProgress = {}, eventCharacterIds = [] } = {}) {
   const available = new Set(GANGUES_INITIAL_CHARACTER_IDS)
   const dominated = Object.values(storyProgress || {}).filter(value => value?.chefe).length
   const firstCampaignPool = catalog.unlock_plan.wave_2_first_clear
-  firstCampaignPool.slice(0, Math.min(firstCampaignPool.length, dominated + (rep >= 50 ? 1 : 0))).forEach(id => available.add(id))
+  firstCampaignPool.slice(0, Math.min(firstCampaignPool.length, dominated)).forEach(id => available.add(id))
   if (campaignClears >= 1) GANGUES_FIRST_CAMPAIGN_CHARACTER_IDS.forEach(id => available.add(id))
   if (campaignClears >= 2) GANGUES_SECOND_CLEAR_CHARACTER_IDS.forEach(id => available.add(id))
   eventCharacterIds.filter(id => GANGUES_EVENT_CHARACTER_IDS.includes(Number(id))).forEach(id => available.add(Number(id)))

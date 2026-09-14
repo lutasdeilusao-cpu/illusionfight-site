@@ -4,6 +4,7 @@
 // corre → beco_2 → beco_3 → Sinaleiro Chefe → Rasteira Velha → [muro/túnel]
 // → galpão → Carvão. Opcionais: rinha (farm), descanso, Duda.
 import { PISTA_POOL_RUA, PISTA_POOL_GALPAO } from './pools.js'
+import { GANGUES_REP_GATE_GALPAO } from '../../ganguesLoadout.js'
 
 export const POIS_PISTA = [
   {
@@ -304,9 +305,12 @@ export const POIS_PISTA = [
     i18n: 'games.gangues.cena.pista.posmuro_2',
     enemy: 1301,
     liderFixo: 1301,
+    // Gate de reputação: essa treta é do Cão Louco, mais osso do que o resto
+    // da rua — não trava o Sinaleiro/Rasteira Velha (progressão obrigatória).
+    repGate: GANGUES_REP_GATE_GALPAO,
     revezamento: { pool: PISTA_POOL_GALPAO, budgetPorCorpo: 7, chanceDupla: 0.6 },
     forca: 3,
     dificuldade: 'dificil',
-    recompensa: { grana: 12, rep: 4 },
+    recompensa: { grana: 12, rep: 4, item: 21, qtd: 1 },
   },
 ]

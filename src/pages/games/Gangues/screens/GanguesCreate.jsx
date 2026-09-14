@@ -31,7 +31,6 @@ export default function GanguesCreate({ onNavigate, onCreated }) {
     const available = new Set(getGanguesAvailableCharacterIds({
       campaignClears: store.campaignClears,
       storyProgress: store.storyProgress,
-      rep: store.rep,
       eventCharacterIds: store.eventCharacterIds,
     }))
     return GANGUES_CHARACTER_CATALOG.filter(character => available.has(character.id) && !recruited.has(character.id))
