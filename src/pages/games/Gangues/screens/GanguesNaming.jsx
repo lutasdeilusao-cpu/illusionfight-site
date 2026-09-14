@@ -31,7 +31,7 @@ export default function GanguesNaming({ onDone, modoEdicao = false }) {
   }
 
   return (
-    <main className="gang-lobby gang-modes gang-naming">
+    <main className="gang-lobby gang-modes gang-naming gang-brickwall-bg">
       <AnimatePresence>
         {intro && (
           <GangDialog

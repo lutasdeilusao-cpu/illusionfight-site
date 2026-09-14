@@ -3,19 +3,31 @@
    sobrescrevemos o padding padrão (60px/24px) pra virar full-bleed. */
 .gang-saves {
   padding: 0 0 32px; position: relative; overflow-x: clip;
-  /* Parede de tijolo — pano de fundo da tela inteira (pedido do Isaias:
-     "por trás poderia ser uma parede de tijolos", a versão anterior "não
-     parece tijolos"). Truque clássico de 4 gradientes diagonais cruzados
-     por tijolo — lê como fiada de tijolo de verdade, não só uma grade. */
+  /* Parede de tijolo OFICIAL do LDI Gangues (também em Gangues.css
+     `.gang-brickwall-bg`, usada por GangDialog/GanguesNaming — repetida
+     aqui em vez de referenciada porque essa tela precisa ser full-bleed
+     por conta própria; qualquer ajuste na receita precisa espelhar nos
+     3 lugares). Rachaduras + cantos lascados por cima do tijolo clássico
+     (pedido do Isaias, 14/09/2026: "colocar uns trincados, uns tijolos
+     quebrados pra ficar ainda mais legal"). */
   background-color: #351611;
   background-image:
+    linear-gradient(112deg, transparent 46%, rgba(0, 0, 0, .6) 47%, rgba(0, 0, 0, .6) 47.6%, transparent 48.6%),
+    radial-gradient(circle at 18% 24%, rgba(0, 0, 0, .55) 0 3px, transparent 4px),
+    radial-gradient(circle at 66% 60%, rgba(0, 0, 0, .5) 0 3px, transparent 4px),
+    radial-gradient(circle at 86% 30%, rgba(0, 0, 0, .55) 0 4px, transparent 5px),
+    radial-gradient(circle at 32% 82%, rgba(0, 0, 0, .5) 0 3px, transparent 4px),
     linear-gradient(335deg, rgba(0, 0, 0, .7) 23px, transparent 23px),
     linear-gradient(155deg, rgba(0, 0, 0, .7) 23px, transparent 23px),
     linear-gradient(335deg, rgba(0, 0, 0, .7) 23px, transparent 23px),
     linear-gradient(155deg, rgba(0, 0, 0, .7) 23px, transparent 23px),
     radial-gradient(120% 90% at 50% 0%, rgba(139, 0, 0, .35), transparent 60%);
-  background-size: 58px 58px, 58px 58px, 58px 58px, 58px 58px, 100% 100%;
-  background-position: 0 2px, 4px 35px, 29px 32px, 33px 65px, 0 0;
+  background-size:
+    100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%,
+    58px 58px, 58px 58px, 58px 58px, 58px 58px, 100% 100%;
+  background-position:
+    0 0, 0 0, 0 0, 0 0, 0 0,
+    0 2px, 4px 35px, 29px 32px, 33px 65px, 0 0;
   background-attachment: fixed;
 }
 .gang-saves__loading { padding: 20px 16px 0; text-align: center; color: #cfc6bb; font-size: .82rem; }
