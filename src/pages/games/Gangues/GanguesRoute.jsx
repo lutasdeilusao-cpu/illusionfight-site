@@ -37,8 +37,14 @@ export default function GanguesRoute() {
   // De onde a Coleção foi aberta (lobby OU território) — pra o "← Voltar" dela
   // devolver o jogador exatamente onde estava, e não sempre pro lobby.
   const faseAntesAlbum = useRef('lobby')
+  // Mesma ideia pro recrutamento: o banner "recrutamento liberado" abre a
+  // criação de personagem de DENTRO da cena (Isaias, 2026-09-14) — sem isso,
+  // confirmar o recruta sempre chutava o jogador pro lobby, obrigando a
+  // escolher modo de jogo e território de novo.
+  const faseAntesCreate = useRef('lobby')
   const navegar = (destino) => {
     if (destino === 'album') faseAntesAlbum.current = fase
+    if (destino === 'create') faseAntesCreate.current = fase
     setFase(destino)
   }
 
@@ -163,12 +169,12 @@ export default function GanguesRoute() {
       {fase === 'lobby' && <GanguesLobby onNavigate={navegar} />}
       {fase === 'create' && (
         <GanguesCreate
-          onNavigate={setFase}
+          onNavigate={(destino) => setFase(destino === 'lobby' ? faseAntesCreate.current : destino)}
           onCreated={() => {
             const roster = useGanguesStore.getState().roster
             if (roster.length < 2) return
             if (!useGanguesStore.getState().activeParty.length) store.setActiveParty(roster.slice(0, 2))
-            setFase('lobby')
+            setFase(faseAntesCreate.current)
           }}
         />
       )}
@@ -196,7 +202,7 @@ export default function GanguesRoute() {
           : <GanguesTerritorio onNavigate={navegar} />
       )}
       {fase === 'combat' && <GanguesCombat onNavigate={setFase} />}
-      {fase === 'victory' && <GanguesVictory onNavigate={setFase} />}
+      {fase === 'victory' && <GanguesVictory onNavigate={navegar} />}
     </div>
   )
 }

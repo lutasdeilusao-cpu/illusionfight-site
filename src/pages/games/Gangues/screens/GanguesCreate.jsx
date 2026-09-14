@@ -5,7 +5,7 @@ import { useAuth } from '../../../../context/AuthContext'
 import { useGanguesStore } from '../store/useGanguesStore'
 import { GANGUES_CHARACTER_CATALOG, getGanguesAvailableCharacterIds } from '../data/ganguesCharacters.js'
 import { getGanguesPortrait } from '../data/ganguesPortraits.js'
-import { GANGUES_INITIAL_PARTY_SIZE } from '../data/ganguesLoadout.js'
+import { GANGUES_INITIAL_PARTY_SIZE, GANGUES_MAX_PARTY_SIZE } from '../data/ganguesLoadout.js'
 import { sfx } from '../../../../lib/sfx'
 import GanguesFichaCard from '../components/GanguesFichaCard'
 import GanguesFichaBio from '../components/GanguesFichaBio'
@@ -100,7 +100,12 @@ export default function GanguesCreate({ onNavigate, onCreated }) {
       setError(t('games.gangues.party.save_error'))
       return
     }
-    store.setActiveParty([...store.activeParty, ...saved].slice(0, 2))
+    // Cap era fixo em 2 (herança da dupla fundadora) — cortava do time ativo
+    // todo recruta feito DEPOIS de já ter 2 no time (ficava só no roster, sem
+    // aparecer pra usar). O teto de verdade é o do elenco/GANGUES_MAX_PARTY_SIZE.
+    const rosterAtual = useGanguesStore.getState().roster
+    const cap = Math.min(rosterAtual.length, GANGUES_MAX_PARTY_SIZE)
+    store.setActiveParty([...store.activeParty, ...saved].slice(0, cap))
     // O 1º personagem que o jogador escolheu (selectedIds[0] -> saved[0], a
     // ordem do for...of bate com a ordem da escolha) vira líder da gangue de
     // cara — só na fundação; recrutas depois disso não mexem no líder já
