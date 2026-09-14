@@ -1,5 +1,31 @@
-.gang-saves { padding: 22px 14px 28px; }
-.gang-saves__head { margin: 12px 0 20px; text-align: center; }
+.gang-saves {
+  position: relative; padding: 0 14px 28px;
+  background: repeating-linear-gradient(112deg, transparent 0 38px, var(--if-amber-16) 39px 40px), var(--bg-primary);
+}
+.gang-saves::before {
+  content: ''; position: absolute; inset: 0; pointer-events: none; opacity: .2;
+  background: repeating-linear-gradient(0deg, transparent 0 3px, var(--if-glass) 4px);
+}
+.gang-saves > * { position: relative; z-index: 1; }
+
+/* ── Hero: logo oficial, uma arte por idioma (assets/logos/) ── */
+.gang-saves__hero {
+  position: relative; margin: 0 -14px 6px; padding: 30px 14px 22px;
+  display: grid; place-items: center; overflow: hidden;
+  background: radial-gradient(120% 100% at 50% 0%, var(--if-blood) 0%, transparent 62%), var(--bg-primary);
+  border-bottom: 1px solid var(--if-hair);
+}
+.gang-saves__hero::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: repeating-linear-gradient(-14deg, transparent 0 22px, rgba(0, 0, 0, .3) 23px 24px);
+  mask-image: linear-gradient(180deg, transparent, #000 40%, #000 70%, transparent);
+}
+.gang-saves__logo {
+  position: relative; width: 100%; max-width: 360px; height: auto;
+  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, .55));
+}
+
+.gang-saves__head { margin: 18px 0 20px; text-align: center; }
 .gang-saves__head h1 {
   margin: 0 0 6px; color: var(--if-amber); font: 900 clamp(1.8rem, calc(9 * var(--app-vw) / 100), 2.6rem)/1 var(--font-title);
   letter-spacing: .06em; text-transform: uppercase;
@@ -8,22 +34,25 @@
 
 .gang-saves__vazio { margin: 24px 0; color: var(--text-secondary); text-align: center; font-size: .82rem; }
 
-.gang-saves__lista { display: grid; gap: 12px; margin-bottom: 16px; }
+.gang-saves__lista { display: grid; gap: 14px; margin-bottom: 16px; }
 
 .gang-saves__card-shell { position: relative; }
 .gang-saves__card {
-  width: 100%; min-height: 96px; padding: 14px 16px 40px; display: grid; gap: 4px; text-align: left;
-  border: 1px solid var(--if-hair); background: linear-gradient(105deg, var(--if-cyan-08), var(--if-panel-flat));
+  --save-cor: var(--if-amber); position: relative; width: 100%; min-height: 108px; padding: 16px 18px 44px;
+  display: grid; gap: 5px; text-align: left; overflow: hidden;
+  border: 1px solid var(--save-cor); border-left-width: 4px;
+  background: linear-gradient(145deg, color-mix(in srgb, var(--save-cor) 14%, var(--if-panel-flat)), var(--bg-primary));
+  box-shadow: 0 16px 40px -30px var(--save-cor);
   clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%);
 }
 .gang-saves__card:disabled { opacity: .55; }
-.gang-saves__card-index { color: var(--if-cyan); font: 800 .6rem var(--font-mono); letter-spacing: .16em; text-transform: uppercase; }
-.gang-saves__card-nome { color: var(--text-primary); font: 900 1.3rem/1.05 var(--font-title); text-transform: uppercase; }
+.gang-saves__card-index { color: var(--save-cor); font: 800 .6rem var(--font-mono); letter-spacing: .18em; text-transform: uppercase; }
+.gang-saves__card-nome { color: var(--text-primary); font: 900 1.35rem/1.05 var(--font-display); letter-spacing: .02em; text-transform: uppercase; }
 .gang-saves__card-meta { display: flex; justify-content: space-between; color: var(--text-secondary); font: 700 .64rem var(--font-mono); text-transform: uppercase; }
-.gang-saves__card-cta { margin-top: 2px; color: var(--if-amber); font: 800 .66rem var(--font-mono); letter-spacing: .08em; text-transform: uppercase; }
+.gang-saves__card-cta { margin-top: 2px; color: var(--save-cor); font: 800 .66rem var(--font-mono); letter-spacing: .08em; text-transform: uppercase; }
 
 .gang-saves__card-delete {
-  position: absolute; left: 12px; right: 12px; bottom: 8px; height: 26px;
+  position: absolute; left: 14px; right: 14px; bottom: 10px; height: 26px;
   display: flex; align-items: center; justify-content: center; gap: 5px;
   border: 1px solid rgba(255, 107, 107, .5);
   background: rgba(255, 107, 107, .12); color: #ff8a8a;
@@ -32,5 +61,18 @@
 }
 .gang-saves__card-delete:hover, .gang-saves__card-delete:active { background: #e0453f; border-color: #ff6b6b; color: #fff; }
 .gang-saves__card-delete:disabled { opacity: .4; }
+
+/* ── Nova gangue: mesmo desenho de cartão, cor teal pra se distinguir dos saves existentes ── */
+.gang-saves__nova {
+  --save-cor: var(--if-teal); width: 100%; min-height: 64px; margin-top: 2px; padding: 12px 16px;
+  display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 12px; text-align: left;
+  border: 1px solid var(--save-cor); border-left-width: 4px;
+  background: linear-gradient(100deg, var(--if-cyan-12), var(--if-panel-flat));
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
+}
+.gang-saves__nova:disabled { opacity: .55; }
+.gang-saves__nova-icon { font-size: 1.3rem; }
+.gang-saves__nova-copy strong { color: var(--text-primary); font: 900 .92rem var(--font-display); text-transform: uppercase; letter-spacing: .02em; }
+.gang-saves__nova-cta { color: var(--save-cor); font: 900 1.1rem var(--font-display); }
 
 .gang-saves__limite { margin-top: 6px; padding: 12px; border: 1px dashed var(--if-hair); color: var(--text-secondary); text-align: center; font-size: .74rem; }
