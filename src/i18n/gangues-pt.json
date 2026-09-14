@@ -517,6 +517,10 @@
         "vai_usar_item": "Vai usar item",
         "auto_switch_titulo": "Liga o automático — avança as rodadas sozinho, respeitando os talentos/itens já marcados. Desliga a qualquer momento."
       },
+      "rep_marco": {
+        "titulo_50": "Reputação 50 alcançada!",
+        "desc_50": "Nova vaga de recrutamento liberada — vai na Sede pra chamar mais alguém."
+      },
       "multidao_tutorial": {
         "interruptor": "Esse interruptor liga o modo Multidão: em vez de golpe a golpe, cada rodada resolve todo mundo de uma vez.",
         "alvo_automatico": "No automático, sua tropa sempre foca o inimigo mais perto de cair — bom pra limpar um bando grande rápido.",

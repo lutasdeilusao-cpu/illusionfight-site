@@ -47,6 +47,21 @@ export function getGanguesRosterLimitComHistoria(tier, storyProgress, rep = 0) {
   return Math.min(GANGUES_STORY_ROSTER_MAX, Math.max(getGanguesRosterLimit(tier), viaHistoria))
 }
 
+// Marcos de reputação que destravam algo — hoje só o de 50 (+1 vaga de
+// elenco, ver getGanguesRosterLimitComHistoria acima). Lista pensada pra
+// crescer se algum dia a reputação ganhar mais efeitos. `repMarcoCruzado`
+// diz QUAL marco a gangue acabou de cruzar numa ganho de rep (ou null se
+// nenhum) — usado pra avisar o jogador na hora (toast/painel de recompensa),
+// nunca silencioso. Pedido do Isaias (2026-09-14): "então tá errado, nada
+// pode ser silencioso" — ele bateu 66 de rep e não tinha NENHUM aviso de que
+// a vaga extra de recrutamento tinha acabado de abrir.
+export const GANGUES_REP_MARCOS = [
+  { valor: 50, tituloKey: 'games.gangues.rep_marco.titulo_50', descricaoKey: 'games.gangues.rep_marco.desc_50' },
+]
+export function repMarcoCruzado(antes, depois) {
+  return GANGUES_REP_MARCOS.find(m => antes < m.valor && depois >= m.valor) || null
+}
+
 
 export function getGanguesRosterLimit(tier) {
   return GANGUES_ROSTER_LIMITS[tier] || GANGUES_ROSTER_LIMITS.free

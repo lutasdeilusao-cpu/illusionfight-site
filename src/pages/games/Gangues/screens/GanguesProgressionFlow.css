@@ -299,6 +299,17 @@
 .gang-reward-item--rep { border-color: color-mix(in srgb, var(--if-amber) 45%, transparent); box-shadow: 0 0 20px -8px var(--if-amber-45, rgba(245, 166, 35, .45)); }
 .gang-reward-item--rep strong { color: var(--if-amber); }
 
+/* Marco de reputação cruzado NESSA luta (ex: chegou em 50) — nunca
+   silencioso, sempre um banner à parte, destacado. */
+.gang-reward-marco {
+  display: flex; flex-direction: column; align-items: center; gap: 2px;
+  width: 100%; padding: 10px 12px; text-align: center;
+  border: 1px solid color-mix(in srgb, var(--if-amber) 50%, transparent);
+  background: rgba(245, 166, 35, 0.08);
+}
+.gang-reward-marco b { color: var(--if-amber); font: 800 0.8rem var(--font-display); }
+.gang-reward-marco span { font: 500 0.68rem var(--font-mono); color: var(--text-secondary); }
+
 /* Pontos de Ação por personagem — número que o jogador acompanha de
    verdade; substitui o XP já convertido, que é só conta de bastidor. */
 .gang-reward-ap-lista {

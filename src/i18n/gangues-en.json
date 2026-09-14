@@ -517,6 +517,10 @@
         "vai_usar_item": "Will use item",
         "auto_switch_titulo": "Turn on auto — rounds advance by themselves, respecting the skills/items you've already picked. Turn it off anytime."
       },
+      "rep_marco": {
+        "titulo_50": "Reputation 50 reached!",
+        "desc_50": "New recruitment slot unlocked — head to the HQ to bring in someone new."
+      },
       "multidao_tutorial": {
         "interruptor": "This switch turns on Mob Brawl mode: instead of one hit at a time, each round resolves everyone at once.",
         "alvo_automatico": "On auto, your crew always focuses whoever's closest to falling — good for clearing a big mob fast.",

@@ -63,7 +63,7 @@ export default function useGanguesVictoryResolution({ store, user, report, victo
     if (victory) {
       // Álbum de Marélia — todo inimigo do bando batido vira entrada.
       store.registrarNoAlbum([match.enemy_id, ...report.combatants.filter(c => c.side === 'enemy').map(c => c.id)])
-      let granaGanha = 0, repGanha = 0
+      let granaGanha = 0, repGanha = 0, repMarco = null
       if (emCena || noModoHistoria) {
         const { grana, rep, itens } = calcularRecompensaCena({ emCena, storyAlvo })
         if (emCena && !storyAlvo.evento) {
@@ -78,7 +78,7 @@ export default function useGanguesVictoryResolution({ store, user, report, victo
           else store.marcarPoiResolvido(storyAlvo.cenaId, storyAlvo.cenaPoiId, storyAlvo.cenaRevela || [])
         }
         if (grana) { store.ganharGrana(grana); granaGanha += grana }
-        if (rep) { store.ganharRep(rep); repGanha += rep }
+        if (rep) { repMarco = store.ganharRep(rep); repGanha += rep }
         itens.forEach(({ id, qtd }) => store.darItem(id, qtd))
         if (emCena && !storyAlvo.evento && cenaChefe) {
           store.marcarBossCena(storyAlvo.cenaId)
@@ -92,7 +92,7 @@ export default function useGanguesVictoryResolution({ store, user, report, victo
       }
       if (user?.id) registrarPontuacaoArenaRanking(user.id)
       if (confrontoFinal) store.completeCampaign()
-      setRewardSummary({ apLista, grana: granaGanha, rep: repGanha })
+      setRewardSummary({ apLista, grana: granaGanha, rep: repGanha, repMarco })
       sfx.win()
     } else sfx.lose()
 

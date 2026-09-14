@@ -99,6 +99,15 @@ export default function GanguesVictoryReport({
               </motion.div>
             )}
           </div>
+          {/* Marco de reputação cruzado NESSA luta (ex: chegou em 50) — nunca
+              silencioso (pedido do Isaias, 2026-09-14: bateu 66 de rep e não
+              tinha nenhum aviso de que a vaga extra de recrutamento tinha
+              acabado de abrir). */}
+          {rewardSummary.repMarco && (
+            <motion.div className="gang-reward-marco" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8 }}>
+              <b>🎖 {t(rewardSummary.repMarco.tituloKey)}</b><span>{t(rewardSummary.repMarco.descricaoKey)}</span>
+            </motion.div>
+          )}
         </section>
       )}
       {victory && rewardSummary && !xpTipVisto && (
