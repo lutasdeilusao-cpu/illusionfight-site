@@ -936,6 +936,14 @@
 .gang-msg-avatar--trash {
   background: rgba(245, 166, 35, 0.1); border: 1px solid rgba(245, 166, 35, 0.25); color: var(--if-amber);
 }
+/* Cabeça de verdade no avatar do log/chat de combate (pedido do Isaias,
+   15/09/2026: "no resultado de cada golpe podia mostrar a imagem da
+   cabeça de quem deu o ataque também") — mesma foto já usada no roster/
+   ficha, só reaproveitada aqui. overflow:hidden recorta a foto no
+   círculo que o avatar já tinha; a cor de fundo/borda de cada variante
+   (player/enemy/trash) continua por baixo enquanto a imagem carrega. */
+.gang-msg-avatar--foto { overflow: hidden; padding: 0; }
+.gang-msg-avatar--foto img { width: 100%; height: 100%; object-fit: cover; image-rendering: pixelated; }
 
 .gang-bubble {
   max-width: 72%; padding: 8px 12px; font-size: 12px; line-height: 1.5;

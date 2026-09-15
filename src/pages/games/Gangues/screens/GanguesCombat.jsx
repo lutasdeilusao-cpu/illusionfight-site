@@ -11,6 +11,7 @@ import useGanguesModoMultidao from '../hooks/useGanguesModoMultidao.js'
 import useGanguesBattleOutcome from '../hooks/useGanguesBattleOutcome.js'
 import useGanguesCombatLog from '../hooks/useGanguesCombatLog.js'
 import { fighterName } from '../engine/ganguesCombatPresentation.js'
+import { getGanguesPortraitByTemplateId } from '../data/ganguesPortraits.js'
 import { getEquippedActiveGanguesSpecials } from '../engine/ganguesSpecialEffects.js'
 import { GANGUES_ITENS_LISTA, getGanguesItem } from '../data/ganguesItens.js'
 import GanguesCombatTutorial from '../components/GanguesCombatTutorial'
@@ -165,7 +166,7 @@ export default function GanguesCombat({ onNavigate }) {
 
   const sendPlayerTrash = (phrase) => {
     sfx.click()
-    setLog(prev => [...prev, { id: `player-trash-${Date.now()}`, kind: 'trash', side: 'player', sender: players[0]?.sheet_name, text: phrase }])
+    setLog(prev => [...prev, { id: `player-trash-${Date.now()}`, kind: 'trash', side: 'player', sender: players[0]?.sheet_name, senderRetrato: getGanguesPortraitByTemplateId(players[0]?.character_template_id), text: phrase }])
     setTrashAberto(false)
   }
 
