@@ -329,6 +329,14 @@
   letter-spacing: 0.04em;
   line-height: 1.1;
   text-align: center;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.dramatic-dice-attacker-foto {
+  width: 28px; height: 28px; border-radius: 50%; object-fit: cover;
+  image-rendering: pixelated; vertical-align: middle;
+  border: 1px solid currentColor;
 }
 
 .dramatic-dice-label--player .dramatic-dice-attacker {

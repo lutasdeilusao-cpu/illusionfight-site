@@ -632,7 +632,9 @@
 /* Momento de KO — para a leitura da luta com um cartão grande no centro.
    Antes era um aviso pequeno no topo que passava batido. */
 .gang-ko-cena {
-  position: fixed; inset: 0; z-index: 1300;
+  /* mobile-only: inset:0 sozinho esticaria pro viewport físico inteiro
+     em telas largas — mesma armadilha já corrigida no .gang-dlg-overlay. */
+  position: fixed; top: 0; bottom: 0; left: var(--app-gutter); right: var(--app-gutter); z-index: 1300;
   display: flex; align-items: center; justify-content: center;
   background: rgba(2, 4, 8, 0.82); backdrop-filter: blur(3px);
   cursor: pointer;
@@ -648,6 +650,11 @@
 .gang-ko-cena--aliado { --ko-cor: #e0484c; --ko-bg-1: #2a0d0e; --ko-bg-2: #120506; --ko-txt: #ff9a9c; }
 .gang-ko-cena--inimigo { --ko-cor: var(--if-teal); --ko-bg-1: #062028; --ko-bg-2: #04121a; --ko-txt: #7fe9ff; }
 .gang-ko-cena__skull { font-size: 3.4rem; line-height: 1; filter: drop-shadow(0 0 14px var(--ko-cor)); }
+.gang-ko-cena__foto {
+  display: block; width: 84px; height: 84px; border-radius: 50%; overflow: hidden;
+  border: 2px solid var(--ko-cor); filter: drop-shadow(0 0 14px var(--ko-cor)) grayscale(0.5);
+}
+.gang-ko-cena__foto img { width: 100%; height: 100%; object-fit: cover; image-rendering: pixelated; }
 .gang-ko-cena__nome {
   font: 800 1.5rem var(--font-display); letter-spacing: 0.02em; text-transform: uppercase; color: #fff;
   text-shadow: 0 0 18px var(--ko-cor);
@@ -2341,6 +2348,8 @@
 .gang-report-member--ko { opacity: 0.35; filter: grayscale(1); }
 .gang-report-member > span { display: grid; place-items: center; width: 28px; height: 28px; border: 1px solid currentColor; border-radius: 50%; color: var(--if-teal); }
 .gang-report-member--enemy > span { color: #dc5961; }
+.gang-report-member--foto > span { overflow: hidden; padding: 0; }
+.gang-report-member--foto > span img { width: 100%; height: 100%; object-fit: cover; image-rendering: pixelated; }
 .gang-report-member div { min-width: 0; }
 .gang-report-member strong, .gang-report-member small { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .gang-report-member strong { font: 700 12px 'Rajdhani', sans-serif; }

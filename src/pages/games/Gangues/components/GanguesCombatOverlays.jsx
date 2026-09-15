@@ -68,10 +68,22 @@ export default function GanguesCombatOverlays({
               initial={{ scale: 0.65, y: 24 }} animate={{ scale: 1, y: 0 }} exit={{ scale: 0.9, opacity: 0 }}
               transition={{ type: 'spring', stiffness: 260, damping: 17 }}
             >
-              <motion.span
-                className="gang-ko-cena__skull"
-                initial={{ rotate: -18, scale: 0.8 }} animate={{ rotate: [-18, 12, -6, 0], scale: 1 }} transition={{ duration: 0.5 }}
-              >💀</motion.span>
+              {(() => {
+                const retrato = koCena.side === 'player'
+                  ? getGanguesPortraitByTemplateId(koCena.character_template_id)
+                  : getGanguesEnemyPortraitById(koCena.id)
+                return retrato ? (
+                  <motion.span
+                    className="gang-ko-cena__foto"
+                    initial={{ rotate: -18, scale: 0.8 }} animate={{ rotate: [-18, 12, -6, 0], scale: 1 }} transition={{ duration: 0.5 }}
+                  ><img src={retrato} alt="" /></motion.span>
+                ) : (
+                  <motion.span
+                    className="gang-ko-cena__skull"
+                    initial={{ rotate: -18, scale: 0.8 }} animate={{ rotate: [-18, 12, -6, 0], scale: 1 }} transition={{ duration: 0.5 }}
+                  >💀</motion.span>
+                )
+              })()}
               <strong className="gang-ko-cena__nome">{koCena.nome}</strong>
               <span className="gang-ko-cena__label">{t(koCena.side === 'enemy' ? 'games.gangues.ko_cena.inimigo' : 'games.gangues.ko_cena.aliado')}</span>
             </motion.div>
@@ -86,6 +98,11 @@ export default function GanguesCombatOverlays({
             sides={3}
             side={machine.pending.side}
             attackerName={fighterName(t, machine.combatants.find(item => item.key === machine.pending.actorKey))}
+            attackerRetrato={(() => {
+              const actor = machine.combatants.find(item => item.key === machine.pending.actorKey)
+              if (!actor) return null
+              return actor.side === 'player' ? getGanguesPortraitByTemplateId(actor.character_template_id) : getGanguesEnemyPortraitById(actor.id)
+            })()}
             targetName={fighterName(t, machine.combatants.find(item => item.key === machine.pending.targetKey))}
             powerName={machine.pending.result.activeSpecialId ? t(`games.gangues.progression.skills.${machine.pending.result.activeSpecialId}`) : null}
             theme={getGanguesEffectTheme(machine.pending.result.activeSpecialId)}

@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { getGanguesCharacter, eventosDoNivel } from '../data/ganguesCharacters.js'
 import { getGanguesPortraitByTemplateId } from '../data/ganguesPortraits.js'
+import { getGanguesEnemyPortraitById } from '../data/ganguesEnemyPortraits.js'
 import { combatantName, eventosDoLevelUp } from '../engine/ganguesVictoryResolver.js'
 import { useTutorialProgress } from '../../../../context/TutorialProgressContext'
 import GangTip from '../components/GangTip'
@@ -187,7 +188,18 @@ export default function GanguesVictoryReport({
       <section className="gang-report-section">
         <h2>{t('games.gangues.report.final_state')}</h2>
         <div className="gang-report-roster">
-          {report.combatants.map(member => <div key={member.key} className={`gang-report-member gang-report-member--${member.side} ${member.pv <= 0 ? 'gang-report-member--ko' : ''}`}><span>{combatantName(t, member)?.[0] || '?'}</span><div><strong>{combatantName(t, member)}</strong><small>{member.side === 'player' ? (store.gangName || t('games.gangues.report.your_gang')) : t('games.gangues.report.enemy_gang')}</small></div><b>{member.pv}/{member.pvMax} PV</b></div>)}
+          {report.combatants.map(member => {
+            const retrato = member.side === 'player'
+              ? getGanguesPortraitByTemplateId(member.character_template_id)
+              : getGanguesEnemyPortraitById(member.id)
+            return (
+              <div key={member.key} className={`gang-report-member gang-report-member--${member.side} ${member.pv <= 0 ? 'gang-report-member--ko' : ''}${retrato ? ' gang-report-member--foto' : ''}`}>
+                <span>{retrato ? <img src={retrato} alt="" /> : (combatantName(t, member)?.[0] || '?')}</span>
+                <div><strong>{combatantName(t, member)}</strong><small>{member.side === 'player' ? (store.gangName || t('games.gangues.report.your_gang')) : t('games.gangues.report.enemy_gang')}</small></div>
+                <b>{member.pv}/{member.pvMax} PV</b>
+              </div>
+            )
+          })}
         </div>
       </section>
 

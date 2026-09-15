@@ -121,7 +121,7 @@ export default function GanguesCombat({ onNavigate }) {
     for (const key of vivosAnterioresRef.current) {
       if (!vivosAgora.has(key)) {
         const c = todos.find(x => x.key === key)
-        if (c) caiu.push({ nome: fighterName(t, c), side: c.side })
+        if (c) caiu.push({ nome: fighterName(t, c), side: c.side, character_template_id: c.character_template_id, id: c.id })
       }
     }
     if (caiu.length) {
