@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { getGanguesCharacter, eventosDoNivel } from '../data/ganguesCharacters.js'
+import { getGanguesPortraitByTemplateId } from '../data/ganguesPortraits.js'
 import { combatantName, eventosDoLevelUp } from '../engine/ganguesVictoryResolver.js'
 import { useTutorialProgress } from '../../../../context/TutorialProgressContext'
 import GangTip from '../components/GangTip'
@@ -27,6 +28,18 @@ export default function GanguesVictoryReport({
   const { jaViu, marcarVisto, carregado } = useTutorialProgress()
   const xpTipVisto = !carregado || jaViu(XP_TUTORIAL_ID)
   const fecharXpTip = () => marcarVisto(XP_TUTORIAL_ID)
+  // Cabeça de quem apanhou de verdade na tela de derrota (pedido do Isaias,
+  // 15/09/2026: "usa a cabecinha do derrotado e coloca ele lá, se tiver
+  // mais de um pode colocar a galera toda" — futuro banco de "carinhas"
+  // tipo emoji, por ora só a derrota mesmo). KO de verdade (pv<=0) primeiro;
+  // se a derrota veio de outro jeito (ex: timeout) sem ninguém marcado KO,
+  // mostra o time inteiro — a gangue perdeu, não só quem caiu.
+  const derrotados = !victory
+    ? (() => {
+        const caidos = report.combatants.filter(m => m.side === 'player' && m.pv <= 0)
+        return caidos.length ? caidos : report.combatants.filter(m => m.side === 'player')
+      })()
+    : []
   const attacks = report.entries.filter(entry => entry.kind === 'attack_card')
   const playerDamage = attacks.filter(entry => entry.side === 'player').reduce((sum, entry) => sum + entry.dmg, 0)
   const enemyDamage = attacks.filter(entry => entry.side === 'enemy').reduce((sum, entry) => sum + entry.dmg, 0)
@@ -73,6 +86,25 @@ export default function GanguesVictoryReport({
       <motion.header className="gang-report-hero" initial={{ opacity: 0, y: -18 }} animate={{ opacity: 1, y: 0 }}>
         <h1>{victory ? t('games.gangues.vitoria') : t('games.gangues.derrota')}</h1>
         <p>{victory ? t('games.gangues.report.victory_message') : t('games.gangues.report.defeat_message')}</p>
+        {derrotados.length > 0 && (
+          <div className="gang-report-derrotados">
+            {derrotados.map((member, index) => {
+              const retrato = getGanguesPortraitByTemplateId(member.character_template_id)
+              const nome = combatantName(t, member)
+              return (
+                <motion.span
+                  key={member.key}
+                  className="gang-report-derrotado"
+                  initial={{ opacity: 0, scale: 0.6 }} animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.15 + index * 0.1 }}
+                >
+                  <i>{retrato ? <img src={retrato} alt="" /> : nome?.[0]}</i>
+                  <small>{nome}</small>
+                </motion.span>
+              )
+            })}
+          </div>
+        )}
       </motion.header>
 
       {/* Recompensa de verdade ganha nesta luta — logo abaixo do resultado,
