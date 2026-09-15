@@ -601,7 +601,12 @@
    mesma ideia do GangMarker (.gang-world-player--retrato). O anel de cor
    do farol de status (obrigatório/opcional/feito) continua por cima,
    só o preenchimento vira a foto em vez do círculo liso. */
-.gang-world-npc--retrato>span{width:40px;height:40px;border-radius:50%;overflow:hidden;padding:0}
+/* Tamanho: pedido do Isaias, 15/09/2026 ("as cabecinhas tão muito
+   pequenininhas... o do inimigo maior que o do player") — retrato de
+   NPC/inimigo (64px) fica maior que o do jogador (54px, ver
+   .gang-world-player>span abaixo), de propósito: quem o jogador
+   encontra pela cena precisa chamar mais atenção que o próprio marcador. */
+.gang-world-npc--retrato>span{width:64px;height:64px;border-radius:50%;overflow:hidden;padding:0}
 .gang-world-npc--retrato>span img{width:100%;height:100%;object-fit:cover;image-rendering:pixelated}
 /* Farol universal de status (pedido do Isaias, 13/09/2026): substitui a cor
    do território + o azul de "farm" por vermelho/amarelo/verde
@@ -615,7 +620,7 @@
 .gang-world-npc.is-feito>span{background:color-mix(in srgb, #6be07a 40%, #0a1a14);border-color:color-mix(in srgb, #6be07a 75%, #e8f1f2);box-shadow:0 0 16px rgba(107,224,122,.4);animation:none}
 .gang-world-npc-farm-tag{position:absolute;top:-4px;right:14px;width:16px;height:16px;display:grid;place-items:center;border-radius:50%;background:#0b3a66;border:1px solid #4fb4ff;color:#9fd8ff;font-size:.6rem;font-style:normal;animation:gang-farm-spin 2.4s linear infinite}
 @keyframes gang-farm-spin{to{transform:rotate(360deg)}}
-.gang-world-player { position:absolute; z-index:18; transform:translate(-50%,-50%); display:grid;justify-items:center;pointer-events:none; }.gang-world-player>span { position:relative;display:block;width:46px;height:46px;border:2px solid #fff;clip-path:polygon(50% 0,92% 18%,86% 76%,50% 100%,14% 76%,8% 18%);background:linear-gradient(#16b8c8,#086070);box-shadow:0 8px 17px #000,0 0 16px rgba(0,220,255,.28);animation:gang-person-breathe 1.2s ease-in-out infinite; }.gang-world-player>span i{position:absolute;width:10px;height:18px;top:14px;border:1px solid #fff;background:var(--if-cyan-20)}.gang-world-player>span i:nth-child(1){left:7px;transform:rotate(-12deg)}.gang-world-player>span i:nth-child(2){left:16px;top:9px;height:23px;z-index:2}.gang-world-player>span i:nth-child(3){right:7px;transform:rotate(12deg)}.gang-world-player small{margin-top:2px;color:#fff;background:#02080bcc;padding:2px 5px;font:800 .52rem var(--font-mono);text-transform:uppercase}.gang-world-player.facing-left>span{transform:rotate(-5deg)}.gang-world-player.facing-right>span{transform:rotate(5deg)}
+.gang-world-player { position:absolute; z-index:18; transform:translate(-50%,-50%); display:grid;justify-items:center;pointer-events:none; }.gang-world-player>span { position:relative;display:block;width:54px;height:54px;border:2px solid #fff;clip-path:polygon(50% 0,92% 18%,86% 76%,50% 100%,14% 76%,8% 18%);background:linear-gradient(#16b8c8,#086070);box-shadow:0 8px 17px #000,0 0 16px rgba(0,220,255,.28);animation:gang-person-breathe 1.2s ease-in-out infinite; }.gang-world-player>span i{position:absolute;width:10px;height:18px;top:14px;border:1px solid #fff;background:var(--if-cyan-20)}.gang-world-player>span i:nth-child(1){left:7px;transform:rotate(-12deg)}.gang-world-player>span i:nth-child(2){left:16px;top:9px;height:23px;z-index:2}.gang-world-player>span i:nth-child(3){right:7px;transform:rotate(12deg)}.gang-world-player small{margin-top:2px;color:#fff;background:#02080bcc;padding:2px 5px;font:800 .52rem var(--font-mono);text-transform:uppercase}.gang-world-player.facing-left>span{transform:rotate(-5deg)}.gang-world-player.facing-right>span{transform:rotate(5deg)}
 /* Retrato do líder (cabecinha, pixel art) flutuando no lugar do escudo
    genérico — pedido do Isaias, set/2026 (identidade visual/"juice"). Sem
    retrato ainda pro líder escolhido, cai no escudo de sempre (regra já no
