@@ -662,6 +662,17 @@
   #171b1d;}
 .gang-cena-fundo{position:absolute;left:0;top:0;z-index:0;object-fit:cover;pointer-events:none;image-rendering:auto;}
 
+/* ── overlay de debug (?debugmapa=1) — nunca aparece sem o parâmetro ── */
+.gang-debug-box{position:absolute;z-index:50;box-sizing:border-box;pointer-events:none;}
+.gang-debug-box b{position:absolute;left:2px;top:1px;font:700 8px/1 monospace;text-shadow:0 0 3px #000,0 0 3px #000;white-space:nowrap;}
+.gang-debug-box--quarteirao{border:2px solid rgba(255,40,40,.85);background:rgba(255,40,40,.18);}
+.gang-debug-box--quarteirao b{color:#ff6b6b;}
+.gang-debug-box--predio{border:2px dashed rgba(0,225,255,.9);background:rgba(0,225,255,.16);}
+.gang-debug-box--predio b{color:#7be8ff;}
+.gang-debug-box--zona{border:1px solid rgba(90,255,120,.9);background:rgba(90,255,120,.08);}
+.gang-debug-dot{position:absolute;z-index:51;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;background:#ffd93d;border:1px solid #7a5a00;box-shadow:0 0 6px #000;pointer-events:none;}
+.gang-debug-dot b{position:absolute;left:12px;top:-6px;font:700 9px/1 monospace;color:#ffd93d;text-shadow:0 0 3px #000,0 0 3px #000;white-space:nowrap;}
+
 .gang-quarteirao{position:absolute;z-index:1;background:
   repeating-linear-gradient(90deg,#241f1b 0 3px,#2b2521 3px 6px),#241f1b;
   box-shadow:inset 0 0 0 1px #14110e;}
