@@ -33,7 +33,7 @@
    pra ../../engine/ganguesCenaMotor.js — nenhum dos dois é específico
    da Pista.
    ══════════════════════════════════════════════════════════════ */
-import { RUA_PISTA, MUNDO_PISTA, QUARTEIROES_PISTA, PREDIOS_PISTA, OBSTACULOS_PISTA, CENARIO_PISTA, FIACAO_PISTA } from './mundo.js'
+import { RUA_PISTA, MUNDO_PISTA, QUARTEIROES_PISTA, PREDIOS_PISTA, OBSTACULOS_PISTA, CENARIO_PISTA, FIACAO_PISTA, FUNDO_PISTA } from './mundo.js'
 import { POIS_PISTA } from './pois.js'
 import { INTERIORES_PISTA } from './interiores.js'
 import { POS_PISTA, ENTRY_ZONES_PISTA } from './posicoes.js'
@@ -49,6 +49,10 @@ export const CENA_PISTA = {
   obstaculos: OBSTACULOS_PISTA,
   cenario: CENARIO_PISTA,
   fiacao: FIACAO_PISTA,
+  // Ilustração de fundo — cobre `mundo.w × mundo.h` inteiro, atrás de tudo
+  // (ver CenaCenario.jsx). Só a Pista tem isso até agora; os outros 6
+  // territórios (trilha antiga) continuam sem cena navegável.
+  fundoImagem: FUNDO_PISTA,
   // Fala de chegada (voz da quebrada — uma ou duas linhas no GangDialog).
   chegada: 'games.gangues.cena.pista.chegada',
   falante: 'games.gangues.dialogo.veio_nome',

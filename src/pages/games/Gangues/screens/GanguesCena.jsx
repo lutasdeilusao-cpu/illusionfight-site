@@ -332,12 +332,12 @@ export default function GanguesCena({ onNavigate }) {
   const minimapaAlvos = local ? [] : metas.filter(m => !m.feito).map(m => {
     if (m.id === '__boss' && baseFeita && !muroAberto) {
       // Antes do muro: aponta pra boca do túnel.
-      if (player.y >= 1330) return { id: '__tunel', nome: t('games.gangues.cena.minimapa.tunel'), pos: { x: 452, y: 1404 } }
+      if (player.y >= 940) return { id: '__tunel', nome: t('games.gangues.cena.minimapa.tunel'), pos: { x: 515, y: 945 } }
       // Já do outro lado: primeiro os 2 bondes de tocaia (posmuro_1 → posmuro_2),
       // depois a porta do galpão.
       if (!prog.resolvidos.posmuro_1) return { id: 'posmuro_1', nome: t('games.gangues.cena.pista.posmuro_1.nome'), pos: cena.pos.posmuro_1 }
       if (!prog.resolvidos.posmuro_2) return { id: 'posmuro_2', nome: t('games.gangues.cena.pista.posmuro_2.nome'), pos: cena.pos.posmuro_2 }
-      return { id: '__galpao', nome: t('games.gangues.cena.minimapa.galpao'), pos: { x: 596, y: 262 } }
+      return { id: '__galpao', nome: t('games.gangues.cena.minimapa.galpao'), pos: { x: 362, y: 120 } }
     }
     if (m.id === '__boss') return { ...m, pos: cena.pos.boss }
     const pd = cena.pois.find(x => x.id === m.id)
