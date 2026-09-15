@@ -2345,7 +2345,18 @@
 .gang-report-roster { display: grid; grid-template-columns: repeat(2, 1fr); gap: 7px; }
 .gang-report-member { display: grid; grid-template-columns: 30px 1fr auto; gap: 9px; align-items: center; padding: 9px; border-left: 2px solid var(--if-teal); background: rgba(0,180,216,0.045); }
 .gang-report-member--enemy { border-left-color: #b52c35; background: rgba(181,44,53,0.045); }
-.gang-report-member--ko { opacity: 0.35; filter: grayscale(1); }
+/* KO: dessatura e apaga nome/PV, mas NÃO esmaga a foto — opacity no elemento
+   pai afeta o subtree inteiro por igual (filho não "desfaz" opacity do pai),
+   então opacity:0.35 aqui apagava a carinha do inimigo derrotado a ponto de
+   parecer que a foto nem carregou (achado do Isaias, 15/09/2026, com print:
+   "de vez em quando as fotos dos inimigos não estão aparecendo" — na
+   verdade sempre acontecia com QUALQUER inimigo derrotado, não só alguns).
+   Esmaecimento vai direto no texto/letra-fallback; a foto só recebe um
+   grayscale leve + opacity alta, continua reconhecível. */
+.gang-report-member--ko { filter: grayscale(0.7); }
+.gang-report-member--ko:not(.gang-report-member--foto) > span { opacity: 0.4; }
+.gang-report-member--ko.gang-report-member--foto > span img { opacity: 0.85; }
+.gang-report-member--ko strong, .gang-report-member--ko small, .gang-report-member--ko > b { opacity: 0.55; }
 .gang-report-member > span { display: grid; place-items: center; width: 28px; height: 28px; border: 1px solid currentColor; border-radius: 50%; color: var(--if-teal); }
 .gang-report-member--enemy > span { color: #dc5961; }
 .gang-report-member--foto > span { overflow: hidden; padding: 0; }
