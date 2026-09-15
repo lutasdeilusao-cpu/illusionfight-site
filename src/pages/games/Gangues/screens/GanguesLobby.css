@@ -193,7 +193,8 @@
 .gang-recruit__slots { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-top: 10px; }
 .gang-recruit__slots button { min-height: 48px; padding: 6px 9px; border: 1px dashed var(--if-hair); background: transparent; color: var(--text-secondary); display: flex; align-items: center; gap: 8px; }
 .gang-recruit__slots button.is-filled { border-style: solid; border-color: var(--if-amber); color: var(--text-primary); }
-.gang-recruit__slots b { width: 30px; height: 30px; display: grid; place-items: center; background: color-mix(in srgb, var(--if-cyan) 12%, transparent); color: var(--if-cyan); font: 900 18px var(--font-title); }
+.gang-recruit__slots b { width: 30px; height: 30px; display: grid; place-items: center; overflow: hidden; background: color-mix(in srgb, var(--if-cyan) 12%, transparent); color: var(--if-cyan); font: 900 18px var(--font-title); }
+.gang-recruit__slots b img { width: 100%; height: 100%; object-fit: cover; border-radius: 4px; image-rendering: pixelated; display: block; }
 .gang-recruit__slots span { font: 800 11px var(--font-mono); text-transform: uppercase; }
 .gang-recruit__slots i { margin-left: auto; color: var(--if-amber); font-style: normal; }
 .gang-recruit__confirm { width: 100%; min-height: 50px; margin-top: 12px; border: 1px solid var(--if-amber); background: var(--if-amber); color: var(--bg-primary); font: 900 12px var(--font-mono); letter-spacing: 2px; text-transform: uppercase; clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%); }
