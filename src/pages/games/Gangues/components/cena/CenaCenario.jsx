@@ -71,6 +71,20 @@ export default function CenaCenario({ cena, bossAberto, muroAberto }) {
   // (todos +500 pós a expansão do mundo).
   const lamps = [120, 340, 520, 700, 880, 1060, 1240, 1510, 1690, 1870, 2050, 2260, 2440, 2620]
 
+  // Cena com ILUSTRAÇÃO DE FUNDO (hoje só a Pista, ver mundo.js/FUNDO_PISTA):
+  // a imagem já desenha prédio, cenário, obstáculo, fiação e o próprio chão —
+  // não desenha mais nada disso em CSS por cima (viraria duplicado/errado).
+  // `quarteiroes`/`predios` continuam existindo como dado (colisão + portas
+  // de interior), só não são mais RENDERIZADOS visualmente aqui.
+  if (cena.fundoImagem) {
+    // Sem `.gang-world-gate` aqui: a imagem já desenha o muro+túnel fixos
+    // (não dá pra "abrir" uma ilustração estática). A colisão do portão
+    // (ganguesCenaMotor.js) já libera a passagem sozinha quando `muroAberto` —
+    // o jogador só deixa de esbarrar, sem troca visual (aceito por ora; um
+    // efeito de "muro aberto" fica pra um retoque futuro de arte).
+    return <img className="gang-cena-fundo" src={cena.fundoImagem} alt="" style={{ width: W, height: H }} aria-hidden="true" />
+  }
+
   return (
     <>
       <Ruas />

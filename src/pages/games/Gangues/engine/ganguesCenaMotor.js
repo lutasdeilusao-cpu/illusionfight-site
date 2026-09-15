@@ -139,9 +139,10 @@ export function insideZone(p, z) { return Boolean(z && p.x + PLAYER_RADIUS > z.x
 export function hitsSolid(x, y, gate, colliders = []) {
   const hit = colliders.some(r => x + PLAYER_RADIUS > r.x && x - PLAYER_RADIUS < r.x + r.w && y + PLAYER_RADIUS > r.y && y - PLAYER_RADIUS < r.y + r.h)
   if (hit) return true
-  // portão da gangue rival — enquanto FECHADO barra a faixa y330-350; depois
-  // de aberto (chefe/galpão liberados) a faixa fica livre.
-  if (gate === 'fechado' && y - PLAYER_RADIUS < 1350 && y + PLAYER_RADIUS > 1330) return true
+  // portão da gangue rival — enquanto FECHADO barra a faixa do muro na
+  // ilustração de fundo da Pista (~y900-940); depois de aberto (chefe/galpão
+  // liberados) a faixa fica livre.
+  if (gate === 'fechado' && y - PLAYER_RADIUS < 940 && y + PLAYER_RADIUS > 900) return true
   return false
 }
 export function stepPlayer(p, dx, dy, gate, colliders, world) {
