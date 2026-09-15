@@ -88,8 +88,39 @@ export const GANGUES_CHEFE_EQUIPE = {
 // porrada, sou muito de upar"): +~4 níveis por ficha em cada chefe (o Isaias
 // pediu "3 a 5 pontos"), +5 na Laje. Não é soft-scaling (o chefe continua
 // fixo — o loop de RPG é voltar mais forte), só um piso mais alto pra não
-// virar pushover pra quem chega no nível-alvo. Playtest pra confirmar.
-export const GANGUES_CHEFE_BUDGET = { pista: 44, feira: 110, baixada: 210, vila: 345, morro: 510, alto: 606, laje: 732 }
+// virar pushover pra quem chega no nível-alvo. "Playtest pra confirmar" —
+// ver o ajuste de 15/09/2026 logo abaixo, esse foi o playtest.
+//
+// AJUSTE 15/09/2026 (Isaias, via relato do amigo dele jogando): o playtest
+// pedido acima aconteceu — amigo chegou no Carvão no nível 11 (bem abaixo do
+// alvo L15) e "venceu com certa facilidade". Investigado com simulação real
+// (mesma iniciativa H+d3, mesmo FA/FD do resolver, sem usar poderes — modo
+// Automático só ataca no normal): SEM equipamento, o Carvão de fato esmaga
+// (só ~5% de vitória do jogador) — o budget em si tava correto. O furo real:
+// `calcularPontosTime` (usada em toda escala dinâmica) soma só atributo CRU,
+// nunca conta o bônus de equipamento — e o chefe, sendo orçamento FIXO, não
+// tem NENHUMA compensação em lugar nenhum. Simulado: +2A/+1D por ficha (1
+// arma barata cada, fácil de bancar) já vira a luta pra ~49%; +4A/+2D vira
+// ~88% pro jogador — "vitória com certa facilidade" bate exatamente com uma
+// gangue com um pouco de equipamento.
+//
+// Decisão do Isaias (não foi "só sobe o budget" — foi mudar o paradigma):
+// PARAR de tentar acompanhar a ficha do jogador nas tretas da Pista (a raiz
+// do problema é viver perseguindo um alvo que build de equipamento sempre
+// vai furar). Pista virou NÍVEL FIXO ponta a ponta — cada POI tem uma ficha
+// de pontos travada de propósito, sem depender de playerTeam/ratio nenhum
+// (ver `pontosFixo`/`poi.fixo` em GanguesCena.jsx+GanguesRoute.jsx e o
+// `revezamento` das tretas comuns em data/cenas/pista/pois.js). Ladder
+// aprovada pelo Isaias: 1º inimigo nível 3, tretas de rua sobem de 3 em 3
+// (6, 9), os 2 Generais ficam acima da média da rua (13, 16), o galpão
+// pós-muro continua subindo (17, 19) e o Carvão fecha fixo em nível 20 —
+// dessa vez o equipamento é um bônus de verdade (você fica mais forte que o
+// "nível" da luta), não um furo que zera o desafio.
+// Budget recalculado pra bater Carvão=20: corpos=2, liderFrac=0.60 →
+// 33×0.60=19.8→20 (Carvão) e o resto (13) pro Sinaleiro que o acompanha.
+// Os outros 6 territórios (ainda formato antigo) continuam na tabela velha
+// até passarem pelo mesmo tratamento.
+export const GANGUES_CHEFE_BUDGET = { pista: 33, feira: 110, baixada: 210, vila: 345, morro: 510, alto: 606, laje: 732 }
 export const GANGUES_CHEFE_LIDER_FRAC = 0.60
 // Quantos CORPOS o bando do chefe tem (o resto de GANGUES_CHEFE_EQUIPE fica só
 // pra lore/álbum). Pista = 2 (Carvão + Rasteira Velha): 2×2 é a única treta
@@ -145,7 +176,9 @@ function caminhoDoInimigo(preferredMode) {
   return preferredMode === 'power' ? 'mistico' : preferredMode === 'armed' ? 'defensor' : 'atacante'
 }
 
-function escalarInimigo(molde, pontosAlvo) {
+// Exportada (só pra POIs de "nível fixo" — ver escalarInimigoFixo/GanguesRoute)
+// além do uso interno dos bandos sorteados.
+export function escalarInimigo(molde, pontosAlvo) {
   const pontosOriginais = molde.stats.A + molde.stats.H + molde.stats.D + molde.stats.PV + molde.stats.PM
   const fator = pontosOriginais > 0 ? pontosAlvo / pontosOriginais : 1
   const stats = {

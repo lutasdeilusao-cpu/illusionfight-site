@@ -258,12 +258,23 @@ export default function GanguesCena({ onNavigate }) {
     // então precisa continuar repetível, mas sem congelar força pra sempre
     // no retrato da 1ª vitória (2026-09-14, depois de reportar o galpão
     // fraco de novo porque o retrato tinha travado antes do rebalanceamento).
+    // `poi.fixo`: POI de NÍVEL FIXO (Generais da Pista, ver AGENTS.md
+    // 15/09/2026 "Pista virou nível fixo") — a luta é sempre contra a MESMA
+    // ficha (`poi.enemy`) escalada pro ponto autorado `poi.pontosFixo`, sem
+    // depender do time do jogador nem do farm-lock (que congelaria pelo
+    // ponto do jogador na 1ª vitória — errado aqui, o número é fixo desde
+    // sempre, não "travado na primeira vez"). `poi.revezamento` (tretas de
+    // rua da mesma leva) já é orçamento fixo por corpo (budgetPorCorpo) — o
+    // farm-lock também não tem nada a travar aí, e travar mesmo assim só
+    // gravava um `pontosFarm` morto no save a cada luta (write inútil).
     let pontosFixos = null
-    if (poi.repetivel && !poi.semTravarPontos && !viraTreta && !chefe) {
+    if (poi.fixo) {
+      pontosFixos = poi.pontosFixo
+    } else if (poi.repetivel && !poi.semTravarPontos && !poi.revezamento && !viraTreta && !chefe) {
       const party = store.roster.slice(0, GANGUES_STORY_BATTLE_PARTY_MAX)
       pontosFixos = store.travarPontosFarm(cena.id, poi.id, calcularPontosTime(party))
     }
-    store.setStoryTarget({ territorioId: terr.id, cenaId: cena.id, cenaPoiId: poi.id, cenaRevela: viraTreta ? (revela || []) : (poi.revela || []), cenaRecompensa: viraTreta ? (viraTreta.recompensa || null) : poi.recompensa || null, cenaSemTravar: Boolean(viraTreta?.semTravar), pontoIds: terr.pontos.map(p => p.id), noId: chefe ? cena.chefe.poiNo : null, enemyId: viraTreta ? viraTreta.enemy : poi.enemy, fixo: Boolean(viraTreta), liderFixo: viraTreta ? null : poi.liderFixo, moldesPool: viraTreta ? null : poi.moldesPool, revezamento: viraTreta ? (viraTreta.revezamento || null) : poi.revezamento, dificuldade: poi.dificuldade, isChefe: chefe, repDelta: viraTreta?.rep || 0, pontosFixos, qtdMin: viraTreta ? null : (poi.qtdMin ?? null), qtdMax: viraTreta ? null : (poi.qtdMax ?? null), ratioBonus: viraTreta ? 0 : (poi.ratioBonus || 0) })
+    store.setStoryTarget({ territorioId: terr.id, cenaId: cena.id, cenaPoiId: poi.id, cenaRevela: viraTreta ? (revela || []) : (poi.revela || []), cenaRecompensa: viraTreta ? (viraTreta.recompensa || null) : poi.recompensa || null, cenaSemTravar: Boolean(viraTreta?.semTravar), pontoIds: terr.pontos.map(p => p.id), noId: chefe ? cena.chefe.poiNo : null, enemyId: viraTreta ? viraTreta.enemy : poi.enemy, fixo: Boolean(viraTreta) || Boolean(poi.fixo), liderFixo: (viraTreta || poi.fixo) ? null : poi.liderFixo, moldesPool: viraTreta ? null : poi.moldesPool, revezamento: viraTreta ? (viraTreta.revezamento || null) : poi.revezamento, dificuldade: poi.dificuldade, isChefe: chefe, repDelta: viraTreta?.rep || 0, pontosFixos, qtdMin: viraTreta ? null : (poi.qtdMin ?? null), qtdMax: viraTreta ? null : (poi.qtdMax ?? null), ratioBonus: viraTreta ? 0 : (poi.ratioBonus || 0) })
     onNavigate('story-combat')
   }
   const resolver = res => {
