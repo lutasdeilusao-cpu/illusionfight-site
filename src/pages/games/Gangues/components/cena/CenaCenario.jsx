@@ -51,6 +51,39 @@ function Predio({ p, bossAberto, t }) {
   )
 }
 
+// ── Overlay de debug (?debugmapa=1) ──────────────────────────────
+// Desenha por cima da ilustração de fundo: colisores (quarteirões em
+// vermelho, hitboxes de porta dos prédios em ciano), POIs (POS, pontinho
+// amarelo) e zonas de entrada (ENTRY_ZONES, contorno verde). Serve pro
+// Isaias comparar com a imagem e me passar os ajustes de coordenada — não
+// aparece pra jogador nenhum (só quando a query string pede). Nunca
+// interfere na lógica real (é 100% cosmético, lê os mesmos dados que o
+// motor já usa).
+function DebugColisores({ cena }) {
+  return (
+    <>
+      {(cena.quarteiroes || []).map((q, i) => (
+        <div key={`dq${i}`} className="gang-debug-box gang-debug-box--quarteirao" style={{ left: q.x, top: q.y, width: q.w, height: q.h }}>
+          <b>Q{i}</b>
+        </div>
+      ))}
+      {(cena.predios || []).map(p => (
+        <div key={`dp${p.id}`} className="gang-debug-box gang-debug-box--predio" style={{ left: p.x, top: p.y, width: p.w, height: p.h }}>
+          <b>{p.id}</b>
+        </div>
+      ))}
+      {Object.entries(cena.entryZones || {}).map(([id, z]) => (
+        <div key={`dz${id}`} className="gang-debug-box gang-debug-box--zona" style={{ left: z.x, top: z.y, width: z.w, height: z.h }} />
+      ))}
+      {Object.entries(cena.pos || {}).map(([id, p]) => (
+        <div key={`dpos${id}`} className="gang-debug-dot" style={{ left: p.x, top: p.y }}>
+          <b>{id}</b>
+        </div>
+      ))}
+    </>
+  )
+}
+
 function ItemCenario({ c, t }) {
   const base = { left: c.x, top: c.y }
   if (c.tipo === 'praca' || c.tipo === 'quadra' || c.tipo === 'mural') {
@@ -82,7 +115,15 @@ export default function CenaCenario({ cena, bossAberto, muroAberto }) {
     // (ganguesCenaMotor.js) já libera a passagem sozinha quando `muroAberto` —
     // o jogador só deixa de esbarrar, sem troca visual (aceito por ora; um
     // efeito de "muro aberto" fica pra um retoque futuro de arte).
-    return <img className="gang-cena-fundo" src={cena.fundoImagem} alt="" style={{ width: W, height: H }} aria-hidden="true" />
+    // `?debugmapa=1` na URL liga o overlay de colisores/POIs por cima da
+    // imagem — pra comparar e ajustar coordenada, nunca aparece sem o parâmetro.
+    const debug = typeof window !== 'undefined' && new URLSearchParams(window.location.search).get('debugmapa') === '1'
+    return (
+      <>
+        <img className="gang-cena-fundo" src={cena.fundoImagem} alt="" style={{ width: W, height: H }} aria-hidden="true" />
+        {debug && <DebugColisores cena={cena} />}
+      </>
+    )
   }
 
   return (
