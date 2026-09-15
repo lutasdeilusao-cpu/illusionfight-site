@@ -154,7 +154,7 @@ export default function GanguesCombatOverlays({
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ type: 'spring', stiffness: 200, damping: 18 }}
             >
-              <span className="gang-fala-final-avatar">{falaFinal.nome[0]}</span>
+              <span className="gang-fala-final-avatar">{falaFinal.retrato ? <img src={falaFinal.retrato} alt="" /> : falaFinal.nome[0]}</span>
               <span className="gang-fala-final-nome">{falaFinal.nome}</span>
               {falaFinal.outcome === 'victory' && (
                 <span className="gang-fala-final-selo">{t('games.gangues.beat.derrotado')}</span>

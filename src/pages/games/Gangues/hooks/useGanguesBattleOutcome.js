@@ -4,6 +4,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { sfx } from '../../../../lib/sfx'
 import { fighterName, pickTrash, computarContribuicoes } from '../engine/ganguesCombatPresentation.js'
+import { getGanguesEnemyPortraitById } from '../data/ganguesEnemyPortraits.js'
 
 export default function useGanguesBattleOutcome({ store, t, registrarEvento, onNavigate }) {
   const [result, setResult] = useState(null)
@@ -27,7 +28,7 @@ export default function useGanguesBattleOutcome({ store, t, registrarEvento, onN
     if (!inimigo) return
     const linha = pickTrash(t, inimigo, result === 'victory' ? 'defeat' : 'player_near_death')
     if (!linha) return
-    setFalaFinal({ nome: fighterName(t, { ...inimigo, side: 'enemy' }), texto: linha, outcome: result })
+    setFalaFinal({ nome: fighterName(t, { ...inimigo, side: 'enemy' }), retrato: getGanguesEnemyPortraitById(inimigo.id), texto: linha, outcome: result })
     const timer = setTimeout(() => setFalaFinal(null), 2600)
     return () => clearTimeout(timer)
   }, [result, store.match.enemy, t])

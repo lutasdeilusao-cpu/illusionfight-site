@@ -2773,6 +2773,7 @@ button.gang-skill-node:hover { border-color: var(--if-teal); }
 .gang-fala-final-avatar {
   display: grid;
   place-items: center;
+  overflow: hidden;
   width: 54px;
   height: 54px;
   border: 1px solid color-mix(in srgb, var(--fc) 60%, transparent);
@@ -2782,6 +2783,7 @@ button.gang-skill-node:hover { border-color: var(--if-teal); }
   font-weight: 800;
   font-size: 1.5rem;
 }
+.gang-fala-final-avatar img { width: 100%; height: 100%; object-fit: cover; image-rendering: pixelated; display: block; }
 
 .gang-fala-final--victory .gang-fala-final-avatar { filter: grayscale(0.5); }
 
