@@ -29,6 +29,7 @@
 .gang-modes-party-modal h2 { margin: 6px 0 12px; color: #ffd9a0; font: 400 1.9rem/1 'Permanent Marker', cursive; text-shadow: 0 2px 0 rgba(0, 0, 0, .6); }
 .gang-modes-party-modal article { display: flex; align-items: center; gap: 9px; padding: 8px; border-top: 1px solid color-mix(in srgb, var(--if-amber) 18%, transparent); }
 .gang-modes-party-modal article i { width: 32px; height: 32px; display: grid; place-items: center; border: 1px solid color-mix(in srgb, var(--if-amber) 40%, transparent); color: var(--if-amber); font: 900 .9rem var(--font-title); font-style: normal; }
+.gang-modes-party-foto { width: 32px; height: 32px; flex: 0 0 32px; border-radius: 50%; object-fit: cover; border: 1px solid var(--if-amber); }
 .gang-modes-party-modal article span { display: grid; }
 .gang-modes-party-modal article strong { color: var(--text-primary); font: 800 .8rem var(--font-display); }
 .gang-modes-party-modal article small { color: var(--text-secondary); font: .55rem var(--font-mono); text-transform: uppercase; }

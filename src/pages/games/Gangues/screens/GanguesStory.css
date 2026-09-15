@@ -361,6 +361,8 @@
   background: color-mix(in srgb, var(--terr-cor) 16%, transparent);
 }
 .gang-story-vs-card--chefe .gang-story-vs-avatar { border-color: var(--if-amber); color: #ffce6b; background: var(--if-amber-16); }
+.gang-story-vs-avatar--foto { padding: 0; overflow: hidden; border-radius: 50%; }
+.gang-story-vs-avatar--foto img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .gang-story-vs-tag {
   padding: 0.14rem 0.5rem; font: 700 0.54rem var(--font-mono);
   letter-spacing: 0.14em; text-transform: uppercase;

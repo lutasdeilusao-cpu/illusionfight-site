@@ -441,6 +441,7 @@
   background: rgba(255, 255, 255, 0.03); border: 1px solid var(--if-hair-strong);
   clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
 }
+.gang-loja-cmp__foto { flex: 0 0 30px; width: 30px; height: 30px; border-radius: 50%; object-fit: cover; border: 1px solid var(--if-hair-strong); order: -1; }
 .gang-loja-cmp__quem { display: flex; flex-direction: column; gap: 1px; min-width: 84px; flex: 1; }
 .gang-loja-cmp__quem strong { font: 800 0.72rem var(--font-display); text-transform: uppercase; color: #fff; }
 .gang-loja-cmp__quem small { font: 700 0.5rem var(--font-mono); letter-spacing: 0.04em; color: var(--text-secondary); }

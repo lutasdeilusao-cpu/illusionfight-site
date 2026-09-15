@@ -5,6 +5,7 @@ import { useGanguesStore } from '../store/useGanguesStore'
 import { sfx } from '../../../../lib/sfx'
 import enemiesData from '../data/gangues-enemies.json'
 import { GANGUES_TERRITORIO_POR_ID, estadoNo, estadoTerritorio, precisaVoltarNoInformante } from '../data/ganguesTerritorios.js'
+import { getGanguesEnemyPortraitById } from '../data/ganguesEnemyPortraits.js'
 import './GanguesStory.css'
 
 /* ══════════════════════════════════════════════════════════════
@@ -147,8 +148,15 @@ export default function GanguesTerritorio({ onNavigate }) {
                   : confronto.isChefe
                     ? t(`games.gangues.story.bosses.${confronto.no.boss}.fala`, params)
                     : t('games.gangues.story.falas.ponto', params)
+                const retrato = confronto.enemy ? getGanguesEnemyPortraitById(confronto.enemy.id) : null
                 return (<>
-                  <span className="gang-story-vs-avatar">{(nome || '?')[0]}</span>
+                  {retrato ? (
+                    <span className="gang-story-vs-avatar gang-story-vs-avatar--foto">
+                      <img src={retrato} alt="" />
+                    </span>
+                  ) : (
+                    <span className="gang-story-vs-avatar">{(nome || '?')[0]}</span>
+                  )}
                   <span className="gang-story-vs-tag">
                     {confronto.no.ehFinal
                       ? t('games.gangues.story.confronto_final')

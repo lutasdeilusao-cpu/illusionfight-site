@@ -126,6 +126,17 @@
   background: var(--bg-primary);
 }
 .gang-album__card--locked .gang-album__portrait { color: var(--text-muted, var(--text-secondary)); }
+.gang-album__portrait--foto {
+  padding: 0;
+  overflow: hidden;
+  border-radius: 50%;
+}
+.gang-album__portrait--foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 
 .gang-album__body {
   display: flex;

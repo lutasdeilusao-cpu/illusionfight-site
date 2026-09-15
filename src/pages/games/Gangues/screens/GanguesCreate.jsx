@@ -161,7 +161,8 @@ export default function GanguesCreate({ onNavigate, onCreated }) {
         <div className="gang-recruit__slots">
           {Array.from({ length: required }, (_, index) => {
             const character = candidates.find(item => item.id === selectedIds[index])
-            return <button key={index} disabled={!character} onClick={() => character && openSheet(character)} className={character ? 'is-filled' : ''}>{character ? <><b>{character.name[0]}</b><span>{character.name}</span><i>✓</i></> : <><b>+</b><span>{t('games.gangues.recruitment.empty_slot')}</span></>}</button>
+            const foto = character ? getGanguesPortrait(character.slug) : null
+            return <button key={index} disabled={!character} onClick={() => character && openSheet(character)} className={character ? 'is-filled' : ''}>{character ? <>{foto ? <img className="gang-recruit__slot-foto" src={foto} alt="" /> : <b>{character.name[0]}</b>}<span>{character.name}</span><i>✓</i></> : <><b>+</b><span>{t('games.gangues.recruitment.empty_slot')}</span></>}</button>
           })}
         </div>
         {error && <p className="gang-err">{error}</p>}
