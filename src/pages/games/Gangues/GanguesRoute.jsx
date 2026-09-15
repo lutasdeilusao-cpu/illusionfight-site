@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { useAuth } from '../../../context/AuthContext'
 import { useReader } from '../../../context/ReaderContext'
+import { useTutorialProgress } from '../../../context/TutorialProgressContext'
 import { useGanguesStore } from './store/useGanguesStore'
 import useGanguesI18n from './hooks/useGanguesI18n'
 import GanguesLobby from './screens/GanguesLobby'
@@ -33,6 +34,12 @@ export default function GanguesRoute() {
   const { setReaderMode } = useReader()
   const store = useGanguesStore()
   const i18nReady = useGanguesI18n()
+  // Ponte pro TutorialProgressContext (global, fora do chunk do jogo) saber
+  // qual save está ativo agora — sem isso ele teria que importar o store do
+  // Gangues direto, o que puxaria o jogo inteiro pro bundle principal (ver
+  // comentário grande em TutorialProgressContext.jsx).
+  const { definirSaveAtivo } = useTutorialProgress()
+  useEffect(() => { definirSaveAtivo(store._saveId) }, [store._saveId, definirSaveAtivo])
   const [fase, setFase] = useState('lobby')
   // De onde a Coleção foi aberta (lobby OU território) — pra o "← Voltar" dela
   // devolver o jogador exatamente onde estava, e não sempre pro lobby.
