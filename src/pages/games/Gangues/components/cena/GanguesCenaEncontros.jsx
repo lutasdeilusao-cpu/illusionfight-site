@@ -1,5 +1,6 @@
 import enemiesData from '../../data/gangues-enemies.json'
 import { getGanguesEnemyPortraitById } from '../../data/ganguesEnemyPortraits.js'
+import { escalarInimigo, pontosPreviewPoi } from '../../data/ganguesEncontros.js'
 
 // Os dois modais de "encarar ou não": o encontro aleatório de rua e a treta
 // programada (POI/chefe). Extraído de GanguesCena.jsx
@@ -18,7 +19,7 @@ export function EventoVS({ fala, onSim, onNao, cenaId, t }) {
   </div>
 }
 
-export function TretaVS({ poi, fala, nivelTropa, avisoOff, onOcultarAviso, onSim, onNao, t }) {
+export function TretaVS({ poi, fala, nivelTropa, avisoOff, onOcultarAviso, onSim, onNao, t, territorioId }) {
   const enemy = enemiesData.find(e => e.id === poi.enemy), nome = poi.ehChefe ? t(`games.gangues.story.bosses.${poi.boss}.nome`) : t(`${poi.i18n}.nome`)
   const falaRaw = fala ?? (poi.ehChefe ? t(`games.gangues.story.bosses.${poi.boss}.fala`, { suaGangue: t('games.gangues.report.your_gang') }) : t(`${poi.i18n}.fala`))
   const falaShow = Array.isArray(falaRaw) ? falaRaw[0] : falaRaw
@@ -28,12 +29,19 @@ export function TretaVS({ poi, fala, nivelTropa, avisoOff, onOcultarAviso, onSim
   // território (reseta ao trocar de bairro).
   const abaixo = !avisoOff && poi.nivelRec && Number.isFinite(nivelTropa) && (poi.nivelRec - nivelTropa) >= 2
   const retrato = getGanguesEnemyPortraitById(poi.enemy)
+  // A carta mostrava enemy.stats CRU do catálogo (achado do Isaias,
+  // 15/09/2026: "a ficha exibida antes não condiz com a ficha interna") —
+  // a luta de verdade sorteia um corpo do pool ESCALADO pro orçamento fixo
+  // da ladder, não usa o baseline do catálogo. `pontosPreviewPoi` acha o
+  // ponto oficial (fixo/revezamento/chefe) e escala pra exibir o número real.
+  const pontosPreview = pontosPreviewPoi(poi, territorioId)
+  const statsPreview = enemy && pontosPreview ? escalarInimigo(enemy, pontosPreview).stats : enemy?.stats
   return <div className="gang-cena-enc gang-cena-enc--vs">
     <span className={`gang-cena-enc-selo${retrato ? ' gang-cena-enc-selo--foto' : ''}`}>{retrato ? <img src={retrato} alt="" /> : (nome || '?')[0]}</span>
     <span className="gang-cena-eyebrow">{poi.ehChefe ? t('games.gangues.story.boss_tag') : t('games.gangues.cena.tipo.treta')}</span>
-    <h3 className="gang-cena-enc-titulo">{nome}{poi.ehChefe && enemy?.nivel ? <em className="gang-cena-vs-nivel"> · {t('games.gangues.cena.nivel', { n: enemy.nivel })}</em> : null}</h3>
+    <h3 className="gang-cena-enc-titulo">{nome}{pontosPreview ? <em className="gang-cena-vs-nivel"> · {t('games.gangues.cena.nivel', { n: pontosPreview })}</em> : null}</h3>
     <p className="gang-cena-papo-fala">{falaShow}</p>
-    {enemy && <span className="gang-cena-vs-stats">{['A', 'H', 'D', 'PV', 'PM'].map(a => <span key={a}><i>{a}</i>{enemy.stats?.[a] ?? '—'}</span>)}</span>}
+    {enemy && <span className="gang-cena-vs-stats">{['A', 'H', 'D', 'PV', 'PM'].map(a => <span key={a}><i>{a}</i>{statsPreview?.[a] ?? '—'}</span>)}</span>}
     {abaixo && <div className="gang-cena-vs-aviso">⚠ {t('games.gangues.cena.nivel_rec_baixo', { rec: poi.nivelRec, atual: nivelTropa })}<button type="button" className="gang-cena-vs-aviso-off" onClick={onOcultarAviso}>{t('games.gangues.cena.nivel_rec_ocultar')}</button></div>}
     <div className="gang-cena-enc-acoes">
       <button className="gang-cena-btn" onClick={onNao}>{t('games.gangues.cena.treta_nao')}</button>

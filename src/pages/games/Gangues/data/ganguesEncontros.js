@@ -208,6 +208,28 @@ export function escalarInimigo(molde, pontosAlvo) {
   return { ...molde, stats, pv_max: recursos.pvMax, pm_max: recursos.pmMax }
 }
 
+/** Pontos que esse POI vai REALMENTE usar na luta — só pra preview na carta
+ *  TretaVS (`GanguesCenaEncontros.jsx`), nunca pra montar o bando de verdade
+ *  (isso sempre roda de novo na hora, via gerarBandoRevezamento/gerarBandoChefe).
+ *  Achado do Isaias, 15/09/2026: a carta mostrava `enemy.stats` cru do
+ *  catálogo (ex.: Cão Louco no baseline dele, ~6 pontos) mesmo quando a
+ *  treta de verdade ia sortear um corpo aleatório do pool escalado pro
+ *  orçamento fixo da ladder (ex.: 11 pontos em `beco_2`) — a ficha exibida
+ *  não condizia com a ficha interna. Cobre os 3 formatos de nível fixo
+ *  (`fixo`/Generais, `revezamento`/rua-dungeon, chefe/orçamento×fração do
+ *  líder — mesma conta de `gerarBandoChefe`). Sem nenhum desses (treta
+ *  ainda dinâmica via `gerarBandoInimigo`, escala contra o time do jogador),
+ *  retorna null — não dá pra prever o número exato antes de entrar. */
+export function pontosPreviewPoi(poi, territorioId) {
+  if (poi.fixo && poi.pontosFixo > 0) return poi.pontosFixo
+  if (poi.revezamento?.budgetPorCorpo > 0) return poi.revezamento.budgetPorCorpo
+  if (poi.ehChefe) {
+    const budget = GANGUES_CHEFE_BUDGET[territorioId]
+    return budget ? Math.round(budget * GANGUES_CHEFE_LIDER_FRAC) : null
+  }
+  return null
+}
+
 /** Sorteia um bando inimigo pro território/dificuldade dados, escalado contra
  *  o time atual do jogador — ou contra `pontosFixos`, se vier preenchido.
  *  `pontosFixos` é o retrato ("snapshot") congelado de uma treta repetível
