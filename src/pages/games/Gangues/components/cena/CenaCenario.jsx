@@ -1,5 +1,5 @@
 import { useLanguage } from '../../../../../context/LanguageContext'
-import { collidersDaCena, predioEhSolido } from '../../engine/ganguesCenaMotor.js'
+import { collidersDaCena, predioEhSolido, MURO_GATE_Y1, MURO_GATE_Y2 } from '../../engine/ganguesCenaMotor.js'
 
 /* ══════════════════════════════════════════════════════════════
    CENÁRIO DA CENA — desenho puro (sem lógica de jogo).
@@ -103,11 +103,23 @@ function Predio({ p, bossAberto, t }) {
 // função de colisão real em vez de reconstruir o dado igual a ela — não
 // tem como esse overlay ficar incompleto de novo sem o motor de colisão
 // mudar junto.
-function DebugColisores({ cena, bossAberto }) {
+function DebugColisores({ cena, bossAberto, muroAberto, larguraMundo }) {
   const colisoresReais = collidersDaCena(cena, bossAberto)
   const prediosNaoSolidos = (cena.predios || []).filter(p => !predioEhSolido(p, bossAberto))
   return (
     <>
+      {/* Faixa do muro/portão — bloqueio de rua INTEIRA (não é um retângulo
+          comum de `colliders`), só existe enquanto `!muroAberto`. Achado
+          real: faltava por completo no overlay antigo (Isaias: "esse
+          colisão do muro não tá mostrando... não tô conseguindo passar") —
+          `hitsSolid` (ganguesCenaMotor.js) aplica essa 2ª regra de bloqueio
+          por fora da lista `colliders`, então `collidersDaCena()` sozinha
+          nunca ia mostrar ela. */}
+      {!muroAberto && (
+        <div className="gang-debug-box gang-debug-box--muro" style={{ left: 0, top: MURO_GATE_Y1, width: larguraMundo, height: MURO_GATE_Y2 - MURO_GATE_Y1 }}>
+          <b>MURO (rua inteira)</b>
+        </div>
+      )}
       {colisoresReais.map((c, i) => (
         <div key={`dc${i}`} className="gang-debug-box gang-debug-box--colisor" style={{ left: c.x, top: c.y, width: c.w, height: c.h }}>
           <b>#{i}</b>
@@ -187,7 +199,7 @@ export default function CenaCenario({ cena, bossAberto, muroAberto, precisaFundo
       <>
         {precisaFundoCima && <img className="gang-cena-fundo" src={cima} alt="" style={{ width: W, height: corteY, top: 0 }} aria-hidden="true" />}
         <img className="gang-cena-fundo" src={baixo} alt="" style={{ width: W, height: H - corteY, top: corteY }} aria-hidden="true" />
-        {debug && <DebugColisores cena={cena} bossAberto={bossAberto} />}
+        {debug && <DebugColisores cena={cena} bossAberto={bossAberto} muroAberto={muroAberto} larguraMundo={W} />}
       </>
     )
   }

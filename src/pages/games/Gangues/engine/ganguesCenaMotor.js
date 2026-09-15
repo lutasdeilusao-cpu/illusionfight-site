@@ -147,13 +147,23 @@ export function validPos(p, w) { return Number.isFinite(p?.x) && Number.isFinite
 // deixaria zonas inalcançáveis dependendo de por onde a grade passa perto
 // delas. "Chegou perto o suficiente" é o comportamento certo pra interação.
 export function insideZone(p, z) { return Boolean(z && p.x + PLAYER_RADIUS > z.x && p.x - PLAYER_RADIUS < z.x + z.w && p.y + PLAYER_RADIUS > z.y && p.y - PLAYER_RADIUS < z.y + z.h) }
+// Faixa do muro/portão da gangue rival na ilustração de fundo da Pista —
+// barra a rua INTEIRA (qualquer x) enquanto `gate === 'fechado'`, não é um
+// retângulo comum da lista `colliders`. Exportado (não só inline dentro de
+// `hitsSolid`) pra `DebugColisores` (CenaCenario.jsx) poder desenhar essa
+// faixa também — achado real, 15/09/2026: o Isaias reportou "esse colisão
+// do muro não tá mostrando... não tô conseguindo passar" porque o overlay
+// desenhava só `collidersDaCena()` (a lista de retângulos comuns) e nunca
+// soube dessa 2ª regra de bloqueio, completamente separada, que `hitsSolid`
+// também aplica.
+export const MURO_GATE_Y1 = 900
+export const MURO_GATE_Y2 = 940
 export function hitsSolid(x, y, gate, colliders = []) {
   const hit = colliders.some(r => x + PLAYER_RADIUS > r.x && x - PLAYER_RADIUS < r.x + r.w && y + PLAYER_RADIUS > r.y && y - PLAYER_RADIUS < r.y + r.h)
   if (hit) return true
-  // portão da gangue rival — enquanto FECHADO barra a faixa do muro na
-  // ilustração de fundo da Pista (~y900-940); depois de aberto (chefe/galpão
-  // liberados) a faixa fica livre.
-  if (gate === 'fechado' && y - PLAYER_RADIUS < 940 && y + PLAYER_RADIUS > 900) return true
+  // portão da gangue rival — enquanto FECHADO barra a faixa do muro; depois
+  // de aberto (chefe/galpão liberados) a faixa fica livre.
+  if (gate === 'fechado' && y - PLAYER_RADIUS < MURO_GATE_Y2 && y + PLAYER_RADIUS > MURO_GATE_Y1) return true
   return false
 }
 export function stepPlayer(p, dx, dy, gate, colliders, world) {
