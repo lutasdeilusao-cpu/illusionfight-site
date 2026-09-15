@@ -7,13 +7,13 @@
 //
 // Arte mora em src/pages/games/Gangues/assets/enemies/<slug>/<expressao>.png
 // — mesma convenção de pasta-por-entidade das outras duas. Hoje só a Pista
-// tem arte (pedido do Isaias, 14-15/09/2026, em 2 levas: 1ª leva —
+// tem arte (pedido do Isaias, 14-15/09/2026, em 3 levas: 1ª leva —
 // Ratazana, Brasa, Chinelada, Cão Louco, Riscado, Bala Solta, Troco Certo,
-// Sinaleiro Chefe, Rasteira Velha e Carvão; 2ª leva — todo o resto dos
-// "moldes"/vigias usados nos pools da Pista: Farejador, Zóio, Extensão,
-// Boleto Vencido, Luz de Gato, Maré Baixa, Trilho, Boato, Portaria,
-// Choque, Balconista, Fiado Vencido, Água Parada, Ferro Velho e Mão de
-// Cola — falta só o Pingo (1103), sem arte enviada ainda). Os outros
+// Sinaleiro Chefe, Rasteira Velha e Carvão; 2ª leva — Farejador, Zóio,
+// Extensão, Boleto Vencido, Luz de Gato, Maré Baixa, Trilho, Boato,
+// Portaria, Choque, Balconista, Fiado Vencido, Água Parada, Ferro Velho
+// e Mão de Cola; 3ª leva — Pingo, o último "molde" que faltava). Com
+// isso TODO o elenco de combate da Pista tem cabeça própria — os outros
 // bairros (Feira, Baixada, Vila, Morro, Alto do Morro, Laje) ainda usam
 // o fallback (inicial do nome).
 const ARQUIVOS_NEUTRO = import.meta.glob('../assets/enemies/*/neutro.png', { eager: true, import: 'default' })
@@ -28,7 +28,7 @@ for (const [caminho, url] of Object.entries(ARQUIVOS_NEUTRO)) {
 const ENEMY_ID_SLUG = {
   1101: 'farejador',
   1102: 'zoio',
-  // 1103 (Pingo) — sem arte ainda.
+  1103: 'pingo',
   1104: 'extensao',
   1105: 'boleto_vencido',
   1106: 'luz_de_gato',
