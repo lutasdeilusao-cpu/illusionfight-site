@@ -2696,7 +2696,8 @@ button.gang-skill-node:hover { border-color: var(--if-teal); }
 .gang-ficha-modal-card {
   display: flex; flex-direction: column; align-items: center; gap: 6px;
   width: min(260px, 82%); padding: 20px 18px;
-  background: #12181c; border: 1px solid rgba(0,180,216,0.3); border-radius: 14px;
+  background: linear-gradient(155deg, #241108, #150a05 55%, #0c0603);
+  border: 1px solid color-mix(in srgb, var(--if-amber) 30%, transparent); border-radius: 14px;
   box-shadow: 0 12px 40px rgba(0,0,0,0.5);
 }
 /* Conteúdo (hero, atributos, PV/PM/XP) vem de GanguesFichaCard — mesmas

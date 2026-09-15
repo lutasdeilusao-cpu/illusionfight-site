@@ -280,30 +280,49 @@
 .gang-recruit__confirm:disabled::before { border-color: rgba(255, 255, 255, .15); background: none; }
 
 /* Ficha modal */
+/* ── FICHA (GanguesFichaCard) — redesign completo, 15/09/2026: pedido do
+   Isaias pra tirar o ultimo resquicio do visual tecnico antigo (chanfro
+   cyan, fonte mono no nome) do conteudo de ficha, reusado em TODA MOLDURA
+   que existe no jogo (recrutamento aqui, popup de combate em
+   GanguesCombatRedesign.css, cena/progressao herdam de graca). Segue a
+   mesma identidade dos fighter-card: corte irregular, fundo marrom-tijolo,
+   nome/tecnica em Permanent Marker; numeros/labels de atributo continuam
+   em mono de proposito (dado tecnico, nao "voz" do jogo). */
 .gang-sheet-modal { position: fixed; z-index: 1200; inset: 0 var(--app-gutter); display: grid; align-items: end; padding: 10px; }
 .gang-sheet-modal__scrim { position: absolute; inset: 0; border: 0; background: color-mix(in srgb, var(--bg-primary) 88%, transparent); backdrop-filter: blur(7px); }
-.gang-sheet-modal__card { position: relative; width: 100%; max-height: 88dvh; overflow-y: auto; padding: 16px; border: 1px solid var(--if-cyan); background: var(--if-panel); color: var(--text-primary); box-shadow: 0 -18px 70px color-mix(in srgb, var(--if-cyan) 16%, transparent); clip-path: polygon(0 0, calc(100% - 22px) 0, 100% 22px, 100% 100%, 0 100%); }
-.gang-sheet-modal__card--defensor { border-color: var(--if-amber); }
-.gang-sheet-modal__card--mistico { border-color: var(--if-violet); }
-.gang-sheet-modal__close { position: absolute; z-index: 3; top: 10px; right: 10px; width: 34px; height: 34px; border: 1px solid var(--if-hair); background: var(--bg-primary); color: var(--text-primary); font-size: 22px; }
+.gang-sheet-modal__card {
+  --corte: polygon(0 3%, 8% 0, 92% 1%, 100% 4%, 99% 55%, 100% 92%, 92% 100%, 8% 99%, 0 94%);
+  position: relative; width: 100%; max-height: 88dvh; overflow-y: auto; padding: 16px;
+  border: 1px solid color-mix(in srgb, var(--if-amber) 25%, transparent);
+  background: linear-gradient(155deg, #241108, #150a05 55%, #0c0603);
+  color: var(--text-primary);
+  box-shadow: 0 -18px 70px rgba(0, 0, 0, .55), 0 0 0 1px color-mix(in srgb, var(--if-amber) 30%, transparent) inset;
+  clip-path: var(--corte);
+}
+.gang-sheet-modal__card--defensor { box-shadow: 0 -18px 70px rgba(0, 0, 0, .55), 0 0 0 1px color-mix(in srgb, var(--if-cyan) 40%, transparent) inset; }
+.gang-sheet-modal__card--mistico { box-shadow: 0 -18px 70px rgba(0, 0, 0, .55), 0 0 0 1px color-mix(in srgb, var(--if-violet) 40%, transparent) inset; }
+.gang-sheet-modal__close {
+  position: absolute; z-index: 3; top: 10px; right: 10px; width: 34px; height: 34px;
+  border: 1px solid color-mix(in srgb, var(--if-amber) 40%, transparent); background: #1a0f08; color: #ffd9a0; font-size: 22px;
+}
 .gang-sheet-modal__hero { min-height: 154px; padding: 12px 112px 10px 4px; position: relative; overflow: hidden; }
-.gang-sheet-modal__hero > span { color: var(--if-cyan); font: 700 10px var(--font-mono); letter-spacing: 2px; }
-.gang-sheet-modal__hero > i { position: absolute; right: 12px; bottom: -14px; color: color-mix(in srgb, var(--if-cyan) 16%, transparent); font: 900 150px/.8 var(--font-title); font-style: normal; }
+.gang-sheet-modal__hero > span { color: var(--if-amber); font: 700 10px var(--font-mono); letter-spacing: 2px; }
+.gang-sheet-modal__hero > i { position: absolute; right: 12px; bottom: -14px; color: color-mix(in srgb, var(--if-amber) 16%, transparent); font: 900 150px/.8 var(--font-title); font-style: normal; }
 /* Retrato de verdade (cabeça, pixel art) no lugar da letra gigante
    translúcida — mesmo canto, tamanho legível em vez de decoração de fundo. */
 .gang-sheet-modal__retrato { position: absolute; right: 12px; bottom: -6px; width: 130px; height: 130px; object-fit: contain; image-rendering: pixelated; filter: drop-shadow(0 8px 14px rgba(0,0,0,.5)); }
 .gang-sheet-modal__hero small { display: block; margin-top: 28px; color: var(--if-amber); font: 800 9px var(--font-mono); letter-spacing: 2px; text-transform: uppercase; }
-.gang-sheet-modal__hero h2 { position: relative; margin: 2px 0 0; font: 900 38px/.9 var(--font-title); text-transform: uppercase; }
+.gang-sheet-modal__hero h2 { position: relative; margin: 4px 0 0; color: #fff8ec; font: 400 2rem/.95 'Permanent Marker', cursive; text-shadow: 0 2px 0 rgba(0, 0, 0, .6); }
 .gang-sheet-modal__hero p { position: relative; margin: 4px 0 0; color: var(--text-secondary); font: 700 11px var(--font-mono); text-transform: uppercase; }
 .gang-sheet-modal__stats { display: grid; gap: 6px; }
-.gang-sheet-modal__stats > div { display: grid; grid-template-columns: 1fr 28px 92px; align-items: center; gap: 8px; padding: 6px 8px; border-left: 2px solid var(--if-cyan); background: color-mix(in srgb, var(--if-cyan) 5%, transparent); }
+.gang-sheet-modal__stats > div { display: grid; grid-template-columns: 1fr 28px 92px; align-items: center; gap: 8px; padding: 6px 8px; border-left: 2px solid var(--if-amber); background: rgba(0, 0, 0, .25); }
 .gang-sheet-modal__stats span { font: 700 10px var(--font-mono); text-transform: uppercase; }
 .gang-sheet-modal__stats strong { font: 900 18px var(--font-title); text-align: center; }
 .gang-sheet-modal__stats i { display: flex; gap: 3px; }
-.gang-sheet-modal__stats i b { width: 15px; height: 4px; background: var(--if-hair); }
-.gang-sheet-modal__stats i b.is-on { background: var(--if-cyan); }
+.gang-sheet-modal__stats i b { width: 15px; height: 4px; background: rgba(255, 255, 255, .12); }
+.gang-sheet-modal__stats i b.is-on { background: var(--if-amber); }
 .gang-sheet-modal__resources { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 8px; }
-.gang-sheet-modal__resources > span { padding: 8px 12px; border: 1px solid var(--if-hair); display: grid; gap: 5px; }
+.gang-sheet-modal__resources > span { padding: 8px 12px; border: 1px solid color-mix(in srgb, var(--if-amber) 22%, transparent); display: grid; gap: 5px; }
 .gang-sheet-modal__resource-row { display: flex; justify-content: space-between; align-items: center; }
 .gang-sheet-modal__resources small, .gang-sheet-modal__xp small { color: var(--text-secondary); font: 800 10px var(--font-mono); }
 .gang-sheet-modal__resources strong, .gang-sheet-modal__xp strong { color: var(--if-amber); font: 900 24px var(--font-title); }
@@ -323,15 +342,33 @@
 .gang-ficha-bar--pv-critico b { background: #ff3b3b; animation: gang-ficha-pv-pulso 0.6s ease-in-out infinite; }
 @keyframes gang-ficha-pv-pulso { 0%, 100% { opacity: 1; } 50% { opacity: 0.45; } }
 @media (prefers-reduced-motion: reduce) { .gang-ficha-bar--pv-critico b { animation: none; } }
-.gang-sheet-modal__xp { margin-top: 8px; padding: 8px 12px; border: 1px solid var(--if-hair); display: grid; gap: 5px; }
+.gang-sheet-modal__xp { margin-top: 8px; padding: 8px 12px; border: 1px solid color-mix(in srgb, var(--if-amber) 22%, transparent); display: grid; gap: 5px; }
 .gang-ficha-xp-disponivel { color: var(--if-amber) !important; text-transform: none !important; letter-spacing: 0 !important; font-weight: 700 !important; }
-.gang-ficha-nivel { color: var(--if-cyan); font-size: .55em; letter-spacing: .06em; }
-.gang-sheet-modal__technique { margin-top: 8px; padding: 10px 12px; border: 1px solid var(--if-hair); display: grid; grid-template-columns: 1fr auto; }
+.gang-ficha-nivel { color: var(--if-amber); font-size: .55em; letter-spacing: .06em; }
+.gang-sheet-modal__technique { margin-top: 8px; padding: 10px 12px; border: 1px solid color-mix(in srgb, var(--if-amber) 22%, transparent); display: grid; grid-template-columns: 1fr auto; }
 .gang-sheet-modal__technique small { grid-column: 1 / -1; color: var(--text-secondary); font: 700 8px var(--font-mono); letter-spacing: 2px; text-transform: uppercase; }
-.gang-sheet-modal__technique strong { color: var(--if-cyan); text-transform: uppercase; }
+.gang-sheet-modal__technique strong { color: #fff8ec; font: 400 1.2rem/1 'Permanent Marker', cursive; }
 .gang-sheet-modal__technique span { color: var(--if-amber); font: 700 11px var(--font-mono); }
-.gang-sheet-modal__select { width: 100%; min-height: 50px; margin-top: 12px; border: 1px solid var(--if-cyan); background: var(--if-cyan); color: var(--bg-primary); font: 900 12px var(--font-mono); letter-spacing: 2px; text-transform: uppercase; }
-.gang-sheet-modal__select.is-selected { border-color: var(--if-amber); background: transparent; color: var(--if-amber); }
+/* CTA spray-paint — mesmo halo dos outros botões de ação do jogo. */
+.gang-sheet-modal__select {
+  --cor: var(--if-amber);
+  position: relative; width: 100%; min-height: 54px; margin-top: 12px;
+  background: transparent; border: none;
+  color: #fff8ec; font: 400 1.15rem/1 'Permanent Marker', cursive;
+  text-shadow: 0 2px 0 rgba(0, 0, 0, .6), 0 0 16px color-mix(in srgb, var(--cor) 70%, transparent);
+}
+.gang-sheet-modal__select::before {
+  content: ''; position: absolute; inset: -6px; z-index: -1;
+  background:
+    radial-gradient(38% 60% at 22% 30%, color-mix(in srgb, var(--cor) 40%, transparent), transparent 70%),
+    radial-gradient(30% 50% at 78% 70%, color-mix(in srgb, var(--cor) 32%, transparent), transparent 70%),
+    radial-gradient(70% 80% at 50% 50%, color-mix(in srgb, var(--cor) 20%, transparent), transparent 75%);
+  border: 2px solid color-mix(in srgb, var(--cor) 60%, transparent);
+  border-radius: 52% 48% 55% 45% / 44% 56% 44% 56%;
+}
+.gang-sheet-modal__select:active::before { background: color-mix(in srgb, var(--cor) 30%, transparent); }
+.gang-sheet-modal__select.is-selected { --cor: var(--text-secondary); }
+.gang-sheet-modal__select.is-selected::before { border-color: rgba(255, 255, 255, .25); }
 
 /* Linha de ações — quando existe bio de recrutamento (nem todo personagem
    tem, ver ganguesBiografias.js), o botão HISTÓRIA divide espaço com o de
@@ -339,24 +376,25 @@
 .gang-sheet-modal__actions-row { display: flex; gap: 8px; margin-top: 12px; }
 .gang-sheet-modal__actions-row .gang-sheet-modal__select { margin-top: 0; flex: 1; }
 .gang-sheet-modal__historia {
-  flex: 0 0 auto; min-height: 50px; padding: 0 16px;
-  border: 1px solid var(--if-hair); background: transparent; color: var(--text-primary);
+  flex: 0 0 auto; min-height: 54px; padding: 0 16px;
+  border: 1px solid color-mix(in srgb, var(--if-amber) 35%, transparent); background: #1a0f08; color: #ffd9a0;
   font: 800 11px var(--font-mono); letter-spacing: 1px; text-transform: uppercase;
 }
-.gang-sheet-modal__historia:active { border-color: var(--if-cyan); color: var(--if-cyan); }
+.gang-sheet-modal__historia:active { border-color: var(--if-amber); color: var(--if-amber); }
 
 /* ── Painel de história/lore — sobe por cima da ficha, mesma linguagem
-   visual do gang-sheet-modal (clip-path de canto cortado, borda cyan). ── */
+   visual do gang-sheet-modal (corte irregular, parede de tijolo, título
+   em Permanent Marker — texto de lore é "voz" do jogo, não dado técnico). ── */
 .gang-ficha-bio {
   position: absolute; inset: 0; z-index: 4;
   display: flex; flex-direction: column;
   padding: 18px 16px 16px; overflow-y: auto;
-  background: var(--if-panel);
-  border-top: 1px solid var(--if-cyan);
-  clip-path: polygon(0 0, calc(100% - 22px) 0, 100% 22px, 100% 100%, 0 100%);
+  background: linear-gradient(155deg, #241108, #150a05 55%, #0c0603);
+  border-top: 1px solid color-mix(in srgb, var(--if-amber) 30%, transparent);
+  clip-path: polygon(0 3%, 8% 0, 92% 1%, 100% 4%, 99% 92%, 92% 100%, 8% 99%, 0 94%);
 }
-.gang-ficha-bio__close { position: absolute; top: 10px; right: 10px; width: 34px; height: 34px; border: 1px solid var(--if-hair); background: var(--bg-primary); color: var(--text-primary); font-size: 22px; }
-.gang-ficha-bio h3 { margin: 0 22px 14px 0; color: var(--if-cyan); font: 900 18px var(--font-title); text-transform: uppercase; }
+.gang-ficha-bio__close { position: absolute; top: 10px; right: 10px; width: 34px; height: 34px; border: 1px solid color-mix(in srgb, var(--if-amber) 40%, transparent); background: #1a0f08; color: #ffd9a0; font-size: 22px; }
+.gang-ficha-bio h3 { margin: 0 22px 14px 0; color: #ffd9a0; font: 400 1.7rem/1 'Permanent Marker', cursive; text-shadow: 0 2px 0 rgba(0, 0, 0, .6); }
 .gang-ficha-bio__body { display: flex; flex-direction: column; gap: 14px; }
 .gang-ficha-bio__body section b { display: block; margin-bottom: 4px; color: var(--if-amber); font: 800 10px var(--font-mono); letter-spacing: 1.5px; text-transform: uppercase; }
 .gang-ficha-bio__body section p { margin: 0; color: var(--text-secondary); font: 400 13px/1.55 var(--font-desc, inherit); }
