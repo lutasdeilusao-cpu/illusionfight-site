@@ -4,6 +4,7 @@ import { useLanguage } from '../../../../context/LanguageContext'
 import { useGanguesStore } from '../store/useGanguesStore'
 import { ganguesTemMultiplayer } from '../data/ganguesLoadout.js'
 import { sfx } from '../../../../lib/sfx'
+import '../Gangues.css' // .gang-brickwall-bg mora lá
 import './GanguesModes.css'
 import './GanguesModesRedesign.css'
 
@@ -30,7 +31,7 @@ export default function GanguesModes({ onNavigate }) {
   }
 
   return (
-    <main className="gang-lobby gang-modes">
+    <main className="gang-lobby gang-modes gang-brickwall-bg">
       <header className="gang-story-head">
         <button className="gang-progression-screen-back" onClick={() => onNavigate('lobby')}>
           ← {t('games.gangues.progression.back_to_roster')}
