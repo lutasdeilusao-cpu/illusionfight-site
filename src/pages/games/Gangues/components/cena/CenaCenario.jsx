@@ -8,6 +8,25 @@ import { useLanguage } from '../../../../../context/LanguageContext'
    `quarteiroes` + `obstaculos.solido` — aqui é só a arte.
    ══════════════════════════════════════════════════════════════ */
 
+// `?debugmapa=1`/`?debugmapa=0` na URL liga/desliga e GRAVA em localStorage —
+// sem isso, cada troca de tela (cena → mapa → cena de novo) ou reload perdia
+// o parâmetro e o Isaias tinha que digitar `?debugmapa=1` no celular de novo
+// toda vez (achado real, 15/09/2026: ele reportou "não sei... talvez tenha
+// sido sobrescrito" depois de pedir o overlay e não conseguir ver nada —
+// mais provável de ser essa fricção de digitar a query string no celular
+// toda vez do que um bug de fato no overlay, que funciona normalmente
+// quando o parâmetro está de verdade na URL). Fail-safe: erro de leitura de
+// localStorage (modo privado etc.) cai pra "desligado", nunca trava a tela.
+function isDebugMapaAtivo() {
+  if (typeof window === 'undefined') return false
+  const q = new URLSearchParams(window.location.search).get('debugmapa')
+  try {
+    if (q === '1') { window.localStorage.setItem('ldi-gangues-debugmapa', '1'); return true }
+    if (q === '0') { window.localStorage.removeItem('ldi-gangues-debugmapa'); return false }
+    return window.localStorage.getItem('ldi-gangues-debugmapa') === '1'
+  } catch { return q === '1' }
+}
+
 // ── Rua asfaltada (o traçado fixo da Pista) ──
 function Ruas() {
   return (
@@ -96,7 +115,7 @@ function ItemCenario({ c, t }) {
   return <i className={`gang-deco gang-deco--${c.tipo}`} style={base} aria-hidden="true" />
 }
 
-export default function CenaCenario({ cena, bossAberto, muroAberto }) {
+export default function CenaCenario({ cena, bossAberto, muroAberto, precisaFundoCima }) {
   const { t } = useLanguage()
   const W = cena.mundo?.w || 760
   const H = cena.mundo?.h || 2840
@@ -116,11 +135,32 @@ export default function CenaCenario({ cena, bossAberto, muroAberto }) {
     // o jogador só deixa de esbarrar, sem troca visual (aceito por ora; um
     // efeito de "muro aberto" fica pra um retoque futuro de arte).
     // `?debugmapa=1` na URL liga o overlay de colisores/POIs por cima da
-    // imagem — pra comparar e ajustar coordenada, nunca aparece sem o parâmetro.
-    const debug = typeof window !== 'undefined' && new URLSearchParams(window.location.search).get('debugmapa') === '1'
+    // imagem — pra comparar e ajustar coordenada, nunca aparece sem o
+    // parâmetro (e persiste em localStorage depois de ligado 1x, pra não se
+    // perder ao trocar de tela — ver isDebugMapaAtivo()).
+    const debug = isDebugMapaAtivo()
+    // Fundo cortado em 2 imagens na faixa do muro (ver mundo.js/FUNDO_PISTA):
+    // a de BAIXO (spawn até o muro, sempre visível de cara) carrega eager —
+    // a tela de loading em GanguesCena.jsx já garante que ela existe antes
+    // de liberar a entrada. A de CIMA só é MONTADA no DOM (e só então o
+    // navegador baixa de verdade) quando `precisaFundoCima` vira true —
+    // controle explícito em vez de `loading="lazy"` nativo de propósito: o
+    // `<img>` mora dentro de `.gang-cena-world`, que "rola" a câmera via
+    // `transform:translate3d` (não scroll real), e o heurístico nativo de
+    // distância-até-o-viewport de alguns navegadores pode não considerar
+    // esse transform corretamente — melhor não depender disso pra uma
+    // imagem de ~200KB. Confirmado ao vivo com Playwright (log de rede) que
+    // com esse gate a imagem de cima só baixa (bytes reais, não só a
+    // resolução do import em dev) quando `precisaFundoCima` fica true.
+    // `GanguesCena.jsx` calcula isso como `player.y <= 1430` (mesmo limiar
+    // que já acende o aviso "🔒 trancado" — dá folga suficiente pra imagem
+    // carregar em segundo plano antes do jogador realmente chegar no muro)
+    // OU já ter destrancado o muro/túnel (save carregado do outro lado).
+    const { baixo, cima, corteY } = cena.fundoImagem
     return (
       <>
-        <img className="gang-cena-fundo" src={cena.fundoImagem} alt="" style={{ width: W, height: H }} aria-hidden="true" />
+        {precisaFundoCima && <img className="gang-cena-fundo" src={cima} alt="" style={{ width: W, height: corteY, top: 0 }} aria-hidden="true" />}
+        <img className="gang-cena-fundo" src={baixo} alt="" style={{ width: W, height: H - corteY, top: corteY }} aria-hidden="true" />
         {debug && <DebugColisores cena={cena} />}
       </>
     )

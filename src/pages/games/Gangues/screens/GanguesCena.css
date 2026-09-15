@@ -660,7 +660,16 @@
   radial-gradient(30px 16px at 72% 68%,#20262a 0,transparent 70%),
   radial-gradient(18px 10px at 55% 20%,#0c1012 0,transparent 70%),
   #171b1d;}
-.gang-cena-fundo{position:absolute;left:0;top:0;z-index:0;object-fit:cover;pointer-events:none;image-rendering:auto;}
+.gang-cena-fundo{position:absolute;left:0;z-index:0;object-fit:cover;pointer-events:none;image-rendering:auto;}
+
+/* Tela de carregamento antes de entrar na cena (pedido do Isaias,
+   15/09/2026) — garante que a metade de baixo da ilustração de fundo já
+   existe no navegador antes de mostrar o mapa (ver mapaPronto/GanguesCena.jsx). */
+.gang-cena-loading{align-items:center;justify-content:center;gap:14px;}
+.gang-cena-loading-spin{width:34px;height:34px;border:3px solid color-mix(in srgb,var(--if-teal) 22%,transparent);border-top-color:var(--if-teal);border-radius:50%;animation:gang-cena-loading-spin .8s linear infinite;}
+.gang-cena-loading b{font:800 .72rem var(--font-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--if-teal);opacity:.85;}
+@keyframes gang-cena-loading-spin{to{transform:rotate(360deg);}}
+@media(prefers-reduced-motion:reduce){.gang-cena-loading-spin{animation:none;}}
 
 /* ── overlay de debug (?debugmapa=1) — nunca aparece sem o parâmetro ── */
 .gang-debug-box{position:absolute;z-index:50;box-sizing:border-box;pointer-events:none;}

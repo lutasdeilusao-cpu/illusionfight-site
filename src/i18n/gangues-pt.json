@@ -1240,6 +1240,7 @@
             }
           }
         },
+        "carregando_mapa": "CARREGANDO O MAPA...",
         "hint_andar": "Usa o analógico e desce pra rua.",
         "hint_interagir": "Chegou num ponto quente — aperta INTERAGIR.",
         "hint_sucata": "🔩 Leva os dois pedaço de sucata pro Nando, na oficina. Ele te retorna.",

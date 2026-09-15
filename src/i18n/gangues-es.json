@@ -4343,6 +4343,7 @@
             }
           }
         },
+        "carregando_mapa": "CARGANDO EL MAPA...",
         "hint_andar": "Usá el joystick y bajá a la calle.",
         "hint_interagir": "Llegaste a un punto caliente — apretá INTERACTUAR.",
         "hint_sucata": "🔩 Llevá los dos pedazos de chatarra a Nando, en el taller. Él te devuelve el favor.",

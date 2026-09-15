@@ -4343,6 +4343,7 @@
             }
           }
         },
+        "carregando_mapa": "LOADING THE MAP...",
         "hint_andar": "Use the stick and head down to the street.",
         "hint_interagir": "You hit a hot spot — press INTERACT.",
         "hint_sucata": "🔩 Take both scrap pieces to Nando at the workshop. He'll sort you out.",

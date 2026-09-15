@@ -15,9 +15,32 @@
 // sentido desenhar de novo por cima. Coordenadas em pixel de mundo puro
 // (0–724 × 0–2172, o tamanho nativo da imagem) — mesmo espaço da posição do
 // jogador e de `posicoes.js`.
-import mapaExterior from '../../../assets/cenas/pista/mapa-exterior.webp'
+// v3.9.0 (15/09/2026, pedido do Isaias — "carrega esse mapa por cortes... só
+// a parte de baixo que você precisa até o muro... a segunda imagem carrega
+// no lazy load"): a imagem única (470KB) virou DUAS, cortadas exatamente na
+// faixa do muro (y920 — o mesmo y900-940 que já bloqueia colisão em
+// `hitsSolid`, ganguesCenaMotor.js, então o corte cai bem em cima da parede
+// desenhada, onde um possível 1px de emenda visual já fica escondido pela
+// própria arte do muro). `mapa-exterior-baixo.webp` (y920-2172, 1252px,
+// ~265KB) é a metade que o jogador SEMPRE precisa pra jogar (spawn é
+// y2130, e o muro trava a passagem pro resto até bater o Carvão) — carregada
+// eager, com uma tela de loading bloqueando a entrada até ela existir de
+// verdade no navegador (ver `mapaPronto` em GanguesCena.jsx). `mapa-exterior-
+// cima.webp` (y0-920, 920px, ~198KB) só existe pra quem já destrancou o
+// muro/túnel — usa `loading="lazy"` nativo do `<img>` (CenaCenario.jsx): o
+// navegador só baixa quando o retângulo real na tela (depois da câmera
+// transformar/rolar) chega perto do viewport, sem precisar de nenhuma lógica
+// custom de "só renderiza se...". Gerados com Pillow a partir do PNG
+// original (mesma técnica de compressão webp qualidade 82 do arquivo único
+// anterior) — nenhuma perda de nitidez, e a soma dos dois (~463KB) ficou até
+// um pouco MENOR que o arquivo único de antes.
+import mapaExteriorBaixo from '../../../assets/cenas/pista/mapa-exterior-baixo.webp'
+import mapaExteriorCima from '../../../assets/cenas/pista/mapa-exterior-cima.webp'
 
-export const FUNDO_PISTA = mapaExterior
+// Y onde a imagem foi cortada em dois arquivos — MESMO espaço de coordenada
+// de mundo que tudo mais aqui (`hitsSolid` usa a faixa y900-940 pro muro).
+export const FUNDO_PISTA_CORTE_Y = 920
+export const FUNDO_PISTA = { baixo: mapaExteriorBaixo, cima: mapaExteriorCima, corteY: FUNDO_PISTA_CORTE_Y }
 
 // Curva do "radar"/minimapa — hoje não é lida por nenhum componente (campo
 // vestigial, ver comentário antigo em index.js); mantida só por não quebrar

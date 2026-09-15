@@ -58,6 +58,33 @@ export default function GanguesCena({ onNavigate }) {
     if (!cena || !tutoriaisCarregados) return
     setIntro(!jaViuTutorial(cenaIntroTutorialId(cena.id)))
   }, [cena?.id, tutoriaisCarregados, jaViuTutorial])
+  // Tela de carregamento do mapa (pedido do Isaias, 15/09/2026: "uma tela de
+  // carregamento prévia antes de entrar no mapa da pista... garantir que
+  // essa imagem tá carregada antes de entrar"). Só bloqueia cena com
+  // ilustração de fundo (hoje só a Pista — `cena.fundoImagem`); as 6 trilhas
+  // antigas sem cena navegável nunca passam por aqui. Só espera a metade de
+  // BAIXO carregar — é a única que o jogador precisa pra já poder jogar (o
+  // spawn fica lá embaixo e o muro trava a passagem pro resto); a de cima
+  // é `loading="lazy"` (CenaCenario.jsx), não precisa de tela de espera
+  // nenhuma. Teto de 4s de segurança, mesmo raciocínio da vinheta de
+  // abertura (index.html): se o evento de load nunca disparar por algum
+  // motivo, libera a entrada mesmo assim — nunca trava o jogador pra
+  // sempre numa tela preta por causa de uma imagem.
+  const [mapaPronto, setMapaPronto] = useState(!cena?.fundoImagem)
+  useEffect(() => {
+    const src = cena?.fundoImagem?.baixo
+    if (!src) { setMapaPronto(true); return }
+    setMapaPronto(false)
+    let ativo = true
+    const img = new Image()
+    const pronto = () => { if (ativo) setMapaPronto(true) }
+    img.onload = pronto
+    img.onerror = pronto
+    img.src = src
+    if (img.complete) pronto()
+    const teto = setTimeout(pronto, 4000)
+    return () => { ativo = false; clearTimeout(teto) }
+  }, [cena?.id, cena?.fundoImagem?.baixo])
   const [encontro, setEncontro] = useState(null), [toast, setToast] = useState(null)
   // Marco de reputação recorrente (a cada 50, ver GANGUES_REP_MARCO_INTERVALO)
   // cruzado na cena — abre o modal BLOQUEANTE de recompensa (não o toast
@@ -79,6 +106,14 @@ export default function GanguesCena({ onNavigate }) {
   const [aviso, setAviso] = useState(null)
   // Checklist: o que ainda falta fechar na cena (toca no "X/10" do topo).
   const [checklist, setChecklist] = useState(false)
+  // "não ver mais o aviso de nível" — só neste território (reseta ao trocar,
+  // porque a cena remonta com outro territorioId). Movido pra cima de
+  // qualquer `return` condicional (achado 15/09/2026, ver AGENTS.md: estava
+  // depois dos early-returns, um hook sempre precisa rodar na MESMA ordem em
+  // todo render — funcionava por acaso enquanto nenhum early-return comum
+  // ficava entre ele e o topo; a tela de loading do mapa passou a cair bem
+  // nesse meio, violando a regra de verdade a cada entrada na Pista).
+  const [avisoNivelOff, setAvisoNivelOff] = useState(false)
   const viewportRef = useRef(null)
   // baseFeita = fechou os ponto (portao.precisa) → destranca o TÚNEL e libera o
   // lado de lá. muroAberto = bateu o Carvão → aí sim o muro abre de vez (pra
@@ -131,6 +166,14 @@ export default function GanguesCena({ onNavigate }) {
   // `local` aponta pra um interior inválido — o efeito acima já vai zerar; só
   // não renderiza esse frame pra não quebrar em amb null.
   if (local && !amb) return <main className="gang-cena-worldpage" style={{ '--terr-cor': cena.cor }}><div className="gang-cena-viewport" /></main>
+  if (!local && cena.fundoImagem && !mapaPronto) {
+    return (
+      <main className="gang-cena-worldpage gang-cena-loading" style={{ '--terr-cor': cena.cor }}>
+        <span className="gang-cena-loading-spin" aria-hidden="true" />
+        <b>{t('games.gangues.cena.carregando_mapa')}</b>
+      </main>
+    )
+  }
   const fecharIntro = () => { marcarTutorialVisto(cenaIntroTutorialId(cena.id)); setIntro(false) }
   const guardarPosicao = (over) => store.salvarPosicaoCena(cena.id, { ...(over || player), local: over?.local !== undefined ? over.local : local })
   // troca de ambiente com fade curto (rua↔interior, cômodo↔cômodo)
@@ -191,9 +234,6 @@ export default function GanguesCena({ onNavigate }) {
       : t(`${poi.i18n}.fala`)
     return Array.isArray(raw) ? raw[Math.floor(Math.random() * raw.length)] : raw
   }
-  // "não ver mais o aviso de nível" — só neste território (reseta ao trocar,
-  // porque a cena remonta com outro territorioId).
-  const [avisoNivelOff, setAvisoNivelOff] = useState(false)
   // Tropa toda no chão → barra a entrada em qualquer luta e manda pra birosca.
   const barraSeChao = () => {
     if (!store.tropaNoChao()) return false
@@ -368,7 +408,7 @@ export default function GanguesCena({ onNavigate }) {
         anterior pra transicionar (elemento novo já nasce no transform
         final), sem tocar a suavização do passo a passo normal. */}
     <div key={local ? `${local.id}-${local.comodo}` : 'rua'} className="gang-cena-world" style={{ width: W.w, height: W.h, transform: `translate3d(${-camX}px,${-camY}px,0)` }}>
-      {local ? <CenaInterior amb={amb} /> : <CenaCenario cena={cena} bossAberto={baseFeita || muroAberto} muroAberto={muroAberto} />}
+      {local ? <CenaInterior amb={amb} /> : <CenaCenario cena={cena} bossAberto={baseFeita || muroAberto} muroAberto={muroAberto} precisaFundoCima={muroAberto || baseFeita || player.y <= 1430} />}
       {(amb?.alvos || []).map(p => <EntryZone key={`zone-${p.id}`} poi={p} active={perto?.id === p.id} />)}
       {(amb?.alvos || []).map(p => <PinoAlvo key={p.id} p={p} t={t} />)}
       {/* key=local: rua e cada cômodo de interior são espaços de coordenada
