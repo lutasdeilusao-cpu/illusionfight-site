@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { useLanguage } from '../../../../context/LanguageContext'
 import { sfx } from '../../../../lib/sfx'
+import GanguesRetratoImg from './GanguesRetratoImg'
 
 const TYPE_SPEED = 20
 
@@ -57,7 +58,7 @@ export default function GangDialog({ lines = [], speaker, sub, retrato, onFinish
           transition={{ type: 'spring', stiffness: 220, damping: 15 }}
         >
           <span className="gang-dlg-portrait-idle">
-            {retrato ? <img src={retrato} alt="" /> : <b aria-hidden="true">{nome[0]}</b>}
+            <GanguesRetratoImg src={retrato} fallback={<b aria-hidden="true">{nome[0]}</b>} />
           </span>
         </motion.div>
 

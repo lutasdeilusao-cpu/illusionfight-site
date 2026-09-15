@@ -14,6 +14,7 @@ import enemiesData from '../data/gangues-enemies.json'
 import logoPt from '../assets/logos/logo-pt.png'
 import logoEn from '../assets/logos/logo-en.png'
 import logoEs from '../assets/logos/logo-es.png'
+import GanguesRetratoImg from '../components/GanguesRetratoImg'
 
 const LOGOS = { pt: logoPt, en: logoEn, es: logoEs }
 
@@ -263,7 +264,7 @@ function RosterCarousel({ roster, party, partyLimit, rosterLimit, rosterIndex, s
                   <span className="gang-fighter-card__number">#{String(roster.indexOf(member) + 1).padStart(2, '0')}</span>
                   {selected && <span className="gang-fighter-card__selected">✓ {t('games.gangues.party.selected')}</span>}
                   <span className={`gang-fighter-card__portrait${getGanguesPortraitByTemplateId(member.character_template_id) ? ' gang-fighter-card__portrait--foto' : ''}`} aria-hidden="true">
-                    {getGanguesPortraitByTemplateId(member.character_template_id) ? <img src={getGanguesPortraitByTemplateId(member.character_template_id)} alt="" /> : <i>{member.sheet_name[0].toUpperCase()}</i>}
+                    <GanguesRetratoImg src={getGanguesPortraitByTemplateId(member.character_template_id)} fallback={<i>{member.sheet_name[0].toUpperCase()}</i>} />
                     <b>{PATH_MARKS[member.combat_path]}</b>
                   </span>
                   <span className="gang-fighter-card__copy">
@@ -306,7 +307,7 @@ function RosterCarousel({ roster, party, partyLimit, rosterLimit, rosterIndex, s
                 </button>
                 <button type="button" className="gang-fighter-card__tapzone" onClick={() => abrirProgressao(member)}>
                   <span className={`gang-fighter-card__portrait${getGanguesPortraitByTemplateId(member.character_template_id) ? ' gang-fighter-card__portrait--foto' : ''}`} aria-hidden="true">
-                    {getGanguesPortraitByTemplateId(member.character_template_id) ? <img src={getGanguesPortraitByTemplateId(member.character_template_id)} alt="" /> : <i>{member.sheet_name[0].toUpperCase()}</i>}
+                    <GanguesRetratoImg src={getGanguesPortraitByTemplateId(member.character_template_id)} fallback={<i>{member.sheet_name[0].toUpperCase()}</i>} />
                     <b>{PATH_MARKS[member.combat_path]}</b>
                   </span>
                   <span className="gang-fighter-card__copy">

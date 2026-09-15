@@ -9,6 +9,7 @@ import { GANGUES_INITIAL_PARTY_SIZE, GANGUES_MAX_PARTY_SIZE } from '../data/gang
 import { sfx } from '../../../../lib/sfx'
 import GanguesFichaCard from '../components/GanguesFichaCard'
 import GanguesFichaBio from '../components/GanguesFichaBio'
+import GanguesRetratoImg from '../components/GanguesRetratoImg'
 import { getGanguesBiografia } from '../data/ganguesBiografias.js'
 import '../Gangues.css' // .gang-brickwall-bg mora lá
 import './GanguesLobby.css' // .gang-recruit / .gang-fighter-card / .gang-sheet-modal moram lá
@@ -142,7 +143,7 @@ export default function GanguesCreate({ onNavigate, onCreated }) {
                 <span className="gang-fighter-card__number">#{String(character.id).padStart(2, '0')}</span>
                 {selected && <span className="gang-fighter-card__selected">✓ {t('games.gangues.recruitment.marked')}</span>}
                 <span className={`gang-fighter-card__portrait${foto ? ' gang-fighter-card__portrait--foto' : ''}`} aria-hidden="true">
-                  {foto ? <img src={foto} alt="" /> : <i>{character.name[0]}</i>}
+                  <GanguesRetratoImg src={foto} fallback={<i>{character.name[0]}</i>} />
                   <b>{PATH_MARKS[character.combat_path]}</b>
                 </span>
                 <span className="gang-fighter-card__copy"><small>{t(`games.gangues.loadout.paths.${character.combat_path}.name`)}</small><strong>{character.name}</strong><em>{t(`games.gangues.progression.paths.${character.special_path}`)}</em></span>

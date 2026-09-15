@@ -15,6 +15,20 @@ import './GanguesAlbum.css'
 const ATTRS = ['A', 'H', 'D', 'PV', 'PM']
 const SECOES = ['inimigos', 'itens', 'cartas']
 
+// Retrato do inimigo no álbum — componente próprio pra poder cair pro
+// inicial de sempre se a imagem falhar ao CARREGAR (rede ruim), não só
+// quando não existe (ver AGENTS.md 15/09/2026).
+function AlbumPortrait({ retrato, nome }) {
+  const [falhou, setFalhou] = useState(false)
+  return retrato && !falhou ? (
+    <span className="gang-album__portrait gang-album__portrait--foto">
+      <img src={retrato} alt="" onError={() => setFalhou(true)} />
+    </span>
+  ) : (
+    <span className="gang-album__portrait">{(nome || '?')[0]}</span>
+  )
+}
+
 /* Coleção — o "grande catálogo" do jogador (driver de replay). Três abas:
    INIMIGOS (o Álbum de Marélia, por cargo da Banca — GDD §5), ITENS (consumível
    + equipamento, descoberto vs "???") e CARTAS (sistema de socket, GDD §9.4,
@@ -135,13 +149,7 @@ export default function GanguesAlbum({ onNavigate, voltar: voltarProp }) {
               const retrato = getGanguesEnemyPortraitById(inimigo.id)
               return (
                 <li key={inimigo.id} className="gang-album__card">
-                  {retrato ? (
-                    <span className="gang-album__portrait gang-album__portrait--foto">
-                      <img src={retrato} alt="" />
-                    </span>
-                  ) : (
-                    <span className="gang-album__portrait">{(nome || '?')[0]}</span>
-                  )}
+                  <AlbumPortrait retrato={retrato} nome={nome} />
                   <div className="gang-album__body">
                     <strong>{nome}</strong>
                     <small>

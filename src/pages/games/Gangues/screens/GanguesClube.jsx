@@ -38,6 +38,9 @@ export default function GanguesClube({ onNavigate }) {
   const alvo = store.storyTarget
   const [fase, setFase] = useState('venda')       // venda | saguao | indo
   const [vendaCena, setVendaCena] = useState(0)    // 0 escuro/saco · 1 arranca · 2 luz+roar
+  // Falha de carregamento (rede ruim — ver AGENTS.md 15/09/2026) cai pro
+  // escudo genérico de sempre, igual quando não tem retrato nenhum.
+  const [retratoFalhou, setRetratoFalhou] = useState(false)
   const [vendaStep, setVendaStep] = useState(1)    // quantos beats do sequestro já apareceram
   const [player, setPlayer] = useState(SPAWN)
   const beatsSequestro = (() => {
@@ -159,10 +162,11 @@ export default function GanguesClube({ onNavigate }) {
           </div>
           <div className="gang-clube-luz" />
           {(() => {
-            const retrato = getGanguesPortraitByTemplateId(store.getLider()?.character_template_id)
+            const retratoUrl = getGanguesPortraitByTemplateId(store.getLider()?.character_template_id)
+            const retrato = retratoUrl && !retratoFalhou ? retratoUrl : null
             return (
               <motion.div className={`gang-world-player is-gang facing-${facing}${retrato ? ' gang-world-player--retrato' : ''}`} animate={{ left: player.x, top: player.y }} transition={{ duration: TICK / 1000, ease: 'easeOut' }}>
-                <span>{retrato ? <img src={retrato} alt="" /> : <><i /><i /><i /></>}</span><small>{store.gangName || 'GANGUE'}</small>
+                <span>{retrato ? <img src={retrato} alt="" onError={() => setRetratoFalhou(true)} /> : <><i /><i /><i /></>}</span><small>{store.gangName || 'GANGUE'}</small>
               </motion.div>
             )
           })()}

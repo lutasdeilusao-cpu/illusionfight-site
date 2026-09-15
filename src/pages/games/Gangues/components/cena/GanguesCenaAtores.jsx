@@ -1,4 +1,4 @@
-import { useCallback, useRef } from 'react'
+import { useCallback, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import { STEP_MS } from '../../engine/ganguesCenaMotor.js'
 import { getGanguesNpcPortrait } from '../../data/ganguesNpcPortraits.js'
@@ -10,7 +10,11 @@ import { getGanguesEnemyPortraitById } from '../../data/ganguesEnemyPortraits.js
 // `retrato`: a cabecinha do líder (1º recrutado) flutuando no lugar do
 // escudo genérico, quando existe arte pra ele (pedido do Isaias, set/2026 —
 // "juice"/identidade visual) — sem retrato ainda, cai no escudo de sempre.
-export function GangMarker({ player, facing, gangName, retrato }) {
+export function GangMarker({ player, facing, gangName, retrato: retratoUrl }) {
+  // Falha de carregamento (rede ruim — ver AGENTS.md 15/09/2026) cai pro
+  // escudo genérico de sempre, igual quando não tem retrato nenhum.
+  const [retratoFalhou, setRetratoFalhou] = useState(false)
+  const retrato = retratoUrl && !retratoFalhou ? retratoUrl : null
   // initial={false}: sem isso, toda REMONTAGEM (troca de `key` ao entrar/sair
   // de um interior — ver GanguesCena.jsx) ainda animava a partir de um valor
   // inicial medido do DOM (perto de 0,0), não do alvo — o jogador via o
@@ -20,7 +24,7 @@ export function GangMarker({ player, facing, gangName, retrato }) {
   // o passo a passo normal (mesma instância, só troca de `animate`) continua
   // suave como sempre, porque `initial` só importa na montagem.
   return <motion.div className={`gang-world-player is-gang facing-${facing}${retrato ? ' gang-world-player--retrato' : ''}`} initial={false} animate={{ left: player.x, top: player.y }} transition={{ duration: STEP_MS / 1000, ease: 'easeOut' }}>
-    <span>{retrato ? <img src={retrato} alt="" /> : <><i /><i /><i /></>}</span><small>{gangName || 'GANGUE'}</small>
+    <span>{retrato ? <img src={retrato} alt="" onError={() => setRetratoFalhou(true)} /> : <><i /><i /><i /></>}</span><small>{gangName || 'GANGUE'}</small>
   </motion.div>
 }
 
@@ -70,6 +74,10 @@ function retratoDoPino(p) {
 
 // Pino do alvo (POI, porta, saída, passagem). `ehChefe`/`ehPorta`/... decidem o ícone e o rótulo.
 export function PinoAlvo({ p, t }) {
+  // useState sempre no topo, antes de qualquer return condicional (regra dos
+  // hooks) — falha de carregamento (rede ruim) cai pro ícone genérico, igual
+  // quando não tem retrato nenhum.
+  const [retratoFalhou, setRetratoFalhou] = useState(false)
   if (p.estado === 'trancado' && !(p.ehPassagem || p.ehChefe)) return null
   const icone = p.ehChefe ? '★' : p.ehPorta ? '🚪' : p.ehSaida ? '↩' : p.ehVolta ? '↩' : p.ehPassagem ? (p.label === 'subir' ? '▲' : '▶') : (ICONE[p.tipo] || '•')
   const nome = p.ehChefe ? t(`games.gangues.story.bosses.${p.boss}.nome`)
@@ -78,9 +86,9 @@ export function PinoAlvo({ p, t }) {
     : p.ehVolta ? t('games.gangues.cena.acao.voltar')
     : p.ehPassagem ? (p.estado === 'trancado' ? t('games.gangues.cena.acao.trancado') : t(`games.gangues.cena.acao.${p.label || 'avancar'}`))
     : (p.i18n ? t(`${p.i18n}.nome`) : '')
-  const retrato = retratoDoPino(p)
+  const retrato = retratoDoPino(p) && !retratoFalhou ? retratoDoPino(p) : null
   return <div className={`gang-world-npc is-${p.estado} ${farolDe(p)} ${p.ehChefe ? 'is-boss' : ''} ${p.farmCompleto ? 'is-farm' : ''} ${p.ehPorta || p.ehSaida || p.ehVolta || p.ehPassagem ? 'is-nav' : ''} ${retrato ? 'gang-world-npc--retrato' : ''}`} style={{ left: p.world.x, top: p.world.y }}>
-    <span>{retrato ? <img src={retrato} alt="" /> : icone}</span>
+    <span>{retrato ? <img src={retrato} alt="" onError={() => setRetratoFalhou(true)} /> : icone}</span>
     {p.estado !== 'trancado' || p.ehPassagem || p.ehChefe ? <small>{nome}</small> : null}
     {p.farmCompleto && <i className="gang-world-npc-farm-tag" aria-hidden="true">↻</i>}
   </div>

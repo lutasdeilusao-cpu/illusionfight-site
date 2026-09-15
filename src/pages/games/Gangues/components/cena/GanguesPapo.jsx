@@ -19,7 +19,10 @@ export default function GanguesPapo({ poi, onResolve, onClose }) {
 
   const base = poi.i18n
   const nome = t(`${base}.nome`)
-  const retrato = getGanguesNpcPortrait(poi.npcSlug)
+  const retratoUrl = getGanguesNpcPortrait(poi.npcSlug)
+  // Falha de carregamento (rede ruim) cai pra inicial, igual sem retrato.
+  const [retratoFalhou, setRetratoFalhou] = useState(false)
+  const retrato = retratoUrl && !retratoFalhou ? retratoUrl : null
   const sub = t(`${base}.sub`)
   const falas = useMemo(() => {
     const raw = t(`${base}.fala`)
@@ -50,7 +53,7 @@ export default function GanguesPapo({ poi, onResolve, onClose }) {
   return (
     <div className="gang-cena-enc gang-cena-enc--papo">
       <button className="gang-cena-enc-x" onClick={onClose} aria-label={t('games.gangues.cena.fechar')}>✕</button>
-      <span className={`gang-cena-papo-face${retrato ? ' gang-cena-papo-face--foto' : ''}`} aria-hidden="true">{retrato ? <img src={retrato} alt="" /> : (nome || '?')[0]}</span>
+      <span className={`gang-cena-papo-face${retrato ? ' gang-cena-papo-face--foto' : ''}`} aria-hidden="true">{retrato ? <img src={retrato} alt="" onError={() => setRetratoFalhou(true)} /> : (nome || '?')[0]}</span>
       <span className="gang-cena-papo-nome">{nome}{sub ? <em> · {sub}</em> : null}</span>
 
       {resultado ? (

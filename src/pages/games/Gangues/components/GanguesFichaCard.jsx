@@ -1,4 +1,5 @@
 import { useLanguage } from '../../../../context/LanguageContext'
+import GanguesRetratoImg from './GanguesRetratoImg'
 
 const ATTRS = ['A', 'H', 'D', 'PV', 'PM']
 
@@ -14,7 +15,7 @@ export default function GanguesFichaCard({ numero, nome, caminho, subcaminho, ni
     <>
       <div className="gang-sheet-modal__hero">
         {numero != null && <span>#{String(numero).padStart(2, '0')}</span>}
-        {retrato ? <img className="gang-sheet-modal__retrato" src={retrato} alt="" /> : <i>{nome?.[0]?.toUpperCase()}</i>}
+        <GanguesRetratoImg className="gang-sheet-modal__retrato" src={retrato} fallback={<i>{nome?.[0]?.toUpperCase()}</i>} />
         {caminho && <small>{t(`games.gangues.loadout.paths.${caminho}.name`)}</small>}
         <h2 id={tituloId}>{nome}{nivel != null && <b className="gang-ficha-nivel"> · NV {nivel}</b>}</h2>
         {subcaminho && <p>{subcaminho}</p>}

@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { getGanguesEffectTheme } from '../data/ganguesEffectThemes.js'
 import { getGanguesProgression, ganguesXpMaxForSheet } from '../data/ganguesLoadout.js'
@@ -6,6 +7,26 @@ import { getGanguesPortraitByTemplateId } from '../data/ganguesPortraits.js'
 import { getGanguesEnemyPortraitById } from '../data/ganguesEnemyPortraits.js'
 import DramaticDice from './DramaticDice'
 import GanguesFichaCard from './GanguesFichaCard'
+import GanguesRetratoImg from './GanguesRetratoImg'
+
+// Avatar do cartão de KO: foto se existir E carregar, caveira se não tiver
+// retrato OU se a imagem falhar ao baixar (rede ruim — ver GanguesRetratoImg).
+// Precisa ser um componente próprio (não uma IIFE inline) porque o estado de
+// "falhou" usa useState, e hooks não podem viver dentro de uma função anônima
+// declarada em pleno JSX.
+function KoAvatar({ retrato }) {
+  const [falhou, setFalhou] = useState(false)
+  if (retrato && !falhou) {
+    return (
+      <motion.span className="gang-ko-cena__foto" initial={{ rotate: -18, scale: 0.8 }} animate={{ rotate: [-18, 12, -6, 0], scale: 1 }} transition={{ duration: 0.5 }}>
+        <img src={retrato} alt="" onError={() => setFalhou(true)} />
+      </motion.span>
+    )
+  }
+  return (
+    <motion.span className="gang-ko-cena__skull" initial={{ rotate: -18, scale: 0.8 }} animate={{ rotate: [-18, 12, -6, 0], scale: 1 }} transition={{ duration: 0.5 }}>💀</motion.span>
+  )
+}
 
 // Todos os overlays mutuamente exclusivos do combate: aviso curto, callout
 // grande de dano, cartão de KO, dado dramático, revelação de rodada da
@@ -68,22 +89,12 @@ export default function GanguesCombatOverlays({
               initial={{ scale: 0.65, y: 24 }} animate={{ scale: 1, y: 0 }} exit={{ scale: 0.9, opacity: 0 }}
               transition={{ type: 'spring', stiffness: 260, damping: 17 }}
             >
-              {(() => {
-                const retrato = koCena.side === 'player'
+              <KoAvatar
+                key={koCena.key || koCena.id}
+                retrato={koCena.side === 'player'
                   ? getGanguesPortraitByTemplateId(koCena.character_template_id)
-                  : getGanguesEnemyPortraitById(koCena.id)
-                return retrato ? (
-                  <motion.span
-                    className="gang-ko-cena__foto"
-                    initial={{ rotate: -18, scale: 0.8 }} animate={{ rotate: [-18, 12, -6, 0], scale: 1 }} transition={{ duration: 0.5 }}
-                  ><img src={retrato} alt="" /></motion.span>
-                ) : (
-                  <motion.span
-                    className="gang-ko-cena__skull"
-                    initial={{ rotate: -18, scale: 0.8 }} animate={{ rotate: [-18, 12, -6, 0], scale: 1 }} transition={{ duration: 0.5 }}
-                  >💀</motion.span>
-                )
-              })()}
+                  : getGanguesEnemyPortraitById(koCena.id)}
+              />
               <strong className="gang-ko-cena__nome">{koCena.nome}</strong>
               <span className="gang-ko-cena__label">{t(koCena.side === 'enemy' ? 'games.gangues.ko_cena.inimigo' : 'games.gangues.ko_cena.aliado')}</span>
             </motion.div>
@@ -154,7 +165,7 @@ export default function GanguesCombatOverlays({
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ type: 'spring', stiffness: 200, damping: 18 }}
             >
-              <span className="gang-fala-final-avatar">{falaFinal.retrato ? <img src={falaFinal.retrato} alt="" /> : falaFinal.nome[0]}</span>
+              <span className="gang-fala-final-avatar"><GanguesRetratoImg src={falaFinal.retrato} fallback={falaFinal.nome[0]} /></span>
               <span className="gang-fala-final-nome">{falaFinal.nome}</span>
               {falaFinal.outcome === 'victory' && (
                 <span className="gang-fala-final-selo">{t('games.gangues.beat.derrotado')}</span>

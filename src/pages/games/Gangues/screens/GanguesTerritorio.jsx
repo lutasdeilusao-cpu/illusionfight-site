@@ -18,6 +18,21 @@ import './GanguesStory.css'
    o Isaias põe arte dos chefes e os diálogos depois.
    ══════════════════════════════════════════════════════════════ */
 
+// Retrato do desafiante na apresentação pré-luta — extraído em componente
+// próprio (com `key` no ponto de uso) pra falha de carregamento (rede ruim)
+// de UM confronto não vazar pro próximo, já que o hook de estado teria que
+// viver no componente pai (que nunca desmonta) se não fosse por isso.
+function ConfrontoAvatar({ retrato, nome }) {
+  const [falhou, setFalhou] = useState(false)
+  return retrato && !falhou ? (
+    <span className="gang-story-vs-avatar gang-story-vs-avatar--foto">
+      <img src={retrato} alt="" onError={() => setFalhou(true)} />
+    </span>
+  ) : (
+    <span className="gang-story-vs-avatar">{(nome || '?')[0]}</span>
+  )
+}
+
 export default function GanguesTerritorio({ onNavigate }) {
   const { t } = useLanguage()
   const store = useGanguesStore()
@@ -150,13 +165,7 @@ export default function GanguesTerritorio({ onNavigate }) {
                     : t('games.gangues.story.falas.ponto', params)
                 const retrato = confronto.enemy ? getGanguesEnemyPortraitById(confronto.enemy.id) : null
                 return (<>
-                  {retrato ? (
-                    <span className="gang-story-vs-avatar gang-story-vs-avatar--foto">
-                      <img src={retrato} alt="" />
-                    </span>
-                  ) : (
-                    <span className="gang-story-vs-avatar">{(nome || '?')[0]}</span>
-                  )}
+                  <ConfrontoAvatar key={confronto.enemy?.id ?? confronto.no?.boss ?? confronto.no?.gangue} retrato={retrato} nome={nome} />
                   <span className="gang-story-vs-tag">
                     {confronto.no.ehFinal
                       ? t('games.gangues.story.confronto_final')

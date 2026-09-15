@@ -1,6 +1,7 @@
 import { forwardRef } from 'react'
 import { motion } from 'framer-motion'
 import { getGanguesEffectTheme } from '../data/ganguesEffectThemes.js'
+import GanguesRetratoImg from './GanguesRetratoImg'
 
 // Lista de log do combate — mensagens de sistema, trash talk, ordem de
 // iniciativa e o card de ataque (FA/FD/dado/crítico/bônus/dano).
@@ -20,7 +21,7 @@ const GanguesCombatLogList = forwardRef(function GanguesCombatLogList({ log, t }
           const isPlayer = entry.side === 'player'
           return (
             <motion.div key={entry.id} className={`gang-msg-wrap ${isPlayer ? 'gang-msg-wrap--player' : ''}`} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}>
-              <div className={`gang-msg-avatar gang-msg-avatar--trash${entry.senderRetrato ? ' gang-msg-avatar--foto' : ''}`}>{entry.senderRetrato ? <img src={entry.senderRetrato} alt="" /> : (entry.sender || '?')[0]}</div>
+              <div className={`gang-msg-avatar gang-msg-avatar--trash${entry.senderRetrato ? ' gang-msg-avatar--foto' : ''}`}><GanguesRetratoImg src={entry.senderRetrato} fallback={(entry.sender || '?')[0]} /></div>
               <div className="gang-bubble gang-bubble--trash">{entry.text}</div>
             </motion.div>
           )
@@ -37,7 +38,7 @@ const GanguesCombatLogList = forwardRef(function GanguesCombatLogList({ log, t }
         const fxLog = getGanguesEffectTheme(entry.activeSpecialId)
         return (
           <motion.div key={entry.id} className={`gang-msg-wrap ${isPlayer ? 'gang-msg-wrap--player' : ''}`} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}>
-            <div className={`gang-msg-avatar ${isPlayer ? 'gang-msg-avatar--player' : 'gang-msg-avatar--enemy'}${entry.actorRetrato ? ' gang-msg-avatar--foto' : ''}`}>{entry.actorRetrato ? <img src={entry.actorRetrato} alt="" /> : entry.actorName[0]}</div>
+            <div className={`gang-msg-avatar ${isPlayer ? 'gang-msg-avatar--player' : 'gang-msg-avatar--enemy'}${entry.actorRetrato ? ' gang-msg-avatar--foto' : ''}`}><GanguesRetratoImg src={entry.actorRetrato} fallback={entry.actorName[0]} /></div>
             <div className="gang-attack-stack">
               <div className={`gang-attack-card gang-attack-card--${isPlayer ? 'player' : 'enemy'} ${fxLog ? 'gang-attack-card--fx' : ''}`} style={fxLog ? { '--fx-rgb': fxLog.rgb } : undefined}>
                 <div className="gang-attack-card-header">{entry.actorName}{fxLog && <em className="gang-attack-card-power">{fxLog.glyphs[0]} {t(`games.gangues.progression.skills.${entry.activeSpecialId}`)}</em>}</div>

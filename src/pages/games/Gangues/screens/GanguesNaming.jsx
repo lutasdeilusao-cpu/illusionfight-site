@@ -61,50 +61,61 @@ export default function GanguesNaming({ onDone, modoEdicao = false, onSair }) {
         )}
       </AnimatePresence>
 
-      {modoEdicao && (
-        <header className="gang-story-head">
-          <button className="gang-progression-screen-back" onClick={onDone}>
-            ← {t('games.gangues.progression.back_to_roster')}
+      {/* `intro` esconde o pôster de propósito, não só visualmente por trás
+          do diálogo — o GangDialog é um overlay que depende do CSS (fixed +
+          z-index) já ter carregado pra "tapar" o que tá embaixo. Numa
+          conexão ruim (reportado pelo Isaias, 15/09/2026, num evento com
+          wifi ruim) o CSS pode demorar mais que o React pra chegar, e aí o
+          pôster (com o input/botão de fundar já clicável) aparecia
+          empilhado junto do diálogo — bug estrutural, não só de rede: não
+          tem porquê o formulário existir no DOM enquanto o diálogo não
+          fechou. */}
+      {!intro && (<>
+        {modoEdicao && (
+          <header className="gang-story-head">
+            <button className="gang-progression-screen-back" onClick={onDone}>
+              ← {t('games.gangues.progression.back_to_roster')}
+            </button>
+          </header>
+        )}
+
+        <motion.div className="gang-naming-poster" initial={{ opacity: 0, y: 22, rotate: -1.5 }} animate={{ opacity: 1, y: 0, rotate: -1.5 }} transition={{ type: 'spring', stiffness: 200, damping: 20 }}>
+          <span className="gang-naming-poster__fita gang-naming-poster__fita--esq" aria-hidden="true" />
+          <span className="gang-naming-poster__fita gang-naming-poster__fita--dir" aria-hidden="true" />
+          <img className="gang-naming-poster__logo" src={LOGOS[locale] || logoPt} alt="LDI Gangues" />
+          <h1 className="gang-naming-poster__titulo">
+            {modoEdicao ? t('games.gangues.naming.titulo_editar') : t('games.gangues.naming.titulo')}
+          </h1>
+          <p className="gang-naming-poster__pitch">{t('games.gangues.naming.poster_pitch')}</p>
+
+          <motion.div className="gang-naming-campo" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}>
+            <label htmlFor="gang-nome-input">{t('games.gangues.naming.label')}</label>
+            <input
+              id="gang-nome-input"
+              type="text"
+              value={nome}
+              maxLength={28}
+              autoComplete="off"
+              placeholder={t('games.gangues.naming.placeholder')}
+              onChange={e => setNome(e.target.value)}
+              onKeyDown={e => { if (e.key === 'Enter') confirmar() }}
+            />
+            <span className="gang-naming-contador">{limpo.length}/28</span>
+          </motion.div>
+
+          <button className="gang-naming-spray" disabled={!valido} onClick={confirmar}>
+            <span className="gang-naming-spray-halo" aria-hidden="true" />
+            <strong>{modoEdicao ? t('games.gangues.naming.salvar') : t('games.gangues.naming.fundar')}</strong>
           </button>
-        </header>
-      )}
-
-      <motion.div className="gang-naming-poster" initial={{ opacity: 0, y: 22, rotate: -1.5 }} animate={{ opacity: 1, y: 0, rotate: -1.5 }} transition={{ type: 'spring', stiffness: 200, damping: 20 }}>
-        <span className="gang-naming-poster__fita gang-naming-poster__fita--esq" aria-hidden="true" />
-        <span className="gang-naming-poster__fita gang-naming-poster__fita--dir" aria-hidden="true" />
-        <img className="gang-naming-poster__logo" src={LOGOS[locale] || logoPt} alt="LDI Gangues" />
-        <h1 className="gang-naming-poster__titulo">
-          {modoEdicao ? t('games.gangues.naming.titulo_editar') : t('games.gangues.naming.titulo')}
-        </h1>
-        <p className="gang-naming-poster__pitch">{t('games.gangues.naming.poster_pitch')}</p>
-
-        <motion.div className="gang-naming-campo" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}>
-          <label htmlFor="gang-nome-input">{t('games.gangues.naming.label')}</label>
-          <input
-            id="gang-nome-input"
-            type="text"
-            value={nome}
-            maxLength={28}
-            autoComplete="off"
-            placeholder={t('games.gangues.naming.placeholder')}
-            onChange={e => setNome(e.target.value)}
-            onKeyDown={e => { if (e.key === 'Enter') confirmar() }}
-          />
-          <span className="gang-naming-contador">{limpo.length}/28</span>
         </motion.div>
 
-        <button className="gang-naming-spray" disabled={!valido} onClick={confirmar}>
-          <span className="gang-naming-spray-halo" aria-hidden="true" />
-          <strong>{modoEdicao ? t('games.gangues.naming.salvar') : t('games.gangues.naming.fundar')}</strong>
-        </button>
-      </motion.div>
-
-      {/* Sem isso, a fundação da gangue não tinha NENHUMA saída visível —
-          só aparece fora do modo de edição (que já tem seu próprio botão
-          de voltar no header acima). */}
-      {!modoEdicao && onSair && (
-        <button className="gang-lobby-quit" onClick={onSair}>{t('games.gangues.sair_do_jogo')}</button>
-      )}
+        {/* Sem isso, a fundação da gangue não tinha NENHUMA saída visível —
+            só aparece fora do modo de edição (que já tem seu próprio botão
+            de voltar no header acima). */}
+        {!modoEdicao && onSair && (
+          <button className="gang-lobby-quit" onClick={onSair}>{t('games.gangues.sair_do_jogo')}</button>
+        )}
+      </>)}
     </main>
   )
 }

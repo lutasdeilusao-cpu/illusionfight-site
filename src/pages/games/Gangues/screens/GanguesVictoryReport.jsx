@@ -7,6 +7,7 @@ import { combatantName, eventosDoLevelUp } from '../engine/ganguesVictoryResolve
 import { useTutorialProgress } from '../../../../context/TutorialProgressContext'
 import GangTip from '../components/GangTip'
 import GanguesRepRecompensaModal from '../components/GanguesRepRecompensaModal'
+import GanguesRetratoImg from '../components/GanguesRetratoImg'
 
 // Explica a regra de divisão de XP só na 1ª tela de vitória de verdade
 // (pedido do Isaias, 13/09/2026 — tutorial progressivo: a regra só importa
@@ -14,6 +15,23 @@ import GanguesRepRecompensaModal from '../components/GanguesRepRecompensaModal'
 // Escopado por CONTA (TutorialProgressContext), não mais por save/aparelho —
 // pedido do Isaias (14/09/2026).
 const XP_TUTORIAL_ID = 'xp'
+
+// Linha do roster "ESTADO FINAL DAS GANGUES" — precisa ser componente
+// próprio (não inline no .map) porque a classe `--foto` do wrapper e o
+// conteúdo do avatar têm que reagir junto se a imagem falhar ao carregar
+// (rede ruim — ver GanguesRetratoImg), não só decidir uma vez se `retrato`
+// existe nos dados.
+function ReportMemberRow({ member, retrato, nome, gangName, t }) {
+  const [falhou, setFalhou] = useState(false)
+  const temFoto = Boolean(retrato) && !falhou
+  return (
+    <div className={`gang-report-member gang-report-member--${member.side} ${member.pv <= 0 ? 'gang-report-member--ko' : ''}${temFoto ? ' gang-report-member--foto' : ''}`}>
+      <span>{temFoto ? <img src={retrato} alt="" onError={() => setFalhou(true)} /> : (nome?.[0] || '?')}</span>
+      <div><strong>{nome}</strong><small>{member.side === 'player' ? (gangName || t('games.gangues.report.your_gang')) : t('games.gangues.report.enemy_gang')}</small></div>
+      <b>{member.pv}/{member.pvMax} PV</b>
+    </div>
+  )
+}
 
 // Tela normal de relatório de batalha (vitória ou derrota) — modal de
 // level-up, painel de recompensa, resumo, roster final, ordem de iniciativa
@@ -99,7 +117,7 @@ export default function GanguesVictoryReport({
                   initial={{ opacity: 0, scale: 0.6 }} animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 0.15 + index * 0.1 }}
                 >
-                  <i>{retrato ? <img src={retrato} alt="" /> : nome?.[0]}</i>
+                  <i><GanguesRetratoImg src={retrato} fallback={nome?.[0]} /></i>
                   <small>{nome}</small>
                 </motion.span>
               )
@@ -193,11 +211,7 @@ export default function GanguesVictoryReport({
               ? getGanguesPortraitByTemplateId(member.character_template_id)
               : getGanguesEnemyPortraitById(member.id)
             return (
-              <div key={member.key} className={`gang-report-member gang-report-member--${member.side} ${member.pv <= 0 ? 'gang-report-member--ko' : ''}${retrato ? ' gang-report-member--foto' : ''}`}>
-                <span>{retrato ? <img src={retrato} alt="" /> : (combatantName(t, member)?.[0] || '?')}</span>
-                <div><strong>{combatantName(t, member)}</strong><small>{member.side === 'player' ? (store.gangName || t('games.gangues.report.your_gang')) : t('games.gangues.report.enemy_gang')}</small></div>
-                <b>{member.pv}/{member.pvMax} PV</b>
-              </div>
+              <ReportMemberRow key={member.key} member={member} retrato={retrato} nome={combatantName(t, member)} gangName={store.gangName} t={t} />
             )
           })}
         </div>

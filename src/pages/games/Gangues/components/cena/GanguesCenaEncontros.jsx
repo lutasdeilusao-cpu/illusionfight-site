@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import enemiesData from '../../data/gangues-enemies.json'
 import { getGanguesEnemyPortraitById } from '../../data/ganguesEnemyPortraits.js'
 import { escalarInimigo, pontosPreviewPoi } from '../../data/ganguesEncontros.js'
@@ -29,6 +30,10 @@ export function TretaVS({ poi, fala, nivelTropa, avisoOff, onOcultarAviso, onSim
   // território (reseta ao trocar de bairro).
   const abaixo = !avisoOff && poi.nivelRec && Number.isFinite(nivelTropa) && (poi.nivelRec - nivelTropa) >= 2
   const retrato = getGanguesEnemyPortraitById(poi.enemy)
+  // Falha de carregamento (rede ruim — ver GanguesRetratoImg/AGENTS.md
+  // 15/09/2026) cai pra inicial, igual quando não tem retrato nenhum.
+  const [retratoFalhou, setRetratoFalhou] = useState(false)
+  const temFoto = Boolean(retrato) && !retratoFalhou
   // A carta mostrava enemy.stats CRU do catálogo (achado do Isaias,
   // 15/09/2026: "a ficha exibida antes não condiz com a ficha interna") —
   // a luta de verdade sorteia um corpo do pool ESCALADO pro orçamento fixo
@@ -37,7 +42,7 @@ export function TretaVS({ poi, fala, nivelTropa, avisoOff, onOcultarAviso, onSim
   const pontosPreview = pontosPreviewPoi(poi, territorioId)
   const statsPreview = enemy && pontosPreview ? escalarInimigo(enemy, pontosPreview).stats : enemy?.stats
   return <div className="gang-cena-enc gang-cena-enc--vs">
-    <span className={`gang-cena-enc-selo${retrato ? ' gang-cena-enc-selo--foto' : ''}`}>{retrato ? <img src={retrato} alt="" /> : (nome || '?')[0]}</span>
+    <span className={`gang-cena-enc-selo${temFoto ? ' gang-cena-enc-selo--foto' : ''}`}>{temFoto ? <img src={retrato} alt="" onError={() => setRetratoFalhou(true)} /> : (nome || '?')[0]}</span>
     <span className="gang-cena-eyebrow">{poi.ehChefe ? t('games.gangues.story.boss_tag') : t('games.gangues.cena.tipo.treta')}</span>
     <h3 className="gang-cena-enc-titulo">{nome}{pontosPreview ? <em className="gang-cena-vs-nivel"> · {t('games.gangues.cena.nivel', { n: pontosPreview })}</em> : null}</h3>
     <p className="gang-cena-papo-fala">{falaShow}</p>
