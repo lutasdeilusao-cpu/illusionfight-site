@@ -26,7 +26,12 @@
 /* Ficha unificada (GanguesFichaCard, mesma linguagem visual do recrutamento)
    dentro do card cheio de largura do modal de combate — só ajusta o hero
    pra não sobrar o respiro de altura pensado pro modal estreito. */
-.gang-combat .gang-sheet-modal__hero { min-height: 0; padding: 6px 100px 4px 0; }
+/* min-height:0 cortava o topo do retrato (bug real reportado pelo Isaias com
+   print: "cabeça do personagem cortada na ficha") — o hero encolhia pro
+   tamanho do texto (~) enquanto o retrato de 96px, pendurado com bottom:-6px,
+   precisa de pelo menos ~102px de altura no hero pra caber sem estourar o
+   topo (que o `overflow:hidden` do hero corta). */
+.gang-combat .gang-sheet-modal__hero { min-height: 104px; padding: 6px 100px 4px 0; }
 .gang-combat .gang-sheet-modal__hero > i { font-size: 110px; right: 4px; bottom: -10px; }
 .gang-combat .gang-sheet-modal__hero .gang-sheet-modal__retrato { width: 96px; height: 96px; right: 4px; bottom: -6px; }
 .gang-combat .gang-sheet-modal__hero h2 { font-size: 28px; }

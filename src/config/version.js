@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.280.145' // feat: LDI Gangues - cabecinhas de NPC/inimigo na cena aumentadas (64px, maior que a do player em 54px) - pedido do Isaias depois de confirmar visualmente que o sistema de retrato nos pinos ficou legal. Ver GANGUES_VERSION.
+export const SITE_VERSION = '10.280.146' // fix: LDI Gangues - cabeca do inimigo cortada no popup de ficha do combate (min-height:0 no hero encolhia o container e o overflow:hidden cortava o topo do retrato). Ver GANGUES_VERSION.
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '2.93.0' // feat: cabecinhas de NPC/inimigo na cena aumentadas de 40px pra 64px (pedido do Isaias, 15/09/2026, depois de confirmar visualmente o sistema de retrato nos pinos: "as cabecinhas tão muito pequenininhas, sobretudo em relação ao player... o do inimigo maior que o do player"). Player (GangMarker) foi junto de 46px pra 54px — a folga entre os dois (inimigo > player) é de propósito, pra quem o jogador encontra pela cena chamar mais atenção que o próprio marcador. Só o `.gang-world-npc--retrato` (variante com foto) mudou de tamanho; o pino genérico sem foto (ícone ●/✊/etc) ficou do jeito que já era.
+export const GANGUES_VERSION   = '2.94.0' // fix: cabeça do inimigo cortada no popup de ficha do combate (print do Isaias: "Chinelada" com o topo do cabelo sumindo). Causa: `.gang-combat .gang-sheet-modal__hero { min-height: 0 }` deixava o hero encolher pro tamanho só do texto (nome + label), mas o retrato (96px, pendurado com `bottom:-6px` pra "descer" um pouco por baixo do texto) precisa de ~102px de altura livre no hero pra não estourar o topo — que o `overflow:hidden` herdado da regra base (GanguesLobby.css) corta sem piedade. Trocado `min-height:0` por `min-height:104px`. Verificado com harness de teste isolado (rota temporária renderizando só o popup de ficha com um inimigo fixo, revertida antes do commit): cabeça de "Chinelada" aparece inteira, sem corte, zero erro de console.
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
 export const MINIGAMES_VERSION = '4.3.6'  // PuzzleStealthGrid: d-pad na tela sempre (mobile tambem) + grade nao vaza mais do viewport
