@@ -25,7 +25,12 @@ export const POIS_PISTA = [
     // escolhas do papo: cada uma tem efeito próprio
     escolhas: [
       { id: 'compra', custoGrana: 4, recompensa: { rep: 0 }, revela: ['ferro'] },
-      { id: 'aperta', viraTreta: { enemy: 1201, rep: -1, recompensa: { grana: 4 }, revezamento: { pool: PISTA_POOL_RUA, budgetPorCorpo: 8, chanceDupla: 0.15 } }, revela: ['ferro'] },
+      // NÍVEL FIXO, AJUSTE 15/09/2026 nº2 (Isaias: "a primeira luta é MUITO
+      // fácil de propósito — ficha de 3 pontos, seja 1 ou 10 jogadores — a
+      // partir da SEGUNDA luta sobe de 3 em 3, sem exceção"). `sinal` é
+      // literalmente a 1ª luta do jogo — fica no piso de 3, todo o resto da
+      // ladder (a partir de `beco`) sobe a partir do 8.
+      { id: 'aperta', viraTreta: { enemy: 1201, rep: -1, recompensa: { grana: 4 }, revezamento: { pool: PISTA_POOL_RUA, budgetPorCorpo: 3, chanceDupla: 0.15 } }, revela: ['ferro'] },
       { id: 'ignora', revela: ['ferro'] },
     ],
   },
@@ -45,6 +50,9 @@ export const POIS_PISTA = [
     // semTravar, ganhar a treta da falha só revela o mapa (igual sempre) mas
     // NÃO marca `ferro` resolvido — o jogador pode voltar e tentar a gazua de
     // novo quantas vezes quiser, até acertar e ganhar a sucata de verdade.
+    // NÍVEL FIXO (ajuste 15/09/2026 nº2): já é a "2ª luta" tier — nível 8,
+    // confirmado pelo Isaias explicitamente ("esse jogador desse puzzle...
+    // já tem que ter uma ficha de 8"). Não mudou nesta leva.
     falha: { viraTreta: { enemy: 1201, recompensa: { grana: 3 }, revezamento: { pool: PISTA_POOL_RUA, budgetPorCorpo: 8, chanceDupla: 0.1 }, semTravar: true } },
     // Abrir a fechadura revela o beco (caminho principal), o fundo do
     // ferro-velho (achado — 2º pedaço de sucata) e a oficina do Nando (onde
@@ -96,11 +104,10 @@ export const POIS_PISTA = [
     // farmável pra sempre.
     // NÍVEL FIXO, AJUSTE 15/09/2026 (ver AGENTS.md — 1ª leva tinha descido
     // isso pra 3, o Isaias jogou e reportou com print: "ficha de 2-3 pontos,
-    // nem tem nível pra isso"). Piso corrigido pra 8 — regra dele: "quando
-    // for 1 [inimigo] tem que ser de 8 pontos pelo menos; quando for 2, um
-    // uns 8 e outro uns 6". Com budgetPorCorpo=8 e chanceDupla, a dupla já
-    // sai em round(8×0.75)=6 cada — bate exatamente com o pedido, sem
-    // precisar mexer no multiplicador de dupla (ganguesEncontros.js).
+    // nem tem nível pra isso"). Piso corrigido pra 8 — "a partir da 2ª luta
+    // do jogo é ficha de 8, sem exceção". Dupla: o 1º corpo mantém 8 cheio,
+    // o 2º sai 2-3 abaixo (ver `gerarBandoRevezamento`/ganguesEncontros.js —
+    // não é mais "os dois ×0.75 iguais").
     enemy: 1201,
     revezamento: { pool: PISTA_POOL_RUA, budgetPorCorpo: 8, chanceDupla: 0.4 },
     forca: 1,
@@ -132,7 +139,7 @@ export const POIS_PISTA = [
   },
   {
     id: 'beco_2',
-    nivelRec: 10,
+    nivelRec: 11,
     tipo: 'treta',
     // Regra geral (pedido do Isaias): todo evento de batalha da história
     // deve poder ser repetido pra upar, exceto o chefe. Continua
@@ -141,13 +148,12 @@ export const POIS_PISTA = [
     repetivel: true,
     pino: { x: 44, y: 48 },
     i18n: 'games.gangues.cena.pista.beco_2',
-    // NÍVEL FIXO (15/09/2026, ver AGENTS.md "Pista virou nível fixo"):
-    // segunda treta da ladder — nível 10 (rebaseada no ajuste do mesmo dia
-    // que subiu `beco` de 3 pra 8; era escalada contra o time do jogador via
-    // gerarBandoInimigo/ratio; convertida pro mesmo mecanismo FIXO de
-    // `revezamento` que `beco`/`sinal` já usavam, só que mais forte).
+    // NÍVEL FIXO (ajuste 15/09/2026 nº2): "de 3 em 3 a partir da 2ª luta",
+    // sem exceção — nível 11 (8 + 3). Era escalada contra o time do jogador
+    // via gerarBandoInimigo/ratio; convertida pro mesmo mecanismo FIXO de
+    // `revezamento` que `beco`/`sinal` já usavam.
     enemy: 1301,
-    revezamento: { pool: PISTA_POOL_RUA, budgetPorCorpo: 10, chanceDupla: 0.4 },
+    revezamento: { pool: PISTA_POOL_RUA, budgetPorCorpo: 11, chanceDupla: 0.4 },
     forca: 2,
     recompensa: { grana: 8, rep: 3 },
     revela: ['beco_3'],
@@ -157,15 +163,15 @@ export const POIS_PISTA = [
     // quem corre sem upar chegar no Carvão já em L6-L7 (e apanhar). Pool
     // comum da Pista, 'normal'. Repetível pra farm.
     id: 'beco_3',
-    nivelRec: 12,
+    nivelRec: 14,
     tipo: 'treta',
     repetivel: true,
     pino: { x: 40, y: 40 },
     i18n: 'games.gangues.cena.pista.beco_3',
-    // NÍVEL FIXO (15/09/2026): terceira treta da ladder — nível 12 (mesmo
-    // rebase de beco_2). Mesma conversão (era ratio, virou revezamento fixo).
+    // NÍVEL FIXO (ajuste 15/09/2026 nº2): +3 de novo — nível 14 (11 + 3).
+    // Mesma conversão de beco_2 (era ratio, virou revezamento fixo).
     enemy: 1302,
-    revezamento: { pool: PISTA_POOL_RUA, budgetPorCorpo: 12, chanceDupla: 0.4 },
+    revezamento: { pool: PISTA_POOL_RUA, budgetPorCorpo: 14, chanceDupla: 0.4 },
     forca: 2,
     recompensa: { grana: 9, rep: 3 },
     revela: ['sinaleiro'],
@@ -177,19 +183,18 @@ export const POIS_PISTA = [
     // os dois generais (Sinaleiro + Rasteira Velha) caem antes do Carvão
     // descer. Entra no álbum aqui, não só na luta de chefe.
     id: 'sinaleiro',
-    nivelRec: 15,
+    nivelRec: 17,
     tipo: 'treta',
     repetivel: true,
     pino: { x: 66, y: 30 },
     i18n: 'games.gangues.cena.pista.sinaleiro',
-    // NÍVEL FIXO (15/09/2026, ver AGENTS.md): General — acima da média da
-    // rua (que fecha em 12 no beco_3) — nível 15 (rebase no mesmo dia).
-    // `fixo`+`pontosFixo`: SEMPRE o Sinaleiro sozinho (nunca um pool
-    // aleatório), escalado pra esse ponto exato, nunca contra o time do
-    // jogador (ver GanguesCena.jsx).
+    // NÍVEL FIXO (ajuste 15/09/2026 nº2): continua o +3 sem exceção mesmo
+    // pros Generais — nível 17 (14 + 3). `fixo`+`pontosFixo`: SEMPRE o
+    // Sinaleiro sozinho (nunca um pool aleatório), escalado pra esse ponto
+    // exato, nunca contra o time do jogador (ver GanguesCena.jsx).
     enemy: 1451,
     fixo: true,
-    pontosFixo: 15,
+    pontosFixo: 17,
     forca: 3,
     recompensa: { grana: 12, rep: 5 },
     revela: ['rasteira_velha'],
@@ -201,17 +206,17 @@ export const POIS_PISTA = [
     // tem o nome dela. Luta sempre SÓ contra ela (`fixo`/`pontosFixo`, sem
     // escolta) — obrigatória pro portão.
     id: 'rasteira_velha',
-    nivelRec: 17,
+    nivelRec: 20,
     tipo: 'treta',
     repetivel: true,
     pino: { x: 58, y: 30 },
     i18n: 'games.gangues.cena.pista.rasteira_velha',
-    // NÍVEL FIXO (15/09/2026): a "quase-chefe", mais forte que o Sinaleiro —
-    // nível 17 (rebase no mesmo dia). Mesmo mecanismo `fixo`/`pontosFixo`
-    // (sempre a Rasteira Velha sozinha, nunca escalada pelo time do jogador).
+    // NÍVEL FIXO (ajuste 15/09/2026 nº2): +3 de novo — nível 20 (17 + 3).
+    // Mesmo mecanismo `fixo`/`pontosFixo` (sempre a Rasteira Velha sozinha,
+    // nunca escalada pelo time do jogador).
     enemy: 1452,
     fixo: true,
-    pontosFixo: 17,
+    pontosFixo: 20,
     forca: 3,
     recompensa: { grana: 10, rep: 6 },
   },
@@ -230,12 +235,12 @@ export const POIS_PISTA = [
     visivel: true,
     pino: { x: 40, y: 190 },
     i18n: 'games.gangues.cena.pista.rinha',
-    // NÍVEL FIXO (15/09/2026, rebase no mesmo dia): alinhado com o "1º
-    // inimigo" da ladder (nível 8, mesmo de `beco`) — a rinha é farm de
-    // entrada, não faz sentido continuar mais forte que a treta oficial
-    // mais fácil da Pista.
+    // NÍVEL FIXO (ajuste 15/09/2026 nº2): `rinha` fica visível desde o
+    // início, junto com `sinal` (antes até de abrir a gazua do ferro-velho)
+    // — realinhada pro mesmo piso de 3 da "1ª luta muito fácil", não pro 8
+    // de `beco` (que só existe depois de abrir o ferro-velho).
     enemy: 1201,
-    revezamento: { pool: PISTA_POOL_RUA, budgetPorCorpo: 8, chanceDupla: 0.35 },
+    revezamento: { pool: PISTA_POOL_RUA, budgetPorCorpo: 3, chanceDupla: 0.35 },
     forca: 1,
     dificuldade: 'facil',
     recompensa: { grana: 4 },
@@ -313,17 +318,15 @@ export const POIS_PISTA = [
     // tocaia. Tem que bater os dois pra a porta do galpão destrancar
     // (galpao.abreComResolvido). Repetíveis pra farm depois.
     id: 'posmuro_1',
-    nivelRec: 18,
+    nivelRec: 23,
     tipo: 'treta',
     repetivel: true,
     pos_portao: true,
     pino: { x: 40, y: 90 },
     i18n: 'games.gangues.cena.pista.posmuro_1',
-    // NÍVEL FIXO (15/09/2026, rebase no mesmo dia): vem depois dos 2
-    // Generais na ordem canônica — nível 18, entre a Rasteira Velha (17) e
-    // o Carvão (20).
+    // NÍVEL FIXO (ajuste 15/09/2026 nº2): +3 de novo — nível 23 (20 + 3).
     enemy: 1206,
-    revezamento: { pool: PISTA_POOL_GALPAO, budgetPorCorpo: 18, chanceDupla: 0.5 },
+    revezamento: { pool: PISTA_POOL_GALPAO, budgetPorCorpo: 23, chanceDupla: 0.5 },
     forca: 2,
     dificuldade: 'normal',
     recompensa: { grana: 9, rep: 3 },
@@ -331,20 +334,20 @@ export const POIS_PISTA = [
   },
   {
     id: 'posmuro_2',
-    nivelRec: 19,
+    nivelRec: 26,
     tipo: 'treta',
     repetivel: true,
     pino: { x: 60, y: 60 },
     i18n: 'games.gangues.cena.pista.posmuro_2',
-    // NÍVEL FIXO (15/09/2026): último degrau opcional antes do Carvão (20) —
-    // nível 19 (sem mudança no rebase — já estava logo abaixo do chefe),
-    // "mais osso do que o resto da rua" continua valendo.
+    // NÍVEL FIXO (ajuste 15/09/2026 nº2): último degrau antes do Carvão
+    // (30) — nível 26 (23 + 3), "mais osso do que o resto da rua" continua
+    // valendo.
     enemy: 1301,
     liderFixo: 1301,
     // Gate de reputação: essa treta é do Cão Louco, mais osso do que o resto
     // da rua — não trava o Sinaleiro/Rasteira Velha (progressão obrigatória).
     repGate: GANGUES_REP_GATE_GALPAO,
-    revezamento: { pool: PISTA_POOL_GALPAO, budgetPorCorpo: 19, chanceDupla: 0.6 },
+    revezamento: { pool: PISTA_POOL_GALPAO, budgetPorCorpo: 26, chanceDupla: 0.6 },
     forca: 3,
     dificuldade: 'dificil',
     recompensa: { grana: 12, rep: 4, item: 21, qtd: 1 },

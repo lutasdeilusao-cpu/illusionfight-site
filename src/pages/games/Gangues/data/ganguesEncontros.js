@@ -120,7 +120,18 @@ export const GANGUES_CHEFE_EQUIPE = {
 // 33×0.60=19.8→20 (Carvão) e o resto (13) pro Sinaleiro que o acompanha.
 // Os outros 6 territórios (ainda formato antigo) continuam na tabela velha
 // até passarem pelo mesmo tratamento.
-export const GANGUES_CHEFE_BUDGET = { pista: 33, feira: 110, baixada: 210, vila: 345, morro: 510, alto: 606, laje: 732 }
+//
+// AJUSTE 15/09/2026 nº2 (Isaias, direto, sem ambiguidade): "de três em três
+// essa progressão, a primeira luta [sinal] é MUITO fácil de propósito (ficha
+// de 3, sempre) — a partir da segunda luta sobe de 3 em 3 sem exceção, cada
+// inimigo novo tem que obrigar a ralar uns 3 níveis pra encarar o próximo."
+// Ladder final da Pista: sinal=3 · beco=8 · beco_2=11 · beco_3=14 ·
+// Sinaleiro=17 · Rasteira Velha=20 · posmuro_1=23 · posmuro_2=26 ·
+// Carvão=30 (o chefe quebra o padrão de +3 de propósito — "pra ser difícil,
+// pra ser ralado"). Budget recalculado pra bater Carvão=30: corpos=2,
+// liderFrac=0.60 → 50×0.60=30 (Carvão) e o resto (20) pro Sinaleiro que
+// some com ele na luta de chefe.
+export const GANGUES_CHEFE_BUDGET = { pista: 50, feira: 110, baixada: 210, vila: 345, morro: 510, alto: 606, laje: 732 }
 export const GANGUES_CHEFE_LIDER_FRAC = 0.60
 // Quantos CORPOS o bando do chefe tem (o resto de GANGUES_CHEFE_EQUIPE fica só
 // pra lore/álbum). Pista = 2 (Carvão + Rasteira Velha): 2×2 é a única treta
@@ -364,8 +375,12 @@ export function gerarBandoEvento({ territorioId, playerTeam, enemiesData, modo =
  *  território e a amarra de qtdMin (ceil(time × 0.6)) que fazia toda treta vir
  *  com 2+ corpos. `pool` = ids que podem aparecer; `budgetPorCorpo` = pontos de
  *  cada capanga (o molde é escalado pra esse total — os vigias 11xx nascem com
- *  4); `chanceDupla` = prob. de vir 2 em vez de 1 (a dupla vem mais magra,
- *  ×0.75, pra não ser só o dobro).
+ *  4); `chanceDupla` = prob. de vir 2 em vez de 1.
+ *  AJUSTE 15/09/2026 (Isaias): quando vem dupla, NÃO é "os dois saem iguais,
+ *  mais fracos" (era ×0.75 nos dois) — o 1º corpo mantém a ficha OFICIAL do
+ *  POI (`budgetPorCorpo` cheio) e só o(s) outro(s) saem 2-3 pontos abaixo
+ *  (`DUPLA_DEDUCAO_MIN/MAX`), pra continuar parecendo o mesmo nível de
+ *  ameaça, só um corpo mais fresco/novato do que o outro.
  *
  *  `qtdMin`/`qtdMax`: opcional — troca o "1, às vezes 2" pelo modo "multidão
  *  GARANTIDA" (ex: o galpão do Carvão, que o Isaias pediu pra ser sempre osso
@@ -377,6 +392,9 @@ export function gerarBandoEvento({ territorioId, playerTeam, enemiesData, modo =
  *  de personalidade do budget autorado (o galpão nunca fica mole demais nem
  *  vira paredão puro pra quem chegou fraco). Reportado pelo Isaias
  *  (2026-09-13): nível 11/12 matava tudo com um golpe no galpão. */
+const GANGUES_DUPLA_DEDUCAO_MIN = 2
+const GANGUES_DUPLA_DEDUCAO_MAX = 3
+
 export function gerarBandoRevezamento({ pool, budgetPorCorpo = 5, chanceDupla = 0.3, enemiesData, modo = 'medio', qtdMin, qtdMax, playerTeam, ratioComTime = 0 }) {
   if (!pool?.length || !enemiesData?.length) return null
   const multidaoGarantida = qtdMin != null && qtdMax != null
@@ -384,17 +402,23 @@ export function gerarBandoRevezamento({ pool, budgetPorCorpo = 5, chanceDupla = 
   const qtd = multidaoGarantida ? (qtdMin + Math.floor(Math.random() * (qtdMax - qtdMin + 1))) : (dupla ? 2 : 1)
   const mult = GANGUES_MODO_MULT[modo] ?? 1
   const bonusTime = (playerTeam?.length && ratioComTime > 0) ? (calcularPontosTime(playerTeam) * ratioComTime) / qtd : 0
-  const baseCorpo = multidaoGarantida ? budgetPorCorpo : (dupla ? budgetPorCorpo * 0.75 : budgetPorCorpo)
-  const orcamento = Math.max(2, Math.round((baseCorpo + bonusTime) * mult))
+  // Dupla: só o 1º corpo (índice 0) leva a ficha oficial do POI; os demais
+  // saem 2-3 pontos abaixo (nunca os dois "amaciados" igual — ver comentário
+  // da função). `multidaoGarantida` não usa dedução nenhuma (osso duro
+  // sempre, de propósito).
+  const deducaoCorpo = i => (multidaoGarantida || i === 0)
+    ? 0
+    : GANGUES_DUPLA_DEDUCAO_MIN + Math.floor(Math.random() * (GANGUES_DUPLA_DEDUCAO_MAX - GANGUES_DUPLA_DEDUCAO_MIN + 1))
 
   const bag = []
   const sortear = () => {
     if (!bag.length) bag.push(...pool)
     return bag.splice(Math.floor(Math.random() * bag.length), 1)[0]
   }
-  const bando = Array.from({ length: qtd }, () => {
+  const bando = Array.from({ length: qtd }, (_, i) => {
     const id = sortear()
     const molde = enemiesData.find(e => e.id === id)
+    const orcamento = Math.max(2, Math.round((budgetPorCorpo - deducaoCorpo(i) + bonusTime) * mult))
     return molde ? escalarInimigo(molde, orcamento) : null
   }).filter(Boolean)
 
