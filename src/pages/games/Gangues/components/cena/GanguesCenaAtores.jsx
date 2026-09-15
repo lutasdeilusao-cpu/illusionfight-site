@@ -1,6 +1,8 @@
 import { useCallback, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { STEP_MS } from '../../engine/ganguesCenaMotor.js'
+import { getGanguesNpcPortrait } from '../../data/ganguesNpcPortraits.js'
+import { getGanguesEnemyPortraitById } from '../../data/ganguesEnemyPortraits.js'
 
 // Marcador do jogador (a gangue) no mundo — anda com transição suave entre
 // passos. Extraído de GanguesCena.jsx
@@ -51,6 +53,21 @@ export function EntryZone({ poi, active }) {
 
 const ICONE = { treta: '✊', parada: '🔧', papo: '●', corre: '!', achado: '◆', descanso: '☕', loja: '🏪' }
 
+// Retrato do pino — mesma ideia do GangMarker (cabeça de verdade no lugar
+// do ícone genérico, pedido do Isaias, 15/09/2026: "todo personagem agora
+// tem que ser uma cabecinha... por que que os personagens não estão com
+// cabecinha sendo que eu criei todos"). Papo (NPC nomeado, ex: Nego Véio)
+// usa `npcSlug`; treta com identidade FIXA (general/chefe/líder de galpão)
+// usa `liderFixo` ou `enemy` — mas só quando NÃO tem `revezamento` (pool
+// aleatório): aí o "molde" na tela é só uma cara de referência, quem
+// aparece de verdade na luta é sorteado, então mostrar uma cabeça fixa
+// seria mentira.
+function retratoDoPino(p) {
+  if (p.npcSlug) return getGanguesNpcPortrait(p.npcSlug)
+  if (!p.revezamento && (p.liderFixo || p.enemy)) return getGanguesEnemyPortraitById(p.liderFixo || p.enemy)
+  return null
+}
+
 // Pino do alvo (POI, porta, saída, passagem). `ehChefe`/`ehPorta`/... decidem o ícone e o rótulo.
 export function PinoAlvo({ p, t }) {
   if (p.estado === 'trancado' && !(p.ehPassagem || p.ehChefe)) return null
@@ -61,8 +78,9 @@ export function PinoAlvo({ p, t }) {
     : p.ehVolta ? t('games.gangues.cena.acao.voltar')
     : p.ehPassagem ? (p.estado === 'trancado' ? t('games.gangues.cena.acao.trancado') : t(`games.gangues.cena.acao.${p.label || 'avancar'}`))
     : (p.i18n ? t(`${p.i18n}.nome`) : '')
-  return <div className={`gang-world-npc is-${p.estado} ${farolDe(p)} ${p.ehChefe ? 'is-boss' : ''} ${p.farmCompleto ? 'is-farm' : ''} ${p.ehPorta || p.ehSaida || p.ehVolta || p.ehPassagem ? 'is-nav' : ''}`} style={{ left: p.world.x, top: p.world.y }}>
-    <span>{icone}</span>
+  const retrato = retratoDoPino(p)
+  return <div className={`gang-world-npc is-${p.estado} ${farolDe(p)} ${p.ehChefe ? 'is-boss' : ''} ${p.farmCompleto ? 'is-farm' : ''} ${p.ehPorta || p.ehSaida || p.ehVolta || p.ehPassagem ? 'is-nav' : ''} ${retrato ? 'gang-world-npc--retrato' : ''}`} style={{ left: p.world.x, top: p.world.y }}>
+    <span>{retrato ? <img src={retrato} alt="" /> : icone}</span>
     {p.estado !== 'trancado' || p.ehPassagem || p.ehChefe ? <small>{nome}</small> : null}
     {p.farmCompleto && <i className="gang-world-npc-farm-tag" aria-hidden="true">↻</i>}
   </div>

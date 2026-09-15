@@ -3,6 +3,7 @@ import { getGanguesEffectTheme } from '../data/ganguesEffectThemes.js'
 import { getGanguesProgression, ganguesXpMaxForSheet } from '../data/ganguesLoadout.js'
 import { fighterName } from '../engine/ganguesCombatPresentation.js'
 import { getGanguesPortraitByTemplateId } from '../data/ganguesPortraits.js'
+import { getGanguesEnemyPortraitById } from '../data/ganguesEnemyPortraits.js'
 import DramaticDice from './DramaticDice'
 import GanguesFichaCard from './GanguesFichaCard'
 
@@ -110,7 +111,7 @@ export default function GanguesCombatOverlays({
               <GanguesFichaCard
                 nome={fighterName(t, fichaAberta)}
                 caminho={fichaAberta.combat_path}
-                retrato={fichaAberta.side !== 'enemy' ? getGanguesPortraitByTemplateId(fichaAberta.character_template_id) : null}
+                retrato={fichaAberta.side !== 'enemy' ? getGanguesPortraitByTemplateId(fichaAberta.character_template_id) : getGanguesEnemyPortraitById(fichaAberta.id)}
                 nivel={fichaAberta.side !== 'enemy' ? fichaAberta.level : null}
                 atributos={fichaAberta.attributes || fichaAberta.stats}
                 pv={{ atual: fichaAberta.pv || 0, max: fichaAberta.pvMax || 1 }}
