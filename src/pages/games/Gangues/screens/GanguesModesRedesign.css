@@ -39,11 +39,19 @@
   font: 800 .65rem var(--font-mono); text-transform: uppercase;
 }
 .gang-modes-card {
+  /* Corte irregular igual o resto do jogo (fighter-card/ficha) — o
+     chanfro de canto único herdado de GanguesModes.css era a última
+     "quadrado técnico antigo" sobrevivendo aqui (reportado pelo Isaias,
+     15/09/2026, com print: "você manteve os quadrados exatamente como
+     eram antigamente"). Redeclarado aqui pra vencer a cascata (o arquivo
+     base nunca tinha o clip-path sobrescrito, então a forma velha
+     sobrevivia por baixo do fundo novo). */
   --modo-cor: var(--if-amber); position: relative; min-height: 210px; width: 100%; padding: 18px;
   display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-end; gap: 5px;
   overflow: hidden; text-align: left; border: 1px solid color-mix(in srgb, var(--modo-cor) 35%, transparent); border-left-width: 4px; border-left-color: var(--modo-cor);
-  background: linear-gradient(155deg, color-mix(in srgb, var(--modo-cor) 16%, #1a0f08), #0c0603);
+  background: linear-gradient(155deg, color-mix(in srgb, var(--modo-cor) 20%, #1a0f08), #0c0603);
   box-shadow: 0 18px 44px -28px var(--modo-cor);
+  clip-path: polygon(0 3%, 6% 0, 94% 1%, 100% 5%, 99% 90%, 95% 100%, 5% 99%, 0 93%);
 }
 button.gang-modes-card { cursor: pointer; }
 .gang-modes-card-index { position: absolute; top: 14px; left: 15px; color: var(--modo-cor); font: 800 .62rem var(--font-mono); letter-spacing: .18em; }
@@ -68,7 +76,11 @@ button.gang-modes-card { cursor: pointer; }
 .gang-modes-card-cta { margin-top: 7px; color: var(--modo-cor); font: 400 1rem/1 'Permanent Marker', cursive; }
 .gang-modes-card--batalha { --modo-cor: var(--if-teal); min-height: 145px; }
 .gang-modes-card--multiplayer { --modo-cor: var(--if-violet); min-height: 145px; }
-.gang-modes-card--locked { opacity: .42; filter: grayscale(.6); }
+/* Bloqueado precisa continuar lendo como "menos" (opacidade), não como
+   "voltou pro visual antigo" — grayscale(.6) apagava toda a cor da
+   identidade nova (o fundo marrom-tijolo+accent virava só cinza chapado,
+   indistinguível do painel técnico de antes). Só opacidade agora. */
+.gang-modes-card--locked { opacity: .55; }
 .gang-modes-lock { position: absolute; right: 20px; top: 28px; color: var(--modo-cor); font: 300 3.2rem/1 var(--font-display); }
 @media (prefers-reduced-motion: reduce) { .gang-modes-card { transition: none; } }
 .gang-naming { justify-content:center; }

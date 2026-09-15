@@ -444,27 +444,29 @@
 .gang-home-actions .gang-home-actions__play b { margin-left: auto; color: var(--bg-primary); }
 .gang-roster-drawer { margin-top: 12px; padding: 13px 10px; border: 1px solid var(--if-hair); background: var(--if-panel-flat); }
 
-/* Botão de batalha promovido pro topo do lobby — CTA principal da tela,
-   vira spray-paint igual as outras telas já redesenhadas (halo via
-   ::before, texto em Permanent Marker). */
+/* Botão de batalha promovido pro topo do lobby — CTA principal da tela.
+   1ª tentativa (só halo translúcido via ::before) sumia em cima da parede
+   oficial (arte cheia de cor forte) — o Isaias reportou "não tá dando
+   pra notar que é um botão, precisa de um background" DEPOIS de eu já
+   ter tentado uma vez. Agora tem uma chapa sólida marrom-tijolo de
+   verdade por baixo do halo, igual a ficha/os cards do fighter-card —
+   nunca mais só o glow sozinho flutuando sobre a arte. */
 .gang-lobby .gang-home-actions__play--top {
   --cor: var(--if-amber);
   position: relative; width: 100%; min-height: 58px; margin-top: 14px; padding: 0 16px;
   display: flex; align-items: center; justify-content: center; gap: 10px;
-  background: transparent; border: none; color: #fff8ec;
+  border: 1px solid color-mix(in srgb, var(--cor) 55%, transparent);
+  background: linear-gradient(155deg, color-mix(in srgb, var(--cor) 20%, #241108), #0c0603);
+  color: #fff8ec;
   font: 400 1.25rem/1 'Permanent Marker', cursive;
   text-shadow: 0 2px 0 rgba(0, 0, 0, .6), 0 0 16px color-mix(in srgb, var(--cor) 70%, transparent);
+  clip-path: polygon(0 3%, 6% 0, 94% 1%, 100% 6%, 99% 88%, 96% 100%, 4% 99%, 0 92%);
 }
 .gang-lobby .gang-home-actions__play--top::before {
-  content: ''; position: absolute; inset: -6px; z-index: -1;
-  background:
-    radial-gradient(38% 60% at 22% 30%, color-mix(in srgb, var(--cor) 40%, transparent), transparent 70%),
-    radial-gradient(30% 50% at 78% 70%, color-mix(in srgb, var(--cor) 32%, transparent), transparent 70%),
-    radial-gradient(70% 80% at 50% 50%, color-mix(in srgb, var(--cor) 20%, transparent), transparent 75%);
-  border: 2px solid color-mix(in srgb, var(--cor) 60%, transparent);
-  border-radius: 52% 48% 55% 45% / 44% 56% 44% 56%;
+  content: ''; position: absolute; inset: -8px; z-index: -1;
+  background: radial-gradient(70% 90% at 50% 50%, color-mix(in srgb, var(--cor) 32%, transparent), transparent 75%);
 }
-.gang-lobby .gang-home-actions__play--top:active::before { background: color-mix(in srgb, var(--cor) 30%, transparent); }
+.gang-lobby .gang-home-actions__play--top:active { background: linear-gradient(155deg, color-mix(in srgb, var(--cor) 32%, #241108), #0c0603); }
 .gang-lobby .gang-home-actions__play--top b { color: #fff8ec; font-size: 1.1rem; }
 
 /* Acesso ao Álbum de Marélia — secundário, logo abaixo do play; continua
