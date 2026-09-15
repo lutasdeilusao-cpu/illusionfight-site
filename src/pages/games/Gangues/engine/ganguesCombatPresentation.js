@@ -100,13 +100,7 @@ export function transformarEvento(t, event, combatants) {
   const isPlayer = event.side === 'player'
   const entries = [{
     id: event.id, kind: 'attack_card', side: event.side,
-    // `actorTemplateId`: id numérico do catálogo dos 30 (só existe pra
-    // combatente do jogador — inimigo não tem `character_template_id`).
-    // Adicionado pro teste de sprite animado de ataque do Trinca (Isaias,
-    // 15/09/2026, "só um teste, se funcionar a gente faz oficial") — sem
-    // isso o log não tinha como saber QUEM especificamente deu o golpe
-    // pra decidir se mostra a animação especial dele.
-    actorName: fighterName(t, actor), actorRetrato: retratoDoCombatente(actor), actorTemplateId: actor.character_template_id || null, targetName: fighterName(t, target), round: event.round,
+    actorName: fighterName(t, actor), actorRetrato: retratoDoCombatente(actor), targetName: fighterName(t, target), round: event.round,
     fa: event.result.fa, fd: event.result.fd, dice: event.result.rolls.fa, defenseDice: event.result.rolls.fd,
     dmg: event.result.damage, onoma: randomOnoma(),
     shieldConsumed: event.result.shieldConsumed || 0,

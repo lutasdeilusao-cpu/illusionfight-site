@@ -2,30 +2,6 @@ import { forwardRef } from 'react'
 import { motion } from 'framer-motion'
 import { getGanguesEffectTheme } from '../data/ganguesEffectThemes.js'
 import GanguesRetratoImg from './GanguesRetratoImg'
-import trincaSoco from '../assets/personagens/trinca/soco-sprite.webp'
-
-// TESTE ÚNICO de sprite animado de ataque (pedido do Isaias, 15/09/2026: fez
-// uma folha de sprite do Trinca socando num gerador externo — "eu vou fazer
-// um teste único com [personagem 1 de] 30, se funcionar a gente vai fazer
-// oficial") — hardcoded pro Trinca (catálogo id 1) de propósito, só em
-// ataque NORMAL (sem poder ativo, ver `!entry.activeSpecialId` no ponto de
-// uso). Se aprovado, generalizar pra outros personagens é decisão futura,
-// não construída antecipadamente aqui (evita over-engineering em cima de
-// uma arte que ainda pode nem ficar aprovada).
-const GANGUES_TRINCA_SPRITE_TESTE_ID = 1
-// Folha 4×2 (8 quadros, `soco-sprite.png`) — ver .gang-trinca-soco-sprite em
-// Gangues.css pro passo a passo da animação (8 posições explícitas de
-// background-position, uma por quadro).
-function TrincaSocoSprite({ dmg, critical }) {
-  return (
-    <div className="gang-trinca-soco-wrap">
-      <span className={`gang-trinca-soco-dano${dmg === 0 ? ' gang-trinca-soco-dano--zero' : ''}${critical ? ' gang-trinca-soco-dano--crit' : ''}`}>
-        {dmg === 0 ? '0' : `−${dmg}`}
-      </span>
-      <span className="gang-trinca-soco-sprite" style={{ backgroundImage: `url(${trincaSoco})` }} />
-    </div>
-  )
-}
 
 // Lista de log do combate — mensagens de sistema, trash talk, ordem de
 // iniciativa e o card de ataque (FA/FD/dado/crítico/bônus/dano).
@@ -60,12 +36,9 @@ const GanguesCombatLogList = forwardRef(function GanguesCombatLogList({ log, t }
         }
         const isPlayer = entry.side === 'player'
         const fxLog = getGanguesEffectTheme(entry.activeSpecialId)
-        const ehSocoTesteTrinca = entry.actorTemplateId === GANGUES_TRINCA_SPRITE_TESTE_ID && !entry.activeSpecialId
         return (
           <motion.div key={entry.id} className={`gang-msg-wrap ${isPlayer ? 'gang-msg-wrap--player' : ''}`} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}>
-            {ehSocoTesteTrinca
-              ? <TrincaSocoSprite dmg={entry.dmg} critical={entry.critical} />
-              : <div className={`gang-msg-avatar ${isPlayer ? 'gang-msg-avatar--player' : 'gang-msg-avatar--enemy'}${entry.actorRetrato ? ' gang-msg-avatar--foto' : ''}`}><GanguesRetratoImg src={entry.actorRetrato} fallback={entry.actorName[0]} /></div>}
+            <div className={`gang-msg-avatar ${isPlayer ? 'gang-msg-avatar--player' : 'gang-msg-avatar--enemy'}${entry.actorRetrato ? ' gang-msg-avatar--foto' : ''}`}><GanguesRetratoImg src={entry.actorRetrato} fallback={entry.actorName[0]} /></div>
             <div className="gang-attack-stack">
               <div className={`gang-attack-card gang-attack-card--${isPlayer ? 'player' : 'enemy'} ${fxLog ? 'gang-attack-card--fx' : ''}`} style={fxLog ? { '--fx-rgb': fxLog.rgb } : undefined}>
                 <div className="gang-attack-card-header">{entry.actorName}{fxLog && <em className="gang-attack-card-power">{fxLog.glyphs[0]} {t(`games.gangues.progression.skills.${entry.activeSpecialId}`)}</em>}</div>

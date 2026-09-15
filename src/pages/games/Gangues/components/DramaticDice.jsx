@@ -2,7 +2,18 @@ import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useLanguage } from '../../../../context/LanguageContext'
 import { sfx } from '../../../../lib/sfx'
+import trincaSoco from '../assets/personagens/trinca/soco-sprite.webp'
 import './DramaticDice.css'
+
+// TESTE ÚNICO de sprite animado de ataque (pedido do Isaias, 15/09/2026: fez
+// uma folha de sprite do Trinca socando num gerador externo, testado 1x na
+// lista de log antes — "colocou a animação ali no momento que ninguém vai
+// ver nada... tem que estar em destaque na hora que tá sendo dado o dado").
+// Pertence AQUI, na tela cheia do dado dramático (o momento de destaque de
+// verdade do combate), não no log — hardcoded pro Trinca (catálogo id 1) e
+// só em ataque NORMAL (`!powerName`, que já vem null quando não tem poder
+// ativo). Se aprovado, generalizar pra outros personagens é decisão futura.
+const GANGUES_TRINCA_SPRITE_TESTE_ID = 1
 
 /**
  * DramaticDice — Tela cheia que pausa o jogo e mostra um dado rodando
@@ -11,9 +22,10 @@ import './DramaticDice.css'
  * Mostra QUEM está atacando e em QUEM — sem isso o jogador se perde no
  * meio da rolagem, sem saber de quem é o turno.
  *
- * @param {{ finalValue: number, sides?: number, side: 'player'|'enemy', onComplete: () => void, powerName?: string, attackerName?: string, attackerRetrato?: string|null, targetName?: string, theme?: { rgb: string, glyphs: string[], particleCount: number } | null }} props
+ * @param {{ finalValue: number, sides?: number, side: 'player'|'enemy', onComplete: () => void, powerName?: string, attackerName?: string, attackerRetrato?: string|null, targetName?: string, theme?: { rgb: string, glyphs: string[], particleCount: number } | null, attackerTemplateId?: number|null }} props
  */
-export default function DramaticDice({ finalValue, sides = 6, side, onComplete, powerName, attackerName, attackerRetrato, targetName, theme }) {
+export default function DramaticDice({ finalValue, sides = 6, side, onComplete, powerName, attackerName, attackerRetrato, targetName, theme, attackerTemplateId }) {
+  const ehSocoTrinca = attackerTemplateId === GANGUES_TRINCA_SPRITE_TESTE_ID && !powerName
   const { t } = useLanguage()
   const [display, setDisplay] = useState(null)       // null = fase de "aquecimento"
   const [phase, setPhase] = useState('intro')        // intro → rolling → reveal → done
@@ -125,7 +137,7 @@ export default function DramaticDice({ finalValue, sides = 6, side, onComplete, 
         {/* Background blur */}
         <div className="dramatic-dice-bg" />
 
-        <div className="dramatic-dice-container" style={fx ? { '--fx-rgb': fx.rgb } : undefined}>
+        <div className={`dramatic-dice-container${ehSocoTrinca ? ' dramatic-dice-container--compacto' : ''}`} style={fx ? { '--fx-rgb': fx.rgb } : undefined}>
           {/* Nome do poder (se houver) — aparece antes da label */}
           {powerName && (
             <motion.div
@@ -241,6 +253,20 @@ export default function DramaticDice({ finalValue, sides = 6, side, onComplete, 
               </motion.div>
             )}
           </div>
+
+          {/* Soco do Trinca, teste único — fica ENTRE o dado (agora pequeno,
+              lá em cima) e o texto final (crítico/etc, embaixo), como pedido:
+              "em destaque na hora que tá sendo dado o dado". Roda durante o
+              giro e a revelação (a instância inteira remonta a cada ataque,
+              via `key` no ponto de uso em GanguesCombatOverlays.jsx — a
+              animação CSS reinicia sozinha). */}
+          {ehSocoTrinca && (
+            <span
+              className="dramatic-dice-trinca-soco"
+              style={{ backgroundImage: `url(${trincaSoco})` }}
+              aria-hidden="true"
+            />
+          )}
 
           {/* Frase dramática embaixo */}
           <motion.div

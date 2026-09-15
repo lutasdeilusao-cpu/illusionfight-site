@@ -117,6 +117,10 @@ export default function GanguesCombatOverlays({
             targetName={fighterName(t, machine.combatants.find(item => item.key === machine.pending.targetKey))}
             powerName={machine.pending.result.activeSpecialId ? t(`games.gangues.progression.skills.${machine.pending.result.activeSpecialId}`) : null}
             theme={getGanguesEffectTheme(machine.pending.result.activeSpecialId)}
+            attackerTemplateId={(() => {
+              const actor = machine.combatants.find(item => item.key === machine.pending.actorKey)
+              return actor?.side === 'player' ? actor.character_template_id : null
+            })()}
             onComplete={machine.completePending}
           />
         )}

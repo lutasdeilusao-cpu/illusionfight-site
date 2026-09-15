@@ -952,50 +952,6 @@
 .gang-msg-avatar--foto { overflow: hidden; padding: 0; }
 .gang-msg-avatar--foto img { width: 100%; height: 100%; object-fit: cover; image-rendering: pixelated; }
 
-/* Teste único de sprite animado de ataque do Trinca (pedido do Isaias,
-   15/09/2026 — arte gerada externamente, folha 4×2/8 quadros). Substitui o
-   avatar circular pequeno só nesse caso específico: quadro maior, centrado,
-   com o dano flutuando pequeno em cima (em vez do número no corpo do card).
-   8 posições explícitas de background-position (não um `steps()` genérico)
-   porque a folha é uma grade 2D (4 colunas × 2 linhas) — um `steps()` só
-   varre 1 eixo; `animation-timing-function` POR keyframe é o jeito de ter
-   avanço discreto (sem deslizar entre quadros) em uma grade 2D. Se o teste
-   for aprovado e virar oficial pra mais personagens, generalizar isso pra
-   um componente parametrizado é trabalho futuro — hoje é hardcoded de
-   propósito, uma arte só. */
-.gang-trinca-soco-wrap { display: flex; flex-direction: column; align-items: center; gap: 2px; flex-shrink: 0; width: 72px; }
-.gang-trinca-soco-dano {
-  font: 800 14px 'Rajdhani', sans-serif; color: #ff6b6b;
-  text-shadow: 0 0 6px rgba(0, 0, 0, .8);
-}
-.gang-trinca-soco-dano--zero { color: #8b93a0; }
-.gang-trinca-soco-dano--crit { color: #ffd93d; font-size: 17px; }
-.gang-trinca-soco-sprite {
-  width: 72px; height: 72px;
-  background-repeat: no-repeat; background-size: 400% 200%; background-position: 0% 0%;
-  image-rendering: pixelated;
-  /* `forwards`: sem isso, ao terminar a animação o navegador volta pro
-     background-position "base" (0% 0%, o primeiro quadro) em vez de manter
-     o último quadro — achado testando ao vivo (Playwright): sem `forwards`
-     o soco terminava sempre "voltando" pro quadro de guarda em vez de ficar
-     no quadro do golpe. */
-  animation: gang-trinca-soco .8s steps(1) 1 forwards;
-}
-@keyframes gang-trinca-soco {
-  0%    { background-position: 0% 0%;        animation-timing-function: steps(1); }
-  12.5% { background-position: 33.333% 0%;   animation-timing-function: steps(1); }
-  25%   { background-position: 66.667% 0%;   animation-timing-function: steps(1); }
-  37.5% { background-position: 100% 0%;      animation-timing-function: steps(1); }
-  50%   { background-position: 0% 100%;      animation-timing-function: steps(1); }
-  62.5% { background-position: 33.333% 100%; animation-timing-function: steps(1); }
-  75%   { background-position: 66.667% 100%; animation-timing-function: steps(1); }
-  87.5% { background-position: 100% 100%; }
-  100%  { background-position: 100% 100%; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .gang-trinca-soco-sprite { animation: none; background-position: 100% 100%; }
-}
-
 .gang-bubble {
   max-width: 72%; padding: 8px 12px; font-size: 12px; line-height: 1.5;
   font-family: 'Courier New', monospace; border-radius: 12px;
