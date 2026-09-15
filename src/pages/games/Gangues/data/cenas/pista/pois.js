@@ -10,6 +10,9 @@ export const POIS_PISTA = [
   {
     id: 'sinal',
     tipo: 'papo',
+    // Cabeça oficial do pivete do Bonde do Sinal que fica nesse ponto
+    // (arte do Isaias, 14/09/2026 — "Cria do Sinal").
+    npcSlug: 'cria_do_sinal',
     visivel: true,
     // Repetível: a opção "aperta" (brigar com o moleque, enemy:1201)
     // é a primeira briga que existe no jogo — o jogador pode voltar aqui e
@@ -101,6 +104,7 @@ export const POIS_PISTA = [
   {
     id: 'birosca',
     tipo: 'papo',
+    npcSlug: 'nego_veio',
     pino: { x: 62, y: 100 },
     i18n: 'games.gangues.cena.pista.birosca',
     escolhas: [
@@ -241,6 +245,7 @@ export const POIS_PISTA = [
     // e repetível: o jogador pode voltar aqui a qualquer momento.
     id: 'informante',
     tipo: 'papo',
+    npcSlug: 'duda_o_orelha',
     opcional: true,
     repetivel: true,
     visivel: true,

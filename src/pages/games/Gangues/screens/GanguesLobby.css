@@ -139,8 +139,8 @@
   text-shadow: 0 2px 0 rgba(0, 0, 0, .6), 0 0 20px color-mix(in srgb, var(--if-amber) 40%, transparent);
   transform: rotate(-1deg);
 }
-.gang-recruit__head p { margin: 0; color: var(--text-secondary); font-size: 11px; line-height: 1.45; }
-.gang-recruit__aviso-lider { margin: 8px 0 0 !important; color: var(--if-amber) !important; font: 800 10px var(--font-mono) !important; letter-spacing: .04em; }
+.gang-recruit__head p { margin: 0; color: #e7ded0; font-size: 11px; line-height: 1.45; text-shadow: 0 1px 3px rgba(0, 0, 0, .9); }
+.gang-recruit__aviso-lider { margin: 8px 0 0 !important; color: var(--if-amber) !important; font: 800 10px var(--font-mono) !important; letter-spacing: .04em; text-shadow: 0 1px 3px rgba(0, 0, 0, .9); }
 .gang-recruit__back {
   position: absolute; top: 0; left: 10px; z-index: 3; width: 34px; height: 34px;
   border: 1px solid color-mix(in srgb, var(--if-amber) 45%, transparent); background: #1a0f08; color: #ffd9a0; font-size: 20px;
@@ -240,7 +240,9 @@
 .gang-recruit__picks {
   position: relative; z-index: 2; margin: 18px 8px 0; padding: 15px;
   border-top: 1px dashed color-mix(in srgb, var(--if-amber) 35%, transparent);
-  background: rgba(12, 6, 3, .5);
+  /* Opaco o bastante pra segurar leitura por cima do graffiti oficial
+     (texto/cor fortes) sem virar um bloco chapado. */
+  background: rgba(10, 5, 2, .82);
 }
 .gang-recruit__picks > div:first-child { display: flex; justify-content: space-between; color: var(--text-secondary); font: 700 10px var(--font-mono); letter-spacing: 2px; text-transform: uppercase; }
 .gang-recruit__picks > div:first-child strong { color: var(--if-amber); font: 400 1rem/1 'Permanent Marker', cursive; }

@@ -3,32 +3,24 @@
    sobrescrevemos o padding padrão (60px/24px) pra virar full-bleed. */
 .gang-saves {
   padding: 0 0 32px; position: relative; overflow-x: clip;
-  /* Parede de tijolo OFICIAL do LDI Gangues (também em Gangues.css
-     `.gang-brickwall-bg`, usada por GangDialog/GanguesNaming — repetida
-     aqui em vez de referenciada porque essa tela precisa ser full-bleed
-     por conta própria; qualquer ajuste na receita precisa espelhar nos
-     3 lugares). Rachaduras + cantos lascados por cima do tijolo clássico
-     (pedido do Isaias, 14/09/2026: "colocar uns trincados, uns tijolos
-     quebrados pra ficar ainda mais legal"). */
-  background-color: #351611;
+  /* Parede de tijolo OFICIAL do LDI Gangues — a arte de verdade (também
+     em Gangues.css `.gang-brickwall-bg`, usada por GangDialog/GanguesNaming
+     — repetida aqui em vez de referenciada porque essa tela precisa ser
+     full-bleed por conta própria; qualquer ajuste aqui precisa espelhar
+     lá também). Substituiu a receita 100% CSS pelo JPG com o graffiti dos
+     30 nomes do elenco (pedido do Isaias, 14/09/2026: "essa vai ser a BG
+     oficial... esse aqui tá muito melhor"). */
+  background-color: #1a0f08;
+  /* Véu escuro por cima da arte — mesma correção de Gangues.css
+     `.gang-brickwall-bg` (o graffiti tem texto/cor forte demais pra
+     ficar por baixo da UI sem esmaecer primeiro). */
   background-image:
-    linear-gradient(112deg, transparent 46%, rgba(0, 0, 0, .6) 47%, rgba(0, 0, 0, .6) 47.6%, transparent 48.6%),
-    radial-gradient(circle at 18% 24%, rgba(0, 0, 0, .55) 0 3px, transparent 4px),
-    radial-gradient(circle at 66% 60%, rgba(0, 0, 0, .5) 0 3px, transparent 4px),
-    radial-gradient(circle at 86% 30%, rgba(0, 0, 0, .55) 0 4px, transparent 5px),
-    radial-gradient(circle at 32% 82%, rgba(0, 0, 0, .5) 0 3px, transparent 4px),
-    linear-gradient(335deg, rgba(0, 0, 0, .7) 23px, transparent 23px),
-    linear-gradient(155deg, rgba(0, 0, 0, .7) 23px, transparent 23px),
-    linear-gradient(335deg, rgba(0, 0, 0, .7) 23px, transparent 23px),
-    linear-gradient(155deg, rgba(0, 0, 0, .7) 23px, transparent 23px),
-    radial-gradient(120% 90% at 50% 0%, rgba(139, 0, 0, .35), transparent 60%);
-  background-size:
-    100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%,
-    58px 58px, 58px 58px, 58px 58px, 58px 58px, 100% 100%;
-  background-position:
-    0 0, 0 0, 0 0, 0 0, 0 0,
-    0 2px, 4px 35px, 29px 32px, 33px 65px, 0 0;
-  background-attachment: fixed;
+    linear-gradient(rgba(10, 5, 2, .58), rgba(10, 5, 2, .58)),
+    url('../assets/backgrounds/parede-oficial.jpg');
+  background-size: cover, cover;
+  background-position: top center, top center;
+  background-repeat: no-repeat, no-repeat;
+  background-attachment: fixed, fixed;
 }
 .gang-saves__loading { padding: 20px 16px 0; text-align: center; color: #cfc6bb; font-size: .82rem; }
 

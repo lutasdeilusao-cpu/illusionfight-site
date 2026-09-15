@@ -264,6 +264,10 @@
 }
 .gang-cena-enc-selo.is-ok { color: #04141a; background: var(--terr-cor); border-color: var(--terr-cor); }
 .gang-cena-enc-selo.is-fail { color: #ff9a9a; border-color: #ff6b6b66; background: rgba(255, 107, 107, 0.1); }
+/* Retrato de verdade (pixel art) no lugar da inicial — mesmo fundo/borda
+   de sempre por baixo, a foto só cobre em cima (object-fit: cover). */
+.gang-cena-enc-selo--foto { overflow: hidden; padding: 0; }
+.gang-cena-enc-selo--foto img { width: 100%; height: 100%; object-fit: cover; image-rendering: pixelated; }
 
 .gang-cena-enc-acoes { display: flex; gap: 8px; width: 100%; margin-top: 0.6rem; }
 .gang-cena-btn {
@@ -288,6 +292,8 @@
   border: 1px solid color-mix(in srgb, var(--terr-cor) 55%, transparent);
   background: color-mix(in srgb, var(--terr-cor) 14%, transparent);
 }
+.gang-cena-papo-face--foto { overflow: hidden; padding: 0; }
+.gang-cena-papo-face--foto img { width: 100%; height: 100%; object-fit: cover; image-rendering: pixelated; }
 .gang-cena-papo-nome {
   font: 800 0.9rem var(--font-display); letter-spacing: 0.02em; color: #fff;
 }

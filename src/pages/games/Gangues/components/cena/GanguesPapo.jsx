@@ -5,6 +5,7 @@ import { useGanguesStore } from '../../store/useGanguesStore'
 import { sfx } from '../../../../../lib/sfx'
 import { getGanguesItem } from '../../data/ganguesItens.js'
 import { getGanguesEquip } from '../../data/ganguesEquip.js'
+import { getGanguesNpcPortrait } from '../../data/ganguesNpcPortraits.js'
 
 /* Encontro PAPO — conversa com um local da quebrada. 2–3 escolhas com
    consequência: revela POI, custa grana, ou parte pra treta. Usa a
@@ -18,6 +19,7 @@ export default function GanguesPapo({ poi, onResolve, onClose }) {
 
   const base = poi.i18n
   const nome = t(`${base}.nome`)
+  const retrato = getGanguesNpcPortrait(poi.npcSlug)
   const sub = t(`${base}.sub`)
   const falas = useMemo(() => {
     const raw = t(`${base}.fala`)
@@ -48,7 +50,7 @@ export default function GanguesPapo({ poi, onResolve, onClose }) {
   return (
     <div className="gang-cena-enc gang-cena-enc--papo">
       <button className="gang-cena-enc-x" onClick={onClose} aria-label={t('games.gangues.cena.fechar')}>✕</button>
-      <span className="gang-cena-papo-face" aria-hidden="true">{(nome || '?')[0]}</span>
+      <span className={`gang-cena-papo-face${retrato ? ' gang-cena-papo-face--foto' : ''}`} aria-hidden="true">{retrato ? <img src={retrato} alt="" /> : (nome || '?')[0]}</span>
       <span className="gang-cena-papo-nome">{nome}{sub ? <em> · {sub}</em> : null}</span>
 
       {resultado ? (
