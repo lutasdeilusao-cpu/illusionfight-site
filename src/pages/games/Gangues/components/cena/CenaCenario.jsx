@@ -8,23 +8,33 @@ import { useLanguage } from '../../../../../context/LanguageContext'
    `quarteiroes` + `obstaculos.solido` — aqui é só a arte.
    ══════════════════════════════════════════════════════════════ */
 
-// `?debugmapa=1`/`?debugmapa=0` na URL liga/desliga e GRAVA em localStorage —
-// sem isso, cada troca de tela (cena → mapa → cena de novo) ou reload perdia
-// o parâmetro e o Isaias tinha que digitar `?debugmapa=1` no celular de novo
-// toda vez (achado real, 15/09/2026: ele reportou "não sei... talvez tenha
-// sido sobrescrito" depois de pedir o overlay e não conseguir ver nada —
-// mais provável de ser essa fricção de digitar a query string no celular
-// toda vez do que um bug de fato no overlay, que funciona normalmente
-// quando o parâmetro está de verdade na URL). Fail-safe: erro de leitura de
-// localStorage (modo privado etc.) cai pra "desligado", nunca trava a tela.
-function isDebugMapaAtivo() {
+// Ativa/desliga o overlay de debug e GRAVA em localStorage. Existiu antes só
+// via `?debugmapa=1` na URL — o Isaias reportou (15/09/2026) que no celular
+// dele NÃO TEM COMO digitar isso (sem barra de endereço acessível de onde
+// ele joga), então a query string sozinha nunca ia funcionar por mais que
+// persistisse depois de ligada — o problema não era persistência, era não
+// ter NENHUMA forma de ligar pela primeira vez. Fix real: botão de verdade
+// no HUD da cena (🧱, GanguesCena.jsx), que chama `alternarDebugMapa()`
+// direto — a URL continua funcionando como atalho extra (útil pra mim
+// testar via Playwright), mas não é mais o único jeito. Fail-safe: erro de
+// leitura/escrita de localStorage (modo privado etc.) nunca trava a tela.
+const DEBUG_MAPA_KEY = 'ldi-gangues-debugmapa'
+export function isDebugMapaAtivo() {
   if (typeof window === 'undefined') return false
   const q = new URLSearchParams(window.location.search).get('debugmapa')
   try {
-    if (q === '1') { window.localStorage.setItem('ldi-gangues-debugmapa', '1'); return true }
-    if (q === '0') { window.localStorage.removeItem('ldi-gangues-debugmapa'); return false }
-    return window.localStorage.getItem('ldi-gangues-debugmapa') === '1'
+    if (q === '1') { window.localStorage.setItem(DEBUG_MAPA_KEY, '1'); return true }
+    if (q === '0') { window.localStorage.removeItem(DEBUG_MAPA_KEY); return false }
+    return window.localStorage.getItem(DEBUG_MAPA_KEY) === '1'
   } catch { return q === '1' }
+}
+export function alternarDebugMapa() {
+  const ligado = !isDebugMapaAtivo()
+  try {
+    if (ligado) window.localStorage.setItem(DEBUG_MAPA_KEY, '1')
+    else window.localStorage.removeItem(DEBUG_MAPA_KEY)
+  } catch { /* modo privado etc. — segue só em memória via o estado do componente */ }
+  return ligado
 }
 
 // ── Rua asfaltada (o traçado fixo da Pista) ──
@@ -115,7 +125,7 @@ function ItemCenario({ c, t }) {
   return <i className={`gang-deco gang-deco--${c.tipo}`} style={base} aria-hidden="true" />
 }
 
-export default function CenaCenario({ cena, bossAberto, muroAberto, precisaFundoCima }) {
+export default function CenaCenario({ cena, bossAberto, muroAberto, precisaFundoCima, debugAtivo }) {
   const { t } = useLanguage()
   const W = cena.mundo?.w || 760
   const H = cena.mundo?.h || 2840
@@ -134,11 +144,10 @@ export default function CenaCenario({ cena, bossAberto, muroAberto, precisaFundo
     // (ganguesCenaMotor.js) já libera a passagem sozinha quando `muroAberto` —
     // o jogador só deixa de esbarrar, sem troca visual (aceito por ora; um
     // efeito de "muro aberto" fica pra um retoque futuro de arte).
-    // `?debugmapa=1` na URL liga o overlay de colisores/POIs por cima da
-    // imagem — pra comparar e ajustar coordenada, nunca aparece sem o
-    // parâmetro (e persiste em localStorage depois de ligado 1x, pra não se
-    // perder ao trocar de tela — ver isDebugMapaAtivo()).
-    const debug = isDebugMapaAtivo()
+    // Overlay de colisores/POIs por cima da imagem, pra comparar e ajustar
+    // coordenada — ligado pelo botão 🧱 no HUD (GanguesCena.jsx), que já
+    // resolve on/off via `debugAtivo`; nunca aparece sem alguém ligar.
+    const debug = debugAtivo
     // Fundo cortado em 2 imagens na faixa do muro (ver mundo.js/FUNDO_PISTA):
     // a de BAIXO (spawn até o muro, sempre visível de cara) carrega eager —
     // a tela de loading em GanguesCena.jsx já garante que ela existe antes
