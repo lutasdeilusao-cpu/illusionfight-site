@@ -11,15 +11,15 @@
 .gang-lobby-rename {
   margin: 6px auto 0;
   padding: 3px 10px;
-  border: 1px solid var(--if-hair);
-  background: transparent;
+  border: 1px solid color-mix(in srgb, var(--if-amber) 30%, transparent);
+  background: rgba(12, 6, 3, .5);
   color: var(--text-secondary);
   font: 700 .6rem var(--font-mono);
   letter-spacing: .08em;
   text-transform: uppercase;
 }
 
-.gang-lobby-rename:hover { color: var(--if-teal); border-color: var(--if-teal); }
+.gang-lobby-rename:hover { color: var(--if-amber); border-color: var(--if-amber); }
 
 /* Primeiro contato: convocação de rua, não formulário de criação.
    Reconstruído (pedido do Isaias, 14/09/2026: "seguir a identidade das
@@ -408,11 +408,19 @@
   .gang-fighter-card { transition: none; }
 }
 
-/* Hub limpo: a identidade da gangue e somente as duas decisões reais. */
-.gang-lobby .gang-lobby-hero--compact { margin: 34px 0 18px; text-align: center; }
+/* Hub limpo: a identidade da gangue e somente as duas decisões reais.
+   Redesign completo (pedido do Isaias, 15/09/2026, com print mostrando o
+   "+ MAPA" cyan técnico colado em cima do nome gigante: "essa cena tá
+   toda quebrada... usar o background padrão e a fonte padrão"). Nome vira
+   Permanent Marker (é a "voz" da gangue) e ganha padding-top reservando
+   espaço de verdade pro botão "← Mapa" — antes ele só flutuava
+   absolute em cima do texto contando com o nome nunca crescer o
+   suficiente pra encostar, o que quebrava com nomes de 1 linha e fonte
+   grande (bug real, não só resíduo de estilo). */
+.gang-lobby .gang-lobby-hero--compact { position: relative; margin: 8px 0 18px; padding-top: 40px; text-align: center; }
 .gang-lobby .gang-lobby-hero--compact .gang-lobby-nome {
-  margin: 0; color: var(--if-amber); font: 900 clamp(2.6rem, calc(15 * var(--app-vw) / 100), 4rem)/.9 var(--font-title);
-  letter-spacing: .08em; text-transform: uppercase; text-shadow: 0 0 34px var(--if-amber-16);
+  margin: 0; color: #ffd9a0; font: 400 clamp(2.2rem, calc(13 * var(--app-vw) / 100), 3.4rem)/1 'Permanent Marker', cursive;
+  text-shadow: 0 3px 0 rgba(0, 0, 0, .6), 0 0 34px color-mix(in srgb, var(--if-amber) 45%, transparent);
 }
 /* `.gang-lobby` (Gangues.css) é max-height:100%;overflow-y:auto mas nunca
    ganha height próprio — só encolhe pro conteúdo. Com a parede de tijolo
@@ -436,22 +444,35 @@
 .gang-home-actions .gang-home-actions__play b { margin-left: auto; color: var(--bg-primary); }
 .gang-roster-drawer { margin-top: 12px; padding: 13px 10px; border: 1px solid var(--if-hair); background: var(--if-panel-flat); }
 
-/* Botão de batalha promovido pro topo do lobby — mesma cara do play de
-   dentro de .gang-home-actions, mas sem depender daquele wrapper. */
+/* Botão de batalha promovido pro topo do lobby — CTA principal da tela,
+   vira spray-paint igual as outras telas já redesenhadas (halo via
+   ::before, texto em Permanent Marker). */
 .gang-lobby .gang-home-actions__play--top {
-  width: 100%; min-height: 58px; margin-top: 14px; padding: 0 16px;
+  --cor: var(--if-amber);
+  position: relative; width: 100%; min-height: 58px; margin-top: 14px; padding: 0 16px;
   display: flex; align-items: center; justify-content: center; gap: 10px;
-  border: 1px solid var(--if-amber); background: var(--if-amber); color: var(--bg-primary);
-  font: 800 .78rem var(--font-mono); letter-spacing: .1em; text-transform: uppercase;
-  clip-path: polygon(0 0, calc(100% - 11px) 0, 100% 11px, 100% 100%, 0 100%);
+  background: transparent; border: none; color: #fff8ec;
+  font: 400 1.25rem/1 'Permanent Marker', cursive;
+  text-shadow: 0 2px 0 rgba(0, 0, 0, .6), 0 0 16px color-mix(in srgb, var(--cor) 70%, transparent);
 }
-.gang-lobby .gang-home-actions__play--top b { color: var(--bg-primary); font-size: 1.1rem; }
+.gang-lobby .gang-home-actions__play--top::before {
+  content: ''; position: absolute; inset: -6px; z-index: -1;
+  background:
+    radial-gradient(38% 60% at 22% 30%, color-mix(in srgb, var(--cor) 40%, transparent), transparent 70%),
+    radial-gradient(30% 50% at 78% 70%, color-mix(in srgb, var(--cor) 32%, transparent), transparent 70%),
+    radial-gradient(70% 80% at 50% 50%, color-mix(in srgb, var(--cor) 20%, transparent), transparent 75%);
+  border: 2px solid color-mix(in srgb, var(--cor) 60%, transparent);
+  border-radius: 52% 48% 55% 45% / 44% 56% 44% 56%;
+}
+.gang-lobby .gang-home-actions__play--top:active::before { background: color-mix(in srgb, var(--cor) 30%, transparent); }
+.gang-lobby .gang-home-actions__play--top b { color: #fff8ec; font-size: 1.1rem; }
 
-/* Acesso ao Álbum de Marélia — secundário, logo abaixo do play. */
+/* Acesso ao Álbum de Marélia — secundário, logo abaixo do play; continua
+   bordado/mono (é um contador utilitário, não CTA de voz do jogo). */
 .gang-lobby .gang-lobby-album {
   width: 100%; min-height: 46px; margin-top: 8px; padding: 0 16px;
   display: flex; align-items: center; justify-content: center; gap: 10px;
-  border: 1px solid var(--border-color); background: transparent; color: var(--text-secondary);
+  border: 1px solid color-mix(in srgb, var(--if-amber) 30%, transparent); background: rgba(10, 5, 2, .8); color: #e7ded0;
   font: 800 .72rem var(--font-mono); letter-spacing: .1em; text-transform: uppercase;
   clip-path: polygon(0 0, calc(100% - 9px) 0, 100% 9px, 100% 100%, 0 100%);
 }
@@ -467,6 +488,9 @@
    (o card de ~242px), então a margin negativa abaixo "estoura" um container
    que já nasceu estreito, e nunca chega na borda real da coluna. */
 .gang-roster-carousel { width: 100%; margin-top: 18px; }
+/* Legibilidade do label por cima da parede oficial (arte cheia de nome/
+   cor forte) — mesmo reforço já usado no cabeçalho do recrutamento. */
+.gang-roster-carousel .gang-lobby-section-label { text-shadow: 0 1px 3px rgba(0, 0, 0, .9); }
 /* .gang-lobby tem padding horizontal de 24px (Gangues.css) — .gang-recruit
    (recrutamento) não tem nenhum, então lá as setas ‹/› (left/right:5px do
    PRÓPRIO stage) encostam quase na borda real da tela. Aqui, sem isso, o
@@ -475,11 +499,12 @@
    largura cheia da coluna, igual ao recrutamento. */
 .gang-roster-carousel .gang-recruit__stage { margin-left: -24px; margin-right: -24px; }
 
-/* botão "← Mapa" no header do lobby (quando entrou pelo mapa pra gerenciar) */
-.gang-lobby .gang-lobby-hero--compact { position: relative; }
+/* botão "← Mapa" no header do lobby (quando entrou pelo mapa pra gerenciar)
+   — fica na faixa reservada pelo padding-top do header, nunca mais em
+   cima do nome (ver comentário acima em .gang-lobby-hero--compact). */
 .gang-lobby .gang-lobby-hero--compact .gang-lobby-mapa {
-  position: absolute; left: 0; top: 2px;
-  min-height: 30px; padding: 0 10px; border: 1px solid var(--if-teal);
-  background: var(--if-cyan-12); color: var(--if-teal);
+  position: absolute; left: 0; top: 0;
+  min-height: 30px; padding: 0 10px; border: 1px solid color-mix(in srgb, var(--if-amber) 35%, transparent);
+  background: rgba(12, 6, 3, .7); color: #ffd9a0;
   font: 800 .56rem var(--font-mono); letter-spacing: .06em; text-transform: uppercase;
 }

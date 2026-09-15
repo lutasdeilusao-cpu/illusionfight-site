@@ -148,7 +148,7 @@ export default function GanguesLobby({ onNavigate }) {
   if (renomeando) return <GanguesNaming modoEdicao onDone={() => setRenomeando(false)} />
 
   return (
-    <main className={`gang-lobby${roster.length === 0 ? ' gang-lobby--vazio gang-brickwall-bg' : ''}`}>
+    <main className={`gang-lobby gang-brickwall-bg${roster.length === 0 ? ' gang-lobby--vazio' : ''}`}>
       {roster.length > 0 && <header className="gang-lobby-hero gang-lobby-hero--compact">
         {store._saveId && <button className="gang-lobby-mapa" onClick={() => { sfx.select?.(); onNavigate('story') }}>← {t('games.gangues.story.voltar_mapa')}</button>}
         <h1 className="gang-lobby-nome">{store.gangName}</h1>
@@ -244,7 +244,6 @@ function RosterCarousel({ roster, party, partyLimit, rosterLimit, rosterIndex, s
       <div className="gang-lobby-section-label gang-lobby-section-label--row"><span>{t('games.gangues.party.roster')}</span><span>{roster.length}/{rosterLimit}</span></div>
 
       <div className="gang-recruit__stage">
-        <div className="gang-recruit__street" aria-hidden="true"><i /><i /><i /></div>
         {roster.length > 1 && <button className="gang-recruit__arrow gang-recruit__arrow--left" onClick={() => move(-1)}>‹</button>}
         <div className="gang-recruit__slides">
           {slides.map(({ member, position }) => {
