@@ -4,6 +4,7 @@ import { useAuth } from '../../context/AuthContext'
 import { useLanguage } from '../../context/LanguageContext'
 import { Link } from 'react-router-dom'
 import { FICHAS_GATE_ATIVO } from '../../config/fichas'
+import { useTrackedSession } from '../../lib/sessionAnalytics'
 import ModalConfirmacaoFicha from '../ModalConfirmacaoFicha/ModalConfirmacaoFicha'
 import ModalSemFichas from '../ModalSemFichas/ModalSemFichas'
 import './FichaGateRoute.css'
@@ -29,14 +30,32 @@ function isDesbloqueadoHoje(gameId) {
 }
 
 export default function FichaGateRoute({ gameId, feature, nomeExibicao, isFree, children }) {
-  // Se o gate de fichas está desativado globalmente, renderiza os children direto
-  if (!FICHAS_GATE_ATIVO) return children
+  // Rastreamento de sessão de jogo (game_open/game_time, com tempo de
+  // permanência de verdade) — centralizado aqui pra cobrir TODO jogo com
+  // ficha de uma vez, inclusive quem chega direto pela URL (deep link,
+  // favorito), não só quem clica no card em Games.jsx. Pedido do Isaias
+  // (2026-09-14): "eu vejo que as pessoas entram em jogos, mas não sei qual
+  // jogo" — campanha de Google Ads rodando, precisa desse detalhe.
+  const gameName = nomeExibicao || feature
+  const gameParams = { game_id: gameId, game_name: gameName, tier: isFree ? 'free' : 'ficha' }
+
+  // Se o gate de fichas está desativado globalmente, renderiza os children
+  // direto — a sessão conta como ativa assim que o componente monta.
+  if (!FICHAS_GATE_ATIVO) {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    useTrackedSession('game_open', 'game_time', gameParams)
+    return children
+  }
 
   const { t } = useLanguage()
   const { user } = useAuth()
   const { saldo, gastarFicha, isAdmin, loading } = useFichas()
   const [etapa, setEtapa] = useState('carregando') // carregando | login | bloqueado | confirmacao | semfichas | liberado
   const [gastando, setGastando] = useState(false)
+  // Só conta a sessão quando o jogo REALMENTE liberou (não no meio do gate de
+  // login/confirmação/sem-fichas) — 'gamefree' é o aviso de jogo grátis, que
+  // ainda não é a entrada de fato (só quando o jogador toca em "jogar").
+  useTrackedSession('game_open', 'game_time', gameParams, { active: etapa === 'liberado' })
 
   // Se é FREE, libera direto (só precisa de login)
   const free = isFree === true

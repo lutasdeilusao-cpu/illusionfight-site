@@ -6,6 +6,7 @@ import { getGanguesItem } from '../../data/ganguesItens.js'
 import { getGanguesEquip, getGanguesAttributesWithEquip, previewGanguesAttributesWithEquip, applyGanguesEquipResources, withGanguesEquip, normalizeGanguesEquipment } from '../../data/ganguesEquip.js'
 import { getGanguesResources } from '../../data/ganguesLoadout.js'
 import { getGanguesCharacter, getGanguesLevelFromXp } from '../../data/ganguesCharacters.js'
+import { getGanguesPortraitByTemplateId } from '../../data/ganguesPortraits.js'
 import { sfx } from '../../../../../lib/sfx'
 
 /* Encontro LOJA — vende os itens do próprio POI (poi.itens: ['pocao_hp',
@@ -51,9 +52,11 @@ function LinhaComparacao({ t, member, item, onEquipar, podePagar }) {
 
   const noSlot = normalizeGanguesEquipment(member.attributes?.equipment)[item.slot]
   const trocaDef = noSlot && getGanguesEquip(noSlot.itemId)
+  const foto = getGanguesPortraitByTemplateId(member.character_template_id)
 
   return (
     <div className="gang-loja-cmp">
+      {foto && <img className="gang-loja-cmp__foto" src={foto} alt="" />}
       <div className="gang-loja-cmp__quem">
         <strong>{character.name}</strong>
         <small>{t(`games.gangues.loadout.paths.${character.combat_path}.name`)} · NV {nivel}</small>

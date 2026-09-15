@@ -2,6 +2,7 @@ import { forwardRef } from 'react'
 import { getGanguesProgression, ganguesXpMaxForSheet } from '../data/ganguesLoadout.js'
 import { fighterName } from '../engine/ganguesCombatPresentation.js'
 import { getGanguesPortraitByTemplateId } from '../data/ganguesPortraits.js'
+import { getGanguesEnemyPortraitById } from '../data/ganguesEnemyPortraits.js'
 
 // Roster compacto: quadradinho (avatar + anel de PV) + nome curto e PM
 // sempre visíveis embaixo — com 6 personagens em campo, "quem é quem" tem
@@ -37,10 +38,12 @@ const GanguesCombatRoster = forwardRef(function GanguesCombatRoster({ members, s
         const pathClass = member.combat_path ? `gang-path--${member.combat_path}` : ''
         const progression = getGanguesProgression(member)
         const nome = fighterName(t, member)
-        // Retrato só existe pro lado do jogador (os inimigos têm o próprio
-        // pool de ids, sem arte de cabeça ainda) — cai pra inicial do nome
-        // quando não tiver (a maioria do elenco, por ora).
-        const foto = side === 'player' ? getGanguesPortraitByTemplateId(member.character_template_id) : null
+        // Retrato: jogador usa o catálogo dos 30 recrutáveis (character_template_id),
+        // inimigo usa o catálogo de inimigos (member.id = id numérico de
+        // gangues-enemies.json, sobrevive intacto de escalarInimigo/
+        // numerarRepetidos — ver ganguesEncontros.js). Cai pra inicial do
+        // nome quando não tiver arte ainda (a maioria do elenco, por ora).
+        const foto = side === 'player' ? getGanguesPortraitByTemplateId(member.character_template_id) : getGanguesEnemyPortraitById(member.id)
         const tocar = () => {
           if (podeSelecionar && !jaSelecionado) onSelect?.(member.key)
           else onAbrirFicha?.(member)

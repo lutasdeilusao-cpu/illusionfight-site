@@ -11,6 +11,11 @@ import { getGanguesSpecials } from '../data/ganguesSpecials.js'
 import { GANGUES_ALBUM_TOTAL } from '../data/ganguesInimigos.js'
 import { getGanguesPortraitByTemplateId } from '../data/ganguesPortraits.js'
 import enemiesData from '../data/gangues-enemies.json'
+import logoPt from '../assets/logos/logo-pt.png'
+import logoEn from '../assets/logos/logo-en.png'
+import logoEs from '../assets/logos/logo-es.png'
+
+const LOGOS = { pt: logoPt, en: logoEn, es: logoEs }
 
 /** Nomes dos lutadores da party que têm poder ATIVO comprado mas ainda com
  *  vaga livre pra equipar. Sem equipar, eles só usam ataque normal. */
@@ -28,12 +33,13 @@ function lutadoresComPoderPraEquipar(party) {
     .map(member => member.sheet_name)
 }
 import './GanguesLobby.css'
+import './GanguesStory.css' // .gang-lobby-quit (botão de sair) mora lá
 import './GanguesProgressionFlow.css'
 
 const PATH_MARKS = { atacante: 'A', defensor: 'D', mistico: 'M' }
 
 export default function GanguesLobby({ onNavigate }) {
-  const { t } = useLanguage()
+  const { t, locale } = useLanguage()
   const navigate = useNavigate()
   const { user, perfil } = useAuth()
   const store = useGanguesStore()
@@ -45,7 +51,7 @@ export default function GanguesLobby({ onNavigate }) {
   const roster = store.roster
   const party = store.activeParty
   // Cresce por tier pago OU por território dominado na história — vale o maior.
-  const rosterLimit = getGanguesRosterLimitComHistoria(perfil?.tier, store.storyProgress, store.rep)
+  const rosterLimit = getGanguesRosterLimitComHistoria(perfil?.tier, store.storyProgress)
   // Time de batalha = quantos você recrutou, até o teto — não depende mais
   // de XP acumulado. Antes era "cresce só grindando", o que não bate com a
   // fantasia de "recrutar mais = levar mais gente pra briga".
@@ -135,11 +141,14 @@ export default function GanguesLobby({ onNavigate }) {
   if (loading) return <main className="gang-lobby"><div className="gang-lobby-empty">{t('games.gangues.carregando')}</div></main>
 
   // Primeira coisa ao entrar: batizar a gangue. É o nome que reverbera.
-  if (!store.gangName) return <GanguesNaming onDone={() => {}} />
+  // `onSair` — o mesmo destino do botão de sair do onboarding logo depois
+  // (save-select se tiver save, catálogo se for guest); sem isso essa tela
+  // não tinha NENHUMA saída visível (pedido do Isaias, 14/09/2026).
+  if (!store.gangName) return <GanguesNaming onDone={() => {}} onSair={() => store._saveId ? onNavigate('save-select') : navigate('/games')} />
   if (renomeando) return <GanguesNaming modoEdicao onDone={() => setRenomeando(false)} />
 
   return (
-    <main className="gang-lobby">
+    <main className={`gang-lobby gang-brickwall-bg${roster.length === 0 ? ' gang-lobby--vazio' : ''}`}>
       {roster.length > 0 && <header className="gang-lobby-hero gang-lobby-hero--compact">
         {store._saveId && <button className="gang-lobby-mapa" onClick={() => { sfx.select?.(); onNavigate('story') }}>← {t('games.gangues.story.voltar_mapa')}</button>}
         <h1 className="gang-lobby-nome">{store.gangName}</h1>
@@ -152,13 +161,18 @@ export default function GanguesLobby({ onNavigate }) {
           é empurrado pra criação por ter deletado alguém. */}
       {roster.length === 0 ? (
         <section className="gang-onboarding-panel gang-onboarding-panel--solo">
-          <div className="gang-onboarding-panel__stamp" aria-hidden="true"><span>LDI</span><b>GANGUES</b></div>
-          <h2>{t('games.gangues.recruitment.assemble')}</h2>
-          <p>{t('games.gangues.recruitment.lobby_pitch')}</p>
-          <div className="gang-onboarding-panel__slots" aria-hidden="true"><i>?</i><span>+</span><i>?</i></div>
-          <button className="gang-new-sheet gang-new-sheet--primary" onClick={startRecruitment}>
-            <span className="gang-new-sheet-icon">⚡</span>{t('games.gangues.recruitment.enter')}
-          </button>
+          <div className="gang-onboarding-panel__cartaz">
+            <span className="gang-onboarding-panel__fita gang-onboarding-panel__fita--esq" aria-hidden="true" />
+            <span className="gang-onboarding-panel__fita gang-onboarding-panel__fita--dir" aria-hidden="true" />
+            <img className="gang-onboarding-panel__logo" src={LOGOS[locale] || logoPt} alt="LDI Gangues" />
+            <h2>{t('games.gangues.recruitment.assemble')}</h2>
+            <p>{t('games.gangues.recruitment.lobby_pitch')}</p>
+            <div className="gang-onboarding-panel__slots" aria-hidden="true"><i>?</i><span>+</span><i>?</i></div>
+            <button className="gang-onboarding-spray" onClick={startRecruitment}>
+              <span className="gang-onboarding-spray-halo" aria-hidden="true" />
+              <strong>{t('games.gangues.recruitment.enter')}</strong>
+            </button>
+          </div>
         </section>
       ) : (
         <>
@@ -230,7 +244,6 @@ function RosterCarousel({ roster, party, partyLimit, rosterLimit, rosterIndex, s
       <div className="gang-lobby-section-label gang-lobby-section-label--row"><span>{t('games.gangues.party.roster')}</span><span>{roster.length}/{rosterLimit}</span></div>
 
       <div className="gang-recruit__stage">
-        <div className="gang-recruit__street" aria-hidden="true"><i /><i /><i /></div>
         {roster.length > 1 && <button className="gang-recruit__arrow gang-recruit__arrow--left" onClick={() => move(-1)}>‹</button>}
         <div className="gang-recruit__slides">
           {slides.map(({ member, position }) => {

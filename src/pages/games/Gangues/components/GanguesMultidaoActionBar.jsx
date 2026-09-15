@@ -6,6 +6,7 @@ import { getEquippedActiveGanguesSpecials } from '../engine/ganguesSpecialEffect
 export default function GanguesMultidaoActionBar({
   t, onNavigate, playerTeam, poderesMultidao, itensMultidao,
   cicloPoderMultidao, toggleItemMultidao, avancarRodada, revelandoRodada, estadoMultidao,
+  autoOn, onToggleAuto,
 }) {
   return (
     <div className="gang-actions-bar">
@@ -45,6 +46,14 @@ export default function GanguesMultidaoActionBar({
         <button className="gang-exit-btn" onClick={() => onNavigate('territorio')}>{t('games.gangues.btn_sair')}</button>
         <button className="gang-attack-btn" disabled={revelandoRodada || !estadoMultidao} onClick={avancarRodada}>
           {t('games.gangues.multidao.avancar_rodada')}
+        </button>
+        <button
+          type="button"
+          className={`gang-multidao-auto-btn ${autoOn ? 'gang-multidao-auto-btn--on' : ''}`}
+          title={t('games.gangues.multidao.auto_switch_titulo')}
+          onClick={onToggleAuto}
+        >
+          {t('games.gangues.auto.switch_label')}
         </button>
       </div>
     </div>

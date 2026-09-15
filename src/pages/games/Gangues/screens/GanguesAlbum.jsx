@@ -9,6 +9,7 @@ import {
 } from '../data/ganguesInimigos.js'
 import { GANGUES_ITENS_LISTA } from '../data/ganguesItens.js'
 import { GANGUES_EQUIP_LISTA, normalizeGanguesEquipment } from '../data/ganguesEquip.js'
+import { getGanguesEnemyPortraitById } from '../data/ganguesEnemyPortraits.js'
 import './GanguesAlbum.css'
 
 const ATTRS = ['A', 'H', 'D', 'PV', 'PM']
@@ -131,9 +132,16 @@ export default function GanguesAlbum({ onNavigate, voltar: voltarProp }) {
                 )
               }
               const nome = t(`games.gangues.enemy_names.${inimigo.id}`)
+              const retrato = getGanguesEnemyPortraitById(inimigo.id)
               return (
                 <li key={inimigo.id} className="gang-album__card">
-                  <span className="gang-album__portrait">{(nome || '?')[0]}</span>
+                  {retrato ? (
+                    <span className="gang-album__portrait gang-album__portrait--foto">
+                      <img src={retrato} alt="" />
+                    </span>
+                  ) : (
+                    <span className="gang-album__portrait">{(nome || '?')[0]}</span>
+                  )}
                   <div className="gang-album__body">
                     <strong>{nome}</strong>
                     <small>

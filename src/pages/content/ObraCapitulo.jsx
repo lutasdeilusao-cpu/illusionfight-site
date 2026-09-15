@@ -9,6 +9,7 @@ import { TRIAL_ACTIVE } from '../../config/trial'
 import { estaDisponivel } from '../../config/site'
 import obras from '../../data/obras-index.json'
 import { readerMdComponents } from '../../lib/mdComponents'
+import { useTrackedSession } from '../../lib/sessionAnalytics'
 import './LivroCapitulo.css'
 import './Contos.css'
 
@@ -58,6 +59,14 @@ export default function ObraCapitulo() {
   const obra = obras.find(o => o.id === slug)
   const capitulo = obra?.capitulos.find(c => c.id === cap)
   const tituloKey = locale === 'en' ? 'titulo_en' : locale === 'es' ? 'titulo_es' : 'titulo'
+
+  // chapter_open/chapter_time: content_type 'obra' + story_id = qual
+  // universo (Mar de Cinzas, Mundo das Sombras, etc). Pedido do Isaias
+  // (2026-09-14).
+  useTrackedSession('chapter_open', 'chapter_time', {
+    content_type: 'obra', story_id: slug,
+    chapter_id: cap, chapter_numero: capitulo?.numero, chapter_titulo: capitulo?.[tituloKey],
+  }, { active: Boolean(obra) && Boolean(capitulo) })
 
   useEffect(() => {
     setNotFound(false)

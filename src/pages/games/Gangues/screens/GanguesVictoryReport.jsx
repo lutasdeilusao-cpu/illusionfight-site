@@ -1,17 +1,19 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { getGanguesCharacter, eventosDoNivel } from '../data/ganguesCharacters.js'
+import { getGanguesPortraitByTemplateId } from '../data/ganguesPortraits.js'
+import { getGanguesEnemyPortraitById } from '../data/ganguesEnemyPortraits.js'
 import { combatantName, eventosDoLevelUp } from '../engine/ganguesVictoryResolver.js'
+import { useTutorialProgress } from '../../../../context/TutorialProgressContext'
 import GangTip from '../components/GangTip'
+import GanguesRepRecompensaModal from '../components/GanguesRepRecompensaModal'
 
 // Explica a regra de divisão de XP só na 1ª tela de vitória de verdade
 // (pedido do Isaias, 13/09/2026 — tutorial progressivo: a regra só importa
 // quando o jogador já tem uma recompensa na tela pra olhar, não antes).
-// Escopado por save, mesmo padrão dos outros tutoriais autocontidos do
-// Gangues (ver GanguesCombatTutorial.jsx).
-const XP_TUTORIAL_KEY = 'ldi-gangues-xp-tutorial-visto'
-function jaViuXp(saveId) { try { return localStorage.getItem(`${XP_TUTORIAL_KEY}:${saveId || 'guest'}`) === '1' } catch { return false } }
-function marcarXpVisto(saveId) { try { localStorage.setItem(`${XP_TUTORIAL_KEY}:${saveId || 'guest'}`, '1') } catch {} }
+// Escopado por CONTA (TutorialProgressContext), não mais por save/aparelho —
+// pedido do Isaias (14/09/2026).
+const XP_TUTORIAL_ID = 'xp'
 
 // Tela normal de relatório de batalha (vitória ou derrota) — modal de
 // level-up, painel de recompensa, resumo, roster final, ordem de iniciativa
@@ -21,13 +23,24 @@ export default function GanguesVictoryReport({
   t, store, report, victory, torre, cenaChefe, noModoHistoria, storyAlvo,
   podeRecrutar, recrutar, levelUps, clearLevelUps, rewardSummary, onNavigate,
 }) {
-  // Começa "já visto" e corrige assim que `_saveId` estabiliza — ver nota
-  // igual em GanguesMultidaoTutorial.jsx (race de F5: `_saveId` podia ainda
-  // não ter hidratado no 1º render, e o `useState` preguiçoso não reavalia
-  // sozinho depois — mostrava de novo pra quem já tinha visto).
-  const [xpTipVisto, setXpTipVisto] = useState(true)
-  useEffect(() => { setXpTipVisto(jaViuXp(store._saveId)) }, [store._saveId])
-  const fecharXpTip = () => { marcarXpVisto(store._saveId); setXpTipVisto(true) }
+  // Modal bloqueante do marco de reputação (a cada 50, ver
+  // GANGUES_REP_MARCO_INTERVALO) — fecha só no clique, nunca sozinho.
+  const [repMarcoFechado, setRepMarcoFechado] = useState(false)
+  const { jaViu, marcarVisto, carregado } = useTutorialProgress()
+  const xpTipVisto = !carregado || jaViu(XP_TUTORIAL_ID)
+  const fecharXpTip = () => marcarVisto(XP_TUTORIAL_ID)
+  // Cabeça de quem apanhou de verdade na tela de derrota (pedido do Isaias,
+  // 15/09/2026: "usa a cabecinha do derrotado e coloca ele lá, se tiver
+  // mais de um pode colocar a galera toda" — futuro banco de "carinhas"
+  // tipo emoji, por ora só a derrota mesmo). KO de verdade (pv<=0) primeiro;
+  // se a derrota veio de outro jeito (ex: timeout) sem ninguém marcado KO,
+  // mostra o time inteiro — a gangue perdeu, não só quem caiu.
+  const derrotados = !victory
+    ? (() => {
+        const caidos = report.combatants.filter(m => m.side === 'player' && m.pv <= 0)
+        return caidos.length ? caidos : report.combatants.filter(m => m.side === 'player')
+      })()
+    : []
   const attacks = report.entries.filter(entry => entry.kind === 'attack_card')
   const playerDamage = attacks.filter(entry => entry.side === 'player').reduce((sum, entry) => sum + entry.dmg, 0)
   const enemyDamage = attacks.filter(entry => entry.side === 'enemy').reduce((sum, entry) => sum + entry.dmg, 0)
@@ -74,6 +87,25 @@ export default function GanguesVictoryReport({
       <motion.header className="gang-report-hero" initial={{ opacity: 0, y: -18 }} animate={{ opacity: 1, y: 0 }}>
         <h1>{victory ? t('games.gangues.vitoria') : t('games.gangues.derrota')}</h1>
         <p>{victory ? t('games.gangues.report.victory_message') : t('games.gangues.report.defeat_message')}</p>
+        {derrotados.length > 0 && (
+          <div className="gang-report-derrotados">
+            {derrotados.map((member, index) => {
+              const retrato = getGanguesPortraitByTemplateId(member.character_template_id)
+              const nome = combatantName(t, member)
+              return (
+                <motion.span
+                  key={member.key}
+                  className="gang-report-derrotado"
+                  initial={{ opacity: 0, scale: 0.6 }} animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.15 + index * 0.1 }}
+                >
+                  <i>{retrato ? <img src={retrato} alt="" /> : nome?.[0]}</i>
+                  <small>{nome}</small>
+                </motion.span>
+              )
+            })}
+          </div>
+        )}
       </motion.header>
 
       {/* Recompensa de verdade ganha nesta luta — logo abaixo do resultado,
@@ -106,6 +138,13 @@ export default function GanguesVictoryReport({
             )}
           </div>
         </section>
+      )}
+      {/* Marco de reputação cruzado NESSA luta (ex: chegou em 50) — modal
+          BLOQUEANTE, não banner solto: nunca silencioso (pedido do Isaias,
+          2026-09-14: bateu 66 de rep e não tinha nenhum aviso), e só fecha no
+          clique (pedido seguinte, mesmo dia: "tem que esparmar na tela"). */}
+      {victory && rewardSummary?.repMarco && !repMarcoFechado && (
+        <GanguesRepRecompensaModal t={t} marco={rewardSummary.repMarco} onClose={() => setRepMarcoFechado(true)} />
       )}
       {victory && rewardSummary && !xpTipVisto && (
         <GangTip text={t('games.gangues.xp_tutorial.regra')} side="right" isLast onNext={fecharXpTip} onSkip={fecharXpTip} />
@@ -149,7 +188,18 @@ export default function GanguesVictoryReport({
       <section className="gang-report-section">
         <h2>{t('games.gangues.report.final_state')}</h2>
         <div className="gang-report-roster">
-          {report.combatants.map(member => <div key={member.key} className={`gang-report-member gang-report-member--${member.side} ${member.pv <= 0 ? 'gang-report-member--ko' : ''}`}><span>{combatantName(t, member)?.[0] || '?'}</span><div><strong>{combatantName(t, member)}</strong><small>{member.side === 'player' ? (store.gangName || t('games.gangues.report.your_gang')) : t('games.gangues.report.enemy_gang')}</small></div><b>{member.pv}/{member.pvMax} PV</b></div>)}
+          {report.combatants.map(member => {
+            const retrato = member.side === 'player'
+              ? getGanguesPortraitByTemplateId(member.character_template_id)
+              : getGanguesEnemyPortraitById(member.id)
+            return (
+              <div key={member.key} className={`gang-report-member gang-report-member--${member.side} ${member.pv <= 0 ? 'gang-report-member--ko' : ''}${retrato ? ' gang-report-member--foto' : ''}`}>
+                <span>{retrato ? <img src={retrato} alt="" /> : (combatantName(t, member)?.[0] || '?')}</span>
+                <div><strong>{combatantName(t, member)}</strong><small>{member.side === 'player' ? (store.gangName || t('games.gangues.report.your_gang')) : t('games.gangues.report.enemy_gang')}</small></div>
+                <b>{member.pv}/{member.pvMax} PV</b>
+              </div>
+            )
+          })}
         </div>
       </section>
 

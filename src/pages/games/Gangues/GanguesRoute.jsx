@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { useAuth } from '../../../context/AuthContext'
 import { useReader } from '../../../context/ReaderContext'
+import { useTutorialProgress } from '../../../context/TutorialProgressContext'
 import { useGanguesStore } from './store/useGanguesStore'
 import useGanguesI18n from './hooks/useGanguesI18n'
 import GanguesLobby from './screens/GanguesLobby'
@@ -33,12 +34,24 @@ export default function GanguesRoute() {
   const { setReaderMode } = useReader()
   const store = useGanguesStore()
   const i18nReady = useGanguesI18n()
+  // Ponte pro TutorialProgressContext (global, fora do chunk do jogo) saber
+  // qual save está ativo agora — sem isso ele teria que importar o store do
+  // Gangues direto, o que puxaria o jogo inteiro pro bundle principal (ver
+  // comentário grande em TutorialProgressContext.jsx).
+  const { definirSaveAtivo } = useTutorialProgress()
+  useEffect(() => { definirSaveAtivo(store._saveId) }, [store._saveId, definirSaveAtivo])
   const [fase, setFase] = useState('lobby')
   // De onde a Coleção foi aberta (lobby OU território) — pra o "← Voltar" dela
   // devolver o jogador exatamente onde estava, e não sempre pro lobby.
   const faseAntesAlbum = useRef('lobby')
+  // Mesma ideia pro recrutamento: o banner "recrutamento liberado" abre a
+  // criação de personagem de DENTRO da cena (Isaias, 2026-09-14) — sem isso,
+  // confirmar o recruta sempre chutava o jogador pro lobby, obrigando a
+  // escolher modo de jogo e território de novo.
+  const faseAntesCreate = useRef('lobby')
   const navegar = (destino) => {
     if (destino === 'album') faseAntesAlbum.current = fase
+    if (destino === 'create') faseAntesCreate.current = fase
     setFase(destino)
   }
 
@@ -128,9 +141,10 @@ export default function GanguesRoute() {
       if (!enemyTeam?.length) { setFase('story'); return }
     } else if (temRevezamento) {
       // Encontro de dungeon (túnel/galpão): capangas fracos que se revezam,
-      // quase sempre 1 sozinho. Não escala com o jogador nem usa o pool do
-      // território — orçamento leve e fixo por corpo.
-      enemyTeam = gerarBandoRevezamento({ ...alvo.revezamento, enemiesData, modo })
+      // quase sempre 1 sozinho, orçamento leve e fixo por corpo — A MENOS que
+      // o POI peça "multidão garantida" (qtdMin/qtdMax) e/ou escalonamento
+      // pelo time (ratioComTime), caso do galpão do Carvão (ver interiores.js).
+      enemyTeam = gerarBandoRevezamento({ ...alvo.revezamento, enemiesData, modo, playerTeam: party })
       if (!enemyTeam?.length) { setFase('story'); return }
       if (primeiraLuta) enemyTeam = suavizarPrimeiraLuta(enemyTeam)
     } else if (alvo.fixo) {
@@ -139,7 +153,7 @@ export default function GanguesRoute() {
       enemyTeam = [enemy]
       if (primeiraLuta) enemyTeam = suavizarPrimeiraLuta(enemyTeam)
     } else {
-      enemyTeam = gerarBandoInimigo({ territorioId: alvo.territorioId, dificuldade: alvo.dificuldade, modo, playerTeam: party, enemiesData, pontosFixos: alvo.pontosFixos, liderFixo: alvo.liderFixo, moldesPool: alvo.moldesPool })
+      enemyTeam = gerarBandoInimigo({ territorioId: alvo.territorioId, dificuldade: alvo.dificuldade, modo, playerTeam: party, enemiesData, pontosFixos: alvo.pontosFixos, liderFixo: alvo.liderFixo, moldesPool: alvo.moldesPool, qtdMin: alvo.qtdMin, qtdMax: alvo.qtdMax, ratioBonus: alvo.ratioBonus })
       if (!enemyTeam?.length) { setFase('story'); return }
       if (primeiraLuta) enemyTeam = suavizarPrimeiraLuta(enemyTeam)
     }
@@ -162,12 +176,12 @@ export default function GanguesRoute() {
       {fase === 'lobby' && <GanguesLobby onNavigate={navegar} />}
       {fase === 'create' && (
         <GanguesCreate
-          onNavigate={setFase}
+          onNavigate={(destino) => setFase(destino === 'lobby' ? faseAntesCreate.current : destino)}
           onCreated={() => {
             const roster = useGanguesStore.getState().roster
             if (roster.length < 2) return
             if (!useGanguesStore.getState().activeParty.length) store.setActiveParty(roster.slice(0, 2))
-            setFase('lobby')
+            setFase(faseAntesCreate.current)
           }}
         />
       )}
@@ -195,7 +209,7 @@ export default function GanguesRoute() {
           : <GanguesTerritorio onNavigate={navegar} />
       )}
       {fase === 'combat' && <GanguesCombat onNavigate={setFase} />}
-      {fase === 'victory' && <GanguesVictory onNavigate={setFase} />}
+      {fase === 'victory' && <GanguesVictory onNavigate={navegar} />}
     </div>
   )
 }

@@ -361,6 +361,8 @@
   background: color-mix(in srgb, var(--terr-cor) 16%, transparent);
 }
 .gang-story-vs-card--chefe .gang-story-vs-avatar { border-color: var(--if-amber); color: #ffce6b; background: var(--if-amber-16); }
+.gang-story-vs-avatar--foto { padding: 0; overflow: hidden; border-radius: 50%; }
+.gang-story-vs-avatar--foto img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .gang-story-vs-tag {
   padding: 0.14rem 0.5rem; font: 700 0.54rem var(--font-mono);
   letter-spacing: 0.14em; text-transform: uppercase;
@@ -397,22 +399,30 @@
 }
 .gang-story-vs-card--chefe .gang-story-vs-yes { background: var(--if-amber); border-color: var(--if-amber); color: #1b1000; }
 
-/* ── Saída ── */
+/* ── Saída — precisa de destaque de verdade, não uma linha discreta
+   perdida no fim da tela (pedido do Isaias, 14/09/2026: "os usuários são
+   complicados... tem que ser maior, tem que mostrar que existe uma
+   saída"). Ajuste no mesmo dia: o vermelho não aparecia direito por cima
+   do marrom avermelhado da parede de tijolo (cor de fundo perto demais
+   da cor do botão) e a fonte mono destoava do resto do redesign — fundo
+   sólido bem escuro (não mais um vermelho translúcido que deixa o tijolo
+   vazar por trás) garante contraste em qualquer parede, e o texto virou
+   'Permanent Marker' (a mesma fonte de rua do resto das telas novas). */
 .gang-lobby-quit {
-  display: block;
-  margin: 16px auto 0;
-  padding: 9px 22px;
-  font: 800 0.68rem var(--font-mono);
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--text-secondary);
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid var(--if-hair-strong);
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  width: 100%; max-width: 360px; margin: 18px auto 0; min-height: 46px;
+  padding: 10px 22px;
+  font: 400 1.05rem/1 'Permanent Marker', cursive;
+  color: #ff6b6b;
+  background: #170a08;
+  border: 2px solid #ff4d4d;
   cursor: pointer;
-  transition: color 0.2s, border-color 0.2s;
-  clip-path: polygon(0 0, calc(100% - 7px) 0, 100% 7px, 100% 100%, 0 100%);
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+  box-shadow: 0 10px 24px -14px rgba(255, 77, 77, .6);
+  clip-path: polygon(0 0, calc(100% - 9px) 0, 100% 9px, 100% 100%, 0 100%);
 }
-.gang-lobby-quit:hover { color: #ff9a9a; border-color: rgba(255, 107, 107, 0.5); }
+.gang-lobby-quit::before { content: '←'; font-size: 1rem; font-family: var(--font-mono); }
+.gang-lobby-quit:hover { color: #fff; border-color: #ff8080; background: #240c0a; }
 
 /* ══ Confronto final contra o Alan — tela de canon ══ */
 .gang-report--final {

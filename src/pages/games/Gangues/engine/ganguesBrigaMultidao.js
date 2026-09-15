@@ -92,13 +92,25 @@ export function avancarRodadaMultidao(estado, poderesPorPersonagem = {}, especia
 
   let outcome = checarFim()
   const rodadaAlvo = round // para assim que essa rodada fechar (turnIndex voltar a 0) ou a luta acabar
+  // O motor normal reseta `actedThisRound` de todo mundo ao virar de rodada
+  // (useGanguesTurnMachine.js, advanceTurn) — aqui não fazia isso, então quem
+  // agiu na rodada N chegava na rodada N+1 (e no syncFrom de volta pro motor
+  // normal) ainda marcado como "já agiu", contaminando o bônus de
+  // ganguesSpecialEffects.js que olha `!actedThisRound`.
+  const resetActedThisRound = () => { for (const c of byKey.values()) c.actedThisRound = false }
 
   while (!outcome) {
     const turn = initiative[turnIndex]
     const actor = byKey.get(turn.key)
-    if (!actor || actor.pv <= 0) {
+    // Pula quem já agiu nessa rodada (ex: um combatente que atacou no motor
+    // NORMAL antes de ligar a Multidão no meio da luta — iniciarBrigaMultidaoDe
+    // Combatentes preserva o `actedThisRound` dele, mas reseta o turnIndex pra
+    // 0). Sem essa checagem, esse combatente agia de NOVO aqui, ganhando uma
+    // ação extra de graça (exploit reportado pelo Isaias, 2026-09-14: "ligo a
+    // Multidão no meio da rodada e facilita a luta").
+    if (!actor || actor.pv <= 0 || actor.actedThisRound) {
       turnIndex = (turnIndex + 1) % initiative.length
-      if (turnIndex === 0) { round += 1; break }
+      if (turnIndex === 0) { round += 1; resetActedThisRound(); break }
       continue
     }
 
@@ -110,7 +122,7 @@ export function avancarRodadaMultidao(estado, poderesPorPersonagem = {}, especia
       eventosRodada.push({ type: 'item', id: `bm-${seq}`, actorKey: actor.key, round: rodadaAlvo })
       turnIndex = (turnIndex + 1) % initiative.length
       outcome = checarFim()
-      if (turnIndex === 0 && !outcome) { round += 1; break }
+      if (turnIndex === 0 && !outcome) { round += 1; resetActedThisRound(); break }
       continue
     }
 
@@ -149,7 +161,7 @@ export function avancarRodadaMultidao(estado, poderesPorPersonagem = {}, especia
 
     turnIndex = (turnIndex + 1) % initiative.length
     outcome = checarFim()
-    if (turnIndex === 0 && !outcome) { round += 1; break }
+    if (turnIndex === 0 && !outcome) { round += 1; resetActedThisRound(); break }
   }
 
   const combatantsFinais = [...byKey.values()]

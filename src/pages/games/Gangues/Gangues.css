@@ -632,7 +632,9 @@
 /* Momento de KO — para a leitura da luta com um cartão grande no centro.
    Antes era um aviso pequeno no topo que passava batido. */
 .gang-ko-cena {
-  position: fixed; inset: 0; z-index: 1300;
+  /* mobile-only: inset:0 sozinho esticaria pro viewport físico inteiro
+     em telas largas — mesma armadilha já corrigida no .gang-dlg-overlay. */
+  position: fixed; top: 0; bottom: 0; left: var(--app-gutter); right: var(--app-gutter); z-index: 1300;
   display: flex; align-items: center; justify-content: center;
   background: rgba(2, 4, 8, 0.82); backdrop-filter: blur(3px);
   cursor: pointer;
@@ -648,6 +650,11 @@
 .gang-ko-cena--aliado { --ko-cor: #e0484c; --ko-bg-1: #2a0d0e; --ko-bg-2: #120506; --ko-txt: #ff9a9c; }
 .gang-ko-cena--inimigo { --ko-cor: var(--if-teal); --ko-bg-1: #062028; --ko-bg-2: #04121a; --ko-txt: #7fe9ff; }
 .gang-ko-cena__skull { font-size: 3.4rem; line-height: 1; filter: drop-shadow(0 0 14px var(--ko-cor)); }
+.gang-ko-cena__foto {
+  display: block; width: 84px; height: 84px; border-radius: 50%; overflow: hidden;
+  border: 2px solid var(--ko-cor); filter: drop-shadow(0 0 14px var(--ko-cor)) grayscale(0.5);
+}
+.gang-ko-cena__foto img { width: 100%; height: 100%; object-fit: cover; image-rendering: pixelated; }
 .gang-ko-cena__nome {
   font: 800 1.5rem var(--font-display); letter-spacing: 0.02em; text-transform: uppercase; color: #fff;
   text-shadow: 0 0 18px var(--ko-cor);
@@ -936,6 +943,14 @@
 .gang-msg-avatar--trash {
   background: rgba(245, 166, 35, 0.1); border: 1px solid rgba(245, 166, 35, 0.25); color: var(--if-amber);
 }
+/* Cabeça de verdade no avatar do log/chat de combate (pedido do Isaias,
+   15/09/2026: "no resultado de cada golpe podia mostrar a imagem da
+   cabeça de quem deu o ataque também") — mesma foto já usada no roster/
+   ficha, só reaproveitada aqui. overflow:hidden recorta a foto no
+   círculo que o avatar já tinha; a cor de fundo/borda de cada variante
+   (player/enemy/trash) continua por baixo enquanto a imagem carrega. */
+.gang-msg-avatar--foto { overflow: hidden; padding: 0; }
+.gang-msg-avatar--foto img { width: 100%; height: 100%; object-fit: cover; image-rendering: pixelated; }
 
 .gang-bubble {
   max-width: 72%; padding: 8px 12px; font-size: 12px; line-height: 1.5;
@@ -1033,6 +1048,43 @@
 }
 .gang-attack-btn:hover:not(:disabled) { box-shadow: 0 0 20px rgba(139,0,0,0.4); }
 .gang-attack-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+/* Automático da Briga em Multidão — mesma cor de destaque (teal) do toggle
+   do automático normal (gang-orb-auto), só que como botão de linha em vez de
+   switch, pra caber ao lado de AVANÇAR RODADA sem precisar de outro menu. */
+.gang-multidao-auto-btn {
+  flex-shrink: 0; padding: 12px 14px; background: rgba(0, 180, 216, 0.06);
+  border: 1px solid color-mix(in srgb, var(--if-teal) 45%, transparent);
+  color: var(--if-teal); cursor: pointer; font-family: 'Courier New', monospace;
+  font-size: 11px; font-weight: bold; letter-spacing: 2px; border-radius: 4px;
+  transition: all 0.15s;
+}
+.gang-multidao-auto-btn--on { background: rgba(0, 180, 216, 0.16); box-shadow: 0 0 14px -2px rgba(0, 180, 216, 0.5); }
+
+/* Pergunta de início de luta (Sim/Não pra já começar em Briga em Multidão) —
+   backdrop sólido, acima de TUDO (dado/KO/resultado usam 9999). */
+.gang-multidao-prompt-overlay {
+  position: fixed; inset: 0; z-index: 10000;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(5, 8, 12, 0.88); padding: 20px;
+}
+.gang-multidao-prompt-box {
+  max-width: 360px; width: 100%; padding: 24px 20px;
+  background: #0e1318; border: 1px solid color-mix(in srgb, var(--if-teal) 45%, transparent);
+  border-radius: 8px; box-shadow: 0 0 30px -6px rgba(0, 180, 216, 0.4);
+  text-align: center;
+}
+.gang-multidao-prompt-texto { color: #eee; font-size: 14px; line-height: 1.5; margin: 0 0 18px; }
+.gang-multidao-prompt-acoes { display: flex; gap: 10px; }
+.gang-multidao-prompt-btn {
+  flex: 1; padding: 12px; background: none; border: 1px solid rgba(255,255,255,0.25);
+  color: #ccc; cursor: pointer; font-family: 'Courier New', monospace; font-size: 12px;
+  font-weight: bold; letter-spacing: 1px; border-radius: 4px; transition: all 0.15s;
+}
+.gang-multidao-prompt-btn:hover { border-color: rgba(255,255,255,0.5); }
+.gang-multidao-prompt-btn--sim {
+  border-color: var(--if-teal); color: var(--if-teal); background: rgba(0, 180, 216, 0.08);
+}
+.gang-multidao-prompt-btn--sim:hover { background: rgba(0, 180, 216, 0.16); }
 /* ── Escolha do golpe — quem age e o PM já aparecem no quadradinho piscando
    no roster (gang-mini--acting), então esse bloco só precisa dos golpes ── */
 .gang-power-attacks { display: flex; flex-direction: column; gap: 4px; }
@@ -2267,6 +2319,20 @@
 .gang-report-hero h1 { margin: 12px 0 6px; color: var(--if-amber); font: 900 42px 'Rajdhani', sans-serif; letter-spacing: 10px; }
 .gang-report--defeat .gang-report-hero h1 { color: #dc3b45; }
 .gang-report-hero p { margin: 0; color: #65737a; font-size: 10px; letter-spacing: 1px; }
+/* Cabeça de quem apanhou, na tela de derrota (pedido do Isaias,
+   15/09/2026 — primeiro passo de um futuro banco de "carinhas" de
+   reação tipo emoji: derrotado, vencedor etc). Um ou vários, lado a
+   lado, tristes/apagados — não é o roster normal, é destaque mesmo. */
+.gang-report-derrotados { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; margin-top: 18px; }
+.gang-report-derrotado { display: grid; justify-items: center; gap: 6px; }
+.gang-report-derrotado i {
+  display: grid; place-items: center; width: 64px; height: 64px; border-radius: 50%; overflow: hidden;
+  border: 2px solid rgba(220, 45, 55, 0.55); background: rgba(220, 45, 55, 0.1);
+  color: #dc5961; font: 900 24px 'Rajdhani', sans-serif; font-style: normal;
+  filter: grayscale(0.65) brightness(0.8);
+}
+.gang-report-derrotado i img { width: 100%; height: 100%; object-fit: cover; image-rendering: pixelated; }
+.gang-report-derrotado small { max-width: 74px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: #a35a5e; font-size: 9px; letter-spacing: 0.4px; text-transform: uppercase; }
 
 .gang-report-summary { display: grid; grid-template-columns: repeat(4, 1fr); margin: 14px 0; border: 1px solid rgba(255,255,255,0.07); background: rgba(255,255,255,0.02); }
 .gang-report-summary div { padding: 13px 6px; border-right: 1px solid rgba(255,255,255,0.06); text-align: center; }
@@ -2282,6 +2348,8 @@
 .gang-report-member--ko { opacity: 0.35; filter: grayscale(1); }
 .gang-report-member > span { display: grid; place-items: center; width: 28px; height: 28px; border: 1px solid currentColor; border-radius: 50%; color: var(--if-teal); }
 .gang-report-member--enemy > span { color: #dc5961; }
+.gang-report-member--foto > span { overflow: hidden; padding: 0; }
+.gang-report-member--foto > span img { width: 100%; height: 100%; object-fit: cover; image-rendering: pixelated; }
 .gang-report-member div { min-width: 0; }
 .gang-report-member strong, .gang-report-member small { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .gang-report-member strong { font: 700 12px 'Rajdhani', sans-serif; }
@@ -2317,82 +2385,129 @@
 .gang-report-secondary { border: 1px solid rgba(245,166,35,0.35); background: transparent; color: var(--if-amber); }
 @media (max-width: 520px) { .gang-report { padding-inline: 10px; } .gang-report-summary { grid-template-columns: repeat(2, 1fr); } .gang-report-summary div:nth-child(2) { border-right: 0; } .gang-report-roster { grid-template-columns: 1fr; } }
 
-/* ===== NEOGUIDE — diálogo vertical ===== */
-.neoguide-overlay {
-  position: fixed; inset: 0; z-index: 9999;
-  display: flex; flex-direction: column; align-items: center; justify-content: flex-end;
-  background: radial-gradient(ellipse at 50% 30%, rgba(0, 40, 55, 0.55) 0%, rgba(2, 4, 6, 0.94) 70%);
-  backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px);
-  cursor: pointer;
+/* ── Parede de tijolo OFICIAL do LDI Gangues — agora a arte de verdade
+   (pedido do Isaias, 14/09/2026: "essa vai ser a BG oficial... em vez
+   daquele background que você fez, que é legal mas não é o suficiente,
+   esse aqui tá muito melhor"). Substituiu a receita 100% CSS (gradientes
+   cruzados simulando tijolo) por um único JPG desenhado — o graffiti com
+   os 30 nomes do elenco na parede. Repetida (não importada) em
+   GanguesSaveSelect.css porque aquela tela precisa ser full-bleed por
+   conta própria; qualquer ajuste aqui precisa espelhar lá também. */
+.gang-brickwall-bg {
+  background-color: #1a0f08;
+  /* Véu escuro por cima da arte (2ª camada) — sem ele o graffiti (cheio
+     de nomes/cores fortes) brigava com o texto da UI por cima (reportado
+     no 1º teste visual: título e botões ilegíveis sobre a parede real). */
+  background-image:
+    linear-gradient(rgba(10, 5, 2, .58), rgba(10, 5, 2, .58)),
+    url('./assets/backgrounds/parede-oficial.jpg');
+  background-size: cover, cover;
+  background-position: top center, top center;
+  background-repeat: no-repeat, no-repeat;
+  background-attachment: fixed, fixed;
 }
-.neoguide-skip {
-  position: absolute; top: max(16px, env(safe-area-inset-top)); right: 16px;
-  padding: 6px 12px; border: 1px solid rgba(255,255,255,0.15); border-radius: 20px;
-  background: rgba(0,0,0,0.4); color: rgba(255,255,255,0.6);
+
+/* ===== DIÁLOGO PADRÃO DO LDI GANGUES (GangDialog) =====
+   Reconstrução total (pedido do Isaias, 14/09/2026: "isso vai virar a
+   comunicação padrão do LDI Gangues") — cabeça grande com animação de
+   idle (balanço + respiração, mais um tiquinho de "fala" enquanto digita
+   o texto) e um balão de fala de verdade saindo dela, sobre a parede de
+   tijolo oficial. Substitui o antigo layout NeoGuide (barra no rodapé). */
+.gang-dlg-overlay {
+  /* Mobile only: `position:fixed` escapa da coluna de #root e cola nas
+     bordas do VIEWPORT físico, não da coluna de 480px — a "armadilha"
+     documentada em AGENTS.md/index.css. `inset:0` sozinho vira full-bleed
+     de tela larga (bug real reportado pelo Isaias, 14/09/2026, com
+     DevTools em 825px: a parede de tijolo esticava até a borda da janela
+     em vez de ficar confinada na coluna). Corrigido com left/right:
+     var(--app-gutter), o mesmo bloco pronto que todo overlay fixed do
+     site usa (ver index.css e outros exemplos aqui em Gangues.css). */
+  position: fixed; top: 0; bottom: 0; left: var(--app-gutter); right: var(--app-gutter); z-index: 9999; cursor: pointer;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 24px 18px calc(24px + env(safe-area-inset-bottom));
+}
+.gang-dlg-overlay::before {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(ellipse at 50% 38%, transparent 0%, rgba(2, 3, 4, .55) 75%);
+}
+.gang-dlg-skip {
+  position: absolute; top: max(16px, env(safe-area-inset-top)); right: 16px; z-index: 2;
+  padding: 6px 12px; border: 1px solid rgba(255, 255, 255, .15); border-radius: 20px;
+  background: rgba(0, 0, 0, .4); color: rgba(255, 255, 255, .6);
   font: 700 9px 'Courier New', monospace; letter-spacing: 2px; text-transform: uppercase;
   cursor: pointer;
 }
-.neoguide-skip:hover { color: #fff; border-color: rgba(255,255,255,0.35); }
-.neoguide-portrait-frame {
-  width: min(76vw, 360px); aspect-ratio: 337 / 430; overflow: hidden;
-  margin: 0 auto -8px; position: relative;
-  filter: drop-shadow(0 0 40px rgba(0, 180, 216, 0.35)) drop-shadow(0 20px 30px rgba(0,0,0,0.6));
-}
-.neoguide-portrait {
-  position: absolute; top: 0; left: 0; width: 100%; height: auto;
-  pointer-events: none; user-select: none;
-}
-.neoguide-box {
-  position: relative; z-index: 1; width: 100%; max-width: 480px;
-  margin: 0 auto; padding: 16px 18px calc(16px + env(safe-area-inset-bottom));
-  background: linear-gradient(180deg, rgba(6, 14, 18, 0.88), rgba(3, 8, 10, 0.97));
-  border-top: 2px solid var(--if-teal); box-shadow: 0 -8px 30px rgba(0, 180, 216, 0.12);
-  cursor: default;
-}
-.neoguide-name {
-  display: inline-block; padding: 3px 10px; margin-bottom: 8px; border-radius: 3px;
-  background: rgba(0, 180, 216, 0.15); border: 1px solid rgba(0, 180, 216, 0.4);
-  color: var(--if-teal); font: 800 11px 'Rajdhani', sans-serif; letter-spacing: 3px;
-}
-.neoguide-text {
-  min-height: 52px; margin: 0; color: #e4edf0; font-size: 15px; line-height: 1.55;
-  letter-spacing: 0.2px;
-}
-.neoguide-cursor { color: var(--if-teal); margin-left: 1px; }
-.neoguide-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 12px; }
-.neoguide-dots { display: flex; gap: 5px; }
-.neoguide-dot { width: 5px; height: 5px; border-radius: 50%; background: rgba(255,255,255,0.15); }
-.neoguide-dot--active { background: var(--if-teal); box-shadow: 0 0 6px rgba(0,180,216,0.7); }
-.neoguide-next {
-  padding: 8px 18px; border: 1px solid var(--if-teal); border-radius: 4px;
-  background: rgba(0, 180, 216, 0.12); color: var(--if-teal);
-  font: 800 11px 'Rajdhani', sans-serif; letter-spacing: 2px; text-transform: uppercase;
-  cursor: pointer; animation: neoguide-pulse 1.6s ease-in-out infinite;
-}
-.neoguide-next:hover { background: rgba(0, 180, 216, 0.22); }
-@keyframes neoguide-pulse { 0%, 100% { box-shadow: 0 0 0 rgba(0,180,216,0); } 50% { box-shadow: 0 0 12px rgba(0,180,216,0.4); } }
-@media (max-width: 420px) { .neoguide-portrait-frame { width: 82vw; } .neoguide-text { font-size: 14px; } }
+.gang-dlg-skip:hover { color: #fff; border-color: rgba(255, 255, 255, .35); }
 
-/* ── Diálogo de rua (GangDialog) — sem mascote, voz de Marelia ── */
-.gang-dlg-overlay {
-  background: radial-gradient(ellipse at 50% 35%, rgba(40, 20, 0, 0.5) 0%, rgba(2, 3, 4, 0.95) 70%);
+.gang-dlg-stage { position: relative; z-index: 1; width: 100%; max-width: 380px; display: grid; justify-items: center; cursor: default; }
+
+/* Cabeça grande — o retrato (ou a inicial de fallback) fica dentro de um
+   círculo animado, nunca parado: balança de leve e "respira" o tempo
+   todo; enquanto o texto tá sendo digitado, ganha um pulso mais rápido
+   simulando fala. Preparado pra imagens de expressão futuras (piscar,
+   sorrir) sem mudar esta estrutura — só trocar o src em runtime. */
+.gang-dlg-portrait {
+  position: relative; z-index: 2; width: 132px; height: 132px; margin-bottom: -20px;
+  filter: drop-shadow(0 12px 22px rgba(0, 0, 0, .65));
 }
-.gang-dlg-box { border-top-color: var(--if-amber); box-shadow: 0 -8px 30px rgba(255, 174, 50, 0.12); }
-.gang-dlg-face {
-  display: grid; place-items: center;
-  width: 46px; height: 46px; margin-bottom: 8px;
-  font: 800 1.3rem var(--font-display); color: #1b1000;
+.gang-dlg-portrait-idle {
+  display: grid; place-items: center; width: 100%; height: 100%; overflow: hidden; border-radius: 50%;
   background: linear-gradient(150deg, var(--if-amber), #b56a1e);
-  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
+  border: 3px solid rgba(0, 0, 0, .45);
+  animation: gang-dlg-idle 3.4s ease-in-out infinite;
 }
-.gang-dlg-name { background: rgba(255, 174, 50, 0.14); border-color: rgba(255, 174, 50, 0.4); color: var(--if-amber); }
-.gang-dlg-sub { font-style: normal; opacity: 0.72; font-weight: 600; letter-spacing: 1px; }
-.gang-dlg-overlay .neoguide-next {
-  border-color: var(--if-amber); background: rgba(255, 174, 50, 0.12); color: var(--if-amber); animation: none;
+.gang-dlg-portrait-idle img { width: 100%; height: 100%; object-fit: cover; image-rendering: pixelated; }
+.gang-dlg-portrait-idle b { font: 900 2.3rem var(--font-display); color: #1b1000; }
+@keyframes gang-dlg-idle {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-7px) rotate(2deg); }
 }
-.gang-dlg-overlay .neoguide-next:hover { background: rgba(255, 174, 50, 0.22); }
-.gang-dlg-overlay .neoguide-dot--active { background: var(--if-amber); box-shadow: 0 0 6px rgba(255, 174, 50, 0.7); }
-.gang-dlg-overlay .neoguide-cursor { color: var(--if-amber); }
+.gang-dlg-portrait--falando .gang-dlg-portrait-idle img,
+.gang-dlg-portrait--falando .gang-dlg-portrait-idle b { animation: gang-dlg-talk .32s ease-in-out infinite; }
+@keyframes gang-dlg-talk { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.06); } }
+
+/* Balão de fala — sai da cabeça (a "cauda" aponta pra cima, na boca do
+   personagem), truque clássico de 2 triângulos (borda + preenchimento). */
+.gang-dlg-bubble {
+  position: relative; z-index: 1; width: 100%; padding: 30px 18px 16px;
+  background: linear-gradient(180deg, #14100c, #0a0705);
+  border: 2px solid var(--if-amber); border-radius: 22px;
+  box-shadow: 0 16px 36px -18px rgba(0, 0, 0, .85);
+}
+.gang-dlg-bubble-tail {
+  position: absolute; top: -14px; left: 50%; margin-left: -12px;
+  width: 0; height: 0; border-left: 12px solid transparent; border-right: 12px solid transparent;
+  border-bottom: 14px solid var(--if-amber);
+}
+.gang-dlg-bubble-tail::after {
+  content: ''; position: absolute; top: 3px; left: -9px;
+  width: 0; height: 0; border-left: 9px solid transparent; border-right: 9px solid transparent;
+  border-bottom: 11px solid #14100c;
+}
+.gang-dlg-bubble-name {
+  display: inline-block; padding: 3px 10px; margin-bottom: 8px; border-radius: 3px;
+  background: rgba(255, 174, 50, .14); border: 1px solid rgba(255, 174, 50, .4);
+  color: var(--if-amber); font: 800 11px 'Rajdhani', sans-serif; letter-spacing: 3px;
+}
+.gang-dlg-bubble-name em { font-style: normal; opacity: .72; font-weight: 600; letter-spacing: 1px; }
+.gang-dlg-bubble-text { min-height: 52px; margin: 0; color: #e4edf0; font-size: 15px; line-height: 1.55; letter-spacing: .2px; }
+.gang-dlg-cursor { color: var(--if-amber); margin-left: 1px; }
+.gang-dlg-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 12px; }
+.gang-dlg-dots { display: flex; gap: 5px; }
+.gang-dlg-dot { width: 5px; height: 5px; border-radius: 50%; background: rgba(255, 255, 255, .15); }
+.gang-dlg-dot--active { background: var(--if-amber); box-shadow: 0 0 6px rgba(255, 174, 50, .7); }
+.gang-dlg-next {
+  padding: 8px 18px; border: 1px solid var(--if-amber); border-radius: 4px;
+  background: rgba(255, 174, 50, .12); color: var(--if-amber);
+  font: 800 11px 'Rajdhani', sans-serif; letter-spacing: 2px; text-transform: uppercase;
+  cursor: pointer; animation: gang-dlg-pulse 1.6s ease-in-out infinite;
+}
+.gang-dlg-next:hover { background: rgba(255, 174, 50, .22); }
+@keyframes gang-dlg-pulse { 0%, 100% { box-shadow: 0 0 0 rgba(255, 174, 50, 0); } 50% { box-shadow: 0 0 12px rgba(255, 174, 50, .4); } }
+@media (prefers-reduced-motion: reduce) {
+  .gang-dlg-portrait-idle, .gang-dlg-portrait--falando .gang-dlg-portrait-idle img,
+  .gang-dlg-portrait--falando .gang-dlg-portrait-idle b, .gang-dlg-next { animation: none; }
+}
 
 /* ===== NEOGUIDE — dica lateral (tutorial guiado) ===== */
 .neoguide-tip {
@@ -2612,7 +2727,8 @@ button.gang-skill-node:hover { border-color: var(--if-teal); }
 .gang-ficha-modal-card {
   display: flex; flex-direction: column; align-items: center; gap: 6px;
   width: min(260px, 82%); padding: 20px 18px;
-  background: #12181c; border: 1px solid rgba(0,180,216,0.3); border-radius: 14px;
+  background: linear-gradient(155deg, #241108, #150a05 55%, #0c0603);
+  border: 1px solid color-mix(in srgb, var(--if-amber) 30%, transparent); border-radius: 14px;
   box-shadow: 0 12px 40px rgba(0,0,0,0.5);
 }
 /* Conteúdo (hero, atributos, PV/PM/XP) vem de GanguesFichaCard — mesmas

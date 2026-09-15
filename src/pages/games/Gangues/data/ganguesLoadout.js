@@ -41,11 +41,41 @@ export function ganguesTemMultiplayer(roster = []) {
 }
 
 /** Vaga de elenco liberada pelo progresso da história — soma ao limite do tier, nunca substitui. */
-export function getGanguesRosterLimitComHistoria(tier, storyProgress, rep = 0) {
+export function getGanguesRosterLimitComHistoria(tier, storyProgress) {
   const dominados = Math.min(GANGUES_STORY_ROSTER_TERRITORIOS_QUE_CONTAM, contarTerritoriosDominados(storyProgress))
-  const viaHistoria = Math.min(GANGUES_STORY_ROSTER_MAX, GANGUES_STORY_ROSTER_BASE + dominados + (rep >= 50 ? 1 : 0))
+  const viaHistoria = Math.min(GANGUES_STORY_ROSTER_MAX, GANGUES_STORY_ROSTER_BASE + dominados)
   return Math.min(GANGUES_STORY_ROSTER_MAX, Math.max(getGanguesRosterLimit(tier), viaHistoria))
 }
+
+// Marco de reputação RECORRENTE: a cada 50 pontos acumulados (50, 100, 150,
+// 200... sem teto), a gangue ganha automaticamente 1 item de "poder por 1
+// uso" (ver ids 20/21/22 em ganguesItens.js) — cicla pelos 3 na ordem.
+// `repMarcosCruzados(antes, depois)` devolve TODOS os marcos cruzados nesse
+// ganho de rep (normalmente 1, mas pode ser mais de 1 se um ganho enorme
+// pular vários de uma vez — quem chama concede o item de CADA um, mas só
+// precisa exibir o modal do último). Pedido do Isaias (2026-09-14): "então tá
+// errado, nada pode ser silencioso" — e depois (mesmo dia) pediu pra isso
+// virar uma tela/modal de recompensa de verdade, não só um toast que passa.
+export const GANGUES_REP_MARCO_INTERVALO = 50
+export function repMarcosCruzados(antes, depois) {
+  const marcos = []
+  const primeiro = Math.floor(antes / GANGUES_REP_MARCO_INTERVALO) + 1
+  const ultimo = Math.floor(depois / GANGUES_REP_MARCO_INTERVALO)
+  for (let n = primeiro; n <= ultimo; n++) {
+    const itemId = [20, 21, 22][(n - 1) % 3]
+    marcos.push({ nivel: n, valor: n * GANGUES_REP_MARCO_INTERVALO, itemId })
+  }
+  return marcos
+}
+
+// ── Gates de reputação: conteúdo arriscado exige rep mínima ──
+// Cada gate trava um conteúdo mais perigoso que o anterior: evento de rua
+// aleatório < galpão do Carvão/Cão Louco < Clube da Luta. Pedido do Isaias
+// (2026-09-14): território dominado já resolve recrutamento sozinho, então a
+// reputação virou "risco liberado" em vez de "vaga extra de elenco".
+export const GANGUES_REP_GATE_EVENTO = 15
+export const GANGUES_REP_GATE_GALPAO = 25
+export const GANGUES_REP_GATE_CLUBE = 40
 
 
 export function getGanguesRosterLimit(tier) {

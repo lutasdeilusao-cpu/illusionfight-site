@@ -229,7 +229,7 @@ export function describeGanguesSpecialCost(t, id, level = 1) {
 // Monta a lista de efeitos que valem nesta resolução: todos os passivos equipados + a ativa
 // escolhida pelo jogador (se equipada, com nível > 0 e custo pagável). `activeSpecialId` só
 // importa pro lado atacante — quem defende nunca "escolhe" usar uma ativa.
-export function buildGanguesEffectsList(member, activeSpecialId = null) {
+export function buildGanguesEffectsList(member, activeSpecialId = null, forcedSpecial = null) {
   const progression = getGanguesProgression(member)
   const specials = getGanguesSpecials(member)
   const equippedIds = progression.selected_specials || []
@@ -255,6 +255,14 @@ export function buildGanguesEffectsList(member, activeSpecialId = null) {
     } else {
       list.push({ id, kind: 'passive', level, effect })
     }
+  }
+  // Poder "emprestado" por item (chip de uso único) — funciona mesmo se o
+  // personagem nunca treinou/equipou esse poder, porque o loop acima só
+  // considera `selected_specials`/`special_levels`. Não duplica: na prática
+  // um poder emprestado nunca também está equipado, mas o guard fica aqui
+  // mesmo assim.
+  if (forcedSpecial && forcedSpecial.id === activeSpecialId && !list.some(item => item.id === forcedSpecial.id)) {
+    list.push({ id: forcedSpecial.id, kind: 'active', level: forcedSpecial.level || 1, effect: getGanguesSpecialEffect(forcedSpecial.id) })
   }
   return list
 }

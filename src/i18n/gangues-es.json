@@ -301,7 +301,10 @@
       "itens": {
         "1": "Poción de HP",
         "2": "Poción de MP",
-        "13": "Chatarra"
+        "13": "Chatarra",
+        "20": "Chip del Bruto (uso único: da el poder Puño de Hierro por 1 golpe)",
+        "21": "Chip de la Muralla (uso único: da el poder Postura Defensiva por 1 golpe)",
+        "22": "Chip Ígneo (uso único: da el poder Bola de Fuego por 1 golpe)"
       },
       "loja": {
         "sub": "Compra con la plata de la banda — se puede usar en cualquier pelea.",
@@ -506,11 +509,21 @@
       "multidao": {
         "switch_label": "Pelea Multitudinaria",
         "switch_titulo": "Activa la Pelea Multitudinaria — cada ronda se resuelve de una vez, pero sigue siendo por turnos",
+        "switch_titulo_bloqueado": "Solo puedes activarlo en TU turno — espera a que termine el turno actual",
+        "prompt_pergunta": "Es una banda grande — ¿quieres empezar la pelea en modo Pelea Multitudinaria?",
+        "prompt_sim": "SÍ, MULTITUDINARIA",
+        "prompt_nao": "NO, GOLPE A GOLPE",
         "poderes_titulo": "Talentos de la ronda",
         "avancar_rodada": "SIGUIENTE RONDA",
         "resolvendo": "Tirando los dados de la ronda...",
         "usar_item": "Usar objeto esta ronda (renuncia al ataque)",
-        "vai_usar_item": "Va a usar objeto"
+        "vai_usar_item": "Va a usar objeto",
+        "auto_switch_titulo": "Activa el automático — las rondas avanzan solas, respetando los talentos/objetos ya marcados. Desactívalo cuando quieras."
+      },
+      "recrutar_banner": {
+        "titulo": "¡Reclutamiento liberado!",
+        "desc": "Tu banda tiene espacio para un miembro más.",
+        "cta": "Elegir nuevo miembro →"
       },
       "multidao_tutorial": {
         "interruptor": "Este interruptor activa el modo Pelea Multitudinaria: en vez de golpe a golpe, cada ronda resuelve a todos de una vez.",
@@ -4046,6 +4059,14 @@
         "descanso_sem_grana": "La plata está corta para el descanso, pibe.",
         "descanso_curar": "Descansar (−{grana})",
         "tropa_no_chao": "Tu tropa está toda en el piso, pibe. Así nadie encara a nadie. Pasá por el kiosco del Nato antes.",
+        "aviso_rep_evento": "Esto huele a bardo, pibe. Todavía no tenés el prestigio pa' meterte en esa — hacete nombre en la calle primero (rep {rep}).",
+        "aviso_rep_treta": "Esa es harina de otro costal, pibe. No es hora de hacerte el guapo sin nombre hecho en la calle — juntá más reputación antes de encarar (rep {rep}).",
+        "aviso_rep_clube": "El Nato ni te deja entrar a la rueda sin que tengas nombre en la calle. Juntá más reputación antes de aparecer por acá (rep {rep}).",
+        "rep_recompensa": {
+          "titulo": "¡REPUTACIÓN {valor}!",
+          "sub": "Tu nombre ya suena en la calle, pibe. Agarrá esto.",
+          "pegar": "AGARRAR"
+        },
         "fiado_pedir": "Fiado con el Nato",
         "fiado_contrato_tag": "Contrato · sin plazo",
         "fiado_contrato": "El Nato miró a tu tropa, escupió al piso y los mandó a descansar. Te clavó {valor} de plata en la cuenta. Ahora le debés {divida}. Sin plazo, sin reclamo — él sólo se acuerda.",

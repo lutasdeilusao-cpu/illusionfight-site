@@ -5,6 +5,7 @@ import { useGanguesStore } from '../store/useGanguesStore'
 import { ganguesTemMultiplayer } from '../data/ganguesLoadout.js'
 import { getGanguesPortraitByTemplateId } from '../data/ganguesPortraits.js'
 import { sfx } from '../../../../lib/sfx'
+import '../Gangues.css' // .gang-brickwall-bg mora lá
 import './GanguesModes.css'
 import './GanguesModesRedesign.css'
 
@@ -31,7 +32,7 @@ export default function GanguesModes({ onNavigate }) {
   }
 
   return (
-    <main className="gang-lobby gang-modes">
+    <main className="gang-lobby gang-modes gang-brickwall-bg">
       <header className="gang-story-head">
         <button className="gang-progression-screen-back" onClick={() => onNavigate('lobby')}>
           ← {t('games.gangues.progression.back_to_roster')}
@@ -117,7 +118,13 @@ export default function GanguesModes({ onNavigate }) {
           <h2>{t('games.gangues.modes.escalacao')}</h2>
           <div>{party.map(member => {
             const foto = getGanguesPortraitByTemplateId(member.character_template_id)
-            return <article key={member.id}><i>{foto ? <img src={foto} alt="" /> : member.sheet_name[0]}</i><span><strong>{member.sheet_name}</strong><small>{t(`games.gangues.loadout.paths.${member.combat_path}.name`)}</small></span><b>✓</b></article>
+            return (
+              <article key={member.id}>
+                {foto ? <img className="gang-modes-party-foto" src={foto} alt="" /> : <i>{member.sheet_name[0]}</i>}
+                <span><strong>{member.sheet_name}</strong><small>{t(`games.gangues.loadout.paths.${member.combat_path}.name`)}</small></span>
+                <b>✓</b>
+              </article>
+            )
           })}</div>
           <button onClick={() => setGangueAberta(false)}>{t('games.gangues.ficha_fechar')}</button>
         </section>

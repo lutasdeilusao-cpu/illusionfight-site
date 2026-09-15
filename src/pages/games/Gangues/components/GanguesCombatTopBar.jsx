@@ -25,18 +25,25 @@ export default function GanguesCombatTopBar({
         )}
       </span>
       <div className="gang-vs-bar-line" />
-      {multidaoDisponivel && (
-        <button
-          type="button"
-          className={`gang-multidao-switch ${modoMultidaoOn ? 'gang-multidao-switch--on' : ''} ${!multidaoBlinkVisto && !modoMultidaoOn ? 'gang-multidao-switch--blink' : ''}`}
-          disabled={revelandoRodada || Boolean(result)}
-          title={t('games.gangues.multidao.switch_titulo')}
-          onClick={alternarMultidao}
-        >
-          <span className="gang-multidao-switch-track"><span className="gang-multidao-switch-bolinha" /></span>
-          <small>{t('games.gangues.multidao.switch_label')}</small>
-        </button>
-      )}
+      {multidaoDisponivel && (() => {
+        // Só dá pra LIGAR na sua vez, sem nada pendente (ver nota em
+        // useGanguesModoMultidao.js/alternarMultidao) — desligar continua
+        // liberado a qualquer momento, então essa trava só entra quando o
+        // switch ainda está desligado.
+        const bloqueadoPraLigar = !modoMultidaoOn && (machine.phase !== 'player' || Boolean(machine.pending))
+        return (
+          <button
+            type="button"
+            className={`gang-multidao-switch ${modoMultidaoOn ? 'gang-multidao-switch--on' : ''} ${!multidaoBlinkVisto && !modoMultidaoOn ? 'gang-multidao-switch--blink' : ''}`}
+            disabled={revelandoRodada || Boolean(result) || bloqueadoPraLigar}
+            title={bloqueadoPraLigar ? t('games.gangues.multidao.switch_titulo_bloqueado') : t('games.gangues.multidao.switch_titulo')}
+            onClick={alternarMultidao}
+          >
+            <span className="gang-multidao-switch-track"><span className="gang-multidao-switch-bolinha" /></span>
+            <small>{t('games.gangues.multidao.switch_label')}</small>
+          </button>
+        )
+      })()}
       {multidaoDisponivel && <GanguesMultidaoTutorial />}
       {/* Modo automático saiu da barra do topo pro menu da bolinha de ação
           (pedido do Isaias) — ver <GanguesActionOrb autoOn ... />. */}

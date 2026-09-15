@@ -5,11 +5,13 @@ import { useAuth } from '../../../../context/AuthContext'
 import { useGanguesStore } from '../store/useGanguesStore'
 import { GANGUES_CHARACTER_CATALOG, getGanguesAvailableCharacterIds } from '../data/ganguesCharacters.js'
 import { getGanguesPortrait } from '../data/ganguesPortraits.js'
-import { GANGUES_INITIAL_PARTY_SIZE } from '../data/ganguesLoadout.js'
+import { GANGUES_INITIAL_PARTY_SIZE, GANGUES_MAX_PARTY_SIZE } from '../data/ganguesLoadout.js'
 import { sfx } from '../../../../lib/sfx'
 import GanguesFichaCard from '../components/GanguesFichaCard'
 import GanguesFichaBio from '../components/GanguesFichaBio'
 import { getGanguesBiografia } from '../data/ganguesBiografias.js'
+import '../Gangues.css' // .gang-brickwall-bg mora lá
+import './GanguesLobby.css' // .gang-recruit / .gang-fighter-card / .gang-sheet-modal moram lá
 
 const PATH_MARKS = { atacante: 'A', defensor: 'D', mistico: 'M' }
 
@@ -31,7 +33,6 @@ export default function GanguesCreate({ onNavigate, onCreated }) {
     const available = new Set(getGanguesAvailableCharacterIds({
       campaignClears: store.campaignClears,
       storyProgress: store.storyProgress,
-      rep: store.rep,
       eventCharacterIds: store.eventCharacterIds,
     }))
     return GANGUES_CHARACTER_CATALOG.filter(character => available.has(character.id) && !recruited.has(character.id))
@@ -100,7 +101,12 @@ export default function GanguesCreate({ onNavigate, onCreated }) {
       setError(t('games.gangues.party.save_error'))
       return
     }
-    store.setActiveParty([...store.activeParty, ...saved].slice(0, 2))
+    // Cap era fixo em 2 (herança da dupla fundadora) — cortava do time ativo
+    // todo recruta feito DEPOIS de já ter 2 no time (ficava só no roster, sem
+    // aparecer pra usar). O teto de verdade é o do elenco/GANGUES_MAX_PARTY_SIZE.
+    const rosterAtual = useGanguesStore.getState().roster
+    const cap = Math.min(rosterAtual.length, GANGUES_MAX_PARTY_SIZE)
+    store.setActiveParty([...store.activeParty, ...saved].slice(0, cap))
     // O 1º personagem que o jogador escolheu (selectedIds[0] -> saved[0], a
     // ordem do for...of bate com a ordem da escolha) vira líder da gangue de
     // cara — só na fundação; recrutas depois disso não mexem no líder já
@@ -112,7 +118,7 @@ export default function GanguesCreate({ onNavigate, onCreated }) {
   }
 
   return (
-    <main className="gang-recruit">
+    <main className="gang-recruit gang-brickwall-bg">
       <header className="gang-recruit__head">
         <button className="gang-recruit__back" onClick={() => onNavigate('lobby')} aria-label={t('games.gangues.btn_voltar')}>←</button>
         <h1>{initialRecruitment ? t('games.gangues.recruitment.title_initial') : t('games.gangues.recruitment.title')}</h1>
@@ -121,7 +127,6 @@ export default function GanguesCreate({ onNavigate, onCreated }) {
       </header>
 
       <section className="gang-recruit__stage" aria-label={t('games.gangues.recruitment.candidates')}>
-        <div className="gang-recruit__street" aria-hidden="true"><i /><i /><i /></div>
         <button className="gang-recruit__arrow gang-recruit__arrow--left" onClick={() => move(-1)} aria-label={t('games.gangues.recruitment.previous')}>‹</button>
         <div className="gang-recruit__slides">
           {slides.map(({ character, position }) => {
@@ -156,8 +161,8 @@ export default function GanguesCreate({ onNavigate, onCreated }) {
         <div className="gang-recruit__slots">
           {Array.from({ length: required }, (_, index) => {
             const character = candidates.find(item => item.id === selectedIds[index])
-            const foto = character && getGanguesPortrait(character.slug)
-            return <button key={index} disabled={!character} onClick={() => character && openSheet(character)} className={character ? 'is-filled' : ''}>{character ? <><b>{foto ? <img src={foto} alt="" /> : character.name[0]}</b><span>{character.name}</span><i>✓</i></> : <><b>+</b><span>{t('games.gangues.recruitment.empty_slot')}</span></>}</button>
+            const foto = character ? getGanguesPortrait(character.slug) : null
+            return <button key={index} disabled={!character} onClick={() => character && openSheet(character)} className={character ? 'is-filled' : ''}>{character ? <>{foto ? <img className="gang-recruit__slot-foto" src={foto} alt="" /> : <b>{character.name[0]}</b>}<span>{character.name}</span><i>✓</i></> : <><b>+</b><span>{t('games.gangues.recruitment.empty_slot')}</span></>}</button>
           })}
         </div>
         {error && <p className="gang-err">{error}</p>}

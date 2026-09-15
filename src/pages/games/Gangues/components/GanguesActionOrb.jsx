@@ -131,7 +131,13 @@ export default function GanguesActionOrb({ t, atorNome, disabled, equippedSpecia
                 <span>{itemEscolhido.icone} {t(itemEscolhido.nome)} · {t('games.gangues.orb.item_em_quem')}</span>
               </div>
               {aliados.map(a => {
-                const cheio = itemEscolhido.tipo === 'cura_pm' ? a.pm >= a.pmMax : a.pv >= a.pvMax
+                // `poder_unico` não cura ninguém (é um golpe emprestado que
+                // acerta o INIMIGO já selecionado fora do orb — ver
+                // handleUsarItem em GanguesCombat.jsx) — nunca trava por
+                // "já tá cheio", senão o item fica impossível de usar
+                // sempre que a tropa toda está com PV/PM cheios (o caso mais
+                // comum, logo no início da luta).
+                const cheio = itemEscolhido.tipo === 'poder_unico' ? false : itemEscolhido.tipo === 'cura_pm' ? a.pm >= a.pmMax : a.pv >= a.pvMax
                 return (
                   <button
                     key={a.key} type="button" disabled={disabled || a.dead || cheio}

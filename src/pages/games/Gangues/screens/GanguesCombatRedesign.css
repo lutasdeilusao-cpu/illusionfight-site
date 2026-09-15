@@ -17,12 +17,21 @@
 .gang-combat .gang-roster--enemy .gang-mini-resource--pv::-moz-progress-bar { background:var(--if-danger); }
 .gang-combat .gang-mini-hp { display:none; }
 .gang-combat .gang-ficha-modal { position:absolute; align-items:flex-end; padding:12px; background:color-mix(in srgb,var(--bg-primary) 88%,transparent); backdrop-filter:blur(8px); }
-.gang-combat .gang-ficha-modal-card { position:relative; width:100%; max-width:none; padding:18px 16px 16px; align-items:flex-start; gap:7px; border:1px solid var(--if-teal); border-left:4px solid var(--if-teal); border-radius:0; background:linear-gradient(150deg,var(--if-cyan-12),var(--if-panel-flat) 52%,var(--bg-primary)); box-shadow:0 -18px 52px color-mix(in srgb,var(--if-teal) 16%,transparent); clip-path:polygon(0 0,calc(100% - 15px) 0,100% 15px,100% 100%,0 100%); }
-.gang-combat .gang-ficha-modal-kicker { color:var(--if-teal); font:800 .55rem var(--font-mono); letter-spacing:.18em; text-transform:uppercase; }
+/* Moldura da ficha em combate — segue a mesma identidade do popup de
+   recrutamento (fundo marrom-tijolo, borda âmbar) no lugar do cyan/teal
+   técnico antigo (pedido do Isaias, 15/09/2026: "fichas... no game
+   também tem que ser feito pro estilo visual novo"). */
+.gang-combat .gang-ficha-modal-card { position:relative; width:100%; max-width:none; padding:18px 16px 16px; align-items:flex-start; gap:7px; border:1px solid color-mix(in srgb,var(--if-amber) 30%,transparent); border-left:4px solid var(--if-amber); border-radius:0; background:linear-gradient(155deg,#241108,#150a05 55%,#0c0603); box-shadow:0 -18px 52px rgba(0,0,0,.5); clip-path:polygon(0 0,calc(100% - 15px) 0,100% 15px,100% 100%,0 100%); }
+.gang-combat .gang-ficha-modal-kicker { color:var(--if-amber); font:800 .55rem var(--font-mono); letter-spacing:.18em; text-transform:uppercase; }
 /* Ficha unificada (GanguesFichaCard, mesma linguagem visual do recrutamento)
    dentro do card cheio de largura do modal de combate — só ajusta o hero
    pra não sobrar o respiro de altura pensado pro modal estreito. */
-.gang-combat .gang-sheet-modal__hero { min-height: 0; padding: 6px 100px 4px 0; }
+/* min-height:0 cortava o topo do retrato (bug real reportado pelo Isaias com
+   print: "cabeça do personagem cortada na ficha") — o hero encolhia pro
+   tamanho do texto (~) enquanto o retrato de 96px, pendurado com bottom:-6px,
+   precisa de pelo menos ~102px de altura no hero pra caber sem estourar o
+   topo (que o `overflow:hidden` do hero corta). */
+.gang-combat .gang-sheet-modal__hero { min-height: 104px; padding: 6px 100px 4px 0; }
 .gang-combat .gang-sheet-modal__hero > i { font-size: 110px; right: 4px; bottom: -10px; }
 .gang-combat .gang-sheet-modal__hero .gang-sheet-modal__retrato { width: 96px; height: 96px; right: 4px; bottom: -6px; }
 .gang-combat .gang-sheet-modal__hero h2 { font-size: 28px; }

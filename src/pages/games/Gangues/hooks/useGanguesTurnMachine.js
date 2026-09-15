@@ -39,7 +39,7 @@ export function prepare(combatant, side, index) {
   return { ...normalized, key: `${side}-${index}-${combatant.id}`, side, statuses: [], pv: pvInicial, pm: pmInicial, pvMax: resources.pvMax, pmMax: resources.pmMax, actedThisRound: false, specialState: { charge: 0, shield: 0, totalPvLost: 0 } }
 }
 
-export default function useGanguesTurnMachine({ playerTeam = [], enemyTeam = [], onFinish, attackRoll = d3, defenseRoll = d3, initiativeRoll = d3, bonusRoll = coin, targetRoll = Math.random, enemyDelay = 2200 }) {
+export default function useGanguesTurnMachine({ playerTeam = [], enemyTeam = [], onFinish, attackRoll = d3, defenseRoll = d3, initiativeRoll = d3, bonusRoll = coin, targetRoll = Math.random, enemyDelay = 2200, pausado = false }) {
   const initial = useMemo(() => [...playerTeam.map((member, index) => prepare(member, 'player', index)), ...enemyTeam.map((member, index) => prepare(member, 'enemy', index))], [])
   // `initiative` precisa ser STATE (não useMemo fixo) pra dar pra sobrescrever
   // em `syncFrom` — ver comentário ali (voltar da Briga em Multidão pro modo
@@ -77,21 +77,21 @@ export default function useGanguesTurnMachine({ playerTeam = [], enemyTeam = [],
     setTurnIndex(nextIndex)
   }, [initiative, onFinish, turnIndex])
 
-  const queueAction = useCallback((actor, target, activeSpecialId = null) => {
+  const queueAction = useCallback((actor, target, activeSpecialId = null, forcedSpecial = null) => {
     if (!actor || !target || pending) return false
     const result = resolveGanguesAction({
       attacker: actor, defender: target, action: { type: 'attack', mode: 'attack' },
       rolls: { fa: attackRoll(), fd: defenseRoll(), attackerBonus: bonusRoll(), defenderBonus: bonusRoll() },
-      activeSpecialId,
+      activeSpecialId, forcedSpecial,
     })
     setPending({ actorKey: actor.key, targetKey: target.key, side: actor.side, result })
     return true
   }, [attackRoll, defenseRoll, bonusRoll, pending])
 
-  const playerAction = useCallback((actorKey, targetKey, activeSpecialId = null) => {
+  const playerAction = useCallback((actorKey, targetKey, activeSpecialId = null, forcedSpecial = null) => {
     if (phase !== 'player' || currentActor?.key !== actorKey) return false
     const target = combatants.find(item => item.key === targetKey && item.side === 'enemy' && item.pv > 0)
-    return queueAction(currentActor, target, activeSpecialId)
+    return queueAction(currentActor, target, activeSpecialId, forcedSpecial)
   }, [phase, currentActor, combatants, queueAction])
 
   const completePending = useCallback(() => {
@@ -108,7 +108,16 @@ export default function useGanguesTurnMachine({ playerTeam = [], enemyTeam = [],
   }, [pending, combatants, advanceTurn, record, round])
 
   useEffect(() => {
-    if (phase !== 'enemy' || pending || aiQueued.current || !currentActor) return
+    // `pausado` (Briga em Multidão ativa): o motor normal PARA de agir
+    // sozinho enquanto a Multidão estiver no controle — sem isso, esse timer
+    // continuava rodando ESCONDIDO atrás da UI da Multidão (nada aqui olhava
+    // pro switch), e o inimigo cujo turno já estava agendado ANTES de ligar
+    // a Multidão atacava em segredo (o dano aplicava no `combatants` do motor
+    // normal, invisível, e a briga da Multidão nem sabia disso). Bug
+    // reportado pelo Isaias (2026-09-14): "só de apertar o botãozinho já para
+    // os inimigos de atacar" — na real o ataque acontecia sim, só que
+    // escondido, dando a impressão de que os inimigos "pararam".
+    if (pausado || phase !== 'enemy' || pending || aiQueued.current || !currentActor) return
     aiQueued.current = true
     const timer = setTimeout(() => {
       const target = pickEnemyTarget(combatants, lastEnemyTargetKey.current, targetRoll)
@@ -117,7 +126,7 @@ export default function useGanguesTurnMachine({ playerTeam = [], enemyTeam = [],
       aiQueued.current = false
     }, enemyDelay)
     return () => { clearTimeout(timer); aiQueued.current = false }
-  }, [phase, pending, currentActor, combatants, queueAction, enemyDelay, targetRoll])
+  }, [pausado, phase, pending, currentActor, combatants, queueAction, enemyDelay, targetRoll])
 
   const enterCombat = useCallback(() => {
     if (entered.current) return
@@ -135,10 +144,26 @@ export default function useGanguesTurnMachine({ playerTeam = [], enemyTeam = [],
   // ligar (nunca desligar) — travava assim que a 1ª ação acontecia, pra não
   // ter 2 motores com HP divergente (ver useGanguesModoMultidao.js).
   const syncFrom = useCallback((estado) => {
-    setCombatants(estado.combatants.map(c => ({ ...c })))
+    const nextCombatants = estado.combatants.map(c => ({ ...c }))
+    // O `turnIndex` da Multidão pode apontar pra alguém que JÁ MORREU durante
+    // as rodadas resolvidas lá (avancarRodadaMultidao não recalcula isso ao
+    // sincronizar de volta) — sem essa checagem, o motor normal fazia um
+    // combatente MORTO agir (currentActor existe mesmo com pv<=0, phase vira
+    // 'enemy' e a IA ataca com um inimigo já derrotado). Anda pra frente
+    // (com wraparound, mesma lógica de advanceTurn) até achar alguém vivo.
+    // Bug reportado pelo Isaias (2026-09-13): "desligo a Multidão e os
+    // inimigos voltam a me atacar, dá um erro muito horrível".
+    let idx = estado.turnIndex || 0
+    for (let tentativas = 0; tentativas < estado.initiative.length; tentativas++) {
+      const turno = estado.initiative[idx]
+      const vivo = (nextCombatants.find(c => c.key === turno?.key)?.pv || 0) > 0
+      if (vivo) break
+      idx = (idx + 1) % estado.initiative.length
+    }
+    setCombatants(nextCombatants)
     setInitiative(estado.initiative)
     setRound(estado.round)
-    setTurnIndex(estado.turnIndex || 0)
+    setTurnIndex(idx)
     setPending(null)
     setStarted(true)
     entered.current = true

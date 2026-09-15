@@ -3,6 +3,7 @@ import { useLanguage } from '../../../../context/LanguageContext'
 import { useGanguesStore } from '../store/useGanguesStore'
 import { sfx } from '../../../../lib/sfx'
 import { GANGUES_TERRITORIOS, estadoTerritorio, progressoTerritorio, totalNos } from '../data/ganguesTerritorios.js'
+import '../Gangues.css' // .gang-brickwall-bg mora lá
 import './GanguesWorldMap.css'
 
 /* Mapa político de Marelia — cada território é uma região desenhada no SVG
@@ -42,7 +43,7 @@ export default function GanguesStoryMap({ onNavigate }) {
   }
 
   return (
-    <main className="gang-world">
+    <main className="gang-world gang-brickwall-bg">
       <header className="gang-world__top">
         <button onClick={() => onNavigate('modes')}>← {t('games.gangues.story.menu')}</button>
         <span><b>{domainPct}%</b>{t('games.gangues.story.dominio')}</span>

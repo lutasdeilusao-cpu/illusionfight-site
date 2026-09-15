@@ -37,7 +37,7 @@ export const CRITICAL_BONUS = 2
 // null pra ataque normal). Efeitos passivos equipados de ambos os lados aplicam sempre. Ver
 // engine/ganguesSpecialEffects.js pros valores e docs/Games/Gangues/LDI_GANGUES_GDD.md §17.3
 // pro design original (com as simplificações feitas pra caber no modelo de 1 ação por turno).
-export function resolveGanguesAction({ attacker, defender, action, rolls, activeSpecialId = null }) {
+export function resolveGanguesAction({ attacker, defender, action, rolls, activeSpecialId = null, forcedSpecial = null }) {
   const attack = Number(attacker.attributes?.A) || 0
   const agility = Math.floor((Number(attacker.attributes?.H) || 0) / 2)
   const defense = Number(defender.attributes?.D) || 0
@@ -48,7 +48,7 @@ export function resolveGanguesAction({ attacker, defender, action, rolls, active
   const critical = rolls.fa === ATTACK_DIE_SIDES
   const attackRollValue = rolls.fa + (critical ? CRITICAL_BONUS : 0)
 
-  const attackerEffects = buildGanguesEffectsList(attacker, activeSpecialId)
+  const attackerEffects = buildGanguesEffectsList(attacker, activeSpecialId, forcedSpecial)
   const defenderEffects = buildGanguesEffectsList(defender, null)
   const ctx = { attacker, target: defender, faMod: 0, fdMod: 0, ignoreDefPct: 0, targetDefenseReduction: 0, pmCost: 0, pvCostPct: 0, selfShieldSet: 0, chargeGain: 0, chargeSpent: 0 }
   for (const item of attackerEffects) applyGanguesAttackerEffect(item, ctx)

@@ -23,6 +23,14 @@ const CATALOGO = [
   // cai no ferro-velho (POI `ferro` + `achado` da Pista) e o Seu Nando troca
   // por uma peça (POI `oficina`).
   { id: 13, slug: 'sucata', custo: 0, tipo: 'material', valor: 0, icone: '🔩' },
+  // `poder_unico` = chip de poder emprestado: usar em combate concede, por 1
+  // golpe, um poder de nível baixo que o personagem talvez nem tenha
+  // treinado (ver forcedSpecial em ganguesSpecialEffects.js). custo: 0 =
+  // não vendável, só ganho como recompensa dos conteúdos gateados por
+  // reputação (evento de rua / galpão do Carvão-Cão Louco / Clube da Luta).
+  { id: 20, slug: 'chip_do_bruto', custo: 0, tipo: 'poder_unico', poderId: 'soco_de_ferro', poderNivel: 2, icone: '👊' },
+  { id: 21, slug: 'chip_da_muralha', custo: 0, tipo: 'poder_unico', poderId: 'postura_defensiva', poderNivel: 2, icone: '🛡️' },
+  { id: 22, slug: 'chip_igneo', custo: 0, tipo: 'poder_unico', poderId: 'bola_de_fogo', poderNivel: 2, icone: '🔥' },
 ]
 
 export const GANGUES_ITENS = Object.fromEntries(CATALOGO.map(item => [item.id, { ...item, nome: i18nNome(item.id) }]))

@@ -34,7 +34,7 @@ export default function GanguesVictory({ onNavigate }) {
   // da Pista ou na trilha dos outros bairros) — libera 1 vaga de recruta.
   const territorioDominado = victory && (cenaChefe || (noModoHistoria && !emCena && storyAlvo.isChefe))
   const podeRecrutar = territorioDominado
-    && store.roster.length < getGanguesRosterLimitComHistoria(perfil?.tier, store.storyProgress, store.rep)
+    && store.roster.length < getGanguesRosterLimitComHistoria(perfil?.tier, store.storyProgress)
   const recrutar = () => { store.newSheet(); onNavigate('create') }
 
   const { levelUps, rewardSummary, clearLevelUps } = useGanguesVictoryResolution({

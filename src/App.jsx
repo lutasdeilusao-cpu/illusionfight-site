@@ -13,6 +13,7 @@ import DesktopShellBar from './components/DesktopShellBar/DesktopShellBar'
 import AnalyticsTracker from './components/AnalyticsTracker'
 import LoginGate from './components/LoginGate/LoginGate'
 import FichaGateRoute from './components/FichaGateRoute/FichaGateRoute'
+import GameSessionRoute from './components/GameSessionRoute/GameSessionRoute'
 const Home = lazyWithReload(() => import('./pages/site/Home/Home'))
 const Musicas = lazyWithReload(() => import('./pages/content/Musicas'))
 const Personagens = lazyWithReload(() => import('./pages/content/Personagens'))
@@ -197,13 +198,13 @@ export default function App() {
         <Route path="/games/pesadelo" element={<FichaGateRoute gameId="pesadelo" feature="o Pesadelo Particular" nomeExibicao="Pesadelo Particular"><PP /></FichaGateRoute>} />
         <Route path="/games/duelo" element={<FichaGateRoute gameId="duelo" feature="o Duelo LDI" nomeExibicao="Duelo LDI"><DueloRoute /></FichaGateRoute>} />
         <Route path="/games/tamagoshi" element={<FichaGateRoute isFree={true} gameId="tamagoshi" feature="o Tamagoshi LDI" nomeExibicao="Tamagoshi LDI"><Tamagoshi /></FichaGateRoute>} />
-        <Route path="/games/kernel-panic" element={<KernelPanic />} />
-        <Route path="/games/sliding-rafael" element={<SlidingRafael />} />
-        <Route path="/games/codigo-perdido" element={<CodigoPerdido />} />
-        <Route path="/games/maze-rafael" element={<MazeRafael />} />
-        <Route path="/games/glitch-rafael" element={<GlitchRafael />} />
-        <Route path="/games/bullet-hell-rafael" element={<BulletHellRafael />} />
-        <Route path="/games/stabilizer-rafael" element={<StabilizerRafael />} />
+        <Route path="/games/kernel-panic" element={<GameSessionRoute gameId="kernelpanic" gameName="Kernel Panic"><KernelPanic /></GameSessionRoute>} />
+        <Route path="/games/sliding-rafael" element={<GameSessionRoute gameId="sliding_rafael" gameName="Sliding Rafael"><SlidingRafael /></GameSessionRoute>} />
+        <Route path="/games/codigo-perdido" element={<GameSessionRoute gameId="codigo_perdido" gameName="Código Perdido"><CodigoPerdido /></GameSessionRoute>} />
+        <Route path="/games/maze-rafael" element={<GameSessionRoute gameId="maze_rafael" gameName="Maze Rafael"><MazeRafael /></GameSessionRoute>} />
+        <Route path="/games/glitch-rafael" element={<GameSessionRoute gameId="glitch_rafael" gameName="Glitch Rafael"><GlitchRafael /></GameSessionRoute>} />
+        <Route path="/games/bullet-hell-rafael" element={<GameSessionRoute gameId="bullet_hell_rafael" gameName="Bullet Hell Rafael"><BulletHellRafael /></GameSessionRoute>} />
+        <Route path="/games/stabilizer-rafael" element={<GameSessionRoute gameId="stabilizer_rafael" gameName="Stabilizer Rafael"><StabilizerRafael /></GameSessionRoute>} />
         <Route path="/loja" element={<Loja />} />
         <Route path="/games" element={<Games />} />
         <Route path="/leaderboard" element={<Leaderboard />} />

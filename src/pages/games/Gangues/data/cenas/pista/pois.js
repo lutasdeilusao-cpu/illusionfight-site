@@ -4,11 +4,15 @@
 // corre → beco_2 → beco_3 → Sinaleiro Chefe → Rasteira Velha → [muro/túnel]
 // → galpão → Carvão. Opcionais: rinha (farm), descanso, Duda.
 import { PISTA_POOL_RUA, PISTA_POOL_GALPAO } from './pools.js'
+import { GANGUES_REP_GATE_GALPAO } from '../../ganguesLoadout.js'
 
 export const POIS_PISTA = [
   {
     id: 'sinal',
     tipo: 'papo',
+    // Cabeça oficial do pivete do Bonde do Sinal que fica nesse ponto
+    // (arte do Isaias, 14/09/2026 — "Cria do Sinal").
+    npcSlug: 'cria_do_sinal',
     visivel: true,
     // Repetível: a opção "aperta" (brigar com o moleque, enemy:1201)
     // é a primeira briga que existe no jogo — o jogador pode voltar aqui e
@@ -100,6 +104,7 @@ export const POIS_PISTA = [
   {
     id: 'birosca',
     tipo: 'papo',
+    npcSlug: 'nego_veio',
     pino: { x: 62, y: 100 },
     i18n: 'games.gangues.cena.pista.birosca',
     escolhas: [
@@ -240,6 +245,7 @@ export const POIS_PISTA = [
     // e repetível: o jogador pode voltar aqui a qualquer momento.
     id: 'informante',
     tipo: 'papo',
+    npcSlug: 'duda_o_orelha',
     opcional: true,
     repetivel: true,
     visivel: true,
@@ -304,9 +310,12 @@ export const POIS_PISTA = [
     i18n: 'games.gangues.cena.pista.posmuro_2',
     enemy: 1301,
     liderFixo: 1301,
+    // Gate de reputação: essa treta é do Cão Louco, mais osso do que o resto
+    // da rua — não trava o Sinaleiro/Rasteira Velha (progressão obrigatória).
+    repGate: GANGUES_REP_GATE_GALPAO,
     revezamento: { pool: PISTA_POOL_GALPAO, budgetPorCorpo: 7, chanceDupla: 0.6 },
     forca: 3,
     dificuldade: 'dificil',
-    recompensa: { grana: 12, rep: 4 },
+    recompensa: { grana: 12, rep: 4, item: 21, qtd: 1 },
   },
 ]

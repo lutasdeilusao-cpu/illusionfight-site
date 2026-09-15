@@ -5,11 +5,16 @@ import { sfx } from '../../../../lib/sfx'
 
 const TYPE_SPEED = 20
 
-/* Diálogo de rua — alguém de Marelia falando com você. Sem mascote, sem
-   NeoGuide: é um humano, voz de quebrada. `speaker` é o nome/vulgo de
-   quem fala; `sub` é a legenda (ex: "dono da Baixada"). O Isaias troca
-   por retrato dos bosses depois — o slot fica em .gang-dlg-face. */
-export default function GangDialog({ lines = [], speaker, sub, onFinish, onSkip }) {
+/* Diálogo padrão do LDI Gangues — cabeça grande e animada (idle: balanço
+   + "respiração"; ganha um tiquinho de "fala" enquanto o texto tá sendo
+   digitado) com um balão de fala saindo dela, sobre a parede de tijolo
+   oficial (mesmo fundo de GanguesSaveSelect/GanguesNaming). Reconstrução
+   pedida pelo Isaias (14/09/2026): "isso vai virar a comunicação padrão
+   do LDI Gangues... cabeça com destaque e animação, balão de fala saindo
+   da boca do personagem". `speaker`/`sub` = nome/legenda de quem fala;
+   `retrato` = URL do PNG da cabeça (ver ganguesNpcPortraits.js) — sem
+   retrato, cai na inicial do nome dentro do mesmo círculo animado. */
+export default function GangDialog({ lines = [], speaker, sub, retrato, onFinish, onSkip }) {
   const { t } = useLanguage()
   const [lineIndex, setLineIndex] = useState(0)
   const [charIndex, setCharIndex] = useState(0)
@@ -42,28 +47,37 @@ export default function GangDialog({ lines = [], speaker, sub, onFinish, onSkip 
   if (!lines.length) return null
 
   return (
-    <motion.div className="neoguide-overlay gang-dlg-overlay" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={advance}>
-      <button className="neoguide-skip" onClick={skip}>{t('games.gangues.dialogo.pular')} ✕</button>
+    <motion.div className="gang-dlg-overlay gang-brickwall-bg" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={advance}>
+      <button className="gang-dlg-skip" onClick={skip}>{t('games.gangues.dialogo.pular')} ✕</button>
 
-      <motion.div
-        className="neoguide-box gang-dlg-box" onClick={event => event.stopPropagation()}
-        initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1, duration: 0.35 }}
-      >
-        <span className="gang-dlg-face" aria-hidden="true">{nome[0]}</span>
-        <span className="neoguide-name gang-dlg-name">
-          {nome}{sub ? <em className="gang-dlg-sub"> · {sub}</em> : null}
-        </span>
-        <p className="neoguide-text" onClick={advance}>
-          {line.slice(0, charIndex)}
-          {typing && <motion.span className="neoguide-cursor" animate={{ opacity: [1, 0] }} transition={{ duration: 0.6, repeat: Infinity, repeatType: 'reverse' }}>▌</motion.span>}
-        </p>
-        <div className="neoguide-footer">
-          <span className="neoguide-dots">{lines.map((_, index) => <i key={index} className={index === lineIndex ? 'neoguide-dot neoguide-dot--active' : 'neoguide-dot'} />)}</span>
-          <button className="neoguide-next" onClick={advance}>
-            {typing ? '▸▸' : isLast ? t('games.gangues.dialogo.fechar') : t('games.gangues.dialogo.proximo')}
-          </button>
-        </div>
-      </motion.div>
+      <div className="gang-dlg-stage" onClick={event => event.stopPropagation()}>
+        <motion.div
+          className={`gang-dlg-portrait${typing ? ' gang-dlg-portrait--falando' : ''}`}
+          initial={{ opacity: 0, scale: .5, y: 18 }} animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ type: 'spring', stiffness: 220, damping: 15 }}
+        >
+          <span className="gang-dlg-portrait-idle">
+            {retrato ? <img src={retrato} alt="" /> : <b aria-hidden="true">{nome[0]}</b>}
+          </span>
+        </motion.div>
+
+        <motion.div className="gang-dlg-bubble" initial={{ opacity: 0, scale: .85, y: 10 }} animate={{ opacity: 1, scale: 1, y: 0 }} transition={{ delay: .1 }}>
+          <span className="gang-dlg-bubble-tail" aria-hidden="true" />
+          <span className="gang-dlg-bubble-name">
+            {nome}{sub ? <em> · {sub}</em> : null}
+          </span>
+          <p className="gang-dlg-bubble-text">
+            {line.slice(0, charIndex)}
+            {typing && <motion.span className="gang-dlg-cursor" animate={{ opacity: [1, 0] }} transition={{ duration: 0.6, repeat: Infinity, repeatType: 'reverse' }}>▌</motion.span>}
+          </p>
+          <div className="gang-dlg-footer">
+            <span className="gang-dlg-dots">{lines.map((_, index) => <i key={index} className={index === lineIndex ? 'gang-dlg-dot gang-dlg-dot--active' : 'gang-dlg-dot'} />)}</span>
+            <button className="gang-dlg-next" onClick={advance}>
+              {typing ? '▸▸' : isLast ? t('games.gangues.dialogo.fechar') : t('games.gangues.dialogo.proximo')}
+            </button>
+          </div>
+        </motion.div>
+      </div>
     </motion.div>
   )
 }

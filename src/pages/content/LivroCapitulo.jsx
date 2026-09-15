@@ -12,6 +12,7 @@ import { useAchievements } from '../../context/AchievementsContext'
 import { useEventos } from '../../context/EventosContext'
 import { useReadingCompletionGate } from '../../hooks/useReadingCompletionGate'
 import { notificationManager } from '../../lib/notificationManager'
+import { useTrackedSession } from '../../lib/sessionAnalytics'
 import index from '../../data/livro-index.json'
 import './LivroCapitulo.css'
 
@@ -79,6 +80,15 @@ export default function LivroCapitulo() {
 
   const chapter = index.find(ch => ch.id === id)
   const tituloKey = locale === 'en' ? 'titulo_en' : locale === 'es' ? 'titulo_es' : 'titulo'
+
+  // chapter_open/chapter_time: distingue linha principal do livro dos contos
+  // e outras obras (content_type) e mede tempo de leitura de verdade — pedido
+  // do Isaias (2026-09-14): "preciso saber qual capítulo do universo
+  // principal tá tendo mais leitura, até quando as pessoas ficam lendo".
+  useTrackedSession('chapter_open', 'chapter_time', {
+    content_type: 'livro_principal', story_id: 'lutas-de-ilusao',
+    chapter_id: id, chapter_numero: chapter?.numero, chapter_titulo: chapter?.[tituloKey],
+  }, { active: Boolean(chapter) })
 
   useEffect(() => {
     setNotFound(false)

@@ -1,4 +1,5 @@
 import enemiesData from '../../data/gangues-enemies.json'
+import { getGanguesEnemyPortraitById } from '../../data/ganguesEnemyPortraits.js'
 
 // Os dois modais de "encarar ou não": o encontro aleatório de rua e a treta
 // programada (POI/chefe). Extraído de GanguesCena.jsx
@@ -26,8 +27,9 @@ export function TretaVS({ poi, fala, nivelTropa, avisoOff, onOcultarAviso, onSim
   // ou só 1 abaixo: nada. `avisoOff` = o jogador pediu pra não ver mais nesse
   // território (reseta ao trocar de bairro).
   const abaixo = !avisoOff && poi.nivelRec && Number.isFinite(nivelTropa) && (poi.nivelRec - nivelTropa) >= 2
+  const retrato = getGanguesEnemyPortraitById(poi.enemy)
   return <div className="gang-cena-enc gang-cena-enc--vs">
-    <span className="gang-cena-enc-selo">{(nome || '?')[0]}</span>
+    <span className={`gang-cena-enc-selo${retrato ? ' gang-cena-enc-selo--foto' : ''}`}>{retrato ? <img src={retrato} alt="" /> : (nome || '?')[0]}</span>
     <span className="gang-cena-eyebrow">{poi.ehChefe ? t('games.gangues.story.boss_tag') : t('games.gangues.cena.tipo.treta')}</span>
     <h3 className="gang-cena-enc-titulo">{nome}{poi.ehChefe && enemy?.nivel ? <em className="gang-cena-vs-nivel"> · {t('games.gangues.cena.nivel', { n: enemy.nivel })}</em> : null}</h3>
     <p className="gang-cena-papo-fala">{falaShow}</p>

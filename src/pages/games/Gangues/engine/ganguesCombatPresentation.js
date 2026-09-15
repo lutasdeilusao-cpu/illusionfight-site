@@ -2,6 +2,22 @@
 // transformação de evento bruto em entrada de log, e os pequenos helpers de
 // localStorage/constantes do modo automático e do blink da Multidão.
 // Extraído de GanguesCombat.jsx (PLANO_REFATORACAO_ARQUIVOS_GRANDES_GANGUES_2026-09-11.md §6).
+import { getGanguesPortraitByTemplateId } from '../data/ganguesPortraits.js'
+import { getGanguesEnemyPortraitById } from '../data/ganguesEnemyPortraits.js'
+
+// Retrato do combatente pro log — mesma lógica de GanguesCombatRoster.jsx
+// (pedido do Isaias, 15/09/2026: "no resultado de cada golpe podia mostrar
+// a imagem da cabeça de quem deu o ataque também"). `member.side` só existe
+// nos combatentes de verdade vindos do motor; o `actor` "de mentira" que
+// transformarEvento cria pra evento sem side explícito (`{ side: event.side }`)
+// não tem `character_template_id`/`id` de personagem, então cai no fallback
+// (null) igual sempre caiu — sem quebrar nada.
+function retratoDoCombatente(member) {
+  if (!member) return null
+  return member.side === 'player'
+    ? getGanguesPortraitByTemplateId(member.character_template_id)
+    : getGanguesEnemyPortraitById(member.id)
+}
 
 // Modo automático: vive no menu da bolinha de ação (GanguesActionOrb) e
 // APARECE pra todo mundo — é chamariz de assinatura. Beta: liberado geral.
@@ -16,17 +32,11 @@ export const ONOMATOPEIAS = ['POW!', 'WHAM!', 'CRACK!', 'SLASH!', 'BOOM!', 'THWA
 export const randomOnoma = () => ONOMATOPEIAS[Math.floor(Math.random() * ONOMATOPEIAS.length)]
 
 // Pisca o switch da Briga em Multidão até o jogador ligar ele PELO MENOS UMA
-// vez — sem isso, quem nunca reparou no switch nunca descobre o modo (mesmo
-// padrão de flag no localStorage dos outros tutoriais autocontidos).
-// Escopado por save (`saveId`) — pedido do Isaias (13/09/2026): excluiu a
-// gangue, começou outra, e os tutoriais não voltaram a aparecer porque essa
-// flag (e as dos outros tutoriais autocontidos) ficava presa pro browser
-// inteiro pra sempre, nunca por conta/gangue. Ver mesmo padrão em
-// GanguesCena.jsx (cenaIntroJaVista), GanguesCombatTutorial.jsx e
-// GanguesMultidaoTutorial.jsx.
-const MULTIDAO_BLINK_KEY = 'ldi-gangues-multidao-blink-visto'
-export function multidaoBlinkJaVisto(saveId) { try { return localStorage.getItem(`${MULTIDAO_BLINK_KEY}:${saveId || 'guest'}`) === '1' } catch { return false } }
-export function marcarMultidaoBlinkVisto(saveId) { try { localStorage.setItem(`${MULTIDAO_BLINK_KEY}:${saveId || 'guest'}`, '1') } catch {} }
+// vez — sem isso, quem nunca reparou no switch nunca descobre o modo. Vive
+// no dicionário de tutoriais vistos por CONTA agora (ver
+// TutorialProgressContext.jsx, tutorial_id 'multidao_blink', usado em
+// useGanguesModoMultidao.js) — não mais aqui como par jaVisto/marcarVisto de
+// localStorage.
 
 export function fighterName(t, member) {
   if (!member) return '?'
@@ -90,7 +100,7 @@ export function transformarEvento(t, event, combatants) {
   const isPlayer = event.side === 'player'
   const entries = [{
     id: event.id, kind: 'attack_card', side: event.side,
-    actorName: fighterName(t, actor), targetName: fighterName(t, target), round: event.round,
+    actorName: fighterName(t, actor), actorRetrato: retratoDoCombatente(actor), targetName: fighterName(t, target), round: event.round,
     fa: event.result.fa, fd: event.result.fd, dice: event.result.rolls.fa, defenseDice: event.result.rolls.fd,
     dmg: event.result.damage, onoma: randomOnoma(),
     shieldConsumed: event.result.shieldConsumed || 0,
@@ -103,7 +113,7 @@ export function transformarEvento(t, event, combatants) {
     const category = event.result.critical ? 'take_critical' : isPlayer ? 'take_damage' : 'attack_hit'
     if (Math.random() < 0.6) {
       const line = pickTrash(t, enemyCombatant, category)
-      if (line) entries.push({ id: `${event.id}-trash`, kind: 'trash', sender: fighterName(t, enemyCombatant), text: line })
+      if (line) entries.push({ id: `${event.id}-trash`, kind: 'trash', sender: fighterName(t, enemyCombatant), senderRetrato: retratoDoCombatente(enemyCombatant), text: line })
     }
   }
   return entries

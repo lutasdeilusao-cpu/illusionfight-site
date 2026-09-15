@@ -101,19 +101,25 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
+/* Fundo quase invisível (8% de opacidade) era o motivo do botão "não
+   parecer botão" (reportado pelo Isaias, 15/09/2026, com print da tela
+   de modos: "sem nenhum destaque... precisa de um background"). Fundo
+   solido escuro + âmbar no lugar do cyan translúcido — usado em 4 telas
+   (GanguesModes/GanguesProgression/GanguesTerritorio/GanguesNaming),
+   corrigido pra todas de uma vez. */
 .gang-progression-screen-back {
   padding: 8px 14px;
   font: 700 0.68rem var(--font-mono);
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--if-cyan);
-  background: rgba(24, 218, 251, 0.08);
-  border: 1px solid rgba(24, 218, 251, 0.4);
+  color: #ffd9a0;
+  background: #1a0f08;
+  border: 1px solid color-mix(in srgb, var(--if-amber) 40%, transparent);
   cursor: pointer;
   transition: background 0.2s, color 0.2s;
   clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
 }
-.gang-progression-screen-back:hover { background: var(--if-cyan); color: #04141a; }
+.gang-progression-screen-back:hover { background: var(--if-amber); color: #1a0f08; }
 
 /* ── Confirmação de gasto de XP ── */
 .gang-xp-confirm {
@@ -298,6 +304,17 @@
 .gang-reward-item--grana strong { color: #7ed957; }
 .gang-reward-item--rep { border-color: color-mix(in srgb, var(--if-amber) 45%, transparent); box-shadow: 0 0 20px -8px var(--if-amber-45, rgba(245, 166, 35, .45)); }
 .gang-reward-item--rep strong { color: var(--if-amber); }
+
+/* Item ganho no modal bloqueante de marco de reputação recorrente (ver
+   GanguesRepRecompensaModal.jsx) — dentro do card .gang-progression-prompt__card. */
+.gang-rep-recompensa-item {
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  margin: 4px 0 16px; padding: 12px; border-radius: 6px;
+  border: 1px solid color-mix(in srgb, var(--if-amber) 50%, transparent);
+  background: rgba(245, 166, 35, 0.08);
+}
+.gang-rep-recompensa-item b { font-size: 2rem; line-height: 1; }
+.gang-rep-recompensa-item span { font: 700 0.72rem 'Rajdhani', sans-serif; letter-spacing: .3px; color: #dce6e9; }
 
 /* Pontos de Ação por personagem — número que o jogador acompanha de
    verdade; substitui o XP já convertido, que é só conta de bastidor. */

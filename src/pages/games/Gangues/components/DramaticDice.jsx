@@ -11,9 +11,9 @@ import './DramaticDice.css'
  * Mostra QUEM está atacando e em QUEM — sem isso o jogador se perde no
  * meio da rolagem, sem saber de quem é o turno.
  *
- * @param {{ finalValue: number, sides?: number, side: 'player'|'enemy', onComplete: () => void, powerName?: string, attackerName?: string, targetName?: string, theme?: { rgb: string, glyphs: string[], particleCount: number } | null }} props
+ * @param {{ finalValue: number, sides?: number, side: 'player'|'enemy', onComplete: () => void, powerName?: string, attackerName?: string, attackerRetrato?: string|null, targetName?: string, theme?: { rgb: string, glyphs: string[], particleCount: number } | null }} props
  */
-export default function DramaticDice({ finalValue, sides = 6, side, onComplete, powerName, attackerName, targetName, theme }) {
+export default function DramaticDice({ finalValue, sides = 6, side, onComplete, powerName, attackerName, attackerRetrato, targetName, theme }) {
   const { t } = useLanguage()
   const [display, setDisplay] = useState(null)       // null = fase de "aquecimento"
   const [phase, setPhase] = useState('intro')        // intro → rolling → reveal → done
@@ -145,7 +145,10 @@ export default function DramaticDice({ finalValue, sides = 6, side, onComplete, 
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.15, duration: 0.4 }}
           >
-            <span className="dramatic-dice-attacker">{isPlayer ? '🎯' : '💀'} {attackerName || (isPlayer ? '—' : '—')}</span>
+            <span className="dramatic-dice-attacker">
+              {attackerRetrato ? <img className="dramatic-dice-attacker-foto" src={attackerRetrato} alt="" /> : (isPlayer ? '🎯' : '💀')}
+              {' '}{attackerName || '—'}
+            </span>
             {targetName && (
               <span className="dramatic-dice-vs">{t('games.gangues.dado.ataca')} <b>{targetName}</b></span>
             )}
