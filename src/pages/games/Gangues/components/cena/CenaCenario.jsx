@@ -1,4 +1,5 @@
 import { useLanguage } from '../../../../../context/LanguageContext'
+import { collidersDaCena, predioEhSolido } from '../../engine/ganguesCenaMotor.js'
 
 /* ══════════════════════════════════════════════════════════════
    CENÁRIO DA CENA — desenho puro (sem lógica de jogo).
@@ -80,24 +81,40 @@ function Predio({ p, bossAberto, t }) {
   )
 }
 
-// ── Overlay de debug (?debugmapa=1) ──────────────────────────────
-// Desenha por cima da ilustração de fundo: colisores (quarteirões em
-// vermelho, hitboxes de porta dos prédios em ciano), POIs (POS, pontinho
-// amarelo) e zonas de entrada (ENTRY_ZONES, contorno verde). Serve pro
-// Isaias comparar com a imagem e me passar os ajustes de coordenada — não
-// aparece pra jogador nenhum (só quando a query string pede). Nunca
-// interfere na lógica real (é 100% cosmético, lê os mesmos dados que o
-// motor já usa).
-function DebugColisores({ cena }) {
+// ── Overlay de debug (botão 🧱, GanguesCena.jsx) ──────────────────
+// Desenha por cima da ilustração de fundo: os colisores DE VERDADE
+// (vermelho — literalmente `collidersDaCena(cena, bossAberto)`, a MESMA
+// função que `hitsSolid`/`stepPlayer` usam pra travar o jogador; não é uma
+// reconstrução aproximada a partir de `quarteiroes`/`predios` cruzada na
+// mão), os prédios que existem no dado mas NÃO colidem agora (contorno
+// cinza tracejado — sem `solo`, ou porta `pos_portao` já aberta pelo chefe;
+// mostrados só de referência, pra não confundir com colisor de verdade),
+// POIs (ponto amarelo) e zonas de entrada (contorno verde).
+//
+// Achado real, 15/09/2026 (Isaias: "eu quero todos [os colisores], não só
+// os que você selecionou"): a 1ª versão desenhava `cena.quarteiroes` +
+// TODOS os `cena.predios` à mão — cobria os quarteirões certinho, mas (a)
+// desenhava prédio decorativo sem `solo` como se colidisse, e (b) nunca
+// desenhava os colisores vindos de `obstaculos.solido` (via `obstRect`,
+// ganguesCenaMotor.js) — vazios pra Pista hoje (a ilustração de fundo já
+// desenha entulho/obstáculo, não duplica em CSS), mas se algum território
+// futuro voltar a usar obstáculo sólido, essa versão antiga mentiria pro
+// Isaias mostrando MENOS do que trava de verdade. Corrigido puxando a
+// função de colisão real em vez de reconstruir o dado igual a ela — não
+// tem como esse overlay ficar incompleto de novo sem o motor de colisão
+// mudar junto.
+function DebugColisores({ cena, bossAberto }) {
+  const colisoresReais = collidersDaCena(cena, bossAberto)
+  const prediosNaoSolidos = (cena.predios || []).filter(p => !predioEhSolido(p, bossAberto))
   return (
     <>
-      {(cena.quarteiroes || []).map((q, i) => (
-        <div key={`dq${i}`} className="gang-debug-box gang-debug-box--quarteirao" style={{ left: q.x, top: q.y, width: q.w, height: q.h }}>
-          <b>Q{i}</b>
+      {colisoresReais.map((c, i) => (
+        <div key={`dc${i}`} className="gang-debug-box gang-debug-box--colisor" style={{ left: c.x, top: c.y, width: c.w, height: c.h }}>
+          <b>#{i}</b>
         </div>
       ))}
-      {(cena.predios || []).map(p => (
-        <div key={`dp${p.id}`} className="gang-debug-box gang-debug-box--predio" style={{ left: p.x, top: p.y, width: p.w, height: p.h }}>
+      {prediosNaoSolidos.map(p => (
+        <div key={`dp${p.id}`} className="gang-debug-box gang-debug-box--predio-livre" style={{ left: p.x, top: p.y, width: p.w, height: p.h }}>
           <b>{p.id}</b>
         </div>
       ))}
@@ -170,7 +187,7 @@ export default function CenaCenario({ cena, bossAberto, muroAberto, precisaFundo
       <>
         {precisaFundoCima && <img className="gang-cena-fundo" src={cima} alt="" style={{ width: W, height: corteY, top: 0 }} aria-hidden="true" />}
         <img className="gang-cena-fundo" src={baixo} alt="" style={{ width: W, height: H - corteY, top: corteY }} aria-hidden="true" />
-        {debug && <DebugColisores cena={cena} />}
+        {debug && <DebugColisores cena={cena} bossAberto={bossAberto} />}
       </>
     )
   }

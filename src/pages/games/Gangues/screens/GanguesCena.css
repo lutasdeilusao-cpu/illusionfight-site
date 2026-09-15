@@ -672,13 +672,15 @@
 @keyframes gang-cena-loading-spin{to{transform:rotate(360deg);}}
 @media(prefers-reduced-motion:reduce){.gang-cena-loading-spin{animation:none;}}
 
-/* ── overlay de debug (?debugmapa=1) — nunca aparece sem o parâmetro ── */
+/* ── overlay de debug (botão 🧱 no HUD) — nunca aparece sem alguém ligar ── */
 .gang-debug-box{position:absolute;z-index:50;box-sizing:border-box;pointer-events:none;}
 .gang-debug-box b{position:absolute;left:2px;top:1px;font:700 8px/1 monospace;text-shadow:0 0 3px #000,0 0 3px #000;white-space:nowrap;}
-.gang-debug-box--quarteirao{border:2px solid rgba(255,40,40,.85);background:rgba(255,40,40,.18);}
-.gang-debug-box--quarteirao b{color:#ff6b6b;}
-.gang-debug-box--predio{border:2px dashed rgba(0,225,255,.9);background:rgba(0,225,255,.16);}
-.gang-debug-box--predio b{color:#7be8ff;}
+/* colisor DE VERDADE — literalmente `collidersDaCena()`, o que trava o jogador */
+.gang-debug-box--colisor{border:2px solid rgba(255,40,40,.85);background:rgba(255,40,40,.18);}
+.gang-debug-box--colisor b{color:#ff6b6b;}
+/* prédio que existe no dado mas NÃO colide agora (sem `solo`, ou porta já aberta) — só referência */
+.gang-debug-box--predio-livre{border:2px dashed rgba(0,225,255,.6);background:rgba(0,225,255,.08);}
+.gang-debug-box--predio-livre b{color:#7be8ff;opacity:.7;}
 .gang-debug-box--zona{border:1px solid rgba(90,255,120,.9);background:rgba(90,255,120,.08);}
 .gang-debug-dot{position:absolute;z-index:51;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;background:#ffd93d;border:1px solid #7a5a00;box-shadow:0 0 6px #000;pointer-events:none;}
 .gang-debug-dot b{position:absolute;left:12px;top:-6px;font:700 9px/1 monospace;color:#ffd93d;text-shadow:0 0 3px #000,0 0 3px #000;white-space:nowrap;}
