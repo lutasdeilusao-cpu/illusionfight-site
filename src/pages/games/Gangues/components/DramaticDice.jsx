@@ -62,6 +62,15 @@ export default function DramaticDice({ finalValue, sides = 6, side, onComplete, 
   // `precarregarAnimacaoCombate` pra cada personagem do time assim que a
   // luta começa) — aqui só dispara `.play()` no `<audio>` que já existe,
   // sem esperar download/decodificação na hora do golpe.
+  //
+  // Dependência é `attackerTemplateId`/`powerName` (primitivos), NÃO
+  // `anim`: `anim` é um objeto NOVO a cada render
+  // (getGanguesAtaqueNormalAnimacao devolve um literal `{ ...dados }`
+  // sempre), então usá-lo como dependência fazia o efeito disparar de novo
+  // a cada re-render do componente (troca de fase/display), repetindo o
+  // som da fala várias vezes por ataque (achado pelo Isaias, 16/09/2026:
+  // "o som da fala tá repetindo várias vezes"). A identidade que importa é
+  // a de QUEM está atacando, não a do objeto derivado.
   useEffect(() => {
     if (!anim || !sfx.enabled) return
     if (anim.sons.ambiente) tocarSomCombate(anim.sons.ambiente, 0.6)
@@ -70,7 +79,7 @@ export default function DramaticDice({ finalValue, sides = 6, side, onComplete, 
       setTimeout(() => tocarSomCombate(arquivo, 0.85), (frame - 1) * anim.frameMs)
     )
     return () => timers.forEach(clearTimeout)
-  }, [anim])
+  }, [attackerTemplateId, powerName])
 
   useEffect(() => {
     // Fase 1: intro — show the "?" for a moment
