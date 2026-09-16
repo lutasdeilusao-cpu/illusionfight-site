@@ -403,12 +403,12 @@
 }
 
 /* ══════════════════════════════════════════════════════════════
-   Teste único de sprite animado do Trinca (pedido do Isaias, 15/09/2026,
-   depois de ver a 1ª tentativa perdida no log: "tem que estar em destaque
-   na hora que tá sendo dado o dado... o dado pequenininho lá em cima...
-   no meio vai fazer essa animação, pra ficar em destaque"). O dado encolhe
-   e sobe (`--compacto`, só quando é o Trinca em ataque normal — ver
-   `ehSocoTrinca` em DramaticDice.jsx); o soco vira o centro visual da
+   Máquina de animação de combate (16/09/2026) — generalizada a partir do
+   teste único do Trinca. O dado encolhe e sobe (`--compacto`, ligado
+   sempre que o personagem tem animação de ataque registrada — ver `anim`
+   em DramaticDice.jsx); o sprite (GanguesCombatSpriteAnim.jsx, quadro
+   avançado via JS, não CSS @keyframes — não dá pra escrever um bloco de
+   keyframes à mão pra cada um dos 30 personagens) vira o centro visual da
    tela, entre o dado e o texto final (crítico/etc) que já existia embaixo.
    ══════════════════════════════════════════════════════════════ */
 .dramatic-dice-container--compacto .dramatic-dice-stage {
@@ -426,34 +426,17 @@
   width: 64px; height: 64px; margin: -32px 0 0 -32px;
 }
 
-.dramatic-dice-trinca-soco {
-  width: 210px; height: 210px;
-  background-repeat: no-repeat; background-size: 400% 200%; background-position: 0% 0%;
+/* Caixa do sprite — a proporção real do quadro vem do componente (via
+   `aspect-ratio` inline, frameW/frameH de cada personagem); aqui só a
+   largura de referência (280px desktop / 227px mobile, igual ao antigo
+   teste do Trinca) e o tratamento visual comum a todo personagem. */
+.dramatic-dice-sprite-animado {
+  display: block;
+  width: 280px;
+  background-repeat: no-repeat;
   image-rendering: pixelated;
   filter: drop-shadow(0 8px 20px rgba(0, 0, 0, .6));
-  /* `forwards`: sem isso, ao terminar a animação o navegador volta pro
-     background-position "base" (o primeiro quadro, pose de guarda) em vez
-     de manter o último quadro (achado testando ao vivo com Playwright na
-     1ª versão, na lista de log). Duração ajustada em rodadas sucessivas
-     (Isaias, 15-16/09/2026): .8s (100ms/quadro) "muito rápido" → 1.8s
-     (225ms/quadro) "meio lento demais" → 1.3s (162.5ms/quadro, o meio-termo)
-     → 1.04s (130ms/quadro, "diminui um pouquinho mais"). */
-  animation: dramatic-dice-trinca-soco 1.04s steps(1) 1 forwards;
-}
-@keyframes dramatic-dice-trinca-soco {
-  0%    { background-position: 0% 0%;        animation-timing-function: steps(1); }
-  12.5% { background-position: 33.333% 0%;   animation-timing-function: steps(1); }
-  25%   { background-position: 66.667% 0%;   animation-timing-function: steps(1); }
-  37.5% { background-position: 100% 0%;      animation-timing-function: steps(1); }
-  50%   { background-position: 0% 100%;      animation-timing-function: steps(1); }
-  62.5% { background-position: 33.333% 100%; animation-timing-function: steps(1); }
-  75%   { background-position: 66.667% 100%; animation-timing-function: steps(1); }
-  87.5% { background-position: 100% 100%; }
-  100%  { background-position: 100% 100%; }
 }
 @media (max-width: 600px) {
-  .dramatic-dice-trinca-soco { width: 170px; height: 170px; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .dramatic-dice-trinca-soco { animation: none; background-position: 100% 100%; }
+  .dramatic-dice-sprite-animado { width: 227px; }
 }
