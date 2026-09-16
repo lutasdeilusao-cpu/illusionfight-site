@@ -13,24 +13,13 @@ export const PLAYER_RADIUS = 18
 // (o jogador tem raio 18; corredor da pista ~186px — colisor grande trancava).
 export function obstRect(o) { return { x: o.x - 15, y: o.y - 11, w: 30, h: 22 } }
 
-// Prédio `solo` (fora dos quarteirões) colide de verdade agora? Extraído
-// como função própria (era só uma expressão inline dentro do `.filter` de
-// `collidersDaCena`) pra o overlay de debug (`DebugColisores`,
-// CenaCenario.jsx) poder usar A MESMA definição de "colide" ao decidir o
-// que mostrar como "prédio sem colisão agora" — sem isso, qualquer ajuste
-// futuro nessa regra teria que ser lembrado nos DOIS lugares, e uma
-// divergência silenciosa é exatamente o tipo de coisa que o Isaias pediu
-// pra nunca mais acontecer ("eu quero todos [os colisores], não só os que
-// você selecionou").
-export function predioEhSolido(pr, bossAberto) { return Boolean(pr.solo) && (!pr.pos_portao || bossAberto) }
-
 export function collidersDaCena(cena, bossAberto) {
   if (!cena) return []
   const q = cena.quarteiroes || []
   const s = (cena.obstaculos || []).filter(o => o.solido).map(obstRect)
   // prédios `solo` (fora dos quarteirões): a fachada é sólida; a porta é uma
   // zona à parte no chão (porta.zx/zy), então não precisa de "vão".
-  const p = (cena.predios || []).filter(pr => predioEhSolido(pr, bossAberto)).map(pr => ({ x: pr.x, y: pr.y, w: pr.w, h: pr.h }))
+  const p = (cena.predios || []).filter(pr => pr.solo && (!pr.pos_portao || bossAberto)).map(pr => ({ x: pr.x, y: pr.y, w: pr.w, h: pr.h }))
   return [...q, ...s, ...p]
 }
 
@@ -147,23 +136,12 @@ export function validPos(p, w) { return Number.isFinite(p?.x) && Number.isFinite
 // deixaria zonas inalcançáveis dependendo de por onde a grade passa perto
 // delas. "Chegou perto o suficiente" é o comportamento certo pra interação.
 export function insideZone(p, z) { return Boolean(z && p.x + PLAYER_RADIUS > z.x && p.x - PLAYER_RADIUS < z.x + z.w && p.y + PLAYER_RADIUS > z.y && p.y - PLAYER_RADIUS < z.y + z.h) }
-// Faixa do muro/portão da gangue rival na ilustração de fundo da Pista —
-// barra a rua INTEIRA (qualquer x) enquanto `gate === 'fechado'`, não é um
-// retângulo comum da lista `colliders`. Exportado (não só inline dentro de
-// `hitsSolid`) pra `DebugColisores` (CenaCenario.jsx) poder desenhar essa
-// faixa também — achado real, 15/09/2026: o Isaias reportou "esse colisão
-// do muro não tá mostrando... não tô conseguindo passar" porque o overlay
-// desenhava só `collidersDaCena()` (a lista de retângulos comuns) e nunca
-// soube dessa 2ª regra de bloqueio, completamente separada, que `hitsSolid`
-// também aplica.
-export const MURO_GATE_Y1 = 900
-export const MURO_GATE_Y2 = 940
 export function hitsSolid(x, y, gate, colliders = []) {
   const hit = colliders.some(r => x + PLAYER_RADIUS > r.x && x - PLAYER_RADIUS < r.x + r.w && y + PLAYER_RADIUS > r.y && y - PLAYER_RADIUS < r.y + r.h)
   if (hit) return true
-  // portão da gangue rival — enquanto FECHADO barra a faixa do muro; depois
+  // portão da gangue rival — enquanto FECHADO barra a faixa y330-350; depois
   // de aberto (chefe/galpão liberados) a faixa fica livre.
-  if (gate === 'fechado' && y - PLAYER_RADIUS < MURO_GATE_Y2 && y + PLAYER_RADIUS > MURO_GATE_Y1) return true
+  if (gate === 'fechado' && y - PLAYER_RADIUS < 1350 && y + PLAYER_RADIUS > 1330) return true
   return false
 }
 export function stepPlayer(p, dx, dy, gate, colliders, world) {
