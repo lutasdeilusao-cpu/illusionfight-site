@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useLanguage } from '../../../../context/LanguageContext'
 import { sfx } from '../../../../lib/sfx'
-import { getGanguesAtaqueNormalAnimacao, tocarSomCombate } from '../data/ganguesCombatAnimations.js'
+import { getGanguesAnimacao, tocarSomCombate } from '../data/ganguesCombatAnimations.js'
 import GanguesCombatSpriteAnim from './GanguesCombatSpriteAnim.jsx'
 import './DramaticDice.css'
 
@@ -12,9 +12,15 @@ import './DramaticDice.css'
 // vai ser oficial os 30 personagens recrutáveis". Os dados de CADA
 // personagem (folha, grade, timing, sons) moram em
 // `data/ganguesCombatAnimations.js` — este arquivo só resolve
-// `attackerTemplateId` -> config (ou null, se o personagem ainda não tem
-// arte própria) e orquestra o timing genérico a partir dela. Nada
+// characterTemplateId + tipo -> config (ou null, se o personagem ainda não
+// tem arte própria) e orquestra o timing genérico a partir dela. Nada
 // hardcoded pra um personagem específico aqui.
+//
+// Dois tipos em uso: `ataqueNormal` (o ATACANTE é o jogador, `side ===
+// 'player'`) e `dano` (o ALVO é o jogador levando o golpe do oponente,
+// `side === 'enemy'`) — pedido explícito (16/09/2026): "sempre que eles
+// forem atacados pelo oponente deve tocar essa animação". Nunca os dois ao
+// mesmo tempo — só um lado ataca por vez.
 
 /**
  * DramaticDice — Tela cheia que pausa o jogo e mostra um dado rodando
@@ -23,15 +29,18 @@ import './DramaticDice.css'
  * Mostra QUEM está atacando e em QUEM — sem isso o jogador se perde no
  * meio da rolagem, sem saber de quem é o turno.
  *
- * @param {{ finalValue: number, sides?: number, side: 'player'|'enemy', onComplete: () => void, powerName?: string, attackerName?: string, attackerRetrato?: string|null, targetName?: string, theme?: { rgb: string, glyphs: string[], particleCount: number } | null, attackerTemplateId?: number|null }} props
+ * @param {{ finalValue: number, sides?: number, side: 'player'|'enemy', onComplete: () => void, powerName?: string, attackerName?: string, attackerRetrato?: string|null, targetName?: string, theme?: { rgb: string, glyphs: string[], particleCount: number } | null, attackerTemplateId?: number|null, targetTemplateId?: number|null }} props
  */
-export default function DramaticDice({ finalValue, sides = 6, side, onComplete, powerName, attackerName, attackerRetrato, targetName, theme, attackerTemplateId }) {
+export default function DramaticDice({ finalValue, sides = 6, side, onComplete, powerName, attackerName, attackerRetrato, targetName, theme, attackerTemplateId, targetTemplateId }) {
   const { t } = useLanguage()
-  // Animação de ataque normal do personagem (null se ele ainda não tem
-  // arte própria, ou se foi um PODER — os poderes ainda não têm animação
-  // registrada, ver ganguesCombatAnimations.js). `side==='player'` já vem
-  // garantido por quem chama (attackerTemplateId só existe pro jogador).
-  const anim = !powerName ? getGanguesAtaqueNormalAnimacao(attackerTemplateId) : null
+  // `side === 'player'`: o jogador ataca — mostra o ataque normal DELE (não
+  // mostra nada se foi um PODER, ainda sem animação própria).
+  // `side === 'enemy'`: o oponente ataca — mostra o personagem do jogador
+  // (o ALVO) levando o golpe, sempre, poder ou não (não tem variação de
+  // "dano por poder" ainda, é sempre a mesma reação a levar dano).
+  const anim = side === 'player'
+    ? (!powerName ? getGanguesAnimacao(attackerTemplateId, 'ataqueNormal') : null)
+    : getGanguesAnimacao(targetTemplateId, 'dano')
   const [display, setDisplay] = useState(null)       // null = fase de "aquecimento"
   const [phase, setPhase] = useState('intro')        // intro → rolling → reveal → done
   const displayRef = useRef(null)                    // ref para usar dentro do timer sem causar re-render
@@ -63,14 +72,15 @@ export default function DramaticDice({ finalValue, sides = 6, side, onComplete, 
   // luta começa) — aqui só dispara `.play()` no `<audio>` que já existe,
   // sem esperar download/decodificação na hora do golpe.
   //
-  // Dependência é `attackerTemplateId`/`powerName` (primitivos), NÃO
-  // `anim`: `anim` é um objeto NOVO a cada render
-  // (getGanguesAtaqueNormalAnimacao devolve um literal `{ ...dados }`
-  // sempre), então usá-lo como dependência fazia o efeito disparar de novo
-  // a cada re-render do componente (troca de fase/display), repetindo o
-  // som da fala várias vezes por ataque (achado pelo Isaias, 16/09/2026:
-  // "o som da fala tá repetindo várias vezes"). A identidade que importa é
-  // a de QUEM está atacando, não a do objeto derivado.
+  // Dependência é os primitivos que definem a animação (`side`,
+  // `attackerTemplateId`/`targetTemplateId`, `powerName`), NÃO `anim`:
+  // `anim` é um objeto NOVO a cada render (getGanguesAnimacao devolve um
+  // literal `{ ...dados }` sempre), então usá-lo como dependência fazia o
+  // efeito disparar de novo a cada re-render do componente (troca de
+  // fase/display), repetindo o som da fala várias vezes por ataque
+  // (achado pelo Isaias, 16/09/2026: "o som da fala tá repetindo várias
+  // vezes"). A identidade que importa é a de QUEM está envolvido, não a do
+  // objeto derivado.
   useEffect(() => {
     if (!anim || !sfx.enabled) return
     if (anim.sons.ambiente) tocarSomCombate(anim.sons.ambiente, 0.6)
@@ -79,7 +89,7 @@ export default function DramaticDice({ finalValue, sides = 6, side, onComplete, 
       setTimeout(() => tocarSomCombate(arquivo, 0.85), (frame - 1) * anim.frameMs)
     )
     return () => timers.forEach(clearTimeout)
-  }, [attackerTemplateId, powerName])
+  }, [side, attackerTemplateId, targetTemplateId, powerName])
 
   useEffect(() => {
     // Fase 1: intro — show the "?" for a moment

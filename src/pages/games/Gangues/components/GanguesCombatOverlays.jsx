@@ -121,6 +121,10 @@ export default function GanguesCombatOverlays({
               const actor = machine.combatants.find(item => item.key === machine.pending.actorKey)
               return actor?.side === 'player' ? actor.character_template_id : null
             })()}
+            targetTemplateId={(() => {
+              const target = machine.combatants.find(item => item.key === machine.pending.targetKey)
+              return target?.side === 'player' ? target.character_template_id : null
+            })()}
             onComplete={machine.completePending}
           />
         )}

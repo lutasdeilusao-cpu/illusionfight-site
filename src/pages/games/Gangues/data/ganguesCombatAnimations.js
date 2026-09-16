@@ -7,28 +7,37 @@
 // (uma específica pra cada um) e defendendo — só do jogador, os inimigos
 // não entram (exceto os 7 chefes, tratados à parte depois)".
 //
-// Hoje só `ataqueNormal` tem uso real (Trinca + Muro) — `poder`/`defesa`
-// ficam como formato já pronto no dado (mesma convenção de pasta), sem
-// nenhuma tela ainda consumindo eles (não existe HOJE nenhum "momento" de
-// defesa na tela de combate — é conceito novo, fica pra quando tiver
-// arte+design desse momento).
+// Dois TIPOS com uso real hoje — `ataqueNormal` (toca quando o próprio
+// personagem ataca) e `dano` (toca quando o personagem É ATACADO pelo
+// oponente, pedido no mesmo dia: "sempre que eles forem atacados pelo
+// oponente deve tocar essa animação"). `poder` ainda não tem consumidor —
+// fica pra quando tiver arte+design desse momento.
 //
 // Convenção de arquivo — mesma ideia de ganguesPortraits.js/
 // ganguesEnemyPortraits.js (pasta por personagem), estendida com o tipo de
-// golpe: `assets/personagens/<slug>/ataque-normal.webp` (uma folha 4×4/16
-// quadros), `.../defesa.webp`, `.../poder-<id>.webp` (id = special_path ou
-// o id exato do poder — decisão de conteúdo, o sistema aceita qualquer
-// string). Cada folha vem com uma folha 4×4 igual em proporção — o
-// tamanho de quadro (frameW/frameH) é dado explícito por personagem
-// porque nada garante que toda arte futura tenha a mesma proporção 4:3
-// que Trinca/Muro tiveram por coincidência (ambos vieram de fonte
-// 1448×1086).
+// golpe: `assets/personagens/<slug>/ataque-normal.webp` (folha 4×4/16
+// quadros), `.../dano.webp` (mesma grade), `.../poder-<id>.webp` (id =
+// special_path ou o id exato do poder — decisão de conteúdo, o sistema
+// aceita qualquer string). O tamanho de quadro (frameW/frameH) é dado
+// explícito por personagem/tipo porque nada garante que toda arte futura
+// tenha a mesma proporção 4:3 que Trinca/Muro tiveram (fonte 1448×1086).
 const ATAQUE_NORMAL_SHEETS = import.meta.glob('../assets/personagens/*/ataque-normal.webp', { eager: true, import: 'default' })
+const DANO_SHEETS = import.meta.glob('../assets/personagens/*/dano.webp', { eager: true, import: 'default' })
 
-const SHEETS_POR_SLUG = {}
-for (const [caminho, url] of Object.entries(ATAQUE_NORMAL_SHEETS)) {
-  const slug = caminho.match(/personagens\/([^/]+)\/ataque-normal\.webp$/)?.[1]
-  if (slug) SHEETS_POR_SLUG[slug] = url
+function mapaPorSlug(globResult, sufixoArquivo) {
+  const regex = new RegExp(`personagens/([^/]+)/${sufixoArquivo}\\.webp$`)
+  const mapa = {}
+  for (const [caminho, url] of Object.entries(globResult)) {
+    const slug = caminho.match(regex)?.[1]
+    if (slug) mapa[slug] = url
+  }
+  return mapa
+}
+
+// tipo (usado por getGanguesAnimacao) -> mapa slug->URL da folha desse tipo.
+const SHEETS_POR_TIPO = {
+  ataqueNormal: mapaPorSlug(ATAQUE_NORMAL_SHEETS, 'ataque-normal'),
+  dano: mapaPorSlug(DANO_SHEETS, 'dano'),
 }
 
 // Sons do jogo TAMBÉM moram dentro da própria pasta do jogo (import de
@@ -36,9 +45,6 @@ for (const [caminho, url] of Object.entries(ATAQUE_NORMAL_SHEETS)) {
 // `public/` (achado/corrigido 16/09/2026: um som novo tinha ido parar em
 // `public/sounds/`, fora da árvore do jogo; o Isaias pediu pra nunca mais
 // deixar nada do jogo espalhado fora de `src/pages/games/Gangues/`).
-// `assets/sons/<arquivo>.mp3` num glob só, resolvido por NOME de arquivo
-// (sem pasta por personagem — é só áudio curto, não precisa da mesma
-// estrutura de pasta-por-entidade dos retratos/sprites).
 const SONS = import.meta.glob('../assets/sons/*.mp3', { eager: true, import: 'default' })
 const SOM_POR_NOME = {}
 for (const [caminho, url] of Object.entries(SONS)) {
@@ -61,43 +67,70 @@ const TEMPLATE_SLUG = {
   11: 'muro',
 }
 
-// Dados de animação por slug — grade, timing e sons. `golpes` marca os
-// quadros de impacto (1-indexado, como aparece pro Isaias olhando a folha
-// no editor de imagem) cada um com seu próprio som — sprites diferentes
-// podem ter 1, 2 ou mais impactos (o Trinca tem 1 soco reto; o Muro bate
-// 2x, quadro 6 e quadro 12, cada soco com um som PRÓPRIO — pedido
-// explícito: "esse deve ter som de soco diferente, tem que ser 2 sons de
-// socos diferentes"). `voz`/`ambiente` tocam desde o quadro 1; `ambiente`
-// é opcional (o Trinca tem a corrente do seu equipamento balançando, o
-// Muro não usa esse acessório e não tem esse som).
+// Dados de animação por slug e por tipo — grade, timing e sons. `golpes`
+// marca os quadros de impacto (1-indexado, como aparece pro Isaias olhando
+// a folha no editor de imagem) cada um com seu próprio som — sprites
+// diferentes podem ter 1, 2 ou mais impactos. `voz`/`ambiente` tocam desde
+// o quadro 1; `ambiente` é opcional (o Trinca tem a corrente do seu
+// equipamento balançando, o Muro não usa esse acessório).
+//
+// `dano` (levando golpe) reaproveita a MESMA voz do `ataqueNormal` — pedido
+// explícito: "vai usar a mesma fala do ataque normal pra tocar" — e por ora
+// reaproveita também os mesmos arquivos de impacto do soco (nenhum áudio
+// novo foi fornecido especificamente pra "tomando golpe" ainda).
 const DADOS_POR_SLUG = {
   trinca: {
-    frameW: 181, frameH: 136, cols: 4, rows: 4, frames: 16, frameMs: 80,
-    sons: {
-      ambiente: som('trinca-corrente'),
-      voz: som('trinca-ahh'),
-      golpes: [{ frame: 9, arquivo: som('trinca-soco') }],
+    ataqueNormal: {
+      frameW: 181, frameH: 136, cols: 4, rows: 4, frames: 16, frameMs: 80,
+      sons: {
+        ambiente: som('trinca-corrente'),
+        voz: som('trinca-ahh'),
+        golpes: [{ frame: 9, arquivo: som('trinca-soco') }],
+      },
+    },
+    dano: {
+      frameW: 181, frameH: 136, cols: 4, rows: 4, frames: 16, frameMs: 80,
+      sons: {
+        voz: som('trinca-ahh'),
+        golpes: [
+          { frame: 3, arquivo: som('trinca-soco') },
+          { frame: 10, arquivo: som('trinca-soco') },
+        ],
+      },
     },
   },
   muro: {
-    frameW: 181, frameH: 136, cols: 4, rows: 4, frames: 16, frameMs: 80,
-    sons: {
-      voz: som('muro-ahh'),
-      golpes: [
-        { frame: 6, arquivo: som('muro-soco1') },
-        { frame: 12, arquivo: som('muro-soco2') },
-      ],
+    ataqueNormal: {
+      frameW: 181, frameH: 136, cols: 4, rows: 4, frames: 16, frameMs: 80,
+      sons: {
+        voz: som('muro-ahh'),
+        golpes: [
+          { frame: 6, arquivo: som('muro-soco1') },
+          { frame: 12, arquivo: som('muro-soco2') },
+        ],
+      },
+    },
+    dano: {
+      frameW: 181, frameH: 136, cols: 4, rows: 4, frames: 16, frameMs: 80,
+      sons: {
+        voz: som('muro-ahh'),
+        golpes: [
+          { frame: 3, arquivo: som('muro-soco1') },
+          { frame: 10, arquivo: som('muro-soco2') },
+        ],
+      },
     },
   },
 }
 
-/** Config completa da animação de ataque normal do personagem (ou null se
- *  ele ainda não tem arte própria — quem chama cai pro visual de sempre,
- *  igual `getGanguesPortrait` faz quando falta retrato). */
-export function getGanguesAtaqueNormalAnimacao(characterTemplateId) {
+/** Config completa de uma animação (`tipo`: 'ataqueNormal' | 'dano' | ...)
+ *  do personagem, ou null se ele ainda não tem arte própria pra esse tipo —
+ *  quem chama cai pro visual de sempre, igual `getGanguesPortrait` faz
+ *  quando falta retrato. */
+export function getGanguesAnimacao(characterTemplateId, tipo) {
   const slug = TEMPLATE_SLUG[characterTemplateId]
-  const sheet = slug && SHEETS_POR_SLUG[slug]
-  const dados = slug && DADOS_POR_SLUG[slug]
+  const sheet = slug && SHEETS_POR_TIPO[tipo]?.[slug]
+  const dados = slug && DADOS_POR_SLUG[slug]?.[tipo]
   if (!sheet || !dados) return null
   return { slug, sheet, ...dados }
 }
@@ -108,7 +141,9 @@ export function getGanguesAtaqueNormalAnimacao(characterTemplateId) {
 // DramaticDice — só baixa/decodifica cada arquivo UMA vez por sessão de
 // jogo, nunca de novo a cada golpe). `precarregarAnimacaoCombate` é
 // chamado 1x quando a batalha começa (GanguesCombat.jsx), pra cada membro
-// do time do jogador que tiver animação registrada.
+// do time do jogador que tiver animação registrada — carrega TODOS os
+// tipos de animação do personagem de uma vez (ataque e dano), já que
+// qualquer um dos dois pode acontecer a qualquer momento da luta.
 const AUDIO_CACHE = new Map() // url -> HTMLAudioElement (já com .load() chamado)
 const IMAGEM_CACHE = new Set() // urls já pedidas (aquece o cache HTTP do navegador)
 
@@ -124,16 +159,18 @@ function pegarAudio(url) {
 }
 
 export function precarregarAnimacaoCombate(characterTemplateId) {
-  const anim = getGanguesAtaqueNormalAnimacao(characterTemplateId)
-  if (!anim) return
-  if (!IMAGEM_CACHE.has(anim.sheet)) {
-    IMAGEM_CACHE.add(anim.sheet)
-    const img = new Image()
-    img.src = anim.sheet
+  for (const tipo of Object.keys(SHEETS_POR_TIPO)) {
+    const anim = getGanguesAnimacao(characterTemplateId, tipo)
+    if (!anim) continue
+    if (!IMAGEM_CACHE.has(anim.sheet)) {
+      IMAGEM_CACHE.add(anim.sheet)
+      const img = new Image()
+      img.src = anim.sheet
+    }
+    if (anim.sons.ambiente) pegarAudio(anim.sons.ambiente)
+    if (anim.sons.voz) pegarAudio(anim.sons.voz)
+    for (const golpe of anim.sons.golpes || []) pegarAudio(golpe.arquivo)
   }
-  if (anim.sons.ambiente) pegarAudio(anim.sons.ambiente)
-  if (anim.sons.voz) pegarAudio(anim.sons.voz)
-  for (const golpe of anim.sons.golpes || []) pegarAudio(golpe.arquivo)
 }
 
 /** Toca um som já pré-carregado (reinicia do começo — o mesmo <audio> é
