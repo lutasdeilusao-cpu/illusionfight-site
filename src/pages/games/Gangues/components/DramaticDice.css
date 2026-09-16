@@ -434,10 +434,10 @@
   /* `forwards`: sem isso, ao terminar a animação o navegador volta pro
      background-position "base" (o primeiro quadro, pose de guarda) em vez
      de manter o último quadro (achado testando ao vivo com Playwright na
-     1ª versão, na lista de log). Duração 1.8s (Isaias, 15/09/2026: "tá
-     muito rápido, vamos tentar um pouco mais lento" — era .8s, 100ms por
-     quadro; primeira tentativa de ajuste, pode precisar de mais um passo). */
-  animation: dramatic-dice-trinca-soco 1.8s steps(1) 1 forwards;
+     1ª versão, na lista de log). Duração ajustada 2x (Isaias, 15-16/09/2026):
+     .8s (100ms/quadro) "muito rápido" → 1.8s (225ms/quadro) "meio lento
+     demais" → 1.3s (162.5ms/quadro), o meio-termo pedido entre os dois. */
+  animation: dramatic-dice-trinca-soco 1.3s steps(1) 1 forwards;
 }
 @keyframes dramatic-dice-trinca-soco {
   0%    { background-position: 0% 0%;        animation-timing-function: steps(1); }
