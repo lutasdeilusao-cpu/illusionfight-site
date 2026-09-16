@@ -16,13 +16,31 @@ import './DramaticDice.css'
 const GANGUES_TRINCA_SPRITE_TESTE_ID = 1
 // 16 quadros a 80ms cada = 1,28s (ver DramaticDice.css `@keyframes dramatic-
 // dice-trinca-soco`, mesma folha nova de 16 frames — 100ms/quadro testado
-// ao vivo e achado "meio lento", ajustado pra 80ms) — usado só pra garantir
-// que a tela NUNCA feche antes do soco terminar de tocar (pedido do Isaias,
-// 16/09/2026: "o dado deve esperar o fim da animação"). Antes disso dava
-// certo por coincidência (a rolagem+revelação já demorava mais que o soco),
-// mas sem nenhuma garantia real — se o soco ficasse mais longo ou a rolagem
-// mais curta num ajuste futuro, a tela podia fechar no meio do golpe.
+// ao vivo e achado "meio lento", ajustado pra 80ms). A ROLAGEM do dado
+// (`totalDuration` abaixo) é travada nesse mesmo valor quando é o soco do
+// Trinca — não mais aleatória — pra a revelação do número SEMPRE cair
+// exatamente quando o quadro 16 termina (pedido do Isaias, 16/09/2026: "a
+// jogada do dado tem que finalizar no frame 16, aí apresenta o resultado").
+// Isso também garante de graça que a tela nunca fecha no meio do soco (a
+// revelação só começa depois da animação inteira já ter rodado).
 const GANGUES_TRINCA_SOCO_DURACAO_MS = 1280
+// Som: corrente balançando (começa junto com o soco) → no quadro 9 (índice
+// 8, exatamente onde a folha de sprite mostra o impacto com a fagulha —
+// ver @keyframes, 50% de 1280ms) troca pro som de porrada → quando a
+// porrada termina, volta pro som de corrente até fechar no quadro 16.
+// Pedido do Isaias, 16/09/2026: "o som da corrente... quando chegar no
+// frame9 tem que dar um som de soco de porrada... terminou o som de
+// porrada volta pro som de corrente e finaliza". Sons baixados de bancos
+// gratuitos pra uso comercial (ver SITE_MAP.md pra a nota de licença):
+// `gangues-trinca-corrente.mp3` (trecho de "Metal chain" da SoundDino,
+// royalty-free/sem atribuição) e `gangues-trinca-soco.mp3` ("Body punch
+// quick hit" da Mixkit, licença Mixkit). Testado ao vivo e achado um
+// pouco atrasado (sobretudo o soco) — adiantado 1 quadro inteiro (80ms)
+// pra compensar o delay de agendamento/decodificação do áudio real (o
+// quadro visual da fagulha continua no quadro 9 de verdade, só o GATILHO
+// do som antecipa 1 quadro).
+const GANGUES_TRINCA_SOCO_FRAME9_MS = 640 - 80
+const GANGUES_TRINCA_SOCO_PORRADA_DURACAO_MS = 460
 
 /**
  * DramaticDice — Tela cheia que pausa o jogo e mostra um dado rodando
@@ -40,17 +58,55 @@ export default function DramaticDice({ finalValue, sides = 6, side, onComplete, 
   const [phase, setPhase] = useState('intro')        // intro → rolling → reveal → done
   const displayRef = useRef(null)                    // ref para usar dentro do timer sem causar re-render
   const lastSoundRef = useRef(0)
-  const montagemRef = useRef(null)
-  if (montagemRef.current == null) montagemRef.current = Date.now()
   const isCritical = finalValue === sides
   // Crítico sempre ganha (visual já é o "uau" da tela) — o tema por poder só
   // aparece fora do crítico, senão os dois efeitos brigam pela mesma cor.
   const fx = !isCritical && theme ? theme : null
 
-  // Duração: normal 1.5s~2s, crítico 2s fixo para mais drama
+  // Duração: normal 1.5s~2s, crítico 2s fixo para mais drama — MAS quando é
+  // o soco do Trinca, a rolagem trava num valor fixo (1280ms - os 400ms da
+  // intro) pra terminar exatamente junto com o quadro 16 da animação, não
+  // um tempo aleatório desencontrado do soco.
   const totalDuration = useRef(
-    isCritical ? 2000 : (1500 + Math.random() * 500)
+    ehSocoTrinca ? (GANGUES_TRINCA_SOCO_DURACAO_MS - 400) : isCritical ? 2000 : (1500 + Math.random() * 500)
   )
+
+  // Sons do soco (arquivo de verdade, não os bips sintetizados de sfx.js —
+  // mesmo padrão de GanguesSaveSelect.jsx): corrente no início, porrada no
+  // quadro 9 (fagulha do impacto), corrente de novo até fechar no quadro 16.
+  // PRÉ-CARREGADOS (um `Audio` só por arquivo, reaproveitado nas 2 vezes que
+  // a corrente toca) — jogado ao vivo e achado atrasado, sobretudo o soco;
+  // criar o `Audio` na hora do gatilho tem o atraso de baixar+decodificar o
+  // mp3 antes do som sair de verdade. Pré-carregando (na montagem, antes da
+  // intro de 400ms) e só chamando `.play()` no gatilho, o navegador já tem o
+  // arquivo pronto — some o atraso de decodificação, sobra só o adiantamento
+  // de 1 quadro (pedido explícito) por cima.
+  const correnteRef = useRef(null)
+  const socoRef = useRef(null)
+  useEffect(() => {
+    if (!ehSocoTrinca) return
+    correnteRef.current = new Audio('/sounds/gangues-trinca-corrente.mp3')
+    socoRef.current = new Audio('/sounds/gangues-trinca-soco.mp3')
+    correnteRef.current.preload = 'auto'
+    socoRef.current.preload = 'auto'
+    correnteRef.current.load()
+    socoRef.current.load()
+  }, [ehSocoTrinca])
+
+  useEffect(() => {
+    if (!ehSocoTrinca || !sfx.enabled) return
+    const tocar = (ref, volume) => {
+      const audio = ref.current
+      if (!audio) return
+      audio.currentTime = 0
+      audio.volume = volume
+      audio.play().catch(() => {})
+    }
+    tocar(correnteRef, 0.6)
+    const t1 = setTimeout(() => tocar(socoRef, 0.85), GANGUES_TRINCA_SOCO_FRAME9_MS)
+    const t2 = setTimeout(() => tocar(correnteRef, 0.5), GANGUES_TRINCA_SOCO_FRAME9_MS + GANGUES_TRINCA_SOCO_PORRADA_DURACAO_MS)
+    return () => { clearTimeout(t1); clearTimeout(t2) }
+  }, [ehSocoTrinca])
 
   useEffect(() => {
     // Fase 1: intro — show the "?" for a moment
@@ -124,21 +180,18 @@ export default function DramaticDice({ finalValue, sides = 6, side, onComplete, 
   }, [phase, finalValue, sides]) // ← sem display! ref evita o loop infinito
 
   // Na fase reveal, espera 1s (normal) ou 1.2s (crítico) e chama onComplete —
-  // MAS nunca antes do soco do Trinca terminar de tocar (o soco começa a
-  // rodar desde o mount, ver `dramatic-dice-trinca-soco` em DramaticDice.css;
-  // "o dado deve esperar o fim da animação", pedido do Isaias 16/09/2026).
+  // como `totalDuration` já trava a rolagem pra terminar junto do quadro 16
+  // (ver acima), o soco sempre já rodou por completo quando a revelação
+  // começa; não precisa de nenhuma conta extra de segurança aqui.
   useEffect(() => {
     if (phase !== 'reveal') return
-    const baseDelay = isCritical ? 1200 : 1000
-    const delay = ehSocoTrinca
-      ? Math.max(baseDelay, GANGUES_TRINCA_SOCO_DURACAO_MS - (Date.now() - montagemRef.current))
-      : baseDelay
+    const delay = isCritical ? 1200 : 1000
     const t = setTimeout(() => {
       setPhase('done')
       onComplete?.()
     }, delay)
     return () => clearTimeout(t)
-  }, [phase, onComplete, isCritical, ehSocoTrinca])
+  }, [phase, onComplete, isCritical])
 
   const isPlayer = side === 'player'
 

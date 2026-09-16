@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — MAPA DO SITE E DO PROJETO
 
 > Referência do estado atual do projeto para navegação humana e contexto de IA.
-> Atualizado em 2026-09-16 — `SITE_VERSION` **10.280.173**.
+> Atualizado em 2026-09-16 — `SITE_VERSION` **10.280.174**.
 > Histórico de tarefas, bugfixes e pendências não pertence a este documento.
 > Regras de trabalho, arquivos proibidos e decisões arquiteturais: `AGENTS.md`.
 
@@ -45,6 +45,7 @@ Inline em `index.html`, **antes** do React — um componente montaria tarde dema
 - `App.jsx` dispara `window.dispatchEvent(new Event('ldi:ready'))` ao montar; a vinheta encerra assim que recebe o evento, respeitando o mínimo (0 ou 2000/600ms conforme o caso).
 - Visual: `#ldi-intro` fixo (z-index 2147483000, acima de tudo), símbolo IF (`/favicon-ldi.png`, já em cache pelo ícone da aba — zero download extra). Texto: `LUTAS DE ILUSÃO` (pt/es) ou `ILLUSION FIGHT` (en) via `ldi-locale`.
 - Som: `public/sounds/intro.mp3` (Mixkit #164, licença Mixkit, 1,9 s, mono 64 kbps, `loudnorm` + fade) tocado a `volume 0.22`, só quando é cache miss de verdade. Autoplay pode ser bloqueado pelo navegador antes da 1ª interação — o `play()` rejeitado é engolido e **a entrada nunca depende do som**.
+- Outros sons de arquivo de verdade (fora dos bips sintetizados de `src/lib/sfx.js`) — mesma convenção `public/sounds/<jogo>-*.mp3`, banco gratuito de uso comercial + nota de licença aqui: `gangues-saves-impact.mp3`/`gangues-saves-tijolo.mp3` (`GanguesSaveSelect.jsx`); `gangues-trinca-corrente.mp3` (trecho de "Metal chain" da SoundDino, royalty-free/sem atribuição) e `gangues-trinca-soco.mp3` ("Body punch quick hit" da Mixkit, licença Mixkit) — soco animado do Trinca, `DramaticDice.jsx`.
 - Ao terminar, o overlay é removido do DOM (não só escondido) e `html.ldi-intro-on` (trava de scroll) é retirada.
 
 Ordem dos providers em `src/main.jsx`:
@@ -389,11 +390,11 @@ Fonte única: `src/config/version.js`. Esta tabela registra somente a identifica
 
 | Constante | Módulo | Versão |
 |---|---|---:|
-| `SITE_VERSION` | Site global | **10.280.173** |
+| `SITE_VERSION` | Site global | **10.280.174** |
 | `PP_VERSION` | Pesadelo Particular | 2.3.1 |
 | `LDI_VERSION` | Lendas do LDI | 2.0.1 |
 | `JACK_VERSION` | Jack Dream Beer | 5.3.2 |
-| `GANGUES_VERSION` | LDI Gangues | 3.12.0 |
+| `GANGUES_VERSION` | LDI Gangues | 3.13.0 |
 | `TAMA_VERSION` | Tamagoshi LDI | 3.4.1 |
 | `DUELO_VERSION` | Duelo LDI | 2.8.1 |
 | `MINIGAMES_VERSION` | MiniGames | 4.3.6 |
