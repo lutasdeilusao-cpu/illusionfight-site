@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.280.171' // fix: LDI Gangues - animacao de soco do Trinca: 1.8s ficou "meio lento demais" - ajustado pro meio-termo entre 100ms e 225ms por quadro (1.3s total). Ver GANGUES_VERSION.
+export const SITE_VERSION = '10.280.172' // fix: LDI Gangues - animacao de soco do Trinca ajustada de novo, 130ms por quadro (1.04s total) - Isaias pediu "diminui um pouquinho mais" a partir do meio-termo anterior. Ver GANGUES_VERSION.
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '3.11.2' // fix (Isaias: "225 agora ficou meio lento demais... vamos tentar o meio-termo entre 225 e 100"): duração do soco do Trinca ajustada pra 1.3s (162.5ms/quadro, a média exata entre a 1ª tentativa de 100ms/quadro "muito rápido" e a 2ª de 225ms/quadro "muito lento").
+export const GANGUES_VERSION   = '3.11.3' // fix (Isaias: "vamos diminuir um pouquinho mais... 130 fechado por quadro"): duração do soco do Trinca ajustada pra 1.04s (130ms/quadro) — 4ª rodada de ajuste fino a partir do feedback ao vivo (100→225→162.5→130ms/quadro).
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
 export const MINIGAMES_VERSION = '4.3.6'  // PuzzleStealthGrid: d-pad na tela sempre (mobile tambem) + grade nao vaza mais do viewport
