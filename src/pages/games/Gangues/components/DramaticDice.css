@@ -427,32 +427,51 @@
 }
 
 .dramatic-dice-trinca-soco {
-  width: 210px; height: 210px;
-  background-repeat: no-repeat; background-size: 400% 200%; background-position: 0% 0%;
+  /* Caixa no aspecto REAL do quadro novo (181×136 ≈ 4:3) — a folha de 16
+     quadros trocou de proporção 3:2 pra 4:3 junto com o dobro de quadros;
+     manter uma caixa quadrada (era 210×210) esmagava o personagem
+     horizontalmente (achado pelo Isaias, 16/09/2026: "a imagem mudou de
+     tamanho, esmagou do nada"). */
+  width: 280px; height: 210px;
+  background-repeat: no-repeat; background-size: 400% 400%; background-position: 0% 0%;
   image-rendering: pixelated;
   filter: drop-shadow(0 8px 20px rgba(0, 0, 0, .6));
   /* `forwards`: sem isso, ao terminar a animação o navegador volta pro
      background-position "base" (o primeiro quadro, pose de guarda) em vez
      de manter o último quadro (achado testando ao vivo com Playwright na
      1ª versão, na lista de log). Duração ajustada em rodadas sucessivas
-     (Isaias, 15-16/09/2026): .8s (100ms/quadro) "muito rápido" → 1.8s
-     (225ms/quadro) "meio lento demais" → 1.3s (162.5ms/quadro, o meio-termo)
-     → 1.04s (130ms/quadro, "diminui um pouquinho mais"). */
-  animation: dramatic-dice-trinca-soco 1.04s steps(1) 1 forwards;
+     (Isaias, 15-16/09/2026, folha antiga de 8 quadros): .8s (100ms/quadro)
+     "muito rápido" → 1.8s (225ms/quadro) "meio lento demais" → 1.3s
+     (162.5ms/quadro, o meio-termo) → 1.04s (130ms/quadro, "diminui um
+     pouquinho mais"). 16/09/2026: folha nova com o DOBRO de quadros (8→16,
+     grade 4×2→4×4, fundo removido/transparente) — pedido 100ms/quadro de
+     novo (1,6s total), jogado e achado "meio lento" — ajustado pra
+     80ms/quadro (1,28s total). `DramaticDice.jsx` estende a espera antes de
+     fechar a tela pra nunca cortar a animação no meio
+     (`GANGUES_TRINCA_SOCO_DURACAO_MS`, mesmo valor usado aqui). */
+  animation: dramatic-dice-trinca-soco 1.28s steps(1) 1 forwards;
 }
 @keyframes dramatic-dice-trinca-soco {
-  0%    { background-position: 0% 0%;        animation-timing-function: steps(1); }
-  12.5% { background-position: 33.333% 0%;   animation-timing-function: steps(1); }
-  25%   { background-position: 66.667% 0%;   animation-timing-function: steps(1); }
-  37.5% { background-position: 100% 0%;      animation-timing-function: steps(1); }
-  50%   { background-position: 0% 100%;      animation-timing-function: steps(1); }
-  62.5% { background-position: 33.333% 100%; animation-timing-function: steps(1); }
-  75%   { background-position: 66.667% 100%; animation-timing-function: steps(1); }
-  87.5% { background-position: 100% 100%; }
-  100%  { background-position: 100% 100%; }
+  0%     { background-position: 0% 0%;         animation-timing-function: steps(1); }
+  6.25%  { background-position: 33.333% 0%;    animation-timing-function: steps(1); }
+  12.5%  { background-position: 66.667% 0%;    animation-timing-function: steps(1); }
+  18.75% { background-position: 100% 0%;       animation-timing-function: steps(1); }
+  25%    { background-position: 0% 33.333%;    animation-timing-function: steps(1); }
+  31.25% { background-position: 33.333% 33.333%; animation-timing-function: steps(1); }
+  37.5%  { background-position: 66.667% 33.333%; animation-timing-function: steps(1); }
+  43.75% { background-position: 100% 33.333%;   animation-timing-function: steps(1); }
+  50%    { background-position: 0% 66.667%;     animation-timing-function: steps(1); }
+  56.25% { background-position: 33.333% 66.667%; animation-timing-function: steps(1); }
+  62.5%  { background-position: 66.667% 66.667%; animation-timing-function: steps(1); }
+  68.75% { background-position: 100% 66.667%;    animation-timing-function: steps(1); }
+  75%    { background-position: 0% 100%;         animation-timing-function: steps(1); }
+  81.25% { background-position: 33.333% 100%;    animation-timing-function: steps(1); }
+  87.5%  { background-position: 66.667% 100%;    animation-timing-function: steps(1); }
+  93.75% { background-position: 100% 100%; }
+  100%   { background-position: 100% 100%; }
 }
 @media (max-width: 600px) {
-  .dramatic-dice-trinca-soco { width: 170px; height: 170px; }
+  .dramatic-dice-trinca-soco { width: 227px; height: 170px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .dramatic-dice-trinca-soco { animation: none; background-position: 100% 100%; }

@@ -14,6 +14,15 @@ import './DramaticDice.css'
 // só em ataque NORMAL (`!powerName`, que já vem null quando não tem poder
 // ativo). Se aprovado, generalizar pra outros personagens é decisão futura.
 const GANGUES_TRINCA_SPRITE_TESTE_ID = 1
+// 16 quadros a 80ms cada = 1,28s (ver DramaticDice.css `@keyframes dramatic-
+// dice-trinca-soco`, mesma folha nova de 16 frames — 100ms/quadro testado
+// ao vivo e achado "meio lento", ajustado pra 80ms) — usado só pra garantir
+// que a tela NUNCA feche antes do soco terminar de tocar (pedido do Isaias,
+// 16/09/2026: "o dado deve esperar o fim da animação"). Antes disso dava
+// certo por coincidência (a rolagem+revelação já demorava mais que o soco),
+// mas sem nenhuma garantia real — se o soco ficasse mais longo ou a rolagem
+// mais curta num ajuste futuro, a tela podia fechar no meio do golpe.
+const GANGUES_TRINCA_SOCO_DURACAO_MS = 1280
 
 /**
  * DramaticDice — Tela cheia que pausa o jogo e mostra um dado rodando
@@ -31,6 +40,8 @@ export default function DramaticDice({ finalValue, sides = 6, side, onComplete, 
   const [phase, setPhase] = useState('intro')        // intro → rolling → reveal → done
   const displayRef = useRef(null)                    // ref para usar dentro do timer sem causar re-render
   const lastSoundRef = useRef(0)
+  const montagemRef = useRef(null)
+  if (montagemRef.current == null) montagemRef.current = Date.now()
   const isCritical = finalValue === sides
   // Crítico sempre ganha (visual já é o "uau" da tela) — o tema por poder só
   // aparece fora do crítico, senão os dois efeitos brigam pela mesma cor.
@@ -112,16 +123,22 @@ export default function DramaticDice({ finalValue, sides = 6, side, onComplete, 
     return () => { stopped = true; clearTimeout(timerId) }
   }, [phase, finalValue, sides]) // ← sem display! ref evita o loop infinito
 
-  // Na fase reveal, espera 1s (normal) ou 1.2s (crítico) e chama onComplete
+  // Na fase reveal, espera 1s (normal) ou 1.2s (crítico) e chama onComplete —
+  // MAS nunca antes do soco do Trinca terminar de tocar (o soco começa a
+  // rodar desde o mount, ver `dramatic-dice-trinca-soco` em DramaticDice.css;
+  // "o dado deve esperar o fim da animação", pedido do Isaias 16/09/2026).
   useEffect(() => {
     if (phase !== 'reveal') return
-    const delay = isCritical ? 1200 : 1000
+    const baseDelay = isCritical ? 1200 : 1000
+    const delay = ehSocoTrinca
+      ? Math.max(baseDelay, GANGUES_TRINCA_SOCO_DURACAO_MS - (Date.now() - montagemRef.current))
+      : baseDelay
     const t = setTimeout(() => {
       setPhase('done')
       onComplete?.()
     }, delay)
     return () => clearTimeout(t)
-  }, [phase, onComplete, isCritical])
+  }, [phase, onComplete, isCritical, ehSocoTrinca])
 
   const isPlayer = side === 'player'
 
