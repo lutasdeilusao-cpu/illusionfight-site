@@ -12,6 +12,7 @@ import useGanguesBattleOutcome from '../hooks/useGanguesBattleOutcome.js'
 import useGanguesCombatLog from '../hooks/useGanguesCombatLog.js'
 import { fighterName } from '../engine/ganguesCombatPresentation.js'
 import { getGanguesPortraitByTemplateId } from '../data/ganguesPortraits.js'
+import { precarregarAnimacaoCombate } from '../data/ganguesCombatAnimations.js'
 import { getEquippedActiveGanguesSpecials } from '../engine/ganguesSpecialEffects.js'
 import { GANGUES_ITENS_LISTA, getGanguesItem } from '../data/ganguesItens.js'
 import GanguesCombatTutorial from '../components/GanguesCombatTutorial'
@@ -95,6 +96,17 @@ export default function GanguesCombat({ onNavigate }) {
   const perguntaMultidaoAtiva = multidaoDisponivelPreMachine && !multidaoPromptRespondida
 
   const machine = useGanguesTurnMachine({ playerTeam: store.match.playerTeam, enemyTeam: store.match.enemyTeam, onFinish: finish, pausado: modoMultidaoAtivoPreMachine || perguntaMultidaoAtiva })
+
+  // Pré-carrega a animação (sprite + sons) de cada personagem do time do
+  // jogador assim que a luta começa — pedido do Isaias: "durante a batalha
+  // já deixa carregada... não precisa ficar baixando toda hora". Cache é
+  // em nível de módulo (ganguesCombatAnimations.js), então isso só baixa de
+  // verdade na 1ª luta de cada personagem por sessão.
+  useEffect(() => {
+    for (const member of store.match.playerTeam || []) {
+      precarregarAnimacaoCombate(member.character_template_id)
+    }
+  }, [store.match.playerTeam])
 
   const multidao = useGanguesModoMultidao({ store, machine, t, setLog, eventosBrutosRef, finish, result, modoMultidaoOn, setModoMultidaoOn })
   const { modoMultidaoAtivo, estadoMultidao, multidaoDisponivel, alternarMultidao, multidaoBlinkVisto, poderesMultidao, itensMultidao, cicloPoderMultidao, toggleItemMultidao, avancarRodada, revelandoRodada } = multidao

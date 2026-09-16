@@ -9,6 +9,8 @@ import { sfx } from '../../../../lib/sfx'
 import logoPt from '../assets/logos/logo-pt.png'
 import logoEn from '../assets/logos/logo-en.png'
 import logoEs from '../assets/logos/logo-es.png'
+import somImpacto from '../assets/sons/saves-impact.mp3'
+import somTijolo from '../assets/sons/saves-tijolo.mp3'
 import './GanguesStory.css' // .gang-lobby-quit (botão de sair) mora lá
 import './GanguesSaveSelect.css'
 
@@ -99,7 +101,7 @@ export default function GanguesSaveSelect({ onNavigate }) {
   useEffect(() => {
     if (!sfx.enabled) return
     const timer = setTimeout(() => {
-      const audio = new Audio('/sounds/gangues-saves-impact.mp3')
+      const audio = new Audio(somImpacto)
       audio.volume = 0.55
       audio.play().catch(() => {})
     }, IMPACT_MS)
@@ -112,7 +114,7 @@ export default function GanguesSaveSelect({ onNavigate }) {
   useEffect(() => {
     if (!sfx.enabled) return
     const timers = TIJOLO_KNOCK_MS.map((ms, i) => setTimeout(() => {
-      const audio = new Audio('/sounds/gangues-saves-tijolo.mp3')
+      const audio = new Audio(somTijolo)
       audio.volume = 0.32
       audio.playbackRate = 0.92 + (i % 3) * 0.09
       audio.play().catch(() => {})

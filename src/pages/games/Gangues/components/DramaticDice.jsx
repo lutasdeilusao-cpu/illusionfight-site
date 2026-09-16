@@ -2,47 +2,19 @@ import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useLanguage } from '../../../../context/LanguageContext'
 import { sfx } from '../../../../lib/sfx'
-import trincaSoco from '../assets/personagens/trinca/soco-sprite.webp'
+import { getGanguesAtaqueNormalAnimacao, tocarSomCombate } from '../data/ganguesCombatAnimations.js'
+import GanguesCombatSpriteAnim from './GanguesCombatSpriteAnim.jsx'
 import './DramaticDice.css'
 
-// TESTE ÚNICO de sprite animado de ataque (pedido do Isaias, 15/09/2026: fez
-// uma folha de sprite do Trinca socando num gerador externo, testado 1x na
-// lista de log antes — "colocou a animação ali no momento que ninguém vai
-// ver nada... tem que estar em destaque na hora que tá sendo dado o dado").
-// Pertence AQUI, na tela cheia do dado dramático (o momento de destaque de
-// verdade do combate), não no log — hardcoded pro Trinca (catálogo id 1) e
-// só em ataque NORMAL (`!powerName`, que já vem null quando não tem poder
-// ativo). Se aprovado, generalizar pra outros personagens é decisão futura.
-const GANGUES_TRINCA_SPRITE_TESTE_ID = 1
-// 16 quadros a 80ms cada = 1,28s (ver DramaticDice.css `@keyframes dramatic-
-// dice-trinca-soco`, mesma folha nova de 16 frames — 100ms/quadro testado
-// ao vivo e achado "meio lento", ajustado pra 80ms). A ROLAGEM do dado
-// (`totalDuration` abaixo) é travada nesse mesmo valor quando é o soco do
-// Trinca — não mais aleatória — pra a revelação do número SEMPRE cair
-// exatamente quando o quadro 16 termina (pedido do Isaias, 16/09/2026: "a
-// jogada do dado tem que finalizar no frame 16, aí apresenta o resultado").
-// Isso também garante de graça que a tela nunca fecha no meio do soco (a
-// revelação só começa depois da animação inteira já ter rodado).
-const GANGUES_TRINCA_SOCO_DURACAO_MS = 1280
-// Som: corrente balançando + o grito "Ahh" do Trinca (os dois juntos, desde
-// o quadro 1) → no quadro 9 (índice 8, exatamente onde a folha de sprite
-// mostra o impacto com a fagulha — ver @keyframes, 50% de 1280ms) entra o
-// som de porrada por cima. Pedido do Isaias, 16/09/2026: "o som da
-// corrente... quando chegar no frame9 tem que dar um som de soco de
-// porrada" — versão inicial também voltava pra corrente depois da porrada,
-// mas o Isaias achou os 2 primeiros sons já bons e pediu pra tirar esse 3º
-// disparo. Sons baixados de bancos gratuitos pra uso comercial (ver
-// SITE_MAP.md pra a nota de licença): `gangues-trinca-corrente.mp3`
-// (trecho de "Metal chain" da SoundDino, royalty-free/sem atribuição),
-// `gangues-trinca-soco.mp3` ("Body punch quick hit" da Mixkit, licença
-// Mixkit) e `gangues-trinca-ahh.mp3` (grito do próprio Trinca, arquivo do
-// Isaias — mais comprido que a animação inteira, 2s, deixado tocar até o
-// fim naturalmente mesmo depois do dado fechar). Testado ao vivo e achado
-// atrasado (sobretudo a porrada) — adiantado em 2 rodadas de ajuste fino
-// (1 quadro, depois mais 1 quadro em cima) — total 2 quadros (160ms) de
-// antecipação no gatilho da porrada (o quadro visual da fagulha continua
-// no quadro 9 de verdade, só o som antecipa).
-const GANGUES_TRINCA_SOCO_FRAME9_MS = 640 - 160
+// Máquina de animação de combate (16/09/2026) — generalizada a partir do
+// teste único do Trinca (soco de 8, depois 16 quadros) depois de aprovado:
+// "a partir de agora a gente vai implementar uma máquina de animação...
+// vai ser oficial os 30 personagens recrutáveis". Os dados de CADA
+// personagem (folha, grade, timing, sons) moram em
+// `data/ganguesCombatAnimations.js` — este arquivo só resolve
+// `attackerTemplateId` -> config (ou null, se o personagem ainda não tem
+// arte própria) e orquestra o timing genérico a partir dela. Nada
+// hardcoded pra um personagem específico aqui.
 
 /**
  * DramaticDice — Tela cheia que pausa o jogo e mostra um dado rodando
@@ -54,8 +26,12 @@ const GANGUES_TRINCA_SOCO_FRAME9_MS = 640 - 160
  * @param {{ finalValue: number, sides?: number, side: 'player'|'enemy', onComplete: () => void, powerName?: string, attackerName?: string, attackerRetrato?: string|null, targetName?: string, theme?: { rgb: string, glyphs: string[], particleCount: number } | null, attackerTemplateId?: number|null }} props
  */
 export default function DramaticDice({ finalValue, sides = 6, side, onComplete, powerName, attackerName, attackerRetrato, targetName, theme, attackerTemplateId }) {
-  const ehSocoTrinca = attackerTemplateId === GANGUES_TRINCA_SPRITE_TESTE_ID && !powerName
   const { t } = useLanguage()
+  // Animação de ataque normal do personagem (null se ele ainda não tem
+  // arte própria, ou se foi um PODER — os poderes ainda não têm animação
+  // registrada, ver ganguesCombatAnimations.js). `side==='player'` já vem
+  // garantido por quem chama (attackerTemplateId só existe pro jogador).
+  const anim = !powerName ? getGanguesAtaqueNormalAnimacao(attackerTemplateId) : null
   const [display, setDisplay] = useState(null)       // null = fase de "aquecimento"
   const [phase, setPhase] = useState('intro')        // intro → rolling → reveal → done
   const displayRef = useRef(null)                    // ref para usar dentro do timer sem causar re-render
@@ -65,53 +41,36 @@ export default function DramaticDice({ finalValue, sides = 6, side, onComplete, 
   // aparece fora do crítico, senão os dois efeitos brigam pela mesma cor.
   const fx = !isCritical && theme ? theme : null
 
-  // Duração: normal 1.5s~2s, crítico 2s fixo para mais drama — MAS quando é
-  // o soco do Trinca, a rolagem trava num valor fixo (1280ms - os 400ms da
-  // intro) pra terminar exatamente junto com o quadro 16 da animação, não
-  // um tempo aleatório desencontrado do soco.
+  // Duração da tela: normal 1.5s~2s, crítico 2s fixo — MAS quando tem
+  // animação de personagem, a rolagem trava num valor fixo (duração da
+  // animação inteira menos os 400ms da intro) pra a revelação do número
+  // SEMPRE cair exatamente quando o último quadro termina (pedido do
+  // Isaias: "a jogada do dado tem que finalizar no [último] frame, aí
+  // apresenta o resultado"). Isso também garante de graça que a tela
+  // nunca fecha no meio da animação (a revelação só começa depois dela
+  // já ter rodado inteira).
+  const animDuracaoMs = anim ? anim.frames * anim.frameMs : 0
   const totalDuration = useRef(
-    ehSocoTrinca ? (GANGUES_TRINCA_SOCO_DURACAO_MS - 400) : isCritical ? 2000 : (1500 + Math.random() * 500)
+    anim ? (animDuracaoMs - 400) : isCritical ? 2000 : (1500 + Math.random() * 500)
   )
 
-  // Sons do soco (arquivo de verdade, não os bips sintetizados de sfx.js —
-  // mesmo padrão de GanguesSaveSelect.jsx): corrente + grito juntos desde o
-  // início, porrada por cima no quadro 9 (fagulha do impacto). PRÉ-
-  // CARREGADOS — jogado ao vivo e achado atrasado, sobretudo a porrada;
-  // criar o `Audio` na hora do gatilho tem o atraso de baixar+decodificar o
-  // mp3 antes do som sair de verdade. Pré-carregando (na montagem, antes da
-  // intro de 400ms) e só chamando `.play()` no gatilho, o navegador já tem o
-  // arquivo pronto — some o atraso de decodificação, sobra só o adiantamento
-  // de quadro (pedido explícito) por cima.
-  const correnteRef = useRef(null)
-  const socoRef = useRef(null)
-  const ahhRef = useRef(null)
+  // Sons da animação (arquivo de verdade, não os bips sintetizados de
+  // sfx.js — mesmo padrão de GanguesSaveSelect.jsx): `voz`/`ambiente`
+  // tocam juntos desde o quadro 1; cada entrada de `golpes` toca no seu
+  // quadro de impacto (1-indexado). Os arquivos já foram PRÉ-CARREGADOS
+  // no início da batalha (GanguesCombat.jsx chama
+  // `precarregarAnimacaoCombate` pra cada personagem do time assim que a
+  // luta começa) — aqui só dispara `.play()` no `<audio>` que já existe,
+  // sem esperar download/decodificação na hora do golpe.
   useEffect(() => {
-    if (!ehSocoTrinca) return
-    correnteRef.current = new Audio('/sounds/gangues-trinca-corrente.mp3')
-    socoRef.current = new Audio('/sounds/gangues-trinca-soco.mp3')
-    ahhRef.current = new Audio('/sounds/gangues-trinca-ahh.mp3')
-    correnteRef.current.preload = 'auto'
-    socoRef.current.preload = 'auto'
-    ahhRef.current.preload = 'auto'
-    correnteRef.current.load()
-    socoRef.current.load()
-    ahhRef.current.load()
-  }, [ehSocoTrinca])
-
-  useEffect(() => {
-    if (!ehSocoTrinca || !sfx.enabled) return
-    const tocar = (ref, volume) => {
-      const audio = ref.current
-      if (!audio) return
-      audio.currentTime = 0
-      audio.volume = volume
-      audio.play().catch(() => {})
-    }
-    tocar(correnteRef, 0.6)
-    tocar(ahhRef, 0.8)
-    const t1 = setTimeout(() => tocar(socoRef, 0.85), GANGUES_TRINCA_SOCO_FRAME9_MS)
-    return () => { clearTimeout(t1) }
-  }, [ehSocoTrinca])
+    if (!anim || !sfx.enabled) return
+    if (anim.sons.ambiente) tocarSomCombate(anim.sons.ambiente, 0.6)
+    if (anim.sons.voz) tocarSomCombate(anim.sons.voz, 0.8)
+    const timers = (anim.sons.golpes || []).map(({ frame, arquivo }) =>
+      setTimeout(() => tocarSomCombate(arquivo, 0.85), (frame - 1) * anim.frameMs)
+    )
+    return () => timers.forEach(clearTimeout)
+  }, [anim])
 
   useEffect(() => {
     // Fase 1: intro — show the "?" for a moment
@@ -212,7 +171,7 @@ export default function DramaticDice({ finalValue, sides = 6, side, onComplete, 
         {/* Background blur */}
         <div className="dramatic-dice-bg" />
 
-        <div className={`dramatic-dice-container${ehSocoTrinca ? ' dramatic-dice-container--compacto' : ''}`} style={fx ? { '--fx-rgb': fx.rgb } : undefined}>
+        <div className={`dramatic-dice-container${anim ? ' dramatic-dice-container--compacto' : ''}`} style={fx ? { '--fx-rgb': fx.rgb } : undefined}>
           {/* Nome do poder (se houver) — aparece antes da label */}
           {powerName && (
             <motion.div
@@ -329,17 +288,23 @@ export default function DramaticDice({ finalValue, sides = 6, side, onComplete, 
             )}
           </div>
 
-          {/* Soco do Trinca, teste único — fica ENTRE o dado (agora pequeno,
-              lá em cima) e o texto final (crítico/etc, embaixo), como pedido:
-              "em destaque na hora que tá sendo dado o dado". Roda durante o
-              giro e a revelação (a instância inteira remonta a cada ataque,
-              via `key` no ponto de uso em GanguesCombatOverlays.jsx — a
-              animação CSS reinicia sozinha). */}
-          {ehSocoTrinca && (
-            <span
-              className="dramatic-dice-trinca-soco"
-              style={{ backgroundImage: `url(${trincaSoco})` }}
-              aria-hidden="true"
+          {/* Animação de ataque do personagem (Trinca, Muro, ...) — fica
+              ENTRE o dado (agora pequeno, lá em cima) e o texto final
+              (crítico/etc, embaixo), como pedido: "em destaque na hora que
+              tá sendo dado o dado". Roda durante o giro e a revelação (a
+              instância inteira remonta a cada ataque, via `key` no ponto de
+              uso em GanguesCombatOverlays.jsx). Componente/dados genéricos —
+              ver GanguesCombatSpriteAnim.jsx e ganguesCombatAnimations.js. */}
+          {anim && (
+            <GanguesCombatSpriteAnim
+              sheet={anim.sheet}
+              cols={anim.cols}
+              rows={anim.rows}
+              frames={anim.frames}
+              frameMs={anim.frameMs}
+              frameW={anim.frameW}
+              frameH={anim.frameH}
+              className="dramatic-dice-sprite-animado"
             />
           )}
 
