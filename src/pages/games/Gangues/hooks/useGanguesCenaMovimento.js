@@ -4,7 +4,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { STEP_MS, stepPlayer } from '../engine/ganguesCenaMotor.js'
 
-export default function useGanguesCenaMovimento({ intro, encontro, fade, gateRef, collidersRef, worldRef, initialPlayer, initialFacing = 'up' }) {
+export default function useGanguesCenaMovimento({ intro, encontro, fade, gateRef, collidersRef, worldRef, colisorImagemRef, initialPlayer, initialFacing = 'up' }) {
   const [player, setPlayer] = useState(initialPlayer)
   const [facing, setFacing] = useState(initialFacing)
   const [andou, setAndou] = useState(false)
@@ -32,7 +32,7 @@ export default function useGanguesCenaMovimento({ intro, encontro, fade, gateRef
         const dy = dx === 0 ? (iy > 0 ? 1 : -1) : 0
         setFacing(dx > 0 ? 'right' : dx < 0 ? 'left' : dy > 0 ? 'down' : 'up')
         setAndou(true)
-        setPlayer(p => { const np = stepPlayer(p, dx, dy, gateRef.current, collidersRef.current, worldRef.current); if (np !== p) passosRef.current++; return np })
+        setPlayer(p => { const np = stepPlayer(p, dx, dy, gateRef.current, collidersRef.current, worldRef.current, colisorImagemRef?.current); if (np !== p) passosRef.current++; return np })
       }
       timer = setTimeout(passo, STEP_MS)
     }

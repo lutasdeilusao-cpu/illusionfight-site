@@ -36,11 +36,25 @@
 // um pouco MENOR que o arquivo único de antes.
 import mapaExteriorBaixo from '../../../assets/cenas/pista/mapa-exterior-baixo.webp'
 import mapaExteriorCima from '../../../assets/cenas/pista/mapa-exterior-cima.webp'
+import colisorMask from '../../../assets/cenas/pista/colisor-mask.png'
 
 // Y onde a imagem foi cortada em dois arquivos — MESMO espaço de coordenada
 // de mundo que tudo mais aqui (`hitsSolid` usa a faixa y900-940 pro muro).
 export const FUNDO_PISTA_CORTE_Y = 920
 export const FUNDO_PISTA = { baixo: mapaExteriorBaixo, cima: mapaExteriorCima, corteY: FUNDO_PISTA_CORTE_Y }
+
+// TESTE: colisão por imagem (16/09/2026, ver engine/ganguesColisorImagem.js)
+// — o Isaias recortou à mão um "molde" da Pista no Photoshop, apagando tudo
+// que devia ser caminho andável (virou branco puro) e deixando o resto
+// (prédio/obstáculo) como estava. `colisor-mask.png` é esse recorte
+// convertido pra preto&branco puro (branco=andável, preto=sólido) — mesmo
+// tamanho/coordenada da ilustração de fundo, então não precisa de nenhum
+// ajuste de escala/offset. Só cobre da entrada até um pouco depois do muro
+// (o resto do mapa ainda não foi recortado) — `PISTA_COLISOR_IMAGEM_Y1`
+// marca onde a máscara passa a valer; acima disso `QUARTEIROES_PISTA`
+// continua sendo a única fonte de colisão, sem mudança nenhuma.
+export const PISTA_COLISOR_IMAGEM_Y1 = 970
+export const PISTA_COLISOR_IMAGEM = colisorMask
 
 // Curva do "radar"/minimapa — hoje não é lida por nenhum componente (campo
 // vestigial, ver comentário antigo em index.js); mantida só por não quebrar

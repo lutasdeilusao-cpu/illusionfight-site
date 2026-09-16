@@ -26,6 +26,7 @@ import { getGanguesPortraitByTemplateId } from '../data/ganguesPortraits.js'
 import { getGanguesNpcPortrait } from '../data/ganguesNpcPortraits.js'
 import { GANGUES_STORY_BATTLE_PARTY_MAX, getGanguesRosterLimitComHistoria, GANGUES_REP_GATE_EVENTO, GANGUES_REP_GATE_GALPAO, GANGUES_REP_GATE_CLUBE } from '../data/ganguesLoadout.js'
 import { WORLD, SPAWN, montarAmbiente, insideZone, validPosition, validPos } from '../engine/ganguesCenaMotor.js'
+import { useGanguesColisorImagem } from '../engine/ganguesColisorImagem.js'
 import useGanguesCenaMovimento from '../hooks/useGanguesCenaMovimento.js'
 import useGanguesCenaEventoAleatorio from '../hooks/useGanguesCenaEventoAleatorio.js'
 import './GanguesCena.css'
@@ -133,8 +134,17 @@ export default function GanguesCena({ onNavigate }) {
   const worldRef = useRef(null); worldRef.current = amb?.world || WORLD
   const gateRef = useRef(null); gateRef.current = amb?.gateAtivo || null
 
+  // TESTE: colisão por imagem (ver ganguesColisorImagem.js) — só existe pra
+  // Pista até agora (`cena.colisorImagem`), e só entra em cena quando não é
+  // interior (`!local`, mesmo espaço de coordenadas do mundo exterior).
+  const { pronto: colisorImagemPronto, solidoEm: colisorImagemSolidoEm } = useGanguesColisorImagem(!local ? cena?.colisorImagem : null)
+  const colisorImagemRef = useRef(null)
+  colisorImagemRef.current = (cena?.colisorImagem && colisorImagemPronto && !local)
+    ? { solidoEm: colisorImagemSolidoEm, y1: cena.colisorImagemY1 ?? 0 }
+    : null
+
   const { player, setPlayer, facing, andou, inputRef, passosRef } = useGanguesCenaMovimento({
-    intro, encontro, fade, gateRef, collidersRef, worldRef, initialPlayer: posInicial,
+    intro, encontro, fade, gateRef, collidersRef, worldRef, colisorImagemRef, initialPlayer: posInicial,
   })
 
   // Encontro aleatório de rua ("selvagem"): conta passos e, com cooldown +

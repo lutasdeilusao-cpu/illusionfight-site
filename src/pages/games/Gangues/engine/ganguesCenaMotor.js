@@ -158,16 +158,20 @@ export function insideZone(p, z) { return Boolean(z && p.x + PLAYER_RADIUS > z.x
 // também aplica.
 export const MURO_GATE_Y1 = 900
 export const MURO_GATE_Y2 = 940
-export function hitsSolid(x, y, gate, colliders = []) {
+export function hitsSolid(x, y, gate, colliders = [], colisorImagem = null) {
   const hit = colliders.some(r => x + PLAYER_RADIUS > r.x && x - PLAYER_RADIUS < r.x + r.w && y + PLAYER_RADIUS > r.y && y - PLAYER_RADIUS < r.y + r.h)
   if (hit) return true
   // portão da gangue rival — enquanto FECHADO barra a faixa do muro; depois
   // de aberto (chefe/galpão liberados) a faixa fica livre.
   if (gate === 'fechado' && y - PLAYER_RADIUS < MURO_GATE_Y2 && y + PLAYER_RADIUS > MURO_GATE_Y1) return true
+  // TESTE: colisão por imagem (ganguesColisorImagem.js) — só vale abaixo de
+  // `y1` (a faixa que o Isaias já recortou à mão); acima disso `colisorImagem`
+  // nem é consultado, o sistema de retângulos continua sozinho como sempre.
+  if (colisorImagem?.solidoEm && y >= colisorImagem.y1 && colisorImagem.solidoEm(x, y)) return true
   return false
 }
-export function stepPlayer(p, dx, dy, gate, colliders, world) {
+export function stepPlayer(p, dx, dy, gate, colliders, world, colisorImagem) {
   const W = world || WORLD
   const x = Math.max(20, Math.min(W.w - 20, p.x + dx * TILE)), y = Math.max(20, Math.min(W.h - 24, p.y + dy * TILE))
-  return hitsSolid(x, y, gate, colliders) ? p : { x, y }
+  return hitsSolid(x, y, gate, colliders, colisorImagem) ? p : { x, y }
 }

@@ -33,7 +33,7 @@
    pra ../../engine/ganguesCenaMotor.js — nenhum dos dois é específico
    da Pista.
    ══════════════════════════════════════════════════════════════ */
-import { RUA_PISTA, MUNDO_PISTA, QUARTEIROES_PISTA, PREDIOS_PISTA, OBSTACULOS_PISTA, CENARIO_PISTA, FIACAO_PISTA, FUNDO_PISTA } from './mundo.js'
+import { RUA_PISTA, MUNDO_PISTA, QUARTEIROES_PISTA, PREDIOS_PISTA, OBSTACULOS_PISTA, CENARIO_PISTA, FIACAO_PISTA, FUNDO_PISTA, PISTA_COLISOR_IMAGEM, PISTA_COLISOR_IMAGEM_Y1 } from './mundo.js'
 import { POIS_PISTA } from './pois.js'
 import { INTERIORES_PISTA } from './interiores.js'
 import { POS_PISTA, ENTRY_ZONES_PISTA } from './posicoes.js'
@@ -53,6 +53,11 @@ export const CENA_PISTA = {
   // (ver CenaCenario.jsx). Só a Pista tem isso até agora; os outros 6
   // territórios (trilha antiga) continuam sem cena navegável.
   fundoImagem: FUNDO_PISTA,
+  // TESTE: colisão por imagem (ver engine/ganguesColisorImagem.js) — só
+  // vale a partir de `colisorImagemY1` (a faixa que o Isaias já recortou à
+  // mão); acima disso a colisão continua 100% pelos retângulos de sempre.
+  colisorImagem: PISTA_COLISOR_IMAGEM,
+  colisorImagemY1: PISTA_COLISOR_IMAGEM_Y1,
   // Fala de chegada (voz da quebrada — uma ou duas linhas no GangDialog).
   chegada: 'games.gangues.cena.pista.chegada',
   falante: 'games.gangues.dialogo.veio_nome',

@@ -683,6 +683,9 @@
 .gang-debug-box--predio-livre b{color:#7be8ff;opacity:.7;}
 .gang-debug-box--zona{border:1px solid rgba(90,255,120,.9);background:rgba(90,255,120,.08);}
 /* faixa do muro/portão — bloqueio de rua inteira, não é um colisor comum */
+.gang-debug-mask{position:absolute;z-index:49;pointer-events:none;opacity:.55;mix-blend-mode:multiply;image-rendering:pixelated;}
+.gang-debug-mask-linha{position:absolute;z-index:52;height:2px;border-top:2px dashed #ff2ec4;pointer-events:none;}
+.gang-debug-mask-linha b{position:absolute;left:4px;top:4px;font:700 10px/1 monospace;color:#ff2ec4;text-shadow:0 0 3px #000,0 0 3px #000;white-space:nowrap;}
 .gang-debug-box--muro{border:3px solid rgba(255,180,0,.95);background:repeating-linear-gradient(45deg,rgba(255,180,0,.25) 0 10px,rgba(255,180,0,.1) 10px 20px);}
 .gang-debug-box--muro b{color:#ffd54a;left:8px;top:4px;font-size:11px;}
 .gang-debug-dot{position:absolute;z-index:51;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;background:#ffd93d;border:1px solid #7a5a00;box-shadow:0 0 6px #000;pointer-events:none;}

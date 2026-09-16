@@ -108,6 +108,18 @@ function DebugColisores({ cena, bossAberto, muroAberto, larguraMundo }) {
   const prediosNaoSolidos = (cena.predios || []).filter(p => !predioEhSolido(p, bossAberto))
   return (
     <>
+      {/* TESTE: colisão por imagem (16/09/2026) — a própria máscara (branco=
+          andável, preto=sólido) desenhada por cima em transparência, mais
+          uma linha marcando onde ela passa a valer (`colisorImagemY1`; acima
+          da linha ela nem é consultada, só os retângulos de sempre). */}
+      {cena.colisorImagem && (
+        <>
+          <img className="gang-debug-mask" src={cena.colisorImagem} alt="" style={{ left: 0, top: 0, width: larguraMundo }} aria-hidden="true" />
+          <div className="gang-debug-mask-linha" style={{ left: 0, top: cena.colisorImagemY1 || 0, width: larguraMundo }}>
+            <b>colisorImagem vale daqui pra baixo (y≥{cena.colisorImagemY1 || 0})</b>
+          </div>
+        </>
+      )}
       {/* Faixa do muro/portão — bloqueio de rua INTEIRA (não é um retângulo
           comum de `colliders`), só existe enquanto `!muroAberto`. Achado
           real: faltava por completo no overlay antigo (Isaias: "esse
