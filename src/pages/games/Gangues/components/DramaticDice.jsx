@@ -24,23 +24,25 @@ const GANGUES_TRINCA_SPRITE_TESTE_ID = 1
 // Isso também garante de graça que a tela nunca fecha no meio do soco (a
 // revelação só começa depois da animação inteira já ter rodado).
 const GANGUES_TRINCA_SOCO_DURACAO_MS = 1280
-// Som: corrente balançando (começa junto com o soco) → no quadro 9 (índice
-// 8, exatamente onde a folha de sprite mostra o impacto com a fagulha —
-// ver @keyframes, 50% de 1280ms) troca pro som de porrada → quando a
-// porrada termina, volta pro som de corrente até fechar no quadro 16.
-// Pedido do Isaias, 16/09/2026: "o som da corrente... quando chegar no
-// frame9 tem que dar um som de soco de porrada... terminou o som de
-// porrada volta pro som de corrente e finaliza". Sons baixados de bancos
-// gratuitos pra uso comercial (ver SITE_MAP.md pra a nota de licença):
-// `gangues-trinca-corrente.mp3` (trecho de "Metal chain" da SoundDino,
-// royalty-free/sem atribuição) e `gangues-trinca-soco.mp3` ("Body punch
-// quick hit" da Mixkit, licença Mixkit). Testado ao vivo e achado um
-// pouco atrasado (sobretudo o soco) — adiantado 1 quadro inteiro (80ms)
-// pra compensar o delay de agendamento/decodificação do áudio real (o
-// quadro visual da fagulha continua no quadro 9 de verdade, só o GATILHO
-// do som antecipa 1 quadro).
-const GANGUES_TRINCA_SOCO_FRAME9_MS = 640 - 80
-const GANGUES_TRINCA_SOCO_PORRADA_DURACAO_MS = 460
+// Som: corrente balançando + o grito "Ahh" do Trinca (os dois juntos, desde
+// o quadro 1) → no quadro 9 (índice 8, exatamente onde a folha de sprite
+// mostra o impacto com a fagulha — ver @keyframes, 50% de 1280ms) entra o
+// som de porrada por cima. Pedido do Isaias, 16/09/2026: "o som da
+// corrente... quando chegar no frame9 tem que dar um som de soco de
+// porrada" — versão inicial também voltava pra corrente depois da porrada,
+// mas o Isaias achou os 2 primeiros sons já bons e pediu pra tirar esse 3º
+// disparo. Sons baixados de bancos gratuitos pra uso comercial (ver
+// SITE_MAP.md pra a nota de licença): `gangues-trinca-corrente.mp3`
+// (trecho de "Metal chain" da SoundDino, royalty-free/sem atribuição),
+// `gangues-trinca-soco.mp3` ("Body punch quick hit" da Mixkit, licença
+// Mixkit) e `gangues-trinca-ahh.mp3` (grito do próprio Trinca, arquivo do
+// Isaias — mais comprido que a animação inteira, 2s, deixado tocar até o
+// fim naturalmente mesmo depois do dado fechar). Testado ao vivo e achado
+// atrasado (sobretudo a porrada) — adiantado em 2 rodadas de ajuste fino
+// (1 quadro, depois mais 1 quadro em cima) — total 2 quadros (160ms) de
+// antecipação no gatilho da porrada (o quadro visual da fagulha continua
+// no quadro 9 de verdade, só o som antecipa).
+const GANGUES_TRINCA_SOCO_FRAME9_MS = 640 - 160
 
 /**
  * DramaticDice — Tela cheia que pausa o jogo e mostra um dado rodando
@@ -72,25 +74,28 @@ export default function DramaticDice({ finalValue, sides = 6, side, onComplete, 
   )
 
   // Sons do soco (arquivo de verdade, não os bips sintetizados de sfx.js —
-  // mesmo padrão de GanguesSaveSelect.jsx): corrente no início, porrada no
-  // quadro 9 (fagulha do impacto), corrente de novo até fechar no quadro 16.
-  // PRÉ-CARREGADOS (um `Audio` só por arquivo, reaproveitado nas 2 vezes que
-  // a corrente toca) — jogado ao vivo e achado atrasado, sobretudo o soco;
+  // mesmo padrão de GanguesSaveSelect.jsx): corrente + grito juntos desde o
+  // início, porrada por cima no quadro 9 (fagulha do impacto). PRÉ-
+  // CARREGADOS — jogado ao vivo e achado atrasado, sobretudo a porrada;
   // criar o `Audio` na hora do gatilho tem o atraso de baixar+decodificar o
   // mp3 antes do som sair de verdade. Pré-carregando (na montagem, antes da
   // intro de 400ms) e só chamando `.play()` no gatilho, o navegador já tem o
   // arquivo pronto — some o atraso de decodificação, sobra só o adiantamento
-  // de 1 quadro (pedido explícito) por cima.
+  // de quadro (pedido explícito) por cima.
   const correnteRef = useRef(null)
   const socoRef = useRef(null)
+  const ahhRef = useRef(null)
   useEffect(() => {
     if (!ehSocoTrinca) return
     correnteRef.current = new Audio('/sounds/gangues-trinca-corrente.mp3')
     socoRef.current = new Audio('/sounds/gangues-trinca-soco.mp3')
+    ahhRef.current = new Audio('/sounds/gangues-trinca-ahh.mp3')
     correnteRef.current.preload = 'auto'
     socoRef.current.preload = 'auto'
+    ahhRef.current.preload = 'auto'
     correnteRef.current.load()
     socoRef.current.load()
+    ahhRef.current.load()
   }, [ehSocoTrinca])
 
   useEffect(() => {
@@ -103,9 +108,9 @@ export default function DramaticDice({ finalValue, sides = 6, side, onComplete, 
       audio.play().catch(() => {})
     }
     tocar(correnteRef, 0.6)
+    tocar(ahhRef, 0.8)
     const t1 = setTimeout(() => tocar(socoRef, 0.85), GANGUES_TRINCA_SOCO_FRAME9_MS)
-    const t2 = setTimeout(() => tocar(correnteRef, 0.5), GANGUES_TRINCA_SOCO_FRAME9_MS + GANGUES_TRINCA_SOCO_PORRADA_DURACAO_MS)
-    return () => { clearTimeout(t1); clearTimeout(t2) }
+    return () => { clearTimeout(t1) }
   }, [ehSocoTrinca])
 
   useEffect(() => {
