@@ -619,51 +619,65 @@ marra."* O único que já segurou seis bairros de uma vez. Generais: **Tesoura**
 Catálogo `ldi_gangues_30_personagens_v1.json` (fonte única — esta tabela é gerada
 a partir de `unlock_plan`/`id`/`combat_path`/`special_path`/`max_evolution` do
 catálogo, nunca autorada à mão). Nome curto de rua + subcaminho + título de
-evolução máxima (nível 99, teto de personagem jogável). Liberação: `w1` = os
-**5 iniciais**, disponíveis desde o começo, antes de zerar a campanha pela
-primeira vez · `w2` = liberado progressivamente durante a 1ª campanha · `w3` =
-liberado ao zerar a campanha uma 2ª vez · `w4` = reservado só para evento.
+evolução máxima (nível 99, teto de personagem jogável).
 
-> **Correção 2026-09-17:** a tabela anterior tinha ids trocados (Muro/Navalha
-> disputando o id 4, Faísca no id 5, Touro/Concreto/Guarda/Ombro/Boca/Isca/
-> Raiz/Racha/Chuva/Trovão em waves erradas). Os **5 primeiros ids do jogo**
-> (`wave_1_initial`) são **1 Trinca, 3 Fenda, 11 Muro, 17 Catraca, 27 Faísca**
-> — ids reais do catálogo, não sequenciais 1-5.
+**Ids 1-12 = os 12 personagens oficiais** (os únicos com arte pronta —
+`RECRUTAVEIS/`: Trinca, Fenda, Muro, Catraca, Faísca, Cicatriz, Marreta, Mira,
+Navalha, Ponto, Sangue, Troco), liberados durante o gameplay **principal**:
+**`w1` = ids 1-5**, os 5 iniciais, disponíveis desde o começo · **`w2` = ids
+6-12**, 1 por território derrotado (7 territórios ao todo — a Pista + os 6
+bairros), na ordem: 6 Cicatriz, 7 Marreta, 8 Mira, 9 Navalha, 10 Ponto, 11
+Sangue, 12 Troco. **Ids 13-30** (sem arte ainda) ficam fora do gameplay
+principal por ora: `w3` = liberado ao zerar a campanha uma 2ª vez (New Game+),
+`w4` = reservado só para evento/admin.
+
+> **Renumeração 2026-09-17:** os ids do catálogo foram renumerados pra que os
+> 12 oficiais ocupem 1-12 (antes espalhados: wave 1 era 1/3/11/17/27, e a
+> arte pronta dos outros 7 estava em 2/4/6/7/8/9/10). **Os 5 iniciais não
+> mudaram de personagem nem de stats/balanceamento** — só o número do id:
+> Trinca continua id 1, Fenda vai de 3→2, Muro de 11→3, Catraca de 17→4,
+> Faísca de 27→5. Os outros 25 ids também foram reajustados pra abrir espaço
+> (ver `unlock_plan` no catálogo — fonte única). Atualizado junto:
+> `ganguesBiografias.js` (bios remapeadas pro id novo de cada personagem) e
+> `ganguesCombatAnimations.js` (`TEMPLATE_SLUG`, o mapa id→slug usado pela
+> máquina de animação de combate: `11: 'muro'` virou `3: 'muro'`). Nenhum
+> save de jogador existia em produção até esta data, então não houve
+> migração de dado a fazer.
 
 | id | Nome | Caminho | Subcaminho | Título nv.99 | Libera | Genero
 |---|---|---|---|---|---|---|
 | 1 | Trinca | Atacante | Bruto | O Quebra-Linha | w1 | M
-| 2 | Marreta | Atacante | Bruto | Demolidor | w2 | M
-| 3 | Fenda | Atacante | Duelista | Primeiro Corte | w1 | F
-| 4 | Navalha | Atacante | Duelista | Sem Aviso | w2 | F
-| 5 | Touro | Atacante | Fúria | Último de Pé | w2 |
-| 6 | Sangue | Atacante | Fúria | Tudo ou Nada | w3 | F
-| 7 | Mira | Atacante | Especialista | Cirúrgica | w3 | F
-| 8 | Ponto | Atacante | Especialista | Ponto Cego | w4 | F
-| 9 | Cicatriz | Atacante | Vingador | Dívida Antiga | w4 | M
-| 10 | Troco | Atacante | Vingador | Cobrança | w4 | M
-| 11 | Muro | Defensor | Muralha | Fortaleza | w1 | M
-| 12 | Concreto | Defensor | Muralha | Bloco Vivo | w2 |
-| 13 | Guarda | Defensor | Guardião | Linha de Frente | w2 |
-| 14 | Ombro | Defensor | Guardião | Ninguém Passa | w2 |
-| 15 | Boca | Defensor | Provocador | Olha Pra Mim | w3 |
-| 16 | Isca | Defensor | Provocador | Alvo Perfeito | w3 |
-| 17 | Catraca | Defensor | Reativo | Bateu, Voltou | w1 |
-| 18 | Rebote | Defensor | Reativo | Volta em Dobro | w4 |
-| 19 | Ferro | Defensor | Resiliente | Não Cai | w4 |
-| 20 | Osso | Defensor | Resiliente | Ainda de Pé | w4 |
-| 21 | Brasa | Místico | Ígneo | Incêndio | w2 |
-| 22 | Cinza | Místico | Ígneo | Depois do Fogo | w2 |
-| 23 | Maré | Místico | Aquático | Maré Cheia | w2 |
-| 24 | Chuva | Místico | Aquático | Temporal | w3 |
-| 25 | Raiz | Místico | Terreno | Chão Fechado | w2 |
-| 26 | Racha | Místico | Terreno | Falha Sísmica | w4 |
-| 27 | Faísca | Místico | Tempestade | Antes do Trovão | w1 | M
+| 2 | Fenda | Atacante | Duelista | Primeiro Corte | w1 | F
+| 3 | Muro | Defensor | Muralha | Fortaleza | w1 | M
+| 4 | Catraca | Defensor | Reativo | Bateu, Voltou | w1 |
+| 5 | Faísca | Místico | Tempestade | Antes do Trovão | w1 | M
+| 6 | Cicatriz | Atacante | Vingador | Dívida Antiga | w2 | M
+| 7 | Marreta | Atacante | Bruto | Demolidor | w2 | M
+| 8 | Mira | Atacante | Especialista | Cirúrgica | w2 | F
+| 9 | Navalha | Atacante | Duelista | Sem Aviso | w2 | F
+| 10 | Ponto | Atacante | Especialista | Ponto Cego | w2 | F
+| 11 | Sangue | Atacante | Fúria | Tudo ou Nada | w2 | F
+| 12 | Troco | Atacante | Vingador | Cobrança | w2 | M
+| 13 | Touro | Atacante | Fúria | Último de Pé | w3 |
+| 14 | Concreto | Defensor | Muralha | Bloco Vivo | w3 |
+| 15 | Guarda | Defensor | Guardião | Linha de Frente | w3 |
+| 16 | Ombro | Defensor | Guardião | Ninguém Passa | w3 |
+| 17 | Boca | Defensor | Provocador | Olha Pra Mim | w3 |
+| 18 | Isca | Defensor | Provocador | Alvo Perfeito | w3 |
+| 19 | Rebote | Defensor | Reativo | Volta em Dobro | w4 |
+| 20 | Ferro | Defensor | Resiliente | Não Cai | w4 |
+| 21 | Osso | Defensor | Resiliente | Ainda de Pé | w4 |
+| 22 | Brasa | Místico | Ígneo | Incêndio | w3 |
+| 23 | Cinza | Místico | Ígneo | Depois do Fogo | w3 |
+| 24 | Maré | Místico | Aquático | Maré Cheia | w3 |
+| 25 | Chuva | Místico | Aquático | Temporal | w3 |
+| 26 | Raiz | Místico | Terreno | Chão Fechado | w3 |
+| 27 | Racha | Místico | Terreno | Falha Sísmica | w4 |
 | 28 | Trovão | Místico | Tempestade | Queda do Céu | w4 |
 | 29 | Névoa | Místico | Ilusório | Sem Rosto | w4 |
 | 30 | Espelho | Místico | Ilusório | Duas Verdades | w4 |
 
-> Colisão de apelidos: **Marreta** (2) e **Brasa** (21) também são nomes de
+> Colisão de apelidos: **Marreta** (7) e **Brasa** (22) também são nomes de
 > inimigo (1403, 1202) — apelidos de rua se repetem, não é a mesma pessoa.
 
 A gangue tem **nome escolhido pelo jogador** — é o nome que os inimigos cospem e
@@ -680,6 +694,12 @@ da tabela acima). **PT-first**: o botão/título/fechar respeitam o idioma
 do jogador (pt/en/es), mas o texto de lore em si só existe em português
 por enquanto — traduzir os 30 pra en/es é trabalho futuro, não uma lacuna
 de bug.
+
+> Numeração desta lista (`1.`, `2.`...) é só agrupamento de leitura por
+> caminho de combate — ficou defasada em relação aos ids atuais depois da
+> renumeração de 2026-09-17 (ver §7). O texto de cada bio está correto e
+> igual ao de `ganguesBiografias.js`; só a ordem/numeral da lista aqui não
+> foi reordenado ainda.
 
 **ATACANTES**
 

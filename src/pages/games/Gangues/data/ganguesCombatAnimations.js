@@ -64,7 +64,7 @@ function som(nome) {
 // character_template_id (catálogo dos 30 recrutáveis) -> slug da pasta.
 const TEMPLATE_SLUG = {
   1: 'trinca',
-  11: 'muro',
+  3: 'muro',
 }
 
 // Dados de animação por slug e por tipo — grade, timing e sons. `golpes`

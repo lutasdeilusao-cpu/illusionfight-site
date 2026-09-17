@@ -33,15 +33,15 @@
       "Nivel 99 e o teto dos personagens jogaveis. So o chefe final (O Retalho) e nivel 100."
     ],
     "unlock_rule": {
-      "description": "Progressao de liberacao de personagens agora e por conclusao de campanha, nao mais so por territorio dominado.",
-      "wave_1_initial": "Disponivel desde o inicio, antes de zerar a campanha pela primeira vez (5 personagens).",
-      "wave_2_first_clear": "Liberado progressivamente durante a primeira campanha (dominio de territorio/reputacao); somado ao wave_1, totaliza 15 personagens disponiveis ao zerar a campanha pela primeira vez.",
-      "wave_3_second_clear": "Liberado ao zerar a campanha uma segunda vez (New Game+ ou nova campanha); soma aos 15 anteriores, totalizando 20 personagens.",
-      "event_only": "10 personagens reservados exclusivamente para eventos (nao sao liberados pela progressao normal da campanha, apenas por acao administrativa/evento especial).",
+      "description": "Ids 1-30 renumerados em 2026-09-17 pra os 12 personagens oficiais (com arte pronta) ocuparem 1-12: 5 iniciais (1-5) + 7 liberados 1 por territorio derrotado (6-12). Os 18 restantes (13-30, sem arte ainda) ficam fora do gameplay principal por ora.",
+      "wave_1_initial": "Disponivel desde o inicio, antes de derrotar o 1o territorio (ids 1-5).",
+      "wave_2_first_clear": "Libera 1 por territorio derrotado durante a campanha principal (ids 6-12, na ordem dos territorios); somado ao wave_1, totaliza os 12 personagens oficiais.",
+      "wave_3_second_clear": "Liberado ao zerar a campanha uma segunda vez (New Game+ ou nova campanha); ainda sem arte propria.",
+      "event_only": "7 personagens reservados exclusivamente para eventos (nao sao liberados pela progressao normal da campanha, apenas por acao administrativa/evento especial).",
       "totals": {
-        "first_clear": 15,
-        "second_clear": 20,
-        "event_reserved": 10,
+        "official_main_campaign": 12,
+        "second_clear": 23,
+        "event_reserved": 7,
         "grand_total": 30
       }
     }
@@ -69,38 +69,38 @@
   "unlock_plan": {
     "wave_1_initial": [
       1,
+      2,
       3,
-      11,
-      17,
-      27
+      4,
+      5
     ],
     "wave_2_first_clear": [
-      2,
-      4,
-      5,
-      12,
-      13,
-      14,
-      21,
-      23,
-      22,
-      25
-    ],
-    "wave_3_second_clear": [
       6,
       7,
-      15,
-      16,
-      24
-    ],
-    "event_only": [
       8,
       9,
       10,
+      11,
+      12
+    ],
+    "wave_3_second_clear": [
+      13,
+      14,
+      15,
+      16,
+      17,
       18,
+      22,
+      23,
+      24,
+      25,
+      26
+    ],
+    "event_only": [
       19,
       20,
-      26,
+      21,
+      27,
       28,
       29,
       30
@@ -2440,7 +2440,7 @@
       "slug": "trinca"
     },
     {
-      "id": 2,
+      "id": 7,
       "name": "Marreta",
       "combat_path": "atacante",
       "special_path": "bruto",
@@ -4772,7 +4772,7 @@
       "slug": "marreta"
     },
     {
-      "id": 3,
+      "id": 2,
       "name": "Fenda",
       "combat_path": "atacante",
       "special_path": "duelista",
@@ -7104,7 +7104,7 @@
       "slug": "fenda"
     },
     {
-      "id": 4,
+      "id": 9,
       "name": "Navalha",
       "combat_path": "atacante",
       "special_path": "duelista",
@@ -9436,7 +9436,7 @@
       "slug": "navalha"
     },
     {
-      "id": 5,
+      "id": 13,
       "name": "Touro",
       "combat_path": "atacante",
       "special_path": "furia",
@@ -11768,12 +11768,12 @@
       "slug": "touro"
     },
     {
-      "id": 6,
+      "id": 11,
       "name": "Sangue",
       "combat_path": "atacante",
       "special_path": "furia",
       "starter_pool": false,
-      "unlock_wave": 3,
+      "unlock_wave": 2,
       "role": "Risco alto e explosão de dano",
       "summary": "Glass cannon de Fúria; atinge enorme A, mas quase não investe em defesa.",
       "base_technique": {
@@ -14100,12 +14100,12 @@
       "slug": "sangue"
     },
     {
-      "id": 7,
+      "id": 8,
       "name": "Mira",
       "combat_path": "atacante",
       "special_path": "especialista",
       "starter_pool": false,
-      "unlock_wave": 4,
+      "unlock_wave": 2,
       "role": "Quebra de defesa e precisão",
       "summary": "Especialista em neutralizar defesas e escolher o momento de causar dano.",
       "base_technique": {
@@ -16432,12 +16432,12 @@
       "slug": "mira"
     },
     {
-      "id": 8,
+      "id": 10,
       "name": "Ponto",
       "combat_path": "atacante",
       "special_path": "especialista",
       "starter_pool": false,
-      "unlock_wave": 4,
+      "unlock_wave": 2,
       "role": "Controle técnico",
       "summary": "Menos força bruta e mais Habilidade contra inimigos difíceis.",
       "base_technique": {
@@ -18764,12 +18764,12 @@
       "slug": "ponto"
     },
     {
-      "id": 9,
+      "id": 6,
       "name": "Cicatriz",
       "combat_path": "atacante",
       "special_path": "vingador",
       "starter_pool": false,
-      "unlock_wave": 4,
+      "unlock_wave": 2,
       "role": "Absorção e retaliação",
       "summary": "Atacante resistente que converte sobrevivência em ameaça de retaliação.",
       "base_technique": {
@@ -21096,12 +21096,12 @@
       "slug": "cicatriz"
     },
     {
-      "id": 10,
+      "id": 12,
       "name": "Troco",
       "combat_path": "atacante",
       "special_path": "vingador",
       "starter_pool": false,
-      "unlock_wave": 4,
+      "unlock_wave": 2,
       "role": "Contra-ataque equilibrado",
       "summary": "Vingador equilibrado que cresce em ataque e defesa para punir quem insiste nele.",
       "base_technique": {
@@ -23428,7 +23428,7 @@
       "slug": "troco"
     },
     {
-      "id": 11,
+      "id": 3,
       "name": "Muro",
       "combat_path": "defensor",
       "special_path": "muralha",
@@ -25760,7 +25760,7 @@
       "slug": "muro"
     },
     {
-      "id": 12,
+      "id": 14,
       "name": "Concreto",
       "combat_path": "defensor",
       "special_path": "muralha",
@@ -28092,12 +28092,12 @@
       "slug": "concreto"
     },
     {
-      "id": 13,
+      "id": 15,
       "name": "Guarda",
       "combat_path": "defensor",
       "special_path": "guardiao",
       "starter_pool": false,
-      "unlock_wave": 2,
+      "unlock_wave": 3,
       "role": "Proteção de aliados",
       "summary": "Defensor de equipe projetado para reduzir o risco dos aliados frágeis.",
       "base_technique": {
@@ -30424,7 +30424,7 @@
       "slug": "guarda"
     },
     {
-      "id": 14,
+      "id": 16,
       "name": "Ombro",
       "combat_path": "defensor",
       "special_path": "guardiao",
@@ -32756,7 +32756,7 @@
       "slug": "ombro"
     },
     {
-      "id": 15,
+      "id": 17,
       "name": "Boca",
       "combat_path": "defensor",
       "special_path": "provocador",
@@ -35088,7 +35088,7 @@
       "slug": "boca"
     },
     {
-      "id": 16,
+      "id": 18,
       "name": "Isca",
       "combat_path": "defensor",
       "special_path": "provocador",
@@ -37420,7 +37420,7 @@
       "slug": "isca"
     },
     {
-      "id": 17,
+      "id": 4,
       "name": "Catraca",
       "combat_path": "defensor",
       "special_path": "reativo",
@@ -39752,7 +39752,7 @@
       "slug": "catraca"
     },
     {
-      "id": 18,
+      "id": 19,
       "name": "Rebote",
       "combat_path": "defensor",
       "special_path": "reativo",
@@ -42084,7 +42084,7 @@
       "slug": "rebote"
     },
     {
-      "id": 19,
+      "id": 20,
       "name": "Ferro",
       "combat_path": "defensor",
       "special_path": "resiliente",
@@ -44416,7 +44416,7 @@
       "slug": "ferro"
     },
     {
-      "id": 20,
+      "id": 21,
       "name": "Osso",
       "combat_path": "defensor",
       "special_path": "resiliente",
@@ -46748,12 +46748,12 @@
       "slug": "osso"
     },
     {
-      "id": 21,
+      "id": 22,
       "name": "Brasa",
       "combat_path": "mistico",
       "special_path": "igneo",
       "starter_pool": false,
-      "unlock_wave": 2,
+      "unlock_wave": 3,
       "role": "Dano mágico direto",
       "summary": "Místico ofensivo que cresce para alto A e rompe defesas com magia.",
       "base_technique": {
@@ -49080,7 +49080,7 @@
       "slug": "brasa"
     },
     {
-      "id": 22,
+      "id": 23,
       "name": "Cinza",
       "combat_path": "mistico",
       "special_path": "igneo",
@@ -51412,12 +51412,12 @@
       "slug": "cinza"
     },
     {
-      "id": 23,
+      "id": 24,
       "name": "Maré",
       "combat_path": "mistico",
       "special_path": "aquatico",
       "starter_pool": false,
-      "unlock_wave": 2,
+      "unlock_wave": 3,
       "role": "Sustentação e controle",
       "summary": "Místico resistente e defensivo, ideal para equipes de desgaste.",
       "base_technique": {
@@ -53744,12 +53744,12 @@
       "slug": "mare"
     },
     {
-      "id": 24,
+      "id": 25,
       "name": "Chuva",
       "combat_path": "mistico",
       "special_path": "aquatico",
       "starter_pool": false,
-      "unlock_wave": 4,
+      "unlock_wave": 3,
       "role": "Velocidade e fluxo",
       "summary": "Aquático rápido que troca defesa por Habilidade e pressão constante.",
       "base_technique": {
@@ -56076,7 +56076,7 @@
       "slug": "chuva"
     },
     {
-      "id": 25,
+      "id": 26,
       "name": "Raiz",
       "combat_path": "mistico",
       "special_path": "terreno",
@@ -58408,12 +58408,12 @@
       "slug": "raiz"
     },
     {
-      "id": 26,
+      "id": 27,
       "name": "Racha",
       "combat_path": "mistico",
       "special_path": "terreno",
       "starter_pool": false,
-      "unlock_wave": 3,
+      "unlock_wave": 4,
       "role": "Quebra de linha",
       "summary": "Terreno ofensivo que usa resistência suficiente para chegar às rupturas.",
       "base_technique": {
@@ -60740,7 +60740,7 @@
       "slug": "racha"
     },
     {
-      "id": 27,
+      "id": 5,
       "name": "Faísca",
       "combat_path": "mistico",
       "special_path": "tempestade",
@@ -63077,7 +63077,7 @@
       "combat_path": "mistico",
       "special_path": "tempestade",
       "starter_pool": false,
-      "unlock_wave": 3,
+      "unlock_wave": 4,
       "role": "Dano mágico explosivo",
       "summary": "Menos veloz que Faísca, mas muito mais ofensivo.",
       "base_technique": {
