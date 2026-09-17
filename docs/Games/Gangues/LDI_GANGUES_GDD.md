@@ -616,26 +616,36 @@ marra."* O único que já segurou seis bairros de uma vez. Generais: **Tesoura**
 
 ## 7. Os 30 lutadores recrutáveis (o elenco do jogador)
 
-Catálogo `ldi_gangues_30_personagens_v1.json`. Nome curto de rua + subcaminho +
-título de evolução máxima (nível 10). Liberação: `w1` = 5 iniciais · `w2` =
-durante a 1ª campanha · `w3` = 2º clear · `w4` = só evento.
+Catálogo `ldi_gangues_30_personagens_v1.json` (fonte única — esta tabela é gerada
+a partir de `unlock_plan`/`id`/`combat_path`/`special_path`/`max_evolution` do
+catálogo, nunca autorada à mão). Nome curto de rua + subcaminho + título de
+evolução máxima (nível 99, teto de personagem jogável). Liberação: `w1` = os
+**5 iniciais**, disponíveis desde o começo, antes de zerar a campanha pela
+primeira vez · `w2` = liberado progressivamente durante a 1ª campanha · `w3` =
+liberado ao zerar a campanha uma 2ª vez · `w4` = reservado só para evento.
 
-| id | Nome | Caminho | Subcaminho | Título nv.10 | Libera |
-|---|---|---|---|---|---|
-| 1 | Trinca | Atacante | Bruto | O Quebra-Linha | w1 |
-| 2 | Marreta | Atacante | Bruto | Demolidor | w2 |
-| 3 | Fenda | Atacante | Duelista | Primeiro Corte | w1 |
-| 4 | Navalha | Atacante | Duelista | Sem Aviso | w2 |
-| 5 | Touro | Atacante | Fúria | Último de Pé | w3 |
-| 6 | Sangue | Atacante | Fúria | Tudo ou Nada | w3 |
-| 7 | Mira | Atacante | Especialista | Cirúrgica | w4 |
-| 8 | Ponto | Atacante | Especialista | Ponto Cego | w4 |
-| 9 | Cicatriz | Atacante | Vingador | Dívida Antiga | w4 |
-| 10 | Troco | Atacante | Vingador | Cobrança | w4 |
-| 11 | Muro | Defensor | Muralha | Fortaleza | w1 |
-| 12 | Concreto | Defensor | Muralha | Bloco Vivo | w3 |
+> **Correção 2026-09-17:** a tabela anterior tinha ids trocados (Muro/Navalha
+> disputando o id 4, Faísca no id 5, Touro/Concreto/Guarda/Ombro/Boca/Isca/
+> Raiz/Racha/Chuva/Trovão em waves erradas). Os **5 primeiros ids do jogo**
+> (`wave_1_initial`) são **1 Trinca, 3 Fenda, 11 Muro, 17 Catraca, 27 Faísca**
+> — ids reais do catálogo, não sequenciais 1-5.
+
+| id | Nome | Caminho | Subcaminho | Título nv.99 | Libera | Genero
+|---|---|---|---|---|---|---|
+| 1 | Trinca | Atacante | Bruto | O Quebra-Linha | w1 | M
+| 2 | Marreta | Atacante | Bruto | Demolidor | w2 | M
+| 3 | Fenda | Atacante | Duelista | Primeiro Corte | w1 | F
+| 4 | Navalha | Atacante | Duelista | Sem Aviso | w2 | F
+| 5 | Touro | Atacante | Fúria | Último de Pé | w2 |
+| 6 | Sangue | Atacante | Fúria | Tudo ou Nada | w3 | F
+| 7 | Mira | Atacante | Especialista | Cirúrgica | w3 | F
+| 8 | Ponto | Atacante | Especialista | Ponto Cego | w4 | F
+| 9 | Cicatriz | Atacante | Vingador | Dívida Antiga | w4 | M
+| 10 | Troco | Atacante | Vingador | Cobrança | w4 | M
+| 11 | Muro | Defensor | Muralha | Fortaleza | w1 | M
+| 12 | Concreto | Defensor | Muralha | Bloco Vivo | w2 |
 | 13 | Guarda | Defensor | Guardião | Linha de Frente | w2 |
-| 14 | Ombro | Defensor | Guardião | Ninguém Passa | w3 |
+| 14 | Ombro | Defensor | Guardião | Ninguém Passa | w2 |
 | 15 | Boca | Defensor | Provocador | Olha Pra Mim | w3 |
 | 16 | Isca | Defensor | Provocador | Alvo Perfeito | w3 |
 | 17 | Catraca | Defensor | Reativo | Bateu, Voltou | w1 |
@@ -643,13 +653,13 @@ durante a 1ª campanha · `w3` = 2º clear · `w4` = só evento.
 | 19 | Ferro | Defensor | Resiliente | Não Cai | w4 |
 | 20 | Osso | Defensor | Resiliente | Ainda de Pé | w4 |
 | 21 | Brasa | Místico | Ígneo | Incêndio | w2 |
-| 22 | Cinza | Místico | Ígneo | Depois do Fogo | w3 |
+| 22 | Cinza | Místico | Ígneo | Depois do Fogo | w2 |
 | 23 | Maré | Místico | Aquático | Maré Cheia | w2 |
-| 24 | Chuva | Místico | Aquático | Temporal | w4 |
-| 25 | Raiz | Místico | Terreno | Chão Fechado | w3 |
-| 26 | Racha | Místico | Terreno | Falha Sísmica | w3 |
-| 27 | Faísca | Místico | Tempestade | Antes do Trovão | w1 |
-| 28 | Trovão | Místico | Tempestade | Queda do Céu | w3 |
+| 24 | Chuva | Místico | Aquático | Temporal | w3 |
+| 25 | Raiz | Místico | Terreno | Chão Fechado | w2 |
+| 26 | Racha | Místico | Terreno | Falha Sísmica | w4 |
+| 27 | Faísca | Místico | Tempestade | Antes do Trovão | w1 | M
+| 28 | Trovão | Místico | Tempestade | Queda do Céu | w4 |
 | 29 | Névoa | Místico | Ilusório | Sem Rosto | w4 |
 | 30 | Espelho | Místico | Ilusório | Duas Verdades | w4 |
 

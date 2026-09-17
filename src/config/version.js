@@ -8,7 +8,7 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.280.180' // revert: LDI Gangues - regressao pedida pelo Isaias da ilustracao de fundo da Pista (e do teste de colisor por imagem em cima dela), volta pro mapa 100% CSS de antes - ele vai refazer a arte por outra ferramenta e reimplementar depois. Ver GANGUES_VERSION.
+export const SITE_VERSION = '10.280.181' // docs: LDI_GANGUES_GDD.md - corrige tabela dos 30 recrutaveis (ids/waves fora de sincronia com o catalogo real; wave_1_initial = ids 1 Trinca, 3 Fenda, 11 Muro, 17 Catraca, 27 Faisca)
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
