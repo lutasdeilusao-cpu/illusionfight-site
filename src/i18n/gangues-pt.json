@@ -708,7 +708,8 @@
         "remove": "REMOVER DA SELEÇÃO",
         "assemble": "A RUA NÃO SE DOMINA SOZINHO",
         "lobby_pitch": "Cinco lutadores ouviram o nome da sua gangue. Entre no ponto de encontro, leia cada ficha e escolha os dois primeiros membros.",
-        "enter": "ENTRAR NO PONTO DE ENCONTRO"
+        "enter": "ENTRAR NO PONTO DE ENCONTRO",
+        "pose_trocar": "Trocar pose (frente / costas / lado)"
       },
       "dado": {
         "preparando": "Preparando...",

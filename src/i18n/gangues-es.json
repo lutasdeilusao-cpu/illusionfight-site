@@ -682,7 +682,8 @@
         "remove": "QUITAR DE LA SELECCIÓN",
         "assemble": "LA CALLE NO SE DOMINA SOLO",
         "lobby_pitch": "Cinco luchadores oyeron el nombre de tu banda. Entra al punto de encuentro, lee cada ficha y elige a tus dos primeros miembros.",
-        "enter": "ENTRAR AL PUNTO DE ENCUENTRO"
+        "enter": "ENTRAR AL PUNTO DE ENCUENTRO",
+        "pose_trocar": "Cambiar pose (frente / espalda / lado)"
       },
       "trash_talk_npc": {
         "1101": {

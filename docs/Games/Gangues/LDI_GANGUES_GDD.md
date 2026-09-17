@@ -1411,6 +1411,87 @@ expressões futuras).
   progressão) recebe a prop `retrato` — quando existe, substitui a letra
   gigante translúcida do canto por a cabeça de verdade.
 
+### 15.1 Corpo inteiro no "primeiro contato" (lobby inicial + recrutamento) — set/2026
+
+Pedido do Isaias: a cabeça (§15) é ótima pro resto do jogo, mas o
+**primeiro contato** do jogador com o elenco — a tela de fundação da
+gangue e o recrutamento (`GanguesCreate.jsx`, o MESMO componente pra
+ambos) — merece o personagem inteiro, não só a cabeça. A cabeça **continua
+igual em todo o resto** (roster do lobby, roster de combate, marcador de
+cena, progressão) — nada disso mudou.
+
+- **Origem da arte:** cada pasta em `Personagens/LDI GANGUES/RECRUTAVEIS/<Nome>/`
+  também traz um `<Nome>Sheet.png` — um turnaround de corpo inteiro
+  (frente/costas/lado lado a lado, 1916×821 na maioria, 1672×941 no Muro
+  que é mais largo). Só os 12 personagens oficiais (§7) têm esse arquivo
+  hoje.
+- **Recorte:** as 3 poses NÃO ficam em colunas perfeitamente iguais (o
+  personagem de cada pose tem largura própria — o punho/arma de uma pose
+  pode invadir o terço "certo" numericamente) — dividir a imagem em 3
+  fatias iguais corta pedaço de personagem (aconteceu com o braço do Muro
+  na 1ª tentativa). O jeito certo: varrer as colunas da imagem procurando
+  os 2 "vãos" transparentes de verdade entre as 3 figuras (gap ≥ 20px sem
+  nenhum pixel com alpha) e recortar exatamente nesses vãos, com ~12px de
+  respiro. Cada pose recortada é `.trim()`ada (sharp, remove a margem
+  transparente sobrando) e exportada `webp` qualidade 85 (~55-125KB cada,
+  36 arquivos = ~3,2MB) — **nunca** `image-rendering: pixelated` aqui,
+  essa arte é ilustração pintada de alto detalhe, não pixel art (isso é
+  só pra cabeça).
+- **Onde mora:** mesma pasta/convenção da cabeça —
+  `assets/personagens/<slug>/corpo-<pose>.webp`, `pose` = `frente` |
+  `costas` | `lado`. `ganguesPortraits.js` tem um segundo
+  `import.meta.glob('.../corpo-*.webp')` só pra isso — `getGanguesCorpo(slug, pose)`
+  e `getGanguesCorpoPoses(slug)` (as 3 de uma vez, ou `null` se não tiver
+  nenhuma — a maioria do elenco, 18 dos 30, por ora).
+- **Ciclo de pose por toque:** `GanguesRetratoCorpo.jsx` — um `<button>`
+  que troca a pose a cada toque (frente → costas → lado → frente...,
+  sempre nessa ordem, sempre voltando pro início) e mostra 3 pontinhos
+  (`.gang-corpo-poses`) indicando a pose atual. Chama
+  `event.stopPropagation()` no toque — importante porque ele SEMPRE vive
+  dentro de um elemento clicável maior (o card inteiro, ou a moldura da
+  ficha) que abre a ficha/faz outra coisa; sem o stop, tocar na imagem pra
+  trocar de pose também disparava a ação do pai.
+- **No card do carrossel** (`GanguesCreate.jsx`): só o card **atual**
+  (`position === 'current'`) cicla pose — os dois de trás (`prev`/`next`,
+  desbotados, só navegam) mostram a pose `frente` fixa. Isso forçou trocar
+  o wrapper do card atual de `motion.button` pra `motion.div` (só ele tem
+  conteúdo clicável ANINHADO — `<button>` dentro de `<button>` é HTML
+  inválido; `prev`/`next` continuam `motion.button` porque não têm nada
+  clicável dentro). O `onClick` de abrir a ficha continua no `div` inteiro
+  — só a imagem, por dentro, intercepta e para a propagação.
+- **Tamanho do card mudou, mas não como a 1ª tentativa fez:** a arte de
+  corpo é ALTA e ESTREITA (retrato ~0.55 largura:altura) — só a ALTURA do
+  portrait precisava crescer (232px → 342px), a largura original (242px)
+  já sobrava espaço. Alargar o card pra 264px (1ª tentativa) só roubou
+  espaço do peek `prev`/`next` sem ajudar a imagem em nada — corrigido pra
+  236px (mais estreito que o original de propósito) com os peeks
+  recuperando espaço.
+- **Armadilha de CSS — `height: 100%` dentro de grid `place-items: end`
+  não funciona:** o botão de ciclo (`.gang-fighter-card__corpo-btn`) é
+  filho de um container `display: grid; place-items: end center`. Uma
+  altura em `%` nesse filho depende da row `auto` do grid — e como
+  `align-items` não é `stretch` (é `end`), a spec resolve essa porcentagem
+  como **indefinida**, então o filho vira do tamanho do PRÓPRIO conteúdo
+  em vez de preencher o pai (o botão cresceu pra ~415px sozinho, bem além
+  dos 342px do portrait, e escondeu os pontinhos de pose lá embaixo fora
+  da vista). Fix: `position: absolute; inset: 0` no botão em vez de
+  `height: 100%` — ignora o problema de row do grid e cobre exatamente a
+  área do pai (que já tem `position: relative`).
+- **No modal de ficha** (`GanguesFichaCard.jsx`): prop nova `corpoSlug`
+  (só `GanguesCreate.jsx` passa) — quando presente, o hero do modal vira
+  um banner alto centralizado (imagem grande, nome/subcaminho abaixo dela)
+  em vez da faixa baixa com a cabeça pequena no canto (`--corpo` modifica
+  a classe `.gang-sheet-modal__hero`). Combate/cena/progressão não passam
+  `corpoSlug`, continuam exatamente como eram.
+- **Fallback:** sem nenhuma pose de corpo pro slug, cai de volta pra
+  cabeça (`retrato`) — e sem cabeça também, cai pra inicial do nome, igual
+  sempre foi.
+- **Testado ao vivo** (Playwright, viewport 390×844, mobile): fundação da
+  gangue → card mostra corpo inteiro → toque cicla frente/costas/lado/
+  frente → abrir ficha mostra o mesmo corpo grande no modal, cicla lá
+  também → seleção e confirmação de recrutamento funcionam normalmente →
+  zero erro de console.
+
 ## 16. Líder da gangue (set/2026)
 
 Pedido do Isaias: dar personalidade real ao "quem manda" da gangue, não só

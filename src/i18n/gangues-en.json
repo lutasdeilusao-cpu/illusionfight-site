@@ -682,7 +682,8 @@
         "remove": "REMOVE FROM SELECTION",
         "assemble": "YOU CAN'T RULE THE STREETS ALONE",
         "lobby_pitch": "Five fighters heard your gang's name. Enter the meeting point, read each sheet and choose your first two members.",
-        "enter": "ENTER THE MEETING POINT"
+        "enter": "ENTER THE MEETING POINT",
+        "pose_trocar": "Switch pose (front / back / side)"
       },
       "trash_talk_npc": {
         "1101": {

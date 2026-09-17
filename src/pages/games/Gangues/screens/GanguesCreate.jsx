@@ -4,7 +4,8 @@ import { useLanguage } from '../../../../context/LanguageContext'
 import { useAuth } from '../../../../context/AuthContext'
 import { useGanguesStore } from '../store/useGanguesStore'
 import { GANGUES_CHARACTER_CATALOG, getGanguesAvailableCharacterIds } from '../data/ganguesCharacters.js'
-import { getGanguesPortrait } from '../data/ganguesPortraits.js'
+import { getGanguesPortrait, getGanguesCorpo } from '../data/ganguesPortraits.js'
+import GanguesRetratoCorpo from '../components/GanguesRetratoCorpo'
 import { GANGUES_INITIAL_PARTY_SIZE, GANGUES_MAX_PARTY_SIZE } from '../data/ganguesLoadout.js'
 import { sfx } from '../../../../lib/sfx'
 import GanguesFichaCard from '../components/GanguesFichaCard'
@@ -132,23 +133,44 @@ export default function GanguesCreate({ onNavigate, onCreated }) {
         <div className="gang-recruit__slides">
           {slides.map(({ character, position }) => {
             const selected = selectedIds.includes(character.id)
+            const isCurrent = position === 'current'
+            // Corpo inteiro (pedido do Isaias, 17/09/2026: "primeiro contato"
+            // do jogador com o elenco) — a foto de cabeça só entra como
+            // fallback pra quem ainda não tem arte de corpo. O ciclo de pose
+            // por toque (frente/costas/lado) só existe no card ATUAL — os
+            // dois de trás (prev/next) são decorativos, tocar neles navega,
+            // não faz sentido ciclar pose de um card que você nem está vendo
+            // de frente ainda.
             const foto = getGanguesPortrait(character.slug)
+            const corpoFrente = getGanguesCorpo(character.slug, 'frente')
+            const temCorpo = Boolean(corpoFrente)
+            const Wrapper = isCurrent ? motion.div : motion.button
             return (
-              <motion.button
+              <Wrapper
                 key={`${position}-${character.id}`}
                 className={`gang-fighter-card gang-fighter-card--${position} gang-fighter-card--${character.combat_path}${selected ? ' gang-fighter-card--selected' : ''}`}
-                onClick={() => position === 'current' ? openSheet(character) : move(position === 'prev' ? -1 : 1)}
+                onClick={isCurrent ? () => openSheet(character) : () => move(position === 'prev' ? -1 : 1)}
                 initial={{ opacity: 0, scale: .9 }} animate={{ opacity: 1, scale: 1 }}
               >
                 <span className="gang-fighter-card__number">#{String(character.id).padStart(2, '0')}</span>
                 {selected && <span className="gang-fighter-card__selected">✓ {t('games.gangues.recruitment.marked')}</span>}
-                <span className={`gang-fighter-card__portrait${foto ? ' gang-fighter-card__portrait--foto' : ''}`} aria-hidden="true">
-                  <GanguesRetratoImg src={foto} fallback={<i>{character.name[0]}</i>} />
+                <span className={`gang-fighter-card__portrait${temCorpo ? ' gang-fighter-card__portrait--corpo' : foto ? ' gang-fighter-card__portrait--foto' : ''}`} aria-hidden={!isCurrent}>
+                  {isCurrent && temCorpo ? (
+                    <GanguesRetratoCorpo
+                      slug={character.slug}
+                      className="gang-fighter-card__corpo-btn"
+                      imgClassName="gang-fighter-card__corpo-img"
+                      fallback={<GanguesRetratoImg src={foto} fallback={<i>{character.name[0]}</i>} />}
+                      onCiclar={() => sfx.select()}
+                    />
+                  ) : (
+                    <GanguesRetratoImg className="gang-fighter-card__corpo-img" src={corpoFrente || foto} fallback={<i>{character.name[0]}</i>} />
+                  )}
                   <b>{PATH_MARKS[character.combat_path]}</b>
                 </span>
                 <span className="gang-fighter-card__copy"><small>{t(`games.gangues.loadout.paths.${character.combat_path}.name`)}</small><strong>{character.name}</strong><em>{t(`games.gangues.progression.paths.${character.special_path}`)}</em></span>
                 <span className="gang-fighter-card__cta">{t('games.gangues.recruitment.open_sheet')} →</span>
-              </motion.button>
+              </Wrapper>
             )
           })}
         </div>
@@ -181,6 +203,7 @@ export default function GanguesCreate({ onNavigate, onCreated }) {
               nome={detail.name}
               caminho={detail.combat_path}
               retrato={getGanguesPortrait(detail.slug)}
+              corpoSlug={detail.slug}
               subcaminho={t(`games.gangues.progression.paths.${detail.special_path}`)}
               atributos={detail.base_stats}
               pv={{ max: detail.base_resources.pv_max }}

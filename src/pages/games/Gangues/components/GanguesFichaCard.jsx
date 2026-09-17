@@ -1,5 +1,6 @@
 import { useLanguage } from '../../../../context/LanguageContext'
 import GanguesRetratoImg from './GanguesRetratoImg'
+import GanguesRetratoCorpo from './GanguesRetratoCorpo'
 
 const ATTRS = ['A', 'H', 'D', 'PV', 'PM']
 
@@ -8,14 +9,26 @@ const ATTRS = ['A', 'H', 'D', 'PV', 'PM']
  *  pra manter uma única linguagem visual em vez de 3 estilos diferentes.
  *  Cada seção é opcional: quem chama passa só o que faz sentido no contexto
  *  (recrutamento não tem PV/PM atual porque o personagem nunca lutou; fora
- *  de combate não tem "atual" de PV/PM, só o máximo). */
-export default function GanguesFichaCard({ numero, nome, caminho, subcaminho, nivel, atributos, pv, pm, xp, tecnica, tituloId, retrato }) {
+ *  de combate não tem "atual" de PV/PM, só o máximo).
+ *
+ *  `corpoSlug` é opcional e só o modal de recrutamento passa (pedido do
+ *  Isaias, 17/09/2026: "primeiro contato" do jogador merece corpo inteiro
+ *  com ciclo de pose, não só a cabeça) — combate/cena/progressão não
+ *  passam, então continuam com a cabeça de sempre, sem mudar nada. */
+export default function GanguesFichaCard({ numero, nome, caminho, subcaminho, nivel, atributos, pv, pm, xp, tecnica, tituloId, retrato, corpoSlug }) {
   const { t } = useLanguage()
   return (
     <>
-      <div className="gang-sheet-modal__hero">
+      <div className={`gang-sheet-modal__hero${corpoSlug ? ' gang-sheet-modal__hero--corpo' : ''}`}>
         {numero != null && <span>#{String(numero).padStart(2, '0')}</span>}
-        <GanguesRetratoImg className="gang-sheet-modal__retrato" src={retrato} fallback={<i>{nome?.[0]?.toUpperCase()}</i>} />
+        {corpoSlug
+          ? <GanguesRetratoCorpo
+              slug={corpoSlug}
+              className="gang-sheet-modal__corpo-btn"
+              imgClassName="gang-sheet-modal__corpo-img"
+              fallback={<GanguesRetratoImg className="gang-sheet-modal__retrato" src={retrato} fallback={<i>{nome?.[0]?.toUpperCase()}</i>} />}
+            />
+          : <GanguesRetratoImg className="gang-sheet-modal__retrato" src={retrato} fallback={<i>{nome?.[0]?.toUpperCase()}</i>} />}
         {caminho && <small>{t(`games.gangues.loadout.paths.${caminho}.name`)}</small>}
         <h2 id={tituloId}>{nome}{nivel != null && <b className="gang-ficha-nivel"> · NV {nivel}</b>}</h2>
         {subcaminho && <p>{subcaminho}</p>}
