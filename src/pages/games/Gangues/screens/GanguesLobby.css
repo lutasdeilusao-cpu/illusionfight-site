@@ -200,7 +200,21 @@
    silhueta gigante de fundo (::before) some — o corpo real já preenche o
    espaço, a decoração ficaria por baixo da arte sem servir pra nada. */
 .gang-fighter-card__portrait--corpo::before { opacity: 0; }
-.gang-fighter-card__portrait--corpo .gang-fighter-card__corpo-img { max-width: 86%; max-height: 100%; width: auto; height: auto; object-fit: contain; filter: drop-shadow(0 14px 20px rgba(0,0,0,.55)); }
+/* `position: absolute` de propósito, mesmo motivo do comentário em
+   `.gang-fighter-card__corpo-btn` logo abaixo: dentro de um grid com
+   `place-items: end center` (sem stretch), a row do item vira 'auto' —
+   contra uma altura indefinida, `max-height: 100%` é IGNORADO pelo spec
+   (só `max-width` valia), então cada pose esticava pra maior largura
+   permitida e só a partir daí calculava a altura pela proporção,
+   estourando pra muito além dos 342px do card sem nenhum limite — quanto
+   mais estreita a pose (lado, 254×762 — a mais vertical das três),
+   maior o estouro e mais corte o `overflow: hidden` do portrait fazia
+   (achado do Isaias, 17/09/2026: "a primeira [frente] tá ok, as outras
+   [costas/lado] cortam, a terceira [lado] corta demais" — batia exatamente
+   com a proporção de cada arte). `position: absolute` tira a imagem do
+   grid e ancora contra o `inset: 0` do botão (altura definida = 342px),
+   onde `max-height: 100%` finalmente é respeitado. */
+.gang-fighter-card__portrait--corpo .gang-fighter-card__corpo-img { position: absolute; left: 50%; bottom: 0; transform: translateX(-50%); max-width: 86%; max-height: 100%; width: auto; height: auto; object-fit: contain; filter: drop-shadow(0 14px 20px rgba(0,0,0,.55)); }
 .gang-fighter-card__corpo-btn {
   /* `inset: 0` em vez de `height: 100%` de propósito — o pai é um grid com
      `place-items: end center` (align-items: end), então uma altura em % aqui
