@@ -1386,9 +1386,15 @@ expressões futuras).
   `getGanguesPortraitByTemplateId(characterTemplateId)` (resolve o slug
   pelo catálogo) retornam `null` quando não tem arte — todo consumidor cai
   no fallback de sempre (inicial do nome) nesse caso.
-- **Cobertura hoje:** só os 5 personagens iniciais (Trinca, Fenda, Muro,
-  Catraca, Faísca) — os outros 25 do catálogo ainda não têm arte, caem no
-  fallback normalmente.
+- **Cobertura hoje:** os 12 personagens oficiais, ids 1-12 (Trinca, Fenda,
+  Muro, Catraca, Faísca, Cicatriz, Marreta, Mira, Navalha, Ponto, Sangue,
+  Troco) — os outros 18 do catálogo ainda não têm arte, caem no fallback
+  normalmente. Portraits dos 7 novos (2026-09-17) vieram de
+  `Personagens/LDI GANGUES/RECRUTAVEIS/<Nome>/<NOME>.png` (masters
+  1254×1254 RGBA), processados com sharp: resize 256×256 (`fit: contain`,
+  fundo transparente) + PNG paletizado (256 cores) — mesma receita dos 5
+  originais, sem script dedicado no repo (feito ad-hoc, documentado aqui
+  pra próxima vez).
 - **Onde aparece:** card de recrutamento (`GanguesCreate.jsx`), card do
   elenco no lobby (`GanguesLobby.jsx`), avatar do quadradinho de combate
   (`GanguesCombatRoster.jsx`, só lado do jogador — inimigo não tem arte
