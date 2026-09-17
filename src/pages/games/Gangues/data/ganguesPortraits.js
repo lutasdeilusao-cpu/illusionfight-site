@@ -60,9 +60,11 @@ for (const [caminho, url] of Object.entries(ARQUIVOS_CORPO)) {
   CORPO[slug][pose] = url
 }
 
-/** Poses disponíveis de corpo inteiro, na ordem em que o ciclo de toque
- *  deve percorrer (frente → costas → lado → frente...). */
-export const GANGUES_CORPO_POSES = ['frente', 'costas', 'lado']
+/** Poses disponíveis de corpo inteiro, na ordem em que o ciclo (automático
+ *  ou por toque) deve percorrer (frente → lado → costas → frente...) —
+ *  pedido do Isaias, 17/09/2026 ("a primeira de frente, a segunda de
+ *  perfil e a terceira de costas"). */
+export const GANGUES_CORPO_POSES = ['frente', 'lado', 'costas']
 
 /** Uma pose de corpo inteiro do personagem pelo slug. `null` se esse slug
  *  ainda não tem arte de corpo (a maioria — só os 12 oficiais por ora). */

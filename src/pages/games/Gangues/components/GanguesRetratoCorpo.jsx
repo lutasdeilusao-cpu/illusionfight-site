@@ -1,13 +1,17 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useLanguage } from '../../../../context/LanguageContext'
 import { getGanguesCorpo, getGanguesCorpoPoses, GANGUES_CORPO_POSES } from '../data/ganguesPortraits.js'
 import GanguesRetratoImg from './GanguesRetratoImg'
 
-/** Corpo inteiro do personagem com ciclo de pose por toque — pedido do
- *  Isaias (17/09/2026): "primeiro contato do usuário com os personagens"
- *  (lobby de escolha inicial + recrutamento) merecia mostrar o corpo todo,
- *  não só a cabeça. Um toque na imagem avança frente → costas → lado →
- *  frente (sempre nessa ordem, sempre voltando pro início no 4º toque).
+/** Corpo inteiro do personagem em modo apresentação — pedido do Isaias
+ *  (17/09/2026): "primeiro contato do usuário com os personagens" (lobby
+ *  de escolha inicial + recrutamento) merecia mostrar o corpo todo, não só
+ *  a cabeça. Troca de pose SOZINHA a cada 2,5s (frente → lado → costas →
+ *  frente...) — o ciclo por toque (v3.21.0) não era descoberto pelo
+ *  jogador ("não é muito intuitivo que você vai apertar pra ver outras
+ *  imagens"), então a apresentação automática é a via principal agora; o
+ *  toque continua funcionando por cima (avança na hora e reinicia a
+ *  contagem de 2,5s, pra não trocar de novo rápido demais em seguida).
  *  `onCiclar` é opcional — GanguesCreate.jsx usa pra tocar um som de UI.
  *  Sem nenhuma pose disponível pra esse slug, renderiza `fallback` (o
  *  chamador decide: cabeça, inicial do nome, o de sempre). */
@@ -15,6 +19,13 @@ export default function GanguesRetratoCorpo({ slug, className, imgClassName, fal
   const { t } = useLanguage()
   const [poseIndex, setPoseIndex] = useState(0)
   const poses = getGanguesCorpoPoses(slug)
+
+  useEffect(() => {
+    if (!poses) return
+    const id = setInterval(() => setPoseIndex(index => (index + 1) % GANGUES_CORPO_POSES.length), 2500)
+    return () => clearInterval(id)
+  }, [poses, poseIndex])
+
   if (!poses) return fallback
 
   const pose = GANGUES_CORPO_POSES[poseIndex]
