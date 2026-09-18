@@ -8,7 +8,7 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.280.190' // fix: LDI Gangues - ataqueNormal de Fenda/Catraca/Faisca cortava a cabeca/corpo nos quadros 9-16 (arte de origem fora da grade, nao pipeline) - animacao limitada a 8 quadros limpos ate a arte ser refeita. Ver GANGUES_VERSION.
+export const SITE_VERSION = '10.280.191' // feat: SEO Tier 0 - <html lang> sincroniza com o locale, H1 faltante em Historias, meta tags do Webtoon (estavam hardcoded em ingles p/ todo idioma) + hreflang invalido (mesma URL) removido de Webtoon/Games, paragrafo real (crawlable) adicionado em Webtoon/Games, copy EN reescrita p/ refletir termos da campanha paga (manga/manhwa/webtoon, free online games/RPG, dark fantasy fiction). Proposta maior (URL por idioma + hreflang de verdade) documentada em docs/ReportAI, nao implementada ainda - decisao do Isaias.
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json

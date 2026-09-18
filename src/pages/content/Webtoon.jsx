@@ -37,16 +37,13 @@ export default function Webtoon() {
   return (
     <>
       <Helmet>
-        <title>Webtoon — Illusion Fight</title>
-        <meta name="description" content="Watch the Illusion Fight webtoon — a Brazilian action webcomic set in the LDI arena. Episodes, art, and the story of Kim and the fighters of Bravara." />
-        <meta property="og:title" content="Webtoon — Illusion Fight" />
-        <meta property="og:description" content="Watch the Illusion Fight webtoon — a Brazilian action webcomic set in the LDI arena." />
+        <title>{t('pages.webtoon.meta_title')}</title>
+        <meta name="description" content={t('pages.webtoon.meta_desc')} />
+        <meta property="og:title" content={t('pages.webtoon.meta_title')} />
+        <meta property="og:description" content={t('pages.webtoon.meta_desc')} />
         <meta property="og:url" content="https://illusionfight.com/webtoon" />
         <meta property="og:image" content="https://illusionfight.com/og-image.jpg" />
         <meta property="og:type" content="website" />
-        <link rel="alternate" hrefLang="pt" href="https://illusionfight.com/webtoon" />
-        <link rel="alternate" hrefLang="en" href="https://illusionfight.com/webtoon" />
-        <link rel="alternate" hrefLang="es" href="https://illusionfight.com/webtoon" />
       </Helmet>
       <section className="webtoon-page">
         <div className="container">
@@ -56,6 +53,7 @@ export default function Webtoon() {
             </Link>
           )}
           <h1 className="section-title">{t('pages.webtoon.titulo')}</h1>
+          <p className="webtoon-seo-intro">{t('pages.webtoon.seo_intro')}</p>
           <div className="webtoon-grid">
             {episodios.map(ep => {
               const liberado = ep.id === '00' || estaDisponivel(ep, isAdmin, { user, perfil }) || TRIAL_ACTIVE

@@ -9,6 +9,18 @@
   padding: 1.75rem 0 3rem;
 }
 
+/* Parágrafo real (não só o H1) pra dar contexto pro crawler e pro leitor
+   que nunca ouviu falar de LDI — pedido de SEO (18/09/2026): a home e o
+   próprio webtoon tinham pouquíssimo texto crawlable além do H1. */
+.webtoon-seo-intro {
+  max-width: 1100px;
+  margin: 0.4rem auto 0;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+
 .webtoon-grid {
   display: flex;
   flex-direction: column;

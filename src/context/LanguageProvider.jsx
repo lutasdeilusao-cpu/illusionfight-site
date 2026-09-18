@@ -53,6 +53,15 @@ export function LanguageProvider({ children }) {
     return () => { ativo = false }
   }, [locale])
 
+  // `<html lang>` fixo em "pt-BR" (SEO/auditoria achou, 18/09/2026) nunca
+  // acompanhava o idioma escolhido — visitante en/es via lang errado no
+  // <html>, o que é sinal de acessibilidade (leitor de tela escolhe voz/
+  // pronúncia pelo atributo) e um dos poucos sinais de idioma que o Google
+  // ainda lê sem depender de hreflang/URL por idioma.
+  useEffect(() => {
+    document.documentElement.lang = locale === 'en' ? 'en' : locale === 'es' ? 'es' : 'pt-BR'
+  }, [locale])
+
   // A rota diz qual área precisa existir. Carrega uma vez por idioma.
   useEffect(() => {
     const area = areaDaRota(pathname)

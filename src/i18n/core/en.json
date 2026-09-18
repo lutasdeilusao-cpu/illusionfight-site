@@ -306,9 +306,10 @@
     },
     "games": {
       "titulo": "GAMES",
-      "meta_title": "Games — Illusion Fight",
-      "meta_desc": "Play Illusion Fight games online — card games, tactical RPG, detective, tamagoshi, arena battles and more. Free and premium games.",
+      "meta_title": "Free Online Games — RPG & Card Games | Illusion Fight",
+      "meta_desc": "Play free online games in the Illusion Fight universe — tactical RPG, card battles, browser minigames and a virtual pet. No download needed.",
       "subtitulo": "explore beyond the main story",
+      "seo_intro": "Play free online games in the Illusion Fight universe: tactical RPG, card battles, browser minigames, a virtual pet and more — right in your browser, nothing to download.",
       "secao_jogos": "GAMES",
       "secao_conteudo": "CONTENT",
       "inserir_ficha": "INSERT TOKEN",
@@ -583,9 +584,9 @@
     },
     "historias": {
       "titulo": "STORIES",
-      "intro": "All of Illusion Fight's reading universe in one place: the main line, the Illusion Tales and other worlds.",
-      "og_title": "Stories | Illusion Fight",
-      "og_desc": "Read the main line of Illusion Fight online, the Illusion Tales and other stories by the same creator.",
+      "intro": "Free online stories and serialized dark fantasy fiction, all in one place: the main saga, the Illusion Tales side stories, and other worlds by the same creator.",
+      "og_title": "Free Online Stories & Dark Fantasy Fiction | Illusion Fight",
+      "og_desc": "Read free online stories from the Illusion Fight universe — serialized action and dark fantasy fiction: the main saga, side tales and other worlds.",
       "destaque": "FEATURED",
       "secao_ldi": "Illusion Fight",
       "secao_ldi_desc": "The main universe — the story that started the project.",
@@ -668,6 +669,9 @@
     },
     "webtoon": {
       "titulo": "WEBTOON",
+      "meta_title": "Illusion Fight Webtoon — Free Action Webcomic Online",
+      "meta_desc": "Read the Illusion Fight webtoon online for free — a Brazilian action webcomic for manga, manhwa and webcomic fans. Episodes, art and the story of Kim and the fighters of Bravara.",
+      "seo_intro": "Illusion Fight is a free Brazilian action webtoon, published in episodes right here on the site. If you're into manga, manhwa or other action webcomics, you'll recognize the pacing — this time with an all-Brazilian cast and universe.",
       "continuar": "→ Continue",
       "voltar": "← BACK",
       "nao_encontrado": "Episode not found.",
@@ -1009,9 +1013,9 @@
     "section_games": "Latest games",
     "previous": "Previous",
     "next": "Next",
-    "meta_title": "Illusion Fight — free webtoon, book and games",
-    "meta_description": "Explore Illusion Fight, a Brazilian action universe with webtoon, webnovel, characters, music and free indie games.",
-    "og_description": "Read the webtoon and book online, meet the characters and play free indie games in the Illusion Fight universe."
+    "meta_title": "Illusion Fight — Free Webtoon, Games & Stories",
+    "meta_description": "Explore Illusion Fight, a Brazilian action universe with a free webtoon, free online games, and serialized fantasy stories — webcomic, characters, music and more.",
+    "og_description": "Read a free action webtoon and fantasy stories online, meet the characters, and play free online games in the Illusion Fight universe."
   },
   "hero": {
     "title": "ILLUSION FIGHT",

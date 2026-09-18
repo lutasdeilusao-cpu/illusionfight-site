@@ -68,7 +68,7 @@ export default function Historias() {
       </Helmet>
 
       <div className="container">
-        <h2 className="section-title">{t('pages.historias.titulo')}</h2>
+        <h1 className="section-title">{t('pages.historias.titulo')}</h1>
         <p className="historias-intro">{t('pages.historias.intro')}</p>
 
         {/* ── Destaque ── */}

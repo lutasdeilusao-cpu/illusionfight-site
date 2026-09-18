@@ -39,6 +39,16 @@
   line-height: 1.5;
 }
 
+/* Parágrafo real com os nomes dos jogos por extenso — pedido de SEO
+   (18/09/2026): o catálogo só tinha H1 + 1 linha antes disso, pouquíssimo
+   texto crawlable além dos cards (nome curto + tagline de 1 linha cada). */
+.extras-seo-intro {
+  margin: 0.6rem 0 0;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  line-height: 1.55;
+}
+
 /* ── Abas LDI / Kernel ── */
 .kp-toggle {
   display: flex;

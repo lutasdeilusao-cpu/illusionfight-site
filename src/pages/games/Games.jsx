@@ -92,14 +92,12 @@ export default function Games() {
         <meta property="og:url" content="https://illusionfight.com/games" />
         <meta property="og:image" content="https://illusionfight.com/og-image.jpg" />
         <meta property="og:type" content="website" />
-        <link rel="alternate" hrefLang="pt" href="https://illusionfight.com/games" />
-        <link rel="alternate" hrefLang="en" href="https://illusionfight.com/games" />
-        <link rel="alternate" hrefLang="es" href="https://illusionfight.com/games" />
       </Helmet>
     <div className="extras-page">
       <div className="extras-header">
         <h1 className="extras-titulo">{t('site.games.titulo')}</h1>
         <p className="extras-subtitulo">{t('site.games.subtitulo')}</p>
+        <p className="extras-seo-intro">{t('site.games.seo_intro')}</p>
       </div>
 
       <div className="kp-toggle">
