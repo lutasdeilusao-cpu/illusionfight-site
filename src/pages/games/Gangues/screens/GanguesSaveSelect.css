@@ -20,7 +20,11 @@
   background-size: cover, cover;
   background-position: top center, top center;
   background-repeat: no-repeat, no-repeat;
-  background-attachment: fixed, fixed;
+  /* NUNCA `fixed` — mesmo bug documentado em Gangues.css `.gang-brickwall-bg`
+     (espelhado aqui, como o comentário lá em cima pede): com `fixed`, o
+     `cover` é calculado contra o VIEWPORT, não contra a coluna de 480px,
+     e em qualquer desktop sem emulador a parede vinha gigante/cortada. */
+  background-attachment: scroll, scroll;
 }
 .gang-saves__loading { padding: 20px 16px 0; text-align: center; color: #cfc6bb; font-size: .82rem; }
 

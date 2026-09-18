@@ -128,11 +128,12 @@ Não substitui grep/prova de leitura em tasks de bug — a regra de colar output
 ```
 De 320px (iPhone SE) a 430px (Pro Max) a coluna é 100% da tela; acima disso trava em 480px e centraliza. Página nenhuma precisa repetir isso — herda. Backgrounds em `position: fixed; inset: 0` atrás da coluna. Esticar horizontalmente = errado.
 
-**As três armadilhas do mobile-only.** Todas medem o VIEWPORT, não a coluna — num desktop elas enxergam 1920px e quebram a visão única:
+**As quatro armadilhas do mobile-only.** Todas medem o VIEWPORT, não a coluna — num desktop elas enxergam 1920px e quebram a visão única:
 
 1. **Media query.** `@media (max-width: 767px)` não dispara num desktop, então o estilo mobile some. Regra mecânica: `max-width` com valor **≥ 480** é sempre verdadeiro dentro da coluna → desembrulhe o bloco (vira CSS normal). `min-width` com valor **≥ 480** é estilo desktop → apague o bloco. Só sobrevive query abaixo de 480 (refinamento de telefone pequeno) e as não-dimensionais (`prefers-reduced-motion`, `orientation`).
 2. **Unidade `vw`.** `78vw` num desktop = 1497px. Use `calc(78 * var(--app-vw) / 100)`. Vale para `clamp(..., Nvw, ...)` de fonte também — senão o desktop trava sempre no máximo e o celular não.
 3. **`position: fixed`.** Escapa da coluna e cola na borda da tela. Confine com `left/right: var(--app-gutter)` (bloco pronto em `index.css`); painel ancorado à direita, como o drawer, leva só `right`. Foi o que consertou a Rádio Nina atravessando o monitor inteiro.
+4. **`background-attachment: fixed`.** Junto com `background-size: cover`, o spec manda calcular o `cover` contra o VIEWPORT, não contra a caixa do elemento — mesmo o elemento sendo a coluna de 480px sempre, a imagem infla pra cobrir a largura real da tela (Isaias reportou, 17/09/2026: a parede oficial do Gangues — `.gang-brickwall-bg`/`.gang-saves` — vinha gigante e cortada num desktop comum, sem emulador; num emulador de celular ou num celular de verdade vinha normal, porque aí viewport ≈ coluna e a conta bate igual). Nunca usar `fixed` num background que precisa bater com a coluna — `scroll` calcula `cover` contra a própria caixa do elemento, sempre certo. Reservar `fixed` só pra um background que é DE PROPÓSITO viewport-inteiro (a moldura atrás da coluna, não a coluna em si).
 
 **Botão voltar:**
 - Nível 2 (menu dificuldade → catálogo Kernel Games): `onBack` prop → `navigate('/games')`

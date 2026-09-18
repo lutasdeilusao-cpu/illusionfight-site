@@ -2415,7 +2415,19 @@
   background-size: cover, cover;
   background-position: top center, top center;
   background-repeat: no-repeat, no-repeat;
-  background-attachment: fixed, fixed;
+  /* NUNCA `fixed` aqui (Isaias reportou, 17/09/2026, com prova em desktop
+     E emulador mobile lado a lado: no PC a parede vem gigante/cortada,
+     no emulador de celular vem normal). Motivo: com
+     `background-attachment: fixed`, o spec manda calcular o `cover`
+     contra o VIEWPORT inteiro, não contra a caixa do elemento — mesmo o
+     elemento sendo a coluna de 480px sempre, `cover` inflava a imagem pra
+     cobrir a largura real da tela (1280px+ num monitor), e só uma fatia
+     minúscula (e por isso gigante/zoomed) dessa imagem enorme aparecia
+     dentro da coluna. Não afeta celular de verdade (viewport ≈ coluna, a
+     conta bate igual), só quem abre o site num navegador comum de
+     desktop — o que inclui qualquer teste rápido sem emulador. `scroll`
+     calcula `cover` contra a própria caixa do elemento, sempre certo. */
+  background-attachment: scroll, scroll;
 }
 
 /* ===== DIÁLOGO PADRÃO DO LDI GANGUES (GangDialog) =====

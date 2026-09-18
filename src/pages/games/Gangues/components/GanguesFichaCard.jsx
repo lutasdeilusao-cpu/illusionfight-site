@@ -24,7 +24,7 @@ export default function GanguesFichaCard({ numero, nome, caminho, subcaminho, ni
         {corpoSlug
           ? <GanguesRetratoCorpo
               slug={corpoSlug}
-              className="gang-sheet-modal__corpo-btn"
+              className="gang-sheet-modal__corpo-wrap"
               imgClassName="gang-sheet-modal__corpo-img"
               fallback={<GanguesRetratoImg className="gang-sheet-modal__retrato" src={retrato} fallback={<i>{nome?.[0]?.toUpperCase()}</i>} />}
             />

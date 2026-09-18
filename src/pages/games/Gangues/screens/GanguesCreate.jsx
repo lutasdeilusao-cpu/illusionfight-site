@@ -158,7 +158,7 @@ export default function GanguesCreate({ onNavigate, onCreated }) {
                   {isCurrent && temCorpo ? (
                     <GanguesRetratoCorpo
                       slug={character.slug}
-                      className="gang-fighter-card__corpo-btn"
+                      className="gang-fighter-card__corpo-wrap"
                       imgClassName="gang-fighter-card__corpo-img"
                       fallback={<GanguesRetratoImg src={foto} fallback={<i>{character.name[0]}</i>} />}
                       onCiclar={() => sfx.select()}
