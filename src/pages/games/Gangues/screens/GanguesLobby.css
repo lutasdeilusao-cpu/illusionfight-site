@@ -339,11 +339,17 @@
    mesma identidade dos fighter-card: corte irregular, fundo marrom-tijolo,
    nome/tecnica em Permanent Marker; numeros/labels de atributo continuam
    em mono de proposito (dado tecnico, nao "voz" do jogo). */
-.gang-sheet-modal { position: fixed; z-index: 1200; inset: 0 var(--app-gutter); display: grid; align-items: end; padding: 10px; }
+/* `align-items: center` (era `end`) — pedido do Isaias, 18/09/2026: com a
+   ficha de corpo inteiro (§15.1 do GDD) o card raramente enche o `88dvh`
+   de antes, e ancorado no fundo isso sobrava tudo em cima, largado, sem
+   servir pra nada ("tá sobrando espaço lá em cima"). Centralizado, a
+   folga que sobra se divide em cima E embaixo — usa o espaço em vez de
+   empilhar ele todo de um lado. */
+.gang-sheet-modal { position: fixed; z-index: 1200; inset: 0 var(--app-gutter); display: grid; align-items: center; padding: 10px; }
 .gang-sheet-modal__scrim { position: absolute; inset: 0; border: 0; background: color-mix(in srgb, var(--bg-primary) 88%, transparent); backdrop-filter: blur(7px); }
 .gang-sheet-modal__card {
   --corte: polygon(0 3%, 8% 0, 92% 1%, 100% 4%, 99% 55%, 100% 92%, 92% 100%, 8% 99%, 0 94%);
-  position: relative; width: 100%; max-height: 88dvh; overflow-y: auto; padding: 16px;
+  position: relative; width: 100%; max-height: 94dvh; overflow-y: auto; padding: 16px;
   border: 1px solid color-mix(in srgb, var(--if-amber) 25%, transparent);
   background: linear-gradient(155deg, #241108, #150a05 55%, #0c0603);
   color: var(--text-primary);
@@ -373,19 +379,23 @@
    imagem em vez de dividir espaço com ela. */
 .gang-sheet-modal__hero--corpo { min-height: unset; padding: 4px 4px 10px; text-align: center; }
 .gang-sheet-modal__hero--corpo > span { position: absolute; top: 8px; left: 8px; z-index: 3; }
-.gang-sheet-modal__corpo-wrap { position: relative; display: grid; place-items: center; width: 100%; min-height: 300px; }
-.gang-sheet-modal__corpo-img { max-width: 78%; max-height: 320px; width: auto; height: auto; object-fit: contain; filter: drop-shadow(0 16px 22px rgba(0,0,0,.55)); }
+/* Altura reduzida de 300/320 (18/09/2026, Isaias: "sobra espaço lá em
+   cima... a ficha deve caber na tela") — o hero sozinho comia espaço
+   demais e empurrava stats/PV-PM/técnica/botão pra fora do `max-height`
+   do card, forçando scroll interno mesmo sem nada de exótico na ficha. */
+.gang-sheet-modal__corpo-wrap { position: relative; display: grid; place-items: center; width: 100%; min-height: 230px; }
+.gang-sheet-modal__corpo-img { max-width: 74%; max-height: 250px; width: auto; height: auto; object-fit: contain; filter: drop-shadow(0 16px 22px rgba(0,0,0,.55)); }
 .gang-sheet-modal__hero--corpo small { margin-top: 4px; }
 .gang-sheet-modal__hero--corpo h2, .gang-sheet-modal__hero--corpo p { position: static; }
-.gang-sheet-modal__stats { display: grid; gap: 6px; }
-.gang-sheet-modal__stats > div { display: grid; grid-template-columns: 1fr 28px 92px; align-items: center; gap: 8px; padding: 6px 8px; border-left: 2px solid var(--if-amber); background: rgba(0, 0, 0, .25); }
+.gang-sheet-modal__stats { display: grid; gap: 5px; }
+.gang-sheet-modal__stats > div { display: grid; grid-template-columns: 1fr 28px 92px; align-items: center; gap: 8px; padding: 5px 8px; border-left: 2px solid var(--if-amber); background: rgba(0, 0, 0, .25); }
 .gang-sheet-modal__stats span { font: 700 10px var(--font-mono); text-transform: uppercase; }
 .gang-sheet-modal__stats strong { font: 900 18px var(--font-title); text-align: center; }
 .gang-sheet-modal__stats i { display: flex; gap: 3px; }
 .gang-sheet-modal__stats i b { width: 15px; height: 4px; background: rgba(255, 255, 255, .12); }
 .gang-sheet-modal__stats i b.is-on { background: var(--if-amber); }
-.gang-sheet-modal__resources { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 8px; }
-.gang-sheet-modal__resources > span { padding: 8px 12px; border: 1px solid color-mix(in srgb, var(--if-amber) 22%, transparent); display: grid; gap: 5px; }
+.gang-sheet-modal__resources { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 6px; }
+.gang-sheet-modal__resources > span { padding: 6px 12px; border: 1px solid color-mix(in srgb, var(--if-amber) 22%, transparent); display: grid; gap: 4px; }
 .gang-sheet-modal__resource-row { display: flex; justify-content: space-between; align-items: center; }
 .gang-sheet-modal__resources small, .gang-sheet-modal__xp small { color: var(--text-secondary); font: 800 10px var(--font-mono); }
 .gang-sheet-modal__resources strong, .gang-sheet-modal__xp strong { color: var(--if-amber); font: 900 24px var(--font-title); }
@@ -408,14 +418,14 @@
 .gang-sheet-modal__xp { margin-top: 8px; padding: 8px 12px; border: 1px solid color-mix(in srgb, var(--if-amber) 22%, transparent); display: grid; gap: 5px; }
 .gang-ficha-xp-disponivel { color: var(--if-amber) !important; text-transform: none !important; letter-spacing: 0 !important; font-weight: 700 !important; }
 .gang-ficha-nivel { color: var(--if-amber); font-size: .55em; letter-spacing: .06em; }
-.gang-sheet-modal__technique { margin-top: 8px; padding: 10px 12px; border: 1px solid color-mix(in srgb, var(--if-amber) 22%, transparent); display: grid; grid-template-columns: 1fr auto; }
+.gang-sheet-modal__technique { margin-top: 6px; padding: 8px 12px; border: 1px solid color-mix(in srgb, var(--if-amber) 22%, transparent); display: grid; grid-template-columns: 1fr auto; }
 .gang-sheet-modal__technique small { grid-column: 1 / -1; color: var(--text-secondary); font: 700 8px var(--font-mono); letter-spacing: 2px; text-transform: uppercase; }
 .gang-sheet-modal__technique strong { color: #fff8ec; font: 400 1.2rem/1 'Permanent Marker', cursive; }
 .gang-sheet-modal__technique span { color: var(--if-amber); font: 700 11px var(--font-mono); }
 /* CTA spray-paint — mesmo halo dos outros botões de ação do jogo. */
 .gang-sheet-modal__select {
   --cor: var(--if-amber);
-  position: relative; width: 100%; min-height: 54px; margin-top: 12px;
+  position: relative; width: 100%; min-height: 50px; margin-top: 10px;
   background: transparent; border: none;
   color: #fff8ec; font: 400 1.15rem/1 'Permanent Marker', cursive;
   text-shadow: 0 2px 0 rgba(0, 0, 0, .6), 0 0 16px color-mix(in srgb, var(--cor) 70%, transparent);
@@ -436,10 +446,10 @@
 /* Linha de ações — quando existe bio de recrutamento (nem todo personagem
    tem, ver ganguesBiografias.js), o botão HISTÓRIA divide espaço com o de
    selecionar em vez do select sozinho ocupando a largura toda. */
-.gang-sheet-modal__actions-row { display: flex; gap: 8px; margin-top: 12px; }
+.gang-sheet-modal__actions-row { display: flex; gap: 8px; margin-top: 10px; }
 .gang-sheet-modal__actions-row .gang-sheet-modal__select { margin-top: 0; flex: 1; }
 .gang-sheet-modal__historia {
-  flex: 0 0 auto; min-height: 54px; padding: 0 16px;
+  flex: 0 0 auto; min-height: 50px; padding: 0 16px;
   border: 1px solid color-mix(in srgb, var(--if-amber) 35%, transparent); background: #1a0f08; color: #ffd9a0;
   font: 800 11px var(--font-mono); letter-spacing: 1px; text-transform: uppercase;
 }
