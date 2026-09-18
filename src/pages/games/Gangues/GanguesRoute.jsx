@@ -84,6 +84,33 @@ export default function GanguesRoute() {
     }
   }, [user])
 
+  // Gancho de debug (18/09/2026) — só em dev, mesma ideia do
+  // `window.__ganguesStore`: deixa Playwright pular direto pra uma luta
+  // real (recruta os 3 alvos, monta o bando com o gerador oficial,
+  // chama startMatch de verdade) sem depender de arrastar o analógico
+  // pela cena navegável, que trava em automação.
+  useEffect(() => {
+    if (!import.meta.env?.DEV) return
+    window.__ganguesDebugFight = async (templateIds = [2, 4, 5]) => {
+      // `store` (o objeto vindo de useGanguesStore()) é um snapshot congelado
+      // no render em que este efeito foi montado ([] de deps) — ler
+      // store.roster depois de mutar via recruitTemplate ainda devolve o
+      // array VELHO. useGanguesStore.getState() sempre lê o estado atual de
+      // verdade, igual o próprio window.__ganguesStore já faz.
+      const live = () => useGanguesStore.getState()
+      for (const id of templateIds) {
+        if (!live().roster.some(s => s.character_template_id === id)) await live().recruitTemplate(id)
+      }
+      const party = live().roster.filter(s => templateIds.includes(s.character_template_id))
+      live().setActiveParty(party)
+      const bando = gerarBandoInimigo({ territorioId: 'pista', dificuldade: 'facil', modo: 'facil', playerTeam: party, enemiesData })
+      window.__ganguesDebugLast = { party, bando, enemiesDataLen: enemiesData?.length }
+      if (!bando?.length) { console.error('[GANGUES DEBUG] gerarBandoInimigo falhou', { party, bando, enemiesDataLen: enemiesData?.length }); return }
+      live().startMatch(bando[0], bando, party)
+      setFase('combat')
+    }
+  }, [])
+
   useEffect(() => {
     setReaderMode(true)
     return () => setReaderMode(false)

@@ -139,48 +139,63 @@ const DADOS_POR_SLUG = {
   // um efeito próprio).
   //
   // BUG achado pelo Isaias jogando (18/09/2026, print da Catraca sem
-  // cabeça em combate) — os 3 `ataqueNormal` (NÃO os `dano`, esses vieram
-  // limpos) têm a arte das linhas 3-4 (quadros 9-16, a "volta pro
-  // normal") desenhada fora do quadrado da célula — a cabeça soube pra
-  // cima do vizinho de cima, e no caso do Faísca (chute voador) o corpo
-  // inteiro sai da célula, só sobrando a bota. Confirmado que NÃO é bug
-  // de pipeline (o mesmo código/receita gera o Trinca perfeito, 0 corte
-  // nos 16 quadros dele) — é a arte de origem (`<Nome>SocoNormal.png`)
-  // que não respeita a grade 4×4 nessas linhas, pra esses 3 personagens
-  // especificamente. `frames: 8` (em vez de 16) corta a animação exatamente
-  // ANTES da parte quebrada — toca só os quadros 1-8 (todos limpos,
-  // conferidos um por um), que já incluem o golpe de cada um (6/7/7 —
-  // sobra folga). Quando vier arte nova pras linhas 3-4 respeitando a
-  // grade, volta pra 16.
+  // cabeça em combate) — causa raiz real, achada extraindo a folha crua
+  // com sharp e olhando quadro a quadro: a arte ENTREGUE na 1ª leva só
+  // preenchia 4 col × 3 linhas (12 poses) dentro de uma folha 724×544,
+  // mas a config dizia 4×4/16 (copiada do Trinca/Muro sem checar se a
+  // arte nova respeitava a mesma grade). Com rows:4 o recorte de cada
+  // célula parava antes do fim da pose e a sobra aparecia inteira,
+  // sobreposta, na célula de baixo — a "perna flutuando acima do corpo"
+  // do print. Confirmado ao vivo via Playwright (browser aberto, jogo
+  // real) e também no PNG de origem (1448×1086) antes do redimensionamento
+  // — mesma grade 4×3 lá, não era um bug de export. Isaias redesenhou a
+  // arte pra grade certa (4×4/16 de verdade, igual Trinca/Muro — folhas
+  // novas em `assets/personagens/<nome>/`, 18/09/2026 à noite); os 16
+  // quadros de cada uma das 6 folhas (ataqueNormal + dano × 3 personagens)
+  // foram conferidos limpos, um por um. Índices de golpe abaixo são a
+  // posição real do flash/pico de extensão na arte NOVA (não os antigos).
   fenda: {
     ataqueNormal: {
-      // Chute alto, sem flash de impacto desenhado na folha — quadro do
-      // pico da extensão da perna (row2 col2) é o golpe de fato.
-      frameW: 181, frameH: 136, cols: 4, rows: 4, frames: 8, frameMs: 80,
-      sons: { golpes: [{ frame: 6, arquivo: som('soco-leve') }] },
+      // Arma nova (correntes), 2 flashes de impacto desenhados na folha —
+      // quadros 7 (linha 2 col 3) e 16 (linha 4 col 4).
+      frameW: 181, frameH: 136, cols: 4, rows: 4, frames: 16, frameMs: 80,
+      sons: {
+        golpes: [
+          { frame: 7, arquivo: som('soco-leve') },
+          { frame: 16, arquivo: som('soco-leve') },
+        ],
+      },
     },
     dano: {
+      // Flashes na folha — quadros 3 (linha 1 col 3) e 10 (linha 3 col 2).
       frameW: 181, frameH: 136, cols: 4, rows: 4, frames: 16, frameMs: 80,
       sons: {
         golpes: [
           { frame: 3, arquivo: som('dano-leve') },
-          { frame: 7, arquivo: som('dano-leve') },
+          { frame: 10, arquivo: som('dano-leve') },
         ],
       },
     },
   },
   catraca: {
     ataqueNormal: {
-      // Estalo do chicote, com flash de impacto desenhado na folha (row2 col3).
-      frameW: 181, frameH: 136, cols: 4, rows: 4, frames: 8, frameMs: 80,
-      sons: { golpes: [{ frame: 7, arquivo: som('soco-leve') }] },
+      // Estalo do chicote, 2 flashes de impacto — quadros 6 (linha 2
+      // col 2) e 11 (linha 3 col 3).
+      frameW: 181, frameH: 136, cols: 4, rows: 4, frames: 16, frameMs: 80,
+      sons: {
+        golpes: [
+          { frame: 6, arquivo: som('soco-leve') },
+          { frame: 11, arquivo: som('soco-leve') },
+        ],
+      },
     },
     dano: {
+      // Flashes na folha — quadros 3 (linha 1 col 3) e 10 (linha 3 col 2).
       frameW: 181, frameH: 136, cols: 4, rows: 4, frames: 16, frameMs: 80,
       sons: {
         golpes: [
           { frame: 3, arquivo: som('dano-leve') },
-          { frame: 7, arquivo: som('dano-leve') },
+          { frame: 10, arquivo: som('dano-leve') },
         ],
       },
     },
@@ -188,16 +203,17 @@ const DADOS_POR_SLUG = {
   faisca: {
     ataqueNormal: {
       // Chute voador, sem flash de impacto desenhado — pico da extensão
-      // da perna no ar (row2 col3) é o golpe de fato.
-      frameW: 181, frameH: 136, cols: 4, rows: 4, frames: 8, frameMs: 80,
+      // da perna no ar (quadro 7, linha 2 col 3) é o golpe de fato.
+      frameW: 181, frameH: 136, cols: 4, rows: 4, frames: 16, frameMs: 80,
       sons: { golpes: [{ frame: 7, arquivo: som('trinca-soco') }] },
     },
     dano: {
+      // Flashes na folha — quadros 3 (linha 1 col 3) e 11 (linha 3 col 3).
       frameW: 181, frameH: 136, cols: 4, rows: 4, frames: 16, frameMs: 80,
       sons: {
         golpes: [
           { frame: 3, arquivo: som('muro-soco1') },
-          { frame: 7, arquivo: som('muro-soco2') },
+          { frame: 11, arquivo: som('muro-soco2') },
         ],
       },
     },
