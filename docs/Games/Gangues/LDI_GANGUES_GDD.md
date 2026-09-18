@@ -1531,17 +1531,40 @@ sprite (efeito de sempre).
   (homem) reaproveita os sons já existentes do Trinca (`trinca-soco`, no
   ataque) e do Muro (`muro-soco1`/`muro-soco2`, no dano) — sugestão do
   próprio Isaias.
-- **Verificado sem UI de combate ao vivo** (chegar numa luta de verdade
-  pede simular arrasto de analógico na cena navegável, não só toque —
-  fora do escopo desta verificação): dados de `getGanguesAnimacao(id,
-  tipo)` para os ids 1-5 conferidos programaticamente via Playwright
-  (`page.evaluate` importando o módulo de dentro da própria página) —
-  sheet certo, 16 frames, frames de golpe corretos pra cada um; as 10
-  URLs de sprite (5 personagens × ataque/dano) responderam 200. Pipeline
-  de imagem conferido pixel a pixel contra o asset já publicado do
-  Trinca. Zero mudança de código nos componentes que renderizam a
-  animação (`GanguesCombatSpriteAnim.jsx`/`DramaticDice.jsx`) — só dado
-  novo fluindo pelo caminho que já funcionava pro Trinca/Muro.
+- **BUG real, achado pelo Isaias jogando** (print de combate mostrando a
+  Catraca sem cabeça, 18/09/2026): a 1ª verificação (checagem de dados +
+  URL 200 via Playwright, sem olhar o VISUAL de cada quadro) não pegou
+  isso — passou confiando que "mesmo pipeline do Trinca" bastava, e não
+  bastou. Investigação real (renderizando os 16 quadros de cada folha com
+  a MESMA fórmula CSS do `GanguesCombatSpriteAnim.jsx` — `background-size`/
+  `background-position` por percentual — numa página HTML isolada,
+  screenshot de cada quadro): os `ataqueNormal` (não os `dano`, esses
+  vieram limpos nas 3) de Fenda, Catraca e Faísca têm a arte dos quadros
+  9-16 desenhada fora do quadrado da célula — a cabeça da Catraca fica
+  pra cima do quadro vizinho (só as pernas ficam visíveis), o corpo do
+  Faísca (chute voador) sai quase inteiro pra fora (só a bota sobra). O
+  Trinca, testado do mesmo jeito como controle, não tem NENHUM corte em
+  nenhum dos 16 quadros — confirma que é a ARTE DE ORIGEM (`<Nome>SocoNormal.png`)
+  que não respeita a grade 4×4 nessas linhas pra esses 3 personagens
+  específicos, não o pipeline/código.
+- **Fix aplicado**: `frames: 16` → `frames: 8` nos 3 `ataqueNormal`
+  quebrados (não nos `dano`, que continuam 16) — corta a animação
+  exatamente ANTES da parte com defeito; os quadros 1-8 foram conferidos
+  um por um (limpos) e já incluem o golpe de cada um (frame 6 Fenda, 7
+  Catraca, 7 Faísca — sobra folga). Quando a arte das linhas 3-4 vier
+  redesenhada respeitando a grade, volta pra 16.
+- **Verificado**: dados de `getGanguesAnimacao(id, tipo)` pros ids 1-5
+  corretos (sheet/frames/golpes) via Playwright; as 10 URLs de sprite
+  responderam 200; os 8 quadros de cada `ataqueNormal` afetado e os 16 de
+  cada `dano` renderizados um a um (mesma fórmula CSS do componente real)
+  sem nenhum corte, com prova em screenshot. **Não verificado dentro do
+  `DramaticDice.jsx` durante uma luta real** — chegar lá pede simular
+  arrasto de analógico na cena navegável (tentado, sem sucesso confiável
+  em automação — o personagem trava contra obstáculo antes de alcançar o
+  inimigo mais próximo); zero mudança de código nos componentes que
+  renderizam a animação, só dado — a mesma fórmula CSS que eu testei
+  isolada é a que o componente usa ao vivo, então o resultado deve ser
+  idêntico, mas o Isaias vai confirmar jogando.
 
 ## 16. Líder da gangue (set/2026)
 

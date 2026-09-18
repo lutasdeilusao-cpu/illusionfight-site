@@ -137,11 +137,26 @@ const DADOS_POR_SLUG = {
   // compartilhado entre Fenda e Catraca por ora (não é um som por
   // personagem, é um som por gênero — ajustar se/quando cada uma ganhar
   // um efeito próprio).
+  //
+  // BUG achado pelo Isaias jogando (18/09/2026, print da Catraca sem
+  // cabeça em combate) — os 3 `ataqueNormal` (NÃO os `dano`, esses vieram
+  // limpos) têm a arte das linhas 3-4 (quadros 9-16, a "volta pro
+  // normal") desenhada fora do quadrado da célula — a cabeça soube pra
+  // cima do vizinho de cima, e no caso do Faísca (chute voador) o corpo
+  // inteiro sai da célula, só sobrando a bota. Confirmado que NÃO é bug
+  // de pipeline (o mesmo código/receita gera o Trinca perfeito, 0 corte
+  // nos 16 quadros dele) — é a arte de origem (`<Nome>SocoNormal.png`)
+  // que não respeita a grade 4×4 nessas linhas, pra esses 3 personagens
+  // especificamente. `frames: 8` (em vez de 16) corta a animação exatamente
+  // ANTES da parte quebrada — toca só os quadros 1-8 (todos limpos,
+  // conferidos um por um), que já incluem o golpe de cada um (6/7/7 —
+  // sobra folga). Quando vier arte nova pras linhas 3-4 respeitando a
+  // grade, volta pra 16.
   fenda: {
     ataqueNormal: {
       // Chute alto, sem flash de impacto desenhado na folha — quadro do
       // pico da extensão da perna (row2 col2) é o golpe de fato.
-      frameW: 181, frameH: 136, cols: 4, rows: 4, frames: 16, frameMs: 80,
+      frameW: 181, frameH: 136, cols: 4, rows: 4, frames: 8, frameMs: 80,
       sons: { golpes: [{ frame: 6, arquivo: som('soco-leve') }] },
     },
     dano: {
@@ -157,7 +172,7 @@ const DADOS_POR_SLUG = {
   catraca: {
     ataqueNormal: {
       // Estalo do chicote, com flash de impacto desenhado na folha (row2 col3).
-      frameW: 181, frameH: 136, cols: 4, rows: 4, frames: 16, frameMs: 80,
+      frameW: 181, frameH: 136, cols: 4, rows: 4, frames: 8, frameMs: 80,
       sons: { golpes: [{ frame: 7, arquivo: som('soco-leve') }] },
     },
     dano: {
@@ -174,7 +189,7 @@ const DADOS_POR_SLUG = {
     ataqueNormal: {
       // Chute voador, sem flash de impacto desenhado — pico da extensão
       // da perna no ar (row2 col3) é o golpe de fato.
-      frameW: 181, frameH: 136, cols: 4, rows: 4, frames: 16, frameMs: 80,
+      frameW: 181, frameH: 136, cols: 4, rows: 4, frames: 8, frameMs: 80,
       sons: { golpes: [{ frame: 7, arquivo: som('trinca-soco') }] },
     },
     dano: {
