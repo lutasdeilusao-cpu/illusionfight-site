@@ -64,7 +64,10 @@ function som(nome) {
 // character_template_id (catálogo dos 30 recrutáveis) -> slug da pasta.
 const TEMPLATE_SLUG = {
   1: 'trinca',
+  2: 'fenda',
   3: 'muro',
+  4: 'catraca',
+  5: 'faisca',
 }
 
 // Dados de animação por slug e por tipo — grade, timing e sons. `golpes`
@@ -117,6 +120,69 @@ const DADOS_POR_SLUG = {
         golpes: [
           { frame: 3, arquivo: som('muro-soco1') },
           { frame: 10, arquivo: som('muro-soco2') },
+        ],
+      },
+    },
+  },
+  // Fenda, Catraca, Faísca (17/09-18/09/2026) — arte de combate chegou
+  // sem voz ainda ("as vozes eu faço no ElevenLabs depois") — só `golpes`
+  // (o som de impacto em si), sem `voz`/`ambiente`. Isaias pediu
+  // personalidade sonora por GÊNERO nesse meio tempo: um par de socos
+  // (aplicando/tomando) diferente pra personagem mulher, reaproveitando
+  // o do Trinca/Muro pra personagem homem ("pra o Faísca talvez a gente
+  // possa reaproveitar do Muro e do Trinca... mas pras mulheres precisam
+  // de um som de soco diferente, um som de tomar golpe diferente e
+  // aplicar golpe diferente"). `soco-leve`/`dano-leve` (Mixkit, licença
+  // Mixkit — "Soft quick punch"/"Weak hit impact") são o par feminino,
+  // compartilhado entre Fenda e Catraca por ora (não é um som por
+  // personagem, é um som por gênero — ajustar se/quando cada uma ganhar
+  // um efeito próprio).
+  fenda: {
+    ataqueNormal: {
+      // Chute alto, sem flash de impacto desenhado na folha — quadro do
+      // pico da extensão da perna (row2 col2) é o golpe de fato.
+      frameW: 181, frameH: 136, cols: 4, rows: 4, frames: 16, frameMs: 80,
+      sons: { golpes: [{ frame: 6, arquivo: som('soco-leve') }] },
+    },
+    dano: {
+      frameW: 181, frameH: 136, cols: 4, rows: 4, frames: 16, frameMs: 80,
+      sons: {
+        golpes: [
+          { frame: 3, arquivo: som('dano-leve') },
+          { frame: 7, arquivo: som('dano-leve') },
+        ],
+      },
+    },
+  },
+  catraca: {
+    ataqueNormal: {
+      // Estalo do chicote, com flash de impacto desenhado na folha (row2 col3).
+      frameW: 181, frameH: 136, cols: 4, rows: 4, frames: 16, frameMs: 80,
+      sons: { golpes: [{ frame: 7, arquivo: som('soco-leve') }] },
+    },
+    dano: {
+      frameW: 181, frameH: 136, cols: 4, rows: 4, frames: 16, frameMs: 80,
+      sons: {
+        golpes: [
+          { frame: 3, arquivo: som('dano-leve') },
+          { frame: 7, arquivo: som('dano-leve') },
+        ],
+      },
+    },
+  },
+  faisca: {
+    ataqueNormal: {
+      // Chute voador, sem flash de impacto desenhado — pico da extensão
+      // da perna no ar (row2 col3) é o golpe de fato.
+      frameW: 181, frameH: 136, cols: 4, rows: 4, frames: 16, frameMs: 80,
+      sons: { golpes: [{ frame: 7, arquivo: som('trinca-soco') }] },
+    },
+    dano: {
+      frameW: 181, frameH: 136, cols: 4, rows: 4, frames: 16, frameMs: 80,
+      sons: {
+        golpes: [
+          { frame: 3, arquivo: som('muro-soco1') },
+          { frame: 7, arquivo: som('muro-soco2') },
         ],
       },
     },

@@ -1492,6 +1492,57 @@ cena, progressão) — nada disso mudou.
   também → seleção e confirmação de recrutamento funcionam normalmente →
   zero erro de console.
 
+### 15.2 Máquina de animação de combate — cobertura (18/09/2026)
+
+`ganguesCombatAnimations.js` (§ na doc de arquitetura do combate) — os
+**5 personagens iniciais têm ataqueNormal + dano completos**: Trinca,
+Muro (já existiam), Fenda, Catraca, Faísca (18/09/2026, mesma leva de arte
+que trouxe `<Nome>SocoNormal.png`/`<Nome>DanoNormal.png` em cada pasta de
+`RECRUTAVEIS/`). Nenhum dos 25 restantes tem ainda — cai no golpe sem
+sprite (efeito de sempre).
+
+- **Pipeline de recorte** (mesmo pra todos, verificado byte-a-byte contra
+  o `ataque-normal.webp` já publicado do Trinca antes de aplicar nos 3
+  novos): fonte `1448×1086` → `extend` (`bottom`) até a próxima altura
+  múltipla de 8 (`1086`→`1088`, +2px transparente) → resize exato pela
+  metade (`724×544`) → `webp({ lossless: true })`. O padding garante que
+  cada quadro da grade 4×4 (`724/4=181`, `544/4=136`) saia em número
+  inteiro de pixel — sem ele o último quadro de cada linha perderia
+  precisão de arredondamento.
+- **Frames de golpe são por personagem** (não existe convenção fixa de
+  "frame 9 sempre") — cada folha tem seu próprio ritmo de animação;
+  alguns golpes têm flash de impacto desenhado na própria arte (Trinca,
+  Muro, Catraca — nesses o quadro do flash é óbvio), outros não desenham
+  nenhum efeito (Fenda e Faísca, os dois de chute) — nesses o quadro de
+  golpe escolhido foi o pico da extensão do membro (perna totalmente
+  estendida), não um frame arbitrário.
+- **Sem voz ainda** (Fenda/Catraca/Faísca) — a arte chegou sem
+  `<Nome>FalaSocoNormal.mp3` (só Trinca/Muro têm); Isaias vai gravar as
+  vozes depois no ElevenLabs. `sons.voz` fica de fora da entrada desses 3
+  em `DADOS_POR_SLUG` até lá (o código já trata `voz`/`ambiente` como
+  opcionais, `if (anim.sons.voz)` em `DramaticDice.jsx` — não quebra sem).
+- **Som de impacto por GÊNERO, provisório** (pedido do Isaias, 18/09/2026:
+  "as mulheres precisam de um som de soco diferente... aplicar golpe e
+  tomar golpe diferente" — mas voz de verdade só depois): Fenda e Catraca
+  compartilham um par `soco-leve.mp3`/`dano-leve.mp3` (Mixkit, licença
+  Mixkit — "Soft quick punch"/"Weak hit impact", mesma fonte de licença
+  já usada pros sons do Trinca) — é um som por GÊNERO por ora, não por
+  personagem; ajustar quando cada uma ganhar efeito próprio. Faísca
+  (homem) reaproveita os sons já existentes do Trinca (`trinca-soco`, no
+  ataque) e do Muro (`muro-soco1`/`muro-soco2`, no dano) — sugestão do
+  próprio Isaias.
+- **Verificado sem UI de combate ao vivo** (chegar numa luta de verdade
+  pede simular arrasto de analógico na cena navegável, não só toque —
+  fora do escopo desta verificação): dados de `getGanguesAnimacao(id,
+  tipo)` para os ids 1-5 conferidos programaticamente via Playwright
+  (`page.evaluate` importando o módulo de dentro da própria página) —
+  sheet certo, 16 frames, frames de golpe corretos pra cada um; as 10
+  URLs de sprite (5 personagens × ataque/dano) responderam 200. Pipeline
+  de imagem conferido pixel a pixel contra o asset já publicado do
+  Trinca. Zero mudança de código nos componentes que renderizam a
+  animação (`GanguesCombatSpriteAnim.jsx`/`DramaticDice.jsx`) — só dado
+  novo fluindo pelo caminho que já funcionava pro Trinca/Muro.
+
 ## 16. Líder da gangue (set/2026)
 
 Pedido do Isaias: dar personalidade real ao "quem manda" da gangue, não só
