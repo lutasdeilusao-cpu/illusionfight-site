@@ -2869,32 +2869,50 @@ button.gang-skill-node:hover { border-color: var(--if-teal); }
   text-align: center;
 }
 
-/* ── Balão de dica de rua (GangTip) — sem mascote ── */
-.gang-tip {
-  position: fixed; bottom: max(18px, env(safe-area-inset-bottom)); z-index: 9998;
-  max-width: 230px; padding: 12px 14px 12px;
-  background: linear-gradient(180deg, rgba(14, 10, 4, 0.96), rgba(6, 5, 3, 0.98));
-  border: 1px solid var(--if-amber); box-shadow: inset 3px 0 var(--if-amber), 0 8px 26px rgba(0, 0, 0, 0.5);
-  clip-path: polygon(0 0, calc(100% - 9px) 0, 100% 9px, 100% 100%, 0 100%);
+/* ── Dica de rua (GangTip) — reescrito 19/09/2026: virou overlay de tela
+   cheia com scrim (pausa de verdade, bloqueia clique no jogo por trás),
+   card centralizado, mesmo padrão visual do balão do GangDialog (borda
+   âmbar, fundo escuro). O botão de pular é o `.gang-dlg-skip`
+   compartilhado (mesma classe, mesmo lugar — embaixo do card — de
+   QUALQUER diálogo do jogo). Confinado na coluna mobile via
+   `--app-gutter`, mesmo bloco pronto de todo overlay fixed do site. */
+.gang-tip-overlay {
+  position: fixed; top: 0; bottom: 0; left: var(--app-gutter); right: var(--app-gutter); z-index: 9998;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px;
+  padding: 24px 18px calc(24px + env(safe-area-inset-bottom));
+  background: rgba(2, 3, 4, .72); backdrop-filter: blur(3px);
+  cursor: pointer;
 }
-/* right/left:8px sozinho gruda na borda real da JANELA, não da coluna
-   mobile — num desktop largo ele voa longe do resto da tela do jogo. */
-.gang-tip--right { right: calc(var(--app-gutter) + 8px); }
-.gang-tip--left { left: calc(var(--app-gutter) + 8px); }
-.gang-tip-skip {
-  position: absolute; top: 6px; right: 8px;
-  background: none; border: none; cursor: pointer;
-  font: 700 8px 'Courier New', monospace; letter-spacing: 1.5px;
-  color: rgba(255, 255, 255, 0.4); text-transform: uppercase;
+.gang-tip-card {
+  position: relative; width: 100%; max-width: 320px; padding: 46px 18px 16px;
+  background: linear-gradient(180deg, #14100c, #0a0705);
+  border: 2px solid var(--if-amber); border-radius: 22px;
+  box-shadow: 0 16px 36px -18px rgba(0, 0, 0, .85);
+  cursor: default; text-align: center;
 }
-.gang-tip-skip:hover { color: #fff; }
-.gang-tip-text { margin: 6px 0 0; color: #eadfce; font-size: 12.5px; line-height: 1.5; }
+/* Cabeça do Nego Véio (pedido do Isaias, 19/09/2026: "coloque a cabeça
+   do Nego Véio nesses diálogos tutorial") — mesma receita visual do
+   `.gang-dlg-portrait-idle` do GangDialog, só menor e centralizada,
+   metade pra fora do card (mesmo truque de sobrepor a borda de cima). */
+.gang-tip-portrait {
+  position: absolute; top: -34px; left: 50%; translate: -50% 0; z-index: 2;
+  display: grid; place-items: center; width: 68px; height: 68px; overflow: hidden; border-radius: 50%;
+  background: linear-gradient(150deg, var(--if-amber), #b56a1e);
+  border: 3px solid rgba(0, 0, 0, .45);
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, .65));
+  animation: gang-dlg-idle 3.4s ease-in-out infinite;
+}
+.gang-tip-portrait img { width: 100%; height: 100%; object-fit: cover; image-rendering: pixelated; }
+.gang-tip-portrait b { font: 900 1.4rem var(--font-display); color: #1b1000; }
+@media (prefers-reduced-motion: reduce) { .gang-tip-portrait { animation: none; } }
+.gang-tip-text { margin: 0; color: #eadfce; font-size: 14px; line-height: 1.55; }
 .gang-tip-next {
-  margin-top: 10px; padding: 6px 14px;
-  border: 1px solid var(--if-amber); background: rgba(255, 174, 50, 0.12); color: var(--if-amber);
-  font: 800 10px 'Rajdhani', sans-serif; letter-spacing: 2px; text-transform: uppercase; cursor: pointer;
+  margin-top: 14px; padding: 8px 20px;
+  border: 1px solid var(--if-amber); border-radius: 4px; background: rgba(255, 174, 50, .12); color: var(--if-amber);
+  font: 800 11px 'Rajdhani', sans-serif; letter-spacing: 2px; text-transform: uppercase; cursor: pointer;
+  animation: gang-dlg-pulse 1.6s ease-in-out infinite;
 }
-.gang-tip-next:hover { background: rgba(255, 174, 50, 0.22); }
+.gang-tip-next:hover { background: rgba(255, 174, 50, .22); }
 .gang-page--loading {
   min-height: 100dvh;
   display: grid;
