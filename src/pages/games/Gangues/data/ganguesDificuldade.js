@@ -48,3 +48,22 @@ export function ajustarPontosFixo(pontosBase, modo = 'medio') {
   const ajuste = GANGUES_DIFICULDADE_AJUSTE[modo] ?? 0
   return Math.max(1, Math.round(pontosBase + ajuste))
 }
+
+/** Nível REAL equivalente a um total de pontos de ficha (A+H+D+PV+PM) —
+ *  só pra exibir/comparar "nível recomendado" de forma honesta na UI.
+ *  Achado do Isaias, 19/09/2026 (2x seguidas, no mesmo card de treta):
+ *  "a ficha ali é nível 8, mas os pontos batem com nível 2/3 de
+ *  verdade — tá muito desnivelado". Conferido no catálogo real dos 30
+ *  personagens (ldi_gangues_30_personagens_v1.json): nível 1 nasce com
+ *  6-8 pontos (varia por personagem, média ~7) e sobe EXATAMENTE +1
+ *  ponto por nível dali pra frente — bem diferente do "1 ponto = 1
+ *  nível" que a ladder de encontros usa internamente pra pontosFixo
+ *  (ver ganguesTerritorios.js/data/cenas/pista — esses números NÃO
+ *  mudam, são o orçamento de combate já calibrado; só a CONVERSÃO pra
+ *  "nível" na tela precisava ser corrigida). NÃO usar isso pra escalar
+ *  inimigo de verdade — só pra comparação/exibição. */
+export const GANGUES_PONTOS_NIVEL_1 = 7
+export function nivelRealDePontos(pontos) {
+  if (!(pontos > 0)) return 1
+  return Math.max(1, Math.round(pontos - (GANGUES_PONTOS_NIVEL_1 - 1)))
+}
