@@ -3982,11 +3982,12 @@
         "bloqueado": "Locked",
         "liberado": "Unlocked",
         "entrar_torre": "ENTER THE TOWER",
-        "batalha_bloqueada_desc": "The Tower opens once you clear the campaign. First, take Marélia turf by turf.",
+        "modo_bloqueado_teaser": "How do I unlock this? →",
+        "batalha_bloqueada_toast": "The Tower unlocks once you clear the whole campaign — all 7 turfs of Marélia, up to taking down Costura in Laje.",
         "em_breve": "COMING SOON",
         "multiplayer_titulo": "ONLINE MULTIPLAYER",
-        "multiplayer_bloqueada_desc": "Get one gang sheet to level 99 to unlock online play against other gangs (online itself arrives in a future update).",
-        "multiplayer_liberado_desc": "You have a sheet at level 99 — online play against other gangs is ready to switch on the moment it lands."
+        "multiplayer_bloqueada_toast": "Unlocks once at least 3 of your gang's sheets reach level 99.",
+        "multiplayer_liberado_toast": "Your gang already has 3 sheets at level 99 — online play against other gangs is ready to switch on the moment the update lands."
       },
       "batalha": {
         "titulo": "THE TOWER",

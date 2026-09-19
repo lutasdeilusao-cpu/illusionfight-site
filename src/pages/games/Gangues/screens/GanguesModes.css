@@ -57,6 +57,24 @@
 .gang-modes-card-desc {
   font-size: 0.8rem; line-height: 1.45; color: var(--text-secondary);
 }
+/* Teaser dos cards bloqueados (Modo Batalha/Multiplayer) — pedido do Isaias
+   (19/09/2026): não escreve a condição de liberação no card, só instiga o
+   clique ("dá curiosidade") — a condição de verdade aparece no toast
+   (.gang-modes-toast) só depois que o jogador clica. */
+.gang-modes-card-desc--teaser {
+  font-weight: 700; color: var(--modo-cor);
+  text-transform: uppercase; letter-spacing: 0.04em; font-size: 0.72rem;
+}
+.gang-modes-toast {
+  position: fixed; left: var(--app-gutter); right: var(--app-gutter);
+  bottom: calc(18px + env(safe-area-inset-bottom));
+  z-index: 950; margin: 0 auto; width: max-content; max-width: 88%;
+  padding: 10px 16px; text-align: center;
+  font: 700 0.78rem/1.4 var(--font-mono); color: #fff;
+  border: 1px solid var(--if-amber); background: linear-gradient(160deg, #14100c, #0a0705);
+  box-shadow: 0 0 30px -8px color-mix(in srgb, var(--if-amber) 55%, transparent);
+  clip-path: polygon(0 0, calc(100% - 9px) 0, 100% 9px, 100% 100%, 0 100%);
+}
 .gang-modes-card-cta {
   margin-top: 8px;
   font: 700 0.72rem var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase;

@@ -1,5 +1,5 @@
-import { motion } from 'framer-motion'
-import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { useState, useRef } from 'react'
 import { useLanguage } from '../../../../context/LanguageContext'
 import { useGanguesStore } from '../store/useGanguesStore'
 import { ganguesTemMultiplayer } from '../data/ganguesLoadout.js'
@@ -21,6 +21,18 @@ export default function GanguesModes({ onNavigate, onVoltar }) {
   const store = useGanguesStore()
   const party = store.activeParty
   const [gangueAberta, setGangueAberta] = useState(false)
+  // Toast de curiosidade (pedido do Isaias, 19/09/2026): os cards bloqueados
+  // não escrevem mais a condição de liberação direto no card — o jogador
+  // clica pra descobrir ("dá curiosidade de clicar"). Mesmo padrão de
+  // `aviso` usado em GanguesCena.jsx.
+  const [aviso, setAviso] = useState(null)
+  const avisoTimer = useRef(null)
+  const mostrarAviso = (texto) => {
+    sfx.select?.()
+    clearTimeout(avisoTimer.current)
+    setAviso(texto)
+    avisoTimer.current = setTimeout(() => setAviso(null), 4200)
+  }
 
   if (party.length < 2) { onNavigate('lobby'); return null }
 
@@ -89,27 +101,38 @@ export default function GanguesModes({ onNavigate, onVoltar }) {
             <span className="gang-modes-card-cta">{t('games.gangues.modes.entrar_torre')} <b>→</b></span>
           </motion.button>
         ) : (
-          <motion.div className="gang-modes-card gang-modes-card--batalha gang-modes-card--locked"
+          <motion.button type="button" className="gang-modes-card gang-modes-card--batalha gang-modes-card--locked"
+            onClick={() => mostrarAviso(t('games.gangues.modes.batalha_bloqueada_toast'))}
             initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.18 }}>
             <span className="gang-modes-card-index">02</span>
             <span className="gang-modes-lock" aria-hidden="true">⊘</span>
             <span className="gang-modes-card-tag">{t('games.gangues.modes.bloqueado')}</span>
             <strong className="gang-modes-card-titulo">{t('games.gangues.modes.batalha_titulo')}</strong>
-            <small className="gang-modes-card-desc">{t('games.gangues.modes.batalha_bloqueada_desc')}</small>
+            <small className="gang-modes-card-desc gang-modes-card-desc--teaser">{t('games.gangues.modes.modo_bloqueado_teaser')}</small>
             <span className="gang-modes-card-cta">{t('games.gangues.modes.em_breve')}</span>
-          </motion.div>
+          </motion.button>
         )}
 
-        <motion.div className={`gang-modes-card gang-modes-card--multiplayer${mpLiberado ? '' : ' gang-modes-card--locked'}`}
+        <motion.button type="button" className={`gang-modes-card gang-modes-card--multiplayer${mpLiberado ? '' : ' gang-modes-card--locked'}`}
+          onClick={() => mostrarAviso(t(mpLiberado ? 'games.gangues.modes.multiplayer_liberado_toast' : 'games.gangues.modes.multiplayer_bloqueada_toast'))}
           initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.26 }}>
           <span className="gang-modes-card-index">03</span>
           <span className="gang-modes-lock" aria-hidden="true">{mpLiberado ? '⧉' : '⊘'}</span>
           <span className="gang-modes-card-tag">{mpLiberado ? t('games.gangues.modes.liberado') : t('games.gangues.modes.bloqueado')}</span>
           <strong className="gang-modes-card-titulo">{t('games.gangues.modes.multiplayer_titulo')}</strong>
-          <small className="gang-modes-card-desc">{mpLiberado ? t('games.gangues.modes.multiplayer_liberado_desc') : t('games.gangues.modes.multiplayer_bloqueada_desc')}</small>
+          <small className="gang-modes-card-desc gang-modes-card-desc--teaser">{t('games.gangues.modes.modo_bloqueado_teaser')}</small>
           <span className="gang-modes-card-cta">{t('games.gangues.modes.em_breve')}</span>
-        </motion.div>
+        </motion.button>
       </div>
+
+      <AnimatePresence>
+        {aviso && (
+          <motion.div className="gang-modes-toast" role="status"
+            initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}>
+            {aviso}
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {gangueAberta && <div className="gang-modes-party-modal" onClick={() => setGangueAberta(false)}>
         <section onClick={event => event.stopPropagation()}>

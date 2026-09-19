@@ -879,11 +879,12 @@
         "bloqueado": "Bloqueado",
         "liberado": "Liberado",
         "entrar_torre": "ENTRAR NA TORRE",
-        "batalha_bloqueada_desc": "A Torre abre quando você zera a campanha. Primeiro, domine Marélia quebrada por quebrada.",
+        "modo_bloqueado_teaser": "Como faço pra liberar? →",
+        "batalha_bloqueada_toast": "A Torre libera depois que você zera a campanha inteira — os 7 territórios de Marélia, até bater o Costura lá na Laje.",
         "em_breve": "EM BREVE",
         "multiplayer_titulo": "MULTIPLAYER ONLINE",
-        "multiplayer_bloqueada_desc": "Leve uma ficha da gangue ao nível 99 pra abrir o online contra outras gangues (o online em si chega numa atualização futura).",
-        "multiplayer_liberado_desc": "Você tem uma ficha no nível 99 — o online contra outras gangues está pronto pra ligar assim que chegar."
+        "multiplayer_bloqueada_toast": "Libera quando pelo menos 3 personagens da sua gangue chegarem no nível 99.",
+        "multiplayer_liberado_toast": "Sua gangue já tem 3 fichas no nível 99 — o online contra outras gangues está pronto pra ligar assim que a atualização chegar."
       },
       "batalha": {
         "titulo": "A TORRE",
