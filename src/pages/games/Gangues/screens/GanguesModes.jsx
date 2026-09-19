@@ -5,6 +5,7 @@ import { useGanguesStore } from '../store/useGanguesStore'
 import { ganguesTemMultiplayer } from '../data/ganguesLoadout.js'
 import { getGanguesPortraitByTemplateId } from '../data/ganguesPortraits.js'
 import { sfx } from '../../../../lib/sfx'
+import GanguesVoltarBtn from '../components/GanguesVoltarBtn'
 import '../Gangues.css' // .gang-brickwall-bg mora lá
 import './GanguesModes.css'
 import './GanguesModesRedesign.css'
@@ -15,7 +16,7 @@ import './GanguesModesRedesign.css'
    MODO BATALHA (confronto avulso 2×2, sem progresso).
    ══════════════════════════════════════════════════════════════ */
 
-export default function GanguesModes({ onNavigate }) {
+export default function GanguesModes({ onNavigate, onVoltar }) {
   const { t } = useLanguage()
   const store = useGanguesStore()
   const party = store.activeParty
@@ -34,9 +35,7 @@ export default function GanguesModes({ onNavigate }) {
   return (
     <main className="gang-lobby gang-modes gang-brickwall-bg">
       <header className="gang-story-head">
-        <button className="gang-progression-screen-back" onClick={() => onNavigate('lobby')}>
-          ← {t('games.gangues.progression.back_to_roster')}
-        </button>
+        <GanguesVoltarBtn onClick={onVoltar || (() => onNavigate('lobby'))} />
       </header>
 
       <button className="gang-modes-gang-button" onClick={() => setGangueAberta(true)}>

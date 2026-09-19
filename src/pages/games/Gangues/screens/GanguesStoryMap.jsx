@@ -3,6 +3,7 @@ import { useLanguage } from '../../../../context/LanguageContext'
 import { useGanguesStore } from '../store/useGanguesStore'
 import { sfx } from '../../../../lib/sfx'
 import { GANGUES_TERRITORIOS, estadoTerritorio, progressoTerritorio, totalNos } from '../data/ganguesTerritorios.js'
+import GanguesVoltarBtn from '../components/GanguesVoltarBtn'
 import '../Gangues.css' // .gang-brickwall-bg mora lá
 import './GanguesWorldMap.css'
 
@@ -10,7 +11,7 @@ import './GanguesWorldMap.css'
    (poly/pos/cor já existiam nos dados, só nunca tinham sido usados; o
    carrossel antigo ignorava isso). Tocar numa região seleciona ela; o
    painel de baixo mostra os detalhes e o botão de entrar. */
-export default function GanguesStoryMap({ onNavigate }) {
+export default function GanguesStoryMap({ onNavigate, onVoltar }) {
   const { t } = useLanguage()
   const store = useGanguesStore()
   const progress = store.storyProgress
@@ -45,7 +46,7 @@ export default function GanguesStoryMap({ onNavigate }) {
   return (
     <main className="gang-world gang-brickwall-bg">
       <header className="gang-world__top">
-        <button onClick={() => onNavigate('modes')}>← {t('games.gangues.story.menu')}</button>
+        <GanguesVoltarBtn onClick={onVoltar || (() => onNavigate('modes'))} />
         <span><b>{domainPct}%</b>{t('games.gangues.story.dominio')}</span>
         <button className="gang-world__top-gang" onClick={() => { sfx.select?.(); onNavigate('lobby') }}>
           👥 {t('games.gangues.story.gerenciar_gangue')}

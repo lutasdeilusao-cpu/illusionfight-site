@@ -284,6 +284,10 @@
         "sem_pv": "HP too low",
         "sua_vez": "Your turn",
         "vez_inimiga": "Enemy turn",
+        "sair_confirm_titulo": "Leave the fight?",
+        "sair_confirm_texto": "Do you want to leave this fight and go back to the menu? You get no reward for bouncing.",
+        "sair_confirm_cancelar": "Keep fighting",
+        "sair_confirm_confirmar": "Leave to menu",
         "provocar": "Taunt",
         "sem_custo": "free",
         "sem_poderes": "This fighter has no active talents equipped. Equip them in the sheet progression."

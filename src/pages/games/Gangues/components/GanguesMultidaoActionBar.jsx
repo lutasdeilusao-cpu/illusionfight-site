@@ -4,7 +4,7 @@ import { getEquippedActiveGanguesSpecials } from '../engine/ganguesSpecialEffect
 // botão de avançar rodada. Extraído de GanguesCombat.jsx
 // (PLANO_REFATORACAO_ARQUIVOS_GRANDES_GANGUES_2026-09-11.md §6).
 export default function GanguesMultidaoActionBar({
-  t, onNavigate, playerTeam, poderesMultidao, itensMultidao,
+  t, onPedirSair, playerTeam, poderesMultidao, itensMultidao,
   cicloPoderMultidao, toggleItemMultidao, avancarRodada, revelandoRodada, estadoMultidao,
   autoOn, onToggleAuto,
 }) {
@@ -43,7 +43,10 @@ export default function GanguesMultidaoActionBar({
         </div>
       </div>
       <div className="gang-actions-row">
-        <button className="gang-exit-btn" onClick={() => onNavigate('territorio')}>{t('games.gangues.btn_sair')}</button>
+        {/* Mesmo botão de saída da barra normal (GanguesCombatTopBar) — abre
+            a confirmação em vez de sair na hora (pedido do Isaias,
+            18/09/2026). */}
+        <button className="gang-exit-btn" onClick={onPedirSair}>{t('games.gangues.btn_sair')}</button>
         <button className="gang-attack-btn" disabled={revelandoRodada || !estadoMultidao} onClick={avancarRodada}>
           {t('games.gangues.multidao.avancar_rodada')}
         </button>

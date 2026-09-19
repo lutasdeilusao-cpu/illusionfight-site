@@ -284,6 +284,10 @@
         "sem_pv": "PV baixo demais",
         "sua_vez": "Sua vez",
         "vez_inimiga": "Vez inimiga",
+        "sair_confirm_titulo": "Sair da luta?",
+        "sair_confirm_texto": "Você deseja sair desse jogo e voltar ao menu? Você não ganha nenhuma recompensa por fugir da luta.",
+        "sair_confirm_cancelar": "Continuar lutando",
+        "sair_confirm_confirmar": "Sair pro menu",
         "provocar": "Provocar",
         "sem_custo": "sem custo",
         "sem_poderes": "Este lutador não tem talentos ativos equipados. Equipe na progressão da ficha."

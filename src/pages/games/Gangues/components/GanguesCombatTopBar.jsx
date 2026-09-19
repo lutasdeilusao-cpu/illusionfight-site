@@ -5,7 +5,7 @@ import GanguesMultidaoTutorial from './GanguesMultidaoTutorial'
 // Multidão, e o toggle de provocação (trash talk do jogador).
 // Extraído de GanguesCombat.jsx (PLANO_REFATORACAO_ARQUIVOS_GRANDES_GANGUES_2026-09-11.md §6).
 export default function GanguesCombatTopBar({
-  t, onNavigate, machine, modoMultidaoAtivo, estadoMultidao, result, revelandoRodada,
+  t, onPedirSair, machine, modoMultidaoAtivo, estadoMultidao, result, revelandoRodada,
   multidaoDisponivel, modoMultidaoOn, alternarMultidao,
   multidaoBlinkVisto,
   trashOptions, trashAberto, setTrashAberto, sendPlayerTrash,
@@ -13,10 +13,12 @@ export default function GanguesCombatTopBar({
   return (
     <div className="gang-vs-bar">
       {/* Sair do combate no meio da luta = fugir (nenhuma recompensa, volta
-          direto pra quebrada) — usa o rótulo METE O PÉ (não SAIR/FUGIR),
-          giria de rua, já traduzido nos 3 idiomas, pra deixar claro que é
-          isso que o botão faz. */}
-      <button className="gang-vs-bar-back" onClick={() => onNavigate('territorio')}>{t('games.gangues.btn_fugir')}</button>
+          direto pro menu) — usa o rótulo METE O PÉ (não SAIR/FUGIR), giria
+          de rua, já traduzido nos 3 idiomas. Pedido do Isaias (18/09/2026):
+          antes saía na hora sem perguntar nada — agora só abre a
+          confirmação (`onPedirSair`, ver GanguesCombatSairConfirm.jsx em
+          GanguesCombat.jsx); quem decide de fato é o modal. */}
+      <button className="gang-vs-bar-back" onClick={onPedirSair}>{t('games.gangues.btn_fugir')}</button>
       <div className="gang-vs-bar-line" />
       <span className={`gang-vs-bar-turn ${machine.phase === 'player' ? 'gang-vs-bar-turn--player' : machine.phase === 'enemy' ? 'gang-vs-bar-turn--enemy' : ''}`}>
         {t('games.gangues.loadout.round', { n: modoMultidaoAtivo ? (estadoMultidao?.round || 1) : machine.round })}

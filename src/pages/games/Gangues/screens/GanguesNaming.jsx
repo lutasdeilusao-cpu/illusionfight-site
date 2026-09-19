@@ -4,6 +4,7 @@ import { useLanguage } from '../../../../context/LanguageContext'
 import { useGanguesStore } from '../store/useGanguesStore'
 import { sfx } from '../../../../lib/sfx'
 import GangDialog from '../components/GangDialog'
+import GanguesVoltarBtn from '../components/GanguesVoltarBtn'
 import { getGanguesNpcPortrait } from '../data/ganguesNpcPortraits.js'
 import logoPt from '../assets/logos/logo-pt.png'
 import logoEn from '../assets/logos/logo-en.png'
@@ -73,9 +74,7 @@ export default function GanguesNaming({ onDone, modoEdicao = false, onSair }) {
       {!intro && (<>
         {modoEdicao && (
           <header className="gang-story-head">
-            <button className="gang-progression-screen-back" onClick={onDone}>
-              ← {t('games.gangues.progression.back_to_roster')}
-            </button>
+            <GanguesVoltarBtn onClick={onDone} />
           </header>
         )}
 

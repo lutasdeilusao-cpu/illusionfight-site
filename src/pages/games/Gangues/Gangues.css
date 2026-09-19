@@ -2902,3 +2902,73 @@ button.gang-skill-node:hover { border-color: var(--if-teal); }
   animation: gang-loading-scan 1s ease-in-out infinite alternate;
 }
 @keyframes gang-loading-scan { to { transform: translateX(124%); } }
+
+/* ══ BOTÃO DE VOLTAR — PADRÃO ÚNICO (GanguesVoltarBtn.jsx) ══
+   Pedido do Isaias (18/09/2026): "os botões estão fora de padrão... um
+   aparece de um lado, um aparece de outro... tem que ser um botão grande
+   no alto ali com um bom destaque". Antes existiam pelo menos 3 estilos
+   diferentes de "voltar" espalhados (texto pequeno âmbar em
+   `.gang-progression-screen-back`, o botão vermelho de SAIR reaproveitado
+   só pra voltar um passo em GanguesTerritorio, ícone sozinho sem texto em
+   GanguesCreate) — trocados todos por este único componente/classe.
+   Sempre no topo da tela, sempre a mesma cara: ciano (a cor de destaque
+   do resto da UI do jogo — orb, barra de combate), texto grande o
+   bastante pra bater o pedido de "bom destaque", nunca escondido num
+   cantinho de link de texto. */
+/* `.gang-voltar-btn.gang-voltar-btn` (classe duplicada, especificidade
+   0-2-0 de propósito) — várias telas têm regras genéricas tipo
+   `.gang-world__top > button` (0-1-1) pros botões que já moravam ali;
+   sem essa blindagem essas regras antigas ganhavam da nossa e o botão
+   voltava a sair torto tela por tela, o mesmo tipo de bug já corrigido
+   no diálogo do Nego Véio (ver .gang-dlg-overlay.gang-brickwall-bg). */
+.gang-voltar-btn.gang-voltar-btn {
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+  width: fit-content;
+  min-height: 44px; margin: 34px auto 14px; padding: 10px 20px;
+  border: 1px solid var(--if-cyan, #18dafb);
+  background: #0a1a1e;
+  color: var(--if-cyan, #18dafb);
+  font: 700 .8rem var(--font-mono);
+  letter-spacing: .06em; text-transform: uppercase;
+  cursor: pointer;
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
+}
+.gang-voltar-btn.gang-voltar-btn:hover { background: #102830; }
+/* GanguesCreate.jsx: cabeçalho é centralizado/tem padding pro poster, o
+   Voltar mora ANTES dele (não mais ícone absoluto por dentro) — margem
+   de cima maior ainda pra não colar na tira de guest/CRIAR CONTA do
+   topo (Isaias, 18/09/2026: "voltar ta em cima da barra criar conta").
+   Especificidade 0-3-0 de propósito pra garantir que vence a regra
+   base acima. */
+.gang-voltar-btn.gang-voltar-btn.gang-recruit__voltar { margin: 44px auto 10px; }
+
+/* ══ CONFIRMAÇÃO DE "METE O PÉ" (GanguesCombatSairConfirm.jsx) ══
+   Pedido do Isaias (18/09/2026): "quando aparecer um mete o pé tem que
+   aparecer um diálogo 'você deseja sair desse jogo e voltar ao menu?'".
+   Mesmo padrão visual do `.gang-xp-confirm` (GanguesProgressionFlow.css)
+   — modal central com scrim, dois botões (cancelar/confirmar). */
+.gang-sair-confirm-overlay {
+  position: fixed; inset: 0; z-index: 10000;
+  display: grid; place-items: center; padding: 1.5rem;
+  background: rgba(2, 5, 8, .82); backdrop-filter: blur(6px);
+}
+.gang-sair-confirm-card {
+  display: grid; justify-items: center; gap: .6rem;
+  width: 100%; max-width: 320px; padding: 1.6rem 1.3rem 1.4rem; text-align: center;
+  border: 1px solid rgba(255, 90, 90, .45);
+  background: linear-gradient(160deg, #160a0a, #0a0606 70%);
+  box-shadow: 0 0 44px -10px rgba(255, 90, 90, .45);
+  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%);
+}
+.gang-sair-confirm-card h2 { margin: 0; font: 800 1.05rem var(--font-display); letter-spacing: .04em; color: #ff9b9b; }
+.gang-sair-confirm-card p { margin: 0; font: 400 .85rem var(--font-body); line-height: 1.5; color: #cdd4d9; }
+.gang-sair-confirm-acoes { display: flex; gap: 8px; width: 100%; margin-top: .5rem; }
+.gang-sair-confirm-cancelar, .gang-sair-confirm-confirmar {
+  flex: 1; min-height: 44px; padding: .6rem;
+  font: 800 .68rem var(--font-mono); letter-spacing: .06em; text-transform: uppercase;
+  cursor: pointer; clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
+}
+.gang-sair-confirm-cancelar { color: #c6cdd2; background: rgba(255, 255, 255, .04); border: 1px solid rgba(255, 255, 255, .14); }
+.gang-sair-confirm-cancelar:hover { background: rgba(255, 255, 255, .09); color: #fff; }
+.gang-sair-confirm-confirmar { color: #fff; background: #b5232c; border: 1px solid #ff4d4d; }
+.gang-sair-confirm-confirmar:hover { background: #d1303a; }

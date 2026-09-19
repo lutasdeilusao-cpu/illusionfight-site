@@ -119,8 +119,22 @@
    onboarding do Lobby). Zero resquicio do design antigo aqui. */
 .gang-recruit {
   position: relative;
+  /* `.gang-page` (Gangues.css) é `display:flex; align-items:center` —
+     funciona pra tela curta, mas essa tela (recrutamento) costuma ficar
+     mais alta que a viewport (carrossel + ficha + botões). Sem
+     `align-self:flex-start`, o flex centraliza o excesso igual em cima
+     E embaixo, cortando os dois lados — sintoma real (Isaias,
+     18/09/2026): o botão Voltar (e antes dele, o ícone sozinho) nascia
+     empurrado pra CIMA do topo da tela, colado/por baixo da tira de
+     conta de guest. `align-self:flex-start` tira esse container do
+     centro e volta pro alinhamento normal (topo), então o próprio
+     `overflow-y:auto` abaixo assume o scroll do que sobra. */
+  align-self: flex-start;
+  width: 100%;
   min-height: 100dvh;
-  overflow: hidden;
+  max-height: 100dvh;
+  overflow-y: auto;
+  overflow-x: hidden;
   padding: 22px 0 28px;
 }
 
@@ -617,6 +631,7 @@
    50px de vão — parte do mesmo aperto geral pedido pelo Isaias. */
 .gang-lobby .gang-party-counter { margin: 6px 0; }
 .gang-lobby .gang-lobby-quit { margin-top: 10px; }
+.gang-lobby .gang-lobby-voltar.gang-lobby-voltar { margin: 10px auto 0; }
 
 .gang-lobby .gang-lobby-hero--compact .gang-lobby-mapa {
   position: absolute; left: 0; top: 0;

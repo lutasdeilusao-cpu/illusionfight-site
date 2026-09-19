@@ -6,6 +6,7 @@ import { GANGUES_TERRITORIOS } from '../data/ganguesTerritorios.js'
 import { GANGUES_TERRITORIO_ENCONTRO, calcularPontosTime } from '../data/ganguesEncontros.js'
 import { GANGUES_STORY_BATTLE_PARTY_MAX } from '../data/ganguesLoadout.js'
 import { getGanguesLevelFromXp } from '../data/ganguesCharacters.js'
+import GanguesVoltarBtn from '../components/GanguesVoltarBtn'
 import './GanguesBatalha.css'
 
 /* ══════════════════════════════════════════════════════════════
@@ -74,9 +75,7 @@ export default function GanguesBatalha({ onNavigate }) {
     return (
       <main className="gang-torre">
         <header className="gang-torre__top">
-          <button className="gang-torre__back" onClick={() => { sfx.cancel?.(); store.torreEncerrar(); onNavigate('modes') }}>
-            ← {t('games.gangues.batalha.sair_torre')}
-          </button>
+          <GanguesVoltarBtn onClick={() => { sfx.cancel?.(); store.torreEncerrar(); onNavigate('modes') }} />
         </header>
         <div className="gang-torre__andar-hero">
           <span className="gang-torre__eyebrow">{t(`games.gangues.story.territorios.${torre.territorioId}.nome`)}</span>
@@ -99,9 +98,7 @@ export default function GanguesBatalha({ onNavigate }) {
   return (
     <main className="gang-torre">
       <header className="gang-torre__top">
-        <button className="gang-torre__back" onClick={() => { sfx.cancel?.(); onNavigate('modes') }}>
-          ← {t('games.gangues.progression.back_to_roster')}
-        </button>
+        <GanguesVoltarBtn onClick={() => { sfx.cancel?.(); onNavigate('modes') }} />
       </header>
 
       <div className="gang-torre__title">

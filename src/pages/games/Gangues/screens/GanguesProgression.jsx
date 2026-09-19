@@ -7,6 +7,7 @@ import { getGanguesPortrait } from '../data/ganguesPortraits.js'
 import GanguesFichaCard from '../components/GanguesFichaCard'
 import GanguesEquipPanel from '../components/GanguesEquipPanel'
 import GanguesSkillGrid from '../components/GanguesSkillGrid'
+import GanguesVoltarBtn from '../components/GanguesVoltarBtn'
 
 export default function GanguesProgression({ onNavigate }) {
   const { t } = useLanguage()
@@ -21,8 +22,8 @@ export default function GanguesProgression({ onNavigate }) {
     else onNavigate('lobby')
   }
 
-  if (!member) return <main className="gang-lobby gang-progression-screen"><p className="gang-lobby-empty">{t('games.gangues.progression.no_member')}</p><button className="gang-new-sheet gang-new-sheet--back" onClick={voltar}>{t('games.gangues.progression.back_to_roster')}</button></main>
-  if (member.character_type !== 'template') return <main className="gang-lobby gang-progression-screen"><button className="gang-progression-screen-back" onClick={voltar}>← {t('games.gangues.progression.back_to_roster')}</button><p className="gang-lobby-empty">{t('games.gangues.progression.no_member')}</p></main>
+  if (!member) return <main className="gang-lobby gang-progression-screen"><p className="gang-lobby-empty">{t('games.gangues.progression.no_member')}</p><GanguesVoltarBtn onClick={voltar} /></main>
+  if (member.character_type !== 'template') return <main className="gang-lobby gang-progression-screen"><GanguesVoltarBtn onClick={voltar} /><p className="gang-lobby-empty">{t('games.gangues.progression.no_member')}</p></main>
 
   const character = getGanguesCharacter(member.character_template_id)
   const level = getGanguesLevelFromXp(member.xp_total)
@@ -35,7 +36,7 @@ export default function GanguesProgression({ onNavigate }) {
 
   return <main className="gang-lobby gang-progression-screen">
     <header className="gang-progression-screen-head">
-      <button className="gang-progression-screen-back" onClick={voltar}>← {t('games.gangues.progression.back_to_roster')}</button>
+      <GanguesVoltarBtn onClick={voltar} />
     </header>
     <section className="gang-progression-panel">
       <GanguesFichaCard

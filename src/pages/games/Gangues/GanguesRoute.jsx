@@ -55,6 +55,32 @@ export default function GanguesRoute() {
     setFase(destino)
   }
 
+  // Botão "Voltar" ÚNICO e padronizado (pedido do Isaias, 18/09/2026: "os
+  // botões estão fora de padrão... tem que ser um botão grande no alto...
+  // você volta pra página anterior") — pilha real de fases visitadas, não
+  // um destino chumbado por tela. Cada mudança de fase empilha a fase nova;
+  // "voltar" desempilha a atual e a anterior, e reassenta na anterior (que
+  // volta a subir no próximo empilhamento, quando ela virar "a atual" de
+  // novo) — efeito idêntico ao botão voltar do navegador, sem precisar
+  // reescrever toda chamada de navegação existente pra alimentar a pilha
+  // manualmente. Fases transitórias (ex: 'story-combat', que só existe pra
+  // montar a luta e sai sozinha) entram e saem da pilha sem problema — não
+  // tem tela renderizada nelas pra clicar voltar durante o instante em que
+  // existem. Não é usado nas fases que já têm saída própria: a primeira
+  // tela do jogo (Sair, ver GanguesSaveSelect/GanguesNaming) e o combate
+  // (confirmação própria, ver GanguesCombatSairConfirm.jsx).
+  const historicoRef = useRef([])
+  useEffect(() => {
+    historicoRef.current.push(fase)
+    if (historicoRef.current.length > 20) historicoRef.current.shift()
+  }, [fase])
+  const voltar = () => {
+    const hist = historicoRef.current
+    hist.pop()
+    const anterior = hist.pop()
+    if (anterior) setFase(anterior)
+  }
+
   // Conta logada: cada gangue é um save separado (ver GanguesSaveSelect) — a
   // primeira coisa a fazer é escolher/criar um save, antes de ver o lobby.
   // Guest não tem save (joga só em memória), vai direto pro lobby de sempre.
@@ -108,6 +134,23 @@ export default function GanguesRoute() {
       if (!bando?.length) { console.error('[GANGUES DEBUG] gerarBandoInimigo falhou', { party, bando, enemiesDataLen: enemiesData?.length }); return }
       live().startMatch(bando[0], bando, party)
       setFase('combat')
+    }
+    // Gancho extra de debug (18/09/2026, tela de "padronizar os botões") —
+    // pula direto pra qualquer fase sem precisar clicar a UI inteira
+    // (útil pra testar Modes/Story/Território/etc, que exigem roster ≥2
+    // já montado). Recruta 2 padrão se o roster ainda tiver menos que
+    // isso.
+    window.__ganguesDebugFase = async (fase, templateIds = [1, 3]) => {
+      const live = () => useGanguesStore.getState()
+      if (live().roster.length < 2) {
+        for (const id of templateIds) {
+          if (!live().roster.some(s => s.character_template_id === id)) await live().recruitTemplate(id)
+        }
+        const party = live().roster.filter(s => templateIds.includes(s.character_template_id))
+        live().setActiveParty(party)
+      }
+      if (!live().gangName) live().setGangName('Gangue Debug')
+      setFase(fase)
     }
   }, [])
 
@@ -218,8 +261,8 @@ export default function GanguesRoute() {
         />
       )}
       {fase === 'progression' && <GanguesProgression onNavigate={setFase} />}
-      {fase === 'modes' && <GanguesModes onNavigate={setFase} />}
-      {fase === 'story' && <GanguesStoryMap onNavigate={setFase} />}
+      {fase === 'modes' && <GanguesModes onNavigate={setFase} onVoltar={voltar} />}
+      {fase === 'story' && <GanguesStoryMap onNavigate={setFase} onVoltar={voltar} />}
       {fase === 'album' && <GanguesAlbum onNavigate={navegar} voltar={() => setFase(faseAntesAlbum.current)} />}
       {fase === 'batalha' && <GanguesBatalha onNavigate={setFase} />}
       {fase === 'clube' && <GanguesClube onNavigate={navegar} />}
@@ -238,9 +281,9 @@ export default function GanguesRoute() {
       {fase === 'territorio' && (
         temCena(store.storyTarget?.territorioId)
           ? <GanguesCena onNavigate={navegar} />
-          : <GanguesTerritorio onNavigate={navegar} />
+          : <GanguesTerritorio onNavigate={navegar} onVoltar={voltar} />
       )}
-      {fase === 'combat' && <GanguesCombat onNavigate={setFase} />}
+      {fase === 'combat' && <GanguesCombat onNavigate={setFase} onSairConfirmado={() => setFase('lobby')} />}
       {fase === 'victory' && <GanguesVictory onNavigate={navegar} />}
     </div>
   )

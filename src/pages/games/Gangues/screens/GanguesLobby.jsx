@@ -15,6 +15,7 @@ import logoPt from '../assets/logos/logo-pt.png'
 import logoEn from '../assets/logos/logo-en.png'
 import logoEs from '../assets/logos/logo-es.png'
 import GanguesRetratoImg from '../components/GanguesRetratoImg'
+import GanguesVoltarBtn from '../components/GanguesVoltarBtn'
 
 const LOGOS = { pt: logoPt, en: logoEn, es: logoEs }
 
@@ -212,12 +213,18 @@ export default function GanguesLobby({ onNavigate }) {
           </div>
         </div>
       )}
-      {/* Saída do jogo: quem tem save volta pra tela de escolher gangue — sair
-          do jogo (voltar pro catálogo) é uma ação de lá, não daqui. Guest não
-          tem save nenhum, então "sair" continua saindo direto pro catálogo. */}
-      <button className="gang-lobby-quit" onClick={() => store._saveId ? onNavigate('save-select') : navigate('/games')}>
-        {t('games.gangues.sair_do_jogo')}
-      </button>
+      {/* "Sair" (pedido do Isaias, 18/09/2026) só existe na PRIMEIRA tela de
+          verdade do jogo — pra quem tem conta, essa tela é o seletor de
+          gangues (save-select), não o lobby. Daqui, quem tem save usa o
+          Voltar padrão pra chegar lá. Guest não tem seletor nenhum — o
+          lobby É o começo dele, então continua com o Sair de verdade. */}
+      {store._saveId
+        ? <GanguesVoltarBtn onClick={() => onNavigate('save-select')} className="gang-lobby-voltar" />
+        : (
+          <button className="gang-lobby-quit" onClick={() => navigate('/games')}>
+            {t('games.gangues.sair_do_jogo')}
+          </button>
+        )}
     </main>
   )
 }

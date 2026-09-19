@@ -284,6 +284,10 @@
         "sem_pv": "PV muy bajo",
         "sua_vez": "Tu turno",
         "vez_inimiga": "Turno enemigo",
+        "sair_confirm_titulo": "¿Salir de la pelea?",
+        "sair_confirm_texto": "¿Quieres salir de esta pelea y volver al menú? No recibes ninguna recompensa por huir.",
+        "sair_confirm_cancelar": "Seguir peleando",
+        "sair_confirm_confirmar": "Salir al menú",
         "provocar": "Provocar",
         "sem_custo": "sin costo",
         "sem_poderes": "Este luchador no tiene talentos activos equipados. Equípalos en la progresión de la ficha."

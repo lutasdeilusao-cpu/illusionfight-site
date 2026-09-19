@@ -10,6 +10,7 @@ import {
 import { GANGUES_ITENS_LISTA } from '../data/ganguesItens.js'
 import { GANGUES_EQUIP_LISTA, normalizeGanguesEquipment } from '../data/ganguesEquip.js'
 import { getGanguesEnemyPortraitById } from '../data/ganguesEnemyPortraits.js'
+import GanguesVoltarBtn from '../components/GanguesVoltarBtn'
 import './GanguesAlbum.css'
 
 const ATTRS = ['A', 'H', 'D', 'PV', 'PM']
@@ -85,9 +86,7 @@ export default function GanguesAlbum({ onNavigate, voltar: voltarProp }) {
   return (
     <main className="gang-album">
       <header className="gang-album__top">
-        <button className="gang-album__back" onClick={voltar}>
-          ← {t('games.gangues.album.voltar')}
-        </button>
+        <GanguesVoltarBtn onClick={voltar} />
         <span className="gang-album__count">
           {secao === 'itens'
             ? <><b>{feitosItens}</b>/{totalItens}</>

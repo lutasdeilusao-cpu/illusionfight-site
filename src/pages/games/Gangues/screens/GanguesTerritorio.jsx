@@ -6,6 +6,7 @@ import { sfx } from '../../../../lib/sfx'
 import enemiesData from '../data/gangues-enemies.json'
 import { GANGUES_TERRITORIO_POR_ID, estadoNo, estadoTerritorio, precisaVoltarNoInformante } from '../data/ganguesTerritorios.js'
 import { getGanguesEnemyPortraitById } from '../data/ganguesEnemyPortraits.js'
+import GanguesVoltarBtn from '../components/GanguesVoltarBtn'
 import './GanguesStory.css'
 
 /* ══════════════════════════════════════════════════════════════
@@ -33,7 +34,7 @@ function ConfrontoAvatar({ retrato, nome }) {
   )
 }
 
-export default function GanguesTerritorio({ onNavigate }) {
+export default function GanguesTerritorio({ onNavigate, onVoltar }) {
   const { t } = useLanguage()
   const store = useGanguesStore()
   const terr = GANGUES_TERRITORIO_POR_ID[store.storyTarget?.territorioId] || null
@@ -43,7 +44,7 @@ export default function GanguesTerritorio({ onNavigate }) {
     return (
       <main className="gang-lobby gang-story">
         <p className="gang-lobby-empty">{t('games.gangues.story.sem_territorio')}</p>
-        <button className="gang-new-sheet gang-new-sheet--back" onClick={() => onNavigate('story')}>← {t('games.gangues.story.voltar_mapa')}</button>
+        <GanguesVoltarBtn onClick={onVoltar || (() => onNavigate('story'))} />
       </main>
     )
   }
@@ -82,9 +83,7 @@ export default function GanguesTerritorio({ onNavigate }) {
   return (
     <main className="gang-lobby gang-story gang-story-terr-view" style={{ '--terr-cor': terr.cor }}>
       <header className="gang-story-head">
-        <button className="gang-progression-screen-back" onClick={() => onNavigate('story')}>
-          ← {t('games.gangues.story.voltar_mapa')}
-        </button>
+        <GanguesVoltarBtn onClick={onVoltar || (() => onNavigate('story'))} />
       </header>
 
       <div className="gang-story-terr-hero">
@@ -133,10 +132,6 @@ export default function GanguesTerritorio({ onNavigate }) {
           )
         })}
       </ol>
-
-      <button className="gang-lobby-quit" onClick={() => onNavigate('story')}>
-        {t('games.gangues.story.voltar_mapa')}
-      </button>
 
       {/* ── Apresentação do desafiante antes da luta ── */}
       <AnimatePresence>

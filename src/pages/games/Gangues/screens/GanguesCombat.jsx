@@ -23,6 +23,7 @@ import GanguesCombatLogList from '../components/GanguesCombatLogList'
 import GanguesCombatOverlays from '../components/GanguesCombatOverlays'
 import GanguesMultidaoActionBar from '../components/GanguesMultidaoActionBar'
 import GanguesActionOrb from '../components/GanguesActionOrb'
+import GanguesCombatSairConfirm from '../components/GanguesCombatSairConfirm'
 import { sfx } from '../../../../lib/sfx'
 import './GanguesCombatRedesign.css'
 
@@ -30,7 +31,7 @@ import './GanguesCombatRedesign.css'
 // Multidão, e o desfecho de batalha viraram hooks próprios; os overlays e o
 // roster viraram componentes de apresentação. Ver
 // PLANO_REFATORACAO_ARQUIVOS_GRANDES_GANGUES_2026-09-11.md §6.
-export default function GanguesCombat({ onNavigate }) {
+export default function GanguesCombat({ onNavigate, onSairConfirmado }) {
   const { t } = useLanguage()
   const { perfil } = useAuth()
   const { registrarEvento } = useEventos()
@@ -38,6 +39,14 @@ export default function GanguesCombat({ onNavigate }) {
   const [selectedActor, setSelectedActor] = useState(null)
   const [selectedTarget, setSelectedTarget] = useState(null)
   const [selectedSpecialId, setSelectedSpecialId] = useState(null)
+  // "Mete o Pé" (pedido do Isaias, 18/09/2026) não sai mais na hora — abre
+  // essa confirmação; os dois botões de fugir (barra normal e barra da
+  // Briga em Multidão) só chamam `setPedindoSair(true)`, quem decide de
+  // verdade é o modal (GanguesCombatSairConfirm.jsx). Confirmar volta pro
+  // lobby (a tela inicial de quem já tem gangue montada), não mais
+  // pro território — sair da luta agora é sair do JOGO, não só recuar um
+  // passo no mapa.
+  const [pedindoSair, setPedindoSair] = useState(false)
   const [log, setLog] = useState([])
   const [trashOptions, setTrashOptions] = useState([])
   const [trashAberto, setTrashAberto] = useState(false)
@@ -327,7 +336,7 @@ export default function GanguesCombat({ onNavigate }) {
 
       <div className={`gang-combat-fx${fx.critShake ? ' gang-combat-fx--shake' : ''}${fx.hitNudge ? ' gang-combat-fx--nudge' : ''}`}>
       <GanguesCombatTopBar
-        t={t} onNavigate={onNavigate} machine={machine} modoMultidaoAtivo={modoMultidaoAtivo}
+        t={t} onPedirSair={() => setPedindoSair(true)} machine={machine} modoMultidaoAtivo={modoMultidaoAtivo}
         estadoMultidao={estadoMultidao} result={result} revelandoRodada={revelandoRodada}
         multidaoDisponivel={multidaoDisponivel} modoMultidaoOn={modoMultidaoOn} alternarMultidao={alternarMultidao}
         multidaoBlinkVisto={multidaoBlinkVisto}
@@ -356,7 +365,7 @@ export default function GanguesCombat({ onNavigate }) {
       {/* ── Modo Briga em Multidão: poderes configuráveis por toque + avançar rodada ── */}
       {modoMultidaoAtivo && !result && (
         <GanguesMultidaoActionBar
-          t={t} onNavigate={onNavigate} playerTeam={store.match.playerTeam}
+          t={t} onPedirSair={() => setPedindoSair(true)} playerTeam={store.match.playerTeam}
           poderesMultidao={poderesMultidao} itensMultidao={itensMultidao}
           cicloPoderMultidao={cicloPoderMultidao} toggleItemMultidao={toggleItemMultidao}
           avancarRodada={avancarRodada} revelandoRodada={revelandoRodada} estadoMultidao={estadoMultidao}
@@ -386,6 +395,12 @@ export default function GanguesCombat({ onNavigate }) {
       )}
       {!modoMultidaoAtivo && machine.phase === 'enemy' && !machine.pending && <div className="gang2-enemy-thinking"><span className="gang-thinking-pulse" /><strong>{t('games.gangues.report.enemy_thinking')}</strong><small>{t('games.gangues.report.enemy_strategy')}</small></div>}
       </div>
+      {pedindoSair && (
+        <GanguesCombatSairConfirm
+          onCancelar={() => setPedindoSair(false)}
+          onConfirmar={() => onSairConfirmado ? onSairConfirmado() : onNavigate('lobby')}
+        />
+      )}
     </div>
   )
 }
