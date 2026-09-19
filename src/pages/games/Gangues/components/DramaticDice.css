@@ -44,6 +44,23 @@
   text-align: center;
 }
 
+/* Poder(es) passivo(s) que dispararam nesta jogada — mais discreto que o
+   nome do poder ativo (fonte menor, cor neutra em vez de âmbar): não é uma
+   escolha do jogador, é o personagem reagindo sozinho ao que já tem
+   equipado. */
+.dramatic-dice-passivename {
+  font-family: 'Impact', 'Arial Black', sans-serif;
+  font-size: 18px;
+  letter-spacing: 1.5px;
+  color: var(--if-cyan, #18dafb);
+  text-shadow:
+    0 0 16px rgba(24, 218, 251, 0.6),
+    0 2px 0 rgba(0, 0, 0, 0.5);
+  line-height: 1.2;
+  text-align: center;
+  text-transform: uppercase;
+}
+
 /* Rótulo superior */
 .dramatic-dice-label {
   font-family: 'Impact', 'Arial Black', sans-serif;

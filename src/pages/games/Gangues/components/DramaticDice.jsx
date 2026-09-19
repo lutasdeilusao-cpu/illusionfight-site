@@ -31,7 +31,7 @@ import './DramaticDice.css'
  *
  * @param {{ finalValue: number, sides?: number, side: 'player'|'enemy', onComplete: () => void, powerName?: string, attackerName?: string, attackerRetrato?: string|null, targetName?: string, theme?: { rgb: string, glyphs: string[], particleCount: number } | null, attackerTemplateId?: number|null, targetTemplateId?: number|null }} props
  */
-export default function DramaticDice({ finalValue, sides = 6, side, onComplete, powerName, attackerName, attackerRetrato, targetName, theme, attackerTemplateId, targetTemplateId }) {
+export default function DramaticDice({ finalValue, sides = 6, side, onComplete, powerName, passiveNames, attackerName, attackerRetrato, targetName, theme, attackerTemplateId, targetTemplateId }) {
   const { t } = useLanguage()
   // `side === 'player'`: o jogador ataca — mostra o ataque normal DELE (não
   // mostra nada se foi um PODER, ainda sem animação própria).
@@ -191,7 +191,7 @@ export default function DramaticDice({ finalValue, sides = 6, side, onComplete, 
         <div className="dramatic-dice-bg" />
 
         <div className={`dramatic-dice-container${anim ? ' dramatic-dice-container--compacto' : ''}`} style={fx ? { '--fx-rgb': fx.rgb } : undefined}>
-          {/* Nome do poder (se houver) — aparece antes da label */}
+          {/* Nome do poder ATIVO (se houver) — aparece antes da label */}
           {powerName && (
             <motion.div
               className={`dramatic-dice-powername ${fx ? 'dramatic-dice-powername--fx' : ''}`}
@@ -200,6 +200,25 @@ export default function DramaticDice({ finalValue, sides = 6, side, onComplete, 
               transition={{ delay: 0.05, duration: 0.4, ease: [0.175, 0.885, 0.32, 1.275] }}
             >
               ⚡ {powerName} ⚡
+            </motion.div>
+          )}
+
+          {/* Poder(es) PASSIVO(s) que fizeram diferença NESTA jogada (pedido do
+              Isaias, 19/09/2026: "quando um poder passivo é utilizado tem que
+              ter um destaque na jogada de dado mostrando que o poder passivo
+              foi utilizado"). Antes só o poder ATIVO tinha destaque — um
+              passivo condicional (só liga com PV baixo, só contra alvo fresco
+              etc.) disparava sem NENHUM aviso. Discreto de propósito (🛡, sem
+              o "⚡" do ativo) — não é uma escolha do jogador nesta jogada, é o
+              personagem reagindo sozinho. */}
+          {passiveNames?.length > 0 && (
+            <motion.div
+              className="dramatic-dice-passivename"
+              initial={{ opacity: 0, scale: 0.5, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ delay: 0.1, duration: 0.4, ease: [0.175, 0.885, 0.32, 1.275] }}
+            >
+              🛡 {passiveNames.join(' · ')}
             </motion.div>
           )}
 

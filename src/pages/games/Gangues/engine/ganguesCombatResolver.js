@@ -51,8 +51,31 @@ export function resolveGanguesAction({ attacker, defender, action, rolls, active
   const attackerEffects = buildGanguesEffectsList(attacker, activeSpecialId, forcedSpecial)
   const defenderEffects = buildGanguesEffectsList(defender, null)
   const ctx = { attacker, target: defender, faMod: 0, fdMod: 0, ignoreDefPct: 0, targetDefenseReduction: 0, pmCost: 0, pvCostPct: 0, selfShieldSet: 0, chargeGain: 0, chargeSpent: 0 }
-  for (const item of attackerEffects) applyGanguesAttackerEffect(item, ctx)
-  for (const item of defenderEffects) applyGanguesDefenderEffect(item, ctx)
+  // Achado do Isaias (19/09/2026): quando um PODER ATIVO é usado, o dado
+  // mostra "⚡ Nome do poder ⚡" (ver `powerName` em DramaticDice.jsx) — mas
+  // um poder PASSIVO nunca tinha nenhum destaque, mesmo quando o efeito dele
+  // fez diferença de verdade na jogada (ex.: "Segunda Respiração" só entra
+  // com PV crítico, "Passo Elétrico" só se o alvo ainda não agiu no round —
+  // sem aviso nenhum, o jogador nunca sabia QUANDO um passivo condicional
+  // realmente disparou). `passivosGatilho` registra o id de cada passivo
+  // (nunca ativo — esse já tem o próprio destaque) cujo efeito mudou de
+  // verdade o resultado desta ação — compara um retrato ANTES/DEPOIS de
+  // cada item aplicado, só nos campos numéricos que os efeitos mexem (não
+  // `attacker`/`target`, que não mudam durante o loop).
+  const camposComparados = ['faMod', 'fdMod', 'ignoreDefPct', 'targetDefenseReduction', 'pmCost', 'pvCostPct', 'selfShieldSet', 'chargeGain', 'chargeSpent']
+  const retrato = () => camposComparados.map(campo => ctx[campo])
+  const mudou = (antes, depois) => camposComparados.some((_, i) => antes[i] !== depois[i])
+  const passivosGatilho = { attacker: [], defender: [] }
+  for (const item of attackerEffects) {
+    const antes = retrato()
+    applyGanguesAttackerEffect(item, ctx)
+    if (item.kind === 'passive' && mudou(antes, retrato())) passivosGatilho.attacker.push(item.id)
+  }
+  for (const item of defenderEffects) {
+    const antes = retrato()
+    applyGanguesDefenderEffect(item, ctx)
+    if (item.kind === 'passive' && mudou(antes, retrato())) passivosGatilho.defender.push(item.id)
+  }
 
   const effectiveDefense = Math.max(0, Math.round(defense * (1 - ctx.ignoreDefPct / 100)) - ctx.targetDefenseReduction)
 
@@ -84,6 +107,7 @@ export function resolveGanguesAction({ attacker, defender, action, rolls, active
     attackerStatuses: [...(attacker.statuses || [])],
     defenderStatuses: [...(defender.statuses || [])],
     activeSpecialId: attackerEffects.find(item => item.kind === 'active')?.id || null,
+    passivosGatilho,
     ignoreDefPct: ctx.ignoreDefPct, shieldConsumed,
     attackerSpecialState, defenderSpecialState,
   }
