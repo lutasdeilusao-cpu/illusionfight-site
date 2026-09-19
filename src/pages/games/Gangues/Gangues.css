@@ -2425,9 +2425,19 @@
      minúscula (e por isso gigante/zoomed) dessa imagem enorme aparecia
      dentro da coluna. Não afeta celular de verdade (viewport ≈ coluna, a
      conta bate igual), só quem abre o site num navegador comum de
-     desktop — o que inclui qualquer teste rápido sem emulador. `scroll`
-     calcula `cover` contra a própria caixa do elemento, sempre certo. */
-  background-attachment: scroll, scroll;
+     desktop — o que inclui qualquer teste rápido sem emulador.
+     `local` (não `scroll`) pelo mesmo motivo de fundo, mas outro sintoma
+     (Isaias, 19/09/2026, print do lobby com o elenco+ficha aberta: a
+     parede "acabava" no meio, virando preto liso embaixo) — `scroll`
+     calcula o `cover` contra a altura VISÍVEL da caixa (client height),
+     não contra o conteúdo rolável inteiro; em `.gang-lobby`
+     (overflow-y:auto, cresce com o roster/ficha aberta) o fundo só
+     cobria a 1ª tela e sumia ao rolar pro resto. `local` acompanha o
+     scroll do próprio elemento e calcula o `cover` contra a área rolável
+     inteira — cobre certo tanto rolando quanto parado, sem reintroduzir
+     o bug do `fixed` (que calculava contra o VIEWPORT, não contra o
+     elemento; `local` nunca faz isso). */
+  background-attachment: local, local;
 }
 
 /* ===== DIÁLOGO PADRÃO DO LDI GANGUES (GangDialog) =====

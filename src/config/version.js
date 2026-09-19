@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.280.199' // feat: LDI Gangues - botao "pular dialogo" (GangDialog.jsx, usado por TODOS os dialogos do jogo) saiu do selinho discreto no canto superior direito e virou botao de verdade, com destaque, embaixo do balao de fala. Ver GANGUES_VERSION.
+export const SITE_VERSION = '10.280.200' // fix: LDI Gangues - parede de tijolo do lobby "acabava" no meio (virava preto liso) quando o roster/ficha deixava a tela mais alta que a viewport e precisava rolar - background-attachment:scroll calcula o cover contra a altura VISIVEL, nao contra o conteudo rolavel inteiro. Trocado pra local. Ver GANGUES_VERSION.
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '3.28.1' // feat (Isaias, 19/09/2026, print com um quadrado branco marcando o lugar certo embaixo do balao): botao de pular dialogo era um selo pequeno "AVANÇA LOGO ✕" semi-transparente no canto superior direito, facil de nao notar. GangDialog.jsx e o componente COMPARTILHADO por todo dialogo do jogo (Nego Veio e qualquer outro NPC), entao mover ele uma vez so resolve em todo lugar - agora e um botao de verdade (borda + fundo solido #14181c, mesmo padrao visual do resto do jogo), centralizado embaixo do balao de fala. Texto tambem trocou de "avança logo" pra "pular dialogo" (en: "skip dialogue", es: "saltar dialogo") - mais claro sobre o que o botao faz.
+export const GANGUES_VERSION   = '3.28.2' // fix (Isaias, 19/09/2026, print do lobby com elenco+ficha: "mesmo na versao desktop, na mobile ta cortando ali embaixo o BG, nao faco ideia de pq"): `.gang-lobby` (overflow-y:auto, cresce com o roster/ficha) usa `.gang-brickwall-bg`, que tinha `background-attachment:scroll` - por spec, isso calcula o `background-size:cover` contra a altura VISIVEL da caixa (client height), nao contra o scrollHeight inteiro; rolando pra baixo, o fundo simplesmente acabava (virava a cor solida de base por baixo). O novo botao Voltar (v3.28.0) empurrou o conteudo pra cima desse limiar, expondo um bug que ja existia mas nao aparecia antes (conteudo cabia numa tela so). Trocado pra `background-attachment:local` - acompanha o scroll do proprio elemento e calcula o cover contra a area rolavel inteira, sem reintroduzir o bug do `fixed` (aquele calculava contra o VIEWPORT do navegador, nao contra o elemento - `local` nunca faz isso).
 
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
