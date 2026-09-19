@@ -284,26 +284,16 @@
 .gang-cena-btn--treta { color: #ffd7d7; background: rgba(255, 107, 107, 0.14); border-color: #ff6b6b66; }
 .gang-cena-btn-custo { font-style: normal; opacity: 0.75; }
 
-/* papo */
-.gang-cena-papo-face {
-  display: grid; place-items: center;
-  width: 52px; height: 52px;
-  font: 800 1.4rem var(--font-display); color: #fff;
-  border: 1px solid color-mix(in srgb, var(--terr-cor) 55%, transparent);
-  background: color-mix(in srgb, var(--terr-cor) 14%, transparent);
-}
-.gang-cena-papo-face--foto { overflow: hidden; padding: 0; }
-.gang-cena-papo-face--foto img { width: 100%; height: 100%; object-fit: cover; image-rendering: pixelated; }
-.gang-cena-papo-nome {
-  font: 800 0.9rem var(--font-display); letter-spacing: 0.02em; color: #fff;
-}
-.gang-cena-papo-nome em { font: 600 0.68rem var(--font-mono); font-style: normal; color: var(--text-secondary); }
+/* papo — a cara de "NPC falando" (retrato/nome/escolhas) virou o
+   componente reutilizável GanguesDialogoEncontro (CSS próprio,
+   GanguesDialogoEncontro.css). Só a linha de fala solta (`.gang-cena-papo-fala`)
+   continua aqui — ainda usada pelo texto de flavor do EventoVS/TretaVS
+   (GanguesCenaEncontros.jsx), que não tem retrato/escolhas pra justificar
+   o componente inteiro. */
 .gang-cena-papo-fala {
   margin: 0.15rem 0 0; font-family: var(--font-body); font-size: 0.85rem;
   font-style: italic; line-height: 1.5; color: #c6d0d7;
 }
-.gang-cena-papo-escolhas { display: flex; flex-direction: column; gap: 6px; width: 100%; margin-top: 0.6rem; }
-.gang-cena-papo-escolhas .gang-cena-btn { flex: none; width: 100%; text-transform: none; letter-spacing: 0.01em; font-family: var(--font-body); font-weight: 700; }
 
 /* puzzle */
 .gang-cena-puzzle-wrap { width: 100%; }
