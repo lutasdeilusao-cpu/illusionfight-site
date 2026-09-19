@@ -26,7 +26,15 @@
          o pan em si. Mesmo bug já corrigido no log de combate do Gangues
          (ver Gangues.css .gang-log-area) — aqui é a mesma causa. */
       html.ldi-intro-on { overflow: hidden; overscroll-behavior: none; }
-      #ldi-intro { position: fixed; inset: 0; z-index: 2147483000; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 22px; background: radial-gradient(900px 520px at 50% 45%, rgba(0,229,255,.10), transparent 62%), #06080b; color: #f6f8fa; touch-action: none; overscroll-behavior: none; }
+      /* `inset:0` cobria o viewport físico inteiro em telas largas — o
+         portal é mobile only (coluna de 480px, ver AGENTS.md/index.css
+         --app-w/--app-gutter), mas essa vinheta roda ANTES do bundle CSS
+         carregar, então não dá pra usar var(--app-gutter) (pode ainda não
+         existir nesse instante) — mesma fórmula, só que literal aqui.
+         Bug real (Isaias, 18/09/2026, print em desktop): a vinheta aparecia
+         esticada full-bleed em vez de confinada na coluna, igual ao site
+         inteiro fora do modo mobile de verdade. */
+      #ldi-intro { position: fixed; top: 0; bottom: 0; left: max(0px, calc((100vw - 480px) / 2)); right: max(0px, calc((100vw - 480px) / 2)); z-index: 2147483000; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 22px; background: radial-gradient(900px 520px at 50% 45%, rgba(0,229,255,.10), transparent 62%), #06080b; color: #f6f8fa; touch-action: none; overscroll-behavior: none; }
       #ldi-intro .ldi-intro__logo { width: 124px; height: 124px; opacity: 0; filter: drop-shadow(0 0 0 rgba(0,229,255,0)); will-change: transform, opacity, filter; }
       #ldi-intro .ldi-intro__word { position: relative; margin: 0; font: 900 clamp(1.15rem, 5.4vw, 1.9rem)/1 'RacingGames', 'Rajdhani', 'Segoe UI', sans-serif; letter-spacing: .34em; text-transform: uppercase; opacity: 0; overflow: hidden; }
       #ldi-intro .ldi-intro__word::after { content: ''; position: absolute; top: 0; bottom: 0; left: -40%; width: 40%; background: linear-gradient(90deg, transparent, rgba(255,255,255,.85), transparent); transform: skewX(-20deg); opacity: 0; }
@@ -181,7 +189,7 @@
       "keywords": "illusion fight, lutas de ilusão, webtoon, jogos táticos, arena virtual, ficção científica"
     }
     </script>
-    <script type="module" crossorigin src="/assets/index-DhGFZFgb.js"></script>
+    <script type="module" crossorigin src="/assets/index-CYRtgVrx.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/react-GZhdek4G.js">
     <link rel="modulepreload" crossorigin href="/assets/preload-helper-zJ_50EbN.js">
     <link rel="modulepreload" crossorigin href="/assets/supabase-ByYxoL3g.js">
@@ -189,7 +197,7 @@
     <link rel="modulepreload" crossorigin href="/assets/proxy-CeAU0sk1.js">
     <link rel="modulepreload" crossorigin href="/assets/AuthContext-CK3Emn9X.js">
     <link rel="stylesheet" crossorigin href="/assets/index-CR1jX1Z9.css">
-      <meta name="ldi-build" content="/assets/index-DhGFZFgb.js">
+      <meta name="ldi-build" content="/assets/index-CYRtgVrx.js">
     <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"VideoGame","name":"Duelo LDI","description":"Conheça Duelo LDI, o jogo de cartas um contra um de Illusion Fight.","url":"https://illusionfight.com/games/duelo/","inLanguage":"pt-BR","gamePlatform":"Web Browser","playMode":"SinglePlayer","genre":["Indie game","Action","Strategy"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Illusion Fight","item":"https://illusionfight.com/"},{"@type":"ListItem","position":2,"name":"Duelo LDI","item":"https://illusionfight.com/games/duelo/"}]}]}</script>
   </head>
   <body>
