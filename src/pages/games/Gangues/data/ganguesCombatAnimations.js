@@ -217,10 +217,16 @@ const DADOS_POR_SLUG = {
   },
   faisca: {
     ataqueNormal: {
-      // Fonte 1448×1086 → webp 724×543 → frameH real = 135.75.
+      // Mesmo caso da Catraca (v3.27.2) — linhas de altura desigual.
+      // Isaias mediu no Photoshop: y=277,5 / 580,5 / 802 (confirmado por
+      // alpha pixel a pixel — baixa contagem de pixel opaco exatamente
+      // nesses pontos, igual a Catraca). Alturas reais 278/303/221/284px.
+      // Recortado cada linha na altura real e completado com padding até
+      // a maior (303px) — "pad+halve+webp". Canvas reconstruído
+      // 1448×1212, webp final 724×606 → frameH = 606/4 = 151.5.
       // Chute voador, sem flash de impacto desenhado — pico da extensão
       // da perna no ar (quadro 7, linha 2 col 3) é o golpe de fato.
-      frameW: 181, frameH: 135.75, cols: 4, rows: 4, frames: 16, frameMs: 80,
+      frameW: 181, frameH: 151.5, cols: 4, rows: 4, frames: 16, frameMs: 80,
       sons: { golpes: [{ frame: 7, arquivo: som('trinca-soco') }] },
     },
     dano: {
