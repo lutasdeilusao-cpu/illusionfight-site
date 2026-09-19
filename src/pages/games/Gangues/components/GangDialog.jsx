@@ -49,8 +49,6 @@ export default function GangDialog({ lines = [], speaker, sub, retrato, onFinish
 
   return (
     <motion.div className="gang-dlg-overlay gang-brickwall-bg" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={advance}>
-      <button className="gang-dlg-skip" onClick={skip}>{t('games.gangues.dialogo.pular')} ✕</button>
-
       <div className="gang-dlg-stage" onClick={event => event.stopPropagation()}>
         <motion.div
           className={`gang-dlg-portrait${typing ? ' gang-dlg-portrait--falando' : ''}`}
@@ -78,6 +76,14 @@ export default function GangDialog({ lines = [], speaker, sub, retrato, onFinish
             </button>
           </div>
         </motion.div>
+
+        {/* "Pular" (pedido do Isaias, 19/09/2026 — print com um quadrado
+            branco marcando o lugar certo): antes era um selo pequeno
+            "AVANÇA LOGO ✕" discreto no canto superior direito, fácil de
+            não notar. Agora é um botão de verdade, com destaque, embaixo
+            do balão — mesmo padrão visual do resto do jogo (borda +
+            fundo sólido), não mais um selinho semi-transparente. */}
+        <button className="gang-dlg-skip" onClick={skip}>{t('games.gangues.dialogo.pular')}</button>
       </div>
     </motion.div>
   )

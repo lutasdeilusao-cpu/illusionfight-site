@@ -2465,14 +2465,25 @@
   content: ''; position: absolute; inset: 0; pointer-events: none;
   background: radial-gradient(ellipse at 50% 38%, transparent 0%, rgba(2, 3, 4, .55) 75%);
 }
+/* Antes era um selo pequeno "AVANÇA LOGO ✕" no canto superior direito,
+   semi-transparente, fácil de nunca notar (Isaias, 19/09/2026, print
+   marcando com um quadrado branco embaixo do balão: "tem que ter um
+   destaque ali"). Agora é um botão de verdade, mesmo padrão visual do
+   resto do jogo (borda + fundo sólido), embaixo do balão — sempre no
+   mesmo lugar em TODO diálogo, já que GangDialog é o componente
+   compartilhado por todos eles. */
 .gang-dlg-skip {
-  position: absolute; top: max(16px, env(safe-area-inset-top)); right: 16px; z-index: 2;
-  padding: 6px 12px; border: 1px solid rgba(255, 255, 255, .15); border-radius: 20px;
-  background: rgba(0, 0, 0, .4); color: rgba(255, 255, 255, .6);
-  font: 700 9px 'Courier New', monospace; letter-spacing: 2px; text-transform: uppercase;
+  position: relative; z-index: 2; margin-top: 14px;
+  min-height: 40px; padding: 9px 22px;
+  border: 1px solid rgba(255, 255, 255, .35);
+  background: #14181c;
+  color: #fff;
+  font: 700 .72rem var(--font-mono);
+  letter-spacing: .1em; text-transform: uppercase;
   cursor: pointer;
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
 }
-.gang-dlg-skip:hover { color: #fff; border-color: rgba(255, 255, 255, .35); }
+.gang-dlg-skip:hover { background: #1f262c; border-color: rgba(255, 255, 255, .55); }
 
 .gang-dlg-stage { position: relative; z-index: 1; width: 100%; max-width: 380px; display: grid; justify-items: center; cursor: default; }
 
