@@ -108,8 +108,7 @@ export default function GanguesModes({ onNavigate, onVoltar }) {
             <span className="gang-modes-lock" aria-hidden="true">⊘</span>
             <span className="gang-modes-card-tag">{t('games.gangues.modes.bloqueado')}</span>
             <strong className="gang-modes-card-titulo">{t('games.gangues.modes.batalha_titulo')}</strong>
-            <small className="gang-modes-card-desc gang-modes-card-desc--teaser">{t('games.gangues.modes.modo_bloqueado_teaser')}</small>
-            <span className="gang-modes-card-cta">{t('games.gangues.modes.em_breve')}</span>
+            <span className="gang-modes-card-cta">{t('games.gangues.modes.modo_bloqueado_teaser')} <b>→</b></span>
           </motion.button>
         )}
 
@@ -120,8 +119,7 @@ export default function GanguesModes({ onNavigate, onVoltar }) {
           <span className="gang-modes-lock" aria-hidden="true">{mpLiberado ? '⧉' : '⊘'}</span>
           <span className="gang-modes-card-tag">{mpLiberado ? t('games.gangues.modes.liberado') : t('games.gangues.modes.bloqueado')}</span>
           <strong className="gang-modes-card-titulo">{t('games.gangues.modes.multiplayer_titulo')}</strong>
-          <small className="gang-modes-card-desc gang-modes-card-desc--teaser">{t('games.gangues.modes.modo_bloqueado_teaser')}</small>
-          <span className="gang-modes-card-cta">{t('games.gangues.modes.em_breve')}</span>
+          <span className="gang-modes-card-cta">{t('games.gangues.modes.modo_bloqueado_teaser')} <b>→</b></span>
         </motion.button>
       </div>
 

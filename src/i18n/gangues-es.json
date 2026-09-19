@@ -3982,9 +3982,8 @@
         "bloqueado": "Bloqueado",
         "liberado": "Desbloqueado",
         "entrar_torre": "ENTRAR A LA TORRE",
-        "modo_bloqueado_teaser": "¿Cómo lo desbloqueo? →",
+        "modo_bloqueado_teaser": "¿Cómo lo desbloqueo?",
         "batalha_bloqueada_toast": "La Torre se desbloquea cuando terminás toda la campaña — los 7 barrios de Marélia, hasta derrotar al Costura en la Laje.",
-        "em_breve": "PRÓXIMAMENTE",
         "multiplayer_titulo": "MULTIJUGADOR ONLINE",
         "multiplayer_bloqueada_toast": "Se desbloquea cuando al menos 3 personajes de tu pandilla lleguen al nivel 99.",
         "multiplayer_liberado_toast": "Tu pandilla ya tiene 3 fichas en nivel 99 — el online contra otras bandas está listo para encenderse apenas llegue la actualización."
