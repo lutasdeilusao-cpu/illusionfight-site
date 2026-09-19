@@ -421,17 +421,36 @@ export function gerarBandoEvento({ territorioId, playerTeam, enemiesData, modo =
  *  pra deixar de ser um orçamento cego (nível 1 == nível 12) sem tirar o "piso"
  *  de personalidade do budget autorado (o galpão nunca fica mole demais nem
  *  vira paredão puro pra quem chegou fraco). Reportado pelo Isaias
- *  (2026-09-13): nível 11/12 matava tudo com um golpe no galpão. */
+ *  (2026-09-13): nível 11/12 matava tudo com um golpe no galpão.
+ *  `baseMaisForte`: variante de `ratioComTime` pedida pelo Isaias
+ *  (19/09/2026, testando a `rinha` já com a tropa upada: "a rinha deveria
+ *  se adaptar à minha ficha... você acha que essa numeração tá certa?" —
+ *  não estava: o `ratioComTime` padrão soma uma fatia da SOMA de pontos do
+ *  time inteiro, dividida pelos corpos — pra farm "sempre no seu nível" isso
+ *  fica bem abaixo do personagem mais forte, e a "recompensa por risco"
+ *  (ganguesVictoryResolver.js) então quase não dá AP nenhum). Com
+ *  `baseMaisForte`, a base de comparação vira o MAIOR total de pontos entre
+ *  os personagens do time (não a soma) e o orçamento do líder vira
+ *  `Math.max(budgetPorCorpo, pontosMaisForte × ratioComTime)` — um MAX, não
+ *  soma — pra o líder ficar sempre bem perto do personagem mais forte da
+ *  gangue (ratioComTime=1 = igual), nunca a mais. A dedução da dupla ainda
+ *  se aplica DEPOIS desse cálculo, então o 2º corpo continua mais fraco. */
 const GANGUES_DUPLA_DEDUCAO_MIN = 2
 const GANGUES_DUPLA_DEDUCAO_MAX = 3
 const GANGUES_MULTIDAO_DEGRAU_ABAIXO = GANGUES_LADDER_PASSO
 
-export function gerarBandoRevezamento({ pool, budgetPorCorpo = 5, chanceDupla = 0.3, enemiesData, modo = 'medio', qtdMin, qtdMax, playerTeam, ratioComTime = 0 }) {
+export function gerarBandoRevezamento({ pool, budgetPorCorpo = 5, chanceDupla = 0.3, enemiesData, modo = 'medio', qtdMin, qtdMax, playerTeam, ratioComTime = 0, baseMaisForte = false }) {
   if (!pool?.length || !enemiesData?.length) return null
   const multidaoGarantida = qtdMin != null && qtdMax != null
   const dupla = !multidaoGarantida && Math.random() < chanceDupla
   const qtd = multidaoGarantida ? (qtdMin + Math.floor(Math.random() * (qtdMax - qtdMin + 1))) : (dupla ? 2 : 1)
-  const bonusTime = (playerTeam?.length && ratioComTime > 0) ? (calcularPontosTime(playerTeam) * ratioComTime) / qtd : 0
+  const pontosMaisForte = baseMaisForte
+    ? Math.max(0, ...(playerTeam || []).map(m => ['A', 'H', 'D', 'PV', 'PM'].reduce((s, k) => s + (Number(m.attributes?.[k]) || 0), 0)))
+    : 0
+  const bonusTime = (playerTeam?.length && ratioComTime > 0)
+    ? (baseMaisForte ? pontosMaisForte * ratioComTime : (calcularPontosTime(playerTeam) * ratioComTime) / qtd)
+    : 0
+  const baseAlvo = baseMaisForte ? Math.max(budgetPorCorpo, bonusTime) : (budgetPorCorpo + bonusTime)
   // 1º corpo (índice 0, o líder) sempre leva a ficha oficial do POI. Os
   // demais vêm mais fracos: na dupla comum, 2-3 pontos abaixo aleatório
   // (ameaça parecida, corpo "mais novato"); na multidão garantida, um
@@ -450,7 +469,7 @@ export function gerarBandoRevezamento({ pool, budgetPorCorpo = 5, chanceDupla = 
   const bando = Array.from({ length: qtd }, (_, i) => {
     const id = sortear()
     const molde = enemiesData.find(e => e.id === id)
-    const orcamento = Math.max(2, ajustarPontosFixo(budgetPorCorpo - deducaoCorpo(i) + bonusTime, modo))
+    const orcamento = Math.max(2, ajustarPontosFixo(baseAlvo - deducaoCorpo(i), modo))
     return molde ? escalarInimigo(molde, orcamento) : null
   }).filter(Boolean)
 

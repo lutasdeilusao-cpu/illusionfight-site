@@ -238,13 +238,19 @@ export const POIS_PISTA = [
     // — piso de 3, o mesmo da "1ª luta muito fácil", não o 8 de `beco`
     // (que só existe depois de abrir o ferro-velho).
     // AJUSTE 19/09/2026 (Isaias, achou o inimigo "muito fraco" farmando com
-    // a tropa já grande): igual o galpão (galpao_m1/galpao_contador,
-    // interiores.js), ganhou `ratioComTime` — o piso de 3 continua servindo
-    // pra tropa fresca, mas agora soma uma fatia do total de pontos do TIME
-    // (0.3, mesmo valor do galpao_contador) — a rinha cresce junto com a
-    // gangue em vez de ficar travada em 3 pra sempre.
+    // a tropa já grande): ganhou `ratioComTime` igual o galpão. AJUSTE Nº2,
+    // mesmo dia (ele foi conferir os números de novo: "a rinha deveria se
+    // adaptar à minha ficha... essa numeração tá certa?" — não estava: a
+    // soma de pontos do time inteiro ÷ corpos ficava bem abaixo do
+    // personagem mais forte, e a "recompensa por risco" quase não dava AP
+    // nenhum farmando aqui). Trocado pro modo `baseMaisForte`
+    // (ganguesEncontros.js) — o líder do bando vira `Math.max(3,
+    // pontosMaisForte × 1)`, ou seja, sempre bem perto do personagem MAIS
+    // FORTE da gangue (nunca a soma do time todo) — a rinha vira um "sparring
+    // sempre no seu nível" de verdade, dentro da tolerância cheia da
+    // recompensa por risco.
     enemy: 1201,
-    revezamento: { pool: PISTA_POOL_RUA, budgetPorCorpo: 3, chanceDupla: 0.35, ratioComTime: 0.3 },
+    revezamento: { pool: PISTA_POOL_RUA, budgetPorCorpo: 3, chanceDupla: 0.35, ratioComTime: 1, baseMaisForte: true },
     forca: 1,
     recompensa: { grana: 4 },
   },
