@@ -142,6 +142,17 @@ export default function createGanguesStorySlice(set, get) {
       get()._persistStory()
     },
 
+    // "Regra da frustração" (pedido do Isaias, 19/09/2026): perder lutas
+    // seguidas na história é ruim de propósito (dado azarado + luta de
+    // multidão puxada = frustração empilhada). Conta derrotas seguidas —
+    // zera em qualquer vitória. GanguesRoute lê esse número e, a partir de
+    // `GANGUES_FRUSTRACAO_LIMIAR`, suaviza a PRÓXIMA treta comum (mesma
+    // técnica de `suavizarPrimeiraLuta`: 1 corpo só, metade da ficha).
+    registrarResultadoStory: (outcome) => {
+      set(state => ({ storyProgress: { ...state.storyProgress, __derrotasSeguidas: outcome === 'victory' ? 0 : (state.storyProgress.__derrotasSeguidas || 0) + 1 } }))
+      get()._persistStory()
+    },
+
     campaignClears: 0,
     eventCharacterIds: [],
     completeCampaign: () => {

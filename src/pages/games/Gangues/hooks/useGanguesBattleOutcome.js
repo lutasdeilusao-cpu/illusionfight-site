@@ -15,6 +15,10 @@ export default function useGanguesBattleOutcome({ store, t, registrarEvento, onN
 
   const finish = useCallback(outcome => {
     store.endMatch(outcome)
+    // "Regra da frustração" — só conta pra história (storyTarget setado
+    // pelo GanguesRoute só nesse modo; Arena/Torre/Clube não mexem nisso e
+    // ficariam com um `storyTarget` de sessão de história anterior/nulo).
+    if (store.storyTarget?.territorioId) store.registrarResultadoStory(outcome)
     setResult(outcome)
     if (outcome === 'victory') registrarEvento('arena_vitoria', 'Venceu uma batalha de gangue', 1)
     outcome === 'victory' ? sfx.win() : sfx.lose()

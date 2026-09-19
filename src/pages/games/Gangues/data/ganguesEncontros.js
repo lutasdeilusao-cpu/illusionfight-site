@@ -382,6 +382,15 @@ export function gerarBandoEvento({ territorioId, playerTeam, enemiesData, modo =
  *  GARANTIDA" (ex: o galpão do Carvão, que o Isaias pediu pra ser sempre osso
  *  duro de 3-5, não mais o revezamento fraquinho do túnel). Quando presentes,
  *  ignoram `chanceDupla` por completo.
+ *  BUG achado pelo Isaias (19/09/2026, "regra da frustração" — briga de
+ *  gangue/multidão tem que respeitar a ficha igual qualquer outra luta):
+ *  `multidaoGarantida` dava a ficha CHEIA (`budgetPorCorpo` sem dedução
+ *  nenhuma) pra TODOS os corpos — um bando de 5 contra um personagem
+ *  nível 14 virava 5 fichas de 14 pontos cada, intragável. Corrigido: só o
+ *  1º corpo (o líder do bando) leva a ficha cheia; o resto vem um degrau
+ *  ABAIXO na ladder (`MULTIDAO_DEGRAU_ABAIXO`, mesmo passo de
+ *  `ganguesTerritorios.js` — nível 14 → escolta de 11), igual "os outros
+ *  personagens da luta são do nível anterior" que ele descreveu.
  *  `playerTeam`/`ratioComTime`: opcional — soma ao `budgetPorCorpo` autorado
  *  uma fatia dos pontos do time do jogador (dividida pelos corpos do bando),
  *  pra deixar de ser um orçamento cego (nível 1 == nível 12) sem tirar o "piso"
@@ -390,6 +399,7 @@ export function gerarBandoEvento({ territorioId, playerTeam, enemiesData, modo =
  *  (2026-09-13): nível 11/12 matava tudo com um golpe no galpão. */
 const GANGUES_DUPLA_DEDUCAO_MIN = 2
 const GANGUES_DUPLA_DEDUCAO_MAX = 3
+const GANGUES_MULTIDAO_DEGRAU_ABAIXO = 3
 
 export function gerarBandoRevezamento({ pool, budgetPorCorpo = 5, chanceDupla = 0.3, enemiesData, modo = 'medio', qtdMin, qtdMax, playerTeam, ratioComTime = 0 }) {
   if (!pool?.length || !enemiesData?.length) return null
@@ -397,13 +407,15 @@ export function gerarBandoRevezamento({ pool, budgetPorCorpo = 5, chanceDupla = 
   const dupla = !multidaoGarantida && Math.random() < chanceDupla
   const qtd = multidaoGarantida ? (qtdMin + Math.floor(Math.random() * (qtdMax - qtdMin + 1))) : (dupla ? 2 : 1)
   const bonusTime = (playerTeam?.length && ratioComTime > 0) ? (calcularPontosTime(playerTeam) * ratioComTime) / qtd : 0
-  // Dupla: só o 1º corpo (índice 0) leva a ficha oficial do POI; os demais
-  // saem 2-3 pontos abaixo (nunca os dois "amaciados" igual — ver comentário
-  // da função). `multidaoGarantida` não usa dedução nenhuma (osso duro
-  // sempre, de propósito).
-  const deducaoCorpo = i => (multidaoGarantida || i === 0)
-    ? 0
-    : GANGUES_DUPLA_DEDUCAO_MIN + Math.floor(Math.random() * (GANGUES_DUPLA_DEDUCAO_MAX - GANGUES_DUPLA_DEDUCAO_MIN + 1))
+  // 1º corpo (índice 0, o líder) sempre leva a ficha oficial do POI. Os
+  // demais vêm mais fracos: na dupla comum, 2-3 pontos abaixo aleatório
+  // (ameaça parecida, corpo "mais novato"); na multidão garantida, um
+  // degrau INTEIRO abaixo (a mesma escala da ladder de território) — senão
+  // vira bando inteiro na ficha do líder, impossível de vencer em grupo.
+  const deducaoCorpo = i => {
+    if (i === 0) return 0
+    return multidaoGarantida ? GANGUES_MULTIDAO_DEGRAU_ABAIXO : (GANGUES_DUPLA_DEDUCAO_MIN + Math.floor(Math.random() * (GANGUES_DUPLA_DEDUCAO_MAX - GANGUES_DUPLA_DEDUCAO_MIN + 1)))
+  }
 
   const bag = []
   const sortear = () => {

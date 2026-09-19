@@ -22,7 +22,7 @@ import GanguesClubeResultado from './screens/GanguesClubeResultado'
 import { temCena } from './data/cenas/cenaHelpers.js'
 import { GANGUES_STORY_BATTLE_PARTY_MAX } from './data/ganguesLoadout.js'
 import { gerarBandoInimigo, gerarBandoChefe, gerarBandoRevezamento, gerarBandoEvento, gerarBandoClube, suavizarPrimeiraLuta, escalarInimigo } from './data/ganguesEncontros.js'
-import { ajustarPontosFixo } from './data/ganguesDificuldade.js'
+import { ajustarPontosFixo, GANGUES_FRUSTRACAO_LIMIAR } from './data/ganguesDificuldade.js'
 import GuestNotice from '../../../components/GuestNotice/GuestNotice'
 import enemiesData from './data/gangues-enemies.json'
 import './Gangues.css'
@@ -193,6 +193,14 @@ export default function GanguesRoute() {
     // não importa nível/dificuldade — ver suavizarPrimeiraLuta. Chefe/clube/
     // torre ficam de fora (gated por progresso, nunca são a 1ª luta na prática).
     const primeiraLuta = !store.storyProgress?.__primeiraLutaFeita
+    // "Regra da frustração" (pedido do Isaias, 19/09/2026): depois de
+    // GANGUES_FRUSTRACAO_LIMIAR derrotas SEGUIDAS na história, a próxima
+    // treta comum vem suavizada igual a 1ª luta (mesma função,
+    // suavizarPrimeiraLuta — metade dos pontos, um inimigo só, não "ficha
+    // cheia mais fraca"). Chefe/clube ficam de fora (osso duro de propósito
+    // — suavizar o chefe destruiria o loop de "voltar mais forte").
+    const lutaFrustrada = (store.storyProgress?.__derrotasSeguidas || 0) >= GANGUES_FRUSTRACAO_LIMIAR
+    const suavizar = primeiraLuta || lutaFrustrada
 
     let enemyTeam
     if (alvo.clube) {
@@ -204,7 +212,7 @@ export default function GanguesRoute() {
       // Encontro aleatório de rua — bando um pouco acima da ficha, com teto.
       enemyTeam = gerarBandoEvento({ territorioId: alvo.territorioId, playerTeam: party, enemiesData, modo })
       if (!enemyTeam?.length) { setFase('story'); return }
-      if (primeiraLuta) enemyTeam = suavizarPrimeiraLuta(enemyTeam)
+      if (suavizar) enemyTeam = suavizarPrimeiraLuta(enemyTeam)
     } else if (alvo.isChefe) {
       // Bando do chefe = orçamento de pontos FIXO por território (não escala com
       // o jogador — o loop é voltar mais forte). Ver gerarBandoChefe.
@@ -217,7 +225,7 @@ export default function GanguesRoute() {
       // pelo time (ratioComTime), caso do galpão do Carvão (ver interiores.js).
       enemyTeam = gerarBandoRevezamento({ ...alvo.revezamento, enemiesData, modo, playerTeam: party })
       if (!enemyTeam?.length) { setFase('story'); return }
-      if (primeiraLuta) enemyTeam = suavizarPrimeiraLuta(enemyTeam)
+      if (suavizar) enemyTeam = suavizarPrimeiraLuta(enemyTeam)
     } else if (alvo.fixo) {
       // Nível fixo (Generais da Pista, rua comum dos outros territórios): a
       // MESMA ficha catalogada, escalada pro ponto autorado do POI/nó
@@ -227,13 +235,13 @@ export default function GanguesRoute() {
       const enemy = enemiesData.find(e => e.id === alvo.enemyId)
       if (!enemy) { setFase('story'); return }
       enemyTeam = [alvo.pontosFixos > 0 ? escalarInimigo(enemy, ajustarPontosFixo(alvo.pontosFixos, modo)) : enemy]
-      if (primeiraLuta) enemyTeam = suavizarPrimeiraLuta(enemyTeam)
+      if (suavizar) enemyTeam = suavizarPrimeiraLuta(enemyTeam)
     } else {
       // Bando de vários corpos com orçamento total FIXO (ex: galpao_m2) —
       // ver gerarBandoInimigo em ganguesEncontros.js.
       enemyTeam = gerarBandoInimigo({ territorioId: alvo.territorioId, pontosFixo: ajustarPontosFixo(alvo.pontosFixos, modo), playerTeam: party, enemiesData, liderFixo: alvo.liderFixo, moldesPool: alvo.moldesPool, qtdMin: alvo.qtdMin, qtdMax: alvo.qtdMax })
       if (!enemyTeam?.length) { setFase('story'); return }
-      if (primeiraLuta) enemyTeam = suavizarPrimeiraLuta(enemyTeam)
+      if (suavizar) enemyTeam = suavizarPrimeiraLuta(enemyTeam)
     }
     if (primeiraLuta && !alvo.clube && !alvo.isChefe) store.marcarPrimeiraLutaFeita()
     store.startMatch(enemyTeam[0], enemyTeam, party)

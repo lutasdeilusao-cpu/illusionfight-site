@@ -26,6 +26,13 @@
 
 export const GANGUES_DIFICULDADE_AJUSTE = { facil: -2, medio: 0, dificil: 2 }
 
+/** "Regra da frustração" (pedido do Isaias, 19/09/2026): quantas derrotas
+ *  SEGUIDAS na história (storyProgress.__derrotasSeguidas, ganguesStorySlice.js)
+ *  disparam a suavização da próxima treta comum (ver GanguesRoute.jsx —
+ *  reaproveita `suavizarPrimeiraLuta`: um inimigo só, metade da ficha, nunca
+ *  "ficha cheia mais fraca"). Zera em qualquer vitória. */
+export const GANGUES_FRUSTRACAO_LIMIAR = 2
+
 /** Aplica o ajuste de dificuldade num alvo de pontos fixo, nunca deixando
  *  passar de 1 (uma ficha de 0 ou negativa quebra escalarInimigo). */
 export function ajustarPontosFixo(pontosBase, modo = 'medio') {
