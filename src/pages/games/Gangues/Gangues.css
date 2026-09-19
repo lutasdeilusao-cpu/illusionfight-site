@@ -2975,11 +2975,15 @@ button.gang-skill-node:hover { border-color: var(--if-teal); }
 .gang-voltar-btn.gang-voltar-btn:hover { background: #102830; }
 /* GanguesCreate.jsx: cabeçalho é centralizado/tem padding pro poster, o
    Voltar mora ANTES dele (não mais ícone absoluto por dentro) — margem
-   de cima maior ainda pra não colar na tira de guest/CRIAR CONTA do
-   topo (Isaias, 18/09/2026: "voltar ta em cima da barra criar conta").
-   Especificidade 0-3-0 de propósito pra garantir que vence a regra
-   base acima. */
-.gang-voltar-btn.gang-voltar-btn.gang-recruit__voltar { margin: 44px auto 10px; }
+   de cima maior pra não colar na tira de guest/CRIAR CONTA do topo
+   (Isaias, 18/09/2026: "voltar ta em cima da barra criar conta").
+   Reduzida de 44 pra 20px (19/09/2026, "vamos diminuir um pouco o
+   tamanho de tudo pra ver se cabe no mobile numa unica tela sem
+   scroll") — a folga de 44px só era necessária por causa do bug do
+   `.gang-page` centralizando (corrigido em `.gang-recruit`, ver
+   GanguesLobby.css), não precisa mais de tanto respiro. Especificidade
+   0-3-0 de propósito pra garantir que vence a regra base acima. */
+.gang-voltar-btn.gang-voltar-btn.gang-recruit__voltar { margin: 20px auto 8px; }
 
 /* ══ CONFIRMAÇÃO DE "METE O PÉ" (GanguesCombatSairConfirm.jsx) ══
    Pedido do Isaias (18/09/2026): "quando aparecer um mete o pé tem que

@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.280.203' // feat: LDI Gangues - texto de abertura do recrutamento inicial ("Cinco nomes responderam ao chamado..." + aviso do lider) virou fala do Nego Veio num dialogo em vez de texto fixo empurrando o carrossel pra baixo - liberava scroll desnecessario no mobile. Ver GANGUES_VERSION.
+export const SITE_VERSION = '10.280.204' // fix: LDI Gangues - tela de recrutamento inicial ainda pedia scroll por uns pixels no mobile mesmo depois do texto de abertura virar dialogo - reduzido tamanho de moldura/cartao/espacamentos (carrossel 486->400px, cartao 452->388px, etc) ate caber inteiro numa tela so. Ver GANGUES_VERSION.
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '3.29.2' // feat (Isaias, 19/09/2026, print com a tela precisando de scroll no mobile: "Mano essa page pra mim todo esse texto poderia aparecer em um balao de dialogo centralizado igual a gente faz as outras vezes e o Nego Velho falando isso porque ai a gente ganha esse espaco... eu gosto das coisas sempre sem scroll"): o texto de abertura da tela de recrutamento inicial ("Cinco nomes responderam ao chamado... marque os dois... o primeiro que marcar vira lider") ficava fixo no topo o tempo todo, empurrando o carrossel pra baixo. Virou dialogo do Nego Veio (GangDialog, mesmo padrao usado no resto do jogo), mostrado uma vez e some - o cabecalho que sobra e so o titulo, bem mais compacto. So na fundacao (initialRecruitment); recrutar reforco depois continua com o subtitulo curto de sempre, sem dialogo (nunca teve problema de espaco).
+export const GANGUES_VERSION   = '3.29.3' // fix (Isaias, 19/09/2026, print ainda com scroll depois do dialogo: "vamos tentar subir um pouquinho mais tudo e diminuir um pouco... vamos diminuir um pouco o tamanho de tudo pra ver se cabe no mobile numa unica tela sem scroll"): reduzido tamanho/espacamento de tudo na tela de recrutamento inicial - .gang-recruit padding 22/28->14/16, Voltar margin-top 44->20px, titulo 2rem->1.6rem, carrossel (.gang-recruit__stage) 486->400px, cartao (.gang-fighter-card) 452->388px (prev/next proporcional), retrato dentro do cartao (.gang-fighter-card__portrait) 342->280px (senao o cartao mais baixo sobrava pouco espaco pro nome/tecnica embaixo e o texto ficava sobreposto - achado testando ao vivo), picks/slots/confirm com menos padding/margin. Confirmado ao vivo: scrollHeight === clientHeight (zero scroll), sem sobreposicao de texto.
 
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
