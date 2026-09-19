@@ -320,7 +320,7 @@ export default function GanguesRoute() {
           onVoltar={() => {
             const v = store.storyTarget?.voltar
             store.setStoryTarget(v?.territorioId ? { territorioId: v.territorioId } : null)
-            navegar(v?.territorioId ? 'territorio' : 'lobby')
+            navegar(v?.territorioId ? 'territorio' : 'modes')
           }}
         />
       )}
@@ -329,7 +329,15 @@ export default function GanguesRoute() {
           ? <GanguesCena onNavigate={navegar} onVoltar={voltar} />
           : <GanguesTerritorio onNavigate={navegar} onVoltar={voltar} />
       )}
-      {fase === 'combat' && <GanguesCombat onNavigate={setFase} onSairConfirmado={() => setFase('lobby')} />}
+      {/* "Mete o pé" (fugir da luta, com confirmação) mandava pro Lobby -
+          pedido do Isaias (19/09/2026, "usei o mete o pé, fui parar nessa
+          página que eu disse que não deveria existir... já pedi umas três
+          vezes"): a tela de escolher/gerenciar elenco não é mais um destino
+          de retorno normal do jogo (só existe pra fundar a gangue ou revisar
+          o elenco por escolha própria) - fugir de uma luta em andamento
+          volta pro hub de verdade (Modes), igual qualquer outra saída de
+          combate/território. */}
+      {fase === 'combat' && <GanguesCombat onNavigate={setFase} onSairConfirmado={() => setFase('modes')} />}
       {fase === 'victory' && <GanguesVictory onNavigate={navegar} />}
     </div>
   )
