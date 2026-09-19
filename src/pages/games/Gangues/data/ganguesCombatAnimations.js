@@ -141,24 +141,25 @@ const DADOS_POR_SLUG = {
   // BUG achado pelo Isaias jogando (18/09/2026, print da Catraca sem
   // cabeça em combate) — causa raiz real, achada extraindo a folha crua
   // com sharp e olhando quadro a quadro: a arte ENTREGUE na 1ª leva só
-  // preenchia 4 col × 3 linhas (12 poses) dentro de uma folha 724×544,
-  // mas a config dizia 4×4/16 (copiada do Trinca/Muro sem checar se a
-  // arte nova respeitava a mesma grade). Com rows:4 o recorte de cada
-  // célula parava antes do fim da pose e a sobra aparecia inteira,
-  // sobreposta, na célula de baixo — a "perna flutuando acima do corpo"
-  // do print. Confirmado ao vivo via Playwright (browser aberto, jogo
-  // real) e também no PNG de origem (1448×1086) antes do redimensionamento
-  // — mesma grade 4×3 lá, não era um bug de export. Isaias redesenhou a
-  // arte pra grade certa (4×4/16 de verdade, igual Trinca/Muro — folhas
-  // novas em `assets/personagens/<nome>/`, 18/09/2026 à noite); os 16
-  // quadros de cada uma das 6 folhas (ataqueNormal + dano × 3 personagens)
-  // foram conferidos limpos, um por um. Índices de golpe abaixo são a
-  // posição real do flash/pico de extensão na arte NOVA (não os antigos).
+  // preenchia 4 col × 3 linhas (12 poses), mas a config dizia 4×4/16
+  // (copiada do Trinca/Muro sem checar se a arte nova respeitava a mesma
+  // grade). Isaias redesenhou pra grade real 4×4/16, igual Trinca/Muro —
+  // mas CADA arquivo veio com uma ALTURA DE CANVAS DIFERENTE (Fenda
+  // 1448×1100, Catraca ataqueNormal 1448×1086, Catraca dano 1448×1200,
+  // Faísca 1448×1086) — não dá pra assumir frameH igual pra todo mundo
+  // (erro que eu mesmo cometi na 1ª tentativa de reprocessar, forçando
+  // 724×544 fixo pra tudo: espremia quem não nascia nessa proporção,
+  // cortando pé/mostrando quadro de cima de novo). Cada `.webp` agora é
+  // gerado com `sharp(src).resize(width/2, height/2)` (metade exata da
+  // altura REAL daquele arquivo, lida do próprio arquivo, nunca chumbada)
+  // — por isso frameH varia por personagem/tipo abaixo. Confirmado ao
+  // vivo via Playwright, dentro do jogo real.
   fenda: {
     ataqueNormal: {
-      // Arma nova (correntes), 2 flashes de impacto desenhados na folha —
-      // quadros 7 (linha 2 col 3) e 16 (linha 4 col 4).
-      frameW: 181, frameH: 136, cols: 4, rows: 4, frames: 16, frameMs: 80,
+      // Fonte 1448×1100 → webp 724×550 → frameH real = 550/4 = 137.5.
+      // Arma nova (correntes), 2 flashes de impacto — quadros 7 (linha 2
+      // col 3) e 16 (linha 4 col 4).
+      frameW: 181, frameH: 137.5, cols: 4, rows: 4, frames: 16, frameMs: 80,
       sons: {
         golpes: [
           { frame: 7, arquivo: som('soco-leve') },
@@ -167,8 +168,9 @@ const DADOS_POR_SLUG = {
       },
     },
     dano: {
+      // Fonte 1448×1100 → webp 724×550 → frameH real = 137.5.
       // Flashes na folha — quadros 3 (linha 1 col 3) e 10 (linha 3 col 2).
-      frameW: 181, frameH: 136, cols: 4, rows: 4, frames: 16, frameMs: 80,
+      frameW: 181, frameH: 137.5, cols: 4, rows: 4, frames: 16, frameMs: 80,
       sons: {
         golpes: [
           { frame: 3, arquivo: som('dano-leve') },
@@ -179,9 +181,10 @@ const DADOS_POR_SLUG = {
   },
   catraca: {
     ataqueNormal: {
+      // Fonte 1448×1086 → webp 724×543 → frameH real = 543/4 = 135.75.
       // Estalo do chicote, 2 flashes de impacto — quadros 6 (linha 2
       // col 2) e 11 (linha 3 col 3).
-      frameW: 181, frameH: 136, cols: 4, rows: 4, frames: 16, frameMs: 80,
+      frameW: 181, frameH: 135.75, cols: 4, rows: 4, frames: 16, frameMs: 80,
       sons: {
         golpes: [
           { frame: 6, arquivo: som('soco-leve') },
@@ -190,8 +193,9 @@ const DADOS_POR_SLUG = {
       },
     },
     dano: {
+      // Fonte 1448×1200 → webp 724×600 → frameH real = 600/4 = 150.
       // Flashes na folha — quadros 3 (linha 1 col 3) e 10 (linha 3 col 2).
-      frameW: 181, frameH: 136, cols: 4, rows: 4, frames: 16, frameMs: 80,
+      frameW: 181, frameH: 150, cols: 4, rows: 4, frames: 16, frameMs: 80,
       sons: {
         golpes: [
           { frame: 3, arquivo: som('dano-leve') },
@@ -202,14 +206,16 @@ const DADOS_POR_SLUG = {
   },
   faisca: {
     ataqueNormal: {
+      // Fonte 1448×1086 → webp 724×543 → frameH real = 135.75.
       // Chute voador, sem flash de impacto desenhado — pico da extensão
       // da perna no ar (quadro 7, linha 2 col 3) é o golpe de fato.
-      frameW: 181, frameH: 136, cols: 4, rows: 4, frames: 16, frameMs: 80,
+      frameW: 181, frameH: 135.75, cols: 4, rows: 4, frames: 16, frameMs: 80,
       sons: { golpes: [{ frame: 7, arquivo: som('trinca-soco') }] },
     },
     dano: {
+      // Fonte 1448×1086 → webp 724×543 → frameH real = 135.75.
       // Flashes na folha — quadros 3 (linha 1 col 3) e 11 (linha 3 col 3).
-      frameW: 181, frameH: 136, cols: 4, rows: 4, frames: 16, frameMs: 80,
+      frameW: 181, frameH: 135.75, cols: 4, rows: 4, frames: 16, frameMs: 80,
       sons: {
         golpes: [
           { frame: 3, arquivo: som('muro-soco1') },
