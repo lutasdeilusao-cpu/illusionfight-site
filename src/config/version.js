@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.280.209' // fix: LDI Gangues - tela de Modos, correção do Isaias: tira o "EM BREVE" dos cards bloqueados (Modo Batalha/Multiplayer) pra incentivar o clique - o CTA vira "Como faço pra liberar? →", mesmo estilo dos outros modos. Ver GANGUES_VERSION.
+export const SITE_VERSION = '10.280.210' // feat: LDI Gangues - tela de Modos, o toast pequeno dos cards bloqueados virou o Nego Véio falando em tela cheia (mesmo GangTip dos tutoriais) + removido o símbolo de bloqueado dos cards. Ver GANGUES_VERSION.
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '3.31.1' // fix (Isaias, 19/09/2026, correcao direta do v3.31.0): "nao quero isso, e pra tirar o 'em breve' pra incentivar a pessoa a clicar" - a versao anterior tinha mantido "EM BREVE" como CTA separado, junto com a linha teaser embaixo do titulo (redundante). Removido: a chave em_breve (pt/en/es) e a linha de desc teaser (.gang-modes-card-desc--teaser, CSS removido). O CTA dos 2 cards bloqueados agora É o convite pro clique - "Como faco pra liberar? →" - no mesmo slot/estilo visual dos outros CTAs do jogo (cor do modo, seta que anima no hover), sem nenhum texto de "em breve" sobrando.
+export const GANGUES_VERSION   = '3.32.0' // feat (Isaias, 19/09/2026, print da tela de Modos com o toast do v3.31.x): "esse texto da informacao deveria mostrar grande no centro como se fosse um dialogo, o proprio Nego Veio pode falar/avisar a informacao [...] tira esse simbolo de bloqueado porque eu quero que a pessoa clique [...] nao desse jeito que ta horrivel". O toast pequeno embaixo da tela (.gang-modes-toast, criado no v3.31.0) foi jogado fora - GanguesModes.jsx agora reaproveita o GangTip (mesmo overlay centralizado com a cabeca do Nego Veio usado nos tutoriais - pausa a tela, scrim, card no meio) pra mostrar a condicao de liberacao. Removido tambem o icone ⊘/⧉ (.gang-modes-lock, GanguesModesRedesign.css) dos cards bloqueados - so a tag "BLOQUEADO" pequena continua, sem simbolo de proibido chamando atencao errada. i18n pt/en/es: os 3 textos de liberacao (Torre/Multiplayer bloqueado/Multiplayer liberado) reescritos na VOZ do Nego Veio (1a pessoa, girias do banco de vocabulario da secao 13 do GDD - "cria", "trupe/crew", "osso duro"/"hueso duro de roer") em vez de texto descritivo neutro. Testado ao vivo via Playwright: os 2 cards mostram o dialogo do Nego Veio centralizado, com retrato, botao "Entendido, patrao" e "Pular dialogo" - identico ao tutorial de combate.
 
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio

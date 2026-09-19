@@ -82,7 +82,6 @@ button.gang-modes-card { cursor: pointer; }
    identidade nova (o fundo marrom-tijolo+accent virava só cinza chapado,
    indistinguível do painel técnico de antes). Só opacidade agora. */
 .gang-modes-card--locked { opacity: .55; }
-.gang-modes-lock { position: absolute; right: 20px; top: 28px; color: var(--modo-cor); font: 300 3.2rem/1 var(--font-display); }
 @media (prefers-reduced-motion: reduce) { .gang-modes-card { transition: none; } }
 .gang-naming { justify-content:center; }
 /* .gang-naming-poster e afins: reconstruídos por completo em

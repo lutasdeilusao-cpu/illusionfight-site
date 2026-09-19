@@ -1,11 +1,12 @@
 import { motion, AnimatePresence } from 'framer-motion'
-import { useState, useRef } from 'react'
+import { useState } from 'react'
 import { useLanguage } from '../../../../context/LanguageContext'
 import { useGanguesStore } from '../store/useGanguesStore'
 import { ganguesTemMultiplayer } from '../data/ganguesLoadout.js'
 import { getGanguesPortraitByTemplateId } from '../data/ganguesPortraits.js'
 import { sfx } from '../../../../lib/sfx'
 import GanguesVoltarBtn from '../components/GanguesVoltarBtn'
+import GangTip from '../components/GangTip'
 import '../Gangues.css' // .gang-brickwall-bg mora lá
 import './GanguesModes.css'
 import './GanguesModesRedesign.css'
@@ -21,18 +22,14 @@ export default function GanguesModes({ onNavigate, onVoltar }) {
   const store = useGanguesStore()
   const party = store.activeParty
   const [gangueAberta, setGangueAberta] = useState(false)
-  // Toast de curiosidade (pedido do Isaias, 19/09/2026): os cards bloqueados
+  // Dica de curiosidade (pedido do Isaias, 19/09/2026): os cards bloqueados
   // não escrevem mais a condição de liberação direto no card — o jogador
-  // clica pra descobrir ("dá curiosidade de clicar"). Mesmo padrão de
-  // `aviso` usado em GanguesCena.jsx.
-  const [aviso, setAviso] = useState(null)
-  const avisoTimer = useRef(null)
-  const mostrarAviso = (texto) => {
-    sfx.select?.()
-    clearTimeout(avisoTimer.current)
-    setAviso(texto)
-    avisoTimer.current = setTimeout(() => setAviso(null), 4200)
-  }
+  // clica pra descobrir. Correção do próprio Isaias em seguida: o toast
+  // pequeno embaixo da tela "tá horrível" — vira o MESMO GangTip usado nos
+  // tutoriais (overlay centralizado, pausa o jogo, é o Nego Véio falando).
+  const [avisoDoVeio, setAvisoDoVeio] = useState(null)
+  const mostrarAviso = (texto) => { sfx.select?.(); setAvisoDoVeio(texto) }
+  const fecharAviso = () => setAvisoDoVeio(null)
 
   if (party.length < 2) { onNavigate('lobby'); return null }
 
@@ -105,7 +102,6 @@ export default function GanguesModes({ onNavigate, onVoltar }) {
             onClick={() => mostrarAviso(t('games.gangues.modes.batalha_bloqueada_toast'))}
             initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.18 }}>
             <span className="gang-modes-card-index">02</span>
-            <span className="gang-modes-lock" aria-hidden="true">⊘</span>
             <span className="gang-modes-card-tag">{t('games.gangues.modes.bloqueado')}</span>
             <strong className="gang-modes-card-titulo">{t('games.gangues.modes.batalha_titulo')}</strong>
             <span className="gang-modes-card-cta">{t('games.gangues.modes.modo_bloqueado_teaser')} <b>→</b></span>
@@ -116,7 +112,6 @@ export default function GanguesModes({ onNavigate, onVoltar }) {
           onClick={() => mostrarAviso(t(mpLiberado ? 'games.gangues.modes.multiplayer_liberado_toast' : 'games.gangues.modes.multiplayer_bloqueada_toast'))}
           initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.26 }}>
           <span className="gang-modes-card-index">03</span>
-          <span className="gang-modes-lock" aria-hidden="true">{mpLiberado ? '⧉' : '⊘'}</span>
           <span className="gang-modes-card-tag">{mpLiberado ? t('games.gangues.modes.liberado') : t('games.gangues.modes.bloqueado')}</span>
           <strong className="gang-modes-card-titulo">{t('games.gangues.modes.multiplayer_titulo')}</strong>
           <span className="gang-modes-card-cta">{t('games.gangues.modes.modo_bloqueado_teaser')} <b>→</b></span>
@@ -124,11 +119,8 @@ export default function GanguesModes({ onNavigate, onVoltar }) {
       </div>
 
       <AnimatePresence>
-        {aviso && (
-          <motion.div className="gang-modes-toast" role="status"
-            initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}>
-            {aviso}
-          </motion.div>
+        {avisoDoVeio && (
+          <GangTip text={avisoDoVeio} isLast onNext={fecharAviso} onSkip={fecharAviso} />
         )}
       </AnimatePresence>
 
