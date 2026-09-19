@@ -89,9 +89,8 @@ export const POIS_PISTA = [
     tipo: 'treta',
     // Continua OBRIGATÓRIA pra abrir o portão (portao.precisa) — repetivel
     // só faz ela continuar desafiável DEPOIS de vencida uma vez, igual a
-    // rinha (mesmo travarPontosFarm em GanguesCena.jsx). É a treta mais
-    // fácil e mais cedo da Pista — vira o alvo natural pra upar quem acaba
-    // de ser recrutado e começa do nível 1.
+    // rinha. É a treta mais fácil e mais cedo da Pista — vira o alvo
+    // natural pra upar quem acaba de ser recrutado e começa do nível 1.
     repetivel: true,
     pino: { x: 50, y: 132 },
     i18n: 'games.gangues.cena.pista.beco',
@@ -111,7 +110,6 @@ export const POIS_PISTA = [
     enemy: 1201,
     revezamento: { pool: PISTA_POOL_RUA, budgetPorCorpo: 8, chanceDupla: 0.4 },
     forca: 1,
-    dificuldade: 'facil',
     recompensa: { grana: 8, rep: 2 },
     revela: ['birosca'],
   },
@@ -242,7 +240,6 @@ export const POIS_PISTA = [
     enemy: 1201,
     revezamento: { pool: PISTA_POOL_RUA, budgetPorCorpo: 3, chanceDupla: 0.35 },
     forca: 1,
-    dificuldade: 'facil',
     recompensa: { grana: 4 },
   },
   {
@@ -328,7 +325,6 @@ export const POIS_PISTA = [
     enemy: 1206,
     revezamento: { pool: PISTA_POOL_GALPAO, budgetPorCorpo: 23, chanceDupla: 0.5 },
     forca: 2,
-    dificuldade: 'normal',
     recompensa: { grana: 9, rep: 3 },
     revela: ['posmuro_2'],
   },
@@ -349,7 +345,6 @@ export const POIS_PISTA = [
     repGate: GANGUES_REP_GATE_GALPAO,
     revezamento: { pool: PISTA_POOL_GALPAO, budgetPorCorpo: 26, chanceDupla: 0.6 },
     forca: 3,
-    dificuldade: 'dificil',
     recompensa: { grana: 12, rep: 4, item: 21, qtd: 1 },
   },
 ]

@@ -18,14 +18,24 @@
      Os boss são gente, voz de rua. O Isaias põe os retratos depois.
    • `gangue` referencia story.gangues.<key>.
    • `enemy` no CHEFE é a ficha de combate de verdade (gangues-enemies.json).
-     Num ponto comum (não-chefe) é só um "molde semente" — o bando de
-     verdade é sorteado na hora (GanguesRoute → gerarBandoInimigo, moldes
-     por território em data/ganguesEncontros.js), calibrado contra o total
-     de pontos do time atual do jogador. `dificuldade` (facil/normal/dificil)
-     alterna dentro do território pra não empilhar luta puxada atrás de
-     luta puxada.
+     Num ponto comum (não-chefe) é a MESMA ficha, escalada pro ponto fixo
+     `pontosFixo` do nó (GanguesRoute trata como nível fixo, single-enemy —
+     ver ganguesDificuldade.js). O chefe continua com orçamento fixo
+     próprio (GANGUES_CHEFE_BUDGET, ganguesEncontros.js), sempre acima dos
+     3 pontos comuns do território.
    • `poly` / `pos` são coords no SVG do mapa (viewBox 0 0 100 108).
-   ══════════════════════════════════════════════════════════════ */
+
+   LADDER DE PONTOS (19/09/2026 — limpeza do sistema de dificuldade, pedido
+   do Isaias: "força numericamente, é mais fácil de balancear"). Antes, só a
+   Pista (cena própria, data/cenas/pista/) tinha ladder de números fixos —
+   os outros 6 territórios ainda escalavam num ratio contra o time do
+   jogador (removido, ver ganguesDificuldade.js). Os 3 pontos comuns de cada
+   território aqui embaixo continuam a MESMA ladder da Pista (que termina em
+   26, antes do Carvão=30), subindo de LADDER_PASSO em LADDER_PASSO — pra
+   rebalancear todo o jogo de uma vez, mexe só nos 2 números logo abaixo. */
+const LADDER_PASSO = 3
+let ladderCursor = 26 // último degrau comum da Pista (posmuro_2), antes do Carvão (30)
+const proximoDegrauLadder = () => (ladderCursor += LADDER_PASSO)
 
 export const GANGUES_TERRITORIOS = [
   {
@@ -64,9 +74,9 @@ export const GANGUES_TERRITORIOS = [
     // avançar num novo, em vez de só progresso linear pra frente.
     precisaInformante: true,
     pontos: [
-      { id: 'feira-1', gangue: 'cobranca_turco', enemy: 1304, forca: 2, dificuldade: 'normal' },
-      { id: 'feira-2', gangue: 'cobranca_turco', enemy: 1403, forca: 3, dificuldade: 'dificil' },
-      { id: 'feira-3', gangue: 'os_gato', enemy: 1204, forca: 3, dificuldade: 'facil' },
+      { id: 'feira-1', gangue: 'cobranca_turco', enemy: 1304, forca: 2, pontosFixo: proximoDegrauLadder() },
+      { id: 'feira-2', gangue: 'cobranca_turco', enemy: 1403, forca: 3, pontosFixo: proximoDegrauLadder() },
+      { id: 'feira-3', gangue: 'os_gato', enemy: 1204, forca: 3, pontosFixo: proximoDegrauLadder() },
     ],
     chefe: { id: 'feira-chefe', gangue: 'cobranca_turco', enemy: 1501, forca: 4, boss: 'turco' },
   },
@@ -78,9 +88,9 @@ export const GANGUES_TERRITORIOS = [
     poly: '0,120 20,108 40,118 57,112 44,94 56,76 40,82 20,72 0,84 6,100',
     pos: { top: 64, left: 28 },
     pontos: [
-      { id: 'baixada-1', gangue: 'sombra_rubra', enemy: 1308, forca: 3, dificuldade: 'normal' },
-      { id: 'baixada-2', gangue: 'sombra_fria', enemy: 1309, forca: 4, dificuldade: 'dificil' },
-      { id: 'baixada-3', gangue: 'os_restos', enemy: 1405, forca: 4, dificuldade: 'facil' },
+      { id: 'baixada-1', gangue: 'sombra_rubra', enemy: 1308, forca: 3, pontosFixo: proximoDegrauLadder() },
+      { id: 'baixada-2', gangue: 'sombra_fria', enemy: 1309, forca: 4, pontosFixo: proximoDegrauLadder() },
+      { id: 'baixada-3', gangue: 'os_restos', enemy: 1405, forca: 4, pontosFixo: proximoDegrauLadder() },
     ],
     chefe: { id: 'baixada-chefe', gangue: 'sombra_fria', enemy: 1502, forca: 5, boss: 'espeto' },
   },
@@ -92,9 +102,9 @@ export const GANGUES_TERRITORIOS = [
     poly: '57,112 74,120 90,106 100,116 94,98 100,80 90,70 74,84 56,76 44,94',
     pos: { top: 64, left: 78 },
     pontos: [
-      { id: 'vila-1', gangue: 'bonde_predio', enemy: 1310, forca: 4, dificuldade: 'normal' },
-      { id: 'vila-2', gangue: 'bonde_predio', enemy: 1311, forca: 5, dificuldade: 'dificil' },
-      { id: 'vila-3', gangue: 'os_andar_de_cima', enemy: 1407, forca: 5, dificuldade: 'facil' },
+      { id: 'vila-1', gangue: 'bonde_predio', enemy: 1310, forca: 4, pontosFixo: proximoDegrauLadder() },
+      { id: 'vila-2', gangue: 'bonde_predio', enemy: 1311, forca: 5, pontosFixo: proximoDegrauLadder() },
+      { id: 'vila-3', gangue: 'os_andar_de_cima', enemy: 1407, forca: 5, pontosFixo: proximoDegrauLadder() },
     ],
     chefe: { id: 'vila-chefe', gangue: 'bonde_predio', enemy: 1503, forca: 6, boss: 'sala' },
   },
@@ -106,9 +116,9 @@ export const GANGUES_TERRITORIOS = [
     poly: '0,84 20,72 40,82 56,76 43,58 50,54 40,58 28,50 10,60 4,72',
     pos: { top: 44, left: 29 },
     pontos: [
-      { id: 'morro-1', gangue: 'frente_escada', enemy: 1313, forca: 5, dificuldade: 'normal' },
-      { id: 'morro-2', gangue: 'frente_escada', enemy: 1314, forca: 6, dificuldade: 'dificil' },
-      { id: 'morro-3', gangue: 'os_fogueteiro', enemy: 1409, forca: 6, dificuldade: 'facil' },
+      { id: 'morro-1', gangue: 'frente_escada', enemy: 1313, forca: 5, pontosFixo: proximoDegrauLadder() },
+      { id: 'morro-2', gangue: 'frente_escada', enemy: 1314, forca: 6, pontosFixo: proximoDegrauLadder() },
+      { id: 'morro-3', gangue: 'os_fogueteiro', enemy: 1409, forca: 6, pontosFixo: proximoDegrauLadder() },
     ],
     chefe: { id: 'morro-chefe', gangue: 'frente_escada', enemy: 1504, forca: 7, boss: 'zefa' },
   },
@@ -120,9 +130,9 @@ export const GANGUES_TERRITORIOS = [
     poly: '56,76 74,84 90,70 100,80 96,68 90,60 74,50 62,58 50,54 43,58',
     pos: { top: 44, left: 74 },
     pontos: [
-      { id: 'alto-1', gangue: 'os_cinco', enemy: 1316, forca: 6, dificuldade: 'normal' },
-      { id: 'alto-2', gangue: 'os_cinco', enemy: 1317, forca: 7, dificuldade: 'dificil' },
-      { id: 'alto-3', gangue: 'a_roda', enemy: 1318, forca: 8, dificuldade: 'facil' },
+      { id: 'alto-1', gangue: 'os_cinco', enemy: 1316, forca: 6, pontosFixo: proximoDegrauLadder() },
+      { id: 'alto-2', gangue: 'os_cinco', enemy: 1317, forca: 7, pontosFixo: proximoDegrauLadder() },
+      { id: 'alto-3', gangue: 'a_roda', enemy: 1318, forca: 8, pontosFixo: proximoDegrauLadder() },
     ],
     chefe: { id: 'alto-chefe', gangue: 'os_cinco', enemy: 1505, forca: 9, boss: 'doutor' },
   },
@@ -134,9 +144,9 @@ export const GANGUES_TERRITORIOS = [
     poly: '10,60 28,50 40,58 50,54 62,58 74,50 90,60 84,44 74,26 60,10 50,6 40,10 24,26 14,44',
     pos: { top: 27, left: 51 },
     pontos: [
-      { id: 'laje-1', gangue: 'bonde_costura', enemy: 1319, forca: 7, dificuldade: 'normal' },
-      { id: 'laje-2', gangue: 'bonde_costura', enemy: 1320, forca: 8, dificuldade: 'dificil' },
-      { id: 'laje-3', gangue: 'bonde_costura', enemy: 1463, forca: 9, dificuldade: 'facil' },
+      { id: 'laje-1', gangue: 'bonde_costura', enemy: 1319, forca: 7, pontosFixo: proximoDegrauLadder() },
+      { id: 'laje-2', gangue: 'bonde_costura', enemy: 1320, forca: 8, pontosFixo: proximoDegrauLadder() },
+      { id: 'laje-3', gangue: 'bonde_costura', enemy: 1463, forca: 9, pontosFixo: proximoDegrauLadder() },
     ],
     chefe: { id: 'laje-chefe', gangue: 'bonde_costura', enemy: 1600, forca: 10, boss: 'costura', ehFinal: true },
   },

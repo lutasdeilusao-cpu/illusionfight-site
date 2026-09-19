@@ -69,11 +69,12 @@ export default function GanguesTerritorio({ onNavigate, onVoltar }) {
       territorioId: terr.id,
       noId: confronto.no.id,
       enemyId: confronto.no.enemy,
-      // Chefe é ficha fixa e sozinha; treta comum sorteia um bando novo a
-      // cada tentativa (GanguesRoute → gerarBandoInimigo), calibrado contra
-      // o time atual do jogador. `dificuldade` só alterna facil/normal/dificil
-      // pra não empilhar luta puxada atrás de luta puxada.
-      dificuldade: confronto.no.dificuldade,
+      // Chefe é ficha fixa e sozinha (gerarBandoChefe, orçamento próprio);
+      // treta comum é nível fixo single-enemy (GanguesRoute trata `fixo` +
+      // `pontosFixos`), igual as tretas fixas da Pista — ver
+      // ganguesTerritorios.js pra ladder de pontos.
+      fixo: !confronto.isChefe,
+      pontosFixos: confronto.isChefe ? null : confronto.no.pontosFixo,
       isChefe: confronto.isChefe,
     })
     // GanguesRoute lê o storyTarget e monta a batalha.

@@ -272,12 +272,14 @@ Sinal (`tunel_m1/m2/m3`), passagem trancada até vencer cada um, e um achado
 lado de lá do muro, onde ficam a loja e o galpão. Túnel bidirecional. O muro
 físico só abre com `prog.boss` (chefe derrotado), aí vira atalho.
 
-**Balanço (v2.68.0):** a primeira treta (`beco`) puxa 1 a 4 corpos
-sorteados dos 11 comuns da Pista — tipo e quantidade mudam a cada tentativa —
-num `ratio` de 0.42 (fácil de propósito, ~97% de vitória). O bando escala com os
-pontos do time e o `ratio` sobe bairro por bairro até a Laje (0.74), pra o jogo
-"sempre ir igualando a ficha do jogador". Curva completa + resultados de
-simulação em §17.6 desta bíblia.
+**Balanço (v3.30.0, 19/09/2026 — substitui o ratio de v2.68.0):** todo bando do
+jogo (rua, revezamento, chefe, evento) agora parte de um número de pontos FIXO
+autorado por quem criou o encontro (ladder ponto-a-ponto, não mais um ratio
+contra o total de pontos do time do jogador). Pedido do Isaias: "força
+numericamente, é mais fácil de balancear". A dificuldade escolhida
+(fácil/médio/difícil) soma ou tira um valor fixo em cima desse número — ver
+`GANGUES_DIFICULDADE_AJUSTE` em `data/ganguesDificuldade.js`, o ÚNICO lugar
+que decide isso pro jogo inteiro. Curva completa em §17.6 desta bíblia.
 
 **Encontro de revezamento — dungeon (v2.74.5):** as tretas dentro do túnel (e
 futuramente do galpão) NÃO usam a geração de bando do território. Um POI `treta`
@@ -1738,7 +1740,9 @@ DANO = max(0, FA − FD)   // SEM piso de dano — defesa bem investida pode zer
 
 Sistema descrito originalmente em `GANGUES_MODO_HISTORIA_ENCONTROS.md`
 (2026-09-04) e já implementado pra Pista (`data/cenas/pista/`) — os outros
-6 bairros ainda usam a trilha antiga de nós (`GanguesTerritorio.jsx`).
+6 bairros ainda usam a trilha simples de nós (`GanguesTerritorio.jsx`, 3
+pontos comuns + chefe por bairro), sem cena navegável própria. Desde
+v3.30.0 os dois formatos usam o MESMO sistema de pontos fixos.
 
 - Cada bairro-cena é um mapa navegável com **5 tipos de POI**: **Treta**
   (combate), **Parada** (mini-jogo, falhar pode virar treta), **Papo**
@@ -1752,13 +1756,16 @@ Sistema descrito originalmente em `GANGUES_MODO_HISTORIA_ENCONTROS.md`
 - **Agiotagem da birosca**: o Nato fia o descanso (dívida que dobra se
   "remendado" de novo), e o **Clube da Luta** é um gauntlet de 3 rondas
   sempre oferecido como saída da dívida — ver [[gangues-agiotagem-birosca-clube-luta]].
-- **Bando inimigo escala contra o time do jogador** (`gerarBandoInimigo`),
-  ratio sobe por território (Pista ~0.52 até Laje ~0.74) + offset por
-  dificuldade (fácil/médio/difícil, ±0.10) — calibrado por simulação
-  headless (script `sim_boss7.py`, 3000+ batalhas por célula), não por
-  fórmula no papel. Chefe usa orçamento **fixo** (`GANGUES_CHEFE_BUDGET`),
-  não escala — o loop de RPG é o jogador voltar mais forte, não o chefe
-  ficar mais fraco.
+- **Bando inimigo é NÍVEL FIXO** (v3.30.0, 19/09/2026 — substitui o ratio
+  contra o time do jogador que existia até aqui): cada nó/POI tem um
+  `pontosFixo` autorado (ladder subindo em degraus — ver `pontosFixo` nos
+  nós de `ganguesTerritorios.js` e nos POIs de `data/cenas/pista/`), e a
+  dificuldade escolhida (fácil/médio/difícil) só soma/tira um valor fixo em
+  cima disso (`GANGUES_DIFICULDADE_AJUSTE` em `data/ganguesDificuldade.js`
+  — ±2 por padrão, único lugar do jogo que decide isso). Chefe continua com
+  orçamento **fixo** próprio (`GANGUES_CHEFE_BUDGET`), sempre acima dos 3
+  pontos comuns do território — o loop de RPG é o jogador voltar mais
+  forte, não o chefe ficar mais fraco.
 
 ### 17.7 Persistência
 

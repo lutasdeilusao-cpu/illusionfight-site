@@ -240,19 +240,16 @@ export const INTERIORES_PISTA = {
           // Mantém liderFixo (o Cão Louco sempre lidera essa sala), mas a
           // escolta (se vier) sorteia do pool casca-grossa do galpão, não
           // do pool genérico da Pista inteira — mesmo motivo do m1.
-          // qtdMin/qtdMax + ratioBonus: mesmo motivo do galpao_m1 (ver nota
-          // ali) — o líder fixo (Cão Louco) já dava uma cara mais séria, mas
-          // sozinho + escolta de 1-2 ainda caía com um golpe no nível 11/12.
-          // `repetivel` + `semTravarPontos` (2026-09-14): esse POI usa
-          // gerarBandoInimigo (não revezamento), que travava o orçamento na
-          // 1ª vitória (travarPontosFarm) pra farm não escalar pra sempre —
-          // tirei `repetivel` ontem achando que era só passagem obrigatória,
-          // mas o Isaias usa ESSA sala pra treinar/upar (precisa continuar
-          // repetível). `semTravarPontos` resolve os dois lados: continua
-          // repetível (dá pra treinar aqui de novo e de novo) MAS o
-          // orçamento nunca congela — sempre `calcularPontosTime(playerTeam)`
-          // fresco, então treinar aqui não vira fácil-pra-sempre.
-          { poi: { id: 'galpao_m2', tipo: 'treta', repetivel: true, semTravarPontos: true, nivelRec: 14, enemy: 1301, liderFixo: 1301, repGate: GANGUES_REP_GATE_GALPAO, moldesPool: PISTA_POOL_GALPAO, dificuldade: 'normal', qtdMin: 3, qtdMax: 5, ratioBonus: 0.15, i18n: 'games.gangues.cena.pista.galpao.m2', recompensa: { grana: 8, rep: 3, item: 21, qtd: 1 } }, pos: { x: 220, y: 180 } },
+          // NÍVEL FIXO (19/09/2026 — limpeza do sistema de dificuldade): era
+          // o último POI da Pista ainda no ratio antigo (`dificuldade`+
+          // `ratioBonus`, escalava contra o time do jogador). Virou
+          // `pontosFixo` igual o resto da ladder — 22, entre o Sinaleiro
+          // (17) e a Rasteira Velha (20) na força, condizente com ser uma
+          // sala opcional/repetível de treino um degrau mais séria que a
+          // rua comum. `repetivel` continua — o Isaias usa essa sala pra
+          // treinar/upar — mas sem "farm-lock" nenhum: o número é fixo
+          // desde sempre, não precisa congelar nada.
+          { poi: { id: 'galpao_m2', tipo: 'treta', repetivel: true, nivelRec: 14, enemy: 1301, liderFixo: 1301, repGate: GANGUES_REP_GATE_GALPAO, moldesPool: PISTA_POOL_GALPAO, pontosFixo: 22, qtdMin: 3, qtdMax: 5, i18n: 'games.gangues.cena.pista.galpao.m2', recompensa: { grana: 8, rep: 3, item: 21, qtd: 1 } }, pos: { x: 220, y: 180 } },
           { poi: { id: 'galpao_achado', tipo: 'achado', opcional: true, i18n: 'games.gangues.cena.pista.galpao.achado', recompensa: { grana: 18, item: 1 } }, pos: { x: 388, y: 150 } },
         ],
         passagem: { x: 200, y: 34, w: 80, h: 24, para: 2, precisa: 'galpao_m2', label: 'avancar' },

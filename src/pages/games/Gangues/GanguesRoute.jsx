@@ -22,6 +22,7 @@ import GanguesClubeResultado from './screens/GanguesClubeResultado'
 import { temCena } from './data/cenas/cenaHelpers.js'
 import { GANGUES_STORY_BATTLE_PARTY_MAX } from './data/ganguesLoadout.js'
 import { gerarBandoInimigo, gerarBandoChefe, gerarBandoRevezamento, gerarBandoEvento, gerarBandoClube, suavizarPrimeiraLuta, escalarInimigo } from './data/ganguesEncontros.js'
+import { ajustarPontosFixo } from './data/ganguesDificuldade.js'
 import GuestNotice from '../../../components/GuestNotice/GuestNotice'
 import enemiesData from './data/gangues-enemies.json'
 import './Gangues.css'
@@ -129,7 +130,7 @@ export default function GanguesRoute() {
       }
       const party = live().roster.filter(s => templateIds.includes(s.character_template_id))
       live().setActiveParty(party)
-      const bando = gerarBandoInimigo({ territorioId: 'pista', dificuldade: 'facil', modo: 'facil', playerTeam: party, enemiesData })
+      const bando = gerarBandoInimigo({ territorioId: 'pista', pontosFixo: ajustarPontosFixo(14, 'facil'), playerTeam: party, enemiesData })
       window.__ganguesDebugLast = { party, bando, enemiesDataLen: enemiesData?.length }
       if (!bando?.length) { console.error('[GANGUES DEBUG] gerarBandoInimigo falhou', { party, bando, enemiesDataLen: enemiesData?.length }); return }
       live().startMatch(bando[0], bando, party)
@@ -218,17 +219,19 @@ export default function GanguesRoute() {
       if (!enemyTeam?.length) { setFase('story'); return }
       if (primeiraLuta) enemyTeam = suavizarPrimeiraLuta(enemyTeam)
     } else if (alvo.fixo) {
-      // Nível fixo (Generais da Pista, ver AGENTS.md 15/09/2026): a MESMA
-      // ficha catalogada, escalada pro ponto autorado do POI (`pontosFixos`)
-      // — nunca contra o time do jogador. Sem `pontosFixos` (ex: um
-      // `viraTreta` sem esse campo), cai pro stat cru do catálogo como já
-      // era antes.
+      // Nível fixo (Generais da Pista, rua comum dos outros territórios): a
+      // MESMA ficha catalogada, escalada pro ponto autorado do POI/nó
+      // (`pontosFixos`) + ajuste de dificuldade — nunca contra o time do
+      // jogador. Sem `pontosFixos` (ex: um `viraTreta` sem esse campo), cai
+      // pro stat cru do catálogo como já era antes.
       const enemy = enemiesData.find(e => e.id === alvo.enemyId)
       if (!enemy) { setFase('story'); return }
-      enemyTeam = [alvo.pontosFixos > 0 ? escalarInimigo(enemy, alvo.pontosFixos) : enemy]
+      enemyTeam = [alvo.pontosFixos > 0 ? escalarInimigo(enemy, ajustarPontosFixo(alvo.pontosFixos, modo)) : enemy]
       if (primeiraLuta) enemyTeam = suavizarPrimeiraLuta(enemyTeam)
     } else {
-      enemyTeam = gerarBandoInimigo({ territorioId: alvo.territorioId, dificuldade: alvo.dificuldade, modo, playerTeam: party, enemiesData, pontosFixos: alvo.pontosFixos, liderFixo: alvo.liderFixo, moldesPool: alvo.moldesPool, qtdMin: alvo.qtdMin, qtdMax: alvo.qtdMax, ratioBonus: alvo.ratioBonus })
+      // Bando de vários corpos com orçamento total FIXO (ex: galpao_m2) —
+      // ver gerarBandoInimigo em ganguesEncontros.js.
+      enemyTeam = gerarBandoInimigo({ territorioId: alvo.territorioId, pontosFixo: ajustarPontosFixo(alvo.pontosFixos, modo), playerTeam: party, enemiesData, liderFixo: alvo.liderFixo, moldesPool: alvo.moldesPool, qtdMin: alvo.qtdMin, qtdMax: alvo.qtdMax })
       if (!enemyTeam?.length) { setFase('story'); return }
       if (primeiraLuta) enemyTeam = suavizarPrimeiraLuta(enemyTeam)
     }

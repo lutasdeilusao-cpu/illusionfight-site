@@ -21,10 +21,9 @@ import { GangMarker, EntryZone, PinoAlvo, WorldControls, interactionLabel } from
 import { EventoVS, TretaVS } from '../components/cena/GanguesCenaEncontros'
 import { CENAS_POR_ID, portaoAberto, contarCena } from '../data/cenas/cenaHelpers.js'
 import { GANGUES_TERRITORIO_POR_ID } from '../data/ganguesTerritorios.js'
-import { calcularPontosTime } from '../data/ganguesEncontros.js'
 import { getGanguesPortraitByTemplateId } from '../data/ganguesPortraits.js'
 import { getGanguesNpcPortrait } from '../data/ganguesNpcPortraits.js'
-import { GANGUES_STORY_BATTLE_PARTY_MAX, getGanguesRosterLimitComHistoria, GANGUES_REP_GATE_EVENTO, GANGUES_REP_GATE_GALPAO, GANGUES_REP_GATE_CLUBE } from '../data/ganguesLoadout.js'
+import { getGanguesRosterLimitComHistoria, GANGUES_REP_GATE_EVENTO, GANGUES_REP_GATE_GALPAO, GANGUES_REP_GATE_CLUBE } from '../data/ganguesLoadout.js'
 import { WORLD, SPAWN, montarAmbiente, insideZone, validPosition, validPos } from '../engine/ganguesCenaMotor.js'
 import useGanguesCenaMovimento from '../hooks/useGanguesCenaMovimento.js'
 import useGanguesCenaEventoAleatorio from '../hooks/useGanguesCenaEventoAleatorio.js'
@@ -250,31 +249,16 @@ export default function GanguesCena({ onNavigate }) {
     }
     const chefe = Boolean(poi.ehChefe)
     guardarPosicao(); sfx.vs?.()
-    // Treta repetível ("farma"): trava o retrato de pontos na primeira vez —
-    // as próximas entradas usam sempre esse mesmo número, então o bando não
-    // cresce junto com a gangue (ver travarPontosFarm no store).
-    // `semTravarPontos`: exceção pra treta repetível que também é passagem
-    // obrigatória/osso duro (ex: galpao_m2) — o Isaias usa ela pra TREINAR,
-    // então precisa continuar repetível, mas sem congelar força pra sempre
-    // no retrato da 1ª vitória (2026-09-14, depois de reportar o galpão
-    // fraco de novo porque o retrato tinha travado antes do rebalanceamento).
-    // `poi.fixo`: POI de NÍVEL FIXO (Generais da Pista, ver AGENTS.md
-    // 15/09/2026 "Pista virou nível fixo") — a luta é sempre contra a MESMA
-    // ficha (`poi.enemy`) escalada pro ponto autorado `poi.pontosFixo`, sem
-    // depender do time do jogador nem do farm-lock (que congelaria pelo
-    // ponto do jogador na 1ª vitória — errado aqui, o número é fixo desde
-    // sempre, não "travado na primeira vez"). `poi.revezamento` (tretas de
-    // rua da mesma leva) já é orçamento fixo por corpo (budgetPorCorpo) — o
-    // farm-lock também não tem nada a travar aí, e travar mesmo assim só
-    // gravava um `pontosFarm` morto no save a cada luta (write inútil).
-    let pontosFixos = null
-    if (poi.fixo) {
-      pontosFixos = poi.pontosFixo
-    } else if (poi.repetivel && !poi.semTravarPontos && !poi.revezamento && !viraTreta && !chefe) {
-      const party = store.roster.slice(0, GANGUES_STORY_BATTLE_PARTY_MAX)
-      pontosFixos = store.travarPontosFarm(cena.id, poi.id, calcularPontosTime(party))
-    }
-    store.setStoryTarget({ territorioId: terr.id, cenaId: cena.id, cenaPoiId: poi.id, cenaRevela: viraTreta ? (revela || []) : (poi.revela || []), cenaRecompensa: viraTreta ? (viraTreta.recompensa || null) : poi.recompensa || null, cenaSemTravar: Boolean(viraTreta?.semTravar), pontoIds: terr.pontos.map(p => p.id), noId: chefe ? cena.chefe.poiNo : null, enemyId: viraTreta ? viraTreta.enemy : poi.enemy, fixo: Boolean(viraTreta) || Boolean(poi.fixo), liderFixo: (viraTreta || poi.fixo) ? null : poi.liderFixo, moldesPool: viraTreta ? null : poi.moldesPool, revezamento: viraTreta ? (viraTreta.revezamento || null) : poi.revezamento, dificuldade: poi.dificuldade, isChefe: chefe, repDelta: viraTreta?.rep || 0, pontosFixos, qtdMin: viraTreta ? null : (poi.qtdMin ?? null), qtdMax: viraTreta ? null : (poi.qtdMax ?? null), ratioBonus: viraTreta ? 0 : (poi.ratioBonus || 0) })
+    // `poi.fixo`: POI de NÍVEL FIXO, single-enemy (Generais da Pista) — a
+    // luta é sempre contra a MESMA ficha (`poi.enemy`) escalada pro ponto
+    // autorado `poi.pontosFixo`. `poi.pontosFixo` também existe em POIs
+    // multi-corpo (ex: galpao_m2) sem `poi.fixo` — aí GanguesRoute usa
+    // gerarBandoInimigo pra sortear os corpos com esse total fixo. Sistema
+    // antigo de "farm-lock" (travarPontosFarm, congelava o ponto do
+    // jogador na 1ª vitória de uma treta repetível) removido — não existe
+    // mais nada que escale contra o jogador pra precisar congelar.
+    const pontosFixo = viraTreta ? null : poi.pontosFixo
+    store.setStoryTarget({ territorioId: terr.id, cenaId: cena.id, cenaPoiId: poi.id, cenaRevela: viraTreta ? (revela || []) : (poi.revela || []), cenaRecompensa: viraTreta ? (viraTreta.recompensa || null) : poi.recompensa || null, cenaSemTravar: Boolean(viraTreta?.semTravar), pontoIds: terr.pontos.map(p => p.id), noId: chefe ? cena.chefe.poiNo : null, enemyId: viraTreta ? viraTreta.enemy : poi.enemy, fixo: Boolean(viraTreta) || Boolean(poi.fixo), liderFixo: (viraTreta || poi.fixo) ? null : poi.liderFixo, moldesPool: viraTreta ? null : poi.moldesPool, revezamento: viraTreta ? (viraTreta.revezamento || null) : poi.revezamento, isChefe: chefe, repDelta: viraTreta?.rep || 0, pontosFixos: pontosFixo, qtdMin: viraTreta ? null : (poi.qtdMin ?? null), qtdMax: viraTreta ? null : (poi.qtdMax ?? null) })
     onNavigate('story-combat')
   }
   const resolver = res => {
