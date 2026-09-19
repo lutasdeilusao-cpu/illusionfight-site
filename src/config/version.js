@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.280.196' // fix: LDI Gangues - FaiscaDanoNormal.png tambem tinha linhas desiguais (Isaias corrigiu uma perna faltando na arte e mandou os numeros: 291/565.5/821.5) - mesmo pad+halve+webp. Ver GANGUES_VERSION.
+export const SITE_VERSION = '10.280.197' // fix: dois bugs de "vira desktop" (mobile only, nunca deveria acontecer) - (1) GangDialog (.gang-dlg-overlay) virava position:relative quando filho direto de .gang-modes (GanguesModesRedesign.css ".gang-modes > *" empatava em especificidade e vencia por vir depois), jogando o dialogo do Nego Veio pra fora da coluna em telas >480px; corrigido subindo a especificidade do seletor. (2) #ldi-intro (vinheta de abertura, index.html) usava inset:0 sem confinar na coluna --app-w - corrigido com left/right calc literal (roda antes do CSS bundle, nao da pra usar var(--app-gutter) ainda).
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '3.27.4' // fix: mesmo caso das anteriores (v3.27.2/3.27.3) - FaiscaDanoNormal.png tambem com linhas desiguais; Isaias corrigiu uma perna que faltava na arte E mandou os numeros novos (y=291/565,5/821,5). Alturas reais 291/275/256/264px. Pad+halve+webp: canvas reconstruido 1448x1164, webp final 724x582, frameH = 582/4 = 145.5.
+export const GANGUES_VERSION   = '3.27.5' // fix (Isaias, print em desktop 1280px: dialogo do Nego Veio espremido na quina direita, cortado): .gang-dlg-overlay (GangDialog) e filho direto de .gang-modes quando GanguesNaming reaproveita esse layout; ".gang-modes > * { position:relative }" (GanguesModesRedesign.css) tem a mesma especificidade (0-1-0) e vence por vir depois na cascata, trocando position:fixed por relative mas mantendo os left/right:var(--app-gutter) pensados pra fixed - isso desloca a caixa 400px pro lado em vez de ancorar no viewport, jogando o dialogo pra fora da coluna. Corrigido subindo a especificidade do seletor pra `.gang-dlg-overlay.gang-brickwall-bg` (0-2-0), sem mexer na regra generica de .gang-modes. Confirmado ao vivo em 1280px: dialogo volta a centralizar na coluna de 480px.
 
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio

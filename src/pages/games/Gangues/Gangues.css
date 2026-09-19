@@ -2436,7 +2436,19 @@
    idle (balanço + respiração, mais um tiquinho de "fala" enquanto digita
    o texto) e um balão de fala de verdade saindo dela, sobre a parede de
    tijolo oficial. Substitui o antigo layout NeoGuide (barra no rodapé). */
-.gang-dlg-overlay {
+/* Seletor com as DUAS classes do elemento (`.gang-dlg-overlay.gang-brickwall-bg`,
+   não só `.gang-dlg-overlay`) — especificidade 0-2-0 de propósito. Bug real
+   (Isaias, 18/09/2026, print em desktop 1280px: o diálogo do Nego Véio
+   aparecia espremido na quina direita, cortado): quando o GangDialog é
+   filho direto de `.gang-modes` (GanguesNaming reaproveita esse layout),
+   `.gang-modes > * { position: relative; z-index: 1 }` (GanguesModesRedesign.css)
+   tem a MESMA especificidade (0-1-0) e vence por vir depois na cascata —
+   troca o `position` de `fixed` pra `relative` mas os `left/right:
+   var(--app-gutter)` continuam lá, e pra um elemento `relative` isso
+   desloca a caixa pro lado em vez de ancorar no viewport, jogando o
+   diálogo pra fora da coluna. Subir a especificidade aqui resolve sem
+   mexer na regra genérica de `.gang-modes` (que serve outros filhos). */
+.gang-dlg-overlay.gang-brickwall-bg {
   /* Mobile only: `position:fixed` escapa da coluna de #root e cola nas
      bordas do VIEWPORT físico, não da coluna de 480px — a "armadilha"
      documentada em AGENTS.md/index.css. `inset:0` sozinho vira full-bleed
