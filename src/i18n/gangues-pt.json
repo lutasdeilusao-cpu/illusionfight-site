@@ -1254,7 +1254,6 @@
         "hint_interagir": "Chegou num ponto quente — aperta INTERAGIR.",
         "hint_sucata": "🔩 Leva os dois pedaço de sucata pro Nando, na oficina. Ele te retorna.",
         "hint_sucata_falta": "🔩 Falta um pedaço de sucata — tá no fundo do ferro-velho. Pega os dois e leva pro Nando.",
-        "nivel": "NÍVEL {n}",
         "acao": {
           "entrar": "ENTRA",
           "sair": "VAZA",

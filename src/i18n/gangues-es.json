@@ -4357,7 +4357,6 @@
         "hint_interagir": "Llegaste a un punto caliente — apretá INTERACTUAR.",
         "hint_sucata": "🔩 Llevá los dos pedazos de chatarra a Nando, en el taller. Él te devuelve el favor.",
         "hint_sucata_falta": "🔩 Te falta un pedazo de chatarra — está en el fondo del desarmadero. Agarrá los dos y llevalos a Nando.",
-        "nivel": "NIVEL {n}",
         "acao": {
           "entrar": "ENTRÁ",
           "sair": "RAJÁ",

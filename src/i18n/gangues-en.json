@@ -4357,7 +4357,6 @@
         "hint_interagir": "You hit a hot spot — press INTERACT.",
         "hint_sucata": "🔩 Take both scrap pieces to Nando at the workshop. He'll sort you out.",
         "hint_sucata_falta": "🔩 You're missing a scrap piece — it's in the back of the junkyard. Grab both and take them to Nando.",
-        "nivel": "LEVEL {n}",
         "acao": {
           "entrar": "GO IN",
           "sair": "BOUNCE",
