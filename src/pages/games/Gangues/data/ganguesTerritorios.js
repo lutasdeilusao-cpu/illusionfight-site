@@ -1,3 +1,5 @@
+import { GANGUES_LADDER_PASSO } from './ganguesDificuldade.js'
+
 /* ══════════════════════════════════════════════════════════════
    MODO HISTÓRIA — o mapa de Marelia, antes de ter dono
    Esqueleto pra o Isaias polir o visual e pôr arte dos bosses depois.
@@ -31,11 +33,12 @@
    os outros 6 territórios ainda escalavam num ratio contra o time do
    jogador (removido, ver ganguesDificuldade.js). Os 3 pontos comuns de cada
    território aqui embaixo continuam a MESMA ladder da Pista (que termina em
-   26, antes do Carvão=30), subindo de LADDER_PASSO em LADDER_PASSO — pra
-   rebalancear todo o jogo de uma vez, mexe só nos 2 números logo abaixo. */
-const LADDER_PASSO = 3
+   26, antes do Carvão=30), subindo de GANGUES_LADDER_PASSO em
+   GANGUES_LADDER_PASSO (data/ganguesDificuldade.js — o mesmo passo usado
+   pra "um nível abaixo/acima" no jogo inteiro) — pra rebalancear todo o
+   jogo de uma vez, mexe só nesse número + no ponto de partida abaixo. */
 let ladderCursor = 26 // último degrau comum da Pista (posmuro_2), antes do Carvão (30)
-const proximoDegrauLadder = () => (ladderCursor += LADDER_PASSO)
+const proximoDegrauLadder = () => (ladderCursor += GANGUES_LADDER_PASSO)
 
 export const GANGUES_TERRITORIOS = [
   {

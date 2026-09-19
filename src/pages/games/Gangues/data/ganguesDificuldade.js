@@ -26,11 +26,20 @@
 
 export const GANGUES_DIFICULDADE_AJUSTE = { facil: -2, medio: 0, dificil: 2 }
 
+/** O "degrau" da ladder de pontos — o mesmo passo usado em TODO lugar do
+ *  jogo que precisa dizer "um nível abaixo/acima" (a ladder de território
+ *  em ganguesTerritorios.js, a escolta de multidão em gerarBandoRevezamento,
+ *  a suavização por frustração logo abaixo). Um número só, reusado — pra
+ *  mudar quão "largo" é um nível em todo o jogo de uma vez, mexe só aqui. */
+export const GANGUES_LADDER_PASSO = 3
+
 /** "Regra da frustração" (pedido do Isaias, 19/09/2026): quantas derrotas
  *  SEGUIDAS na história (storyProgress.__derrotasSeguidas, ganguesStorySlice.js)
- *  disparam a suavização da próxima treta comum (ver GanguesRoute.jsx —
- *  reaproveita `suavizarPrimeiraLuta`: um inimigo só, metade da ficha, nunca
- *  "ficha cheia mais fraca"). Zera em qualquer vitória. */
+ *  disparam a suavização da próxima treta comum. NÃO é metade da ficha (o
+ *  Isaias corrigiu: "não pode ser metade da ficha pq aí é fácil demais e
+ *  fica roubado, melhor um nível anterior") — é um inimigo só, um degrau
+ *  (GANGUES_LADDER_PASSO) abaixo do que a luta teria normalmente. Ver
+ *  `suavizarPorFrustracao` em ganguesEncontros.js. Zera em qualquer vitória. */
 export const GANGUES_FRUSTRACAO_LIMIAR = 2
 
 /** Aplica o ajuste de dificuldade num alvo de pontos fixo, nunca deixando

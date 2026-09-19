@@ -1,5 +1,5 @@
 import { getGanguesResources } from './ganguesLoadout.js'
-import { ajustarPontosFixo } from './ganguesDificuldade.js'
+import { ajustarPontosFixo, GANGUES_LADDER_PASSO } from './ganguesDificuldade.js'
 
 /* ══════════════════════════════════════════════════════════════
    MODO HISTÓRIA — geração de bando inimigo por encontro (não fixo)
@@ -316,6 +316,31 @@ export function suavizarPrimeiraLuta(bando) {
   return [{ ...resto, stats, pv_max: recursos.pvMax, pm_max: recursos.pmMax }]
 }
 
+// "Regra da frustração" (pedido do Isaias, 19/09/2026): depois de derrotas
+// SEGUIDAS na história (GANGUES_FRUSTRACAO_LIMIAR, ganguesDificuldade.js),
+// a próxima treta comum vem mais leve — mas NÃO metade da ficha ("aí é
+// fácil demais e fica roubado" — correção dele mesmo). Fica 1 inimigo só
+// (o líder do bando, bando[0]), um degrau (GANGUES_LADDER_PASSO) ABAIXO do
+// que teria normalmente — o mesmo "nível anterior" que rege a escolta de
+// multidão logo abaixo. Chefe/clube ficam de fora (ver GanguesRoute.jsx).
+export function suavizarPorFrustracao(bando) {
+  if (!bando?.length) return bando
+  const alvo = bando[0]
+  const totalAtual = ['A', 'H', 'D', 'PV', 'PM'].reduce((s, k) => s + (alvo.stats[k] || 0), 0)
+  const totalNovo = Math.max(1, totalAtual - GANGUES_LADDER_PASSO)
+  const fator = totalAtual > 0 ? totalNovo / totalAtual : 1
+  const stats = {
+    A: Math.max(0, Math.round(alvo.stats.A * fator)),
+    H: Math.max(0, Math.round(alvo.stats.H * fator)),
+    D: Math.max(0, Math.round(alvo.stats.D * fator)),
+    PV: Math.max(1, Math.round(alvo.stats.PV * fator)),
+    PM: Math.max(0, Math.round(alvo.stats.PM * fator)),
+  }
+  const recursos = getGanguesResources(caminhoDoInimigo(alvo.preferred_mode), stats.PV, stats.PM)
+  const { numeroInstancia, ...resto } = alvo
+  return [{ ...resto, stats, pv_max: recursos.pvMax, pm_max: recursos.pmMax }]
+}
+
 // O molde é sorteado por slot, sem exclusividade — é comum o mesmo tipo
 // (ex: 1201) sair 2x+ no mesmo bando. Sem uma numeração, os dois aparecem com o
 // nome idêntico na tela de combate, impossível de diferenciar (qual "Moleque da
@@ -399,7 +424,7 @@ export function gerarBandoEvento({ territorioId, playerTeam, enemiesData, modo =
  *  (2026-09-13): nível 11/12 matava tudo com um golpe no galpão. */
 const GANGUES_DUPLA_DEDUCAO_MIN = 2
 const GANGUES_DUPLA_DEDUCAO_MAX = 3
-const GANGUES_MULTIDAO_DEGRAU_ABAIXO = 3
+const GANGUES_MULTIDAO_DEGRAU_ABAIXO = GANGUES_LADDER_PASSO
 
 export function gerarBandoRevezamento({ pool, budgetPorCorpo = 5, chanceDupla = 0.3, enemiesData, modo = 'medio', qtdMin, qtdMax, playerTeam, ratioComTime = 0 }) {
   if (!pool?.length || !enemiesData?.length) return null
