@@ -35,7 +35,7 @@ import './GanguesCena.css'
 // "toda vez que abro num aparelho novo, aparece de novo, grava no Supabase".
 function cenaIntroTutorialId(cenaId) { return `cena_intro:${cenaId}` }
 
-export default function GanguesCena({ onNavigate }) {
+export default function GanguesCena({ onNavigate, onVoltar }) {
   const { perfil } = useAuth()
   const { t } = useLanguage(), store = useGanguesStore(), territorioId = store.storyTarget?.territorioId
   const cena = CENAS_POR_ID[territorioId] || null, terr = GANGUES_TERRITORIO_POR_ID[territorioId] || null
@@ -126,7 +126,7 @@ export default function GanguesCena({ onNavigate }) {
     }
     setHint(null)
   }, [intro, encontro, andou, perto, prog.resolvidos, local, t, store.inventario])
-  if (!cena || !terr) return <main className="gang-lobby"><button className="gang-new-sheet" onClick={() => onNavigate('story')}>← MAPA</button></main>
+  if (!cena || !terr) return <main className="gang-lobby"><button className="gang-new-sheet" onClick={onVoltar || (() => onNavigate('story'))}>{t('games.gangues.btn_voltar')}</button></main>
   // `local` aponta pra um interior inválido — o efeito acima já vai zerar; só
   // não renderiza esse frame pra não quebrar em amb null.
   if (local && !amb) return <main className="gang-cena-worldpage" style={{ '--terr-cor': cena.cor }}><div className="gang-cena-viewport" /></main>
@@ -330,7 +330,7 @@ export default function GanguesCena({ onNavigate }) {
   }).filter(m => m?.pos)
   return <main className={`gang-cena-worldpage${local ? ' is-interior' : ''}`} style={{ '--terr-cor': cena.cor }}>
     <AnimatePresence>{intro && <GangDialog lines={t(cena.chegada)} speaker={t(cena.falante)} sub={t(cena.falanteSub)} retrato={getGanguesNpcPortrait(cena.falanteSlug)} onFinish={fecharIntro} onSkip={fecharIntro} />}</AnimatePresence>
-    <header className="gang-cena-worldhud"><button onClick={() => { local ? sair() : (guardarPosicao(), onNavigate('story')) }}>← {local ? t('games.gangues.cena.acao.sair') : 'MAPA'}</button><strong>{breadcrumb}{!local && (prog.boss ? <i className="gang-cena-dominado-selo">⚑ DOMINADA</i> : <button className="gang-cena-meta-btn" onClick={() => setChecklist(v => !v)}>{feitos}/{total} ▾</button>)}</strong><span>💵 {store.grana}　⚑ {store.rep}</span><button className="gang-cena-ficha-btn" onClick={() => setBagAberta(true)} aria-label={t('games.gangues.bag.titulo')}>🎒</button>{store.activeParty.length > 0 && <button className="gang-cena-ficha-btn" onClick={() => setFichaIndex(0)}>👤</button>}<button className="gang-cena-ficha-btn" onClick={() => { guardarPosicao(); onNavigate('album') }} aria-label={t('games.gangues.album.titulo')}>📕</button></header>
+    <header className="gang-cena-worldhud"><button onClick={() => { local ? sair() : (guardarPosicao(), (onVoltar || (() => onNavigate('story')))()) }}>← {local ? t('games.gangues.cena.acao.sair') : t('games.gangues.cena.acao.voltar')}</button><strong>{breadcrumb}{!local && (prog.boss ? <i className="gang-cena-dominado-selo">⚑ DOMINADA</i> : <button className="gang-cena-meta-btn" onClick={() => setChecklist(v => !v)}>{feitos}/{total} ▾</button>)}</strong><span>💵 {store.grana}　⚑ {store.rep}</span><button className="gang-cena-ficha-btn" onClick={() => setBagAberta(true)} aria-label={t('games.gangues.bag.titulo')}>🎒</button>{store.activeParty.length > 0 && <button className="gang-cena-ficha-btn" onClick={() => setFichaIndex(0)}>👤</button>}<button className="gang-cena-ficha-btn" onClick={() => { guardarPosicao(); onNavigate('album') }} aria-label={t('games.gangues.album.titulo')}>📕</button></header>
     <AnimatePresence>{checklist && !local && <motion.div className="gang-cena-checklist" initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }}>
       <b>{t('games.gangues.cena.checklist_titulo')}</b>
       <ul>{metas.map(m => <li key={m.id} className={m.feito ? 'is-feito' : ''}><span>{m.feito ? '✓' : '○'}</span>{m.nome}</li>)}</ul>

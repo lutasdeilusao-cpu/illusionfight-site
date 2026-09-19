@@ -304,7 +304,7 @@ export default function GanguesRoute() {
       )}
       {fase === 'territorio' && (
         temCena(store.storyTarget?.territorioId)
-          ? <GanguesCena onNavigate={navegar} />
+          ? <GanguesCena onNavigate={navegar} onVoltar={voltar} />
           : <GanguesTerritorio onNavigate={navegar} onVoltar={voltar} />
       )}
       {fase === 'combat' && <GanguesCombat onNavigate={setFase} onSairConfirmado={() => setFase('lobby')} />}
