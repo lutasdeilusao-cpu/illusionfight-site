@@ -181,10 +181,21 @@ const DADOS_POR_SLUG = {
   },
   catraca: {
     ataqueNormal: {
-      // Fonte 1448×1086 → webp 724×543 → frameH real = 543/4 = 135.75.
-      // Estalo do chicote, 2 flashes de impacto — quadros 6 (linha 2
-      // col 2) e 11 (linha 3 col 3).
-      frameW: 181, frameH: 135.75, cols: 4, rows: 4, frames: 16, frameMs: 80,
+      // BUG à parte dos outros (18/09/2026, print do Isaias com guia do
+      // Photoshop nas 3 divisões reais: y=288/567/831) — essa folha
+      // especificamente NÃO tem 4 linhas de altura uniforme: medindo o
+      // canal alfa pixel a pixel (não no olho) as alturas reais são
+      // 288/279/264/255px, e a divisão 3→4 nem tem uma linha 100%
+      // transparente (chicote de uma pose encosta na de baixo). Como
+      // GanguesCombatSpriteAnim.jsx assume linhas de altura IGUAL
+      // (`background-position` em % só funciona assim), a saída foi
+      // recortar cada linha na altura REAL dela e completar com
+      // transparência até a maior (288px) — technique "pad+halve+webp"
+      // já usada antes nesse projeto pra sheet fora do padrão. Canvas
+      // reconstruído 1448×1152 (4×288), webp final 724×576 →
+      // frameH = 576/4 = 144 (exato, sem fração — todas as linhas
+      // realmente do mesmo tamanho agora, nada cortado).
+      frameW: 181, frameH: 144, cols: 4, rows: 4, frames: 16, frameMs: 80,
       sons: {
         golpes: [
           { frame: 6, arquivo: som('soco-leve') },
