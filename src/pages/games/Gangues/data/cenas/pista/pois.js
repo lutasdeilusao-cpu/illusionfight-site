@@ -235,10 +235,16 @@ export const POIS_PISTA = [
     i18n: 'games.gangues.cena.pista.rinha',
     // NÍVEL FIXO (ajuste 15/09/2026 nº2): `rinha` fica visível desde o
     // início, junto com `sinal` (antes até de abrir a gazua do ferro-velho)
-    // — realinhada pro mesmo piso de 3 da "1ª luta muito fácil", não pro 8
-    // de `beco` (que só existe depois de abrir o ferro-velho).
+    // — piso de 3, o mesmo da "1ª luta muito fácil", não o 8 de `beco`
+    // (que só existe depois de abrir o ferro-velho).
+    // AJUSTE 19/09/2026 (Isaias, achou o inimigo "muito fraco" farmando com
+    // a tropa já grande): igual o galpão (galpao_m1/galpao_contador,
+    // interiores.js), ganhou `ratioComTime` — o piso de 3 continua servindo
+    // pra tropa fresca, mas agora soma uma fatia do total de pontos do TIME
+    // (0.3, mesmo valor do galpao_contador) — a rinha cresce junto com a
+    // gangue em vez de ficar travada em 3 pra sempre.
     enemy: 1201,
-    revezamento: { pool: PISTA_POOL_RUA, budgetPorCorpo: 3, chanceDupla: 0.35 },
+    revezamento: { pool: PISTA_POOL_RUA, budgetPorCorpo: 3, chanceDupla: 0.35, ratioComTime: 0.3 },
     forca: 1,
     recompensa: { grana: 4 },
   },
