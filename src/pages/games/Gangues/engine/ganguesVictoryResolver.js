@@ -32,12 +32,62 @@ export function eventosDoLevelUp(character, fromLevel, toLevel, eventosDoNivel) 
 // lenta de acompanhar com 10 fixo — ainda não recalibrada, ver seção 12 do GDD.
 // Chefe é luta única, vale 5×. Torre escala +100% a cada 5 andares. Na derrota
 // é sempre 1 AP simbólico, sem relação com o bando.
-export function calcularApTotal({ victory, enemyCount, cenaChefe, torre, torreAndar }) {
+const GANGUES_AP_POR_INIMIGO_BASE = 10
+
+/** Soma de pontos de um conjunto de atributos (A+H+D+PV+PM) — mesma conta de
+ *  `calcularPontosTime` (ganguesEncontros.js), mas pra UM combatente só (aqui
+ *  precisamos comparar cada inimigo individualmente, não o time inteiro). */
+function pontosDeAtributos(attrs) {
+  return ['A', 'H', 'D', 'PV', 'PM'].reduce((s, k) => s + (Number(attrs?.[k]) || 0), 0)
+}
+
+/** "Recompensa por risco" (pedido do Isaias, 19/09/2026): "não tem porque
+ *  subir, porque subir não dá mais experiência do que ficar embaixo em
+ *  frente a cara fraco". Cada inimigo agora rende AP relativo à distância
+ *  entre a ficha DELE e a ficha do personagem MAIS FORTE da gangue (não o
+ *  time inteiro — só o mais forte importa pra essa régua):
+ *    • inimigo até 2 pontos ABAIXO do mais forte (ou igual, ou acima até o
+ *      próximo degrau): ficha cheia (100%).
+ *    • cada ponto A MAIS abaixo desses 2 de tolerância desconta
+ *      `tamanhoTime` AP da ficha cheia — CORREÇÃO do Isaias na sequência do
+ *      pedido: "é gradual, e perder 1 ponto se tiver 2 personagens, perde 2
+ *      pontos da experiência cheia por diferença de nível" — o desconto é
+ *      POR PERSONAGEM da gangue (1 ponto de AP "perdido" por cabeça), não um
+ *      flat -1 pro bolo inteiro — senão um time grande mal sentiria a perda
+ *      já que o AP é dividido entre todo mundo depois. Piso: nunca menos que
+ *      `tamanhoTime` (o "limiar mínimo... um ponto por personagem da
+ *      gangue" que ele pediu) — "puxar saco de fraco" fica cada vez menos
+ *      proveitoso, mas nunca zera de vez.
+ *    • inimigo 1 a 5 pontos ACIMA do mais forte: dobro do AP.
+ *    • inimigo mais de 5 pontos ACIMA: triplo do AP.
+ *  "pontos" aqui é o total bruto de atributos (A+H+D+PV+PM), o mesmo usado
+ *  em toda a ladder de dificuldade — não é o "nível real" de
+ *  `nivelRealDePontos` (ganguesDificuldade.js), que é só pra exibição do
+ *  aviso de risco, mecânica separada. */
+const GANGUES_AP_TOLERANCIA_ABAIXO = 2
+const GANGUES_AP_LIMIAR_DOBRO = 1
+const GANGUES_AP_LIMIAR_TRIPLO = 5
+export function apPorInimigo(pontosInimigo, pontosMaisForte, tamanhoTime = 1) {
+  const time = Math.max(1, tamanhoTime)
+  const delta = pontosInimigo - pontosMaisForte
+  if (delta > GANGUES_AP_LIMIAR_TRIPLO) return GANGUES_AP_POR_INIMIGO_BASE * 3
+  if (delta >= GANGUES_AP_LIMIAR_DOBRO) return GANGUES_AP_POR_INIMIGO_BASE * 2
+  if (delta >= -GANGUES_AP_TOLERANCIA_ABAIXO) return GANGUES_AP_POR_INIMIGO_BASE
+  const niveisAbaixoDaTolerancia = Math.abs(delta) - GANGUES_AP_TOLERANCIA_ABAIXO
+  return Math.max(time, GANGUES_AP_POR_INIMIGO_BASE - niveisAbaixoDaTolerancia * time)
+}
+
+export function calcularApTotal({ victory, enemyCount, cenaChefe, torre, torreAndar, inimigosAttrs, pontosMaisForte, tamanhoTime = 1 }) {
   if (!victory) return 1
-  const apPorInimigo = 10
   const multiplicadorChefe = cenaChefe ? 5 : 1
   const multiplicadorTorre = torre ? 1 + Math.floor(torreAndar / 5) : 1
-  return apPorInimigo * Math.max(1, enemyCount) * multiplicadorChefe * multiplicadorTorre
+  // Sem os atributos dos inimigos (chamada antiga/defensiva) cai pro flat de
+  // sempre — nunca deveria acontecer no fluxo real (useGanguesVictoryResolution
+  // sempre manda `inimigosAttrs`), só protege contra uso futuro incompleto.
+  const base = Array.isArray(inimigosAttrs) && inimigosAttrs.length
+    ? inimigosAttrs.reduce((soma, attrs) => soma + apPorInimigo(pontosDeAtributos(attrs), pontosMaisForte ?? 0, tamanhoTime), 0)
+    : GANGUES_AP_POR_INIMIGO_BASE * Math.max(1, enemyCount)
+  return Math.round(base * multiplicadorChefe * multiplicadorTorre)
 }
 
 /** Quem participou, quem caiu, e o peso de cada um pra dividir o AP.

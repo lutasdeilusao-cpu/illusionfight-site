@@ -55,8 +55,20 @@ export default function useGanguesVictoryResolution({ store, user, report, victo
     // O campo `xp` que existia em alguns `recompensa` de treta em pista.js
     // (cenaRecompensa.xp) era resquício de uma versão anterior — removido por
     // completo; recompensa de treta agora só participa via grana/rep.
-    const enemyCount = Math.max(1, report.combatants.filter(entry => entry.side === 'enemy').length)
-    const ap = calcularApTotal({ victory, enemyCount, cenaChefe, torre, torreAndar })
+    const inimigosCombatentes = report.combatants.filter(entry => entry.side === 'enemy')
+    const enemyCount = Math.max(1, inimigosCombatentes.length)
+    // "Recompensa por risco" (pedido do Isaias, 19/09/2026) — cada inimigo
+    // rende AP relativo à distância entre a ficha DELE e a ficha do
+    // personagem MAIS FORTE da gangue (ver apPorInimigo em
+    // ganguesVictoryResolver.js pra régua completa).
+    const inimigosAttrs = inimigosCombatentes.map(c => c.attributes)
+    const pontosMaisForte = Math.max(1, ...match.playerTeam.map(m => ['A', 'H', 'D', 'PV', 'PM'].reduce((s, k) => s + (Number(m.attributes?.[k]) || 0), 0)))
+    const apBruto = calcularApTotal({ victory, enemyCount, cenaChefe, torre, torreAndar, inimigosAttrs, pontosMaisForte, tamanhoTime: match.playerTeam.length })
+    // Piso: "vai chegar no limiar mínimo que vai dar um ponto por
+    // personagem da gangue e acabou" — mesmo depois de descontar tudo (farm
+    // de inimigo muito mais fraco), a luta nunca rende menos que 1 AP por
+    // integrante da gangue escalada.
+    const ap = victory ? Math.max(match.playerTeam.length, apBruto) : apBruto
     const { koIds, escaladosIds, participantIds, pesosPorId, nivelPorId } = calcularPesosEParticipantes({ victory, report, match })
 
     // Dano persiste entre lutas repetíveis dentro da mesma cena — TEM que

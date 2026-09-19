@@ -496,6 +496,9 @@
       "xp_tutorial": {
         "regra": "Los puntos de acción de la pelea no se dividen igual: quien remata a más enemigos se lleva una porción bastante mayor, el daño causado desempata. Una pelea contra poca cosa da pocos puntos en total — no esperes subir de nivel todo el tiempo."
       },
+      "ap_risco_tutorial": {
+        "regra": "Che, prestá atención a esto: pegarle siempre a alguien mucho más débil que tu más rana no conviene — cuanto mayor la diferencia, menos AP da la pelea, hasta que casi no vale la pena. Pero encará a alguien más fuerte y la cosa cambia: de 1 a 5 niveles arriba ya duplica el AP, y pasando de 5, lo triplica. El que se arriesga, gana más."
+      },
       "descanso_tutorial": {
         "recuperar": "Aquí tu banda recupera todo el PV y el PM, pagando una plata. Sentado en la birosca, nadie busca pelea.",
         "fiado": "¿Corto de plata? Puedes fiar con Nato — te cura al toque, pero la cuenta crece. Después de 2 fiados te corta el crédito: sin plazo, sin cobrador, él solo se acuerda."

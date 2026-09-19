@@ -496,6 +496,9 @@
       "xp_tutorial": {
         "regra": "Os pontos de ação da luta não são divididos igual: quem finaliza mais inimigos ganha bem mais da fatia, dano causado desempata. Uma luta contra pouca coisa dá poucos pontos no total — não espera subir de nível toda hora."
       },
+      "ap_risco_tutorial": {
+        "regra": "Óh, presta atenção nisso: bater sempre em quem é bem mais fraco que o teu brabo não compensa — quanto maior a diferença, menos AP a luta rende, até quase não valer a pena. Mas encara alguém mais forte que ele e a coisa vira: 1 a 5 níveis acima já dobra o AP, e passou de 5, triplica. Quem se arrisca, ganha mais."
+      },
       "descanso_tutorial": {
         "recuperar": "Aqui a tropa recupera o PV e o PM inteiro, gastando uma grana. Sentado na birosca, ninguém arranja treta.",
         "fiado": "Grana curta? Dá pra fiar com o Nato — ele cura na hora, mas a conta cresce. Depois de 2 fiado ele fecha o crédito: sem prazo, sem cobrança, ele só lembra."
