@@ -10,7 +10,7 @@ import logoPt from '../assets/logos/logo-pt.png'
 import logoEn from '../assets/logos/logo-en.png'
 import logoEs from '../assets/logos/logo-es.png'
 import './GanguesModes.css'
-import './GanguesStory.css' // .gang-lobby-quit (botão de sair) mora lá
+import './GanguesStory.css' // .gang-story-head (moldura do header do Voltar) mora lá
 import './GanguesNaming.css'
 
 /* ══════════════════════════════════════════════════════════════
@@ -77,6 +77,17 @@ export default function GanguesNaming({ onDone, modoEdicao = false, onSair }) {
             <GanguesVoltarBtn onClick={onDone} />
           </header>
         )}
+        {/* Voltar SEMPRE acima do painel, sempre a mesma cara (pedido do
+            Isaias, 19/09/2026: "tira esse sair, e coloca o voltar mas
+            coloca acima do painel... o UI UX deve sempre comunicar a
+            mesma coisa"). Antes era um "SAIR" vermelho, embaixo do
+            cartaz — trocado pelo Voltar padrão, mesmo destino de antes
+            (onSair: save-select pra quem tem conta, catálogo pra guest). */}
+        {!modoEdicao && onSair && (
+          <header className="gang-story-head">
+            <GanguesVoltarBtn onClick={onSair} />
+          </header>
+        )}
 
         <motion.div className="gang-naming-poster" initial={{ opacity: 0, y: 22, rotate: -1.5 }} animate={{ opacity: 1, y: 0, rotate: -1.5 }} transition={{ type: 'spring', stiffness: 200, damping: 20 }}>
           <span className="gang-naming-poster__fita gang-naming-poster__fita--esq" aria-hidden="true" />
@@ -107,13 +118,6 @@ export default function GanguesNaming({ onDone, modoEdicao = false, onSair }) {
             <strong>{modoEdicao ? t('games.gangues.naming.salvar') : t('games.gangues.naming.fundar')}</strong>
           </button>
         </motion.div>
-
-        {/* Sem isso, a fundação da gangue não tinha NENHUMA saída visível —
-            só aparece fora do modo de edição (que já tem seu próprio botão
-            de voltar no header acima). */}
-        {!modoEdicao && onSair && (
-          <button className="gang-lobby-quit" onClick={onSair}>{t('games.gangues.sair_do_jogo')}</button>
-        )}
       </>)}
     </main>
   )

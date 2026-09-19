@@ -252,11 +252,21 @@ export default function GanguesRoute() {
       {fase === 'create' && (
         <GanguesCreate
           onNavigate={(destino) => setFase(destino === 'lobby' ? faseAntesCreate.current : destino)}
-          onCreated={() => {
-            const roster = useGanguesStore.getState().roster
-            if (roster.length < 2) return
-            if (!useGanguesStore.getState().activeParty.length) store.setActiveParty(roster.slice(0, 2))
-            setFase(faseAntesCreate.current)
+          onCreated={(_membro, eraDuplaFundadora) => {
+            // Pedido do Isaias, 19/09/2026, print do lobby logo depois de
+            // escolher os 2 primeiros: "essa tela não é mais necessária
+            // depois que escolher os personagens, deve ir direto pra
+            // escolher modo de jogo". `eraDuplaFundadora` vem do próprio
+            // GanguesCreate (`initialRecruitment`, calculado lá porque por
+            // aqui `activeParty` já foi preenchido ANTES de chamar
+            // `onCreated`, então não dava pra adivinhar isso só olhando o
+            // store neste ponto). Voltar pro lobby só pra clicar de novo em
+            // "escolher modo de jogo" era um passo a mais sem função —
+            // pula direto pra 'modes'. Recrutamento de reforço depois
+            // (roster > 2, não é mais a fundação) continua voltando pra
+            // onde a tela de criação foi aberta (lobby, cena, etc.), como
+            // sempre foi.
+            setFase(eraDuplaFundadora ? 'modes' : faseAntesCreate.current)
           }}
         />
       )}

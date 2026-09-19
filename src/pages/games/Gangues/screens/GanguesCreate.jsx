@@ -116,7 +116,11 @@ export default function GanguesCreate({ onNavigate, onCreated }) {
     // escolhido. Aviso disso aparece pro jogador em recruitment.lobby_pitch.
     if (initialRecruitment && saved[0]) store.definirLider(saved[0].id)
     sfx.reward()
-    onCreated?.(saved[saved.length - 1])
+    // 2º argumento (`initialRecruitment`) diz pra quem chamou se essa foi a
+    // dupla FUNDADORA (roster nascia vazio) — por essa altura `activeParty`
+    // já foi preenchido aqui em cima (linha acima), então quem recebe o
+    // callback não tem mais como adivinhar isso sozinho olhando o store.
+    onCreated?.(saved[saved.length - 1], initialRecruitment)
     if (!onCreated) onNavigate('lobby')
   }
 

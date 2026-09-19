@@ -35,7 +35,7 @@ function lutadoresComPoderPraEquipar(party) {
     .map(member => member.sheet_name)
 }
 import './GanguesLobby.css'
-import './GanguesStory.css' // .gang-lobby-quit (botão de sair) mora lá
+import './GanguesStory.css' // .gang-lobby-mapa mora lá
 import './GanguesProgressionFlow.css'
 
 const PATH_MARKS = { atacante: 'A', defensor: 'D', mistico: 'M' }
@@ -151,6 +151,17 @@ export default function GanguesLobby({ onNavigate }) {
 
   return (
     <main className={`gang-lobby gang-brickwall-bg${roster.length === 0 ? ' gang-lobby--vazio' : ''}`}>
+      {/* Voltar SEMPRE no topo, sempre com a mesma cara — pedido do Isaias,
+          19/09/2026 (prints com o botão ora embaixo do painel, ora "Sair"
+          num lugar e "Voltar" noutro): "o UI UX deve sempre comunicar a
+          mesma coisa, se ficar essa bagunça ninguém entende nada". Sem
+          "Sair" separado aqui — pra quem tem conta, volta pro seletor de
+          gangues; guest (sem seletor, o lobby É o começo dele) sai direto
+          pro catálogo do site. Mesmo botão, mesmo lugar, os dois casos. */}
+      <GanguesVoltarBtn
+        onClick={() => store._saveId ? onNavigate('save-select') : navigate('/games')}
+        className="gang-lobby-voltar"
+      />
       {roster.length > 0 && <header className="gang-lobby-hero gang-lobby-hero--compact">
         {store._saveId && <button className="gang-lobby-mapa" onClick={() => { sfx.select?.(); onNavigate('story') }}>← {t('games.gangues.story.voltar_mapa')}</button>}
         <h1 className="gang-lobby-nome">{store.gangName}</h1>
@@ -213,18 +224,6 @@ export default function GanguesLobby({ onNavigate }) {
           </div>
         </div>
       )}
-      {/* "Sair" (pedido do Isaias, 18/09/2026) só existe na PRIMEIRA tela de
-          verdade do jogo — pra quem tem conta, essa tela é o seletor de
-          gangues (save-select), não o lobby. Daqui, quem tem save usa o
-          Voltar padrão pra chegar lá. Guest não tem seletor nenhum — o
-          lobby É o começo dele, então continua com o Sair de verdade. */}
-      {store._saveId
-        ? <GanguesVoltarBtn onClick={() => onNavigate('save-select')} className="gang-lobby-voltar" />
-        : (
-          <button className="gang-lobby-quit" onClick={() => navigate('/games')}>
-            {t('games.gangues.sair_do_jogo')}
-          </button>
-        )}
     </main>
   )
 }
