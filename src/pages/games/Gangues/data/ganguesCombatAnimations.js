@@ -230,9 +230,12 @@ const DADOS_POR_SLUG = {
       sons: { golpes: [{ frame: 7, arquivo: som('trinca-soco') }] },
     },
     dano: {
-      // Fonte 1448×1086 → webp 724×543 → frameH real = 135.75.
+      // Mesmo caso de linhas desiguais (v3.27.3) — Isaias também corrigiu
+      // uma perna faltando nessa folha e mandou os números novos:
+      // y=291/565,5/821,5. Alturas reais 291/275/256/264px. Canvas
+      // reconstruído 1448×1164, webp final 724×582 → frameH = 145.5.
       // Flashes na folha — quadros 3 (linha 1 col 3) e 11 (linha 3 col 3).
-      frameW: 181, frameH: 135.75, cols: 4, rows: 4, frames: 16, frameMs: 80,
+      frameW: 181, frameH: 145.5, cols: 4, rows: 4, frames: 16, frameMs: 80,
       sons: {
         golpes: [
           { frame: 3, arquivo: som('muro-soco1') },

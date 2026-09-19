@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.280.195' // fix: LDI Gangues - FaiscaSocoNormal.png tambem tinha linhas de altura desigual (mesmo caso da Catraca em v10.280.194) - Isaias mediu no Photoshop (277.5/580.5/802), corrigido com o mesmo pad+halve+webp. Ver GANGUES_VERSION.
+export const SITE_VERSION = '10.280.196' // fix: LDI Gangues - FaiscaDanoNormal.png tambem tinha linhas desiguais (Isaias corrigiu uma perna faltando na arte e mandou os numeros: 291/565.5/821.5) - mesmo pad+halve+webp. Ver GANGUES_VERSION.
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '3.27.3' // fix: mesmo caso da Catraca (v3.27.2) - FaiscaSocoNormal.png tambem tem linhas de altura desigual. Isaias mediu no Photoshop (y=277,5/580,5/802) e mandou os numeros direto; confirmado por alpha pixel a pixel (baixa contagem de pixel opaco exatamente nesses pontos). Alturas reais 278/303/221/284px. Mesma tecnica pad+halve+webp: recorta cada linha na altura real, completa com padding ate a maior (303px). Canvas reconstruido 1448x1212, webp final 724x606, frameH = 606/4 = 151.5. Confirmado ao vivo pelo Isaias ("funcinou").
+export const GANGUES_VERSION   = '3.27.4' // fix: mesmo caso das anteriores (v3.27.2/3.27.3) - FaiscaDanoNormal.png tambem com linhas desiguais; Isaias corrigiu uma perna que faltava na arte E mandou os numeros novos (y=291/565,5/821,5). Alturas reais 291/275/256/264px. Pad+halve+webp: canvas reconstruido 1448x1164, webp final 724x582, frameH = 582/4 = 145.5.
 
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
