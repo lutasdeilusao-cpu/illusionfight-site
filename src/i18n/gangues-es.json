@@ -660,6 +660,10 @@
         "equipar_depois": "Entrar igual"
       },
       "recruitment": {
+        "abertura": [
+          "Cinco nombres respondieron al llamado, cria. Examiná sus fichas y marcá a los dos que van a fundar la banda.",
+          "El primero que marques se vuelve el líder de tu banda — podés cambiarlo después en la sede."
+        ],
         "title_initial": "FORMA TU BANDA",
         "subtitle_initial": "Cinco nombres respondieron al llamado. Examina sus fichas y marca a los dos que fundarán la banda.",
         "aviso_lider": "El primero que marques se vuelve el líder de tu banda — podés cambiarlo después en la sede.",

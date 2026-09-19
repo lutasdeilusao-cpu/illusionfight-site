@@ -686,6 +686,10 @@
         "equipar_depois": "Entrar assim mesmo"
       },
       "recruitment": {
+        "abertura": [
+          "Cinco nomes responderam ao chamado, cria. Examine as fichas e marque os dois que vão fundar a gangue.",
+          "O primeiro que você marcar vira o líder da sua gangue — dá pra trocar depois na sede."
+        ],
         "title_initial": "MONTE SUA GANGUE",
         "title": "RECRUTAR MEMBRO",
         "subtitle_initial": "Cinco nomes responderam ao chamado. Examine as fichas e marque os dois que vão fundar a gangue.",

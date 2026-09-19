@@ -660,6 +660,10 @@
         "equipar_depois": "Enter anyway"
       },
       "recruitment": {
+        "abertura": [
+          "Five names answered the call, kid. Check their sheets and mark the two who'll found the gang.",
+          "Whoever you mark first becomes your gang's leader — you can switch it later at HQ."
+        ],
         "title_initial": "BUILD YOUR GANG",
         "subtitle_initial": "Five names answered the call. Examine their sheets and mark the two who will found the gang.",
         "aviso_lider": "Whoever you mark first becomes your gang's leader — you can switch it later at HQ.",

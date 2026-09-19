@@ -12,6 +12,8 @@ import GanguesFichaCard from '../components/GanguesFichaCard'
 import GanguesFichaBio from '../components/GanguesFichaBio'
 import GanguesRetratoImg from '../components/GanguesRetratoImg'
 import GanguesVoltarBtn from '../components/GanguesVoltarBtn'
+import GangDialog from '../components/GangDialog'
+import { getGanguesNpcPortrait } from '../data/ganguesNpcPortraits.js'
 import { getGanguesBiografia } from '../data/ganguesBiografias.js'
 import '../Gangues.css' // .gang-brickwall-bg mora lá
 import './GanguesLobby.css' // .gang-recruit / .gang-fighter-card / .gang-sheet-modal moram lá
@@ -24,6 +26,16 @@ export default function GanguesCreate({ onNavigate, onCreated }) {
   const store = useGanguesStore()
   const [initialRecruitment] = useState(() => store.roster.length === 0)
   const required = initialRecruitment ? 2 : 1
+  // Pedido do Isaias (19/09/2026, print com scroll no mobile): o texto de
+  // abertura ("Cinco nomes responderam ao chamado..." + o aviso do líder)
+  // ficava fixo no topo o tempo todo, empurrando o carrossel pra baixo até
+  // precisar rolar a tela. Vira falado pelo Nego Véio num diálogo (mesmo
+  // padrão do resto do jogo — "sempre que dá, centralizado, pausando"),
+  // que aparece uma vez e some, liberando esse espaço de volta. Só na
+  // fundação (initialRecruitment) — recrutar reforço depois já tinha um
+  // cabeçalho curto, sem esse problema de espaço.
+  const [introRecrutamento, setIntroRecrutamento] = useState(initialRecruitment)
+  const fecharIntroRecrutamento = () => setIntroRecrutamento(false)
   const [activeIndex, setActiveIndex] = useState(0)
   const [detailId, setDetailId] = useState(null)
   const [bioAberta, setBioAberta] = useState(false)
@@ -126,14 +138,30 @@ export default function GanguesCreate({ onNavigate, onCreated }) {
 
   return (
     <main className="gang-recruit gang-brickwall-bg">
+      <AnimatePresence>
+        {introRecrutamento && (
+          <GangDialog
+            lines={t('games.gangues.recruitment.abertura')}
+            speaker={t('games.gangues.dialogo.veio_nome')}
+            sub={t('games.gangues.dialogo.veio_sub')}
+            retrato={getGanguesNpcPortrait('nego_veio')}
+            onFinish={fecharIntroRecrutamento}
+            onSkip={fecharIntroRecrutamento}
+          />
+        )}
+      </AnimatePresence>
+
       {/* Voltar fora do header (que é centralizado/absoluto pro poster) —
           botão padrão em vez do ícone sozinho de antes (Isaias, 18/09/2026:
           "tem que ser um botão grande no alto com bom destaque"). */}
       <GanguesVoltarBtn onClick={() => onNavigate('lobby')} className="gang-recruit__voltar" />
       <header className="gang-recruit__head">
         <h1>{initialRecruitment ? t('games.gangues.recruitment.title_initial') : t('games.gangues.recruitment.title')}</h1>
-        <p>{t(`games.gangues.recruitment.${initialRecruitment ? 'subtitle_initial' : 'subtitle'}`, { n: required })}</p>
-        {initialRecruitment && <p className="gang-recruit__aviso-lider">⭐ {t('games.gangues.recruitment.aviso_lider')}</p>}
+        {/* Fundação: o subtítulo + aviso do líder viraram a fala do Nego
+            Véio acima (dá scroll no mobile deixar os dois juntos, mesmo
+            texto, na tela — Isaias, 19/09/2026). Reforço (não-inicial)
+            continua com o subtítulo curto de sempre, sem diálogo. */}
+        {!initialRecruitment && <p>{t('games.gangues.recruitment.subtitle', { n: required })}</p>}
       </header>
 
       <section className="gang-recruit__stage" aria-label={t('games.gangues.recruitment.candidates')}>
