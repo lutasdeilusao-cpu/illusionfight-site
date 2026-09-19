@@ -18,6 +18,20 @@ export default function useGanguesVictoryResolution({ store, user, report, victo
   useEffect(() => {
     if (processed.current) return
     processed.current = true
+    // Proteção REDUNDANTE (pedido do Isaias, 19/09/2026 — exploit real
+    // que ele achou: apertar Voltar reentrava nesta tela e reaplicava
+    // XP/AP/grana/item de novo, dava pra upar de graça só clicando
+    // voltar). `processed` (useRef) só protege a MESMA instância
+    // montada — some numa remontagem (ex: a fase 'victory' sendo
+    // revisitada por engano via navegação). Isso aqui protege contra
+    // remontagem: o battleReport em si fica marcado `__resolvido` no
+    // STORE (sobrevive à remontagem), então mesmo que outro bug de
+    // navegação reabra essa tela no futuro, a recompensa NUNCA aplica
+    // 2x pro mesmo relatório de batalha. A causa raiz (fases
+    // transitórias entrando na pilha do Voltar) foi corrigida em
+    // GanguesRoute.jsx — isso aqui é só o cinto e a suspensório.
+    if (report.__resolvido) return
+    store.setBattleReport({ ...report, __resolvido: true })
 
     // Clube da Luta: NÃO dá AP nem grana. Gauntlet de 3 rondas.
     //  • venceu ronda 1 ou 2 → vai pra sala do Nato (não acerta contas ainda).

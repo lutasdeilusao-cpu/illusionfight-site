@@ -30,6 +30,12 @@ import './Gangues.css'
 import { GANGUES_VERSION } from '../../../config/version'
 console.log(`[GANGUES] versão carregada: ${GANGUES_VERSION}`)
 
+// Fases que NUNCA entram na pilha de histórico do Voltar (ver comentário
+// grande junto de `historicoRef` mais abaixo) — todas transitórias/com
+// efeito colateral de uma vez só, nunca uma tela pra "voltar" significar
+// algo de verdade.
+const GANGUES_FASES_TRANSITORIAS = new Set(['story-combat', 'combat', 'victory'])
+
 export default function GanguesRoute() {
   const { user } = useAuth()
   const { setReaderMode } = useReader()
@@ -64,14 +70,30 @@ export default function GanguesRoute() {
   // volta a subir no próximo empilhamento, quando ela virar "a atual" de
   // novo) — efeito idêntico ao botão voltar do navegador, sem precisar
   // reescrever toda chamada de navegação existente pra alimentar a pilha
-  // manualmente. Fases transitórias (ex: 'story-combat', que só existe pra
-  // montar a luta e sai sozinha) entram e saem da pilha sem problema — não
-  // tem tela renderizada nelas pra clicar voltar durante o instante em que
-  // existem. Não é usado nas fases que já têm saída própria: a primeira
+  // manualmente. Não é usado nas fases que já têm saída própria: a primeira
   // tela do jogo (Sair, ver GanguesSaveSelect/GanguesNaming) e o combate
   // (confirmação própria, ver GanguesCombatSairConfirm.jsx).
+  //
+  // EXPLOIT ACHADO PELO ISAIAS (19/09/2026): 'combat'/'victory'/
+  // 'story-combat' são fases TRANSITÓRIAS/com efeito colateral de
+  // aplicar recompensa uma vez só (useGanguesVictoryResolution) — mas
+  // ainda assim entravam nesta MESMA pilha, porque o efeito abaixo
+  // empilhava QUALQUER mudança de fase sem distinguir. Bastava dar
+  // Voltar de qualquer tela reachable depois de uma vitória pra pilha,
+  // em algum momento, desempilhar de volta pra 'victory' — remontando a
+  // tela de resultado do zero (o guard `processed` do hook é por
+  // INSTÂNCIA montada, reseta numa remontagem) e REAPLICANDO XP/AP/grana/
+  // item de novo. "Aperto voltar e ganho XP de novo, é assim que tô
+  // conseguindo passar de nível só apertando voltar." Fix: essas 3 fases
+  // NUNCA entram na pilha — não tem osso nenhum aqui pra "voltar"
+  // significar algo (todas têm saída própria/já são o resultado de uma
+  // ação, não uma tela de navegação). Ver também o guard redundante em
+  // useGanguesVictoryResolution.js (`report.__resolvido`) — mesmo que
+  // outro bug de navegação reabra essa fase no futuro, a recompensa em
+  // si não aplica 2x.
   const historicoRef = useRef([])
   useEffect(() => {
+    if (GANGUES_FASES_TRANSITORIAS.has(fase)) return
     historicoRef.current.push(fase)
     if (historicoRef.current.length > 20) historicoRef.current.shift()
   }, [fase])
