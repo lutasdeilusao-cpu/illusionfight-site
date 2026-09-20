@@ -577,17 +577,28 @@
    colisão/zona de interação) nunca muda, só o `<span>` balança em volta
    dela, então não desalinha o trigger de interação. */
 @keyframes gang-patrulha{0%,100%{transform:translateX(calc(-1 * var(--gp-w,12px))) rotate(-8deg)}50%{transform:translateX(var(--gp-w,12px)) rotate(8deg)}}
-.gang-world-npc.is-patrulha>span{animation:gang-patrulha var(--gp-dur,2.6s) ease-in-out infinite}
 /* Farol universal de status (pedido do Isaias, 13/09/2026): substitui a cor
    do território + o azul de "farm" por vermelho/amarelo/verde
    autoexplicativo — vermelho = obrigatório e ainda não feito, amarelo =
    opcional e ainda não feito, verde = já feito (inclusive treta repetível já
    vencida 1x, que o motor mantém sempre `'disponivel'` de propósito pra
-   continuar farmável — ver farolDe() em GanguesCenaAtores.jsx). Não pulsa
-   (`animation:none`) só quando feito — sem urgência de voltar lá. */
+   continuar farmável — ver farolDe() em GanguesCenaAtores.jsx). */
 .gang-world-npc.is-obrigatorio>span{background:color-mix(in srgb, var(--if-danger) 42%, #0a1a14);border-color:color-mix(in srgb, var(--if-danger) 78%, #e8f1f2);box-shadow:0 0 20px rgba(255,0,85,.45)}
 .gang-world-npc.is-opcional>span{background:color-mix(in srgb, var(--if-amber) 42%, #0a1a14);border-color:color-mix(in srgb, var(--if-amber) 78%, #e8f1f2);box-shadow:0 0 20px rgba(255,174,50,.4)}
 .gang-world-npc.is-feito>span{background:color-mix(in srgb, #6be07a 40%, #0a1a14);border-color:color-mix(in srgb, #6be07a 75%, #e8f1f2);box-shadow:0 0 16px rgba(107,224,122,.4);animation:none}
+/* BUG REAL achado 20/09/2026 (Isaias, print ao vivo: os 2 personagens
+   visíveis — tretas repetíveis JÁ FARMADAS, farol verde — estavam parados
+   de novo): a regra `.is-feito>span{animation:none}` acima tem a MESMA
+   especificidade de `.is-patrulha>span` (2 classes + elemento) e vinha
+   DEPOIS dela no arquivo — empate de especificidade, quem vem por último
+   no CSS ganha, então toda treta repetível já vencida (o estado mais comum
+   em jogo de verdade, já que farm é o normal) tinha a andadinha CANCELADA
+   bem aqui. Corrigido: regra específica de 3 classes só pra isso, que
+   ganha de qualquer ordem — "já feito" continua sem pulsar
+   (`gang-entry-pulse`, isso é do `is-perto`, não daqui), mas a andadinha
+   nunca mais é cancelada por já ter sido farmado. */
+.gang-world-npc.is-feito.is-patrulha>span{animation:gang-patrulha var(--gp-dur,2.6s) ease-in-out infinite}
+.gang-world-npc.is-patrulha>span{animation:gang-patrulha var(--gp-dur,2.6s) ease-in-out infinite}
 .gang-world-npc-farm-tag{position:absolute;top:-4px;right:14px;width:16px;height:16px;display:grid;place-items:center;border-radius:50%;background:#0b3a66;border:1px solid #4fb4ff;color:#9fd8ff;font-size:.6rem;font-style:normal;animation:gang-farm-spin 2.4s linear infinite}
 @keyframes gang-farm-spin{to{transform:rotate(360deg)}}
 .gang-world-player { position:absolute; z-index:18; transform:translate(-50%,-50%); display:grid;justify-items:center;pointer-events:none; }.gang-world-player>span { position:relative;display:block;width:54px;height:54px;border:2px solid #fff;clip-path:polygon(50% 0,92% 18%,86% 76%,50% 100%,14% 76%,8% 18%);background:linear-gradient(#16b8c8,#086070);box-shadow:0 8px 17px #000,0 0 16px rgba(0,220,255,.28);animation:gang-person-breathe 1.2s ease-in-out infinite; }.gang-world-player>span i{position:absolute;width:10px;height:18px;top:14px;border:1px solid #fff;background:var(--if-cyan-20)}.gang-world-player>span i:nth-child(1){left:7px;transform:rotate(-12deg)}.gang-world-player>span i:nth-child(2){left:16px;top:9px;height:23px;z-index:2}.gang-world-player>span i:nth-child(3){right:7px;transform:rotate(12deg)}.gang-world-player small{margin-top:2px;color:#fff;background:#02080bcc;padding:2px 5px;font:800 .52rem var(--font-mono);text-transform:uppercase}.gang-world-player.facing-left>span{transform:rotate(-5deg)}.gang-world-player.facing-right>span{transform:rotate(5deg)}
