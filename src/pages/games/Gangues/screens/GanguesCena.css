@@ -575,8 +575,15 @@
    `--gp-w`/`--gp-dur`/`animation-delay` variam por pino via hash do id, ver
    PinoAlvo) — a âncora real (`left`/`top` do `.gang-world-npc`, usada pra
    colisão/zona de interação) nunca muda, só o `<span>` balança em volta
-   dela, então não desalinha o trigger de interação. */
-@keyframes gang-patrulha{0%,100%{transform:translateX(calc(-1 * var(--gp-w,12px))) rotate(-8deg)}50%{transform:translateX(var(--gp-w,12px)) rotate(8deg)}}
+   dela, então não desalinha o trigger de interação.
+   AJUSTE (mesmo dia, depois de ver a 1ª leva): "pode fazer eles andando
+   mais longe... indo e voltando, modo patrol... todos estão andando só na
+   horizontal, quero alguns andando na vertical também, pra ficar bem
+   movimento de verdade" — 2 keyframes agora (h/v), metade dos personagens
+   em cada eixo (par/ímpar do hash do id, ver PinoAlvo), alcance maior
+   (`--gp-w` sobe de 10-17px pra 18-33px). */
+@keyframes gang-patrulha-h{0%,100%{transform:translateX(calc(-1 * var(--gp-w,12px))) rotate(-8deg)}50%{transform:translateX(var(--gp-w,12px)) rotate(8deg)}}
+@keyframes gang-patrulha-v{0%,100%{transform:translateY(calc(-1 * var(--gp-w,12px))) rotate(-6deg)}50%{transform:translateY(var(--gp-w,12px)) rotate(6deg)}}
 /* Farol universal de status (pedido do Isaias, 13/09/2026): substitui a cor
    do território + o azul de "farm" por vermelho/amarelo/verde
    autoexplicativo — vermelho = obrigatório e ainda não feito, amarelo =
@@ -589,7 +596,7 @@
 /* BUG REAL achado 20/09/2026 (Isaias, print ao vivo: os 2 personagens
    visíveis — tretas repetíveis JÁ FARMADAS, farol verde — estavam parados
    de novo): a regra `.is-feito>span{animation:none}` acima tem a MESMA
-   especificidade de `.is-patrulha>span` (2 classes + elemento) e vinha
+   especificidade de `.is-patrulha-h/-v>span` (2 classes + elemento) e vinha
    DEPOIS dela no arquivo — empate de especificidade, quem vem por último
    no CSS ganha, então toda treta repetível já vencida (o estado mais comum
    em jogo de verdade, já que farm é o normal) tinha a andadinha CANCELADA
@@ -597,8 +604,10 @@
    ganha de qualquer ordem — "já feito" continua sem pulsar
    (`gang-entry-pulse`, isso é do `is-perto`, não daqui), mas a andadinha
    nunca mais é cancelada por já ter sido farmado. */
-.gang-world-npc.is-feito.is-patrulha>span{animation:gang-patrulha var(--gp-dur,2.6s) ease-in-out infinite}
-.gang-world-npc.is-patrulha>span{animation:gang-patrulha var(--gp-dur,2.6s) ease-in-out infinite}
+.gang-world-npc.is-feito.is-patrulha-h>span{animation:gang-patrulha-h var(--gp-dur,2.6s) ease-in-out infinite}
+.gang-world-npc.is-feito.is-patrulha-v>span{animation:gang-patrulha-v var(--gp-dur,2.6s) ease-in-out infinite}
+.gang-world-npc.is-patrulha-h>span{animation:gang-patrulha-h var(--gp-dur,2.6s) ease-in-out infinite}
+.gang-world-npc.is-patrulha-v>span{animation:gang-patrulha-v var(--gp-dur,2.6s) ease-in-out infinite}
 .gang-world-npc-farm-tag{position:absolute;top:-4px;right:14px;width:16px;height:16px;display:grid;place-items:center;border-radius:50%;background:#0b3a66;border:1px solid #4fb4ff;color:#9fd8ff;font-size:.6rem;font-style:normal;animation:gang-farm-spin 2.4s linear infinite}
 @keyframes gang-farm-spin{to{transform:rotate(360deg)}}
 .gang-world-player { position:absolute; z-index:18; transform:translate(-50%,-50%); display:grid;justify-items:center;pointer-events:none; }.gang-world-player>span { position:relative;display:block;width:54px;height:54px;border:2px solid #fff;clip-path:polygon(50% 0,92% 18%,86% 76%,50% 100%,14% 76%,8% 18%);background:linear-gradient(#16b8c8,#086070);box-shadow:0 8px 17px #000,0 0 16px rgba(0,220,255,.28);animation:gang-person-breathe 1.2s ease-in-out infinite; }.gang-world-player>span i{position:absolute;width:10px;height:18px;top:14px;border:1px solid #fff;background:var(--if-cyan-20)}.gang-world-player>span i:nth-child(1){left:7px;transform:rotate(-12deg)}.gang-world-player>span i:nth-child(2){left:16px;top:9px;height:23px;z-index:2}.gang-world-player>span i:nth-child(3){right:7px;transform:rotate(12deg)}.gang-world-player small{margin-top:2px;color:#fff;background:#02080bcc;padding:2px 5px;font:800 .52rem var(--font-mono);text-transform:uppercase}.gang-world-player.facing-left>span{transform:rotate(-5deg)}.gang-world-player.facing-right>span{transform:rotate(5deg)}
@@ -628,7 +637,7 @@
 .gang-world-controls { position:relative;z-index:27;flex:0 0 auto;width:100%;box-sizing:border-box;min-height:148px;display:flex;align-items:center;justify-content:space-between;padding:18px 25px max(18px,env(safe-area-inset-bottom));background:linear-gradient(180deg,#0a1114,#050809);border-top:1px solid #2c393d;box-shadow:0 -10px 22px rgba(0,0,0,.4) inset; }.gang-world-stick { --jx:0px;--jy:0px;position:relative;width:112px;height:112px;border-radius:50%;border:2px solid #597077;background:radial-gradient(circle,#18262b 0 34%,#091115 36% 100%);box-shadow:inset 0 0 20px #000,0 7px 20px #0008;pointer-events:auto;touch-action:none; }.gang-world-stick:before,.gang-world-stick:after{content:'';position:absolute;background:#43565c55}.gang-world-stick:before{left:50%;top:12px;bottom:12px;width:1px}.gang-world-stick:after{top:50%;left:12px;right:12px;height:1px}.gang-world-stick i{position:absolute;z-index:2;left:50%;top:50%;width:48px;height:48px;border-radius:50%;transform:translate(calc(-50% + var(--jx)),calc(-50% + var(--jy)));background:linear-gradient(145deg,#2d464e,#101b1f);border:2px solid var(--terr-cor);box-shadow:0 5px 14px #000;transition:transform .04s}
 .gang-world-controls button { pointer-events:auto;width:98px;height:98px;border-radius:50%;border:2px solid var(--terr-cor);background:radial-gradient(circle,#12363a,#071114);color:#fff;box-shadow:0 0 22px rgba(0,220,255,.16),inset 0 0 18px #000;display:grid;place-content:center;gap:3px; }.gang-world-controls button b{font:900 .72rem var(--font-display)}.gang-world-controls button span{font:700 .45rem var(--font-mono);color:var(--terr-cor)}.gang-world-controls button:disabled{opacity:.2;filter:grayscale(1)}
 @media(max-height:700px){.gang-cena-worldpage{min-height:540px}.gang-world-controls{min-height:120px;padding:12px 25px max(12px,env(safe-area-inset-bottom))}.gang-world-stick{width:92px;height:92px}.gang-world-controls button{width:82px;height:82px}.gang-cena-tutorial{bottom:14px}}
-@media(prefers-reduced-motion:reduce){.gang-cena-world{transition:none}.gang-world-player>span,.gang-world-npc>span,.gang-world-npc-farm-tag,.gang-world-npc.is-perto>span,.gang-world-npc.is-nav.is-perto>span,.gang-world-npc.is-patrulha>span{animation:none}}
+@media(prefers-reduced-motion:reduce){.gang-cena-world{transition:none}.gang-world-player>span,.gang-world-npc>span,.gang-world-npc-farm-tag,.gang-world-npc.is-perto>span,.gang-world-npc.is-nav.is-perto>span,.gang-world-npc.is-patrulha-h>span,.gang-world-npc.is-patrulha-v>span{animation:none}}
 
 /* ══ Cenário RPG da Pista — favela desenhada em CSS ═══════════════════ */
 

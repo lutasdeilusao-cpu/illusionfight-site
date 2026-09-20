@@ -111,15 +111,24 @@ export function PinoAlvo({ p, t, active }) {
   // ("esses pinos estáticos são de ações... os personagens têm que
   // andar"). Chefe fica de fora de propósito (showdown parado, dramático).
   const personagem = Boolean(retrato) && !p.ehChefe
-  // Fase/duração/alcance da andadinha variam por pino (hash do id) só pra
-  // não sincronizar todo mundo andando igualzinho ao mesmo tempo.
+  // Fase/duração/alcance/eixo da andadinha variam por pino (hash do id) só
+  // pra não sincronizar todo mundo andando igualzinho. AJUSTE 20/09/2026
+  // (Isaias, depois de ver a 1ª leva: "pode fazer eles andando mais longe
+  // e voltando, indo e voltando, modo patrol... todos estão andando só na
+  // horizontal, eu quero alguns andando na vertical também, pra ficar bem
+  // movimento de verdade"): alcance quase dobrado (18-33px, era 10-17) e
+  // metade dos personagens (par/ímpar do hash) anda pra cima/baixo em vez
+  // de só esquerda/direita — classe muda (`is-patrulha-h`/`-v`), não só a
+  // distância, porque cada eixo usa uma keyframe própria (GanguesCena.css).
   const h = personagem ? hashEstavel(p.id) : 0
+  const patrulhaVertical = personagem && h % 2 === 0
+  const patrulhaClasse = personagem ? (patrulhaVertical ? 'is-patrulha-v' : 'is-patrulha-h') : ''
   const patrulhaStyle = personagem ? {
-    '--gp-w': `${10 + (h % 8)}px`,
-    '--gp-dur': `${2.2 + (h % 5) * 0.3}s`,
-    animationDelay: `${-((h % 100) / 100) * (2.2 + (h % 5) * 0.3)}s`,
+    '--gp-w': `${18 + (h % 16)}px`,
+    '--gp-dur': `${2.4 + (h % 5) * 0.35}s`,
+    animationDelay: `${-((h % 100) / 100) * (2.4 + (h % 5) * 0.35)}s`,
   } : undefined
-  return <div className={`gang-world-npc is-${p.estado} ${farolDe(p)} ${p.ehChefe ? 'is-boss' : ''} ${p.farmCompleto ? 'is-farm' : ''} ${active ? 'is-perto' : ''} ${p.ehPorta || p.ehSaida || p.ehVolta || p.ehPassagem ? 'is-nav' : ''} ${retrato ? 'gang-world-npc--retrato' : ''} ${personagem ? 'is-patrulha' : ''}`} style={{ left: p.world.x, top: p.world.y }}>
+  return <div className={`gang-world-npc is-${p.estado} ${farolDe(p)} ${p.ehChefe ? 'is-boss' : ''} ${p.farmCompleto ? 'is-farm' : ''} ${active ? 'is-perto' : ''} ${p.ehPorta || p.ehSaida || p.ehVolta || p.ehPassagem ? 'is-nav' : ''} ${retrato ? 'gang-world-npc--retrato' : ''} ${patrulhaClasse}`} style={{ left: p.world.x, top: p.world.y }}>
     <span style={patrulhaStyle}>{retrato ? <img src={retrato} alt="" onError={() => setRetratoFalhou(true)} /> : icone}</span>
     {p.estado !== 'trancado' || p.ehPassagem || p.ehChefe ? <small>{nome}</small> : null}
     {p.farmCompleto && <i className="gang-world-npc-farm-tag" aria-hidden="true">↻</i>}
