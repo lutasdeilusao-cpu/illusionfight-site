@@ -111,25 +111,41 @@ export function PinoAlvo({ p, t, active }) {
   // ("esses pinos estáticos são de ações... os personagens têm que
   // andar"). Chefe fica de fora de propósito (showdown parado, dramático).
   const personagem = Boolean(retrato) && !p.ehChefe
-  // Fase/duração/alcance/eixo da andadinha variam por pino (hash do id) só
-  // pra não sincronizar todo mundo andando igualzinho. AJUSTE 20/09/2026
-  // (Isaias, depois de ver a 1ª leva: "pode fazer eles andando mais longe
-  // e voltando, indo e voltando, modo patrol... todos estão andando só na
-  // horizontal, eu quero alguns andando na vertical também, pra ficar bem
-  // movimento de verdade"): alcance quase dobrado (18-33px, era 10-17) e
-  // metade dos personagens (par/ímpar do hash) anda pra cima/baixo em vez
-  // de só esquerda/direita — classe muda (`is-patrulha-h`/`-v`), não só a
-  // distância, porque cada eixo usa uma keyframe própria (GanguesCena.css).
+  // 3ª tentativa da andadinha (20/09/2026 — as 2 primeiras foram
+  // rejeitadas: "não refaz essa porra e refaz direito, eles não estão
+  // andando, eles estão tipo balançando... [print A] até [print B] — é
+  // pra ele andar tipo dali do prédio até aqui, no meio da rua... muda
+  // essa animação porque parece que ele tá bêbado, faz uma animação de
+  // caminhada, tuc tuc tuc tuc, e faz eles andar BASTANTE"). Duas causas
+  // do "bêbado": (1) a rotação alternada (`rotate(-8deg)→8deg)`) girava o
+  // corpo inteiro tipo tontura — removida por completo, andar não gira; e
+  // (2) alcance curto (±18-33px) num mapa desse tamanho nem parece
+  // deslocamento. Agora dois movimentos SEPARADOS, cada um no seu próprio
+  // elemento (senão uma `transform` sobrescreve a outra):
+  //  • `--gp-w`/`is-patrulha-h/-v` no `<span>` DE FORA: o deslocamento de
+  //    verdade (60-115px, ida e volta), com `steps()` em vez de
+  //    ease-in-out — anda em "pulos" discretos de passada, não desliza
+  //    suave feito fantasma.
+  //  • `.gang-world-npc-passo` no `<span>` DE DENTRO: o "tuc tuc tuc" —
+  //    um bounce vertical curto e rápido, contínuo, independente da
+  //    direção (é o "pé bate no chão" enquanto anda).
+  // Fase/duração/alcance/eixo variam por pino (hash do id) só pra não
+  // sincronizar todo mundo andando igual.
   const h = personagem ? hashEstavel(p.id) : 0
   const patrulhaVertical = personagem && h % 2 === 0
   const patrulhaClasse = personagem ? (patrulhaVertical ? 'is-patrulha-v' : 'is-patrulha-h') : ''
+  const patrulhaDur = 3.2 + (h % 6) * 0.4
   const patrulhaStyle = personagem ? {
-    '--gp-w': `${18 + (h % 16)}px`,
-    '--gp-dur': `${2.4 + (h % 5) * 0.35}s`,
-    animationDelay: `${-((h % 100) / 100) * (2.4 + (h % 5) * 0.35)}s`,
+    '--gp-w': `${60 + (h % 56)}px`,
+    '--gp-dur': `${patrulhaDur}s`,
+    animationDelay: `${-((h % 100) / 100) * patrulhaDur}s`,
   } : undefined
   return <div className={`gang-world-npc is-${p.estado} ${farolDe(p)} ${p.ehChefe ? 'is-boss' : ''} ${p.farmCompleto ? 'is-farm' : ''} ${active ? 'is-perto' : ''} ${p.ehPorta || p.ehSaida || p.ehVolta || p.ehPassagem ? 'is-nav' : ''} ${retrato ? 'gang-world-npc--retrato' : ''} ${patrulhaClasse}`} style={{ left: p.world.x, top: p.world.y }}>
-    <span style={patrulhaStyle}>{retrato ? <img src={retrato} alt="" onError={() => setRetratoFalhou(true)} /> : icone}</span>
+    <span style={patrulhaStyle}>
+      <span className={personagem ? 'gang-world-npc-passo' : undefined}>
+        {retrato ? <img src={retrato} alt="" onError={() => setRetratoFalhou(true)} /> : icone}
+      </span>
+    </span>
     {p.estado !== 'trancado' || p.ehPassagem || p.ehChefe ? <small>{nome}</small> : null}
     {p.farmCompleto && <i className="gang-world-npc-farm-tag" aria-hidden="true">↻</i>}
   </div>
