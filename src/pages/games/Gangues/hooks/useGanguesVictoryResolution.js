@@ -94,7 +94,7 @@ export default function useGanguesVictoryResolution({ store, user, report, victo
       store.registrarNoAlbum([match.enemy_id, ...report.combatants.filter(c => c.side === 'enemy').map(c => c.id)])
       let granaGanha = 0, repGanha = 0, repMarcos = []
       if (emCena || noModoHistoria) {
-        const { grana, rep, itens } = calcularRecompensaCena({ emCena, storyAlvo })
+        const { grana, rep, itens } = calcularRecompensaCena({ emCena, storyAlvo, enemyCount, ehChefe: Boolean(storyAlvo.isChefe) })
         if (emCena && !storyAlvo.evento) {
           // Modo história — cena: marca o POI resolvido. O repDelta (rep de
           // uma escolha tipo "aperta") já está somado dentro de `rep` por

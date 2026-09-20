@@ -145,7 +145,7 @@ export const INTERIORES_PISTA = {
         ],
         cenario: [{ tipo: 'chao-tunel' }, { tipo: 'escombro', x: 75, y: 100 }, { tipo: 'lampada-tunel', x: 190, y: 40 }],
         pois: [
-          { poi: { id: 'tunel_m1', tipo: 'treta', repetivel: true, revezamento: { pool: PISTA_POOL_TUNEL, budgetPorCorpo: 4, chanceDupla: 0.22 }, i18n: 'games.gangues.cena.pista.tunel.m1', recompensa: { grana: 5, rep: 2 } }, pos: { x: 190, y: 130 } },
+          { poi: { id: 'tunel_m1', tipo: 'treta', repetivel: true, revezamento: { pool: PISTA_POOL_TUNEL, budgetPorCorpo: 4, chanceDupla: 0.22 }, i18n: 'games.gangues.cena.pista.tunel.m1', recompensa: { rep: 2 } }, pos: { x: 190, y: 130 } },
         ],
         passagem: { x: 150, y: 30, w: 80, h: 24, para: 1, precisa: 'tunel_m1', label: 'avancar' },
       },
@@ -158,7 +158,7 @@ export const INTERIORES_PISTA = {
         ],
         cenario: [{ tipo: 'chao-tunel' }, { tipo: 'lampada-tunel', x: 180, y: 40 }, { tipo: 'lampada-tunel', x: 180, y: 230 }, { tipo: 'escombro', x: 300, y: 300 }],
         pois: [
-          { poi: { id: 'tunel_m2', tipo: 'treta', repetivel: true, nivelRec: 8, revezamento: { pool: PISTA_POOL_RUA, budgetPorCorpo: 6, chanceDupla: 0.45 }, i18n: 'games.gangues.cena.pista.tunel.m2', recompensa: { grana: 7, rep: 3 } }, pos: { x: 180, y: 210 } },
+          { poi: { id: 'tunel_m2', tipo: 'treta', repetivel: true, nivelRec: 8, revezamento: { pool: PISTA_POOL_RUA, budgetPorCorpo: 6, chanceDupla: 0.45 }, i18n: 'games.gangues.cena.pista.tunel.m2', recompensa: { rep: 3 } }, pos: { x: 180, y: 210 } },
           { poi: { id: 'tunel_achado', tipo: 'achado', opcional: true, i18n: 'games.gangues.cena.pista.tunel.achado', recompensa: { grana: 14, item: 13 } }, pos: { x: 290, y: 120 } },
         ],
         passagem: { x: 140, y: 30, w: 80, h: 24, para: 2, precisa: 'tunel_m2', label: 'avancar' },
@@ -180,7 +180,7 @@ export const INTERIORES_PISTA = {
         ],
         cenario: [{ tipo: 'chao-tunel' }, { tipo: 'lampada-tunel', x: 190, y: 60 }, { tipo: 'escombro', x: 295, y: 110 }],
         pois: [
-          { poi: { id: 'tunel_m3', tipo: 'treta', repetivel: true, revezamento: { pool: PISTA_POOL_TUNEL, budgetPorCorpo: 5, chanceDupla: 0.3 }, i18n: 'games.gangues.cena.pista.tunel.m3', recompensa: { grana: 6, rep: 2 } }, pos: { x: 190, y: 180 } },
+          { poi: { id: 'tunel_m3', tipo: 'treta', repetivel: true, revezamento: { pool: PISTA_POOL_TUNEL, budgetPorCorpo: 5, chanceDupla: 0.3 }, i18n: 'games.gangues.cena.pista.tunel.m3', recompensa: { rep: 2 } }, pos: { x: 190, y: 180 } },
         ],
       },
     ],
@@ -219,7 +219,7 @@ export const INTERIORES_PISTA = {
           // time do jogador — antes vinha quase sempre 1 capanga só, num
           // orçamento fixo que não crescia com o nível (Isaias matava tudo com
           // um golpe no nível 11/12, 2026-09-13). Ver gerarBandoRevezamento.
-          { poi: { id: 'galpao_m1', tipo: 'treta', repetivel: true, nivelRec: 12, revezamento: { pool: PISTA_POOL_GALPAO, budgetPorCorpo: 6, qtdMin: 3, qtdMax: 5, ratioComTime: 0.4 }, i18n: 'games.gangues.cena.pista.galpao.m1', recompensa: { grana: 6, rep: 2 } }, pos: { x: 300, y: 130 } },
+          { poi: { id: 'galpao_m1', tipo: 'treta', repetivel: true, nivelRec: 12, revezamento: { pool: PISTA_POOL_GALPAO, budgetPorCorpo: 6, qtdMin: 3, qtdMax: 5, ratioComTime: 0.4 }, i18n: 'games.gangues.cena.pista.galpao.m1', recompensa: { rep: 2 } }, pos: { x: 300, y: 130 } },
         ],
         passagem: { x: 220, y: 34, w: 80, h: 24, para: 1, precisa: 'galpao_m1', label: 'avancar' },
       },
@@ -249,7 +249,7 @@ export const INTERIORES_PISTA = {
           // rua comum. `repetivel` continua — o Isaias usa essa sala pra
           // treinar/upar — mas sem "farm-lock" nenhum: o número é fixo
           // desde sempre, não precisa congelar nada.
-          { poi: { id: 'galpao_m2', tipo: 'treta', repetivel: true, nivelRec: 14, enemy: 1301, liderFixo: 1301, repGate: GANGUES_REP_GATE_GALPAO, moldesPool: PISTA_POOL_GALPAO, pontosFixo: 22, qtdMin: 3, qtdMax: 5, i18n: 'games.gangues.cena.pista.galpao.m2', recompensa: { grana: 8, rep: 3, item: 21, qtd: 1 } }, pos: { x: 220, y: 180 } },
+          { poi: { id: 'galpao_m2', tipo: 'treta', repetivel: true, nivelRec: 14, enemy: 1301, liderFixo: 1301, repGate: GANGUES_REP_GATE_GALPAO, moldesPool: PISTA_POOL_GALPAO, pontosFixo: 22, qtdMin: 3, qtdMax: 5, i18n: 'games.gangues.cena.pista.galpao.m2', recompensa: { rep: 3, item: 21, qtd: 1 } }, pos: { x: 220, y: 180 } },
           { poi: { id: 'galpao_achado', tipo: 'achado', opcional: true, i18n: 'games.gangues.cena.pista.galpao.achado', recompensa: { grana: 18, item: 1 } }, pos: { x: 388, y: 150 } },
         ],
         passagem: { x: 200, y: 34, w: 80, h: 24, para: 2, precisa: 'galpao_m2', label: 'avancar' },
@@ -279,7 +279,7 @@ export const INTERIORES_PISTA = {
           // qtdMin/qtdMax + ratioComTime: mesmo motivo do galpao_m1 (ver nota
           // ali) — um degrau abaixo (3-4, não 3-5) por ser punição de escolha
           // de papo, não o corredor principal do galpão.
-          { poi: { id: 'galpao_contador', tipo: 'papo', opcional: true, repetivel: true, i18n: 'games.gangues.cena.pista.galpao.contador', escolhas: [{ id: 'escuta' }, { id: 'aperta', viraTreta: { enemy: 1203, rep: -1, recompensa: { grana: 6 }, revezamento: { pool: PISTA_POOL_GALPAO, budgetPorCorpo: 5, qtdMin: 3, qtdMax: 4, ratioComTime: 0.3 } } }] }, pos: { x: 120, y: 210 } },
+          { poi: { id: 'galpao_contador', tipo: 'papo', opcional: true, repetivel: true, i18n: 'games.gangues.cena.pista.galpao.contador', escolhas: [{ id: 'escuta' }, { id: 'aperta', viraTreta: { enemy: 1203, rep: -1, revezamento: { pool: PISTA_POOL_GALPAO, budgetPorCorpo: 5, qtdMin: 3, qtdMax: 4, ratioComTime: 0.3 } } }] }, pos: { x: 120, y: 210 } },
         ],
         passagem: { x: 300, y: 34, w: 80, h: 24, para: 3, label: 'avancar' },
       },

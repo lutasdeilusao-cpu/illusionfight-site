@@ -232,10 +232,11 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
       return
     }
     guardarPosicao(); sfx.vs?.()
-    const grana = 6 + Math.floor(Math.random() * 7)
+    // Grana da vitória: fórmula fixa (calcularGranaTotal), não mais um sorteio
+    // fixo autorado aqui — rep/item do evento continuam autorados.
     store.setStoryTarget({
       territorioId: terr.id, cenaId: cena.id, evento: true,
-      cenaRecompensa: { grana, rep: 1, item: 20, qtd: 1 }, pontoIds: terr.pontos.map(p => p.id),
+      cenaRecompensa: { rep: 1, item: 20, qtd: 1 }, pontoIds: terr.pontos.map(p => p.id),
     })
     onNavigate('story-combat')
   }

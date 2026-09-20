@@ -123,25 +123,43 @@ export function calcularPesosEParticipantes({ victory, report, match }) {
   return { koIds, escaladosIds, participantIds, pesosPorId, nivelPorId }
 }
 
-/** Recompensa de grana/rep/item da vitória, conforme o contexto (encontro
- *  aleatório de rua vs. POI programado da cena) — não toca no store, só
- *  soma os números pra quem chamar aplicar. */
-export function calcularRecompensaCena({ emCena, storyAlvo }) {
-  let grana = 0, rep = 0
+/** Grana de vitória (pedido do Isaias, 19/09/2026: "o mínimo é 10, porque é o
+ *  pagamento pra pelo menos um descanso... você ganha mais grana conforme o
+ *  número de oponentes que você enfrenta, cada oponente novo vale mais 10...
+ *  quando enfrentar o Carvão vai dar pelo menos 500 de grana, independente
+ *  de como ele vier"). Substitui por completo a grana AUTORADA por POI que
+ *  existia em `cenaRecompensa`/`viraTreta.recompensa` (ficava incoerente com
+ *  o número de inimigos de verdade — ex: `rinha` sempre dava 4, mesmo
+ *  virando dupla) — mesmo padrão de fórmula pura já usado em `calcularApTotal`.
+ *  `ehChefe` cobre qualquer luta de chefe de território (`storyAlvo.isChefe`),
+ *  não só o Carvão da Pista — hoje é o único chefe que passa por aqui (os
+ *  outros 6 territórios ainda usam a trilha antiga), mas a régua já nasce
+ *  genérica pra quando eles também ganharem chefe de verdade. */
+const GANGUES_GRANA_POR_INIMIGO = 10
+const GANGUES_GRANA_CHEFE_MINIMO = 500
+export function calcularGranaTotal({ enemyCount = 1, ehChefe = false }) {
+  const base = GANGUES_GRANA_POR_INIMIGO * Math.max(1, enemyCount)
+  return ehChefe ? Math.max(GANGUES_GRANA_CHEFE_MINIMO, base) : base
+}
+
+/** Recompensa de rep/item da vitória, conforme o contexto (encontro aleatório
+ *  de rua vs. POI programado da cena) — não toca no store, só soma os
+ *  números pra quem chamar aplicar. Grana não é mais autorada por POI, ver
+ *  `calcularGranaTotal`. */
+export function calcularRecompensaCena({ emCena, storyAlvo, enemyCount = 1, ehChefe = false }) {
+  let rep = 0
   const itens = []
   if (emCena && storyAlvo.evento) {
     const rec = storyAlvo.cenaRecompensa
-    if (rec?.grana) grana += rec.grana
     if (rec?.rep) rep += rec.rep
     if (rec?.item) itens.push({ id: rec.item, qtd: rec.qtd || 1 })
   } else if (emCena) {
     if (storyAlvo.repDelta) rep += storyAlvo.repDelta
     const rec = storyAlvo.cenaRecompensa
     if (rec) {
-      if (rec.grana) grana += rec.grana
       if (rec.rep) rep += rec.rep
       if (rec.item) itens.push({ id: rec.item, qtd: rec.qtd || 1 })
     }
   }
-  return { grana, rep, itens }
+  return { grana: calcularGranaTotal({ enemyCount, ehChefe }), rep, itens }
 }

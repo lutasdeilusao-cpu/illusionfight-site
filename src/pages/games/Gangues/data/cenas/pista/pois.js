@@ -30,7 +30,7 @@ export const POIS_PISTA = [
       // partir da SEGUNDA luta sobe de 3 em 3, sem exceção"). `sinal` é
       // literalmente a 1ª luta do jogo — fica no piso de 3, todo o resto da
       // ladder (a partir de `beco`) sobe a partir do 8.
-      { id: 'aperta', viraTreta: { enemy: 1201, rep: -1, recompensa: { grana: 4 }, revezamento: { pool: PISTA_POOL_RUA, budgetPorCorpo: 3, chanceDupla: 0.15 } }, revela: ['ferro'] },
+      { id: 'aperta', viraTreta: { enemy: 1201, rep: -1, revezamento: { pool: PISTA_POOL_RUA, budgetPorCorpo: 3, chanceDupla: 0.15 } }, revela: ['ferro'] },
       { id: 'ignora', revela: ['ferro'] },
     ],
   },
@@ -53,7 +53,7 @@ export const POIS_PISTA = [
     // NÍVEL FIXO (ajuste 15/09/2026 nº2): já é a "2ª luta" tier — nível 8,
     // confirmado pelo Isaias explicitamente ("esse jogador desse puzzle...
     // já tem que ter uma ficha de 8"). Não mudou nesta leva.
-    falha: { viraTreta: { enemy: 1201, recompensa: { grana: 3 }, revezamento: { pool: PISTA_POOL_RUA, budgetPorCorpo: 8, chanceDupla: 0.1 }, semTravar: true } },
+    falha: { viraTreta: { enemy: 1201, revezamento: { pool: PISTA_POOL_RUA, budgetPorCorpo: 8, chanceDupla: 0.1 }, semTravar: true } },
     // Abrir a fechadura revela o beco (caminho principal), o fundo do
     // ferro-velho (achado — 2º pedaço de sucata) e a oficina do Nando (onde
     // a sucata vira peça).
@@ -110,7 +110,7 @@ export const POIS_PISTA = [
     enemy: 1201,
     revezamento: { pool: PISTA_POOL_RUA, budgetPorCorpo: 8, chanceDupla: 0.4 },
     forca: 1,
-    recompensa: { grana: 8, rep: 2 },
+    recompensa: { rep: 2 },
     revela: ['birosca'],
   },
   {
@@ -153,7 +153,7 @@ export const POIS_PISTA = [
     enemy: 1301,
     revezamento: { pool: PISTA_POOL_RUA, budgetPorCorpo: 11, chanceDupla: 0.4 },
     forca: 2,
-    recompensa: { grana: 8, rep: 3 },
+    recompensa: { rep: 3 },
     revela: ['beco_3'],
   },
   {
@@ -171,7 +171,7 @@ export const POIS_PISTA = [
     enemy: 1302,
     revezamento: { pool: PISTA_POOL_RUA, budgetPorCorpo: 14, chanceDupla: 0.4 },
     forca: 2,
-    recompensa: { grana: 9, rep: 3 },
+    recompensa: { rep: 3 },
     revela: ['sinaleiro'],
   },
   {
@@ -194,7 +194,7 @@ export const POIS_PISTA = [
     fixo: true,
     pontosFixo: 17,
     forca: 3,
-    recompensa: { grana: 12, rep: 5 },
+    recompensa: { rep: 5 },
     revela: ['rasteira_velha'],
   },
   {
@@ -216,7 +216,7 @@ export const POIS_PISTA = [
     fixo: true,
     pontosFixo: 20,
     forca: 3,
-    recompensa: { grana: 10, rep: 6 },
+    recompensa: { rep: 6 },
   },
   {
     // Treta repetível de farm: pode ser encarada quantas vezes o jogador
@@ -252,7 +252,6 @@ export const POIS_PISTA = [
     enemy: 1201,
     revezamento: { pool: PISTA_POOL_RUA, budgetPorCorpo: 3, chanceDupla: 0.35, ratioComTime: 1, baseMaisForte: true },
     forca: 1,
-    recompensa: { grana: 4 },
   },
   {
     // A "loja abandonada" do outro lado do muro. Só aparece e fica
@@ -337,7 +336,7 @@ export const POIS_PISTA = [
     enemy: 1206,
     revezamento: { pool: PISTA_POOL_GALPAO, budgetPorCorpo: 23, chanceDupla: 0.5 },
     forca: 2,
-    recompensa: { grana: 9, rep: 3 },
+    recompensa: { rep: 3 },
     revela: ['posmuro_2'],
   },
   {
@@ -357,6 +356,6 @@ export const POIS_PISTA = [
     repGate: GANGUES_REP_GATE_GALPAO,
     revezamento: { pool: PISTA_POOL_GALPAO, budgetPorCorpo: 26, chanceDupla: 0.6 },
     forca: 3,
-    recompensa: { grana: 12, rep: 4, item: 21, qtd: 1 },
+    recompensa: { rep: 4, item: 21, qtd: 1 },
   },
 ]

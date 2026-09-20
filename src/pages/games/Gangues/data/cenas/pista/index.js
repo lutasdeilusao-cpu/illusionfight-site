@@ -83,7 +83,10 @@ export const CENA_PISTA = {
     enemy: 1500,
     forca: 3,
     boss: 'fumaca',
-    recompensa: { grana: 20, rep: 5 },
+    // Grana da vitória: fórmula fixa (calcularGranaTotal, ganguesVictoryResolver.js)
+    // — chefe sempre garante pelo menos 500 (Isaias, 19/09/2026), não mais
+    // um valor autorado aqui. `rep` continua autorado.
+    recompensa: { rep: 5 },
   },
 
   // A área final só abre depois de todo o caminho obrigatório da Pista —
