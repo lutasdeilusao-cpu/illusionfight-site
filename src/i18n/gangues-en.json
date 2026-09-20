@@ -497,7 +497,7 @@
         "regra": "A fight's action points aren't split evenly: finishing off more enemies earns a much bigger slice, damage dealt breaks ties. A fight against weak stuff gives few total points — don't expect to level up every single time."
       },
       "ap_risco_tutorial": {
-        "regra": "Hey, pay attention to this: always beating up on someone way weaker than your best fighter doesn't pay off — the bigger the gap, the less AP the fight gives, until it's barely worth it. But take on someone stronger and it flips: 1 to 5 levels above already doubles the AP, and past 5, it triples. Take the risk, get more."
+        "regra": "Hey, pay attention to this: always beating up on someone way weaker than your best fighter doesn't pay off — the bigger the gap, the less AP the fight gives, but never less than 5. But take on someone stronger and it flips: 1 to 5 levels above already TRIPLES the AP, and past 5, it QUADRUPLES. Take the risk, get a lot more."
       },
       "descanso_tutorial": {
         "recuperar": "This is where your crew heals up PV and PM in full, for some cash. Sit down at the birosca and nobody starts trouble.",

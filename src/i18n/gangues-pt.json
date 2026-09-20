@@ -497,7 +497,7 @@
         "regra": "Os pontos de ação da luta não são divididos igual: quem finaliza mais inimigos ganha bem mais da fatia, dano causado desempata. Uma luta contra pouca coisa dá poucos pontos no total — não espera subir de nível toda hora."
       },
       "ap_risco_tutorial": {
-        "regra": "Óh, presta atenção nisso: bater sempre em quem é bem mais fraco que o teu brabo não compensa — quanto maior a diferença, menos AP a luta rende, até quase não valer a pena. Mas encara alguém mais forte que ele e a coisa vira: 1 a 5 níveis acima já dobra o AP, e passou de 5, triplica. Quem se arrisca, ganha mais."
+        "regra": "Óh, presta atenção nisso: bater sempre em quem é bem mais fraco que o teu brabo não compensa — quanto maior a diferença, menos AP a luta rende, mas nunca menos que 5. Mas encara alguém mais forte que ele e a coisa vira: 1 a 5 níveis acima já TRIPLICA o AP, e passou de 5, QUADRUPLICA. Quem se arrisca, ganha muito mais."
       },
       "descanso_tutorial": {
         "recuperar": "Aqui a tropa recupera o PV e o PM inteiro, gastando uma grana. Sentado na birosca, ninguém arranja treta.",

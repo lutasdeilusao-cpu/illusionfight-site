@@ -49,32 +49,39 @@ function pontosDeAtributos(attrs) {
  *    • inimigo até 2 pontos ABAIXO do mais forte (ou igual, ou acima até o
  *      próximo degrau): ficha cheia (100%).
  *    • cada ponto A MAIS abaixo desses 2 de tolerância desconta
- *      `tamanhoTime` AP da ficha cheia — CORREÇÃO do Isaias na sequência do
- *      pedido: "é gradual, e perder 1 ponto se tiver 2 personagens, perde 2
- *      pontos da experiência cheia por diferença de nível" — o desconto é
- *      POR PERSONAGEM da gangue (1 ponto de AP "perdido" por cabeça), não um
- *      flat -1 pro bolo inteiro — senão um time grande mal sentiria a perda
- *      já que o AP é dividido entre todo mundo depois. Piso: nunca menos que
- *      `tamanhoTime` (o "limiar mínimo... um ponto por personagem da
- *      gangue" que ele pediu) — "puxar saco de fraco" fica cada vez menos
- *      proveitoso, mas nunca zera de vez.
- *    • inimigo 1 a 5 pontos ACIMA do mais forte: dobro do AP.
- *    • inimigo mais de 5 pontos ACIMA: triplo do AP.
+ *      `tamanhoTime` AP da ficha cheia — "é gradual, e perder 1 ponto se
+ *      tiver 2 personagens, perde 2 pontos da experiência cheia por
+ *      diferença de nível" — o desconto é POR PERSONAGEM da gangue (1 ponto
+ *      de AP "perdido" por cabeça), não um flat -1 pro bolo inteiro — senão
+ *      um time grande mal sentiria a perda já que o AP é dividido entre
+ *      todo mundo depois.
+ *    • inimigo 1 a 5 pontos ACIMA do mais forte: TRIPLO do AP.
+ *    • inimigo mais de 5 pontos ACIMA: QUÁDRUPLO do AP.
+ *  AJUSTE 20/09/2026 (Isaias jogando de verdade, nível médio: "tá muito
+ *  difícil... tô ficando sem área pra upar, sou obrigado a lutar com os
+ *  fortes porque os fracos não dão nenhum ponto de experiência, tô tirando
+ *  1 de experiência"): o piso antigo (`tamanhoTime`, 1 AP por cabeça da
+ *  gangue) na prática rendia quase nada pro farm de sobrevivência — ele
+ *  pediu um piso de verdade, "pelo menos 5 pontos", e SUBIU o prêmio de
+ *  quem se arrisca de dobro/triplo pra TRIPLO/QUÁDRUPLO, "já tem que mudar
+ *  isso nos tutoriais". `GANGUES_AP_PISO_MINIMO` é flat (não escala com o
+ *  time) — o Isaias confirmou explicitamente "5 fixo", não "5 por cabeça".
  *  "pontos" aqui é o total bruto de atributos (A+H+D+PV+PM), o mesmo usado
  *  em toda a ladder de dificuldade — não é o "nível real" de
  *  `nivelRealDePontos` (ganguesDificuldade.js), que é só pra exibição do
  *  aviso de risco, mecânica separada. */
 const GANGUES_AP_TOLERANCIA_ABAIXO = 2
-const GANGUES_AP_LIMIAR_DOBRO = 1
-const GANGUES_AP_LIMIAR_TRIPLO = 5
+const GANGUES_AP_LIMIAR_TRIPLO = 1
+const GANGUES_AP_LIMIAR_QUADRUPLO = 5
+const GANGUES_AP_PISO_MINIMO = 5
 export function apPorInimigo(pontosInimigo, pontosMaisForte, tamanhoTime = 1) {
   const time = Math.max(1, tamanhoTime)
   const delta = pontosInimigo - pontosMaisForte
-  if (delta > GANGUES_AP_LIMIAR_TRIPLO) return GANGUES_AP_POR_INIMIGO_BASE * 3
-  if (delta >= GANGUES_AP_LIMIAR_DOBRO) return GANGUES_AP_POR_INIMIGO_BASE * 2
+  if (delta > GANGUES_AP_LIMIAR_QUADRUPLO) return GANGUES_AP_POR_INIMIGO_BASE * 4
+  if (delta >= GANGUES_AP_LIMIAR_TRIPLO) return GANGUES_AP_POR_INIMIGO_BASE * 3
   if (delta >= -GANGUES_AP_TOLERANCIA_ABAIXO) return GANGUES_AP_POR_INIMIGO_BASE
   const niveisAbaixoDaTolerancia = Math.abs(delta) - GANGUES_AP_TOLERANCIA_ABAIXO
-  return Math.max(time, GANGUES_AP_POR_INIMIGO_BASE - niveisAbaixoDaTolerancia * time)
+  return Math.max(GANGUES_AP_PISO_MINIMO, GANGUES_AP_POR_INIMIGO_BASE - niveisAbaixoDaTolerancia * time)
 }
 
 export function calcularApTotal({ victory, enemyCount, cenaChefe, torre, torreAndar, inimigosAttrs, pontosMaisForte, tamanhoTime = 1 }) {
