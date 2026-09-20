@@ -27,8 +27,19 @@ import './GanguesDescanso.css'
    de aceitar — ao aceitar, mostra o "contrato" (o quanto colou na conta e a
    dívida total). 1º fiado = 5× o preço normal, 2º = 10×. Depois de 2 o nome
    suja e ele não fia mais. A dívida é global e silenciosa (store.__birosca) —
-   o jogador só topa com ela aqui. Pode passar só pra pagar. */
-export default function GanguesDescanso({ poi, onClose, onClube }) {
+   o jogador só topa com ela aqui. Pode passar só pra pagar.
+
+   OFERTA DO CORRE (mergeado aqui em 20/09/2026 — pedido do Isaias, achou o
+   pino "A birosca do Seu Nato" redundante com este, mesma cara duas vezes
+   no mapa: "não precisa, a missão do Nego Véio pode aparecer ali no
+   descanso"): existia um POI `birosca` À PARTE (papo) só pra oferecer o
+   corre e revelar beco_2 — removido. `poi.ofertaFlagId` ('nato_oferta')
+   chega revelado (não resolvido) quando `beco` é vencido; enquanto isso
+   for verdade, ESTA tela abre primeiro com o convite do Nato (reaproveita
+   o texto/escolhas que já existiam em i18n `cena.pista.birosca`), antes do
+   descanso normal — decidir (aceitar ou não) marca a oferta resolvida e
+   segue pro resto do fluxo. */
+export default function GanguesDescanso({ poi, cena, onClose, onClube }) {
   const { t } = useLanguage()
   const store = useGanguesStore()
   const [res, setRes] = useState(null)         // resultado do descanso à vista
@@ -36,6 +47,8 @@ export default function GanguesDescanso({ poi, onClose, onClube }) {
   const [pgto, setPgto] = useState(null)        // resultado de "pagar dívida"
   const [verClube, setVerClube] = useState(false) // abriu o painel do Clube da Luta
   const [animando, setAnimando] = useState(null) // { proximo: () => void } — tela de "descansando..."
+  const [ofertaResultado, setOfertaResultado] = useState(null) // fala de resposta do Nato, depois de decidir
+  const [ofertaDecidida, setOfertaDecidida] = useState(false) // decidiu NESTA sessão do modal — segue pro descanso normal
   const timerRef = useRef(null)
   useEffect(() => () => clearTimeout(timerRef.current), [])
 
@@ -100,6 +113,48 @@ export default function GanguesDescanso({ poi, onClose, onClube }) {
   )
 
   const fecharLabel = t('games.gangues.cena.fechar')
+
+  // ── Oferta pendente do Nato (corre do pacote) — abre ANTES de tudo, uma
+  // vez só, até o jogador decidir. `cena` pode faltar num uso isolado
+  // (defensivo, nunca deveria faltar no fluxo real).
+  // `ofertaAoAbrir` é capturado UMA VEZ na montagem (useState preguiçoso) —
+  // decidir a oferta chama `marcarPoiResolvido`, que já reflete no store
+  // reativo `prog` no mesmo clique; sem congelar o valor inicial, a tela de
+  // "resultado" (resposta do Nato) nunca chegava a aparecer, porque a
+  // condição virava falsa antes do próximo render mostrar `ofertaResultado`.
+  const prog = cena ? store.cenaProgresso[cena.id] : null
+  const [ofertaAoAbrir] = useState(() => Boolean(poi.ofertaFlagId) && Boolean(prog?.revelados?.[poi.ofertaFlagId]) && !prog?.resolvidos?.[poi.ofertaFlagId])
+  const decidirOferta = (aceitou) => {
+    sfx.select?.()
+    store.marcarPoiResolvido(cena.id, poi.ofertaFlagId, aceitou ? ['corre'] : [])
+    setOfertaResultado(t(`games.gangues.cena.pista.birosca.escolhas.${aceitou ? 'aceita_corre' : 'so_papo'}.resultado`))
+  }
+  if (ofertaAoAbrir && !ofertaDecidida) {
+    const nomeNato = t('games.gangues.cena.pista.birosca.nome')
+    const subNato = t('games.gangues.cena.pista.birosca.sub')
+    if (ofertaResultado) {
+      return (
+        <GanguesDialogoEncontro
+          retrato={retrato} nome={nomeNato} sub={subNato}
+          falas={[ofertaResultado]}
+          escolhas={[{ id: 'continuar', label: fecharLabel, variante: 'go', onClick: () => setOfertaDecidida(true) }]}
+          onClose={onClose} fecharLabel={fecharLabel}
+        />
+      )
+    }
+    const falaNato = t('games.gangues.cena.pista.birosca.fala')
+    return (
+      <GanguesDialogoEncontro
+        retrato={retrato} nome={nomeNato} sub={subNato}
+        falas={Array.isArray(falaNato) ? falaNato : [falaNato]}
+        escolhas={[
+          { id: 'aceita_corre', label: t('games.gangues.cena.pista.birosca.escolhas.aceita_corre.label'), variante: 'go', onClick: () => decidirOferta(true) },
+          { id: 'so_papo', label: t('games.gangues.cena.pista.birosca.escolhas.so_papo.label'), onClick: () => decidirOferta(false) },
+        ]}
+        onClose={onClose} fecharLabel={fecharLabel}
+      />
+    )
+  }
 
   // ── "Descansando..." — animação curta antes de revelar o resultado ──
   if (animando) {

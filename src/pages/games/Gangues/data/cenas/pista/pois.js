@@ -1,8 +1,10 @@
 // POIs (pontos de interesse) do exterior da Pista. Extraído de
 // data/cenas/pista.js (PLANO_REFATORACAO_ARQUIVOS_GRANDES_GANGUES_2026-09-11.md §4).
-// Ordem canônica: sinal → ferro-velho (+ fundo) → oficina → beco → birosca →
-// corre → beco_2 → beco_3 → Sinaleiro Chefe → Rasteira Velha → [muro/túnel]
-// → galpão → Carvão. Opcionais: rinha (farm), descanso, Duda.
+// Ordem canônica: sinal → ferro-velho (+ fundo) → oficina → beco → [corre,
+// oferecido pelo Nato dentro do próprio Descanso] → beco_2 → beco_3 →
+// Sinaleiro Chefe → Rasteira Velha → [muro/túnel] → galpão → Carvão.
+// Opcionais: rinha (farm), descanso, Duda. (Removido 20/09/2026: o POI
+// `birosca`, papo à parte que virou duplicata do próprio Descanso.)
 import { PISTA_POOL_RUA, PISTA_POOL_GALPAO } from './pools.js'
 import { GANGUES_REP_GATE_GALPAO } from '../../ganguesLoadout.js'
 
@@ -111,18 +113,14 @@ export const POIS_PISTA = [
     revezamento: { pool: PISTA_POOL_RUA, budgetPorCorpo: 8, chanceDupla: 0.4 },
     forca: 1,
     recompensa: { rep: 2 },
-    revela: ['birosca'],
-  },
-  {
-    id: 'birosca',
-    tipo: 'papo',
-    npcSlug: 'nego_veio',
-    pino: { x: 62, y: 100 },
-    i18n: 'games.gangues.cena.pista.birosca',
-    escolhas: [
-      { id: 'aceita_corre', revela: ['corre', 'beco_2', 'descanso'] },
-      { id: 'so_papo', revela: ['beco_2', 'descanso'] },
-    ],
+    // AJUSTE 20/09/2026 (Isaias, achou o pino "A birosca do Seu Nato"
+    // redundante com "Descanso na birosca" — mesma cara duas vezes no
+    // mapa, "não precisa, a missão do Nego Véio pode aparecer ali no
+    // descanso"): o POI `birosca` (papo à parte) foi removido — beco_2 é
+    // revelado direto, e o convite pro corre do Nato virou uma oferta
+    // dentro do PRÓPRIO modal de Descanso (ver `ofertaFlagId` no POI
+    // `descanso` abaixo, e GanguesDescanso.jsx).
+    revela: ['beco_2', 'nato_oferta'],
   },
   {
     id: 'corre',
@@ -309,6 +307,11 @@ export const POIS_PISTA = [
     // a cabeça dele no card de descanso (pedido do Isaias, 20/09/2026).
     npcSlug: 'nego_veio',
     custoGrana: 10,
+    // Oferta pendente do Nato (corre do pacote) — vira o convite dentro do
+    // MODAL de Descanso assim que `beco` revela `nato_oferta` (ver acima).
+    // Enquanto não decidida (aceitar/recusar), o pino fica verde igual um
+    // "tem missão aqui" (GanguesCenaAtores.jsx/farolDe, ganguesCenaMotor.js).
+    ofertaFlagId: 'nato_oferta',
   },
   {
     // Birosca improvisada do OUTRO lado do muro — o Nato tem um primo lá.

@@ -17,7 +17,7 @@ import CenaInterior from '../components/cena/CenaInterior'
 import GanguesCenaBagSheet from '../components/cena/GanguesCenaBagSheet'
 import GanguesCenaFichaCard from '../components/cena/GanguesCenaFichaCard'
 import GanguesRepRecompensaModal from '../components/GanguesRepRecompensaModal'
-import { GangMarker, EntryZone, PinoAlvo, WorldControls, interactionLabel } from '../components/cena/GanguesCenaAtores'
+import { GangMarker, PinoAlvo, WorldControls, interactionLabel } from '../components/cena/GanguesCenaAtores'
 import { EventoVS, TretaVS } from '../components/cena/GanguesCenaEncontros'
 import { CENAS_POR_ID, portaoAberto, contarCena } from '../data/cenas/cenaHelpers.js'
 import { GANGUES_TERRITORIO_POR_ID } from '../data/ganguesTerritorios.js'
@@ -354,8 +354,7 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
         final), sem tocar a suavização do passo a passo normal. */}
     <div key={local ? `${local.id}-${local.comodo}` : 'rua'} className="gang-cena-world" style={{ width: W.w, height: W.h, transform: `translate3d(${-camX}px,${-camY}px,0)` }}>
       {local ? <CenaInterior amb={amb} /> : <CenaCenario cena={cena} bossAberto={baseFeita || muroAberto} muroAberto={muroAberto} />}
-      {(amb?.alvos || []).map(p => <EntryZone key={`zone-${p.id}`} poi={p} active={perto?.id === p.id} />)}
-      {(amb?.alvos || []).map(p => <PinoAlvo key={p.id} p={p} t={t} />)}
+      {(amb?.alvos || []).map(p => <PinoAlvo key={p.id} p={p} t={t} active={perto?.id === p.id} />)}
       {/* key=local: rua e cada cômodo de interior são espaços de coordenada
           DIFERENTES (mundo pequeno do cômodo vs WORLD da rua) — sem isso, o
           Framer Motion anima o left/top do marcador DE UMA posição pra OUTRA

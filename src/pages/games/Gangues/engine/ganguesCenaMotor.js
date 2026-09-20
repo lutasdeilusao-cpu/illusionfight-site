@@ -58,6 +58,10 @@ export function montarAmbiente(cena, local, prog, baseFeita, muroAberto) {
         ...p, world: POS[p.id], zona: ENTRY_ZONES[p.id],
         estado: (p.pos_portao && laDeCima) ? estadoPoi({ ...p, visivel: true }, prog) : estadoPoi(p, prog),
         farmCompleto: Boolean(p.repetivel && prog.resolvidos[p.id]),
+        // Oferta pendente (ex: o corre do Nato, oferecido dentro do
+        // Descanso — ver `ofertaFlagId` em pois.js) — pino verde de "tem
+        // missão aqui" enquanto revelada mas ainda não decidida.
+        ofertaPendente: Boolean(p.ofertaFlagId && prog.revelados[p.ofertaFlagId] && !prog.resolvidos[p.ofertaFlagId]),
       }))
       .filter(p => p.world)
     // portas dos prédios que abrem interior (porta.zx/zy = zona no chão)

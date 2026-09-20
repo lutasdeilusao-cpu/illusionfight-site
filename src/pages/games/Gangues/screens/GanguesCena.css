@@ -587,16 +587,15 @@
 .gang-world-player--retrato>span{clip-path:none;border-radius:50%;overflow:hidden;background:#0b1a20}
 .gang-world-player--retrato>span img{width:100%;height:100%;object-fit:cover;display:block;image-rendering:pixelated}
 .gang-world-player--retrato.facing-left>span{transform:none}.gang-world-player--retrato.facing-right>span{transform:none}
-.gang-world-entry{position:absolute;z-index:9;border:2px dashed color-mix(in srgb,var(--terr-cor) 62%,transparent);background:color-mix(in srgb,var(--terr-cor) 7%,transparent);box-shadow:inset 0 0 16px #0008;transition:.18s;pointer-events:none}.gang-world-entry.is-active{border-style:solid;background:color-mix(in srgb,var(--terr-cor) 24%,transparent);box-shadow:0 0 22px color-mix(in srgb,var(--terr-cor) 40%,transparent),inset 0 0 18px color-mix(in srgb,var(--terr-cor) 14%,transparent);animation:gang-entry-pulse .85s ease-in-out infinite alternate}
-/* Mesmo farol vermelho/amarelo/verde do pino (ver farolDe() em
-   GanguesCenaAtores.jsx), só que na zona de aproximação — a área toda pisca
-   na cor do status em vez do verde/território padrão. */
-.gang-world-entry.is-obrigatorio{border-color:color-mix(in srgb, var(--if-danger) 70%, transparent);background:color-mix(in srgb, var(--if-danger) 8%, transparent)}
-.gang-world-entry.is-obrigatorio.is-active{background:color-mix(in srgb, var(--if-danger) 26%, transparent);box-shadow:0 0 22px color-mix(in srgb, var(--if-danger) 42%, transparent),inset 0 0 18px color-mix(in srgb, var(--if-danger) 16%, transparent)}
-.gang-world-entry.is-opcional{border-color:color-mix(in srgb, var(--if-amber) 70%, transparent);background:color-mix(in srgb, var(--if-amber) 8%, transparent)}
-.gang-world-entry.is-opcional.is-active{background:color-mix(in srgb, var(--if-amber) 26%, transparent);box-shadow:0 0 22px color-mix(in srgb, var(--if-amber) 42%, transparent),inset 0 0 18px color-mix(in srgb, var(--if-amber) 16%, transparent)}
-.gang-world-entry.is-feito{border-color:rgba(107,224,122,.7);background:rgba(107,224,122,.08)}
-.gang-world-entry.is-feito.is-active{background:rgba(107,224,122,.26);box-shadow:0 0 22px rgba(107,224,122,.42),inset 0 0 18px rgba(107,224,122,.16)}
+/* Pino "perto" — antes um retângulo tracejado À PARTE (EntryZone) acendia
+   ao lado quando o jogador chegava perto; removido (pedido do Isaias,
+   20/09/2026: "tira esse quadradinho, usa a colisão do próprio
+   personagem, a área de trigger não precisa ser física, só detectar que
+   passou por cima") — agora é o PRÓPRIO pino que pulsa mais forte. Fica
+   DEPOIS das regras de farol/nav de propósito, pra ganhar de especificidade
+   igual (mesmo número de classes) e sempre acender quando perto, mesmo em
+   cima de is-obrigatorio/opcional/feito. */
+.gang-world-npc.is-perto>span{animation:gang-person-breathe 1.8s ease-in-out infinite,gang-entry-pulse .85s ease-in-out infinite alternate;box-shadow:0 0 24px rgba(255,255,255,.5),0 8px 15px #000}
 @keyframes gang-entry-pulse{to{filter:brightness(1.35)}}
 @keyframes gang-person-breathe{50%{transform:translateY(-3px)}}
 .gang-cena-vignette { position:absolute;inset:0;z-index:20;pointer-events:none;box-shadow:inset 0 0 90px 24px rgba(0,0,0,.72);background:linear-gradient(rgba(0,0,0,.22),transparent 25%,transparent 68%,rgba(0,0,0,.58)); }
@@ -607,7 +606,7 @@
 .gang-world-controls { position:relative;z-index:27;flex:0 0 auto;width:100%;box-sizing:border-box;min-height:148px;display:flex;align-items:center;justify-content:space-between;padding:18px 25px max(18px,env(safe-area-inset-bottom));background:linear-gradient(180deg,#0a1114,#050809);border-top:1px solid #2c393d;box-shadow:0 -10px 22px rgba(0,0,0,.4) inset; }.gang-world-stick { --jx:0px;--jy:0px;position:relative;width:112px;height:112px;border-radius:50%;border:2px solid #597077;background:radial-gradient(circle,#18262b 0 34%,#091115 36% 100%);box-shadow:inset 0 0 20px #000,0 7px 20px #0008;pointer-events:auto;touch-action:none; }.gang-world-stick:before,.gang-world-stick:after{content:'';position:absolute;background:#43565c55}.gang-world-stick:before{left:50%;top:12px;bottom:12px;width:1px}.gang-world-stick:after{top:50%;left:12px;right:12px;height:1px}.gang-world-stick i{position:absolute;z-index:2;left:50%;top:50%;width:48px;height:48px;border-radius:50%;transform:translate(calc(-50% + var(--jx)),calc(-50% + var(--jy)));background:linear-gradient(145deg,#2d464e,#101b1f);border:2px solid var(--terr-cor);box-shadow:0 5px 14px #000;transition:transform .04s}
 .gang-world-controls button { pointer-events:auto;width:98px;height:98px;border-radius:50%;border:2px solid var(--terr-cor);background:radial-gradient(circle,#12363a,#071114);color:#fff;box-shadow:0 0 22px rgba(0,220,255,.16),inset 0 0 18px #000;display:grid;place-content:center;gap:3px; }.gang-world-controls button b{font:900 .72rem var(--font-display)}.gang-world-controls button span{font:700 .45rem var(--font-mono);color:var(--terr-cor)}.gang-world-controls button:disabled{opacity:.2;filter:grayscale(1)}
 @media(max-height:700px){.gang-cena-worldpage{min-height:540px}.gang-world-controls{min-height:120px;padding:12px 25px max(12px,env(safe-area-inset-bottom))}.gang-world-stick{width:92px;height:92px}.gang-world-controls button{width:82px;height:82px}.gang-cena-tutorial{bottom:14px}}
-@media(prefers-reduced-motion:reduce){.gang-cena-world{transition:none}.gang-world-player>span,.gang-world-npc>span,.gang-world-npc-farm-tag{animation:none}}
+@media(prefers-reduced-motion:reduce){.gang-cena-world{transition:none}.gang-world-player>span,.gang-world-npc>span,.gang-world-npc-farm-tag,.gang-world-npc.is-perto>span,.gang-world-npc.is-nav.is-perto>span{animation:none}}
 
 /* ══ Cenário RPG da Pista — favela desenhada em CSS ═══════════════════ */
 
@@ -806,4 +805,7 @@
 .gang-world-npc.is-nav>span{border-radius:6px;background:color-mix(in srgb,var(--terr-cor) 25%,#0a1a14);border-color:color-mix(in srgb,var(--terr-cor) 60%,#e8f1f2);animation:none;}
 .gang-world-npc.is-nav.is-trancado{opacity:.45;}
 .gang-world-npc.is-nav.is-trancado>span{background:#3a2020;border-color:#8a5a5a;}
-.gang-world-entry.is-porta{border-radius:6px;border-color:color-mix(in srgb,var(--terr-cor) 62%,transparent);}
+/* Pino de navegação (porta/saída/passagem) fica sem o "respirar" contínuo
+   de propósito (visual mais discreto, ver regra acima) — mas continua
+   pulsando quando o jogador chega perto, igual pino de conteúdo. */
+.gang-world-npc.is-nav.is-perto>span{animation:gang-entry-pulse .85s ease-in-out infinite alternate;box-shadow:0 0 24px rgba(255,255,255,.5),0 8px 15px #000}

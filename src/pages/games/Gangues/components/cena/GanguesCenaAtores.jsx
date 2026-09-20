@@ -1,4 +1,4 @@
-import { useCallback, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import { STEP_MS } from '../../engine/ganguesCenaMotor.js'
 import { getGanguesNpcPortrait } from '../../data/ganguesNpcPortraits.js'
@@ -41,43 +41,65 @@ export function GangMarker({ player, facing, gangName, retrato: retratoUrl }) {
 // repetir", e por isso conta como "feito" (verde) aqui também.
 function farolDe(p) {
   if (p.ehPorta || p.ehSaida || p.ehVolta || p.ehPassagem || p.ehChefe) return ''
+  // Oferta pendente (ex: o corre do Nato, dentro do Descanso) força verde —
+  // pedido do Isaias, 20/09/2026 ("tem que ficar verde, óbvio, pro cara
+  // saber que tem uma missão ali") — exceção deliberada ao farol normal
+  // (aqui verde não é "já feito", é "tem novidade"), só pra quem tem
+  // `ofertaFlagId` (ver ganguesCenaMotor.js/pois.js).
+  if (p.ofertaPendente) return 'is-feito'
   if (p.estado === 'resolvido' || p.farmCompleto) return 'is-feito'
   if (p.estado !== 'disponivel') return ''
   return p.opcional ? 'is-opcional' : 'is-obrigatorio'
 }
 
-// Zona de interação (retângulo invisível em volta do pino) — acende quando o
-// jogador está perto o bastante pra interagir.
-export function EntryZone({ poi, active }) {
-  const z = poi.zona
-  if (!z || poi.estado === 'trancado' || poi.estado === 'resolvido') return null
-  const farol = farolDe(poi)
-  return <div className={`gang-world-entry${active ? ' is-active' : ''}${farol ? ` ${farol}` : ''}${poi.ehPorta || poi.ehSaida || poi.ehVolta || poi.ehPassagem ? ' is-porta' : ''}`} style={{ left: z.x, top: z.y, width: z.w, height: z.h }} />
-}
-
 const ICONE = { treta: '✊', parada: '🔧', papo: '●', corre: '!', achado: '◆', descanso: '☕', loja: '🏪' }
+
+// Cicla entre alguns moldes do pool a cada intervalo — pedido do Isaias,
+// 20/09/2026 ("todos os personagens deveriam estar usando carinhas, a
+// gente tem um monte de carinha"): antes uma treta com `revezamento` (pool
+// aleatório, ex. beco/rinha/beco_2) só mostrava o ícone genérico (✊),
+// porque cravar UMA cara fixa seria mentira (quem aparece de verdade é
+// sorteado). Ciclando entre 2-3 moldes reais do próprio pool a cada ~2.6s
+// vira o oposto do problema: mostra de verdade "é um desses aí" — e de
+// quebra já é a "animaçãozinha" que ele pediu pra tirar a impressão de
+// mapa estático. Sem pool (molde fixo/chefe/general) não cicla nada.
+function useCicloPool(pool) {
+  const [i, setI] = useState(0)
+  const tamanho = pool?.length || 0
+  useEffect(() => {
+    if (tamanho < 2) return
+    if (window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches) return
+    const id = setInterval(() => setI(v => (v + 1) % tamanho), 2600)
+    return () => clearInterval(id)
+  }, [tamanho])
+  return tamanho ? pool[i % tamanho] : null
+}
 
 // Retrato do pino — mesma ideia do GangMarker (cabeça de verdade no lugar
 // do ícone genérico, pedido do Isaias, 15/09/2026: "todo personagem agora
 // tem que ser uma cabecinha... por que que os personagens não estão com
 // cabecinha sendo que eu criei todos"). Papo (NPC nomeado, ex: Nego Véio)
 // usa `npcSlug`; treta com identidade FIXA (general/chefe/líder de galpão)
-// usa `liderFixo` ou `enemy` — mas só quando NÃO tem `revezamento` (pool
-// aleatório): aí o "molde" na tela é só uma cara de referência, quem
-// aparece de verdade na luta é sorteado, então mostrar uma cabeça fixa
-// seria mentira.
-function retratoDoPino(p) {
+// usa `liderFixo` ou `enemy`; treta com `revezamento` (pool aleatório)
+// mostra o molde CICLADO (`enemyCiclado`, ver useCicloPool acima).
+function retratoDoPino(p, enemyCiclado) {
   if (p.npcSlug) return getGanguesNpcPortrait(p.npcSlug)
-  if (!p.revezamento && (p.liderFixo || p.enemy)) return getGanguesEnemyPortraitById(p.liderFixo || p.enemy)
+  if (p.revezamento?.pool?.length) return getGanguesEnemyPortraitById(enemyCiclado ?? p.revezamento.pool[0])
+  if (p.liderFixo || p.enemy) return getGanguesEnemyPortraitById(p.liderFixo || p.enemy)
   return null
 }
 
 // Pino do alvo (POI, porta, saída, passagem). `ehChefe`/`ehPorta`/... decidem o ícone e o rótulo.
-export function PinoAlvo({ p, t }) {
-  // useState sempre no topo, antes de qualquer return condicional (regra dos
-  // hooks) — falha de carregamento (rede ruim) cai pro ícone genérico, igual
-  // quando não tem retrato nenhum.
+// `active`: jogador está perto o bastante pra interagir — antes um retângulo
+// tracejado À PARTE (EntryZone) acendia ao lado; removido (pedido do Isaias,
+// 20/09/2026: "tira esse quadradinho, usa a colisão do próprio personagem")
+// — agora é o PRÓPRIO pino que brilha mais forte (classe `is-perto`).
+export function PinoAlvo({ p, t, active }) {
+  // useState/useEffect sempre no topo, antes de qualquer return condicional
+  // (regra dos hooks) — falha de carregamento (rede ruim) cai pro ícone
+  // genérico, igual quando não tem retrato nenhum.
   const [retratoFalhou, setRetratoFalhou] = useState(false)
+  const enemyCiclado = useCicloPool(p.revezamento?.pool)
   if (p.estado === 'trancado' && !(p.ehPassagem || p.ehChefe)) return null
   const icone = p.ehChefe ? '★' : p.ehPorta ? '🚪' : p.ehSaida ? '↩' : p.ehVolta ? '↩' : p.ehPassagem ? (p.label === 'subir' ? '▲' : '▶') : (ICONE[p.tipo] || '•')
   const nome = p.ehChefe ? t(`games.gangues.story.bosses.${p.boss}.nome`)
@@ -86,8 +108,9 @@ export function PinoAlvo({ p, t }) {
     : p.ehVolta ? t('games.gangues.cena.acao.voltar')
     : p.ehPassagem ? (p.estado === 'trancado' ? t('games.gangues.cena.acao.trancado') : t(`games.gangues.cena.acao.${p.label || 'avancar'}`))
     : (p.i18n ? t(`${p.i18n}.nome`) : '')
-  const retrato = retratoDoPino(p) && !retratoFalhou ? retratoDoPino(p) : null
-  return <div className={`gang-world-npc is-${p.estado} ${farolDe(p)} ${p.ehChefe ? 'is-boss' : ''} ${p.farmCompleto ? 'is-farm' : ''} ${p.ehPorta || p.ehSaida || p.ehVolta || p.ehPassagem ? 'is-nav' : ''} ${retrato ? 'gang-world-npc--retrato' : ''}`} style={{ left: p.world.x, top: p.world.y }}>
+  const retratoUrl = retratoDoPino(p, enemyCiclado)
+  const retrato = retratoUrl && !retratoFalhou ? retratoUrl : null
+  return <div className={`gang-world-npc is-${p.estado} ${farolDe(p)} ${p.ehChefe ? 'is-boss' : ''} ${p.farmCompleto ? 'is-farm' : ''} ${active ? 'is-perto' : ''} ${p.ehPorta || p.ehSaida || p.ehVolta || p.ehPassagem ? 'is-nav' : ''} ${retrato ? 'gang-world-npc--retrato' : ''}`} style={{ left: p.world.x, top: p.world.y }}>
     <span>{retrato ? <img src={retrato} alt="" onError={() => setRetratoFalhou(true)} /> : icone}</span>
     {p.estado !== 'trancado' || p.ehPassagem || p.ehChefe ? <small>{nome}</small> : null}
     {p.farmCompleto && <i className="gang-world-npc-farm-tag" aria-hidden="true">↻</i>}
