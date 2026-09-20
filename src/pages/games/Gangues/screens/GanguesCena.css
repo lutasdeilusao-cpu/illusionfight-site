@@ -33,23 +33,6 @@
 }
 .gang-cena-moeda b { font-size: 0.95rem; color: #fff; }
 .gang-cena-moeda i { font-style: normal; font-size: 0.54rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-secondary); }
-/* Descanso na birosca — lista de quem foi curado e quanto. */
-.gang-cena-descanso-lista {
-  list-style: none; margin: 8px 0 0; padding: 0; width: 100%;
-  display: flex; flex-direction: column; gap: 5px;
-}
-.gang-cena-descanso-lista li {
-  display: flex; align-items: center; justify-content: space-between; gap: 10px;
-  padding: 6px 10px; border: 1px solid var(--if-hair, rgba(255,255,255,0.12));
-  background: rgba(255,255,255,0.04);
-  clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 0 100%);
-}
-.gang-cena-descanso-lista strong { font: 800 0.78rem var(--font-display); letter-spacing: 0.04em; }
-.gang-cena-descanso-lista span { display: flex; gap: 8px; }
-.gang-cena-descanso-lista em { font-style: normal; font: 800 0.72rem var(--font-mono); }
-.gang-cena-descanso-lista .is-pv { color: #6be07a; }
-.gang-cena-descanso-lista .is-pm { color: var(--if-cyan); }
-
 /* ── A rua ── */
 .gang-cena-rua-wrap { margin: 12px 0 4px; }
 .gang-cena-rua-scroll {
@@ -191,16 +174,6 @@
 .gang-cena-fiado-linha {
   margin: 0; font: 700 0.78rem var(--font-mono); color: var(--if-amber); line-height: 1.4;
 }
-.gang-cena-enc--fiado .gang-cena-enc-desfecho { color: #f3e2c4; }
-
-/* Link "O Clube da Luta" — abaixo das ações do descanso, largura total,
-   discreto (não é a ação principal, mas tá sempre lá). */
-.gang-cena-clube-link {
-  width: 100%; margin-top: 6px;
-  font-size: 0.74rem; letter-spacing: 0.12em;
-  color: #ff9a9a; border-color: #ff6b6b55; background: rgba(255, 107, 107, 0.07);
-}
-
 /* ── Modal de encontro ── */
 .gang-cena-modal {
   position: fixed; inset: 0; z-index: 1010; /* acima da Rádio Nina (topo=1001) — o modal não pode ficar por baixo dela, senão o ✕ some */

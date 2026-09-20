@@ -305,6 +305,9 @@ export const POIS_PISTA = [
     visivel: true,
     pino: { x: 70, y: 118 },
     i18n: 'games.gangues.cena.pista.descanso',
+    // Dono da birosca (arte já existe, npcs/nego_veio/neutro.png) — mostra
+    // a cabeça dele no card de descanso (pedido do Isaias, 20/09/2026).
+    npcSlug: 'nego_veio',
     custoGrana: 10,
   },
   {

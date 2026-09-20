@@ -25,7 +25,7 @@ import './GanguesDialogoEncontro.css'
    por padrão) em vez do âmbar fixo do GangDialog — cada bairro mantém a
    cara própria.
    ══════════════════════════════════════════════════════════════ */
-export default function GanguesDialogoEncontro({ retrato, nome, sub, falas = [], escolhas = [], onClose, fecharLabel = '✕' }) {
+export default function GanguesDialogoEncontro({ retrato, nome, sub, falas = [], escolhas = [], onClose, fecharLabel = '✕', children }) {
   return (
     <div className="gdlg-card">
       <button className="gdlg-close" onClick={onClose} aria-label={fecharLabel}>✕</button>
@@ -54,6 +54,8 @@ export default function GanguesDialogoEncontro({ retrato, nome, sub, falas = [],
             {linha}
           </motion.p>
         ))}
+
+        {children}
 
         {escolhas.length > 0 && (
           <div className="gdlg-escolhas">

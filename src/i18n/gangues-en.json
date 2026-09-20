@@ -4070,6 +4070,7 @@
         "descanso_ja_inteira": "The crew's already whole, kid. Keep the cash.",
         "descanso_sem_grana": "Cash is short for a rest, kid.",
         "descanso_curar": "Rest (−{grana})",
+        "descanso_animando": "Resting...",
         "tropa_no_chao": "Your whole crew's down, kid. Nobody's facing anyone like this. Hit Nato's corner store first.",
         "aviso_rep_evento": "This smells like trouble, kid. You ain't got the juice to pull this off yet — build your name on the street first (rep {rep}).",
         "aviso_rep_treta": "That one's a whole different animal, kid. Don't go acting hard with no name made yet — stack up more rep before you step in there (rep {rep}).",

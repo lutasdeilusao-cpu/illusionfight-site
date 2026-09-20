@@ -92,6 +92,8 @@
 .gdlg-btn:disabled { opacity: 0.4; cursor: not-allowed; }
 .gdlg-btn--go { color: #04141a; background: var(--terr-cor); border-color: var(--terr-cor); font-weight: 800; }
 .gdlg-btn--treta { color: #ffd7d7; background: rgba(255, 107, 107, 0.14); border-color: #ff6b6b66; }
+.gdlg-btn--link { justify-content: center; background: transparent; border-color: transparent; color: var(--terr-cor); text-decoration: underline; text-underline-offset: 3px; min-height: 34px; }
+.gdlg-btn--link:hover:not(:disabled) { transform: none; background: rgba(255, 255, 255, 0.04); }
 .gdlg-btn-extra { font-style: normal; opacity: 0.75; font-size: 0.76rem; white-space: nowrap; }
 
 @media (prefers-reduced-motion: reduce) {
