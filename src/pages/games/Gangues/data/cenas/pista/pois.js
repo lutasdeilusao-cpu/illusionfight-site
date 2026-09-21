@@ -314,6 +314,28 @@ export const POIS_PISTA = [
     ofertaFlagId: 'nato_oferta',
   },
   {
+    // Loja de bico, bem simples — pedido do Isaias, 21/09/2026: "só vende
+    // poção de HP e MP, pelo dobro do preço da loja de cima, na cara de
+    // pau, porque agora que o jogo balanceou (recompensa por risco), pra
+    // arriscar e ganhar mais experiência você tem que ir municiado de
+    // item". Fica na MESMA posição em que a `birosca` (POI removido,
+    // merge com o Descanso) ficava — "no meio" do aglomerado birosca/
+    // descanso, visível desde o começo igual o próprio descanso.
+    id: 'loja_pocoes',
+    tipo: 'loja',
+    opcional: true,
+    repetivel: true,
+    visivel: true,
+    pino: { x: 55, y: 108 },
+    i18n: 'games.gangues.cena.pista.loja_pocoes',
+    // Cara emprestada do catálogo de INIMIGO (o "balconista", 1205 — já
+    // tem arte e o nome nem podia combinar mais com "atende um balcão de
+    // loja") — só a imagem, sem nenhuma implicação de combate.
+    retratoEnemyId: 1205,
+    itens: [1, 2],
+    precoMultiplicador: 2,
+  },
+  {
     // Birosca improvisada do OUTRO lado do muro — o Nato tem um primo lá.
     // Mesma função (curar a tropa + caderneta do Nato pra pagar a dívida),
     // só que já pós-muro. NÃO fica solta na rua: mora DENTRO do barraco pm1

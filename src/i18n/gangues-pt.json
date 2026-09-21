@@ -1110,6 +1110,9 @@
           "loja": {
             "nome": "Loja da Pista"
           },
+          "loja_pocoes": {
+            "nome": "Balcão do Aperto"
+          },
           "achado": {
             "nome": "O fundo do ferro-velho",
             "sub": "o que o dono deixou pra trás",

@@ -7,6 +7,9 @@ import { getGanguesEquip, getGanguesAttributesWithEquip, previewGanguesAttribute
 import { getGanguesResources } from '../../data/ganguesLoadout.js'
 import { getGanguesCharacter, getGanguesLevelFromXp } from '../../data/ganguesCharacters.js'
 import { getGanguesPortraitByTemplateId } from '../../data/ganguesPortraits.js'
+import { getGanguesNpcPortrait } from '../../data/ganguesNpcPortraits.js'
+import { getGanguesEnemyPortraitById } from '../../data/ganguesEnemyPortraits.js'
+import GanguesRetratoImg from '../GanguesRetratoImg'
 import { sfx } from '../../../../../lib/sfx'
 
 /* Encontro LOJA — vende os itens do próprio POI (poi.itens: ['pocao_hp',
@@ -14,7 +17,22 @@ import { sfx } from '../../../../../lib/sfx'
    equipamento (data/ganguesEquip.js). Tocar no item abre uma folha de detalhe
    com o que ele dá e como cada personagem da gangue ficaria equipando —
    comprar já equipa no personagem escolhido (o item anterior do slot volta
-   pro inventário da gangue). Repetível: sempre disponível. */
+   pro inventário da gangue). Repetível: sempre disponível.
+
+   `poi.precoMultiplicador` (opcional, default 1) — pedido do Isaias,
+   21/09/2026: uma 2ª loja "muito simples", só poção de HP/MP, "pelo dobro
+   do preço da loja de cima, na cara de pau, porque agora que o jogo deu
+   uma balanceada boa, pra arriscar e ganhar mais experiência você tem que
+   ir bem municiado de item". O preço BASE continua um só, no catálogo
+   global (data/ganguesItens.js) — o multiplicador só é aplicado aqui, na
+   hora de montar a vitrine desta loja específica, sem duplicar dado.
+   `poi.npcSlug`/`poi.retratoEnemyId` (opcionais) — cara de quem atende o
+   balcão, mesmo retrato circular das outras telas de encontro (reaproveita
+   as classes `.gdlg-portrait*` já estilizadas em GanguesDialogoEncontro.css,
+   carregado globalmente — sem CSS novo). `retratoEnemyId` existe pra
+   loja poder pedir emprestada uma cara do catálogo de INIMIGO (ex: o
+   "balconista" já tem arte, e nem faz sentido de personagem de vitrine)
+   sem nenhuma implicação de combate — é só a imagem. */
 
 const ATTR_ORDER = ['A', 'H', 'D']
 
@@ -143,11 +161,15 @@ export default function GanguesLoja({ poi, onClose }) {
   const [detalhe, setDetalhe] = useState(null)
   const [aba, setAba] = useState('pocao')
 
+  const multiplicador = poi.precoMultiplicador || 1
   const catalogo = (poi.itens || []).map(id => {
     const equip = getGanguesEquip(id)
-    if (equip) return { ...equip, _equip: true }
-    return getGanguesItem(id)
+    const base = equip ? { ...equip, _equip: true } : getGanguesItem(id)
+    if (!base) return null
+    return multiplicador === 1 ? base : { ...base, custo: Math.round(base.custo * multiplicador) }
   }).filter(Boolean).filter(item => Number.isFinite(item.custo)) // sem preço = fora da loja (rede pra não mostrar "UNDEFINED")
+
+  const retrato = poi.npcSlug ? getGanguesNpcPortrait(poi.npcSlug) : poi.retratoEnemyId ? getGanguesEnemyPortraitById(poi.retratoEnemyId) : null
 
   const abasComItem = ABAS.filter(a => catalogo.some(item => abaDoItem(item) === a))
   const abaAtiva = abasComItem.includes(aba) ? aba : (abasComItem[0] || 'pocao')
@@ -169,6 +191,13 @@ export default function GanguesLoja({ poi, onClose }) {
   return (
     <div className="gang-cena-enc gang-cena-enc--loja">
       <button className="gang-cena-enc-x" onClick={onClose} aria-label={t('games.gangues.cena.fechar')}>✕</button>
+      {retrato && (
+        <span className="gdlg-portrait gang-loja-retrato">
+          <span className="gdlg-portrait-face">
+            <GanguesRetratoImg src={retrato} alt="" fallback={<b aria-hidden="true">{t(`${poi.i18n}.nome`)[0]}</b>} />
+          </span>
+        </span>
+      )}
       <span className="gang-cena-eyebrow">{t('games.gangues.cena.tipo.loja')}</span>
       <h3 className="gang-cena-enc-titulo">{t(`${poi.i18n}.nome`)}</h3>
       <p className="gang-cena-enc-sub">{t('games.gangues.loja.sub')}</p>

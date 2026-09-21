@@ -4213,6 +4213,9 @@
           "loja": {
             "nome": "Pista Shop"
           },
+          "loja_pocoes": {
+            "nome": "The Squeeze"
+          },
           "achado": {
             "nome": "The back of the junkyard",
             "sub": "what the owner left behind",

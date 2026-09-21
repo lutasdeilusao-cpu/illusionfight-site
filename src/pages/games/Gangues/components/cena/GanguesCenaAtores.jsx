@@ -82,6 +82,11 @@ function retratoDoPino(p) {
     return getGanguesEnemyPortraitById(pool[hashEstavel(p.id) % pool.length])
   }
   if (p.liderFixo || p.enemy) return getGanguesEnemyPortraitById(p.liderFixo || p.enemy)
+  // `retratoEnemyId` (pedido do Isaias, 21/09/2026 — a lojinha de poção
+  // "emprestando" a cara do balconista, id 1205): só um retrato de
+  // decoração, sem NENHUMA implicação de combate — não confundir com
+  // `enemy`/`liderFixo` acima, que SÃO quem o jogador enfrenta de verdade.
+  if (p.retratoEnemyId) return getGanguesEnemyPortraitById(p.retratoEnemyId)
   return null
 }
 
@@ -92,7 +97,11 @@ function retratoDoPino(p) {
 // colisão visual REAL (`onColidir`/`colidindo` aqui embaixo), não à zona
 // fixa ancorada no `world.x/y` (que só faz sentido pra pino parado).
 export function ehPersonagem(p) {
-  return Boolean(retratoDoPino(p)) && !p.ehChefe
+  // Loja fica de fora mesmo tendo retrato — é vendedor de banca fixa
+  // (pedido do Isaias, 21/09/2026, ao emprestar a cara do balconista pra
+  // "Balcão do Aperto"), não personagem que anda por aí; continua no
+  // grupo dos "pinos estáticos de ação" (achado/parada/corre/nav).
+  return Boolean(retratoDoPino(p)) && !p.ehChefe && p.tipo !== 'loja'
 }
 
 // Pino do alvo (POI, porta, saída, passagem). `ehChefe`/`ehPorta`/... decidem o ícone e o rótulo.
@@ -162,7 +171,9 @@ export function PinoAlvo({ p, t, active, onColidir }) {
   // corre, nav...) fica parado — distinção pedida pelo Isaias, 20/09/2026
   // ("esses pinos estáticos são de ações... os personagens têm que
   // andar"). Chefe fica de fora de propósito (showdown parado, dramático).
-  const personagem = Boolean(retrato) && !p.ehChefe
+  // Loja fica de fora mesmo com retrato (ver `ehPersonagem` acima) — banca
+  // fixa, não anda.
+  const personagem = Boolean(retrato) && !p.ehChefe && p.tipo !== 'loja'
   // Andadinha, 4ª leva (20/09/2026 — histórico completo em GanguesCena.css,
   // logo acima da keyframe `gang-patrulha-h`): rotação removida ("parecia
   // bêbado"), alcance subiu de ±18-33px pra 60-115px ("nem parecia

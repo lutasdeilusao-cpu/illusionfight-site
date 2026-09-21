@@ -308,6 +308,11 @@
 .gang-cena-enc--loja > .gang-cena-enc-sub,
 .gang-cena-enc--loja > .gang-loja-abas,
 .gang-cena-enc--loja > .gang-cena-enc-acoes { flex: 0 0 auto; }
+/* Retrato opcional de quem atende o balcão (poi.npcSlug/retratoEnemyId,
+   GanguesLoja.jsx) — mesma cabeça circular das outras telas de encontro
+   (.gdlg-portrait*, GanguesDialogoEncontro.css), só recentralizada aqui
+   porque essa tela não usa o balão de fala embaixo. */
+.gang-cena-enc--loja > .gang-loja-retrato { flex: 0 0 auto; margin: 0 auto 8px; }
 
 /* Abas por tipo de item */
 .gang-loja-abas {
