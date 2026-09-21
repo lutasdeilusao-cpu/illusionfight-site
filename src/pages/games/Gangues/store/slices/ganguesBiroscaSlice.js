@@ -5,29 +5,38 @@ import { getGanguesAttributesWithEquip, applyGanguesEquipResources } from '../..
 
 export default function createGanguesBiroscaSlice(set, get) {
   return {
-    // Descanso na birosca — cobra a grana, restaura o PV/PM de TODA a tropa pro
-    // máximo e devolve o quanto cada um recuperou (pra a tela mostrar o detalhe).
-    // Se ninguém estava ferido, não cobra nada e devolve motivo: 'inteira'.
-    descansarTropa: (custo = 0) => {
-      const detalhe = get().roster.map(m => {
-        const norm = normalizeGanguesLoadout(m)
-        const attrs = getGanguesAttributesWithEquip(norm.attributes)
-        const res = applyGanguesEquipResources(getGanguesResources(norm.combat_path, attrs?.PV, attrs?.PM), norm.attributes?.equipment)
-        const pvAtual = Math.min(res.pvMax, Number(norm.attributes?.pv_atual ?? res.pvMax))
-        const pmAtual = Math.min(res.pmMax, Number(norm.attributes?.pm_atual ?? res.pmMax))
-        return {
-          id: m.id,
-          nome: m.sheet_name || '?',
-          pv: Math.max(0, Math.round(res.pvMax - pvAtual)),
-          pm: Math.max(0, Math.round(res.pmMax - pmAtual)),
-        }
-      })
-      const ferido = detalhe.some(d => d.pv > 0 || d.pm > 0)
+    // Descanso na birosca — cobra a grana e devolve o quanto cada um recuperou
+    // (pra a tela mostrar o detalhe). Se ninguém elegível estava ferido, não
+    // cobra nada e devolve motivo: 'inteira'.
+    //
+    // `incluirCaidos` (pedido do Isaias, 21/09/2026: "recuperar quem não caiu
+    // custa 10... recuperar com o caído dá mais trabalho, custa 30, e leva um
+    // pouco mais de tempo na animação") — duas opções na mesma birosca:
+    //  • false (padrão, custo normal): só recupera quem NÃO tá com PV zerado.
+    //    Quem já caiu continua caído.
+    //  • true (custo × 3): recupera todo mundo, incluindo os caídos (revive).
+    descansarTropa: (custo = 0, incluirCaidos = false) => {
+      const detalheCompleto = get()._deficitTropa()
+      const alvo = incluirCaidos ? detalheCompleto : detalheCompleto.filter(d => !d.caido)
+      const ferido = alvo.some(d => d.pv > 0 || d.pm > 0)
       if (!ferido) return { ok: false, motivo: 'inteira', detalhe: [] }
       if (get().grana < custo) return { ok: false, motivo: 'grana', detalhe: [] }
       get().gastarGrana(custo)
-      get().restaurarPvPmTodos()
-      return { ok: true, detalhe: detalhe.filter(d => d.pv > 0 || d.pm > 0) }
+      if (incluirCaidos) get().restaurarPvPmTodos()
+      else get().restaurarPvPmVivos()
+      return { ok: true, detalhe: alvo.filter(d => d.pv > 0 || d.pm > 0) }
+    },
+
+    // Info pra UI decidir que botão(ões) de descanso oferecer, sem gastar nada:
+    // se tem alguém caído (pra oferecer a opção cara de revive) e se tem
+    // alguém ferido em cada categoria (pra não oferecer botão que não faz nada).
+    descansoInfo: () => {
+      const detalhe = get()._deficitTropa()
+      return {
+        temCaido: detalhe.some(d => d.caido),
+        feridoVivos: detalhe.some(d => !d.caido && (d.pv > 0 || d.pm > 0)),
+        feridoTodos: detalhe.some(d => d.pv > 0 || d.pm > 0),
+      }
     },
 
     // ── Agiotagem da birosca (o Nato fia o descanso) ──────────────
@@ -42,13 +51,21 @@ export default function createGanguesBiroscaSlice(set, get) {
 
     // Déficit de PV/PM de toda a tropa (usado pelo descanso e pelo fiado pra
     // saber se tem alguém ferido e mostrar o quanto cada um recuperou).
+    // `caido` = pv_atual zerado — decide quem a opção barata de descanso NÃO
+    // recupera (ver descansarTropa/descansoInfo).
     _deficitTropa: () => get().roster.map(m => {
       const norm = normalizeGanguesLoadout(m)
       const attrs = getGanguesAttributesWithEquip(norm.attributes)
       const res = applyGanguesEquipResources(getGanguesResources(norm.combat_path, attrs?.PV, attrs?.PM), norm.attributes?.equipment)
       const pvAtual = Math.min(res.pvMax, Number(norm.attributes?.pv_atual ?? res.pvMax))
       const pmAtual = Math.min(res.pmMax, Number(norm.attributes?.pm_atual ?? res.pmMax))
-      return { id: m.id, nome: m.sheet_name || '?', pv: Math.max(0, Math.round(res.pvMax - pvAtual)), pm: Math.max(0, Math.round(res.pmMax - pmAtual)) }
+      return {
+        id: m.id,
+        nome: m.sheet_name || '?',
+        caido: pvAtual <= 0,
+        pv: Math.max(0, Math.round(res.pvMax - pvAtual)),
+        pm: Math.max(0, Math.round(res.pmMax - pmAtual)),
+      }
     }),
 
     // A tropa inteira que iria pra luta está com PV zerado (todos caídos) — aí

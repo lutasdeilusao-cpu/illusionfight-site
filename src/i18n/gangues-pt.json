@@ -967,6 +967,7 @@
         "descanso_ja_inteira": "A tropa já tá inteira, cria. Guarda a grana.",
         "descanso_sem_grana": "Grana curta pro descanso, cria.",
         "descanso_curar": "Descansar (−{grana})",
+        "descanso_curar_caidos": "Recuperar com o caído (−{grana})",
         "descanso_animando": "Descansando...",
         "tropa_no_chao": "Tua tropa tá toda no chão, cria. Ninguém encara nada assim. Passa na birosca do Nato antes.",
         "aviso_rep_treta": "Essa ai é osso duro, cria. Não é hora de bancar o durão sem nome feito na rua — junta mais reputação antes de encarar (rep {rep}).",

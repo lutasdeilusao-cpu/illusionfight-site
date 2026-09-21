@@ -141,6 +141,24 @@ export default function createGanguesProgressionSlice(set, get) {
       get().saveParticipantProgress(get().roster.map(member => member.id))
     },
 
+    // Versão barata do descanso — só recupera quem NÃO caiu (pv_atual > 0).
+    // Pedido do Isaias, 21/09/2026: "recuperar quem não caiu" custa menos (10),
+    // "recuperar com o caído" (revive) custa mais (30) e leva mais tempo de
+    // animação — a birosca oferece as duas opções (ver descansarTropa). Quem já
+    // está caído continua caído aqui; só a opção cara (restaurarPvPmTodos) revive.
+    restaurarPvPmVivos: () => {
+      const limpar = member => {
+        const norm = normalizeGanguesLoadout(member)
+        const attrs = getGanguesAttributesWithEquip(norm.attributes)
+        const res = applyGanguesEquipResources(getGanguesResources(norm.combat_path, attrs?.PV, attrs?.PM), norm.attributes?.equipment)
+        const pvAtual = Math.min(res.pvMax, Number(norm.attributes?.pv_atual ?? res.pvMax))
+        if (pvAtual <= 0) return member
+        return { ...member, attributes: { ...member.attributes, pv_atual: null, pm_atual: null } }
+      }
+      set(state => ({ roster: state.roster.map(limpar), activeParty: state.activeParty.map(limpar) }))
+      get().saveParticipantProgress(get().roster.map(member => member.id))
+    },
+
     // Cura UM personagem fora de combate (poção usada pela Bolsa da Gangue).
     // `tipo` = 'cura_pm' → PM, qualquer outro → PV. `valor` = quanto restaura.
     // Devolve { curou, nome, campo } — se curou === 0 o membro já estava cheio

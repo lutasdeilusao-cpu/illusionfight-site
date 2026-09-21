@@ -4070,6 +4070,7 @@
         "descanso_ja_inteira": "La tropa ya está entera, pibe. Guardate la plata.",
         "descanso_sem_grana": "La plata está corta para el descanso, pibe.",
         "descanso_curar": "Descansar (−{grana})",
+        "descanso_curar_caidos": "Revivir al caído (−{grana})",
         "descanso_animando": "Descansando...",
         "tropa_no_chao": "Tu tropa está toda en el piso, pibe. Así nadie encara a nadie. Pasá por el kiosco del Nato antes.",
         "aviso_rep_treta": "Esa es harina de otro costal, pibe. No es hora de hacerte el guapo sin nombre hecho en la calle — juntá más reputación antes de encarar (rep {rep}).",

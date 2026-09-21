@@ -135,8 +135,8 @@
     "semantic_hash": "8d5b3b5a815f883f1cdfad6d40ecb4bc"
   },
   "scripts/prerender-routes.js": {
-    "mtime": 1789769673.5143902,
-    "ast_hash": "b223cf846aa8c220b1ce3f5b794d4964",
+    "mtime": 1790029491.2291515,
+    "ast_hash": "aae9b43cd6cadeffa81800e420c96961",
     "semantic_hash": ""
   },
   "scripts/run-migration.js": {
@@ -160,8 +160,8 @@
     "semantic_hash": "510a9ffca88eb0789eeddb9fe4d08d87"
   },
   "src/App.jsx": {
-    "mtime": 1789523323.6049364,
-    "ast_hash": "25f3aecf45bd3b96fbcdf53a0455b5de",
+    "mtime": 1790029207.9776297,
+    "ast_hash": "4d6aeabb8a484a93bbedc18aadd7884d",
     "semantic_hash": ""
   },
   "src/components/AchievementToast/AchievementToast.jsx": {
@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1790008400.86329,
-    "ast_hash": "3c0326b700767793ab7e9961a3837b10",
+    "mtime": 1790029564.6543727,
+    "ast_hash": "f9a98d822e434127f9a37c9b445b26b6",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -680,8 +680,8 @@
     "semantic_hash": "71e4420d7ccde33d756bca948c716b27"
   },
   "src/pages/content/Webtoon.jsx": {
-    "mtime": 1789768683.1629975,
-    "ast_hash": "be43497a25f761b02615b005b236aef9",
+    "mtime": 1790029251.291049,
+    "ast_hash": "5e090fd5de4b194d4af385c334359121",
     "semantic_hash": ""
   },
   "src/pages/content/WebtoonEpisodio.jsx": {
@@ -2745,8 +2745,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1790008409.4812417,
-    "ast_hash": "ffd8c0cdbc56492520f989599b72f004",
+    "mtime": 1790029575.7969983,
+    "ast_hash": "922209b33c9517830dc5089f230a63e6",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -4605,18 +4605,18 @@
     "semantic_hash": ""
   },
   "src/i18n/core/en.json": {
-    "mtime": 1789768831.5989778,
-    "ast_hash": "091d51362dd5fbf6dbfc013763aab847",
+    "mtime": 1790029232.0758264,
+    "ast_hash": "8061eee1e5ab2d922ba1911bc8733f6d",
     "semantic_hash": ""
   },
   "src/i18n/core/es.json": {
-    "mtime": 1789768795.331683,
-    "ast_hash": "6535c37ea9af91734f86068d49a174cf",
+    "mtime": 1790029240.4180627,
+    "ast_hash": "c2e5b696e21be06100d3fecf77d26a51",
     "semantic_hash": ""
   },
   "src/i18n/core/pt.json": {
-    "mtime": 1789768773.861523,
-    "ast_hash": "ee08cd92733464d0fa9b8dcb5accabac",
+    "mtime": 1790029223.84385,
+    "ast_hash": "aef9da92cf58050283471af2342c5769",
     "semantic_hash": ""
   },
   "src/i18n/games/en.json": {
@@ -5592,6 +5592,11 @@
   "Personagens/Video Clipe/VideosScenes/Scene_6.mp4": {
     "mtime": 1781405286.5863216,
     "ast_hash": "6892497668ce3cabe6a34488a7906d1b",
+    "semantic_hash": ""
+  },
+  "src/pages/site/WebShard.jsx": {
+    "mtime": 1790029182.434843,
+    "ast_hash": "0da062cf7bea1834cf0c50ace0cfb225",
     "semantic_hash": ""
   }
 }

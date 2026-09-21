@@ -53,7 +53,13 @@ export default function GanguesDescanso({ poi, cena, onClose, onClube }) {
   useEffect(() => () => clearTimeout(timerRef.current), [])
 
   const custo = poi.custoGrana || 10
+  // Recuperar com o caído (revive) custa 3× e leva mais tempo de animação —
+  // pedido do Isaias, 21/09/2026: "recuperar quem não caiu custa 10... com o
+  // caído dá mais trabalho, custa 30, pra equilibrar os preços".
+  const custoCaidos = custo * 3
   const semGrana = store.grana < custo
+  const semGranaCaidos = store.grana < custoCaidos
+  const info = store.descansoInfo()
   const { divida, fiados } = store.storyProgress.__birosca || { divida: 0, fiados: 0 }
   const podeFiar = fiados < 2
   const aPagar = Math.min(store.grana, divida)
@@ -72,17 +78,20 @@ export default function GanguesDescanso({ poi, cena, onClose, onClube }) {
   // pra pagar dívida, que não tem nada de "descanso" nisso). Reduced motion
   // encurta bastante em vez de sumir de vez (mesmo critério da vinheta de
   // abertura, ver AGENTS.md).
-  const comAnimacao = (proximo) => {
+  const comAnimacao = (proximo, demorado = false) => {
     sfx.reward?.()
     const reduzido = window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches
     setAnimando(true)
-    timerRef.current = setTimeout(() => { setAnimando(false); proximo() }, reduzido ? 350 : 1400)
+    const base = reduzido ? 350 : 1400
+    timerRef.current = setTimeout(() => { setAnimando(false); proximo() }, demorado ? Math.round(base * 1.6) : base)
   }
 
-  const descansar = () => {
-    const r = store.descansarTropa(custo)
+  // `incluirCaidos` = a opção cara, que também revive quem tá com PV zerado
+  // (ver descansarTropa em ganguesBiroscaSlice.js) — animação mais longa.
+  const descansar = (incluirCaidos = false) => {
+    const r = store.descansarTropa(incluirCaidos ? custoCaidos : custo, incluirCaidos)
     if (!r.ok) { setRes(r); sfx.cancel(); return }
-    comAnimacao(() => setRes(r))
+    comAnimacao(() => setRes(r), incluirCaidos)
   }
   const fiar = () => {
     const r = store.fiarDescanso(custo)
@@ -221,7 +230,8 @@ export default function GanguesDescanso({ poi, cena, onClose, onClube }) {
     if (divida > 0 && !pgto?.ok && aPagar > 0) {
       escolhas.push({ id: 'pagar', label: t('games.gangues.cena.fiado_pagar', { grana: aPagar }), onClick: pagar })
     }
-    if (!semGrana) escolhas.push({ id: 'descansar', label: t('games.gangues.cena.descanso_curar', { grana: custo }), variante: 'go', onClick: descansar })
+    if (!semGrana) escolhas.push({ id: 'descansar', label: t('games.gangues.cena.descanso_curar', { grana: custo }), variante: 'go', onClick: () => descansar(false) })
+    if (info.temCaido && !semGranaCaidos) escolhas.push({ id: 'descansar_caidos', label: t('games.gangues.cena.descanso_curar_caidos', { grana: custoCaidos }), variante: 'go', onClick: () => descansar(true) })
     if (podeFiar) escolhas.push({ id: 'fiar', label: t('games.gangues.cena.fiado_pedir'), variante: semGrana ? 'go' : undefined, onClick: fiar })
   }
   escolhas.push({ id: 'fechar', label: fecharLabel, onClick: onClose })
