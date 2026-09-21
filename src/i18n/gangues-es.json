@@ -4046,9 +4046,9 @@
         "treta_sim_risco": "Voy igual",
         "nivel_rec_ocultar": "no me avises más en este barrio",
         "nivel_rec_baixo": "Recomendado: tropa en nivel {rec}. Contando el equipo, la tuya promedia {atual} — vas a comer feo. Hacé unas changas, subí nivel en peleas más tranquilas y volvé.",
-        "evento_tag": "EMBOSCADA",
-        "evento_sim": "Encará",
-        "evento_nao": "Rajá de largo",
+        "bicho": {
+          "nome": "El Que Acecha"
+        },
         "fechar": "Cerrar",
         "parada_pular": "Dejalo quieto",
         "parada_tentar": "Encarar",
@@ -4072,7 +4072,6 @@
         "descanso_curar": "Descansar (−{grana})",
         "descanso_animando": "Descansando...",
         "tropa_no_chao": "Tu tropa está toda en el piso, pibe. Así nadie encara a nadie. Pasá por el kiosco del Nato antes.",
-        "aviso_rep_evento": "Esto huele a bardo, pibe. Todavía no tenés el prestigio pa' meterte en esa — hacete nombre en la calle primero (rep {rep}).",
         "aviso_rep_treta": "Esa es harina de otro costal, pibe. No es hora de hacerte el guapo sin nombre hecho en la calle — juntá más reputación antes de encarar (rep {rep}).",
         "aviso_rep_clube": "El Nato ni te deja entrar a la rueda sin que tengas nombre en la calle. Juntá más reputación antes de aparecer por acá (rep {rep}).",
         "rep_recompensa": {
@@ -4095,14 +4094,6 @@
         "clube_recusar": "Ahora no",
         "clube_aceitar": "Aceptar (te vendan ya)",
         "pista": {
-          "evento": {
-            "nome": "Cortaron la calle",
-            "fala": [
-              "Unos tipos te cortaron el paso. No son de la Rato de Pista — es gente de afuera probando a la banda nueva.",
-              "Emboscada en la esquina. Media docena esperando que pases solo para tirar labia.",
-              "La calle se estrechó de golpe y unos pibes más picantes te cortaron el camino. Quieren ver si sos hueso o papel."
-            ]
-          },
           "chegada": [
             "Esta es la Pista, pibe. El asfalto de abajo — la raíz de todo.",
             "Todo el que hoy es alguien empezó rasguñando este piso. El Retazo empezó acá. Un pibe llamado Alan también va a arrancar así, en otro lado — solo que a él todavía no le tocó. Ahora te toca demostrar que no sos uno más.",

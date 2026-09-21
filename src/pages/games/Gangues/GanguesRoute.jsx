@@ -21,7 +21,7 @@ import GanguesClubeSala from './screens/GanguesClubeSala'
 import GanguesClubeResultado from './screens/GanguesClubeResultado'
 import { temCena } from './data/cenas/cenaHelpers.js'
 import { GANGUES_STORY_BATTLE_PARTY_MAX } from './data/ganguesLoadout.js'
-import { gerarBandoInimigo, gerarBandoChefe, gerarBandoRevezamento, gerarBandoEvento, gerarBandoClube, suavizarPrimeiraLuta, suavizarPorFrustracao, escalarInimigo } from './data/ganguesEncontros.js'
+import { gerarBandoInimigo, gerarBandoChefe, gerarBandoRevezamento, gerarBandoClube, suavizarPrimeiraLuta, suavizarPorFrustracao, escalarInimigo } from './data/ganguesEncontros.js'
 import { ajustarPontosFixo, GANGUES_FRUSTRACAO_LIMIAR } from './data/ganguesDificuldade.js'
 import GuestNotice from '../../../components/GuestNotice/GuestNotice'
 import enemiesData from './data/gangues-enemies.json'
@@ -198,7 +198,7 @@ export default function GanguesRoute() {
     const selected = store.activeParty.filter(member => store.roster.some(item => item.id === member.id))
     const party = (selected.length ? selected : store.roster).slice(0, GANGUES_STORY_BATTLE_PARTY_MAX)
     const temRevezamento = alvo?.revezamento?.pool?.length
-    if ((!alvo?.enemyId && !temRevezamento && !alvo?.evento && !alvo?.clube) || party.length < 1) { setFase('story'); return }
+    if ((!alvo?.enemyId && !temRevezamento && !alvo?.clube) || party.length < 1) { setFase('story'); return }
     // Tropa inteira no chão (todos PV 0) — não entra em luta até se recuperar
     // na birosca. Na cena o aviso aparece antes de sair; aqui (mapa/trilha) é
     // rede de segurança pra não cair numa derrota garantida em loop. O Clube
@@ -233,11 +233,6 @@ export default function GanguesRoute() {
       // jogador). A ronda vem do storyTarget (1 → 2 → 3).
       enemyTeam = gerarBandoClube({ enemiesData, ronda: Number(alvo.clubeRonda) || 3 })
       if (!enemyTeam?.length) { setFase('territorio'); return }
-    } else if (alvo.evento) {
-      // Encontro aleatório de rua — bando um pouco acima da ficha, com teto.
-      enemyTeam = gerarBandoEvento({ territorioId: alvo.territorioId, playerTeam: party, enemiesData, modo })
-      if (!enemyTeam?.length) { setFase('story'); return }
-      if (suavizarFn) enemyTeam = suavizarFn(enemyTeam)
     } else if (alvo.isChefe) {
       // Bando do chefe = orçamento de pontos FIXO por território (não escala com
       // o jogador — o loop é voltar mais forte). Ver gerarBandoChefe.

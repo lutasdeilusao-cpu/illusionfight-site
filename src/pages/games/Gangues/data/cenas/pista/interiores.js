@@ -43,8 +43,11 @@ export const INTERIORES_PISTA = {
         { tipo: 'mesa', x: 120, y: 210 }, { tipo: 'mesa', x: 340, y: 220 },
         { tipo: 'cartaz', x: 230, y: 40 },
       ],
+      // "birosca" (o papo à parte com o Nego Véio) morava aqui também antes
+      // de ser removido/mergeado no Descanso (21/09/2026, ver pois.js) — o
+      // pino ficaria mudo (referência morta) sem essa função dentro do
+      // mesmo cômodo, já resolvida pelo `descanso` logo abaixo.
       pois: [
-        { ref: 'birosca', pos: { x: 200, y: 118 }, precisa: 'beco' },
         { ref: 'informante', pos: { x: 400, y: 200 } },
         { ref: 'descanso', pos: { x: 74, y: 210 } },
       ],

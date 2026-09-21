@@ -18,15 +18,16 @@ import GanguesCenaBagSheet from '../components/cena/GanguesCenaBagSheet'
 import GanguesCenaFichaCard from '../components/cena/GanguesCenaFichaCard'
 import GanguesRepRecompensaModal from '../components/GanguesRepRecompensaModal'
 import { GangMarker, PinoAlvo, WorldControls, interactionLabel, ehPersonagem } from '../components/cena/GanguesCenaAtores'
-import { EventoVS, TretaVS } from '../components/cena/GanguesCenaEncontros'
+import { TretaVS } from '../components/cena/GanguesCenaEncontros'
 import { CENAS_POR_ID, portaoAberto, contarCena } from '../data/cenas/cenaHelpers.js'
 import { GANGUES_TERRITORIO_POR_ID } from '../data/ganguesTerritorios.js'
 import { getGanguesPortraitByTemplateId } from '../data/ganguesPortraits.js'
 import { getGanguesNpcPortrait } from '../data/ganguesNpcPortraits.js'
-import { getGanguesRosterLimitComHistoria, GANGUES_REP_GATE_EVENTO, GANGUES_REP_GATE_GALPAO, GANGUES_REP_GATE_CLUBE } from '../data/ganguesLoadout.js'
-import { WORLD, SPAWN, montarAmbiente, insideZone, validPosition, validPos } from '../engine/ganguesCenaMotor.js'
+import { getGanguesRosterLimitComHistoria, GANGUES_REP_GATE_GALPAO, GANGUES_REP_GATE_CLUBE } from '../data/ganguesLoadout.js'
+import { getGanguesLevelFromXp } from '../data/ganguesCharacters.js'
+import { getGanguesAttributesWithEquip } from '../data/ganguesEquip.js'
+import { WORLD, SPAWN, montarAmbiente, insideZone, validPosition, validPos, criarBichoPoi } from '../engine/ganguesCenaMotor.js'
 import useGanguesCenaMovimento from '../hooks/useGanguesCenaMovimento.js'
-import useGanguesCenaEventoAleatorio from '../hooks/useGanguesCenaEventoAleatorio.js'
 import './GanguesCena.css'
 
 // Cada cena vira um tutorial_id próprio (`cena_intro:<cenaId>`) dentro do
@@ -93,10 +94,27 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
     intro, encontro, fade, gateRef, collidersRef, worldRef, initialPlayer: posInicial,
   })
 
-  // Encontro aleatório de rua ("selvagem"): conta passos e, com cooldown +
-  // teto, dispara vez ou outra enquanto anda na rua (nunca em interior).
   const localRef = useRef(local); localRef.current = local
-  const { nivelTropa, tentarEvento } = useGanguesCenaEventoAleatorio({ store, t, cena, localRef, encontro, fade, intro, passosRef, setEncontro })
+
+  // Nível MÉDIO da tropa de batalha — base do aviso "recomendado nível X" no
+  // TretaVS (o Isaias: o cara entra consciente ou upa antes). Morava no
+  // hook do antigo encontro aleatório (useGanguesCenaEventoAleatorio,
+  // removido 21/09/2026 junto com o próprio sistema — ver "o bicho" mais
+  // abaixo) — nada a ver com o encontro em si, só ficava junto por
+  // conveniência; movido pra cá.
+  const nivelTropa = useMemo(() => {
+    const time = store.activeParty.length ? store.activeParty : store.roster
+    if (!time.length) return 1
+    // Nível EFETIVO: o nível de XP + o que o equipamento soma de atributo —
+    // assim o aviso conta a soqueira/colete que o cara já pôs.
+    const nivelEf = m => {
+      const base = getGanguesLevelFromXp(m.xp_total ?? 0)
+      const eff = getGanguesAttributesWithEquip(m.attributes)
+      const bonus = ['A', 'H', 'D'].reduce((s, k) => s + Math.max(0, (Number(eff?.[k]) || 0) - (Number(m.attributes?.[k]) || 0)), 0)
+      return base + bonus
+    }
+    return Math.max(1, Math.round(time.reduce((s, m) => s + nivelEf(m), 0) / time.length))
+  }, [store.activeParty, store.roster])
 
   // Colisão visual REAL (círculo do personagem contra o do jogador na
   // tela, reportada por cada PinoAlvo — ver useEffect/onColidir em
@@ -121,9 +139,28 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
   // diferente) → volta pra rua.
   useEffect(() => { if (cena && local && !amb) { setLocal(null); setPlayer(cena.mundo?.spawn || SPAWN) } }, [cena, local, amb])
 
-  // Roll de encontro aleatório a cada mudança de posição (o passosRef só sobe
-  // quando o jogador ANDA de fato — ver useGanguesCenaMovimento).
-  useEffect(() => { tentarEvento() }, [player])
+  // "O bicho" (encontro persistente pós-muro, 21/09/2026 — substitui por
+  // completo o antigo encontro aleatório de rua): a 1ª aparição é uma
+  // emboscada de verdade, sem pino nenhum no mapa (mesmo roll por tick de
+  // movimento de antes, ver `tentarBicho` mais abaixo) — depois disso ele
+  // sempre está visível em algum lugar da cena (`prog.bicho`), e colidir
+  // com ele (não apertar um botão) já é o gatilho da luta.
+  useEffect(() => { tentarBicho() }, [player])
+  // Colidiu com o bicho de verdade (mesma medição de `colisoes` que já
+  // ativa o botão de interação/pausa a andadinha pra qualquer personagem —
+  // ver onColidir/PinoAlvo) → luta automática, sem escolha ("o que você
+  // pode fazer é tentar fugir dela, mas depois que colidiu não tem
+  // escolha"). `bichoDisparadoRef` evita disparo duplo nos ~150ms entre o
+  // 1º tick que detecta a colisão e a navegação pro combate de fato.
+  const bichoDisparadoRef = useRef(false)
+  useEffect(() => {
+    if (encontro || fade || intro || local) return
+    const bichoPoi = (amb?.alvos || []).find(a => a.ehBicho)
+    if (!bichoPoi || !colisoes[bichoPoi.id] || bichoDisparadoRef.current) return
+    bichoDisparadoRef.current = true
+    if (!iniciarBicho(bichoPoi)) bichoDisparadoRef.current = false
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [colisoes, amb, encontro, fade, intro, local])
   useEffect(() => {
     if (intro || encontro) return
     if (!andou) { setHint(t('games.gangues.cena.hint_andar')); return }
@@ -184,6 +221,11 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
     if (poi.ehSaida) { sair(poi.paraPredio); return }
     if (poi.ehVolta) { irComodo(poi.para); return }
     if (poi.ehPassagem) { irComodo(poi.para); return }
+    // Rede de segurança: na prática o bicho já dispara sozinho por colisão
+    // (ver useEffect acima) antes do jogador conseguir apertar o botão —
+    // mas se isso um dia falhar, aqui também vai direto pra luta, sem o
+    // diálogo "sim/não" normal de treta (ele NUNCA teve escolha).
+    if (poi.ehBicho) { iniciarBicho(poi); return }
     guardarPosicao()
     if (poi.tipo === 'achado') {
       sfx.reward?.()
@@ -240,22 +282,44 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
     store.setStoryTarget({ clube: true, clubeBase: custoBase || 10, clubeDividaPrevia: dividaPrevia, clubeRonda: 1, clubeHeals: 0, voltar: { territorioId: terr.id } })
     onNavigate('clube')
   }
-  const iniciarEvento = () => {
-    if (barraSeChao()) return
-    if (store.rep < GANGUES_REP_GATE_EVENTO) {
-      setEncontro(null); sfx.cancel?.()
-      setAviso(t('games.gangues.cena.aviso_rep_evento', { rep: GANGUES_REP_GATE_EVENTO }))
-      setTimeout(() => setAviso(null), 3600)
-      return
-    }
+  // "O bicho" — luta SEMPRE automática, sem tela de "sim/não" (pedido do
+  // Isaias, 21/09/2026: "se você colide com ela você entra automaticamente
+  // numa luta, você não tem escolha"). `poi` pode ser o pino de verdade
+  // (colisão no mapa) ou um objeto mínimo só com `.revezamento` (1ª
+  // emboscada, sem pino ainda — ver `tentarBicho`).
+  // Devolve true/false (sucesso) — o gatilho por colisão usa isso pra só
+  // travar `bichoDisparadoRef` quando a luta REALMENTE começou; se a tropa
+  // tava no chão (bloqueada), o jogador ainda pode estar encostado nele
+  // depois de curar na birosca, e a colisão precisa poder tentar de novo.
+  const iniciarBicho = (poi) => {
+    if (barraSeChao()) return false
     guardarPosicao(); sfx.vs?.()
-    // Grana da vitória: fórmula fixa (calcularGranaTotal), não mais um sorteio
-    // fixo autorado aqui — rep/item do evento continuam autorados.
     store.setStoryTarget({
-      territorioId: terr.id, cenaId: cena.id, evento: true,
-      cenaRecompensa: { rep: 1, item: 20, qtd: 1 }, pontoIds: terr.pontos.map(p => p.id),
+      territorioId: terr.id, cenaId: cena.id, cenaPoiId: '__bicho',
+      cenaRevela: [], cenaRecompensa: null, pontoIds: terr.pontos.map(p => p.id),
+      revezamento: poi.revezamento,
     })
     onNavigate('story-combat')
+    return true
+  }
+  // 1ª aparição: emboscada de verdade, sem pino nenhum no mapa antes dela —
+  // mesmo roll baixinho por tick de movimento que o antigo encontro
+  // aleatório já usava (ver histórico em ganguesCenaMotor.js). Só roda UMA
+  // vez por conta — depois que `prog.bicho.distancia` existe, o bicho já
+  // está sempre visível em algum lugar (`criarBichoPoi`) e colidir com o
+  // pino de verdade é o único jeito dele aparecer de novo.
+  const bichoStepRef = useRef(0)
+  const tentarBicho = () => {
+    if (local || encontro || fade || intro) return
+    // Regra mantida (pedido do Isaias: "se eu me lembro bem, só depois que
+    // passa o muro"): só depois do túnel/muro abrir, igual o antigo gate.
+    if (!baseFeita) return
+    if (prog.bicho?.distancia != null) return
+    if (passosRef.current < 60) return
+    if (passosRef.current - bichoStepRef.current < 20) return
+    if (Math.random() >= 0.0022) return
+    bichoStepRef.current = passosRef.current
+    iniciarBicho(criarBichoPoi(cena, { x: player.x, y: player.y }))
   }
   const iniciarTreta = (poi, { viraTreta, revela } = {}) => {
     if (barraSeChao()) return
@@ -390,7 +454,7 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
     {/* Marco de reputação recorrente (a cada 50) — modal BLOQUEANTE, não
         toast: só fecha ao clicar (pedido do Isaias, 2026-09-14). */}
     <GanguesRepRecompensaModal t={t} marco={repModalMarco} onClose={() => setRepModalMarco(null)} />
-    <AnimatePresence>{encontro && <motion.div className="gang-cena-modal" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}><div className="gang-cena-modal-bg" onClick={() => setEncontro(null)} /><motion.div className="gang-cena-modal-card" initial={{ y: 25 }} animate={{ y: 0 }}>{encontro.evento ? <EventoVS fala={encontro.fala} onSim={iniciarEvento} onNao={() => setEncontro(null)} cenaId={cena.id} t={t} /> : encontro.vs ? <TretaVS poi={encontro.poi} fala={encontro.fala} nivelTropa={nivelTropa} avisoOff={avisoNivelOff} onOcultarAviso={() => setAvisoNivelOff(true)} onSim={() => iniciarTreta(encontro.poi)} onNao={() => setEncontro(null)} t={t} territorioId={terr.id} /> : encontro.poi.tipo === 'papo' ? <GanguesPapo poi={encontro.poi} cena={cena} onResolve={resolver} onClose={() => setEncontro(null)} /> : encontro.poi.tipo === 'descanso' ? <GanguesDescanso poi={encontro.poi} cena={cena} onClose={() => setEncontro(null)} onClube={iniciarClube} /> : encontro.poi.tipo === 'loja' ? <GanguesLoja poi={encontro.poi} onClose={() => setEncontro(null)} /> : <GanguesParada poi={encontro.poi} cena={cena} onResolve={resolver} onClose={() => setEncontro(null)} />}</motion.div></motion.div>}</AnimatePresence>
+    <AnimatePresence>{encontro && <motion.div className="gang-cena-modal" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}><div className="gang-cena-modal-bg" onClick={() => setEncontro(null)} /><motion.div className="gang-cena-modal-card" initial={{ y: 25 }} animate={{ y: 0 }}>{encontro.vs ? <TretaVS poi={encontro.poi} fala={encontro.fala} nivelTropa={nivelTropa} avisoOff={avisoNivelOff} onOcultarAviso={() => setAvisoNivelOff(true)} onSim={() => iniciarTreta(encontro.poi)} onNao={() => setEncontro(null)} t={t} territorioId={terr.id} /> : encontro.poi.tipo === 'papo' ? <GanguesPapo poi={encontro.poi} cena={cena} onResolve={resolver} onClose={() => setEncontro(null)} /> : encontro.poi.tipo === 'descanso' ? <GanguesDescanso poi={encontro.poi} cena={cena} onClose={() => setEncontro(null)} onClube={iniciarClube} /> : encontro.poi.tipo === 'loja' ? <GanguesLoja poi={encontro.poi} onClose={() => setEncontro(null)} /> : <GanguesParada poi={encontro.poi} cena={cena} onResolve={resolver} onClose={() => setEncontro(null)} />}</motion.div></motion.div>}</AnimatePresence>
     <AnimatePresence>{fichaIndex !== null && store.activeParty[fichaIndex] && <motion.div className="gang-cena-modal" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}><div className="gang-cena-modal-bg" onClick={() => setFichaIndex(null)} /><motion.div className="gang-cena-modal-card gang-cena-ficha-scroll" initial={{ y: 25 }} animate={{ y: 0 }}><div className="gang-cena-enc-acoes gang-cena-ficha-nav">{store.activeParty.length > 1 && <button className="gang-cena-btn" onClick={() => setFichaIndex(i => (i + store.activeParty.length - 1) % store.activeParty.length)}>◀ ANTERIOR</button>}<button className="gang-cena-btn gang-cena-btn--go" onClick={() => setFichaIndex(null)}>FECHAR</button>{store.activeParty.length > 1 && <button className="gang-cena-btn" onClick={() => setFichaIndex(i => (i + 1) % store.activeParty.length)}>PRÓXIMO ▶</button>}</div>
       {/* Vaga de recrutamento liberada — nunca silencioso (mesmo motivo do
           marco de reputação): quem abre a ficha vê na hora que dá pra chamar

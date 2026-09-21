@@ -3,22 +3,11 @@ import { getGanguesEnemyPortraitById } from '../../data/ganguesEnemyPortraits.js
 import { pontosPreviewPoi } from '../../data/ganguesEncontros.js'
 import { nivelRealDePontos } from '../../data/ganguesDificuldade.js'
 
-// Os dois modais de "encarar ou não": o encontro aleatório de rua e a treta
-// programada (POI/chefe). Extraído de GanguesCena.jsx
-// (PLANO_REFATORACAO_ARQUIVOS_GRANDES_GANGUES_2026-09-11.md §5).
-export function EventoVS({ fala, onSim, onNao, cenaId, t }) {
-  const b = `games.gangues.cena.${cenaId}.evento`
-  return <div className="gang-cena-enc gang-cena-enc--vs gang-cena-enc--evento">
-    <span className="gang-cena-enc-selo">!</span>
-    <span className="gang-cena-eyebrow">{t('games.gangues.cena.evento_tag')}</span>
-    <h3 className="gang-cena-enc-titulo">{t(`${b}.nome`)}</h3>
-    <p className="gang-cena-papo-fala">{fala}</p>
-    <div className="gang-cena-enc-acoes">
-      <button className="gang-cena-btn" onClick={onNao}>{t('games.gangues.cena.evento_nao')}</button>
-      <button className="gang-cena-btn gang-cena-btn--go" onClick={onSim}>{t('games.gangues.cena.evento_sim')}</button>
-    </div>
-  </div>
-}
+// A tela de "encarar ou não" da treta programada (POI/chefe) — extraído de
+// GanguesCena.jsx (PLANO_REFATORACAO_ARQUIVOS_GRANDES_GANGUES_2026-09-11.md
+// §5). O antigo EventoVS (encontro aleatório de rua, sorteio cego por
+// passo) foi removido em 21/09/2026 — virou "o bicho" (pino persistente,
+// colide = luta automática, sem essa tela de escolha — ver GanguesCena.jsx).
 
 export function TretaVS({ poi, fala, nivelTropa, avisoOff, onOcultarAviso, onSim, onNao, t, territorioId }) {
   const nome = poi.ehChefe ? t(`games.gangues.story.bosses.${poi.boss}.nome`) : t(`${poi.i18n}.nome`)

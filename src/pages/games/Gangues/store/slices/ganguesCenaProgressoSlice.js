@@ -47,6 +47,18 @@ export default function createGanguesCenaProgressoSlice(set, get) {
       get()._persistCena()
     },
 
+    // "O bicho" — encontro persistente pós-muro (21/09/2026, ver
+    // criarBichoPoi/posicaoBicho em engine/ganguesCenaMotor.js). Chamado
+    // toda vez que uma luta COM ELE se resolve (vitória ou derrota) —
+    // reposiciona mais perto do jogador, nunca em cima dele.
+    ativarBicho: (cenaId, pos, distancia) => {
+      set(state => {
+        const atual = state.cenaProgresso[cenaId] || { resolvidos: {}, revelados: {}, boss: false }
+        return { cenaProgresso: { ...state.cenaProgresso, [cenaId]: { ...atual, bicho: { ativo: true, x: pos.x, y: pos.y, distancia } } } }
+      })
+      get()._persistCena()
+    },
+
     // Dominar o território a partir da cena: marca todos os pontos + o chefe,
     // pra estadoTerritorio() reconhecer 'dominado' e a próxima região abrir.
     dominarTerritorioViaCena: (territorioId, pontoIds = []) => {

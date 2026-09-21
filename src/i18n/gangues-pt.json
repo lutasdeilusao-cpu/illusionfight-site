@@ -943,9 +943,9 @@
         "treta_sim_risco": "Vou assim mesmo",
         "nivel_rec_ocultar": "não me avisa mais nessa quebrada",
         "nivel_rec_baixo": "Recomendado: tropa no nível {rec}. Contando o equipamento, a tua tá em média no {atual} — vai apanhar feio. Faz uns corre, upa numas tretas mais tranquilas e volta.",
-        "evento_tag": "ENCONTRO",
-        "evento_sim": "Encara",
-        "evento_nao": "Passa reto",
+        "bicho": {
+          "nome": "O Encosto"
+        },
         "fechar": "Fechar",
         "parada_pular": "Deixa quieto",
         "parada_tentar": "Encarar",
@@ -969,7 +969,6 @@
         "descanso_curar": "Descansar (−{grana})",
         "descanso_animando": "Descansando...",
         "tropa_no_chao": "Tua tropa tá toda no chão, cria. Ninguém encara nada assim. Passa na birosca do Nato antes.",
-        "aviso_rep_evento": "Isso aqui tá com cheiro de zica, cria. Ainda não tem moral pra bancar essa parada — sobe teu nome na rua primeiro (rep {rep}).",
         "aviso_rep_treta": "Essa ai é osso duro, cria. Não é hora de bancar o durão sem nome feito na rua — junta mais reputação antes de encarar (rep {rep}).",
         "aviso_rep_clube": "O Nato nem te deixa entrar na roda sem tu ter nome feito na rua. Junta mais reputação antes de aparecer aqui (rep {rep}).",
         "rep_recompensa": {
@@ -992,14 +991,6 @@
         "clube_recusar": "Agora não",
         "clube_aceitar": "Topar (te vendam agora)",
         "pista": {
-          "evento": {
-            "nome": "Fecharam a rua",
-            "fala": [
-              "Uns cara fecharam a tua frente. Não são da Rato de Pista — é gente de fora testando a gangue nova.",
-              "Emboscada na esquina. Meia dúzia esperando cê passar só pra tirar onda.",
-              "A rua estreitou de repente e uns moleque mais casca grossa cortaram teu caminho. Querem ver se cê é osso ou papel."
-            ]
-          },
           "chegada": [
             "Essa aqui é a Pista, cria. O asfalto lá embaixo — a raiz de tudo.",
             "Todo mundo que é alguém hoje começou raspando o chão aqui. O Retalho começou. Um moleque chamado Alan também vai começar assim, noutro canto — só que a vez dele ainda nem chegou. Agora é a tua vez de provar que não é só mais um.",

@@ -156,11 +156,7 @@ export function calcularGranaTotal({ enemyCount = 1, ehChefe = false }) {
 export function calcularRecompensaCena({ emCena, storyAlvo, enemyCount = 1, ehChefe = false }) {
   let rep = 0
   const itens = []
-  if (emCena && storyAlvo.evento) {
-    const rec = storyAlvo.cenaRecompensa
-    if (rec?.rep) rep += rec.rep
-    if (rec?.item) itens.push({ id: rec.item, qtd: rec.qtd || 1 })
-  } else if (emCena) {
+  if (emCena) {
     if (storyAlvo.repDelta) rep += storyAlvo.repDelta
     const rec = storyAlvo.cenaRecompensa
     if (rec) {

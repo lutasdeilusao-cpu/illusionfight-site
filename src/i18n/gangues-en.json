@@ -4046,9 +4046,9 @@
         "treta_sim_risco": "Going in anyway",
         "nivel_rec_ocultar": "don't warn me again in this hood",
         "nivel_rec_baixo": "Recommended: crew at level {rec}. With gear counted, yours averages {atual} — you'll get wrecked. Run some jobs, level up on easier scraps, then come back.",
-        "evento_tag": "AMBUSH",
-        "evento_sim": "Take it",
-        "evento_nao": "Slip past",
+        "bicho": {
+          "nome": "The Shadow"
+        },
         "fechar": "Close",
         "parada_pular": "Leave it alone",
         "parada_tentar": "Take it on",
@@ -4072,7 +4072,6 @@
         "descanso_curar": "Rest (−{grana})",
         "descanso_animando": "Resting...",
         "tropa_no_chao": "Your whole crew's down, kid. Nobody's facing anyone like this. Hit Nato's corner store first.",
-        "aviso_rep_evento": "This smells like trouble, kid. You ain't got the juice to pull this off yet — build your name on the street first (rep {rep}).",
         "aviso_rep_treta": "That one's a whole different animal, kid. Don't go acting hard with no name made yet — stack up more rep before you step in there (rep {rep}).",
         "aviso_rep_clube": "Nato won't even let you in the circle without a name on the street. Build more rep before you show up here (rep {rep}).",
         "rep_recompensa": {
@@ -4095,14 +4094,6 @@
         "clube_recusar": "Not now",
         "clube_aceitar": "Take it (blindfold now)",
         "pista": {
-          "evento": {
-            "nome": "Road blocked",
-            "fala": [
-              "Some guys just cut you off. Not Pista crew — outsiders testing the new gang.",
-              "Ambush at the corner. Half a dozen waiting for you to walk by, just to run their mouths.",
-              "The street narrowed all of a sudden and some tougher kids cut your path. They want to see if you're bone or paper."
-            ]
-          },
           "chegada": [
             "This is the Pista, kid. The asphalt down below — the root of it all.",
             "Everybody worth something today crawled on this ground first. The Patchwork started here. A kid named Alan is going to start the same way, somewhere else — his turn just hasn't come yet. Now it's your turn to prove you're not just another face.",

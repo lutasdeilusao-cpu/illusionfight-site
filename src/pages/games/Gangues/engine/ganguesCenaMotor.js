@@ -91,6 +91,16 @@ export function montarAmbiente(cena, local, prog, baseFeita, muroAberto) {
         estado: prog.boss ? 'resolvido' : laDeCima ? 'disponivel' : 'trancado',
       })
     }
+    // "O bicho" — encontro persistente pós-muro (ver criarBichoPoi abaixo).
+    // Só existe na RUA (nunca em interior) e só depois de `laDeCima`
+    // (pedido do Isaias, 21/09/2026: "só pode aparecer depois que passa o
+    // muro, mantém essa regra"). Enquanto `prog.bicho.ativo` for falso
+    // (nunca foi revelado ainda), não aparece pino nenhum — a 1ª aparição
+    // é uma emboscada de verdade, sem pino no mapa (ver tentarBicho em
+    // GanguesCena.jsx).
+    if (laDeCima && prog.bicho?.ativo && cena.bichoPool) {
+      alvos.push(criarBichoPoi(cena, prog.bicho))
+    }
     return {
       interior: false, world: cena.mundo || WORLD, colliders: collidersDaCena(cena, laDeCima),
       gateAtivo: muroAberto ? null : 'fechado', // o muro só abre depois do Carvão
@@ -129,6 +139,57 @@ export function montarAmbiente(cena, local, prog, baseFeita, muroAberto) {
   return {
     interior: true, world: com.world, colliders, gateAtivo: false,
     alvos, nomeLugar: inter.nome, comodoIdx: local.comodo, comodoTotal: inter.comodos.length, cenario: com.cenario || [],
+  }
+}
+
+// ── "O bicho" — encontro persistente pós-muro (substitui por completo o
+// antigo encontro aleatório de rua, sorteio cego por passo, sem pino
+// nenhum no mapa) — pedido do Isaias, 21/09/2026: "uma cabecinha amarela
+// que aparece de vez em quando... anda igual os outros, só que se você
+// colide com ela entra automaticamente numa luta, sem escolha... toda vez
+// que você luta ela muda de posição e fica mais perto, nunca em cima de
+// você mas sempre bem mais perto — o jogador decide continuar fugindo ou
+// encarar". "Amarela" já sai de graça do farol universal (`opcional:true`
+// → `is-opcional`, âmbar/amarelo — GanguesCenaAtores.jsx/farolDe), sem
+// precisar de cor nova. A ficha NÃO escala com a proximidade (confirmado
+// com o Isaias) — só a posição muda; reaproveita o mesmo `revezamento`
+// (pool + escala pelo mais forte da gangue) que a rinha já usa.
+export const GANGUES_BICHO_DIST_INICIAL = 260
+export const GANGUES_BICHO_DIST_PASSO = 55
+export const GANGUES_BICHO_DIST_MIN = 90
+export function proximaDistanciaBicho(distanciaAtual) {
+  const base = Number.isFinite(distanciaAtual) ? distanciaAtual : GANGUES_BICHO_DIST_INICIAL + GANGUES_BICHO_DIST_PASSO
+  return Math.max(GANGUES_BICHO_DIST_MIN, base - GANGUES_BICHO_DIST_PASSO)
+}
+// Ponto a `distancia` px do jogador, num ângulo aleatório — tenta um punhado
+// de ângulos até achar um que não caia fora do mundo nem dentro de um
+// colisor sólido (prédio/quarteirão); se todos falharem (mundo pequeno
+// demais pra essa distância), cai pra perto do próprio jogador — caso raro,
+// só rede de segurança.
+export function posicaoBicho(cena, playerPos, distancia) {
+  const colliders = collidersDaCena(cena, true)
+  for (let i = 0; i < 20; i++) {
+    const ang = Math.random() * Math.PI * 2
+    const x = playerPos.x + Math.cos(ang) * distancia
+    const y = playerPos.y + Math.sin(ang) * distancia
+    if (validPosition({ x, y }) && !hitsSolid(x, y, null, colliders)) return { x: Math.round(x), y: Math.round(y) }
+  }
+  return {
+    x: Math.round(Math.min(WORLD.w - 35, Math.max(35, playerPos.x))),
+    y: Math.round(Math.min(WORLD.h - 40, Math.max(70, playerPos.y))),
+  }
+}
+// Pino sintético (não vem de `cena.pois` — a posição é dinâmica, gravada em
+// `cenaProgresso[cenaId].bicho`, não numa lista estática). `opcional:true`
+// dá a cor amarela de graça (farolDe). `revezamento` usa o pool autorado por
+// território (`cena.bichoPool`) — mesmo mecanismo de "molde ciclado por
+// hash do id" que qualquer outra treta de pool (GanguesCenaAtores.jsx).
+export function criarBichoPoi(cena, bicho) {
+  return {
+    id: '__bicho', tipo: 'treta', ehBicho: true, opcional: true,
+    world: { x: bicho.x, y: bicho.y }, zona: { x: bicho.x - 30, y: bicho.y - 30, w: 60, h: 60 },
+    estado: 'disponivel', i18n: 'games.gangues.cena.bicho',
+    revezamento: { pool: cena.bichoPool, budgetPorCorpo: cena.bichoBudget ?? 20, chanceDupla: 0.2, ratioComTime: 1, baseMaisForte: true },
   }
 }
 
