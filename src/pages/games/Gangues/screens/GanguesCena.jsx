@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useLanguage } from '../../../../context/LanguageContext'
 import { useAuth } from '../../../../context/AuthContext'
@@ -17,7 +17,7 @@ import CenaInterior from '../components/cena/CenaInterior'
 import GanguesCenaBagSheet from '../components/cena/GanguesCenaBagSheet'
 import GanguesCenaFichaCard from '../components/cena/GanguesCenaFichaCard'
 import GanguesRepRecompensaModal from '../components/GanguesRepRecompensaModal'
-import { GangMarker, PinoAlvo, WorldControls, interactionLabel } from '../components/cena/GanguesCenaAtores'
+import { GangMarker, PinoAlvo, WorldControls, interactionLabel, ehPersonagem } from '../components/cena/GanguesCenaAtores'
 import { EventoVS, TretaVS } from '../components/cena/GanguesCenaEncontros'
 import { CENAS_POR_ID, portaoAberto, contarCena } from '../data/cenas/cenaHelpers.js'
 import { GANGUES_TERRITORIO_POR_ID } from '../data/ganguesTerritorios.js'
@@ -98,7 +98,24 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
   const localRef = useRef(local); localRef.current = local
   const { nivelTropa, tentarEvento } = useGanguesCenaEventoAleatorio({ store, t, cena, localRef, encontro, fade, intro, passosRef, setEncontro })
 
-  const perto = useMemo(() => (amb?.alvos || []).find(a => (a.estado === 'disponivel' || a.repetivel) && insideZone(player, a.zona)) || null, [amb, player])
+  // Colisão visual REAL (círculo do personagem contra o do jogador na
+  // tela, reportada por cada PinoAlvo — ver useEffect/onColidir em
+  // GanguesCenaAtores.jsx) — pedido do Isaias, 20/09/2026, depois de ver
+  // o personagem parar de andar mas o botão de interação não acender:
+  // "só ativa quando eu vou na antiga área do quadradinho... tem que
+  // ativar no momento que eu colido com o personagem". A zona fixa
+  // (`insideZone`) só faz sentido pra pino ESTÁTICO (nunca se afasta do
+  // próprio `world.x/y`) — pra "personagem" que anda de verdade
+  // (`ehPersonagem`), o botão tem que seguir a MESMA colisão que já pausa
+  // a andadinha, não a zona ancorada numa posição que ele não está mais.
+  const [colisoes, setColisoes] = useState({})
+  const reportarColisao = useCallback((id, colide) => {
+    setColisoes(prev => (Boolean(prev[id]) === colide ? prev : { ...prev, [id]: colide }))
+  }, [])
+  const perto = useMemo(() => (amb?.alvos || []).find(a => {
+    if (a.estado !== 'disponivel' && !a.repetivel) return false
+    return ehPersonagem(a) ? Boolean(colisoes[a.id]) : insideZone(player, a.zona)
+  }) || null, [amb, player, colisoes])
   const { feitos, total } = cena ? contarCena(cena, prog.resolvidos, prog.boss) : { feitos: 0, total: 0 }
   // local aponta pra um interior/cômodo que não existe (save antigo, cena
   // diferente) → volta pra rua.
@@ -354,7 +371,7 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
         final), sem tocar a suavização do passo a passo normal. */}
     <div key={local ? `${local.id}-${local.comodo}` : 'rua'} className="gang-cena-world" style={{ width: W.w, height: W.h, transform: `translate3d(${-camX}px,${-camY}px,0)` }}>
       {local ? <CenaInterior amb={amb} /> : <CenaCenario cena={cena} bossAberto={baseFeita || muroAberto} muroAberto={muroAberto} />}
-      {(amb?.alvos || []).map(p => <PinoAlvo key={p.id} p={p} t={t} active={perto?.id === p.id} />)}
+      {(amb?.alvos || []).map(p => <PinoAlvo key={p.id} p={p} t={t} active={perto?.id === p.id} onColidir={reportarColisao} />)}
       {/* key=local: rua e cada cômodo de interior são espaços de coordenada
           DIFERENTES (mundo pequeno do cômodo vs WORLD da rua) — sem isso, o
           Framer Motion anima o left/top do marcador DE UMA posição pra OUTRA

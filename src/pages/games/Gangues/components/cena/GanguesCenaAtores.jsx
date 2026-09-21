@@ -85,6 +85,16 @@ function retratoDoPino(p) {
   return null
 }
 
+// "Personagem" (tem cara — NPC ou inimigo, anda de um lado pro outro) vs.
+// "pino estático de ação" (ferro-velho, achado, loja, corre, nav — nunca
+// se move). Exportado porque GanguesCena.jsx também precisa saber disso:
+// pra um personagem que anda, o botão de interação tem que reagir à
+// colisão visual REAL (`onColidir`/`colidindo` aqui embaixo), não à zona
+// fixa ancorada no `world.x/y` (que só faz sentido pra pino parado).
+export function ehPersonagem(p) {
+  return Boolean(retratoDoPino(p)) && !p.ehChefe
+}
+
 // Pino do alvo (POI, porta, saída, passagem). `ehChefe`/`ehPorta`/... decidem o ícone e o rótulo.
 // `active`: jogador está dentro da ZONA de interação (`perto`/`insideZone`
 // em GanguesCena.jsx — de propósito bem maior que o círculo visual, pra
@@ -96,7 +106,7 @@ function retratoDoPino(p) {
 // REAL (círculo contra círculo na tela), usada só pra pausar a andadinha
 // (`is-colidindo`) no momento exato que o personagem "esbarra" no
 // jogador, não assim que entra na zona generosa de interação.
-export function PinoAlvo({ p, t, active }) {
+export function PinoAlvo({ p, t, active, onColidir }) {
   // useState/useRef/useEffect sempre no topo, antes de qualquer return
   // condicional (regra dos hooks) — falha de carregamento (rede ruim) cai
   // pro ícone genérico, igual quando não tem retrato nenhum.
@@ -114,6 +124,14 @@ export function PinoAlvo({ p, t, active }) {
   // em CSS, que o React/JS não sabe onde está exatamente) — só pausa
   // quando as bordas realmente se tocam. Poll leve (150ms, não every
   // frame) porque é só um efeito visual, não precisão de física.
+  // AJUSTE (mesmo dia, print na sequência): "o botão de interação só ativa
+  // na antiga área do quadradinho... tem que ativar no momento que eu
+  // colido com o personagem" — a mesma colisão real também precisa
+  // acionar o botão FALAR/ENCARAR, não só pausar o passeio. `onColidir`
+  // reporta pro componente pai (GanguesCena.jsx) pra virar a fonte de
+  // verdade de "perto" pra QUALQUER personagem que anda — a zona fixa
+  // (`insideZone`) só faz sentido pra pino estático, que nunca se afasta
+  // do próprio `world.x/y`.
   useEffect(() => {
     if (!p.revezamento && !p.npcSlug && !p.liderFixo && !p.enemy) return // não é personagem, nem tenta
     const id = setInterval(() => {
@@ -123,10 +141,12 @@ export function PinoAlvo({ p, t, active }) {
       const a = pinoEl.getBoundingClientRect()
       const b = playerEl.getBoundingClientRect()
       const dist = Math.hypot((a.left + a.width / 2) - (b.left + b.width / 2), (a.top + a.height / 2) - (b.top + b.height / 2))
-      setColidindo(dist < a.width / 2 + b.width / 2 + 4)
+      const tocou = dist < a.width / 2 + b.width / 2 + 4
+      setColidindo(tocou)
+      onColidir?.(p.id, tocou)
     }, 150)
-    return () => clearInterval(id)
-  }, [p.revezamento, p.npcSlug, p.liderFixo, p.enemy])
+    return () => { clearInterval(id); onColidir?.(p.id, false) }
+  }, [p.id, p.revezamento, p.npcSlug, p.liderFixo, p.enemy, onColidir])
   if (p.estado === 'trancado' && !(p.ehPassagem || p.ehChefe)) return null
   const icone = p.ehChefe ? '★' : p.ehPorta ? '🚪' : p.ehSaida ? '↩' : p.ehVolta ? '↩' : p.ehPassagem ? (p.label === 'subir' ? '▲' : '▶') : (ICONE[p.tipo] || '•')
   const nome = p.ehChefe ? t(`games.gangues.story.bosses.${p.boss}.nome`)
