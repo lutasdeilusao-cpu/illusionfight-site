@@ -82,6 +82,17 @@ export function repMarcosCruzados(antes, depois) {
 export const GANGUES_REP_GATE_GALPAO = 25
 export const GANGUES_REP_GATE_CLUBE = 40
 
+// Agiotagem do Nato (empréstimo em dinheiro) — pedido do Isaias, 21/09/2026:
+// "você pega um empréstimo de até 100, mas paga 10 vezes mais, fica devendo
+// 1000... a partir daí pode se endividar pelo dobro pra ganhar uma cura, até
+// 10.000 — aí o Nato não cobra mais nada, te remenda de graça mas te joga
+// pro Clube da Luta". Substitui de vez o fiado antigo (5×/10× por contagem).
+// Escada: divida=0 → empréstimo (GANGUES_EMPRESTIMO_NATO_VALOR na mão, vira
+// dívida ×MULT) → cada cura fiada DOBRA a dívida atual, até o teto.
+export const GANGUES_EMPRESTIMO_NATO_VALOR = 100
+export const GANGUES_EMPRESTIMO_NATO_MULT = 10
+export const GANGUES_EMPRESTIMO_NATO_TETO = 10000
+
 
 export function getGanguesRosterLimit(tier) {
   return GANGUES_ROSTER_LIMITS[tier] || GANGUES_ROSTER_LIMITS.free

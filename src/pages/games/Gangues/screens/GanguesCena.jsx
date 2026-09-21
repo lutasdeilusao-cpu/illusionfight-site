@@ -264,13 +264,20 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
   // o jogador é vendado e levado pra roda (fase 'clube' → sequestro → combate).
   // `clubeDividaPrevia` = dívida ANTES da entrada — decide se a vitória paga os
   // 200 de grana (entrou limpo) ou só quita a dívida.
-  const iniciarClube = (custoBase) => {
+  //
+  // `gratis` (Isaias, 21/09/2026: "chegou em 10.000, o Nato não vai nem te
+  // cobrar, ele vai te remendar, só que já vai te jogar pro Clube da Luta") —
+  // o socorro do teto da agiotagem: cura de graça (sem somar o 15× de
+  // entrada) e joga direto pra dentro, sem a tela normal de aceitar/recusar
+  // (ver GanguesDescanso.jsx, botão "socorro" quando agiotagemInfo().noTeto).
+  const iniciarClube = (custoBase, gratis = false) => {
     // Rota de escape de quem já tá endividado com o Nato — NUNCA bloqueia
     // quem já tem dívida, senão vira soft-lock cruel (endividado sem rep
     // preso sem conseguir quitar). O gate só vale pra quem entra "por
-    // vontade própria" (sem dívida, atrás dos 200 de grana).
+    // vontade própria" (sem dívida, atrás dos 200 de grana). O socorro
+    // forçado (gratis) nunca passa por esse gate — não tem escolha.
     const dividaAtualGate = store.storyProgress.__birosca?.divida || 0
-    if (dividaAtualGate <= 0 && store.rep < GANGUES_REP_GATE_CLUBE) {
+    if (!gratis && dividaAtualGate <= 0 && store.rep < GANGUES_REP_GATE_CLUBE) {
       setEncontro(null); sfx.cancel?.()
       setAviso(t('games.gangues.cena.aviso_rep_clube', { rep: GANGUES_REP_GATE_CLUBE }))
       setTimeout(() => setAviso(null), 3600)
@@ -278,7 +285,8 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
     }
     setEncontro(null); guardarPosicao(); sfx.vs?.()
     const dividaPrevia = store.storyProgress.__birosca?.divida || 0
-    store.entrarClubeDaLuta(custoBase || 10)
+    if (gratis) store.restaurarPvPmTodos()
+    else store.entrarClubeDaLuta(custoBase || 10)
     store.setStoryTarget({ clube: true, clubeBase: custoBase || 10, clubeDividaPrevia: dividaPrevia, clubeRonda: 1, clubeHeals: 0, voltar: { territorioId: terr.id } })
     onNavigate('clube')
   }
@@ -323,13 +331,25 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
   }
   const iniciarTreta = (poi, { viraTreta, revela } = {}) => {
     if (barraSeChao()) return
+    const chefe = Boolean(poi.ehChefe)
+    // Gate da dívida com o Nato (Isaias, 21/09/2026: "antes de enfrentar o
+    // Carvão você tem que pagar sua dívida, não importa o tamanho... o
+    // melhor esquema pra pagar é o Clube da Luta") — só trava o CHEFE
+    // especificamente; o resto da Pista (farm, pós-muro) continua livre com
+    // dívida em aberto, senão vira soft-lock cruel demais.
+    const dividaNato = store.storyProgress.__birosca?.divida || 0
+    if (chefe && dividaNato > 0) {
+      setEncontro(null); sfx.cancel?.()
+      setAviso(t('games.gangues.cena.aviso_divida_chefe', { divida: dividaNato }))
+      setTimeout(() => setAviso(null), 3600)
+      return
+    }
     if (poi.repGate && store.rep < poi.repGate) {
       setEncontro(null); sfx.cancel?.()
       setAviso(t('games.gangues.cena.aviso_rep_treta', { rep: poi.repGate }))
       setTimeout(() => setAviso(null), 3600)
       return
     }
-    const chefe = Boolean(poi.ehChefe)
     guardarPosicao(); sfx.vs?.()
     // `poi.fixo`: POI de NÍVEL FIXO, single-enemy (Generais da Pista) — a
     // luta é sempre contra a MESMA ficha (`poi.enemy`) escalada pro ponto

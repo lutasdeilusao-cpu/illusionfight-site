@@ -1,6 +1,9 @@
 // Slice: descanso da birosca + agiotagem do Nato + Clube da Luta. Extraído de
 // store/useGanguesStore.js (PLANO_REFATORACAO_ARQUIVOS_GRANDES_GANGUES_2026-09-11.md §3).
-import { normalizeGanguesLoadout, getGanguesResources } from '../../data/ganguesLoadout.js'
+import {
+  normalizeGanguesLoadout, getGanguesResources,
+  GANGUES_EMPRESTIMO_NATO_VALOR, GANGUES_EMPRESTIMO_NATO_MULT, GANGUES_EMPRESTIMO_NATO_TETO,
+} from '../../data/ganguesLoadout.js'
 import { getGanguesAttributesWithEquip, applyGanguesEquipResources } from '../../data/ganguesEquip.js'
 
 export default function createGanguesBiroscaSlice(set, get) {
@@ -39,15 +42,40 @@ export default function createGanguesBiroscaSlice(set, get) {
       }
     },
 
-    // ── Agiotagem da birosca (o Nato fia o descanso) ──────────────
+    // ── Agiotagem do Nato (empréstimo em dinheiro) ──────────────────
+    // REDESENHO COMPLETO (Isaias, 21/09/2026) do fiado antigo (5×/10× por
+    // contagem de fiados, "nome sujo" depois de 2). Agora é uma escada só,
+    // sem contador — só a própria dívida em grana:
+    //   divida = 0  → pode pegar o EMPRÉSTIMO (dinheiro na mão, GANGUES_
+    //                 EMPRESTIMO_NATO_VALOR), que já endivida em ×MULT.
+    //   divida > 0  → não pode pegar empréstimo de novo; pode pedir mais
+    //                 CURA FIADA, que DOBRA a dívida atual.
+    //   divida×2 > GANGUES_EMPRESTIMO_NATO_TETO → chegou no teto: o Nato não
+    //                 cobra mais nada (cura de graça), mas força o Clube da
+    //                 Luta (ver iniciarClube(custoBase, gratis=true) em
+    //                 GanguesCena.jsx — não passa pela oferta normal de
+    //                 aceitar/recusar, é jogado direto pra dentro).
     // A dívida é GLOBAL (uma caderneta só pra todas as biroscas de todos os
     // bairros) e SILENCIOSA — não tem HUD, o jogador só vê quando abre o
     // descanso. Guardada dentro do próprio storyProgress (chave reservada
     // __birosca), igual __album/__flags — sem coluna nova no Supabase.
-    //   { divida: <grana devida>, fiados: <0|1|2|3> }
-    // fiados 1 = 5× o preço do descanso, 2 = 10×. Depois de 2, "nome sujo":
-    // não fia mais (o 3º fiado, 15×, é o Clube da Luta — outra entrega).
-    _birosca: () => get().storyProgress.__birosca || { divida: 0, fiados: 0 },
+    //   { divida: <grana devida> }
+    _birosca: () => get().storyProgress.__birosca || { divida: 0 },
+
+    // Info pra UI decidir que opção de agiotagem oferecer, sem gastar nada.
+    // `proximaDivida` = quanto a dívida vai virar se o jogador pedir agora
+    // (empréstimo, se ainda não deve nada; ou o dobro, se já deve).
+    agiotagemInfo: () => {
+      const divida = get()._birosca().divida || 0
+      return {
+        divida,
+        podeEmprestimo: divida <= 0,
+        podeFiarCura: divida > 0 && divida * 2 <= GANGUES_EMPRESTIMO_NATO_TETO,
+        noTeto: divida > 0 && divida * 2 > GANGUES_EMPRESTIMO_NATO_TETO,
+        valorEmprestimo: GANGUES_EMPRESTIMO_NATO_VALOR,
+        proximaDivida: divida > 0 ? divida * 2 : GANGUES_EMPRESTIMO_NATO_VALOR * GANGUES_EMPRESTIMO_NATO_MULT,
+      }
+    },
 
     // Déficit de PV/PM de toda a tropa (usado pelo descanso e pelo fiado pra
     // saber se tem alguém ferido e mostrar o quanto cada um recuperou).
@@ -77,26 +105,35 @@ export default function createGanguesBiroscaSlice(set, get) {
       return party.every(m => Number(m.attributes?.pv_atual ?? 1) <= 0)
     },
 
-    // Fiar o descanso com o Nato. `custoBase` = o preço normal do descanso
-    // daquela birosca. NÃO mostra o valor antes — quem chama revela o contrato
-    // (o quanto ficou a dívida) só DEPOIS, com o retorno desta função.
-    fiarDescanso: (custoBase = 10) => {
-      const rec = get()._birosca()
-      if (rec.fiados >= 2) return { ok: false, motivo: 'sujo' }
-      const detalhe = get()._deficitTropa()
-      if (!detalhe.some(d => d.pv > 0 || d.pm > 0)) return { ok: false, motivo: 'inteira' }
-      const mult = rec.fiados === 0 ? 5 : 10
-      const valor = mult * Math.max(1, Math.round(custoBase))
-      const divida = rec.divida + valor
-      const fiados = rec.fiados + 1
-      set(state => ({ storyProgress: { ...state.storyProgress, __birosca: { divida, fiados } } }))
-      get().restaurarPvPmTodos()
+    // Pegar o empréstimo com o Nato — só quando NÃO deve nada ainda (ver
+    // agiotagemInfo.podeEmprestimo). Dá grana na mão de verdade (não cura
+    // ninguém) e já endivida em ×MULT.
+    pedirEmprestimoNato: () => {
+      if (get()._birosca().divida > 0) return { ok: false, motivo: 'ja_deve' }
+      const valor = GANGUES_EMPRESTIMO_NATO_VALOR
+      const divida = valor * GANGUES_EMPRESTIMO_NATO_MULT
+      set(state => ({ storyProgress: { ...state.storyProgress, __birosca: { divida } } }))
+      get().ganharGrana(valor)
       get()._persistStory()
-      return { ok: true, mult, valor, divida, fiadoN: fiados, detalhe: detalhe.filter(d => d.pv > 0 || d.pm > 0) }
+      return { ok: true, valor, divida }
     },
 
-    // Pagar a dívida (parcial ou total). Abate de `grana` o que der. Quando
-    // zera, o "nome limpa" e o fiado volta a ser oferecido.
+    // Pedir mais cura fiada — DOBRA a dívida atual (só depois de já ter
+    // pego o empréstimo, e antes do teto — ver agiotagemInfo).
+    fiarDescanso: () => {
+      const rec = get()._birosca()
+      if (rec.divida <= 0) return { ok: false, motivo: 'sem_emprestimo' }
+      if (rec.divida * 2 > GANGUES_EMPRESTIMO_NATO_TETO) return { ok: false, motivo: 'teto' }
+      const detalhe = get()._deficitTropa()
+      if (!detalhe.some(d => d.pv > 0 || d.pm > 0)) return { ok: false, motivo: 'inteira' }
+      const divida = rec.divida * 2
+      set(state => ({ storyProgress: { ...state.storyProgress, __birosca: { divida } } }))
+      get().restaurarPvPmTodos()
+      get()._persistStory()
+      return { ok: true, divida, detalhe: detalhe.filter(d => d.pv > 0 || d.pm > 0) }
+    },
+
+    // Pagar a dívida (parcial ou total). Abate de `grana` o que der.
     pagarBirosca: (quanto) => {
       const rec = get()._birosca()
       if (rec.divida <= 0) return { ok: false, motivo: 'quitado' }
@@ -104,7 +141,7 @@ export default function createGanguesBiroscaSlice(set, get) {
       if (pago <= 0) return { ok: false, motivo: 'grana' }
       get().gastarGrana(pago)
       const restante = Math.max(0, rec.divida - pago)
-      set(state => ({ storyProgress: { ...state.storyProgress, __birosca: { divida: restante, fiados: restante <= 0 ? 0 : rec.fiados } } }))
+      set(state => ({ storyProgress: { ...state.storyProgress, __birosca: { divida: restante } } }))
       get()._persistStory()
       return { ok: true, pago, restante }
     },
@@ -113,7 +150,7 @@ export default function createGanguesBiroscaSlice(set, get) {
     // saída. Mantido caso algum código antigo referencie.)
     clubeDaLutaElegivel: () => {
       const rec = get()._birosca()
-      return rec.fiados >= 2 && rec.divida > 0 && get().tropaNoChao() && get().grana < rec.divida
+      return rec.divida > 0 && get().tropaNoChao() && get().grana < rec.divida
     },
 
     // Aceitou o Clube da Luta. Ao entrar, o Nato já te fia 15× o descanso
@@ -124,7 +161,7 @@ export default function createGanguesBiroscaSlice(set, get) {
       const rec = get()._birosca()
       const valor = 15 * Math.max(1, Math.round(custoBase))
       const divida = rec.divida + valor
-      set(state => ({ storyProgress: { ...state.storyProgress, __birosca: { divida, fiados: Math.max(3, rec.fiados) } } }))
+      set(state => ({ storyProgress: { ...state.storyProgress, __birosca: { divida } } }))
       get().restaurarPvPmTodos()
       get()._persistStory()
       return { valor, divida }
@@ -137,7 +174,7 @@ export default function createGanguesBiroscaSlice(set, get) {
       const rec = get()._birosca()
       const antes = Math.max(1, Math.round(rec.divida))
       const divida = antes * 2
-      set(state => ({ storyProgress: { ...state.storyProgress, __birosca: { divida, fiados: Math.max(3, rec.fiados) } } }))
+      set(state => ({ storyProgress: { ...state.storyProgress, __birosca: { divida } } }))
       get().restaurarPvPmTodos()
       get()._persistStory()
       return { antes, divida }
@@ -152,15 +189,16 @@ export default function createGanguesBiroscaSlice(set, get) {
     },
 
     // Fim do gauntlet do Clube (só chamado na 3ª ronda ou numa derrota).
-    //  `dividaPrevia` = a dívida ANTES de aceitar (antes do 15× de entrada).
+    //  `dividaPrevia` = a dívida ANTES de aceitar (antes do 15× de entrada, ou
+    //  a dívida que já tava no teto, na entrada forçada do socorro do Nato).
     //  `heals` = quantas vezes deixou o Nato ajeitar entre as rondas.
     //  • Venceu (ronda 3): quita TUDO, nome limpa. Se entrou LIMPO e não pediu
     //    nenhum ajeite (dividaPrevia 0 e heals 0), ainda leva 200 na mão. Sem XP.
     //  • Perdeu: te remendam e te largam. A dívida NÃO cresce mais — fica o que
-    //    acumulou (15× da entrada + 10× de cada ajeite). Nunca é game over.
+    //    acumulou. Nunca é game over.
     resolverClubeDaLuta: (venceu, custoBase = 10, dividaPrevia = 0, heals = 0) => {
       if (venceu) {
-        set(state => ({ storyProgress: { ...state.storyProgress, __birosca: { divida: 0, fiados: 0 } } }))
+        set(state => ({ storyProgress: { ...state.storyProgress, __birosca: { divida: 0 } } }))
         if (Math.round(dividaPrevia) <= 0 && Number(heals) <= 0) get().ganharGrana(200)
       }
       get().restaurarPvPmTodos()
