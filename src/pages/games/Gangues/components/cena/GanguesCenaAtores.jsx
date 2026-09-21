@@ -111,24 +111,18 @@ export function PinoAlvo({ p, t, active }) {
   // ("esses pinos estáticos são de ações... os personagens têm que
   // andar"). Chefe fica de fora de propósito (showdown parado, dramático).
   const personagem = Boolean(retrato) && !p.ehChefe
-  // 3ª tentativa da andadinha (20/09/2026 — as 2 primeiras foram
-  // rejeitadas: "não refaz essa porra e refaz direito, eles não estão
-  // andando, eles estão tipo balançando... [print A] até [print B] — é
-  // pra ele andar tipo dali do prédio até aqui, no meio da rua... muda
-  // essa animação porque parece que ele tá bêbado, faz uma animação de
-  // caminhada, tuc tuc tuc tuc, e faz eles andar BASTANTE"). Duas causas
-  // do "bêbado": (1) a rotação alternada (`rotate(-8deg)→8deg)`) girava o
-  // corpo inteiro tipo tontura — removida por completo, andar não gira; e
-  // (2) alcance curto (±18-33px) num mapa desse tamanho nem parece
-  // deslocamento. Agora dois movimentos SEPARADOS, cada um no seu próprio
-  // elemento (senão uma `transform` sobrescreve a outra):
+  // Andadinha, 4ª leva (20/09/2026 — histórico completo em GanguesCena.css,
+  // logo acima da keyframe `gang-patrulha-h`): rotação removida ("parecia
+  // bêbado"), alcance subiu de ±18-33px pra 60-115px ("nem parecia
+  // deslocamento"), e por fim a timing function voltou de `steps()` pra
+  // `ease-in-out` ("ficou muito tutu... faz uma caminhada mais suave, de
+  // quem tá vigiando"). Dois movimentos em elementos SEPARADOS (senão uma
+  // `transform` sobrescreve a outra):
   //  • `--gp-w`/`is-patrulha-h/-v` no `<span>` DE FORA: o deslocamento de
-  //    verdade (60-115px, ida e volta), com `steps()` em vez de
-  //    ease-in-out — anda em "pulos" discretos de passada, não desliza
-  //    suave feito fantasma.
-  //  • `.gang-world-npc-passo` no `<span>` DE DENTRO: o "tuc tuc tuc" —
-  //    um bounce vertical curto e rápido, contínuo, independente da
-  //    direção (é o "pé bate no chão" enquanto anda).
+  //    verdade (60-115px, ida e volta), contínuo.
+  //  • `.gang-world-npc-passo` no `<span>` DE DENTRO: um bounce vertical
+  //    bem sutil, também contínuo, independente da direção — só o
+  //    suficiente pra não parecer flutuando.
   // Fase/duração/alcance/eixo variam por pino (hash do id) só pra não
   // sincronizar todo mundo andando igual.
   const h = personagem ? hashEstavel(p.id) : 0

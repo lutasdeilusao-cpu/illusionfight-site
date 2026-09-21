@@ -568,24 +568,27 @@
 .gang-world-npc--retrato>span{width:64px;height:64px;border-radius:50%;overflow:hidden;padding:0}
 .gang-world-npc--retrato>span img{width:100%;height:100%;object-fit:cover;image-rendering:pixelated}
 /* Andadinha dos "personagens" (qualquer pino com cara — NPC ou inimigo) —
-   3ª tentativa, 20/09/2026 (as 2 primeiras foram rejeitadas — ver
-   PinoAlvo/GanguesCenaAtores.jsx pro histórico completo do que já foi
-   tentado e por quê). Dois movimentos em elementos SEPARADOS (senão uma
-   `transform` sobrescreve a outra):
+   4ª leva, 20/09/2026 (histórico completo em PinoAlvo/GanguesCenaAtores.jsx
+   de tudo que já foi tentado e por quê). O `steps()` da leva anterior
+   (passadas discretas, tipo sprite 8-bit) o próprio Isaias pediu de volta:
+   "ficou muito tutu, agora o erro foi meu, faz uma caminhada mais suave,
+   de quem tá vigiando" — voltou pro `ease-in-out` nos dois movimentos
+   (contínuo, sem saltos), só mais devagar/discreto que passo de sprite —
+   o ritmo de quem tá de olho no quarteirão, não marchando. Dois movimentos
+   em elementos SEPARADOS (senão uma `transform` sobrescreve a outra):
      • `<span>` de FORA (`is-patrulha-h`/`-v`): o deslocamento de verdade —
        ida e volta de 60 a 115px (variando por pino, ver `--gp-w` em
-       PinoAlvo), com `steps()` em vez de `ease-in-out` — anda em passadas
-       discretas, não desliza suave feito fantasma. SEM rotação nenhuma
-       (a versão anterior girava o corpo junto — "parece que ele tá
-       bêbado"). Só visual: a âncora real (`left`/`top` do
-       `.gang-world-npc`, usada pra colisão/zona de interação) nunca muda.
-     • `.gang-world-npc-passo`, o `<span>` de DENTRO: o "tuc tuc tuc" —
-       bounce vertical curto (4px) e rápido, contínuo, independente da
-       direção — o "pé bate no chão" enquanto anda. */
+       PinoAlvo). SEM rotação nenhuma (leva anterior girava o corpo junto
+       — "parece que ele tá bêbado"). Só visual: a âncora real
+       (`left`/`top` do `.gang-world-npc`, usada pra colisão/zona de
+       interação) nunca muda.
+     • `.gang-world-npc-passo`, o `<span>` de DENTRO: bounce vertical bem
+       curto (2.5px) e lento, contínuo, independente da direção — só o
+       suficiente pra não parecer flutuando, sem ficar "tuc tuc" mecânico. */
 @keyframes gang-patrulha-h{0%,100%{transform:translateX(calc(-1 * var(--gp-w,90px)))}50%{transform:translateX(var(--gp-w,90px))}}
 @keyframes gang-patrulha-v{0%,100%{transform:translateY(calc(-1 * var(--gp-w,90px)))}50%{transform:translateY(var(--gp-w,90px))}}
-@keyframes gang-passo{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
-.gang-world-npc-passo{display:block;width:100%;height:100%;animation:gang-passo .28s steps(2) infinite}
+@keyframes gang-passo{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}
+.gang-world-npc-passo{display:block;width:100%;height:100%;animation:gang-passo .6s ease-in-out infinite}
 /* Farol universal de status (pedido do Isaias, 13/09/2026): substitui a cor
    do território + o azul de "farm" por vermelho/amarelo/verde
    autoexplicativo — vermelho = obrigatório e ainda não feito, amarelo =
@@ -606,10 +609,10 @@
    ganha de qualquer ordem — "já feito" continua sem pulsar
    (`gang-entry-pulse`, isso é do `is-perto`, não daqui), mas a andadinha
    nunca mais é cancelada por já ter sido farmado. */
-.gang-world-npc.is-feito.is-patrulha-h>span{animation:gang-patrulha-h var(--gp-dur,3.6s) steps(10) infinite}
-.gang-world-npc.is-feito.is-patrulha-v>span{animation:gang-patrulha-v var(--gp-dur,3.6s) steps(10) infinite}
-.gang-world-npc.is-patrulha-h>span{animation:gang-patrulha-h var(--gp-dur,3.6s) steps(10) infinite}
-.gang-world-npc.is-patrulha-v>span{animation:gang-patrulha-v var(--gp-dur,3.6s) steps(10) infinite}
+.gang-world-npc.is-feito.is-patrulha-h>span{animation:gang-patrulha-h var(--gp-dur,3.6s) ease-in-out infinite}
+.gang-world-npc.is-feito.is-patrulha-v>span{animation:gang-patrulha-v var(--gp-dur,3.6s) ease-in-out infinite}
+.gang-world-npc.is-patrulha-h>span{animation:gang-patrulha-h var(--gp-dur,3.6s) ease-in-out infinite}
+.gang-world-npc.is-patrulha-v>span{animation:gang-patrulha-v var(--gp-dur,3.6s) ease-in-out infinite}
 .gang-world-npc-farm-tag{position:absolute;top:-4px;right:14px;width:16px;height:16px;display:grid;place-items:center;border-radius:50%;background:#0b3a66;border:1px solid #4fb4ff;color:#9fd8ff;font-size:.6rem;font-style:normal;animation:gang-farm-spin 2.4s linear infinite}
 @keyframes gang-farm-spin{to{transform:rotate(360deg)}}
 .gang-world-player { position:absolute; z-index:18; transform:translate(-50%,-50%); display:grid;justify-items:center;pointer-events:none; }.gang-world-player>span { position:relative;display:block;width:54px;height:54px;border:2px solid #fff;clip-path:polygon(50% 0,92% 18%,86% 76%,50% 100%,14% 76%,8% 18%);background:linear-gradient(#16b8c8,#086070);box-shadow:0 8px 17px #000,0 0 16px rgba(0,220,255,.28);animation:gang-person-breathe 1.2s ease-in-out infinite; }.gang-world-player>span i{position:absolute;width:10px;height:18px;top:14px;border:1px solid #fff;background:var(--if-cyan-20)}.gang-world-player>span i:nth-child(1){left:7px;transform:rotate(-12deg)}.gang-world-player>span i:nth-child(2){left:16px;top:9px;height:23px;z-index:2}.gang-world-player>span i:nth-child(3){right:7px;transform:rotate(12deg)}.gang-world-player small{margin-top:2px;color:#fff;background:#02080bcc;padding:2px 5px;font:800 .52rem var(--font-mono);text-transform:uppercase}.gang-world-player.facing-left>span{transform:rotate(-5deg)}.gang-world-player.facing-right>span{transform:rotate(5deg)}
