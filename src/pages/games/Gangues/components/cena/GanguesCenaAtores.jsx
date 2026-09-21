@@ -1,4 +1,4 @@
-import { useCallback, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import { STEP_MS } from '../../engine/ganguesCenaMotor.js'
 import { getGanguesNpcPortrait } from '../../data/ganguesNpcPortraits.js'
@@ -86,15 +86,47 @@ function retratoDoPino(p) {
 }
 
 // Pino do alvo (POI, porta, saída, passagem). `ehChefe`/`ehPorta`/... decidem o ícone e o rótulo.
-// `active`: jogador está perto o bastante pra interagir — antes um retângulo
-// tracejado À PARTE (EntryZone) acendia ao lado; removido (pedido do Isaias,
-// 20/09/2026: "tira esse quadradinho, usa a colisão do próprio personagem")
-// — agora é o PRÓPRIO pino que brilha mais forte (classe `is-perto`).
+// `active`: jogador está dentro da ZONA de interação (`perto`/`insideZone`
+// em GanguesCena.jsx — de propósito bem maior que o círculo visual, pra
+// facilitar tocar no celular) — antes um retângulo tracejado À PARTE
+// (EntryZone) acendia ao lado; removido (pedido do Isaias, 20/09/2026:
+// "tira esse quadradinho, usa a colisão do próprio personagem") — agora é
+// o PRÓPRIO pino que brilha mais forte (classe `is-perto`). `colidindo`
+// (estado local, ver useEffect abaixo) é DIFERENTE — é a colisão visual
+// REAL (círculo contra círculo na tela), usada só pra pausar a andadinha
+// (`is-colidindo`) no momento exato que o personagem "esbarra" no
+// jogador, não assim que entra na zona generosa de interação.
 export function PinoAlvo({ p, t, active }) {
-  // useState sempre no topo, antes de qualquer return condicional (regra
-  // dos hooks) — falha de carregamento (rede ruim) cai pro ícone genérico,
-  // igual quando não tem retrato nenhum.
+  // useState/useRef/useEffect sempre no topo, antes de qualquer return
+  // condicional (regra dos hooks) — falha de carregamento (rede ruim) cai
+  // pro ícone genérico, igual quando não tem retrato nenhum.
   const [retratoFalhou, setRetratoFalhou] = useState(false)
+  const [colidindo, setColidindo] = useState(false)
+  const spanRef = useRef(null)
+  // "Eles estão parando ANTES de chegar no player, eles têm que parar
+  // quando colidirem com o player" (Isaias, 20/09/2026) — `active` (zona
+  // de interação, `perto`/`insideZone` em GanguesCena.jsx) é de propósito
+  // uma área BEM maior que o círculo visual (facilita tocar no celular),
+  // então pausar a andadinha só com `active` congelava o personagem cedo
+  // demais, antes de encostar de verdade. Aqui mede a colisão REAL — o
+  // círculo do pino contra o círculo do marcador do jogador na TELA
+  // (getBoundingClientRect, já considerando a posição visual da andadinha
+  // em CSS, que o React/JS não sabe onde está exatamente) — só pausa
+  // quando as bordas realmente se tocam. Poll leve (150ms, não every
+  // frame) porque é só um efeito visual, não precisão de física.
+  useEffect(() => {
+    if (!p.revezamento && !p.npcSlug && !p.liderFixo && !p.enemy) return // não é personagem, nem tenta
+    const id = setInterval(() => {
+      const pinoEl = spanRef.current
+      const playerEl = document.querySelector('.gang-world-player>span')
+      if (!pinoEl || !playerEl) return
+      const a = pinoEl.getBoundingClientRect()
+      const b = playerEl.getBoundingClientRect()
+      const dist = Math.hypot((a.left + a.width / 2) - (b.left + b.width / 2), (a.top + a.height / 2) - (b.top + b.height / 2))
+      setColidindo(dist < a.width / 2 + b.width / 2 + 4)
+    }, 150)
+    return () => clearInterval(id)
+  }, [p.revezamento, p.npcSlug, p.liderFixo, p.enemy])
   if (p.estado === 'trancado' && !(p.ehPassagem || p.ehChefe)) return null
   const icone = p.ehChefe ? '★' : p.ehPorta ? '🚪' : p.ehSaida ? '↩' : p.ehVolta ? '↩' : p.ehPassagem ? (p.label === 'subir' ? '▲' : '▶') : (ICONE[p.tipo] || '•')
   const nome = p.ehChefe ? t(`games.gangues.story.bosses.${p.boss}.nome`)
@@ -134,8 +166,8 @@ export function PinoAlvo({ p, t, active }) {
     '--gp-dur': `${patrulhaDur}s`,
     animationDelay: `${-((h % 100) / 100) * patrulhaDur}s`,
   } : undefined
-  return <div className={`gang-world-npc is-${p.estado} ${farolDe(p)} ${p.ehChefe ? 'is-boss' : ''} ${p.farmCompleto ? 'is-farm' : ''} ${active ? 'is-perto' : ''} ${p.ehPorta || p.ehSaida || p.ehVolta || p.ehPassagem ? 'is-nav' : ''} ${retrato ? 'gang-world-npc--retrato' : ''} ${patrulhaClasse}`} style={{ left: p.world.x, top: p.world.y }}>
-    <span style={patrulhaStyle}>
+  return <div className={`gang-world-npc is-${p.estado} ${farolDe(p)} ${p.ehChefe ? 'is-boss' : ''} ${p.farmCompleto ? 'is-farm' : ''} ${active ? 'is-perto' : ''} ${colidindo ? 'is-colidindo' : ''} ${p.ehPorta || p.ehSaida || p.ehVolta || p.ehPassagem ? 'is-nav' : ''} ${retrato ? 'gang-world-npc--retrato' : ''} ${patrulhaClasse}`} style={{ left: p.world.x, top: p.world.y }}>
+    <span ref={spanRef} style={patrulhaStyle}>
       <span className={personagem ? 'gang-world-npc-passo' : undefined}>
         {retrato ? <img src={retrato} alt="" onError={() => setRetratoFalhou(true)} /> : icone}
       </span>

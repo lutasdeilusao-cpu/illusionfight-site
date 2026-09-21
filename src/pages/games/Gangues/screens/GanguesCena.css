@@ -613,20 +613,27 @@
 .gang-world-npc.is-feito.is-patrulha-v>span{animation:gang-patrulha-v var(--gp-dur,3.6s) ease-in-out infinite}
 .gang-world-npc.is-patrulha-h>span{animation:gang-patrulha-h var(--gp-dur,3.6s) ease-in-out infinite}
 .gang-world-npc.is-patrulha-v>span{animation:gang-patrulha-v var(--gp-dur,3.6s) ease-in-out infinite}
-/* "Toda vez que ele colidir com o Player... ele para de andar, porque aí é
-   como se ele parasse pra conversar... pra ficar mais fácil de pegar eles
-   pra poder lutar" (Isaias, 20/09/2026) — `is-perto` já existe (jogador
-   dentro da zona de interação, ver GanguesCena.jsx/`perto`), só faltava
-   PAUSAR a andadinha nesse estado em vez de deixar rolando. `animation-
-   play-state` (não troca de `animation-name`) — o personagem congela
-   EXATAMENTE onde tava, sem "pular" de volta pro centro; o brilho de
-   "perto" (`gang-entry-pulse`) continua tocando normal, só o passeio para.
-   3 classes (mais específico que qualquer regra de patrulha isolada, com
-   ou sem `is-feito`) e por último no arquivo — garante a vitória mesmo
-   num pino já farmado que o jogador também está encostando. */
-.gang-world-npc.is-perto.is-patrulha-h>span{animation:gang-patrulha-h var(--gp-dur,3.6s) ease-in-out infinite,gang-entry-pulse .85s ease-in-out infinite alternate;animation-play-state:paused,running;box-shadow:0 0 24px rgba(255,255,255,.5),0 8px 15px #000}
-.gang-world-npc.is-perto.is-patrulha-v>span{animation:gang-patrulha-v var(--gp-dur,3.6s) ease-in-out infinite,gang-entry-pulse .85s ease-in-out infinite alternate;animation-play-state:paused,running;box-shadow:0 0 24px rgba(255,255,255,.5),0 8px 15px #000}
-.gang-world-npc.is-perto .gang-world-npc-passo{animation-play-state:paused}
+/* "Toda vez que ele colidir com o Player... ele para de andar" (Isaias,
+   20/09/2026) — 1ª tentativa usou `is-perto` (a ZONA de interação, bem
+   maior que o círculo visual de propósito, pra facilitar tocar no
+   celular) e ele reportou de volta com print: "eles estão parando ANTES
+   de chegar no player... tem que parar quando colidirem". `is-perto`
+   sozinho continua só acendendo o brilho (personagem ainda andando,
+   "notou" o jogador chegando perto mas não parou ainda) — só isso, sem
+   pausar. `is-colidindo` é a colisão VISUAL real (círculo contra círculo
+   na tela, medida em JS via getBoundingClientRect, ver useEffect em
+   PinoAlvo/GanguesCenaAtores.jsx) — só ela pausa de verdade
+   (`animation-play-state`, não troca `animation-name` — o personagem
+   congela EXATAMENTE onde tava, sem "pular" de volta pro centro). Regras
+   de `is-colidindo` vêm DEPOIS das de `is-perto` (mesma especificidade,
+   3 classes) de propósito — colidindo sempre implica perto também, e a
+   pausa tem que ganhar da simples proximidade quando as duas classes
+   coexistirem. */
+.gang-world-npc.is-perto.is-patrulha-h>span{animation:gang-patrulha-h var(--gp-dur,3.6s) ease-in-out infinite,gang-entry-pulse .85s ease-in-out infinite alternate;box-shadow:0 0 24px rgba(255,255,255,.5),0 8px 15px #000}
+.gang-world-npc.is-perto.is-patrulha-v>span{animation:gang-patrulha-v var(--gp-dur,3.6s) ease-in-out infinite,gang-entry-pulse .85s ease-in-out infinite alternate;box-shadow:0 0 24px rgba(255,255,255,.5),0 8px 15px #000}
+.gang-world-npc.is-colidindo.is-patrulha-h>span{animation:gang-patrulha-h var(--gp-dur,3.6s) ease-in-out infinite,gang-entry-pulse .85s ease-in-out infinite alternate;animation-play-state:paused,running;box-shadow:0 0 24px rgba(255,255,255,.5),0 8px 15px #000}
+.gang-world-npc.is-colidindo.is-patrulha-v>span{animation:gang-patrulha-v var(--gp-dur,3.6s) ease-in-out infinite,gang-entry-pulse .85s ease-in-out infinite alternate;animation-play-state:paused,running;box-shadow:0 0 24px rgba(255,255,255,.5),0 8px 15px #000}
+.gang-world-npc.is-colidindo .gang-world-npc-passo{animation-play-state:paused}
 .gang-world-npc-farm-tag{position:absolute;top:-4px;right:14px;width:16px;height:16px;display:grid;place-items:center;border-radius:50%;background:#0b3a66;border:1px solid #4fb4ff;color:#9fd8ff;font-size:.6rem;font-style:normal;animation:gang-farm-spin 2.4s linear infinite}
 @keyframes gang-farm-spin{to{transform:rotate(360deg)}}
 .gang-world-player { position:absolute; z-index:18; transform:translate(-50%,-50%); display:grid;justify-items:center;pointer-events:none; }.gang-world-player>span { position:relative;display:block;width:54px;height:54px;border:2px solid #fff;clip-path:polygon(50% 0,92% 18%,86% 76%,50% 100%,14% 76%,8% 18%);background:linear-gradient(#16b8c8,#086070);box-shadow:0 8px 17px #000,0 0 16px rgba(0,220,255,.28);animation:gang-person-breathe 1.2s ease-in-out infinite; }.gang-world-player>span i{position:absolute;width:10px;height:18px;top:14px;border:1px solid #fff;background:var(--if-cyan-20)}.gang-world-player>span i:nth-child(1){left:7px;transform:rotate(-12deg)}.gang-world-player>span i:nth-child(2){left:16px;top:9px;height:23px;z-index:2}.gang-world-player>span i:nth-child(3){right:7px;transform:rotate(12deg)}.gang-world-player small{margin-top:2px;color:#fff;background:#02080bcc;padding:2px 5px;font:800 .52rem var(--font-mono);text-transform:uppercase}.gang-world-player.facing-left>span{transform:rotate(-5deg)}.gang-world-player.facing-right>span{transform:rotate(5deg)}
