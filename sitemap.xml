@@ -115,6 +115,12 @@
     <priority>0.4</priority>
   </url>
   <url>
+    <loc>https://illusionfight.com/web-shard/</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://illusionfight.com/calendario/</loc>
     <lastmod>2026-09-21</lastmod>
     <changefreq>weekly</changefreq>
