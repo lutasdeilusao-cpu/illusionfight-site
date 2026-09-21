@@ -8,7 +8,7 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.280.234' // feat: LDI Gangues - nova loja "Balcao do Aperto" na Pista (so pocao HP/MP, dobro do preco) - agora que o risco compensa mais, precisa de mais item pra bancar. Ver GANGUES_VERSION.
+export const SITE_VERSION = '10.280.235' // feat: nova pagina /web-shard (SEO) explicando o termo proprio "WEB SHARD" - pedido do Isaias, 21/09/2026: "a gente vai continuar usando webtoon no portal porque chama atencao, mas aqui dentro eu quero que esteja escrito nosso novo termo... um botaozinho que a pessoa clica e acessa uma pagina com a explicacao". /webtoon (rota, nav, SEO) continua intocado; so ganhou um link de descoberta pro termo novo.
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json

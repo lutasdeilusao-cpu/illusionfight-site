@@ -1,0 +1,191 @@
+/* WEB SHARD — página de explicação/SEO do formato. Só layout aqui; cor e
+   geometria de assinatura vêm dos tokens do design system (if-*,
+   src/styles/design-system.css) — nada de paleta nova por página. */
+
+.web-shard {
+  padding: 2.5rem 0 4rem;
+  background: var(--bg-primary);
+}
+
+.web-shard__container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.web-shard__hero {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.web-shard__h1 {
+  margin: 0.25rem 0 0;
+}
+
+.web-shard__subtitle {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+.web-shard__cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 0.4rem;
+}
+
+.web-shard__divider {
+  margin: 1.6rem 0;
+}
+
+.web-shard__section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.web-shard__section .if-title {
+  margin-bottom: 0.2rem;
+}
+
+.web-shard__body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
+}
+
+.web-shard__body--emph {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.web-shard__steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+}
+
+.web-shard__step {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+}
+
+.web-shard__step-n {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border: 1px solid var(--if-cyan-45);
+  background: var(--if-cyan-08);
+  color: var(--if-cyan);
+  font: 700 0.75rem var(--font-mono);
+}
+
+.web-shard__step p {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+.web-shard__step strong {
+  color: var(--text-primary);
+}
+
+.web-shard__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin: 0;
+  padding: 0;
+}
+
+.web-shard__list li {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  padding-left: 1.1rem;
+  position: relative;
+}
+
+.web-shard__list li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--if-cyan);
+}
+
+.web-shard__list strong {
+  color: var(--text-primary);
+}
+
+.web-shard__obra {
+  padding: 1.4rem 1.2rem;
+  align-items: flex-start;
+}
+
+.web-shard__faq-item {
+  border-bottom: 1px solid var(--if-hair);
+  padding: 0.7rem 0;
+}
+
+.web-shard__faq-item summary {
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}
+
+.web-shard__faq-item summary::-webkit-details-marker { display: none; }
+
+.web-shard__faq-item summary::after {
+  content: '+';
+  float: right;
+  color: var(--if-cyan);
+}
+
+.web-shard__faq-item[open] summary::after {
+  content: '–';
+}
+
+.web-shard__faq-item p {
+  margin: 0.6rem 0 0;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+.web-shard__final {
+  margin-top: 1rem;
+  padding: 1.6rem 0 0.4rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.web-shard__final-text {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--text-primary);
+}

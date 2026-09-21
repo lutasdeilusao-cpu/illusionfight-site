@@ -74,6 +74,7 @@ const BulletHellRafael = lazyWithReload(() => import('./pages/games/KernelGames/
 const StabilizerRafael = lazyWithReload(() => import('./pages/games/KernelGames/StabilizerRafael/StabilizerRafael'))
 const Loja = lazyWithReload(() => import('./pages/site/Loja/Loja'))
 const Custos = lazyWithReload(() => import('./pages/site/Custos'))
+const WebShard = lazyWithReload(() => import('./pages/site/WebShard'))
 const Calendario = lazyWithReload(() => import('./pages/site/Calendario/Calendario'))
 const NotFound = lazyWithReload(() => import('./pages/site/NotFound/NotFound'))
 const SearchModal = lazyWithReload(() => import('./components/SearchModal/SearchModal'))
@@ -217,6 +218,7 @@ export default function App() {
         <Route path="/prototype/srgrm" element={<SRGRM />} />
         <Route path="/prototype/arenatestbed" element={<ArenaTestbed />} />
         <Route path="/custos" element={<Custos />} />
+        <Route path="/web-shard" element={<WebShard />} />
         <Route path="/calendario" element={<Calendario />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

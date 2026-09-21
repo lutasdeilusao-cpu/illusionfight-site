@@ -670,8 +670,9 @@
     "webtoon": {
       "titulo": "WEBTOON",
       "meta_title": "Illusion Fight Webtoon — Free Action Webcomic Online",
-      "meta_desc": "Read the Illusion Fight webtoon online for free — a Brazilian action webcomic for manga, manhwa and webcomic fans. Episodes, art and the story of Kim and the fighters of Bravara.",
-      "seo_intro": "Illusion Fight is a free Brazilian action webtoon, published in episodes right here on the site. If you're into manga, manhwa or other action webcomics, you'll recognize the pacing — this time with an all-Brazilian cast and universe.",
+      "meta_desc": "Read Illusion Fight online for free — the first title in WEB SHARD, the vertical web comic and manga format in composite pages.",
+      "seo_intro": "Illusion Fight is the first title in WEB SHARD, the new vertical web comic and manga format in composite pages, published free in episodes right here on the site. If you're into manga, manhwa or other action webcomics, you'll recognize the pacing — this time with an all-Brazilian cast and universe.",
+      "web_shard_cta": "What is WEB SHARD? →",
       "continuar": "→ Continue",
       "voltar": "← BACK",
       "nao_encontrado": "Episode not found.",
@@ -954,6 +955,72 @@
     },
     "footer": "This page is updated when costs change.",
     "cta": "See plans"
+  },
+  "webShard": {
+    "meta_title": "WEB SHARD: Vertical Web Comic and Manga in Composite Pages",
+    "meta_desc": "WEB SHARD is the vertical web comic and manga format with composite pages, overlapping cutaways and diagonal cuts. Read Illusion Fight free.",
+    "hero": {
+      "kicker": "WEB SHARD",
+      "title": "Vertical Web Comic / Manga",
+      "subtitle": "Every page is a whole scene. Overlapping cutaways, diagonal cuts, and action that spills into the next frame.",
+      "cta1": "Read Illusion Fight now",
+      "cta2": "See how it works"
+    },
+    "s1": {
+      "title": "What is WEB SHARD?",
+      "body1": "WEB SHARD is a vertical web comic and manga format built for reading on a phone. Instead of a line of loose panels, every page is composed as a self-contained scene: large hero panels, smaller overlapping cutaways, and diagonal cuts that guide the eye.",
+      "body2": "The name comes from \"shard\" — a broken splinter of glass. The tilted cutaways layered over the scene look like shards, and that's what gives the format its signature."
+    },
+    "s2": {
+      "title": "How a WEB SHARD page works",
+      "step1_title": "Composite pages.",
+      "step1_body": "Every page has its own composition, built for the phone screen.",
+      "step2_title": "Overlapping cutaways.",
+      "step2_body": "Details like a closing fist, a glance, or a foot hitting the ground show up in small cutaways layered over the scene, without taking up a whole panel.",
+      "step3_title": "Diagonal cuts.",
+      "step3_body": "No straight dividers: the tilted cut gives speed and pulls the reader through the action.",
+      "step4_title": "Action that spills over.",
+      "step4_body": "An arm, a can, a finger crosses the cut and lands in the next scene.",
+      "cta": "Start reading"
+    },
+    "s3": {
+      "title": "More impact on every page",
+      "item1_title": "Cinematic pacing.",
+      "item1_body": "Every cutaway is a beat: the reader feels the timing of the scene, not just the sequence of panels.",
+      "item2_title": "Clear reading on mobile.",
+      "item2_body": "Large hero panels and small cutaways guide the eye without cluttering the screen.",
+      "item3_title": "More emotion in the details.",
+      "item3_body": "A hand, an eye, a drop of sweat gets its own spotlight without stopping the read.",
+      "item4_title": "Comedy and action with timing.",
+      "item4_body": "The format is built for deadpan jokes and brawls, and for letting the page breathe between them."
+    },
+    "s4": {
+      "title": "For readers of web comics, manga and action comics",
+      "body": "If you like web comics, manga, fighting comics, and action-comedy stories, WEB SHARD is a new way to read on your phone. It's a format open to comic and manga alike, with total freedom of style and color per title."
+    },
+    "s5": {
+      "title": "Illusion Fight, the first WEB SHARD title",
+      "body1": "Bravara, 2030. Kim is a 17-year-old scholarship kid who sells candy on buses, carrying a secret in his blood. In a virtual arena where the pain is 100% real, he's about to find out what he's made of.",
+      "body2": "Action, humor and friendship, in the first title of the Illusion Fight universe.",
+      "cta": "Read chapter 1 free"
+    },
+    "faq": {
+      "title": "Frequently asked questions",
+      "q1": "What is WEB SHARD?",
+      "a1": "It's a vertical web comic and manga format in composite pages, with overlapping cutaways and diagonal cuts.",
+      "q2": "Is WEB SHARD the same as webtoon?",
+      "a2": "No. The classic webtoon is a continuous scroll of loose panels. In WEB SHARD, every page is a self-contained composition, with hero panels and overlapping cutaways. WEB SHARD is our own term, coined by Illusion Fight — it's not an industry format or the name of any platform.",
+      "q3": "Do I need an app to read it?",
+      "a3": "No. You read it straight in your browser, on phone or computer.",
+      "q4": "Is WEB SHARD manga or comic?",
+      "a4": "Both. The format is open: each title picks its own style, whether manga, comic, or something else.",
+      "q5": "Where can I read it?",
+      "a5": "Right here on the site, for free — no account required."
+    },
+    "final": {
+      "text": "The next page is waiting.",
+      "cta": "Read Illusion Fight now"
+    }
   },
   "calendar": {
     "meta_title": "Season 1 Calendar — Illusion Fight",

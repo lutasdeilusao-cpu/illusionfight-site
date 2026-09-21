@@ -54,6 +54,14 @@ export default function Webtoon() {
           )}
           <h1 className="section-title">{t('pages.webtoon.titulo')}</h1>
           <p className="webtoon-seo-intro">{t('pages.webtoon.seo_intro')}</p>
+          {/* Botão de descoberta do termo próprio (WEB SHARD) — pedido do
+              Isaias, 21/09/2026: "a gente vai continuar usando webtoon no
+              portal porque chama atenção, mas aqui dentro eu quero que
+              esteja escrito nosso novo termo... um botãozinho que a
+              pessoa clica e acessa uma página com a explicação". */}
+          <Link to="/web-shard" className="webtoon-web-shard-link">
+            {t('pages.webtoon.web_shard_cta')}
+          </Link>
           <div className="webtoon-grid">
             {episodios.map(ep => {
               const liberado = ep.id === '00' || estaDisponivel(ep, isAdmin, { user, perfil }) || TRIAL_ACTIVE

@@ -21,6 +21,21 @@
   color: var(--text-muted);
 }
 
+/* Botão de descoberta do termo próprio (WEB SHARD, ver /web-shard) —
+   discreto, não compete com os CTAs de leitura dos episódios abaixo. */
+.webtoon-web-shard-link {
+  display: flex;
+  width: fit-content;
+  margin: 0.6rem auto 0;
+  color: var(--if-cyan);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .webtoon-grid {
   display: flex;
   flex-direction: column;

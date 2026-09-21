@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — MAPA DO SITE E DO PROJETO
 
 > Referência do estado atual do projeto para navegação humana e contexto de IA.
-> Atualizado em 2026-09-21 — `SITE_VERSION` **10.280.234**.
+> Atualizado em 2026-09-21 — `SITE_VERSION` **10.280.235**.
 > Histórico de tarefas, bugfixes e pendências não pertence a este documento.
 > Regras de trabalho, arquivos proibidos e decisões arquiteturais: `AGENTS.md`.
 
@@ -95,6 +95,7 @@ Componentes montados globalmente por `App.jsx`: `AnalyticsTracker`, `ScrollToTop
 | `/loja` | Loja | `src/pages/site/Loja/Loja.jsx` |
 | `/quiz` | Quiz | `src/pages/site/Quiz.jsx` |
 | `/custos` | Custos da plataforma | `src/pages/site/Custos.jsx` |
+| `/web-shard` | Explicação do termo próprio "WEB SHARD" (SEO) — linkado a partir de `/webtoon` | `src/pages/site/WebShard.jsx` |
 | `/calendario` | Hub público de lançamentos (capítulos, webtoon, games, músicas e parceiros) | `src/pages/site/Calendario/Calendario.jsx` |
 
 ### 3.2 Plataforma e conta

@@ -670,8 +670,9 @@
     "webtoon": {
       "titulo": "WEBTOON",
       "meta_title": "Webtoon Illusion Fight — Leia Online Grátis",
-      "meta_desc": "Leia online e grátis o webtoon de ação Illusion Fight — capítulos, arte e a história de Kim e os lutadores de Bravara.",
-      "seo_intro": "Illusion Fight é um webtoon de ação brasileiro, publicado em capítulos gratuitos direto aqui no site. Se você gosta de manga, manhwa ou outros webcomics de ação, vai reconhecer o ritmo — só que com um universo e um elenco 100% brasileiros.",
+      "meta_desc": "Leia online e grátis Lutas de Ilusão — a primeira obra em WEB SHARD, o formato de web comic e mangá vertical em páginas compostas.",
+      "seo_intro": "Lutas de Ilusão é a primeira obra em WEB SHARD, o novo formato de web comic e mangá vertical em páginas compostas, publicado em capítulos gratuitos direto aqui no site. Se você gosta de manga, manhwa ou outros webcomics de ação, vai reconhecer o ritmo — só que com um universo e um elenco 100% brasileiros.",
+      "web_shard_cta": "O que é WEB SHARD? →",
       "continuar": "→ Continuar",
       "voltar": "← VOLTAR",
       "nao_encontrado": "Episódio não encontrado.",
@@ -954,6 +955,72 @@
     },
     "footer": "Esta página é atualizada quando os custos mudam.",
     "cta": "Ver planos"
+  },
+  "webShard": {
+    "meta_title": "WEB SHARD: Web Comic e Mangá Vertical em Páginas Compostas",
+    "meta_desc": "WEB SHARD é o formato de web comic e mangá vertical com páginas compostas, recortes sobrepostos e cortes diagonais. Leia Lutas de Ilusão grátis.",
+    "hero": {
+      "kicker": "WEB SHARD",
+      "title": "Web Comic / Mangá Vertical",
+      "subtitle": "Cada página é uma cena inteira. Recortes sobrepostos, cortes diagonais e ação que invade o quadro ao lado.",
+      "cta1": "Ler Lutas de Ilusão agora",
+      "cta2": "Ver como funciona"
+    },
+    "s1": {
+      "title": "O que é o WEB SHARD?",
+      "body1": "WEB SHARD é um formato de web comic e mangá vertical criado para ler no celular. Em vez de uma fila de quadros soltos, cada página é composta como uma cena fechada: painéis grandes de destaque, recortes menores sobrepostos e cortes diagonais que conduzem o olhar.",
+      "body2": "O nome vem de shard, \"caco\" em inglês. Os recortes inclinados que se sobrepõem à cena lembram estilhaços de vidro, e é isso que dá ao formato a sua assinatura."
+    },
+    "s2": {
+      "title": "Como funciona uma página WEB SHARD",
+      "step1_title": "Páginas compostas.",
+      "step1_body": "Cada página tem uma composição própria, pensada para a tela do celular.",
+      "step2_title": "Recortes sobrepostos.",
+      "step2_body": "Detalhes como um punho fechando, um olhar ou um pé no chão aparecem em pequenos recortes por cima da cena, sem ocupar um painel inteiro.",
+      "step3_title": "Cortes diagonais.",
+      "step3_body": "Sem divisões retas: o corte inclinado dá velocidade e faz o leitor seguir a ação.",
+      "step4_title": "Ação que invade o quadro.",
+      "step4_body": "Um braço, uma lata ou um dedo cruza o corte e entra na cena vizinha.",
+      "cta": "Começar a ler"
+    },
+    "s3": {
+      "title": "Mais impacto em cada página",
+      "item1_title": "Ritmo de cinema.",
+      "item1_body": "Cada recorte é uma batida: o leitor sente o tempo da cena, não só a sequência dos quadros.",
+      "item2_title": "Leitura clara no celular.",
+      "item2_body": "Painéis grandes de destaque e recortes pequenos guiam o olhar sem poluir a tela.",
+      "item3_title": "Mais emoção nos detalhes.",
+      "item3_body": "Uma mão, um olho ou uma gota de suor ganham destaque sem parar a leitura.",
+      "item4_title": "Comédia e ação com timing.",
+      "item4_body": "O formato foi feito para piada seca e pancadaria, e para deixar a página respirar entre elas."
+    },
+    "s4": {
+      "title": "Para leitores de web comic, mangá e quadrinhos de ação",
+      "body": "Se você gosta de web comics, mangás, quadrinhos de luta e histórias de ação e humor, o WEB SHARD é uma forma nova de ler no celular. É um formato aberto a comic e a mangá, com liberdade total de estilo e de cores por obra."
+    },
+    "s5": {
+      "title": "Lutas de Ilusão, a primeira obra em WEB SHARD",
+      "body1": "Bravara, 2030. Kim é um garoto de 17 anos, bolsista e vendedor de balas em ônibus, que carrega um segredo no sangue. Numa arena virtual onde a dor é 100% real, ele vai descobrir do que é capaz.",
+      "body2": "Ação, humor e amizade, na primeira obra do universo Lutas de Ilusão.",
+      "cta": "Ler o capítulo 1 grátis"
+    },
+    "faq": {
+      "title": "Perguntas frequentes",
+      "q1": "O que é WEB SHARD?",
+      "a1": "É um formato de web comic e mangá vertical em páginas compostas, com recortes sobrepostos e cortes diagonais.",
+      "q2": "WEB SHARD é a mesma coisa que webtoon?",
+      "a2": "Não. O webtoon clássico é uma rolagem contínua de painéis soltos. No WEB SHARD, cada página é uma composição fechada, com destaques e recortes sobrepostos. WEB SHARD é um termo próprio, criado pela Lutas de Ilusão — não é um formato de mercado nem o nome de nenhuma plataforma.",
+      "q3": "Preciso de aplicativo para ler?",
+      "a3": "Não. Você lê direto no navegador, no celular ou no computador.",
+      "q4": "WEB SHARD é mangá ou comic?",
+      "a4": "Os dois. O formato é aberto: cada obra escolhe o próprio estilo, seja mangá, comic ou outro.",
+      "q5": "Onde posso ler?",
+      "a5": "Aqui mesmo no site, de graça — sem cadastro obrigatório."
+    },
+    "final": {
+      "text": "A próxima página está esperando.",
+      "cta": "Ler Lutas de Ilusão agora"
+    }
   },
   "calendar": {
     "meta_title": "Calendário da Temporada 1 — Illusion Fight",
