@@ -500,8 +500,10 @@
         "regra": "Hey, pay attention to this: always beating up on someone way weaker than your best fighter doesn't pay off — the bigger the gap, the less AP the fight gives, but never less than 5. But take on someone stronger and it flips: 1 to 5 levels above already TRIPLES the AP, and past 5, it QUADRUPLES. Take the risk, get a lot more."
       },
       "descanso_tutorial": {
-        "recuperar": "This is where your crew heals up PV and PM in full, for some cash. Sit down at the birosca and nobody starts trouble.",
-        "fiado": "Short on cash? You can run a tab with Nato — he heals you now, but the debt grows. After 2 tabs he cuts you off: no deadline, no collector, he just remembers."
+        "recuperar": "This is where your crew heals up PV and PM in full, for some cash. Sit down at the birosca and nobody starts trouble."
+      },
+      "agiota_tutorial": {
+        "emprestimo": "Short on cash? The loan shark lends — but you pay back 10x as debt, and every credit heal after that DOUBLES what you owe. Hit the ceiling and he heals you free, then throws you straight into the Fight Club to settle up."
       },
       "clube_tutorial": {
         "como_funciona": "The Fight Club is a betting ring: 3 rounds back to back, no resting in between. Win and you walk out with cash (or clear your debt); lose and they patch you up — doesn't count as a real defeat. The entry's always on credit though: saying yes means walking in already owing.",
@@ -4064,7 +4066,8 @@
           "corre": "Run",
           "achado": "Find",
           "descanso": "Bar",
-          "loja": "Shop"
+          "loja": "Shop",
+          "agiota": "Loan shark"
         },
         "descanso_titulo": "The crew rested. Each one recovered:",
         "descanso_ja_inteira": "The crew's already whole, kid. Keep the cash.",
@@ -4074,34 +4077,34 @@
         "descanso_animando": "Resting...",
         "tropa_no_chao": "Your whole crew's down, kid. Nobody's facing anyone like this. Hit Nato's corner store first.",
         "aviso_rep_treta": "That one's a whole different animal, kid. Don't go acting hard with no name made yet — stack up more rep before you step in there (rep {rep}).",
-        "aviso_rep_clube": "Nato won't even let you in the circle without a name on the street. Build more rep before you show up here (rep {rep}).",
+        "aviso_rep_clube": "Hornet won't even let you in the circle without a name on the street. Build more rep before you show up here (rep {rep}).",
         "rep_recompensa": {
           "titulo": "REPUTATION {valor}!",
           "sub": "Your name's ringing out on the street, kid. Go on, grab it.",
           "pegar": "GRAB IT"
         },
         "emprestimo_pedir": "Take a loan (+{valor}, ends up owing {divida})",
-        "emprestimo_contrato_tag": "Loan · Nato",
-        "emprestimo_contrato": "Nato counts {valor} into your hand, doesn't even count it twice. \"This one pays off, kid. Now you owe me {divida}. No deadline — just don't disappear.\"",
-        "emprestimo_ja_deve": "You already owe Nato, kid. Settle that before asking for more.",
+        "emprestimo_contrato_tag": "Contract · no deadline",
+        "emprestimo_contrato": "Hornet counts {valor} into your hand, doesn't even count it twice. \"This one pays off, kid. Now you owe me {divida}. No deadline — just don't disappear.\"",
+        "emprestimo_ja_deve": "You already owe Hornet, kid. Settle that before asking for more.",
         "fiado_pedir": "Ask for more credit (heal everyone, ends up owing {divida})",
         "fiado_contrato_tag": "Contract · no deadline",
-        "fiado_contrato_cura": "Nato has your whole crew healed, on the tab. \"Your debt doubled, kid. It's {divida} now.\"",
-        "fiado_sem_emprestimo": "You don't owe anything yet, kid. Take Nato's loan first.",
-        "fiado_teto": "Your debt's maxed out, kid. Nato's only fix now is throwing you into the pit.",
-        "fiado_devendo": "Nato's book: you owe {divida} cash.",
-        "fiado_pagar": "Pay Nato (−{grana})",
-        "fiado_pago_parcial": "Knocked {pago} off. Still {restante} left for Nato.",
-        "fiado_pago_total": "Cleared the {pago}. Your name's clean at the store.",
-        "nato_socorro": "Beg Nato for help",
-        "nato_socorro_tag": "Nato's out of patience",
-        "nato_socorro_fala": "Nato shakes his head. \"Enough, kid. That debt's past what I can even collect. I'll patch you up for free — but you're settling this in the pit, like it or not.\"",
+        "fiado_contrato_cura": "Hornet has your whole crew healed, on the tab. \"Your debt doubled, kid. It's {divida} now.\"",
+        "fiado_sem_emprestimo": "You don't owe anything yet, kid. Take Hornet's loan first.",
+        "fiado_teto": "Your debt's maxed out, kid. Hornet's only fix now is throwing you into the pit.",
+        "fiado_devendo": "Hornet's book: you owe {divida} cash.",
+        "fiado_pagar": "Pay Hornet (−{grana})",
+        "fiado_pago_parcial": "Knocked {pago} off. Still {restante} left for Hornet.",
+        "fiado_pago_total": "Cleared the {pago}. Your name's clean with Hornet.",
+        "nato_socorro": "Beg Hornet for help",
+        "nato_socorro_tag": "Hornet's out of patience",
+        "nato_socorro_fala": "Hornet shakes his head. \"Enough, kid. That debt's past what I can even collect. I'll patch you up for free — but you're settling this in the pit, like it or not.\"",
         "nato_socorro_seguir": "Go on (blindfold now)",
-        "aviso_divida_chefe": "You don't face Coal owing Nato, kid. Clear that {divida} debt first — his pit's the fastest way.",
+        "aviso_divida_chefe": "You don't face Coal owing Hornet, kid. Clear that {divida} debt first — his pit's the fastest way.",
         "clube_botao": "▸ The Fight Club",
-        "clube_oferta_tag": "Offer · Nato's pit",
-        "clube_oferta_limpo": "Nato looks you over. \"You're clean with me. But I got a job: betting pit, mine. You go in, you win, you walk with 200 in hand. No experience — nobody learns anything in the pit. You lose, we patch you up and you try again. Only the buy-in's on credit: I heal you now and it turns into debt if you don't win. Deal?\"",
-        "clube_oferta_divida": "Nato taps the book. \"You owe me. But I got a job for that: betting pit, mine. You go in, you win, your debt's gone — all of it, no matter the size. No money, no experience, just settling up. You lose, we patch you up and you try again. The buy-in I float you — fifteen times — and I heal the whole crew. Deal?\"",
+        "clube_oferta_tag": "Offer · Hornet's pit",
+        "clube_oferta_limpo": "Hornet looks you over. \"You're clean with me. But I got a job: betting pit, mine. You go in, you win, you walk with 200 in hand. No experience — nobody learns anything in the pit. You lose, we patch you up and you try again. Only the buy-in's on credit: I heal you now and it turns into debt if you don't win. Deal?\"",
+        "clube_oferta_divida": "Hornet taps the book. \"You owe me. But I got a job for that: betting pit, mine. You go in, you win, your debt's gone — all of it, no matter the size. No money, no experience, just settling up. You lose, we patch you up and you try again. The buy-in I float you — fifteen times — and I heal the whole crew. Deal?\"",
         "clube_recusar": "Not now",
         "clube_aceitar": "Take it (blindfold now)",
         "pista": {
@@ -4206,6 +4209,20 @@
             "nome": "The cousin's corner bar",
             "sub": "on the other side of the wall",
             "intro": "Nato's cousin runs a makeshift bar over on this side. Same deal: pay a little change and the crew sorts itself out before heading into Carvão's warehouse."
+          },
+          "agiota": {
+            "nome": "Hornet",
+            "sub": "lends fast, collects even faster",
+            "fala": [
+              "Psst. Need quick cash, kid? I lend 100. That's it — don't push for more.",
+              "100 in your hand, right now. We settle up later — just don't come with excuses."
+            ],
+            "botao_ver_contrato": "I want the loan",
+            "contrato_tag": "Contract · no deadline",
+            "contrato_corpo": "\"100 in your hand, right now. You in or out?\"",
+            "contrato_letra_miuda": "Fine print of the deal: you end up owing {divida}.",
+            "contrato_aceitar": "I'm in",
+            "contrato_recusar": "I'm out"
           },
           "posmuro_1": {
             "nome": "The watchdogs",

@@ -1,5 +1,10 @@
-// Slice: descanso da birosca + agiotagem do Nato + Clube da Luta. Extraído de
-// store/useGanguesStore.js (PLANO_REFATORACAO_ARQUIVOS_GRANDES_GANGUES_2026-09-11.md §3).
+// Slice: descanso da birosca + agiotagem do agiota + Clube da Luta. Extraído
+// de store/useGanguesStore.js (PLANO_REFATORACAO_ARQUIVOS_GRANDES_GANGUES_2026-09-11.md §3).
+// NOTA (21/09/2026): a agiotagem/Clube da Luta migraram do Nato (birosca)
+// pra um NPC novo, o agiota (pino próprio, ver GanguesAgiota.jsx/pois.js) —
+// os identificadores (pedirEmprestimoNato, GANGUES_EMPRESTIMO_NATO_*) ficaram
+// com o nome antigo por não valer o custo/risco de renomear em tudo que já
+// os referencia; o texto visível ao jogador já fala "Marimbondo"/agiota.
 import {
   normalizeGanguesLoadout, getGanguesResources,
   GANGUES_EMPRESTIMO_NATO_VALOR, GANGUES_EMPRESTIMO_NATO_MULT, GANGUES_EMPRESTIMO_NATO_TETO,

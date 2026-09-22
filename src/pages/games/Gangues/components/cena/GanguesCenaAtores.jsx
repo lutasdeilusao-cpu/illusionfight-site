@@ -52,7 +52,7 @@ function farolDe(p) {
   return p.opcional ? 'is-opcional' : 'is-obrigatorio'
 }
 
-const ICONE = { treta: '✊', parada: '🔧', papo: '●', corre: '!', achado: '◆', descanso: '☕', loja: '🏪' }
+const ICONE = { treta: '✊', parada: '🔧', papo: '●', corre: '!', achado: '◆', descanso: '☕', loja: '🏪', agiota: '💰' }
 
 // Hash estável (string -> inteiro não-negativo) — só pra escolher SEMPRE o
 // mesmo molde de um pool pro mesmo POI (nunca sorteado de novo a cada
@@ -97,11 +97,12 @@ function retratoDoPino(p) {
 // colisão visual REAL (`onColidir`/`colidindo` aqui embaixo), não à zona
 // fixa ancorada no `world.x/y` (que só faz sentido pra pino parado).
 export function ehPersonagem(p) {
-  // Loja fica de fora mesmo tendo retrato — é vendedor de banca fixa
+  // Loja e agiota ficam de fora mesmo tendo retrato — são banca fixa
   // (pedido do Isaias, 21/09/2026, ao emprestar a cara do balconista pra
-  // "Balcão do Aperto"), não personagem que anda por aí; continua no
-  // grupo dos "pinos estáticos de ação" (achado/parada/corre/nav).
-  return Boolean(retratoDoPino(p)) && !p.ehChefe && p.tipo !== 'loja'
+  // "Balcão do Aperto", e de novo pro agiota: "esse vai ficar parado"),
+  // não personagem que anda por aí; continuam no grupo dos "pinos
+  // estáticos de ação" (achado/parada/corre/nav).
+  return Boolean(retratoDoPino(p)) && !p.ehChefe && p.tipo !== 'loja' && p.tipo !== 'agiota'
 }
 
 // Pino do alvo (POI, porta, saída, passagem). `ehChefe`/`ehPorta`/... decidem o ícone e o rótulo.
@@ -208,7 +209,7 @@ export function PinoAlvo({ p, t, active, onColidir }) {
   </div>
 }
 
-const LABEL_TIPO = { papo: 'FALAR', treta: 'ENCARAR', parada: 'INVESTIGAR', corre: 'SEGUIR', descanso: 'DESCANSAR', loja: 'COMPRAR', achado: 'PEGAR' }
+const LABEL_TIPO = { papo: 'FALAR', treta: 'ENCARAR', parada: 'INVESTIGAR', corre: 'SEGUIR', descanso: 'DESCANSAR', loja: 'COMPRAR', achado: 'PEGAR', agiota: 'AGIOTA' }
 export function interactionLabel(p, t) {
   if (p.ehChefe) return t('games.gangues.cena.acao.desafiar')
   if (p.ehPorta) return t('games.gangues.cena.acao.entrar')

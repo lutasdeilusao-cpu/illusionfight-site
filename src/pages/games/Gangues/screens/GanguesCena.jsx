@@ -8,6 +8,7 @@ import GangDialog from '../components/GangDialog'
 import GanguesPapo from '../components/cena/GanguesPapo'
 import GanguesParada from '../components/cena/GanguesParada'
 import GanguesDescanso from '../components/cena/GanguesDescanso'
+import GanguesAgiota from '../components/cena/GanguesAgiota'
 import GanguesLoja from '../components/cena/GanguesLoja'
 import GanguesMiniMapa from '../components/cena/GanguesMiniMapa'
 import GanguesAlvoTutorial from '../components/cena/GanguesAlvoTutorial'
@@ -260,18 +261,19 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
     setTimeout(() => setAviso(null), 3600)
     return true
   }
-  // Aceitou o Clube da Luta na birosca: a entrada já fia 15× e cura a tropa, e
-  // o jogador é vendado e levado pra roda (fase 'clube' → sequestro → combate).
-  // `clubeDividaPrevia` = dívida ANTES da entrada — decide se a vitória paga os
-  // 200 de grana (entrou limpo) ou só quita a dívida.
+  // Aceitou o Clube da Luta com o agiota: a entrada já fia 15× e cura a
+  // tropa, e o jogador é vendado e levado pra roda (fase 'clube' →
+  // sequestro → combate). `clubeDividaPrevia` = dívida ANTES da entrada —
+  // decide se a vitória paga os 200 de grana (entrou limpo) ou só quita a
+  // dívida.
   //
-  // `gratis` (Isaias, 21/09/2026: "chegou em 10.000, o Nato não vai nem te
+  // `gratis` (Isaias, 21/09/2026: "chegou em 10.000, ele não vai nem te
   // cobrar, ele vai te remendar, só que já vai te jogar pro Clube da Luta") —
   // o socorro do teto da agiotagem: cura de graça (sem somar o 15× de
   // entrada) e joga direto pra dentro, sem a tela normal de aceitar/recusar
-  // (ver GanguesDescanso.jsx, botão "socorro" quando agiotagemInfo().noTeto).
+  // (ver GanguesAgiota.jsx, botão "socorro" quando agiotagemInfo().noTeto).
   const iniciarClube = (custoBase, gratis = false) => {
-    // Rota de escape de quem já tá endividado com o Nato — NUNCA bloqueia
+    // Rota de escape de quem já tá endividado com o agiota — NUNCA bloqueia
     // quem já tem dívida, senão vira soft-lock cruel (endividado sem rep
     // preso sem conseguir quitar). O gate só vale pra quem entra "por
     // vontade própria" (sem dívida, atrás dos 200 de grana). O socorro
@@ -332,15 +334,15 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
   const iniciarTreta = (poi, { viraTreta, revela } = {}) => {
     if (barraSeChao()) return
     const chefe = Boolean(poi.ehChefe)
-    // Gate da dívida com o Nato (Isaias, 21/09/2026: "antes de enfrentar o
+    // Gate da dívida com o agiota (Isaias, 21/09/2026: "antes de enfrentar o
     // Carvão você tem que pagar sua dívida, não importa o tamanho... o
     // melhor esquema pra pagar é o Clube da Luta") — só trava o CHEFE
     // especificamente; o resto da Pista (farm, pós-muro) continua livre com
     // dívida em aberto, senão vira soft-lock cruel demais.
-    const dividaNato = store.storyProgress.__birosca?.divida || 0
-    if (chefe && dividaNato > 0) {
+    const dividaAgiota = store.storyProgress.__birosca?.divida || 0
+    if (chefe && dividaAgiota > 0) {
       setEncontro(null); sfx.cancel?.()
-      setAviso(t('games.gangues.cena.aviso_divida_chefe', { divida: dividaNato }))
+      setAviso(t('games.gangues.cena.aviso_divida_chefe', { divida: dividaAgiota }))
       setTimeout(() => setAviso(null), 3600)
       return
     }
@@ -474,7 +476,7 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
     {/* Marco de reputação recorrente (a cada 50) — modal BLOQUEANTE, não
         toast: só fecha ao clicar (pedido do Isaias, 2026-09-14). */}
     <GanguesRepRecompensaModal t={t} marco={repModalMarco} onClose={() => setRepModalMarco(null)} />
-    <AnimatePresence>{encontro && <motion.div className="gang-cena-modal" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}><div className="gang-cena-modal-bg" onClick={() => setEncontro(null)} /><motion.div className="gang-cena-modal-card" initial={{ y: 25 }} animate={{ y: 0 }}>{encontro.vs ? <TretaVS poi={encontro.poi} fala={encontro.fala} nivelTropa={nivelTropa} avisoOff={avisoNivelOff} onOcultarAviso={() => setAvisoNivelOff(true)} onSim={() => iniciarTreta(encontro.poi)} onNao={() => setEncontro(null)} t={t} territorioId={terr.id} /> : encontro.poi.tipo === 'papo' ? <GanguesPapo poi={encontro.poi} cena={cena} onResolve={resolver} onClose={() => setEncontro(null)} /> : encontro.poi.tipo === 'descanso' ? <GanguesDescanso poi={encontro.poi} cena={cena} onClose={() => setEncontro(null)} onClube={iniciarClube} /> : encontro.poi.tipo === 'loja' ? <GanguesLoja poi={encontro.poi} onClose={() => setEncontro(null)} /> : <GanguesParada poi={encontro.poi} cena={cena} onResolve={resolver} onClose={() => setEncontro(null)} />}</motion.div></motion.div>}</AnimatePresence>
+    <AnimatePresence>{encontro && <motion.div className="gang-cena-modal" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}><div className="gang-cena-modal-bg" onClick={() => setEncontro(null)} /><motion.div className="gang-cena-modal-card" initial={{ y: 25 }} animate={{ y: 0 }}>{encontro.vs ? <TretaVS poi={encontro.poi} fala={encontro.fala} nivelTropa={nivelTropa} avisoOff={avisoNivelOff} onOcultarAviso={() => setAvisoNivelOff(true)} onSim={() => iniciarTreta(encontro.poi)} onNao={() => setEncontro(null)} t={t} territorioId={terr.id} /> : encontro.poi.tipo === 'papo' ? <GanguesPapo poi={encontro.poi} cena={cena} onResolve={resolver} onClose={() => setEncontro(null)} /> : encontro.poi.tipo === 'descanso' ? <GanguesDescanso poi={encontro.poi} cena={cena} onClose={() => setEncontro(null)} /> : encontro.poi.tipo === 'agiota' ? <GanguesAgiota poi={encontro.poi} onClose={() => setEncontro(null)} onClube={iniciarClube} /> : encontro.poi.tipo === 'loja' ? <GanguesLoja poi={encontro.poi} onClose={() => setEncontro(null)} /> : <GanguesParada poi={encontro.poi} cena={cena} onResolve={resolver} onClose={() => setEncontro(null)} />}</motion.div></motion.div>}</AnimatePresence>
     <AnimatePresence>{fichaIndex !== null && store.activeParty[fichaIndex] && <motion.div className="gang-cena-modal" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}><div className="gang-cena-modal-bg" onClick={() => setFichaIndex(null)} /><motion.div className="gang-cena-modal-card gang-cena-ficha-scroll" initial={{ y: 25 }} animate={{ y: 0 }}><div className="gang-cena-enc-acoes gang-cena-ficha-nav">{store.activeParty.length > 1 && <button className="gang-cena-btn" onClick={() => setFichaIndex(i => (i + store.activeParty.length - 1) % store.activeParty.length)}>◀ ANTERIOR</button>}<button className="gang-cena-btn gang-cena-btn--go" onClick={() => setFichaIndex(null)}>FECHAR</button>{store.activeParty.length > 1 && <button className="gang-cena-btn" onClick={() => setFichaIndex(i => (i + 1) % store.activeParty.length)}>PRÓXIMO ▶</button>}</div>
       {/* Vaga de recrutamento liberada — nunca silencioso (mesmo motivo do
           marco de reputação): quem abre a ficha vê na hora que dá pra chamar

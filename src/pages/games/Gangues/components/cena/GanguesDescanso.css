@@ -30,6 +30,17 @@
 .gds-lista-ganho .is-pv { color: #6be07a; }
 .gds-lista-ganho .is-pm { color: var(--if-cyan); }
 
+/* Letra miúda do contrato do agiota (GanguesAgiota.jsx) — a dívida exata,
+   pequena e discreta de propósito (pedido do Isaias, 21/09/2026: "lá
+   embaixo, bem pequenininho, letrinha miúda, vai estar escrito que deve
+   1000"), bem menor que a fala principal do contrato. */
+.gds-letra-miuda {
+  margin: 0.5rem 0 0; padding-top: 0.4rem;
+  border-top: 1px dashed var(--if-hair, rgba(255, 255, 255, 0.16));
+  font: 400 0.62rem var(--font-mono); letter-spacing: 0.01em;
+  color: var(--text-muted); opacity: 0.85;
+}
+
 /* "Descansando..." — animaçãozinha antes de revelar quem recuperou o quê. */
 .gds-animando {
   display: flex; flex-direction: column; align-items: center; gap: 8px;

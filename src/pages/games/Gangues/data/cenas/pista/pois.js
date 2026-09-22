@@ -336,6 +336,28 @@ export const POIS_PISTA = [
     precoMultiplicador: 2,
   },
   {
+    // O agiota — pedido do Isaias, 21/09/2026: "vamos criar um pin dedicado
+    // ao agiota... coloca ele no cantinho, parado... uma tag nele, agiota".
+    // Personagem NOVO (não é o Nato da birosca) — todo o sistema de
+    // agiotagem (empréstimo/cura fiada/socorro/pagar/Clube da Luta) migrou
+    // pra cá; a birosca (POI `descanso`) voltou a ser só cura, sem dívida
+    // nenhuma. Visível desde o começo, igual descanso/loja_pocoes — fica
+    // parado (ehPersonagem exclui `tipo==='agiota'`, GanguesCenaAtores.jsx).
+    id: 'agiota',
+    tipo: 'agiota',
+    opcional: true,
+    repetivel: true,
+    visivel: true,
+    pino: { x: 42, y: 118 },
+    i18n: 'games.gangues.cena.pista.agiota',
+    // Cara emprestada do catálogo de INIMIGO ("Fiado Vencido", 1206 — já
+    // tem arte e o nome combina exatamente com o tema de dívida/agiotagem),
+    // só a imagem, sem nenhuma implicação de combate (mesmo truque do
+    // `loja_pocoes` acima).
+    retratoEnemyId: 1206,
+    custoGrana: 10,
+  },
+  {
     // Birosca improvisada do OUTRO lado do muro — o Nato tem um primo lá.
     // Mesma função (curar a tropa + caderneta do Nato pra pagar a dívida),
     // só que já pós-muro. NÃO fica solta na rua: mora DENTRO do barraco pm1

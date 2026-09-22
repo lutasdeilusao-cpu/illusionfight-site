@@ -395,6 +395,7 @@
   "393": "01.md",
   "394": "02.md",
   "395": "criaturas.js",
+  "396": "version.js",
   "397": "ResultCard.jsx",
   "398": "ArenaTaticsRoute.jsx",
   "399": "AnalyticsTracker.jsx",
@@ -422,7 +423,6 @@
   "422": "BLOCO F — PROGRAMA DE PARCEIROS DE CONTEÚDO",
   "423": "CenaCenario.jsx",
   "424": "BLOCO G — NUNTIUS GAMES — POSICIONAMENTO INSTITUCIONAL",
-  "425": "locales.js",
   "427": "ganguesCombatAnimations.js",
   "428": "GanguesCreate.jsx",
   "429": "mecanicasPoder.js",
@@ -449,8 +449,6 @@
   "450": "9. Itens — catálogo oficial",
   "452": "PuzzleLabirinto.jsx",
   "453": "Footer.jsx",
-  "454": "RestaurarSaude.jsx",
-  "455": "Criatura.jsx",
   "456": ".heartbeat",
   "457": "1. A estrutura de poder",
   "458": "ganguesBiografias.js",
@@ -463,7 +461,5 @@
   "466": "GanguesModes.jsx",
   "470": "PowerCard.jsx",
   "471": "Jokempo.jsx",
-  "473": "useFichaGate.js",
-  "475": "GanguesCenaEncontros.jsx",
   "476": "drawCombatBoard"
 }

@@ -500,8 +500,10 @@
         "regra": "Che, prestá atención a esto: pegarle siempre a alguien mucho más débil que tu más rana no conviene — cuanto mayor la diferencia, menos AP da la pelea, pero nunca menos de 5. Pero encará a alguien más fuerte y la cosa cambia: de 1 a 5 niveles arriba ya TRIPLICA el AP, y pasando de 5, lo CUADRUPLICA. El que se arriesga, gana mucho más."
       },
       "descanso_tutorial": {
-        "recuperar": "Aquí tu banda recupera todo el PV y el PM, pagando una plata. Sentado en la birosca, nadie busca pelea.",
-        "fiado": "¿Corto de plata? Puedes fiar con Nato — te cura al toque, pero la cuenta crece. Después de 2 fiados te corta el crédito: sin plazo, sin cobrador, él solo se acuerda."
+        "recuperar": "Aquí tu banda recupera todo el PV y el PM, pagando una plata. Sentado en la birosca, nadie busca pelea."
+      },
+      "agiota_tutorial": {
+        "emprestimo": "¿Corto de plata? El agiota presta — pero pagás 10 veces más de deuda, y cada cura fiada después DUPLICA lo que debés. Llegaste al tope, te cura gratis y te tira directo al Club de la Pelea pa' arreglar cuentas."
       },
       "clube_tutorial": {
         "como_funciona": "El Clube da Luta es una ronda de apuestas: 3 rondas seguidas, sin descansar entre medio. Ganas y sales con plata (o saldas tu deuda); pierdes y te recomponen — no cuenta como derrota de verdad. Eso sí, la entrada siempre es fiada: aceptar ya es entrar debiendo.",
@@ -4064,7 +4066,8 @@
           "corre": "Mandado",
           "achado": "Hallazgo",
           "descanso": "Bar",
-          "loja": "Tienda"
+          "loja": "Tienda",
+          "agiota": "Prestamista"
         },
         "descanso_titulo": "La tropa descansó. Cada uno recuperó:",
         "descanso_ja_inteira": "La tropa ya está entera, pibe. Guardate la plata.",
@@ -4074,34 +4077,34 @@
         "descanso_animando": "Descansando...",
         "tropa_no_chao": "Tu tropa está toda en el piso, pibe. Así nadie encara a nadie. Pasá por el kiosco del Nato antes.",
         "aviso_rep_treta": "Esa es harina de otro costal, pibe. No es hora de hacerte el guapo sin nombre hecho en la calle — juntá más reputación antes de encarar (rep {rep}).",
-        "aviso_rep_clube": "El Nato ni te deja entrar a la rueda sin que tengas nombre en la calle. Juntá más reputación antes de aparecer por acá (rep {rep}).",
+        "aviso_rep_clube": "El Avispón ni te deja entrar a la rueda sin que tengas nombre en la calle. Juntá más reputación antes de aparecer por acá (rep {rep}).",
         "rep_recompensa": {
           "titulo": "¡REPUTACIÓN {valor}!",
           "sub": "Tu nombre ya suena en la calle, pibe. Agarrá esto.",
           "pegar": "AGARRAR"
         },
         "emprestimo_pedir": "Pedir un préstamo (+{valor}, quedás debiendo {divida})",
-        "emprestimo_contrato_tag": "Préstamo · Nato",
-        "emprestimo_contrato": "El Nato te cuenta {valor} en la mano, ni lo cuenta dos veces. \"Esto rinde, pibe. Ahora me debés {divida}. Sin plazo — solo no desaparezcas.\"",
-        "emprestimo_ja_deve": "Ya le debés al Nato, pibe. Arreglá esa cuenta antes de pedir más.",
+        "emprestimo_contrato_tag": "Contrato · sin plazo",
+        "emprestimo_contrato": "El Avispón te cuenta {valor} en la mano, ni lo cuenta dos veces. \"Esto rinde, pibe. Ahora me debés {divida}. Sin plazo — solo no desaparezcas.\"",
+        "emprestimo_ja_deve": "Ya le debés al Avispón, pibe. Arreglá esa cuenta antes de pedir más.",
         "fiado_pedir": "Pedir más fiado (cura general, quedás debiendo {divida})",
         "fiado_contrato_tag": "Contrato · sin plazo",
-        "fiado_contrato_cura": "El Nato manda curar a toda tu tropa, a cuenta. \"Tu deuda se duplicó, pibe. Ahora son {divida}.\"",
-        "fiado_sem_emprestimo": "Todavía no le debés nada, pibe. Pedí el préstamo del Nato primero.",
-        "fiado_teto": "Tu deuda ya está al tope, pibe. El Nato solo arregla esto tirándote a la rueda.",
-        "fiado_devendo": "Libreta del Nato: le debés {divida} de plata.",
-        "fiado_pagar": "Pagarle al Nato (−{grana})",
-        "fiado_pago_parcial": "Bajaste {pago}. Todavía faltan {restante} para el Nato.",
-        "fiado_pago_total": "Saldaste los {pago}. Tu nombre quedó limpio en el kiosco.",
-        "nato_socorro": "Pedirle socorro al Nato",
-        "nato_socorro_tag": "El Nato pierde la paciencia",
-        "nato_socorro_fala": "El Nato niega con la cabeza. \"Basta, pibe. Esa deuda ya pasó lo que puedo cobrar. Te remiendo gratis — pero esto lo arreglás en la rueda, quieras o no.\"",
+        "fiado_contrato_cura": "El Avispón manda curar a toda tu tropa, a cuenta. \"Tu deuda se duplicó, pibe. Ahora son {divida}.\"",
+        "fiado_sem_emprestimo": "Todavía no le debés nada, pibe. Pedí el préstamo del Avispón primero.",
+        "fiado_teto": "Tu deuda ya está al tope, pibe. El Avispón solo arregla esto tirándote a la rueda.",
+        "fiado_devendo": "Libreta del Avispón: le debés {divida} de plata.",
+        "fiado_pagar": "Pagarle al Avispón (−{grana})",
+        "fiado_pago_parcial": "Bajaste {pago}. Todavía faltan {restante} para el Avispón.",
+        "fiado_pago_total": "Saldaste los {pago}. Tu nombre quedó limpio con el Avispón.",
+        "nato_socorro": "Pedirle socorro al Avispón",
+        "nato_socorro_tag": "El Avispón pierde la paciencia",
+        "nato_socorro_fala": "El Avispón niega con la cabeza. \"Basta, pibe. Esa deuda ya pasó lo que puedo cobrar. Te remiendo gratis — pero esto lo arreglás en la rueda, quieras o no.\"",
         "nato_socorro_seguir": "Seguir (te vendan ya)",
-        "aviso_divida_chefe": "No encarás al Carbón debiéndole al Nato, pibe. Saldá esa deuda de {divida} antes — su rueda es el camino más rápido.",
+        "aviso_divida_chefe": "No encarás al Carbón debiéndole al Avispón, pibe. Saldá esa deuda de {divida} antes — su rueda es el camino más rápido.",
         "clube_botao": "▸ El Club de la Pelea",
-        "clube_oferta_tag": "Propuesta · la rueda del Nato",
-        "clube_oferta_limpo": "El Nato te encara. \"Estás limpio conmigo. Pero tengo un laburo: rueda de apuestas, mía. Entrás, ganás, salís con 200 en la mano. No da experiencia — en la rueda nadie aprende nada. Perdés, te remendamos y probás de nuevo. Solo que la entrada te la fío: te curo ahora y eso queda como deuda si no ganás. ¿Arreglamos?\"",
-        "clube_oferta_divida": "El Nato golpea la libreta. \"Me debés. Pero tengo un laburo para eso: rueda de apuestas, mía. Entrás, ganás, tu deuda desaparece — toda, no importa el tamaño. Sin plata, sin experiencia, solo el arreglo de cuentas. Perdés, te remendamos y probás de nuevo. La entrada ya te la fío — 15 veces — y curo a toda la tropa. ¿Arreglamos?\"",
+        "clube_oferta_tag": "Propuesta · la rueda del Avispón",
+        "clube_oferta_limpo": "El Avispón te encara. \"Estás limpio conmigo. Pero tengo un laburo: rueda de apuestas, mía. Entrás, ganás, salís con 200 en la mano. No da experiencia — en la rueda nadie aprende nada. Perdés, te remendamos y probás de nuevo. Solo que la entrada te la fío: te curo ahora y eso queda como deuda si no ganás. ¿Arreglamos?\"",
+        "clube_oferta_divida": "El Avispón golpea la libreta. \"Me debés. Pero tengo un laburo para eso: rueda de apuestas, mía. Entrás, ganás, tu deuda desaparece — toda, no importa el tamaño. Sin plata, sin experiencia, solo el arreglo de cuentas. Perdés, te remendamos y probás de nuevo. La entrada ya te la fío — 15 veces — y curo a toda la tropa. ¿Arreglamos?\"",
         "clube_recusar": "Ahora no",
         "clube_aceitar": "Aceptar (te vendan ya)",
         "pista": {
@@ -4201,6 +4204,20 @@
             "nome": "Descanso en el bar",
             "sub": "mate, pan y tranquilidad",
             "intro": "Un rato sentado, lejos del sol caliente de la calle, en el bar de Nato. Cuesta unas monedas, pero cura a la tropa y todos vuelven enteros — lastimado nadie gana una pelea."
+          },
+          "agiota": {
+            "nome": "Avispón",
+            "sub": "presta rápido, cobra más rápido todavía",
+            "fala": [
+              "Che. ¿Necesitás plata rápido, pibe? Yo presto 100. Solo eso — no me rompas pidiendo más.",
+              "100 en la mano, ahora mismo. Después arreglamos cuentas — solo no vengas con excusas."
+            ],
+            "botao_ver_contrato": "Quiero el préstamo",
+            "contrato_tag": "Contrato · sin plazo",
+            "contrato_corpo": "\"100 en la mano, ya. ¿Aceptás o no aceptás?\"",
+            "contrato_letra_miuda": "Letra chica del contrato: quedás debiendo {divida}.",
+            "contrato_aceitar": "Acepto",
+            "contrato_recusar": "No acepto"
           },
           "descanso_2": {
             "nome": "El bar del primo",
