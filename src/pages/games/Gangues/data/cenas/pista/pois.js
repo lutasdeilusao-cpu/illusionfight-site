@@ -327,6 +327,12 @@ export const POIS_PISTA = [
     // agiotagem/Nato. Renomeada de "Balcão do Aperto" pra "Lojinha do Zé"
     // ("esse nome tá horrível") — reaproveita o Zé do "Bar do Zé" (predio
     // c1, bem do lado), dá continuidade em vez de inventar um dono novo.
+    // Posição ajustada de novo no dia seguinte (22/09/2026, print marcando
+    // o lugar certo): "coloca a lojinha do Seu Zé bem aí onde eu marquei...
+    // ali no meio dessa rua, porque aonde ele tá tá trabalhando muito" — a
+    // 1ª posição (colada na porta da birosca) congestionava aquele ponto de
+    // entrada; agora fica no trecho aberto da rua (posicoes.js), sem
+    // prédio por perto.
     id: 'loja_pocoes',
     tipo: 'loja',
     opcional: true,
