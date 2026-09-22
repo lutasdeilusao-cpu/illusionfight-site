@@ -50,6 +50,12 @@ export const INTERIORES_PISTA = {
       pois: [
         { ref: 'informante', pos: { x: 400, y: 200 } },
         { ref: 'descanso', pos: { x: 74, y: 210 } },
+        // O agiota (Marimbondo) — pedido do Isaias, 21/09/2026: corrigido no
+        // mesmo dia pra morar AQUI DENTRO da birosca, não na rua ("você
+        // colocou o agiota fora do prédio... ele tem que estar aqui
+        // dentro"). Meio da sala, livre do balcão (colisor y66-106) e longe
+        // dos outros dois pinos.
+        { ref: 'agiota', pos: { x: 230, y: 130 } },
       ],
     }],
   },

@@ -341,14 +341,21 @@ export const POIS_PISTA = [
     // Personagem NOVO (não é o Nato da birosca) — todo o sistema de
     // agiotagem (empréstimo/cura fiada/socorro/pagar/Clube da Luta) migrou
     // pra cá; a birosca (POI `descanso`) voltou a ser só cura, sem dívida
-    // nenhuma. Visível desde o começo, igual descanso/loja_pocoes — fica
-    // parado (ehPersonagem exclui `tipo==='agiota'`, GanguesCenaAtores.jsx).
+    // nenhuma. Fica parado (ehPersonagem exclui `tipo==='agiota'`,
+    // GanguesCenaAtores.jsx).
+    //
+    // CORRIGIDO no mesmo dia (Isaias viu a 1ª versão no exterior e pediu pra
+    // mudar: "você colocou o agiota fora do prédio... é lá dentro da parte
+    // do descanso da birosca... ele tem que estar aqui dentro, não lá
+    // fora") — NÃO tem posição de rua (sem entrada em POS_PISTA/
+    // ENTRY_ZONES_PISTA); mora dentro do cômodo da birosca via `ref`
+    // (interiores.js, igual descanso/informante) — some da rua sozinho
+    // porque `refsInternos()` exclui qualquer POI referenciado por um
+    // interior da lista do exterior (ganguesCenaMotor.js).
     id: 'agiota',
     tipo: 'agiota',
     opcional: true,
     repetivel: true,
-    visivel: true,
-    pino: { x: 42, y: 118 },
     i18n: 'games.gangues.cena.pista.agiota',
     // Cara emprestada do catálogo de INIMIGO ("Fiado Vencido", 1206 — já
     // tem arte e o nome combina exatamente com o tema de dívida/agiotagem),
