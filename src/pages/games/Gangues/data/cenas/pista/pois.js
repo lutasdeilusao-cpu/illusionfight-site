@@ -320,16 +320,18 @@ export const POIS_PISTA = [
     // arriscar e ganhar mais experiência você tem que ir municiado de
     // item".
     //
-    // MOVIDO pra dentro da birosca (mesmo dia do fix do agiota — Isaias viu
-    // o Balcão do Aperto ainda na rua depois do agiota entrar e reclamou:
-    // "serviço bem porco, você não limpa as cagadas que deixa, já que o
-    // outro tá lá dentro por que que esse cara tá aí fora") — mesmo
-    // mecanismo do agiota: sem posição de rua, referenciado (`ref:
-    // 'loja_pocoes'`) dentro do cômodo da birosca (interiores.js).
+    // VOLTOU pra rua no mesmo dia (Isaias, depois de ver ela dentro da
+    // birosca junto do agiota: "tava achando que esse balcão do aperto era
+    // o agiota, mas não é, ele é o cara que vende itens, tem que ficar na
+    // rua mesmo") — só uma loja de bico, não tem nada a ver com a
+    // agiotagem/Nato. Renomeada de "Balcão do Aperto" pra "Lojinha do Zé"
+    // ("esse nome tá horrível") — reaproveita o Zé do "Bar do Zé" (predio
+    // c1, bem do lado), dá continuidade em vez de inventar um dono novo.
     id: 'loja_pocoes',
     tipo: 'loja',
     opcional: true,
     repetivel: true,
+    visivel: true,
     i18n: 'games.gangues.cena.pista.loja_pocoes',
     // Cara emprestada do catálogo de INIMIGO (o "balconista", 1205 — já
     // tem arte e o nome nem podia combinar mais com "atende um balcão de
