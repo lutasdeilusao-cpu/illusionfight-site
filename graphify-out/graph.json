@@ -304,14 +304,124 @@
       "norm_label": "version.js"
     },
     {
+      "label": "GanguesCenaAtores.jsx",
+      "file_type": "code",
+      "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_pages_games_gangues_components_cena_ganguescenaatores",
+      "community": 40,
+      "norm_label": "ganguescenaatores.jsx"
+    },
+    {
+      "label": "GangMarker()",
+      "file_type": "code",
+      "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "src_pages_games_gangues_components_cena_ganguescenaatores_gangmarker",
+      "community": 40,
+      "norm_label": "gangmarker()"
+    },
+    {
+      "label": "farolDe()",
+      "file_type": "code",
+      "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
+      "source_location": "L42",
+      "_origin": "ast",
+      "id": "src_pages_games_gangues_components_cena_ganguescenaatores_farolde",
+      "community": 40,
+      "norm_label": "farolde()"
+    },
+    {
+      "label": "ICONE",
+      "file_type": "code",
+      "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
+      "source_location": "L55",
+      "_origin": "ast",
+      "id": "src_pages_games_gangues_components_cena_ganguescenaatores_icone",
+      "community": 40,
+      "norm_label": "icone"
+    },
+    {
+      "label": "hashEstavel()",
+      "file_type": "code",
+      "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
+      "source_location": "L61",
+      "_origin": "ast",
+      "id": "src_pages_games_gangues_components_cena_ganguescenaatores_hashestavel",
+      "community": 40,
+      "norm_label": "hashestavel()"
+    },
+    {
+      "label": "retratoDoPino()",
+      "file_type": "code",
+      "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
+      "source_location": "L78",
+      "_origin": "ast",
+      "id": "src_pages_games_gangues_components_cena_ganguescenaatores_retratodopino",
+      "community": 40,
+      "norm_label": "retratodopino()"
+    },
+    {
+      "label": "ehPersonagem()",
+      "file_type": "code",
+      "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
+      "source_location": "L99",
+      "_origin": "ast",
+      "id": "src_pages_games_gangues_components_cena_ganguescenaatores_ehpersonagem",
+      "community": 40,
+      "norm_label": "ehpersonagem()"
+    },
+    {
+      "label": "PinoAlvo()",
+      "file_type": "code",
+      "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
+      "source_location": "L119",
+      "_origin": "ast",
+      "id": "src_pages_games_gangues_components_cena_ganguescenaatores_pinoalvo",
+      "community": 40,
+      "norm_label": "pinoalvo()"
+    },
+    {
+      "label": "LABEL_TIPO",
+      "file_type": "code",
+      "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
+      "source_location": "L222",
+      "_origin": "ast",
+      "id": "src_pages_games_gangues_components_cena_ganguescenaatores_label_tipo",
+      "community": 40,
+      "norm_label": "label_tipo"
+    },
+    {
+      "label": "interactionLabel()",
+      "file_type": "code",
+      "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
+      "source_location": "L223",
+      "_origin": "ast",
+      "id": "src_pages_games_gangues_components_cena_ganguescenaatores_interactionlabel",
+      "community": 40,
+      "norm_label": "interactionlabel()"
+    },
+    {
+      "label": "WorldControls()",
+      "file_type": "code",
+      "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
+      "source_location": "L233",
+      "_origin": "ast",
+      "id": "src_pages_games_gangues_components_cena_ganguescenaatores_worldcontrols",
+      "community": 40,
+      "norm_label": "worldcontrols()"
+    },
+    {
       "label": "interiores.js",
       "file_type": "code",
       "source_file": "src/pages/games/Gangues/data/cenas/pista/interiores.js",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_data_cenas_pista_interiores",
       "community": 53,
-      "norm_label": "interiores.js"
+      "norm_label": "interiores.js",
+      "id": "src_pages_games_gangues_data_cenas_pista_interiores"
     },
     {
       "label": "INTERIORES_PISTA",
@@ -319,9 +429,9 @@
       "source_file": "src/pages/games/Gangues/data/cenas/pista/interiores.js",
       "source_location": "L11",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_data_cenas_pista_interiores_interiores_pista",
       "community": 53,
-      "norm_label": "interiores_pista"
+      "norm_label": "interiores_pista",
+      "id": "src_pages_games_gangues_data_cenas_pista_interiores_interiores_pista"
     },
     {
       "label": "pois.js",
@@ -329,9 +439,9 @@
       "source_file": "src/pages/games/Gangues/data/cenas/pista/pois.js",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_data_cenas_pista_pois",
       "community": 462,
-      "norm_label": "pois.js"
+      "norm_label": "pois.js",
+      "id": "src_pages_games_gangues_data_cenas_pista_pois"
     },
     {
       "label": "POIS_PISTA",
@@ -339,9 +449,9 @@
       "source_file": "src/pages/games/Gangues/data/cenas/pista/pois.js",
       "source_location": "L11",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_data_cenas_pista_pois_pois_pista",
       "community": 462,
-      "norm_label": "pois_pista"
+      "norm_label": "pois_pista",
+      "id": "src_pages_games_gangues_data_cenas_pista_pois_pois_pista"
     },
     {
       "label": "posicoes.js",
@@ -349,9 +459,9 @@
       "source_file": "src/pages/games/Gangues/data/cenas/pista/posicoes.js",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_data_cenas_pista_posicoes",
       "community": 453,
-      "norm_label": "posicoes.js"
+      "norm_label": "posicoes.js",
+      "id": "src_pages_games_gangues_data_cenas_pista_posicoes"
     },
     {
       "label": "POS_PISTA",
@@ -359,9 +469,9 @@
       "source_file": "src/pages/games/Gangues/data/cenas/pista/posicoes.js",
       "source_location": "L19",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_data_cenas_pista_posicoes_pos_pista",
       "community": 453,
-      "norm_label": "pos_pista"
+      "norm_label": "pos_pista",
+      "id": "src_pages_games_gangues_data_cenas_pista_posicoes_pos_pista"
     },
     {
       "label": "ENTRY_ZONES_PISTA",
@@ -369,9 +479,9 @@
       "source_file": "src/pages/games/Gangues/data/cenas/pista/posicoes.js",
       "source_location": "L21",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_data_cenas_pista_posicoes_entry_zones_pista",
       "community": 453,
-      "norm_label": "entry_zones_pista"
+      "norm_label": "entry_zones_pista",
+      "id": "src_pages_games_gangues_data_cenas_pista_posicoes_entry_zones_pista"
     },
     {
       "label": "GanguesAgiota.jsx",
@@ -392,116 +502,6 @@
       "community": 40,
       "norm_label": "ganguesagiota()",
       "id": "src_pages_games_gangues_components_cena_ganguesagiota_ganguesagiota"
-    },
-    {
-      "label": "GanguesCenaAtores.jsx",
-      "file_type": "code",
-      "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 40,
-      "norm_label": "ganguescenaatores.jsx",
-      "id": "src_pages_games_gangues_components_cena_ganguescenaatores"
-    },
-    {
-      "label": "GangMarker()",
-      "file_type": "code",
-      "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
-      "source_location": "L13",
-      "_origin": "ast",
-      "community": 40,
-      "norm_label": "gangmarker()",
-      "id": "src_pages_games_gangues_components_cena_ganguescenaatores_gangmarker"
-    },
-    {
-      "label": "farolDe()",
-      "file_type": "code",
-      "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
-      "source_location": "L42",
-      "_origin": "ast",
-      "community": 40,
-      "norm_label": "farolde()",
-      "id": "src_pages_games_gangues_components_cena_ganguescenaatores_farolde"
-    },
-    {
-      "label": "ICONE",
-      "file_type": "code",
-      "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
-      "source_location": "L55",
-      "_origin": "ast",
-      "community": 40,
-      "norm_label": "icone",
-      "id": "src_pages_games_gangues_components_cena_ganguescenaatores_icone"
-    },
-    {
-      "label": "hashEstavel()",
-      "file_type": "code",
-      "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
-      "source_location": "L61",
-      "_origin": "ast",
-      "community": 40,
-      "norm_label": "hashestavel()",
-      "id": "src_pages_games_gangues_components_cena_ganguescenaatores_hashestavel"
-    },
-    {
-      "label": "retratoDoPino()",
-      "file_type": "code",
-      "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
-      "source_location": "L78",
-      "_origin": "ast",
-      "community": 40,
-      "norm_label": "retratodopino()",
-      "id": "src_pages_games_gangues_components_cena_ganguescenaatores_retratodopino"
-    },
-    {
-      "label": "ehPersonagem()",
-      "file_type": "code",
-      "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
-      "source_location": "L99",
-      "_origin": "ast",
-      "community": 40,
-      "norm_label": "ehpersonagem()",
-      "id": "src_pages_games_gangues_components_cena_ganguescenaatores_ehpersonagem"
-    },
-    {
-      "label": "PinoAlvo()",
-      "file_type": "code",
-      "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
-      "source_location": "L119",
-      "_origin": "ast",
-      "community": 40,
-      "norm_label": "pinoalvo()",
-      "id": "src_pages_games_gangues_components_cena_ganguescenaatores_pinoalvo"
-    },
-    {
-      "label": "LABEL_TIPO",
-      "file_type": "code",
-      "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
-      "source_location": "L212",
-      "_origin": "ast",
-      "community": 40,
-      "norm_label": "label_tipo",
-      "id": "src_pages_games_gangues_components_cena_ganguescenaatores_label_tipo"
-    },
-    {
-      "label": "interactionLabel()",
-      "file_type": "code",
-      "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
-      "source_location": "L213",
-      "_origin": "ast",
-      "community": 40,
-      "norm_label": "interactionlabel()",
-      "id": "src_pages_games_gangues_components_cena_ganguescenaatores_interactionlabel"
-    },
-    {
-      "label": "WorldControls()",
-      "file_type": "code",
-      "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
-      "source_location": "L223",
-      "_origin": "ast",
-      "community": 40,
-      "norm_label": "worldcontrols()",
-      "id": "src_pages_games_gangues_components_cena_ganguescenaatores_worldcontrols"
     },
     {
       "label": "GanguesDescanso.jsx",
@@ -45630,141 +45630,14 @@
       "target": "src_config_version"
     },
     {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/Gangues/data/cenas/pista/index.js",
-      "source_location": "L38",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_gangues_data_cenas_pista_index",
-      "target": "src_pages_games_gangues_data_cenas_pista_interiores"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/Gangues/data/cenas/pista/interiores.js",
-      "source_location": "L11",
-      "weight": 1.0,
-      "source": "src_pages_games_gangues_data_cenas_pista_interiores",
-      "target": "src_pages_games_gangues_data_cenas_pista_interiores_interiores_pista",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/Gangues/data/cenas/pista/index.js",
-      "source_location": "L38",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_gangues_data_cenas_pista_index",
-      "target": "src_pages_games_gangues_data_cenas_pista_interiores_interiores_pista"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/Gangues/data/cenas/pista/pois.js",
-      "source_location": "L11",
-      "weight": 1.0,
-      "source": "src_pages_games_gangues_data_cenas_pista_pois",
-      "target": "src_pages_games_gangues_data_cenas_pista_pois_pois_pista",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/Gangues/data/cenas/pista/posicoes.js",
-      "source_location": "L21",
-      "weight": 1.0,
-      "source": "src_pages_games_gangues_data_cenas_pista_posicoes",
-      "target": "src_pages_games_gangues_data_cenas_pista_posicoes_entry_zones_pista",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/Gangues/data/cenas/pista/posicoes.js",
-      "source_location": "L19",
-      "weight": 1.0,
-      "source": "src_pages_games_gangues_data_cenas_pista_posicoes",
-      "target": "src_pages_games_gangues_data_cenas_pista_posicoes_pos_pista",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/Gangues/components/cena/GanguesAgiota.jsx",
-      "source_location": "L36",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_gangues_components_cena_ganguesagiota",
-      "target": "src_pages_games_gangues_components_cena_ganguesagiota_ganguesagiota"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/Gangues/components/cena/GanguesAgiota.jsx",
-      "source_location": "L8",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_gangues_components_cena_ganguesagiota",
-      "target": "src_pages_games_gangues_components_cena_ganguesdescansotutorial"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/Gangues/components/cena/GanguesAgiota.jsx",
-      "source_location": "L8",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_gangues_components_cena_ganguesagiota",
-      "target": "src_pages_games_gangues_components_cena_ganguesdescansotutorial_ganguesagiotatutorial"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/Gangues/components/cena/GanguesAgiota.jsx",
-      "source_location": "L8",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_gangues_components_cena_ganguesagiota",
-      "target": "src_pages_games_gangues_components_cena_ganguesdescansotutorial_ganguesclubetutorial"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/Gangues/screens/GanguesCena.jsx",
-      "source_location": "L11",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_gangues_screens_ganguescena",
-      "target": "src_pages_games_gangues_components_cena_ganguesagiota"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/Gangues/screens/GanguesCena.jsx",
-      "source_location": "L11",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_gangues_screens_ganguescena",
-      "target": "src_pages_games_gangues_components_cena_ganguesagiota_ganguesagiota"
-    },
-    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
       "source_location": "L99",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_components_cena_ganguescenaatores",
-      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_ehpersonagem"
+      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_ehpersonagem",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -45772,9 +45645,9 @@
       "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
       "source_location": "L42",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_components_cena_ganguescenaatores",
-      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_farolde"
+      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_farolde",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -45782,9 +45655,9 @@
       "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
       "source_location": "L13",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_components_cena_ganguescenaatores",
-      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_gangmarker"
+      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_gangmarker",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -45792,9 +45665,9 @@
       "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
       "source_location": "L61",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_components_cena_ganguescenaatores",
-      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_hashestavel"
+      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_hashestavel",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -45802,49 +45675,9 @@
       "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
       "source_location": "L55",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_components_cena_ganguescenaatores",
-      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_icone"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
-      "source_location": "L213",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_gangues_components_cena_ganguescenaatores",
-      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_interactionlabel"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
-      "source_location": "L212",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_gangues_components_cena_ganguescenaatores",
-      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_label_tipo"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
-      "source_location": "L119",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_gangues_components_cena_ganguescenaatores",
-      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_pinoalvo"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
-      "source_location": "L78",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_gangues_components_cena_ganguescenaatores",
-      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_retratodopino"
+      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_icone",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -45852,9 +45685,49 @@
       "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
       "source_location": "L223",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_components_cena_ganguescenaatores",
-      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_worldcontrols"
+      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_interactionlabel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
+      "source_location": "L222",
+      "weight": 1.0,
+      "source": "src_pages_games_gangues_components_cena_ganguescenaatores",
+      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_label_tipo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
+      "source_location": "L119",
+      "weight": 1.0,
+      "source": "src_pages_games_gangues_components_cena_ganguescenaatores",
+      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_pinoalvo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
+      "source_location": "L78",
+      "weight": 1.0,
+      "source": "src_pages_games_gangues_components_cena_ganguescenaatores",
+      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_retratodopino",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
+      "source_location": "L233",
+      "weight": 1.0,
+      "source": "src_pages_games_gangues_components_cena_ganguescenaatores",
+      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_worldcontrols",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -45883,22 +45756,22 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
-      "source_location": "L201",
+      "source_location": "L211",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_components_cena_ganguescenaatores_pinoalvo",
-      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_farolde"
+      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_farolde",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
-      "source_location": "L192",
+      "source_location": "L202",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_components_cena_ganguescenaatores_pinoalvo",
-      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_hashestavel"
+      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_hashestavel",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -45907,9 +45780,9 @@
       "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
       "source_location": "L82",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_components_cena_ganguescenaatores_retratodopino",
-      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_hashestavel"
+      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_hashestavel",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -45918,20 +45791,20 @@
       "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
       "source_location": "L105",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_components_cena_ganguescenaatores_ehpersonagem",
-      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_retratodopino"
+      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_retratodopino",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx",
-      "source_location": "L168",
+      "source_location": "L178",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_components_cena_ganguescenaatores_pinoalvo",
-      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_retratodopino"
+      "target": "src_pages_games_gangues_components_cena_ganguescenaatores_retratodopino",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -45998,6 +45871,133 @@
       "confidence_score": 1.0,
       "source": "src_pages_games_gangues_screens_ganguescena",
       "target": "src_pages_games_gangues_components_cena_ganguescenaatores_worldcontrols"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/Gangues/data/cenas/pista/index.js",
+      "source_location": "L38",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_games_gangues_data_cenas_pista_index",
+      "target": "src_pages_games_gangues_data_cenas_pista_interiores"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/Gangues/data/cenas/pista/interiores.js",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_games_gangues_data_cenas_pista_interiores",
+      "target": "src_pages_games_gangues_data_cenas_pista_interiores_interiores_pista"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/Gangues/data/cenas/pista/index.js",
+      "source_location": "L38",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_games_gangues_data_cenas_pista_index",
+      "target": "src_pages_games_gangues_data_cenas_pista_interiores_interiores_pista"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/Gangues/data/cenas/pista/pois.js",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_games_gangues_data_cenas_pista_pois",
+      "target": "src_pages_games_gangues_data_cenas_pista_pois_pois_pista"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/Gangues/data/cenas/pista/posicoes.js",
+      "source_location": "L21",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_games_gangues_data_cenas_pista_posicoes",
+      "target": "src_pages_games_gangues_data_cenas_pista_posicoes_entry_zones_pista"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/Gangues/data/cenas/pista/posicoes.js",
+      "source_location": "L19",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_games_gangues_data_cenas_pista_posicoes",
+      "target": "src_pages_games_gangues_data_cenas_pista_posicoes_pos_pista"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/Gangues/components/cena/GanguesAgiota.jsx",
+      "source_location": "L36",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_games_gangues_components_cena_ganguesagiota",
+      "target": "src_pages_games_gangues_components_cena_ganguesagiota_ganguesagiota"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/Gangues/components/cena/GanguesAgiota.jsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_games_gangues_components_cena_ganguesagiota",
+      "target": "src_pages_games_gangues_components_cena_ganguesdescansotutorial"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/Gangues/components/cena/GanguesAgiota.jsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_games_gangues_components_cena_ganguesagiota",
+      "target": "src_pages_games_gangues_components_cena_ganguesdescansotutorial_ganguesagiotatutorial"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/Gangues/components/cena/GanguesAgiota.jsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_games_gangues_components_cena_ganguesagiota",
+      "target": "src_pages_games_gangues_components_cena_ganguesdescansotutorial_ganguesclubetutorial"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/Gangues/screens/GanguesCena.jsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_games_gangues_screens_ganguescena",
+      "target": "src_pages_games_gangues_components_cena_ganguesagiota"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/Gangues/screens/GanguesCena.jsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_games_gangues_screens_ganguescena",
+      "target": "src_pages_games_gangues_components_cena_ganguesagiota_ganguesagiota"
     },
     {
       "relation": "contains",
@@ -126777,5 +126777,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "2d29f106a66c50e045d0f36e0a5c3f57380d8803"
+  "built_at_commit": "35f25aaf00d2208009fddb9ad7c55487bf5cae32"
 }

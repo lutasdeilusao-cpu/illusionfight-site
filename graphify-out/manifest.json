@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1790038160.3161767,
-    "ast_hash": "5fa40ad8e6e30862caf110e1b5440083",
+    "mtime": 1790040677.7919521,
+    "ast_hash": "f69bde93f1039b48e4624fe075a983d3",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2745,8 +2745,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1790038170.6715856,
-    "ast_hash": "1cd533d45ba76e4d050387562a5f5bb3",
+    "mtime": 1790040696.8606832,
+    "ast_hash": "0c2c4a5f1a586197c1038c5d39a86ff6",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -4925,8 +4925,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx": {
-    "mtime": 1790036219.1780944,
-    "ast_hash": "a2bcd06b56da3f0cdf45382a8805e49c",
+    "mtime": 1790040582.1851768,
+    "ast_hash": "d4246a1cbd20b233b419c6cbfdd413d2",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/cena/GanguesCenaBagSheet.jsx": {

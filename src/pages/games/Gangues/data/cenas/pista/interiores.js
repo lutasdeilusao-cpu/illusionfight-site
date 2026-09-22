@@ -56,6 +56,11 @@ export const INTERIORES_PISTA = {
         // dentro"). Meio da sala, livre do balcão (colisor y66-106) e longe
         // dos outros dois pinos.
         { ref: 'agiota', pos: { x: 230, y: 130 } },
+        // O Balcão do Aperto (loja de poções) — mesmo dia, mesmo motivo:
+        // Isaias reclamou que ficou "meio serviço" mover só o agiota
+        // ("você não limpa as cagadas... por que esse cara tá aí fora").
+        // Canto inferior direito, livre do balcão e dos outros 3 pinos.
+        { ref: 'loja_pocoes', pos: { x: 396, y: 270 } },
       ],
     }],
   },
