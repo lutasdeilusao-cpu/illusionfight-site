@@ -143,7 +143,17 @@ export function PinoAlvo({ p, t, active, onColidir }) {
   // (`insideZone`) só faz sentido pra pino estático, que nunca se afasta
   // do próprio `world.x/y`.
   useEffect(() => {
-    if (!p.revezamento && !p.npcSlug && !p.liderFixo && !p.enemy) return // não é personagem, nem tenta
+    // BUG achado 21/09/2026 (Isaias: "Marimbondo não tá parando quando
+    // colide comigo, é o único que não tá parando, os outros param") — o
+    // guard aqui não conhecia `retratoEnemyId` (o campo usado pelo agiota
+    // pra emprestar a cara do inimigo "Fiado Vencido", mesmo truque do
+    // balconista), só `revezamento`/`npcSlug`/`liderFixo`/`enemy` — a
+    // andadinha dele rodava normal (a variável LOCAL `personagem` logo
+    // abaixo já reconhecia `retrato` de qualquer origem), mas esse efeito
+    // nunca chegava a rodar pra ele, então `colidindo`/`is-colidindo`
+    // (o que pausa a andadinha ao esbarrar) ficava sempre falso — ele
+    // "andava" pra sempre, sem nunca parar.
+    if (!p.revezamento && !p.npcSlug && !p.liderFixo && !p.enemy && !p.retratoEnemyId) return // não é personagem, nem tenta
     const id = setInterval(() => {
       const pinoEl = spanRef.current
       const playerEl = document.querySelector('.gang-world-player>span')
@@ -156,7 +166,7 @@ export function PinoAlvo({ p, t, active, onColidir }) {
       onColidir?.(p.id, tocou)
     }, 150)
     return () => { clearInterval(id); onColidir?.(p.id, false) }
-  }, [p.id, p.revezamento, p.npcSlug, p.liderFixo, p.enemy, onColidir])
+  }, [p.id, p.revezamento, p.npcSlug, p.liderFixo, p.enemy, p.retratoEnemyId, onColidir])
   if (p.estado === 'trancado' && !(p.ehPassagem || p.ehChefe)) return null
   const icone = p.ehChefe ? '★' : p.ehPorta ? '🚪' : p.ehSaida ? '↩' : p.ehVolta ? '↩' : p.ehPassagem ? (p.label === 'subir' ? '▲' : '▶') : (ICONE[p.tipo] || '•')
   const nome = p.ehChefe ? t(`games.gangues.story.bosses.${p.boss}.nome`)
