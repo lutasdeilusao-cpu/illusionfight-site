@@ -8,7 +8,7 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.280.246' // feat: aba WEB SHARD do /calendario mostra os episodios reais (episodios.json) em vez do placeholder generico.
+export const SITE_VERSION = '10.280.248' // feat (Isaias: "isso e um calendario... mostra o calendario do ano todo de 2027"): /calendario ganhou um calendario de verdade — grade mes a mes (nov/2026 ate jan/2028, cobrindo o ano de 2027 inteiro, sem esconder mes nenhum) com bolinhas coloridas por dia (assinante/conta gratis/publico/outras plataformas) acima da lista de cards de drop, que continua igual.
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json

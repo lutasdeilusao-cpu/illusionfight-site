@@ -5,7 +5,6 @@ import { useAuth } from '../../../context/AuthContext'
 import { useLanguage } from '../../../context/LanguageContext'
 import { resolveAccessLevel } from '../../../lib/releaseAccess'
 import { SEASON_ONE_COMPLETION, SEASON_ONE_DROPS, SEASONS_OVERVIEW } from '../../../data/season-one-schedule'
-import episodios from '../../../data/episodios.json'
 import './Calendario.css'
 
 const levelRows = [
@@ -21,6 +20,46 @@ function formatDate(date, locale) {
   }).format(new Date(`${date}T12:00:00Z`))
 }
 
+function intlLocale(locale) {
+  return locale === 'pt' ? 'pt-BR' : locale === 'es' ? 'es-ES' : 'en-US'
+}
+
+function pad2(n) { return String(n).padStart(2, '0') }
+
+// Cobre todo o intervalo real da Temporada 1: nov/2026 até jan/2028 (inclui o ano inteiro de 2027).
+const CALENDAR_START = { year: 2026, month: 10 }
+const CALENDAR_END = { year: 2028, month: 0 }
+
+function buildMonths(start, end) {
+  const months = []
+  let y = start.year, m = start.month
+  while (y < end.year || (y === end.year && m <= end.month)) {
+    months.push({ year: y, month: m })
+    m += 1
+    if (m > 11) { m = 0; y += 1 }
+  }
+  return months
+}
+
+function buildMonthCells(year, month) {
+  const daysInMonth = new Date(Date.UTC(year, month + 1, 0)).getUTCDate()
+  const firstWeekday = new Date(Date.UTC(year, month, 1)).getUTCDay()
+  const cells = []
+  for (let i = 0; i < firstWeekday; i += 1) cells.push(null)
+  for (let d = 1; d <= daysInMonth; d += 1) cells.push(d)
+  while (cells.length % 7 !== 0) cells.push(null)
+  return cells
+}
+
+function monthLabel(year, month, locale) {
+  return new Intl.DateTimeFormat(intlLocale(locale), { month: 'long', year: 'numeric', timeZone: 'UTC' }).format(new Date(Date.UTC(year, month, 1)))
+}
+
+function weekdayLabels(locale) {
+  const fmt = new Intl.DateTimeFormat(intlLocale(locale), { weekday: 'narrow', timeZone: 'UTC' })
+  return Array.from({ length: 7 }, (_, i) => fmt.format(new Date(Date.UTC(2023, 0, 1 + i))))
+}
+
 export default function Calendario() {
   const { t, locale } = useLanguage()
   const { user, perfil } = useAuth()
@@ -29,6 +68,9 @@ export default function Calendario() {
   const today = new Date().toISOString().slice(0, 10)
   const currentIndex = SEASON_ONE_DROPS.findLastIndex(drop => drop.date <= today)
   const nextIndex = SEASON_ONE_DROPS.findIndex(drop => drop.date > today)
+  const eventsByDate = Object.fromEntries(SEASON_ONE_DROPS.map(d => [d.date, d]))
+  const months = buildMonths(CALENDAR_START, CALENDAR_END)
+  const weekdays = weekdayLabels(locale)
 
   return (
     <main className="calendar-page">
@@ -50,27 +92,6 @@ export default function Calendario() {
         ))}
       </nav>
 
-      {channel === 'webtoon' && (
-        <motion.section className="calendar-section" key="webtoon" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} aria-labelledby="webshard-title">
-          <div className="calendar-section-heading"><span>WS</span><h2 id="webshard-title">{t('calendar.channel_webtoon')}</h2></div>
-          <div className="calendar-drops">
-            {episodios.map(ep => {
-              const tituloKey = locale === 'en' ? 'titulo_en' : locale === 'es' ? 'titulo_es' : 'titulo_pt'
-              const publicado = Boolean(ep.publicado && ep.data_publicacao)
-              return (
-                <article className={`calendar-drop${publicado ? ' is-current' : ' is-past'}`} key={ep.id}>
-                  <div className="calendar-drop-date">
-                    <span>EP {String(ep.numero).padStart(2, '0')}</span>
-                    {publicado && <time>{formatDate(ep.data_publicacao, locale)}</time>}
-                  </div>
-                  <div className="calendar-drop-line"><b>{t('calendar.level_public')}</b><span>{ep[tituloKey]}</span></div>
-                </article>
-              )
-            })}
-          </div>
-        </motion.section>
-      )}
-
       {channel !== 'chapters' && channel !== 'webtoon' && (
         <motion.section className="calendar-channel-empty" key={channel} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}>
           <span>{t('calendar.signal_pending')}</span>
@@ -79,7 +100,7 @@ export default function Calendario() {
         </motion.section>
       )}
 
-      {channel === 'chapters' && <>
+      {(channel === 'chapters' || channel === 'webtoon') && <>
 
       <section className="calendar-section" aria-labelledby="levels-title">
         <div className="calendar-section-heading"><span>01</span><h2 id="levels-title">{t('calendar.levels_title')}</h2></div>
@@ -115,6 +136,41 @@ export default function Calendario() {
 
       <section className="calendar-section" aria-labelledby="drops-title">
         <div className="calendar-section-heading"><span>03</span><h2 id="drops-title">{t('calendar.drops_title')}</h2></div>
+
+        <div className="calendar-months">
+          {months.map(({ year, month }) => {
+            const cells = buildMonthCells(year, month)
+            return (
+              <div className="calendar-month" key={`${year}-${month}`}>
+                <h3 className="calendar-month-head">{monthLabel(year, month, locale)}</h3>
+                <div className="calendar-weekdays">
+                  {weekdays.map((w, i) => <span key={i}>{w}</span>)}
+                </div>
+                <div className="calendar-month-grid">
+                  {cells.map((d, i) => {
+                    if (!d) return <div className="calendar-day is-empty" key={i} />
+                    const dateStr = `${year}-${pad2(month + 1)}-${pad2(d)}`
+                    const event = eventsByDate[dateStr]
+                    return (
+                      <div className={`calendar-day${event ? ' has-event' : ''}${dateStr === today ? ' is-today' : ''}`} key={i}>
+                        <span className="calendar-day-num">{d}</span>
+                        {event && (
+                          <div className="calendar-day-dots">
+                            {event.subscriber !== '—' && <span className="calendar-day-dot is-subscriber" title={`${t('calendar.level_subscriber')}: ${event.subscriber}`} />}
+                            {event.account !== '—' && <span className="calendar-day-dot is-account" title={`${t('calendar.level_account')}: ${event.account}`} />}
+                            {event.public !== '—' && <span className="calendar-day-dot is-public" title={`${t('calendar.level_public')}: ${event.public}`} />}
+                            {event.outras !== '—' && <span className="calendar-day-dot is-outras" title={`${t('calendar.level_outras')}: ${event.outras}`} />}
+                          </div>
+                        )}
+                      </div>
+                    )
+                  })}
+                </div>
+              </div>
+            )
+          })}
+        </div>
+
         <div className="calendar-drops">
           {SEASON_ONE_DROPS.map((drop, index) => {
             const state = index === currentIndex ? 'current' : index === nextIndex ? 'next' : index < currentIndex ? 'past' : 'future'

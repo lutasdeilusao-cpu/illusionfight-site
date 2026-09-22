@@ -34,6 +34,23 @@
 .calendar-completion h3 { margin: 0 0 12px; font: 800 1rem var(--font-display); }
 .calendar-completion article div { display: flex; justify-content: space-between; gap: 12px; padding: 5px 0; color: #81959d; font: 600 .69rem var(--font-mono); }
 .calendar-completion time { color: #dcebf0; }
+.calendar-months { display: grid; gap: 26px; margin-bottom: 32px; }
+.calendar-month-head { margin: 0 0 10px; font: 800 .92rem var(--font-display); letter-spacing: .04em; text-transform: uppercase; color: #dcebf0; }
+.calendar-weekdays { display: grid; grid-template-columns: repeat(7, 1fr); gap: 3px; margin-bottom: 4px; }
+.calendar-weekdays span { color: #566f79; text-align: center; font: 700 .58rem var(--font-mono); text-transform: uppercase; }
+.calendar-month-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 3px; }
+.calendar-day { position: relative; aspect-ratio: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; border: 1px solid #12262e; background: rgba(6,15,19,.85); }
+.calendar-day.is-empty { border-color: transparent; background: transparent; }
+.calendar-day-num { color: #7c939c; font: 700 .64rem var(--font-mono); }
+.calendar-day.has-event { border-color: #24424d; background: rgba(24,218,251,.05); }
+.calendar-day.has-event .calendar-day-num { color: #eafaff; }
+.calendar-day.is-today { border-color: var(--if-amber); box-shadow: 0 0 10px rgba(255,174,50,.25); }
+.calendar-day-dots { display: flex; flex-wrap: wrap; justify-content: center; gap: 2px; max-width: 22px; }
+.calendar-day-dot { width: 5px; height: 5px; border-radius: 50%; }
+.calendar-day-dot.is-subscriber { background: var(--if-cyan); box-shadow: 0 0 4px var(--if-cyan); }
+.calendar-day-dot.is-account { background: var(--if-amber); }
+.calendar-day-dot.is-public { background: #765cff; }
+.calendar-day-dot.is-outras { background: #6be07a; }
 .calendar-drop { position: relative; padding: 16px; border: 1px solid #142b34; background: rgba(5,13,17,.9); overflow: hidden; }
 .calendar-drop::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: #24424d; }
 .calendar-drop.is-current { border-color: var(--if-cyan); box-shadow: 0 0 32px rgba(24,218,251,.12); }
