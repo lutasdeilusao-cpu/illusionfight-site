@@ -30,6 +30,8 @@ export async function ensureUserProfile(user, fallback = {}, attempt = 0) {
     }
     const countryCode = fallback.pais || metadata.pais
     if (countryCode) profile.country_code = countryCode
+    const locale = fallback.locale || metadata.locale
+    if (locale) profile.locale = locale
 
     const { data, error } = await supabase
       .from('profiles')

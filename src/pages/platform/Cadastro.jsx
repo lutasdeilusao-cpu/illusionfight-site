@@ -30,7 +30,7 @@ const comTimeout = (promise, ms, rotulo) => Promise.race([
 ])
 
 export default function Cadastro() {
-  const { t } = useLanguage()
+  const { t, locale } = useLanguage()
   const navigate = useNavigate()
   const [form, setForm] = useState({ nome: '', email: '', senha: '' })
   const [erro, setErro] = useState('')
@@ -58,7 +58,11 @@ export default function Cadastro() {
     trackEvent('signup_start')
 
     const email = form.email.trim().toLowerCase()
-    const dadosPerfil = { nome: form.nome.trim() }
+    // `locale` vai junto pra a conta nascer lembrando o idioma que a
+    // pessoa já estava usando (padrão inglês, ou o que ela trocou no
+    // menu antes de decidir criar conta) — é o que passa a persistir daqui
+    // pra frente, em vez do idioma resetar a cada nova visita sem login.
+    const dadosPerfil = { nome: form.nome.trim(), locale }
     guardarPendente(dadosPerfil)
 
     try {

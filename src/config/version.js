@@ -8,7 +8,7 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.280.250' // fix (Isaias: "faz uma revisao... se nao tem mais erros assim por todo o portal"): auditoria completa de i18n varreu 216 arquivos/2222 chamadas t()/tt() contra os dicionarios reais e achou mais 6 bugs da mesma classe do helmet.mundo (chave errada -> t() cai no fallback e mostra a chave crua). Ver PP_VERSION/TATICS_VERSION/ARENATESTBED_VERSION.
+export const SITE_VERSION = '10.281.0' // feat (Isaias: "o site tem que ser por padrao em ingles... so na conta vai salvar a linguagem preferencial dela"): idioma padrao de visitante sem conta agora e SEMPRE ingles (LanguageProvider nao le mais localStorage pra decidir o idioma inicial); troca manual no menu vale so pra sessao atual e some numa nova visita sem login; so conta logada persiste preferencia de idioma de verdade, num campo novo profiles.locale (migration 041_profiles_locale.sql) lido no login e gravado a cada troca no menu; cadastro manda o idioma ativo no momento da criacao de conta, entao a conta ja nasce lembrando o idioma que a pessoa escolheu antes de se cadastrar.
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.2' // fix: aba "stories" do rodape mostrava a chave crua pp.menu.pistas_label (nao existia) -> aponta pra pp.dossier.pistas_label; PuzzleWrapper mostrava pp.puzzle.nenhum/instrucao (nao existiam) -> pp.local.puzzle_nenhum/instrucao; confirm() de deletar save mostrava pp.menu.deletar_slot cru -> chave criada nos 3 idiomas.

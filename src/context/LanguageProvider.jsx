@@ -1,7 +1,11 @@
-import { useState, useCallback, useMemo, useEffect } from 'react'
+import { useState, useCallback, useMemo, useEffect, useRef } from 'react'
 import { useLocation } from 'react-router-dom'
 import { LanguageContext } from './LanguageContext'
+import { useAuth } from './AuthContext'
+import { supabase } from '../lib/supabase'
 import { carregarCore, carregarArea, areaDaRota } from '../i18n/locales'
+
+const IDIOMAS_SUPORTADOS = ['pt', 'en', 'es']
 
 function getNested(obj, path) {
   // Converte "specializations[0]" → "specializations.0" para suportar arrays
@@ -34,10 +38,19 @@ function deepMerge(target, ...sources) {
 
 export function LanguageProvider({ children }) {
   const { pathname } = useLocation()
+  const { user, perfil } = useAuth()
 
-  const [locale, setLocale] = useState(() => {
-    try { return localStorage.getItem('ldi-locale') || 'pt' } catch { return 'pt' }
-  })
+  // Padrão INGLÊS pro primeiro contato de qualquer visitante — não lê
+  // localStorage aqui de propósito. Idioma de visitante sem conta é só
+  // desta sessão (troca manual no menu funciona, mas não sobrevive a uma
+  // nova visita); só a CONTA guarda preferência de idioma de verdade,
+  // aplicada pelo efeito abaixo assim que `perfil.locale` chega.
+  const [locale, setLocale] = useState('en')
+  // Depois que a conta já aplicou seu idioma salvo uma vez, uma troca
+  // manual no menu não deve ser sobrescrita se `perfil` for recarregado
+  // por outro motivo (ex.: outra aba atualiza o perfil) — só reage à
+  // MUDANÇA de perfil.locale, não a toda renderização.
+  const perfilLocaleAplicadoRef = useRef(null)
 
   // Núcleo do idioma ativo. Enquanto não chega, o app não renderiza —
   // é o que evita a página piscar com as chaves cruas no lugar do texto.
@@ -61,6 +74,28 @@ export function LanguageProvider({ children }) {
   useEffect(() => {
     document.documentElement.lang = locale === 'en' ? 'en' : locale === 'es' ? 'es' : 'pt-BR'
   }, [locale])
+
+  // Mantém `ldi-locale` no localStorage como espelho do idioma ATIVO agora
+  // — não é mais a fonte do padrão inicial (isso é sempre 'en' pra quem
+  // não tem conta), só serve pra outros módulos fora do Context (splash
+  // do index.html, Rádio Nina, Tamagoshi, TopTrumps) saberem em que
+  // idioma a UI está nesta sessão.
+  useEffect(() => {
+    try { localStorage.setItem('ldi-locale', locale) } catch { /* ignora */ }
+  }, [locale])
+
+  // Conta logada: aplica o idioma salvo no perfil assim que ele chega
+  // (login, ou perfil recém-criado no cadastro). Só reage quando o valor
+  // de fato MUDA, pra uma troca manual no menu (que já atualizou `locale`
+  // localmente) não ser desfeita se `perfil` for recarregado por outro
+  // motivo depois.
+  useEffect(() => {
+    const salvo = perfil?.locale
+    if (!salvo || !IDIOMAS_SUPORTADOS.includes(salvo)) return
+    if (perfilLocaleAplicadoRef.current === salvo) return
+    perfilLocaleAplicadoRef.current = salvo
+    setLocale(salvo)
+  }, [perfil?.locale])
 
   // A rota diz qual área precisa existir. Carrega uma vez por idioma.
   useEffect(() => {
@@ -100,8 +135,17 @@ export function LanguageProvider({ children }) {
 
   const changeLocale = useCallback((next) => {
     setLocale(next)
-    try { localStorage.setItem('ldi-locale', next) } catch {}
-  }, [])
+    // Sem conta: a troca vale só pra esta sessão (nunca persiste) — é o
+    // pedido central, primeiro contato sempre em inglês. Com conta: grava
+    // no perfil, é isso que faz o idioma voltar sozinho no próximo login.
+    if (user?.id) {
+      perfilLocaleAplicadoRef.current = next
+      supabase.from('profiles').update({ locale: next }).eq('id', user.id)
+        .then(({ error }) => {
+          if (error) console.error('[Idioma] falha ao salvar preferência da conta:', error)
+        })
+    }
+  }, [user?.id])
 
   // Usado por quem carrega tradução própria (ex.: useGanguesI18n).
   const registerLocaleData = useCallback((localeKey, data) => {
