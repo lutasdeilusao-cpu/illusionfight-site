@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1790043971.1453848,
-    "ast_hash": "e13d865d3a858abc54c657785c60c16c",
+    "mtime": 1790046973.1952047,
+    "ast_hash": "3c73dccbda7a8377b3471d49624737f0",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2745,8 +2745,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1790043985.7776182,
-    "ast_hash": "bd48f0689797cab3e3bac1dd14c7f062",
+    "mtime": 1790046984.227067,
+    "ast_hash": "a5d9fde32072bf7cdb336503d5996626",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -4915,8 +4915,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/cenas/pista/pois.js": {
-    "mtime": 1790043871.225444,
-    "ast_hash": "a9faad4ed51a7cc0c9ce1d267959ab61",
+    "mtime": 1790046957.3171701,
+    "ast_hash": "1511e5b22164ea828346e28dd73f1c40",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/cenas/pista/pools.js": {
@@ -4945,8 +4945,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/cenas/pista/posicoes.js": {
-    "mtime": 1790043897.8344696,
-    "ast_hash": "c336279a33f80768834e7f43a9567f9d",
+    "mtime": 1790046891.5001585,
+    "ast_hash": "d19af8987dabe9e0505444706d72c77a",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/engine/ganguesCenaMotor.js": {

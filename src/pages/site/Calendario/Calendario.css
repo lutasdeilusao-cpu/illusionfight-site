@@ -51,6 +51,18 @@
 .calendar-finale { margin-top: 18px; padding: 28px 18px; border: 1px solid var(--if-amber); text-align: center; background: radial-gradient(circle, rgba(255,174,50,.15), transparent 70%); box-shadow: 0 0 45px rgba(255,174,50,.1); }
 .calendar-finale span { display: block; color: var(--if-amber); font: 800 .72rem var(--font-mono); letter-spacing: .18em; }
 .calendar-finale strong { display: block; margin-top: 7px; font: 800 1.35rem var(--font-display); text-transform: uppercase; }
+.calendar-seasons-disclaimer { margin: 0 0 18px; padding: 14px 16px; border: 1px solid rgba(255,174,50,.4); background: rgba(255,174,50,.07); color: #f3d9a8; font: 600 .82rem/1.55 var(--font-body); }
+.calendar-seasons { display: grid; gap: 12px; }
+.calendar-season { position: relative; padding: 16px; border: 1px solid #142b34; background: rgba(5,13,17,.9); }
+.calendar-season.is-confirmed { border-color: var(--if-cyan); box-shadow: 0 0 24px rgba(24,218,251,.1); }
+.calendar-season.is-projected { opacity: .72; border-style: dashed; }
+.calendar-season-badge { display: inline-block; margin-bottom: 8px; padding: 3px 8px; border: 1px solid currentColor; font: 700 .56rem var(--font-mono); letter-spacing: .12em; text-transform: uppercase; }
+.calendar-season.is-confirmed .calendar-season-badge { color: var(--if-cyan); }
+.calendar-season.is-projected .calendar-season-badge { color: #91a5ad; }
+.calendar-season h3 { margin: 0 0 10px; font: 800 1.3rem var(--font-display); text-transform: uppercase; }
+.calendar-season div { display: flex; justify-content: space-between; gap: 12px; padding: 5px 0; color: #81959d; font: 600 .69rem var(--font-mono); }
+.calendar-season time { color: #dcebf0; }
+.calendar-season-note { margin: 10px 0 0; padding-top: 10px; border-top: 1px solid rgba(255,255,255,.08); color: #91a5ad; font: 500 .74rem/1.5 var(--font-body); }
 @keyframes calendarPulse { 70% { box-shadow: 0 0 0 9px rgba(255,174,50,0); } 100% { box-shadow: 0 0 0 0 rgba(255,174,50,0); } }
 @keyframes channelSignal { 50% { transform: rotate(45deg) scale(.9); opacity: .62; } }
 @media (prefers-reduced-motion: reduce) { .calendar-pulse { animation: none; } }

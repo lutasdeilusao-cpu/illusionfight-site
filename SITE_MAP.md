@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — MAPA DO SITE E DO PROJETO
 
 > Referência do estado atual do projeto para navegação humana e contexto de IA.
-> Atualizado em 2026-09-22 — `SITE_VERSION` **10.280.243**.
+> Atualizado em 2026-09-22 — `SITE_VERSION` **10.280.246**.
 > Histórico de tarefas, bugfixes e pendências não pertence a este documento.
 > Regras de trabalho, arquivos proibidos e decisões arquiteturais: `AGENTS.md`.
 
@@ -249,7 +249,7 @@ Cada jogo mantém componentes, dados, hooks/engine e store próprios dentro de s
 | Personagens | `src/data/personagens-{pt,en,es}.json` |
 | Mundo/lore | `src/data/mundo-{pt,en,es}.json` |
 | Livro (linha principal) | `src/data/livro-index.json` (com `resumo_*` / `tagline_*` e `liberacao.{primordial,elite,conta,publico}` por capítulo) e `src/data/livro/{pt,en,es}/capitulo-NN.md` |
-| Calendário público | `src/data/season-one-schedule.js` reúne os 27 drops da Temporada 1; as datas de acesso que alimentam o gate ficam nos três índices editoriais |
+| Calendário público | `src/data/season-one-schedule.js` reúne as 39 linhas da timeline da Temporada 1 (Portal: assinante/conta grátis/público, sempre -15/0/+15 dias entre si, + Outras Plataformas com ritmo próprio) + `SEASONS_OVERVIEW` (panorama T1-T6, só T1 marcada como confirmada, T2+ é projeção explícita); as datas de acesso que alimentam o gate ficam nos três índices editoriais |
 | Contos de Ilusão | `src/data/contos-index.json` (com `resumo_{pt,en,es}` por capítulo) e `src/data/livro/contos/{pt,en,es}/NN/NN.md` |
 | Obras (Mundo das Sombras, Mar de Cinzas) | `src/data/obras-index.json` (`peso`, `canon:false`, `selo`, `idiomas`, `capitulos[].data_publicacao`) e `src/data/livro/obras/<slug>/<lang>/NN.md`; arte webp em `src/assets/obras/<slug>/` (capa + `cap-NN`). Gating por `data_publicacao` futura + bypass de admin |
 | Worldbuilding dos universos | `src/data/universo-index.json` (define abas; uma aba pode ter `partes: [...]`) e `src/data/universo/<slug>/<lang>/<secao>.json` — **array de blocos tipados** (`prose`, `card`, `box`, `callout`, `timeline`, `personagens`, `protagonista`, `tabela`, `quote`, `lista`, `sub`, `tags`) renderizado por `Universo.jsx`. Mar de Cinzas foi extraído do `mar-de-cinzas-v5.html` via `bs4`. `/mundo/lutas-de-ilusao` ainda usa o formato antigo (`mundo-{pt,en,es}.json` + `Mundo.jsx`) |
@@ -391,7 +391,7 @@ Fonte única: `src/config/version.js`. Esta tabela registra somente a identifica
 
 | Constante | Módulo | Versão |
 |---|---|---:|
-| `SITE_VERSION` | Site global | **10.280.243** |
+| `SITE_VERSION` | Site global | **10.280.246** |
 | `PP_VERSION` | Pesadelo Particular | 2.3.1 |
 | `LDI_VERSION` | Lendas do LDI | 2.0.1 |
 | `JACK_VERSION` | Jack Dream Beer | 5.3.2 |

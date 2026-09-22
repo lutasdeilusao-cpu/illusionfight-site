@@ -304,26 +304,6 @@
       "norm_label": "version.js"
     },
     {
-      "label": "interiores.js",
-      "file_type": "code",
-      "source_file": "src/pages/games/Gangues/data/cenas/pista/interiores.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "src_pages_games_gangues_data_cenas_pista_interiores",
-      "community": 53,
-      "norm_label": "interiores.js"
-    },
-    {
-      "label": "INTERIORES_PISTA",
-      "file_type": "code",
-      "source_file": "src/pages/games/Gangues/data/cenas/pista/interiores.js",
-      "source_location": "L11",
-      "_origin": "ast",
-      "id": "src_pages_games_gangues_data_cenas_pista_interiores_interiores_pista",
-      "community": 53,
-      "norm_label": "interiores_pista"
-    },
-    {
       "label": "pois.js",
       "file_type": "code",
       "source_file": "src/pages/games/Gangues/data/cenas/pista/pois.js",
@@ -357,7 +337,7 @@
       "label": "POS_PISTA",
       "file_type": "code",
       "source_file": "src/pages/games/Gangues/data/cenas/pista/posicoes.js",
-      "source_location": "L25",
+      "source_location": "L26",
       "_origin": "ast",
       "id": "src_pages_games_gangues_data_cenas_pista_posicoes_pos_pista",
       "community": 453,
@@ -367,11 +347,31 @@
       "label": "ENTRY_ZONES_PISTA",
       "file_type": "code",
       "source_file": "src/pages/games/Gangues/data/cenas/pista/posicoes.js",
-      "source_location": "L27",
+      "source_location": "L28",
       "_origin": "ast",
       "id": "src_pages_games_gangues_data_cenas_pista_posicoes_entry_zones_pista",
       "community": 453,
       "norm_label": "entry_zones_pista"
+    },
+    {
+      "label": "interiores.js",
+      "file_type": "code",
+      "source_file": "src/pages/games/Gangues/data/cenas/pista/interiores.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 53,
+      "norm_label": "interiores.js",
+      "id": "src_pages_games_gangues_data_cenas_pista_interiores"
+    },
+    {
+      "label": "INTERIORES_PISTA",
+      "file_type": "code",
+      "source_file": "src/pages/games/Gangues/data/cenas/pista/interiores.js",
+      "source_location": "L11",
+      "_origin": "ast",
+      "community": 53,
+      "norm_label": "interiores_pista",
+      "id": "src_pages_games_gangues_data_cenas_pista_interiores_interiores_pista"
     },
     {
       "label": "GanguesCenaAtores.jsx",
@@ -45630,6 +45630,36 @@
       "target": "src_config_version"
     },
     {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/Gangues/data/cenas/pista/pois.js",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "src_pages_games_gangues_data_cenas_pista_pois",
+      "target": "src_pages_games_gangues_data_cenas_pista_pois_pois_pista",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/Gangues/data/cenas/pista/posicoes.js",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "src_pages_games_gangues_data_cenas_pista_posicoes",
+      "target": "src_pages_games_gangues_data_cenas_pista_posicoes_entry_zones_pista",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/Gangues/data/cenas/pista/posicoes.js",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "src_pages_games_gangues_data_cenas_pista_posicoes",
+      "target": "src_pages_games_gangues_data_cenas_pista_posicoes_pos_pista",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -45646,9 +45676,9 @@
       "source_file": "src/pages/games/Gangues/data/cenas/pista/interiores.js",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_cenas_pista_interiores",
-      "target": "src_pages_games_gangues_data_cenas_pista_interiores_interiores_pista",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_cenas_pista_interiores_interiores_pista"
     },
     {
       "relation": "imports",
@@ -45660,36 +45690,6 @@
       "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_cenas_pista_index",
       "target": "src_pages_games_gangues_data_cenas_pista_interiores_interiores_pista"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/Gangues/data/cenas/pista/pois.js",
-      "source_location": "L11",
-      "weight": 1.0,
-      "source": "src_pages_games_gangues_data_cenas_pista_pois",
-      "target": "src_pages_games_gangues_data_cenas_pista_pois_pois_pista",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/Gangues/data/cenas/pista/posicoes.js",
-      "source_location": "L27",
-      "weight": 1.0,
-      "source": "src_pages_games_gangues_data_cenas_pista_posicoes",
-      "target": "src_pages_games_gangues_data_cenas_pista_posicoes_entry_zones_pista",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/Gangues/data/cenas/pista/posicoes.js",
-      "source_location": "L25",
-      "weight": 1.0,
-      "source": "src_pages_games_gangues_data_cenas_pista_posicoes",
-      "target": "src_pages_games_gangues_data_cenas_pista_posicoes_pos_pista",
-      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -126777,5 +126777,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "89a772f0cb087294c5c54bd5dcf1cfe1a532730c"
+  "built_at_commit": "2440daae6730292a4b4b6d2e6c7f869cfa3da12d"
 }

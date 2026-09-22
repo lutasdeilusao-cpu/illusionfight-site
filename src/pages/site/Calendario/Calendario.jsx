@@ -4,13 +4,14 @@ import { Helmet } from 'react-helmet-async'
 import { useAuth } from '../../../context/AuthContext'
 import { useLanguage } from '../../../context/LanguageContext'
 import { resolveAccessLevel } from '../../../lib/releaseAccess'
-import { SEASON_ONE_COMPLETION, SEASON_ONE_DROPS } from '../../../data/season-one-schedule'
+import { SEASON_ONE_COMPLETION, SEASON_ONE_DROPS, SEASONS_OVERVIEW } from '../../../data/season-one-schedule'
+import episodios from '../../../data/episodios.json'
 import './Calendario.css'
 
 const levelRows = [
   { id: 'subscriber', access: ['elite', 'primordial'], delay: 0, launch: 3, tales: 5 },
-  { id: 'account', access: ['conta'], delay: 14, launch: 2, tales: 0 },
-  { id: 'public', access: ['publico'], delay: 28, launch: 1, tales: 0 },
+  { id: 'account', access: ['conta'], delay: 15, launch: 2, tales: 0 },
+  { id: 'public', access: ['publico'], delay: 30, launch: 1, tales: 0 },
 ]
 const channels = ['chapters', 'webtoon', 'games', 'music', 'partners']
 
@@ -49,7 +50,28 @@ export default function Calendario() {
         ))}
       </nav>
 
-      {channel !== 'chapters' && (
+      {channel === 'webtoon' && (
+        <motion.section className="calendar-section" key="webtoon" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} aria-labelledby="webshard-title">
+          <div className="calendar-section-heading"><span>WS</span><h2 id="webshard-title">{t('calendar.channel_webtoon')}</h2></div>
+          <div className="calendar-drops">
+            {episodios.map(ep => {
+              const tituloKey = locale === 'en' ? 'titulo_en' : locale === 'es' ? 'titulo_es' : 'titulo_pt'
+              const publicado = Boolean(ep.publicado && ep.data_publicacao)
+              return (
+                <article className={`calendar-drop${publicado ? ' is-current' : ' is-past'}`} key={ep.id}>
+                  <div className="calendar-drop-date">
+                    <span>EP {String(ep.numero).padStart(2, '0')}</span>
+                    {publicado && <time>{formatDate(ep.data_publicacao, locale)}</time>}
+                  </div>
+                  <div className="calendar-drop-line"><b>{t('calendar.level_public')}</b><span>{ep[tituloKey]}</span></div>
+                </article>
+              )
+            })}
+          </div>
+        </motion.section>
+      )}
+
+      {channel !== 'chapters' && channel !== 'webtoon' && (
         <motion.section className="calendar-channel-empty" key={channel} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}>
           <span>{t('calendar.signal_pending')}</span>
           <h2>{t(`calendar.channel_${channel}`)}</h2>
@@ -80,12 +102,12 @@ export default function Calendario() {
       <section className="calendar-section" aria-labelledby="completion-title">
         <div className="calendar-section-heading"><span>02</span><h2 id="completion-title">{t('calendar.completion_title')}</h2></div>
         <div className="calendar-completion">
-          {SEASON_ONE_COMPLETION.map(([id, publicDate, accountDate, subscriberDate]) => (
+          {SEASON_ONE_COMPLETION.map(([id, subscriberDate, accountDate, publicDate]) => (
             <article key={id}>
               <h3>{t(`calendar.work_${id}`)}</h3>
-              <div><span>{t('calendar.level_public')}</span><time>{formatDate(publicDate, locale)}</time></div>
-              <div><span>{t('calendar.level_account')}</span><time>{formatDate(accountDate, locale)}</time></div>
               <div><span>{t('calendar.level_subscriber')}</span><time>{formatDate(subscriberDate, locale)}</time></div>
+              <div><span>{t('calendar.level_account')}</span><time>{formatDate(accountDate, locale)}</time></div>
+              <div><span>{t('calendar.level_public')}</span><time>{formatDate(publicDate, locale)}</time></div>
             </article>
           ))}
         </div>
@@ -102,10 +124,27 @@ export default function Calendario() {
               <div className={`calendar-drop-line${access === 'primordial' || access === 'elite' ? ' is-you' : ''}`}><b>{t('calendar.level_subscriber')}</b><span>{drop.subscriber}</span></div>
               <div className={`calendar-drop-line${access === 'conta' ? ' is-you' : ''}`}><b>{t('calendar.level_account')}</b><span>{drop.account}</span></div>
               <div className={`calendar-drop-line${access === 'publico' ? ' is-you' : ''}`}><b>{t('calendar.level_public')}</b><span>{drop.public}</span></div>
+              <div className="calendar-drop-line"><b>{t('calendar.level_outras')}</b><span>{drop.outras}</span></div>
             </article>
           })}
         </div>
-        <div className="calendar-finale"><span>30.11.2027</span><strong>{t('calendar.finale')}</strong></div>
+        <div className="calendar-finale"><span>{formatDate('2027-12-15', locale)}</span><strong>{t('calendar.finale')}</strong></div>
+      </section>
+
+      <section className="calendar-section" aria-labelledby="seasons-title">
+        <div className="calendar-section-heading"><span>04</span><h2 id="seasons-title">{t('calendar.seasons_title')}</h2></div>
+        <p className="calendar-seasons-disclaimer">{t('calendar.seasons_disclaimer')}</p>
+        <div className="calendar-seasons">
+          {SEASONS_OVERVIEW.map(s => (
+            <article key={s.season} className={`calendar-season${s.confirmada ? ' is-confirmed' : ' is-projected'}`}>
+              <span className="calendar-season-badge">{t(s.confirmada ? 'calendar.season_confirmed' : 'calendar.season_projected')}</span>
+              <h3>{s.season}</h3>
+              <div><span>{t('calendar.season_start')}</span><time>{formatDate(s.start, locale)}</time></div>
+              <div><span>{t('calendar.season_end')}</span><time>{formatDate(s.end, locale)}</time></div>
+              {s.note && <p className="calendar-season-note">{t(`calendar.${s.note}`)}</p>}
+            </article>
+          ))}
+        </div>
       </section>
       </>}
     </main>

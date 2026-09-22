@@ -8,7 +8,7 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.280.243' // fix: LDI Gangues - Lojinha do Ze move pro meio aberto da rua, longe da porta da birosca (ver GANGUES_VERSION).
+export const SITE_VERSION = '10.280.246' // feat: aba WEB SHARD do /calendario mostra os episodios reais (episodios.json) em vez do placeholder generico.
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
