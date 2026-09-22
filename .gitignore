@@ -43,3 +43,6 @@ graphify-out/20??-??-??/
 
 # scratch de teste local (playwright)
 _*.mjs
+
+# Worktree local do branch gh-pages, usado por scripts/deploy-gh-pages.cjs
+/.gh-pages-worktree/
