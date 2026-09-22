@@ -33,7 +33,7 @@ export default function Mundo() {
   return (
     <>
       <Helmet>
-        <title>{t('helmet.mundo')}</title>
+        <title>{t('pages.helmet.mundo')}</title>
         <meta name="description" content={t('pages.mundo.og_desc')} />
         <meta property="og:title" content={t('pages.mundo.og_title')} />
         <meta property="og:description" content={t('pages.mundo.og_desc')} />

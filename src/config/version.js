@@ -8,7 +8,7 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.280.248' // feat (Isaias: "isso e um calendario... mostra o calendario do ano todo de 2027"): /calendario ganhou um calendario de verdade — grade mes a mes (nov/2026 ate jan/2028, cobrindo o ano de 2027 inteiro, sem esconder mes nenhum) com bolinhas coloridas por dia (assinante/conta gratis/publico/outras plataformas) acima da lista de cards de drop, que continua igual.
+export const SITE_VERSION = '10.280.249' // fix (Isaias, print da aba do navegador mostrando "helmet.mundo"): Mundo.jsx chamava t('helmet.mundo') mas a chave real fica em pages.helmet.mundo (core/pt|en|es.json) — t() nao achava, caia no fallback (devolve a propria chave) e o <title> saia literal. Corrigido pra t('pages.helmet.mundo'); as 3 traducoes ja existiam.
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
