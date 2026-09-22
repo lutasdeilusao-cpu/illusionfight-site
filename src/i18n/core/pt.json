@@ -763,6 +763,7 @@
       "selecione_slot": "Selecione um save",
       "slot_label": "Save",
       "slot_vazio": "Vazio",
+      "deletar_slot": "Apagar o Save {num}? Isso apaga tudo.",
       "continuar": "● CONTINUAR",
       "nivel_casos": "nível {nivel}, {casos} casos resolvidos",
       "novo_jogo": "○ NOVO JOGO",

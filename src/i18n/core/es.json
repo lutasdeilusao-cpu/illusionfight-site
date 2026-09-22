@@ -763,6 +763,7 @@
       "selecione_slot": "Selecciona un guardado",
       "slot_label": "Guardado",
       "slot_vazio": "Vacío",
+      "deletar_slot": "¿Borrar el Save {num}? Esto borra todo.",
       "continuar": "● CONTINUAR",
       "nivel_casos": "nivel {nivel}, {casos} casos resueltos",
       "novo_jogo": "○ NUEVO JUEGO",

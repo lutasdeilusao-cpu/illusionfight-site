@@ -13,7 +13,7 @@ export default function PuzzleWrapper({ tipo, onSolve }) {
 
   if (tipo === 'nenhum' || !tipo) {
     setTimeout(() => onSolve(true), 100)
-    return <div className="pp-puzzle-area"><p className="pp-puzzle-instruction">{t('pp.puzzle.nenhum')}</p></div>
+    return <div className="pp-puzzle-area"><p className="pp-puzzle-instruction">{t('pp.local.puzzle_nenhum')}</p></div>
   }
 
   const handleSuccess = () => onSolve(true)
@@ -29,7 +29,7 @@ export default function PuzzleWrapper({ tipo, onSolve }) {
         <motion.div className="pp-flash" initial={{ opacity: 0.3 }} animate={{ opacity: 0 }}
           transition={{ duration: 0.4 }} />
       )}
-      <p className="pp-puzzle-instruction">{t('pp.puzzle.instrucao')}</p>
+      <p className="pp-puzzle-instruction">{t('pp.local.puzzle_instrucao')}</p>
       {tipo === 'decoder' && <PuzzleDecoder onSolve={handleSuccess} onFail={handleFail} />}
       {tipo === 'stealth' && <PuzzleStealthGrid config={{ size: 4 }} onSolve={handleSuccess} onFail={handleFail} />}
       {tipo === 'sliding' && <PuzzleSlidingTiles config={{ size: 3 }} onSolve={handleSuccess} onFail={handleFail} />}

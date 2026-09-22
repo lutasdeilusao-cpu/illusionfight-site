@@ -8,10 +8,10 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.280.249' // fix (Isaias, print da aba do navegador mostrando "helmet.mundo"): Mundo.jsx chamava t('helmet.mundo') mas a chave real fica em pages.helmet.mundo (core/pt|en|es.json) — t() nao achava, caia no fallback (devolve a propria chave) e o <title> saia literal. Corrigido pra t('pages.helmet.mundo'); as 3 traducoes ja existiam.
+export const SITE_VERSION = '10.280.250' // fix (Isaias: "faz uma revisao... se nao tem mais erros assim por todo o portal"): auditoria completa de i18n varreu 216 arquivos/2222 chamadas t()/tt() contra os dicionarios reais e achou mais 6 bugs da mesma classe do helmet.mundo (chave errada -> t() cai no fallback e mostra a chave crua). Ver PP_VERSION/TATICS_VERSION/ARENATESTBED_VERSION.
 
 // ── Games ─────────────────────────────────────────
-export const PP_VERSION        = '2.3.1'  // Pesadelo Particular — fix: guest i18n keys movidas para o namespace pp em pt/en/es.json
+export const PP_VERSION        = '2.3.2' // fix: aba "stories" do rodape mostrava a chave crua pp.menu.pistas_label (nao existia) -> aponta pra pp.dossier.pistas_label; PuzzleWrapper mostrava pp.puzzle.nenhum/instrucao (nao existiam) -> pp.local.puzzle_nenhum/instrucao; confirm() de deletar save mostrava pp.menu.deletar_slot cru -> chave criada nos 3 idiomas.
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
 export const GANGUES_VERSION   = '3.56.0' // fix (Isaias, 22/09/2026, print marcando o lugar certo: "coloca a lojinha do Seu Zé bem aí onde eu marquei... ali no meio dessa rua, porque aonde ele tá tá trabalhando muito"): `loja_pocoes` (Lojinha do Zé) mudou de posição de novo — a 1ª correção (colar na quina do prédio, perto da porta da birosca) resolveu o "no meio da construção" mas criou congestionamento no ponto de entrada (porta + loja empilhados). Movida pro trecho aberto da rua entre os dois quarteirões (y2492-2622, sem prédio nenhum ali), posição (600,2560) — zona de interação centrada no próprio ícone (mesmo critério de informante/rinha, sem parede pra encostar). Testado ao vivo via Playwright: pino aparece isolado no meio do trecho vazio da rua (confirmado com screenshot), botão COMPRAR ativa normalmente.
@@ -21,9 +21,9 @@ export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS ex
 export const MINIGAMES_VERSION = '4.3.6'  // PuzzleStealthGrid: d-pad na tela sempre (mobile tambem) + grade nao vaza mais do viewport
 export const TS_VERSION        = '6.0.3'  // Top Trumps SP - fix: cartas cortadas em telas baixas (escala por JS) + audio iOS Chrome + player da Nina toca em mobile
 export const TM_VERSION        = '6.0.2'  // Top Trumps MP - alinhado com SP 6.0.2 (GameOverScreen compartilhado)
-export const TATICS_VERSION    = '7.5.0'  // Arena LDI Tatics — fix: centralização padX hexgrid (gridSpan em vez de gridW)
+export const TATICS_VERSION    = '7.5.1' // fix: PreBatalha.jsx chamava t('tatics.*') (namespace legado, sem essas chaves) em vez de t('games.tatics.*') — tela pre-batalha inteira mostrava chave crua. SimulacaoAuto.jsx usava 11 chaves games.tatics.sim_* que nunca existiram — criadas nos 3 idiomas.
 export const SRGRM_VERSION = '3.5.0' // SRGRM 3v3 — extração fiel do original rpg_3v3-3-4-1.html, 129 funções preservadas
-export const ARENATESTBED_VERSION = '6.22.1' // correção de encoding em comentário e chevrons
+export const ARENATESTBED_VERSION = '6.22.2' // fix: 4 chaves prototype.arena_testbed.* (ia_personalidade_label, ordering_title/subtitle/confirm) nunca existiam — modal de empate de agilidade e o seletor de personalidade da IA mostravam chave crua. Criadas nos 3 idiomas.
 export const KP_VERSION = '1.4.2' // Kernel Panic — header CSS limitado ao próprio jogo
 export const SLIDING_VERSION   = '1.4.4'  // fix: grid quadrado (--sr-side = Math.min(w,h)) em vez de flex esticado
 export const CODIGO_VERSION    = '1.3.3'  // merge wrapper+puzzle em 1 arquivo + fix commit

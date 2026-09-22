@@ -228,7 +228,18 @@
       "vs": "⚔️ VS ⚔️",
       "nivel": "Lv.",
       "tier": "Tier",
-      "confirmar": "CONFIRM"
+      "confirmar": "CONFIRM",
+      "sim_titulo": "AUTO SIMULATION",
+      "sim_sub": "AI vs AI. Watch the battle play out on its own.",
+      "sim_personagens": "Characters per team",
+      "sim_quantidade_ias": "Number of AIs",
+      "sim_velocidade": "Speed",
+      "sim_ias_batalha": "AIs in battle",
+      "sim_sortear": "Reroll",
+      "sim_time_azul": "BLUE TEAM",
+      "sim_time_vermelho": "RED TEAM",
+      "sim_personagens_disponiveis": "{n} characters available",
+      "sim_iniciar": "START SIMULATION"
     },
     "lobby": {
       "titulo": "MULTIPLAYER",

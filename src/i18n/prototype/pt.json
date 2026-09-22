@@ -247,7 +247,11 @@
       "ia_personalidade_fujona": "Fujona",
       "ia_personalidade_fujona_desc": "Foge do combate quando está com HP baixo. Só ataca se não tiver escolha.",
       "ia_personalidade_persistente": "Persistente",
-      "ia_personalidade_persistente_desc": "Mantém o mesmo alvo por vários turnos, só trocando se outro inimigo ficar mais fraco."
+      "ia_personalidade_persistente_desc": "Mantém o mesmo alvo por vários turnos, só trocando se outro inimigo ficar mais fraco.",
+      "ia_personalidade_label": "Personalidade da IA",
+      "ordering_title": "EMPATE DE AGILIDADE",
+      "ordering_subtitle": "Personagens com a mesma AGI empatam — arraste para definir a ordem entre eles.",
+      "ordering_confirm": "Confirmar ordem"
     }
   }
 }

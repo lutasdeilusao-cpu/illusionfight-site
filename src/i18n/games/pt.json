@@ -228,7 +228,18 @@
       "vs": "⚔️ VS ⚔️",
       "nivel": "Nv.",
       "tier": "Tier",
-      "confirmar": "CONFIRMAR"
+      "confirmar": "CONFIRMAR",
+      "sim_titulo": "SIMULAÇÃO AUTOMÁTICA",
+      "sim_sub": "IA contra IA. Assista à batalha se resolver sozinha.",
+      "sim_personagens": "Personagens por time",
+      "sim_quantidade_ias": "Quantidade de IAs",
+      "sim_velocidade": "Velocidade",
+      "sim_ias_batalha": "IAs na batalha",
+      "sim_sortear": "Sortear",
+      "sim_time_azul": "TIME AZUL",
+      "sim_time_vermelho": "TIME VERMELHO",
+      "sim_personagens_disponiveis": "{n} personagens disponíveis",
+      "sim_iniciar": "INICIAR SIMULAÇÃO"
     },
     "lobby": {
       "titulo": "MULTIPLAYER",

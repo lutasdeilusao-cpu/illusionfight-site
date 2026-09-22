@@ -247,7 +247,11 @@
       "ia_personalidade_fujona": "Cowardly",
       "ia_personalidade_fujona_desc": "Flees from combat when low on HP. Only attacks if there is no other choice.",
       "ia_personalidade_persistente": "Persistent",
-      "ia_personalidade_persistente_desc": "Stays on the same target for multiple turns, only switching if another enemy gets weaker."
+      "ia_personalidade_persistente_desc": "Stays on the same target for multiple turns, only switching if another enemy gets weaker.",
+      "ia_personalidade_label": "AI Personality",
+      "ordering_title": "AGILITY TIE",
+      "ordering_subtitle": "Characters with the same AGI are tied — drag to set the order between them.",
+      "ordering_confirm": "Confirm order"
     }
   }
 }

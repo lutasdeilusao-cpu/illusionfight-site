@@ -1498,7 +1498,7 @@ export default function PP() {
             {[
               { id:'feed',      icon:'🏠', label:t('pp.feed.investigar') },
               { id:'mensagens', icon:'💬', label:t('pp.feed.mensagens'),    badge: casosDisponiveis.filter(c => !casosResolvidos.includes(c.id)).length },
-              { id:'stories',   icon:'📖', label:t('pp.menu.pistas_label'),  badge: getFiosPistas().length > 0 ? getFiosPistas().length : 0 },
+              { id:'stories',   icon:'📖', label:t('pp.dossier.pistas_label'),  badge: getFiosPistas().length > 0 ? getFiosPistas().length : 0 },
               { id:'arquivos',  icon:'🗂️', label:t('pp.caderno.titulo') },
             ].map(nav => (
               <button key={nav.id} className={`pp-nav-btn ${aba === nav.id ? 'active' : ''}`} onClick={() => setAba(nav.id)}>

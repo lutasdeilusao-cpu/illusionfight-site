@@ -247,7 +247,11 @@
       "ia_personalidade_fujona": "Cobarde",
       "ia_personalidade_fujona_desc": "Huye del combate cuando tiene HP bajo. Solo ataca si no tiene otra opción.",
       "ia_personalidade_persistente": "Persistente",
-      "ia_personalidade_persistente_desc": "Mantiene el mismo objetivo por varios turnos, solo cambiando si otro enemigo se vuelve más débil."
+      "ia_personalidade_persistente_desc": "Mantiene el mismo objetivo por varios turnos, solo cambiando si otro enemigo se vuelve más débil.",
+      "ia_personalidade_label": "Personalidad de la IA",
+      "ordering_title": "EMPATE DE AGILIDAD",
+      "ordering_subtitle": "Personajes con la misma AGI empatan — arrastra para definir el orden entre ellos.",
+      "ordering_confirm": "Confirmar orden"
     }
   }
 }
