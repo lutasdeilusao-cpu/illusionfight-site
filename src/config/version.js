@@ -8,7 +8,7 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.290.0' // feat(mar-de-cinzas): artes oficiais — key art do Cap. 1 vira capa da obra (Histórias + hub de Universos) e miniatura do capítulo; turnarounds da Elizabeth Thoss e do Scarn Vael no Elenco do universo (bloco novo `arte` no Universo.jsx)
+export const SITE_VERSION = '10.290.1' // chore(mar-de-cinzas): banner oficial vira a capa principal da obra; key art segue como capa do Cap. 1
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.2' // fix: aba "stories" do rodape mostrava a chave crua pp.menu.pistas_label (nao existia) -> aponta pra pp.dossier.pistas_label; PuzzleWrapper mostrava pp.puzzle.nenhum/instrucao (nao existiam) -> pp.local.puzzle_nenhum/instrucao; confirm() de deletar save mostrava pp.menu.deletar_slot cru -> chave criada nos 3 idiomas.

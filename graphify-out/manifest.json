@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1790358126.1396377,
-    "ast_hash": "64dd7873825a123e0338a141124cf526",
+    "mtime": 1790365527.7801416,
+    "ast_hash": "e70f56c9d2d102c3918d81de77c3d473",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2730,8 +2730,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1790358126.169468,
-    "ast_hash": "cba12b9f6d33bd431b70e11cf68359a1",
+    "mtime": 1790365527.8315265,
+    "ast_hash": "fbd30b0c8f23e56767a8a768a70a12b9",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -4120,8 +4120,8 @@
     "semantic_hash": ""
   },
   "src/data/obras-index.json": {
-    "mtime": 1788400524.1692393,
-    "ast_hash": "60c8c36aaace8c31ef907be49172c89c",
+    "mtime": 1790365489.7166111,
+    "ast_hash": "f5a0ebb7a70586644b618f44d0a518b5",
     "semantic_hash": ""
   },
   "src/data/season-one-schedule.js": {
@@ -4130,8 +4130,8 @@
     "semantic_hash": ""
   },
   "src/data/universo-index.json": {
-    "mtime": 1788444619.3839219,
-    "ast_hash": "06d6a251a6492ef81c707b0bba32a1bb",
+    "mtime": 1790365504.5755496,
+    "ast_hash": "e7cac4a2d0b19274a4ff6d72f65b10d9",
     "semantic_hash": ""
   },
   "src/data/universo/mar-de-cinzas/pt/antagonista.json": {
@@ -4205,8 +4205,8 @@
     "semantic_hash": ""
   },
   "src/data/universo/mar-de-cinzas/pt/protagonista.json": {
-    "mtime": 1788393601.683637,
-    "ast_hash": "91b4842e4ae53cb091d97a0fb28b36b7",
+    "mtime": 1790365504.6520414,
+    "ast_hash": "718806101e3cf7ea81e12023641f5bda",
     "semantic_hash": ""
   },
   "src/data/universo/mar-de-cinzas/pt/religiao.json": {
@@ -4300,8 +4300,8 @@
     "semantic_hash": ""
   },
   "src/pages/content/Universo.jsx": {
-    "mtime": 1788444529.469216,
-    "ast_hash": "898862ec3b0c01b278f8cbae2906978d",
+    "mtime": 1790365515.7491765,
+    "ast_hash": "b4fed4ab6454d72982f6319f5b8ea946",
     "semantic_hash": ""
   },
   "src/pages/site/Calendario/Calendario.jsx": {
@@ -5692,6 +5692,26 @@
   "src/pages/content/historias/HistoriasUniversos.jsx": {
     "mtime": 1790358082.9672613,
     "ast_hash": "a2c4d6d646220c334fc4d87aa76427db",
+    "semantic_hash": ""
+  },
+  "src/assets/obras/mar-de-cinzas/cap-01.webp": {
+    "mtime": 1790365465.350714,
+    "ast_hash": "3125c890ffd4d682663cb8e1ab8b2c36",
+    "semantic_hash": ""
+  },
+  "src/assets/obras/mar-de-cinzas/capa.webp": {
+    "mtime": 1790365465.2918222,
+    "ast_hash": "ec0205b2f4c9dfe8add2e958aa74deda",
+    "semantic_hash": ""
+  },
+  "src/assets/obras/mar-de-cinzas/elizabeth.webp": {
+    "mtime": 1790365465.5233738,
+    "ast_hash": "e9d3490fd6b192aa01db7ead6d9fa550",
+    "semantic_hash": ""
+  },
+  "src/assets/obras/mar-de-cinzas/scarn.webp": {
+    "mtime": 1790365465.6980128,
+    "ast_hash": "0eae195420c7cefcb1df117c9b86a612",
     "semantic_hash": ""
   }
 }
