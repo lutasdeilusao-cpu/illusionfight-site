@@ -1,7 +1,7 @@
 {
   "nav": {
     "links": {
-      "webtoon": "Webtoon",
+      "webtoon": "WEB SHARD",
       "historias": "Stories",
       "musicas": "Music",
       "games": "Games",
@@ -136,7 +136,7 @@
       {
         "title": "Navigation",
         "links": [
-          "Webtoon",
+          "WEB SHARD",
           "Stories",
           "Music",
           "World"
@@ -257,7 +257,7 @@
       "At 30 I'd been a public servant for 10 years, earning less than $200 a month, and I wasn't happy. I decided to flip everything upside down: studied hard for a scholarship, and by my first semester of college I already had a job. I started specializing in console porting, Nintendo, Xbox, and PlayStation.",
       "The moment that defined everything happened at my first company, less than a year after the Switch launched. Nobody there knew how to work with that console. I was an intern, handed a dev kit, some documentation, and a game: \"you have one month to ship it, this is your test.\" That's how it began.",
       "I got into games and worked on international projects, including titles like Five Nights at Freddy's and a release that reached the God of War universe. But I want to be honest: as much as I love this industry, it isn't stable, and everyone in it knows that. If you didn't, now you do. I moved into traditional software development (starting over from junior again). Today I'm 40, and I'm finally publishing this story.",
-      "Lutas de Ilusão is an independent project. Every chapter, every webtoon page, every song has real cost and real work behind it. Supporting it is the only way to keep it alive and growing."
+      "Lutas de Ilusão is an independent project. Every chapter, every WEB SHARD page, every song has real cost and real work behind it. Supporting it is the only way to keep it alive and growing."
     ],
     "cta": "SUPPORT THE PROJECT"
   },
@@ -530,7 +530,7 @@
       "recomp_motivo_trumps": "top trumps",
       "recomp_motivo_outro": "{motivo}",
       "recomp_acao_livro": "Read book chapter",
-      "recomp_acao_webtoon": "Read webtoon episode",
+      "recomp_acao_webtoon": "Read a WEB SHARD chapter",
       "recomp_acao_achievement": "Unlock achievement",
       "recomp_acao_indicar": "Refer a friend",
       "recomp_acao_compartilhar": "Share result",
@@ -668,8 +668,8 @@
       "farol_vazio": "No story matches that filter. Try another weight."
     },
     "webtoon": {
-      "titulo": "WEBTOON",
-      "meta_title": "Illusion Fight Webtoon — Free Action Webcomic Online",
+      "titulo": "WEB SHARD",
+      "meta_title": "WEB SHARD — Read Illusion Fight Free Online",
       "meta_desc": "Read Illusion Fight online for free — the first title in WEB SHARD, the vertical web comic and manga format in composite pages.",
       "seo_intro": "Illusion Fight is the first title in WEB SHARD, the new vertical web comic and manga format in composite pages, published free in episodes right here on the site. If you're into manga, manhwa or other action webcomics, you'll recognize the pacing — this time with an all-Brazilian cast and universe.",
       "web_shard_cta": "What is WEB SHARD? →",
@@ -735,7 +735,7 @@
       "home": "Illusion Fight — The pain is 100% real",
       "musicas": "Music — Illusion Fight",
       "livro": "Book — Illusion Fight",
-      "webtoon": "Webtoon — Illusion Fight",
+      "webtoon": "WEB SHARD — Illusion Fight",
       "mundo": "World — Illusion Fight",
       "autor": "Author — Illusion Fight",
       "personagens": "Characters — Illusion Fight",
@@ -944,7 +944,7 @@
     "s3": {
       "title": "What your subscription funds",
       "item1": "Infrastructure for everyone — including people who don't pay",
-      "item2": "Production of new webtoon episodes",
+      "item2": "Production of new WEB SHARD chapters",
       "item3": "New games and updates",
       "item4": "Time — the scarcest resource here"
     },
@@ -1185,7 +1185,7 @@
   },
   "home": {
     "section_latest": "New releases",
-    "section_webtoon": "Webtoon",
+    "section_webtoon": "WEB SHARD",
     "section_webtoon_hint": "New episodes and releases",
     "section_worlds": "Worlds",
     "section_characters": "Featured characters",
@@ -1203,9 +1203,9 @@
     "section_games": "Latest games",
     "previous": "Previous",
     "next": "Next",
-    "meta_title": "Illusion Fight — Free Webtoon, Games & Stories",
-    "meta_description": "Explore Illusion Fight, a Brazilian action universe with a free webtoon, free online games, and serialized fantasy stories — webcomic, characters, music and more.",
-    "og_description": "Read a free action webtoon and fantasy stories online, meet the characters, and play free online games in the Illusion Fight universe."
+    "meta_title": "Illusion Fight — Free WEB SHARD Comics, Games & Stories",
+    "meta_description": "Explore Illusion Fight, a Brazilian action universe with free WEB SHARD comics, free online games, and serialized fantasy stories — webcomic, characters, music and more.",
+    "og_description": "Read free action WEB SHARD comics and fantasy stories online, meet the characters, and play free online games in the Illusion Fight universe."
   },
   "hero": {
     "title": "ILLUSION FIGHT",
@@ -1225,7 +1225,7 @@
       "cta2": "Learn more"
     },
     "slide2": {
-      "tag": "Webtoon",
+      "tag": "WEB SHARD",
       "titulo": "A picture is worth a thousand words.",
       "subtitulo": "Monthly release here on the portal — one week ahead of any other platform. Early access for those who arrived first.",
       "cta1": "Read episode"
@@ -1252,7 +1252,7 @@
   },
   "episodes": {
     "title": "EPISODES",
-    "placeholder": "Illusion Fight webtoon",
+    "placeholder": "Illusion Fight WEB SHARD",
     "titles": [
       "Introduction",
       "The Invitation",
@@ -1284,7 +1284,7 @@
     "title": "UPDATES",
     "tracks": [
       {
-        "format": "WEBTOON",
+        "format": "WEB SHARD",
         "items": [
           {
             "label": "Chapter 1",

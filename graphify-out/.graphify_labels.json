@@ -471,9 +471,14 @@
   "469": "RestaurarSaude.jsx",
   "470": "LerAntesCta.jsx",
   "471": "Criatura.jsx",
+  "472": "DeferredSection.jsx",
+  "473": "Personagens.jsx",
   "474": "profileProvisioning.js",
   "475": ".stopHeartbeatLoop",
   "476": "LeitorBarra.jsx",
+  "477": "WebshardHub.jsx",
   "478": "useBarraAutoOculta.js",
-  "479": "ManifestoFaixa.jsx"
+  "479": "ManifestoFaixa.jsx",
+  "480": "Autor.jsx",
+  "481": "Custos.jsx"
 }

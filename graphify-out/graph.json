@@ -304,14 +304,414 @@
       "norm_label": "version.js"
     },
     {
+      "label": "Contos.jsx",
+      "file_type": "code",
+      "source_file": "src/pages/content/Contos.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_pages_content_contos",
+      "community": 442,
+      "norm_label": "contos.jsx"
+    },
+    {
+      "label": "Contos()",
+      "file_type": "code",
+      "source_file": "src/pages/content/Contos.jsx",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "src_pages_content_contos_contos",
+      "community": 442,
+      "norm_label": "contos()"
+    },
+    {
+      "label": "Livro.jsx",
+      "file_type": "code",
+      "source_file": "src/pages/content/Livro.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_pages_content_livro",
+      "community": 442,
+      "norm_label": "livro.jsx"
+    },
+    {
+      "label": "formatarData()",
+      "file_type": "code",
+      "source_file": "src/pages/content/Livro.jsx",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "src_pages_content_livro_formatardata",
+      "community": 442,
+      "norm_label": "formatardata()"
+    },
+    {
+      "label": "Livro()",
+      "file_type": "code",
+      "source_file": "src/pages/content/Livro.jsx",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "src_pages_content_livro_livro",
+      "community": 442,
+      "norm_label": "livro()"
+    },
+    {
+      "label": "Mundo.jsx",
+      "file_type": "code",
+      "source_file": "src/pages/content/Mundo.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_pages_content_mundo",
+      "community": 455,
+      "norm_label": "mundo.jsx"
+    },
+    {
+      "label": "dataMap",
+      "file_type": "code",
+      "source_file": "src/pages/content/Mundo.jsx",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "src_pages_content_mundo_datamap",
+      "community": 455,
+      "norm_label": "datamap"
+    },
+    {
+      "label": "PROTAGONIST_IDS",
+      "file_type": "code",
+      "source_file": "src/pages/content/Mundo.jsx",
+      "source_location": "L16",
+      "_origin": "ast",
+      "id": "src_pages_content_mundo_protagonist_ids",
+      "community": 455,
+      "norm_label": "protagonist_ids"
+    },
+    {
+      "label": "Mundo()",
+      "file_type": "code",
+      "source_file": "src/pages/content/Mundo.jsx",
+      "source_location": "L18",
+      "_origin": "ast",
+      "id": "src_pages_content_mundo_mundo",
+      "community": 455,
+      "norm_label": "mundo()"
+    },
+    {
+      "label": "Musicas.jsx",
+      "file_type": "code",
+      "source_file": "src/pages/content/Musicas.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_pages_content_musicas",
+      "community": 467,
+      "norm_label": "musicas.jsx"
+    },
+    {
+      "label": "allImages",
+      "file_type": "code",
+      "source_file": "src/pages/content/Musicas.jsx",
+      "source_location": "L24",
+      "_origin": "ast",
+      "id": "src_pages_content_musicas_allimages",
+      "community": 467,
+      "norm_label": "allimages"
+    },
+    {
+      "label": "shuffleArray()",
+      "file_type": "code",
+      "source_file": "src/pages/content/Musicas.jsx",
+      "source_location": "L26",
+      "_origin": "ast",
+      "id": "src_pages_content_musicas_shufflearray",
+      "community": 467,
+      "norm_label": "shufflearray()"
+    },
+    {
+      "label": "Musicas()",
+      "file_type": "code",
+      "source_file": "src/pages/content/Musicas.jsx",
+      "source_location": "L35",
+      "_origin": "ast",
+      "id": "src_pages_content_musicas_musicas",
+      "community": 467,
+      "norm_label": "musicas()"
+    },
+    {
+      "label": "Personagens.jsx",
+      "file_type": "code",
+      "source_file": "src/pages/content/Personagens.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_pages_content_personagens",
+      "community": 473,
+      "norm_label": "personagens.jsx"
+    },
+    {
+      "label": "Personagens()",
+      "file_type": "code",
+      "source_file": "src/pages/content/Personagens.jsx",
+      "source_location": "L8",
+      "_origin": "ast",
+      "id": "src_pages_content_personagens_personagens",
+      "community": 473,
+      "norm_label": "personagens()"
+    },
+    {
+      "label": "WebshardHub.jsx",
+      "file_type": "code",
+      "source_file": "src/pages/content/webshard/WebshardHub.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_pages_content_webshard_webshardhub",
+      "community": 477,
+      "norm_label": "webshardhub.jsx"
+    },
+    {
+      "label": "WebshardHub()",
+      "file_type": "code",
+      "source_file": "src/pages/content/webshard/WebshardHub.jsx",
+      "source_location": "L21",
+      "_origin": "ast",
+      "id": "src_pages_content_webshard_webshardhub_webshardhub",
+      "community": 477,
+      "norm_label": "webshardhub()"
+    },
+    {
+      "label": "Games.jsx",
+      "file_type": "code",
+      "source_file": "src/pages/games/Games.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_pages_games_games",
+      "community": 442,
+      "norm_label": "games.jsx"
+    },
+    {
+      "label": "JOGOS",
+      "file_type": "code",
+      "source_file": "src/pages/games/Games.jsx",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "src_pages_games_games_jogos",
+      "community": 442,
+      "norm_label": "jogos"
+    },
+    {
+      "label": "BADGE_CORES",
+      "file_type": "code",
+      "source_file": "src/pages/games/Games.jsx",
+      "source_location": "L26",
+      "_origin": "ast",
+      "id": "src_pages_games_games_badge_cores",
+      "community": 442,
+      "norm_label": "badge_cores"
+    },
+    {
+      "label": "KERNEL_JOGOS",
+      "file_type": "code",
+      "source_file": "src/pages/games/Games.jsx",
+      "source_location": "L33",
+      "_origin": "ast",
+      "id": "src_pages_games_games_kernel_jogos",
+      "community": 442,
+      "norm_label": "kernel_jogos"
+    },
+    {
+      "label": "CONTEUDO",
+      "file_type": "code",
+      "source_file": "src/pages/games/Games.jsx",
+      "source_location": "L43",
+      "_origin": "ast",
+      "id": "src_pages_games_games_conteudo",
+      "community": 442,
+      "norm_label": "conteudo"
+    },
+    {
+      "label": "FICHA_GAMES",
+      "file_type": "code",
+      "source_file": "src/pages/games/Games.jsx",
+      "source_location": "L49",
+      "_origin": "ast",
+      "id": "src_pages_games_games_ficha_games",
+      "community": 442,
+      "norm_label": "ficha_games"
+    },
+    {
+      "label": "ADMIN_EMAILS",
+      "file_type": "code",
+      "source_file": "src/pages/games/Games.jsx",
+      "source_location": "L51",
+      "_origin": "ast",
+      "id": "src_pages_games_games_admin_emails",
+      "community": 442,
+      "norm_label": "admin_emails"
+    },
+    {
+      "label": "ABAS",
+      "file_type": "code",
+      "source_file": "src/pages/games/Games.jsx",
+      "source_location": "L53",
+      "_origin": "ast",
+      "id": "src_pages_games_games_abas",
+      "community": 442,
+      "norm_label": "abas"
+    },
+    {
+      "label": "Games()",
+      "file_type": "code",
+      "source_file": "src/pages/games/Games.jsx",
+      "source_location": "L55",
+      "_origin": "ast",
+      "id": "src_pages_games_games_games",
+      "community": 442,
+      "norm_label": "games()"
+    },
+    {
+      "label": "Assinar.jsx",
+      "file_type": "code",
+      "source_file": "src/pages/platform/Assinar.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_pages_platform_assinar",
+      "community": 442,
+      "norm_label": "assinar.jsx"
+    },
+    {
+      "label": "Assinar()",
+      "file_type": "code",
+      "source_file": "src/pages/platform/Assinar.jsx",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "src_pages_platform_assinar_assinar",
+      "community": 442,
+      "norm_label": "assinar()"
+    },
+    {
+      "label": "Autor.jsx",
+      "file_type": "code",
+      "source_file": "src/pages/site/Autor.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_pages_site_autor",
+      "community": 480,
+      "norm_label": "autor.jsx"
+    },
+    {
+      "label": "Autor()",
+      "file_type": "code",
+      "source_file": "src/pages/site/Autor.jsx",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "src_pages_site_autor_autor",
+      "community": 480,
+      "norm_label": "autor()"
+    },
+    {
+      "label": "Custos.jsx",
+      "file_type": "code",
+      "source_file": "src/pages/site/Custos.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_pages_site_custos",
+      "community": 481,
+      "norm_label": "custos.jsx"
+    },
+    {
+      "label": "Custos()",
+      "file_type": "code",
+      "source_file": "src/pages/site/Custos.jsx",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "src_pages_site_custos_custos",
+      "community": 481,
+      "norm_label": "custos()"
+    },
+    {
+      "label": "Home.jsx",
+      "file_type": "code",
+      "source_file": "src/pages/site/Home/Home.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_pages_site_home_home",
+      "community": 34,
+      "norm_label": "home.jsx"
+    },
+    {
+      "label": "BookChaptersRow",
+      "file_type": "code",
+      "source_file": "src/pages/site/Home/Home.jsx",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "src_pages_site_home_home_bookchaptersrow",
+      "community": 34,
+      "norm_label": "bookchaptersrow"
+    },
+    {
+      "label": "MusicSection",
+      "file_type": "code",
+      "source_file": "src/pages/site/Home/Home.jsx",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "src_pages_site_home_home_musicsection",
+      "community": 34,
+      "norm_label": "musicsection"
+    },
+    {
+      "label": "NowLive",
+      "file_type": "code",
+      "source_file": "src/pages/site/Home/Home.jsx",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "src_pages_site_home_home_nowlive",
+      "community": 34,
+      "norm_label": "nowlive"
+    },
+    {
+      "label": "StoryProgress",
+      "file_type": "code",
+      "source_file": "src/pages/site/Home/Home.jsx",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "src_pages_site_home_home_storyprogress",
+      "community": 34,
+      "norm_label": "storyprogress"
+    },
+    {
+      "label": "Home()",
+      "file_type": "code",
+      "source_file": "src/pages/site/Home/Home.jsx",
+      "source_location": "L17",
+      "_origin": "ast",
+      "id": "src_pages_site_home_home_home",
+      "community": 34,
+      "norm_label": "home()"
+    },
+    {
+      "label": "WebShard.jsx",
+      "file_type": "code",
+      "source_file": "src/pages/site/WebShard.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_pages_site_webshard",
+      "community": 301,
+      "norm_label": "webshard.jsx"
+    },
+    {
+      "label": "WebShard()",
+      "file_type": "code",
+      "source_file": "src/pages/site/WebShard.jsx",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "src_pages_site_webshard_webshard",
+      "community": 301,
+      "norm_label": "webshard()"
+    },
+    {
       "label": "season-one-schedule.js",
       "file_type": "code",
       "source_file": "src/data/season-one-schedule.js",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_data_season_one_schedule",
       "community": 415,
-      "norm_label": "season-one-schedule.js"
+      "norm_label": "season-one-schedule.js",
+      "id": "src_data_season_one_schedule"
     },
     {
       "label": "SEASON_ONE_DROPS",
@@ -319,9 +719,9 @@
       "source_file": "src/data/season-one-schedule.js",
       "source_location": "L26",
       "_origin": "ast",
-      "id": "src_data_season_one_schedule_season_one_drops",
       "community": 415,
-      "norm_label": "season_one_drops"
+      "norm_label": "season_one_drops",
+      "id": "src_data_season_one_schedule_season_one_drops"
     },
     {
       "label": "SEASON_ONE_COMPLETION",
@@ -329,9 +729,9 @@
       "source_file": "src/data/season-one-schedule.js",
       "source_location": "L83",
       "_origin": "ast",
-      "id": "src_data_season_one_schedule_season_one_completion",
       "community": 415,
-      "norm_label": "season_one_completion"
+      "norm_label": "season_one_completion",
+      "id": "src_data_season_one_schedule_season_one_completion"
     },
     {
       "label": "SEASONS_OVERVIEW",
@@ -339,9 +739,9 @@
       "source_file": "src/data/season-one-schedule.js",
       "source_location": "L95",
       "_origin": "ast",
-      "id": "src_data_season_one_schedule_seasons_overview",
       "community": 415,
-      "norm_label": "seasons_overview"
+      "norm_label": "seasons_overview",
+      "id": "src_data_season_one_schedule_seasons_overview"
     },
     {
       "label": "catalogo.js",
@@ -349,9 +749,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_lib_webshard_catalogo",
       "community": 17,
-      "norm_label": "catalogo.js"
+      "norm_label": "catalogo.js",
+      "id": "src_lib_webshard_catalogo"
     },
     {
       "label": "CAPITULOS_MOVIDOS",
@@ -359,9 +759,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L17",
       "_origin": "ast",
-      "id": "src_lib_webshard_catalogo_capitulos_movidos",
       "community": 17,
-      "norm_label": "capitulos_movidos"
+      "norm_label": "capitulos_movidos",
+      "id": "src_lib_webshard_catalogo_capitulos_movidos"
     },
     {
       "label": "capituloMovido()",
@@ -369,9 +769,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L19",
       "_origin": "ast",
-      "id": "src_lib_webshard_catalogo_capitulomovido",
       "community": 17,
-      "norm_label": "capitulomovido()"
+      "norm_label": "capitulomovido()",
+      "id": "src_lib_webshard_catalogo_capitulomovido"
     },
     {
       "label": "imagens",
@@ -379,9 +779,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L23",
       "_origin": "ast",
-      "id": "src_lib_webshard_catalogo_imagens",
       "community": 17,
-      "norm_label": "imagens"
+      "norm_label": "imagens",
+      "id": "src_lib_webshard_catalogo_imagens"
     },
     {
       "label": "imagemPorNome",
@@ -389,9 +789,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L24",
       "_origin": "ast",
-      "id": "src_lib_webshard_catalogo_imagempornome",
       "community": 17,
-      "norm_label": "imagempornome"
+      "norm_label": "imagempornome",
+      "id": "src_lib_webshard_catalogo_imagempornome"
     },
     {
       "label": "FONTES",
@@ -399,9 +799,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L28",
       "_origin": "ast",
-      "id": "src_lib_webshard_catalogo_fontes",
       "community": 17,
-      "norm_label": "fontes"
+      "norm_label": "fontes",
+      "id": "src_lib_webshard_catalogo_fontes"
     },
     {
       "label": "localizado()",
@@ -409,9 +809,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L33",
       "_origin": "ast",
-      "id": "src_lib_webshard_catalogo_localizado",
       "community": 17,
-      "norm_label": "localizado()"
+      "norm_label": "localizado()",
+      "id": "src_lib_webshard_catalogo_localizado"
     },
     {
       "label": "imagemWebshard()",
@@ -419,9 +819,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L38",
       "_origin": "ast",
-      "id": "src_lib_webshard_catalogo_imagemwebshard",
       "community": 17,
-      "norm_label": "imagemwebshard()"
+      "norm_label": "imagemwebshard()",
+      "id": "src_lib_webshard_catalogo_imagemwebshard"
     },
     {
       "label": "miniaturaCapitulo()",
@@ -429,9 +829,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L44",
       "_origin": "ast",
-      "id": "src_lib_webshard_catalogo_miniaturacapitulo",
       "community": 17,
-      "norm_label": "miniaturacapitulo()"
+      "norm_label": "miniaturacapitulo()",
+      "id": "src_lib_webshard_catalogo_miniaturacapitulo"
     },
     {
       "label": "listarTitulos()",
@@ -439,9 +839,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L48",
       "_origin": "ast",
-      "id": "src_lib_webshard_catalogo_listartitulos",
       "community": 17,
-      "norm_label": "listartitulos()"
+      "norm_label": "listartitulos()",
+      "id": "src_lib_webshard_catalogo_listartitulos"
     },
     {
       "label": "tituloPorSlug()",
@@ -449,9 +849,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L52",
       "_origin": "ast",
-      "id": "src_lib_webshard_catalogo_tituloporslug",
       "community": 17,
-      "norm_label": "tituloporslug()"
+      "norm_label": "tituloporslug()",
+      "id": "src_lib_webshard_catalogo_tituloporslug"
     },
     {
       "label": "capitulosDe()",
@@ -459,9 +859,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L56",
       "_origin": "ast",
-      "id": "src_lib_webshard_catalogo_capitulosde",
       "community": 17,
-      "norm_label": "capitulosde()"
+      "norm_label": "capitulosde()",
+      "id": "src_lib_webshard_catalogo_capitulosde"
     },
     {
       "label": "capituloPorId()",
@@ -469,9 +869,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L62",
       "_origin": "ast",
-      "id": "src_lib_webshard_catalogo_capituloporid",
       "community": 17,
-      "norm_label": "capituloporid()"
+      "norm_label": "capituloporid()",
+      "id": "src_lib_webshard_catalogo_capituloporid"
     },
     {
       "label": "capituloTemConteudo()",
@@ -479,9 +879,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L67",
       "_origin": "ast",
-      "id": "src_lib_webshard_catalogo_capitulotemconteudo",
       "community": 17,
-      "norm_label": "capitulotemconteudo()"
+      "norm_label": "capitulotemconteudo()",
+      "id": "src_lib_webshard_catalogo_capitulotemconteudo"
     },
     {
       "label": "rotaTitulo()",
@@ -489,9 +889,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L71",
       "_origin": "ast",
-      "id": "src_lib_webshard_catalogo_rotatitulo",
       "community": 17,
-      "norm_label": "rotatitulo()"
+      "norm_label": "rotatitulo()",
+      "id": "src_lib_webshard_catalogo_rotatitulo"
     },
     {
       "label": "rotaCapitulo()",
@@ -499,9 +899,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L75",
       "_origin": "ast",
-      "id": "src_lib_webshard_catalogo_rotacapitulo",
       "community": 17,
-      "norm_label": "rotacapitulo()"
+      "norm_label": "rotacapitulo()",
+      "id": "src_lib_webshard_catalogo_rotacapitulo"
     },
     {
       "label": "tituloLegado()",
@@ -509,9 +909,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L80",
       "_origin": "ast",
-      "id": "src_lib_webshard_catalogo_titulolegado",
       "community": 17,
-      "norm_label": "titulolegado()"
+      "norm_label": "titulolegado()",
+      "id": "src_lib_webshard_catalogo_titulolegado"
     },
     {
       "label": "numeroCapitulo()",
@@ -519,9 +919,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L84",
       "_origin": "ast",
-      "id": "src_lib_webshard_catalogo_numerocapitulo",
       "community": 17,
-      "norm_label": "numerocapitulo()"
+      "norm_label": "numerocapitulo()",
+      "id": "src_lib_webshard_catalogo_numerocapitulo"
     },
     {
       "label": "rotuloCapitulo()",
@@ -529,9 +929,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L89",
       "_origin": "ast",
-      "id": "src_lib_webshard_catalogo_rotulocapitulo",
       "community": 17,
-      "norm_label": "rotulocapitulo()"
+      "norm_label": "rotulocapitulo()",
+      "id": "src_lib_webshard_catalogo_rotulocapitulo"
     },
     {
       "label": "capitulosPrincipais()",
@@ -539,9 +939,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L96",
       "_origin": "ast",
-      "id": "src_lib_webshard_catalogo_capitulosprincipais",
       "community": 17,
-      "norm_label": "capitulosprincipais()"
+      "norm_label": "capitulosprincipais()",
+      "id": "src_lib_webshard_catalogo_capitulosprincipais"
     },
     {
       "label": "capitulosEspeciais()",
@@ -549,9 +949,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L100",
       "_origin": "ast",
-      "id": "src_lib_webshard_catalogo_capitulosespeciais",
       "community": 17,
-      "norm_label": "capitulosespeciais()"
+      "norm_label": "capitulosespeciais()",
+      "id": "src_lib_webshard_catalogo_capitulosespeciais"
     },
     {
       "label": "idiomaInicial()",
@@ -559,9 +959,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L106",
       "_origin": "ast",
-      "id": "src_lib_webshard_catalogo_idiomainicial",
       "community": 17,
-      "norm_label": "idiomainicial()"
+      "norm_label": "idiomainicial()",
+      "id": "src_lib_webshard_catalogo_idiomainicial"
     },
     {
       "label": "paginasDe()",
@@ -569,9 +969,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L114",
       "_origin": "ast",
-      "id": "src_lib_webshard_catalogo_paginasde",
       "community": 17,
-      "norm_label": "paginasde()"
+      "norm_label": "paginasde()",
+      "id": "src_lib_webshard_catalogo_paginasde"
     },
     {
       "label": "vizinhos()",
@@ -579,9 +979,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L127",
       "_origin": "ast",
-      "id": "src_lib_webshard_catalogo_vizinhos",
       "community": 17,
-      "norm_label": "vizinhos()"
+      "norm_label": "vizinhos()",
+      "id": "src_lib_webshard_catalogo_vizinhos"
     },
     {
       "label": "hojeISO()",
@@ -589,9 +989,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L137",
       "_origin": "ast",
-      "id": "src_lib_webshard_catalogo_hojeiso",
       "community": 17,
-      "norm_label": "hojeiso()"
+      "norm_label": "hojeiso()",
+      "id": "src_lib_webshard_catalogo_hojeiso"
     },
     {
       "label": "emBeta()",
@@ -599,9 +999,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L141",
       "_origin": "ast",
-      "id": "src_lib_webshard_catalogo_embeta",
       "community": 17,
-      "norm_label": "embeta()"
+      "norm_label": "embeta()",
+      "id": "src_lib_webshard_catalogo_embeta"
     },
     {
       "label": "diasAte()",
@@ -609,9 +1009,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L146",
       "_origin": "ast",
-      "id": "src_lib_webshard_catalogo_diasate",
       "community": 17,
-      "norm_label": "diasate()"
+      "norm_label": "diasate()",
+      "id": "src_lib_webshard_catalogo_diasate"
     },
     {
       "label": "formatarData()",
@@ -619,9 +1019,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L150",
       "_origin": "ast",
-      "id": "src_lib_webshard_catalogo_formatardata",
       "community": 17,
-      "norm_label": "formatardata()"
+      "norm_label": "formatardata()",
+      "id": "src_lib_webshard_catalogo_formatardata"
     },
     {
       "label": "WebshardLeitor.jsx",
@@ -629,9 +1029,9 @@
       "source_file": "src/pages/content/webshard/WebshardLeitor.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_pages_content_webshard_webshardleitor",
       "community": 17,
-      "norm_label": "webshardleitor.jsx"
+      "norm_label": "webshardleitor.jsx",
+      "id": "src_pages_content_webshard_webshardleitor"
     },
     {
       "label": "WebshardLeitor()",
@@ -639,9 +1039,9 @@
       "source_file": "src/pages/content/webshard/WebshardLeitor.jsx",
       "source_location": "L27",
       "_origin": "ast",
-      "id": "src_pages_content_webshard_webshardleitor_webshardleitor",
       "community": 17,
-      "norm_label": "webshardleitor()"
+      "norm_label": "webshardleitor()",
+      "id": "src_pages_content_webshard_webshardleitor_webshardleitor"
     },
     {
       "label": "WebshardTitulo.jsx",
@@ -649,9 +1049,9 @@
       "source_file": "src/pages/content/webshard/WebshardTitulo.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_pages_content_webshard_webshardtitulo",
       "community": 17,
-      "norm_label": "webshardtitulo.jsx"
+      "norm_label": "webshardtitulo.jsx",
+      "id": "src_pages_content_webshard_webshardtitulo"
     },
     {
       "label": "WebshardTitulo()",
@@ -659,9 +1059,9 @@
       "source_file": "src/pages/content/webshard/WebshardTitulo.jsx",
       "source_location": "L17",
       "_origin": "ast",
-      "id": "src_pages_content_webshard_webshardtitulo_webshardtitulo",
       "community": 17,
-      "norm_label": "webshardtitulo()"
+      "norm_label": "webshardtitulo()",
+      "id": "src_pages_content_webshard_webshardtitulo_webshardtitulo"
     },
     {
       "label": "CapituloLinha.jsx",
@@ -669,9 +1069,9 @@
       "source_file": "src/pages/content/webshard/components/CapituloLinha.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_pages_content_webshard_components_capitulolinha",
       "community": 17,
-      "norm_label": "capitulolinha.jsx"
+      "norm_label": "capitulolinha.jsx",
+      "id": "src_pages_content_webshard_components_capitulolinha"
     },
     {
       "label": "CapituloLinha()",
@@ -679,9 +1079,9 @@
       "source_file": "src/pages/content/webshard/components/CapituloLinha.jsx",
       "source_location": "L12",
       "_origin": "ast",
-      "id": "src_pages_content_webshard_components_capitulolinha_capitulolinha",
       "community": 17,
-      "norm_label": "capitulolinha()"
+      "norm_label": "capitulolinha()",
+      "id": "src_pages_content_webshard_components_capitulolinha_capitulolinha"
     },
     {
       "label": "LeitorFim.jsx",
@@ -689,9 +1089,9 @@
       "source_file": "src/pages/content/webshard/components/LeitorFim.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_pages_content_webshard_components_leitorfim",
       "community": 17,
-      "norm_label": "leitorfim.jsx"
+      "norm_label": "leitorfim.jsx",
+      "id": "src_pages_content_webshard_components_leitorfim"
     },
     {
       "label": "LeitorFim()",
@@ -699,9 +1099,9 @@
       "source_file": "src/pages/content/webshard/components/LeitorFim.jsx",
       "source_location": "L13",
       "_origin": "ast",
-      "id": "src_pages_content_webshard_components_leitorfim_leitorfim",
       "community": 17,
-      "norm_label": "leitorfim()"
+      "norm_label": "leitorfim()",
+      "id": "src_pages_content_webshard_components_leitorfim_leitorfim"
     },
     {
       "label": "LeitorPaginas.jsx",
@@ -709,9 +1109,9 @@
       "source_file": "src/pages/content/webshard/components/LeitorPaginas.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_pages_content_webshard_components_leitorpaginas",
       "community": 17,
-      "norm_label": "leitorpaginas.jsx"
+      "norm_label": "leitorpaginas.jsx",
+      "id": "src_pages_content_webshard_components_leitorpaginas"
     },
     {
       "label": "LeitorPaginas()",
@@ -719,9 +1119,9 @@
       "source_file": "src/pages/content/webshard/components/LeitorPaginas.jsx",
       "source_location": "L9",
       "_origin": "ast",
-      "id": "src_pages_content_webshard_components_leitorpaginas_leitorpaginas",
       "community": 17,
-      "norm_label": "leitorpaginas()"
+      "norm_label": "leitorpaginas()",
+      "id": "src_pages_content_webshard_components_leitorpaginas_leitorpaginas"
     },
     {
       "label": "LatestEpisodes.jsx",
@@ -729,9 +1129,9 @@
       "source_file": "src/pages/site/Home/components/LatestEpisodes.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_pages_site_home_components_latestepisodes",
       "community": 17,
-      "norm_label": "latestepisodes.jsx"
+      "norm_label": "latestepisodes.jsx",
+      "id": "src_pages_site_home_components_latestepisodes"
     },
     {
       "label": "thumbnailModules",
@@ -739,9 +1139,9 @@
       "source_file": "src/pages/site/Home/components/LatestEpisodes.jsx",
       "source_location": "L13",
       "_origin": "ast",
-      "id": "src_pages_site_home_components_latestepisodes_thumbnailmodules",
       "community": 17,
-      "norm_label": "thumbnailmodules"
+      "norm_label": "thumbnailmodules",
+      "id": "src_pages_site_home_components_latestepisodes_thumbnailmodules"
     },
     {
       "label": "thumbnailMap",
@@ -749,9 +1149,9 @@
       "source_file": "src/pages/site/Home/components/LatestEpisodes.jsx",
       "source_location": "L18",
       "_origin": "ast",
-      "id": "src_pages_site_home_components_latestepisodes_thumbnailmap",
       "community": 17,
-      "norm_label": "thumbnailmap"
+      "norm_label": "thumbnailmap",
+      "id": "src_pages_site_home_components_latestepisodes_thumbnailmap"
     },
     {
       "label": "thumbnailFor()",
@@ -759,9 +1159,9 @@
       "source_file": "src/pages/site/Home/components/LatestEpisodes.jsx",
       "source_location": "L22",
       "_origin": "ast",
-      "id": "src_pages_site_home_components_latestepisodes_thumbnailfor",
       "community": 17,
-      "norm_label": "thumbnailfor()"
+      "norm_label": "thumbnailfor()",
+      "id": "src_pages_site_home_components_latestepisodes_thumbnailfor"
     },
     {
       "label": "LatestEpisodes()",
@@ -769,9 +1169,9 @@
       "source_file": "src/pages/site/Home/components/LatestEpisodes.jsx",
       "source_location": "L24",
       "_origin": "ast",
-      "id": "src_pages_site_home_components_latestepisodes_latestepisodes",
       "community": 17,
-      "norm_label": "latestepisodes()"
+      "norm_label": "latestepisodes()",
+      "id": "src_pages_site_home_components_latestepisodes_latestepisodes"
     },
     {
       "label": "Calendario.jsx",
@@ -1242,26 +1642,6 @@
       "community": 17,
       "norm_label": "usewebshardacesso()",
       "id": "src_hooks_usewebshardacesso_usewebshardacesso"
-    },
-    {
-      "label": "WebshardHub.jsx",
-      "file_type": "code",
-      "source_file": "src/pages/content/webshard/WebshardHub.jsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 17,
-      "norm_label": "webshardhub.jsx",
-      "id": "src_pages_content_webshard_webshardhub"
-    },
-    {
-      "label": "WebshardHub()",
-      "file_type": "code",
-      "source_file": "src/pages/content/webshard/WebshardHub.jsx",
-      "source_location": "L21",
-      "_origin": "ast",
-      "community": 17,
-      "norm_label": "webshardhub()",
-      "id": "src_pages_content_webshard_webshardhub_webshardhub"
     },
     {
       "label": "CascataLiberacao.jsx",
@@ -2894,46 +3274,6 @@
       "id": "src_pages_games_pesadeloparticular_components_puzzlewrapper_puzzlewrapper"
     },
     {
-      "label": "Mundo.jsx",
-      "file_type": "code",
-      "source_file": "src/pages/content/Mundo.jsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 455,
-      "norm_label": "mundo.jsx",
-      "id": "src_pages_content_mundo"
-    },
-    {
-      "label": "dataMap",
-      "file_type": "code",
-      "source_file": "src/pages/content/Mundo.jsx",
-      "source_location": "L14",
-      "_origin": "ast",
-      "community": 455,
-      "norm_label": "datamap",
-      "id": "src_pages_content_mundo_datamap"
-    },
-    {
-      "label": "PROTAGONIST_IDS",
-      "file_type": "code",
-      "source_file": "src/pages/content/Mundo.jsx",
-      "source_location": "L16",
-      "_origin": "ast",
-      "community": 455,
-      "norm_label": "protagonist_ids",
-      "id": "src_pages_content_mundo_protagonist_ids"
-    },
-    {
-      "label": "Mundo()",
-      "file_type": "code",
-      "source_file": "src/pages/content/Mundo.jsx",
-      "source_location": "L18",
-      "_origin": "ast",
-      "community": 455,
-      "norm_label": "mundo()",
-      "id": "src_pages_content_mundo_mundo"
-    },
-    {
       "label": "pois.js",
       "file_type": "code",
       "source_file": "src/pages/games/Gangues/data/cenas/pista/pois.js",
@@ -3502,26 +3842,6 @@
       "community": 323,
       "norm_label": "gangues_story_roster_base",
       "id": "src_pages_games_gangues_data_ganguesloadout_gangues_story_roster_base"
-    },
-    {
-      "label": "WebShard.jsx",
-      "file_type": "code",
-      "source_file": "src/pages/site/WebShard.jsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 301,
-      "norm_label": "webshard.jsx",
-      "id": "src_pages_site_webshard"
-    },
-    {
-      "label": "WebShard()",
-      "file_type": "code",
-      "source_file": "src/pages/site/WebShard.jsx",
-      "source_location": "L15",
-      "_origin": "ast",
-      "community": 301,
-      "norm_label": "webshard()",
-      "id": "src_pages_site_webshard_webshard"
     },
     {
       "label": "GanguesLoja.jsx",
@@ -6234,96 +6554,6 @@
       "id": "src_pages_content_historias_historias"
     },
     {
-      "label": "Games.jsx",
-      "file_type": "code",
-      "source_file": "src/pages/games/Games.jsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 442,
-      "norm_label": "games.jsx",
-      "id": "src_pages_games_games"
-    },
-    {
-      "label": "JOGOS",
-      "file_type": "code",
-      "source_file": "src/pages/games/Games.jsx",
-      "source_location": "L12",
-      "_origin": "ast",
-      "community": 442,
-      "norm_label": "jogos",
-      "id": "src_pages_games_games_jogos"
-    },
-    {
-      "label": "BADGE_CORES",
-      "file_type": "code",
-      "source_file": "src/pages/games/Games.jsx",
-      "source_location": "L26",
-      "_origin": "ast",
-      "community": 442,
-      "norm_label": "badge_cores",
-      "id": "src_pages_games_games_badge_cores"
-    },
-    {
-      "label": "KERNEL_JOGOS",
-      "file_type": "code",
-      "source_file": "src/pages/games/Games.jsx",
-      "source_location": "L33",
-      "_origin": "ast",
-      "community": 442,
-      "norm_label": "kernel_jogos",
-      "id": "src_pages_games_games_kernel_jogos"
-    },
-    {
-      "label": "CONTEUDO",
-      "file_type": "code",
-      "source_file": "src/pages/games/Games.jsx",
-      "source_location": "L43",
-      "_origin": "ast",
-      "community": 442,
-      "norm_label": "conteudo",
-      "id": "src_pages_games_games_conteudo"
-    },
-    {
-      "label": "FICHA_GAMES",
-      "file_type": "code",
-      "source_file": "src/pages/games/Games.jsx",
-      "source_location": "L49",
-      "_origin": "ast",
-      "community": 442,
-      "norm_label": "ficha_games",
-      "id": "src_pages_games_games_ficha_games"
-    },
-    {
-      "label": "ADMIN_EMAILS",
-      "file_type": "code",
-      "source_file": "src/pages/games/Games.jsx",
-      "source_location": "L51",
-      "_origin": "ast",
-      "community": 442,
-      "norm_label": "admin_emails",
-      "id": "src_pages_games_games_admin_emails"
-    },
-    {
-      "label": "ABAS",
-      "file_type": "code",
-      "source_file": "src/pages/games/Games.jsx",
-      "source_location": "L53",
-      "_origin": "ast",
-      "community": 442,
-      "norm_label": "abas",
-      "id": "src_pages_games_games_abas"
-    },
-    {
-      "label": "Games()",
-      "file_type": "code",
-      "source_file": "src/pages/games/Games.jsx",
-      "source_location": "L55",
-      "_origin": "ast",
-      "community": 442,
-      "norm_label": "games()",
-      "id": "src_pages_games_games_games"
-    },
-    {
       "label": "BIBLIA_DO_ISAIAS.md",
       "file_type": "document",
       "source_file": "docs/BIBLIA_DO_ISAIAS.md",
@@ -6679,7 +6909,7 @@
       "source_file": "src/context/AuthContext.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 291,
+      "community": 451,
       "norm_label": "authcontext.jsx",
       "id": "src_context_authcontext"
     },
@@ -6689,7 +6919,7 @@
       "source_file": "src/context/AuthContext.jsx",
       "source_location": "L8",
       "_origin": "ast",
-      "community": 291,
+      "community": 451,
       "norm_label": "authcontext",
       "id": "src_context_authcontext_authcontext"
     },
@@ -6699,7 +6929,7 @@
       "source_file": "src/context/AuthContext.jsx",
       "source_location": "L12",
       "_origin": "ast",
-      "community": 291,
+      "community": 451,
       "norm_label": "lercadastropendente()",
       "id": "src_context_authcontext_lercadastropendente"
     },
@@ -6709,7 +6939,7 @@
       "source_file": "src/context/AuthContext.jsx",
       "source_location": "L16",
       "_origin": "ast",
-      "community": 291,
+      "community": 451,
       "norm_label": "limparcadastropendente()",
       "id": "src_context_authcontext_limparcadastropendente"
     },
@@ -7819,7 +8049,7 @@
       "source_file": "src/pages/games/Gangues/data/ganguesSpecials.js",
       "source_location": "L2",
       "_origin": "ast",
-      "community": 39,
+      "community": 291,
       "norm_label": "path()",
       "id": "src_pages_games_gangues_data_ganguesspecials_path"
     },
@@ -12549,7 +12779,7 @@
       "source_file": "src/components/DeferredSection.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 34,
+      "community": 472,
       "norm_label": "deferredsection.jsx",
       "id": "src_components_deferredsection"
     },
@@ -12559,7 +12789,7 @@
       "source_file": "src/components/DeferredSection.jsx",
       "source_location": "L2",
       "_origin": "ast",
-      "community": 34,
+      "community": 472,
       "norm_label": "deferredsection()",
       "id": "src_components_deferredsection_deferredsection"
     },
@@ -12709,7 +12939,7 @@
       "source_file": "src/components/GuestNotice/GuestNotice.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 291,
+      "community": 33,
       "norm_label": "guestnotice.jsx",
       "id": "src_components_guestnotice_guestnotice"
     },
@@ -12719,7 +12949,7 @@
       "source_file": "src/components/GuestNotice/GuestNotice.jsx",
       "source_location": "L13",
       "_origin": "ast",
-      "community": 291,
+      "community": 33,
       "norm_label": "guestnotice()",
       "id": "src_components_guestnotice_guestnotice_guestnotice"
     },
@@ -12849,7 +13079,7 @@
       "source_file": "src/components/LoginGate/LoginGate.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 291,
+      "community": 51,
       "norm_label": "logingate.jsx",
       "id": "src_components_logingate_logingate"
     },
@@ -12859,7 +13089,7 @@
       "source_file": "src/components/LoginGate/LoginGate.jsx",
       "source_location": "L6",
       "_origin": "ast",
-      "community": 291,
+      "community": 51,
       "norm_label": "logingate()",
       "id": "src_components_logingate_logingate_logingate"
     },
@@ -13039,7 +13269,7 @@
       "source_file": "src/components/PlatformIcons.jsx",
       "source_location": "L82",
       "_origin": "ast",
-      "community": 51,
+      "community": 33,
       "norm_label": "platformiconmap",
       "id": "src_components_platformicons_platformiconmap"
     },
@@ -13859,7 +14089,7 @@
       "source_file": "src/components/TrialBanner.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 322,
+      "community": 291,
       "norm_label": "trialbanner.jsx",
       "id": "src_components_trialbanner"
     },
@@ -13869,7 +14099,7 @@
       "source_file": "src/components/TrialBanner.jsx",
       "source_location": "L7",
       "_origin": "ast",
-      "community": 322,
+      "community": 291,
       "norm_label": "trialbanner()",
       "id": "src_components_trialbanner_trialbanner"
     },
@@ -13929,7 +14159,7 @@
       "source_file": "src/config/launch.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 322,
+      "community": 291,
       "norm_label": "launch.js",
       "id": "src_config_launch"
     },
@@ -13939,7 +14169,7 @@
       "source_file": "src/config/launch.js",
       "source_location": "L14",
       "_origin": "ast",
-      "community": 322,
+      "community": 291,
       "norm_label": "admin_emails",
       "id": "src_config_launch_admin_emails"
     },
@@ -14029,7 +14259,7 @@
       "source_file": "src/context/AchievementsContext.jsx",
       "source_location": "L114",
       "_origin": "ast",
-      "community": 291,
+      "community": 451,
       "norm_label": "useachievements()",
       "id": "src_context_achievementscontext_useachievements"
     },
@@ -14119,7 +14349,7 @@
       "source_file": "src/context/EventosContext.jsx",
       "source_location": "L127",
       "_origin": "ast",
-      "community": 23,
+      "community": 451,
       "norm_label": "useeventos()",
       "id": "src_context_eventoscontext_useeventos"
     },
@@ -14669,7 +14899,7 @@
       "source_file": "src/hooks/usePersonagens.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 396,
+      "community": 33,
       "norm_label": "usepersonagens.js",
       "id": "src_hooks_usepersonagens"
     },
@@ -14679,7 +14909,7 @@
       "source_file": "src/hooks/usePersonagens.js",
       "source_location": "L6",
       "_origin": "ast",
-      "community": 396,
+      "community": 33,
       "norm_label": "data",
       "id": "src_hooks_usepersonagens_data"
     },
@@ -14689,7 +14919,7 @@
       "source_file": "src/hooks/usePersonagens.js",
       "source_location": "L8",
       "_origin": "ast",
-      "community": 34,
+      "community": 33,
       "norm_label": "usepersonagens()",
       "id": "src_hooks_usepersonagens_usepersonagens"
     },
@@ -14699,7 +14929,7 @@
       "source_file": "src/hooks/usePersonagens.js",
       "source_location": "L14",
       "_origin": "ast",
-      "community": 396,
+      "community": 33,
       "norm_label": "usepersonagem()",
       "id": "src_hooks_usepersonagens_usepersonagem"
     },
@@ -14709,7 +14939,7 @@
       "source_file": "src/hooks/usePersonagens.js",
       "source_location": "L19",
       "_origin": "ast",
-      "community": 396,
+      "community": 33,
       "norm_label": "group_order",
       "id": "src_hooks_usepersonagens_group_order"
     },
@@ -14719,7 +14949,7 @@
       "source_file": "src/hooks/usePersonagens.js",
       "source_location": "L20",
       "_origin": "ast",
-      "community": 396,
+      "community": 33,
       "norm_label": "group_labels",
       "id": "src_hooks_usepersonagens_group_labels"
     },
@@ -14759,7 +14989,7 @@
       "source_file": "src/hooks/useReadingCompletionGate.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 291,
+      "community": 451,
       "norm_label": "usereadingcompletiongate.js",
       "id": "src_hooks_usereadingcompletiongate"
     },
@@ -14769,7 +14999,7 @@
       "source_file": "src/hooks/useReadingCompletionGate.js",
       "source_location": "L7",
       "_origin": "ast",
-      "community": 291,
+      "community": 451,
       "norm_label": "usereadingcompletiongate()",
       "id": "src_hooks_usereadingcompletiongate_usereadingcompletiongate"
     },
@@ -14799,7 +15029,7 @@
       "source_file": "src/hooks/useScrollReveal.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 34,
+      "community": 322,
       "norm_label": "usescrollreveal.js",
       "id": "src_hooks_usescrollreveal"
     },
@@ -14809,7 +15039,7 @@
       "source_file": "src/hooks/useScrollReveal.js",
       "source_location": "L3",
       "_origin": "ast",
-      "community": 34,
+      "community": 322,
       "norm_label": "usescrollreveal()",
       "id": "src_hooks_usescrollreveal_usescrollreveal"
     },
@@ -16354,62 +16584,12 @@
       "id": "src_pages_content_contohistoria_contohistoria"
     },
     {
-      "label": "Contos.jsx",
-      "file_type": "code",
-      "source_file": "src/pages/content/Contos.jsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 291,
-      "norm_label": "contos.jsx",
-      "id": "src_pages_content_contos"
-    },
-    {
-      "label": "Contos()",
-      "file_type": "code",
-      "source_file": "src/pages/content/Contos.jsx",
-      "source_location": "L14",
-      "_origin": "ast",
-      "community": 291,
-      "norm_label": "contos()",
-      "id": "src_pages_content_contos_contos"
-    },
-    {
-      "label": "Livro.jsx",
-      "file_type": "code",
-      "source_file": "src/pages/content/Livro.jsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 291,
-      "norm_label": "livro.jsx",
-      "id": "src_pages_content_livro"
-    },
-    {
-      "label": "formatarData()",
-      "file_type": "code",
-      "source_file": "src/pages/content/Livro.jsx",
-      "source_location": "L14",
-      "_origin": "ast",
-      "community": 291,
-      "norm_label": "formatardata()",
-      "id": "src_pages_content_livro_formatardata"
-    },
-    {
-      "label": "Livro()",
-      "file_type": "code",
-      "source_file": "src/pages/content/Livro.jsx",
-      "source_location": "L20",
-      "_origin": "ast",
-      "community": 291,
-      "norm_label": "livro()",
-      "id": "src_pages_content_livro_livro"
-    },
-    {
       "label": "LivroCapitulo.jsx",
       "file_type": "code",
       "source_file": "src/pages/content/LivroCapitulo.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 291,
+      "community": 451,
       "norm_label": "livrocapitulo.jsx",
       "id": "src_pages_content_livrocapitulo"
     },
@@ -16419,7 +16599,7 @@
       "source_file": "src/pages/content/LivroCapitulo.jsx",
       "source_location": "L18",
       "_origin": "ast",
-      "community": 291,
+      "community": 451,
       "norm_label": "chapterloaders",
       "id": "src_pages_content_livrocapitulo_chapterloaders"
     },
@@ -16429,49 +16609,9 @@
       "source_file": "src/pages/content/LivroCapitulo.jsx",
       "source_location": "L20",
       "_origin": "ast",
-      "community": 291,
+      "community": 451,
       "norm_label": "livrocapitulo()",
       "id": "src_pages_content_livrocapitulo_livrocapitulo"
-    },
-    {
-      "label": "Musicas.jsx",
-      "file_type": "code",
-      "source_file": "src/pages/content/Musicas.jsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 467,
-      "norm_label": "musicas.jsx",
-      "id": "src_pages_content_musicas"
-    },
-    {
-      "label": "allImages",
-      "file_type": "code",
-      "source_file": "src/pages/content/Musicas.jsx",
-      "source_location": "L24",
-      "_origin": "ast",
-      "community": 467,
-      "norm_label": "allimages",
-      "id": "src_pages_content_musicas_allimages"
-    },
-    {
-      "label": "shuffleArray()",
-      "file_type": "code",
-      "source_file": "src/pages/content/Musicas.jsx",
-      "source_location": "L26",
-      "_origin": "ast",
-      "community": 467,
-      "norm_label": "shufflearray()",
-      "id": "src_pages_content_musicas_shufflearray"
-    },
-    {
-      "label": "Musicas()",
-      "file_type": "code",
-      "source_file": "src/pages/content/Musicas.jsx",
-      "source_location": "L35",
-      "_origin": "ast",
-      "community": 467,
-      "norm_label": "musicas()",
-      "id": "src_pages_content_musicas_musicas"
     },
     {
       "label": "Obra.jsx",
@@ -16549,7 +16689,7 @@
       "source_file": "src/pages/content/PersonagemDetalhe.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 396,
+      "community": 33,
       "norm_label": "personagemdetalhe.jsx",
       "id": "src_pages_content_personagemdetalhe"
     },
@@ -16559,29 +16699,9 @@
       "source_file": "src/pages/content/PersonagemDetalhe.jsx",
       "source_location": "L8",
       "_origin": "ast",
-      "community": 396,
+      "community": 33,
       "norm_label": "personagemdetalhe()",
       "id": "src_pages_content_personagemdetalhe_personagemdetalhe"
-    },
-    {
-      "label": "Personagens.jsx",
-      "file_type": "code",
-      "source_file": "src/pages/content/Personagens.jsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 33,
-      "norm_label": "personagens.jsx",
-      "id": "src_pages_content_personagens"
-    },
-    {
-      "label": "Personagens()",
-      "file_type": "code",
-      "source_file": "src/pages/content/Personagens.jsx",
-      "source_location": "L8",
-      "_origin": "ast",
-      "community": 33,
-      "norm_label": "personagens()",
-      "id": "src_pages_content_personagens_personagens"
     },
     {
       "label": "Universo.jsx",
@@ -19929,7 +20049,7 @@
       "source_file": "src/pages/games/JackCandy/components/Monologue.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 20,
+      "community": 33,
       "norm_label": "monologue.jsx",
       "id": "src_pages_games_jackcandy_components_monologue"
     },
@@ -19939,7 +20059,7 @@
       "source_file": "src/pages/games/JackCandy/components/Monologue.jsx",
       "source_location": "L4",
       "_origin": "ast",
-      "community": 20,
+      "community": 33,
       "norm_label": "monologue()",
       "id": "src_pages_games_jackcandy_components_monologue_monologue"
     },
@@ -21989,7 +22109,7 @@
       "source_file": "src/pages/games/LDI/Create.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 23,
+      "community": 451,
       "norm_label": "create.jsx",
       "id": "src_pages_games_ldi_create"
     },
@@ -21999,7 +22119,7 @@
       "source_file": "src/pages/games/LDI/Create.jsx",
       "source_location": "L10",
       "_origin": "ast",
-      "community": 23,
+      "community": 396,
       "norm_label": "create()",
       "id": "src_pages_games_ldi_create_create"
     },
@@ -22079,7 +22199,7 @@
       "source_file": "src/pages/games/LDI/Lobby.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 33,
+      "community": 39,
       "norm_label": "lobby.jsx",
       "id": "src_pages_games_ldi_lobby"
     },
@@ -22089,7 +22209,7 @@
       "source_file": "src/pages/games/LDI/Lobby.jsx",
       "source_location": "L12",
       "_origin": "ast",
-      "community": 33,
+      "community": 39,
       "norm_label": "elemental_colors",
       "id": "src_pages_games_ldi_lobby_elemental_colors"
     },
@@ -22099,7 +22219,7 @@
       "source_file": "src/pages/games/LDI/Lobby.jsx",
       "source_location": "L22",
       "_origin": "ast",
-      "community": 33,
+      "community": 39,
       "norm_label": "weapon_icons",
       "id": "src_pages_games_ldi_lobby_weapon_icons"
     },
@@ -22109,7 +22229,7 @@
       "source_file": "src/pages/games/LDI/Lobby.jsx",
       "source_location": "L28",
       "_origin": "ast",
-      "community": 33,
+      "community": 39,
       "norm_label": "lobby()",
       "id": "src_pages_games_ldi_lobby_lobby"
     },
@@ -22249,7 +22369,7 @@
       "source_file": "src/pages/games/LDI/components/ClueBook.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 33,
+      "community": 39,
       "norm_label": "cluebook.jsx",
       "id": "src_pages_games_ldi_components_cluebook"
     },
@@ -22259,7 +22379,7 @@
       "source_file": "src/pages/games/LDI/components/ClueBook.jsx",
       "source_location": "L5",
       "_origin": "ast",
-      "community": 33,
+      "community": 39,
       "norm_label": "cluebook()",
       "id": "src_pages_games_ldi_components_cluebook_cluebook"
     },
@@ -22739,7 +22859,7 @@
       "source_file": "src/pages/games/LDI/data/characterData.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 23,
+      "community": 396,
       "norm_label": "characterdata.js",
       "id": "src_pages_games_ldi_data_characterdata"
     },
@@ -22749,7 +22869,7 @@
       "source_file": "src/pages/games/LDI/data/characterData.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 23,
+      "community": 396,
       "norm_label": "attr_tooltips",
       "id": "src_pages_games_ldi_data_characterdata_attr_tooltips"
     },
@@ -22759,7 +22879,7 @@
       "source_file": "src/pages/games/LDI/data/characterData.js",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 23,
+      "community": 396,
       "norm_label": "advantages",
       "id": "src_pages_games_ldi_data_characterdata_advantages"
     },
@@ -22769,7 +22889,7 @@
       "source_file": "src/pages/games/LDI/data/characterData.js",
       "source_location": "L20",
       "_origin": "ast",
-      "community": 23,
+      "community": 396,
       "norm_label": "disadvantages",
       "id": "src_pages_games_ldi_data_characterdata_disadvantages"
     },
@@ -22779,7 +22899,7 @@
       "source_file": "src/pages/games/LDI/data/characterData.js",
       "source_location": "L31",
       "_origin": "ast",
-      "community": 23,
+      "community": 396,
       "norm_label": "perks",
       "id": "src_pages_games_ldi_data_characterdata_perks"
     },
@@ -22789,7 +22909,7 @@
       "source_file": "src/pages/games/LDI/data/characterData.js",
       "source_location": "L42",
       "_origin": "ast",
-      "community": 23,
+      "community": 396,
       "norm_label": "specializations",
       "id": "src_pages_games_ldi_data_characterdata_specializations"
     },
@@ -23149,7 +23269,7 @@
       "source_file": "src/pages/games/LDI/hooks/useLDIStorage.js",
       "source_location": "L66",
       "_origin": "ast",
-      "community": 33,
+      "community": 39,
       "norm_label": "loadsheets()",
       "id": "src_pages_games_ldi_hooks_useldistorage_loadsheets"
     },
@@ -23179,7 +23299,7 @@
       "source_file": "src/pages/games/LDI/hooks/useLDIStorage.js",
       "source_location": "L109",
       "_origin": "ast",
-      "community": 33,
+      "community": 39,
       "norm_label": "deletesheet()",
       "id": "src_pages_games_ldi_hooks_useldistorage_deletesheet"
     },
@@ -24789,7 +24909,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/Termo.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 291,
+      "community": 33,
       "norm_label": "termo.jsx",
       "id": "src_pages_games_tamagoshi_screens_termo"
     },
@@ -24799,7 +24919,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/Termo.jsx",
       "source_location": "L8",
       "_origin": "ast",
-      "community": 291,
+      "community": 33,
       "norm_label": "termo()",
       "id": "src_pages_games_tamagoshi_screens_termo_termo"
     },
@@ -30464,26 +30584,6 @@
       "id": "src_pages_platform_admin_admin"
     },
     {
-      "label": "Assinar.jsx",
-      "file_type": "code",
-      "source_file": "src/pages/platform/Assinar.jsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 322,
-      "norm_label": "assinar.jsx",
-      "id": "src_pages_platform_assinar"
-    },
-    {
-      "label": "Assinar()",
-      "file_type": "code",
-      "source_file": "src/pages/platform/Assinar.jsx",
-      "source_location": "L13",
-      "_origin": "ast",
-      "community": 322,
-      "norm_label": "assinar()",
-      "id": "src_pages_platform_assinar_assinar"
-    },
-    {
       "label": "Leaderboard.jsx",
       "file_type": "code",
       "source_file": "src/pages/platform/Leaderboard.jsx",
@@ -30764,106 +30864,6 @@
       "id": "src_pages_platform_perfil_abas_recompensas_recompensas"
     },
     {
-      "label": "Autor.jsx",
-      "file_type": "code",
-      "source_file": "src/pages/site/Autor.jsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 33,
-      "norm_label": "autor.jsx",
-      "id": "src_pages_site_autor"
-    },
-    {
-      "label": "Autor()",
-      "file_type": "code",
-      "source_file": "src/pages/site/Autor.jsx",
-      "source_location": "L6",
-      "_origin": "ast",
-      "community": 33,
-      "norm_label": "autor()",
-      "id": "src_pages_site_autor_autor"
-    },
-    {
-      "label": "Custos.jsx",
-      "file_type": "code",
-      "source_file": "src/pages/site/Custos.jsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 33,
-      "norm_label": "custos.jsx",
-      "id": "src_pages_site_custos"
-    },
-    {
-      "label": "Custos()",
-      "file_type": "code",
-      "source_file": "src/pages/site/Custos.jsx",
-      "source_location": "L6",
-      "_origin": "ast",
-      "community": 33,
-      "norm_label": "custos()",
-      "id": "src_pages_site_custos_custos"
-    },
-    {
-      "label": "Home.jsx",
-      "file_type": "code",
-      "source_file": "src/pages/site/Home/Home.jsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 34,
-      "norm_label": "home.jsx",
-      "id": "src_pages_site_home_home"
-    },
-    {
-      "label": "BookChaptersRow",
-      "file_type": "code",
-      "source_file": "src/pages/site/Home/Home.jsx",
-      "source_location": "L12",
-      "_origin": "ast",
-      "community": 34,
-      "norm_label": "bookchaptersrow",
-      "id": "src_pages_site_home_home_bookchaptersrow"
-    },
-    {
-      "label": "MusicSection",
-      "file_type": "code",
-      "source_file": "src/pages/site/Home/Home.jsx",
-      "source_location": "L13",
-      "_origin": "ast",
-      "community": 34,
-      "norm_label": "musicsection",
-      "id": "src_pages_site_home_home_musicsection"
-    },
-    {
-      "label": "NowLive",
-      "file_type": "code",
-      "source_file": "src/pages/site/Home/Home.jsx",
-      "source_location": "L14",
-      "_origin": "ast",
-      "community": 34,
-      "norm_label": "nowlive",
-      "id": "src_pages_site_home_home_nowlive"
-    },
-    {
-      "label": "StoryProgress",
-      "file_type": "code",
-      "source_file": "src/pages/site/Home/Home.jsx",
-      "source_location": "L15",
-      "_origin": "ast",
-      "community": 34,
-      "norm_label": "storyprogress",
-      "id": "src_pages_site_home_home_storyprogress"
-    },
-    {
-      "label": "Home()",
-      "file_type": "code",
-      "source_file": "src/pages/site/Home/Home.jsx",
-      "source_location": "L17",
-      "_origin": "ast",
-      "community": 34,
-      "norm_label": "home()",
-      "id": "src_pages_site_home_home_home"
-    },
-    {
       "label": "BookChaptersRow.jsx",
       "file_type": "code",
       "source_file": "src/pages/site/Home/components/BookChaptersRow.jsx",
@@ -30919,7 +30919,7 @@
       "source_file": "src/pages/site/Home/components/CharactersRow.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 34,
+      "community": 33,
       "norm_label": "charactersrow.jsx",
       "id": "src_pages_site_home_components_charactersrow"
     },
@@ -30929,7 +30929,7 @@
       "source_file": "src/pages/site/Home/components/CharactersRow.jsx",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 34,
+      "community": 33,
       "norm_label": "charactersrow()",
       "id": "src_pages_site_home_components_charactersrow_charactersrow"
     },
@@ -30979,7 +30979,7 @@
       "source_file": "src/pages/site/Home/components/HomeSectionHeading.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 51,
+      "community": 33,
       "norm_label": "homesectionheading.jsx",
       "id": "src_pages_site_home_components_homesectionheading"
     },
@@ -30989,7 +30989,7 @@
       "source_file": "src/pages/site/Home/components/HomeSectionHeading.jsx",
       "source_location": "L3",
       "_origin": "ast",
-      "community": 51,
+      "community": 33,
       "norm_label": "homesectionheading()",
       "id": "src_pages_site_home_components_homesectionheading_homesectionheading"
     },
@@ -30999,7 +30999,7 @@
       "source_file": "src/pages/site/Home/components/MusicSection.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 51,
+      "community": 33,
       "norm_label": "musicsection.jsx",
       "id": "src_pages_site_home_components_musicsection"
     },
@@ -31009,7 +31009,7 @@
       "source_file": "src/pages/site/Home/components/MusicSection.jsx",
       "source_location": "L24",
       "_origin": "ast",
-      "community": 51,
+      "community": 33,
       "norm_label": "allimages",
       "id": "src_pages_site_home_components_musicsection_allimages"
     },
@@ -31019,7 +31019,7 @@
       "source_file": "src/pages/site/Home/components/MusicSection.jsx",
       "source_location": "L26",
       "_origin": "ast",
-      "community": 51,
+      "community": 33,
       "norm_label": "musiccircle()",
       "id": "src_pages_site_home_components_musicsection_musiccircle"
     },
@@ -31029,7 +31029,7 @@
       "source_file": "src/pages/site/Home/components/MusicSection.jsx",
       "source_location": "L53",
       "_origin": "ast",
-      "community": 51,
+      "community": 33,
       "norm_label": "musicsection()",
       "id": "src_pages_site_home_components_musicsection_musicsection"
     },
@@ -31039,7 +31039,7 @@
       "source_file": "src/pages/site/Home/components/NowLive.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 51,
+      "community": 33,
       "norm_label": "nowlive.jsx",
       "id": "src_pages_site_home_components_nowlive"
     },
@@ -31049,7 +31049,7 @@
       "source_file": "src/pages/site/Home/components/NowLive.jsx",
       "source_location": "L7",
       "_origin": "ast",
-      "community": 51,
+      "community": 33,
       "norm_label": "platrgb",
       "id": "src_pages_site_home_components_nowlive_platrgb"
     },
@@ -31059,7 +31059,7 @@
       "source_file": "src/pages/site/Home/components/NowLive.jsx",
       "source_location": "L14",
       "_origin": "ast",
-      "community": 51,
+      "community": 33,
       "norm_label": "nowlive()",
       "id": "src_pages_site_home_components_nowlive_nowlive"
     },
@@ -31069,7 +31069,7 @@
       "source_file": "src/pages/site/Home/components/StoryProgress.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 442,
+      "community": 33,
       "norm_label": "storyprogress.jsx",
       "id": "src_pages_site_home_components_storyprogress"
     },
@@ -31079,7 +31079,7 @@
       "source_file": "src/pages/site/Home/components/StoryProgress.jsx",
       "source_location": "L8",
       "_origin": "ast",
-      "community": 442,
+      "community": 33,
       "norm_label": "storyprogress()",
       "id": "src_pages_site_home_components_storyprogress_storyprogress"
     },
@@ -31129,7 +31129,7 @@
       "source_file": "src/pages/site/Quiz.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 291,
+      "community": 51,
       "norm_label": "quiz.jsx",
       "id": "src_pages_site_quiz"
     },
@@ -31139,7 +31139,7 @@
       "source_file": "src/pages/site/Quiz.jsx",
       "source_location": "L11",
       "_origin": "ast",
-      "community": 291,
+      "community": 51,
       "norm_label": "modos",
       "id": "src_pages_site_quiz_modos"
     },
@@ -31149,7 +31149,7 @@
       "source_file": "src/pages/site/Quiz.jsx",
       "source_location": "L17",
       "_origin": "ast",
-      "community": 291,
+      "community": 51,
       "norm_label": "embaralhar()",
       "id": "src_pages_site_quiz_embaralhar"
     },
@@ -31159,7 +31159,7 @@
       "source_file": "src/pages/site/Quiz.jsx",
       "source_location": "L21",
       "_origin": "ast",
-      "community": 291,
+      "community": 51,
       "norm_label": "selecionarperguntas()",
       "id": "src_pages_site_quiz_selecionarperguntas"
     },
@@ -31169,7 +31169,7 @@
       "source_file": "src/pages/site/Quiz.jsx",
       "source_location": "L29",
       "_origin": "ast",
-      "community": 291,
+      "community": 51,
       "norm_label": "gerardicagangue()",
       "id": "src_pages_site_quiz_gerardicagangue"
     },
@@ -31179,7 +31179,7 @@
       "source_file": "src/pages/site/Quiz.jsx",
       "source_location": "L52",
       "_origin": "ast",
-      "community": 291,
+      "community": 51,
       "norm_label": "calcularrank()",
       "id": "src_pages_site_quiz_calcularrank"
     },
@@ -31189,7 +31189,7 @@
       "source_file": "src/pages/site/Quiz.jsx",
       "source_location": "L63",
       "_origin": "ast",
-      "community": 291,
+      "community": 51,
       "norm_label": "quiz()",
       "id": "src_pages_site_quiz_quiz"
     },
@@ -46512,12 +46512,402 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/Contos.jsx",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "src_pages_content_contos",
+      "target": "src_pages_content_contos_contos",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/pages/content/Contos.jsx",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "src_pages_content_contos_contos",
+      "target": "src_pages_games_games_admin_emails"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/Livro.jsx",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "src_pages_content_livro",
+      "target": "src_pages_content_livro_formatardata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/Livro.jsx",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "src_pages_content_livro",
+      "target": "src_pages_content_livro_livro",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/Livro.jsx",
+      "source_location": "L78",
+      "weight": 1.0,
+      "source": "src_pages_content_livro_livro",
+      "target": "src_pages_content_livro_formatardata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/pages/content/Livro.jsx",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "src_pages_content_livro_livro",
+      "target": "src_pages_games_games_admin_emails"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/Mundo.jsx",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "src_pages_content_mundo",
+      "target": "src_pages_content_mundo_datamap",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/Mundo.jsx",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "src_pages_content_mundo",
+      "target": "src_pages_content_mundo_mundo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/Mundo.jsx",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "src_pages_content_mundo",
+      "target": "src_pages_content_mundo_protagonist_ids",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/pages/content/Mundo.jsx",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "src_pages_content_mundo_mundo",
+      "target": "src_pages_content_mundo_protagonist_ids"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/Musicas.jsx",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "src_pages_content_musicas",
+      "target": "src_pages_content_musicas_allimages",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/Musicas.jsx",
+      "source_location": "L35",
+      "weight": 1.0,
+      "source": "src_pages_content_musicas",
+      "target": "src_pages_content_musicas_musicas",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/Musicas.jsx",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "src_pages_content_musicas",
+      "target": "src_pages_content_musicas_shufflearray",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/Musicas.jsx",
+      "source_location": "L37",
+      "weight": 1.0,
+      "source": "src_pages_content_musicas_musicas",
+      "target": "src_pages_content_musicas_shufflearray",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/Personagens.jsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "src_pages_content_personagens",
+      "target": "src_pages_content_personagens_personagens",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/webshard/WebshardHub.jsx",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "src_pages_content_webshard_webshardhub",
+      "target": "src_pages_content_webshard_webshardhub_webshardhub",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/Games.jsx",
+      "source_location": "L53",
+      "weight": 1.0,
+      "source": "src_pages_games_games",
+      "target": "src_pages_games_games_abas",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/Games.jsx",
+      "source_location": "L51",
+      "weight": 1.0,
+      "source": "src_pages_games_games",
+      "target": "src_pages_games_games_admin_emails",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/Games.jsx",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "src_pages_games_games",
+      "target": "src_pages_games_games_badge_cores",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/Games.jsx",
+      "source_location": "L43",
+      "weight": 1.0,
+      "source": "src_pages_games_games",
+      "target": "src_pages_games_games_conteudo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/Games.jsx",
+      "source_location": "L49",
+      "weight": 1.0,
+      "source": "src_pages_games_games",
+      "target": "src_pages_games_games_ficha_games",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/Games.jsx",
+      "source_location": "L55",
+      "weight": 1.0,
+      "source": "src_pages_games_games",
+      "target": "src_pages_games_games_games",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/Games.jsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "src_pages_games_games",
+      "target": "src_pages_games_games_jogos",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/games/Games.jsx",
+      "source_location": "L33",
+      "weight": 1.0,
+      "source": "src_pages_games_games",
+      "target": "src_pages_games_games_kernel_jogos",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/site/Home/components/StoryProgress.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_site_home_components_storyprogress",
+      "target": "src_pages_games_games"
+    },
+    {
+      "relation": "references",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/pages/games/Games.jsx",
+      "source_location": "L187",
+      "weight": 1.0,
+      "source": "src_pages_games_games_games",
+      "target": "src_pages_games_games_jogos"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/site/Home/components/StoryProgress.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_site_home_components_storyprogress",
+      "target": "src_pages_games_games_jogos"
+    },
+    {
+      "relation": "references",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/pages/games/Games.jsx",
+      "source_location": "L61",
+      "weight": 1.0,
+      "source": "src_pages_games_games_games",
+      "target": "src_pages_games_games_admin_emails"
+    },
+    {
+      "relation": "references",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/pages/platform/Assinar.jsx",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "src_pages_platform_assinar_assinar",
+      "target": "src_pages_games_games_admin_emails"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/platform/Assinar.jsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "src_pages_platform_assinar",
+      "target": "src_pages_platform_assinar_assinar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/site/Autor.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "src_pages_site_autor",
+      "target": "src_pages_site_autor_autor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/site/Custos.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "src_pages_site_custos",
+      "target": "src_pages_site_custos_custos",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/site/Home/Home.jsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "src_pages_site_home_home",
+      "target": "src_pages_site_home_home_bookchaptersrow",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/site/Home/Home.jsx",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "src_pages_site_home_home",
+      "target": "src_pages_site_home_home_home",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/site/Home/Home.jsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "src_pages_site_home_home",
+      "target": "src_pages_site_home_home_musicsection",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/site/Home/Home.jsx",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "src_pages_site_home_home",
+      "target": "src_pages_site_home_home_nowlive",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/site/Home/Home.jsx",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "src_pages_site_home_home",
+      "target": "src_pages_site_home_home_storyprogress",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/site/WebShard.jsx",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "src_pages_site_webshard",
+      "target": "src_pages_site_webshard_webshard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "src/data/season-one-schedule.js",
       "source_location": "L83",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_data_season_one_schedule",
-      "target": "src_data_season_one_schedule_season_one_completion",
-      "confidence_score": 1.0
+      "target": "src_data_season_one_schedule_season_one_completion"
     },
     {
       "relation": "contains",
@@ -46525,9 +46915,9 @@
       "source_file": "src/data/season-one-schedule.js",
       "source_location": "L26",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_data_season_one_schedule",
-      "target": "src_data_season_one_schedule_season_one_drops",
-      "confidence_score": 1.0
+      "target": "src_data_season_one_schedule_season_one_drops"
     },
     {
       "relation": "contains",
@@ -46535,9 +46925,9 @@
       "source_file": "src/data/season-one-schedule.js",
       "source_location": "L95",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_data_season_one_schedule",
-      "target": "src_data_season_one_schedule_seasons_overview",
-      "confidence_score": 1.0
+      "target": "src_data_season_one_schedule_seasons_overview"
     },
     {
       "relation": "imports_from",
@@ -46556,9 +46946,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L19",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_capitulomovido",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_capitulomovido"
     },
     {
       "relation": "contains",
@@ -46566,9 +46956,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L62",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_capituloporid",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_capituloporid"
     },
     {
       "relation": "contains",
@@ -46576,9 +46966,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L17",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_capitulos_movidos",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_capitulos_movidos"
     },
     {
       "relation": "contains",
@@ -46586,9 +46976,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L56",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_capitulosde",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_capitulosde"
     },
     {
       "relation": "contains",
@@ -46596,9 +46986,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L100",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_capitulosespeciais",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_capitulosespeciais"
     },
     {
       "relation": "contains",
@@ -46606,9 +46996,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L96",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_capitulosprincipais",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_capitulosprincipais"
     },
     {
       "relation": "contains",
@@ -46616,9 +47006,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L67",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_capitulotemconteudo",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_capitulotemconteudo"
     },
     {
       "relation": "contains",
@@ -46626,9 +47016,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L146",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_diasate",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_diasate"
     },
     {
       "relation": "contains",
@@ -46636,9 +47026,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L141",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_embeta",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_embeta"
     },
     {
       "relation": "contains",
@@ -46646,9 +47036,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L28",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_fontes",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_fontes"
     },
     {
       "relation": "contains",
@@ -46656,9 +47046,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L150",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_formatardata",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_formatardata"
     },
     {
       "relation": "contains",
@@ -46666,9 +47056,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L137",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_hojeiso",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_hojeiso"
     },
     {
       "relation": "contains",
@@ -46676,9 +47066,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L106",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_idiomainicial",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_idiomainicial"
     },
     {
       "relation": "contains",
@@ -46686,9 +47076,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L24",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_imagempornome",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_imagempornome"
     },
     {
       "relation": "contains",
@@ -46696,9 +47086,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L38",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_imagemwebshard",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_imagemwebshard"
     },
     {
       "relation": "contains",
@@ -46706,9 +47096,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L23",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_imagens",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_imagens"
     },
     {
       "relation": "contains",
@@ -46716,9 +47106,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L48",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_listartitulos",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_listartitulos"
     },
     {
       "relation": "contains",
@@ -46726,9 +47116,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L33",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_localizado",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_localizado"
     },
     {
       "relation": "contains",
@@ -46736,9 +47126,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L44",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_miniaturacapitulo",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_miniaturacapitulo"
     },
     {
       "relation": "contains",
@@ -46746,9 +47136,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L84",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_numerocapitulo",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_numerocapitulo"
     },
     {
       "relation": "contains",
@@ -46756,9 +47146,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L114",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_paginasde",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_paginasde"
     },
     {
       "relation": "contains",
@@ -46766,9 +47156,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L75",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_rotacapitulo",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_rotacapitulo"
     },
     {
       "relation": "contains",
@@ -46776,9 +47166,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L71",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_rotatitulo",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_rotatitulo"
     },
     {
       "relation": "contains",
@@ -46786,9 +47176,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L89",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_rotulocapitulo",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_rotulocapitulo"
     },
     {
       "relation": "contains",
@@ -46796,9 +47186,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L80",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_titulolegado",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_titulolegado"
     },
     {
       "relation": "contains",
@@ -46806,9 +47196,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L52",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_tituloporslug",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_tituloporslug"
     },
     {
       "relation": "contains",
@@ -46816,9 +47206,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L127",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_vizinhos",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_vizinhos"
     },
     {
       "relation": "imports_from",
@@ -46827,9 +47217,9 @@
       "source_file": "src/pages/content/webshard/components/CapituloLinha.jsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_webshard_components_capitulolinha",
-      "target": "src_lib_webshard_catalogo",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo"
     },
     {
       "relation": "imports_from",
@@ -46849,9 +47239,9 @@
       "source_file": "src/pages/content/webshard/components/LeitorFim.jsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_webshard_components_leitorfim",
-      "target": "src_lib_webshard_catalogo",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo"
     },
     {
       "relation": "imports_from",
@@ -46882,9 +47272,9 @@
       "source_file": "src/pages/content/webshard/WebshardLeitor.jsx",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_webshard_webshardleitor",
-      "target": "src_lib_webshard_catalogo",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo"
     },
     {
       "relation": "imports_from",
@@ -46904,9 +47294,9 @@
       "source_file": "src/pages/content/webshard/WebshardTitulo.jsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_webshard_webshardtitulo",
-      "target": "src_lib_webshard_catalogo",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo"
     },
     {
       "relation": "imports_from",
@@ -46915,9 +47305,9 @@
       "source_file": "src/pages/site/Home/components/LatestEpisodes.jsx",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_site_home_components_latestepisodes",
-      "target": "src_lib_webshard_catalogo",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo"
     },
     {
       "relation": "imports",
@@ -46948,9 +47338,9 @@
       "source_file": "src/pages/content/webshard/components/CapituloLinha.jsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_webshard_components_capitulolinha",
-      "target": "src_lib_webshard_catalogo_localizado",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_localizado"
     },
     {
       "relation": "calls",
@@ -46992,9 +47382,9 @@
       "source_file": "src/pages/content/webshard/components/LeitorFim.jsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_webshard_components_leitorfim",
-      "target": "src_lib_webshard_catalogo_localizado",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_localizado"
     },
     {
       "relation": "calls",
@@ -47058,9 +47448,9 @@
       "source_file": "src/pages/content/webshard/WebshardLeitor.jsx",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_webshard_webshardleitor",
-      "target": "src_lib_webshard_catalogo_localizado",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_localizado"
     },
     {
       "relation": "calls",
@@ -47080,9 +47470,9 @@
       "source_file": "src/pages/content/webshard/WebshardTitulo.jsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_webshard_webshardtitulo",
-      "target": "src_lib_webshard_catalogo_localizado",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_localizado"
     },
     {
       "relation": "calls",
@@ -47102,9 +47492,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L45",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_webshard_catalogo_miniaturacapitulo",
-      "target": "src_lib_webshard_catalogo_imagemwebshard",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_imagemwebshard"
     },
     {
       "relation": "imports",
@@ -47157,9 +47547,9 @@
       "source_file": "src/pages/content/webshard/components/CapituloLinha.jsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_webshard_components_capitulolinha",
-      "target": "src_lib_webshard_catalogo_miniaturacapitulo",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_miniaturacapitulo"
     },
     {
       "relation": "calls",
@@ -47201,9 +47591,9 @@
       "source_file": "src/pages/content/webshard/components/LeitorFim.jsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_webshard_components_leitorfim",
-      "target": "src_lib_webshard_catalogo_miniaturacapitulo",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_miniaturacapitulo"
     },
     {
       "relation": "calls",
@@ -47223,9 +47613,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L53",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_webshard_catalogo_tituloporslug",
-      "target": "src_lib_webshard_catalogo_listartitulos",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_listartitulos"
     },
     {
       "relation": "imports",
@@ -47256,9 +47646,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L63",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_webshard_catalogo_capituloporid",
-      "target": "src_lib_webshard_catalogo_capitulosde",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_capitulosde"
     },
     {
       "relation": "calls",
@@ -47267,9 +47657,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L101",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_webshard_catalogo_capitulosespeciais",
-      "target": "src_lib_webshard_catalogo_capitulosde",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_capitulosde"
     },
     {
       "relation": "calls",
@@ -47278,9 +47668,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L97",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_webshard_catalogo_capitulosprincipais",
-      "target": "src_lib_webshard_catalogo_capitulosde",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_capitulosde"
     },
     {
       "relation": "calls",
@@ -47289,9 +47679,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L129",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_webshard_catalogo_vizinhos",
-      "target": "src_lib_webshard_catalogo_capitulosde",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_capitulosde"
     },
     {
       "relation": "imports",
@@ -47322,9 +47712,9 @@
       "source_file": "src/pages/content/webshard/WebshardLeitor.jsx",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_webshard_webshardleitor",
-      "target": "src_lib_webshard_catalogo_capituloporid",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_capituloporid"
     },
     {
       "relation": "calls",
@@ -47366,9 +47756,9 @@
       "source_file": "src/pages/content/webshard/components/CapituloLinha.jsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_webshard_components_capitulolinha",
-      "target": "src_lib_webshard_catalogo_capitulotemconteudo",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_capitulotemconteudo"
     },
     {
       "relation": "calls",
@@ -47388,9 +47778,9 @@
       "source_file": "src/pages/content/webshard/components/LeitorFim.jsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_webshard_components_leitorfim",
-      "target": "src_lib_webshard_catalogo_capitulotemconteudo",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_capitulotemconteudo"
     },
     {
       "relation": "calls",
@@ -47410,9 +47800,9 @@
       "source_file": "src/pages/content/webshard/WebshardTitulo.jsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_webshard_webshardtitulo",
-      "target": "src_lib_webshard_catalogo_capitulotemconteudo",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_capitulotemconteudo"
     },
     {
       "relation": "indirect_call",
@@ -47432,9 +47822,9 @@
       "source_file": "src/pages/content/webshard/components/LeitorFim.jsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_webshard_components_leitorfim",
-      "target": "src_lib_webshard_catalogo_rotatitulo",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_rotatitulo"
     },
     {
       "relation": "calls",
@@ -47476,9 +47866,9 @@
       "source_file": "src/pages/content/webshard/WebshardLeitor.jsx",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_webshard_webshardleitor",
-      "target": "src_lib_webshard_catalogo_rotatitulo",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_rotatitulo"
     },
     {
       "relation": "calls",
@@ -47498,9 +47888,9 @@
       "source_file": "src/pages/content/webshard/components/CapituloLinha.jsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_webshard_components_capitulolinha",
-      "target": "src_lib_webshard_catalogo_rotacapitulo",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_rotacapitulo"
     },
     {
       "relation": "calls",
@@ -47542,9 +47932,9 @@
       "source_file": "src/pages/content/webshard/components/LeitorFim.jsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_webshard_components_leitorfim",
-      "target": "src_lib_webshard_catalogo_rotacapitulo",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_rotacapitulo"
     },
     {
       "relation": "calls",
@@ -47564,9 +47954,9 @@
       "source_file": "src/pages/content/webshard/WebshardLeitor.jsx",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_webshard_webshardleitor",
-      "target": "src_lib_webshard_catalogo_rotacapitulo",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_rotacapitulo"
     },
     {
       "relation": "calls",
@@ -47586,9 +47976,9 @@
       "source_file": "src/pages/content/webshard/WebshardTitulo.jsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_webshard_webshardtitulo",
-      "target": "src_lib_webshard_catalogo_rotacapitulo",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_rotacapitulo"
     },
     {
       "relation": "calls",
@@ -47630,9 +48020,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L92",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_webshard_catalogo_rotulocapitulo",
-      "target": "src_lib_webshard_catalogo_numerocapitulo",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_numerocapitulo"
     },
     {
       "relation": "imports",
@@ -47641,9 +48031,9 @@
       "source_file": "src/pages/content/webshard/components/CapituloLinha.jsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_webshard_components_capitulolinha",
-      "target": "src_lib_webshard_catalogo_numerocapitulo",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_numerocapitulo"
     },
     {
       "relation": "calls",
@@ -47685,9 +48075,9 @@
       "source_file": "src/pages/content/webshard/WebshardTitulo.jsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_webshard_webshardtitulo",
-      "target": "src_lib_webshard_catalogo_numerocapitulo",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_numerocapitulo"
     },
     {
       "relation": "calls",
@@ -47707,9 +48097,9 @@
       "source_file": "src/pages/content/webshard/components/CapituloLinha.jsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_webshard_components_capitulolinha",
-      "target": "src_lib_webshard_catalogo_rotulocapitulo",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_rotulocapitulo"
     },
     {
       "relation": "calls",
@@ -47729,9 +48119,9 @@
       "source_file": "src/pages/content/webshard/components/LeitorFim.jsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_webshard_components_leitorfim",
-      "target": "src_lib_webshard_catalogo_rotulocapitulo",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_rotulocapitulo"
     },
     {
       "relation": "calls",
@@ -47751,9 +48141,9 @@
       "source_file": "src/pages/content/webshard/WebshardLeitor.jsx",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_webshard_webshardleitor",
-      "target": "src_lib_webshard_catalogo_rotulocapitulo",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_rotulocapitulo"
     },
     {
       "relation": "calls",
@@ -47773,9 +48163,9 @@
       "source_file": "src/pages/content/webshard/WebshardTitulo.jsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_webshard_webshardtitulo",
-      "target": "src_lib_webshard_catalogo_capitulosprincipais",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_capitulosprincipais"
     },
     {
       "relation": "calls",
@@ -47795,9 +48185,9 @@
       "source_file": "src/pages/content/webshard/WebshardTitulo.jsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_webshard_webshardtitulo",
-      "target": "src_lib_webshard_catalogo_capitulosespeciais",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_capitulosespeciais"
     },
     {
       "relation": "calls",
@@ -47817,9 +48207,9 @@
       "source_file": "src/pages/content/webshard/WebshardLeitor.jsx",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_webshard_webshardleitor",
-      "target": "src_lib_webshard_catalogo_idiomainicial",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_idiomainicial"
     },
     {
       "relation": "calls",
@@ -47839,9 +48229,9 @@
       "source_file": "src/pages/content/webshard/WebshardLeitor.jsx",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_webshard_webshardleitor",
-      "target": "src_lib_webshard_catalogo_paginasde",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_paginasde"
     },
     {
       "relation": "calls",
@@ -47861,9 +48251,9 @@
       "source_file": "src/pages/content/webshard/WebshardLeitor.jsx",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_webshard_webshardleitor",
-      "target": "src_lib_webshard_catalogo_vizinhos",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_vizinhos"
     },
     {
       "relation": "calls",
@@ -47905,9 +48295,9 @@
       "source_file": "src/pages/content/webshard/components/CapituloLinha.jsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_webshard_components_capitulolinha",
-      "target": "src_lib_webshard_catalogo_embeta",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_embeta"
     },
     {
       "relation": "calls",
@@ -47927,9 +48317,9 @@
       "source_file": "src/pages/site/Home/components/LatestEpisodes.jsx",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_site_home_components_latestepisodes",
-      "target": "src_lib_webshard_catalogo_embeta",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_embeta"
     },
     {
       "relation": "calls",
@@ -47949,9 +48339,9 @@
       "source_file": "src/pages/content/webshard/components/CapituloLinha.jsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_webshard_components_capitulolinha",
-      "target": "src_lib_webshard_catalogo_diasate",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_diasate"
     },
     {
       "relation": "calls",
@@ -47971,9 +48361,9 @@
       "source_file": "src/pages/content/webshard/components/CapituloLinha.jsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_webshard_components_capitulolinha",
-      "target": "src_lib_webshard_catalogo_formatardata",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_formatardata"
     },
     {
       "relation": "calls",
@@ -47993,9 +48383,9 @@
       "source_file": "src/pages/content/webshard/components/LeitorFim.jsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_webshard_components_leitorfim",
-      "target": "src_lib_webshard_catalogo_formatardata",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_formatardata"
     },
     {
       "relation": "calls",
@@ -48015,9 +48405,9 @@
       "source_file": "src/pages/content/webshard/WebshardLeitor.jsx",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_webshard_webshardleitor",
-      "target": "src_lib_webshard_catalogo_formatardata",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_formatardata"
     },
     {
       "relation": "calls",
@@ -48037,9 +48427,9 @@
       "source_file": "src/pages/content/webshard/WebshardLeitor.jsx",
       "source_location": "L20",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_webshard_webshardleitor",
-      "target": "src_pages_content_webshard_components_leitorfim",
-      "confidence_score": 1.0
+      "target": "src_pages_content_webshard_components_leitorfim"
     },
     {
       "relation": "imports",
@@ -48048,9 +48438,9 @@
       "source_file": "src/pages/content/webshard/WebshardLeitor.jsx",
       "source_location": "L20",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_webshard_webshardleitor",
-      "target": "src_pages_content_webshard_components_leitorfim_leitorfim",
-      "confidence_score": 1.0
+      "target": "src_pages_content_webshard_components_leitorfim_leitorfim"
     },
     {
       "relation": "imports_from",
@@ -48059,9 +48449,9 @@
       "source_file": "src/pages/content/webshard/WebshardLeitor.jsx",
       "source_location": "L19",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_webshard_webshardleitor",
-      "target": "src_pages_content_webshard_components_leitorpaginas",
-      "confidence_score": 1.0
+      "target": "src_pages_content_webshard_components_leitorpaginas"
     },
     {
       "relation": "imports",
@@ -48070,9 +48460,9 @@
       "source_file": "src/pages/content/webshard/WebshardLeitor.jsx",
       "source_location": "L19",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_webshard_webshardleitor",
-      "target": "src_pages_content_webshard_components_leitorpaginas_leitorpaginas",
-      "confidence_score": 1.0
+      "target": "src_pages_content_webshard_components_leitorpaginas_leitorpaginas"
     },
     {
       "relation": "contains",
@@ -48080,9 +48470,9 @@
       "source_file": "src/pages/content/webshard/WebshardLeitor.jsx",
       "source_location": "L27",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_webshard_webshardleitor",
-      "target": "src_pages_content_webshard_webshardleitor_webshardleitor",
-      "confidence_score": 1.0
+      "target": "src_pages_content_webshard_webshardleitor_webshardleitor"
     },
     {
       "relation": "imports_from",
@@ -48113,9 +48503,9 @@
       "source_file": "src/pages/content/webshard/WebshardTitulo.jsx",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_webshard_webshardtitulo",
-      "target": "src_pages_content_webshard_components_capitulolinha",
-      "confidence_score": 1.0
+      "target": "src_pages_content_webshard_components_capitulolinha"
     },
     {
       "relation": "imports",
@@ -48124,9 +48514,9 @@
       "source_file": "src/pages/content/webshard/WebshardTitulo.jsx",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_webshard_webshardtitulo",
-      "target": "src_pages_content_webshard_components_capitulolinha_capitulolinha",
-      "confidence_score": 1.0
+      "target": "src_pages_content_webshard_components_capitulolinha_capitulolinha"
     },
     {
       "relation": "contains",
@@ -48134,9 +48524,9 @@
       "source_file": "src/pages/content/webshard/WebshardTitulo.jsx",
       "source_location": "L17",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_webshard_webshardtitulo",
-      "target": "src_pages_content_webshard_webshardtitulo_webshardtitulo",
-      "confidence_score": 1.0
+      "target": "src_pages_content_webshard_webshardtitulo_webshardtitulo"
     },
     {
       "relation": "contains",
@@ -48144,30 +48534,8 @@
       "source_file": "src/pages/content/webshard/components/CapituloLinha.jsx",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_webshard_components_capitulolinha",
-      "target": "src_pages_content_webshard_components_capitulolinha_capitulolinha",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/webshard/WebshardHub.jsx",
-      "source_location": "L13",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_webshard_webshardhub",
-      "target": "src_pages_content_webshard_components_capitulolinha"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/webshard/WebshardHub.jsx",
-      "source_location": "L13",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_webshard_webshardhub",
       "target": "src_pages_content_webshard_components_capitulolinha_capitulolinha"
     },
     {
@@ -48176,9 +48544,9 @@
       "source_file": "src/pages/content/webshard/components/LeitorFim.jsx",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_webshard_components_leitorfim",
-      "target": "src_pages_content_webshard_components_leitorfim_leitorfim",
-      "confidence_score": 1.0
+      "target": "src_pages_content_webshard_components_leitorfim_leitorfim"
     },
     {
       "relation": "contains",
@@ -48186,9 +48554,9 @@
       "source_file": "src/pages/content/webshard/components/LeitorPaginas.jsx",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_webshard_components_leitorpaginas",
-      "target": "src_pages_content_webshard_components_leitorpaginas_leitorpaginas",
-      "confidence_score": 1.0
+      "target": "src_pages_content_webshard_components_leitorpaginas_leitorpaginas"
     },
     {
       "relation": "contains",
@@ -48196,9 +48564,9 @@
       "source_file": "src/pages/site/Home/components/LatestEpisodes.jsx",
       "source_location": "L24",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_site_home_components_latestepisodes",
-      "target": "src_pages_site_home_components_latestepisodes_latestepisodes",
-      "confidence_score": 1.0
+      "target": "src_pages_site_home_components_latestepisodes_latestepisodes"
     },
     {
       "relation": "contains",
@@ -48206,9 +48574,9 @@
       "source_file": "src/pages/site/Home/components/LatestEpisodes.jsx",
       "source_location": "L22",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_site_home_components_latestepisodes",
-      "target": "src_pages_site_home_components_latestepisodes_thumbnailfor",
-      "confidence_score": 1.0
+      "target": "src_pages_site_home_components_latestepisodes_thumbnailfor"
     },
     {
       "relation": "contains",
@@ -48216,9 +48584,9 @@
       "source_file": "src/pages/site/Home/components/LatestEpisodes.jsx",
       "source_location": "L18",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_site_home_components_latestepisodes",
-      "target": "src_pages_site_home_components_latestepisodes_thumbnailmap",
-      "confidence_score": 1.0
+      "target": "src_pages_site_home_components_latestepisodes_thumbnailmap"
     },
     {
       "relation": "contains",
@@ -48226,20 +48594,9 @@
       "source_file": "src/pages/site/Home/components/LatestEpisodes.jsx",
       "source_location": "L13",
       "weight": 1.0,
-      "source": "src_pages_site_home_components_latestepisodes",
-      "target": "src_pages_site_home_components_latestepisodes_thumbnailmodules",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/site/Home/Home.jsx",
-      "source_location": "L7",
-      "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "src_pages_site_home_home",
-      "target": "src_pages_site_home_components_latestepisodes"
+      "source": "src_pages_site_home_components_latestepisodes",
+      "target": "src_pages_site_home_components_latestepisodes_thumbnailmodules"
     },
     {
       "relation": "calls",
@@ -48248,20 +48605,9 @@
       "source_file": "src/pages/site/Home/components/LatestEpisodes.jsx",
       "source_location": "L60",
       "weight": 1.0,
-      "source": "src_pages_site_home_components_latestepisodes_latestepisodes",
-      "target": "src_pages_site_home_components_latestepisodes_thumbnailfor",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/site/Home/Home.jsx",
-      "source_location": "L7",
-      "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "src_pages_site_home_home",
-      "target": "src_pages_site_home_components_latestepisodes_latestepisodes"
+      "source": "src_pages_site_home_components_latestepisodes_latestepisodes",
+      "target": "src_pages_site_home_components_latestepisodes_thumbnailfor"
     },
     {
       "relation": "contains",
@@ -48889,49 +49235,6 @@
       "confidence_score": 1.0,
       "source": "src_hooks_usewebshardacesso",
       "target": "src_hooks_usewebshardacesso_usewebshardacesso"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/webshard/WebshardHub.jsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_webshard_webshardhub",
-      "target": "src_hooks_usewebshardacesso"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/webshard/WebshardHub.jsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_webshard_webshardhub",
-      "target": "src_hooks_usewebshardacesso_usewebshardacesso"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/content/webshard/WebshardHub.jsx",
-      "source_location": "L23",
-      "weight": 1.0,
-      "source": "src_pages_content_webshard_webshardhub_webshardhub",
-      "target": "src_hooks_usewebshardacesso_usewebshardacesso"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/webshard/WebshardHub.jsx",
-      "source_location": "L21",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_webshard_webshardhub",
-      "target": "src_pages_content_webshard_webshardhub_webshardhub"
     },
     {
       "relation": "contains",
@@ -50808,36 +51111,6 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/Mundo.jsx",
-      "source_location": "L14",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_mundo",
-      "target": "src_pages_content_mundo_datamap"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/Mundo.jsx",
-      "source_location": "L18",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_mundo",
-      "target": "src_pages_content_mundo_mundo"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/Mundo.jsx",
-      "source_location": "L16",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_mundo",
-      "target": "src_pages_content_mundo_protagonist_ids"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
       "source_file": "src/pages/games/Gangues/data/cenas/pista/pois.js",
       "source_location": "L11",
       "weight": 1.0,
@@ -51867,16 +52140,6 @@
       "weight": 1.0,
       "source": "src_pages_games_gangues_hooks_useganguesturnmachine_prepare",
       "target": "src_pages_games_gangues_data_ganguesloadout_normalizeganguesloadout"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/site/WebShard.jsx",
-      "source_location": "L15",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_site_webshard",
-      "target": "src_pages_site_webshard_webshard"
     },
     {
       "relation": "contains",
@@ -55476,108 +55739,6 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/Games.jsx",
-      "source_location": "L53",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_games",
-      "target": "src_pages_games_games_abas"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/Games.jsx",
-      "source_location": "L51",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_games",
-      "target": "src_pages_games_games_admin_emails"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/Games.jsx",
-      "source_location": "L26",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_games",
-      "target": "src_pages_games_games_badge_cores"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/Games.jsx",
-      "source_location": "L43",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_games",
-      "target": "src_pages_games_games_conteudo"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/Games.jsx",
-      "source_location": "L49",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_games",
-      "target": "src_pages_games_games_ficha_games"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/Games.jsx",
-      "source_location": "L55",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_games",
-      "target": "src_pages_games_games_games"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/Games.jsx",
-      "source_location": "L12",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_games",
-      "target": "src_pages_games_games_jogos"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/games/Games.jsx",
-      "source_location": "L33",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_games_games",
-      "target": "src_pages_games_games_kernel_jogos"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/site/Home/components/StoryProgress.jsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_site_home_components_storyprogress",
-      "target": "src_pages_games_games"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/site/Home/components/StoryProgress.jsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_site_home_components_storyprogress",
-      "target": "src_pages_games_games_jogos"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
       "source_file": "docs/BIBLIA_DO_ISAIAS.md",
       "source_location": "L1",
       "weight": 1.0,
@@ -56149,28 +56310,6 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/Contos.jsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_contos",
-      "target": "src_context_authcontext"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/Livro.jsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_livro",
-      "target": "src_context_authcontext"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
       "source_file": "src/pages/content/LivroCapitulo.jsx",
       "source_location": "L8",
       "weight": 1.0,
@@ -56429,17 +56568,6 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "src_pages_platform_admin",
-      "target": "src_context_authcontext"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/platform/Assinar.jsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_platform_assinar",
       "target": "src_context_authcontext"
     },
     {
@@ -56891,50 +57019,6 @@
       "source_location": "L23",
       "weight": 1.0,
       "source": "src_pages_content_contohistoria_contohistoria",
-      "target": "src_context_authcontext_useauth"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/Contos.jsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_contos",
-      "target": "src_context_authcontext_useauth"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/content/Contos.jsx",
-      "source_location": "L20",
-      "weight": 1.0,
-      "source": "src_pages_content_contos_contos",
-      "target": "src_context_authcontext_useauth"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/Livro.jsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_livro",
-      "target": "src_context_authcontext_useauth"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/content/Livro.jsx",
-      "source_location": "L24",
-      "weight": 1.0,
-      "source": "src_pages_content_livro_livro",
       "target": "src_context_authcontext_useauth"
     },
     {
@@ -57463,28 +57547,6 @@
       "source_location": "L11",
       "weight": 1.0,
       "source": "src_pages_platform_admin_admin",
-      "target": "src_context_authcontext_useauth"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/platform/Assinar.jsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_platform_assinar",
-      "target": "src_context_authcontext_useauth"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/platform/Assinar.jsx",
-      "source_location": "L15",
-      "weight": 1.0,
-      "source": "src_pages_platform_assinar_assinar",
       "target": "src_context_authcontext_useauth"
     },
     {
@@ -64763,17 +64825,6 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/Livro.jsx",
-      "source_location": "L9",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_livro",
-      "target": "src_components_capcard_capcard"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
       "source_file": "src/pages/content/Obra.jsx",
       "source_location": "L8",
       "weight": 1.0,
@@ -64840,17 +64891,6 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/Livro.jsx",
-      "source_location": "L9",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_livro",
-      "target": "src_components_capcard_capcard_capcard"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
       "source_file": "src/pages/content/Obra.jsx",
       "source_location": "L8",
       "weight": 1.0,
@@ -64894,17 +64934,6 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/Personagens.jsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_personagens",
-      "target": "src_components_charactercard"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
       "source_file": "src/pages/site/Home/components/CharactersRow.jsx",
       "source_location": "L2",
       "weight": 1.0,
@@ -64922,17 +64951,6 @@
       "weight": 1.0,
       "source": "src_components_charactercard_charactercard",
       "target": "src_context_languagecontext_uselanguage"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/Personagens.jsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_personagens",
-      "target": "src_components_charactercard_charactercard"
     },
     {
       "relation": "imports",
@@ -65051,28 +65069,6 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "src_components_deferredsection",
-      "target": "src_components_deferredsection_deferredsection"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/site/Home/Home.jsx",
-      "source_location": "L9",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_site_home_home",
-      "target": "src_components_deferredsection"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/site/Home/Home.jsx",
-      "source_location": "L9",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_site_home_home",
       "target": "src_components_deferredsection_deferredsection"
     },
     {
@@ -65207,28 +65203,6 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/Contos.jsx",
-      "source_location": "L8",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_contos",
-      "target": "src_components_farol_farol"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/Livro.jsx",
-      "source_location": "L8",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_livro",
-      "target": "src_components_farol_farol"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
       "source_file": "src/pages/content/Obra.jsx",
       "source_location": "L7",
       "weight": 1.0,
@@ -65245,17 +65219,6 @@
       "source_location": "L7",
       "weight": 1.0,
       "source": "src_components_farol_farol_pesoindex",
-      "target": "src_components_farol_farol_pesos"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/Contos.jsx",
-      "source_location": "L8",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_contos",
       "target": "src_components_farol_farol_pesos"
     },
     {
@@ -65289,28 +65252,6 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "src_pages_content_contohistoria",
-      "target": "src_components_farol_farol_farol"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/Contos.jsx",
-      "source_location": "L8",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_contos",
-      "target": "src_components_farol_farol_farol"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/Livro.jsx",
-      "source_location": "L8",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_livro",
       "target": "src_components_farol_farol_farol"
     },
     {
@@ -66351,34 +66292,12 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/Musicas.jsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_musicas",
-      "target": "src_components_platformicons"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
       "source_file": "src/pages/site/Home/components/NowLive.jsx",
       "source_location": "L3",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "src_pages_site_home_components_nowlive",
       "target": "src_components_platformicons"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/Musicas.jsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_musicas",
-      "target": "src_components_platformicons_platformiconmap"
     },
     {
       "relation": "imports",
@@ -69101,28 +69020,6 @@
       "target": "src_config_launch_admin_emails"
     },
     {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/platform/Assinar.jsx",
-      "source_location": "L7",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_platform_assinar",
-      "target": "src_config_launch"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/platform/Assinar.jsx",
-      "source_location": "L7",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_platform_assinar",
-      "target": "src_config_launch_admin_emails"
-    },
-    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/config/site.js",
@@ -69222,28 +69119,6 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/Contos.jsx",
-      "source_location": "L7",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_contos",
-      "target": "src_config_site"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/Livro.jsx",
-      "source_location": "L7",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_livro",
-      "target": "src_config_site"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
       "source_file": "src/pages/content/LivroCapitulo.jsx",
       "source_location": "L10",
       "weight": 1.0,
@@ -69316,28 +69191,6 @@
       "weight": 1.0,
       "source": "src_config_site_estadisponivel",
       "target": "src_lib_releaseaccess_resolveaccesslevel"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/Livro.jsx",
-      "source_location": "L7",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_livro",
-      "target": "src_config_site_estadisponivel"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/content/Livro.jsx",
-      "source_location": "L66",
-      "weight": 1.0,
-      "source": "src_pages_content_livro_livro",
-      "target": "src_config_site_estadisponivel"
     },
     {
       "relation": "imports",
@@ -69472,28 +69325,6 @@
       "target": "src_config_site_contoliberado"
     },
     {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/Contos.jsx",
-      "source_location": "L7",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_contos",
-      "target": "src_config_site_contoliberado"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/content/Contos.jsx",
-      "source_location": "L38",
-      "weight": 1.0,
-      "source": "src_pages_content_contos_contos",
-      "target": "src_config_site_contoliberado"
-    },
-    {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -69513,28 +69344,6 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "src_pages_content_contohistoria",
-      "target": "src_config_trial"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/Contos.jsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_contos",
-      "target": "src_config_trial"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/Livro.jsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_livro",
       "target": "src_config_trial"
     },
     {
@@ -70722,44 +70531,11 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/Contos.jsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_contos",
-      "target": "src_context_languagecontext"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/Livro.jsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_livro",
-      "target": "src_context_languagecontext"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
       "source_file": "src/pages/content/LivroCapitulo.jsx",
       "source_location": "L6",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "src_pages_content_livrocapitulo",
-      "target": "src_context_languagecontext"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/Musicas.jsx",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_musicas",
       "target": "src_context_languagecontext"
     },
     {
@@ -70793,17 +70569,6 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "src_pages_content_personagemdetalhe",
-      "target": "src_context_languagecontext"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/Personagens.jsx",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_personagens",
       "target": "src_context_languagecontext"
     },
     {
@@ -71921,17 +71686,6 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "src/pages/platform/Assinar.jsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_platform_assinar",
-      "target": "src_context_languagecontext"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
       "source_file": "src/pages/platform/Leaderboard.jsx",
       "source_location": "L3",
       "weight": 1.0,
@@ -72020,28 +71774,6 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "src/pages/site/Autor.jsx",
-      "source_location": "L2",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_site_autor",
-      "target": "src_context_languagecontext"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/site/Custos.jsx",
-      "source_location": "L2",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_site_custos",
-      "target": "src_context_languagecontext"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
       "source_file": "src/pages/site/Home/components/BookChaptersRow.jsx",
       "source_location": "L6",
       "weight": 1.0,
@@ -72102,17 +71834,6 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "src_pages_site_home_components_storyprogress",
-      "target": "src_context_languagecontext"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/site/Home/Home.jsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_site_home_home",
       "target": "src_context_languagecontext"
     },
     {
@@ -72229,50 +71950,6 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/Contos.jsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_contos",
-      "target": "src_context_languagecontext_uselanguage"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/content/Contos.jsx",
-      "source_location": "L19",
-      "weight": 1.0,
-      "source": "src_pages_content_contos_contos",
-      "target": "src_context_languagecontext_uselanguage"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/Livro.jsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_livro",
-      "target": "src_context_languagecontext_uselanguage"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/content/Livro.jsx",
-      "source_location": "L23",
-      "weight": 1.0,
-      "source": "src_pages_content_livro_livro",
-      "target": "src_context_languagecontext_uselanguage"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
       "source_file": "src/pages/content/LivroCapitulo.jsx",
       "source_location": "L6",
       "weight": 1.0,
@@ -72289,28 +71966,6 @@
       "source_location": "L24",
       "weight": 1.0,
       "source": "src_pages_content_livrocapitulo_livrocapitulo",
-      "target": "src_context_languagecontext_uselanguage"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/Musicas.jsx",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_musicas",
-      "target": "src_context_languagecontext_uselanguage"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/content/Musicas.jsx",
-      "source_location": "L36",
-      "weight": 1.0,
-      "source": "src_pages_content_musicas_musicas",
       "target": "src_context_languagecontext_uselanguage"
     },
     {
@@ -72377,28 +72032,6 @@
       "source_location": "L11",
       "weight": 1.0,
       "source": "src_pages_content_personagemdetalhe_personagemdetalhe",
-      "target": "src_context_languagecontext_uselanguage"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/Personagens.jsx",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_personagens",
-      "target": "src_context_languagecontext_uselanguage"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/content/Personagens.jsx",
-      "source_location": "L10",
-      "weight": 1.0,
-      "source": "src_pages_content_personagens_personagens",
       "target": "src_context_languagecontext_uselanguage"
     },
     {
@@ -74759,28 +74392,6 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "src/pages/platform/Assinar.jsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_platform_assinar",
-      "target": "src_context_languagecontext_uselanguage"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/platform/Assinar.jsx",
-      "source_location": "L14",
-      "weight": 1.0,
-      "source": "src_pages_platform_assinar_assinar",
-      "target": "src_context_languagecontext_uselanguage"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
       "source_file": "src/pages/platform/Leaderboard.jsx",
       "source_location": "L3",
       "weight": 1.0,
@@ -74957,50 +74568,6 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "src/pages/site/Autor.jsx",
-      "source_location": "L2",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_site_autor",
-      "target": "src_context_languagecontext_uselanguage"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/site/Autor.jsx",
-      "source_location": "L7",
-      "weight": 1.0,
-      "source": "src_pages_site_autor_autor",
-      "target": "src_context_languagecontext_uselanguage"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/site/Custos.jsx",
-      "source_location": "L2",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_site_custos",
-      "target": "src_context_languagecontext_uselanguage"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/site/Custos.jsx",
-      "source_location": "L7",
-      "weight": 1.0,
-      "source": "src_pages_site_custos_custos",
-      "target": "src_context_languagecontext_uselanguage"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
       "source_file": "src/pages/site/Home/components/BookChaptersRow.jsx",
       "source_location": "L6",
       "weight": 1.0,
@@ -75138,28 +74705,6 @@
       "source_location": "L9",
       "weight": 1.0,
       "source": "src_pages_site_home_components_storyprogress_storyprogress",
-      "target": "src_context_languagecontext_uselanguage"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/site/Home/Home.jsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_site_home_home",
-      "target": "src_context_languagecontext_uselanguage"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/site/Home/Home.jsx",
-      "source_location": "L19",
-      "weight": 1.0,
-      "source": "src_pages_site_home_home_home",
       "target": "src_context_languagecontext_uselanguage"
     },
     {
@@ -77300,17 +76845,6 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/Personagens.jsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_personagens",
-      "target": "src_hooks_usepersonagens"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
       "source_file": "src/pages/site/Home/components/CharactersRow.jsx",
       "source_location": "L4",
       "weight": 1.0,
@@ -77372,28 +76906,6 @@
       "weight": 1.0,
       "source": "src_pages_content_personagemdetalhe_personagemdetalhe",
       "target": "src_hooks_usepersonagens_usepersonagem"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/Personagens.jsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_personagens",
-      "target": "src_hooks_usepersonagens_usepersonagensagrupados"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/content/Personagens.jsx",
-      "source_location": "L11",
-      "weight": 1.0,
-      "source": "src_pages_content_personagens_personagens",
-      "target": "src_hooks_usepersonagens_usepersonagensagrupados"
     },
     {
       "relation": "contains",
@@ -77535,17 +77047,6 @@
       "target": "src_hooks_usescrollreveal"
     },
     {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/site/Home/Home.jsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_site_home_home",
-      "target": "src_hooks_usescrollreveal"
-    },
-    {
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -77565,28 +77066,6 @@
       "source_location": "L12",
       "weight": 1.0,
       "source": "src_pages_site_home_components_charactersrow_charactersrow",
-      "target": "src_hooks_usescrollreveal_usescrollreveal"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/site/Home/Home.jsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_site_home_home",
-      "target": "src_hooks_usescrollreveal_usescrollreveal"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/site/Home/Home.jsx",
-      "source_location": "L18",
-      "weight": 1.0,
-      "source": "src_pages_site_home_home_home",
       "target": "src_hooks_usescrollreveal_usescrollreveal"
     },
     {
@@ -78419,17 +77898,6 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "src/pages/platform/Assinar.jsx",
-      "source_location": "L9",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_platform_assinar",
-      "target": "src_lib_analytics"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
       "source_file": "src/pages/site/Home/components/HeroSlideshow.jsx",
       "source_location": "L5",
       "weight": 1.0,
@@ -78469,28 +77937,6 @@
       "confidence_score": 1.0,
       "source": "src_lib_analytics_trackevent",
       "target": "src_lib_analytics_cleanparams"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/platform/Assinar.jsx",
-      "source_location": "L9",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_platform_assinar",
-      "target": "src_lib_analytics_trackevent"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/platform/Assinar.jsx",
-      "source_location": "L30",
-      "weight": 1.0,
-      "source": "src_pages_platform_assinar_assinar",
-      "target": "src_lib_analytics_trackevent"
     },
     {
       "relation": "imports",
@@ -79132,17 +78578,6 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "src/pages/platform/Assinar.jsx",
-      "source_location": "L10",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_platform_assinar",
-      "target": "src_lib_runtimeplatform"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
       "source_file": "src/pages/platform/Perfil/abas/PerfilConta.jsx",
       "source_location": "L8",
       "weight": 1.0,
@@ -79160,17 +78595,6 @@
       "confidence_score": 1.0,
       "source": "src_pages_site_loja_loja",
       "target": "src_lib_runtimeplatform"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/platform/Assinar.jsx",
-      "source_location": "L10",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_platform_assinar",
-      "target": "src_lib_runtimeplatform_runtimeplatform"
     },
     {
       "relation": "imports",
@@ -80570,17 +79994,6 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "src/pages/platform/Assinar.jsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_platform_assinar",
-      "target": "src_lib_stripe"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
       "source_file": "src/pages/platform/Perfil/abas/PerfilConta.jsx",
       "source_location": "L6",
       "weight": 1.0,
@@ -80603,28 +80016,6 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "src/pages/platform/Assinar.jsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_platform_assinar",
-      "target": "src_lib_stripe_getpricedisplay"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/platform/Assinar.jsx",
-      "source_location": "L17",
-      "weight": 1.0,
-      "source": "src_pages_platform_assinar_assinar",
-      "target": "src_lib_stripe_getpricedisplay"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
       "source_file": "src/pages/site/Loja/Loja.jsx",
       "source_location": "L7",
       "weight": 1.0,
@@ -80642,17 +80033,6 @@
       "weight": 1.0,
       "source": "src_pages_site_loja_loja_loja",
       "target": "src_lib_stripe_iniciarcheckoutloja"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/platform/Assinar.jsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_platform_assinar",
-      "target": "src_lib_stripe_iniciarcheckout"
     },
     {
       "relation": "imports",
@@ -81454,47 +80834,6 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/Contos.jsx",
-      "source_location": "L14",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_contos",
-      "target": "src_pages_content_contos_contos"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/Livro.jsx",
-      "source_location": "L14",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_livro",
-      "target": "src_pages_content_livro_formatardata"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/Livro.jsx",
-      "source_location": "L20",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_livro",
-      "target": "src_pages_content_livro_livro"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/Livro.jsx",
-      "source_location": "L78",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_livro_livro",
-      "target": "src_pages_content_livro_formatardata"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
       "source_file": "src/pages/content/LivroCapitulo.jsx",
       "source_location": "L18",
       "weight": 1.0,
@@ -81511,47 +80850,6 @@
       "confidence_score": 1.0,
       "source": "src_pages_content_livrocapitulo",
       "target": "src_pages_content_livrocapitulo_livrocapitulo"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/Musicas.jsx",
-      "source_location": "L24",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_musicas",
-      "target": "src_pages_content_musicas_allimages"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/Musicas.jsx",
-      "source_location": "L35",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_musicas",
-      "target": "src_pages_content_musicas_musicas"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/Musicas.jsx",
-      "source_location": "L26",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_musicas",
-      "target": "src_pages_content_musicas_shufflearray"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/Musicas.jsx",
-      "source_location": "L37",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_musicas_musicas",
-      "target": "src_pages_content_musicas_shufflearray"
     },
     {
       "relation": "contains",
@@ -81623,16 +80921,6 @@
       "confidence_score": 1.0,
       "source": "src_pages_content_personagemdetalhe",
       "target": "src_pages_content_personagemdetalhe_personagemdetalhe"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/Personagens.jsx",
-      "source_location": "L8",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_personagens",
-      "target": "src_pages_content_personagens_personagens"
     },
     {
       "relation": "contains",
@@ -114840,16 +114128,6 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "src/pages/platform/Assinar.jsx",
-      "source_location": "L13",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_platform_assinar",
-      "target": "src_pages_platform_assinar_assinar"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
       "source_file": "src/pages/platform/Leaderboard.jsx",
       "source_location": "L13",
       "weight": 1.0,
@@ -115288,120 +114566,6 @@
       "confidence_score": 1.0,
       "source": "src_pages_platform_perfil_abas_recompensas",
       "target": "src_pages_platform_perfil_abas_recompensas_recompensas"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/site/Autor.jsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_site_autor",
-      "target": "src_pages_site_autor_autor"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/site/Custos.jsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_site_custos",
-      "target": "src_pages_site_custos_custos"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/site/Home/Home.jsx",
-      "source_location": "L8",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_site_home_home",
-      "target": "src_pages_site_home_components_charactersrow"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/site/Home/Home.jsx",
-      "source_location": "L8",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_site_home_home",
-      "target": "src_pages_site_home_components_charactersrow_charactersrow"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/site/Home/Home.jsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_site_home_home",
-      "target": "src_pages_site_home_components_heroslideshow"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/site/Home/Home.jsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_site_home_home",
-      "target": "src_pages_site_home_components_heroslideshow_heroslideshow"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/site/Home/Home.jsx",
-      "source_location": "L12",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_site_home_home",
-      "target": "src_pages_site_home_home_bookchaptersrow"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/site/Home/Home.jsx",
-      "source_location": "L17",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_site_home_home",
-      "target": "src_pages_site_home_home_home"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/site/Home/Home.jsx",
-      "source_location": "L13",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_site_home_home",
-      "target": "src_pages_site_home_home_musicsection"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/site/Home/Home.jsx",
-      "source_location": "L14",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_site_home_home",
-      "target": "src_pages_site_home_home_nowlive"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/site/Home/Home.jsx",
-      "source_location": "L15",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_site_home_home",
-      "target": "src_pages_site_home_home_storyprogress"
     },
     {
       "relation": "contains",
@@ -128556,5 +127720,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "3600bb3f327a709a773de5a9737408f52981fb86"
+  "built_at_commit": "0ce5ef9c767813021c19d1a81ff940a6822ab68f"
 }

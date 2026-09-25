@@ -1,7 +1,7 @@
 {
   "nav": {
     "links": {
-      "webtoon": "Webtoon",
+      "webtoon": "WEB SHARD",
       "historias": "Historias",
       "musicas": "Música",
       "games": "Games",
@@ -136,7 +136,7 @@
       {
         "title": "Navegación",
         "links": [
-          "Webtoon",
+          "WEB SHARD",
           "Historias",
           "Músicas",
           "Mundo"
@@ -257,7 +257,7 @@
       "A los 30 llevaba 10 años como funcionario público, ganando menos de 200 dólares al mes, y no era feliz. Decidí cambiarlo todo: estudié duro para una beca, y ya en mi primer semestre de universidad tenía trabajo. Empecé a especializarme en porting de videojuegos para consola, Nintendo, Xbox y PlayStation.",
       "El momento que lo definió todo ocurrió en mi primera empresa, con menos de un año desde el lanzamiento de la Switch 1. Nadie en la empresa sabía trabajar con esa consola. Yo era pasante, me dieron un kit de desarrollo, documentación y un juego: \"tienes un mes para lanzarlo, esta es tu prueba\". Así empecé.",
       "Entré en la industria de los videojuegos y trabajé en proyectos internacionales, incluyendo títulos como Five Nights at Freddy's y una versión que llegó al universo de God of War. Pero quiero ser honesto: por mucho que ame esta industria, no es estable, y todo el mundo en el medio lo sabe. Si no lo sabías, ahora ya lo sabes. Pasé al desarrollo de software tradicional (empezando de nuevo desde junior). Hoy tengo 40 años y por fin estoy publicando esta historia.",
-      "Lutas de Ilusão es un proyecto independiente. Cada capítulo, cada página del webtoon, cada canción tiene un costo y un trabajo real detrás. Apoyar la obra es la única forma de mantenerla viva y creciendo."
+      "Lutas de Ilusão es un proyecto independiente. Cada capítulo, cada página del WEB SHARD, cada canción tiene un costo y un trabajo real detrás. Apoyar la obra es la única forma de mantenerla viva y creciendo."
     ],
     "cta": "APOYAR EL PROYECTO"
   },
@@ -530,7 +530,7 @@
       "recomp_motivo_trumps": "top trumps",
       "recomp_motivo_outro": "{motivo}",
       "recomp_acao_livro": "Leer capítulo del libro",
-      "recomp_acao_webtoon": "Leer episodio del webtoon",
+      "recomp_acao_webtoon": "Leer un capítulo del WEB SHARD",
       "recomp_acao_achievement": "Desbloquear logro",
       "recomp_acao_indicar": "Recomendar un amigo",
       "recomp_acao_compartilhar": "Compartir resultado",
@@ -668,8 +668,8 @@
       "farol_vazio": "Ninguna historia con ese filtro. Prueba otro peso."
     },
     "webtoon": {
-      "titulo": "WEBTOON",
-      "meta_title": "Webtoon Illusion Fight — Léelo Online Gratis",
+      "titulo": "WEB SHARD",
+      "meta_title": "WEB SHARD — Lee Lutas de Ilusão Online Gratis | Illusion Fight",
       "meta_desc": "Leé Lutas de Ilusão online y gratis — la primera obra en WEB SHARD, el formato de web cómic y manga vertical en páginas compuestas.",
       "seo_intro": "Lutas de Ilusão es la primera obra en WEB SHARD, el nuevo formato de web cómic y manga vertical en páginas compuestas, publicado gratis en capítulos aquí mismo en el sitio. Si te gustan el manga, el manhwa u otros webcomics de acción, vas a reconocer el ritmo — pero con un universo y un elenco 100% brasileños.",
       "web_shard_cta": "¿Qué es WEB SHARD? →",
@@ -735,7 +735,7 @@
       "home": "Lutas de Ilusión — El dolor es 100% real",
       "musicas": "Música — Lutas de Ilusión",
       "livro": "Libro — Lutas de Ilusión",
-      "webtoon": "Webtoon — Lutas de Ilusión",
+      "webtoon": "WEB SHARD — Lutas de Ilusión",
       "mundo": "Mundo — Lutas de Ilusión",
       "autor": "Autor — Lutas de Ilusión",
       "personagens": "Personajes — Lutas de Ilusión",
@@ -944,7 +944,7 @@
     "s3": {
       "title": "En qué se usa tu suscripción",
       "item1": "Infraestructura para todos — incluyendo quienes no pagan",
-      "item2": "Producción de nuevos episodios del webtoon",
+      "item2": "Producción de nuevos capítulos del WEB SHARD",
       "item3": "Nuevos juegos y actualizaciones",
       "item4": "Tiempo — el recurso más escaso aquí"
     },
@@ -1185,7 +1185,7 @@
   },
   "home": {
     "section_latest": "Lanzamientos",
-    "section_webtoon": "Webtoon",
+    "section_webtoon": "WEB SHARD",
     "section_webtoon_hint": "Nuevos episodios y lanzamientos",
     "section_worlds": "Mundos",
     "section_characters": "Personajes destacados",
@@ -1203,9 +1203,9 @@
     "section_games": "Últimos games",
     "previous": "Anterior",
     "next": "Siguiente",
-    "meta_title": "Illusion Fight — webtoon, libro y juegos gratis",
-    "meta_description": "Explora Illusion Fight, un universo brasileño de acción con webtoon, webnovela, personajes, música y juegos indie gratis.",
-    "og_description": "Lee el webtoon y el libro, conoce a los personajes y juega juegos indie gratis en el universo Illusion Fight."
+    "meta_title": "Illusion Fight — WEB SHARD, libro y juegos gratis",
+    "meta_description": "Explora Illusion Fight, un universo brasileño de acción con WEB SHARD (cómic vertical), webnovela, personajes, música y juegos indie gratis.",
+    "og_description": "Lee el WEB SHARD y el libro, conoce a los personajes y juega juegos indie gratis en el universo Illusion Fight."
   },
   "hero": {
     "title": "LUTAS DE ILUSIÓN",
@@ -1225,7 +1225,7 @@
       "cta2": "Saber más"
     },
     "slide2": {
-      "tag": "Webtoon",
+      "tag": "WEB SHARD",
       "titulo": "Una imagen vale más que mil palabras.",
       "subtitulo": "Lanzamiento mensual aquí en el portal — una semana antes que en cualquier otra plataforma. Acceso anticipado para quienes llegaron primero.",
       "cta1": "Leer episodio"
@@ -1252,7 +1252,7 @@
   },
   "episodes": {
     "title": "EPISODIOS",
-    "placeholder": "Webtoon Illusion Fight",
+    "placeholder": "WEB SHARD Illusion Fight",
     "titles": [
       "Presentación",
       "La Invitación",
@@ -1284,7 +1284,7 @@
     "title": "ACTUALIZACIONES",
     "tracks": [
       {
-        "format": "WEBTOON",
+        "format": "WEB SHARD",
         "items": [
           {
             "label": "Capítulo 1",

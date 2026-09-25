@@ -36,21 +36,21 @@ const ROUTES = [
   ['/historias/contos', 'Contos de Ilusão | Illusion Fight', 'Histórias paralelas do universo Illusion Fight: outros personagens, outras experiências, o mesmo mundo.', 'Contos de Ilusão', 'Side stories do universo Lutas de Ilusão. Personagens e experiências que expandem a arena LDI fora da linha principal.', '0.7', 'weekly'],
   ['/historias/mundo-das-sombras', 'O Mundo das Sombras — Illusion Fight', 'O Mundo das Sombras, romance dark fantasy de Isaias Leal. Livro 1 da Saga Descobrimento. Em breve, de graça, no portal Illusion Fight.', 'O Mundo das Sombras', 'Minus tem nove anos e já perdeu tudo três vezes. A marca no ombro dele atrai as sombras. Dark fantasy do criador de Illusion Fight.', '0.6', 'monthly'],
   ['/historias/mar-de-cinzas', 'Mar de Cinzas — Illusion Fight', 'Mar de Cinzas, dark fantasy de horror cósmico e opressão de Isaias Leal. Arco I. Em breve, de graça, no portal Illusion Fight.', 'Mar de Cinzas', 'Catorze anos, vestido branco, um noivo com três esposas mortas — e algo no fundo do oceano que espera há trinta mil anos.', '0.6', 'monthly'],
-  ['/webtoon', 'Webtoon Illusion Fight — Leia Online Grátis', 'Leia online e grátis o webtoon de ação Illusion Fight — capítulos, arte e a história de Kim e os lutadores de Bravara.', 'Webtoon Illusion Fight', 'Illusion Fight é um webtoon de ação brasileiro, publicado em capítulos gratuitos direto aqui no site. Se você gosta de manga, manhwa ou outros webcomics de ação, vai reconhecer o ritmo — só que com um universo e um elenco 100% brasileiros.', '0.9', 'weekly'],
+  ['/webtoon', 'WEB SHARD — Leia Lutas de Ilusão Online Grátis | Illusion Fight', 'Leia online e grátis Lutas de Ilusão em WEB SHARD, o quadrinho vertical de ação do Illusion Fight — capítulos, arte e a história de Kim e os lutadores de Bravara.', 'WEB SHARD — Illusion Fight', 'Lutas de Ilusão é a primeira obra em WEB SHARD, quadrinho vertical de ação brasileiro, publicado em capítulos gratuitos direto aqui no site. Se você gosta de manga, manhwa ou outros webcomics de ação, vai reconhecer o ritmo — só que com um universo e um elenco 100% brasileiros.', '0.9', 'weekly'],
   ['/webtoon/lutas-de-ilusao', 'Lutas de Ilusão — WEB SHARD | Illusion Fight', 'Leia Lutas de Ilusão em WEB SHARD, quadrinho vertical de ação: Kim, 17 anos, numa arena virtual onde a dor é 100% real. Grátis, em português, inglês e espanhol.', 'Lutas de Ilusão — WEB SHARD', 'Bravara, 2030. Kim é um garoto de 17 anos, bolsista e vendedor de balas em ônibus, que carrega um segredo no sangue. Numa arena virtual onde a dor é 100% real, ele vai descobrir do que é capaz.', '0.8', 'weekly'],
-  ['/musicas', 'Músicas — Illusion Fight', 'Ouça a trilha sonora original de Illusion Fight, o universo de webtoon, jogos e ficção científica.', 'Músicas de Illusion Fight', 'Conheça e ouça as músicas originais que acompanham o universo LDI.', '0.8', 'monthly'],
+  ['/musicas', 'Músicas — Illusion Fight', 'Ouça a trilha sonora original de Illusion Fight, o universo de WEB SHARD, jogos e ficção científica.', 'Músicas de Illusion Fight', 'Conheça e ouça as músicas originais que acompanham o universo LDI.', '0.8', 'monthly'],
   ['/universos', 'Universos — Illusion Fight', 'Os três universos de Isaias Leal: Lutas de Ilusão, O Mundo das Sombras e Mar de Cinzas. Lore, raças, mapas e glossários.', 'Os universos de Illusion Fight', 'Explore o worldbuilding dos três universos do criador: Lutas de Ilusão, O Mundo das Sombras e Mar de Cinzas.', '0.8', 'monthly'],
   ['/universos/lutas-de-ilusao', 'Mundo de Illusion Fight', 'Explore Bravara, a arena LDI, personagens, facções e a história do universo Illusion Fight.', 'O mundo de Illusion Fight', 'Descubra a lore, os lugares, as organizações e os acontecimentos do universo LDI.', '0.8', 'monthly'],
   ['/universos/mundo-das-sombras', 'O Mundo das Sombras — universo | Illusion Fight', 'O worldbuilding de O Mundo das Sombras: as Sombras e os Iluminados, os Marcados, o Escudo, o glossário do Arco 1.', 'O universo de O Mundo das Sombras', 'As Sombras e os Iluminados, os Marcados, o Escudo — o que os personagens sabem até o fim do Arco 1.', '0.5', 'monthly'],
   ['/universos/mar-de-cinzas', 'Mar de Cinzas — universo Thalvorn | Illusion Fight', 'O worldbuilding de Mar de Cinzas: Thalvorn, as raças, os seis povos humanos, as criaturas do oceano e o horror cósmico.', 'O universo de Mar de Cinzas', 'Thalvorn: um oceano de ilhas movido a memória de deuses mortos. Raças, povos humanos e o que vive no fundo.', '0.5', 'monthly'],
-  ['/autor', 'Autor — Illusion Fight', 'Conheça Isaias Leal, criador de Illusion Fight, webtoon brasileiro, jogos e universo transmídia.', 'Autor de Illusion Fight', 'Conheça o criador e os bastidores do universo Illusion Fight.', '0.7', 'monthly'],
-  ['/assinar', 'Assine Illusion Fight', 'Conheça os planos para apoiar Illusion Fight e acessar benefícios do universo LDI.', 'Assine Illusion Fight', 'Veja os planos e apoie a criação do webtoon, jogos e histórias de Illusion Fight.', '0.6', 'monthly'],
+  ['/autor', 'Autor — Illusion Fight', 'Conheça Isaias Leal, criador de Illusion Fight, WEB SHARD brasileiro, jogos e universo transmídia.', 'Autor de Illusion Fight', 'Conheça o criador e os bastidores do universo Illusion Fight.', '0.7', 'monthly'],
+  ['/assinar', 'Assine Illusion Fight', 'Conheça os planos para apoiar Illusion Fight e acessar benefícios do universo LDI.', 'Assine Illusion Fight', 'Veja os planos e apoie a criação do WEB SHARD, jogos e histórias de Illusion Fight.', '0.6', 'monthly'],
   ['/games', 'Jogos Grátis — Illusion Fight', 'Jogue de graça no universo Illusion Fight: RPG tático, jogo de cartas, minigames de navegador, tamagoshi virtual e muito mais — direto no navegador, sem baixar nada.', 'Jogos de Illusion Fight', 'Jogue de graça no universo Illusion Fight: RPG tático, jogo de cartas, minigames de navegador, tamagoshi virtual e muito mais — direto no navegador, sem baixar nada.', '0.8', 'weekly'],
   ['/loja', 'Loja — Illusion Fight', 'Encontre fichas, DIX e itens digitais do universo Illusion Fight.', 'Loja Illusion Fight', 'Explore itens digitais e formas de apoiar o universo Illusion Fight.', '0.7', 'monthly'],
   ['/quiz', 'Quiz — Illusion Fight', 'Teste seus conhecimentos sobre Illusion Fight e o universo LDI.', 'Quiz Illusion Fight', 'Responda perguntas e descubra quanto você conhece da arena LDI.', '0.5', 'monthly'],
   ['/custos', 'Custos da plataforma — Illusion Fight', 'Entenda os custos e a estrutura que mantêm a plataforma Illusion Fight ativa.', 'Custos da plataforma', 'Transparência sobre a estrutura e os custos do projeto Illusion Fight.', '0.4', 'monthly'],
   ['/web-shard', 'WEB SHARD: Web Comic e Mangá Vertical em Páginas Compostas — Illusion Fight', 'WEB SHARD é o formato próprio da Illusion Fight: páginas verticais compostas, feitas pra leitura em scroll no celular. Entenda o que é e leia a obra de estreia.', 'WEB SHARD — o formato próprio da Illusion Fight', 'Um formato de leitura criado pela Illusion Fight: páginas verticais compostas, pensadas para scroll no celular.', '0.6', 'monthly'],
-  ['/calendario', 'Calendário de lançamentos — Illusion Fight', 'Acompanhe os lançamentos de capítulos, webtoon, games, músicas e parceiros de Illusion Fight.', 'Calendário de lançamentos', 'Veja o calendário público da Temporada 1 e acompanhe cada canal de lançamento do universo Illusion Fight.', '0.8', 'weekly'],
+  ['/calendario', 'Calendário de lançamentos — Illusion Fight', 'Acompanhe os lançamentos de capítulos, WEB SHARD, games, músicas e parceiros de Illusion Fight.', 'Calendário de lançamentos', 'Veja o calendário público da Temporada 1 e acompanhe cada canal de lançamento do universo Illusion Fight.', '0.8', 'weekly'],
   ['/leaderboard', 'Ranking — Illusion Fight', 'Acompanhe o ranking de jogadores do universo Illusion Fight.', 'Ranking Illusion Fight', 'Veja a classificação dos jogadores da arena.', '0.5', 'weekly'],
   ['/games/ldi', 'Lendas do LDI — Illusion Fight', 'Jogue Lendas do LDI, o RPG narrativo do universo Illusion Fight.', 'Lendas do LDI', 'Entre na aventura narrativa e crie sua história na arena LDI.', '0.6', 'monthly'],
   ['/games/ldi-gangues', 'LDI Gangues — Illusion Fight', 'Monte sua equipe e lute em LDI Gangues, o jogo tático do universo Illusion Fight.', 'LDI Gangues', 'Forme sua gangue e participe de batalhas no universo LDI.', '0.6', 'monthly'],
@@ -166,21 +166,21 @@ capitulos.forEach((capitulo, i) => {
 
 episodios.filter(episodio => episodio.paginas).forEach(episodio => ROUTES.push({
   path: `/webtoon/${episodio.id}`,
-  title: `${episodio.titulo_pt} — webtoon Illusion Fight, episódio ${episodio.numero}`,
+  title: `${episodio.titulo_pt} — WEB SHARD Lutas de Ilusão, capítulo ${episodio.numero} | Illusion Fight`,
   description: episodio.descricao_pt,
-  heading: `Episódio ${episodio.numero} — ${episodio.titulo_pt}`,
+  heading: `Capítulo ${episodio.numero} — ${episodio.titulo_pt}`,
   content: episodio.descricao_pt,
   extra: [
     episodio.frase_pt,
-    'Leia online este episódio do webtoon brasileiro de ação e ficção científica Illusion Fight.',
+    'Leia online este capítulo do WEB SHARD brasileiro de ação e ficção científica Illusion Fight, em português, inglês e espanhol.',
   ].filter(Boolean),
   related: [
-    { name: 'Todos os episódios', path: '/webtoon/' },
+    { name: 'Todos os capítulos', path: '/webtoon/lutas-de-ilusao/' },
     { name: 'Conheça os personagens', path: '/personagens/' },
   ],
   lastmod: pastOr(episodio.data_publicacao),
   priority: '0.9', changefreq: 'monthly', indexable: true, schemaType: 'webtoon', datePublished: episodio.data_publicacao,
-  parent: { name: 'Webtoon', path: '/webtoon/' },
+  parent: { name: 'WEB SHARD', path: '/webtoon/' },
 }))
 
 const REDIRECTS = [
@@ -309,10 +309,10 @@ ROUTES.forEach(route => writeRoute(route, pageHtml(indexHtml, route)))
 REDIRECTS.forEach(route => writeRoute(route, redirectHtml(route)))
 const homeRoute = {
   path: '',
-  title: 'Illusion Fight — Webtoon, Games e Histórias Grátis',
-  description: 'Explore Illusion Fight, um universo brasileiro de ação com webtoon grátis, jogos online grátis e histórias em capítulos — webcomic, personagens, música e mais.',
-  heading: 'Illusion Fight: webtoon, jogos e histórias no mesmo universo',
-  content: 'Descubra uma história brasileira de ação e ficção científica. Leia online e de graça o webtoon e as histórias em capítulos, conheça os personagens e jogue de graça no universo Lutas de Ilusão: RPG tático, jogo de cartas, minigames e mais — direto no navegador.',
+  title: 'Illusion Fight — WEB SHARD, Games e Histórias Grátis',
+  description: 'Explore Illusion Fight, um universo brasileiro de ação com WEB SHARD grátis (quadrinho vertical), jogos online grátis e histórias em capítulos — webcomic, personagens, música e mais.',
+  heading: 'Illusion Fight: WEB SHARD, jogos e histórias no mesmo universo',
+  content: 'Descubra uma história brasileira de ação e ficção científica. Leia online e de graça o WEB SHARD e as histórias em capítulos, conheça os personagens e jogue de graça no universo Lutas de Ilusão: RPG tático, jogo de cartas, minigames e mais — direto no navegador.',
 }
 fs.writeFileSync(INDEX_PATH, pageHtml(indexHtml, homeRoute))
 const sitemap = sitemapXml()

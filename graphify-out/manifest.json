@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1790306460.5435061,
-    "ast_hash": "30f30f7c0c97732706825edd1df6159b",
+    "mtime": 1790307183.0150425,
+    "ast_hash": "bda6dc5d7fcd351ac876f3792d55eaa6",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -650,8 +650,8 @@
     "semantic_hash": ""
   },
   "src/pages/content/Livro.jsx": {
-    "mtime": 1788400705.6030679,
-    "ast_hash": "16fdb85f474ecd269583a62733e035af",
+    "mtime": 1790307116.320881,
+    "ast_hash": "a1a7e8789c6f6e42254e27fab14a263d",
     "semantic_hash": ""
   },
   "src/pages/content/LivroCapitulo.jsx": {
@@ -660,13 +660,13 @@
     "semantic_hash": ""
   },
   "src/pages/content/Mundo.jsx": {
-    "mtime": 1790086797.640771,
-    "ast_hash": "b537dc1c82ccf808dc56765f4b6e3c31",
+    "mtime": 1790307116.320881,
+    "ast_hash": "c915f159a4c440f555fd76ead7daa0ab",
     "semantic_hash": ""
   },
   "src/pages/content/Musicas.jsx": {
-    "mtime": 1789186731.3568492,
-    "ast_hash": "29a5e7e9bdb0c4ed93b1962175ba0cda",
+    "mtime": 1790307116.3218794,
+    "ast_hash": "f51688861e93f81fcebc2afd4fdd71e6",
     "semantic_hash": ""
   },
   "src/pages/content/PersonagemDetalhe.jsx": {
@@ -675,9 +675,9 @@
     "semantic_hash": "519c098cc60510cefaa4b37e59047eca"
   },
   "src/pages/content/Personagens.jsx": {
-    "mtime": 1788400540.7685573,
-    "ast_hash": "71e4420d7ccde33d756bca948c716b27",
-    "semantic_hash": "71e4420d7ccde33d756bca948c716b27"
+    "mtime": 1790307116.3218794,
+    "ast_hash": "d0850677c7d28a58540c6d5ddb0ae324",
+    "semantic_hash": ""
   },
   "src/pages/games/ArenaTatics/ArenaTaticsRoute.jsx": {
     "mtime": 1783911201.8705778,
@@ -1040,8 +1040,8 @@
     "semantic_hash": "15ecefb92c5db4d35cb33baf951edd5e"
   },
   "src/pages/games/Games.jsx": {
-    "mtime": 1789768712.4334614,
-    "ast_hash": "fc435da40324a0300e9418bd8cd990f0",
+    "mtime": 1790307116.3248804,
+    "ast_hash": "a7bc62ceb268aaa880a01c0453e4f5a8",
     "semantic_hash": ""
   },
   "src/pages/games/JackCandy/JackCandy.jsx": {
@@ -2180,8 +2180,8 @@
     "semantic_hash": "b5a913fac0e288f5c2cb4d52bd142485"
   },
   "src/pages/platform/Assinar.jsx": {
-    "mtime": 1787875654.2212594,
-    "ast_hash": "0c60f7d762fb6f74f5f6c3dadbfaf1ad",
+    "mtime": 1790307116.3452494,
+    "ast_hash": "cbbd4de6703f99d3078227e47b4ae306",
     "semantic_hash": ""
   },
   "src/pages/platform/Cadastro.jsx": {
@@ -2235,14 +2235,14 @@
     "semantic_hash": "bebf7790370875f27dbda865baf1393a"
   },
   "src/pages/site/Autor.jsx": {
-    "mtime": 1783912440.781327,
-    "ast_hash": "cbf8bbaf6777fec662f28d3d73b91d3b",
-    "semantic_hash": "cbf8bbaf6777fec662f28d3d73b91d3b"
+    "mtime": 1790307116.3472514,
+    "ast_hash": "915de7fe5a9df2ed51dd00a2e81819c9",
+    "semantic_hash": ""
   },
   "src/pages/site/Custos.jsx": {
-    "mtime": 1783912473.1342218,
-    "ast_hash": "d8562538008fae02579714d721204248",
-    "semantic_hash": "d8562538008fae02579714d721204248"
+    "mtime": 1790307116.3487382,
+    "ast_hash": "ab3516b3186bab8f0fbefcda70661304",
+    "semantic_hash": ""
   },
   "src/pages/site/Loja/Loja.jsx": {
     "mtime": 1787875681.3736324,
@@ -2735,8 +2735,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1790306460.5445046,
-    "ast_hash": "1d5df9f288716a17126fa4b0465822f9",
+    "mtime": 1790307183.0160341,
+    "ast_hash": "bc3b8b4737c2c0c84c6af3e8961f6b8c",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3075,8 +3075,8 @@
     "semantic_hash": ""
   },
   "index.html": {
-    "mtime": 1789781256.5999384,
-    "ast_hash": "4e5592c3a6488f14aa576e378a6b7fb4",
+    "mtime": 1790307116.3148942,
+    "ast_hash": "02a20a0a8eb4ae99bfa64a988b9a54c6",
     "semantic_hash": ""
   },
   "public/404.html": {
@@ -3650,8 +3650,8 @@
     "semantic_hash": ""
   },
   "src/pages/content/Contos.jsx": {
-    "mtime": 1788457140.957718,
-    "ast_hash": "6063fbabe0bd6d5455dd0325caa1afe9",
+    "mtime": 1790307116.31988,
+    "ast_hash": "eb46ff0d4390404b2d6ebe6d3d8d5aac",
     "semantic_hash": ""
   },
   "workers/songs-r2/worker.js": {
@@ -4545,8 +4545,8 @@
     "semantic_hash": ""
   },
   "src/pages/site/Home/Home.jsx": {
-    "mtime": 1788406820.1764824,
-    "ast_hash": "eb20d9e05942e6a64aee1138d6b55e54",
+    "mtime": 1790307116.3500519,
+    "ast_hash": "9a6c19edde38e1f64c15bd00d00c1574",
     "semantic_hash": ""
   },
   "src/pages/site/Home/components/BookChaptersRow.jsx": {
@@ -5520,8 +5520,8 @@
     "semantic_hash": ""
   },
   "src/pages/site/WebShard.jsx": {
-    "mtime": 1790029182.434843,
-    "ast_hash": "0da062cf7bea1834cf0c50ace0cfb225",
+    "mtime": 1790307116.3500519,
+    "ast_hash": "f2c01a4693d6d4cf70a8627dfea00e45",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/cena/GanguesAgiotagem.jsx": {
@@ -5565,8 +5565,8 @@
     "semantic_hash": ""
   },
   "src/pages/content/webshard/WebshardHub.jsx": {
-    "mtime": 1790299781.9446847,
-    "ast_hash": "36fc4f507527abbf3650b7c6b7f0608f",
+    "mtime": 1790307116.3228803,
+    "ast_hash": "fe8fc2c464261dbb55064cae3d66abf2",
     "semantic_hash": ""
   },
   "src/pages/content/webshard/WebshardLeitor.jsx": {
@@ -5667,6 +5667,11 @@
   "src/pages/content/webshard/components/LerAntesCta.jsx": {
     "mtime": 1790299716.9841964,
     "ast_hash": "75fae1469e14ebb59e59dc51d0f94a52",
+    "semantic_hash": ""
+  },
+  "public/og-image-webshard.jpg": {
+    "mtime": 1790307116.287366,
+    "ast_hash": "8eb2dc14f9240eff6bbfe929cf131c19",
     "semantic_hash": ""
   }
 }

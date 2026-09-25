@@ -8,7 +8,7 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.286.1' // chore(seo): miniatura dos links (og:image/twitter:image) trocada pela capa OFICIAL do WEB SHARD (Illusion Fight, cap. 01 pág. 2) — arquivo novo og-image-webshard.jpg (1200x630, capa inteira ao centro sobre a própria arte desfocada) em vez de sobrescrever og-image.jpg, pra furar o cache de preview do Slack/WhatsApp/X que guarda pela URL. index.html + as 12 páginas com Helmet apontam pra ele.
+export const SITE_VERSION = '10.287.0' // feat(marca): "Webtoon" some do texto visível e dos metadados de TODAS as rotas — vira WEB SHARD no menu, rodapé, Home, hero, perfil, custos, autor, títulos/descrições de link (prerender, index.html, i18n pt/en/es). Ficam de propósito: a rota /webtoon (URL indexada), a comparação "Não é webtoon. É WEB SHARD."/FAQ, o link da plataforma Webtoon Canvas e a palavra-chave oculta pra busca. Rodapé: logo 40→88px, centralizada.
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.2' // fix: aba "stories" do rodape mostrava a chave crua pp.menu.pistas_label (nao existia) -> aponta pra pp.dossier.pistas_label; PuzzleWrapper mostrava pp.puzzle.nenhum/instrucao (nao existiam) -> pp.local.puzzle_nenhum/instrucao; confirm() de deletar save mostrava pp.menu.deletar_slot cru -> chave criada nos 3 idiomas.

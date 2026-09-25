@@ -7,7 +7,8 @@ import './WebShard.css'
    vertical em páginas compostas que o Isaias cunhou (21/09/2026: "não tá
    fazendo nenhum mangá, nenhum comic e nenhum webtoon, tá fazendo uma
    coisa nova... esse é o nome que melhor define o que a gente entrega").
-   O portal CONTINUA usando "Webtoon" como termo de navegação/rota (puxa
+   A ROTA continua /webtoon (URL já indexada; set/2026 o nome visível virou
+   WEB SHARD em menu, rodapé e metadados de todas as rotas). Antes: "Webtoon" era o termo de navegação (puxa
    busca — ver Webtoon.jsx), mas esta página é onde o termo PRÓPRIO é
    explicado de verdade, com link a partir de um botãozinho na página
    /webtoon. Segue os tokens do design system (if-*, design-system.css) —

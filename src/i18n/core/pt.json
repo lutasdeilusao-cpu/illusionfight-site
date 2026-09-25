@@ -1,7 +1,7 @@
 {
   "nav": {
     "links": {
-      "webtoon": "Webtoon",
+      "webtoon": "WEB SHARD",
       "historias": "Histórias",
       "musicas": "Músicas",
       "games": "Games",
@@ -136,7 +136,7 @@
       {
         "title": "Navegação",
         "links": [
-          "Webtoon",
+          "WEB SHARD",
           "Histórias",
           "Músicas",
           "Mundo"
@@ -257,7 +257,7 @@
       "Aos 30 eu era funcionário público (ganhando 1.000 reais por mês) há 10 anos e não era feliz. Resolvi virar tudo de cabeça pra baixo: estudei pesado pra uma bolsa, e logo no primeiro semestre da faculdade já estava empregado. Comecei a me especializar em porting de jogos para console, Nintendo, Xbox e PlayStation.",
       "O momento que definiu tudo foi na primeira empresa, com menos de um ano de existência do Switch 1. Ninguém na empresa sabia trabalhar com aquele console. Eu era estagiário, recebi um devkit, uma documentação e um jogo: \"você tem um mês pra lançar, esse é o seu teste\". Foi assim que comecei.",
       "Entrei na área de games e trabalhei em projetos internacionais, incluindo títulos como Five Nights at Freddy's e uma publicação que chegou ao universo de God of War. Mas quero ser honesto: por mais que eu ame essa área, ela não é estável, e todo mundo no mercado sabe disso. Se você não sabia, é bom que saiba. Migrei para desenvolvimento tradicional (comecei do zero como júnior novamente). Hoje tenho 40 anos e finalmente estou publicando essa história.",
-      "Lutas de Ilusão é um projeto independente. Cada capítulo, cada página do webtoon, cada música tem custo e trabalho real por trás. Apoiar a obra é a única forma de manter ela viva e crescendo."
+      "Lutas de Ilusão é um projeto independente. Cada capítulo, cada página do WEB SHARD, cada música tem custo e trabalho real por trás. Apoiar a obra é a única forma de manter ela viva e crescendo."
     ],
     "cta": "APOIAR O PROJETO"
   },
@@ -530,7 +530,7 @@
       "recomp_motivo_trumps": "top trumps",
       "recomp_motivo_outro": "{motivo}",
       "recomp_acao_livro": "Ler capítulo do livro",
-      "recomp_acao_webtoon": "Ler episódio do webtoon",
+      "recomp_acao_webtoon": "Ler um capítulo do WEB SHARD",
       "recomp_acao_achievement": "Desbloquear achievement",
       "recomp_acao_indicar": "Indicar um amigo",
       "recomp_acao_compartilhar": "Compartilhar resultado",
@@ -668,8 +668,8 @@
       "farol_vazio": "Nenhuma história com esse filtro. Tenta outro peso."
     },
     "webtoon": {
-      "titulo": "WEBTOON",
-      "meta_title": "Webtoon Illusion Fight — Leia Online Grátis",
+      "titulo": "WEB SHARD",
+      "meta_title": "WEB SHARD — Leia Lutas de Ilusão Online Grátis | Illusion Fight",
       "meta_desc": "Leia online e grátis Lutas de Ilusão — a primeira obra em WEB SHARD, o formato de web comic e mangá vertical em páginas compostas.",
       "seo_intro": "Lutas de Ilusão é a primeira obra em WEB SHARD, o novo formato de web comic e mangá vertical em páginas compostas, publicado em capítulos gratuitos direto aqui no site. Se você gosta de manga, manhwa ou outros webcomics de ação, vai reconhecer o ritmo — só que com um universo e um elenco 100% brasileiros.",
       "web_shard_cta": "O que é WEB SHARD? →",
@@ -735,7 +735,7 @@
       "home": "Lutas de Ilusão — A dor é 100% real",
       "musicas": "Músicas — Lutas de Ilusão",
       "livro": "Livro — Lutas de Ilusão",
-      "webtoon": "Webtoon — Lutas de Ilusão",
+      "webtoon": "WEB SHARD — Lutas de Ilusão",
       "mundo": "Mundo — Lutas de Ilusão",
       "autor": "Autor — Lutas de Ilusão",
       "personagens": "Personagens — Lutas de Ilusão",
@@ -944,7 +944,7 @@
     "s3": {
       "title": "O que sua assinatura financia",
       "item1": "Infraestrutura para todo mundo — incluindo quem não paga",
-      "item2": "Produção de novos episódios do webtoon",
+      "item2": "Produção de novos capítulos do WEB SHARD",
       "item3": "Novos jogos e atualizações",
       "item4": "Tempo — que é o recurso mais escasso aqui"
     },
@@ -1185,7 +1185,7 @@
   },
   "home": {
     "section_latest": "Lançamentos",
-    "section_webtoon": "Webtoon",
+    "section_webtoon": "WEB SHARD",
     "section_webtoon_hint": "Novos episódios e lançamentos",
     "section_worlds": "Mundos",
     "section_characters": "Personagens em foco",
@@ -1203,9 +1203,9 @@
     "section_games": "Últimos games",
     "previous": "Anterior",
     "next": "Próximo",
-    "meta_title": "Illusion Fight — webtoon, livro e games grátis",
-    "meta_description": "Explore Illusion Fight, um universo brasileiro de ação com webtoon, webnovel, livro, personagens, música e jogos indie grátis.",
-    "og_description": "Leia webtoon e livro online, conheça os personagens e jogue games indie grátis no universo brasileiro Illusion Fight."
+    "meta_title": "Illusion Fight — WEB SHARD, livro e games grátis",
+    "meta_description": "Explore Illusion Fight, um universo brasileiro de ação com WEB SHARD (quadrinho vertical), webnovel, livro, personagens, música e jogos indie grátis.",
+    "og_description": "Leia o WEB SHARD e o livro online, conheça os personagens e jogue games indie grátis no universo brasileiro Illusion Fight."
   },
   "hero": {
     "title": "LUTAS DE ILUSÃO",
@@ -1225,7 +1225,7 @@
       "cta2": "Saiba mais"
     },
     "slide2": {
-      "tag": "Webtoon",
+      "tag": "WEB SHARD",
       "titulo": "Uma imagem vale mais que mil palavras.",
       "subtitulo": "Lançamento mensal aqui no portal — uma semana antes de qualquer outra plataforma. Acesso antecipado pra quem chegou primeiro.",
       "cta1": "Ler episódio"
@@ -1252,7 +1252,7 @@
   },
   "episodes": {
     "title": "EPISÓDIOS",
-    "placeholder": "Webtoon Illusion Fight",
+    "placeholder": "WEB SHARD Illusion Fight",
     "titles": [
       "Apresentação",
       "O Convite",
@@ -1284,7 +1284,7 @@
     "title": "ATUALIZAÇÕES",
     "tracks": [
       {
-        "format": "WEBTOON",
+        "format": "WEB SHARD",
         "items": [
           {
             "label": "Capítulo 1",
