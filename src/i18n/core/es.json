@@ -1021,6 +1021,89 @@
     "final": {
       "text": "La próxima página te está esperando.",
       "cta": "Leer Lutas de Ilusão ahora"
+    },
+    "hub": {
+      "eyebrow": "WEB SHARD",
+      "titulo": "WEB SHARD",
+      "subtitulo": "Cómics verticales en páginas compuestas, hechos para leer en el celular. Gratis, aquí mismo.",
+      "destaque": "Destacado",
+      "ler_agora": "Empezar a leer",
+      "ver_titulo": "Ver capítulos",
+      "titulos_eyebrow": "La estantería",
+      "titulos": "Títulos",
+      "titulos_hint": "Cada título a su manera — todos en el mismo universo.",
+      "recentes_eyebrow": "Recién salidos",
+      "recentes": "Capítulos recientes",
+      "manifesto_eyebrow": "El formato",
+      "manifesto_titulo": "No es webtoon. Es WEB SHARD.",
+      "manifesto_cta": "Conoce el formato →",
+      "admin_oculto": "Solo admin"
+    },
+    "status": {
+      "em_andamento": "En curso",
+      "em_breve": "Próximamente",
+      "completo": "Completo"
+    },
+    "generos": {
+      "acao": "Acción",
+      "luta": "Pelea",
+      "drama": "Drama",
+      "comedia": "Comedia",
+      "herois": "Superhéroes"
+    },
+    "continuar": {
+      "eyebrow": "Seguir leyendo",
+      "meta": "Cap. {n} · pág. {p} de {t}",
+      "cta": "Seguir"
+    },
+    "titulo": {
+      "meta_title": "{nome} — WEB SHARD | Illusion Fight",
+      "voltar": "‹ WEB SHARD",
+      "comecar": "Leer el capítulo {n}",
+      "continuar": "Seguir el cap. {n}",
+      "capitulos": "Capítulos",
+      "total_caps": "{n} publicados",
+      "sem_capitulos": "Los primeros capítulos están en camino.",
+      "classificacao": "{n}+",
+      "mais_em_breve": "+ nuevos capítulos próximamente"
+    },
+    "cap": {
+      "rotulo": "Cap. {n}",
+      "paginas": "{n} páginas",
+      "em_breve": "Próximamente",
+      "em_breve_data": "Sale el {data}",
+      "lido": "✓ Leído",
+      "lendo": "Te quedaste en la pág. {p} de {t}"
+    },
+    "leitor": {
+      "voltar": "Volver",
+      "pagina": "Página {n}",
+      "idioma": "Idioma del capítulo",
+      "continuar_de": "Seguir desde la pág. {n} ↓",
+      "fallback_idioma": "Algunas páginas siguen en portugués.",
+      "fim_eyebrow": "Fin del capítulo",
+      "proximo": "Siguiente capítulo",
+      "proximo_em": "El siguiente capítulo sale el {data}.",
+      "proximo_breve": "El siguiente capítulo está en camino.",
+      "compartilhar": "Compartir",
+      "todos_capitulos": "Todos los capítulos",
+      "copiado": "¡Enlace copiado!",
+      "share_texto": "Leyendo {titulo} — {cap}, en WEB SHARD:",
+      "nao_encontrado": "Capítulo no encontrado.",
+      "bloqueado": "Este capítulo sale el {data}.",
+      "bloqueado_sem_data": "Este capítulo todavía no salió.",
+      "admin_previa": "Vista previa"
+    },
+    "reacoes": {
+      "titulo": "¿Y qué te pareció?",
+      "hint": "Un toque, anónimo. Nos ayuda a hacer el próximo mejor.",
+      "obrigado": "¡Gracias! Anotado — toca otra para cambiar.",
+      "lixo": "Basura",
+      "aceitavel": "Aceptable",
+      "gostei": "Me encantó",
+      "parabens": "¡Felicidades! Lo voy a compartir",
+      "admin_total": "{n} reacciones en este capítulo",
+      "admin_indisponivel": "Conteo no disponible — ¿ya corrió la migración 042?"
     }
   },
   "calendar": {

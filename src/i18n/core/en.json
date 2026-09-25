@@ -1021,6 +1021,89 @@
     "final": {
       "text": "The next page is waiting.",
       "cta": "Read Illusion Fight now"
+    },
+    "hub": {
+      "eyebrow": "WEB SHARD",
+      "titulo": "WEB SHARD",
+      "subtitulo": "Vertical comics in composed pages, made for reading on your phone. Free, right here.",
+      "destaque": "Featured",
+      "ler_agora": "Start reading",
+      "ver_titulo": "See chapters",
+      "titulos_eyebrow": "The shelf",
+      "titulos": "Titles",
+      "titulos_hint": "Each title tells it its own way — all in the same universe.",
+      "recentes_eyebrow": "Fresh off the press",
+      "recentes": "Latest chapters",
+      "manifesto_eyebrow": "The format",
+      "manifesto_titulo": "It’s not a webtoon. It’s WEB SHARD.",
+      "manifesto_cta": "Learn the format →",
+      "admin_oculto": "Admin only"
+    },
+    "status": {
+      "em_andamento": "Ongoing",
+      "em_breve": "Coming soon",
+      "completo": "Complete"
+    },
+    "generos": {
+      "acao": "Action",
+      "luta": "Fighting",
+      "drama": "Drama",
+      "comedia": "Comedy",
+      "herois": "Superheroes"
+    },
+    "continuar": {
+      "eyebrow": "Keep reading",
+      "meta": "Ch. {n} · page {p} of {t}",
+      "cta": "Continue"
+    },
+    "titulo": {
+      "meta_title": "{nome} — WEB SHARD | Illusion Fight",
+      "voltar": "‹ WEB SHARD",
+      "comecar": "Read chapter {n}",
+      "continuar": "Continue ch. {n}",
+      "capitulos": "Chapters",
+      "total_caps": "{n} published",
+      "sem_capitulos": "The first chapters are on their way.",
+      "classificacao": "{n}+",
+      "mais_em_breve": "+ more chapters coming soon"
+    },
+    "cap": {
+      "rotulo": "Ch. {n}",
+      "paginas": "{n} pages",
+      "em_breve": "Coming soon",
+      "em_breve_data": "Out {data}",
+      "lido": "✓ Read",
+      "lendo": "Stopped at page {p} of {t}"
+    },
+    "leitor": {
+      "voltar": "Back",
+      "pagina": "Page {n}",
+      "idioma": "Chapter language",
+      "continuar_de": "Continue from page {n} ↓",
+      "fallback_idioma": "Some pages are still in Portuguese.",
+      "fim_eyebrow": "End of chapter",
+      "proximo": "Next chapter",
+      "proximo_em": "The next chapter is out {data}.",
+      "proximo_breve": "The next chapter is on its way.",
+      "compartilhar": "Share",
+      "todos_capitulos": "All chapters",
+      "copiado": "Link copied!",
+      "share_texto": "Reading {titulo} — {cap}, in WEB SHARD:",
+      "nao_encontrado": "Chapter not found.",
+      "bloqueado": "This chapter is out {data}.",
+      "bloqueado_sem_data": "This chapter isn’t out yet.",
+      "admin_previa": "Preview"
+    },
+    "reacoes": {
+      "titulo": "So, what did you think?",
+      "hint": "One tap, anonymous. It helps us make the next one better.",
+      "obrigado": "Thanks! Noted — tap another one to change it.",
+      "lixo": "Trash",
+      "aceitavel": "It’s okay",
+      "gostei": "Loved it",
+      "parabens": "Awesome! I’ll share it",
+      "admin_total": "{n} reactions on this chapter",
+      "admin_indisponivel": "Count unavailable — has migration 042 run?"
     }
   },
   "calendar": {

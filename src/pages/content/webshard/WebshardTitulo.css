@@ -1,0 +1,63 @@
+/* WEB SHARD — página de título (/webtoon/:slug) */
+
+.ws-titulo {
+  min-height: 100vh;
+  padding: 0.75rem 0 3rem;
+}
+
+.ws-titulo__voltar {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-bottom: 0.25rem;
+  color: var(--if-cyan);
+  font: 700 0.62rem var(--font-mono);
+  letter-spacing: 0.14em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.ws-titulo__continuar:not(:empty) { margin-top: 1.25rem; }
+
+.ws-titulo__caps { margin-top: 1.75rem; }
+
+.ws-titulo__caps-cabeca {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--if-hair);
+}
+
+.ws-titulo__h2 {
+  margin: 0;
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.45rem;
+  line-height: 1.05;
+}
+
+.ws-titulo__total {
+  color: var(--text-muted);
+  font: 600 0.6rem var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ws-titulo__vazio {
+  margin: 1rem 0 0;
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+}
+
+.ws-titulo__mais {
+  margin: 0;
+  padding: 0.9rem 0.5rem;
+  color: var(--text-muted);
+  font: 600 0.62rem var(--font-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}

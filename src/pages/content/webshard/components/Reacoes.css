@@ -1,0 +1,106 @@
+/* Reações de fim de capítulo — quatro peças lado a lado, cada uma com a
+   própria cor de estado (tokens semânticos do design system). Depois da
+   escolha, as outras apagam mas continuam tocáveis pra trocar. */
+
+.ws-reacoes {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.ws-reacoes__titulo {
+  margin: 0;
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.3rem;
+  line-height: 1.1;
+}
+
+.ws-reacoes__hint {
+  margin: 0 0 0.5rem;
+  min-height: 1.2em;
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+
+.ws-reacoes__grade {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.4rem;
+}
+
+.ws-reacao {
+  --ws-reacao-cor: var(--if-cyan);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  min-height: 96px;
+  padding: 0.7rem 0.25rem 0.6rem;
+  border: 1px solid var(--if-hair-strong);
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--text-secondary);
+  cursor: pointer;
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
+  transition: border-color 0.2s, background 0.2s, color 0.2s, opacity 0.2s, transform 0.15s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.ws-reacao--lixo { --ws-reacao-cor: var(--if-danger); }
+.ws-reacao--aceitavel { --ws-reacao-cor: var(--text-secondary); }
+.ws-reacao--gostei { --ws-reacao-cor: var(--if-amber); }
+.ws-reacao--parabens { --ws-reacao-cor: var(--if-ok); }
+
+.ws-reacao:hover { border-color: var(--ws-reacao-cor); }
+.ws-reacao:active { transform: scale(0.96); }
+
+.ws-reacoes__grade.tem-escolha .ws-reacao:not(.is-active) { opacity: 0.45; }
+
+.ws-reacao.is-active {
+  border-color: var(--ws-reacao-cor);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--ws-reacao-cor) 18%, transparent), transparent);
+  color: var(--text-primary);
+  box-shadow: inset 0 -2px var(--ws-reacao-cor);
+}
+
+.ws-reacao__icone {
+  font-size: 1.7rem;
+  line-height: 1;
+  filter: grayscale(0.35);
+  transition: filter 0.2s, transform 0.25s;
+}
+
+.ws-reacao.is-active .ws-reacao__icone {
+  filter: none;
+  transform: scale(1.15);
+}
+
+.ws-reacao__rotulo {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.74rem;
+  line-height: 1.1;
+  letter-spacing: 0.03em;
+  text-align: center;
+}
+
+.ws-reacao__total {
+  color: var(--if-amber-soft);
+  font: 700 0.6rem var(--font-mono);
+}
+
+.ws-reacoes__admin {
+  margin: 0.4rem 0 0;
+  color: var(--if-amber-soft);
+  font: 600 0.58rem var(--font-mono);
+  letter-spacing: 0.06em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ws-reacao,
+  .ws-reacao__icone { transition: none; }
+}

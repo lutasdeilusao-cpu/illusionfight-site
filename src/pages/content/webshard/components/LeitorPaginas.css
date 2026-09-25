@@ -1,0 +1,17 @@
+.ws-paginas {
+  display: flex;
+  flex-direction: column;
+  background: #000;
+}
+
+.ws-paginas__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  background:
+    linear-gradient(115deg, transparent 46%, rgba(255, 255, 255, 0.025) 50%, transparent 54%),
+    #06090b;
+  user-select: none;
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
+}

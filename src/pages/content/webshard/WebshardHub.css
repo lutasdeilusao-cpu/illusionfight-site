@@ -1,0 +1,81 @@
+/* ══════════════════════════════════════════════════════════════
+   WEB SHARD — hub (/webtoon)
+   Coluna única do portal. O hero sangra até as bordas da coluna;
+   o resto respeita o gutter do .container (1.5rem).
+   ══════════════════════════════════════════════════════════════ */
+
+.ws-hub {
+  min-height: 100vh;
+  padding: 1.25rem 0 3rem;
+}
+
+.ws-hub__cabeca {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding-bottom: 1rem;
+}
+
+.ws-hub__h1 {
+  margin: 0;
+  color: var(--text-primary);
+  font-family: var(--font-title);
+  font-size: clamp(1.6rem, calc(8 * var(--app-vw) / 100), 2.1rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.04em;
+}
+
+.ws-hub__sub {
+  margin: 0.2rem 0 0;
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  line-height: 1.45;
+}
+
+.ws-hub__continuar { margin-top: 1.25rem; }
+
+.ws-hub__secao { margin-top: 2rem; }
+
+.ws-hub__secao-cabeca {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  margin-bottom: 0.85rem;
+}
+
+.ws-hub__h2 {
+  margin: 0;
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.45rem;
+  line-height: 1.05;
+  letter-spacing: 0.02em;
+}
+
+.ws-hub__hint {
+  margin: 0;
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+}
+
+.ws-hub__estante {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.6rem;
+}
+
+.ws-hub__lista {
+  border-top: 1px solid var(--if-hair);
+}
+
+.ws-hub__seo {
+  margin: 1.75rem 0 0;
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  line-height: 1.55;
+}

@@ -1,0 +1,115 @@
+/* Fim do capítulo — entra por um corte diagonal logo depois da última
+   página, o mesmo "caco" do hero, na cor do título. */
+
+.ws-fim {
+  position: relative;
+  padding-bottom: calc(3rem + var(--radio-nina-bottom-h, 0px));
+  background: var(--bg-primary);
+}
+
+.ws-fim__corte {
+  height: 34px;
+  margin-top: -1px;
+  background:
+    linear-gradient(to bottom right, #000 calc(50% - 1px), var(--ws-cor) 50%, var(--bg-primary) calc(50% + 1.5px));
+}
+
+.ws-fim__miolo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding-top: 1rem;
+}
+
+.ws-fim__eyebrow {
+  color: var(--ws-cor);
+  font: 700 0.58rem var(--font-mono);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.ws-fim__cap {
+  margin: 0;
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.ws-fim__bloco {
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--if-hair);
+}
+
+.ws-fim__proximo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.55rem;
+  border: 1px solid var(--ws-cor);
+  background: var(--if-panel);
+  color: inherit;
+  text-decoration: none;
+  box-shadow: inset 2px 0 var(--ws-cor);
+  clip-path: polygon(0 0, calc(100% - var(--if-cut)) 0, 100% var(--if-cut), 100% 100%, 0 100%);
+}
+
+.ws-fim__proximo img {
+  flex: none;
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  display: block;
+}
+
+.ws-fim__proximo-corpo {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-width: 0;
+}
+
+.ws-fim__proximo-nome {
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.02rem;
+  line-height: 1.15;
+}
+
+.ws-fim__proximo-seta {
+  color: var(--ws-cor);
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+.ws-fim__aguarde {
+  margin: 0;
+  padding: 0.85rem 0.9rem;
+  border: 1px dashed var(--if-hair-strong);
+  color: var(--text-secondary);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.03em;
+}
+
+.ws-fim__acoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+}
+
+.ws-fim__acoes .if-btn { flex: 1 1 auto; }
+
+.ws-fim__aviso {
+  min-height: 1.2em;
+  margin: 0.4rem 0 0;
+  color: var(--if-ok);
+  font: 600 0.62rem var(--font-mono);
+  letter-spacing: 0.06em;
+}

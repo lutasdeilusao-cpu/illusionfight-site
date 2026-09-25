@@ -1,0 +1,129 @@
+/* Barra do leitor — position:fixed confinada à coluna (armadilha nº 3 da
+   Bíblia: sem o gutter ela atravessaria o monitor inteiro). Abaixo da
+   barra da Rádio Nina quando ela está no topo. */
+
+.ws-barra {
+  position: fixed;
+  top: var(--radio-nina-top-h, 0px);
+  left: var(--app-gutter);
+  right: var(--app-gutter);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  height: 52px;
+  padding: 0 0.6rem 0 0.25rem;
+  border-bottom: 1px solid var(--if-edge);
+  background: var(--if-glass);
+  backdrop-filter: var(--if-blur);
+  -webkit-backdrop-filter: var(--if-blur);
+  transition: transform 0.26s ease, opacity 0.26s ease, top 0.3s ease;
+}
+
+.ws-barra.is-oculta {
+  transform: translateY(calc(-100% - var(--radio-nina-top-h, 0px)));
+  opacity: 0;
+  pointer-events: none;
+}
+
+.ws-barra__voltar {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0 0 4px;
+  border: 0;
+  background: none;
+  color: var(--if-cyan);
+  font-family: var(--font-display);
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.ws-barra__onde {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.ws-barra__rotulo {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  overflow: hidden;
+  color: var(--ws-cor, var(--if-cyan-58));
+  font: 700 0.52rem var(--font-mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.ws-barra__previa {
+  padding: 0 0.25rem;
+  border: 1px solid var(--if-amber-72);
+  color: var(--if-amber-soft);
+  font-size: 0.46rem;
+}
+
+.ws-barra__nome {
+  overflow: hidden;
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.98rem;
+  line-height: 1.15;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.ws-barra__idiomas {
+  display: flex;
+  flex: none;
+  border: 1px solid var(--if-hair-strong);
+}
+
+.ws-barra__idioma {
+  min-width: 30px;
+  min-height: 30px;
+  padding: 0 0.3rem;
+  border: 0;
+  background: none;
+  color: var(--text-muted);
+  font: 700 0.56rem var(--font-mono);
+  letter-spacing: 0.06em;
+  cursor: pointer;
+}
+
+.ws-barra__idioma + .ws-barra__idioma { border-left: 1px solid var(--if-hair-strong); }
+
+.ws-barra__idioma.is-active {
+  background: var(--if-cyan-13);
+  color: var(--if-cyan);
+}
+
+.ws-barra__contador {
+  flex: none;
+  min-width: 38px;
+  color: var(--if-ink);
+  font: 700 0.72rem var(--font-mono);
+  text-align: right;
+}
+
+.ws-barra__contador span { color: var(--text-muted); }
+
+/* Fio de progresso — sempre visível no topo da coluna. */
+.ws-barra__progresso {
+  position: fixed;
+  top: var(--radio-nina-top-h, 0px);
+  left: var(--app-gutter);
+  right: var(--app-gutter);
+  z-index: 101;
+  height: 2px;
+  background: linear-gradient(90deg, var(--ws-cor, var(--if-cyan)) var(--pct), transparent var(--pct));
+  pointer-events: none;
+  transition: top 0.3s ease;
+}

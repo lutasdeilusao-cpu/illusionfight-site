@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — MAPA DO SITE E DO PROJETO
 
 > Referência do estado atual do projeto para navegação humana e contexto de IA.
-> Atualizado em 2026-09-22 — `SITE_VERSION` **10.281.1**.
+> Atualizado em 2026-09-24 — `SITE_VERSION` **10.282.0**.
 > Histórico de tarefas, bugfixes e pendências não pertence a este documento.
 > Regras de trabalho, arquivos proibidos e decisões arquiteturais: `AGENTS.md`.
 
@@ -84,8 +84,9 @@ Componentes montados globalmente por `App.jsx`: `AnalyticsTracker`, `ScrollToTop
 | `/historias/:slug` | Página de obra estilo Netflix (Mundo das Sombras, Mar de Cinzas) | `src/pages/content/Obra.jsx` |
 | `/historias/:slug/:cap` | Leitor de capítulo de obra | `src/pages/content/ObraCapitulo.jsx` |
 | `/livro` → `/historias`, `/livro/contos` → `/historias/contos`, `/livro/:id` → `/historias/lutas-de-ilusao/:id` | Redirects 301 legados | `src/App.jsx` (`LegacyLivroRedirect`) + `public/_redirects` + `public/livro/index.html` + prerender REDIRECTS |
-| `/webtoon` | Índice do webtoon | `src/pages/content/Webtoon.jsx` |
-| `/webtoon/:id` | Leitor de episódio | `src/pages/content/WebtoonEpisodio.jsx` |
+| `/webtoon` | Hub WEB SHARD (títulos, destaque, capítulos recentes, manifesto) | `src/pages/content/webshard/WebshardHub.jsx` |
+| `/webtoon/:param` | Slug de título → página do título; senão capítulo de Lutas de Ilusão (URLs legadas `/webtoon/00`, `/webtoon/01`) | `src/pages/content/webshard/WebshardRota.jsx` → `WebshardTitulo.jsx` / `WebshardLeitor.jsx` |
+| `/webtoon/:slug/:cap` | Leitor dos demais títulos (`lutas-de-ilusao` redireciona pra URL legada) | `src/pages/content/webshard/WebshardRota.jsx` → `WebshardLeitor.jsx` |
 | `/musicas` | Músicas | `src/pages/content/Musicas.jsx` |
 | `/universos` | Portal dos universos (entrada) | `src/pages/content/UniversosHub/UniversosHub.jsx` |
 | `/universos/lutas-de-ilusao` | Lore do universo LDI | `src/pages/content/Mundo.jsx` |
@@ -253,7 +254,7 @@ Cada jogo mantém componentes, dados, hooks/engine e store próprios dentro de s
 | Contos de Ilusão | `src/data/contos-index.json` (com `resumo_{pt,en,es}` por capítulo) e `src/data/livro/contos/{pt,en,es}/NN/NN.md` |
 | Obras (Mundo das Sombras, Mar de Cinzas) | `src/data/obras-index.json` (`peso`, `canon:false`, `selo`, `idiomas`, `capitulos[].data_publicacao`) e `src/data/livro/obras/<slug>/<lang>/NN.md`; arte webp em `src/assets/obras/<slug>/` (capa + `cap-NN`). Gating por `data_publicacao` futura + bypass de admin |
 | Worldbuilding dos universos | `src/data/universo-index.json` (define abas; uma aba pode ter `partes: [...]`) e `src/data/universo/<slug>/<lang>/<secao>.json` — **array de blocos tipados** (`prose`, `card`, `box`, `callout`, `timeline`, `personagens`, `protagonista`, `tabela`, `quote`, `lista`, `sub`, `tags`) renderizado por `Universo.jsx`. Mar de Cinzas foi extraído do `mar-de-cinzas-v5.html` via `bs4`. `/mundo/lutas-de-ilusao` ainda usa o formato antigo (`mundo-{pt,en,es}.json` + `Mundo.jsx`) |
-| Webtoon | `src/data/episodios.json` e páginas em `public/webtoon/` |
+| WEB SHARD (webtoon) | Títulos em `src/data/webshard-titulos.json`; capítulos de Lutas de Ilusão em `src/data/episodios.json`; páginas em `public/webtoon/<cap>/<idioma>/`; capas/miniaturas em `src/assets/webshard/`; lógica em `src/lib/webshard/` (catálogo, progresso, reações — tabela `webshard_reacoes`, migration 042) |
 | Músicas | `src/data/musicas.json` |
 | Loja | `src/data/produtos.json` e `src/data/loja-digital.json` |
 | Quiz | `src/data/quiz-pt.json` |
@@ -391,7 +392,7 @@ Fonte única: `src/config/version.js`. Esta tabela registra somente a identifica
 
 | Constante | Módulo | Versão |
 |---|---|---:|
-| `SITE_VERSION` | Site global | **10.281.1** |
+| `SITE_VERSION` | Site global | **10.282.0** |
 | `PP_VERSION` | Pesadelo Particular | 2.3.1 |
 | `LDI_VERSION` | Lendas do LDI | 2.0.1 |
 | `JACK_VERSION` | Jack Dream Beer | 5.3.2 |

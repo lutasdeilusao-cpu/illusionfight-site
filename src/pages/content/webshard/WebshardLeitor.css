@@ -1,0 +1,74 @@
+/* WEB SHARD — leitor. Fundo preto de ponta a ponta da coluna; as páginas
+   começam logo abaixo da barra (52px) para a 1ª não nascer escondida. */
+
+.ws-leitor {
+  min-height: 100vh;
+  padding-top: calc(52px + var(--radio-nina-top-h, 0px));
+  background: #000;
+}
+
+/* Avisos flutuantes (continuar de onde parou / idioma incompleto).
+   Sobem junto quando a barra recolhe. */
+.ws-leitor__avisos {
+  position: fixed;
+  top: calc(60px + var(--radio-nina-top-h, 0px));
+  left: var(--app-gutter);
+  right: var(--app-gutter);
+  z-index: 99;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0 1rem;
+  pointer-events: none;
+  transition: top 0.26s ease;
+}
+
+.ws-leitor__avisos.is-alto { top: calc(10px + var(--radio-nina-top-h, 0px)); }
+
+.ws-leitor__retomar {
+  min-height: 40px;
+  padding: 0.4rem 1rem;
+  border: 1px solid var(--ws-cor, var(--if-cyan));
+  background: rgba(0, 0, 0, 0.82);
+  color: var(--if-ink);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  pointer-events: auto;
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.6);
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
+}
+
+.ws-leitor__nota {
+  margin: 0;
+  padding: 0.25rem 0.6rem;
+  background: rgba(0, 0, 0, 0.78);
+  color: var(--text-secondary);
+  font: 600 0.58rem var(--font-mono);
+  letter-spacing: 0.04em;
+}
+
+.ws-leitor-bloqueado {
+  min-height: 100vh;
+  padding: 5rem 0 3rem;
+}
+
+.ws-leitor-bloqueado .container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.8rem;
+}
+
+.ws-leitor-bloqueado__texto {
+  margin: 0;
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.3rem;
+  line-height: 1.2;
+}

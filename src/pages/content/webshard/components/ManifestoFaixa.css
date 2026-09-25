@@ -1,0 +1,67 @@
+/* Faixa do manifesto — os cacos (shards) aparecem como fios diagonais
+   atravessando o fundo, o mesmo corte inclinado das páginas. */
+
+.ws-manifesto {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 2.25rem;
+  padding: 1.4rem 1rem 1.2rem;
+  overflow: hidden;
+  border: 1px solid var(--if-edge);
+  background:
+    linear-gradient(115deg, transparent 58%, var(--if-cyan-08) 58.2%, transparent 64%),
+    linear-gradient(115deg, transparent 72%, var(--if-cyan-005) 72.2%, transparent 80%),
+    var(--if-panel);
+  clip-path: polygon(0 0, calc(100% - var(--if-cut)) 0, 100% var(--if-cut), 100% 100%, 0 100%);
+}
+
+.ws-manifesto__titulo {
+  margin: 0;
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.45rem;
+  line-height: 1.05;
+  letter-spacing: 0.02em;
+}
+
+.ws-manifesto__lista {
+  display: flex;
+  flex-direction: column;
+  margin: 0.35rem 0 0.4rem;
+  padding: 0;
+  list-style: none;
+}
+
+.ws-manifesto__item {
+  display: flex;
+  gap: 0.7rem;
+  padding: 0.55rem 0;
+  border-bottom: 1px solid var(--if-hair);
+}
+
+.ws-manifesto__item:last-child { border-bottom: 0; }
+
+.ws-manifesto__n {
+  flex: none;
+  width: 20px;
+  padding-top: 0.2rem;
+  color: var(--if-cyan);
+  font: 700 0.58rem var(--font-mono);
+}
+
+.ws-manifesto__texto {
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.ws-manifesto__texto strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.ws-manifesto__cta { align-self: flex-start; }

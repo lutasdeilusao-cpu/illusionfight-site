@@ -1,0 +1,64 @@
+.ws-continuar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.6rem 0.7rem 0.75rem;
+  border: 1px solid var(--if-edge);
+  background: var(--if-glow-corner), var(--if-panel);
+  color: inherit;
+  text-decoration: none;
+  box-shadow: inset 2px 0 var(--ws-cor);
+  clip-path: polygon(0 0, calc(100% - var(--if-cut)) 0, 100% var(--if-cut), 100% 100%, 0 100%);
+}
+
+.ws-continuar__thumb {
+  flex: none;
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  display: block;
+}
+
+.ws-continuar__corpo {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
+.ws-continuar__nome {
+  overflow: hidden;
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.ws-continuar__meta {
+  color: var(--text-muted);
+  font: 600 0.6rem var(--font-mono);
+  letter-spacing: 0.06em;
+}
+
+.ws-continuar__cta {
+  flex: none;
+  color: var(--ws-cor);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ws-continuar__barra {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--ws-cor) var(--pct), var(--if-hair) var(--pct));
+}

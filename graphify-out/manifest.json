@@ -65,8 +65,8 @@
     "semantic_hash": "156131c0c4fa0a41da3fc5ca52b2cde4"
   },
   "package.json": {
-    "mtime": 1789270892.91672,
-    "ast_hash": "22c2a30ea34c8d7193cf81e926c1c0ba",
+    "mtime": 1790120465.8964348,
+    "ast_hash": "523fc03cce555807d2846527ea5cf135",
     "semantic_hash": ""
   },
   "playwright.config.js": {
@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1790046973.1952047,
-    "ast_hash": "3c73dccbda7a8377b3471d49624737f0",
+    "mtime": 1790120480.2993014,
+    "ast_hash": "127a46536ad7f825d18e3acc79573506",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -405,8 +405,8 @@
     "semantic_hash": "fad7a3342f794732f4e6c6db18aee699"
   },
   "src/context/LanguageProvider.jsx": {
-    "mtime": 1789768553.0321486,
-    "ast_hash": "3d2287e970f65d38436d4de66c85e6d9",
+    "mtime": 1790117957.1368408,
+    "ast_hash": "8f4b37886074443b1c84e3ec5e3d76f1",
     "semantic_hash": ""
   },
   "src/context/ReaderContext.jsx": {
@@ -660,8 +660,8 @@
     "semantic_hash": ""
   },
   "src/pages/content/Mundo.jsx": {
-    "mtime": 1788444529.4677222,
-    "ast_hash": "f41568876e9254cbd8c162b437d5c421",
+    "mtime": 1790086797.640771,
+    "ast_hash": "b537dc1c82ccf808dc56765f4b6e3c31",
     "semantic_hash": ""
   },
   "src/pages/content/Musicas.jsx": {
@@ -900,13 +900,13 @@
     "semantic_hash": "cec43da852a245226a7b4c5da616b6df"
   },
   "src/pages/games/ArenaTatics/screens/PreBatalha.jsx": {
-    "mtime": 1782447787.3676543,
-    "ast_hash": "11be304986bc299a1dc47dc64947456f",
-    "semantic_hash": "11be304986bc299a1dc47dc64947456f"
+    "mtime": 1790087436.2644172,
+    "ast_hash": "4ed9e9d0ab1f539d10bd7fb2c7c0b080",
+    "semantic_hash": ""
   },
   "src/pages/games/ArenaTatics/screens/SimulacaoAuto.jsx": {
-    "mtime": 1788408770.9797902,
-    "ast_hash": "175358a3d0923b21aabd1c10b920ea1a",
+    "mtime": 1790087483.0067725,
+    "ast_hash": "a18e632c024a943d8bd90262269c6d33",
     "semantic_hash": ""
   },
   "src/pages/games/ArenaTatics/screens/TeamBuilder.jsx": {
@@ -1615,14 +1615,14 @@
     "semantic_hash": "98d0857299b2831efc494c8c07e8c173"
   },
   "src/pages/games/PesadeloParticular/PP.jsx": {
-    "mtime": 1782447787.4012582,
-    "ast_hash": "9e9cb1db5723d9d1545dba4d342418f8",
-    "semantic_hash": "9e9cb1db5723d9d1545dba4d342418f8"
+    "mtime": 1790087404.3276243,
+    "ast_hash": "080ccd43cb15f98989303662d1f5ed0d",
+    "semantic_hash": ""
   },
   "src/pages/games/PesadeloParticular/components/PuzzleWrapper.jsx": {
-    "mtime": 1782447787.4012582,
-    "ast_hash": "b7a39d3d73aa8711bc700ca8134e4fb7",
-    "semantic_hash": "b7a39d3d73aa8711bc700ca8134e4fb7"
+    "mtime": 1790087399.2039387,
+    "ast_hash": "8bc6267fdab4be8a5063cc0057215da0",
+    "semantic_hash": ""
   },
   "src/pages/games/PesadeloParticular/data/casos.js": {
     "mtime": 1782441630.4350595,
@@ -2195,8 +2195,8 @@
     "semantic_hash": ""
   },
   "src/pages/platform/Cadastro.jsx": {
-    "mtime": 1789047996.3641253,
-    "ast_hash": "8048322ada4526de768741d127937eb0",
+    "mtime": 1790117966.187463,
+    "ast_hash": "f54d4a6cb287ca5657b7926a80ea5fc9",
     "semantic_hash": ""
   },
   "src/pages/platform/Leaderboard.jsx": {
@@ -2745,8 +2745,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1790046984.227067,
-    "ast_hash": "a5d9fde32072bf7cdb336503d5996626",
+    "mtime": 1790120486.7463624,
+    "ast_hash": "667df173e5935aa518e5c1a4777753da",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3550,8 +3550,8 @@
     "semantic_hash": ""
   },
   "src/lib/profileProvisioning.js": {
-    "mtime": 1788454533.569524,
-    "ast_hash": "f0e3cdeb5bd9bb3b898ead0df691eda7",
+    "mtime": 1790117973.9750524,
+    "ast_hash": "2cb9c8d4118893b0e362a16fc2244efb",
     "semantic_hash": ""
   },
   "supabase/migrations/027_profiles_phone_optional.sql": {
@@ -4155,8 +4155,8 @@
     "semantic_hash": ""
   },
   "src/data/season-one-schedule.js": {
-    "mtime": 1788400330.7414126,
-    "ast_hash": "0a28cc29aec489cacc524d6e452a83aa",
+    "mtime": 1790050245.698489,
+    "ast_hash": "544aa776683e7ba7a501f1f7027aeaf2",
     "semantic_hash": ""
   },
   "src/data/universo-index.json": {
@@ -4345,8 +4345,8 @@
     "semantic_hash": ""
   },
   "src/pages/site/Calendario/Calendario.jsx": {
-    "mtime": 1788400449.9800608,
-    "ast_hash": "03d4a62f577831ea4d9b14785f58a47a",
+    "mtime": 1790051237.016762,
+    "ast_hash": "72edbb76cd130546a95327151b8e81bf",
     "semantic_hash": ""
   },
   "src/data/livro/contos/en/03/01.md": {
@@ -4605,48 +4605,48 @@
     "semantic_hash": ""
   },
   "src/i18n/core/en.json": {
-    "mtime": 1790029232.0758264,
-    "ast_hash": "8061eee1e5ab2d922ba1911bc8733f6d",
+    "mtime": 1790087413.8573906,
+    "ast_hash": "2d9fe421fdc88753420469f5cf745d81",
     "semantic_hash": ""
   },
   "src/i18n/core/es.json": {
-    "mtime": 1790029240.4180627,
-    "ast_hash": "c2e5b696e21be06100d3fecf77d26a51",
+    "mtime": 1790087417.030599,
+    "ast_hash": "75093dc2ccf6c74c587d37b53454f2ef",
     "semantic_hash": ""
   },
   "src/i18n/core/pt.json": {
-    "mtime": 1790029223.84385,
-    "ast_hash": "aef9da92cf58050283471af2342c5769",
+    "mtime": 1790087410.6988602,
+    "ast_hash": "b1be4ca1e9920f043b1f9fc176c6570c",
     "semantic_hash": ""
   },
   "src/i18n/games/en.json": {
-    "mtime": 1788995301.6202354,
-    "ast_hash": "62c462ba417bea6932c4f59613e45238",
+    "mtime": 1790087469.8583167,
+    "ast_hash": "2c6fb88343912febd3f24ddf4c992364",
     "semantic_hash": ""
   },
   "src/i18n/games/es.json": {
-    "mtime": 1788995306.2391036,
-    "ast_hash": "941317d79a586fbf623dac1c6b56abd4",
+    "mtime": 1790087477.74606,
+    "ast_hash": "c834a57ab7a90aa97f587d820407c427",
     "semantic_hash": ""
   },
   "src/i18n/games/pt.json": {
-    "mtime": 1788995301.5114524,
-    "ast_hash": "b0502ac737a770eabb706791ea7369ba",
+    "mtime": 1790087462.716481,
+    "ast_hash": "f9560ea235a3d0ae01bfe23e1b64e26f",
     "semantic_hash": ""
   },
   "src/i18n/prototype/en.json": {
-    "mtime": 1788409608.9645689,
-    "ast_hash": "8b7dbe715c2340bb961a032cadcd69a0",
+    "mtime": 1790087496.882534,
+    "ast_hash": "cfe43073a83947b68bab7d09aef30012",
     "semantic_hash": ""
   },
   "src/i18n/prototype/es.json": {
-    "mtime": 1788409608.9705682,
-    "ast_hash": "22cbcbb63179b39521820a81af9d410b",
+    "mtime": 1790087504.307049,
+    "ast_hash": "ff0ff0d56c95ba0c00d2db097c440280",
     "semantic_hash": ""
   },
   "src/i18n/prototype/pt.json": {
-    "mtime": 1788409608.9575531,
-    "ast_hash": "b1fe40591bad39fbe355e16c93142957",
+    "mtime": 1790087489.7495756,
+    "ast_hash": "14a246a6d694e985206f0ef58ebe94a4",
     "semantic_hash": ""
   },
   "src/pages/content/UniversosHub/UniversosHub.jsx": {
@@ -5529,71 +5529,6 @@
     "ast_hash": "a095e0c332dfd448832bb8f923cf345e",
     "semantic_hash": ""
   },
-  "Personagens/Kim Sheets/Primordial Kim.jpg": {
-    "mtime": 1784481499.329631,
-    "ast_hash": "2d8068791ba054cea1c79306986ae259",
-    "semantic_hash": ""
-  },
-  "Personagens/Lenna Brown Final Color.jpg": {
-    "mtime": 1784406956.5363994,
-    "ast_hash": "f1e6ebc4f3c1e6cf25f89defe9f9c1ea",
-    "semantic_hash": ""
-  },
-  "Personagens/Lenna/Lenna Brown Final Color.jpg": {
-    "mtime": 1784406956.5363994,
-    "ast_hash": "f1e6ebc4f3c1e6cf25f89defe9f9c1ea",
-    "semantic_hash": ""
-  },
-  "Personagens/Nina Sheets/images.jpg": {
-    "mtime": 1781394562.7030518,
-    "ast_hash": "f08d896ae6b58501d69413269a3399f8",
-    "semantic_hash": ""
-  },
-  "Personagens/LDI GANGUES/RECRUTAVEIS/Muro/MuroFalaSocoNormal.mp3": {
-    "mtime": 1789526795.3771849,
-    "ast_hash": "285c546a9561acc27e2bc6c9d5107c51",
-    "semantic_hash": ""
-  },
-  "Personagens/LDI GANGUES/RECRUTAVEIS/Trinca/TrincaFalaSocoNormal.mp3": {
-    "mtime": 1789524548.2149205,
-    "ast_hash": "2a1d8afbe1e95df16fea5abba9954e70",
-    "semantic_hash": ""
-  },
-  "Personagens/Video Clipe/VideosScenes/Errado.mp4": {
-    "mtime": 1781402261.4146461,
-    "ast_hash": "9012fd776dbd66106453afa73923f05d",
-    "semantic_hash": ""
-  },
-  "Personagens/Video Clipe/VideosScenes/Scene_1.mp4": {
-    "mtime": 1781399091.848827,
-    "ast_hash": "e95977c692ede257b68c89811311d179",
-    "semantic_hash": ""
-  },
-  "Personagens/Video Clipe/VideosScenes/Scene_2.mp4": {
-    "mtime": 1781401281.630655,
-    "ast_hash": "3621de883c8c20cc27e258bf903f149f",
-    "semantic_hash": ""
-  },
-  "Personagens/Video Clipe/VideosScenes/Scene_3.mp4": {
-    "mtime": 1781402558.92698,
-    "ast_hash": "c87f82614bb04b1858b4c59ea608d6ac",
-    "semantic_hash": ""
-  },
-  "Personagens/Video Clipe/VideosScenes/Scene_4.mp4": {
-    "mtime": 1781403501.349408,
-    "ast_hash": "c3749908d39efbe184721d639e9fb0af",
-    "semantic_hash": ""
-  },
-  "Personagens/Video Clipe/VideosScenes/Scene_5.mp4": {
-    "mtime": 1781404472.1080503,
-    "ast_hash": "6387252157fa63647bb1997029c9a112",
-    "semantic_hash": ""
-  },
-  "Personagens/Video Clipe/VideosScenes/Scene_6.mp4": {
-    "mtime": 1781405286.5863216,
-    "ast_hash": "6892497668ce3cabe6a34488a7906d1b",
-    "semantic_hash": ""
-  },
   "src/pages/site/WebShard.jsx": {
     "mtime": 1790029182.434843,
     "ast_hash": "0da062cf7bea1834cf0c50ace0cfb225",
@@ -5607,6 +5542,11 @@
   "src/pages/games/Gangues/components/cena/GanguesAgiota.jsx": {
     "mtime": 1790036661.7953372,
     "ast_hash": "a4583ef69e8e1a8911519990621c7eba",
+    "semantic_hash": ""
+  },
+  "supabase/migrations/041_profiles_locale.sql": {
+    "mtime": 1790117897.308514,
+    "ast_hash": "baf0cacc0daef7e779c192f1a83db3c6",
     "semantic_hash": ""
   }
 }

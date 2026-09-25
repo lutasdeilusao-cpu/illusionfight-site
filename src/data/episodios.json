@@ -14,16 +14,24 @@
     "publicado": true,
     "data_publicacao": "2026-11-30",
     "paginas": 21,
-    "idiomas": ["pt"],
+    "idiomas": [
+      "pt"
+    ],
     "thumbnail": "thumb-ep00.png",
-    "data": "2026-06-01"
+    "data": "2026-06-01",
+    "sempre_livre": true,
+    "formato": "png",
+    "proporcao": [
+      800,
+      1280
+    ]
   },
   {
     "id": "01",
     "numero": 1,
-    "titulo_pt": "O Sonho",
-    "titulo_en": "The Dream",
-    "titulo_es": "El Sueño",
+    "titulo_pt": "O Sonho de Ilusão",
+    "titulo_en": "The Illusion Dream",
+    "titulo_es": "El Sueño de Ilusión",
     "descricao_pt": "O Capítulo 1 da história principal de Lutas de Ilusão.",
     "descricao_en": "Chapter 1 of the main Illusion Fight story.",
     "descricao_es": "El Capítulo 1 de la historia principal de Lutas de Ilusão.",
@@ -32,10 +40,24 @@
     "frase_es": "La invitación al sueño.",
     "publicado": true,
     "data_publicacao": "2026-10-14",
-    "paginas": 37,
-    "idiomas": ["pt"],
+    "paginas": 53,
+    "idiomas": [
+      "pt",
+      "en",
+      "es"
+    ],
     "thumbnail": "thumb-ep01.png",
-    "data": "2026-06-09"
+    "data": "2026-06-09",
+    "formato": "webp",
+    "proporcao": [
+      960,
+      1637
+    ],
+    "paginas_faltando": {
+      "es": [
+        37
+      ]
+    }
   },
   {
     "id": "02",
@@ -44,7 +66,9 @@
     "titulo_en": "Coming Soon",
     "titulo_es": "Próximamente",
     "publicado": false,
-    "idiomas": ["pt"]
+    "idiomas": [
+      "pt"
+    ]
   },
   {
     "id": "03",
@@ -53,7 +77,9 @@
     "titulo_en": "Coming Soon",
     "titulo_es": "Próximamente",
     "publicado": false,
-    "idiomas": ["pt"]
+    "idiomas": [
+      "pt"
+    ]
   },
   {
     "id": "04",
@@ -62,7 +88,9 @@
     "titulo_en": "Coming Soon",
     "titulo_es": "Próximamente",
     "publicado": false,
-    "idiomas": ["pt"]
+    "idiomas": [
+      "pt"
+    ]
   },
   {
     "id": "05",
@@ -71,6 +99,8 @@
     "titulo_en": "Coming Soon",
     "titulo_es": "Próximamente",
     "publicado": false,
-    "idiomas": ["pt"]
+    "idiomas": [
+      "pt"
+    ]
   }
 ]
