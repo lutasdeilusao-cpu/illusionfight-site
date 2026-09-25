@@ -1,6 +1,7 @@
 /* Linha de capítulo — padrão .if-item do drawer (índice, varredura de luz,
    barra ativa) com miniatura. Altura fixa pra lista não pular enquanto as
-   miniaturas carregam. */
+   miniaturas carregam. A miniatura é a capa INTEIRA do capítulo, em retrato
+   (proporção da página do webtoon, ~0.587) — nunca um recorte quadrado. */
 
 .ws-cap {
   position: relative;
@@ -37,8 +38,8 @@ a.ws-cap:hover::after,
 .ws-cap__thumb {
   position: relative;
   flex: none;
-  width: 60px;
-  height: 60px;
+  width: 64px;
+  aspect-ratio: 240 / 409;
   overflow: hidden;
   border: 1px solid var(--if-hair-strong);
   background: linear-gradient(135deg, #10181c, #050708);

@@ -15,7 +15,7 @@
 .ws-continuar__thumb {
   flex: none;
   width: 48px;
-  height: 48px;
+  aspect-ratio: 240 / 409;
   object-fit: cover;
   display: block;
 }
