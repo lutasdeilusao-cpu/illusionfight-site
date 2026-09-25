@@ -8,7 +8,7 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.290.3' // fix(historias): /historias/contos no mesmo padrão das páginas de título — capa grande no topo e os 5 contos em lista (.ws-cap), capa em P&B quando não liberado
+export const SITE_VERSION = '10.291.0' // feat(seo): comunicação principal em INGLÊS — todo HTML estático (título, descrição, og/twitter, schema, conteúdo SEO) do prerender e do index.html sai em inglês; html lang=en, og:locale en_US (pt_BR/es_ES alternativos); vinheta e trava de orientação caem em inglês sem idioma salvo
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.2' // fix: aba "stories" do rodape mostrava a chave crua pp.menu.pistas_label (nao existia) -> aponta pra pp.dossier.pistas_label; PuzzleWrapper mostrava pp.puzzle.nenhum/instrucao (nao existiam) -> pp.local.puzzle_nenhum/instrucao; confirm() de deletar save mostrava pp.menu.deletar_slot cru -> chave criada nos 3 idiomas.

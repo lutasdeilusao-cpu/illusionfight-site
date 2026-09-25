@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,7 +7,7 @@
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <title>Illusion Fight — Arena Virtual. A dor é 100% real.</title>
+    <title>Illusion Fight — Virtual Arena. The pain is 100% real.</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600;700&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&family=Orbitron:wght@400;500;600;700;800;900&family=Bangers&family=Cinzel:wght@500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Fira+Code:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Bebas+Neue&family=Permanent+Marker&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
@@ -93,8 +93,8 @@
     </style>
 
     <!-- SEO básico -->
-    <meta name="description" content="Illusion Fight é um universo de ficção científica: WEB SHARD (quadrinho vertical) de ação, jogos táticos, trilha sonora original e lore construído ao longo de anos. Arena virtual. Dor 100% real.">
-    <meta name="keywords" content="illusion fight, lutas de ilusão, web shard, webtoon, jogos táticos, arena virtual, ficção científica, LDI">
+    <meta name="description" content="Illusion Fight is a sci-fi universe: action WEB SHARD (vertical comics), tactical games, an original soundtrack and lore built over years. A virtual arena where the pain is 100% real.">
+    <meta name="keywords" content="illusion fight, lutas de ilusão, web shard, webtoon, webcomic, tactical games, virtual arena, science fiction, LDI">
     <meta name="robots" content="index, follow">
     <link data-home-hero-preload rel="preload" as="image" href="/src/assets/images/banners/banner-01.webp" type="image/webp" fetchpriority="high">
     <link rel="canonical" href="https://illusionfight.com/">
@@ -102,19 +102,21 @@
     <!-- Open Graph (Facebook, WhatsApp, Discord) -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://illusionfight.com/">
-    <meta property="og:title" content="Illusion Fight — Arena Virtual. A dor é 100% real.">
-    <meta property="og:description" content="Um universo de ficção científica com WEB SHARD, jogos táticos e trilha sonora original. Lutas de Ilusão — a dor é 100% real.">
+    <meta property="og:title" content="Illusion Fight — Virtual Arena. The pain is 100% real.">
+    <meta property="og:description" content="A sci-fi universe with WEB SHARD comics, tactical games and an original soundtrack. Illusion Fight — the pain is 100% real.">
     <meta property="og:image" content="https://illusionfight.com/og-image-webshard.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:locale" content="pt_BR">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="pt_BR">
+    <meta property="og:locale:alternate" content="es_ES">
     <meta property="og:site_name" content="Illusion Fight">
 
     <!-- Twitter/X Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://illusionfight.com/">
-    <meta name="twitter:title" content="Illusion Fight — Arena Virtual. A dor é 100% real.">
-    <meta name="twitter:description" content="WEB SHARD, jogos táticos, música original. Lutas de Ilusão — arena virtual, dor 100% real.">
+    <meta name="twitter:title" content="Illusion Fight — Virtual Arena. The pain is 100% real.">
+    <meta name="twitter:description" content="WEB SHARD comics, tactical games, original music. Illusion Fight — a virtual arena, 100% real pain.">
     <meta name="twitter:image" content="https://illusionfight.com/og-image-webshard.jpg">
 
     <!-- Favicon -->
@@ -197,25 +199,25 @@
         <rect x="6" y="2" width="12" height="20" rx="2"></rect>
         <line x1="10" y1="19" x2="14" y2="19"></line>
       </svg>
-      <p data-rotate-text>Gire seu aparelho — o app funciona só na vertical.</p>
+      <p data-rotate-text>Rotate your device — the app only works in portrait mode.</p>
     </div>
     <script>
       (function () {
         var el = document.querySelector('#ldi-rotate-lock [data-rotate-text]');
         if (!el) return;
-        var lang = 'pt';
-        try { lang = localStorage.getItem('ldi-locale') || 'pt'; } catch (e) {}
+        var lang = 'en';
+        try { lang = localStorage.getItem('ldi-locale') || 'en'; } catch (e) {}
         var msgs = {
           pt: 'Gire seu aparelho — o app funciona só na vertical.',
           en: 'Rotate your device — the app only works in portrait mode.',
           es: 'Gira tu dispositivo — la app solo funciona en modo vertical.'
         };
-        el.textContent = msgs[lang] || msgs.pt;
+        el.textContent = msgs[lang] || msgs.en;
       })();
     </script>
     <div id="ldi-intro" aria-hidden="true">
       <img class="ldi-intro__logo" src="/favicon-ldi.png" alt="" width="124" height="124" decoding="sync" fetchpriority="high">
-      <p class="ldi-intro__word">LUTAS DE ILUSÃO</p>
+      <p class="ldi-intro__word">ILLUSION FIGHT</p>
       <div class="ldi-intro__bar"></div>
     </div>
     <script>
@@ -238,10 +240,10 @@
       (function () {
         var el = document.getElementById('ldi-intro');
         if (!el) return;
-        var KEY = 'ldi-intro-build', lang = 'pt', lastBuild = null;
+        var KEY = 'ldi-intro-build', lang = 'en', lastBuild = null;
         var buildMeta = document.querySelector('meta[name="ldi-build"]');
         var currentBuild = buildMeta && buildMeta.content;
-        try { lastBuild = localStorage.getItem(KEY); lang = localStorage.getItem('ldi-locale') || 'pt'; } catch (e) {}
+        try { lastBuild = localStorage.getItem(KEY); lang = localStorage.getItem('ldi-locale') || 'en'; } catch (e) {}
         var provavelCache = !!currentBuild && currentBuild === lastBuild;
         var reduce = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
         var word = el.querySelector('.ldi-intro__word');

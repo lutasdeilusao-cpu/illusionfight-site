@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1790370701.0901532,
-    "ast_hash": "3eaff5647d9d658d30e355404d48381c",
+    "mtime": 1790370894.8804698,
+    "ast_hash": "2b37dc2967b24627a6327288bdbd002e",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2730,8 +2730,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1790370701.124919,
-    "ast_hash": "ae0d716ed981eea3992d94854242f15b",
+    "mtime": 1790370894.9169252,
+    "ast_hash": "9019ea74592203717fa093c9fd6e1e04",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -4565,18 +4565,18 @@
     "semantic_hash": ""
   },
   "src/i18n/core/en.json": {
-    "mtime": 1790358110.2613554,
-    "ast_hash": "c56a05593007cb3b20c9e7fd2fbecb52",
+    "mtime": 1790370867.462579,
+    "ast_hash": "d26bd288d8a158cad3b1245668d54051",
     "semantic_hash": ""
   },
   "src/i18n/core/es.json": {
-    "mtime": 1790358110.2636056,
-    "ast_hash": "24f4d7789bbe38c2974a41db31a7eacc",
+    "mtime": 1790370867.463561,
+    "ast_hash": "2dc67f7bdc38e7c6565319211a8f8191",
     "semantic_hash": ""
   },
   "src/i18n/core/pt.json": {
-    "mtime": 1790358110.2600033,
-    "ast_hash": "ad0360d7a86d8cc9c67d0501dacc796b",
+    "mtime": 1790370867.4605665,
+    "ast_hash": "ff86ef50d6d0dfc5c3ed5b6897a99c11",
     "semantic_hash": ""
   },
   "src/i18n/games/en.json": {
@@ -5685,8 +5685,8 @@
     "semantic_hash": ""
   },
   "src/pages/content/historias/HistoriasHub.jsx": {
-    "mtime": 1790358170.8515768,
-    "ast_hash": "900ad3b0b4c9024ba804c8b5a2e6cddc",
+    "mtime": 1790370853.190179,
+    "ast_hash": "62007b56b5e8b9982146c26e18f17c5a",
     "semantic_hash": ""
   },
   "src/pages/content/historias/HistoriasUniversos.jsx": {

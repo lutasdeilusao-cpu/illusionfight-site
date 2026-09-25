@@ -12,7 +12,7 @@ const BUILD_DATE = new Date().toISOString().slice(0, 10)
 const pastOr = date => (date && date <= BUILD_DATE ? date : BUILD_DATE)
 
 const readJson = file => JSON.parse(fs.readFileSync(path.resolve(process.cwd(), file), 'utf-8'))
-const personagens = readJson('src/data/personagens-pt.json')
+const personagens = readJson('src/data/personagens-en.json')
 const capitulos = readJson('src/data/livro-index.json')
 const contos = readJson('src/data/contos-index.json')
 const obras = readJson('src/data/obras-index.json')
@@ -25,42 +25,45 @@ const releaseItems = [
 ]
 releaseItems.forEach(([label, item]) => validateRelease(item, label))
 
+// Idioma principal da comunicação: INGLÊS (português e espanhol são
+// secundários). Todo metadado e texto estático daqui sai em inglês — é o que
+// Twitter/WhatsApp/Google leem, já que eles não rodam o React.
 // Páginas públicas com metadados e fallback próprios. Nunca copie o index da
 // home sem trocar o canonical: isso faz o Google tratar todas como duplicatas.
 const ROUTES = [
-  ['/login', 'Entrar — Illusion Fight', 'Entre na sua conta Illusion Fight para acessar seu perfil e continuar seu progresso.', 'Entrar na Illusion Fight', 'Acesse sua conta para continuar seu progresso.', '0.0', 'yearly', false],
-  ['/cadastro', 'Criar conta grátis — Illusion Fight', 'Crie sua conta grátis para salvar progresso, cartas e conquistas nos jogos Illusion Fight.', 'Criar conta grátis', 'Salve seu progresso, suas cartas e suas conquistas em qualquer dispositivo.', '0.0', 'yearly', false],
-  ['/personagens', 'Personagens — Illusion Fight', 'Conheça os lutadores de Illusion Fight: Kim, Jack, Nina, Helena, Shuntaro e outros personagens da arena LDI.', 'Personagens de Illusion Fight', 'Explore os lutadores, suas histórias, estilos de combate e lugar no universo Lutas de Ilusão.', '0.9', 'monthly'],
-  ['/historias', 'Histórias — Illusion Fight', 'A linha principal de Lutas de Ilusão, os Contos de Ilusão e outros mundos do mesmo criador — leia online e de graça.', 'Histórias de Illusion Fight', 'Todo o universo de leitura de Illusion Fight num lugar só: linha principal, contos e outras histórias.', '0.9', 'weekly'],
-  ['/historias/lutas-de-ilusao', 'Livro — Illusion Fight', 'Leia online os capítulos do livro Illusion Fight e acompanhe Kim, Jack e os lutadores de Bravara.', 'Livro Illusion Fight', 'Acompanhe os capítulos publicados do romance que expande o universo LDI.', '0.9', 'weekly'],
-  ['/historias/contos', 'Contos de Ilusão | Illusion Fight', 'Histórias paralelas do universo Illusion Fight: outros personagens, outras experiências, o mesmo mundo.', 'Contos de Ilusão', 'Side stories do universo Lutas de Ilusão. Personagens e experiências que expandem a arena LDI fora da linha principal.', '0.7', 'weekly'],
-  ['/historias/mundo-das-sombras', 'O Mundo das Sombras — Illusion Fight', 'O Mundo das Sombras, romance dark fantasy de Isaias Leal. Livro 1 da Saga Descobrimento. Em breve, de graça, no portal Illusion Fight.', 'O Mundo das Sombras', 'Minus tem nove anos e já perdeu tudo três vezes. A marca no ombro dele atrai as sombras. Dark fantasy do criador de Illusion Fight.', '0.6', 'monthly'],
-  ['/historias/mar-de-cinzas', 'Mar de Cinzas — Illusion Fight', 'Mar de Cinzas, dark fantasy de horror cósmico e opressão de Isaias Leal. Arco I. Em breve, de graça, no portal Illusion Fight.', 'Mar de Cinzas', 'Catorze anos, vestido branco, um noivo com três esposas mortas — e algo no fundo do oceano que espera há trinta mil anos.', '0.6', 'monthly'],
-  ['/webtoon', 'WEB SHARD — Leia Lutas de Ilusão Online Grátis | Illusion Fight', 'Leia online e grátis Lutas de Ilusão em WEB SHARD, o quadrinho vertical de ação do Illusion Fight — capítulos, arte e a história de Kim e os lutadores de Bravara.', 'WEB SHARD — Illusion Fight', 'Lutas de Ilusão é a primeira obra em WEB SHARD, quadrinho vertical de ação brasileiro, publicado em capítulos gratuitos direto aqui no site. Se você gosta de manga, manhwa ou outros webcomics de ação, vai reconhecer o ritmo — só que com um universo e um elenco 100% brasileiros.', '0.9', 'weekly'],
-  ['/webtoon/lutas-de-ilusao', 'Lutas de Ilusão — WEB SHARD | Illusion Fight', 'Leia Lutas de Ilusão em WEB SHARD, quadrinho vertical de ação: Kim, 17 anos, numa arena virtual onde a dor é 100% real. Grátis, em português, inglês e espanhol.', 'Lutas de Ilusão — WEB SHARD', 'Bravara, 2XXX. No LDI, a dor é real e vencer é tudo. Kim, 17 anos, vendedor de bala no busão, nunca quis saber de joguinho de playboy. Até perder uma aposta.', '0.8', 'weekly'],
-  ['/musicas', 'Músicas — Illusion Fight', 'Ouça a trilha sonora original de Illusion Fight, o universo de WEB SHARD, jogos e ficção científica.', 'Músicas de Illusion Fight', 'Conheça e ouça as músicas originais que acompanham o universo LDI.', '0.8', 'monthly'],
-  ['/universos', 'Universos — Illusion Fight', 'Os três universos de Isaias Leal: Lutas de Ilusão, O Mundo das Sombras e Mar de Cinzas. Lore, raças, mapas e glossários.', 'Os universos de Illusion Fight', 'Explore o worldbuilding dos três universos do criador: Lutas de Ilusão, O Mundo das Sombras e Mar de Cinzas.', '0.8', 'monthly'],
-  ['/universos/lutas-de-ilusao', 'Mundo de Illusion Fight', 'Explore Bravara, a arena LDI, personagens, facções e a história do universo Illusion Fight.', 'O mundo de Illusion Fight', 'Descubra a lore, os lugares, as organizações e os acontecimentos do universo LDI.', '0.8', 'monthly'],
-  ['/universos/mundo-das-sombras', 'O Mundo das Sombras — universo | Illusion Fight', 'O worldbuilding de O Mundo das Sombras: as Sombras e os Iluminados, os Marcados, o Escudo, o glossário do Arco 1.', 'O universo de O Mundo das Sombras', 'As Sombras e os Iluminados, os Marcados, o Escudo — o que os personagens sabem até o fim do Arco 1.', '0.5', 'monthly'],
-  ['/universos/mar-de-cinzas', 'Mar de Cinzas — universo Thalvorn | Illusion Fight', 'O worldbuilding de Mar de Cinzas: Thalvorn, as raças, os seis povos humanos, as criaturas do oceano e o horror cósmico.', 'O universo de Mar de Cinzas', 'Thalvorn: um oceano de ilhas movido a memória de deuses mortos. Raças, povos humanos e o que vive no fundo.', '0.5', 'monthly'],
-  ['/autor', 'Autor — Illusion Fight', 'Conheça Isaias Leal, criador de Illusion Fight, WEB SHARD brasileiro, jogos e universo transmídia.', 'Autor de Illusion Fight', 'Conheça o criador e os bastidores do universo Illusion Fight.', '0.7', 'monthly'],
-  ['/assinar', 'Assine Illusion Fight', 'Conheça os planos para apoiar Illusion Fight e acessar benefícios do universo LDI.', 'Assine Illusion Fight', 'Veja os planos e apoie a criação do WEB SHARD, jogos e histórias de Illusion Fight.', '0.6', 'monthly'],
-  ['/games', 'Jogos Grátis — Illusion Fight', 'Jogue de graça no universo Illusion Fight: RPG tático, jogo de cartas, minigames de navegador, tamagoshi virtual e muito mais — direto no navegador, sem baixar nada.', 'Jogos de Illusion Fight', 'Jogue de graça no universo Illusion Fight: RPG tático, jogo de cartas, minigames de navegador, tamagoshi virtual e muito mais — direto no navegador, sem baixar nada.', '0.8', 'weekly'],
-  ['/loja', 'Loja — Illusion Fight', 'Encontre fichas, DIX e itens digitais do universo Illusion Fight.', 'Loja Illusion Fight', 'Explore itens digitais e formas de apoiar o universo Illusion Fight.', '0.7', 'monthly'],
-  ['/quiz', 'Quiz — Illusion Fight', 'Teste seus conhecimentos sobre Illusion Fight e o universo LDI.', 'Quiz Illusion Fight', 'Responda perguntas e descubra quanto você conhece da arena LDI.', '0.5', 'monthly'],
-  ['/custos', 'Custos da plataforma — Illusion Fight', 'Entenda os custos e a estrutura que mantêm a plataforma Illusion Fight ativa.', 'Custos da plataforma', 'Transparência sobre a estrutura e os custos do projeto Illusion Fight.', '0.4', 'monthly'],
-  ['/web-shard', 'WEB SHARD: Web Comic e Mangá Vertical em Páginas Compostas — Illusion Fight', 'WEB SHARD é o formato próprio da Illusion Fight: páginas verticais compostas, feitas pra leitura em scroll no celular. Entenda o que é e leia a obra de estreia.', 'WEB SHARD — o formato próprio da Illusion Fight', 'Um formato de leitura criado pela Illusion Fight: páginas verticais compostas, pensadas para scroll no celular.', '0.6', 'monthly'],
-  ['/calendario', 'Calendário de lançamentos — Illusion Fight', 'Acompanhe os lançamentos de capítulos, WEB SHARD, games, músicas e parceiros de Illusion Fight.', 'Calendário de lançamentos', 'Veja o calendário público da Temporada 1 e acompanhe cada canal de lançamento do universo Illusion Fight.', '0.8', 'weekly'],
-  ['/leaderboard', 'Ranking — Illusion Fight', 'Acompanhe o ranking de jogadores do universo Illusion Fight.', 'Ranking Illusion Fight', 'Veja a classificação dos jogadores da arena.', '0.5', 'weekly'],
-  ['/games/ldi', 'Lendas do LDI — Illusion Fight', 'Jogue Lendas do LDI, o RPG narrativo do universo Illusion Fight.', 'Lendas do LDI', 'Entre na aventura narrativa e crie sua história na arena LDI.', '0.6', 'monthly'],
-  ['/games/ldi-gangues', 'LDI Gangues — Illusion Fight', 'Monte sua equipe e lute em LDI Gangues, o jogo tático do universo Illusion Fight.', 'LDI Gangues', 'Forme sua gangue e participe de batalhas no universo LDI.', '0.6', 'monthly'],
-  ['/games/ldi-tatics', 'LDI Tactics — Illusion Fight', 'Jogue batalhas táticas por turnos no universo Illusion Fight.', 'LDI Tactics', 'Planeje movimentos e enfrente batalhas táticas na arena.', '0.6', 'monthly'],
-  ['/games/jackcandy', 'Jack Dream Beer — Illusion Fight', 'Investigue casos no jogo noir Jack Dream Beer, do universo Illusion Fight.', 'Jack Dream Beer', 'Investigue mistérios no jogo noir do universo LDI.', '0.6', 'monthly'],
-  ['/games/pesadelo', 'Pesadelo Particular — Illusion Fight', 'Enfrente casos, puzzles e combates em Pesadelo Particular.', 'Pesadelo Particular', 'Investigue casos e resolva desafios no universo Illusion Fight.', '0.6', 'monthly'],
-  ['/games/tamagoshi', 'Tamagoshi LDI — Illusion Fight', 'Cuide da sua criatura em Tamagoshi LDI, o jogo de companhia do universo Illusion Fight.', 'Tamagoshi LDI', 'Adote, cuide e acompanhe sua criatura no universo LDI.', '0.6', 'monthly'],
-  ['/games/toptrumps', 'Top Trumps — Illusion Fight', 'Colecione cartas e dispute partidas de Top Trumps no universo Illusion Fight.', 'Top Trumps Illusion Fight', 'Monte seu deck e dispute partidas com personagens do universo LDI.', '0.6', 'monthly'],
-  ['/games/minigames', 'MiniGames — Illusion Fight', 'Jogue puzzles e desafios rápidos no universo Illusion Fight.', 'MiniGames Illusion Fight', 'Encontre desafios, puzzles e jogos rápidos da arena.', '0.6', 'monthly'],
-  ['/games/duelo', 'Duelo LDI — Illusion Fight', 'Conheça Duelo LDI, o jogo de cartas um contra um de Illusion Fight.', 'Duelo LDI', 'Prepare suas cartas para os duelos do universo LDI.', '0.5', 'monthly'],
+  ['/login', 'Log in — Illusion Fight', 'Log in to your Illusion Fight account to access your profile and pick up your progress.', 'Log in to Illusion Fight', 'Access your account to continue your progress.', '0.0', 'yearly', false],
+  ['/cadastro', 'Create a free account — Illusion Fight', 'Create your free account to save your progress, cards and achievements across Illusion Fight games.', 'Create a free account', 'Save your progress, cards and achievements on any device.', '0.0', 'yearly', false],
+  ['/personagens', 'Characters — Illusion Fight', 'Meet the fighters of Illusion Fight: Kim, Jack, Nina, Helena, Shuntaro and the rest of the LDI arena cast.', 'Illusion Fight characters', 'Explore the fighters, their stories, fighting styles and place in the Illusion Fight universe.', '0.9', 'monthly'],
+  ['/historias', 'Stories — Illusion Fight', 'The Illusion Fight main storyline, the Illusion Tales and other worlds by the same creator — read online for free.', 'Illusion Fight stories', 'The whole Illusion Fight reading universe in one place: the main storyline, the tales and other stories.', '0.9', 'weekly'],
+  ['/historias/lutas-de-ilusao', 'The Novel — Illusion Fight', 'Read the Illusion Fight novel online, chapter by chapter, and follow Kim, Jack and the fighters of Bravara.', 'The Illusion Fight novel', 'Follow the published chapters of the novel that expands the LDI universe.', '0.9', 'weekly'],
+  ['/historias/contos', 'Illusion Tales | Illusion Fight', 'Side stories from the Illusion Fight universe: other characters, other experiences, the same world.', 'Illusion Tales', 'Side stories from the Illusion Fight universe — characters and experiences that expand the LDI arena beyond the main storyline.', '0.7', 'weekly'],
+  ['/historias/mundo-das-sombras', 'The Shadow World — Illusion Fight', 'The Shadow World, a dark fantasy novel by Isaias Leal. Book 1 of the Discovery Saga. Coming soon, for free, on Illusion Fight.', 'The Shadow World', 'Minus is nine years old and has already lost everything three times. The mark on his shoulder draws the shadows. Dark fantasy from the creator of Illusion Fight.', '0.6', 'monthly'],
+  ['/historias/mar-de-cinzas', 'Sea of Ashes — Illusion Fight', 'Sea of Ashes, a dark fantasy of cosmic horror and oppression by Isaias Leal. Arc I. Coming soon, for free, on Illusion Fight.', 'Sea of Ashes', 'Seventeen years old, a white dress, a groom with three dead wives — and something at the bottom of the ocean that has been waiting for thirty thousand years.', '0.6', 'monthly'],
+  ['/webtoon', 'WEB SHARD — Read Illusion Fight Online for Free', 'Read Illusion Fight online for free in WEB SHARD, the vertical action comic — chapters, art and the story of Kim and the fighters of Bravara.', 'WEB SHARD — Illusion Fight', 'Illusion Fight is the first WEB SHARD series: a Brazilian vertical action comic published in free chapters right here on the site. If you like manga, manhwa or action webcomics, you will recognize the rhythm — with a 100% Brazilian universe and cast.', '0.9', 'weekly'],
+  ['/webtoon/lutas-de-ilusao', 'Illusion Fight — WEB SHARD', 'Read Illusion Fight in WEB SHARD, the vertical action comic: Kim, 17, in a virtual arena where the pain is 100% real. Free, in English, Portuguese and Spanish.', 'Illusion Fight — WEB SHARD', 'Bravara, 2XXX. In the LDI, the pain is real and winning is everything. Kim, 17, sells candy on the bus and never cared about some rich-kid game. Until he lost a bet.', '0.8', 'weekly'],
+  ['/musicas', 'Music — Illusion Fight', 'Listen to the original soundtrack of Illusion Fight, the universe of WEB SHARD comics, games and science fiction.', 'Illusion Fight music', 'Discover and listen to the original songs of the LDI universe.', '0.8', 'monthly'],
+  ['/universos', 'Universes — Illusion Fight', 'The three universes by Isaias Leal: Illusion Fight, The Shadow World and Sea of Ashes. Lore, races, maps and glossaries.', 'The Illusion Fight universes', "Explore the worldbuilding of the creator's three universes: Illusion Fight, The Shadow World and Sea of Ashes.", '0.8', 'monthly'],
+  ['/universos/lutas-de-ilusao', 'The World of Illusion Fight', 'Explore Bravara, the LDI arena, the characters, factions and history of the Illusion Fight universe.', 'The world of Illusion Fight', 'Discover the lore, places, organizations and events of the LDI universe.', '0.8', 'monthly'],
+  ['/universos/mundo-das-sombras', 'The Shadow World — universe | Illusion Fight', 'The worldbuilding of The Shadow World: the Shadows and the Illuminated, the Marked, the Shield and the Arc 1 glossary.', 'The Shadow World universe', 'The Shadows and the Illuminated, the Marked, the Shield — what the characters know by the end of Arc 1.', '0.5', 'monthly'],
+  ['/universos/mar-de-cinzas', 'Sea of Ashes — the Thalvorn universe | Illusion Fight', 'The worldbuilding of Sea of Ashes: Thalvorn, its races, the six human crowns, the creatures of the ocean and the cosmic horror.', 'The Sea of Ashes universe', 'Thalvorn: an ocean of islands run on the memory of dead gods. Races, human crowns and what lives at the bottom.', '0.5', 'monthly'],
+  ['/autor', 'The Author — Illusion Fight', 'Meet Isaias Leal, creator of Illusion Fight — Brazilian WEB SHARD comics, games and a transmedia universe.', 'The author of Illusion Fight', 'Meet the creator and go behind the scenes of the Illusion Fight universe.', '0.7', 'monthly'],
+  ['/assinar', 'Subscribe to Illusion Fight', 'See the plans to support Illusion Fight and unlock perks across the LDI universe.', 'Subscribe to Illusion Fight', "See the plans and support the creation of Illusion Fight's WEB SHARD comics, games and stories.", '0.6', 'monthly'],
+  ['/games', 'Free Games — Illusion Fight', 'Play for free in the Illusion Fight universe: tactical RPG, card game, browser minigames, a virtual pet and more — right in your browser, nothing to download.', 'Illusion Fight games', 'Play for free in the Illusion Fight universe: tactical RPG, card game, browser minigames, a virtual pet and more — right in your browser, nothing to download.', '0.8', 'weekly'],
+  ['/loja', 'Shop — Illusion Fight', 'Find DIX and digital items from the Illusion Fight universe.', 'Illusion Fight shop', 'Explore digital items and ways to support the Illusion Fight universe.', '0.7', 'monthly'],
+  ['/quiz', 'Quiz — Illusion Fight', 'Test your knowledge of Illusion Fight and the LDI universe.', 'Illusion Fight quiz', 'Answer questions and find out how well you know the LDI arena.', '0.5', 'monthly'],
+  ['/custos', 'Platform costs — Illusion Fight', 'See the costs and the structure that keep the Illusion Fight platform running.', 'Platform costs', 'Transparency about the structure and costs behind the Illusion Fight project.', '0.4', 'monthly'],
+  ['/web-shard', 'WEB SHARD: Vertical Webcomic and Manga in Composed Pages — Illusion Fight', "WEB SHARD is Illusion Fight's own format: composed vertical pages built for scrolling on your phone. Learn what it is and read the debut series.", "WEB SHARD — Illusion Fight's own format", 'A reading format created by Illusion Fight: composed vertical pages designed for scrolling on your phone.', '0.6', 'monthly'],
+  ['/calendario', 'Release calendar — Illusion Fight', 'Follow the releases of chapters, WEB SHARD, games, music and partners of Illusion Fight.', 'Release calendar', 'See the public Season 1 calendar and follow every release channel of the Illusion Fight universe.', '0.8', 'weekly'],
+  ['/leaderboard', 'Leaderboard — Illusion Fight', 'Follow the player rankings of the Illusion Fight universe.', 'Illusion Fight leaderboard', 'See the arena player standings.', '0.5', 'weekly'],
+  ['/games/ldi', 'LDI Legends — Illusion Fight', 'Play LDI Legends, the narrative RPG of the Illusion Fight universe.', 'LDI Legends', 'Step into the narrative adventure and write your story in the LDI arena.', '0.6', 'monthly'],
+  ['/games/ldi-gangues', 'LDI Gangs — Illusion Fight', 'Build your crew and fight in LDI Gangs, the tactical game of the Illusion Fight universe.', 'LDI Gangs', 'Form your gang and join battles in the LDI universe.', '0.6', 'monthly'],
+  ['/games/ldi-tatics', 'LDI Tactics — Illusion Fight', 'Play turn-based tactical battles in the Illusion Fight universe.', 'LDI Tactics', 'Plan your moves and take on tactical battles in the arena.', '0.6', 'monthly'],
+  ['/games/jackcandy', 'Jack Dream Beer — Illusion Fight', 'Investigate cases in Jack Dream Beer, the noir game of the Illusion Fight universe.', 'Jack Dream Beer', 'Investigate mysteries in the noir game of the LDI universe.', '0.6', 'monthly'],
+  ['/games/pesadelo', 'Particular Nightmare — Illusion Fight', 'Face cases, puzzles and fights in Particular Nightmare.', 'Particular Nightmare', 'Investigate cases and solve challenges in the Illusion Fight universe.', '0.6', 'monthly'],
+  ['/games/tamagoshi', 'LDI Tama — Illusion Fight', 'Take care of your creature in LDI Tama, the virtual pet game of the Illusion Fight universe.', 'LDI Tama', 'Adopt, care for and raise your creature in the LDI universe.', '0.6', 'monthly'],
+  ['/games/toptrumps', 'LDI Trumps — Illusion Fight', 'Collect cards and play Top Trumps matches in the Illusion Fight universe.', 'LDI Trumps', 'Build your deck and play matches with characters from the LDI universe.', '0.6', 'monthly'],
+  ['/games/minigames', 'LDI Mini Games — Illusion Fight', 'Play puzzles and quick challenges in the Illusion Fight universe.', 'LDI Mini Games', 'Find challenges, puzzles and quick games from the arena.', '0.6', 'monthly'],
+  ['/games/duelo', 'LDI Duel — Illusion Fight', 'Meet LDI Duel, the one-on-one card game of Illusion Fight.', 'LDI Duel', 'Get your cards ready for duels in the LDI universe.', '0.5', 'monthly'],
 ].map(([path, title, description, heading, content, priority, changefreq, indexable = true]) => ({ path, title, description, heading, content, priority, changefreq, indexable }))
 
 // Links contextuais pros hubs — dá caminhos reais pro Googlebot circular em vez de
@@ -68,43 +71,43 @@ const ROUTES = [
 const RELATED_BY_PATH = {
   '/personagens': ['kim', 'jack', 'nina', 'helena', 'shuntaro', 'yawanari'].map(id => ({ name: id[0].toUpperCase() + id.slice(1), path: `/personagens/${id}/` })),
   '/historias': [
-    { name: 'Livro — Lutas de Ilusão', path: '/historias/lutas-de-ilusao/' },
-    { name: 'Contos de Ilusão', path: '/historias/contos/' },
-    { name: 'O Mundo das Sombras', path: '/historias/mundo-das-sombras/' },
-    { name: 'Mar de Cinzas', path: '/historias/mar-de-cinzas/' },
+    { name: 'The Novel — Illusion Fight', path: '/historias/lutas-de-ilusao/' },
+    { name: 'Illusion Tales', path: '/historias/contos/' },
+    { name: 'The Shadow World', path: '/historias/mundo-das-sombras/' },
+    { name: 'Sea of Ashes', path: '/historias/mar-de-cinzas/' },
   ],
   '/historias/lutas-de-ilusao': [
-    { name: 'Capítulo 1', path: '/historias/lutas-de-ilusao/capitulo-01/' },
-    { name: 'Contos de Ilusão', path: '/historias/contos/' },
-    { name: 'Personagens', path: '/personagens/' },
+    { name: 'Chapter 1', path: '/historias/lutas-de-ilusao/capitulo-01/' },
+    { name: 'Illusion Tales', path: '/historias/contos/' },
+    { name: 'Characters', path: '/personagens/' },
   ],
   '/games': [
-    { name: 'Lendas do LDI', path: '/games/ldi/' },
-    { name: 'LDI Gangues', path: '/games/ldi-gangues/' },
+    { name: 'LDI Legends', path: '/games/ldi/' },
+    { name: 'LDI Gangs', path: '/games/ldi-gangues/' },
     { name: 'LDI Tactics', path: '/games/ldi-tatics/' },
-    { name: 'Top Trumps', path: '/games/toptrumps/' },
+    { name: 'LDI Trumps', path: '/games/toptrumps/' },
   ],
   '/universos': [
-    { name: 'Mundo de Lutas de Ilusão', path: '/universos/lutas-de-ilusao/' },
-    { name: 'O Mundo das Sombras', path: '/universos/mundo-das-sombras/' },
-    { name: 'Mar de Cinzas', path: '/universos/mar-de-cinzas/' },
+    { name: 'The world of Illusion Fight', path: '/universos/lutas-de-ilusao/' },
+    { name: 'The Shadow World', path: '/universos/mundo-das-sombras/' },
+    { name: 'Sea of Ashes', path: '/universos/mar-de-cinzas/' },
   ],
   '/webtoon': [
-    { name: 'Lutas de Ilusão — todos os capítulos', path: '/webtoon/lutas-de-ilusao/' },
-    { name: 'Capítulo 01 — O Sonho de Ilusão', path: '/webtoon/01/' },
-    { name: 'O que é WEB SHARD', path: '/web-shard/' },
-    { name: 'Personagens', path: '/personagens/' },
+    { name: 'Illusion Fight — all chapters', path: '/webtoon/lutas-de-ilusao/' },
+    { name: 'Chapter 01 — The Illusion Dream', path: '/webtoon/01/' },
+    { name: 'What is WEB SHARD', path: '/web-shard/' },
+    { name: 'Characters', path: '/personagens/' },
   ],
 }
 
 const extraGameRoutes = [
-  ['/games/kernel-panic', 'Kernel Panic — jogo de puzzle hacker grátis', 'Jogue Kernel Panic, um puzzle hacker grátis de dedução, comandos e sobrevivência digital no portal Illusion Fight.', 'Kernel Panic', 'Resolva desafios de terminal e sobreviva a um sistema digital hostil neste jogo de puzzle gratuito.'],
-  ['/games/sliding-rafael', 'Sliding Rafael — puzzle deslizante grátis', 'Jogue Sliding Rafael, um puzzle deslizante gratuito com desafios de raciocínio no portal Illusion Fight.', 'Sliding Rafael', 'Organize o tabuleiro, resolva o quebra-cabeça e complete o desafio no menor número de movimentos.'],
-  ['/games/codigo-perdido', 'Código Perdido — jogo de palavras grátis', 'Jogue Código Perdido, um puzzle gratuito de palavras, pistas e dedução inspirado em sistemas corrompidos.', 'Código Perdido', 'Descubra a palavra escondida usando pistas e raciocínio antes que o sistema entre em colapso.'],
-  ['/games/maze-rafael', 'Maze Rafael — jogo de labirinto grátis', 'Encontre a saída em Maze Rafael, um jogo de labirinto gratuito com desafios progressivos no portal Illusion Fight.', 'Maze Rafael', 'Atravesse labirintos, encontre o caminho correto e conclua desafios de navegação.'],
-  ['/games/glitch-rafael', 'Glitch Rafael — jogo de memória grátis', 'Jogue Glitch Rafael, um desafio gratuito de memória e sequência no portal de games Illusion Fight.', 'Glitch Rafael', 'Memorize os sinais do sistema, repita as sequências e resista a cada novo glitch.'],
-  ['/games/bullet-hell-rafael', 'Bullet Hell Rafael — jogo de esquiva grátis', 'Sobreviva em Bullet Hell Rafael, um jogo bullet hell gratuito de reflexo, movimento e esquiva de projéteis.', 'Bullet Hell Rafael', 'Desvie dos projéteis e sobreviva até o fim em diferentes dificuldades.'],
-  ['/games/stabilizer-rafael', 'Stabilizer Rafael — jogo de precisão grátis', 'Jogue Stabilizer Rafael, um desafio gratuito de precisão, tempo e controle no portal Illusion Fight.', 'Stabilizer Rafael', 'Mantenha o sistema estável, controle o medidor e teste sua precisão.'],
+  ['/games/kernel-panic', 'Kernel Panic — free hacker puzzle game', 'Play Kernel Panic, a free hacker puzzle of deduction, commands and digital survival on Illusion Fight.', 'Kernel Panic', 'Solve terminal challenges and survive a system about to crash.'],
+  ['/games/sliding-rafael', 'Sliding Puzzle — free sliding puzzle game', 'Play Sliding Puzzle, a free sliding puzzle full of logic challenges on Illusion Fight.', 'Sliding Puzzle', 'Arrange the board, solve the puzzle and complete every level.'],
+  ['/games/codigo-perdido', 'Lost Code — free word game', 'Play Lost Code, a free puzzle of words, clues and deduction inspired by corrupted systems.', 'Lost Code', 'Find the hidden word using clues and reasoning.'],
+  ['/games/maze-rafael', 'Maze Runner — free maze game', 'Find the way out in Maze Runner, a free maze game with progressive challenges on Illusion Fight.', 'Maze Runner', 'Cross the mazes, find the right path and beat every stage.'],
+  ['/games/glitch-rafael', 'Find the Glitch — free memory game', 'Play Find the Glitch, a free memory and sequence challenge on Illusion Fight.', 'Find the Glitch', 'Memorize the system signals, repeat the sequences and resist the glitches.'],
+  ['/games/bullet-hell-rafael', 'Bullet Hell — free dodge game', 'Survive Bullet Hell, a free bullet hell game of reflexes, movement and dodging projectiles.', 'Bullet Hell', 'Dodge the projectiles and survive to the end.'],
+  ['/games/stabilizer-rafael', 'Signal Stabilizer — free precision game', 'Play Signal Stabilizer, a free challenge of precision, timing and control on Illusion Fight.', 'Signal Stabilizer', 'Keep the system stable, control the meter and hold on as long as you can.'],
 ]
 
 extraGameRoutes.forEach(([routePath, title, description, heading, content]) => ROUTES.push({ path: routePath, title, description, heading, content, priority: '0.6', changefreq: 'monthly', indexable: true, schemaType: 'game', parent: { name: 'Games', path: '/games/' } }))
@@ -113,7 +116,7 @@ personagens.forEach((personagem, i) => {
   const outros = personagens.filter(p => p.id !== personagem.id).slice(0, 5)
   ROUTES.push({
     path: `/personagens/${personagem.id}`,
-    title: `${personagem.nome} — personagem de Illusion Fight`,
+    title: `${personagem.nome} — Illusion Fight character`,
     description: personagem.descricaoBreve,
     heading: personagem.nomeCompleto || personagem.nome,
     content: personagem.descricaoCompleta,
@@ -122,21 +125,21 @@ personagens.forEach((personagem, i) => {
       personagem.descricaoBreve,
     ].filter(Boolean),
     facts: [
-      ['Apelido', personagem.apelido],
-      ['Idade', personagem.idade],
-      ['Grupo', personagem.grupo],
-      ['Arma', personagem.arma],
-      ['Estilo de combate', personagem.estilo],
-      ['Afinidade elemental', personagem.elemental],
+      ['Nickname', personagem.apelido],
+      ['Age', personagem.idade],
+      ['Group', personagem.grupo],
+      ['Weapon', personagem.arma],
+      ['Fighting style', personagem.estilo],
+      ['Elemental affinity', personagem.elemental],
       ['Ranking', personagem.ranking],
     ],
     related: [
       ...outros.map(p => ({ name: p.nome, path: `/personagens/${p.id}/` })),
-      { name: 'Todos os personagens', path: '/personagens/' },
-      { name: 'Ler as histórias', path: '/historias/' },
+      { name: 'All characters', path: '/personagens/' },
+      { name: 'Read the stories', path: '/historias/' },
     ],
     priority: '0.8', changefreq: 'monthly', indexable: true, schemaType: 'character', image: personagem.imagem,
-    parent: { name: 'Personagens', path: '/personagens/' },
+    parent: { name: 'Characters', path: '/personagens/' },
   })
 })
 
@@ -145,38 +148,38 @@ capitulos.forEach((capitulo, i) => {
   const proximo = capitulos[i + 1]
   ROUTES.push({
     path: `/historias/lutas-de-ilusao/${capitulo.id}`,
-    title: `${capitulo.titulo} — livro Illusion Fight, capítulo ${capitulo.numero}`,
-    description: capitulo.resumo_pt || capitulo.tagline_pt,
-    heading: `Capítulo ${capitulo.numero} — ${capitulo.titulo}`,
-    content: capitulo.resumo_pt || capitulo.tagline_pt,
+    title: `${capitulo.titulo_en || capitulo.titulo} — Illusion Fight novel, chapter ${capitulo.numero}`,
+    description: capitulo.resumo_en || capitulo.tagline_en || capitulo.resumo_pt,
+    heading: `Chapter ${capitulo.numero} — ${capitulo.titulo_en || capitulo.titulo}`,
+    content: capitulo.resumo_en || capitulo.tagline_en || capitulo.resumo_pt,
     extra: [
-      capitulo.tagline_pt,
-      'Leia online e de graça em português. Versões em inglês e espanhol também estão disponíveis no portal Illusion Fight.',
+      capitulo.tagline_en,
+      'Read it online for free in English. Portuguese and Spanish versions are also available on Illusion Fight.',
     ].filter(Boolean),
     related: [
-      anterior && { name: `Capítulo ${anterior.numero} — ${anterior.titulo}`, path: `/historias/lutas-de-ilusao/${anterior.id}/` },
-      proximo && { name: `Capítulo ${proximo.numero} — ${proximo.titulo}`, path: `/historias/lutas-de-ilusao/${proximo.id}/` },
-      { name: 'Todos os capítulos', path: '/historias/lutas-de-ilusao/' },
+      anterior && { name: `Chapter ${anterior.numero} — ${anterior.titulo_en || anterior.titulo}`, path: `/historias/lutas-de-ilusao/${anterior.id}/` },
+      proximo && { name: `Chapter ${proximo.numero} — ${proximo.titulo_en || proximo.titulo}`, path: `/historias/lutas-de-ilusao/${proximo.id}/` },
+      { name: 'All chapters', path: '/historias/lutas-de-ilusao/' },
     ].filter(Boolean),
     lastmod: pastOr(capitulo.liberacao.publico),
     priority: '0.9', changefreq: 'monthly', indexable: true, schemaType: 'chapter', datePublished: capitulo.liberacao.publico,
-    parent: { name: 'Livro — Lutas de Ilusão', path: '/historias/lutas-de-ilusao/' },
+    parent: { name: 'The Novel — Illusion Fight', path: '/historias/lutas-de-ilusao/' },
   })
 })
 
 episodios.filter(episodio => episodio.paginas).forEach(episodio => ROUTES.push({
   path: `/webtoon/${episodio.id}`,
-  title: `${episodio.titulo_pt} — WEB SHARD Lutas de Ilusão, capítulo ${episodio.numero} | Illusion Fight`,
-  description: episodio.descricao_pt,
-  heading: `Capítulo ${episodio.numero} — ${episodio.titulo_pt}`,
-  content: episodio.descricao_pt,
+  title: `${episodio.titulo_en || episodio.titulo_pt} — Illusion Fight WEB SHARD, chapter ${episodio.numero}`,
+  description: episodio.descricao_en || episodio.descricao_pt,
+  heading: `Chapter ${episodio.numero} — ${episodio.titulo_en || episodio.titulo_pt}`,
+  content: episodio.descricao_en || episodio.descricao_pt,
   extra: [
-    episodio.frase_pt,
-    'Leia online este capítulo do WEB SHARD brasileiro de ação e ficção científica Illusion Fight, em português, inglês e espanhol.',
+    episodio.frase_en,
+    'Read this chapter of Illusion Fight, the Brazilian action and sci-fi WEB SHARD, online in English, Portuguese and Spanish.',
   ].filter(Boolean),
   related: [
-    { name: 'Todos os capítulos', path: '/webtoon/lutas-de-ilusao/' },
-    { name: 'Conheça os personagens', path: '/personagens/' },
+    { name: 'All chapters', path: '/webtoon/lutas-de-ilusao/' },
+    { name: 'Meet the characters', path: '/personagens/' },
   ],
   lastmod: pastOr(episodio.data_publicacao),
   priority: '0.9', changefreq: 'monthly', indexable: true, schemaType: 'webtoon', datePublished: episodio.data_publicacao,
@@ -204,14 +207,14 @@ const canonicalUrl = route => `${SITE_URL}${route.path}/`
 const replace = (html, pattern, value) => html.replace(pattern, value)
 
 function schemaFor(route, url) {
-  const common = { name: route.heading, description: route.description, url, inLanguage: 'pt-BR' }
+  const common = { name: route.heading, description: route.description, url, inLanguage: 'en' }
   if (route.schemaType === 'character') return { '@type': 'ProfilePage', ...common, mainEntity: { '@type': 'Person', name: route.heading, description: route.description } }
-  if (route.schemaType === 'chapter') return { '@type': 'Chapter', ...common, datePublished: route.datePublished, isPartOf: { '@type': 'Book', name: 'Illusion Fight — Lutas de Ilusão', author: { '@type': 'Person', name: 'Isaias Leal' }, url: `${SITE_URL}/historias/lutas-de-ilusao/` } }
+  if (route.schemaType === 'chapter') return { '@type': 'Chapter', ...common, datePublished: route.datePublished, isPartOf: { '@type': 'Book', name: 'Illusion Fight', author: { '@type': 'Person', name: 'Isaias Leal' }, url: `${SITE_URL}/historias/lutas-de-ilusao/` } }
   if (route.schemaType === 'webtoon') return { '@type': 'ComicStory', ...common, datePublished: route.datePublished, isPartOf: { '@type': 'ComicSeries', name: 'Illusion Fight', author: { '@type': 'Person', name: 'Isaias Leal' }, url: `${SITE_URL}/webtoon/` } }
   if (route.schemaType === 'game' || route.path.startsWith('/games/')) return { '@type': 'VideoGame', ...common, gamePlatform: 'Web Browser', playMode: 'SinglePlayer', genre: ['Indie game', 'Action', 'Strategy'] }
   if (route.path === '/historias/lutas-de-ilusao') return { '@type': 'Book', ...common, author: { '@type': 'Person', name: 'Isaias Leal' }, genre: ['Action fiction', 'Science fiction', 'Web novel'] }
   if (route.path === '/historias/mundo-das-sombras' || route.path === '/historias/mar-de-cinzas') return { '@type': 'Book', ...common, author: { '@type': 'Person', name: 'Isaias Leal' }, genre: ['Dark fantasy', 'Fiction'] }
-  if (route.path === '/webtoon') return { '@type': 'ComicSeries', ...common, author: { '@type': 'Person', name: 'Isaias Leal' }, genre: ['Action', 'Science fiction', 'Brazilian webtoon'] }
+  if (route.path === '/webtoon') return { '@type': 'ComicSeries', ...common, author: { '@type': 'Person', name: 'Isaias Leal' }, genre: ['Action', 'Science fiction', 'Webcomic'] }
   if (route.path === '') return { '@type': 'WebSite', ...common, publisher: { '@type': 'Organization', name: 'Illusion Fight', url: SITE_URL } }
   return { '@type': 'WebPage', ...common }
 }
@@ -224,11 +227,11 @@ function breadcrumbFor(route, url) {
 }
 
 const SITE_NAV = [
-  ['/historias/', 'Histórias'],
-  ['/webtoon/', 'Webtoon'],
+  ['/historias/', 'Stories'],
+  ['/webtoon/', 'WEB SHARD'],
   ['/games/', 'Games'],
-  ['/personagens/', 'Personagens'],
-  ['/universos/', 'Universos'],
+  ['/personagens/', 'Characters'],
+  ['/universos/', 'Universes'],
 ]
 
 function staticContent(route, heroImage = '') {
@@ -249,9 +252,9 @@ function staticContent(route, heroImage = '') {
     : ''
   const related = (route.related || []).filter(item => item && item.path && item.name)
   const relatedNav = related.length
-    ? `<nav aria-label="Veja também"><h2>Veja também</h2><ul>${related.map(item => `<li><a href="${item.path}">${escapeHtml(item.name)}</a></li>`).join('')}</ul></nav>`
+    ? `<nav aria-label="See also"><h2>See also</h2><ul>${related.map(item => `<li><a href="${item.path}">${escapeHtml(item.name)}</a></li>`).join('')}</ul></nav>`
     : ''
-  return `<main data-seo-static${homeClass}>${hero}<nav aria-label="Navegação estrutural"><a href="/">Illusion Fight</a> · ${parentLink}${navLinks}</nav><article><h1>${escapeHtml(route.heading)}</h1>${paragraphs}${factList}</article>${relatedNav}</main>`
+  return `<main data-seo-static${homeClass}>${hero}<nav aria-label="Breadcrumb"><a href="/">Illusion Fight</a> · ${parentLink}${navLinks}</nav><article><h1>${escapeHtml(route.heading)}</h1>${paragraphs}${factList}</article>${relatedNav}</main>`
 }
 
 function pageHtml(baseHtml, route) {
@@ -284,7 +287,7 @@ function writeRoute(route, html) {
 
 function redirectHtml(route) {
   const target = `${SITE_URL}${route.target}`
-  return `<!doctype html><html lang="pt-BR"><head><meta charset="UTF-8"><meta http-equiv="refresh" content="0; url=${target}"><meta name="robots" content="noindex, follow"><link rel="canonical" href="${target}"><title>Redirecionando — Illusion Fight</title></head><body><p>Redirecionando para <a href="${target}">Illusion Fight</a>.</p></body></html>`
+  return `<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="refresh" content="0; url=${target}"><meta name="robots" content="noindex, follow"><link rel="canonical" href="${target}"><title>Redirecting — Illusion Fight</title></head><body><p>Redirecionando para <a href="${target}">Illusion Fight</a>.</p></body></html>`
 }
 
 function sitemapXml() {
@@ -309,10 +312,10 @@ ROUTES.forEach(route => writeRoute(route, pageHtml(indexHtml, route)))
 REDIRECTS.forEach(route => writeRoute(route, redirectHtml(route)))
 const homeRoute = {
   path: '',
-  title: 'Illusion Fight — WEB SHARD, Games e Histórias Grátis',
-  description: 'Explore Illusion Fight, um universo brasileiro de ação com WEB SHARD grátis (quadrinho vertical), jogos online grátis e histórias em capítulos — webcomic, personagens, música e mais.',
-  heading: 'Illusion Fight: WEB SHARD, jogos e histórias no mesmo universo',
-  content: 'Descubra uma história brasileira de ação e ficção científica. Leia online e de graça o WEB SHARD e as histórias em capítulos, conheça os personagens e jogue de graça no universo Lutas de Ilusão: RPG tático, jogo de cartas, minigames e mais — direto no navegador.',
+  title: 'Illusion Fight — Free WEB SHARD Comics, Games and Stories',
+  description: 'Explore Illusion Fight, a Brazilian action universe with free WEB SHARD comics (vertical webcomic), free online games and stories in chapters — characters, music and more.',
+  heading: 'Illusion Fight: WEB SHARD comics, games and stories in one universe',
+  content: 'Discover a Brazilian action and science fiction story. Read the WEB SHARD comic and the chapter-by-chapter stories online for free, meet the characters and play for free in the Illusion Fight universe: tactical RPG, card game, minigames and more — right in your browser.',
 }
 fs.writeFileSync(INDEX_PATH, pageHtml(indexHtml, homeRoute))
 const sitemap = sitemapXml()
