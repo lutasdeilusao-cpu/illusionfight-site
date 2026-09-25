@@ -8,7 +8,7 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.287.0' // feat(marca): "Webtoon" some do texto visível e dos metadados de TODAS as rotas — vira WEB SHARD no menu, rodapé, Home, hero, perfil, custos, autor, títulos/descrições de link (prerender, index.html, i18n pt/en/es). Ficam de propósito: a rota /webtoon (URL indexada), a comparação "Não é webtoon. É WEB SHARD."/FAQ, o link da plataforma Webtoon Canvas e a palavra-chave oculta pra busca. Rodapé: logo 40→88px, centralizada.
+export const SITE_VERSION = '10.287.1' // chore(webshard): sinopse nova do Lutas de Ilusão (versão longa na página da obra em parágrafos, curta em meta/prerender/card), 2030 → 2XXX, pt/en/es
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.2' // fix: aba "stories" do rodape mostrava a chave crua pp.menu.pistas_label (nao existia) -> aponta pra pp.dossier.pistas_label; PuzzleWrapper mostrava pp.puzzle.nenhum/instrucao (nao existiam) -> pp.local.puzzle_nenhum/instrucao; confirm() de deletar save mostrava pp.menu.deletar_slot cru -> chave criada nos 3 idiomas.

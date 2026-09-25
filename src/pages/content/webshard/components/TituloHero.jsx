@@ -26,7 +26,7 @@ export default function TituloHero({ titulo, texto, eyebrow, as: Titulo = 'h2', 
           ))}
           <span className="ws-hero__selo">{t('webShard.titulo.classificacao', { n: titulo.classificacao })}</span>
         </div>
-        {texto && <p className="ws-hero__texto">{texto}</p>}
+        {texto && texto.split('\n\n').map((p, i) => <p key={i} className="ws-hero__texto">{p}</p>)}
         {children && <div className="ws-hero__acoes">{children}</div>}
       </div>
     </section>

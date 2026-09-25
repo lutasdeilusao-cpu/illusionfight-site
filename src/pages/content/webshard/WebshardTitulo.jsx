@@ -30,7 +30,7 @@ export default function WebshardTitulo({ titulo }) {
     <>
       <Helmet>
         <title>{t('webShard.titulo.meta_title', { nome })}</title>
-        <meta name="description" content={localizado(titulo, 'sinopse', locale)} />
+        <meta name="description" content={localizado(titulo, 'sinopse_curta', locale) || localizado(titulo, 'sinopse', locale)} />
         <meta property="og:title" content={t('webShard.titulo.meta_title', { nome })} />
         <meta property="og:description" content={localizado(titulo, 'tagline', locale)} />
         <meta property="og:url" content={url} />

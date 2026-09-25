@@ -113,3 +113,8 @@
 }
 
 .ws-hero__acoes .if-btn { flex: 1 1 auto; }
+
+/* sinopse em vários parágrafos */
+.ws-hero__texto + .ws-hero__texto {
+  margin-top: 0.6em;
+}

@@ -135,8 +135,8 @@
     "semantic_hash": "8d5b3b5a815f883f1cdfad6d40ecb4bc"
   },
   "scripts/prerender-routes.js": {
-    "mtime": 1790300025.8709178,
-    "ast_hash": "e4cf68a3bb66f138d978b28308ac7f6b",
+    "mtime": 1790307402.6634555,
+    "ast_hash": "c80e3d23e68e0834ede17695207e31e8",
     "semantic_hash": ""
   },
   "scripts/run-migration.js": {
@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1790307183.0150425,
-    "ast_hash": "bda6dc5d7fcd351ac876f3792d55eaa6",
+    "mtime": 1790307428.8259919,
+    "ast_hash": "ad31e65cb7c40ef5014ae84ddba3c9d7",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2735,8 +2735,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1790307183.0160341,
-    "ast_hash": "bc3b8b4737c2c0c84c6af3e8961f6b8c",
+    "mtime": 1790307428.8279994,
+    "ast_hash": "40e2c9be3e6f33082edaee5f755af8a2",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3075,8 +3075,8 @@
     "semantic_hash": ""
   },
   "index.html": {
-    "mtime": 1790307116.3148942,
-    "ast_hash": "02a20a0a8eb4ae99bfa64a988b9a54c6",
+    "mtime": 1790307402.6634555,
+    "ast_hash": "28bbdd7b63d7cf61bb0a2f0f2afd7ee4",
     "semantic_hash": ""
   },
   "public/404.html": {
@@ -4595,18 +4595,18 @@
     "semantic_hash": ""
   },
   "src/i18n/core/en.json": {
-    "mtime": 1790306420.3219926,
-    "ast_hash": "e9b4fcde703e555c9d6968d61e9b12b7",
+    "mtime": 1790307402.6291893,
+    "ast_hash": "297e688067ea4eea11df738345269046",
     "semantic_hash": ""
   },
   "src/i18n/core/es.json": {
-    "mtime": 1790306420.3239849,
-    "ast_hash": "6d9556775a3e18e8fbc4b36f3ce0c7ae",
+    "mtime": 1790307402.6313243,
+    "ast_hash": "3dd0e2b061ed68ec1070ac208b993745",
     "semantic_hash": ""
   },
   "src/i18n/core/pt.json": {
-    "mtime": 1790306420.3199842,
-    "ast_hash": "1f9c10a81268685f2c9b95ff78faa3bd",
+    "mtime": 1790307402.627104,
+    "ast_hash": "4627d95344fd3cf8b6ce96a9c4378f12",
     "semantic_hash": ""
   },
   "src/i18n/games/en.json": {
@@ -5520,8 +5520,8 @@
     "semantic_hash": ""
   },
   "src/pages/site/WebShard.jsx": {
-    "mtime": 1790307116.3500519,
-    "ast_hash": "f2c01a4693d6d4cf70a8627dfea00e45",
+    "mtime": 1790307428.8259919,
+    "ast_hash": "bc0357ca7959a8722eb1b1c61bee844e",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/cena/GanguesAgiotagem.jsx": {
