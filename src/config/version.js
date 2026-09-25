@@ -8,7 +8,7 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.290.1' // chore(mar-de-cinzas): banner oficial vira a capa principal da obra; key art segue como capa do Cap. 1
+export const SITE_VERSION = '10.290.2' // fix(pwa): ícones do app instalado com nome novo (icon-if-*) pra forçar o Chrome a atualizar o WebAPK + versão maskable com fundo escuro; apple-touch-icon idem
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.2' // fix: aba "stories" do rodape mostrava a chave crua pp.menu.pistas_label (nao existia) -> aponta pra pp.dossier.pistas_label; PuzzleWrapper mostrava pp.puzzle.nenhum/instrucao (nao existiam) -> pp.local.puzzle_nenhum/instrucao; confirm() de deletar save mostrava pp.menu.deletar_slot cru -> chave criada nos 3 idiomas.
