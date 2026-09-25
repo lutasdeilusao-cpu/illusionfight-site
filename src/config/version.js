@@ -8,7 +8,7 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.287.1' // chore(webshard): sinopse nova do Lutas de Ilusão (versão longa na página da obra em parágrafos, curta em meta/prerender/card), 2030 → 2XXX, pt/en/es
+export const SITE_VERSION = '10.287.2' // fix(webshard): miniatura do capítulo em retrato (proporção da capa) + capa por idioma (pt/en/es, página 1 de cada idioma) no card, continuar lendo e fim do leitor
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.2' // fix: aba "stories" do rodape mostrava a chave crua pp.menu.pistas_label (nao existia) -> aponta pra pp.dossier.pistas_label; PuzzleWrapper mostrava pp.puzzle.nenhum/instrucao (nao existiam) -> pp.local.puzzle_nenhum/instrucao; confirm() de deletar save mostrava pp.menu.deletar_slot cru -> chave criada nos 3 idiomas.

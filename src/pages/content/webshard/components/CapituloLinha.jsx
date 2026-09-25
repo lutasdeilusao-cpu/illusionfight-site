@@ -37,7 +37,7 @@ export default function CapituloLinha({ titulo, cap, liberado, data, nivel, prog
   const miolo = (
     <>
       <span className="ws-cap__thumb">
-        {temConteudo && <img src={miniaturaCapitulo(titulo, cap)} alt="" loading="lazy" decoding="async" />}
+        {temConteudo && <img src={miniaturaCapitulo(titulo, cap, locale)} alt="" loading="lazy" decoding="async" />}
         <span className="ws-cap__num">{numeroCapitulo(cap)}</span>
       </span>
       <span className="ws-cap__corpo">

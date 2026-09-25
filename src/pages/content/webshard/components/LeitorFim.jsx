@@ -30,7 +30,7 @@ export default function LeitorFim({ titulo, cap, proximo, proximoLiberado, proxi
         <div className="ws-fim__bloco">
           {proximoReal && proximoLiberado ? (
             <Link to={rotaCapitulo(titulo, proximo)} className="ws-fim__proximo">
-              <img src={miniaturaCapitulo(titulo, proximo)} alt="" decoding="async" loading="lazy" />
+              <img src={miniaturaCapitulo(titulo, proximo, locale)} alt="" decoding="async" loading="lazy" />
               <span className="ws-fim__proximo-corpo">
                 <span className="if-eyebrow">{t('webShard.leitor.proximo')}</span>
                 <span className="ws-fim__proximo-nome">

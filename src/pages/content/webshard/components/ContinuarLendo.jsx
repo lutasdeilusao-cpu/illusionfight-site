@@ -18,7 +18,7 @@ export default function ContinuarLendo({ titulo, progresso, liberado }) {
 
   return (
     <Link to={rotaCapitulo(titulo, cap)} className="ws-continuar" style={{ '--ws-cor': titulo.cor, '--pct': `${pct}%` }}>
-      <img className="ws-continuar__thumb" src={miniaturaCapitulo(titulo, cap)} alt="" decoding="async" />
+      <img className="ws-continuar__thumb" src={miniaturaCapitulo(titulo, cap, locale)} alt="" decoding="async" />
       <span className="ws-continuar__corpo">
         <span className="if-eyebrow">{t('webShard.continuar.eyebrow')}</span>
         <span className="ws-continuar__nome">{localizado(cap, 'titulo', locale)}</span>

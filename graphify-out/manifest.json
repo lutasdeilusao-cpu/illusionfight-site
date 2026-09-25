@@ -135,8 +135,8 @@
     "semantic_hash": "8d5b3b5a815f883f1cdfad6d40ecb4bc"
   },
   "scripts/prerender-routes.js": {
-    "mtime": 1790307402.6634555,
-    "ast_hash": "c80e3d23e68e0834ede17695207e31e8",
+    "mtime": 1790347929.5449688,
+    "ast_hash": "0e4f7bbaf8eaabe4b65be33187df0e94",
     "semantic_hash": ""
   },
   "scripts/run-migration.js": {
@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1790307428.8259919,
-    "ast_hash": "ad31e65cb7c40ef5014ae84ddba3c9d7",
+    "mtime": 1790347929.54693,
+    "ast_hash": "5e4db8d13de3850d1ce7681d98605eff",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2735,8 +2735,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1790307428.8279994,
-    "ast_hash": "40e2c9be3e6f33082edaee5f755af8a2",
+    "mtime": 1790347929.54693,
+    "ast_hash": "61cc1e02827fbfd743be22258460a6d8",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -4595,18 +4595,18 @@
     "semantic_hash": ""
   },
   "src/i18n/core/en.json": {
-    "mtime": 1790307402.6291893,
-    "ast_hash": "297e688067ea4eea11df738345269046",
+    "mtime": 1790347898.9679527,
+    "ast_hash": "8052a042d5e9fd3d35438d4a84914733",
     "semantic_hash": ""
   },
   "src/i18n/core/es.json": {
-    "mtime": 1790307402.6313243,
-    "ast_hash": "3dd0e2b061ed68ec1070ac208b993745",
+    "mtime": 1790347898.9739504,
+    "ast_hash": "a8fca86d4ca7cfe2a5edc32e703b2d50",
     "semantic_hash": ""
   },
   "src/i18n/core/pt.json": {
-    "mtime": 1790307402.627104,
-    "ast_hash": "4627d95344fd3cf8b6ce96a9c4378f12",
+    "mtime": 1790347898.9619482,
+    "ast_hash": "c9d7cd6d7caa0dce5d6abf9212b013db",
     "semantic_hash": ""
   },
   "src/i18n/games/en.json": {
@@ -5540,8 +5540,8 @@
     "semantic_hash": ""
   },
   "src/data/webshard-titulos.json": {
-    "mtime": 1790291723.433064,
-    "ast_hash": "4a1b32b69550342b3ab990608df770fb",
+    "mtime": 1790347898.9609454,
+    "ast_hash": "3a441ecdb5f66fd2fd1415466dd6e067",
     "semantic_hash": ""
   },
   "src/hooks/useWebshardAcesso.js": {
@@ -5580,8 +5580,8 @@
     "semantic_hash": ""
   },
   "src/pages/content/webshard/WebshardTitulo.jsx": {
-    "mtime": 1790306420.315984,
-    "ast_hash": "954a4abfef674a8fc95369bf96a39f7c",
+    "mtime": 1790347908.2980216,
+    "ast_hash": "658d7ac8b40a5003243298a486862314",
     "semantic_hash": ""
   },
   "src/pages/content/webshard/components/CapituloLinha.jsx": {
@@ -5625,8 +5625,8 @@
     "semantic_hash": ""
   },
   "src/pages/content/webshard/components/TituloHero.jsx": {
-    "mtime": 1790291918.7426488,
-    "ast_hash": "7c952e582392ba7049ba429eec513ae7",
+    "mtime": 1790347915.6356783,
+    "ast_hash": "cde7c1c2349c6366f67a2f5a42ed967d",
     "semantic_hash": ""
   },
   "src/pages/content/webshard/hooks/useBarraAutoOculta.js": {

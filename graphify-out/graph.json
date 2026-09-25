@@ -614,14 +614,54 @@
       "norm_label": "version.js"
     },
     {
+      "label": "WebshardTitulo.jsx",
+      "file_type": "code",
+      "source_file": "src/pages/content/webshard/WebshardTitulo.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_pages_content_webshard_webshardtitulo",
+      "community": 485,
+      "norm_label": "webshardtitulo.jsx"
+    },
+    {
+      "label": "WebshardTitulo()",
+      "file_type": "code",
+      "source_file": "src/pages/content/webshard/WebshardTitulo.jsx",
+      "source_location": "L17",
+      "_origin": "ast",
+      "id": "src_pages_content_webshard_webshardtitulo_webshardtitulo",
+      "community": 485,
+      "norm_label": "webshardtitulo()"
+    },
+    {
+      "label": "TituloHero.jsx",
+      "file_type": "code",
+      "source_file": "src/pages/content/webshard/components/TituloHero.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_pages_content_webshard_components_titulohero",
+      "community": 485,
+      "norm_label": "titulohero.jsx"
+    },
+    {
+      "label": "TituloHero()",
+      "file_type": "code",
+      "source_file": "src/pages/content/webshard/components/TituloHero.jsx",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "src_pages_content_webshard_components_titulohero_titulohero",
+      "community": 485,
+      "norm_label": "titulohero()"
+    },
+    {
       "label": "WebShard.jsx",
       "file_type": "code",
       "source_file": "src/pages/site/WebShard.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_pages_site_webshard",
       "community": 301,
-      "norm_label": "webshard.jsx"
+      "norm_label": "webshard.jsx",
+      "id": "src_pages_site_webshard"
     },
     {
       "label": "WebShard()",
@@ -629,9 +669,9 @@
       "source_file": "src/pages/site/WebShard.jsx",
       "source_location": "L16",
       "_origin": "ast",
-      "id": "src_pages_site_webshard_webshard",
       "community": 301,
-      "norm_label": "webshard()"
+      "norm_label": "webshard()",
+      "id": "src_pages_site_webshard_webshard"
     },
     {
       "label": "Contos.jsx",
@@ -1352,26 +1392,6 @@
       "community": 17,
       "norm_label": "webshardleitor()",
       "id": "src_pages_content_webshard_webshardleitor_webshardleitor"
-    },
-    {
-      "label": "WebshardTitulo.jsx",
-      "file_type": "code",
-      "source_file": "src/pages/content/webshard/WebshardTitulo.jsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 17,
-      "norm_label": "webshardtitulo.jsx",
-      "id": "src_pages_content_webshard_webshardtitulo"
-    },
-    {
-      "label": "WebshardTitulo()",
-      "file_type": "code",
-      "source_file": "src/pages/content/webshard/WebshardTitulo.jsx",
-      "source_location": "L17",
-      "_origin": "ast",
-      "community": 17,
-      "norm_label": "webshardtitulo()",
-      "id": "src_pages_content_webshard_webshardtitulo_webshardtitulo"
     },
     {
       "label": "CapituloLinha.jsx",
@@ -2874,26 +2894,6 @@
       "id": "src_pages_content_webshard_components_titulocard_titulocard"
     },
     {
-      "label": "TituloHero.jsx",
-      "file_type": "code",
-      "source_file": "src/pages/content/webshard/components/TituloHero.jsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 17,
-      "norm_label": "titulohero.jsx",
-      "id": "src_pages_content_webshard_components_titulohero"
-    },
-    {
-      "label": "TituloHero()",
-      "file_type": "code",
-      "source_file": "src/pages/content/webshard/components/TituloHero.jsx",
-      "source_location": "L9",
-      "_origin": "ast",
-      "community": 17,
-      "norm_label": "titulohero()",
-      "id": "src_pages_content_webshard_components_titulohero_titulohero"
-    },
-    {
       "label": "useBarraAutoOculta.js",
       "file_type": "code",
       "source_file": "src/pages/content/webshard/hooks/useBarraAutoOculta.js",
@@ -3059,7 +3059,7 @@
       "source_file": "src/pages/games/ArenaTatics/screens/SimulacaoAuto.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 31,
+      "community": 484,
       "norm_label": "simulacaoauto.jsx",
       "id": "src_pages_games_arenatatics_screens_simulacaoauto"
     },
@@ -3069,7 +3069,7 @@
       "source_file": "src/pages/games/ArenaTatics/screens/SimulacaoAuto.jsx",
       "source_location": "L7",
       "_origin": "ast",
-      "community": 31,
+      "community": 484,
       "norm_label": "emoji",
       "id": "src_pages_games_arenatatics_screens_simulacaoauto_emoji"
     },
@@ -3079,7 +3079,7 @@
       "source_file": "src/pages/games/ArenaTatics/screens/SimulacaoAuto.jsx",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 31,
+      "community": 484,
       "norm_label": "simulacaoauto()",
       "id": "src_pages_games_arenatatics_screens_simulacaoauto_simulacaoauto"
     },
@@ -16839,7 +16839,7 @@
       "source_file": "src/pages/games/ArenaTatics/ArenaTaticsRoute.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 31,
+      "community": 484,
       "norm_label": "arenataticsroute.jsx",
       "id": "src_pages_games_arenatatics_arenataticsroute"
     },
@@ -16849,7 +16849,7 @@
       "source_file": "src/pages/games/ArenaTatics/ArenaTaticsRoute.jsx",
       "source_location": "L27",
       "_origin": "ast",
-      "community": 31,
+      "community": 484,
       "norm_label": "randompick()",
       "id": "src_pages_games_arenatatics_arenataticsroute_randompick"
     },
@@ -16859,7 +16859,7 @@
       "source_file": "src/pages/games/ArenaTatics/ArenaTaticsRoute.jsx",
       "source_location": "L32",
       "_origin": "ast",
-      "community": 31,
+      "community": 484,
       "norm_label": "arenataticsroute()",
       "id": "src_pages_games_arenatatics_arenataticsroute_arenataticsroute"
     },
@@ -16969,7 +16969,7 @@
       "source_file": "src/pages/games/ArenaTatics/components/DanoPopup.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 59,
+      "community": 482,
       "norm_label": "danopopup.jsx",
       "id": "src_pages_games_arenatatics_components_danopopup"
     },
@@ -16979,7 +16979,7 @@
       "source_file": "src/pages/games/ArenaTatics/components/DanoPopup.jsx",
       "source_location": "L3",
       "_origin": "ast",
-      "community": 59,
+      "community": 482,
       "norm_label": "danopopup()",
       "id": "src_pages_games_arenatatics_components_danopopup_danopopup"
     },
@@ -17309,7 +17309,7 @@
       "source_file": "src/pages/games/ArenaTatics/components/StatusBar.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 59,
+      "community": 482,
       "norm_label": "statusbar.jsx",
       "id": "src_pages_games_arenatatics_components_statusbar"
     },
@@ -17319,7 +17319,7 @@
       "source_file": "src/pages/games/ArenaTatics/components/StatusBar.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 59,
+      "community": 482,
       "norm_label": "status_icons",
       "id": "src_pages_games_arenatatics_components_statusbar_status_icons"
     },
@@ -17329,7 +17329,7 @@
       "source_file": "src/pages/games/ArenaTatics/components/StatusBar.jsx",
       "source_location": "L8",
       "_origin": "ast",
-      "community": 59,
+      "community": 482,
       "norm_label": "statusbar()",
       "id": "src_pages_games_arenatatics_components_statusbar_statusbar"
     },
@@ -17569,7 +17569,7 @@
       "source_file": "src/pages/games/ArenaTatics/data/aiPersonalities.js",
       "source_location": "L395",
       "_origin": "ast",
-      "community": 59,
+      "community": 482,
       "norm_label": "sortearias()",
       "id": "src_pages_games_arenatatics_data_aipersonalities_sortearias"
     },
@@ -18229,7 +18229,7 @@
       "source_file": "src/pages/games/ArenaTatics/data/juice.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 19,
+      "community": 59,
       "norm_label": "juice.js",
       "id": "src_pages_games_arenatatics_data_juice"
     },
@@ -18239,7 +18239,7 @@
       "source_file": "src/pages/games/ArenaTatics/data/juice.js",
       "source_location": "L7",
       "_origin": "ast",
-      "community": 19,
+      "community": 59,
       "norm_label": "shake_profiles",
       "id": "src_pages_games_arenatatics_data_juice_shake_profiles"
     },
@@ -18269,7 +18269,7 @@
       "source_file": "src/pages/games/ArenaTatics/data/levelProgression.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 61,
+      "community": 483,
       "norm_label": "levelprogression.js",
       "id": "src_pages_games_arenatatics_data_levelprogression"
     },
@@ -18279,7 +18279,7 @@
       "source_file": "src/pages/games/ArenaTatics/data/levelProgression.js",
       "source_location": "L21",
       "_origin": "ast",
-      "community": 61,
+      "community": 483,
       "norm_label": "base_l1",
       "id": "src_pages_games_arenatatics_data_levelprogression_base_l1"
     },
@@ -18289,7 +18289,7 @@
       "source_file": "src/pages/games/ArenaTatics/data/levelProgression.js",
       "source_location": "L25",
       "_origin": "ast",
-      "community": 61,
+      "community": 483,
       "norm_label": "skills_lv50",
       "id": "src_pages_games_arenatatics_data_levelprogression_skills_lv50"
     },
@@ -18299,7 +18299,7 @@
       "source_file": "src/pages/games/ArenaTatics/data/levelProgression.js",
       "source_location": "L48",
       "_origin": "ast",
-      "community": 61,
+      "community": 483,
       "norm_label": "skills_lv75",
       "id": "src_pages_games_arenatatics_data_levelprogression_skills_lv75"
     },
@@ -18309,7 +18309,7 @@
       "source_file": "src/pages/games/ArenaTatics/data/levelProgression.js",
       "source_location": "L72",
       "_origin": "ast",
-      "community": 61,
+      "community": 483,
       "norm_label": "skill_slots",
       "id": "src_pages_games_arenatatics_data_levelprogression_skill_slots"
     },
@@ -18319,7 +18319,7 @@
       "source_file": "src/pages/games/ArenaTatics/data/levelProgression.js",
       "source_location": "L78",
       "_origin": "ast",
-      "community": 61,
+      "community": 483,
       "norm_label": "calcatributosnonivel()",
       "id": "src_pages_games_arenatatics_data_levelprogression_calcatributosnonivel"
     },
@@ -18329,7 +18329,7 @@
       "source_file": "src/pages/games/ArenaTatics/data/levelProgression.js",
       "source_location": "L96",
       "_origin": "ast",
-      "community": 61,
+      "community": 483,
       "norm_label": "getskillsnonivel()",
       "id": "src_pages_games_arenatatics_data_levelprogression_getskillsnonivel"
     },
@@ -18339,7 +18339,7 @@
       "source_file": "src/pages/games/ArenaTatics/data/levelProgression.js",
       "source_location": "L130",
       "_origin": "ast",
-      "community": 61,
+      "community": 483,
       "norm_label": "getskillsevolutivas()",
       "id": "src_pages_games_arenatatics_data_levelprogression_getskillsevolutivas"
     },
@@ -18349,7 +18349,7 @@
       "source_file": "src/pages/games/ArenaTatics/data/levelProgression.js",
       "source_location": "L148",
       "_origin": "ast",
-      "community": 61,
+      "community": 483,
       "norm_label": "aplicarbonusevolucao()",
       "id": "src_pages_games_arenatatics_data_levelprogression_aplicarbonusevolucao"
     },
@@ -18359,7 +18359,7 @@
       "source_file": "src/pages/games/ArenaTatics/data/levelProgression.js",
       "source_location": "L171",
       "_origin": "ast",
-      "community": 61,
+      "community": 483,
       "norm_label": "aplicarbonushpsp()",
       "id": "src_pages_games_arenatatics_data_levelprogression_aplicarbonushpsp"
     },
@@ -18369,7 +18369,7 @@
       "source_file": "src/pages/games/ArenaTatics/data/levelProgression.js",
       "source_location": "L216",
       "_origin": "ast",
-      "community": 61,
+      "community": 483,
       "norm_label": "construirpersonagemnivelado()",
       "id": "src_pages_games_arenatatics_data_levelprogression_construirpersonagemnivelado"
     },
@@ -18419,7 +18419,7 @@
       "source_file": "src/pages/games/ArenaTatics/screens/Batalha.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 59,
+      "community": 482,
       "norm_label": "batalha.jsx",
       "id": "src_pages_games_arenatatics_screens_batalha"
     },
@@ -18429,7 +18429,7 @@
       "source_file": "src/pages/games/ArenaTatics/screens/Batalha.jsx",
       "source_location": "L24",
       "_origin": "ast",
-      "community": 59,
+      "community": 482,
       "norm_label": "getskills()",
       "id": "src_pages_games_arenatatics_screens_batalha_getskills"
     },
@@ -18439,7 +18439,7 @@
       "source_file": "src/pages/games/ArenaTatics/screens/Batalha.jsx",
       "source_location": "L31",
       "_origin": "ast",
-      "community": 59,
+      "community": 482,
       "norm_label": "getocupadas()",
       "id": "src_pages_games_arenatatics_screens_batalha_getocupadas"
     },
@@ -18449,7 +18449,7 @@
       "source_file": "src/pages/games/ArenaTatics/screens/Batalha.jsx",
       "source_location": "L39",
       "_origin": "ast",
-      "community": 59,
+      "community": 482,
       "norm_label": "getalcancemovimento()",
       "id": "src_pages_games_arenatatics_screens_batalha_getalcancemovimento"
     },
@@ -18459,7 +18459,7 @@
       "source_file": "src/pages/games/ArenaTatics/screens/Batalha.jsx",
       "source_location": "L52",
       "_origin": "ast",
-      "community": 59,
+      "community": 482,
       "norm_label": "temlinhavisao()",
       "id": "src_pages_games_arenatatics_screens_batalha_temlinhavisao"
     },
@@ -18469,7 +18469,7 @@
       "source_file": "src/pages/games/ArenaTatics/screens/Batalha.jsx",
       "source_location": "L63",
       "_origin": "ast",
-      "community": 59,
+      "community": 482,
       "norm_label": "getalvoocupadas()",
       "id": "src_pages_games_arenatatics_screens_batalha_getalvoocupadas"
     },
@@ -18479,7 +18479,7 @@
       "source_file": "src/pages/games/ArenaTatics/screens/Batalha.jsx",
       "source_location": "L70",
       "_origin": "ast",
-      "community": 59,
+      "community": 482,
       "norm_label": "getalcanceskill()",
       "id": "src_pages_games_arenatatics_screens_batalha_getalcanceskill"
     },
@@ -18489,7 +18489,7 @@
       "source_file": "src/pages/games/ArenaTatics/screens/Batalha.jsx",
       "source_location": "L86",
       "_origin": "ast",
-      "community": 59,
+      "community": 482,
       "norm_label": "estahemalcance()",
       "id": "src_pages_games_arenatatics_screens_batalha_estahemalcance"
     },
@@ -18499,7 +18499,7 @@
       "source_file": "src/pages/games/ArenaTatics/screens/Batalha.jsx",
       "source_location": "L91",
       "_origin": "ast",
-      "community": 59,
+      "community": 482,
       "norm_label": "calcularcaminho()",
       "id": "src_pages_games_arenatatics_screens_batalha_calcularcaminho"
     },
@@ -18509,7 +18509,7 @@
       "source_file": "src/pages/games/ArenaTatics/screens/Batalha.jsx",
       "source_location": "L133",
       "_origin": "ast",
-      "community": 59,
+      "community": 482,
       "norm_label": "getfaselabel()",
       "id": "src_pages_games_arenatatics_screens_batalha_getfaselabel"
     },
@@ -18519,7 +18519,7 @@
       "source_file": "src/pages/games/ArenaTatics/screens/Batalha.jsx",
       "source_location": "L156",
       "_origin": "ast",
-      "community": 59,
+      "community": 482,
       "norm_label": "batalha()",
       "id": "src_pages_games_arenatatics_screens_batalha_batalha"
     },
@@ -18769,7 +18769,7 @@
       "source_file": "src/pages/games/ArenaTatics/screens/Derrota.jsx",
       "source_location": "L5",
       "_origin": "ast",
-      "community": 31,
+      "community": 484,
       "norm_label": "derrota()",
       "id": "src_pages_games_arenatatics_screens_derrota_derrota"
     },
@@ -18969,7 +18969,7 @@
       "source_file": "src/pages/games/ArenaTatics/store/useArenaTaticsStore.js",
       "source_location": "L34",
       "_origin": "ast",
-      "community": 31,
+      "community": 484,
       "norm_label": "usearenataticsstore",
       "id": "src_pages_games_arenatatics_store_usearenataticsstore_usearenataticsstore"
     },
@@ -46909,14 +46909,56 @@
       "target": "src_config_version"
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/webshard/WebshardTitulo.jsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "src_pages_content_webshard_webshardtitulo",
+      "target": "src_pages_content_webshard_components_titulohero",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/webshard/WebshardTitulo.jsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "src_pages_content_webshard_webshardtitulo",
+      "target": "src_pages_content_webshard_components_titulohero_titulohero",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/webshard/WebshardTitulo.jsx",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "src_pages_content_webshard_webshardtitulo",
+      "target": "src_pages_content_webshard_webshardtitulo_webshardtitulo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/webshard/components/TituloHero.jsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "src_pages_content_webshard_components_titulohero",
+      "target": "src_pages_content_webshard_components_titulohero_titulohero",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/site/WebShard.jsx",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_site_webshard",
-      "target": "src_pages_site_webshard_webshard",
-      "confidence_score": 1.0
+      "target": "src_pages_site_webshard_webshard"
     },
     {
       "relation": "contains",
@@ -47657,17 +47699,6 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/webshard/components/TituloHero.jsx",
-      "source_location": "L2",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_webshard_components_titulohero",
-      "target": "src_lib_webshard_catalogo"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
       "source_file": "src/pages/content/webshard/WebshardLeitor.jsx",
       "source_location": "L13",
       "weight": 1.0,
@@ -47684,17 +47715,6 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "src_pages_content_webshard_webshardrota",
-      "target": "src_lib_webshard_catalogo"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/webshard/WebshardTitulo.jsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_webshard_webshardtitulo",
       "target": "src_lib_webshard_catalogo"
     },
     {
@@ -47822,28 +47842,6 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/webshard/components/TituloHero.jsx",
-      "source_location": "L2",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_webshard_components_titulohero",
-      "target": "src_lib_webshard_catalogo_localizado"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/content/webshard/components/TituloHero.jsx",
-      "source_location": "L12",
-      "weight": 1.0,
-      "source": "src_pages_content_webshard_components_titulohero_titulohero",
-      "target": "src_lib_webshard_catalogo_localizado"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
       "source_file": "src/pages/content/webshard/WebshardLeitor.jsx",
       "source_location": "L13",
       "weight": 1.0,
@@ -47860,28 +47858,6 @@
       "source_location": "L73",
       "weight": 1.0,
       "source": "src_pages_content_webshard_webshardleitor_webshardleitor",
-      "target": "src_lib_webshard_catalogo_localizado"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/webshard/WebshardTitulo.jsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_webshard_webshardtitulo",
-      "target": "src_lib_webshard_catalogo_localizado"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/content/webshard/WebshardTitulo.jsx",
-      "source_location": "L26",
-      "weight": 1.0,
-      "source": "src_pages_content_webshard_webshardtitulo_webshardtitulo",
       "target": "src_lib_webshard_catalogo_localizado"
     },
     {
@@ -47915,28 +47891,6 @@
       "source_location": "L10",
       "weight": 1.0,
       "source": "src_pages_content_webshard_components_titulocard_titulocard",
-      "target": "src_lib_webshard_catalogo_imagemwebshard"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/webshard/components/TituloHero.jsx",
-      "source_location": "L2",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_webshard_components_titulohero",
-      "target": "src_lib_webshard_catalogo_imagemwebshard"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/content/webshard/components/TituloHero.jsx",
-      "source_location": "L11",
-      "weight": 1.0,
-      "source": "src_pages_content_webshard_components_titulohero_titulohero",
       "target": "src_lib_webshard_catalogo_imagemwebshard"
     },
     {
@@ -48196,28 +48150,6 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/webshard/WebshardTitulo.jsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_webshard_webshardtitulo",
-      "target": "src_lib_webshard_catalogo_capitulotemconteudo"
-    },
-    {
-      "relation": "indirect_call",
-      "context": "argument",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "src/pages/content/webshard/WebshardTitulo.jsx",
-      "source_location": "L59",
-      "weight": 1.0,
-      "source": "src_pages_content_webshard_webshardtitulo_webshardtitulo",
-      "target": "src_lib_webshard_catalogo_capitulotemconteudo"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
       "source_file": "src/pages/content/webshard/components/LeitorFim.jsx",
       "source_location": "L3",
       "weight": 1.0,
@@ -48372,28 +48304,6 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/webshard/WebshardTitulo.jsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_webshard_webshardtitulo",
-      "target": "src_lib_webshard_catalogo_rotacapitulo"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/content/webshard/WebshardTitulo.jsx",
-      "source_location": "L46",
-      "weight": 1.0,
-      "source": "src_pages_content_webshard_webshardtitulo_webshardtitulo",
-      "target": "src_lib_webshard_catalogo_rotacapitulo"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
       "source_file": "src/pages/content/webshard/WebshardRota.jsx",
       "source_location": "L3",
       "weight": 1.0,
@@ -48471,28 +48381,6 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/webshard/WebshardTitulo.jsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_webshard_webshardtitulo",
-      "target": "src_lib_webshard_catalogo_numerocapitulo"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/content/webshard/WebshardTitulo.jsx",
-      "source_location": "L47",
-      "weight": 1.0,
-      "source": "src_pages_content_webshard_webshardtitulo_webshardtitulo",
-      "target": "src_lib_webshard_catalogo_numerocapitulo"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
       "source_file": "src/pages/content/webshard/components/CapituloLinha.jsx",
       "source_location": "L3",
       "weight": 1.0,
@@ -48554,50 +48442,6 @@
       "weight": 1.0,
       "source": "src_pages_content_webshard_webshardleitor_webshardleitor",
       "target": "src_lib_webshard_catalogo_rotulocapitulo"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/webshard/WebshardTitulo.jsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_webshard_webshardtitulo",
-      "target": "src_lib_webshard_catalogo_capitulosprincipais"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/content/webshard/WebshardTitulo.jsx",
-      "source_location": "L23",
-      "weight": 1.0,
-      "source": "src_pages_content_webshard_webshardtitulo_webshardtitulo",
-      "target": "src_lib_webshard_catalogo_capitulosprincipais"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/webshard/WebshardTitulo.jsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_webshard_webshardtitulo",
-      "target": "src_lib_webshard_catalogo_capitulosespeciais"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/content/webshard/WebshardTitulo.jsx",
-      "source_location": "L24",
-      "weight": 1.0,
-      "source": "src_pages_content_webshard_webshardtitulo_webshardtitulo",
-      "target": "src_lib_webshard_catalogo_capitulosespeciais"
     },
     {
       "relation": "imports",
@@ -48894,38 +48738,6 @@
       "confidence_score": 1.0,
       "source": "src_pages_content_webshard_webshardrota",
       "target": "src_pages_content_webshard_webshardleitor_webshardleitor"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/webshard/WebshardTitulo.jsx",
-      "source_location": "L9",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_webshard_webshardtitulo",
-      "target": "src_pages_content_webshard_components_capitulolinha"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/webshard/WebshardTitulo.jsx",
-      "source_location": "L9",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_webshard_webshardtitulo",
-      "target": "src_pages_content_webshard_components_capitulolinha_capitulolinha"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/webshard/WebshardTitulo.jsx",
-      "source_location": "L17",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_webshard_webshardtitulo",
-      "target": "src_pages_content_webshard_webshardtitulo_webshardtitulo"
     },
     {
       "relation": "contains",
@@ -50643,16 +50455,6 @@
       "confidence_score": 1.0,
       "source": "src_pages_content_webshard_components_titulocard",
       "target": "src_pages_content_webshard_components_titulocard_titulocard"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/webshard/components/TituloHero.jsx",
-      "source_location": "L9",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_webshard_components_titulohero",
-      "target": "src_pages_content_webshard_components_titulohero_titulohero"
     },
     {
       "relation": "contains",
@@ -127720,5 +127522,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "22037542113ea8ebb01e6ec84490c26509107286"
+  "built_at_commit": "2b0b33e108625915bb96cd1f9deb38aecb2e6e2b"
 }

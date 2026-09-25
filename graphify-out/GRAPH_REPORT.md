@@ -1,16 +1,16 @@
 # Graph Report - SiteLDI  (2026-09-25)
 
 ## Corpus Check
-- 975 files · ~1,574,516 words
+- 975 files · ~1,574,834 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 4607 nodes · 7763 edges · 482 communities (338 shown, 144 thin omitted)
-- Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 57 edges (avg confidence: 0.67)
+- 4607 nodes · 7745 edges · 486 communities (341 shown, 145 thin omitted)
+- Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 56 edges (avg confidence: 0.67)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `22037542`
+- Built from commit: `2b0b33e1`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -410,6 +410,10 @@
 - RestaurarSaude.jsx
 - Criatura.jsx
 - profileProvisioning.js
+- Batalha.jsx
+- levelProgression.js
+- ArenaTaticsRoute.jsx
+- WebshardTitulo.jsx
 
 ## God Nodes (most connected - your core abstractions)
 1. `useLanguage()` - 321 edges
@@ -438,7 +442,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (482 total, 144 thin omitted)
+## Communities (486 total, 145 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.05
@@ -506,15 +510,15 @@ Nodes (20): default, icons/128x128@2x.png, icons/128x128.png, icons/32x32.png, i
 
 ### Community 17 - "CityOverworld.jsx"
 Cohesion: 0.11
-Nodes (41): ADMIN_EMAILS, useWebshardAcesso(), capituloMovido(), capituloPorId(), CAPITULOS_MOVIDOS, capitulosDe(), capitulosEspeciais(), capitulosPrincipais() (+33 more)
+Nodes (39): ADMIN_EMAILS, useWebshardAcesso(), capituloMovido(), capituloPorId(), CAPITULOS_MOVIDOS, capitulosDe(), capitulosEspeciais(), capitulosPrincipais() (+31 more)
 
 ### Community 18 - "Community 18"
 Cohesion: 0.07
 Nodes (28): Abilities / Skills, Abilities / Skills, Abilities / Skills, Abilities / Skills, Background Summary, Background Summary, Background Summary, Background Summary (+20 more)
 
 ### Community 19 - "Community 19"
-Cohesion: 0.15
-Nodes (17): CombatResultModal(), HpBarDelta(), TokenMini(), EnemyTurnBanner(), Grid(), Token(), EfeitoTag(), STATUS_ICONS_MAP (+9 more)
+Cohesion: 0.16
+Nodes (16): CombatResultModal(), HpBarDelta(), TokenMini(), EnemyTurnBanner(), Grid(), Token(), EfeitoTag(), STATUS_ICONS_MAP (+8 more)
 
 ### Community 20 - "Community 20"
 Cohesion: 0.07
@@ -561,8 +565,8 @@ Cohesion: 0.11
 Nodes (26): collidersDaCena(), criarBichoPoi(), estadoInternoPoi(), estadoPoi(), hitsSolid(), montarAmbiente(), obstRect(), posicaoBicho() (+18 more)
 
 ### Community 31 - "PuzzleStealthGrid.jsx"
-Cohesion: 0.17
-Nodes (19): ArenaTaticsRoute(), randomPick(), CityHUD(), DISTRITOS, getBuildingAt(), getBuildingRedSquareRange(), getExitAt(), getExitRedSquareRange() (+11 more)
+Cohesion: 0.25
+Nodes (13): CityHUD(), DISTRITOS, getBuildingAt(), getBuildingRedSquareRange(), getExitAt(), getExitRedSquareRange(), getNpcAt(), getTileColorName() (+5 more)
 
 ### Community 32 - "initBattle"
 Cohesion: 0.18
@@ -661,16 +665,16 @@ Cohesion: 0.15
 Nodes (11): BADGES, DIX_BOAS_VINDAS, TEXTOS_PARTIDA, BARRA_PARA_CAMPO, BASE_DECAY, calcBarra(), calcEstado(), defaultState (+3 more)
 
 ### Community 59 - "TopTrumpsMP.jsx"
-Cohesion: 0.14
-Nodes (29): DanoPopup(), STATUS_ICONS, StatusBar(), resolverAcaoIA(), sortearIAs(), aplicarStatus(), FX_INFO, podeAgir() (+21 more)
+Cohesion: 0.20
+Nodes (17): resolverAcaoIA(), aplicarStatus(), FX_INFO, podeAgir(), podeMover(), processarStatus(), resolverAtaque(), STATUS_TOL (+9 more)
 
 ### Community 60 - "PuzzleForça.jsx"
 Cohesion: 0.20
 Nodes (11): BalloonFala(), CriaturaSprite(), ESTADO_ANIM, resolverEstadoVisualTama(), MetricBar(), COMIDA_TEMATICA, ITEM_KEY_MAP, ITENS_LOJA (+3 more)
 
 ### Community 61 - "AnalyticsTracker.jsx"
-Cohesion: 0.12
-Nodes (26): estaNoPool(), getCartaInfo(), getKarauksDisponiveis(), getMorakiOuTivaraDisponiveis(), getPool(), poolCompleto(), sortearCartaInicial1(), sortearCartaInicial2() (+18 more)
+Cohesion: 0.20
+Nodes (16): estaNoPool(), getCartaInfo(), getKarauksDisponiveis(), getMorakiOuTivaraDisponiveis(), getPool(), poolCompleto(), sortearCartaInicial1(), sortearCartaInicial2() (+8 more)
 
 ### Community 63 - "Community 63"
 Cohesion: 0.11
@@ -1444,19 +1448,31 @@ Nodes (5): PP, t(), getEffectiveMaxHP(), showInventoryTargetSelector(), showTab(
 Cohesion: 0.60
 Nodes (4): ler(), lerProgresso(), salvarProgresso(), ultimoProgresso()
 
+### Community 482 - "Batalha.jsx"
+Cohesion: 0.21
+Nodes (13): DanoPopup(), STATUS_ICONS, StatusBar(), sortearIAs(), Batalha(), calcularCaminho(), getAlcanceMovimento(), getAlcanceSkill() (+5 more)
+
+### Community 483 - "levelProgression.js"
+Cohesion: 0.27
+Nodes (10): aplicarBonusEvolucao(), aplicarBonusHpSp(), BASE_L1, calcAtributosNoNivel(), construirPersonagemNivelado(), getSkillsEvolutivas(), getSkillsNoNivel(), SKILL_SLOTS (+2 more)
+
+### Community 484 - "ArenaTaticsRoute.jsx"
+Cohesion: 0.36
+Nodes (6): ArenaTaticsRoute(), randomPick(), Derrota(), EMOJI, SimulacaoAuto(), useArenaTaticsStore
+
 ## Knowledge Gaps
 - **1905 isolated node(s):** `1. Visão geral`, `2.1 Abertura (vinheta de carregamento)`, `3.1 Site e conteúdo`, `3.2 Plataforma e conta`, `3.3 Catálogo e jogos` (+1900 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **144 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **145 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `useLanguage()` connect `Community 33` to `Community 0`, `Community 1`, `Community 5`, `local`, `Community 9`, `Community 10`, `Community 12`, `combat.js`, `Community 19`, `Community 20`, `RestaurarSaude.jsx`, `AuthContext.jsx`, `UniversosHub.jsx`, `DeckBuilder.jsx`, `PuzzleStealthGrid.jsx`, `initBattle`, `DixContext.jsx`, `Brincadeira.jsx`, `MazeRafael.jsx`, `LDINotification.jsx`, `useJackStore.js`, `PuzzleForça.jsx`, `Brincadeira.jsx`, `Phase0Start.jsx`, `TopTrumpsSP.jsx`, `runtimePlatform.js`, `t`, `TopTrumpsMP.jsx`, `PuzzleForça.jsx`, `Navbar.jsx`, `useFichaGate.js`, `AnalyticsTracker.jsx`, `levelProgression.js`, `useGameStore.js`, `useTamagoshiStore.js`?**
+- **Why does `useLanguage()` connect `Community 33` to `Community 0`, `Community 1`, `Community 5`, `local`, `Community 9`, `Community 10`, `Community 12`, `combat.js`, `Community 19`, `Community 20`, `RestaurarSaude.jsx`, `AuthContext.jsx`, `UniversosHub.jsx`, `DeckBuilder.jsx`, `PuzzleStealthGrid.jsx`, `initBattle`, `DixContext.jsx`, `Brincadeira.jsx`, `MazeRafael.jsx`, `LDINotification.jsx`, `useJackStore.js`, `PuzzleForça.jsx`, `Brincadeira.jsx`, `Phase0Start.jsx`, `TopTrumpsSP.jsx`, `runtimePlatform.js`, `t`, `PuzzleForça.jsx`, `Navbar.jsx`, `useFichaGate.js`, `AnalyticsTracker.jsx`, `levelProgression.js`, `useGameStore.js`, `Batalha.jsx`, `ArenaTaticsRoute.jsx`, `useTamagoshiStore.js`?**
   _High betweenness centrality (0.101) - this node is a cross-community bridge._
-- **Why does `useReader()` connect `useJackStore.js` to `Community 0`, `Community 1`, `DixContext.jsx`, `Brincadeira.jsx`, `useFichaGate.js`, `Community 3`, `PuzzleForça.jsx`, `useTamagoshiStore.js`, `RestaurarSaude.jsx`, `Community 20`, `AuthContext.jsx`, `PuzzleStealthGrid.jsx`?**
+- **Why does `useReader()` connect `useJackStore.js` to `Community 0`, `Community 1`, `DixContext.jsx`, `Brincadeira.jsx`, `ArenaTaticsRoute.jsx`, `useFichaGate.js`, `Community 3`, `PuzzleForça.jsx`, `useTamagoshiStore.js`, `RestaurarSaude.jsx`, `Community 20`, `AuthContext.jsx`?**
   _High betweenness centrality (0.027) - this node is a cross-community bridge._
-- **Why does `useAuth()` connect `Brincadeira.jsx` to `Community 33`, `Navbar.jsx`, `useFichaGate.js`, `Community 1`, `useJackStore.js`, `Community 9`, `PuzzleForça.jsx`, `Community 12`, `combat.js`, `Brincadeira.jsx`, `useTamagoshiStore.js`, `TopTrumpsSP.jsx`, `runtimePlatform.js`, `Community 20`, `RestaurarSaude.jsx`, `PuzzleStealthGrid.jsx`?**
+- **Why does `useAuth()` connect `Brincadeira.jsx` to `Community 33`, `Navbar.jsx`, `useFichaGate.js`, `ArenaTaticsRoute.jsx`, `Community 1`, `useJackStore.js`, `Community 9`, `PuzzleForça.jsx`, `Community 12`, `combat.js`, `Brincadeira.jsx`, `useTamagoshiStore.js`, `TopTrumpsSP.jsx`, `runtimePlatform.js`, `Community 20`, `RestaurarSaude.jsx`?**
   _High betweenness centrality (0.011) - this node is a cross-community bridge._
 - **What connects `1. Visão geral`, `2.1 Abertura (vinheta de carregamento)`, `3.1 Site e conteúdo` to the rest of the system?**
   _1905 weakly-connected nodes found - possible documentation gaps or missing edges._

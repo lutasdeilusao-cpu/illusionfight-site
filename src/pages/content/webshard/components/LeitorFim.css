@@ -57,8 +57,9 @@
 
 .ws-fim__proximo img {
   flex: none;
-  width: 64px;
-  height: 64px;
+  width: 56px;
+  aspect-ratio: 960 / 1637;
+  align-self: center;
   object-fit: cover;
   display: block;
 }

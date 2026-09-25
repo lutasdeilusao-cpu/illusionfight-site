@@ -39,10 +39,13 @@ export function imagemWebshard(nome) {
   return nome ? imagemPorNome[nome] || null : null
 }
 
-/** Miniatura do capítulo: src/assets/webshard/cap-<slug>-<id>.webp; sem
- *  arte própria, usa a capa do título. */
-export function miniaturaCapitulo(titulo, cap) {
-  return imagemWebshard(`cap-${titulo.slug}-${cap.id}.webp`) || imagemWebshard(titulo.capa)
+/** Miniatura do capítulo: cap-<slug>-<id>-<idioma>.webp (capa do idioma,
+ *  retrato), depois cap-<slug>-<id>.webp; sem arte própria, usa a capa do título. */
+export function miniaturaCapitulo(titulo, cap, locale = 'pt') {
+  return imagemWebshard(`cap-${titulo.slug}-${cap.id}-${locale}.webp`)
+    || imagemWebshard(`cap-${titulo.slug}-${cap.id}-pt.webp`)
+    || imagemWebshard(`cap-${titulo.slug}-${cap.id}.webp`)
+    || imagemWebshard(titulo.capa)
 }
 
 export function listarTitulos({ isAdmin = false } = {}) {
