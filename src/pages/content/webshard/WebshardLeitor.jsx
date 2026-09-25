@@ -11,7 +11,7 @@ import { notificationManager } from '../../../lib/notificationManager'
 import { useTrackedSession } from '../../../lib/sessionAnalytics'
 import { trackEvent } from '../../../lib/analytics'
 import {
-  capituloPorId, formatarData, idiomaInicial, localizado, numeroCapitulo, paginasDe, rotaCapitulo, rotaTitulo, vizinhos,
+  capituloPorId, formatarData, idiomaInicial, localizado, paginasDe, rotaCapitulo, rotaTitulo, rotuloCapitulo, vizinhos,
 } from '../../../lib/webshard/catalogo'
 import { lerProgresso, salvarProgresso } from '../../../lib/webshard/progresso'
 import { useBarraAutoOculta } from './hooks/useBarraAutoOculta'
@@ -167,7 +167,7 @@ export default function WebshardLeitor({ titulo, capId }) {
         <LeitorBarra
           visivel={visivel}
           onVoltar={() => navigate(rotaTitulo(titulo))}
-          rotulo={`${localizado(titulo, 'nome', locale)} · ${t('webShard.cap.rotulo', { n: numeroCapitulo(cap) })}`}
+          rotulo={`${localizado(titulo, 'nome', locale)} · ${rotuloCapitulo(cap, t)}`}
           nome={nomeCap}
           pagina={pagina}
           total={cap.paginas}

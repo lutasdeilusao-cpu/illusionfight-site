@@ -82,14 +82,15 @@ a.ws-cap:hover::after,
 }
 
 .ws-cap__nome {
+  display: -webkit-box;
   overflow: hidden;
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 1.02rem;
   line-height: 1.15;
   letter-spacing: 0.03em;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
 a.ws-cap:hover .ws-cap__nome { color: var(--if-cyan); }

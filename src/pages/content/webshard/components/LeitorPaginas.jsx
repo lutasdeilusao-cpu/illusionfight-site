@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { Fragment, useEffect, useRef } from 'react'
 import { useLanguage } from '../../../../context/LanguageContext'
 import './LeitorPaginas.css'
 
@@ -28,8 +28,11 @@ export default function LeitorPaginas({ paginas, proporcao, onPagina, onToque, u
   return (
     <div className="ws-paginas" ref={lista} onClick={onToque}>
       {paginas.map((p, i) => (
+        <Fragment key={p.src}>
+        {/* Corte neon entre páginas — o mesmo fio diagonal dos painéis WEB
+            SHARD, atravessando a emenda de uma página pra outra. */}
+        {i > 0 && <span className="ws-paginas__corte" aria-hidden="true" />}
         <img
-          key={p.src}
           id={`ws-pag-${p.numero}`}
           ref={i === paginas.length - 1 ? ultimaRef : null}
           data-pagina={p.numero}
@@ -42,6 +45,7 @@ export default function LeitorPaginas({ paginas, proporcao, onPagina, onToque, u
           decoding="async"
           alt={t('webShard.leitor.pagina', { n: p.numero })}
         />
+        </Fragment>
       ))}
     </div>
   )

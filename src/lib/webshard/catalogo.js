@@ -82,7 +82,23 @@ export function tituloLegado() {
 }
 
 export function numeroCapitulo(cap) {
-  return String(cap.numero).padStart(2, '0')
+  return cap.especial ? `E${cap.numero}` : String(cap.numero).padStart(2, '0')
+}
+
+/** "Cap. 01" ou "Especial · Parte 1" — especiais são história à parte. */
+export function rotuloCapitulo(cap, t) {
+  return cap.especial
+    ? t('webShard.cap.especial', { n: cap.numero })
+    : t('webShard.cap.rotulo', { n: numeroCapitulo(cap) })
+}
+
+/** Linha principal x especiais (fora da linha principal). */
+export function capitulosPrincipais(titulo) {
+  return capitulosDe(titulo).filter(c => !c.especial)
+}
+
+export function capitulosEspeciais(titulo) {
+  return capitulosDe(titulo).filter(c => c.especial)
 }
 
 /** Idioma em que o capítulo vai ser lido: o do site se o capítulo tiver,
@@ -109,7 +125,8 @@ export function paginasDe(cap, idioma) {
 }
 
 export function vizinhos(titulo, cap) {
-  const lista = capitulosDe(titulo)
+  // Anterior/próximo andam só dentro da mesma linha (principal ou especiais).
+  const lista = capitulosDe(titulo).filter(c => Boolean(c.especial) === Boolean(cap.especial))
   const idx = lista.findIndex(c => c.id === cap.id)
   return {
     anterior: idx > 0 ? lista[idx - 1] : null,

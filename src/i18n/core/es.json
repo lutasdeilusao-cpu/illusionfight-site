@@ -1064,7 +1064,10 @@
       "capitulos": "Capítulos",
       "total_caps": "{n} publicados",
       "sem_capitulos": "Los primeros capítulos están en camino.",
-      "classificacao": "{n}+"
+      "classificacao": "{n}+",
+      "especiais": "Especiales",
+      "especiais_selo": "Fuera de la línea principal",
+      "especiais_hint": "Una historia aparte: los personajes llevados a otro mundo, para llenar el hiato. No cuenta para la línea principal."
     },
     "cap": {
       "rotulo": "Cap. {n}",
@@ -1072,7 +1075,8 @@
       "em_breve": "Próximamente",
       "em_breve_data": "Sale el {data}",
       "lido": "✓ Leído",
-      "lendo": "Te quedaste en la pág. {p} de {t}"
+      "lendo": "Te quedaste en la pág. {p} de {t}",
+      "especial": "Especial · Parte {n}"
     },
     "leitor": {
       "voltar": "Volver",

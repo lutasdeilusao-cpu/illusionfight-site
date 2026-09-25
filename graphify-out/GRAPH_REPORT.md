@@ -1,7 +1,7 @@
-# Graph Report - SiteLDI  (2026-09-24)
+# Graph Report - SiteLDI  (2026-09-25)
 
 ## Corpus Check
-- 975 files · ~1,569,074 words
+- 975 files · ~1,569,118 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `0399e638`
+- Built from commit: `c150bd04`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -1444,10 +1444,10 @@ Nodes (4): ler(), lerProgresso(), salvarProgresso(), ultimoProgresso()
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `useLanguage()` connect `Community 33` to `Community 0`, `local`, `Community 8`, `Community 9`, `Community 10`, `renderSkillPanel`, `Community 12`, `Community 19`, `Community 20`, `RestaurarSaude.jsx`, `AuthContext.jsx`, `UniversosHub.jsx`, `DeckBuilder.jsx`, `PuzzleStealthGrid.jsx`, `initBattle`, `DixContext.jsx`, `TopTrumpsMP.jsx`, `Brincadeira.jsx`, `MazeRafael.jsx`, `LDINotification.jsx`, `useJackStore.js`, `PuzzleForça.jsx`, `react`, `Brincadeira.jsx`, `Phase0Start.jsx`, `TopTrumpsSP.jsx`, `runtimePlatform.js`, `t`, `useSharedLobbyMachine.js`, `TopTrumpsMP.jsx`, `PuzzleForça.jsx`, `AnalyticsTracker.jsx`, `Navbar.jsx`, `useFichaGate.js`, `levelProgression.js`, `Criatura.jsx`, `useGameStore.js`, `useTamagoshiStore.js`?**
-  _High betweenness centrality (0.095) - this node is a cross-community bridge._
+  _High betweenness centrality (0.096) - this node is a cross-community bridge._
 - **Why does `useReader()` connect `useJackStore.js` to `Community 0`, `Community 33`, `DixContext.jsx`, `Brincadeira.jsx`, `Community 3`, `Community 8`, `PuzzleForça.jsx`, `useTamagoshiStore.js`, `runtimePlatform.js`, `Community 20`, `t`, `RestaurarSaude.jsx`, `useSharedLobbyMachine.js`?**
   _High betweenness centrality (0.022) - this node is a cross-community bridge._
-- **Why does `useAuth()` connect `Brincadeira.jsx` to `Navbar.jsx`, `useFichaGate.js`, `TopTrumpsMP.jsx`, `useJackStore.js`, `AnalyticsTracker.jsx`, `Community 8`, `Community 9`, `renderSkillPanel`, `combat.js`, `PuzzleForça.jsx`, `useTamagoshiStore.js`, `TopTrumpsSP.jsx`, `runtimePlatform.js`, `Community 20`, `t`, `RestaurarSaude.jsx`, `useSharedLobbyMachine.js`?**
+- **Why does `SFX` connect `Community 7` to `RestaurarSaude.jsx`, `DeckBuilder.jsx`, `useJackStore.js`?**
   _High betweenness centrality (0.009) - this node is a cross-community bridge._
 - **What connects `1. Visão geral`, `2.1 Abertura (vinheta de carregamento)`, `3.1 Site e conteúdo` to the rest of the system?**
   _1907 weakly-connected nodes found - possible documentation gaps or missing edges._

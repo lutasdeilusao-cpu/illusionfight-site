@@ -54,3 +54,18 @@
 }
 
 .ws-titulo__ler-antes { margin: 0.9rem 0 0.4rem; }
+
+/* Especiais — história à parte: fio violeta em vez do da linha principal. */
+.ws-titulo__especiais { margin-top: 2.25rem; }
+
+.ws-titulo__especiais .ws-titulo__caps-cabeca { box-shadow: inset 0 -1px var(--if-violet); }
+
+.ws-titulo__especiais .ws-titulo__total { color: var(--if-violet); }
+
+.ws-titulo__especiais-hint {
+  margin: 0.6rem 0 0.2rem;
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  line-height: 1.45;
+}

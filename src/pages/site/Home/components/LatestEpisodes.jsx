@@ -39,7 +39,7 @@ export default function LatestEpisodes() {
     return disponiveis[0]
   }, [isAdmin, user, perfil])
 
-  const lista = episodios.filter(ep => ep.id !== featured?.id)
+  const lista = episodios.filter(ep => ep.id !== featured?.id && !ep.especial)
   const liberadoFeatured = !!featured
 
   return (

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useLanguage } from '../../../../context/LanguageContext'
 import {
-  capituloTemConteudo, formatarData, localizado, miniaturaCapitulo, numeroCapitulo, rotaCapitulo, rotaTitulo,
+  capituloTemConteudo, formatarData, localizado, miniaturaCapitulo, rotaCapitulo, rotaTitulo, rotuloCapitulo,
 } from '../../../../lib/webshard/catalogo'
 import Reacoes from './Reacoes'
 import CascataLiberacao from './CascataLiberacao'
@@ -20,7 +20,7 @@ export default function LeitorFim({ titulo, cap, proximo, proximoLiberado, proxi
       <div className="container ws-fim__miolo">
         <span className="ws-fim__eyebrow">{t('webShard.leitor.fim_eyebrow')}</span>
         <p className="ws-fim__cap">
-          {t('webShard.cap.rotulo', { n: numeroCapitulo(cap) })} · {localizado(cap, 'titulo', locale)}
+          {rotuloCapitulo(cap, t)} · {localizado(cap, 'titulo', locale)}
         </p>
 
         <div className="ws-fim__bloco">
@@ -34,7 +34,7 @@ export default function LeitorFim({ titulo, cap, proximo, proximoLiberado, proxi
               <span className="ws-fim__proximo-corpo">
                 <span className="if-eyebrow">{t('webShard.leitor.proximo')}</span>
                 <span className="ws-fim__proximo-nome">
-                  {t('webShard.cap.rotulo', { n: numeroCapitulo(proximo) })} · {localizado(proximo, 'titulo', locale)}
+                  {rotuloCapitulo(proximo, t)} · {localizado(proximo, 'titulo', locale)}
                 </span>
               </span>
               <span className="ws-fim__proximo-seta" aria-hidden="true">›</span>
@@ -43,7 +43,7 @@ export default function LeitorFim({ titulo, cap, proximo, proximoLiberado, proxi
             <div className="ws-fim__espera">
               <p className="ws-fim__aguarde">
                 {proximo?.liberacao
-                  ? `${t('webShard.leitor.proximo')} · ${t('webShard.cap.rotulo', { n: numeroCapitulo(proximo) })}`
+                  ? `${t('webShard.leitor.proximo')} · ${rotuloCapitulo(proximo, t)}`
                   : proximoData
                     ? t('webShard.leitor.proximo_em', { data: formatarData(proximoData) })
                     : t('webShard.leitor.proximo_breve')}

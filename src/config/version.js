@@ -8,7 +8,7 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.285.1' // fix(calendario): a grade mês a mês indexava eventos por data com Object.fromEntries — em 15/10/2027 (Cap. 9 público + Especial de fim de temporada Parte 1) o 2º drop sobrescrevia o 1º e a bolinha de Outras Plataformas (Parte 18) sumia. Agora drops do mesmo dia são mesclados por nível.
+export const SITE_VERSION = '10.286.0' // feat(webshard): Especial de Fim de Temporada Parte 1 (assinante 15/10/2027 · conta 30/10 · público 14/11) e Parte 2 (15/11 · 30/11 · 15/12/2027) — história à parte, fora da linha principal: entram no calendário com a cascata de sempre e numa seção "Especiais" própria na página do título (não entram no próximo/anterior da linha principal nem na fileira da Home). Leitor: corte diagonal neon entre uma página e outra, no estilo dos painéis WEB SHARD.
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.2' // fix: aba "stories" do rodape mostrava a chave crua pp.menu.pistas_label (nao existia) -> aponta pra pp.dossier.pistas_label; PuzzleWrapper mostrava pp.puzzle.nenhum/instrucao (nao existiam) -> pp.local.puzzle_nenhum/instrucao; confirm() de deletar save mostrava pp.menu.deletar_slot cru -> chave criada nos 3 idiomas.

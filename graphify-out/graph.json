@@ -294,316 +294,6 @@
       "norm_label": "13. onde procurar primeiro"
     },
     {
-      "label": "prerender-routes.js",
-      "file_type": "code",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "scripts_prerender_routes",
-      "community": 95,
-      "norm_label": "prerender-routes.js"
-    },
-    {
-      "label": "DIST_DIR",
-      "file_type": "code",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L6",
-      "_origin": "ast",
-      "id": "scripts_prerender_routes_dist_dir",
-      "community": 95,
-      "norm_label": "dist_dir"
-    },
-    {
-      "label": "INDEX_PATH",
-      "file_type": "code",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L7",
-      "_origin": "ast",
-      "id": "scripts_prerender_routes_index_path",
-      "community": 95,
-      "norm_label": "index_path"
-    },
-    {
-      "label": "PUBLIC_SITEMAP_PATH",
-      "file_type": "code",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L8",
-      "_origin": "ast",
-      "id": "scripts_prerender_routes_public_sitemap_path",
-      "community": 95,
-      "norm_label": "public_sitemap_path"
-    },
-    {
-      "label": "BUILD_DATE",
-      "file_type": "code",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L9",
-      "_origin": "ast",
-      "id": "scripts_prerender_routes_build_date",
-      "community": 95,
-      "norm_label": "build_date"
-    },
-    {
-      "label": "pastOr()",
-      "file_type": "code",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L12",
-      "_origin": "ast",
-      "id": "scripts_prerender_routes_pastor",
-      "community": 95,
-      "norm_label": "pastor()"
-    },
-    {
-      "label": "readJson()",
-      "file_type": "code",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L14",
-      "_origin": "ast",
-      "id": "scripts_prerender_routes_readjson",
-      "community": 95,
-      "norm_label": "readjson()"
-    },
-    {
-      "label": "personagens",
-      "file_type": "code",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L15",
-      "_origin": "ast",
-      "id": "scripts_prerender_routes_personagens",
-      "community": 95,
-      "norm_label": "personagens"
-    },
-    {
-      "label": "capitulos",
-      "file_type": "code",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L16",
-      "_origin": "ast",
-      "id": "scripts_prerender_routes_capitulos",
-      "community": 95,
-      "norm_label": "capitulos"
-    },
-    {
-      "label": "contos",
-      "file_type": "code",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L17",
-      "_origin": "ast",
-      "id": "scripts_prerender_routes_contos",
-      "community": 95,
-      "norm_label": "contos"
-    },
-    {
-      "label": "obras",
-      "file_type": "code",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L18",
-      "_origin": "ast",
-      "id": "scripts_prerender_routes_obras",
-      "community": 95,
-      "norm_label": "obras"
-    },
-    {
-      "label": "episodios",
-      "file_type": "code",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L19",
-      "_origin": "ast",
-      "id": "scripts_prerender_routes_episodios",
-      "community": 95,
-      "norm_label": "episodios"
-    },
-    {
-      "label": "releaseItems",
-      "file_type": "code",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L21",
-      "_origin": "ast",
-      "id": "scripts_prerender_routes_releaseitems",
-      "community": 95,
-      "norm_label": "releaseitems"
-    },
-    {
-      "label": "ROUTES",
-      "file_type": "code",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L30",
-      "_origin": "ast",
-      "id": "scripts_prerender_routes_routes",
-      "community": 95,
-      "norm_label": "routes"
-    },
-    {
-      "label": "RELATED_BY_PATH",
-      "file_type": "code",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L68",
-      "_origin": "ast",
-      "id": "scripts_prerender_routes_related_by_path",
-      "community": 95,
-      "norm_label": "related_by_path"
-    },
-    {
-      "label": "extraGameRoutes",
-      "file_type": "code",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L100",
-      "_origin": "ast",
-      "id": "scripts_prerender_routes_extragameroutes",
-      "community": 95,
-      "norm_label": "extragameroutes"
-    },
-    {
-      "label": "REDIRECTS",
-      "file_type": "code",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L186",
-      "_origin": "ast",
-      "id": "scripts_prerender_routes_redirects",
-      "community": 95,
-      "norm_label": "redirects"
-    },
-    {
-      "label": "escapeHtml()",
-      "file_type": "code",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L202",
-      "_origin": "ast",
-      "id": "scripts_prerender_routes_escapehtml",
-      "community": 95,
-      "norm_label": "escapehtml()"
-    },
-    {
-      "label": "canonicalUrl()",
-      "file_type": "code",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L203",
-      "_origin": "ast",
-      "id": "scripts_prerender_routes_canonicalurl",
-      "community": 95,
-      "norm_label": "canonicalurl()"
-    },
-    {
-      "label": "replace()",
-      "file_type": "code",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L204",
-      "_origin": "ast",
-      "id": "scripts_prerender_routes_replace",
-      "community": 95,
-      "norm_label": "replace()"
-    },
-    {
-      "label": "schemaFor()",
-      "file_type": "code",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L206",
-      "_origin": "ast",
-      "id": "scripts_prerender_routes_schemafor",
-      "community": 95,
-      "norm_label": "schemafor()"
-    },
-    {
-      "label": "breadcrumbFor()",
-      "file_type": "code",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L219",
-      "_origin": "ast",
-      "id": "scripts_prerender_routes_breadcrumbfor",
-      "community": 95,
-      "norm_label": "breadcrumbfor()"
-    },
-    {
-      "label": "SITE_NAV",
-      "file_type": "code",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L226",
-      "_origin": "ast",
-      "id": "scripts_prerender_routes_site_nav",
-      "community": 95,
-      "norm_label": "site_nav"
-    },
-    {
-      "label": "staticContent()",
-      "file_type": "code",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L234",
-      "_origin": "ast",
-      "id": "scripts_prerender_routes_staticcontent",
-      "community": 95,
-      "norm_label": "staticcontent()"
-    },
-    {
-      "label": "pageHtml()",
-      "file_type": "code",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L257",
-      "_origin": "ast",
-      "id": "scripts_prerender_routes_pagehtml",
-      "community": 95,
-      "norm_label": "pagehtml()"
-    },
-    {
-      "label": "writeRoute()",
-      "file_type": "code",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L279",
-      "_origin": "ast",
-      "id": "scripts_prerender_routes_writeroute",
-      "community": 95,
-      "norm_label": "writeroute()"
-    },
-    {
-      "label": "redirectHtml()",
-      "file_type": "code",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L285",
-      "_origin": "ast",
-      "id": "scripts_prerender_routes_redirecthtml",
-      "community": 95,
-      "norm_label": "redirecthtml()"
-    },
-    {
-      "label": "sitemapXml()",
-      "file_type": "code",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L290",
-      "_origin": "ast",
-      "id": "scripts_prerender_routes_sitemapxml",
-      "community": 95,
-      "norm_label": "sitemapxml()"
-    },
-    {
-      "label": "indexHtml",
-      "file_type": "code",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L301",
-      "_origin": "ast",
-      "id": "scripts_prerender_routes_indexhtml",
-      "community": 95,
-      "norm_label": "indexhtml"
-    },
-    {
-      "label": "homeRoute",
-      "file_type": "code",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L310",
-      "_origin": "ast",
-      "id": "scripts_prerender_routes_homeroute",
-      "community": 95,
-      "norm_label": "homeroute"
-    },
-    {
-      "label": "sitemap",
-      "file_type": "code",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L318",
-      "_origin": "ast",
-      "id": "scripts_prerender_routes_sitemap",
-      "community": 95,
-      "norm_label": "sitemap"
-    },
-    {
       "label": "version.js",
       "file_type": "code",
       "source_file": "src/config/version.js",
@@ -614,14 +304,454 @@
       "norm_label": "version.js"
     },
     {
+      "label": "Calendario.jsx",
+      "file_type": "code",
+      "source_file": "src/pages/site/Calendario/Calendario.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_pages_site_calendario_calendario",
+      "community": 426,
+      "norm_label": "calendario.jsx"
+    },
+    {
+      "label": "levelRows",
+      "file_type": "code",
+      "source_file": "src/pages/site/Calendario/Calendario.jsx",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "src_pages_site_calendario_calendario_levelrows",
+      "community": 426,
+      "norm_label": "levelrows"
+    },
+    {
+      "label": "channels",
+      "file_type": "code",
+      "source_file": "src/pages/site/Calendario/Calendario.jsx",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "src_pages_site_calendario_calendario_channels",
+      "community": 426,
+      "norm_label": "channels"
+    },
+    {
+      "label": "formatDate()",
+      "file_type": "code",
+      "source_file": "src/pages/site/Calendario/Calendario.jsx",
+      "source_location": "L17",
+      "_origin": "ast",
+      "id": "src_pages_site_calendario_calendario_formatdate",
+      "community": 426,
+      "norm_label": "formatdate()"
+    },
+    {
+      "label": "intlLocale()",
+      "file_type": "code",
+      "source_file": "src/pages/site/Calendario/Calendario.jsx",
+      "source_location": "L23",
+      "_origin": "ast",
+      "id": "src_pages_site_calendario_calendario_intllocale",
+      "community": 426,
+      "norm_label": "intllocale()"
+    },
+    {
+      "label": "pad2()",
+      "file_type": "code",
+      "source_file": "src/pages/site/Calendario/Calendario.jsx",
+      "source_location": "L27",
+      "_origin": "ast",
+      "id": "src_pages_site_calendario_calendario_pad2",
+      "community": 426,
+      "norm_label": "pad2()"
+    },
+    {
+      "label": "CALENDAR_START",
+      "file_type": "code",
+      "source_file": "src/pages/site/Calendario/Calendario.jsx",
+      "source_location": "L30",
+      "_origin": "ast",
+      "id": "src_pages_site_calendario_calendario_calendar_start",
+      "community": 426,
+      "norm_label": "calendar_start"
+    },
+    {
+      "label": "CALENDAR_END",
+      "file_type": "code",
+      "source_file": "src/pages/site/Calendario/Calendario.jsx",
+      "source_location": "L31",
+      "_origin": "ast",
+      "id": "src_pages_site_calendario_calendario_calendar_end",
+      "community": 426,
+      "norm_label": "calendar_end"
+    },
+    {
+      "label": "buildMonths()",
+      "file_type": "code",
+      "source_file": "src/pages/site/Calendario/Calendario.jsx",
+      "source_location": "L33",
+      "_origin": "ast",
+      "id": "src_pages_site_calendario_calendario_buildmonths",
+      "community": 426,
+      "norm_label": "buildmonths()"
+    },
+    {
+      "label": "buildMonthCells()",
+      "file_type": "code",
+      "source_file": "src/pages/site/Calendario/Calendario.jsx",
+      "source_location": "L44",
+      "_origin": "ast",
+      "id": "src_pages_site_calendario_calendario_buildmonthcells",
+      "community": 426,
+      "norm_label": "buildmonthcells()"
+    },
+    {
+      "label": "monthLabel()",
+      "file_type": "code",
+      "source_file": "src/pages/site/Calendario/Calendario.jsx",
+      "source_location": "L54",
+      "_origin": "ast",
+      "id": "src_pages_site_calendario_calendario_monthlabel",
+      "community": 426,
+      "norm_label": "monthlabel()"
+    },
+    {
+      "label": "weekdayLabels()",
+      "file_type": "code",
+      "source_file": "src/pages/site/Calendario/Calendario.jsx",
+      "source_location": "L58",
+      "_origin": "ast",
+      "id": "src_pages_site_calendario_calendario_weekdaylabels",
+      "community": 426,
+      "norm_label": "weekdaylabels()"
+    },
+    {
+      "label": "Calendario()",
+      "file_type": "code",
+      "source_file": "src/pages/site/Calendario/Calendario.jsx",
+      "source_location": "L63",
+      "_origin": "ast",
+      "id": "src_pages_site_calendario_calendario_calendario",
+      "community": 426,
+      "norm_label": "calendario()"
+    },
+    {
+      "label": "prerender-routes.js",
+      "file_type": "code",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 95,
+      "norm_label": "prerender-routes.js",
+      "id": "scripts_prerender_routes"
+    },
+    {
+      "label": "DIST_DIR",
+      "file_type": "code",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L6",
+      "_origin": "ast",
+      "community": 95,
+      "norm_label": "dist_dir",
+      "id": "scripts_prerender_routes_dist_dir"
+    },
+    {
+      "label": "INDEX_PATH",
+      "file_type": "code",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L7",
+      "_origin": "ast",
+      "community": 95,
+      "norm_label": "index_path",
+      "id": "scripts_prerender_routes_index_path"
+    },
+    {
+      "label": "PUBLIC_SITEMAP_PATH",
+      "file_type": "code",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L8",
+      "_origin": "ast",
+      "community": 95,
+      "norm_label": "public_sitemap_path",
+      "id": "scripts_prerender_routes_public_sitemap_path"
+    },
+    {
+      "label": "BUILD_DATE",
+      "file_type": "code",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L9",
+      "_origin": "ast",
+      "community": 95,
+      "norm_label": "build_date",
+      "id": "scripts_prerender_routes_build_date"
+    },
+    {
+      "label": "pastOr()",
+      "file_type": "code",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L12",
+      "_origin": "ast",
+      "community": 95,
+      "norm_label": "pastor()",
+      "id": "scripts_prerender_routes_pastor"
+    },
+    {
+      "label": "readJson()",
+      "file_type": "code",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L14",
+      "_origin": "ast",
+      "community": 95,
+      "norm_label": "readjson()",
+      "id": "scripts_prerender_routes_readjson"
+    },
+    {
+      "label": "personagens",
+      "file_type": "code",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L15",
+      "_origin": "ast",
+      "community": 95,
+      "norm_label": "personagens",
+      "id": "scripts_prerender_routes_personagens"
+    },
+    {
+      "label": "capitulos",
+      "file_type": "code",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L16",
+      "_origin": "ast",
+      "community": 95,
+      "norm_label": "capitulos",
+      "id": "scripts_prerender_routes_capitulos"
+    },
+    {
+      "label": "contos",
+      "file_type": "code",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L17",
+      "_origin": "ast",
+      "community": 95,
+      "norm_label": "contos",
+      "id": "scripts_prerender_routes_contos"
+    },
+    {
+      "label": "obras",
+      "file_type": "code",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L18",
+      "_origin": "ast",
+      "community": 95,
+      "norm_label": "obras",
+      "id": "scripts_prerender_routes_obras"
+    },
+    {
+      "label": "episodios",
+      "file_type": "code",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L19",
+      "_origin": "ast",
+      "community": 95,
+      "norm_label": "episodios",
+      "id": "scripts_prerender_routes_episodios"
+    },
+    {
+      "label": "releaseItems",
+      "file_type": "code",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L21",
+      "_origin": "ast",
+      "community": 95,
+      "norm_label": "releaseitems",
+      "id": "scripts_prerender_routes_releaseitems"
+    },
+    {
+      "label": "ROUTES",
+      "file_type": "code",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L30",
+      "_origin": "ast",
+      "community": 95,
+      "norm_label": "routes",
+      "id": "scripts_prerender_routes_routes"
+    },
+    {
+      "label": "RELATED_BY_PATH",
+      "file_type": "code",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L68",
+      "_origin": "ast",
+      "community": 95,
+      "norm_label": "related_by_path",
+      "id": "scripts_prerender_routes_related_by_path"
+    },
+    {
+      "label": "extraGameRoutes",
+      "file_type": "code",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L100",
+      "_origin": "ast",
+      "community": 95,
+      "norm_label": "extragameroutes",
+      "id": "scripts_prerender_routes_extragameroutes"
+    },
+    {
+      "label": "REDIRECTS",
+      "file_type": "code",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L186",
+      "_origin": "ast",
+      "community": 95,
+      "norm_label": "redirects",
+      "id": "scripts_prerender_routes_redirects"
+    },
+    {
+      "label": "escapeHtml()",
+      "file_type": "code",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L202",
+      "_origin": "ast",
+      "community": 95,
+      "norm_label": "escapehtml()",
+      "id": "scripts_prerender_routes_escapehtml"
+    },
+    {
+      "label": "canonicalUrl()",
+      "file_type": "code",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L203",
+      "_origin": "ast",
+      "community": 95,
+      "norm_label": "canonicalurl()",
+      "id": "scripts_prerender_routes_canonicalurl"
+    },
+    {
+      "label": "replace()",
+      "file_type": "code",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L204",
+      "_origin": "ast",
+      "community": 95,
+      "norm_label": "replace()",
+      "id": "scripts_prerender_routes_replace"
+    },
+    {
+      "label": "schemaFor()",
+      "file_type": "code",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L206",
+      "_origin": "ast",
+      "community": 95,
+      "norm_label": "schemafor()",
+      "id": "scripts_prerender_routes_schemafor"
+    },
+    {
+      "label": "breadcrumbFor()",
+      "file_type": "code",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L219",
+      "_origin": "ast",
+      "community": 95,
+      "norm_label": "breadcrumbfor()",
+      "id": "scripts_prerender_routes_breadcrumbfor"
+    },
+    {
+      "label": "SITE_NAV",
+      "file_type": "code",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L226",
+      "_origin": "ast",
+      "community": 95,
+      "norm_label": "site_nav",
+      "id": "scripts_prerender_routes_site_nav"
+    },
+    {
+      "label": "staticContent()",
+      "file_type": "code",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L234",
+      "_origin": "ast",
+      "community": 95,
+      "norm_label": "staticcontent()",
+      "id": "scripts_prerender_routes_staticcontent"
+    },
+    {
+      "label": "pageHtml()",
+      "file_type": "code",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L257",
+      "_origin": "ast",
+      "community": 95,
+      "norm_label": "pagehtml()",
+      "id": "scripts_prerender_routes_pagehtml"
+    },
+    {
+      "label": "writeRoute()",
+      "file_type": "code",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L279",
+      "_origin": "ast",
+      "community": 95,
+      "norm_label": "writeroute()",
+      "id": "scripts_prerender_routes_writeroute"
+    },
+    {
+      "label": "redirectHtml()",
+      "file_type": "code",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L285",
+      "_origin": "ast",
+      "community": 95,
+      "norm_label": "redirecthtml()",
+      "id": "scripts_prerender_routes_redirecthtml"
+    },
+    {
+      "label": "sitemapXml()",
+      "file_type": "code",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L290",
+      "_origin": "ast",
+      "community": 95,
+      "norm_label": "sitemapxml()",
+      "id": "scripts_prerender_routes_sitemapxml"
+    },
+    {
+      "label": "indexHtml",
+      "file_type": "code",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L301",
+      "_origin": "ast",
+      "community": 95,
+      "norm_label": "indexhtml",
+      "id": "scripts_prerender_routes_indexhtml"
+    },
+    {
+      "label": "homeRoute",
+      "file_type": "code",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L310",
+      "_origin": "ast",
+      "community": 95,
+      "norm_label": "homeroute",
+      "id": "scripts_prerender_routes_homeroute"
+    },
+    {
+      "label": "sitemap",
+      "file_type": "code",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L318",
+      "_origin": "ast",
+      "community": 95,
+      "norm_label": "sitemap",
+      "id": "scripts_prerender_routes_sitemap"
+    },
+    {
       "label": "season-one-schedule.js",
       "file_type": "code",
       "source_file": "src/data/season-one-schedule.js",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_data_season_one_schedule",
       "community": 415,
-      "norm_label": "season-one-schedule.js"
+      "norm_label": "season-one-schedule.js",
+      "id": "src_data_season_one_schedule"
     },
     {
       "label": "SEASON_ONE_DROPS",
@@ -629,9 +759,9 @@
       "source_file": "src/data/season-one-schedule.js",
       "source_location": "L26",
       "_origin": "ast",
-      "id": "src_data_season_one_schedule_season_one_drops",
       "community": 415,
-      "norm_label": "season_one_drops"
+      "norm_label": "season_one_drops",
+      "id": "src_data_season_one_schedule_season_one_drops"
     },
     {
       "label": "SEASON_ONE_COMPLETION",
@@ -639,9 +769,9 @@
       "source_file": "src/data/season-one-schedule.js",
       "source_location": "L78",
       "_origin": "ast",
-      "id": "src_data_season_one_schedule_season_one_completion",
       "community": 415,
-      "norm_label": "season_one_completion"
+      "norm_label": "season_one_completion",
+      "id": "src_data_season_one_schedule_season_one_completion"
     },
     {
       "label": "SEASONS_OVERVIEW",
@@ -649,9 +779,9 @@
       "source_file": "src/data/season-one-schedule.js",
       "source_location": "L90",
       "_origin": "ast",
-      "id": "src_data_season_one_schedule_seasons_overview",
       "community": 415,
-      "norm_label": "seasons_overview"
+      "norm_label": "seasons_overview",
+      "id": "src_data_season_one_schedule_seasons_overview"
     },
     {
       "label": "useWebshardAcesso.js",
@@ -659,9 +789,9 @@
       "source_file": "src/hooks/useWebshardAcesso.js",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_hooks_usewebshardacesso",
       "community": 17,
-      "norm_label": "usewebshardacesso.js"
+      "norm_label": "usewebshardacesso.js",
+      "id": "src_hooks_usewebshardacesso"
     },
     {
       "label": "ADMIN_EMAILS",
@@ -669,9 +799,9 @@
       "source_file": "src/hooks/useWebshardAcesso.js",
       "source_location": "L8",
       "_origin": "ast",
-      "id": "src_hooks_usewebshardacesso_admin_emails",
       "community": 17,
-      "norm_label": "admin_emails"
+      "norm_label": "admin_emails",
+      "id": "src_hooks_usewebshardacesso_admin_emails"
     },
     {
       "label": "useWebshardAcesso()",
@@ -679,9 +809,9 @@
       "source_file": "src/hooks/useWebshardAcesso.js",
       "source_location": "L14",
       "_origin": "ast",
-      "id": "src_hooks_usewebshardacesso_usewebshardacesso",
       "community": 17,
-      "norm_label": "usewebshardacesso()"
+      "norm_label": "usewebshardacesso()",
+      "id": "src_hooks_usewebshardacesso_usewebshardacesso"
     },
     {
       "label": "catalogo.js",
@@ -689,9 +819,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_lib_webshard_catalogo",
       "community": 17,
-      "norm_label": "catalogo.js"
+      "norm_label": "catalogo.js",
+      "id": "src_lib_webshard_catalogo"
     },
     {
       "label": "CAPITULOS_MOVIDOS",
@@ -699,9 +829,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L17",
       "_origin": "ast",
-      "id": "src_lib_webshard_catalogo_capitulos_movidos",
       "community": 17,
-      "norm_label": "capitulos_movidos"
+      "norm_label": "capitulos_movidos",
+      "id": "src_lib_webshard_catalogo_capitulos_movidos"
     },
     {
       "label": "capituloMovido()",
@@ -709,9 +839,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L19",
       "_origin": "ast",
-      "id": "src_lib_webshard_catalogo_capitulomovido",
       "community": 17,
-      "norm_label": "capitulomovido()"
+      "norm_label": "capitulomovido()",
+      "id": "src_lib_webshard_catalogo_capitulomovido"
     },
     {
       "label": "imagens",
@@ -719,9 +849,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L23",
       "_origin": "ast",
-      "id": "src_lib_webshard_catalogo_imagens",
       "community": 17,
-      "norm_label": "imagens"
+      "norm_label": "imagens",
+      "id": "src_lib_webshard_catalogo_imagens"
     },
     {
       "label": "imagemPorNome",
@@ -729,9 +859,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L24",
       "_origin": "ast",
-      "id": "src_lib_webshard_catalogo_imagempornome",
       "community": 17,
-      "norm_label": "imagempornome"
+      "norm_label": "imagempornome",
+      "id": "src_lib_webshard_catalogo_imagempornome"
     },
     {
       "label": "FONTES",
@@ -739,9 +869,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L28",
       "_origin": "ast",
-      "id": "src_lib_webshard_catalogo_fontes",
       "community": 17,
-      "norm_label": "fontes"
+      "norm_label": "fontes",
+      "id": "src_lib_webshard_catalogo_fontes"
     },
     {
       "label": "localizado()",
@@ -749,9 +879,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L33",
       "_origin": "ast",
-      "id": "src_lib_webshard_catalogo_localizado",
       "community": 17,
-      "norm_label": "localizado()"
+      "norm_label": "localizado()",
+      "id": "src_lib_webshard_catalogo_localizado"
     },
     {
       "label": "imagemWebshard()",
@@ -759,9 +889,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L38",
       "_origin": "ast",
-      "id": "src_lib_webshard_catalogo_imagemwebshard",
       "community": 17,
-      "norm_label": "imagemwebshard()"
+      "norm_label": "imagemwebshard()",
+      "id": "src_lib_webshard_catalogo_imagemwebshard"
     },
     {
       "label": "miniaturaCapitulo()",
@@ -769,9 +899,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L44",
       "_origin": "ast",
-      "id": "src_lib_webshard_catalogo_miniaturacapitulo",
       "community": 17,
-      "norm_label": "miniaturacapitulo()"
+      "norm_label": "miniaturacapitulo()",
+      "id": "src_lib_webshard_catalogo_miniaturacapitulo"
     },
     {
       "label": "listarTitulos()",
@@ -779,9 +909,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L48",
       "_origin": "ast",
-      "id": "src_lib_webshard_catalogo_listartitulos",
       "community": 17,
-      "norm_label": "listartitulos()"
+      "norm_label": "listartitulos()",
+      "id": "src_lib_webshard_catalogo_listartitulos"
     },
     {
       "label": "tituloPorSlug()",
@@ -789,9 +919,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L52",
       "_origin": "ast",
-      "id": "src_lib_webshard_catalogo_tituloporslug",
       "community": 17,
-      "norm_label": "tituloporslug()"
+      "norm_label": "tituloporslug()",
+      "id": "src_lib_webshard_catalogo_tituloporslug"
     },
     {
       "label": "capitulosDe()",
@@ -799,9 +929,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L56",
       "_origin": "ast",
-      "id": "src_lib_webshard_catalogo_capitulosde",
       "community": 17,
-      "norm_label": "capitulosde()"
+      "norm_label": "capitulosde()",
+      "id": "src_lib_webshard_catalogo_capitulosde"
     },
     {
       "label": "capituloPorId()",
@@ -809,9 +939,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L62",
       "_origin": "ast",
-      "id": "src_lib_webshard_catalogo_capituloporid",
       "community": 17,
-      "norm_label": "capituloporid()"
+      "norm_label": "capituloporid()",
+      "id": "src_lib_webshard_catalogo_capituloporid"
     },
     {
       "label": "capituloTemConteudo()",
@@ -819,9 +949,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L67",
       "_origin": "ast",
-      "id": "src_lib_webshard_catalogo_capitulotemconteudo",
       "community": 17,
-      "norm_label": "capitulotemconteudo()"
+      "norm_label": "capitulotemconteudo()",
+      "id": "src_lib_webshard_catalogo_capitulotemconteudo"
     },
     {
       "label": "rotaTitulo()",
@@ -829,9 +959,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L71",
       "_origin": "ast",
-      "id": "src_lib_webshard_catalogo_rotatitulo",
       "community": 17,
-      "norm_label": "rotatitulo()"
+      "norm_label": "rotatitulo()",
+      "id": "src_lib_webshard_catalogo_rotatitulo"
     },
     {
       "label": "rotaCapitulo()",
@@ -839,9 +969,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L75",
       "_origin": "ast",
-      "id": "src_lib_webshard_catalogo_rotacapitulo",
       "community": 17,
-      "norm_label": "rotacapitulo()"
+      "norm_label": "rotacapitulo()",
+      "id": "src_lib_webshard_catalogo_rotacapitulo"
     },
     {
       "label": "tituloLegado()",
@@ -849,9 +979,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L80",
       "_origin": "ast",
-      "id": "src_lib_webshard_catalogo_titulolegado",
       "community": 17,
-      "norm_label": "titulolegado()"
+      "norm_label": "titulolegado()",
+      "id": "src_lib_webshard_catalogo_titulolegado"
     },
     {
       "label": "numeroCapitulo()",
@@ -859,9 +989,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L84",
       "_origin": "ast",
-      "id": "src_lib_webshard_catalogo_numerocapitulo",
       "community": 17,
-      "norm_label": "numerocapitulo()"
+      "norm_label": "numerocapitulo()",
+      "id": "src_lib_webshard_catalogo_numerocapitulo"
     },
     {
       "label": "idiomaInicial()",
@@ -869,9 +999,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L90",
       "_origin": "ast",
-      "id": "src_lib_webshard_catalogo_idiomainicial",
       "community": 17,
-      "norm_label": "idiomainicial()"
+      "norm_label": "idiomainicial()",
+      "id": "src_lib_webshard_catalogo_idiomainicial"
     },
     {
       "label": "paginasDe()",
@@ -879,9 +1009,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L98",
       "_origin": "ast",
-      "id": "src_lib_webshard_catalogo_paginasde",
       "community": 17,
-      "norm_label": "paginasde()"
+      "norm_label": "paginasde()",
+      "id": "src_lib_webshard_catalogo_paginasde"
     },
     {
       "label": "vizinhos()",
@@ -889,9 +1019,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L111",
       "_origin": "ast",
-      "id": "src_lib_webshard_catalogo_vizinhos",
       "community": 17,
-      "norm_label": "vizinhos()"
+      "norm_label": "vizinhos()",
+      "id": "src_lib_webshard_catalogo_vizinhos"
     },
     {
       "label": "hojeISO()",
@@ -899,9 +1029,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L120",
       "_origin": "ast",
-      "id": "src_lib_webshard_catalogo_hojeiso",
       "community": 17,
-      "norm_label": "hojeiso()"
+      "norm_label": "hojeiso()",
+      "id": "src_lib_webshard_catalogo_hojeiso"
     },
     {
       "label": "emBeta()",
@@ -909,9 +1039,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L124",
       "_origin": "ast",
-      "id": "src_lib_webshard_catalogo_embeta",
       "community": 17,
-      "norm_label": "embeta()"
+      "norm_label": "embeta()",
+      "id": "src_lib_webshard_catalogo_embeta"
     },
     {
       "label": "diasAte()",
@@ -919,9 +1049,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L129",
       "_origin": "ast",
-      "id": "src_lib_webshard_catalogo_diasate",
       "community": 17,
-      "norm_label": "diasate()"
+      "norm_label": "diasate()",
+      "id": "src_lib_webshard_catalogo_diasate"
     },
     {
       "label": "formatarData()",
@@ -929,9 +1059,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L133",
       "_origin": "ast",
-      "id": "src_lib_webshard_catalogo_formatardata",
       "community": 17,
-      "norm_label": "formatardata()"
+      "norm_label": "formatardata()",
+      "id": "src_lib_webshard_catalogo_formatardata"
     },
     {
       "label": "CapituloLinha.jsx",
@@ -939,9 +1069,9 @@
       "source_file": "src/pages/content/webshard/components/CapituloLinha.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_pages_content_webshard_components_capitulolinha",
       "community": 17,
-      "norm_label": "capitulolinha.jsx"
+      "norm_label": "capitulolinha.jsx",
+      "id": "src_pages_content_webshard_components_capitulolinha"
     },
     {
       "label": "CapituloLinha()",
@@ -949,9 +1079,9 @@
       "source_file": "src/pages/content/webshard/components/CapituloLinha.jsx",
       "source_location": "L12",
       "_origin": "ast",
-      "id": "src_pages_content_webshard_components_capitulolinha_capitulolinha",
       "community": 17,
-      "norm_label": "capitulolinha()"
+      "norm_label": "capitulolinha()",
+      "id": "src_pages_content_webshard_components_capitulolinha_capitulolinha"
     },
     {
       "label": "LatestEpisodes.jsx",
@@ -959,9 +1089,9 @@
       "source_file": "src/pages/site/Home/components/LatestEpisodes.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_pages_site_home_components_latestepisodes",
       "community": 17,
-      "norm_label": "latestepisodes.jsx"
+      "norm_label": "latestepisodes.jsx",
+      "id": "src_pages_site_home_components_latestepisodes"
     },
     {
       "label": "thumbnailModules",
@@ -969,9 +1099,9 @@
       "source_file": "src/pages/site/Home/components/LatestEpisodes.jsx",
       "source_location": "L13",
       "_origin": "ast",
-      "id": "src_pages_site_home_components_latestepisodes_thumbnailmodules",
       "community": 17,
-      "norm_label": "thumbnailmodules"
+      "norm_label": "thumbnailmodules",
+      "id": "src_pages_site_home_components_latestepisodes_thumbnailmodules"
     },
     {
       "label": "thumbnailMap",
@@ -979,9 +1109,9 @@
       "source_file": "src/pages/site/Home/components/LatestEpisodes.jsx",
       "source_location": "L18",
       "_origin": "ast",
-      "id": "src_pages_site_home_components_latestepisodes_thumbnailmap",
       "community": 17,
-      "norm_label": "thumbnailmap"
+      "norm_label": "thumbnailmap",
+      "id": "src_pages_site_home_components_latestepisodes_thumbnailmap"
     },
     {
       "label": "thumbnailFor()",
@@ -989,9 +1119,9 @@
       "source_file": "src/pages/site/Home/components/LatestEpisodes.jsx",
       "source_location": "L22",
       "_origin": "ast",
-      "id": "src_pages_site_home_components_latestepisodes_thumbnailfor",
       "community": 17,
-      "norm_label": "thumbnailfor()"
+      "norm_label": "thumbnailfor()",
+      "id": "src_pages_site_home_components_latestepisodes_thumbnailfor"
     },
     {
       "label": "LatestEpisodes()",
@@ -999,9 +1129,9 @@
       "source_file": "src/pages/site/Home/components/LatestEpisodes.jsx",
       "source_location": "L24",
       "_origin": "ast",
-      "id": "src_pages_site_home_components_latestepisodes_latestepisodes",
       "community": 17,
-      "norm_label": "latestepisodes()"
+      "norm_label": "latestepisodes()",
+      "id": "src_pages_site_home_components_latestepisodes_latestepisodes"
     },
     {
       "label": "WebshardHub.jsx",
@@ -2772,136 +2902,6 @@
       "community": 455,
       "norm_label": "mundo()",
       "id": "src_pages_content_mundo_mundo"
-    },
-    {
-      "label": "Calendario.jsx",
-      "file_type": "code",
-      "source_file": "src/pages/site/Calendario/Calendario.jsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 426,
-      "norm_label": "calendario.jsx",
-      "id": "src_pages_site_calendario_calendario"
-    },
-    {
-      "label": "levelRows",
-      "file_type": "code",
-      "source_file": "src/pages/site/Calendario/Calendario.jsx",
-      "source_location": "L10",
-      "_origin": "ast",
-      "community": 426,
-      "norm_label": "levelrows",
-      "id": "src_pages_site_calendario_calendario_levelrows"
-    },
-    {
-      "label": "channels",
-      "file_type": "code",
-      "source_file": "src/pages/site/Calendario/Calendario.jsx",
-      "source_location": "L15",
-      "_origin": "ast",
-      "community": 426,
-      "norm_label": "channels",
-      "id": "src_pages_site_calendario_calendario_channels"
-    },
-    {
-      "label": "formatDate()",
-      "file_type": "code",
-      "source_file": "src/pages/site/Calendario/Calendario.jsx",
-      "source_location": "L17",
-      "_origin": "ast",
-      "community": 426,
-      "norm_label": "formatdate()",
-      "id": "src_pages_site_calendario_calendario_formatdate"
-    },
-    {
-      "label": "intlLocale()",
-      "file_type": "code",
-      "source_file": "src/pages/site/Calendario/Calendario.jsx",
-      "source_location": "L23",
-      "_origin": "ast",
-      "community": 426,
-      "norm_label": "intllocale()",
-      "id": "src_pages_site_calendario_calendario_intllocale"
-    },
-    {
-      "label": "pad2()",
-      "file_type": "code",
-      "source_file": "src/pages/site/Calendario/Calendario.jsx",
-      "source_location": "L27",
-      "_origin": "ast",
-      "community": 426,
-      "norm_label": "pad2()",
-      "id": "src_pages_site_calendario_calendario_pad2"
-    },
-    {
-      "label": "CALENDAR_START",
-      "file_type": "code",
-      "source_file": "src/pages/site/Calendario/Calendario.jsx",
-      "source_location": "L30",
-      "_origin": "ast",
-      "community": 426,
-      "norm_label": "calendar_start",
-      "id": "src_pages_site_calendario_calendario_calendar_start"
-    },
-    {
-      "label": "CALENDAR_END",
-      "file_type": "code",
-      "source_file": "src/pages/site/Calendario/Calendario.jsx",
-      "source_location": "L31",
-      "_origin": "ast",
-      "community": 426,
-      "norm_label": "calendar_end",
-      "id": "src_pages_site_calendario_calendario_calendar_end"
-    },
-    {
-      "label": "buildMonths()",
-      "file_type": "code",
-      "source_file": "src/pages/site/Calendario/Calendario.jsx",
-      "source_location": "L33",
-      "_origin": "ast",
-      "community": 426,
-      "norm_label": "buildmonths()",
-      "id": "src_pages_site_calendario_calendario_buildmonths"
-    },
-    {
-      "label": "buildMonthCells()",
-      "file_type": "code",
-      "source_file": "src/pages/site/Calendario/Calendario.jsx",
-      "source_location": "L44",
-      "_origin": "ast",
-      "community": 426,
-      "norm_label": "buildmonthcells()",
-      "id": "src_pages_site_calendario_calendario_buildmonthcells"
-    },
-    {
-      "label": "monthLabel()",
-      "file_type": "code",
-      "source_file": "src/pages/site/Calendario/Calendario.jsx",
-      "source_location": "L54",
-      "_origin": "ast",
-      "community": 426,
-      "norm_label": "monthlabel()",
-      "id": "src_pages_site_calendario_calendario_monthlabel"
-    },
-    {
-      "label": "weekdayLabels()",
-      "file_type": "code",
-      "source_file": "src/pages/site/Calendario/Calendario.jsx",
-      "source_location": "L58",
-      "_origin": "ast",
-      "community": 426,
-      "norm_label": "weekdaylabels()",
-      "id": "src_pages_site_calendario_calendario_weekdaylabels"
-    },
-    {
-      "label": "Calendario()",
-      "file_type": "code",
-      "source_file": "src/pages/site/Calendario/Calendario.jsx",
-      "source_location": "L63",
-      "_origin": "ast",
-      "community": 426,
-      "norm_label": "calendario()",
-      "id": "src_pages_site_calendario_calendario_calendario"
     },
     {
       "label": "pois.js",
@@ -46326,405 +46326,6 @@
       "confidence_score": 1.0
     },
     {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L219",
-      "weight": 1.0,
-      "source": "scripts_prerender_routes",
-      "target": "scripts_prerender_routes_breadcrumbfor",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L9",
-      "weight": 1.0,
-      "source": "scripts_prerender_routes",
-      "target": "scripts_prerender_routes_build_date",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L203",
-      "weight": 1.0,
-      "source": "scripts_prerender_routes",
-      "target": "scripts_prerender_routes_canonicalurl",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L16",
-      "weight": 1.0,
-      "source": "scripts_prerender_routes",
-      "target": "scripts_prerender_routes_capitulos",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L17",
-      "weight": 1.0,
-      "source": "scripts_prerender_routes",
-      "target": "scripts_prerender_routes_contos",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L6",
-      "weight": 1.0,
-      "source": "scripts_prerender_routes",
-      "target": "scripts_prerender_routes_dist_dir",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L19",
-      "weight": 1.0,
-      "source": "scripts_prerender_routes",
-      "target": "scripts_prerender_routes_episodios",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L202",
-      "weight": 1.0,
-      "source": "scripts_prerender_routes",
-      "target": "scripts_prerender_routes_escapehtml",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L100",
-      "weight": 1.0,
-      "source": "scripts_prerender_routes",
-      "target": "scripts_prerender_routes_extragameroutes",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L310",
-      "weight": 1.0,
-      "source": "scripts_prerender_routes",
-      "target": "scripts_prerender_routes_homeroute",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L7",
-      "weight": 1.0,
-      "source": "scripts_prerender_routes",
-      "target": "scripts_prerender_routes_index_path",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L301",
-      "weight": 1.0,
-      "source": "scripts_prerender_routes",
-      "target": "scripts_prerender_routes_indexhtml",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L18",
-      "weight": 1.0,
-      "source": "scripts_prerender_routes",
-      "target": "scripts_prerender_routes_obras",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L257",
-      "weight": 1.0,
-      "source": "scripts_prerender_routes",
-      "target": "scripts_prerender_routes_pagehtml",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L12",
-      "weight": 1.0,
-      "source": "scripts_prerender_routes",
-      "target": "scripts_prerender_routes_pastor",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L15",
-      "weight": 1.0,
-      "source": "scripts_prerender_routes",
-      "target": "scripts_prerender_routes_personagens",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L8",
-      "weight": 1.0,
-      "source": "scripts_prerender_routes",
-      "target": "scripts_prerender_routes_public_sitemap_path",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L14",
-      "weight": 1.0,
-      "source": "scripts_prerender_routes",
-      "target": "scripts_prerender_routes_readjson",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L285",
-      "weight": 1.0,
-      "source": "scripts_prerender_routes",
-      "target": "scripts_prerender_routes_redirecthtml",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L186",
-      "weight": 1.0,
-      "source": "scripts_prerender_routes",
-      "target": "scripts_prerender_routes_redirects",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L68",
-      "weight": 1.0,
-      "source": "scripts_prerender_routes",
-      "target": "scripts_prerender_routes_related_by_path",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L21",
-      "weight": 1.0,
-      "source": "scripts_prerender_routes",
-      "target": "scripts_prerender_routes_releaseitems",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L204",
-      "weight": 1.0,
-      "source": "scripts_prerender_routes",
-      "target": "scripts_prerender_routes_replace",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L30",
-      "weight": 1.0,
-      "source": "scripts_prerender_routes",
-      "target": "scripts_prerender_routes_routes",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L206",
-      "weight": 1.0,
-      "source": "scripts_prerender_routes",
-      "target": "scripts_prerender_routes_schemafor",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L226",
-      "weight": 1.0,
-      "source": "scripts_prerender_routes",
-      "target": "scripts_prerender_routes_site_nav",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L318",
-      "weight": 1.0,
-      "source": "scripts_prerender_routes",
-      "target": "scripts_prerender_routes_sitemap",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L290",
-      "weight": 1.0,
-      "source": "scripts_prerender_routes",
-      "target": "scripts_prerender_routes_sitemapxml",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L234",
-      "weight": 1.0,
-      "source": "scripts_prerender_routes",
-      "target": "scripts_prerender_routes_staticcontent",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L279",
-      "weight": 1.0,
-      "source": "scripts_prerender_routes",
-      "target": "scripts_prerender_routes_writeroute",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L202",
-      "weight": 1.0,
-      "source": "scripts_prerender_routes_escapehtml",
-      "target": "scripts_prerender_routes_replace",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L259",
-      "weight": 1.0,
-      "source": "scripts_prerender_routes_pagehtml",
-      "target": "scripts_prerender_routes_escapehtml",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L235",
-      "weight": 1.0,
-      "source": "scripts_prerender_routes_staticcontent",
-      "target": "scripts_prerender_routes_escapehtml",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L258",
-      "weight": 1.0,
-      "source": "scripts_prerender_routes_pagehtml",
-      "target": "scripts_prerender_routes_canonicalurl",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L292",
-      "weight": 1.0,
-      "source": "scripts_prerender_routes_sitemapxml",
-      "target": "scripts_prerender_routes_canonicalurl",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L264",
-      "weight": 1.0,
-      "source": "scripts_prerender_routes_pagehtml",
-      "target": "scripts_prerender_routes_replace",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L261",
-      "weight": 1.0,
-      "source": "scripts_prerender_routes_pagehtml",
-      "target": "scripts_prerender_routes_schemafor",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L261",
-      "weight": 1.0,
-      "source": "scripts_prerender_routes_pagehtml",
-      "target": "scripts_prerender_routes_breadcrumbfor",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L276",
-      "weight": 1.0,
-      "source": "scripts_prerender_routes_pagehtml",
-      "target": "scripts_prerender_routes_staticcontent",
-      "confidence_score": 1.0
-    },
-    {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -46881,12 +46482,619 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "src/pages/site/Calendario/Calendario.jsx",
+      "source_location": "L44",
+      "weight": 1.0,
+      "source": "src_pages_site_calendario_calendario",
+      "target": "src_pages_site_calendario_calendario_buildmonthcells",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/site/Calendario/Calendario.jsx",
+      "source_location": "L33",
+      "weight": 1.0,
+      "source": "src_pages_site_calendario_calendario",
+      "target": "src_pages_site_calendario_calendario_buildmonths",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/site/Calendario/Calendario.jsx",
+      "source_location": "L31",
+      "weight": 1.0,
+      "source": "src_pages_site_calendario_calendario",
+      "target": "src_pages_site_calendario_calendario_calendar_end",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/site/Calendario/Calendario.jsx",
+      "source_location": "L30",
+      "weight": 1.0,
+      "source": "src_pages_site_calendario_calendario",
+      "target": "src_pages_site_calendario_calendario_calendar_start",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/site/Calendario/Calendario.jsx",
+      "source_location": "L63",
+      "weight": 1.0,
+      "source": "src_pages_site_calendario_calendario",
+      "target": "src_pages_site_calendario_calendario_calendario",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/site/Calendario/Calendario.jsx",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "src_pages_site_calendario_calendario",
+      "target": "src_pages_site_calendario_calendario_channels",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/site/Calendario/Calendario.jsx",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "src_pages_site_calendario_calendario",
+      "target": "src_pages_site_calendario_calendario_formatdate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/site/Calendario/Calendario.jsx",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "src_pages_site_calendario_calendario",
+      "target": "src_pages_site_calendario_calendario_intllocale",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/site/Calendario/Calendario.jsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "src_pages_site_calendario_calendario",
+      "target": "src_pages_site_calendario_calendario_levelrows",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/site/Calendario/Calendario.jsx",
+      "source_location": "L54",
+      "weight": 1.0,
+      "source": "src_pages_site_calendario_calendario",
+      "target": "src_pages_site_calendario_calendario_monthlabel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/site/Calendario/Calendario.jsx",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "src_pages_site_calendario_calendario",
+      "target": "src_pages_site_calendario_calendario_pad2",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/site/Calendario/Calendario.jsx",
+      "source_location": "L58",
+      "weight": 1.0,
+      "source": "src_pages_site_calendario_calendario",
+      "target": "src_pages_site_calendario_calendario_weekdaylabels",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/site/Calendario/Calendario.jsx",
+      "source_location": "L138",
+      "weight": 1.0,
+      "source": "src_pages_site_calendario_calendario_calendario",
+      "target": "src_pages_site_calendario_calendario_formatdate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/site/Calendario/Calendario.jsx",
+      "source_location": "L55",
+      "weight": 1.0,
+      "source": "src_pages_site_calendario_calendario_monthlabel",
+      "target": "src_pages_site_calendario_calendario_intllocale",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/site/Calendario/Calendario.jsx",
+      "source_location": "L59",
+      "weight": 1.0,
+      "source": "src_pages_site_calendario_calendario_weekdaylabels",
+      "target": "src_pages_site_calendario_calendario_intllocale",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/site/Calendario/Calendario.jsx",
+      "source_location": "L161",
+      "weight": 1.0,
+      "source": "src_pages_site_calendario_calendario_calendario",
+      "target": "src_pages_site_calendario_calendario_pad2",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/site/Calendario/Calendario.jsx",
+      "source_location": "L81",
+      "weight": 1.0,
+      "source": "src_pages_site_calendario_calendario_calendario",
+      "target": "src_pages_site_calendario_calendario_buildmonths",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/site/Calendario/Calendario.jsx",
+      "source_location": "L151",
+      "weight": 1.0,
+      "source": "src_pages_site_calendario_calendario_calendario",
+      "target": "src_pages_site_calendario_calendario_buildmonthcells",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/site/Calendario/Calendario.jsx",
+      "source_location": "L154",
+      "weight": 1.0,
+      "source": "src_pages_site_calendario_calendario_calendario",
+      "target": "src_pages_site_calendario_calendario_monthlabel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/site/Calendario/Calendario.jsx",
+      "source_location": "L82",
+      "weight": 1.0,
+      "source": "src_pages_site_calendario_calendario_calendario",
+      "target": "src_pages_site_calendario_calendario_weekdaylabels",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L219",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes",
+      "target": "scripts_prerender_routes_breadcrumbfor"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes",
+      "target": "scripts_prerender_routes_build_date"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L203",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes",
+      "target": "scripts_prerender_routes_canonicalurl"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L16",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes",
+      "target": "scripts_prerender_routes_capitulos"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L17",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes",
+      "target": "scripts_prerender_routes_contos"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes",
+      "target": "scripts_prerender_routes_dist_dir"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L19",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes",
+      "target": "scripts_prerender_routes_episodios"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L202",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes",
+      "target": "scripts_prerender_routes_escapehtml"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L100",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes",
+      "target": "scripts_prerender_routes_extragameroutes"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L310",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes",
+      "target": "scripts_prerender_routes_homeroute"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes",
+      "target": "scripts_prerender_routes_index_path"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L301",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes",
+      "target": "scripts_prerender_routes_indexhtml"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L18",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes",
+      "target": "scripts_prerender_routes_obras"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L257",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes",
+      "target": "scripts_prerender_routes_pagehtml"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes",
+      "target": "scripts_prerender_routes_pastor"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L15",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes",
+      "target": "scripts_prerender_routes_personagens"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes",
+      "target": "scripts_prerender_routes_public_sitemap_path"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L14",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes",
+      "target": "scripts_prerender_routes_readjson"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L285",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes",
+      "target": "scripts_prerender_routes_redirecthtml"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L186",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes",
+      "target": "scripts_prerender_routes_redirects"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L68",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes",
+      "target": "scripts_prerender_routes_related_by_path"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L21",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes",
+      "target": "scripts_prerender_routes_releaseitems"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L204",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes",
+      "target": "scripts_prerender_routes_replace"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L30",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes",
+      "target": "scripts_prerender_routes_routes"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L206",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes",
+      "target": "scripts_prerender_routes_schemafor"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L226",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes",
+      "target": "scripts_prerender_routes_site_nav"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L318",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes",
+      "target": "scripts_prerender_routes_sitemap"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L290",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes",
+      "target": "scripts_prerender_routes_sitemapxml"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L234",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes",
+      "target": "scripts_prerender_routes_staticcontent"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L279",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes",
+      "target": "scripts_prerender_routes_writeroute"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L202",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes_escapehtml",
+      "target": "scripts_prerender_routes_replace"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L259",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes_pagehtml",
+      "target": "scripts_prerender_routes_escapehtml"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L235",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes_staticcontent",
+      "target": "scripts_prerender_routes_escapehtml"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L258",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes_pagehtml",
+      "target": "scripts_prerender_routes_canonicalurl"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L292",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes_sitemapxml",
+      "target": "scripts_prerender_routes_canonicalurl"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L264",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes_pagehtml",
+      "target": "scripts_prerender_routes_replace"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L261",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes_pagehtml",
+      "target": "scripts_prerender_routes_schemafor"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L261",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes_pagehtml",
+      "target": "scripts_prerender_routes_breadcrumbfor"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L276",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes_pagehtml",
+      "target": "scripts_prerender_routes_staticcontent"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "src/data/season-one-schedule.js",
       "source_location": "L78",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_data_season_one_schedule",
-      "target": "src_data_season_one_schedule_season_one_completion",
-      "confidence_score": 1.0
+      "target": "src_data_season_one_schedule_season_one_completion"
     },
     {
       "relation": "contains",
@@ -46894,9 +47102,9 @@
       "source_file": "src/data/season-one-schedule.js",
       "source_location": "L26",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_data_season_one_schedule",
-      "target": "src_data_season_one_schedule_season_one_drops",
-      "confidence_score": 1.0
+      "target": "src_data_season_one_schedule_season_one_drops"
     },
     {
       "relation": "contains",
@@ -46904,9 +47112,9 @@
       "source_file": "src/data/season-one-schedule.js",
       "source_location": "L90",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_data_season_one_schedule",
-      "target": "src_data_season_one_schedule_seasons_overview",
-      "confidence_score": 1.0
+      "target": "src_data_season_one_schedule_seasons_overview"
     },
     {
       "relation": "contains",
@@ -46914,9 +47122,9 @@
       "source_file": "src/hooks/useWebshardAcesso.js",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_hooks_usewebshardacesso",
-      "target": "src_hooks_usewebshardacesso_admin_emails",
-      "confidence_score": 1.0
+      "target": "src_hooks_usewebshardacesso_admin_emails"
     },
     {
       "relation": "contains",
@@ -46924,9 +47132,9 @@
       "source_file": "src/hooks/useWebshardAcesso.js",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_hooks_usewebshardacesso",
-      "target": "src_hooks_usewebshardacesso_usewebshardacesso",
-      "confidence_score": 1.0
+      "target": "src_hooks_usewebshardacesso_usewebshardacesso"
     },
     {
       "relation": "imports_from",
@@ -46935,9 +47143,9 @@
       "source_file": "src/hooks/useWebshardAcesso.js",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_hooks_usewebshardacesso",
-      "target": "src_lib_webshard_catalogo",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo"
     },
     {
       "relation": "imports",
@@ -46946,9 +47154,9 @@
       "source_file": "src/hooks/useWebshardAcesso.js",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_hooks_usewebshardacesso",
-      "target": "src_lib_webshard_catalogo_capitulotemconteudo",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_capitulotemconteudo"
     },
     {
       "relation": "imports",
@@ -46957,9 +47165,9 @@
       "source_file": "src/hooks/useWebshardAcesso.js",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_hooks_usewebshardacesso",
-      "target": "src_lib_webshard_catalogo_embeta",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_embeta"
     },
     {
       "relation": "imports_from",
@@ -47088,9 +47296,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L19",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_capitulomovido",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_capitulomovido"
     },
     {
       "relation": "contains",
@@ -47098,9 +47306,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L62",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_capituloporid",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_capituloporid"
     },
     {
       "relation": "contains",
@@ -47108,9 +47316,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L17",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_capitulos_movidos",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_capitulos_movidos"
     },
     {
       "relation": "contains",
@@ -47118,9 +47326,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L56",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_capitulosde",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_capitulosde"
     },
     {
       "relation": "contains",
@@ -47128,9 +47336,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L67",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_capitulotemconteudo",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_capitulotemconteudo"
     },
     {
       "relation": "contains",
@@ -47138,9 +47346,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L129",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_diasate",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_diasate"
     },
     {
       "relation": "contains",
@@ -47148,9 +47356,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L124",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_embeta",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_embeta"
     },
     {
       "relation": "contains",
@@ -47158,9 +47366,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L28",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_fontes",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_fontes"
     },
     {
       "relation": "contains",
@@ -47168,9 +47376,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L133",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_formatardata",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_formatardata"
     },
     {
       "relation": "contains",
@@ -47178,9 +47386,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L120",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_hojeiso",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_hojeiso"
     },
     {
       "relation": "contains",
@@ -47188,9 +47396,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L90",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_idiomainicial",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_idiomainicial"
     },
     {
       "relation": "contains",
@@ -47198,9 +47406,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L24",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_imagempornome",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_imagempornome"
     },
     {
       "relation": "contains",
@@ -47208,9 +47416,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L38",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_imagemwebshard",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_imagemwebshard"
     },
     {
       "relation": "contains",
@@ -47218,9 +47426,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L23",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_imagens",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_imagens"
     },
     {
       "relation": "contains",
@@ -47228,9 +47436,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L48",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_listartitulos",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_listartitulos"
     },
     {
       "relation": "contains",
@@ -47238,9 +47446,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L33",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_localizado",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_localizado"
     },
     {
       "relation": "contains",
@@ -47248,9 +47456,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L44",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_miniaturacapitulo",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_miniaturacapitulo"
     },
     {
       "relation": "contains",
@@ -47258,9 +47466,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L84",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_numerocapitulo",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_numerocapitulo"
     },
     {
       "relation": "contains",
@@ -47268,9 +47476,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L98",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_paginasde",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_paginasde"
     },
     {
       "relation": "contains",
@@ -47278,9 +47486,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L75",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_rotacapitulo",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_rotacapitulo"
     },
     {
       "relation": "contains",
@@ -47288,9 +47496,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L71",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_rotatitulo",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_rotatitulo"
     },
     {
       "relation": "contains",
@@ -47298,9 +47506,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L80",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_titulolegado",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_titulolegado"
     },
     {
       "relation": "contains",
@@ -47308,9 +47516,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L52",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_tituloporslug",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_tituloporslug"
     },
     {
       "relation": "contains",
@@ -47318,9 +47526,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L111",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_webshard_catalogo",
-      "target": "src_lib_webshard_catalogo_vizinhos",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_vizinhos"
     },
     {
       "relation": "imports_from",
@@ -47329,9 +47537,9 @@
       "source_file": "src/pages/content/webshard/components/CapituloLinha.jsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_webshard_components_capitulolinha",
-      "target": "src_lib_webshard_catalogo",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo"
     },
     {
       "relation": "imports_from",
@@ -47384,9 +47592,9 @@
       "source_file": "src/pages/site/Home/components/LatestEpisodes.jsx",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_site_home_components_latestepisodes",
-      "target": "src_lib_webshard_catalogo",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo"
     },
     {
       "relation": "imports",
@@ -47417,9 +47625,9 @@
       "source_file": "src/pages/content/webshard/components/CapituloLinha.jsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_webshard_components_capitulolinha",
-      "target": "src_lib_webshard_catalogo_localizado",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_localizado"
     },
     {
       "relation": "calls",
@@ -47505,9 +47713,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L45",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_webshard_catalogo_miniaturacapitulo",
-      "target": "src_lib_webshard_catalogo_imagemwebshard",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_imagemwebshard"
     },
     {
       "relation": "imports",
@@ -47560,9 +47768,9 @@
       "source_file": "src/pages/content/webshard/components/CapituloLinha.jsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_webshard_components_capitulolinha",
-      "target": "src_lib_webshard_catalogo_miniaturacapitulo",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_miniaturacapitulo"
     },
     {
       "relation": "calls",
@@ -47604,9 +47812,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L53",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_webshard_catalogo_tituloporslug",
-      "target": "src_lib_webshard_catalogo_listartitulos",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_listartitulos"
     },
     {
       "relation": "imports",
@@ -47637,9 +47845,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L63",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_webshard_catalogo_capituloporid",
-      "target": "src_lib_webshard_catalogo_capitulosde",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_capitulosde"
     },
     {
       "relation": "calls",
@@ -47648,9 +47856,9 @@
       "source_file": "src/lib/webshard/catalogo.js",
       "source_location": "L112",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_lib_webshard_catalogo_vizinhos",
-      "target": "src_lib_webshard_catalogo_capitulosde",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_capitulosde"
     },
     {
       "relation": "imports",
@@ -47681,9 +47889,9 @@
       "source_file": "src/pages/content/webshard/components/CapituloLinha.jsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_webshard_components_capitulolinha",
-      "target": "src_lib_webshard_catalogo_capitulotemconteudo",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_capitulotemconteudo"
     },
     {
       "relation": "calls",
@@ -47725,9 +47933,9 @@
       "source_file": "src/pages/content/webshard/components/CapituloLinha.jsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_webshard_components_capitulolinha",
-      "target": "src_lib_webshard_catalogo_rotacapitulo",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_rotacapitulo"
     },
     {
       "relation": "calls",
@@ -47791,9 +47999,9 @@
       "source_file": "src/pages/content/webshard/components/CapituloLinha.jsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_webshard_components_capitulolinha",
-      "target": "src_lib_webshard_catalogo_numerocapitulo",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_numerocapitulo"
     },
     {
       "relation": "calls",
@@ -47835,9 +48043,9 @@
       "source_file": "src/pages/content/webshard/components/CapituloLinha.jsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_webshard_components_capitulolinha",
-      "target": "src_lib_webshard_catalogo_embeta",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_embeta"
     },
     {
       "relation": "calls",
@@ -47857,9 +48065,9 @@
       "source_file": "src/pages/site/Home/components/LatestEpisodes.jsx",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_site_home_components_latestepisodes",
-      "target": "src_lib_webshard_catalogo_embeta",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_embeta"
     },
     {
       "relation": "calls",
@@ -47879,9 +48087,9 @@
       "source_file": "src/pages/content/webshard/components/CapituloLinha.jsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_webshard_components_capitulolinha",
-      "target": "src_lib_webshard_catalogo_diasate",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_diasate"
     },
     {
       "relation": "calls",
@@ -47901,9 +48109,9 @@
       "source_file": "src/pages/content/webshard/components/CapituloLinha.jsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_webshard_components_capitulolinha",
-      "target": "src_lib_webshard_catalogo_formatardata",
-      "confidence_score": 1.0
+      "target": "src_lib_webshard_catalogo_formatardata"
     },
     {
       "relation": "calls",
@@ -47922,9 +48130,9 @@
       "source_file": "src/pages/content/webshard/components/CapituloLinha.jsx",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_webshard_components_capitulolinha",
-      "target": "src_pages_content_webshard_components_capitulolinha_capitulolinha",
-      "confidence_score": 1.0
+      "target": "src_pages_content_webshard_components_capitulolinha_capitulolinha"
     },
     {
       "relation": "imports_from",
@@ -47976,9 +48184,9 @@
       "source_file": "src/pages/site/Home/components/LatestEpisodes.jsx",
       "source_location": "L24",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_site_home_components_latestepisodes",
-      "target": "src_pages_site_home_components_latestepisodes_latestepisodes",
-      "confidence_score": 1.0
+      "target": "src_pages_site_home_components_latestepisodes_latestepisodes"
     },
     {
       "relation": "contains",
@@ -47986,9 +48194,9 @@
       "source_file": "src/pages/site/Home/components/LatestEpisodes.jsx",
       "source_location": "L22",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_site_home_components_latestepisodes",
-      "target": "src_pages_site_home_components_latestepisodes_thumbnailfor",
-      "confidence_score": 1.0
+      "target": "src_pages_site_home_components_latestepisodes_thumbnailfor"
     },
     {
       "relation": "contains",
@@ -47996,9 +48204,9 @@
       "source_file": "src/pages/site/Home/components/LatestEpisodes.jsx",
       "source_location": "L18",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_site_home_components_latestepisodes",
-      "target": "src_pages_site_home_components_latestepisodes_thumbnailmap",
-      "confidence_score": 1.0
+      "target": "src_pages_site_home_components_latestepisodes_thumbnailmap"
     },
     {
       "relation": "contains",
@@ -48006,9 +48214,9 @@
       "source_file": "src/pages/site/Home/components/LatestEpisodes.jsx",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_site_home_components_latestepisodes",
-      "target": "src_pages_site_home_components_latestepisodes_thumbnailmodules",
-      "confidence_score": 1.0
+      "target": "src_pages_site_home_components_latestepisodes_thumbnailmodules"
     },
     {
       "relation": "imports_from",
@@ -48028,9 +48236,9 @@
       "source_file": "src/pages/site/Home/components/LatestEpisodes.jsx",
       "source_location": "L60",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_site_home_components_latestepisodes_latestepisodes",
-      "target": "src_pages_site_home_components_latestepisodes_thumbnailfor",
-      "confidence_score": 1.0
+      "target": "src_pages_site_home_components_latestepisodes_thumbnailfor"
     },
     {
       "relation": "imports",
@@ -50104,214 +50312,6 @@
       "confidence_score": 1.0,
       "source": "src_pages_content_mundo",
       "target": "src_pages_content_mundo_protagonist_ids"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/site/Calendario/Calendario.jsx",
-      "source_location": "L44",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_site_calendario_calendario",
-      "target": "src_pages_site_calendario_calendario_buildmonthcells"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/site/Calendario/Calendario.jsx",
-      "source_location": "L33",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_site_calendario_calendario",
-      "target": "src_pages_site_calendario_calendario_buildmonths"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/site/Calendario/Calendario.jsx",
-      "source_location": "L31",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_site_calendario_calendario",
-      "target": "src_pages_site_calendario_calendario_calendar_end"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/site/Calendario/Calendario.jsx",
-      "source_location": "L30",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_site_calendario_calendario",
-      "target": "src_pages_site_calendario_calendario_calendar_start"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/site/Calendario/Calendario.jsx",
-      "source_location": "L63",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_site_calendario_calendario",
-      "target": "src_pages_site_calendario_calendario_calendario"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/site/Calendario/Calendario.jsx",
-      "source_location": "L15",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_site_calendario_calendario",
-      "target": "src_pages_site_calendario_calendario_channels"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/site/Calendario/Calendario.jsx",
-      "source_location": "L17",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_site_calendario_calendario",
-      "target": "src_pages_site_calendario_calendario_formatdate"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/site/Calendario/Calendario.jsx",
-      "source_location": "L23",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_site_calendario_calendario",
-      "target": "src_pages_site_calendario_calendario_intllocale"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/site/Calendario/Calendario.jsx",
-      "source_location": "L10",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_site_calendario_calendario",
-      "target": "src_pages_site_calendario_calendario_levelrows"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/site/Calendario/Calendario.jsx",
-      "source_location": "L54",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_site_calendario_calendario",
-      "target": "src_pages_site_calendario_calendario_monthlabel"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/site/Calendario/Calendario.jsx",
-      "source_location": "L27",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_site_calendario_calendario",
-      "target": "src_pages_site_calendario_calendario_pad2"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/site/Calendario/Calendario.jsx",
-      "source_location": "L58",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_site_calendario_calendario",
-      "target": "src_pages_site_calendario_calendario_weekdaylabels"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/site/Calendario/Calendario.jsx",
-      "source_location": "L129",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_site_calendario_calendario_calendario",
-      "target": "src_pages_site_calendario_calendario_formatdate"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/site/Calendario/Calendario.jsx",
-      "source_location": "L55",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_site_calendario_calendario_monthlabel",
-      "target": "src_pages_site_calendario_calendario_intllocale"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/site/Calendario/Calendario.jsx",
-      "source_location": "L59",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_site_calendario_calendario_weekdaylabels",
-      "target": "src_pages_site_calendario_calendario_intllocale"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/site/Calendario/Calendario.jsx",
-      "source_location": "L152",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_site_calendario_calendario_calendario",
-      "target": "src_pages_site_calendario_calendario_pad2"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/site/Calendario/Calendario.jsx",
-      "source_location": "L72",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_site_calendario_calendario_calendario",
-      "target": "src_pages_site_calendario_calendario_buildmonths"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/site/Calendario/Calendario.jsx",
-      "source_location": "L142",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_site_calendario_calendario_calendario",
-      "target": "src_pages_site_calendario_calendario_buildmonthcells"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/site/Calendario/Calendario.jsx",
-      "source_location": "L145",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_site_calendario_calendario_calendario",
-      "target": "src_pages_site_calendario_calendario_monthlabel"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/site/Calendario/Calendario.jsx",
-      "source_location": "L73",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_site_calendario_calendario_calendario",
-      "target": "src_pages_site_calendario_calendario_weekdaylabels"
     },
     {
       "relation": "contains",
@@ -128034,5 +128034,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "0399e6386a6214d4c8a72f3f6fed8ef1ce2e1e48"
+  "built_at_commit": "c150bd049490749e64f5df009128ad915e8a25ce"
 }

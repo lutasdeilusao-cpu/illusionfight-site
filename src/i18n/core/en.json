@@ -1064,7 +1064,10 @@
       "capitulos": "Chapters",
       "total_caps": "{n} published",
       "sem_capitulos": "The first chapters are on their way.",
-      "classificacao": "{n}+"
+      "classificacao": "{n}+",
+      "especiais": "Specials",
+      "especiais_selo": "Outside the main story",
+      "especiais_hint": "A side story: the characters taken to another world, to fill the hiatus. Not part of the main storyline."
     },
     "cap": {
       "rotulo": "Ch. {n}",
@@ -1072,7 +1075,8 @@
       "em_breve": "Coming soon",
       "em_breve_data": "Out {data}",
       "lido": "✓ Read",
-      "lendo": "Stopped at page {p} of {t}"
+      "lendo": "Stopped at page {p} of {t}",
+      "especial": "Special · Part {n}"
     },
     "leitor": {
       "voltar": "Back",

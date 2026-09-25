@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useLanguage } from '../../../../context/LanguageContext'
 import {
-  capituloTemConteudo, diasAte, emBeta, formatarData, localizado, miniaturaCapitulo, numeroCapitulo, rotaCapitulo,
+  capituloTemConteudo, diasAte, emBeta, formatarData, localizado, miniaturaCapitulo, numeroCapitulo, rotaCapitulo, rotuloCapitulo,
 } from '../../../../lib/webshard/catalogo'
 import CascataLiberacao from './CascataLiberacao'
 import './CapituloLinha.css'
@@ -43,9 +43,9 @@ export default function CapituloLinha({ titulo, cap, liberado, data, nivel, prog
       <span className="ws-cap__corpo">
         <span className="ws-cap__rotulo">
           {mostrarTitulo ? `${localizado(titulo, 'nome', locale)} · ` : ''}
-          {t('webShard.cap.rotulo', { n: numeroCapitulo(cap) })}
+          {rotuloCapitulo(cap, t)}
         </span>
-        <span className="ws-cap__nome">{temConteudo ? localizado(cap, 'titulo', locale) : t('webShard.cap.em_breve')}</span>
+        <span className="ws-cap__nome">{temConteudo || cap.especial ? localizado(cap, 'titulo', locale) : t('webShard.cap.em_breve')}</span>
         {cascata && <CascataLiberacao liberacao={cap.liberacao} nivel={nivel} />}
         {beta && (
           <>

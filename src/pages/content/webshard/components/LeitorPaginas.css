@@ -1,6 +1,7 @@
 .ws-paginas {
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
   background: #000;
 }
 
@@ -14,4 +15,31 @@
   user-select: none;
   -webkit-user-drag: none;
   -webkit-touch-callout: none;
+}
+
+/* Corte neon entre páginas: altura zero (não empurra o layout nem muda a
+   posição das páginas pro "continuar da pág. N"), o fio é desenhado por
+   cima da emenda, levemente inclinado — núcleo quase branco + halo ciano,
+   igual ao neon dos painéis da arte. */
+.ws-paginas__corte {
+  position: relative;
+  z-index: 1;
+  height: 0;
+  pointer-events: none;
+}
+
+.ws-paginas__corte::before {
+  content: '';
+  position: absolute;
+  top: -1.5px;
+  left: -4%;
+  width: 108%;
+  height: 3px;
+  background: linear-gradient(90deg, rgba(24, 218, 251, 0.2), #d8fbff 18%, #eaffff 50%, #d8fbff 82%, rgba(24, 218, 251, 0.2));
+  box-shadow:
+    0 0 4px var(--if-cyan),
+    0 0 10px var(--if-cyan),
+    0 0 22px rgba(24, 218, 251, 0.75),
+    0 0 42px rgba(24, 218, 251, 0.4);
+  transform: rotate(-2.2deg);
 }
