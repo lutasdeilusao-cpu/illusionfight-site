@@ -8,7 +8,7 @@ import './CapituloLinha.css'
 /** Uma linha de capítulo (lista do título e feed do hub). Liberado vira
  *  link; travado mostra a data de saída. `progresso` é o do título inteiro
  *  — só pinta "lendo/lido" se for deste capítulo. */
-export default function CapituloLinha({ titulo, cap, liberado, progresso, mostrarTitulo = false, previa = false }) {
+export default function CapituloLinha({ titulo, cap, liberado, data, progresso, mostrarTitulo = false, previa = false }) {
   const { t, locale } = useLanguage()
   const temConteudo = capituloTemConteudo(cap)
   const doCapitulo = progresso?.cap === cap.id ? progresso : null
@@ -16,8 +16,8 @@ export default function CapituloLinha({ titulo, cap, liberado, progresso, mostra
 
   let estado
   if (!liberado) {
-    estado = cap.data_publicacao
-      ? t('webShard.cap.em_breve_data', { data: formatarData(cap.data_publicacao) })
+    estado = data
+      ? t('webShard.cap.em_breve_data', { data: formatarData(data) })
       : t('webShard.cap.em_breve')
   } else if (lido) {
     estado = t('webShard.cap.lido')

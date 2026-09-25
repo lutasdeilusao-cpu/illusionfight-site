@@ -28,7 +28,7 @@ export default function WebshardLeitor({ titulo, capId }) {
   const { setReaderMode } = useReader()
   const navigate = useNavigate()
   const { locale, t } = useLanguage()
-  const { isAdmin, liberado, previa } = useWebshardAcesso()
+  const { isAdmin, liberado, previa, dataPara } = useWebshardAcesso()
   const { desbloquearOuConvidar } = useAchievements()
   const { registrarEvento } = useEventos()
   const desbloquearRef = useRef(desbloquearOuConvidar)
@@ -147,8 +147,8 @@ export default function WebshardLeitor({ titulo, capId }) {
           <p className="ws-leitor-bloqueado__texto">
             {!cap
               ? t('webShard.leitor.nao_encontrado')
-              : cap.data_publicacao
-                ? t('webShard.leitor.bloqueado', { data: formatarData(cap.data_publicacao) })
+              : dataPara(cap)
+                ? t('webShard.leitor.bloqueado', { data: formatarData(dataPara(cap)) })
                 : t('webShard.leitor.bloqueado_sem_data')}
           </p>
           <Link to={rotaTitulo(titulo)} className="if-btn if-btn--ghost">{t('webShard.leitor.todos_capitulos')}</Link>
@@ -205,6 +205,7 @@ export default function WebshardLeitor({ titulo, capId }) {
           cap={cap}
           proximo={proximo}
           proximoLiberado={Boolean(proximo && liberado(proximo))}
+          proximoData={proximo ? dataPara(proximo) : null}
           idioma={idioma}
           isAdmin={isAdmin}
           onCompartilhar={compartilhar}

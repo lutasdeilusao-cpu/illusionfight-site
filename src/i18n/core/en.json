@@ -1064,8 +1064,7 @@
       "capitulos": "Chapters",
       "total_caps": "{n} published",
       "sem_capitulos": "The first chapters are on their way.",
-      "classificacao": "{n}+",
-      "mais_em_breve": "+ more chapters coming soon"
+      "classificacao": "{n}+"
     },
     "cap": {
       "rotulo": "Ch. {n}",

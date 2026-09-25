@@ -52,12 +52,3 @@
   font-family: var(--font-body);
   font-size: 0.88rem;
 }
-
-.ws-titulo__mais {
-  margin: 0;
-  padding: 0.9rem 0.5rem;
-  color: var(--text-muted);
-  font: 600 0.62rem var(--font-mono);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}

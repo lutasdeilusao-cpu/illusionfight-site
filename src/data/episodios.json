@@ -44,7 +44,14 @@
     "publicado": false,
     "idiomas": [
       "pt"
-    ]
+    ],
+    "data_publicacao": "2027-01-14",
+    "liberacao": {
+      "primordial": "2026-12-15",
+      "elite": "2026-12-15",
+      "conta": "2026-12-30",
+      "publico": "2027-01-14"
+    }
   },
   {
     "id": "03",
@@ -55,7 +62,14 @@
     "publicado": false,
     "idiomas": [
       "pt"
-    ]
+    ],
+    "data_publicacao": "2027-02-14",
+    "liberacao": {
+      "primordial": "2027-01-15",
+      "elite": "2027-01-15",
+      "conta": "2027-01-30",
+      "publico": "2027-02-14"
+    }
   },
   {
     "id": "04",
@@ -66,7 +80,14 @@
     "publicado": false,
     "idiomas": [
       "pt"
-    ]
+    ],
+    "data_publicacao": "2027-04-14",
+    "liberacao": {
+      "primordial": "2027-03-15",
+      "elite": "2027-03-15",
+      "conta": "2027-03-30",
+      "publico": "2027-04-14"
+    }
   },
   {
     "id": "05",
@@ -77,6 +98,73 @@
     "publicado": false,
     "idiomas": [
       "pt"
-    ]
+    ],
+    "data_publicacao": "2027-05-15",
+    "liberacao": {
+      "primordial": "2027-04-15",
+      "elite": "2027-04-15",
+      "conta": "2027-04-30",
+      "publico": "2027-05-15"
+    }
+  },
+  {
+    "id": "06",
+    "numero": 6,
+    "titulo_pt": "Em Breve",
+    "titulo_en": "Coming Soon",
+    "titulo_es": "Próximamente",
+    "publicado": false,
+    "data_publicacao": "2027-06-14",
+    "liberacao": {
+      "primordial": "2027-05-15",
+      "elite": "2027-05-15",
+      "conta": "2027-05-30",
+      "publico": "2027-06-14"
+    }
+  },
+  {
+    "id": "07",
+    "numero": 7,
+    "titulo_pt": "Em Breve",
+    "titulo_en": "Coming Soon",
+    "titulo_es": "Próximamente",
+    "publicado": false,
+    "data_publicacao": "2027-08-14",
+    "liberacao": {
+      "primordial": "2027-07-15",
+      "elite": "2027-07-15",
+      "conta": "2027-07-30",
+      "publico": "2027-08-14"
+    }
+  },
+  {
+    "id": "08",
+    "numero": 8,
+    "titulo_pt": "Em Breve",
+    "titulo_en": "Coming Soon",
+    "titulo_es": "Próximamente",
+    "publicado": false,
+    "data_publicacao": "2027-09-14",
+    "liberacao": {
+      "primordial": "2027-08-15",
+      "elite": "2027-08-15",
+      "conta": "2027-08-30",
+      "publico": "2027-09-14"
+    }
+  },
+  {
+    "id": "09",
+    "numero": 9,
+    "titulo_pt": "Em Breve",
+    "titulo_en": "Coming Soon",
+    "titulo_es": "Próximamente",
+    "publicado": false,
+    "data_publicacao": "2027-10-15",
+    "liberacao": {
+      "primordial": "2027-09-15",
+      "elite": "2027-09-15",
+      "conta": "2027-09-30",
+      "publico": "2027-10-15"
+    }
   }
 ]

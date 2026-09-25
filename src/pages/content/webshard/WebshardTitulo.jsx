@@ -15,13 +15,11 @@ import './WebshardTitulo.css'
    "começar do primeiro liberado". */
 export default function WebshardTitulo({ titulo }) {
   const { t, locale } = useLanguage()
-  const { liberado, previa } = useWebshardAcesso()
+  const { liberado, previa, dataPara } = useWebshardAcesso()
   const [progresso] = useState(() => lerProgresso(titulo.slug))
 
-  // Os marcadores "Em breve" sem conteúdo nem data viram uma nota só no
-  // fim da lista, em vez de N linhas vazias.
-  const capitulos = capitulosDe(titulo).filter(capituloTemConteudo)
-  const temMaisPorVir = capitulosDe(titulo).some(c => !capituloTemConteudo(c))
+  // Lista inteira: os "Em breve" mostram a data do calendário oficial.
+  const capitulos = capitulosDe(titulo)
   const primeiro = capitulos.find(liberado)
   const nome = localizado(titulo, 'nome', locale)
   const url = `https://illusionfight.com/webtoon/${titulo.slug}`
@@ -56,7 +54,7 @@ export default function WebshardTitulo({ titulo }) {
           <section className="ws-titulo__caps">
             <div className="ws-titulo__caps-cabeca">
               <h2 className="ws-titulo__h2">{t('webShard.titulo.capitulos')}</h2>
-              <span className="ws-titulo__total">{t('webShard.titulo.total_caps', { n: capitulos.length })}</span>
+              <span className="ws-titulo__total">{t('webShard.titulo.total_caps', { n: capitulos.filter(capituloTemConteudo).length })}</span>
             </div>
             {capitulos.length ? (
               <div className="ws-titulo__lista if-stagger">
@@ -66,11 +64,11 @@ export default function WebshardTitulo({ titulo }) {
                     titulo={titulo}
                     cap={cap}
                     liberado={liberado(cap)}
+                    data={dataPara(cap)}
                     progresso={progresso}
                     previa={previa(cap)}
                   />
                 ))}
-                {temMaisPorVir && <p className="ws-titulo__mais">{t('webShard.titulo.mais_em_breve')}</p>}
               </div>
             ) : (
               <p className="ws-titulo__vazio">{t('webShard.titulo.sem_capitulos')}</p>

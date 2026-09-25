@@ -2,6 +2,7 @@ import { useCallback } from 'react'
 import { useAuth } from '../context/AuthContext'
 import { TRIAL_ACTIVE } from '../config/trial'
 import { estaDisponivel } from '../config/site'
+import { releaseDateFor, resolveAccessLevel } from '../lib/releaseAccess'
 import { capituloTemConteudo } from '../lib/webshard/catalogo'
 
 const ADMIN_EMAILS = ['isaiasgamedev@gmail.com', 'gramikgames@gmail.com']
@@ -26,5 +27,9 @@ export function useWebshardAcesso() {
   /** Admin lendo algo que o resto ainda não vê — pinta o selo PRÉVIA. */
   const previa = useCallback(cap => isAdmin && capituloTemConteudo(cap) && !liberadoSemAdmin(cap), [isAdmin, liberadoSemAdmin])
 
-  return { isAdmin, liberado, previa }
+  /** Quando o capítulo libera PRA ESTE visitante (cascata assinante/conta/
+   *  público do calendário oficial). */
+  const dataPara = useCallback(cap => releaseDateFor(cap, resolveAccessLevel(user, perfil)), [user, perfil])
+
+  return { isAdmin, liberado, previa, dataPara }
 }

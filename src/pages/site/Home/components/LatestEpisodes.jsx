@@ -76,7 +76,7 @@ export default function LatestEpisodes() {
           </div>
         )}
 
-        <div className="episodes-list">
+        {lista.length > 0 && <div className="episodes-list">
           {lista.map(ep => {
             const liberado = ep.sempre_livre || estaDisponivel(ep, isAdmin, { user, perfil }) || TRIAL_ACTIVE
             const thumbnail = thumbnailFor(ep)
@@ -101,7 +101,7 @@ export default function LatestEpisodes() {
               </div>
             )
           })}
-        </div>
+        </div>}
 
         <div className="episodes__footer">
           <button className="btn btn--outline" onClick={() => navigate('/webtoon')}>{t('episodes.cta')}</button>

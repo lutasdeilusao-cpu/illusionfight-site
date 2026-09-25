@@ -472,5 +472,10 @@
   "470": "PuzzleStealthGrid",
   "471": "Criatura.jsx",
   "472": "endBattle",
-  "474": "profileProvisioning.js"
+  "473": "Criatura.jsx",
+  "474": "profileProvisioning.js",
+  "475": ".stopHeartbeatLoop",
+  "476": "LeitorBarra.jsx",
+  "477": "LeitorPaginas.jsx",
+  "478": "useBarraAutoOculta.js"
 }

@@ -135,8 +135,8 @@
     "semantic_hash": "8d5b3b5a815f883f1cdfad6d40ecb4bc"
   },
   "scripts/prerender-routes.js": {
-    "mtime": 1790292322.886621,
-    "ast_hash": "b883f87c0d5a88d114b6ca0603c098e5",
+    "mtime": 1790299088.4694839,
+    "ast_hash": "237a74236f3f560112f4b1674bd5d7c0",
     "semantic_hash": ""
   },
   "scripts/run-migration.js": {
@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1790292345.1564984,
-    "ast_hash": "ff85a706da4480f69c8e5b81d53ad08d",
+    "mtime": 1790299261.83868,
+    "ast_hash": "b0b3047c2b8f3627deae503e1a18744f",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -415,19 +415,19 @@
     "semantic_hash": "e6667625a005d1ed2f7cff997fdfca64"
   },
   "src/data/achievements-en.json": {
-    "mtime": 1783179750.979935,
-    "ast_hash": "a1b2a006bf5c77907e9bc1112ab3e681",
-    "semantic_hash": "a1b2a006bf5c77907e9bc1112ab3e681"
+    "mtime": 1790299088.4573224,
+    "ast_hash": "173269d2bb9201d3251f9b28cafbe258",
+    "semantic_hash": ""
   },
   "src/data/achievements-es.json": {
-    "mtime": 1783179757.021417,
-    "ast_hash": "8879809c331a523bc22dd6d5f1d9e018",
-    "semantic_hash": "8879809c331a523bc22dd6d5f1d9e018"
+    "mtime": 1790299088.4583213,
+    "ast_hash": "d57f345da1aaa84d611201567755fa65",
+    "semantic_hash": ""
   },
   "src/data/achievements-pt.json": {
-    "mtime": 1780451129.0315125,
-    "ast_hash": "d03d70512919b229cc6049f1338a3db1",
-    "semantic_hash": "d03d70512919b229cc6049f1338a3db1"
+    "mtime": 1790299088.4573224,
+    "ast_hash": "17527b8a53a67ec3c3cd629ebd2e7b6b",
+    "semantic_hash": ""
   },
   "src/data/achievements-strings-en.json": {
     "mtime": 1783179758.5409331,
@@ -445,8 +445,8 @@
     "semantic_hash": "dba2442a1472aaf53f8a93ce6833fd9d"
   },
   "src/data/episodios.json": {
-    "mtime": 1790291703.240051,
-    "ast_hash": "e0b87bb61c5564c067bd2b4387f2d285",
+    "mtime": 1790299201.0717564,
+    "ast_hash": "3c8e2d7ceeae559226428f6a32d7d1f0",
     "semantic_hash": ""
   },
   "src/data/livro-index.json": {
@@ -480,8 +480,8 @@
     "semantic_hash": "aac4c96a02230b2a6cd1e5dbd628135d"
   },
   "src/data/notificacoes.json": {
-    "mtime": 1788381904.7719748,
-    "ast_hash": "60a4c16b9ad73ffd8a213c978dadf784",
+    "mtime": 1790299088.4664836,
+    "ast_hash": "a0da006c2626e04782e605a9a039dde2",
     "semantic_hash": ""
   },
   "src/data/nowlive.json": {
@@ -2735,8 +2735,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1790292345.1574888,
-    "ast_hash": "4ac4e253885bb59bea92e7cd57fd2881",
+    "mtime": 1790299110.5749795,
+    "ast_hash": "aeda22283d00137da54dd5ef3ba46582",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3575,8 +3575,8 @@
     "semantic_hash": ""
   },
   "src/assets/images/episodes/thumb-ep01.webp": {
-    "mtime": 1787871979.9607396,
-    "ast_hash": "da9b03b424ebc1886cf6f753bd3b7ccc",
+    "mtime": 1790299088.4205449,
+    "ast_hash": "147b072c52cdb65a46756d5beaf0a194",
     "semantic_hash": ""
   },
   "scripts/prepare-steam-demo.js": {
@@ -4565,8 +4565,8 @@
     "semantic_hash": ""
   },
   "src/pages/site/Home/components/LatestEpisodes.jsx": {
-    "mtime": 1788406732.2895494,
-    "ast_hash": "488854bf277002e907a2eceef367a1b5",
+    "mtime": 1790299088.4664836,
+    "ast_hash": "96ede84e40383f0de6368210c672de45",
     "semantic_hash": ""
   },
   "src/pages/site/Home/components/MusicSection.jsx": {
@@ -4595,18 +4595,18 @@
     "semantic_hash": ""
   },
   "src/i18n/core/en.json": {
-    "mtime": 1790298690.2441838,
-    "ast_hash": "7c313befafcf65261e81b828b5941bff",
+    "mtime": 1790299201.0767484,
+    "ast_hash": "8d3720e187999d1b4838cd07341ffbc9",
     "semantic_hash": ""
   },
   "src/i18n/core/es.json": {
-    "mtime": 1790298690.2461836,
-    "ast_hash": "6f4584a3e04de3040937d344132e2e03",
+    "mtime": 1790299201.0777457,
+    "ast_hash": "de32b4155a1d45dde10e857f6a762390",
     "semantic_hash": ""
   },
   "src/i18n/core/pt.json": {
-    "mtime": 1790298690.2351842,
-    "ast_hash": "0959331c76e146f41b885b7a9819b4b4",
+    "mtime": 1790299201.0747466,
+    "ast_hash": "bc2381394760d5b7142117b36a971bcb",
     "semantic_hash": ""
   },
   "src/i18n/games/en.json": {
@@ -5550,8 +5550,8 @@
     "semantic_hash": ""
   },
   "src/lib/webshard/catalogo.js": {
-    "mtime": 1790291848.4584303,
-    "ast_hash": "e236412da3889e5cf4060c3aceeeda87",
+    "mtime": 1790299088.468484,
+    "ast_hash": "95936525d3ce0c106d6b99c3f54e9455",
     "semantic_hash": ""
   },
   "src/lib/webshard/progresso.js": {
@@ -5570,13 +5570,13 @@
     "semantic_hash": ""
   },
   "src/pages/content/webshard/WebshardLeitor.jsx": {
-    "mtime": 1790292192.9776347,
-    "ast_hash": "545a09987c8d339e46f7b3125a149503",
+    "mtime": 1790299201.0804346,
+    "ast_hash": "4120eaa92b8df2e6bcf3fdc5e56a16ef",
     "semantic_hash": ""
   },
   "src/pages/content/webshard/WebshardRota.jsx": {
-    "mtime": 1790292204.5494084,
-    "ast_hash": "8a4e1a208950b6e9f9784a374b1744b2",
+    "mtime": 1790299088.468484,
+    "ast_hash": "e9a946b36fd80735e6b248decc1dd457",
     "semantic_hash": ""
   },
   "src/pages/content/webshard/WebshardTitulo.jsx": {
@@ -5639,11 +5639,6 @@
     "ast_hash": "cabf957c8e803245734b3f0ab4349216",
     "semantic_hash": ""
   },
-  "src/assets/webshard/cap-lutas-de-ilusao-00.webp": {
-    "mtime": 1790298671.3351858,
-    "ast_hash": "919c5deb257cae0152db15836c94cff3",
-    "semantic_hash": ""
-  },
   "src/assets/webshard/cap-lutas-de-ilusao-01.webp": {
     "mtime": 1790291753.6010585,
     "ast_hash": "fa776d2b5b4e18a9de2ca5957b8fc26b",
@@ -5657,6 +5652,11 @@
   "src/assets/webshard/capa-lutas-de-ilusao.webp": {
     "mtime": 1790291753.354978,
     "ast_hash": "021ff923fb530aca897a2f6e51bd96cc",
+    "semantic_hash": ""
+  },
+  "src/pages/content/webshard/components/AvisoAutor.jsx": {
+    "mtime": 1790299201.0794244,
+    "ast_hash": "96ec0dc2ba1a9a516e4ea8ffc892b83e",
     "semantic_hash": ""
   }
 }

@@ -1064,8 +1064,7 @@
       "capitulos": "Capítulos",
       "total_caps": "{n} publicados",
       "sem_capitulos": "Los primeros capítulos están en camino.",
-      "classificacao": "{n}+",
-      "mais_em_breve": "+ nuevos capítulos próximamente"
+      "classificacao": "{n}+"
     },
     "cap": {
       "rotulo": "Cap. {n}",

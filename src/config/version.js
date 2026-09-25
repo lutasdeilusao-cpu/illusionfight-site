@@ -8,7 +8,7 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.283.0' // feat(webshard): LANÇAMENTO — o antigo Ep. 00 (Apresentação, 21 págs. PNG) saiu do site; a introdução oficial agora é o Cap. 01 "O Sonho de Ilusão" (53 págs., PT/EN/ES), liberado pra todo mundo em 24/09/2026 (sempre_livre). /webtoon/00 redireciona pro 01 (app + prerender + _redirects). Conquista episodio_zero (mesma id) passa a ser "terminou o 1º capítulo", disparada pelo campo conquista_ao_terminar do dado. Miniatura da Home trocada pela arte nova. Recado do autor (AvisoAutor, campo aviso_autor do capítulo) antes de TODA leitura do Cap. 01: é introdução fora da linha principal, LDI não é recompensa rápida, dopamina no tempo certo.
+export const SITE_VERSION = '10.283.1' // feat(webshard): os "Em breve" dos Caps. 02–09 seguem o calendário oficial da T1 (season-one-schedule.js), com a cascata assinante/conta/público em `liberacao` — cada visitante vê a data do PRÓPRIO nível (useWebshardAcesso.dataPara). Calendário: toda linha de capítulo LDI agora leva o termo (WEB SHARD). Home não renderiza lista vazia.
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.2' // fix: aba "stories" do rodape mostrava a chave crua pp.menu.pistas_label (nao existia) -> aponta pra pp.dossier.pistas_label; PuzzleWrapper mostrava pp.puzzle.nenhum/instrucao (nao existiam) -> pp.local.puzzle_nenhum/instrucao; confirm() de deletar save mostrava pp.menu.deletar_slot cru -> chave criada nos 3 idiomas.

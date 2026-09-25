@@ -8,7 +8,7 @@ import './LeitorFim.css'
 
 /** Fim do capítulo: reagir, seguir pro próximo (ou saber quando sai),
  *  compartilhar, voltar pra lista. */
-export default function LeitorFim({ titulo, cap, proximo, proximoLiberado, idioma, isAdmin, onCompartilhar, avisoCompartilhar }) {
+export default function LeitorFim({ titulo, cap, proximo, proximoLiberado, proximoData, idioma, isAdmin, onCompartilhar, avisoCompartilhar }) {
   const { t, locale } = useLanguage()
   const proximoReal = proximo && capituloTemConteudo(proximo)
 
@@ -39,8 +39,8 @@ export default function LeitorFim({ titulo, cap, proximo, proximoLiberado, idiom
             </Link>
           ) : (
             <p className="ws-fim__aguarde">
-              {proximoReal && proximo.data_publicacao
-                ? t('webShard.leitor.proximo_em', { data: formatarData(proximo.data_publicacao) })
+              {proximoData
+                ? t('webShard.leitor.proximo_em', { data: formatarData(proximoData) })
                 : t('webShard.leitor.proximo_breve')}
             </p>
           )}
