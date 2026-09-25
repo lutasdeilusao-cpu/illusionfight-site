@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1790348436.5281196,
-    "ast_hash": "8eb8f9ec170511b637a26da31c83edbd",
+    "mtime": 1790355309.6428652,
+    "ast_hash": "d262f1f372eea5296ee46f28d577a62e",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -445,8 +445,8 @@
     "semantic_hash": "dba2442a1472aaf53f8a93ce6833fd9d"
   },
   "src/data/episodios.json": {
-    "mtime": 1790306446.537716,
-    "ast_hash": "0df5ac514edb1021c8dd5c27392d995f",
+    "mtime": 1790355188.1088212,
+    "ast_hash": "789bc99b8f8d3e059a93d23001e1146c",
     "semantic_hash": ""
   },
   "src/data/livro-index.json": {
@@ -655,8 +655,8 @@
     "semantic_hash": ""
   },
   "src/pages/content/LivroCapitulo.jsx": {
-    "mtime": 1789357188.0412278,
-    "ast_hash": "170e30f1d5e05f12ea1619412a90a0fb",
+    "mtime": 1790355231.1661825,
+    "ast_hash": "6bc398c31a98b67bf17bc2b3c02487da",
     "semantic_hash": ""
   },
   "src/pages/content/Mundo.jsx": {
@@ -1040,8 +1040,8 @@
     "semantic_hash": "15ecefb92c5db4d35cb33baf951edd5e"
   },
   "src/pages/games/Games.jsx": {
-    "mtime": 1790307116.3248804,
-    "ast_hash": "a7bc62ceb268aaa880a01c0453e4f5a8",
+    "mtime": 1790355287.4674788,
+    "ast_hash": "a68c71c3de66099e34aef4984fdebeec",
     "semantic_hash": ""
   },
   "src/pages/games/JackCandy/JackCandy.jsx": {
@@ -2735,8 +2735,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1790348436.5788188,
-    "ast_hash": "96c1498b1e3bce65df2090049bd719f0",
+    "mtime": 1790355309.6908748,
+    "ast_hash": "33ac31642f1f9789575c9d52d60426c7",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3645,8 +3645,8 @@
     "semantic_hash": ""
   },
   "src/pages/content/ContoCapitulo.jsx": {
-    "mtime": 1789357205.4333894,
-    "ast_hash": "d6638a0a82cd3bff3e23dba907cb839a",
+    "mtime": 1790355213.2739575,
+    "ast_hash": "a77426fea4a41676dbf19cfa12c33723",
     "semantic_hash": ""
   },
   "src/pages/content/Contos.jsx": {
@@ -4325,8 +4325,8 @@
     "semantic_hash": ""
   },
   "src/pages/content/ObraCapitulo.jsx": {
-    "mtime": 1789357223.595521,
-    "ast_hash": "b12bf943db490a88c7ea01c0634caf29",
+    "mtime": 1790355213.2739575,
+    "ast_hash": "b94e44ab7e69be789acfad1b28f64787",
     "semantic_hash": ""
   },
   "src/pages/content/Universo.jsx": {
@@ -4595,18 +4595,18 @@
     "semantic_hash": ""
   },
   "src/i18n/core/en.json": {
-    "mtime": 1790347898.9679527,
-    "ast_hash": "8052a042d5e9fd3d35438d4a84914733",
+    "mtime": 1790355287.4076216,
+    "ast_hash": "55b3c9109f5d67bb7169cdbffb3f615d",
     "semantic_hash": ""
   },
   "src/i18n/core/es.json": {
-    "mtime": 1790347898.9739504,
-    "ast_hash": "a8fca86d4ca7cfe2a5edc32e703b2d50",
+    "mtime": 1790355287.4390373,
+    "ast_hash": "65caceeca4a77e2e7bd49aa33df8839e",
     "semantic_hash": ""
   },
   "src/i18n/core/pt.json": {
-    "mtime": 1790347898.9619482,
-    "ast_hash": "c9d7cd6d7caa0dce5d6abf9212b013db",
+    "mtime": 1790355287.3793473,
+    "ast_hash": "b490f9f286c094ef3270771600b1f3ea",
     "semantic_hash": ""
   },
   "src/i18n/games/en.json": {
@@ -5570,8 +5570,8 @@
     "semantic_hash": ""
   },
   "src/pages/content/webshard/WebshardLeitor.jsx": {
-    "mtime": 1790306420.2959807,
-    "ast_hash": "a7be3c734e0eb811192a65659b24c230",
+    "mtime": 1790355201.2459905,
+    "ast_hash": "5e92ed876ab0a5d073ba4ede6ba95cd5",
     "semantic_hash": ""
   },
   "src/pages/content/webshard/WebshardRota.jsx": {
@@ -5687,6 +5687,11 @@
   "src/assets/webshard/cap-lutas-de-ilusao-01-pt.webp": {
     "mtime": 1790348399.103398,
     "ast_hash": "084bd2811bd8c9464a06245210db7cd7",
+    "semantic_hash": ""
+  },
+  "src/components/GateLeitura/GateLeitura.jsx": {
+    "mtime": 1790355160.1399615,
+    "ast_hash": "cda6cb533fea979fab342e6554b651ff",
     "semantic_hash": ""
   }
 }

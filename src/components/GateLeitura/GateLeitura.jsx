@@ -3,9 +3,9 @@ import { useAuth } from '../../context/AuthContext'
 import { useLanguage } from '../../context/LanguageContext'
 import './GateLeitura.css'
 
-/** Gate de leitura: visitante sem conta lê até 85% de qualquer capítulo
+/** Gate de leitura: visitante sem conta lê até 50% de qualquer capítulo
  *  (WEB SHARD, livro, contos, obras) e o final pede conta grátis. */
-export const GATE_FRACAO = 0.85
+export const GATE_FRACAO = 0.5
 
 /** Quem precisa do gate: só visitante sem conta. */
 export function useGateLeitura() {
@@ -13,13 +13,13 @@ export function useGateLeitura() {
   return !user
 }
 
-/** Corta uma lista (páginas) nos primeiros 85%. */
+/** Corta uma lista (páginas) nos primeiros 50%. */
 export function cortarLista(lista, ativo) {
   if (!ativo || lista.length < 2) return lista
   return lista.slice(0, Math.max(1, Math.floor(lista.length * GATE_FRACAO)))
 }
 
-/** Corta um texto markdown nos primeiros 85% dos blocos (parágrafos). */
+/** Corta um texto markdown nos primeiros 50% dos blocos (parágrafos). */
 export function cortarTexto(md, ativo) {
   if (!ativo || !md) return md
   const blocos = md.split(/\n\s*\n/)

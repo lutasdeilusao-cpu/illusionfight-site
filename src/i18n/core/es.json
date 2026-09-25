@@ -130,8 +130,8 @@
   },
   "gate_leitura": {
     "eyebrow": "IF // CUENTA GRATIS",
-    "titulo": "El final es solo para quien tiene cuenta.",
-    "texto": "Ya leíste casi todo. Crea tu cuenta gratis en segundos y lee hasta el final, sin pagar nada.",
+    "titulo": "La otra mitad es solo para quien tiene cuenta.",
+    "texto": "¿Te gustó hasta acá? Crea tu cuenta gratis en segundos y lee hasta el final, sin pagar nada.",
     "criar": "Crear cuenta gratis",
     "entrar": "Ya tengo cuenta"
   },

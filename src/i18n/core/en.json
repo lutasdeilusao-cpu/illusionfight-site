@@ -130,8 +130,8 @@
   },
   "gate_leitura": {
     "eyebrow": "IF // FREE ACCOUNT",
-    "titulo": "The ending is for account holders only.",
-    "texto": "You've read almost everything. Create your free account in seconds and read to the end, no payment needed.",
+    "titulo": "The other half is for account holders only.",
+    "texto": "Liking it so far? Create your free account in seconds and read to the end, no payment needed.",
     "criar": "Create free account",
     "entrar": "I already have an account"
   },

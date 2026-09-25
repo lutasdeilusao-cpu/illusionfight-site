@@ -8,7 +8,7 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.288.0' // feat(leitura): gate de 85% em todo leitor (WEB SHARD, livro, contos, obras) pede conta grátis pro final; Beta do Cap. 01 vira "aproveite antes do bloqueio" até 09/11 (bloqueio público em 10/11); games sem nenhuma menção a ficha (CTA JOGAR, slide da Home)
+export const SITE_VERSION = '10.288.1' // chore(leitura): gate de conta cai de 85% pra 50% da leitura pública (WEB SHARD + histórias), texto do gate ajustado
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.2' // fix: aba "stories" do rodape mostrava a chave crua pp.menu.pistas_label (nao existia) -> aponta pra pp.dossier.pistas_label; PuzzleWrapper mostrava pp.puzzle.nenhum/instrucao (nao existiam) -> pp.local.puzzle_nenhum/instrucao; confirm() de deletar save mostrava pp.menu.deletar_slot cru -> chave criada nos 3 idiomas.

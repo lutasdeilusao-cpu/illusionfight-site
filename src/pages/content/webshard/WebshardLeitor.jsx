@@ -70,7 +70,7 @@ export default function WebshardLeitor({ titulo, capId }) {
   const { visivel, alternar, mostrar } = useBarraAutoOculta()
 
   const paginas = useMemo(() => (podeLer ? paginasDe(cap, idioma) : []), [cap, idioma, podeLer])
-  // Sem conta: só os primeiros 85% das páginas; o final pede conta grátis.
+  // Sem conta: só a 1ª metade das páginas; o final pede conta grátis.
   const gate = useGateLeitura()
   const paginasVisiveis = useMemo(() => cortarLista(paginas, gate), [paginas, gate])
   const cortado = paginasVisiveis.length < paginas.length
