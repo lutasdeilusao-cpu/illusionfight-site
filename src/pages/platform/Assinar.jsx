@@ -89,7 +89,7 @@ export default function Assinar() {
         <meta property="og:title" content={t('pages.assinar.og_title')} />
         <meta property="og:description" content={t('pages.assinar.og_desc')} />
         <meta property="og:url" content="https://illusionfight.com/assinar" />
-        <meta property="og:image" content="https://illusionfight.com/og-image.jpg" />
+        <meta property="og:image" content="https://illusionfight.com/og-image-webshard.jpg" />
         <meta property="og:type" content="website" />
       </Helmet>
 

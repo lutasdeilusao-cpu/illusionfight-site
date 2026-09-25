@@ -45,7 +45,7 @@ export default function WebshardHub() {
         <meta property="og:title" content={t('pages.webtoon.meta_title')} />
         <meta property="og:description" content={t('pages.webtoon.meta_desc')} />
         <meta property="og:url" content="https://illusionfight.com/webtoon" />
-        <meta property="og:image" content="https://illusionfight.com/og-image.jpg" />
+        <meta property="og:image" content="https://illusionfight.com/og-image-webshard.jpg" />
         <meta property="og:type" content="website" />
       </Helmet>
 

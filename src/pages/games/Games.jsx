@@ -90,7 +90,7 @@ export default function Games() {
         <meta property="og:title" content={t('site.games.meta_title')} />
         <meta property="og:description" content={t('site.games.meta_desc')} />
         <meta property="og:url" content="https://illusionfight.com/games" />
-        <meta property="og:image" content="https://illusionfight.com/og-image.jpg" />
+        <meta property="og:image" content="https://illusionfight.com/og-image-webshard.jpg" />
         <meta property="og:type" content="website" />
       </Helmet>
     <div className="extras-page">

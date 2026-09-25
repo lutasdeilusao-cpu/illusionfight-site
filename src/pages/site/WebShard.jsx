@@ -25,7 +25,7 @@ export default function WebShard() {
         <meta property="og:title" content={t('webShard.meta_title')} />
         <meta property="og:description" content={t('webShard.meta_desc')} />
         <meta property="og:url" content={url} />
-        <meta property="og:image" content="https://illusionfight.com/og-image.jpg" />
+        <meta property="og:image" content="https://illusionfight.com/og-image-webshard.jpg" />
         <meta property="og:type" content="website" />
         <link rel="alternate" hrefLang="pt" href={url} />
         <link rel="alternate" hrefLang="en" href={url} />

@@ -27,7 +27,7 @@ export default function Custos() {
         <meta property="og:title" content={title[locale] || title.pt} />
         <meta property="og:description" content={description[locale] || description.pt} />
         <meta property="og:url" content="https://illusionfight.com/custos" />
-        <meta property="og:image" content="https://illusionfight.com/og-image.jpg" />
+        <meta property="og:image" content="https://illusionfight.com/og-image-webshard.jpg" />
         <meta property="og:type" content="website" />
         <link rel="alternate" hrefLang="pt" href="https://illusionfight.com/custos" />
         <link rel="alternate" hrefLang="en" href="https://illusionfight.com/custos" />

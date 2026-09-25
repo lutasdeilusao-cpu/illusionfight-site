@@ -8,7 +8,7 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.286.0' // feat(webshard): Especial de Fim de Temporada Parte 1 (assinante 15/10/2027 · conta 30/10 · público 14/11) e Parte 2 (15/11 · 30/11 · 15/12/2027) — história à parte, fora da linha principal: entram no calendário com a cascata de sempre e numa seção "Especiais" própria na página do título (não entram no próximo/anterior da linha principal nem na fileira da Home). Leitor: corte diagonal neon entre uma página e outra, no estilo dos painéis WEB SHARD.
+export const SITE_VERSION = '10.286.1' // chore(seo): miniatura dos links (og:image/twitter:image) trocada pela capa OFICIAL do WEB SHARD (Illusion Fight, cap. 01 pág. 2) — arquivo novo og-image-webshard.jpg (1200x630, capa inteira ao centro sobre a própria arte desfocada) em vez de sobrescrever og-image.jpg, pra furar o cache de preview do Slack/WhatsApp/X que guarda pela URL. index.html + as 12 páginas com Helmet apontam pra ele.
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.2' // fix: aba "stories" do rodape mostrava a chave crua pp.menu.pistas_label (nao existia) -> aponta pra pp.dossier.pistas_label; PuzzleWrapper mostrava pp.puzzle.nenhum/instrucao (nao existiam) -> pp.local.puzzle_nenhum/instrucao; confirm() de deletar save mostrava pp.menu.deletar_slot cru -> chave criada nos 3 idiomas.

@@ -38,7 +38,7 @@ export default function Mundo() {
         <meta property="og:title" content={t('pages.mundo.og_title')} />
         <meta property="og:description" content={t('pages.mundo.og_desc')} />
         <meta property="og:url" content="https://illusionfight.com/universos/lutas-de-ilusao" />
-        <meta property="og:image" content="https://illusionfight.com/og-image.jpg" />
+        <meta property="og:image" content="https://illusionfight.com/og-image-webshard.jpg" />
         <meta property="og:type" content="website" />
         <link rel="canonical" href="https://illusionfight.com/universos/lutas-de-ilusao" />
         <link rel="alternate" hrefLang="pt" href="https://illusionfight.com/universos/lutas-de-ilusao" />

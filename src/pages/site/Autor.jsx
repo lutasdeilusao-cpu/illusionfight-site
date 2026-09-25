@@ -17,7 +17,7 @@ export default function Autor() {
         <meta property="og:title" content="About the Author — Illusion Fight" />
         <meta property="og:description" content="Learn about Isaias Leal, the creator of the Illusion Fight universe." />
         <meta property="og:url" content="https://illusionfight.com/autor" />
-        <meta property="og:image" content="https://illusionfight.com/og-image.jpg" />
+        <meta property="og:image" content="https://illusionfight.com/og-image-webshard.jpg" />
         <meta property="og:type" content="website" />
         <link rel="alternate" hrefLang="pt" href="https://illusionfight.com/autor" />
         <link rel="alternate" hrefLang="en" href="https://illusionfight.com/autor" />

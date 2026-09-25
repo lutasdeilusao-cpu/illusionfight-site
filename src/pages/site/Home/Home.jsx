@@ -27,7 +27,7 @@ export default function Home() {
         <meta property="og:title" content={t('home.meta_title')} />
         <meta property="og:description" content={t('home.og_description')} />
         <meta property="og:url" content="https://illusionfight.com/" />
-        <meta property="og:image" content="https://illusionfight.com/og-image.jpg" />
+        <meta property="og:image" content="https://illusionfight.com/og-image-webshard.jpg" />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content={ogLocale} />
       </Helmet>
