@@ -590,6 +590,8 @@
       "mono": "Mono"
     },
     "historias": {
+      "conto_rotulo": "Conto {n}",
+      "contos_lista": "Os contos",
       "contos_tagline": "Histórias paralelas do mesmo mundo: outros personagens, outras dores.",
       "contos_qtd": "Coleção · {n} contos",
       "universo_eyebrow": "O universo principal",

@@ -8,7 +8,7 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.290.2' // fix(pwa): ícones do app instalado com nome novo (icon-if-*) pra forçar o Chrome a atualizar o WebAPK + versão maskable com fundo escuro; apple-touch-icon idem
+export const SITE_VERSION = '10.290.3' // fix(historias): /historias/contos no mesmo padrão das páginas de título — capa grande no topo e os 5 contos em lista (.ws-cap), capa em P&B quando não liberado
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.2' // fix: aba "stories" do rodape mostrava a chave crua pp.menu.pistas_label (nao existia) -> aponta pra pp.dossier.pistas_label; PuzzleWrapper mostrava pp.puzzle.nenhum/instrucao (nao existiam) -> pp.local.puzzle_nenhum/instrucao; confirm() de deletar save mostrava pp.menu.deletar_slot cru -> chave criada nos 3 idiomas.

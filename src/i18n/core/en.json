@@ -590,6 +590,8 @@
       "mono": "Mono"
     },
     "historias": {
+      "conto_rotulo": "Tale {n}",
+      "contos_lista": "The tales",
       "contos_tagline": "Side stories from the same world: other characters, other scars.",
       "contos_qtd": "Collection · {n} tales",
       "universo_eyebrow": "The main universe",
