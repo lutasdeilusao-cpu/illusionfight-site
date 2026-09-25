@@ -1126,6 +1126,12 @@
       "texto_conta": "Your free account already puts you 15 days ahead. Subscribe and read every chapter 30 days before the public.",
       "assinar": "★ Read it first",
       "criar_conta": "Free account"
+    },
+    "beta": {
+      "selo": "Unlocked by the Beta until {data}",
+      "faltam": "{n} days left",
+      "ultimo_dia": "last day!",
+      "oficial": "Official release"
     }
   },
   "calendar": {

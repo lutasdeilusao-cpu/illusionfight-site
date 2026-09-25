@@ -164,7 +164,7 @@ capitulos.forEach((capitulo, i) => {
   })
 })
 
-episodios.filter(episodio => episodio.sempre_livre).forEach(episodio => ROUTES.push({
+episodios.filter(episodio => episodio.paginas).forEach(episodio => ROUTES.push({
   path: `/webtoon/${episodio.id}`,
   title: `${episodio.titulo_pt} — webtoon Illusion Fight, episódio ${episodio.numero}`,
   description: episodio.descricao_pt,

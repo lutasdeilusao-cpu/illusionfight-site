@@ -58,8 +58,14 @@ export const SEASON_ONE_DROPS = [
   { date: '2027-09-30', subscriber: '—', account: 'LDI Cap. 9 (WEB SHARD)', public: '—', outras: 'Parte 17 (Cap.9/2) — fecha junto com o portal' },
   { date: '2027-10-05', subscriber: 'HIATO LDI (duplo) — Mundo das Sombras Cap. 3 (WEB SHARD) + Heróis da Cidade (8 tirinhas semanais)', account: '—', public: '—', outras: '—' },
   { date: '2027-10-15', subscriber: '—', account: '—', public: 'LDI Cap. 9 (WEB SHARD)', outras: 'Parte 18 (Cap.9/2) — fecha Cap.9' },
+  // Especial de fim de temporada (pedido do Isaias, 24/09/2026): estilo os
+  // especiais de hiato de One Piece — os personagens levados pra outro mundo.
+  // Ocupa o vão sem WEB SHARD entre o fim da T1 e a T2. Ainda em criação;
+  // sai no mesmo dia pra todos os níveis.
+  { date: '2027-10-15', subscriber: 'Especial de fim de temporada — Parte 1 (WEB SHARD)', account: 'Especial de fim de temporada — Parte 1 (WEB SHARD)', public: 'Especial de fim de temporada — Parte 1 (WEB SHARD)', outras: '—' },
   { date: '2027-10-20', subscriber: '—', account: 'HIATO LDI (duplo) — Mundo das Sombras Cap. 3 (WEB SHARD) + Heróis da Cidade (8 tirinhas semanais)', public: '—', outras: 'Outras plataformas paradas — sem material novo até a T2' },
   { date: '2027-11-04', subscriber: '—', account: '—', public: 'HIATO LDI (duplo) — Mundo das Sombras Cap. 3 (WEB SHARD) + Heróis da Cidade (8 tirinhas semanais)', outras: '—' },
+  { date: '2027-11-15', subscriber: 'Especial de fim de temporada — Parte 2 (WEB SHARD)', account: 'Especial de fim de temporada — Parte 2 (WEB SHARD)', public: 'Especial de fim de temporada — Parte 2 (WEB SHARD)', outras: '—' },
   { date: '2027-12-15', subscriber: 'Temporada 2, Cap. 1 (WEB SHARD)', account: '—', public: '—', outras: '—' },
   { date: '2027-12-30', subscriber: '—', account: 'Temporada 2, Cap. 1 (WEB SHARD)', public: '—', outras: 'Parte 19 (Cap.10/2) — retoma junto com o portal' },
   { date: '2028-01-14', subscriber: '—', account: '—', public: 'Temporada 2, Cap. 1 (WEB SHARD)', outras: 'Parte 20 (Cap.10/2) — fecha Cap.10' },

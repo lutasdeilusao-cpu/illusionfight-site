@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useLanguage } from '../../../../context/LanguageContext'
 import {
-  capituloTemConteudo, formatarData, localizado, miniaturaCapitulo, numeroCapitulo, rotaCapitulo,
+  capituloTemConteudo, diasAte, emBeta, formatarData, localizado, miniaturaCapitulo, numeroCapitulo, rotaCapitulo,
 } from '../../../../lib/webshard/catalogo'
 import CascataLiberacao from './CascataLiberacao'
 import './CapituloLinha.css'
@@ -17,6 +17,9 @@ export default function CapituloLinha({ titulo, cap, liberado, data, nivel, prog
   // Travado com cascata (assinante/conta/público): mostra os 3 degraus em
   // vez de só a data do nível de quem vê.
   const cascata = !liberado && cap.liberacao
+  // Aberto pela Beta: selo com prazo + a cascata oficial (quando libera de verdade).
+  const beta = liberado && emBeta(cap) && cap.liberacao
+  const faltam = beta ? diasAte(cap.beta_ate) : 0
 
   let estado
   if (!liberado) {
@@ -44,6 +47,16 @@ export default function CapituloLinha({ titulo, cap, liberado, data, nivel, prog
         </span>
         <span className="ws-cap__nome">{temConteudo ? localizado(cap, 'titulo', locale) : t('webShard.cap.em_breve')}</span>
         {cascata && <CascataLiberacao liberacao={cap.liberacao} nivel={nivel} />}
+        {beta && (
+          <>
+            <span className="ws-cap__beta">
+              <span className="ws-cap__beta-selo">{t('webShard.beta.selo', { data: formatarData(cap.beta_ate).slice(0, 5) })}</span>
+              <span className="ws-cap__beta-prazo">{faltam > 0 ? t('webShard.beta.faltam', { n: faltam }) : t('webShard.beta.ultimo_dia')}</span>
+            </span>
+            <span className="ws-cap__oficial">{t('webShard.beta.oficial')}</span>
+            <CascataLiberacao liberacao={cap.liberacao} nivel={nivel} />
+          </>
+        )}
         {!cascata && <span className="ws-cap__meta">
           <span className={`ws-cap__estado${lido ? ' is-lido' : ''}${doCapitulo && !lido ? ' is-lendo' : ''}`}>{estado}</span>
           {temConteudo && (cap.idiomas || ['pt']).map(l => (

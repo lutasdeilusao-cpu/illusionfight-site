@@ -1126,6 +1126,12 @@
       "texto_conta": "Tu cuenta gratis ya te pone 15 días adelante. Suscríbete y lee cada capítulo 30 días antes que el público.",
       "assinar": "★ Leer primero",
       "criar_conta": "Cuenta gratis"
+    },
+    "beta": {
+      "selo": "Liberado por la Beta hasta {data}",
+      "faltam": "quedan {n} días",
+      "ultimo_dia": "¡último día!",
+      "oficial": "Lanzamiento oficial"
     }
   },
   "calendar": {

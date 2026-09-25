@@ -117,6 +117,19 @@ export function vizinhos(titulo, cap) {
   }
 }
 
+const hojeISO = () => new Date().toISOString().slice(0, 10)
+
+/** Capítulo aberto pra todo mundo pela Beta, por tempo limitado
+ *  (`beta_ate`, inclusive). Depois disso vale só a cascata oficial. */
+export function emBeta(cap, hoje = hojeISO()) {
+  return Boolean(cap?.beta_ate && hoje <= cap.beta_ate)
+}
+
+/** Dias corridos de hoje até `data` (0 = é hoje). */
+export function diasAte(data, hoje = hojeISO()) {
+  return Math.round((Date.parse(`${data}T00:00:00Z`) - Date.parse(`${hoje}T00:00:00Z`)) / 86400000)
+}
+
 export function formatarData(dataStr) {
   if (!dataStr) return ''
   const [a, m, d] = dataStr.split('-')

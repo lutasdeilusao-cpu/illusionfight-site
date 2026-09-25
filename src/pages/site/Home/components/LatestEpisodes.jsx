@@ -6,6 +6,7 @@ import { useAuth } from '../../../../context/AuthContext'
 import { estaDisponivel } from '../../../../config/site'
 import { TRIAL_ACTIVE } from '../../../../config/trial'
 import episodios from '../../../../data/episodios.json'
+import { emBeta } from '../../../../lib/webshard/catalogo'
 import HomeSectionHeading from './HomeSectionHeading'
 import './LatestEpisodes.css'
 
@@ -33,7 +34,7 @@ export default function LatestEpisodes() {
 
   const featured = useMemo(() => {
     const disponiveis = episodios
-      .filter(ep => ep.sempre_livre || estaDisponivel(ep, isAdmin, { user, perfil }) || TRIAL_ACTIVE)
+      .filter(ep => ep.sempre_livre || emBeta(ep) || estaDisponivel(ep, isAdmin, { user, perfil }) || TRIAL_ACTIVE)
       .sort((a, b) => ((b.data_publicacao || '').localeCompare(a.data_publicacao || '')))
     return disponiveis[0]
   }, [isAdmin, user, perfil])
@@ -78,7 +79,7 @@ export default function LatestEpisodes() {
 
         {lista.length > 0 && <div className="episodes-list">
           {lista.map(ep => {
-            const liberado = ep.sempre_livre || estaDisponivel(ep, isAdmin, { user, perfil }) || TRIAL_ACTIVE
+            const liberado = ep.sempre_livre || emBeta(ep) || estaDisponivel(ep, isAdmin, { user, perfil }) || TRIAL_ACTIVE
             const thumbnail = thumbnailFor(ep)
             return (
               <div

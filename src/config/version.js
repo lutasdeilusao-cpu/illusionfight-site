@@ -8,7 +8,7 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.284.0' // feat(webshard): capítulo travado mostra a CASCATA inteira (assinante / conta grátis / público) em vez de só a data do nível de quem vê — mostrar só a data do público (4 meses) afastava leitor. Degrau de assinante com ★, glow respirando e brilho em loop; card "Quer ler antes?" (assinar / conta grátis) na lista do título e no fim do capítulo. Tudo sem movimento em prefers-reduced-motion.
+export const SITE_VERSION = '10.285.0' // feat(webshard): Cap. 01 deixa de ser "sempre livre" — ganha a data OFICIAL do calendário (assinante 15/11, conta 30/11, público 15/12/2026) e fica aberto pra todo mundo só pela Beta até 31/10/2026 (Halloween), campo `beta_ate` + emBeta() no catálogo. Lista mostra selo "Liberado pela Beta até 31/10 · faltam N dias" e a cascata do lançamento oficial embaixo. Entre 01/11 e 14/11 o capítulo fica travado de novo, como pedido. Calendário: Especial de fim de temporada Parte 1 (15/10/2027) e Parte 2 (15/11/2027), WEB SHARD, pra todos os níveis no mesmo dia.
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.2' // fix: aba "stories" do rodape mostrava a chave crua pp.menu.pistas_label (nao existia) -> aponta pra pp.dossier.pistas_label; PuzzleWrapper mostrava pp.puzzle.nenhum/instrucao (nao existiam) -> pp.local.puzzle_nenhum/instrucao; confirm() de deletar save mostrava pp.menu.deletar_slot cru -> chave criada nos 3 idiomas.

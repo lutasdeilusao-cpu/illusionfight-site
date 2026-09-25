@@ -136,3 +136,56 @@ a.ws-cap:hover .ws-cap__nome { color: var(--if-cyan); }
   font-size: 1.5rem;
   line-height: 1;
 }
+
+/* Aberto pela Beta — selo magenta com prazo (a janela fecha no Halloween)
+   e, embaixo, a cascata da liberação oficial. */
+.ws-cap__beta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 0.1rem;
+}
+
+.ws-cap__beta-selo {
+  position: relative;
+  overflow: hidden;
+  padding: 0.1rem 0.4rem;
+  border: 1px solid var(--if-pink);
+  background: color-mix(in srgb, var(--if-pink) 18%, transparent);
+  color: var(--if-ink);
+  font: 700 0.52rem var(--font-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.ws-cap__beta-selo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 30%, rgba(255, 255, 255, 0.35) 50%, transparent 70%);
+  transform: translateX(-120%);
+}
+
+.ws-cap__beta-prazo {
+  color: var(--if-pink);
+  font: 700 0.56rem var(--font-mono);
+  letter-spacing: 0.06em;
+}
+
+.ws-cap__oficial {
+  margin-top: 0.25rem;
+  color: var(--text-muted);
+  font: 700 0.46rem var(--font-mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .ws-cap__beta-selo::after { animation: wsBetaBrilho 3s ease-in-out infinite; }
+}
+
+@keyframes wsBetaBrilho {
+  0%, 55% { transform: translateX(-120%); }
+  85%, 100% { transform: translateX(120%); }
+}
