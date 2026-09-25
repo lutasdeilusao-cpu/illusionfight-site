@@ -4,15 +4,16 @@ import { imagemWebshard, localizado, rotaTitulo } from '../../../../lib/webshard
 import './TituloCard.css'
 
 /** Capa vertical de um título na estante do hub. A cor do título entra só
- *  como fio/selo (--ws-cor), a moldura é a do portal. */
-export default function TituloCard({ titulo, indice, oculto = false }) {
+ *  como fio/selo (--ws-cor), a moldura é a do portal. Histórias reaproveita
+ *  passando `capa`/`to` já resolvidos e um `children` extra (farol de peso). */
+export default function TituloCard({ titulo, indice, oculto = false, capa: capaProp, to, children }) {
   const { t, locale } = useLanguage()
-  const capa = imagemWebshard(titulo.capa)
+  const capa = capaProp ?? imagemWebshard(titulo.capa)
   const nome = localizado(titulo, 'nome', locale)
 
   return (
     <Link
-      to={rotaTitulo(titulo)}
+      to={to || rotaTitulo(titulo)}
       className={`ws-titulo-card${titulo.status === 'em_breve' ? ' ws-titulo-card--breve' : ''}`}
       style={{ '--ws-cor': titulo.cor }}
     >
@@ -25,6 +26,7 @@ export default function TituloCard({ titulo, indice, oculto = false }) {
       <div className="ws-titulo-card__info">
         <h3 className="ws-titulo-card__nome">{nome}</h3>
         <p className="ws-titulo-card__tagline">{localizado(titulo, 'tagline', locale)}</p>
+        {children}
       </div>
     </Link>
   )

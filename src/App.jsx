@@ -18,13 +18,10 @@ const Home = lazyWithReload(() => import('./pages/site/Home/Home'))
 const Musicas = lazyWithReload(() => import('./pages/content/Musicas'))
 const Personagens = lazyWithReload(() => import('./pages/content/Personagens'))
 const PersonagemDetalhe = lazyWithReload(() => import('./pages/content/PersonagemDetalhe'))
-const Historias = lazyWithReload(() => import('./pages/content/Historias'))
-const Livro = lazyWithReload(() => import('./pages/content/Livro'))
+const HistoriasHub = lazyWithReload(() => import('./pages/content/historias/HistoriasHub'))
+const HistoriaTitulo = lazyWithReload(() => import('./pages/content/historias/HistoriaTitulo'))
 const LivroCapitulo = lazyWithReload(() => import('./pages/content/LivroCapitulo'))
-const Contos = lazyWithReload(() => import('./pages/content/Contos'))
-const ContoHistoria = lazyWithReload(() => import('./pages/content/ContoHistoria'))
 const ContoCapitulo = lazyWithReload(() => import('./pages/content/ContoCapitulo'))
-const Obra = lazyWithReload(() => import('./pages/content/Obra'))
 const ObraCapitulo = lazyWithReload(() => import('./pages/content/ObraCapitulo'))
 const Assinar = lazyWithReload(() => import('./pages/platform/Assinar'))
 const Autor = lazyWithReload(() => import('./pages/site/Autor'))
@@ -151,13 +148,13 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/personagens" element={<Personagens />} />
         <Route path="/personagens/:id" element={<PersonagemDetalhe />} />
-        <Route path="/historias" element={<Historias />} />
-        <Route path="/historias/lutas-de-ilusao" element={<Livro />} />
+        <Route path="/historias" element={<HistoriasHub />} />
+        <Route path="/historias/lutas-de-ilusao" element={<HistoriaTitulo tipo="livro" />} />
         <Route path="/historias/lutas-de-ilusao/:id" element={<LivroCapitulo />} />
-        <Route path="/historias/contos" element={<Contos />} />
-        <Route path="/historias/contos/:historia" element={<ContoHistoria />} />
+        <Route path="/historias/contos" element={<HistoriasHub tipo="conto" />} />
+        <Route path="/historias/contos/:historia" element={<HistoriaTitulo tipo="conto" />} />
         <Route path="/historias/contos/:historia/:cap" element={<ContoCapitulo />} />
-        <Route path="/historias/:slug" element={<Obra />} />
+        <Route path="/historias/:slug" element={<HistoriaTitulo tipo="obra" />} />
         <Route path="/historias/:slug/:cap" element={<ObraCapitulo />} />
         {/* Redirects legados — /livro migrou para /historias (v10.199.0) */}
         <Route path="/livro" element={<Navigate to="/historias" replace />} />

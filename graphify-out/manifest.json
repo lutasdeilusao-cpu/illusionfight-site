@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1790355309.6428652,
-    "ast_hash": "d262f1f372eea5296ee46f28d577a62e",
+    "mtime": 1790356063.9248793,
+    "ast_hash": "8ea86b39dd5606f2fe85bc643d66076d",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2735,8 +2735,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1790355309.6908748,
-    "ast_hash": "33ac31642f1f9789575c9d52d60426c7",
+    "mtime": 1790356063.9702454,
+    "ast_hash": "c64fd890c7c3a2ee10678509f4cd456b",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -4595,18 +4595,18 @@
     "semantic_hash": ""
   },
   "src/i18n/core/en.json": {
-    "mtime": 1790355287.4076216,
-    "ast_hash": "55b3c9109f5d67bb7169cdbffb3f615d",
+    "mtime": 1790356063.8399737,
+    "ast_hash": "47ab5c1875fa102774bae3cedc741424",
     "semantic_hash": ""
   },
   "src/i18n/core/es.json": {
-    "mtime": 1790355287.4390373,
-    "ast_hash": "65caceeca4a77e2e7bd49aa33df8839e",
+    "mtime": 1790356063.8764708,
+    "ast_hash": "99c2dba157580f89c485a769c12c1e61",
     "semantic_hash": ""
   },
   "src/i18n/core/pt.json": {
-    "mtime": 1790355287.3793473,
-    "ast_hash": "b490f9f286c094ef3270771600b1f3ea",
+    "mtime": 1790356063.8055205,
+    "ast_hash": "661e4d31ffa08e4927adc832217eb776",
     "semantic_hash": ""
   },
   "src/i18n/games/en.json": {
@@ -5570,8 +5570,8 @@
     "semantic_hash": ""
   },
   "src/pages/content/webshard/WebshardLeitor.jsx": {
-    "mtime": 1790355201.2459905,
-    "ast_hash": "5e92ed876ab0a5d073ba4ede6ba95cd5",
+    "mtime": 1790356052.4067652,
+    "ast_hash": "4b50b54ebbe38ec4d7fc35874d305cfe",
     "semantic_hash": ""
   },
   "src/pages/content/webshard/WebshardRota.jsx": {
@@ -5690,8 +5690,8 @@
     "semantic_hash": ""
   },
   "src/components/GateLeitura/GateLeitura.jsx": {
-    "mtime": 1790355160.1399615,
-    "ast_hash": "cda6cb533fea979fab342e6554b651ff",
+    "mtime": 1790356052.3107963,
+    "ast_hash": "3e76f86f7613c3eb229d186cb661edd4",
     "semantic_hash": ""
   }
 }

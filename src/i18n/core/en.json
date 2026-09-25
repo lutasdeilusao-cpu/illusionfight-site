@@ -590,6 +590,18 @@
       "mono": "Mono"
     },
     "historias": {
+      "eyebrow": "IF // STORIES",
+      "eyebrow_contos": "IF // ILLUSION TALES",
+      "destaque_eyebrow": "Featured · Main storyline",
+      "voltar": "‹ Stories",
+      "voltar_contos": "‹ Illusion Tales",
+      "ler_cap": "Read",
+      "estante_hint": "The main storyline, the Illusion Tales and other worlds by the same author.",
+      "proximos_eyebrow": "Coming up",
+      "proximos": "Upcoming chapters",
+      "proximos_hint": "Subscribers read first, free accounts right after, and the public last.",
+      "meta_title": "{nome} — Stories | Illusion Fight",
+      "tipo": {"livro": "Main storyline", "conto": "Illusion Tale", "obra": "Another universe"},
       "titulo": "STORIES",
       "intro": "Free online stories and serialized dark fantasy fiction, all in one place: the main saga, the Illusion Tales side stories, and other worlds by the same creator.",
       "og_title": "Free Online Stories & Dark Fantasy Fiction | Illusion Fight",

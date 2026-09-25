@@ -590,6 +590,18 @@
       "mono": "Mono"
     },
     "historias": {
+      "eyebrow": "IF // HISTÓRIAS",
+      "eyebrow_contos": "IF // CONTOS DE ILUSÃO",
+      "destaque_eyebrow": "Em destaque · Linha principal",
+      "voltar": "‹ Histórias",
+      "voltar_contos": "‹ Contos de Ilusão",
+      "ler_cap": "Ler",
+      "estante_hint": "A linha principal, os Contos de Ilusão e outros mundos do mesmo autor.",
+      "proximos_eyebrow": "Vem aí",
+      "proximos": "Próximos capítulos",
+      "proximos_hint": "Assinante lê primeiro, conta grátis logo depois, e o público por último.",
+      "meta_title": "{nome} — Histórias | Illusion Fight",
+      "tipo": {"livro": "Linha principal", "conto": "Conto de Ilusão", "obra": "Outro universo"},
       "titulo": "HISTÓRIAS",
       "intro": "Todo o universo de leitura de Illusion Fight num lugar só: a linha principal, os Contos de Ilusão e outros mundos.",
       "og_title": "Histórias | Illusion Fight",
