@@ -68,7 +68,16 @@ export default function Calendario() {
   const today = new Date().toISOString().slice(0, 10)
   const currentIndex = SEASON_ONE_DROPS.findLastIndex(drop => drop.date <= today)
   const nextIndex = SEASON_ONE_DROPS.findIndex(drop => drop.date > today)
-  const eventsByDate = Object.fromEntries(SEASON_ONE_DROPS.map(d => [d.date, d]))
+  // Um dia pode ter mais de um drop (ex.: 15/10/2027 = Cap. 9 público +
+  // Especial de fim de temporada) — junta os textos por nível em vez de o
+  // último sobrescrever o anterior na grade.
+  const eventsByDate = SEASON_ONE_DROPS.reduce((acc, d) => {
+    const prev = acc[d.date]
+    if (!prev) { acc[d.date] = d; return acc }
+    const juntar = campo => [prev[campo], d[campo]].filter(v => v && v !== '—').join(' + ') || '—'
+    acc[d.date] = { ...prev, subscriber: juntar('subscriber'), account: juntar('account'), public: juntar('public'), outras: juntar('outras') }
+    return acc
+  }, {})
   const months = buildMonths(CALENDAR_START, CALENDAR_END)
   const weekdays = weekdayLabels(locale)
 
