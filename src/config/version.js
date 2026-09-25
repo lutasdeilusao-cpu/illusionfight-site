@@ -8,7 +8,7 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.289.0' // feat(historias): redesign completo da área Histórias no padrão WEB SHARD — hub com destaque (capa oficial), estante numerada com farol, próximos capítulos com cascata e recentes; página de título única pra livro/conto/obra; catálogo único dos 3 índices; ComingSoon pra quem não tem arte
+export const SITE_VERSION = '10.289.1' // fix(historias): estante do hub separada por universo (LDI: linha principal + coleção dos Contos; Mundo das Sombras e Mar de Cinzas em seções próprias com card largo), filtro de peso só em /historias/contos, sem eyebrow IF // HISTÓRIAS
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.2' // fix: aba "stories" do rodape mostrava a chave crua pp.menu.pistas_label (nao existia) -> aponta pra pp.dossier.pistas_label; PuzzleWrapper mostrava pp.puzzle.nenhum/instrucao (nao existiam) -> pp.local.puzzle_nenhum/instrucao; confirm() de deletar save mostrava pp.menu.deletar_slot cru -> chave criada nos 3 idiomas.

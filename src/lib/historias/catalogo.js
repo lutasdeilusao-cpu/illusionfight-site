@@ -32,6 +32,7 @@ const LDI = tituloLegado()
 
 const LINHA_PRINCIPAL = {
   id: 'lutas-de-ilusao',
+  universo: 'ldi',
   nome_pt: LDI.nome_pt, nome_en: LDI.nome_en, nome_es: LDI.nome_es,
   tagline_pt: LDI.tagline_pt, tagline_en: LDI.tagline_en, tagline_es: LDI.tagline_es,
   sinopse_pt: LDI.sinopse_pt, sinopse_en: LDI.sinopse_en, sinopse_es: LDI.sinopse_es,
@@ -54,6 +55,7 @@ const CONTOS = contosIndex.map(h => ({
   id: h.id,
   slug: h.id,
   tipo: 'conto',
+  universo: 'ldi',
   canon: h.canon,
   peso: h.peso,
   temas: h.temas || [],
@@ -72,6 +74,8 @@ const OBRAS = obrasIndex.map(o => ({
   id: o.id,
   slug: o.id,
   tipo: 'obra',
+  // Cada obra externa é um universo próprio (outro mundo, outra história).
+  universo: o.id,
   canon: o.canon,
   peso: o.peso,
   temas: o.temas || [],
@@ -101,6 +105,11 @@ export function listarHistorias(tipo = null) {
 
 export function historiaPorSlug(slug, tipo = null) {
   return listarHistorias(tipo).find(h => h.slug === slug) || null
+}
+
+/** Capa padrão de quem ainda não tem arte (ComingSoon — padrão do projeto). */
+export function capaPadrao() {
+  return comingSoon
 }
 
 export function linhaPrincipal() {

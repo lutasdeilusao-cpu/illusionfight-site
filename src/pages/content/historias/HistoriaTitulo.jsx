@@ -47,7 +47,8 @@ export default function HistoriaTitulo({ tipo }) {
   const saga = localizado(historia, 'saga', locale)
   const universo = localizado(historia, 'universo', locale)
   // Peso e canon ficam no farol logo abaixo — nos selos só o tipo.
-  const selos = [t(`pages.historias.tipo.${historia.tipo}`)]
+  // Sem saga, o tipo já vai no eyebrow — não repete no selo.
+  const selos = saga ? [t(`pages.historias.tipo.${historia.tipo}`)] : []
   const url = `https://illusionfight.com${historia.rota}`
 
   return (
@@ -72,7 +73,7 @@ export default function HistoriaTitulo({ tipo }) {
             titulo={{ ...historia, status }}
             capa={historia.capa}
             as="h1"
-            eyebrow={saga || t('pages.historias.eyebrow')}
+            eyebrow={saga || t(`pages.historias.tipo.${historia.tipo}`)}
             texto={localizado(historia, 'sinopse', locale)}
             selos={selos}
           >

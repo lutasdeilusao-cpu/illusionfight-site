@@ -160,8 +160,8 @@
     "semantic_hash": "510a9ffca88eb0789eeddb9fe4d08d87"
   },
   "src/App.jsx": {
-    "mtime": 1790292210.609943,
-    "ast_hash": "2a78e620f5016a312489c7024f6f221e",
+    "mtime": 1790357355.3082855,
+    "ast_hash": "860de568eb7050f8bf19eb32ea917c0c",
     "semantic_hash": ""
   },
   "src/components/AchievementToast/AchievementToast.jsx": {
@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1790356063.9248793,
-    "ast_hash": "8ea86b39dd5606f2fe85bc643d66076d",
+    "mtime": 1790357505.54019,
+    "ast_hash": "fbd46f57244cc92dd9bc059ed65fdb65",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -647,11 +647,6 @@
   "src/main.jsx": {
     "mtime": 1789358427.3788862,
     "ast_hash": "76ebee5de8d3451e80b0a614ba94098c",
-    "semantic_hash": ""
-  },
-  "src/pages/content/Livro.jsx": {
-    "mtime": 1790307116.320881,
-    "ast_hash": "a1a7e8789c6f6e42254e27fab14a263d",
     "semantic_hash": ""
   },
   "src/pages/content/LivroCapitulo.jsx": {
@@ -2735,8 +2730,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1790356063.9702454,
-    "ast_hash": "c64fd890c7c3a2ee10678509f4cd456b",
+    "mtime": 1790357518.0801744,
+    "ast_hash": "394a7e9a533f5590f8b71644e47a05b0",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3649,11 +3644,6 @@
     "ast_hash": "a77426fea4a41676dbf19cfa12c33723",
     "semantic_hash": ""
   },
-  "src/pages/content/Contos.jsx": {
-    "mtime": 1790307116.31988,
-    "ast_hash": "eb46ff0d4390404b2d6ebe6d3d8d5aac",
-    "semantic_hash": ""
-  },
   "workers/songs-r2/worker.js": {
     "mtime": 1788021423.3995686,
     "ast_hash": "8ea61c46777ed94f70643f36e1982063",
@@ -3697,11 +3687,6 @@
   "supabase/migrations/029_radio_nina_playlists.sql": {
     "mtime": 1787930785.6791418,
     "ast_hash": "e24d6fb322202bb428880587d9760dfe",
-    "semantic_hash": ""
-  },
-  "src/pages/content/ContoHistoria.jsx": {
-    "mtime": 1788457141.0697224,
-    "ast_hash": "f364e32128a395c7cfcaa3ab237c3483",
     "semantic_hash": ""
   },
   "src/data/livro/contos/en/01/01.md": {
@@ -4134,11 +4119,6 @@
     "ast_hash": "f01b2ce24ee2188dedd21cf7dc1d21ee",
     "semantic_hash": ""
   },
-  "src/components/CapCard/CapCard.jsx": {
-    "mtime": 1788400590.508304,
-    "ast_hash": "eb5ea204706697a1740dd2f1b5d3caf9",
-    "semantic_hash": ""
-  },
   "src/data/obras-index.json": {
     "mtime": 1788400524.1692393,
     "ast_hash": "60c8c36aaace8c31ef907be49172c89c",
@@ -4312,16 +4292,6 @@
   "src/lib/releaseAccess.js": {
     "mtime": 1788400240.1572113,
     "ast_hash": "5d70e62d0f00dc250a8ec53c6a6b2f57",
-    "semantic_hash": ""
-  },
-  "src/pages/content/Historias.jsx": {
-    "mtime": 1789768571.8454833,
-    "ast_hash": "644201cf6eeeca1b13499f99d4167f7b",
-    "semantic_hash": ""
-  },
-  "src/pages/content/Obra.jsx": {
-    "mtime": 1788400776.9444742,
-    "ast_hash": "fb0f27e6ccd03f8ffbf3e4cab27d878a",
     "semantic_hash": ""
   },
   "src/pages/content/ObraCapitulo.jsx": {
@@ -4595,18 +4565,18 @@
     "semantic_hash": ""
   },
   "src/i18n/core/en.json": {
-    "mtime": 1790356063.8399737,
-    "ast_hash": "47ab5c1875fa102774bae3cedc741424",
+    "mtime": 1790357340.8089979,
+    "ast_hash": "110a80a994cf53fc63c4f8d6fc7b2c7b",
     "semantic_hash": ""
   },
   "src/i18n/core/es.json": {
-    "mtime": 1790356063.8764708,
-    "ast_hash": "99c2dba157580f89c485a769c12c1e61",
+    "mtime": 1790357340.809991,
+    "ast_hash": "2777b7956c59b0c3f3aa64485bf2abff",
     "semantic_hash": ""
   },
   "src/i18n/core/pt.json": {
-    "mtime": 1790356063.8055205,
-    "ast_hash": "661e4d31ffa08e4927adc832217eb776",
+    "mtime": 1790357340.8074646,
+    "ast_hash": "141bf64395d9484fda40703dd0e29ecb",
     "semantic_hash": ""
   },
   "src/i18n/games/en.json": {
@@ -5620,13 +5590,13 @@
     "semantic_hash": ""
   },
   "src/pages/content/webshard/components/TituloCard.jsx": {
-    "mtime": 1790291831.1377985,
-    "ast_hash": "0e4c4ac7c62ce514c8e51cb5f295ea88",
+    "mtime": 1790357160.3679237,
+    "ast_hash": "b441414d531d29db685313ce27c1661f",
     "semantic_hash": ""
   },
   "src/pages/content/webshard/components/TituloHero.jsx": {
-    "mtime": 1790347915.6356783,
-    "ast_hash": "cde7c1c2349c6366f67a2f5a42ed967d",
+    "mtime": 1790357160.3664196,
+    "ast_hash": "f0e755f04860ca08fdabd32a7c4912cb",
     "semantic_hash": ""
   },
   "src/pages/content/webshard/hooks/useBarraAutoOculta.js": {
@@ -5692,6 +5662,31 @@
   "src/components/GateLeitura/GateLeitura.jsx": {
     "mtime": 1790356052.3107963,
     "ast_hash": "3e76f86f7613c3eb229d186cb661edd4",
+    "semantic_hash": ""
+  },
+  "src/hooks/useHistoriasAcesso.js": {
+    "mtime": 1790357133.7775464,
+    "ast_hash": "68737d143aad69efe5a9d11812bfbec1",
+    "semantic_hash": ""
+  },
+  "src/lib/historias/catalogo.js": {
+    "mtime": 1790357172.459607,
+    "ast_hash": "1c9e1f4b21fb78b068cab8e8886607fd",
+    "semantic_hash": ""
+  },
+  "src/pages/content/historias/HistoriaCapLinha.jsx": {
+    "mtime": 1790357201.9566872,
+    "ast_hash": "ee6f363369d810f1aee59af55220f88d",
+    "semantic_hash": ""
+  },
+  "src/pages/content/historias/HistoriaTitulo.jsx": {
+    "mtime": 1790357484.8911433,
+    "ast_hash": "5975d4948d43f228d321ebd31ed1d6dd",
+    "semantic_hash": ""
+  },
+  "src/pages/content/historias/HistoriasHub.jsx": {
+    "mtime": 1790357276.249359,
+    "ast_hash": "03f6c70579b73f8d24fe6dd12e7ac21d",
     "semantic_hash": ""
   }
 }

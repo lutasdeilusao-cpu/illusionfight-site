@@ -11,6 +11,7 @@ import Farol, { PESOS } from '../../../components/Farol/Farol'
 import TituloHero from '../webshard/components/TituloHero'
 import TituloCard from '../webshard/components/TituloCard'
 import HistoriaCapLinha from './HistoriaCapLinha'
+import HistoriasUniversos from './HistoriasUniversos'
 import '../webshard/WebshardHub.css'
 import '../webshard/components/ContinuarLendo.css'
 import './Historias.css'
@@ -77,7 +78,6 @@ export default function HistoriasHub({ tipo = null }) {
           {tipo && <Link to="/historias" className="hist-voltar">{t('pages.historias.voltar')}</Link>}
 
           <header className="ws-hub__cabeca">
-            <span className="if-eyebrow">{t(tipo === 'conto' ? 'pages.historias.eyebrow_contos' : 'pages.historias.eyebrow')}</span>
             <h1 className="ws-hub__h1">{t(tipo === 'conto' ? 'pages.contos.titulo' : 'pages.historias.titulo')}</h1>
             <p className="ws-hub__sub">{t(tipo === 'conto' ? 'pages.contos.descricao' : 'pages.historias.intro')}</p>
           </header>
@@ -88,7 +88,7 @@ export default function HistoriasHub({ tipo = null }) {
               capa={destaque.capa}
               eyebrow={t('pages.historias.destaque_eyebrow')}
               texto={localizado(destaque, 'tagline', locale)}
-              selos={[t('pages.historias.tipo.livro'), t(`pages.contos.peso_${destaque.peso}`)]}
+              selos={[t(`pages.contos.peso_${destaque.peso}`)]}
             >
               {capHero && (
                 <Link to={destaque.rotaCap(capHero)} className="if-btn if-btn--primary">
@@ -119,11 +119,15 @@ export default function HistoriasHub({ tipo = null }) {
             </div>
           )}
 
+          {/* Hub geral: estante por universo. Contos: a estante dos 5 com o filtro do farol. */}
+          {!tipo && <HistoriasUniversos historias={historias} />}
+
+          {tipo && (
           <section className="ws-hub__secao">
             <div className="ws-hub__secao-cabeca">
               <span className="if-eyebrow">{t('webShard.hub.titulos_eyebrow')}</span>
               <h2 className="ws-hub__h2">{t('webShard.hub.titulos')}</h2>
-              <p className="ws-hub__hint">{t(tipo === 'conto' ? 'pages.contos.farol_intro' : 'pages.historias.estante_hint')}</p>
+              <p className="ws-hub__hint">{t('pages.contos.farol_intro')}</p>
             </div>
 
             {pesosPresentes.length > 1 && (
@@ -157,6 +161,7 @@ export default function HistoriasHub({ tipo = null }) {
               <p className="ws-hub__hint">{t('pages.contos.farol_vazio')}</p>
             )}
           </section>
+          )}
 
           {proximos.length > 0 && (
             <section className="ws-hub__secao">

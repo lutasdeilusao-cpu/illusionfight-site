@@ -590,8 +590,10 @@
       "mono": "Mono"
     },
     "historias": {
-      "eyebrow": "IF // HISTÓRIAS",
-      "eyebrow_contos": "IF // CONTOS DE ILUSÃO",
+      "contos_tagline": "Histórias paralelas do mesmo mundo: outros personagens, outras dores.",
+      "contos_qtd": "Coleção · {n} contos",
+      "universo_eyebrow": "O universo principal",
+      "outro_universo_eyebrow": "Outro universo · outra história",
       "destaque_eyebrow": "Em destaque · Linha principal",
       "voltar": "‹ Histórias",
       "voltar_contos": "‹ Contos de Ilusão",

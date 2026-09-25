@@ -590,8 +590,10 @@
       "mono": "Mono"
     },
     "historias": {
-      "eyebrow": "IF // STORIES",
-      "eyebrow_contos": "IF // ILLUSION TALES",
+      "contos_tagline": "Side stories from the same world: other characters, other scars.",
+      "contos_qtd": "Collection · {n} tales",
+      "universo_eyebrow": "The main universe",
+      "outro_universo_eyebrow": "Another universe · another story",
       "destaque_eyebrow": "Featured · Main storyline",
       "voltar": "‹ Stories",
       "voltar_contos": "‹ Illusion Tales",
