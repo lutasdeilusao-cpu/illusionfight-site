@@ -1104,6 +1104,21 @@
       "parabens": "Awesome! I’ll share it",
       "admin_total": "{n} reactions on this chapter",
       "admin_indisponivel": "Count unavailable — has migration 042 run?"
+    },
+    "avisos": {
+      "introducao": {
+        "eyebrow": "Before you start",
+        "titulo": "A word from the people behind LDI",
+        "paragrafos": [
+          "This chapter is an introduction. It is not part of the main storyline yet: it is just a taste of everything you will find in Illusion Fight.",
+          "But Illusion Fight is different from the products tailor-made for this generation. If you are expecting a quick reward, if you are expecting to be rewarded in the very first pages, forget it. Illusion Fight will reward you — that I guarantee — but it takes work and time.",
+          "I am not going to change my story, or tell it any differently, just to please anyone. It will be told exactly the way I imagined it when I was 17.",
+          "The next chapter is all about showing you who my characters are. That is why I decided to give you this special taste first."
+        ],
+        "destaque": "So get ready: you will get your dopamine. But at the right time.",
+        "assinatura": "— Isaias Leal, creator of Illusion Fight",
+        "ok": "OK, let’s read"
+      }
     }
   },
   "calendar": {
@@ -1255,11 +1270,11 @@
         "format": "WEBTOON",
         "items": [
           {
-            "label": "Episode 0",
+            "label": "Chapter 1",
             "status": "Published"
           },
           {
-            "label": "Chapter 1",
+            "label": "Chapter 2",
             "status": "Coming soon"
           }
         ]

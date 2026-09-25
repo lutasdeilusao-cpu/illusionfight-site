@@ -91,7 +91,7 @@ const RELATED_BY_PATH = {
   ],
   '/webtoon': [
     { name: 'Lutas de Ilusão — todos os capítulos', path: '/webtoon/lutas-de-ilusao/' },
-    { name: 'Episódio 00', path: '/webtoon/00/' },
+    { name: 'Capítulo 01 — O Sonho de Ilusão', path: '/webtoon/01/' },
     { name: 'O que é WEB SHARD', path: '/web-shard/' },
     { name: 'Personagens', path: '/personagens/' },
   ],
@@ -164,7 +164,7 @@ capitulos.forEach((capitulo, i) => {
   })
 })
 
-episodios.filter(episodio => episodio.id === '00').forEach(episodio => ROUTES.push({
+episodios.filter(episodio => episodio.sempre_livre).forEach(episodio => ROUTES.push({
   path: `/webtoon/${episodio.id}`,
   title: `${episodio.titulo_pt} — webtoon Illusion Fight, episódio ${episodio.numero}`,
   description: episodio.descricao_pt,
@@ -189,6 +189,7 @@ const REDIRECTS = [
   { path: '/mundo', target: '/universos' },
   { path: '/livro', target: '/historias' },
   { path: '/livro/contos', target: '/historias/contos' },
+  { path: '/webtoon/00', target: '/webtoon/01' },
 ]
 
 // Enriquecimento final, depois de todos os push: links contextuais nos hubs e um

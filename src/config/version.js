@@ -8,7 +8,7 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.282.0' // feat(webshard): redesign completo da área de quadrinhos (/webtoon) em torno do formato WEB SHARD — hub multi-título (Lutas de Ilusão + Heróis da Cidade, este só pra admin por enquanto), página por título, leitor imersivo novo (barra que recolhe, progresso por página, troca PT/EN/ES, continuar de onde parou) e reações anônimas no fim do capítulo (lixo/aceitável/gostei muito/parabéns, hash de visitante, migration 042). Cap. 01 final (53 págs., PT/EN/ES em WebP) no repo, ainda travado pela data de liberação.
+export const SITE_VERSION = '10.283.0' // feat(webshard): LANÇAMENTO — o antigo Ep. 00 (Apresentação, 21 págs. PNG) saiu do site; a introdução oficial agora é o Cap. 01 "O Sonho de Ilusão" (53 págs., PT/EN/ES), liberado pra todo mundo em 24/09/2026 (sempre_livre). /webtoon/00 redireciona pro 01 (app + prerender + _redirects). Conquista episodio_zero (mesma id) passa a ser "terminou o 1º capítulo", disparada pelo campo conquista_ao_terminar do dado. Miniatura da Home trocada pela arte nova. Recado do autor (AvisoAutor, campo aviso_autor do capítulo) antes de TODA leitura do Cap. 01: é introdução fora da linha principal, LDI não é recompensa rápida, dopamina no tempo certo.
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.2' // fix: aba "stories" do rodape mostrava a chave crua pp.menu.pistas_label (nao existia) -> aponta pra pp.dossier.pistas_label; PuzzleWrapper mostrava pp.puzzle.nenhum/instrucao (nao existiam) -> pp.local.puzzle_nenhum/instrucao; confirm() de deletar save mostrava pp.menu.deletar_slot cru -> chave criada nos 3 idiomas.

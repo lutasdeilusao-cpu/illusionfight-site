@@ -135,8 +135,8 @@
     "semantic_hash": "8d5b3b5a815f883f1cdfad6d40ecb4bc"
   },
   "scripts/prerender-routes.js": {
-    "mtime": 1790029491.2291515,
-    "ast_hash": "aae9b43cd6cadeffa81800e420c96961",
+    "mtime": 1790292322.886621,
+    "ast_hash": "b883f87c0d5a88d114b6ca0603c098e5",
     "semantic_hash": ""
   },
   "scripts/run-migration.js": {
@@ -160,8 +160,8 @@
     "semantic_hash": "510a9ffca88eb0789eeddb9fe4d08d87"
   },
   "src/App.jsx": {
-    "mtime": 1790029207.9776297,
-    "ast_hash": "4d6aeabb8a484a93bbedc18aadd7884d",
+    "mtime": 1790292210.609943,
+    "ast_hash": "2a78e620f5016a312489c7024f6f221e",
     "semantic_hash": ""
   },
   "src/components/AchievementToast/AchievementToast.jsx": {
@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1790120480.2993014,
-    "ast_hash": "127a46536ad7f825d18e3acc79573506",
+    "mtime": 1790292345.1564984,
+    "ast_hash": "ff85a706da4480f69c8e5b81d53ad08d",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -445,8 +445,8 @@
     "semantic_hash": "dba2442a1472aaf53f8a93ce6833fd9d"
   },
   "src/data/episodios.json": {
-    "mtime": 1787769410.1061525,
-    "ast_hash": "0a02e32416fbeb73cdc0885412bef2ea",
+    "mtime": 1790291703.240051,
+    "ast_hash": "e0b87bb61c5564c067bd2b4387f2d285",
     "semantic_hash": ""
   },
   "src/data/livro-index.json": {
@@ -678,16 +678,6 @@
     "mtime": 1788400540.7685573,
     "ast_hash": "71e4420d7ccde33d756bca948c716b27",
     "semantic_hash": "71e4420d7ccde33d756bca948c716b27"
-  },
-  "src/pages/content/Webtoon.jsx": {
-    "mtime": 1790029251.291049,
-    "ast_hash": "5e090fd5de4b194d4af385c334359121",
-    "semantic_hash": ""
-  },
-  "src/pages/content/WebtoonEpisodio.jsx": {
-    "mtime": 1789357140.2407768,
-    "ast_hash": "a68fab9b84fb304398f5475eac0b4ff6",
-    "semantic_hash": ""
   },
   "src/pages/games/ArenaTatics/ArenaTaticsRoute.jsx": {
     "mtime": 1783911201.8705778,
@@ -2705,8 +2695,8 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1789690963.7772522,
-    "ast_hash": "ad7736fee2c639096d9f8fad13eb5dc5",
+    "mtime": 1790298778.3432975,
+    "ast_hash": "4d45c02c1b86817ac01b3627156c9cab",
     "semantic_hash": ""
   },
   "Jogos_Rafael/mg01_sliding.html": {
@@ -2745,8 +2735,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1790120486.7463624,
-    "ast_hash": "667df173e5935aa518e5c1a4777753da",
+    "mtime": 1790292345.1574888,
+    "ast_hash": "4ac4e253885bb59bea92e7cd57fd2881",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -4605,18 +4595,18 @@
     "semantic_hash": ""
   },
   "src/i18n/core/en.json": {
-    "mtime": 1790087413.8573906,
-    "ast_hash": "2d9fe421fdc88753420469f5cf745d81",
+    "mtime": 1790298690.2441838,
+    "ast_hash": "7c313befafcf65261e81b828b5941bff",
     "semantic_hash": ""
   },
   "src/i18n/core/es.json": {
-    "mtime": 1790087417.030599,
-    "ast_hash": "75093dc2ccf6c74c587d37b53454f2ef",
+    "mtime": 1790298690.2461836,
+    "ast_hash": "6f4584a3e04de3040937d344132e2e03",
     "semantic_hash": ""
   },
   "src/i18n/core/pt.json": {
-    "mtime": 1790087410.6988602,
-    "ast_hash": "b1be4ca1e9920f043b1f9fc176c6570c",
+    "mtime": 1790298690.2351842,
+    "ast_hash": "0959331c76e146f41b885b7a9819b4b4",
     "semantic_hash": ""
   },
   "src/i18n/games/en.json": {
@@ -5547,6 +5537,126 @@
   "supabase/migrations/041_profiles_locale.sql": {
     "mtime": 1790117897.308514,
     "ast_hash": "baf0cacc0daef7e779c192f1a83db3c6",
+    "semantic_hash": ""
+  },
+  "src/data/webshard-titulos.json": {
+    "mtime": 1790291723.433064,
+    "ast_hash": "4a1b32b69550342b3ab990608df770fb",
+    "semantic_hash": ""
+  },
+  "src/hooks/useWebshardAcesso.js": {
+    "mtime": 1790291984.8244164,
+    "ast_hash": "1b2ec2dfd2cc8c5c7959e4a931f944a6",
+    "semantic_hash": ""
+  },
+  "src/lib/webshard/catalogo.js": {
+    "mtime": 1790291848.4584303,
+    "ast_hash": "e236412da3889e5cf4060c3aceeeda87",
+    "semantic_hash": ""
+  },
+  "src/lib/webshard/progresso.js": {
+    "mtime": 1790291760.153687,
+    "ast_hash": "f75f55d8807443c73fc0b71f37e624a0",
+    "semantic_hash": ""
+  },
+  "src/lib/webshard/reacoes.js": {
+    "mtime": 1790291804.1187217,
+    "ast_hash": "72dae165b64000a729e05ef66295b618",
+    "semantic_hash": ""
+  },
+  "src/pages/content/webshard/WebshardHub.jsx": {
+    "mtime": 1790298778.3318179,
+    "ast_hash": "184a8934ef3ebca395282970aed707d7",
+    "semantic_hash": ""
+  },
+  "src/pages/content/webshard/WebshardLeitor.jsx": {
+    "mtime": 1790292192.9776347,
+    "ast_hash": "545a09987c8d339e46f7b3125a149503",
+    "semantic_hash": ""
+  },
+  "src/pages/content/webshard/WebshardRota.jsx": {
+    "mtime": 1790292204.5494084,
+    "ast_hash": "8a4e1a208950b6e9f9784a374b1744b2",
+    "semantic_hash": ""
+  },
+  "src/pages/content/webshard/WebshardTitulo.jsx": {
+    "mtime": 1790298690.201507,
+    "ast_hash": "ccb78eb4b78c080b697608fb36395b1b",
+    "semantic_hash": ""
+  },
+  "src/pages/content/webshard/components/CapituloLinha.jsx": {
+    "mtime": 1790291859.1818695,
+    "ast_hash": "b97fdae2bf8bb3ebd494479ed7c4e2d9",
+    "semantic_hash": ""
+  },
+  "src/pages/content/webshard/components/ContinuarLendo.jsx": {
+    "mtime": 1790291940.105146,
+    "ast_hash": "4025a60f6cf81c91b8ff9f166ef41c34",
+    "semantic_hash": ""
+  },
+  "src/pages/content/webshard/components/LeitorBarra.jsx": {
+    "mtime": 1790292039.3052032,
+    "ast_hash": "1a251c20dba6708f5551ae0c148a31d2",
+    "semantic_hash": ""
+  },
+  "src/pages/content/webshard/components/LeitorFim.jsx": {
+    "mtime": 1790292109.166958,
+    "ast_hash": "dc9eee96d4f5aaa59d969ce21c560a5a",
+    "semantic_hash": ""
+  },
+  "src/pages/content/webshard/components/LeitorPaginas.jsx": {
+    "mtime": 1790292062.4733782,
+    "ast_hash": "738428a037c7eb6bae0aa03e93fb62be",
+    "semantic_hash": ""
+  },
+  "src/pages/content/webshard/components/ManifestoFaixa.jsx": {
+    "mtime": 1790291895.464945,
+    "ast_hash": "9793d81017d41e89cf2e2cea49404425",
+    "semantic_hash": ""
+  },
+  "src/pages/content/webshard/components/Reacoes.jsx": {
+    "mtime": 1790292083.374105,
+    "ast_hash": "1c786bb3e2562c7a6e33922196902fb8",
+    "semantic_hash": ""
+  },
+  "src/pages/content/webshard/components/TituloCard.jsx": {
+    "mtime": 1790291831.1377985,
+    "ast_hash": "0e4c4ac7c62ce514c8e51cb5f295ea88",
+    "semantic_hash": ""
+  },
+  "src/pages/content/webshard/components/TituloHero.jsx": {
+    "mtime": 1790291918.7426488,
+    "ast_hash": "7c952e582392ba7049ba429eec513ae7",
+    "semantic_hash": ""
+  },
+  "src/pages/content/webshard/hooks/useBarraAutoOculta.js": {
+    "mtime": 1790292032.068403,
+    "ast_hash": "6edf234bbcb0f102ad2fdc18b22dfe81",
+    "semantic_hash": ""
+  },
+  "supabase/migrations/042_webshard_reacoes.sql": {
+    "mtime": 1790291783.7085688,
+    "ast_hash": "cabf957c8e803245734b3f0ab4349216",
+    "semantic_hash": ""
+  },
+  "src/assets/webshard/cap-lutas-de-ilusao-00.webp": {
+    "mtime": 1790298671.3351858,
+    "ast_hash": "919c5deb257cae0152db15836c94cff3",
+    "semantic_hash": ""
+  },
+  "src/assets/webshard/cap-lutas-de-ilusao-01.webp": {
+    "mtime": 1790291753.6010585,
+    "ast_hash": "fa776d2b5b4e18a9de2ca5957b8fc26b",
+    "semantic_hash": ""
+  },
+  "src/assets/webshard/capa-herois-da-cidade.webp": {
+    "mtime": 1790291753.521775,
+    "ast_hash": "e85a42b1471892583aaa1e1f800e5791",
+    "semantic_hash": ""
+  },
+  "src/assets/webshard/capa-lutas-de-ilusao.webp": {
+    "mtime": 1790291753.354978,
+    "ast_hash": "021ff923fb530aca897a2f6e51bd96cc",
     "semantic_hash": ""
   }
 }

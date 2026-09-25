@@ -28,8 +28,8 @@
   },
   {
     "id": "episodio_zero",
-    "nome": "Episódio Zero",
-    "descricao": "Você assistiu o prólogo do webtoon.",
+    "nome": "Primeiro Capítulo",
+    "descricao": "Você leu o primeiro capítulo do WEB SHARD.",
     "icone": "🎬",
     "secreto": false,
     "tier": 1,

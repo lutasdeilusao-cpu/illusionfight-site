@@ -1104,6 +1104,21 @@
       "parabens": "Parabéns! Vou compartilhar",
       "admin_total": "{n} reações neste capítulo",
       "admin_indisponivel": "Contagem indisponível — a migration 042 já rodou?"
+    },
+    "avisos": {
+      "introducao": {
+        "eyebrow": "Antes de começar",
+        "titulo": "Um recado de quem faz o LDI",
+        "paragrafos": [
+          "Este capítulo é uma introdução. Ele ainda não pertence à linha principal: é só um gostinho de tudo o que você vai encontrar em Lutas de Ilusão.",
+          "Mas Lutas de Ilusão é diferente desses produtos feitos sob medida pra galera dessa geração. Se você está esperando recompensa rápida, se está esperando ser recompensado logo nas primeiras páginas, esqueça. Lutas de Ilusão vai te recompensar, sim — isso eu garanto —, mas exige trabalho e tempo.",
+          "Eu não vou mudar a minha história, nem contá-la de outro jeito, só pra agradar. Ela vai ser contada exatamente como eu a pensei quando tinha 17 anos.",
+          "O próximo capítulo vai ser dedicado a mostrar quem são os meus personagens. Por isso, antes, resolvi dar esse gostinho especial pra vocês."
+        ],
+        "destaque": "Então se preparem: vocês terão dopamina. Mas no tempo certo.",
+        "assinatura": "— Isaias Leal, criador de Lutas de Ilusão",
+        "ok": "OK, bora ler"
+      }
     }
   },
   "calendar": {
@@ -1255,11 +1270,11 @@
         "format": "WEBTOON",
         "items": [
           {
-            "label": "Episódio 0",
+            "label": "Capítulo 1",
             "status": "Publicado"
           },
           {
-            "label": "Capítulo 1",
+            "label": "Capítulo 2",
             "status": "Em breve"
           }
         ]

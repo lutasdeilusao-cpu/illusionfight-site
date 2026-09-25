@@ -18,6 +18,7 @@ import { useBarraAutoOculta } from './hooks/useBarraAutoOculta'
 import LeitorBarra from './components/LeitorBarra'
 import LeitorPaginas from './components/LeitorPaginas'
 import LeitorFim from './components/LeitorFim'
+import AvisoAutor from './components/AvisoAutor'
 import './WebshardLeitor.css'
 
 /* Leitor WEB SHARD — /webtoon/:id (Lutas de Ilusão, URL legada) e
@@ -51,6 +52,8 @@ export default function WebshardLeitor({ titulo, capId }) {
   const [pagina, setPagina] = useState(1)
   const [retomar, setRetomar] = useState(paginaSalva)
   const [aviso, setAviso] = useState('')
+  // Recado do autor (cap.aviso_autor): abre em TODA entrada no capítulo.
+  const [avisoAutorAberto, setAvisoAutorAberto] = useState(Boolean(cap?.aviso_autor))
   // Troca de capítulo (próximo/anterior): o Router reaproveita o componente,
   // então o estado é reajustado aqui, durante o render.
   if (capAtual !== chaveCap) {
@@ -59,6 +62,7 @@ export default function WebshardLeitor({ titulo, capId }) {
     setPagina(1)
     setRetomar(paginaSalva())
     setAviso('')
+    setAvisoAutorAberto(Boolean(cap?.aviso_autor))
   }
   const retomarRef = useRef(retomar)
   retomarRef.current = retomar
@@ -67,7 +71,8 @@ export default function WebshardLeitor({ titulo, capId }) {
   const paginas = useMemo(() => (podeLer ? paginasDe(cap, idioma) : []), [cap, idioma, podeLer])
   const idiomaIncompleto = Boolean(cap?.paginas_faltando?.[idioma]?.length)
   const nomeCap = cap ? localizado(cap, 'titulo', locale) : ''
-  const ehEpisodioZero = titulo.slug === 'lutas-de-ilusao' && capId === '00'
+  // Conquista de "terminou o capítulo" vem do dado (episodios.json).
+  const conquista = cap?.conquista_ao_terminar || null
 
   useEffect(() => {
     setReaderMode(true)
@@ -85,14 +90,14 @@ export default function WebshardLeitor({ titulo, capId }) {
   }, [podeLer, titulo.slug, capId])
 
   useLayoutEffect(() => {
-    if (ehEpisodioZero) notificationManager.removeByAchievementId('episodio_zero')
-  }, [ehEpisodioZero])
+    if (conquista) notificationManager.removeByAchievementId(conquista)
+  }, [conquista])
 
   useReadingCompletionGate({
     sentinelRef: ultimaPaginaRef,
     contentKey: `webtoon:${titulo.slug}:${capId}`,
-    enabled: ehEpisodioZero && podeLer,
-    onComplete: () => desbloquearRef.current('episodio_zero'),
+    enabled: Boolean(conquista) && podeLer,
+    onComplete: () => desbloquearRef.current(conquista),
   })
 
   useTrackedSession('webtoon_open', 'webtoon_time', {
@@ -190,6 +195,10 @@ export default function WebshardLeitor({ titulo, capId }) {
           onToque={alternar}
           ultimaRef={ultimaPaginaRef}
         />
+
+        {avisoAutorAberto && cap.aviso_autor && (
+          <AvisoAutor id={cap.aviso_autor} cor={titulo.cor} onFechar={() => setAvisoAutorAberto(false)} />
+        )}
 
         <LeitorFim
           titulo={titulo}

@@ -16,6 +16,10 @@
 /mundo              /universos/                  301
 /mundo/             /universos/                  301
 
+# Webtoon: Ep. 00 antigo saiu, a introdução oficial é o Cap. 01 (v10.283.0)
+/webtoon/00         /webtoon/01/                 301
+/webtoon/00/        /webtoon/01/                 301
+
 # Livro → Histórias (migração v10.199.0)
 /livro              /historias/                  301
 /livro/             /historias/                  301

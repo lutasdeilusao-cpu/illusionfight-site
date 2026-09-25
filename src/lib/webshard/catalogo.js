@@ -12,6 +12,14 @@ import episodios from '../../data/episodios.json'
 
 const TITULO_LEGADO = 'lutas-de-ilusao'
 
+// Capítulos que mudaram de número. Set/2026: o antigo Ep. 00 (Apresentação)
+// saiu; a introdução oficial agora é o Cap. 01 — /webtoon/00 está indexada.
+const CAPITULOS_MOVIDOS = { [TITULO_LEGADO]: { '00': '01' } }
+
+export function capituloMovido(titulo, id) {
+  return CAPITULOS_MOVIDOS[titulo?.slug]?.[id] || null
+}
+
 const imagens = import.meta.glob('../../assets/webshard/*.webp', { eager: true, import: 'default' })
 const imagemPorNome = Object.fromEntries(
   Object.entries(imagens).map(([caminho, url]) => [caminho.split('/').pop(), url])

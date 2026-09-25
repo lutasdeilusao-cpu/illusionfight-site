@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — MAPA DO SITE E DO PROJETO
 
 > Referência do estado atual do projeto para navegação humana e contexto de IA.
-> Atualizado em 2026-09-24 — `SITE_VERSION` **10.282.0**.
+> Atualizado em 2026-09-24 — `SITE_VERSION` **10.283.0**.
 > Histórico de tarefas, bugfixes e pendências não pertence a este documento.
 > Regras de trabalho, arquivos proibidos e decisões arquiteturais: `AGENTS.md`.
 
@@ -85,7 +85,7 @@ Componentes montados globalmente por `App.jsx`: `AnalyticsTracker`, `ScrollToTop
 | `/historias/:slug/:cap` | Leitor de capítulo de obra | `src/pages/content/ObraCapitulo.jsx` |
 | `/livro` → `/historias`, `/livro/contos` → `/historias/contos`, `/livro/:id` → `/historias/lutas-de-ilusao/:id` | Redirects 301 legados | `src/App.jsx` (`LegacyLivroRedirect`) + `public/_redirects` + `public/livro/index.html` + prerender REDIRECTS |
 | `/webtoon` | Hub WEB SHARD (títulos, destaque, capítulos recentes, manifesto) | `src/pages/content/webshard/WebshardHub.jsx` |
-| `/webtoon/:param` | Slug de título → página do título; senão capítulo de Lutas de Ilusão (URLs legadas `/webtoon/00`, `/webtoon/01`) | `src/pages/content/webshard/WebshardRota.jsx` → `WebshardTitulo.jsx` / `WebshardLeitor.jsx` |
+| `/webtoon/:param` | Slug de título → página do título; senão capítulo de Lutas de Ilusão (URL legada `/webtoon/01`; `/webtoon/00` antigo redireciona pro 01) | `src/pages/content/webshard/WebshardRota.jsx` → `WebshardTitulo.jsx` / `WebshardLeitor.jsx` |
 | `/webtoon/:slug/:cap` | Leitor dos demais títulos (`lutas-de-ilusao` redireciona pra URL legada) | `src/pages/content/webshard/WebshardRota.jsx` → `WebshardLeitor.jsx` |
 | `/musicas` | Músicas | `src/pages/content/Musicas.jsx` |
 | `/universos` | Portal dos universos (entrada) | `src/pages/content/UniversosHub/UniversosHub.jsx` |
@@ -392,7 +392,7 @@ Fonte única: `src/config/version.js`. Esta tabela registra somente a identifica
 
 | Constante | Módulo | Versão |
 |---|---|---:|
-| `SITE_VERSION` | Site global | **10.282.0** |
+| `SITE_VERSION` | Site global | **10.283.0** |
 | `PP_VERSION` | Pesadelo Particular | 2.3.1 |
 | `LDI_VERSION` | Lendas do LDI | 2.0.1 |
 | `JACK_VERSION` | Jack Dream Beer | 5.3.2 |
