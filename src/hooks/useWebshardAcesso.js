@@ -13,6 +13,7 @@ const ADMIN_EMAILS = ['isaiasgamedev@gmail.com', 'gramikgames@gmail.com']
 export function useWebshardAcesso() {
   const { user, perfil } = useAuth()
   const isAdmin = perfil?.is_admin === true || ADMIN_EMAILS.includes(user?.email || '')
+  const nivel = resolveAccessLevel(user, perfil)
 
   // Liberado pela regra normal, ignorando o passe de admin.
   const liberadoSemAdmin = useCallback(cap => {
@@ -31,5 +32,5 @@ export function useWebshardAcesso() {
    *  público do calendário oficial). */
   const dataPara = useCallback(cap => releaseDateFor(cap, resolveAccessLevel(user, perfil)), [user, perfil])
 
-  return { isAdmin, liberado, previa, dataPara }
+  return { isAdmin, nivel, liberado, previa, dataPara }
 }

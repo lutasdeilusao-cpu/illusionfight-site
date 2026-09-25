@@ -3,16 +3,20 @@ import { useLanguage } from '../../../../context/LanguageContext'
 import {
   capituloTemConteudo, formatarData, localizado, miniaturaCapitulo, numeroCapitulo, rotaCapitulo,
 } from '../../../../lib/webshard/catalogo'
+import CascataLiberacao from './CascataLiberacao'
 import './CapituloLinha.css'
 
 /** Uma linha de capítulo (lista do título e feed do hub). Liberado vira
  *  link; travado mostra a data de saída. `progresso` é o do título inteiro
  *  — só pinta "lendo/lido" se for deste capítulo. */
-export default function CapituloLinha({ titulo, cap, liberado, data, progresso, mostrarTitulo = false, previa = false }) {
+export default function CapituloLinha({ titulo, cap, liberado, data, nivel, progresso, mostrarTitulo = false, previa = false }) {
   const { t, locale } = useLanguage()
   const temConteudo = capituloTemConteudo(cap)
   const doCapitulo = progresso?.cap === cap.id ? progresso : null
   const lido = doCapitulo && doCapitulo.total && doCapitulo.pagina >= doCapitulo.total
+  // Travado com cascata (assinante/conta/público): mostra os 3 degraus em
+  // vez de só a data do nível de quem vê.
+  const cascata = !liberado && cap.liberacao
 
   let estado
   if (!liberado) {
@@ -39,13 +43,14 @@ export default function CapituloLinha({ titulo, cap, liberado, data, progresso, 
           {t('webShard.cap.rotulo', { n: numeroCapitulo(cap) })}
         </span>
         <span className="ws-cap__nome">{temConteudo ? localizado(cap, 'titulo', locale) : t('webShard.cap.em_breve')}</span>
-        <span className="ws-cap__meta">
+        {cascata && <CascataLiberacao liberacao={cap.liberacao} nivel={nivel} />}
+        {!cascata && <span className="ws-cap__meta">
           <span className={`ws-cap__estado${lido ? ' is-lido' : ''}${doCapitulo && !lido ? ' is-lendo' : ''}`}>{estado}</span>
           {temConteudo && (cap.idiomas || ['pt']).map(l => (
             <span key={l} className="ws-cap__lang">{l.toUpperCase()}</span>
           ))}
           {previa && <span className="ws-cap__previa">{t('webShard.leitor.admin_previa')}</span>}
-        </span>
+        </span>}
       </span>
       {liberado && <span className="ws-cap__seta" aria-hidden="true">›</span>}
     </>

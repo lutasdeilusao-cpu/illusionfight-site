@@ -113,3 +113,9 @@
   font: 600 0.62rem var(--font-mono);
   letter-spacing: 0.06em;
 }
+
+.ws-fim__espera {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}

@@ -28,7 +28,7 @@ export default function WebshardLeitor({ titulo, capId }) {
   const { setReaderMode } = useReader()
   const navigate = useNavigate()
   const { locale, t } = useLanguage()
-  const { isAdmin, liberado, previa, dataPara } = useWebshardAcesso()
+  const { isAdmin, nivel, liberado, previa, dataPara } = useWebshardAcesso()
   const { desbloquearOuConvidar } = useAchievements()
   const { registrarEvento } = useEventos()
   const desbloquearRef = useRef(desbloquearOuConvidar)
@@ -206,6 +206,7 @@ export default function WebshardLeitor({ titulo, capId }) {
           proximo={proximo}
           proximoLiberado={Boolean(proximo && liberado(proximo))}
           proximoData={proximo ? dataPara(proximo) : null}
+          nivel={nivel}
           idioma={idioma}
           isAdmin={isAdmin}
           onCompartilhar={compartilhar}

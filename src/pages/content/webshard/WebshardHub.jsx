@@ -20,7 +20,7 @@ import './WebshardHub.css'
    mesmo universo, um em destaque, a estante e os capítulos mais recentes. */
 export default function WebshardHub() {
   const { t, locale } = useLanguage()
-  const { isAdmin, liberado, previa, dataPara } = useWebshardAcesso()
+  const { isAdmin, nivel, liberado, previa, dataPara } = useWebshardAcesso()
   const [progresso] = useState(() => ultimoProgresso())
 
   const titulos = listarTitulos({ isAdmin })
@@ -109,6 +109,7 @@ export default function WebshardHub() {
                     cap={cap}
                     liberado={liberado(cap)}
                     data={dataPara(cap)}
+                    nivel={nivel}
                     progresso={lerProgresso(titulo.slug)}
                     mostrarTitulo={titulos.length > 1}
                     previa={previa(cap)}

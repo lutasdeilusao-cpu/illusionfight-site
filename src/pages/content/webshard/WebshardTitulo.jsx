@@ -8,6 +8,7 @@ import { lerProgresso } from '../../../lib/webshard/progresso'
 import TituloHero from './components/TituloHero'
 import CapituloLinha from './components/CapituloLinha'
 import ContinuarLendo from './components/ContinuarLendo'
+import LerAntesCta from './components/LerAntesCta'
 import './WebshardTitulo.css'
 
 /* /webtoon/:slug — página de um título: capa, sinopse, e a lista de
@@ -15,7 +16,7 @@ import './WebshardTitulo.css'
    "começar do primeiro liberado". */
 export default function WebshardTitulo({ titulo }) {
   const { t, locale } = useLanguage()
-  const { liberado, previa, dataPara } = useWebshardAcesso()
+  const { nivel, liberado, previa, dataPara } = useWebshardAcesso()
   const [progresso] = useState(() => lerProgresso(titulo.slug))
 
   // Lista inteira: os "Em breve" mostram a data do calendário oficial.
@@ -56,6 +57,9 @@ export default function WebshardTitulo({ titulo }) {
               <h2 className="ws-titulo__h2">{t('webShard.titulo.capitulos')}</h2>
               <span className="ws-titulo__total">{t('webShard.titulo.total_caps', { n: capitulos.filter(capituloTemConteudo).length })}</span>
             </div>
+            {capitulos.some(c => c.liberacao && !liberado(c)) && (
+              <div className="ws-titulo__ler-antes"><LerAntesCta nivel={nivel} /></div>
+            )}
             {capitulos.length ? (
               <div className="ws-titulo__lista if-stagger">
                 {capitulos.map(cap => (
@@ -65,6 +69,7 @@ export default function WebshardTitulo({ titulo }) {
                     cap={cap}
                     liberado={liberado(cap)}
                     data={dataPara(cap)}
+                    nivel={nivel}
                     progresso={progresso}
                     previa={previa(cap)}
                   />

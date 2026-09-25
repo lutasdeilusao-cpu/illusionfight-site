@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1790299261.83868,
-    "ast_hash": "b0b3047c2b8f3627deae503e1a18744f",
+    "mtime": 1790299522.7871208,
+    "ast_hash": "8b6a0374d5ed24fa9b5b071d31c723a7",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -445,8 +445,8 @@
     "semantic_hash": "dba2442a1472aaf53f8a93ce6833fd9d"
   },
   "src/data/episodios.json": {
-    "mtime": 1790299201.0717564,
-    "ast_hash": "3c8e2d7ceeae559226428f6a32d7d1f0",
+    "mtime": 1790299507.40882,
+    "ast_hash": "3f9015f6dfcabe9e0744e63aa0cc76b7",
     "semantic_hash": ""
   },
   "src/data/livro-index.json": {
@@ -2735,8 +2735,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1790299110.5749795,
-    "ast_hash": "aeda22283d00137da54dd5ef3ba46582",
+    "mtime": 1790299377.152458,
+    "ast_hash": "2c9366649b2d16fa284c7eff1c5c44aa",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -4145,8 +4145,8 @@
     "semantic_hash": ""
   },
   "src/data/season-one-schedule.js": {
-    "mtime": 1790050245.698489,
-    "ast_hash": "544aa776683e7ba7a501f1f7027aeaf2",
+    "mtime": 1790299507.4098117,
+    "ast_hash": "f3d9b5a81ab3e2c95bbc2eb27978c530",
     "semantic_hash": ""
   },
   "src/data/universo-index.json": {
@@ -4565,8 +4565,8 @@
     "semantic_hash": ""
   },
   "src/pages/site/Home/components/LatestEpisodes.jsx": {
-    "mtime": 1790299088.4664836,
-    "ast_hash": "96ede84e40383f0de6368210c672de45",
+    "mtime": 1790299377.1514635,
+    "ast_hash": "ff7f3278eb4303fe95f66d5a20c350c8",
     "semantic_hash": ""
   },
   "src/pages/site/Home/components/MusicSection.jsx": {
@@ -4595,18 +4595,18 @@
     "semantic_hash": ""
   },
   "src/i18n/core/en.json": {
-    "mtime": 1790299201.0767484,
-    "ast_hash": "8d3720e187999d1b4838cd07341ffbc9",
+    "mtime": 1790299507.4482696,
+    "ast_hash": "f8e8231dac9398236e5ddd3b42437b5a",
     "semantic_hash": ""
   },
   "src/i18n/core/es.json": {
-    "mtime": 1790299201.0777457,
-    "ast_hash": "de32b4155a1d45dde10e857f6a762390",
+    "mtime": 1790299507.4502678,
+    "ast_hash": "0ebd2e96435e932e9de5fac113bc1337",
     "semantic_hash": ""
   },
   "src/i18n/core/pt.json": {
-    "mtime": 1790299201.0747466,
-    "ast_hash": "bc2381394760d5b7142117b36a971bcb",
+    "mtime": 1790299507.4462667,
+    "ast_hash": "3e6843c0af03666a360ef55889770fb1",
     "semantic_hash": ""
   },
   "src/i18n/games/en.json": {
@@ -5545,8 +5545,8 @@
     "semantic_hash": ""
   },
   "src/hooks/useWebshardAcesso.js": {
-    "mtime": 1790291984.8244164,
-    "ast_hash": "1b2ec2dfd2cc8c5c7959e4a931f944a6",
+    "mtime": 1790299507.4098117,
+    "ast_hash": "24edd34a12f6146af23b3f409dd0fddc",
     "semantic_hash": ""
   },
   "src/lib/webshard/catalogo.js": {
@@ -5565,13 +5565,13 @@
     "semantic_hash": ""
   },
   "src/pages/content/webshard/WebshardHub.jsx": {
-    "mtime": 1790298778.3318179,
-    "ast_hash": "184a8934ef3ebca395282970aed707d7",
+    "mtime": 1790299507.4262846,
+    "ast_hash": "2f22cdbc91e1fcfb70fc8853178537e3",
     "semantic_hash": ""
   },
   "src/pages/content/webshard/WebshardLeitor.jsx": {
-    "mtime": 1790299201.0804346,
-    "ast_hash": "4120eaa92b8df2e6bcf3fdc5e56a16ef",
+    "mtime": 1790299507.4512668,
+    "ast_hash": "01a984d26e77b29f35a9ee2d504eadc5",
     "semantic_hash": ""
   },
   "src/pages/content/webshard/WebshardRota.jsx": {
@@ -5580,13 +5580,13 @@
     "semantic_hash": ""
   },
   "src/pages/content/webshard/WebshardTitulo.jsx": {
-    "mtime": 1790298690.201507,
-    "ast_hash": "ccb78eb4b78c080b697608fb36395b1b",
+    "mtime": 1790299507.4442613,
+    "ast_hash": "50df87306b059fdf342351d0fc28bfad",
     "semantic_hash": ""
   },
   "src/pages/content/webshard/components/CapituloLinha.jsx": {
-    "mtime": 1790291859.1818695,
-    "ast_hash": "b97fdae2bf8bb3ebd494479ed7c4e2d9",
+    "mtime": 1790299507.4108207,
+    "ast_hash": "ce49229537dd491f22e7fa23526635cd",
     "semantic_hash": ""
   },
   "src/pages/content/webshard/components/ContinuarLendo.jsx": {
@@ -5600,8 +5600,8 @@
     "semantic_hash": ""
   },
   "src/pages/content/webshard/components/LeitorFim.jsx": {
-    "mtime": 1790292109.166958,
-    "ast_hash": "dc9eee96d4f5aaa59d969ce21c560a5a",
+    "mtime": 1790299507.4512668,
+    "ast_hash": "e64c555259bb4a539927815362cd5d2f",
     "semantic_hash": ""
   },
   "src/pages/content/webshard/components/LeitorPaginas.jsx": {

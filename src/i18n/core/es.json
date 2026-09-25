@@ -1118,6 +1118,14 @@
         "assinatura": "— Isaias Leal, creador de Lutas de Ilusão",
         "ok": "OK, a leer"
       }
+    },
+    "cascata": {
+      "voce": "Tú",
+      "eyebrow": "¿Quieres leerlo antes?",
+      "texto_publico": "Los suscriptores leen cada capítulo 30 días antes que el público. Con cuenta gratis, 15 días antes — sin pagar nada.",
+      "texto_conta": "Tu cuenta gratis ya te pone 15 días adelante. Suscríbete y lee cada capítulo 30 días antes que el público.",
+      "assinar": "★ Leer primero",
+      "criar_conta": "Cuenta gratis"
     }
   },
   "calendar": {

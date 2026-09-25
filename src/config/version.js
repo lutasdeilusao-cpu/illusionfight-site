@@ -8,7 +8,7 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.283.1' // feat(webshard): os "Em breve" dos Caps. 02–09 seguem o calendário oficial da T1 (season-one-schedule.js), com a cascata assinante/conta/público em `liberacao` — cada visitante vê a data do PRÓPRIO nível (useWebshardAcesso.dataPara). Calendário: toda linha de capítulo LDI agora leva o termo (WEB SHARD). Home não renderiza lista vazia.
+export const SITE_VERSION = '10.284.0' // feat(webshard): capítulo travado mostra a CASCATA inteira (assinante / conta grátis / público) em vez de só a data do nível de quem vê — mostrar só a data do público (4 meses) afastava leitor. Degrau de assinante com ★, glow respirando e brilho em loop; card "Quer ler antes?" (assinar / conta grátis) na lista do título e no fim do capítulo. Tudo sem movimento em prefers-reduced-motion.
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.2' // fix: aba "stories" do rodape mostrava a chave crua pp.menu.pistas_label (nao existia) -> aponta pra pp.dossier.pistas_label; PuzzleWrapper mostrava pp.puzzle.nenhum/instrucao (nao existiam) -> pp.local.puzzle_nenhum/instrucao; confirm() de deletar save mostrava pp.menu.deletar_slot cru -> chave criada nos 3 idiomas.

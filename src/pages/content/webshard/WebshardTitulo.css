@@ -52,3 +52,5 @@
   font-family: var(--font-body);
   font-size: 0.88rem;
 }
+
+.ws-titulo__ler-antes { margin: 0.9rem 0 0.4rem; }

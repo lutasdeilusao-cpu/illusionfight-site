@@ -4,11 +4,13 @@ import {
   capituloTemConteudo, formatarData, localizado, miniaturaCapitulo, numeroCapitulo, rotaCapitulo, rotaTitulo,
 } from '../../../../lib/webshard/catalogo'
 import Reacoes from './Reacoes'
+import CascataLiberacao from './CascataLiberacao'
+import LerAntesCta from './LerAntesCta'
 import './LeitorFim.css'
 
 /** Fim do capítulo: reagir, seguir pro próximo (ou saber quando sai),
  *  compartilhar, voltar pra lista. */
-export default function LeitorFim({ titulo, cap, proximo, proximoLiberado, proximoData, idioma, isAdmin, onCompartilhar, avisoCompartilhar }) {
+export default function LeitorFim({ titulo, cap, proximo, proximoLiberado, proximoData, nivel, idioma, isAdmin, onCompartilhar, avisoCompartilhar }) {
   const { t, locale } = useLanguage()
   const proximoReal = proximo && capituloTemConteudo(proximo)
 
@@ -38,11 +40,21 @@ export default function LeitorFim({ titulo, cap, proximo, proximoLiberado, proxi
               <span className="ws-fim__proximo-seta" aria-hidden="true">›</span>
             </Link>
           ) : (
-            <p className="ws-fim__aguarde">
-              {proximoData
-                ? t('webShard.leitor.proximo_em', { data: formatarData(proximoData) })
-                : t('webShard.leitor.proximo_breve')}
-            </p>
+            <div className="ws-fim__espera">
+              <p className="ws-fim__aguarde">
+                {proximo?.liberacao
+                  ? `${t('webShard.leitor.proximo')} · ${t('webShard.cap.rotulo', { n: numeroCapitulo(proximo) })}`
+                  : proximoData
+                    ? t('webShard.leitor.proximo_em', { data: formatarData(proximoData) })
+                    : t('webShard.leitor.proximo_breve')}
+              </p>
+              {proximo?.liberacao && (
+                <>
+                  <CascataLiberacao liberacao={proximo.liberacao} nivel={nivel} />
+                  <LerAntesCta nivel={nivel} />
+                </>
+              )}
+            </div>
           )}
         </div>
 

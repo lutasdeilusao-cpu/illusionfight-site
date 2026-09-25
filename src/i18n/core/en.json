@@ -1118,6 +1118,14 @@
         "assinatura": "— Isaias Leal, creator of Illusion Fight",
         "ok": "OK, let’s read"
       }
+    },
+    "cascata": {
+      "voce": "You",
+      "eyebrow": "Want to read it sooner?",
+      "texto_publico": "Subscribers read every chapter 30 days before the public. With a free account, 15 days early — at no cost.",
+      "texto_conta": "Your free account already puts you 15 days ahead. Subscribe and read every chapter 30 days before the public.",
+      "assinar": "★ Read it first",
+      "criar_conta": "Free account"
     }
   },
   "calendar": {

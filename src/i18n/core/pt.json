@@ -1118,6 +1118,14 @@
         "assinatura": "— Isaias Leal, criador de Lutas de Ilusão",
         "ok": "OK, bora ler"
       }
+    },
+    "cascata": {
+      "voce": "Você",
+      "eyebrow": "Quer ler antes?",
+      "texto_publico": "Assinante lê cada capítulo 30 dias antes do público. Com conta grátis, 15 dias antes — sem pagar nada.",
+      "texto_conta": "Sua conta grátis já te põe 15 dias na frente. Assinando, você lê cada capítulo 30 dias antes do público.",
+      "assinar": "★ Ler primeiro",
+      "criar_conta": "Conta grátis"
     }
   },
   "calendar": {
