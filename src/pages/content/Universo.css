@@ -499,3 +499,28 @@
 @media (prefers-reduced-motion: reduce) {
   .universo-hero__fx { animation: none !important; }
 }
+
+/* ── Arte oficial dentro de uma parte (ex.: turnaround de personagem) ── */
+.u-arte {
+  margin: 1.25rem 0 0;
+  border: 1px solid var(--if-edge);
+  background: var(--if-panel);
+  clip-path: polygon(0 0, calc(100% - var(--if-cut)) 0, 100% var(--if-cut), 100% 100%, 0 100%);
+}
+
+.u-arte img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1672 / 941;
+  object-fit: contain;
+  background: var(--bg-primary);
+}
+
+.u-arte__legenda {
+  padding: 0.55rem 0.75rem 0.65rem;
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  line-height: 1.45;
+}

@@ -25,6 +25,11 @@
    ]
   },
   {
+   "t": "arte",
+   "src": "obras/mar-de-cinzas/elizabeth.webp",
+   "legenda": "**Elizabeth Thoss** — no vestido de consorte. Arte oficial de personagem (frente, perfil e costas)."
+  },
+  {
    "t": "sub",
    "texto": "Origem — A Formação de Consorte"
   },
@@ -39,6 +44,11 @@
   {
    "t": "prose",
    "texto": "Por sete anos, ela aprendeu o que não era permitida de aprender — *sendo ignorada por pessoas que deveriam tê-la vigiado.*"
+  },
+  {
+   "t": "arte",
+   "src": "obras/mar-de-cinzas/scarn.webp",
+   "legenda": "**Comandante Scarn Vael** — o noivo. Arte oficial de personagem (frente, perfil e costas)."
   },
   {
    "t": "callout",

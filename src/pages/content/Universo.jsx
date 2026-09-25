@@ -8,6 +8,8 @@ import './Contos.css'
 import './Universo.css'
 
 const docs = import.meta.glob('../../data/universo/**/*.json', { eager: true, import: 'default' })
+// Artes citadas pelos blocos `{ t: 'arte', src: 'obras/<slug>/<arquivo>' }` (caminho relativo a src/assets).
+const artes = import.meta.glob('../../assets/obras/*/*.{webp,jpg,png}', { eager: true, import: 'default' })
 
 /* ── inline: **negrito** e *itálico* ── */
 function Inline({ children }) {
@@ -59,6 +61,16 @@ function Bloco({ b, t }) {
           </table>
         </div>
       )
+    case 'arte': {
+      const src = artes[`../../assets/${b.src}`]
+      if (!src) return null
+      return (
+        <figure className="u-arte">
+          <img src={src} alt="" loading="lazy" decoding="async" />
+          {b.legenda && <figcaption className="u-arte__legenda"><Inline>{b.legenda}</Inline></figcaption>}
+        </figure>
+      )
+    }
     case 'box':
       return <div className={`u-box u-box--${b.variant || 'default'}`}><Corpo blocos={b.corpo} t={t} /></div>
     case 'card':

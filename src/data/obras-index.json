@@ -162,8 +162,11 @@
       "familia",
       "luta"
     ],
-    "capa": null,
-    "galeria": [],
+    "capa": "capa.webp",
+    "galeria": [
+      "",
+      "cap-01.webp"
+    ],
     "amazon": null,
     "titulo": "Mar de Cinzas",
     "titulo_en": "Sea of Ashes",
