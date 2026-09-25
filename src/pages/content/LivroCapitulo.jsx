@@ -15,6 +15,7 @@ import { notificationManager } from '../../lib/notificationManager'
 import { useTrackedSession } from '../../lib/sessionAnalytics'
 import index from '../../data/livro-index.json'
 import './LivroCapitulo.css'
+import GateLeitura, { cortarTexto } from '../../components/GateLeitura/GateLeitura'
 
 const chapterLoaders = import.meta.glob('../../data/livro/**/*.md', { query: '?raw', import: 'default' })
 
@@ -244,8 +245,9 @@ export default function LivroCapitulo() {
             '--reader-max-width': contentWidth,
           }}
         >
-          <ReactMarkdown components={readerMdComponents}>{md}</ReactMarkdown>
-          <div ref={sentinelRef} className="livro-capitulo__sentinel" />
+          <ReactMarkdown components={readerMdComponents}>{cortarTexto(md, !user)}</ReactMarkdown>
+          {!user && cortarTexto(md, true) !== md && <GateLeitura />}
+          {(user || cortarTexto(md, true) === md) && <div ref={sentinelRef} className="livro-capitulo__sentinel" />}
         </div>
 
         <div className="livro-nav-flutuante">

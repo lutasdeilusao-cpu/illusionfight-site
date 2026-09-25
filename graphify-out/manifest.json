@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1790347929.54693,
-    "ast_hash": "5e4db8d13de3850d1ce7681d98605eff",
+    "mtime": 1790348436.5281196,
+    "ast_hash": "8eb8f9ec170511b637a26da31c83edbd",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2735,8 +2735,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1790347929.54693,
-    "ast_hash": "61cc1e02827fbfd743be22258460a6d8",
+    "mtime": 1790348436.5788188,
+    "ast_hash": "96c1498b1e3bce65df2090049bd719f0",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -5550,8 +5550,8 @@
     "semantic_hash": ""
   },
   "src/lib/webshard/catalogo.js": {
-    "mtime": 1790306420.2763252,
-    "ast_hash": "113714a626c4e2349f8f71b85bd3046c",
+    "mtime": 1790348419.2462146,
+    "ast_hash": "a878ececd6ec7016ed943ecfb8659cc1",
     "semantic_hash": ""
   },
   "src/lib/webshard/progresso.js": {
@@ -5585,13 +5585,13 @@
     "semantic_hash": ""
   },
   "src/pages/content/webshard/components/CapituloLinha.jsx": {
-    "mtime": 1790306420.2763252,
-    "ast_hash": "729085b071e7000331bb21bdb7e8f9d3",
+    "mtime": 1790348419.2472572,
+    "ast_hash": "fffe5aa055b578b6e041438fe9ffac01",
     "semantic_hash": ""
   },
   "src/pages/content/webshard/components/ContinuarLendo.jsx": {
-    "mtime": 1790291940.105146,
-    "ast_hash": "4025a60f6cf81c91b8ff9f166ef41c34",
+    "mtime": 1790348419.2482626,
+    "ast_hash": "b96625cd47140057bd98c3aa9957e650",
     "semantic_hash": ""
   },
   "src/pages/content/webshard/components/LeitorBarra.jsx": {
@@ -5600,8 +5600,8 @@
     "semantic_hash": ""
   },
   "src/pages/content/webshard/components/LeitorFim.jsx": {
-    "mtime": 1790306420.2949805,
-    "ast_hash": "46085910b74fe2552f94329afd656253",
+    "mtime": 1790348419.2482626,
+    "ast_hash": "a5d3161a0dc76384426287d1a578dc74",
     "semantic_hash": ""
   },
   "src/pages/content/webshard/components/LeitorPaginas.jsx": {
@@ -5672,6 +5672,21 @@
   "public/og-image-webshard.jpg": {
     "mtime": 1790307116.287366,
     "ast_hash": "8eb2dc14f9240eff6bbfe929cf131c19",
+    "semantic_hash": ""
+  },
+  "src/assets/webshard/cap-lutas-de-ilusao-01-en.webp": {
+    "mtime": 1790348399.1741066,
+    "ast_hash": "1f56eddaa00784aa3fe76c2738ae3586",
+    "semantic_hash": ""
+  },
+  "src/assets/webshard/cap-lutas-de-ilusao-01-es.webp": {
+    "mtime": 1790348399.2423172,
+    "ast_hash": "88d84e0dc07860e98939d60ea468575b",
+    "semantic_hash": ""
+  },
+  "src/assets/webshard/cap-lutas-de-ilusao-01-pt.webp": {
+    "mtime": 1790348399.103398,
+    "ast_hash": "084bd2811bd8c9464a06245210db7cd7",
     "semantic_hash": ""
   }
 }

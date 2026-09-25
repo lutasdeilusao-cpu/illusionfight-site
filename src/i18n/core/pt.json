@@ -128,6 +128,13 @@
     "message": "🔧 Estamos em beta! Lançamento oficial em {{date}}.",
     "cta": "Reportar bug"
   },
+  "gate_leitura": {
+    "eyebrow": "IF // CONTA GRÁTIS",
+    "titulo": "O final é só pra quem tem conta.",
+    "texto": "Você já leu quase tudo. Cria tua conta grátis em segundos e lê até o fim, sem pagar nada.",
+    "criar": "Criar conta grátis",
+    "entrar": "Já tenho conta"
+  },
   "trial": {
     "message": "Conteúdo exclusivo em acesso livre por tempo limitado — aproveite."
   },
@@ -1132,9 +1139,9 @@
       "criar_conta": "Conta grátis"
     },
     "beta": {
-      "selo": "Liberado pela Beta até {data}",
-      "faltam": "faltam {n} dias",
-      "ultimo_dia": "último dia!",
+      "selo": "Aproveite antes do bloqueio: livre até {data}",
+      "faltam": "bloqueia em {n} dias",
+      "ultimo_dia": "último dia livre!",
       "oficial": "Lançamento oficial"
     }
   },
@@ -1233,7 +1240,7 @@
     "slide3": {
       "tag": "9 Jogos",
       "titulo": "O universo expandido do LDI está aqui.",
-      "subtitulo": "Nove jogos prontos pra sua degustação. E logo, muito mais. Bota a ficha e dá o play.",
+      "subtitulo": "Nove jogos prontos pra sua degustação. E logo, muito mais. Escolhe um e dá o play.",
       "cta1": "Ver jogos"
     },
     "slide4": {

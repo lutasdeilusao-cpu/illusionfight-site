@@ -1,7 +1,7 @@
 # Graph Report - SiteLDI  (2026-09-25)
 
 ## Corpus Check
-- 975 files · ~1,574,834 words
+- 975 files · ~1,578,528 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `2b0b33e1`
+- Built from commit: `b0eeea23`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -1473,7 +1473,7 @@ _Questions this graph is uniquely positioned to answer:_
 - **Why does `useReader()` connect `useJackStore.js` to `Community 0`, `Community 1`, `DixContext.jsx`, `Brincadeira.jsx`, `ArenaTaticsRoute.jsx`, `useFichaGate.js`, `Community 3`, `PuzzleForça.jsx`, `useTamagoshiStore.js`, `RestaurarSaude.jsx`, `Community 20`, `AuthContext.jsx`?**
   _High betweenness centrality (0.027) - this node is a cross-community bridge._
 - **Why does `useAuth()` connect `Brincadeira.jsx` to `Community 33`, `Navbar.jsx`, `useFichaGate.js`, `ArenaTaticsRoute.jsx`, `Community 1`, `useJackStore.js`, `Community 9`, `PuzzleForça.jsx`, `Community 12`, `combat.js`, `Brincadeira.jsx`, `useTamagoshiStore.js`, `TopTrumpsSP.jsx`, `runtimePlatform.js`, `Community 20`, `RestaurarSaude.jsx`?**
-  _High betweenness centrality (0.011) - this node is a cross-community bridge._
+  _High betweenness centrality (0.012) - this node is a cross-community bridge._
 - **What connects `1. Visão geral`, `2.1 Abertura (vinheta de carregamento)`, `3.1 Site e conteúdo` to the rest of the system?**
   _1905 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**

@@ -128,6 +128,13 @@
     "message": "🔧 We're in beta! Official launch on {{date}}.",
     "cta": "Report bug"
   },
+  "gate_leitura": {
+    "eyebrow": "IF // FREE ACCOUNT",
+    "titulo": "The ending is for account holders only.",
+    "texto": "You've read almost everything. Create your free account in seconds and read to the end, no payment needed.",
+    "criar": "Create free account",
+    "entrar": "I already have an account"
+  },
   "trial": {
     "message": "Exclusive content in free access for a limited time — enjoy it!"
   },
@@ -1132,9 +1139,9 @@
       "criar_conta": "Free account"
     },
     "beta": {
-      "selo": "Unlocked by the Beta until {data}",
-      "faltam": "{n} days left",
-      "ultimo_dia": "last day!",
+      "selo": "Read it before the lock: free until {data}",
+      "faltam": "locks in {n} days",
+      "ultimo_dia": "last free day!",
       "oficial": "Official release"
     }
   },
@@ -1233,7 +1240,7 @@
     "slide3": {
       "tag": "9 Games",
       "titulo": "The expanded LDI universe is here.",
-      "subtitulo": "Nine games ready for your enjoyment. And soon, much more. Put your token in and play.",
+      "subtitulo": "Nine games ready for your enjoyment. And soon, much more. Pick one and hit play.",
       "cta1": "See games"
     },
     "slide4": {

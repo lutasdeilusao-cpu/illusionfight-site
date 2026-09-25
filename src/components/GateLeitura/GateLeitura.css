@@ -1,0 +1,54 @@
+/* Gate de leitura — os 15% finais pedem conta grátis. */
+.gate-leitura {
+  position: relative;
+  padding: 0 16px 32px;
+}
+
+/* Some o fim do conteúdo cortado, dando a sensação de "continua…". */
+.gate-leitura__fade {
+  height: 120px;
+  margin-top: -120px;
+  background: linear-gradient(to bottom, transparent, var(--bg-primary));
+  pointer-events: none;
+  position: relative;
+}
+
+.gate-leitura__card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px 18px;
+  border: 1px solid var(--if-amber);
+  background: var(--bg-elevated);
+  clip-path: polygon(0 0, calc(100% - var(--if-cut)) 0, 100% var(--if-cut), 100% 100%, 0 100%);
+}
+
+.gate-leitura__eyebrow {
+  color: var(--if-amber);
+  font: 700 0.66rem var(--font-mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.gate-leitura__titulo {
+  margin: 0;
+  color: var(--if-ink);
+  font: 700 1.15rem var(--font-display, inherit);
+  line-height: 1.25;
+}
+
+.gate-leitura__texto {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.gate-leitura__acoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.gate-leitura__acoes .if-btn { flex: 1 1 140px; justify-content: center; }

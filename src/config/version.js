@@ -8,7 +8,7 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.287.2' // fix(webshard): miniatura do capítulo em retrato (proporção da capa) + capa por idioma (pt/en/es, página 1 de cada idioma) no card, continuar lendo e fim do leitor
+export const SITE_VERSION = '10.288.0' // feat(leitura): gate de 85% em todo leitor (WEB SHARD, livro, contos, obras) pede conta grátis pro final; Beta do Cap. 01 vira "aproveite antes do bloqueio" até 09/11 (bloqueio público em 10/11); games sem nenhuma menção a ficha (CTA JOGAR, slide da Home)
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.2' // fix: aba "stories" do rodape mostrava a chave crua pp.menu.pistas_label (nao existia) -> aponta pra pp.dossier.pistas_label; PuzzleWrapper mostrava pp.puzzle.nenhum/instrucao (nao existiam) -> pp.local.puzzle_nenhum/instrucao; confirm() de deletar save mostrava pp.menu.deletar_slot cru -> chave criada nos 3 idiomas.

@@ -12,6 +12,7 @@ import { readerMdComponents } from '../../lib/mdComponents'
 import { useTrackedSession } from '../../lib/sessionAnalytics'
 import './LivroCapitulo.css'
 import './Contos.css'
+import GateLeitura, { cortarTexto } from '../../components/GateLeitura/GateLeitura'
 
 const obraLoaders = import.meta.glob('../../data/livro/obras/**/*.md', { query: '?raw', import: 'default' })
 
@@ -174,7 +175,8 @@ export default function ObraCapitulo() {
             '--reader-max-width': contentWidth,
           }}
         >
-          <ReactMarkdown components={readerMdComponents}>{md}</ReactMarkdown>
+          <ReactMarkdown components={readerMdComponents}>{cortarTexto(md, !user)}</ReactMarkdown>
+          {!user && cortarTexto(md, true) !== md && <GateLeitura />}
         </div>
 
         <div className="livro-capitulo__nav">
