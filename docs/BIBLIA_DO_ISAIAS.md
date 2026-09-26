@@ -62,7 +62,7 @@ Não substitui grep/prova de leitura em tasks de bug — a regra de colar output
 
 **Cada pixel é intencional.** Nada de padding/margem/gap arbitrário — ver tabela exata em §4. Se não tiver certeza do resultado visual, ler o CSS existente e entender o fluxo antes de editar. "Fazer por fazer" não é aceito; correção esperada já na primeira tentativa, mas refazer 2-3x até acertar é normal.
 
-**Sem frescura.** Zero CSS-in-JS para estático. Zero libs novas sem ganho visual comprovado (lição Pixi.js — não repetir). Mais de 2 arquivos novos ou arquivo passando de 300 linhas → propor extração/arquitetura e aguardar aprovação antes de executar. Nunca sobrescrever array inteiro (adicionar itens). Nunca remover `console.log` de diagnóstico sem permissão.
+**Sem frescura.** Zero CSS-in-JS para estático. Zero libs novas sem ganho visual comprovado (lição Pixi.js — não repetir). Mais de 2 arquivos novos ou arquivo passando de 500 linhas (era 300 até 26/09/2026) → propor extração/arquitetura e aguardar aprovação antes de executar. Nunca sobrescrever array inteiro (adicionar itens). Nunca remover `console.log` de diagnóstico sem permissão.
 
 ---
 

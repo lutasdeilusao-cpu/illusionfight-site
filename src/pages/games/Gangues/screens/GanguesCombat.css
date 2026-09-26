@@ -19,7 +19,7 @@
    recrutamento (fundo marrom-tijolo, borda âmbar) no lugar do cyan/teal
    técnico antigo (pedido do Isaias, 15/09/2026: "fichas... no game
    também tem que ser feito pro estilo visual novo"). */
-.gang-combat .gang-ficha-modal-card { position:relative; width:100%; max-width:none; padding:18px 16px 16px; align-items:flex-start; gap:7px; border:1px solid color-mix(in srgb,var(--if-amber) 30%,transparent); border-left:4px solid var(--if-amber); border-radius:0; background:linear-gradient(155deg,#241108,#150a05 55%,#0c0603); box-shadow:0 -18px 52px rgba(0,0,0,.5); clip-path:polygon(0 0,calc(100% - 15px) 0,100% 15px,100% 100%,0 100%); }
+.gang-combat .gang-ficha-modal-card { position:relative; width:100%; max-width:none; padding:18px 16px 16px; align-items:flex-start; gap:7px; border:1px solid color-mix(in srgb,var(--if-amber) 30%,transparent); border-left:4px solid var(--if-amber); border-radius:0; background:linear-gradient(155deg,var(--gang-madeira-800),var(--gang-madeira-925) 55%,var(--gang-madeira-950)); box-shadow:0 -18px 52px rgba(0,0,0,.5); clip-path:polygon(0 0,calc(100% - 15px) 0,100% 15px,100% 100%,0 100%); }
 .gang-combat .gang-ficha-modal-kicker { color:var(--if-amber); font:800 .55rem var(--font-mono); letter-spacing:.18em; text-transform:uppercase; }
 /* Ficha unificada (GanguesFichaCard, mesma linguagem visual do recrutamento)
    dentro do card cheio de largura do modal de combate — só ajusta o hero
@@ -49,12 +49,12 @@
 .gang-combat .gang-hpbar { position:relative; width:100%; height:4px; background:var(--if-glass); overflow:hidden; }
 .gang-combat .gang-hpbar-ghost,
 .gang-combat .gang-hpbar-fill { position:absolute; left:0; top:0; height:100%; }
-.gang-combat .gang-hpbar-ghost { background:#ff4d4d; transition:width .8s cubic-bezier(.2,.7,.25,1) .12s; }
+.gang-combat .gang-hpbar-ghost { background:var(--gang-vermelho-475); transition:width .8s cubic-bezier(.2,.7,.25,1) .12s; }
 .gang-combat .gang-hpbar-fill { background:var(--if-teal); transition:width .22s ease-out; }
 .gang-combat .gang-roster--enemy .gang-hpbar-fill { background:var(--if-danger); }
 .gang-combat .gang-roster--enemy .gang-hpbar-ghost { background:#ffd24a; }
 .gang-combat .gang-mini-wrap--baixo .gang-hpbar-fill { background:var(--if-amber); }
-.gang-combat .gang-mini-wrap--critico .gang-hpbar-fill { background:#ff3b3b; }
+.gang-combat .gang-mini-wrap--critico .gang-hpbar-fill { background:var(--gang-vermelho-500); }
 
 /* aviso de vida baixa — o lado do JOGADOR pisca forte (era o que passava batido) */
 .gang-combat .gang-roster--player .gang-mini-wrap--baixo { animation:gang-lowhp 1.1s ease-in-out infinite; }
@@ -64,7 +64,7 @@
 .gang-combat .gang-roster--enemy .gang-mini-wrap--critico { animation:gang-lowhp-soft 0.9s ease-in-out infinite; }
 @keyframes gang-lowhp {
   0%,100% { box-shadow:0 0 0 1px transparent; }
-  50% { box-shadow:0 0 0 1px #ff3b3b, 0 0 13px rgba(255,59,59,.65); }
+  50% { box-shadow:0 0 0 1px var(--gang-vermelho-500), 0 0 13px rgba(255,59,59,.65); }
 }
 @keyframes gang-lowhp-soft {
   0%,100% { box-shadow:0 0 0 1px transparent; }
@@ -84,9 +84,10 @@
    todo fixed do jogo, nunca a janela crua. Liga/desliga sozinha a cada
    render (React refaz o cálculo em tempo real conforme o PV muda). ══ */
 .gang-critico-vinheta {
-  position: fixed; inset: 0; left: var(--app-gutter); right: var(--app-gutter);
+  position: fixed; inset: 0 var(--app-gutter); left: var(--app-gutter); right: var(--app-gutter);
   z-index: 10050; pointer-events: none;
   animation: gang-critico-vinheta-pulso 0.9s ease-in-out infinite;
+  overscroll-behavior:none;
 }
 .gang-critico-vinheta--aviso {
   animation: gang-aviso-vinheta-pulso 1.6s ease-in-out infinite;
@@ -122,17 +123,17 @@
 }
 .gang-combat .gang-dmg-pop b {
   font:900 1.4rem var(--font-display); line-height:1;
-  text-shadow:0 2px 5px #000, 0 0 12px currentColor;
+  text-shadow:0 2px 5px var(--gang-preto), 0 0 12px currentColor;
 }
 .gang-combat .gang-dmg-pop small {
   font:700 .48rem var(--font-mono); letter-spacing:.03em; color:var(--text-secondary);
-  text-shadow:0 1px 3px #000; max-width:70px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+  text-shadow:0 1px 3px var(--gang-preto); max-width:70px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
 }
 .gang-combat .gang-roster--enemy .gang-dmg-pop b { color:#ffd24a; }
 .gang-combat .gang-roster--player .gang-dmg-pop b { color:#ff5050; }
 .gang-combat .gang-dmg-pop--zero b { color:#9aa6ad; font-size:1rem; }
 .gang-combat .gang-dmg-pop--heal b { color:#4be08a; }
-.gang-combat .gang-dmg-pop--crit b { font-size:1.95rem; color:#fff; -webkit-text-stroke:1px #ff3b3b; }
+.gang-combat .gang-dmg-pop--crit b { font-size:1.95rem; color:var(--gang-branco); -webkit-text-stroke:1px var(--gang-vermelho-500); }
 .gang-combat .gang-dmg-pop--fatal b { color:#ff2d2d; }
 @keyframes gang-dmg-pop {
   0% { opacity:0; transform:translate(-50%,8px) scale(.4); }

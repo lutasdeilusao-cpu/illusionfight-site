@@ -30,7 +30,7 @@
 .gang-lobby-section-label--row { display: flex; justify-content: space-between; align-items: center; }
 
 .gang-lobby-section-label {
-  font-size: 10px; letter-spacing: 4px; color: #8b93a0; text-transform: uppercase;
+  font-size: 10px; letter-spacing: 4px; color: var(--gang-cinza-400); text-transform: uppercase;
   font-family: 'Courier New', monospace; margin-bottom: 16px; width: 100%; max-width: 560px;
 }
 
@@ -64,7 +64,7 @@
   to   { opacity: 1;   text-shadow: 0 0 12px rgba(245,166,35,0.5); }
 }
 
-.gang-lobby-empty { text-align: center; color: #8b93a0; font-size: 13px; font-family: 'Courier New', monospace; padding: 40px 0; letter-spacing: 2px; }
+.gang-lobby-empty { text-align: center; color: var(--gang-cinza-400); font-size: 13px; font-family: 'Courier New', monospace; padding: 40px 0; letter-spacing: 2px; }
 
 /* ===== LOBBY INTRO (NeoGuide) ===== */
 
@@ -75,7 +75,7 @@
 /* ── Exit Button (combat) ── */
 .gang-exit-btn {
   display: flex; align-items: center; gap: 6px;
-  background: rgba(139,0,0,0.1); border: 1px solid rgba(139,0,0,0.3); color: #cc4444;
+  background: rgba(139,0,0,0.1); border: 1px solid rgba(139,0,0,0.3); color: var(--gang-vermelho-600);
   padding: 6px 14px; cursor: pointer; font-family: 'Courier New', monospace;
   font-size: 11px; letter-spacing: 2px; transition: all 0.2s; border-radius: 2px;
   text-transform: uppercase;

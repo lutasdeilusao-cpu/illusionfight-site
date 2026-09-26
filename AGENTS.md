@@ -216,7 +216,9 @@ Antes de criar **mais de 2 arquivos novos** para resolver qualquer problema, o a
 
 ## Regra de Tamanho de Arquivo
 
-Todo arquivo tocado com **mais de 300 linhas** deve ser avaliado para extração antes de adicionar mais código. Propor a extração, não executar sem aprovação.
+Todo arquivo tocado com **mais de 500 linhas** deve ser avaliado para extração antes de adicionar mais código. Propor a extração, não executar sem aprovação.
+
+> Limite subiu de 300 para **500 linhas** (Isaias, 26/09/2026): "300 linhas vai que nem água em CSS". Vale para JS, JSX e CSS.
 
 **Exceção documentada:** `src/pages/games/Gangues/data/ganguesEncontros.js` (356 linhas, avaliado em set/2026 no `PLANO_REFATORACAO_ARQUIVOS_GRANDES_GANGUES_2026-09-11.md` §1). Não divide: é um módulo único e coeso (geração de bando inimigo), não uma mistura de concerns — o tamanho vem de tabelas de configuração fortemente comentadas (histórico de calibração, resultado de simulação), não de responsabilidades empilhadas. Dividir config de lógica ali seria corte artificial sem ganho de legibilidade.
 

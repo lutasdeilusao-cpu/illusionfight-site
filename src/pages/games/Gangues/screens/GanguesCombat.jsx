@@ -393,7 +393,7 @@ export default function GanguesCombat({ onNavigate, onSairConfirmado }) {
           onToggleAuto={modoAuto.toggleModoAuto}
         />
       )}
-      {!modoMultidaoAtivo && machine.phase === 'enemy' && !machine.pending && <div className="gang2-enemy-thinking"><span className="gang-thinking-pulse" /><strong>{t('games.gangues.report.enemy_thinking')}</strong><small>{t('games.gangues.report.enemy_strategy')}</small></div>}
+      {!modoMultidaoAtivo && machine.phase === 'enemy' && !machine.pending && <div className="gang-enemy-thinking"><span className="gang-thinking-pulse" /><strong>{t('games.gangues.report.enemy_thinking')}</strong><small>{t('games.gangues.report.enemy_strategy')}</small></div>}
       </div>
       {pedindoSair && (
         <GanguesCombatSairConfirm

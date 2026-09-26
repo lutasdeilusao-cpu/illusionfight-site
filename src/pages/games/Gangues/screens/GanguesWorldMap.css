@@ -13,7 +13,7 @@
 .gang-world__top { display:flex; align-items:center; justify-content:space-between; padding:0 14px 12px; }
 .gang-world__top>button {
   min-height:34px; padding:0 11px; border:1px solid color-mix(in srgb, var(--if-amber) 40%, transparent);
-  background:#1a0f08; color:#ffd9a0; font:800 .6rem var(--font-mono); letter-spacing:.08em; text-transform:uppercase;
+  background:var(--gang-madeira-900); color:var(--gang-creme); font:800 .6rem var(--font-mono); letter-spacing:.08em; text-transform:uppercase;
 }
 .gang-world__top>span { display:grid; text-align:right; color:var(--text-secondary); font:700 .5rem var(--font-mono); letter-spacing:.08em; text-transform:uppercase; text-shadow:0 1px 3px rgba(0,0,0,.9); }
 .gang-world__top b { color:var(--if-amber); font:900 1.1rem var(--font-display); text-shadow:0 1px 3px rgba(0,0,0,.9); }
@@ -27,7 +27,7 @@
   background:
     linear-gradient(180deg, rgba(10,5,2,.7), transparent 34%),
     radial-gradient(circle at 50% 42%, color-mix(in srgb, var(--if-amber) 12%, transparent), transparent 55%),
-    #150a05;
+    var(--gang-madeira-925);
 }
 .gang-world__city::after { content:''; position:absolute; inset:0; pointer-events:none; background:repeating-linear-gradient(0deg,transparent 0 3px,rgba(255,255,255,.04) 4px); opacity:.3; }
 .gang-world__sky { position:absolute; inset:20px 0 auto; height:120px; display:flex; align-items:flex-end; gap:4px; opacity:.28; }
@@ -37,8 +37,8 @@
    scroll, num celular comum — antes eram 3 blocos generosos que só cabiam
    com rolagem. */
 .gang-world__title { position:relative; z-index:2; padding:6px 18px 4px; text-align:center; }
-.gang-world__title h1 { margin:0 0 2px; color:#ffd9a0; font:400 clamp(1.8rem, calc(11 * var(--app-vw) / 100), 2.6rem)/1 'Permanent Marker', cursive; text-shadow:0 3px 0 rgba(0,0,0,.6), 0 0 30px color-mix(in srgb, var(--if-amber) 40%, transparent); }
-.gang-world__title p { margin:0; color:#e7ded0; font:600 .6rem var(--font-mono); text-shadow:0 1px 3px rgba(0,0,0,.9); }
+.gang-world__title h1 { margin:0 0 2px; color:var(--gang-creme); font:400 clamp(1.8rem, calc(11 * var(--app-vw) / 100), 2.6rem)/1 'Permanent Marker', cursive; text-shadow:0 3px 0 rgba(0,0,0,.6), 0 0 30px color-mix(in srgb, var(--if-amber) 40%, transparent); }
+.gang-world__title p { margin:0; color:var(--gang-papel-200); font:600 .6rem var(--font-mono); text-shadow:0 1px 3px rgba(0,0,0,.9); }
 /* Mapa político — regiões desenhadas no SVG (poly/cor de cada território),
    rótulos numerados sobrepostos via posição percentual (pos.top/left). Cada
    território é um bairro de Marelia, tipo zona de uma cidade de verdade. */
@@ -63,16 +63,16 @@
   position:absolute; transform:translate(-50%,-50%); display:flex; flex-direction:column; align-items:center;
   gap:2px; padding:6px 8px; min-width:64px;
   border:1px solid color-mix(in srgb, var(--regiao-cor) 55%, var(--if-amber) 15%);
-  background:linear-gradient(155deg, color-mix(in srgb, var(--regiao-cor) 22%, #1a0f08), #0c0603);
+  background:linear-gradient(155deg, color-mix(in srgb, var(--regiao-cor) 22%, var(--gang-madeira-900)), var(--gang-madeira-950));
   color:var(--text-primary);
   clip-path:var(--corte); pointer-events:auto;
 }
-.gang-world__region-label b { font:900 .68rem var(--font-mono); color:color-mix(in srgb, var(--regiao-cor) 85%, #fff); letter-spacing:.08em; }
+.gang-world__region-label b { font:900 .68rem var(--font-mono); color:color-mix(in srgb, var(--regiao-cor) 85%, var(--gang-branco)); letter-spacing:.08em; }
 .gang-world__region-label span { font:700 .6rem var(--font-display); letter-spacing:.02em; text-transform:uppercase; text-align:center; line-height:1.2; text-shadow:0 1px 2px rgba(0,0,0,.7); }
 .gang-world__region-label--trancado { opacity:.55; }
-.gang-world__region-label--dominado { border-color:color-mix(in srgb, var(--regiao-cor) 80%, #fff); }
-.gang-world__region-label.is-selected { box-shadow:0 0 0 1px color-mix(in srgb, var(--regiao-cor) 70%, #fff), 0 6px 18px -8px var(--regiao-cor); }
-.gang-world__region-label-flag { color:color-mix(in srgb, var(--regiao-cor) 85%, #fff); font-size:.62rem; }
+.gang-world__region-label--dominado { border-color:color-mix(in srgb, var(--regiao-cor) 80%, var(--gang-branco)); }
+.gang-world__region-label.is-selected { box-shadow:0 0 0 1px color-mix(in srgb, var(--regiao-cor) 70%, var(--gang-branco)), 0 6px 18px -8px var(--regiao-cor); }
+.gang-world__region-label-flag { color:color-mix(in srgb, var(--regiao-cor) 85%, var(--gang-branco)); font-size:.62rem; }
 .gang-world__region-label-lock { font-size:.6rem; }
 .gang-world__intel-progress { display:flex; align-items:center; gap:8px; margin-bottom:10px; color:var(--text-secondary); font:700 .52rem var(--font-mono); }
 .gang-world__intel-progress progress { flex:1; height:3px; appearance:none; border:0; background:rgba(0,0,0,.4); }
@@ -82,24 +82,24 @@
   --corte: polygon(0 3%, 6% 0, 94% 1%, 100% 5%, 99% 90%, 95% 100%, 5% 99%, 0 93%);
   margin:4px 14px 0; padding:10px 12px;
   border:1px solid color-mix(in srgb, var(--if-amber) 25%, transparent); border-left:4px solid var(--if-amber);
-  background:linear-gradient(155deg, #241108, #150a05 55%, #0c0603);
+  background:linear-gradient(155deg, var(--gang-madeira-800), var(--gang-madeira-925) 55%, var(--gang-madeira-950));
   clip-path:var(--corte);
 }
 .gang-world__intel>span { color:var(--if-amber); font:800 .5rem var(--font-mono); letter-spacing:.12em; text-transform:uppercase; }
-.gang-world__intel h2 { margin:4px 0; color:#fff8ec; font:400 1.5rem/1 'Permanent Marker', cursive; text-shadow:0 2px 0 rgba(0,0,0,.6); }
+.gang-world__intel h2 { margin:4px 0; color:var(--gang-papel); font:400 1.5rem/1 'Permanent Marker', cursive; text-shadow:0 2px 0 rgba(0,0,0,.6); }
 .gang-world__intel p { margin:0 0 8px; color:var(--text-secondary); font-size:.68rem; line-height:1.35; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
-.gang-world__intel button { width:100%; min-height:38px; border:1px solid var(--if-amber); background:var(--if-amber); color:#1a0f08; font:400 .95rem/1 'Permanent Marker', cursive; }
+.gang-world__intel button { width:100%; min-height:38px; border:1px solid var(--if-amber); background:var(--if-amber); color:var(--gang-madeira-900); font:400 .95rem/1 'Permanent Marker', cursive; }
 .gang-world__intel button:disabled { border-color:color-mix(in srgb, var(--if-amber) 25%, transparent); background:transparent; color:var(--text-secondary); }
 .gang-world__intel button b { margin-left:8px; }
 /* zuera do modo fácil no último bairro — texto inteiro, vermelho */
-.gang-world__intel--facil { border-left-color:#ff5a5a; }
-.gang-world__intel--facil>span { color:#ff8a8a; }
+.gang-world__intel--facil { border-left-color:var(--gang-vermelho-450); }
+.gang-world__intel--facil>span { color:var(--gang-vermelho-300); }
 .gang-world__intel--facil p { -webkit-line-clamp:unset; display:block; color:#e7cfcf; font-size:.72rem; line-height:1.5; }
-.gang-world__intel--facil button { border-color:#ff5a5a; background:#ff5a5a; color:#1a0f08; }
+.gang-world__intel--facil button { border-color:var(--gang-vermelho-450); background:var(--gang-vermelho-450); color:var(--gang-madeira-900); }
 
 /* botão "Gangue" no topo do mapa — leva ao lobby (elenco + time de batalha) */
 .gang-world__top > button.gang-world__top-gang {
   min-height: 30px; padding: 0 10px; border: 1px solid color-mix(in srgb, var(--if-amber) 45%, transparent);
-  background: #1a0f08; color: var(--if-amber);
+  background: var(--gang-madeira-900); color: var(--if-amber);
   font: 800 .55rem var(--font-mono); letter-spacing: .06em; text-transform: uppercase;
 }

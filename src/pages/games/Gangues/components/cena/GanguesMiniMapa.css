@@ -21,10 +21,10 @@
   height: 44px;
   display: grid;
   place-items: center;
-  border: 1px solid var(--terr-cor, #3ddc97);
+  border: 1px solid var(--terr-cor, var(--gang-pista));
   border-radius: 50%;
   background: rgba(4, 10, 13, 0.92);
-  color: #fff;
+  color: var(--gang-branco);
   font-size: 1.15rem;
   cursor: pointer;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
@@ -40,7 +40,7 @@
   display: grid;
   place-items: center;
   border-radius: 8px;
-  background: var(--terr-cor, #3ddc97);
+  background: var(--terr-cor, var(--gang-pista));
   color: #041014;
   font: 800 0.6rem var(--font-mono, monospace);
   font-style: normal;
@@ -50,7 +50,7 @@
 .gang-minimapa {
   width: 148px;
   padding: 10px 10px 8px;
-  border: 1px solid var(--terr-cor, #3ddc97);
+  border: 1px solid var(--terr-cor, var(--gang-pista));
   background: rgba(4, 10, 13, 0.94);
   backdrop-filter: blur(10px);
   clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
@@ -65,7 +65,7 @@
   height: 20px;
   border: 0;
   background: none;
-  color: var(--text-secondary, #8b8f96);
+  color: var(--text-secondary, var(--text-secondary));
   font-size: 1.1rem;
   line-height: 1;
   cursor: pointer;
@@ -76,7 +76,7 @@
   font: 700 0.52rem var(--font-mono, monospace);
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--terr-cor, #3ddc97);
+  color: var(--terr-cor, var(--gang-pista));
   margin-bottom: 6px;
 }
 
@@ -85,10 +85,10 @@
   width: 108px;
   height: 108px;
   margin: 0 auto;
-  border: 1px solid color-mix(in srgb, var(--terr-cor, #3ddc97) 40%, transparent);
+  border: 1px solid color-mix(in srgb, var(--terr-cor, var(--gang-pista)) 40%, transparent);
   border-radius: 50%;
   background:
-    radial-gradient(circle, color-mix(in srgb, var(--terr-cor, #3ddc97) 12%, transparent) 0%, transparent 62%);
+    radial-gradient(circle, color-mix(in srgb, var(--terr-cor, var(--gang-pista)) 12%, transparent) 0%, transparent 62%);
 }
 
 /* linhas de mira do radar */
@@ -96,7 +96,7 @@
 .gang-minimapa-radar::after {
   content: '';
   position: absolute;
-  background: color-mix(in srgb, var(--terr-cor, #3ddc97) 22%, transparent);
+  background: color-mix(in srgb, var(--terr-cor, var(--gang-pista)) 22%, transparent);
 }
 .gang-minimapa-radar::before { left: 50%; top: 8px; bottom: 8px; width: 1px; }
 .gang-minimapa-radar::after { top: 50%; left: 8px; right: 8px; height: 1px; }
@@ -109,7 +109,7 @@
   height: 8px;
   transform: translate(-50%, -50%);
   border-radius: 50%;
-  background: #fff;
+  background: var(--gang-branco);
   box-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
 }
 
@@ -120,7 +120,7 @@
   width: 10px;
   height: 10px;
   transform: translate(-50%, -50%) translate(var(--mx), var(--my)) rotate(var(--ang));
-  background: color-mix(in srgb, var(--terr-cor, #3ddc97) 55%, transparent);
+  background: color-mix(in srgb, var(--terr-cor, var(--gang-pista)) 55%, transparent);
   /* triângulo apontando pra DIREITA — o rotate(--ang) gira pro alvo real */
   clip-path: polygon(0 0, 100% 50%, 0 100%);
 }
@@ -128,8 +128,8 @@
 .gang-minimapa-seta.is-proximo {
   width: 13px;
   height: 13px;
-  background: var(--terr-cor, #3ddc97);
-  filter: drop-shadow(0 0 5px var(--terr-cor, #3ddc97));
+  background: var(--terr-cor, var(--gang-pista));
+  filter: drop-shadow(0 0 5px var(--terr-cor, var(--gang-pista)));
 }
 
 .gang-minimapa-legenda {

@@ -1,15 +1,16 @@
 /* CLUBE DA LUTA — saguão de espera do Nato. Reaproveita .gang-world-* de
    GanguesCena.css (jogador, controles, stick). Aqui só o que é do clube. */
 .gang-clube {
-  --terr-cor: #ff5a5a;
+  --terr-cor: var(--gang-vermelho-450);
   position: fixed;
-  inset: 0;
+  inset: 0 var(--app-gutter);
   padding-bottom: var(--radio-nina-h, 0px);
   display: flex;
   flex-direction: column;
   background: #05060a;
   color: #e7e7ea;
   overflow: hidden;
+  overscroll-behavior: none;
 }
 
 .gang-clube-hud {
@@ -17,7 +18,7 @@
   padding: max(10px, calc(env(safe-area-inset-top, 0px) + 8px)) 14px 8px;
   border-bottom: 1px solid #2a1414;
 }
-.gang-clube-hud strong { font: 800 0.9rem var(--font-display); letter-spacing: 0.08em; color: #ff8a8a; text-transform: uppercase; }
+.gang-clube-hud strong { font: 800 0.9rem var(--font-display); letter-spacing: 0.08em; color: var(--gang-vermelho-300); text-transform: uppercase; }
 .gang-clube-hud span { font: 700 0.6rem var(--font-mono); letter-spacing: 0.1em; color: #7a6060; text-transform: uppercase; }
 
 .gang-clube-viewport {
@@ -34,7 +35,7 @@
   background:
     repeating-linear-gradient(0deg, #0c0d12, #0c0d12 22px, #0a0b10 22px, #0a0b10 44px),
     #0b0c11;
-  box-shadow: inset 0 0 60px #000;
+  box-shadow: inset 0 0 60px var(--gang-preto);
 }
 .gang-clube-luz {
   position: absolute; left: 50%; top: 0; width: 55%; height: 100%;
@@ -44,13 +45,13 @@
 }
 .gang-clube-porta {
   position: absolute;
-  border: 2px solid #ff5a5a;
+  border: 2px solid var(--gang-vermelho-450);
   background: linear-gradient(180deg, #2a0d0d, #140606);
   box-shadow: 0 0 24px -4px rgba(255, 90, 90, 0.6);
   display: grid; place-content: center;
   clip-path: polygon(0 0, 100% 0, 100% 78%, 50% 100%, 0 78%);
 }
-.gang-clube-porta span { font: 900 0.6rem var(--font-mono); letter-spacing: 0.12em; color: #ffb3b3; text-transform: uppercase; }
+.gang-clube-porta span { font: 900 0.6rem var(--font-mono); letter-spacing: 0.12em; color: var(--gang-vermelho-200); text-transform: uppercase; }
 
 .gang-clube-dica {
   margin: 0; padding: 8px 14px; text-align: center;
@@ -62,7 +63,7 @@
   position: absolute; inset: 0; z-index: 40;
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   gap: 14px; padding: 32px;
-  background: #000;
+  background: var(--gang-preto);
   text-align: center;
 }
 @keyframes gang-clube-fadein { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
@@ -84,10 +85,10 @@
 .gang-clube-venda-bloco {
   margin: 0;
   font: 500 0.96rem var(--font-body); line-height: 1.55; color: #cbcbd1;
-  text-shadow: 0 2px 8px #000;
+  text-shadow: 0 2px 8px var(--gang-preto);
 }
 .gang-clube-venda-bloco.is-fecho {
-  font-size: 1.1rem; font-weight: 700; color: #fff;
+  font-size: 1.1rem; font-weight: 700; color: var(--gang-branco);
   letter-spacing: 0.005em;
 }
 .gang-clube-venda-skip {
@@ -99,13 +100,13 @@
 .gang-clube-saco {
   position: absolute; inset: -10%; z-index: 2; pointer-events: none;
   background:
-    radial-gradient(60% 45% at 50% 48%, rgba(30, 24, 22, 0.35), #000 78%),
+    radial-gradient(60% 45% at 50% 48%, rgba(30, 24, 22, 0.35), var(--gang-preto) 78%),
     repeating-linear-gradient(18deg, rgba(255,255,255,0.02) 0 2px, transparent 2px 5px);
   animation: gang-clube-respira 3.4s ease-in-out infinite;
 }
 @keyframes gang-clube-respira { 0%, 100% { transform: scale(1.03); opacity: 0.96; } 50% { transform: scale(1.09); opacity: 1; } }
 .gang-clube-venda-flash {
-  position: absolute; inset: 0; z-index: 6; background: #fff; opacity: 0; pointer-events: none;
+  position: absolute; inset: 0; z-index: 6; background: var(--gang-branco); opacity: 0; pointer-events: none;
 }
 /* cena 1: arrancam o saco — lurch + flash */
 @keyframes gang-clube-saco-off { to { transform: translateY(-120%) scale(1.4); opacity: 0; } }
@@ -120,11 +121,12 @@
 
 /* ---- base das cenas (sala + desfecho) ---- */
 .gang-clube-cena {
-  position: fixed; inset: 0; z-index: 20;
+  position: fixed; inset: 0 var(--app-gutter); z-index: 20;
   padding-bottom: var(--radio-nina-h, 0px);
   display: flex; align-items: center; justify-content: center;
   background: #04040a; color: #f0eef0; overflow: hidden;
   isolation: isolate;
+  overscroll-behavior: none;
 }
 .gang-clube-holofote {
   position: absolute; left: 50%; top: -8%; z-index: 1;
@@ -141,14 +143,14 @@
   height: 34%;
   display: flex; align-items: flex-end; justify-content: center; gap: 3%;
   padding: 0 4%;
-  background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.85) 62%, #000);
+  background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.85) 62%, var(--gang-preto));
   pointer-events: none;
 }
 .gang-clube-plateia i {
   position: relative;
   flex: 1 1 0; max-width: 40px;
   height: calc(46% + (var(--i) % 4) * 16%);
-  background: #000;
+  background: var(--gang-preto);
   border-radius: 40% 40% 0 0;
   box-shadow: 0 0 12px 2px rgba(255, 90, 90, 0.06);
   transform-origin: bottom center;
@@ -158,7 +160,7 @@
 .gang-clube-plateia i::after {
   content: ''; position: absolute; left: 50%; top: -14%;
   width: 62%; aspect-ratio: 1; transform: translateX(-50%);
-  background: #000; border-radius: 50%;
+  background: var(--gang-preto); border-radius: 50%;
 }
 @keyframes gang-clube-torcida { 0%, 100% { transform: translateY(0) scaleY(1); } 50% { transform: translateY(-6%) scaleY(1.04); } }
 
@@ -169,7 +171,7 @@
 .gang-clube-grain {
   position: absolute; inset: -50%; z-index: 3; pointer-events: none;
   opacity: 0.06; mix-blend-mode: overlay;
-  background-image: repeating-conic-gradient(#fff 0 0.0008turn, #000 0 0.0016turn);
+  background-image: repeating-conic-gradient(var(--gang-branco) 0 0.0008turn, var(--gang-preto) 0 0.0016turn);
   background-size: 3px 3px;
   animation: gang-clube-grain 0.6s steps(3) infinite;
 }
@@ -187,12 +189,12 @@
   color: #8a6bff;
 }
 .gang-clube-cena-titulo, .gang-clube-impacto-titulo {
-  margin: 0; font: 900 clamp(1.9rem, 9vw, 2.9rem) var(--font-display);
+  margin: 0; font: 900 clamp(1.9rem, calc(9 * var(--app-vw) / 100), 2.9rem) var(--font-display);
   letter-spacing: 0.02em; line-height: 1.02; text-transform: uppercase;
   text-shadow: 0 0 26px rgba(255, 90, 90, 0.45), 0 4px 0 rgba(0, 0, 0, 0.6);
 }
 .gang-clube-cena--vitoria .gang-clube-cena-titulo {
-  color: #fff;
+  color: var(--gang-branco);
   animation: gang-clube-title-hit 0.5s ease both;
 }
 .gang-clube-cena--derrota .gang-clube-cena-titulo {
@@ -206,7 +208,7 @@
 /* régua + blocos de texto (entram um a um) */
 .gang-clube-cena-regua {
   width: 46px; height: 2px; margin: 0.15rem 0 0.35rem;
-  background: linear-gradient(90deg, transparent, #ff5a5a, transparent);
+  background: linear-gradient(90deg, transparent, var(--gang-vermelho-450), transparent);
 }
 .gang-clube-cena-blocos {
   align-self: stretch; display: flex; flex-direction: column; gap: 0.62rem;
@@ -219,31 +221,31 @@
 }
 .gang-clube-cena--vitoria .gang-clube-cena-bloco { color: #d6d0d4; }
 .gang-clube-cena-bloco.is-fala {
-  border-left-color: #ff5a5a;
+  border-left-color: var(--gang-vermelho-450);
   font: italic 600 1.02rem var(--font-body); color: #ffdede;
   padding: 2px 0 2px 12px;
 }
 .gang-clube-cena-bloco.is-fecho {
   border-left-color: rgba(255, 255, 255, 0.4);
-  font-weight: 700; color: #fff; font-size: 0.98rem;
+  font-weight: 700; color: var(--gang-branco); font-size: 0.98rem;
 }
 .gang-clube-cena--derrota .gang-clube-cena-bloco.is-fecho { color: #f0d6d6; }
-.gang-clube-cena-bloco.is-fala.is-fecho { border-left-color: #ff5a5a; color: #fff; }
+.gang-clube-cena-bloco.is-fala.is-fecho { border-left-color: var(--gang-vermelho-450); color: var(--gang-branco); }
 .gang-clube-cena-btn {
   margin-top: 0.4rem; padding: 0.85rem 1.4rem;
   display: flex; flex-direction: column; align-items: center; gap: 2px;
   font: 800 0.82rem var(--font-display); letter-spacing: 0.12em; text-transform: uppercase;
-  color: #04141a; background: #ff5a5a; border: 0;
+  color: var(--gang-noite-900); background: var(--gang-vermelho-450); border: 0;
   clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
   cursor: pointer;
 }
 .gang-clube-cena-btn small { font: 600 0.58rem var(--font-mono); letter-spacing: 0.06em; text-transform: none; opacity: 0.8; }
 .gang-clube-cena-btn:disabled { opacity: 0.4; }
-.gang-clube-cena-btn--ghost { background: transparent; color: #ffb3b3; border: 1px solid #ff5a5a66; }
+.gang-clube-cena-btn--ghost { background: transparent; color: var(--gang-vermelho-200); border: 1px solid #ff5a5a66; }
 
 /* ---- desfecho: vitória (faíscas, caco de caderneta, strobe) ---- */
 .gang-clube-flash {
-  position: absolute; inset: 0; z-index: 4; background: #fff; pointer-events: none;
+  position: absolute; inset: 0; z-index: 4; background: var(--gang-branco); pointer-events: none;
   animation: gang-clube-strobe-in 0.9s steps(1) forwards;
 }
 @keyframes gang-clube-strobe-in {
@@ -284,7 +286,7 @@
 /* ---- sala entre rondas ---- */
 .gang-clube-impacto { position: relative; z-index: 5; display: flex; flex-direction: column; align-items: center; gap: 0.4rem; }
 .gang-clube-impacto-tag {
-  font: 800 0.62rem var(--font-mono); letter-spacing: 0.3em; text-transform: uppercase; color: #ff8a8a;
+  font: 800 0.62rem var(--font-mono); letter-spacing: 0.3em; text-transform: uppercase; color: var(--gang-vermelho-300);
 }
 .gang-clube-sala-nato {
   position: relative; z-index: 5;
@@ -293,7 +295,7 @@
 }
 .gang-clube-nato-vulto {
   position: relative; width: 120px; height: 150px; margin-bottom: 0.2rem;
-  background: #000;
+  background: var(--gang-preto);
   clip-path: polygon(50% 0, 66% 8%, 70% 26%, 100% 46%, 88% 62%, 92% 100%, 8% 100%, 12% 60%, 0 44%, 30% 26%, 34% 8%);
   box-shadow: -14px 0 26px -6px rgba(255, 90, 90, 0.55), 14px 0 26px -10px rgba(120, 90, 255, 0.35);
 }
@@ -305,7 +307,7 @@
 @keyframes gang-clube-brasa { 0%, 100% { opacity: 0.5; } 45% { opacity: 1; } 55% { opacity: 0.7; } }
 .gang-clube-nato-fala {
   margin: 0; font: 600 1rem var(--font-body); line-height: 1.55; color: #ede6e6;
-  text-shadow: 0 2px 10px #000;
+  text-shadow: 0 2px 10px var(--gang-preto);
 }
 .gang-clube-sala-tropa {
   font: 700 0.68rem var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase; color: #b79a9a;

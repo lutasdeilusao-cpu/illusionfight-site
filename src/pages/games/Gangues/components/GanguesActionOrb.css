@@ -43,7 +43,7 @@
 .gang-orb-menu--baixo { order: 1; margin-top: 8px; }
 
 .gang-orb-panel {
-  width: max(52vw, 190px);
+  width: max(calc(52 * var(--app-vw) / 100), 190px);
   max-width: 260px;
   display: flex;
   flex-direction: column;

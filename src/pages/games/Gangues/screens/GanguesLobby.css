@@ -39,13 +39,13 @@
 .gang-onboarding-panel__cartaz {
   --corte: polygon(2% 3%, 30% 0%, 55% 2%, 78% 0%, 98% 3%, 100% 22%, 97% 45%, 100% 68%, 98% 92%, 72% 100%, 45% 97%, 20% 100%, 2% 96%, 0% 70%, 3% 45%, 0% 20%);
   position: relative; padding: 30px 20px 26px; text-align: center;
-  background: linear-gradient(155deg, #241108, #150a05 55%, #0c0603);
+  background: linear-gradient(155deg, var(--gang-madeira-800), var(--gang-madeira-925) 55%, var(--gang-madeira-950));
   clip-path: var(--corte);
   box-shadow: 0 26px 60px -30px rgba(0, 0, 0, .85);
 }
 .gang-onboarding-panel__cartaz::before {
   content: ''; position: absolute; inset: -8px; z-index: -1;
-  background: linear-gradient(160deg, #6b3a28, #3d1f16); clip-path: var(--corte);
+  background: linear-gradient(160deg, var(--gang-tijolo-600), var(--gang-tijolo-800)); clip-path: var(--corte);
 }
 .gang-onboarding-panel__fita {
   position: absolute; top: -10px; width: 62px; height: 26px; z-index: 2;
@@ -57,10 +57,10 @@
 
 .gang-onboarding-panel__logo { display: block; width: min(58%, 200px); height: auto; margin: 0 auto 14px; filter: drop-shadow(0 8px 18px rgba(0, 0, 0, .55)); }
 .gang-lobby .gang-onboarding-panel h2 {
-  margin: 0 0 8px; color: #ffd9a0; font: 400 1.7rem/1.1 'Permanent Marker', cursive;
+  margin: 0 0 8px; color: var(--gang-creme); font: 400 1.7rem/1.1 'Permanent Marker', cursive;
   text-shadow: 0 2px 0 rgba(0, 0, 0, .6); transform: rotate(-1deg);
 }
-.gang-lobby .gang-onboarding-panel p { max-width: 330px; margin: 0 auto; color: #cfc6bb; font-size: 12px; line-height: 1.55; }
+.gang-lobby .gang-onboarding-panel p { max-width: 330px; margin: 0 auto; color: var(--gang-papel-400); font-size: 12px; line-height: 1.55; }
 
 .gang-onboarding-panel__slots {
   margin: 22px auto 4px;
@@ -108,7 +108,7 @@
 }
 .gang-onboarding-spray:active::after { translate: 140% 0; }
 .gang-onboarding-spray strong {
-  position: relative; z-index: 1; color: #fff8ec; font: 400 1.3rem/1 'Permanent Marker', cursive;
+  position: relative; z-index: 1; color: var(--gang-papel); font: 400 1.3rem/1 'Permanent Marker', cursive;
   text-shadow: 0 2px 0 rgba(0, 0, 0, .6), 0 0 18px color-mix(in srgb, var(--cor) 70%, transparent);
   transform: rotate(-1deg);
 }
@@ -149,11 +149,11 @@
 
 .gang-recruit__head { position: relative; z-index: 2; padding: 0 46px 6px; text-align: center; }
 .gang-recruit__head h1 {
-  margin: 4px 0 3px; color: #ffd9a0; font: 400 1.6rem/1.05 'Permanent Marker', cursive;
+  margin: 4px 0 3px; color: var(--gang-creme); font: 400 1.6rem/1.05 'Permanent Marker', cursive;
   text-shadow: 0 2px 0 rgba(0, 0, 0, .6), 0 0 20px color-mix(in srgb, var(--if-amber) 40%, transparent);
   transform: rotate(-1deg);
 }
-.gang-recruit__head p { margin: 0; color: #e7ded0; font-size: 11px; line-height: 1.45; text-shadow: 0 1px 3px rgba(0, 0, 0, .9); }
+.gang-recruit__head p { margin: 0; color: var(--gang-papel-200); font-size: 11px; line-height: 1.45; text-shadow: 0 1px 3px rgba(0, 0, 0, .9); }
 
 .gang-recruit__stage { position: relative; z-index: 1; height: 400px; display: grid; place-items: center; }
 .gang-recruit__slides { position: relative; width: 100%; height: 100%; }
@@ -171,7 +171,7 @@
   padding: 0;
   overflow: hidden;
   border: 1px solid color-mix(in srgb, var(--if-amber) 20%, transparent);
-  background: linear-gradient(155deg, #241108, #150a05 55%, #0c0603);
+  background: linear-gradient(155deg, var(--gang-madeira-800), var(--gang-madeira-925) 55%, var(--gang-madeira-950));
   color: var(--text-primary);
   text-align: left;
   clip-path: var(--corte);
@@ -185,14 +185,14 @@
 .gang-fighter-card--selected { box-shadow: 0 0 0 3px var(--if-amber) inset, 0 0 34px color-mix(in srgb, var(--if-amber) 45%, transparent); }
 .gang-fighter-card__number { position: absolute; z-index: 3; top: 13px; left: 14px; color: #d9c9a8; font: 700 10px var(--font-mono); letter-spacing: 2px; }
 .gang-fighter-card__selected {
-  position: absolute; z-index: 4; top: 10px; right: 13px; padding: 4px 8px; background: var(--if-amber); color: #1a0f08;
+  position: absolute; z-index: 4; top: 10px; right: 13px; padding: 4px 8px; background: var(--if-amber); color: var(--gang-madeira-900);
   font: 400 12px/1 'Permanent Marker', cursive; text-transform: uppercase;
   clip-path: polygon(4% 0, 100% 6%, 96% 100%, 0 92%);
 }
 
-.gang-fighter-card__portrait { position: relative; height: 280px; display: grid; place-items: end center; overflow: hidden; background: linear-gradient(150deg, color-mix(in srgb, var(--if-amber) 16%, #1a0f08), #0c0603); }
-.gang-fighter-card--defensor .gang-fighter-card__portrait { background: linear-gradient(150deg, color-mix(in srgb, var(--if-cyan) 16%, #1a0f08), #0c0603); }
-.gang-fighter-card--mistico .gang-fighter-card__portrait { background: linear-gradient(150deg, color-mix(in srgb, var(--if-violet) 20%, #1a0f08), #0c0603); }
+.gang-fighter-card__portrait { position: relative; height: 280px; display: grid; place-items: end center; overflow: hidden; background: linear-gradient(150deg, color-mix(in srgb, var(--if-amber) 16%, var(--gang-madeira-900)), var(--gang-madeira-950)); }
+.gang-fighter-card--defensor .gang-fighter-card__portrait { background: linear-gradient(150deg, color-mix(in srgb, var(--if-cyan) 16%, var(--gang-madeira-900)), var(--gang-madeira-950)); }
+.gang-fighter-card--mistico .gang-fighter-card__portrait { background: linear-gradient(150deg, color-mix(in srgb, var(--if-violet) 20%, var(--gang-madeira-900)), var(--gang-madeira-950)); }
 .gang-fighter-card__portrait::before { content: ''; position: absolute; width: 132px; height: 195px; bottom: -24px; border-radius: 52% 52% 8% 8%; background: currentColor; opacity: .16; box-shadow: 0 -72px 0 -28px currentColor; }
 .gang-fighter-card__portrait i { position: relative; z-index: 2; margin-bottom: 20px; color: color-mix(in srgb, var(--text-primary) 28%, transparent); font: 900 138px/.7 var(--font-title); font-style: normal; text-shadow: 5px 5px 0 rgba(0, 0, 0, .4); }
 .gang-fighter-card__portrait b { position: absolute; right: 12px; bottom: 10px; color: var(--if-amber); font: 900 42px var(--font-title); opacity: .4; }
@@ -249,7 +249,7 @@
 .gang-corpo-poses i.is-active { width: 22px; background: var(--if-amber); }
 .gang-fighter-card__copy { position: relative; z-index: 2; display: grid; padding: 12px 14px 6px; }
 .gang-fighter-card__copy small { color: var(--if-amber); font: 800 9px var(--font-mono); letter-spacing: 2px; text-transform: uppercase; }
-.gang-fighter-card__copy strong { color: #fff8ec; font: 400 1.9rem/.95 'Permanent Marker', cursive; text-shadow: 0 2px 0 rgba(0, 0, 0, .6); }
+.gang-fighter-card__copy strong { color: var(--gang-papel); font: 400 1.9rem/.95 'Permanent Marker', cursive; text-shadow: 0 2px 0 rgba(0, 0, 0, .6); }
 .gang-fighter-card__copy em { color: var(--text-secondary); font: 700 11px var(--font-mono); font-style: normal; text-transform: uppercase; }
 .gang-fighter-card__cta { position: absolute; z-index: 2; right: 14px; bottom: 10px; color: var(--if-amber); font: 400 1rem/1 'Permanent Marker', cursive; }
 
@@ -267,7 +267,7 @@
   font: 900 15px var(--font-title); cursor: pointer;
   clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 0 100%);
 }
-.gang-fighter-card__team-toggle.is-selected { border-color: var(--if-amber); background: var(--if-amber); color: #1a0f08; }
+.gang-fighter-card__team-toggle.is-selected { border-color: var(--if-amber); background: var(--if-amber); color: var(--gang-madeira-900); }
 .gang-fighter-card__team-toggle:disabled { opacity: .55; cursor: not-allowed; }
 
 /* Estrela de líder — mesmo canto do toggle de equipe, empilhada embaixo.
@@ -280,12 +280,12 @@
   font-size: 16px; cursor: pointer;
   clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 0 100%);
 }
-.gang-fighter-card__lider-toggle.is-lider { border-color: var(--if-amber); background: var(--if-amber); color: #1a0f08; }
+.gang-fighter-card__lider-toggle.is-lider { border-color: var(--if-amber); background: var(--if-amber); color: var(--gang-madeira-900); }
 
 .gang-recruit__arrow {
   position: absolute; z-index: 5; top: 44%; width: 38px; height: 52px;
   border: 1px solid color-mix(in srgb, var(--if-amber) 35%, transparent); background: rgba(12, 6, 3, .82);
-  color: #ffd9a0; font-size: 30px;
+  color: var(--gang-creme); font-size: 30px;
 }
 .gang-recruit__arrow--left { left: 5px; }
 .gang-recruit__arrow--right { right: 5px; }
@@ -320,7 +320,7 @@
   position: relative;
   width: 100%; min-height: 50px; margin-top: 8px;
   background: transparent; border: none;
-  color: #fff8ec; font: 400 1.15rem/1 'Permanent Marker', cursive;
+  color: var(--gang-papel); font: 400 1.15rem/1 'Permanent Marker', cursive;
   text-shadow: 0 2px 0 rgba(0, 0, 0, .6), 0 0 18px color-mix(in srgb, var(--cor) 70%, transparent);
 }
 .gang-recruit__confirm::before {
@@ -357,7 +357,7 @@
   --corte: polygon(0 3%, 8% 0, 92% 1%, 100% 4%, 99% 55%, 100% 92%, 92% 100%, 8% 99%, 0 94%);
   position: relative; width: 100%; max-height: 94dvh; overflow-y: auto; padding: 16px;
   border: 1px solid color-mix(in srgb, var(--if-amber) 25%, transparent);
-  background: linear-gradient(155deg, #241108, #150a05 55%, #0c0603);
+  background: linear-gradient(155deg, var(--gang-madeira-800), var(--gang-madeira-925) 55%, var(--gang-madeira-950));
   color: var(--text-primary);
   box-shadow: 0 -18px 70px rgba(0, 0, 0, .55), 0 0 0 1px color-mix(in srgb, var(--if-amber) 30%, transparent) inset;
   clip-path: var(--corte);
@@ -366,7 +366,7 @@
 .gang-sheet-modal__card--mistico { box-shadow: 0 -18px 70px rgba(0, 0, 0, .55), 0 0 0 1px color-mix(in srgb, var(--if-violet) 40%, transparent) inset; }
 .gang-sheet-modal__close {
   position: absolute; z-index: 3; top: 10px; right: 10px; width: 34px; height: 34px;
-  border: 1px solid color-mix(in srgb, var(--if-amber) 40%, transparent); background: #1a0f08; color: #ffd9a0; font-size: 22px;
+  border: 1px solid color-mix(in srgb, var(--if-amber) 40%, transparent); background: var(--gang-madeira-900); color: var(--gang-creme); font-size: 22px;
 }
 .gang-sheet-modal__hero { min-height: 154px; padding: 12px 112px 10px 4px; position: relative; overflow: hidden; }
 .gang-sheet-modal__hero > span { color: var(--if-amber); font: 700 10px var(--font-mono); letter-spacing: 2px; }
@@ -375,7 +375,7 @@
    translúcida — mesmo canto, tamanho legível em vez de decoração de fundo. */
 .gang-sheet-modal__retrato { position: absolute; right: 12px; bottom: -6px; width: 130px; height: 130px; object-fit: contain; image-rendering: pixelated; filter: drop-shadow(0 8px 14px rgba(0,0,0,.5)); }
 .gang-sheet-modal__hero small { display: block; margin-top: 28px; color: var(--if-amber); font: 800 9px var(--font-mono); letter-spacing: 2px; text-transform: uppercase; }
-.gang-sheet-modal__hero h2 { position: relative; margin: 4px 0 0; color: #fff8ec; font: 400 2rem/.95 'Permanent Marker', cursive; text-shadow: 0 2px 0 rgba(0, 0, 0, .6); }
+.gang-sheet-modal__hero h2 { position: relative; margin: 4px 0 0; color: var(--gang-papel); font: 400 2rem/.95 'Permanent Marker', cursive; text-shadow: 0 2px 0 rgba(0, 0, 0, .6); }
 .gang-sheet-modal__hero p { position: relative; margin: 4px 0 0; color: var(--text-secondary); font: 700 11px var(--font-mono); text-transform: uppercase; }
 
 /* Corpo inteiro no modal de recrutamento (pedido do Isaias, 17/09/2026:
@@ -409,7 +409,7 @@
    (fora de combate/recrutamento não existe "atual" de PV/PM, só o máximo). */
 .gang-ficha-bar { display: block; height: 5px; border-radius: 3px; background: var(--if-hair); overflow: hidden; }
 .gang-ficha-bar b { display: block; height: 100%; border-radius: inherit; }
-.gang-ficha-bar--pv b { background: linear-gradient(90deg, #3ddc97, #22a06b); transition: background 0.25s; }
+.gang-ficha-bar--pv b { background: linear-gradient(90deg, var(--gang-pista), #22a06b); transition: background 0.25s; }
 .gang-ficha-bar--pm b { background: linear-gradient(90deg, #8b6df0, #5b3fc9); }
 .gang-ficha-bar--xp b { background: var(--if-amber); }
 /* Farol de sangue baixo — mesma régua do roster compacto de combate
@@ -418,7 +418,7 @@
    progressão, então o keyframe vive aqui (self-contido), não depende do
    CSS de combate estar carregado. */
 .gang-ficha-bar--pv-baixo b { background: var(--if-amber); }
-.gang-ficha-bar--pv-critico b { background: #ff3b3b; animation: gang-ficha-pv-pulso 0.6s ease-in-out infinite; }
+.gang-ficha-bar--pv-critico b { background: var(--gang-vermelho-500); animation: gang-ficha-pv-pulso 0.6s ease-in-out infinite; }
 @keyframes gang-ficha-pv-pulso { 0%, 100% { opacity: 1; } 50% { opacity: 0.45; } }
 @media (prefers-reduced-motion: reduce) { .gang-ficha-bar--pv-critico b { animation: none; } }
 .gang-sheet-modal__xp { margin-top: 8px; padding: 8px 12px; border: 1px solid color-mix(in srgb, var(--if-amber) 22%, transparent); display: grid; gap: 5px; }
@@ -426,14 +426,14 @@
 .gang-ficha-nivel { color: var(--if-amber); font-size: .55em; letter-spacing: .06em; }
 .gang-sheet-modal__technique { margin-top: 6px; padding: 8px 12px; border: 1px solid color-mix(in srgb, var(--if-amber) 22%, transparent); display: grid; grid-template-columns: 1fr auto; }
 .gang-sheet-modal__technique small { grid-column: 1 / -1; color: var(--text-secondary); font: 700 8px var(--font-mono); letter-spacing: 2px; text-transform: uppercase; }
-.gang-sheet-modal__technique strong { color: #fff8ec; font: 400 1.2rem/1 'Permanent Marker', cursive; }
+.gang-sheet-modal__technique strong { color: var(--gang-papel); font: 400 1.2rem/1 'Permanent Marker', cursive; }
 .gang-sheet-modal__technique span { color: var(--if-amber); font: 700 11px var(--font-mono); }
 /* CTA spray-paint — mesmo halo dos outros botões de ação do jogo. */
 .gang-sheet-modal__select {
   --cor: var(--if-amber);
   position: relative; width: 100%; min-height: 50px; margin-top: 10px;
   background: transparent; border: none;
-  color: #fff8ec; font: 400 1.15rem/1 'Permanent Marker', cursive;
+  color: var(--gang-papel); font: 400 1.15rem/1 'Permanent Marker', cursive;
   text-shadow: 0 2px 0 rgba(0, 0, 0, .6), 0 0 16px color-mix(in srgb, var(--cor) 70%, transparent);
 }
 .gang-sheet-modal__select::before {
@@ -456,7 +456,7 @@
 .gang-sheet-modal__actions-row .gang-sheet-modal__select { margin-top: 0; flex: 1; }
 .gang-sheet-modal__historia {
   flex: 0 0 auto; min-height: 50px; padding: 0 16px;
-  border: 1px solid color-mix(in srgb, var(--if-amber) 35%, transparent); background: #1a0f08; color: #ffd9a0;
+  border: 1px solid color-mix(in srgb, var(--if-amber) 35%, transparent); background: var(--gang-madeira-900); color: var(--gang-creme);
   font: 800 11px var(--font-mono); letter-spacing: 1px; text-transform: uppercase;
 }
 .gang-sheet-modal__historia:active { border-color: var(--if-amber); color: var(--if-amber); }
@@ -468,12 +468,12 @@
   position: absolute; inset: 0; z-index: 4;
   display: flex; flex-direction: column;
   padding: 18px 16px 16px; overflow-y: auto;
-  background: linear-gradient(155deg, #241108, #150a05 55%, #0c0603);
+  background: linear-gradient(155deg, var(--gang-madeira-800), var(--gang-madeira-925) 55%, var(--gang-madeira-950));
   border-top: 1px solid color-mix(in srgb, var(--if-amber) 30%, transparent);
   clip-path: polygon(0 3%, 8% 0, 92% 1%, 100% 4%, 99% 92%, 92% 100%, 8% 99%, 0 94%);
 }
-.gang-ficha-bio__close { position: absolute; top: 10px; right: 10px; width: 34px; height: 34px; border: 1px solid color-mix(in srgb, var(--if-amber) 40%, transparent); background: #1a0f08; color: #ffd9a0; font-size: 22px; }
-.gang-ficha-bio h3 { margin: 0 22px 14px 0; color: #ffd9a0; font: 400 1.7rem/1 'Permanent Marker', cursive; text-shadow: 0 2px 0 rgba(0, 0, 0, .6); }
+.gang-ficha-bio__close { position: absolute; top: 10px; right: 10px; width: 34px; height: 34px; border: 1px solid color-mix(in srgb, var(--if-amber) 40%, transparent); background: var(--gang-madeira-900); color: var(--gang-creme); font-size: 22px; }
+.gang-ficha-bio h3 { margin: 0 22px 14px 0; color: var(--gang-creme); font: 400 1.7rem/1 'Permanent Marker', cursive; text-shadow: 0 2px 0 rgba(0, 0, 0, .6); }
 .gang-ficha-bio__body { display: flex; flex-direction: column; gap: 14px; }
 .gang-ficha-bio__body section b { display: block; margin-bottom: 4px; color: var(--if-amber); font: 800 10px var(--font-mono); letter-spacing: 1.5px; text-transform: uppercase; }
 .gang-ficha-bio__body section p { margin: 0; color: var(--text-secondary); font: 400 13px/1.55 var(--font-desc, inherit); }
@@ -498,7 +498,7 @@
    grande (bug real, não só resíduo de estilo). */
 .gang-lobby .gang-lobby-hero--compact { position: relative; margin: 8px 0 12px; padding-top: 40px; text-align: center; }
 .gang-lobby .gang-lobby-hero--compact .gang-lobby-nome {
-  margin: 0; color: #ffd9a0; font: 400 clamp(2.2rem, calc(13 * var(--app-vw) / 100), 3.4rem)/1 'Permanent Marker', cursive;
+  margin: 0; color: var(--gang-creme); font: 400 clamp(2.2rem, calc(13 * var(--app-vw) / 100), 3.4rem)/1 'Permanent Marker', cursive;
   text-shadow: 0 3px 0 rgba(0, 0, 0, .6), 0 0 34px color-mix(in srgb, var(--if-amber) 45%, transparent);
 }
 /* `.gang-lobby` (Gangues.css) é max-height:100%;overflow-y:auto mas nunca
@@ -523,8 +523,8 @@
   position: relative; width: 100%; min-height: 52px; margin-top: 10px; padding: 0 16px;
   display: flex; align-items: center; justify-content: center; gap: 10px;
   border: 1px solid color-mix(in srgb, var(--cor) 55%, transparent);
-  background: linear-gradient(155deg, color-mix(in srgb, var(--cor) 20%, #241108), #0c0603);
-  color: #fff8ec;
+  background: linear-gradient(155deg, color-mix(in srgb, var(--cor) 20%, var(--gang-madeira-800)), var(--gang-madeira-950));
+  color: var(--gang-papel);
   font: 400 1.15rem/1 'Permanent Marker', cursive;
   text-shadow: 0 2px 0 rgba(0, 0, 0, .6), 0 0 16px color-mix(in srgb, var(--cor) 70%, transparent);
   clip-path: polygon(0 3%, 6% 0, 94% 1%, 100% 6%, 99% 88%, 96% 100%, 4% 99%, 0 92%);
@@ -533,15 +533,15 @@
   content: ''; position: absolute; inset: -8px; z-index: -1;
   background: radial-gradient(70% 90% at 50% 50%, color-mix(in srgb, var(--cor) 32%, transparent), transparent 75%);
 }
-.gang-lobby .gang-home-actions__play--top:active { background: linear-gradient(155deg, color-mix(in srgb, var(--cor) 32%, #241108), #0c0603); }
-.gang-lobby .gang-home-actions__play--top b { color: #fff8ec; font-size: 1.1rem; }
+.gang-lobby .gang-home-actions__play--top:active { background: linear-gradient(155deg, color-mix(in srgb, var(--cor) 32%, var(--gang-madeira-800)), var(--gang-madeira-950)); }
+.gang-lobby .gang-home-actions__play--top b { color: var(--gang-papel); font-size: 1.1rem; }
 
 /* Acesso ao Álbum de Marélia — secundário, logo abaixo do play; continua
    bordado/mono (é um contador utilitário, não CTA de voz do jogo). */
 .gang-lobby .gang-lobby-album {
   width: 100%; min-height: 40px; margin-top: 6px; padding: 0 16px;
   display: flex; align-items: center; justify-content: center; gap: 10px;
-  border: 1px solid color-mix(in srgb, var(--if-amber) 30%, transparent); background: rgba(10, 5, 2, .8); color: #e7ded0;
+  border: 1px solid color-mix(in srgb, var(--if-amber) 30%, transparent); background: rgba(10, 5, 2, .8); color: var(--gang-papel-200);
   font: 800 .72rem var(--font-mono); letter-spacing: .1em; text-transform: uppercase;
   clip-path: polygon(0 0, calc(100% - 9px) 0, 100% 9px, 100% 100%, 0 100%);
 }
@@ -616,6 +616,6 @@
 .gang-lobby .gang-lobby-hero--compact .gang-lobby-mapa {
   position: absolute; left: 0; top: 0;
   min-height: 30px; padding: 0 10px; border: 1px solid color-mix(in srgb, var(--if-amber) 35%, transparent);
-  background: rgba(12, 6, 3, .7); color: #ffd9a0;
+  background: rgba(12, 6, 3, .7); color: var(--gang-creme);
   font: 800 .56rem var(--font-mono); letter-spacing: .06em; text-transform: uppercase;
 }

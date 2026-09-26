@@ -8,9 +8,9 @@
    Mesmo padrão visual do `.gang-xp-confirm` (GanguesProgressionFlow.css)
    — modal central com scrim, dois botões (cancelar/confirmar). */
 .gang-sair-confirm-overlay {
-  position: fixed; inset: 0; z-index: 10000;
+  position: fixed; inset: 0 var(--app-gutter); z-index: 10000;
   display: grid; place-items: center; padding: 1.5rem;
-  background: rgba(2, 5, 8, .82); backdrop-filter: blur(6px);
+  background: rgba(2, 5, 8, .82); backdrop-filter: blur(6px); overscroll-behavior: none;
 }
 .gang-sair-confirm-card {
   display: grid; justify-items: center; gap: .6rem;
@@ -28,7 +28,7 @@
   font: 800 .68rem var(--font-mono); letter-spacing: .06em; text-transform: uppercase;
   cursor: pointer; clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
 }
-.gang-sair-confirm-cancelar { color: #c6cdd2; background: rgba(255, 255, 255, .04); border: 1px solid rgba(255, 255, 255, .14); }
-.gang-sair-confirm-cancelar:hover { background: rgba(255, 255, 255, .09); color: #fff; }
-.gang-sair-confirm-confirmar { color: #fff; background: #b5232c; border: 1px solid #ff4d4d; }
+.gang-sair-confirm-cancelar { color: var(--gang-gelo-400); background: rgba(255, 255, 255, .04); border: 1px solid rgba(255, 255, 255, .14); }
+.gang-sair-confirm-cancelar:hover { background: rgba(255, 255, 255, .09); color: var(--gang-branco); }
+.gang-sair-confirm-confirmar { color: var(--gang-branco); background: #b5232c; border: 1px solid var(--gang-vermelho-475); }
 .gang-sair-confirm-confirmar:hover { background: #d1303a; }

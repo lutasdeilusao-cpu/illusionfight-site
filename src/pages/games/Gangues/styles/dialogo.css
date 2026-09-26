@@ -32,6 +32,7 @@
   position: fixed; top: 0; bottom: 0; left: var(--app-gutter); right: var(--app-gutter); z-index: 9999; cursor: pointer;
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   padding: 24px 18px calc(24px + env(safe-area-inset-bottom));
+  overscroll-behavior: none;
 }
 .gang-dlg-overlay::before {
   content: ''; position: absolute; inset: 0; pointer-events: none;
@@ -49,7 +50,7 @@
   min-height: 40px; padding: 9px 22px;
   border: 1px solid rgba(255, 255, 255, .35);
   background: #14181c;
-  color: #fff;
+  color: var(--gang-branco);
   font: 700 .72rem var(--font-mono);
   letter-spacing: .1em; text-transform: uppercase;
   cursor: pointer;
@@ -75,7 +76,7 @@
   animation: gang-dlg-idle 3.4s ease-in-out infinite;
 }
 .gang-dlg-portrait-idle img { width: 100%; height: 100%; object-fit: cover; image-rendering: pixelated; }
-.gang-dlg-portrait-idle b { font: 900 2.3rem var(--font-display); color: #1b1000; }
+.gang-dlg-portrait-idle b { font: 900 2.3rem var(--font-display); color: var(--gang-breu); }
 @keyframes gang-dlg-idle {
   0%, 100% { transform: translateY(0) rotate(-2deg); }
   50% { transform: translateY(-7px) rotate(2deg); }
@@ -88,7 +89,7 @@
    personagem), truque clássico de 2 triângulos (borda + preenchimento). */
 .gang-dlg-bubble {
   position: relative; z-index: 1; width: 100%; padding: 30px 18px 16px;
-  background: linear-gradient(180deg, #14100c, #0a0705);
+  background: linear-gradient(180deg, var(--gang-madeira-940), #0a0705);
   border: 2px solid var(--if-amber); border-radius: 22px;
   box-shadow: 0 16px 36px -18px rgba(0, 0, 0, .85);
 }
@@ -100,7 +101,7 @@
 .gang-dlg-bubble-tail::after {
   content: ''; position: absolute; top: 3px; left: -9px;
   width: 0; height: 0; border-left: 9px solid transparent; border-right: 9px solid transparent;
-  border-bottom: 11px solid #14100c;
+  border-bottom: 11px solid var(--gang-madeira-940);
 }
 .gang-dlg-bubble-name {
   display: inline-block; padding: 3px 10px; margin-bottom: 8px; border-radius: 3px;

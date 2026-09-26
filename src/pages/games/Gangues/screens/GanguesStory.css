@@ -70,7 +70,7 @@
   margin: 0.3rem 0 0;
   font-family: var(--font-display); font-weight: 800;
   font-size: clamp(1.8rem, calc(9 * var(--app-vw) / 100), 2.3rem);
-  line-height: 1; color: #fff;
+  line-height: 1; color: var(--gang-branco);
   text-shadow: 0 0 26px color-mix(in srgb, var(--terr-cor) 40%, transparent);
 }
 .gang-story-terr-desc {
@@ -80,7 +80,7 @@
 .gang-story-terr-dominado {
   display: inline-flex; margin-top: 0.7rem;
   padding: 3px 9px; font: 800 0.62rem var(--font-mono); letter-spacing: 0.1em;
-  color: #04141a; background: var(--terr-cor);
+  color: var(--gang-noite-900); background: var(--terr-cor);
   clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 0 100%);
 }
 
@@ -113,7 +113,7 @@
   width: 30px; height: 30px;
   font: 800 0.85rem var(--font-display);
   border: 1px solid color-mix(in srgb, var(--terr-cor) 55%, transparent);
-  color: color-mix(in srgb, var(--terr-cor) 90%, #fff);
+  color: color-mix(in srgb, var(--terr-cor) 90%, var(--gang-branco));
   background: color-mix(in srgb, var(--terr-cor) 12%, transparent);
   clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 0 100%);
 }
@@ -123,10 +123,10 @@
   letter-spacing: 0.02em; color: var(--text-primary);
 }
 .gang-story-no-info small { font: 600 0.68rem var(--font-mono); color: var(--text-secondary); }
-.gang-story-no-forca { letter-spacing: 0.1em; color: color-mix(in srgb, var(--terr-cor, var(--if-amber)) 70%, #fff); }
+.gang-story-no-forca { letter-spacing: 0.1em; color: color-mix(in srgb, var(--terr-cor, var(--if-amber)) 70%, var(--gang-branco)); }
 .gang-story-no-vai {
   flex-shrink: 0; font: 700 0.6rem var(--font-mono); letter-spacing: 0.08em;
-  text-transform: uppercase; color: color-mix(in srgb, var(--terr-cor) 92%, #fff);
+  text-transform: uppercase; color: color-mix(in srgb, var(--terr-cor) 92%, var(--gang-branco));
 }
 .gang-story-no-lock { flex-shrink: 0; font-size: 0.8rem; }
 .gang-story-no-hint {
@@ -142,7 +142,7 @@
 }
 .gang-story-no--atual .gang-story-no-btn:hover { transform: translateX(3px); }
 .gang-story-no--dominado .gang-story-no-marca {
-  color: #04141a; background: color-mix(in srgb, var(--terr-cor) 85%, #fff);
+  color: var(--gang-noite-900); background: color-mix(in srgb, var(--terr-cor) 85%, var(--gang-branco));
 }
 .gang-story-no--dominado .gang-story-no-info strong { color: var(--text-secondary); }
 .gang-story-no--trancado .gang-story-no-btn { opacity: 0.42; cursor: not-allowed; }
@@ -157,8 +157,8 @@
 
 /* ── Apresentação do desafiante (VS) ── */
 .gang-story-vs {
-  position: fixed; inset: 0; z-index: 940;
-  display: grid; place-items: center; padding: 1.5rem;
+  position: fixed; inset: 0 var(--app-gutter); z-index: 940;
+  display: grid; place-items: center; padding: 1.5rem; overscroll-behavior: none;
 }
 .gang-story-vs-bg { position: absolute; inset: 0; background: rgba(2, 5, 8, 0.86); backdrop-filter: blur(7px); }
 .gang-story-vs-card {
@@ -167,7 +167,7 @@
   width: 100%; max-width: 320px;
   padding: 1.7rem 1.3rem 1.4rem; text-align: center;
   border: 1px solid color-mix(in srgb, var(--terr-cor) 50%, transparent);
-  background: linear-gradient(160deg, #0d151b, #070a0d 72%);
+  background: linear-gradient(160deg, var(--gang-noite-850), var(--gang-noite-950) 72%);
   box-shadow: 0 0 46px -10px color-mix(in srgb, var(--terr-cor) 55%, transparent);
   clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%);
 }
@@ -178,27 +178,27 @@
 .gang-story-vs-avatar {
   display: grid; place-items: center;
   width: 60px; height: 60px;
-  font: 800 1.6rem var(--font-display); color: #fff;
+  font: 800 1.6rem var(--font-display); color: var(--gang-branco);
   border: 1px solid color-mix(in srgb, var(--terr-cor) 60%, transparent);
   background: color-mix(in srgb, var(--terr-cor) 16%, transparent);
 }
-.gang-story-vs-card--chefe .gang-story-vs-avatar { border-color: var(--if-amber); color: #ffce6b; background: var(--if-amber-16); }
+.gang-story-vs-card--chefe .gang-story-vs-avatar { border-color: var(--if-amber); color: var(--gang-ouro-300); background: var(--if-amber-16); }
 .gang-story-vs-avatar--foto { padding: 0; overflow: hidden; border-radius: 50%; }
 .gang-story-vs-avatar--foto img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .gang-story-vs-tag {
   padding: 0.14rem 0.5rem; font: 700 0.54rem var(--font-mono);
   letter-spacing: 0.14em; text-transform: uppercase;
-  color: color-mix(in srgb, var(--terr-cor) 92%, #fff);
+  color: color-mix(in srgb, var(--terr-cor) 92%, var(--gang-branco));
   border: 1px solid color-mix(in srgb, var(--terr-cor) 55%, transparent);
 }
-.gang-story-vs-card--chefe .gang-story-vs-tag { color: #ffce6b; border-color: var(--if-amber-72); }
+.gang-story-vs-card--chefe .gang-story-vs-tag { color: var(--gang-ouro-300); border-color: var(--if-amber-72); }
 .gang-story-vs-nome {
   margin: 0.2rem 0 0; font: 800 1.3rem var(--font-display);
-  letter-spacing: 0.03em; color: #fff;
+  letter-spacing: 0.03em; color: var(--gang-branco);
 }
 .gang-story-vs-fala {
   margin: 0.15rem 0 0; font-family: var(--font-body); font-size: 0.85rem;
-  font-style: italic; line-height: 1.5; color: #c6d0d7;
+  font-style: italic; line-height: 1.5; color: var(--gang-gelo-350);
 }
 .gang-story-vs-stats {
   display: flex; gap: 8px; margin-top: 0.4rem;
@@ -213,13 +213,13 @@
   clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
 }
 .gang-story-vs-no {
-  color: #c6cdd2; background: rgba(255, 255, 255, 0.04);
+  color: var(--gang-gelo-400); background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.14);
 }
 .gang-story-vs-yes {
-  color: #04141a; background: var(--terr-cor); border: 1px solid var(--terr-cor);
+  color: var(--gang-noite-900); background: var(--terr-cor); border: 1px solid var(--terr-cor);
 }
-.gang-story-vs-card--chefe .gang-story-vs-yes { background: var(--if-amber); border-color: var(--if-amber); color: #1b1000; }
+.gang-story-vs-card--chefe .gang-story-vs-yes { background: var(--if-amber); border-color: var(--if-amber); color: var(--gang-breu); }
 
 /* ── Saída — precisa de destaque de verdade, não uma linha discreta
    perdida no fim da tela (pedido do Isaias, 14/09/2026: "os usuários são
@@ -235,16 +235,16 @@
   width: 100%; max-width: 360px; margin: 18px auto 0; min-height: 46px;
   padding: 10px 22px;
   font: 400 1.05rem/1 'Permanent Marker', cursive;
-  color: #ff6b6b;
+  color: var(--gang-vermelho-400);
   background: #170a08;
-  border: 2px solid #ff4d4d;
+  border: 2px solid var(--gang-vermelho-475);
   cursor: pointer;
   transition: color 0.2s, border-color 0.2s, background 0.2s;
   box-shadow: 0 10px 24px -14px rgba(255, 77, 77, .6);
   clip-path: polygon(0 0, calc(100% - 9px) 0, 100% 9px, 100% 100%, 0 100%);
 }
 .gang-lobby-quit::before { content: '←'; font-size: 1rem; font-family: var(--font-mono); }
-.gang-lobby-quit:hover { color: #fff; border-color: #ff8080; background: #240c0a; }
+.gang-lobby-quit:hover { color: var(--gang-branco); border-color: #ff8080; background: #240c0a; }
 
 /* ══ Confronto final contra o Alan — tela de canon ══ */
 .gang-report--final {
@@ -263,11 +263,11 @@
 .gang-final-titulo {
   margin: 4px 0 6px;
   font: 800 clamp(1.6rem, calc(9 * var(--app-vw) / 100), 2.2rem)/1 var(--font-display);
-  letter-spacing: 0.04em; color: #fff;
+  letter-spacing: 0.04em; color: var(--gang-branco);
   text-shadow: 0 0 26px rgba(168, 85, 247, 0.45);
 }
 .gang-final-par {
   margin: 0; font-size: 0.92rem; line-height: 1.6; color: #c7cdd6;
 }
-.gang-final-par:last-of-type { color: #fff; font-weight: 600; }
+.gang-final-par:last-of-type { color: var(--gang-branco); font-weight: 600; }
 .gang-report--final .gang-report-primary { margin-top: 12px; }

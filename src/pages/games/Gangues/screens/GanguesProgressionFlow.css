@@ -1,6 +1,6 @@
 .gang-progression-prompt {
-  position: fixed; inset: 0; z-index: 1200; display: grid; place-items: center;
-  padding: 16px; background: rgba(0, 0, 0, .82); backdrop-filter: blur(8px);
+  position: fixed; inset: 0 var(--app-gutter); z-index: 1200; display: grid; place-items: center;
+  padding: 16px; background: rgba(0, 0, 0, .82); backdrop-filter: blur(8px); overscroll-behavior: none;
 }
 .gang-progression-prompt__card {
   width: min(100%, 390px); border: 1px solid rgba(245, 166, 35, .55); border-radius: 10px;
@@ -8,7 +8,7 @@
   padding: 24px 18px 18px; box-shadow: 0 24px 70px rgba(0, 0, 0, .65); text-align: center;
 }
 .gang-progression-prompt__icon { display: block; margin-bottom: 8px; color: var(--if-amber); font-size: 32px; }
-.gang-progression-prompt h2 { margin: 0 0 8px; color: #eef4f6; font: 900 22px 'Rajdhani', sans-serif; letter-spacing: 1.5px; }
+.gang-progression-prompt h2 { margin: 0 0 8px; color: var(--gang-gelo-50); font: 900 22px 'Rajdhani', sans-serif; letter-spacing: 1.5px; }
 .gang-progression-prompt p { margin: 0 0 18px; color: #9cacb2; font: 500 13px/1.5 'Rajdhani', sans-serif; }
 .gang-progression-prompt button {
   width: 100%; min-height: 48px; border: 1px solid #40545c; border-radius: 5px;
@@ -87,14 +87,14 @@
   font: 700 0.68rem var(--font-mono);
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #ffd9a0;
-  background: #1a0f08;
+  color: var(--gang-creme);
+  background: var(--gang-madeira-900);
   border: 1px solid color-mix(in srgb, var(--if-amber) 40%, transparent);
   cursor: pointer;
   transition: background 0.2s, color 0.2s;
   clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
 }
-.gang-progression-screen-back:hover { background: var(--if-amber); color: #1a0f08; }
+.gang-progression-screen-back:hover { background: var(--if-amber); color: var(--gang-madeira-900); }
 
 /* ── Confirmação de gasto de XP ── */
 
@@ -102,7 +102,7 @@
 /* ── Destaque de poder ── (o badge .gang-skill-node-badge mora em styles/progressao.css) */
 /* .gang-skill-node--equipped mora em styles/progressao.css, logo depois da base .gang-skill-node. */
 @keyframes gang-skill-novo {
-  0% { box-shadow: 0 0 0 0 rgba(255, 206, 107, 0.9); border-color: #ffce6b; }
+  0% { box-shadow: 0 0 0 0 rgba(255, 206, 107, 0.9); border-color: var(--gang-ouro-300); }
   100% { box-shadow: 0 0 22px -4px rgba(245, 166, 35, 0.5); }
 }
 
@@ -148,7 +148,7 @@
   background: rgba(255, 255, 255, 0.02);
 }
 .gang-reward-item b { font-size: 1.15rem; line-height: 1; }
-.gang-reward-item strong { font: 900 1.3rem var(--font-display); color: #fff; line-height: 1.1; }
+.gang-reward-item strong { font: 900 1.3rem var(--font-display); color: var(--gang-branco); line-height: 1.1; }
 .gang-reward-item span { font: 700 0.56rem var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-secondary); }
 .gang-reward-item--grana { border-color: color-mix(in srgb, #7ed957 45%, transparent); box-shadow: 0 0 20px -8px rgba(126, 217, 87, .45); }
 .gang-reward-item--grana strong { color: #7ed957; }

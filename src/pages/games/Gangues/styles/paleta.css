@@ -1,0 +1,76 @@
+/* LDI Gangues — PALETA do jogo (tokens de cor).
+   Refatoração de CSS, set/2026 (Fase 4). Toda cor que se repete no jogo mora
+   aqui com nome de família; os CSS das telas usam var(--gang-*). As cores que
+   batem exatamente com um token do portal usam o token do portal direto
+   (--if-cyan, --if-ok, --if-violet, --if-blood, --text-secondary).
+   Os valores são EXATAMENTE os que estavam escritos à mão antes — trocar a cor
+   por token não mudou nada na tela (validado por estilo computado).
+   Cor nova no jogo: primeiro procurar aqui ou no design-system do portal. */
+:root {
+  /* Neutros */
+  --gang-branco: #ffffff;
+  --gang-preto: #000000;
+  --gang-carvao: #111111;
+  --gang-carvao-800: #1c1c1c;
+  --gang-carvao-700: #2a2a2a;
+  --gang-cinza-400: #8b93a0;
+  --gang-cinza-600: #5a5f62;
+  --gang-cinza-azul-400: #8b989e;
+  --gang-cinza-azul-500: #7b898f;
+
+  /* Gelo — textos claros azulados */
+  --gang-gelo-50: #eef4f6;
+  --gang-gelo-100: #e8f1f2;
+  --gang-gelo-300: #ccd6d9;
+  --gang-gelo-350: #c6d0d7;
+  --gang-gelo-400: #c6cdd2;
+
+  /* Noite — fundos escuros azulados (painéis de combate, mapa) */
+  --gang-noite-700: #26383d;
+  --gang-noite-850: #0d151b;
+  --gang-noite-875: #0e1417;
+  --gang-noite-900: #04141a;
+  --gang-noite-950: #070a0d;
+  --gang-noite-975: #05080a;
+
+  /* Madeira — fundos marrons (diálogo, birosca, cartaz) */
+  --gang-madeira-800: #241108;
+  --gang-madeira-900: #1a0f08;
+  --gang-madeira-925: #150a05;
+  --gang-madeira-940: #14100c;
+  --gang-madeira-950: #0c0603;
+  --gang-breu: #1b1000;
+
+  /* Tijolo e couro */
+  --gang-tijolo-600: #6b3a28;
+  --gang-tijolo-800: #3d1f16;
+  --gang-couro-500: #6a6358;
+  --gang-couro-550: #6a5a44;
+  --gang-couro-600: #5a4a3a;
+
+  /* Papel — cartaz, caderneta */
+  --gang-papel: #fff8ec;
+  --gang-papel-200: #e7ded0;
+  --gang-papel-300: #d8d2c4;
+  --gang-papel-400: #cfc6bb;
+  --gang-creme: #ffd9a0;
+  --gang-ouro-300: #ffce6b;
+
+  /* Vermelhos — dano, perigo, derrota */
+  --gang-vermelho-200: #ffb3b3;
+  --gang-vermelho-300: #ff8a8a;
+  --gang-vermelho-400: #ff6b6b;
+  --gang-vermelho-450: #ff5a5a;
+  --gang-vermelho-475: #ff4d4d;
+  --gang-vermelho-500: #ff3b3b;
+  --gang-vermelho-550: #dc5961;
+  --gang-vermelho-600: #cc4444;
+  --gang-brasa-600: #c9432f;
+  --gang-laranja-500: #e8722a;
+
+  /* Verdes e azul */
+  --gang-pista: #3ddc97;
+  --gang-verde-feito: #6be07a;
+  --gang-verde-900: #0a1a14;
+  --gang-azul-600: #2e6fb0;
+}

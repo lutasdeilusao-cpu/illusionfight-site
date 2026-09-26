@@ -10,7 +10,7 @@
    alerta) igual o resto dos controles da barra. */
 .gang-vs-bar-back {
   background: rgba(220,89,97,0.14); border: 1px solid rgba(220,89,97,0.55);
-  border-radius: 3px; color: #dc5961; font-size: 10px;
+  border-radius: 3px; color: var(--gang-vermelho-550); font-size: 10px;
   font-family: 'Courier New', monospace; font-weight: 700; cursor: pointer; letter-spacing: 1px;
   padding: 4px 9px; transition: color 0.2s, background 0.2s, border-color 0.2s; flex-shrink: 0;
 }
@@ -24,8 +24,8 @@
 .gang-vs-bar-turn-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
 .gang-vs-bar-turn--player { color: var(--if-teal); }
 .gang-vs-bar-turn--player .gang-vs-bar-turn-dot { background: var(--if-teal); animation: gang-turn-blink 1s ease-in-out infinite; }
-.gang-vs-bar-turn--enemy { color: #cc4444; }
-.gang-vs-bar-turn--enemy .gang-vs-bar-turn-dot { background: #cc4444; animation: gang-turn-blink 1s ease-in-out infinite; }
+.gang-vs-bar-turn--enemy { color: var(--gang-vermelho-600); }
+.gang-vs-bar-turn--enemy .gang-vs-bar-turn-dot { background: var(--gang-vermelho-600); animation: gang-turn-blink 1s ease-in-out infinite; }
 @keyframes gang-turn-blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.25; } }
 
 /* --- Trash talk: um botão redondo que abre um popover com as 3 frases,
@@ -80,7 +80,7 @@
   background: rgba(0, 180, 216, 0.15); border: 1px solid rgba(0, 180, 216, 0.3); color: var(--if-teal);
 }
 .gang-msg-avatar--enemy {
-  background: rgba(139, 0, 0, 0.15); border: 1px solid rgba(139, 0, 0, 0.3); color: #cc4444;
+  background: rgba(139, 0, 0, 0.15); border: 1px solid rgba(139, 0, 0, 0.3); color: var(--gang-vermelho-600);
 }
 .gang-msg-avatar--trash {
   background: rgba(245, 166, 35, 0.1); border: 1px solid rgba(245, 166, 35, 0.25); color: var(--if-amber);
@@ -103,7 +103,7 @@
   border-bottom-left-radius: 3px; color: #c89940; font-style: italic;
 }
 .gang-bubble--system {
-  background: transparent; border: none; color: #2a2a2a;
+  background: transparent; border: none; color: var(--gang-carvao-700);
   font-size: 10px; text-align: center; letter-spacing: 2px; padding: 2px 0;
 }
 @keyframes gang-typing {
@@ -119,7 +119,7 @@
   display: flex; align-items: center; gap: 6px;
 }
 .gang-attack-card--player .gang-attack-card-header { background: rgba(0, 180, 216, 0.1); color: var(--if-teal); }
-.gang-attack-card--enemy .gang-attack-card-header { background: rgba(139, 0, 0, 0.1); color: #cc4444; }
+.gang-attack-card--enemy .gang-attack-card-header { background: rgba(139, 0, 0, 0.1); color: var(--gang-vermelho-600); }
 /* Poder usado (não soco comum) — borda tingida com a cor do arquétipo do
    poder (ver ganguesEffectThemes.js), pra reforçar no log o mesmo visual que
    já apareceu na tela do dado, não só durante o flash da rolagem. */
@@ -128,20 +128,20 @@
 .gang-attack-card-power { font-size: 8px; letter-spacing: 2px; opacity: 0.85; margin-left: auto; }
 .gang-attack-card-body { padding: 10px 12px; background: rgba(0,0,0,0.3); display: flex; flex-direction: column; gap: 4px; }
 .gang-attack-card-row { display: flex; justify-content: space-between; align-items: center; font-size: 10px; }
-.gang-attack-card-key { color: #8b93a0; letter-spacing: 1px; }
+.gang-attack-card-key { color: var(--gang-cinza-400); letter-spacing: 1px; }
 .gang-attack-card-val { color: #b0b8bf; font-size: 10px; }
 .gang-attack-card-divider { height: 1px; background: rgba(255,255,255,0.04); margin: 4px 0; }
 .gang-attack-card-damage { display: flex; justify-content: space-between; align-items: baseline; }
-.gang-attack-card-damage-label { font-size: 9px; color: #8b93a0; letter-spacing: 2px; text-transform: uppercase; }
+.gang-attack-card-damage-label { font-size: 9px; color: var(--gang-cinza-400); letter-spacing: 2px; text-transform: uppercase; }
 .gang-attack-card-damage-val { font-size: 22px; font-weight: 900; font-family: 'Rajdhani', sans-serif; line-height: 1; }
 .gang-attack-card--player .gang-attack-card-damage-val { color: var(--if-teal); }
-.gang-attack-card--enemy .gang-attack-card-damage-val { color: #cc4444; }
+.gang-attack-card--enemy .gang-attack-card-damage-val { color: var(--gang-vermelho-600); }
 
 .gang-attack-card-bonus { display: flex; align-items: center; gap: 5px; padding: 4px 6px; margin-top: 2px; border-radius: 4px; font-size: 9px; letter-spacing: 0.5px; text-transform: uppercase; }
 .gang-attack-card-bonus--hit { background: rgba(245, 166, 35, 0.12); color: var(--if-amber); }
 .gang-attack-card-bonus--miss { background: rgba(255, 255, 255, 0.03); color: #9aa3ad; text-decoration: line-through; }
-.gang-attack-card-bonus--critical { background: rgba(220, 45, 55, 0.15); color: #ff6b6b; font-weight: 700; }
-.gang-attack-card-damage-val--zero { color: #8b93a0 !important; font-size: 16px; }
+.gang-attack-card-bonus--critical { background: rgba(220, 45, 55, 0.15); color: var(--gang-vermelho-400); font-weight: 700; }
+.gang-attack-card-damage-val--zero { color: var(--gang-cinza-400) !important; font-size: 16px; }
 
 /* --- Actions bar (rodapé fixo) --- */
 .gang-actions-bar {
@@ -150,7 +150,7 @@
 }
 .gang-actions-row { display: flex; gap: 8px; align-items: center; }
 .gang-attack-btn {
-  flex: 1; padding: 12px; background: linear-gradient(135deg, #8B0000 0%, #a00000 100%);
+  flex: 1; padding: 12px; background: linear-gradient(135deg, var(--if-blood) 0%, #a00000 100%);
   border: 1px solid rgba(204,0,0,0.5); color: #eee; cursor: pointer;
   font-family: 'Courier New', monospace; font-size: 13px; font-weight: bold;
   letter-spacing: 6px; border-radius: 4px; transition: all 0.15s;
@@ -172,9 +172,9 @@
 /* Pergunta de início de luta (Sim/Não pra já começar em Briga em Multidão) —
    backdrop sólido, acima de TUDO (dado/KO/resultado usam 9999). */
 .gang-multidao-prompt-overlay {
-  position: fixed; inset: 0; z-index: 10000;
+  position: fixed; inset: 0 var(--app-gutter); z-index: 10000;
   display: flex; align-items: center; justify-content: center;
-  background: rgba(5, 8, 12, 0.88); padding: 20px;
+  background: rgba(5, 8, 12, 0.88); padding: 20px; overscroll-behavior: none;
 }
 .gang-multidao-prompt-box {
   max-width: 360px; width: 100%; padding: 24px 20px;
@@ -214,26 +214,21 @@
 /* ── Partículas de vitória/derrota ── */
 
 /* ===== MOBILE ===== */
-@media (max-width: 600px) {
-  .gang-container { padding: 0; }
-
-  .gang-vs-bar { padding: 3px 10px; gap: 8px; }
-  .gang-vs-bar-turn { font-size: 9px; }
-  .gang-vs-bar-back { font-size: 9px; }
-
-  .gang-log-area {
+.gang-container { padding: 0; }
+.gang-vs-bar { padding: 3px 10px; gap: 8px; }
+.gang-vs-bar-turn { font-size: 9px; }
+.gang-vs-bar-back { font-size: 9px; }
+.gang-log-area {
     flex: 1;
     padding: 8px 10px;
     max-height: none;
     min-height: 0;
     gap: 6px;
   }
-  .gang-bubble { max-width: 82%; font-size: 11px; padding: 6px 10px; }
-  .gang-attack-card { max-width: 88%; }
-  .gang-attack-card-damage-val { font-size: 18px; }
-  .gang-msg-wrap { gap: 6px; }
-  .gang-msg-avatar { width: 24px; height: 24px; font-size: 10px; }
-
-  .gang-actions-bar { padding: 8px 12px 12px; gap: 6px; }
-  .gang-attack-btn { padding: 10px; font-size: 12px; letter-spacing: 4px; }
-}
+.gang-bubble { max-width: 82%; font-size: 11px; padding: 6px 10px; }
+.gang-attack-card { max-width: 88%; }
+.gang-attack-card-damage-val { font-size: 18px; }
+.gang-msg-wrap { gap: 6px; }
+.gang-msg-avatar { width: 24px; height: 24px; font-size: 10px; }
+.gang-actions-bar { padding: 8px 12px 12px; gap: 6px; }
+.gang-attack-btn { padding: 10px; font-size: 12px; letter-spacing: 4px; }

@@ -13,7 +13,7 @@
      #root embaixo, que só sumia mexendo na Rádio Nina (forçava reflow + a
      barra de URL assentava). Fixed acompanha o viewport visual e cobre o #root. */
   position: fixed;
-  inset: 0;
+  inset: 0 var(--app-gutter);
   /* Reserva o espaço da tira de guest (topo) e da Rádio Nina (topo OU rodapé,
      conforme a posição escolhida) — sem isso os dois ficam fixos por cima do
      jogo em vez de empurrar o conteúdo, como acontecia no combate. */

@@ -17,13 +17,13 @@
 .gang-naming-poster {
   --corte: polygon(2% 3%, 30% 0%, 55% 2%, 78% 0%, 98% 3%, 100% 22%, 97% 45%, 100% 68%, 98% 92%, 72% 100%, 45% 97%, 20% 100%, 2% 96%, 0% 70%, 3% 45%, 0% 20%);
   position: relative; width: 100%; margin: auto 0; padding: 28px 22px 26px;
-  background: linear-gradient(155deg, #241108, #150a05 55%, #0c0603);
+  background: linear-gradient(155deg, var(--gang-madeira-800), var(--gang-madeira-925) 55%, var(--gang-madeira-950));
   clip-path: var(--corte);
   box-shadow: 0 26px 60px -30px rgba(0, 0, 0, .85);
 }
 .gang-naming-poster::before {
   content: ''; position: absolute; inset: -8px; z-index: -1;
-  background: linear-gradient(160deg, #6b3a28, #3d1f16); clip-path: var(--corte);
+  background: linear-gradient(160deg, var(--gang-tijolo-600), var(--gang-tijolo-800)); clip-path: var(--corte);
 }
 .gang-naming-poster__fita {
   position: absolute; top: -10px; width: 62px; height: 26px; z-index: 2;
@@ -35,10 +35,10 @@
 
 .gang-naming-poster__logo { display: block; width: min(62%, 220px); height: auto; margin: 0 auto 14px; filter: drop-shadow(0 8px 18px rgba(0, 0, 0, .55)); }
 .gang-naming-poster__titulo {
-  margin: 0 0 8px; color: #ffd9a0; font: 400 2rem/1.05 'Permanent Marker', cursive;
+  margin: 0 0 8px; color: var(--gang-creme); font: 400 2rem/1.05 'Permanent Marker', cursive;
   text-shadow: 0 2px 0 rgba(0, 0, 0, .6); transform: rotate(-1deg);
 }
-.gang-naming-poster__pitch { margin: 0 0 18px; max-width: 42ch; color: #cfc6bb; font-size: .84rem; line-height: 1.55; }
+.gang-naming-poster__pitch { margin: 0 0 18px; max-width: 42ch; color: var(--gang-papel-400); font-size: .84rem; line-height: 1.55; }
 
 /* Campo de nome — herda a base de GanguesModes.css (.gang-naming-campo),
    só retonado pra âmbar (o teal de lá é do resto do jogo, aqui é a
@@ -72,7 +72,7 @@
 }
 .gang-naming-spray:active::after { translate: 140% 0; }
 .gang-naming-spray strong {
-  position: relative; z-index: 1; color: #fff8ec; font: 400 1.4rem/1 'Permanent Marker', cursive;
+  position: relative; z-index: 1; color: var(--gang-papel); font: 400 1.4rem/1 'Permanent Marker', cursive;
   text-shadow: 0 2px 0 rgba(0, 0, 0, .6), 0 0 18px color-mix(in srgb, var(--cor) 70%, transparent);
   transform: rotate(-1deg);
 }

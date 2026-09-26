@@ -7,12 +7,13 @@
    ============================================================ */
 .gang-match-result {
   position: fixed;
-  inset: 0;
+  inset: 0 var(--app-gutter);
   z-index: 9998;
   display: flex;
   align-items: center;
   justify-content: center;
   isolation: isolate;
+  overscroll-behavior: none;
 }
 
 .gang-match-result-bg {
@@ -86,7 +87,7 @@
   font-family: 'Impact', 'Arial Black', sans-serif;
   font-size: 20px;
   letter-spacing: 4px;
-  color: #fff;
+  color: var(--gang-branco);
   background: linear-gradient(135deg, var(--if-teal), #0077B6);
   border: 2px solid rgba(255, 255, 255, 0.15);
   border-radius: 8px;
@@ -105,12 +106,10 @@
 }
 
 /* Mobile */
-@media (max-width: 600px) {
-  .gang-match-result-icon { font-size: 48px; }
-  .gang-match-result-title { font-size: 32px; letter-spacing: 4px; }
-  .gang-match-result-sub { font-size: 15px; }
-  .gang-match-result-btn { padding: 12px 36px; font-size: 16px; }
-}
+.gang-match-result-icon { font-size: 48px; }
+.gang-match-result-title { font-size: 32px; letter-spacing: 4px; }
+.gang-match-result-sub { font-size: 15px; }
+.gang-match-result-btn { padding: 12px 36px; font-size: 16px; }
 
 /* ===== LIMITE DE FICHAS ===== */
 

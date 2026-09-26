@@ -3,6 +3,7 @@
    Fatiado por assunto em ./styles/ na refatoração de set/2026. A ORDEM dos
    @import abaixo é a ordem de cascata de antes — não reordenar sem testar o
    estilo computado das telas (Playwright). */
+@import './styles/paleta.css';
 @import './styles/pagina.css';
 @import './styles/lobby-legado.css';
 @import './styles/combate-hud.css';

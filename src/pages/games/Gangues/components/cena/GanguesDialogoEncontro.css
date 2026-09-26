@@ -21,7 +21,7 @@
   background: rgba(4, 8, 10, 0.7); border: 1px solid var(--if-hair-strong);
   cursor: pointer;
 }
-.gdlg-close:hover { color: #fff; border-color: rgba(255, 255, 255, 0.4); }
+.gdlg-close:hover { color: var(--gang-branco); border-color: rgba(255, 255, 255, 0.4); }
 
 /* Cabeça do NPC — mesmo truque visual do GangDialog (retrato circular,
    "flutuando" por cima do balão), só compacto pra caber no meio da cena
@@ -32,12 +32,12 @@
 }
 .gdlg-portrait-face {
   display: grid; place-items: center; width: 100%; height: 100%; overflow: hidden; border-radius: 50%;
-  background: linear-gradient(150deg, var(--terr-cor), color-mix(in srgb, var(--terr-cor) 55%, #000));
+  background: linear-gradient(150deg, var(--terr-cor), color-mix(in srgb, var(--terr-cor) 55%, var(--gang-preto)));
   border: 3px solid rgba(0, 0, 0, 0.5);
   animation: gdlg-idle 3.6s ease-in-out infinite;
 }
 .gdlg-portrait-face img { width: 100%; height: 100%; object-fit: cover; image-rendering: pixelated; }
-.gdlg-portrait-face b { font: 900 1.7rem var(--font-display); color: #04141a; }
+.gdlg-portrait-face b { font: 900 1.7rem var(--font-display); color: var(--gang-noite-900); }
 @keyframes gdlg-idle {
   0%, 100% { transform: translateY(0) rotate(-2deg); }
   50% { transform: translateY(-5px) rotate(2deg); }
@@ -49,7 +49,7 @@
 .gdlg-bubble {
   position: relative; z-index: 1; width: 100%; padding: 34px 16px 14px;
   display: flex; flex-direction: column; align-items: center; gap: 0.5rem; text-align: center;
-  background: linear-gradient(160deg, #0d151b, #070a0d 72%);
+  background: linear-gradient(160deg, var(--gang-noite-850), var(--gang-noite-950) 72%);
   border: 1px solid color-mix(in srgb, var(--terr-cor) 55%, transparent);
   box-shadow: 0 0 44px -12px color-mix(in srgb, var(--terr-cor) 55%, transparent);
   clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%);
@@ -62,7 +62,7 @@
 .gdlg-bubble-tail::after {
   content: ''; position: absolute; top: 2px; left: -8px;
   width: 0; height: 0; border-left: 8px solid transparent; border-right: 8px solid transparent;
-  border-bottom: 10px solid #0d151b;
+  border-bottom: 10px solid var(--gang-noite-850);
 }
 
 .gdlg-nome {
@@ -90,7 +90,7 @@
 }
 .gdlg-btn:hover:not(:disabled) { transform: translateY(-1px); border-color: color-mix(in srgb, var(--terr-cor) 60%, transparent); }
 .gdlg-btn:disabled { opacity: 0.4; cursor: not-allowed; }
-.gdlg-btn--go { color: #04141a; background: var(--terr-cor); border-color: var(--terr-cor); font-weight: 800; }
+.gdlg-btn--go { color: var(--gang-noite-900); background: var(--terr-cor); border-color: var(--terr-cor); font-weight: 800; }
 .gdlg-btn--treta { color: #ffd7d7; background: rgba(255, 107, 107, 0.14); border-color: #ff6b6b66; }
 .gdlg-btn--link { justify-content: center; background: transparent; border-color: transparent; color: var(--terr-cor); text-decoration: underline; text-underline-offset: 3px; min-height: 34px; }
 .gdlg-btn--link:hover:not(:disabled) { transform: none; background: rgba(255, 255, 255, 0.04); }

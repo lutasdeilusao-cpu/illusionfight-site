@@ -10,7 +10,7 @@
      lá também). Substituiu a receita 100% CSS pelo JPG com o graffiti dos
      30 nomes do elenco (pedido do Isaias, 14/09/2026: "essa vai ser a BG
      oficial... esse aqui tá muito melhor"). */
-  background-color: #1a0f08;
+  background-color: var(--gang-madeira-900);
   /* Véu escuro por cima da arte — mesma correção de Gangues.css
      `.gang-brickwall-bg` (o graffiti tem texto/cor forte demais pra
      ficar por baixo da UI sem esmaecer primeiro). */
@@ -26,7 +26,7 @@
      e em qualquer desktop sem emulador a parede vinha gigante/cortada. */
   background-attachment: scroll, scroll;
 }
-.gang-saves__loading { padding: 20px 16px 0; text-align: center; color: #cfc6bb; font-size: .82rem; }
+.gang-saves__loading { padding: 20px 16px 0; text-align: center; color: var(--gang-papel-400); font-size: .82rem; }
 
 /* ══ FLASH + TREMOR do impacto — disparam no momento em que a LOGO bate
    na parede (IMPACT_MS no JSX, hoje 1400ms), não na montagem. ══ */
@@ -51,7 +51,7 @@
 .gang-saves__tijolos { position: absolute; inset: 0; z-index: 5; pointer-events: none; overflow: hidden; }
 .gang-saves__tijolos i {
   position: absolute; top: -120px; width: 13%; height: 40px;
-  background: linear-gradient(160deg, #6b3a28, #3d1f16);
+  background: linear-gradient(160deg, var(--gang-tijolo-600), var(--gang-tijolo-800));
   border: 1px solid rgba(0, 0, 0, .5); box-shadow: 0 10px 18px -6px rgba(0, 0, 0, .6);
   opacity: 0; animation: gang-saves-tijolo-cai .85s cubic-bezier(.34,1.2,.64,1) both;
 }
@@ -86,7 +86,7 @@
 .gang-saves__estilhacos { position: absolute; inset: 0; z-index: 6; pointer-events: none; overflow: hidden; }
 .gang-saves__estilhacos i {
   position: absolute; top: 45%; left: 50%; width: 14px; height: 14px;
-  background: linear-gradient(160deg, #6b3a28, #3d1f16); clip-path: polygon(50% 0, 100% 100%, 0 100%);
+  background: linear-gradient(160deg, var(--gang-tijolo-600), var(--gang-tijolo-800)); clip-path: polygon(50% 0, 100% 100%, 0 100%);
   opacity: 0; animation: gang-saves-estilhaco .6s cubic-bezier(.25,.8,.4,1) 1.4s both;
 }
 .gang-saves__estilhacos i:nth-child(1) { --dx: -160px; --dy: -90px; --rot: -140deg; }
@@ -139,7 +139,7 @@
 
 .gang-saves__tagline {
   position: relative; z-index: 1; max-width: 26ch; margin: 0; padding: 4px 14px;
-  color: #ffd9a0; font: 400 1.15rem/1.4 'Permanent Marker', cursive;
+  color: var(--gang-creme); font: 400 1.15rem/1.4 'Permanent Marker', cursive;
   text-shadow: 0 2px 0 rgba(0, 0, 0, .55); transform: rotate(-1.2deg);
 }
 
@@ -184,12 +184,12 @@
 }
 .gang-saves__buraco::before {
   content: ''; position: absolute; inset: -9px; z-index: -1;
-  background: linear-gradient(160deg, #6b3a28, #3d1f16); clip-path: var(--buraco-corte);
+  background: linear-gradient(160deg, var(--gang-tijolo-600), var(--gang-tijolo-800)); clip-path: var(--buraco-corte);
 }
 .gang-saves__buraco-estilhaco { position: absolute; inset: 0; pointer-events: none; }
 .gang-saves__buraco-estilhaco i {
   position: absolute; width: 12px; height: 12px;
-  background: linear-gradient(160deg, #6b3a28, #3d1f16); clip-path: polygon(50% 0, 100% 100%, 0 100%);
+  background: linear-gradient(160deg, var(--gang-tijolo-600), var(--gang-tijolo-800)); clip-path: polygon(50% 0, 100% 100%, 0 100%);
 }
 .gang-saves__buraco-estilhaco i:nth-child(1) { top: -8px; left: 10%; rotate: -12deg; }
 .gang-saves__buraco-estilhaco i:nth-child(2) { top: -10px; left: 34%; rotate: 8deg; scale: 1.3; }
@@ -229,7 +229,7 @@
 }
 .gang-saves__spray:active::after { translate: 140% 0; }
 .gang-saves__spray strong {
-  position: relative; z-index: 1; color: #fff8ec; font: 400 1.5rem/1 'Permanent Marker', cursive;
+  position: relative; z-index: 1; color: var(--gang-papel); font: 400 1.5rem/1 'Permanent Marker', cursive;
   letter-spacing: .01em; text-shadow: 0 2px 0 rgba(0, 0, 0, .6), 0 0 18px color-mix(in srgb, var(--cor) 70%, transparent);
   transform: rotate(-1deg);
 }
@@ -252,7 +252,7 @@
 .gang-saves__card {
   position: relative; overflow: hidden; width: 100%; min-height: 128px; padding: 20px 22px 48px 28px;
   display: grid; gap: 6px; text-align: left;
-  background: linear-gradient(155deg, #241108, #150a05 55%, #0c0603);
+  background: linear-gradient(155deg, var(--gang-madeira-800), var(--gang-madeira-925) 55%, var(--gang-madeira-950));
   clip-path: var(--card-corte);
   box-shadow: 0 18px 42px -30px var(--save-cor);
 }
@@ -273,7 +273,7 @@
 .gang-saves__card:active::after { translate: 140% 0; }
 .gang-saves__card-index { position: relative; z-index: 1; color: var(--save-cor); font: 800 .64rem var(--font-mono); letter-spacing: .2em; text-transform: uppercase; }
 .gang-saves__card-nome {
-  position: relative; z-index: 1; color: #fff8ec; font: 400 1.7rem/1.05 'Permanent Marker', cursive;
+  position: relative; z-index: 1; color: var(--gang-papel); font: 400 1.7rem/1.05 'Permanent Marker', cursive;
   text-shadow: 0 2px 0 rgba(0, 0, 0, .55); transform: rotate(-.6deg);
 }
 .gang-saves__card-meta { position: relative; z-index: 1; display: flex; justify-content: space-between; color: #d9d0c4; font: 700 .68rem var(--font-mono); }
@@ -285,9 +285,9 @@
 .gang-saves__card-delete {
   position: absolute; top: 10px; right: 10px; z-index: 2; width: 30px; height: 30px;
   display: grid; place-items: center; border: 1px solid rgba(255, 107, 107, .45);
-  background: color-mix(in srgb, #0a0605 75%, transparent); color: #ff8a8a; font-size: .82rem;
+  background: color-mix(in srgb, #0a0605 75%, transparent); color: var(--gang-vermelho-300); font-size: .82rem;
 }
-.gang-saves__card-delete:hover, .gang-saves__card-delete:active { background: #e0453f; border-color: #ff6b6b; color: #fff; }
+.gang-saves__card-delete:hover, .gang-saves__card-delete:active { background: #e0453f; border-color: var(--gang-vermelho-400); color: var(--gang-branco); }
 .gang-saves__card-delete:disabled { opacity: .4; }
 
 .gang-saves__limite { margin-top: 16px; padding: 12px; border: 1px dashed var(--if-hair); color: var(--text-secondary); text-align: center; font-size: .74rem; background: rgba(0, 0, 0, .4); }

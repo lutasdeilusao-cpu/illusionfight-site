@@ -11,7 +11,7 @@
    GanguesSaveSelect.css porque aquela tela precisa ser full-bleed por
    conta própria; qualquer ajuste aqui precisa espelhar lá também. */
 .gang-brickwall-bg {
-  background-color: #1a0f08;
+  background-color: var(--gang-madeira-900);
   /* Véu escuro por cima da arte (2ª camada) — sem ele o graffiti (cheio
      de nomes/cores fortes) brigava com o texto da UI por cima (reportado
      no 1º teste visual: título e botões ilegíveis sobre a parede real). */

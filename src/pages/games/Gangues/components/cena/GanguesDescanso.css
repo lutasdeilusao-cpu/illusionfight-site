@@ -19,15 +19,15 @@
 .gds-lista-avatar {
   flex: none; width: 28px; height: 28px; overflow: hidden; border-radius: 50%;
   display: grid; place-items: center;
-  background: linear-gradient(150deg, var(--terr-cor), color-mix(in srgb, var(--terr-cor) 55%, #000));
+  background: linear-gradient(150deg, var(--terr-cor), color-mix(in srgb, var(--terr-cor) 55%, var(--gang-preto)));
   border: 1px solid rgba(0, 0, 0, 0.5);
 }
 .gds-lista-avatar img { width: 100%; height: 100%; object-fit: cover; image-rendering: pixelated; }
-.gds-lista-avatar b { font: 900 0.78rem var(--font-display); color: #04141a; }
+.gds-lista-avatar b { font: 900 0.78rem var(--font-display); color: var(--gang-noite-900); }
 .gds-lista-nome { flex: 1; min-width: 0; font: 800 0.78rem var(--font-display); letter-spacing: 0.04em; }
 .gds-lista-ganho { flex: none; display: flex; gap: 8px; }
 .gds-lista-ganho em { font-style: normal; font: 800 0.72rem var(--font-mono); }
-.gds-lista-ganho .is-pv { color: #6be07a; }
+.gds-lista-ganho .is-pv { color: var(--gang-verde-feito); }
 .gds-lista-ganho .is-pm { color: var(--if-cyan); }
 
 /* Letra miúda do contrato do agiota (GanguesAgiota.jsx) — a dívida exata,

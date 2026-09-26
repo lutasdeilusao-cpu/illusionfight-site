@@ -16,7 +16,7 @@
 .gang-ficha-modal-card {
   display: flex; flex-direction: column; align-items: center; gap: 6px;
   width: min(260px, 82%); padding: 20px 18px;
-  background: linear-gradient(155deg, #241108, #150a05 55%, #0c0603);
+  background: linear-gradient(155deg, var(--gang-madeira-800), var(--gang-madeira-925) 55%, var(--gang-madeira-950));
   border: 1px solid color-mix(in srgb, var(--if-amber) 30%, transparent); border-radius: 14px;
   box-shadow: 0 12px 40px rgba(0,0,0,0.5);
 }
@@ -26,11 +26,12 @@
 
 .gang-fala-final {
   position: fixed;
-  inset: 0;
+  inset: 0 var(--app-gutter);
   z-index: 900;
   display: grid;
   place-items: center;
   padding: 1.5rem;
+  overscroll-behavior: none;
 }
 
 .gang-fala-final-bg {
@@ -41,7 +42,7 @@
 }
 
 .gang-fala-final-card {
-  --fc: #ff6b6b;
+  --fc: var(--gang-vermelho-400);
   position: relative;
   display: grid;
   justify-items: center;
@@ -50,14 +51,14 @@
   max-width: 340px;
   padding: 1.5rem 1.25rem 1.4rem;
   border: 1px solid color-mix(in srgb, var(--fc) 45%, transparent);
-  background: linear-gradient(160deg, #0d1116, #070a0d 70%);
+  background: linear-gradient(160deg, #0d1116, var(--gang-noite-950) 70%);
   box-shadow: 0 0 46px -10px color-mix(in srgb, var(--fc) 60%, transparent);
   clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%);
 }
 
 /* Vitória do jogador: o inimigo caiu, tom apagado. Derrota: ele triunfa. */
 .gang-fala-final--victory .gang-fala-final-card { --fc: #6b7c88; }
-.gang-fala-final--defeat  .gang-fala-final-card { --fc: #ff6b6b; }
+.gang-fala-final--defeat  .gang-fala-final-card { --fc: var(--gang-vermelho-400); }
 
 .gang-fala-final-avatar {
   display: grid;
@@ -67,7 +68,7 @@
   height: 54px;
   border: 1px solid color-mix(in srgb, var(--fc) 60%, transparent);
   background: color-mix(in srgb, var(--fc) 14%, transparent);
-  color: color-mix(in srgb, var(--fc) 92%, #fff);
+  color: color-mix(in srgb, var(--fc) 92%, var(--gang-branco));
   font-family: var(--font-display);
   font-weight: 800;
   font-size: 1.5rem;
@@ -87,14 +88,14 @@
 .gang-fala-final-selo {
   padding: 0.12rem 0.5rem;
   border: 1px solid color-mix(in srgb, var(--fc) 60%, transparent);
-  color: color-mix(in srgb, var(--fc) 92%, #fff);
+  color: color-mix(in srgb, var(--fc) 92%, var(--gang-branco));
   font: 700 0.52rem var(--font-mono);
   letter-spacing: 0.16em;
 }
 
 .gang-fala-final-texto {
   margin: 0.35rem 0 0;
-  color: #c6d0d7;
+  color: var(--gang-gelo-350);
   font-family: var(--font-body);
   font-size: 0.98rem;
   font-style: italic;
