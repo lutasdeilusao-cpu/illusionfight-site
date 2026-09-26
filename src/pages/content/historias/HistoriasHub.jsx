@@ -5,7 +5,7 @@ import { useLanguage } from '../../../context/LanguageContext'
 import { useHistoriasAcesso } from '../../../hooks/useHistoriasAcesso'
 import { localizado } from '../../../lib/webshard/catalogo'
 import {
-  capaPadrao, linhaPrincipal, listarHistorias, miniaturaCapHistoria, numeroCapHistoria, progressoHistoria,
+  capaContos, linhaPrincipal, listarHistorias, miniaturaCapHistoria, numeroCapHistoria, progressoHistoria,
 } from '../../../lib/historias/catalogo'
 import Farol, { PESOS } from '../../../components/Farol/Farol'
 import TituloHero from '../webshard/components/TituloHero'
@@ -93,7 +93,7 @@ export default function HistoriasHub({ tipo = null }) {
           {tipo === 'conto' && (
             <TituloHero
               titulo={colecao}
-              capa={capaPadrao()}
+              capa={capaContos()}
               nome={t('pages.contos.titulo')}
               as="h1"
               eyebrow={t('pages.historias.secao_ldi')}

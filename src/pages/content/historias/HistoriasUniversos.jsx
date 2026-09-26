@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useLanguage } from '../../../context/LanguageContext'
 import { localizado } from '../../../lib/webshard/catalogo'
-import { capaPadrao } from '../../../lib/historias/catalogo'
+import { capaContos } from '../../../lib/historias/catalogo'
 import Farol from '../../../components/Farol/Farol'
 import TituloCard from '../webshard/components/TituloCard'
 import './Historias.css'
@@ -43,7 +43,7 @@ export default function HistoriasUniversos({ historias }) {
             </TituloCard>
           )}
           {contos.length > 0 && (
-            <TituloCard titulo={colecaoContos} indice={2} capa={capaPadrao()} to="/historias/contos">
+            <TituloCard titulo={colecaoContos} indice={2} capa={capaContos()} to="/historias/contos">
               <span className="hist-card__tipo">{t('pages.historias.contos_qtd', { n: contos.length })}</span>
             </TituloCard>
           )}

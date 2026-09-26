@@ -230,8 +230,8 @@
     "semantic_hash": "266ca415119946a769d0dac2ab74d642"
   },
   "src/components/Navbar.jsx": {
-    "mtime": 1789196688.0156069,
-    "ast_hash": "f0e13a5649dcb479da6136672e558561",
+    "mtime": 1790392603.036372,
+    "ast_hash": "b935edf9f8857d67a659ff697ca18898",
     "semantic_hash": ""
   },
   "src/components/PlatformIcons.jsx": {
@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1790372667.1832068,
-    "ast_hash": "8e84ca13c38493f735f1da7820ecedae",
+    "mtime": 1790392638.1609302,
+    "ast_hash": "2d962fa11de1233a3106dd13ecfed33c",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2730,8 +2730,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1790372667.2192059,
-    "ast_hash": "b8b32b6cc6d3d780b16a92c500b8c0fe",
+    "mtime": 1790392638.3215137,
+    "ast_hash": "c935637d03f67f50b66de7d34df16f53",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -4565,18 +4565,18 @@
     "semantic_hash": ""
   },
   "src/i18n/core/en.json": {
-    "mtime": 1790370867.462579,
-    "ast_hash": "d26bd288d8a158cad3b1245668d54051",
+    "mtime": 1790392534.2212124,
+    "ast_hash": "f06cee68f0b4334a4337a785bdbd4775",
     "semantic_hash": ""
   },
   "src/i18n/core/es.json": {
-    "mtime": 1790370867.463561,
-    "ast_hash": "2dc67f7bdc38e7c6565319211a8f8191",
+    "mtime": 1790392534.228712,
+    "ast_hash": "ffd732f89e548ab9b143ecc045a61208",
     "semantic_hash": ""
   },
   "src/i18n/core/pt.json": {
-    "mtime": 1790370867.4605665,
-    "ast_hash": "ff86ef50d6d0dfc5c3ed5b6897a99c11",
+    "mtime": 1790392534.2118292,
+    "ast_hash": "33419d70c13796aafa88f1ae745c7e7e",
     "semantic_hash": ""
   },
   "src/i18n/games/en.json": {
@@ -5540,8 +5540,8 @@
     "semantic_hash": ""
   },
   "src/pages/content/webshard/WebshardLeitor.jsx": {
-    "mtime": 1790356052.4067652,
-    "ast_hash": "4b50b54ebbe38ec4d7fc35874d305cfe",
+    "mtime": 1790392534.1811488,
+    "ast_hash": "e982ca2e357d7a8d282d69d6f0629eb7",
     "semantic_hash": ""
   },
   "src/pages/content/webshard/WebshardRota.jsx": {
@@ -5712,6 +5712,11 @@
   "src/assets/obras/mar-de-cinzas/scarn.webp": {
     "mtime": 1790365465.6980128,
     "ast_hash": "0eae195420c7cefcb1df117c9b86a612",
+    "semantic_hash": ""
+  },
+  "src/components/ShareButton/ShareButton.jsx": {
+    "mtime": 1790392509.893638,
+    "ast_hash": "de01b471e974a5576913d2f05c185044",
     "semantic_hash": ""
   }
 }

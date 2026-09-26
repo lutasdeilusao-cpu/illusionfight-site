@@ -8,7 +8,7 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.292.0' // feat(share): botão Compartilhar esta página na navbar (ao lado do menu) e no drawer — Web Share API (folha nativa: WhatsApp/Instagram/Telegram) com fallback de copiar link + aviso; resolve o app instalado (PWA tela cheia) sem barra de endereço. Leitor WEB SHARD usa a mesma função
+export const SITE_VERSION = '10.292.1' // feat(contos): arte oficial Illusion Tales vira a capa única da área de Contos (topo, card da coleção, capa e miniatura de cada conto/capítulo)
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.2' // fix: aba "stories" do rodape mostrava a chave crua pp.menu.pistas_label (nao existia) -> aponta pra pp.dossier.pistas_label; PuzzleWrapper mostrava pp.puzzle.nenhum/instrucao (nao existiam) -> pp.local.puzzle_nenhum/instrucao; confirm() de deletar save mostrava pp.menu.deletar_slot cru -> chave criada nos 3 idiomas.

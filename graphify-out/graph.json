@@ -294,314 +294,74 @@
       "norm_label": "13. onde procurar primeiro"
     },
     {
-      "label": "prerender-routes.js",
+      "label": "Navbar.jsx",
       "file_type": "code",
-      "source_file": "scripts/prerender-routes.js",
+      "source_file": "src/components/Navbar.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "scripts_prerender_routes",
-      "community": 95,
-      "norm_label": "prerender-routes.js"
+      "id": "src_components_navbar",
+      "community": 17,
+      "norm_label": "navbar.jsx"
     },
     {
-      "label": "DIST_DIR",
+      "label": "LOCALES",
       "file_type": "code",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L6",
-      "_origin": "ast",
-      "id": "scripts_prerender_routes_dist_dir",
-      "community": 95,
-      "norm_label": "dist_dir"
-    },
-    {
-      "label": "INDEX_PATH",
-      "file_type": "code",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L7",
-      "_origin": "ast",
-      "id": "scripts_prerender_routes_index_path",
-      "community": 95,
-      "norm_label": "index_path"
-    },
-    {
-      "label": "PUBLIC_SITEMAP_PATH",
-      "file_type": "code",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L8",
-      "_origin": "ast",
-      "id": "scripts_prerender_routes_public_sitemap_path",
-      "community": 95,
-      "norm_label": "public_sitemap_path"
-    },
-    {
-      "label": "BUILD_DATE",
-      "file_type": "code",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L9",
-      "_origin": "ast",
-      "id": "scripts_prerender_routes_build_date",
-      "community": 95,
-      "norm_label": "build_date"
-    },
-    {
-      "label": "pastOr()",
-      "file_type": "code",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L12",
-      "_origin": "ast",
-      "id": "scripts_prerender_routes_pastor",
-      "community": 95,
-      "norm_label": "pastor()"
-    },
-    {
-      "label": "readJson()",
-      "file_type": "code",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L14",
-      "_origin": "ast",
-      "id": "scripts_prerender_routes_readjson",
-      "community": 95,
-      "norm_label": "readjson()"
-    },
-    {
-      "label": "personagens",
-      "file_type": "code",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L15",
-      "_origin": "ast",
-      "id": "scripts_prerender_routes_personagens",
-      "community": 95,
-      "norm_label": "personagens"
-    },
-    {
-      "label": "capitulos",
-      "file_type": "code",
-      "source_file": "scripts/prerender-routes.js",
+      "source_file": "src/components/Navbar.jsx",
       "source_location": "L16",
       "_origin": "ast",
-      "id": "scripts_prerender_routes_capitulos",
-      "community": 95,
-      "norm_label": "capitulos"
+      "id": "src_components_navbar_locales",
+      "community": 17,
+      "norm_label": "locales"
     },
     {
-      "label": "contos",
+      "label": "LOGO_MARK",
       "file_type": "code",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L17",
+      "source_file": "src/components/Navbar.jsx",
+      "source_location": "L20",
       "_origin": "ast",
-      "id": "scripts_prerender_routes_contos",
-      "community": 95,
-      "norm_label": "contos"
+      "id": "src_components_navbar_logo_mark",
+      "community": 17,
+      "norm_label": "logo_mark"
     },
     {
-      "label": "obras",
+      "label": "Navbar()",
       "file_type": "code",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L18",
+      "source_file": "src/components/Navbar.jsx",
+      "source_location": "L22",
       "_origin": "ast",
-      "id": "scripts_prerender_routes_obras",
-      "community": 95,
-      "norm_label": "obras"
+      "id": "src_components_navbar_navbar",
+      "community": 17,
+      "norm_label": "navbar()"
     },
     {
-      "label": "episodios",
+      "label": "ShareButton.jsx",
       "file_type": "code",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L19",
+      "source_file": "src/components/ShareButton/ShareButton.jsx",
+      "source_location": "L1",
       "_origin": "ast",
-      "id": "scripts_prerender_routes_episodios",
-      "community": 95,
-      "norm_label": "episodios"
+      "id": "src_components_sharebutton_sharebutton",
+      "community": 17,
+      "norm_label": "sharebutton.jsx"
     },
     {
-      "label": "releaseItems",
+      "label": "compartilharLink()",
       "file_type": "code",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L21",
+      "source_file": "src/components/ShareButton/ShareButton.jsx",
+      "source_location": "L15",
       "_origin": "ast",
-      "id": "scripts_prerender_routes_releaseitems",
-      "community": 95,
-      "norm_label": "releaseitems"
+      "id": "src_components_sharebutton_sharebutton_compartilharlink",
+      "community": 17,
+      "norm_label": "compartilharlink()"
     },
     {
-      "label": "ROUTES",
+      "label": "ShareButton()",
       "file_type": "code",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L33",
+      "source_file": "src/components/ShareButton/ShareButton.jsx",
+      "source_location": "L34",
       "_origin": "ast",
-      "id": "scripts_prerender_routes_routes",
-      "community": 95,
-      "norm_label": "routes"
-    },
-    {
-      "label": "RELATED_BY_PATH",
-      "file_type": "code",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L71",
-      "_origin": "ast",
-      "id": "scripts_prerender_routes_related_by_path",
-      "community": 95,
-      "norm_label": "related_by_path"
-    },
-    {
-      "label": "extraGameRoutes",
-      "file_type": "code",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L103",
-      "_origin": "ast",
-      "id": "scripts_prerender_routes_extragameroutes",
-      "community": 95,
-      "norm_label": "extragameroutes"
-    },
-    {
-      "label": "REDIRECTS",
-      "file_type": "code",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L189",
-      "_origin": "ast",
-      "id": "scripts_prerender_routes_redirects",
-      "community": 95,
-      "norm_label": "redirects"
-    },
-    {
-      "label": "escapeHtml()",
-      "file_type": "code",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L205",
-      "_origin": "ast",
-      "id": "scripts_prerender_routes_escapehtml",
-      "community": 95,
-      "norm_label": "escapehtml()"
-    },
-    {
-      "label": "canonicalUrl()",
-      "file_type": "code",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L206",
-      "_origin": "ast",
-      "id": "scripts_prerender_routes_canonicalurl",
-      "community": 95,
-      "norm_label": "canonicalurl()"
-    },
-    {
-      "label": "replace()",
-      "file_type": "code",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L207",
-      "_origin": "ast",
-      "id": "scripts_prerender_routes_replace",
-      "community": 95,
-      "norm_label": "replace()"
-    },
-    {
-      "label": "schemaFor()",
-      "file_type": "code",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L209",
-      "_origin": "ast",
-      "id": "scripts_prerender_routes_schemafor",
-      "community": 95,
-      "norm_label": "schemafor()"
-    },
-    {
-      "label": "breadcrumbFor()",
-      "file_type": "code",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L222",
-      "_origin": "ast",
-      "id": "scripts_prerender_routes_breadcrumbfor",
-      "community": 95,
-      "norm_label": "breadcrumbfor()"
-    },
-    {
-      "label": "SITE_NAV",
-      "file_type": "code",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L229",
-      "_origin": "ast",
-      "id": "scripts_prerender_routes_site_nav",
-      "community": 95,
-      "norm_label": "site_nav"
-    },
-    {
-      "label": "staticContent()",
-      "file_type": "code",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L237",
-      "_origin": "ast",
-      "id": "scripts_prerender_routes_staticcontent",
-      "community": 95,
-      "norm_label": "staticcontent()"
-    },
-    {
-      "label": "pageHtml()",
-      "file_type": "code",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L260",
-      "_origin": "ast",
-      "id": "scripts_prerender_routes_pagehtml",
-      "community": 95,
-      "norm_label": "pagehtml()"
-    },
-    {
-      "label": "writeRoute()",
-      "file_type": "code",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L282",
-      "_origin": "ast",
-      "id": "scripts_prerender_routes_writeroute",
-      "community": 95,
-      "norm_label": "writeroute()"
-    },
-    {
-      "label": "redirectHtml()",
-      "file_type": "code",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L288",
-      "_origin": "ast",
-      "id": "scripts_prerender_routes_redirecthtml",
-      "community": 95,
-      "norm_label": "redirecthtml()"
-    },
-    {
-      "label": "sitemapXml()",
-      "file_type": "code",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L293",
-      "_origin": "ast",
-      "id": "scripts_prerender_routes_sitemapxml",
-      "community": 95,
-      "norm_label": "sitemapxml()"
-    },
-    {
-      "label": "indexHtml",
-      "file_type": "code",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L304",
-      "_origin": "ast",
-      "id": "scripts_prerender_routes_indexhtml",
-      "community": 95,
-      "norm_label": "indexhtml"
-    },
-    {
-      "label": "homeRoute",
-      "file_type": "code",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L313",
-      "_origin": "ast",
-      "id": "scripts_prerender_routes_homeroute",
-      "community": 95,
-      "norm_label": "homeroute"
-    },
-    {
-      "label": "sitemap",
-      "file_type": "code",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L321",
-      "_origin": "ast",
-      "id": "scripts_prerender_routes_sitemap",
-      "community": 95,
-      "norm_label": "sitemap"
+      "id": "src_components_sharebutton_sharebutton_sharebutton",
+      "community": 17,
+      "norm_label": "sharebutton()"
     },
     {
       "label": "version.js",
@@ -610,8 +370,338 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_config_version",
-      "community": 58,
+      "community": 33,
       "norm_label": "version.js"
+    },
+    {
+      "label": "WebshardLeitor.jsx",
+      "file_type": "code",
+      "source_file": "src/pages/content/webshard/WebshardLeitor.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_pages_content_webshard_webshardleitor",
+      "community": 17,
+      "norm_label": "webshardleitor.jsx"
+    },
+    {
+      "label": "WebshardLeitor()",
+      "file_type": "code",
+      "source_file": "src/pages/content/webshard/WebshardLeitor.jsx",
+      "source_location": "L29",
+      "_origin": "ast",
+      "id": "src_pages_content_webshard_webshardleitor_webshardleitor",
+      "community": 17,
+      "norm_label": "webshardleitor()"
+    },
+    {
+      "label": "prerender-routes.js",
+      "file_type": "code",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 95,
+      "norm_label": "prerender-routes.js",
+      "id": "scripts_prerender_routes"
+    },
+    {
+      "label": "DIST_DIR",
+      "file_type": "code",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L6",
+      "_origin": "ast",
+      "community": 95,
+      "norm_label": "dist_dir",
+      "id": "scripts_prerender_routes_dist_dir"
+    },
+    {
+      "label": "INDEX_PATH",
+      "file_type": "code",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L7",
+      "_origin": "ast",
+      "community": 95,
+      "norm_label": "index_path",
+      "id": "scripts_prerender_routes_index_path"
+    },
+    {
+      "label": "PUBLIC_SITEMAP_PATH",
+      "file_type": "code",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L8",
+      "_origin": "ast",
+      "community": 95,
+      "norm_label": "public_sitemap_path",
+      "id": "scripts_prerender_routes_public_sitemap_path"
+    },
+    {
+      "label": "BUILD_DATE",
+      "file_type": "code",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L9",
+      "_origin": "ast",
+      "community": 95,
+      "norm_label": "build_date",
+      "id": "scripts_prerender_routes_build_date"
+    },
+    {
+      "label": "pastOr()",
+      "file_type": "code",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L12",
+      "_origin": "ast",
+      "community": 95,
+      "norm_label": "pastor()",
+      "id": "scripts_prerender_routes_pastor"
+    },
+    {
+      "label": "readJson()",
+      "file_type": "code",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L14",
+      "_origin": "ast",
+      "community": 95,
+      "norm_label": "readjson()",
+      "id": "scripts_prerender_routes_readjson"
+    },
+    {
+      "label": "personagens",
+      "file_type": "code",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L15",
+      "_origin": "ast",
+      "community": 95,
+      "norm_label": "personagens",
+      "id": "scripts_prerender_routes_personagens"
+    },
+    {
+      "label": "capitulos",
+      "file_type": "code",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L16",
+      "_origin": "ast",
+      "community": 95,
+      "norm_label": "capitulos",
+      "id": "scripts_prerender_routes_capitulos"
+    },
+    {
+      "label": "contos",
+      "file_type": "code",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L17",
+      "_origin": "ast",
+      "community": 95,
+      "norm_label": "contos",
+      "id": "scripts_prerender_routes_contos"
+    },
+    {
+      "label": "obras",
+      "file_type": "code",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L18",
+      "_origin": "ast",
+      "community": 95,
+      "norm_label": "obras",
+      "id": "scripts_prerender_routes_obras"
+    },
+    {
+      "label": "episodios",
+      "file_type": "code",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L19",
+      "_origin": "ast",
+      "community": 95,
+      "norm_label": "episodios",
+      "id": "scripts_prerender_routes_episodios"
+    },
+    {
+      "label": "releaseItems",
+      "file_type": "code",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L21",
+      "_origin": "ast",
+      "community": 95,
+      "norm_label": "releaseitems",
+      "id": "scripts_prerender_routes_releaseitems"
+    },
+    {
+      "label": "ROUTES",
+      "file_type": "code",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L33",
+      "_origin": "ast",
+      "community": 95,
+      "norm_label": "routes",
+      "id": "scripts_prerender_routes_routes"
+    },
+    {
+      "label": "RELATED_BY_PATH",
+      "file_type": "code",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L71",
+      "_origin": "ast",
+      "community": 95,
+      "norm_label": "related_by_path",
+      "id": "scripts_prerender_routes_related_by_path"
+    },
+    {
+      "label": "extraGameRoutes",
+      "file_type": "code",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L103",
+      "_origin": "ast",
+      "community": 95,
+      "norm_label": "extragameroutes",
+      "id": "scripts_prerender_routes_extragameroutes"
+    },
+    {
+      "label": "REDIRECTS",
+      "file_type": "code",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L189",
+      "_origin": "ast",
+      "community": 95,
+      "norm_label": "redirects",
+      "id": "scripts_prerender_routes_redirects"
+    },
+    {
+      "label": "escapeHtml()",
+      "file_type": "code",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L205",
+      "_origin": "ast",
+      "community": 95,
+      "norm_label": "escapehtml()",
+      "id": "scripts_prerender_routes_escapehtml"
+    },
+    {
+      "label": "canonicalUrl()",
+      "file_type": "code",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L206",
+      "_origin": "ast",
+      "community": 95,
+      "norm_label": "canonicalurl()",
+      "id": "scripts_prerender_routes_canonicalurl"
+    },
+    {
+      "label": "replace()",
+      "file_type": "code",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L207",
+      "_origin": "ast",
+      "community": 95,
+      "norm_label": "replace()",
+      "id": "scripts_prerender_routes_replace"
+    },
+    {
+      "label": "schemaFor()",
+      "file_type": "code",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L209",
+      "_origin": "ast",
+      "community": 95,
+      "norm_label": "schemafor()",
+      "id": "scripts_prerender_routes_schemafor"
+    },
+    {
+      "label": "breadcrumbFor()",
+      "file_type": "code",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L222",
+      "_origin": "ast",
+      "community": 95,
+      "norm_label": "breadcrumbfor()",
+      "id": "scripts_prerender_routes_breadcrumbfor"
+    },
+    {
+      "label": "SITE_NAV",
+      "file_type": "code",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L229",
+      "_origin": "ast",
+      "community": 95,
+      "norm_label": "site_nav",
+      "id": "scripts_prerender_routes_site_nav"
+    },
+    {
+      "label": "staticContent()",
+      "file_type": "code",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L237",
+      "_origin": "ast",
+      "community": 95,
+      "norm_label": "staticcontent()",
+      "id": "scripts_prerender_routes_staticcontent"
+    },
+    {
+      "label": "pageHtml()",
+      "file_type": "code",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L260",
+      "_origin": "ast",
+      "community": 95,
+      "norm_label": "pagehtml()",
+      "id": "scripts_prerender_routes_pagehtml"
+    },
+    {
+      "label": "writeRoute()",
+      "file_type": "code",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L282",
+      "_origin": "ast",
+      "community": 95,
+      "norm_label": "writeroute()",
+      "id": "scripts_prerender_routes_writeroute"
+    },
+    {
+      "label": "redirectHtml()",
+      "file_type": "code",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L288",
+      "_origin": "ast",
+      "community": 95,
+      "norm_label": "redirecthtml()",
+      "id": "scripts_prerender_routes_redirecthtml"
+    },
+    {
+      "label": "sitemapXml()",
+      "file_type": "code",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L293",
+      "_origin": "ast",
+      "community": 95,
+      "norm_label": "sitemapxml()",
+      "id": "scripts_prerender_routes_sitemapxml"
+    },
+    {
+      "label": "indexHtml",
+      "file_type": "code",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L304",
+      "_origin": "ast",
+      "community": 95,
+      "norm_label": "indexhtml",
+      "id": "scripts_prerender_routes_indexhtml"
+    },
+    {
+      "label": "homeRoute",
+      "file_type": "code",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L313",
+      "_origin": "ast",
+      "community": 95,
+      "norm_label": "homeroute",
+      "id": "scripts_prerender_routes_homeroute"
+    },
+    {
+      "label": "sitemap",
+      "file_type": "code",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L321",
+      "_origin": "ast",
+      "community": 95,
+      "norm_label": "sitemap",
+      "id": "scripts_prerender_routes_sitemap"
     },
     {
       "label": "HistoriasHub.jsx",
@@ -1689,7 +1779,7 @@
       "source_file": "src/components/GateLeitura/GateLeitura.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 17,
+      "community": 419,
       "norm_label": "gateleitura.jsx",
       "id": "src_components_gateleitura_gateleitura"
     },
@@ -1699,7 +1789,7 @@
       "source_file": "src/components/GateLeitura/GateLeitura.jsx",
       "source_location": "L11",
       "_origin": "ast",
-      "community": 17,
+      "community": 419,
       "norm_label": "usegateleitura()",
       "id": "src_components_gateleitura_gateleitura_usegateleitura"
     },
@@ -1709,7 +1799,7 @@
       "source_file": "src/components/GateLeitura/GateLeitura.jsx",
       "source_location": "L17",
       "_origin": "ast",
-      "community": 17,
+      "community": 419,
       "norm_label": "cortarlista()",
       "id": "src_components_gateleitura_gateleitura_cortarlista"
     },
@@ -1719,7 +1809,7 @@
       "source_file": "src/components/GateLeitura/GateLeitura.jsx",
       "source_location": "L23",
       "_origin": "ast",
-      "community": 17,
+      "community": 419,
       "norm_label": "cortartexto()",
       "id": "src_components_gateleitura_gateleitura_cortartexto"
     },
@@ -1729,7 +1819,7 @@
       "source_file": "src/components/GateLeitura/GateLeitura.jsx",
       "source_location": "L30",
       "_origin": "ast",
-      "community": 17,
+      "community": 419,
       "norm_label": "gateleitura()",
       "id": "src_components_gateleitura_gateleitura_gateleitura"
     },
@@ -1739,7 +1829,7 @@
       "source_file": "src/pages/content/ContoCapitulo.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 17,
+      "community": 419,
       "norm_label": "contocapitulo.jsx",
       "id": "src_pages_content_contocapitulo"
     },
@@ -1749,7 +1839,7 @@
       "source_file": "src/pages/content/ContoCapitulo.jsx",
       "source_location": "L17",
       "_origin": "ast",
-      "community": 17,
+      "community": 419,
       "norm_label": "contoloaders",
       "id": "src_pages_content_contocapitulo_contoloaders"
     },
@@ -1759,7 +1849,7 @@
       "source_file": "src/pages/content/ContoCapitulo.jsx",
       "source_location": "L19",
       "_origin": "ast",
-      "community": 17,
+      "community": 419,
       "norm_label": "contocapitulo()",
       "id": "src_pages_content_contocapitulo_contocapitulo"
     },
@@ -1769,7 +1859,7 @@
       "source_file": "src/pages/content/LivroCapitulo.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 17,
+      "community": 419,
       "norm_label": "livrocapitulo.jsx",
       "id": "src_pages_content_livrocapitulo"
     },
@@ -1779,7 +1869,7 @@
       "source_file": "src/pages/content/LivroCapitulo.jsx",
       "source_location": "L20",
       "_origin": "ast",
-      "community": 17,
+      "community": 419,
       "norm_label": "chapterloaders",
       "id": "src_pages_content_livrocapitulo_chapterloaders"
     },
@@ -1789,7 +1879,7 @@
       "source_file": "src/pages/content/LivroCapitulo.jsx",
       "source_location": "L22",
       "_origin": "ast",
-      "community": 17,
+      "community": 419,
       "norm_label": "livrocapitulo()",
       "id": "src_pages_content_livrocapitulo_livrocapitulo"
     },
@@ -1799,7 +1889,7 @@
       "source_file": "src/pages/content/ObraCapitulo.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 17,
+      "community": 419,
       "norm_label": "obracapitulo.jsx",
       "id": "src_pages_content_obracapitulo"
     },
@@ -1809,7 +1899,7 @@
       "source_file": "src/pages/content/ObraCapitulo.jsx",
       "source_location": "L17",
       "_origin": "ast",
-      "community": 17,
+      "community": 419,
       "norm_label": "obraloaders",
       "id": "src_pages_content_obracapitulo_obraloaders"
     },
@@ -1819,29 +1909,9 @@
       "source_file": "src/pages/content/ObraCapitulo.jsx",
       "source_location": "L19",
       "_origin": "ast",
-      "community": 17,
+      "community": 419,
       "norm_label": "obracapitulo()",
       "id": "src_pages_content_obracapitulo_obracapitulo"
-    },
-    {
-      "label": "WebshardLeitor.jsx",
-      "file_type": "code",
-      "source_file": "src/pages/content/webshard/WebshardLeitor.jsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 17,
-      "norm_label": "webshardleitor.jsx",
-      "id": "src_pages_content_webshard_webshardleitor"
-    },
-    {
-      "label": "WebshardLeitor()",
-      "file_type": "code",
-      "source_file": "src/pages/content/webshard/WebshardLeitor.jsx",
-      "source_location": "L28",
-      "_origin": "ast",
-      "community": 17,
-      "norm_label": "webshardleitor()",
-      "id": "src_pages_content_webshard_webshardleitor_webshardleitor"
     },
     {
       "label": "Games.jsx",
@@ -3499,7 +3569,7 @@
       "source_file": "src/pages/games/ArenaTatics/screens/SimulacaoAuto.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 31,
+      "community": 33,
       "norm_label": "simulacaoauto.jsx",
       "id": "src_pages_games_arenatatics_screens_simulacaoauto"
     },
@@ -3509,7 +3579,7 @@
       "source_file": "src/pages/games/ArenaTatics/screens/SimulacaoAuto.jsx",
       "source_location": "L7",
       "_origin": "ast",
-      "community": 31,
+      "community": 33,
       "norm_label": "emoji",
       "id": "src_pages_games_arenatatics_screens_simulacaoauto_emoji"
     },
@@ -3519,7 +3589,7 @@
       "source_file": "src/pages/games/ArenaTatics/screens/SimulacaoAuto.jsx",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 31,
+      "community": 33,
       "norm_label": "simulacaoauto()",
       "id": "src_pages_games_arenatatics_screens_simulacaoauto_simulacaoauto"
     },
@@ -7349,7 +7419,7 @@
       "source_file": "src/context/AuthContext.jsx",
       "source_location": "L240",
       "_origin": "ast",
-      "community": 51,
+      "community": 9,
       "norm_label": "useauth()",
       "id": "src_context_authcontext_useauth"
     },
@@ -8439,7 +8509,7 @@
       "source_file": "src/pages/games/Gangues/data/ganguesSpecials.js",
       "source_location": "L2",
       "_origin": "ast",
-      "community": 291,
+      "community": 313,
       "norm_label": "path()",
       "id": "src_pages_games_gangues_data_ganguesspecials_path"
     },
@@ -9629,7 +9699,7 @@
       "source_file": "src/pages/platform/Perfil/abas/PerfilGangues.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 1,
+      "community": 51,
       "norm_label": "perfilgangues.jsx",
       "id": "src_pages_platform_perfil_abas_perfilgangues"
     },
@@ -9639,7 +9709,7 @@
       "source_file": "src/pages/platform/Perfil/abas/PerfilGangues.jsx",
       "source_location": "L6",
       "_origin": "ast",
-      "community": 1,
+      "community": 51,
       "norm_label": "perfilgangues()",
       "id": "src_pages_platform_perfil_abas_perfilgangues_perfilgangues"
     },
@@ -13309,7 +13379,7 @@
       "source_file": "src/components/GuestNotice/GuestNotice.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 51,
+      "community": 33,
       "norm_label": "guestnotice.jsx",
       "id": "src_components_guestnotice_guestnotice"
     },
@@ -13319,7 +13389,7 @@
       "source_file": "src/components/GuestNotice/GuestNotice.jsx",
       "source_location": "L13",
       "_origin": "ast",
-      "community": 51,
+      "community": 33,
       "norm_label": "guestnotice()",
       "id": "src_components_guestnotice_guestnotice_guestnotice"
     },
@@ -13399,7 +13469,7 @@
       "source_file": "src/components/LDINotification/LDINotification.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 51,
+      "community": 456,
       "norm_label": "ldinotification.jsx",
       "id": "src_components_ldinotification_ldinotification"
     },
@@ -13409,7 +13479,7 @@
       "source_file": "src/components/LDINotification/LDINotification.jsx",
       "source_location": "L5",
       "_origin": "ast",
-      "community": 51,
+      "community": 456,
       "norm_label": "shuffle()",
       "id": "src_components_ldinotification_ldinotification_shuffle"
     },
@@ -13419,7 +13489,7 @@
       "source_file": "src/components/LDINotification/LDINotification.jsx",
       "source_location": "L14",
       "_origin": "ast",
-      "community": 51,
+      "community": 456,
       "norm_label": "personagens",
       "id": "src_components_ldinotification_ldinotification_personagens"
     },
@@ -13429,7 +13499,7 @@
       "source_file": "src/components/LDINotification/LDINotification.jsx",
       "source_location": "L16",
       "_origin": "ast",
-      "community": 51,
+      "community": 456,
       "norm_label": "pickpersonagem()",
       "id": "src_components_ldinotification_ldinotification_pickpersonagem"
     },
@@ -13439,7 +13509,7 @@
       "source_file": "src/components/LDINotification/LDINotification.jsx",
       "source_location": "L20",
       "_origin": "ast",
-      "community": 51,
+      "community": 456,
       "norm_label": "ldinotification()",
       "id": "src_components_ldinotification_ldinotification_ldinotification"
     },
@@ -13449,7 +13519,7 @@
       "source_file": "src/components/LoginGate/LoginGate.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 51,
+      "community": 398,
       "norm_label": "logingate.jsx",
       "id": "src_components_logingate_logingate"
     },
@@ -13459,7 +13529,7 @@
       "source_file": "src/components/LoginGate/LoginGate.jsx",
       "source_location": "L6",
       "_origin": "ast",
-      "community": 51,
+      "community": 398,
       "norm_label": "logingate()",
       "id": "src_components_logingate_logingate_logingate"
     },
@@ -13502,36 +13572,6 @@
       "community": 1,
       "norm_label": "modalsemfichas()",
       "id": "src_components_modalsemfichas_modalsemfichas_modalsemfichas"
-    },
-    {
-      "label": "Navbar.jsx",
-      "file_type": "code",
-      "source_file": "src/components/Navbar.jsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 291,
-      "norm_label": "navbar.jsx",
-      "id": "src_components_navbar"
-    },
-    {
-      "label": "LOCALES",
-      "file_type": "code",
-      "source_file": "src/components/Navbar.jsx",
-      "source_location": "L13",
-      "_origin": "ast",
-      "community": 291,
-      "norm_label": "locales",
-      "id": "src_components_navbar_locales"
-    },
-    {
-      "label": "Navbar()",
-      "file_type": "code",
-      "source_file": "src/components/Navbar.jsx",
-      "source_location": "L15",
-      "_origin": "ast",
-      "community": 291,
-      "norm_label": "navbar()",
-      "id": "src_components_navbar_navbar"
     },
     {
       "label": "PlatformIcons.jsx",
@@ -14359,7 +14399,7 @@
       "source_file": "src/components/SearchModal/SearchModal.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 291,
+      "community": 398,
       "norm_label": "searchmodal.jsx",
       "id": "src_components_searchmodal_searchmodal"
     },
@@ -14369,7 +14409,7 @@
       "source_file": "src/components/SearchModal/SearchModal.jsx",
       "source_location": "L8",
       "_origin": "ast",
-      "community": 291,
+      "community": 398,
       "norm_label": "searchmodal()",
       "id": "src_components_searchmodal_searchmodal_searchmodal"
     },
@@ -14459,7 +14499,7 @@
       "source_file": "src/components/TrialBanner.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 51,
+      "community": 398,
       "norm_label": "trialbanner.jsx",
       "id": "src_components_trialbanner"
     },
@@ -14469,7 +14509,7 @@
       "source_file": "src/components/TrialBanner.jsx",
       "source_location": "L7",
       "_origin": "ast",
-      "community": 51,
+      "community": 398,
       "norm_label": "trialbanner()",
       "id": "src_components_trialbanner_trialbanner"
     },
@@ -14519,7 +14559,7 @@
       "source_file": "src/config/fichas.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 1,
+      "community": 51,
       "norm_label": "fichas.js",
       "id": "src_config_fichas"
     },
@@ -14529,7 +14569,7 @@
       "source_file": "src/config/launch.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 51,
+      "community": 398,
       "norm_label": "launch.js",
       "id": "src_config_launch"
     },
@@ -14539,7 +14579,7 @@
       "source_file": "src/config/launch.js",
       "source_location": "L14",
       "_origin": "ast",
-      "community": 51,
+      "community": 398,
       "norm_label": "admin_emails",
       "id": "src_config_launch_admin_emails"
     },
@@ -14589,7 +14629,7 @@
       "source_file": "src/config/trial.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 291,
+      "community": 398,
       "norm_label": "trial.js",
       "id": "src_config_trial"
     },
@@ -14639,7 +14679,7 @@
       "source_file": "src/context/DixContext.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 1,
+      "community": 51,
       "norm_label": "dixcontext.jsx",
       "id": "src_context_dixcontext"
     },
@@ -14649,7 +14689,7 @@
       "source_file": "src/context/DixContext.jsx",
       "source_location": "L5",
       "_origin": "ast",
-      "community": 1,
+      "community": 51,
       "norm_label": "dixcontext",
       "id": "src_context_dixcontext_dixcontext"
     },
@@ -14669,7 +14709,7 @@
       "source_file": "src/context/DixContext.jsx",
       "source_location": "L99",
       "_origin": "ast",
-      "community": 1,
+      "community": 51,
       "norm_label": "usedix()",
       "id": "src_context_dixcontext_usedix"
     },
@@ -14719,7 +14759,7 @@
       "source_file": "src/context/EventosContext.jsx",
       "source_location": "L127",
       "_origin": "ast",
-      "community": 9,
+      "community": 51,
       "norm_label": "useeventos()",
       "id": "src_context_eventoscontext_useeventos"
     },
@@ -14789,7 +14829,7 @@
       "source_file": "src/context/FichasContext.jsx",
       "source_location": "L110",
       "_origin": "ast",
-      "community": 1,
+      "community": 51,
       "norm_label": "usefichas()",
       "id": "src_context_fichascontext_usefichas"
     },
@@ -14899,7 +14939,7 @@
       "source_file": "src/data/search-index.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 291,
+      "community": 398,
       "norm_label": "search-index.js",
       "id": "src_data_search_index"
     },
@@ -14909,7 +14949,7 @@
       "source_file": "src/data/search-index.js",
       "source_location": "L7",
       "_origin": "ast",
-      "community": 291,
+      "community": 398,
       "norm_label": "index",
       "id": "src_data_search_index_index"
     },
@@ -14919,7 +14959,7 @@
       "source_file": "src/hooks/useFichaGate.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 1,
+      "community": 51,
       "norm_label": "usefichagate.js",
       "id": "src_hooks_usefichagate"
     },
@@ -14929,7 +14969,7 @@
       "source_file": "src/hooks/useFichaGate.js",
       "source_location": "L16",
       "_origin": "ast",
-      "community": 1,
+      "community": 51,
       "norm_label": "gethoje()",
       "id": "src_hooks_usefichagate_gethoje"
     },
@@ -14939,7 +14979,7 @@
       "source_file": "src/hooks/useFichaGate.js",
       "source_location": "L20",
       "_origin": "ast",
-      "community": 1,
+      "community": 51,
       "norm_label": "isdesbloqueadohoje()",
       "id": "src_hooks_usefichagate_isdesbloqueadohoje"
     },
@@ -14949,7 +14989,7 @@
       "source_file": "src/hooks/useFichaGate.js",
       "source_location": "L30",
       "_origin": "ast",
-      "community": 1,
+      "community": 51,
       "norm_label": "marcardesbloqueado()",
       "id": "src_hooks_usefichagate_marcardesbloqueado"
     },
@@ -14959,7 +14999,7 @@
       "source_file": "src/hooks/useFichaGate.js",
       "source_location": "L39",
       "_origin": "ast",
-      "community": 1,
+      "community": 51,
       "norm_label": "usefichagate()",
       "id": "src_hooks_usefichagate_usefichagate"
     },
@@ -15079,7 +15119,7 @@
       "source_file": "src/hooks/useLeaderboardDB.js",
       "source_location": "L103",
       "_origin": "ast",
-      "community": 432,
+      "community": 90,
       "norm_label": "atualizarstats()",
       "id": "src_hooks_useleaderboarddb_atualizarstats"
     },
@@ -15089,7 +15129,7 @@
       "source_file": "src/hooks/useLeaderboardDB.js",
       "source_location": "L122",
       "_origin": "ast",
-      "community": 432,
+      "community": 90,
       "norm_label": "carregarstats()",
       "id": "src_hooks_useleaderboarddb_carregarstats"
     },
@@ -15109,7 +15149,7 @@
       "source_file": "src/hooks/useLeaderboardDB.js",
       "source_location": "L141",
       "_origin": "ast",
-      "community": 41,
+      "community": 420,
       "norm_label": "verificarcartaganhahoje()",
       "id": "src_hooks_useleaderboarddb_verificarcartaganhahoje"
     },
@@ -15119,7 +15159,7 @@
       "source_file": "src/hooks/useLeaderboardDB.js",
       "source_location": "L158",
       "_origin": "ast",
-      "community": 41,
+      "community": 420,
       "norm_label": "carregartentativas()",
       "id": "src_hooks_useleaderboarddb_carregartentativas"
     },
@@ -15129,7 +15169,7 @@
       "source_file": "src/hooks/useLeaderboardDB.js",
       "source_location": "L179",
       "_origin": "ast",
-      "community": 41,
+      "community": 420,
       "norm_label": "consumirtentativa()",
       "id": "src_hooks_useleaderboarddb_consumirtentativa"
     },
@@ -15139,7 +15179,7 @@
       "source_file": "src/hooks/useLeaderboardDB.js",
       "source_location": "L205",
       "_origin": "ast",
-      "community": 41,
+      "community": 420,
       "norm_label": "marcarcartaganha()",
       "id": "src_hooks_useleaderboarddb_marcarcartaganha"
     },
@@ -15379,7 +15419,7 @@
       "source_file": "src/hooks/useScrollPosition.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 291,
+      "community": 464,
       "norm_label": "usescrollposition.js",
       "id": "src_hooks_usescrollposition"
     },
@@ -15389,7 +15429,7 @@
       "source_file": "src/hooks/useScrollPosition.js",
       "source_location": "L3",
       "_origin": "ast",
-      "community": 291,
+      "community": 464,
       "norm_label": "usescrollposition()",
       "id": "src_hooks_usescrollposition_usescrollposition"
     },
@@ -16239,7 +16279,7 @@
       "source_file": "src/lib/sfx.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 8,
+      "community": 414,
       "norm_label": "sfx.js",
       "id": "src_lib_sfx"
     },
@@ -16729,7 +16769,7 @@
       "source_file": "src/lib/supabase.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 51,
+      "community": 322,
       "norm_label": "supabase.js",
       "id": "src_lib_supabase"
     },
@@ -16739,7 +16779,7 @@
       "source_file": "src/lib/supabase.js",
       "source_location": "L6",
       "_origin": "ast",
-      "community": 51,
+      "community": 322,
       "norm_label": "supabase",
       "id": "src_lib_supabase_supabase"
     },
@@ -16809,7 +16849,7 @@
       "source_file": "src/lib/topTrumpsCardAccess.js",
       "source_location": "L27",
       "_origin": "ast",
-      "community": 41,
+      "community": 420,
       "norm_label": "gettoptrumpsaccesstier()",
       "id": "src_lib_toptrumpscardaccess_gettoptrumpsaccesstier"
     },
@@ -16979,7 +17019,7 @@
       "source_file": "src/pages/games/ArenaTatics/ArenaTaticsRoute.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 31,
+      "community": 33,
       "norm_label": "arenataticsroute.jsx",
       "id": "src_pages_games_arenatatics_arenataticsroute"
     },
@@ -16989,7 +17029,7 @@
       "source_file": "src/pages/games/ArenaTatics/ArenaTaticsRoute.jsx",
       "source_location": "L27",
       "_origin": "ast",
-      "community": 31,
+      "community": 33,
       "norm_label": "randompick()",
       "id": "src_pages_games_arenatatics_arenataticsroute_randompick"
     },
@@ -16999,7 +17039,7 @@
       "source_file": "src/pages/games/ArenaTatics/ArenaTaticsRoute.jsx",
       "source_location": "L32",
       "_origin": "ast",
-      "community": 31,
+      "community": 33,
       "norm_label": "arenataticsroute()",
       "id": "src_pages_games_arenatatics_arenataticsroute_arenataticsroute"
     },
@@ -17089,7 +17129,7 @@
       "source_file": "src/pages/games/ArenaTatics/components/ConfirmEndTurn.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 59,
+      "community": 33,
       "norm_label": "confirmendturn.jsx",
       "id": "src_pages_games_arenatatics_components_confirmendturn"
     },
@@ -17099,7 +17139,7 @@
       "source_file": "src/pages/games/ArenaTatics/components/ConfirmEndTurn.jsx",
       "source_location": "L4",
       "_origin": "ast",
-      "community": 59,
+      "community": 33,
       "norm_label": "confirmendturn()",
       "id": "src_pages_games_arenatatics_components_confirmendturn_confirmendturn"
     },
@@ -17109,7 +17149,7 @@
       "source_file": "src/pages/games/ArenaTatics/components/DanoPopup.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 59,
+      "community": 309,
       "norm_label": "danopopup.jsx",
       "id": "src_pages_games_arenatatics_components_danopopup"
     },
@@ -17119,7 +17159,7 @@
       "source_file": "src/pages/games/ArenaTatics/components/DanoPopup.jsx",
       "source_location": "L3",
       "_origin": "ast",
-      "community": 59,
+      "community": 309,
       "norm_label": "danopopup()",
       "id": "src_pages_games_arenatatics_components_danopopup_danopopup"
     },
@@ -17169,7 +17209,7 @@
       "source_file": "src/pages/games/ArenaTatics/components/GameControls.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 39,
+      "community": 31,
       "norm_label": "gamecontrols.jsx",
       "id": "src_pages_games_arenatatics_components_gamecontrols"
     },
@@ -17179,7 +17219,7 @@
       "source_file": "src/pages/games/ArenaTatics/components/GameControls.jsx",
       "source_location": "L15",
       "_origin": "ast",
-      "community": 39,
+      "community": 31,
       "norm_label": "gamecontrols()",
       "id": "src_pages_games_arenatatics_components_gamecontrols_gamecontrols"
     },
@@ -17449,7 +17489,7 @@
       "source_file": "src/pages/games/ArenaTatics/components/StatusBar.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 59,
+      "community": 309,
       "norm_label": "statusbar.jsx",
       "id": "src_pages_games_arenatatics_components_statusbar"
     },
@@ -17459,7 +17499,7 @@
       "source_file": "src/pages/games/ArenaTatics/components/StatusBar.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 59,
+      "community": 309,
       "norm_label": "status_icons",
       "id": "src_pages_games_arenatatics_components_statusbar_status_icons"
     },
@@ -17469,7 +17509,7 @@
       "source_file": "src/pages/games/ArenaTatics/components/StatusBar.jsx",
       "source_location": "L8",
       "_origin": "ast",
-      "community": 59,
+      "community": 309,
       "norm_label": "statusbar()",
       "id": "src_pages_games_arenatatics_components_statusbar_statusbar"
     },
@@ -17509,7 +17549,7 @@
       "source_file": "src/pages/games/ArenaTatics/components/TurnoIndicator.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 59,
+      "community": 309,
       "norm_label": "turnoindicator.jsx",
       "id": "src_pages_games_arenatatics_components_turnoindicator"
     },
@@ -17519,7 +17559,7 @@
       "source_file": "src/pages/games/ArenaTatics/components/TurnoIndicator.jsx",
       "source_location": "L4",
       "_origin": "ast",
-      "community": 59,
+      "community": 309,
       "norm_label": "turnoindicator()",
       "id": "src_pages_games_arenatatics_components_turnoindicator_turnoindicator"
     },
@@ -17709,7 +17749,7 @@
       "source_file": "src/pages/games/ArenaTatics/data/aiPersonalities.js",
       "source_location": "L395",
       "_origin": "ast",
-      "community": 59,
+      "community": 309,
       "norm_label": "sortearias()",
       "id": "src_pages_games_arenatatics_data_aipersonalities_sortearias"
     },
@@ -17849,7 +17889,7 @@
       "source_file": "src/pages/games/ArenaTatics/data/classTree.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 420,
+      "community": 61,
       "norm_label": "classtree.js",
       "id": "src_pages_games_arenatatics_data_classtree"
     },
@@ -17859,7 +17899,7 @@
       "source_file": "src/pages/games/ArenaTatics/data/classTree.js",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 420,
+      "community": 61,
       "norm_label": "class_tree",
       "id": "src_pages_games_arenatatics_data_classtree_class_tree"
     },
@@ -17869,7 +17909,7 @@
       "source_file": "src/pages/games/ArenaTatics/data/classTree.js",
       "source_location": "L503",
       "_origin": "ast",
-      "community": 420,
+      "community": 61,
       "norm_label": "getno()",
       "id": "src_pages_games_arenatatics_data_classtree_getno"
     },
@@ -17879,7 +17919,7 @@
       "source_file": "src/pages/games/ArenaTatics/data/classTree.js",
       "source_location": "L520",
       "_origin": "ast",
-      "community": 420,
+      "community": 61,
       "norm_label": "getevolucaoativa()",
       "id": "src_pages_games_arenatatics_data_classtree_getevolucaoativa"
     },
@@ -17889,7 +17929,7 @@
       "source_file": "src/pages/games/ArenaTatics/data/classTree.js",
       "source_location": "L537",
       "_origin": "ast",
-      "community": 420,
+      "community": 61,
       "norm_label": "getnomeclasse()",
       "id": "src_pages_games_arenatatics_data_classtree_getnomeclasse"
     },
@@ -18269,7 +18309,7 @@
       "source_file": "src/pages/games/ArenaTatics/data/equipment.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 398,
+      "community": 61,
       "norm_label": "equipment.js",
       "id": "src_pages_games_arenatatics_data_equipment"
     },
@@ -18279,7 +18319,7 @@
       "source_file": "src/pages/games/ArenaTatics/data/equipment.js",
       "source_location": "L6",
       "_origin": "ast",
-      "community": 398,
+      "community": 61,
       "norm_label": "armes",
       "id": "src_pages_games_arenatatics_data_equipment_armes"
     },
@@ -18289,7 +18329,7 @@
       "source_file": "src/pages/games/ArenaTatics/data/equipment.js",
       "source_location": "L17",
       "_origin": "ast",
-      "community": 398,
+      "community": 61,
       "norm_label": "armaduras",
       "id": "src_pages_games_arenatatics_data_equipment_armaduras"
     },
@@ -18299,7 +18339,7 @@
       "source_file": "src/pages/games/ArenaTatics/data/equipment.js",
       "source_location": "L25",
       "_origin": "ast",
-      "community": 398,
+      "community": 61,
       "norm_label": "acessorios",
       "id": "src_pages_games_arenatatics_data_equipment_acessorios"
     },
@@ -18309,7 +18349,7 @@
       "source_file": "src/pages/games/ArenaTatics/data/equipment.js",
       "source_location": "L34",
       "_origin": "ast",
-      "community": 398,
+      "community": 61,
       "norm_label": "getallequipamentos()",
       "id": "src_pages_games_arenatatics_data_equipment_getallequipamentos"
     },
@@ -18319,7 +18359,7 @@
       "source_file": "src/pages/games/ArenaTatics/data/equipment.js",
       "source_location": "L38",
       "_origin": "ast",
-      "community": 398,
+      "community": 61,
       "norm_label": "getequipamento()",
       "id": "src_pages_games_arenatatics_data_equipment_getequipamento"
     },
@@ -18329,7 +18369,7 @@
       "source_file": "src/pages/games/ArenaTatics/data/equipment.js",
       "source_location": "L45",
       "_origin": "ast",
-      "community": 398,
+      "community": 61,
       "norm_label": "calcularbonus()",
       "id": "src_pages_games_arenatatics_data_equipment_calcularbonus"
     },
@@ -18559,7 +18599,7 @@
       "source_file": "src/pages/games/ArenaTatics/screens/Batalha.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 59,
+      "community": 309,
       "norm_label": "batalha.jsx",
       "id": "src_pages_games_arenatatics_screens_batalha"
     },
@@ -18569,7 +18609,7 @@
       "source_file": "src/pages/games/ArenaTatics/screens/Batalha.jsx",
       "source_location": "L24",
       "_origin": "ast",
-      "community": 59,
+      "community": 309,
       "norm_label": "getskills()",
       "id": "src_pages_games_arenatatics_screens_batalha_getskills"
     },
@@ -18579,7 +18619,7 @@
       "source_file": "src/pages/games/ArenaTatics/screens/Batalha.jsx",
       "source_location": "L31",
       "_origin": "ast",
-      "community": 59,
+      "community": 309,
       "norm_label": "getocupadas()",
       "id": "src_pages_games_arenatatics_screens_batalha_getocupadas"
     },
@@ -18589,7 +18629,7 @@
       "source_file": "src/pages/games/ArenaTatics/screens/Batalha.jsx",
       "source_location": "L39",
       "_origin": "ast",
-      "community": 59,
+      "community": 309,
       "norm_label": "getalcancemovimento()",
       "id": "src_pages_games_arenatatics_screens_batalha_getalcancemovimento"
     },
@@ -18599,7 +18639,7 @@
       "source_file": "src/pages/games/ArenaTatics/screens/Batalha.jsx",
       "source_location": "L52",
       "_origin": "ast",
-      "community": 59,
+      "community": 309,
       "norm_label": "temlinhavisao()",
       "id": "src_pages_games_arenatatics_screens_batalha_temlinhavisao"
     },
@@ -18609,7 +18649,7 @@
       "source_file": "src/pages/games/ArenaTatics/screens/Batalha.jsx",
       "source_location": "L63",
       "_origin": "ast",
-      "community": 59,
+      "community": 309,
       "norm_label": "getalvoocupadas()",
       "id": "src_pages_games_arenatatics_screens_batalha_getalvoocupadas"
     },
@@ -18619,7 +18659,7 @@
       "source_file": "src/pages/games/ArenaTatics/screens/Batalha.jsx",
       "source_location": "L70",
       "_origin": "ast",
-      "community": 59,
+      "community": 309,
       "norm_label": "getalcanceskill()",
       "id": "src_pages_games_arenatatics_screens_batalha_getalcanceskill"
     },
@@ -18629,7 +18669,7 @@
       "source_file": "src/pages/games/ArenaTatics/screens/Batalha.jsx",
       "source_location": "L86",
       "_origin": "ast",
-      "community": 59,
+      "community": 309,
       "norm_label": "estahemalcance()",
       "id": "src_pages_games_arenatatics_screens_batalha_estahemalcance"
     },
@@ -18639,7 +18679,7 @@
       "source_file": "src/pages/games/ArenaTatics/screens/Batalha.jsx",
       "source_location": "L91",
       "_origin": "ast",
-      "community": 59,
+      "community": 309,
       "norm_label": "calcularcaminho()",
       "id": "src_pages_games_arenatatics_screens_batalha_calcularcaminho"
     },
@@ -18649,7 +18689,7 @@
       "source_file": "src/pages/games/ArenaTatics/screens/Batalha.jsx",
       "source_location": "L133",
       "_origin": "ast",
-      "community": 59,
+      "community": 309,
       "norm_label": "getfaselabel()",
       "id": "src_pages_games_arenatatics_screens_batalha_getfaselabel"
     },
@@ -18659,7 +18699,7 @@
       "source_file": "src/pages/games/ArenaTatics/screens/Batalha.jsx",
       "source_location": "L156",
       "_origin": "ast",
-      "community": 59,
+      "community": 309,
       "norm_label": "batalha()",
       "id": "src_pages_games_arenatatics_screens_batalha_batalha"
     },
@@ -18719,7 +18759,7 @@
       "source_file": "src/pages/games/ArenaTatics/screens/BuildingInterior.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 39,
+      "community": 31,
       "norm_label": "buildinginterior.jsx",
       "id": "src_pages_games_arenatatics_screens_buildinginterior"
     },
@@ -18729,7 +18769,7 @@
       "source_file": "src/pages/games/ArenaTatics/screens/BuildingInterior.jsx",
       "source_location": "L13",
       "_origin": "ast",
-      "community": 39,
+      "community": 31,
       "norm_label": "interior_names",
       "id": "src_pages_games_arenatatics_screens_buildinginterior_interior_names"
     },
@@ -18739,7 +18779,7 @@
       "source_file": "src/pages/games/ArenaTatics/screens/BuildingInterior.jsx",
       "source_location": "L15",
       "_origin": "ast",
-      "community": 39,
+      "community": 31,
       "norm_label": "interiorspawns",
       "id": "src_pages_games_arenatatics_screens_buildinginterior_interiorspawns"
     },
@@ -18749,7 +18789,7 @@
       "source_file": "src/pages/games/ArenaTatics/screens/BuildingInterior.jsx",
       "source_location": "L31",
       "_origin": "ast",
-      "community": 39,
+      "community": 31,
       "norm_label": "exit_zone",
       "id": "src_pages_games_arenatatics_screens_buildinginterior_exit_zone"
     },
@@ -18759,7 +18799,7 @@
       "source_file": "src/pages/games/ArenaTatics/screens/BuildingInterior.jsx",
       "source_location": "L33",
       "_origin": "ast",
-      "community": 39,
+      "community": 31,
       "norm_label": "getinteriorcolliders()",
       "id": "src_pages_games_arenatatics_screens_buildinginterior_getinteriorcolliders"
     },
@@ -18769,7 +18809,7 @@
       "source_file": "src/pages/games/ArenaTatics/screens/BuildingInterior.jsx",
       "source_location": "L56",
       "_origin": "ast",
-      "community": 39,
+      "community": 31,
       "norm_label": "isinteriorsolid()",
       "id": "src_pages_games_arenatatics_screens_buildinginterior_isinteriorsolid"
     },
@@ -18779,7 +18819,7 @@
       "source_file": "src/pages/games/ArenaTatics/screens/BuildingInterior.jsx",
       "source_location": "L65",
       "_origin": "ast",
-      "community": 39,
+      "community": 31,
       "norm_label": "playercollidesinterior()",
       "id": "src_pages_games_arenatatics_screens_buildinginterior_playercollidesinterior"
     },
@@ -18789,7 +18829,7 @@
       "source_file": "src/pages/games/ArenaTatics/screens/BuildingInterior.jsx",
       "source_location": "L76",
       "_origin": "ast",
-      "community": 39,
+      "community": 31,
       "norm_label": "getinteriorzone()",
       "id": "src_pages_games_arenatatics_screens_buildinginterior_getinteriorzone"
     },
@@ -18799,7 +18839,7 @@
       "source_file": "src/pages/games/ArenaTatics/screens/BuildingInterior.jsx",
       "source_location": "L84",
       "_origin": "ast",
-      "community": 39,
+      "community": 31,
       "norm_label": "buildinterior()",
       "id": "src_pages_games_arenatatics_screens_buildinginterior_buildinterior"
     },
@@ -18809,7 +18849,7 @@
       "source_file": "src/pages/games/ArenaTatics/screens/BuildingInterior.jsx",
       "source_location": "L618",
       "_origin": "ast",
-      "community": 39,
+      "community": 31,
       "norm_label": "buildinginterior()",
       "id": "src_pages_games_arenatatics_screens_buildinginterior_buildinginterior"
     },
@@ -18909,7 +18949,7 @@
       "source_file": "src/pages/games/ArenaTatics/screens/Derrota.jsx",
       "source_location": "L5",
       "_origin": "ast",
-      "community": 31,
+      "community": 33,
       "norm_label": "derrota()",
       "id": "src_pages_games_arenatatics_screens_derrota_derrota"
     },
@@ -18919,7 +18959,7 @@
       "source_file": "src/pages/games/ArenaTatics/screens/EvolutionScreen.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 420,
+      "community": 61,
       "norm_label": "evolutionscreen.jsx",
       "id": "src_pages_games_arenatatics_screens_evolutionscreen"
     },
@@ -18929,7 +18969,7 @@
       "source_file": "src/pages/games/ArenaTatics/screens/EvolutionScreen.jsx",
       "source_location": "L13",
       "_origin": "ast",
-      "community": 420,
+      "community": 61,
       "norm_label": "evolutionscreen()",
       "id": "src_pages_games_arenatatics_screens_evolutionscreen_evolutionscreen"
     },
@@ -19009,7 +19049,7 @@
       "source_file": "src/pages/games/ArenaTatics/screens/TeamSelect.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 398,
+      "community": 61,
       "norm_label": "teamselect.jsx",
       "id": "src_pages_games_arenatatics_screens_teamselect"
     },
@@ -19019,7 +19059,7 @@
       "source_file": "src/pages/games/ArenaTatics/screens/TeamSelect.jsx",
       "source_location": "L8",
       "_origin": "ast",
-      "community": 398,
+      "community": 61,
       "norm_label": "emoji",
       "id": "src_pages_games_arenatatics_screens_teamselect_emoji"
     },
@@ -19029,7 +19069,7 @@
       "source_file": "src/pages/games/ArenaTatics/screens/TeamSelect.jsx",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 398,
+      "community": 61,
       "norm_label": "elem_cor",
       "id": "src_pages_games_arenatatics_screens_teamselect_elem_cor"
     },
@@ -19039,7 +19079,7 @@
       "source_file": "src/pages/games/ArenaTatics/screens/TeamSelect.jsx",
       "source_location": "L14",
       "_origin": "ast",
-      "community": 398,
+      "community": 61,
       "norm_label": "teamselect()",
       "id": "src_pages_games_arenatatics_screens_teamselect_teamselect"
     },
@@ -19109,7 +19149,7 @@
       "source_file": "src/pages/games/ArenaTatics/store/useArenaTaticsStore.js",
       "source_location": "L34",
       "_origin": "ast",
-      "community": 31,
+      "community": 309,
       "norm_label": "usearenataticsstore",
       "id": "src_pages_games_arenatatics_store_usearenataticsstore_usearenataticsstore"
     },
@@ -19159,7 +19199,7 @@
       "source_file": "src/pages/games/Duelo/DueloRoute.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 349,
+      "community": 39,
       "norm_label": "dueloroute.jsx",
       "id": "src_pages_games_duelo_dueloroute"
     },
@@ -19169,7 +19209,7 @@
       "source_file": "src/pages/games/Duelo/DueloRoute.jsx",
       "source_location": "L21",
       "_origin": "ast",
-      "community": 349,
+      "community": 39,
       "norm_label": "delay()",
       "id": "src_pages_games_duelo_dueloroute_delay"
     },
@@ -19179,7 +19219,7 @@
       "source_file": "src/pages/games/Duelo/DueloRoute.jsx",
       "source_location": "L24",
       "_origin": "ast",
-      "community": 349,
+      "community": 39,
       "norm_label": "cointossanimation()",
       "id": "src_pages_games_duelo_dueloroute_cointossanimation"
     },
@@ -19189,7 +19229,7 @@
       "source_file": "src/pages/games/Duelo/DueloRoute.jsx",
       "source_location": "L58",
       "_origin": "ast",
-      "community": 349,
+      "community": 39,
       "norm_label": "drawanimation()",
       "id": "src_pages_games_duelo_dueloroute_drawanimation"
     },
@@ -19199,7 +19239,7 @@
       "source_file": "src/pages/games/Duelo/DueloRoute.jsx",
       "source_location": "L111",
       "_origin": "ast",
-      "community": 349,
+      "community": 39,
       "norm_label": "spellconfirmmodal()",
       "id": "src_pages_games_duelo_dueloroute_spellconfirmmodal"
     },
@@ -19209,7 +19249,7 @@
       "source_file": "src/pages/games/Duelo/DueloRoute.jsx",
       "source_location": "L149",
       "_origin": "ast",
-      "community": 349,
+      "community": 39,
       "norm_label": "confirmplacemodal()",
       "id": "src_pages_games_duelo_dueloroute_confirmplacemodal"
     },
@@ -19219,7 +19259,7 @@
       "source_file": "src/pages/games/Duelo/DueloRoute.jsx",
       "source_location": "L183",
       "_origin": "ast",
-      "community": 349,
+      "community": 39,
       "norm_label": "confirmtrapspellmodal()",
       "id": "src_pages_games_duelo_dueloroute_confirmtrapspellmodal"
     },
@@ -19229,7 +19269,7 @@
       "source_file": "src/pages/games/Duelo/DueloRoute.jsx",
       "source_location": "L238",
       "_origin": "ast",
-      "community": 349,
+      "community": 39,
       "norm_label": "sacrificewarningmodal()",
       "id": "src_pages_games_duelo_dueloroute_sacrificewarningmodal"
     },
@@ -19239,7 +19279,7 @@
       "source_file": "src/pages/games/Duelo/DueloRoute.jsx",
       "source_location": "L293",
       "_origin": "ast",
-      "community": 349,
+      "community": 39,
       "norm_label": "confirmsacrificemodal()",
       "id": "src_pages_games_duelo_dueloroute_confirmsacrificemodal"
     },
@@ -19249,7 +19289,7 @@
       "source_file": "src/pages/games/Duelo/DueloRoute.jsx",
       "source_location": "L330",
       "_origin": "ast",
-      "community": 349,
+      "community": 39,
       "norm_label": "vercartasmodal()",
       "id": "src_pages_games_duelo_dueloroute_vercartasmodal"
     },
@@ -19259,7 +19299,7 @@
       "source_file": "src/pages/games/Duelo/DueloRoute.jsx",
       "source_location": "L473",
       "_origin": "ast",
-      "community": 349,
+      "community": 39,
       "norm_label": "trapactivationmodal()",
       "id": "src_pages_games_duelo_dueloroute_trapactivationmodal"
     },
@@ -19269,7 +19309,7 @@
       "source_file": "src/pages/games/Duelo/DueloRoute.jsx",
       "source_location": "L507",
       "_origin": "ast",
-      "community": 349,
+      "community": 39,
       "norm_label": "fieldcardinfomodal()",
       "id": "src_pages_games_duelo_dueloroute_fieldcardinfomodal"
     },
@@ -19279,7 +19319,7 @@
       "source_file": "src/pages/games/Duelo/DueloRoute.jsx",
       "source_location": "L541",
       "_origin": "ast",
-      "community": 349,
+      "community": 39,
       "norm_label": "dueloroute()",
       "id": "src_pages_games_duelo_dueloroute_dueloroute"
     },
@@ -19289,7 +19329,7 @@
       "source_file": "src/pages/games/Duelo/components/BattleLog.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 349,
+      "community": 39,
       "norm_label": "battlelog.jsx",
       "id": "src_pages_games_duelo_components_battlelog"
     },
@@ -19299,7 +19339,7 @@
       "source_file": "src/pages/games/Duelo/components/BattleLog.jsx",
       "source_location": "L3",
       "_origin": "ast",
-      "community": 349,
+      "community": 39,
       "norm_label": "battlelog()",
       "id": "src_pages_games_duelo_components_battlelog_battlelog"
     },
@@ -19309,7 +19349,7 @@
       "source_file": "src/pages/games/Duelo/components/Board.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 349,
+      "community": 39,
       "norm_label": "board.jsx",
       "id": "src_pages_games_duelo_components_board"
     },
@@ -19319,7 +19359,7 @@
       "source_file": "src/pages/games/Duelo/components/Board.jsx",
       "source_location": "L6",
       "_origin": "ast",
-      "community": 349,
+      "community": 39,
       "norm_label": "board()",
       "id": "src_pages_games_duelo_components_board_board"
     },
@@ -19329,7 +19369,7 @@
       "source_file": "src/pages/games/Duelo/components/Card.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 349,
+      "community": 39,
       "norm_label": "card.jsx",
       "id": "src_pages_games_duelo_components_card"
     },
@@ -19339,7 +19379,7 @@
       "source_file": "src/pages/games/Duelo/components/Card.jsx",
       "source_location": "L4",
       "_origin": "ast",
-      "community": 349,
+      "community": 39,
       "norm_label": "card()",
       "id": "src_pages_games_duelo_components_card_card"
     },
@@ -19349,7 +19389,7 @@
       "source_file": "src/pages/games/Duelo/components/CardPreviewModal.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 349,
+      "community": 39,
       "norm_label": "cardpreviewmodal.jsx",
       "id": "src_pages_games_duelo_components_cardpreviewmodal"
     },
@@ -19359,7 +19399,7 @@
       "source_file": "src/pages/games/Duelo/components/CardPreviewModal.jsx",
       "source_location": "L4",
       "_origin": "ast",
-      "community": 349,
+      "community": 39,
       "norm_label": "cardpreviewmodal()",
       "id": "src_pages_games_duelo_components_cardpreviewmodal_cardpreviewmodal"
     },
@@ -19369,7 +19409,7 @@
       "source_file": "src/pages/games/Duelo/components/CardSlot.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 349,
+      "community": 39,
       "norm_label": "cardslot.jsx",
       "id": "src_pages_games_duelo_components_cardslot"
     },
@@ -19379,7 +19419,7 @@
       "source_file": "src/pages/games/Duelo/components/CardSlot.jsx",
       "source_location": "L3",
       "_origin": "ast",
-      "community": 349,
+      "community": 39,
       "norm_label": "cardslot()",
       "id": "src_pages_games_duelo_components_cardslot_cardslot"
     },
@@ -19389,7 +19429,7 @@
       "source_file": "src/pages/games/Duelo/components/Hand.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 349,
+      "community": 39,
       "norm_label": "hand.jsx",
       "id": "src_pages_games_duelo_components_hand"
     },
@@ -19399,7 +19439,7 @@
       "source_file": "src/pages/games/Duelo/components/Hand.jsx",
       "source_location": "L3",
       "_origin": "ast",
-      "community": 349,
+      "community": 39,
       "norm_label": "hand()",
       "id": "src_pages_games_duelo_components_hand_hand"
     },
@@ -19409,7 +19449,7 @@
       "source_file": "src/pages/games/Duelo/components/LPDisplay.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 349,
+      "community": 39,
       "norm_label": "lpdisplay.jsx",
       "id": "src_pages_games_duelo_components_lpdisplay"
     },
@@ -19419,7 +19459,7 @@
       "source_file": "src/pages/games/Duelo/components/LPDisplay.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 349,
+      "community": 39,
       "norm_label": "lpdisplay()",
       "id": "src_pages_games_duelo_components_lpdisplay_lpdisplay"
     },
@@ -19869,7 +19909,7 @@
       "source_file": "src/pages/games/Duelo/engine/phases.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 349,
+      "community": 39,
       "norm_label": "phases.js",
       "id": "src_pages_games_duelo_engine_phases"
     },
@@ -19879,7 +19919,7 @@
       "source_file": "src/pages/games/Duelo/engine/phases.js",
       "source_location": "L8",
       "_origin": "ast",
-      "community": 349,
+      "community": 39,
       "norm_label": "countmonstersonfield()",
       "id": "src_pages_games_duelo_engine_phases_countmonstersonfield"
     },
@@ -19889,7 +19929,7 @@
       "source_file": "src/pages/games/Duelo/engine/phases.js",
       "source_location": "L19",
       "_origin": "ast",
-      "community": 349,
+      "community": 39,
       "norm_label": "checkvictorycondition()",
       "id": "src_pages_games_duelo_engine_phases_checkvictorycondition"
     },
@@ -19899,7 +19939,7 @@
       "source_file": "src/pages/games/Duelo/screens/DueloDerrota.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 349,
+      "community": 39,
       "norm_label": "dueloderrota.jsx",
       "id": "src_pages_games_duelo_screens_dueloderrota"
     },
@@ -19909,7 +19949,7 @@
       "source_file": "src/pages/games/Duelo/screens/DueloDerrota.jsx",
       "source_location": "L6",
       "_origin": "ast",
-      "community": 349,
+      "community": 39,
       "norm_label": "dueloderrota()",
       "id": "src_pages_games_duelo_screens_dueloderrota_dueloderrota"
     },
@@ -19929,7 +19969,7 @@
       "source_file": "src/pages/games/Duelo/screens/DueloMenu.jsx",
       "source_location": "L6",
       "_origin": "ast",
-      "community": 33,
+      "community": 39,
       "norm_label": "duelomenu()",
       "id": "src_pages_games_duelo_screens_duelomenu_duelomenu"
     },
@@ -19939,7 +19979,7 @@
       "source_file": "src/pages/games/Duelo/screens/DueloVitoria.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 349,
+      "community": 39,
       "norm_label": "duelovitoria.jsx",
       "id": "src_pages_games_duelo_screens_duelovitoria"
     },
@@ -19949,7 +19989,7 @@
       "source_file": "src/pages/games/Duelo/screens/DueloVitoria.jsx",
       "source_location": "L6",
       "_origin": "ast",
-      "community": 349,
+      "community": 39,
       "norm_label": "duelovitoria()",
       "id": "src_pages_games_duelo_screens_duelovitoria_duelovitoria"
     },
@@ -19999,7 +20039,7 @@
       "source_file": "src/pages/games/Duelo/store/useDueloStore.js",
       "source_location": "L37",
       "_origin": "ast",
-      "community": 349,
+      "community": 39,
       "norm_label": "useduelostore",
       "id": "src_pages_games_duelo_store_useduelostore_useduelostore"
     },
@@ -20009,7 +20049,7 @@
       "source_file": "src/pages/games/Duelo/version.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 58,
+      "community": 33,
       "norm_label": "version.js",
       "id": "src_pages_games_duelo_version"
     },
@@ -20069,7 +20109,7 @@
       "source_file": "src/pages/games/JackCandy/JackCandy.jsx",
       "source_location": "L28",
       "_origin": "ast",
-      "community": 51,
+      "community": 20,
       "norm_label": "jackcandy()",
       "id": "src_pages_games_jackcandy_jackcandy_jackcandy"
     },
@@ -20189,7 +20229,7 @@
       "source_file": "src/pages/games/JackCandy/components/Monologue.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 33,
+      "community": 20,
       "norm_label": "monologue.jsx",
       "id": "src_pages_games_jackcandy_components_monologue"
     },
@@ -20199,7 +20239,7 @@
       "source_file": "src/pages/games/JackCandy/components/Monologue.jsx",
       "source_location": "L4",
       "_origin": "ast",
-      "community": 33,
+      "community": 20,
       "norm_label": "monologue()",
       "id": "src_pages_games_jackcandy_components_monologue_monologue"
     },
@@ -20759,7 +20799,7 @@
       "source_file": "src/pages/games/JackCandy/screens/MainMenu.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 20,
+      "community": 33,
       "norm_label": "mainmenu.jsx",
       "id": "src_pages_games_jackcandy_screens_mainmenu"
     },
@@ -20769,7 +20809,7 @@
       "source_file": "src/pages/games/JackCandy/screens/MainMenu.jsx",
       "source_location": "L8",
       "_origin": "ast",
-      "community": 20,
+      "community": 33,
       "norm_label": "mainmenu()",
       "id": "src_pages_games_jackcandy_screens_mainmenu_mainmenu"
     },
@@ -22259,7 +22299,7 @@
       "source_file": "src/pages/games/LDI/Create.jsx",
       "source_location": "L10",
       "_origin": "ast",
-      "community": 309,
+      "community": 51,
       "norm_label": "create()",
       "id": "src_pages_games_ldi_create_create"
     },
@@ -22999,7 +23039,7 @@
       "source_file": "src/pages/games/LDI/data/characterData.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 309,
+      "community": 51,
       "norm_label": "characterdata.js",
       "id": "src_pages_games_ldi_data_characterdata"
     },
@@ -23009,7 +23049,7 @@
       "source_file": "src/pages/games/LDI/data/characterData.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 309,
+      "community": 51,
       "norm_label": "attr_tooltips",
       "id": "src_pages_games_ldi_data_characterdata_attr_tooltips"
     },
@@ -23019,7 +23059,7 @@
       "source_file": "src/pages/games/LDI/data/characterData.js",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 309,
+      "community": 51,
       "norm_label": "advantages",
       "id": "src_pages_games_ldi_data_characterdata_advantages"
     },
@@ -23029,7 +23069,7 @@
       "source_file": "src/pages/games/LDI/data/characterData.js",
       "source_location": "L20",
       "_origin": "ast",
-      "community": 309,
+      "community": 51,
       "norm_label": "disadvantages",
       "id": "src_pages_games_ldi_data_characterdata_disadvantages"
     },
@@ -23039,7 +23079,7 @@
       "source_file": "src/pages/games/LDI/data/characterData.js",
       "source_location": "L31",
       "_origin": "ast",
-      "community": 309,
+      "community": 51,
       "norm_label": "perks",
       "id": "src_pages_games_ldi_data_characterdata_perks"
     },
@@ -23049,7 +23089,7 @@
       "source_file": "src/pages/games/LDI/data/characterData.js",
       "source_location": "L42",
       "_origin": "ast",
-      "community": 309,
+      "community": 51,
       "norm_label": "specializations",
       "id": "src_pages_games_ldi_data_characterdata_specializations"
     },
@@ -23569,7 +23609,7 @@
       "source_file": "src/pages/games/MiniGames/version.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 58,
+      "community": 33,
       "norm_label": "version.js",
       "id": "src_pages_games_minigames_version"
     },
@@ -23579,7 +23619,7 @@
       "source_file": "src/pages/games/MultiplayerLobby/MultiplayerLobby.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 29,
+      "community": 403,
       "norm_label": "multiplayerlobby.jsx",
       "id": "src_pages_games_multiplayerlobby_multiplayerlobby"
     },
@@ -23589,7 +23629,7 @@
       "source_file": "src/pages/games/MultiplayerLobby/MultiplayerLobby.jsx",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 29,
+      "community": 403,
       "norm_label": "multiplayerlobby()",
       "id": "src_pages_games_multiplayerlobby_multiplayerlobby_multiplayerlobby"
     },
@@ -24629,7 +24669,7 @@
       "source_file": "src/pages/games/Tamagoshi/data/personalidades.js",
       "source_location": "L97",
       "_origin": "ast",
-      "community": 111,
+      "community": 454,
       "norm_label": "getfala()",
       "id": "src_pages_games_tamagoshi_data_personalidades_getfala"
     },
@@ -24649,7 +24689,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/Alimentar.jsx",
       "source_location": "L11",
       "_origin": "ast",
-      "community": 60,
+      "community": 111,
       "norm_label": "alimentar()",
       "id": "src_pages_games_tamagoshi_screens_alimentar_alimentar"
     },
@@ -24669,7 +24709,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/Banhar.jsx",
       "source_location": "L10",
       "_origin": "ast",
-      "community": 60,
+      "community": 111,
       "norm_label": "banhar()",
       "id": "src_pages_games_tamagoshi_screens_banhar_banhar"
     },
@@ -24679,7 +24719,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/Brincadeira.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 111,
+      "community": 454,
       "norm_label": "brincadeira.jsx",
       "id": "src_pages_games_tamagoshi_screens_brincadeira"
     },
@@ -24689,7 +24729,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/Brincadeira.jsx",
       "source_location": "L22",
       "_origin": "ast",
-      "community": 111,
+      "community": 454,
       "norm_label": "puzzles",
       "id": "src_pages_games_tamagoshi_screens_brincadeira_puzzles"
     },
@@ -24699,7 +24739,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/Brincadeira.jsx",
       "source_location": "L31",
       "_origin": "ast",
-      "community": 111,
+      "community": 454,
       "norm_label": "getconfig()",
       "id": "src_pages_games_tamagoshi_screens_brincadeira_getconfig"
     },
@@ -24709,7 +24749,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/Brincadeira.jsx",
       "source_location": "L43",
       "_origin": "ast",
-      "community": 111,
+      "community": 454,
       "norm_label": "brincadeira()",
       "id": "src_pages_games_tamagoshi_screens_brincadeira_brincadeira"
     },
@@ -24799,7 +24839,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/Luto.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 111,
+      "community": 454,
       "norm_label": "luto.jsx",
       "id": "src_pages_games_tamagoshi_screens_luto"
     },
@@ -24809,7 +24849,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/Luto.jsx",
       "source_location": "L7",
       "_origin": "ast",
-      "community": 111,
+      "community": 454,
       "norm_label": "luto()",
       "id": "src_pages_games_tamagoshi_screens_luto_luto"
     },
@@ -24909,7 +24949,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/Passeio.jsx",
       "source_location": "L7",
       "_origin": "ast",
-      "community": 304,
+      "community": 111,
       "norm_label": "passeio()",
       "id": "src_pages_games_tamagoshi_screens_passeio_passeio"
     },
@@ -25049,7 +25089,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/Termo.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 51,
+      "community": 111,
       "norm_label": "termo.jsx",
       "id": "src_pages_games_tamagoshi_screens_termo"
     },
@@ -25059,7 +25099,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/Termo.jsx",
       "source_location": "L8",
       "_origin": "ast",
-      "community": 51,
+      "community": 111,
       "norm_label": "termo()",
       "id": "src_pages_games_tamagoshi_screens_termo_termo"
     },
@@ -25479,7 +25519,7 @@
       "source_file": "src/pages/games/TopTrumps/components/GameOverScreen/GameOverScreen.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 33,
+      "community": 90,
       "norm_label": "gameoverscreen.jsx",
       "id": "src_pages_games_toptrumps_components_gameoverscreen_gameoverscreen"
     },
@@ -25489,7 +25529,7 @@
       "source_file": "src/pages/games/TopTrumps/components/GameOverScreen/GameOverScreen.jsx",
       "source_location": "L5",
       "_origin": "ast",
-      "community": 33,
+      "community": 90,
       "norm_label": "gameoverscreen()",
       "id": "src_pages_games_toptrumps_components_gameoverscreen_gameoverscreen_gameoverscreen"
     },
@@ -25809,7 +25849,7 @@
       "source_file": "src/pages/games/TopTrumps/hooks/useTopTrumpsRewards.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 41,
+      "community": 420,
       "norm_label": "usetoptrumpsrewards.js",
       "id": "src_pages_games_toptrumps_hooks_usetoptrumpsrewards"
     },
@@ -25819,7 +25859,7 @@
       "source_file": "src/pages/games/TopTrumps/hooks/useTopTrumpsRewards.js",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 41,
+      "community": 420,
       "norm_label": "gettierinicial()",
       "id": "src_pages_games_toptrumps_hooks_usetoptrumpsrewards_gettierinicial"
     },
@@ -25829,7 +25869,7 @@
       "source_file": "src/pages/games/TopTrumps/hooks/useTopTrumpsRewards.js",
       "source_location": "L14",
       "_origin": "ast",
-      "community": 41,
+      "community": 420,
       "norm_label": "getdeckkey()",
       "id": "src_pages_games_toptrumps_hooks_usetoptrumpsrewards_getdeckkey"
     },
@@ -25839,7 +25879,7 @@
       "source_file": "src/pages/games/TopTrumps/hooks/useTopTrumpsRewards.js",
       "source_location": "L19",
       "_origin": "ast",
-      "community": 41,
+      "community": 420,
       "norm_label": "usetoptrumpsrewards()",
       "id": "src_pages_games_toptrumps_hooks_usetoptrumpsrewards_usetoptrumpsrewards"
     },
@@ -26099,7 +26139,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/components/modals/PowerChoiceModal.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 289,
+      "community": 502,
       "norm_label": "powerchoicemodal.jsx",
       "id": "src_pages_lab_prototype_arenatestbed_components_modals_powerchoicemodal"
     },
@@ -26109,7 +26149,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/components/modals/PowerChoiceModal.jsx",
       "source_location": "L5",
       "_origin": "ast",
-      "community": 289,
+      "community": 502,
       "norm_label": "powerchoicemodal()",
       "id": "src_pages_lab_prototype_arenatestbed_components_modals_powerchoicemodal_powerchoicemodal"
     },
@@ -26169,7 +26209,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/components/power-selection/PowerFilterBar.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 289,
+      "community": 502,
       "norm_label": "powerfilterbar.jsx",
       "id": "src_pages_lab_prototype_arenatestbed_components_power_selection_powerfilterbar"
     },
@@ -26179,7 +26219,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/components/power-selection/PowerFilterBar.jsx",
       "source_location": "L6",
       "_origin": "ast",
-      "community": 289,
+      "community": 502,
       "norm_label": "elementos",
       "id": "src_pages_lab_prototype_arenatestbed_components_power_selection_powerfilterbar_elementos"
     },
@@ -26189,7 +26229,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/components/power-selection/PowerFilterBar.jsx",
       "source_location": "L8",
       "_origin": "ast",
-      "community": 289,
+      "community": 502,
       "norm_label": "powerfilterbar()",
       "id": "src_pages_lab_prototype_arenatestbed_components_power_selection_powerfilterbar_powerfilterbar"
     },
@@ -26209,7 +26249,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/components/power-selection/PowerGrid.jsx",
       "source_location": "L4",
       "_origin": "ast",
-      "community": 289,
+      "community": 502,
       "norm_label": "powergrid()",
       "id": "src_pages_lab_prototype_arenatestbed_components_power_selection_powergrid_powergrid"
     },
@@ -26219,7 +26259,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/components/power-selection/SortToggle.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 289,
+      "community": 502,
       "norm_label": "sorttoggle.jsx",
       "id": "src_pages_lab_prototype_arenatestbed_components_power_selection_sorttoggle"
     },
@@ -26229,7 +26269,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/components/power-selection/SortToggle.jsx",
       "source_location": "L4",
       "_origin": "ast",
-      "community": 289,
+      "community": 502,
       "norm_label": "sorttoggle()",
       "id": "src_pages_lab_prototype_arenatestbed_components_power_selection_sorttoggle_sorttoggle"
     },
@@ -26239,7 +26279,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/data/fichaStorage.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 488,
+      "community": 289,
       "norm_label": "fichastorage.js",
       "id": "src_pages_lab_prototype_arenatestbed_data_fichastorage"
     },
@@ -26249,7 +26289,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/data/fichaStorage.js",
       "source_location": "L16",
       "_origin": "ast",
-      "community": 488,
+      "community": 289,
       "norm_label": "gerarid()",
       "id": "src_pages_lab_prototype_arenatestbed_data_fichastorage_gerarid"
     },
@@ -26259,7 +26299,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/data/fichaStorage.js",
       "source_location": "L20",
       "_origin": "ast",
-      "community": 488,
+      "community": 289,
       "norm_label": "lerdostorage()",
       "id": "src_pages_lab_prototype_arenatestbed_data_fichastorage_lerdostorage"
     },
@@ -26269,7 +26309,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/data/fichaStorage.js",
       "source_location": "L32",
       "_origin": "ast",
-      "community": 488,
+      "community": 289,
       "norm_label": "escrevernostorage()",
       "id": "src_pages_lab_prototype_arenatestbed_data_fichastorage_escrevernostorage"
     },
@@ -26279,7 +26319,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/data/fichaStorage.js",
       "source_location": "L40",
       "_origin": "ast",
-      "community": 488,
+      "community": 289,
       "norm_label": "salvarficha()",
       "id": "src_pages_lab_prototype_arenatestbed_data_fichastorage_salvarficha"
     },
@@ -26289,7 +26329,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/data/fichaStorage.js",
       "source_location": "L53",
       "_origin": "ast",
-      "community": 488,
+      "community": 289,
       "norm_label": "carregarfichas()",
       "id": "src_pages_lab_prototype_arenatestbed_data_fichastorage_carregarfichas"
     },
@@ -26299,7 +26339,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/data/fichaStorage.js",
       "source_location": "L57",
       "_origin": "ast",
-      "community": 488,
+      "community": 289,
       "norm_label": "deletarficha()",
       "id": "src_pages_lab_prototype_arenatestbed_data_fichastorage_deletarficha"
     },
@@ -26309,7 +26349,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/data/poderes.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 263,
+      "community": 429,
       "norm_label": "poderes.js",
       "id": "src_pages_lab_prototype_arenatestbed_data_poderes"
     },
@@ -26319,7 +26359,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/data/poderes.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 263,
+      "community": 429,
       "norm_label": "poderes_base",
       "id": "src_pages_lab_prototype_arenatestbed_data_poderes_poderes_base"
     },
@@ -26329,7 +26369,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/data/poderes.js",
       "source_location": "L64",
       "_origin": "ast",
-      "community": 263,
+      "community": 429,
       "norm_label": "getpoderesporid()",
       "id": "src_pages_lab_prototype_arenatestbed_data_poderes_getpoderesporid"
     },
@@ -26339,7 +26379,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/data/poderes.js",
       "source_location": "L68",
       "_origin": "ast",
-      "community": 263,
+      "community": 429,
       "norm_label": "getpoderesdisponiveis()",
       "id": "src_pages_lab_prototype_arenatestbed_data_poderes_getpoderesdisponiveis"
     },
@@ -26349,7 +26389,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/data/poderes.js",
       "source_location": "L73",
       "_origin": "ast",
-      "community": 263,
+      "community": 429,
       "norm_label": "tempoderdisponivel()",
       "id": "src_pages_lab_prototype_arenatestbed_data_poderes_tempoderdisponivel"
     },
@@ -26599,7 +26639,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/ai.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 407,
+      "community": 483,
       "norm_label": "ai.js",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai"
     },
@@ -26609,7 +26649,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/ai.js",
       "source_location": "L13",
       "_origin": "ast",
-      "community": 407,
+      "community": 483,
       "norm_label": "decidiracaoia()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_decidiracaoia"
     },
@@ -26619,7 +26659,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/ai/index.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 407,
+      "community": 263,
       "norm_label": "index.js",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_index"
     },
@@ -26629,7 +26669,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/ai/index.js",
       "source_location": "L5",
       "_origin": "ast",
-      "community": 407,
+      "community": 263,
       "norm_label": "personalidades",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_index_personalidades"
     },
@@ -26639,7 +26679,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/ai/index.js",
       "source_location": "L21",
       "_origin": "ast",
-      "community": 407,
+      "community": 263,
       "norm_label": "executarpersonalidade()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_index_executarpersonalidade"
     },
@@ -26709,7 +26749,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/ai/personalidades/index.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 483,
+      "community": 263,
       "norm_label": "index.js",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_personalidades_index"
     },
@@ -26719,7 +26759,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/ai/personalidades/index.js",
       "source_location": "L5",
       "_origin": "ast",
-      "community": 483,
+      "community": 263,
       "norm_label": "personalidades_ia",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_personalidades_index_personalidades_ia"
     },
@@ -26729,7 +26769,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/ai/personalidades/index.js",
       "source_location": "L11",
       "_origin": "ast",
-      "community": 483,
+      "community": 263,
       "norm_label": "getpersonalidadeporid()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_personalidades_index_getpersonalidadeporid"
     },
@@ -26799,7 +26839,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/ai/personalidades/sanguinaria.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 407,
+      "community": 263,
       "norm_label": "sanguinaria.js",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_personalidades_sanguinaria"
     },
@@ -26809,7 +26849,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/ai/personalidades/sanguinaria.js",
       "source_location": "L5",
       "_origin": "ast",
-      "community": 407,
+      "community": 263,
       "norm_label": "melhorpoderparaataque()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_personalidades_sanguinaria_melhorpoderparaataque"
     },
@@ -26819,7 +26859,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/ai/personalidades/sanguinaria.js",
       "source_location": "L15",
       "_origin": "ast",
-      "community": 407,
+      "community": 263,
       "norm_label": "inimigomaisproximo()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_personalidades_sanguinaria_inimigomaisproximo"
     },
@@ -26829,7 +26869,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/ai/personalidades/sanguinaria.js",
       "source_location": "L25",
       "_origin": "ast",
-      "community": 407,
+      "community": 263,
       "norm_label": "podeatacaralvo()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_personalidades_sanguinaria_podeatacaralvo"
     },
@@ -26839,7 +26879,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/ai/personalidades/sanguinaria.js",
       "source_location": "L31",
       "_origin": "ast",
-      "community": 407,
+      "community": 263,
       "norm_label": "resolverataqueia()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_personalidades_sanguinaria_resolverataqueia"
     },
@@ -26849,7 +26889,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/ai/personalidades/sanguinaria.js",
       "source_location": "L43",
       "_origin": "ast",
-      "community": 407,
+      "community": 263,
       "norm_label": "calcularpassos()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_personalidades_sanguinaria_calcularpassos"
     },
@@ -26859,7 +26899,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/ai/personalidades/sanguinaria.js",
       "source_location": "L64",
       "_origin": "ast",
-      "community": 407,
+      "community": 263,
       "norm_label": "acaosanguinaria()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_ai_personalidades_sanguinaria_acaosanguinaria"
     },
@@ -26989,7 +27029,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/animations/attack/index.js",
       "source_location": "L16",
       "_origin": "ast",
-      "community": 36,
+      "community": 459,
       "norm_label": "attackanimid",
       "id": "src_pages_lab_prototype_arenatestbed_engine_animations_attack_index_attackanimid"
     },
@@ -27019,7 +27059,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/animations/attack/index.js",
       "source_location": "L32",
       "_origin": "ast",
-      "community": 36,
+      "community": 459,
       "norm_label": "rangeanimid",
       "id": "src_pages_lab_prototype_arenatestbed_engine_animations_attack_index_rangeanimid"
     },
@@ -27559,7 +27599,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/audioManager.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 289,
+      "community": 502,
       "norm_label": "audiomanager.js",
       "id": "src_pages_lab_prototype_arenatestbed_engine_audiomanager"
     },
@@ -27989,7 +28029,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/audioManager.js",
       "source_location": "L204",
       "_origin": "ast",
-      "community": 289,
+      "community": 502,
       "norm_label": "audio",
       "id": "src_pages_lab_prototype_arenatestbed_engine_audiomanager_audio"
     },
@@ -27999,7 +28039,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/combat.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 429,
+      "community": 483,
       "norm_label": "combat.js",
       "id": "src_pages_lab_prototype_arenatestbed_engine_combat"
     },
@@ -28009,7 +28049,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/combat.js",
       "source_location": "L13",
       "_origin": "ast",
-      "community": 429,
+      "community": 483,
       "norm_label": "calcularfa()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_combat_calcularfa"
     },
@@ -28019,7 +28059,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/combat.js",
       "source_location": "L38",
       "_origin": "ast",
-      "community": 429,
+      "community": 483,
       "norm_label": "calcularfd()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_combat_calcularfd"
     },
@@ -28029,7 +28069,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/combat.js",
       "source_location": "L57",
       "_origin": "ast",
-      "community": 429,
+      "community": 483,
       "norm_label": "resolverataque()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_combat_resolverataque"
     },
@@ -28039,7 +28079,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/combat.js",
       "source_location": "L129",
       "_origin": "ast",
-      "community": 429,
+      "community": 483,
       "norm_label": "resolvercontraataque()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_combat_resolvercontraataque"
     },
@@ -28049,7 +28089,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/combat.js",
       "source_location": "L153",
       "_origin": "ast",
-      "community": 429,
+      "community": 483,
       "norm_label": "rolard6()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_combat_rolard6"
     },
@@ -28089,7 +28129,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/combat.js",
       "source_location": "L189",
       "_origin": "ast",
-      "community": 407,
+      "community": 263,
       "norm_label": "getchanceacerto()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_combat_getchanceacerto"
     },
@@ -28109,7 +28149,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/drawCombatBoard.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 506,
+      "community": 10,
       "norm_label": "drawcombatboard.js",
       "id": "src_pages_lab_prototype_arenatestbed_engine_drawcombatboard"
     },
@@ -28119,7 +28159,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/drawCombatBoard.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 506,
+      "community": 10,
       "norm_label": "drawcharacter()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_drawcombatboard_drawcharacter"
     },
@@ -28129,7 +28169,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/drawCombatBoard.js",
       "source_location": "L103",
       "_origin": "ast",
-      "community": 506,
+      "community": 10,
       "norm_label": "drawcombatboard()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_drawcombatboard_drawcombatboard"
     },
@@ -28339,7 +28379,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/hexUtils.js",
       "source_location": "L261",
       "_origin": "ast",
-      "community": 407,
+      "community": 263,
       "norm_label": "encontrarcaminho()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_hexutils_encontrarcaminho"
     },
@@ -28419,7 +28459,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/regrasFicha.js",
       "source_location": "L6",
       "_origin": "ast",
-      "community": 488,
+      "community": 289,
       "norm_label": "podesalvarnovaficha()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_regrasficha_podesalvarnovaficha"
     },
@@ -28729,7 +28769,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/phases/Phase0Start.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 488,
+      "community": 289,
       "norm_label": "phase0start.jsx",
       "id": "src_pages_lab_prototype_arenatestbed_phases_phase0start"
     },
@@ -28739,7 +28779,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/phases/Phase0Start.jsx",
       "source_location": "L8",
       "_origin": "ast",
-      "community": 488,
+      "community": 289,
       "norm_label": "phase0start()",
       "id": "src_pages_lab_prototype_arenatestbed_phases_phase0start_phase0start"
     },
@@ -28879,7 +28919,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/phases/Phase5PowerSelect.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 289,
+      "community": 502,
       "norm_label": "phase5powerselect.jsx",
       "id": "src_pages_lab_prototype_arenatestbed_phases_phase5powerselect"
     },
@@ -28899,7 +28939,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/phases/Phase5PowerSelect.jsx",
       "source_location": "L17",
       "_origin": "ast",
-      "community": 289,
+      "community": 502,
       "norm_label": "todo: quando modojogo.campanha existir de verdade, filtrar characters",
       "id": "src_pages_lab_prototype_arenatestbed_phases_phase5powerselect_rationale_17"
     },
@@ -28909,7 +28949,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/phases/Phase5bAnimDebug.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 36,
+      "community": 459,
       "norm_label": "phase5banimdebug.jsx",
       "id": "src_pages_lab_prototype_arenatestbed_phases_phase5banimdebug"
     },
@@ -28919,7 +28959,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/phases/Phase5bAnimDebug.jsx",
       "source_location": "L11",
       "_origin": "ast",
-      "community": 36,
+      "community": 459,
       "norm_label": "tipos_animacao",
       "id": "src_pages_lab_prototype_arenatestbed_phases_phase5banimdebug_tipos_animacao"
     },
@@ -28929,7 +28969,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/phases/Phase5bAnimDebug.jsx",
       "source_location": "L12",
       "_origin": "ast",
-      "community": 36,
+      "community": 459,
       "norm_label": "opcoes",
       "id": "src_pages_lab_prototype_arenatestbed_phases_phase5banimdebug_opcoes"
     },
@@ -30709,7 +30749,7 @@
       "source_file": "src/pages/platform/Admin.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 51,
+      "community": 322,
       "norm_label": "admin.jsx",
       "id": "src_pages_platform_admin"
     },
@@ -30719,7 +30759,7 @@
       "source_file": "src/pages/platform/Admin.jsx",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 51,
+      "community": 322,
       "norm_label": "admin()",
       "id": "src_pages_platform_admin_admin"
     },
@@ -30769,7 +30809,7 @@
       "source_file": "src/pages/platform/Perfil/Perfil.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 1,
+      "community": 51,
       "norm_label": "perfil.jsx",
       "id": "src_pages_platform_perfil_perfil"
     },
@@ -30779,7 +30819,7 @@
       "source_file": "src/pages/platform/Perfil/Perfil.jsx",
       "source_location": "L17",
       "_origin": "ast",
-      "community": 1,
+      "community": 51,
       "norm_label": "tier_config",
       "id": "src_pages_platform_perfil_perfil_tier_config"
     },
@@ -30789,7 +30829,7 @@
       "source_file": "src/pages/platform/Perfil/Perfil.jsx",
       "source_location": "L23",
       "_origin": "ast",
-      "community": 1,
+      "community": 51,
       "norm_label": "secoes",
       "id": "src_pages_platform_perfil_perfil_secoes"
     },
@@ -30799,7 +30839,7 @@
       "source_file": "src/pages/platform/Perfil/Perfil.jsx",
       "source_location": "L32",
       "_origin": "ast",
-      "community": 1,
+      "community": 51,
       "norm_label": "perfil()",
       "id": "src_pages_platform_perfil_perfil_perfil"
     },
@@ -30809,7 +30849,7 @@
       "source_file": "src/pages/platform/Perfil/PerfilProgresso.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 1,
+      "community": 51,
       "norm_label": "perfilprogresso.jsx",
       "id": "src_pages_platform_perfil_perfilprogresso"
     },
@@ -30819,7 +30859,7 @@
       "source_file": "src/pages/platform/Perfil/PerfilProgresso.jsx",
       "source_location": "L7",
       "_origin": "ast",
-      "community": 1,
+      "community": 51,
       "norm_label": "timeago()",
       "id": "src_pages_platform_perfil_perfilprogresso_timeago"
     },
@@ -30829,7 +30869,7 @@
       "source_file": "src/pages/platform/Perfil/PerfilProgresso.jsx",
       "source_location": "L19",
       "_origin": "ast",
-      "community": 1,
+      "community": 51,
       "norm_label": "iconeportipo()",
       "id": "src_pages_platform_perfil_perfilprogresso_iconeportipo"
     },
@@ -30839,7 +30879,7 @@
       "source_file": "src/pages/platform/Perfil/PerfilProgresso.jsx",
       "source_location": "L42",
       "_origin": "ast",
-      "community": 1,
+      "community": 51,
       "norm_label": "perfilprogresso()",
       "id": "src_pages_platform_perfil_perfilprogresso_perfilprogresso"
     },
@@ -30859,7 +30899,7 @@
       "source_file": "src/pages/platform/Perfil/abas/PerfilColecao.jsx",
       "source_location": "L11",
       "_origin": "ast",
-      "community": 1,
+      "community": 414,
       "norm_label": "perfilcolecao()",
       "id": "src_pages_platform_perfil_abas_perfilcolecao_perfilcolecao"
     },
@@ -30979,7 +31019,7 @@
       "source_file": "src/pages/platform/Perfil/abas/Recompensas.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 1,
+      "community": 51,
       "norm_label": "recompensas.jsx",
       "id": "src_pages_platform_perfil_abas_recompensas"
     },
@@ -30989,7 +31029,7 @@
       "source_file": "src/pages/platform/Perfil/abas/Recompensas.jsx",
       "source_location": "L8",
       "_origin": "ast",
-      "community": 1,
+      "community": 51,
       "norm_label": "motivo_key_map",
       "id": "src_pages_platform_perfil_abas_recompensas_motivo_key_map"
     },
@@ -30999,7 +31039,7 @@
       "source_file": "src/pages/platform/Perfil/abas/Recompensas.jsx",
       "source_location": "L15",
       "_origin": "ast",
-      "community": 1,
+      "community": 51,
       "norm_label": "recompensas()",
       "id": "src_pages_platform_perfil_abas_recompensas_recompensas"
     },
@@ -31269,7 +31309,7 @@
       "source_file": "src/pages/site/Quiz.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 51,
+      "community": 398,
       "norm_label": "quiz.jsx",
       "id": "src_pages_site_quiz"
     },
@@ -31279,7 +31319,7 @@
       "source_file": "src/pages/site/Quiz.jsx",
       "source_location": "L11",
       "_origin": "ast",
-      "community": 51,
+      "community": 398,
       "norm_label": "modos",
       "id": "src_pages_site_quiz_modos"
     },
@@ -31289,7 +31329,7 @@
       "source_file": "src/pages/site/Quiz.jsx",
       "source_location": "L17",
       "_origin": "ast",
-      "community": 51,
+      "community": 398,
       "norm_label": "embaralhar()",
       "id": "src_pages_site_quiz_embaralhar"
     },
@@ -31299,7 +31339,7 @@
       "source_file": "src/pages/site/Quiz.jsx",
       "source_location": "L21",
       "_origin": "ast",
-      "community": 51,
+      "community": 398,
       "norm_label": "selecionarperguntas()",
       "id": "src_pages_site_quiz_selecionarperguntas"
     },
@@ -31309,7 +31349,7 @@
       "source_file": "src/pages/site/Quiz.jsx",
       "source_location": "L29",
       "_origin": "ast",
-      "community": 51,
+      "community": 398,
       "norm_label": "gerardicagangue()",
       "id": "src_pages_site_quiz_gerardicagangue"
     },
@@ -31319,7 +31359,7 @@
       "source_file": "src/pages/site/Quiz.jsx",
       "source_location": "L52",
       "_origin": "ast",
-      "community": 51,
+      "community": 398,
       "norm_label": "calcularrank()",
       "id": "src_pages_site_quiz_calcularrank"
     },
@@ -31329,7 +31369,7 @@
       "source_file": "src/pages/site/Quiz.jsx",
       "source_location": "L63",
       "_origin": "ast",
-      "community": 51,
+      "community": 398,
       "norm_label": "quiz()",
       "id": "src_pages_site_quiz_quiz"
     },
@@ -31599,7 +31639,7 @@
       "source_file": "tests/paridade-exata.mjs",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 419,
+      "community": 61,
       "norm_label": "paridade-exata.mjs",
       "id": "tests_paridade_exata"
     },
@@ -31609,7 +31649,7 @@
       "source_file": "tests/paridade-exata.mjs",
       "source_location": "L6",
       "_origin": "ast",
-      "community": 419,
+      "community": 61,
       "norm_label": "calcatkpower()",
       "id": "tests_paridade_exata_calcatkpower"
     },
@@ -31619,7 +31659,7 @@
       "source_file": "tests/paridade-exata.mjs",
       "source_location": "L10",
       "_origin": "ast",
-      "community": 419,
+      "community": 61,
       "norm_label": "calcdefpower()",
       "id": "tests_paridade_exata_calcdefpower"
     },
@@ -31629,7 +31669,7 @@
       "source_file": "tests/paridade-exata.mjs",
       "source_location": "L21",
       "_origin": "ast",
-      "community": 419,
+      "community": 61,
       "norm_label": "getterrainmods()",
       "id": "tests_paridade_exata_getterrainmods"
     },
@@ -31639,7 +31679,7 @@
       "source_file": "tests/paridade-exata.mjs",
       "source_location": "L37",
       "_origin": "ast",
-      "community": 419,
+      "community": 61,
       "norm_label": "calcatkwithterrain()",
       "id": "tests_paridade_exata_calcatkwithterrain"
     },
@@ -31649,7 +31689,7 @@
       "source_file": "tests/paridade-exata.mjs",
       "source_location": "L50",
       "_origin": "ast",
-      "community": 419,
+      "community": 61,
       "norm_label": "calcdefwithterrain()",
       "id": "tests_paridade_exata_calcdefwithterrain"
     },
@@ -31659,7 +31699,7 @@
       "source_file": "tests/paridade-exata.mjs",
       "source_location": "L65",
       "_origin": "ast",
-      "community": 419,
+      "community": 61,
       "norm_label": "cardatk()",
       "id": "tests_paridade_exata_cardatk"
     },
@@ -31669,7 +31709,7 @@
       "source_file": "tests/paridade-exata.mjs",
       "source_location": "L66",
       "_origin": "ast",
-      "community": 419,
+      "community": 61,
       "norm_label": "carddef()",
       "id": "tests_paridade_exata_carddef"
     },
@@ -31679,7 +31719,7 @@
       "source_file": "tests/paridade-exata.mjs",
       "source_location": "L70",
       "_origin": "ast",
-      "community": 419,
+      "community": 61,
       "norm_label": "test()",
       "id": "tests_paridade_exata_test"
     },
@@ -31689,7 +31729,7 @@
       "source_file": "tests/paridade-exata.mjs",
       "source_location": "L75",
       "_origin": "ast",
-      "community": 419,
+      "community": 61,
       "norm_label": "eq()",
       "id": "tests_paridade_exata_eq"
     },
@@ -46498,401 +46538,118 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L222",
-      "weight": 1.0,
-      "source": "scripts_prerender_routes",
-      "target": "scripts_prerender_routes_breadcrumbfor",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L9",
-      "weight": 1.0,
-      "source": "scripts_prerender_routes",
-      "target": "scripts_prerender_routes_build_date",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L206",
-      "weight": 1.0,
-      "source": "scripts_prerender_routes",
-      "target": "scripts_prerender_routes_canonicalurl",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
+      "source_file": "src/components/Navbar.jsx",
       "source_location": "L16",
       "weight": 1.0,
-      "source": "scripts_prerender_routes",
-      "target": "scripts_prerender_routes_capitulos",
+      "source": "src_components_navbar",
+      "target": "src_components_navbar_locales",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L17",
+      "source_file": "src/components/Navbar.jsx",
+      "source_location": "L20",
       "weight": 1.0,
-      "source": "scripts_prerender_routes",
-      "target": "scripts_prerender_routes_contos",
+      "source": "src_components_navbar",
+      "target": "src_components_navbar_logo_mark",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L6",
+      "source_file": "src/components/Navbar.jsx",
+      "source_location": "L22",
       "weight": 1.0,
-      "source": "scripts_prerender_routes",
-      "target": "scripts_prerender_routes_dist_dir",
+      "source": "src_components_navbar",
+      "target": "src_components_navbar_navbar",
       "confidence_score": 1.0
     },
     {
-      "relation": "contains",
+      "relation": "imports_from",
+      "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L19",
+      "source_file": "src/components/Navbar.jsx",
+      "source_location": "L10",
       "weight": 1.0,
-      "source": "scripts_prerender_routes",
-      "target": "scripts_prerender_routes_episodios",
+      "source": "src_components_navbar",
+      "target": "src_components_sharebutton_sharebutton",
       "confidence_score": 1.0
     },
     {
-      "relation": "contains",
+      "relation": "imports",
+      "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L205",
+      "source_file": "src/components/Navbar.jsx",
+      "source_location": "L10",
       "weight": 1.0,
-      "source": "scripts_prerender_routes",
-      "target": "scripts_prerender_routes_escapehtml",
+      "source": "src_components_navbar",
+      "target": "src_components_sharebutton_sharebutton_sharebutton",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L103",
-      "weight": 1.0,
-      "source": "scripts_prerender_routes",
-      "target": "scripts_prerender_routes_extragameroutes",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L313",
-      "weight": 1.0,
-      "source": "scripts_prerender_routes",
-      "target": "scripts_prerender_routes_homeroute",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L7",
-      "weight": 1.0,
-      "source": "scripts_prerender_routes",
-      "target": "scripts_prerender_routes_index_path",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L304",
-      "weight": 1.0,
-      "source": "scripts_prerender_routes",
-      "target": "scripts_prerender_routes_indexhtml",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L18",
-      "weight": 1.0,
-      "source": "scripts_prerender_routes",
-      "target": "scripts_prerender_routes_obras",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L260",
-      "weight": 1.0,
-      "source": "scripts_prerender_routes",
-      "target": "scripts_prerender_routes_pagehtml",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L12",
-      "weight": 1.0,
-      "source": "scripts_prerender_routes",
-      "target": "scripts_prerender_routes_pastor",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
+      "source_file": "src/components/ShareButton/ShareButton.jsx",
       "source_location": "L15",
       "weight": 1.0,
-      "source": "scripts_prerender_routes",
-      "target": "scripts_prerender_routes_personagens",
+      "source": "src_components_sharebutton_sharebutton",
+      "target": "src_components_sharebutton_sharebutton_compartilharlink",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L8",
+      "source_file": "src/components/ShareButton/ShareButton.jsx",
+      "source_location": "L34",
       "weight": 1.0,
-      "source": "scripts_prerender_routes",
-      "target": "scripts_prerender_routes_public_sitemap_path",
+      "source": "src_components_sharebutton_sharebutton",
+      "target": "src_components_sharebutton_sharebutton_sharebutton",
       "confidence_score": 1.0
     },
     {
-      "relation": "contains",
+      "relation": "imports_from",
+      "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L14",
+      "source_file": "src/pages/content/webshard/WebshardLeitor.jsx",
+      "source_location": "L22",
       "weight": 1.0,
-      "source": "scripts_prerender_routes",
-      "target": "scripts_prerender_routes_readjson",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L288",
-      "weight": 1.0,
-      "source": "scripts_prerender_routes",
-      "target": "scripts_prerender_routes_redirecthtml",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L189",
-      "weight": 1.0,
-      "source": "scripts_prerender_routes",
-      "target": "scripts_prerender_routes_redirects",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L71",
-      "weight": 1.0,
-      "source": "scripts_prerender_routes",
-      "target": "scripts_prerender_routes_related_by_path",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L21",
-      "weight": 1.0,
-      "source": "scripts_prerender_routes",
-      "target": "scripts_prerender_routes_releaseitems",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L207",
-      "weight": 1.0,
-      "source": "scripts_prerender_routes",
-      "target": "scripts_prerender_routes_replace",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L33",
-      "weight": 1.0,
-      "source": "scripts_prerender_routes",
-      "target": "scripts_prerender_routes_routes",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L209",
-      "weight": 1.0,
-      "source": "scripts_prerender_routes",
-      "target": "scripts_prerender_routes_schemafor",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L229",
-      "weight": 1.0,
-      "source": "scripts_prerender_routes",
-      "target": "scripts_prerender_routes_site_nav",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L321",
-      "weight": 1.0,
-      "source": "scripts_prerender_routes",
-      "target": "scripts_prerender_routes_sitemap",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L293",
-      "weight": 1.0,
-      "source": "scripts_prerender_routes",
-      "target": "scripts_prerender_routes_sitemapxml",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L237",
-      "weight": 1.0,
-      "source": "scripts_prerender_routes",
-      "target": "scripts_prerender_routes_staticcontent",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L282",
-      "weight": 1.0,
-      "source": "scripts_prerender_routes",
-      "target": "scripts_prerender_routes_writeroute",
+      "source": "src_pages_content_webshard_webshardleitor",
+      "target": "src_components_sharebutton_sharebutton",
       "confidence_score": 1.0
     },
     {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L205",
+      "source_file": "src/components/ShareButton/ShareButton.jsx",
+      "source_location": "L50",
       "weight": 1.0,
-      "source": "scripts_prerender_routes_escapehtml",
-      "target": "scripts_prerender_routes_replace",
+      "source": "src_components_sharebutton_sharebutton_sharebutton",
+      "target": "src_components_sharebutton_sharebutton_compartilharlink",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/webshard/WebshardLeitor.jsx",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "src_pages_content_webshard_webshardleitor",
+      "target": "src_components_sharebutton_sharebutton_compartilharlink",
       "confidence_score": 1.0
     },
     {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L262",
+      "confidence_score": 1.0,
+      "source_file": "src/pages/content/webshard/WebshardLeitor.jsx",
+      "source_location": "L136",
       "weight": 1.0,
-      "source": "scripts_prerender_routes_pagehtml",
-      "target": "scripts_prerender_routes_escapehtml",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L238",
-      "weight": 1.0,
-      "source": "scripts_prerender_routes_staticcontent",
-      "target": "scripts_prerender_routes_escapehtml",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L261",
-      "weight": 1.0,
-      "source": "scripts_prerender_routes_pagehtml",
-      "target": "scripts_prerender_routes_canonicalurl",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L295",
-      "weight": 1.0,
-      "source": "scripts_prerender_routes_sitemapxml",
-      "target": "scripts_prerender_routes_canonicalurl",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L267",
-      "weight": 1.0,
-      "source": "scripts_prerender_routes_pagehtml",
-      "target": "scripts_prerender_routes_replace",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L264",
-      "weight": 1.0,
-      "source": "scripts_prerender_routes_pagehtml",
-      "target": "scripts_prerender_routes_schemafor",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L264",
-      "weight": 1.0,
-      "source": "scripts_prerender_routes_pagehtml",
-      "target": "scripts_prerender_routes_breadcrumbfor",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "scripts/prerender-routes.js",
-      "source_location": "L279",
-      "weight": 1.0,
-      "source": "scripts_prerender_routes_pagehtml",
-      "target": "scripts_prerender_routes_staticcontent",
-      "confidence_score": 1.0
+      "source": "src_pages_content_webshard_webshardleitor_webshardleitor",
+      "target": "src_components_sharebutton_sharebutton_compartilharlink"
     },
     {
       "relation": "imports_from",
@@ -47047,6 +46804,437 @@
       "confidence_score": 1.0,
       "source": "src_pages_lab_prototype_srgrm_srgrm",
       "target": "src_config_version"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/webshard/WebshardLeitor.jsx",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "src_pages_content_webshard_webshardleitor",
+      "target": "src_pages_content_webshard_webshardleitor_webshardleitor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/webshard/WebshardRota.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_content_webshard_webshardrota",
+      "target": "src_pages_content_webshard_webshardleitor"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/webshard/WebshardRota.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_content_webshard_webshardrota",
+      "target": "src_pages_content_webshard_webshardleitor_webshardleitor"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L222",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes",
+      "target": "scripts_prerender_routes_breadcrumbfor"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes",
+      "target": "scripts_prerender_routes_build_date"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L206",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes",
+      "target": "scripts_prerender_routes_canonicalurl"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L16",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes",
+      "target": "scripts_prerender_routes_capitulos"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L17",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes",
+      "target": "scripts_prerender_routes_contos"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes",
+      "target": "scripts_prerender_routes_dist_dir"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L19",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes",
+      "target": "scripts_prerender_routes_episodios"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L205",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes",
+      "target": "scripts_prerender_routes_escapehtml"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L103",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes",
+      "target": "scripts_prerender_routes_extragameroutes"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L313",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes",
+      "target": "scripts_prerender_routes_homeroute"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes",
+      "target": "scripts_prerender_routes_index_path"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L304",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes",
+      "target": "scripts_prerender_routes_indexhtml"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L18",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes",
+      "target": "scripts_prerender_routes_obras"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L260",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes",
+      "target": "scripts_prerender_routes_pagehtml"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes",
+      "target": "scripts_prerender_routes_pastor"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L15",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes",
+      "target": "scripts_prerender_routes_personagens"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes",
+      "target": "scripts_prerender_routes_public_sitemap_path"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L14",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes",
+      "target": "scripts_prerender_routes_readjson"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L288",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes",
+      "target": "scripts_prerender_routes_redirecthtml"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L189",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes",
+      "target": "scripts_prerender_routes_redirects"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L71",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes",
+      "target": "scripts_prerender_routes_related_by_path"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L21",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes",
+      "target": "scripts_prerender_routes_releaseitems"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L207",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes",
+      "target": "scripts_prerender_routes_replace"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L33",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes",
+      "target": "scripts_prerender_routes_routes"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L209",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes",
+      "target": "scripts_prerender_routes_schemafor"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L229",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes",
+      "target": "scripts_prerender_routes_site_nav"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L321",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes",
+      "target": "scripts_prerender_routes_sitemap"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L293",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes",
+      "target": "scripts_prerender_routes_sitemapxml"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L237",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes",
+      "target": "scripts_prerender_routes_staticcontent"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L282",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes",
+      "target": "scripts_prerender_routes_writeroute"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L205",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes_escapehtml",
+      "target": "scripts_prerender_routes_replace"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L262",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes_pagehtml",
+      "target": "scripts_prerender_routes_escapehtml"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L238",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes_staticcontent",
+      "target": "scripts_prerender_routes_escapehtml"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L261",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes_pagehtml",
+      "target": "scripts_prerender_routes_canonicalurl"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L295",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes_sitemapxml",
+      "target": "scripts_prerender_routes_canonicalurl"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L267",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes_pagehtml",
+      "target": "scripts_prerender_routes_replace"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L264",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes_pagehtml",
+      "target": "scripts_prerender_routes_schemafor"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L264",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes_pagehtml",
+      "target": "scripts_prerender_routes_breadcrumbfor"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/prerender-routes.js",
+      "source_location": "L279",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "scripts_prerender_routes_pagehtml",
+      "target": "scripts_prerender_routes_staticcontent"
     },
     {
       "relation": "contains",
@@ -48324,61 +48512,6 @@
       "target": "src_components_gateleitura_gateleitura"
     },
     {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/webshard/WebshardLeitor.jsx",
-      "source_location": "L22",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_webshard_webshardleitor",
-      "target": "src_components_gateleitura_gateleitura"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/webshard/WebshardLeitor.jsx",
-      "source_location": "L22",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_webshard_webshardleitor",
-      "target": "src_components_gateleitura_gateleitura_usegateleitura"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/content/webshard/WebshardLeitor.jsx",
-      "source_location": "L74",
-      "weight": 1.0,
-      "source": "src_pages_content_webshard_webshardleitor_webshardleitor",
-      "target": "src_components_gateleitura_gateleitura_usegateleitura"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/webshard/WebshardLeitor.jsx",
-      "source_location": "L22",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_webshard_webshardleitor",
-      "target": "src_components_gateleitura_gateleitura_cortarlista"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/content/webshard/WebshardLeitor.jsx",
-      "source_location": "L75",
-      "weight": 1.0,
-      "source": "src_pages_content_webshard_webshardleitor_webshardleitor",
-      "target": "src_components_gateleitura_gateleitura_cortarlista"
-    },
-    {
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -48478,17 +48611,6 @@
       "target": "src_components_gateleitura_gateleitura_gateleitura"
     },
     {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/webshard/WebshardLeitor.jsx",
-      "source_location": "L22",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_webshard_webshardleitor",
-      "target": "src_components_gateleitura_gateleitura_gateleitura"
-    },
-    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/pages/content/ContoCapitulo.jsx",
@@ -48547,38 +48669,6 @@
       "confidence_score": 1.0,
       "source": "src_pages_content_obracapitulo",
       "target": "src_pages_content_obracapitulo_obraloaders"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/webshard/WebshardLeitor.jsx",
-      "source_location": "L28",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_webshard_webshardleitor",
-      "target": "src_pages_content_webshard_webshardleitor_webshardleitor"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/webshard/WebshardRota.jsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_webshard_webshardrota",
-      "target": "src_pages_content_webshard_webshardleitor"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/webshard/WebshardRota.jsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_webshard_webshardrota",
-      "target": "src_pages_content_webshard_webshardleitor_webshardleitor"
     },
     {
       "relation": "contains",
@@ -56359,17 +56449,6 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "src/components/Navbar.jsx",
-      "source_location": "L8",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_components_navbar",
-      "target": "src_context_authcontext"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
       "source_file": "src/components/RadioNina/useRadioNina.js",
       "source_location": "L2",
       "weight": 1.0,
@@ -56931,28 +57010,6 @@
       "source_location": "L8",
       "weight": 1.0,
       "source": "src_components_logingate_logingate_logingate",
-      "target": "src_context_authcontext_useauth"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/Navbar.jsx",
-      "source_location": "L8",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_components_navbar",
-      "target": "src_context_authcontext_useauth"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/components/Navbar.jsx",
-      "source_location": "L19",
-      "weight": 1.0,
-      "source": "src_components_navbar_navbar",
       "target": "src_context_authcontext_useauth"
     },
     {
@@ -59569,17 +59626,6 @@
       "confidence_score": 1.0,
       "source": "src_pages_games_gangues_engine_ganguesspecialeffects",
       "target": "src_pages_games_gangues_data_ganguesspecials"
-    },
-    {
-      "relation": "indirect_call",
-      "context": "argument",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "src/components/Navbar.jsx",
-      "source_location": "L68",
-      "weight": 1.0,
-      "source": "src_components_navbar_navbar",
-      "target": "src_pages_games_gangues_data_ganguesspecials_path"
     },
     {
       "relation": "indirect_call",
@@ -65818,202 +65864,6 @@
       "weight": 1.0,
       "source": "src_components_modalsemfichas_modalsemfichas_modalsemfichas",
       "target": "src_context_languagecontext_uselanguage"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/Navbar.jsx",
-      "source_location": "L13",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_components_navbar",
-      "target": "src_components_navbar_locales"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/Navbar.jsx",
-      "source_location": "L15",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_components_navbar",
-      "target": "src_components_navbar_navbar"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/Navbar.jsx",
-      "source_location": "L9",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_components_navbar",
-      "target": "src_components_socialbar"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/Navbar.jsx",
-      "source_location": "L9",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_components_navbar",
-      "target": "src_components_socialbar_socialbar"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/Navbar.jsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_components_navbar",
-      "target": "src_config_site"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/Navbar.jsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_components_navbar",
-      "target": "src_config_site_site_config"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/Navbar.jsx",
-      "source_location": "L7",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_components_navbar",
-      "target": "src_config_trial"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/Navbar.jsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_components_navbar",
-      "target": "src_context_languagecontext"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/Navbar.jsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_components_navbar",
-      "target": "src_context_languagecontext_uselanguage"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/Navbar.jsx",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_components_navbar",
-      "target": "src_hooks_usescrollposition"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/Navbar.jsx",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_components_navbar",
-      "target": "src_hooks_usescrollposition_usescrollposition"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/Navbar.jsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_components_navbar",
-      "target": "src_i18n_locales"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/Navbar.jsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_components_navbar",
-      "target": "src_i18n_locales_locale_labels"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/Navbar.jsx",
-      "source_location": "L10",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_components_navbar",
-      "target": "src_lib_analytics"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/Navbar.jsx",
-      "source_location": "L10",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_components_navbar",
-      "target": "src_lib_analytics_trackevent"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/components/Navbar.jsx",
-      "source_location": "L18",
-      "weight": 1.0,
-      "source": "src_components_navbar_navbar",
-      "target": "src_context_languagecontext_uselanguage"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/components/Navbar.jsx",
-      "source_location": "L16",
-      "weight": 1.0,
-      "source": "src_components_navbar_navbar",
-      "target": "src_hooks_usescrollposition_usescrollposition"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/components/Navbar.jsx",
-      "source_location": "L115",
-      "weight": 1.0,
-      "source": "src_components_navbar_navbar",
-      "target": "src_lib_analytics_trackevent"
     },
     {
       "relation": "indirect_call",
@@ -126660,5 +126510,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "9b0be82f6febe70f795099947e5de22dbe78bbc1"
+  "built_at_commit": "b7a8f9957839c78394af980edb1428fa201367e0"
 }

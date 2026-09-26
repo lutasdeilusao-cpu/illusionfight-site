@@ -3,6 +3,9 @@ import contosIndex from '../../data/contos-index.json'
 import obrasIndex from '../../data/obras-index.json'
 import { imagemWebshard, tituloLegado } from '../webshard/catalogo'
 import comingSoon from '../../assets/images/ComingSoon.png'
+// Arte oficial da área de Contos (Illusion Tales) — por enquanto a mesma pra
+// tudo: capa da coleção, capa de cada conto e miniatura de cada capítulo.
+import capaContosArte from '../../assets/images/contos/capa-illusion-tales.webp'
 
 /* Catálogo de Histórias — mesma ideia do catálogo WEB SHARD: a UI nunca lê
    livro-index / contos-index / obras-index direto. Os três viram "títulos"
@@ -60,8 +63,8 @@ const CONTOS = contosIndex.map(h => ({
   peso: h.peso,
   temas: h.temas || [],
   cor: COR_PESO[h.peso] || COR_PESO.media,
-  capa: comingSoon,
-  arte: false,
+  capa: capaContosArte,
+  arte: true,
   nome_pt: h.titulo, nome_en: h.titulo_en, nome_es: h.titulo_es,
   tagline_pt: h.tagline_pt, tagline_en: h.tagline_en, tagline_es: h.tagline_es,
   sinopse_pt: h.resumo_pt, sinopse_en: h.resumo_en, sinopse_es: h.resumo_es,
@@ -107,9 +110,9 @@ export function historiaPorSlug(slug, tipo = null) {
   return listarHistorias(tipo).find(h => h.slug === slug) || null
 }
 
-/** Capa padrão de quem ainda não tem arte (ComingSoon — padrão do projeto). */
-export function capaPadrao() {
-  return comingSoon
+/** Capa oficial da coleção dos Contos de Ilusão. */
+export function capaContos() {
+  return capaContosArte
 }
 
 export function linhaPrincipal() {

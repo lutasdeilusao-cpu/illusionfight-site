@@ -453,7 +453,9 @@
   "451": "HistoriasHub.jsx",
   "452": "PuzzleLabirinto.jsx",
   "453": "Footer.jsx",
+  "454": "Brincadeira.jsx",
   "455": "Mundo.jsx",
+  "456": "LDINotification.jsx",
   "457": "1. A estrutura de poder",
   "458": "ganguesBiografias.js",
   "459": "mecanicasPoder.js",
@@ -461,6 +463,7 @@
   "461": "GanguesCombat.jsx",
   "462": "pois.js",
   "463": "GanguesLoja.jsx",
+  "464": "useScrollPosition.js",
   "465": "PuzzleStealthGrid",
   "466": "GanguesModes.jsx",
   "467": "Criatura.jsx",
@@ -481,7 +484,6 @@
   "483": "levelProgression.js",
   "485": "WebshardTitulo.jsx",
   "486": "MazeRafael.jsx",
-  "488": "endBattle",
   "489": "Criatura.jsx",
   "490": "useReadingCompletionGate.js",
   "491": "mdComponents.jsx",
@@ -492,6 +494,5 @@
   "501": "t",
   "502": "PowerCard.jsx",
   "503": "Jokempo.jsx",
-  "504": "LanguageProvider.jsx",
-  "506": "drawCombatBoard"
+  "504": "LanguageProvider.jsx"
 }
