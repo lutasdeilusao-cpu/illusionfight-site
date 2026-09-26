@@ -1,0 +1,34 @@
+/* LDI Gangues — Confirmação de "mete o pé".
+   Fatiado do antigo Gangues.css (refatoração de CSS, set/2026). A ORDEM de
+   carga é a do índice Gangues.css — não importar este arquivo sozinho. */
+
+/* ══ CONFIRMAÇÃO DE "METE O PÉ" (GanguesCombatSairConfirm.jsx) ══
+   Pedido do Isaias (18/09/2026): "quando aparecer um mete o pé tem que
+   aparecer um diálogo 'você deseja sair desse jogo e voltar ao menu?'".
+   Mesmo padrão visual do `.gang-xp-confirm` (GanguesProgressionFlow.css)
+   — modal central com scrim, dois botões (cancelar/confirmar). */
+.gang-sair-confirm-overlay {
+  position: fixed; inset: 0; z-index: 10000;
+  display: grid; place-items: center; padding: 1.5rem;
+  background: rgba(2, 5, 8, .82); backdrop-filter: blur(6px);
+}
+.gang-sair-confirm-card {
+  display: grid; justify-items: center; gap: .6rem;
+  width: 100%; max-width: 320px; padding: 1.6rem 1.3rem 1.4rem; text-align: center;
+  border: 1px solid rgba(255, 90, 90, .45);
+  background: linear-gradient(160deg, #160a0a, #0a0606 70%);
+  box-shadow: 0 0 44px -10px rgba(255, 90, 90, .45);
+  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%);
+}
+.gang-sair-confirm-card h2 { margin: 0; font: 800 1.05rem var(--font-display); letter-spacing: .04em; color: #ff9b9b; }
+.gang-sair-confirm-card p { margin: 0; font: 400 .85rem var(--font-body); line-height: 1.5; color: #cdd4d9; }
+.gang-sair-confirm-acoes { display: flex; gap: 8px; width: 100%; margin-top: .5rem; }
+.gang-sair-confirm-cancelar, .gang-sair-confirm-confirmar {
+  flex: 1; min-height: 44px; padding: .6rem;
+  font: 800 .68rem var(--font-mono); letter-spacing: .06em; text-transform: uppercase;
+  cursor: pointer; clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
+}
+.gang-sair-confirm-cancelar { color: #c6cdd2; background: rgba(255, 255, 255, .04); border: 1px solid rgba(255, 255, 255, .14); }
+.gang-sair-confirm-cancelar:hover { background: rgba(255, 255, 255, .09); color: #fff; }
+.gang-sair-confirm-confirmar { color: #fff; background: #b5232c; border: 1px solid #ff4d4d; }
+.gang-sair-confirm-confirmar:hover { background: #d1303a; }

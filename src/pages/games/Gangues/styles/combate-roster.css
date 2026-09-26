@@ -1,0 +1,136 @@
+/* LDI Gangues — Combate — roster compacto (quadradinhos), anel de PV, aviso do automático.
+   Fatiado do antigo Gangues.css (refatoração de CSS, set/2026). A ORDEM de
+   carga é a do índice Gangues.css — não importar este arquivo sozinho. */
+
+/* Gangues 2.0 — criação de loadout */
+
+/* Gangues 2.0 — combate orientado pela máquina de turno */
+
+.gang2-enemy-thinking {
+  padding: 10px;
+  color: var(--if-amber);
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* Roster compacto — uma fileira de quadradinhos por lado (avatar + anel de
+   PV), não mais o card cheio com nome/barras/rótulo de caminho. É status
+   ambiente, não a informação principal da tela — essa é o chat. */
+.gang-roster {
+  display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;
+  padding: 6px 10px; flex-shrink: 0;
+}
+
+/* Coluna: quadrado (seleção) + nome curto + PM, sempre visíveis — com 6
+   personagens em campo "quem é quem" tem que dar pra ler sem tooltip. */
+.gang-mini-wrap {
+  position: relative;
+  display: flex; flex-direction: column; align-items: center; gap: 2px;
+  width: 44px;
+}
+
+.gang-mini {
+  position: relative;
+  width: 40px; height: 40px; padding: 0;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(0, 180, 216, 0.25);
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: border-color 0.2s, background 0.2s, transform 0.15s;
+}
+.gang-mini:hover:not(.gang-mini--indisponivel) { border-color: rgba(0, 180, 216, 0.6); transform: translateY(-1px); }
+/* Não usa o atributo disabled nativo — o toque continua ativo mesmo
+   "indisponível" pra seleção, só que abre a fichinha em vez de selecionar. */
+.gang-mini--indisponivel { opacity: 0.6; }
+.gang-roster--enemy .gang-mini { border-color: rgba(139, 0, 0, 0.35); }
+.gang-roster--enemy .gang-mini:hover:not(.gang-mini--indisponivel) { border-color: rgba(220, 20, 20, 0.7); }
+.gang-mini--selected { border-color: var(--if-amber); background: rgba(245, 166, 35, 0.1); box-shadow: 0 0 10px rgba(245, 166, 35, 0.3); }
+.gang-mini--dead { opacity: 0.25; filter: grayscale(1); }
+
+/* Quem age agora pisca — é o indicador de turno inteiro, sem banner de texto. */
+.gang-mini--acting { animation: gang-mini-acting 1s ease-in-out infinite; }
+@keyframes gang-mini-acting {
+  0%, 100% { box-shadow: 0 0 0 1px var(--if-cyan-45), 0 0 10px rgba(24, 218, 251, 0.35); }
+  50% { box-shadow: 0 0 0 1px var(--if-cyan), 0 0 16px rgba(24, 218, 251, 0.7); }
+}
+.gang-roster--enemy .gang-mini--acting {
+  animation-name: gang-mini-acting-enemy;
+}
+@keyframes gang-mini-acting-enemy {
+  0%, 100% { box-shadow: 0 0 0 1px rgba(220, 20, 20, 0.5), 0 0 10px rgba(220, 20, 20, 0.35); }
+  50% { box-shadow: 0 0 0 1px #cc4444, 0 0 16px rgba(220, 20, 20, 0.7); }
+}
+
+/* Identidade visual por caminho — atacante vermelho, defensor azul, místico roxo. */
+.gang-mini.gang-path--atacante { border-left: 3px solid #e05252; }
+.gang-mini.gang-path--atacante .gang-mini-avatar { color: #ff6b6b; }
+.gang-mini.gang-path--defensor { border-left: 3px solid #3b82f6; }
+.gang-mini.gang-path--defensor .gang-mini-avatar { color: #6fa8ff; }
+.gang-mini.gang-path--mistico { border-left: 3px solid #a855f4; }
+.gang-mini.gang-path--mistico .gang-mini-avatar { color: #c084fc; }
+
+.gang-mini-avatar { font-weight: 700; font-size: 13px; color: var(--if-teal); font-family: 'Rajdhani', sans-serif; }
+.gang-roster--enemy .gang-mini-avatar { color: #cc4444; }
+/* Retrato de verdade (cabeça, pixel art) no quadradinho do combate — só o
+   jogador tem arte por ora (ver ganguesPortraits.js), inimigo continua na
+   inicial. Preenche o quadrado inteiro, cantos seguem o .gang-mini. */
+.gang-mini-avatar--foto { display: block; width: 100%; height: 100%; }
+.gang-mini-avatar--foto img { width: 100%; height: 100%; object-fit: cover; border-radius: 9px; image-rendering: pixelated; display: block; }
+
+/* Anel de PV fino contornando o quadrado — dá pra ler de relance sem barra. */
+.gang-mini-hp {
+  position: absolute; left: 3px; right: 3px; bottom: 3px; height: 3px;
+  border-radius: 2px; background: rgba(255,255,255,0.1); overflow: hidden;
+}
+.gang-mini-hp i { display: block; height: 100%; width: var(--pct, 100%); border-radius: 2px; background: #3ddc97; transition: width 0.4s ease; }
+.gang-roster--enemy .gang-mini-hp i { background: #ff6b6b; }
+
+.gang-mini-tag { position: absolute; top: -5px; right: -5px; color: #22C55E; font-weight: 700; font-size: 12px; text-shadow: 0 0 4px #000; }
+
+.gang-mini-nome {
+  font: 700 9px var(--font-mono); letter-spacing: 0.02em; color: #c7ced2;
+  max-width: 44px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+
+.gang-attack-stack { display: flex; flex-direction: column; gap: 6px; }
+.gang-attack-card-val--max { color: var(--if-amber); font-weight: 700; }
+.gang-attack-onoma { color: var(--if-amber); font: 20px 'Impact', 'Arial Black', sans-serif; letter-spacing: 3px; text-align: center; text-shadow: 2px 2px 0 #8B0000, 0 0 16px rgba(245,166,35,0.6); }
+.gang-initiative-log { display: grid; gap: 5px; margin: 10px auto; width: min(92%, 440px); padding: 12px; border: 1px solid rgba(0,180,216,0.22); background: rgba(0,180,216,0.04); }
+.gang-initiative-log > strong { color: var(--if-teal); font-size: 9px; letter-spacing: 3px; text-align: center; text-transform: uppercase; }
+.gang-initiative-log > span { display: grid; grid-template-columns: 22px 1fr auto; align-items: center; color: #d5dde0; font: 700 11px 'Rajdhani', sans-serif; }
+.gang-initiative-log > span b { color: var(--if-amber); }
+.gang-initiative-log > span small { color: #64727a; font: 9px 'Courier New', monospace; }
+.gang2-enemy-thinking { display: grid; grid-template-columns: auto 1fr; align-items: center; width: min(90%, 420px); margin: 12px auto; border: 1px solid rgba(245,166,35,0.22); background: rgba(245,166,35,0.05); text-align: left; }
+/* Aviso de Modo Automático ligado — substitui a bolinha de ação enquanto
+   ativo, já que não há nada pra escolher manualmente nesse modo. */
+
+/* Botão de saída do modo automático — flutua acima de TUDO (KO, dado e tela
+   de resultado usam z-index 9999), sempre presente enquanto o auto está
+   ligado. Um toque = volta pro manual (a ação em andamento termina sozinha).
+   O `top` real vem inline via JS (GanguesCombat.jsx mede a altura de verdade
+   do roster do jogador com ResizeObserver) — a única coisa que dá pra
+   monitorar em modo automático é o PV dos seus lutadores, então esse botão
+   NUNCA pode tampar o roster. Este `top: 128px` é só o fallback pro 1º frame,
+   antes da medição chegar (cobre topbar + 1 linha de roster). */
+.gang-auto-sair {
+  position: fixed; z-index: 10000; top: 128px; left: 50%; transform: translateX(-50%);
+  display: flex; align-items: center; gap: 8px;
+  padding: 9px 16px; cursor: pointer;
+  border: 1px solid #ff5a5a; background: linear-gradient(160deg, #3a0e0e, #1c0606 85%);
+  color: #ff9a9a; font: 800 0.68rem var(--font-mono); letter-spacing: 0.12em; text-transform: uppercase;
+  box-shadow: 0 0 26px -4px rgba(255, 70, 70, 0.7), 0 8px 22px rgba(0,0,0,0.55);
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
+  animation: gang-auto-sair-pulse 1.4s ease-in-out infinite;
+}
+.gang-auto-sair b { font-size: 0.8rem; color: #ff5a5a; }
+@keyframes gang-auto-sair-pulse {
+  50% { box-shadow: 0 0 34px 0 rgba(255, 70, 70, 0.85), 0 8px 22px rgba(0,0,0,0.55); }
+}
+@media (prefers-reduced-motion: reduce) { .gang-auto-sair { animation: none; } }
+.gang2-enemy-thinking strong { color: var(--if-amber); font-size: 10px; letter-spacing: 2px; }
+.gang2-enemy-thinking small { grid-column: 2; color: #667078; font-size: 8px; letter-spacing: 1px; text-transform: none; }
+.gang-thinking-pulse { grid-row: span 2; width: 10px; height: 10px; margin-right: 12px; border-radius: 50%; background: var(--if-amber); box-shadow: 0 0 12px var(--if-amber); animation: gang-thinking 0.8s ease-in-out infinite alternate; }
+@keyframes gang-thinking { to { opacity: 0.25; transform: scale(0.65); } }

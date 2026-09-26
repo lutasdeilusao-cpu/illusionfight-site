@@ -1,0 +1,47 @@
+/* LDI Gangues — Página base do jogo (.gang-page, container, tipografia).
+   Fatiado do antigo Gangues.css (refatoração de CSS, set/2026). A ORDEM de
+   carga é a do índice Gangues.css — não importar este arquivo sozinho. */
+
+/* ===== GANGUES PAGE ===== */
+.gang-page {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  /* position:fixed + inset:0 trava a página no viewport VISÍVEL do celular.
+     Antes era height:100dvh dentro do #root (min-height:100vh): com a barra de
+     endereço do navegador visível, 100dvh < 100vh e sobrava uma tira preta do
+     #root embaixo, que só sumia mexendo na Rádio Nina (forçava reflow + a
+     barra de URL assentava). Fixed acompanha o viewport visual e cobre o #root. */
+  position: fixed;
+  inset: 0;
+  /* Reserva o espaço da tira de guest (topo) e da Rádio Nina (topo OU rodapé,
+     conforme a posição escolhida) — sem isso os dois ficam fixos por cima do
+     jogo em vez de empurrar o conteúdo, como acontecia no combate. */
+  padding-top: calc(var(--guest-notice-h, 0px) + var(--radio-nina-top-h, 0px));
+  padding-bottom: var(--radio-nina-h, 0px);
+  overflow: hidden;
+  /* Defesa extra contra scroll-chaining vazando de uma área rolável interna
+     (ex.: .gang-log-area no combate) pro documento — sem isso um swipe na
+     borda de um scroll interno pode disparar o bounce/pull-to-refresh do
+     Android na página inteira, mesmo com overflow:hidden aqui. */
+  overscroll-behavior: none;
+  background: #0a0a0a;
+  background-image: 
+    radial-gradient(ellipse at 50% 0%, #0d1f2a 0%, #0a0a0a 55%),
+    repeating-linear-gradient(90deg, transparent, transparent 80px, rgba(0,180,216,0.015) 80px, rgba(0,180,216,0.015) 81px),
+    repeating-linear-gradient(0deg, transparent, transparent 80px, rgba(0,180,216,0.015) 80px, rgba(0,180,216,0.015) 81px);
+  color: var(--if-teal);
+  font-family: 'Courier New', monospace;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gang-container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+@keyframes gangues-glitch-1 {
+  0% { transform: translate(0); } 20% { transform: translate(-2px, 1px); } 100% { transform: translate(1px, -1px); }
+}
+@keyframes gangues-glitch-2 {
+  0% { transform: translate(0); } 20% { transform: translate(2px, -1px); } 100% { transform: translate(-1px, 1px); }
+}
+@keyframes gangues-blink { 50% { opacity: 0; } }

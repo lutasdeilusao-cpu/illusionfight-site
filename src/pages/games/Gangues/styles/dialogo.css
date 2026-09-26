@@ -1,0 +1,128 @@
+/* LDI Gangues — Diálogo padrão (GangDialog).
+   Fatiado do antigo Gangues.css (refatoração de CSS, set/2026). A ORDEM de
+   carga é a do índice Gangues.css — não importar este arquivo sozinho. */
+
+/* ===== DIÁLOGO PADRÃO DO LDI GANGUES (GangDialog) =====
+   Reconstrução total (pedido do Isaias, 14/09/2026: "isso vai virar a
+   comunicação padrão do LDI Gangues") — cabeça grande com animação de
+   idle (balanço + respiração, mais um tiquinho de "fala" enquanto digita
+   o texto) e um balão de fala de verdade saindo dela, sobre a parede de
+   tijolo oficial. Substitui o antigo layout NeoGuide (barra no rodapé). */
+/* Seletor com as DUAS classes do elemento (`.gang-dlg-overlay.gang-brickwall-bg`,
+   não só `.gang-dlg-overlay`) — especificidade 0-2-0 de propósito. Bug real
+   (Isaias, 18/09/2026, print em desktop 1280px: o diálogo do Nego Véio
+   aparecia espremido na quina direita, cortado): quando o GangDialog é
+   filho direto de `.gang-modes` (GanguesNaming reaproveita esse layout),
+   `.gang-modes > * { position: relative; z-index: 1 }` (fim de GanguesModes.css)
+   tem a MESMA especificidade (0-1-0) e vence por vir depois na cascata —
+   troca o `position` de `fixed` pra `relative` mas os `left/right:
+   var(--app-gutter)` continuam lá, e pra um elemento `relative` isso
+   desloca a caixa pro lado em vez de ancorar no viewport, jogando o
+   diálogo pra fora da coluna. Subir a especificidade aqui resolve sem
+   mexer na regra genérica de `.gang-modes` (que serve outros filhos). */
+.gang-dlg-overlay.gang-brickwall-bg {
+  /* Mobile only: `position:fixed` escapa da coluna de #root e cola nas
+     bordas do VIEWPORT físico, não da coluna de 480px — a "armadilha"
+     documentada em AGENTS.md/index.css. `inset:0` sozinho vira full-bleed
+     de tela larga (bug real reportado pelo Isaias, 14/09/2026, com
+     DevTools em 825px: a parede de tijolo esticava até a borda da janela
+     em vez de ficar confinada na coluna). Corrigido com left/right:
+     var(--app-gutter), o mesmo bloco pronto que todo overlay fixed do
+     site usa (ver index.css e outros exemplos aqui em Gangues.css). */
+  position: fixed; top: 0; bottom: 0; left: var(--app-gutter); right: var(--app-gutter); z-index: 9999; cursor: pointer;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 24px 18px calc(24px + env(safe-area-inset-bottom));
+}
+.gang-dlg-overlay::before {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(ellipse at 50% 38%, transparent 0%, rgba(2, 3, 4, .55) 75%);
+}
+/* Antes era um selo pequeno "AVANÇA LOGO ✕" no canto superior direito,
+   semi-transparente, fácil de nunca notar (Isaias, 19/09/2026, print
+   marcando com um quadrado branco embaixo do balão: "tem que ter um
+   destaque ali"). Agora é um botão de verdade, mesmo padrão visual do
+   resto do jogo (borda + fundo sólido), embaixo do balão — sempre no
+   mesmo lugar em TODO diálogo, já que GangDialog é o componente
+   compartilhado por todos eles. */
+.gang-dlg-skip {
+  position: relative; z-index: 2; margin-top: 14px;
+  min-height: 40px; padding: 9px 22px;
+  border: 1px solid rgba(255, 255, 255, .35);
+  background: #14181c;
+  color: #fff;
+  font: 700 .72rem var(--font-mono);
+  letter-spacing: .1em; text-transform: uppercase;
+  cursor: pointer;
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
+}
+.gang-dlg-skip:hover { background: #1f262c; border-color: rgba(255, 255, 255, .55); }
+
+.gang-dlg-stage { position: relative; z-index: 1; width: 100%; max-width: 380px; display: grid; justify-items: center; cursor: default; }
+
+/* Cabeça grande — o retrato (ou a inicial de fallback) fica dentro de um
+   círculo animado, nunca parado: balança de leve e "respira" o tempo
+   todo; enquanto o texto tá sendo digitado, ganha um pulso mais rápido
+   simulando fala. Preparado pra imagens de expressão futuras (piscar,
+   sorrir) sem mudar esta estrutura — só trocar o src em runtime. */
+.gang-dlg-portrait {
+  position: relative; z-index: 2; width: 132px; height: 132px; margin-bottom: -20px;
+  filter: drop-shadow(0 12px 22px rgba(0, 0, 0, .65));
+}
+.gang-dlg-portrait-idle {
+  display: grid; place-items: center; width: 100%; height: 100%; overflow: hidden; border-radius: 50%;
+  background: linear-gradient(150deg, var(--if-amber), #b56a1e);
+  border: 3px solid rgba(0, 0, 0, .45);
+  animation: gang-dlg-idle 3.4s ease-in-out infinite;
+}
+.gang-dlg-portrait-idle img { width: 100%; height: 100%; object-fit: cover; image-rendering: pixelated; }
+.gang-dlg-portrait-idle b { font: 900 2.3rem var(--font-display); color: #1b1000; }
+@keyframes gang-dlg-idle {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-7px) rotate(2deg); }
+}
+.gang-dlg-portrait--falando .gang-dlg-portrait-idle img,
+.gang-dlg-portrait--falando .gang-dlg-portrait-idle b { animation: gang-dlg-talk .32s ease-in-out infinite; }
+@keyframes gang-dlg-talk { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.06); } }
+
+/* Balão de fala — sai da cabeça (a "cauda" aponta pra cima, na boca do
+   personagem), truque clássico de 2 triângulos (borda + preenchimento). */
+.gang-dlg-bubble {
+  position: relative; z-index: 1; width: 100%; padding: 30px 18px 16px;
+  background: linear-gradient(180deg, #14100c, #0a0705);
+  border: 2px solid var(--if-amber); border-radius: 22px;
+  box-shadow: 0 16px 36px -18px rgba(0, 0, 0, .85);
+}
+.gang-dlg-bubble-tail {
+  position: absolute; top: -14px; left: 50%; margin-left: -12px;
+  width: 0; height: 0; border-left: 12px solid transparent; border-right: 12px solid transparent;
+  border-bottom: 14px solid var(--if-amber);
+}
+.gang-dlg-bubble-tail::after {
+  content: ''; position: absolute; top: 3px; left: -9px;
+  width: 0; height: 0; border-left: 9px solid transparent; border-right: 9px solid transparent;
+  border-bottom: 11px solid #14100c;
+}
+.gang-dlg-bubble-name {
+  display: inline-block; padding: 3px 10px; margin-bottom: 8px; border-radius: 3px;
+  background: rgba(255, 174, 50, .14); border: 1px solid rgba(255, 174, 50, .4);
+  color: var(--if-amber); font: 800 11px 'Rajdhani', sans-serif; letter-spacing: 3px;
+}
+.gang-dlg-bubble-name em { font-style: normal; opacity: .72; font-weight: 600; letter-spacing: 1px; }
+.gang-dlg-bubble-text { min-height: 52px; margin: 0; color: #e4edf0; font-size: 15px; line-height: 1.55; letter-spacing: .2px; }
+.gang-dlg-cursor { color: var(--if-amber); margin-left: 1px; }
+.gang-dlg-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 12px; }
+.gang-dlg-dots { display: flex; gap: 5px; }
+.gang-dlg-dot { width: 5px; height: 5px; border-radius: 50%; background: rgba(255, 255, 255, .15); }
+.gang-dlg-dot--active { background: var(--if-amber); box-shadow: 0 0 6px rgba(255, 174, 50, .7); }
+.gang-dlg-next {
+  padding: 8px 18px; border: 1px solid var(--if-amber); border-radius: 4px;
+  background: rgba(255, 174, 50, .12); color: var(--if-amber);
+  font: 800 11px 'Rajdhani', sans-serif; letter-spacing: 2px; text-transform: uppercase;
+  cursor: pointer; animation: gang-dlg-pulse 1.6s ease-in-out infinite;
+}
+.gang-dlg-next:hover { background: rgba(255, 174, 50, .22); }
+@keyframes gang-dlg-pulse { 0%, 100% { box-shadow: 0 0 0 rgba(255, 174, 50, 0); } 50% { box-shadow: 0 0 12px rgba(255, 174, 50, .4); } }
+@media (prefers-reduced-motion: reduce) {
+  .gang-dlg-portrait-idle, .gang-dlg-portrait--falando .gang-dlg-portrait-idle img,
+  .gang-dlg-portrait--falando .gang-dlg-portrait-idle b, .gang-dlg-next { animation: none; }
+}

@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1790454590.2063682,
-    "ast_hash": "2c51f9dcb7f64e515c0e2c5398afc301",
+    "mtime": 1790454871.9204898,
+    "ast_hash": "6499a6c5e9479d279e7c26fd14d93c80",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2730,8 +2730,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1790454569.9433076,
-    "ast_hash": "0220979b46fd6c662b11c461e3fcaea0",
+    "mtime": 1790454871.9451861,
+    "ast_hash": "aa07313b206b7380f44d92b9e8b9c49b",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -5085,8 +5085,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/screens/GanguesCombat.jsx": {
-    "mtime": 1789783739.598193,
-    "ast_hash": "4f443bfa6572fadeaf6f6a260e999430",
+    "mtime": 1790454762.3259685,
+    "ast_hash": "c9774594275bda7c90b3b6067eb30a5f",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/screens/GanguesCreate.jsx": {
@@ -5100,8 +5100,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/screens/GanguesModes.jsx": {
-    "mtime": 1789838488.666468,
-    "ast_hash": "87aed0d59567893a5abd5231479594b5",
+    "mtime": 1790454762.3249693,
+    "ast_hash": "0a57b4729d6c5d58af5dea311ab47d67",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/screens/GanguesNaming.jsx": {

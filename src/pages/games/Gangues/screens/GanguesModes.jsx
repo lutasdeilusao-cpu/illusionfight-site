@@ -7,7 +7,7 @@ import { getGanguesPortraitByTemplateId } from '../data/ganguesPortraits.js'
 import { sfx } from '../../../../lib/sfx'
 import GanguesVoltarBtn from '../components/GanguesVoltarBtn'
 import GangTip from '../components/GangTip'
-import '../Gangues.css' // .gang-brickwall-bg mora lá
+import '../styles/parede.css' // .gang-brickwall-bg (o resto do CSS base vem do Gangues.css, importado pelo GanguesRoute)
 import './GanguesModes.css'
 
 /* ══════════════════════════════════════════════════════════════

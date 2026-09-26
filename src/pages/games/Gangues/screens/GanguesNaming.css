@@ -13,7 +13,7 @@
    (`position:fixed;inset:0`, altura definida) — a parede agora cobre a
    tela inteira e o `margin:auto 0` do cartaz ganha espaço de verdade
    pra centralizar. */
-.gang-naming { min-height: 100%; }
+.gang-naming { min-height: 100%; gap: 0; justify-content: center; }
 .gang-naming-poster {
   --corte: polygon(2% 3%, 30% 0%, 55% 2%, 78% 0%, 98% 3%, 100% 22%, 97% 45%, 100% 68%, 98% 92%, 72% 100%, 45% 97%, 20% 100%, 2% 96%, 0% 70%, 3% 45%, 0% 20%);
   position: relative; width: 100%; margin: auto 0; padding: 28px 22px 26px;

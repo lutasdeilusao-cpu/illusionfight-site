@@ -1,0 +1,46 @@
+/* LDI Gangues — Botão de voltar — padrão único (GanguesVoltarBtn).
+   Fatiado do antigo Gangues.css (refatoração de CSS, set/2026). A ORDEM de
+   carga é a do índice Gangues.css — não importar este arquivo sozinho. */
+
+/* ══ BOTÃO DE VOLTAR — PADRÃO ÚNICO (GanguesVoltarBtn.jsx) ══
+   Pedido do Isaias (18/09/2026): "os botões estão fora de padrão... um
+   aparece de um lado, um aparece de outro... tem que ser um botão grande
+   no alto ali com um bom destaque". Antes existiam pelo menos 3 estilos
+   diferentes de "voltar" espalhados (texto pequeno âmbar em
+   `.gang-progression-screen-back`, o botão vermelho de SAIR reaproveitado
+   só pra voltar um passo em GanguesTerritorio, ícone sozinho sem texto em
+   GanguesCreate) — trocados todos por este único componente/classe.
+   Sempre no topo da tela, sempre a mesma cara: ciano (a cor de destaque
+   do resto da UI do jogo — orb, barra de combate), texto grande o
+   bastante pra bater o pedido de "bom destaque", nunca escondido num
+   cantinho de link de texto. */
+/* `.gang-voltar-btn.gang-voltar-btn` (classe duplicada, especificidade
+   0-2-0 de propósito) — várias telas têm regras genéricas tipo
+   `.gang-world__top > button` (0-1-1) pros botões que já moravam ali;
+   sem essa blindagem essas regras antigas ganhavam da nossa e o botão
+   voltava a sair torto tela por tela, o mesmo tipo de bug já corrigido
+   no diálogo do Nego Véio (ver .gang-dlg-overlay.gang-brickwall-bg). */
+.gang-voltar-btn.gang-voltar-btn {
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+  width: fit-content;
+  min-height: 44px; margin: 34px auto 14px; padding: 10px 20px;
+  border: 1px solid var(--if-cyan, #18dafb);
+  background: #0a1a1e;
+  color: var(--if-cyan, #18dafb);
+  font: 700 .8rem var(--font-mono);
+  letter-spacing: .06em; text-transform: uppercase;
+  cursor: pointer;
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
+}
+.gang-voltar-btn.gang-voltar-btn:hover { background: #102830; }
+/* GanguesCreate.jsx: cabeçalho é centralizado/tem padding pro poster, o
+   Voltar mora ANTES dele (não mais ícone absoluto por dentro) — margem
+   de cima maior pra não colar na tira de guest/CRIAR CONTA do topo
+   (Isaias, 18/09/2026: "voltar ta em cima da barra criar conta").
+   Reduzida de 44 pra 20px (19/09/2026, "vamos diminuir um pouco o
+   tamanho de tudo pra ver se cabe no mobile numa unica tela sem
+   scroll") — a folga de 44px só era necessária por causa do bug do
+   `.gang-page` centralizando (corrigido em `.gang-recruit`, ver
+   GanguesLobby.css), não precisa mais de tanto respiro. Especificidade
+   0-3-0 de propósito pra garantir que vence a regra base acima. */
+.gang-voltar-btn.gang-voltar-btn.gang-recruit__voltar { margin: 20px auto 8px; }

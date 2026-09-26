@@ -4,7 +4,7 @@ import { useGanguesStore } from '../store/useGanguesStore'
 import { sfx } from '../../../../lib/sfx'
 import { GANGUES_TERRITORIOS, estadoTerritorio, progressoTerritorio, totalNos } from '../data/ganguesTerritorios.js'
 import GanguesVoltarBtn from '../components/GanguesVoltarBtn'
-import '../Gangues.css' // .gang-brickwall-bg mora lá
+import '../styles/parede.css' // .gang-brickwall-bg (o resto do CSS base vem do Gangues.css, importado pelo GanguesRoute)
 import './GanguesWorldMap.css'
 
 /* Mapa político de Marelia — cada território é uma região desenhada no SVG

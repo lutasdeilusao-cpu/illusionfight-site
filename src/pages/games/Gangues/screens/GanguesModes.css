@@ -66,7 +66,6 @@
 }
 
 /* ══ Batizar a gangue ══ */
-.gang-naming { gap: 0; }
 .gang-naming-campo {
   display: flex; flex-direction: column; gap: 8px;
   margin: 22px 0 6px;
@@ -176,7 +175,6 @@ button.gang-modes-card { cursor: pointer; }
    indistinguível do painel técnico de antes). Só opacidade agora. */
 .gang-modes-card--locked { opacity: .55; }
 @media (prefers-reduced-motion: reduce) { .gang-modes-card { transition: none; } }
-.gang-naming { justify-content:center; }
 /* .gang-naming-poster e afins: reconstruídos por completo em
    GanguesNaming.css (14/09/2026) — cartaz rasgado/colado na parede,
    fonte de pichação, logo oficial, CTA "spray-paint". */

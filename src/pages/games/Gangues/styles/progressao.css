@@ -1,0 +1,124 @@
+/* LDI Gangues — Progressão da ficha + skill tree + erro de ficha.
+   Fatiado do antigo Gangues.css (refatoração de CSS, set/2026). A ORDEM de
+   carga é a do índice Gangues.css — não importar este arquivo sozinho. */
+
+/* ===== NEOGUIDE — dica lateral (tutorial guiado) ===== */
+
+/* ===== PROGRESSÃO DA FICHA — painel + skill tree ===== */
+
+.gang-progression-section-title {
+  display: flex; align-items: center; gap: 8px; margin: 14px 0 8px;
+  font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #7b898f;
+}
+.gang-progression-loadout { color: var(--if-amber); font-weight: 700; }
+
+.gang-skill-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 10px; }
+.gang-skill-node {
+  position: relative; display: flex; flex-direction: column; align-items: center; gap: 4px;
+  padding: 12px 8px 10px; text-align: center;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.1); border-radius: 10px;
+  clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px);
+}
+.gang-skill-node--locked { opacity: 0.55; filter: grayscale(0.6); }
+.gang-skill-node--equipped {
+  border-color: var(--if-amber); background: rgba(245, 166, 35, 0.08);
+  box-shadow: 0 0 16px rgba(245, 166, 35, 0.3);
+}
+.gang-skill-node-name { font-size: 10px; letter-spacing: 0.5px; color: #eef4f6; }
+.gang-skill-node-kind { font-size: 8px; letter-spacing: 1px; text-transform: uppercase; color: var(--if-teal); }
+.gang-skill-node--equipped .gang-skill-node-kind { color: var(--if-amber); }
+.gang-skill-node-actions { display: flex; flex-direction: column; gap: 4px; width: 100%; margin-top: 4px; }
+.gang-skill-node-actions button {
+  padding: 5px 4px; border-radius: 5px; border: 1px solid rgba(0,180,216,0.35);
+  background: rgba(0,180,216,0.08); color: var(--if-teal);
+  font: 700 8px 'Rajdhani', sans-serif; letter-spacing: 1px; text-transform: uppercase; cursor: pointer;
+}
+.gang-skill-node-actions button:hover:not(:disabled) { background: rgba(0,180,216,0.18); }
+.gang-skill-node-actions button:disabled { opacity: 0.3; cursor: not-allowed; }
+.gang-skill-node-toggle { border-color: rgba(245,166,35,0.4) !important; background: rgba(245,166,35,0.1) !important; color: var(--if-amber) !important; }
+.gang-skill-node-toggle:hover:not(:disabled) { background: rgba(245,166,35,0.2) !important; }
+
+/* Grade de poderes tocável (GanguesSkillGrid — ficha da cena + progressão) */
+.gang-skillgrid { width: 100%; margin-top: 8px; }
+button.gang-skill-node { font-family: inherit; color: #eef4f6; cursor: pointer; }
+button.gang-skill-node:hover { border-color: var(--if-teal); }
+/* Quando a grade fica EDITÁVEL (equipar/desequipar), .gang-skill-node vira um
+   <div> (não dá mais pra clicar o card inteiro) com um botão interno só pra
+   abrir o detalhe + o botão de equipar embaixo. */
+.gang-skill-node-open {
+  all: unset; box-sizing: border-box; width: 100%; cursor: pointer;
+  display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center;
+  font-family: inherit; color: #eef4f6;
+}
+.gang-skill-node-badge {
+  position: absolute; top: -7px; right: 6px; padding: 1px 6px; border-radius: 999px;
+  background: var(--if-amber); color: #1a1204; font: 800 7px 'Rajdhani', sans-serif; letter-spacing: 1px; text-transform: uppercase;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 6px 100%);
+}
+.gang-skill-sheet { position: fixed; inset: 0; z-index: 1200; display: flex; align-items: flex-end; justify-content: center; }
+.gang-skill-sheet__scrim { position: absolute; inset: 0; border: 0; background: rgba(2,5,8,0.8); backdrop-filter: blur(4px); }
+.gang-skill-sheet__card {
+  position: relative; width: 100%; max-width: var(--app-w);
+  display: grid; justify-items: center; gap: 6px; text-align: center;
+  padding: 22px 18px 18px; background: linear-gradient(160deg, #0d151b, #070a0d 72%);
+  border: 1px solid #26383d; border-bottom: 0;
+  clip-path: polygon(0 12px, 12px 0, 100% 0, 100% 100%, 0 100%);
+}
+.gang-skill-sheet__x { position: absolute; top: 8px; right: 10px; border: 0; background: none; color: #8b989e; font-size: 24px; line-height: 1; cursor: pointer; }
+.gang-skill-sheet__kind { font: 700 0.52rem var(--font-mono); letter-spacing: 0.16em; text-transform: uppercase; color: var(--if-teal); }
+.gang-skill-sheet__nome { font: 800 1rem var(--font-display); text-transform: uppercase; color: #fff; }
+.gang-skill-sheet__efeito { margin: 4px 0 0; font-size: 0.82rem; line-height: 1.4; color: #ccd6d9; }
+.gang-skill-sheet__custo { margin: 0; font: 700 0.6rem var(--font-mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--if-amber); }
+
+/* ══════════════════════════════════════════════════════════════
+   FICHA — retorno de erro
+   `.gang-err` era usada no JSX mas não tinha uma única regra no
+   projeto: a mensagem saía como <p> sem estilo e o jogador achava
+   que o botão estava quebrado. Agora ela grita, e o campo que
+   falta acende junto (a NeoGuide fala o resto).
+   ══════════════════════════════════════════════════════════════ */
+.gang-err {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.75rem 0 0;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid rgba(255, 107, 107, 0.55);
+  border-left: 3px solid #ff6b6b;
+  background: rgba(255, 107, 107, 0.1);
+  color: #ffb3b3;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  line-height: 1.4;
+  animation: gang-err-entra 0.32s ease both;
+}
+
+.gang-err::before {
+  content: '!';
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 18px;
+  height: 18px;
+  border: 1px solid #ff6b6b;
+  color: #ff6b6b;
+  font: 700 0.7rem var(--font-mono);
+}
+
+@keyframes gang-err-entra {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Campo culpado: acende e pulsa duas vezes para o olho achar sozinho. */
+
+@keyframes gang-campo-pulsa {
+  0%   { box-shadow: 0 0 0 0 rgba(255, 107, 107, 0.5); }
+  70%  { box-shadow: 0 0 0 10px rgba(255, 107, 107, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 107, 107, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gang-err { animation: none; }
+}

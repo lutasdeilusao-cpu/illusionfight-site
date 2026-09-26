@@ -1,0 +1,47 @@
+/* LDI Gangues — Parede de tijolo oficial (fundo do jogo).
+   Fatiado do antigo Gangues.css (refatoração de CSS, set/2026). A ORDEM de
+   carga é a do índice Gangues.css — não importar este arquivo sozinho. */
+
+/* ── Parede de tijolo OFICIAL do LDI Gangues — agora a arte de verdade
+   (pedido do Isaias, 14/09/2026: "essa vai ser a BG oficial... em vez
+   daquele background que você fez, que é legal mas não é o suficiente,
+   esse aqui tá muito melhor"). Substituiu a receita 100% CSS (gradientes
+   cruzados simulando tijolo) por um único JPG desenhado — o graffiti com
+   os 30 nomes do elenco na parede. Repetida (não importada) em
+   GanguesSaveSelect.css porque aquela tela precisa ser full-bleed por
+   conta própria; qualquer ajuste aqui precisa espelhar lá também. */
+.gang-brickwall-bg {
+  background-color: #1a0f08;
+  /* Véu escuro por cima da arte (2ª camada) — sem ele o graffiti (cheio
+     de nomes/cores fortes) brigava com o texto da UI por cima (reportado
+     no 1º teste visual: título e botões ilegíveis sobre a parede real). */
+  background-image:
+    linear-gradient(rgba(10, 5, 2, .58), rgba(10, 5, 2, .58)),
+    url('../assets/backgrounds/parede-oficial.jpg');
+  background-size: cover, cover;
+  background-position: top center, top center;
+  background-repeat: no-repeat, no-repeat;
+  /* NUNCA `fixed` aqui (Isaias reportou, 17/09/2026, com prova em desktop
+     E emulador mobile lado a lado: no PC a parede vem gigante/cortada,
+     no emulador de celular vem normal). Motivo: com
+     `background-attachment: fixed`, o spec manda calcular o `cover`
+     contra o VIEWPORT inteiro, não contra a caixa do elemento — mesmo o
+     elemento sendo a coluna de 480px sempre, `cover` inflava a imagem pra
+     cobrir a largura real da tela (1280px+ num monitor), e só uma fatia
+     minúscula (e por isso gigante/zoomed) dessa imagem enorme aparecia
+     dentro da coluna. Não afeta celular de verdade (viewport ≈ coluna, a
+     conta bate igual), só quem abre o site num navegador comum de
+     desktop — o que inclui qualquer teste rápido sem emulador.
+     `local` (não `scroll`) pelo mesmo motivo de fundo, mas outro sintoma
+     (Isaias, 19/09/2026, print do lobby com o elenco+ficha aberta: a
+     parede "acabava" no meio, virando preto liso embaixo) — `scroll`
+     calcula o `cover` contra a altura VISÍVEL da caixa (client height),
+     não contra o conteúdo rolável inteiro; em `.gang-lobby`
+     (overflow-y:auto, cresce com o roster/ficha aberta) o fundo só
+     cobria a 1ª tela e sumia ao rolar pro resto. `local` acompanha o
+     scroll do próprio elemento e calcula o `cover` contra a área rolável
+     inteira — cobre certo tanto rolando quanto parado, sem reintroduzir
+     o bug do `fixed` (que calculava contra o VIEWPORT, não contra o
+     elemento; `local` nunca faz isso). */
+  background-attachment: local, local;
+}

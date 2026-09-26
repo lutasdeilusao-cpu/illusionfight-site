@@ -15,7 +15,7 @@ import GanguesVoltarBtn from '../components/GanguesVoltarBtn'
 import GangDialog from '../components/GangDialog'
 import { getGanguesNpcPortrait } from '../data/ganguesNpcPortraits.js'
 import { getGanguesBiografia } from '../data/ganguesBiografias.js'
-import '../Gangues.css' // .gang-brickwall-bg mora lá
+import '../styles/parede.css' // .gang-brickwall-bg (o resto do CSS base vem do Gangues.css, importado pelo GanguesRoute)
 import './GanguesLobby.css' // .gang-recruit / .gang-fighter-card / .gang-sheet-modal moram lá
 
 const PATH_MARKS = { atacante: 'A', defensor: 'D', mistico: 'M' }

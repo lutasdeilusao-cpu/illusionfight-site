@@ -1,0 +1,76 @@
+/* LDI Gangues — Dica de rua (GangTip).
+   Fatiado do antigo Gangues.css (refatoração de CSS, set/2026). A ORDEM de
+   carga é a do índice Gangues.css — não importar este arquivo sozinho. */
+
+/* ── Dica de rua (GangTip) — reescrito 19/09/2026: virou overlay de tela
+   cheia com scrim (pausa de verdade, bloqueia clique no jogo por trás),
+   card centralizado, mesmo padrão visual do balão do GangDialog (borda
+   âmbar, fundo escuro). O botão de pular é o `.gang-dlg-skip`
+   compartilhado (mesma classe, mesmo lugar — embaixo do card — de
+   QUALQUER diálogo do jogo). Confinado na coluna mobile via
+   `--app-gutter`, mesmo bloco pronto de todo overlay fixed do site. */
+.gang-tip-overlay {
+  position: fixed; top: 0; bottom: 0; left: var(--app-gutter); right: var(--app-gutter); z-index: 9998;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px;
+  padding: 24px 18px calc(24px + env(safe-area-inset-bottom));
+  background: rgba(2, 3, 4, .72); backdrop-filter: blur(3px);
+  cursor: pointer;
+}
+.gang-tip-card {
+  position: relative; width: 100%; max-width: 320px; padding: 46px 18px 16px;
+  background: linear-gradient(180deg, #14100c, #0a0705);
+  border: 2px solid var(--if-amber); border-radius: 22px;
+  box-shadow: 0 16px 36px -18px rgba(0, 0, 0, .85);
+  cursor: default; text-align: center;
+}
+/* Cabeça do Nego Véio (pedido do Isaias, 19/09/2026: "coloque a cabeça
+   do Nego Véio nesses diálogos tutorial") — mesma receita visual do
+   `.gang-dlg-portrait-idle` do GangDialog, só menor e centralizada,
+   metade pra fora do card (mesmo truque de sobrepor a borda de cima). */
+.gang-tip-portrait {
+  position: absolute; top: -34px; left: 50%; translate: -50% 0; z-index: 2;
+  display: grid; place-items: center; width: 68px; height: 68px; overflow: hidden; border-radius: 50%;
+  background: linear-gradient(150deg, var(--if-amber), #b56a1e);
+  border: 3px solid rgba(0, 0, 0, .45);
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, .65));
+  animation: gang-dlg-idle 3.4s ease-in-out infinite;
+}
+.gang-tip-portrait img { width: 100%; height: 100%; object-fit: cover; image-rendering: pixelated; }
+.gang-tip-portrait b { font: 900 1.4rem var(--font-display); color: #1b1000; }
+@media (prefers-reduced-motion: reduce) { .gang-tip-portrait { animation: none; } }
+.gang-tip-text { margin: 0; color: #eadfce; font-size: 14px; line-height: 1.55; }
+.gang-tip-next {
+  margin-top: 14px; padding: 8px 20px;
+  border: 1px solid var(--if-amber); border-radius: 4px; background: rgba(255, 174, 50, .12); color: var(--if-amber);
+  font: 800 11px 'Rajdhani', sans-serif; letter-spacing: 2px; text-transform: uppercase; cursor: pointer;
+  animation: gang-dlg-pulse 1.6s ease-in-out infinite;
+}
+.gang-tip-next:hover { background: rgba(255, 174, 50, .22); }
+.gang-page--loading {
+  min-height: 100dvh;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 12px;
+  background: var(--bg-primary);
+}
+.gang-loading-mark {
+  font: 800 1.35rem var(--font-display);
+  letter-spacing: .18em;
+  color: var(--if-cyan);
+}
+.gang-loading-line {
+  width: 96px;
+  height: 2px;
+  overflow: hidden;
+  background: var(--if-ghost);
+}
+.gang-loading-line::after {
+  content: '';
+  display: block;
+  width: 45%;
+  height: 100%;
+  background: var(--if-cyan);
+  animation: gang-loading-scan 1s ease-in-out infinite alternate;
+}
+@keyframes gang-loading-scan { to { transform: translateX(124%); } }
