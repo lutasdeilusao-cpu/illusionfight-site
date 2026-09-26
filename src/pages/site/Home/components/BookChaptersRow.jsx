@@ -75,16 +75,16 @@ export default function BookChaptersRow() {
             return (
               <Wrapper
                 key={cap.id}
-                className="book-chapter-card"
+                className={`book-chapter-card${liberado ? '' : ' book-chapter-card--travado'}`}
                 {...wrapperProps}
               >
                 <div className="book-chapter-card__inner">
                   <img
                     className="book-chapter-card__image"
-                    src={liberado && cover ? cover : comingSoonImg}
+                    src={cover || comingSoonImg}
                     alt=""
-                    width={liberado && cover ? 204 : 768}
-                    height={liberado && cover ? 284 : 1344}
+                    width={cover ? 720 : 768}
+                    height={cover ? 1226 : 1344}
                     loading="lazy"
                     decoding="async"
                   />

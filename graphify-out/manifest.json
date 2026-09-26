@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1790392638.1609302,
-    "ast_hash": "2d962fa11de1233a3106dd13ecfed33c",
+    "mtime": 1790436315.7798636,
+    "ast_hash": "7031e0e2267e50934626f16b167d54ca",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2730,8 +2730,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1790392638.3215137,
-    "ast_hash": "c935637d03f67f50b66de7d34df16f53",
+    "mtime": 1790436315.825158,
+    "ast_hash": "d09450b1df1e836982365850bcb6847a",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -4565,8 +4565,8 @@
     "semantic_hash": ""
   },
   "src/i18n/core/en.json": {
-    "mtime": 1790392534.2212124,
-    "ast_hash": "f06cee68f0b4334a4337a785bdbd4775",
+    "mtime": 1790436371.7647626,
+    "ast_hash": "475eb6a0c63febad008f3f1202762e92",
     "semantic_hash": ""
   },
   "src/i18n/core/es.json": {
@@ -5670,8 +5670,8 @@
     "semantic_hash": ""
   },
   "src/lib/historias/catalogo.js": {
-    "mtime": 1790358065.7662618,
-    "ast_hash": "c40451750bd077f4f14a05524c4d3343",
+    "mtime": 1790436315.7537544,
+    "ast_hash": "c53566a4e0a09c568ce50cbf3da2fbb0",
     "semantic_hash": ""
   },
   "src/pages/content/historias/HistoriaCapLinha.jsx": {
@@ -5685,13 +5685,13 @@
     "semantic_hash": ""
   },
   "src/pages/content/historias/HistoriasHub.jsx": {
-    "mtime": 1790370853.190179,
-    "ast_hash": "62007b56b5e8b9982146c26e18f17c5a",
+    "mtime": 1790436282.775616,
+    "ast_hash": "45871897c9b1f12f89bdd761efb92c2b",
     "semantic_hash": ""
   },
   "src/pages/content/historias/HistoriasUniversos.jsx": {
-    "mtime": 1790358082.9672613,
-    "ast_hash": "a2c4d6d646220c334fc4d87aa76427db",
+    "mtime": 1790436282.775616,
+    "ast_hash": "5f83b6ce1aeea05d66009bb8b5c5f703",
     "semantic_hash": ""
   },
   "src/assets/obras/mar-de-cinzas/cap-01.webp": {
@@ -5717,6 +5717,11 @@
   "src/components/ShareButton/ShareButton.jsx": {
     "mtime": 1790392509.893638,
     "ast_hash": "de01b471e974a5576913d2f05c185044",
+    "semantic_hash": ""
+  },
+  "src/assets/images/contos/capa-illusion-tales.webp": {
+    "mtime": 1790436270.5592306,
+    "ast_hash": "e58a21407a3f967bb20dcfe516190228",
     "semantic_hash": ""
   }
 }

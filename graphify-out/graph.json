@@ -294,76 +294,6 @@
       "norm_label": "13. onde procurar primeiro"
     },
     {
-      "label": "Navbar.jsx",
-      "file_type": "code",
-      "source_file": "src/components/Navbar.jsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "src_components_navbar",
-      "community": 17,
-      "norm_label": "navbar.jsx"
-    },
-    {
-      "label": "LOCALES",
-      "file_type": "code",
-      "source_file": "src/components/Navbar.jsx",
-      "source_location": "L16",
-      "_origin": "ast",
-      "id": "src_components_navbar_locales",
-      "community": 17,
-      "norm_label": "locales"
-    },
-    {
-      "label": "LOGO_MARK",
-      "file_type": "code",
-      "source_file": "src/components/Navbar.jsx",
-      "source_location": "L20",
-      "_origin": "ast",
-      "id": "src_components_navbar_logo_mark",
-      "community": 17,
-      "norm_label": "logo_mark"
-    },
-    {
-      "label": "Navbar()",
-      "file_type": "code",
-      "source_file": "src/components/Navbar.jsx",
-      "source_location": "L22",
-      "_origin": "ast",
-      "id": "src_components_navbar_navbar",
-      "community": 17,
-      "norm_label": "navbar()"
-    },
-    {
-      "label": "ShareButton.jsx",
-      "file_type": "code",
-      "source_file": "src/components/ShareButton/ShareButton.jsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "src_components_sharebutton_sharebutton",
-      "community": 17,
-      "norm_label": "sharebutton.jsx"
-    },
-    {
-      "label": "compartilharLink()",
-      "file_type": "code",
-      "source_file": "src/components/ShareButton/ShareButton.jsx",
-      "source_location": "L15",
-      "_origin": "ast",
-      "id": "src_components_sharebutton_sharebutton_compartilharlink",
-      "community": 17,
-      "norm_label": "compartilharlink()"
-    },
-    {
-      "label": "ShareButton()",
-      "file_type": "code",
-      "source_file": "src/components/ShareButton/ShareButton.jsx",
-      "source_location": "L34",
-      "_origin": "ast",
-      "id": "src_components_sharebutton_sharebutton_sharebutton",
-      "community": 17,
-      "norm_label": "sharebutton()"
-    },
-    {
       "label": "version.js",
       "file_type": "code",
       "source_file": "src/config/version.js",
@@ -374,14 +304,314 @@
       "norm_label": "version.js"
     },
     {
+      "label": "catalogo.js",
+      "file_type": "code",
+      "source_file": "src/lib/historias/catalogo.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_lib_historias_catalogo",
+      "community": 485,
+      "norm_label": "catalogo.js"
+    },
+    {
+      "label": "obraAssets",
+      "file_type": "code",
+      "source_file": "src/lib/historias/catalogo.js",
+      "source_location": "L19",
+      "_origin": "ast",
+      "id": "src_lib_historias_catalogo_obraassets",
+      "community": 485,
+      "norm_label": "obraassets"
+    },
+    {
+      "label": "obraAsset()",
+      "file_type": "code",
+      "source_file": "src/lib/historias/catalogo.js",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "src_lib_historias_catalogo_obraasset",
+      "community": 485,
+      "norm_label": "obraasset()"
+    },
+    {
+      "label": "COR_PESO",
+      "file_type": "code",
+      "source_file": "src/lib/historias/catalogo.js",
+      "source_location": "L24",
+      "_origin": "ast",
+      "id": "src_lib_historias_catalogo_cor_peso",
+      "community": 485,
+      "norm_label": "cor_peso"
+    },
+    {
+      "label": "COR_SELO",
+      "file_type": "code",
+      "source_file": "src/lib/historias/catalogo.js",
+      "source_location": "L25",
+      "_origin": "ast",
+      "id": "src_lib_historias_catalogo_cor_selo",
+      "community": 485,
+      "norm_label": "cor_selo"
+    },
+    {
+      "label": "normalizarCap()",
+      "file_type": "code",
+      "source_file": "src/lib/historias/catalogo.js",
+      "source_location": "L28",
+      "_origin": "ast",
+      "id": "src_lib_historias_catalogo_normalizarcap",
+      "community": 485,
+      "norm_label": "normalizarcap()"
+    },
+    {
+      "label": "LDI",
+      "file_type": "code",
+      "source_file": "src/lib/historias/catalogo.js",
+      "source_location": "L34",
+      "_origin": "ast",
+      "id": "src_lib_historias_catalogo_ldi",
+      "community": 485,
+      "norm_label": "ldi"
+    },
+    {
+      "label": "LINHA_PRINCIPAL",
+      "file_type": "code",
+      "source_file": "src/lib/historias/catalogo.js",
+      "source_location": "L36",
+      "_origin": "ast",
+      "id": "src_lib_historias_catalogo_linha_principal",
+      "community": 485,
+      "norm_label": "linha_principal"
+    },
+    {
+      "label": "CONTOS",
+      "file_type": "code",
+      "source_file": "src/lib/historias/catalogo.js",
+      "source_location": "L57",
+      "_origin": "ast",
+      "id": "src_lib_historias_catalogo_contos",
+      "community": 485,
+      "norm_label": "contos"
+    },
+    {
+      "label": "OBRAS",
+      "file_type": "code",
+      "source_file": "src/lib/historias/catalogo.js",
+      "source_location": "L76",
+      "_origin": "ast",
+      "id": "src_lib_historias_catalogo_obras",
+      "community": 485,
+      "norm_label": "obras"
+    },
+    {
+      "label": "TODOS",
+      "file_type": "code",
+      "source_file": "src/lib/historias/catalogo.js",
+      "source_location": "L103",
+      "_origin": "ast",
+      "id": "src_lib_historias_catalogo_todos",
+      "community": 485,
+      "norm_label": "todos"
+    },
+    {
+      "label": "listarHistorias()",
+      "file_type": "code",
+      "source_file": "src/lib/historias/catalogo.js",
+      "source_location": "L105",
+      "_origin": "ast",
+      "id": "src_lib_historias_catalogo_listarhistorias",
+      "community": 485,
+      "norm_label": "listarhistorias()"
+    },
+    {
+      "label": "historiaPorSlug()",
+      "file_type": "code",
+      "source_file": "src/lib/historias/catalogo.js",
+      "source_location": "L109",
+      "_origin": "ast",
+      "id": "src_lib_historias_catalogo_historiaporslug",
+      "community": 485,
+      "norm_label": "historiaporslug()"
+    },
+    {
+      "label": "capaContos()",
+      "file_type": "code",
+      "source_file": "src/lib/historias/catalogo.js",
+      "source_location": "L114",
+      "_origin": "ast",
+      "id": "src_lib_historias_catalogo_capacontos",
+      "community": 485,
+      "norm_label": "capacontos()"
+    },
+    {
+      "label": "linhaPrincipal()",
+      "file_type": "code",
+      "source_file": "src/lib/historias/catalogo.js",
+      "source_location": "L118",
+      "_origin": "ast",
+      "id": "src_lib_historias_catalogo_linhaprincipal",
+      "community": 485,
+      "norm_label": "linhaprincipal()"
+    },
+    {
+      "label": "miniaturaCapHistoria()",
+      "file_type": "code",
+      "source_file": "src/lib/historias/catalogo.js",
+      "source_location": "L123",
+      "_origin": "ast",
+      "id": "src_lib_historias_catalogo_miniaturacaphistoria",
+      "community": 485,
+      "norm_label": "miniaturacaphistoria()"
+    },
+    {
+      "label": "numeroCapHistoria()",
+      "file_type": "code",
+      "source_file": "src/lib/historias/catalogo.js",
+      "source_location": "L128",
+      "_origin": "ast",
+      "id": "src_lib_historias_catalogo_numerocaphistoria",
+      "community": 485,
+      "norm_label": "numerocaphistoria()"
+    },
+    {
+      "label": "progressoHistoria()",
+      "file_type": "code",
+      "source_file": "src/lib/historias/catalogo.js",
+      "source_location": "L133",
+      "_origin": "ast",
+      "id": "src_lib_historias_catalogo_progressohistoria",
+      "community": 485,
+      "norm_label": "progressohistoria()"
+    },
+    {
+      "label": "HistoriasHub.jsx",
+      "file_type": "code",
+      "source_file": "src/pages/content/historias/HistoriasHub.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_pages_content_historias_historiashub",
+      "community": 485,
+      "norm_label": "historiashub.jsx"
+    },
+    {
+      "label": "hojeISO()",
+      "file_type": "code",
+      "source_file": "src/pages/content/historias/HistoriasHub.jsx",
+      "source_location": "L19",
+      "_origin": "ast",
+      "id": "src_pages_content_historias_historiashub_hojeiso",
+      "community": 485,
+      "norm_label": "hojeiso()"
+    },
+    {
+      "label": "HistoriasHub()",
+      "file_type": "code",
+      "source_file": "src/pages/content/historias/HistoriasHub.jsx",
+      "source_location": "L25",
+      "_origin": "ast",
+      "id": "src_pages_content_historias_historiashub_historiashub",
+      "community": 485,
+      "norm_label": "historiashub()"
+    },
+    {
+      "label": "HistoriasUniversos.jsx",
+      "file_type": "code",
+      "source_file": "src/pages/content/historias/HistoriasUniversos.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_pages_content_historias_historiasuniversos",
+      "community": 485,
+      "norm_label": "historiasuniversos.jsx"
+    },
+    {
+      "label": "HistoriasUniversos()",
+      "file_type": "code",
+      "source_file": "src/pages/content/historias/HistoriasUniversos.jsx",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "src_pages_content_historias_historiasuniversos_historiasuniversos",
+      "community": 485,
+      "norm_label": "historiasuniversos()"
+    },
+    {
+      "label": "Navbar.jsx",
+      "file_type": "code",
+      "source_file": "src/components/Navbar.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 17,
+      "norm_label": "navbar.jsx",
+      "id": "src_components_navbar"
+    },
+    {
+      "label": "LOCALES",
+      "file_type": "code",
+      "source_file": "src/components/Navbar.jsx",
+      "source_location": "L16",
+      "_origin": "ast",
+      "community": 17,
+      "norm_label": "locales",
+      "id": "src_components_navbar_locales"
+    },
+    {
+      "label": "LOGO_MARK",
+      "file_type": "code",
+      "source_file": "src/components/Navbar.jsx",
+      "source_location": "L20",
+      "_origin": "ast",
+      "community": 17,
+      "norm_label": "logo_mark",
+      "id": "src_components_navbar_logo_mark"
+    },
+    {
+      "label": "Navbar()",
+      "file_type": "code",
+      "source_file": "src/components/Navbar.jsx",
+      "source_location": "L22",
+      "_origin": "ast",
+      "community": 17,
+      "norm_label": "navbar()",
+      "id": "src_components_navbar_navbar"
+    },
+    {
+      "label": "ShareButton.jsx",
+      "file_type": "code",
+      "source_file": "src/components/ShareButton/ShareButton.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 17,
+      "norm_label": "sharebutton.jsx",
+      "id": "src_components_sharebutton_sharebutton"
+    },
+    {
+      "label": "compartilharLink()",
+      "file_type": "code",
+      "source_file": "src/components/ShareButton/ShareButton.jsx",
+      "source_location": "L15",
+      "_origin": "ast",
+      "community": 17,
+      "norm_label": "compartilharlink()",
+      "id": "src_components_sharebutton_sharebutton_compartilharlink"
+    },
+    {
+      "label": "ShareButton()",
+      "file_type": "code",
+      "source_file": "src/components/ShareButton/ShareButton.jsx",
+      "source_location": "L34",
+      "_origin": "ast",
+      "community": 17,
+      "norm_label": "sharebutton()",
+      "id": "src_components_sharebutton_sharebutton_sharebutton"
+    },
+    {
       "label": "WebshardLeitor.jsx",
       "file_type": "code",
       "source_file": "src/pages/content/webshard/WebshardLeitor.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_pages_content_webshard_webshardleitor",
       "community": 17,
-      "norm_label": "webshardleitor.jsx"
+      "norm_label": "webshardleitor.jsx",
+      "id": "src_pages_content_webshard_webshardleitor"
     },
     {
       "label": "WebshardLeitor()",
@@ -389,9 +619,9 @@
       "source_file": "src/pages/content/webshard/WebshardLeitor.jsx",
       "source_location": "L29",
       "_origin": "ast",
-      "id": "src_pages_content_webshard_webshardleitor_webshardleitor",
       "community": 17,
-      "norm_label": "webshardleitor()"
+      "norm_label": "webshardleitor()",
+      "id": "src_pages_content_webshard_webshardleitor_webshardleitor"
     },
     {
       "label": "prerender-routes.js",
@@ -704,36 +934,6 @@
       "id": "scripts_prerender_routes_sitemap"
     },
     {
-      "label": "HistoriasHub.jsx",
-      "file_type": "code",
-      "source_file": "src/pages/content/historias/HistoriasHub.jsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 451,
-      "norm_label": "historiashub.jsx",
-      "id": "src_pages_content_historias_historiashub"
-    },
-    {
-      "label": "hojeISO()",
-      "file_type": "code",
-      "source_file": "src/pages/content/historias/HistoriasHub.jsx",
-      "source_location": "L19",
-      "_origin": "ast",
-      "community": 451,
-      "norm_label": "hojeiso()",
-      "id": "src_pages_content_historias_historiashub_hojeiso"
-    },
-    {
-      "label": "HistoriasHub()",
-      "file_type": "code",
-      "source_file": "src/pages/content/historias/HistoriasHub.jsx",
-      "source_location": "L25",
-      "_origin": "ast",
-      "community": 451,
-      "norm_label": "historiashub()",
-      "id": "src_pages_content_historias_historiashub_historiashub"
-    },
-    {
       "label": "Universo.jsx",
       "file_type": "code",
       "source_file": "src/pages/content/Universo.jsx",
@@ -814,186 +1014,6 @@
       "id": "src_pages_content_universo_universo"
     },
     {
-      "label": "catalogo.js",
-      "file_type": "code",
-      "source_file": "src/lib/historias/catalogo.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 485,
-      "norm_label": "catalogo.js",
-      "id": "src_lib_historias_catalogo"
-    },
-    {
-      "label": "obraAssets",
-      "file_type": "code",
-      "source_file": "src/lib/historias/catalogo.js",
-      "source_location": "L16",
-      "_origin": "ast",
-      "community": 485,
-      "norm_label": "obraassets",
-      "id": "src_lib_historias_catalogo_obraassets"
-    },
-    {
-      "label": "obraAsset()",
-      "file_type": "code",
-      "source_file": "src/lib/historias/catalogo.js",
-      "source_location": "L17",
-      "_origin": "ast",
-      "community": 485,
-      "norm_label": "obraasset()",
-      "id": "src_lib_historias_catalogo_obraasset"
-    },
-    {
-      "label": "COR_PESO",
-      "file_type": "code",
-      "source_file": "src/lib/historias/catalogo.js",
-      "source_location": "L21",
-      "_origin": "ast",
-      "community": 485,
-      "norm_label": "cor_peso",
-      "id": "src_lib_historias_catalogo_cor_peso"
-    },
-    {
-      "label": "COR_SELO",
-      "file_type": "code",
-      "source_file": "src/lib/historias/catalogo.js",
-      "source_location": "L22",
-      "_origin": "ast",
-      "community": 485,
-      "norm_label": "cor_selo",
-      "id": "src_lib_historias_catalogo_cor_selo"
-    },
-    {
-      "label": "normalizarCap()",
-      "file_type": "code",
-      "source_file": "src/lib/historias/catalogo.js",
-      "source_location": "L25",
-      "_origin": "ast",
-      "community": 485,
-      "norm_label": "normalizarcap()",
-      "id": "src_lib_historias_catalogo_normalizarcap"
-    },
-    {
-      "label": "LDI",
-      "file_type": "code",
-      "source_file": "src/lib/historias/catalogo.js",
-      "source_location": "L31",
-      "_origin": "ast",
-      "community": 485,
-      "norm_label": "ldi",
-      "id": "src_lib_historias_catalogo_ldi"
-    },
-    {
-      "label": "LINHA_PRINCIPAL",
-      "file_type": "code",
-      "source_file": "src/lib/historias/catalogo.js",
-      "source_location": "L33",
-      "_origin": "ast",
-      "community": 485,
-      "norm_label": "linha_principal",
-      "id": "src_lib_historias_catalogo_linha_principal"
-    },
-    {
-      "label": "CONTOS",
-      "file_type": "code",
-      "source_file": "src/lib/historias/catalogo.js",
-      "source_location": "L54",
-      "_origin": "ast",
-      "community": 485,
-      "norm_label": "contos",
-      "id": "src_lib_historias_catalogo_contos"
-    },
-    {
-      "label": "OBRAS",
-      "file_type": "code",
-      "source_file": "src/lib/historias/catalogo.js",
-      "source_location": "L73",
-      "_origin": "ast",
-      "community": 485,
-      "norm_label": "obras",
-      "id": "src_lib_historias_catalogo_obras"
-    },
-    {
-      "label": "TODOS",
-      "file_type": "code",
-      "source_file": "src/lib/historias/catalogo.js",
-      "source_location": "L100",
-      "_origin": "ast",
-      "community": 485,
-      "norm_label": "todos",
-      "id": "src_lib_historias_catalogo_todos"
-    },
-    {
-      "label": "listarHistorias()",
-      "file_type": "code",
-      "source_file": "src/lib/historias/catalogo.js",
-      "source_location": "L102",
-      "_origin": "ast",
-      "community": 485,
-      "norm_label": "listarhistorias()",
-      "id": "src_lib_historias_catalogo_listarhistorias"
-    },
-    {
-      "label": "historiaPorSlug()",
-      "file_type": "code",
-      "source_file": "src/lib/historias/catalogo.js",
-      "source_location": "L106",
-      "_origin": "ast",
-      "community": 485,
-      "norm_label": "historiaporslug()",
-      "id": "src_lib_historias_catalogo_historiaporslug"
-    },
-    {
-      "label": "capaPadrao()",
-      "file_type": "code",
-      "source_file": "src/lib/historias/catalogo.js",
-      "source_location": "L111",
-      "_origin": "ast",
-      "community": 485,
-      "norm_label": "capapadrao()",
-      "id": "src_lib_historias_catalogo_capapadrao"
-    },
-    {
-      "label": "linhaPrincipal()",
-      "file_type": "code",
-      "source_file": "src/lib/historias/catalogo.js",
-      "source_location": "L115",
-      "_origin": "ast",
-      "community": 485,
-      "norm_label": "linhaprincipal()",
-      "id": "src_lib_historias_catalogo_linhaprincipal"
-    },
-    {
-      "label": "miniaturaCapHistoria()",
-      "file_type": "code",
-      "source_file": "src/lib/historias/catalogo.js",
-      "source_location": "L120",
-      "_origin": "ast",
-      "community": 485,
-      "norm_label": "miniaturacaphistoria()",
-      "id": "src_lib_historias_catalogo_miniaturacaphistoria"
-    },
-    {
-      "label": "numeroCapHistoria()",
-      "file_type": "code",
-      "source_file": "src/lib/historias/catalogo.js",
-      "source_location": "L125",
-      "_origin": "ast",
-      "community": 485,
-      "norm_label": "numerocaphistoria()",
-      "id": "src_lib_historias_catalogo_numerocaphistoria"
-    },
-    {
-      "label": "progressoHistoria()",
-      "file_type": "code",
-      "source_file": "src/lib/historias/catalogo.js",
-      "source_location": "L130",
-      "_origin": "ast",
-      "community": 485,
-      "norm_label": "progressohistoria()",
-      "id": "src_lib_historias_catalogo_progressohistoria"
-    },
-    {
       "label": "HistoriaTitulo.jsx",
       "file_type": "code",
       "source_file": "src/pages/content/historias/HistoriaTitulo.jsx",
@@ -1012,26 +1032,6 @@
       "community": 485,
       "norm_label": "historiatitulo()",
       "id": "src_pages_content_historias_historiatitulo_historiatitulo"
-    },
-    {
-      "label": "HistoriasUniversos.jsx",
-      "file_type": "code",
-      "source_file": "src/pages/content/historias/HistoriasUniversos.jsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 485,
-      "norm_label": "historiasuniversos.jsx",
-      "id": "src_pages_content_historias_historiasuniversos"
-    },
-    {
-      "label": "HistoriasUniversos()",
-      "file_type": "code",
-      "source_file": "src/pages/content/historias/HistoriasUniversos.jsx",
-      "source_location": "L15",
-      "_origin": "ast",
-      "community": 485,
-      "norm_label": "historiasuniversos()",
-      "id": "src_pages_content_historias_historiasuniversos_historiasuniversos"
     },
     {
       "label": "App.jsx",
@@ -7369,7 +7369,7 @@
       "source_file": "src/context/AuthContext.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 51,
+      "community": 504,
       "norm_label": "authcontext.jsx",
       "id": "src_context_authcontext"
     },
@@ -7379,7 +7379,7 @@
       "source_file": "src/context/AuthContext.jsx",
       "source_location": "L8",
       "_origin": "ast",
-      "community": 51,
+      "community": 504,
       "norm_label": "authcontext",
       "id": "src_context_authcontext_authcontext"
     },
@@ -7389,7 +7389,7 @@
       "source_file": "src/context/AuthContext.jsx",
       "source_location": "L12",
       "_origin": "ast",
-      "community": 51,
+      "community": 504,
       "norm_label": "lercadastropendente()",
       "id": "src_context_authcontext_lercadastropendente"
     },
@@ -7399,7 +7399,7 @@
       "source_file": "src/context/AuthContext.jsx",
       "source_location": "L16",
       "_origin": "ast",
-      "community": 51,
+      "community": 504,
       "norm_label": "limparcadastropendente()",
       "id": "src_context_authcontext_limparcadastropendente"
     },
@@ -7409,7 +7409,7 @@
       "source_file": "src/context/AuthContext.jsx",
       "source_location": "L20",
       "_origin": "ast",
-      "community": 51,
+      "community": 504,
       "norm_label": "authprovider()",
       "id": "src_context_authcontext_authprovider"
     },
@@ -7419,7 +7419,7 @@
       "source_file": "src/context/AuthContext.jsx",
       "source_location": "L240",
       "_origin": "ast",
-      "community": 9,
+      "community": 504,
       "norm_label": "useauth()",
       "id": "src_context_authcontext_useauth"
     },
@@ -13089,7 +13089,7 @@
       "source_file": "src/components/AchievementToast/AchievementToast.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 33,
+      "community": 39,
       "norm_label": "achievementtoast.jsx",
       "id": "src_components_achievementtoast_achievementtoast"
     },
@@ -13099,7 +13099,7 @@
       "source_file": "src/components/AchievementToast/AchievementToast.jsx",
       "source_location": "L6",
       "_origin": "ast",
-      "community": 33,
+      "community": 39,
       "norm_label": "achievementtoast()",
       "id": "src_components_achievementtoast_achievementtoast_achievementtoast"
     },
@@ -13179,7 +13179,7 @@
       "source_file": "src/components/CharacterCard.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 33,
+      "community": 1,
       "norm_label": "charactercard.jsx",
       "id": "src_components_charactercard"
     },
@@ -13189,7 +13189,7 @@
       "source_file": "src/components/CharacterCard.jsx",
       "source_location": "L6",
       "_origin": "ast",
-      "community": 33,
+      "community": 1,
       "norm_label": "charactercard()",
       "id": "src_components_charactercard_charactercard"
     },
@@ -13239,7 +13239,7 @@
       "source_file": "src/components/DesktopShellBar/DesktopShellBar.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 322,
+      "community": 39,
       "norm_label": "desktopshellbar.jsx",
       "id": "src_components_desktopshellbar_desktopshellbar"
     },
@@ -13249,7 +13249,7 @@
       "source_file": "src/components/DesktopShellBar/DesktopShellBar.jsx",
       "source_location": "L13",
       "_origin": "ast",
-      "community": 322,
+      "community": 39,
       "norm_label": "desktopshellbar()",
       "id": "src_components_desktopshellbar_desktopshellbar_desktopshellbar"
     },
@@ -13299,7 +13299,7 @@
       "source_file": "src/components/FichaGateRoute/FichaGateRoute.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 1,
+      "community": 51,
       "norm_label": "fichagateroute.jsx",
       "id": "src_components_fichagateroute_fichagateroute"
     },
@@ -13309,7 +13309,7 @@
       "source_file": "src/components/FichaGateRoute/FichaGateRoute.jsx",
       "source_location": "L21",
       "_origin": "ast",
-      "community": 1,
+      "community": 51,
       "norm_label": "gethoje()",
       "id": "src_components_fichagateroute_fichagateroute_gethoje"
     },
@@ -13319,7 +13319,7 @@
       "source_file": "src/components/FichaGateRoute/FichaGateRoute.jsx",
       "source_location": "L25",
       "_origin": "ast",
-      "community": 1,
+      "community": 51,
       "norm_label": "isdesbloqueadohoje()",
       "id": "src_components_fichagateroute_fichagateroute_isdesbloqueadohoje"
     },
@@ -13329,7 +13329,7 @@
       "source_file": "src/components/FichaGateRoute/FichaGateRoute.jsx",
       "source_location": "L31",
       "_origin": "ast",
-      "community": 1,
+      "community": 51,
       "norm_label": "fichagateroute()",
       "id": "src_components_fichagateroute_fichagateroute_fichagateroute"
     },
@@ -13379,7 +13379,7 @@
       "source_file": "src/components/GuestNotice/GuestNotice.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 33,
+      "community": 504,
       "norm_label": "guestnotice.jsx",
       "id": "src_components_guestnotice_guestnotice"
     },
@@ -13389,7 +13389,7 @@
       "source_file": "src/components/GuestNotice/GuestNotice.jsx",
       "source_location": "L13",
       "_origin": "ast",
-      "community": 33,
+      "community": 504,
       "norm_label": "guestnotice()",
       "id": "src_components_guestnotice_guestnotice_guestnotice"
     },
@@ -13469,7 +13469,7 @@
       "source_file": "src/components/LDINotification/LDINotification.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 456,
+      "community": 398,
       "norm_label": "ldinotification.jsx",
       "id": "src_components_ldinotification_ldinotification"
     },
@@ -13479,7 +13479,7 @@
       "source_file": "src/components/LDINotification/LDINotification.jsx",
       "source_location": "L5",
       "_origin": "ast",
-      "community": 456,
+      "community": 398,
       "norm_label": "shuffle()",
       "id": "src_components_ldinotification_ldinotification_shuffle"
     },
@@ -13489,7 +13489,7 @@
       "source_file": "src/components/LDINotification/LDINotification.jsx",
       "source_location": "L14",
       "_origin": "ast",
-      "community": 456,
+      "community": 398,
       "norm_label": "personagens",
       "id": "src_components_ldinotification_ldinotification_personagens"
     },
@@ -13499,7 +13499,7 @@
       "source_file": "src/components/LDINotification/LDINotification.jsx",
       "source_location": "L16",
       "_origin": "ast",
-      "community": 456,
+      "community": 398,
       "norm_label": "pickpersonagem()",
       "id": "src_components_ldinotification_ldinotification_pickpersonagem"
     },
@@ -13509,7 +13509,7 @@
       "source_file": "src/components/LDINotification/LDINotification.jsx",
       "source_location": "L20",
       "_origin": "ast",
-      "community": 456,
+      "community": 398,
       "norm_label": "ldinotification()",
       "id": "src_components_ldinotification_ldinotification_ldinotification"
     },
@@ -13519,7 +13519,7 @@
       "source_file": "src/components/LoginGate/LoginGate.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 398,
+      "community": 504,
       "norm_label": "logingate.jsx",
       "id": "src_components_logingate_logingate"
     },
@@ -13529,7 +13529,7 @@
       "source_file": "src/components/LoginGate/LoginGate.jsx",
       "source_location": "L6",
       "_origin": "ast",
-      "community": 398,
+      "community": 504,
       "norm_label": "logingate()",
       "id": "src_components_logingate_logingate_logingate"
     },
@@ -13539,7 +13539,7 @@
       "source_file": "src/components/ModalConfirmacaoFicha/ModalConfirmacaoFicha.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 1,
+      "community": 39,
       "norm_label": "modalconfirmacaoficha.jsx",
       "id": "src_components_modalconfirmacaoficha_modalconfirmacaoficha"
     },
@@ -13549,7 +13549,7 @@
       "source_file": "src/components/ModalConfirmacaoFicha/ModalConfirmacaoFicha.jsx",
       "source_location": "L5",
       "_origin": "ast",
-      "community": 1,
+      "community": 39,
       "norm_label": "modalconfirmacaoficha()",
       "id": "src_components_modalconfirmacaoficha_modalconfirmacaoficha_modalconfirmacaoficha"
     },
@@ -13559,7 +13559,7 @@
       "source_file": "src/components/ModalSemFichas/ModalSemFichas.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 1,
+      "community": 39,
       "norm_label": "modalsemfichas.jsx",
       "id": "src_components_modalsemfichas_modalsemfichas"
     },
@@ -13569,7 +13569,7 @@
       "source_file": "src/components/ModalSemFichas/ModalSemFichas.jsx",
       "source_location": "L6",
       "_origin": "ast",
-      "community": 1,
+      "community": 39,
       "norm_label": "modalsemfichas()",
       "id": "src_components_modalsemfichas_modalsemfichas_modalsemfichas"
     },
@@ -13679,7 +13679,7 @@
       "source_file": "src/components/PlatformIcons.jsx",
       "source_location": "L82",
       "_origin": "ast",
-      "community": 33,
+      "community": 1,
       "norm_label": "platformiconmap",
       "id": "src_components_platformicons_platformiconmap"
     },
@@ -13979,7 +13979,7 @@
       "source_file": "src/components/Puzzles/PuzzleSimonSays.jsx",
       "source_location": "L8",
       "_origin": "ast",
-      "community": 33,
+      "community": 23,
       "norm_label": "puzzlesimonsays()",
       "id": "src_components_puzzles_puzzlesimonsays_puzzlesimonsays"
     },
@@ -14289,7 +14289,7 @@
       "source_file": "src/components/ResultCard/ResultCard.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 20,
+      "community": 487,
       "norm_label": "resultcard.jsx",
       "id": "src_components_resultcard_resultcard"
     },
@@ -14299,7 +14299,7 @@
       "source_file": "src/components/ResultCard/ResultCard.jsx",
       "source_location": "L7",
       "_origin": "ast",
-      "community": 20,
+      "community": 487,
       "norm_label": "resultcard()",
       "id": "src_components_resultcard_resultcard_resultcard"
     },
@@ -14309,7 +14309,7 @@
       "source_file": "src/components/ResultCard/index.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 20,
+      "community": 487,
       "norm_label": "index.js",
       "id": "src_components_resultcard_index"
     },
@@ -14319,7 +14319,7 @@
       "source_file": "src/components/ResultCard/palettes.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 20,
+      "community": 487,
       "norm_label": "palettes.js",
       "id": "src_components_resultcard_palettes"
     },
@@ -14329,7 +14329,7 @@
       "source_file": "src/components/ResultCard/palettes.js",
       "source_location": "L2",
       "_origin": "ast",
-      "community": 20,
+      "community": 487,
       "norm_label": "palettes",
       "id": "src_components_resultcard_palettes_palettes"
     },
@@ -14339,7 +14339,7 @@
       "source_file": "src/components/ResultCard/palettes.js",
       "source_location": "L37",
       "_origin": "ast",
-      "community": 20,
+      "community": 487,
       "norm_label": "frases",
       "id": "src_components_resultcard_palettes_frases"
     },
@@ -14349,7 +14349,7 @@
       "source_file": "src/components/ResultCard/palettes.js",
       "source_location": "L88",
       "_origin": "ast",
-      "community": 20,
+      "community": 487,
       "norm_label": "getfrase()",
       "id": "src_components_resultcard_palettes_getfrase"
     },
@@ -14399,7 +14399,7 @@
       "source_file": "src/components/SearchModal/SearchModal.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 398,
+      "community": 494,
       "norm_label": "searchmodal.jsx",
       "id": "src_components_searchmodal_searchmodal"
     },
@@ -14409,7 +14409,7 @@
       "source_file": "src/components/SearchModal/SearchModal.jsx",
       "source_location": "L8",
       "_origin": "ast",
-      "community": 398,
+      "community": 494,
       "norm_label": "searchmodal()",
       "id": "src_components_searchmodal_searchmodal_searchmodal"
     },
@@ -14499,7 +14499,7 @@
       "source_file": "src/components/TrialBanner.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 398,
+      "community": 504,
       "norm_label": "trialbanner.jsx",
       "id": "src_components_trialbanner"
     },
@@ -14509,7 +14509,7 @@
       "source_file": "src/components/TrialBanner.jsx",
       "source_location": "L7",
       "_origin": "ast",
-      "community": 398,
+      "community": 504,
       "norm_label": "trialbanner()",
       "id": "src_components_trialbanner_trialbanner"
     },
@@ -14539,7 +14539,7 @@
       "source_file": "src/components/UnifiedNotification/UnifiedNotification.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 51,
+      "community": 398,
       "norm_label": "unifiednotification.jsx",
       "id": "src_components_unifiednotification_unifiednotification"
     },
@@ -14549,7 +14549,7 @@
       "source_file": "src/components/UnifiedNotification/UnifiedNotification.jsx",
       "source_location": "L21",
       "_origin": "ast",
-      "community": 51,
+      "community": 398,
       "norm_label": "unifiednotification()",
       "id": "src_components_unifiednotification_unifiednotification_unifiednotification"
     },
@@ -14569,7 +14569,7 @@
       "source_file": "src/config/launch.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 398,
+      "community": 504,
       "norm_label": "launch.js",
       "id": "src_config_launch"
     },
@@ -14579,7 +14579,7 @@
       "source_file": "src/config/launch.js",
       "source_location": "L14",
       "_origin": "ast",
-      "community": 398,
+      "community": 504,
       "norm_label": "admin_emails",
       "id": "src_config_launch_admin_emails"
     },
@@ -14629,7 +14629,7 @@
       "source_file": "src/config/trial.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 398,
+      "community": 494,
       "norm_label": "trial.js",
       "id": "src_config_trial"
     },
@@ -14639,7 +14639,7 @@
       "source_file": "src/context/AchievementsContext.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 51,
+      "community": 398,
       "norm_label": "achievementscontext.jsx",
       "id": "src_context_achievementscontext"
     },
@@ -14649,7 +14649,7 @@
       "source_file": "src/context/AchievementsContext.jsx",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 51,
+      "community": 398,
       "norm_label": "achievementscontext",
       "id": "src_context_achievementscontext_achievementscontext"
     },
@@ -14659,7 +14659,7 @@
       "source_file": "src/context/AchievementsContext.jsx",
       "source_location": "L11",
       "_origin": "ast",
-      "community": 51,
+      "community": 504,
       "norm_label": "achievementsprovider()",
       "id": "src_context_achievementscontext_achievementsprovider"
     },
@@ -14669,7 +14669,7 @@
       "source_file": "src/context/AchievementsContext.jsx",
       "source_location": "L114",
       "_origin": "ast",
-      "community": 51,
+      "community": 398,
       "norm_label": "useachievements()",
       "id": "src_context_achievementscontext_useachievements"
     },
@@ -14679,7 +14679,7 @@
       "source_file": "src/context/DixContext.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 51,
+      "community": 504,
       "norm_label": "dixcontext.jsx",
       "id": "src_context_dixcontext"
     },
@@ -14689,7 +14689,7 @@
       "source_file": "src/context/DixContext.jsx",
       "source_location": "L5",
       "_origin": "ast",
-      "community": 51,
+      "community": 504,
       "norm_label": "dixcontext",
       "id": "src_context_dixcontext_dixcontext"
     },
@@ -14699,7 +14699,7 @@
       "source_file": "src/context/DixContext.jsx",
       "source_location": "L7",
       "_origin": "ast",
-      "community": 51,
+      "community": 504,
       "norm_label": "dixprovider()",
       "id": "src_context_dixcontext_dixprovider"
     },
@@ -14709,7 +14709,7 @@
       "source_file": "src/context/DixContext.jsx",
       "source_location": "L99",
       "_origin": "ast",
-      "community": 51,
+      "community": 451,
       "norm_label": "usedix()",
       "id": "src_context_dixcontext_usedix"
     },
@@ -14719,7 +14719,7 @@
       "source_file": "src/context/EventosContext.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 51,
+      "community": 451,
       "norm_label": "eventoscontext.jsx",
       "id": "src_context_eventoscontext"
     },
@@ -14729,7 +14729,7 @@
       "source_file": "src/context/EventosContext.jsx",
       "source_location": "L5",
       "_origin": "ast",
-      "community": 51,
+      "community": 451,
       "norm_label": "metas_progresso",
       "id": "src_context_eventoscontext_metas_progresso"
     },
@@ -14739,7 +14739,7 @@
       "source_file": "src/context/EventosContext.jsx",
       "source_location": "L28",
       "_origin": "ast",
-      "community": 51,
+      "community": 451,
       "norm_label": "eventoscontext",
       "id": "src_context_eventoscontext_eventoscontext"
     },
@@ -14749,7 +14749,7 @@
       "source_file": "src/context/EventosContext.jsx",
       "source_location": "L30",
       "_origin": "ast",
-      "community": 51,
+      "community": 504,
       "norm_label": "eventosprovider()",
       "id": "src_context_eventoscontext_eventosprovider"
     },
@@ -14759,7 +14759,7 @@
       "source_file": "src/context/EventosContext.jsx",
       "source_location": "L127",
       "_origin": "ast",
-      "community": 51,
+      "community": 451,
       "norm_label": "useeventos()",
       "id": "src_context_eventoscontext_useeventos"
     },
@@ -14859,7 +14859,7 @@
       "source_file": "src/context/LanguageContext.jsx",
       "source_location": "L5",
       "_origin": "ast",
-      "community": 33,
+      "community": 39,
       "norm_label": "uselanguage()",
       "id": "src_context_languagecontext_uselanguage"
     },
@@ -14889,7 +14889,7 @@
       "source_file": "src/context/ReaderContext.jsx",
       "source_location": "L5",
       "_origin": "ast",
-      "community": 51,
+      "community": 504,
       "norm_label": "readerprovider()",
       "id": "src_context_readercontext_readerprovider"
     },
@@ -14939,7 +14939,7 @@
       "source_file": "src/data/search-index.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 398,
+      "community": 494,
       "norm_label": "search-index.js",
       "id": "src_data_search_index"
     },
@@ -14949,7 +14949,7 @@
       "source_file": "src/data/search-index.js",
       "source_location": "L7",
       "_origin": "ast",
-      "community": 398,
+      "community": 494,
       "norm_label": "index",
       "id": "src_data_search_index_index"
     },
@@ -15039,7 +15039,7 @@
       "source_file": "src/hooks/useLeaderboardDB.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 432,
+      "community": 420,
       "norm_label": "useleaderboarddb.js",
       "id": "src_hooks_useleaderboarddb"
     },
@@ -15049,7 +15049,7 @@
       "source_file": "src/hooks/useLeaderboardDB.js",
       "source_location": "L3",
       "_origin": "ast",
-      "community": 432,
+      "community": 420,
       "norm_label": "tentativas_por_tier",
       "id": "src_hooks_useleaderboarddb_tentativas_por_tier"
     },
@@ -15059,7 +15059,7 @@
       "source_file": "src/hooks/useLeaderboardDB.js",
       "source_location": "L10",
       "_origin": "ast",
-      "community": 414,
+      "community": 484,
       "norm_label": "carregardeck()",
       "id": "src_hooks_useleaderboarddb_carregardeck"
     },
@@ -15079,7 +15079,7 @@
       "source_file": "src/hooks/useLeaderboardDB.js",
       "source_location": "L42",
       "_origin": "ast",
-      "community": 432,
+      "community": 420,
       "norm_label": "limpardeck()",
       "id": "src_hooks_useleaderboarddb_limpardeck"
     },
@@ -15099,7 +15099,7 @@
       "source_file": "src/hooks/useLeaderboardDB.js",
       "source_location": "L69",
       "_origin": "ast",
-      "community": 432,
+      "community": 420,
       "norm_label": "migrarlocalstorageparasupabase()",
       "id": "src_hooks_useleaderboarddb_migrarlocalstorageparasupabase"
     },
@@ -15109,7 +15109,7 @@
       "source_file": "src/hooks/useLeaderboardDB.js",
       "source_location": "L86",
       "_origin": "ast",
-      "community": 90,
+      "community": 420,
       "norm_label": "registrarpartida()",
       "id": "src_hooks_useleaderboarddb_registrarpartida"
     },
@@ -15119,7 +15119,7 @@
       "source_file": "src/hooks/useLeaderboardDB.js",
       "source_location": "L103",
       "_origin": "ast",
-      "community": 90,
+      "community": 420,
       "norm_label": "atualizarstats()",
       "id": "src_hooks_useleaderboarddb_atualizarstats"
     },
@@ -15129,7 +15129,7 @@
       "source_file": "src/hooks/useLeaderboardDB.js",
       "source_location": "L122",
       "_origin": "ast",
-      "community": 90,
+      "community": 420,
       "norm_label": "carregarstats()",
       "id": "src_hooks_useleaderboarddb_carregarstats"
     },
@@ -15139,7 +15139,7 @@
       "source_file": "src/hooks/useLeaderboardDB.js",
       "source_location": "L131",
       "_origin": "ast",
-      "community": 432,
+      "community": 420,
       "norm_label": "carregarultimaspartidas()",
       "id": "src_hooks_useleaderboarddb_carregarultimaspartidas"
     },
@@ -15189,7 +15189,7 @@
       "source_file": "src/hooks/useLeaderboardDB.js",
       "source_location": "L214",
       "_origin": "ast",
-      "community": 432,
+      "community": 420,
       "norm_label": "getperiod()",
       "id": "src_hooks_useleaderboarddb_getperiod"
     },
@@ -15199,7 +15199,7 @@
       "source_file": "src/hooks/useLeaderboardDB.js",
       "source_location": "L219",
       "_origin": "ast",
-      "community": 432,
+      "community": 420,
       "norm_label": "_registrarpontuacao()",
       "id": "src_hooks_useleaderboarddb_registrarpontuacao"
     },
@@ -15229,7 +15229,7 @@
       "source_file": "src/hooks/useLeaderboardDB.js",
       "source_location": "L335",
       "_origin": "ast",
-      "community": 432,
+      "community": 420,
       "norm_label": "registrarpontuacaoranking()",
       "id": "src_hooks_useleaderboarddb_registrarpontuacaoranking"
     },
@@ -15249,7 +15249,7 @@
       "source_file": "src/hooks/useLeaderboardDB.js",
       "source_location": "L349",
       "_origin": "ast",
-      "community": 432,
+      "community": 420,
       "norm_label": "registrarpontuacaoarenaranking()",
       "id": "src_hooks_useleaderboarddb_registrarpontuacaoarenaranking"
     },
@@ -15279,7 +15279,7 @@
       "source_file": "src/hooks/useLeaderboardDB.js",
       "source_location": "L365",
       "_origin": "ast",
-      "community": 432,
+      "community": 420,
       "norm_label": "registrarpontuacaotamaranking()",
       "id": "src_hooks_useleaderboarddb_registrarpontuacaotamaranking"
     },
@@ -15309,7 +15309,7 @@
       "source_file": "src/hooks/usePersonagens.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 33,
+      "community": 1,
       "norm_label": "usepersonagens.js",
       "id": "src_hooks_usepersonagens"
     },
@@ -15319,7 +15319,7 @@
       "source_file": "src/hooks/usePersonagens.js",
       "source_location": "L6",
       "_origin": "ast",
-      "community": 33,
+      "community": 1,
       "norm_label": "data",
       "id": "src_hooks_usepersonagens_data"
     },
@@ -15329,7 +15329,7 @@
       "source_file": "src/hooks/usePersonagens.js",
       "source_location": "L8",
       "_origin": "ast",
-      "community": 33,
+      "community": 1,
       "norm_label": "usepersonagens()",
       "id": "src_hooks_usepersonagens_usepersonagens"
     },
@@ -15339,7 +15339,7 @@
       "source_file": "src/hooks/usePersonagens.js",
       "source_location": "L14",
       "_origin": "ast",
-      "community": 33,
+      "community": 1,
       "norm_label": "usepersonagem()",
       "id": "src_hooks_usepersonagens_usepersonagem"
     },
@@ -15349,7 +15349,7 @@
       "source_file": "src/hooks/usePersonagens.js",
       "source_location": "L19",
       "_origin": "ast",
-      "community": 33,
+      "community": 1,
       "norm_label": "group_order",
       "id": "src_hooks_usepersonagens_group_order"
     },
@@ -15359,7 +15359,7 @@
       "source_file": "src/hooks/usePersonagens.js",
       "source_location": "L20",
       "_origin": "ast",
-      "community": 33,
+      "community": 1,
       "norm_label": "group_labels",
       "id": "src_hooks_usepersonagens_group_labels"
     },
@@ -15369,7 +15369,7 @@
       "source_file": "src/hooks/usePersonagens.js",
       "source_location": "L26",
       "_origin": "ast",
-      "community": 33,
+      "community": 1,
       "norm_label": "usepersonagensagrupados()",
       "id": "src_hooks_usepersonagens_usepersonagensagrupados"
     },
@@ -15979,7 +15979,7 @@
       "source_file": "src/lib/getDeck.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 414,
+      "community": 484,
       "norm_label": "getdeck.js",
       "id": "src_lib_getdeck"
     },
@@ -15989,7 +15989,7 @@
       "source_file": "src/lib/getDeck.js",
       "source_location": "L5",
       "_origin": "ast",
-      "community": 414,
+      "community": 484,
       "norm_label": "decks",
       "id": "src_lib_getdeck_decks"
     },
@@ -15999,7 +15999,7 @@
       "source_file": "src/lib/getDeck.js",
       "source_location": "L7",
       "_origin": "ast",
-      "community": 414,
+      "community": 484,
       "norm_label": "getdeck()",
       "id": "src_lib_getdeck_getdeck"
     },
@@ -16059,7 +16059,7 @@
       "source_file": "src/lib/notificationManager.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 51,
+      "community": 398,
       "norm_label": "notificationmanager.js",
       "id": "src_lib_notificationmanager"
     },
@@ -16069,7 +16069,7 @@
       "source_file": "src/lib/notificationManager.js",
       "source_location": "L24",
       "_origin": "ast",
-      "community": 51,
+      "community": 398,
       "norm_label": "notificationtype",
       "id": "src_lib_notificationmanager_notificationtype"
     },
@@ -16079,7 +16079,7 @@
       "source_file": "src/lib/notificationManager.js",
       "source_location": "L31",
       "_origin": "ast",
-      "community": 51,
+      "community": 398,
       "norm_label": "legacyachievements",
       "id": "src_lib_notificationmanager_legacyachievements"
     },
@@ -16089,7 +16089,7 @@
       "source_file": "src/lib/notificationManager.js",
       "source_location": "L33",
       "_origin": "ast",
-      "community": 51,
+      "community": 398,
       "norm_label": "getnotificationachievementid()",
       "id": "src_lib_notificationmanager_getnotificationachievementid"
     },
@@ -16099,7 +16099,7 @@
       "source_file": "src/lib/notificationManager.js",
       "source_location": "L46",
       "_origin": "ast",
-      "community": 51,
+      "community": 398,
       "norm_label": "notificationmanager",
       "id": "src_lib_notificationmanager_notificationmanager"
     },
@@ -16279,7 +16279,7 @@
       "source_file": "src/lib/sfx.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 414,
+      "community": 8,
       "norm_label": "sfx.js",
       "id": "src_lib_sfx"
     },
@@ -16859,7 +16859,7 @@
       "source_file": "src/lib/topTrumpsCardAccess.js",
       "source_location": "L35",
       "_origin": "ast",
-      "community": 41,
+      "community": 420,
       "norm_label": "canacquiretoptrumpscard()",
       "id": "src_lib_toptrumpscardaccess_canacquiretoptrumpscard"
     },
@@ -16889,7 +16889,7 @@
       "source_file": "src/lib/topTrumpsCardImages.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 414,
+      "community": 484,
       "norm_label": "toptrumpscardimages.js",
       "id": "src_lib_toptrumpscardimages"
     },
@@ -16899,7 +16899,7 @@
       "source_file": "src/lib/topTrumpsCardImages.js",
       "source_location": "L3",
       "_origin": "ast",
-      "community": 414,
+      "community": 484,
       "norm_label": "cardmodules",
       "id": "src_lib_toptrumpscardimages_cardmodules"
     },
@@ -16909,7 +16909,7 @@
       "source_file": "src/lib/topTrumpsCardImages.js",
       "source_location": "L8",
       "_origin": "ast",
-      "community": 414,
+      "community": 484,
       "norm_label": "top_trumps_card_images",
       "id": "src_lib_toptrumpscardimages_top_trumps_card_images"
     },
@@ -16929,7 +16929,7 @@
       "source_file": "src/main.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 51,
+      "community": 504,
       "norm_label": "main.jsx",
       "id": "src_main"
     },
@@ -16939,7 +16939,7 @@
       "source_file": "src/pages/content/PersonagemDetalhe.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 33,
+      "community": 1,
       "norm_label": "personagemdetalhe.jsx",
       "id": "src_pages_content_personagemdetalhe"
     },
@@ -16949,7 +16949,7 @@
       "source_file": "src/pages/content/PersonagemDetalhe.jsx",
       "source_location": "L8",
       "_origin": "ast",
-      "community": 33,
+      "community": 1,
       "norm_label": "personagemdetalhe()",
       "id": "src_pages_content_personagemdetalhe_personagemdetalhe"
     },
@@ -17129,7 +17129,7 @@
       "source_file": "src/pages/games/ArenaTatics/components/ConfirmEndTurn.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 33,
+      "community": 39,
       "norm_label": "confirmendturn.jsx",
       "id": "src_pages_games_arenatatics_components_confirmendturn"
     },
@@ -17139,7 +17139,7 @@
       "source_file": "src/pages/games/ArenaTatics/components/ConfirmEndTurn.jsx",
       "source_location": "L4",
       "_origin": "ast",
-      "community": 33,
+      "community": 39,
       "norm_label": "confirmendturn()",
       "id": "src_pages_games_arenatatics_components_confirmendturn_confirmendturn"
     },
@@ -19489,7 +19489,7 @@
       "source_file": "src/pages/games/Duelo/components/StatusBar.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 33,
+      "community": 39,
       "norm_label": "statusbar.jsx",
       "id": "src_pages_games_duelo_components_statusbar"
     },
@@ -19499,7 +19499,7 @@
       "source_file": "src/pages/games/Duelo/components/StatusBar.jsx",
       "source_location": "L3",
       "_origin": "ast",
-      "community": 33,
+      "community": 39,
       "norm_label": "statusbar()",
       "id": "src_pages_games_duelo_components_statusbar_statusbar"
     },
@@ -19509,7 +19509,7 @@
       "source_file": "src/pages/games/Duelo/components/TrapActivator.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 33,
+      "community": 39,
       "norm_label": "trapactivator.jsx",
       "id": "src_pages_games_duelo_components_trapactivator"
     },
@@ -19519,7 +19519,7 @@
       "source_file": "src/pages/games/Duelo/components/TrapActivator.jsx",
       "source_location": "L5",
       "_origin": "ast",
-      "community": 33,
+      "community": 39,
       "norm_label": "trapactivator()",
       "id": "src_pages_games_duelo_components_trapactivator_trapactivator"
     },
@@ -20229,7 +20229,7 @@
       "source_file": "src/pages/games/JackCandy/components/Monologue.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 20,
+      "community": 39,
       "norm_label": "monologue.jsx",
       "id": "src_pages_games_jackcandy_components_monologue"
     },
@@ -20239,7 +20239,7 @@
       "source_file": "src/pages/games/JackCandy/components/Monologue.jsx",
       "source_location": "L4",
       "_origin": "ast",
-      "community": 20,
+      "community": 39,
       "norm_label": "monologue()",
       "id": "src_pages_games_jackcandy_components_monologue_monologue"
     },
@@ -20309,7 +20309,7 @@
       "source_file": "src/pages/games/JackCandy/data/cidades.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 20,
+      "community": 456,
       "norm_label": "cidades.js",
       "id": "src_pages_games_jackcandy_data_cidades"
     },
@@ -20319,7 +20319,7 @@
       "source_file": "src/pages/games/JackCandy/data/cidades.js",
       "source_location": "L4",
       "_origin": "ast",
-      "community": 20,
+      "community": 456,
       "norm_label": "cidades",
       "id": "src_pages_games_jackcandy_data_cidades_cidades"
     },
@@ -20329,7 +20329,7 @@
       "source_file": "src/pages/games/JackCandy/data/cidades.js",
       "source_location": "L56",
       "_origin": "ast",
-      "community": 20,
+      "community": 456,
       "norm_label": "getcidade()",
       "id": "src_pages_games_jackcandy_data_cidades_getcidade"
     },
@@ -20339,7 +20339,7 @@
       "source_file": "src/pages/games/JackCandy/data/cidades.js",
       "source_location": "L60",
       "_origin": "ast",
-      "community": 20,
+      "community": 456,
       "norm_label": "getlocaisvisiveis()",
       "id": "src_pages_games_jackcandy_data_cidades_getlocaisvisiveis"
     },
@@ -20349,7 +20349,7 @@
       "source_file": "src/pages/games/JackCandy/data/cidades.js",
       "source_location": "L71",
       "_origin": "ast",
-      "community": 20,
+      "community": 456,
       "norm_label": "getcidadenavegacao()",
       "id": "src_pages_games_jackcandy_data_cidades_getcidadenavegacao"
     },
@@ -20449,7 +20449,7 @@
       "source_file": "src/pages/games/JackCandy/data/npcs.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 20,
+      "community": 456,
       "norm_label": "npcs.js",
       "id": "src_pages_games_jackcandy_data_npcs"
     },
@@ -20459,7 +20459,7 @@
       "source_file": "src/pages/games/JackCandy/data/npcs.js",
       "source_location": "L4",
       "_origin": "ast",
-      "community": 20,
+      "community": 456,
       "norm_label": "npcs",
       "id": "src_pages_games_jackcandy_data_npcs_npcs"
     },
@@ -20799,7 +20799,7 @@
       "source_file": "src/pages/games/JackCandy/screens/MainMenu.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 33,
+      "community": 456,
       "norm_label": "mainmenu.jsx",
       "id": "src_pages_games_jackcandy_screens_mainmenu"
     },
@@ -20809,7 +20809,7 @@
       "source_file": "src/pages/games/JackCandy/screens/MainMenu.jsx",
       "source_location": "L8",
       "_origin": "ast",
-      "community": 33,
+      "community": 456,
       "norm_label": "mainmenu()",
       "id": "src_pages_games_jackcandy_screens_mainmenu_mainmenu"
     },
@@ -20819,7 +20819,7 @@
       "source_file": "src/pages/games/JackCandy/screens/Vila.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 20,
+      "community": 456,
       "norm_label": "vila.jsx",
       "id": "src_pages_games_jackcandy_screens_vila"
     },
@@ -20829,7 +20829,7 @@
       "source_file": "src/pages/games/JackCandy/screens/Vila.jsx",
       "source_location": "L10",
       "_origin": "ast",
-      "community": 20,
+      "community": 456,
       "norm_label": "vila()",
       "id": "src_pages_games_jackcandy_screens_vila_vila"
     },
@@ -22289,7 +22289,7 @@
       "source_file": "src/pages/games/LDI/Create.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 51,
+      "community": 451,
       "norm_label": "create.jsx",
       "id": "src_pages_games_ldi_create"
     },
@@ -22299,7 +22299,7 @@
       "source_file": "src/pages/games/LDI/Create.jsx",
       "source_location": "L10",
       "_origin": "ast",
-      "community": 51,
+      "community": 451,
       "norm_label": "create()",
       "id": "src_pages_games_ldi_create_create"
     },
@@ -22349,7 +22349,7 @@
       "source_file": "src/pages/games/LDI/Game.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 29,
+      "community": 451,
       "norm_label": "game.jsx",
       "id": "src_pages_games_ldi_game"
     },
@@ -22359,7 +22359,7 @@
       "source_file": "src/pages/games/LDI/Game.jsx",
       "source_location": "L14",
       "_origin": "ast",
-      "community": 29,
+      "community": 451,
       "norm_label": "attr_keys",
       "id": "src_pages_games_ldi_game_attr_keys"
     },
@@ -22369,7 +22369,7 @@
       "source_file": "src/pages/games/LDI/Game.jsx",
       "source_location": "L22",
       "_origin": "ast",
-      "community": 29,
+      "community": 451,
       "norm_label": "game()",
       "id": "src_pages_games_ldi_game_game"
     },
@@ -22549,7 +22549,7 @@
       "source_file": "src/pages/games/LDI/components/ClueBook.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 33,
+      "community": 29,
       "norm_label": "cluebook.jsx",
       "id": "src_pages_games_ldi_components_cluebook"
     },
@@ -22559,7 +22559,7 @@
       "source_file": "src/pages/games/LDI/components/ClueBook.jsx",
       "source_location": "L5",
       "_origin": "ast",
-      "community": 33,
+      "community": 29,
       "norm_label": "cluebook()",
       "id": "src_pages_games_ldi_components_cluebook_cluebook"
     },
@@ -23039,7 +23039,7 @@
       "source_file": "src/pages/games/LDI/data/characterData.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 51,
+      "community": 451,
       "norm_label": "characterdata.js",
       "id": "src_pages_games_ldi_data_characterdata"
     },
@@ -23049,7 +23049,7 @@
       "source_file": "src/pages/games/LDI/data/characterData.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 51,
+      "community": 451,
       "norm_label": "attr_tooltips",
       "id": "src_pages_games_ldi_data_characterdata_attr_tooltips"
     },
@@ -23059,7 +23059,7 @@
       "source_file": "src/pages/games/LDI/data/characterData.js",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 51,
+      "community": 451,
       "norm_label": "advantages",
       "id": "src_pages_games_ldi_data_characterdata_advantages"
     },
@@ -23069,7 +23069,7 @@
       "source_file": "src/pages/games/LDI/data/characterData.js",
       "source_location": "L20",
       "_origin": "ast",
-      "community": 51,
+      "community": 451,
       "norm_label": "disadvantages",
       "id": "src_pages_games_ldi_data_characterdata_disadvantages"
     },
@@ -23079,7 +23079,7 @@
       "source_file": "src/pages/games/LDI/data/characterData.js",
       "source_location": "L31",
       "_origin": "ast",
-      "community": 51,
+      "community": 451,
       "norm_label": "perks",
       "id": "src_pages_games_ldi_data_characterdata_perks"
     },
@@ -23089,7 +23089,7 @@
       "source_file": "src/pages/games/LDI/data/characterData.js",
       "source_location": "L42",
       "_origin": "ast",
-      "community": 51,
+      "community": 451,
       "norm_label": "specializations",
       "id": "src_pages_games_ldi_data_characterdata_specializations"
     },
@@ -23309,7 +23309,7 @@
       "source_file": "src/pages/games/LDI/engine/flags.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 29,
+      "community": 396,
       "norm_label": "flags.js",
       "id": "src_pages_games_ldi_engine_flags"
     },
@@ -23319,7 +23319,7 @@
       "source_file": "src/pages/games/LDI/engine/flags.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 29,
+      "community": 396,
       "norm_label": "setflag()",
       "id": "src_pages_games_ldi_engine_flags_setflag"
     },
@@ -23329,7 +23329,7 @@
       "source_file": "src/pages/games/LDI/engine/flags.js",
       "source_location": "L5",
       "_origin": "ast",
-      "community": 29,
+      "community": 396,
       "norm_label": "hasflag()",
       "id": "src_pages_games_ldi_engine_flags_hasflag"
     },
@@ -23339,7 +23339,7 @@
       "source_file": "src/pages/games/LDI/engine/flags.js",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 29,
+      "community": 396,
       "norm_label": "requiresflag()",
       "id": "src_pages_games_ldi_engine_flags_requiresflag"
     },
@@ -23349,7 +23349,7 @@
       "source_file": "src/pages/games/LDI/engine/scenes.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 29,
+      "community": 396,
       "norm_label": "scenes.js",
       "id": "src_pages_games_ldi_engine_scenes"
     },
@@ -23359,7 +23359,7 @@
       "source_file": "src/pages/games/LDI/engine/scenes.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 29,
+      "community": 396,
       "norm_label": "scenescache",
       "id": "src_pages_games_ldi_engine_scenes_scenescache"
     },
@@ -23369,7 +23369,7 @@
       "source_file": "src/pages/games/LDI/engine/scenes.js",
       "source_location": "L2",
       "_origin": "ast",
-      "community": 29,
+      "community": 396,
       "norm_label": "allscenes",
       "id": "src_pages_games_ldi_engine_scenes_allscenes"
     },
@@ -23379,7 +23379,7 @@
       "source_file": "src/pages/games/LDI/engine/scenes.js",
       "source_location": "L5",
       "_origin": "ast",
-      "community": 29,
+      "community": 396,
       "norm_label": "setsceneslocale()",
       "id": "src_pages_games_ldi_engine_scenes_setsceneslocale"
     },
@@ -23389,7 +23389,7 @@
       "source_file": "src/pages/games/LDI/engine/scenes.js",
       "source_location": "L11",
       "_origin": "ast",
-      "community": 29,
+      "community": 396,
       "norm_label": "loadscene()",
       "id": "src_pages_games_ldi_engine_scenes_loadscene"
     },
@@ -23399,7 +23399,7 @@
       "source_file": "src/pages/games/LDI/engine/scenes.js",
       "source_location": "L53",
       "_origin": "ast",
-      "community": 29,
+      "community": 396,
       "norm_label": "getscenefromcache()",
       "id": "src_pages_games_ldi_engine_scenes_getscenefromcache"
     },
@@ -23409,7 +23409,7 @@
       "source_file": "src/pages/games/LDI/engine/scenes.js",
       "source_location": "L57",
       "_origin": "ast",
-      "community": 29,
+      "community": 396,
       "norm_label": "filterchoices()",
       "id": "src_pages_games_ldi_engine_scenes_filterchoices"
     },
@@ -23419,7 +23419,7 @@
       "source_file": "src/pages/games/LDI/hooks/useLDIStorage.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 29,
+      "community": 396,
       "norm_label": "useldistorage.js",
       "id": "src_pages_games_ldi_hooks_useldistorage"
     },
@@ -23429,7 +23429,7 @@
       "source_file": "src/pages/games/LDI/hooks/useLDIStorage.js",
       "source_location": "L3",
       "_origin": "ast",
-      "community": 29,
+      "community": 396,
       "norm_label": "savesheet()",
       "id": "src_pages_games_ldi_hooks_useldistorage_savesheet"
     },
@@ -23439,7 +23439,7 @@
       "source_file": "src/pages/games/LDI/hooks/useLDIStorage.js",
       "source_location": "L32",
       "_origin": "ast",
-      "community": 29,
+      "community": 396,
       "norm_label": "savegamesave()",
       "id": "src_pages_games_ldi_hooks_useldistorage_savegamesave"
     },
@@ -23459,7 +23459,7 @@
       "source_file": "src/pages/games/LDI/hooks/useLDIStorage.js",
       "source_location": "L80",
       "_origin": "ast",
-      "community": 29,
+      "community": 396,
       "norm_label": "loadfullsheet()",
       "id": "src_pages_games_ldi_hooks_useldistorage_loadfullsheet"
     },
@@ -23469,7 +23469,7 @@
       "source_file": "src/pages/games/LDI/hooks/useLDIStorage.js",
       "source_location": "L94",
       "_origin": "ast",
-      "community": 29,
+      "community": 396,
       "norm_label": "loadactivesave()",
       "id": "src_pages_games_ldi_hooks_useldistorage_loadactivesave"
     },
@@ -23499,7 +23499,7 @@
       "source_file": "src/pages/games/LDI/store/useCombatStore.js",
       "source_location": "L4",
       "_origin": "ast",
-      "community": 29,
+      "community": 451,
       "norm_label": "usecombatstore",
       "id": "src_pages_games_ldi_store_usecombatstore_usecombatstore"
     },
@@ -23509,7 +23509,7 @@
       "source_file": "src/pages/games/LDI/store/useGameStore.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 29,
+      "community": 396,
       "norm_label": "usegamestore.js",
       "id": "src_pages_games_ldi_store_usegamestore"
     },
@@ -23519,7 +23519,7 @@
       "source_file": "src/pages/games/LDI/store/useGameStore.js",
       "source_location": "L11",
       "_origin": "ast",
-      "community": 29,
+      "community": 396,
       "norm_label": "defaultsheet()",
       "id": "src_pages_games_ldi_store_usegamestore_defaultsheet"
     },
@@ -23529,7 +23529,7 @@
       "source_file": "src/pages/games/LDI/store/useGameStore.js",
       "source_location": "L26",
       "_origin": "ast",
-      "community": 29,
+      "community": 396,
       "norm_label": "defaultsave()",
       "id": "src_pages_games_ldi_store_usegamestore_defaultsave"
     },
@@ -23539,7 +23539,7 @@
       "source_file": "src/pages/games/LDI/store/useGameStore.js",
       "source_location": "L44",
       "_origin": "ast",
-      "community": 29,
+      "community": 396,
       "norm_label": "applysheeteffect()",
       "id": "src_pages_games_ldi_store_usegamestore_applysheeteffect"
     },
@@ -23559,7 +23559,7 @@
       "source_file": "src/pages/games/MiniGames/MiniGames.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 33,
+      "community": 23,
       "norm_label": "minigames.jsx",
       "id": "src_pages_games_minigames_minigames"
     },
@@ -23569,7 +23569,7 @@
       "source_file": "src/pages/games/MiniGames/MiniGames.jsx",
       "source_location": "L11",
       "_origin": "ast",
-      "community": 33,
+      "community": 23,
       "norm_label": "games",
       "id": "src_pages_games_minigames_minigames_games"
     },
@@ -23579,7 +23579,7 @@
       "source_file": "src/pages/games/MiniGames/MiniGames.jsx",
       "source_location": "L22",
       "_origin": "ast",
-      "community": 33,
+      "community": 23,
       "norm_label": "stealth_config",
       "id": "src_pages_games_minigames_minigames_stealth_config"
     },
@@ -23589,7 +23589,7 @@
       "source_file": "src/pages/games/MiniGames/MiniGames.jsx",
       "source_location": "L28",
       "_origin": "ast",
-      "community": 33,
+      "community": 23,
       "norm_label": "formattempo()",
       "id": "src_pages_games_minigames_minigames_formattempo"
     },
@@ -23599,7 +23599,7 @@
       "source_file": "src/pages/games/MiniGames/MiniGames.jsx",
       "source_location": "L35",
       "_origin": "ast",
-      "community": 33,
+      "community": 23,
       "norm_label": "minigames()",
       "id": "src_pages_games_minigames_minigames_minigames"
     },
@@ -23619,7 +23619,7 @@
       "source_file": "src/pages/games/MultiplayerLobby/MultiplayerLobby.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 403,
+      "community": 29,
       "norm_label": "multiplayerlobby.jsx",
       "id": "src_pages_games_multiplayerlobby_multiplayerlobby"
     },
@@ -23629,7 +23629,7 @@
       "source_file": "src/pages/games/MultiplayerLobby/MultiplayerLobby.jsx",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 403,
+      "community": 29,
       "norm_label": "multiplayerlobby()",
       "id": "src_pages_games_multiplayerlobby_multiplayerlobby_multiplayerlobby"
     },
@@ -24189,7 +24189,7 @@
       "source_file": "src/pages/games/Tamagoshi/components/CooldownTimer.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 33,
+      "community": 454,
       "norm_label": "cooldowntimer.jsx",
       "id": "src_pages_games_tamagoshi_components_cooldowntimer"
     },
@@ -24199,7 +24199,7 @@
       "source_file": "src/pages/games/Tamagoshi/components/CooldownTimer.jsx",
       "source_location": "L4",
       "_origin": "ast",
-      "community": 33,
+      "community": 454,
       "norm_label": "cooldowntimer()",
       "id": "src_pages_games_tamagoshi_components_cooldowntimer_cooldowntimer"
     },
@@ -24639,7 +24639,7 @@
       "source_file": "src/pages/games/Tamagoshi/data/personalidades.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 340,
+      "community": 111,
       "norm_label": "personalidades",
       "id": "src_pages_games_tamagoshi_data_personalidades_personalidades"
     },
@@ -24709,7 +24709,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/Banhar.jsx",
       "source_location": "L10",
       "_origin": "ast",
-      "community": 111,
+      "community": 60,
       "norm_label": "banhar()",
       "id": "src_pages_games_tamagoshi_screens_banhar_banhar"
     },
@@ -24769,7 +24769,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/Criatura.jsx",
       "source_location": "L14",
       "_origin": "ast",
-      "community": 111,
+      "community": 340,
       "norm_label": "criatura()",
       "id": "src_pages_games_tamagoshi_screens_criatura_criatura"
     },
@@ -24859,7 +24859,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/Ovo.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 33,
+      "community": 111,
       "norm_label": "ovo.jsx",
       "id": "src_pages_games_tamagoshi_screens_ovo"
     },
@@ -24869,7 +24869,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/Ovo.jsx",
       "source_location": "L4",
       "_origin": "ast",
-      "community": 33,
+      "community": 111,
       "norm_label": "ovo()",
       "id": "src_pages_games_tamagoshi_screens_ovo_ovo"
     },
@@ -24909,7 +24909,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/Passear.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 23,
+      "community": 111,
       "norm_label": "passear.jsx",
       "id": "src_pages_games_tamagoshi_screens_passear"
     },
@@ -24919,7 +24919,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/Passear.jsx",
       "source_location": "L13",
       "_origin": "ast",
-      "community": 23,
+      "community": 111,
       "norm_label": "getvidas()",
       "id": "src_pages_games_tamagoshi_screens_passear_getvidas"
     },
@@ -24949,7 +24949,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/Passeio.jsx",
       "source_location": "L7",
       "_origin": "ast",
-      "community": 111,
+      "community": 304,
       "norm_label": "passeio()",
       "id": "src_pages_games_tamagoshi_screens_passeio_passeio"
     },
@@ -24959,7 +24959,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/RestaurarSaude.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 60,
+      "community": 488,
       "norm_label": "restaurarsaude.jsx",
       "id": "src_pages_games_tamagoshi_screens_restaurarsaude"
     },
@@ -24969,7 +24969,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/RestaurarSaude.jsx",
       "source_location": "L10",
       "_origin": "ast",
-      "community": 60,
+      "community": 488,
       "norm_label": "acoes",
       "id": "src_pages_games_tamagoshi_screens_restaurarsaude_acoes"
     },
@@ -24979,7 +24979,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/RestaurarSaude.jsx",
       "source_location": "L11",
       "_origin": "ast",
-      "community": 60,
+      "community": 488,
       "norm_label": "itens_saude",
       "id": "src_pages_games_tamagoshi_screens_restaurarsaude_itens_saude"
     },
@@ -24989,7 +24989,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/RestaurarSaude.jsx",
       "source_location": "L13",
       "_origin": "ast",
-      "community": 60,
+      "community": 488,
       "norm_label": "item_emoji",
       "id": "src_pages_games_tamagoshi_screens_restaurarsaude_item_emoji"
     },
@@ -24999,7 +24999,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/RestaurarSaude.jsx",
       "source_location": "L19",
       "_origin": "ast",
-      "community": 60,
+      "community": 488,
       "norm_label": "gerarparticulas()",
       "id": "src_pages_games_tamagoshi_screens_restaurarsaude_gerarparticulas"
     },
@@ -25009,7 +25009,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/RestaurarSaude.jsx",
       "source_location": "L29",
       "_origin": "ast",
-      "community": 60,
+      "community": 488,
       "norm_label": "gerarbolhas()",
       "id": "src_pages_games_tamagoshi_screens_restaurarsaude_gerarbolhas"
     },
@@ -25019,7 +25019,7 @@
       "source_file": "src/pages/games/Tamagoshi/screens/RestaurarSaude.jsx",
       "source_location": "L38",
       "_origin": "ast",
-      "community": 60,
+      "community": 488,
       "norm_label": "restaurarsaude()",
       "id": "src_pages_games_tamagoshi_screens_restaurarsaude_restaurarsaude"
     },
@@ -25369,7 +25369,7 @@
       "source_file": "src/pages/games/TopTrumps/components/CardViewerModal/CardViewerModal.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 414,
+      "community": 8,
       "norm_label": "cardviewermodal.jsx",
       "id": "src_pages_games_toptrumps_components_cardviewermodal_cardviewermodal"
     },
@@ -25379,7 +25379,7 @@
       "source_file": "src/pages/games/TopTrumps/components/CardViewerModal/CardViewerModal.jsx",
       "source_location": "L8",
       "_origin": "ast",
-      "community": 414,
+      "community": 8,
       "norm_label": "attr_keys",
       "id": "src_pages_games_toptrumps_components_cardviewermodal_cardviewermodal_attr_keys"
     },
@@ -25389,7 +25389,7 @@
       "source_file": "src/pages/games/TopTrumps/components/CardViewerModal/CardViewerModal.jsx",
       "source_location": "L10",
       "_origin": "ast",
-      "community": 414,
+      "community": 8,
       "norm_label": "cardviewermodal()",
       "id": "src_pages_games_toptrumps_components_cardviewermodal_cardviewermodal_cardviewermodal"
     },
@@ -25459,7 +25459,7 @@
       "source_file": "src/pages/games/TopTrumps/components/DeckStartModal/DeckStartModal.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 414,
+      "community": 8,
       "norm_label": "deckstartmodal.jsx",
       "id": "src_pages_games_toptrumps_components_deckstartmodal_deckstartmodal"
     },
@@ -25469,7 +25469,7 @@
       "source_file": "src/pages/games/TopTrumps/components/DeckStartModal/DeckStartModal.jsx",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 414,
+      "community": 8,
       "norm_label": "deckstartmodal()",
       "id": "src_pages_games_toptrumps_components_deckstartmodal_deckstartmodal_deckstartmodal"
     },
@@ -25559,7 +25559,7 @@
       "source_file": "src/pages/games/TopTrumps/components/MenuScreen/MenuScreen.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 414,
+      "community": 8,
       "norm_label": "menuscreen.jsx",
       "id": "src_pages_games_toptrumps_components_menuscreen_menuscreen"
     },
@@ -26139,7 +26139,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/components/modals/PowerChoiceModal.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 502,
+      "community": 289,
       "norm_label": "powerchoicemodal.jsx",
       "id": "src_pages_lab_prototype_arenatestbed_components_modals_powerchoicemodal"
     },
@@ -26149,7 +26149,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/components/modals/PowerChoiceModal.jsx",
       "source_location": "L5",
       "_origin": "ast",
-      "community": 502,
+      "community": 289,
       "norm_label": "powerchoicemodal()",
       "id": "src_pages_lab_prototype_arenatestbed_components_modals_powerchoicemodal_powerchoicemodal"
     },
@@ -26209,7 +26209,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/components/power-selection/PowerFilterBar.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 502,
+      "community": 289,
       "norm_label": "powerfilterbar.jsx",
       "id": "src_pages_lab_prototype_arenatestbed_components_power_selection_powerfilterbar"
     },
@@ -26219,7 +26219,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/components/power-selection/PowerFilterBar.jsx",
       "source_location": "L6",
       "_origin": "ast",
-      "community": 502,
+      "community": 289,
       "norm_label": "elementos",
       "id": "src_pages_lab_prototype_arenatestbed_components_power_selection_powerfilterbar_elementos"
     },
@@ -26229,7 +26229,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/components/power-selection/PowerFilterBar.jsx",
       "source_location": "L8",
       "_origin": "ast",
-      "community": 502,
+      "community": 289,
       "norm_label": "powerfilterbar()",
       "id": "src_pages_lab_prototype_arenatestbed_components_power_selection_powerfilterbar_powerfilterbar"
     },
@@ -26249,7 +26249,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/components/power-selection/PowerGrid.jsx",
       "source_location": "L4",
       "_origin": "ast",
-      "community": 502,
+      "community": 289,
       "norm_label": "powergrid()",
       "id": "src_pages_lab_prototype_arenatestbed_components_power_selection_powergrid_powergrid"
     },
@@ -26259,7 +26259,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/components/power-selection/SortToggle.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 502,
+      "community": 289,
       "norm_label": "sorttoggle.jsx",
       "id": "src_pages_lab_prototype_arenatestbed_components_power_selection_sorttoggle"
     },
@@ -26269,7 +26269,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/components/power-selection/SortToggle.jsx",
       "source_location": "L4",
       "_origin": "ast",
-      "community": 502,
+      "community": 289,
       "norm_label": "sorttoggle()",
       "id": "src_pages_lab_prototype_arenatestbed_components_power_selection_sorttoggle_sorttoggle"
     },
@@ -26279,7 +26279,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/data/fichaStorage.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 289,
+      "community": 482,
       "norm_label": "fichastorage.js",
       "id": "src_pages_lab_prototype_arenatestbed_data_fichastorage"
     },
@@ -26289,7 +26289,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/data/fichaStorage.js",
       "source_location": "L16",
       "_origin": "ast",
-      "community": 289,
+      "community": 482,
       "norm_label": "gerarid()",
       "id": "src_pages_lab_prototype_arenatestbed_data_fichastorage_gerarid"
     },
@@ -26299,7 +26299,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/data/fichaStorage.js",
       "source_location": "L20",
       "_origin": "ast",
-      "community": 289,
+      "community": 482,
       "norm_label": "lerdostorage()",
       "id": "src_pages_lab_prototype_arenatestbed_data_fichastorage_lerdostorage"
     },
@@ -26309,7 +26309,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/data/fichaStorage.js",
       "source_location": "L32",
       "_origin": "ast",
-      "community": 289,
+      "community": 482,
       "norm_label": "escrevernostorage()",
       "id": "src_pages_lab_prototype_arenatestbed_data_fichastorage_escrevernostorage"
     },
@@ -26319,7 +26319,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/data/fichaStorage.js",
       "source_location": "L40",
       "_origin": "ast",
-      "community": 289,
+      "community": 482,
       "norm_label": "salvarficha()",
       "id": "src_pages_lab_prototype_arenatestbed_data_fichastorage_salvarficha"
     },
@@ -26329,7 +26329,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/data/fichaStorage.js",
       "source_location": "L53",
       "_origin": "ast",
-      "community": 289,
+      "community": 482,
       "norm_label": "carregarfichas()",
       "id": "src_pages_lab_prototype_arenatestbed_data_fichastorage_carregarfichas"
     },
@@ -26339,7 +26339,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/data/fichaStorage.js",
       "source_location": "L57",
       "_origin": "ast",
-      "community": 289,
+      "community": 482,
       "norm_label": "deletarficha()",
       "id": "src_pages_lab_prototype_arenatestbed_data_fichastorage_deletarficha"
     },
@@ -27599,7 +27599,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/audioManager.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 502,
+      "community": 289,
       "norm_label": "audiomanager.js",
       "id": "src_pages_lab_prototype_arenatestbed_engine_audiomanager"
     },
@@ -27779,7 +27779,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/audioManager.js",
       "source_location": "L159",
       "_origin": "ast",
-      "community": 51,
+      "community": 504,
       "norm_label": ".error()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_audiomanager_audiomanager_error"
     },
@@ -28029,7 +28029,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/audioManager.js",
       "source_location": "L204",
       "_origin": "ast",
-      "community": 502,
+      "community": 289,
       "norm_label": "audio",
       "id": "src_pages_lab_prototype_arenatestbed_engine_audiomanager_audio"
     },
@@ -28149,7 +28149,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/drawCombatBoard.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 10,
+      "community": 496,
       "norm_label": "drawcombatboard.js",
       "id": "src_pages_lab_prototype_arenatestbed_engine_drawcombatboard"
     },
@@ -28159,7 +28159,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/drawCombatBoard.js",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 10,
+      "community": 496,
       "norm_label": "drawcharacter()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_drawcombatboard_drawcharacter"
     },
@@ -28169,7 +28169,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/drawCombatBoard.js",
       "source_location": "L103",
       "_origin": "ast",
-      "community": 10,
+      "community": 496,
       "norm_label": "drawcombatboard()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_drawcombatboard_drawcombatboard"
     },
@@ -28459,7 +28459,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/engine/regrasFicha.js",
       "source_location": "L6",
       "_origin": "ast",
-      "community": 289,
+      "community": 482,
       "norm_label": "podesalvarnovaficha()",
       "id": "src_pages_lab_prototype_arenatestbed_engine_regrasficha_podesalvarnovaficha"
     },
@@ -28769,7 +28769,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/phases/Phase0Start.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 289,
+      "community": 482,
       "norm_label": "phase0start.jsx",
       "id": "src_pages_lab_prototype_arenatestbed_phases_phase0start"
     },
@@ -28779,7 +28779,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/phases/Phase0Start.jsx",
       "source_location": "L8",
       "_origin": "ast",
-      "community": 289,
+      "community": 482,
       "norm_label": "phase0start()",
       "id": "src_pages_lab_prototype_arenatestbed_phases_phase0start_phase0start"
     },
@@ -28919,7 +28919,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/phases/Phase5PowerSelect.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 502,
+      "community": 289,
       "norm_label": "phase5powerselect.jsx",
       "id": "src_pages_lab_prototype_arenatestbed_phases_phase5powerselect"
     },
@@ -28939,7 +28939,7 @@
       "source_file": "src/pages/lab/Prototype/ArenaTestbed/phases/Phase5PowerSelect.jsx",
       "source_location": "L17",
       "_origin": "ast",
-      "community": 502,
+      "community": 289,
       "norm_label": "todo: quando modojogo.campanha existir de verdade, filtrar characters",
       "id": "src_pages_lab_prototype_arenatestbed_phases_phase5powerselect_rationale_17"
     },
@@ -30849,7 +30849,7 @@
       "source_file": "src/pages/platform/Perfil/PerfilProgresso.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 51,
+      "community": 451,
       "norm_label": "perfilprogresso.jsx",
       "id": "src_pages_platform_perfil_perfilprogresso"
     },
@@ -30859,7 +30859,7 @@
       "source_file": "src/pages/platform/Perfil/PerfilProgresso.jsx",
       "source_location": "L7",
       "_origin": "ast",
-      "community": 51,
+      "community": 451,
       "norm_label": "timeago()",
       "id": "src_pages_platform_perfil_perfilprogresso_timeago"
     },
@@ -30869,7 +30869,7 @@
       "source_file": "src/pages/platform/Perfil/PerfilProgresso.jsx",
       "source_location": "L19",
       "_origin": "ast",
-      "community": 51,
+      "community": 451,
       "norm_label": "iconeportipo()",
       "id": "src_pages_platform_perfil_perfilprogresso_iconeportipo"
     },
@@ -30879,7 +30879,7 @@
       "source_file": "src/pages/platform/Perfil/PerfilProgresso.jsx",
       "source_location": "L42",
       "_origin": "ast",
-      "community": 51,
+      "community": 451,
       "norm_label": "perfilprogresso()",
       "id": "src_pages_platform_perfil_perfilprogresso_perfilprogresso"
     },
@@ -30889,7 +30889,7 @@
       "source_file": "src/pages/platform/Perfil/abas/PerfilColecao.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 414,
+      "community": 484,
       "norm_label": "perfilcolecao.jsx",
       "id": "src_pages_platform_perfil_abas_perfilcolecao"
     },
@@ -30899,7 +30899,7 @@
       "source_file": "src/pages/platform/Perfil/abas/PerfilColecao.jsx",
       "source_location": "L11",
       "_origin": "ast",
-      "community": 414,
+      "community": 484,
       "norm_label": "perfilcolecao()",
       "id": "src_pages_platform_perfil_abas_perfilcolecao_perfilcolecao"
     },
@@ -30909,7 +30909,7 @@
       "source_file": "src/pages/platform/Perfil/abas/PerfilConquistas.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 51,
+      "community": 398,
       "norm_label": "perfilconquistas.jsx",
       "id": "src_pages_platform_perfil_abas_perfilconquistas"
     },
@@ -31099,7 +31099,7 @@
       "source_file": "src/pages/site/Home/components/CharactersRow.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 33,
+      "community": 1,
       "norm_label": "charactersrow.jsx",
       "id": "src_pages_site_home_components_charactersrow"
     },
@@ -31109,7 +31109,7 @@
       "source_file": "src/pages/site/Home/components/CharactersRow.jsx",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 33,
+      "community": 1,
       "norm_label": "charactersrow()",
       "id": "src_pages_site_home_components_charactersrow_charactersrow"
     },
@@ -31159,7 +31159,7 @@
       "source_file": "src/pages/site/Home/components/HomeSectionHeading.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 33,
+      "community": 1,
       "norm_label": "homesectionheading.jsx",
       "id": "src_pages_site_home_components_homesectionheading"
     },
@@ -31169,7 +31169,7 @@
       "source_file": "src/pages/site/Home/components/HomeSectionHeading.jsx",
       "source_location": "L3",
       "_origin": "ast",
-      "community": 33,
+      "community": 1,
       "norm_label": "homesectionheading()",
       "id": "src_pages_site_home_components_homesectionheading_homesectionheading"
     },
@@ -31179,7 +31179,7 @@
       "source_file": "src/pages/site/Home/components/MusicSection.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 33,
+      "community": 1,
       "norm_label": "musicsection.jsx",
       "id": "src_pages_site_home_components_musicsection"
     },
@@ -31189,7 +31189,7 @@
       "source_file": "src/pages/site/Home/components/MusicSection.jsx",
       "source_location": "L24",
       "_origin": "ast",
-      "community": 33,
+      "community": 1,
       "norm_label": "allimages",
       "id": "src_pages_site_home_components_musicsection_allimages"
     },
@@ -31199,7 +31199,7 @@
       "source_file": "src/pages/site/Home/components/MusicSection.jsx",
       "source_location": "L26",
       "_origin": "ast",
-      "community": 33,
+      "community": 1,
       "norm_label": "musiccircle()",
       "id": "src_pages_site_home_components_musicsection_musiccircle"
     },
@@ -31209,7 +31209,7 @@
       "source_file": "src/pages/site/Home/components/MusicSection.jsx",
       "source_location": "L53",
       "_origin": "ast",
-      "community": 33,
+      "community": 1,
       "norm_label": "musicsection()",
       "id": "src_pages_site_home_components_musicsection_musicsection"
     },
@@ -31219,7 +31219,7 @@
       "source_file": "src/pages/site/Home/components/NowLive.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 33,
+      "community": 1,
       "norm_label": "nowlive.jsx",
       "id": "src_pages_site_home_components_nowlive"
     },
@@ -31229,7 +31229,7 @@
       "source_file": "src/pages/site/Home/components/NowLive.jsx",
       "source_location": "L7",
       "_origin": "ast",
-      "community": 33,
+      "community": 1,
       "norm_label": "platrgb",
       "id": "src_pages_site_home_components_nowlive_platrgb"
     },
@@ -31239,7 +31239,7 @@
       "source_file": "src/pages/site/Home/components/NowLive.jsx",
       "source_location": "L14",
       "_origin": "ast",
-      "community": 33,
+      "community": 1,
       "norm_label": "nowlive()",
       "id": "src_pages_site_home_components_nowlive_nowlive"
     },
@@ -31249,7 +31249,7 @@
       "source_file": "src/pages/site/Home/components/StoryProgress.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 33,
+      "community": 1,
       "norm_label": "storyprogress.jsx",
       "id": "src_pages_site_home_components_storyprogress"
     },
@@ -31259,7 +31259,7 @@
       "source_file": "src/pages/site/Home/components/StoryProgress.jsx",
       "source_location": "L8",
       "_origin": "ast",
-      "community": 33,
+      "community": 1,
       "norm_label": "storyprogress()",
       "id": "src_pages_site_home_components_storyprogress_storyprogress"
     },
@@ -31289,7 +31289,7 @@
       "source_file": "src/pages/site/NotFound/NotFound.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 33,
+      "community": 39,
       "norm_label": "notfound.jsx",
       "id": "src_pages_site_notfound_notfound"
     },
@@ -31299,7 +31299,7 @@
       "source_file": "src/pages/site/NotFound/NotFound.jsx",
       "source_location": "L7",
       "_origin": "ast",
-      "community": 33,
+      "community": 39,
       "norm_label": "notfound()",
       "id": "src_pages_site_notfound_notfound_notfound"
     },
@@ -46536,122 +46536,6 @@
       "confidence_score": 1.0
     },
     {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/Navbar.jsx",
-      "source_location": "L16",
-      "weight": 1.0,
-      "source": "src_components_navbar",
-      "target": "src_components_navbar_locales",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/Navbar.jsx",
-      "source_location": "L20",
-      "weight": 1.0,
-      "source": "src_components_navbar",
-      "target": "src_components_navbar_logo_mark",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/Navbar.jsx",
-      "source_location": "L22",
-      "weight": 1.0,
-      "source": "src_components_navbar",
-      "target": "src_components_navbar_navbar",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/Navbar.jsx",
-      "source_location": "L10",
-      "weight": 1.0,
-      "source": "src_components_navbar",
-      "target": "src_components_sharebutton_sharebutton",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/Navbar.jsx",
-      "source_location": "L10",
-      "weight": 1.0,
-      "source": "src_components_navbar",
-      "target": "src_components_sharebutton_sharebutton_sharebutton",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/ShareButton/ShareButton.jsx",
-      "source_location": "L15",
-      "weight": 1.0,
-      "source": "src_components_sharebutton_sharebutton",
-      "target": "src_components_sharebutton_sharebutton_compartilharlink",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/ShareButton/ShareButton.jsx",
-      "source_location": "L34",
-      "weight": 1.0,
-      "source": "src_components_sharebutton_sharebutton",
-      "target": "src_components_sharebutton_sharebutton_sharebutton",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/webshard/WebshardLeitor.jsx",
-      "source_location": "L22",
-      "weight": 1.0,
-      "source": "src_pages_content_webshard_webshardleitor",
-      "target": "src_components_sharebutton_sharebutton",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/components/ShareButton/ShareButton.jsx",
-      "source_location": "L50",
-      "weight": 1.0,
-      "source": "src_components_sharebutton_sharebutton_sharebutton",
-      "target": "src_components_sharebutton_sharebutton_compartilharlink",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/webshard/WebshardLeitor.jsx",
-      "source_location": "L22",
-      "weight": 1.0,
-      "source": "src_pages_content_webshard_webshardleitor",
-      "target": "src_components_sharebutton_sharebutton_compartilharlink",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/content/webshard/WebshardLeitor.jsx",
-      "source_location": "L136",
-      "weight": 1.0,
-      "source": "src_pages_content_webshard_webshardleitor_webshardleitor",
-      "target": "src_components_sharebutton_sharebutton_compartilharlink"
-    },
-    {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -46808,12 +46692,681 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "src/lib/historias/catalogo.js",
+      "source_location": "L114",
+      "weight": 1.0,
+      "source": "src_lib_historias_catalogo",
+      "target": "src_lib_historias_catalogo_capacontos",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/historias/catalogo.js",
+      "source_location": "L57",
+      "weight": 1.0,
+      "source": "src_lib_historias_catalogo",
+      "target": "src_lib_historias_catalogo_contos",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/historias/catalogo.js",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "src_lib_historias_catalogo",
+      "target": "src_lib_historias_catalogo_cor_peso",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/historias/catalogo.js",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "src_lib_historias_catalogo",
+      "target": "src_lib_historias_catalogo_cor_selo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/historias/catalogo.js",
+      "source_location": "L109",
+      "weight": 1.0,
+      "source": "src_lib_historias_catalogo",
+      "target": "src_lib_historias_catalogo_historiaporslug",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/historias/catalogo.js",
+      "source_location": "L34",
+      "weight": 1.0,
+      "source": "src_lib_historias_catalogo",
+      "target": "src_lib_historias_catalogo_ldi",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/historias/catalogo.js",
+      "source_location": "L36",
+      "weight": 1.0,
+      "source": "src_lib_historias_catalogo",
+      "target": "src_lib_historias_catalogo_linha_principal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/historias/catalogo.js",
+      "source_location": "L118",
+      "weight": 1.0,
+      "source": "src_lib_historias_catalogo",
+      "target": "src_lib_historias_catalogo_linhaprincipal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/historias/catalogo.js",
+      "source_location": "L105",
+      "weight": 1.0,
+      "source": "src_lib_historias_catalogo",
+      "target": "src_lib_historias_catalogo_listarhistorias",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/historias/catalogo.js",
+      "source_location": "L123",
+      "weight": 1.0,
+      "source": "src_lib_historias_catalogo",
+      "target": "src_lib_historias_catalogo_miniaturacaphistoria",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "indirect_call",
+      "confidence": "INFERRED",
+      "source_file": "src/lib/historias/catalogo.js",
+      "source_location": "L50",
+      "weight": 1.0,
+      "context": "argument",
+      "source": "src_lib_historias_catalogo",
+      "target": "src_lib_historias_catalogo_normalizarcap",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/historias/catalogo.js",
+      "source_location": "L128",
+      "weight": 1.0,
+      "source": "src_lib_historias_catalogo",
+      "target": "src_lib_historias_catalogo_numerocaphistoria",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/historias/catalogo.js",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "src_lib_historias_catalogo",
+      "target": "src_lib_historias_catalogo_obraasset",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/historias/catalogo.js",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "src_lib_historias_catalogo",
+      "target": "src_lib_historias_catalogo_obraassets",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/historias/catalogo.js",
+      "source_location": "L76",
+      "weight": 1.0,
+      "source": "src_lib_historias_catalogo",
+      "target": "src_lib_historias_catalogo_obras",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/historias/catalogo.js",
+      "source_location": "L133",
+      "weight": 1.0,
+      "source": "src_lib_historias_catalogo",
+      "target": "src_lib_historias_catalogo_progressohistoria",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/historias/catalogo.js",
+      "source_location": "L103",
+      "weight": 1.0,
+      "source": "src_lib_historias_catalogo",
+      "target": "src_lib_historias_catalogo_todos",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/historias/HistoriaCapLinha.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_content_historias_historiacaplinha",
+      "target": "src_lib_historias_catalogo"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/historias/HistoriasHub.jsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "src_pages_content_historias_historiashub",
+      "target": "src_lib_historias_catalogo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/historias/HistoriasUniversos.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "src_pages_content_historias_historiasuniversos",
+      "target": "src_lib_historias_catalogo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/historias/HistoriaTitulo.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_content_historias_historiatitulo",
+      "target": "src_lib_historias_catalogo"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/lib/historias/catalogo.js",
+      "source_location": "L110",
+      "weight": 1.0,
+      "source": "src_lib_historias_catalogo_historiaporslug",
+      "target": "src_lib_historias_catalogo_listarhistorias",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/historias/HistoriasHub.jsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "src_pages_content_historias_historiashub",
+      "target": "src_lib_historias_catalogo_listarhistorias",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/pages/content/historias/HistoriasHub.jsx",
+      "source_location": "L36",
+      "weight": 1.0,
+      "source": "src_pages_content_historias_historiashub_historiashub",
+      "target": "src_lib_historias_catalogo_listarhistorias"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/historias/HistoriaTitulo.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_content_historias_historiatitulo",
+      "target": "src_lib_historias_catalogo_historiaporslug"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/pages/content/historias/HistoriaTitulo.jsx",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "src_pages_content_historias_historiatitulo_historiatitulo",
+      "target": "src_lib_historias_catalogo_historiaporslug"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/historias/HistoriasHub.jsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "src_pages_content_historias_historiashub",
+      "target": "src_lib_historias_catalogo_capacontos",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/pages/content/historias/HistoriasHub.jsx",
+      "source_location": "L96",
+      "weight": 1.0,
+      "source": "src_pages_content_historias_historiashub_historiashub",
+      "target": "src_lib_historias_catalogo_capacontos"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/historias/HistoriasUniversos.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "src_pages_content_historias_historiasuniversos",
+      "target": "src_lib_historias_catalogo_capacontos",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/pages/content/historias/HistoriasUniversos.jsx",
+      "source_location": "L46",
+      "weight": 1.0,
+      "source": "src_pages_content_historias_historiasuniversos_historiasuniversos",
+      "target": "src_lib_historias_catalogo_capacontos"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/historias/HistoriasHub.jsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "src_pages_content_historias_historiashub",
+      "target": "src_lib_historias_catalogo_linhaprincipal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/pages/content/historias/HistoriasHub.jsx",
+      "source_location": "L40",
+      "weight": 1.0,
+      "source": "src_pages_content_historias_historiashub_historiashub",
+      "target": "src_lib_historias_catalogo_linhaprincipal"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/historias/HistoriaCapLinha.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_content_historias_historiacaplinha",
+      "target": "src_lib_historias_catalogo_miniaturacaphistoria"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/pages/content/historias/HistoriaCapLinha.jsx",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "src_pages_content_historias_historiacaplinha_historiacaplinha",
+      "target": "src_lib_historias_catalogo_miniaturacaphistoria"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/historias/HistoriasHub.jsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "src_pages_content_historias_historiashub",
+      "target": "src_lib_historias_catalogo_miniaturacaphistoria",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/pages/content/historias/HistoriasHub.jsx",
+      "source_location": "L128",
+      "weight": 1.0,
+      "source": "src_pages_content_historias_historiashub_historiashub",
+      "target": "src_lib_historias_catalogo_miniaturacaphistoria"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/historias/HistoriaCapLinha.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_content_historias_historiacaplinha",
+      "target": "src_lib_historias_catalogo_numerocaphistoria"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/pages/content/historias/HistoriaCapLinha.jsx",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "src_pages_content_historias_historiacaplinha_historiacaplinha",
+      "target": "src_lib_historias_catalogo_numerocaphistoria"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/historias/HistoriasHub.jsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "src_pages_content_historias_historiashub",
+      "target": "src_lib_historias_catalogo_numerocaphistoria",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/pages/content/historias/HistoriasHub.jsx",
+      "source_location": "L116",
+      "weight": 1.0,
+      "source": "src_pages_content_historias_historiashub_historiashub",
+      "target": "src_lib_historias_catalogo_numerocaphistoria"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/historias/HistoriaTitulo.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_content_historias_historiatitulo",
+      "target": "src_lib_historias_catalogo_numerocaphistoria"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/pages/content/historias/HistoriaTitulo.jsx",
+      "source_location": "L83",
+      "weight": 1.0,
+      "source": "src_pages_content_historias_historiatitulo_historiatitulo",
+      "target": "src_lib_historias_catalogo_numerocaphistoria"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/historias/HistoriasHub.jsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "src_pages_content_historias_historiashub",
+      "target": "src_lib_historias_catalogo_progressohistoria",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/pages/content/historias/HistoriasHub.jsx",
+      "source_location": "L45",
+      "weight": 1.0,
+      "source": "src_pages_content_historias_historiashub_historiashub",
+      "target": "src_lib_historias_catalogo_progressohistoria"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/historias/HistoriaTitulo.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_content_historias_historiatitulo",
+      "target": "src_lib_historias_catalogo_progressohistoria"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/pages/content/historias/HistoriaTitulo.jsx",
+      "source_location": "L41",
+      "weight": 1.0,
+      "source": "src_pages_content_historias_historiatitulo_historiatitulo",
+      "target": "src_lib_historias_catalogo_progressohistoria"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/historias/HistoriasHub.jsx",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "src_pages_content_historias_historiashub",
+      "target": "src_pages_content_historias_historiashub_historiashub",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/historias/HistoriasHub.jsx",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "src_pages_content_historias_historiashub",
+      "target": "src_pages_content_historias_historiashub_hojeiso",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/historias/HistoriasHub.jsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "src_pages_content_historias_historiashub",
+      "target": "src_pages_content_historias_historiasuniversos",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/historias/HistoriasHub.jsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "src_pages_content_historias_historiashub",
+      "target": "src_pages_content_historias_historiasuniversos_historiasuniversos",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/historias/HistoriasHub.jsx",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "src_pages_content_historias_historiashub_historiashub",
+      "target": "src_pages_content_historias_historiashub_hojeiso",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/historias/HistoriasUniversos.jsx",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "src_pages_content_historias_historiasuniversos",
+      "target": "src_pages_content_historias_historiasuniversos_historiasuniversos",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Navbar.jsx",
+      "source_location": "L16",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_components_navbar",
+      "target": "src_components_navbar_locales"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Navbar.jsx",
+      "source_location": "L20",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_components_navbar",
+      "target": "src_components_navbar_logo_mark"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Navbar.jsx",
+      "source_location": "L22",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_components_navbar",
+      "target": "src_components_navbar_navbar"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Navbar.jsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_components_navbar",
+      "target": "src_components_sharebutton_sharebutton"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Navbar.jsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_components_navbar",
+      "target": "src_components_sharebutton_sharebutton_sharebutton"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ShareButton/ShareButton.jsx",
+      "source_location": "L15",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_components_sharebutton_sharebutton",
+      "target": "src_components_sharebutton_sharebutton_compartilharlink"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ShareButton/ShareButton.jsx",
+      "source_location": "L34",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_components_sharebutton_sharebutton",
+      "target": "src_components_sharebutton_sharebutton_sharebutton"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/webshard/WebshardLeitor.jsx",
+      "source_location": "L22",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_content_webshard_webshardleitor",
+      "target": "src_components_sharebutton_sharebutton"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ShareButton/ShareButton.jsx",
+      "source_location": "L50",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_components_sharebutton_sharebutton_sharebutton",
+      "target": "src_components_sharebutton_sharebutton_compartilharlink"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/content/webshard/WebshardLeitor.jsx",
+      "source_location": "L22",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "src_pages_content_webshard_webshardleitor",
+      "target": "src_components_sharebutton_sharebutton_compartilharlink"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/pages/content/webshard/WebshardLeitor.jsx",
+      "source_location": "L136",
+      "weight": 1.0,
+      "source": "src_pages_content_webshard_webshardleitor_webshardleitor",
+      "target": "src_components_sharebutton_sharebutton_compartilharlink"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "src/pages/content/webshard/WebshardLeitor.jsx",
       "source_location": "L29",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_content_webshard_webshardleitor",
-      "target": "src_pages_content_webshard_webshardleitor_webshardleitor",
-      "confidence_score": 1.0
+      "target": "src_pages_content_webshard_webshardleitor_webshardleitor"
     },
     {
       "relation": "imports_from",
@@ -47239,37 +47792,6 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/historias/HistoriasHub.jsx",
-      "source_location": "L25",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_historias_historiashub",
-      "target": "src_pages_content_historias_historiashub_historiashub"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/historias/HistoriasHub.jsx",
-      "source_location": "L19",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_historias_historiashub",
-      "target": "src_pages_content_historias_historiashub_hojeiso"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/historias/HistoriasHub.jsx",
-      "source_location": "L29",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_historias_historiashub_historiashub",
-      "target": "src_pages_content_historias_historiashub_hojeiso"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
       "source_file": "src/pages/content/Universo.jsx",
       "source_location": "L12",
       "weight": 1.0,
@@ -47340,369 +47862,12 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "src/lib/historias/catalogo.js",
-      "source_location": "L111",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_lib_historias_catalogo",
-      "target": "src_lib_historias_catalogo_capapadrao"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/historias/catalogo.js",
-      "source_location": "L54",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_lib_historias_catalogo",
-      "target": "src_lib_historias_catalogo_contos"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/historias/catalogo.js",
-      "source_location": "L21",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_lib_historias_catalogo",
-      "target": "src_lib_historias_catalogo_cor_peso"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/historias/catalogo.js",
-      "source_location": "L22",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_lib_historias_catalogo",
-      "target": "src_lib_historias_catalogo_cor_selo"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/historias/catalogo.js",
-      "source_location": "L106",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_lib_historias_catalogo",
-      "target": "src_lib_historias_catalogo_historiaporslug"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/historias/catalogo.js",
-      "source_location": "L31",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_lib_historias_catalogo",
-      "target": "src_lib_historias_catalogo_ldi"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/historias/catalogo.js",
-      "source_location": "L33",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_lib_historias_catalogo",
-      "target": "src_lib_historias_catalogo_linha_principal"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/historias/catalogo.js",
-      "source_location": "L115",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_lib_historias_catalogo",
-      "target": "src_lib_historias_catalogo_linhaprincipal"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/historias/catalogo.js",
-      "source_location": "L102",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_lib_historias_catalogo",
-      "target": "src_lib_historias_catalogo_listarhistorias"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/historias/catalogo.js",
-      "source_location": "L120",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_lib_historias_catalogo",
-      "target": "src_lib_historias_catalogo_miniaturacaphistoria"
-    },
-    {
-      "relation": "indirect_call",
-      "confidence": "INFERRED",
-      "source_file": "src/lib/historias/catalogo.js",
-      "source_location": "L47",
-      "weight": 1.0,
-      "context": "argument",
-      "confidence_score": 0.5,
-      "source": "src_lib_historias_catalogo",
-      "target": "src_lib_historias_catalogo_normalizarcap"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/historias/catalogo.js",
-      "source_location": "L125",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_lib_historias_catalogo",
-      "target": "src_lib_historias_catalogo_numerocaphistoria"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/historias/catalogo.js",
-      "source_location": "L17",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_lib_historias_catalogo",
-      "target": "src_lib_historias_catalogo_obraasset"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/historias/catalogo.js",
-      "source_location": "L16",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_lib_historias_catalogo",
-      "target": "src_lib_historias_catalogo_obraassets"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/historias/catalogo.js",
-      "source_location": "L73",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_lib_historias_catalogo",
-      "target": "src_lib_historias_catalogo_obras"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/historias/catalogo.js",
-      "source_location": "L130",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_lib_historias_catalogo",
-      "target": "src_lib_historias_catalogo_progressohistoria"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/historias/catalogo.js",
-      "source_location": "L100",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_lib_historias_catalogo",
-      "target": "src_lib_historias_catalogo_todos"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/historias/HistoriaCapLinha.jsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_historias_historiacaplinha",
-      "target": "src_lib_historias_catalogo"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/historias/HistoriasUniversos.jsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_historias_historiasuniversos",
-      "target": "src_lib_historias_catalogo"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/historias/HistoriaTitulo.jsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_historias_historiatitulo",
-      "target": "src_lib_historias_catalogo"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "src/lib/historias/catalogo.js",
-      "source_location": "L107",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_lib_historias_catalogo_historiaporslug",
-      "target": "src_lib_historias_catalogo_listarhistorias"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/historias/HistoriaTitulo.jsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_historias_historiatitulo",
-      "target": "src_lib_historias_catalogo_historiaporslug"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/content/historias/HistoriaTitulo.jsx",
-      "source_location": "L24",
-      "weight": 1.0,
-      "source": "src_pages_content_historias_historiatitulo_historiatitulo",
-      "target": "src_lib_historias_catalogo_historiaporslug"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/historias/HistoriasUniversos.jsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_historias_historiasuniversos",
-      "target": "src_lib_historias_catalogo_capapadrao"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/content/historias/HistoriasUniversos.jsx",
-      "source_location": "L46",
-      "weight": 1.0,
-      "source": "src_pages_content_historias_historiasuniversos_historiasuniversos",
-      "target": "src_lib_historias_catalogo_capapadrao"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/historias/HistoriaCapLinha.jsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_historias_historiacaplinha",
-      "target": "src_lib_historias_catalogo_miniaturacaphistoria"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/content/historias/HistoriaCapLinha.jsx",
-      "source_location": "L25",
-      "weight": 1.0,
-      "source": "src_pages_content_historias_historiacaplinha_historiacaplinha",
-      "target": "src_lib_historias_catalogo_miniaturacaphistoria"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/historias/HistoriaCapLinha.jsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_historias_historiacaplinha",
-      "target": "src_lib_historias_catalogo_numerocaphistoria"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/content/historias/HistoriaCapLinha.jsx",
-      "source_location": "L26",
-      "weight": 1.0,
-      "source": "src_pages_content_historias_historiacaplinha_historiacaplinha",
-      "target": "src_lib_historias_catalogo_numerocaphistoria"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/historias/HistoriaTitulo.jsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_historias_historiatitulo",
-      "target": "src_lib_historias_catalogo_numerocaphistoria"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/content/historias/HistoriaTitulo.jsx",
-      "source_location": "L83",
-      "weight": 1.0,
-      "source": "src_pages_content_historias_historiatitulo_historiatitulo",
-      "target": "src_lib_historias_catalogo_numerocaphistoria"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/historias/HistoriaTitulo.jsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_historias_historiatitulo",
-      "target": "src_lib_historias_catalogo_progressohistoria"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/pages/content/historias/HistoriaTitulo.jsx",
-      "source_location": "L41",
-      "weight": 1.0,
-      "source": "src_pages_content_historias_historiatitulo_historiatitulo",
-      "target": "src_lib_historias_catalogo_progressohistoria"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
       "source_file": "src/pages/content/historias/HistoriaTitulo.jsx",
       "source_location": "L18",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "src_pages_content_historias_historiatitulo",
       "target": "src_pages_content_historias_historiatitulo_historiatitulo"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/pages/content/historias/HistoriasUniversos.jsx",
-      "source_location": "L15",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "src_pages_content_historias_historiasuniversos",
-      "target": "src_pages_content_historias_historiasuniversos_historiasuniversos"
     },
     {
       "relation": "contains",
@@ -126510,5 +126675,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "b7a8f9957839c78394af980edb1428fa201367e0"
+  "built_at_commit": "0b76ccae087c6ba74498a08fb00a96a7f93596c4"
 }

@@ -17,6 +17,11 @@ import capaContosArte from '../../assets/images/contos/capa-illusion-tales.webp'
    /historias/contos/:historia/:cap, /historias/:slug/:cap. */
 
 const obraAssets = import.meta.glob('../../assets/obras/*/*.{webp,jpg,png}', { eager: true, import: 'default' })
+// Capa de cada capítulo da linha principal: src/assets/images/livro/<id>.webp
+// (ex.: capitulo-01.webp) — a mesma que a fileira de capítulos da Home usa.
+const livroCapas = import.meta.glob('../../assets/images/livro/capitulo-*', { eager: true, import: 'default' })
+const livroCapa = id => livroCapas[`../../assets/images/livro/${id}.webp`] || null
+
 const obraAsset = (slug, file) => (file ? obraAssets[`../../assets/obras/${slug}/${file}`] || null : null)
 
 // Cor de cada título — só fio/selo (--ws-cor); a moldura é a do portal.
@@ -48,6 +53,7 @@ const LINHA_PRINCIPAL = {
   capa: imagemWebshard(LDI.capa),
   arte: true,
   capitulos: livroIndex.map(normalizarCap),
+  galeria: livroIndex.map(c => livroCapa(c.id)),
   rota: '/historias/lutas-de-ilusao',
   rotaCap: cap => `/historias/lutas-de-ilusao/${cap.id}`,
   // O capítulo 01 é sempre aberto: é a porta de entrada do livro.
