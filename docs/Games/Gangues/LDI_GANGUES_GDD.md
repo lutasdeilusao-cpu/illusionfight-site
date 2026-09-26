@@ -1959,10 +1959,18 @@ v3.30.0 os dois formatos usam o MESMO sistema de pontos fixos.
   propósito: navegação (porta, saída, passagem) e o chefe (identidade própria
   vermelho-escuro com ★). Um NPC com missão pendente (ex.: a oferta do corre
   no Descanso) também fica verde, como "tem missão aqui".
-- **O mapa não é estático** (v3.42–3.46): os personagens dos pinos fazem uma
-  "andadinha" contínua e patrulham em volta do lugar deles (inclusive no eixo
-  vertical), e **congelam quando o jogador encosta**, pra dar pra interagir.
-  O agiota fica parado de propósito.
+- **O mapa não é estático** (v3.60.0, 26/09/2026 — substitui a andadinha
+  contínua de vaivém que TODO personagem fazia, "tá muito forçado"): cada
+  personagem tem UM comportamento fixo (`movimentoDoPino` em
+  `GanguesCenaAtores.jsx`, CSS em `styles/cena/mundo.css`):
+  **parado** (só respira), **inquieto** (muda o peso de perna e olha pros
+  lados), **patrulha** horizontal/vertical (anda devagar, e em cada ponta
+  PARA, olha pra um lado, pro outro, dá uma viradinha e volta — ciclo de
+  14–20s) ou **ronda** (volta num quadrado, com parada em cada canto).
+  Quem conversa fica parado/inquieto; inimigos de treta ficam metade no
+  lugar, metade andando; "o bicho" sempre patrulha; loja, agiota e chefe são
+  fixos. Dá pra fixar qualquer um no dado (`poi.movimento`, ex.: o `sinal`
+  é `patrulha-h`). Todos **congelam quando o jogador encosta**.
 - **Gates de reputação** (`data/ganguesLoadout.js`): Rep **25** pra encarar o
   galpão do Carvão / Cão Louco (`GANGUES_REP_GATE_GALPAO`) e Rep **40** pra
   entrar no Clube da Luta por vontade própria (`GANGUES_REP_GATE_CLUBE`).

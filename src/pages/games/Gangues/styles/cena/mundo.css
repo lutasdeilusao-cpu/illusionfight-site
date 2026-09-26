@@ -67,28 +67,42 @@
    encontra pela cena precisa chamar mais atenção que o próprio marcador. */
 .gang-world-npc--retrato>span{width:64px;height:64px;border-radius:50%;overflow:hidden;padding:0}
 .gang-world-npc--retrato>span img{width:100%;height:100%;object-fit:cover;image-rendering:pixelated}
-/* Andadinha dos "personagens" (qualquer pino com cara — NPC ou inimigo) —
-   4ª leva, 20/09/2026 (histórico completo em PinoAlvo/GanguesCenaAtores.jsx
-   de tudo que já foi tentado e por quê). O `steps()` da leva anterior
-   (passadas discretas, tipo sprite 8-bit) o próprio Isaias pediu de volta:
-   "ficou muito tutu, agora o erro foi meu, faz uma caminhada mais suave,
-   de quem tá vigiando" — voltou pro `ease-in-out` nos dois movimentos
-   (contínuo, sem saltos), só mais devagar/discreto que passo de sprite —
-   o ritmo de quem tá de olho no quarteirão, não marchando. Dois movimentos
-   em elementos SEPARADOS (senão uma `transform` sobrescreve a outra):
-     • `<span>` de FORA (`is-patrulha-h`/`-v`): o deslocamento de verdade —
-       ida e volta de 60 a 115px (variando por pino, ver `--gp-w` em
-       PinoAlvo). SEM rotação nenhuma (leva anterior girava o corpo junto
-       — "parece que ele tá bêbado"). Só visual: a âncora real
-       (`left`/`top` do `.gang-world-npc`, usada pra colisão/zona de
-       interação) nunca muda.
-     • `.gang-world-npc-passo`, o `<span>` de DENTRO: bounce vertical bem
-       curto (2.5px) e lento, contínuo, independente da direção — só o
-       suficiente pra não parecer flutuando, sem ficar "tuc tuc" mecânico. */
-@keyframes gang-patrulha-h{0%,100%{transform:translateX(calc(-1 * var(--gp-w,90px)))}50%{transform:translateX(var(--gp-w,90px))}}
-@keyframes gang-patrulha-v{0%,100%{transform:translateY(calc(-1 * var(--gp-w,90px)))}50%{transform:translateY(var(--gp-w,90px))}}
-@keyframes gang-passo{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}
-.gang-world-npc-passo{display:block;width:100%;height:100%;animation:gang-passo .6s ease-in-out infinite}
+/* Movimento dos personagens da cena — 5ª leva (Isaias, 26/09/2026, depois de
+   jogar um bom tempo: "tá muito forçado... nem todos precisam andar... os que
+   andam têm que andar mais devagar, mais orgânico, e quando chega no ponto
+   da patrulha para, olha pra um lado, olha pro outro, dá uma rodadinha, fica
+   um tempinho e volta"). Substitui a andadinha contínua de vaivém que TODO
+   personagem fazia. Cada personagem tem UM comportamento, fixo (escolhido em
+   PinoAlvo/GanguesCenaAtores.jsx — hash do id por tipo de POI, ou
+   `poi.movimento` no dado):
+     • mov-parado    — no lugar, só respirando.
+     • mov-inquieto  — no lugar, muda o peso de perna e olha pros lados.
+     • mov-patrulha-h/-v — vai devagar até a ponta, PARA, olha pra um lado,
+       pro outro, dá uma viradinha, fica um tempo e volta; no ponto inicial,
+       a mesma parada.
+     • mov-ronda     — dá a volta num quadrado, com parada e olhadinha em cada
+       canto.
+   Três camadas em elementos separados (senão um `transform` apaga o outro),
+   todas com a MESMA duração/atraso (--gp-dur/--gp-delay) pra ficarem
+   sincronizadas: o `<span>` de fora anda (--mov-anim), o `<img>` olha
+   (--olhar-anim, scaleX vira a cara, rotate é a viradinha) e o
+   `.gang-world-npc-passo` respira. A âncora real (`left/top`, usada na
+   colisão/zona) nunca muda — é só visual. Encostou (`is-colidindo`), congela
+   onde está. */
+@keyframes gang-mov-patrulha-h{0%,6%{transform:translateX(calc(-1 * var(--gp-w,60px)))}40%,60%{transform:translateX(var(--gp-w,60px))}94%,100%{transform:translateX(calc(-1 * var(--gp-w,60px)))}}
+@keyframes gang-mov-patrulha-v{0%,6%{transform:translateY(calc(-1 * var(--gp-w,60px)))}40%,60%{transform:translateY(var(--gp-w,60px))}94%,100%{transform:translateY(calc(-1 * var(--gp-w,60px)))}}
+@keyframes gang-olhar-patrulha{0%{transform:scaleX(1)}2%{transform:scaleX(-1)}4.5%,40%{transform:scaleX(1)}44%{transform:scaleX(-1)}48%{transform:scaleX(1)}51%{transform:rotate(-9deg)}54%{transform:rotate(9deg)}57%{transform:rotate(0)}60%,94%{transform:scaleX(-1)}97%,100%{transform:scaleX(1)}}
+@keyframes gang-mov-ronda{0%,5%{transform:translate(calc(-.5 * var(--gp-w,60px)),calc(-.5 * var(--gp-w,60px)))}20%,25%{transform:translate(calc(.5 * var(--gp-w,60px)),calc(-.5 * var(--gp-w,60px)))}45%,50%{transform:translate(calc(.5 * var(--gp-w,60px)),calc(.5 * var(--gp-w,60px)))}70%,75%{transform:translate(calc(-.5 * var(--gp-w,60px)),calc(.5 * var(--gp-w,60px)))}95%,100%{transform:translate(calc(-.5 * var(--gp-w,60px)),calc(-.5 * var(--gp-w,60px)))}}
+@keyframes gang-olhar-ronda{0%,20%{transform:scaleX(1)}22%{transform:scaleX(-1)}24%,45%{transform:scaleX(1)}47%{transform:rotate(-8deg)}49%{transform:rotate(0)}50%,70%{transform:scaleX(-1)}72%{transform:scaleX(1)}74%,95%{transform:scaleX(-1)}97%,100%{transform:scaleX(1)}}
+@keyframes gang-mov-inquieto{0%,30%{transform:translateX(0)}36%,58%{transform:translateX(3px)}64%,86%{transform:translateX(-2px)}92%,100%{transform:translateX(0)}}
+@keyframes gang-olhar-inquieto{0%,18%{transform:scaleX(1)}22%,40%{transform:scaleX(-1)}44%,70%{transform:scaleX(1)}73%{transform:rotate(-6deg)}76%,100%{transform:rotate(0)}}
+@keyframes gang-respira{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-1.5px) scale(1.025)}}
+.gang-world-npc.mov-patrulha-h{--mov-anim:gang-mov-patrulha-h;--olhar-anim:gang-olhar-patrulha}
+.gang-world-npc.mov-patrulha-v{--mov-anim:gang-mov-patrulha-v;--olhar-anim:gang-olhar-patrulha}
+.gang-world-npc.mov-ronda{--mov-anim:gang-mov-ronda;--olhar-anim:gang-olhar-ronda}
+.gang-world-npc.mov-inquieto{--mov-anim:gang-mov-inquieto;--olhar-anim:gang-olhar-inquieto}
+.gang-world-npc-passo{display:block;width:100%;height:100%;animation:gang-respira var(--gp-resp,3.6s) ease-in-out infinite}
+.gang-world-npc.mov-anda .gang-world-npc-passo img{animation:var(--olhar-anim) var(--gp-dur,16s) ease-in-out var(--gp-delay,0s) infinite}
 /* Farol universal de status (pedido do Isaias, 13/09/2026): substitui a cor
    do território + o azul de "farm" por vermelho/amarelo/verde
    autoexplicativo — vermelho = obrigatório e ainda não feito, amarelo =
@@ -109,10 +123,6 @@
    ganha de qualquer ordem — "já feito" continua sem pulsar
    (`gang-entry-pulse`, isso é do `is-perto`, não daqui), mas a andadinha
    nunca mais é cancelada por já ter sido farmado. */
-.gang-world-npc.is-feito.is-patrulha-h>span{animation:gang-patrulha-h var(--gp-dur,3.6s) ease-in-out infinite}
-.gang-world-npc.is-feito.is-patrulha-v>span{animation:gang-patrulha-v var(--gp-dur,3.6s) ease-in-out infinite}
-.gang-world-npc.is-patrulha-h>span{animation:gang-patrulha-h var(--gp-dur,3.6s) ease-in-out infinite}
-.gang-world-npc.is-patrulha-v>span{animation:gang-patrulha-v var(--gp-dur,3.6s) ease-in-out infinite}
 /* "Toda vez que ele colidir com o Player... ele para de andar" (Isaias,
    20/09/2026) — 1ª tentativa usou `is-perto` (a ZONA de interação, bem
    maior que o círculo visual de propósito, pra facilitar tocar no
@@ -129,11 +139,10 @@
    3 classes) de propósito — colidindo sempre implica perto também, e a
    pausa tem que ganhar da simples proximidade quando as duas classes
    coexistirem. */
-.gang-world-npc.is-perto.is-patrulha-h>span{animation:gang-patrulha-h var(--gp-dur,3.6s) ease-in-out infinite,gang-entry-pulse .85s ease-in-out infinite alternate;box-shadow:0 0 24px rgba(255,255,255,.5),0 8px 15px var(--gang-preto)}
-.gang-world-npc.is-perto.is-patrulha-v>span{animation:gang-patrulha-v var(--gp-dur,3.6s) ease-in-out infinite,gang-entry-pulse .85s ease-in-out infinite alternate;box-shadow:0 0 24px rgba(255,255,255,.5),0 8px 15px var(--gang-preto)}
-.gang-world-npc.is-colidindo.is-patrulha-h>span{animation:gang-patrulha-h var(--gp-dur,3.6s) ease-in-out infinite,gang-entry-pulse .85s ease-in-out infinite alternate;animation-play-state:paused,running;box-shadow:0 0 24px rgba(255,255,255,.5),0 8px 15px var(--gang-preto)}
-.gang-world-npc.is-colidindo.is-patrulha-v>span{animation:gang-patrulha-v var(--gp-dur,3.6s) ease-in-out infinite,gang-entry-pulse .85s ease-in-out infinite alternate;animation-play-state:paused,running;box-shadow:0 0 24px rgba(255,255,255,.5),0 8px 15px var(--gang-preto)}
-.gang-world-npc.is-colidindo .gang-world-npc-passo{animation-play-state:paused}
+.gang-world-npc.mov-anda>span,.gang-world-npc.mov-anda.is-feito>span{animation:var(--mov-anim) var(--gp-dur,16s) ease-in-out var(--gp-delay,0s) infinite}
+.gang-world-npc.mov-anda.is-perto>span{animation:var(--mov-anim) var(--gp-dur,16s) ease-in-out var(--gp-delay,0s) infinite,gang-entry-pulse .85s ease-in-out infinite alternate;box-shadow:0 0 24px rgba(255,255,255,.5),0 8px 15px var(--gang-preto)}
+.gang-world-npc.mov-anda.is-colidindo>span{animation:var(--mov-anim) var(--gp-dur,16s) ease-in-out var(--gp-delay,0s) infinite,gang-entry-pulse .85s ease-in-out infinite alternate;animation-play-state:paused,running;box-shadow:0 0 24px rgba(255,255,255,.5),0 8px 15px var(--gang-preto)}
+.gang-world-npc.is-colidindo .gang-world-npc-passo,.gang-world-npc.is-colidindo .gang-world-npc-passo img{animation-play-state:paused}
 .gang-world-npc-farm-tag{position:absolute;top:-4px;right:14px;width:16px;height:16px;display:grid;place-items:center;border-radius:50%;background:#0b3a66;border:1px solid #4fb4ff;color:#9fd8ff;font-size:.6rem;font-style:normal;animation:gang-farm-spin 2.4s linear infinite}
 @keyframes gang-farm-spin{to{transform:rotate(360deg)}}
 .gang-world-player { position:absolute; z-index:18; transform:translate(-50%,-50%); display:grid;justify-items:center;pointer-events:none; }.gang-world-player>span { position:relative;display:block;width:54px;height:54px;border:2px solid var(--gang-branco);clip-path:polygon(50% 0,92% 18%,86% 76%,50% 100%,14% 76%,8% 18%);background:linear-gradient(#16b8c8,#086070);box-shadow:0 8px 17px var(--gang-preto),0 0 16px rgba(0,220,255,.28);animation:gang-person-breathe 1.2s ease-in-out infinite; }.gang-world-player>span i{position:absolute;width:10px;height:18px;top:14px;border:1px solid var(--gang-branco);background:var(--if-cyan-20)}.gang-world-player>span i:nth-child(1){left:7px;transform:rotate(-12deg)}.gang-world-player>span i:nth-child(2){left:16px;top:9px;height:23px;z-index:2}.gang-world-player>span i:nth-child(3){right:7px;transform:rotate(12deg)}.gang-world-player small{margin-top:2px;color:var(--gang-branco);background:#02080bcc;padding:2px 5px;font:800 .52rem var(--font-mono);text-transform:uppercase}.gang-world-player.facing-left>span{transform:rotate(-5deg)}.gang-world-player.facing-right>span{transform:rotate(5deg)}
@@ -163,4 +172,4 @@
 .gang-world-controls { position:relative;z-index:27;flex:0 0 auto;width:100%;box-sizing:border-box;min-height:148px;display:flex;align-items:center;justify-content:space-between;padding:18px 25px max(18px,env(safe-area-inset-bottom));background:linear-gradient(180deg,#0a1114,#050809);border-top:1px solid #2c393d;box-shadow:0 -10px 22px rgba(0,0,0,.4) inset; }.gang-world-stick { --jx:0px;--jy:0px;position:relative;width:112px;height:112px;border-radius:50%;border:2px solid #597077;background:radial-gradient(circle,#18262b 0 34%,#091115 36% 100%);box-shadow:inset 0 0 20px var(--gang-preto),0 7px 20px #0008;pointer-events:auto;touch-action:none; }.gang-world-stick:before,.gang-world-stick:after{content:'';position:absolute;background:#43565c55}.gang-world-stick:before{left:50%;top:12px;bottom:12px;width:1px}.gang-world-stick:after{top:50%;left:12px;right:12px;height:1px}.gang-world-stick i{position:absolute;z-index:2;left:50%;top:50%;width:48px;height:48px;border-radius:50%;transform:translate(calc(-50% + var(--jx)),calc(-50% + var(--jy)));background:linear-gradient(145deg,#2d464e,#101b1f);border:2px solid var(--terr-cor);box-shadow:0 5px 14px var(--gang-preto);transition:transform .04s}
 .gang-world-controls button { pointer-events:auto;width:98px;height:98px;border-radius:50%;border:2px solid var(--terr-cor);background:radial-gradient(circle,#12363a,#071114);color:var(--gang-branco);box-shadow:0 0 22px rgba(0,220,255,.16),inset 0 0 18px var(--gang-preto);display:grid;place-content:center;gap:3px; }.gang-world-controls button b{font:900 .72rem var(--font-display)}.gang-world-controls button span{font:700 .45rem var(--font-mono);color:var(--terr-cor)}.gang-world-controls button:disabled{opacity:.2;filter:grayscale(1)}
 @media(max-height:700px){.gang-cena-worldpage{min-height:540px}.gang-world-controls{min-height:120px;padding:12px 25px max(12px,env(safe-area-inset-bottom))}.gang-world-stick{width:92px;height:92px}.gang-world-controls button{width:82px;height:82px}.gang-cena-tutorial{bottom:14px}}
-@media(prefers-reduced-motion:reduce){.gang-cena-world{transition:none}.gang-world-player>span,.gang-world-npc>span,.gang-world-npc-farm-tag,.gang-world-npc.is-perto>span,.gang-world-npc.is-nav.is-perto>span,.gang-world-npc.is-patrulha-h>span,.gang-world-npc.is-patrulha-v>span,.gang-world-npc-passo{animation:none}}
+@media(prefers-reduced-motion:reduce){.gang-cena-world{transition:none}.gang-world-player>span,.gang-world-npc>span,.gang-world-npc-farm-tag,.gang-world-npc.is-perto>span,.gang-world-npc.is-nav.is-perto>span,.gang-world-npc.mov-anda>span,.gang-world-npc-passo img,.gang-world-npc-passo{animation:none}}

@@ -74,7 +74,7 @@ function hashEstavel(str) {
 // sempre o MESMO pra aquele ponto (nunca troca de cara sozinho). Ciclar a
 // imagem foi tentado (20/09/2026) e o Isaias rejeitou: "animação é ele se
 // mexendo, andando... não é ficar trocando o rosto, tira essa merda" — a
-// "animação" de verdade agora é a andadinha (ver `is-patrulha`/CSS).
+// "animação" de verdade agora é o movimento (ver `movimentoDoPino`/CSS).
 function retratoDoPino(p) {
   if (p.npcSlug) return getGanguesNpcPortrait(p.npcSlug)
   if (p.revezamento?.pool?.length) {
@@ -103,6 +103,26 @@ export function ehPersonagem(p) {
   // não personagem que anda por aí; continuam no grupo dos "pinos
   // estáticos de ação" (achado/parada/corre/nav).
   return Boolean(retratoDoPino(p)) && !p.ehChefe && p.tipo !== 'loja' && p.tipo !== 'agiota'
+}
+
+// Comportamento de movimento de um personagem na cena (26/09/2026). Pedido
+// do Isaias: nem todo mundo anda — uns ficam parados, outros inquietos no
+// lugar, alguns patrulham devagar (com parada e olhadinha nas pontas) e um ou
+// outro dá a volta num quadrado. Ordem de decisão:
+//   1. `poi.movimento` no dado ('parado'|'inquieto'|'patrulha-h'|
+//      'patrulha-v'|'ronda') — pra fixar um personagem específico;
+//   2. "o bicho" sempre patrulha (é quem ronda o pós-muro);
+//   3. quem conversa (papo/descanso) fica no seu ponto: parado ou inquieto;
+//   4. inimigo de treta: mistura patrulha, ronda, inquieto e parado.
+// Sempre o mesmo pra cada personagem (hash do id), nunca sorteado a cada visita.
+// Metade fica no lugar (parado/inquieto), metade anda — "nem todos precisam andar".
+const MOVIMENTOS_TRETA = ['inquieto', 'patrulha-h', 'parado', 'ronda', 'inquieto', 'patrulha-v', 'parado', 'patrulha-h']
+export function movimentoDoPino(p) {
+  if (p.movimento) return p.movimento
+  if (p.ehBicho) return 'patrulha-h'
+  const h = hashEstavel(p.id)
+  if (p.tipo === 'papo' || p.tipo === 'descanso') return h % 3 === 0 ? 'inquieto' : 'parado'
+  return MOVIMENTOS_TRETA[h % MOVIMENTOS_TRETA.length]
 }
 
 // Pino do alvo (POI, porta, saída, passagem). `ehChefe`/`ehPorta`/... decidem o ícone e o rótulo.
@@ -185,31 +205,23 @@ export function PinoAlvo({ p, t, active, onColidir }) {
   // Loja fica de fora mesmo com retrato (ver `ehPersonagem` acima) — banca
   // fixa, não anda.
   const personagem = Boolean(retrato) && !p.ehChefe && p.tipo !== 'loja'
-  // Andadinha, 4ª leva (20/09/2026 — histórico completo em GanguesCena.css,
-  // logo acima da keyframe `gang-patrulha-h`): rotação removida ("parecia
-  // bêbado"), alcance subiu de ±18-33px pra 60-115px ("nem parecia
-  // deslocamento"), e por fim a timing function voltou de `steps()` pra
-  // `ease-in-out` ("ficou muito tutu... faz uma caminhada mais suave, de
-  // quem tá vigiando"). Dois movimentos em elementos SEPARADOS (senão uma
-  // `transform` sobrescreve a outra):
-  //  • `--gp-w`/`is-patrulha-h/-v` no `<span>` DE FORA: o deslocamento de
-  //    verdade (60-115px, ida e volta), contínuo.
-  //  • `.gang-world-npc-passo` no `<span>` DE DENTRO: um bounce vertical
-  //    bem sutil, também contínuo, independente da direção — só o
-  //    suficiente pra não parecer flutuando.
-  // Fase/duração/alcance/eixo variam por pino (hash do id) só pra não
-  // sincronizar todo mundo andando igual.
+  // Movimento (5ª leva, 26/09/2026 — o Isaias jogou e achou forçado todo
+  // mundo andando em vaivém contínuo): cada personagem tem UM comportamento
+  // fixo — parado, inquieto, patrulha (h/v) ou ronda. Quem decide é
+  // `movimentoDoPino` (abaixo); o CSS de cada um mora em styles/cena/mundo.css.
+  const movimento = personagem ? movimentoDoPino(p) : null
   const h = personagem ? hashEstavel(p.id) : 0
-  const patrulhaVertical = personagem && h % 2 === 0
-  const patrulhaClasse = personagem ? (patrulhaVertical ? 'is-patrulha-v' : 'is-patrulha-h') : ''
-  const patrulhaDur = 3.2 + (h % 6) * 0.4
-  const patrulhaStyle = personagem ? {
-    '--gp-w': `${60 + (h % 56)}px`,
-    '--gp-dur': `${patrulhaDur}s`,
-    animationDelay: `${-((h % 100) / 100) * patrulhaDur}s`,
+  const anda = movimento && movimento !== 'parado'
+  const dur = movimento === 'ronda' ? 22 + (h % 7) : movimento === 'inquieto' ? 9 + (h % 5) : 14 + (h % 7)
+  const movStyle = personagem ? {
+    '--gp-w': `${movimento === 'ronda' ? 50 + (h % 21) : 45 + (h % 41)}px`,
+    '--gp-dur': `${dur}s`,
+    '--gp-delay': `${-((h % 100) / 100) * dur}s`,
+    '--gp-resp': `${3.2 + (h % 5) * 0.3}s`,
   } : undefined
-  return <div className={`gang-world-npc is-${p.estado} ${farolDe(p)} ${p.ehChefe ? 'is-boss' : ''} ${p.farmCompleto ? 'is-farm' : ''} ${active ? 'is-perto' : ''} ${colidindo ? 'is-colidindo' : ''} ${p.ehPorta || p.ehSaida || p.ehVolta || p.ehPassagem ? 'is-nav' : ''} ${retrato ? 'gang-world-npc--retrato' : ''} ${patrulhaClasse}`} style={{ left: p.world.x, top: p.world.y }}>
-    <span ref={spanRef} style={patrulhaStyle}>
+  const movClasse = movimento ? `mov-${movimento}${anda ? ' mov-anda' : ''}` : ''
+  return <div className={`gang-world-npc is-${p.estado} ${farolDe(p)} ${p.ehChefe ? 'is-boss' : ''} ${p.farmCompleto ? 'is-farm' : ''} ${active ? 'is-perto' : ''} ${colidindo ? 'is-colidindo' : ''} ${p.ehPorta || p.ehSaida || p.ehVolta || p.ehPassagem ? 'is-nav' : ''} ${retrato ? 'gang-world-npc--retrato' : ''} ${movClasse}`} style={{ left: p.world.x, top: p.world.y }}>
+    <span ref={spanRef} style={movStyle}>
       <span className={personagem ? 'gang-world-npc-passo' : undefined}>
         {retrato ? <img src={retrato} alt="" onError={() => setRetratoFalhou(true)} /> : icone}
       </span>

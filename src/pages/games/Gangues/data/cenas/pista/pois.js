@@ -12,6 +12,8 @@ export const POIS_PISTA = [
   {
     id: 'sinal',
     tipo: 'papo',
+    // Pivete do farol: patrulha (vai e volta olhando o sinal) — ver movimentoDoPino.
+    movimento: 'patrulha-h',
     // Cabeça oficial do pivete do Bonde do Sinal que fica nesse ponto
     // (arte do Isaias, 14/09/2026 — "Cria do Sinal").
     npcSlug: 'cria_do_sinal',
