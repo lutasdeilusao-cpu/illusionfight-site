@@ -9,7 +9,6 @@ import GanguesVoltarBtn from '../components/GanguesVoltarBtn'
 import GangTip from '../components/GangTip'
 import '../Gangues.css' // .gang-brickwall-bg mora lá
 import './GanguesModes.css'
-import './GanguesModesRedesign.css'
 
 /* ══════════════════════════════════════════════════════════════
    SELEÇÃO DE MODO — depois que a dupla está montada.

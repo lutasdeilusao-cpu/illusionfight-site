@@ -25,7 +25,7 @@ import GanguesMultidaoActionBar from '../components/GanguesMultidaoActionBar'
 import GanguesActionOrb from '../components/GanguesActionOrb'
 import GanguesCombatSairConfirm from '../components/GanguesCombatSairConfirm'
 import { sfx } from '../../../../lib/sfx'
-import './GanguesCombatRedesign.css'
+import './GanguesCombat.css'
 
 // Orquestrador do combate — a resolução de log/FX, os modos automático e
 // Multidão, e o desfecho de batalha viraram hooks próprios; os overlays e o
@@ -257,7 +257,7 @@ export default function GanguesCombat({ onNavigate, onSairConfirmado }) {
   if (!store.match.playerTeam?.length) return null
 
   // Vinheta de PV baixo — o farol de cada quadradinho no roster
-  // (GanguesCombatRedesign.css .gang-mini-wrap--baixo/--critico) some fácil
+  // (GanguesCombat.css .gang-mini-wrap--baixo/--critico) some fácil
   // no meio da luta, coberto pelo modal de dado, ficha aberta, toast etc. O
   // Isaias pediu "sobre tudo, em tempo real" E a régua certa de farol: <=50%
   // PV já começa um aviso leve, <=25% já é o efeito pesado/vermelho de "tá

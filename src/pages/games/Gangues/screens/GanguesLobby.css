@@ -341,7 +341,7 @@
    Isaias pra tirar o ultimo resquicio do visual tecnico antigo (chanfro
    cyan, fonte mono no nome) do conteudo de ficha, reusado em TODA MOLDURA
    que existe no jogo (recrutamento aqui, popup de combate em
-   GanguesCombatRedesign.css, cena/progressao herdam de graca). Segue a
+   GanguesCombat.css, cena/progressao herdam de graca). Segue a
    mesma identidade dos fighter-card: corte irregular, fundo marrom-tijolo,
    nome/tecnica em Permanent Marker; numeros/labels de atributo continuam
    em mono de proposito (dado tecnico, nao "voz" do jogo). */
@@ -413,7 +413,7 @@
 .gang-ficha-bar--pm b { background: linear-gradient(90deg, #8b6df0, #5b3fc9); }
 .gang-ficha-bar--xp b { background: var(--if-amber); }
 /* Farol de sangue baixo — mesma régua do roster compacto de combate
-   (GanguesCombatRoster.jsx/GanguesCombatRedesign.css: ≤20% âmbar, ≤10%
+   (GanguesCombatRoster.jsx/GanguesCombat.css: ≤20% âmbar, ≤10%
    vermelho pulsando). Essa ficha aparece em lobby/cena/popup de combate/
    progressão, então o keyframe vive aqui (self-contido), não depende do
    CSS de combate estar carregado. */

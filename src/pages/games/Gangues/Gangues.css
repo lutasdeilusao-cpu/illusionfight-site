@@ -997,7 +997,7 @@
    (Isaias, 18/09/2026, print em desktop 1280px: o diálogo do Nego Véio
    aparecia espremido na quina direita, cortado): quando o GangDialog é
    filho direto de `.gang-modes` (GanguesNaming reaproveita esse layout),
-   `.gang-modes > * { position: relative; z-index: 1 }` (GanguesModesRedesign.css)
+   `.gang-modes > * { position: relative; z-index: 1 }` (fim de GanguesModes.css)
    tem a MESMA especificidade (0-1-0) e vence por vir depois na cascata —
    troca o `position` de `fixed` pra `relative` mas os `left/right:
    var(--app-gutter)` continuam lá, e pra um elemento `relative` isso
