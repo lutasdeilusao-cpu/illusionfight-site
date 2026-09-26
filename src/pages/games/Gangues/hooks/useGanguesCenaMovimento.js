@@ -10,7 +10,6 @@ export default function useGanguesCenaMovimento({ intro, encontro, fade, gateRef
   const [andou, setAndou] = useState(false)
   const inputRef = useRef({ x: 0, y: 0 })
   const keysRef = useRef(new Set())
-  const passosRef = useRef(0)
 
   useEffect(() => {
     const down = e => { if (['arrowup', 'arrowdown', 'arrowleft', 'arrowright', 'w', 'a', 's', 'd'].includes(e.key.toLowerCase())) { e.preventDefault(); keysRef.current.add(e.key.toLowerCase()) } }
@@ -32,7 +31,7 @@ export default function useGanguesCenaMovimento({ intro, encontro, fade, gateRef
         const dy = dx === 0 ? (iy > 0 ? 1 : -1) : 0
         setFacing(dx > 0 ? 'right' : dx < 0 ? 'left' : dy > 0 ? 'down' : 'up')
         setAndou(true)
-        setPlayer(p => { const np = stepPlayer(p, dx, dy, gateRef.current, collidersRef.current, worldRef.current); if (np !== p) passosRef.current++; return np })
+        setPlayer(p => stepPlayer(p, dx, dy, gateRef.current, collidersRef.current, worldRef.current))
       }
       timer = setTimeout(passo, STEP_MS)
     }
@@ -40,5 +39,5 @@ export default function useGanguesCenaMovimento({ intro, encontro, fade, gateRef
     return () => { cancelado = true; clearTimeout(timer) }
   }, [intro, encontro, fade])
 
-  return { player, setPlayer, facing, setFacing, andou, setAndou, inputRef, passosRef }
+  return { player, setPlayer, facing, setFacing, andou, setAndou, inputRef }
 }

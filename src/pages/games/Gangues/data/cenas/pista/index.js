@@ -37,7 +37,6 @@ import { RUA_PISTA, MUNDO_PISTA, QUARTEIROES_PISTA, PREDIOS_PISTA, OBSTACULOS_PI
 import { POIS_PISTA } from './pois.js'
 import { INTERIORES_PISTA } from './interiores.js'
 import { POS_PISTA, ENTRY_ZONES_PISTA } from './posicoes.js'
-import { PISTA_POOL_GALPAO } from './pools.js'
 
 export const CENA_PISTA = {
   id: 'pista',

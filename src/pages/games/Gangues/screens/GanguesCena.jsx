@@ -24,7 +24,7 @@ import { CENAS_POR_ID, portaoAberto, contarCena } from '../data/cenas/cenaHelper
 import { GANGUES_TERRITORIO_POR_ID } from '../data/ganguesTerritorios.js'
 import { getGanguesPortraitByTemplateId } from '../data/ganguesPortraits.js'
 import { getGanguesNpcPortrait } from '../data/ganguesNpcPortraits.js'
-import { getGanguesRosterLimitComHistoria, GANGUES_REP_GATE_GALPAO, GANGUES_REP_GATE_CLUBE } from '../data/ganguesLoadout.js'
+import { getGanguesRosterLimitComHistoria, GANGUES_REP_GATE_CLUBE } from '../data/ganguesLoadout.js'
 import { getGanguesLevelFromXp } from '../data/ganguesCharacters.js'
 import { getGanguesAttributesWithEquip } from '../data/ganguesEquip.js'
 import { WORLD, SPAWN, montarAmbiente, insideZone, validPosition, validPos } from '../engine/ganguesCenaMotor.js'
@@ -93,7 +93,7 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
   const worldRef = useRef(null); worldRef.current = amb?.world || WORLD
   const gateRef = useRef(null); gateRef.current = amb?.gateAtivo || null
 
-  const { player, setPlayer, facing, andou, inputRef, passosRef } = useGanguesCenaMovimento({
+  const { player, setPlayer, facing, andou, inputRef } = useGanguesCenaMovimento({
     intro, encontro, fade, gateRef, collidersRef, worldRef, initialPlayer: posInicial,
   })
 

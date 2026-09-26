@@ -76,9 +76,9 @@ export function repMarcosCruzados(antes, depois) {
 // território dominado já resolve recrutamento sozinho, então a reputação
 // virou "risco liberado" em vez de "vaga extra de elenco".
 // GANGUES_REP_GATE_EVENTO (removido 21/09/2026): existia pro antigo
-// encontro aleatório de rua (sorteio por passo, sem pino no mapa) — esse
-// sistema foi substituído pelo "bicho" (ver GanguesCena.jsx), que não usa
-// gate de reputação, só o mesmo gate de sempre (pós-muro).
+// encontro aleatório de rua (sorteio por passo, sem pino no mapa). O
+// encontro aleatório de hoje (perseguidor, engine/ganguesEncontroAleatorio.js)
+// não usa gate de reputação — vem por tempo de jogo.
 export const GANGUES_REP_GATE_GALPAO = 25
 export const GANGUES_REP_GATE_CLUBE = 40
 
