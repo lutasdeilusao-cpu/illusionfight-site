@@ -7,6 +7,7 @@ import { LOCALE_LABELS } from '../i18n/locales'
 import { TRIAL_ACTIVE } from '../config/trial'
 import { useAuth } from '../context/AuthContext'
 import SocialBar from './SocialBar'
+import ShareButton from './ShareButton/ShareButton'
 import { trackEvent } from '../lib/analytics'
 import logoMarkEn from '../assets/images/logos/logo-mark-en.png'
 import logoMarkPtEs from '../assets/images/logos/logo-mark-pt-es.png'
@@ -65,6 +66,8 @@ export default function Navbar({ hidden, onSearchOpen }) {
           >
             <span /><span /><span />
           </button>
+
+          <ShareButton />
 
           <ul className="navbar__links">
             {navLinks.map(([key, path]) => (
@@ -128,6 +131,7 @@ export default function Navbar({ hidden, onSearchOpen }) {
       <div className={`drawer-overlay${menuOpen ? ' is-open' : ''}`} onClick={() => setMenuOpen(false)} />
       <aside className={`drawer${menuOpen ? ' is-open' : ''}`}>
         <button className="drawer__close" onClick={() => setMenuOpen(false)}>&times;</button>
+        <ShareButton variante="item" onFeito={() => setMenuOpen(false)} />
         <button className="drawer__search" onClick={() => { setMenuOpen(false); onSearchOpen?.() }}>
           🔍 {t('nav.aria.search')}
         </button>

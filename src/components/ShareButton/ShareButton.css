@@ -1,0 +1,72 @@
+/* Compartilhar esta página — mesma moldura do botão de menu da navbar
+   (quadrado chanfrado, fio ciano), pra ler como parte do mesmo controle. */
+
+.share-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  flex: none;
+  border: 1px solid rgba(24, 218, 251, 0.2);
+  background: rgba(24, 218, 251, 0.035);
+  color: var(--if-ink);
+  cursor: pointer;
+  clip-path: polygon(0 0, calc(100% - 9px) 0, 100% 9px, 100% 100%, 0 100%);
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.share-btn:hover { border-color: var(--if-cyan); color: var(--if-cyan); }
+
+.share-btn__icone {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+}
+
+/* Na navbar: quadrado 40×40 ao lado do menu. */
+.share-btn--icone {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+}
+
+/* No drawer: linha inteira, no mesmo tom do botão de busca. */
+.share-btn--item {
+  width: 100%;
+  min-height: 44px;
+  margin-bottom: 1rem;
+  padding: 0 0.9rem;
+  justify-content: flex-start;
+  border-color: rgba(24, 218, 251, 0.45);
+  background: linear-gradient(90deg, rgba(24, 218, 251, 0.07), transparent);
+  font: 700 0.62rem var(--font-mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
+}
+
+/* Aviso "Link copiado!" — fixo, mas confinado à coluna do app (gutter). */
+.share-btn__aviso {
+  position: fixed;
+  left: calc(var(--app-gutter) + 16px);
+  right: calc(var(--app-gutter) + 16px);
+  bottom: 24px;
+  z-index: 1600;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid var(--if-cyan);
+  background: var(--bg-elevated);
+  color: var(--if-ink);
+  font: 700 0.66rem var(--font-mono);
+  letter-spacing: 0.1em;
+  text-align: center;
+  text-transform: uppercase;
+  word-break: break-all;
+  overscroll-behavior: none;
+  clip-path: polygon(0 0, calc(100% - var(--if-cut)) 0, 100% var(--if-cut), 100% 100%, 0 100%);
+}
+
+/* Colado ao botão de menu na navbar (os dois formam um grupo só). */
+.navbar__inner .share-btn--icone { margin-left: 6px; }

@@ -19,6 +19,7 @@ import LeitorBarra from './components/LeitorBarra'
 import LeitorPaginas from './components/LeitorPaginas'
 import LeitorFim from './components/LeitorFim'
 import AvisoAutor from './components/AvisoAutor'
+import { compartilharLink } from '../../../components/ShareButton/ShareButton'
 import GateLeitura, { cortarLista, useGateLeitura } from '../../../components/GateLeitura/GateLeitura'
 import './WebshardLeitor.css'
 
@@ -132,16 +133,9 @@ export default function WebshardLeitor({ titulo, capId }) {
     const url = `https://illusionfight.com${rotaCapitulo(titulo, cap)}`
     const texto = t('webShard.leitor.share_texto', { titulo: localizado(titulo, 'nome', locale), cap: nomeCap })
     trackEvent('webshard_compartilhar', { titulo: titulo.slug, capitulo: capId })
-    try {
-      if (navigator.share) {
-        await navigator.share({ title: nomeCap, text: texto, url })
-        return
-      }
-      await navigator.clipboard.writeText(`${texto} ${url}`)
-      setAviso(t('webShard.leitor.copiado'))
-    } catch (err) {
-      if (err?.name !== 'AbortError') setAviso(url)
-    }
+    const resultado = await compartilharLink({ title: nomeCap, text: texto, url })
+    if (resultado === 'copiado') setAviso(t('webShard.leitor.copiado'))
+    else if (resultado === 'erro') setAviso(url)
   }
 
   if (!podeLer) {
