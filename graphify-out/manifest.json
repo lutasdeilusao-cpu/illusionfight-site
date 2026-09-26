@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1790443110.1183634,
-    "ast_hash": "8b86337a3eb984d2d4afc56b132c42a6",
+    "mtime": 1790448170.8224196,
+    "ast_hash": "62a3d306adf44d2845f175f721f3cda9",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2730,8 +2730,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1790443026.84243,
-    "ast_hash": "70b89c821b4040ec0072c93c21f6a17a",
+    "mtime": 1790448170.8601077,
+    "ast_hash": "bf50d865764674924d7a1d2324cda861",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -5752,6 +5752,31 @@
   "src/assets/images/livro/capitulo-06.webp": {
     "mtime": 1790443008.7934995,
     "ast_hash": "ad7982de65a7daab203133d7ee37325c",
+    "semantic_hash": ""
+  },
+  "src/assets/images/livro/capitulo-07.webp": {
+    "mtime": 1790448154.6928718,
+    "ast_hash": "7e85225f77c421e66ba84dd59d758217",
+    "semantic_hash": ""
+  },
+  "src/assets/images/livro/capitulo-08.webp": {
+    "mtime": 1790448154.888311,
+    "ast_hash": "e15386013b650e9435f110338e130bb3",
+    "semantic_hash": ""
+  },
+  "src/assets/images/livro/capitulo-09.webp": {
+    "mtime": 1790448155.0616872,
+    "ast_hash": "32aca8c667652f8c8b4e26c844e9d15d",
+    "semantic_hash": ""
+  },
+  "src/assets/images/livro/capitulo-10.webp": {
+    "mtime": 1790448155.212999,
+    "ast_hash": "7a5173cd4e4042fc5633a242f01e6d8f",
+    "semantic_hash": ""
+  },
+  "src/assets/images/livro/capitulo-11.webp": {
+    "mtime": 1790448155.3807683,
+    "ast_hash": "5cd4cdfebb21a39a965e23bc03e93eea",
     "semantic_hash": ""
   }
 }

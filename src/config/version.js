@@ -8,7 +8,7 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.293.1' // feat(historias): capas oficiais dos capítulos 7 a 11 da linha principal (O Mundo Viu, Parte II, Três Litros, Doze Anos, A Manhã Errada)
+export const SITE_VERSION = '10.293.2' // docs(gangues): GDD revisado contra GANGUES 3.56.0 — agiota Marimbondo/empréstimo/escada de dívida/gate do chefe, descanso 10/30, o bicho, Lojinha do Zé, recompensa por risco, grana da vitória, frustração, Multidão/auto/KO, farol, ladder da Pista; itens 3–12 e 121–139 marcados como planejados
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.2' // fix: aba "stories" do rodape mostrava a chave crua pp.menu.pistas_label (nao existia) -> aponta pra pp.dossier.pistas_label; PuzzleWrapper mostrava pp.puzzle.nenhum/instrucao (nao existiam) -> pp.local.puzzle_nenhum/instrucao; confirm() de deletar save mostrava pp.menu.deletar_slot cru -> chave criada nos 3 idiomas.

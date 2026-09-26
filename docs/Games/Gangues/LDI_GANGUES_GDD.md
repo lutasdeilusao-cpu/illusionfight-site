@@ -23,6 +23,18 @@
 Grafia oficial: **Marélia** com acento (o conto usa assim). O i18n do jogo ainda
 tem "Marelia" sem acento em vários lugares — alinhar quando mexer em texto.
 
+> **Última revisão geral: 26/09/2026 — conferido contra o código de
+> GANGUES 3.56.0 (SITE 10.293.1).** Esta revisão trouxe pro GDD tudo o que
+> entrou no jogo entre a v3.30.0 (19/09) e a v3.56.0 (22/09) e que só
+> existia no código: a agiotagem refeita (agora com o agiota **Marimbondo**,
+> empréstimo em dinheiro e escada de dívida), o descanso com 2 preços,
+> **"o bicho"**, a **Lojinha do Zé**, a recompensa por risco (AP), a fórmula
+> de grana da vitória, a regra da frustração, o gate de dívida do chefe, a
+> Briga em Multidão, o modo automático e o farol dos pinos. Também marcou
+> como **planejado (não implementado)** o que o GDD descrevia como pronto
+> mas não está no código: consumíveis 3–12 e equipamentos 121–139 (incluindo
+> os 8 épicos de chefe).
+
 ---
 
 ## 0. Princípio de dados — faixas de ID
@@ -220,18 +232,31 @@ Facção: Rato de Pista (101) / Bonde do Sinal (102). O asfalto lá embaixo. Cri
 que corre no farol, arranca corrente, vende bala. **Todo mundo começa aqui** — o
 Retalho, o jogador, e (noutro bairro) o Alan.
 
-**POIs (versão final, v2.71.0 — 9 obrigatórias + chefe, breadcrumb 10/10):** A
-boca do sinal · O ferro-velho (`PuzzleSimonSays`) + O fundo do ferro-velho
-(achado — 2º pedaço de sucata) · **A oficina do Nando** (fetch quest estilo
-Zelda: junta 2× sucata → forja uma peça grátis + dica de onde o Carvão se
-esconde) · O beco da Rasteira (1º ponto) · A birosca do Seu Nato (hub) · O corre
-do Nato (stealth opcional) · O outro ponto da Rasteira (2º ponto) · **O terceiro
-ponto** (`beco_3`) · **O Sinaleiro Chefe** (1451 — 1ª luta de General,
-`liderFixo`) · **A Rasteira Velha** (1452 — 2ª luta de General, `liderFixo`) · A
-rinha do beco (farm) · Duda, o Orelha · Descanso na birosca · **A loja da Pista**
-(do outro lado do muro — só alcançável pelo túnel, depois de fechar os pontos).
-Os dois generais da Pista caem na cena antes do chefe (entram no Álbum aqui). Detalhe em
-§17.6 desta bíblia.
+**POIs (estado atual, v3.56.0 — `data/cenas/pista/pois.js`):**
+
+- **Obrigatórios pro portão** (`portao.precisa`, 8): A boca do sinal (`sinal`) ·
+  O ferro-velho (`ferro`, `PuzzleSimonSays`) · **A oficina do Nando**
+  (`oficina` — fetch quest estilo Zelda: junta 2× sucata, uma do `ferro` e
+  outra do `achado`, e o Nando forja a Soqueira de Lata, 101, grátis + conta
+  onde o Carvão se esconde) · O beco da Rasteira (`beco`) · O outro ponto da
+  Rasteira (`beco_2`) · O terceiro ponto (`beco_3`) · **O Sinaleiro Chefe**
+  (`sinaleiro`, 1451, General) · **A Rasteira Velha** (`rasteira_velha`, 1452,
+  General). Os dois generais entram no Álbum aqui, antes do chefe.
+- **Opcionais do lado de cá do muro:** o fundo do ferro-velho (`achado`) · o
+  corre do Nato (`corre`, stealth — o convite dele agora aparece DENTRO do
+  modal de Descanso, não num pino próprio) · a rinha (`rinha`, farm) · Duda, o
+  Orelha (`informante`, destrava o chefe da Feira) · Descanso na birosca
+  (`descanso`) · **a Lojinha do Zé** (`loja_pocoes`, na rua) · **o agiota
+  Marimbondo** (`agiota`, dentro da birosca).
+- **Do lado de lá do muro** (`pos_portao`, via túnel): a loja da Pista (`loja`) ·
+  o descanso do primo do Nato (`descanso_2`, dentro do barraco pm1) · os
+  guarda-costas do Carvão (`posmuro_1` e `posmuro_2`, que destrancam o galpão) ·
+  o galpão-dungeon com o Carvão no fim · **"o bicho"** (encontro que persegue).
+- **Removido em 20/09/2026:** o POI `birosca` (papo à parte), que duplicava o
+  Descanso. Estava preso em `portao.precisa` e fazia o portão nunca abrir —
+  corrigido em 21/09/2026.
+
+Ladder de força de cada ponto, lojas, descanso e agiota: §17.6.
 
 **Mapa de RPG (v2.73–2.74):** o exterior é favela desenhada em CSS (barraco /
 laje com caixa d'água / sobrado / comércio com toldo / galpão) com rua de
@@ -245,24 +270,50 @@ parado no escuro → `DESAFIAR`. Motor único (`montarAmbiente`/`ctx`) serve rua
 cômodo; comando contextual (`ENTRAR`/`SAIR`/`VOLTAR`/`AVANÇAR`/`DESAFIAR`); a
 posição salva inclui o interior. É o **template dos 7 bairros**.
 
-**Agiotagem da birosca + Clube da Luta (v2.74.14–15):** o Seu Nato **fia o
-descanso** quando falta grana. A dívida é **global** (uma caderneta pra toda
-birosca de todo bairro) e **silenciosa** — sem HUD, o jogador só topa com ela ao
-abrir o descanso. O preço do fiado **não aparece antes de aceitar**: só depois,
-no "contrato". 1º fiado = **5×** o descanso, 2º = **10×**; depois de 2 o nome
-suja e ele não fia mais. Dá pra passar só pra pagar (parcial/total) — quitou,
-nome limpa. **Trava:** tropa inteira no chão (todos PV 0) não entra em luta
-nenhuma. Quando o cara está nesse beco — 2 fiados, dívida aberta, tropa no chão,
-sem grana — o Nato oferece **o Clube da Luta** (o 3º fiado, **15×**, que já cura
-a tropa e enfia o cara na roda). O Clube é **negócio do Nato** — é assim que ele
-arruma lutadores. O jogador é **vendado**, levado sem saber pra onde, atravessa
-uma jaula de espera e cai numa luta dura de bando fixo (`gerarBandoClube`,
-budget fixo 26, pool de brigões 12xx/13xx/14xx). **Vitória = dívida zerada, só
-isso** (zero AP, zero grana). **Derrota = te remendam, a dívida cresce +15× e o
-Clube continua disponível** — nunca é game over. Store: `fiarDescanso`,
-`pagarBirosca`, `tropaNoChao`, `clubeDaLutaElegivel`, `entrarClubeDaLuta`,
-`resolverClubeDaLuta` (persistido em `storyProgress.__birosca`). Componentes:
-`GanguesClube.jsx` (sequestro + saguão), branch `clube` em `GanguesVictory`.
+**Descanso, agiota e Clube da Luta (redesenho de 21/09/2026, v3.49–3.54 —
+substitui por completo o fiado 5×/10× por contagem de antes):**
+
+- **A birosca do Seu Nato (`descanso`) é só cura, sem dívida nenhuma.** Duas
+  opções de preço: **10** recupera só quem **não caiu** (PV > 0); **30** (3×)
+  recupera **todo mundo, revivendo os caídos**, com animação mais longa.
+  Store: `descansarTropa(custo, incluirCaidos)` / `descansoInfo()`.
+- **A agiotagem mudou de dono:** é o **agiota Marimbondo** (`agiota`), NPC
+  novo, parado dentro do cômodo da birosca (retrato emprestado da ficha 1206,
+  "Fiado Vencido"). Escada de dívida, sem contador de fiados:
+  1. **Sem dívida:** pega um **empréstimo em dinheiro** de **100**, e já fica
+     devendo **10×** (**1.000**).
+  2. **Já devendo:** cada **cura fiada DOBRA** a dívida atual.
+  3. **No teto (dívida × 2 passaria de 10.000):** o agiota não cobra mais —
+     **remenda de graça e te joga direto no Clube da Luta** ("socorro"), sem
+     tela de aceitar ou recusar.
+  - A dívida é **global** (uma caderneta pra todas as biroscas de todos os
+    bairros) e **silenciosa** (sem HUD). Dá pra pagar parcial ou total a
+    qualquer momento (`pagarBirosca`).
+  - Constantes: `GANGUES_EMPRESTIMO_NATO_VALOR/MULT/TETO` = 100 / 10 / 10.000
+    (`data/ganguesLoadout.js`; o nome "NATO" ficou por legado, o texto na tela
+    já fala do agiota).
+- **Gate do chefe:** com qualquer dívida em aberto, **o Carvão não aceita a
+  luta** (aviso `aviso_divida_chefe`). O resto da Pista (farm, pós-muro)
+  continua livre, pra não virar soft-lock. O jeito "certo" de quitar é o Clube.
+- **O Clube da Luta** é um **gauntlet de 3 rondas** (`gerarBandoClube`,
+  orçamento FIXO que não escala com o jogador: ronda 1 = 1 corpo com 7 pontos,
+  ronda 2 = 2 corpos dividindo 15, ronda 3 = 3 casca-grossa dividindo 26; pool
+  `GANGUES_CLUBE_POOL` = 1211/1212/1213/1219/1311/1312/1411/1412). O jogador
+  entra **vendado** (saco na cabeça → holofote → rugido da plateia).
+  - **Entrada:** soma **15× o preço do descanso** à dívida e cura a tropa.
+    Quem entra **por vontade própria, sem dívida**, precisa de **Rep 40**
+    (`GANGUES_REP_GATE_CLUBE`); quem já deve entra sem gate.
+  - **Entre rondas** (`GanguesClubeSala`): encarar machucado, **deixar o
+    agiota ajeitar** (cura tudo e **dobra a dívida**) ou **cair fora** (te
+    remendam, a dívida fica).
+  - **Vitória na ronda 3:** quita **toda** a dívida. Se entrou limpo e não
+    pediu nenhum ajeite, leva ainda **+200 de grana**. Nunca dá XP.
+  - **Derrota:** te remendam, a dívida **não cresce mais**, fica o que
+    acumulou. Nunca é game over.
+- **Trava:** tropa inteira no chão (todos PV 0) não entra em luta nenhuma.
+- Store: `ganguesBiroscaSlice.js` (persistido em `storyProgress.__birosca =
+  { divida }`). Telas: `GanguesAgiota.jsx`, `GanguesDescanso.jsx`,
+  `GanguesClube*.jsx`.
 
 **O túnel por baixo do muro (v2.74.4):** o portão/muro no fim da rua **não abre
 mais sozinho**. Fechados todos os `portao.precisa`, destranca a **boca do túnel**
@@ -271,6 +322,18 @@ Sinal (`tunel_m1/m2/m3`), passagem trancada até vencer cada um, e um achado
 ("Buraco na parede"). Você sai no `tunel_sai` ("Barraco do outro lado"), já do
 lado de lá do muro, onde ficam a loja e o galpão. Túnel bidirecional. O muro
 físico só abre com `prog.boss` (chefe derrotado), aí vira atalho.
+
+**"O bicho" — encontro que persegue (v3.47.0, 21/09/2026):** substitui por
+completo o antigo encontro aleatório de rua (sorteio cego a cada passo, sem
+pino). Só existe **do lado de lá do muro**. É uma cabecinha **amarela** (sai de
+graça do farol: `opcional:true`) que anda pelo mapa como os outros personagens.
+**Encostou nela, entra na luta direto, sem escolha.** Depois de cada luta ela
+reaparece **mais perto** de você (começa a 260 de distância, fecha 55 por luta,
+nunca menos que 90 — `GANGUES_BICHO_DIST_*` em `ganguesCenaMotor.js`), mas
+nunca em cima. **A força NÃO sobe com a proximidade**, só a posição muda: usa
+o pool dos guarda-costas do Carvão (`cena.bichoPool`) com a mesma régua da
+rinha, **escalada pelo personagem mais forte da gangue** (`baseMaisForte`).
+O jogador decide se foge ou encara. Estado em `cenaProgresso[cenaId].bicho`.
 
 **Balanço (v3.30.0, 19/09/2026 — substitui o ratio de v2.68.0):** todo bando do
 jogo (rua, revezamento, chefe, evento) agora parte de um número de pontos FIXO
@@ -1044,10 +1107,14 @@ POI, alimenta o % de domínio e o texto do final). Estado em `store.grana` /
 
 ### 9.3 Consumíveis (faixa 1–99)
 
+> **Estado real (26/09/2026, `data/ganguesItens.js`):** só existem no jogo os
+> ids **1, 2, 13, 20, 21 e 22**. Os ids **3 a 12** abaixo são **design
+> aprovado, ainda não implementado** — não estão no catálogo nem na loja.
+
 | id | Nome | tipo | efeito | custo | ícone |
 |---|---|---|---|---|---|
-| 1 | Poção de HP | `cura_pv` | +5 PV | 5 💵 | 🩹 |
-| 2 | Poção de MP | `cura_pm` | +5 PM | 5 💵 | 💧 |
+| 1 | Poção de HP | `cura_pv` | +5 PV | 14 💵 (28 na Lojinha do Zé) | 🩹 |
+| 2 | Poção de MP | `cura_pm` | +5 PM | 14 💵 (28 na Lojinha do Zé) | 💧 |
 | 3 | Cigarro de Palha | `cura_pm` leve | +3 PM, −1 D por 1 turno | 3 💵 | 🚬 |
 | 4 | Water Energético | `cura_pm` | +8 PM | 8 💵 | 🥤 |
 | 5 | Faixa de Pano | `cura_pv` fraca | +3 PV — só drop | — | 🩹 |
@@ -1059,6 +1126,16 @@ POI, alimenta o % de domínio e o texto do final). Estado em `store.grana` /
 | 11 | Vela Benta | `buff_defesa` | +2 D por 2 turnos | 7 💵 | 🕯️ |
 | 12 | Sacola de Bala | `cura_pv` mini | +2 PV (flavor: o que o Kim vende) | 2 💵 | 🍬 |
 | 13 | Sucata | `material` | sem efeito em combate — item de quest. Cai no ferro-velho da Pista (POI `ferro` + `achado`); o Seu Nando troca 2× por uma peça (POI `oficina`). | — | 🔩 |
+| 20 | Chip do Bruto | `poder_unico` | por 1 golpe, usa o poder *Soco de Ferro* (nível 2) | não vende | 👊 |
+| 21 | Chip da Muralha | `poder_unico` | por 1 golpe, usa o poder *Postura Defensiva* (nível 2) | não vende | 🛡️ |
+| 22 | Chip Ígneo | `poder_unico` | por 1 golpe, usa o poder *Bola de Fogo* (nível 2) | não vende | 🔥 |
+
+**Chips de poder (20–22):** emprestam por um golpe um poder que o personagem
+talvez nem tenha treinado (`forcedSpecial` em `ganguesSpecialEffects.js`).
+Nunca são vendidos. Vêm de dois lugares: **marcos de reputação** (a cada
+**50 de Rep** acumulada, sem teto, a gangue ganha 1 chip, ciclando 20 → 21 →
+22, com tela de recompensa — `repMarcosCruzados` em `ganguesLoadout.js`) e
+**drop de conteúdo arriscado** (ex.: `posmuro_2` e `galpao_m2` dão o chip 21).
 
 ### 9.4 Equipamento — 6 slots por personagem
 
@@ -1070,28 +1147,34 @@ máximo, **não passa por R**). Raridades: `comum` · `incomum` · `raro` · `ep
 cartas vêm do sistema de drop (faixa 10000+, futuro). **Tirar carta encaixada
 DESTRÓI a carta. Desequipar o item inteiro não.**
 
+> **Estado real (26/09/2026, `data/ganguesEquip.js`):** o catálogo do jogo
+> vai do **101 ao 120**. Os ids **121–131** abaixo e os épicos **132–139**
+> (§9.5) são **design aprovado, ainda não implementado**. Preços abaixo =
+> os do código (a coluna "—" = sem preço, não vendido em loja).
+
 | id | Nome | slot | raridade | bônus | cartas | custo |
 |---|---|---|---|---|---|---|
-| 101 | Soqueira de Lata | arma | comum | +1 A | 0 | 16 💵 |
-| 102 | Faca Serrilhada | arma | incomum | +2 A | 1 | — |
+| 101 | Soqueira de Lata | arma | comum | +1 A | 0 | 28 💵 |
+| 102 | Faca Serrilhada | arma | incomum | +2 A | 1 | 58 💵 |
 | 103 | Cano de Ferro | arma | raro | +2 A, +1 H | 2 | — |
-| 104 | Gorro de Moletom | cabeça | comum | +1 D | 0 | 12 💵 |
-| 105 | Capacete de Obra | cabeça | incomum | +2 D | 1 | — |
+| 104 | Gorro de Moletom | cabeça | comum | +1 D | 0 | 22 💵 |
+| 105 | Capacete de Obra | cabeça | incomum | +2 D | 1 | 44 💵 |
 | 106 | Coroa de Lata | cabeça | raro | +1 A, +1 D | 2 | — |
-| 107 | Colete Reforçado | corpo | comum | +6 PV | 0 | 20 💵 |
-| 108 | Colete Leve | corpo | comum | +6 PM | 0 | 20 💵 |
-| 109 | Colete de Placa | corpo | incomum | +12 PV | 1 | — |
+| 107 | Colete Reforçado | corpo | comum | +6 PV | 0 | 36 💵 |
+| 108 | Colete Leve | corpo | comum | +6 PM | 0 | 36 💵 |
+| 109 | Colete de Placa | corpo | incomum | +12 PV | 1 | 80 💵 |
 | 110 | Manto com Capuz | corpo | incomum | +12 PM | 1 | — |
 | 111 | Armadura de Rua | corpo | raro | +18 PV | 2 | — |
-| 112 | Luva de Couro | braços | comum | +1 D | 0 | 12 💵 |
-| 113 | Manopla de Porca | braços | incomum | +2 A | 1 | — |
+| 112 | Luva de Couro | braços | comum | +1 D | 0 | 22 💵 |
+| 113 | Manopla de Porca | braços | incomum | +2 A | 1 | 48 💵 |
 | 114 | Braçadeira de Cravo | braços | raro | +1 A, +1 D | 2 | — |
-| 115 | Tênis Furado | pés | comum | +1 H | 0 | 12 💵 |
-| 116 | Coturno | pés | incomum | +1 H, +1 D | 1 | — |
+| 115 | Tênis Furado | pés | comum | +1 H | 0 | 22 💵 |
+| 116 | Coturno | pés | incomum | +1 H, +1 D | 1 | 44 💵 |
 | 117 | Bota com Biqueira | pés | raro | +2 H | 2 | — |
-| 118 | Corrente de Lata | amuleto | comum | +1 H | 1 | 16 💵 |
+| 118 | Corrente de Lata | amuleto | comum | +1 H | 1 | 28 💵 |
 | 119 | Dente de Ouro | amuleto | incomum | +1 A | 1 | — |
 | 120 | Medalha de Santa | amuleto | raro | +1 D, +1 H | 2 | — |
+| *121–131* | *(planejados — abaixo)* | | | | | |
 | 121 | Boné Vira-Lata | cabeça | comum | +1 H | 0 | 12 💵 |
 | 122 | Balaclava de Pano | cabeça | incomum | +1 D, +1 H | 1 | — |
 | 123 | Jaqueta de Bonde | corpo | comum | +6 PV | 0 | 20 💵 |
@@ -1106,7 +1189,8 @@ DESTRÓI a carta. Desequipar o item inteiro não.**
 
 ### 9.5 Épicos — drop de chefe (faixa 132+)
 
-Um por chefe. Sempre 2 slots de carta.
+Um por chefe. Sempre 2 slots de carta. **Planejado — nenhum épico existe no
+código ainda** (o Carvão hoje não dropa o Facão do Carvão).
 
 | id | Nome | slot | bônus | fonte |
 |---|---|---|---|---|
@@ -1121,8 +1205,18 @@ Um por chefe. Sempre 2 slots de carta.
 
 ### 9.6 Loja
 POI de tipo `loja`; catálogo por região (`poi.itens`, mistura consumível e
-equipamento). Hoje só a Pista tem: `1, 2, 104, 107, 108, 112, 115, 118, 101`.
-Cada região ganha catálogo próprio.
+equipamento; `poi.precoMultiplicador` opcional). Cada região ganha catálogo
+próprio. Hoje a Pista tem duas:
+
+- **A loja da Pista** (`loja`, do lado de lá do muro, só aparece depois do
+  portão): `1, 2, 101, 102, 104, 105, 107, 108, 109, 112, 113, 115, 116, 118` —
+  as poções, 1 comum por slot e os incomuns.
+- **A Lojinha do Zé** (`loja_pocoes`, na rua, desde o começo — v3.48–3.56):
+  só **poção de HP e MP, pelo dobro do preço** (`precoMultiplicador: 2`), "na
+  cara de pau". Existe porque, com a recompensa por risco, quem quer arriscar
+  luta mais forte precisa ir municiado. O dono é o Zé do Bar do Zé (retrato
+  emprestado da ficha 1205). Chegou a se chamar "Balcão do Aperto" e a ficar
+  dentro da birosca; voltou pra rua porque não tem nada a ver com a agiotagem.
 
 ---
 
@@ -1211,8 +1305,12 @@ Reserva: cada faixa comporta crescer até ~99 sem remapear.
   FIXO** (`GANGUES_CHEFE_BUDGET`, não escala com o jogador) — como o
   crescimento autorado é +1 ponto por nível, 1 ficha nível N = N pontos; o
   budget de cada chefe ≈ 1.15×→1.18× o total do time no nível-alvo
-  (`{pista:44, feira:110, baixada:210, vila:345, morro:510, alto:606,
-  laje:732}`). AP por inimigo é **10 fixo em qualquer modo** (chegou a subir
+  (`{pista:50, feira:110, baixada:210, vila:345, morro:510, alto:606,
+  laje:732}`). **Pista, rev. 15/09/2026:** budget 50, com 2 corpos
+  (`GANGUES_CHEFE_CORPOS.pista`) e o líder levando 60% (`GANGUES_CHEFE_LIDER_FRAC`)
+  → **Carvão com ficha 30** + 1 escolta com 20; `chefe.nivelRec` = 30. Os
+  outros 6 budgets ainda são os da calibragem antiga, esperando cada bairro
+  ganhar cena. AP por inimigo é **10 fixo em qualquer modo** (chegou a subir
   pra 30 no modo história pra acompanhar o ritmo dos ~15 eventos de cada
   bairro, mas o Isaias reverteu em set/2026 — rendia AP demais numa luta só,
   2 inimigos já davam 60 AP). Os chefes carregam `nivel` de fachada.
@@ -1231,16 +1329,20 @@ Reserva: cada faixa comporta crescer até ~99 sem remapear.
   (folgado → brabo). Cada andar sobe a dificuldade e o AP (+100% a cada 5
   andares). É o grind de L50 → 99. Recorde de andar por bairro em
   `storyProgress.__torre`.
-- **Multiplayer online libera com 1 ficha no nível 99** (estilo carta de mestre).
-  `ganguesTemMultiplayer(roster)`. O online em si é fase futura — por ora só
+- **Multiplayer online libera com 3 fichas no nível 99** (era 1 até a v3.31.0 —
+  `GANGUES_MULTIPLAYER_MIN_FICHAS = 3`, `GANGUES_MULTIPLAYER_LEVEL = 99`,
+  `ganguesTemMultiplayer(roster)`). O online em si é fase futura — por ora só
   destrava o card em `GanguesModes`.
+- **Cards bloqueados da tela de Modos são clicáveis** (v3.31–3.32): em vez de
+  "EM BREVE", tocar num modo trancado abre um diálogo em tela cheia do Nego
+  Véio explicando o que falta pra liberar.
 - **A Coleção** (3º botão da HUD da cena + lobby): abas Inimigos (o Álbum),
   Itens (consumível + equipamento, descoberto via `storyProgress.__itens`) e
   Cartas (placeholder — sockets, faixa 10000+).
 
 ---
 
-## 12. Índice de fontes
+## 12.1 Índice de fontes
 
 | Assunto | Arquivo |
 |---|---|
@@ -1254,6 +1356,13 @@ Reserva: cada faixa comporta crescer até ~99 sem remapear.
 | Loja / painel de equipamento | `src/pages/games/Gangues/components/cena/GanguesLoja.jsx`, `components/GanguesEquipPanel.jsx` |
 | Inventário + economia (store) | `src/pages/games/Gangues/store/useGanguesStore.js` + `store/slices/` |
 | Textos de história / itens (i18n) | `src/i18n/gangues-{pt,en,es}.json` → `games.gangues.{story,cena,dialogo,naming,itens,equip,loja,bag}` |
+| Dificuldade (±2), degrau da ladder, frustração, nível real | `src/pages/games/Gangues/data/ganguesDificuldade.js` |
+| AP por risco, divisão do AP, grana da vitória | `src/pages/games/Gangues/engine/ganguesVictoryResolver.js` |
+| Descanso, agiota, Clube da Luta (store) | `src/pages/games/Gangues/store/slices/ganguesBiroscaSlice.js` |
+| Gates de Rep, marcos de Rep, empréstimo, multiplayer | `src/pages/games/Gangues/data/ganguesLoadout.js` |
+| Motor da cena (colisão, câmera, "o bicho") | `src/pages/games/Gangues/engine/ganguesCenaMotor.js` |
+| Briga em Multidão / modo automático | `engine/ganguesBrigaMultidao.js`, `hooks/useGanguesModoMultidao.js`, `hooks/useGanguesModoAuto.js` |
+| Todo texto falado na Pista (pt/en/es, em ordem de fluxo) | `docs/Games/Gangues/PISTA_COMUNICACAO.md` |
 | **Mecânica** (combate, progressão, skill tree, modo história) | Seção 17 desta bíblia |
 
 ---
@@ -1320,7 +1429,7 @@ Rango, Gororoba, Xepa *(comida de baixa qualidade)*.
 
 **Onde já foi aplicado:** `src/i18n/gangues-{pt,en,es}.json` →
 `games.gangues.{vitoria, vitoria_sub, report.enemy_thinking, report.enemy_gang,
-attr_labels, btn_fugir}`. Ver também [[gangues-lore-biblia-mundo]].
+attr_labels, btn_fugir}`. Ver também a §13 (vocabulário).
 
 ## 14. Auditoria de comunicação (set/2026) — i18n morto removido
 
@@ -1634,8 +1743,22 @@ antigos.
   dos 30 personagens pré-autorados do catálogo (`ldi_gangues_30_personagens_v1.json`),
   cada um já vem com `base_stats`/`base_resources` fixos do nível 1. Os
   outros 28 liberam por reputação/campanha/evento — ver `getGanguesAvailableCharacterIds`.
-  Nome/rótulo dos atributos: `attr_labels` no i18n (Osso/Gás em pt, Grit/Gas
-  em en, Aguante/Pila em es).
+  Nome/rótulo dos atributos na tela (`attr_labels` no i18n — gíria de rua,
+  renomeada em 13/09/2026, adaptação livre por idioma, nunca tradução literal):
+
+  | Código | PT | EN | ES |
+  |---|---|---|---|
+  | A | **Porrada** | Wallop | Trompada |
+  | H | **Malícia** | Slick | Malicia |
+  | D | **Couro** | Hide | Cuero |
+  | PV | **Osso** | Grit | Aguante |
+  | PM | **Gás** | Gas | Pila |
+  | poderes | **Talento(s)** | Talent(s) | Talento(s) |
+
+  Só o NOME DO ATRIBUTO mudou: a ação de atacar continua "ataque" no texto, e
+  os identificadores de código (`A/H/D`, `onUsarPoder`, `orb.poder`) ficaram
+  como estavam. `F`, `R` e `PdF` ainda aparecem no `attr_labels`, mas são de um
+  sistema abandonado — lixo a remover.
 - **Nível teto: 99** (`GANGUES_LEVEL_CAP`). Níveis 1–10 são estatísticas
   autoradas à mão; 11–99 crescem +1 ponto por nível seguindo o
   `growth_order` de cada ficha (fiel à identidade dela — um Bruto termina
@@ -1673,6 +1796,43 @@ DANO = max(0, FA − FD)   // SEM piso de dano — defesa bem investida pode zer
   hoje só stub. Não foi corrigido nesta auditoria (o pedido era consolidar
   documentação, não mexer em mecânica) — fica registrado aqui como bug real
   a decidir: religar o bônus, ou tirar de vez o texto/UI que promete ele.
+  **Continua assim em 26/09/2026 (v3.56.0).**
+
+### 17.2.1 Como o jogador age, e os modos de combate
+
+- **A bolinha de ação** (`GanguesActionOrb`): no turno do personagem, o
+  jogador escolhe **ATACAR** (ataque normal), **TALENTO** (um dos 2 poderes
+  equipados, gasta PM ou PV) ou **ITEM** (consumível da gangue). A bolinha usa
+  `onPointerDown/Up`, não `onClick` (importa pra teste automatizado).
+- **O dado dramático** (`DramaticDice`): todo ataque pausa o combate numa tela
+  cheia que rola o dado, mostra atacante e alvo e o resultado. É o "momento" do
+  golpe — as animações de sprite de ataque (§15.2) tocam aqui, não no log.
+  Desde a v3.37.0 ele **destaca quando um poder passivo do defensor entra em
+  ação** na conta.
+- **KO:** personagem com PV 0 cai e para de agir até o fim da luta. **PV e PM
+  perdidos persistem entre lutas dentro do bairro** (só voltam no descanso,
+  saindo ou dominando). Tropa inteira caída não entra em luta nenhuma.
+- **Briga em Multidão** (`engine/ganguesBrigaMultidao.js`,
+  `hooks/useGanguesModoMultidao.js`): um interruptor que resolve **a rodada
+  inteira de uma vez** a cada toque (todo mundo age), em vez de turno a turno.
+  - É oferecido quando a luta tem **5 ou mais combatentes no total**
+    (jogador + inimigos). O botão pisca na 1ª vez, com tutorial próprio.
+  - **Liga e desliga a qualquer momento** (desde 13/09/2026): os dois motores
+    sincronizam o estado vivo da luta (`syncFrom` /
+    `iniciarBrigaMultidaoDeCombatentes`). Só trava durante a animação de uma
+    rodada ou depois do fim da luta.
+  - Tem automático próprio (`useGanguesModoAutoMultidao`), que foca o
+    inimigo mais perto de cair.
+- **Modo automático** (`hooks/useGanguesModoAuto.js`): a luta anda sozinha,
+  **só com ataque normal**. É **vantagem de assinante** (`TIERS_COM_MODO_AUTO`
+  = elite e primordial), mas o botão **aparece pra todo mundo** de propósito,
+  como chamariz de assinatura. Um botão "sair do automático" fica logo abaixo
+  do roster do jogador (posição medida, pra nunca tampar a barra de PV).
+- **"Mete o pé"** (fugir da luta) volta pra tela de **Modos**, não pro lobby
+  (v3.38.0).
+- **Voltar nunca repete recompensa:** as fases de combate e vitória ficam fora
+  da pilha de histórico (`GANGUES_FASES_TRANSITORIAS`) — corrigiu um exploit
+  real de XP duplicado apertando Voltar (v3.34.0).
 
 ### 17.3 Poderes / especiais (skill tree)
 
@@ -1694,10 +1854,43 @@ DANO = max(0, FA − FD)   // SEM piso de dano — defesa bem investida pode zer
 
 ### 17.4 Progressão (AP, XP, nível)
 
-- **AP por inimigo = 10, fixo em qualquer modo** (história ou Torre) —
-  chegou a subir pra 30 no modo história (dez/2026) mas foi revertido
-  (set/2026, pedido do Isaias: "2 inimigos já davam 60 AP numa luta só").
-  Chefe vale 5×; Torre escala +100% a cada 5 andares.
+- **AP base por inimigo = 10** (história ou Torre) — chegou a subir pra 30 no
+  modo história (dez/2026) mas foi revertido (set/2026, pedido do Isaias: "2
+  inimigos já davam 60 AP numa luta só"). Chefe vale 5×; Torre escala +100% a
+  cada 5 andares. Derrota rende sempre 1 AP simbólico.
+- **Recompensa por risco** (v3.36.0, recalibrada na v3.41.0 —
+  `apPorInimigo` em `engine/ganguesVictoryResolver.js`). Cada inimigo rende AP
+  pela diferença entre a ficha DELE e a do **personagem mais forte da
+  gangue** (total bruto A+H+D+PV+PM, não o time inteiro). Motivo, nas
+  palavras do Isaias: "subir não dá mais experiência do que ficar embaixo em
+  frente a cara fraco".
+
+  | Ficha do inimigo vs. a do mais forte da gangue | AP por inimigo |
+  |---|---|
+  | mais de 5 pontos acima | **40** (quádruplo) |
+  | 1 a 5 pontos acima | **30** (triplo) |
+  | igual até 2 pontos abaixo | **10** (cheio) |
+  | mais de 2 pontos abaixo | 10 − (pontos além dos 2) × (tamanho da gangue), **piso 5** |
+
+  O piso de 5 é fixo (não por cabeça) — o Isaias pediu "pelo menos 5 pontos"
+  porque o farm de sobrevivência não rendia quase nada. O card de treta mostra
+  um aviso de risco comparando **nível real** (`nivelRealDePontos` em
+  `ganguesDificuldade.js`: nível 1 nasce com ~7 pontos), nunca pontos crus.
+- **Divisão do AP entre a gangue** (`calcularPesosEParticipantes`): peso por
+  faixa de contribuição (abates pesam mais que dano) — quem mais contribuiu
+  pesa 3, a 2ª faixa pesa 2, o resto 1; empatados ficam na mesma faixa. Na
+  derrota todo mundo pesa igual.
+- **Grana da vitória** (v3.39.0, `calcularGranaTotal`): **10 por inimigo
+  derrotado**; chefe garante **no mínimo 500**. Substituiu a grana autorada
+  por POI — a Rep continua autorada por POI.
+- **Marcos de reputação:** a cada 50 de Rep acumulada, a gangue ganha um chip
+  de poder (§9.3).
+- **Regra da frustração** (v3.30.1–3.30.2): **2 derrotas seguidas** na
+  história (`storyProgress.__derrotasSeguidas`,
+  `GANGUES_FRUSTRACAO_LIMIAR = 2`) fazem a próxima treta comum vir com **um
+  inimigo só, um degrau (3 pontos) abaixo** do normal (`suavizarPorFrustracao`).
+  Não é "metade da ficha" — o Isaias corrigiu: "aí é fácil demais e fica
+  roubado, melhor um nível anterior". Zera em qualquer vitória.
 - **Custo de AP por nível**: `ganguesApCostForLevel(nível) = 5 × (nível + 1)`
   — nível 1 custa 10 AP, nível 2 custa 15, sobe 5 a cada nível
   (`data/ganguesLoadout.js`). 10 AP = 1 XP; 1 XP = 1 nível
@@ -1722,7 +1915,8 @@ DANO = max(0, FA − FD)   // SEM piso de dano — defesa bem investida pode zer
     Trinca NV96-99 zerado), o que quebrava a sensação de progressão. Não
     reintroduzir sem pedido explícito e teste real em jogo.
 - **1ª luta de toda conta nova é suavizada** (1 corpo só, metade dos
-  pontos) — ver §13/§14 desta bíblia.
+  pontos) — `suavizarPrimeiraLuta` em `data/ganguesEncontros.js`. É global
+  por conta, não por território.
 
 ### 17.5 Tamanho de gangue e elenco
 
@@ -1753,9 +1947,26 @@ v3.30.0 os dois formatos usam o MESMO sistema de pontos fixos.
 - **Economia**: Grana (gasta em descanso/loja) e Rep/Nome (destranca POI,
   alimenta % de domínio). PV/PM perdido persiste dentro do bairro; só volta
   ao cheio saindo ou dominando.
-- **Agiotagem da birosca**: o Nato fia o descanso (dívida que dobra se
-  "remendado" de novo), e o **Clube da Luta** é um gauntlet de 3 rondas
-  sempre oferecido como saída da dívida — ver [[gangues-agiotagem-birosca-clube-luta]].
+- **Descanso, agiota e Clube da Luta**: regras completas na §4 (Pista). Em
+  resumo: a birosca só cura (10 pra quem está de pé, 30 pra reviver todo
+  mundo); a dívida é com o agiota Marimbondo (empréstimo de 100 que vira
+  1.000, cada cura fiada dobra, teto 10.000 → Clube forçado); com dívida em
+  aberto o chefe não aceita a luta.
+- **Farol dos pinos** (13/09/2026, `farolDe` em `GanguesCenaAtores.jsx`):
+  **vermelho** = obrigatório e ainda não feito; **amarelo** = opcional;
+  **verde** = já feito (treta repetível vencida uma vez também fica verde — o
+  selo giratório ↻ é que avisa que dá pra repetir). Fora do farol de
+  propósito: navegação (porta, saída, passagem) e o chefe (identidade própria
+  vermelho-escuro com ★). Um NPC com missão pendente (ex.: a oferta do corre
+  no Descanso) também fica verde, como "tem missão aqui".
+- **O mapa não é estático** (v3.42–3.46): os personagens dos pinos fazem uma
+  "andadinha" contínua e patrulham em volta do lugar deles (inclusive no eixo
+  vertical), e **congelam quando o jogador encosta**, pra dar pra interagir.
+  O agiota fica parado de propósito.
+- **Gates de reputação** (`data/ganguesLoadout.js`): Rep **25** pra encarar o
+  galpão do Carvão / Cão Louco (`GANGUES_REP_GATE_GALPAO`) e Rep **40** pra
+  entrar no Clube da Luta por vontade própria (`GANGUES_REP_GATE_CLUBE`).
+  Reputação virou "risco liberado", não vaga de elenco.
 - **Bando inimigo é NÍVEL FIXO** (v3.30.0, 19/09/2026 — substitui o ratio
   contra o time do jogador que existia até aqui): cada nó/POI tem um
   `pontosFixo` autorado (ladder subindo em degraus — ver `pontosFixo` nos
@@ -1766,6 +1977,32 @@ v3.30.0 os dois formatos usam o MESMO sistema de pontos fixos.
   orçamento **fixo** próprio (`GANGUES_CHEFE_BUDGET`), sempre acima dos 3
   pontos comuns do território — o loop de RPG é o jogador voltar mais
   forte, não o chefe ficar mais fraco.
+- **Ladder da Pista hoje** (ficha em pontos por corpo; "rev" = revezamento:
+  quase sempre 1 inimigo, às vezes dupla, e o 2º corpo sai 2–3 pontos
+  abaixo). Regra do Isaias (15/09/2026): **a 1ª luta é muito fácil de
+  propósito (3); da 2ª em diante sobe de 3 em 3, sem exceção; o chefe quebra
+  o padrão pra ser ralado.**
+
+  | Ponto | Ficha | Forma | Obrigatório |
+  |---|---|---|---|
+  | `sinal` (apertar o pivete) | 3 | rev, dupla 15% | sim |
+  | `rinha` (farm) | ~ficha do seu mais forte (mín. 3) | rev, `baseMaisForte` | não |
+  | `ferro` (falhar a gazua) | 8 | rev, dupla 10% | sim (a gazua) |
+  | `beco` | 8 | rev, dupla 40% | sim |
+  | `beco_2` | 11 | rev, dupla 40% | sim |
+  | `beco_3` | 14 | rev, dupla 40% | sim |
+  | `sinaleiro` (1451) | 17 | sempre sozinho (`fixo`) | sim |
+  | `rasteira_velha` (1452) | 20 | sempre sozinha (`fixo`) | sim |
+  | túnel `m1` / `m2` / `m3` | 4 / 6 / 5 | rev, pool fraco | sim (passagem) |
+  | `posmuro_1` | 23 | rev, dupla 50% | sim (galpão) |
+  | `posmuro_2` (Cão Louco) | 26 | rev, dupla 60%, Rep 25 | sim (galpão) |
+  | galpão `m1` | 6 por corpo + 40% do time, 3–5 corpos | rev, bando | passagem |
+| galpão `m2` (1301) | 22 divididos em 3–5 corpos, Rep 25 | bando fixo | passagem |
+  | "o bicho" (pós-muro) | ~ficha do seu mais forte | rev, `baseMaisForte` | não |
+  | **Carvão** (chefe) | **30** + escolta 20 | chefe fixo | — |
+
+  A dificuldade soma ou tira 2 de cada número (fácil −2, médio 0,
+  difícil +2).
 
 ### 17.7 Persistência
 
@@ -1774,9 +2011,8 @@ v3.30.0 os dois formatos usam o MESMO sistema de pontos fixos.
   ambos com debounce de escrita, sem depender de `localStorage` pra dado
   de jogo.
 - Guest: tudo em memória, perde ao recarregar — banner avisa.
-- **Logout limpa o store do Gangues de verdade** (`AuthContext.jsx`, ver
-  memória [[gangues-supabase-acesso-manutencao]] e a correção desta sessão
-  no `onAuthStateChange`) — sem isso, o próximo guest/login na mesma aba
+- **Logout limpa o store do Gangues de verdade** (`AuthContext.jsx`, no
+  `onAuthStateChange`) — sem isso, o próximo guest/login na mesma aba
   herdava `_userId` órfão.
 
 ### 17.8 Estrutura de arquivos (atual, pós-reorganização de set/2026)
