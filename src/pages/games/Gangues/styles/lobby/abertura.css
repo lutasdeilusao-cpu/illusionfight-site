@@ -1,0 +1,118 @@
+/* LDI Gangues — Lobby — primeiro contato (convocação de rua), CTA spray-paint.
+   Fatiado de GanguesLobby.css (refatoração de CSS, set/2026). A ORDEM de carga é a
+   do índice GanguesLobby.css — não importar este arquivo sozinho. */
+
+.gang-page.gang-page--lobby {
+  display: block;
+  height: auto;
+  min-height: 100dvh;
+  overflow-x: clip;
+  overflow-y: visible;
+  overscroll-behavior-y: auto;
+  touch-action: auto;
+}
+
+.gang-lobby-rename {
+  margin: 6px auto 0;
+  padding: 3px 10px;
+  border: 1px solid color-mix(in srgb, var(--if-amber) 30%, transparent);
+  background: rgba(12, 6, 3, .5);
+  color: var(--text-secondary);
+  font: 700 .6rem var(--font-mono);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.gang-lobby-rename:hover { color: var(--if-amber); border-color: var(--if-amber); }
+
+/* Primeiro contato: convocação de rua, não formulário de criação.
+   Reconstruído (pedido do Isaias, 14/09/2026: "seguir a identidade das
+   telas anteriores") — parede de tijolo oficial + cartaz rasgado/fita
+   nos cantos (mesma técnica de GanguesNaming.css) + logo oficial por
+   idioma no lugar do carimbo de texto. */
+/* Zera o visual antigo (border/background/box-shadow ciano) que ainda
+   vem de `.gang-onboarding-panel` genérico em Gangues.css (usado por
+   outro empty-state do jogo) — sem isso sobrava uma borda azul feia
+   contornando o retângulo por trás do cartaz recortado (bug real
+   reportado pelo Isaias, 14/09/2026, com print mostrando o contorno).
+   Todo o visual agora vem só do `__cartaz` (clip-path próprio). */
+.gang-lobby .gang-onboarding-panel {
+  position: relative; width: calc(100% - 16px); max-width: none; padding: 0;
+  border: none; background: none; box-shadow: none;
+}
+.gang-onboarding-panel__cartaz {
+  --corte: polygon(2% 3%, 30% 0%, 55% 2%, 78% 0%, 98% 3%, 100% 22%, 97% 45%, 100% 68%, 98% 92%, 72% 100%, 45% 97%, 20% 100%, 2% 96%, 0% 70%, 3% 45%, 0% 20%);
+  position: relative; padding: 30px 20px 26px; text-align: center;
+  background: linear-gradient(155deg, var(--gang-madeira-800), var(--gang-madeira-925) 55%, var(--gang-madeira-950));
+  clip-path: var(--corte);
+  box-shadow: 0 26px 60px -30px rgba(0, 0, 0, .85);
+}
+.gang-onboarding-panel__cartaz::before {
+  content: ''; position: absolute; inset: -8px; z-index: -1;
+  background: linear-gradient(160deg, var(--gang-tijolo-600), var(--gang-tijolo-800)); clip-path: var(--corte);
+}
+.gang-onboarding-panel__fita {
+  position: absolute; top: -10px; width: 62px; height: 26px; z-index: 2;
+  background: rgba(230, 220, 200, .22); border: 1px solid rgba(230, 220, 200, .3);
+  box-shadow: 0 4px 8px -2px rgba(0, 0, 0, .5);
+}
+.gang-onboarding-panel__fita--esq { left: 8%; rotate: -8deg; }
+.gang-onboarding-panel__fita--dir { right: 8%; rotate: 7deg; }
+
+.gang-onboarding-panel__logo { display: block; width: min(58%, 200px); height: auto; margin: 0 auto 14px; filter: drop-shadow(0 8px 18px rgba(0, 0, 0, .55)); }
+.gang-lobby .gang-onboarding-panel h2 {
+  margin: 0 0 8px; color: var(--gang-creme); font: 400 1.7rem/1.1 'Permanent Marker', cursive;
+  text-shadow: 0 2px 0 rgba(0, 0, 0, .6); transform: rotate(-1deg);
+}
+.gang-lobby .gang-onboarding-panel p { max-width: 330px; margin: 0 auto; color: var(--gang-papel-400); font-size: 12px; line-height: 1.55; }
+
+.gang-onboarding-panel__slots {
+  margin: 22px auto 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+.gang-onboarding-panel__slots i {
+  width: 58px;
+  height: 68px;
+  display: grid;
+  place-items: center;
+  border: 1px dashed var(--if-amber);
+  color: var(--if-amber);
+  background: color-mix(in srgb, var(--if-amber) 8%, transparent);
+  font: 700 24px var(--font-title);
+  transform: skew(-3deg);
+}
+
+.gang-onboarding-panel__slots span { color: var(--if-amber); font: 700 22px var(--font-title); }
+
+/* CTA "spray-paint" — mesmo desenho de GanguesSaveSelect/GanguesNaming
+   (repetido, o projeto não usa mixin/CSS-in-JS). */
+.gang-onboarding-spray {
+  --cor: var(--if-amber); position: relative; width: 100%; min-height: 58px; margin-top: 22px;
+  padding: 10px 22px; display: grid; place-items: center; overflow: visible;
+  background: transparent; border: none;
+}
+.gang-onboarding-spray-halo {
+  position: absolute; inset: -12px; z-index: 0; pointer-events: none;
+  background:
+    radial-gradient(38% 60% at 22% 30%, color-mix(in srgb, var(--cor) 40%, transparent), transparent 70%),
+    radial-gradient(30% 50% at 78% 70%, color-mix(in srgb, var(--cor) 32%, transparent), transparent 70%),
+    radial-gradient(70% 80% at 50% 50%, color-mix(in srgb, var(--cor) 20%, transparent), transparent 75%);
+  border: 2px solid color-mix(in srgb, var(--cor) 60%, transparent);
+  border-radius: 52% 48% 55% 45% / 44% 56% 44% 56%;
+}
+.gang-onboarding-spray::after {
+  content: ''; position: absolute; inset: -12px; z-index: 0; pointer-events: none; translate: -140% 0;
+  background: linear-gradient(100deg, transparent, color-mix(in srgb, var(--cor) 40%, transparent), transparent);
+  border-radius: 52% 48% 55% 45% / 44% 56% 44% 56%;
+  transition: translate .55s ease;
+}
+.gang-onboarding-spray:active::after { translate: 140% 0; }
+.gang-onboarding-spray strong {
+  position: relative; z-index: 1; color: var(--gang-papel); font: 400 1.3rem/1 'Permanent Marker', cursive;
+  text-shadow: 0 2px 0 rgba(0, 0, 0, .6), 0 0 18px color-mix(in srgb, var(--cor) 70%, transparent);
+  transform: rotate(-1deg);
+}

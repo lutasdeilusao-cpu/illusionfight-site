@@ -1,0 +1,136 @@
+/* LDI Gangues — Lobby — hub da gangue, botão de batalha, Álbum, carrossel do elenco.
+   Fatiado de GanguesLobby.css (refatoração de CSS, set/2026). A ORDEM de carga é a
+   do índice GanguesLobby.css — não importar este arquivo sozinho. */
+
+/* Hub limpo: a identidade da gangue e somente as duas decisões reais.
+   Redesign completo (pedido do Isaias, 15/09/2026, com print mostrando o
+   "+ MAPA" cyan técnico colado em cima do nome gigante: "essa cena tá
+   toda quebrada... usar o background padrão e a fonte padrão"). Nome vira
+   Permanent Marker (é a "voz" da gangue) e ganha padding-top reservando
+   espaço de verdade pro botão "← Mapa" — antes ele só flutuava
+   absolute em cima do texto contando com o nome nunca crescer o
+   suficiente pra encostar, o que quebrava com nomes de 1 linha e fonte
+   grande (bug real, não só resíduo de estilo). */
+.gang-lobby .gang-lobby-hero--compact { position: relative; margin: 8px 0 12px; padding-top: 40px; text-align: center; }
+.gang-lobby .gang-lobby-hero--compact .gang-lobby-nome {
+  margin: 0; color: var(--gang-creme); font: 400 clamp(2.2rem, calc(13 * var(--app-vw) / 100), 3.4rem)/1 'Permanent Marker', cursive;
+  text-shadow: 0 3px 0 rgba(0, 0, 0, .6), 0 0 34px color-mix(in srgb, var(--if-amber) 45%, transparent);
+}
+/* `.gang-lobby` (Gangues.css) é max-height:100%;overflow-y:auto mas nunca
+   ganha height próprio — só encolhe pro conteúdo. Com a parede de tijolo
+   agora fazendo parte do painel, isso viraria o mesmo corte-pra-preto já
+   corrigido em GanguesNaming.css (bug real reportado pelo Isaias,
+   14/09/2026): `.gang-lobby--vazio` (só na tela de onboarding, quando o
+   elenco está vazio) força a altura cheia contra `.gang-page`, e o
+   `margin:auto 0` do painel usa esse espaço de verdade pra centralizar. */
+.gang-lobby--vazio { min-height: 100%; }
+.gang-lobby .gang-onboarding-panel--solo { margin: auto 0; }
+
+/* Botão de batalha promovido pro topo do lobby — CTA principal da tela.
+   1ª tentativa (só halo translúcido via ::before) sumia em cima da parede
+   oficial (arte cheia de cor forte) — o Isaias reportou "não tá dando
+   pra notar que é um botão, precisa de um background" DEPOIS de eu já
+   ter tentado uma vez. Agora tem uma chapa sólida marrom-tijolo de
+   verdade por baixo do halo, igual a ficha/os cards do fighter-card —
+   nunca mais só o glow sozinho flutuando sobre a arte. */
+.gang-lobby .gang-home-actions__play--top {
+  --cor: var(--if-amber);
+  position: relative; width: 100%; min-height: 52px; margin-top: 10px; padding: 0 16px;
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  border: 1px solid color-mix(in srgb, var(--cor) 55%, transparent);
+  background: linear-gradient(155deg, color-mix(in srgb, var(--cor) 20%, var(--gang-madeira-800)), var(--gang-madeira-950));
+  color: var(--gang-papel);
+  font: 400 1.15rem/1 'Permanent Marker', cursive;
+  text-shadow: 0 2px 0 rgba(0, 0, 0, .6), 0 0 16px color-mix(in srgb, var(--cor) 70%, transparent);
+  clip-path: polygon(0 3%, 6% 0, 94% 1%, 100% 6%, 99% 88%, 96% 100%, 4% 99%, 0 92%);
+}
+.gang-lobby .gang-home-actions__play--top::before {
+  content: ''; position: absolute; inset: -8px; z-index: -1;
+  background: radial-gradient(70% 90% at 50% 50%, color-mix(in srgb, var(--cor) 32%, transparent), transparent 75%);
+}
+.gang-lobby .gang-home-actions__play--top:active { background: linear-gradient(155deg, color-mix(in srgb, var(--cor) 32%, var(--gang-madeira-800)), var(--gang-madeira-950)); }
+.gang-lobby .gang-home-actions__play--top b { color: var(--gang-papel); font-size: 1.1rem; }
+
+/* Acesso ao Álbum de Marélia — secundário, logo abaixo do play; continua
+   bordado/mono (é um contador utilitário, não CTA de voz do jogo). */
+.gang-lobby .gang-lobby-album {
+  width: 100%; min-height: 40px; margin-top: 6px; padding: 0 16px;
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  border: 1px solid color-mix(in srgb, var(--if-amber) 30%, transparent); background: rgba(10, 5, 2, .8); color: var(--gang-papel-200);
+  font: 800 .72rem var(--font-mono); letter-spacing: .1em; text-transform: uppercase;
+  clip-path: polygon(0 0, calc(100% - 9px) 0, 100% 9px, 100% 100%, 0 100%);
+}
+.gang-lobby .gang-lobby-album b { margin-left: auto; color: var(--if-amber); }
+
+/* Elenco em carrossel — reaproveita o visual do recrutamento (.gang-fighter-card
+   e companhia), só mais baixo pois não tem cabeçalho de texto acima. */
+/* Mesma altura/posição de .gang-recruit__stage do recrutamento (390px, sem
+   modificador) — os botões ‹/› precisam ficar na mesma altura relativa ao
+   card nas duas telas, senão parecem "torto" comparado ao recrutamento. */
+/* .gang-lobby é flex column com align-items:center (Gangues.css) — sem
+   width:100% explícito, uma section vira shrink-to-fit do próprio conteúdo
+   (o card de ~242px), então a margin negativa abaixo "estoura" um container
+   que já nasceu estreito, e nunca chega na borda real da coluna. */
+.gang-roster-carousel { width: 100%; margin-top: 10px; }
+/* Legibilidade do label por cima da parede oficial (arte cheia de nome/
+   cor forte) — mesmo reforço já usado no cabeçalho do recrutamento. */
+.gang-roster-carousel .gang-lobby-section-label { text-shadow: 0 1px 3px rgba(0, 0, 0, .9); }
+/* .gang-lobby tem padding horizontal de 24px (Gangues.css) — .gang-recruit
+   (recrutamento) não tem nenhum, então lá as setas ‹/› (left/right:5px do
+   PRÓPRIO stage) encostam quase na borda real da tela. Aqui, sem isso, o
+   stage nasce 48px mais estreito e as setas ficam bem mais perto do card
+   do que no recrutamento. Estoura o padding só no stage pra ele ocupar a
+   largura cheia da coluna, igual ao recrutamento. */
+.gang-roster-carousel .gang-recruit__stage { margin-left: -24px; margin-right: -24px; }
+
+/* Card do elenco menor que o do recrutamento (pedido do Isaias, 15/09/2026:
+   "botão sair tá cortando no lobby... diminuindo tudo") — o card de 350px
+   de altura (herdado do recrutamento, ver comentário acima que decidiu
+   deixar do MESMO tamanho pra não ficar "torto" entre as duas telas) empurra
+   o botão de sair pra bem abaixo da dobra em qualquer aparelho comum (medido
+   ao vivo: ~280px de conteúdo sobrando além da tela num Android de 640px de
+   altura). O recrutamento continua do tamanho grande de sempre (decisão
+   única, ali faz sentido — é escolha feita 1x); aqui no lobby, que é
+   consultado toda hora só pra ver o time e sair, o card encolhe ~30% (fator
+   único aplicado a todas as medidas, pra manter a proporção interna do
+   card igual, só menor) e a seta ‹/› (posicionada em % da altura do stage)
+   acompanha sozinha. */
+.gang-roster-carousel .gang-recruit__stage { height: 268px; }
+.gang-roster-carousel .gang-fighter-card { width: 172px; height: 248px; top: 12px; }
+.gang-roster-carousel .gang-fighter-card--current { left: calc(50% - 86px); }
+.gang-roster-carousel .gang-fighter-card--prev,
+.gang-roster-carousel .gang-fighter-card--next { top: 34px; width: 134px; height: 206px; }
+.gang-roster-carousel .gang-fighter-card--prev { right: calc(50% + 64px); }
+.gang-roster-carousel .gang-fighter-card--next { left: calc(50% + 64px); }
+.gang-roster-carousel .gang-fighter-card__number { top: 9px; left: 10px; font-size: 8px; }
+.gang-roster-carousel .gang-fighter-card__selected { top: 7px; right: 9px; padding: 3px 6px; font-size: 9px; }
+.gang-roster-carousel .gang-fighter-card__portrait { height: 158px; }
+.gang-roster-carousel .gang-fighter-card__portrait::before { width: 92px; height: 137px; bottom: -17px; }
+.gang-roster-carousel .gang-fighter-card__portrait i { margin-bottom: 12px; font-size: 96px; }
+.gang-roster-carousel .gang-fighter-card__portrait b { right: 8px; bottom: 6px; font-size: 28px; }
+.gang-roster-carousel .gang-fighter-card__portrait--foto img { width: 120px; height: 120px; margin-bottom: 4px; }
+.gang-roster-carousel .gang-fighter-card__copy { padding: 8px 10px 4px; }
+.gang-roster-carousel .gang-fighter-card__copy small { font-size: 8px; }
+.gang-roster-carousel .gang-fighter-card__copy strong { font-size: 1.3rem; }
+.gang-roster-carousel .gang-fighter-card__copy em { font-size: 9px; }
+.gang-roster-carousel .gang-fighter-card__cta { right: 10px; bottom: 6px; font-size: 0.78rem; }
+.gang-roster-carousel .gang-fighter-card__team-toggle { top: 7px; right: 9px; width: 24px; height: 24px; font-size: 12px; }
+.gang-roster-carousel .gang-fighter-card__lider-toggle { top: 33px; right: 9px; width: 24px; height: 24px; font-size: 12px; }
+.gang-roster-carousel .gang-recruit__arrow { width: 30px; height: 42px; font-size: 22px; }
+
+/* botão "← Mapa" no header do lobby (quando entrou pelo mapa pra gerenciar)
+   — fica na faixa reservada pelo padding-top do header, nunca mais em
+   cima do nome (ver comentário acima em .gang-lobby-hero--compact). */
+/* Espaçamento default de <p> (1em de margem, ~16px cada lado) mais o
+   margin-top:18px do botão de sair (GanguesStory.css) somavam sozinhos uns
+   50px de vão — parte do mesmo aperto geral pedido pelo Isaias. */
+.gang-lobby .gang-party-counter { margin: 6px 0; }
+.gang-lobby .gang-lobby-quit { margin-top: 10px; }
+.gang-lobby .gang-lobby-voltar.gang-lobby-voltar { margin: 10px auto 0; }
+
+.gang-lobby .gang-lobby-hero--compact .gang-lobby-mapa {
+  position: absolute; left: 0; top: 0;
+  min-height: 30px; padding: 0 10px; border: 1px solid color-mix(in srgb, var(--if-amber) 35%, transparent);
+  background: rgba(12, 6, 3, .7); color: var(--gang-creme);
+  font: 800 .56rem var(--font-mono); letter-spacing: .06em; text-transform: uppercase;
+}

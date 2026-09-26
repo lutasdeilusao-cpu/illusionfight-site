@@ -1,7 +1,7 @@
 # Graph Report - SiteLDI  (2026-09-26)
 
 ## Corpus Check
-- 977 files · ~1,692,576 words
+- 977 files · ~1,692,613 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `ed5311c8`
+- Built from commit: `fd5d3214`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -1541,7 +1541,7 @@ Cohesion: 0.33
 Nodes (3): CFG, GlitchRafael(), PuzzleGlitchRafael()
 
 ## Knowledge Gaps
-- **1916 isolated node(s):** `1. Visão geral`, `2.1 Abertura (vinheta de carregamento)`, `3.1 Site e conteúdo`, `3.2 Plataforma e conta`, `3.3 Catálogo e jogos` (+1911 more)
+- **1916 isolated node(s):** `Mandatory workflow for every code change`, `Stack`, `Environment`, `🤖 Custom Agents`, `Deploy commands (must run in this order)` (+1911 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **150 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -1549,12 +1549,12 @@ Nodes (3): CFG, GlitchRafael(), PuzzleGlitchRafael()
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `useLanguage()` connect `initBattle` to `TypewriterPhrase.jsx`, `Community 1`, `Community 0`, `Community 8`, `Community 9`, `Community 10`, `Community 12`, `Community 19`, `Community 20`, `RestaurarSaude.jsx`, `Lobby.jsx`, `AuthContext.jsx`, `UniversosHub.jsx`, `Community 29`, `DeckBuilder.jsx`, `PuzzleStealthGrid.jsx`, `Community 33`, `DixContext.jsx`, `PuzzleForça.jsx`, `react`, `Phase0Start.jsx`, `TopTrumpsSP.jsx`, `runtimePlatform.js`, `t`, `useSharedLobbyMachine.js`, `TopTrumpsMP.jsx`, `PuzzleForça.jsx`, `Navbar.jsx`, `HistoriasHub.jsx`, `Brincadeira.jsx`, `LDINotification.jsx`, `levelProgression.js`, `RestaurarSaude.jsx`, `useGameStore.js`, `Phase0Start.jsx`, `levelProgression.js`, `ResultCard.jsx`, `RestaurarSaude.jsx`, `SearchModal.jsx`, `Vila.jsx`, `useTamagoshiStore.js`, `FichaGateRoute.jsx`, `Confronto.jsx`, `PowerCard.jsx`, `LanguageProvider.jsx`, `Brincadeira.jsx`, `Criatura.jsx`, `Farol.jsx`, `GlitchRafael.jsx`?**
-  _High betweenness centrality (0.094) - this node is a cross-community bridge._
+  _High betweenness centrality (0.096) - this node is a cross-community bridge._
 - **Why does `useReader()` connect `RestaurarSaude.jsx` to `initBattle`, `Community 0`, `DixContext.jsx`, `Community 3`, `Community 8`, `LDINotification.jsx`, `PuzzleForça.jsx`, `GlitchRafael.jsx`, `useTamagoshiStore.js`, `RestaurarSaude.jsx`, `Community 20`, `Confronto.jsx`, `AuthContext.jsx`, `Farol.jsx`, `Community 29`, `PuzzleStealthGrid.jsx`?**
   _High betweenness centrality (0.026) - this node is a cross-community bridge._
 - **Why does `useAuth()` connect `LanguageProvider.jsx` to `initBattle`, `Navbar.jsx`, `HistoriasHub.jsx`, `Brincadeira.jsx`, `Community 9`, `PuzzleForça.jsx`, `Community 12`, `SearchModal.jsx`, `useTamagoshiStore.js`, `TopTrumpsSP.jsx`, `FichaGateRoute.jsx`, `runtimePlatform.js`, `Community 20`, `RestaurarSaude.jsx`, `RestaurarSaude.jsx`, `useSharedLobbyMachine.js`, `Community 29`, `PuzzleStealthGrid.jsx`?**
   _High betweenness centrality (0.008) - this node is a cross-community bridge._
-- **What connects `1. Visão geral`, `2.1 Abertura (vinheta de carregamento)`, `3.1 Site e conteúdo` to the rest of the system?**
+- **What connects `Mandatory workflow for every code change`, `Stack`, `Environment` to the rest of the system?**
   _1916 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
   _Cohesion score 0.05016722408026756 - nodes in this community are weakly interconnected._

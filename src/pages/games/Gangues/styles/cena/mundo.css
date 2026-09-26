@@ -1,0 +1,166 @@
+/* LDI Gangues — Cena — mapa explorável, checklist, pinos com retrato, andadinha, farol, líder, controles.
+   Fatiado de GanguesCena.css (refatoração de CSS, set/2026). A ORDEM de carga é a
+   do índice GanguesCena.css — não importar este arquivo sozinho. */
+
+/* ══ A Pista 2.4 — bairro explorável ═════════════════════════ */
+/* .gang-page (pai) desconta guest-notice + Rádio Nina (topo OU rodapé) via
+   padding — quando a Rádio Nina toca ancorada no topo ela soma 54px
+   (--radio-nina-top-h) por cima da tira de guest. Esta página tem que
+   descontar exatamente a mesma soma da sua altura, senão fica mais alta que o
+   espaço real que o pai reserva e o overflow:hidden do pai corta ela por
+   baixo — foi o que aconteceu: o teste automatizado nunca tinha a Rádio Nina
+   tocando, então nunca reproduziu o corte que aparece com ela ativa. */
+.gang-cena-worldpage { position:relative; width:100%; align-self:stretch; flex:1 1 auto; min-width:0; height:calc(100dvh - var(--guest-notice-h, 0px) - var(--radio-nina-top-h, 0px) - var(--radio-nina-h, 0px)); min-height:620px; overflow:hidden; background:#030609; color:var(--gang-branco); display:flex; flex-direction:column; }
+.gang-cena-worldhud { position:absolute; z-index:30; left:12px; right:12px; top:max(12px, calc(env(safe-area-inset-top, 0px) + 8px)); height:42px; display:flex; align-items:center; justify-content:space-between; gap:8px; padding:0 10px; border:1px solid #284047; background:rgba(3,8,11,.9); backdrop-filter:blur(8px); clip-path:polygon(0 0,calc(100% - 9px) 0,100% 9px,100% 100%,0 100%); overflow:hidden; }
+.gang-cena-worldhud button { flex:0 0 auto; color:var(--if-cyan); border:0; background:none; font:800 .62rem var(--font-mono); letter-spacing:.1em; }
+/* Nome do lugar (bairro OU "Galpão · CÔMODO 3/4") tem tamanho variável — sem
+   min-width:0 + ellipsis, um nome comprido empurrava os ícones da direita
+   pra fora do HUD (estourava de lado). Some texto MEIO, nunca layout. */
+.gang-cena-worldhud strong { flex:1 1 auto; min-width:0; overflow:hidden; text-overflow:ellipsis; font:800 .72rem var(--font-display); letter-spacing:.08em; white-space:nowrap; }
+.gang-cena-worldhud strong i { color:var(--terr-cor); font:700 .58rem var(--font-mono); }
+.gang-cena-meta-btn { color:var(--terr-cor)!important; font:700 .58rem var(--font-mono)!important; letter-spacing:.04em!important; padding:2px 4px!important; }
+
+/* Checklist do que falta fechar na cena (abre pelo "X/10" do topo) */
+.gang-cena-checklist {
+  position:absolute; z-index:31; left:12px; right:12px;
+  top:calc(max(12px, env(safe-area-inset-top, 0px) + 8px) + 48px);
+  max-width:300px; margin:0 auto; padding:12px 14px;
+  border:1px solid var(--terr-cor); background:rgba(4,10,13,.96); backdrop-filter:blur(10px);
+  clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,0 100%);
+}
+.gang-cena-checklist b { display:block; font:800 .6rem var(--font-mono); letter-spacing:.1em; text-transform:uppercase; color:var(--terr-cor); margin-bottom:8px; }
+.gang-cena-checklist ul { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:5px; }
+.gang-cena-checklist li { display:flex; gap:8px; align-items:baseline; font:600 .74rem var(--font-body); color:#cdd6da; }
+.gang-cena-checklist li span { color:#5f6f75; font:800 .7rem var(--font-mono); }
+.gang-cena-checklist li.is-feito { color:#5f6f75; text-decoration:line-through; }
+.gang-cena-checklist li.is-feito span { color:var(--gang-verde-feito); }
+.gang-cena-checklist p { margin:9px 0 0; font:600 .68rem var(--font-body); line-height:1.4; color:#8fa0a6; border-top:1px solid #223338; padding-top:8px; }
+.gang-cena-worldhud>span { flex:0 0 auto; color:#b8c2c7; font:700 .58rem var(--font-mono); white-space:nowrap; }
+.gang-cena-ficha-btn { font-size:1rem !important; line-height:1; padding:2px 4px !important; }
+.gang-cena-viewport { position:relative; flex:1 1 auto; min-height:0; overflow:hidden; touch-action:none; background:#081015; }
+.gang-cena-world { position:absolute; left:0; top:0; transform-origin:0 0; will-change:transform; transition:transform .11s ease-out; overflow:hidden; background-color:#10181b; background-image:linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),radial-gradient(circle at 70% 30%,#17241f 0,transparent 30%); background-size:36px 36px,36px 36px,100% 100%; }
+.gang-road { position:absolute; background:#171b1d; box-shadow:inset 0 0 0 3px #22292c,0 0 20px #030608; }
+.road-main { left:305px; top:0; width:150px; height:2840px; }
+.road-main:after { content:''; position:absolute; left:50%; height:100%; border-left:2px dashed rgba(223,194,91,.2); }
+.road-cross { left:0; width:760px; height:112px; }
+.road-cross:after { content:''; position:absolute; top:50%; width:100%; border-top:2px dashed rgba(223,194,91,.17); }
+.road-cross.r1{top:2510px}.road-cross.r2{top:2190px}.road-cross.r3{top:1690px}
+/* travessas pós-muro (a rua longa até o galpão) */
+.road-cross.r4{top:1040px}.road-cross.r5{top:560px}
+.road-branch { width:260px; height:82px; top:1935px; transform-origin:right center; }
+.road-branch.left { left:80px; transform:rotate(-24deg); }.road-branch.right { right:80px; transform:rotate(24deg); }
+/* A abertura do portão tem que casar exatamente com a estrada (.road-main:
+   left:305px, width:150px → x:305-455), senão o jogador nunca alcança o
+   vão andando pela rua — ficava atrás de um prédio sólido que não tem
+   caminho até ele. */
+.gang-world-gate { position:absolute; z-index:8; left:0; top:1330px; width:760px; height:18px; border-block:3px solid #4f575a; background:linear-gradient(90deg,#0a0e10 0 305px,transparent 305px 455px,#0a0e10 455px),repeating-linear-gradient(90deg,#15191b 0 12px,#717a7c 13px 17px); box-shadow:0 0 20px var(--gang-preto); transition:.7s; }.gang-world-gate:after{content:'';position:absolute;left:305px;width:150px;height:18px;border:3px solid #6d777a;background:repeating-linear-gradient(90deg,#15191b 0 12px,#717a7c 13px 17px);transition:.7s}.gang-world-gate.is-open:after { transform:translateX(165px); border-color:var(--terr-cor); box-shadow:0 0 22px color-mix(in srgb,var(--terr-cor) 35%,transparent); }
+.gang-world-lamp { position:absolute; width:10px;height:10px;border-radius:50%;background:#ffd680;box-shadow:0 0 26px 12px rgba(255,205,100,.12); }
+.gang-world-npc { position:absolute; z-index:12; transform:translate(-50%,-50%); display:grid; justify-items:center; width:80px; pointer-events:none; }.gang-world-npc>span { display:grid;place-items:center;width:34px;height:42px;border:2px solid color-mix(in srgb, var(--terr-cor, var(--gang-pista)) 70%, var(--gang-gelo-100));border-radius:45% 45% 30% 30%;background:color-mix(in srgb, var(--terr-cor, var(--gang-pista)) 38%, var(--gang-verde-900));color:var(--gang-branco);box-shadow:0 8px 15px var(--gang-preto);animation:gang-person-breathe 1.8s ease-in-out infinite; }.gang-world-npc small { margin-top:5px; padding:2px 5px; color:var(--gang-branco);background:rgba(0,0,0,.82);font:800 .51rem var(--font-mono);text-align:center; }.gang-world-npc.is-resolvido:not(.is-feito){opacity:.3}.gang-world-npc.is-trancado{opacity:0}.gang-world-npc.is-boss>span{background:#671f27;border-color:var(--gang-vermelho-300);box-shadow:0 0 24px rgba(255,70,70,.5)}
+/* Retrato de verdade (cabeça, pixel art) no lugar do ícone genérico —
+   mesma ideia do GangMarker (.gang-world-player--retrato). O anel de cor
+   do farol de status (obrigatório/opcional/feito) continua por cima,
+   só o preenchimento vira a foto em vez do círculo liso. */
+/* Tamanho: pedido do Isaias, 15/09/2026 ("as cabecinhas tão muito
+   pequenininhas... o do inimigo maior que o do player") — retrato de
+   NPC/inimigo (64px) fica maior que o do jogador (54px, ver
+   .gang-world-player>span abaixo), de propósito: quem o jogador
+   encontra pela cena precisa chamar mais atenção que o próprio marcador. */
+.gang-world-npc--retrato>span{width:64px;height:64px;border-radius:50%;overflow:hidden;padding:0}
+.gang-world-npc--retrato>span img{width:100%;height:100%;object-fit:cover;image-rendering:pixelated}
+/* Andadinha dos "personagens" (qualquer pino com cara — NPC ou inimigo) —
+   4ª leva, 20/09/2026 (histórico completo em PinoAlvo/GanguesCenaAtores.jsx
+   de tudo que já foi tentado e por quê). O `steps()` da leva anterior
+   (passadas discretas, tipo sprite 8-bit) o próprio Isaias pediu de volta:
+   "ficou muito tutu, agora o erro foi meu, faz uma caminhada mais suave,
+   de quem tá vigiando" — voltou pro `ease-in-out` nos dois movimentos
+   (contínuo, sem saltos), só mais devagar/discreto que passo de sprite —
+   o ritmo de quem tá de olho no quarteirão, não marchando. Dois movimentos
+   em elementos SEPARADOS (senão uma `transform` sobrescreve a outra):
+     • `<span>` de FORA (`is-patrulha-h`/`-v`): o deslocamento de verdade —
+       ida e volta de 60 a 115px (variando por pino, ver `--gp-w` em
+       PinoAlvo). SEM rotação nenhuma (leva anterior girava o corpo junto
+       — "parece que ele tá bêbado"). Só visual: a âncora real
+       (`left`/`top` do `.gang-world-npc`, usada pra colisão/zona de
+       interação) nunca muda.
+     • `.gang-world-npc-passo`, o `<span>` de DENTRO: bounce vertical bem
+       curto (2.5px) e lento, contínuo, independente da direção — só o
+       suficiente pra não parecer flutuando, sem ficar "tuc tuc" mecânico. */
+@keyframes gang-patrulha-h{0%,100%{transform:translateX(calc(-1 * var(--gp-w,90px)))}50%{transform:translateX(var(--gp-w,90px))}}
+@keyframes gang-patrulha-v{0%,100%{transform:translateY(calc(-1 * var(--gp-w,90px)))}50%{transform:translateY(var(--gp-w,90px))}}
+@keyframes gang-passo{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}
+.gang-world-npc-passo{display:block;width:100%;height:100%;animation:gang-passo .6s ease-in-out infinite}
+/* Farol universal de status (pedido do Isaias, 13/09/2026): substitui a cor
+   do território + o azul de "farm" por vermelho/amarelo/verde
+   autoexplicativo — vermelho = obrigatório e ainda não feito, amarelo =
+   opcional e ainda não feito, verde = já feito (inclusive treta repetível já
+   vencida 1x, que o motor mantém sempre `'disponivel'` de propósito pra
+   continuar farmável — ver farolDe() em GanguesCenaAtores.jsx). */
+.gang-world-npc.is-obrigatorio>span{background:color-mix(in srgb, var(--if-danger) 42%, var(--gang-verde-900));border-color:color-mix(in srgb, var(--if-danger) 78%, var(--gang-gelo-100));box-shadow:0 0 20px rgba(255,0,85,.45)}
+.gang-world-npc.is-opcional>span{background:color-mix(in srgb, var(--if-amber) 42%, var(--gang-verde-900));border-color:color-mix(in srgb, var(--if-amber) 78%, var(--gang-gelo-100));box-shadow:0 0 20px rgba(255,174,50,.4)}
+.gang-world-npc.is-feito>span{background:color-mix(in srgb, var(--gang-verde-feito) 40%, var(--gang-verde-900));border-color:color-mix(in srgb, var(--gang-verde-feito) 75%, var(--gang-gelo-100));box-shadow:0 0 16px rgba(107,224,122,.4);animation:none}
+/* BUG REAL achado 20/09/2026 (Isaias, print ao vivo: os 2 personagens
+   visíveis — tretas repetíveis JÁ FARMADAS, farol verde — estavam parados
+   de novo): a regra `.is-feito>span{animation:none}` acima tem a MESMA
+   especificidade de `.is-patrulha-h/-v>span` (2 classes + elemento) e vinha
+   DEPOIS dela no arquivo — empate de especificidade, quem vem por último
+   no CSS ganha, então toda treta repetível já vencida (o estado mais comum
+   em jogo de verdade, já que farm é o normal) tinha a andadinha CANCELADA
+   bem aqui. Corrigido: regra específica de 3 classes só pra isso, que
+   ganha de qualquer ordem — "já feito" continua sem pulsar
+   (`gang-entry-pulse`, isso é do `is-perto`, não daqui), mas a andadinha
+   nunca mais é cancelada por já ter sido farmado. */
+.gang-world-npc.is-feito.is-patrulha-h>span{animation:gang-patrulha-h var(--gp-dur,3.6s) ease-in-out infinite}
+.gang-world-npc.is-feito.is-patrulha-v>span{animation:gang-patrulha-v var(--gp-dur,3.6s) ease-in-out infinite}
+.gang-world-npc.is-patrulha-h>span{animation:gang-patrulha-h var(--gp-dur,3.6s) ease-in-out infinite}
+.gang-world-npc.is-patrulha-v>span{animation:gang-patrulha-v var(--gp-dur,3.6s) ease-in-out infinite}
+/* "Toda vez que ele colidir com o Player... ele para de andar" (Isaias,
+   20/09/2026) — 1ª tentativa usou `is-perto` (a ZONA de interação, bem
+   maior que o círculo visual de propósito, pra facilitar tocar no
+   celular) e ele reportou de volta com print: "eles estão parando ANTES
+   de chegar no player... tem que parar quando colidirem". `is-perto`
+   sozinho continua só acendendo o brilho (personagem ainda andando,
+   "notou" o jogador chegando perto mas não parou ainda) — só isso, sem
+   pausar. `is-colidindo` é a colisão VISUAL real (círculo contra círculo
+   na tela, medida em JS via getBoundingClientRect, ver useEffect em
+   PinoAlvo/GanguesCenaAtores.jsx) — só ela pausa de verdade
+   (`animation-play-state`, não troca `animation-name` — o personagem
+   congela EXATAMENTE onde tava, sem "pular" de volta pro centro). Regras
+   de `is-colidindo` vêm DEPOIS das de `is-perto` (mesma especificidade,
+   3 classes) de propósito — colidindo sempre implica perto também, e a
+   pausa tem que ganhar da simples proximidade quando as duas classes
+   coexistirem. */
+.gang-world-npc.is-perto.is-patrulha-h>span{animation:gang-patrulha-h var(--gp-dur,3.6s) ease-in-out infinite,gang-entry-pulse .85s ease-in-out infinite alternate;box-shadow:0 0 24px rgba(255,255,255,.5),0 8px 15px var(--gang-preto)}
+.gang-world-npc.is-perto.is-patrulha-v>span{animation:gang-patrulha-v var(--gp-dur,3.6s) ease-in-out infinite,gang-entry-pulse .85s ease-in-out infinite alternate;box-shadow:0 0 24px rgba(255,255,255,.5),0 8px 15px var(--gang-preto)}
+.gang-world-npc.is-colidindo.is-patrulha-h>span{animation:gang-patrulha-h var(--gp-dur,3.6s) ease-in-out infinite,gang-entry-pulse .85s ease-in-out infinite alternate;animation-play-state:paused,running;box-shadow:0 0 24px rgba(255,255,255,.5),0 8px 15px var(--gang-preto)}
+.gang-world-npc.is-colidindo.is-patrulha-v>span{animation:gang-patrulha-v var(--gp-dur,3.6s) ease-in-out infinite,gang-entry-pulse .85s ease-in-out infinite alternate;animation-play-state:paused,running;box-shadow:0 0 24px rgba(255,255,255,.5),0 8px 15px var(--gang-preto)}
+.gang-world-npc.is-colidindo .gang-world-npc-passo{animation-play-state:paused}
+.gang-world-npc-farm-tag{position:absolute;top:-4px;right:14px;width:16px;height:16px;display:grid;place-items:center;border-radius:50%;background:#0b3a66;border:1px solid #4fb4ff;color:#9fd8ff;font-size:.6rem;font-style:normal;animation:gang-farm-spin 2.4s linear infinite}
+@keyframes gang-farm-spin{to{transform:rotate(360deg)}}
+.gang-world-player { position:absolute; z-index:18; transform:translate(-50%,-50%); display:grid;justify-items:center;pointer-events:none; }.gang-world-player>span { position:relative;display:block;width:54px;height:54px;border:2px solid var(--gang-branco);clip-path:polygon(50% 0,92% 18%,86% 76%,50% 100%,14% 76%,8% 18%);background:linear-gradient(#16b8c8,#086070);box-shadow:0 8px 17px var(--gang-preto),0 0 16px rgba(0,220,255,.28);animation:gang-person-breathe 1.2s ease-in-out infinite; }.gang-world-player>span i{position:absolute;width:10px;height:18px;top:14px;border:1px solid var(--gang-branco);background:var(--if-cyan-20)}.gang-world-player>span i:nth-child(1){left:7px;transform:rotate(-12deg)}.gang-world-player>span i:nth-child(2){left:16px;top:9px;height:23px;z-index:2}.gang-world-player>span i:nth-child(3){right:7px;transform:rotate(12deg)}.gang-world-player small{margin-top:2px;color:var(--gang-branco);background:#02080bcc;padding:2px 5px;font:800 .52rem var(--font-mono);text-transform:uppercase}.gang-world-player.facing-left>span{transform:rotate(-5deg)}.gang-world-player.facing-right>span{transform:rotate(5deg)}
+/* Retrato do líder (cabecinha, pixel art) flutuando no lugar do escudo
+   genérico — pedido do Isaias, set/2026 (identidade visual/"juice"). Sem
+   retrato ainda pro líder escolhido, cai no escudo de sempre (regra já no
+   componente, aqui só o visual quando existe). */
+.gang-world-player--retrato>span{clip-path:none;border-radius:50%;overflow:hidden;background:#0b1a20}
+.gang-world-player--retrato>span img{width:100%;height:100%;object-fit:cover;display:block;image-rendering:pixelated}
+.gang-world-player--retrato.facing-left>span{transform:none}.gang-world-player--retrato.facing-right>span{transform:none}
+/* Pino "perto" — antes um retângulo tracejado À PARTE (EntryZone) acendia
+   ao lado quando o jogador chegava perto; removido (pedido do Isaias,
+   20/09/2026: "tira esse quadradinho, usa a colisão do próprio
+   personagem, a área de trigger não precisa ser física, só detectar que
+   passou por cima") — agora é o PRÓPRIO pino que pulsa mais forte. Fica
+   DEPOIS das regras de farol/nav de propósito, pra ganhar de especificidade
+   igual (mesmo número de classes) e sempre acender quando perto, mesmo em
+   cima de is-obrigatorio/opcional/feito. */
+.gang-world-npc.is-perto>span{animation:gang-person-breathe 1.8s ease-in-out infinite,gang-entry-pulse .85s ease-in-out infinite alternate;box-shadow:0 0 24px rgba(255,255,255,.5),0 8px 15px var(--gang-preto)}
+@keyframes gang-entry-pulse{to{filter:brightness(1.35)}}
+@keyframes gang-person-breathe{50%{transform:translateY(-3px)}}
+.gang-cena-vignette { position:absolute;inset:0;z-index:20;pointer-events:none;box-shadow:inset 0 0 90px 24px rgba(0,0,0,.72);background:linear-gradient(rgba(0,0,0,.22),transparent 25%,transparent 68%,rgba(0,0,0,.58)); }
+.gang-cena-tutorial,.gang-cena-gatelock { position:absolute;z-index:26;left:50%;transform:translateX(-50%);width:max-content;max-width:86%;padding:8px 12px;text-align:center;background:#071014e8;border:1px solid var(--terr-cor);font:700 .62rem var(--font-mono); }.gang-cena-tutorial{bottom:14px}.gang-cena-gatelock{top:calc(max(12px, env(safe-area-inset-top, 0px) + 8px) + 52px);border-color:#87434a;color:#ffc1c1}
+/* Faixa dedicada aos controles, tipo Game Boy: o mapa (.gang-cena-viewport) ocupa só o
+   espaço acima dela agora (flex column no .gang-cena-worldpage), então o jogador nunca "anda"
+   por trás do analógico/botão — a área de navegação é só a tela de cima. */
+.gang-world-controls { position:relative;z-index:27;flex:0 0 auto;width:100%;box-sizing:border-box;min-height:148px;display:flex;align-items:center;justify-content:space-between;padding:18px 25px max(18px,env(safe-area-inset-bottom));background:linear-gradient(180deg,#0a1114,#050809);border-top:1px solid #2c393d;box-shadow:0 -10px 22px rgba(0,0,0,.4) inset; }.gang-world-stick { --jx:0px;--jy:0px;position:relative;width:112px;height:112px;border-radius:50%;border:2px solid #597077;background:radial-gradient(circle,#18262b 0 34%,#091115 36% 100%);box-shadow:inset 0 0 20px var(--gang-preto),0 7px 20px #0008;pointer-events:auto;touch-action:none; }.gang-world-stick:before,.gang-world-stick:after{content:'';position:absolute;background:#43565c55}.gang-world-stick:before{left:50%;top:12px;bottom:12px;width:1px}.gang-world-stick:after{top:50%;left:12px;right:12px;height:1px}.gang-world-stick i{position:absolute;z-index:2;left:50%;top:50%;width:48px;height:48px;border-radius:50%;transform:translate(calc(-50% + var(--jx)),calc(-50% + var(--jy)));background:linear-gradient(145deg,#2d464e,#101b1f);border:2px solid var(--terr-cor);box-shadow:0 5px 14px var(--gang-preto);transition:transform .04s}
+.gang-world-controls button { pointer-events:auto;width:98px;height:98px;border-radius:50%;border:2px solid var(--terr-cor);background:radial-gradient(circle,#12363a,#071114);color:var(--gang-branco);box-shadow:0 0 22px rgba(0,220,255,.16),inset 0 0 18px var(--gang-preto);display:grid;place-content:center;gap:3px; }.gang-world-controls button b{font:900 .72rem var(--font-display)}.gang-world-controls button span{font:700 .45rem var(--font-mono);color:var(--terr-cor)}.gang-world-controls button:disabled{opacity:.2;filter:grayscale(1)}
+@media(max-height:700px){.gang-cena-worldpage{min-height:540px}.gang-world-controls{min-height:120px;padding:12px 25px max(12px,env(safe-area-inset-bottom))}.gang-world-stick{width:92px;height:92px}.gang-world-controls button{width:82px;height:82px}.gang-cena-tutorial{bottom:14px}}
+@media(prefers-reduced-motion:reduce){.gang-cena-world{transition:none}.gang-world-player>span,.gang-world-npc>span,.gang-world-npc-farm-tag,.gang-world-npc.is-perto>span,.gang-world-npc.is-nav.is-perto>span,.gang-world-npc.is-patrulha-h>span,.gang-world-npc.is-patrulha-v>span,.gang-world-npc-passo{animation:none}}

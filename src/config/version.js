@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.293.6' // refactor(gangues-css) fases 4+5 (tokens de cor, visual único mobile nos overlays) + regra oficial de tamanho de arquivo sobe de 300 pra 500 linhas (AGENTS.md/Bíblia)
+export const SITE_VERSION = '10.293.7' // refactor(gangues-css) fase 6: auditoria de CSS no predeploy + Cena/Lobby fatiados; nenhum CSS do Gangues passa de 500 linhas
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.2' // fix: aba "stories" do rodape mostrava a chave crua pp.menu.pistas_label (nao existia) -> aponta pra pp.dossier.pistas_label; PuzzleWrapper mostrava pp.puzzle.nenhum/instrucao (nao existiam) -> pp.local.puzzle_nenhum/instrucao; confirm() de deletar save mostrava pp.menu.deletar_slot cru -> chave criada nos 3 idiomas.
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '3.58.0' // refactor(css) fases 4+5: paleta de tokens (styles/paleta.css, 428 hex → var), overlays fixed confinados na coluna (--app-gutter) + overscroll-behavior, 5 @media max-width≥480 desembrulhadas e 1 min-width apagada, vw → --app-vw, gang2- → gang-
+export const GANGUES_VERSION   = '3.59.0' // refactor(css) fase final: GanguesCena.css (754) e GanguesLobby.css (621) viram índices de @import de styles/cena/ e styles/lobby/; auditoria de CSS (scripts/gangues-css-audit.cjs) ligada no predeploy
 
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio

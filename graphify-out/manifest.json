@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1790455827.1136253,
-    "ast_hash": "4d1d280fa93aa9d7dcd4eb6e2e831b20",
+    "mtime": 1790457637.47863,
+    "ast_hash": "90851a66a553158e276136ce3429360e",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2690,8 +2690,8 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1790298778.3432975,
-    "ast_hash": "4d45c02c1b86817ac01b3627156c9cab",
+    "mtime": 1790457308.8424466,
+    "ast_hash": "0f940b798aec3e0350d5c72a6319803d",
     "semantic_hash": ""
   },
   "Jogos_Rafael/mg01_sliding.html": {
@@ -2730,13 +2730,13 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1790455827.184481,
-    "ast_hash": "8178e75a00fdb15e329e35a32aa8dda3",
+    "mtime": 1790457637.5566201,
+    "ast_hash": "9f8df3fda364b937666047319c4493c6",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
-    "mtime": 1789690963.7792544,
-    "ast_hash": "070d336407d90885496eaf0fdadbdc30",
+    "mtime": 1790457308.8424466,
+    "ast_hash": "c3af3a2e145cc41c3f419f8face95a68",
     "semantic_hash": ""
   },
   "docs/Business/FINANCEIRO.md": {
@@ -5085,8 +5085,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/screens/GanguesCombat.jsx": {
-    "mtime": 1790454762.3259685,
-    "ast_hash": "c9774594275bda7c90b3b6067eb30a5f",
+    "mtime": 1790457539.8532395,
+    "ast_hash": "2055cab26b5a797dc50f2c01404abf55",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/screens/GanguesCreate.jsx": {
