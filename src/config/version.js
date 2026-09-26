@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.293.8' // feat(gangues): movimento orgânico dos personagens da cena
+export const SITE_VERSION = '10.293.9' // feat(gangues): encontro aleatório perseguidor (moto/polícia/bonde/cobrador)
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.2' // fix: aba "stories" do rodape mostrava a chave crua pp.menu.pistas_label (nao existia) -> aponta pra pp.dossier.pistas_label; PuzzleWrapper mostrava pp.puzzle.nenhum/instrucao (nao existiam) -> pp.local.puzzle_nenhum/instrucao; confirm() de deletar save mostrava pp.menu.deletar_slot cru -> chave criada nos 3 idiomas.
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '3.60.0' // feat(cena): movimento orgânico dos personagens — parado/inquieto/patrulha (com parada e olhadinha nas pontas)/ronda em quadrado, metade no lugar; substitui a andadinha contínua de todo mundo
+export const GANGUES_VERSION   = '3.61.0' // feat(cena): encontro aleatório refeito do zero (sai o bicho) — 5min e depois a cada 15min de jogo, aviso do Nego Véio, perseguidor com pathfinding mais rápido que o jogador, pausa em luta/interior/menu, onomatopeia ao alcançar; 4 tipos (moto, polícia, bonde rival, cobrador da Banca), sempre ≥2 inimigos
 
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio

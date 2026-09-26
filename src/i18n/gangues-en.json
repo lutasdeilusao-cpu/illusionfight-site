@@ -550,6 +550,10 @@
         "PdF": "Elemental Power"
       },
       "enemy_names": {
+        "1701": "Rider",
+        "1702": "Backseat",
+        "1711": "Patrol Officer",
+        "1712": "Patrol Corporal",
         "1101": "Sniffer",
         "1102": "Eyes",
         "1103": "Speck",
@@ -4048,8 +4052,43 @@
         "treta_sim_risco": "Going in anyway",
         "nivel_rec_ocultar": "don't warn me again in this hood",
         "nivel_rec_baixo": "Recommended: crew at level {rec}. With gear counted, yours averages {atual} — you'll get wrecked. Run some jobs, level up on easier scraps, then come back.",
-        "bicho": {
-          "nome": "The Shadow"
+        "aleatorio": {
+          "moto": {
+            "nome": "Two on a Bike",
+            "onomatopeia": "VROOOM!",
+            "aviso": [
+              "Heads up, kid! Things just got hot.",
+              "Word is two guys on a bike are cruising the block, shaking everybody down.",
+              "Nobody's safe out here — not even us. If they find you, there's no talking."
+            ]
+          },
+          "policia": {
+            "nome": "The Patrol",
+            "onomatopeia": "FREEZE!",
+            "aviso": [
+              "The heat's on, kid! Cops in the area.",
+              "A patrol car's sweeping the Strip for whoever's making noise.",
+              "Run if you want, but they know these streets better than you."
+            ]
+          },
+          "bonde": {
+            "nome": "Rival Crew",
+            "onomatopeia": "BANG!",
+            "aviso": [
+              "Bad news, kid. Your name got around.",
+              "A crew from another block crossed the line just to settle things with you.",
+              "Three of 'em. And they didn't come to talk."
+            ]
+          },
+          "cobranca": {
+            "nome": "The Collector",
+            "onomatopeia": "WHAM!",
+            "aviso": [
+              "Oh, kid... today's the day.",
+              "The Bank's Collector is on the Strip. Every crew pays its cut, and you owe yours.",
+              "He doesn't take excuses. He takes cash or blood."
+            ]
+          }
         },
         "fechar": "Close",
         "parada_pular": "Leave it alone",
@@ -4408,6 +4447,10 @@
         }
       },
       "enemy_album": {
+        "1701": "Rides the stick-up bike. Never gets off, just revs — the backseat does the talking.",
+        "1702": "Rides on the back and calls the stick-up. \"Nobody's safe.\"",
+        "1711": "Works the late-night patrol. Frisks anyone still on the street after ten.",
+        "1712": "Runs the patrol car. Doesn't want explanations, wants ID.",
         "1101": "Doesn't fight, he runs and warns — facing him is a chase before a beating.",
         "1102": "The corner's eye — clocks everything moving on the Track, and comments on all of it.",
         "1103": "The fastest on the Strip — bolts after two hits in a row.",

@@ -180,3 +180,13 @@
 }
 
 /* descanso */
+
+/* ── Onomatopeia do encontro aleatório ("te pegaram") — 26/09/2026 ──
+   Estoura no centro do mapa por ~1s antes da luta (pedido do Isaias: "bang,
+   bum, alguma coisa assim, toda vez que eles finalmente alcançam o player").
+   Estilo quadrinho: letra grossa, contorno preto, sombra dura na cor do tipo. */
+.gang-cena-onomatopeia{position:absolute;inset:0;z-index:40;display:grid;place-items:center;pointer-events:none;--perseg:var(--if-amber)}
+.gang-cena-onomatopeia.is-azul{--perseg:#3d8bff}
+.gang-cena-onomatopeia.is-vermelha{--perseg:var(--if-danger)}
+.gang-cena-onomatopeia.is-roxa{--perseg:var(--if-violet)}
+.gang-cena-onomatopeia b{padding:.1em .35em;color:var(--gang-branco);max-width:92%;text-align:center;font:900 clamp(2rem,calc(11 * var(--app-vw) / 100),3.1rem)/1 var(--font-title);letter-spacing:.02em;-webkit-text-stroke:3px var(--gang-preto);paint-order:stroke fill;text-shadow:5px 5px 0 var(--perseg),9px 9px 0 var(--gang-preto);background:radial-gradient(circle,color-mix(in srgb,var(--perseg) 35%,transparent),transparent 70%)}

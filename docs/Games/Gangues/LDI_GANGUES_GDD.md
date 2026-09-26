@@ -28,7 +28,7 @@ tem "Marelia" sem acento em vários lugares — alinhar quando mexer em texto.
 > entrou no jogo entre a v3.30.0 (19/09) e a v3.56.0 (22/09) e que só
 > existia no código: a agiotagem refeita (agora com o agiota **Marimbondo**,
 > empréstimo em dinheiro e escada de dívida), o descanso com 2 preços,
-> **"o bicho"**, a **Lojinha do Zé**, a recompensa por risco (AP), a fórmula
+> **"o bicho"** (depois substituído pelo encontro aleatório perseguidor, v3.61.0), a **Lojinha do Zé**, a recompensa por risco (AP), a fórmula
 > de grana da vitória, a regra da frustração, o gate de dívida do chefe, a
 > Briga em Multidão, o modo automático e o farol dos pinos. Também marcou
 > como **planejado (não implementado)** o que o GDD descrevia como pronto
@@ -251,7 +251,8 @@ Retalho, o jogador, e (noutro bairro) o Alan.
 - **Do lado de lá do muro** (`pos_portao`, via túnel): a loja da Pista (`loja`) ·
   o descanso do primo do Nato (`descanso_2`, dentro do barraco pm1) · os
   guarda-costas do Carvão (`posmuro_1` e `posmuro_2`, que destrancam o galpão) ·
-  o galpão-dungeon com o Carvão no fim · **"o bicho"** (encontro que persegue).
+  o galpão-dungeon com o Carvão no fim.
+- **Encontro aleatório (perseguidor):** em qualquer lugar da rua — ver abaixo.
 - **Removido em 20/09/2026:** o POI `birosca` (papo à parte), que duplicava o
   Descanso. Estava preso em `portao.precisa` e fazia o portão nunca abrir —
   corrigido em 21/09/2026.
@@ -323,17 +324,38 @@ Sinal (`tunel_m1/m2/m3`), passagem trancada até vencer cada um, e um achado
 lado de lá do muro, onde ficam a loja e o galpão. Túnel bidirecional. O muro
 físico só abre com `prog.boss` (chefe derrotado), aí vira atalho.
 
-**"O bicho" — encontro que persegue (v3.47.0, 21/09/2026):** substitui por
-completo o antigo encontro aleatório de rua (sorteio cego a cada passo, sem
-pino). Só existe **do lado de lá do muro**. É uma cabecinha **amarela** (sai de
-graça do farol: `opcional:true`) que anda pelo mapa como os outros personagens.
-**Encostou nela, entra na luta direto, sem escolha.** Depois de cada luta ela
-reaparece **mais perto** de você (começa a 260 de distância, fecha 55 por luta,
-nunca menos que 90 — `GANGUES_BICHO_DIST_*` em `ganguesCenaMotor.js`), mas
-nunca em cima. **A força NÃO sobe com a proximidade**, só a posição muda: usa
-o pool dos guarda-costas do Carvão (`cena.bichoPool`) com a mesma régua da
-rinha, **escalada pelo personagem mais forte da gangue** (`baseMaisForte`).
-O jogador decide se foge ou encara. Estado em `cenaProgresso[cenaId].bicho`.
+**Encontro aleatório — o perseguidor (v3.61.0, 26/09/2026 — substitui por
+completo "o bicho"):**
+
+- **Quando:** o 1º vem com **5 minutos de jogo** e depois **a cada 15 minutos**.
+  O relógio conta só o tempo andando na RUA da cena (pausa em diálogo, luta,
+  interior, mochila, ficha) e fica salvo no save (`storyProgress.__aleatorio`).
+- **Como:** o **Nego Véio avisa** ("sujou o bagulho"), com 3 falas próprias de
+  cada tipo. Aí o perseguidor nasce longe (16–26 passos de caminho) e **vem atrás
+  do jogador pelas ruas**, com pathfinding (BFS na grade de 20px, a mesma colisão
+  que trava o jogador — nunca atravessa prédio, quarteirão ou muro fechado).
+- **Não dá pra fugir:** ele anda um passo a cada 90ms, contra 110ms do jogador
+  (~22% mais rápido). Se o jogador entra em outra luta, num interior ou abre um
+  menu, ele **congela onde está** e continua quando o jogador volta pra rua.
+- **Alcançou:** uma **onomatopeia** estoura no centro do mapa (~1s) e a luta
+  começa direto, sem escolha. Vitória ou derrota, ele some e o próximo fica
+  agendado pra daqui a 15 minutos.
+- **Sempre no mínimo 2 inimigos** (Isaias) — o encontro é isento da suavização
+  de 1ª luta e da regra da frustração. Força pelo personagem mais forte da
+  gangue (`baseMaisForte`).
+- **Os 4 tipos** (`ALEATORIO_TIPOS` em `engine/ganguesEncontroAleatorio.js`;
+  arte por enquanto = bolinha colorida, moto e viatura vêm depois):
+
+  | Tipo | Bolinha | Quem | Onomatopeia |
+  |---|---|---|---|
+  | **Dois numa moto** (assalto — "todo mundo tá sujeito") | amarela | 2–3: Piloto (1701) e Garupa (1702), ~90% do mais forte | VRUUUM! |
+  | **A Ronda** (polícia) | azul | 2–3: Soldado (1711) e Cabo da Ronda (1712), no nível do mais forte | PARADO! |
+  | **Bonde Rival** (outro bairro vem tirar satisfação) | vermelha | 3–4 de Feira/Baixada (1204–1209), ~75% | BANG! |
+  | **O Cobrador** (vem cobrar o salve da Banca) | roxa | 2: cobrador (1401–1406) + capanga, ~115% | PÁ! |
+
+  O 1º encontro é sempre a moto e o 2º a polícia; depois sorteia entre os 4, sem
+  repetir o anterior. As fichas 1701–1712 ficam fora do Álbum (não são cargo da
+  hierarquia).
 
 **Balanço (v3.30.0, 19/09/2026 — substitui o ratio de v2.68.0):** todo bando do
 jogo (rua, revezamento, chefe, evento) agora parte de um número de pontos FIXO
@@ -1360,7 +1382,8 @@ Reserva: cada faixa comporta crescer até ~99 sem remapear.
 | AP por risco, divisão do AP, grana da vitória | `src/pages/games/Gangues/engine/ganguesVictoryResolver.js` |
 | Descanso, agiota, Clube da Luta (store) | `src/pages/games/Gangues/store/slices/ganguesBiroscaSlice.js` |
 | Gates de Rep, marcos de Rep, empréstimo, multiplayer | `src/pages/games/Gangues/data/ganguesLoadout.js` |
-| Motor da cena (colisão, câmera, "o bicho") | `src/pages/games/Gangues/engine/ganguesCenaMotor.js` |
+| Motor da cena (colisão, câmera) | `src/pages/games/Gangues/engine/ganguesCenaMotor.js` |
+| Encontro aleatório (tipos, relógio, pathfinding) | `engine/ganguesEncontroAleatorio.js` + `hooks/useGanguesEncontroAleatorio.js` |
 | Briga em Multidão / modo automático | `engine/ganguesBrigaMultidao.js`, `hooks/useGanguesModoMultidao.js`, `hooks/useGanguesModoAuto.js` |
 | Todo texto falado na Pista (pt/en/es, em ordem de fluxo) | `docs/Games/Gangues/PISTA_COMUNICACAO.md` |
 | **Mecânica** (combate, progressão, skill tree, modo história) | Seção 17 desta bíblia |
@@ -1968,7 +1991,7 @@ v3.30.0 os dois formatos usam o MESMO sistema de pontos fixos.
   PARA, olha pra um lado, pro outro, dá uma viradinha e volta — ciclo de
   14–20s) ou **ronda** (volta num quadrado, com parada em cada canto).
   Quem conversa fica parado/inquieto; inimigos de treta ficam metade no
-  lugar, metade andando; "o bicho" sempre patrulha; loja, agiota e chefe são
+  lugar, metade andando; loja, agiota e chefe são
   fixos. Dá pra fixar qualquer um no dado (`poi.movimento`, ex.: o `sinal`
   é `patrulha-h`). Todos **congelam quando o jogador encosta**.
 - **Gates de reputação** (`data/ganguesLoadout.js`): Rep **25** pra encarar o
@@ -2006,7 +2029,7 @@ v3.30.0 os dois formatos usam o MESMO sistema de pontos fixos.
   | `posmuro_2` (Cão Louco) | 26 | rev, dupla 60%, Rep 25 | sim (galpão) |
   | galpão `m1` | 6 por corpo + 40% do time, 3–5 corpos | rev, bando | passagem |
 | galpão `m2` (1301) | 22 divididos em 3–5 corpos, Rep 25 | bando fixo | passagem |
-  | "o bicho" (pós-muro) | ~ficha do seu mais forte | rev, `baseMaisForte` | não |
+  | encontro aleatório (perseguidor) | ~ficha do seu mais forte, mín. 2 corpos | rev, `baseMaisForte` | não |
   | **Carvão** (chefe) | **30** + escolta 20 | chefe fixo | — |
 
   A dificuldade soma ou tira 2 de cada número (fácil −2, médio 0,

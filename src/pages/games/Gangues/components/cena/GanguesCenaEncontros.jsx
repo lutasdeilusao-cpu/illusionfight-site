@@ -6,7 +6,7 @@ import { nivelRealDePontos } from '../../data/ganguesDificuldade.js'
 // A tela de "encarar ou não" da treta programada (POI/chefe) — extraído de
 // GanguesCena.jsx (PLANO_REFATORACAO_ARQUIVOS_GRANDES_GANGUES_2026-09-11.md
 // §5). O antigo EventoVS (encontro aleatório de rua, sorteio cego por
-// passo) foi removido em 21/09/2026 — virou "o bicho" (pino persistente,
+// passo) foi removido em 21/09/2026 — virou "o bicho" (pino persistente, que por sua vez foi substituído em 26/09/2026 pelo encontro aleatório perseguidor — engine/ganguesEncontroAleatorio.js,
 // colide = luta automática, sem essa tela de escolha — ver GanguesCena.jsx).
 
 export function TretaVS({ poi, fala, nivelTropa, avisoOff, onOcultarAviso, onSim, onNao, t, territorioId }) {

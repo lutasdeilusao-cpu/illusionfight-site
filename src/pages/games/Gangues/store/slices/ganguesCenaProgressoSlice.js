@@ -1,3 +1,4 @@
+import { estadoInicialAleatorio, ALEATORIO_INTERVALO_S } from '../../engine/ganguesEncontroAleatorio.js'
 // Slice: progresso de POI/farm/posição dentro da cena navegável. Extraído de
 // store/useGanguesStore.js (PLANO_REFATORACAO_ARQUIVOS_GRANDES_GANGUES_2026-09-11.md §3).
 export default function createGanguesCenaProgressoSlice(set, get) {
@@ -47,16 +48,19 @@ export default function createGanguesCenaProgressoSlice(set, get) {
       get()._persistCena()
     },
 
-    // "O bicho" — encontro persistente pós-muro (21/09/2026, ver
-    // criarBichoPoi/posicaoBicho em engine/ganguesCenaMotor.js). Chamado
-    // toda vez que uma luta COM ELE se resolve (vitória ou derrota) —
-    // reposiciona mais perto do jogador, nunca em cima dele.
-    ativarBicho: (cenaId, pos, distancia) => {
-      set(state => {
-        const atual = state.cenaProgresso[cenaId] || { resolvidos: {}, revelados: {}, boss: false }
-        return { cenaProgresso: { ...state.cenaProgresso, [cenaId]: { ...atual, bicho: { ativo: true, x: pos.x, y: pos.y, distancia } } } }
-      })
-      get()._persistCena()
+    // ── Encontro aleatório (26/09/2026, ver engine/ganguesEncontroAleatorio.js) ──
+    // Estado em storyProgress.__aleatorio (vai no save da gangue, igual
+    // __birosca/__album): { tempo, proxima, contador, ultimo, ativo }.
+    aleatorioEstado: () => get().storyProgress.__aleatorio || estadoInicialAleatorio(),
+    salvarAleatorio: (patch, persistir = true) => {
+      set(state => ({ storyProgress: { ...state.storyProgress, __aleatorio: { ...(state.storyProgress.__aleatorio || estadoInicialAleatorio()), ...patch } } }))
+      if (persistir) get()._persistStory()
+    },
+    // A luta com o perseguidor acabou (vitória OU derrota): some do mapa e o
+    // próximo fica pra daqui a ALEATORIO_INTERVALO_S de jogo.
+    finalizarEncontroAleatorio: () => {
+      const e = get().aleatorioEstado()
+      get().salvarAleatorio({ ativo: null, proxima: (e.tempo || 0) + ALEATORIO_INTERVALO_S })
     },
 
     // Dominar o território a partir da cena: marca todos os pontos + o chefe,

@@ -111,15 +111,13 @@ export function ehPersonagem(p) {
 // outro dá a volta num quadrado. Ordem de decisão:
 //   1. `poi.movimento` no dado ('parado'|'inquieto'|'patrulha-h'|
 //      'patrulha-v'|'ronda') — pra fixar um personagem específico;
-//   2. "o bicho" sempre patrulha (é quem ronda o pós-muro);
-//   3. quem conversa (papo/descanso) fica no seu ponto: parado ou inquieto;
-//   4. inimigo de treta: mistura patrulha, ronda, inquieto e parado.
+//   2. quem conversa (papo/descanso) fica no seu ponto: parado ou inquieto;
+//   3. inimigo de treta: mistura patrulha, ronda, inquieto e parado.
 // Sempre o mesmo pra cada personagem (hash do id), nunca sorteado a cada visita.
 // Metade fica no lugar (parado/inquieto), metade anda — "nem todos precisam andar".
 const MOVIMENTOS_TRETA = ['inquieto', 'patrulha-h', 'parado', 'ronda', 'inquieto', 'patrulha-v', 'parado', 'patrulha-h']
 export function movimentoDoPino(p) {
   if (p.movimento) return p.movimento
-  if (p.ehBicho) return 'patrulha-h'
   const h = hashEstavel(p.id)
   if (p.tipo === 'papo' || p.tipo === 'descanso') return h % 3 === 0 ? 'inquieto' : 'parado'
   return MOVIMENTOS_TRETA[h % MOVIMENTOS_TRETA.length]

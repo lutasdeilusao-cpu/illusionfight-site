@@ -245,7 +245,9 @@ export default function GanguesRoute() {
       // pelo time (ratioComTime), caso do galpão do Carvão (ver interiores.js).
       enemyTeam = gerarBandoRevezamento({ ...alvo.revezamento, enemiesData, modo, playerTeam: party })
       if (!enemyTeam?.length) { setFase('story'); return }
-      if (suavizarFn) enemyTeam = suavizarFn(enemyTeam)
+      // Encontro aleatório (perseguidor) nunca é suavizado: o Isaias quer
+      // SEMPRE no mínimo 2 inimigos (26/09/2026) — as duas suavizações cortam pra 1.
+      if (suavizarFn && alvo.cenaPoiId !== '__aleatorio') enemyTeam = suavizarFn(enemyTeam)
     } else if (alvo.fixo) {
       // Nível fixo (Generais da Pista, rua comum dos outros territórios): a
       // MESMA ficha catalogada, escalada pro ponto autorado do POI/nó

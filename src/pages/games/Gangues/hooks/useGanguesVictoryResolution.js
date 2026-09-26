@@ -6,8 +6,6 @@ import { useEffect, useRef, useState } from 'react'
 import { registrarPontuacaoArenaRanking } from '../../../../hooks/useLeaderboardDB'
 import { sfx } from '../../../../lib/sfx'
 import { calcularApTotal, calcularPesosEParticipantes, calcularRecompensaCena } from '../engine/ganguesVictoryResolver.js'
-import { CENAS_POR_ID } from '../data/cenas/cenaHelpers.js'
-import { SPAWN, proximaDistanciaBicho, posicaoBicho } from '../engine/ganguesCenaMotor.js'
 
 export default function useGanguesVictoryResolution({ store, user, report, victory, storyAlvo, match, torre, torreAndar, clube, emCena, noModoHistoria, cenaChefe, confrontoFinal, onNavigate }) {
   const processed = useRef(false)
@@ -106,7 +104,8 @@ export default function useGanguesVictoryResolution({ store, user, report, victo
           // tentar de novo (evita perder pra sempre um item obrigatório de
           // progresso por causa de UM minigame falhado, ver AGENTS.md 13/09/2026).
           if (storyAlvo.cenaSemTravar) store.revelarPoi(storyAlvo.cenaId, storyAlvo.cenaRevela || [])
-          else store.marcarPoiResolvido(storyAlvo.cenaId, storyAlvo.cenaPoiId, storyAlvo.cenaRevela || [])
+          // `__aleatorio` (perseguidor) não é ponto do mapa — não marca nada.
+          else if (storyAlvo.cenaPoiId !== '__aleatorio') store.marcarPoiResolvido(storyAlvo.cenaId, storyAlvo.cenaPoiId, storyAlvo.cenaRevela || [])
         }
         if (grana) { store.ganharGrana(grana); granaGanha += grana }
         if (rep) { repMarcos = store.ganharRep(rep); repGanha += rep }
@@ -129,23 +128,9 @@ export default function useGanguesVictoryResolution({ store, user, report, victo
       sfx.win()
     } else sfx.lose()
 
-    // "O bicho" (encontro persistente pós-muro, 21/09/2026 — pedido do
-    // Isaias: "toda vez que você luta ela muda a posição... fica mais
-    // perto de você, nunca em cima de você mas sempre bem mais perto")
-    // — TODA luta com ele (vitória OU derrota, só não fugir sem colidir
-    // no mapa) reposiciona ele mais perto de onde o jogador tava quando
-    // entrou na luta (`cenaProgresso[cenaId].posicao`, gravado por
-    // `guardarPosicao()` em GanguesCena.jsx logo antes de navegar pro
-    // combate). `emCena` garante que só roda pro fluxo de cena de
-    // verdade (hoje só a Pista).
-    if (emCena && storyAlvo.cenaPoiId === '__bicho') {
-      const cenaBicho = CENAS_POR_ID[storyAlvo.cenaId]
-      const progBicho = store.cenaProgresso[storyAlvo.cenaId]
-      const posRef = progBicho?.posicao || { x: SPAWN.x, y: SPAWN.y }
-      const novaDist = proximaDistanciaBicho(progBicho?.bicho?.distancia)
-      const novaPos = posicaoBicho(cenaBicho, posRef, novaDist)
-      store.ativarBicho(storyAlvo.cenaId, novaPos, novaDist)
-    }
+    // Encontro aleatório (perseguidor da cena, 26/09/2026): vitória OU derrota,
+    // ele some do mapa e o próximo fica agendado (finalizarEncontroAleatorio).
+    if (emCena && storyAlvo.cenaPoiId === '__aleatorio') store.finalizarEncontroAleatorio()
 
     const timer = setTimeout(() => store.saveParticipantProgress(escaladosIds), 400)
     return () => clearTimeout(timer)

@@ -27,8 +27,10 @@ import { getGanguesNpcPortrait } from '../data/ganguesNpcPortraits.js'
 import { getGanguesRosterLimitComHistoria, GANGUES_REP_GATE_GALPAO, GANGUES_REP_GATE_CLUBE } from '../data/ganguesLoadout.js'
 import { getGanguesLevelFromXp } from '../data/ganguesCharacters.js'
 import { getGanguesAttributesWithEquip } from '../data/ganguesEquip.js'
-import { WORLD, SPAWN, montarAmbiente, insideZone, validPosition, validPos, criarBichoPoi } from '../engine/ganguesCenaMotor.js'
+import { WORLD, SPAWN, montarAmbiente, insideZone, validPosition, validPos } from '../engine/ganguesCenaMotor.js'
+import { ALEATORIO_TIPOS } from '../engine/ganguesEncontroAleatorio.js'
 import useGanguesCenaMovimento from '../hooks/useGanguesCenaMovimento.js'
+import useGanguesEncontroAleatorio from '../hooks/useGanguesEncontroAleatorio.js'
 import './GanguesCena.css'
 
 // Cada cena vira um tutorial_id próprio (`cena_intro:<cenaId>`) dentro do
@@ -100,8 +102,7 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
   // Nível MÉDIO da tropa de batalha — base do aviso "recomendado nível X" no
   // TretaVS (o Isaias: o cara entra consciente ou upa antes). Morava no
   // hook do antigo encontro aleatório (useGanguesCenaEventoAleatorio,
-  // removido 21/09/2026 junto com o próprio sistema — ver "o bicho" mais
-  // abaixo) — nada a ver com o encontro em si, só ficava junto por
+  // removido 21/09/2026 junto com o próprio sistema) — nada a ver com o encontro em si, só ficava junto por
   // conveniência; movido pra cá.
   const nivelTropa = useMemo(() => {
     const time = store.activeParty.length ? store.activeParty : store.roster
@@ -140,28 +141,15 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
   // diferente) → volta pra rua.
   useEffect(() => { if (cena && local && !amb) { setLocal(null); setPlayer(cena.mundo?.spawn || SPAWN) } }, [cena, local, amb])
 
-  // "O bicho" (encontro persistente pós-muro, 21/09/2026 — substitui por
-  // completo o antigo encontro aleatório de rua): a 1ª aparição é uma
-  // emboscada de verdade, sem pino nenhum no mapa (mesmo roll por tick de
-  // movimento de antes, ver `tentarBicho` mais abaixo) — depois disso ele
-  // sempre está visível em algum lugar da cena (`prog.bicho`), e colidir
-  // com ele (não apertar um botão) já é o gatilho da luta.
-  useEffect(() => { tentarBicho() }, [player])
-  // Colidiu com o bicho de verdade (mesma medição de `colisoes` que já
-  // ativa o botão de interação/pausa a andadinha pra qualquer personagem —
-  // ver onColidir/PinoAlvo) → luta automática, sem escolha ("o que você
-  // pode fazer é tentar fugir dela, mas depois que colidiu não tem
-  // escolha"). `bichoDisparadoRef` evita disparo duplo nos ~150ms entre o
-  // 1º tick que detecta a colisão e a navegação pro combate de fato.
-  const bichoDisparadoRef = useRef(false)
-  useEffect(() => {
-    if (encontro || fade || intro || local) return
-    const bichoPoi = (amb?.alvos || []).find(a => a.ehBicho)
-    if (!bichoPoi || !colisoes[bichoPoi.id] || bichoDisparadoRef.current) return
-    bichoDisparadoRef.current = true
-    if (!iniciarBicho(bichoPoi)) bichoDisparadoRef.current = false
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [colisoes, amb, encontro, fade, intro, local])
+  // Encontro aleatório (26/09/2026 — ver engine/ganguesEncontroAleatorio.js):
+  // relógio de jogo + perseguidor. Só corre com o jogador na RUA e sem nada
+  // aberto por cima; senão congela e continua de onde parou.
+  const iniciarAleatorioRef = useRef(null)
+  const aleatorio = useGanguesEncontroAleatorio({
+    store, player, collidersRef, worldRef, gateRef,
+    rodando: Boolean(cena) && !intro && !encontro && !fade && !local && fichaIndex === null && !bagAberta && !repModalMarco,
+    onAlcancou: tipo => iniciarAleatorioRef.current?.(tipo),
+  })
   useEffect(() => {
     if (intro || encontro) return
     if (!andou) { setHint(t('games.gangues.cena.hint_andar')); return }
@@ -222,11 +210,6 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
     if (poi.ehSaida) { sair(poi.paraPredio); return }
     if (poi.ehVolta) { irComodo(poi.para); return }
     if (poi.ehPassagem) { irComodo(poi.para); return }
-    // Rede de segurança: na prática o bicho já dispara sozinho por colisão
-    // (ver useEffect acima) antes do jogador conseguir apertar o botão —
-    // mas se isso um dia falhar, aqui também vai direto pra luta, sem o
-    // diálogo "sim/não" normal de treta (ele NUNCA teve escolha).
-    if (poi.ehBicho) { iniciarBicho(poi); return }
     guardarPosicao()
     if (poi.tipo === 'achado') {
       sfx.reward?.()
@@ -292,44 +275,19 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
     store.setStoryTarget({ clube: true, clubeBase: custoBase || 10, clubeDividaPrevia: dividaPrevia, clubeRonda: 1, clubeHeals: 0, voltar: { territorioId: terr.id } })
     onNavigate('clube')
   }
-  // "O bicho" — luta SEMPRE automática, sem tela de "sim/não" (pedido do
-  // Isaias, 21/09/2026: "se você colide com ela você entra automaticamente
-  // numa luta, você não tem escolha"). `poi` pode ser o pino de verdade
-  // (colisão no mapa) ou um objeto mínimo só com `.revezamento` (1ª
-  // emboscada, sem pino ainda — ver `tentarBicho`).
-  // Devolve true/false (sucesso) — o gatilho por colisão usa isso pra só
-  // travar `bichoDisparadoRef` quando a luta REALMENTE começou; se a tropa
-  // tava no chão (bloqueada), o jogador ainda pode estar encostado nele
-  // depois de curar na birosca, e a colisão precisa poder tentar de novo.
-  const iniciarBicho = (poi) => {
-    if (barraSeChao()) return false
+  // Encontro aleatório: o perseguidor alcançou o jogador → luta direto, sem
+  // escolha. Devolve false se a tropa tá no chão (aí ele espera e tenta de novo).
+  iniciarAleatorioRef.current = tipo => {
+    const def = ALEATORIO_TIPOS[tipo]
+    if (!def || barraSeChao()) return false
     guardarPosicao(); sfx.vs?.()
     store.setStoryTarget({
-      territorioId: terr.id, cenaId: cena.id, cenaPoiId: '__bicho',
+      territorioId: terr.id, cenaId: cena.id, cenaPoiId: '__aleatorio',
       cenaRevela: [], cenaRecompensa: null, pontoIds: terr.pontos.map(p => p.id),
-      revezamento: poi.revezamento,
+      revezamento: def.revezamento,
     })
     onNavigate('story-combat')
     return true
-  }
-  // 1ª aparição: emboscada de verdade, sem pino nenhum no mapa antes dela —
-  // mesmo roll baixinho por tick de movimento que o antigo encontro
-  // aleatório já usava (ver histórico em ganguesCenaMotor.js). Só roda UMA
-  // vez por conta — depois que `prog.bicho.distancia` existe, o bicho já
-  // está sempre visível em algum lugar (`criarBichoPoi`) e colidir com o
-  // pino de verdade é o único jeito dele aparecer de novo.
-  const bichoStepRef = useRef(0)
-  const tentarBicho = () => {
-    if (local || encontro || fade || intro) return
-    // Regra mantida (pedido do Isaias: "se eu me lembro bem, só depois que
-    // passa o muro"): só depois do túnel/muro abrir, igual o antigo gate.
-    if (!baseFeita) return
-    if (prog.bicho?.distancia != null) return
-    if (passosRef.current < 60) return
-    if (passosRef.current - bichoStepRef.current < 20) return
-    if (Math.random() >= 0.0022) return
-    bichoStepRef.current = passosRef.current
-    iniciarBicho(criarBichoPoi(cena, { x: player.x, y: player.y }))
   }
   const iniciarTreta = (poi, { viraTreta, revela } = {}) => {
     if (barraSeChao()) return
@@ -434,6 +392,7 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
   }).filter(m => m?.pos)
   return <main className={`gang-cena-worldpage${local ? ' is-interior' : ''}`} style={{ '--terr-cor': cena.cor }}>
     <AnimatePresence>{intro && <GangDialog lines={t(cena.chegada)} speaker={t(cena.falante)} sub={t(cena.falanteSub)} retrato={getGanguesNpcPortrait(cena.falanteSlug)} onFinish={fecharIntro} onSkip={fecharIntro} />}</AnimatePresence>
+    <AnimatePresence>{aleatorio.aviso && <GangDialog key="aleatorio" lines={t(`games.gangues.cena.aleatorio.${aleatorio.aviso}.aviso`)} speaker={t(cena.falante)} sub={t(cena.falanteSub)} retrato={getGanguesNpcPortrait(cena.falanteSlug)} onFinish={aleatorio.confirmarAviso} onSkip={aleatorio.confirmarAviso} />}</AnimatePresence>
     <header className="gang-cena-worldhud"><button onClick={() => { local ? sair() : (guardarPosicao(), (onVoltar || (() => onNavigate('story')))()) }}>← {local ? t('games.gangues.cena.acao.sair') : t('games.gangues.cena.acao.voltar')}</button><strong>{breadcrumb}{!local && (prog.boss ? <i className="gang-cena-dominado-selo">⚑ DOMINADA</i> : <button className="gang-cena-meta-btn" onClick={() => setChecklist(v => !v)}>{feitos}/{total} ▾</button>)}</strong><span>💵 {store.grana}　⚑ {store.rep}</span><button className="gang-cena-ficha-btn" onClick={() => setBagAberta(true)} aria-label={t('games.gangues.bag.titulo')}>🎒</button>{store.activeParty.length > 0 && <button className="gang-cena-ficha-btn" onClick={() => setFichaIndex(0)}>👤</button>}<button className="gang-cena-ficha-btn" onClick={() => { guardarPosicao(); onNavigate('album') }} aria-label={t('games.gangues.album.titulo')}>📕</button></header>
     <AnimatePresence>{checklist && !local && <motion.div className="gang-cena-checklist" initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }}>
       <b>{t('games.gangues.cena.checklist_titulo')}</b>
@@ -465,8 +424,9 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
           "voando" até x=332 na rua gigante), um glitch visual de "cair num
           lugar vazio" antes de assentar no lugar certo. key força remontar
           (sem animação) toda vez que entra/sai de um interior. */}
+      {!local && aleatorio.perseguidor && <div className={`gang-world-perseguidor is-${ALEATORIO_TIPOS[aleatorio.perseguidor.tipo]?.cor}`} style={{ left: aleatorio.perseguidor.x, top: aleatorio.perseguidor.y }}><span /><small>{t(`games.gangues.cena.aleatorio.${aleatorio.perseguidor.tipo}.nome`)}</small></div>}
       <GangMarker key={local ? `${local.id}-${local.comodo}` : 'rua'} player={player} facing={facing} gangName={store.gangName} retrato={getGanguesPortraitByTemplateId(store.getLider()?.character_template_id)} />
-    </div><div className="gang-cena-vignette" />{hint && <div className="gang-cena-tutorial">{hint}</div>}{!local && !muroAberto && player.y < 1430 && <div className="gang-cena-gatelock">🔒 {t(baseFeita ? 'games.gangues.cena.muro_tunel' : 'games.gangues.cena.boss_trancado')}</div>}<AnimatePresence>{fade && <motion.div className="gang-cena-fade" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: .16 }} />}</AnimatePresence></div>
+    </div><div className="gang-cena-vignette" />{hint && <div className="gang-cena-tutorial">{hint}</div>}{!local && !muroAberto && player.y < 1430 && <div className="gang-cena-gatelock">🔒 {t(baseFeita ? 'games.gangues.cena.muro_tunel' : 'games.gangues.cena.boss_trancado')}</div>}<AnimatePresence>{aleatorio.onomatopeia && <motion.div key="onomatopeia" className={`gang-cena-onomatopeia is-${ALEATORIO_TIPOS[aleatorio.onomatopeia]?.cor}`} initial={{ scale: .3, opacity: 0, rotate: -12 }} animate={{ scale: 1, opacity: 1, rotate: -6 }} exit={{ opacity: 0 }} transition={{ type: 'spring', stiffness: 520, damping: 14 }}><b>{t(`games.gangues.cena.aleatorio.${aleatorio.onomatopeia}.onomatopeia`)}</b></motion.div>}</AnimatePresence><AnimatePresence>{fade && <motion.div className="gang-cena-fade" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: .16 }} />}</AnimatePresence></div>
     {!local && !intro && <GanguesMiniMapa player={player} alvos={minimapaAlvos} />}
     {!local && !intro && !encontro && !fade && <GanguesAlvoTutorial alvos={amb?.alvos} />}
     <WorldControls onInput={v => { inputRef.current = v }} onInteract={() => abrir(perto)} action={perto ? interactionLabel(perto, t) : null} />

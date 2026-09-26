@@ -66,12 +66,6 @@ export const CENA_PISTA = {
   // ── INTERIORES navegáveis (fase 2) ──────────────────────────
   interiores: INTERIORES_PISTA,
 
-  // "O bicho" — encontro persistente pós-muro (21/09/2026, ver
-  // criarBichoPoi/GanguesCena.jsx). Pool dos guarda-costas do Carvão —
-  // tema "algo pesado ronda o pós-muro" — mesma régua de força que
-  // posmuro_1/posmuro_2 já usam (baseMaisForte, escala com o mais forte
-  // da gangue, não fica mais difícil com a proximidade).
-  bichoPool: PISTA_POOL_GALPAO,
 
   // O chefe — só aparece quando o portão abre.
   chefe: {
@@ -102,8 +96,8 @@ export const CENA_PISTA = {
   // BUG REAL achado 21/09/2026: 'birosca' (POI removido no merge com o
   // Descanso, ver AGENTS.md/pois.js) tinha ficado aqui na lista — como
   // esse POI não existe mais, `resolvidos.birosca` nunca vira `true` de
-  // novo, e o portão NUNCA mais abria (achado testando "o bicho", que só
-  // aparece depois do portão aberto). Tirado da lista.
+  // novo, e o portão NUNCA mais abria (achado testando o antigo encontro "o bicho",
+  // que só aparecia depois do portão aberto). Tirado da lista.
   portao: {
     precisa: ['sinal', 'ferro', 'beco', 'beco_2', 'beco_3', 'oficina', 'sinaleiro', 'rasteira_velha'],
   },

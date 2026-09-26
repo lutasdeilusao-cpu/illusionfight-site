@@ -5612,5 +5612,205 @@
       "territorioId": 7
     },
     "nivel": 100
+  },
+  {
+    "id": 1701,
+    "name": "Piloto",
+    "stats": {
+      "A": 2,
+      "H": 3,
+      "D": 1,
+      "PV": 2,
+      "PM": 1
+    },
+    "pv_max": 6,
+    "pm_max": 3,
+    "weapon": "capacete na mão",
+    "elemental": null,
+    "preferred_mode": "fists",
+    "ai_pattern": "básico",
+    "difficulty": "medium",
+    "tier": 0,
+    "notes": "Pilota a moto do assalto. Não desce, só acelera — quem desce é a garupa.",
+    "trash_talk": {
+      "attack_miss": [
+        "segura, segura! 😤",
+        "quase, parceiro 😏"
+      ],
+      "attack_hit": [
+        "perdeu, perdeu! 💢",
+        "passa tudo, cria 😈"
+      ],
+      "take_damage": [
+        "ih, reagiu 😬",
+        "calma aí, calma 🙄"
+      ],
+      "take_critical": [
+        "o cara é brabo 😳",
+        "sujou pra nós 😰"
+      ],
+      "player_near_death": [
+        "falei pra passar logo 🙏",
+        "era só ter passado 😈"
+      ],
+      "enemy_near_death": [
+        "liga a moto, liga a moto! 😱",
+        "deu ruim, deu ruim 💨"
+      ],
+      "defeat": [
+        "...todo mundo tá sujeito 😔",
+        "beleza, cê venceu 🤝"
+      ]
+    }
+  },
+  {
+    "id": 1702,
+    "name": "Garupa",
+    "stats": {
+      "A": 3,
+      "H": 1,
+      "D": 1,
+      "PV": 2,
+      "PM": 2
+    },
+    "pv_max": 6,
+    "pm_max": 6,
+    "weapon": "oitão enferrujado",
+    "elemental": null,
+    "preferred_mode": "fists",
+    "ai_pattern": "básico",
+    "difficulty": "medium",
+    "tier": 0,
+    "notes": "Vai na garupa e anuncia o assalto. \"Todo mundo tá sujeito.\"",
+    "trash_talk": {
+      "attack_miss": [
+        "segura, segura! 😤",
+        "quase, parceiro 😏"
+      ],
+      "attack_hit": [
+        "perdeu, perdeu! 💢",
+        "passa tudo, cria 😈"
+      ],
+      "take_damage": [
+        "ih, reagiu 😬",
+        "calma aí, calma 🙄"
+      ],
+      "take_critical": [
+        "o cara é brabo 😳",
+        "sujou pra nós 😰"
+      ],
+      "player_near_death": [
+        "falei pra passar logo 🙏",
+        "era só ter passado 😈"
+      ],
+      "enemy_near_death": [
+        "liga a moto, liga a moto! 😱",
+        "deu ruim, deu ruim 💨"
+      ],
+      "defeat": [
+        "...todo mundo tá sujeito 😔",
+        "beleza, cê venceu 🤝"
+      ]
+    }
+  },
+  {
+    "id": 1711,
+    "name": "Soldado da Ronda",
+    "stats": {
+      "A": 2,
+      "H": 2,
+      "D": 3,
+      "PV": 2,
+      "PM": 1
+    },
+    "pv_max": 6,
+    "pm_max": 3,
+    "weapon": "cassetete",
+    "elemental": null,
+    "preferred_mode": "fists",
+    "ai_pattern": "básico",
+    "difficulty": "medium",
+    "tier": 0,
+    "notes": "Faz a ronda da madrugada. Baculejo em quem estiver na rua depois das dez.",
+    "trash_talk": {
+      "attack_miss": [
+        "parado aí! 🚨",
+        "mão na cabeça! 😤"
+      ],
+      "attack_hit": [
+        "é o baculejo 👮",
+        "encosta na parede 💢"
+      ],
+      "take_damage": [
+        "resistência, é? 😬",
+        "vai piorar pro teu lado 🙄"
+      ],
+      "take_critical": [
+        "chama o reforço! 😳",
+        "o moleque é osso 😰"
+      ],
+      "player_near_death": [
+        "encerrou, vagabundo 😈",
+        "vai assinar é na delegacia 🚓"
+      ],
+      "enemy_near_death": [
+        "pede apoio, pede apoio! 📻",
+        "recua, recua! 😱"
+      ],
+      "defeat": [
+        "...hoje não deu 😔",
+        "isso não acaba aqui 🚨"
+      ]
+    }
+  },
+  {
+    "id": 1712,
+    "name": "Cabo da Ronda",
+    "stats": {
+      "A": 3,
+      "H": 2,
+      "D": 2,
+      "PV": 2,
+      "PM": 1
+    },
+    "pv_max": 6,
+    "pm_max": 3,
+    "weapon": "cassetete e rádio",
+    "elemental": null,
+    "preferred_mode": "fists",
+    "ai_pattern": "básico",
+    "difficulty": "medium",
+    "tier": 0,
+    "notes": "Comanda a viatura. Não quer saber de explicação, quer saber de documento.",
+    "trash_talk": {
+      "attack_miss": [
+        "parado aí! 🚨",
+        "mão na cabeça! 😤"
+      ],
+      "attack_hit": [
+        "é o baculejo 👮",
+        "encosta na parede 💢"
+      ],
+      "take_damage": [
+        "resistência, é? 😬",
+        "vai piorar pro teu lado 🙄"
+      ],
+      "take_critical": [
+        "chama o reforço! 😳",
+        "o moleque é osso 😰"
+      ],
+      "player_near_death": [
+        "encerrou, vagabundo 😈",
+        "vai assinar é na delegacia 🚓"
+      ],
+      "enemy_near_death": [
+        "pede apoio, pede apoio! 📻",
+        "recua, recua! 😱"
+      ],
+      "defeat": [
+        "...hoje não deu 😔",
+        "isso não acaba aqui 🚨"
+      ]
+    }
   }
 ]

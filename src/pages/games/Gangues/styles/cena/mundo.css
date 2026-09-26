@@ -173,3 +173,18 @@
 .gang-world-controls button { pointer-events:auto;width:98px;height:98px;border-radius:50%;border:2px solid var(--terr-cor);background:radial-gradient(circle,#12363a,#071114);color:var(--gang-branco);box-shadow:0 0 22px rgba(0,220,255,.16),inset 0 0 18px var(--gang-preto);display:grid;place-content:center;gap:3px; }.gang-world-controls button b{font:900 .72rem var(--font-display)}.gang-world-controls button span{font:700 .45rem var(--font-mono);color:var(--terr-cor)}.gang-world-controls button:disabled{opacity:.2;filter:grayscale(1)}
 @media(max-height:700px){.gang-cena-worldpage{min-height:540px}.gang-world-controls{min-height:120px;padding:12px 25px max(12px,env(safe-area-inset-bottom))}.gang-world-stick{width:92px;height:92px}.gang-world-controls button{width:82px;height:82px}.gang-cena-tutorial{bottom:14px}}
 @media(prefers-reduced-motion:reduce){.gang-cena-world{transition:none}.gang-world-player>span,.gang-world-npc>span,.gang-world-npc-farm-tag,.gang-world-npc.is-perto>span,.gang-world-npc.is-nav.is-perto>span,.gang-world-npc.mov-anda>span,.gang-world-npc-passo img,.gang-world-npc-passo{animation:none}}
+
+/* ── Encontro aleatório: o perseguidor (26/09/2026) ──
+   Por enquanto uma bolinha colorida por tipo (arte da moto/viatura vem depois):
+   amarela = dois numa moto, azul = a ronda, vermelha = bonde rival,
+   roxa = o cobrador da Banca. O anel pulsa pra ser visto de longe. A posição
+   (left/top) vem do pathfinding, passo a passo — a transição suaviza. */
+.gang-world-perseguidor{position:absolute;z-index:17;transform:translate(-50%,-50%);display:grid;justify-items:center;pointer-events:none;transition:left .09s linear,top .09s linear;--perseg:var(--if-amber)}
+.gang-world-perseguidor.is-azul{--perseg:#3d8bff}
+.gang-world-perseguidor.is-vermelha{--perseg:var(--if-danger)}
+.gang-world-perseguidor.is-roxa{--perseg:var(--if-violet)}
+.gang-world-perseguidor>span{position:relative;display:block;width:34px;height:34px;border-radius:50%;background:radial-gradient(circle at 35% 30%,var(--gang-branco),var(--perseg) 45%,color-mix(in srgb,var(--perseg) 55%,var(--gang-preto)));border:2px solid var(--gang-branco);box-shadow:0 0 18px var(--perseg),0 6px 12px var(--gang-preto)}
+.gang-world-perseguidor>span::after{content:'';position:absolute;inset:-8px;border-radius:50%;border:2px solid var(--perseg);opacity:.8;animation:gang-perseg-anel 1s ease-out infinite}
+@keyframes gang-perseg-anel{from{transform:scale(.7);opacity:.9}to{transform:scale(1.5);opacity:0}}
+.gang-world-perseguidor small{margin-top:3px;padding:2px 5px;background:#02080bcc;color:var(--perseg);font:800 .5rem var(--font-mono);letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+@media(prefers-reduced-motion:reduce){.gang-world-perseguidor{transition:none}.gang-world-perseguidor>span::after{animation:none}}

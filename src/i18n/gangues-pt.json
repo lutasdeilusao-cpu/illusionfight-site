@@ -550,6 +550,10 @@
         "PdF": "Poder Elemental"
       },
       "enemy_names": {
+        "1701": "Piloto",
+        "1702": "Garupa",
+        "1711": "Soldado da Ronda",
+        "1712": "Cabo da Ronda",
         "1101": "Farejador",
         "1102": "Zóio",
         "1103": "Pingo",
@@ -945,8 +949,43 @@
         "treta_sim_risco": "Vou assim mesmo",
         "nivel_rec_ocultar": "não me avisa mais nessa quebrada",
         "nivel_rec_baixo": "Recomendado: tropa no nível {rec}. Contando o equipamento, a tua tá em média no {atual} — vai apanhar feio. Faz uns corre, upa numas tretas mais tranquilas e volta.",
-        "bicho": {
-          "nome": "O Encosto"
+        "aleatorio": {
+          "moto": {
+            "nome": "Dois numa moto",
+            "onomatopeia": "VRUUUM!",
+            "aviso": [
+              "Ô, cria, fica esperto! Sujou o bagulho.",
+              "Tão dizendo que tem dois caras numa moto rodando o bairro, enquadrando geral.",
+              "Aqui todo mundo tá sujeito — até nós. Se eles te acharem, não tem conversa."
+            ]
+          },
+          "policia": {
+            "nome": "A Ronda",
+            "onomatopeia": "PARADO!",
+            "aviso": [
+              "A casa caiu, cria! Os homi tão na área.",
+              "A viatura tá rodando a Pista atrás de quem tá fazendo barulho.",
+              "Corre se quiser, mas eles conhecem essas ruas melhor que tu."
+            ]
+          },
+          "bonde": {
+            "nome": "Bonde Rival",
+            "onomatopeia": "BANG!",
+            "aviso": [
+              "Deu ruim, cria. Teu nome chegou longe demais.",
+              "Um bonde de outro bairro atravessou a linha só pra te tirar satisfação.",
+              "Três deles. E não vieram conversar."
+            ]
+          },
+          "cobranca": {
+            "nome": "O Cobrador",
+            "onomatopeia": "PÁ!",
+            "aviso": [
+              "Ih, cria... chegou o dia.",
+              "O Cobrador da Banca tá na Pista. Todo bonde paga o salve, e tu tá devendo o teu.",
+              "Ele não aceita desculpa. Aceita pagamento ou porrada."
+            ]
+          }
         },
         "fechar": "Fechar",
         "parada_pular": "Deixa quieto",
@@ -1305,6 +1344,10 @@
         }
       },
       "enemy_album": {
+        "1701": "Pilota a moto do assalto. Não desce, só acelera — quem desce é a garupa.",
+        "1702": "Vai na garupa e anuncia o assalto. \"Todo mundo tá sujeito.\"",
+        "1711": "Faz a ronda da madrugada. Baculejo em quem estiver na rua depois das dez.",
+        "1712": "Comanda a viatura. Não quer saber de explicação, quer saber de documento.",
         "1101": "Não briga, corre e avisa — enfrentá-lo é perseguição antes de porrada.",
         "1102": "O olho da esquina — vê tudo que sobe e desce a Pista, e comenta tudo também.",
         "1103": "O mais rápido da Pista — foge se levar 2 golpes seguidos.",

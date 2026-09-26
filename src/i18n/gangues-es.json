@@ -550,6 +550,10 @@
         "PdF": "Poder Elemental"
       },
       "enemy_names": {
+        "1701": "Piloto",
+        "1702": "Acompañante",
+        "1711": "Agente de Ronda",
+        "1712": "Cabo de Ronda",
         "1101": "Rastreador",
         "1102": "Ojo",
         "1103": "Gota",
@@ -4048,8 +4052,43 @@
         "treta_sim_risco": "Voy igual",
         "nivel_rec_ocultar": "no me avises más en este barrio",
         "nivel_rec_baixo": "Recomendado: tropa en nivel {rec}. Contando el equipo, la tuya promedia {atual} — vas a comer feo. Hacé unas changas, subí nivel en peleas más tranquilas y volvé.",
-        "bicho": {
-          "nome": "El Que Acecha"
+        "aleatorio": {
+          "moto": {
+            "nome": "Dos en una moto",
+            "onomatopeia": "¡BRRRUM!",
+            "aviso": [
+              "¡Ojo, pibe! Se pudrió todo.",
+              "Dicen que hay dos tipos en una moto dando vueltas por el barrio, asaltando a todos.",
+              "Acá todos estamos expuestos, hasta nosotros. Si te encuentran, no hay charla."
+            ]
+          },
+          "policia": {
+            "nome": "La Ronda",
+            "onomatopeia": "¡ALTO!",
+            "aviso": [
+              "¡Se cayó la casa, pibe! La yuta está en la zona.",
+              "Un patrullero recorre la Pista buscando al que hace ruido.",
+              "Corré si querés, pero conocen estas calles mejor que vos."
+            ]
+          },
+          "bonde": {
+            "nome": "Banda Rival",
+            "onomatopeia": "¡BANG!",
+            "aviso": [
+              "Mala señal, pibe. Tu nombre llegó lejos.",
+              "Una banda de otro barrio cruzó la línea solo para ajustar cuentas con vos.",
+              "Son tres. Y no vinieron a charlar."
+            ]
+          },
+          "cobranca": {
+            "nome": "El Cobrador",
+            "onomatopeia": "¡PAF!",
+            "aviso": [
+              "Ay, pibe... llegó el día.",
+              "El Cobrador de la Banca está en la Pista. Toda banda paga su parte, y vos debés la tuya.",
+              "No acepta excusas. Acepta plata o piñas."
+            ]
+          }
         },
         "fechar": "Cerrar",
         "parada_pular": "Dejalo quieto",
@@ -4408,6 +4447,10 @@
         }
       },
       "enemy_album": {
+        "1701": "Maneja la moto del asalto. No se baja, solo acelera — el que se baja es el de atrás.",
+        "1702": "Va atrás y anuncia el asalto. \"Todos estamos expuestos.\"",
+        "1711": "Hace la ronda de la madrugada. Requisa a cualquiera que siga en la calle después de las diez.",
+        "1712": "Comanda el patrullero. No quiere explicaciones, quiere documentos.",
         "1101": "No pelea, corre y avisa — enfrentarlo es una persecución antes de la paliza.",
         "1102": "El ojo de la esquina — ve todo lo que sube y baja la Pista, y lo comenta todo.",
         "1103": "El más rápido de la Pista — huye si recibe 2 golpes seguidos.",
