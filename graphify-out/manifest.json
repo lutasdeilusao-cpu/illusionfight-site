@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1790436315.7798636,
-    "ast_hash": "7031e0e2267e50934626f16b167d54ca",
+    "mtime": 1790443110.1183634,
+    "ast_hash": "8b86337a3eb984d2d4afc56b132c42a6",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2730,8 +2730,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1790436315.825158,
-    "ast_hash": "d09450b1df1e836982365850bcb6847a",
+    "mtime": 1790443026.84243,
+    "ast_hash": "70b89c821b4040ec0072c93c21f6a17a",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -4520,8 +4520,8 @@
     "semantic_hash": ""
   },
   "src/pages/site/Home/components/BookChaptersRow.jsx": {
-    "mtime": 1788406808.9193242,
-    "ast_hash": "74e24ec66dc953a220c774d6c5f761eb",
+    "mtime": 1790443073.253404,
+    "ast_hash": "5283a3d69ede2679fbe02f785f1d7949",
     "semantic_hash": ""
   },
   "src/pages/site/Home/components/CharactersRow.jsx": {
@@ -5670,8 +5670,8 @@
     "semantic_hash": ""
   },
   "src/lib/historias/catalogo.js": {
-    "mtime": 1790436315.7537544,
-    "ast_hash": "c53566a4e0a09c568ce50cbf3da2fbb0",
+    "mtime": 1790443026.7499754,
+    "ast_hash": "95304298a54a22f25968ab29c3c2f4dc",
     "semantic_hash": ""
   },
   "src/pages/content/historias/HistoriaCapLinha.jsx": {
@@ -5722,6 +5722,36 @@
   "src/assets/images/contos/capa-illusion-tales.webp": {
     "mtime": 1790436270.5592306,
     "ast_hash": "e58a21407a3f967bb20dcfe516190228",
+    "semantic_hash": ""
+  },
+  "src/assets/images/livro/capitulo-01.webp": {
+    "mtime": 1790443007.8781478,
+    "ast_hash": "fce5a32863496573fa5adf6aec4d7932",
+    "semantic_hash": ""
+  },
+  "src/assets/images/livro/capitulo-02.webp": {
+    "mtime": 1790443008.0432756,
+    "ast_hash": "5602e26d5775c107a8d6955a30b79699",
+    "semantic_hash": ""
+  },
+  "src/assets/images/livro/capitulo-03.webp": {
+    "mtime": 1790443008.2296627,
+    "ast_hash": "0a1878b49f3053c2b45e781035547908",
+    "semantic_hash": ""
+  },
+  "src/assets/images/livro/capitulo-04.webp": {
+    "mtime": 1790443008.4202657,
+    "ast_hash": "85610e1bcb49898408225cbdba45b3ee",
+    "semantic_hash": ""
+  },
+  "src/assets/images/livro/capitulo-05.webp": {
+    "mtime": 1790443008.6063743,
+    "ast_hash": "56ffebfbbf1dde81a40726f2fc98116d",
+    "semantic_hash": ""
+  },
+  "src/assets/images/livro/capitulo-06.webp": {
+    "mtime": 1790443008.7934995,
+    "ast_hash": "ad7982de65a7daab203133d7ee37325c",
     "semantic_hash": ""
   }
 }

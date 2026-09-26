@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — MAPA DO SITE E DO PROJETO
 
 > Referência do estado atual do projeto para navegação humana e contexto de IA.
-> Atualizado em 2026-09-25 — `SITE_VERSION` **10.293.0**.
+> Atualizado em 2026-09-25 — `SITE_VERSION` **10.293.1**.
 > Histórico de tarefas, bugfixes e pendências não pertence a este documento.
 > Regras de trabalho, arquivos proibidos e decisões arquiteturais: `AGENTS.md`.
 
@@ -164,7 +164,7 @@ Os Kernel Games usam layout portrait compartilhado em `src/pages/games/KernelGam
 
 Reorganização de setembro/2026: `/livro` e `/mundo` (páginas únicas) viraram **dois hubs**.
 
-- **`/historias`** (`historias/HistoriasHub.jsx`) — redesign 25/09/2026 (v10.293.0) no padrão do WEB SHARD: cabeçalho `IF // HISTÓRIAS`, destaque da linha principal (capa oficial do WEB SHARD), "continuar lendo" por título, estante numerada (`TituloCard`) com filtro do farol, **próximos capítulos** com a cascata assinante → conta → público (`CascataLiberacao`) e **capítulos recentes**. `/historias/contos` é o mesmo hub com `tipo="conto"`.
+- **`/historias`** (`historias/HistoriasHub.jsx`) — redesign 25/09/2026 (v10.293.1) no padrão do WEB SHARD: cabeçalho `IF // HISTÓRIAS`, destaque da linha principal (capa oficial do WEB SHARD), "continuar lendo" por título, estante numerada (`TituloCard`) com filtro do farol, **próximos capítulos** com a cascata assinante → conta → público (`CascataLiberacao`) e **capítulos recentes**. `/historias/contos` é o mesmo hub com `tipo="conto"`.
 - **Página de título** (`historias/HistoriaTitulo.jsx`) — uma só pra linha principal, conto e obra: `TituloHero` (capa, selos, sinopse), farol completo, bloco "o universo" (obras), link da Amazon, lista de capítulos (`historias/HistoriaCapLinha.jsx`, o `.ws-cap` do WEB SHARD + resumo) e o `LerAntesCta`.
 - **Dado**: `src/lib/historias/catalogo.js` junta `livro-index` / `contos-index` / `obras-index` no formato de título do WEB SHARD — a UI nunca lê os índices direto. A linha principal puxa nome/chamada/sinopse/capa de `webshard-titulos.json` (uma fonte só do produto). Sem arte própria → `ComingSoon.png` (padrão do projeto). Acesso em `src/hooks/useHistoriasAcesso.js` (espelho do `useWebshardAcesso`: Cap. 01 do livro sempre livre, contos pela Beta, resto pela cascata).
 - **Leitores** inalterados: `LivroCapitulo.jsx`, `ContoCapitulo.jsx`, `ObraCapitulo.jsx` (com o gate de conta em 50%).
@@ -390,7 +390,7 @@ Fonte única: `src/config/version.js`. Esta tabela registra somente a identifica
 
 | Constante | Módulo | Versão |
 |---|---|---:|
-| `SITE_VERSION` | Site global | **10.293.0** |
+| `SITE_VERSION` | Site global | **10.293.1** |
 | `PP_VERSION` | Pesadelo Particular | 2.3.1 |
 | `LDI_VERSION` | Lendas do LDI | 2.0.1 |
 | `JACK_VERSION` | Jack Dream Beer | 5.3.2 |
