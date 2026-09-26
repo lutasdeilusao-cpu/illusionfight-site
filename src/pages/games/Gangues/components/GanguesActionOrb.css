@@ -131,7 +131,6 @@
   cursor: pointer;
 }
 .gang-orb-item-btn small { color: var(--text-secondary); font-weight: 600; letter-spacing: 0.02em; text-transform: none; }
-.gang-orb-item-btn--normal { border-color: color-mix(in srgb, var(--if-amber) 40%, transparent); }
 .gang-orb-item-btn--sem-recurso { opacity: 0.4; cursor: not-allowed; }
 .gang-orb-item-btn:disabled { opacity: 0.4; cursor: not-allowed; }
 .gang-orb-vazio { margin: 4px 2px; color: var(--text-secondary); font: 600 0.68rem var(--font-mono); text-align: center; }

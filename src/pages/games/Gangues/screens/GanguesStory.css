@@ -20,125 +20,21 @@
 .gang-story::-webkit-scrollbar { display: none; }
 
 /* ── Entrada no lobby — o destaque do lobby, jeito principal de jogar ── */
-.gang-story-entry {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  width: 100%;
-  margin: 4px 0 20px;
-  padding: 16px 16px 14px;
-  text-align: left;
-  cursor: pointer;
-  border: 1px solid var(--if-amber);
-  background:
-    radial-gradient(120% 90% at 100% 0%, rgba(255, 174, 50, 0.16), transparent 60%),
-    linear-gradient(100deg, var(--if-amber-16), rgba(255, 174, 50, 0.03));
-  box-shadow: inset 3px 0 var(--if-amber), 0 0 34px -8px rgba(255, 174, 50, 0.5);
-  transition: box-shadow 0.2s, transform 0.15s;
-  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%);
-}
-.gang-story-entry:hover { transform: translateY(-2px); box-shadow: inset 3px 0 var(--if-amber), 0 0 40px -4px rgba(255, 174, 50, 0.6); }
-.gang-story-entry .if-eyebrow { color: var(--if-amber); opacity: 0.8; }
-.gang-story-entry-head { display: flex; align-items: center; gap: 10px; }
-.gang-story-entry-icon { font-size: 1.6rem; line-height: 1; }
-.gang-story-entry-head strong {
-  font-family: var(--font-display); font-weight: 800; font-size: 1.15rem;
-  letter-spacing: 0.04em; color: #ffce6b;
-}
-.gang-story-entry small { font-size: 0.75rem; color: var(--text-secondary); line-height: 1.4; }
-.gang-story-entry-cta {
-  margin-top: 6px;
-  font: 700 0.72rem var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase;
-  color: var(--if-amber); display: flex; align-items: center; gap: 8px;
-}
-.gang-story-entry-cta b { font-size: 1.1rem; transition: transform 0.15s; }
-.gang-story-entry:hover .gang-story-entry-cta b { transform: translateX(4px); }
 
 /* ── Batalha avulsa: ação secundária no lobby ── */
-.gang-quick-battle { opacity: 0.85; }
-.gang-quick-battle-hint {
-  margin: 4px 0 0; text-align: center;
-  font: 0.68rem var(--font-mono); letter-spacing: 0.04em; color: var(--text-secondary);
-}
 
 /* ── Cabeçalho ── */
 .gang-story-head {
   display: flex; align-items: center; justify-content: space-between;
   gap: 12px; margin-bottom: 14px;
 }
-.gang-story-dominio {
-  display: flex; align-items: baseline; gap: 6px;
-  font: 700 0.6rem var(--font-mono); letter-spacing: 0.08em;
-  text-transform: uppercase; color: var(--if-amber);
-}
-.gang-story-dominio-num {
-  font: 800 1.4rem var(--font-display); color: #ffce6b;
-  text-shadow: 0 0 16px rgba(255, 174, 50, 0.4);
-}
-
-.gang-story-titulo-wrap { margin-bottom: 16px; }
-.gang-story-titulo {
-  margin: 0.3rem 0 0;
-  font-family: var(--font-display); font-weight: 800;
-  font-size: clamp(1.6rem, calc(8 * var(--app-vw) / 100), 2.1rem);
-  line-height: 1; letter-spacing: 0.04em; color: #fff;
-  text-shadow: 0 0 24px rgba(24, 218, 251, 0.3);
-}
-.gang-story-sub {
-  margin: 0.5rem 0 0; max-width: 42ch;
-  color: var(--text-secondary); font-size: 0.82rem; line-height: 1.5;
-}
 
 /* ── O mapa ── */
-.gang-story-mapa {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 4 / 5;
-  margin: 4px 0 18px;
-  padding: 4px;
-  overflow: hidden;
-  border: 1px solid var(--if-teal);
-  border-left-width: 4px;
-  background:
-    radial-gradient(80% 60% at 50% 8%, rgba(168, 85, 247, 0.1), transparent 70%),
-    radial-gradient(70% 50% at 30% 92%, rgba(61, 220, 151, 0.08), transparent 70%),
-    repeating-linear-gradient(118deg, transparent 0 38px, var(--if-cyan-12) 39px 40px),
-    linear-gradient(180deg, var(--if-panel-flat), var(--bg-primary) 70%);
-  box-shadow: 0 24px 60px -38px var(--if-teal), inset 0 0 70px var(--bg-primary);
-  clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 0 100%);
-}
 
 /* SVG dos distritos da cidade — placeholder pra arte de mapa depois */
-.gang-story-mapa-svg { position: absolute; inset: 0; width: 100%; height: 100%; }
-.gang-story-regiao {
-  --terr-cor: var(--if-teal);
-  fill: color-mix(in srgb, var(--terr-cor) 12%, #0b1015);
-  stroke: color-mix(in srgb, var(--terr-cor) 55%, transparent);
-  stroke-width: 0.5;
-  transition: fill 0.3s, stroke 0.3s;
-}
-.gang-story-regiao--aberto {
-  fill: color-mix(in srgb, var(--terr-cor) 24%, #0b1015);
-  stroke: var(--terr-cor);
-  stroke-width: 0.8;
-  animation: gang-story-regiao-pulso 2.6s ease-in-out infinite;
-}
-.gang-story-regiao--dominado {
-  fill: color-mix(in srgb, var(--terr-cor) 40%, #0b1015);
-  stroke: var(--terr-cor);
-}
-.gang-story-regiao--trancado {
-  fill: rgba(20, 24, 28, 0.9);
-  stroke: rgba(255, 255, 255, 0.08);
-}
 @keyframes gang-story-regiao-pulso {
   0%, 100% { fill: color-mix(in srgb, var(--terr-cor) 20%, #0b1015); }
   50% { fill: color-mix(in srgb, var(--terr-cor) 34%, #0b1015); }
-}
-.gang-story-regiao-farol {
-  --terr-cor: var(--if-teal);
-  fill: var(--terr-cor);
-  animation: gang-story-farol 1.8s ease-in-out infinite;
 }
 @keyframes gang-story-farol {
   0%, 100% { opacity: 0.4; r: 1.2; }
@@ -146,93 +42,19 @@
 }
 
 /* grade de quarteirões */
-.gang-story-mapa-grid {
-  position: absolute; inset: 0; pointer-events: none;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-  background-size: 34px 34px;
-  mask-image: radial-gradient(circle at 50% 45%, #000 30%, transparent 85%);
-}
 
 /* névoa sobre o mapa — dá o clima e esconde o que não foi explorado */
-.gang-story-mapa-fog {
-  position: absolute; inset: -20%;
-  pointer-events: none;
-  background:
-    radial-gradient(40% 30% at 20% 15%, rgba(120, 130, 140, 0.12), transparent 70%),
-    radial-gradient(45% 35% at 82% 40%, rgba(120, 130, 140, 0.1), transparent 70%),
-    radial-gradient(50% 40% at 45% 88%, rgba(120, 130, 140, 0.14), transparent 72%);
-  filter: blur(18px);
-  animation: gang-story-fog 34s ease-in-out infinite alternate;
-}
 @keyframes gang-story-fog {
   from { transform: translate3d(-3%, -2%, 0); }
   to { transform: translate3d(4%, 3%, 0) scale(1.08); }
 }
 
 /* ── Rótulo da região sobre o mapa ── */
-.gang-story-terr {
-  --terr-cor: var(--if-teal);
-  position: absolute;
-  transform: translate(-50%, -50%);
-  display: flex; flex-direction: column; align-items: center; gap: 1px;
-  min-width: 74px; max-width: 40vw; padding: 5px 8px 6px;
-  cursor: pointer;
-  border: 1px solid color-mix(in srgb, var(--terr-cor) 55%, transparent);
-  background: color-mix(in srgb, #05080a 78%, var(--terr-cor));
-  backdrop-filter: blur(2px);
-  transition: transform 0.18s, box-shadow 0.25s, border-color 0.2s;
-  clip-path: polygon(0 0, calc(100% - 7px) 0, 100% 7px, 100% 100%, 0 100%);
-}
-.gang-story-terr-num {
-  font: 700 0.46rem var(--font-mono); letter-spacing: 0.12em;
-  color: color-mix(in srgb, var(--terr-cor) 80%, #fff);
-}
-.gang-story-terr-nome {
-  font-family: var(--font-display); font-weight: 800; font-size: 0.82rem;
-  line-height: 1.05; letter-spacing: 0.02em; color: #fff; text-align: center;
-}
-.gang-story-terr-dif {
-  font: 700 0.46rem var(--font-mono); letter-spacing: 0.09em;
-  text-transform: uppercase; color: color-mix(in srgb, var(--terr-cor) 85%, #fff);
-}
-.gang-story-terr-tag {
-  margin-top: 3px; padding: 1px 6px;
-  font: 700 0.5rem var(--font-mono); letter-spacing: 0.04em;
-  color: color-mix(in srgb, var(--terr-cor) 30%, #fff);
-  border: 1px solid color-mix(in srgb, var(--terr-cor) 35%, transparent);
-}
-.gang-story-terr-tag--ok {
-  color: #04141a; background: var(--terr-cor); border-color: var(--terr-cor);
-}
-.gang-story-terr-tag--lock { color: #6b757c; border-color: rgba(255,255,255,0.12); }
 
 /* estados */
-.gang-story-terr--aberto {
-  animation: gang-story-terr-pulso 2.3s ease-in-out infinite;
-  z-index: 2;
-}
-.gang-story-terr--aberto:hover { transform: translate(-50%, -50%) scale(1.05); }
 @keyframes gang-story-terr-pulso {
   0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--terr-cor) 45%, transparent); }
   50% { box-shadow: 0 0 14px 3px color-mix(in srgb, var(--terr-cor) 30%, transparent); }
-}
-.gang-story-terr--dominado {
-  border-color: var(--terr-cor);
-  box-shadow: 0 0 20px -6px color-mix(in srgb, var(--terr-cor) 55%, transparent);
-}
-.gang-story-terr--trancado {
-  cursor: not-allowed;
-  opacity: 0.45;
-  filter: grayscale(0.6);
-  border-color: rgba(255, 255, 255, 0.1);
-}
-.gang-story-terr--trancado .gang-story-terr-nome { color: #6b757c; }
-
-@media (prefers-reduced-motion: reduce) {
-  .gang-story-mapa-fog, .gang-story-terr--aberto,
-  .gang-story-regiao--aberto, .gang-story-regiao-farol { animation: none; }
 }
 
 /* ══ Dentro de um território ══ */

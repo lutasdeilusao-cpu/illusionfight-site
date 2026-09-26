@@ -13,8 +13,6 @@
 .gang-combat .gang-mini-resource--pm::-moz-progress-bar { background:var(--if-violet); }
 .gang-combat .gang-mini-resource--xp::-webkit-progress-value { background:var(--if-amber); }
 .gang-combat .gang-mini-resource--xp::-moz-progress-bar { background:var(--if-amber); }
-.gang-combat .gang-roster--enemy .gang-mini-resource--pv::-webkit-progress-value { background:var(--if-danger); }
-.gang-combat .gang-roster--enemy .gang-mini-resource--pv::-moz-progress-bar { background:var(--if-danger); }
 .gang-combat .gang-mini-hp { display:none; }
 .gang-combat .gang-ficha-modal { position:absolute; align-items:flex-end; padding:12px; background:color-mix(in srgb,var(--bg-primary) 88%,transparent); backdrop-filter:blur(8px); }
 /* Moldura da ficha em combate — segue a mesma identidade do popup de

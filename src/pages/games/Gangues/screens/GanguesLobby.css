@@ -154,14 +154,6 @@
   transform: rotate(-1deg);
 }
 .gang-recruit__head p { margin: 0; color: #e7ded0; font-size: 11px; line-height: 1.45; text-shadow: 0 1px 3px rgba(0, 0, 0, .9); }
-.gang-recruit__aviso-lider { margin: 8px 0 0 !important; color: var(--if-amber) !important; font: 800 10px var(--font-mono) !important; letter-spacing: .04em; text-shadow: 0 1px 3px rgba(0, 0, 0, .9); }
-.gang-recruit__back {
-  position: absolute; top: 0; left: 10px; z-index: 3; width: 34px; height: 34px;
-  border: 1px solid color-mix(in srgb, var(--if-amber) 45%, transparent); background: #1a0f08; color: #ffd9a0; font-size: 20px;
-  clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 0 100%);
-  transition: background .15s;
-}
-.gang-recruit__back:active { background: #241408; }
 
 .gang-recruit__stage { position: relative; z-index: 1; height: 400px; display: grid; place-items: center; }
 .gang-recruit__slides { position: relative; width: 100%; height: 100%; }
@@ -518,18 +510,6 @@
    `margin:auto 0` do painel usa esse espaço de verdade pra centralizar. */
 .gang-lobby--vazio { min-height: 100%; }
 .gang-lobby .gang-onboarding-panel--solo { margin: auto 0; }
-.gang-home-actions { display: grid; gap: 10px; margin-top: 12px; }
-.gang-home-actions button {
-  width: 100%; min-height: 58px; padding: 0 16px; display: flex; align-items: center; gap: 10px;
-  border: 1px solid var(--if-teal); background: linear-gradient(105deg, var(--if-cyan-12), var(--if-panel-flat));
-  color: var(--text-primary); font: 800 .72rem var(--font-mono); letter-spacing: .1em; text-transform: uppercase;
-  clip-path: polygon(0 0, calc(100% - 11px) 0, 100% 11px, 100% 100%, 0 100%);
-}
-.gang-home-actions button strong { margin-left: auto; color: var(--if-amber); }
-.gang-home-actions button > b { color: var(--if-teal); font-size: 1.1rem; }
-.gang-home-actions .gang-home-actions__play { border-color: var(--if-amber); background: var(--if-amber); color: var(--bg-primary); }
-.gang-home-actions .gang-home-actions__play b { margin-left: auto; color: var(--bg-primary); }
-.gang-roster-drawer { margin-top: 12px; padding: 13px 10px; border: 1px solid var(--if-hair); background: var(--if-panel-flat); }
 
 /* Botão de batalha promovido pro topo do lobby — CTA principal da tela.
    1ª tentativa (só halo translúcido via ::before) sumia em cima da parede

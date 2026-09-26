@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.293.2' // docs(gangues): GDD revisado contra GANGUES 3.56.0 — agiota Marimbondo/empréstimo/escada de dívida/gate do chefe, descanso 10/30, o bicho, Lojinha do Zé, recompensa por risco, grana da vitória, frustração, Multidão/auto/KO, farol, ladder da Pista; itens 3–12 e 121–139 marcados como planejados
+export const SITE_VERSION = '10.293.3' // refactor(gangues-css) fase 1: poda de CSS morto (−2.140 linhas)
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.2' // fix: aba "stories" do rodape mostrava a chave crua pp.menu.pistas_label (nao existia) -> aponta pra pp.dossier.pistas_label; PuzzleWrapper mostrava pp.puzzle.nenhum/instrucao (nao existiam) -> pp.local.puzzle_nenhum/instrucao; confirm() de deletar save mostrava pp.menu.deletar_slot cru -> chave criada nos 3 idiomas.
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '3.56.0' // fix (Isaias, 22/09/2026, print marcando o lugar certo: "coloca a lojinha do Seu Zé bem aí onde eu marquei... ali no meio dessa rua, porque aonde ele tá tá trabalhando muito"): `loja_pocoes` (Lojinha do Zé) mudou de posição de novo — a 1ª correção (colar na quina do prédio, perto da porta da birosca) resolveu o "no meio da construção" mas criou congestionamento no ponto de entrada (porta + loja empilhados). Movida pro trecho aberto da rua entre os dois quarteirões (y2492-2622, sem prédio nenhum ali), posição (600,2560) — zona de interação centrada no próprio ícone (mesmo critério de informante/rinha, sem parede pra encostar). Testado ao vivo via Playwright: pino aparece isolado no meio do trecho vazio da rua (confirmado com screenshot), botão COMPRAR ativa normalmente.
+export const GANGUES_VERSION   = '3.56.1' // refactor(css) fase 1: 2.140 linhas de CSS morto removidas (NeoGuide, criação por pontos, manual, log v2, xpbar, rua SVG antiga) — Gangues.css 3.017 → 1.480
 
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio

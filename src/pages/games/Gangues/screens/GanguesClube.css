@@ -94,7 +94,6 @@
   color: #9a8f8f; font-size: 0.66rem;
   animation: gang-clube-skip-pulse 1.6s ease-in-out infinite;
 }
-.gang-clube-venda--c0 .gang-clube-venda-skip { color: #c9b9b9; }
 @keyframes gang-clube-skip-pulse { 0%,100% { opacity: .5; } 50% { opacity: 1; } }
 /* o saco na cabeça: tela quase preta "respirando" */
 .gang-clube-saco {
@@ -109,16 +108,9 @@
   position: absolute; inset: 0; z-index: 6; background: #fff; opacity: 0; pointer-events: none;
 }
 /* cena 1: arrancam o saco — lurch + flash */
-.gang-clube-venda--c1 { animation: gang-clube-lurch 0.4s ease both; }
-.gang-clube-venda--c1 .gang-clube-saco { animation: gang-clube-saco-off 0.35s ease forwards; }
-.gang-clube-venda--c1 .gang-clube-venda-flash { animation: gang-clube-strobe 0.4s steps(1) forwards; }
 @keyframes gang-clube-saco-off { to { transform: translateY(-120%) scale(1.4); opacity: 0; } }
 @keyframes gang-clube-lurch { 0% { transform: none; } 30% { transform: translateX(-10px) rotate(-1.4deg); } 60% { transform: translateX(8px) rotate(1deg); } 100% { transform: none; } }
 /* cena 2: luz forte + rugido — plateia e holofote entram */
-.gang-clube-venda--c2 .gang-clube-holofote,
-.gang-clube-venda--c2 .gang-clube-plateia { opacity: 1; }
-.gang-clube-venda--c2 .gang-clube-venda-txt { opacity: 0; transition: opacity 0.5s ease; }
-.gang-clube-venda--c2 { animation: gang-clube-shake 0.5s ease both; }
 .gang-clube-venda-skip {
   position: absolute; bottom: calc(16px + var(--radio-nina-h, 0px)); z-index: 5;
   font: 700 0.6rem var(--font-mono); letter-spacing: 0.14em;
@@ -210,10 +202,6 @@
 }
 @keyframes gang-clube-title-hit { 0% { letter-spacing: 0.4em; } 100% { letter-spacing: 0.02em; } }
 @keyframes gang-clube-title-wobble { 0%, 100% { transform: skewX(0) translateX(0); } 25% { transform: skewX(-2deg) translateX(-2px); } 75% { transform: skewX(1.5deg) translateX(2px); } }
-.gang-clube-cena-par {
-  margin: 0; font: 500 0.92rem var(--font-body); line-height: 1.6; color: #cfc9cd;
-}
-.gang-clube-cena--derrota .gang-clube-cena-par { color: #a99ea1; }
 
 /* régua + blocos de texto (entram um a um) */
 .gang-clube-cena-regua {
@@ -344,6 +332,5 @@
   .gang-clube-cena--derrota .gang-clube-cena-titulo,
   .gang-clube-cena--vitoria .gang-clube-cena-titulo { animation: none !important; }
   .gang-clube-venda-bloco, .gang-clube-venda-skip { opacity: 1; }
-  .gang-clube-cena--sala .gang-clube-holofote, .gang-clube-cena--sala .gang-clube-plateia,
-  .gang-clube-venda--c2 .gang-clube-holofote, .gang-clube-venda--c2 .gang-clube-plateia { opacity: 1; }
+  .gang-clube-cena--sala .gang-clube-holofote, .gang-clube-cena--sala .gang-clube-plateia { opacity: 1; }
 }

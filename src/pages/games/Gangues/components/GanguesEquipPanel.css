@@ -52,8 +52,6 @@
   clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
 }
 .gang-equip-picker__equipada { border-color: rgba(245,166,35,0.45); background: rgba(245,166,35,0.07); }
-.gang-equip-oferta__info small,
-.gang-equip-slot__info small.gang-equip-rar { color: #7b898f; }
 .gang-equip-oferta--incomum { border-color: rgba(0,180,216,0.4); }
 .gang-equip-oferta--raro { border-color: rgba(168,120,255,0.5); }
 .gang-equip-oferta--epico { border-color: rgba(255,196,0,0.55); }

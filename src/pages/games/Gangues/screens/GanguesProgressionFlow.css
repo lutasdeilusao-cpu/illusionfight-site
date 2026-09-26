@@ -1,28 +1,3 @@
-.gang-sheet-card-v { position: relative; }
-.gang-progression-focus { width: 100%; scroll-margin-top: 16px; }
-.gang-progression-close {
-  width: 44px; height: 44px; border: 1px solid #30444c; border-radius: 50%;
-  background: #0c171b; color: #9aabb1; font: 700 24px/1 'Rajdhani', sans-serif; cursor: pointer;
-}
-.gang-progression-header-actions { display: flex; gap: 7px; margin-left: auto; }
-.gang-progression-delete {
-  width: 44px; height: 44px; border: 1px solid rgba(204, 68, 68, .55); border-radius: 50%;
-  background: rgba(90, 12, 12, .18); color: #ff7777; font: 800 20px/1 'Rajdhani', sans-serif;
-  cursor: pointer;
-}
-.gang-progression-delete:hover { border-color: #ff7777; background: rgba(140, 20, 20, .28); }
-.gang-progression-help, .gang-progression-preview-label {
-  margin: -4px 0 10px; color: #819198; font: 500 10px/1.45 'Rajdhani', sans-serif;
-  letter-spacing: .35px;
-}
-.gang-progression-preview-label { color: var(--if-amber); text-transform: uppercase; letter-spacing: 1px; }
-.gang-special-path--unavailable { opacity: .3; cursor: not-allowed; }
-.gang-special-path-unlock {
-  width: 100%; min-height: 46px; margin-top: 9px; border: 1px solid var(--if-amber); border-radius: 5px;
-  background: rgba(245, 166, 35, .12); color: var(--if-amber); padding: 9px 12px;
-  font: 800 11px 'Rajdhani', sans-serif; letter-spacing: 1px; text-transform: uppercase; cursor: pointer;
-}
-.gang-special-path-unlock:disabled { border-color: #34464d; background: #10191d; color: #68777d; cursor: not-allowed; }
 .gang-progression-prompt {
   position: fixed; inset: 0; z-index: 1200; display: grid; place-items: center;
   padding: 16px; background: rgba(0, 0, 0, .82); backdrop-filter: blur(8px);
@@ -122,80 +97,6 @@
 .gang-progression-screen-back:hover { background: var(--if-amber); color: #1a0f08; }
 
 /* ── Confirmação de gasto de XP ── */
-.gang-xp-confirm {
-  position: fixed;
-  inset: 0;
-  z-index: 950;
-  display: grid;
-  place-items: center;
-  padding: 1.5rem;
-}
-.gang-xp-confirm-bg {
-  position: absolute;
-  inset: 0;
-  background: rgba(2, 5, 8, 0.82);
-  backdrop-filter: blur(6px);
-}
-.gang-xp-confirm-card {
-  position: relative;
-  display: grid;
-  justify-items: center;
-  gap: 0.55rem;
-  width: 100%;
-  max-width: 320px;
-  padding: 1.6rem 1.3rem 1.4rem;
-  text-align: center;
-  border: 1px solid rgba(255, 174, 50, 0.45);
-  background: linear-gradient(160deg, #16110a, #0a0806 70%);
-  box-shadow: 0 0 44px -10px rgba(255, 174, 50, 0.5);
-  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%);
-}
-.gang-xp-confirm-icon {
-  font-size: 1.6rem;
-  color: var(--if-amber);
-}
-.gang-xp-confirm-card h3 {
-  margin: 0;
-  font: 800 1.1rem var(--font-display);
-  letter-spacing: 0.04em;
-  color: #ffce6b;
-}
-.gang-xp-confirm-card p {
-  margin: 0;
-  font: 400 0.88rem var(--font-body);
-  line-height: 1.5;
-  color: #cdd4d9;
-}
-.gang-xp-confirm-card p b { color: #fff; }
-.gang-xp-confirm-actions {
-  display: flex;
-  gap: 8px;
-  width: 100%;
-  margin-top: 0.5rem;
-}
-.gang-xp-confirm-no, .gang-xp-confirm-yes {
-  flex: 1;
-  min-height: 44px;
-  padding: 0.6rem;
-  font: 800 0.72rem var(--font-mono);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: background 0.15s, color 0.15s;
-  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
-}
-.gang-xp-confirm-no {
-  color: #c6cdd2;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-}
-.gang-xp-confirm-no:hover { background: rgba(255, 255, 255, 0.09); color: #fff; }
-.gang-xp-confirm-yes {
-  color: #1b1000;
-  background: var(--if-amber);
-  border: 1px solid var(--if-amber);
-}
-.gang-xp-confirm-yes:hover { background: #ffce6b; }
 
 /* ── Coluna lateral do card do elenco: X + LEVEL UP ── */
 /* ── Destaque de poder ── */
@@ -215,46 +116,12 @@
   background: rgba(245, 166, 35, 0.12) !important;
   box-shadow: 0 0 22px -4px rgba(245, 166, 35, 0.5) !important;
 }
-.gang-skill-node--novo {
-  animation: gang-skill-novo 2.4s ease-out;
-}
 @keyframes gang-skill-novo {
   0% { box-shadow: 0 0 0 0 rgba(255, 206, 107, 0.9); border-color: #ffce6b; }
   100% { box-shadow: 0 0 22px -4px rgba(245, 166, 35, 0.5); }
 }
-@media (prefers-reduced-motion: reduce) {
-  .gang-skill-node--novo { animation: none; }
-}
 
 /* ── Tira de ficha: números que importam em batalha ── */
-.gang-ficha-strip {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin: 0 0 14px;
-  padding: 10px 12px;
-  border: 1px solid var(--if-edge);
-  background: rgba(255, 255, 255, 0.02);
-  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
-}
-.gang-ficha-cell {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 3px;
-  padding: 3px 8px;
-  font: 700 0.62rem var(--font-mono);
-  letter-spacing: 0.04em;
-  color: var(--text-secondary);
-  background: rgba(255, 255, 255, 0.03);
-}
-.gang-ficha-cell b { font: 800 0.85rem var(--font-display); color: #fff; }
-.gang-ficha-cell i { font-style: normal; color: var(--if-cyan); font-weight: 700; }
-.gang-ficha-cell--pm b { color: #d9bdf7; }
-.gang-ficha-cell--path {
-  color: var(--if-amber-soft);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
 
 /* ══════════════════════════════════════════════════════════════
    Painel de RECOMPENSA na tela de vitória — antes o XP/grana/rep
@@ -298,8 +165,6 @@
 .gang-reward-item b { font-size: 1.15rem; line-height: 1; }
 .gang-reward-item strong { font: 900 1.3rem var(--font-display); color: #fff; line-height: 1.1; }
 .gang-reward-item span { font: 700 0.56rem var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-secondary); }
-.gang-reward-item--xp { border-color: color-mix(in srgb, var(--if-cyan) 45%, transparent); box-shadow: 0 0 20px -8px var(--if-cyan-45); }
-.gang-reward-item--xp strong { color: var(--if-cyan); }
 .gang-reward-item--grana { border-color: color-mix(in srgb, #7ed957 45%, transparent); box-shadow: 0 0 20px -8px rgba(126, 217, 87, .45); }
 .gang-reward-item--grana strong { color: #7ed957; }
 .gang-reward-item--rep { border-color: color-mix(in srgb, var(--if-amber) 45%, transparent); box-shadow: 0 0 20px -8px var(--if-amber-45, rgba(245, 166, 35, .45)); }

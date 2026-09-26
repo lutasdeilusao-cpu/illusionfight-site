@@ -11,16 +11,6 @@
 }
 
 .gang-torre__top { display: flex; }
-.gang-torre__back {
-  border: 1px solid var(--border-color);
-  background: transparent;
-  color: var(--text-secondary);
-  font: 800 0.72rem var(--font-mono);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 8px 12px;
-  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
-}
 
 .gang-torre__title { display: flex; flex-direction: column; gap: 4px; }
 .gang-torre__eyebrow {

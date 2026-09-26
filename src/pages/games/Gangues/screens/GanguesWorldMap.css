@@ -96,7 +96,6 @@
 .gang-world__intel--facil>span { color:#ff8a8a; }
 .gang-world__intel--facil p { -webkit-line-clamp:unset; display:block; color:#e7cfcf; font-size:.72rem; line-height:1.5; }
 .gang-world__intel--facil button { border-color:#ff5a5a; background:#ff5a5a; color:#1a0f08; }
-@media (prefers-reduced-motion:reduce){.gang-world-card{transition:none}}
 
 /* botão "Gangue" no topo do mapa — leva ao lobby (elenco + time de batalha) */
 .gang-world__top > button.gang-world__top-gang {
