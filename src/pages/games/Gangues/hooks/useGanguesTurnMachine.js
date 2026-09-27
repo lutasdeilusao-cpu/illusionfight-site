@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import { resolveGanguesAction, resolveGanguesInitiative } from '../engine/ganguesCombatResolver.js'
+import { resolveGanguesAction } from '../engine/ganguesCombatResolver.js'
+import { iniciarLinhaDoTempo, proximaVez, consumirVez, marcarAgiu, ordemDeVelocidade } from '../engine/ganguesLinhaDoTempo.js'
 import { getGanguesResources, normalizeGanguesLoadout } from '../data/ganguesLoadout.js'
 import { getGanguesAttributesWithEquip, applyGanguesEquipResources } from '../data/ganguesEquip.js'
 
@@ -39,43 +40,46 @@ export function prepare(combatant, side, index) {
   return { ...normalized, key: `${side}-${index}-${combatant.id}`, side, statuses: [], pv: pvInicial, pm: pmInicial, pvMax: resources.pvMax, pmMax: resources.pmMax, actedThisRound: false, specialState: { charge: 0, shield: 0, totalPvLost: 0 } }
 }
 
-export default function useGanguesTurnMachine({ playerTeam = [], enemyTeam = [], onFinish, attackRoll = d3, defenseRoll = d3, initiativeRoll = d3, bonusRoll = coin, targetRoll = Math.random, enemyDelay = 2200, pausado = false }) {
+export default function useGanguesTurnMachine({ playerTeam = [], enemyTeam = [], onFinish, attackRoll = d3, defenseRoll = d3, bonusRoll = coin, targetRoll = Math.random, enemyDelay = 2200, pausado = false }) {
   const initial = useMemo(() => [...playerTeam.map((member, index) => prepare(member, 'player', index)), ...enemyTeam.map((member, index) => prepare(member, 'enemy', index))], [])
-  // `initiative` precisa ser STATE (não useMemo fixo) pra dar pra sobrescrever
-  // em `syncFrom` — ver comentário ali (voltar da Briga em Multidão pro modo
-  // normal com a ordem de iniciativa e a rodada que a Multidão já tinha).
-  const [initiative, setInitiative] = useState(() => initial.map(combatant => {
-    const die = initiativeRoll()
-    const resolved = resolveGanguesInitiative({ combatant, roll: die })
-    return { key: combatant.key, side: combatant.side, ...resolved, tie: Math.random() }
-  }).sort((a, b) => b.total - a.total || b.ability - a.ability || b.tie - a.tie))
+  // Linha do tempo (Pique, 26/09/2026 — ver engine/ganguesLinhaDoTempo.js):
+  // quem age é quem chega primeiro no centro da pista, não mais uma ordem
+  // fixa sorteada no começo. `tempo` = barras de cada um; `vez` = quem age agora.
+  const [inicio] = useState(() => {
+    const t0 = iniciarLinhaDoTempo(initial)
+    const primeira = proximaVez(initial, t0)
+    return { tempo: primeira.tempo, vez: primeira.key, ordem: ordemDeVelocidade(initial, t0) }
+  })
+  const [tempo, setTempo] = useState(inicio.tempo)
+  const [vez, setVez] = useState(inicio.vez)
+  // `initiative` agora é só a ORDEM DE VELOCIDADE pra exibir (log/relatório).
+  const [initiative, setInitiative] = useState(inicio.ordem)
   const [combatants, setCombatants] = useState(initial)
   const [round, setRound] = useState(1)
-  const [turnIndex, setTurnIndex] = useState(0)
   const [started, setStarted] = useState(false)
   const [pending, setPending] = useState(null)
   const [events, setEvents] = useState([])
   const aiQueued = useRef(false)
+  const acaoSeq = useRef(0)
   const lastEnemyTargetKey = useRef(null)
   const entered = useRef(false)
-  const currentTurn = initiative[turnIndex]
-  const currentActor = combatants.find(item => item.key === currentTurn?.key)
+  const currentActor = combatants.find(item => item.key === vez)
   const phase = !started ? 'select' : pending ? 'rolling' : currentActor?.side || 'finished'
   const record = useCallback(event => setEvents(list => [...list, { ...event, id: `${Date.now()}-${Math.random()}` }]), [])
 
-  const advanceTurn = useCallback(next => {
+  // Fim da ação de `actorKey`: volta ele pra largada, fecha a rodada se todo
+  // mundo vivo já agiu, e avança o tempo até o próximo chegar no centro.
+  const advanceTurn = useCallback((next, actorKey, usouTalento = false) => {
     const playersAlive = next.some(item => item.side === 'player' && item.pv > 0)
     const enemiesAlive = next.some(item => item.side === 'enemy' && item.pv > 0)
-    if (!playersAlive || !enemiesAlive) { onFinish(enemiesAlive ? 'defeat' : 'victory'); return }
-    let nextIndex = turnIndex
-    do nextIndex = (nextIndex + 1) % initiative.length
-    while ((next.find(item => item.key === initiative[nextIndex].key)?.pv || 0) <= 0)
-    if (nextIndex <= turnIndex) {
-      setRound(value => value + 1)
-      setCombatants(next.map(item => ({ ...item, actedThisRound: false })))
-    }
-    setTurnIndex(nextIndex)
-  }, [initiative, onFinish, turnIndex])
+    if (!playersAlive || !enemiesAlive) { setCombatants(next); onFinish(enemiesAlive ? 'defeat' : 'victory'); return }
+    const { combatants: marcados, fechouRodada } = marcarAgiu(next, actorKey)
+    if (fechouRodada) setRound(value => value + 1)
+    const proxima = proximaVez(marcados, consumirVez(tempo, actorKey, usouTalento))
+    setCombatants(marcados)
+    setTempo(proxima.tempo)
+    setVez(proxima.key)
+  }, [onFinish, tempo])
 
   const queueAction = useCallback((actor, target, activeSpecialId = null, forcedSpecial = null) => {
     if (!actor || !target || pending) return false
@@ -84,7 +88,10 @@ export default function useGanguesTurnMachine({ playerTeam = [], enemyTeam = [],
       rolls: { fa: attackRoll(), fd: defenseRoll(), attackerBonus: bonusRoll(), defenderBonus: bonusRoll() },
       activeSpecialId, forcedSpecial,
     })
-    setPending({ actorKey: actor.key, targetKey: target.key, side: actor.side, result })
+    // `id` único por ação: com a linha do tempo o MESMO lutador pode agir 2x
+    // na mesma rodada — a key do DramaticDice não pode ser actorKey+round.
+    acaoSeq.current += 1
+    setPending({ id: acaoSeq.current, actorKey: actor.key, targetKey: target.key, side: actor.side, result })
     return true
   }, [attackRoll, defenseRoll, bonusRoll, pending])
 
@@ -97,14 +104,13 @@ export default function useGanguesTurnMachine({ playerTeam = [], enemyTeam = [],
   const completePending = useCallback(() => {
     if (!pending) return
     const next = combatants.map(item => {
-      if (item.key === pending.actorKey) return { ...item, statuses: pending.result.attackerStatuses, pm: Math.max(0, item.pm - pending.result.pmCost), pv: Math.max(0, item.pv - (pending.result.pvCost || 0)), specialState: pending.result.attackerSpecialState, actedThisRound: true }
+      if (item.key === pending.actorKey) return { ...item, statuses: pending.result.attackerStatuses, pm: Math.max(0, item.pm - pending.result.pmCost), pv: Math.max(0, item.pv - (pending.result.pvCost || 0)), specialState: pending.result.attackerSpecialState }
       if (item.key === pending.targetKey) return { ...item, statuses: pending.result.defenderStatuses, pv: Math.max(0, item.pv - pending.result.damage), specialState: pending.result.defenderSpecialState }
       return item
     })
     record({ type: 'attack', side: pending.side, actorKey: pending.actorKey, targetKey: pending.targetKey, result: pending.result, round })
-    setCombatants(next)
     setPending(null)
-    advanceTurn(next)
+    advanceTurn(next, pending.actorKey, Boolean(pending.result.activeSpecialId))
   }, [pending, combatants, advanceTurn, record, round])
 
   useEffect(() => {
@@ -137,33 +143,17 @@ export default function useGanguesTurnMachine({ playerTeam = [], enemyTeam = [],
   }, [initiative, record])
 
   // Volta da Briga em Multidão pro motor normal (switch desligado no meio da
-  // luta) — recebe o `estado` de ganguesBrigaMultidao.js (mesmo formato de
-  // `combatant`, já que os dois motores usam o mesmo `prepare()`) e substitui
-  // o combatants/initiative/round/turnIndex INTEIROS por ele, preservando
-  // PV/PM/status de quem já apanhou na Multidão. Sem isso o switch só podia
-  // ligar (nunca desligar) — travava assim que a 1ª ação acontecia, pra não
-  // ter 2 motores com HP divergente (ver useGanguesModoMultidao.js).
+  // luta): recebe o estado da Multidão (mesmo `prepare()`, mesma linha do
+  // tempo) e continua EXATAMENTE de onde ela parou — PV/PM/status, barras da
+  // pista e quem é a próxima vez.
   const syncFrom = useCallback((estado) => {
     const nextCombatants = estado.combatants.map(c => ({ ...c }))
-    // O `turnIndex` da Multidão pode apontar pra alguém que JÁ MORREU durante
-    // as rodadas resolvidas lá (avancarRodadaMultidao não recalcula isso ao
-    // sincronizar de volta) — sem essa checagem, o motor normal fazia um
-    // combatente MORTO agir (currentActor existe mesmo com pv<=0, phase vira
-    // 'enemy' e a IA ataca com um inimigo já derrotado). Anda pra frente
-    // (com wraparound, mesma lógica de advanceTurn) até achar alguém vivo.
-    // Bug reportado pelo Isaias (2026-09-13): "desligo a Multidão e os
-    // inimigos voltam a me atacar, dá um erro muito horrível".
-    let idx = estado.turnIndex || 0
-    for (let tentativas = 0; tentativas < estado.initiative.length; tentativas++) {
-      const turno = estado.initiative[idx]
-      const vivo = (nextCombatants.find(c => c.key === turno?.key)?.pv || 0) > 0
-      if (vivo) break
-      idx = (idx + 1) % estado.initiative.length
-    }
+    const proxima = proximaVez(nextCombatants, estado.tempo)
     setCombatants(nextCombatants)
+    setTempo(proxima.tempo)
+    setVez(proxima.key)
     setInitiative(estado.initiative)
     setRound(estado.round)
-    setTurnIndex(idx)
     setPending(null)
     setStarted(true)
     entered.current = true
@@ -183,14 +173,12 @@ export default function useGanguesTurnMachine({ playerTeam = [], enemyTeam = [],
       const cura = item.key === alvoKey
         ? { pv: Math.min(item.pvMax, item.pv + (delta.pv || 0)), pm: Math.min(item.pmMax, item.pm + (delta.pm || 0)) }
         : {}
-      const agiu = item.key === actorKey ? { actedThisRound: true } : {}
-      return { ...item, ...cura, ...agiu }
+      return { ...item, ...cura }
     })
     record({ type: 'item', side: 'player', actorKey, targetKey: alvoKey, itemId, delta, curado, round })
-    setCombatants(next)
-    advanceTurn(next)
+    advanceTurn(next, actorKey)
     return true
   }, [phase, currentActor, combatants, advanceTurn, record, round])
 
-  return { combatants, phase, round, pending, events, initiative, currentActor, playerActors: phase === 'player' && currentActor ? [currentActor] : [], enterCombat, playerAction, completePending, useItemAction, syncFrom }
+  return { combatants, phase, round, pending, events, initiative, tempo, currentActor, playerActors: phase === 'player' && currentActor ? [currentActor] : [], enterCombat, playerAction, completePending, useItemAction, syncFrom }
 }

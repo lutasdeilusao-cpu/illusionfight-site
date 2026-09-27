@@ -29,7 +29,7 @@
       "report": {
         "enemy_thinking": "EL GIL ESTÁ TRAMANDO ALGO",
         "enemy_strategy": "Mirando ese último golpe y armando la próxima jugada...",
-        "initiative": "ORDEN DE INICIATIVA",
+        "initiative": "ORDEN DE LA PISTA",
         "victory_message": "Tu pandilla controló el combate. Analiza cada decisión abajo.",
         "defeat_message": "La pandilla cayó, pero el registro muestra dónde se perdió la lucha.",
         "rewards_title": "Recompensa",
@@ -44,12 +44,13 @@
         "final_state": "ESTADO FINAL DE LAS PANDILLAS",
         "your_gang": "TU PANDILLA",
         "enemy_gang": "LA OTRA BANDA",
-        "initiative_order": "INICIATIVA — H + D3",
+        "initiative_order": "PISTA — PIQUE + BASE",
         "complete_log": "REGISTRO COMPLETO DEL COMBATE",
         "round_number": "RONDA {n}",
         "no_log": "No hay ataques registrados.",
         "back_to_gang": "VOLVER A LA PANDILLA",
-        "recrutar": "RECLUTAR NUEVO MIEMBRO"
+        "recrutar": "RECLUTAR NUEVO MIEMBRO",
+        "velocidade": "vel"
       },
       "progression": {
         "loadout": "Equipados: {n}/2",
@@ -238,13 +239,13 @@
       "loadout": {
         "paths": {
           "atacante": {
-            "name": "Atacante"
+            "name": "Pegador"
           },
           "defensor": {
-            "name": "Defensor"
+            "name": "Muralla"
           },
           "mistico": {
-            "name": "Místico"
+            "name": "Brujo"
           }
         },
         "round": "RONDA {n}",
@@ -470,7 +471,7 @@
         "bonus_if_target_fresh": "+{v} de daño si el objetivo aún no actuó en la ronda.",
         "atk_flat_if_pm_above_half": "+{v} de daño mientras tu PM esté por encima de la mitad.",
         "low_pv_scale": "Hasta +{v} de daño — cuanto menos PV, más fuerte el golpe.",
-        "habilidade_full_convert": "Pasa a usar tu Malicia entera en el ataque, no la mitad.",
+        "habilidade_full_convert": "Pasa a usar tu Viveza entera en el talento, no la mitad.",
         "ignore_def_pct": "Ignora {v}% del Cuero del objetivo.",
         "execute_bonus": "Objetivo bajo 30% de PV: ignora {v}% de Cuero y +2 de daño.",
         "self_sacrifice_damage": "+{v} de daño, pagado con parte de tu PV.",
@@ -482,7 +483,7 @@
         "charge_on_hit_taken": "Cada golpe que recibes acumula {v} de carga."
       },
       "combat_tutorial": {
-        "iniciativa": "Esta lista muestra quién ataca primero en esta ronda — cuanto mayor la Malicia del luchador, antes juega.",
+        "iniciativa": "Esta lista muestra quién es más rápido en la pista — más Pique es llegar antes al centro y actuar más veces. Mucho Pique puede dar hasta 3 acciones contra 1 del más lento.",
         "escolher_alvo": "¿Hay más de un enemigo? Toca a quien quieras atacar para elegirlo como objetivo — matar al más débil primero o enfocar al más fuerte, tú decides.",
         "bolinha": "Esa bolita flotante es donde actúas ahora. Tócala: ATACAR resuelve al instante gratis, TALENTO gasta PM (o PV) pero pega más fuerte, e ITEM va a mostrar tus objetos cuando tengas alguno."
       },
@@ -540,14 +541,11 @@
         "avancar": "Toca SIGUIENTE RONDA cuando estés listo. Puedes cambiar de talento o marcar un objeto antes, y el interruptor se prende y apaga cuando quieras."
       },
       "attr_labels": {
-        "F": "Fuerza",
-        "H": "Malicia",
-        "R": "Resistencia",
+        "H": "Pique",
         "A": "Trompada",
         "D": "Cuero",
         "PV": "Aguante",
-        "PM": "Pila",
-        "PdF": "Poder Elemental"
+        "PM": "Viveza"
       },
       "enemy_names": {
         "1701": "Piloto",
@@ -4585,7 +4583,8 @@
           "6": "Alto del Cerro",
           "7": "La Azotea"
         }
-      }
+      },
+      "velocidade_auto": "Velocidad del automático"
     }
   }
 }

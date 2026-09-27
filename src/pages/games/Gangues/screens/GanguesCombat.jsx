@@ -7,6 +7,7 @@ import useGanguesTurnMachine from '../hooks/useGanguesTurnMachine'
 import useGanguesCombatFx from '../hooks/useGanguesCombatFx.js'
 import useGanguesModoAuto from '../hooks/useGanguesModoAuto.js'
 import useGanguesModoAutoMultidao from '../hooks/useGanguesModoAutoMultidao.js'
+import useGanguesVelocidadeAuto from '../hooks/useGanguesVelocidadeAuto.js'
 import useGanguesModoMultidao from '../hooks/useGanguesModoMultidao.js'
 import useGanguesBattleOutcome from '../hooks/useGanguesBattleOutcome.js'
 import useGanguesCombatLog from '../hooks/useGanguesCombatLog.js'
@@ -19,6 +20,7 @@ import GanguesCombatTutorial from '../components/GanguesCombatTutorial'
 import GanguesKoTutorial from '../components/GanguesKoTutorial'
 import GanguesCombatRoster from '../components/GanguesCombatRoster'
 import GanguesCombatTopBar from '../components/GanguesCombatTopBar'
+import GanguesPistaTempo from '../components/GanguesPistaTempo'
 import GanguesCombatLogList from '../components/GanguesCombatLogList'
 import GanguesCombatOverlays from '../components/GanguesCombatOverlays'
 import GanguesMultidaoActionBar from '../components/GanguesMultidaoActionBar'
@@ -104,7 +106,18 @@ export default function GanguesCombat({ onNavigate, onSairConfirmado }) {
   const [multidaoPromptRespondida, setMultidaoPromptRespondida] = useState(!multidaoDisponivelPreMachine)
   const perguntaMultidaoAtiva = multidaoDisponivelPreMachine && !multidaoPromptRespondida
 
-  const machine = useGanguesTurnMachine({ playerTeam: store.match.playerTeam, enemyTeam: store.match.enemyTeam, onFinish: finish, pausado: modoMultidaoAtivoPreMachine || perguntaMultidaoAtiva })
+  // Velocidade 1x/2x/3x (pedido do Isaias, 26/09/2026: "automático mais rápido
+  // pro cara poder ir upando"). Só com o AUTOMÁTICO ligado — o da luta normal
+  // ou o da Briga em Multidão. Manual (inclusive a Multidão manual) roda sempre
+  // em 1x: acelerar é benefício do automático, que vai ser de assinante.
+  // Os dois estados de "auto ligado" moram aqui (não nos hooks) porque o motor
+  // e a Multidão precisam da velocidade já na construção.
+  const [modoAutoOn, setModoAutoOn] = useState(false)
+  const [modoAutoMultidaoOn, setModoAutoMultidaoOn] = useState(false)
+  const { velocidade, ciclarVelocidade } = useGanguesVelocidadeAuto()
+  const velocidadeEfetiva = ((modoAutoOn && !modoMultidaoAtivoPreMachine) || (modoAutoMultidaoOn && modoMultidaoAtivoPreMachine)) ? velocidade : 1
+
+  const machine = useGanguesTurnMachine({ playerTeam: store.match.playerTeam, enemyTeam: store.match.enemyTeam, onFinish: finish, pausado: modoMultidaoAtivoPreMachine || perguntaMultidaoAtiva, enemyDelay: 2200 / velocidadeEfetiva })
 
   // Pré-carrega a animação (sprite + sons) de cada personagem do time do
   // jogador assim que a luta começa — pedido do Isaias: "durante a batalha
@@ -117,9 +130,10 @@ export default function GanguesCombat({ onNavigate, onSairConfirmado }) {
     }
   }, [store.match.playerTeam])
 
-  const multidao = useGanguesModoMultidao({ store, machine, t, setLog, eventosBrutosRef, finish, result, modoMultidaoOn, setModoMultidaoOn })
+  const multidao = useGanguesModoMultidao({ store, machine, t, setLog, eventosBrutosRef, finish, result, modoMultidaoOn, setModoMultidaoOn, velocidade: velocidadeEfetiva })
   const { modoMultidaoAtivo, estadoMultidao, multidaoDisponivel, alternarMultidao, multidaoBlinkVisto, poderesMultidao, itensMultidao, cicloPoderMultidao, toggleItemMultidao, avancarRodada, revelandoRodada } = multidao
   const modoAutoMultidao = useGanguesModoAutoMultidao({
+    modoAutoMultidaoOn, setModoAutoMultidaoOn, velocidade: velocidadeEfetiva,
     modoMultidaoAtivo, estadoMultidao, revelandoRodada, result, koCena: fx.koCena, avancarRodada,
   })
 
@@ -202,6 +216,7 @@ export default function GanguesCombat({ onNavigate, onSairConfirmado }) {
   }
 
   const modoAuto = useGanguesModoAuto({
+    modoAutoOn, setModoAutoOn, velocidade: velocidadeEfetiva,
     perfil, modoMultidaoAtivo, machinePhase: machine.phase, result, koCena: fx.koCena,
     selectedActor, selectedTarget, handleAttack,
   })
@@ -304,25 +319,19 @@ export default function GanguesCombat({ onNavigate, onSairConfirmado }) {
           (dado/KO/resultado usam 9999). Aparece sempre que o auto está
           ligado; um toque volta pro manual (a ação em andamento resolve
           sozinha, o efeito de auto-ataque para de enfileirar). */}
-      {!modoMultidaoAtivo && modoAuto.modoAutoOn && !result && (
-        <button
-          type="button"
-          className="gang-auto-sair"
-          style={autoSairTop != null ? { top: `${autoSairTop}px` } : undefined}
-          onClick={() => modoAuto.setModoAutoOn(false)}
-        >
-          <b>■</b>{t('games.gangues.auto.sair')}
-        </button>
-      )}
-      {modoMultidaoAtivo && modoAutoMultidao.modoAutoMultidaoOn && !result && (
-        <button
-          type="button"
-          className="gang-auto-sair"
-          style={autoSairTop != null ? { top: `${autoSairTop}px` } : undefined}
-          onClick={() => modoAutoMultidao.setModoAutoMultidaoOn(false)}
-        >
-          <b>■</b>{t('games.gangues.auto.sair')}
-        </button>
+      {!result && (modoMultidaoAtivo ? modoAutoMultidao.modoAutoMultidaoOn : modoAuto.modoAutoOn) && (
+        <div className="gang-auto-barra" style={autoSairTop != null ? { top: `${autoSairTop}px` } : undefined}>
+          <button
+            type="button"
+            className="gang-auto-sair"
+            onClick={() => (modoMultidaoAtivo ? modoAutoMultidao.setModoAutoMultidaoOn(false) : modoAuto.setModoAutoOn(false))}
+          >
+            <b>■</b>{t('games.gangues.auto.sair')}
+          </button>
+          <button type="button" className="gang-auto-vel" title={t('games.gangues.velocidade_auto')} onClick={ciclarVelocidade}>
+            {velocidade}x
+          </button>
+        </div>
       )}
 
       <GanguesCombatOverlays
@@ -331,7 +340,7 @@ export default function GanguesCombat({ onNavigate, onSairConfirmado }) {
         revelandoRodada={revelandoRodada} fichaAberta={fichaAberta} setFichaAberta={setFichaAberta}
         falaFinal={falaFinal} result={result} showResultBtn={showResultBtn}
         openBattleReport={() => openBattleReport({ modoMultidaoAtivo, estadoMultidao, machine, log, eventosBrutosRef })}
-        enemy={store.match.enemy}
+        enemy={store.match.enemy} velocidade={velocidadeEfetiva}
       />
 
       <div className={`gang-combat-fx${fx.critShake ? ' gang-combat-fx--shake' : ''}${fx.hitNudge ? ' gang-combat-fx--nudge' : ''}`}>
@@ -341,6 +350,13 @@ export default function GanguesCombat({ onNavigate, onSairConfirmado }) {
         multidaoDisponivel={multidaoDisponivel} modoMultidaoOn={modoMultidaoOn} alternarMultidao={alternarMultidao}
         multidaoBlinkVisto={multidaoBlinkVisto}
         trashOptions={trashOptions} trashAberto={trashAberto} setTrashAberto={setTrashAberto} sendPlayerTrash={sendPlayerTrash}
+      />
+
+      <GanguesPistaTempo
+        t={t}
+        tempo={modoMultidaoAtivo ? estadoMultidao?.tempo : machine.tempo}
+        combatants={modoMultidaoAtivo ? estadoMultidao?.combatants : machine.combatants}
+        vezKey={modoMultidaoAtivo ? null : machine.currentActor?.key}
       />
 
       <GanguesCombatRoster

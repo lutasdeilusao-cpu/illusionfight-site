@@ -37,7 +37,7 @@ function KoAvatar({ retrato }) {
 export default function GanguesCombatOverlays({
   t, aviso, danoCena, koCena, dispararProximoKo, machine, modoMultidaoAtivo,
   revelandoRodada, fichaAberta, setFichaAberta, falaFinal, result, showResultBtn,
-  openBattleReport, enemy,
+  openBattleReport, enemy, velocidade = 1,
 }) {
   return (
     <>
@@ -104,7 +104,8 @@ export default function GanguesCombatOverlays({
       <AnimatePresence>
         {machine.pending && !modoMultidaoAtivo && (
           <DramaticDice
-            key={`${machine.pending.actorKey}-${machine.round}`}
+            key={machine.pending.id}
+            velocidade={velocidade}
             finalValue={machine.pending.result.rolls.fa}
             sides={3}
             side={machine.pending.side}

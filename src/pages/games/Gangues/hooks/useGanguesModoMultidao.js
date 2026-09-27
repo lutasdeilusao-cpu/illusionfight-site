@@ -23,7 +23,7 @@ const MULTIDAO_BLINK_ID = 'multidao_blink'
 // de decidir se roda seu próprio efeito de IA, e precisa saber isso já na
 // hora de ser construído. Ver nota grande em GanguesCombat.jsx sobre o bug do
 // "ataque fantasma" que isso corrige.
-export default function useGanguesModoMultidao({ store, machine, t, setLog, eventosBrutosRef, finish, result, modoMultidaoOn, setModoMultidaoOn }) {
+export default function useGanguesModoMultidao({ store, machine, t, setLog, eventosBrutosRef, finish, result, modoMultidaoOn, setModoMultidaoOn, velocidade = 1 }) {
   const totalCombatentes = (store.match.playerTeam?.length || 0) + (store.match.enemyTeam?.length || 0)
   // Piso baixado de 6 pra 5 (pedido do Isaias, 13/09/2026): "é jogo de gangue,
   // não RPG clássico, precisa ter mais briga em multidão" — com o time da
@@ -70,7 +70,7 @@ export default function useGanguesModoMultidao({ store, machine, t, setLog, even
     if (!modoMultidaoOn || estadoMultidao) return
     const jaAgiu = machine.combatants.some(c => c.actedThisRound) || machine.round > 1
     const inicial = jaAgiu
-      ? iniciarBrigaMultidaoDeCombatentes(machine.combatants, machine.round)
+      ? iniciarBrigaMultidaoDeCombatentes(machine.combatants, machine.round, machine.tempo)
       : iniciarBrigaMultidao({ playerTeam: store.match.playerTeam, enemyTeam: store.match.enemyTeam })
     setEstadoMultidao(inicial)
     setLog(prev => [...prev, ...inicial.eventosIniciais.flatMap(event => transformarEvento(t, event, inicial.combatants))])
@@ -127,7 +127,7 @@ export default function useGanguesModoMultidao({ store, machine, t, setLog, even
       setLog(prev => [...prev, ...entradasRodada])
       setRevelandoRodada(false)
       if (proximoEstado.terminado) finish(proximoEstado.outcome)
-    }, 900)
+    }, 900 / velocidade)
   }
 
   return {

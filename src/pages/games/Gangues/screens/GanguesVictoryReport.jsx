@@ -234,7 +234,7 @@ export default function GanguesVictoryReport({
         <div className="gang-report-initiative">
           {report.initiative.map((item, index) => {
             const member = report.combatants.find(entry => entry.key === item.key)
-            return <div key={item.key}><b>{index + 1}</b><span>{combatantName(t, member)}</span><small>H {item.ability} + d3 {item.die}</small><strong>{item.total}</strong></div>
+            return <div key={item.key}><b>{index + 1}</b><span>{combatantName(t, member)}</span><small>{t('games.gangues.attr_labels.H')} {item.ability} + {item.base}</small><strong>{item.total}</strong></div>
           })}
         </div>
       </section>

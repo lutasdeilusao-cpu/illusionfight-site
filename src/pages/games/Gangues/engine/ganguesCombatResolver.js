@@ -1,10 +1,5 @@
 import { applyGanguesAttackerEffect, applyGanguesDefenderEffect, buildGanguesEffectsList } from './ganguesSpecialEffects.js'
 
-export function resolveGanguesInitiative({ combatant, roll }) {
-  const ability = Number(combatant.attributes?.H) || 0
-  return { ability, die: roll, total: ability + roll }
-}
-
 /**
  * Bônus de caminho — regra combinada com Isaias em 2026-08-04:
  * - Atacante: +1 no ataque, por sorte (50%, mostrado no log se caiu ou não).
@@ -39,7 +34,6 @@ export const CRITICAL_BONUS = 2
 // pro design original (com as simplificações feitas pra caber no modelo de 1 ação por turno).
 export function resolveGanguesAction({ attacker, defender, action, rolls, activeSpecialId = null, forcedSpecial = null }) {
   const attack = Number(attacker.attributes?.A) || 0
-  const agility = Math.floor((Number(attacker.attributes?.H) || 0) / 2)
   const defense = Number(defender.attributes?.D) || 0
 
   const attackerBonus = resolveAttackerBonus(attacker.combat_path, rolls.attackerBonus)
@@ -79,7 +73,13 @@ export function resolveGanguesAction({ attacker, defender, action, rolls, active
 
   const effectiveDefense = Math.max(0, Math.round(defense * (1 - ctx.ignoreDefPct / 100)) - ctx.targetDefenseReduction)
 
-  const fa = attack + agility + attackRollValue + (attackerBonus.applied ? attackerBonus.amount : 0) + ctx.faMod
+  // Sistema do Pique (26/09/2026): o Pique (H) saiu do ataque — agora é só
+  // velocidade na linha do tempo (ganguesLinhaDoTempo.js). Quem pesa no golpe
+  // de TALENTO é a Malandragem (PM): + metade dela, só quando um talento ativo
+  // entra na jogada. Ataque normal = Porrada + dado.
+  const talentoAtivo = attackerEffects.some(item => item.kind === 'active')
+  const malandragem = talentoAtivo ? Math.floor((Number(attacker.attributes?.PM) || 0) / 2) : 0
+  const fa = attack + malandragem + attackRollValue + (attackerBonus.applied ? attackerBonus.amount : 0) + ctx.faMod
   const fd = effectiveDefense + rolls.fd + (defenderBonus.applied ? defenderBonus.amount : 0) + ctx.fdMod
   let damage = Math.max(0, fa - fd)
 
@@ -102,7 +102,7 @@ export function resolveGanguesAction({ attacker, defender, action, rolls, active
   }
 
   return {
-    action, mode: 'attack', fa, fd, damage, pmCost: ctx.pmCost, pvCost,
+    action, mode: 'attack', fa, fd, malandragem, damage, pmCost: ctx.pmCost, pvCost,
     rolls: { ...rolls }, attackerBonus, defenderBonus, critical, criticalBonus: critical ? CRITICAL_BONUS : 0,
     attackerStatuses: [...(attacker.statuses || [])],
     defenderStatuses: [...(defender.statuses || [])],

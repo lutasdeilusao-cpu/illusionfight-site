@@ -101,7 +101,7 @@ export function getGanguesRosterLimit(tier) {
 export const GANGUES_RESOURCE_RATES = {
   atacante: { pvPerR: 3, pmPerR: 3 },
   defensor: { pvPerR: 4, pmPerR: 2 },
-  mistico: { pvPerR: 2, pmPerR: 4 },
+  mistico: { pvPerR: 3, pmPerR: 4 }, // 26/09/2026: 2→3 — Mandingueiro com defesa normal, não de vidro
 }
 
 export function defaultGanguesProgression() {

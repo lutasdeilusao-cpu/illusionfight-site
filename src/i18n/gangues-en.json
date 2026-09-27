@@ -29,7 +29,7 @@
       "report": {
         "enemy_thinking": "THE MARK'S PLOTTING",
         "enemy_strategy": "Sizing up that last hit and cooking up the next move...",
-        "initiative": "INITIATIVE ORDER",
+        "initiative": "TRACK ORDER",
         "victory_message": "Your gang controlled the fight. Analyze every decision below.",
         "defeat_message": "The gang fell, but the record shows where the fight was lost.",
         "rewards_title": "Reward",
@@ -44,12 +44,13 @@
         "final_state": "FINAL GANG STATUS",
         "your_gang": "YOUR GANG",
         "enemy_gang": "THE OTHER CREW",
-        "initiative_order": "INITIATIVE — H + D3",
+        "initiative_order": "TRACK — PACE + BASE",
         "complete_log": "COMPLETE BATTLE LOG",
         "round_number": "ROUND {n}",
         "no_log": "No attacks recorded.",
         "back_to_gang": "BACK TO GANG",
-        "recrutar": "RECRUIT NEW MEMBER"
+        "recrutar": "RECRUIT NEW MEMBER",
+        "velocidade": "spd"
       },
       "progression": {
         "loadout": "Equipped: {n}/2",
@@ -238,13 +239,13 @@
       "loadout": {
         "paths": {
           "atacante": {
-            "name": "Attacker"
+            "name": "Brawler"
           },
           "defensor": {
-            "name": "Defender"
+            "name": "Wall"
           },
           "mistico": {
-            "name": "Mystic"
+            "name": "Hexer"
           }
         },
         "round": "ROUND {n}",
@@ -470,7 +471,7 @@
         "bonus_if_target_fresh": "+{v} damage if the target hasn't acted this round.",
         "atk_flat_if_pm_above_half": "+{v} damage while your MP is above half.",
         "low_pv_scale": "Up to +{v} damage — the lower your HP, the stronger the hit.",
-        "habilidade_full_convert": "Uses your full Slick on the attack instead of half.",
+        "habilidade_full_convert": "Uses your full Street Smarts on the talent instead of half.",
         "ignore_def_pct": "Ignores {v}% of the target's Hide.",
         "execute_bonus": "Target below 30% HP: ignore {v}% Hide and +2 damage.",
         "self_sacrifice_damage": "+{v} damage, paid with part of your HP.",
@@ -482,7 +483,7 @@
         "charge_on_hit_taken": "Every hit you take builds {v} charge."
       },
       "combat_tutorial": {
-        "iniciativa": "This list shows who attacks first this round — the higher a fighter's Slick, the sooner they act.",
+        "iniciativa": "This list shows who's fastest on the track — more Pace means reaching the center sooner and acting more often. A lot of Pace can mean up to 3 actions against 1 from the slowest.",
         "escolher_alvo": "More than one enemy? Tap whoever you want to attack to pick them as your target — kill the weakest first or focus the strongest, your call.",
         "bolinha": "That floating orb is where you act now. Tap it: ATTACK resolves instantly for free, TALENT costs PM (or PV) but hits harder, and ITEM will show your items once you have any."
       },
@@ -540,14 +541,11 @@
         "avancar": "Tap NEXT ROUND whenever you're ready. You can swap a talent or flag an item first, and the switch flips on and off whenever you want."
       },
       "attr_labels": {
-        "F": "Strength",
-        "H": "Slick",
-        "R": "Resistance",
+        "H": "Pace",
         "A": "Wallop",
         "D": "Hide",
         "PV": "Grit",
-        "PM": "Gas",
-        "PdF": "Elemental Power"
+        "PM": "Street Smarts"
       },
       "enemy_names": {
         "1701": "Rider",
@@ -4585,7 +4583,8 @@
           "6": "Upper Hill",
           "7": "The Roof"
         }
-      }
+      },
+      "velocidade_auto": "Auto speed"
     }
   }
 }

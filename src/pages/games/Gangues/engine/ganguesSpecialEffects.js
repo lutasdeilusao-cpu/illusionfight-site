@@ -303,8 +303,10 @@ export function applyGanguesAttackerEffect(item, ctx) {
       break
     }
     case 'habilidade_full_convert': {
-      const habilidade = Number(ctx.attacker.attributes?.H) || 0
-      ctx.faMod += Math.ceil(habilidade / 2) - v
+      // Converte a Malandragem INTEIRA (o resolvedor já soma a metade dela em
+      // todo talento; aqui entra a outra metade), menos o custo `v`.
+      const malandragem = Number(ctx.attacker.attributes?.PM) || 0
+      ctx.faMod += Math.ceil(malandragem / 2) - v
       break
     }
     case 'ignore_def_pct':

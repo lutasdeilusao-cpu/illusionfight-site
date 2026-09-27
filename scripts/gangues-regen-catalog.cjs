@@ -38,7 +38,7 @@ const path = require('path')
 
 const CATALOG_PATH = path.join(__dirname, '..', 'src', 'pages', 'games', 'Gangues', 'data', 'ldi_gangues_30_personagens_v1.json')
 
-const RES_RATE = { atacante: { pv: 3, pm: 3 }, defensor: { pv: 4, pm: 2 }, mistico: { pv: 2, pm: 4 } }
+const RES_RATE = { atacante: { pv: 3, pm: 3 }, defensor: { pv: 4, pm: 2 }, mistico: { pv: 3, pm: 4 } }
 const LEVEL_CAP = 99
 
 function mapGrowthOrder(growthOrder) {

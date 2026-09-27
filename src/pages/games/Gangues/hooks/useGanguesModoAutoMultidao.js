@@ -7,10 +7,9 @@
 // à parte em vez de estender o mesmo.
 // Pedido do Isaias (13/09/2026): "não dá pra habilitar o automático na Briga
 // em Multidão, deveria dar, do mesmo jeito que no modo normal".
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 
-export default function useGanguesModoAutoMultidao({ modoMultidaoAtivo, estadoMultidao, revelandoRodada, result, koCena, avancarRodada }) {
-  const [modoAutoMultidaoOn, setModoAutoMultidaoOn] = useState(false)
+export default function useGanguesModoAutoMultidao({ modoAutoMultidaoOn, setModoAutoMultidaoOn, velocidade = 1, modoMultidaoAtivo, estadoMultidao, revelandoRodada, result, koCena, avancarRodada }) {
   const toggleModoAutoMultidao = () => setModoAutoMultidaoOn(v => !v)
   const autoQueuedRef = useRef(false)
 
@@ -29,9 +28,9 @@ export default function useGanguesModoAutoMultidao({ modoMultidaoAtivo, estadoMu
     }
     if (autoQueuedRef.current) return
     autoQueuedRef.current = true
-    const timer = setTimeout(() => { avancarRodada(); autoQueuedRef.current = false }, 900)
+    const timer = setTimeout(() => { avancarRodada(); autoQueuedRef.current = false }, 900 / velocidade)
     return () => clearTimeout(timer)
-  }, [modoMultidaoAtivo, modoAutoMultidaoOn, estadoMultidao, revelandoRodada, result, koCena])
+  }, [velocidade, modoMultidaoAtivo, modoAutoMultidaoOn, estadoMultidao, revelandoRodada, result, koCena])
 
   return { modoAutoMultidaoOn, setModoAutoMultidaoOn, toggleModoAutoMultidao }
 }

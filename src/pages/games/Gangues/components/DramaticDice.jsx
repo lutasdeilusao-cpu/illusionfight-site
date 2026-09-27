@@ -31,14 +31,16 @@ import './DramaticDice.css'
  *
  * @param {{ finalValue: number, sides?: number, side: 'player'|'enemy', onComplete: () => void, powerName?: string, attackerName?: string, attackerRetrato?: string|null, targetName?: string, theme?: { rgb: string, glyphs: string[], particleCount: number } | null, attackerTemplateId?: number|null, targetTemplateId?: number|null }} props
  */
-export default function DramaticDice({ finalValue, sides = 6, side, onComplete, powerName, passiveNames, attackerName, attackerRetrato, targetName, theme, attackerTemplateId, targetTemplateId }) {
+export default function DramaticDice({ finalValue, sides = 6, side, onComplete, powerName, passiveNames, attackerName, attackerRetrato, targetName, theme, attackerTemplateId, targetTemplateId, velocidade = 1 }) {
   const { t } = useLanguage()
   // `side === 'player'`: o jogador ataca — mostra o ataque normal DELE (não
   // mostra nada se foi um PODER, ainda sem animação própria).
   // `side === 'enemy'`: o oponente ataca — mostra o personagem do jogador
   // (o ALVO) levando o golpe, sempre, poder ou não (não tem variação de
   // "dano por poder" ainda, é sempre a mesma reação a levar dano).
-  const anim = side === 'player'
+  // Automático em 2x/3x (26/09/2026): o sprite do golpe tem duração fixa, então
+  // acelerado ele sai de cena — fica só o dado, rápido, pra upar sem esperar.
+  const anim = velocidade > 1 ? null : side === 'player'
     ? (!powerName ? getGanguesAnimacao(attackerTemplateId, 'ataqueNormal') : null)
     : getGanguesAnimacao(targetTemplateId, 'dano')
   const [display, setDisplay] = useState(null)       // null = fase de "aquecimento"
@@ -60,7 +62,7 @@ export default function DramaticDice({ finalValue, sides = 6, side, onComplete, 
   // já ter rodado inteira).
   const animDuracaoMs = anim ? anim.frames * anim.frameMs : 0
   const totalDuration = useRef(
-    anim ? (animDuracaoMs - 400) : isCritical ? 2000 : (1500 + Math.random() * 500)
+    (anim ? (animDuracaoMs - 400) : isCritical ? 2000 : (1500 + Math.random() * 500)) / velocidade
   )
 
   // Sons da animação (arquivo de verdade, não os bips sintetizados de
@@ -95,7 +97,7 @@ export default function DramaticDice({ finalValue, sides = 6, side, onComplete, 
     // Fase 1: intro — show the "?" for a moment
     const t1 = setTimeout(() => {
       setPhase('rolling')
-    }, 400)
+    }, 400 / velocidade)
 
     return () => clearTimeout(t1)
   }, [])
@@ -168,7 +170,7 @@ export default function DramaticDice({ finalValue, sides = 6, side, onComplete, 
   // começa; não precisa de nenhuma conta extra de segurança aqui.
   useEffect(() => {
     if (phase !== 'reveal') return
-    const delay = isCritical ? 1200 : 1000
+    const delay = (isCritical ? 1200 : 1000) / velocidade
     const t = setTimeout(() => {
       setPhase('done')
       onComplete?.()

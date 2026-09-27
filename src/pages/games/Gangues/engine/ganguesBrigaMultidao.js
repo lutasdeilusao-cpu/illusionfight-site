@@ -1,11 +1,13 @@
-import { resolveGanguesAction, resolveGanguesInitiative } from './ganguesCombatResolver.js'
+import { resolveGanguesAction } from './ganguesCombatResolver.js'
+import { iniciarLinhaDoTempo, proximaVez, consumirVez, marcarAgiu, ordemDeVelocidade } from './ganguesLinhaDoTempo.js'
 import { prepare, pickEnemyTarget } from '../hooks/useGanguesTurnMachine.js'
 
 /* ══════════════════════════════════════════════════════════════
    BRIGA EM MULTIDÃO — RODADA a rodada, não a luta inteira de um clique.
 
    O jogo é por turno: cada clique em "avançar rodada" resolve UMA rodada
-   completa (todo mundo vivo age uma vez, na ordem de iniciativa — jogador
+   completa (todo mundo vivo age pelo menos uma vez, na ordem da linha do
+   tempo do Pique — o mais rápido pode agir 2-3 vezes — jogador
    focando o inimigo mais fraco, inimigo com a IA de sempre) e PARA. O
    jogador vê o resultado daquela rodada e decide se continua. Só o alvo
    automático (em vez de escolher manualmente) e o dano em lote (em vez de
@@ -30,145 +32,111 @@ function podePagarCusto(actor, special) {
   return true
 }
 
-/** Monta o estado inicial da briga (times preparados + iniciativa sorteada). Nenhuma rodada resolvida ainda. */
+function montar(combatants, round, eventosIniciais) {
+  const t0 = iniciarLinhaDoTempo(combatants)
+  const initiative = ordemDeVelocidade(combatants, t0)
+  return {
+    combatants, tempo: t0, initiative, round, lastEnemyTargetKey: null,
+    terminado: false, outcome: null,
+    eventosIniciais: eventosIniciais ? [...eventosIniciais, { type: 'initiative', id: 'bm-initiative', order: initiative }] : [],
+    seq: 0,
+  }
+}
+
+/** Monta o estado inicial da briga (times preparados + linha do tempo). Nenhuma rodada resolvida ainda. */
 export function iniciarBrigaMultidao({ playerTeam, enemyTeam }) {
   const combatants = [
     ...playerTeam.map((m, i) => prepare(m, 'player', i)),
     ...enemyTeam.map((m, i) => prepare(m, 'enemy', i)),
   ]
-  const initiative = combatants
-    .map(c => {
-      const resolved = resolveGanguesInitiative({ combatant: c, roll: d3() })
-      return { key: c.key, side: c.side, ...resolved, tie: Math.random() }
-    })
-    .sort((a, b) => b.total - a.total || b.ability - a.ability || b.tie - a.tie)
-
-  return {
-    combatants, initiative, turnIndex: 0, round: 1, lastEnemyTargetKey: null,
-    terminado: false, outcome: null,
-    eventosIniciais: [{ type: 'battle_start', id: 'bm-start' }, { type: 'initiative', id: 'bm-initiative', order: initiative }],
-    seq: 0,
-  }
+  return montar(combatants, 1, [{ type: 'battle_start', id: 'bm-start' }])
 }
 
 /** Como iniciarBrigaMultidao, mas a partir de combatentes JÁ preparados (com
- *  pv/pm/status atuais) — usado ao LIGAR o switch no meio da luta, depois de
- *  já ter batido no modo normal. `iniciarBrigaMultidao` sempre monta do zero
- *  a partir do time cru (pv_atual salvo), o que resetaria o HP de quem já
- *  apanhou nessa luta; aqui o HP/PM/status atual é preservado. `roundAtual`
- *  mantém a contagem de rodada contínua entre os dois motores. */
-export function iniciarBrigaMultidaoDeCombatentes(combatants, roundAtual = 1) {
+ *  pv/pm/status atuais) — usado ao LIGAR o switch no meio da luta. Recebe a
+ *  linha do tempo viva do motor normal (`tempo`) pra continuar de onde ele
+ *  parou — quem já agiu nessa rodada continua marcado (`actedThisRound`), sem
+ *  ação extra de graça (exploit de 14/09/2026). */
+export function iniciarBrigaMultidaoDeCombatentes(combatants, roundAtual = 1, tempo = null) {
   const clone = combatants.map(c => ({ ...c }))
-  const initiative = clone
-    .map(c => {
-      const resolved = resolveGanguesInitiative({ combatant: c, roll: d3() })
-      return { key: c.key, side: c.side, ...resolved, tie: Math.random() }
-    })
-    .sort((a, b) => b.total - a.total || b.ability - a.ability || b.tie - a.tie)
-
-  return {
-    combatants: clone, initiative, turnIndex: 0, round: roundAtual, lastEnemyTargetKey: null,
-    terminado: false, outcome: null, eventosIniciais: [], seq: 0,
-  }
+  const estado = montar(clone, roundAtual, null)
+  if (tempo) { estado.tempo = tempo; estado.initiative = ordemDeVelocidade(clone, tempo) }
+  return estado
 }
 
-/** Resolve UMA rodada a partir do estado atual — todo combatente vivo age uma vez. Retorna o novo estado + os eventos só dessa rodada.
- *  poderesPorPersonagem/especiaisPorPersonagem são lidos a cada chamada (não travados na iniciação) — o jogador pode trocar o poder escolhido entre uma rodada e outra.
- *  personagensUsandoItem: { [memberId]: true } — quem marcou "usar item" abre mão do ataque nesta rodada (a ação vira usar item, não bater). Ainda não existe
- *  sistema de item de verdade (sem catálogo/inventário) — isso só reserva o comportamento de "gastar a ação" pra quando existir. */
+/** Resolve UMA rodada a partir do estado atual — roda a linha do tempo até
+ *  todo vivo ter agido (a rodada fechar) ou a luta acabar. Retorna o novo
+ *  estado + os eventos só dessa rodada.
+ *  poderesPorPersonagem/especiaisPorPersonagem são lidos a cada chamada — o jogador pode trocar o poder entre uma rodada e outra.
+ *  personagensUsandoItem: { [memberId]: true } — quem marcou "usar item" abre mão do ataque (gasta a vez). */
 export function avancarRodadaMultidao(estado, poderesPorPersonagem = {}, especiaisPorPersonagem = {}, personagensUsandoItem = {}) {
-  const byKey = new Map(estado.combatants.map(c => [c.key, { ...c }]))
-  const { initiative } = estado
-  let { turnIndex, round, lastEnemyTargetKey, seq } = estado
+  let lista = estado.combatants.map(c => ({ ...c }))
+  let { tempo, round, lastEnemyTargetKey, seq } = estado
+  const rodadaAlvo = round
   const eventosRodada = []
+  const get = key => lista.find(c => c.key === key)
 
   const checarFim = () => {
-    const alive = [...byKey.values()]
-    const playersAlive = alive.some(c => c.side === 'player' && c.pv > 0)
-    const enemiesAlive = alive.some(c => c.side === 'enemy' && c.pv > 0)
+    const playersAlive = lista.some(c => c.side === 'player' && c.pv > 0)
+    const enemiesAlive = lista.some(c => c.side === 'enemy' && c.pv > 0)
     if (playersAlive && enemiesAlive) return null
     return enemiesAlive ? 'defeat' : 'victory'
   }
 
   let outcome = checarFim()
-  const rodadaAlvo = round // para assim que essa rodada fechar (turnIndex voltar a 0) ou a luta acabar
-  // O motor normal reseta `actedThisRound` de todo mundo ao virar de rodada
-  // (useGanguesTurnMachine.js, advanceTurn) — aqui não fazia isso, então quem
-  // agiu na rodada N chegava na rodada N+1 (e no syncFrom de volta pro motor
-  // normal) ainda marcado como "já agiu", contaminando o bônus de
-  // ganguesSpecialEffects.js que olha `!actedThisRound`.
-  const resetActedThisRound = () => { for (const c of byKey.values()) c.actedThisRound = false }
+  let guarda = 0
+  while (!outcome && guarda++ < 200) {
+    const vez = proximaVez(lista, tempo)
+    tempo = vez.tempo
+    const actor = get(vez.key)
+    if (!actor) break
+    let usouTalento = false
 
-  while (!outcome) {
-    const turn = initiative[turnIndex]
-    const actor = byKey.get(turn.key)
-    // Pula quem já agiu nessa rodada (ex: um combatente que atacou no motor
-    // NORMAL antes de ligar a Multidão no meio da luta — iniciarBrigaMultidaoDe
-    // Combatentes preserva o `actedThisRound` dele, mas reseta o turnIndex pra
-    // 0). Sem essa checagem, esse combatente agia de NOVO aqui, ganhando uma
-    // ação extra de graça (exploit reportado pelo Isaias, 2026-09-14: "ligo a
-    // Multidão no meio da rodada e facilita a luta").
-    if (!actor || actor.pv <= 0 || actor.actedThisRound) {
-      turnIndex = (turnIndex + 1) % initiative.length
-      if (turnIndex === 0) { round += 1; resetActedThisRound(); break }
-      continue
-    }
-
-    // Usar item ABRE MÃO do ataque nesta rodada — o personagem ainda consome
-    // seu turno na ordem de iniciativa, só que sem bater em ninguém.
     if (actor.side === 'player' && personagensUsandoItem[actor.id]) {
-      actor.actedThisRound = true
       seq += 1
       eventosRodada.push({ type: 'item', id: `bm-${seq}`, actorKey: actor.key, round: rodadaAlvo })
-      turnIndex = (turnIndex + 1) % initiative.length
-      outcome = checarFim()
-      if (turnIndex === 0 && !outcome) { round += 1; resetActedThisRound(); break }
-      continue
-    }
-
-    let target = null
-    let activeSpecialId = null
-    if (actor.side === 'player') {
-      // Foca sempre o inimigo mais perto de cair — eficiente pra limpar um bando grande.
-      target = [...byKey.values()].filter(c => c.side === 'enemy' && c.pv > 0).sort((a, b) => a.pv - b.pv)[0] || null
-      const especiais = especiaisPorPersonagem[actor.id] || []
-      const escolhaId = poderesPorPersonagem[actor.id] || null
-      const especial = escolhaId ? especiais.find(s => s.id === escolhaId) : null
-      activeSpecialId = especial && podePagarCusto(actor, especial) ? escolhaId : null
     } else {
-      target = pickEnemyTarget([...byKey.values()], lastEnemyTargetKey, Math.random)
-      lastEnemyTargetKey = target?.key || null
+      let target = null
+      let activeSpecialId = null
+      if (actor.side === 'player') {
+        // Foca sempre o inimigo mais perto de cair — eficiente pra limpar um bando grande.
+        target = lista.filter(c => c.side === 'enemy' && c.pv > 0).sort((a, b) => a.pv - b.pv)[0] || null
+        const especiais = especiaisPorPersonagem[actor.id] || []
+        const escolhaId = poderesPorPersonagem[actor.id] || null
+        const especial = escolhaId ? especiais.find(s => s.id === escolhaId) : null
+        activeSpecialId = especial && podePagarCusto(actor, especial) ? escolhaId : null
+      } else {
+        target = pickEnemyTarget(lista, lastEnemyTargetKey, Math.random)
+        lastEnemyTargetKey = target?.key || null
+      }
+      if (target) {
+        const result = resolveGanguesAction({
+          attacker: actor, defender: target, action: { type: 'attack', mode: 'attack' },
+          rolls: { fa: d3(), fd: d3(), attackerBonus: coin(), defenderBonus: coin() },
+          activeSpecialId,
+        })
+        usouTalento = Boolean(result.activeSpecialId)
+        lista = lista.map(c => {
+          if (c.key === actor.key) return { ...c, statuses: result.attackerStatuses, pm: Math.max(0, c.pm - result.pmCost), pv: Math.max(0, c.pv - (result.pvCost || 0)), specialState: result.attackerSpecialState }
+          if (c.key === target.key) return { ...c, statuses: result.defenderStatuses, pv: Math.max(0, c.pv - result.damage), specialState: result.defenderSpecialState }
+          return c
+        })
+        seq += 1
+        eventosRodada.push({ type: 'attack', id: `bm-${seq}`, side: actor.side, actorKey: actor.key, targetKey: target.key, result, round: rodadaAlvo })
+      }
     }
-    if (!target) { turnIndex = (turnIndex + 1) % initiative.length; continue }
 
-    const result = resolveGanguesAction({
-      attacker: actor, defender: target, action: { type: 'attack', mode: 'attack' },
-      rolls: { fa: d3(), fd: d3(), attackerBonus: coin(), defenderBonus: coin() },
-      activeSpecialId,
-    })
-
-    actor.statuses = result.attackerStatuses
-    actor.pm = Math.max(0, actor.pm - result.pmCost)
-    actor.pv = Math.max(0, actor.pv - (result.pvCost || 0))
-    actor.specialState = result.attackerSpecialState
-    actor.actedThisRound = true
-    target.statuses = result.defenderStatuses
-    target.pv = Math.max(0, target.pv - result.damage)
-    target.specialState = result.defenderSpecialState
-
-    seq += 1
-    eventosRodada.push({ type: 'attack', id: `bm-${seq}`, side: actor.side, actorKey: actor.key, targetKey: target.key, result, round: rodadaAlvo })
-
-    turnIndex = (turnIndex + 1) % initiative.length
+    tempo = consumirVez(tempo, actor.key, usouTalento)
     outcome = checarFim()
-    if (turnIndex === 0 && !outcome) { round += 1; resetActedThisRound(); break }
+    if (outcome) break
+    const marcado = marcarAgiu(lista, actor.key)
+    lista = marcado.combatants
+    if (marcado.fechouRodada) { round += 1; break }
   }
 
-  const combatantsFinais = [...byKey.values()]
   if (!outcome) outcome = checarFim()
-
   return {
-    combatants: combatantsFinais, initiative, turnIndex, round, lastEnemyTargetKey, seq,
+    combatants: lista, tempo, initiative: ordemDeVelocidade(lista, tempo), round, lastEnemyTargetKey, seq,
     terminado: Boolean(outcome), outcome: outcome || null,
     eventosRodada,
   }

@@ -30,7 +30,7 @@ const GanguesCombatLogList = forwardRef(function GanguesCombatLogList({ log, t }
           return (
             <motion.div key={entry.id} className="gang-initiative-log" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
               <strong>{t('games.gangues.report.initiative')}</strong>
-              {entry.order.map((item, index) => <span key={item.key}><b>{index + 1}</b>{item.name}<small>H {item.ability} + d3 {item.die} = {item.total}</small></span>)}
+              {entry.order.map((item, index) => <span key={item.key}><b>{index + 1}</b>{item.name}<small>{t('games.gangues.attr_labels.H')} {item.ability} · {t('games.gangues.report.velocidade')} {item.total}</small></span>)}
             </motion.div>
           )
         }

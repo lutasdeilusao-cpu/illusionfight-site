@@ -15,7 +15,7 @@ const path = require('path')
 const catalog = require(path.join(__dirname, '..', 'src', 'pages', 'games', 'Gangues', 'data', 'ldi_gangues_30_personagens_v1.json'))
 
 const LEVEL_CAP = 99
-const ATTR_LABEL = { A: 'A', H: 'H', D: 'D', PV: 'Osso', PM: 'Gás' }
+const ATTR_LABEL = { A: 'Porrada', H: 'Pique', D: 'Couro', PV: 'Osso', PM: 'Malandragem' }
 
 function nonAttrEvents(lvl) {
   return (lvl.events || []).filter(e => e.type !== 'attribute')
@@ -33,7 +33,7 @@ const linhas = []
 for (const ch of catalog.characters) {
   linhas.push(`### ${ch.name} — ${ch.combat_path} (${ch.special_path || '—'})`)
   linhas.push('')
-  linhas.push('| Nível | A | H | D | Osso | Gás | Poder/evento neste nível |')
+  linhas.push('| Nível | Porrada | Pique | Couro | Osso | Malandragem | Poder/evento neste nível |')
   linhas.push('|---|---|---|---|---|---|---|')
 
   // Níveis a mostrar: 1, múltiplos de 5, e qualquer nível com evento de poder

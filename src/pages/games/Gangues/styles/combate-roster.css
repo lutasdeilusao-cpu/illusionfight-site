@@ -115,8 +115,17 @@
    monitorar em modo automático é o PV dos seus lutadores, então esse botão
    NUNCA pode tampar o roster. Este `top: 128px` é só o fallback pro 1º frame,
    antes da medição chegar (cobre topbar + 1 linha de roster). */
-.gang-auto-sair {
+.gang-auto-barra {
   position: fixed; z-index: 10000; top: 128px; left: 50%; transform: translateX(-50%);
+  display: flex; align-items: stretch; gap: 6px;
+}
+.gang-auto-vel {
+  min-width: 44px; padding: 0 12px; cursor: pointer;
+  border: 1px solid var(--if-amber); background: #1c1406;
+  color: var(--if-amber); font: 800 0.78rem var(--font-mono); letter-spacing: 0.06em;
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
+}
+.gang-auto-sair {
   display: flex; align-items: center; gap: 8px;
   padding: 9px 16px; cursor: pointer;
   border: 1px solid var(--gang-vermelho-450); background: linear-gradient(160deg, #3a0e0e, #1c0606 85%);

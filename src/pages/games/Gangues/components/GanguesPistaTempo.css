@@ -1,0 +1,22 @@
+/* Pista da linha do tempo — ver GanguesPistaTempo.jsx.
+   --p (0 a 1) = quanto o lutador já correu até o centro. */
+.gang-pista {
+  position: relative; height: 26px; margin: 4px 12px 2px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08); border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(90deg, rgba(0, 180, 216, 0.08), transparent 40%, transparent 60%, rgba(255, 70, 70, 0.08));
+  flex-shrink: 0;
+}
+.gang-pista__centro {
+  position: absolute; top: -2px; bottom: -2px; left: 50%; width: 2px; transform: translateX(-50%);
+  background: var(--if-amber); box-shadow: 0 0 8px var(--if-amber);
+}
+.gang-pista__corredor {
+  position: absolute; top: 50%; width: 18px; height: 18px; margin: -9px 0 0 -9px;
+  display: grid; place-items: center; border-radius: 50%;
+  font: 800 9px var(--font-mono); color: #0b0d10;
+  transition: left 0.35s ease-out;
+}
+.gang-pista__corredor--player { left: calc(4% + var(--p) * 46%); background: var(--if-cyan); }
+.gang-pista__corredor--enemy { left: calc(96% - var(--p) * 46%); background: var(--if-danger); }
+.gang-pista__corredor.is-vez { box-shadow: 0 0 0 2px var(--if-amber), 0 0 10px var(--if-amber); z-index: 1; }
+@media (prefers-reduced-motion: reduce) { .gang-pista__corredor { transition: none; } }

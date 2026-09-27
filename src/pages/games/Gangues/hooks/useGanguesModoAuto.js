@@ -1,17 +1,18 @@
 // Modo Automático: liga e os personagens atacam sozinhos com o ataque normal,
 // sempre — quem quiser usar poder tem que desligar e voltar pro manual.
+// `modoAutoOn` mora no GanguesCombat (o motor precisa dele pra acelerar a IA
+// do inimigo em 2x/3x — ver useGanguesVelocidadeAuto.js).
 // Extraído de GanguesCombat.jsx (PLANO_REFATORACAO_ARQUIVOS_GRANDES_GANGUES_2026-09-11.md §6).
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { MODO_AUTO_EXIGE_ASSINATURA, TIERS_COM_MODO_AUTO } from '../engine/ganguesCombatPresentation.js'
 
-export default function useGanguesModoAuto({ perfil, modoMultidaoAtivo, machinePhase, result, koCena, selectedActor, selectedTarget, handleAttack }) {
+export default function useGanguesModoAuto({ modoAutoOn, setModoAutoOn, velocidade = 1, perfil, modoMultidaoAtivo, machinePhase, result, koCena, selectedActor, selectedTarget, handleAttack }) {
   const navigate = useNavigate()
   // Beta: o botão APARECE pra todo mundo (é chamariz de assinatura — o cara vê
   // toda hora que podia automatizar). `podeUsarModoAuto` só decide se toca ou
   // se manda pro /assinar. Hoje o flag está desligado → todo mundo pode.
   const podeUsarModoAuto = !MODO_AUTO_EXIGE_ASSINATURA || TIERS_COM_MODO_AUTO.includes(perfil?.tier)
-  const [modoAutoOn, setModoAutoOn] = useState(false)
   const autoQueuedRef = useRef(false)
   const toggleModoAuto = () => {
     if (!podeUsarModoAuto) { navigate('/assinar'); return }
@@ -34,9 +35,9 @@ export default function useGanguesModoAuto({ perfil, modoMultidaoAtivo, machineP
     }
     if (autoQueuedRef.current) return
     autoQueuedRef.current = true
-    const timer = setTimeout(() => { handleAttack(null); autoQueuedRef.current = false }, 750)
+    const timer = setTimeout(() => { handleAttack(null); autoQueuedRef.current = false }, 750 / velocidade)
     return () => clearTimeout(timer)
-  }, [modoMultidaoAtivo, modoAutoOn, podeUsarModoAuto, machinePhase, result, koCena, selectedActor, selectedTarget])
+  }, [velocidade, modoMultidaoAtivo, modoAutoOn, podeUsarModoAuto, machinePhase, result, koCena, selectedActor, selectedTarget])
 
   return { podeUsarModoAuto, modoAutoOn, setModoAutoOn, toggleModoAuto }
 }

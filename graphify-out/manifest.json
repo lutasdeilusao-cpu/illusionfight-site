@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1790461011.685979,
-    "ast_hash": "a1be9e097d6079862fe530d11ba70955",
+    "mtime": 1790461230.104426,
+    "ast_hash": "d0a84def40b99665fd0d0e646227b441",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2730,8 +2730,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1790461011.7727904,
-    "ast_hash": "630d36d221ed5e8809ed9b02b72f867d",
+    "mtime": 1790461230.179339,
+    "ast_hash": "f151937d5a227826092eef82f4e5cbab",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3475,8 +3475,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/ganguesLoadout.js": {
-    "mtime": 1790033028.3171003,
-    "ast_hash": "446855de9e2b3dbba8621c6175f22aa9",
+    "mtime": 1790461094.6357799,
+    "ast_hash": "a6706a9cad0e5061f3eadc5502626ce7",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/engine/ganguesCombatResolver.js": {
@@ -4860,8 +4860,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/cenas/pista/index.js": {
-    "mtime": 1790460476.2744281,
-    "ast_hash": "306b918ae2ce9be364cb91a85bd26967",
+    "mtime": 1790461074.9502392,
+    "ast_hash": "bf5ad3315ea307e39c5c0f91c1b7d6b6",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/cenas/pista/interiores.js": {
@@ -4915,8 +4915,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/hooks/useGanguesCenaMovimento.js": {
-    "mtime": 1789666043.369254,
-    "ast_hash": "504f209792899a2629a77e5caa21f412",
+    "mtime": 1790461074.94924,
+    "ast_hash": "469bb569c72d3b28428dc8e544ba15f6",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/GanguesCombatLogList.jsx": {
@@ -5065,8 +5065,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/screens/GanguesCena.jsx": {
-    "mtime": 1790460583.799549,
-    "ast_hash": "7136cbbae5e864e7d0b3164153a1d13b",
+    "mtime": 1790461074.94924,
+    "ast_hash": "d5becabf0c5eb953fcba32a1639e62e3",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/screens/GanguesClube.jsx": {
