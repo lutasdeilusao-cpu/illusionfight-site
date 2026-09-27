@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.295.3' // fix(gangues): grana da vitória cortada — 10 garantido + 5 por inimigo a mais (era 10 por inimigo).
+export const SITE_VERSION = '10.296.0' // feat(gangues): equipamento em faixa (Porrada/Couro/Pique rolam) + aprimoramento na bancada do Nando + preços novos + fonte dos raros + Facão do Carvão.
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.2' // fix: aba "stories" do rodape mostrava a chave crua pp.menu.pistas_label (nao existia) -> aponta pra pp.dossier.pistas_label; PuzzleWrapper mostrava pp.puzzle.nenhum/instrucao (nao existiam) -> pp.local.puzzle_nenhum/instrucao; confirm() de deletar save mostrava pp.menu.deletar_slot cru -> chave criada nos 3 idiomas.
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '3.63.1' // grana da vitória: 10 garantido (mesmo contra 1 inimigo) + 5 por inimigo a mais, em vez de 10 por inimigo — Isaias: 'tá ganhando muita grana, muito fácil'. Chefe continua com mínimo 500.
+export const GANGUES_VERSION   = '3.64.0' // equipamento em FAIXA (Porrada a cada golpe, Couro a cada defesa, Pique 1x por luta), chip da arma no dado + Pique na pista; aprimoramento +1..+4 (vantagem/sobe o mínimo) na bancada do Nando (+1), custo grana+sucata; sucata em 20% das vitórias de rua; preços pela fórmula; fontes dos raros (103 Cão Louco, 117 corre, 110/119/140 loja); Facão do Carvão (139) no chefe; catálogo 121–131/141–144 pronto pra Feira.
 
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio

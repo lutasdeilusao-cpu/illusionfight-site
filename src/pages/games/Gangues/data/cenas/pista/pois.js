@@ -88,6 +88,18 @@ export const POIS_PISTA = [
     ],
   },
   {
+    // A BANCADA DO NANDO — aprimoramento de equipamento (27/09/2026, plano
+    // em docs/Games/Gangues/PLANO_ITENS_RANGE.md §3). Só aparece dentro da
+    // oficina DEPOIS da quest da sucata (`precisa: 'oficina'` no interior).
+    // O Nando faz só o +1 (`tetoAprim`); até +4 é a Serralheria da Feira.
+    id: 'bancada_nando',
+    tipo: 'ferreiro',
+    opcional: true,
+    repetivel: true,
+    i18n: 'games.gangues.cena.pista.bancada_nando',
+    tetoAprim: 1,
+  },
+  {
     id: 'beco',
     nivelRec: 8,
     tipo: 'treta',
@@ -133,7 +145,9 @@ export const POIS_PISTA = [
     // Corre opcional, primeira vez do jogador com stealth: grade 5×5, só 2
     // câmeras de alcance 1, sem timer. Falhar aqui só custa fôlego.
     puzzle: { type: 'stealth', config: { size: 5, cameraCount: 2, visionRange: 1, hasTimer: false }, skin: 'viatura' },
-    recompensa: { grana: 16, rep: 2 },
+    // + a Bota com Biqueira (117, raro de Pique) — os raros não tinham fonte
+    // nenhuma no jogo (PLANO_ITENS_RANGE.md §6). O corre só se faz 1 vez.
+    recompensa: { grana: 16, rep: 2, equip: 117 },
   },
   {
     id: 'beco_2',
@@ -274,7 +288,10 @@ export const POIS_PISTA = [
     //                     · 112 luva · 115 tênis · 118 corrente
     //  incomum ("junta grana"): 102 faca · 105 capacete · 109 colete placa
     //                           · 113 manopla · 116 coturno
-    itens: [1, 2, 101, 102, 104, 105, 107, 108, 109, 112, 113, 115, 116, 118],
+    // + 110 (Manto com Capuz), 119 (Dente de Ouro) e 140 (Chinelo de Dedo,
+    // Pique) — 27/09/2026, fonte dos raros/incomuns e o 1º acessório de
+    // Pique à venda (PLANO_ITENS_RANGE.md §4.2 e §6).
+    itens: [1, 2, 101, 102, 104, 105, 107, 108, 109, 112, 113, 115, 116, 118, 110, 119, 140],
   },
   {
     // Reaproveitamento: continua na Pista mesmo depois dela virar
@@ -426,6 +443,8 @@ export const POIS_PISTA = [
     repGate: GANGUES_REP_GATE_GALPAO,
     revezamento: { pool: PISTA_POOL_GALPAO, budgetPorCorpo: 26, chanceDupla: 0.6 },
     forca: 3,
-    recompensa: { rep: 4, item: 21, qtd: 1 },
+    // `equipPrimeiraVez`: o Cano de Ferro (103, raro) só na 1ª vitória — é
+    // treta repetível, o chip continua saindo em toda vitória.
+    recompensa: { rep: 4, item: 21, qtd: 1, equipPrimeiraVez: 103 },
   },
 ]

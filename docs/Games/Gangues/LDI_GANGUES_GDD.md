@@ -23,6 +23,10 @@
 Grafia oficial: **Marélia** com acento (o conto usa assim). O i18n do jogo ainda
 tem "Marelia" sem acento em vários lugares — alinhar quando mexer em texto.
 
+> **v3.64.0 (27/09/2026): range de equipamento, aprimoramento e fonte dos
+> raros implementados** — ver §9.4–9.6 (o plano `PLANO_ITENS_RANGE.md` marca o
+> que entrou e o que fica pra Feira).
+>
 > **Última revisão geral: 27/09/2026 — conferido contra o código de
 > GANGUES 3.63.0 (SITE 10.295.x).** Entrou nesta revisão: **não existe game
 > over** (§4, Pista), o **automático lembrado entre lutas** (§17.2.1), a
@@ -1210,80 +1214,117 @@ Nunca são vendidos. Vêm de dois lugares: **marcos de reputação** (a cada
 
 ### 9.4 Equipamento — 6 slots por personagem
 
-> **Proposta (27/09/2026, não implementada):** bônus de Porrada/Couro/Pique
-> em **faixa** (ex.: Faca Serrilhada 1–3), **aprimoramento** +1 a +4 que
-> estreita a faixa, acessórios de Pique novos (140–144) e preço por fórmula —
-> ver `PLANO_ITENS_RANGE.md`.
-
 Slots (bonecão de cima pra baixo): `cabeca` 🪖 · `corpo` 🦺 (a escolha PV vs PM) ·
-`bracos` 🧤 · `pes` 🥾 · `amuleto` 📿 · `arma` 🥊.
-Bônus = atributo plano (**A/H/D**) ou recurso plano (**pv/pm**, somado em cima do
-máximo, **não passa por R**). Raridades: `comum` · `incomum` · `raro` · `epico`.
-**Cartas/sockets** (`cardSlots` 0–2, estilo Ragnarok): os slots existem, as
-cartas vêm do sistema de drop (faixa 10000+, futuro). **Tirar carta encaixada
-DESTRÓI a carta. Desequipar o item inteiro não.**
+`bracos` 🧤 · `pes` 🥾 · `amuleto` 📿 · `arma` 🥊. Raridades: `comum` ·
+`incomum` · `raro` · `epico`. **Cartas/sockets** (`cardSlots` 0–2, estilo
+Ragnarok): os slots existem, as cartas vêm do sistema de drop (faixa 10000+,
+futuro). **Tirar carta encaixada DESTRÓI a carta. Desequipar o item inteiro não.**
 
-> **⚠️ Achado da revisão de 27/09/2026:** os 8 **raros** (103, 106, 110, 111,
-> 114, 117, 119, 120) **não têm fonte nenhuma no jogo hoje** — não estão em
-> loja, nenhum POI dá (`daEquip` só existe na oficina, que dá a 101) e não há
-> drop. Estão no catálogo mas nunca chegam na mão do jogador. Proposta de
-> fonte em `PLANO_ITENS_RANGE.md`.
->
-> **Estado real (26/09/2026, `data/ganguesEquip.js`):** o catálogo do jogo
-> vai do **101 ao 120**. Os ids **121–131** abaixo e os épicos **132–139**
-> (§9.5) são **design aprovado, ainda não implementado**. Preços abaixo =
-> os do código (a coluna "—" = sem preço, não vendido em loja).
+**Bônus em FAIXA (v3.64.0, 27/09/2026 — plano completo em
+`PLANO_ITENS_RANGE.md`, aprovado pelo Isaias).** Porrada (A), Couro (D) e Pique
+(H) viraram **faixa** (`bonus: { A: [1, 3] }` em `data/ganguesEquip.js`);
+Osso/Malandragem (PV/PM) continuam **fixos** (`+6 PV`).
+- **Quando rola:** a Porrada da peça **a cada golpe**, o Couro **a cada defesa**
+  (`rolls.arma` / `rolls.armadura` em `resolveGanguesAction`), o Pique **uma
+  vez na entrada da luta** (no `prepare` — a linha do tempo lê o H já com ele).
+  Cada peça rola o próprio dado e soma. A Briga em Multidão usa o mesmo
+  resolver, então rola igual.
+- **Na tela:** o dado dramático mostra um chip **"🔪 arma +N"** / **"🛡️ couro +N"**
+  na revelação; a pista da linha do tempo mostra **"+N"** em cima de quem teve
+  Pique sorteado; card de item/loja/ficha mostram a faixa (**"+1–3 Porrada"**);
+  toda previsão (loja, ficha, aviso de nível) usa a **média**, nunca o máximo.
+- **Toda faixa nasceu centrada no valor fixo de antes** (a Faca era +2 → 1–3):
+  simulado, +2 fixo × 1–3 empata em 50,3% num duelo — o balanço da Pista não
+  mudou, só a emoção de cada golpe.
+- **Preço** = arredonda5(Σ média × peso × raridade) — pesos A 28 · D 22 ·
+  **H 30** · PV/PM 6; raridade comum 1 · incomum 1,1 · raro 1,3 · épico 1,6. Os
+  5 comuns mais baratos mantiveram o preço de antes (28/22/36).
 
-| id | Nome | slot | raridade | bônus | cartas | custo |
-|---|---|---|---|---|---|---|
-| 101 | Soqueira de Lata | arma | comum | +1 A | 0 | 28 💵 |
-| 102 | Faca Serrilhada | arma | incomum | +2 A | 1 | 58 💵 |
-| 103 | Cano de Ferro | arma | raro | +2 A, +1 H | 2 | — |
-| 104 | Gorro de Moletom | cabeça | comum | +1 D | 0 | 22 💵 |
-| 105 | Capacete de Obra | cabeça | incomum | +2 D | 1 | 44 💵 |
-| 106 | Coroa de Lata | cabeça | raro | +1 A, +1 D | 2 | — |
-| 107 | Colete Reforçado | corpo | comum | +6 PV | 0 | 36 💵 |
-| 108 | Colete Leve | corpo | comum | +6 PM | 0 | 36 💵 |
-| 109 | Colete de Placa | corpo | incomum | +12 PV | 1 | 80 💵 |
-| 110 | Manto com Capuz | corpo | incomum | +12 PM | 1 | — |
-| 111 | Armadura de Rua | corpo | raro | +18 PV | 2 | — |
-| 112 | Luva de Couro | braços | comum | +1 D | 0 | 22 💵 |
-| 113 | Manopla de Porca | braços | incomum | +2 A | 1 | 48 💵 |
-| 114 | Braçadeira de Cravo | braços | raro | +1 A, +1 D | 2 | — |
-| 115 | Tênis Furado | pés | comum | +1 H | 0 | 22 💵 |
-| 116 | Coturno | pés | incomum | +1 H, +1 D | 1 | 44 💵 |
-| 117 | Bota com Biqueira | pés | raro | +2 H | 2 | — |
-| 118 | Corrente de Lata | amuleto | comum | +1 H | 1 | 28 💵 |
-| 119 | Dente de Ouro | amuleto | incomum | +1 A | 1 | — |
-| 120 | Medalha de Santa | amuleto | raro | +1 D, +1 H | 2 | — |
-| *121–131* | *(planejados — abaixo)* | | | | | |
-| 121 | Boné Vira-Lata | cabeça | comum | +1 H | 0 | 12 💵 |
-| 122 | Balaclava de Pano | cabeça | incomum | +1 D, +1 H | 1 | — |
-| 123 | Jaqueta de Bonde | corpo | comum | +6 PV | 0 | 20 💵 |
-| 124 | Manto de Sintonia | corpo | raro | +18 PM | 2 | — |
-| 125 | Manopla de Prego | braços | incomum | +2 A | 1 | — |
-| 126 | Chinelo Reforçado | pés | comum | +1 H | 0 | 12 💵 |
-| 127 | Corrente de Ouro Falso | amuleto | incomum | +1 A | 1 | — |
-| 128 | Terço de Vó | amuleto | raro | +1 D, +1 H | 2 | — |
-| 129 | Facão de Cabo Fita | arma | comum | +1 A | 0 | 16 💵 |
-| 130 | Espeto de Grade | arma | raro | +2 A, +1 D | 2 | — |
-| 131 | Bastão de Sinaleiro | arma | incomum | +1 A, +1 H | 1 | — |
+**Aprimoramento** (+1 a +4, `aprimorarEquip` em `ganguesEquipSlice.js`):
+- Mexe só no **atributo principal** da peça (o 1º com faixa). **Nível ímpar =
+  vantagem** (rola 2 vezes, fica com o maior, "▲" na tela); **nível par = sobe o
+  mínimo em 1**. Teto = mínimo encosta no máximo (faixa de 2 pontos → +4; 2–5 →
+  +6). Faca Serrilhada: +0 1–3 · +1 1–3▲ · **+2 2–3** · +3 2–3▲ · +4 sempre 3.
+  Simulado: a faca +2 vence 62% e a +4 vence 73% contra a mesma sem aprimorar.
+- **Custo:** grana = 25% do preço da peça × o nível (mín. 5) + **Sucata** (item
+  13) igual ao nível. Peça sem preço de loja usa o preço da fórmula.
+- O nível **mora na peça** (`aprim` na instância / no slot equipado), não no
+  personagem — vai junto ao trocar de dono. Save antigo sem `aprim` = +0.
+- **Onde:** a **bancada do Nando** (POI `bancada_nando`, tipo `ferreiro`, dentro
+  da oficina, só depois da quest da sucata) faz até **+1** (`poi.tetoAprim`). A
+  Serralheria da Feira (planejada) vai até +4. Tela: `GanguesFerreiro.jsx`.
+- **Sucata virou recurso:** além do ferro-velho, cai em **~20% das vitórias de
+  rua** na cena (não no chefe) e aparece no painel de recompensa.
+
+**Fontes dos raros** (antes nenhum tinha fonte): Cano de Ferro (103) na 1ª
+vitória sobre o Cão Louco (`posmuro_2`, `recompensa.equipPrimeiraVez`), Bota
+com Biqueira (117) no corre do Nato (`recompensa.equip`), Manto com Capuz (110)
+e Dente de Ouro (119) na loja da Pista. Coroa (106), Armadura (111), Braçadeira
+(114) e Medalha (120) ficam pra Feira (`PLANO_FEIRA.md`).
+
+**Catálogo hoje** (gerado do código; "aprim" = teto de aprimoramento da peça):
+
+| id | Nome | slot | raridade | bônus | aprim | cartas | custo | de onde vem |
+|---|---|---|---|---|---|---|---|---|
+| 101 | Soqueira de Lata | arma | comum | Porrada 0–2 | +4 | 0 | 28 💵 | loja da Pista · oficina do Nando (grátis) |
+| 102 | Faca Serrilhada | arma | incomum | Porrada 1–3 | +4 | 1 | 60 💵 | loja da Pista |
+| 103 | Cano de Ferro | arma | raro | Porrada 1–3, Pique 0–2 | +4 | 2 | 110 💵 | Cão Louco (`posmuro_2`), 1ª vitória |
+| 104 | Gorro de Moletom | cabeça | comum | Couro 0–2 | +4 | 0 | 22 💵 | loja da Pista |
+| 105 | Capacete de Obra | cabeça | incomum | Couro 1–3 | +4 | 1 | 50 💵 | loja da Pista |
+| 106 | Coroa de Lata | cabeça | raro | Porrada 0–2, Couro 0–2 | +4 | 2 | 65 💵 | — (Feira) |
+| 107 | Colete Reforçado | corpo | comum | +6 PV | — | 0 | 36 💵 | loja da Pista |
+| 108 | Colete Leve | corpo | comum | +6 PM | — | 0 | 36 💵 | loja da Pista |
+| 109 | Colete de Placa | corpo | incomum | +12 PV | — | 1 | 80 💵 | loja da Pista |
+| 110 | Manto com Capuz | corpo | incomum | +12 PM | — | 1 | 80 💵 | loja da Pista |
+| 111 | Armadura de Rua | corpo | raro | +18 PV | — | 2 | 140 💵 | — (Feira) |
+| 112 | Luva de Couro | mãos | comum | Couro 0–2 | +4 | 0 | 22 💵 | loja da Pista |
+| 113 | Manopla de Porca | mãos | incomum | Porrada 1–3 | +4 | 1 | 60 💵 | loja da Pista |
+| 114 | Braçadeira de Cravo | mãos | raro | Porrada 0–2, Couro 0–2 | +4 | 2 | 65 💵 | — (Feira) |
+| 115 | Tênis Furado | pés | comum | Pique 0–2 | +4 | 0 | 30 💵 | loja da Pista |
+| 116 | Coturno | pés | incomum | Pique 0–2, Couro 0–2 | +4 | 1 | 55 💵 | loja da Pista |
+| 117 | Bota com Biqueira | pés | raro | Pique 1–3 | +4 | 2 | 80 💵 | corre do Nato (1 vez) |
+| 118 | Corrente de Lata | amuleto | comum | Pique 0–2 | +4 | 1 | 30 💵 | loja da Pista |
+| 119 | Dente de Ouro | amuleto | incomum | Porrada 1–2 | +2 | 1 | 45 💵 | loja da Pista |
+| 120 | Medalha de Santa | amuleto | raro | Couro 0–2, Pique 0–2 | +4 | 2 | 70 💵 | — (Feira) |
+| 121 | Boné Vira-Lata | cabeça | comum | Pique 0–2 | +4 | 0 | 30 💵 | — (Feira, planejado) |
+| 122 | Balaclava de Pano | cabeça | incomum | Couro 1–3, Pique 0–1 | +4 | 1 | 65 💵 | — (Feira, planejado) |
+| 123 | Jaqueta de Bonde | corpo | comum | +8 PV | — | 0 | 50 💵 | — (Feira, planejado) |
+| 124 | Manto de Sintonia | corpo | raro | +18 PM | — | 2 | 140 💵 | — (Feira, planejado) |
+| 125 | Manopla de Prego | mãos | incomum | Porrada 2–4 | +4 | 1 | 90 💵 | — (Feira, planejado) |
+| 126 | Chinelo Reforçado | pés | comum | Pique 0–2, Couro 0–1 | +4 | 0 | 40 💵 | — (Feira, planejado) |
+| 127 | Corrente de Ouro Falso | amuleto | incomum | Porrada 1–3 | +4 | 1 | 60 💵 | — (Feira, planejado) |
+| 128 | Terço de Vó | amuleto | raro | Couro 1–3, Pique 0–2 | +4 | 2 | 95 💵 | — (Feira, planejado) |
+| 129 | Facão de Cabo Fita | arma | incomum | Porrada 2–4 | +4 | 1 | 90 💵 | — (Feira, planejado) |
+| 130 | Espeto de Grade | arma | raro | Porrada 2–5, Couro 0–2 | +6 | 2 | 155 💵 | — (Feira, planejado) |
+| 131 | Bastão de Sinaleiro | arma | incomum | Porrada 1–3, Pique 0–2 | +4 | 1 | 95 💵 | — (Feira, planejado) |
+| 139 | Facão do Carvão | arma | epico | Porrada 2–5, Couro 0–2 | +6 | 2 | — | **Carvão**, 1ª vitória |
+| 140 | Chinelo de Dedo | pés | comum | Pique 0–2 | +4 | 0 | 30 💵 | loja da Pista |
+| 141 | Relógio Parado | amuleto | comum | Pique 1–2 | +2 | 0 | 45 💵 | — (Feira, planejado) |
+| 142 | Tênis de Corrida | pés | incomum | Pique 1–3 | +4 | 1 | 65 💵 | — (Feira, planejado) |
+| 143 | Fita do Bonfim | amuleto | incomum | Pique 1–3 | +4 | 1 | 65 💵 | — (Feira, planejado) |
+| 144 | Pingente de Asa | amuleto | raro | Pique 2–4 | +4 | 2 | — | — (Feira, planejado) |
+
+121–131 e 141–144 já estão no catálogo (dados prontos), mas **só entram no jogo
+com as lojas/prêmios da Feira**.
 
 ### 9.5 Épicos — drop de chefe (faixa 132+)
 
-Um por chefe. Sempre 2 slots de carta. **Planejado — nenhum épico existe no
-código ainda** (o Carvão hoje não dropa o Facão do Carvão).
+Um por chefe, sempre 2 slots de carta, nunca à venda, faixa larga (mais degraus
+de aprimoramento). **O Facão do Carvão (139) existe desde a v3.64.0** — o Carvão
+dá na 1ª vitória (`recompensa.equipPrimeiraVez` no chefe da Pista). Os outros
+entram junto com o chefe de cada bairro (bônus propostos em
+`PLANO_ITENS_RANGE.md` §4.4):
 
 | id | Nome | slot | bônus | fonte |
 |---|---|---|---|---|
-| 132 | Facão do Retalho | arma | +4 A, +2 D | chefe final (1600) |
-| 133 | Coroa da Laje | cabeça | +3 D, +2 H | chefe final (1600) |
-| 134 | Vara da Fera | arma | +3 A, +1 H, cura 5 PV ao derrotar inimigo | chefe do Morro (1504) |
-| 135 | Bengala do Contador | amuleto | +2 A, +2 D | chefe do Alto do Morro (1505) |
-| 136 | Espeto do Fura-Bucho | arma | +3 A, +2 H | chefe da Baixada (1502) |
-| 137 | Taco da Ferrugem | arma | +2 A, +3 D | chefe da Vila (1503) |
-| 138 | Porrete do Cobrador | arma | +2 A, +2 H, +1 D | chefe da Feira (1501) |
-| 139 | Facão do Carvão | arma | +3 A, +1 D | chefe da Pista (1500) |
+| 132 | Facão do Retalho | arma | Porrada 4–9, Couro 2–5 | chefe final (1600) |
+| 133 | Coroa da Laje | cabeça | Couro 3–6, Pique 2–4 | chefe final (1600) |
+| 134 | Vara da Fera | arma | Porrada 3–7, Pique 1–3, cura 5 PV ao derrubar | chefe do Morro (1504) |
+| 135 | Bengala do Contador | amuleto | Porrada 2–5, Couro 2–5 | chefe do Alto do Morro (1505) |
+| 136 | Espeto do Fura-Bucho | arma | Porrada 3–7, Pique 2–4 | chefe da Baixada (1502) |
+| 137 | Taco da Ferrugem | arma | Porrada 2–6, Couro 3–5 | chefe da Vila (1503) |
+| 138 | Porrete do Cobrador | arma | Porrada 3–7, Pique 1–3, Couro 0–2 | chefe da Feira (1501) |
+| 139 | **Facão do Carvão** | arma | **Porrada 2–5, Couro 0–2** — **no jogo** | chefe da Pista (1500) |
 
 ### 9.6 Loja
 POI de tipo `loja`; catálogo por região (`poi.itens`, mistura consumível e
@@ -1291,8 +1332,9 @@ equipamento; `poi.precoMultiplicador` opcional). Cada região ganha catálogo
 próprio. Hoje a Pista tem duas:
 
 - **A loja da Pista** (`loja`, do lado de lá do muro, só aparece depois do
-  portão): `1, 2, 101, 102, 104, 105, 107, 108, 109, 112, 113, 115, 116, 118` —
-  as poções, 1 comum por slot e os incomuns.
+  portão): `1, 2, 101, 102, 104, 105, 107, 108, 109, 112, 113, 115, 116, 118,
+  110, 119, 140` — as poções, 1 comum por slot, os incomuns e (desde a v3.64.0)
+  o Manto com Capuz, o Dente de Ouro e o Chinelo de Dedo (1º acessório de Pique).
 - **A Lojinha do Zé** (`loja_pocoes`, na rua, desde o começo — v3.48–3.56):
   só **poção de HP e MP, pelo dobro do preço** (`precoMultiplicador: 2`), "na
   cara de pau". Existe porque, com a recompensa por risco, quem quer arriscar

@@ -10,6 +10,7 @@ import GanguesParada from '../components/cena/GanguesParada'
 import GanguesDescanso from '../components/cena/GanguesDescanso'
 import GanguesAgiota from '../components/cena/GanguesAgiota'
 import GanguesLoja from '../components/cena/GanguesLoja'
+import GanguesFerreiro from '../components/cena/GanguesFerreiro'
 import GanguesMiniMapa from '../components/cena/GanguesMiniMapa'
 import GanguesAlvoTutorial from '../components/cena/GanguesAlvoTutorial'
 import { useTutorialProgress } from '../../../../context/TutorialProgressContext'
@@ -26,7 +27,7 @@ import { getGanguesPortraitByTemplateId } from '../data/ganguesPortraits.js'
 import { getGanguesNpcPortrait } from '../data/ganguesNpcPortraits.js'
 import { getGanguesRosterLimitComHistoria, GANGUES_REP_GATE_CLUBE } from '../data/ganguesLoadout.js'
 import { getGanguesLevelFromXp } from '../data/ganguesCharacters.js'
-import { getGanguesAttributesWithEquip } from '../data/ganguesEquip.js'
+import { getGanguesAttributesWithEquip, getGanguesEquip } from '../data/ganguesEquip.js'
 import { WORLD, SPAWN, montarAmbiente, insideZone, validPosition, validPos } from '../engine/ganguesCenaMotor.js'
 import { ALEATORIO_TIPOS } from '../engine/ganguesEncontroAleatorio.js'
 import useGanguesCenaMovimento from '../hooks/useGanguesCenaMovimento.js'
@@ -337,7 +338,10 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
     const marcos = r.rep ? store.ganharRep(r.rep) : []
     registrarMarcosRep(marcos)
     if (r.item) store.darItem(r.item, r.qtd || 1)
-    if (r.grana || r.rep || r.xp || r.item || res?.daEquip?.length) { setToast({ ...r }); setTimeout(() => setToast(null), 2600) }
+    // `recompensa.equip`: peça de equipamento de prêmio (ex.: a Bota com
+    // Biqueira do corre do Nato — fonte dos raros, PLANO_ITENS_RANGE.md §6).
+    if (r.equip) store.comprarEquip(r.equip, 0)
+    if (r.grana || r.rep || r.xp || r.item || r.equip || res?.daEquip?.length) { setToast({ ...r }); setTimeout(() => setToast(null), 2600) }
     // marcarPoiResolvido também pra papo repetível (ex: Duda/informante) —
     // não trava a interação de novo (estadoPoi trata repetível como sempre
     // disponível), só liga farmCompleto (pino vira azul, igual treta
@@ -431,13 +435,13 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
     {!local && !intro && <GanguesMiniMapa player={player} alvos={minimapaAlvos} />}
     {!local && !intro && !encontro && !fade && <GanguesAlvoTutorial alvos={amb?.alvos} />}
     <WorldControls onInput={v => { inputRef.current = v }} onInteract={() => abrir(perto)} action={perto ? interactionLabel(perto, t) : null} />
-    <AnimatePresence>{toast && <motion.div className="gang-cena-toast" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}><b>RECOMPENSA</b>{toast.grana ? <span>💵 +{toast.grana}</span> : null}{toast.rep ? <span>⚑ +{toast.rep}</span> : null}{toast.xp ? <span>⚡ +{toast.xp} XP</span> : null}
+    <AnimatePresence>{toast && <motion.div className="gang-cena-toast" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}><b>RECOMPENSA</b>{toast.grana ? <span>💵 +{toast.grana}</span> : null}{toast.rep ? <span>⚑ +{toast.rep}</span> : null}{toast.xp ? <span>⚡ +{toast.xp} XP</span> : null}{toast.equip ? <span>{getGanguesEquip(toast.equip)?.icone} {t(getGanguesEquip(toast.equip)?.nome || '')}</span> : null}
     </motion.div>}</AnimatePresence>
     <AnimatePresence>{aviso && <motion.div className="gang-cena-toast gang-cena-toast--aviso" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}>{aviso}</motion.div>}</AnimatePresence>
     {/* Marco de reputação recorrente (a cada 50) — modal BLOQUEANTE, não
         toast: só fecha ao clicar (pedido do Isaias, 2026-09-14). */}
     <GanguesRepRecompensaModal t={t} marco={repModalMarco} onClose={() => setRepModalMarco(null)} />
-    <AnimatePresence>{encontro && <motion.div className="gang-cena-modal" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}><div className="gang-cena-modal-bg" onClick={() => setEncontro(null)} /><motion.div className="gang-cena-modal-card" initial={{ y: 25 }} animate={{ y: 0 }}>{encontro.vs ? <TretaVS poi={encontro.poi} fala={encontro.fala} nivelTropa={nivelTropa} avisoOff={avisoNivelOff} onOcultarAviso={() => setAvisoNivelOff(true)} onSim={() => iniciarTreta(encontro.poi)} onNao={() => setEncontro(null)} t={t} territorioId={terr.id} /> : encontro.poi.tipo === 'papo' ? <GanguesPapo poi={encontro.poi} cena={cena} onResolve={resolver} onClose={() => setEncontro(null)} /> : encontro.poi.tipo === 'descanso' ? <GanguesDescanso poi={encontro.poi} cena={cena} onClose={() => setEncontro(null)} /> : encontro.poi.tipo === 'agiota' ? <GanguesAgiota poi={encontro.poi} onClose={() => setEncontro(null)} onClube={iniciarClube} /> : encontro.poi.tipo === 'loja' ? <GanguesLoja poi={encontro.poi} onClose={() => setEncontro(null)} /> : <GanguesParada poi={encontro.poi} cena={cena} onResolve={resolver} onClose={() => setEncontro(null)} />}</motion.div></motion.div>}</AnimatePresence>
+    <AnimatePresence>{encontro && <motion.div className="gang-cena-modal" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}><div className="gang-cena-modal-bg" onClick={() => setEncontro(null)} /><motion.div className="gang-cena-modal-card" initial={{ y: 25 }} animate={{ y: 0 }}>{encontro.vs ? <TretaVS poi={encontro.poi} fala={encontro.fala} nivelTropa={nivelTropa} avisoOff={avisoNivelOff} onOcultarAviso={() => setAvisoNivelOff(true)} onSim={() => iniciarTreta(encontro.poi)} onNao={() => setEncontro(null)} t={t} territorioId={terr.id} /> : encontro.poi.tipo === 'papo' ? <GanguesPapo poi={encontro.poi} cena={cena} onResolve={resolver} onClose={() => setEncontro(null)} /> : encontro.poi.tipo === 'descanso' ? <GanguesDescanso poi={encontro.poi} cena={cena} onClose={() => setEncontro(null)} /> : encontro.poi.tipo === 'agiota' ? <GanguesAgiota poi={encontro.poi} onClose={() => setEncontro(null)} onClube={iniciarClube} /> : encontro.poi.tipo === 'loja' ? <GanguesLoja poi={encontro.poi} onClose={() => setEncontro(null)} /> : encontro.poi.tipo === 'ferreiro' ? <GanguesFerreiro poi={encontro.poi} onClose={() => setEncontro(null)} /> : <GanguesParada poi={encontro.poi} cena={cena} onResolve={resolver} onClose={() => setEncontro(null)} />}</motion.div></motion.div>}</AnimatePresence>
     <AnimatePresence>{fichaIndex !== null && store.activeParty[fichaIndex] && <motion.div className="gang-cena-modal" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}><div className="gang-cena-modal-bg" onClick={() => setFichaIndex(null)} /><motion.div className="gang-cena-modal-card gang-cena-ficha-scroll" initial={{ y: 25 }} animate={{ y: 0 }}><div className="gang-cena-enc-acoes gang-cena-ficha-nav">{store.activeParty.length > 1 && <button className="gang-cena-btn" onClick={() => setFichaIndex(i => (i + store.activeParty.length - 1) % store.activeParty.length)}>◀ ANTERIOR</button>}<button className="gang-cena-btn gang-cena-btn--go" onClick={() => setFichaIndex(null)}>FECHAR</button>{store.activeParty.length > 1 && <button className="gang-cena-btn" onClick={() => setFichaIndex(i => (i + 1) % store.activeParty.length)}>PRÓXIMO ▶</button>}</div>
       {/* Vaga de recrutamento liberada — nunca silencioso (mesmo motivo do
           marco de reputação): quem abre a ficha vê na hora que dá pra chamar

@@ -1,6 +1,20 @@
 # PLANO — Range de equipamento, aprimoramento e preços
 
-> **Status: ESTUDO / PROPOSTA — nada disto está implementado.** Escrito em
+> **Status (27/09/2026): APROVADO e IMPLEMENTADO na v3.64.0**, com as
+> respostas padrão das perguntas da §8 (Pique rola 1× por luta · PV/PM fixos ·
+> aprimoramento sem risco · vantagem nos níveis ímpares · preços novos).
+> **Entrou:** faixas + preços (§1, §4.1), dado da arma/armadura no combate e
+> Pique sorteado na pista (§1), aprimoramento com a bancada do Nando até +1
+> (§3), Sucata caindo em 20% das vitórias de rua (§3), acessório de Pique 140
+> na loja da Pista (§4.2), catálogo 121–131 e 141–144 (dados, sem fonte ainda),
+> Facão do Carvão 139 (§4.4) e as fontes da §6 que cabem na Pista (103, 110,
+> 117, 119). **Fica pra Feira:** a Serralheria (+4), as lojas/prêmios que
+> vendem 121–131/141–144 e os raros 106/111/114/120, os consumíveis 3–12 (§5 —
+> precisam de efeitos novos de combate e do Camelô), a grana por território e
+> os épicos 132–138 (junto com cada chefe). A documentação oficial agora é o
+> GDD §9.4–9.6; o texto abaixo é o estudo original.
+>
+> Escrito em
 > 27/09/2026 sobre o código de GANGUES 3.63.0 (`data/ganguesEquip.js`,
 > `data/ganguesItens.js`, `engine/ganguesCombatResolver.js`,
 > `engine/ganguesLinhaDoTempo.js`). Números de combate saíram de simulação

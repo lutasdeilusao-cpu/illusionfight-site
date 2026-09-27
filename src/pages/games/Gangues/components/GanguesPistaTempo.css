@@ -28,4 +28,9 @@
 .gang-pista__corredor--player { left: calc(4% + var(--p) * 46%); background: var(--if-cyan); }
 .gang-pista__corredor--enemy { left: calc(96% - var(--p) * 46%); background: var(--if-danger); }
 .gang-pista__corredor.is-vez { box-shadow: 0 0 0 2px var(--if-amber), 0 0 10px var(--if-amber); z-index: 1; }
+.gang-pista__pique {
+  position: absolute; top: -7px; left: 11px; padding: 0 2px;
+  font: 800 7px var(--font-mono); font-style: normal; line-height: 9px;
+  color: #0b0d10; background: var(--if-amber); pointer-events: none;
+}
 @media (prefers-reduced-motion: reduce) { .gang-pista__corredor { transition: none; } }

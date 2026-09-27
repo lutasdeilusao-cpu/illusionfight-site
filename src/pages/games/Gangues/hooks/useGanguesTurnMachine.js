@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { resolveGanguesAction } from '../engine/ganguesCombatResolver.js'
 import { iniciarLinhaDoTempo, proximaVez, consumirVez, marcarAgiu, ordemDeVelocidade } from '../engine/ganguesLinhaDoTempo.js'
 import { getGanguesResources, normalizeGanguesLoadout } from '../data/ganguesLoadout.js'
-import { getGanguesAttributesWithEquip, applyGanguesEquipResources } from '../data/ganguesEquip.js'
+import { getGanguesAttributesWithEquip, applyGanguesEquipResources, getGanguesEquipDados, rolarFaixa } from '../data/ganguesEquip.js'
 
 const d3 = () => Math.floor(Math.random() * 3) + 1
 const coin = () => Math.random() < 0.5
@@ -28,7 +28,23 @@ export function prepare(combatant, side, index) {
   // por R — ver ganguesEquip.js). `equipment` continua acessível em
   // `attributes.equipment` pros efeitos de carta que virão depois.
   const equipment = normalized.attributes?.equipment
-  if (!enemy) normalized.attributes = getGanguesAttributesWithEquip(normalized.attributes)
+  // Equipamento em FAIXA (27/09/2026, PLANO_ITENS_RANGE.md): a Porrada e o
+  // Couro das peças NÃO entram no atributo — viram dados (`equipDados`) que o
+  // resolver rola a cada golpe/defesa. O Pique rola UMA vez aqui, na entrada
+  // da luta, e já entra no H (a linha do tempo lê o H direto). `atributosFicha`
+  // é só pra ficha aberta no meio da luta mostrar a média, como fora dela.
+  let equipDados = null
+  let equipPique = null
+  let atributosFicha = null
+  if (!enemy) {
+    const dados = getGanguesEquipDados(equipment)
+    atributosFicha = getGanguesAttributesWithEquip(normalized.attributes)
+    const baseH = Number(normalized.attributes?.H) || 0
+    equipPique = dados.H.length ? dados.H.reduce((soma, f) => soma + rolarFaixa(f), 0) : null
+    normalized.attributes = { ...normalized.attributes, H: baseH + (equipPique || 0) }
+    atributosFicha = { ...atributosFicha, H: normalized.attributes.H }
+    equipDados = { A: dados.A, D: dados.D }
+  }
   const resources = enemy
     ? { pvMax: Number(combatant.pv_max) || 10, pmMax: Number(combatant.pm_max) || 0 }
     : applyGanguesEquipResources(getGanguesResources(normalized.combat_path, normalized.attributes?.PV, normalized.attributes?.PM), equipment)
@@ -37,7 +53,7 @@ export function prepare(combatant, side, index) {
   // quando descansou/dominou o território. Inimigo sempre entra cheio.
   const pvInicial = enemy ? resources.pvMax : Math.min(resources.pvMax, Number(normalized.attributes?.pv_atual ?? resources.pvMax))
   const pmInicial = enemy ? resources.pmMax : Math.min(resources.pmMax, Number(normalized.attributes?.pm_atual ?? resources.pmMax))
-  return { ...normalized, key: `${side}-${index}-${combatant.id}`, side, statuses: [], pv: pvInicial, pm: pmInicial, pvMax: resources.pvMax, pmMax: resources.pmMax, actedThisRound: false, specialState: { charge: 0, shield: 0, totalPvLost: 0 } }
+  return { ...normalized, key: `${side}-${index}-${combatant.id}`, side, statuses: [], pv: pvInicial, pm: pmInicial, pvMax: resources.pvMax, pmMax: resources.pmMax, actedThisRound: false, specialState: { charge: 0, shield: 0, totalPvLost: 0 }, equipDados, equipPique, atributosFicha }
 }
 
 export default function useGanguesTurnMachine({ playerTeam = [], enemyTeam = [], onFinish, attackRoll = d3, defenseRoll = d3, bonusRoll = coin, targetRoll = Math.random, enemyDelay = 2200, pausado = false }) {

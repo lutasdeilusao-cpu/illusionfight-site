@@ -170,5 +170,8 @@ export function calcularRecompensaCena({ emCena, storyAlvo, enemyCount = 1, ehCh
       if (rec.item) itens.push({ id: rec.item, qtd: rec.qtd || 1 })
     }
   }
-  return { grana: calcularGranaTotal({ enemyCount, ehChefe }), rep, itens }
+  // Peça de equipamento que só sai na 1ª vitória daquele ponto (quem chama
+  // decide se é a 1ª — aqui é cálculo puro, não lê o progresso).
+  const equipPrimeiraVez = emCena ? (storyAlvo.cenaRecompensa?.equipPrimeiraVez || null) : null
+  return { grana: calcularGranaTotal({ enemyCount, ehChefe }), rep, itens, equipPrimeiraVez }
 }

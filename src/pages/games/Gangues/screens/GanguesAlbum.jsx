@@ -8,7 +8,7 @@ import {
   inimigosDoAlbumPorCargo,
 } from '../data/ganguesInimigos.js'
 import { GANGUES_ITENS_LISTA } from '../data/ganguesItens.js'
-import { GANGUES_EQUIP_LISTA, normalizeGanguesEquipment } from '../data/ganguesEquip.js'
+import { GANGUES_EQUIP_LISTA, normalizeGanguesEquipment, textoBonusEquip } from '../data/ganguesEquip.js'
 import { getGanguesEnemyPortraitById } from '../data/ganguesEnemyPortraits.js'
 import GanguesVoltarBtn from '../components/GanguesVoltarBtn'
 import './GanguesAlbum.css'
@@ -192,8 +192,7 @@ export default function GanguesAlbum({ onNavigate, voltar: voltarProp }) {
                 )
               }
               const efeito = isEquip
-                ? ATTRS.filter(a => item.bonus?.[a]).map(a => `+${item.bonus[a]} ${a}`).concat(
-                  item.bonus?.pv ? [`+${item.bonus.pv} PV`] : [], item.bonus?.pm ? [`+${item.bonus.pm} PM`] : []).join(' · ')
+                ? textoBonusEquip(t, item)
                 : `+${item.valor} ${item.tipo === 'cura_pm' ? 'PM' : item.tipo === 'cura_pv' ? 'PV' : ''}`.trim()
               return (
                 <li key={item.id} className="gang-album__card">

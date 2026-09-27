@@ -106,6 +106,7 @@
 .gang-loja-det__da small { font: 700 0.5rem var(--font-mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--gang-cinza-azul-500); }
 .gang-loja-det__da strong { font: 800 0.92rem var(--font-display); color: var(--if-amber); }
 .gang-loja-det__cards { margin: 0; font: 700 0.54rem var(--font-mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--if-teal); }
+.gang-loja-det__faixa { margin: 0; font-size: 0.72rem; line-height: 1.4; color: var(--text-secondary); text-align: center; }
 .gang-loja-det__titulo { width: 100%; margin-top: 10px; text-align: left; font: 700 0.52rem var(--font-mono); letter-spacing: 0.14em; text-transform: uppercase; color: var(--gang-cinza-azul-500); }
 .gang-loja-det__vazio { margin: 6px 0; font-size: 0.75rem; color: var(--gang-cinza-azul-500); }
 

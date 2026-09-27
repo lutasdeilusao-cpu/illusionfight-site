@@ -1,4 +1,13 @@
 import { applyGanguesAttackerEffect, applyGanguesDefenderEffect, buildGanguesEffectsList } from './ganguesSpecialEffects.js'
+import { rolarFaixa } from '../data/ganguesEquip.js'
+
+// Dado das peças em FAIXA (27/09/2026, PLANO_ITENS_RANGE.md): cada peça rola o
+// próprio dado e soma. `null` = ninguém tem peça com faixa daquele atributo
+// (o dado dramático só mostra o chip da arma/armadura quando existe).
+function rolarDadosEquip(faixas) {
+  if (!faixas?.length) return null
+  return faixas.reduce((soma, f) => soma + rolarFaixa(f), 0)
+}
 
 /**
  * Bônus de caminho — regra combinada com Isaias em 2026-08-04:
@@ -33,8 +42,13 @@ export const CRITICAL_BONUS = 2
 // engine/ganguesSpecialEffects.js pros valores e docs/Games/Gangues/LDI_GANGUES_GDD.md §17.3
 // pro design original (com as simplificações feitas pra caber no modelo de 1 ação por turno).
 export function resolveGanguesAction({ attacker, defender, action, rolls, activeSpecialId = null, forcedSpecial = null }) {
-  const attack = Number(attacker.attributes?.A) || 0
-  const defense = Number(defender.attributes?.D) || 0
+  // `rolls.arma`/`rolls.armadura` podem vir prontos (teste); senão rola aqui
+  // a partir das faixas guardadas no combatente pelo `prepare`.
+  const arma = rolls.arma !== undefined ? rolls.arma : rolarDadosEquip(attacker.equipDados?.A)
+  const armadura = rolls.armadura !== undefined ? rolls.armadura : rolarDadosEquip(defender.equipDados?.D)
+  rolls = { ...rolls, arma, armadura }
+  const attack = (Number(attacker.attributes?.A) || 0) + (arma || 0)
+  const defense = (Number(defender.attributes?.D) || 0) + (armadura || 0)
 
   const attackerBonus = resolveAttackerBonus(attacker.combat_path, rolls.attackerBonus)
   const defenderBonus = resolveDefenderBonus(defender.combat_path, attacker.combat_path, rolls.defenderBonus)

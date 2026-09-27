@@ -105,7 +105,8 @@ export const INTERIORES_PISTA = {
         { tipo: 'bancada', x: 210, y: 82, w: 236 }, { tipo: 'ferramentas', x: 210, y: 44 },
         { tipo: 'pneu', x: 60, y: 210 }, { tipo: 'peca-exposta', x: 360, y: 120 },
       ],
-      pois: [{ ref: 'oficina', pos: { x: 200, y: 120 } }],
+      // A bancada (aprimoramento) só aparece depois da quest da sucata.
+      pois: [{ ref: 'oficina', pos: { x: 200, y: 120 } }, { ref: 'bancada_nando', pos: { x: 120, y: 200 }, precisa: 'oficina' }],
     }],
   },
   loja: {

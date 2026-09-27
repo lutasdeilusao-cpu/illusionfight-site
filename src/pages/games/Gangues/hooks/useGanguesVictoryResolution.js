@@ -7,6 +7,11 @@ import { registrarPontuacaoArenaRanking } from '../../../../hooks/useLeaderboard
 import { sfx } from '../../../../lib/sfx'
 import { calcularApTotal, calcularPesosEParticipantes, calcularRecompensaCena } from '../engine/ganguesVictoryResolver.js'
 import { CENAS_POR_ID, destinoSocorroDerrota } from '../data/cenas/cenaHelpers.js'
+import { GANGUES_SUCATA_ID } from '../data/ganguesEquip.js'
+
+// Sucata virou recurso do aprimoramento (27/09/2026, PLANO_ITENS_RANGE.md §3):
+// cai em ~20% das vitórias de rua na cena (não no chefe, que já paga 500).
+const GANGUES_SUCATA_DROP_CHANCE = 0.2
 
 export default function useGanguesVictoryResolution({ store, user, report, victory, storyAlvo, match, torre, torreAndar, clube, emCena, noModoHistoria, cenaChefe, confrontoFinal, onNavigate }) {
   const processed = useRef(false)
@@ -95,9 +100,12 @@ export default function useGanguesVictoryResolution({ store, user, report, victo
     if (victory) {
       // Álbum de Marélia — todo inimigo do bando batido vira entrada.
       store.registrarNoAlbum([match.enemy_id, ...report.combatants.filter(c => c.side === 'enemy').map(c => c.id)])
-      let granaGanha = 0, repGanha = 0, repMarcos = []
+      let granaGanha = 0, repGanha = 0, repMarcos = [], sucataGanha = 0, equipGanho = null
       if (emCena || noModoHistoria) {
-        const { grana, rep, itens } = calcularRecompensaCena({ emCena, storyAlvo, enemyCount, ehChefe: Boolean(storyAlvo.isChefe) })
+        const { grana, rep, itens, equipPrimeiraVez } = calcularRecompensaCena({ emCena, storyAlvo, enemyCount, ehChefe: Boolean(storyAlvo.isChefe) })
+        // Checa "1ª vitória" ANTES de marcar o ponto como resolvido logo abaixo.
+        const progAntes = emCena ? (store.cenaProgresso[storyAlvo.cenaId] || {}) : {}
+        const primeiraVitoria = cenaChefe ? !progAntes.boss : !progAntes.resolvidos?.[storyAlvo.cenaPoiId]
         if (emCena) {
           // Modo história — cena: marca o POI resolvido. O repDelta (rep de
           // uma escolha tipo "aperta") já está somado dentro de `rep` por
@@ -113,6 +121,8 @@ export default function useGanguesVictoryResolution({ store, user, report, victo
         if (grana) { store.ganharGrana(grana); granaGanha += grana }
         if (rep) { repMarcos = store.ganharRep(rep); repGanha += rep }
         itens.forEach(({ id, qtd }) => store.darItem(id, qtd))
+        if (equipPrimeiraVez && primeiraVitoria) { store.comprarEquip(equipPrimeiraVez, 0); equipGanho = equipPrimeiraVez }
+        if (emCena && !cenaChefe && Math.random() < GANGUES_SUCATA_DROP_CHANCE) { store.darItem(GANGUES_SUCATA_ID, 1); sucataGanha = 1 }
         if (emCena && cenaChefe) {
           store.marcarBossCena(storyAlvo.cenaId)
           store.dominarTerritorioViaCena(storyAlvo.territorioId, storyAlvo.pontoIds || [])
@@ -127,7 +137,7 @@ export default function useGanguesVictoryResolution({ store, user, report, victo
       if (confrontoFinal) store.completeCampaign()
       // repMarco: só o ÚLTIMO marco cruzado (pra mostrar 1 modal) — todos os
       // itens já foram concedidos de verdade no inventário dentro de ganharRep.
-      setRewardSummary({ apLista, grana: granaGanha, rep: repGanha, repMarco: repMarcos[repMarcos.length - 1] || null })
+      setRewardSummary({ apLista, grana: granaGanha, rep: repGanha, sucata: sucataGanha, equip: equipGanho, repMarco: repMarcos[repMarcos.length - 1] || null })
       sfx.win()
     } else {
       sfx.lose()

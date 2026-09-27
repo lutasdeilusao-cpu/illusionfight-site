@@ -3,7 +3,7 @@ import { createPortal } from 'react-dom'
 import { useLanguage } from '../../../../../context/LanguageContext'
 import { useGanguesStore } from '../../store/useGanguesStore'
 import { getGanguesItem } from '../../data/ganguesItens.js'
-import { getGanguesEquip, getGanguesAttributesWithEquip, previewGanguesAttributesWithEquip, applyGanguesEquipResources, withGanguesEquip, normalizeGanguesEquipment } from '../../data/ganguesEquip.js'
+import { getGanguesEquip, getGanguesAttributesWithEquip, previewGanguesAttributesWithEquip, applyGanguesEquipResources, withGanguesEquip, normalizeGanguesEquipment, textoBonusEquip, atributoPrincipal } from '../../data/ganguesEquip.js'
 import { getGanguesResources } from '../../data/ganguesLoadout.js'
 import { getGanguesCharacter, getGanguesLevelFromXp } from '../../data/ganguesCharacters.js'
 import { getGanguesPortraitByTemplateId } from '../../data/ganguesPortraits.js'
@@ -45,12 +45,6 @@ const abaDoItem = (item) => {
   return 'protecao' // cabeca / corpo / bracos / pes
 }
 
-function bonusResumo(t, bonus = {}) {
-  const parts = ATTR_ORDER.filter(attr => bonus[attr]).map(attr => `+${bonus[attr]} ${t(`games.gangues.attr_labels.${attr}`)}`)
-  if (bonus.pv) parts.push(`+${bonus.pv} PV`)
-  if (bonus.pm) parts.push(`+${bonus.pm} PM`)
-  return parts.join(' · ')
-}
 
 /** Uma linha de comparação: como a ficha do `member` fica com este equipamento. */
 function LinhaComparacao({ t, member, item, onEquipar, podePagar }) {
@@ -120,9 +114,12 @@ function DetalheItem({ item, store, t, onClose, notificar }) {
         <div className="gang-loja-det__da">
           <small>{t('games.gangues.equip.o_que_da')}</small>
           {item._equip
-            ? <strong>{bonusResumo(t, item.bonus) || '—'}</strong>
+            ? <strong>{textoBonusEquip(t, item) || '—'}</strong>
             : <strong>+{item.valor} {item.tipo === 'cura_pm' ? 'PM' : 'PV'}</strong>}
         </div>
+        {/* Faixa (range): explica que o bônus rola na hora e que a comparação
+            abaixo é pela MÉDIA — nunca promete o máximo. */}
+        {item._equip && atributoPrincipal(item) && <p className="gang-loja-det__faixa">{t('games.gangues.equip.faixa_explica')}</p>}
 
         {item._equip && (
           <p className="gang-loja-det__cards">

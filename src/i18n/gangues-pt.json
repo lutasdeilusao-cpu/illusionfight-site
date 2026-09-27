@@ -55,7 +55,9 @@
         "round_number": "RODADA {n}",
         "no_log": "Nenhum ataque registrado.",
         "back_to_gang": "VOLTAR À GANGUE",
-        "recrutar": "RECRUTAR NOVO MEMBRO"
+        "recrutar": "RECRUTAR NOVO MEMBRO",
+        "reward_sucata": "Sucata",
+        "reward_equip": "Peça nova"
       },
       "progression": {
         "loadout": "Equipados: {n}/2",
@@ -379,8 +381,26 @@
           "117": "Bota com Biqueira",
           "118": "Corrente de Lata",
           "119": "Dente de Ouro",
-          "120": "Medalha de Santa"
-        }
+          "120": "Medalha de Santa",
+          "121": "Boné Vira-Lata",
+          "122": "Balaclava de Pano",
+          "123": "Jaqueta de Bonde",
+          "124": "Manto de Sintonia",
+          "125": "Manopla de Prego",
+          "126": "Chinelo Reforçado",
+          "127": "Corrente de Ouro Falso",
+          "128": "Terço de Vó",
+          "129": "Facão de Cabo Fita",
+          "130": "Espeto de Grade",
+          "131": "Bastão de Sinaleiro",
+          "139": "Facão do Carvão",
+          "140": "Chinelo de Dedo",
+          "141": "Relógio Parado",
+          "142": "Tênis de Corrida",
+          "143": "Fita do Bonfim",
+          "144": "Pingente de Asa"
+        },
+        "faixa_explica": "O bônus é uma faixa e rola na hora: Porrada a cada golpe, Couro a cada defesa, Pique uma vez no começo da luta. A comparação abaixo usa a média."
       },
       "bag": {
         "eyebrow": "Bolsa",
@@ -737,7 +757,9 @@
         "resultado": "RESULTADO: {n}!",
         "ataca": "ataca",
         "critico_player": "CRÍTICO! GOLPE PERFEITO!",
-        "critico_enemy": "CRÍTICO! GOLPE FATAL!"
+        "critico_enemy": "CRÍTICO! GOLPE FATAL!",
+        "arma": "arma +{n}",
+        "armadura": "couro +{n}"
       },
       "beat": {
         "derrotado": "DERROTADO"
@@ -1316,6 +1338,11 @@
               "sub": "o que alguém escondeu aqui",
               "linha": "Enfiado numa fresta da parede de terra, meio escondido: um bagulho que ainda serve pra tropa."
             }
+          },
+          "bancada_nando": {
+            "nome": "A bancada do Nando",
+            "sub": "aprimora tua peça",
+            "fala": "Traz a peça e uns pedaço de sucata que eu acerto ela no martelo. Arma que antes batia fraco de vez em quando, depois de mim bate firme sempre."
           }
         },
         "carregando_mapa": "CARREGANDO O MAPA...",
@@ -1487,7 +1514,21 @@
           "7": "A Laje"
         }
       },
-      "velocidade_auto": "Velocidade do automático"
+      "velocidade_auto": "Velocidade do automático",
+      "ferreiro": {
+        "sub": "aprimora até +{n}",
+        "sucata": "{n} sucata",
+        "regra": "Cada aprimoramento tira a sorte da peça: o ímpar rola o dado 2 vezes e fica com o maior (▲), o par sobe o mínimo. No teto, a peça sempre dá o máximo.",
+        "vazio": "Nenhuma peça da gangue dá pra aprimorar — só arma, cabeça, mãos, pés e amuleto com faixa.",
+        "na_mochila": "guardada na gangue",
+        "no_maximo": "no máximo",
+        "teto_aqui": "aqui não passa disso",
+        "feito": "{nome} agora tá +{n}. Sente a diferença na mão.",
+        "falta_teto": "Isso aí eu não consigo subir mais.",
+        "falta_grana": "Falta grana, cria.",
+        "falta_sucata": "Falta sucata. Sem ferro eu não faço milagre.",
+        "falta_sem_peca": "Cadê a peça?"
+      }
     }
   }
 }

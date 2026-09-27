@@ -8,6 +8,7 @@ import { useTutorialProgress } from '../../../../context/TutorialProgressContext
 import GangTip from '../components/GangTip'
 import GanguesRepRecompensaModal from '../components/GanguesRepRecompensaModal'
 import GanguesRetratoImg from '../components/GanguesRetratoImg'
+import { getGanguesEquip } from '../data/ganguesEquip.js'
 
 // Explica a regra de divisão de XP só na 1ª tela de vitória de verdade
 // (pedido do Isaias, 13/09/2026 — tutorial progressivo: a regra só importa
@@ -171,6 +172,16 @@ export default function GanguesVictoryReport({
             {rewardSummary.grana > 0 && (
               <motion.div className="gang-reward-item gang-reward-item--grana" initial={{ scale: 0.5, opacity: 0, y: 10 }} animate={{ scale: 1, opacity: 1, y: 0 }} transition={{ delay: 0.5, type: 'spring', stiffness: 260, damping: 16 }}>
                 <b>💵</b><strong>+{rewardSummary.grana}</strong><span>{t('games.gangues.report.reward_grana')}</span>
+              </motion.div>
+            )}
+            {rewardSummary.equip && (
+              <motion.div className="gang-reward-item gang-reward-item--rep" initial={{ scale: 0.5, opacity: 0, y: 10 }} animate={{ scale: 1, opacity: 1, y: 0 }} transition={{ delay: 0.9, type: 'spring', stiffness: 260, damping: 16 }}>
+                <b>{getGanguesEquip(rewardSummary.equip)?.icone}</b><strong>{t(getGanguesEquip(rewardSummary.equip)?.nome || '')}</strong><span>{t('games.gangues.report.reward_equip')}</span>
+              </motion.div>
+            )}
+            {rewardSummary.sucata > 0 && (
+              <motion.div className="gang-reward-item gang-reward-item--rep" initial={{ scale: 0.5, opacity: 0, y: 10 }} animate={{ scale: 1, opacity: 1, y: 0 }} transition={{ delay: 0.8, type: 'spring', stiffness: 260, damping: 16 }}>
+                <b>🔩</b><strong>+{rewardSummary.sucata}</strong><span>{t('games.gangues.report.reward_sucata')}</span>
               </motion.div>
             )}
             {rewardSummary.rep > 0 && (

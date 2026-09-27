@@ -454,3 +454,15 @@
   filter: drop-shadow(0 8px 20px rgba(0, 0, 0, .6));
 }
 .dramatic-dice-sprite-animado { width: 227px; }
+
+/* Dado das peças em faixa (arma do atacante / armadura do alvo) — 27/09/2026. */
+.dramatic-dice-equip {
+  display: flex; justify-content: center; gap: 8px; margin-top: 6px;
+}
+.dramatic-dice-equip__chip {
+  padding: 3px 8px;
+  font: 800 12px var(--font-mono); letter-spacing: 0.04em;
+  color: var(--if-amber); border: 1px solid color-mix(in srgb, var(--if-amber) 45%, transparent);
+  background: rgba(0, 0, 0, 0.45);
+}
+.dramatic-dice-equip__chip--def { color: var(--if-cyan); border-color: color-mix(in srgb, var(--if-cyan) 45%, transparent); }

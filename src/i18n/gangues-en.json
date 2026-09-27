@@ -55,7 +55,9 @@
         "round_number": "ROUND {n}",
         "no_log": "No attacks recorded.",
         "back_to_gang": "BACK TO GANG",
-        "recrutar": "RECRUIT NEW MEMBER"
+        "recrutar": "RECRUIT NEW MEMBER",
+        "reward_sucata": "Scrap",
+        "reward_equip": "New gear"
       },
       "progression": {
         "loadout": "Equipped: {n}/2",
@@ -379,8 +381,26 @@
           "117": "Steel-Toe Boot",
           "118": "Tin Chain",
           "119": "Gold Tooth",
-          "120": "Saint's Medal"
-        }
+          "120": "Saint's Medal",
+          "121": "Stray Cap",
+          "122": "Cloth Balaclava",
+          "123": "Crew Jacket",
+          "124": "Tuned-In Cloak",
+          "125": "Nail Gauntlet",
+          "126": "Reinforced Flip-Flop",
+          "127": "Fake Gold Chain",
+          "128": "Grandma's Rosary",
+          "129": "Tape-Handle Machete",
+          "130": "Fence-Spike Shank",
+          "131": "Flagman's Baton",
+          "139": "Carvão's Machete",
+          "140": "Flip-Flops",
+          "141": "Stopped Watch",
+          "142": "Running Shoes",
+          "143": "Bonfim Ribbon",
+          "144": "Wing Pendant"
+        },
+        "faixa_explica": "The bonus is a range and rolls on the spot: Wallop every hit, Hide every block, Pace once at the start of the fight. The comparison below uses the average."
       },
       "bag": {
         "eyebrow": "Bag",
@@ -3840,7 +3860,9 @@
         "resultado": "RESULT: {n}!",
         "ataca": "attacks",
         "critico_player": "CRITICAL! PERFECT HIT!",
-        "critico_enemy": "CRITICAL! FATAL BLOW!"
+        "critico_enemy": "CRITICAL! FATAL BLOW!",
+        "arma": "weapon +{n}",
+        "armadura": "hide +{n}"
       },
       "beat": {
         "derrotado": "DEFEATED"
@@ -4419,6 +4441,11 @@
               "sub": "what someone stashed here",
               "linha": "Jammed into a crack in the dirt wall, half hidden: something that still works for the crew."
             }
+          },
+          "bancada_nando": {
+            "nome": "Nando's workbench",
+            "sub": "upgrades your gear",
+            "fala": "Bring the piece and some scrap and I'll hammer it right. A weapon that hit soft now and then hits solid every time after I'm done."
           }
         },
         "carregando_mapa": "LOADING THE MAP...",
@@ -4590,7 +4617,21 @@
           "7": "The Roof"
         }
       },
-      "velocidade_auto": "Auto speed"
+      "velocidade_auto": "Auto speed",
+      "ferreiro": {
+        "sub": "upgrades up to +{n}",
+        "sucata": "{n} scrap",
+        "regra": "Each upgrade takes the luck out of the gear: odd levels roll the die twice and keep the higher (▲), even levels raise the minimum. At the cap, it always hits the max.",
+        "vazio": "No gear in the crew can be upgraded — only weapon, head, hands, feet and amulet pieces with a range.",
+        "na_mochila": "stored with the crew",
+        "no_maximo": "maxed out",
+        "teto_aqui": "can't go higher here",
+        "feito": "{nome} is +{n} now. You'll feel it in your hand.",
+        "falta_teto": "I can't push that one any further.",
+        "falta_grana": "Not enough cash, kid.",
+        "falta_sucata": "Not enough scrap. No iron, no miracles.",
+        "falta_sem_peca": "Where's the gear?"
+      }
     }
   }
 }

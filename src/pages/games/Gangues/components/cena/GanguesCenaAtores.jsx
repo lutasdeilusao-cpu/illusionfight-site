@@ -243,7 +243,7 @@ export function PinoAlvo({ p, t, active, onColidir }) {
   </div>
 }
 
-const LABEL_TIPO = { papo: 'FALAR', treta: 'ENCARAR', parada: 'INVESTIGAR', corre: 'SEGUIR', descanso: 'DESCANSAR', loja: 'COMPRAR', achado: 'PEGAR', agiota: 'AGIOTA' }
+const LABEL_TIPO = { papo: 'FALAR', treta: 'ENCARAR', parada: 'INVESTIGAR', corre: 'SEGUIR', descanso: 'DESCANSAR', loja: 'COMPRAR', achado: 'PEGAR', agiota: 'AGIOTA', ferreiro: 'APRIMORAR' }
 export function interactionLabel(p, t) {
   if (p.ehChefe) return t('games.gangues.cena.acao.desafiar')
   if (p.ehPorta) return t('games.gangues.cena.acao.entrar')

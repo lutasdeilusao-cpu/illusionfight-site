@@ -55,7 +55,9 @@
         "round_number": "RONDA {n}",
         "no_log": "No hay ataques registrados.",
         "back_to_gang": "VOLVER A LA PANDILLA",
-        "recrutar": "RECLUTAR NUEVO MIEMBRO"
+        "recrutar": "RECLUTAR NUEVO MIEMBRO",
+        "reward_sucata": "Chatarra",
+        "reward_equip": "Pieza nueva"
       },
       "progression": {
         "loadout": "Equipados: {n}/2",
@@ -379,8 +381,26 @@
           "117": "Bota con Puntera",
           "118": "Cadena de Lata",
           "119": "Diente de Oro",
-          "120": "Medalla de Santa"
-        }
+          "120": "Medalla de Santa",
+          "121": "Gorra Callejera",
+          "122": "Pasamontañas de Tela",
+          "123": "Chaqueta de Banda",
+          "124": "Manto de Sintonía",
+          "125": "Guantelete de Clavos",
+          "126": "Chancla Reforzada",
+          "127": "Cadena de Oro Falso",
+          "128": "Rosario de la Abuela",
+          "129": "Machete de Mango con Cinta",
+          "130": "Pincho de Reja",
+          "131": "Bastón de Señalero",
+          "139": "Machete de Carvão",
+          "140": "Chanclas",
+          "141": "Reloj Parado",
+          "142": "Zapatillas de Correr",
+          "143": "Cinta del Bonfim",
+          "144": "Colgante de Ala"
+        },
+        "faixa_explica": "El bono es un rango y se tira en el momento: Trompada en cada golpe, Cuero en cada defensa, Pique una vez al empezar la pelea. La comparación de abajo usa el promedio."
       },
       "bag": {
         "eyebrow": "Bolso",
@@ -3840,7 +3860,9 @@
         "resultado": "RESULTADO: {n}!",
         "ataca": "ataca",
         "critico_player": "¡CRÍTICO! ¡GOLPE PERFECTO!",
-        "critico_enemy": "¡CRÍTICO! ¡GOLPE FATAL!"
+        "critico_enemy": "¡CRÍTICO! ¡GOLPE FATAL!",
+        "arma": "arma +{n}",
+        "armadura": "cuero +{n}"
       },
       "beat": {
         "derrotado": "DERROTADO"
@@ -4419,6 +4441,11 @@
               "sub": "lo que alguien escondió acá",
               "linha": "Metido en una grieta de la pared de tierra, medio escondido: algo que todavía sirve para la tropa."
             }
+          },
+          "bancada_nando": {
+            "nome": "El banco de Nando",
+            "sub": "mejora tu pieza",
+            "fala": "Traé la pieza y unos pedazos de chatarra que la arreglo a martillazo. Arma que antes pegaba flojo de vez en cuando, después de mí pega firme siempre."
           }
         },
         "carregando_mapa": "CARGANDO EL MAPA...",
@@ -4590,7 +4617,21 @@
           "7": "La Azotea"
         }
       },
-      "velocidade_auto": "Velocidad del automático"
+      "velocidade_auto": "Velocidad del automático",
+      "ferreiro": {
+        "sub": "mejora hasta +{n}",
+        "sucata": "{n} chatarra",
+        "regra": "Cada mejora le quita la suerte a la pieza: la impar tira el dado 2 veces y se queda con el mayor (▲), la par sube el mínimo. En el tope, siempre da el máximo.",
+        "vazio": "Ninguna pieza de la banda se puede mejorar — solo arma, cabeza, manos, pies y amuleto con rango.",
+        "na_mochila": "guardada en la banda",
+        "no_maximo": "al máximo",
+        "teto_aqui": "acá no pasa de eso",
+        "feito": "{nome} ahora está +{n}. Se siente en la mano.",
+        "falta_teto": "Eso ya no lo puedo subir más.",
+        "falta_grana": "Falta plata, pibe.",
+        "falta_sucata": "Falta chatarra. Sin fierro no hago milagros.",
+        "falta_sem_peca": "¿Y la pieza?"
+      }
     }
   }
 }
