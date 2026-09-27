@@ -456,7 +456,7 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
     <div key={local ? `${local.id}-${local.comodo}` : 'rua'} className="gang-cena-world" style={{ width: W.w, height: W.h, transform: `translate3d(${-camX}px,${-camY}px,0)` }}>
       {local ? <CenaInterior amb={amb} /> : <CenaCenario cena={cena} bossAberto={baseFeita || muroAberto} muroAberto={muroAberto} />}
       {(amb?.alvos || []).map(p => <ZonaChao key={`z-${p.id}`} p={p} active={perto?.id === p.id} />)}
-      {(amb?.alvos || []).map(p => <PinoAlvo key={p.id} p={p} t={t} active={perto?.id === p.id} onColidir={reportarColisao} ignorado={brigaAuto.ignorados.has(p.id)} interior={Boolean(local)} />)}
+      {(amb?.alvos || []).map(p => <PinoAlvo key={p.id} p={p} t={t} active={perto?.id === p.id} onColidir={reportarColisao} ignorado={brigaAuto.ignorados.has(p.id)} />)}
       {/* key=local: rua e cada cômodo de interior são espaços de coordenada
           DIFERENTES (mundo pequeno do cômodo vs WORLD da rua) — sem isso, o
           Framer Motion anima o left/top do marcador DE UMA posição pra OUTRA

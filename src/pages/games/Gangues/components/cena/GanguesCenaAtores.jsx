@@ -164,20 +164,17 @@ export function movimentoDoPino(p) {
 // `ignorado`: a briga automática está ignorando esse oponente até ele
 // descolar (hooks/useGanguesBrigaAutomatica.js) — então ele NÃO pausa ao
 // encostar: atravessa o jogador e termina o caminho dele.
-// Colisor MENOR que o desenho (pedido do Isaias, 27/09/2026): o jogador só
-// enxerga os círculos, então "encostou" tem que ser os desenhos já
-// sobrepostos, nunca uma borda invisível em volta deles. Metade da soma dos
-// raios — antes era a soma inteira + 4px (~63px entre centros), maior que o
-// vaivém de quem patrulha (±45px): parado no meio do caminho, o personagem
-// nunca "descolava" de quem estava em cima dele.
-// Só na RUA (v3.69.2 — Isaias: "no cômodo interno... tá muito pequeno, tá
-// muito horrível pra ter interação"): dentro dos cômodos (`interior`) o
-// espaço é apertado e quase ninguém patrulha, então volta o colisor cheio
-// de antes (soma dos raios + folga), bom pra tocar no celular.
-const COLISOR_FRACAO_RUA = 0.5
-const COLISOR_FOLGA_INTERIOR = 4
+// Colisor = 90% do desenho (regra do Isaias, 27/09/2026: "o colisor ocupa
+// 90% da região do sprite... o correto pra qualquer jogo"), igual na rua e
+// nos cômodos. Cada círculo colide com 90% do raio que o jogador vê —
+// encostar é os desenhos se tocando de verdade, sem borda invisível em
+// volta. Histórico: soma inteira + 4px (maior que o desenho) → 50% (v3.69.1,
+// pequeno demais pra interagir) → 90%. Quem patrulha curto ainda pode não
+// "descolar" de quem está parado no meio do caminho — pra isso a briga
+// automática solta o ignorado depois de uma volta do caminho.
+const COLISOR_FRACAO = 0.9
 
-export function PinoAlvo({ p, t, active, onColidir, ignorado, interior }) {
+export function PinoAlvo({ p, t, active, onColidir, ignorado }) {
   // useState/useRef/useEffect sempre no topo, antes de qualquer return
   // condicional (regra dos hooks) — falha de carregamento (rede ruim) cai
   // pro ícone genérico, igual quando não tem retrato nenhum.
@@ -193,7 +190,7 @@ export function PinoAlvo({ p, t, active, onColidir, ignorado, interior }) {
   // círculo do pino contra o círculo do marcador do jogador na TELA
   // (getBoundingClientRect, já considerando a posição visual da andadinha
   // em CSS, que o React/JS não sabe onde está exatamente) — só pausa
-  // quando os desenhos já se sobrepõem (COLISOR_FRACAO_RUA, acima; cheio nos cômodos). Poll leve (150ms, não every
+  // quando os desenhos já se sobrepõem (COLISOR_FRACAO, acima). Poll leve (150ms, não every
   // frame) porque é só um efeito visual, não precisão de física.
   // AJUSTE (mesmo dia, print na sequência): "o botão de interação só ativa
   // na antiga área do quadradinho... tem que ativar no momento que eu
@@ -222,13 +219,12 @@ export function PinoAlvo({ p, t, active, onColidir, ignorado, interior }) {
       const a = pinoEl.getBoundingClientRect()
       const b = playerEl.getBoundingClientRect()
       const dist = Math.hypot((a.left + a.width / 2) - (b.left + b.width / 2), (a.top + a.height / 2) - (b.top + b.height / 2))
-      const raios = a.width / 2 + b.width / 2
-      const tocou = dist < (interior ? raios + COLISOR_FOLGA_INTERIOR : raios * COLISOR_FRACAO_RUA)
+      const tocou = dist < (a.width / 2 + b.width / 2) * COLISOR_FRACAO
       setColidindo(tocou)
       onColidir?.(p.id, tocou)
     }, 150)
     return () => { clearInterval(id); onColidir?.(p.id, false) }
-  }, [p.id, p.revezamento, p.npcSlug, p.liderFixo, p.enemy, p.retratoEnemyId, onColidir, interior])
+  }, [p.id, p.revezamento, p.npcSlug, p.liderFixo, p.enemy, p.retratoEnemyId, onColidir])
   if (p.estado === 'trancado' && !(p.ehPassagem || p.ehChefe)) return null
   const icone = p.ehChefe ? '★' : p.ehPorta ? '🚪' : p.ehSaida ? '↩' : p.ehVolta ? '↩' : p.ehPassagem ? (p.label === 'subir' ? '▲' : '▶') : (ICONE[p.tipo] || '•')
   const nome = p.ehChefe ? t(`games.gangues.story.bosses.${p.boss}.nome`)

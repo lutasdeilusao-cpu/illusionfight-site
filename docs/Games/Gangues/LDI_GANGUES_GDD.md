@@ -2101,15 +2101,14 @@ estilo Medabots/ATB do Chrono Trigger; substitui a iniciativa Malícia+d3):
   **Solta também por volta completa** (v3.69.1): quem anda sai da lista
   de ignorados quando completa uma volta inteira do caminho desde que entrou
   nela, mesmo sem nunca ter descolado — ficar parado em cima do caminho é
-  querer briga. **Colisor menor que o desenho** (v3.69.1, vale pra toda
-  colisão de personagem — pausa, interagir e briga automática): encostar =
-  os círculos já sobrepostos, metade da soma dos raios (`COLISOR_FRACAO`,
-  `GanguesCenaAtores.jsx`). Antes era a soma inteira + 4px (~63px entre
-  centros), maior que o vaivém de quem patrulha curto — parado no meio, o
-  personagem nunca descolava e nunca voltava a brigar.
-  Só na RUA (v3.69.2): dentro dos cômodos o espaço é apertado e o colisor
-  pequeno deixava a interação ruim (birosca) — lá volta o colisor cheio
-  (soma dos raios + 4px, prop `interior` do `PinoAlvo`).
+  querer briga. **Colisor = 90% do desenho** (v3.69.3, regra do Isaias —
+  "o colisor ocupa 90% da região do sprite", pra qualquer jogo; vale pra
+  toda colisão de personagem, rua e cômodos — pausa, interagir e briga
+  automática): cada círculo colide com 90% do raio que aparece na tela
+  (`COLISOR_FRACAO`, `GanguesCenaAtores.jsx`). Histórico: soma inteira + 4px
+  (borda invisível maior que o desenho) → 50% (v3.69.1, pequeno demais pra
+  interagir) → 90%. Quem patrulha curto pode continuar sem descolar de quem
+  está parado no meio do caminho — é a volta completa acima que solta.
   **Saída automática** (v3.69.0): com o switch ligado, as telas depois de
   uma luta da cena se clicam sozinhas — "NÓIS É CRIA"/"DEU RUIM" em 2s e o
   relatório ("Segue na quebrada" / "Acordar na birosca" / "tentar de novo")
