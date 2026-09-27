@@ -20,7 +20,6 @@ import { prepare, pickEnemyTarget } from '../hooks/useGanguesTurnMachine.js'
    ══════════════════════════════════════════════════════════════ */
 
 const d3 = () => Math.floor(Math.random() * 3) + 1
-const coin = () => Math.random() < 0.5
 
 function podePagarCusto(actor, special) {
   if (!special) return true
@@ -112,7 +111,7 @@ export function avancarRodadaMultidao(estado, poderesPorPersonagem = {}, especia
       if (target) {
         const result = resolveGanguesAction({
           attacker: actor, defender: target, action: { type: 'attack', mode: 'attack' },
-          rolls: { fa: d3(), fd: d3(), attackerBonus: coin(), defenderBonus: coin() },
+          rolls: { fa: d3(), fd: d3() },
           activeSpecialId,
         })
         usouTalento = Boolean(result.activeSpecialId)

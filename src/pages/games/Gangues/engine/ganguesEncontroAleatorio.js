@@ -39,16 +39,28 @@ export const ALEATORIO_TIPOS = {
   policia: { id: 'policia', cor: 'azul', revezamento: { pool: [1711, 1712], budgetPorCorpo: 3, qtdMin: 2, qtdMax: 3, ratioComTime: 1, baseMaisForte: true } },
   bonde: { id: 'bonde', cor: 'vermelha', revezamento: { pool: [1204, 1205, 1206, 1207, 1208, 1209], budgetPorCorpo: 3, qtdMin: 3, qtdMax: 4, ratioComTime: 0.75, baseMaisForte: true } },
   cobranca: { id: 'cobranca', cor: 'roxa', revezamento: { pool: [1401, 1402, 1404, 1405, 1406], budgetPorCorpo: 3, qtdMin: 2, qtdMax: 2, ratioComTime: 1.15, baseMaisForte: true } },
+  // ── Feira (v3.65.0) ──
+  // O Rapa (fiscal da prefeitura): se ganhar de você, leva 1 consumível.
+  rapa: { id: 'rapa', cor: 'laranja', revezamento: { pool: [1711, 1712], budgetPorCorpo: 3, qtdMin: 2, qtdMax: 3, ratioComTime: 1, baseMaisForte: true }, derrota: { levaConsumivel: 1 } },
+  // O Apagão: Os Gato te cercam no breu (só do lado apagado da Feira).
+  apagao: { id: 'apagao', cor: 'cinza', revezamento: { pool: [1104, 1106, 1204, 1105], budgetPorCorpo: 3, qtdMin: 3, qtdMax: 4, ratioComTime: 0.9, baseMaisForte: true } },
+  // A Cobrança do Turco: só aparece pra quem deve ao agiota — se ganhar de
+  // você, leva 10% da grana na mão (NUNCA abate a dívida: só o Clube quita).
+  cobranca_divida: { id: 'cobranca_divida', cor: 'roxa', revezamento: { pool: [1304, 1305, 1404], budgetPorCorpo: 3, qtdMin: 2, qtdMax: 3, ratioComTime: 1.1, baseMaisForte: true }, derrota: { levaGranaFrac: 0.1 } },
 }
 const ORDEM_INICIAL = ['moto', 'policia']
-const SORTEIO = ['moto', 'policia', 'bonde', 'cobranca']
+// Sorteio padrão (a Pista). Cada cena pode trocar a lista (`cena.aleatorio`).
+const SORTEIO_PADRAO = ['moto', 'policia', 'bonde', 'cobranca']
 
 /** Qual tipo vem no n-ésimo encontro (0 = o primeiro): os 2 primeiros são
- *  sempre moto e depois polícia; daí em diante sorteia, sem repetir o anterior. */
-export function tipoDoEncontro(n, anterior = null) {
+ *  sempre moto e depois polícia; daí em diante sorteia da lista da cena
+ *  (`sorteio`), sem repetir o anterior. */
+export function tipoDoEncontro(n, anterior = null, sorteio = null) {
   if (n < ORDEM_INICIAL.length) return ORDEM_INICIAL[n]
-  const opcoes = SORTEIO.filter(t => t !== anterior)
-  return opcoes[Math.floor(Math.random() * opcoes.length)]
+  const lista = (sorteio?.length ? sorteio : SORTEIO_PADRAO).filter(t => ALEATORIO_TIPOS[t])
+  const opcoes = lista.filter(t => t !== anterior)
+  const pool = opcoes.length ? opcoes : lista
+  return pool[Math.floor(Math.random() * pool.length)]
 }
 
 /** Estado salvo em storyProgress.__aleatorio (save do jogador):

@@ -24,7 +24,6 @@ export const POIS_PISTA = [
     // primeira). As outras duas opções (compra/ignora) também continuam
     // reabrindo o papo, mas não têm efeito relevante além da primeira vez.
     repetivel: true,
-    pino: { x: 52, y: 208 },
     i18n: 'games.gangues.cena.pista.sinal',
     // escolhas do papo: cada uma tem efeito próprio
     escolhas: [
@@ -41,7 +40,6 @@ export const POIS_PISTA = [
   {
     id: 'ferro',
     tipo: 'parada',
-    pino: { x: 60, y: 168 },
     i18n: 'games.gangues.cena.pista.ferro',
     // "A sequência da fechadura" — decorar e repetir a ordem dos pinos do
     // cadeado (PuzzleSimonSays, self-styled, sem depender de Puzzles.css).
@@ -69,7 +67,6 @@ export const POIS_PISTA = [
     id: 'achado',
     tipo: 'achado',
     opcional: true,
-    pino: { x: 68, y: 150 },
     i18n: 'games.gangues.cena.pista.achado',
     recompensa: { grana: 15, item: 13 },
   },
@@ -81,7 +78,6 @@ export const POIS_PISTA = [
     // fôlego pro chefe. (Seu Nando: GDD §8, a oficina já é cena decorativa.)
     id: 'oficina',
     tipo: 'papo',
-    pino: { x: 30, y: 62 },
     i18n: 'games.gangues.cena.pista.oficina',
     escolhas: [
       { id: 'forjar', precisaItens: { 13: 2 }, daEquip: [101], recompensa: { rep: 4 } },
@@ -108,7 +104,6 @@ export const POIS_PISTA = [
     // rinha. É a treta mais fácil e mais cedo da Pista — vira o alvo
     // natural pra upar quem acaba de ser recrutado e começa do nível 1.
     repetivel: true,
-    pino: { x: 50, y: 132 },
     i18n: 'games.gangues.cena.pista.beco',
     // É a primeira treta de verdade do jogo, logo depois da criação da
     // ficha. REVEZAMENTO (v2.74.6): em vez de sortear dos 11 moldes da Pista
@@ -125,7 +120,6 @@ export const POIS_PISTA = [
     // não é mais "os dois ×0.75 iguais").
     enemy: 1201,
     revezamento: { pool: PISTA_POOL_RUA, budgetPorCorpo: 8, chanceDupla: 0.4 },
-    forca: 1,
     recompensa: { rep: 2 },
     // AJUSTE 20/09/2026 (Isaias, achou o pino "A birosca do Seu Nato"
     // redundante com "Descanso na birosca" — mesma cara duas vezes no
@@ -140,7 +134,6 @@ export const POIS_PISTA = [
     id: 'corre',
     tipo: 'corre',
     opcional: true,
-    pino: { x: 56, y: 70 },
     i18n: 'games.gangues.cena.pista.corre',
     // Corre opcional, primeira vez do jogador com stealth: grade 5×5, só 2
     // câmeras de alcance 1, sem timer. Falhar aqui só custa fôlego.
@@ -158,7 +151,6 @@ export const POIS_PISTA = [
     // OBRIGATÓRIA vencer 1x pra abrir o portão (portao não depende dela
     // aqui, mas fica revelada só depois de beco+ferro+birosca).
     repetivel: true,
-    pino: { x: 44, y: 48 },
     i18n: 'games.gangues.cena.pista.beco_2',
     // NÍVEL FIXO (ajuste 15/09/2026 nº2): "de 3 em 3 a partir da 2ª luta",
     // sem exceção — nível 11 (8 + 3). Era escalada contra o time do jogador
@@ -166,7 +158,6 @@ export const POIS_PISTA = [
     // `revezamento` que `beco`/`sinal` já usavam.
     enemy: 1301,
     revezamento: { pool: PISTA_POOL_RUA, budgetPorCorpo: 11, chanceDupla: 0.4 },
-    forca: 2,
     recompensa: { rep: 3 },
     revela: ['beco_3'],
   },
@@ -178,13 +169,11 @@ export const POIS_PISTA = [
     nivelRec: 14,
     tipo: 'treta',
     repetivel: true,
-    pino: { x: 40, y: 40 },
     i18n: 'games.gangues.cena.pista.beco_3',
     // NÍVEL FIXO (ajuste 15/09/2026 nº2): +3 de novo — nível 14 (11 + 3).
     // Mesma conversão de beco_2 (era ratio, virou revezamento fixo).
     enemy: 1302,
     revezamento: { pool: PISTA_POOL_RUA, budgetPorCorpo: 14, chanceDupla: 0.4 },
-    forca: 2,
     recompensa: { rep: 3 },
     revela: ['sinaleiro'],
   },
@@ -198,7 +187,6 @@ export const POIS_PISTA = [
     nivelRec: 17,
     tipo: 'treta',
     repetivel: true,
-    pino: { x: 66, y: 30 },
     i18n: 'games.gangues.cena.pista.sinaleiro',
     // NÍVEL FIXO (ajuste 15/09/2026 nº2): continua o +3 sem exceção mesmo
     // pros Generais — nível 17 (14 + 3). `fixo`+`pontosFixo`: SEMPRE o
@@ -207,7 +195,6 @@ export const POIS_PISTA = [
     enemy: 1451,
     fixo: true,
     pontosFixo: 17,
-    forca: 3,
     recompensa: { rep: 5 },
     revela: ['rasteira_velha'],
   },
@@ -221,7 +208,6 @@ export const POIS_PISTA = [
     nivelRec: 20,
     tipo: 'treta',
     repetivel: true,
-    pino: { x: 58, y: 30 },
     i18n: 'games.gangues.cena.pista.rasteira_velha',
     // NÍVEL FIXO (ajuste 15/09/2026 nº2): +3 de novo — nível 20 (17 + 3).
     // Mesmo mecanismo `fixo`/`pontosFixo` (sempre a Rasteira Velha sozinha,
@@ -229,7 +215,6 @@ export const POIS_PISTA = [
     enemy: 1452,
     fixo: true,
     pontosFixo: 20,
-    forca: 3,
     recompensa: { rep: 6 },
   },
   {
@@ -245,7 +230,6 @@ export const POIS_PISTA = [
     opcional: true,
     repetivel: true,
     visivel: true,
-    pino: { x: 40, y: 190 },
     i18n: 'games.gangues.cena.pista.rinha',
     // NÍVEL FIXO (ajuste 15/09/2026 nº2): `rinha` fica visível desde o
     // início, junto com `sinal` (antes até de abrir a gazua do ferro-velho)
@@ -265,7 +249,6 @@ export const POIS_PISTA = [
     // recompensa por risco.
     enemy: 1201,
     revezamento: { pool: PISTA_POOL_RUA, budgetPorCorpo: 3, chanceDupla: 0.35, ratioComTime: 1, baseMaisForte: true },
-    forca: 1,
   },
   {
     // A "loja abandonada" do outro lado do muro. Só aparece e fica
@@ -279,7 +262,6 @@ export const POIS_PISTA = [
     repetivel: true,
     visivel: false,
     pos_portao: true,
-    pino: { x: 26, y: 13 },
     i18n: 'games.gangues.cena.pista.loja',
     // Catálogo final da Pista (ids numéricos — consumível 1–99 em
     // data/ganguesItens.js, equipamento 101+ em data/ganguesEquip.js):
@@ -304,7 +286,6 @@ export const POIS_PISTA = [
     opcional: true,
     repetivel: true,
     visivel: true,
-    pino: { x: 30, y: 150 },
     i18n: 'games.gangues.cena.pista.informante',
     escolhas: [
       { id: 'perguntar', informante: 'feira' },
@@ -320,7 +301,6 @@ export const POIS_PISTA = [
     opcional: true,
     repetivel: true,
     visivel: true,
-    pino: { x: 70, y: 118 },
     i18n: 'games.gangues.cena.pista.descanso',
     // Dono da birosca (arte já existe, npcs/nego_veio/neutro.png) — mostra
     // a cabeça dele no card de descanso (pedido do Isaias, 20/09/2026).
@@ -330,7 +310,7 @@ export const POIS_PISTA = [
     // MODAL de Descanso assim que `beco` revela `nato_oferta` (ver acima).
     // Enquanto não decidida (aceitar/recusar), o pino fica verde igual um
     // "tem missão aqui" (GanguesCenaAtores.jsx/farolDe, ganguesCenaMotor.js).
-    ofertaFlagId: 'nato_oferta',
+    oferta: { flagId: 'nato_oferta', i18n: 'games.gangues.cena.pista.birosca', revelaSeAceitar: ['corre'] },
   },
   {
     // Loja de bico, bem simples — pedido do Isaias, 21/09/2026: "só vende
@@ -417,12 +397,10 @@ export const POIS_PISTA = [
     tipo: 'treta',
     repetivel: true,
     pos_portao: true,
-    pino: { x: 40, y: 90 },
     i18n: 'games.gangues.cena.pista.posmuro_1',
     // NÍVEL FIXO (ajuste 15/09/2026 nº2): +3 de novo — nível 23 (20 + 3).
     enemy: 1206,
     revezamento: { pool: PISTA_POOL_GALPAO, budgetPorCorpo: 23, chanceDupla: 0.5 },
-    forca: 2,
     recompensa: { rep: 3 },
     revela: ['posmuro_2'],
   },
@@ -431,7 +409,6 @@ export const POIS_PISTA = [
     nivelRec: 26,
     tipo: 'treta',
     repetivel: true,
-    pino: { x: 60, y: 60 },
     i18n: 'games.gangues.cena.pista.posmuro_2',
     // NÍVEL FIXO (ajuste 15/09/2026 nº2): último degrau antes do Carvão
     // (30) — nível 26 (23 + 3), "mais osso do que o resto da rua" continua
@@ -442,7 +419,6 @@ export const POIS_PISTA = [
     // da rua — não trava o Sinaleiro/Rasteira Velha (progressão obrigatória).
     repGate: GANGUES_REP_GATE_GALPAO,
     revezamento: { pool: PISTA_POOL_GALPAO, budgetPorCorpo: 26, chanceDupla: 0.6 },
-    forca: 3,
     // `equipPrimeiraVez`: o Cano de Ferro (103, raro) só na 1ª vitória — é
     // treta repetível, o chip continua saindo em toda vitória.
     recompensa: { rep: 4, item: 21, qtd: 1, equipPrimeiraVez: 103 },

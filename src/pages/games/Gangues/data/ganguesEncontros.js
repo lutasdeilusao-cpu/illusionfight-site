@@ -133,13 +133,22 @@ export const GANGUES_CHEFE_EQUIPE = {
 // liderFrac=0.60 → 50×0.60=30 (Carvão) e o resto (20) pro Sinaleiro que
 // some com ele na luta de chefe.
 export const GANGUES_CHEFE_BUDGET = { pista: 50, feira: 110, baixada: 210, vila: 345, morro: 510, alto: 606, laje: 732 }
-export const GANGUES_CHEFE_LIDER_FRAC = 0.60
+// Fração do orçamento que vai pro LÍDER (o chefe em si), por território.
+// Feira (v3.65.0, PLANO_FEIRA.md §5): 110 × 0,47 → Cobrador 52 e as duas
+// escoltas (Mão do Turco e Caixa Forte) com 29 cada — o orçamento 110 que já
+// existia fecha certinho, só mudou a divisão.
+const GANGUES_CHEFE_LIDER_FRAC = { pista: 0.60, feira: 0.47 }
+const GANGUES_CHEFE_LIDER_FRAC_PADRAO = 0.60
+export function liderFracChefe(territorioId) {
+  return GANGUES_CHEFE_LIDER_FRAC[territorioId] ?? GANGUES_CHEFE_LIDER_FRAC_PADRAO
+}
 // Quantos CORPOS o bando do chefe tem (o resto de GANGUES_CHEFE_EQUIPE fica só
 // pra lore/álbum). Pista = 2 (Carvão + Rasteira Velha): 2×2 é a única treta
 // justa enquanto o elenco do jogador é travado em 2 fichas (a vaga nº 3 só abre
 // vencendo o próprio chefe). O 3º general (Sinaleiro Chefe, 1451) é
-// colecionável no POI `sinaleiro` da cena da Pista.
-export const GANGUES_CHEFE_CORPOS = { pista: 2 }
+// colecionável no POI `sinaleiro` da cena da Pista. Feira = 3 (Cobrador + os
+// dois generais), pra um time que já tem a 3ª vaga.
+export const GANGUES_CHEFE_CORPOS = { pista: 2, feira: 3 }
 
 // Total de pontos de todo bando (rua, revezamento, chefe, evento) é um número
 // FIXO autorado por quem criou o encontro (ver ganguesTerritorios.js e
@@ -206,7 +215,7 @@ export function pontosPreviewPoi(poi, territorioId) {
   if (poi.revezamento?.budgetPorCorpo > 0) return poi.revezamento.budgetPorCorpo
   if (poi.ehChefe) {
     const budget = GANGUES_CHEFE_BUDGET[territorioId]
-    return budget ? Math.round(budget * GANGUES_CHEFE_LIDER_FRAC) : null
+    return budget ? Math.round(budget * liderFracChefe(territorioId)) : null
   }
   return null
 }
@@ -448,7 +457,7 @@ export function gerarBandoRevezamento({ pool, budgetPorCorpo = 5, chanceDupla = 
 /** Bando do CHEFE — orçamento de pontos FIXO (GANGUES_CHEFE_BUDGET), nunca
  *  escalado contra o jogador. Corpos = os N primeiros ids de GANGUES_CHEFE_EQUIPE
  *  (N = GANGUES_CHEFE_CORPOS, default 3). O 1º corpo (o chefe) leva a maior
- *  fatia (piso = budget × GANGUES_CHEFE_LIDER_FRAC), o resto divide o que sobra.
+ *  fatia (piso = budget × liderFracChefe), o resto divide o que sobra.
  *  Sempre a mesma composição — dá pra aprender a luta e voltar mais preparado. */
 export function gerarBandoChefe({ territorioId, playerTeam, enemiesData, modo = 'medio' }) {
   const ids = GANGUES_CHEFE_EQUIPE[territorioId]
@@ -461,7 +470,7 @@ export function gerarBandoChefe({ territorioId, playerTeam, enemiesData, modo = 
   const partes = distribuirPontos(budget, n)
 
   // Piso do líder — desloca pontos das escoltas pro chefe sem estourar o budget.
-  const piso = Math.round(budget * GANGUES_CHEFE_LIDER_FRAC)
+  const piso = Math.round(budget * liderFracChefe(territorioId))
   if (partes[0] < piso) {
     let falta = piso - partes[0]
     partes[0] = piso
@@ -487,16 +496,17 @@ export function gerarBandoChefe({ territorioId, playerTeam, enemiesData, modo = 
  *  FIXO e alto (não escala com o jogador): é pra doer, o cara só cai aqui em
  *  último caso, endividado até o pescoço. 2–3 corpos. */
 export const GANGUES_CLUBE_POOL = [1211, 1212, 1213, 1219, 1311, 1312, 1411, 1412]
-export const GANGUES_CLUBE_BUDGET = 26
 // Gauntlet de 3 rondas: 1 corpo fraco → 2 → 3 casca-grossa (o bando de antes).
+// O orçamento escala com o território de onde o jogador veio: a roda da Feira
+// (26/50/80) é pro time que já passou da Pista (PLANO_FEIRA.md §1).
 const GANGUES_CLUBE_RONDAS = {
-  1: { qtd: 1, budget: 7 },
-  2: { qtd: 2, budget: 15 },
-  3: { qtd: 3, budget: GANGUES_CLUBE_BUDGET },
+  pista: { 1: { qtd: 1, budget: 7 }, 2: { qtd: 2, budget: 15 }, 3: { qtd: 3, budget: 26 } },
+  feira: { 1: { qtd: 1, budget: 26 }, 2: { qtd: 2, budget: 50 }, 3: { qtd: 3, budget: 80 } },
 }
-export function gerarBandoClube({ enemiesData, ronda = 3 }) {
+export function gerarBandoClube({ enemiesData, ronda = 3, territorioId = 'pista' }) {
   if (!enemiesData?.length) return null
-  const cfg = GANGUES_CLUBE_RONDAS[ronda] || GANGUES_CLUBE_RONDAS[3]
+  const tabela = GANGUES_CLUBE_RONDAS[territorioId] || GANGUES_CLUBE_RONDAS.pista
+  const cfg = tabela[ronda] || tabela[3]
   const qtd = cfg.qtd
   const partes = distribuirPontos(cfg.budget, qtd)
   const bag = []

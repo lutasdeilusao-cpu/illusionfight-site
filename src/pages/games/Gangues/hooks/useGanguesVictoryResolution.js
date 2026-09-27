@@ -8,6 +8,8 @@ import { sfx } from '../../../../lib/sfx'
 import { calcularApTotal, calcularPesosEParticipantes, calcularRecompensaCena } from '../engine/ganguesVictoryResolver.js'
 import { CENAS_POR_ID, destinoSocorroDerrota } from '../data/cenas/cenaHelpers.js'
 import { GANGUES_SUCATA_ID } from '../data/ganguesEquip.js'
+import { GANGUES_ITENS_LISTA } from '../data/ganguesItens.js'
+import { ALEATORIO_TIPOS } from '../engine/ganguesEncontroAleatorio.js'
 
 // Sucata virou recurso do aprimoramento (27/09/2026, PLANO_ITENS_RANGE.md §3):
 // cai em ~20% das vitórias de rua na cena (não no chefe, que já paga 500).
@@ -71,7 +73,7 @@ export default function useGanguesVictoryResolution({ store, user, report, victo
     // ganguesVictoryResolver.js pra régua completa).
     const inimigosAttrs = inimigosCombatentes.map(c => c.attributes)
     const pontosMaisForte = Math.max(1, ...match.playerTeam.map(m => ['A', 'H', 'D', 'PV', 'PM'].reduce((s, k) => s + (Number(m.attributes?.[k]) || 0), 0)))
-    const apBruto = calcularApTotal({ victory, enemyCount, cenaChefe, torre, torreAndar, inimigosAttrs, pontosMaisForte, tamanhoTime: match.playerTeam.length })
+    const apBruto = calcularApTotal({ victory, enemyCount, cenaChefe, torre, torreAndar, inimigosAttrs, pontosMaisForte, tamanhoTime: match.playerTeam.length, territorioId: storyAlvo?.territorioId })
     // Piso: "vai chegar no limiar mínimo que vai dar um ponto por
     // personagem da gangue e acabou" — mesmo depois de descontar tudo (farm
     // de inimigo muito mais fraco), a luta nunca rende menos que 1 AP por
@@ -100,9 +102,9 @@ export default function useGanguesVictoryResolution({ store, user, report, victo
     if (victory) {
       // Álbum de Marélia — todo inimigo do bando batido vira entrada.
       store.registrarNoAlbum([match.enemy_id, ...report.combatants.filter(c => c.side === 'enemy').map(c => c.id)])
-      let granaGanha = 0, repGanha = 0, repMarcos = [], sucataGanha = 0, equipGanho = null
+      let granaGanha = 0, repGanha = 0, repMarcos = [], sucataGanha = 0, equipGanho = null, itemGanho = null, apostaGanha = 0
       if (emCena || noModoHistoria) {
-        const { grana, rep, itens, equipPrimeiraVez } = calcularRecompensaCena({ emCena, storyAlvo, enemyCount, ehChefe: Boolean(storyAlvo.isChefe) })
+        const { grana, rep, itens, equipPrimeiraVez, itemPrimeiraVez, pagaFavor } = calcularRecompensaCena({ emCena, storyAlvo, enemyCount, ehChefe: Boolean(storyAlvo.isChefe) })
         // Checa "1ª vitória" ANTES de marcar o ponto como resolvido logo abaixo.
         const progAntes = emCena ? (store.cenaProgresso[storyAlvo.cenaId] || {}) : {}
         const primeiraVitoria = cenaChefe ? !progAntes.boss : !progAntes.resolvidos?.[storyAlvo.cenaPoiId]
@@ -122,6 +124,11 @@ export default function useGanguesVictoryResolution({ store, user, report, victo
         if (rep) { repMarcos = store.ganharRep(rep); repGanha += rep }
         itens.forEach(({ id, qtd }) => store.darItem(id, qtd))
         if (equipPrimeiraVez && primeiraVitoria) { store.comprarEquip(equipPrimeiraVez, 0); equipGanho = equipPrimeiraVez }
+        if (itemPrimeiraVez && primeiraVitoria) { store.darItem(itemPrimeiraVez, 1); itemGanho = itemPrimeiraVez }
+        // Favor da Dona Regina pago (Feira) — libera o fiado da pensão de novo.
+        if (pagaFavor) store.pagarFavorRegina()
+        // Rinha de Apostas: a aposta saiu do bolso na entrada; venceu, volta em dobro.
+        if (storyAlvo.aposta > 0) { apostaGanha = storyAlvo.aposta * 2; store.ganharGrana(apostaGanha) }
         if (emCena && !cenaChefe && Math.random() < GANGUES_SUCATA_DROP_CHANCE) { store.darItem(GANGUES_SUCATA_ID, 1); sucataGanha = 1 }
         if (emCena && cenaChefe) {
           store.marcarBossCena(storyAlvo.cenaId)
@@ -137,7 +144,7 @@ export default function useGanguesVictoryResolution({ store, user, report, victo
       if (confrontoFinal) store.completeCampaign()
       // repMarco: só o ÚLTIMO marco cruzado (pra mostrar 1 modal) — todos os
       // itens já foram concedidos de verdade no inventário dentro de ganharRep.
-      setRewardSummary({ apLista, grana: granaGanha, rep: repGanha, sucata: sucataGanha, equip: equipGanho, repMarco: repMarcos[repMarcos.length - 1] || null })
+      setRewardSummary({ apLista, grana: granaGanha, rep: repGanha, sucata: sucataGanha, equip: equipGanho, item: itemGanho, aposta: apostaGanha, repMarco: repMarcos[repMarcos.length - 1] || null })
       sfx.win()
     } else {
       sfx.lose()
@@ -146,9 +153,24 @@ export default function useGanguesVictoryResolution({ store, user, report, victo
       // recuperação é cobrada na hora (grana, empréstimo ou dívida a 10×).
       const cena = emCena ? CENAS_POR_ID[storyAlvo.cenaId] : null
       const destino = cena ? destinoSocorroDerrota(cena, store.cenaProgresso[cena.id]) : null
+      // O que o encontro aleatório leva quando GANHA de você (Feira): o Rapa
+      // leva 1 consumível, a Cobrança do Turco leva 10% da grana na mão
+      // (nunca mexe na dívida — só o Clube quita). Antes do socorro, que cobra
+      // a recuperação em cima do que sobrou.
+      const regraDerrota = storyAlvo?.cenaPoiId === '__aleatorio' ? ALEATORIO_TIPOS[storyAlvo.aleatorioTipo]?.derrota : null
+      let perda = null
+      if (regraDerrota?.levaConsumivel) {
+        const consumiveis = GANGUES_ITENS_LISTA.filter(it => (it.tipo === 'cura_pv' || it.tipo === 'cura_pm' || it.tipo === 'buff' || it.tipo === 'debuff_inimigos') && (store.inventario[it.id] || 0) > 0)
+        const levado = consumiveis[Math.floor(Math.random() * consumiveis.length)]
+        if (levado && store.usarItem(levado.id)) perda = { itemId: levado.id }
+      }
+      if (regraDerrota?.levaGranaFrac) {
+        const valor = Math.floor(store.grana * regraDerrota.levaGranaFrac)
+        if (valor > 0 && store.gastarGrana(valor)) perda = { grana: valor }
+      }
       if (destino) {
         const custoBase = cena.pois.find(p => p.id === destino.poiId)?.custoGrana || 10
-        setSocorro(store.socorroDerrota(custoBase))
+        setSocorro({ ...store.socorroDerrota(custoBase), perda })
         store.salvarPosicaoCena(cena.id, destino.posicao)
       }
     }

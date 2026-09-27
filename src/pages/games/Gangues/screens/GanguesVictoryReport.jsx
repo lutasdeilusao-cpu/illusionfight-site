@@ -9,6 +9,7 @@ import GangTip from '../components/GangTip'
 import GanguesRepRecompensaModal from '../components/GanguesRepRecompensaModal'
 import GanguesRetratoImg from '../components/GanguesRetratoImg'
 import { getGanguesEquip } from '../data/ganguesEquip.js'
+import { getGanguesItem } from '../data/ganguesItens.js'
 
 // Explica a regra de divisão de XP só na 1ª tela de vitória de verdade
 // (pedido do Isaias, 13/09/2026 — tutorial progressivo: a regra só importa
@@ -141,6 +142,8 @@ export default function GanguesVictoryReport({
       {!victory && socorro && (
         <section className="gang-reward-panel gang-socorro-panel">
           <span className="gang-reward-panel__kicker">{t('games.gangues.report.socorro_titulo')}</span>
+          {socorro.perda?.itemId && <p className="gang-socorro-panel__texto">{t('games.gangues.report.perda_item', { item: t(getGanguesItem(socorro.perda.itemId)?.nome || '') })}</p>}
+          {socorro.perda?.grana > 0 && <p className="gang-socorro-panel__texto">{t('games.gangues.report.perda_grana', { n: socorro.perda.grana })}</p>}
           <p className="gang-socorro-panel__texto">{t(`games.gangues.report.socorro_${socorro.tipo}`, socorro)}</p>
           {socorro.divida > 0 && (
             <p className="gang-socorro-panel__divida">
@@ -177,6 +180,16 @@ export default function GanguesVictoryReport({
             {rewardSummary.equip && (
               <motion.div className="gang-reward-item gang-reward-item--rep" initial={{ scale: 0.5, opacity: 0, y: 10 }} animate={{ scale: 1, opacity: 1, y: 0 }} transition={{ delay: 0.9, type: 'spring', stiffness: 260, damping: 16 }}>
                 <b>{getGanguesEquip(rewardSummary.equip)?.icone}</b><strong>{t(getGanguesEquip(rewardSummary.equip)?.nome || '')}</strong><span>{t('games.gangues.report.reward_equip')}</span>
+              </motion.div>
+            )}
+            {rewardSummary.item && (
+              <motion.div className="gang-reward-item gang-reward-item--rep" initial={{ scale: 0.5, opacity: 0, y: 10 }} animate={{ scale: 1, opacity: 1, y: 0 }} transition={{ delay: 0.95, type: 'spring', stiffness: 260, damping: 16 }}>
+                <b>{getGanguesItem(rewardSummary.item)?.icone}</b><strong>{t(getGanguesItem(rewardSummary.item)?.nome || '')}</strong><span>{t('games.gangues.report.reward_item')}</span>
+              </motion.div>
+            )}
+            {rewardSummary.aposta > 0 && (
+              <motion.div className="gang-reward-item gang-reward-item--grana" initial={{ scale: 0.5, opacity: 0, y: 10 }} animate={{ scale: 1, opacity: 1, y: 0 }} transition={{ delay: 0.55, type: 'spring', stiffness: 260, damping: 16 }}>
+                <b>🎲</b><strong>+{rewardSummary.aposta}</strong><span>{t('games.gangues.report.reward_aposta')}</span>
               </motion.div>
             )}
             {rewardSummary.sucata > 0 && (
@@ -268,7 +281,7 @@ export default function GanguesVictoryReport({
       <section className="gang-report-section gang-report-section--log">
         <h2>{t('games.gangues.report.complete_log')}</h2>
         <div className="gang-report-log">
-          {attacks.map((entry, index) => <article key={entry.id} className={`gang-report-attack gang-report-attack--${entry.side}`}><span>{String(index + 1).padStart(2, '0')}</span><div><small>{t('games.gangues.report.round_number', { n: entry.round })}</small><strong>{entry.actorName} → {entry.targetName}</strong><p>FA {entry.fa} · FD {entry.fd} · D3 {entry.dice}/{entry.defenseDice}{entry.critical ? ` · 💥 ${t('games.gangues.critico')} +${entry.criticalBonus}` : ''}{entry.attackerBonus?.applied ? ` · +${entry.attackerBonus.amount} ${t(`games.gangues.loadout.paths.${entry.attackerBonus.path}.name`)}` : ''}{entry.defenderBonus?.applied ? ` · +${entry.defenderBonus.amount} ${t(`games.gangues.loadout.paths.${entry.defenderBonus.path}.name`)} (def)` : ''}</p></div><b>−{entry.dmg} PV</b></article>)}
+          {attacks.map((entry, index) => <article key={entry.id} className={`gang-report-attack gang-report-attack--${entry.side}`}><span>{String(index + 1).padStart(2, '0')}</span><div><small>{t('games.gangues.report.round_number', { n: entry.round })}</small><strong>{entry.actorName} → {entry.targetName}</strong><p>FA {entry.fa} · FD {entry.fd} · D3 {entry.dice}/{entry.defenseDice}{entry.critical ? ` · 💥 ${t('games.gangues.critico')} +${entry.criticalBonus}` : ''}</p></div><b>−{entry.dmg} PV</b></article>)}
           {!attacks.length && <p className="gang-report-empty">{t('games.gangues.report.no_log')}</p>}
         </div>
       </section>

@@ -101,8 +101,9 @@ const CATALOGO = [
   { id: 130, slug: 'espeto_grade', slot: 'arma', raridade: 'raro', bonus: { A: [2, 5], D: [0, 2] }, cardSlots: 2, custo: 155, icone: '🔱' },
   { id: 131, slug: 'bastao_sinaleiro', slot: 'arma', raridade: 'incomum', bonus: { A: [1, 3], H: [0, 2] }, cardSlots: 1, custo: 95, icone: '🦯' },
 
-  // ── ÉPICO de chefe — nunca à venda. Os outros épicos (132–138) entram
+  // ── ÉPICO de chefe — nunca à venda. Os outros épicos (132–137) entram
   // junto com o chefe de cada bairro. ──
+  { id: 138, slug: 'porrete_do_cobrador', slot: 'arma', raridade: 'epico', bonus: { A: [3, 7], H: [1, 3], D: [0, 2] }, cardSlots: 2, icone: '🏏' },
   { id: 139, slug: 'facao_do_carvao', slot: 'arma', raridade: 'epico', bonus: { A: [2, 5], D: [0, 2] }, cardSlots: 2, icone: '🔪' },
 
   // ── PIQUE (140–144) — acessórios de velocidade. Faixa PEQUENA de

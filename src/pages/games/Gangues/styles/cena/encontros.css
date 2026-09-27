@@ -163,8 +163,6 @@
 
 /* puzzle */
 .gang-cena-puzzle-wrap { width: 100%; }
-.gang-cena-skin--gazua .gang-cena-eyebrow::after { content: ' · gazua no portão'; }
-.gang-cena-skin--viatura .gang-cena-eyebrow::after { content: ' · a viatura tá na rua'; }
 
 /* vs */
 .gang-cena-vs-aviso {
@@ -189,4 +187,15 @@
 .gang-cena-onomatopeia.is-azul{--perseg:#3d8bff}
 .gang-cena-onomatopeia.is-vermelha{--perseg:var(--if-danger)}
 .gang-cena-onomatopeia.is-roxa{--perseg:var(--if-violet)}
+.gang-cena-onomatopeia.is-laranja{--perseg:var(--gang-brasa-600)}
+.gang-cena-onomatopeia.is-cinza{--perseg:var(--gang-cinza-600)}
 .gang-cena-onomatopeia b{padding:.1em .35em;color:var(--gang-branco);max-width:92%;text-align:center;font:900 clamp(2rem,calc(11 * var(--app-vw) / 100),3.1rem)/1 var(--font-title);letter-spacing:.02em;-webkit-text-stroke:3px var(--gang-preto);paint-order:stroke fill;text-shadow:5px 5px 0 var(--perseg),9px 9px 0 var(--gang-preto);background:radial-gradient(circle,color-mix(in srgb,var(--perseg) 35%,transparent),transparent 70%)}
+
+/* Rinha de Apostas (Feira) — escolha da aposta no card da treta. */
+.gang-cena-aposta { width: 100%; display: flex; flex-direction: column; align-items: center; gap: 6px; margin-top: 6px; }
+.gang-cena-aposta small { font: 700 0.56rem var(--font-mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--gang-cinza-azul-500); }
+.gang-cena-aposta__opcoes { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
+.gang-cena-aposta__opt { padding: 6px 10px; cursor: pointer; font: 800 0.72rem var(--font-mono); color: var(--text-primary); background: rgba(255, 255, 255, 0.04); border: 1px solid var(--if-hair-strong); }
+.gang-cena-aposta__opt.is-escolhida { color: var(--if-amber); border-color: var(--if-amber); background: color-mix(in srgb, var(--if-amber) 12%, transparent); }
+.gang-cena-aposta__opt:disabled { opacity: 0.35; cursor: not-allowed; }
+.gang-cena-aposta__premio { margin: 0; font: 700 0.7rem var(--font-mono); color: var(--if-amber); }

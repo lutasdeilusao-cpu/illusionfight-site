@@ -89,8 +89,8 @@
 .gang-predio-varal::after{content:'';position:absolute;left:0;right:0;top:1px;height:9px;
   background:repeating-linear-gradient(90deg,transparent 0 8px,#c0d0d8 8px 16px,#d8c0b0 16px 22px,transparent 22px 30px);opacity:.85;}
 .gang-predio-pich{position:absolute;left:6px;bottom:8px;z-index:3;margin:0;transform:rotate(-6deg);
-  font:900 .62rem/.9 var(--font-display);letter-spacing:.02em;color:rgba(61,220,151,.5);
-  text-shadow:0 0 6px rgba(61,220,151,.4);}
+  font:900 .62rem/.9 var(--font-display);letter-spacing:.02em;color:color-mix(in srgb,var(--terr-cor) 50%,transparent);
+  text-shadow:0 0 6px color-mix(in srgb,var(--terr-cor) 40%,transparent);}
 .gang-predio-nome{position:absolute;left:50%;transform:translateX(-50%) rotate(-1.5deg);top:-4px;z-index:4;white-space:nowrap;
   padding:2px 7px;font:900 .56rem var(--font-mono);letter-spacing:.04em;text-transform:uppercase;color:#12100c;
   background:#e8d9b0;box-shadow:0 2px 4px rgba(0,0,0,.5),inset 0 0 0 1px #b7a67d;}
@@ -159,3 +159,13 @@
 .gang-fiacao path{fill:none;stroke:rgba(0,0,0,.55);stroke-width:2;}
 
 @media(prefers-reduced-motion:reduce){.gang-deco--crianca,.gang-deco--cachorro{animation:none}}
+/* Banca de feira (a Feira, 27/09/2026): tabuleiro de madeira com lona listrada
+   por cima — a cor da lona vem do dado (--lona). Decoração, não colide. */
+.gang-deco--banca{width:52px;height:34px;z-index:4;
+  background:linear-gradient(#5a4632,#43331f);box-shadow:0 4px 6px rgba(0,0,0,.45);}
+.gang-deco--banca::before{content:'';position:absolute;left:-6px;right:-6px;top:-12px;height:14px;
+  background:repeating-linear-gradient(90deg,var(--lona,#c8453a) 0 8px,#efe6d2 8px 16px);
+  box-shadow:0 3px 4px rgba(0,0,0,.35);}
+.gang-deco--banca::after{content:'';position:absolute;left:8px;right:8px;top:8px;height:10px;
+  background:radial-gradient(circle,#e0a12f 3px,transparent 3.5px) 0 0/10px 10px,radial-gradient(circle,#6fbf4a 3px,transparent 3.5px) 5px 0/10px 10px;}
+.gang-deco--caixote{width:22px;height:18px;z-index:4;background:repeating-linear-gradient(0deg,#7a5a36 0 5px,#5c4428 5px 6px);box-shadow:0 3px 4px rgba(0,0,0,.4);}

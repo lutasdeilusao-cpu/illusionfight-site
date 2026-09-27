@@ -9,9 +9,11 @@
    territórios ganham cena própria.
    ══════════════════════════════════════════════════════════════ */
 import { CENA_PISTA } from './pista/index.js'
+import { CENA_FEIRA } from './feira/index.js'
 
 export const CENAS_POR_ID = {
   [CENA_PISTA.id]: CENA_PISTA,
+  [CENA_FEIRA.id]: CENA_FEIRA,
 }
 
 /** Uma cena existe para este território? (senão, cai na trilha antiga) */

@@ -1,10 +1,18 @@
 # PLANO — Território 2: A Feira (cena navegável)
 
-> **Status: PLANEJAMENTO — nada disto está implementado.** Escrito em
-> 27/09/2026 a partir de um estudo da Pista no código de GANGUES 3.63.0
-> (`data/cenas/pista/*`, engines e store). Depois de aprovado, vira seção do
-> GDD (§4, Território 2) e a Pista continua sendo o modelo de tudo.
->
+> **Status: IMPLEMENTADO na v3.65.0 (27/09/2026)** — a regra oficial agora
+> mora no GDD (§4, Território 2). Este arquivo fica como registro do plano e
+> das decisões. Diferenças do que foi pro jogo em relação ao texto abaixo:
+> - As 5 perguntas da §8 foram decididas como recomendado: AP ×1,5 na Feira,
+>   Regina fia por favor, o Rapa leva 1 consumível, Juro Alto empresta 300.
+> - O Caderneta (1305) fica **+1 de Malícia** contra devedor (em vez de a tropa
+>   perder Pique) — mesmo efeito, aplicado no inimigo.
+> - **Apito (7) e Trocado Marcado (9) não entraram** (precisam de mecânica
+>   nova de fuga/isca no combate). Os outros consumíveis 3–12 entraram.
+> - Mercearia do Aziz vende também os raros 124/128/130; o Pingente de Asa
+>   (144) é prêmio da 1ª vitória sobre a Mão do Turco.
+> - O bônus de caminho (stub morto no combate) foi removido na mesma leva.
+
 > Pedido do Isaias: *"precisa ter tudo que tem na Pista, mas com um sistema de
 > upgrade… tem que ser diferente, e o nível tem que subir… a Pista aumentou
 > muito o número de eventos, as versões anteriores tinham poucos."*

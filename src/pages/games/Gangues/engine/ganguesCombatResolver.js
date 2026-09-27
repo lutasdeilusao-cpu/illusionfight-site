@@ -9,21 +9,15 @@ function rolarDadosEquip(faixas) {
   return faixas.reduce((soma, f) => soma + rolarFaixa(f), 0)
 }
 
-/**
- * Bônus de caminho — regra combinada com Isaias em 2026-08-04:
- * - Atacante: +1 no ataque, por sorte (50%, mostrado no log se caiu ou não).
- * - Defensor: +1 na defesa, por sorte (50%), mesma lógica do lado defensivo.
- * - Místico: todo ataque dele é mágico neste sistema (não há escolha de modo físico/mágico
- *   separada), então o +1 de ataque é garantido sempre que ele ataca. Na defesa, só ganha
- *   +1 quando o atacante também é místico (mágica contra mágica); contra ataque físico não
- *   recebe bônus de defesa nenhum.
- */
-function resolveAttackerBonus(attackerPath, bonusRoll) {
-  return { path: null, applied: false, amount: 0 }
+// STATUS temporários (consumíveis — Pinga, Vela Benta, Bombinha...): cada um é
+// { attr: 'A'|'D'|'H', valor, acoes } e dura `acoes` ações de QUEM carrega.
+/** Soma de todos os status de um atributo no combatente. */
+export function somaStatus(combatente, attr) {
+  return (combatente?.statuses || []).reduce((s, st) => s + (st.attr === attr ? Number(st.valor) || 0 : 0), 0)
 }
-
-function resolveDefenderBonus(defenderPath, attackerPath, bonusRoll) {
-  return { path: null, applied: false, amount: 0 }
+/** Quem agiu gastou 1 ação de cada status que carrega (some quando zera). */
+export function gastarAcaoStatus(statuses = []) {
+  return statuses.map(st => ({ ...st, acoes: st.acoes - 1 })).filter(st => st.acoes > 0)
 }
 
 // O dado de ataque é um d3 (1-3). Tirar o valor máximo (3) é crítico: soma +2 na rolagem
@@ -47,11 +41,8 @@ export function resolveGanguesAction({ attacker, defender, action, rolls, active
   const arma = rolls.arma !== undefined ? rolls.arma : rolarDadosEquip(attacker.equipDados?.A)
   const armadura = rolls.armadura !== undefined ? rolls.armadura : rolarDadosEquip(defender.equipDados?.D)
   rolls = { ...rolls, arma, armadura }
-  const attack = (Number(attacker.attributes?.A) || 0) + (arma || 0)
-  const defense = (Number(defender.attributes?.D) || 0) + (armadura || 0)
-
-  const attackerBonus = resolveAttackerBonus(attacker.combat_path, rolls.attackerBonus)
-  const defenderBonus = resolveDefenderBonus(defender.combat_path, attacker.combat_path, rolls.defenderBonus)
+  const attack = (Number(attacker.attributes?.A) || 0) + (arma || 0) + somaStatus(attacker, 'A')
+  const defense = Math.max(0, (Number(defender.attributes?.D) || 0) + (armadura || 0) + somaStatus(defender, 'D'))
 
   const critical = rolls.fa === ATTACK_DIE_SIDES
   const attackRollValue = rolls.fa + (critical ? CRITICAL_BONUS : 0)
@@ -93,8 +84,8 @@ export function resolveGanguesAction({ attacker, defender, action, rolls, active
   // entra na jogada. Ataque normal = Porrada + dado.
   const talentoAtivo = attackerEffects.some(item => item.kind === 'active')
   const malandragem = talentoAtivo ? Math.floor((Number(attacker.attributes?.PM) || 0) / 2) : 0
-  const fa = attack + malandragem + attackRollValue + (attackerBonus.applied ? attackerBonus.amount : 0) + ctx.faMod
-  const fd = effectiveDefense + rolls.fd + (defenderBonus.applied ? defenderBonus.amount : 0) + ctx.fdMod
+  const fa = attack + malandragem + attackRollValue + ctx.faMod
+  const fd = effectiveDefense + rolls.fd + ctx.fdMod
   let damage = Math.max(0, fa - fd)
 
   const incomingShield = defender.specialState?.shield || 0
@@ -117,8 +108,8 @@ export function resolveGanguesAction({ attacker, defender, action, rolls, active
 
   return {
     action, mode: 'attack', fa, fd, malandragem, damage, pmCost: ctx.pmCost, pvCost,
-    rolls: { ...rolls }, attackerBonus, defenderBonus, critical, criticalBonus: critical ? CRITICAL_BONUS : 0,
-    attackerStatuses: [...(attacker.statuses || [])],
+    rolls: { ...rolls }, critical, criticalBonus: critical ? CRITICAL_BONUS : 0,
+    attackerStatuses: gastarAcaoStatus(attacker.statuses),
     defenderStatuses: [...(defender.statuses || [])],
     activeSpecialId: attackerEffects.find(item => item.kind === 'active')?.id || null,
     passivosGatilho,

@@ -23,6 +23,14 @@
 Grafia oficial: **Marélia** com acento (o conto usa assim). O i18n do jogo ainda
 tem "Marelia" sem acento em vários lugares — alinhar quando mexer em texto.
 
+> **v3.65.0 (27/09/2026): A FEIRA É JOGÁVEL** — o 2º território virou cena
+> navegável (37 eventos, Galeria dos Gato, Mercadão, apagão, Serralheria até
+> +4, Pensão da Dona Regina com fiado por favor, Juro Alto, Rinha de Apostas,
+> Rapa/Apagão/Cobrança do Turco, consumíveis 3–12 e todo o catálogo 121–144 +
+> o épico 138). Ver §4 (Território 2), §9.3–9.5. Ficaram de fora só o **Apito
+> (7)** e o **Trocado Marcado (9)** — precisam de mecânica nova de combate
+> (fuga / sumir inimigo) e continuam só no design.
+>
 > **v3.64.0 (27/09/2026): range de equipamento, aprimoramento e fonte dos
 > raros implementados** — ver §9.4–9.6 (o plano `PLANO_ITENS_RANGE.md` marca o
 > que entrou e o que fica pra Feira).
@@ -36,9 +44,9 @@ tem "Marelia" sem acento em vários lugares — alinhar quando mexer em texto.
 > atributo (§17.1), roster × time de batalha (§17.5), escala de nível dos
 > chefes e AP da §12 (estavam da época do "1 nível = 1 ponto"), e o aviso de
 > que os equipamentos raros não têm fonte nenhuma no jogo hoje (§9.4).
-> Planejamentos novos (não implementados): **a Feira** em
-> `PLANO_FEIRA.md` e **range + aprimoramento de equipamento** em
-> `PLANO_ITENS_RANGE.md` (mesma pasta deste GDD).
+> Planejamentos daquele dia — **a Feira** (`PLANO_FEIRA.md`) e **range +
+> aprimoramento** (`PLANO_ITENS_RANGE.md`) — já estão implementados (v3.64.0
+> e v3.65.0, acima).
 >
 > **Revisão geral anterior: 26/09/2026 — conferido contra o código de
 > GANGUES 3.56.0 (SITE 10.293.1).** Esta revisão trouxe pro GDD tudo o que
@@ -436,16 +444,59 @@ Facção: Acerto de Contas (103) / Os Gato (104). O comércio, os camelô, a luz
 gato. Aqui não tem tiro — tem **dívida**. Primeiro território costurado pelo
 Retalho sem sangue.
 
-POIs: **A banca do Turco** (onde a dívida é anotada, cabeça do esquema) · **O
-beco da luz de gato** (Os Gato fazem a ligação clandestina) · **A feira de
-domingo** (movimento intenso, boa pra se esconder ou negociar) · **O fiado da
-Dona Regina** (NPC que empresta em troca de favor) · **A oficina de rádio**
-(conserta rádio pirata, ponto de informação).
+**Cena navegável desde a v3.65.0** (`data/cenas/feira/`, plano completo e
+decisões em `PLANO_FEIRA.md`). Mesmo motor da Pista — o mapa é o esqueleto da
+Pista **espelhado** (ruas, muro e colisões iguais, lados trocados), com bancas
+de lona espalhadas. Tudo que era chumbado da Pista virou dado da cena (`ruas`,
+`muro`, `postes`, `textos`, `posMuro`, `dicaQuest`, `aleatorio`,
+`fraquezaChefe`), então o 3º território entra só com dado.
 
-> **Plano da cena navegável da Feira (27/09/2026, não implementado):**
-> `PLANO_FEIRA.md` — 37 eventos, a Feira em duas metades (de dia / no
-> apagão), a Galeria dos Gato e o Mercadão como dungeons, ladder 26 → 47 e o
-> Cobrador em 52, e a versão "upgrade" de cada sistema da Pista.
+- **Duas metades.** Embaixo, a Feira de dia. Em cima da **barricada do
+  apagão** (o "muro" daqui, y 1330–1350), a Feira **no escuro**: só um círculo
+  de luz em volta do jogador (`cena.apagao`) até o Cobrador cair. Chega-se lá
+  pela **Galeria dos Gato** (o "túnel": 3 cômodos escuros, a porta do meio com
+  o `PuzzleDecoder` — errar vira treta com Os Gato, sem travar o ponto).
+- **Caminho obrigatório (10, abre a Galeria):** A Catraca (26) → Banca do Turco
+  (papo: paga 20 de taxa ou não; fala diferente pra quem deve ao agiota) → A
+  cobrança (29) → Quadro de Luz (labirinto; errar dá **choque** −2 PV na tropa
+  e vira treta; dá o **fio de cobre**) → Beco dos Gato (32) → Balança viciada
+  (35, 1ª vitória dá uma válvula) → O Caderneta (35, fixo; **+1 Malícia contra
+  quem deve**) → **Rádio do Toninho** (fetch quest: 1 fio de cobre + 3
+  válvulas; conserta e revela a Mão do Turco e o rádio pirata) → **Mão do
+  Turco** (38, General fixo, 1ª vitória dá o Pingente de Asa 144) → **Caixa
+  Forte** (41, General fixo, **grana ×2**, 1ª vitória dá a Armadura de Rua 111).
+- **Lado apagado:** depósito 1 (44) e depósito 2 (47, **Rep 60**) guardam o
+  **Mercadão** (dungeon final, 4 cômodos: doca com bando de 3–5, câmara fria
+  com o Marreta 40, escritório com o livro-caixa, cofre → Cobrador).
+- **Chefe — O Cobrador (1501):** nível real 46 (52 pontos) + Mão do Turco e
+  Caixa Forte de escolta (29 cada) — `GANGUES_CHEFE_BUDGET.feira` 110,
+  `liderFracChefe` 0,47, 3 corpos. Só aceita a luta depois do **Duda** (Pista)
+  — `precisaInformante`. Com as **3 páginas da caderneta** (`pagina_1/2/3`,
+  uma em cada metade + uma na Galeria) ele entra com **−2 de Couro**. 1ª
+  vitória: **Porrete do Cobrador (138)**.
+- **Opcionais:** Camelô (loja dos consumíveis novos + válvula + sucata, com
+  **pechincha**: acertou o anagrama, −30% na visita) · Muamba de Domingo
+  (stealth 6×6 com cronômetro, dá válvula) · **Pensão da Dona Regina** (15 /
+  45; **sem grana, ela cura fiado e a gangue fica devendo 1 favor** —
+  `storyProgress.__regina`; os favores `favor_marmita`/`favor_devedor`/
+  `favor_cobrador` pagam) e a pensão da filha do lado apagado · **Juro Alto**
+  (agiota: empréstimo de **300**, mesma caderneta global do Marimbondo — os
+  textos da agiotagem usam `{agiota}`) · **Rinha de Apostas** (aposta 0/50/100/
+  200 antes da luta, volta em dobro) · Mercearia do Seu Aziz (lado apagado,
+  incomuns e raros) · **Serralheria do Bigode** (aprimora até **+4**) · rádio
+  pirata (informante da Baixada).
+- **Encontro aleatório:** os 4 da Pista + **o Rapa** (laranja; se ganhar de
+  você leva 1 consumível) + **o Apagão** (só no lado escuro, Os Gato no breu)
+  + a **Cobrança do Turco** no lugar do Cobrador quando você deve ao agiota
+  (se ganhar, leva 10% da grana na mão; nunca mexe na dívida).
+- **Economia:** grana da vitória 15 + 5 por inimigo a mais (chefe mínimo
+  800) e **AP ×1,5** (`GANGUES_RECOMPENSA_TERRITORIO`, `ganguesVictoryResolver.js`)
+  — a Feira é o grind, o multiplicador evita que fique arrastado. O Clube da
+  Luta escala com o território (rondas 26 / 50 / 80 na Feira).
+- **Derrota:** sem game over, igual à Pista — acorda na pensão mais perto
+  (`destinoSocorroDerrota` é genérico).
+- **Arte que falta:** retratos de 1304–1306, 1403–1404, 1453–1454, **1501** e
+  dos NPCs Regina, Toninho, Aziz e Bigode — até lá, cai na inicial.
 
 ### Território 3 — A Baixada · Correria · `#18dafb`
 Facção: os 3 cacos do Sombra (105/106/107). Do outro lado da linha do trem. A
@@ -1182,25 +1233,30 @@ POI, alimenta o % de domínio e o texto do final). Estado em `store.grana` /
 
 ### 9.3 Consumíveis (faixa 1–99)
 
-> **Estado real (26/09/2026, `data/ganguesItens.js`):** só existem no jogo os
-> ids **1, 2, 13, 20, 21 e 22**. Os ids **3 a 12** abaixo são **design
-> aprovado, ainda não implementado** — não estão no catálogo nem na loja.
+> **Estado real (v3.65.0, `data/ganguesItens.js`):** tudo abaixo existe no
+> jogo, **menos o Apito (7) e o Trocado Marcado (9)** (precisam de mecânica
+> nova: fuga e sumir inimigo). Os consumíveis da Feira são vendidos no
+> **Camelô**. Efeito com duração conta **ações de quem carrega**
+> (`combatente.statuses`: `{ attr, valor, acoes }` — o resolver soma A/D, a
+> linha do tempo soma H). Preço ≈ 2,8 de grana por ponto de efeito.
 
 | id | Nome | tipo | efeito | custo | ícone |
 |---|---|---|---|---|---|
 | 1 | Poção de HP | `cura_pv` | +5 PV | 14 💵 (28 na Lojinha do Zé) | 🩹 |
 | 2 | Poção de MP | `cura_pm` | +5 PM | 14 💵 (28 na Lojinha do Zé) | 💧 |
-| 3 | Cigarro de Palha | `cura_pm` leve | +3 PM, −1 D por 1 turno | 3 💵 | 🚬 |
-| 4 | Water Energético | `cura_pm` | +8 PM | 8 💵 | 🥤 |
-| 5 | Faixa de Pano | `cura_pv` fraca | +3 PV — só drop | — | 🩹 |
-| 6 | Pinga | `buff_ataque` | +2 A por 2 turnos, −1 D | 6 💵 | 🍾 |
-| 7 | Apito | `fuga` | chance de fugir sem penalidade | 5 💵 | 📯 |
-| 8 | Bombinha de Fumaça | `debuff_inimigo` | −1 H em todos por 1 turno | 10 💵 | 💨 |
-| 9 | Trocado Marcado | `isca` | some com 1 inimigo por 1 turno | 6 💵 | 🪙 |
-| 10 | Farinha de Guaraná | `cura_pv` + | +7 PV | 9 💵 | 🥣 |
-| 11 | Vela Benta | `buff_defesa` | +2 D por 2 turnos | 7 💵 | 🕯️ |
-| 12 | Sacola de Bala | `cura_pv` mini | +2 PV (flavor: o que o Kim vende) | 2 💵 | 🍬 |
-| 13 | Sucata | `material` | sem efeito em combate — item de quest. Cai no ferro-velho da Pista (POI `ferro` + `achado`); o Seu Nando troca 2× por uma peça (POI `oficina`). | — | 🔩 |
+| 3 | Cigarro de Palha | `cura_pm` + status | +3 PM, −1 Couro por 1 ação | 7 💵 | 🚬 |
+| 4 | Water Energético | `cura_pm` | +8 PM | 22 💵 | 🥤 |
+| 5 | Faixa de Pano | `cura_pv` | +3 PV — só drop (página 3 da caderneta) | — | 🧻 |
+| 6 | Pinga | `buff` | +2 Porrada e −1 Couro por 2 ações | 18 💵 | 🍾 |
+| 7 | Apito | `fuga` | chance de fugir sem penalidade — **não implementado** | 5 💵 | 📯 |
+| 8 | Bombinha de Fumaça | `debuff_inimigos` | −1 Pique em todo o bando por 1 ação | 25 💵 | 💨 |
+| 9 | Trocado Marcado | `isca` | some com 1 inimigo por 1 turno — **não implementado** | 6 💵 | 🪙 |
+| 10 | Farinha de Guaraná | `cura_pv` | +7 PV | 20 💵 | 🥣 |
+| 11 | Vela Benta | `buff` | +2 Couro por 2 ações | 18 💵 | 🕯️ |
+| 12 | Sacola de Bala | `cura_pv` | +2 PV (flavor: o que o Kim vende) | 6 💵 | 🍬 |
+| 13 | Sucata | `material` | sem efeito em combate — quest do Nando e material do aprimoramento. Ferro-velho da Pista, ~20% das vitórias de rua, Camelô. | 10 💵 (Camelô) | 🔩 |
+| 14 | Fio de Cobre | `material` | quest do rádio do Toninho (Feira) — sai do Quadro de Luz | — | 🔌 |
+| 15 | Válvula de Rádio | `material` | quest do rádio (precisa de 3) — Balança, Muamba e Camelô | 20 💵 (Camelô) | 💡 |
 | 20 | Chip do Bruto | `poder_unico` | por 1 golpe, usa o poder *Soco de Ferro* (nível 2) | não vende | 👊 |
 | 21 | Chip da Muralha | `poder_unico` | por 1 golpe, usa o poder *Postura Defensiva* (nível 2) | não vende | 🛡️ |
 | 22 | Chip Ígneo | `poder_unico` | por 1 golpe, usa o poder *Bola de Fogo* (nível 2) | não vende | 🔥 |
@@ -1252,15 +1308,16 @@ Osso/Malandragem (PV/PM) continuam **fixos** (`+6 PV`).
   personagem — vai junto ao trocar de dono. Save antigo sem `aprim` = +0.
 - **Onde:** a **bancada do Nando** (POI `bancada_nando`, tipo `ferreiro`, dentro
   da oficina, só depois da quest da sucata) faz até **+1** (`poi.tetoAprim`). A
-  Serralheria da Feira (planejada) vai até +4. Tela: `GanguesFerreiro.jsx`.
+  **Serralheria do Bigode** (Feira, `tetoAprim: 4`) vai até +4. Tela: `GanguesFerreiro.jsx`.
 - **Sucata virou recurso:** além do ferro-velho, cai em **~20% das vitórias de
   rua** na cena (não no chefe) e aparece no painel de recompensa.
 
 **Fontes dos raros** (antes nenhum tinha fonte): Cano de Ferro (103) na 1ª
 vitória sobre o Cão Louco (`posmuro_2`, `recompensa.equipPrimeiraVez`), Bota
 com Biqueira (117) no corre do Nato (`recompensa.equip`), Manto com Capuz (110)
-e Dente de Ouro (119) na loja da Pista. Coroa (106), Armadura (111), Braçadeira
-(114) e Medalha (120) ficam pra Feira (`PLANO_FEIRA.md`).
+e Dente de Ouro (119) na loja da Pista. Na Feira (v3.65.0): Coroa (106) e
+Braçadeira (114) na Mercearia do Aziz, Armadura de Rua (111) na 1ª vitória
+sobre o Caixa Forte, Medalha de Santa (120) no achado do Mercadão.
 
 **Catálogo hoje** (gerado do código; "aprim" = teto de aprimoramento da peça):
 
@@ -1271,47 +1328,48 @@ e Dente de Ouro (119) na loja da Pista. Coroa (106), Armadura (111), Braçadeira
 | 103 | Cano de Ferro | arma | raro | Porrada 1–3, Pique 0–2 | +4 | 2 | 110 💵 | Cão Louco (`posmuro_2`), 1ª vitória |
 | 104 | Gorro de Moletom | cabeça | comum | Couro 0–2 | +4 | 0 | 22 💵 | loja da Pista |
 | 105 | Capacete de Obra | cabeça | incomum | Couro 1–3 | +4 | 1 | 50 💵 | loja da Pista |
-| 106 | Coroa de Lata | cabeça | raro | Porrada 0–2, Couro 0–2 | +4 | 2 | 65 💵 | — (Feira) |
+| 106 | Coroa de Lata | cabeça | raro | Porrada 0–2, Couro 0–2 | +4 | 2 | 65 💵 | Mercearia do Aziz (Feira) |
 | 107 | Colete Reforçado | corpo | comum | +6 PV | — | 0 | 36 💵 | loja da Pista |
 | 108 | Colete Leve | corpo | comum | +6 PM | — | 0 | 36 💵 | loja da Pista |
 | 109 | Colete de Placa | corpo | incomum | +12 PV | — | 1 | 80 💵 | loja da Pista |
 | 110 | Manto com Capuz | corpo | incomum | +12 PM | — | 1 | 80 💵 | loja da Pista |
-| 111 | Armadura de Rua | corpo | raro | +18 PV | — | 2 | 140 💵 | — (Feira) |
+| 111 | Armadura de Rua | corpo | raro | +18 PV | — | 2 | 140 💵 | **Caixa Forte**, 1ª vitória (Feira) |
 | 112 | Luva de Couro | mãos | comum | Couro 0–2 | +4 | 0 | 22 💵 | loja da Pista |
 | 113 | Manopla de Porca | mãos | incomum | Porrada 1–3 | +4 | 1 | 60 💵 | loja da Pista |
-| 114 | Braçadeira de Cravo | mãos | raro | Porrada 0–2, Couro 0–2 | +4 | 2 | 65 💵 | — (Feira) |
+| 114 | Braçadeira de Cravo | mãos | raro | Porrada 0–2, Couro 0–2 | +4 | 2 | 65 💵 | Mercearia do Aziz (Feira) |
 | 115 | Tênis Furado | pés | comum | Pique 0–2 | +4 | 0 | 30 💵 | loja da Pista |
 | 116 | Coturno | pés | incomum | Pique 0–2, Couro 0–2 | +4 | 1 | 55 💵 | loja da Pista |
 | 117 | Bota com Biqueira | pés | raro | Pique 1–3 | +4 | 2 | 80 💵 | corre do Nato (1 vez) |
 | 118 | Corrente de Lata | amuleto | comum | Pique 0–2 | +4 | 1 | 30 💵 | loja da Pista |
 | 119 | Dente de Ouro | amuleto | incomum | Porrada 1–2 | +2 | 1 | 45 💵 | loja da Pista |
-| 120 | Medalha de Santa | amuleto | raro | Couro 0–2, Pique 0–2 | +4 | 2 | 70 💵 | — (Feira) |
-| 121 | Boné Vira-Lata | cabeça | comum | Pique 0–2 | +4 | 0 | 30 💵 | — (Feira, planejado) |
-| 122 | Balaclava de Pano | cabeça | incomum | Couro 1–3, Pique 0–1 | +4 | 1 | 65 💵 | — (Feira, planejado) |
-| 123 | Jaqueta de Bonde | corpo | comum | +8 PV | — | 0 | 50 💵 | — (Feira, planejado) |
-| 124 | Manto de Sintonia | corpo | raro | +18 PM | — | 2 | 140 💵 | — (Feira, planejado) |
-| 125 | Manopla de Prego | mãos | incomum | Porrada 2–4 | +4 | 1 | 90 💵 | — (Feira, planejado) |
-| 126 | Chinelo Reforçado | pés | comum | Pique 0–2, Couro 0–1 | +4 | 0 | 40 💵 | — (Feira, planejado) |
-| 127 | Corrente de Ouro Falso | amuleto | incomum | Porrada 1–3 | +4 | 1 | 60 💵 | — (Feira, planejado) |
-| 128 | Terço de Vó | amuleto | raro | Couro 1–3, Pique 0–2 | +4 | 2 | 95 💵 | — (Feira, planejado) |
-| 129 | Facão de Cabo Fita | arma | incomum | Porrada 2–4 | +4 | 1 | 90 💵 | — (Feira, planejado) |
-| 130 | Espeto de Grade | arma | raro | Porrada 2–5, Couro 0–2 | +6 | 2 | 155 💵 | — (Feira, planejado) |
-| 131 | Bastão de Sinaleiro | arma | incomum | Porrada 1–3, Pique 0–2 | +4 | 1 | 95 💵 | — (Feira, planejado) |
+| 120 | Medalha de Santa | amuleto | raro | Couro 0–2, Pique 0–2 | +4 | 2 | 70 💵 | achado do Mercadão (Feira) |
+| 121 | Boné Vira-Lata | cabeça | comum | Pique 0–2 | +4 | 0 | 30 💵 | Mercearia do Aziz |
+| 122 | Balaclava de Pano | cabeça | incomum | Couro 1–3, Pique 0–1 | +4 | 1 | 65 💵 | Mercearia do Aziz |
+| 123 | Jaqueta de Bonde | corpo | comum | +8 PV | — | 0 | 50 💵 | Mercearia do Aziz |
+| 124 | Manto de Sintonia | corpo | raro | +18 PM | — | 2 | 140 💵 | Mercearia do Aziz |
+| 125 | Manopla de Prego | mãos | incomum | Porrada 2–4 | +4 | 1 | 90 💵 | Mercearia do Aziz |
+| 126 | Chinelo Reforçado | pés | comum | Pique 0–2, Couro 0–1 | +4 | 0 | 40 💵 | Mercearia do Aziz |
+| 127 | Corrente de Ouro Falso | amuleto | incomum | Porrada 1–3 | +4 | 1 | 60 💵 | Mercearia do Aziz |
+| 128 | Terço de Vó | amuleto | raro | Couro 1–3, Pique 0–2 | +4 | 2 | 95 💵 | Mercearia do Aziz |
+| 129 | Facão de Cabo Fita | arma | incomum | Porrada 2–4 | +4 | 1 | 90 💵 | Mercearia do Aziz |
+| 130 | Espeto de Grade | arma | raro | Porrada 2–5, Couro 0–2 | +6 | 2 | 155 💵 | Mercearia do Aziz |
+| 131 | Bastão de Sinaleiro | arma | incomum | Porrada 1–3, Pique 0–2 | +4 | 1 | 95 💵 | Mercearia do Aziz |
 | 139 | Facão do Carvão | arma | epico | Porrada 2–5, Couro 0–2 | +6 | 2 | — | **Carvão**, 1ª vitória |
 | 140 | Chinelo de Dedo | pés | comum | Pique 0–2 | +4 | 0 | 30 💵 | loja da Pista |
-| 141 | Relógio Parado | amuleto | comum | Pique 1–2 | +2 | 0 | 45 💵 | — (Feira, planejado) |
-| 142 | Tênis de Corrida | pés | incomum | Pique 1–3 | +4 | 1 | 65 💵 | — (Feira, planejado) |
-| 143 | Fita do Bonfim | amuleto | incomum | Pique 1–3 | +4 | 1 | 65 💵 | — (Feira, planejado) |
-| 144 | Pingente de Asa | amuleto | raro | Pique 2–4 | +4 | 2 | — | — (Feira, planejado) |
+| 141 | Relógio Parado | amuleto | comum | Pique 1–2 | +2 | 0 | 45 💵 | Camelô (Feira) |
+| 142 | Tênis de Corrida | pés | incomum | Pique 1–3 | +4 | 1 | 65 💵 | Mercearia do Aziz |
+| 143 | Fita do Bonfim | amuleto | incomum | Pique 1–3 | +4 | 1 | 65 💵 | Mercearia do Aziz |
+| 144 | Pingente de Asa | amuleto | raro | Pique 2–4 | +4 | 2 | — | **Mão do Turco**, 1ª vitória (Feira) |
 
-121–131 e 141–144 já estão no catálogo (dados prontos), mas **só entram no jogo
-com as lojas/prêmios da Feira**.
+Desde a v3.65.0 todo o catálogo 101–131 e 140–144 tem fonte no jogo (loja ou
+prêmio de 1ª vitória).
 
 ### 9.5 Épicos — drop de chefe (faixa 132+)
 
 Um por chefe, sempre 2 slots de carta, nunca à venda, faixa larga (mais degraus
-de aprimoramento). **O Facão do Carvão (139) existe desde a v3.64.0** — o Carvão
-dá na 1ª vitória (`recompensa.equipPrimeiraVez` no chefe da Pista). Os outros
+de aprimoramento). **O Facão do Carvão (139) existe desde a v3.64.0** e o
+**Porrete do Cobrador (138) desde a v3.65.0** — cada chefe dá o seu na 1ª
+vitória (`recompensa.equipPrimeiraVez` no chefe da cena). Os outros
 entram junto com o chefe de cada bairro (bônus propostos em
 `PLANO_ITENS_RANGE.md` §4.4):
 
@@ -1323,7 +1381,7 @@ entram junto com o chefe de cada bairro (bônus propostos em
 | 135 | Bengala do Contador | amuleto | Porrada 2–5, Couro 2–5 | chefe do Alto do Morro (1505) |
 | 136 | Espeto do Fura-Bucho | arma | Porrada 3–7, Pique 2–4 | chefe da Baixada (1502) |
 | 137 | Taco da Ferrugem | arma | Porrada 2–6, Couro 3–5 | chefe da Vila (1503) |
-| 138 | Porrete do Cobrador | arma | Porrada 3–7, Pique 1–3, Couro 0–2 | chefe da Feira (1501) |
+| 138 | **Porrete do Cobrador** | arma | **Porrada 3–7, Pique 1–3, Couro 0–2** — **no jogo** | chefe da Feira (1501) |
 | 139 | **Facão do Carvão** | arma | **Porrada 2–5, Couro 0–2** — **no jogo** | chefe da Pista (1500) |
 
 ### 9.6 Loja
@@ -1955,16 +2013,12 @@ estilo Medabots/ATB do Chrono Trigger; substitui a iniciativa Malícia+d3):
 - **IA inimiga**: ataca depois de um delay fixo. Escolha de alvo evita
   repetir o último quando dá — ~55% mira em quem tem menos PV entre os
   vivos, ~45% escolhe aleatório (`pickEnemyTarget` em `useGanguesTurnMachine.js`).
-- **⚠️ Achado nesta auditoria: o bônus de caminho está DESLIGADO no código
-  hoje.** Os 3 docs antigos (e a UI do log de combate, que ainda mostra
-  "bônus de ataque: ativado/não ativou") descrevem Atacante +1 ataque
-  ~50%, Defensor +1 defesa ~50%, Místico +1 garantido — mas
-  `resolveAttackerBonus`/`resolveDefenderBonus` em `ganguesCombatResolver.js`
-  **ignoram os parâmetros e sempre retornam `applied: false, amount: 0`**,
-  hoje só stub. Não foi corrigido nesta auditoria (o pedido era consolidar
-  documentação, não mexer em mecânica) — fica registrado aqui como bug real
-  a decidir: religar o bônus, ou tirar de vez o texto/UI que promete ele.
-  **Continua assim em 27/09/2026 (v3.63.0).**
+- **Bônus de caminho — removido (v3.65.0).** Os docs antigos descreviam
+  Atacante +1 ataque ~50%, Defensor +1 defesa ~50%, Místico +1 garantido, mas
+  o código já não aplicava nada havia meses (`resolveAttackerBonus`/
+  `resolveDefenderBonus` sempre `applied: false`) e o log ainda mostrava
+  "bônus: não ativou". Na limpeza da Feira o stub, o dado de moeda, a linha do
+  log e os textos saíram de vez. Se um dia voltar, é mecânica nova.
 
 ### 17.2.1 Como o jogador age, e os modos de combate
 

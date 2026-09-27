@@ -11,18 +11,43 @@
    `poi.itens` da loja).
 
    `tipo` decide o efeito em combate (ver handleUsarItem em
-   GanguesCombat.jsx). Loja e combate leem a lista inteira dinamicamente.
+   GanguesCombat.jsx). Loja e combate leem a lista inteira dinamicamente:
+   • cura_pv / cura_pm — `valor` de PV/PM num aliado (+ `status` opcional).
+   • buff — `status` (lista) num aliado: efeito temporário.
+   • debuff_inimigos — `status` (lista) em TODOS os inimigos vivos.
+   • material — item de quest/aprimoramento, sem efeito em combate.
+   • poder_unico — chip de poder emprestado por 1 golpe.
+   STATUS (27/09/2026, consumíveis da Feira): { attr: 'A'|'D'|'H', valor, acoes }
+   — soma `valor` no atributo e dura `acoes` AÇÕES de quem carrega (cada ação
+   dele gasta 1). Aplicado em combatente.statuses; o resolver soma A/D e a
+   linha do tempo soma H (ver ganguesCombatResolver.js / ganguesLinhaDoTempo.js).
+   Preço dos consumíveis da Feira ≈ 2,8 de grana por ponto de efeito (a
+   mesma régua da poção: 5 PV por 14) — PLANO_ITENS_RANGE.md §5.
    ══════════════════════════════════════════════════════════════ */
 const i18nNome = id => `games.gangues.itens.${id}`
 
 const CATALOGO = [
   { id: 1, slug: 'pocao_hp', custo: 14, tipo: 'cura_pv', valor: 5, icone: '🩹' },
   { id: 2, slug: 'pocao_mp', custo: 14, tipo: 'cura_pm', valor: 5, icone: '💧' },
+  // ── Consumíveis da Feira (vendidos no Camelô) ──
+  { id: 3, slug: 'cigarro_palha', custo: 7, tipo: 'cura_pm', valor: 3, status: [{ attr: 'D', valor: -1, acoes: 1 }], icone: '🚬' },
+  { id: 4, slug: 'water_energetico', custo: 22, tipo: 'cura_pm', valor: 8, icone: '🥤' },
+  // Faixa de Pano: só drop (achados), não vende.
+  { id: 5, slug: 'faixa_pano', custo: 0, tipo: 'cura_pv', valor: 3, icone: '🧻' },
+  { id: 6, slug: 'pinga', custo: 18, tipo: 'buff', status: [{ attr: 'A', valor: 2, acoes: 2 }, { attr: 'D', valor: -1, acoes: 2 }], icone: '🍾' },
+  { id: 8, slug: 'bombinha_fumaca', custo: 25, tipo: 'debuff_inimigos', status: [{ attr: 'H', valor: -1, acoes: 1 }], icone: '💨' },
+  { id: 10, slug: 'farinha_guarana', custo: 20, tipo: 'cura_pv', valor: 7, icone: '🥣' },
+  { id: 11, slug: 'vela_benta', custo: 18, tipo: 'buff', status: [{ attr: 'D', valor: 2, acoes: 2 }], icone: '🕯️' },
+  { id: 12, slug: 'sacola_bala', custo: 6, tipo: 'cura_pv', valor: 2, icone: '🍬' },
   // `material` = item de quest/crafting, sem efeito em combate (a bolinha de
   // ação filtra por tipo — ver itensDisponiveis em GanguesCombat.jsx). A Sucata
-  // cai no ferro-velho (POI `ferro` + `achado` da Pista) e o Seu Nando troca
-  // por uma peça (POI `oficina`).
-  { id: 13, slug: 'sucata', custo: 0, tipo: 'material', valor: 0, icone: '🔩' },
+  // cai no ferro-velho (POI `ferro` + `achado` da Pista), em ~20% das vitórias
+  // de rua e o Camelô da Feira vende — é o material do aprimoramento.
+  { id: 13, slug: 'sucata', custo: 10, tipo: 'material', valor: 0, icone: '🔩' },
+  // Fetch quest do rádio do Toninho (Feira): 1 fio de cobre (do Quadro de
+  // Luz) + 3 válvulas (a balança, a muamba e uma comprada no Camelô).
+  { id: 14, slug: 'fio_cobre', custo: 0, tipo: 'material', valor: 0, icone: '🔌' },
+  { id: 15, slug: 'valvula', custo: 20, tipo: 'material', valor: 0, icone: '💡' },
   // `poder_unico` = chip de poder emprestado: usar em combate concede, por 1
   // golpe, um poder de nível baixo que o personagem talvez nem tenha
   // treinado (ver forcedSpecial em ganguesSpecialEffects.js). custo: 0 =
@@ -40,4 +65,25 @@ export function getGanguesItem(itemId) {
   const key = Number(itemId)
   if (!Number.isFinite(key)) return null
   return GANGUES_ITENS[key] || null
+}
+
+/** Tipos que dá pra usar no meio da luta (a bolinha de ação lista esses). */
+export const GANGUES_TIPOS_USO_COMBATE = new Set(['cura_pv', 'cura_pm', 'buff', 'debuff_inimigos', 'poder_unico'])
+/** Tipos que miram um ALIADO (cura/buff); os outros miram inimigo(s). */
+export const GANGUES_TIPOS_ALVO_ALIADO = new Set(['cura_pv', 'cura_pm', 'buff'])
+
+/** "+3 PM · −1 Couro (1 ação)" — o que o consumível faz, nos 3 idiomas. */
+export function textoEfeitoItem(t, item) {
+  if (!item) return ''
+  const partes = []
+  if (item.tipo === 'cura_pv') partes.push(`+${item.valor} PV`)
+  if (item.tipo === 'cura_pm') partes.push(`+${item.valor} PM`)
+  for (const st of item.status || []) {
+    const sinal = st.valor > 0 ? '+' : '−'
+    const quem = item.tipo === 'debuff_inimigos' ? `${t('games.gangues.itens_efeito.inimigos')}: ` : ''
+    partes.push(`${quem}${sinal}${Math.abs(st.valor)} ${t(`games.gangues.attr_labels.${st.attr}`)} (${t('games.gangues.itens_efeito.acoes', { n: st.acoes })})`)
+  }
+  if (item.tipo === 'material') partes.push(t('games.gangues.itens_efeito.material'))
+  if (item.tipo === 'poder_unico') partes.push(t('games.gangues.itens_efeito.poder'))
+  return partes.join(' · ')
 }

@@ -84,9 +84,10 @@ export function apPorInimigo(pontosInimigo, pontosMaisForte, tamanhoTime = 1) {
   return Math.max(GANGUES_AP_PISO_MINIMO, GANGUES_AP_POR_INIMIGO_BASE - niveisAbaixoDaTolerancia * time)
 }
 
-export function calcularApTotal({ victory, enemyCount, cenaChefe, torre, torreAndar, inimigosAttrs, pontosMaisForte, tamanhoTime = 1 }) {
+export function calcularApTotal({ victory, enemyCount, cenaChefe, torre, torreAndar, inimigosAttrs, pontosMaisForte, tamanhoTime = 1, territorioId = 'pista' }) {
   if (!victory) return 1
   const multiplicadorChefe = cenaChefe ? 5 : 1
+  const multiplicadorTerritorio = torre ? 1 : recompensaDoTerritorio(territorioId).apMult
   const multiplicadorTorre = torre ? 1 + Math.floor(torreAndar / 5) : 1
   // Sem os atributos dos inimigos (chamada antiga/defensiva) cai pro flat de
   // sempre — nunca deveria acontecer no fluxo real (useGanguesVictoryResolution
@@ -94,7 +95,7 @@ export function calcularApTotal({ victory, enemyCount, cenaChefe, torre, torreAn
   const base = Array.isArray(inimigosAttrs) && inimigosAttrs.length
     ? inimigosAttrs.reduce((soma, attrs) => soma + apPorInimigo(pontosDeAtributos(attrs), pontosMaisForte ?? 0, tamanhoTime), 0)
     : GANGUES_AP_POR_INIMIGO_BASE * Math.max(1, enemyCount)
-  return Math.round(base * multiplicadorChefe * multiplicadorTorre)
+  return Math.round(base * multiplicadorChefe * multiplicadorTorre * multiplicadorTerritorio)
 }
 
 /** Quem participou, quem caiu, e o peso de cada um pra dividir o AP.
@@ -147,12 +148,24 @@ export function calcularPesosEParticipantes({ victory, report, match }) {
 // mínimo garantido de qualquer vitória (mesmo contra 1 inimigo só), mas cada
 // inimigo A MAIS no bando soma só 5, não mais 10. "Vamos testar com 5,
 // qualquer coisa a gente diminui mais" — ajustar só GANGUES_GRANA_POR_EXTRA.
-const GANGUES_GRANA_POR_INIMIGO = 10
+//
+// POR TERRITÓRIO (v3.65.0, PLANO_FEIRA.md §5): a Feira paga um garantido
+// maior (15) e o chefe de lá garante 800, porque os preços da Feira e o
+// aprimoramento sobem; o +5 por inimigo a mais é igual em todo lugar. O AP da
+// Feira sai ×1,5 — sem isso, subir do nível do Carvão (~24) ao do Cobrador
+// (~46) custava ~2,6× o grind da Pista inteira.
 const GANGUES_GRANA_POR_EXTRA = 5
-const GANGUES_GRANA_CHEFE_MINIMO = 500
-export function calcularGranaTotal({ enemyCount = 1, ehChefe = false }) {
-  const base = GANGUES_GRANA_POR_INIMIGO + GANGUES_GRANA_POR_EXTRA * (Math.max(1, enemyCount) - 1)
-  return ehChefe ? Math.max(GANGUES_GRANA_CHEFE_MINIMO, base) : base
+const GANGUES_RECOMPENSA_TERRITORIO = {
+  pista: { granaBase: 10, chefeMinimo: 500, apMult: 1 },
+  feira: { granaBase: 15, chefeMinimo: 800, apMult: 1.5 },
+}
+function recompensaDoTerritorio(territorioId) {
+  return GANGUES_RECOMPENSA_TERRITORIO[territorioId] || GANGUES_RECOMPENSA_TERRITORIO.pista
+}
+export function calcularGranaTotal({ enemyCount = 1, ehChefe = false, territorioId = 'pista' }) {
+  const r = recompensaDoTerritorio(territorioId)
+  const base = r.granaBase + GANGUES_GRANA_POR_EXTRA * (Math.max(1, enemyCount) - 1)
+  return ehChefe ? Math.max(r.chefeMinimo, base) : base
 }
 
 /** Recompensa de rep/item da vitória, conforme o contexto (encontro aleatório
@@ -160,18 +173,24 @@ export function calcularGranaTotal({ enemyCount = 1, ehChefe = false }) {
  *  números pra quem chamar aplicar. Grana não é mais autorada por POI, ver
  *  `calcularGranaTotal`. */
 export function calcularRecompensaCena({ emCena, storyAlvo, enemyCount = 1, ehChefe = false }) {
+  const rec = emCena ? (storyAlvo.cenaRecompensa || null) : null
   let rep = 0
   const itens = []
   if (emCena) {
     if (storyAlvo.repDelta) rep += storyAlvo.repDelta
-    const rec = storyAlvo.cenaRecompensa
     if (rec) {
       if (rec.rep) rep += rec.rep
       if (rec.item) itens.push({ id: rec.item, qtd: rec.qtd || 1 })
     }
   }
-  // Peça de equipamento que só sai na 1ª vitória daquele ponto (quem chama
-  // decide se é a 1ª — aqui é cálculo puro, não lê o progresso).
-  const equipPrimeiraVez = emCena ? (storyAlvo.cenaRecompensa?.equipPrimeiraVez || null) : null
-  return { grana: calcularGranaTotal({ enemyCount, ehChefe }), rep, itens, equipPrimeiraVez }
+  // Só na 1ª vitória daquele ponto (quem chama decide se é a 1ª — aqui é
+  // cálculo puro, não lê o progresso): uma peça ou um item de quest.
+  // `granaMult` (o Caixa Forte dobra a grana) e `pagaFavor` (favor da Regina).
+  const grana = calcularGranaTotal({ enemyCount, ehChefe, territorioId: storyAlvo?.territorioId }) * (rec?.granaMult || 1)
+  return {
+    grana, rep, itens,
+    equipPrimeiraVez: rec?.equipPrimeiraVez || null,
+    itemPrimeiraVez: rec?.itemPrimeiraVez || null,
+    pagaFavor: Boolean(rec?.pagaFavor),
+  }
 }

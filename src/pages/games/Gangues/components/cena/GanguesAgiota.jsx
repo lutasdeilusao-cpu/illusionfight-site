@@ -85,8 +85,8 @@ export default function GanguesAgiota({ poi, onClose, onClube }) {
   if (clube) {
     return (
       <GanguesDialogoEncontro
-        retrato={retrato} nome={t('games.gangues.clube.nome')} sub={t('games.gangues.cena.clube_oferta_tag')}
-        falas={[t(divida > 0 ? 'games.gangues.cena.clube_oferta_divida' : 'games.gangues.cena.clube_oferta_limpo')]}
+        retrato={retrato} nome={t('games.gangues.clube.nome')} sub={t('games.gangues.cena.clube_oferta_tag', { agiota: nome })}
+        falas={[t(divida > 0 ? 'games.gangues.cena.clube_oferta_divida' : 'games.gangues.cena.clube_oferta_limpo', { agiota: nome })]}
         escolhas={[
           { id: 'recusar', label: t('games.gangues.cena.clube_recusar'), onClick: () => setVerClube(false) },
           { id: 'aceitar', label: t('games.gangues.cena.clube_aceitar'), variante: 'go', onClick: () => onClube(custo) },
@@ -95,7 +95,7 @@ export default function GanguesAgiota({ poi, onClose, onClube }) {
       >
         {divida > 0 && (
           <div className="gang-cena-fiado-caderneta">
-            <p className="gang-cena-fiado-linha">{t('games.gangues.cena.fiado_devendo', { divida })}</p>
+            <p className="gang-cena-fiado-linha">{t('games.gangues.cena.fiado_devendo', { divida, agiota: nome })}</p>
           </div>
         )}
         <GanguesClubeTutorial />
@@ -106,7 +106,7 @@ export default function GanguesAgiota({ poi, onClose, onClube }) {
   return (
     <GanguesAgiotagem
       retrato={retrato} nome={nome} fecharLabel={fecharLabel} onClose={onClose}
-      custoBase={custo} onClube={onClube} comAnimacao={comAnimacao}
+      custoBase={custo} valorEmprestimo={poi.emprestimo} onClube={onClube} comAnimacao={comAnimacao}
     >
       {({ agio, pedirEmprestimo, pedirCuraFiada, pedirSocorro }) => {
         // ── Tela de CONTRATO do empréstimo — a novidade pedida. Só chama
@@ -136,11 +136,11 @@ export default function GanguesAgiota({ poi, onClose, onClube }) {
 
         const falaInicial = t(`${poi.i18n}.fala`)
         const falas = res?.motivo === 'ja_deve'
-          ? [t('games.gangues.cena.emprestimo_ja_deve')]
+          ? [t('games.gangues.cena.emprestimo_ja_deve', { agiota: nome })]
           : res?.motivo === 'sem_emprestimo'
-            ? [t('games.gangues.cena.fiado_sem_emprestimo')]
+            ? [t('games.gangues.cena.fiado_sem_emprestimo', { agiota: nome })]
             : res?.motivo === 'teto'
-              ? [t('games.gangues.cena.fiado_teto')]
+              ? [t('games.gangues.cena.fiado_teto', { agiota: nome })]
               : res?.motivo === 'grana'
                 ? [t('games.gangues.cena.descanso_sem_grana')]
                 : (Array.isArray(falaInicial) ? falaInicial : [falaInicial])
@@ -153,14 +153,14 @@ export default function GanguesAgiota({ poi, onClose, onClube }) {
 
         const escolhas = []
         if (divida > 0 && !pgto?.ok && aPagar > 0) {
-          escolhas.push({ id: 'pagar', label: t('games.gangues.cena.fiado_pagar', { grana: aPagar }), onClick: pagar })
+          escolhas.push({ id: 'pagar', label: t('games.gangues.cena.fiado_pagar', { grana: aPagar, agiota: nome }), onClick: pagar })
         }
         if (agio.podeEmprestimo) {
           escolhas.push({ id: 'emprestimo', label: t(`${poi.i18n}.botao_ver_contrato`), variante: 'go', onClick: () => { sfx.select?.(); setVerContrato(true) } })
         } else if (agio.podeFiarCura) {
           escolhas.push({ id: 'fiar', label: t('games.gangues.cena.fiado_pedir', { divida: agio.proximaDivida }), variante: 'go', onClick: onFiarClick })
         } else if (agio.noTeto) {
-          escolhas.push({ id: 'socorro', label: t('games.gangues.cena.nato_socorro'), variante: 'go', onClick: onSocorroClick })
+          escolhas.push({ id: 'socorro', label: t('games.gangues.cena.agiota_socorro', { agiota: nome }), variante: 'go', onClick: onSocorroClick })
         }
         escolhas.push({ id: 'fechar', label: fecharLabel, onClick: onClose })
         if (Boolean(onClube)) {
@@ -175,10 +175,10 @@ export default function GanguesAgiota({ poi, onClose, onClube }) {
                   <p className="gang-cena-fiado-linha">
                     {t(pgto.restante > 0
                       ? 'games.gangues.cena.fiado_pago_parcial'
-                      : 'games.gangues.cena.fiado_pago_total', { pago: pgto.pago, restante: pgto.restante })}
+                      : 'games.gangues.cena.fiado_pago_total', { pago: pgto.pago, restante: pgto.restante, agiota: nome })}
                   </p>
                 ) : (
-                  <p className="gang-cena-fiado-linha">{t('games.gangues.cena.fiado_devendo', { divida })}</p>
+                  <p className="gang-cena-fiado-linha">{t('games.gangues.cena.fiado_devendo', { divida, agiota: nome })}</p>
                 )}
               </div>
             )}

@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { sfx } from '../../../../../lib/sfx'
 import { GANGUES_STORY_BATTLE_PARTY_MAX, getGanguesResources } from '../../data/ganguesLoadout.js'
 import { getGanguesAttributesWithEquip, applyGanguesEquipResources, getGanguesEquip } from '../../data/ganguesEquip.js'
-import { GANGUES_ITENS_LISTA } from '../../data/ganguesItens.js'
+import { GANGUES_ITENS_LISTA, textoEfeitoItem } from '../../data/ganguesItens.js'
 
 // Bolsa da gangue — o que o bando tem de item (consumível + equipamento
 // guardado). É a MESMA fonte que a loja abastece e que o combate lê pra usar
@@ -57,7 +57,7 @@ export default function GanguesCenaBagSheet({ store, t, onClose }) {
       <small className="gang-bag-sec">{t('games.gangues.bag.consumiveis')}</small>
       <div className="gang-bag-lista">{consumiveis.map(it => (
         <div key={it.id} className="gang-bag-row">
-          <span>{it.icone}</span><strong>{t(it.nome)}</strong>
+          <span>{it.icone}</span><strong>{t(it.nome)}<small className="gang-bag-efeito">{textoEfeitoItem(t, it)}</small></strong>
           {podeUsar(it) && time.length > 0 && <button className="gang-bag-usar" onClick={() => setUsando(u => u?.id === it.id ? null : it)}>{t('games.gangues.bag.usar')}</button>}
           <b>×{it.qtd}</b>
         </div>

@@ -8,10 +8,10 @@
 > (§3), Sucata caindo em 20% das vitórias de rua (§3), acessório de Pique 140
 > na loja da Pista (§4.2), catálogo 121–131 e 141–144 (dados, sem fonte ainda),
 > Facão do Carvão 139 (§4.4) e as fontes da §6 que cabem na Pista (103, 110,
-> 117, 119). **Fica pra Feira:** a Serralheria (+4), as lojas/prêmios que
-> vendem 121–131/141–144 e os raros 106/111/114/120, os consumíveis 3–12 (§5 —
-> precisam de efeitos novos de combate e do Camelô), a grana por território e
-> os épicos 132–138 (junto com cada chefe). A documentação oficial agora é o
+> 117, 119). **Entrou na Feira (v3.65.0):** a Serralheria (+4), as lojas/
+> prêmios de 121–131/141–144 e dos raros 106/111/114/120, os consumíveis 3–12
+> (menos o Apito 7 e o Trocado Marcado 9 — precisam de mecânica nova), a grana
+> por território e o épico 138. Os épicos 132–137 entram com cada chefe. A documentação oficial agora é o
 > GDD §9.4–9.6; o texto abaixo é o estudo original.
 >
 > Escrito em

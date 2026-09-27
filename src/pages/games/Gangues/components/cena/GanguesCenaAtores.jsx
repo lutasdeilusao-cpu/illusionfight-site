@@ -45,7 +45,7 @@ function farolDe(p) {
   // pedido do Isaias, 20/09/2026 ("tem que ficar verde, óbvio, pro cara
   // saber que tem uma missão ali") — exceção deliberada ao farol normal
   // (aqui verde não é "já feito", é "tem novidade"), só pra quem tem
-  // `ofertaFlagId` (ver ganguesCenaMotor.js/pois.js).
+  // `oferta` (ver ganguesCenaMotor.js/pois.js).
   if (p.ofertaPendente) return 'is-feito'
   if (p.estado === 'resolvido' || p.farmCompleto) return 'is-feito'
   if (p.estado !== 'disponivel') return ''
@@ -243,18 +243,19 @@ export function PinoAlvo({ p, t, active, onColidir }) {
   </div>
 }
 
-const LABEL_TIPO = { papo: 'FALAR', treta: 'ENCARAR', parada: 'INVESTIGAR', corre: 'SEGUIR', descanso: 'DESCANSAR', loja: 'COMPRAR', achado: 'PEGAR', agiota: 'AGIOTA', ferreiro: 'APRIMORAR' }
+// Verbo do botão de ação por tipo de POI (texto no i18n, cena.acao.<tipo>).
+const TIPOS_COM_VERBO = new Set(['papo', 'treta', 'parada', 'corre', 'descanso', 'loja', 'achado', 'agiota', 'ferreiro'])
 export function interactionLabel(p, t) {
   if (p.ehChefe) return t('games.gangues.cena.acao.desafiar')
   if (p.ehPorta) return t('games.gangues.cena.acao.entrar')
   if (p.ehSaida) return t('games.gangues.cena.acao.sair')
   if (p.ehVolta) return t('games.gangues.cena.acao.voltar')
   if (p.ehPassagem) return t(`games.gangues.cena.acao.${p.label || 'avancar'}`)
-  return LABEL_TIPO[p.tipo] || 'INTERAGIR'
+  return t(`games.gangues.cena.acao.${TIPOS_COM_VERBO.has(p.tipo) ? p.tipo : 'interagir'}`)
 }
 
 // Joystick + botão de ação contextual (mobile).
-export function WorldControls({ onInput, onInteract, action }) {
+export function WorldControls({ onInput, onInteract, action, rotulo }) {
   const base = useRef(null), active = useRef(null)
   const update = useCallback((x, y) => {
     const r = base.current?.getBoundingClientRect(); if (!r) return
@@ -271,6 +272,6 @@ export function WorldControls({ onInput, onInteract, action }) {
   }, [onInput])
   return <div className="gang-world-controls">
     <div ref={base} className="gang-world-stick" onPointerDown={e => { active.current = e.pointerId; e.currentTarget.setPointerCapture(e.pointerId); update(e.clientX, e.clientY) }} onPointerMove={e => { if (active.current === e.pointerId) update(e.clientX, e.clientY) }} onPointerUp={stop} onPointerCancel={stop}><i /></div>
-    <button disabled={!action} onClick={onInteract}><b>{action || '...'}</b><span>INTERAGIR</span></button>
+    <button disabled={!action} onClick={onInteract}><b>{action || '...'}</b><span>{rotulo}</span></button>
   </div>
 }

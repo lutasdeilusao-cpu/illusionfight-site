@@ -40,20 +40,17 @@
 .gang-cena-viewport { position:relative; flex:1 1 auto; min-height:0; overflow:hidden; touch-action:none; background:#081015; }
 .gang-cena-world { position:absolute; left:0; top:0; transform-origin:0 0; will-change:transform; transition:transform .11s ease-out; overflow:hidden; background-color:#10181b; background-image:linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),radial-gradient(circle at 70% 30%,#17241f 0,transparent 30%); background-size:36px 36px,36px 36px,100% 100%; }
 .gang-road { position:absolute; background:#171b1d; box-shadow:inset 0 0 0 3px #22292c,0 0 20px #030608; }
-.road-main { left:305px; top:0; width:150px; height:2840px; }
+/* Posição/tamanho de cada rua vem do dado da cena (cena.ruas, inline) —
+   aqui só a cara de cada tipo. */
 .road-main:after { content:''; position:absolute; left:50%; height:100%; border-left:2px dashed rgba(223,194,91,.2); }
-.road-cross { left:0; width:760px; height:112px; }
 .road-cross:after { content:''; position:absolute; top:50%; width:100%; border-top:2px dashed rgba(223,194,91,.17); }
-.road-cross.r1{top:2510px}.road-cross.r2{top:2190px}.road-cross.r3{top:1690px}
-/* travessas pós-muro (a rua longa até o galpão) */
-.road-cross.r4{top:1040px}.road-cross.r5{top:560px}
-.road-branch { width:260px; height:82px; top:1935px; transform-origin:right center; }
-.road-branch.left { left:80px; transform:rotate(-24deg); }.road-branch.right { right:80px; transform:rotate(24deg); }
+.road-branch-left { transform-origin:right center; transform:rotate(-24deg); }
+.road-branch-right { transform-origin:right center; transform:rotate(24deg); }
 /* A abertura do portão tem que casar exatamente com a estrada (.road-main:
    left:305px, width:150px → x:305-455), senão o jogador nunca alcança o
    vão andando pela rua — ficava atrás de um prédio sólido que não tem
    caminho até ele. */
-.gang-world-gate { position:absolute; z-index:8; left:0; top:1330px; width:760px; height:18px; border-block:3px solid #4f575a; background:linear-gradient(90deg,#0a0e10 0 305px,transparent 305px 455px,#0a0e10 455px),repeating-linear-gradient(90deg,#15191b 0 12px,#717a7c 13px 17px); box-shadow:0 0 20px var(--gang-preto); transition:.7s; }.gang-world-gate:after{content:'';position:absolute;left:305px;width:150px;height:18px;border:3px solid #6d777a;background:repeating-linear-gradient(90deg,#15191b 0 12px,#717a7c 13px 17px);transition:.7s}.gang-world-gate.is-open:after { transform:translateX(165px); border-color:var(--terr-cor); box-shadow:0 0 22px color-mix(in srgb,var(--terr-cor) 35%,transparent); }
+.gang-world-gate { position:absolute; z-index:8; left:0; width:760px; height:18px; border-block:3px solid #4f575a; background:linear-gradient(90deg,#0a0e10 0 305px,transparent 305px 455px,#0a0e10 455px),repeating-linear-gradient(90deg,#15191b 0 12px,#717a7c 13px 17px); box-shadow:0 0 20px var(--gang-preto); transition:.7s; }.gang-world-gate:after{content:'';position:absolute;left:305px;width:150px;height:18px;border:3px solid #6d777a;background:repeating-linear-gradient(90deg,#15191b 0 12px,#717a7c 13px 17px);transition:.7s}.gang-world-gate.is-open:after { transform:translateX(165px); border-color:var(--terr-cor); box-shadow:0 0 22px color-mix(in srgb,var(--terr-cor) 35%,transparent); }
 .gang-world-lamp { position:absolute; width:10px;height:10px;border-radius:50%;background:#ffd680;box-shadow:0 0 26px 12px rgba(255,205,100,.12); }
 .gang-world-npc { position:absolute; z-index:12; transform:translate(-50%,-50%); display:grid; justify-items:center; width:80px; pointer-events:none; }.gang-world-npc>span { display:grid;place-items:center;width:34px;height:42px;border:2px solid color-mix(in srgb, var(--terr-cor, var(--gang-pista)) 70%, var(--gang-gelo-100));border-radius:45% 45% 30% 30%;background:color-mix(in srgb, var(--terr-cor, var(--gang-pista)) 38%, var(--gang-verde-900));color:var(--gang-branco);box-shadow:0 8px 15px var(--gang-preto);animation:gang-person-breathe 1.8s ease-in-out infinite; }.gang-world-npc small { margin-top:5px; padding:2px 5px; color:var(--gang-branco);background:rgba(0,0,0,.82);font:800 .51rem var(--font-mono);text-align:center; }.gang-world-npc.is-resolvido:not(.is-feito){opacity:.3}.gang-world-npc.is-trancado{opacity:0}.gang-world-npc.is-boss>span{background:#671f27;border-color:var(--gang-vermelho-300);box-shadow:0 0 24px rgba(255,70,70,.5)}
 /* Retrato de verdade (cabeça, pixel art) no lugar do ícone genérico —
@@ -183,6 +180,9 @@
 .gang-world-perseguidor.is-azul{--perseg:#3d8bff}
 .gang-world-perseguidor.is-vermelha{--perseg:var(--if-danger)}
 .gang-world-perseguidor.is-roxa{--perseg:var(--if-violet)}
+/* Feira: laranja = o Rapa (fiscal), cinza = o Apagão (Os Gato no breu) */
+.gang-world-perseguidor.is-laranja{--perseg:var(--gang-brasa-600)}
+.gang-world-perseguidor.is-cinza{--perseg:var(--gang-cinza-600)}
 .gang-world-perseguidor>span{position:relative;display:block;width:34px;height:34px;border-radius:50%;background:radial-gradient(circle at 35% 30%,var(--gang-branco),var(--perseg) 45%,color-mix(in srgb,var(--perseg) 55%,var(--gang-preto)));border:2px solid var(--gang-branco);box-shadow:0 0 18px var(--perseg),0 6px 12px var(--gang-preto)}
 .gang-world-perseguidor>span::after{content:'';position:absolute;inset:-8px;border-radius:50%;border:2px solid var(--perseg);opacity:.8;animation:gang-perseg-anel 1s ease-out infinite}
 @keyframes gang-perseg-anel{from{transform:scale(.7);opacity:.9}to{transform:scale(1.5);opacity:0}}
@@ -202,6 +202,11 @@
 /* Sirene da polícia (encontro aleatório tipo 'policia', 27/09/2026): enquanto
    a viatura persegue, a tela pisca vermelho/azul pelas bordas. */
 .gang-cena-sirene { position:absolute; inset:0; z-index:21; pointer-events:none; animation:gang-sirene .9s steps(1) infinite; }
+/* O APAGÃO da Feira (lado de cá da barricada, até o Cobrador cair): tudo
+   escuro menos um círculo de luz em volta do jogador (--px/--py = posição
+   dele na tela, calculada em GanguesCena.jsx). */
+.gang-cena-apagao { position:absolute; inset:0; z-index:19; pointer-events:none;
+  background:radial-gradient(circle 150px at var(--px) var(--py),transparent 0,rgba(0,0,0,.35) 55%,rgba(2,4,6,.93) 100%); }
 @keyframes gang-sirene {
   0% { box-shadow:inset 0 0 70px 14px rgba(255,20,40,.55); background:linear-gradient(90deg, rgba(255,20,40,.16), transparent 45%); }
   50% { box-shadow:inset 0 0 70px 14px rgba(30,90,255,.6); background:linear-gradient(270deg, rgba(30,90,255,.18), transparent 45%); }

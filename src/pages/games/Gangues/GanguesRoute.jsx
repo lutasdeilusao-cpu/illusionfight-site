@@ -231,7 +231,9 @@ export default function GanguesRoute() {
     if (alvo.clube) {
       // Clube da Luta — gauntlet de 3 rondas, bando fixo (não escala com o
       // jogador). A ronda vem do storyTarget (1 → 2 → 3).
-      enemyTeam = gerarBandoClube({ enemiesData, ronda: Number(alvo.clubeRonda) || 3 })
+      // As rondas escalam com o território de onde o jogador veio (o Clube
+      // da Feira é mais pesado que o da Pista — ver GANGUES_CLUBE_RONDAS).
+      enemyTeam = gerarBandoClube({ enemiesData, ronda: Number(alvo.clubeRonda) || 3, territorioId: alvo.voltar?.territorioId })
       if (!enemyTeam?.length) { setFase('territorio'); return }
     } else if (alvo.isChefe) {
       // Bando do chefe = orçamento de pontos FIXO por território (não escala com
@@ -264,6 +266,14 @@ export default function GanguesRoute() {
       enemyTeam = gerarBandoInimigo({ territorioId: alvo.territorioId, pontosFixo: ajustarPontosFixo(alvo.pontosFixos, modo), playerTeam: party, enemiesData, liderFixo: alvo.liderFixo, moldesPool: alvo.moldesPool, qtdMin: alvo.qtdMin, qtdMax: alvo.qtdMax })
       if (!enemyTeam?.length) { setFase('story'); return }
       if (suavizarFn) enemyTeam = suavizarFn(enemyTeam)
+    }
+    // Ajuste na ficha do LÍDER desta luta (vem da cena — ver iniciarTreta em
+    // GanguesCena.jsx): o ponto fraco do chefe (Feira: −2 Couro com as 3
+    // páginas da caderneta) ou o inimigo mais forte contra devedor (+1 Pique).
+    if (alvo.ajusteInimigo && enemyTeam[0]?.stats) {
+      const stats = { ...enemyTeam[0].stats }
+      for (const [k, v] of Object.entries(alvo.ajusteInimigo)) stats[k] = Math.max(0, (Number(stats[k]) || 0) + v)
+      enemyTeam = [{ ...enemyTeam[0], stats }, ...enemyTeam.slice(1)]
     }
     if (primeiraLuta && !alvo.clube && !alvo.isChefe) store.marcarPrimeiraLutaFeita()
     store.startMatch(enemyTeam[0], enemyTeam, party)

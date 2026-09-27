@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
+import { textoEfeitoItem } from '../data/ganguesItens.js'
 import './GanguesActionOrb.css'
 
 const POS_KEY = 'ldi-gangues-orb-pos'
@@ -115,10 +116,15 @@ export default function GanguesActionOrb({ t, atorNome, disabled, equippedSpecia
                 <button
                   key={item.id} type="button" disabled={disabled}
                   className="gang-orb-item-btn"
-                  onClick={() => { setItemEscolhido(item); setTab('item-alvo') }}
+                  // Bombinha (debuff em TODOS os inimigos) não escolhe alvo —
+                  // usa direto. Cura/buff escolhem o aliado na próxima tela.
+                  onClick={() => {
+                    if (item.tipo === 'debuff_inimigos') { onUsarItem(item.id, null); fechar(); return }
+                    setItemEscolhido(item); setTab('item-alvo')
+                  }}
                 >
                   {item.icone} {t(item.nome)}
-                  <small>{t('games.gangues.orb.item_qtd', { n: item.quantidade })}</small>
+                  <small>{t('games.gangues.orb.item_qtd', { n: item.quantidade })} · {textoEfeitoItem(t, item)}</small>
                 </button>
               ))}
               {itens.length === 0 && <p className="gang-orb-vazio">{t('games.gangues.orb.item_vazio')}</p>}
@@ -137,7 +143,8 @@ export default function GanguesActionOrb({ t, atorNome, disabled, equippedSpecia
                 // "já tá cheio", senão o item fica impossível de usar
                 // sempre que a tropa toda está com PV/PM cheios (o caso mais
                 // comum, logo no início da luta).
-                const cheio = itemEscolhido.tipo === 'poder_unico' ? false : itemEscolhido.tipo === 'cura_pm' ? a.pm >= a.pmMax : a.pv >= a.pvMax
+                // Buff (Pinga, Vela Benta) também nunca trava por "cheio" — não cura.
+                const cheio = itemEscolhido.tipo === 'poder_unico' || itemEscolhido.tipo === 'buff' ? false : itemEscolhido.tipo === 'cura_pm' ? a.pm >= a.pmMax : a.pv >= a.pvMax
                 return (
                   <button
                     key={a.key} type="button" disabled={disabled || a.dead || cheio}

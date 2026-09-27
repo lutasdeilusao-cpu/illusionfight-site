@@ -23,10 +23,13 @@ export default function GanguesPapo({ poi, onResolve, onClose }) {
   const nome = t(`${base}.nome`)
   const retrato = getGanguesNpcPortrait(poi.npcSlug)
   const sub = t(`${base}.sub`)
+  // O Turco (Feira) SABE quem deve ao agiota — fala própria pra devedor.
+  const devendo = useGanguesStore(s => (s.storyProgress.__birosca?.divida || 0) > 0)
+  const chaveFala = poi.falaDevedor && devendo ? 'fala_devedor' : 'fala'
   const falas = useMemo(() => {
-    const raw = t(`${base}.fala`)
+    const raw = t(`${base}.${chaveFala}`)
     return Array.isArray(raw) ? raw : [raw]
-  }, [t, base])
+  }, [t, base, chaveFala])
 
   const passa = (escolha) => {
     if (escolha.viraTreta) { onResolve({ viraTreta: escolha.viraTreta, revela: escolha.revela }); return }

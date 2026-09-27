@@ -15,7 +15,7 @@ import { fighterName } from '../engine/ganguesCombatPresentation.js'
 import { getGanguesPortraitByTemplateId } from '../data/ganguesPortraits.js'
 import { precarregarAnimacaoCombate } from '../data/ganguesCombatAnimations.js'
 import { getEquippedActiveGanguesSpecials } from '../engine/ganguesSpecialEffects.js'
-import { GANGUES_ITENS_LISTA, getGanguesItem } from '../data/ganguesItens.js'
+import { GANGUES_ITENS_LISTA, GANGUES_TIPOS_USO_COMBATE, getGanguesItem } from '../data/ganguesItens.js'
 import GanguesCombatTutorial from '../components/GanguesCombatTutorial'
 import GanguesKoTutorial from '../components/GanguesKoTutorial'
 import GanguesCombatRoster from '../components/GanguesCombatRoster'
@@ -229,7 +229,7 @@ export default function GanguesCombat({ onNavigate, onSairConfirmado }) {
   // Itens disponíveis (quantidade > 0) — a bolinha só mostra o que a gangue
   // realmente tem, lido direto do inventário compartilhado (store.inventario).
   const itensDisponiveis = GANGUES_ITENS_LISTA
-    .filter(item => item.tipo === 'cura_pv' || item.tipo === 'cura_pm' || item.tipo === 'poder_unico')
+    .filter(item => GANGUES_TIPOS_USO_COMBATE.has(item.tipo))
     .map(item => ({ ...item, quantidade: store.inventario[item.id] || 0 }))
     .filter(item => item.quantidade > 0)
 
@@ -259,7 +259,11 @@ export default function GanguesCombat({ onNavigate, onSairConfirmado }) {
     }
     if (!store.usarItem(itemId)) return
     sfx.reward?.()
-    const delta = item.tipo === 'cura_pv' ? { pv: item.valor } : item.tipo === 'cura_pm' ? { pm: item.valor } : {}
+    // Cura (PV/PM) + efeitos temporários (status) — ver ganguesItens.js.
+    const delta = {
+      ...(item.tipo === 'cura_pv' ? { pv: item.valor } : item.tipo === 'cura_pm' ? { pm: item.valor } : {}),
+      ...(item.tipo === 'debuff_inimigos' ? { statusInimigos: item.status } : { status: item.status || [] }),
+    }
     machine.useItemAction(selectedActor, alvo, itemId, delta)
   }
 

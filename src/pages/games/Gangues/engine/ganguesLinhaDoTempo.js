@@ -33,6 +33,12 @@ export const TL_TETO = 3
 export const TL_BASE_FRAC = 0.1
 
 const ATRIBUTOS = ['A', 'H', 'D', 'PV', 'PM']
+// Pique que vale na pista: o atributo + status temporário de Pique (ex.: a
+// Bombinha de Fumaça tira 1 de todo inimigo por uma ação). Nunca abaixo de 0.
+function piqueEfetivo(c) {
+  const st = (c?.statuses || []).reduce((s, x) => s + (x.attr === 'H' ? Number(x.valor) || 0 : 0), 0)
+  return Math.max(0, (Number(c?.attributes?.H) || 0) + st)
+}
 export function pontosDaFicha(c) {
   return ATRIBUTOS.reduce((s, k) => s + (Number(c?.attributes?.[k]) || 0), 0)
 }
@@ -47,7 +53,7 @@ export function baseDaLuta(combatants) {
 /** Velocidade de cada combatente VIVO, já com o teto de 3× o mais lento vivo. */
 export function velocidades(combatants, base) {
   const vivos = combatants.filter(c => c.pv > 0)
-  const bruta = new Map(vivos.map(c => [c.key, (Number(c.attributes?.H) || 0) + base]))
+  const bruta = new Map(vivos.map(c => [c.key, piqueEfetivo(c) + base]))
   const lenta = Math.min(...bruta.values())
   const out = new Map()
   for (const [k, v] of bruta) out.set(k, Math.min(v, lenta * TL_TETO))
@@ -97,7 +103,7 @@ export function marcarAgiu(combatants, key) {
 export function ordemDeVelocidade(combatants, tempo) {
   const vel = velocidades(combatants, tempo.base)
   return combatants
-    .map(c => ({ key: c.key, side: c.side, ability: Number(c.attributes?.H) || 0, base: tempo.base, total: Math.round(vel.get(c.key) || 0) }))
+    .map(c => ({ key: c.key, side: c.side, ability: piqueEfetivo(c), base: tempo.base, total: Math.round(vel.get(c.key) || 0) }))
     .sort((a, b) => b.total - a.total)
 }
 

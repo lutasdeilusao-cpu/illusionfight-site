@@ -1,11 +1,10 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import { resolveGanguesAction } from '../engine/ganguesCombatResolver.js'
+import { resolveGanguesAction, gastarAcaoStatus } from '../engine/ganguesCombatResolver.js'
 import { iniciarLinhaDoTempo, proximaVez, consumirVez, marcarAgiu, ordemDeVelocidade } from '../engine/ganguesLinhaDoTempo.js'
 import { getGanguesResources, normalizeGanguesLoadout } from '../data/ganguesLoadout.js'
 import { getGanguesAttributesWithEquip, applyGanguesEquipResources, getGanguesEquipDados, rolarFaixa } from '../data/ganguesEquip.js'
 
 const d3 = () => Math.floor(Math.random() * 3) + 1
-const coin = () => Math.random() < 0.5
 
 // IA de alvo: evita bater sempre no mesmo alvo quando há outro vivo — alterna entre focar
 // quem está com menos PV (foco) e escolher alguém aleatório entre os outros vivos.
@@ -56,7 +55,7 @@ export function prepare(combatant, side, index) {
   return { ...normalized, key: `${side}-${index}-${combatant.id}`, side, statuses: [], pv: pvInicial, pm: pmInicial, pvMax: resources.pvMax, pmMax: resources.pmMax, actedThisRound: false, specialState: { charge: 0, shield: 0, totalPvLost: 0 }, equipDados, equipPique, atributosFicha }
 }
 
-export default function useGanguesTurnMachine({ playerTeam = [], enemyTeam = [], onFinish, attackRoll = d3, defenseRoll = d3, bonusRoll = coin, targetRoll = Math.random, enemyDelay = 2200, pausado = false }) {
+export default function useGanguesTurnMachine({ playerTeam = [], enemyTeam = [], onFinish, attackRoll = d3, defenseRoll = d3, targetRoll = Math.random, enemyDelay = 2200, pausado = false }) {
   const initial = useMemo(() => [...playerTeam.map((member, index) => prepare(member, 'player', index)), ...enemyTeam.map((member, index) => prepare(member, 'enemy', index))], [])
   // Linha do tempo (Pique, 26/09/2026 — ver engine/ganguesLinhaDoTempo.js):
   // quem age é quem chega primeiro no centro da pista, não mais uma ordem
@@ -101,7 +100,7 @@ export default function useGanguesTurnMachine({ playerTeam = [], enemyTeam = [],
     if (!actor || !target || pending) return false
     const result = resolveGanguesAction({
       attacker: actor, defender: target, action: { type: 'attack', mode: 'attack' },
-      rolls: { fa: attackRoll(), fd: defenseRoll(), attackerBonus: bonusRoll(), defenderBonus: bonusRoll() },
+      rolls: { fa: attackRoll(), fd: defenseRoll() },
       activeSpecialId, forcedSpecial,
     })
     // `id` único por ação: com a linha do tempo o MESMO lutador pode agir 2x
@@ -109,7 +108,7 @@ export default function useGanguesTurnMachine({ playerTeam = [], enemyTeam = [],
     acaoSeq.current += 1
     setPending({ id: acaoSeq.current, actorKey: actor.key, targetKey: target.key, side: actor.side, result })
     return true
-  }, [attackRoll, defenseRoll, bonusRoll, pending])
+  }, [attackRoll, defenseRoll, pending])
 
   const playerAction = useCallback((actorKey, targetKey, activeSpecialId = null, forcedSpecial = null) => {
     if (phase !== 'player' || currentActor?.key !== actorKey) return false
@@ -176,19 +175,27 @@ export default function useGanguesTurnMachine({ playerTeam = [], enemyTeam = [],
 
   // Usar item: aplica a cura num ALIADO (o próprio ator OU outro personagem da
   // gangue — dá pra o tanque ficar curando o atacante). Consome o turno do
-  // ATOR igual um ataque. `delta` é { pv?, pm? }, sempre positivo (cura).
+  // ATOR igual um ataque. `delta` é { pv?, pm?, status?, statusInimigos? }:
+  // cura sempre positiva; `status` = efeitos temporários no aliado (Pinga,
+  // Vela Benta, Cigarro); `statusInimigos` = em todo inimigo vivo (Bombinha).
+  // O ator gasta 1 ação dos status que JÁ carregava ANTES de receber os novos
+  // (senão uma Pinga tomada em si mesmo já nascia com uma ação a menos).
   const useItemAction = useCallback((actorKey, targetKey, itemId, delta) => {
     if (phase !== 'player' || currentActor?.key !== actorKey) return false
     const alvoKey = targetKey || actorKey
+    // quanto de PV+PM entrou de verdade (o número verde que flutua na cura)
     const alvoAntes = combatants.find(item => item.key === alvoKey)
     const curado = alvoAntes
       ? Math.max(0, Math.min(alvoAntes.pvMax, alvoAntes.pv + (delta.pv || 0)) - alvoAntes.pv) + Math.max(0, Math.min(alvoAntes.pmMax, alvoAntes.pm + (delta.pm || 0)) - alvoAntes.pm)
       : 0
     const next = combatants.map(item => {
+      let statuses = item.key === actorKey ? gastarAcaoStatus(item.statuses) : (item.statuses || [])
+      if (item.key === alvoKey && delta.status?.length) statuses = [...statuses, ...delta.status]
+      if (item.side === 'enemy' && item.pv > 0 && delta.statusInimigos?.length) statuses = [...statuses, ...delta.statusInimigos]
       const cura = item.key === alvoKey
         ? { pv: Math.min(item.pvMax, item.pv + (delta.pv || 0)), pm: Math.min(item.pmMax, item.pm + (delta.pm || 0)) }
         : {}
-      return { ...item, ...cura }
+      return { ...item, ...cura, statuses }
     })
     record({ type: 'item', side: 'player', actorKey, targetKey: alvoKey, itemId, delta, curado, round })
     advanceTurn(next, actorKey)
