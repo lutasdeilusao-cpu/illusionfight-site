@@ -46,7 +46,7 @@ function ReportMemberRow({ member, retrato, nome, gangName, t }) {
 // (PLANO_REFATORACAO_ARQUIVOS_GRANDES_GANGUES_2026-09-11.md §2).
 export default function GanguesVictoryReport({
   t, store, report, victory, torre, cenaChefe, noModoHistoria, storyAlvo,
-  podeRecrutar, recrutar, levelUps, clearLevelUps, rewardSummary, onNavigate,
+  podeRecrutar, recrutar, levelUps, clearLevelUps, rewardSummary, socorro, onNavigate,
 }) {
   // Modal bloqueante do marco de reputação (a cada 50, ver
   // GANGUES_REP_MARCO_INTERVALO) — fecha só no clique, nunca sozinho.
@@ -135,6 +135,21 @@ export default function GanguesVictoryReport({
         )}
       </motion.header>
 
+      {/* Derrota na cena — sem game over: a tropa foi arrastada pra birosca e
+          a recuperação já foi cobrada (ver socorroDerrota). Mostra o preço. */}
+      {!victory && socorro && (
+        <section className="gang-reward-panel gang-socorro-panel">
+          <span className="gang-reward-panel__kicker">{t('games.gangues.report.socorro_titulo')}</span>
+          <p className="gang-socorro-panel__texto">{t(`games.gangues.report.socorro_${socorro.tipo}`, socorro)}</p>
+          {socorro.divida > 0 && (
+            <p className="gang-socorro-panel__divida">
+              {t('games.gangues.report.socorro_divida', socorro)}
+              <small>{t('games.gangues.report.socorro_clube')}</small>
+            </p>
+          )}
+        </section>
+      )}
+
       {/* Recompensa de verdade ganha nesta luta — logo abaixo do resultado,
           antes de qualquer outra coisa, com pop-in escalonado por item. */}
       {victory && rewardSummary && (
@@ -200,7 +215,7 @@ export default function GanguesVictoryReport({
           <>
             {podeRecrutar && <button className="gang-report-primary" onClick={recrutar}>{t('games.gangues.report.recrutar')}</button>}
             <button className={podeRecrutar ? 'gang-report-secondary' : 'gang-report-primary'} onClick={() => { store.setStoryTarget({ territorioId: storyAlvo.territorioId }); onNavigate('territorio') }}>
-              {victory ? t('games.gangues.story.continuar_territorio') : t('games.gangues.story.tentar_de_novo')}
+              {victory ? t('games.gangues.story.continuar_territorio') : socorro ? t('games.gangues.story.ir_birosca') : t('games.gangues.story.tentar_de_novo')}
             </button>
           </>
         ) : (

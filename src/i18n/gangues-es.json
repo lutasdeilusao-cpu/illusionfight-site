@@ -27,6 +27,12 @@
       "vitoria": "SOMOS BANDA",
       "vitoria_sub": "Le entraste a las trompadas a <strong>{name}</strong> y demostraste que tenés aguante.",
       "report": {
+        "socorro_titulo": "Los arrastraron al bar",
+        "socorro_pagou": "La banda cayó y despertó en el bar. Remendar a todos costó {custo} de plata — ya salió del bolsillo.",
+        "socorro_emprestimo": "Sin plata para la recuperación, el usurero adelantó {emprestimo} solito. Los {custo} del bar salieron de ahí y te quedaron {grana}.",
+        "socorro_fiado": "Sin plata y ya debiendo, el usurero pagó los {custo} de la recuperación — a 10× el valor. La deuda subió {acrescimo}.",
+        "socorro_divida": "Deuda con el usurero: {divida}",
+        "socorro_clube": "Solo el Club de la Pelea limpia ese nombre.",
         "enemy_thinking": "EL GIL ESTÁ TRAMANDO ALGO",
         "enemy_strategy": "Mirando ese último golpe y armando la próxima jugada...",
         "initiative": "ORDEN DE LA PISTA",
@@ -3866,6 +3872,7 @@
         "agora_nao": "Ahora no",
         "continuar_territorio": "Seguir en el barrio",
         "tentar_de_novo": "Volver arriba",
+        "ir_birosca": "Despertar en el bar",
         "dificuldades": {
           "rato": "Rata de calle",
           "muvuca": "Amontonado",

@@ -190,3 +190,31 @@
 .gang-reward-ap-item--ko { border-color: rgba(224, 72, 76, 0.4); opacity: 0.72; }
 .gang-reward-ap-item--ko .gang-reward-ap-item__val { color: #e0484c; }
 .gang-reward-ap-item--ko .gang-reward-ap-item__label { color: #e0848a; }
+
+/* Derrota na cena: a tropa foi arrastada pra birosca e a conta já veio. */
+.gang-socorro-panel {
+  background: radial-gradient(circle at 50% 0, color-mix(in srgb, var(--if-danger) 12%, transparent), transparent 55%), var(--if-panel-flat);
+  text-align: center;
+}
+.gang-socorro-panel__texto {
+  margin: 0;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+.gang-socorro-panel__divida {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 0;
+  color: var(--if-danger);
+  font: 800 0.8rem var(--font-mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.gang-socorro-panel__divida small {
+  color: var(--text-secondary);
+  font: 600 0.7rem var(--font-mono);
+  letter-spacing: 0.04em;
+  text-transform: none;
+}

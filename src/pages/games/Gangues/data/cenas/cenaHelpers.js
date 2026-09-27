@@ -42,3 +42,40 @@ export function contarCena(cena, resolvidos = {}, bossFeito = false) {
   const feitos = obrig.filter(id => resolvidos[id]).length + (bossFeito ? 1 : 0)
   return { feitos, total }
 }
+
+// Linha do muro que divide a cena da Pista (mesma faixa y1330-1350 que
+// hitsSolid bloqueia, engine/ganguesCenaMotor.js). Serve só pra decidir de
+// que lado do muro o jogador estava quando a tropa caiu.
+const MURO_Y = 1340
+
+/** Pra qual birosca a tropa é arrastada depois de uma derrota (não existe
+ *  game over — pedido do Isaias, 27/09/2026). Olha todo interior que tem um
+ *  POI de descanso lá dentro, fica só com os que o jogador consegue alcançar
+ *  (prédio pós-muro só depois do túnel/muro abrir) e escolhe o mais perto de
+ *  onde ele estava — preferindo o mesmo lado do muro. Devolve a posição de
+ *  cena pronta pra salvar: DENTRO do cômodo, logo abaixo do pino de descanso. */
+export function destinoSocorroDerrota(cena, prog = {}) {
+  if (!cena?.interiores) return null
+  const laDeCima = portaoAberto(cena, prog.resolvidos || {}) || Boolean(prog.boss)
+  const predioPorId = id => (cena.predios || []).find(pr => pr.id === id)
+  // Onde o jogador estava na RUA (dentro de um interior = a porta dele).
+  const pos = prog.posicao || cena.mundo?.spawn || { x: 0, y: 0 }
+  const predioLocal = pos.local ? predioPorId(cena.interiores[pos.local.id]?.porta?.predio) : null
+  const rua = predioLocal ? { x: predioLocal.porta?.zx ?? predioLocal.x, y: predioLocal.porta?.zy ?? predioLocal.y } : pos
+  const candidatos = []
+  for (const [interId, inter] of Object.entries(cena.interiores)) {
+    const pr = predioPorId(inter.porta?.predio)
+    if (!pr || (pr.pos_portao && !laDeCima)) continue
+    inter.comodos?.forEach((com, comodo) => {
+      const pino = com.pois?.find(pd => cena.pois.find(p => p.id === pd.ref)?.tipo === 'descanso')
+      if (!pino) return
+      const porta = { x: pr.porta?.zx ?? pr.x, y: pr.porta?.zy ?? pr.y }
+      const outroLado = (porta.y < MURO_Y) !== (rua.y < MURO_Y)
+      const dist = Math.hypot(porta.x - rua.x, porta.y - rua.y) + (outroLado ? 100000 : 0)
+      const alvo = { x: pino.pos.x, y: Math.min(pino.pos.y + 44, com.world.h - 40) }
+      candidatos.push({ dist, poiId: pino.ref, posicao: { ...alvo, local: { id: interId, comodo } } })
+    })
+  }
+  candidatos.sort((a, b) => a.dist - b.dist)
+  return candidatos[0] || null
+}

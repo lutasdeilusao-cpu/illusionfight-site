@@ -138,6 +138,42 @@ export default function createGanguesBiroscaSlice(set, get) {
       return { ok: true, divida, detalhe: detalhe.filter(d => d.pv > 0 || d.pm > 0) }
     },
 
+    // ── Socorro da derrota — NÃO existe game over (pedido do Isaias,
+    // 27/09/2026). A tropa caiu inteira numa luta da cena: é arrastada pra
+    // birosca (a posição é resolvida em destinoSocorroDerrota, cenaHelpers.js)
+    // e a recuperação completa (o descanso que revive, custoBase × 3 = 30) é
+    // cobrada NA HORA, sem perguntar:
+    //  • tem os 30 → paga do bolso.
+    //  • não tem e nunca pegou empréstimo → pega o empréstimo do agiota
+    //    sozinho (100 na mão, dívida 1000), paga os 30 e fica com o troco.
+    //  • não tem e JÁ deve → pega só os 30 emprestados, só que a 10× o
+    //    valor: +300 na dívida. Sem teto — a dívida vai escalando, e o único
+    //    jeito realista de zerar é o Clube da Luta (resolverClubeDaLuta).
+    socorroDerrota: (custoBase = 10) => {
+      const custo = Math.max(1, Math.round(custoBase)) * 3
+      const dividaAntes = get()._birosca().divida || 0
+      let tipo = 'pagou'
+      let emprestimo = 0
+      let divida = dividaAntes
+      if (get().grana < custo) {
+        if (dividaAntes <= 0) {
+          tipo = 'emprestimo'
+          emprestimo = GANGUES_EMPRESTIMO_NATO_VALOR
+          divida = GANGUES_EMPRESTIMO_NATO_VALOR * GANGUES_EMPRESTIMO_NATO_MULT
+        } else {
+          tipo = 'fiado'
+          emprestimo = custo
+          divida = dividaAntes + custo * GANGUES_EMPRESTIMO_NATO_MULT
+        }
+        set(state => ({ storyProgress: { ...state.storyProgress, __birosca: { divida } } }))
+        get().ganharGrana(emprestimo)
+      }
+      get().gastarGrana(custo)
+      get().restaurarPvPmTodos()
+      get()._persistStory()
+      return { tipo, custo, emprestimo, divida, acrescimo: divida - dividaAntes, grana: get().grana }
+    },
+
     // Pagar a dívida (parcial ou total). Abate de `grana` o que der.
     pagarBirosca: (quanto) => {
       const rec = get()._birosca()

@@ -7,7 +7,7 @@ import useGanguesTurnMachine from '../hooks/useGanguesTurnMachine'
 import useGanguesCombatFx from '../hooks/useGanguesCombatFx.js'
 import useGanguesModoAuto from '../hooks/useGanguesModoAuto.js'
 import useGanguesModoAutoMultidao from '../hooks/useGanguesModoAutoMultidao.js'
-import useGanguesVelocidadeAuto from '../hooks/useGanguesVelocidadeAuto.js'
+import useGanguesVelocidadeAuto, { useGanguesAutoLembrado } from '../hooks/useGanguesVelocidadeAuto.js'
 import useGanguesModoMultidao from '../hooks/useGanguesModoMultidao.js'
 import useGanguesBattleOutcome from '../hooks/useGanguesBattleOutcome.js'
 import useGanguesCombatLog from '../hooks/useGanguesCombatLog.js'
@@ -115,8 +115,10 @@ export default function GanguesCombat({ onNavigate, onSairConfirmado }) {
   // em 1x: acelerar é benefício do automático, que vai ser de assinante.
   // Os dois estados de "auto ligado" moram aqui (não nos hooks) porque o motor
   // e a Multidão precisam da velocidade já na construção.
-  const [modoAutoOn, setModoAutoOn] = useState(false)
-  const [modoAutoMultidaoOn, setModoAutoMultidaoOn] = useState(false)
+  // Lembrados entre lutas: quem terminou no automático já começa a próxima
+  // com ele ligado (ver useGanguesAutoLembrado).
+  const [modoAutoOn, setModoAutoOn] = useGanguesAutoLembrado('ldi-gangues-auto')
+  const [modoAutoMultidaoOn, setModoAutoMultidaoOn] = useGanguesAutoLembrado('ldi-gangues-auto-multidao')
   const { velocidade, ciclarVelocidade } = useGanguesVelocidadeAuto()
   const velocidadeEfetiva = ((modoAutoOn && !modoMultidaoAtivoPreMachine) || (modoAutoMultidaoOn && modoMultidaoAtivoPreMachine)) ? velocidade : 1
 

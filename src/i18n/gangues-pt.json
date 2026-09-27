@@ -27,6 +27,12 @@
       "vitoria": "NÓIS É CRIA",
       "vitoria_sub": "Você meteu a mão em <strong>{name}</strong> e mostrou que aqui é osso.",
       "report": {
+        "socorro_titulo": "Arrastaram vocês pra birosca",
+        "socorro_pagou": "A tropa caiu e acordou na birosca. Remendar geral custou {custo} de grana — já saiu do bolso.",
+        "socorro_emprestimo": "Sem grana pra recuperação, o agiota adiantou {emprestimo} sozinho. Os {custo} da birosca já saíram daí e sobrou {grana} na mão.",
+        "socorro_fiado": "Sem grana e já devendo, o agiota bancou os {custo} da recuperação — a 10× o valor. A dívida subiu {acrescimo}.",
+        "socorro_divida": "Dívida com o agiota: {divida}",
+        "socorro_clube": "Só o Clube da Luta limpa esse nome.",
         "enemy_thinking": "O SOBRINHO TÁ TRAMANDO",
         "enemy_strategy": "Vendo o último golpe e bolando a próxima jogada...",
         "initiative": "ORDEM DA PISTA",
@@ -763,6 +769,7 @@
         "agora_nao": "Agora não",
         "continuar_territorio": "Segue na quebrada",
         "tentar_de_novo": "Voltar pra cima",
+        "ir_birosca": "Acordar na birosca",
         "dificuldades": {
           "rato": "Rato de rua",
           "muvuca": "Muvuca",

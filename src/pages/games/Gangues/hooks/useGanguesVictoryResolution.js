@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from 'react'
 import { registrarPontuacaoArenaRanking } from '../../../../hooks/useLeaderboardDB'
 import { sfx } from '../../../../lib/sfx'
 import { calcularApTotal, calcularPesosEParticipantes, calcularRecompensaCena } from '../engine/ganguesVictoryResolver.js'
+import { CENAS_POR_ID, destinoSocorroDerrota } from '../data/cenas/cenaHelpers.js'
 
 export default function useGanguesVictoryResolution({ store, user, report, victory, storyAlvo, match, torre, torreAndar, clube, emCena, noModoHistoria, cenaChefe, confrontoFinal, onNavigate }) {
   const processed = useRef(false)
@@ -14,6 +15,8 @@ export default function useGanguesVictoryResolution({ store, user, report, victo
   // o jogador nunca via o que realmente ganhou, só via os números mudarem
   // sozinhos em outra tela.
   const [rewardSummary, setRewardSummary] = useState(null)
+  // Derrota na cena: o que custou ser arrastado pra birosca (ver socorroDerrota).
+  const [socorro, setSocorro] = useState(null)
 
   useEffect(() => {
     if (processed.current) return
@@ -126,7 +129,19 @@ export default function useGanguesVictoryResolution({ store, user, report, victo
       // itens já foram concedidos de verdade no inventário dentro de ganharRep.
       setRewardSummary({ apLista, grana: granaGanha, rep: repGanha, repMarco: repMarcos[repMarcos.length - 1] || null })
       sfx.win()
-    } else sfx.lose()
+    } else {
+      sfx.lose()
+      // Sem game over (Isaias, 27/09/2026): tropa caída numa luta da cena é
+      // arrastada pra birosca mais perto, já DENTRO, recuperada — e a
+      // recuperação é cobrada na hora (grana, empréstimo ou dívida a 10×).
+      const cena = emCena ? CENAS_POR_ID[storyAlvo.cenaId] : null
+      const destino = cena ? destinoSocorroDerrota(cena, store.cenaProgresso[cena.id]) : null
+      if (destino) {
+        const custoBase = cena.pois.find(p => p.id === destino.poiId)?.custoGrana || 10
+        setSocorro(store.socorroDerrota(custoBase))
+        store.salvarPosicaoCena(cena.id, destino.posicao)
+      }
+    }
 
     // Encontro aleatório (perseguidor da cena, 26/09/2026): vitória OU derrota,
     // ele some do mapa e o próximo fica agendado (finalizarEncontroAleatorio).
@@ -137,5 +152,5 @@ export default function useGanguesVictoryResolution({ store, user, report, victo
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  return { levelUps, rewardSummary, clearLevelUps: () => setLevelUps([]) }
+  return { levelUps, rewardSummary, socorro, clearLevelUps: () => setLevelUps([]) }
 }

@@ -27,6 +27,12 @@
       "vitoria": "THAT'S THE CREW",
       "vitoria_sub": "You threw hands with <strong>{name}</strong> and showed you've got grit.",
       "report": {
+        "socorro_titulo": "They dragged you to the bar",
+        "socorro_pagou": "The crew went down and woke up at the bar. Patching everyone up cost {custo} cash — already out of your pocket.",
+        "socorro_emprestimo": "No cash for the patch-up, so the loan shark fronted {emprestimo} on his own. The bar's {custo} came out of it and you kept {grana}.",
+        "socorro_fiado": "Broke and already in debt, the loan shark covered the {custo} patch-up — at 10× the price. Your debt went up {acrescimo}.",
+        "socorro_divida": "Debt with the loan shark: {divida}",
+        "socorro_clube": "Only the Fight Club clears that name.",
         "enemy_thinking": "THE MARK'S PLOTTING",
         "enemy_strategy": "Sizing up that last hit and cooking up the next move...",
         "initiative": "TRACK ORDER",
@@ -3866,6 +3872,7 @@
         "agora_nao": "Not now",
         "continuar_territorio": "Stay on the block",
         "tentar_de_novo": "Back up top",
+        "ir_birosca": "Wake up at the bar",
         "dificuldades": {
           "rato": "Street rat",
           "muvuca": "Packed",

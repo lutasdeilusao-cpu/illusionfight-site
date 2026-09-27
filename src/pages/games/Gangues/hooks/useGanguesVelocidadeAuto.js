@@ -21,3 +21,23 @@ export default function useGanguesVelocidadeAuto() {
   }, [])
   return { velocidade, ciclarVelocidade }
 }
+
+// Automático LEMBRADO entre lutas (pedido do Isaias, 27/09/2026): terminou
+// uma luta no automático → a próxima já começa com ele ligado, porradaria
+// direto. Só uma ação do PRÓPRIO jogador (ligar/desligar o switch, ou o
+// "sair do automático") muda o que fica gravado. Mesma lógica de
+// conveniência da velocidade acima: por navegador, não progresso de save.
+// `chave` separa o automático da luta normal do da Briga em Multidão.
+export function useGanguesAutoLembrado(chave) {
+  const [ligado, setLigadoState] = useState(() => {
+    try { return localStorage.getItem(chave) === '1' } catch { return false }
+  })
+  const setLigado = useCallback((valor) => {
+    setLigadoState(atual => {
+      const prox = typeof valor === 'function' ? valor(atual) : Boolean(valor)
+      try { localStorage.setItem(chave, prox ? '1' : '0') } catch { /* sem storage: vale só nesta luta */ }
+      return prox
+    })
+  }, [chave])
+  return [ligado, setLigado]
+}
