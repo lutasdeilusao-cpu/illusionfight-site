@@ -130,6 +130,19 @@ export function ehPersonagem(p) {
 // Sempre o mesmo pra cada personagem (hash do id), nunca sorteado a cada visita.
 // Metade fica no lugar (parado/inquieto), metade anda — "nem todos precisam andar".
 const MOVIMENTOS_TRETA = ['inquieto', 'patrulha-h', 'parado', 'ronda', 'inquieto', 'patrulha-v', 'parado', 'patrulha-h']
+// Quanto dura UMA volta do caminho de quem anda (ms), ou null pra quem fica
+// parado. É a mesma duração da animação de movimento (--gp-dur, abaixo) —
+// a briga automática usa pra soltar um adversário ignorado depois que ele
+// completou o caminho (hooks/useGanguesBrigaAutomatica.js).
+function duracaoMovimentoS(movimento, h) {
+  return movimento === 'ronda' ? 22 + (h % 7) : movimento === 'inquieto' ? 9 + (h % 5) : 14 + (h % 7)
+}
+export function cicloDoPinoMs(p) {
+  if (!ehPersonagem(p)) return null
+  const movimento = movimentoDoPino(p)
+  return movimento === 'parado' ? null : duracaoMovimentoS(movimento, hashEstavel(p.id)) * 1000
+}
+
 export function movimentoDoPino(p) {
   if (p.movimento) return p.movimento
   const h = hashEstavel(p.id)
@@ -151,6 +164,14 @@ export function movimentoDoPino(p) {
 // `ignorado`: a briga automática está ignorando esse oponente até ele
 // descolar (hooks/useGanguesBrigaAutomatica.js) — então ele NÃO pausa ao
 // encostar: atravessa o jogador e termina o caminho dele.
+// Colisor MENOR que o desenho (pedido do Isaias, 27/09/2026): o jogador só
+// enxerga os círculos, então "encostou" tem que ser os desenhos já
+// sobrepostos, nunca uma borda invisível em volta deles. Metade da soma dos
+// raios — antes era a soma inteira + 4px (~63px entre centros), maior que o
+// vaivém de quem patrulha (±45px): parado no meio do caminho, o personagem
+// nunca "descolava" de quem estava em cima dele.
+const COLISOR_FRACAO = 0.5
+
 export function PinoAlvo({ p, t, active, onColidir, ignorado }) {
   // useState/useRef/useEffect sempre no topo, antes de qualquer return
   // condicional (regra dos hooks) — falha de carregamento (rede ruim) cai
@@ -167,7 +188,7 @@ export function PinoAlvo({ p, t, active, onColidir, ignorado }) {
   // círculo do pino contra o círculo do marcador do jogador na TELA
   // (getBoundingClientRect, já considerando a posição visual da andadinha
   // em CSS, que o React/JS não sabe onde está exatamente) — só pausa
-  // quando as bordas realmente se tocam. Poll leve (150ms, não every
+  // quando os desenhos já se sobrepõem (COLISOR_FRACAO, acima). Poll leve (150ms, não every
   // frame) porque é só um efeito visual, não precisão de física.
   // AJUSTE (mesmo dia, print na sequência): "o botão de interação só ativa
   // na antiga área do quadradinho... tem que ativar no momento que eu
@@ -196,7 +217,7 @@ export function PinoAlvo({ p, t, active, onColidir, ignorado }) {
       const a = pinoEl.getBoundingClientRect()
       const b = playerEl.getBoundingClientRect()
       const dist = Math.hypot((a.left + a.width / 2) - (b.left + b.width / 2), (a.top + a.height / 2) - (b.top + b.height / 2))
-      const tocou = dist < a.width / 2 + b.width / 2 + 4
+      const tocou = dist < (a.width / 2 + b.width / 2) * COLISOR_FRACAO
       setColidindo(tocou)
       onColidir?.(p.id, tocou)
     }, 150)
@@ -227,7 +248,7 @@ export function PinoAlvo({ p, t, active, onColidir, ignorado }) {
   const movimento = personagem ? movimentoDoPino(p) : null
   const h = personagem ? hashEstavel(p.id) : 0
   const anda = movimento && movimento !== 'parado'
-  const dur = movimento === 'ronda' ? 22 + (h % 7) : movimento === 'inquieto' ? 9 + (h % 5) : 14 + (h % 7)
+  const dur = duracaoMovimentoS(movimento, h)
   const movStyle = personagem ? {
     '--gp-w': `${movimento === 'ronda' ? 50 + (h % 21) : 45 + (h % 41)}px`,
     '--gp-dur': `${dur}s`,

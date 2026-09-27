@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { useGanguesAutoLembrado } from './useGanguesVelocidadeAuto.js'
+import { cicloDoPinoMs } from '../components/cena/GanguesCenaAtores.jsx'
 
 /* ══════════════════════════════════════════════════════════════
    BRIGA AUTOMÁTICA na cena (pedido do Isaias, 27/09/2026)
@@ -26,6 +27,11 @@ import { useGanguesAutoLembrado } from './useGanguesVelocidadeAuto.js'
    adversário da última luta, e quem já estava encostado na hora de ligar o
    switch ficam IGNORADOS até a colisão com eles acabar. Separou → vale de
    novo: dá pra ficar parado esperando o bicho voltar a encostar.
+   Ou até quem anda COMPLETAR UMA VOLTA do caminho dele (v3.69.1 — Isaias,
+   parado no meio da patrulha: "ele completou o caminho mais de duas vezes...
+   o usuário está em cima dele esperando batalhar"): quem fica em cima do
+   caminho quer briga, então passou uma volta inteira desde que entrou na
+   lista, vale de novo mesmo sem nunca ter descolado.
    Enquanto ignorado, o personagem que ANDA não para ao encostar (a pausa
    normal existe pra deixar o jogador interagir) — atravessa, termina o
    caminho dele e, na próxima passada, encosta de novo e aí sim é briga.
@@ -38,7 +44,7 @@ import { useGanguesAutoLembrado } from './useGanguesVelocidadeAuto.js'
    ~1s). Cada item: `visto` = já vimos ele encostado depois de entrar na
    lista (o adversário da última luta pode levar um passo pra encostar de
    novo, porque o passeio dele reinicia quando a tela volta); `soltoDesde`
-   = desde quando está sem encostar.
+   = desde quando está sem encostar; `desde` = quando entrou na lista.
    ══════════════════════════════════════════════════════════════ */
 
 const GANGUES_BRIGA_AUTO_CHAVE = 'ldi-gangues-briga-auto'
@@ -63,7 +69,7 @@ const VIGIA_MS = 150
 
 export default function useGanguesBrigaAutomatica({ alvos, colidindo, rodando, ultimoPoiId, onBriga }) {
   const [ligado, setLigado] = useGanguesAutoLembrado(GANGUES_BRIGA_AUTO_CHAVE)
-  const ignorados = useRef(new Map(ultimoPoiId ? [[ultimoPoiId, { visto: false, soltoDesde: null }]] : []))
+  const ignorados = useRef(new Map(ultimoPoiId ? [[ultimoPoiId, { visto: false, soltoDesde: null, desde: Date.now() }]] : []))
   // Cópia em estado (só os ids) pra cena saber quem não deve pausar.
   const [ignoradosIds, setIgnoradosIds] = useState(() => new Set(ignorados.current.keys()))
   const publicar = useCallback(() => {
@@ -83,6 +89,8 @@ export default function useGanguesBrigaAutomatica({ alvos, colidindo, rodando, u
       const agora = Date.now()
       for (const [poiId, info] of ignorados.current) {
         const alvo = lista.find(a => a.id === poiId)
+        const ciclo = alvo && cicloDoPinoMs(alvo)
+        if (ciclo && agora - info.desde >= ciclo) { ignorados.current.delete(poiId); continue }
         if (alvo && colide(alvo)) { info.visto = true; info.soltoDesde = null; continue }
         if (!alvo) { if (lista.length) ignorados.current.delete(poiId); continue }
         if (!info.visto) continue
@@ -93,7 +101,7 @@ export default function useGanguesBrigaAutomatica({ alvos, colidindo, rodando, u
       if (!on || !ativo) return
       const alvo = lista.find(a => entraSozinho(a) && !ignorados.current.has(a.id) && colide(a))
       if (!alvo) return
-      ignorados.current.set(alvo.id, { visto: true, soltoDesde: null })
+      ignorados.current.set(alvo.id, { visto: true, soltoDesde: null, desde: agora })
       publicar()
       brigar(alvo, brigaDoAlvo(alvo))
     }, VIGIA_MS)
@@ -103,7 +111,7 @@ export default function useGanguesBrigaAutomatica({ alvos, colidindo, rodando, u
   const alternar = useCallback(() => {
     // Ligando: quem já está encostado agora não dispara de surpresa — só
     // depois de separar e encostar de novo.
-    if (!ligado) for (const a of alvos) if (entraSozinho(a) && colidindo(a)) ignorados.current.set(a.id, { visto: true, soltoDesde: null })
+    if (!ligado) for (const a of alvos) if (entraSozinho(a) && colidindo(a)) ignorados.current.set(a.id, { visto: true, soltoDesde: null, desde: Date.now() })
     publicar()
     setLigado(!ligado)
   }, [ligado, alvos, colidindo, setLigado, publicar])

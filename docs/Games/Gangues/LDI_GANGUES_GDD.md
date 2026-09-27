@@ -2098,6 +2098,15 @@ estilo Medabots/ATB do Chrono Trigger; substitui a iniciativa Malícia+d3):
   na próxima passada, encosta de novo e aí é briga. Quem é parado (não anda)
   só libera quando o jogador se afasta. Sem isso, a volta da luta (que te devolve colado
   no mesmo adversário) entraria em luta de novo na hora, pra sempre.
+  **Solta também por volta completa** (v3.69.1): quem anda sai da lista
+  de ignorados quando completa uma volta inteira do caminho desde que entrou
+  nela, mesmo sem nunca ter descolado — ficar parado em cima do caminho é
+  querer briga. **Colisor menor que o desenho** (v3.69.1, vale pra toda
+  colisão de personagem — pausa, interagir e briga automática): encostar =
+  os círculos já sobrepostos, metade da soma dos raios (`COLISOR_FRACAO`,
+  `GanguesCenaAtores.jsx`). Antes era a soma inteira + 4px (~63px entre
+  centros), maior que o vaivém de quem patrulha curto — parado no meio, o
+  personagem nunca descolava e nunca voltava a brigar.
   **Saída automática** (v3.69.0): com o switch ligado, as telas depois de
   uma luta da cena se clicam sozinhas — "NÓIS É CRIA"/"DEU RUIM" em 2s e o
   relatório ("Segue na quebrada" / "Acordar na birosca" / "tentar de novo")
