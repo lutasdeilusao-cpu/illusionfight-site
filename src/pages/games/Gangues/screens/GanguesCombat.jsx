@@ -61,12 +61,15 @@ export default function GanguesCombat({ onNavigate, onSairConfirmado }) {
   // sempre respeitar a altura de verdade do roster do jogador (que muda com o
   // tamanho do time e pode quebrar linha). Medido de verdade via
   // ResizeObserver, com fallback pro valor antigo enquanto não mediu ainda.
-  const playerRosterRef = useRef(null)
+  // 27/09/2026 (Isaias, print): a barra desceu pra logo ACIMA do roster
+  // inimigo (embaixo), liberando o topo pra pista do Pique — `autoSairTop` é
+  // a borda de cima do roster inimigo; o CSS sobe a barra pela própria altura.
+  const enemyRosterRef = useRef(null)
   const [autoSairTop, setAutoSairTop] = useState(null)
   useLayoutEffect(() => {
-    const el = playerRosterRef.current
+    const el = enemyRosterRef.current
     if (!el) return
-    const medir = () => setAutoSairTop(el.getBoundingClientRect().bottom + 10)
+    const medir = () => setAutoSairTop(el.getBoundingClientRect().top - 12)
     medir()
     const ro = new ResizeObserver(medir)
     ro.observe(el)
@@ -360,7 +363,6 @@ export default function GanguesCombat({ onNavigate, onSairConfirmado }) {
       />
 
       <GanguesCombatRoster
-        ref={playerRosterRef}
         members={players} side="player"
         selectable={!modoMultidaoAtivo && !perguntaMultidaoAtiva && machine.phase === 'player'}
         selectedKey={selectedActor} onSelect={modoMultidaoAtivo ? undefined : setSelectedActor}
@@ -371,6 +373,7 @@ export default function GanguesCombat({ onNavigate, onSairConfirmado }) {
       <GanguesCombatLogList log={log} t={t} ref={logEndRef} />
 
       <GanguesCombatRoster
+        ref={enemyRosterRef}
         members={enemies} side="enemy"
         selectable={!modoMultidaoAtivo && !perguntaMultidaoAtiva && machine.phase === 'player'}
         selectedKey={selectedTarget} onSelect={modoMultidaoAtivo ? undefined : setSelectedTarget}

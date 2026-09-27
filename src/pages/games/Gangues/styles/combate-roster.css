@@ -111,7 +111,7 @@
    NUNCA pode tampar o roster. Este `top: 128px` é só o fallback pro 1º frame,
    antes da medição chegar (cobre topbar + 1 linha de roster). */
 .gang-auto-barra {
-  position: fixed; z-index: 10000; top: 128px; left: 50%; transform: translateX(-50%);
+  position: fixed; z-index: 10000; top: calc(100% - 96px); left: 50%; transform: translate(-50%, -100%);
   display: flex; align-items: stretch; gap: 6px;
 }
 .gang-auto-vel {

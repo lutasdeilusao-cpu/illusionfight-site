@@ -1,6 +1,6 @@
 /* Pista da linha do tempo — ver GanguesPistaTempo.jsx.
    --p (0 a 1) = quanto o lutador já correu até o centro.
-   Cada raia tem 18px; a pista cresce com o número de raias (1 a 4). */
+   Cada raia tem 18px; a pista cresce com o número de raias (1 a 6). */
 .gang-pista {
   --raia: 18px;
   position: relative; display: grid; margin: 4px 12px 2px; flex-shrink: 0;
@@ -23,6 +23,8 @@
 .gang-pista__corredor--raia1 { top: var(--raia); }
 .gang-pista__corredor--raia2 { top: calc(var(--raia) * 2); }
 .gang-pista__corredor--raia3 { top: calc(var(--raia) * 3); }
+.gang-pista__corredor--raia4 { top: calc(var(--raia) * 4); }
+.gang-pista__corredor--raia5 { top: calc(var(--raia) * 5); }
 .gang-pista__corredor--player { left: calc(4% + var(--p) * 46%); background: var(--if-cyan); }
 .gang-pista__corredor--enemy { left: calc(96% - var(--p) * 46%); background: var(--if-danger); }
 .gang-pista__corredor.is-vez { box-shadow: 0 0 0 2px var(--if-amber), 0 0 10px var(--if-amber); z-index: 1; }

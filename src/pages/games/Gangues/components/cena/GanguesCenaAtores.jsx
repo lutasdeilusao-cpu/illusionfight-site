@@ -52,6 +52,20 @@ function farolDe(p) {
   return p.opcional ? 'is-opcional' : 'is-obrigatorio'
 }
 
+// Marca de chão (27/09/2026): pino de LUGAR (ferro-velho, corre...) mora em
+// cima do próprio prédio, onde o jogador não consegue pisar — a interação
+// acontece na calçada ao lado (a zona). Sem nada mostrando isso, o jogador
+// andava até o pino e nada acontecia (Isaias: "como a pessoa vai saber?").
+// Só aparece quando o pino está FORA da própria zona; personagem continua
+// sem quadradinho (pedido de 20/09/2026 — ali a colisão é o próprio boneco).
+export function ZonaChao({ p, active }) {
+  const z = p.zona, w = p.world
+  if (!z || !w || ehPersonagem(p) || p.estado !== 'disponivel') return null
+  if (w.x >= z.x && w.x <= z.x + z.w && w.y >= z.y && w.y <= z.y + z.h) return null
+  const farol = farolDe(p)
+  return <div className={`gang-cena-zona-chao ${farol}${active ? ' is-perto' : ''}`} style={{ left: z.x, top: z.y, width: z.w, height: z.h }} aria-hidden="true"><span>{ICONE[p.tipo] || '●'}</span></div>
+}
+
 const ICONE = { treta: '✊', parada: '🔧', papo: '●', corre: '!', achado: '◆', descanso: '☕', loja: '🏪', agiota: '💰' }
 
 // Hash estável (string -> inteiro não-negativo) — só pra escolher SEMPRE o

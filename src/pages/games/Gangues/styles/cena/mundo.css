@@ -188,3 +188,13 @@
 @keyframes gang-perseg-anel{from{transform:scale(.7);opacity:.9}to{transform:scale(1.5);opacity:0}}
 .gang-world-perseguidor small{margin-top:3px;padding:2px 5px;background:#02080bcc;color:var(--perseg);font:800 .5rem var(--font-mono);letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
 @media(prefers-reduced-motion:reduce){.gang-world-perseguidor{transition:none}.gang-world-perseguidor>span::after{animation:none}}
+
+/* Marca de chão: onde se interage com um pino que mora dentro do prédio (ver ZonaChao). */
+.gang-cena-zona-chao { position:absolute; z-index:4; pointer-events:none; border:2px dashed var(--gang-branco); background:rgba(255,255,255,.08); animation:gang-zona-chao 1.4s ease-in-out infinite; }
+.gang-cena-zona-chao.is-obrigatorio { border-color:var(--if-danger); background:rgba(255,0,85,.14); }
+.gang-cena-zona-chao.is-opcional { border-color:var(--if-amber); background:rgba(255,174,50,.14); }
+.gang-cena-zona-chao.is-feito { border-color:var(--gang-verde-feito); background:rgba(107,224,122,.12); }
+.gang-cena-zona-chao > span { position:absolute; inset:0; display:grid; place-items:center; font-size:1rem; opacity:.85; }
+.gang-cena-zona-chao.is-perto { border-style:solid; animation:none; }
+@keyframes gang-zona-chao { 50% { opacity:.45; } }
+@media (prefers-reduced-motion: reduce) { .gang-cena-zona-chao { animation:none; } }

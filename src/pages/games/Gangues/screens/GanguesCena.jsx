@@ -18,7 +18,7 @@ import CenaInterior from '../components/cena/CenaInterior'
 import GanguesCenaBagSheet from '../components/cena/GanguesCenaBagSheet'
 import GanguesCenaFichaCard from '../components/cena/GanguesCenaFichaCard'
 import GanguesRepRecompensaModal from '../components/GanguesRepRecompensaModal'
-import { GangMarker, PinoAlvo, WorldControls, interactionLabel, ehPersonagem } from '../components/cena/GanguesCenaAtores'
+import { GangMarker, PinoAlvo, ZonaChao, WorldControls, interactionLabel, ehPersonagem } from '../components/cena/GanguesCenaAtores'
 import { TretaVS } from '../components/cena/GanguesCenaEncontros'
 import { CENAS_POR_ID, portaoAberto, contarCena } from '../data/cenas/cenaHelpers.js'
 import { GANGUES_TERRITORIO_POR_ID } from '../data/ganguesTerritorios.js'
@@ -416,6 +416,7 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
         final), sem tocar a suavização do passo a passo normal. */}
     <div key={local ? `${local.id}-${local.comodo}` : 'rua'} className="gang-cena-world" style={{ width: W.w, height: W.h, transform: `translate3d(${-camX}px,${-camY}px,0)` }}>
       {local ? <CenaInterior amb={amb} /> : <CenaCenario cena={cena} bossAberto={baseFeita || muroAberto} muroAberto={muroAberto} />}
+      {(amb?.alvos || []).map(p => <ZonaChao key={`z-${p.id}`} p={p} active={perto?.id === p.id} />)}
       {(amb?.alvos || []).map(p => <PinoAlvo key={p.id} p={p} t={t} active={perto?.id === p.id} onColidir={reportarColisao} />)}
       {/* key=local: rua e cada cômodo de interior são espaços de coordenada
           DIFERENTES (mundo pequeno do cômodo vs WORLD da rua) — sem isso, o
