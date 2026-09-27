@@ -4906,7 +4906,20 @@
             }
           }
         },
-        "briga_auto": "Auto brawl"
+        "briga_auto": "Auto brawl",
+        "briga_auto_aviso": {
+          "titulo": "AUTO BRAWL // YOU BUMPED, NOW IT'S ON",
+          "frases": [
+            "Went looking for smoke? Well, you found it. Brace yourself!",
+            "Rolled up talking tough? Now you gotta back it up.",
+            "Uh-oh, bad luck: his crew's already closing in.",
+            "No chickening out, homie — it's hands now.",
+            "Bumped the wrong hardhead, kid. Go in heavy!",
+            "Nowhere left to run. Throw down!",
+            "Yikes… this one didn't come to talk. Gotta go in heavy.",
+            "You went looking for trouble. Trouble looked back."
+          ]
+        }
       },
       "enemy_album": {
         "1701": "Rides the stick-up bike. Never gets off, just revs — the backseat does the talking.",

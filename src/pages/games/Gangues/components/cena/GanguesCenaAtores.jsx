@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import { STEP_MS } from '../../engine/ganguesCenaMotor.js'
 import { getGanguesNpcPortrait } from '../../data/ganguesNpcPortraits.js'
 import { getGanguesEnemyPortraitById } from '../../data/ganguesEnemyPortraits.js'
@@ -282,6 +282,25 @@ export function interactionLabel(p, t) {
 
 // Joystick + botão de ação contextual (mobile).
 // Controles da cena: analógico · switch da briga automática · interagir.
+// Aviso da briga automática (v3.70.0): encostou num oponente com o switch
+// ligado → carimbo de 2,5s com uma frase de rua antes da luta abrir (o hook
+// useGanguesBrigaAutomatica escolhe a frase e segura a luta). Não bloqueia
+// toque — é só aviso, a luta vem de qualquer jeito.
+export function BrigaAutoAviso({ anuncio, t }) {
+  return (
+    <AnimatePresence>
+      {anuncio && (
+        <motion.div key="briga-auto-aviso" className="gang-briga-auto-aviso" role="status"
+          initial={{ scale: .4, opacity: 0, rotate: -8 }} animate={{ scale: 1, opacity: 1, rotate: -3 }} exit={{ opacity: 0, scale: 1.08 }}
+          transition={{ type: 'spring', stiffness: 480, damping: 16 }}>
+          <span>{t('games.gangues.cena.briga_auto_aviso.titulo')}</span>
+          <b>{t('games.gangues.cena.briga_auto_aviso.frases')[anuncio.frase]}</b>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  )
+}
+
 export function WorldControls({ onInput, onInteract, action, rotulo, brigaAuto, onBrigaAuto, rotuloBrigaAuto }) {
   const base = useRef(null), active = useRef(null)
   const update = useCallback((x, y) => {

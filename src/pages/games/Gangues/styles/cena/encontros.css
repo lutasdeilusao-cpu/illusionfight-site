@@ -191,6 +191,13 @@
 .gang-cena-onomatopeia.is-cinza{--perseg:var(--gang-cinza-600)}
 .gang-cena-onomatopeia b{padding:.1em .35em;color:var(--gang-branco);max-width:92%;text-align:center;font:900 clamp(2rem,calc(11 * var(--app-vw) / 100),3.1rem)/1 var(--font-title);letter-spacing:.02em;-webkit-text-stroke:3px var(--gang-preto);paint-order:stroke fill;text-shadow:5px 5px 0 var(--perseg),9px 9px 0 var(--gang-preto);background:radial-gradient(circle,color-mix(in srgb,var(--perseg) 35%,transparent),transparent 70%)}
 
+/* ── Aviso da briga automática (v3.70.0) ── carimbo de 2,5s antes da luta:
+   eyebrow mono + frase de rua, canto chanfrado, na cor do território.
+   Não bloqueia toque (é só aviso — a luta vem de qualquer jeito). */
+.gang-briga-auto-aviso{position:fixed;left:var(--app-gutter);right:var(--app-gutter);top:19%;z-index:950;margin:0 auto;width:max-content;max-width:86%;display:grid;gap:6px;padding:12px 18px;text-align:center;pointer-events:none;border:1px solid var(--if-danger);background:linear-gradient(160deg,var(--gang-noite-850),var(--gang-noite-950));box-shadow:0 0 40px -6px color-mix(in srgb,var(--if-danger) 60%,transparent),6px 6px 0 var(--gang-preto);clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,0 100%)}
+.gang-briga-auto-aviso span{font:700 .56rem var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--if-danger)}
+.gang-briga-auto-aviso b{font:900 1.05rem/1.25 var(--font-title);color:var(--gang-branco);text-shadow:2px 2px 0 var(--gang-preto)}
+
 /* Rinha de Apostas (Feira) — escolha da aposta no card da treta. */
 .gang-cena-aposta { width: 100%; display: flex; flex-direction: column; align-items: center; gap: 6px; margin-top: 6px; }
 .gang-cena-aposta small { font: 700 0.56rem var(--font-mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--gang-cinza-azul-500); }

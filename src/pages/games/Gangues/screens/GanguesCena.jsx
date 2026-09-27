@@ -19,7 +19,7 @@ import CenaInterior from '../components/cena/CenaInterior'
 import GanguesCenaBagSheet from '../components/cena/GanguesCenaBagSheet'
 import GanguesCenaFichaCard from '../components/cena/GanguesCenaFichaCard'
 import GanguesRepRecompensaModal from '../components/GanguesRepRecompensaModal'
-import { GangMarker, PinoAlvo, ZonaChao, WorldControls, interactionLabel, ehPersonagem } from '../components/cena/GanguesCenaAtores'
+import { GangMarker, PinoAlvo, ZonaChao, WorldControls, BrigaAutoAviso, interactionLabel, ehPersonagem } from '../components/cena/GanguesCenaAtores'
 import { TretaVS } from '../components/cena/GanguesCenaEncontros'
 import { CENAS_POR_ID, portaoAberto, contarCena } from '../data/cenas/cenaHelpers.js'
 import { GANGUES_TERRITORIO_POR_ID } from '../data/ganguesTerritorios.js'
@@ -305,8 +305,8 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
     onNavigate('story-combat')
     return true
   }
-  brigaAutoRef.current = (poi, opcoes) => iniciarTreta(poi, opcoes)
-  const iniciarTreta = (poi, { viraTreta, revela, aposta = 0 } = {}) => {
+  brigaAutoRef.current = (poi, opcoes) => iniciarTreta(poi, { ...opcoes, anunciar: brigaAuto.anunciar })
+  const iniciarTreta = (poi, { viraTreta, revela, aposta = 0, anunciar } = {}) => {
     if (barraSeChao()) return
     const chefe = Boolean(poi.ehChefe)
     // Gate da dívida com o agiota (Isaias, 21/09/2026: "antes de enfrentar o
@@ -336,6 +336,8 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
       setTimeout(() => setAviso(null), 3600)
       return
     }
+    // Briga automática: passou das travas → aviso de 2,5s e aí sim a luta.
+    if (anunciar) { anunciar(() => iniciarTreta(poi, { viraTreta, revela, aposta })); return }
     guardarPosicao({ ...player, adversario: poi.id }); sfx.vs?.()
     // `poi.fixo`: POI de NÍVEL FIXO, single-enemy (Generais da Pista) — a
     // luta é sempre contra a MESMA ficha (`poi.enemy`) escalada pro ponto
@@ -472,6 +474,7 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
     <WorldControls onInput={v => { inputRef.current = v }} onInteract={() => abrir(perto)} action={perto ? interactionLabel(perto, t) : null} rotulo={t('games.gangues.cena.acao.interagir')} brigaAuto={brigaAuto.ligado} onBrigaAuto={brigaAuto.alternar} rotuloBrigaAuto={t('games.gangues.cena.briga_auto')} />
     <AnimatePresence>{toast && <motion.div className="gang-cena-toast" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}><b>{t('games.gangues.cena.recompensa')}</b>{toast.grana ? <span>💵 +{toast.grana}</span> : null}{toast.rep ? <span>⚑ +{toast.rep}</span> : null}{toast.xp ? <span>⚡ +{toast.xp} XP</span> : null}{toast.equip ? <span>{getGanguesEquip(toast.equip)?.icone} {t(getGanguesEquip(toast.equip)?.nome || '')}</span> : null}
     </motion.div>}</AnimatePresence>
+    <BrigaAutoAviso anuncio={brigaAuto.anuncio} t={t} />
     <AnimatePresence>{aviso && <motion.div className="gang-cena-toast gang-cena-toast--aviso" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}>{aviso}</motion.div>}</AnimatePresence>
     {/* Marco de reputação recorrente (a cada 50) — modal BLOQUEANTE, não
         toast: só fecha ao clicar (pedido do Isaias, 2026-09-14). */}

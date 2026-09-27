@@ -1803,7 +1803,20 @@
             }
           }
         },
-        "briga_auto": "Briga auto"
+        "briga_auto": "Briga auto",
+        "briga_auto_aviso": {
+          "titulo": "BRIGA AUTO // ENCOSTOU, É TRETA",
+          "frases": [
+            "Procurou treta? Pois achou. Agora segura o rojão!",
+            "Chegou marrudo? Então vai ter que cartear marra de verdade.",
+            "Ih, deu zica: a patota dele já tá fechando o cerco.",
+            "Sem amarelar, truta — agora é no braço.",
+            "Encostou no durão errado, sobrinho. Pega pesado!",
+            "Não tem mais pra onde meter o pé. Bora pro pau!",
+            "Vixe… esse aí não veio de conversa. Vai ter que pegar pesado.",
+            "Quem procura zica acha zica. E hoje você achou."
+          ]
+        }
       },
       "enemy_album": {
         "1701": "Pilota a moto do assalto. Não desce, só acelera — quem desce é a garupa.",

@@ -66,6 +66,13 @@ const entraSozinho = alvo => Boolean(brigaDoAlvo(alvo))
 // qualquer coisa aberta por cima da cena (diálogo, modal, ficha, bolsa...).
 const SEPARACAO_MS = 700
 const VIGIA_MS = 150
+// Aviso antes da luta (v3.70.0 — Isaias: "tá tão automático... falta o cara
+// ter uma noção de que tá entrando numa briga"): encostou, sobe um pop-up
+// com uma frase de rua por ANUNCIO_MS e só depois a luta abre. A cena só
+// chama `anunciar(continuar)` depois das travas (rep, dívida, tropa no chão)
+// — o aviso nunca promete uma briga que vai ser barrada.
+const ANUNCIO_MS = 2500
+const ANUNCIO_FRASES = 8
 
 export default function useGanguesBrigaAutomatica({ alvos, colidindo, rodando, ultimoPoiId, onBriga }) {
   const [ligado, setLigado] = useGanguesAutoLembrado(GANGUES_BRIGA_AUTO_CHAVE)
@@ -80,6 +87,8 @@ export default function useGanguesBrigaAutomatica({ alvos, colidindo, rodando, u
   }, [])
   // O vigia roda num intervalo (não só quando algo muda): a separação
   // precisa ser confirmada pelo TEMPO, mesmo sem nenhum render novo.
+  const [anuncio, setAnuncio] = useState(null)
+  const anunciando = useRef(false)
   const atual = useRef({})
   atual.current = { alvos, colidindo, rodando, ligado, onBriga }
 
@@ -98,7 +107,7 @@ export default function useGanguesBrigaAutomatica({ alvos, colidindo, rodando, u
         if (agora - info.soltoDesde >= SEPARACAO_MS) ignorados.current.delete(poiId)
       }
       publicar()
-      if (!on || !ativo) return
+      if (!on || !ativo || anunciando.current) return
       const alvo = lista.find(a => entraSozinho(a) && !ignorados.current.has(a.id) && colide(a))
       if (!alvo) return
       ignorados.current.set(alvo.id, { visto: true, soltoDesde: null, desde: agora })
@@ -116,7 +125,13 @@ export default function useGanguesBrigaAutomatica({ alvos, colidindo, rodando, u
     setLigado(!ligado)
   }, [ligado, alvos, colidindo, setLigado, publicar])
 
-  return { ligado, alternar, ignorados: ignoradosIds }
+  const anunciar = useCallback((continuar) => {
+    anunciando.current = true
+    setAnuncio({ frase: Math.floor(Math.random() * ANUNCIO_FRASES) })
+    setTimeout(() => { anunciando.current = false; setAnuncio(null); continuar() }, ANUNCIO_MS)
+  }, [])
+
+  return { ligado, alternar, ignorados: ignoradosIds, anuncio, anunciar }
 }
 
 /* Saída automática do pós-luta (pedido do Isaias, 27/09/2026): quem liga a

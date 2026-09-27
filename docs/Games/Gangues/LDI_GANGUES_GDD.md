@@ -2109,6 +2109,15 @@ estilo Medabots/ATB do Chrono Trigger; substitui a iniciativa Malícia+d3):
   (borda invisível maior que o desenho) → 50% (v3.69.1, pequeno demais pra
   interagir) → 90%. Quem patrulha curto pode continuar sem descolar de quem
   está parado no meio do caminho — é a volta completa acima que solta.
+  **Aviso antes da luta** (v3.70.0 — "tá tão automático... falta o cara ter
+  uma noção de que tá entrando numa briga"): encostou, sobe um carimbo por
+  2,5s ("BRIGA AUTO // ENCOSTOU, É TRETA" + uma de 8 frases de rua
+  sorteada, com o vocabulário da §13 — zica, patota, marrudo, cartear marra,
+  amarelar, truta, sobrinho, meter o pé) e só depois a luta abre. O aviso
+  sai DEPOIS das travas (rep, dívida com o chefe, tropa no chão, informante):
+  nunca promete uma briga que vai ser barrada. Não bloqueia toque. Textos em
+  `games.gangues.cena.briga_auto_aviso` (EN com gíria de rua própria, ES
+  rioplatense: bardo, agrandado, mufa, arrugar, a los bifes, quilombo).
   **Saída automática** (v3.69.0): com o switch ligado, as telas depois de
   uma luta da cena se clicam sozinhas — "NÓIS É CRIA"/"DEU RUIM" em 2s e o
   relatório ("Segue na quebrada" / "Acordar na birosca" / "tentar de novo")

@@ -4906,7 +4906,20 @@
             }
           }
         },
-        "briga_auto": "Pelea auto"
+        "briga_auto": "Pelea auto",
+        "briga_auto_aviso": {
+          "titulo": "PELEA AUTO // TE CHOCASTE, SE ARMÓ",
+          "frases": [
+            "¿Buscabas bardo? Ahí lo tenés. ¡Bancátela!",
+            "¿Viniste agrandado? Ahora demostralo.",
+            "Uh, qué mufa: su barra ya te está rodeando.",
+            "Nada de arrugar, pibe — ahora es a las piñas.",
+            "Te chocaste con el pesado equivocado, pibe. ¡Metele con todo!",
+            "No queda para dónde rajar. ¡A los bifes!",
+            "Uy… este no vino a charlar. Vas a tener que ir con todo.",
+            "Querías quilombo. El quilombo te encontró."
+          ]
+        }
       },
       "enemy_album": {
         "1701": "Maneja la moto del asalto. No se baja, solo acelera — el que se baja es el de atrás.",
