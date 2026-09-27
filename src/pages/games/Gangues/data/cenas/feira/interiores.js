@@ -23,6 +23,66 @@ function sala({ id, w, h, balcao, cenario, pois }) {
   }
 }
 
+// ── Labirinto das barracas (Mercadão) ──
+// Sala comprida (460×900) com 3 fileiras de barraca atravessando a largura,
+// cada uma com UM vão (110px) alternando de lado — o caminho vira um
+// zigue-zague. `gaps` diz o lado do vão de baixo pra cima. A 1ª briga fica no
+// 1º corredor, colada no vão que leva pra cima; a 2ª só aparece depois da 1ª
+// (`precisa`), no vão da fileira seguinte; a passagem pro próximo cômodo, lá
+// em cima, só abre depois da 2ª. Cada fileira é UM colisor, com as barracas
+// desenhadas lado a lado em cima (tipo `barraca`, CenaInterior).
+const LAB_W = 460
+const LAB_H = 900
+const LAB_VAO = 110
+const LAB_FILEIRAS_Y = [660, 440, 220]
+const LAB_FILEIRA_H = 56
+const LONAS = ['#c8453a', '#3a7bc8', '#d9a12a', '#4a9a5a', '#8a4ac8']
+function fileiraDeBarracas(y, gap, lona) {
+  const x = gap === 'esq' ? 14 + LAB_VAO : 14
+  const w = LAB_W - 28 - LAB_VAO
+  const n = Math.round(w / 64)
+  const bw = w / n
+  return {
+    collider: { x, y, w, h: LAB_FILEIRA_H },
+    cenario: Array.from({ length: n }, (_, i) => ({
+      tipo: 'barraca', x: Math.round(x + bw * i + bw / 2), y: y + LAB_FILEIRA_H / 2,
+      w: Math.round(bw - 6), h: LAB_FILEIRA_H - 10, lona: LONAS[(lona + i) % LONAS.length],
+    })),
+  }
+}
+// Centro do vão da fileira `k` (0 = a de baixo), um pouco acima dela — onde a
+// briga fica de tocaia.
+function noVao(k, gaps) {
+  return { x: gaps[k] === 'esq' ? 14 + LAB_VAO / 2 : LAB_W - 14 - LAB_VAO / 2, y: LAB_FILEIRAS_Y[k] - 70 }
+}
+function salaLabirinto({ id, gaps, lona, entrada, voltaPara, briga1, briga2, extras = [], passagem }) {
+  const fileiras = gaps.map((g, k) => fileiraDeBarracas(LAB_FILEIRAS_Y[k], g, lona + k))
+  const treta = b => ({ ...b, tipo: 'treta', repetivel: true, i18n: `games.gangues.cena.feira.mercadao.${b.id}`, recompensa: { rep: 3 } })
+  // A passagem fica em cima, do lado do último vão (o jogador chega por ali).
+  const ultimo = gaps[gaps.length - 1]
+  const pgX = ultimo === 'esq' ? 40 : LAB_W - 120
+  return {
+    id,
+    world: { w: LAB_W, h: LAB_H }, spawn: { x: LAB_W / 2, y: LAB_H - 80 },
+    saida: entrada ? { x: LAB_W / 2 - 80, y: LAB_H - 20, w: 160, h: 20 } : null,
+    ...(voltaPara != null ? { voltaPara } : {}),
+    colliders: [
+      { x: 0, y: 0, w: LAB_W, h: 30 }, { x: 0, y: 0, w: 14, h: LAB_H }, { x: LAB_W - 14, y: 0, w: 14, h: LAB_H },
+      ...(entrada
+        ? [{ x: 0, y: LAB_H - 6, w: LAB_W / 2 - 80, h: 10 }, { x: LAB_W / 2 + 80, y: LAB_H - 6, w: LAB_W / 2 - 80, h: 10 }]
+        : [{ x: 0, y: LAB_H - 28, w: LAB_W, h: 28 }]),
+      ...fileiras.map(f => f.collider),
+    ],
+    cenario: [{ tipo: 'chao-galpao' }, ...fileiras.flatMap(f => f.cenario)],
+    pois: [
+      { poi: treta(briga1), pos: noVao(0, gaps) },
+      { poi: treta(briga2), pos: noVao(1, gaps), precisa: briga1.id },
+      ...extras,
+    ],
+    passagem: { x: pgX, y: 34, w: 80, h: 24, para: passagem, precisa: briga2.id, label: 'avancar' },
+  }
+}
+
 export const INTERIORES_FEIRA = {
   // ── Pensão da Dona Regina (descanso + o agiota da Feira) ──
   pensao: {
@@ -170,75 +230,66 @@ export const INTERIORES_FEIRA = {
     ],
   },
 
-  // ── O MERCADÃO do Cobrador — dungeon final (4 cômodos) ──
-  // Destranca depois do 2º guarda do depósito.
+  // ── O MERCADÃO do Cobrador — dungeon final: o LABIRINTO DAS BARRACAS ──
+  // Pedido do Isaias (27/09/2026): "praticamente um mini labirinto com as
+  // barraquinhas de feira e você tem que sair enfrentando um monte de cara
+  // pra chegar no chefe... pelo menos umas seis ou sete batalhas". Três salas
+  // de barracas em zigue-zague (2 brigas cada, a 2ª só aparece depois da 1ª e
+  // a passagem só abre depois da 2ª — não dá pra passar reto), o fundo com o
+  // Marreta (7ª) e o livro-caixa, e o cofre do Cobrador. Destranca depois do
+  // 2º guarda do depósito.
   mercadao: {
     nome: 'games.gangues.cena.feira.int.mercadao',
     porta: { predio: 'mercadao', posPortao: true },
     abreComResolvido: 'deposito_2',
     comodos: [
+      salaLabirinto({
+        id: 'entrada', gaps: ['esq', 'dir', 'esq'], lona: 0, entrada: true,
+        briga1: { id: 'barraca_1', nivelRec: 44, revezamento: { pool: FEIRA_POOL_MERCADAO, budgetPorCorpo: 44, chanceDupla: 0.3 } },
+        briga2: { id: 'barraca_2', nivelRec: 45, revezamento: { pool: FEIRA_POOL_MERCADAO, budgetPorCorpo: 9, qtdMin: 3, qtdMax: 5, ratioComTime: 0.4 } },
+        passagem: 1,
+      }),
+      salaLabirinto({
+        id: 'lonas', gaps: ['dir', 'esq', 'dir'], lona: 2, voltaPara: 0,
+        briga1: { id: 'barraca_3', nivelRec: 46, revezamento: { pool: FEIRA_POOL_MERCADAO, budgetPorCorpo: 46, chanceDupla: 0.4 } },
+        briga2: { id: 'barraca_4', nivelRec: 47, revezamento: { pool: FEIRA_POOL_MERCADAO, budgetPorCorpo: 47, chanceDupla: 0.5 } },
+        // O estoque escondido do Turco fica num canto do labirinto (opcional).
+        extras: [{ poi: { id: 'mercadao_achado', tipo: 'achado', opcional: true, i18n: 'games.gangues.cena.feira.mercadao.achado', recompensa: { grana: 25, item: 13, qtd: 2, equip: 120 } }, pos: { x: 60, y: 110 } }],
+        passagem: 2,
+      }),
+      salaLabirinto({
+        id: 'praca', gaps: ['esq', 'dir', 'esq'], lona: 4, voltaPara: 1,
+        briga1: { id: 'barraca_5', nivelRec: 48, revezamento: { pool: FEIRA_POOL_MERCADAO, budgetPorCorpo: 48, chanceDupla: 0.5 } },
+        briga2: { id: 'barraca_6', nivelRec: 49, revezamento: { pool: FEIRA_POOL_MERCADAO, budgetPorCorpo: 49, chanceDupla: 0.6 } },
+        passagem: 3,
+      }),
       {
-        id: 'doca',
-        world: { w: 480, h: 340 }, spawn: { x: 240, y: 256 },
-        saida: { x: 160, y: 320, w: 160, h: 20 },
-        colliders: [
-          { x: 0, y: 0, w: 480, h: 30 }, { x: 0, y: 0, w: 14, h: 340 }, { x: 466, y: 0, w: 14, h: 340 },
-          { x: 0, y: 334, w: 160, h: 10 }, { x: 320, y: 334, w: 160, h: 10 },
-          { x: 40, y: 90, w: 90, h: 70 }, { x: 360, y: 200, w: 90, h: 70 },
-        ],
-        cenario: [
-          { tipo: 'caixote', x: 85, y: 125 }, { tipo: 'caixote', x: 110, y: 90 },
-          { tipo: 'empilhadeira', x: 405, y: 235 }, { tipo: 'chao-galpao' },
-        ],
-        pois: [
-          { poi: { id: 'mercadao_m1', tipo: 'treta', repetivel: true, nivelRec: 44, revezamento: { pool: FEIRA_POOL_MERCADAO, budgetPorCorpo: 8, qtdMin: 3, qtdMax: 5, ratioComTime: 0.4 }, i18n: 'games.gangues.cena.feira.mercadao.m1', recompensa: { rep: 3 } }, pos: { x: 300, y: 130 } },
-        ],
-        passagem: { x: 220, y: 34, w: 80, h: 24, para: 1, precisa: 'mercadao_m1', label: 'avancar' },
-      },
-      {
-        id: 'camara_fria',
+        id: 'fundo',
         world: { w: 440, h: 380 }, spawn: { x: 220, y: 300 },
         saida: null,
-        voltaPara: 0,
+        voltaPara: 2,
         colliders: [
           { x: 0, y: 0, w: 440, h: 30 }, { x: 0, y: 0, w: 14, h: 380 }, { x: 426, y: 0, w: 14, h: 380 }, { x: 0, y: 352, w: 440, h: 28 },
-          { x: 20, y: 120, w: 60, h: 200 }, { x: 360, y: 120, w: 60, h: 200 },
+          { x: 20, y: 120, w: 60, h: 200 }, { x: 330, y: 70, w: 96, h: 40 },
         ],
         cenario: [
-          { tipo: 'prateleira-alta', x: 50, y: 220, w: 56, h: 196 }, { tipo: 'prateleira-alta', x: 390, y: 220, w: 56, h: 196 },
-          { tipo: 'chao-galpao' },
+          { tipo: 'prateleira-alta', x: 50, y: 220, w: 56, h: 196 }, { tipo: 'mesa-escritorio', x: 378, y: 90, w: 96 },
+          { tipo: 'quadro-horarios', x: 380, y: 200 }, { tipo: 'chao-galpao' },
         ],
         pois: [
-          { poi: { id: 'mercadao_m2', tipo: 'treta', repetivel: true, nivelRec: 46, enemy: 1403, liderFixo: 1403, repGate: FEIRA_REP_GATE_DEPOSITO, moldesPool: FEIRA_POOL_MERCADAO, pontosFixo: 40, qtdMin: 3, qtdMax: 5, i18n: 'games.gangues.cena.feira.mercadao.m2', recompensa: { rep: 4, item: 21, qtd: 1 } }, pos: { x: 220, y: 180 } },
-          { poi: { id: 'mercadao_achado', tipo: 'achado', opcional: true, i18n: 'games.gangues.cena.feira.mercadao.achado', recompensa: { grana: 25, item: 13, qtd: 2, equip: 120 } }, pos: { x: 388, y: 150 } },
-        ],
-        passagem: { x: 200, y: 34, w: 80, h: 24, para: 2, precisa: 'mercadao_m2', label: 'avancar' },
-      },
-      {
-        id: 'escritorio',
-        world: { w: 420, h: 320 }, spawn: { x: 210, y: 246 },
-        saida: null,
-        voltaPara: 1,
-        colliders: [
-          { x: 0, y: 0, w: 420, h: 30 }, { x: 0, y: 0, w: 14, h: 320 }, { x: 406, y: 0, w: 14, h: 320 }, { x: 0, y: 292, w: 420, h: 28 },
-          { x: 120, y: 90, w: 180, h: 56 },
-        ],
-        cenario: [
-          { tipo: 'mesa-escritorio', x: 210, y: 118, w: 176 }, { tipo: 'cofre', x: 360, y: 210 },
-          { tipo: 'quadro-horarios', x: 60, y: 90 }, { tipo: 'chao-galpao' },
-        ],
-        pois: [
+          // 7ª briga: o Marreta e o bando dele guardam a porta do cofre.
+          { poi: { id: 'mercadao_m2', tipo: 'treta', repetivel: true, nivelRec: 46, enemy: 1403, liderFixo: 1403, repGate: FEIRA_REP_GATE_DEPOSITO, moldesPool: FEIRA_POOL_MERCADAO, pontosFixo: 40, qtdMin: 3, qtdMax: 5, i18n: 'games.gangues.cena.feira.mercadao.m2', recompensa: { rep: 4, item: 21, qtd: 1 } }, pos: { x: 220, y: 170 } },
           // O livro-caixa do Turco: quanto a Feira inteira deve. Com as 3
           // páginas da caderneta na mão, o ponto fraco do Cobrador fica claro.
-          { poi: { id: 'livro_caixa', tipo: 'papo', opcional: true, repetivel: true, i18n: 'games.gangues.cena.feira.mercadao.livro_caixa', escolhas: [{ id: 'ler' }] }, pos: { x: 120, y: 210 } },
+          { poi: { id: 'livro_caixa', tipo: 'papo', opcional: true, repetivel: true, i18n: 'games.gangues.cena.feira.mercadao.livro_caixa', escolhas: [{ id: 'ler' }] }, pos: { x: 378, y: 150 } },
         ],
-        passagem: { x: 300, y: 34, w: 80, h: 24, para: 3, label: 'avancar' },
+        passagem: { x: 180, y: 34, w: 80, h: 24, para: 4, precisa: 'mercadao_m2', label: 'avancar' },
       },
       {
         id: 'cofre',
         world: { w: 520, h: 400 }, spawn: { x: 260, y: 320 },
         saida: null,
-        voltaPara: 2,
+        voltaPara: 3,
         colliders: [
           { x: 0, y: 0, w: 520, h: 30 }, { x: 0, y: 0, w: 14, h: 400 }, { x: 506, y: 0, w: 14, h: 400 }, { x: 0, y: 372, w: 520, h: 28 },
         ],

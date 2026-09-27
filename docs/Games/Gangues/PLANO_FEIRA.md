@@ -12,6 +12,9 @@
 > - Mercearia do Aziz vende também os raros 124/128/130; o Pingente de Asa
 >   (144) é prêmio da 1ª vitória sobre a Mão do Turco.
 > - O bônus de caminho (stub morto no combate) foi removido na mesma leva.
+> - **v3.66.0:** o Mercadão virou um **labirinto de barracas** com 7 brigas
+>   obrigatórias (3 salas em zigue-zague com 2 brigas cada + o Marreta), no
+>   lugar dos 4 cômodos com 2 brigas da §3.4 — ver GDD §4.
 
 > Pedido do Isaias: *"precisa ter tudo que tem na Pista, mas com um sistema de
 > upgrade… tem que ser diferente, e o nível tem que subir… a Pista aumentou

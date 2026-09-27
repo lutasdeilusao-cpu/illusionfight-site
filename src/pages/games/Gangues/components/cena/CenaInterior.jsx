@@ -18,6 +18,7 @@ export default function CenaInterior({ amb }) {
         const st = { left: c.x, top: c.y }
         if (c.w) st.width = c.w
         if (c.h) st.height = c.h
+        if (c.lona) st['--lona'] = c.lona // cor da lona da barraca (labirinto do Mercadão)
         return <i key={i} className={`gang-int-obj gang-int-obj--${c.tipo}`} style={st} aria-hidden="true" />
       })}
     </>

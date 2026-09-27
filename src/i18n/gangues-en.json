@@ -4834,13 +4834,6 @@
             }
           },
           "mercadao": {
-            "m1": {
-              "nome": "The loading dock",
-              "fala": [
-                "Unloading the Turk's goods? No. You came to unload a beating.",
-                "Call everyone! Someone's on the dock!"
-              ]
-            },
             "m2": {
               "nome": "Sledge",
               "fala": [
@@ -4866,6 +4859,48 @@
                   "resultado": "You close the book. Gather the 3 ledger pages and the Collector steps into the fight with his guard down."
                 }
               }
+            },
+            "barraca_1": {
+              "nome": "The first stall owner",
+              "fala": [
+                "You took the wrong aisle into the Wholesale Market, pal. Every stall in here is the Turk's.",
+                "Wanna pass? Pay the canvas toll — in bruises."
+              ]
+            },
+            "barraca_2": {
+              "nome": "The pastry crew",
+              "fala": [
+                "Hey, hey, hey! Call the boys, there's an intruder between the stalls!",
+                "In here we fight as a pack, kid. Alone, you don't get out."
+              ]
+            },
+            "barraca_3": {
+              "nome": "The canvas lookout",
+              "fala": [
+                "This maze was built so nobody finds the safe.",
+                "And whoever finds it gets beat by me first."
+              ]
+            },
+            "barraca_4": {
+              "nome": "The aisle inspector",
+              "fala": [
+                "Every stall you pass is a debt you make, you know?",
+                "I'm collecting this one right now."
+              ]
+            },
+            "barraca_5": {
+              "nome": "The collectors' square",
+              "fala": [
+                "You made it far, huh. All the Turk's collectors in one place.",
+                "From here on, only people who settle up get through."
+              ]
+            },
+            "barraca_6": {
+              "nome": "The last in the row",
+              "fala": [
+                "After me there's just Sledge and the safe.",
+                "And you won't see either one."
+              ]
             }
           }
         }

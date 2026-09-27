@@ -4834,13 +4834,6 @@
             }
           },
           "mercadao": {
-            "m1": {
-              "nome": "El muelle del Mercadón",
-              "fala": [
-                "¿Descargando mercancía del Turco? No. Viniste a descargar golpes.",
-                "¡Llamen a todos! ¡Hay gente en el muelle!"
-              ]
-            },
             "m2": {
               "nome": "Mazo",
               "fala": [
@@ -4866,6 +4859,48 @@
                   "resultado": "Cierras el libro. Si juntas las 3 páginas de la libreta, el Cobrador entra a la pelea con la guardia baja."
                 }
               }
+            },
+            "barraca_1": {
+              "nome": "El dueño del primer puesto",
+              "fala": [
+                "Entraste al Mercadón por el pasillo equivocado, pana. Aquí cada puesto es del Turco.",
+                "¿Quieres pasar? Paga el peaje de la lona — con los huesos."
+              ]
+            },
+            "barraca_2": {
+              "nome": "La banda de las empanadas",
+              "fala": [
+                "¡Epa, epa, epa! ¡Llamen a la muchachada, hay un intruso entre los puestos!",
+                "Aquí adentro peleamos en banda, chamo. Solo no sales."
+              ]
+            },
+            "barraca_3": {
+              "nome": "El vigía de las lonas",
+              "fala": [
+                "Este laberinto se armó para que nadie encuentre la caja fuerte.",
+                "Y el que la encuentra, antes cobra de mí."
+              ]
+            },
+            "barraca_4": {
+              "nome": "El fiscal del pasillo",
+              "fala": [
+                "Cada puesto que pasas es una deuda que haces, ¿sabías?",
+                "Esta te la cobro ahora."
+              ]
+            },
+            "barraca_5": {
+              "nome": "La plaza de los cobradores",
+              "fala": [
+                "Llegaste lejos, ¿eh? Todos los cobradores del Turco juntos aquí.",
+                "De aquí en adelante solo pasa el que salda la cuenta."
+              ]
+            },
+            "barraca_6": {
+              "nome": "El último de la fila",
+              "fala": [
+                "Después de mí solo quedan Mazo y la caja fuerte.",
+                "Y no vas a ver a ninguno de los dos."
+              ]
             }
           }
         }

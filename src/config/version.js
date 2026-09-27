@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.297.0' // feat(gangues): a Feira jogável (2º território como cena navegável) + consumíveis 3–12 + catálogo 121–144 com fonte + épico 138 + limpeza do código morto.
+export const SITE_VERSION = '10.298.0' // feat(gangues): o Mercadão da Feira virou um labirinto de barracas com 7 brigas antes do Cobrador.
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.2' // fix: aba "stories" do rodape mostrava a chave crua pp.menu.pistas_label (nao existia) -> aponta pra pp.dossier.pistas_label; PuzzleWrapper mostrava pp.puzzle.nenhum/instrucao (nao existiam) -> pp.local.puzzle_nenhum/instrucao; confirm() de deletar save mostrava pp.menu.deletar_slot cru -> chave criada nos 3 idiomas.
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '3.65.0' // A FEIRA: cena navegável (mapa espelhado da Pista, bancas, apagão com círculo de luz, Galeria dos Gato, Mercadão, 37 eventos), Cobrador 52 com gate do Duda e fraqueza das 3 páginas, Rádio do Toninho (fetch quest), Serralheria até +4, Pensão da Regina com fiado por favor, Juro Alto (300), Rinha de Apostas, pechincha no Camelô, Rapa/Apagão/Cobrança do Turco, AP x1,5 e grana 15/800 na Feira; consumíveis 3–12 com status por ação (menos Apito/Trocado); 124/128/130/141–144/106/111/114/120 com fonte; Porrete do Cobrador (138); motor de cena genérico (ruas/muro/postes/textos/posMuro/minimapa por dado); agiotagem com nome por NPC; removidos o bônus de caminho morto, ruaPath/pinos/forca e posições órfãs.
+export const GANGUES_VERSION   = '3.66.0' // Feira: o Mercadão virou o LABIRINTO DAS BARRACAS — 3 salas em zigue-zague (salaLabirinto), 2 brigas encadeadas por sala + o Marreta = 7 brigas obrigatórias antes do cofre do Cobrador; barraca desenhada no interior (gang-int-obj--barraca, lona por --lona).
 
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio

@@ -1731,13 +1731,6 @@
             }
           },
           "mercadao": {
-            "m1": {
-              "nome": "A doca do Mercadão",
-              "fala": [
-                "Descarregando mercadoria do Turco? Não. Tu veio descarregar porrada.",
-                "Chama todo mundo! Tem gente na doca!"
-              ]
-            },
             "m2": {
               "nome": "Marreta",
               "fala": [
@@ -1763,6 +1756,48 @@
                   "resultado": "Tu fecha o livro. Se juntar as 3 páginas da caderneta, o Cobrador entra na luta com a guarda baixa."
                 }
               }
+            },
+            "barraca_1": {
+              "nome": "O dono da primeira barraca",
+              "fala": [
+                "Entrou no Mercadão pelo corredor errado, parça. Aqui cada barraca é do Turco.",
+                "Quer passar? Paga o pedágio da lona — no osso."
+              ]
+            },
+            "barraca_2": {
+              "nome": "A turma do pastel",
+              "fala": [
+                "Ô, ô, ô! Chama a rapaziada, tem intruso no meio das barraca!",
+                "Aqui dentro a gente briga em bando, cria. Sozinho tu não sai."
+              ]
+            },
+            "barraca_3": {
+              "nome": "O vigia das lonas",
+              "fala": [
+                "Esse labirinto foi montado pra ninguém achar o cofre.",
+                "E quem acha, apanha de mim antes."
+              ]
+            },
+            "barraca_4": {
+              "nome": "O fiscal do corredor",
+              "fala": [
+                "Cada barraca que tu passa é uma dívida que tu faz, sabia?",
+                "Vou cobrar essa aqui agora."
+              ]
+            },
+            "barraca_5": {
+              "nome": "A praça dos cobrador",
+              "fala": [
+                "Tu chegou longe, hein. Os cobrador do Turco tudo reunido aqui.",
+                "Daqui pra frente só passa quem quita a conta."
+              ]
+            },
+            "barraca_6": {
+              "nome": "O último da fileira",
+              "fala": [
+                "Depois de mim só tem o Marreta e o cofre.",
+                "E tu não vai ver nenhum dos dois."
+              ]
             }
           }
         }

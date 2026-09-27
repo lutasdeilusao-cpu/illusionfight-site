@@ -466,8 +466,17 @@ de lona espalhadas. Tudo que era chumbado da Pista virou dado da cena (`ruas`,
   Turco** (38, General fixo, 1ª vitória dá o Pingente de Asa 144) → **Caixa
   Forte** (41, General fixo, **grana ×2**, 1ª vitória dá a Armadura de Rua 111).
 - **Lado apagado:** depósito 1 (44) e depósito 2 (47, **Rep 60**) guardam o
-  **Mercadão** (dungeon final, 4 cômodos: doca com bando de 3–5, câmara fria
-  com o Marreta 40, escritório com o livro-caixa, cofre → Cobrador).
+  **Mercadão** — a dungeon final é um **labirinto de barracas** (v3.66.0,
+  pedido do Isaias: "um mini labirinto com as barraquinhas... umas seis ou
+  sete batalhas antes do chefe"). 3 salas compridas de barracas em
+  zigue-zague (`salaLabirinto` em `feira/interiores.js`: 3 fileiras por sala,
+  cada uma com um vão alternando de lado), **2 brigas por sala** — a 2ª só
+  aparece depois da 1ª e a passagem só abre depois da 2ª, então não dá pra
+  passar reto: barraca_1 (44) → barraca_2 (bando de 3–5) → barraca_3 (46) →
+  barraca_4 (47, com o estoque escondido num canto) → barraca_5 (48) →
+  barraca_6 (49) → o fundo com o **Marreta** e o bando dele (7ª briga) e o
+  livro-caixa → o cofre do Cobrador. **7 brigas obrigatórias dentro do
+  Mercadão**, 9 contando os depósitos.
 - **Chefe — O Cobrador (1501):** nível real 46 (52 pontos) + Mão do Turco e
   Caixa Forte de escolta (29 cada) — `GANGUES_CHEFE_BUDGET.feira` 110,
   `liderFracChefe` 0,47, 3 corpos. Só aceita a luta depois do **Duda** (Pista)
