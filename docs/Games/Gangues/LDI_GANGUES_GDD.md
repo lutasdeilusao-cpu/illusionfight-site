@@ -23,6 +23,11 @@
 Grafia oficial: **Marélia** com acento (o conto usa assim). O i18n do jogo ainda
 tem "Marelia" sem acento em vários lugares — alinhar quando mexer em texto.
 
+> **Atualização pontual: 27/09/2026 (GANGUES 3.63.0 / SITE 10.295.0)** —
+> **não existe game over**: derrota na cena leva a tropa pra birosca mais
+> perto e cobra a recuperação na hora (§4, Pista), e o **automático é
+> lembrado entre lutas** (§17.2.1).
+>
 > **Última revisão geral: 26/09/2026 — conferido contra o código de
 > GANGUES 3.56.0 (SITE 10.293.1).** Esta revisão trouxe pro GDD tudo o que
 > entrou no jogo entre a v3.30.0 (19/09) e a v3.56.0 (22/09) e que só
@@ -312,6 +317,31 @@ substitui por completo o fiado 5×/10× por contagem de antes):**
   - **Derrota:** te remendam, a dívida **não cresce mais**, fica o que
     acumulou. Nunca é game over.
 - **Trava:** tropa inteira no chão (todos PV 0) não entra em luta nenhuma.
+- **Não existe game over (27/09/2026, v3.63.0).** Perdeu uma luta na cena
+  (treta, chefe ou encontro aleatório — fora o Clube e a Torre, que têm regra
+  própria): a tropa é **arrastada pra birosca mais perto** e acorda **lá
+  dentro**, do lado do descanso, **recuperada por completo** (inclusive os
+  caídos). A birosca é escolhida por `destinoSocorroDerrota`
+  (`data/cenas/cenaHelpers.js`): qualquer interior com POI de descanso, o
+  pós-muro só se o túnel/muro já abriu, o mais perto de onde o jogador estava,
+  preferindo o mesmo lado do muro. A recuperação é o descanso que revive
+  (**30**, 3× o preço) e é **cobrada na hora, sem perguntar**
+  (`socorroDerrota`, `ganguesBiroscaSlice.js`):
+  1. **Tem os 30** → paga do bolso.
+  2. **Não tem e nunca pegou empréstimo** → o agiota empresta sozinho (**100**
+     na mão, dívida **1.000**), a birosca leva os 30 e sobra o troco (**70**
+     se estava zerado).
+  3. **Não tem e já deve** → pega só os **30** emprestados, só que a **10×**:
+     **+300 na dívida**. **Sem teto** nesse caminho — a dívida vai escalando.
+     Passando do teto de 10.000, o agiota passa a oferecer o "socorro" (Clube
+     forçado) normalmente.
+  - A tela de derrota mostra a conta (`.gang-socorro-panel`) e o botão vira
+    **"Acordar na birosca"**. A ideia do Isaias: "o jogo não dá game over, mas
+    deixa uma dívida monstra" — e **só o Clube da Luta quita** (vencer a ronda
+    3 zera tudo, sem XP; aceitar ou não o "ajeite" entre rondas não impede
+    quitar, só decide os +200 de quem entrou limpo).
+  - Territórios ainda no formato de trilha (sem cena, sem birosca) continuam
+    com a derrota antiga (volta pro território).
 - Store: `ganguesBiroscaSlice.js` (persistido em `storyProgress.__birosca =
   { divida }`). Telas: `GanguesAgiota.jsx`, `GanguesDescanso.jsx`,
   `GanguesClube*.jsx`.
@@ -1866,6 +1896,8 @@ estilo Medabots/ATB do Chrono Trigger; substitui a iniciativa Malícia+d3):
 - **KO:** personagem com PV 0 cai e para de agir até o fim da luta. **PV e PM
   perdidos persistem entre lutas dentro do bairro** (só voltam no descanso,
   saindo ou dominando). Tropa inteira caída não entra em luta nenhuma.
+  **Perder a luta na cena não é game over:** a tropa acorda recuperada na
+  birosca e paga a recuperação (grana, empréstimo ou dívida — §4, Pista).
 - **Briga em Multidão** (`engine/ganguesBrigaMultidao.js`,
   `hooks/useGanguesModoMultidao.js`): um interruptor que resolve **a rodada
   inteira de uma vez** a cada toque (todo mundo age), em vez de turno a turno.
@@ -1882,6 +1914,14 @@ estilo Medabots/ATB do Chrono Trigger; substitui a iniciativa Malícia+d3):
   = elite e primordial), mas o botão **aparece pra todo mundo** de propósito,
   como chamariz de assinatura. Um botão "sair do automático" fica logo abaixo
   do roster do jogador (posição medida, pra nunca tampar a barra de PV).
+  - **Lembrado entre lutas (27/09/2026, v3.63.0):** terminou a luta no
+    automático, a próxima **já começa com ele ligado** — porradaria direto.
+    Só uma ação do próprio jogador (ligar/desligar o switch ou "sair do
+    automático") muda o que fica gravado. Vale pro automático normal e pro da
+    Briga em Multidão, cada um com o seu (`useGanguesAutoLembrado`,
+    `hooks/useGanguesVelocidadeAuto.js`; `localStorage` `ldi-gangues-auto` /
+    `ldi-gangues-auto-multidao` — preferência do navegador, igual à
+    velocidade 1x/2x/3x, não vai pro save).
 - **"Mete o pé"** (fugir da luta) volta pra tela de **Modos**, não pro lobby
   (v3.38.0).
 - **Voltar nunca repete recompensa:** as fases de combate e vitória ficam fora
@@ -2005,7 +2045,9 @@ v3.30.0 os dois formatos usam o MESMO sistema de pontos fixos.
   resumo: a birosca só cura (10 pra quem está de pé, 30 pra reviver todo
   mundo); a dívida é com o agiota Marimbondo (empréstimo de 100 que vira
   1.000, cada cura fiada dobra, teto 10.000 → Clube forçado); com dívida em
-  aberto o chefe não aceita a luta.
+  aberto o chefe não aceita a luta. **Sem game over:** perdeu, acorda
+  recuperado na birosca mais perto pagando 30 (ou empréstimo automático, ou
+  +300 na dívida se já deve).
 - **Farol dos pinos** (13/09/2026, `farolDe` em `GanguesCenaAtores.jsx`):
   **vermelho** = obrigatório e ainda não feito; **amarelo** = opcional;
   **verde** = já feito (treta repetível vencida uma vez também fica verde — o
