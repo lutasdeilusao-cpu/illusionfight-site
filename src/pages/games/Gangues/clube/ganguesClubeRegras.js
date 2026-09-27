@@ -28,7 +28,7 @@ export const GANGUES_CLUBE_ITEM_PREMIO = 22
 /** Pool do Clube — brigões de galpão (vapores e cobradores mais casca-grossa
  *  da Pista/Feira). Orçamento FIXO e alto (não escala com o jogador): é pra
  *  doer, o cara só cai aqui em último caso, endividado até o pescoço. */
-export const GANGUES_CLUBE_POOL = [1211, 1212, 1213, 1219, 1311, 1312, 1411, 1412]
+const GANGUES_CLUBE_POOL = [1211, 1212, 1213, 1219, 1311, 1312, 1411, 1412]
 
 // Gauntlet: 1 corpo fraco → 2 → 3 casca-grossa. O orçamento escala com o
 // território de onde o jogador veio: a roda da Feira (26/50/80) é pro time

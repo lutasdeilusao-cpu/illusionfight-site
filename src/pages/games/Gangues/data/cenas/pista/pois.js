@@ -126,7 +126,7 @@ export const POIS_PISTA = [
     // mapa, "não precisa, a missão do Nego Véio pode aparecer ali no
     // descanso"): o POI `birosca` (papo à parte) foi removido — beco_2 é
     // revelado direto, e o convite pro corre do Nato virou uma oferta
-    // dentro do PRÓPRIO modal de Descanso (ver `ofertaFlagId` no POI
+    // dentro do PRÓPRIO modal de Descanso (ver `oferta.flagId` no POI
     // `descanso` abaixo, e GanguesDescanso.jsx).
     revela: ['beco_2', 'nato_oferta'],
   },

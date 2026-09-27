@@ -12,7 +12,7 @@ function rolarDadosEquip(faixas) {
 // STATUS temporários (consumíveis — Pinga, Vela Benta, Bombinha...): cada um é
 // { attr: 'A'|'D'|'H', valor, acoes } e dura `acoes` ações de QUEM carrega.
 /** Soma de todos os status de um atributo no combatente. */
-export function somaStatus(combatente, attr) {
+function somaStatus(combatente, attr) {
   return (combatente?.statuses || []).reduce((s, st) => s + (st.attr === attr ? Number(st.valor) || 0 : 0), 0)
 }
 /** Quem agiu gastou 1 ação de cada status que carrega (some quando zera). */

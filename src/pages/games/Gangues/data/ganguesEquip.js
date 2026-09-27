@@ -178,7 +178,7 @@ function normalizarAprim(def, aprim) {
 }
 
 /** Faixa efetiva de `attr` numa peça, com o aprimoramento: { min, max, vant } ou null. */
-export function faixaDaPeca(def, attr, aprim = 0) {
+function faixaDaPeca(def, attr, aprim = 0) {
   const raw = def?.bonus?.[attr]
   if (raw == null) return null
   if (!Array.isArray(raw)) {
@@ -196,7 +196,7 @@ export function faixaDaPeca(def, attr, aprim = 0) {
 }
 
 /** Valor médio de uma faixa (com vantagem = média do maior de 2 dados). */
-export function mediaFaixa(f) {
+function mediaFaixa(f) {
   if (!f) return 0
   const n = f.max - f.min + 1
   if (!f.vant || n <= 1) return (f.min + f.max) / 2
@@ -217,7 +217,7 @@ export function rolarFaixa(f, rnd = Math.random) {
 // pra peça que não vende em loja (épico/prêmio) poder ser aprimorada também.
 const PESO_PRECO = { A: 28, D: 22, H: 30, pv: 6, pm: 6 }
 const FATOR_RARIDADE = { comum: 1, incomum: 1.1, raro: 1.3, epico: 1.6 }
-export function precoReferencia(def) {
+function precoReferencia(def) {
   if (!def) return 0
   if (Number.isFinite(def.custo)) return def.custo
   let soma = 0
@@ -229,7 +229,7 @@ export function precoReferencia(def) {
 // preço × o nível (+1 = 25%, +4 = 100%, arredonda de 5 em 5, mínimo 5) e
 // `nivel` pedaços de Sucata (item 13) — a Sucata vira recurso de verdade.
 export const GANGUES_SUCATA_ID = 13
-export const GANGUES_APRIM_CUSTO_FRAC = 0.25
+const GANGUES_APRIM_CUSTO_FRAC = 0.25
 export function custoAprimoramento(def, nivel) {
   const grana = Math.max(5, Math.round(precoReferencia(def) * GANGUES_APRIM_CUSTO_FRAC * nivel / 5) * 5)
   return { grana, sucata: nivel }

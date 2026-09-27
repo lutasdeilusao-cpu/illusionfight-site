@@ -1584,6 +1584,13 @@ Regra de uso: **adaptação livre por idioma**, nunca tradução literal — iss
 puxam o próprio banco de gíria de rua/crime equivalente, não uma tradução
 palavra-por-palavra do português.
 
+**Espanhol = RIOPLATENSE.** O ES do jogo inteiro fala como rua de Buenos
+Aires: "pibe", voseo ("tenés", "querés", "pagá", "vení", "andá"), "acá" (não
+"aquí"). Nunca tuteo ("tú tienes", "paga") nem gíria de outro país ("chamo",
+"pana", "wey"). Motivo: consistência — são ~145 falas nesse tom; um NPC
+falando diferente parece outro jogo. Já escorregou uma vez (textos da Feira,
+v3.65.0, saíram em "chamo/pana/tú" e foram reescritos na v3.67.1).
+
 ### Dinheiro
 Grana, Bufunfa, Carvão, Bronze, Quirela, Vento, Pila, Toco *(dinheiro de
 suborno)*, Pororó, Picho, Misterioso.

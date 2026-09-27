@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.299.2' // refactor(gangues): Clube da Luta vira módulo independente (clube/) + tabelas dos chefes em ganguesChefes.js (ganguesEncontros.js volta pra baixo de 500 linhas).
+export const SITE_VERSION = '10.299.3' // chore(gangues): regra do espanhol rioplatense vai pro GDD (sai do AGENTS.md) + faxina: exports que só serviam o próprio arquivo e comentário apontando pra campo renomeado.
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.2' // fix: aba "stories" do rodape mostrava a chave crua pp.menu.pistas_label (nao existia) -> aponta pra pp.dossier.pistas_label; PuzzleWrapper mostrava pp.puzzle.nenhum/instrucao (nao existiam) -> pp.local.puzzle_nenhum/instrucao; confirm() de deletar save mostrava pp.menu.deletar_slot cru -> chave criada nos 3 idiomas.
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '3.67.2' // Clube da Luta desacoplado: pasta clube/ (3 telas + CSS + ganguesClubeRegras.js + ganguesClubeSlice.js), portas prepararEntradaClube/gerarBandoClube/fecharRondaClube; tabelas dos chefes em data/ganguesChefes.js; ganguesEncontros.js 525 -> ~395 linhas.
+export const GANGUES_VERSION   = '3.67.3' // faxina: sem export sobrando (faixaDaPeca/mediaFaixa/precoReferencia/GANGUES_APRIM_CUSTO_FRAC/GANGUES_CLUBE_POOL/somaStatus viram internos), comentário do oferta.flagId; regra do ES rioplatense no GDD §13.
 
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
