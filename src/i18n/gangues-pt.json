@@ -264,13 +264,15 @@
         "carregando": "Carregando gangues...",
         "sem_saves": "Você ainda não tem nenhuma gangue. Funde a primeira.",
         "nova_gangue": "FUNDAR NOVA GANGUE",
-        "limite_atingido": "Limite de {n} gangue(s) do seu plano atingido.",
+        "limite_atingido": "Todas as {n} vagas de gangue estão ocupadas. Apague uma pra fundar outra.",
         "abrir": "CONTINUAR",
         "excluir": "Apagar gangue",
         "excluir_confirm": "Apagar a gangue \"{nome}\"? O elenco e o progresso somem pra sempre.",
         "sem_nome": "Gangue sem nome",
         "territorios": "{n}/7 territórios",
-        "slot": "Save {n}"
+        "slot": "Save {n}",
+        "vagas": "Vagas de gangue: {usadas}/{total}",
+        "beta_liberado": "Beta: 3 vagas liberadas pra todo mundo. Depois do beta: Free 1 · Elite 2 · Primordial 3."
       },
       "carregando": "carregando...",
       "btn_proximo": "próximo →",

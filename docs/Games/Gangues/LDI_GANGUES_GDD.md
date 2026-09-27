@@ -2176,6 +2176,12 @@ estilo Medabots/ATB do Chrono Trigger; substitui a iniciativa Malícia+d3):
   planos (`GANGUES_ROSTER_LIMITS`) — cresce de verdade é pela história, não
   pela assinatura.
 - **Saves**: 1/2/3 por tier free/elite/primordial (`GANGUES_SAVE_SLOT_LIMITS`).
+  **No beta, 3 pra todo mundo** (`GANGUES_SAVE_SLOTS_BETA_LIBERADO = true` em
+  `ganguesLoadout.js`, v3.67.0) — no lançamento é só virar pra `false`. A tela
+  de gangues (`GanguesSaveSelect`) mostra "Vagas de gangue: X/3" e o aviso do
+  beta. O limite só impede fundar gangue nova; save criado a mais no beta nunca
+  some. Não precisa de migration: `gangues_saves` (038) já guarda vários saves
+  por conta e o Supabase não impõe limite nenhum — o limite é do cliente.
 
 ### 17.6 Modo História — a cena navegável (hoje só a Pista)
 

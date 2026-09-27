@@ -264,13 +264,15 @@
         "carregando": "Cargando bandas...",
         "sem_saves": "Todavía no tienes ninguna banda. Funda la primera.",
         "nova_gangue": "FUNDAR NUEVA BANDA",
-        "limite_atingido": "Límite de {n} banda(s) de tu plan alcanzado.",
+        "limite_atingido": "Los {n} espacios de banda están ocupados. Borrá uno para fundar otra.",
         "abrir": "CONTINUAR",
         "excluir": "Borrar banda",
         "excluir_confirm": "¿Borrar la banda \"{nome}\"? El elenco y el progreso se pierden para siempre.",
         "sem_nome": "Banda sin nombre",
         "territorios": "{n}/7 territorios",
-        "slot": "Guardado {n}"
+        "slot": "Guardado {n}",
+        "vagas": "Espacios de banda: {usadas}/{total}",
+        "beta_liberado": "Beta: 3 espacios liberados para todos. Después del beta: Free 1 · Elite 2 · Primordial 3."
       },
       "carregando": "cargando...",
       "btn_proximo": "siguiente →",

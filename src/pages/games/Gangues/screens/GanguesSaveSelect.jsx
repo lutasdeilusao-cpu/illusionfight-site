@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { useLanguage } from '../../../../context/LanguageContext'
 import { useAuth } from '../../../../context/AuthContext'
 import { useGanguesStore } from '../store/useGanguesStore'
-import { contarTerritoriosDominados, getGanguesSaveSlotLimit } from '../data/ganguesLoadout.js'
+import { contarTerritoriosDominados, getGanguesSaveSlotLimit, GANGUES_SAVE_SLOTS_BETA_LIBERADO } from '../data/ganguesLoadout.js'
 import { sfx } from '../../../../lib/sfx'
 import logoPt from '../assets/logos/logo-pt.png'
 import logoEn from '../assets/logos/logo-en.png'
@@ -250,6 +250,10 @@ export default function GanguesSaveSelect({ onNavigate }) {
             ) : (
               <p className="gang-saves__limite">{t('games.gangues.saves.limite_atingido', { n: limite })}</p>
             )}
+            <p className="gang-saves__vagas">
+              {t('games.gangues.saves.vagas', { usadas: savesNomeados.length, total: limite })}
+              {GANGUES_SAVE_SLOTS_BETA_LIBERADO && <small>{t('games.gangues.saves.beta_liberado')}</small>}
+            </p>
           </>
         )}
       </div>

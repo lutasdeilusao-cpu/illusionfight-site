@@ -264,13 +264,15 @@
         "carregando": "Loading gangs...",
         "sem_saves": "You don't have a gang yet. Found the first one.",
         "nova_gangue": "FOUND NEW GANG",
-        "limite_atingido": "Your plan's limit of {n} gang(s) reached.",
+        "limite_atingido": "All {n} gang slots are taken. Delete one to found another.",
         "abrir": "CONTINUE",
         "excluir": "Delete gang",
         "excluir_confirm": "Delete the gang \"{nome}\"? Roster and progress are gone for good.",
         "sem_nome": "Unnamed gang",
         "territorios": "{n}/7 territories",
-        "slot": "Save {n}"
+        "slot": "Save {n}",
+        "vagas": "Gang slots: {usadas}/{total}",
+        "beta_liberado": "Beta: 3 slots unlocked for everyone. After the beta: Free 1 · Elite 2 · Primordial 3."
       },
       "carregando": "loading...",
       "btn_proximo": "next →",

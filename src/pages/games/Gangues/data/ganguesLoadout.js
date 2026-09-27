@@ -11,8 +11,16 @@ export const GANGUES_ROSTER_LIMITS = { free: 2, elite: 2, primordial: 2 }
 // recrutar elencos diferentes sem perder o save anterior. Guest não salva
 // na nuvem, então não tem conceito de save slot (joga só em memória).
 export const GANGUES_SAVE_SLOT_LIMITS = { free: 1, elite: 2, primordial: 3 }
+// BETA (Isaias, 27/09/2026): "deixa liberado três slots para todo mundo
+// durante o beta". Enquanto for true, toda conta (free/elite/primordial) tem
+// o teto máximo. No lançamento é só virar pra false — a regra 1/2/3 por plano
+// já está pronta acima. Gangue criada a mais no beta NÃO some quando virar:
+// o limite só impede fundar gangue nova, nunca apaga nem esconde save.
+export const GANGUES_SAVE_SLOTS_BETA_LIBERADO = true
+const GANGUES_SAVE_SLOT_MAX = Math.max(...Object.values(GANGUES_SAVE_SLOT_LIMITS))
 
 export function getGanguesSaveSlotLimit(tier) {
+  if (GANGUES_SAVE_SLOTS_BETA_LIBERADO) return GANGUES_SAVE_SLOT_MAX
   return GANGUES_SAVE_SLOT_LIMITS[tier] || GANGUES_SAVE_SLOT_LIMITS.free
 }
 

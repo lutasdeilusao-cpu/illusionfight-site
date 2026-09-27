@@ -291,3 +291,6 @@
 .gang-saves__card-delete:disabled { opacity: .4; }
 
 .gang-saves__limite { margin-top: 16px; padding: 12px; border: 1px dashed var(--if-hair); color: var(--text-secondary); text-align: center; font-size: .74rem; background: rgba(0, 0, 0, .4); }
+/* Contador de vagas de gangue (slots) + aviso do beta, embaixo da lista. */
+.gang-saves__vagas { margin-top: 12px; text-align: center; font: 700 .7rem var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--text-secondary); }
+.gang-saves__vagas small { display: block; margin-top: 4px; font-weight: 500; letter-spacing: 0; text-transform: none; color: var(--if-amber); }

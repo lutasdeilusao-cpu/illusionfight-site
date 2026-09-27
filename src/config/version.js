@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.298.0' // feat(gangues): o Mercadão da Feira virou um labirinto de barracas com 7 brigas antes do Cobrador.
+export const SITE_VERSION = '10.299.0' // feat(gangues): 3 vagas de gangue (save slots) liberadas pra todo mundo no beta + contador de vagas na tela de gangues.
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.2' // fix: aba "stories" do rodape mostrava a chave crua pp.menu.pistas_label (nao existia) -> aponta pra pp.dossier.pistas_label; PuzzleWrapper mostrava pp.puzzle.nenhum/instrucao (nao existiam) -> pp.local.puzzle_nenhum/instrucao; confirm() de deletar save mostrava pp.menu.deletar_slot cru -> chave criada nos 3 idiomas.
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '3.66.0' // Feira: o Mercadão virou o LABIRINTO DAS BARRACAS — 3 salas em zigue-zague (salaLabirinto), 2 brigas encadeadas por sala + o Marreta = 7 brigas obrigatórias antes do cofre do Cobrador; barraca desenhada no interior (gang-int-obj--barraca, lona por --lona).
+export const GANGUES_VERSION   = '3.67.0' // save slots: GANGUES_SAVE_SLOTS_BETA_LIBERADO (3 pra todo mundo no beta; depois free 1 / elite 2 / primordial 3), contador 'Vagas de gangue X/3' + aviso do beta na tela de gangues.
 
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
