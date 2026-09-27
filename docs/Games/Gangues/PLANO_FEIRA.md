@@ -253,10 +253,12 @@ caminhos:
 Minha recomendação: **(2)** — mantém a regra "de 3 em 3" que você fixou pra
 Pista e a Feira não vira 3× mais lenta.
 
-**Grana da Feira:** hoje é 10 por inimigo em qualquer lugar. Os preços da
-Feira (e o aprimoramento) sobem, então proponho **15 por inimigo na Feira**
-(`GANGUES_GRANA_POR_INIMIGO` virando tabela por território) e o mínimo do
-chefe de 500 → **800**. Detalhe de preço em `PLANO_ITENS_RANGE.md` §5.
+**Grana da Feira:** hoje (v3.63.1) é 10 garantido + 5 por inimigo a mais, em
+qualquer lugar — o Isaias acabou de cortar porque a Pista dava grana demais.
+Os preços da Feira (e o aprimoramento) sobem, então proponho **15 garantido +5
+por inimigo a mais na Feira** (`GANGUES_GRANA_POR_INIMIGO` virando tabela por
+território; o `+5` por extra fica igual) e o mínimo do chefe de 500 → **800**.
+Recalibrar depois do playtest da Pista com o corte novo. Detalhe de preço em `PLANO_ITENS_RANGE.md` §5.
 
 ---
 

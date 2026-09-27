@@ -242,10 +242,13 @@ já no preço da Feira (o Camelô vende):
 | 11 | Vela Benta | +2 Couro por 2 turnos | 7 | **18** |
 | 12 | Sacola de Bala | +2 PV | 2 | **6** |
 
-**Grana entrando** (pra fechar a conta): hoje é 10 por inimigo em todo lugar.
-Proposta: **tabela por território** — Pista 10, **Feira 15** — e o mínimo do
-chefe da Feira 800. Um kit incomum completo pra 3 fichas na Feira sai ~1.200 de
-grana: ~40 lutas de 2 inimigos, antes do aprimoramento. A Rinha de Apostas e o
+**Grana entrando** (pra fechar a conta): desde a v3.63.1 é **10 garantido +5
+por inimigo a mais** (2 inimigos = 15), em todo lugar. Proposta: o garantido
+vira **tabela por território** — Pista 10, **Feira 15** (+5 por extra nos
+dois) — e o mínimo do chefe da Feira 800. Um kit incomum completo pra 3 fichas
+na Feira sai ~1.200 de grana: ~60 lutas de 2 inimigos (20 cada), antes do
+aprimoramento. Esses preços foram pensados antes do corte de grana — revisar
+junto com o playtest do corte. A Rinha de Apostas e o
 Caixa Forte (dobra a grana) são as torneiras extras; o aprimoramento é o ralo.
 
 ---

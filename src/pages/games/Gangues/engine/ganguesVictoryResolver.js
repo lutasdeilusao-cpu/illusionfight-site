@@ -142,10 +142,16 @@ export function calcularPesosEParticipantes({ victory, report, match }) {
  *  não só o Carvão da Pista — hoje é o único chefe que passa por aqui (os
  *  outros 6 territórios ainda usam a trilha antiga), mas a régua já nasce
  *  genérica pra quando eles também ganharem chefe de verdade. */
+//
+// AJUSTE 27/09/2026 (Isaias: "tá ganhando muita grana, muito fácil"): 10 é o
+// mínimo garantido de qualquer vitória (mesmo contra 1 inimigo só), mas cada
+// inimigo A MAIS no bando soma só 5, não mais 10. "Vamos testar com 5,
+// qualquer coisa a gente diminui mais" — ajustar só GANGUES_GRANA_POR_EXTRA.
 const GANGUES_GRANA_POR_INIMIGO = 10
+const GANGUES_GRANA_POR_EXTRA = 5
 const GANGUES_GRANA_CHEFE_MINIMO = 500
 export function calcularGranaTotal({ enemyCount = 1, ehChefe = false }) {
-  const base = GANGUES_GRANA_POR_INIMIGO * Math.max(1, enemyCount)
+  const base = GANGUES_GRANA_POR_INIMIGO + GANGUES_GRANA_POR_EXTRA * (Math.max(1, enemyCount) - 1)
   return ehChefe ? Math.max(GANGUES_GRANA_CHEFE_MINIMO, base) : base
 }
 

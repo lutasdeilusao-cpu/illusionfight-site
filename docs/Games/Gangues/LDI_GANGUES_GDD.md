@@ -2016,8 +2016,12 @@ estilo Medabots/ATB do Chrono Trigger; substitui a iniciativa Malícia+d3):
   faixa de contribuição (abates pesam mais que dano) — quem mais contribuiu
   pesa 3, a 2ª faixa pesa 2, o resto 1; empatados ficam na mesma faixa. Na
   derrota todo mundo pesa igual.
-- **Grana da vitória** (v3.39.0, `calcularGranaTotal`): **10 por inimigo
-  derrotado**; chefe garante **no mínimo 500**. Substituiu a grana autorada
+- **Grana da vitória** (`calcularGranaTotal`): **10 garantido** em qualquer
+  vitória (mesmo contra 1 inimigo só) **+5 por inimigo a mais** no bando
+  (1 = 10, 2 = 15, 3 = 20…); chefe garante **no mínimo 500**. Era 10 por
+  inimigo (v3.39.0) — cortado pra +5 por extra na v3.63.1 (27/09/2026, Isaias:
+  "tá ganhando muita grana, muito fácil… qualquer coisa a gente diminui
+  mais", constante `GANGUES_GRANA_POR_EXTRA`). Substituiu a grana autorada
   por POI — a Rep continua autorada por POI.
 - **Marcos de reputação:** a cada 50 de Rep acumulada, a gangue ganha um chip
   de poder (§9.3).
