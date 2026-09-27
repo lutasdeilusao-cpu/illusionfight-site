@@ -49,8 +49,7 @@
         "round_number": "ROUND {n}",
         "no_log": "No attacks recorded.",
         "back_to_gang": "BACK TO GANG",
-        "recrutar": "RECRUIT NEW MEMBER",
-        "velocidade": "spd"
+        "recrutar": "RECRUIT NEW MEMBER"
       },
       "progression": {
         "loadout": "Equipped: {n}/2",

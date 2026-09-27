@@ -49,8 +49,7 @@
         "round_number": "RONDA {n}",
         "no_log": "No hay ataques registrados.",
         "back_to_gang": "VOLVER A LA PANDILLA",
-        "recrutar": "RECLUTAR NUEVO MIEMBRO",
-        "velocidade": "vel"
+        "recrutar": "RECLUTAR NUEVO MIEMBRO"
       },
       "progression": {
         "loadout": "Equipados: {n}/2",

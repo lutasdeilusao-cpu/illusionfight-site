@@ -38,7 +38,7 @@ function montar(combatants, round, eventosIniciais) {
   return {
     combatants, tempo: t0, initiative, round, lastEnemyTargetKey: null,
     terminado: false, outcome: null,
-    eventosIniciais: eventosIniciais ? [...eventosIniciais, { type: 'initiative', id: 'bm-initiative', order: initiative }] : [],
+    eventosIniciais: eventosIniciais || [],
     seq: 0,
   }
 }

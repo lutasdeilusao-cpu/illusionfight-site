@@ -84,9 +84,6 @@ export function pickTrash(t, enemy, category) {
 // modos pra não duplicar a lógica de nome/trash-talk/onomatopeia.
 export function transformarEvento(t, event, combatants) {
   if (event.type === 'battle_start') return [{ id: event.id, kind: 'system', text: t('games.gangues.log_batalha_inicio') }]
-  if (event.type === 'initiative') {
-    return [{ id: event.id, kind: 'initiative', order: event.order.map(item => ({ ...item, name: fighterName(t, combatants.find(m => m.key === item.key)) })) }]
-  }
   if (event.type === 'item') {
     const actor = combatants.find(m => m.key === event.actorKey)
     const alvo = combatants.find(m => m.key === event.targetKey)

@@ -139,8 +139,7 @@ export default function useGanguesTurnMachine({ playerTeam = [], enemyTeam = [],
     entered.current = true
     setStarted(true)
     record({ type: 'battle_start' })
-    record({ type: 'initiative', order: initiative })
-  }, [initiative, record])
+  }, [record])
 
   // Volta da Briga em Multidão pro motor normal (switch desligado no meio da
   // luta): recebe o estado da Multidão (mesmo `prepare()`, mesma linha do

@@ -1,21 +1,28 @@
 /* Pista da linha do tempo — ver GanguesPistaTempo.jsx.
-   --p (0 a 1) = quanto o lutador já correu até o centro. */
+   --p (0 a 1) = quanto o lutador já correu até o centro.
+   Cada raia tem 18px; a pista cresce com o número de raias (1 a 4). */
 .gang-pista {
-  position: relative; height: 26px; margin: 4px 12px 2px;
+  --raia: 18px;
+  position: relative; display: grid; margin: 4px 12px 2px; flex-shrink: 0;
   border-top: 1px solid rgba(255, 255, 255, 0.08); border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   background: linear-gradient(90deg, rgba(0, 180, 216, 0.08), transparent 40%, transparent 60%, rgba(255, 70, 70, 0.08));
-  flex-shrink: 0;
 }
+.gang-pista__raia { height: var(--raia); border-bottom: 1px dashed rgba(255, 255, 255, 0.06); }
+.gang-pista__raia:last-of-type { border-bottom: 0; }
 .gang-pista__centro {
   position: absolute; top: -2px; bottom: -2px; left: 50%; width: 2px; transform: translateX(-50%);
   background: var(--if-amber); box-shadow: 0 0 8px var(--if-amber);
 }
 .gang-pista__corredor {
-  position: absolute; top: 50%; width: 18px; height: 18px; margin: -9px 0 0 -9px;
+  position: absolute; width: 16px; height: 16px; margin: 1px 0 0 -8px;
   display: grid; place-items: center; border-radius: 50%;
   font: 800 9px var(--font-mono); color: #0b0d10;
-  transition: left 0.35s ease-out;
+  transition: left 1.1s cubic-bezier(0.3, 0.1, 0.4, 1);
 }
+.gang-pista__corredor--raia0 { top: 0; }
+.gang-pista__corredor--raia1 { top: var(--raia); }
+.gang-pista__corredor--raia2 { top: calc(var(--raia) * 2); }
+.gang-pista__corredor--raia3 { top: calc(var(--raia) * 3); }
 .gang-pista__corredor--player { left: calc(4% + var(--p) * 46%); background: var(--if-cyan); }
 .gang-pista__corredor--enemy { left: calc(96% - var(--p) * 46%); background: var(--if-danger); }
 .gang-pista__corredor.is-vez { box-shadow: 0 0 0 2px var(--if-amber), 0 0 10px var(--if-amber); z-index: 1; }

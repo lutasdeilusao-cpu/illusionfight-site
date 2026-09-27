@@ -26,14 +26,6 @@ const GanguesCombatLogList = forwardRef(function GanguesCombatLogList({ log, t }
             </motion.div>
           )
         }
-        if (entry.kind === 'initiative') {
-          return (
-            <motion.div key={entry.id} className="gang-initiative-log" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-              <strong>{t('games.gangues.report.initiative')}</strong>
-              {entry.order.map((item, index) => <span key={item.key}><b>{index + 1}</b>{item.name}<small>{t('games.gangues.attr_labels.H')} {item.ability} · {t('games.gangues.report.velocidade')} {item.total}</small></span>)}
-            </motion.div>
-          )
-        }
         const isPlayer = entry.side === 'player'
         const fxLog = getGanguesEffectTheme(entry.activeSpecialId)
         return (

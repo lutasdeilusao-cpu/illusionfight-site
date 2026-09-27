@@ -98,11 +98,6 @@
 .gang-attack-stack { display: flex; flex-direction: column; gap: 6px; }
 .gang-attack-card-val--max { color: var(--if-amber); font-weight: 700; }
 .gang-attack-onoma { color: var(--if-amber); font: 20px 'Impact', 'Arial Black', sans-serif; letter-spacing: 3px; text-align: center; text-shadow: 2px 2px 0 var(--if-blood), 0 0 16px rgba(245,166,35,0.6); }
-.gang-initiative-log { display: grid; gap: 5px; margin: 10px auto; width: min(92%, 440px); padding: 12px; border: 1px solid rgba(0,180,216,0.22); background: rgba(0,180,216,0.04); }
-.gang-initiative-log > strong { color: var(--if-teal); font-size: 9px; letter-spacing: 3px; text-align: center; text-transform: uppercase; }
-.gang-initiative-log > span { display: grid; grid-template-columns: 22px 1fr auto; align-items: center; color: #d5dde0; font: 700 11px 'Rajdhani', sans-serif; }
-.gang-initiative-log > span b { color: var(--if-amber); }
-.gang-initiative-log > span small { color: #64727a; font: 9px 'Courier New', monospace; }
 .gang-enemy-thinking { display: grid; grid-template-columns: auto 1fr; align-items: center; width: min(90%, 420px); margin: 12px auto; border: 1px solid rgba(245,166,35,0.22); background: rgba(245,166,35,0.05); text-align: left; }
 /* Aviso de Modo Automático ligado — substitui a bolinha de ação enquanto
    ativo, já que não há nada pra escolher manualmente nesse modo. */
