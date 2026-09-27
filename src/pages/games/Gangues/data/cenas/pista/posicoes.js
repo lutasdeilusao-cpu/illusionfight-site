@@ -23,10 +23,10 @@
 // Fechada/c3, longe da porta da birosca que tava congestionada). Sem
 // prédio nenhum perto (zona centrada no próprio ícone, mesmo critério de
 // informante/rinha).
-export const POS_PISTA = { sinal: { x: 210, y: 2570 }, ferro: { x: 150, y: 2325 }, achado: { x: 110, y: 2245 }, beco: { x: 445, y: 2190 }, loja_pocoes: { x: 600, y: 2560 }, corre: { x: 610, y: 2010 }, beco_2: { x: 330, y: 2270 }, beco_3: { x: 380, y: 1950 }, sinaleiro: { x: 440, y: 1755 }, rasteira_velha: { x: 360, y: 1440 }, oficina: { x: 250, y: 1705 }, descanso: { x: 205, y: 2440 }, posmuro_1: { x: 300, y: 860 }, posmuro_2: { x: 430, y: 600 }, informante: { x: 150, y: 1740 }, rinha: { x: 610, y: 1740 }, loja: { x: 210, y: 486 }, boss: { x: 570, y: 175 } }
+export const POS_PISTA = { sinal: { x: 210, y: 2570 }, ferro: { x: 178, y: 2197 }, achado: { x: 110, y: 2245 }, beco: { x: 445, y: 2190 }, loja_pocoes: { x: 600, y: 2560 }, corre: { x: 610, y: 2010 }, beco_2: { x: 330, y: 2270 }, beco_3: { x: 380, y: 1950 }, sinaleiro: { x: 440, y: 1755 }, rasteira_velha: { x: 360, y: 1440 }, oficina: { x: 250, y: 1705 }, descanso: { x: 205, y: 2440 }, posmuro_1: { x: 300, y: 860 }, posmuro_2: { x: 430, y: 600 }, informante: { x: 150, y: 1740 }, rinha: { x: 610, y: 1740 }, loja: { x: 210, y: 486 }, boss: { x: 570, y: 175 } }
 
 export const ENTRY_ZONES_PISTA = {
-  sinal: { x: 243, y: 2532, w: 70, h: 76 }, ferro: { x: 295, y: 2302, w: 60, h: 62 }, achado: { x: 75, y: 2212, w: 72, h: 72 }, beco: { x: 355, y: 2155, w: 76, h: 70 },
+  sinal: { x: 243, y: 2532, w: 70, h: 76 }, ferro: { x: 148, y: 2166, w: 60, h: 62 }, achado: { x: 75, y: 2212, w: 72, h: 72 }, beco: { x: 355, y: 2155, w: 76, h: 70 },
   loja_pocoes: { x: 570, y: 2530, w: 60, h: 60 }, corre: { x: 410, y: 1970, w: 60, h: 82 },
   // Os 4 pontos da linha da Rasteira espalhados pela rua toda (o radar guia).
   // Cada zona no corredor andável da sua faixa. beco_2: vão aberto y1172-1302.

@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1790476969.4796941,
-    "ast_hash": "99195eabd14634ed2fef356a82d2062a",
+    "mtime": 1790478269.535291,
+    "ast_hash": "720b9cf1986ca90f8ef01025caaf7d99",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2730,8 +2730,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1790476969.5218837,
-    "ast_hash": "b0361343680bfbb74ebdf77866dd9469",
+    "mtime": 1790478269.5789175,
+    "ast_hash": "e3cec92013d1dc2ffeff931b9f6565c8",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -4885,8 +4885,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/cena/GanguesCenaAtores.jsx": {
-    "mtime": 1790460492.2505968,
-    "ast_hash": "abf0e6637e9953ceeeef09d0c8e6c291",
+    "mtime": 1790478209.1884842,
+    "ast_hash": "1189cd17f7fa193b8f061f56e0e87aec",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/cena/GanguesCenaBagSheet.jsx": {
@@ -4905,8 +4905,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/cenas/pista/posicoes.js": {
-    "mtime": 1790046891.5001585,
-    "ast_hash": "d19af8987dabe9e0505444706d72c77a",
+    "mtime": 1790478095.0877326,
+    "ast_hash": "7c5f1215c7d1d31d00f1c2f45b23cf88",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/engine/ganguesCenaMotor.js": {
@@ -5065,8 +5065,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/screens/GanguesCena.jsx": {
-    "mtime": 1790461074.94924,
-    "ast_hash": "d5becabf0c5eb953fcba32a1639e62e3",
+    "mtime": 1790478156.3521264,
+    "ast_hash": "de5b093c23b98e77e77923b9184c39bf",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/screens/GanguesClube.jsx": {
@@ -5085,8 +5085,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/screens/GanguesCombat.jsx": {
-    "mtime": 1790469633.9283507,
-    "ast_hash": "0f099e23c848ef6458abd764ee106c4a",
+    "mtime": 1790478156.2775977,
+    "ast_hash": "f7013f0c82d39cba082934e9201f48cf",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/screens/GanguesCreate.jsx": {
@@ -5790,8 +5790,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/components/GanguesPistaTempo.jsx": {
-    "mtime": 1790476944.761791,
-    "ast_hash": "b8f3cfb8a38966473a62ff150c11857f",
+    "mtime": 1790478139.2227595,
+    "ast_hash": "00acd724f6180baa8b5e7f8aa667a277",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/engine/ganguesLinhaDoTempo.js": {
