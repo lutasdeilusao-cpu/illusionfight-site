@@ -2107,6 +2107,9 @@ estilo Medabots/ATB do Chrono Trigger; substitui a iniciativa Malícia+d3):
   `GanguesCenaAtores.jsx`). Antes era a soma inteira + 4px (~63px entre
   centros), maior que o vaivém de quem patrulha curto — parado no meio, o
   personagem nunca descolava e nunca voltava a brigar.
+  Só na RUA (v3.69.2): dentro dos cômodos o espaço é apertado e o colisor
+  pequeno deixava a interação ruim (birosca) — lá volta o colisor cheio
+  (soma dos raios + 4px, prop `interior` do `PinoAlvo`).
   **Saída automática** (v3.69.0): com o switch ligado, as telas depois de
   uma luta da cena se clicam sozinhas — "NÓIS É CRIA"/"DEU RUIM" em 2s e o
   relatório ("Segue na quebrada" / "Acordar na birosca" / "tentar de novo")

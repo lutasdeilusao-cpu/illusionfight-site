@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.301.1' // fix(gangues): colisor dos personagens menor que o desenho e briga automática solta o ignorado depois de uma volta do caminho.
+export const SITE_VERSION = '10.301.2' // fix(gangues): colisor pequeno dos personagens só na rua; dentro dos cômodos volta o colisor cheio.
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.2' // fix: aba "stories" do rodape mostrava a chave crua pp.menu.pistas_label (nao existia) -> aponta pra pp.dossier.pistas_label; PuzzleWrapper mostrava pp.puzzle.nenhum/instrucao (nao existiam) -> pp.local.puzzle_nenhum/instrucao; confirm() de deletar save mostrava pp.menu.deletar_slot cru -> chave criada nos 3 idiomas.
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '3.69.1' // colisor = metade da soma dos raios (antes maior que o vaivém de quem patrulha curto); ignorado da briga automática sai após 1 volta do caminho.
+export const GANGUES_VERSION   = '3.69.2' // colisor dos personagens: metade da soma dos raios na rua, soma + 4px nos cômodos (interação na birosca tinha ficado ruim).
 
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
