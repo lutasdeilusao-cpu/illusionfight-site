@@ -2098,6 +2098,16 @@ estilo Medabots/ATB do Chrono Trigger; substitui a iniciativa Malícia+d3):
   na próxima passada, encosta de novo e aí é briga. Quem é parado (não anda)
   só libera quando o jogador se afasta. Sem isso, a volta da luta (que te devolve colado
   no mesmo adversário) entraria em luta de novo na hora, pra sempre.
+  **Saída automática** (v3.69.0): com o switch ligado, as telas depois de
+  uma luta da cena se clicam sozinhas — "NÓIS É CRIA"/"DEU RUIM" em 2s e o
+  relatório ("Segue na quebrada" / "Acordar na birosca" / "tentar de novo")
+  em 3s: no máximo 5s até voltar pra rua (a fala do derrotado antes, que já
+  some sozinha, não conta). Quem liga a briga automática quer upar — entrar
+  e sair de luta. Clique manual continua valendo, e qualquer toque na tela
+  reinicia a contagem (quem parou pra ler não é arrancado). Recompensa,
+  level-up e marco de rep já estão aplicados quando o relatório abre, então
+  pular os modais não perde nada. Fica manual: a vitória sobre o CHEFE (fecho
+  do bairro, com a vaga de recruta pra decidir), Clube e Torre.
 - **"Mete o pé"** (fugir da luta) volta pra tela de **Modos**, não pro lobby
   (v3.38.0).
 - **Voltar nunca repete recompensa:** as fases de combate e vitória ficam fora

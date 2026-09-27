@@ -8,6 +8,7 @@ import { useTutorialProgress } from '../../../../context/TutorialProgressContext
 import GangTip from '../components/GangTip'
 import GanguesRepRecompensaModal from '../components/GanguesRepRecompensaModal'
 import GanguesRetratoImg from '../components/GanguesRetratoImg'
+import { useGanguesAvancoAutomatico, GANGUES_AVANCO_AUTO_MS } from '../hooks/useGanguesBrigaAutomatica.js'
 import { getGanguesEquip } from '../data/ganguesEquip.js'
 import { getGanguesItem } from '../data/ganguesItens.js'
 
@@ -70,6 +71,15 @@ export default function GanguesVictoryReport({
         return caidos.length ? caidos : report.combatants.filter(m => m.side === 'player')
       })()
     : []
+  // Volta pra rua (vitória, socorro da derrota ou tentar de novo).
+  const seguir = () => { store.setStoryTarget({ territorioId: storyAlvo.territorioId }); onNavigate('territorio') }
+  // Briga automática da cena ligada: "Segue na quebrada" se clica sozinho em
+  // 3s (ver useGanguesAvancoAutomatico). A vitória sobre o chefe fica de fora
+  // — é o fecho do bairro, com a vaga de recruta pra decidir.
+  useGanguesAvancoAutomatico({
+    ativo: Boolean(storyAlvo?.cenaId) && !torre && noModoHistoria && !(cenaChefe && victory),
+    ms: GANGUES_AVANCO_AUTO_MS.relatorio, acao: seguir,
+  })
   const attacks = report.entries.filter(entry => entry.kind === 'attack_card')
   const playerDamage = attacks.filter(entry => entry.side === 'player').reduce((sum, entry) => sum + entry.dmg, 0)
   const enemyDamage = attacks.filter(entry => entry.side === 'enemy').reduce((sum, entry) => sum + entry.dmg, 0)
@@ -238,7 +248,7 @@ export default function GanguesVictoryReport({
         ) : noModoHistoria ? (
           <>
             {podeRecrutar && <button className="gang-report-primary" onClick={recrutar}>{t('games.gangues.report.recrutar')}</button>}
-            <button className={podeRecrutar ? 'gang-report-secondary' : 'gang-report-primary'} onClick={() => { store.setStoryTarget({ territorioId: storyAlvo.territorioId }); onNavigate('territorio') }}>
+            <button className={podeRecrutar ? 'gang-report-secondary' : 'gang-report-primary'} onClick={seguir}>
               {victory ? t('games.gangues.story.continuar_territorio') : socorro ? t('games.gangues.story.ir_birosca') : t('games.gangues.story.tentar_de_novo')}
             </button>
           </>

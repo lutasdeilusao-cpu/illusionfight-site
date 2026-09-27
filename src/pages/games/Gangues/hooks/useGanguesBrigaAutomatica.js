@@ -110,3 +110,26 @@ export default function useGanguesBrigaAutomatica({ alvos, colidindo, rodando, u
 
   return { ligado, alternar, ignorados: ignoradosIds }
 }
+
+/* Saída automática do pós-luta (pedido do Isaias, 27/09/2026): quem liga a
+   briga automática quer upar — "entrar e sair de batalha". Com o switch
+   ligado e a luta vinda da cena, as telas depois da luta se clicam sozinhas:
+   o "NÓIS É CRIA" (botão de próximo) em 2s e o relatório ("Segue na
+   quebrada" / "Acordar na birosca") em 3s — no máximo 5s até voltar pra rua.
+   Clique manual continua valendo (e qualquer toque na tela reinicia a
+   contagem, pra não arrancar o jogador que parou pra ler). */
+export const GANGUES_AVANCO_AUTO_MS = { resultado: 2000, relatorio: 3000 }
+
+export function useGanguesAvancoAutomatico({ ativo, ms, acao }) {
+  const [ligado] = useGanguesAutoLembrado(GANGUES_BRIGA_AUTO_CHAVE)
+  const acaoRef = useRef(acao)
+  acaoRef.current = acao
+  useEffect(() => {
+    if (!ligado || !ativo) return
+    let timer
+    const armar = () => { clearTimeout(timer); timer = setTimeout(() => acaoRef.current(), ms) }
+    armar()
+    window.addEventListener('pointerdown', armar)
+    return () => { clearTimeout(timer); window.removeEventListener('pointerdown', armar) }
+  }, [ligado, ativo, ms])
+}

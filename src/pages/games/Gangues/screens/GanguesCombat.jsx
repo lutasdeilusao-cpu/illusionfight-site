@@ -26,6 +26,7 @@ import GanguesCombatOverlays from '../components/GanguesCombatOverlays'
 import GanguesMultidaoActionBar from '../components/GanguesMultidaoActionBar'
 import GanguesActionOrb from '../components/GanguesActionOrb'
 import GanguesCombatSairConfirm from '../components/GanguesCombatSairConfirm'
+import { useGanguesAvancoAutomatico, GANGUES_AVANCO_AUTO_MS } from '../hooks/useGanguesBrigaAutomatica.js'
 import { sfx } from '../../../../lib/sfx'
 import './GanguesCombat.css'
 
@@ -278,6 +279,12 @@ export default function GanguesCombat({ onNavigate, onSairConfirmado }) {
     return true
   }
 
+  const abrirRelatorio = () => openBattleReport({ modoMultidaoAtivo, estadoMultidao, machine, log, eventosBrutosRef })
+  // Briga automática da cena ligada: o "NÓIS É CRIA" avança sozinho em 2s
+  // (ver useGanguesAvancoAutomatico).
+  const lutaDaCena = Boolean(store.storyTarget?.cenaId) && !store.storyTarget?.torre && !store.storyTarget?.clube
+  useGanguesAvancoAutomatico({ ativo: lutaDaCena && Boolean(result) && !falaFinal, ms: GANGUES_AVANCO_AUTO_MS.resultado, acao: abrirRelatorio })
+
   if (!store.match.playerTeam?.length) return null
 
   // Vinheta de PV baixo — o farol de cada quadradinho no roster
@@ -348,7 +355,7 @@ export default function GanguesCombat({ onNavigate, onSairConfirmado }) {
         dispararProximoKo={fx.dispararProximoKo} machine={machine} modoMultidaoAtivo={modoMultidaoAtivo}
         revelandoRodada={revelandoRodada} fichaAberta={fichaAberta} setFichaAberta={setFichaAberta}
         falaFinal={falaFinal} result={result} showResultBtn={showResultBtn}
-        openBattleReport={() => openBattleReport({ modoMultidaoAtivo, estadoMultidao, machine, log, eventosBrutosRef })}
+        openBattleReport={abrirRelatorio}
         enemy={store.match.enemy} velocidade={velocidadeEfetiva}
       />
 
