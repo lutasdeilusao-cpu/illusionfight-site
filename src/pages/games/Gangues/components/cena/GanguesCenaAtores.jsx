@@ -148,7 +148,10 @@ export function movimentoDoPino(p) {
 // REAL (círculo contra círculo na tela), usada só pra pausar a andadinha
 // (`is-colidindo`) no momento exato que o personagem "esbarra" no
 // jogador, não assim que entra na zona generosa de interação.
-export function PinoAlvo({ p, t, active, onColidir }) {
+// `ignorado`: a briga automática está ignorando esse oponente até ele
+// descolar (hooks/useGanguesBrigaAutomatica.js) — então ele NÃO pausa ao
+// encostar: atravessa o jogador e termina o caminho dele.
+export function PinoAlvo({ p, t, active, onColidir, ignorado }) {
   // useState/useRef/useEffect sempre no topo, antes de qualquer return
   // condicional (regra dos hooks) — falha de carregamento (rede ruim) cai
   // pro ícone genérico, igual quando não tem retrato nenhum.
@@ -232,7 +235,7 @@ export function PinoAlvo({ p, t, active, onColidir }) {
     '--gp-resp': `${3.2 + (h % 5) * 0.3}s`,
   } : undefined
   const movClasse = movimento ? `mov-${movimento}${anda ? ' mov-anda' : ''}` : ''
-  return <div className={`gang-world-npc is-${p.estado} ${farolDe(p)} ${p.ehChefe ? 'is-boss' : ''} ${p.farmCompleto ? 'is-farm' : ''} ${active ? 'is-perto' : ''} ${colidindo ? 'is-colidindo' : ''} ${p.ehPorta || p.ehSaida || p.ehVolta || p.ehPassagem ? 'is-nav' : ''} ${retrato ? 'gang-world-npc--retrato' : ''} ${movClasse}`} style={{ left: p.world.x, top: p.world.y }}>
+  return <div className={`gang-world-npc is-${p.estado} ${farolDe(p)} ${p.ehChefe ? 'is-boss' : ''} ${p.farmCompleto ? 'is-farm' : ''} ${active ? 'is-perto' : ''} ${colidindo && !ignorado ? 'is-colidindo' : ''} ${p.ehPorta || p.ehSaida || p.ehVolta || p.ehPassagem ? 'is-nav' : ''} ${retrato ? 'gang-world-npc--retrato' : ''} ${movClasse}`} style={{ left: p.world.x, top: p.world.y }}>
     <span ref={spanRef} style={movStyle}>
       <span className={personagem ? 'gang-world-npc-passo' : undefined}>
         {retrato ? <img src={retrato} alt="" onError={() => setRetratoFalhou(true)} /> : icone}

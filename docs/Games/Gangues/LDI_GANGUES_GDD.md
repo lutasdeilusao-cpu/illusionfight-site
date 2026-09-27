@@ -2090,7 +2090,10 @@ estilo Medabots/ATB do Chrono Trigger; substitui a iniciativa Malícia+d3):
   barrado por uma trava (rep, dívida, informante, tropa no chão) e quem já
   estava encostado na hora de ligar o switch ficam ignorados até a colisão
   com eles acabar — separou, vale de novo (dá pra ficar parado esperando o
-  bicho voltar a encostar). Sem isso, a volta da luta (que te devolve colado
+  bicho voltar a encostar). Enquanto ignorado, o personagem que **anda não
+  para** ao encostar (v3.68.1): atravessa o jogador, termina o caminho dele e,
+  na próxima passada, encosta de novo e aí é briga. Quem é parado (não anda)
+  só libera quando o jogador se afasta. Sem isso, a volta da luta (que te devolve colado
   no mesmo adversário) entraria em luta de novo na hora, pra sempre.
 - **"Mete o pé"** (fugir da luta) volta pra tela de **Modos**, não pro lobby
   (v3.38.0).

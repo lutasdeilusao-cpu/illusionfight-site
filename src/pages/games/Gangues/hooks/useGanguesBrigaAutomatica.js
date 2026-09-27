@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { useGanguesAutoLembrado } from './useGanguesVelocidadeAuto.js'
 
 /* ══════════════════════════════════════════════════════════════
@@ -20,6 +20,10 @@ import { useGanguesAutoLembrado } from './useGanguesVelocidadeAuto.js'
    adversário da última luta, e quem já estava encostado na hora de ligar o
    switch ficam IGNORADOS até a colisão com eles acabar. Separou → vale de
    novo: dá pra ficar parado esperando o bicho voltar a encostar.
+   Enquanto ignorado, o personagem que ANDA não para ao encostar (a pausa
+   normal existe pra deixar o jogador interagir) — atravessa, termina o
+   caminho dele e, na próxima passada, encosta de novo e aí sim é briga.
+   Por isso o hook publica `ignorados` pra cena (PinoAlvo, prop `ignorado`).
    Separar = ficar SEM encostar por SEPARACAO_MS seguidos, não um piscar:
    a colisão é medida na tela a cada 150ms e pisca na borda (a animação
    parada do personagem mexe o círculo dele) — uma leitura "soltou" só já
@@ -49,6 +53,14 @@ const VIGIA_MS = 150
 export default function useGanguesBrigaAutomatica({ alvos, colidindo, rodando, ultimoPoiId, onBriga }) {
   const [ligado, setLigado] = useGanguesAutoLembrado(GANGUES_BRIGA_AUTO_CHAVE)
   const ignorados = useRef(new Map(ultimoPoiId ? [[ultimoPoiId, { visto: false, soltoDesde: null }]] : []))
+  // Cópia em estado (só os ids) pra cena saber quem não deve pausar.
+  const [ignoradosIds, setIgnoradosIds] = useState(() => new Set(ignorados.current.keys()))
+  const publicar = useCallback(() => {
+    setIgnoradosIds(prev => {
+      const ids = [...ignorados.current.keys()]
+      return ids.length === prev.size && ids.every(id => prev.has(id)) ? prev : new Set(ids)
+    })
+  }, [])
   // O vigia roda num intervalo (não só quando algo muda): a separação
   // precisa ser confirmada pelo TEMPO, mesmo sem nenhum render novo.
   const atual = useRef({})
@@ -66,21 +78,24 @@ export default function useGanguesBrigaAutomatica({ alvos, colidindo, rodando, u
         info.soltoDesde ??= agora
         if (agora - info.soltoDesde >= SEPARACAO_MS) ignorados.current.delete(poiId)
       }
+      publicar()
       if (!on || !ativo) return
       const alvo = lista.find(a => entraSozinho(a) && !ignorados.current.has(a.id) && colide(a))
       if (!alvo) return
       ignorados.current.set(alvo.id, { visto: true, soltoDesde: null })
+      publicar()
       brigar(alvo)
     }, VIGIA_MS)
     return () => clearInterval(id)
-  }, [])
+  }, [publicar])
 
   const alternar = useCallback(() => {
     // Ligando: quem já está encostado agora não dispara de surpresa — só
     // depois de separar e encostar de novo.
     if (!ligado) for (const a of alvos) if (entraSozinho(a) && colidindo(a)) ignorados.current.set(a.id, { visto: true, soltoDesde: null })
+    publicar()
     setLigado(!ligado)
-  }, [ligado, alvos, colidindo, setLigado])
+  }, [ligado, alvos, colidindo, setLigado, publicar])
 
-  return { ligado, alternar }
+  return { ligado, alternar, ignorados: ignoradosIds }
 }
