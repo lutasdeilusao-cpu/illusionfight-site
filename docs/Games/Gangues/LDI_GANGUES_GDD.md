@@ -23,12 +23,20 @@
 Grafia oficial: **Marélia** com acento (o conto usa assim). O i18n do jogo ainda
 tem "Marelia" sem acento em vários lugares — alinhar quando mexer em texto.
 
-> **Atualização pontual: 27/09/2026 (GANGUES 3.63.0 / SITE 10.295.0)** —
-> **não existe game over**: derrota na cena leva a tropa pra birosca mais
-> perto e cobra a recuperação na hora (§4, Pista), e o **automático é
-> lembrado entre lutas** (§17.2.1).
+> **Última revisão geral: 27/09/2026 — conferido contra o código de
+> GANGUES 3.63.0 (SITE 10.295.x).** Entrou nesta revisão: **não existe game
+> over** (§4, Pista), o **automático lembrado entre lutas** (§17.2.1), a
+> **pista em raias** da linha do tempo (§17.2), a **sirene** do encontro com
+> a polícia (§4), os pools de inimigo reais da Pista (§4), a pasta
+> `styles/` + auditoria de CSS no deploy (§17.8), e correções: rótulos de
+> atributo (§17.1), roster × time de batalha (§17.5), escala de nível dos
+> chefes e AP da §12 (estavam da época do "1 nível = 1 ponto"), e o aviso de
+> que os equipamentos raros não têm fonte nenhuma no jogo hoje (§9.4).
+> Planejamentos novos (não implementados): **a Feira** em
+> `PLANO_FEIRA.md` e **range + aprimoramento de equipamento** em
+> `PLANO_ITENS_RANGE.md` (mesma pasta deste GDD).
 >
-> **Última revisão geral: 26/09/2026 — conferido contra o código de
+> **Revisão geral anterior: 26/09/2026 — conferido contra o código de
 > GANGUES 3.56.0 (SITE 10.293.1).** Esta revisão trouxe pro GDD tudo o que
 > entrou no jogo entre a v3.30.0 (19/09) e a v3.56.0 (22/09) e que só
 > existia no código: a agiotagem refeita (agora com o agiota **Marimbondo**,
@@ -237,7 +245,7 @@ Facção: Rato de Pista (101) / Bonde do Sinal (102). O asfalto lá embaixo. Cri
 que corre no farol, arranca corrente, vende bala. **Todo mundo começa aqui** — o
 Retalho, o jogador, e (noutro bairro) o Alan.
 
-**POIs (estado atual, v3.56.0 — `data/cenas/pista/pois.js`):**
+**POIs (estado atual, v3.63.0 — `data/cenas/pista/pois.js`):**
 
 - **Obrigatórios pro portão** (`portao.precisa`, 8): A boca do sinal (`sinal`) ·
   O ferro-velho (`ferro`, `PuzzleSimonSays`) · **A oficina do Nando**
@@ -374,7 +382,9 @@ completo "o bicho"):**
   de 1ª luta e da regra da frustração. Força pelo personagem mais forte da
   gangue (`baseMaisForte`).
 - **Os 4 tipos** (`ALEATORIO_TIPOS` em `engine/ganguesEncontroAleatorio.js`;
-  arte por enquanto = bolinha colorida, moto e viatura vêm depois):
+  arte por enquanto = bolinha colorida, moto e viatura vêm depois; desde a
+  v3.62.3 a **polícia pisca a tela em vermelho/azul — sirene —** enquanto a
+  viatura está no mapa e durante a onomatopeia, `.gang-cena-sirene`):
 
   | Tipo | Bolinha | Quem | Onomatopeia |
   |---|---|---|---|
@@ -403,14 +413,18 @@ com `revezamento: { pool:[ids], budgetPorCorpo, chanceDupla }` chama
 um punhado de fracos que se alternam, orçamento leve e FIXO por corpo (não escala
 com o jogador). É o "estilo Pokémon" pedido pelo Isaias: quase sempre 1 sozinho,
 de vez em quando uma dupla, sempre leve. Túnel da Pista: m1 `[1101,1102,1103]`
-b4/0.22 · m2 `[1101,1102,1103,1201]` b6/0.45 · m3 `[1101,1102,1103]` b5/0.30.
+b4/0.22 · m2 b6/0.45 · m3 b5/0.30. **Pools reais hoje** (`data/cenas/pista/pools.js`):
+`PISTA_POOL_TUNEL` = 1101–1110 (m1 e m3), `PISTA_POOL_RUA` = 1101–1109 +
+1201–1205 (m2, e todas as tretas de rua), `PISTA_POOL_GALPAO` =
+1206/1207/1208/1301/1302/1303/1401/1402 (pós-muro e galpão).
 
 **Também nas primeiras tretas de rua (v2.74.6):** `beco` (a 1ª treta de
 verdade), a `rinha` (farm) e as brigas-punição (`sinal`→apertar o pivete,
 falhar a gazua do `ferro`) trocaram o `enemy` fixo / o sorteio dos 11 moldes
-por `revezamento` do pool fraco `[1101,1102,1103,1201,1203]`
-(Farejador/Zóio/Pingo/Ratazana/Chinelada). Antes a `aperta`/`falha`
-davam SEMPRE uma Ratazana sozinha; agora rodam os 5, quase sempre solo. Isso
+por `revezamento` do pool de rua (na v2.74.6 eram só 5 ids; hoje é o
+`PISTA_POOL_RUA` inteiro, 14 fichas — 1101–1109 + 1201–1205). Antes a
+`aperta`/`falha` davam SEMPRE uma Ratazana sozinha; agora sorteiam do pool,
+quase sempre solo. Isso
 vale para `viraTreta.revezamento` (não só `poi.revezamento`).
 
 ### Território 2 — A Feira · Muvuca · `#7ee787`
@@ -423,6 +437,11 @@ beco da luz de gato** (Os Gato fazem a ligação clandestina) · **A feira de
 domingo** (movimento intenso, boa pra se esconder ou negociar) · **O fiado da
 Dona Regina** (NPC que empresta em troca de favor) · **A oficina de rádio**
 (conserta rádio pirata, ponto de informação).
+
+> **Plano da cena navegável da Feira (27/09/2026, não implementado):**
+> `PLANO_FEIRA.md` — 37 eventos, a Feira em duas metades (de dia / no
+> apagão), a Galeria dos Gato e o Mercadão como dungeons, ladder 26 → 47 e o
+> Cobrador em 52, e a versão "upgrade" de cada sistema da Pista.
 
 ### Território 3 — A Baixada · Correria · `#18dafb`
 Facção: os 3 cacos do Sombra (105/106/107). Do outro lado da linha do trem. A
@@ -1191,6 +1210,11 @@ Nunca são vendidos. Vêm de dois lugares: **marcos de reputação** (a cada
 
 ### 9.4 Equipamento — 6 slots por personagem
 
+> **Proposta (27/09/2026, não implementada):** bônus de Porrada/Couro/Pique
+> em **faixa** (ex.: Faca Serrilhada 1–3), **aprimoramento** +1 a +4 que
+> estreita a faixa, acessórios de Pique novos (140–144) e preço por fórmula —
+> ver `PLANO_ITENS_RANGE.md`.
+
 Slots (bonecão de cima pra baixo): `cabeca` 🪖 · `corpo` 🦺 (a escolha PV vs PM) ·
 `bracos` 🧤 · `pes` 🥾 · `amuleto` 📿 · `arma` 🥊.
 Bônus = atributo plano (**A/H/D**) ou recurso plano (**pv/pm**, somado em cima do
@@ -1199,6 +1223,12 @@ máximo, **não passa por R**). Raridades: `comum` · `incomum` · `raro` · `ep
 cartas vêm do sistema de drop (faixa 10000+, futuro). **Tirar carta encaixada
 DESTRÓI a carta. Desequipar o item inteiro não.**
 
+> **⚠️ Achado da revisão de 27/09/2026:** os 8 **raros** (103, 106, 110, 111,
+> 114, 117, 119, 120) **não têm fonte nenhuma no jogo hoje** — não estão em
+> loja, nenhum POI dá (`daEquip` só existe na oficina, que dá a 101) e não há
+> drop. Estão no catálogo mas nunca chegam na mão do jogador. Proposta de
+> fonte em `PLANO_ITENS_RANGE.md`.
+>
 > **Estado real (26/09/2026, `data/ganguesEquip.js`):** o catálogo do jogo
 > vai do **101 ao 120**. Os ids **121–131** abaixo e os épicos **132–139**
 > (§9.5) são **design aprovado, ainda não implementado**. Preços abaixo =
@@ -1354,18 +1384,23 @@ Reserva: cada faixa comporta crescer até ~99 sem remapear.
   no nível-alvo — **Pista 15 · Feira 28 · Baixada 42 · Vila 56 · Morro 70 ·
   Alto 84 · Laje 99+** (~14 níveis entre cada). O 7º (Laje) é PAREDÃO: encara no
   L99 e ainda apanha, tem que voltar. Os 7 chefes usam **orçamento de pontos
-  FIXO** (`GANGUES_CHEFE_BUDGET`, não escala com o jogador) — como o
-  crescimento autorado é +1 ponto por nível, 1 ficha nível N = N pontos; o
-  budget de cada chefe ≈ 1.15×→1.18× o total do time no nível-alvo
+  FIXO** (`GANGUES_CHEFE_BUDGET`, não escala com o jogador). ⚠️ **Essa escada
+  é da calibragem antiga** (quando se contava "1 ficha nível N = N pontos").
+  Hoje a conversão oficial é **nível real = pontos − 6** (`nivelRealDePontos`
+  em `data/ganguesDificuldade.js`; uma ficha nível 1 tem 7–8 pontos) — então
+  o Carvão com 30 pontos é um adversário de **nível ~24**, não 15. Os 6
+  budgets seguintes ainda não foram recalculados; cada bairro recalibra quando
+  ganhar cena (a Feira: ver `PLANO_FEIRA.md`). Budget original de cada chefe
+  ≈ 1.15×→1.18× o total do time no nível-alvo
   (`{pista:50, feira:110, baixada:210, vila:345, morro:510, alto:606,
   laje:732}`). **Pista, rev. 15/09/2026:** budget 50, com 2 corpos
   (`GANGUES_CHEFE_CORPOS.pista`) e o líder levando 60% (`GANGUES_CHEFE_LIDER_FRAC`)
   → **Carvão com ficha 30** + 1 escolta com 20; `chefe.nivelRec` = 30. Os
   outros 6 budgets ainda são os da calibragem antiga, esperando cada bairro
-  ganhar cena. AP por inimigo é **10 fixo em qualquer modo** (chegou a subir
-  pra 30 no modo história pra acompanhar o ritmo dos ~15 eventos de cada
-  bairro, mas o Isaias reverteu em set/2026 — rendia AP demais numa luta só,
-  2 inimigos já davam 60 AP). Os chefes carregam `nivel` de fachada.
+  ganhar cena. AP por inimigo parte de **10** em qualquer modo (chegou a subir
+  pra 30 no modo história e o Isaias reverteu em set/2026 — 2 inimigos já
+  davam 60 AP), mas desde a v3.36 varia com o risco (recompensa por risco,
+  §17.4: piso 5, triplo/quádruplo contra inimigo mais forte). Os chefes carregam `nivel` de fachada.
   **O Retalho é o único nível 100 do jogo.**
 - **Estrutura de cada chefe** (rev. Isaias dez/2026 — só a Pista existe hoje, o
   resto é o plano pra quando cada bairro ganhar cena):
@@ -1778,7 +1813,7 @@ antigos.
 ### 17.1 Ficha e atributos
 
 - Cada personagem tem 5 atributos: **A** (Porrada), **H** (Pique),
-  **D** (Defesa), **PV/Osso** e **PM/Gás** (`GANGUES_ATTRS` em
+  **D** (Couro), **PV** (Osso) e **PM** (Malandragem) (`GANGUES_ATTRS` em
   `data/ganguesCharacters.js`). **Não existe mais Resistência** — PV e PM
   são atributos próprios desde a revisão "PV/PM separados" (v2.75.x);
   crescem por nível seguindo o `growth_order` autorado de cada um dos 30
@@ -1850,7 +1885,7 @@ DANO = max(0, FA − FD)   // SEM piso de dano — defesa bem investida pode zer
 
 **Ordem de ação — linha do tempo (Pique), 26/09/2026** (`engine/ganguesLinhaDoTempo.js`,
 estilo Medabots/ATB do Chrono Trigger; substitui a iniciativa Malícia+d3):
-- velocidade = Pique + base; base = 10% da ficha média da luta;
+- velocidade = Pique + base; base = 10% da ficha média da luta (mínimo 2);
 - cada um enche uma barra até 100 (corre até o centro da pista na tela) e age;
 - ataque normal custa 100, Talento custa 125 (o "preparo" demora mais);
 - **teto: ninguém é mais que 3× o mais lento vivo**;
@@ -1858,6 +1893,13 @@ estilo Medabots/ATB do Chrono Trigger; substitui a iniciativa Malícia+d3):
   Multidão) usam as mesmas funções.
 - **Velocidade 1x/2x/3x**: só com o AUTOMÁTICO ligado (normal ou Multidão) —
   benefício de assinante no lançamento; no beta tudo liberado.
+- **A pista na tela** (`components/GanguesPistaTempo.jsx`, v3.62.1–3.62.2):
+  cada **raia** leva um aliado (vem da esquerda) e um inimigo (vem da
+  direita); aparecem só as raias necessárias, **até 6** — passou disso, dois
+  dividem a raia. Chegou no centro = é a vez dele; quem agiu volta pra
+  largada. Na montagem todo mundo nasce na largada e **corre** pra posição
+  (largada animada). A lista "Ordem" saiu do log — a pista é a ordem. A barra
+  do automático fica embaixo.
 
 - **Dado d3** (1 a 3) pros dois lados, ataque e defesa. Crítico = tirar o
   valor máximo (3) no dado de ataque, soma **+2** na rolagem (vira 5 no
@@ -1880,7 +1922,7 @@ estilo Medabots/ATB do Chrono Trigger; substitui a iniciativa Malícia+d3):
   hoje só stub. Não foi corrigido nesta auditoria (o pedido era consolidar
   documentação, não mexer em mecânica) — fica registrado aqui como bug real
   a decidir: religar o bônus, ou tirar de vez o texto/UI que promete ele.
-  **Continua assim em 26/09/2026 (v3.56.0).**
+  **Continua assim em 27/09/2026 (v3.63.0).**
 
 ### 17.2.1 Como o jogador age, e os modos de combate
 
@@ -2014,11 +2056,13 @@ estilo Medabots/ATB do Chrono Trigger; substitui a iniciativa Malícia+d3):
 
 ### 17.5 Tamanho de gangue e elenco
 
-- Batalha da história começa travada em **2 fichas** (`GANGUES_INITIAL_PARTY_SIZE`),
-  cresce **+1 vaga por território dominado** até o teto de **6**
-  (`GANGUES_STORY_BATTLE_PARTY_MAX`, `getGanguesRosterLimitComHistoria`) —
-  o maior valor entre "quanto o tier paga" e "quanto a história liberou"
-  vale, não soma os dois.
+- **Elenco (roster)** começa em **2 fichas** (`GANGUES_INITIAL_PARTY_SIZE`) e
+  ganha **+1 vaga por território dominado** (`getGanguesRosterLimitComHistoria`):
+  2 → 9 com os 7 bairros (teto técnico `GANGUES_STORY_ROSTER_MAX` = 10). O
+  maior valor entre "quanto o tier paga" e "quanto a história liberou" vale,
+  não soma os dois.
+- **Time de batalha** da história: no máximo **6** fichas por luta
+  (`GANGUES_STORY_BATTLE_PARTY_MAX`) — elenco maior que isso escala 6.
 - Limite de **fichas no roster** por tier: hoje achatado em 2 pra todos os
   planos (`GANGUES_ROSTER_LIMITS`) — cresce de verdade é pela história, não
   pela assinatura.
@@ -2101,7 +2145,7 @@ v3.30.0 os dois formatos usam o MESMO sistema de pontos fixos.
   | `posmuro_1` | 23 | rev, dupla 50% | sim (galpão) |
   | `posmuro_2` (Cão Louco) | 26 | rev, dupla 60%, Rep 25 | sim (galpão) |
   | galpão `m1` | 6 por corpo + 40% do time, 3–5 corpos | rev, bando | passagem |
-| galpão `m2` (1301) | 22 divididos em 3–5 corpos, Rep 25 | bando fixo | passagem |
+  | galpão `m2` (1301) | 22 divididos em 3–5 corpos, Rep 25 | bando fixo | passagem |
   | encontro aleatório (perseguidor) | ~ficha do seu mais forte, mín. 2 corpos | rev, `baseMaisForte` | não |
   | **Carvão** (chefe) | **30** + escolta 20 | chefe fixo | — |
 
@@ -2124,7 +2168,9 @@ v3.30.0 os dois formatos usam o MESMO sistema de pontos fixos.
 ```
 src/pages/games/Gangues/
 ├── GanguesRoute.jsx      # shell/router — troca de fase, carrega i18n dedicado
-├── Gangues.css           # folha de estilo base do módulo inteiro
+├── Gangues.css           # ÍNDICE de @import (a ordem dos imports = ordem da cascata)
+├── styles/               # CSS por assunto (combate-*, cena/*, lobby/*, …) +
+│                         # paleta.css (tokens --gang-*) — refatoração de set/2026
 ├── screens/              # uma tela por fase (Lobby, Combat, Cena, Create,
 │                         # Modes, Victory*, Album, Batalha, Clube*, Naming,
 │                         # Progression, SaveSelect, StoryMap, Territorio)
@@ -2140,6 +2186,11 @@ src/pages/games/Gangues/
     ├── useGanguesStore.js    # composição das slices (zustand)
     └── slices/               # um arquivo por fatia de estado
 ```
+
+**Auditoria de CSS no deploy** (v3.59.0): `scripts/gangues-css-audit.cjs` roda
+no `predeploy` e **barra o deploy** se achar seletor morto, arquivo de CSS com
+mais de 500 linhas, `@media` por largura ≥ 480px, `vw` cru ou `position:fixed`
+com `inset: 0` (tem que ser `inset: 0 var(--app-gutter)`, a coluna mobile).
 
 **Índice cruzado**: qualquer comentário de código que ainda citar
 `GANGUES_DESIGN.md`/`GANGUES_HEADSUP.md`/`GANGUES_PROGRESSAO_RASCUNHO.md`/

@@ -8,7 +8,7 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.295.1' // docs(gangues): GDD atualizado com o "sem game over" (derrota → birosca, recuperação cobrada na hora) e o automático lembrado entre lutas.
+export const SITE_VERSION = '10.295.2' // docs(gangues): GDD auditado contra a 3.63.0 (pools reais, raias, sirene, styles/, rótulos, roster×time, §12) + PLANO_FEIRA.md (2º território, 37 eventos) + PLANO_ITENS_RANGE.md (range, aprimoramento, preços).
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.2' // fix: aba "stories" do rodape mostrava a chave crua pp.menu.pistas_label (nao existia) -> aponta pra pp.dossier.pistas_label; PuzzleWrapper mostrava pp.puzzle.nenhum/instrucao (nao existiam) -> pp.local.puzzle_nenhum/instrucao; confirm() de deletar save mostrava pp.menu.deletar_slot cru -> chave criada nos 3 idiomas.
