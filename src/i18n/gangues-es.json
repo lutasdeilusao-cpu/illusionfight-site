@@ -691,6 +691,50 @@
         "1505": "El Contador",
         "1600": "El Retazo"
       },
+      "apelidos": {
+        "moto": [
+          "Pipo Caño Libre",
+          "Tito Cola",
+          "Loco Willy",
+          "Nene Trompo",
+          "Maní",
+          "Dedé Escape",
+          "Lagartija",
+          "Humito",
+          "Galletita",
+          "Juancito a Fondo",
+          "Mulita del Carril",
+          "Vava Wheelie"
+        ],
+        "policia": [
+          "Comisario Cachiporra",
+          "Sargento Bruto",
+          "Cabo Tonga",
+          "Oficial Carancho",
+          "Agente Tornillo",
+          "Sargento Esposas",
+          "Cabo Bigotón",
+          "Comisario Sirena",
+          "Agente Borceguí",
+          "Oficial Cacheo",
+          "Cabo Patrullero",
+          "Sargento Mano Pesada"
+        ],
+        "rapa": [
+          "Inspector Sellazo",
+          "Inspector Multita",
+          "Don Habilitación",
+          "Doña Decomiso",
+          "Inspector Ojo de Halcón",
+          "Don Grúa",
+          "Inspector Papeleo",
+          "Don Precinto",
+          "Inspector Birome Pesada",
+          "Doña Intimación",
+          "Don Sello Torcido",
+          "Inspector Llevatodo"
+        ]
+      },
       "guest_banner": "Sin cuenta: no se guarda el progreso.",
       "guest_create_account": "Crear cuenta",
       "party": {

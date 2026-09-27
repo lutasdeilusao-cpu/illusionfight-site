@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.302.0' // feat(gangues): briga automática avisa antes da luta — carimbo de 2,5s com frase de rua.
+export const SITE_VERSION = '10.303.0' // feat(gangues): encontros de moto, polícia e Rapa com apelidos de rua únicos por luta (fim do Garupa 1/2).
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.2' // fix: aba "stories" do rodape mostrava a chave crua pp.menu.pistas_label (nao existia) -> aponta pra pp.dossier.pistas_label; PuzzleWrapper mostrava pp.puzzle.nenhum/instrucao (nao existiam) -> pp.local.puzzle_nenhum/instrucao; confirm() de deletar save mostrava pp.menu.deletar_slot cru -> chave criada nos 3 idiomas.
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '3.70.0' // briga automática: aviso de 2,5s antes da luta (8 frases de gíria ×3 idiomas), depois das travas.
+export const GANGUES_VERSION   = '3.71.0' // apelidos de rua (12 por lista ×3 idiomas) pros encontros moto/policia/rapa, sorteados sem repetir no bando.
 
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio

@@ -33,15 +33,17 @@ const SPAWN_MIN_PASSOS = 16, SPAWN_MAX_PASSOS = 26
  *  (ganguesEncontros.js): `baseMaisForte` = a ficha do líder do bando fica
  *  perto do personagem MAIS FORTE da gangue × `ratioComTime` (o 2º corpo em
  *  diante sai 2–3 pontos abaixo). Nome/fala/onomatopeia no i18n
- *  (games.gangues.cena.aleatorio.<id>). */
+ *  (games.gangues.cena.aleatorio.<id>). `apelidos`: quem tem molde de papel
+ *  genérico (Piloto/Garupa, Soldado/Cabo) ganha nome de rua próprio por
+ *  corpo, sem repetir (batizarBando, ganguesEncontros.js). */
 export const ALEATORIO_TIPOS = {
-  moto: { id: 'moto', cor: 'amarela', revezamento: { pool: [1701, 1702], budgetPorCorpo: 3, qtdMin: 2, qtdMax: 3, ratioComTime: 0.9, baseMaisForte: true } },
-  policia: { id: 'policia', cor: 'azul', revezamento: { pool: [1711, 1712], budgetPorCorpo: 3, qtdMin: 2, qtdMax: 3, ratioComTime: 1, baseMaisForte: true } },
+  moto: { id: 'moto', cor: 'amarela', revezamento: { pool: [1701, 1702], budgetPorCorpo: 3, qtdMin: 2, qtdMax: 3, ratioComTime: 0.9, baseMaisForte: true, apelidos: 'moto' } },
+  policia: { id: 'policia', cor: 'azul', revezamento: { pool: [1711, 1712], budgetPorCorpo: 3, qtdMin: 2, qtdMax: 3, ratioComTime: 1, baseMaisForte: true, apelidos: 'policia' } },
   bonde: { id: 'bonde', cor: 'vermelha', revezamento: { pool: [1204, 1205, 1206, 1207, 1208, 1209], budgetPorCorpo: 3, qtdMin: 3, qtdMax: 4, ratioComTime: 0.75, baseMaisForte: true } },
   cobranca: { id: 'cobranca', cor: 'roxa', revezamento: { pool: [1401, 1402, 1404, 1405, 1406], budgetPorCorpo: 3, qtdMin: 2, qtdMax: 2, ratioComTime: 1.15, baseMaisForte: true } },
   // ── Feira (v3.65.0) ──
   // O Rapa (fiscal da prefeitura): se ganhar de você, leva 1 consumível.
-  rapa: { id: 'rapa', cor: 'laranja', revezamento: { pool: [1711, 1712], budgetPorCorpo: 3, qtdMin: 2, qtdMax: 3, ratioComTime: 1, baseMaisForte: true }, derrota: { levaConsumivel: 1 } },
+  rapa: { id: 'rapa', cor: 'laranja', revezamento: { pool: [1711, 1712], budgetPorCorpo: 3, qtdMin: 2, qtdMax: 3, ratioComTime: 1, baseMaisForte: true, apelidos: 'rapa' }, derrota: { levaConsumivel: 1 } },
   // O Apagão: Os Gato te cercam no breu (só do lado apagado da Feira).
   apagao: { id: 'apagao', cor: 'cinza', revezamento: { pool: [1104, 1106, 1204, 1105], budgetPorCorpo: 3, qtdMin: 3, qtdMax: 4, ratioComTime: 0.9, baseMaisForte: true } },
   // A Cobrança do Turco: só aparece pra quem deve ao agiota — se ganhar de

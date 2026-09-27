@@ -42,6 +42,12 @@ export const randomOnoma = () => ONOMATOPEIAS[Math.floor(Math.random() * ONOMATO
 export function fighterName(t, member) {
   if (!member) return '?'
   if (member.side !== 'enemy') return member.sheet_name
+  // Apelido de rua (encontros aleatórios — ver batizarBando): nome próprio,
+  // único na luta, no lugar do nome do molde.
+  if (member.apelido) {
+    const apelido = t(`games.gangues.apelidos.${member.apelido.lista}`)?.[member.apelido.i]
+    if (apelido) return apelido
+  }
   const base = t(`games.gangues.enemy_names.${member.id}`) || member.name
   // Mesmo molde pode sair 2x+ no bando (ver gerarBandoInimigo) — sem isso os
   // dois aparecem com nome idêntico, impossível diferenciar quem já apanhou.

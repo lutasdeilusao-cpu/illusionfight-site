@@ -410,6 +410,20 @@ completo "o bicho"):**
   repetir o anterior. As fichas 1701–1712 ficam fora do Álbum (não são cargo da
   hierarquia).
 
+  **Apelidos de rua** (v3.71.0 — "garupa 1, garupa 2... tira toda a imersão,
+  cria nomes de rua e não deixa repetir"): moto, Ronda e Rapa (moldes de papel
+  genérico) ganham um nome próprio por corpo, sorteado sem repetir dentro da
+  luta, no lugar de "Garupa (1)/(2)". 12 por lista em
+  `games.gangues.apelidos.{moto,policia,rapa}` ×3 idiomas — moto: Zé Pipoco,
+  Tico Rabeira, Neném Cavalo-de-Pau...; Ronda com patente: Capitão
+  Cassetete, Sargento Brucutu, Tenente Baculejo...; Rapa: Fiscal Carimbão,
+  Seu Alvará, Dona Apreensão... (EN com apelido próprio; ES rioplatense:
+  Comisario Cachiporra, Don Grúa...). Liga por `revezamento.apelidos`
+  (`ALEATORIO_TIPOS`) → `batizarBando` (`ganguesEncontros.js`,
+  `GANGUES_APELIDOS_QTD` tem que bater com o tamanho da lista). Os outros
+  encontros usam personagens com nome próprio e o sorteio sem reposição do
+  revezamento já não repete ninguém.
+
 **Balanço (v3.30.0, 19/09/2026 — substitui o ratio de v2.68.0):** todo bando do
 jogo (rua, revezamento, chefe, evento) agora parte de um número de pontos FIXO
 autorado por quem criou o encontro (ladder ponto-a-ponto, não mais um ratio

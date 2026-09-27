@@ -691,6 +691,50 @@
         "1505": "The Accountant",
         "1600": "The Patchwork"
       },
+      "apelidos": {
+        "moto": [
+          "Popper Joe",
+          "Tailgate Tico",
+          "Wheelie Willy",
+          "Burnout Benny",
+          "Peanut",
+          "Muffler Dee",
+          "Gecko",
+          "Smokey Jr.",
+          "Biscuit",
+          "Full-Throttle Junior",
+          "Lane-Split Lou",
+          "Kickstand Vic"
+        ],
+        "policia": [
+          "Captain Nightstick",
+          "Sergeant Bruiser",
+          "Corporal Big Tony",
+          "Lieutenant Scowl",
+          "Officer Loose-Screw",
+          "Sergeant Cuffs",
+          "Corporal Mustache",
+          "Captain Siren",
+          "Officer Jackboot",
+          "Lieutenant Pat-Down",
+          "Corporal Squad-Car",
+          "Sergeant Heavy-Hand"
+        ],
+        "rapa": [
+          "Inspector Big Stamp",
+          "Inspector Petty Fine",
+          "Mr. Permit",
+          "Ms. Seizure",
+          "Inspector Side-Eye",
+          "Mr. Tow-Truck",
+          "Inspector Red Tape",
+          "Mr. Seal",
+          "Inspector Heavy Pen",
+          "Ms. Citation",
+          "Mr. Crooked Stamp",
+          "Inspector Grab-All"
+        ]
+      },
       "guest_banner": "No account: progress isn't saved.",
       "guest_create_account": "Create account",
       "party": {

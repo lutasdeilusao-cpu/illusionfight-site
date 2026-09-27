@@ -691,6 +691,50 @@
         "1505": "O Contador",
         "1600": "O Retalho"
       },
+      "apelidos": {
+        "moto": [
+          "Zé Pipoco",
+          "Tico Rabeira",
+          "Biruta do Grau",
+          "Neném Cavalo-de-Pau",
+          "Paçoca",
+          "Dedé Escapamento",
+          "Lagartixa",
+          "Fumacinha",
+          "Bolacha",
+          "Juninho Mil Grau",
+          "Tatu do Corredor",
+          "Vavá Empinada"
+        ],
+        "policia": [
+          "Capitão Cassetete",
+          "Sargento Brucutu",
+          "Cabo Tonhão",
+          "Tenente Carranca",
+          "Soldado Parafuso",
+          "Sargento Algema",
+          "Cabo Bigodão",
+          "Capitão Sirene",
+          "Soldado Botina",
+          "Tenente Baculejo",
+          "Cabo Viatura",
+          "Sargento Mão Pesada"
+        ],
+        "rapa": [
+          "Fiscal Carimbão",
+          "Fiscal Multinha",
+          "Seu Alvará",
+          "Dona Apreensão",
+          "Fiscal Rabo-de-Olho",
+          "Seu Guincho",
+          "Fiscal Papelada",
+          "Seu Lacre",
+          "Fiscal Caneta Pesada",
+          "Dona Notificação",
+          "Seu Carimbo Torto",
+          "Fiscal Rapa-Tudo"
+        ]
+      },
       "guest_banner": "Sem conta: progresso não é salvo.",
       "guest_create_account": "Criar conta",
       "trash_talk_player": [

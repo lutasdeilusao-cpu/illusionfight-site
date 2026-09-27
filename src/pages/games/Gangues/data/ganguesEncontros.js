@@ -316,7 +316,7 @@ const GANGUES_DUPLA_DEDUCAO_MIN = 2
 const GANGUES_DUPLA_DEDUCAO_MAX = 3
 const GANGUES_MULTIDAO_DEGRAU_ABAIXO = GANGUES_LADDER_PASSO
 
-export function gerarBandoRevezamento({ pool, budgetPorCorpo = 5, chanceDupla = 0.3, enemiesData, modo = 'medio', qtdMin, qtdMax, playerTeam, ratioComTime = 0, baseMaisForte = false }) {
+export function gerarBandoRevezamento({ pool, budgetPorCorpo = 5, chanceDupla = 0.3, enemiesData, modo = 'medio', qtdMin, qtdMax, playerTeam, ratioComTime = 0, baseMaisForte = false, apelidos }) {
   if (!pool?.length || !enemiesData?.length) return null
   const multidaoGarantida = qtdMin != null && qtdMax != null
   const dupla = !multidaoGarantida && Math.random() < chanceDupla
@@ -351,8 +351,25 @@ export function gerarBandoRevezamento({ pool, budgetPorCorpo = 5, chanceDupla = 
   }).filter(Boolean)
 
   if (!bando.length) return null
-  numerarRepetidos(bando)
+  if (GANGUES_APELIDOS_QTD[apelidos]) batizarBando(bando, apelidos)
+  else numerarRepetidos(bando)
   return bando
+}
+
+/** Apelidos de rua (v3.71.0 — Isaias: "tá usando os nomes genéricos, garupa
+ *  1, garupa 2... cria uns nomes da hora, de rua mesmo, e não deixa repetir;
+ *  os polícia também, capitão não sei o quê"). Bando com `apelidos` (a
+ *  chave de uma lista em games.gangues.apelidos.<lista>, nos 3 idiomas)
+ *  ganha um nome próprio por corpo, sorteado SEM repetir dentro da luta —
+ *  no lugar do nome do molde + "(1)", "(2)". Usado pelos encontros
+ *  aleatórios cujos moldes são papéis genéricos (Piloto/Garupa, Soldado/Cabo
+ *  da Ronda). QTD tem que bater com o tamanho da lista no i18n. */
+export const GANGUES_APELIDOS_QTD = { moto: 12, policia: 12, rapa: 12 }
+function batizarBando(bando, lista) {
+  const livres = Array.from({ length: GANGUES_APELIDOS_QTD[lista] }, (_, i) => i)
+  bando.forEach(inimigo => {
+    inimigo.apelido = { lista, i: livres.splice(Math.floor(Math.random() * livres.length), 1)[0] }
+  })
 }
 
 /** Bando do CHEFE — orçamento de pontos FIXO (GANGUES_CHEFE_BUDGET), nunca

@@ -8,6 +8,10 @@ import { getGanguesLevelFromXp } from '../data/ganguesCharacters.js'
  *  molde de inimigo (ver gerarBandoInimigo/numeroInstancia). */
 export function combatantName(t, member) {
   if (member?.side !== 'enemy') return member?.sheet_name
+  if (member.apelido) {
+    const apelido = t(`games.gangues.apelidos.${member.apelido.lista}`)?.[member.apelido.i]
+    if (apelido) return apelido
+  }
   const base = t(`games.gangues.enemy_names.${member.id}`) || member.name
   return member.numeroInstancia ? `${base} (${member.numeroInstancia})` : base
 }
