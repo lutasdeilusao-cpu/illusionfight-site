@@ -155,7 +155,7 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
   // O adversário da última luta (gravado junto da posição quando a treta
   // começou) começa ignorado até descolar, senão a volta cairia em outra luta.
   const brigaAutoRef = useRef(null)
-  const onBrigaAuto = useCallback(poi => brigaAutoRef.current?.(poi), [])
+  const onBrigaAuto = useCallback((poi, opcoes) => brigaAutoRef.current?.(poi, opcoes), [])
   const brigaAuto = useGanguesBrigaAutomatica({
     alvos: amb?.alvos || EMPTY_ALVOS, colidindo,
     rodando: Boolean(cena) && !intro && !encontro && !fade && fichaIndex === null && !bagAberta && !repModalMarco,
@@ -305,7 +305,7 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
     onNavigate('story-combat')
     return true
   }
-  brigaAutoRef.current = poi => iniciarTreta(poi)
+  brigaAutoRef.current = (poi, opcoes) => iniciarTreta(poi, opcoes)
   const iniciarTreta = (poi, { viraTreta, revela, aposta = 0 } = {}) => {
     if (barraSeChao()) return
     const chefe = Boolean(poi.ehChefe)

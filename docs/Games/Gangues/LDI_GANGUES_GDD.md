@@ -2083,10 +2083,13 @@ estilo Medabots/ATB do Chrono Trigger; substitui a iniciativa Malícia+d3):
   switch no meio dos controles da cena (entre o analógico e o interagir),
   lembrado por navegador (`ldi-gangues-briga-auto`). Ligado, **encostar num
   oponente de briga entra direto na luta**, sem o "interagir" e sem a carta
-  "bora pro pau". Só vale pra POI `treta` pura (rua, dungeon, depósito,
-  chefe); puzzle/corre/papo (mesmo os que viram treta se errar) e a Rinha de
-  Apostas (precisa escolher a aposta) continuam no fluxo manual. Desligado,
-  nada muda. **Anti-loop:** o adversário da última luta nesta cena, quem foi
+  "bora pro pau". Switch ligado = o jogador quer briga, não as outras opções
+  (v3.68.2): vale pra todo POI `treta` (rua, dungeon, depósito, chefe; a
+  Rinha de Apostas entra sem apostar) e pra todo `papo` que tem uma escolha
+  de briga — o switch escolhe ela sozinho (pivete do sinal e contador do
+  galpão na Pista, Boleto Vencido na Feira; inclusive o −1 de rep do
+  "aperta"). Só puzzle/corre (`parada`/`corre`) continuam manuais: ali a
+  briga vem de ERRAR o puzzle, não de uma escolha. Desligado, nada muda. **Anti-loop:** o adversário da última luta nesta cena, quem foi
   barrado por uma trava (rep, dívida, informante, tropa no chão) e quem já
   estava encostado na hora de ligar o switch ficam ignorados até a colisão
   com eles acabar — separou, vale de novo (dá pra ficar parado esperando o

@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.300.1' // fix(gangues): briga automática — na volta da luta o adversário que anda segue o caminho dele (não para colado) e briga de novo na próxima passada.
+export const SITE_VERSION = '10.300.2' // feat(gangues): briga automática também escolhe a briga nos personagens de conversa com opção de briga e entra na Rinha sem apostar.
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.2' // fix: aba "stories" do rodape mostrava a chave crua pp.menu.pistas_label (nao existia) -> aponta pra pp.dossier.pistas_label; PuzzleWrapper mostrava pp.puzzle.nenhum/instrucao (nao existiam) -> pp.local.puzzle_nenhum/instrucao; confirm() de deletar save mostrava pp.menu.deletar_slot cru -> chave criada nos 3 idiomas.
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '3.68.1' // briga automática: oponente ignorado não pausa ao encostar (PinoAlvo prop `ignorado`, hook publica a lista) — atravessa, termina a patrulha e briga na próxima passada.
+export const GANGUES_VERSION   = '3.68.2' // briga automática: papo com escolha viraTreta (sinal, galpao_contador, favor_devedor) escolhe a briga sozinho; Rinha de Apostas entra com aposta 0; puzzle/corre seguem manuais.
 
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio

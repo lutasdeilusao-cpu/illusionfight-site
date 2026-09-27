@@ -8,9 +8,15 @@ import { useGanguesAutoLembrado } from './useGanguesVelocidadeAuto.js'
    "interagir" e sem o "bora pro pau" da carta. Nada do fluxo manual some —
    desligado, tudo funciona como antes.
 
-   Quem entra sozinho: só POI `treta` pura (rua, dungeon, depósito, chefe).
-   Fica de fora quem pede decisão antes: puzzle/corre/papo (mesmo os que
-   viram treta se errar) e a Rinha de Apostas (`aposta` — escolher o valor).
+   Quem entra sozinho (switch ligado = o jogador quer BRIGA, não as outras
+   opções — Isaias, 27/09/2026):
+   • POI `treta` (rua, dungeon, depósito, chefe). A Rinha de Apostas entra
+     sem apostar (a opção "Nada").
+   • papo com uma escolha que vira briga (o pivete do sinal, o contador do
+     galpão, o Boleto Vencido): o switch escolhe a briga sozinho, pelo mesmo
+     caminho do clique manual (inclusive o −1 de rep do "aperta").
+   Fica de fora: puzzle/corre (`parada`/`corre`) — a briga ali só vem se o
+   jogador ERRAR o puzzle, não é uma escolha.
 
    ANTI-LOOP ("ignora esse personagem só nessa primeira colisão, até
    descolidir"): voltar de uma luta te devolve colado no mesmo adversário —
@@ -37,11 +43,16 @@ import { useGanguesAutoLembrado } from './useGanguesVelocidadeAuto.js'
 
 const GANGUES_BRIGA_AUTO_CHAVE = 'ldi-gangues-briga-auto'
 
-function entraSozinho(alvo) {
-  if (!alvo || alvo.tipo !== 'treta' || alvo.aposta) return false
-  if (alvo.ehPorta || alvo.ehSaida || alvo.ehVolta || alvo.ehPassagem) return false
-  return alvo.estado === 'disponivel' || Boolean(alvo.repetivel)
+// Como a briga começa sozinha nesse alvo: opções pro iniciarTreta da cena,
+// ou null se ele não é de briga automática.
+function brigaDoAlvo(alvo) {
+  if (!alvo || alvo.ehPorta || alvo.ehSaida || alvo.ehVolta || alvo.ehPassagem) return null
+  if (alvo.estado !== 'disponivel' && !alvo.repetivel) return null
+  if (alvo.tipo === 'treta') return { aposta: 0 }
+  const briga = alvo.tipo === 'papo' && (alvo.escolhas || []).find(e => e.viraTreta)
+  return briga ? { viraTreta: briga.viraTreta, revela: briga.revela } : null
 }
+const entraSozinho = alvo => Boolean(brigaDoAlvo(alvo))
 
 // `colidindo(alvo)` — a mesma regra do botão de interagir (colisão real pra
 // personagem que anda, zona fixa pra pino parado). `ultimoPoiId` — o
@@ -84,7 +95,7 @@ export default function useGanguesBrigaAutomatica({ alvos, colidindo, rodando, u
       if (!alvo) return
       ignorados.current.set(alvo.id, { visto: true, soltoDesde: null })
       publicar()
-      brigar(alvo)
+      brigar(alvo, brigaDoAlvo(alvo))
     }, VIGIA_MS)
     return () => clearInterval(id)
   }, [publicar])
