@@ -255,7 +255,8 @@ export function interactionLabel(p, t) {
 }
 
 // Joystick + botão de ação contextual (mobile).
-export function WorldControls({ onInput, onInteract, action, rotulo }) {
+// Controles da cena: analógico · switch da briga automática · interagir.
+export function WorldControls({ onInput, onInteract, action, rotulo, brigaAuto, onBrigaAuto, rotuloBrigaAuto }) {
   const base = useRef(null), active = useRef(null)
   const update = useCallback((x, y) => {
     const r = base.current?.getBoundingClientRect(); if (!r) return
@@ -272,6 +273,9 @@ export function WorldControls({ onInput, onInteract, action, rotulo }) {
   }, [onInput])
   return <div className="gang-world-controls">
     <div ref={base} className="gang-world-stick" onPointerDown={e => { active.current = e.pointerId; e.currentTarget.setPointerCapture(e.pointerId); update(e.clientX, e.clientY) }} onPointerMove={e => { if (active.current === e.pointerId) update(e.clientX, e.clientY) }} onPointerUp={stop} onPointerCancel={stop}><i /></div>
-    <button disabled={!action} onClick={onInteract}><b>{action || '...'}</b><span>{rotulo}</span></button>
+    <button type="button" role="switch" aria-checked={brigaAuto} className={`gang-world-auto${brigaAuto ? ' is-on' : ''}`} onClick={onBrigaAuto}>
+      <i aria-hidden="true"><b /></i><span>{rotuloBrigaAuto}</span>
+    </button>
+    <button className="gang-world-interagir" disabled={!action} onClick={onInteract}><b>{action || '...'}</b><span>{rotulo}</span></button>
   </div>
 }

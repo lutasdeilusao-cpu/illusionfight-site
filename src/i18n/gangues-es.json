@@ -4905,7 +4905,8 @@
               ]
             }
           }
-        }
+        },
+        "briga_auto": "Pelea auto"
       },
       "enemy_album": {
         "1701": "Maneja la moto del asalto. No se baja, solo acelera — el que se baja es el de atrás.",

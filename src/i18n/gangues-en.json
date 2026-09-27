@@ -4905,7 +4905,8 @@
               ]
             }
           }
-        }
+        },
+        "briga_auto": "Auto brawl"
       },
       "enemy_album": {
         "1701": "Rides the stick-up bike. Never gets off, just revs — the backseat does the talking.",

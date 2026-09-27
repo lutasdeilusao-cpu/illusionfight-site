@@ -177,7 +177,7 @@ export default function GanguesClube({ onNavigate }) {
 
       <div className="gang-world-controls">
         <Stick onInput={v => { inputRef.current = v }} />
-        <button disabled={!naPorta || fase !== 'saguao'} onClick={entrarNaRoda}>
+        <button className="gang-world-interagir" disabled={!naPorta || fase !== 'saguao'} onClick={entrarNaRoda}>
           <b>{naPorta ? t('games.gangues.clube.entrar') : '...'}</b>
           <span>{t('games.gangues.clube.interagir')}</span>
         </button>

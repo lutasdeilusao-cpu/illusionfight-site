@@ -2079,6 +2079,19 @@ estilo Medabots/ATB do Chrono Trigger; substitui a iniciativa Malícia+d3):
     `hooks/useGanguesVelocidadeAuto.js`; `localStorage` `ldi-gangues-auto` /
     `ldi-gangues-auto-multidao` — preferência do navegador, igual à
     velocidade 1x/2x/3x, não vai pro save).
+- **Briga automática na cena** (v3.68.0, `hooks/useGanguesBrigaAutomatica.js`):
+  switch no meio dos controles da cena (entre o analógico e o interagir),
+  lembrado por navegador (`ldi-gangues-briga-auto`). Ligado, **encostar num
+  oponente de briga entra direto na luta**, sem o "interagir" e sem a carta
+  "bora pro pau". Só vale pra POI `treta` pura (rua, dungeon, depósito,
+  chefe); puzzle/corre/papo (mesmo os que viram treta se errar) e a Rinha de
+  Apostas (precisa escolher a aposta) continuam no fluxo manual. Desligado,
+  nada muda. **Anti-loop:** o adversário da última luta nesta cena, quem foi
+  barrado por uma trava (rep, dívida, informante, tropa no chão) e quem já
+  estava encostado na hora de ligar o switch ficam ignorados até a colisão
+  com eles acabar — separou, vale de novo (dá pra ficar parado esperando o
+  bicho voltar a encostar). Sem isso, a volta da luta (que te devolve colado
+  no mesmo adversário) entraria em luta de novo na hora, pra sempre.
 - **"Mete o pé"** (fugir da luta) volta pra tela de **Modos**, não pro lobby
   (v3.38.0).
 - **Voltar nunca repete recompensa:** as fases de combate e vitória ficam fora

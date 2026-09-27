@@ -28,6 +28,7 @@ import { getGanguesNpcPortrait } from '../data/ganguesNpcPortraits.js'
 import { getGanguesRosterLimitComHistoria } from '../data/ganguesLoadout.js'
 import { getGanguesLevelFromXp } from '../data/ganguesCharacters.js'
 import { getGanguesAttributesWithEquip, getGanguesEquip } from '../data/ganguesEquip.js'
+import useGanguesBrigaAutomatica from '../hooks/useGanguesBrigaAutomatica.js'
 import { WORLD, SPAWN, montarAmbiente, insideZone, validPosition, validPos, posNoMapa } from '../engine/ganguesCenaMotor.js'
 import { ALEATORIO_TIPOS } from '../engine/ganguesEncontroAleatorio.js'
 import useGanguesCenaMovimento from '../hooks/useGanguesCenaMovimento.js'
@@ -39,6 +40,9 @@ import './GanguesCena.css'
 // não mais localStorage por save/aparelho. Pedido do Isaias (14/09/2026):
 // "toda vez que abro num aparelho novo, aparece de novo, grava no Supabase".
 function cenaIntroTutorialId(cenaId) { return `cena_intro:${cenaId}` }
+
+// Referência estável pra lista vazia (a briga automática observa `alvos`).
+const EMPTY_ALVOS = []
 
 export default function GanguesCena({ onNavigate, onVoltar }) {
   const { perfil } = useAuth()
@@ -133,10 +137,11 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
   const reportarColisao = useCallback((id, colide) => {
     setColisoes(prev => (Boolean(prev[id]) === colide ? prev : { ...prev, [id]: colide }))
   }, [])
+  const colidindo = useCallback(a => ehPersonagem(a) ? Boolean(colisoes[a.id]) : insideZone(player, a.zona), [colisoes, player])
   const perto = useMemo(() => (amb?.alvos || []).find(a => {
     if (a.estado !== 'disponivel' && !a.repetivel) return false
-    return ehPersonagem(a) ? Boolean(colisoes[a.id]) : insideZone(player, a.zona)
-  }) || null, [amb, player, colisoes])
+    return colidindo(a)
+  }) || null, [amb, colidindo])
   const { feitos, total } = cena ? contarCena(cena, prog.resolvidos, prog.boss) : { feitos: 0, total: 0 }
   // local aponta pra um interior/cômodo que não existe (save antigo, cena
   // diferente) → volta pra rua.
@@ -146,6 +151,17 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
   // relógio de jogo + perseguidor. Só corre com o jogador na RUA e sem nada
   // aberto por cima; senão congela e continua de onde parou.
   const iniciarAleatorioRef = useRef(null)
+  // Briga automática (switch dos controles) — regra e anti-loop no hook.
+  // O adversário da última luta (gravado junto da posição quando a treta
+  // começou) começa ignorado até descolar, senão a volta cairia em outra luta.
+  const brigaAutoRef = useRef(null)
+  const onBrigaAuto = useCallback(poi => brigaAutoRef.current?.(poi), [])
+  const brigaAuto = useGanguesBrigaAutomatica({
+    alvos: amb?.alvos || EMPTY_ALVOS, colidindo,
+    rodando: Boolean(cena) && !intro && !encontro && !fade && fichaIndex === null && !bagAberta && !repModalMarco,
+    ultimoPoiId: prog.posicao?.adversario || null,
+    onBriga: onBrigaAuto,
+  })
   // Lado apagado (Feira): do outro lado da barricada, até o chefe cair.
   const ladoApagado = Boolean(cena?.apagao) && !local && !prog.boss && player.y < (cena?.muro?.y1 ?? 0)
   // Interior marcado `escuro` (a Galeria dos Gato) também fica no breu até o chefe cair.
@@ -289,6 +305,7 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
     onNavigate('story-combat')
     return true
   }
+  brigaAutoRef.current = poi => iniciarTreta(poi)
   const iniciarTreta = (poi, { viraTreta, revela, aposta = 0 } = {}) => {
     if (barraSeChao()) return
     const chefe = Boolean(poi.ehChefe)
@@ -319,7 +336,7 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
       setTimeout(() => setAviso(null), 3600)
       return
     }
-    guardarPosicao(); sfx.vs?.()
+    guardarPosicao({ ...player, adversario: poi.id }); sfx.vs?.()
     // `poi.fixo`: POI de NÍVEL FIXO, single-enemy (Generais da Pista) — a
     // luta é sempre contra a MESMA ficha (`poi.enemy`) escalada pro ponto
     // autorado `poi.pontosFixo`. `poi.pontosFixo` também existe em POIs
@@ -452,7 +469,7 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
     </div><div className="gang-cena-vignette" />{noEscuro && <div className="gang-cena-apagao" style={{ '--px': `${player.x - camX}px`, '--py': `${player.y - camY}px` }} aria-hidden="true" />}{!local && (aleatorio.perseguidor?.tipo === 'policia' || aleatorio.onomatopeia === 'policia') && <div className="gang-cena-sirene" aria-hidden="true" />}{hint && <div className="gang-cena-tutorial">{hint}</div>}{!local && !muroAberto && cena.muro && player.y < cena.muro.aviso && <div className="gang-cena-gatelock">🔒 {t(baseFeita ? cena.textos.muroPassagem : cena.textos.bossTrancado)}</div>}<AnimatePresence>{aleatorio.onomatopeia && <motion.div key="onomatopeia" className={`gang-cena-onomatopeia is-${ALEATORIO_TIPOS[aleatorio.onomatopeia]?.cor}`} initial={{ scale: .3, opacity: 0, rotate: -12 }} animate={{ scale: 1, opacity: 1, rotate: -6 }} exit={{ opacity: 0 }} transition={{ type: 'spring', stiffness: 520, damping: 14 }}><b>{t(`games.gangues.cena.aleatorio.${aleatorio.onomatopeia}.onomatopeia`)}</b></motion.div>}</AnimatePresence><AnimatePresence>{fade && <motion.div className="gang-cena-fade" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: .16 }} />}</AnimatePresence></div>
     {!local && !intro && <GanguesMiniMapa player={player} alvos={minimapaAlvos} />}
     {!local && !intro && !encontro && !fade && <GanguesAlvoTutorial alvos={amb?.alvos} />}
-    <WorldControls onInput={v => { inputRef.current = v }} onInteract={() => abrir(perto)} action={perto ? interactionLabel(perto, t) : null} rotulo={t('games.gangues.cena.acao.interagir')} />
+    <WorldControls onInput={v => { inputRef.current = v }} onInteract={() => abrir(perto)} action={perto ? interactionLabel(perto, t) : null} rotulo={t('games.gangues.cena.acao.interagir')} brigaAuto={brigaAuto.ligado} onBrigaAuto={brigaAuto.alternar} rotuloBrigaAuto={t('games.gangues.cena.briga_auto')} />
     <AnimatePresence>{toast && <motion.div className="gang-cena-toast" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}><b>{t('games.gangues.cena.recompensa')}</b>{toast.grana ? <span>💵 +{toast.grana}</span> : null}{toast.rep ? <span>⚑ +{toast.rep}</span> : null}{toast.xp ? <span>⚡ +{toast.xp} XP</span> : null}{toast.equip ? <span>{getGanguesEquip(toast.equip)?.icone} {t(getGanguesEquip(toast.equip)?.nome || '')}</span> : null}
     </motion.div>}</AnimatePresence>
     <AnimatePresence>{aviso && <motion.div className="gang-cena-toast gang-cena-toast--aviso" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}>{aviso}</motion.div>}</AnimatePresence>
