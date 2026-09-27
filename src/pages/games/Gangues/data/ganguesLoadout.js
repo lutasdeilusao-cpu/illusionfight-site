@@ -88,7 +88,7 @@ export function repMarcosCruzados(antes, depois) {
 // encontro aleatório de hoje (perseguidor, engine/ganguesEncontroAleatorio.js)
 // não usa gate de reputação — vem por tempo de jogo.
 export const GANGUES_REP_GATE_GALPAO = 25
-export const GANGUES_REP_GATE_CLUBE = 40
+// (O gate do Clube da Luta mora no módulo dele: clube/ganguesClubeRegras.js.)
 
 // Agiotagem (empréstimo em dinheiro do agiota) — pedido do Isaias, 21/09/2026:
 // "você pega um empréstimo de até 100, mas paga 10 vezes mais, fica devendo

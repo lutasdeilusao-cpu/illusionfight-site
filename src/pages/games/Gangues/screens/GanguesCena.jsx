@@ -25,7 +25,7 @@ import { CENAS_POR_ID, portaoAberto, contarCena } from '../data/cenas/cenaHelper
 import { GANGUES_TERRITORIO_POR_ID } from '../data/ganguesTerritorios.js'
 import { getGanguesPortraitByTemplateId } from '../data/ganguesPortraits.js'
 import { getGanguesNpcPortrait } from '../data/ganguesNpcPortraits.js'
-import { getGanguesRosterLimitComHistoria, GANGUES_REP_GATE_CLUBE } from '../data/ganguesLoadout.js'
+import { getGanguesRosterLimitComHistoria } from '../data/ganguesLoadout.js'
 import { getGanguesLevelFromXp } from '../data/ganguesCharacters.js'
 import { getGanguesAttributesWithEquip, getGanguesEquip } from '../data/ganguesEquip.js'
 import { WORLD, SPAWN, montarAmbiente, insideZone, validPosition, validPos, posNoMapa } from '../engine/ganguesCenaMotor.js'
@@ -262,23 +262,16 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
   // os textos da caderneta/clube são genéricos, com {agiota}.
   const nomeAgiota = () => { const ag = cena?.pois.find(p => p.tipo === 'agiota'); return ag ? t(`${ag.i18n}.nome`) : '' }
   const iniciarClube = (custoBase, gratis = false) => {
-    // Rota de escape de quem já tá endividado com o agiota — NUNCA bloqueia
-    // quem já tem dívida, senão vira soft-lock cruel (endividado sem rep
-    // preso sem conseguir quitar). O gate só vale pra quem entra "por
-    // vontade própria" (sem dívida, atrás dos 200 de grana). O socorro
-    // forçado (gratis) nunca passa por esse gate — não tem escolha.
-    const dividaAtualGate = store.storyProgress.__birosca?.divida || 0
-    if (!gratis && dividaAtualGate <= 0 && store.rep < GANGUES_REP_GATE_CLUBE) {
-      setEncontro(null); sfx.cancel?.()
-      setAviso(t('games.gangues.cena.aviso_rep_clube', { rep: GANGUES_REP_GATE_CLUBE, agiota: nomeAgiota() }))
+    // Regra (gate de rep, entrada, alvo da 1ª ronda) é do módulo do Clube.
+    const r = store.prepararEntradaClube({ custoBase, gratis, territorioId: terr.id })
+    setEncontro(null)
+    if (!r.ok) {
+      sfx.cancel?.()
+      setAviso(t('games.gangues.cena.aviso_rep_clube', { rep: r.rep, agiota: nomeAgiota() }))
       setTimeout(() => setAviso(null), 3600)
       return
     }
-    setEncontro(null); guardarPosicao(); sfx.vs?.()
-    const dividaPrevia = store.storyProgress.__birosca?.divida || 0
-    if (gratis) store.restaurarPvPmTodos()
-    else store.entrarClubeDaLuta(custoBase || 10)
-    store.setStoryTarget({ clube: true, clubeBase: custoBase || 10, clubeDividaPrevia: dividaPrevia, clubeRonda: 1, clubeHeals: 0, voltar: { territorioId: terr.id } })
+    guardarPosicao(); sfx.vs?.()
     onNavigate('clube')
   }
   // Encontro aleatório: o perseguidor alcançou o jogador → luta direto, sem

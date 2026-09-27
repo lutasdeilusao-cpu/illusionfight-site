@@ -4,7 +4,7 @@ import { useLanguage } from '../../../../context/LanguageContext'
 import { useGanguesStore } from '../store/useGanguesStore'
 import { getGanguesPortraitByTemplateId } from '../data/ganguesPortraits.js'
 import { sfx } from '../../../../lib/sfx'
-import './GanguesCena.css'
+import '../screens/GanguesCena.css' // joystick/controles do mundo (componente comum da cena)
 import './GanguesClube.css'
 
 /* CLUBE DA LUTA — a roda clandestina do Nato. O jogador aceitou o 3º fiado

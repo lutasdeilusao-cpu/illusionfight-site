@@ -321,7 +321,8 @@ substitui por completo o fiado 5×/10× por contagem de antes):**
 - **Gate do chefe:** com qualquer dívida em aberto, **o Carvão não aceita a
   luta** (aviso `aviso_divida_chefe`). O resto da Pista (farm, pós-muro)
   continua livre, pra não virar soft-lock. O jeito "certo" de quitar é o Clube.
-- **O Clube da Luta** é um **gauntlet de 3 rondas** (`gerarBandoClube`,
+- **O Clube da Luta** (módulo independente em `clube/` desde a v3.67.2 — ver
+  §17.8) é um **gauntlet de 3 rondas** (`gerarBandoClube`,
   orçamento FIXO que não escala com o jogador: ronda 1 = 1 corpo com 7 pontos,
   ronda 2 = 2 corpos dividindo 15, ronda 3 = 3 casca-grossa dividindo 26; pool
   `GANGUES_CLUBE_POOL` = 1211/1212/1213/1219/1311/1312/1411/1412). O jogador
@@ -1554,7 +1555,9 @@ Reserva: cada faixa comporta crescer até ~99 sem remapear.
 | Textos de história / itens (i18n) | `src/i18n/gangues-{pt,en,es}.json` → `games.gangues.{story,cena,dialogo,naming,itens,equip,loja,bag}` |
 | Dificuldade (±2), degrau da ladder, frustração, nível real | `src/pages/games/Gangues/data/ganguesDificuldade.js` |
 | AP por risco, divisão do AP, grana da vitória | `src/pages/games/Gangues/engine/ganguesVictoryResolver.js` |
-| Descanso, agiota, Clube da Luta (store) | `src/pages/games/Gangues/store/slices/ganguesBiroscaSlice.js` |
+| Descanso e agiota (store) | `src/pages/games/Gangues/store/slices/ganguesBiroscaSlice.js` |
+| Clube da Luta (telas, CSS, regras, store) | `src/pages/games/Gangues/clube/` |
+| Tabelas dos chefes (equipe, orçamento, fração do líder, corpos) | `src/pages/games/Gangues/data/ganguesChefes.js` |
 | Gates de Rep, marcos de Rep, empréstimo, multiplayer | `src/pages/games/Gangues/data/ganguesLoadout.js` |
 | Motor da cena (colisão, câmera) | `src/pages/games/Gangues/engine/ganguesCenaMotor.js` |
 | Encontro aleatório (tipos, relógio, pathfinding) | `engine/ganguesEncontroAleatorio.js` + `hooks/useGanguesEncontroAleatorio.js` |
@@ -2286,15 +2289,22 @@ src/pages/games/Gangues/
 ├── Gangues.css           # ÍNDICE de @import (a ordem dos imports = ordem da cascata)
 ├── styles/               # CSS por assunto (combate-*, cena/*, lobby/*, …) +
 │                         # paleta.css (tokens --gang-*) — refatoração de set/2026
+├── clube/                # CLUBE DA LUTA, módulo independente (v3.67.2): as 3
+│                         # telas + GanguesClube.css, ganguesClubeRegras.js
+│                         # (bando, rondas, gate de rep, prêmio) e
+│                         # ganguesClubeSlice.js (entrar, sala, acerto). O
+│                         # resto do jogo só chama prepararEntradaClube (cena),
+│                         # gerarBandoClube (rota) e fecharRondaClube (vitória)
 ├── screens/              # uma tela por fase (Lobby, Combat, Cena, Create,
-│                         # Modes, Victory*, Album, Batalha, Clube*, Naming,
+│                         # Modes, Victory*, Album, Batalha, Naming,
 │                         # Progression, SaveSelect, StoryMap, Territorio)
 │                         # + CSS de cada uma, co-localizado
 ├── assets/               # retratos de personagem (personagens/<slug>/neutro.png)
 ├── components/           # peças reutilizadas por mais de uma screen
 │   └── cena/             # peças específicas da cena navegável
 ├── data/                 # catálogo de personagens/inimigos/itens/território,
-│   └── cenas/pista/      # regras de pontos, especiais — dados, não lógica de UI
+│   │                     # ganguesChefes.js (tabelas dos chefes),
+│   └── cenas/<território>/ # regras de pontos, especiais — dados, não lógica de UI
 ├── engine/               # resolver de combate, efeitos de poder, motor de cena
 ├── hooks/                # turno, i18n sob demanda, movimento de cena, etc.
 └── store/

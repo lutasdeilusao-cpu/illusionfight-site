@@ -23,7 +23,7 @@ import { GANGUES_LADDER_PASSO } from './ganguesDificuldade.js'
      Num ponto comum (não-chefe) é a MESMA ficha, escalada pro ponto fixo
      `pontosFixo` do nó (GanguesRoute trata como nível fixo, single-enemy —
      ver ganguesDificuldade.js). O chefe continua com orçamento fixo
-     próprio (GANGUES_CHEFE_BUDGET, ganguesEncontros.js), sempre acima dos
+     próprio (GANGUES_CHEFE_BUDGET, ganguesChefes.js), sempre acima dos
      3 pontos comuns do território.
    • `poly` / `pos` são coords no SVG do mapa (viewBox 0 0 100 108).
 

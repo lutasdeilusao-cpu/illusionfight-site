@@ -6,7 +6,7 @@ import { getGanguesRosterLimitComHistoria } from '../data/ganguesLoadout.js'
 import useGanguesVictoryResolution from '../hooks/useGanguesVictoryResolution.js'
 import GanguesVictoryFinal from './GanguesVictoryFinal'
 import GanguesVictoryReport from './GanguesVictoryReport'
-import GanguesClubeResultado from './GanguesClubeResultado'
+import GanguesClubeResultado from '../clube/GanguesClubeResultado'
 import './GanguesProgressionFlow.css'
 
 // Orquestrador: decide qual das 3 telas finais mostrar (Clube da Luta,

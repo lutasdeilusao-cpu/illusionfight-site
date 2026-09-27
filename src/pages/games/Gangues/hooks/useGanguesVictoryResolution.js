@@ -43,21 +43,11 @@ export default function useGanguesVictoryResolution({ store, user, report, victo
     if (report.__resolvido) return
     store.setBattleReport({ ...report, __resolvido: true })
 
-    // Clube da Luta: NÃO dá AP nem grana. Gauntlet de 3 rondas.
-    //  • venceu ronda 1 ou 2 → vai pra sala do Nato (não acerta contas ainda).
-    //  • venceu a 3 → quita tudo (e +200 se entrou limpo, sem ajeites).
-    //  • perdeu qualquer ronda → te remendam, dívida acumulada fica.
+    // Clube da Luta: sem AP/grana — o módulo do Clube decide tudo (ver
+    // clube/ganguesClubeSlice.js#fecharRondaClube).
     if (clube) {
-      const ronda = Number(storyAlvo?.clubeRonda) || 3
-      if (victory && ronda < 3) {
-        store.aplicarDanoPersistente(report.combatants)
-        onNavigate('clube-sala')
-        return
-      }
-      store.resolverClubeDaLuta(victory, storyAlvo.clubeBase || 10, storyAlvo.clubeDividaPrevia || 0, storyAlvo.clubeHeals || 0)
-      // Chip Ígneo: só na vitória da RONDA FINAL (ronda 3) — as vitórias das
-      // rondas 1/2 caem no branch acima (vão pra sala do Nato) e não chegam aqui.
-      if (victory) store.darItem(22, 1)
+      const proxima = store.fecharRondaClube({ victory, alvo: storyAlvo, combatants: report.combatants })
+      if (proxima) { onNavigate(proxima); return }
       victory ? sfx.win() : sfx.lose()
       return
     }

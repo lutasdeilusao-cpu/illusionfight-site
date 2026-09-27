@@ -48,7 +48,7 @@ export const CENA_FEIRA = {
     poiNo: 'feira-chefe',
     tipo: 'treta',
     // Cobrador 52 (+ Mão do Turco e Caixa Forte de escolta, 29 cada) — ver
-    // GANGUES_CHEFE_BUDGET.feira / liderFracChefe em ganguesEncontros.js.
+    // GANGUES_CHEFE_BUDGET.feira / liderFracChefe em data/ganguesChefes.js.
     nivelRec: 52,
     enemy: 1501,
     boss: 'turco',

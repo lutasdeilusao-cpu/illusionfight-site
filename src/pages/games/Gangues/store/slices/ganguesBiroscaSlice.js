@@ -1,7 +1,8 @@
-// Slice: descanso da birosca + agiotagem do agiota + Clube da Luta. Extraído
+// Slice: descanso da birosca + agiotagem do agiota. Extraído
 // de store/useGanguesStore.js (PLANO_REFATORACAO_ARQUIVOS_GRANDES_GANGUES_2026-09-11.md §3).
 // A agiotagem é de NPC agiota (Marimbondo na Pista, Juro Alto na Feira — POI
 // tipo `agiota`), a dívida é UMA caderneta global (storyProgress.__birosca).
+// O Clube da Luta (a rota de quitar a dívida) é módulo à parte: ../../clube/.
 import {
   normalizeGanguesLoadout, getGanguesResources,
   GANGUES_EMPRESTIMO_VALOR, GANGUES_EMPRESTIMO_MULT, GANGUES_EMPRESTIMO_TETO,
@@ -54,7 +55,7 @@ export default function createGanguesBiroscaSlice(set, get) {
     //                 CURA FIADA, que DOBRA a dívida atual.
     //   divida×2 > GANGUES_EMPRESTIMO_TETO → chegou no teto: o agiota não
     //                 cobra mais nada (cura de graça), mas força o Clube da
-    //                 Luta (ver iniciarClube(custoBase, gratis=true) em
+    //                 Luta (ver prepararEntradaClube({ gratis: true }) em clube/ganguesClubeSlice.js, chamado de
     //                 GanguesCena.jsx — não passa pela oferta normal de
     //                 aceitar/recusar, é jogado direto pra dentro).
     // A dívida é GLOBAL (uma caderneta só pra todas as biroscas de todos os
@@ -225,58 +226,6 @@ export default function createGanguesBiroscaSlice(set, get) {
       set(state => ({ storyProgress: { ...state.storyProgress, __birosca: { divida: restante } } }))
       get()._persistStory()
       return { ok: true, pago, restante }
-    },
-
-    // Aceitou o Clube da Luta. Ao entrar, o agiota já te fia 15× o descanso
-    // (te "curam adiantado" — a tropa toda volta pro máximo) e a dívida sobe
-    // na hora. A luta roda com storyTarget { clube: true, clubeRonda: 1 } —
-    // é um gauntlet de 3 rondas (1 fraco → 2 → 3 casca-grossa).
-    entrarClubeDaLuta: (custoBase = 10) => {
-      const rec = get()._birosca()
-      const valor = 15 * Math.max(1, Math.round(custoBase))
-      const divida = rec.divida + valor
-      set(state => ({ storyProgress: { ...state.storyProgress, __birosca: { divida } } }))
-      get().restaurarPvPmTodos()
-      get()._persistStory()
-      return { valor, divida }
-    },
-
-    // Entre uma ronda e outra do gauntlet, o agiota oferece te ajeitar — cura a
-    // tropa toda na hora, e DOBRA a dívida na tua cara, na maior cara de pau.
-    // É opcional (dá pra encarar a próxima ronda machucado).
-    curarNoClubeSala: () => {
-      const rec = get()._birosca()
-      const antes = Math.max(1, Math.round(rec.divida))
-      const divida = antes * 2
-      set(state => ({ storyProgress: { ...state.storyProgress, __birosca: { divida } } }))
-      get().restaurarPvPmTodos()
-      get()._persistStory()
-      return { antes, divida }
-    },
-
-    // Vazou no meio do gauntlet: te arrastam pra fora e te largam (a tropa é
-    // remendada), mas a dívida acumulada FICA — não quita nada.
-    desistirDoClube: () => {
-      get().restaurarPvPmTodos()
-      get()._persistStory()
-      return get()._birosca().divida
-    },
-
-    // Fim do gauntlet do Clube (só chamado na 3ª ronda ou numa derrota).
-    //  `dividaPrevia` = a dívida ANTES de aceitar (antes do 15× de entrada, ou
-    //  a dívida que já tava no teto, na entrada forçada do socorro do agiota).
-    //  `heals` = quantas vezes deixou o agiota ajeitar entre as rondas.
-    //  • Venceu (ronda 3): quita TUDO, nome limpa. Se entrou LIMPO e não pediu
-    //    nenhum ajeite (dividaPrevia 0 e heals 0), ainda leva 200 na mão. Sem XP.
-    //  • Perdeu: te remendam e te largam. A dívida NÃO cresce mais — fica o que
-    //    acumulou. Nunca é game over.
-    resolverClubeDaLuta: (venceu, custoBase = 10, dividaPrevia = 0, heals = 0) => {
-      if (venceu) {
-        set(state => ({ storyProgress: { ...state.storyProgress, __birosca: { divida: 0 } } }))
-        if (Math.round(dividaPrevia) <= 0 && Number(heals) <= 0) get().ganharGrana(200)
-      }
-      get().restaurarPvPmTodos()
-      get()._persistStory()
     },
   }
 }
