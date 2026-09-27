@@ -68,6 +68,18 @@
   --gang-brasa-600: #c9432f;
   --gang-laranja-500: #e8722a;
 
+  /* Feira — barraca de feira (rua e labirinto do Mercadão), caixote, tinta
+     escura sobre âmbar (selos da pista de tempo) */
+  --gang-banca-tampo: #5a4632;
+  --gang-banca-tampo-sombra: #43331f;
+  --gang-lona: #c8453a;
+  --gang-lona-listra: #efe6d2;
+  --gang-fruta-laranja: #e0a12f;
+  --gang-fruta-verde: #6fbf4a;
+  --gang-caixote: #7a5a36;
+  --gang-caixote-sombra: #5c4428;
+  --gang-tinta: #0b0d10;
+
   /* Verdes e azul */
   --gang-pista: #3ddc97;
   --gang-verde-feito: #6be07a;

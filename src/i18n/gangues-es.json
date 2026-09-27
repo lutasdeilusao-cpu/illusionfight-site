@@ -4134,7 +4134,7 @@
             "nome": "La Redada",
             "onomatopeia": "¡PRIII!",
             "aviso": [
-              "Se ensució, chamo — los fiscales de la alcaldía.",
+              "Se pudrió, pibe — los inspectores de la municipalidad.",
               "Están barriendo la Feria. Si te agarran, se llevan lo que tengas en la mochila."
             ]
           },
@@ -4150,8 +4150,8 @@
             "nome": "El Cobro del Turco",
             "onomatopeia": "¡TOC TOC!",
             "aviso": [
-              "Toda la Feria sabe que debes.",
-              "Los cobradores del Turco vinieron por un pedazo. Si pierdes, se llevan de tu plata."
+              "Toda la Feria sabe que debés.",
+              "Los cobradores del Turco vinieron por un pedazo. Si perdés, se llevan de tu plata."
             ]
           }
         },
@@ -4533,7 +4533,7 @@
         "ficha_proximo": "SIGUIENTE",
         "aposta_titulo": "¿Cuánto pones en la rueda?",
         "aposta_nada": "Nada",
-        "aposta_premio": "Ganas, te llevas {n}.",
+        "aposta_premio": "Ganás, te llevás {n}.",
         "skin": {
           "gazua": "ganzúa en el portón",
           "viatura": "la patrulla está en la calle",
@@ -4543,19 +4543,19 @@
         },
         "feira": {
           "chegada": [
-            "Esta es la Feria, chamo. Aquí no hay tiros — hay cuentas.",
+            "Esta es la Feria, pibe. Acá no hay tiros — hay cuentas.",
             "Cada puesto le paga al Turco, y cada centavo está en su libreta. La mitad de arriba está a oscuras: los Gatos cortaron la luz.",
-            "¿Quieres al Cobrador? Primero haz que toda la Feria te respete."
+            "¿Querés al Cobrador? Primero hacé que toda la Feria te respete."
           ],
           "aviso_informante": "El Cobrador ni te recibe todavía. Alguien en la Pista sabe cómo llegar a él — habla con Duda.",
           "boss_trancado": "La barricada del apagón está cerrada — resuelve primero la Feria de abajo.",
           "muro_passagem": "La barricada no abre — pero la Galería de los Gatos pasa por debajo.",
-          "checklist_dica": "Resuelve todo aquí abajo para abrir la Galería de los Gatos.",
+          "checklist_dica": "Resolvé todo acá abajo para abrir la Galería de los Gatos.",
           "checklist_passagem": "Galería abierta — cruza al lado apagado.",
           "minimapa_galeria": "Galería de los Gatos",
           "minimapa_mercadao": "Mercadón",
-          "hint_radio_pronto": "Ya tienes el cobre y las 3 válvulas — llévaselos a Toninho para arreglar la radio.",
-          "hint_radio_falta": "La radio de Toninho necesita 1 cable de cobre y 3 válvulas. Busca en la Feria (el vendedor ambulante vende una).",
+          "hint_radio_pronto": "Ya tenés el cobre y las 3 válvulas — llevaselos a Toninho para arreglar la radio.",
+          "hint_radio_falta": "La radio de Toninho necesita 1 cable de cobre y 3 válvulas. Buscá en la Feria (el vendedor ambulante vende una).",
           "pich": "LOS GATOS",
           "grafite": "QUIEN DEBE\nTEME",
           "predio": {
@@ -4584,8 +4584,8 @@
             "nome": "El Torniquete",
             "sub": "el peaje de los Gatos en la entrada",
             "fala": [
-              "Epa, epa. La entrada a la Feria se paga, pana.",
-              "O sueltas el vuelto, o pasas por encima de nosotros."
+              "Epa, epa. La entrada a la Feria se paga, pibe.",
+              "O largás el vuelto, o pasás por encima nuestro."
             ]
           },
           "banca_turco": {
@@ -4596,17 +4596,17 @@
               "Cuota de llegada: 20. Pagas y quedas tranquilo. No pagas y el Cobrador viene a conversar contigo."
             ],
             "fala_devedor": [
-              "Mira quién llegó. Estás en la libreta, ¿eh? Debiéndole al usurero y todavía quieres puesto en la Feria.",
-              "Paga la cuota de llegada o los cobradores te encuentran antes de que encuentres la salida."
+              "Mirá quién llegó. Estás en la libreta, ¿eh? Debiéndole al usurero y todavía querés puesto en la Feria.",
+              "Pagá la cuota de llegada o los cobradores te encuentran antes de que encuentres la salida."
             ],
             "escolhas": {
               "paga_taxa": {
-                "label": "Paga los 20 de cuota",
+                "label": "Pagá los 20 de cuota",
                 "resultado": "Anota tu nombre con cuidado. \"Pagador. Al Turco le gusta. Pero a sus cobradores no les gusta nadie — están ahí nomás.\""
               },
               "nao_paga": {
                 "label": "No paga nada",
-                "resultado": "Cierra la libreta despacio. \"Anotado. Anda a hablar con los cobradores, entonces.\""
+                "resultado": "Cierra la libreta despacio. \"Anotado. Andá a hablar con los cobradores, entonces.\""
               }
             }
           },
@@ -4615,27 +4615,27 @@
             "sub": "los cobradores del Turco",
             "fala": [
               "Vinimos por lo que es del Turco.",
-              "Todo el mundo paga. Tú también vas a pagar — de una forma o de otra."
+              "Todo el mundo paga. Vos también vas a pagar — de una forma o de otra."
             ]
           },
           "quadro_luz": {
             "nome": "El tablero de luz",
             "sub": "el enganche que alimenta la Feria",
-            "intro": "Los Gatos jalan la luz de toda la Feria desde este tablero. Rehaz el camino de los cables sin tocar los que están vivos — un error y la banda se electrocuta, y el ruido llama a la pandilla."
+            "intro": "Los Gatos sacan la luz de toda la Feria desde este tablero. Rehacé el camino de los cables sin tocar los que están vivos — un error y la banda se electrocuta, y el ruido llama a la pandilla."
           },
           "beco_gato": {
             "nome": "El Callejón de los Gatos",
             "sub": "donde se esconde la banda del cableado",
             "fala": [
-              "¿Tocaste nuestro tablero? Aquí nadie toca nuestra luz.",
-              "Los Gatos viven a oscuras, pana. Ven a aprender cómo es."
+              "¿Tocaste nuestro tablero? Acá nadie toca nuestra luz.",
+              "Los Gatos viven a oscuras, pibe. Vení a aprender cómo es."
             ]
           },
           "balanca": {
             "nome": "La balanza trucada",
             "sub": "el peso del Turco siempre gana",
             "fala": [
-              "Aquí el que pesa soy yo. Y te pesé: debes.",
+              "Acá el que pesa soy yo. Y te pesé: debés.",
               "Cada puesto paga el peso que yo digo."
             ]
           },
@@ -4643,7 +4643,7 @@
             "nome": "El Libreta",
             "sub": "recuerda cada centavo",
             "fala": [
-              "Sé el nombre de cada deudor de Marélia. Y el tuyo está aquí.",
+              "Sé el nombre de cada deudor de Marélia. Y el tuyo está acá.",
               "El que debe cobra con intereses."
             ]
           },
@@ -4651,7 +4651,7 @@
             "nome": "La Mano del Turco",
             "sub": "el brazo que cobra",
             "fala": [
-              "La radio pirata habló de mí, ¿no? Entonces sabes quién soy.",
+              "La radio pirata habló de mí, ¿no? Entonces sabés quién soy.",
               "Soy la mano que usa el Turco para cerrar la cuenta."
             ]
           },
@@ -4660,7 +4660,7 @@
             "sub": "la caja de la Feria tiene piernas",
             "fala": [
               "Todo lo que paga la Feria pasa por mí.",
-              "¿Quieres la plata? Ven a sacarla de la caja."
+              "¿Querés la plata? Vení a sacarla de la caja."
             ]
           },
           "radio": {
@@ -4668,23 +4668,23 @@
             "sub": "arregla todo lo que chisporrotea",
             "fala": [
               "Esta radio agarra la frecuencia del Ajuste de Cuentas — los del Turco hablan todo por ahí.",
-              "Solo que se quemó. Tráeme 1 cable de cobre y 3 válvulas y la hago hablar."
+              "Solo que se quemó. Traeme 1 cable de cobre y 3 válvulas y la hago hablar."
             ],
             "escolhas": {
               "consertar": {
                 "label": "Entrega el cobre y las 3 válvulas",
-                "resultado": "Toninho suelda, sopla, gira la perilla... y la radio suelta una voz: \"La Mano y la Caja Fuerte están en la Feria hoy.\" Ahora sabes dónde están."
+                "resultado": "Toninho suelda, sopla, gira la perilla... y la radio larga una voz: \"La Mano y la Caja Fuerte están en la Feria hoy.\" Ahora sabés dónde están."
               }
             }
           },
           "camelo": {
             "nome": "El Vendedor Ambulante",
-            "sub": "un poco de todo, y más barato si sabes hablar"
+            "sub": "un poco de todo, y más barato si sabés hablar"
           },
           "muamba": {
             "nome": "El Contrabando del Domingo",
             "sub": "cruza la Feria sin que la Redada te vea",
-            "intro": "Lleva el contrabando de una punta a la otra de la Feria. La Redada está rondando y el tiempo corre — si te ven, pierdes todo."
+            "intro": "Llevá el contrabando de una punta a la otra de la Feria. La Redada está rondando y el tiempo corre — si te ven, perdés todo."
           },
           "favor_marmita": {
             "nome": "La vianda de Regina",
@@ -4700,12 +4700,12 @@
             ],
             "escolhas": {
               "convence": {
-                "label": "Convéncelo hablando",
+                "label": "Convencelo hablando",
                 "resultado": "Se rasca la cabeza, suspira y le paga a Regina. \"Está bien, está bien. Ella siempre me dio de comer.\""
               },
               "aperta": {
-                "label": "Apriétalo",
-                "resultado": "Retrocede y llama a sus panas. \"¿Viniste a cobrar con la mano? Entonces cobra con la mano.\""
+                "label": "Apretalo",
+                "resultado": "Retrocede y llama a sus amigos. \"¿Viniste a cobrar con la mano? Entonces cobrá con la mano.\""
               }
             }
           },
@@ -4714,7 +4714,7 @@
             "sub": "está presionando a Doña Regina",
             "fala": [
               "La vieja le debe al Turco. Quítate del medio.",
-              "¿Quieres pagar por ella? Paga con los huesos."
+              "¿Querés pagar por ella? Pagá con los huesos."
             ]
           },
           "pagina_1": {
@@ -4741,32 +4741,32 @@
             ],
             "escolhas": {
               "ouvir": {
-                "label": "Escucha toda la frecuencia",
-                "resultado": "Anotas todo lo que dijo la radio sobre la Bajada. Cuando llegue la hora, ya sabes por dónde entrar."
+                "label": "Escuchá toda la frecuencia",
+                "resultado": "Anotás todo lo que dijo la radio sobre la Bajada. Cuando llegue la hora, ya sabés por dónde entrar."
               }
             }
           },
           "pensao": {
             "nome": "Pensión de Doña Regina",
             "sub": "comida caliente y cama limpia",
-            "intro": "Doña Regina sirve un plato de comida y acomoda a la banda en un rincón. Cuesta unas monedas — y si no tienes plata, ella lo resuelve de otra forma.",
+            "intro": "Doña Regina sirve un plato de comida y acomoda a la banda en un rincón. Cuesta unas monedas — y si no tenés plata, ella lo resuelve de otra forma.",
             "favor_pedir": "Sin plata — pide fiado a cambio de un favor",
-            "favor_pendente": "Todavía le debes un favor a Regina",
-            "favor_fala": "\"Come, chamo. Después me haces un favor — la Feria está llena de gente que me debe.\""
+            "favor_pendente": "Todavía le debés un favor a Regina",
+            "favor_fala": "\"Comé, pibe. Después me hacés un favor — la Feria está llena de gente que me debe.\""
           },
           "pensao_2": {
             "nome": "Pensión de la hija",
             "sub": "la hija de Regina, del lado apagado",
             "intro": "La hija de Doña Regina lleva una pensión del lado oscuro, a luz de vela. La misma regla de la madre: pagas unas monedas y la banda se arregla.",
             "favor_pedir": "Sin plata — pide fiado a cambio de un favor",
-            "favor_pendente": "Todavía le debes un favor a Regina",
-            "favor_fala": "\"Mi mamá me habló de ti. Come — el favor lo arreglas con ella.\""
+            "favor_pendente": "Todavía le debés un favor a Regina",
+            "favor_fala": "\"Mi mamá me habló de vos. Comé — el favor lo arreglás con ella.\""
           },
           "juro_alto": {
             "nome": "Interés Alto",
             "sub": "presta mucho, cobra mucho más",
             "fala": [
-              "¿Necesitas plata grande, chamo? Yo no trabajo con menudo.",
+              "¿Necesitás plata grande, pibe? Yo no trabajo con monedas.",
               "300 en la mano ahora. Pero la cuenta... la cuenta es mía."
             ],
             "botao_ver_contrato": "Quiero los 300",
@@ -4780,7 +4780,7 @@
             "nome": "La puerta del depósito",
             "sub": "Interés Alto y sus matones",
             "fala": [
-              "De aquí en adelante es el Mercadón. Nadie pasa sin pagar.",
+              "De acá en adelante es el Mercadón. Nadie pasa sin pagar.",
               "Y no te alcanza para lo que cobramos."
             ]
           },
@@ -4788,16 +4788,16 @@
             "nome": "El guardia del Mercadón",
             "sub": "solo abre para quien tiene nombre",
             "fala": [
-              "¿Tienes nombre en la Feria? Entonces pruébalo.",
+              "¿Tenés nombre en la Feria? Entonces probalo.",
               "El Turco solo recibe a quien la calle respeta."
             ]
           },
           "rinha_apostas": {
             "nome": "Riña de Apuestas",
-            "sub": "apuesta y pelea — ganas, te llevas el doble",
+            "sub": "apuesta y pelea — ganás, te llevás el doble",
             "fala": [
-              "Aquí a oscuras la rueda gira con plata en la mesa.",
-              "Pon tu apuesta y entra. Ganas, te llevas el doble. Pierdes, te quedas sin nada."
+              "Acá a oscuras la rueda gira con plata en la mesa.",
+              "Poné tu apuesta y entrá. Ganás, te llevás el doble. Perdés, te quedás sin nada."
             ]
           },
           "mercearia": {
@@ -4811,20 +4811,20 @@
             "m1": {
               "nome": "Vigía de los Gatos",
               "fala": [
-                "¿Entraste a la Galería? Esta es la casa de los Gatos, pana.",
+                "¿Entraste a la Galería? Esta es la casa de los Gatos, pibe.",
                 "Nadie cruza sin pagar peaje."
               ]
             },
             "porta": {
               "nome": "La puerta de los Gatos",
               "sub": "cerrada con su código",
-              "intro": "Una puerta de hierro con candado de código. Los Gatos cambian la clave cada semana — descifra el código para pasar. Si te equivocas, vienen a ver quién la tocó."
+              "intro": "Una puerta de hierro con candado de código. Los Gatos cambian la clave cada semana — descifrá el código para pasar. Si le errás, vienen a ver quién la tocó."
             },
             "m2": {
               "nome": "Los Gatos del medio",
               "fala": [
-                "¿Abriste nuestra puerta? Ahora estás encerrado aquí con nosotros.",
-                "A oscuras vemos mejor que tú."
+                "¿Abriste nuestra puerta? Ahora estás encerrado acá con nosotros.",
+                "A oscuras vemos mejor que vos."
               ]
             },
             "m3": {
@@ -4839,8 +4839,8 @@
             "m2": {
               "nome": "Mazo",
               "fala": [
-                "La cámara fría es lugar de carne quieta. Tú te quedas aquí.",
-                "Yo cuido lo que es del Turco. Tú no pasas."
+                "La cámara fría es lugar de carne quieta. Vos te quedás acá.",
+                "Yo cuido lo que es del Turco. Vos no pasás."
               ]
             },
             "achado": {
@@ -4857,23 +4857,23 @@
               ],
               "escolhas": {
                 "ler": {
-                  "label": "Léelo todo",
-                  "resultado": "Cierras el libro. Si juntas las 3 páginas de la libreta, el Cobrador entra a la pelea con la guardia baja."
+                  "label": "Leelo todo",
+                  "resultado": "Cerrás el libro. Si juntás las 3 páginas de la libreta, el Cobrador entra a la pelea con la guardia baja."
                 }
               }
             },
             "barraca_1": {
               "nome": "El dueño del primer puesto",
               "fala": [
-                "Entraste al Mercadón por el pasillo equivocado, pana. Aquí cada puesto es del Turco.",
-                "¿Quieres pasar? Paga el peaje de la lona — con los huesos."
+                "Entraste al Mercadón por el pasillo equivocado, pibe. Acá cada puesto es del Turco.",
+                "¿Querés pasar? Pagá el peaje de la lona — con los huesos."
               ]
             },
             "barraca_2": {
               "nome": "La banda de las empanadas",
               "fala": [
                 "¡Epa, epa, epa! ¡Llamen a la muchachada, hay un intruso entre los puestos!",
-                "Aquí adentro peleamos en banda, chamo. Solo no sales."
+                "Acá adentro peleamos en banda, pibe. Solo no salís."
               ]
             },
             "barraca_3": {
@@ -4886,15 +4886,15 @@
             "barraca_4": {
               "nome": "El fiscal del pasillo",
               "fala": [
-                "Cada puesto que pasas es una deuda que haces, ¿sabías?",
+                "Cada puesto que pasás es una deuda que hacés, ¿sabías?",
                 "Esta te la cobro ahora."
               ]
             },
             "barraca_5": {
               "nome": "La plaza de los cobradores",
               "fala": [
-                "Llegaste lejos, ¿eh? Todos los cobradores del Turco juntos aquí.",
-                "De aquí en adelante solo pasa el que salda la cuenta."
+                "Llegaste lejos, ¿eh? Todos los cobradores del Turco juntos acá.",
+                "De acá en adelante solo pasa el que salda la cuenta."
               ]
             },
             "barraca_6": {

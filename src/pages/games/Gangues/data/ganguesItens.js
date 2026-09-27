@@ -69,8 +69,6 @@ export function getGanguesItem(itemId) {
 
 /** Tipos que dá pra usar no meio da luta (a bolinha de ação lista esses). */
 export const GANGUES_TIPOS_USO_COMBATE = new Set(['cura_pv', 'cura_pm', 'buff', 'debuff_inimigos', 'poder_unico'])
-/** Tipos que miram um ALIADO (cura/buff); os outros miram inimigo(s). */
-export const GANGUES_TIPOS_ALVO_ALIADO = new Set(['cura_pv', 'cura_pm', 'buff'])
 
 /** "+3 PM · −1 Couro (1 ação)" — o que o consumível faz, nos 3 idiomas. */
 export function textoEfeitoItem(t, item) {

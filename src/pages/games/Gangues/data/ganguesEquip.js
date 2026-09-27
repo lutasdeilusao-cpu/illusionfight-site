@@ -252,17 +252,6 @@ export function getGanguesEquipDados(equipment = {}) {
   return dados
 }
 
-/** Faixa TOTAL de cada atributo (soma dos mínimos e dos máximos) — pra ficha
- *  mostrar "Porrada 6–8". */
-export function getGanguesEquipFaixas(equipment = {}) {
-  const dados = getGanguesEquipDados(equipment)
-  const out = {}
-  for (const attr of GANGUES_EQUIP_ATTR_KEYS) {
-    out[attr] = dados[attr].reduce((acc, f) => ({ min: acc.min + f.min, max: acc.max + f.max }), { min: 0, max: 0 })
-  }
-  return out
-}
-
 /** Soma dos bônus de todos os itens equipados: A/H/D pela MÉDIA da faixa
  *  (pode ser fracionária — quem exibe arredonda) + pv/pm (recurso plano).
  *  Média, nunca máximo: loja/ficha/aviso de nível não prometem mais do que a
