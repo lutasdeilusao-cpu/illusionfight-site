@@ -14,15 +14,17 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { MODO_AUTO_EXIGE_ASSINATURA, TIERS_COM_MODO_AUTO } from '../engine/ganguesCombatPresentation.js'
+import { chaveDoSave } from './useGanguesVelocidadeAuto.js'
 
-// Configuração do automático (por navegador, igual o liga/desliga — não é save).
+// Configuração do automático (por navegador e por save, igual o liga/desliga
+// — gangue nova começa do zero; ver chaveDoSave).
 const CONFIG_CHAVE = 'ldi-gangues-auto-config'
 const CONFIG_PADRAO = { talentos: {}, pocao: false, pocaoPm: false }
 export const POCAO_LIMIAR_PV = 0.5
 
 export function lerAutoConfig() {
   try {
-    const v = JSON.parse(localStorage.getItem(CONFIG_CHAVE) || 'null')
+    const v = JSON.parse(localStorage.getItem(chaveDoSave(CONFIG_CHAVE)) || 'null')
     // `pocaoPm` nasceu separado da poção de PV (v3.75.0); config antiga, que
     // tinha as duas juntas em `pocao`, herda o mesmo valor.
     return v && typeof v === 'object' ? { talentos: v.talentos || {}, pocao: Boolean(v.pocao), pocaoPm: Boolean(v.pocaoPm ?? v.pocao) } : CONFIG_PADRAO
@@ -33,7 +35,7 @@ export function useGanguesAutoConfig() {
   const [config, setConfig] = useState(lerAutoConfig)
   const mudar = useCallback(fn => setConfig(atual => {
     const prox = fn(atual)
-    try { localStorage.setItem(CONFIG_CHAVE, JSON.stringify(prox)) } catch { /* sem storage: vale só agora */ }
+    try { localStorage.setItem(chaveDoSave(CONFIG_CHAVE), JSON.stringify(prox)) } catch { /* sem storage: vale só agora */ }
     return prox
   }), [])
   const escolherTalento = useCallback((membroId, specialId) => mudar(c => ({ ...c, talentos: { ...c.talentos, [membroId]: specialId || null } })), [mudar])

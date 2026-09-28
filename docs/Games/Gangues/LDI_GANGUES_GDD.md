@@ -24,7 +24,7 @@ Grafia oficial: **Marélia** com acento (o conto usa assim). O i18n do jogo aind
 tem "Marelia" sem acento em vários lugares — alinhar quando mexer em texto.
 
 > **Estado do documento: retrato do jogo como ele está HOJE — conferido contra
-> o código de GANGUES 3.76.0 (SITE 10.307.x), 28/09/2026.** Regra: o GDD
+> o código de GANGUES 3.76.1 (SITE 10.307.x), 28/09/2026.** Regra: o GDD
 > descreve o produto atual, não guarda diário de versões — quando algo muda
 > no jogo, o trecho que falava da versão antiga é REESCRITO, não empilhado
 > embaixo com "v3.xx: agora...". Histórico de mudança mora no git.
@@ -2076,7 +2076,7 @@ a turno.
 
 **Modo automático** (`hooks/useGanguesModoAuto.js`): a vez de cada personagem
 sai sozinha, do jeito que o jogador **ajustou** (painel Ajustar, config por
-navegador em `ldi-gangues-auto-config`; decisão pura em `escolherAcaoAuto`):
+navegador e por save em `ldi-gangues-auto-config:<saveId>`; decisão pura em `escolherAcaoAuto`):
 - **Por personagem:** só **ataque normal** (padrão) ou **um talento** — solta
   toda vez que tiver PM/PV pra pagar; sem recurso, ataque normal.
 - **Poção de PV sozinho** (liga/desliga): alguém com **PV ≤ 50%** → o **mais
@@ -2098,11 +2098,15 @@ navegador em `ldi-gangues-auto-config`; decisão pura em `escolherAcaoAuto`):
 - **Lembrado entre lutas:** terminou no automático, a próxima já começa com ele
   ligado. Só o próprio jogador (switch ou "sair") muda isso — ou uma derrota na
   cena, que desliga tudo. Normal e Multidão têm cada um o seu
-  (`useGanguesAutoLembrado`; `ldi-gangues-auto` / `ldi-gangues-auto-multidao`),
-  preferência do navegador, fora do save.
+  (`useGanguesAutoLembrado`; `ldi-gangues-auto` / `ldi-gangues-auto-multidao`).
+- **Cada gangue (save) tem os seus automáticos:** as chaves do navegador levam
+  o id do save (`chaveDoSave`, `<chave>:<saveId>`) — briga automática da rua,
+  automático normal e da Multidão e o Ajustar. Gangue nova começa com **tudo
+  desligado**; voltar pra gangue antiga traz o que ela tinha. A velocidade
+  1x/2x/3x continua do navegador (preferência de quem joga, não da gangue).
 
 **Briga automática na cena** (`hooks/useGanguesBrigaAutomatica.js`) — switch
-entre o analógico e o botão de interagir (`ldi-gangues-briga-auto`).
+entre o analógico e o botão de interagir (`ldi-gangues-briga-auto:<saveId>`).
 - **Ligado, encostar num oponente de briga começa a luta sozinho**, sem o
   "interagir" e sem a carta "bora pro pau": todo POI `treta` repetível ou
   disponível (a Rinha de Apostas entra sem apostar) e todo `papo` com uma

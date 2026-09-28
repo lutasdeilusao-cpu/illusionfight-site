@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { useGanguesAutoLembrado } from './useGanguesVelocidadeAuto.js'
+import { useGanguesAutoLembrado, chaveDoSave } from './useGanguesVelocidadeAuto.js'
 import { cicloDoPinoMs, farolDe } from '../components/cena/GanguesCenaAtores.jsx'
 
 /* ══════════════════════════════════════════════════════════════
@@ -59,13 +59,13 @@ const GANGUES_BRIGA_AUTO_CHAVE = 'ldi-gangues-briga-auto'
 const GANGUES_AUTOMATICOS = [GANGUES_BRIGA_AUTO_CHAVE, 'ldi-gangues-auto', 'ldi-gangues-auto-multidao']
 
 export function brigaAutoLigada() {
-  try { return localStorage.getItem(GANGUES_BRIGA_AUTO_CHAVE) === '1' } catch { return false }
+  try { return localStorage.getItem(chaveDoSave(GANGUES_BRIGA_AUTO_CHAVE)) === '1' } catch { return false }
 }
 /** Perdeu → desliga TUDO (Isaias, 28/09/2026: "reseta, desliga o
  *  automático, desliga tudo, faz ele começar de novo"). As telas leem a
  *  chave ao montar, então a próxima cena/luta já nasce desligada. */
 export function desligarAutomaticos() {
-  try { GANGUES_AUTOMATICOS.forEach(k => localStorage.setItem(k, '0')) } catch { /* sem storage: nada lembrado */ }
+  try { GANGUES_AUTOMATICOS.forEach(k => localStorage.setItem(chaveDoSave(k), '0')) } catch { /* sem storage: nada lembrado */ }
 }
 
 // Como a briga começa sozinha nesse alvo: opções pro iniciarTreta da cena,
