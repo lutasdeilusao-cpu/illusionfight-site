@@ -315,13 +315,15 @@
         "auto_ajustar": "Tune",
         "auto_cada_um": "What each one uses on auto",
         "auto_normal": "Normal attack",
-        "auto_pocao": "Auto potion",
-        "auto_pocao_desc": "Anyone at 50% HP or less? The healthiest in the crew gives up their turn to hand the most hurt one an HP potion. Out of MP for the chosen talent? Drinks an MP potion.",
+        "auto_pocao": "Auto HP potion",
+        "auto_pocao_desc": "Anyone at 50% HP or less? The healthiest in the crew gives up their turn to hand the most hurt one an HP potion.",
         "auto_tutorial": {
           "talento": "This is where you set up auto, kid. For each one in the crew pick: normal attack only, or ONE talent they fire every time they've got the MP. MP runs dry, back to the normal attack.",
-          "pocao": "Turn on auto potion and nobody drops for nothing: someone hits 50% HP, the healthiest one in the crew skips their turn to hand them an HP potion — the hurt one keeps swinging. Short on MP for the talent? MP potion.",
+          "pocao": "Turn on the auto potions and nobody drops for nothing. HP: someone hits 50%, the healthiest one skips their turn to hand them a potion — the hurt one keeps swinging. MP: whoever fires a talent and runs dry drinks an MP potion and gets back to it. Works even with the app in the background.",
           "derrota": "But listen: lose the brawl and EVERY auto mode switches off. Then it's on you again."
-        }
+        },
+        "auto_pocao_pm": "Auto MP potion",
+        "auto_pocao_pm_desc": "Anyone set to use a talent on auto who's out of MP for it drinks an MP potion on their own turn."
       },
       "itens": {
         "1": "HP Potion",

@@ -5,7 +5,8 @@
 //    que ele usa toda vez que tiver PM/PV pra pagar (senão, ataque normal);
 //  • poção automática: alguém da tropa com PV ≤ 50% → o MAIS INTEIRO (mais
 //    PV) gasta a vez dele dando a poção de PV pro mais machucado (o ferido
-//    segue batendo; sozinho de pé, se cura); sem PM pro talento escolhido, o
+//    segue batendo; sozinho de pé, se cura);
+//  • poção de PM automática (opção à parte): sem PM pro talento escolhido, o
 //    próprio personagem toma poção de PM. Usar item gasta a vez de quem age.
 // `modoAutoOn` mora no GanguesCombat (o motor precisa dele pra acelerar a IA
 // do inimigo em 2x/3x — ver useGanguesVelocidadeAuto.js).
@@ -16,13 +17,15 @@ import { MODO_AUTO_EXIGE_ASSINATURA, TIERS_COM_MODO_AUTO } from '../engine/gangu
 
 // Configuração do automático (por navegador, igual o liga/desliga — não é save).
 const CONFIG_CHAVE = 'ldi-gangues-auto-config'
-const CONFIG_PADRAO = { talentos: {}, pocao: false }
+const CONFIG_PADRAO = { talentos: {}, pocao: false, pocaoPm: false }
 export const POCAO_LIMIAR_PV = 0.5
 
 export function lerAutoConfig() {
   try {
     const v = JSON.parse(localStorage.getItem(CONFIG_CHAVE) || 'null')
-    return v && typeof v === 'object' ? { talentos: v.talentos || {}, pocao: Boolean(v.pocao) } : CONFIG_PADRAO
+    // `pocaoPm` nasceu separado da poção de PV (v3.75.0); config antiga, que
+    // tinha as duas juntas em `pocao`, herda o mesmo valor.
+    return v && typeof v === 'object' ? { talentos: v.talentos || {}, pocao: Boolean(v.pocao), pocaoPm: Boolean(v.pocaoPm ?? v.pocao) } : CONFIG_PADRAO
   } catch { return CONFIG_PADRAO }
 }
 
@@ -35,7 +38,8 @@ export function useGanguesAutoConfig() {
   }), [])
   const escolherTalento = useCallback((membroId, specialId) => mudar(c => ({ ...c, talentos: { ...c.talentos, [membroId]: specialId || null } })), [mudar])
   const alternarPocao = useCallback(() => mudar(c => ({ ...c, pocao: !c.pocao })), [mudar])
-  return { config, escolherTalento, alternarPocao }
+  const alternarPocaoPm = useCallback(() => mudar(c => ({ ...c, pocaoPm: !c.pocaoPm })), [mudar])
+  return { config, escolherTalento, alternarPocao, alternarPocaoPm }
 }
 
 // A poção que melhor tapa o buraco: sem efeito colateral primeiro, depois a
@@ -71,7 +75,7 @@ export function escolherAcaoAuto({ ator, aliados, especiais, pagavel, itens, con
     if (pagavel(escolhido)) return { tipo: 'talento', specialId: escolhido.id }
     const eu = aliados.find(a => a.key === ator.key)
     const custo = escolhido.effect?.cost
-    if (config.pocao && custo?.kind === 'pm' && eu) {
+    if (config.pocaoPm && custo?.kind === 'pm' && eu) {
       const pocao = melhorPocao(itens, 'cura_pm', custo.values[escolhido.level - 1] - eu.pm)
       if (pocao) return { tipo: 'item', itemId: pocao.id, alvoKey: eu.key }
     }

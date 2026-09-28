@@ -24,7 +24,7 @@ Grafia oficial: **Marélia** com acento (o conto usa assim). O i18n do jogo aind
 tem "Marelia" sem acento em vários lugares — alinhar quando mexer em texto.
 
 > **Estado do documento: retrato do jogo como ele está HOJE — conferido contra
-> o código de GANGUES 3.74.2 (SITE 10.306.x), 28/09/2026.** Regra: o GDD
+> o código de GANGUES 3.75.0 (SITE 10.307.x), 28/09/2026.** Regra: o GDD
 > descreve o produto atual, não guarda diário de versões — quando algo muda
 > no jogo, o trecho que falava da versão antiga é REESCRITO, não empilhado
 > embaixo com "v3.xx: agora...". Histórico de mudança mora no git.
@@ -2079,12 +2079,14 @@ sai sozinha, do jeito que o jogador **ajustou** (painel Ajustar, config por
 navegador em `ldi-gangues-auto-config`; decisão pura em `escolherAcaoAuto`):
 - **Por personagem:** só **ataque normal** (padrão) ou **um talento** — solta
   toda vez que tiver PM/PV pra pagar; sem recurso, ataque normal.
-- **Poção sozinho** (liga/desliga): alguém com **PV ≤ 50%** → o **mais
+- **Poção de PV sozinho** (liga/desliga): alguém com **PV ≤ 50%** → o **mais
   inteiro da tropa** (mais PV) abre mão da vez dele e dá pro mais machucado a
   poção de PV que melhor tapa o buraco (as sem efeito colateral primeiro). O
   ferido nunca gasta a própria vez se curando — segue batendo; só se cura
-  sozinho quando é o único de pé. Sem PM pro talento escolhido, o próprio
-  personagem toma poção de PM. Usar item gasta a vez de quem age.
+  sozinho quando é o único de pé.
+- **Poção de PM sozinho** (liga/desliga, à parte): quem tem talento no ajuste
+  e ficou sem PM pra ele toma poção de PM na própria vez e volta a soltar o
+  talento. Usar item gasta a vez de quem age, igual no manual.
 - Tutorial de 3 passos (Nego Véio, por conta — `auto_config`) na 1ª vez que o
   Ajustar abre: talento, poção e "perdeu, desliga tudo".
 - **Liberado pra todo mundo hoje** (`MODO_AUTO_EXIGE_ASSINATURA = false`).
@@ -2151,8 +2153,10 @@ embrulho do farm envolve a cena E a luta:
 - **Contas iguais às de uma luta de verdade:** o gerador de bando e o nível
   daquele ponto, o motor da Briga em Multidão, as ações de vitória do store (AP,
   grana, rep, álbum, sucata) e o dano que persiste. Segue o ajuste do
-  automático: o talento escolhido entra na luta, e com a poção sozinho ligada
-  quem terminou com PV ≤ 50% toma poção de PV antes da próxima.
+  automático: o talento escolhido entra na luta, e as poções (PV e PM, cada
+  uma com sua opção) são usadas **dentro da luta calculada, rodada a rodada**,
+  com a mesma regra da luta ao vivo (quem dá a poção abre mão do ataque
+  naquela rodada) — e também entre uma luta e outra.
 - **Só o adversário que o jogador estava grindando** — o da última luta
   (`posicao.adversario`, lembrado mesmo entrando em cômodo ou sendo pego por
   encontro aleatório). Nunca "a região". Sem adversário, ou se ele é
@@ -2169,8 +2173,9 @@ embrulho do farm envolve a cena E a luta:
 - Sem a briga automática ligada, ir pra segundo plano não muda nada: a cena
   continua montada e o navegador só desacelera os relógios dela.
 
-**"Mete o pé"** (fugir da luta, com confirmação) volta pra tela de **Modos**,
-nunca pro lobby.
+**"Mete o pé"** (fugir da luta, com confirmação): luta de bairro volta pro
+**território**, no ponto da briga; Clube e Torre voltam pros **Modos**. Nunca
+pro lobby.
 
 **Voltar nunca repete recompensa:** as fases de combate e vitória ficam fora da
 pilha de histórico (`GANGUES_FASES_TRANSITORIAS`).

@@ -20,10 +20,10 @@
      nível, a conta tem que ser a daquele cara (Isaias, 28/09/2026). Sem
      adversário, ou se ele não vale pra briga automática (vermelho, chefe,
      área do chefe — naAreaDoChefe, cenaHelpers.js), não farma nada;
-   • segue o AJUSTE do automático (v3.73.0): o talento escolhido pra cada
-     um entra na luta calculada (quando tem PM), e com a poção automática
-     ligada, quem terminou a luta com PV ≤ 50% toma poção de PV antes da
-     próxima;
+   • segue o AJUSTE do automático: o talento escolhido pra cada um entra na
+     luta calculada, e as poções (PV e PM, cada uma com sua opção) são usadas
+     DENTRO da luta, rodada a rodada, com a mesma regra da luta ao vivo — e
+     também entre uma luta e outra;
    • app foi pro fundo NO MEIO de uma luta da cena com o automático
      ligado: a tela da luta também é desmontada (o som e os relógios param)
      e a MESMA luta é terminada por cálculo, do ponto exato onde parou
@@ -87,29 +87,85 @@ function bandoDoPoi(poi, { party, enemiesData, modo, territorioId }) {
   return gerarBandoInimigo({ territorioId, pontosFixo: ajustarPontosFixo(poi.pontosFixo, modo), playerTeam: party, enemiesData, liderFixo: poi.liderFixo, moldesPool: poi.moldesPool, qtdMin: poi.qtdMin, qtdMax: poi.qtdMax })
 }
 
-function lutar(party, bando, talentos) {
+// Poções DENTRO da luta calculada, rodada a rodada — a mesma regra do
+// automático ao vivo (escolherAcaoAuto): alguém com PV ≤ 50% → o MAIS
+// INTEIRO da tropa gasta a vez dele dando a poção de PV (1 por rodada); quem
+// tem talento no ajuste e ficou sem PM pra ele toma poção de PM na própria
+// vez. Quem usa item abre mão do ataque naquela rodada (personagensUsandoItem).
+function pocoesDaRodada(estado, { store, config, especiais, resumo }) {
+  const usandoItem = {}
+  if (!config.pocao && !config.pocaoPm) return { estado, usandoItem }
+  const lista = estado.combatants.map(c => ({ ...c }))
+  const vivos = lista.filter(c => c.side === 'player' && c.pv > 0 && c.pvMax > 0)
+  const itensAgora = () => { const inv = store().inventario; return GANGUES_ITENS_LISTA.map(i => ({ ...i, quantidade: inv[i.id] || 0 })) }
+  if (config.pocao) {
+    const ferido = vivos.filter(c => c.pv / c.pvMax <= POCAO_LIMIAR_PV).sort((a, b) => a.pv / a.pvMax - b.pv / b.pvMax)[0]
+    const maisInteiro = [...vivos].sort((a, b) => (b.pv - a.pv) || (b.pv / b.pvMax - a.pv / a.pvMax))[0]
+    const pocao = ferido && maisInteiro && melhorPocao(itensAgora(), 'cura_pv', ferido.pvMax - ferido.pv)
+    if (pocao && store().usarItem(pocao.id)) {
+      ferido.pv = Math.min(ferido.pvMax, ferido.pv + pocao.valor)
+      usandoItem[maisInteiro.id] = true
+      resumo.pocoes++
+    }
+  }
+  if (config.pocaoPm) {
+    for (const c of vivos) {
+      const talento = (especiais[c.id] || []).find(x => x.id === config.talentos?.[c.id])
+      const custo = talento?.effect?.cost
+      if (usandoItem[c.id] || custo?.kind !== 'pm') continue
+      const precisa = custo.values[talento.level - 1]
+      if (c.pm >= precisa) continue
+      const pocao = melhorPocao(itensAgora(), 'cura_pm', precisa - c.pm)
+      if (pocao && store().usarItem(pocao.id)) {
+        c.pm = Math.min(c.pmMax, c.pm + pocao.valor)
+        usandoItem[c.id] = true
+        resumo.pocoes++
+      }
+    }
+  }
+  return { estado: { ...estado, combatants: lista }, usandoItem }
+}
+
+// Roda a luta calculada até o fim, com talento e poções do ajuste do automático.
+function rodarLuta(estadoInicial, { party, store, config, resumo }) {
   const especiais = Object.fromEntries(party.map(m => [m.id, getEquippedActiveGanguesSpecials(m)]))
-  let estado = iniciarBrigaMultidao({ playerTeam: party, enemyTeam: bando })
-  for (let i = 0; i < GANGUES_FARM_MAX_RODADAS && !estado.terminado; i++) estado = avancarRodadaMultidao(estado, talentos, especiais)
+  let estado = estadoInicial
+  for (let i = 0; i < GANGUES_FARM_MAX_RODADAS && !estado.terminado; i++) {
+    const r = pocoesDaRodada(estado, { store, config, especiais, resumo })
+    estado = avancarRodadaMultidao(r.estado, config.talentos, especiais, r.usandoItem)
+  }
   return { outcome: estado.outcome || 'defeat', combatants: estado.combatants }
 }
 
-// Poção automática entre uma luta e outra: quem saiu de pé com PV ≤ 50%
-// toma poção de PV (a que melhor tapa o buraco) até passar dos 50% ou a bolsa
-// acabar. Devolve quantas foram usadas.
-function tomarPocoes(store, combatants) {
+// Entre uma luta e outra (sem vez a perder): com a poção de PV ligada, quem
+// saiu de pé com PV ≤ 50% toma poção até passar dos 50%; com a de PM ligada,
+// quem tem talento no ajuste e está sem PM pra ele toma poção de PM até dar.
+// Devolve quantas foram usadas.
+function tomarPocoes(store, combatants, config) {
   let usadas = 0
-  for (const c of combatants.filter(x => x.side === 'player' && x.pv > 0)) {
-    let pv = c.pv
-    while (pv / c.pvMax <= POCAO_LIMIAR_PV) {
-      const inventario = store().inventario
-      const itens = GANGUES_ITENS_LISTA.map(i => ({ ...i, quantidade: inventario[i.id] || 0 }))
-      const pocao = melhorPocao(itens, 'cura_pv', c.pvMax - pv)
-      if (!pocao) return usadas
-      const { curou } = store().curarMembro(c.id, 'cura_pv', pocao.valor)
-      if (!curou || !store().usarItem(pocao.id)) return usadas
-      pv += curou
+  const itensAgora = () => { const inv = store().inventario; return GANGUES_ITENS_LISTA.map(i => ({ ...i, quantidade: inv[i.id] || 0 })) }
+  const encher = (c, tipo, atual, falta) => {
+    while (falta() > 0) {
+      const pocao = melhorPocao(itensAgora(), tipo, falta())
+      if (!pocao) return
+      const { curou } = store().curarMembro(c.id, tipo, pocao.valor)
+      if (!curou || !store().usarItem(pocao.id)) return
+      atual.v += curou
       usadas++
+    }
+  }
+  for (const c of combatants.filter(x => x.side === 'player' && x.pv > 0)) {
+    if (config.pocao) {
+      const pv = { v: c.pv }
+      encher(c, 'cura_pv', pv, () => (pv.v / c.pvMax <= POCAO_LIMIAR_PV ? c.pvMax - pv.v : 0))
+    }
+    const talento = config.pocaoPm && store().roster.find(m => m.id === c.id)
+      && getEquippedActiveGanguesSpecials(store().roster.find(m => m.id === c.id)).find(x => x.id === config.talentos?.[c.id])
+    const custo = talento?.effect?.cost
+    if (custo?.kind === 'pm') {
+      const pm = { v: c.pm }
+      const precisa = custo.values[talento.level - 1]
+      encher(c, 'cura_pm', pm, () => (pm.v < precisa ? precisa - pm.v : 0))
     }
   }
   return usadas
@@ -167,7 +223,7 @@ function aplicarLuta({ store, cena, alvo, party, outcome, combatants, resumo, au
   if (alvo.aposta > 0) { s.ganharGrana(alvo.aposta * 2); resumo.grana += alvo.aposta * 2 }
   if (Math.random() < GANGUES_FARM_SUCATA_CHANCE) { s.darItem(GANGUES_SUCATA_ID, 1); resumo.sucata++ }
   if (aleatorio) store().finalizarEncontroAleatorio()
-  if (autoConfig.pocao) resumo.pocoes += tomarPocoes(store, combatants)
+  resumo.pocoes += tomarPocoes(store, combatants, autoConfig)
   return true
 }
 
@@ -195,13 +251,11 @@ export function simularFarmAusente({ store, cena, territorioId, segundos, enemie
   if (lutaEmAndamento) {
     const alvo = s0.storyTarget || {}
     const party = s0.roster.filter(m => ids.includes(m.id))
-    const especiais = Object.fromEntries(party.map(m => [m.id, getEquippedActiveGanguesSpecials(m)]))
-    let estado = iniciarBrigaMultidaoDeCombatentes(lutaEmAndamento.combatants, lutaEmAndamento.round || 1)
-    for (let i = 0; i < GANGUES_FARM_MAX_RODADAS && !estado.terminado; i++) estado = avancarRodadaMultidao(estado, autoConfig.talentos, especiais)
-    const outcome = estado.outcome || 'defeat'
+    const inicio = iniciarBrigaMultidaoDeCombatentes(lutaEmAndamento.combatants, lutaEmAndamento.round || 1)
+    const { outcome, combatants } = rodarLuta(inicio, { party, store, config: autoConfig, resumo })
     s0.endMatch(outcome)
     resumo.poiId = alvo.cenaPoiId !== '__aleatorio' ? alvo.cenaPoiId : null
-    segue = aplicarLuta({ store, cena, alvo, party, outcome, combatants: estado.combatants, resumo, autoConfig, onDerrota })
+    segue = aplicarLuta({ store, cena, alvo, party, outcome, combatants, resumo, autoConfig, onDerrota })
     tempo -= GANGUES_FARM_SEGUNDOS_POR_LUTA
   }
 
@@ -216,7 +270,7 @@ export function simularFarmAusente({ store, cena, territorioId, segundos, enemie
     if (!party.length || party.every(m => Number(m.attributes?.pv_atual ?? 1) <= 0)) break
     const bando = bandoDoPoi(poi, { party, enemiesData, modo, territorioId })
     if (!bando?.length) break
-    const { outcome, combatants } = lutar(party, bando, autoConfig.talentos)
+    const { outcome, combatants } = rodarLuta(iniciarBrigaMultidao({ playerTeam: party, enemyTeam: bando }), { party, store, config: autoConfig, resumo })
     if (!aplicarLuta({ store, cena, alvo, party, outcome, combatants, resumo, autoConfig, onDerrota })) break
   }
 

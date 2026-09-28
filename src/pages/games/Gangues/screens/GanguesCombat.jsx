@@ -443,6 +443,7 @@ export default function GanguesCombat({ onNavigate, onSairConfirmado }) {
           autoConfig={autoConfig.config}
           onEscolherTalentoAuto={autoConfig.escolherTalento}
           onAlternarPocaoAuto={autoConfig.alternarPocao}
+          onAlternarPocaoPmAuto={autoConfig.alternarPocaoPm}
         />
       )}
       {!modoMultidaoAtivo && machine.phase === 'enemy' && !machine.pending && <div className="gang-enemy-thinking"><span className="gang-thinking-pulse" /><strong>{t('games.gangues.report.enemy_thinking')}</strong><small>{t('games.gangues.report.enemy_strategy')}</small></div>}

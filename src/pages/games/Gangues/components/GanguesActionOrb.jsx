@@ -31,7 +31,7 @@ const pct = (v, max) => `${Math.max(0, Math.min(100, max > 0 ? (v / max) * 100 :
 export default function GanguesActionOrb({
   t, atorNome, atorKey, disabled, equippedSpecials, canAffordSpecial, itens = [], aliados = [],
   onAtacar, onUsarPoder, onUsarItem, autoOn = false, autoBloqueado = false, onToggleAuto,
-  autoConfig, onEscolherTalentoAuto, onAlternarPocaoAuto,
+  autoConfig, onEscolherTalentoAuto, onAlternarPocaoAuto, onAlternarPocaoPmAuto,
 }) {
   const [pos, setPos] = useState(posSalva)
   const [open, setOpen] = useState(false)
@@ -227,6 +227,10 @@ export default function GanguesActionOrb({
               <button type="button" role="switch" aria-checked={autoConfig.pocao} className={`gang-orb-pocao${autoConfig.pocao ? ' is-on' : ''}`} onClick={onAlternarPocaoAuto}>
                 <span className="gang-orb-auto__track"><span className="gang-orb-auto__dot" /></span>
                 <span><strong>{t('games.gangues.orb.auto_pocao')}</strong><small>{t('games.gangues.orb.auto_pocao_desc')}</small></span>
+              </button>
+              <button type="button" role="switch" aria-checked={autoConfig.pocaoPm} className={`gang-orb-pocao gang-orb-pocao--pm${autoConfig.pocaoPm ? ' is-on' : ''}`} onClick={onAlternarPocaoPmAuto}>
+                <span className="gang-orb-auto__track"><span className="gang-orb-auto__dot" /></span>
+                <span><strong>{t('games.gangues.orb.auto_pocao_pm')}</strong><small>{t('games.gangues.orb.auto_pocao_pm_desc')}</small></span>
               </button>
             </motion.div>
           )}

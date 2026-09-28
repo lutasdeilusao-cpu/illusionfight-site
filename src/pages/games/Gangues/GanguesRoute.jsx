@@ -109,6 +109,20 @@ export default function GanguesRoute() {
     if (anterior) setFase(anterior)
   }
 
+  // "Mete o pé" (fugir da luta): luta de bairro volta pro TERRITÓRIO, no ponto
+  // da briga (Isaias, 28/09/2026: "onde já se viu voltar pro menu inicial...
+  // você fugindo de uma luta"); Clube e Torre, que não moram num bairro,
+  // voltam pros Modos.
+  const meterOPe = () => {
+    const alvo = useGanguesStore.getState().storyTarget
+    if (alvo?.territorioId && !alvo.clube && !alvo.torre) {
+      store.setStoryTarget({ territorioId: alvo.territorioId })
+      setFase('territorio')
+      return
+    }
+    setFase('modes')
+  }
+
   // Lembra o último território (storyProgress.__ultimoTerritorio): entrar na
   // cena marca — é pra lá que o save abre (GanguesSaveSelect).
   useEffect(() => {
@@ -348,17 +362,11 @@ export default function GanguesRoute() {
           ? <GanguesFarmAusente><GanguesCena onNavigate={navegar} onVoltar={voltar} /></GanguesFarmAusente>
           : <GanguesTerritorio onNavigate={navegar} onVoltar={voltar} />
       )}
-      {/* "Mete o pé" (fugir da luta, com confirmação) mandava pro Lobby -
-          pedido do Isaias (19/09/2026, "usei o mete o pé, fui parar nessa
-          página que eu disse que não deveria existir... já pedi umas três
-          vezes"): a tela de escolher/gerenciar elenco não é mais um destino
-          de retorno normal do jogo (só existe pra fundar a gangue ou revisar
-          o elenco por escolha própria) - fugir de uma luta em andamento
-          volta pro hub de verdade (Modes), igual qualquer outra saída de
-          combate/território. */}
+      {/* "Mete o pé" (fugir da luta, com confirmação): ver meterOPe — luta de
+          bairro volta pro território; Clube e Torre, pros Modos. Nunca pro lobby. */}
       {fase === 'combat' && (
         <GanguesFarmAusente luta aoVoltar={() => { store.setStoryTarget({ territorioId: useGanguesStore.getState().storyTarget?.territorioId }); setFase('territorio') }}>
-          <GanguesCombat onNavigate={setFase} onSairConfirmado={() => setFase('modes')} />
+          <GanguesCombat onNavigate={setFase} onSairConfirmado={meterOPe} />
         </GanguesFarmAusente>
       )}
       {fase === 'victory' && <GanguesVictory onNavigate={navegar} />}

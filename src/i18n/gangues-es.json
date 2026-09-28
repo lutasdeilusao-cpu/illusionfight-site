@@ -315,13 +315,15 @@
         "auto_ajustar": "Ajustar",
         "auto_cada_um": "Qué usa cada uno en automático",
         "auto_normal": "Ataque normal",
-        "auto_pocao": "Poción sola",
-        "auto_pocao_desc": "¿Alguien con 50% de PV o menos? El más entero de la banda larga su turno y le da poción de PV al más golpeado. Sin PM para el talento elegido, toma poción de PM.",
+        "auto_pocao": "Poción de PV sola",
+        "auto_pocao_desc": "¿Alguien con 50% de PV o menos? El más entero de la banda larga su turno y le da poción de PV al más golpeado.",
         "auto_tutorial": {
           "talento": "Acá armás el automático, pibe. Para cada uno de la banda elegí: solo ataque normal, o UN talento que larga cada vez que tenga PM. Se acabó el PM, vuelve al ataque normal.",
-          "pocao": "Prendé la poción sola y nadie cae de gusto: alguien llegó al 50% de PV, el más entero de la banda larga su turno y le pasa la poción de PV al golpeado — el herido sigue a las piñas. Y si falta PM para el talento, poción de PM.",
+          "pocao": "Prendé las pociones solas y nadie cae de gusto. PV: alguien llegó al 50%, el más entero larga su turno y le pasa la poción — el herido sigue a las piñas. PM: el que larga talento y se quedó sin PM toma poción de PM y vuelve a largarlo. Vale hasta con la app en segundo plano.",
           "derrota": "Pero ojo: perdiste la pelea y se apaga TODO lo automático. Ahí te toca a vos de nuevo."
-        }
+        },
+        "auto_pocao_pm": "Poción de PM sola",
+        "auto_pocao_pm_desc": "El que tiene talento en automático y se quedó sin PM para largarlo toma poción de PM en su propio turno."
       },
       "itens": {
         "1": "Poción de HP",

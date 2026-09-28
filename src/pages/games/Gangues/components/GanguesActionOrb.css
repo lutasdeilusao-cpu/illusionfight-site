@@ -160,6 +160,8 @@
 .gang-orb-pocao small { font: 500 0.62rem/1.35 var(--font-mono); color: var(--text-secondary); }
 .gang-orb-pocao.is-on { background: color-mix(in srgb, var(--if-violet) 14%, transparent); }
 .gang-orb-pocao.is-on .gang-orb-auto__dot { transform: translateX(14px); }
+.gang-orb-pocao--pm { border-color: color-mix(in srgb, var(--if-cyan) 45%, transparent); color: var(--if-cyan); }
+.gang-orb-pocao--pm.is-on { background: color-mix(in srgb, var(--if-cyan) 12%, transparent); }
 
 @media (max-width: 380px) {
   .gang-orb { width: 50px; height: 50px; font-size: 1.3rem; }
