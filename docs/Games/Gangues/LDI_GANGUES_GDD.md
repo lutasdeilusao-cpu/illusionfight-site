@@ -24,7 +24,7 @@ Grafia oficial: **Marélia** com acento (o conto usa assim). O i18n do jogo aind
 tem "Marelia" sem acento em vários lugares — alinhar quando mexer em texto.
 
 > **Estado do documento: retrato do jogo como ele está HOJE — conferido contra
-> o código de GANGUES 3.75.2 (SITE 10.307.x), 28/09/2026.** Regra: o GDD
+> o código de GANGUES 3.75.3 (SITE 10.307.x), 28/09/2026.** Regra: o GDD
 > descreve o produto atual, não guarda diário de versões — quando algo muda
 > no jogo, o trecho que falava da versão antiga é REESCRITO, não empilhado
 > embaixo com "v3.xx: agora...". Histórico de mudança mora no git.
@@ -2175,8 +2175,14 @@ rápida de app (menos de 3 min) não muda nada — o jogo segue como estava. Bat
     (`posicao.adversario`, lembrado mesmo entrando em cômodo ou sendo pego
     por encontro aleatório), se ele vale: sem adversário, ou se ele é
     vermelho/chefe/área do chefe, não farma nada.
-- **1 luta a cada 40s** fora. A luta interrompida sempre termina; o farm
-  depois dela precisa de 30s+ sobrando.
+- **Upagem no modo lento:** cada luta calculada dura o que ela duraria
+  jogada no **manual, na velocidade 1x**, golpe a golpe — e conta o
+  **dobro** disso (`GANGUES_FARM_LENTIDAO = 2`). Ritmo por ação, tirado do
+  combate: dado dramático ~3,15s; inimigo pensa 2,2s antes de bater; jogador
+  escolhe em ~2,5s; usar item ~3s; mais ~12s de telas por luta. Luta com
+  mais rodadas (inimigo casca-grossa) consome mais tempo e rende menos lutas
+  na mesma ausência. A luta interrompida sempre termina (e desconta a duração
+  dela); o farm depois precisa de 30s+ sobrando.
 - **Teto: +5 níveis por ausência** — bateu, para.
 - **Só com a aba aberta:** fechou a aba, perdeu (o instante da saída mora só na
   memória da página, de propósito — o jogo não vira "esquece e volta rico").

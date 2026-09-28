@@ -49,9 +49,22 @@ import { lerAutoConfig, melhorPocao, POCAO_LIMIAR_PV } from '../hooks/useGangues
 /** Sobra mínima de tempo (depois da luta interrompida) pra ainda farmar. A
  *  espera de 3 minutos antes de tudo isso mora no GanguesFarmAusente.jsx. */
 const GANGUES_FARM_MIN_S = 30
-/** Quanto dura um ciclo de farm de verdade com a briga automática: encostar,
- *  lutar no automático e as telas de fim (medido ao vivo: ~25–35s). */
-const GANGUES_FARM_SEGUNDOS_POR_LUTA = 40
+/** Upagem no MODO LENTO (Isaias, 28/09/2026: "é o tempo do modo normal, só
+ *  que duas vezes mais, pra não ficar fácil demais"). Cada luta calculada
+ *  dura o que ela duraria jogada no MANUAL, na velocidade 1x, golpe a golpe —
+ *  e conta o DOBRO disso. Ritmo tirado do código do combate:
+ *  • dado dramático: ~3,15s por golpe (0,4s de "?", ~1,75s rolando, 1s
+ *    revelando — components/DramaticDice.jsx);
+ *  • inimigo "pensa" 2,2s antes de bater (enemyDelay, useGanguesTurnMachine);
+ *  • jogador no manual: ~2,5s pra abrir o menu e escolher o golpe;
+ *  • usar item: ~3s de toques, sem dado;
+ *  • por luta: ~12s de telas (carta, resultado, relatório, chegar no próximo). */
+const RITMO_DADO_MS = 3150
+const RITMO_INIMIGO_PENSA_MS = 2200
+const RITMO_JOGADOR_ESCOLHE_MS = 2500
+const RITMO_ITEM_MS = 3000
+const RITMO_TELAS_POR_LUTA_MS = 12000
+const GANGUES_FARM_LENTIDAO = 2
 /** Teto de níveis por ausência — "no máximo 5 levels" (Isaias). */
 export const GANGUES_FARM_TETO_NIVEIS = 5
 /** Rede de segurança de processamento (7h de farm) — o teto de nível
@@ -148,15 +161,29 @@ function pocoesDaRodada(estado, { store, config, especiais, resumo }) {
   return { estado: { ...estado, combatants: lista }, usandoItem }
 }
 
-// Roda a luta calculada até o fim, com talento e poções do ajuste do automático.
+// Quanto tempo (s) as ações de uma rodada levariam no manual, 1x, já no
+// modo lento (× GANGUES_FARM_LENTIDAO).
+function segundosDaRodada(eventos) {
+  const ms = eventos.reduce((soma, ev) => soma + (
+    ev.type === 'item' ? RITMO_ITEM_MS
+      : ev.type === 'attack' ? RITMO_DADO_MS + (ev.side === 'enemy' ? RITMO_INIMIGO_PENSA_MS : RITMO_JOGADOR_ESCOLHE_MS)
+        : 0
+  ), 0)
+  return (ms * GANGUES_FARM_LENTIDAO) / 1000
+}
+
+// Roda a luta calculada até o fim, com talento e poções do ajuste do
+// automático. Devolve também quanto tempo ela "levou" (`segundos`, modo lento).
 function rodarLuta(estadoInicial, { party, store, config, resumo }) {
   const especiais = Object.fromEntries(party.map(m => [m.id, getEquippedActiveGanguesSpecials(m)]))
   let estado = estadoInicial
+  let segundos = (RITMO_TELAS_POR_LUTA_MS * GANGUES_FARM_LENTIDAO) / 1000
   for (let i = 0; i < GANGUES_FARM_MAX_RODADAS && !estado.terminado; i++) {
     const r = pocoesDaRodada(estado, { store, config, especiais, resumo })
     estado = avancarRodadaMultidao(r.estado, config.talentos, especiais, r.usandoItem)
+    segundos += segundosDaRodada(estado.eventosRodada || [])
   }
-  return { outcome: estado.outcome || 'defeat', combatants: estado.combatants }
+  return { outcome: estado.outcome || 'defeat', combatants: estado.combatants, segundos }
 }
 
 // Entre uma luta e outra (sem vez a perder): com a poção de PV ligada, quem
@@ -279,11 +306,11 @@ export function simularFarmAusente({ store, cena, territorioId, segundos, enemie
     const alvo = s0.storyTarget || {}
     const party = s0.roster.filter(m => ids.includes(m.id))
     const inicio = iniciarBrigaMultidaoDeCombatentes(lutaEmAndamento.combatants, lutaEmAndamento.round || 1)
-    const { outcome, combatants } = rodarLuta(inicio, { party, store, config: autoConfig, resumo })
+    const { outcome, combatants, segundos: duracao } = rodarLuta(inicio, { party, store, config: autoConfig, resumo })
     s0.endMatch(outcome)
     resumo.poiId = alvo.cenaPoiId !== '__aleatorio' ? alvo.cenaPoiId : null
     segue = aplicarLuta({ store, cena, alvo, party, outcome, combatants, resumo, autoConfig, onDerrota })
-    tempo -= GANGUES_FARM_SEGUNDOS_POR_LUTA
+    tempo -= duracao
   }
 
   // O que o farm repete pelo resto do tempo:
@@ -305,15 +332,17 @@ export function simularFarmAusente({ store, cena, territorioId, segundos, enemie
       alvo = { territorioId, cenaId: cena.id, cenaPoiId: poi.id, cenaRevela: poi.revela || [], cenaRecompensa: poi.recompensa || null }
     }
   }
-  const lutas = gerarBando ? Math.min(GANGUES_FARM_MAX_LUTAS, Math.floor(tempo / GANGUES_FARM_SEGUNDOS_POR_LUTA)) : 0
-
-  for (let n = 0; n < lutas; n++) {
+  // Luta atrás de luta enquanto sobrar tempo fora — cada uma desconta o que
+  // ela duraria no manual, modo lento (rodarLuta). A última pode passar um
+  // pouco do tempo: é a luta que já tinha começado quando o jogador voltou.
+  for (let n = 0; gerarBando && tempo > 0 && n < GANGUES_FARM_MAX_LUTAS; n++) {
     const party = store().roster.filter(m => ids.includes(m.id))
     if (party.some(m => nivelDe(m) - nivel0[m.id] >= GANGUES_FARM_TETO_NIVEIS)) { resumo.teto = true; break }
     if (!party.length || party.every(m => Number(m.attributes?.pv_atual ?? 1) <= 0)) break
     const bando = gerarBando(party)
     if (!bando?.length) break
-    const { outcome, combatants } = rodarLuta(iniciarBrigaMultidao({ playerTeam: party, enemyTeam: bando }), { party, store, config: autoConfig, resumo })
+    const { outcome, combatants, segundos: duracao } = rodarLuta(iniciarBrigaMultidao({ playerTeam: party, enemyTeam: bando }), { party, store, config: autoConfig, resumo })
+    tempo -= duracao
     if (!aplicarLuta({ store, cena, alvo, party, outcome, combatants, resumo, autoConfig, onDerrota })) break
   }
 

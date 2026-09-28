@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.307.2' // fix(gangues): saiu no meio da luta, o farm em 2º plano repete essa mesma luta pelo tempo todo fora.
+export const SITE_VERSION = '10.307.3' // fix(gangues): farm em 2º plano no modo lento — cada luta conta o dobro do tempo de uma luta manual 1x.
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.2' // fix: aba "stories" do rodape mostrava a chave crua pp.menu.pistas_label (nao existia) -> aponta pra pp.dossier.pistas_label; PuzzleWrapper mostrava pp.puzzle.nenhum/instrucao (nao existiam) -> pp.local.puzzle_nenhum/instrucao; confirm() de deletar save mostrava pp.menu.deletar_slot cru -> chave criada nos 3 idiomas.
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '3.75.2' // farm ausente repete a luta que estava na tela (qualquer tipo: papo que virou briga, encontro), sem depender da briga auto; rep negativa no resumo sem '+-'.
+export const GANGUES_VERSION   = '3.75.3' // farm ausente no modo lento: duração de cada luta = manual 1x golpe a golpe (dado, inimigo pensando, escolha do jogador, item, telas) × 2.
 
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
