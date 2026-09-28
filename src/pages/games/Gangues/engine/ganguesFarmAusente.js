@@ -270,7 +270,8 @@ function aplicarLuta({ store, cena, alvo, party, outcome, combatants, resumo, au
   else if (alvo.cenaSemTravar) s.revelarPoi(cena.id, alvo.cenaRevela || [])
   else if (!aleatorio) s.marcarPoiResolvido(cena.id, alvo.cenaPoiId, alvo.cenaRevela || [])
   if (grana) { s.ganharGrana(grana); resumo.grana += grana }
-  if (rep) { s.ganharRep(rep); resumo.rep += rep }
+  // Rep conta o que MUDOU de verdade (ela não desce abaixo de 0).
+  if (rep) { const r0 = store().rep; s.ganharRep(rep); resumo.rep += store().rep - r0 }
   itens.forEach(({ id, qtd }) => s.darItem(id, qtd))
   if (equipPrimeiraVez && primeiraVitoria && !repeticao) s.comprarEquip(equipPrimeiraVez, 0)
   if (itemPrimeiraVez && primeiraVitoria && !repeticao) s.darItem(itemPrimeiraVez, 1)

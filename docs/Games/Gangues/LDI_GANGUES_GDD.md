@@ -24,7 +24,7 @@ Grafia oficial: **Marélia** com acento (o conto usa assim). O i18n do jogo aind
 tem "Marelia" sem acento em vários lugares — alinhar quando mexer em texto.
 
 > **Estado do documento: retrato do jogo como ele está HOJE — conferido contra
-> o código de GANGUES 3.75.5 (SITE 10.307.x), 28/09/2026.** Regra: o GDD
+> o código de GANGUES 3.75.6 (SITE 10.307.x), 28/09/2026.** Regra: o GDD
 > descreve o produto atual, não guarda diário de versões — quando algo muda
 > no jogo, o trecho que falava da versão antiga é REESCRITO, não empilhado
 > embaixo com "v3.xx: agora...". Histórico de mudança mora no git.
@@ -2196,6 +2196,12 @@ rápida de app (menos de 3 min) não muda nada — o jogo segue como estava. Bat
   tela, se o tempo fora foi curto), ela é descartada — sem dano, sem poção
   gasta, sem prêmio — e o resumo avisa. O jogador volta pro último lugar da
   rua (o ponto da briga).
+- **Resumo mostra o que mudou de verdade:** grana, sucata, poções gastas e
+  rep — a rep não desce abaixo de 0, então o "−1" do "aperta" com a rep já em
+  0 aparece como +0.
+- **Luta longa rende pouco:** a Rinha é sparring no nível do mais forte e às
+  vezes vira luta de 10–27 rodadas (~1 em 5 passa de 5 minutos no modo
+  lento); numa ausência curta ela pode não fechar nenhuma briga.
 - **Teto: +5 níveis por ausência** — bateu, para.
 - **Só com a aba aberta:** fechou a aba, perdeu (o instante da saída mora só na
   memória da página, de propósito — o jogo não vira "esquece e volta rico").

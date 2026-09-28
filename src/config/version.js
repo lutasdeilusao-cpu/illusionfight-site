@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.307.6' // fix(gangues): farm em 2º plano repete a última luta mesmo quando ela terminou e a tropa já voltou pra rua durante a espera de 3 min.
+export const SITE_VERSION = '10.307.7' // fix(gangues): resumo do farm em 2º plano mostra a rep que mudou de verdade (não desce abaixo de 0).
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.2' // fix: aba "stories" do rodape mostrava a chave crua pp.menu.pistas_label (nao existia) -> aponta pra pp.dossier.pistas_label; PuzzleWrapper mostrava pp.puzzle.nenhum/instrucao (nao existiam) -> pp.local.puzzle_nenhum/instrucao; confirm() de deletar save mostrava pp.menu.deletar_slot cru -> chave criada nos 3 idiomas.
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '3.75.5' // farm ausente: repete a última luta (papo que virou briga, encontro aleatório...) também quando ela terminou nos 3 min de espera e a tropa voltou pra rua; tela de vitória entra no farm.
+export const GANGUES_VERSION   = '3.75.6' // farm ausente: rep do resumo = o que mudou de verdade (nunca '-1' com a rep já em 0). Bateria de 10 cenários de 4-5 min validada.
 
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
