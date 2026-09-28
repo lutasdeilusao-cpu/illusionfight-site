@@ -319,7 +319,7 @@
         "auto_pocao_desc": "Alguém com PV em 50% ou menos? O mais inteiro da tropa abre mão da vez e dá poção de PV pro mais machucado.",
         "auto_tutorial": {
           "talento": "Aqui tu monta o automático, cria. Pra cada um da tropa escolhe: só ataque normal, ou UM talento que ele solta toda vez que tiver PM. Acabou o PM, volta pro ataque normal.",
-          "pocao": "Liga as poções sozinho e ninguém morre à toa. PV: chegou em 50%, o mais inteiro da tropa larga a vez dele e dá a poção pro machucado — o ferido segue na porrada. PM: quem solta talento e ficou sem PM toma poção de PM e volta a soltar. Vale até com o app no fundo.",
+          "pocao": "Liga as poções sozinho e ninguém morre à toa. PV: chegou em 50%, o mais inteiro da tropa larga a vez dele e dá a poção pro machucado — o ferido segue na porrada (vale até com o app no fundo). PM: quem solta talento e ficou sem PM toma poção de PM e volta a soltar. Com o app no fundo é só ataque normal, sem talento.",
           "derrota": "Mas se liga: perdeu a briga, TODO automático desliga. Aí é contigo de novo."
         },
         "auto_pocao_pm": "Poção de PM sozinho",
@@ -764,7 +764,8 @@
         "sem_alvo": "Não tinha adversário pra farmar: o farm só grinda o último cara que você enfrentou — e nunca vermelho, chefe ou área do chefe. Nada mudou.",
         "pouco_tempo": "Foi rapidinho — nenhuma briga chegou a fechar.",
         "voltar": "Voltar pra rua",
-        "pocoes": "Poções"
+        "pocoes": "Poções",
+        "meio_nao_conta": "A briga que tava rolando quando você voltou não terminou a tempo — essa não conta."
       },
       "guest_banner": "Sem conta: progresso não é salvo.",
       "guest_create_account": "Criar conta",

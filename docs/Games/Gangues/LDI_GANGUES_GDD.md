@@ -24,7 +24,7 @@ Grafia oficial: **Marélia** com acento (o conto usa assim). O i18n do jogo aind
 tem "Marelia" sem acento em vários lugares — alinhar quando mexer em texto.
 
 > **Estado do documento: retrato do jogo como ele está HOJE — conferido contra
-> o código de GANGUES 3.75.3 (SITE 10.307.x), 28/09/2026.** Regra: o GDD
+> o código de GANGUES 3.75.4 (SITE 10.307.x), 28/09/2026.** Regra: o GDD
 > descreve o produto atual, não guarda diário de versões — quando algo muda
 > no jogo, o trecho que falava da versão antiga é REESCRITO, não empilhado
 > embaixo com "v3.xx: agora...". Histórico de mudança mora no git.
@@ -2156,13 +2156,15 @@ rápida de app (menos de 3 min) não muda nada — o jogo segue como estava. Bat
   quem estiver na tela quando a espera acabar é que desmonta. O "Voltar pra
   rua" leva pra cena daquele bairro: no ponto da briga, ou na birosca se a
   tropa caiu.
-- **Contas iguais às de uma luta de verdade:** o gerador de bando e o nível
-  daquele ponto, o motor da Briga em Multidão, as ações de vitória do store (AP,
-  grana, rep, álbum, sucata) e o dano que persiste. Segue o ajuste do
-  automático: o talento escolhido entra na luta, e as poções (PV e PM, cada
-  uma com sua opção) são usadas **dentro da luta calculada, rodada a rodada**,
-  com a mesma regra da luta ao vivo (quem dá a poção abre mão do ataque
-  naquela rodada) — e também entre uma luta e outra.
+- **Toda luta é simulada de verdade**, rodada a rodada, no mesmo motor de
+  combate (o da Briga em Multidão): dá pra **perder**, o dano **fica** entre
+  uma luta e outra, e a tropa pode cair. Mesmo gerador de bando e nível
+  daquele adversário, mesmas ações de vitória do store (AP, grana, rep, álbum,
+  sucata). **No segundo plano é sempre ataque normal** — nenhum talento,
+  nenhum PM gasto (o ajuste de talento e a poção de PM valem só na luta ao
+  vivo). A **poção de PV** (se ligada) entra dentro da luta, rodada a rodada,
+  com a regra do mais inteiro (quem dá abre mão do ataque), e entre uma luta e
+  outra.
 - **Só o adversário que o jogador estava grindando**, nunca "a região":
   - **saiu no meio de uma luta** → o farm repete **essa mesma luta** (mesmo
     tipo de bando, mesmo nível) pelo resto do tempo, seja ela qual for (ponto
@@ -2183,6 +2185,11 @@ rápida de app (menos de 3 min) não muda nada — o jogo segue como estava. Bat
   mais rodadas (inimigo casca-grossa) consome mais tempo e rende menos lutas
   na mesma ausência. A luta interrompida sempre termina (e desconta a duração
   dela); o farm depois precisa de 30s+ sobrando.
+- **A luta que estava no meio quando o jogador voltou não conta:** se a
+  simulação de uma luta passaria do tempo fora (inclusive a que estava na
+  tela, se o tempo fora foi curto), ela é descartada — sem dano, sem poção
+  gasta, sem prêmio — e o resumo avisa. O jogador volta pro último lugar da
+  rua (o ponto da briga).
 - **Teto: +5 níveis por ausência** — bateu, para.
 - **Só com a aba aberta:** fechou a aba, perdeu (o instante da saída mora só na
   memória da página, de propósito — o jogo não vira "esquece e volta rico").

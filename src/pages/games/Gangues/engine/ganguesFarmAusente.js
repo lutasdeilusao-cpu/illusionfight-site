@@ -20,15 +20,18 @@
      nível, a conta tem que ser a daquele cara (Isaias, 28/09/2026). Sem
      adversário, ou se ele não vale pra briga automática (vermelho, chefe,
      área do chefe — naAreaDoChefe, cenaHelpers.js), não farma nada;
-   • segue o AJUSTE do automático: o talento escolhido pra cada um entra na
-     luta calculada, e as poções (PV e PM, cada uma com sua opção) são usadas
-     DENTRO da luta, rodada a rodada, com a mesma regra da luta ao vivo — e
-     também entre uma luta e outra;
-   • app foi pro fundo NO MEIO de uma luta da cena com o automático
-     ligado: a tela da luta também é desmontada (o som e os relógios param)
-     e a MESMA luta é terminada por cálculo, do ponto exato onde parou
-     (`lutaAoVivo`); depois segue o farm, se a briga automática estiver
-     ligada. Na volta o jogador está no ponto da briga — ou na birosca;
+   • toda luta é SIMULADA de verdade, rodada a rodada, no mesmo motor de
+     combate (dá pra perder, o dano fica); no segundo plano é sempre ATAQUE
+     NORMAL — sem talento, sem gastar PM. Só a poção de PV (se ligada) entra,
+     dentro da luta e entre uma luta e outra;
+   • app foi pro fundo NO MEIO de uma luta da cena com o automático ligado:
+     a tela da luta é desmontada e essa MESMA luta segue por cálculo do ponto
+     exato onde parou (`lutaAoVivo`), e depois o farm repete ela;
+   • cada luta gasta o tempo que levaria no manual 1x, em dobro (modo lento);
+     a que não terminaria dentro do tempo fora é a luta que estava NO MEIO
+     quando o jogador voltou — NÃO CONTA (sem dano, poção nem prêmio). Na
+     volta o jogador está no último lugar da rua (o ponto da briga) — ou na
+     birosca, se perdeu;
    • perdeu uma luta = para ali, sem XP nenhum dessa luta, a tropa acorda na
      birosca DAQUELE bairro (o mesmo socorro da derrota de verdade — na
      Feira é a pensão) e TODO automático desliga.
@@ -43,7 +46,6 @@ import { getGanguesLevelFromXp } from '../data/ganguesCharacters.js'
 import { GANGUES_STORY_BATTLE_PARTY_MAX } from '../data/ganguesLoadout.js'
 import { GANGUES_SUCATA_ID } from '../data/ganguesEquip.js'
 import { GANGUES_ITENS_LISTA } from '../data/ganguesItens.js'
-import { getEquippedActiveGanguesSpecials } from './ganguesSpecialEffects.js'
 import { lerAutoConfig, melhorPocao, POCAO_LIMIAR_PV } from '../hooks/useGanguesModoAuto.js'
 
 /** Sobra mínima de tempo (depois da luta interrompida) pra ainda farmar. A
@@ -122,41 +124,26 @@ function bandoDoAlvo(alvo, { party, enemiesData, modo }) {
   return bando
 }
 
-// Poções DENTRO da luta calculada, rodada a rodada — a mesma regra do
+// Poção de PV DENTRO da luta calculada, rodada a rodada — a mesma regra do
 // automático ao vivo (escolherAcaoAuto): alguém com PV ≤ 50% → o MAIS
-// INTEIRO da tropa gasta a vez dele dando a poção de PV (1 por rodada); quem
-// tem talento no ajuste e ficou sem PM pra ele toma poção de PM na própria
-// vez. Quem usa item abre mão do ataque naquela rodada (personagensUsandoItem).
-function pocoesDaRodada(estado, { store, config, especiais, resumo }) {
+// INTEIRO da tropa gasta a vez dele dando a poção de PV (1 por rodada). Quem
+// usa item abre mão do ataque naquela rodada (personagensUsandoItem). A bolsa
+// NÃO é tocada aqui: as poções ficam anotadas em `usos` e só saem da bolsa se
+// a luta contar (terminou dentro do tempo fora — ver simularFarmAusente).
+function pocaoDaRodada(estado, { store, config, usos }) {
   const usandoItem = {}
-  if (!config.pocao && !config.pocaoPm) return { estado, usandoItem }
+  if (!config.pocao) return { estado, usandoItem }
   const lista = estado.combatants.map(c => ({ ...c }))
   const vivos = lista.filter(c => c.side === 'player' && c.pv > 0 && c.pvMax > 0)
-  const itensAgora = () => { const inv = store().inventario; return GANGUES_ITENS_LISTA.map(i => ({ ...i, quantidade: inv[i.id] || 0 })) }
-  if (config.pocao) {
-    const ferido = vivos.filter(c => c.pv / c.pvMax <= POCAO_LIMIAR_PV).sort((a, b) => a.pv / a.pvMax - b.pv / b.pvMax)[0]
-    const maisInteiro = [...vivos].sort((a, b) => (b.pv - a.pv) || (b.pv / b.pvMax - a.pv / a.pvMax))[0]
-    const pocao = ferido && maisInteiro && melhorPocao(itensAgora(), 'cura_pv', ferido.pvMax - ferido.pv)
-    if (pocao && store().usarItem(pocao.id)) {
-      ferido.pv = Math.min(ferido.pvMax, ferido.pv + pocao.valor)
-      usandoItem[maisInteiro.id] = true
-      resumo.pocoes++
-    }
-  }
-  if (config.pocaoPm) {
-    for (const c of vivos) {
-      const talento = (especiais[c.id] || []).find(x => x.id === config.talentos?.[c.id])
-      const custo = talento?.effect?.cost
-      if (usandoItem[c.id] || custo?.kind !== 'pm') continue
-      const precisa = custo.values[talento.level - 1]
-      if (c.pm >= precisa) continue
-      const pocao = melhorPocao(itensAgora(), 'cura_pm', precisa - c.pm)
-      if (pocao && store().usarItem(pocao.id)) {
-        c.pm = Math.min(c.pmMax, c.pm + pocao.valor)
-        usandoItem[c.id] = true
-        resumo.pocoes++
-      }
-    }
+  const inv = store().inventario
+  const itens = GANGUES_ITENS_LISTA.map(i => ({ ...i, quantidade: (inv[i.id] || 0) - (usos[i.id] || 0) }))
+  const ferido = vivos.filter(c => c.pv / c.pvMax <= POCAO_LIMIAR_PV).sort((a, b) => a.pv / a.pvMax - b.pv / b.pvMax)[0]
+  const maisInteiro = [...vivos].sort((a, b) => (b.pv - a.pv) || (b.pv / b.pvMax - a.pv / a.pvMax))[0]
+  const pocao = ferido && maisInteiro && melhorPocao(itens, 'cura_pv', ferido.pvMax - ferido.pv)
+  if (pocao) {
+    usos[pocao.id] = (usos[pocao.id] || 0) + 1
+    ferido.pv = Math.min(ferido.pvMax, ferido.pv + pocao.valor)
+    usandoItem[maisInteiro.id] = true
   }
   return { estado: { ...estado, combatants: lista }, usandoItem }
 }
@@ -172,24 +159,34 @@ function segundosDaRodada(eventos) {
   return (ms * GANGUES_FARM_LENTIDAO) / 1000
 }
 
-// Roda a luta calculada até o fim, com talento e poções do ajuste do
-// automático. Devolve também quanto tempo ela "levou" (`segundos`, modo lento).
-function rodarLuta(estadoInicial, { party, store, config, resumo }) {
-  const especiais = Object.fromEntries(party.map(m => [m.id, getEquippedActiveGanguesSpecials(m)]))
+// Simula a luta de verdade, rodada a rodada, até o fim — o MESMO motor de
+// combate da Briga em Multidão (dá pra perder; o dano fica). No segundo
+// plano é sempre ATAQUE NORMAL: nenhum talento, nenhum PM gasto (Isaias,
+// 28/09/2026); só a poção de PV, se ligada. Devolve também quanto tempo ela
+// levou (`segundos`, modo lento) e as poções que usou (`usos`, ainda não
+// tiradas da bolsa).
+function rodarLuta(estadoInicial, { store, config }) {
   let estado = estadoInicial
+  const usos = {}
   let segundos = (RITMO_TELAS_POR_LUTA_MS * GANGUES_FARM_LENTIDAO) / 1000
   for (let i = 0; i < GANGUES_FARM_MAX_RODADAS && !estado.terminado; i++) {
-    const r = pocoesDaRodada(estado, { store, config, especiais, resumo })
-    estado = avancarRodadaMultidao(r.estado, config.talentos, especiais, r.usandoItem)
+    const r = pocaoDaRodada(estado, { store, config, usos })
+    estado = avancarRodadaMultidao(r.estado, {}, {}, r.usandoItem)
     segundos += segundosDaRodada(estado.eventosRodada || [])
   }
-  return { outcome: estado.outcome || 'defeat', combatants: estado.combatants, segundos }
+  return { outcome: estado.outcome || 'defeat', combatants: estado.combatants, segundos, usos }
+}
+
+// A luta contou: as poções que ela usou saem da bolsa de verdade.
+function gastarPocoes(store, usos, resumo) {
+  for (const [id, n] of Object.entries(usos)) {
+    for (let k = 0; k < n; k++) if (store().usarItem(Number(id))) resumo.pocoes++
+  }
 }
 
 // Entre uma luta e outra (sem vez a perder): com a poção de PV ligada, quem
-// saiu de pé com PV ≤ 50% toma poção até passar dos 50%; com a de PM ligada,
-// quem tem talento no ajuste e está sem PM pra ele toma poção de PM até dar.
-// Devolve quantas foram usadas.
+// saiu de pé com PV ≤ 50% toma poção até passar dos 50%. (Sem PM: no segundo
+// plano é só ataque normal.) Devolve quantas foram usadas.
 function tomarPocoes(store, combatants, config) {
   let usadas = 0
   const itensAgora = () => { const inv = store().inventario; return GANGUES_ITENS_LISTA.map(i => ({ ...i, quantidade: inv[i.id] || 0 })) }
@@ -207,14 +204,6 @@ function tomarPocoes(store, combatants, config) {
     if (config.pocao) {
       const pv = { v: c.pv }
       encher(c, 'cura_pv', pv, () => (pv.v / c.pvMax <= POCAO_LIMIAR_PV ? c.pvMax - pv.v : 0))
-    }
-    const talento = config.pocaoPm && store().roster.find(m => m.id === c.id)
-      && getEquippedActiveGanguesSpecials(store().roster.find(m => m.id === c.id)).find(x => x.id === config.talentos?.[c.id])
-    const custo = talento?.effect?.cost
-    if (custo?.kind === 'pm') {
-      const pm = { v: c.pm }
-      const precisa = custo.values[talento.level - 1]
-      encher(c, 'cura_pm', pm, () => (pm.v < precisa ? precisa - pm.v : 0))
     }
   }
   return usadas
@@ -284,8 +273,8 @@ function aplicarLuta({ store, cena, alvo, party, outcome, combatants, resumo, au
 /** O que aconteceu com o app em segundo plano. `store` = useGanguesStore.getState
  *  (lido de novo a cada luta — as ações mudam o estado).
  *  • `lutaEmAndamento` ({ combatants, round }): a luta que estava na tela —
- *    termina por cálculo a partir do estado exato de onde parou (mesmo motor
- *    da Briga em Multidão, com o talento do ajuste do automático).
+ *    segue por cálculo a partir do estado exato de onde parou (mesmo motor da
+ *    Briga em Multidão, ataque normal); só conta se terminar dentro do tempo.
  *  • `farmar`: depois dela (ou sem ela), segue grindando o adversário da última
  *    luta pelo resto do tempo — só com a briga automática ligada.
  *  Devolve o resumo pra tela "Enquanto você tava fora". */
@@ -298,7 +287,7 @@ export function simularFarmAusente({ store, cena, territorioId, segundos, enemie
     : (selecionados.length ? selecionados : s0.roster).slice(0, GANGUES_STORY_BATTLE_PARTY_MAX).map(m => m.id)
   const nivel0 = Object.fromEntries(s0.roster.filter(m => ids.includes(m.id)).map(m => [m.id, nivelDe(m)]))
   const modo = s0.storyProgress?.__dificuldade || 'medio'
-  const resumo = { poiId: null, lutas: 0, vitorias: 0, grana: 0, rep: 0, sucata: 0, pocoes: 0, niveis: {}, teto: false, derrota: false, socorro: null }
+  const resumo = { poiId: null, meioNaoConta: false, lutas: 0, vitorias: 0, grana: 0, rep: 0, sucata: 0, pocoes: 0, niveis: {}, teto: false, derrota: false, socorro: null }
   let segue = true
   let tempo = segundos
 
@@ -306,11 +295,19 @@ export function simularFarmAusente({ store, cena, territorioId, segundos, enemie
     const alvo = s0.storyTarget || {}
     const party = s0.roster.filter(m => ids.includes(m.id))
     const inicio = iniciarBrigaMultidaoDeCombatentes(lutaEmAndamento.combatants, lutaEmAndamento.round || 1)
-    const { outcome, combatants, segundos: duracao } = rodarLuta(inicio, { party, store, config: autoConfig, resumo })
-    s0.endMatch(outcome)
+    const { outcome, combatants, segundos: duracao, usos } = rodarLuta(inicio, { store, config: autoConfig })
     resumo.poiId = alvo.cenaPoiId !== '__aleatorio' ? alvo.cenaPoiId : null
-    segue = aplicarLuta({ store, cena, alvo, party, outcome, combatants, resumo, autoConfig, onDerrota })
-    tempo -= duracao
+    if (duracao > tempo) {
+      // Nem essa deu tempo de terminar: não conta (sem dano, sem poção, sem
+      // prêmio) — o jogador volta pra rua, no ponto da briga.
+      resumo.meioNaoConta = true
+      segue = false
+    } else {
+      s0.endMatch(outcome)
+      gastarPocoes(store, usos, resumo)
+      segue = aplicarLuta({ store, cena, alvo, party, outcome, combatants, resumo, autoConfig, onDerrota })
+      tempo -= duracao
+    }
   }
 
   // O que o farm repete pelo resto do tempo:
@@ -333,16 +330,18 @@ export function simularFarmAusente({ store, cena, territorioId, segundos, enemie
     }
   }
   // Luta atrás de luta enquanto sobrar tempo fora — cada uma desconta o que
-  // ela duraria no manual, modo lento (rodarLuta). A última pode passar um
-  // pouco do tempo: é a luta que já tinha começado quando o jogador voltou.
+  // ela duraria no manual, modo lento (rodarLuta). A que não terminaria dentro
+  // do tempo é a luta que estava NO MEIO quando o jogador voltou: não conta.
   for (let n = 0; gerarBando && tempo > 0 && n < GANGUES_FARM_MAX_LUTAS; n++) {
     const party = store().roster.filter(m => ids.includes(m.id))
     if (party.some(m => nivelDe(m) - nivel0[m.id] >= GANGUES_FARM_TETO_NIVEIS)) { resumo.teto = true; break }
     if (!party.length || party.every(m => Number(m.attributes?.pv_atual ?? 1) <= 0)) break
     const bando = gerarBando(party)
     if (!bando?.length) break
-    const { outcome, combatants, segundos: duracao } = rodarLuta(iniciarBrigaMultidao({ playerTeam: party, enemyTeam: bando }), { party, store, config: autoConfig, resumo })
+    const { outcome, combatants, segundos: duracao, usos } = rodarLuta(iniciarBrigaMultidao({ playerTeam: party, enemyTeam: bando }), { store, config: autoConfig })
+    if (duracao > tempo) { resumo.meioNaoConta = true; break }
     tempo -= duracao
+    gastarPocoes(store, usos, resumo)
     if (!aplicarLuta({ store, cena, alvo, party, outcome, combatants, resumo, autoConfig, onDerrota })) break
   }
 
