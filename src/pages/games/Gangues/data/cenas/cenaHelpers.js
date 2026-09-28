@@ -45,6 +45,21 @@ export function contarCena(cena, resolvidos = {}, bossFeito = false) {
   return { feitos, total }
 }
 
+/** O jogador está na ÁREA DO CHEFE? — o outro lado do muro, enquanto o chefe
+ *  não caiu (pedido do Isaias, 28/09/2026: "na área do boss isso não é
+ *  permitido" — a briga automática e o farm ausente param lá). Na rua é
+ *  acima da faixa do muro; num interior, só conta se TODA porta dele fica do
+ *  lado de lá (o túnel, que liga os dois lados, não conta). Chefe derrotado,
+ *  o bairro é teu — a área deixa de ser do chefe. */
+export function naAreaDoChefe(cena, prog = {}, pos = {}) {
+  if (!cena || prog.boss) return false
+  if (pos.local) {
+    const portas = (cena.predios || []).filter(pr => pr.porta?.para === pos.local.id)
+    return portas.length > 0 && portas.every(pr => pr.pos_portao)
+  }
+  return Boolean(cena.muro) && Number.isFinite(pos.y) && pos.y < cena.muro.y1
+}
+
 // Linha do muro que divide a cena da Pista (mesma faixa y1330-1350 que
 // hitsSolid bloqueia, engine/ganguesCenaMotor.js). Serve só pra decidir de
 // que lado do muro o jogador estava quando a tropa caiu.

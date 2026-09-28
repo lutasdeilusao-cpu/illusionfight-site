@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { useGanguesAutoLembrado } from './useGanguesVelocidadeAuto.js'
-import { cicloDoPinoMs } from '../components/cena/GanguesCenaAtores.jsx'
+import { cicloDoPinoMs, farolDe } from '../components/cena/GanguesCenaAtores.jsx'
 
 /* ══════════════════════════════════════════════════════════════
    BRIGA AUTOMÁTICA na cena (pedido do Isaias, 27/09/2026)
@@ -18,6 +18,12 @@ import { cicloDoPinoMs } from '../components/cena/GanguesCenaAtores.jsx'
      caminho do clique manual (inclusive o −1 de rep do "aperta").
    Fica de fora: puzzle/corre (`parada`/`corre`) — a briga ali só vem se o
    jogador ERRAR o puzzle, não é uma escolha.
+   Também de fora (v3.72.0 — "pro cara ter um pouco de interação, senão ele
+   larga o jogo"): personagem VERMELHO (obrigatório ainda não feito — o
+   jogador tem que clicar), o CHEFE, e tudo na ÁREA DO CHEFE (`bloqueado`,
+   ver naAreaDoChefe em cenaHelpers.js — o switch fica apagado lá). E
+   perder uma luta DESLIGA todo automático (desligarAutomaticos, chamado
+   pela derrota da cena e pelo farm ausente).
 
    ANTI-LOOP ("ignora esse personagem só nessa primeira colisão, até
    descolidir"): voltar de uma luta te devolve colado no mesmo adversário —
@@ -48,11 +54,25 @@ import { cicloDoPinoMs } from '../components/cena/GanguesCenaAtores.jsx'
    ══════════════════════════════════════════════════════════════ */
 
 const GANGUES_BRIGA_AUTO_CHAVE = 'ldi-gangues-briga-auto'
+// Os automáticos lembrados (useGanguesAutoLembrado): briga automática da
+// cena + automático do combate normal e da Multidão (GanguesCombat.jsx).
+const GANGUES_AUTOMATICOS = [GANGUES_BRIGA_AUTO_CHAVE, 'ldi-gangues-auto', 'ldi-gangues-auto-multidao']
+
+export function brigaAutoLigada() {
+  try { return localStorage.getItem(GANGUES_BRIGA_AUTO_CHAVE) === '1' } catch { return false }
+}
+/** Perdeu → desliga TUDO (Isaias, 28/09/2026: "reseta, desliga o
+ *  automático, desliga tudo, faz ele começar de novo"). As telas leem a
+ *  chave ao montar, então a próxima cena/luta já nasce desligada. */
+export function desligarAutomaticos() {
+  try { GANGUES_AUTOMATICOS.forEach(k => localStorage.setItem(k, '0')) } catch { /* sem storage: nada lembrado */ }
+}
 
 // Como a briga começa sozinha nesse alvo: opções pro iniciarTreta da cena,
 // ou null se ele não é de briga automática.
 function brigaDoAlvo(alvo) {
-  if (!alvo || alvo.ehPorta || alvo.ehSaida || alvo.ehVolta || alvo.ehPassagem) return null
+  if (!alvo || alvo.ehPorta || alvo.ehSaida || alvo.ehVolta || alvo.ehPassagem || alvo.ehChefe) return null
+  if (farolDe(alvo) === 'is-obrigatorio') return null
   if (alvo.estado !== 'disponivel' && !alvo.repetivel) return null
   if (alvo.tipo === 'treta') return { aposta: 0 }
   const briga = alvo.tipo === 'papo' && (alvo.escolhas || []).find(e => e.viraTreta)
@@ -74,7 +94,7 @@ const VIGIA_MS = 150
 const ANUNCIO_MS = 2500
 const ANUNCIO_FRASES = 8
 
-export default function useGanguesBrigaAutomatica({ alvos, colidindo, rodando, ultimoPoiId, onBriga }) {
+export default function useGanguesBrigaAutomatica({ alvos, colidindo, rodando, bloqueado, ultimoPoiId, onBriga }) {
   const [ligado, setLigado] = useGanguesAutoLembrado(GANGUES_BRIGA_AUTO_CHAVE)
   const ignorados = useRef(new Map(ultimoPoiId ? [[ultimoPoiId, { visto: false, soltoDesde: null, desde: Date.now() }]] : []))
   // Cópia em estado (só os ids) pra cena saber quem não deve pausar.
@@ -90,7 +110,7 @@ export default function useGanguesBrigaAutomatica({ alvos, colidindo, rodando, u
   const [anuncio, setAnuncio] = useState(null)
   const anunciando = useRef(false)
   const atual = useRef({})
-  atual.current = { alvos, colidindo, rodando, ligado, onBriga }
+  atual.current = { alvos, colidindo, rodando: rodando && !bloqueado, ligado, onBriga }
 
   useEffect(() => {
     const id = setInterval(() => {
@@ -131,14 +151,15 @@ export default function useGanguesBrigaAutomatica({ alvos, colidindo, rodando, u
     setTimeout(() => { anunciando.current = false; setAnuncio(null); continuar() }, ANUNCIO_MS)
   }, [])
 
-  return { ligado, alternar, ignorados: ignoradosIds, anuncio, anunciar }
+  return { ligado, alternar, bloqueado: Boolean(bloqueado), ignorados: ignoradosIds, anuncio, anunciar }
 }
 
 /* Saída automática do pós-luta (pedido do Isaias, 27/09/2026): quem liga a
    briga automática quer upar — "entrar e sair de batalha". Com o switch
    ligado e a luta vinda da cena, as telas depois da luta se clicam sozinhas:
    o "NÓIS É CRIA" (botão de próximo) em 2s e o relatório ("Segue na
-   quebrada" / "Acordar na birosca") em 3s — no máximo 5s até voltar pra rua.
+   quebrada") em 3s — no máximo 5s até voltar pra rua. Só na VITÓRIA: a
+   derrota desliga os automáticos e espera o clique (v3.72.0).
    Clique manual continua valendo (e qualquer toque na tela reinicia a
    contagem, pra não arrancar o jogador que parou pra ler). */
 export const GANGUES_AVANCO_AUTO_MS = { resultado: 2000, relatorio: 3000 }

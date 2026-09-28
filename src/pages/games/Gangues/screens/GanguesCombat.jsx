@@ -281,9 +281,9 @@ export default function GanguesCombat({ onNavigate, onSairConfirmado }) {
 
   const abrirRelatorio = () => openBattleReport({ modoMultidaoAtivo, estadoMultidao, machine, log, eventosBrutosRef })
   // Briga automática da cena ligada: o "NÓIS É CRIA" avança sozinho em 2s
-  // (ver useGanguesAvancoAutomatico).
+  // (ver useGanguesAvancoAutomatico). Derrota nunca — o jogador tem que clicar.
   const lutaDaCena = Boolean(store.storyTarget?.cenaId) && !store.storyTarget?.torre && !store.storyTarget?.clube
-  useGanguesAvancoAutomatico({ ativo: lutaDaCena && Boolean(result) && !falaFinal, ms: GANGUES_AVANCO_AUTO_MS.resultado, acao: abrirRelatorio })
+  useGanguesAvancoAutomatico({ ativo: lutaDaCena && result === 'victory' && !falaFinal, ms: GANGUES_AVANCO_AUTO_MS.resultado, acao: abrirRelatorio })
 
   if (!store.match.playerTeam?.length) return null
 

@@ -39,7 +39,7 @@ export function GangMarker({ player, facing, gangName, retrato: retratoUrl }) {
 // continuar farmável — ver `estadoPoi`/`estadoInternoPoi` em
 // ganguesCenaMotor.js); é o `farmCompleto` que sinaliza "já venceu, mas pode
 // repetir", e por isso conta como "feito" (verde) aqui também.
-function farolDe(p) {
+export function farolDe(p) {
   if (p.ehPorta || p.ehSaida || p.ehVolta || p.ehPassagem || p.ehChefe) return ''
   // Oferta pendente (ex: o corre do Nato, dentro do Descanso) força verde —
   // pedido do Isaias, 20/09/2026 ("tem que ficar verde, óbvio, pro cara
@@ -301,7 +301,7 @@ export function BrigaAutoAviso({ anuncio, t }) {
   )
 }
 
-export function WorldControls({ onInput, onInteract, action, rotulo, brigaAuto, onBrigaAuto, rotuloBrigaAuto }) {
+export function WorldControls({ onInput, onInteract, action, rotulo, brigaAuto, brigaAutoBloqueada, onBrigaAuto, rotuloBrigaAuto }) {
   const base = useRef(null), active = useRef(null)
   const update = useCallback((x, y) => {
     const r = base.current?.getBoundingClientRect(); if (!r) return
@@ -318,7 +318,7 @@ export function WorldControls({ onInput, onInteract, action, rotulo, brigaAuto, 
   }, [onInput])
   return <div className="gang-world-controls">
     <div ref={base} className="gang-world-stick" onPointerDown={e => { active.current = e.pointerId; e.currentTarget.setPointerCapture(e.pointerId); update(e.clientX, e.clientY) }} onPointerMove={e => { if (active.current === e.pointerId) update(e.clientX, e.clientY) }} onPointerUp={stop} onPointerCancel={stop}><i /></div>
-    <button type="button" role="switch" aria-checked={brigaAuto} className={`gang-world-auto${brigaAuto ? ' is-on' : ''}`} onClick={onBrigaAuto}>
+    <button type="button" role="switch" aria-checked={brigaAuto} disabled={brigaAutoBloqueada} className={`gang-world-auto${brigaAuto ? ' is-on' : ''}${brigaAutoBloqueada ? ' is-bloqueado' : ''}`} onClick={onBrigaAuto}>
       <i aria-hidden="true"><b /></i><span>{rotuloBrigaAuto}</span>
     </button>
     <button className="gang-world-interagir" disabled={!action} onClick={onInteract}><b>{action || '...'}</b><span>{rotulo}</span></button>

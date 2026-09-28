@@ -14,6 +14,7 @@ import GanguesProgression from './screens/GanguesProgression'
 import GanguesStoryMap from './screens/GanguesStoryMap'
 import GanguesTerritorio from './screens/GanguesTerritorio'
 import GanguesCena from './screens/GanguesCena'
+import GanguesFarmAusente from './components/cena/GanguesFarmAusente'
 import GanguesAlbum from './screens/GanguesAlbum'
 import GanguesBatalha from './screens/GanguesBatalha'
 import GanguesClube from './clube/GanguesClube'
@@ -334,7 +335,7 @@ export default function GanguesRoute() {
       )}
       {fase === 'territorio' && (
         temCena(store.storyTarget?.territorioId)
-          ? <GanguesCena onNavigate={navegar} onVoltar={voltar} />
+          ? <GanguesFarmAusente><GanguesCena onNavigate={navegar} onVoltar={voltar} /></GanguesFarmAusente>
           : <GanguesTerritorio onNavigate={navegar} onVoltar={voltar} />
       )}
       {/* "Mete o pé" (fugir da luta, com confirmação) mandava pro Lobby -

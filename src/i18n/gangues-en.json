@@ -735,6 +735,22 @@
           "Inspector Grab-All"
         ]
       },
+      "farm_ausente": {
+        "eyebrow": "IF // WHILE YOU WERE GONE",
+        "titulo": "The crew kept grinding",
+        "calculando": "Counting what went down on the street…",
+        "tempo": "{min} min away · farming at {lugar}",
+        "lutas": "Brawls",
+        "grana": "Cash",
+        "rep": "Rep",
+        "sucata": "Scrap",
+        "niveis": "Leveled up",
+        "teto": "Hit the +5 levels cap for one absence — from here on, you gotta play.",
+        "derrota": "The crew went down in one of the brawls: dragged to the bar, and every auto mode switched off. Turn it back on when you want to farm again.",
+        "sem_alvo": "Nothing to farm from here (the boss's turf, or no spot unlocked). Nothing changed.",
+        "pouco_tempo": "That was quick — no brawl got to finish.",
+        "voltar": "Back to the street"
+      },
       "guest_banner": "No account: progress isn't saved.",
       "guest_create_account": "Create account",
       "party": {

@@ -206,3 +206,23 @@
 .gang-cena-aposta__opt.is-escolhida { color: var(--if-amber); border-color: var(--if-amber); background: color-mix(in srgb, var(--if-amber) 12%, transparent); }
 .gang-cena-aposta__opt:disabled { opacity: 0.35; cursor: not-allowed; }
 .gang-cena-aposta__premio { margin: 0; font: 700 0.7rem var(--font-mono); color: var(--if-amber); }
+
+/* ── Farm ausente (v3.72.0) ── resumo do que a tropa fez com o app em 2º
+   plano. Painel chanfrado da linguagem do portal, sobre o fundo da página
+   (a cena ainda está desmontada — só remonta no "Voltar pra rua"). */
+.gang-farm-ausente{min-height:100dvh;display:grid;place-items:center;padding:24px 16px;background:var(--bg-primary)}
+.gang-farm-ausente__card{width:100%;display:grid;gap:12px;padding:20px 18px;border:1px solid var(--if-cyan);background:linear-gradient(160deg,var(--gang-noite-850),var(--gang-noite-950));box-shadow:0 0 40px -10px color-mix(in srgb,var(--if-cyan) 55%,transparent);clip-path:polygon(0 0,calc(100% - 14px) 0,100% 14px,100% 100%,0 100%)}
+.gang-farm-ausente__eyebrow{font:700 .58rem var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--if-cyan)}
+.gang-farm-ausente__card h2{margin:0;font:900 1.4rem/1.1 var(--font-title);color:var(--gang-branco)}
+.gang-farm-ausente__tempo{margin:0;font:600 .78rem var(--font-mono);color:var(--text-secondary)}
+.gang-farm-ausente__numeros{margin:0;display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.gang-farm-ausente__numeros div{display:grid;gap:2px;padding:8px 4px;text-align:center;background:rgba(255,255,255,.04);border:1px solid var(--if-hair-strong)}
+.gang-farm-ausente__numeros dt{font:700 .5rem var(--font-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--text-secondary)}
+.gang-farm-ausente__numeros dd{margin:0;font:900 1rem var(--font-title);color:var(--if-amber)}
+.gang-farm-ausente__niveis{margin:0;padding:0;list-style:none;display:grid;gap:4px}
+.gang-farm-ausente__niveis li{display:flex;justify-content:space-between;padding:6px 10px;border-left:2px solid var(--if-cyan);background:rgba(255,255,255,.03);font:700 .78rem var(--font-mono);color:var(--gang-branco)}
+.gang-farm-ausente__niveis span{color:var(--if-cyan)}
+.gang-farm-ausente__aviso{margin:0;padding:8px 10px;font:600 .74rem/1.4 var(--font-mono);color:var(--text-secondary);border:1px dashed var(--if-hair-strong)}
+.gang-farm-ausente__aviso.is-derrota{color:var(--if-danger);border-color:var(--if-danger)}
+.gang-farm-ausente__aviso.is-teto{color:var(--if-amber);border-color:var(--if-amber)}
+.gang-farm-ausente__voltar{padding:12px;border:0;cursor:pointer;font:900 .9rem var(--font-title);letter-spacing:.06em;text-transform:uppercase;color:var(--gang-preto);background:linear-gradient(135deg,var(--if-teal),var(--if-cyan));clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,0 100%)}

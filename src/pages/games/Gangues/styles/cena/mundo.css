@@ -175,6 +175,8 @@
 .gang-world-auto { pointer-events:auto;display:grid;justify-items:center;gap:6px;padding:6px 4px;background:none;border:0;cursor:pointer;color:var(--text-secondary);touch-action:manipulation; }
 .gang-world-auto i { position:relative;display:block;width:48px;height:24px;background:var(--gang-noite-950);border:1px solid var(--gang-cinza-600);clip-path:polygon(0 0,calc(100% - 7px) 0,100% 7px,100% 100%,0 100%);transition:border-color .18s,box-shadow .18s; }
 .gang-world-auto i b { position:absolute;top:3px;left:3px;width:16px;height:16px;background:var(--gang-cinza-600);transition:transform .18s,background .18s; }
+/* Área do chefe (v3.72.0): a briga automática não vale lá — switch apagado. */
+.gang-world-auto.is-bloqueado { opacity:.35;cursor:not-allowed; }
 .gang-world-auto span { max-width:64px;font:700 .5rem var(--font-mono);letter-spacing:.1em;text-transform:uppercase;text-align:center;line-height:1.2; }
 .gang-world-auto.is-on { color:var(--terr-cor); }
 .gang-world-auto.is-on i { border-color:var(--terr-cor);box-shadow:0 0 12px color-mix(in srgb,var(--terr-cor) 45%,transparent); }

@@ -21,7 +21,7 @@ import GanguesCenaFichaCard from '../components/cena/GanguesCenaFichaCard'
 import GanguesRepRecompensaModal from '../components/GanguesRepRecompensaModal'
 import { GangMarker, PinoAlvo, ZonaChao, WorldControls, BrigaAutoAviso, interactionLabel, ehPersonagem } from '../components/cena/GanguesCenaAtores'
 import { TretaVS } from '../components/cena/GanguesCenaEncontros'
-import { CENAS_POR_ID, portaoAberto, contarCena } from '../data/cenas/cenaHelpers.js'
+import { CENAS_POR_ID, portaoAberto, contarCena, naAreaDoChefe } from '../data/cenas/cenaHelpers.js'
 import { GANGUES_TERRITORIO_POR_ID } from '../data/ganguesTerritorios.js'
 import { getGanguesPortraitByTemplateId } from '../data/ganguesPortraits.js'
 import { getGanguesNpcPortrait } from '../data/ganguesNpcPortraits.js'
@@ -159,7 +159,7 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
   const brigaAuto = useGanguesBrigaAutomatica({
     alvos: amb?.alvos || EMPTY_ALVOS, colidindo,
     rodando: Boolean(cena) && !intro && !encontro && !fade && fichaIndex === null && !bagAberta && !repModalMarco,
-    ultimoPoiId: prog.posicao?.adversario || null,
+    ultimoPoiId: prog.posicao?.adversario || null, bloqueado: naAreaDoChefe(cena, prog, { ...player, local }),
     onBriga: onBrigaAuto,
   })
   // Lado apagado (Feira): do outro lado da barricada, até o chefe cair.
@@ -191,6 +191,9 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
   if (local && !amb) return <main className="gang-cena-worldpage" style={{ '--terr-cor': cena.cor }}><div className="gang-cena-viewport" /></main>
   const fecharIntro = () => { marcarTutorialVisto(cenaIntroTutorialId(cena.id)); setIntro(false) }
   const guardarPosicao = (over) => store.salvarPosicaoCena(cena.id, { ...(over || player), local: over?.local !== undefined ? over.local : local })
+  // Saindo da cena (luta, app em 2º plano — farm ausente —, voltar) grava onde o jogador está, sem perder o adversário marcado.
+  const saidaRef = useRef(null); saidaRef.current = () => cena && store.salvarPosicaoCena(cena.id, { ...player, local, adversario: useGanguesStore.getState().cenaProgresso[cena.id]?.posicao?.adversario })
+  useEffect(() => () => saidaRef.current?.(), [])
   // troca de ambiente com fade curto (rua↔interior, cômodo↔cômodo)
   const trocarPara = (novoLocal, spawn) => {
     sfx.select?.(); setFade(true)
@@ -471,7 +474,7 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
     </div><div className="gang-cena-vignette" />{noEscuro && <div className="gang-cena-apagao" style={{ '--px': `${player.x - camX}px`, '--py': `${player.y - camY}px` }} aria-hidden="true" />}{!local && (aleatorio.perseguidor?.tipo === 'policia' || aleatorio.onomatopeia === 'policia') && <div className="gang-cena-sirene" aria-hidden="true" />}{hint && <div className="gang-cena-tutorial">{hint}</div>}{!local && !muroAberto && cena.muro && player.y < cena.muro.aviso && <div className="gang-cena-gatelock">🔒 {t(baseFeita ? cena.textos.muroPassagem : cena.textos.bossTrancado)}</div>}<AnimatePresence>{aleatorio.onomatopeia && <motion.div key="onomatopeia" className={`gang-cena-onomatopeia is-${ALEATORIO_TIPOS[aleatorio.onomatopeia]?.cor}`} initial={{ scale: .3, opacity: 0, rotate: -12 }} animate={{ scale: 1, opacity: 1, rotate: -6 }} exit={{ opacity: 0 }} transition={{ type: 'spring', stiffness: 520, damping: 14 }}><b>{t(`games.gangues.cena.aleatorio.${aleatorio.onomatopeia}.onomatopeia`)}</b></motion.div>}</AnimatePresence><AnimatePresence>{fade && <motion.div className="gang-cena-fade" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: .16 }} />}</AnimatePresence></div>
     {!local && !intro && <GanguesMiniMapa player={player} alvos={minimapaAlvos} />}
     {!local && !intro && !encontro && !fade && <GanguesAlvoTutorial alvos={amb?.alvos} />}
-    <WorldControls onInput={v => { inputRef.current = v }} onInteract={() => abrir(perto)} action={perto ? interactionLabel(perto, t) : null} rotulo={t('games.gangues.cena.acao.interagir')} brigaAuto={brigaAuto.ligado} onBrigaAuto={brigaAuto.alternar} rotuloBrigaAuto={t('games.gangues.cena.briga_auto')} />
+    <WorldControls onInput={v => { inputRef.current = v }} onInteract={() => abrir(perto)} action={perto ? interactionLabel(perto, t) : null} rotulo={t('games.gangues.cena.acao.interagir')} brigaAuto={brigaAuto.ligado} brigaAutoBloqueada={brigaAuto.bloqueado} onBrigaAuto={brigaAuto.alternar} rotuloBrigaAuto={t('games.gangues.cena.briga_auto')} />
     <AnimatePresence>{toast && <motion.div className="gang-cena-toast" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}><b>{t('games.gangues.cena.recompensa')}</b>{toast.grana ? <span>💵 +{toast.grana}</span> : null}{toast.rep ? <span>⚑ +{toast.rep}</span> : null}{toast.xp ? <span>⚡ +{toast.xp} XP</span> : null}{toast.equip ? <span>{getGanguesEquip(toast.equip)?.icone} {t(getGanguesEquip(toast.equip)?.nome || '')}</span> : null}
     </motion.div>}</AnimatePresence>
     <BrigaAutoAviso anuncio={brigaAuto.anuncio} t={t} />

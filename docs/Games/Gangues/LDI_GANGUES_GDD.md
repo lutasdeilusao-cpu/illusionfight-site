@@ -2132,6 +2132,32 @@ estilo Medabots/ATB do Chrono Trigger; substitui a iniciativa Malícia+d3):
   nunca promete uma briga que vai ser barrada. Não bloqueia toque. Textos em
   `games.gangues.cena.briga_auto_aviso` (EN com gíria de rua própria, ES
   rioplatense: bardo, agrandado, mufa, arrugar, a los bifes, quilombo).
+  **Limites pra manter interação** (v3.72.0 — "senão o cara larga o jogo"):
+  a briga automática NUNCA entra sozinha em personagem VERMELHO
+  (obrigatório ainda não feito — o jogador tem que clicar), no CHEFE, nem
+  em nada da ÁREA DO CHEFE (`naAreaDoChefe`, `cenaHelpers.js`: o outro lado
+  do muro, e interiores cujas portas ficam todas de lá, enquanto o chefe
+  não caiu — lá o switch fica apagado/travado). **Perdeu = desliga tudo**:
+  qualquer derrota na cena desliga a briga automática e o automático do
+  combate (normal e Multidão) — `desligarAutomaticos()`; as telas de
+  derrota não avançam sozinhas.
+  **Farm ausente — o idle** (v3.72.0, `engine/ganguesFarmAusente.js` +
+  `components/cena/GanguesFarmAusente.jsx`): com a briga automática
+  ligada, o app ir pra segundo plano DESMONTA a cena (imagens, animações,
+  relógios — o jogo não roda escondido, o navegador desacelera/congela aba
+  de fundo). Na volta: tela de carga, as lutas que cabem no tempo fora (1
+  a cada 40s) são calculadas "no seco" com as mesmas contas de uma luta de
+  verdade (gerador de bando do ponto, motor da Briga em Multidão, ações de
+  vitória do store: AP, grana, rep, álbum, sucata, dano que persiste) e sai
+  o resumo "Enquanto você tava fora". Regras: só conta com a ABA ABERTA
+  (fechou a aba, perdeu — o instante de saída mora só na memória da
+  página, de propósito); mínimo 30s fora; **teto de +5 níveis por
+  ausência** (bateu, para); farma o adversário da última luta ou o ponto
+  válido mais perto (treta repetível, nunca vermelha/chefe/área do chefe);
+  **perdeu uma luta, para ali** — tropa arrastada pra birosca (mesmo
+  socorro da derrota) e todo automático desliga. Como o dano persiste,
+  tropa sem descanso cai depois de algumas brigas: o idle rende mais pra
+  quem sai com a tropa curada.
   **Saída automática** (v3.69.0): com o switch ligado, as telas depois de
   uma luta da cena se clicam sozinhas — "NÓIS É CRIA"/"DEU RUIM" em 2s e o
   relatório ("Segue na quebrada" / "Acordar na birosca" / "tentar de novo")

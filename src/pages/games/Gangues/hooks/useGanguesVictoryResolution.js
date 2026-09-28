@@ -10,6 +10,7 @@ import { CENAS_POR_ID, destinoSocorroDerrota } from '../data/cenas/cenaHelpers.j
 import { GANGUES_SUCATA_ID } from '../data/ganguesEquip.js'
 import { GANGUES_ITENS_LISTA } from '../data/ganguesItens.js'
 import { ALEATORIO_TIPOS } from '../engine/ganguesEncontroAleatorio.js'
+import { desligarAutomaticos } from './useGanguesBrigaAutomatica.js'
 
 // Sucata virou recurso do aprimoramento (27/09/2026, PLANO_ITENS_RANGE.md §3):
 // cai em ~20% das vitórias de rua na cena (não no chefe, que já paga 500).
@@ -138,6 +139,9 @@ export default function useGanguesVictoryResolution({ store, user, report, victo
       sfx.win()
     } else {
       sfx.lose()
+      // Perdeu na cena = desliga TODO automático (Isaias, 28/09/2026: "faz ele
+      // começar de novo", pra ter interação) — a próxima luta/cena já nasce manual.
+      if (emCena) desligarAutomaticos()
       // Sem game over (Isaias, 27/09/2026): tropa caída numa luta da cena é
       // arrastada pra birosca mais perto, já DENTRO, recuperada — e a
       // recuperação é cobrada na hora (grana, empréstimo ou dívida a 10×).

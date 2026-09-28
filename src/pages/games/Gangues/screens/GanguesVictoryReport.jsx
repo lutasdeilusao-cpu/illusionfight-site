@@ -75,9 +75,10 @@ export default function GanguesVictoryReport({
   const seguir = () => { store.setStoryTarget({ territorioId: storyAlvo.territorioId }); onNavigate('territorio') }
   // Briga automática da cena ligada: "Segue na quebrada" se clica sozinho em
   // 3s (ver useGanguesAvancoAutomatico). A vitória sobre o chefe fica de fora
-  // — é o fecho do bairro, com a vaga de recruta pra decidir.
+  // — é o fecho do bairro, com a vaga de recruta pra decidir — e a derrota
+  // também (perdeu, o automático desliga e o jogador tem que clicar).
   useGanguesAvancoAutomatico({
-    ativo: Boolean(storyAlvo?.cenaId) && !torre && noModoHistoria && !(cenaChefe && victory),
+    ativo: victory && Boolean(storyAlvo?.cenaId) && !torre && noModoHistoria && !cenaChefe,
     ms: GANGUES_AVANCO_AUTO_MS.relatorio, acao: seguir,
   })
   const attacks = report.entries.filter(entry => entry.kind === 'attack_card')
