@@ -77,7 +77,7 @@ export default function GanguesFarmAusente({ children, luta = false, aoVoltar })
         const store = useGanguesStore.getState
         const territorioId = store().storyTarget?.territorioId
         const cena = CENAS_POR_ID[territorioId]
-        const r = cena ? simularFarmAusente({ store, cena, territorioId, segundos, enemiesData, onDerrota: desligarAutomaticos, lutaEmAndamento: emAndamento, farmar: brigaAutoLigada() }) : null
+        const r = cena ? simularFarmAusente({ store, cena, territorioId, segundos, enemiesData, onDerrota: desligarAutomaticos, lutaEmAndamento: emAndamento, farmar: Boolean(emAndamento) || brigaAutoLigada() }) : null
         const poi = r?.poiId ? cena.pois.find(p => p.id === r.poiId) : null
         setResumo({ ...(r || { lutas: 0, niveis: {} }), segundos, lugar: poi?.i18n ? t(`${poi.i18n}.nome`) : '' })
         setFase('resultado')
@@ -112,7 +112,7 @@ export default function GanguesFarmAusente({ children, luta = false, aoVoltar })
             <dl className="gang-farm-ausente__numeros">
               <div><dt>{t('games.gangues.farm_ausente.lutas')}</dt><dd>{resumo.vitorias}/{resumo.lutas}</dd></div>
               <div><dt>{t('games.gangues.farm_ausente.grana')}</dt><dd>+{resumo.grana}</dd></div>
-              <div><dt>{t('games.gangues.farm_ausente.rep')}</dt><dd>+{resumo.rep}</dd></div>
+              <div><dt>{t('games.gangues.farm_ausente.rep')}</dt><dd>{resumo.rep < 0 ? resumo.rep : `+${resumo.rep}`}</dd></div>
               <div><dt>{t('games.gangues.farm_ausente.sucata')}</dt><dd>+{resumo.sucata}</dd></div>
               {resumo.pocoes > 0 && <div><dt>{t('games.gangues.farm_ausente.pocoes')}</dt><dd>−{resumo.pocoes}</dd></div>}
             </dl>

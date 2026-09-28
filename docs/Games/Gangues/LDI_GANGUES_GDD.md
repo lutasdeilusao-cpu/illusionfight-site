@@ -24,7 +24,7 @@ Grafia oficial: **Marélia** com acento (o conto usa assim). O i18n do jogo aind
 tem "Marelia" sem acento em vários lugares — alinhar quando mexer em texto.
 
 > **Estado do documento: retrato do jogo como ele está HOJE — conferido contra
-> o código de GANGUES 3.75.1 (SITE 10.307.x), 28/09/2026.** Regra: o GDD
+> o código de GANGUES 3.75.2 (SITE 10.307.x), 28/09/2026.** Regra: o GDD
 > descreve o produto atual, não guarda diário de versões — quando algo muda
 > no jogo, o trecho que falava da versão antiga é REESCRITO, não empilhado
 > embaixo com "v3.xx: agora...". Histórico de mudança mora no git.
@@ -2163,12 +2163,20 @@ rápida de app (menos de 3 min) não muda nada — o jogo segue como estava. Bat
   uma com sua opção) são usadas **dentro da luta calculada, rodada a rodada**,
   com a mesma regra da luta ao vivo (quem dá a poção abre mão do ataque
   naquela rodada) — e também entre uma luta e outra.
-- **Só o adversário que o jogador estava grindando** — o da última luta
-  (`posicao.adversario`, lembrado mesmo entrando em cômodo ou sendo pego por
-  encontro aleatório). Nunca "a região". Sem adversário, ou se ele é
-  vermelho/chefe/área do chefe, não farma nada.
+- **Só o adversário que o jogador estava grindando**, nunca "a região":
+  - **saiu no meio de uma luta** → o farm repete **essa mesma luta** (mesmo
+    tipo de bando, mesmo nível) pelo resto do tempo, seja ela qual for (ponto
+    repetível, papo que virou briga, encontro aleatório) — com o automático da
+    luta ligado basta, mesmo com a briga automática da rua desligada. As
+    repetições dão AP, grana, sucata e itens de vitória comum; o ponto, o
+    prêmio de 1ª vez e a rep da escolha (ex.: o −1 do "aperta") só contam na
+    luta original;
+  - **saiu na rua** (briga automática ligada) → o adversário da última luta
+    (`posicao.adversario`, lembrado mesmo entrando em cômodo ou sendo pego
+    por encontro aleatório), se ele vale: sem adversário, ou se ele é
+    vermelho/chefe/área do chefe, não farma nada.
 - **1 luta a cada 40s** fora. A luta interrompida sempre termina; o farm
-  depois dela só roda com a briga automática ligada (e sobrando 30s+).
+  depois dela precisa de 30s+ sobrando.
 - **Teto: +5 níveis por ausência** — bateu, para.
 - **Só com a aba aberta:** fechou a aba, perdeu (o instante da saída mora só na
   memória da página, de propósito — o jogo não vira "esquece e volta rico").

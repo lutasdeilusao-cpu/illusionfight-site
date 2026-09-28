@@ -88,6 +88,27 @@ function bandoDoPoi(poi, { party, enemiesData, modo, territorioId }) {
   return gerarBandoInimigo({ territorioId, pontosFixo: ajustarPontosFixo(poi.pontosFixo, modo), playerTeam: party, enemiesData, liderFixo: poi.liderFixo, moldesPool: poi.moldesPool, qtdMin: poi.qtdMin, qtdMax: poi.qtdMax })
 }
 
+// Mesmo bando que o GanguesRoute monta pra uma luta de bairro a partir do
+// storyTarget dela (revezamento, ficha fixa ou bando de pontos fixos) — pra
+// repetir no farm a luta que estava na tela. Sem as suavizações de 1ª luta/
+// frustração, que não valem pra farm.
+function bandoDoAlvo(alvo, { party, enemiesData, modo }) {
+  let bando = null
+  if (alvo.revezamento?.pool?.length) bando = gerarBandoRevezamento({ ...alvo.revezamento, enemiesData, modo, playerTeam: party })
+  else if (alvo.fixo) {
+    const molde = enemiesData.find(e => e.id === alvo.enemyId)
+    bando = molde ? [alvo.pontosFixos > 0 ? escalarInimigo(molde, ajustarPontosFixo(alvo.pontosFixos, modo)) : molde] : null
+  } else if (alvo.pontosFixos) {
+    bando = gerarBandoInimigo({ territorioId: alvo.territorioId, pontosFixo: ajustarPontosFixo(alvo.pontosFixos, modo), playerTeam: party, enemiesData, liderFixo: alvo.liderFixo, moldesPool: alvo.moldesPool, qtdMin: alvo.qtdMin, qtdMax: alvo.qtdMax })
+  }
+  if (bando?.length && alvo.ajusteInimigo && bando[0].stats) {
+    const stats = { ...bando[0].stats }
+    for (const [k, v] of Object.entries(alvo.ajusteInimigo)) stats[k] = Math.max(0, (Number(stats[k]) || 0) + v)
+    bando = [{ ...bando[0], stats }, ...bando.slice(1)]
+  }
+  return bando
+}
+
 // Poções DENTRO da luta calculada, rodada a rodada — a mesma regra do
 // automático ao vivo (escolherAcaoAuto): alguém com PV ≤ 50% → o MAIS
 // INTEIRO da tropa gasta a vez dele dando a poção de PV (1 por rodada); quem
@@ -193,6 +214,10 @@ function aplicarLuta({ store, cena, alvo, party, outcome, combatants, resumo, au
   s.aplicarDanoPersistente(combatants)
   const inimigos = combatants.filter(c => c.side === 'enemy')
   const aleatorio = alvo.cenaPoiId === '__aleatorio'
+  // Repetição da luta que estava na tela (farm dela): só AP/grana/itens de
+  // vitória comum — o ponto já foi marcado, prêmio de 1ª vez e rep da escolha
+  // já saíram na luta original.
+  const repeticao = Boolean(alvo.repeticao)
   if (!victory) {
     const destino = destinoSocorroDerrota(cena, store().cenaProgresso[cena.id])
     if (destino) {
@@ -200,7 +225,7 @@ function aplicarLuta({ store, cena, alvo, party, outcome, combatants, resumo, au
       resumo.socorro = store().socorroDerrota(custoBase)
       store().salvarPosicaoCena(cena.id, destino.posicao)
     }
-    if (aleatorio) store().finalizarEncontroAleatorio()
+    if (aleatorio && !repeticao) store().finalizarEncontroAleatorio()
     resumo.derrota = true
     onDerrota?.()
     return false
@@ -213,17 +238,18 @@ function aplicarLuta({ store, cena, alvo, party, outcome, combatants, resumo, au
   s.registrarNoAlbum(inimigos.map(c => c.id))
   const { grana, rep, itens, equipPrimeiraVez, itemPrimeiraVez, pagaFavor } = calcularRecompensaCena({ emCena: true, storyAlvo: alvo, enemyCount: inimigos.length })
   const primeiraVitoria = !store().cenaProgresso[cena.id]?.resolvidos?.[alvo.cenaPoiId]
-  if (alvo.cenaSemTravar) s.revelarPoi(cena.id, alvo.cenaRevela || [])
+  if (repeticao) { /* ponto já resolvido na luta original */ }
+  else if (alvo.cenaSemTravar) s.revelarPoi(cena.id, alvo.cenaRevela || [])
   else if (!aleatorio) s.marcarPoiResolvido(cena.id, alvo.cenaPoiId, alvo.cenaRevela || [])
   if (grana) { s.ganharGrana(grana); resumo.grana += grana }
   if (rep) { s.ganharRep(rep); resumo.rep += rep }
   itens.forEach(({ id, qtd }) => s.darItem(id, qtd))
-  if (equipPrimeiraVez && primeiraVitoria) s.comprarEquip(equipPrimeiraVez, 0)
-  if (itemPrimeiraVez && primeiraVitoria) s.darItem(itemPrimeiraVez, 1)
-  if (pagaFavor) s.pagarFavorRegina()
+  if (equipPrimeiraVez && primeiraVitoria && !repeticao) s.comprarEquip(equipPrimeiraVez, 0)
+  if (itemPrimeiraVez && primeiraVitoria && !repeticao) s.darItem(itemPrimeiraVez, 1)
+  if (pagaFavor && !repeticao) s.pagarFavorRegina()
   if (alvo.aposta > 0) { s.ganharGrana(alvo.aposta * 2); resumo.grana += alvo.aposta * 2 }
   if (Math.random() < GANGUES_FARM_SUCATA_CHANCE) { s.darItem(GANGUES_SUCATA_ID, 1); resumo.sucata++ }
-  if (aleatorio) store().finalizarEncontroAleatorio()
+  if (aleatorio && !repeticao) store().finalizarEncontroAleatorio()
   resumo.pocoes += tomarPocoes(store, combatants, autoConfig)
   return true
 }
@@ -260,16 +286,32 @@ export function simularFarmAusente({ store, cena, territorioId, segundos, enemie
     tempo -= GANGUES_FARM_SEGUNDOS_POR_LUTA
   }
 
-  const poi = segue && farmar && tempo >= GANGUES_FARM_MIN_S ? alvoDoFarm(cena, store().cenaProgresso[cena.id] || { resolvidos: {}, revelados: {} }, store().rep) : null
-  if (poi) resumo.poiId = poi.id
-  const lutas = poi ? Math.min(GANGUES_FARM_MAX_LUTAS, Math.floor(tempo / GANGUES_FARM_SEGUNDOS_POR_LUTA)) : 0
-  const alvo = poi && { territorioId, cenaId: cena.id, cenaPoiId: poi.id, cenaRevela: poi.revela || [], cenaRecompensa: poi.recompensa || null }
+  // O que o farm repete pelo resto do tempo:
+  // • saiu NO MEIO de uma luta → essa MESMA luta (mesmo tipo de bando, mesmo
+  //   nível), de novo e de novo — o jogador estava grindando aquele
+  //   adversário (Isaias, 28/09/2026), seja ele o que for (ponto repetível,
+  //   papo que virou briga, encontro aleatório);
+  // • saiu na rua → o adversário da última luta, se ele vale (alvoDoFarm).
+  let gerarBando = null, alvo = null
+  if (segue && farmar && tempo >= GANGUES_FARM_MIN_S) {
+    const original = lutaEmAndamento ? s0.storyTarget : null
+    const poi = original ? null : alvoDoFarm(cena, store().cenaProgresso[cena.id] || { resolvidos: {}, revelados: {} }, store().rep)
+    if (original) {
+      gerarBando = party => bandoDoAlvo(original, { party, enemiesData, modo })
+      alvo = { territorioId, cenaId: cena.id, cenaPoiId: original.cenaPoiId, repeticao: true, cenaRecompensa: original.cenaRecompensa || null }
+    } else if (poi) {
+      resumo.poiId = poi.id
+      gerarBando = party => bandoDoPoi(poi, { party, enemiesData, modo, territorioId })
+      alvo = { territorioId, cenaId: cena.id, cenaPoiId: poi.id, cenaRevela: poi.revela || [], cenaRecompensa: poi.recompensa || null }
+    }
+  }
+  const lutas = gerarBando ? Math.min(GANGUES_FARM_MAX_LUTAS, Math.floor(tempo / GANGUES_FARM_SEGUNDOS_POR_LUTA)) : 0
 
   for (let n = 0; n < lutas; n++) {
     const party = store().roster.filter(m => ids.includes(m.id))
     if (party.some(m => nivelDe(m) - nivel0[m.id] >= GANGUES_FARM_TETO_NIVEIS)) { resumo.teto = true; break }
     if (!party.length || party.every(m => Number(m.attributes?.pv_atual ?? 1) <= 0)) break
-    const bando = bandoDoPoi(poi, { party, enemiesData, modo, territorioId })
+    const bando = gerarBando(party)
     if (!bando?.length) break
     const { outcome, combatants } = rodarLuta(iniciarBrigaMultidao({ playerTeam: party, enemyTeam: bando }), { party, store, config: autoConfig, resumo })
     if (!aplicarLuta({ store, cena, alvo, party, outcome, combatants, resumo, autoConfig, onDerrota })) break
