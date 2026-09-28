@@ -369,7 +369,11 @@ export default function GanguesRoute() {
           <GanguesCombat onNavigate={setFase} onSairConfirmado={meterOPe} />
         </GanguesFarmAusente>
       )}
-      {fase === 'victory' && <GanguesVictory onNavigate={navegar} />}
+      {fase === 'victory' && (
+        <GanguesFarmAusente vitoria aoVoltar={() => { store.setStoryTarget({ territorioId: useGanguesStore.getState().storyTarget?.territorioId }); setFase('territorio') }}>
+          <GanguesVictory onNavigate={navegar} />
+        </GanguesFarmAusente>
+      )}
     </div>
   )
 }

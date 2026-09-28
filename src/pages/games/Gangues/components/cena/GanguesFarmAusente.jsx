@@ -3,10 +3,11 @@ import { useLanguage } from '../../../../../context/LanguageContext'
 import { useGanguesStore } from '../../store/useGanguesStore'
 import { CENAS_POR_ID } from '../../data/cenas/cenaHelpers.js'
 import { brigaAutoLigada, desligarAutomaticos } from '../../hooks/useGanguesBrigaAutomatica.js'
-import { simularFarmAusente, lutaAoVivo } from '../../engine/ganguesFarmAusente.js'
+import { simularFarmAusente, lutaAoVivo, lutaRepetivel } from '../../engine/ganguesFarmAusente.js'
 import enemiesData from '../../data/gangues-enemies.json'
 
-// Farm ausente (ver engine/ganguesFarmAusente.js). Envolve a CENA e a LUTA.
+// Farm ausente (ver engine/ganguesFarmAusente.js). Envolve a CENA, a LUTA e
+// a tela de VITÓRIA (por onde o avanço automático passa entre luta e rua).
 // App em segundo plano por MENOS de 3 minutos: nada muda — troca rápida de
 // app não dispara nada (Isaias, 28/09/2026). Bateu 3 minutos no fundo:
 // • cena: com a briga automática ligada, a cena é DESMONTADA (imagens,
@@ -28,12 +29,11 @@ const ausencia = { desde: null }
 
 function lutaElegivel() {
   const viva = lutaAoVivo.ler?.()
-  const alvo = useGanguesStore.getState().storyTarget
-  return viva && viva.auto && !viva.terminou && alvo?.cenaId && !alvo.isChefe ? viva : null
+  return viva && viva.auto && !viva.terminou && lutaRepetivel(useGanguesStore.getState().storyTarget) ? viva : null
 }
 const PAUSA_CALCULO_MS = 700
 
-export default function GanguesFarmAusente({ children, luta = false, aoVoltar }) {
+export default function GanguesFarmAusente({ children, luta = false, vitoria = false, aoVoltar }) {
   const { t } = useLanguage()
   const [fase, setFase] = useState('cena') // cena | fora | calculando | resultado
   const [resumo, setResumo] = useState(null)
@@ -46,7 +46,10 @@ export default function GanguesFarmAusente({ children, luta = false, aoVoltar })
     const desmontar = () => {
       if (desmontada.current) return true
       const viva = luta ? lutaElegivel() : null
-      if (luta ? !viva : !brigaAutoLigada()) return false
+      // Tela de vitória (vitoria): a luta acabou no automático durante a
+      // espera e o avanço automático ainda não voltou pra rua — vale igual
+      // à rua, farmando essa luta (a derrota desliga a briga automática).
+      if (luta ? !viva : !brigaAutoLigada() || (vitoria && !lutaRepetivel(useGanguesStore.getState().storyTarget))) return false
       lutaGuardada.current = viva
       desmontada.current = true
       setFase('fora')
@@ -79,16 +82,20 @@ export default function GanguesFarmAusente({ children, luta = false, aoVoltar })
         const cena = CENAS_POR_ID[territorioId]
         const r = cena ? simularFarmAusente({ store, cena, territorioId, segundos, enemiesData, onDerrota: desligarAutomaticos, lutaEmAndamento: emAndamento, farmar: Boolean(emAndamento) || brigaAutoLigada() }) : null
         const poi = r?.poiId ? cena.pois.find(p => p.id === r.poiId) : null
-        setResumo({ ...(r || { lutas: 0, niveis: {} }), segundos, lugar: poi?.i18n ? t(`${poi.i18n}.nome`) : '' })
+        const lugar = poi?.i18n ? t(`${poi.i18n}.nome`) : r?.poiId === '__aleatorio' ? t('games.gangues.farm_ausente.na_rua') : ''
+        setResumo({ ...(r || { lutas: 0, niveis: {} }), segundos, lugar })
         setFase('resultado')
       }, PAUSA_CALCULO_MS)
     }
     document.addEventListener('visibilitychange', aoMudar)
     // Montou já com o app no fundo (ex.: a luta começou durante a espera):
-    // continua a mesma contagem de 3 minutos.
+    // continua a mesma contagem de 3 minutos. Montou com o app na frente e
+    // uma saída ainda marcada: a volta caiu numa tela fora do farm — essa
+    // saída já passou, não pode virar farm na próxima ida pro fundo.
     if (document.hidden && ausencia.desde) armarEspera()
+    else if (!document.hidden) ausencia.desde = null
     return () => { clearTimeout(espera); clearTimeout(timer); document.removeEventListener('visibilitychange', aoMudar) }
-  }, [t, luta])
+  }, [t, luta, vitoria])
 
   if (fase === 'fora') return null
   if (fase === 'calculando') {

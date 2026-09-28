@@ -215,6 +215,18 @@ function tomarPocoes(store, combatants, config) {
  *  hora de desmontar a tela, pra terminar a MESMA luta por cálculo. */
 export const lutaAoVivo = { ler: null }
 
+/** A última luta de bairro que começou (o storyTarget dela) — o que o farm
+ *  repete quando o app vai pro fundo com a tropa já de volta na rua. Nos 3
+ *  minutos de espera o jogo segue vivo: a luta no automático termina, o
+ *  avanço automático devolve a tropa pra rua e só então a espera acaba —
+ *  a luta "de agora" é essa, seja ela o que for (ponto repetível, papo que
+ *  virou briga, encontro aleatório). Mora só na memória da página, igual ao
+ *  resto do farm ausente. Chefe, Clube e Torre nunca entram. */
+export const ultimaLuta = { alvo: null }
+export function lutaRepetivel(alvo) {
+  return alvo?.cenaId && alvo.cenaPoiId && !alvo.isChefe && !alvo.clube && !alvo.torre ? alvo : null
+}
+
 // Aplica o resultado de UMA luta (calculada) no store, com as mesmas regras
 // da tela de vitória de verdade (useGanguesVictoryResolution): AP, álbum,
 // grana/rep/itens do ponto, peça/item de 1ª vitória, aposta da Rinha, sucata,
@@ -296,7 +308,7 @@ export function simularFarmAusente({ store, cena, territorioId, segundos, enemie
     const party = s0.roster.filter(m => ids.includes(m.id))
     const inicio = iniciarBrigaMultidaoDeCombatentes(lutaEmAndamento.combatants, lutaEmAndamento.round || 1)
     const { outcome, combatants, segundos: duracao, usos } = rodarLuta(inicio, { store, config: autoConfig })
-    resumo.poiId = alvo.cenaPoiId !== '__aleatorio' ? alvo.cenaPoiId : null
+    resumo.poiId = alvo.cenaPoiId || null
     if (duracao > tempo) {
       // Nem essa deu tempo de terminar: não conta (sem dano, sem poção, sem
       // prêmio) — o jogador volta pra rua, no ponto da briga.
@@ -310,17 +322,25 @@ export function simularFarmAusente({ store, cena, territorioId, segundos, enemie
     }
   }
 
-  // O que o farm repete pelo resto do tempo:
-  // • saiu NO MEIO de uma luta → essa MESMA luta (mesmo tipo de bando, mesmo
-  //   nível), de novo e de novo — o jogador estava grindando aquele
-  //   adversário (Isaias, 28/09/2026), seja ele o que for (ponto repetível,
-  //   papo que virou briga, encontro aleatório);
-  // • saiu na rua → o adversário da última luta, se ele vale (alvoDoFarm).
+  // O que o farm repete pelo resto do tempo — a ÚLTIMA LUTA, de novo e de
+  // novo (mesmo tipo de bando, mesmo nível): o jogador estava grindando
+  // aquele adversário (Isaias, 28/09/2026), seja ele o que for (ponto
+  // repetível, papo que virou briga, encontro aleatório):
+  // • saiu NO MEIO de uma luta → essa luta;
+  // • a tropa já tinha voltado pra rua → a última luta desta página
+  //   (ultimaLuta), se ela é deste bairro e fora da área do chefe; senão
+  //   (página recarregada), o adversário da última luta salvo (alvoDoFarm).
   let gerarBando = null, alvo = null
   if (segue && farmar && tempo >= GANGUES_FARM_MIN_S) {
-    const original = lutaEmAndamento ? s0.storyTarget : null
-    const poi = original ? null : alvoDoFarm(cena, store().cenaProgresso[cena.id] || { resolvidos: {}, revelados: {} }, store().rep)
+    const prog = store().cenaProgresso[cena.id] || { resolvidos: {}, revelados: {} }
+    const daRua = !lutaEmAndamento && lutaRepetivel(ultimaLuta.alvo)?.cenaId === cena.id
+      && !naAreaDoChefe(cena, prog, prog.posicao || {})
+      && !naAreaDoChefe(cena, prog, posNoMapa(cena, ultimaLuta.alvo.cenaPoiId) || {})
+      ? ultimaLuta.alvo : null
+    const original = lutaEmAndamento ? s0.storyTarget : daRua
+    const poi = original ? null : alvoDoFarm(cena, prog, store().rep)
     if (original) {
+      resumo.poiId = original.cenaPoiId
       gerarBando = party => bandoDoAlvo(original, { party, enemiesData, modo })
       alvo = { territorioId, cenaId: cena.id, cenaPoiId: original.cenaPoiId, repeticao: true, cenaRecompensa: original.cenaRecompensa || null }
     } else if (poi) {

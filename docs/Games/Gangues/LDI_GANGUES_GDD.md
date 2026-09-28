@@ -24,7 +24,7 @@ Grafia oficial: **Marélia** com acento (o conto usa assim). O i18n do jogo aind
 tem "Marelia" sem acento em vários lugares — alinhar quando mexer em texto.
 
 > **Estado do documento: retrato do jogo como ele está HOJE — conferido contra
-> o código de GANGUES 3.75.4 (SITE 10.307.x), 28/09/2026.** Regra: o GDD
+> o código de GANGUES 3.75.5 (SITE 10.307.x), 28/09/2026.** Regra: o GDD
 > descreve o produto atual, não guarda diário de versões — quando algo muda
 > no jogo, o trecho que falava da versão antiga é REESCRITO, não empilhado
 > embaixo com "v3.xx: agora...". Histórico de mudança mora no git.
@@ -2173,10 +2173,16 @@ rápida de app (menos de 3 min) não muda nada — o jogo segue como estava. Bat
     repetições dão AP, grana, sucata e itens de vitória comum; o ponto, o
     prêmio de 1ª vez e a rep da escolha (ex.: o −1 do "aperta") só contam na
     luta original;
-  - **saiu na rua** (briga automática ligada) → o adversário da última luta
-    (`posicao.adversario`, lembrado mesmo entrando em cômodo ou sendo pego
-    por encontro aleatório), se ele vale: sem adversário, ou se ele é
-    vermelho/chefe/área do chefe, não farma nada.
+  - **a tropa já estava na rua** (briga automática ligada) → a **última luta
+    de bairro** desta página (`ultimaLuta`, anotada quando a luta começa),
+    repetida do mesmo jeito, seja ela qual for — é o caso mais comum: nos 3
+    minutos de espera o jogo segue vivo, a luta no automático termina e o
+    avanço automático devolve a tropa pra rua antes da espera acabar. A tela
+    de vitória, por onde esse avanço passa, também conta como rua. Fora da
+    área do chefe e só no mesmo bairro; chefe, Clube e Torre nunca. Página
+    recarregada (sem `ultimaLuta`): o adversário salvo (`posicao.adversario`),
+    se ele é treta repetível que não seja vermelha/chefe/área do chefe; sem
+    nada disso, não farma.
 - **Upagem no modo lento:** cada luta calculada dura o que ela duraria
   jogada no **manual, na velocidade 1x**, golpe a golpe — e conta o
   **dobro** disso (`GANGUES_FARM_LENTIDAO = 2`). Ritmo por ação, tirado do
