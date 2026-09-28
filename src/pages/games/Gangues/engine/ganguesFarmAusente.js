@@ -24,11 +24,16 @@
      um entra na luta calculada (quando tem PM), e com a poção automática
      ligada, quem terminou a luta com PV ≤ 50% toma poção de PV antes da
      próxima;
+   • app foi pro fundo NO MEIO de uma luta da cena com o automático
+     ligado: a tela da luta também é desmontada (o som e os relógios param)
+     e a MESMA luta é terminada por cálculo, do ponto exato onde parou
+     (`lutaAoVivo`); depois segue o farm, se a briga automática estiver
+     ligada. Na volta o jogador está no ponto da briga — ou na birosca;
    • perdeu uma luta = para ali, sem XP nenhum dessa luta, a tropa acorda na
      birosca DAQUELE bairro (o mesmo socorro da derrota de verdade — na
      Feira é a pensão) e TODO automático desliga.
    ══════════════════════════════════════════════════════════════ */
-import { iniciarBrigaMultidao, avancarRodadaMultidao } from './ganguesBrigaMultidao.js'
+import { iniciarBrigaMultidao, iniciarBrigaMultidaoDeCombatentes, avancarRodadaMultidao } from './ganguesBrigaMultidao.js'
 import { calcularApTotal, calcularPesosEParticipantes, calcularRecompensaCena } from './ganguesVictoryResolver.js'
 import { estadoPoi, posNoMapa } from './ganguesCenaMotor.js'
 import { destinoSocorroDerrota, naAreaDoChefe } from '../data/cenas/cenaHelpers.js'
@@ -110,61 +115,109 @@ function tomarPocoes(store, combatants) {
   return usadas
 }
 
-/** Roda o farm do tempo fora. `store` = useGanguesStore.getState (lido de
- *  novo a cada luta — as ações mudam o estado). Devolve o resumo pra tela. */
-export function simularFarmAusente({ store, cena, territorioId, segundos, enemiesData, onDerrota }) {
+/** A luta que estava NA TELA quando o app foi pro fundo (GanguesCombat
+ *  registra aqui a cada render um leitor do estado vivo — combatentes com o
+ *  PV/PM de agora, rodada, automático ligado). O embrulho da luta lê isso na
+ *  hora de desmontar a tela, pra terminar a MESMA luta por cálculo. */
+export const lutaAoVivo = { ler: null }
+
+// Aplica o resultado de UMA luta (calculada) no store, com as mesmas regras
+// da tela de vitória de verdade (useGanguesVictoryResolution): AP, álbum,
+// grana/rep/itens do ponto, peça/item de 1ª vitória, aposta da Rinha, sucata,
+// ponto resolvido, encontro aleatório finalizado; na derrota, o socorro da
+// birosca daquele bairro. `alvo` tem o formato do storyTarget.
+// Devolve true se o farm pode continuar.
+function aplicarLuta({ store, cena, alvo, party, outcome, combatants, resumo, autoConfig, onDerrota }) {
+  const s = store()
+  const victory = outcome === 'victory'
+  const territorioId = alvo.territorioId
+  resumo.lutas++
+  s.registrarResultadoStory(outcome)
+  s.aplicarDanoPersistente(combatants)
+  const inimigos = combatants.filter(c => c.side === 'enemy')
+  const aleatorio = alvo.cenaPoiId === '__aleatorio'
+  if (!victory) {
+    const destino = destinoSocorroDerrota(cena, store().cenaProgresso[cena.id])
+    if (destino) {
+      const custoBase = cena.pois.find(p => p.id === destino.poiId)?.custoGrana || 10
+      resumo.socorro = store().socorroDerrota(custoBase)
+      store().salvarPosicaoCena(cena.id, destino.posicao)
+    }
+    if (aleatorio) store().finalizarEncontroAleatorio()
+    resumo.derrota = true
+    onDerrota?.()
+    return false
+  }
+  resumo.vitorias++
+  const pontosMaisForte = Math.max(1, ...party.map(m => ['A', 'H', 'D', 'PV', 'PM'].reduce((t, k) => t + (Number(m.attributes?.[k]) || 0), 0)))
+  const apBruto = calcularApTotal({ victory, enemyCount: inimigos.length, cenaChefe: false, torre: false, inimigosAttrs: inimigos.map(c => c.attributes), pontosMaisForte, tamanhoTime: party.length, territorioId })
+  const { pesosPorId, nivelPorId } = calcularPesosEParticipantes({ victory, report: { combatants, contribuicoes: {} }, match: { playerTeam: party } })
+  s.gainApForParticipants(Math.max(party.length, apBruto), pesosPorId, nivelPorId)
+  s.registrarNoAlbum(inimigos.map(c => c.id))
+  const { grana, rep, itens, equipPrimeiraVez, itemPrimeiraVez, pagaFavor } = calcularRecompensaCena({ emCena: true, storyAlvo: alvo, enemyCount: inimigos.length })
+  const primeiraVitoria = !store().cenaProgresso[cena.id]?.resolvidos?.[alvo.cenaPoiId]
+  if (alvo.cenaSemTravar) s.revelarPoi(cena.id, alvo.cenaRevela || [])
+  else if (!aleatorio) s.marcarPoiResolvido(cena.id, alvo.cenaPoiId, alvo.cenaRevela || [])
+  if (grana) { s.ganharGrana(grana); resumo.grana += grana }
+  if (rep) { s.ganharRep(rep); resumo.rep += rep }
+  itens.forEach(({ id, qtd }) => s.darItem(id, qtd))
+  if (equipPrimeiraVez && primeiraVitoria) s.comprarEquip(equipPrimeiraVez, 0)
+  if (itemPrimeiraVez && primeiraVitoria) s.darItem(itemPrimeiraVez, 1)
+  if (pagaFavor) s.pagarFavorRegina()
+  if (alvo.aposta > 0) { s.ganharGrana(alvo.aposta * 2); resumo.grana += alvo.aposta * 2 }
+  if (Math.random() < GANGUES_FARM_SUCATA_CHANCE) { s.darItem(GANGUES_SUCATA_ID, 1); resumo.sucata++ }
+  if (aleatorio) store().finalizarEncontroAleatorio()
+  if (autoConfig.pocao) resumo.pocoes += tomarPocoes(store, combatants)
+  return true
+}
+
+/** O que aconteceu com o app em segundo plano. `store` = useGanguesStore.getState
+ *  (lido de novo a cada luta — as ações mudam o estado).
+ *  • `lutaEmAndamento` ({ combatants, round }): a luta que estava na tela —
+ *    termina por cálculo a partir do estado exato de onde parou (mesmo motor
+ *    da Briga em Multidão, com o talento do ajuste do automático).
+ *  • `farmar`: depois dela (ou sem ela), segue grindando o adversário da última
+ *    luta pelo resto do tempo — só com a briga automática ligada.
+ *  Devolve o resumo pra tela "Enquanto você tava fora". */
+export function simularFarmAusente({ store, cena, territorioId, segundos, enemiesData, onDerrota, lutaEmAndamento = null, farmar = true }) {
   const s0 = store()
-  const prog0 = s0.cenaProgresso[cena.id] || { resolvidos: {}, revelados: {} }
-  const poi = alvoDoFarm(cena, prog0, s0.rep)
-  const resumo = { poiId: poi?.id || null, lutas: 0, vitorias: 0, grana: 0, rep: 0, sucata: 0, pocoes: 0, niveis: {}, teto: false, derrota: false, socorro: null }
-  if (!poi) return resumo
+  const autoConfig = lerAutoConfig()
   const selecionados = s0.activeParty.filter(m => s0.roster.some(r => r.id === m.id))
-  const ids = (selecionados.length ? selecionados : s0.roster).slice(0, GANGUES_STORY_BATTLE_PARTY_MAX).map(m => m.id)
+  const ids = lutaEmAndamento
+    ? (s0.match.playerTeam || []).map(m => m.id)
+    : (selecionados.length ? selecionados : s0.roster).slice(0, GANGUES_STORY_BATTLE_PARTY_MAX).map(m => m.id)
   const nivel0 = Object.fromEntries(s0.roster.filter(m => ids.includes(m.id)).map(m => [m.id, nivelDe(m)]))
   const modo = s0.storyProgress?.__dificuldade || 'medio'
-  const lutas = Math.min(GANGUES_FARM_MAX_LUTAS, Math.floor(segundos / GANGUES_FARM_SEGUNDOS_POR_LUTA))
-  const autoConfig = lerAutoConfig()
+  const resumo = { poiId: null, lutas: 0, vitorias: 0, grana: 0, rep: 0, sucata: 0, pocoes: 0, niveis: {}, teto: false, derrota: false, socorro: null }
+  let segue = true
+  let tempo = segundos
+
+  if (lutaEmAndamento) {
+    const alvo = s0.storyTarget || {}
+    const party = s0.roster.filter(m => ids.includes(m.id))
+    const especiais = Object.fromEntries(party.map(m => [m.id, getEquippedActiveGanguesSpecials(m)]))
+    let estado = iniciarBrigaMultidaoDeCombatentes(lutaEmAndamento.combatants, lutaEmAndamento.round || 1)
+    for (let i = 0; i < GANGUES_FARM_MAX_RODADAS && !estado.terminado; i++) estado = avancarRodadaMultidao(estado, autoConfig.talentos, especiais)
+    const outcome = estado.outcome || 'defeat'
+    s0.endMatch(outcome)
+    resumo.poiId = alvo.cenaPoiId !== '__aleatorio' ? alvo.cenaPoiId : null
+    segue = aplicarLuta({ store, cena, alvo, party, outcome, combatants: estado.combatants, resumo, autoConfig, onDerrota })
+    tempo -= GANGUES_FARM_SEGUNDOS_POR_LUTA
+  }
+
+  const poi = segue && farmar && tempo >= GANGUES_FARM_MIN_S ? alvoDoFarm(cena, store().cenaProgresso[cena.id] || { resolvidos: {}, revelados: {} }, store().rep) : null
+  if (poi) resumo.poiId = poi.id
+  const lutas = poi ? Math.min(GANGUES_FARM_MAX_LUTAS, Math.floor(tempo / GANGUES_FARM_SEGUNDOS_POR_LUTA)) : 0
+  const alvo = poi && { territorioId, cenaId: cena.id, cenaPoiId: poi.id, cenaRevela: poi.revela || [], cenaRecompensa: poi.recompensa || null }
 
   for (let n = 0; n < lutas; n++) {
-    const s = store()
-    const party = s.roster.filter(m => ids.includes(m.id))
+    const party = store().roster.filter(m => ids.includes(m.id))
     if (party.some(m => nivelDe(m) - nivel0[m.id] >= GANGUES_FARM_TETO_NIVEIS)) { resumo.teto = true; break }
     if (!party.length || party.every(m => Number(m.attributes?.pv_atual ?? 1) <= 0)) break
     const bando = bandoDoPoi(poi, { party, enemiesData, modo, territorioId })
     if (!bando?.length) break
     const { outcome, combatants } = lutar(party, bando, autoConfig.talentos)
-    const victory = outcome === 'victory'
-    resumo.lutas++
-    s.registrarResultadoStory(outcome)
-    const report = { combatants, contribuicoes: {} }
-    const match = { playerTeam: party }
-    const inimigos = combatants.filter(c => c.side === 'enemy')
-    const pontosMaisForte = Math.max(1, ...party.map(m => ['A', 'H', 'D', 'PV', 'PM'].reduce((t, k) => t + (Number(m.attributes?.[k]) || 0), 0)))
-    const apBruto = calcularApTotal({ victory, enemyCount: inimigos.length, cenaChefe: false, torre: false, inimigosAttrs: inimigos.map(c => c.attributes), pontosMaisForte, tamanhoTime: party.length, territorioId })
-    s.aplicarDanoPersistente(combatants)
-    if (!victory) {
-      const prog = store().cenaProgresso[cena.id]
-      const destino = destinoSocorroDerrota(cena, prog)
-      if (destino) {
-        const custoBase = cena.pois.find(p => p.id === destino.poiId)?.custoGrana || 10
-        resumo.socorro = store().socorroDerrota(custoBase)
-        store().salvarPosicaoCena(cena.id, destino.posicao)
-      }
-      resumo.derrota = true
-      onDerrota?.()
-      break
-    }
-    resumo.vitorias++
-    const { pesosPorId, nivelPorId } = calcularPesosEParticipantes({ victory, report, match })
-    s.gainApForParticipants(Math.max(party.length, apBruto), pesosPorId, nivelPorId)
-    s.registrarNoAlbum(inimigos.map(c => c.id))
-    const { grana, rep, itens } = calcularRecompensaCena({ emCena: true, storyAlvo: { territorioId, cenaRecompensa: poi.recompensa || null }, enemyCount: inimigos.length })
-    s.marcarPoiResolvido(cena.id, poi.id, poi.revela || [])
-    if (grana) { s.ganharGrana(grana); resumo.grana += grana }
-    if (rep) { s.ganharRep(rep); resumo.rep += rep }
-    itens.forEach(({ id, qtd }) => s.darItem(id, qtd))
-    if (Math.random() < GANGUES_FARM_SUCATA_CHANCE) { s.darItem(GANGUES_SUCATA_ID, 1); resumo.sucata++ }
-    if (autoConfig.pocao) resumo.pocoes += tomarPocoes(store, combatants)
+    if (!aplicarLuta({ store, cena, alvo, party, outcome, combatants, resumo, autoConfig, onDerrota })) break
   }
 
   const fim = store()

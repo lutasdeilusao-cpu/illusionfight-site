@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { useLanguage } from '../../../../context/LanguageContext'
 import { useAuth } from '../../../../context/AuthContext'
 import { useGanguesStore } from '../store/useGanguesStore'
+import { temCena } from '../data/cenas/cenaHelpers.js'
 import { contarTerritoriosDominados, getGanguesSaveSlotLimit, GANGUES_SAVE_SLOTS_BETA_LIBERADO } from '../data/ganguesLoadout.js'
 import { sfx } from '../../../../lib/sfx'
 import logoPt from '../assets/logos/logo-pt.png'
@@ -127,10 +128,18 @@ export default function GanguesSaveSelect({ onNavigate }) {
     sfx.select?.()
     setAbrindo(saveId)
     await store.selecionarSave(saveId)
-    // Save que já tem gangue montada → direto pro MAPA (escolher território).
-    // Não faz sentido refazer o recrutamento toda vez. Save vazio cai no
-    // lobby, que é onde mora o onboarding de recrutar.
-    const temGangue = useGanguesStore.getState().roster.length >= 2
+    // Save que já tem gangue montada → direto pro ÚLTIMO TERRITÓRIO em que o
+    // jogador estava (storyProgress.__ultimoTerritorio — ele cai no ponto da
+    // última briga, ou na birosca se a tropa caiu); sem território marcado,
+    // pro MAPA (escolher). Save vazio cai no lobby, onde mora o onboarding.
+    const estado = useGanguesStore.getState()
+    const temGangue = estado.roster.length >= 2
+    const ultimo = estado.storyProgress?.__ultimoTerritorio
+    if (temGangue && ultimo && temCena(ultimo)) {
+      estado.setStoryTarget({ territorioId: ultimo })
+      onNavigate('territorio')
+      return
+    }
     onNavigate(temGangue ? 'story' : 'lobby')
   }
 

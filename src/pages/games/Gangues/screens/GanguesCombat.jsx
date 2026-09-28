@@ -27,6 +27,7 @@ import GanguesMultidaoActionBar from '../components/GanguesMultidaoActionBar'
 import GanguesActionOrb from '../components/GanguesActionOrb'
 import GanguesCombatSairConfirm from '../components/GanguesCombatSairConfirm'
 import { useGanguesAvancoAutomatico, GANGUES_AVANCO_AUTO_MS } from '../hooks/useGanguesBrigaAutomatica.js'
+import { lutaAoVivo } from '../engine/ganguesFarmAusente.js'
 import { sfx } from '../../../../lib/sfx'
 import './GanguesCombat.css'
 
@@ -290,6 +291,10 @@ export default function GanguesCombat({ onNavigate, onSairConfirmado }) {
 
   // A vez automática (useGanguesModoAuto): talento escolhido / poção / ataque
   // normal, conforme a config do automático — ver escolherAcaoAuto.
+  // Farm ausente: leitor do estado vivo desta luta, pra o app em 2º plano
+  // terminar a MESMA luta por cálculo (ver lutaAoVivo / GanguesFarmAusente).
+  lutaAoVivo.ler = () => ({ combatants: modoMultidaoAtivo ? estadoMultidao?.combatants : machine.combatants, round: modoMultidaoAtivo ? estadoMultidao?.round : machine.round, auto: modoMultidaoAtivo ? modoAutoMultidao.modoAutoMultidaoOn : modoAuto.modoAutoOn, terminou: Boolean(result) })
+  useEffect(() => () => { lutaAoVivo.ler = null }, [])
   function agirAuto() {
     const acao = escolherAcaoAuto({ ator: actingMember, aliados: aliadosOrb, especiais: equippedSpecials, pagavel: canAffordSpecial, itens: itensDisponiveis, config: autoConfig.config })
     if (acao.tipo === 'item') handleUsarItem(acao.itemId, acao.alvoKey)

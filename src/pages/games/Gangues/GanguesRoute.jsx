@@ -101,10 +101,25 @@ export default function GanguesRoute() {
   }, [fase])
   const voltar = () => {
     const hist = historicoRef.current
-    hist.pop()
+    const atual = hist.pop()
     const anterior = hist.pop()
+    // Cena aberta direto da escolha de save (último território): voltar leva
+    // pro MAPA, pra escolher outro bairro — não de volta pra lista de saves.
+    if (atual === 'territorio' && anterior === 'save-select') { setFase('story'); return }
     if (anterior) setFase(anterior)
   }
+
+  // Lembra o último território (storyProgress.__ultimoTerritorio): entrar na
+  // cena marca; sair dela pro mapa/modos/lobby por conta própria desmarca.
+  // Luta e vitória no meio do caminho não mexem (continuam "no território").
+  const faseAnterior = useRef(fase)
+  useEffect(() => {
+    const antes = faseAnterior.current
+    faseAnterior.current = fase
+    const tid = store.storyTarget?.territorioId
+    if (fase === 'territorio' && temCena(tid)) store.marcarUltimoTerritorio(tid)
+    else if (antes === 'territorio' && ['story', 'modes', 'lobby'].includes(fase)) store.marcarUltimoTerritorio(null)
+  }, [fase])
 
   // Conta logada: cada gangue é um save separado (ver GanguesSaveSelect) — a
   // primeira coisa a fazer é escolher/criar um save, antes de ver o lobby.
@@ -346,7 +361,11 @@ export default function GanguesRoute() {
           o elenco por escolha própria) - fugir de uma luta em andamento
           volta pro hub de verdade (Modes), igual qualquer outra saída de
           combate/território. */}
-      {fase === 'combat' && <GanguesCombat onNavigate={setFase} onSairConfirmado={() => setFase('modes')} />}
+      {fase === 'combat' && (
+        <GanguesFarmAusente luta aoVoltar={() => { store.setStoryTarget({ territorioId: useGanguesStore.getState().storyTarget?.territorioId }); setFase('territorio') }}>
+          <GanguesCombat onNavigate={setFase} onSairConfirmado={() => setFase('modes')} />
+        </GanguesFarmAusente>
+      )}
       {fase === 'victory' && <GanguesVictory onNavigate={navegar} />}
     </div>
   )

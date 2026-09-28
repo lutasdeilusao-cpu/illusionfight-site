@@ -24,7 +24,7 @@ Grafia oficial: **Marélia** com acento (o conto usa assim). O i18n do jogo aind
 tem "Marelia" sem acento em vários lugares — alinhar quando mexer em texto.
 
 > **Estado do documento: retrato do jogo como ele está HOJE — conferido contra
-> o código de GANGUES 3.73.0 (SITE 10.305.x), 28/09/2026.** Regra: o GDD
+> o código de GANGUES 3.74.0 (SITE 10.306.x), 28/09/2026.** Regra: o GDD
 > descreve o produto atual, não guarda diário de versões — quando algo muda
 > no jogo, o trecho que falava da versão antiga é REESCRITO, não empilhado
 > embaixo com "v3.xx: agora...". Histórico de mudança mora no git.
@@ -2132,11 +2132,20 @@ entre o analógico e o botão de interagir (`ldi-gangues-briga-auto`).
   `desligarAutomaticos()`.
 
 **Farm ausente — o idle** (`engine/ganguesFarmAusente.js` +
-`components/cena/GanguesFarmAusente.jsx`). O jogo **não roda escondido**: com a
-briga automática ligada, o app ir pra segundo plano **desmonta a cena**
-(imagens, animações e relógios saem da memória). Na volta: tela de carga, as
-lutas que cabem no tempo fora são **calculadas** e sai o resumo "Enquanto você
-tava fora" (brigas, grana, rep, sucata, poções, quem subiu de nível).
+`components/cena/GanguesFarmAusente.jsx`). O jogo **não roda escondido** — o
+embrulho do farm envolve a cena E a luta:
+- **Na rua**, com a briga automática ligada, o app ir pra segundo plano
+  **desmonta a cena** (imagens, animações e relógios saem da memória).
+- **No meio de uma luta de rua da cena com o automático ligado**, a **tela da
+  luta** é desmontada (som e relógios param) e o estado vivo dela — PV/PM de
+  cada um, rodada — é guardado (`lutaAoVivo`, que o `GanguesCombat` mantém
+  atualizado). Na volta, essa MESMA luta é terminada por cálculo do ponto
+  exato onde parou, e só depois vem o farm. Luta de chefe, Clube e Torre, ou
+  luta no manual, ficam de fora (seguem na tela como sempre).
+- Na volta: tela de carga, conta, e o resumo "Enquanto você tava fora"
+  (brigas, grana, rep, sucata, poções, quem subiu de nível). O "Voltar pra
+  rua" leva pra cena daquele bairro: no ponto da briga, ou na birosca se a
+  tropa caiu.
 - **Contas iguais às de uma luta de verdade:** o gerador de bando e o nível
   daquele ponto, o motor da Briga em Multidão, as ações de vitória do store (AP,
   grana, rep, álbum, sucata) e o dano que persiste. Segue o ajuste do
@@ -2146,7 +2155,9 @@ tava fora" (brigas, grana, rep, sucata, poções, quem subiu de nível).
   (`posicao.adversario`, lembrado mesmo entrando em cômodo ou sendo pego por
   encontro aleatório). Nunca "a região". Sem adversário, ou se ele é
   vermelho/chefe/área do chefe, não farma nada.
-- **1 luta a cada 40s** fora; mínimo de 30s fora.
+- **1 luta a cada 40s** fora; mínimo de 30s fora pra farmar (a luta
+  interrompida sempre termina, mesmo com menos). O farm depois dela só roda
+  com a briga automática ligada.
 - **Teto: +5 níveis por ausência** — bateu, para.
 - **Só com a aba aberta:** fechou a aba, perdeu (o instante da saída mora só na
   memória da página, de propósito — o jogo não vira "esquece e volta rico").
@@ -2269,6 +2280,12 @@ pilha de histórico (`GANGUES_FASES_TRANSITORIAS`).
   beta. O limite só impede fundar gangue nova; save criado a mais no beta nunca
   some. Não precisa de migration: `gangues_saves` (038) já guarda vários saves
   por conta e o Supabase não impõe limite nenhum — o limite é do cliente.
+- **Abrir um save** com gangue montada leva **direto pro último território**
+  em que o jogador estava (`storyProgress.__ultimoTerritorio`, salvo no save):
+  ele cai no ponto da última briga, ou na birosca se a tropa caiu. Entrar na
+  cena marca o território; sair dela pro mapa/modos/lobby por conta própria
+  desmarca (aí o save abre no mapa). Voltar dessa cena leva pro mapa. Luta e
+  vitória no meio do caminho não mexem na marca. Save sem gangue abre no lobby.
 
 ### 17.6 Modo História — a cena navegável (hoje só a Pista)
 
