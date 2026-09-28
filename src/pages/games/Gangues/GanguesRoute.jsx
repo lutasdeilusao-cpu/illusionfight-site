@@ -110,15 +110,10 @@ export default function GanguesRoute() {
   }
 
   // Lembra o último território (storyProgress.__ultimoTerritorio): entrar na
-  // cena marca; sair dela pro mapa/modos/lobby por conta própria desmarca.
-  // Luta e vitória no meio do caminho não mexem (continuam "no território").
-  const faseAnterior = useRef(fase)
+  // cena marca — é pra lá que o save abre (GanguesSaveSelect).
   useEffect(() => {
-    const antes = faseAnterior.current
-    faseAnterior.current = fase
     const tid = store.storyTarget?.territorioId
     if (fase === 'territorio' && temCena(tid)) store.marcarUltimoTerritorio(tid)
-    else if (antes === 'territorio' && ['story', 'modes', 'lobby'].includes(fase)) store.marcarUltimoTerritorio(null)
   }, [fase])
 
   // Conta logada: cada gangue é um save separado (ver GanguesSaveSelect) — a

@@ -24,7 +24,7 @@ Grafia oficial: **Marélia** com acento (o conto usa assim). O i18n do jogo aind
 tem "Marelia" sem acento em vários lugares — alinhar quando mexer em texto.
 
 > **Estado do documento: retrato do jogo como ele está HOJE — conferido contra
-> o código de GANGUES 3.74.1 (SITE 10.306.x), 28/09/2026.** Regra: o GDD
+> o código de GANGUES 3.74.2 (SITE 10.306.x), 28/09/2026.** Regra: o GDD
 > descreve o produto atual, não guarda diário de versões — quando algo muda
 > no jogo, o trecho que falava da versão antiga é REESCRITO, não empilhado
 > embaixo com "v3.xx: agora...". Histórico de mudança mora no git.
@@ -2282,12 +2282,13 @@ pilha de histórico (`GANGUES_FASES_TRANSITORIAS`).
   beta. O limite só impede fundar gangue nova; save criado a mais no beta nunca
   some. Não precisa de migration: `gangues_saves` (038) já guarda vários saves
   por conta e o Supabase não impõe limite nenhum — o limite é do cliente.
-- **Abrir um save** com gangue montada leva **direto pro último território**
-  em que o jogador estava (`storyProgress.__ultimoTerritorio`, salvo no save):
-  ele cai no ponto da última briga, ou na birosca se a tropa caiu. Entrar na
-  cena marca o território; sair dela pro mapa/modos/lobby por conta própria
-  desmarca (aí o save abre no mapa). Voltar dessa cena leva pro mapa. Luta e
-  vitória no meio do caminho não mexem na marca. Save sem gangue abre no lobby.
+- **Abrir um save** com gangue montada (jogo em progresso) leva **sempre
+  direto pra dentro do território** — nunca pro mapa: o último em que o
+  jogador esteve (`storyProgress.__ultimoTerritorio`, salvo no save; entrar
+  numa cena marca); save antigo sem a marca abre no bairro mais adiantado em
+  que a tropa já pisou, e na Pista se não pisou em nenhum. Cai no ponto da
+  última briga, ou na birosca se a tropa caiu. Trocar de bairro é pelo Voltar
+  da cena, que leva pro mapa. Save sem gangue abre no lobby.
 
 ### 17.6 Modo História — a cena navegável (hoje só a Pista)
 

@@ -5,6 +5,7 @@ import { useLanguage } from '../../../../context/LanguageContext'
 import { useAuth } from '../../../../context/AuthContext'
 import { useGanguesStore } from '../store/useGanguesStore'
 import { temCena } from '../data/cenas/cenaHelpers.js'
+import { GANGUES_TERRITORIOS } from '../data/ganguesTerritorios.js'
 import { contarTerritoriosDominados, getGanguesSaveSlotLimit, GANGUES_SAVE_SLOTS_BETA_LIBERADO } from '../data/ganguesLoadout.js'
 import { sfx } from '../../../../lib/sfx'
 import logoPt from '../assets/logos/logo-pt.png'
@@ -71,6 +72,16 @@ function formatarData(iso) {
   try { return new Date(iso).toLocaleDateString() } catch { return '' }
 }
 
+// Em que bairro o save abre: o último em que o jogador esteve
+// (storyProgress.__ultimoTerritorio); save antigo sem essa marca → o bairro
+// mais adiantado em que a tropa já pisou (tem progresso de cena); nenhum → Pista.
+export function territorioParaAbrir(estado) {
+  const ultimo = estado.storyProgress?.__ultimoTerritorio
+  if (ultimo && temCena(ultimo)) return ultimo
+  const pisados = GANGUES_TERRITORIOS.filter(terr => temCena(terr.id) && estado.cenaProgresso?.[terr.id])
+  return pisados[pisados.length - 1]?.id || 'pista'
+}
+
 export default function GanguesSaveSelect({ onNavigate }) {
   const { t, locale } = useLanguage()
   const navigate = useNavigate()
@@ -128,19 +139,15 @@ export default function GanguesSaveSelect({ onNavigate }) {
     sfx.select?.()
     setAbrindo(saveId)
     await store.selecionarSave(saveId)
-    // Save que já tem gangue montada → direto pro ÚLTIMO TERRITÓRIO em que o
-    // jogador estava (storyProgress.__ultimoTerritorio — ele cai no ponto da
-    // última briga, ou na birosca se a tropa caiu); sem território marcado,
-    // pro MAPA (escolher). Save vazio cai no lobby, onde mora o onboarding.
+    // Save com gangue montada = jogo em progresso → SEMPRE direto pra dentro
+    // do território, nunca pro mapa (Isaias, 28/09/2026: "não quero mais
+    // escolher o mapa, porque eu estou num jogo em progresso"). Cai no ponto
+    // da última briga, ou na birosca se a tropa caiu. Trocar de bairro é pelo
+    // Voltar da cena, que leva pro mapa. Save vazio cai no lobby (onboarding).
     const estado = useGanguesStore.getState()
-    const temGangue = estado.roster.length >= 2
-    const ultimo = estado.storyProgress?.__ultimoTerritorio
-    if (temGangue && ultimo && temCena(ultimo)) {
-      estado.setStoryTarget({ territorioId: ultimo })
-      onNavigate('territorio')
-      return
-    }
-    onNavigate(temGangue ? 'story' : 'lobby')
+    if (estado.roster.length < 2) { onNavigate('lobby'); return }
+    estado.setStoryTarget({ territorioId: territorioParaAbrir(estado) })
+    onNavigate('territorio')
   }
 
   const criar = async () => {

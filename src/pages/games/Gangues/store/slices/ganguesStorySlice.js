@@ -66,11 +66,10 @@ export default function createGanguesStorySlice(set, get) {
     // mesmo JSONB que já existe.
     // Último território em que o jogador estava (Isaias, 28/09/2026: "quando
     // eu inicio um jogo, eu tenho que iniciar no último território que eu
-    // estava"). Abrir o save leva direto pra ele; null = saiu pro mapa por
-    // conta própria (aí o save abre no mapa, pra escolher).
+    // estava"). Abrir o save leva direto pra ele (GanguesSaveSelect).
     marcarUltimoTerritorio: (territorioId) => {
-      if (!get()._saveId || (get().storyProgress.__ultimoTerritorio || null) === (territorioId || null)) return
-      set(state => ({ storyProgress: { ...state.storyProgress, __ultimoTerritorio: territorioId || null } }))
+      if (!territorioId || !get()._saveId || get().storyProgress.__ultimoTerritorio === territorioId) return
+      set(state => ({ storyProgress: { ...state.storyProgress, __ultimoTerritorio: territorioId } }))
       get()._persistStory()
     },
 
