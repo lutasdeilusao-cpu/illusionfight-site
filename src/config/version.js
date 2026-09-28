@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.304.0' // feat(gangues): farm ausente (idle calculado na volta, teto de +5 níveis) + briga automática sem vermelho/chefe/área do chefe e derrota desliga tudo.
+export const SITE_VERSION = '10.304.1' // fix(gangues): farm ausente só grinda o último adversário e a luta da derrota não dá XP.
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.2' // fix: aba "stories" do rodape mostrava a chave crua pp.menu.pistas_label (nao existia) -> aponta pra pp.dossier.pistas_label; PuzzleWrapper mostrava pp.puzzle.nenhum/instrucao (nao existiam) -> pp.local.puzzle_nenhum/instrucao; confirm() de deletar save mostrava pp.menu.deletar_slot cru -> chave criada nos 3 idiomas.
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '3.72.0' // farm ausente: cena desmonta em 2º plano, lutas do tempo fora calculadas na volta (teto +5 níveis, aba aberta); briga auto não pega vermelho/chefe/área do chefe; derrota desliga todo automático.
+export const GANGUES_VERSION   = '3.72.1' // farm ausente: só o adversário da última luta (sem cair pro ponto mais perto), adversário lembrado entre rua/cômodo/encontro, luta da derrota sem XP.
 
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio

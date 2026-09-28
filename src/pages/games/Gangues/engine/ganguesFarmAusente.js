@@ -14,12 +14,15 @@
      — o ponto de partida mora só na memória da página, de propósito, pra o
      jogo não virar "esquece e volta rico";
    • no máximo +5 níveis por ausência (GANGUES_FARM_TETO_NIVEIS): bateu, para;
-   • só farma ponto que a briga automática aceitaria: treta repetível, nunca
-     vermelho (obrigatório ainda não feito), nunca chefe, nunca na área do
-     chefe (naAreaDoChefe, cenaHelpers.js);
-   • perdeu uma luta = para ali, a tropa é arrastada pra birosca (o mesmo
-     socorro da derrota de verdade) e TODO automático desliga — o jogador
-     tem que voltar a jogar pra ligar de novo.
+   • farma SÓ o adversário que o jogador estava grindando — o da última
+     luta (`posicao.adversario`), com o mesmo gerador de bando e o mesmo
+     nível daquele ponto. Nunca "a região": o bairro tem gente de todo
+     nível, a conta tem que ser a daquele cara (Isaias, 28/09/2026). Sem
+     adversário, ou se ele não vale pra briga automática (vermelho, chefe,
+     área do chefe — naAreaDoChefe, cenaHelpers.js), não farma nada;
+   • perdeu uma luta = para ali, sem XP nenhum dessa luta, a tropa acorda na
+     birosca DAQUELE bairro (o mesmo socorro da derrota de verdade — na
+     Feira é a pensão) e TODO automático desliga.
    ══════════════════════════════════════════════════════════════ */
 import { iniciarBrigaMultidao, avancarRodadaMultidao } from './ganguesBrigaMultidao.js'
 import { calcularApTotal, calcularPesosEParticipantes, calcularRecompensaCena } from './ganguesVictoryResolver.js'
@@ -48,22 +51,17 @@ const GANGUES_FARM_SUCATA_CHANCE = 0.2
 const nivelDe = m => getGanguesLevelFromXp(m?.xp_total ?? 0)
 const vermelho = (p, prog) => !p.opcional && !prog.resolvidos?.[p.id]
 
-/** O ponto que o farm ausente repete: o adversário da última luta, se ele
- *  vale; senão o ponto válido mais perto de onde o jogador estava. */
+/** O ponto que o farm ausente repete: o adversário da última luta — e só
+ *  ele. Null se não tem, ou se ele não vale pra briga automática. */
 export function alvoDoFarm(cena, prog, rep = 0) {
   if (!cena || !prog) return null
   const pos = prog.posicao || {}
   if (naAreaDoChefe(cena, prog, pos)) return null
-  const vale = p => p.tipo === 'treta' && p.repetivel && !p.ehChefe && !vermelho(p, prog)
+  const p = cena.pois.find(x => x.id === pos.adversario)
+  const vale = p && p.tipo === 'treta' && p.repetivel && !p.ehChefe && !vermelho(p, prog)
     && estadoPoi(p, prog) === 'disponivel' && !(p.repGate && rep < p.repGate)
     && (p.revezamento || p.pontosFixo) && !naAreaDoChefe(cena, prog, posNoMapa(cena, p.id) || {})
-  const validos = cena.pois.filter(vale)
-  const ultimo = validos.find(p => p.id === pos.adversario)
-  if (ultimo) return ultimo
-  const pr = pos.local ? (cena.predios || []).find(x => x.porta?.para === pos.local.id) : null
-  const daqui = pr ? { x: pr.porta?.zx ?? pr.x, y: pr.porta?.zy ?? pr.y } : pos
-  const dist = p => { const q = posNoMapa(cena, p.id); return q ? Math.hypot(q.x - daqui.x, q.y - daqui.y) : Infinity }
-  return validos.sort((a, b) => dist(a) - dist(b))[0] || null
+  return vale ? p : null
 }
 
 // Mesmo bando que o GanguesRoute monta pra esse ponto (sem as suavizações de
@@ -113,10 +111,7 @@ export function simularFarmAusente({ store, cena, territorioId, segundos, enemie
     const inimigos = combatants.filter(c => c.side === 'enemy')
     const pontosMaisForte = Math.max(1, ...party.map(m => ['A', 'H', 'D', 'PV', 'PM'].reduce((t, k) => t + (Number(m.attributes?.[k]) || 0), 0)))
     const apBruto = calcularApTotal({ victory, enemyCount: inimigos.length, cenaChefe: false, torre: false, inimigosAttrs: inimigos.map(c => c.attributes), pontosMaisForte, tamanhoTime: party.length, territorioId })
-    const ap = victory ? Math.max(party.length, apBruto) : apBruto
-    const { pesosPorId, nivelPorId } = calcularPesosEParticipantes({ victory, report, match })
     s.aplicarDanoPersistente(combatants)
-    s.gainApForParticipants(ap, pesosPorId, nivelPorId)
     if (!victory) {
       const prog = store().cenaProgresso[cena.id]
       const destino = destinoSocorroDerrota(cena, prog)
@@ -130,6 +125,8 @@ export function simularFarmAusente({ store, cena, territorioId, segundos, enemie
       break
     }
     resumo.vitorias++
+    const { pesosPorId, nivelPorId } = calcularPesosEParticipantes({ victory, report, match })
+    s.gainApForParticipants(Math.max(party.length, apBruto), pesosPorId, nivelPorId)
     s.registrarNoAlbum(inimigos.map(c => c.id))
     const { grana, rep, itens } = calcularRecompensaCena({ emCena: true, storyAlvo: { territorioId, cenaRecompensa: poi.recompensa || null }, enemyCount: inimigos.length })
     s.marcarPoiResolvido(cena.id, poi.id, poi.revela || [])

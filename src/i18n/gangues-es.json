@@ -747,7 +747,7 @@
         "niveis": "Subió de nivel",
         "teto": "Llegaste al tope de +5 niveles por ausencia — de acá en adelante, a jugar.",
         "derrota": "La banda cayó en una de las peleas: la arrastraron al bar y se apagó todo lo automático. Prendelo de nuevo cuando quieras volver a farmear.",
-        "sem_alvo": "Desde acá no había pelea para farmear (zona del jefe, o ningún punto liberado). No cambió nada.",
+        "sem_alvo": "No había rival para farmear: solo se grindea al último que enfrentaste — nunca uno rojo, el jefe o la zona del jefe. No cambió nada.",
         "pouco_tempo": "Fue un toque — ninguna pelea llegó a cerrar.",
         "voltar": "Volver a la calle"
       },

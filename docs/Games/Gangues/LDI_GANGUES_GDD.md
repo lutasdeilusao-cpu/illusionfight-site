@@ -2152,9 +2152,13 @@ estilo Medabots/ATB do Chrono Trigger; substitui a iniciativa Malícia+d3):
   o resumo "Enquanto você tava fora". Regras: só conta com a ABA ABERTA
   (fechou a aba, perdeu — o instante de saída mora só na memória da
   página, de propósito); mínimo 30s fora; **teto de +5 níveis por
-  ausência** (bateu, para); farma o adversário da última luta ou o ponto
-  válido mais perto (treta repetível, nunca vermelha/chefe/área do chefe);
-  **perdeu uma luta, para ali** — tropa arrastada pra birosca (mesmo
+  ausência** (bateu, para); farma **só o adversário da última luta** — o
+  cara que o jogador estava grindando, com o gerador de bando e o nível
+  DAQUELE ponto, nunca "a região" (v3.72.1; sem adversário, ou se ele é
+  vermelho/chefe/área do chefe, não farma nada — o adversário fica
+  lembrado mesmo entrando em cômodo ou sendo pego por encontro aleatório);
+  **perdeu uma luta, para ali** — sem XP nenhum da luta em que caiu, tropa
+  acorda na birosca DAQUELE bairro (Pista: birosca; Feira: pensão — o mesmo
   socorro da derrota) e todo automático desliga. Como o dano persiste,
   tropa sem descanso cai depois de algumas brigas: o idle rende mais pra
   quem sai com a tropa curada.

@@ -747,7 +747,7 @@
         "niveis": "Subiu de nível",
         "teto": "Bateu o teto de +5 níveis por ausência — daqui pra frente, só jogando.",
         "derrota": "A tropa caiu numa das brigas: foi arrastada pra birosca e todo automático desligou. Liga de novo quando quiser voltar pro farm.",
-        "sem_alvo": "Daqui não tinha briga pra farmar (área do chefe, ou nenhum ponto liberado). Nada mudou.",
+        "sem_alvo": "Não tinha adversário pra farmar: o farm só grinda o último cara que você enfrentou — e nunca vermelho, chefe ou área do chefe. Nada mudou.",
         "pouco_tempo": "Foi rapidinho — nenhuma briga chegou a fechar.",
         "voltar": "Voltar pra rua"
       },

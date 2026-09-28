@@ -42,11 +42,15 @@ export default function createGanguesCenaProgressoSlice(set, get) {
     // (só gravado na entrada de uma treta; qualquer outro salvamento limpa) —
     // a briga automática da cena ignora esse cara na volta até descolar
     // (hooks/useGanguesBrigaAutomatica.js), senão entraria em loop.
+    // `adversario` (o último ponto em que o jogador brigou — anti-loop da
+    // briga automática e alvo do farm ausente) só muda quando quem salva
+    // manda o campo; andar entre rua/cômodo ou um encontro aleatório não
+    // apagam quem ele estava grindando.
     salvarPosicaoCena: (cenaId, posicao) => {
       if (!cenaId || !Number.isFinite(posicao?.x) || !Number.isFinite(posicao?.y)) return
       set(state => {
         const atual = state.cenaProgresso[cenaId] || { resolvidos: {}, revelados: {}, boss: false }
-        return { cenaProgresso: { ...state.cenaProgresso, [cenaId]: { ...atual, posicao: { x: Math.round(posicao.x), y: Math.round(posicao.y), local: posicao.local || null, adversario: posicao.adversario || null } } } }
+        return { cenaProgresso: { ...state.cenaProgresso, [cenaId]: { ...atual, posicao: { x: Math.round(posicao.x), y: Math.round(posicao.y), local: posicao.local || null, adversario: (posicao.adversario !== undefined ? posicao.adversario : atual.posicao?.adversario) || null } } } }
       })
       get()._persistCena()
     },
