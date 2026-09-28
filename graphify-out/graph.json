@@ -294,6 +294,1076 @@
       "norm_label": "13. onde procurar primeiro"
     },
     {
+      "label": "LDI_GANGUES_GDD.md",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd",
+      "community": 4,
+      "norm_label": "ldi_gangues_gdd.md"
+    },
+    {
+      "label": "LDI GANGUES \u2014 GDD (Game Design Document \u00b7 a b\u00edblia \u00fanica)",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_ldi_gangues_gdd_game_design_document_a_b\u00edblia_\u00fanica",
+      "community": 4,
+      "norm_label": "ldi gangues \u2014 gdd (game design document \u00b7 a biblia unica)"
+    },
+    {
+      "label": "0. Princ\u00edpio de dados \u2014 faixas de ID",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L36",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_0_princ\u00edpio_de_dados_faixas_de_id",
+      "community": 4,
+      "norm_label": "0. principio de dados \u2014 faixas de id"
+    },
+    {
+      "label": "1. A estrutura de poder",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L74",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_1_a_estrutura_de_poder",
+      "community": 457,
+      "norm_label": "1. a estrutura de poder"
+    },
+    {
+      "label": "1.1 A Banca \u2014 a organiza\u00e7\u00e3o-m\u00e3e",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L76",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_1_1_a_banca_a_organiza\u00e7\u00e3o_m\u00e3e",
+      "community": 457,
+      "norm_label": "1.1 a banca \u2014 a organizacao-mae"
+    },
+    {
+      "label": "1.2 A hierarquia \u2014 de baixo pra cima (faixa 200\u2013299)",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L91",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_1_2_a_hierarquia_de_baixo_pra_cima_faixa_200_299",
+      "community": 457,
+      "norm_label": "1.2 a hierarquia \u2014 de baixo pra cima (faixa 200\u2013299)"
+    },
+    {
+      "label": "1.3 O Proceder \u2014 o c\u00f3digo que segura tudo",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L112",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_1_3_o_proceder_o_c\u00f3digo_que_segura_tudo",
+      "community": 457,
+      "norm_label": "1.3 o proceder \u2014 o codigo que segura tudo"
+    },
+    {
+      "label": "1.4 A C\u00fapula (gancho p\u00f3s-jogo / evento)",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L134",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_1_4_a_c\u00fapula_gancho_p\u00f3s_jogo_evento",
+      "community": 457,
+      "norm_label": "1.4 a cupula (gancho pos-jogo / evento)"
+    },
+    {
+      "label": "2. As fac\u00e7\u00f5es \u2014 quem \u00e9 dono de cada peda\u00e7o (faixa 100\u2013199)",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L147",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_2_as_fac\u00e7\u00f5es_quem_\u00e9_dono_de_cada_peda\u00e7o_faixa_100_199",
+      "community": 4,
+      "norm_label": "2. as faccoes \u2014 quem e dono de cada pedaco (faixa 100\u2013199)"
+    },
+    {
+      "label": "3. Linha do tempo \u2014 os 10 anos antes do Rei",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L168",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_3_linha_do_tempo_os_10_anos_antes_do_rei",
+      "community": 4,
+      "norm_label": "3. linha do tempo \u2014 os 10 anos antes do rei"
+    },
+    {
+      "label": "4. Os 7 territ\u00f3rios \u2014 com pontos de interesse (faixa 1\u201399)",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L208",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_4_os_7_territ\u00f3rios_com_pontos_de_interesse_faixa_1_99",
+      "community": 448,
+      "norm_label": "4. os 7 territorios \u2014 com pontos de interesse (faixa 1\u201399)"
+    },
+    {
+      "label": "Territ\u00f3rio 1 \u2014 A Pista \u00b7 Rato de rua \u00b7 `#3ddc97`",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L215",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_territ\u00f3rio_1_a_pista_rato_de_rua_3ddc97",
+      "community": 448,
+      "norm_label": "territorio 1 \u2014 a pista \u00b7 rato de rua \u00b7 `#3ddc97`"
+    },
+    {
+      "label": "Territ\u00f3rio 2 \u2014 A Feira \u00b7 Muvuca \u00b7 `#7ee787`",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L360",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_territ\u00f3rio_2_a_feira_muvuca_7ee787",
+      "community": 448,
+      "norm_label": "territorio 2 \u2014 a feira \u00b7 muvuca \u00b7 `#7ee787`"
+    },
+    {
+      "label": "Territ\u00f3rio 3 \u2014 A Baixada \u00b7 Correria \u00b7 `#18dafb`",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L371",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_territ\u00f3rio_3_a_baixada_correria_18dafb",
+      "community": 448,
+      "norm_label": "territorio 3 \u2014 a baixada \u00b7 correria \u00b7 `#18dafb`"
+    },
+    {
+      "label": "Territ\u00f3rio 4 \u2014 A Vila \u00b7 Disputa \u00b7 `#ffae32`",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L381",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_territ\u00f3rio_4_a_vila_disputa_ffae32",
+      "community": 448,
+      "norm_label": "territorio 4 \u2014 a vila \u00b7 disputa \u00b7 `#ffae32`"
+    },
+    {
+      "label": "Territ\u00f3rio 5 \u2014 O Morro \u00b7 Guerra \u00b7 `#ff8f3c`",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L391",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_territ\u00f3rio_5_o_morro_guerra_ff8f3c",
+      "community": 448,
+      "norm_label": "territorio 5 \u2014 o morro \u00b7 guerra \u00b7 `#ff8f3c`"
+    },
+    {
+      "label": "Territ\u00f3rio 6 \u2014 Alto do Morro \u00b7 No sangue \u00b7 `#ff6b6b`",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L401",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_territ\u00f3rio_6_alto_do_morro_no_sangue_ff6b6b",
+      "community": 448,
+      "norm_label": "territorio 6 \u2014 alto do morro \u00b7 no sangue \u00b7 `#ff6b6b`"
+    },
+    {
+      "label": "Territ\u00f3rio 7 \u2014 A Laje \u00b7 A Coroa \u00b7 `#a855f7`",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L410",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_territ\u00f3rio_7_a_laje_a_coroa_a855f7",
+      "community": 448,
+      "norm_label": "territorio 7 \u2014 a laje \u00b7 a coroa \u00b7 `#a855f7`"
+    },
+    {
+      "label": "5. O \u00c1lbum de Mar\u00e9lia \u2014 roster de inimigos",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L424",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_5_o_\u00e1lbum_de_mar\u00e9lia_roster_de_inimigos",
+      "community": 449,
+      "norm_label": "5. o album de marelia \u2014 roster de inimigos"
+    },
+    {
+      "label": "5.1 N\u00edvel 1 \u2014 VIGIA / FOGUETEIRO (faixa 1101\u20131121)",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L452",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_5_1_n\u00edvel_1_vigia_fogueteiro_faixa_1101_1121",
+      "community": 449,
+      "norm_label": "5.1 nivel 1 \u2014 vigia / fogueteiro (faixa 1101\u20131121)"
+    },
+    {
+      "label": "5.2 N\u00edvel 2 \u2014 VAPOR (faixa 1201\u20131221)",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L481",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_5_2_n\u00edvel_2_vapor_faixa_1201_1221",
+      "community": 449,
+      "norm_label": "5.2 nivel 2 \u2014 vapor (faixa 1201\u20131221)"
+    },
+    {
+      "label": "5.3 N\u00edvel 3 \u2014 GERENTE DE BOCA (faixa 1301\u20131321)",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L509",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_5_3_n\u00edvel_3_gerente_de_boca_faixa_1301_1321",
+      "community": 449,
+      "norm_label": "5.3 nivel 3 \u2014 gerente de boca (faixa 1301\u20131321)"
+    },
+    {
+      "label": "5.4 N\u00edvel 4 \u2014 COBRADOR (faixa 1401\u20131414)",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L537",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_5_4_n\u00edvel_4_cobrador_faixa_1401_1414",
+      "community": 449,
+      "norm_label": "5.4 nivel 4 \u2014 cobrador (faixa 1401\u20131414)"
+    },
+    {
+      "label": "5.5 N\u00edvel 5 \u2014 GENERAL / BRA\u00c7O-DIREITO (faixa 1451\u20131464)",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L559",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_5_5_n\u00edvel_5_general_bra\u00e7o_direito_faixa_1451_1464",
+      "community": 449,
+      "norm_label": "5.5 nivel 5 \u2014 general / braco-direito (faixa 1451\u20131464)"
+    },
+    {
+      "label": "5.6 Fichas do encontro aleat\u00f3rio (1701\u20131712, fora do \u00c1lbum)",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L581",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_5_6_fichas_do_encontro_aleat\u00f3rio_1701_1712_fora_do_\u00e1lbum",
+      "community": 449,
+      "norm_label": "5.6 fichas do encontro aleatorio (1701\u20131712, fora do album)"
+    },
+    {
+      "label": "6. Dossi\u00ea dos chefes (faixa 1500\u20131600)",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L597",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_6_dossi\u00ea_dos_chefes_faixa_1500_1600",
+      "community": 447,
+      "norm_label": "6. dossie dos chefes (faixa 1500\u20131600)"
+    },
+    {
+      "label": "1500 \u00b7 Carv\u00e3o \u2014 Chefe da Pista",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L603",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_1500_carv\u00e3o_chefe_da_pista",
+      "community": 447,
+      "norm_label": "1500 \u00b7 carvao \u2014 chefe da pista"
+    },
+    {
+      "label": "1501 \u00b7 O Cobrador \u2014 Chefe da Feira",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L609",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_1501_o_cobrador_chefe_da_feira",
+      "community": 447,
+      "norm_label": "1501 \u00b7 o cobrador \u2014 chefe da feira"
+    },
+    {
+      "label": "1502 \u00b7 Fura-Bucho \u2014 Chefe da Baixada",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L615",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_1502_fura_bucho_chefe_da_baixada",
+      "community": 447,
+      "norm_label": "1502 \u00b7 fura-bucho \u2014 chefe da baixada"
+    },
+    {
+      "label": "1503 \u00b7 Ferrugem \u2014 Chefe da Vila",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L620",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_1503_ferrugem_chefe_da_vila",
+      "community": 447,
+      "norm_label": "1503 \u00b7 ferrugem \u2014 chefe da vila"
+    },
+    {
+      "label": "1504 \u00b7 A Fera / Zefa \u2014 Chefe do Morro",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L626",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_1504_a_fera_zefa_chefe_do_morro",
+      "community": 447,
+      "norm_label": "1504 \u00b7 a fera / zefa \u2014 chefe do morro"
+    },
+    {
+      "label": "1505 \u00b7 O Contador \u2014 Chefe do Alto do Morro",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L632",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_1505_o_contador_chefe_do_alto_do_morro",
+      "community": 447,
+      "norm_label": "1505 \u00b7 o contador \u2014 chefe do alto do morro"
+    },
+    {
+      "label": "1600 \u00b7 O Retalho \u2014 Dami\u00e3o \u2014 Chefe Final",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L637",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_1600_o_retalho_dami\u00e3o_chefe_final",
+      "community": 447,
+      "norm_label": "1600 \u00b7 o retalho \u2014 damiao \u2014 chefe final"
+    },
+    {
+      "label": "7. Os 30 lutadores recrut\u00e1veis (o elenco do jogador)",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L646",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_7_os_30_lutadores_recrut\u00e1veis_o_elenco_do_jogador",
+      "community": 4,
+      "norm_label": "7. os 30 lutadores recrutaveis (o elenco do jogador)"
+    },
+    {
+      "label": "7.1 Hist\u00f3ria de recrutamento (bios)",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L703",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_7_1_hist\u00f3ria_de_recrutamento_bios",
+      "community": 4,
+      "norm_label": "7.1 historia de recrutamento (bios)"
+    },
+    {
+      "label": "8. NPCs n\u00e3o-combatentes (faixa 3000\u20133099)",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1022",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_8_npcs_n\u00e3o_combatentes_faixa_3000_3099",
+      "community": 4,
+      "norm_label": "8. npcs nao-combatentes (faixa 3000\u20133099)"
+    },
+    {
+      "label": "9. Itens \u2014 cat\u00e1logo oficial",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1044",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_9_itens_cat\u00e1logo_oficial",
+      "community": 450,
+      "norm_label": "9. itens \u2014 catalogo oficial"
+    },
+    {
+      "label": "9.1 Economia",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1046",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_9_1_economia",
+      "community": 450,
+      "norm_label": "9.1 economia"
+    },
+    {
+      "label": "9.2 Invent\u00e1rio \u2014 \u00e9 da GANGUE, n\u00e3o do personagem",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1052",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_9_2_invent\u00e1rio_\u00e9_da_gangue_n\u00e3o_do_personagem",
+      "community": 450,
+      "norm_label": "9.2 inventario \u2014 e da gangue, nao do personagem"
+    },
+    {
+      "label": "9.3 Consum\u00edveis (faixa 1\u201399)",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1060",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_9_3_consum\u00edveis_faixa_1_99",
+      "community": 450,
+      "norm_label": "9.3 consumiveis (faixa 1\u201399)"
+    },
+    {
+      "label": "9.4 Equipamento \u2014 6 slots por personagem",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1092",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_9_4_equipamento_6_slots_por_personagem",
+      "community": 450,
+      "norm_label": "9.4 equipamento \u2014 6 slots por personagem"
+    },
+    {
+      "label": "9.5 \u00c9picos \u2014 drop de chefe (faixa 132+)",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1142",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_9_5_\u00e9picos_drop_de_chefe_faixa_132",
+      "community": 450,
+      "norm_label": "9.5 epicos \u2014 drop de chefe (faixa 132+)"
+    },
+    {
+      "label": "9.6 Loja",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1158",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_9_6_loja",
+      "community": 450,
+      "norm_label": "9.6 loja"
+    },
+    {
+      "label": "10. Conto 02 \u2014 sinopse can\u00f4nica (\"Alan, o Campe\u00e3o\")",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1174",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_10_conto_02_sinopse_can\u00f4nica_alan_o_campe\u00e3o",
+      "community": 4,
+      "norm_label": "10. conto 02 \u2014 sinopse canonica (\"alan, o campeao\")"
+    },
+    {
+      "label": "Personagens do conto \u2014 resumo can\u00f4nico",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1201",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_personagens_do_conto_resumo_can\u00f4nico",
+      "community": 4,
+      "norm_label": "personagens do conto \u2014 resumo canonico"
+    },
+    {
+      "label": "11. Contagem do \u00e1lbum",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1224",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_11_contagem_do_\u00e1lbum",
+      "community": 4,
+      "norm_label": "11. contagem do album"
+    },
+    {
+      "label": "12. Endgame \u2014 n\u00edvel 99, a Torre e o multiplayer",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1240",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_12_endgame_n\u00edvel_99_a_torre_e_o_multiplayer",
+      "community": 4,
+      "norm_label": "12. endgame \u2014 nivel 99, a torre e o multiplayer"
+    },
+    {
+      "label": "12.1 \u00cdndice de fontes",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1290",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_12_1_\u00edndice_de_fontes",
+      "community": 4,
+      "norm_label": "12.1 indice de fontes"
+    },
+    {
+      "label": "13. Vocabul\u00e1rio de g\u00edria de rua (refer\u00eancia pra escrever texto)",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1319",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_13_vocabul\u00e1rio_de_g\u00edria_de_rua_refer\u00eancia_pra_escrever_texto",
+      "community": 439,
+      "norm_label": "13. vocabulario de giria de rua (referencia pra escrever texto)"
+    },
+    {
+      "label": "Dinheiro",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1336",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_dinheiro",
+      "community": 439,
+      "norm_label": "dinheiro"
+    },
+    {
+      "label": "Fugir / sair correndo",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1340",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_fugir_sair_correndo",
+      "community": 439,
+      "norm_label": "fugir / sair correndo"
+    },
+    {
+      "label": "Covardia / bravura",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1345",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_covardia_bravura",
+      "community": 439,
+      "norm_label": "covardia / bravura"
+    },
+    {
+      "label": "Delatar / confian\u00e7a",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1350",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_delatar_confian\u00e7a",
+      "community": 439,
+      "norm_label": "delatar / confianca"
+    },
+    {
+      "label": "A lei / autoridade",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1354",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_a_lei_autoridade",
+      "community": 439,
+      "norm_label": "a lei / autoridade"
+    },
+    {
+      "label": "Cadeia / apuros",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1357",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_cadeia_apuros",
+      "community": 439,
+      "norm_label": "cadeia / apuros"
+    },
+    {
+      "label": "Roubar / pegar algo",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1361",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_roubar_pegar_algo",
+      "community": 439,
+      "norm_label": "roubar / pegar algo"
+    },
+    {
+      "label": "Insulto leve / trouxa",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1364",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_insulto_leve_trouxa",
+      "community": 439,
+      "norm_label": "insulto leve / trouxa"
+    },
+    {
+      "label": "Grupo / gangue",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1368",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_grupo_gangue",
+      "community": 439,
+      "norm_label": "grupo / gangue"
+    },
+    {
+      "label": "Elogio / respeito",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1372",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_elogio_respeito",
+      "community": 439,
+      "norm_label": "elogio / respeito"
+    },
+    {
+      "label": "Comida",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1376",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_comida",
+      "community": 439,
+      "norm_label": "comida"
+    },
+    {
+      "label": "14. Regras de texto do jogo",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1383",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_14_regras_de_texto_do_jogo",
+      "community": 4,
+      "norm_label": "14. regras de texto do jogo"
+    },
+    {
+      "label": "15. Retratos e anima\u00e7\u00e3o",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1395",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_15_retratos_e_anima\u00e7\u00e3o",
+      "community": 4,
+      "norm_label": "15. retratos e animacao"
+    },
+    {
+      "label": "15.0 Cabe\u00e7a (pixel art)",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1397",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_15_0_cabe\u00e7a_pixel_art",
+      "community": 4,
+      "norm_label": "15.0 cabeca (pixel art)"
+    },
+    {
+      "label": "15.1 Corpo inteiro (funda\u00e7\u00e3o + recrutamento)",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1422",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_15_1_corpo_inteiro_funda\u00e7\u00e3o_recrutamento",
+      "community": 4,
+      "norm_label": "15.1 corpo inteiro (fundacao + recrutamento)"
+    },
+    {
+      "label": "15.2 Anima\u00e7\u00e3o de combate (sprite)",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1442",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_15_2_anima\u00e7\u00e3o_de_combate_sprite",
+      "community": 4,
+      "norm_label": "15.2 animacao de combate (sprite)"
+    },
+    {
+      "label": "16. L\u00edder da gangue",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1460",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_16_l\u00edder_da_gangue",
+      "community": 4,
+      "norm_label": "16. lider da gangue"
+    },
+    {
+      "label": "17. Mec\u00e2nica de combate e progress\u00e3o (fonte \u00fanica)",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1490",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica",
+      "community": 25,
+      "norm_label": "17. mecanica de combate e progressao (fonte unica)"
+    },
+    {
+      "label": "17.1 Ficha e atributos",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1494",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_17_1_ficha_e_atributos",
+      "community": 25,
+      "norm_label": "17.1 ficha e atributos"
+    },
+    {
+      "label": "17.2 F\u00f3rmula de combate",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1552",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_17_2_f\u00f3rmula_de_combate",
+      "community": 25,
+      "norm_label": "17.2 formula de combate"
+    },
+    {
+      "label": "17.2.1 Como o jogador age, e os modos de combate",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1594",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_17_2_1_como_o_jogador_age_e_os_modos_de_combate",
+      "community": 25,
+      "norm_label": "17.2.1 como o jogador age, e os modos de combate"
+    },
+    {
+      "label": "17.3 Poderes / especiais (skill tree)",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1627",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_17_3_poderes_especiais_skill_tree",
+      "community": 25,
+      "norm_label": "17.3 poderes / especiais (skill tree)"
+    },
+    {
+      "label": "17.4 Progress\u00e3o (AP, XP, n\u00edvel)",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1642",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_17_4_progress\u00e3o_ap_xp_n\u00edvel",
+      "community": 25,
+      "norm_label": "17.4 progressao (ap, xp, nivel)"
+    },
+    {
+      "label": "17.5 Tamanho de gangue e elenco",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1700",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_17_5_tamanho_de_gangue_e_elenco",
+      "community": 25,
+      "norm_label": "17.5 tamanho de gangue e elenco"
+    },
+    {
+      "label": "17.6 Modo Hist\u00f3ria \u2014 a cena naveg\u00e1vel (hoje s\u00f3 a Pista)",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1712",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_17_6_modo_hist\u00f3ria_a_cena_naveg\u00e1vel_hoje_s\u00f3_a_pista",
+      "community": 25,
+      "norm_label": "17.6 modo historia \u2014 a cena navegavel (hoje so a pista)"
+    },
+    {
+      "label": "17.7 Persist\u00eancia",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1790",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_17_7_persist\u00eancia",
+      "community": 25,
+      "norm_label": "17.7 persistencia"
+    },
+    {
+      "label": "17.8 Estrutura de arquivos",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1801",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_17_8_estrutura_de_arquivos",
+      "community": 25,
+      "norm_label": "17.8 estrutura de arquivos"
+    },
+    {
+      "label": "17.9 Refer\u00eancia completa \u2014 atributos e poderes por personagem (a cada 5 n\u00edveis)",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1829",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_17_9_refer\u00eancia_completa_atributos_e_poderes_por_personagem_a_cada_5_n\u00edveis",
+      "community": 25,
+      "norm_label": "17.9 referencia completa \u2014 atributos e poderes por personagem (a cada 5 niveis)"
+    },
+    {
+      "label": "Trinca \u2014 atacante (bruto)",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1843",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_trinca_atacante_bruto",
+      "community": 25,
+      "norm_label": "trinca \u2014 atacante (bruto)"
+    },
+    {
+      "label": "Marreta \u2014 atacante (bruto)",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1878",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_marreta_atacante_bruto",
+      "community": 25,
+      "norm_label": "marreta \u2014 atacante (bruto)"
+    },
+    {
+      "label": "Fenda \u2014 atacante (duelista)",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1913",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_fenda_atacante_duelista",
+      "community": 25,
+      "norm_label": "fenda \u2014 atacante (duelista)"
+    },
+    {
+      "label": "Navalha \u2014 atacante (duelista)",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1948",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_navalha_atacante_duelista",
+      "community": 25,
+      "norm_label": "navalha \u2014 atacante (duelista)"
+    },
+    {
+      "label": "Touro \u2014 atacante (furia)",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1983",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_touro_atacante_furia",
+      "community": 25,
+      "norm_label": "touro \u2014 atacante (furia)"
+    },
+    {
+      "label": "Sangue \u2014 atacante (furia)",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L2018",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_sangue_atacante_furia",
+      "community": 25,
+      "norm_label": "sangue \u2014 atacante (furia)"
+    },
+    {
+      "label": "Mira \u2014 atacante (especialista)",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L2053",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_mira_atacante_especialista",
+      "community": 25,
+      "norm_label": "mira \u2014 atacante (especialista)"
+    },
+    {
+      "label": "Ponto \u2014 atacante (especialista)",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L2088",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_ponto_atacante_especialista",
+      "community": 25,
+      "norm_label": "ponto \u2014 atacante (especialista)"
+    },
+    {
+      "label": "Cicatriz \u2014 atacante (vingador)",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L2123",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_cicatriz_atacante_vingador",
+      "community": 25,
+      "norm_label": "cicatriz \u2014 atacante (vingador)"
+    },
+    {
+      "label": "Troco \u2014 atacante (vingador)",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L2158",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_troco_atacante_vingador",
+      "community": 25,
+      "norm_label": "troco \u2014 atacante (vingador)"
+    },
+    {
+      "label": "Muro \u2014 defensor (muralha)",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L2193",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_muro_defensor_muralha",
+      "community": 25,
+      "norm_label": "muro \u2014 defensor (muralha)"
+    },
+    {
+      "label": "Concreto \u2014 defensor (muralha)",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L2228",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_concreto_defensor_muralha",
+      "community": 25,
+      "norm_label": "concreto \u2014 defensor (muralha)"
+    },
+    {
+      "label": "Guarda \u2014 defensor (guardiao)",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L2263",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_guarda_defensor_guardiao",
+      "community": 25,
+      "norm_label": "guarda \u2014 defensor (guardiao)"
+    },
+    {
+      "label": "Ombro \u2014 defensor (guardiao)",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L2298",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_ombro_defensor_guardiao",
+      "community": 25,
+      "norm_label": "ombro \u2014 defensor (guardiao)"
+    },
+    {
+      "label": "Boca \u2014 defensor (provocador)",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L2333",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_boca_defensor_provocador",
+      "community": 25,
+      "norm_label": "boca \u2014 defensor (provocador)"
+    },
+    {
+      "label": "Isca \u2014 defensor (provocador)",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L2368",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_isca_defensor_provocador",
+      "community": 25,
+      "norm_label": "isca \u2014 defensor (provocador)"
+    },
+    {
+      "label": "Catraca \u2014 defensor (reativo)",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L2403",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_catraca_defensor_reativo",
+      "community": 25,
+      "norm_label": "catraca \u2014 defensor (reativo)"
+    },
+    {
+      "label": "Rebote \u2014 defensor (reativo)",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L2438",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_rebote_defensor_reativo",
+      "community": 25,
+      "norm_label": "rebote \u2014 defensor (reativo)"
+    },
+    {
+      "label": "Ferro \u2014 defensor (resiliente)",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L2473",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_ferro_defensor_resiliente",
+      "community": 25,
+      "norm_label": "ferro \u2014 defensor (resiliente)"
+    },
+    {
+      "label": "Osso \u2014 defensor (resiliente)",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L2508",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_osso_defensor_resiliente",
+      "community": 25,
+      "norm_label": "osso \u2014 defensor (resiliente)"
+    },
+    {
+      "label": "Brasa \u2014 mistico (igneo)",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L2543",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_brasa_mistico_igneo",
+      "community": 25,
+      "norm_label": "brasa \u2014 mistico (igneo)"
+    },
+    {
+      "label": "Cinza \u2014 mistico (igneo)",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L2578",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_cinza_mistico_igneo",
+      "community": 25,
+      "norm_label": "cinza \u2014 mistico (igneo)"
+    },
+    {
+      "label": "Mar\u00e9 \u2014 mistico (aquatico)",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L2613",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_mar\u00e9_mistico_aquatico",
+      "community": 25,
+      "norm_label": "mare \u2014 mistico (aquatico)"
+    },
+    {
+      "label": "Chuva \u2014 mistico (aquatico)",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L2648",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_chuva_mistico_aquatico",
+      "community": 25,
+      "norm_label": "chuva \u2014 mistico (aquatico)"
+    },
+    {
+      "label": "Raiz \u2014 mistico (terreno)",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L2683",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_raiz_mistico_terreno",
+      "community": 25,
+      "norm_label": "raiz \u2014 mistico (terreno)"
+    },
+    {
+      "label": "Racha \u2014 mistico (terreno)",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L2718",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_racha_mistico_terreno",
+      "community": 25,
+      "norm_label": "racha \u2014 mistico (terreno)"
+    },
+    {
+      "label": "Fa\u00edsca \u2014 mistico (tempestade)",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L2753",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_fa\u00edsca_mistico_tempestade",
+      "community": 25,
+      "norm_label": "faisca \u2014 mistico (tempestade)"
+    },
+    {
+      "label": "Trov\u00e3o \u2014 mistico (tempestade)",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L2788",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_trov\u00e3o_mistico_tempestade",
+      "community": 25,
+      "norm_label": "trovao \u2014 mistico (tempestade)"
+    },
+    {
+      "label": "N\u00e9voa \u2014 mistico (ilusorio)",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L2823",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_n\u00e9voa_mistico_ilusorio",
+      "community": 25,
+      "norm_label": "nevoa \u2014 mistico (ilusorio)"
+    },
+    {
+      "label": "Espelho \u2014 mistico (ilusorio)",
+      "file_type": "document",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L2858",
+      "_origin": "ast",
+      "id": "docs_games_gangues_ldi_gangues_gdd_espelho_mistico_ilusorio",
+      "community": 25,
+      "norm_label": "espelho \u2014 mistico (ilusorio)"
+    },
+    {
       "label": "version.js",
       "file_type": "code",
       "source_file": "src/config/version.js",
@@ -309,9 +1379,9 @@
       "source_file": "src/pages/games/Gangues/data/cenas/pista/posicoes.js",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_data_cenas_pista_posicoes",
       "community": 453,
-      "norm_label": "posicoes.js"
+      "norm_label": "posicoes.js",
+      "id": "src_pages_games_gangues_data_cenas_pista_posicoes"
     },
     {
       "label": "POS_PISTA",
@@ -319,9 +1389,9 @@
       "source_file": "src/pages/games/Gangues/data/cenas/pista/posicoes.js",
       "source_location": "L26",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_data_cenas_pista_posicoes_pos_pista",
       "community": 453,
-      "norm_label": "pos_pista"
+      "norm_label": "pos_pista",
+      "id": "src_pages_games_gangues_data_cenas_pista_posicoes_pos_pista"
     },
     {
       "label": "ENTRY_ZONES_PISTA",
@@ -329,9 +1399,9 @@
       "source_file": "src/pages/games/Gangues/data/cenas/pista/posicoes.js",
       "source_location": "L28",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_data_cenas_pista_posicoes_entry_zones_pista",
       "community": 453,
-      "norm_label": "entry_zones_pista"
+      "norm_label": "entry_zones_pista",
+      "id": "src_pages_games_gangues_data_cenas_pista_posicoes_entry_zones_pista"
     },
     {
       "label": "GanguesCena.jsx",
@@ -339,9 +1409,9 @@
       "source_file": "src/pages/games/Gangues/screens/GanguesCena.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_screens_ganguescena",
       "community": 304,
-      "norm_label": "ganguescena.jsx"
+      "norm_label": "ganguescena.jsx",
+      "id": "src_pages_games_gangues_screens_ganguescena"
     },
     {
       "label": "cenaIntroTutorialId()",
@@ -349,9 +1419,9 @@
       "source_file": "src/pages/games/Gangues/screens/GanguesCena.jsx",
       "source_location": "L40",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_screens_ganguescena_cenaintrotutorialid",
       "community": 304,
-      "norm_label": "cenaintrotutorialid()"
+      "norm_label": "cenaintrotutorialid()",
+      "id": "src_pages_games_gangues_screens_ganguescena_cenaintrotutorialid"
     },
     {
       "label": "GanguesCena()",
@@ -359,9 +1429,9 @@
       "source_file": "src/pages/games/Gangues/screens/GanguesCena.jsx",
       "source_location": "L42",
       "_origin": "ast",
-      "id": "src_pages_games_gangues_screens_ganguescena_ganguescena",
       "community": 304,
-      "norm_label": "ganguescena()"
+      "norm_label": "ganguescena()",
+      "id": "src_pages_games_gangues_screens_ganguescena_ganguescena"
     },
     {
       "label": "GanguesPistaTempo.jsx",
@@ -792,1076 +1862,6 @@
       "community": 372,
       "norm_label": "useganguesturnmachine()",
       "id": "src_pages_games_gangues_hooks_useganguesturnmachine_useganguesturnmachine"
-    },
-    {
-      "label": "LDI_GANGUES_GDD.md",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 4,
-      "norm_label": "ldi_gangues_gdd.md",
-      "id": "docs_games_gangues_ldi_gangues_gdd"
-    },
-    {
-      "label": "LDI GANGUES \u2014 GDD (Game Design Document \u00b7 a b\u00edblia \u00fanica)",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 4,
-      "norm_label": "ldi gangues \u2014 gdd (game design document \u00b7 a biblia unica)",
-      "id": "docs_games_gangues_ldi_gangues_gdd_ldi_gangues_gdd_game_design_document_a_b\u00edblia_\u00fanica"
-    },
-    {
-      "label": "0. Princ\u00edpio de dados \u2014 faixas de ID",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L40",
-      "_origin": "ast",
-      "community": 4,
-      "norm_label": "0. principio de dados \u2014 faixas de id",
-      "id": "docs_games_gangues_ldi_gangues_gdd_0_princ\u00edpio_de_dados_faixas_de_id"
-    },
-    {
-      "label": "1. A estrutura de poder",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L89",
-      "_origin": "ast",
-      "community": 457,
-      "norm_label": "1. a estrutura de poder",
-      "id": "docs_games_gangues_ldi_gangues_gdd_1_a_estrutura_de_poder"
-    },
-    {
-      "label": "1.1 A Banca \u2014 a organiza\u00e7\u00e3o-m\u00e3e",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L91",
-      "_origin": "ast",
-      "community": 457,
-      "norm_label": "1.1 a banca \u2014 a organizacao-mae",
-      "id": "docs_games_gangues_ldi_gangues_gdd_1_1_a_banca_a_organiza\u00e7\u00e3o_m\u00e3e"
-    },
-    {
-      "label": "1.2 A hierarquia \u2014 de baixo pra cima (faixa 200\u2013299)",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L106",
-      "_origin": "ast",
-      "community": 457,
-      "norm_label": "1.2 a hierarquia \u2014 de baixo pra cima (faixa 200\u2013299)",
-      "id": "docs_games_gangues_ldi_gangues_gdd_1_2_a_hierarquia_de_baixo_pra_cima_faixa_200_299"
-    },
-    {
-      "label": "1.3 O Proceder \u2014 o c\u00f3digo que segura tudo",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L127",
-      "_origin": "ast",
-      "community": 457,
-      "norm_label": "1.3 o proceder \u2014 o codigo que segura tudo",
-      "id": "docs_games_gangues_ldi_gangues_gdd_1_3_o_proceder_o_c\u00f3digo_que_segura_tudo"
-    },
-    {
-      "label": "1.4 A C\u00fapula (gancho p\u00f3s-jogo / evento)",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L149",
-      "_origin": "ast",
-      "community": 457,
-      "norm_label": "1.4 a cupula (gancho pos-jogo / evento)",
-      "id": "docs_games_gangues_ldi_gangues_gdd_1_4_a_c\u00fapula_gancho_p\u00f3s_jogo_evento"
-    },
-    {
-      "label": "2. As fac\u00e7\u00f5es \u2014 quem \u00e9 dono de cada peda\u00e7o (faixa 100\u2013199)",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L162",
-      "_origin": "ast",
-      "community": 4,
-      "norm_label": "2. as faccoes \u2014 quem e dono de cada pedaco (faixa 100\u2013199)",
-      "id": "docs_games_gangues_ldi_gangues_gdd_2_as_fac\u00e7\u00f5es_quem_\u00e9_dono_de_cada_peda\u00e7o_faixa_100_199"
-    },
-    {
-      "label": "3. Linha do tempo \u2014 os 10 anos antes do Rei",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L183",
-      "_origin": "ast",
-      "community": 4,
-      "norm_label": "3. linha do tempo \u2014 os 10 anos antes do rei",
-      "id": "docs_games_gangues_ldi_gangues_gdd_3_linha_do_tempo_os_10_anos_antes_do_rei"
-    },
-    {
-      "label": "4. Os 7 territ\u00f3rios \u2014 com pontos de interesse (faixa 1\u201399)",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L223",
-      "_origin": "ast",
-      "community": 448,
-      "norm_label": "4. os 7 territorios \u2014 com pontos de interesse (faixa 1\u201399)",
-      "id": "docs_games_gangues_ldi_gangues_gdd_4_os_7_territ\u00f3rios_com_pontos_de_interesse_faixa_1_99"
-    },
-    {
-      "label": "Territ\u00f3rio 1 \u2014 A Pista \u00b7 Rato de rua \u00b7 `#3ddc97`",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L230",
-      "_origin": "ast",
-      "community": 448,
-      "norm_label": "territorio 1 \u2014 a pista \u00b7 rato de rua \u00b7 `#3ddc97`",
-      "id": "docs_games_gangues_ldi_gangues_gdd_territ\u00f3rio_1_a_pista_rato_de_rua_3ddc97"
-    },
-    {
-      "label": "Territ\u00f3rio 2 \u2014 A Feira \u00b7 Muvuca \u00b7 `#7ee787`",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L386",
-      "_origin": "ast",
-      "community": 448,
-      "norm_label": "territorio 2 \u2014 a feira \u00b7 muvuca \u00b7 `#7ee787`",
-      "id": "docs_games_gangues_ldi_gangues_gdd_territ\u00f3rio_2_a_feira_muvuca_7ee787"
-    },
-    {
-      "label": "Territ\u00f3rio 3 \u2014 A Baixada \u00b7 Correria \u00b7 `#18dafb`",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L397",
-      "_origin": "ast",
-      "community": 448,
-      "norm_label": "territorio 3 \u2014 a baixada \u00b7 correria \u00b7 `#18dafb`",
-      "id": "docs_games_gangues_ldi_gangues_gdd_territ\u00f3rio_3_a_baixada_correria_18dafb"
-    },
-    {
-      "label": "Territ\u00f3rio 4 \u2014 A Vila \u00b7 Disputa \u00b7 `#ffae32`",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L407",
-      "_origin": "ast",
-      "community": 448,
-      "norm_label": "territorio 4 \u2014 a vila \u00b7 disputa \u00b7 `#ffae32`",
-      "id": "docs_games_gangues_ldi_gangues_gdd_territ\u00f3rio_4_a_vila_disputa_ffae32"
-    },
-    {
-      "label": "Territ\u00f3rio 5 \u2014 O Morro \u00b7 Guerra \u00b7 `#ff8f3c`",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L417",
-      "_origin": "ast",
-      "community": 448,
-      "norm_label": "territorio 5 \u2014 o morro \u00b7 guerra \u00b7 `#ff8f3c`",
-      "id": "docs_games_gangues_ldi_gangues_gdd_territ\u00f3rio_5_o_morro_guerra_ff8f3c"
-    },
-    {
-      "label": "Territ\u00f3rio 6 \u2014 Alto do Morro \u00b7 No sangue \u00b7 `#ff6b6b`",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L427",
-      "_origin": "ast",
-      "community": 448,
-      "norm_label": "territorio 6 \u2014 alto do morro \u00b7 no sangue \u00b7 `#ff6b6b`",
-      "id": "docs_games_gangues_ldi_gangues_gdd_territ\u00f3rio_6_alto_do_morro_no_sangue_ff6b6b"
-    },
-    {
-      "label": "Territ\u00f3rio 7 \u2014 A Laje \u00b7 A Coroa \u00b7 `#a855f7`",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L436",
-      "_origin": "ast",
-      "community": 448,
-      "norm_label": "territorio 7 \u2014 a laje \u00b7 a coroa \u00b7 `#a855f7`",
-      "id": "docs_games_gangues_ldi_gangues_gdd_territ\u00f3rio_7_a_laje_a_coroa_a855f7"
-    },
-    {
-      "label": "5. O \u00c1lbum de Mar\u00e9lia \u2014 roster de inimigos",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L450",
-      "_origin": "ast",
-      "community": 449,
-      "norm_label": "5. o album de marelia \u2014 roster de inimigos",
-      "id": "docs_games_gangues_ldi_gangues_gdd_5_o_\u00e1lbum_de_mar\u00e9lia_roster_de_inimigos"
-    },
-    {
-      "label": "5.1 N\u00edvel 1 \u2014 VIGIA / FOGUETEIRO (faixa 1101\u20131121)",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L478",
-      "_origin": "ast",
-      "community": 449,
-      "norm_label": "5.1 nivel 1 \u2014 vigia / fogueteiro (faixa 1101\u20131121)",
-      "id": "docs_games_gangues_ldi_gangues_gdd_5_1_n\u00edvel_1_vigia_fogueteiro_faixa_1101_1121"
-    },
-    {
-      "label": "5.2 N\u00edvel 2 \u2014 VAPOR (faixa 1201\u20131221)",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L507",
-      "_origin": "ast",
-      "community": 449,
-      "norm_label": "5.2 nivel 2 \u2014 vapor (faixa 1201\u20131221)",
-      "id": "docs_games_gangues_ldi_gangues_gdd_5_2_n\u00edvel_2_vapor_faixa_1201_1221"
-    },
-    {
-      "label": "5.3 N\u00edvel 3 \u2014 GERENTE DE BOCA (faixa 1301\u20131321)",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L535",
-      "_origin": "ast",
-      "community": 449,
-      "norm_label": "5.3 nivel 3 \u2014 gerente de boca (faixa 1301\u20131321)",
-      "id": "docs_games_gangues_ldi_gangues_gdd_5_3_n\u00edvel_3_gerente_de_boca_faixa_1301_1321"
-    },
-    {
-      "label": "5.4 N\u00edvel 4 \u2014 COBRADOR (faixa 1401\u20131414)",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L563",
-      "_origin": "ast",
-      "community": 449,
-      "norm_label": "5.4 nivel 4 \u2014 cobrador (faixa 1401\u20131414)",
-      "id": "docs_games_gangues_ldi_gangues_gdd_5_4_n\u00edvel_4_cobrador_faixa_1401_1414"
-    },
-    {
-      "label": "5.5 N\u00edvel 5 \u2014 GENERAL / BRA\u00c7O-DIREITO (faixa 1451\u20131464)",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L585",
-      "_origin": "ast",
-      "community": 449,
-      "norm_label": "5.5 nivel 5 \u2014 general / braco-direito (faixa 1451\u20131464)",
-      "id": "docs_games_gangues_ldi_gangues_gdd_5_5_n\u00edvel_5_general_bra\u00e7o_direito_faixa_1451_1464"
-    },
-    {
-      "label": "5.6 ~~Ranking Clandestino~~ \u2014 REMOVIDO (v2.66.1)",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L607",
-      "_origin": "ast",
-      "community": 449,
-      "norm_label": "5.6 ~~ranking clandestino~~ \u2014 removido (v2.66.1)",
-      "id": "docs_games_gangues_ldi_gangues_gdd_5_6_ranking_clandestino_removido_v2_66_1"
-    },
-    {
-      "label": "5.7 Crosswalk \u2014 fichas migradas de string \u2192 id num\u00e9rico",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L618",
-      "_origin": "ast",
-      "community": 449,
-      "norm_label": "5.7 crosswalk \u2014 fichas migradas de string \u2192 id numerico",
-      "id": "docs_games_gangues_ldi_gangues_gdd_5_7_crosswalk_fichas_migradas_de_string_id_num\u00e9rico"
-    },
-    {
-      "label": "6. Dossi\u00ea dos chefes (faixa 1500\u20131600)",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L658",
-      "_origin": "ast",
-      "community": 447,
-      "norm_label": "6. dossie dos chefes (faixa 1500\u20131600)",
-      "id": "docs_games_gangues_ldi_gangues_gdd_6_dossi\u00ea_dos_chefes_faixa_1500_1600"
-    },
-    {
-      "label": "1500 \u00b7 Carv\u00e3o \u2014 Chefe da Pista",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L660",
-      "_origin": "ast",
-      "community": 447,
-      "norm_label": "1500 \u00b7 carvao \u2014 chefe da pista",
-      "id": "docs_games_gangues_ldi_gangues_gdd_1500_carv\u00e3o_chefe_da_pista"
-    },
-    {
-      "label": "1501 \u00b7 O Cobrador \u2014 Chefe da Feira",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L666",
-      "_origin": "ast",
-      "community": 447,
-      "norm_label": "1501 \u00b7 o cobrador \u2014 chefe da feira",
-      "id": "docs_games_gangues_ldi_gangues_gdd_1501_o_cobrador_chefe_da_feira"
-    },
-    {
-      "label": "1502 \u00b7 Fura-Bucho \u2014 Chefe da Baixada",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L672",
-      "_origin": "ast",
-      "community": 447,
-      "norm_label": "1502 \u00b7 fura-bucho \u2014 chefe da baixada",
-      "id": "docs_games_gangues_ldi_gangues_gdd_1502_fura_bucho_chefe_da_baixada"
-    },
-    {
-      "label": "1503 \u00b7 Ferrugem \u2014 Chefe da Vila",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L678",
-      "_origin": "ast",
-      "community": 447,
-      "norm_label": "1503 \u00b7 ferrugem \u2014 chefe da vila",
-      "id": "docs_games_gangues_ldi_gangues_gdd_1503_ferrugem_chefe_da_vila"
-    },
-    {
-      "label": "1504 \u00b7 A Fera / Zefa \u2014 Chefe do Morro",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L684",
-      "_origin": "ast",
-      "community": 447,
-      "norm_label": "1504 \u00b7 a fera / zefa \u2014 chefe do morro",
-      "id": "docs_games_gangues_ldi_gangues_gdd_1504_a_fera_zefa_chefe_do_morro"
-    },
-    {
-      "label": "1505 \u00b7 O Contador \u2014 Chefe do Alto do Morro",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L690",
-      "_origin": "ast",
-      "community": 447,
-      "norm_label": "1505 \u00b7 o contador \u2014 chefe do alto do morro",
-      "id": "docs_games_gangues_ldi_gangues_gdd_1505_o_contador_chefe_do_alto_do_morro"
-    },
-    {
-      "label": "1600 \u00b7 O Retalho \u2014 Dami\u00e3o \u2014 Chefe Final",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L695",
-      "_origin": "ast",
-      "community": 447,
-      "norm_label": "1600 \u00b7 o retalho \u2014 damiao \u2014 chefe final",
-      "id": "docs_games_gangues_ldi_gangues_gdd_1600_o_retalho_dami\u00e3o_chefe_final"
-    },
-    {
-      "label": "7. Os 30 lutadores recrut\u00e1veis (o elenco do jogador)",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L704",
-      "_origin": "ast",
-      "community": 4,
-      "norm_label": "7. os 30 lutadores recrutaveis (o elenco do jogador)",
-      "id": "docs_games_gangues_ldi_gangues_gdd_7_os_30_lutadores_recrut\u00e1veis_o_elenco_do_jogador"
-    },
-    {
-      "label": "7.1 Hist\u00f3ria de recrutamento (bios)",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L774",
-      "_origin": "ast",
-      "community": 4,
-      "norm_label": "7.1 historia de recrutamento (bios)",
-      "id": "docs_games_gangues_ldi_gangues_gdd_7_1_hist\u00f3ria_de_recrutamento_bios"
-    },
-    {
-      "label": "8. NPCs n\u00e3o-combatentes (faixa 3000\u20133099)",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1099",
-      "_origin": "ast",
-      "community": 4,
-      "norm_label": "8. npcs nao-combatentes (faixa 3000\u20133099)",
-      "id": "docs_games_gangues_ldi_gangues_gdd_8_npcs_n\u00e3o_combatentes_faixa_3000_3099"
-    },
-    {
-      "label": "9. Itens \u2014 cat\u00e1logo oficial",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1114",
-      "_origin": "ast",
-      "community": 450,
-      "norm_label": "9. itens \u2014 catalogo oficial",
-      "id": "docs_games_gangues_ldi_gangues_gdd_9_itens_cat\u00e1logo_oficial"
-    },
-    {
-      "label": "9.1 Economia",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1116",
-      "_origin": "ast",
-      "community": 450,
-      "norm_label": "9.1 economia",
-      "id": "docs_games_gangues_ldi_gangues_gdd_9_1_economia"
-    },
-    {
-      "label": "9.2 Invent\u00e1rio \u2014 \u00e9 da GANGUE, n\u00e3o do personagem",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1122",
-      "_origin": "ast",
-      "community": 450,
-      "norm_label": "9.2 inventario \u2014 e da gangue, nao do personagem",
-      "id": "docs_games_gangues_ldi_gangues_gdd_9_2_invent\u00e1rio_\u00e9_da_gangue_n\u00e3o_do_personagem"
-    },
-    {
-      "label": "9.3 Consum\u00edveis (faixa 1\u201399)",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1130",
-      "_origin": "ast",
-      "community": 450,
-      "norm_label": "9.3 consumiveis (faixa 1\u201399)",
-      "id": "docs_games_gangues_ldi_gangues_gdd_9_3_consum\u00edveis_faixa_1_99"
-    },
-    {
-      "label": "9.4 Equipamento \u2014 6 slots por personagem",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1162",
-      "_origin": "ast",
-      "community": 450,
-      "norm_label": "9.4 equipamento \u2014 6 slots por personagem",
-      "id": "docs_games_gangues_ldi_gangues_gdd_9_4_equipamento_6_slots_por_personagem"
-    },
-    {
-      "label": "9.5 \u00c9picos \u2014 drop de chefe (faixa 132+)",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1212",
-      "_origin": "ast",
-      "community": 450,
-      "norm_label": "9.5 epicos \u2014 drop de chefe (faixa 132+)",
-      "id": "docs_games_gangues_ldi_gangues_gdd_9_5_\u00e9picos_drop_de_chefe_faixa_132"
-    },
-    {
-      "label": "9.6 Loja",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1228",
-      "_origin": "ast",
-      "community": 450,
-      "norm_label": "9.6 loja",
-      "id": "docs_games_gangues_ldi_gangues_gdd_9_6_loja"
-    },
-    {
-      "label": "10. Conto 02 \u2014 sinopse can\u00f4nica (\"Alan, o Campe\u00e3o\")",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1245",
-      "_origin": "ast",
-      "community": 4,
-      "norm_label": "10. conto 02 \u2014 sinopse canonica (\"alan, o campeao\")",
-      "id": "docs_games_gangues_ldi_gangues_gdd_10_conto_02_sinopse_can\u00f4nica_alan_o_campe\u00e3o"
-    },
-    {
-      "label": "Personagens do conto \u2014 resumo can\u00f4nico",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1272",
-      "_origin": "ast",
-      "community": 4,
-      "norm_label": "personagens do conto \u2014 resumo canonico",
-      "id": "docs_games_gangues_ldi_gangues_gdd_personagens_do_conto_resumo_can\u00f4nico"
-    },
-    {
-      "label": "11. Contagem do \u00e1lbum",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1295",
-      "_origin": "ast",
-      "community": 4,
-      "norm_label": "11. contagem do album",
-      "id": "docs_games_gangues_ldi_gangues_gdd_11_contagem_do_\u00e1lbum"
-    },
-    {
-      "label": "12. Endgame \u2014 n\u00edvel 99, a Torre e o multiplayer (v2.71.0)",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1311",
-      "_origin": "ast",
-      "community": 4,
-      "norm_label": "12. endgame \u2014 nivel 99, a torre e o multiplayer (v2.71.0)",
-      "id": "docs_games_gangues_ldi_gangues_gdd_12_endgame_n\u00edvel_99_a_torre_e_o_multiplayer_v2_71_0"
-    },
-    {
-      "label": "12.1 \u00cdndice de fontes",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1367",
-      "_origin": "ast",
-      "community": 4,
-      "norm_label": "12.1 indice de fontes",
-      "id": "docs_games_gangues_ldi_gangues_gdd_12_1_\u00edndice_de_fontes"
-    },
-    {
-      "label": "13. Vocabul\u00e1rio de g\u00edria de rua (refer\u00eancia pra escrever texto)",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1393",
-      "_origin": "ast",
-      "community": 439,
-      "norm_label": "13. vocabulario de giria de rua (referencia pra escrever texto)",
-      "id": "docs_games_gangues_ldi_gangues_gdd_13_vocabul\u00e1rio_de_g\u00edria_de_rua_refer\u00eancia_pra_escrever_texto"
-    },
-    {
-      "label": "Dinheiro",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1410",
-      "_origin": "ast",
-      "community": 439,
-      "norm_label": "dinheiro",
-      "id": "docs_games_gangues_ldi_gangues_gdd_dinheiro"
-    },
-    {
-      "label": "Fugir / sair correndo",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1414",
-      "_origin": "ast",
-      "community": 439,
-      "norm_label": "fugir / sair correndo",
-      "id": "docs_games_gangues_ldi_gangues_gdd_fugir_sair_correndo"
-    },
-    {
-      "label": "Covardia / bravura",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1419",
-      "_origin": "ast",
-      "community": 439,
-      "norm_label": "covardia / bravura",
-      "id": "docs_games_gangues_ldi_gangues_gdd_covardia_bravura"
-    },
-    {
-      "label": "Delatar / confian\u00e7a",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1424",
-      "_origin": "ast",
-      "community": 439,
-      "norm_label": "delatar / confianca",
-      "id": "docs_games_gangues_ldi_gangues_gdd_delatar_confian\u00e7a"
-    },
-    {
-      "label": "A lei / autoridade",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1428",
-      "_origin": "ast",
-      "community": 439,
-      "norm_label": "a lei / autoridade",
-      "id": "docs_games_gangues_ldi_gangues_gdd_a_lei_autoridade"
-    },
-    {
-      "label": "Cadeia / apuros",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1431",
-      "_origin": "ast",
-      "community": 439,
-      "norm_label": "cadeia / apuros",
-      "id": "docs_games_gangues_ldi_gangues_gdd_cadeia_apuros"
-    },
-    {
-      "label": "Roubar / pegar algo",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1435",
-      "_origin": "ast",
-      "community": 439,
-      "norm_label": "roubar / pegar algo",
-      "id": "docs_games_gangues_ldi_gangues_gdd_roubar_pegar_algo"
-    },
-    {
-      "label": "Insulto leve / trouxa",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1438",
-      "_origin": "ast",
-      "community": 439,
-      "norm_label": "insulto leve / trouxa",
-      "id": "docs_games_gangues_ldi_gangues_gdd_insulto_leve_trouxa"
-    },
-    {
-      "label": "Grupo / gangue",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1442",
-      "_origin": "ast",
-      "community": 439,
-      "norm_label": "grupo / gangue",
-      "id": "docs_games_gangues_ldi_gangues_gdd_grupo_gangue"
-    },
-    {
-      "label": "Elogio / respeito",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1446",
-      "_origin": "ast",
-      "community": 439,
-      "norm_label": "elogio / respeito",
-      "id": "docs_games_gangues_ldi_gangues_gdd_elogio_respeito"
-    },
-    {
-      "label": "Comida",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1450",
-      "_origin": "ast",
-      "community": 439,
-      "norm_label": "comida",
-      "id": "docs_games_gangues_ldi_gangues_gdd_comida"
-    },
-    {
-      "label": "14. Auditoria de comunica\u00e7\u00e3o (set/2026) \u2014 i18n morto removido",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1457",
-      "_origin": "ast",
-      "community": 4,
-      "norm_label": "14. auditoria de comunicacao (set/2026) \u2014 i18n morto removido",
-      "id": "docs_games_gangues_ldi_gangues_gdd_14_auditoria_de_comunica\u00e7\u00e3o_set_2026_i18n_morto_removido"
-    },
-    {
-      "label": "15. Retratos de personagem (cabe\u00e7a, pixel art) \u2014 set/2026",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1503",
-      "_origin": "ast",
-      "community": 4,
-      "norm_label": "15. retratos de personagem (cabeca, pixel art) \u2014 set/2026",
-      "id": "docs_games_gangues_ldi_gangues_gdd_15_retratos_de_personagem_cabe\u00e7a_pixel_art_set_2026"
-    },
-    {
-      "label": "15.1 Corpo inteiro no \"primeiro contato\" (lobby inicial + recrutamento) \u2014 set/2026",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1548",
-      "_origin": "ast",
-      "community": 4,
-      "norm_label": "15.1 corpo inteiro no \"primeiro contato\" (lobby inicial + recrutamento) \u2014 set/2026",
-      "id": "docs_games_gangues_ldi_gangues_gdd_15_1_corpo_inteiro_no_primeiro_contato_lobby_inicial_recrutamento_set_2026"
-    },
-    {
-      "label": "15.2 M\u00e1quina de anima\u00e7\u00e3o de combate \u2014 cobertura (18/09/2026)",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1629",
-      "_origin": "ast",
-      "community": 4,
-      "norm_label": "15.2 maquina de animacao de combate \u2014 cobertura (18/09/2026)",
-      "id": "docs_games_gangues_ldi_gangues_gdd_15_2_m\u00e1quina_de_anima\u00e7\u00e3o_de_combate_cobertura_18_09_2026"
-    },
-    {
-      "label": "16. L\u00edder da gangue (set/2026)",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1703",
-      "_origin": "ast",
-      "community": 4,
-      "norm_label": "16. lider da gangue (set/2026)",
-      "id": "docs_games_gangues_ldi_gangues_gdd_16_l\u00edder_da_gangue_set_2026"
-    },
-    {
-      "label": "17. Mec\u00e2nica de combate e progress\u00e3o (fonte \u00fanica \u2014 set/2026)",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1733",
-      "_origin": "ast",
-      "community": 25,
-      "norm_label": "17. mecanica de combate e progressao (fonte unica \u2014 set/2026)",
-      "id": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica_set_2026"
-    },
-    {
-      "label": "17.1 Ficha e atributos",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1748",
-      "_origin": "ast",
-      "community": 25,
-      "norm_label": "17.1 ficha e atributos",
-      "id": "docs_games_gangues_ldi_gangues_gdd_17_1_ficha_e_atributos"
-    },
-    {
-      "label": "17.2 F\u00f3rmula de combate",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1811",
-      "_origin": "ast",
-      "community": 25,
-      "norm_label": "17.2 formula de combate",
-      "id": "docs_games_gangues_ldi_gangues_gdd_17_2_f\u00f3rmula_de_combate"
-    },
-    {
-      "label": "17.2.1 Como o jogador age, e os modos de combate",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1855",
-      "_origin": "ast",
-      "community": 25,
-      "norm_label": "17.2.1 como o jogador age, e os modos de combate",
-      "id": "docs_games_gangues_ldi_gangues_gdd_17_2_1_como_o_jogador_age_e_os_modos_de_combate"
-    },
-    {
-      "label": "17.3 Poderes / especiais (skill tree)",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1891",
-      "_origin": "ast",
-      "community": 25,
-      "norm_label": "17.3 poderes / especiais (skill tree)",
-      "id": "docs_games_gangues_ldi_gangues_gdd_17_3_poderes_especiais_skill_tree"
-    },
-    {
-      "label": "17.4 Progress\u00e3o (AP, XP, n\u00edvel)",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1909",
-      "_origin": "ast",
-      "community": 25,
-      "norm_label": "17.4 progressao (ap, xp, nivel)",
-      "id": "docs_games_gangues_ldi_gangues_gdd_17_4_progress\u00e3o_ap_xp_n\u00edvel"
-    },
-    {
-      "label": "17.5 Tamanho de gangue e elenco",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1975",
-      "_origin": "ast",
-      "community": 25,
-      "norm_label": "17.5 tamanho de gangue e elenco",
-      "id": "docs_games_gangues_ldi_gangues_gdd_17_5_tamanho_de_gangue_e_elenco"
-    },
-    {
-      "label": "17.6 Modo Hist\u00f3ria \u2014 a cena naveg\u00e1vel (hoje s\u00f3 a Pista)",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1987",
-      "_origin": "ast",
-      "community": 25,
-      "norm_label": "17.6 modo historia \u2014 a cena navegavel (hoje so a pista)",
-      "id": "docs_games_gangues_ldi_gangues_gdd_17_6_modo_hist\u00f3ria_a_cena_naveg\u00e1vel_hoje_s\u00f3_a_pista"
-    },
-    {
-      "label": "17.7 Persist\u00eancia",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L2069",
-      "_origin": "ast",
-      "community": 25,
-      "norm_label": "17.7 persistencia",
-      "id": "docs_games_gangues_ldi_gangues_gdd_17_7_persist\u00eancia"
-    },
-    {
-      "label": "17.8 Estrutura de arquivos (atual, p\u00f3s-reorganiza\u00e7\u00e3o de set/2026)",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L2080",
-      "_origin": "ast",
-      "community": 25,
-      "norm_label": "17.8 estrutura de arquivos (atual, pos-reorganizacao de set/2026)",
-      "id": "docs_games_gangues_ldi_gangues_gdd_17_8_estrutura_de_arquivos_atual_p\u00f3s_reorganiza\u00e7\u00e3o_de_set_2026"
-    },
-    {
-      "label": "17.9 Refer\u00eancia completa \u2014 atributos e poderes por personagem (a cada 5 n\u00edveis)",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L2107",
-      "_origin": "ast",
-      "community": 25,
-      "norm_label": "17.9 referencia completa \u2014 atributos e poderes por personagem (a cada 5 niveis)",
-      "id": "docs_games_gangues_ldi_gangues_gdd_17_9_refer\u00eancia_completa_atributos_e_poderes_por_personagem_a_cada_5_n\u00edveis"
-    },
-    {
-      "label": "Trinca \u2014 atacante (bruto)",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L2121",
-      "_origin": "ast",
-      "community": 25,
-      "norm_label": "trinca \u2014 atacante (bruto)",
-      "id": "docs_games_gangues_ldi_gangues_gdd_trinca_atacante_bruto"
-    },
-    {
-      "label": "Marreta \u2014 atacante (bruto)",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L2156",
-      "_origin": "ast",
-      "community": 25,
-      "norm_label": "marreta \u2014 atacante (bruto)",
-      "id": "docs_games_gangues_ldi_gangues_gdd_marreta_atacante_bruto"
-    },
-    {
-      "label": "Fenda \u2014 atacante (duelista)",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L2191",
-      "_origin": "ast",
-      "community": 25,
-      "norm_label": "fenda \u2014 atacante (duelista)",
-      "id": "docs_games_gangues_ldi_gangues_gdd_fenda_atacante_duelista"
-    },
-    {
-      "label": "Navalha \u2014 atacante (duelista)",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L2226",
-      "_origin": "ast",
-      "community": 25,
-      "norm_label": "navalha \u2014 atacante (duelista)",
-      "id": "docs_games_gangues_ldi_gangues_gdd_navalha_atacante_duelista"
-    },
-    {
-      "label": "Touro \u2014 atacante (furia)",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L2261",
-      "_origin": "ast",
-      "community": 25,
-      "norm_label": "touro \u2014 atacante (furia)",
-      "id": "docs_games_gangues_ldi_gangues_gdd_touro_atacante_furia"
-    },
-    {
-      "label": "Sangue \u2014 atacante (furia)",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L2296",
-      "_origin": "ast",
-      "community": 25,
-      "norm_label": "sangue \u2014 atacante (furia)",
-      "id": "docs_games_gangues_ldi_gangues_gdd_sangue_atacante_furia"
-    },
-    {
-      "label": "Mira \u2014 atacante (especialista)",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L2331",
-      "_origin": "ast",
-      "community": 25,
-      "norm_label": "mira \u2014 atacante (especialista)",
-      "id": "docs_games_gangues_ldi_gangues_gdd_mira_atacante_especialista"
-    },
-    {
-      "label": "Ponto \u2014 atacante (especialista)",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L2366",
-      "_origin": "ast",
-      "community": 25,
-      "norm_label": "ponto \u2014 atacante (especialista)",
-      "id": "docs_games_gangues_ldi_gangues_gdd_ponto_atacante_especialista"
-    },
-    {
-      "label": "Cicatriz \u2014 atacante (vingador)",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L2401",
-      "_origin": "ast",
-      "community": 25,
-      "norm_label": "cicatriz \u2014 atacante (vingador)",
-      "id": "docs_games_gangues_ldi_gangues_gdd_cicatriz_atacante_vingador"
-    },
-    {
-      "label": "Troco \u2014 atacante (vingador)",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L2436",
-      "_origin": "ast",
-      "community": 25,
-      "norm_label": "troco \u2014 atacante (vingador)",
-      "id": "docs_games_gangues_ldi_gangues_gdd_troco_atacante_vingador"
-    },
-    {
-      "label": "Muro \u2014 defensor (muralha)",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L2471",
-      "_origin": "ast",
-      "community": 25,
-      "norm_label": "muro \u2014 defensor (muralha)",
-      "id": "docs_games_gangues_ldi_gangues_gdd_muro_defensor_muralha"
-    },
-    {
-      "label": "Concreto \u2014 defensor (muralha)",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L2506",
-      "_origin": "ast",
-      "community": 25,
-      "norm_label": "concreto \u2014 defensor (muralha)",
-      "id": "docs_games_gangues_ldi_gangues_gdd_concreto_defensor_muralha"
-    },
-    {
-      "label": "Guarda \u2014 defensor (guardiao)",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L2541",
-      "_origin": "ast",
-      "community": 25,
-      "norm_label": "guarda \u2014 defensor (guardiao)",
-      "id": "docs_games_gangues_ldi_gangues_gdd_guarda_defensor_guardiao"
-    },
-    {
-      "label": "Ombro \u2014 defensor (guardiao)",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L2576",
-      "_origin": "ast",
-      "community": 25,
-      "norm_label": "ombro \u2014 defensor (guardiao)",
-      "id": "docs_games_gangues_ldi_gangues_gdd_ombro_defensor_guardiao"
-    },
-    {
-      "label": "Boca \u2014 defensor (provocador)",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L2611",
-      "_origin": "ast",
-      "community": 25,
-      "norm_label": "boca \u2014 defensor (provocador)",
-      "id": "docs_games_gangues_ldi_gangues_gdd_boca_defensor_provocador"
-    },
-    {
-      "label": "Isca \u2014 defensor (provocador)",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L2646",
-      "_origin": "ast",
-      "community": 25,
-      "norm_label": "isca \u2014 defensor (provocador)",
-      "id": "docs_games_gangues_ldi_gangues_gdd_isca_defensor_provocador"
-    },
-    {
-      "label": "Catraca \u2014 defensor (reativo)",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L2681",
-      "_origin": "ast",
-      "community": 25,
-      "norm_label": "catraca \u2014 defensor (reativo)",
-      "id": "docs_games_gangues_ldi_gangues_gdd_catraca_defensor_reativo"
-    },
-    {
-      "label": "Rebote \u2014 defensor (reativo)",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L2716",
-      "_origin": "ast",
-      "community": 25,
-      "norm_label": "rebote \u2014 defensor (reativo)",
-      "id": "docs_games_gangues_ldi_gangues_gdd_rebote_defensor_reativo"
-    },
-    {
-      "label": "Ferro \u2014 defensor (resiliente)",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L2751",
-      "_origin": "ast",
-      "community": 25,
-      "norm_label": "ferro \u2014 defensor (resiliente)",
-      "id": "docs_games_gangues_ldi_gangues_gdd_ferro_defensor_resiliente"
-    },
-    {
-      "label": "Osso \u2014 defensor (resiliente)",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L2786",
-      "_origin": "ast",
-      "community": 25,
-      "norm_label": "osso \u2014 defensor (resiliente)",
-      "id": "docs_games_gangues_ldi_gangues_gdd_osso_defensor_resiliente"
-    },
-    {
-      "label": "Brasa \u2014 mistico (igneo)",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L2821",
-      "_origin": "ast",
-      "community": 25,
-      "norm_label": "brasa \u2014 mistico (igneo)",
-      "id": "docs_games_gangues_ldi_gangues_gdd_brasa_mistico_igneo"
-    },
-    {
-      "label": "Cinza \u2014 mistico (igneo)",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L2856",
-      "_origin": "ast",
-      "community": 25,
-      "norm_label": "cinza \u2014 mistico (igneo)",
-      "id": "docs_games_gangues_ldi_gangues_gdd_cinza_mistico_igneo"
-    },
-    {
-      "label": "Mar\u00e9 \u2014 mistico (aquatico)",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L2891",
-      "_origin": "ast",
-      "community": 25,
-      "norm_label": "mare \u2014 mistico (aquatico)",
-      "id": "docs_games_gangues_ldi_gangues_gdd_mar\u00e9_mistico_aquatico"
-    },
-    {
-      "label": "Chuva \u2014 mistico (aquatico)",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L2926",
-      "_origin": "ast",
-      "community": 25,
-      "norm_label": "chuva \u2014 mistico (aquatico)",
-      "id": "docs_games_gangues_ldi_gangues_gdd_chuva_mistico_aquatico"
-    },
-    {
-      "label": "Raiz \u2014 mistico (terreno)",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L2961",
-      "_origin": "ast",
-      "community": 25,
-      "norm_label": "raiz \u2014 mistico (terreno)",
-      "id": "docs_games_gangues_ldi_gangues_gdd_raiz_mistico_terreno"
-    },
-    {
-      "label": "Racha \u2014 mistico (terreno)",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L2996",
-      "_origin": "ast",
-      "community": 25,
-      "norm_label": "racha \u2014 mistico (terreno)",
-      "id": "docs_games_gangues_ldi_gangues_gdd_racha_mistico_terreno"
-    },
-    {
-      "label": "Fa\u00edsca \u2014 mistico (tempestade)",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L3031",
-      "_origin": "ast",
-      "community": 25,
-      "norm_label": "faisca \u2014 mistico (tempestade)",
-      "id": "docs_games_gangues_ldi_gangues_gdd_fa\u00edsca_mistico_tempestade"
-    },
-    {
-      "label": "Trov\u00e3o \u2014 mistico (tempestade)",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L3066",
-      "_origin": "ast",
-      "community": 25,
-      "norm_label": "trovao \u2014 mistico (tempestade)",
-      "id": "docs_games_gangues_ldi_gangues_gdd_trov\u00e3o_mistico_tempestade"
-    },
-    {
-      "label": "N\u00e9voa \u2014 mistico (ilusorio)",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L3101",
-      "_origin": "ast",
-      "community": 25,
-      "norm_label": "nevoa \u2014 mistico (ilusorio)",
-      "id": "docs_games_gangues_ldi_gangues_gdd_n\u00e9voa_mistico_ilusorio"
-    },
-    {
-      "label": "Espelho \u2014 mistico (ilusorio)",
-      "file_type": "document",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L3136",
-      "_origin": "ast",
-      "community": 25,
-      "norm_label": "espelho \u2014 mistico (ilusorio)",
-      "id": "docs_games_gangues_ldi_gangues_gdd_espelho_mistico_ilusorio"
     },
     {
       "label": "DramaticDice.jsx",
@@ -46906,6 +46906,1066 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd",
+      "target": "docs_games_gangues_ldi_gangues_gdd_ldi_gangues_gdd_game_design_document_a_b\u00edblia_\u00fanica",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L36",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_ldi_gangues_gdd_game_design_document_a_b\u00edblia_\u00fanica",
+      "target": "docs_games_gangues_ldi_gangues_gdd_0_princ\u00edpio_de_dados_faixas_de_id",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1174",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_ldi_gangues_gdd_game_design_document_a_b\u00edblia_\u00fanica",
+      "target": "docs_games_gangues_ldi_gangues_gdd_10_conto_02_sinopse_can\u00f4nica_alan_o_campe\u00e3o",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1224",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_ldi_gangues_gdd_game_design_document_a_b\u00edblia_\u00fanica",
+      "target": "docs_games_gangues_ldi_gangues_gdd_11_contagem_do_\u00e1lbum",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1290",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_ldi_gangues_gdd_game_design_document_a_b\u00edblia_\u00fanica",
+      "target": "docs_games_gangues_ldi_gangues_gdd_12_1_\u00edndice_de_fontes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1240",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_ldi_gangues_gdd_game_design_document_a_b\u00edblia_\u00fanica",
+      "target": "docs_games_gangues_ldi_gangues_gdd_12_endgame_n\u00edvel_99_a_torre_e_o_multiplayer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1319",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_ldi_gangues_gdd_game_design_document_a_b\u00edblia_\u00fanica",
+      "target": "docs_games_gangues_ldi_gangues_gdd_13_vocabul\u00e1rio_de_g\u00edria_de_rua_refer\u00eancia_pra_escrever_texto",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1383",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_ldi_gangues_gdd_game_design_document_a_b\u00edblia_\u00fanica",
+      "target": "docs_games_gangues_ldi_gangues_gdd_14_regras_de_texto_do_jogo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1395",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_ldi_gangues_gdd_game_design_document_a_b\u00edblia_\u00fanica",
+      "target": "docs_games_gangues_ldi_gangues_gdd_15_retratos_e_anima\u00e7\u00e3o",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1460",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_ldi_gangues_gdd_game_design_document_a_b\u00edblia_\u00fanica",
+      "target": "docs_games_gangues_ldi_gangues_gdd_16_l\u00edder_da_gangue",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1490",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_ldi_gangues_gdd_game_design_document_a_b\u00edblia_\u00fanica",
+      "target": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L74",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_ldi_gangues_gdd_game_design_document_a_b\u00edblia_\u00fanica",
+      "target": "docs_games_gangues_ldi_gangues_gdd_1_a_estrutura_de_poder",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L147",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_ldi_gangues_gdd_game_design_document_a_b\u00edblia_\u00fanica",
+      "target": "docs_games_gangues_ldi_gangues_gdd_2_as_fac\u00e7\u00f5es_quem_\u00e9_dono_de_cada_peda\u00e7o_faixa_100_199",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L168",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_ldi_gangues_gdd_game_design_document_a_b\u00edblia_\u00fanica",
+      "target": "docs_games_gangues_ldi_gangues_gdd_3_linha_do_tempo_os_10_anos_antes_do_rei",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L208",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_ldi_gangues_gdd_game_design_document_a_b\u00edblia_\u00fanica",
+      "target": "docs_games_gangues_ldi_gangues_gdd_4_os_7_territ\u00f3rios_com_pontos_de_interesse_faixa_1_99",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L424",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_ldi_gangues_gdd_game_design_document_a_b\u00edblia_\u00fanica",
+      "target": "docs_games_gangues_ldi_gangues_gdd_5_o_\u00e1lbum_de_mar\u00e9lia_roster_de_inimigos",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L597",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_ldi_gangues_gdd_game_design_document_a_b\u00edblia_\u00fanica",
+      "target": "docs_games_gangues_ldi_gangues_gdd_6_dossi\u00ea_dos_chefes_faixa_1500_1600",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L646",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_ldi_gangues_gdd_game_design_document_a_b\u00edblia_\u00fanica",
+      "target": "docs_games_gangues_ldi_gangues_gdd_7_os_30_lutadores_recrut\u00e1veis_o_elenco_do_jogador",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1022",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_ldi_gangues_gdd_game_design_document_a_b\u00edblia_\u00fanica",
+      "target": "docs_games_gangues_ldi_gangues_gdd_8_npcs_n\u00e3o_combatentes_faixa_3000_3099",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1044",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_ldi_gangues_gdd_game_design_document_a_b\u00edblia_\u00fanica",
+      "target": "docs_games_gangues_ldi_gangues_gdd_9_itens_cat\u00e1logo_oficial",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L76",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_1_a_estrutura_de_poder",
+      "target": "docs_games_gangues_ldi_gangues_gdd_1_1_a_banca_a_organiza\u00e7\u00e3o_m\u00e3e",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L91",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_1_a_estrutura_de_poder",
+      "target": "docs_games_gangues_ldi_gangues_gdd_1_2_a_hierarquia_de_baixo_pra_cima_faixa_200_299",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L112",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_1_a_estrutura_de_poder",
+      "target": "docs_games_gangues_ldi_gangues_gdd_1_3_o_proceder_o_c\u00f3digo_que_segura_tudo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L134",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_1_a_estrutura_de_poder",
+      "target": "docs_games_gangues_ldi_gangues_gdd_1_4_a_c\u00fapula_gancho_p\u00f3s_jogo_evento",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L215",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_4_os_7_territ\u00f3rios_com_pontos_de_interesse_faixa_1_99",
+      "target": "docs_games_gangues_ldi_gangues_gdd_territ\u00f3rio_1_a_pista_rato_de_rua_3ddc97",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L360",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_4_os_7_territ\u00f3rios_com_pontos_de_interesse_faixa_1_99",
+      "target": "docs_games_gangues_ldi_gangues_gdd_territ\u00f3rio_2_a_feira_muvuca_7ee787",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L371",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_4_os_7_territ\u00f3rios_com_pontos_de_interesse_faixa_1_99",
+      "target": "docs_games_gangues_ldi_gangues_gdd_territ\u00f3rio_3_a_baixada_correria_18dafb",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L381",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_4_os_7_territ\u00f3rios_com_pontos_de_interesse_faixa_1_99",
+      "target": "docs_games_gangues_ldi_gangues_gdd_territ\u00f3rio_4_a_vila_disputa_ffae32",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L391",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_4_os_7_territ\u00f3rios_com_pontos_de_interesse_faixa_1_99",
+      "target": "docs_games_gangues_ldi_gangues_gdd_territ\u00f3rio_5_o_morro_guerra_ff8f3c",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L401",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_4_os_7_territ\u00f3rios_com_pontos_de_interesse_faixa_1_99",
+      "target": "docs_games_gangues_ldi_gangues_gdd_territ\u00f3rio_6_alto_do_morro_no_sangue_ff6b6b",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L410",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_4_os_7_territ\u00f3rios_com_pontos_de_interesse_faixa_1_99",
+      "target": "docs_games_gangues_ldi_gangues_gdd_territ\u00f3rio_7_a_laje_a_coroa_a855f7",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L452",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_5_o_\u00e1lbum_de_mar\u00e9lia_roster_de_inimigos",
+      "target": "docs_games_gangues_ldi_gangues_gdd_5_1_n\u00edvel_1_vigia_fogueteiro_faixa_1101_1121",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L481",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_5_o_\u00e1lbum_de_mar\u00e9lia_roster_de_inimigos",
+      "target": "docs_games_gangues_ldi_gangues_gdd_5_2_n\u00edvel_2_vapor_faixa_1201_1221",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L509",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_5_o_\u00e1lbum_de_mar\u00e9lia_roster_de_inimigos",
+      "target": "docs_games_gangues_ldi_gangues_gdd_5_3_n\u00edvel_3_gerente_de_boca_faixa_1301_1321",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L537",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_5_o_\u00e1lbum_de_mar\u00e9lia_roster_de_inimigos",
+      "target": "docs_games_gangues_ldi_gangues_gdd_5_4_n\u00edvel_4_cobrador_faixa_1401_1414",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L559",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_5_o_\u00e1lbum_de_mar\u00e9lia_roster_de_inimigos",
+      "target": "docs_games_gangues_ldi_gangues_gdd_5_5_n\u00edvel_5_general_bra\u00e7o_direito_faixa_1451_1464",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L581",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_5_o_\u00e1lbum_de_mar\u00e9lia_roster_de_inimigos",
+      "target": "docs_games_gangues_ldi_gangues_gdd_5_6_fichas_do_encontro_aleat\u00f3rio_1701_1712_fora_do_\u00e1lbum",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L603",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_6_dossi\u00ea_dos_chefes_faixa_1500_1600",
+      "target": "docs_games_gangues_ldi_gangues_gdd_1500_carv\u00e3o_chefe_da_pista",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L609",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_6_dossi\u00ea_dos_chefes_faixa_1500_1600",
+      "target": "docs_games_gangues_ldi_gangues_gdd_1501_o_cobrador_chefe_da_feira",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L615",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_6_dossi\u00ea_dos_chefes_faixa_1500_1600",
+      "target": "docs_games_gangues_ldi_gangues_gdd_1502_fura_bucho_chefe_da_baixada",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L620",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_6_dossi\u00ea_dos_chefes_faixa_1500_1600",
+      "target": "docs_games_gangues_ldi_gangues_gdd_1503_ferrugem_chefe_da_vila",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L626",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_6_dossi\u00ea_dos_chefes_faixa_1500_1600",
+      "target": "docs_games_gangues_ldi_gangues_gdd_1504_a_fera_zefa_chefe_do_morro",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L632",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_6_dossi\u00ea_dos_chefes_faixa_1500_1600",
+      "target": "docs_games_gangues_ldi_gangues_gdd_1505_o_contador_chefe_do_alto_do_morro",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L637",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_6_dossi\u00ea_dos_chefes_faixa_1500_1600",
+      "target": "docs_games_gangues_ldi_gangues_gdd_1600_o_retalho_dami\u00e3o_chefe_final",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L703",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_7_os_30_lutadores_recrut\u00e1veis_o_elenco_do_jogador",
+      "target": "docs_games_gangues_ldi_gangues_gdd_7_1_hist\u00f3ria_de_recrutamento_bios",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1046",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_9_itens_cat\u00e1logo_oficial",
+      "target": "docs_games_gangues_ldi_gangues_gdd_9_1_economia",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1052",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_9_itens_cat\u00e1logo_oficial",
+      "target": "docs_games_gangues_ldi_gangues_gdd_9_2_invent\u00e1rio_\u00e9_da_gangue_n\u00e3o_do_personagem",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1060",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_9_itens_cat\u00e1logo_oficial",
+      "target": "docs_games_gangues_ldi_gangues_gdd_9_3_consum\u00edveis_faixa_1_99",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1092",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_9_itens_cat\u00e1logo_oficial",
+      "target": "docs_games_gangues_ldi_gangues_gdd_9_4_equipamento_6_slots_por_personagem",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1142",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_9_itens_cat\u00e1logo_oficial",
+      "target": "docs_games_gangues_ldi_gangues_gdd_9_5_\u00e9picos_drop_de_chefe_faixa_132",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1158",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_9_itens_cat\u00e1logo_oficial",
+      "target": "docs_games_gangues_ldi_gangues_gdd_9_6_loja",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1201",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_10_conto_02_sinopse_can\u00f4nica_alan_o_campe\u00e3o",
+      "target": "docs_games_gangues_ldi_gangues_gdd_personagens_do_conto_resumo_can\u00f4nico",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1354",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_13_vocabul\u00e1rio_de_g\u00edria_de_rua_refer\u00eancia_pra_escrever_texto",
+      "target": "docs_games_gangues_ldi_gangues_gdd_a_lei_autoridade",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1357",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_13_vocabul\u00e1rio_de_g\u00edria_de_rua_refer\u00eancia_pra_escrever_texto",
+      "target": "docs_games_gangues_ldi_gangues_gdd_cadeia_apuros",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1376",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_13_vocabul\u00e1rio_de_g\u00edria_de_rua_refer\u00eancia_pra_escrever_texto",
+      "target": "docs_games_gangues_ldi_gangues_gdd_comida",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1345",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_13_vocabul\u00e1rio_de_g\u00edria_de_rua_refer\u00eancia_pra_escrever_texto",
+      "target": "docs_games_gangues_ldi_gangues_gdd_covardia_bravura",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1350",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_13_vocabul\u00e1rio_de_g\u00edria_de_rua_refer\u00eancia_pra_escrever_texto",
+      "target": "docs_games_gangues_ldi_gangues_gdd_delatar_confian\u00e7a",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1336",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_13_vocabul\u00e1rio_de_g\u00edria_de_rua_refer\u00eancia_pra_escrever_texto",
+      "target": "docs_games_gangues_ldi_gangues_gdd_dinheiro",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1372",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_13_vocabul\u00e1rio_de_g\u00edria_de_rua_refer\u00eancia_pra_escrever_texto",
+      "target": "docs_games_gangues_ldi_gangues_gdd_elogio_respeito",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1340",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_13_vocabul\u00e1rio_de_g\u00edria_de_rua_refer\u00eancia_pra_escrever_texto",
+      "target": "docs_games_gangues_ldi_gangues_gdd_fugir_sair_correndo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1368",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_13_vocabul\u00e1rio_de_g\u00edria_de_rua_refer\u00eancia_pra_escrever_texto",
+      "target": "docs_games_gangues_ldi_gangues_gdd_grupo_gangue",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1364",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_13_vocabul\u00e1rio_de_g\u00edria_de_rua_refer\u00eancia_pra_escrever_texto",
+      "target": "docs_games_gangues_ldi_gangues_gdd_insulto_leve_trouxa",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1361",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_13_vocabul\u00e1rio_de_g\u00edria_de_rua_refer\u00eancia_pra_escrever_texto",
+      "target": "docs_games_gangues_ldi_gangues_gdd_roubar_pegar_algo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1397",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_15_retratos_e_anima\u00e7\u00e3o",
+      "target": "docs_games_gangues_ldi_gangues_gdd_15_0_cabe\u00e7a_pixel_art",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1422",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_15_retratos_e_anima\u00e7\u00e3o",
+      "target": "docs_games_gangues_ldi_gangues_gdd_15_1_corpo_inteiro_funda\u00e7\u00e3o_recrutamento",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1442",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_15_retratos_e_anima\u00e7\u00e3o",
+      "target": "docs_games_gangues_ldi_gangues_gdd_15_2_anima\u00e7\u00e3o_de_combate_sprite",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1494",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica",
+      "target": "docs_games_gangues_ldi_gangues_gdd_17_1_ficha_e_atributos",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1594",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica",
+      "target": "docs_games_gangues_ldi_gangues_gdd_17_2_1_como_o_jogador_age_e_os_modos_de_combate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1552",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica",
+      "target": "docs_games_gangues_ldi_gangues_gdd_17_2_f\u00f3rmula_de_combate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1627",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica",
+      "target": "docs_games_gangues_ldi_gangues_gdd_17_3_poderes_especiais_skill_tree",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1642",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica",
+      "target": "docs_games_gangues_ldi_gangues_gdd_17_4_progress\u00e3o_ap_xp_n\u00edvel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1700",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica",
+      "target": "docs_games_gangues_ldi_gangues_gdd_17_5_tamanho_de_gangue_e_elenco",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1712",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica",
+      "target": "docs_games_gangues_ldi_gangues_gdd_17_6_modo_hist\u00f3ria_a_cena_naveg\u00e1vel_hoje_s\u00f3_a_pista",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1790",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica",
+      "target": "docs_games_gangues_ldi_gangues_gdd_17_7_persist\u00eancia",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1801",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica",
+      "target": "docs_games_gangues_ldi_gangues_gdd_17_8_estrutura_de_arquivos",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1829",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica",
+      "target": "docs_games_gangues_ldi_gangues_gdd_17_9_refer\u00eancia_completa_atributos_e_poderes_por_personagem_a_cada_5_n\u00edveis",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L2333",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica",
+      "target": "docs_games_gangues_ldi_gangues_gdd_boca_defensor_provocador",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L2543",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica",
+      "target": "docs_games_gangues_ldi_gangues_gdd_brasa_mistico_igneo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L2403",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica",
+      "target": "docs_games_gangues_ldi_gangues_gdd_catraca_defensor_reativo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L2648",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica",
+      "target": "docs_games_gangues_ldi_gangues_gdd_chuva_mistico_aquatico",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L2123",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica",
+      "target": "docs_games_gangues_ldi_gangues_gdd_cicatriz_atacante_vingador",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L2578",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica",
+      "target": "docs_games_gangues_ldi_gangues_gdd_cinza_mistico_igneo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L2228",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica",
+      "target": "docs_games_gangues_ldi_gangues_gdd_concreto_defensor_muralha",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L2858",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica",
+      "target": "docs_games_gangues_ldi_gangues_gdd_espelho_mistico_ilusorio",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L2753",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica",
+      "target": "docs_games_gangues_ldi_gangues_gdd_fa\u00edsca_mistico_tempestade",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1913",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica",
+      "target": "docs_games_gangues_ldi_gangues_gdd_fenda_atacante_duelista",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L2473",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica",
+      "target": "docs_games_gangues_ldi_gangues_gdd_ferro_defensor_resiliente",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L2263",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica",
+      "target": "docs_games_gangues_ldi_gangues_gdd_guarda_defensor_guardiao",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L2368",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica",
+      "target": "docs_games_gangues_ldi_gangues_gdd_isca_defensor_provocador",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1878",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica",
+      "target": "docs_games_gangues_ldi_gangues_gdd_marreta_atacante_bruto",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L2613",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica",
+      "target": "docs_games_gangues_ldi_gangues_gdd_mar\u00e9_mistico_aquatico",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L2053",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica",
+      "target": "docs_games_gangues_ldi_gangues_gdd_mira_atacante_especialista",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L2193",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica",
+      "target": "docs_games_gangues_ldi_gangues_gdd_muro_defensor_muralha",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1948",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica",
+      "target": "docs_games_gangues_ldi_gangues_gdd_navalha_atacante_duelista",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L2823",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica",
+      "target": "docs_games_gangues_ldi_gangues_gdd_n\u00e9voa_mistico_ilusorio",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L2298",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica",
+      "target": "docs_games_gangues_ldi_gangues_gdd_ombro_defensor_guardiao",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L2508",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica",
+      "target": "docs_games_gangues_ldi_gangues_gdd_osso_defensor_resiliente",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L2088",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica",
+      "target": "docs_games_gangues_ldi_gangues_gdd_ponto_atacante_especialista",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L2718",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica",
+      "target": "docs_games_gangues_ldi_gangues_gdd_racha_mistico_terreno",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L2683",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica",
+      "target": "docs_games_gangues_ldi_gangues_gdd_raiz_mistico_terreno",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L2438",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica",
+      "target": "docs_games_gangues_ldi_gangues_gdd_rebote_defensor_reativo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L2018",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica",
+      "target": "docs_games_gangues_ldi_gangues_gdd_sangue_atacante_furia",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1983",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica",
+      "target": "docs_games_gangues_ldi_gangues_gdd_touro_atacante_furia",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L1843",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica",
+      "target": "docs_games_gangues_ldi_gangues_gdd_trinca_atacante_bruto",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L2158",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica",
+      "target": "docs_games_gangues_ldi_gangues_gdd_troco_atacante_vingador",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
+      "source_location": "L2788",
+      "weight": 1.0,
+      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica",
+      "target": "docs_games_gangues_ldi_gangues_gdd_trov\u00e3o_mistico_tempestade",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -47065,9 +48125,9 @@
       "source_file": "src/pages/games/Gangues/data/cenas/pista/posicoes.js",
       "source_location": "L28",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_cenas_pista_posicoes",
-      "target": "src_pages_games_gangues_data_cenas_pista_posicoes_entry_zones_pista",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_cenas_pista_posicoes_entry_zones_pista"
     },
     {
       "relation": "contains",
@@ -47075,9 +48135,9 @@
       "source_file": "src/pages/games/Gangues/data/cenas/pista/posicoes.js",
       "source_location": "L26",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_data_cenas_pista_posicoes",
-      "target": "src_pages_games_gangues_data_cenas_pista_posicoes_pos_pista",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_data_cenas_pista_posicoes_pos_pista"
     },
     {
       "relation": "imports_from",
@@ -47096,9 +48156,9 @@
       "source_file": "src/pages/games/Gangues/screens/GanguesCena.jsx",
       "source_location": "L40",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_screens_ganguescena",
-      "target": "src_pages_games_gangues_screens_ganguescena_cenaintrotutorialid",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_screens_ganguescena_cenaintrotutorialid"
     },
     {
       "relation": "contains",
@@ -47106,9 +48166,9 @@
       "source_file": "src/pages/games/Gangues/screens/GanguesCena.jsx",
       "source_location": "L42",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_screens_ganguescena",
-      "target": "src_pages_games_gangues_screens_ganguescena_ganguescena",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_screens_ganguescena_ganguescena"
     },
     {
       "relation": "calls",
@@ -47117,9 +48177,9 @@
       "source_file": "src/pages/games/Gangues/screens/GanguesCena.jsx",
       "source_location": "L62",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_pages_games_gangues_screens_ganguescena_ganguescena",
-      "target": "src_pages_games_gangues_screens_ganguescena_cenaintrotutorialid",
-      "confidence_score": 1.0
+      "target": "src_pages_games_gangues_screens_ganguescena_cenaintrotutorialid"
     },
     {
       "relation": "imports",
@@ -47975,1066 +49035,6 @@
       "confidence_score": 1.0,
       "source": "src_pages_games_gangues_hooks_useganguesturnmachine_useganguesturnmachine",
       "target": "src_pages_games_gangues_hooks_useganguesturnmachine_prepare"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd",
-      "target": "docs_games_gangues_ldi_gangues_gdd_ldi_gangues_gdd_game_design_document_a_b\u00edblia_\u00fanica"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L40",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_ldi_gangues_gdd_game_design_document_a_b\u00edblia_\u00fanica",
-      "target": "docs_games_gangues_ldi_gangues_gdd_0_princ\u00edpio_de_dados_faixas_de_id"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1245",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_ldi_gangues_gdd_game_design_document_a_b\u00edblia_\u00fanica",
-      "target": "docs_games_gangues_ldi_gangues_gdd_10_conto_02_sinopse_can\u00f4nica_alan_o_campe\u00e3o"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1295",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_ldi_gangues_gdd_game_design_document_a_b\u00edblia_\u00fanica",
-      "target": "docs_games_gangues_ldi_gangues_gdd_11_contagem_do_\u00e1lbum"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1367",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_ldi_gangues_gdd_game_design_document_a_b\u00edblia_\u00fanica",
-      "target": "docs_games_gangues_ldi_gangues_gdd_12_1_\u00edndice_de_fontes"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1311",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_ldi_gangues_gdd_game_design_document_a_b\u00edblia_\u00fanica",
-      "target": "docs_games_gangues_ldi_gangues_gdd_12_endgame_n\u00edvel_99_a_torre_e_o_multiplayer_v2_71_0"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1393",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_ldi_gangues_gdd_game_design_document_a_b\u00edblia_\u00fanica",
-      "target": "docs_games_gangues_ldi_gangues_gdd_13_vocabul\u00e1rio_de_g\u00edria_de_rua_refer\u00eancia_pra_escrever_texto"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1457",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_ldi_gangues_gdd_game_design_document_a_b\u00edblia_\u00fanica",
-      "target": "docs_games_gangues_ldi_gangues_gdd_14_auditoria_de_comunica\u00e7\u00e3o_set_2026_i18n_morto_removido"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1503",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_ldi_gangues_gdd_game_design_document_a_b\u00edblia_\u00fanica",
-      "target": "docs_games_gangues_ldi_gangues_gdd_15_retratos_de_personagem_cabe\u00e7a_pixel_art_set_2026"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1703",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_ldi_gangues_gdd_game_design_document_a_b\u00edblia_\u00fanica",
-      "target": "docs_games_gangues_ldi_gangues_gdd_16_l\u00edder_da_gangue_set_2026"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1733",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_ldi_gangues_gdd_game_design_document_a_b\u00edblia_\u00fanica",
-      "target": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica_set_2026"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L89",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_ldi_gangues_gdd_game_design_document_a_b\u00edblia_\u00fanica",
-      "target": "docs_games_gangues_ldi_gangues_gdd_1_a_estrutura_de_poder"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L162",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_ldi_gangues_gdd_game_design_document_a_b\u00edblia_\u00fanica",
-      "target": "docs_games_gangues_ldi_gangues_gdd_2_as_fac\u00e7\u00f5es_quem_\u00e9_dono_de_cada_peda\u00e7o_faixa_100_199"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L183",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_ldi_gangues_gdd_game_design_document_a_b\u00edblia_\u00fanica",
-      "target": "docs_games_gangues_ldi_gangues_gdd_3_linha_do_tempo_os_10_anos_antes_do_rei"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L223",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_ldi_gangues_gdd_game_design_document_a_b\u00edblia_\u00fanica",
-      "target": "docs_games_gangues_ldi_gangues_gdd_4_os_7_territ\u00f3rios_com_pontos_de_interesse_faixa_1_99"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L450",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_ldi_gangues_gdd_game_design_document_a_b\u00edblia_\u00fanica",
-      "target": "docs_games_gangues_ldi_gangues_gdd_5_o_\u00e1lbum_de_mar\u00e9lia_roster_de_inimigos"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L658",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_ldi_gangues_gdd_game_design_document_a_b\u00edblia_\u00fanica",
-      "target": "docs_games_gangues_ldi_gangues_gdd_6_dossi\u00ea_dos_chefes_faixa_1500_1600"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L704",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_ldi_gangues_gdd_game_design_document_a_b\u00edblia_\u00fanica",
-      "target": "docs_games_gangues_ldi_gangues_gdd_7_os_30_lutadores_recrut\u00e1veis_o_elenco_do_jogador"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1099",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_ldi_gangues_gdd_game_design_document_a_b\u00edblia_\u00fanica",
-      "target": "docs_games_gangues_ldi_gangues_gdd_8_npcs_n\u00e3o_combatentes_faixa_3000_3099"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1114",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_ldi_gangues_gdd_game_design_document_a_b\u00edblia_\u00fanica",
-      "target": "docs_games_gangues_ldi_gangues_gdd_9_itens_cat\u00e1logo_oficial"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L91",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_1_a_estrutura_de_poder",
-      "target": "docs_games_gangues_ldi_gangues_gdd_1_1_a_banca_a_organiza\u00e7\u00e3o_m\u00e3e"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L106",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_1_a_estrutura_de_poder",
-      "target": "docs_games_gangues_ldi_gangues_gdd_1_2_a_hierarquia_de_baixo_pra_cima_faixa_200_299"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L127",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_1_a_estrutura_de_poder",
-      "target": "docs_games_gangues_ldi_gangues_gdd_1_3_o_proceder_o_c\u00f3digo_que_segura_tudo"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L149",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_1_a_estrutura_de_poder",
-      "target": "docs_games_gangues_ldi_gangues_gdd_1_4_a_c\u00fapula_gancho_p\u00f3s_jogo_evento"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L230",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_4_os_7_territ\u00f3rios_com_pontos_de_interesse_faixa_1_99",
-      "target": "docs_games_gangues_ldi_gangues_gdd_territ\u00f3rio_1_a_pista_rato_de_rua_3ddc97"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L386",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_4_os_7_territ\u00f3rios_com_pontos_de_interesse_faixa_1_99",
-      "target": "docs_games_gangues_ldi_gangues_gdd_territ\u00f3rio_2_a_feira_muvuca_7ee787"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L397",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_4_os_7_territ\u00f3rios_com_pontos_de_interesse_faixa_1_99",
-      "target": "docs_games_gangues_ldi_gangues_gdd_territ\u00f3rio_3_a_baixada_correria_18dafb"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L407",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_4_os_7_territ\u00f3rios_com_pontos_de_interesse_faixa_1_99",
-      "target": "docs_games_gangues_ldi_gangues_gdd_territ\u00f3rio_4_a_vila_disputa_ffae32"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L417",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_4_os_7_territ\u00f3rios_com_pontos_de_interesse_faixa_1_99",
-      "target": "docs_games_gangues_ldi_gangues_gdd_territ\u00f3rio_5_o_morro_guerra_ff8f3c"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L427",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_4_os_7_territ\u00f3rios_com_pontos_de_interesse_faixa_1_99",
-      "target": "docs_games_gangues_ldi_gangues_gdd_territ\u00f3rio_6_alto_do_morro_no_sangue_ff6b6b"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L436",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_4_os_7_territ\u00f3rios_com_pontos_de_interesse_faixa_1_99",
-      "target": "docs_games_gangues_ldi_gangues_gdd_territ\u00f3rio_7_a_laje_a_coroa_a855f7"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L478",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_5_o_\u00e1lbum_de_mar\u00e9lia_roster_de_inimigos",
-      "target": "docs_games_gangues_ldi_gangues_gdd_5_1_n\u00edvel_1_vigia_fogueteiro_faixa_1101_1121"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L507",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_5_o_\u00e1lbum_de_mar\u00e9lia_roster_de_inimigos",
-      "target": "docs_games_gangues_ldi_gangues_gdd_5_2_n\u00edvel_2_vapor_faixa_1201_1221"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L535",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_5_o_\u00e1lbum_de_mar\u00e9lia_roster_de_inimigos",
-      "target": "docs_games_gangues_ldi_gangues_gdd_5_3_n\u00edvel_3_gerente_de_boca_faixa_1301_1321"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L563",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_5_o_\u00e1lbum_de_mar\u00e9lia_roster_de_inimigos",
-      "target": "docs_games_gangues_ldi_gangues_gdd_5_4_n\u00edvel_4_cobrador_faixa_1401_1414"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L585",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_5_o_\u00e1lbum_de_mar\u00e9lia_roster_de_inimigos",
-      "target": "docs_games_gangues_ldi_gangues_gdd_5_5_n\u00edvel_5_general_bra\u00e7o_direito_faixa_1451_1464"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L607",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_5_o_\u00e1lbum_de_mar\u00e9lia_roster_de_inimigos",
-      "target": "docs_games_gangues_ldi_gangues_gdd_5_6_ranking_clandestino_removido_v2_66_1"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L618",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_5_o_\u00e1lbum_de_mar\u00e9lia_roster_de_inimigos",
-      "target": "docs_games_gangues_ldi_gangues_gdd_5_7_crosswalk_fichas_migradas_de_string_id_num\u00e9rico"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L660",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_6_dossi\u00ea_dos_chefes_faixa_1500_1600",
-      "target": "docs_games_gangues_ldi_gangues_gdd_1500_carv\u00e3o_chefe_da_pista"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L666",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_6_dossi\u00ea_dos_chefes_faixa_1500_1600",
-      "target": "docs_games_gangues_ldi_gangues_gdd_1501_o_cobrador_chefe_da_feira"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L672",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_6_dossi\u00ea_dos_chefes_faixa_1500_1600",
-      "target": "docs_games_gangues_ldi_gangues_gdd_1502_fura_bucho_chefe_da_baixada"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L678",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_6_dossi\u00ea_dos_chefes_faixa_1500_1600",
-      "target": "docs_games_gangues_ldi_gangues_gdd_1503_ferrugem_chefe_da_vila"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L684",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_6_dossi\u00ea_dos_chefes_faixa_1500_1600",
-      "target": "docs_games_gangues_ldi_gangues_gdd_1504_a_fera_zefa_chefe_do_morro"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L690",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_6_dossi\u00ea_dos_chefes_faixa_1500_1600",
-      "target": "docs_games_gangues_ldi_gangues_gdd_1505_o_contador_chefe_do_alto_do_morro"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L695",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_6_dossi\u00ea_dos_chefes_faixa_1500_1600",
-      "target": "docs_games_gangues_ldi_gangues_gdd_1600_o_retalho_dami\u00e3o_chefe_final"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L774",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_7_os_30_lutadores_recrut\u00e1veis_o_elenco_do_jogador",
-      "target": "docs_games_gangues_ldi_gangues_gdd_7_1_hist\u00f3ria_de_recrutamento_bios"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1116",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_9_itens_cat\u00e1logo_oficial",
-      "target": "docs_games_gangues_ldi_gangues_gdd_9_1_economia"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1122",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_9_itens_cat\u00e1logo_oficial",
-      "target": "docs_games_gangues_ldi_gangues_gdd_9_2_invent\u00e1rio_\u00e9_da_gangue_n\u00e3o_do_personagem"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1130",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_9_itens_cat\u00e1logo_oficial",
-      "target": "docs_games_gangues_ldi_gangues_gdd_9_3_consum\u00edveis_faixa_1_99"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1162",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_9_itens_cat\u00e1logo_oficial",
-      "target": "docs_games_gangues_ldi_gangues_gdd_9_4_equipamento_6_slots_por_personagem"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1212",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_9_itens_cat\u00e1logo_oficial",
-      "target": "docs_games_gangues_ldi_gangues_gdd_9_5_\u00e9picos_drop_de_chefe_faixa_132"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1228",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_9_itens_cat\u00e1logo_oficial",
-      "target": "docs_games_gangues_ldi_gangues_gdd_9_6_loja"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1272",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_10_conto_02_sinopse_can\u00f4nica_alan_o_campe\u00e3o",
-      "target": "docs_games_gangues_ldi_gangues_gdd_personagens_do_conto_resumo_can\u00f4nico"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1428",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_13_vocabul\u00e1rio_de_g\u00edria_de_rua_refer\u00eancia_pra_escrever_texto",
-      "target": "docs_games_gangues_ldi_gangues_gdd_a_lei_autoridade"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1431",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_13_vocabul\u00e1rio_de_g\u00edria_de_rua_refer\u00eancia_pra_escrever_texto",
-      "target": "docs_games_gangues_ldi_gangues_gdd_cadeia_apuros"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1450",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_13_vocabul\u00e1rio_de_g\u00edria_de_rua_refer\u00eancia_pra_escrever_texto",
-      "target": "docs_games_gangues_ldi_gangues_gdd_comida"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1419",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_13_vocabul\u00e1rio_de_g\u00edria_de_rua_refer\u00eancia_pra_escrever_texto",
-      "target": "docs_games_gangues_ldi_gangues_gdd_covardia_bravura"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1424",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_13_vocabul\u00e1rio_de_g\u00edria_de_rua_refer\u00eancia_pra_escrever_texto",
-      "target": "docs_games_gangues_ldi_gangues_gdd_delatar_confian\u00e7a"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1410",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_13_vocabul\u00e1rio_de_g\u00edria_de_rua_refer\u00eancia_pra_escrever_texto",
-      "target": "docs_games_gangues_ldi_gangues_gdd_dinheiro"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1446",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_13_vocabul\u00e1rio_de_g\u00edria_de_rua_refer\u00eancia_pra_escrever_texto",
-      "target": "docs_games_gangues_ldi_gangues_gdd_elogio_respeito"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1414",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_13_vocabul\u00e1rio_de_g\u00edria_de_rua_refer\u00eancia_pra_escrever_texto",
-      "target": "docs_games_gangues_ldi_gangues_gdd_fugir_sair_correndo"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1442",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_13_vocabul\u00e1rio_de_g\u00edria_de_rua_refer\u00eancia_pra_escrever_texto",
-      "target": "docs_games_gangues_ldi_gangues_gdd_grupo_gangue"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1438",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_13_vocabul\u00e1rio_de_g\u00edria_de_rua_refer\u00eancia_pra_escrever_texto",
-      "target": "docs_games_gangues_ldi_gangues_gdd_insulto_leve_trouxa"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1435",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_13_vocabul\u00e1rio_de_g\u00edria_de_rua_refer\u00eancia_pra_escrever_texto",
-      "target": "docs_games_gangues_ldi_gangues_gdd_roubar_pegar_algo"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1548",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_15_retratos_de_personagem_cabe\u00e7a_pixel_art_set_2026",
-      "target": "docs_games_gangues_ldi_gangues_gdd_15_1_corpo_inteiro_no_primeiro_contato_lobby_inicial_recrutamento_set_2026"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1629",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_15_retratos_de_personagem_cabe\u00e7a_pixel_art_set_2026",
-      "target": "docs_games_gangues_ldi_gangues_gdd_15_2_m\u00e1quina_de_anima\u00e7\u00e3o_de_combate_cobertura_18_09_2026"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1748",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica_set_2026",
-      "target": "docs_games_gangues_ldi_gangues_gdd_17_1_ficha_e_atributos"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1855",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica_set_2026",
-      "target": "docs_games_gangues_ldi_gangues_gdd_17_2_1_como_o_jogador_age_e_os_modos_de_combate"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1811",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica_set_2026",
-      "target": "docs_games_gangues_ldi_gangues_gdd_17_2_f\u00f3rmula_de_combate"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1891",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica_set_2026",
-      "target": "docs_games_gangues_ldi_gangues_gdd_17_3_poderes_especiais_skill_tree"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1909",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica_set_2026",
-      "target": "docs_games_gangues_ldi_gangues_gdd_17_4_progress\u00e3o_ap_xp_n\u00edvel"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1975",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica_set_2026",
-      "target": "docs_games_gangues_ldi_gangues_gdd_17_5_tamanho_de_gangue_e_elenco"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L1987",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica_set_2026",
-      "target": "docs_games_gangues_ldi_gangues_gdd_17_6_modo_hist\u00f3ria_a_cena_naveg\u00e1vel_hoje_s\u00f3_a_pista"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L2069",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica_set_2026",
-      "target": "docs_games_gangues_ldi_gangues_gdd_17_7_persist\u00eancia"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L2080",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica_set_2026",
-      "target": "docs_games_gangues_ldi_gangues_gdd_17_8_estrutura_de_arquivos_atual_p\u00f3s_reorganiza\u00e7\u00e3o_de_set_2026"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L2107",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica_set_2026",
-      "target": "docs_games_gangues_ldi_gangues_gdd_17_9_refer\u00eancia_completa_atributos_e_poderes_por_personagem_a_cada_5_n\u00edveis"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L2611",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica_set_2026",
-      "target": "docs_games_gangues_ldi_gangues_gdd_boca_defensor_provocador"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L2821",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica_set_2026",
-      "target": "docs_games_gangues_ldi_gangues_gdd_brasa_mistico_igneo"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L2681",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica_set_2026",
-      "target": "docs_games_gangues_ldi_gangues_gdd_catraca_defensor_reativo"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L2926",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica_set_2026",
-      "target": "docs_games_gangues_ldi_gangues_gdd_chuva_mistico_aquatico"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L2401",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica_set_2026",
-      "target": "docs_games_gangues_ldi_gangues_gdd_cicatriz_atacante_vingador"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L2856",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica_set_2026",
-      "target": "docs_games_gangues_ldi_gangues_gdd_cinza_mistico_igneo"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L2506",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica_set_2026",
-      "target": "docs_games_gangues_ldi_gangues_gdd_concreto_defensor_muralha"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L3136",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica_set_2026",
-      "target": "docs_games_gangues_ldi_gangues_gdd_espelho_mistico_ilusorio"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L3031",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica_set_2026",
-      "target": "docs_games_gangues_ldi_gangues_gdd_fa\u00edsca_mistico_tempestade"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L2191",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica_set_2026",
-      "target": "docs_games_gangues_ldi_gangues_gdd_fenda_atacante_duelista"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L2751",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica_set_2026",
-      "target": "docs_games_gangues_ldi_gangues_gdd_ferro_defensor_resiliente"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L2541",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica_set_2026",
-      "target": "docs_games_gangues_ldi_gangues_gdd_guarda_defensor_guardiao"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L2646",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica_set_2026",
-      "target": "docs_games_gangues_ldi_gangues_gdd_isca_defensor_provocador"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L2156",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica_set_2026",
-      "target": "docs_games_gangues_ldi_gangues_gdd_marreta_atacante_bruto"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L2891",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica_set_2026",
-      "target": "docs_games_gangues_ldi_gangues_gdd_mar\u00e9_mistico_aquatico"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L2331",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica_set_2026",
-      "target": "docs_games_gangues_ldi_gangues_gdd_mira_atacante_especialista"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L2471",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica_set_2026",
-      "target": "docs_games_gangues_ldi_gangues_gdd_muro_defensor_muralha"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L2226",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica_set_2026",
-      "target": "docs_games_gangues_ldi_gangues_gdd_navalha_atacante_duelista"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L3101",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica_set_2026",
-      "target": "docs_games_gangues_ldi_gangues_gdd_n\u00e9voa_mistico_ilusorio"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L2576",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica_set_2026",
-      "target": "docs_games_gangues_ldi_gangues_gdd_ombro_defensor_guardiao"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L2786",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica_set_2026",
-      "target": "docs_games_gangues_ldi_gangues_gdd_osso_defensor_resiliente"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L2366",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica_set_2026",
-      "target": "docs_games_gangues_ldi_gangues_gdd_ponto_atacante_especialista"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L2996",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica_set_2026",
-      "target": "docs_games_gangues_ldi_gangues_gdd_racha_mistico_terreno"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L2961",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica_set_2026",
-      "target": "docs_games_gangues_ldi_gangues_gdd_raiz_mistico_terreno"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L2716",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica_set_2026",
-      "target": "docs_games_gangues_ldi_gangues_gdd_rebote_defensor_reativo"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L2296",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica_set_2026",
-      "target": "docs_games_gangues_ldi_gangues_gdd_sangue_atacante_furia"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L2261",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica_set_2026",
-      "target": "docs_games_gangues_ldi_gangues_gdd_touro_atacante_furia"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L2121",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica_set_2026",
-      "target": "docs_games_gangues_ldi_gangues_gdd_trinca_atacante_bruto"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L2436",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica_set_2026",
-      "target": "docs_games_gangues_ldi_gangues_gdd_troco_atacante_vingador"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "docs/Games/Gangues/LDI_GANGUES_GDD.md",
-      "source_location": "L3066",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "docs_games_gangues_ldi_gangues_gdd_17_mec\u00e2nica_de_combate_e_progress\u00e3o_fonte_\u00fanica_set_2026",
-      "target": "docs_games_gangues_ldi_gangues_gdd_trov\u00e3o_mistico_tempestade"
     },
     {
       "relation": "contains",
@@ -126926,5 +126926,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "81298a79b6f46624654e472e8ac00ff3bee9616d"
+  "built_at_commit": "d90deadf9535f98dadb685ffc68201478e1e02bf"
 }

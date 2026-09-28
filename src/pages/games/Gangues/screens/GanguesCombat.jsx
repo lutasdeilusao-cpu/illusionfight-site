@@ -11,6 +11,7 @@ import useGanguesVelocidadeAuto from '../hooks/useGanguesVelocidadeAuto.js'
 import useGanguesModoMultidao from '../hooks/useGanguesModoMultidao.js'
 import useGanguesBattleOutcome from '../hooks/useGanguesBattleOutcome.js'
 import useGanguesCombatLog from '../hooks/useGanguesCombatLog.js'
+import useGanguesDanoAoVivo from '../hooks/useGanguesDanoAoVivo.js'
 import { fighterName } from '../engine/ganguesCombatPresentation.js'
 import { getGanguesPortraitByTemplateId } from '../data/ganguesPortraits.js'
 import { precarregarAnimacaoCombate } from '../data/ganguesCombatAnimations.js'
@@ -139,6 +140,9 @@ export default function GanguesCombat({ onNavigate, onSairConfirmado }) {
     modoAutoMultidaoOn, setModoAutoMultidaoOn, velocidade: velocidadeEfetiva,
     modoMultidaoAtivo, estadoMultidao, revelandoRodada, result, koCena: fx.koCena, avancarRodada,
   })
+
+  // PV/PM gravado durante a luta (sair/recarregar não devolve a vida).
+  useGanguesDanoAoVivo({ store, combatants: modoMultidaoAtivo ? (estadoMultidao?.combatants || []) : machine.combatants })
 
   const players = modoMultidaoAtivo
     ? (estadoMultidao?.combatants || []).filter(item => item.side === 'player')

@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1790514662.6947634,
-    "ast_hash": "fc1837ed29c9723279493d7c6ebe88db",
+    "mtime": 1790593706.5075462,
+    "ast_hash": "4bd28550f4c1b4beed64afe2b4232f10",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2730,8 +2730,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1790514662.748238,
-    "ast_hash": "9fdf0530554f5d70f1e15c0fb0eafb64",
+    "mtime": 1790593706.5447545,
+    "ast_hash": "b8bdb2eac1ca45f89bf14d247aaa2d27",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -4750,8 +4750,8 @@
     "semantic_hash": ""
   },
   "docs/Games/Gangues/LDI_GANGUES_GDD.md": {
-    "mtime": 1790469821.9861262,
-    "ast_hash": "c1f5632d8f6ff05c084559aa68a039ad",
+    "mtime": 1790593698.5543864,
+    "ast_hash": "f8aae75ad0acecf3f634c241e7abf37e",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/data/ganguesInimigos.js": {

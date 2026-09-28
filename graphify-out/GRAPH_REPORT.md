@@ -1,7 +1,7 @@
-# Graph Report - SiteLDI  (2026-09-27)
+# Graph Report - SiteLDI  (2026-09-28)
 
 ## Corpus Check
-- 982 files · ~1,697,575 words
+- 982 files · ~1,694,751 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `81298a79`
+- Built from commit: `d90deadf`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -425,7 +425,7 @@
 4. `useReader()` - 49 edges
 5. `logEntry()` - 43 edges
 6. `AudioManager` - 42 edges
-7. `17. Mecânica de combate e progressão (fonte única — set/2026)` - 41 edges
+7. `17. Mecânica de combate e progressão (fonte única)` - 41 edges
 8. `useKpI18n()` - 39 edges
 9. `Phase6CombatV2()` - 34 edges
 10. `🟣 Elite (32 cartas)` - 33 edges
@@ -465,7 +465,7 @@ Nodes (59): ALLY_TEMPLATES, APUNHALAR_BLEED_CHANCE, areaTargetsPicked, ARMORS, A
 
 ### Community 4 - "Community 4"
 Cohesion: 0.11
-Nodes (17): 0. Princípio de dados — faixas de ID, 10. Conto 02 — sinopse canônica ("Alan, o Campeão"), 11. Contagem do álbum, 12.1 Índice de fontes, 12. Endgame — nível 99, a Torre e o multiplayer (v2.71.0), 14. Auditoria de comunicação (set/2026) — i18n morto removido, 15.1 Corpo inteiro no "primeiro contato" (lobby inicial + recrutamento) — set/2026, 15.2 Máquina de animação de combate — cobertura (18/09/2026) (+9 more)
+Nodes (18): 0. Princípio de dados — faixas de ID, 10. Conto 02 — sinopse canônica ("Alan, o Campeão"), 11. Contagem do álbum, 12.1 Índice de fontes, 12. Endgame — nível 99, a Torre e o multiplayer, 14. Regras de texto do jogo, 15.0 Cabeça (pixel art), 15.1 Corpo inteiro (fundação + recrutamento) (+10 more)
 
 ### Community 5 - "Community 5"
 Cohesion: 0.08
@@ -1412,8 +1412,8 @@ Cohesion: 0.25
 Nodes (8): 4. Os 7 territórios — com pontos de interesse (faixa 1–99), Território 1 — A Pista · Rato de rua · `#3ddc97`, Território 2 — A Feira · Muvuca · `#7ee787`, Território 3 — A Baixada · Correria · `#18dafb`, Território 4 — A Vila · Disputa · `#ffae32`, Território 5 — O Morro · Guerra · `#ff8f3c`, Território 6 — Alto do Morro · No sangue · `#ff6b6b`, Território 7 — A Laje · A Coroa · `#a855f7`
 
 ### Community 449 - "5. O Álbum de Marélia — roster de inimigos"
-Cohesion: 0.25
-Nodes (8): 5.1 Nível 1 — VIGIA / FOGUETEIRO (faixa 1101–1121), 5.2 Nível 2 — VAPOR (faixa 1201–1221), 5.3 Nível 3 — GERENTE DE BOCA (faixa 1301–1321), 5.4 Nível 4 — COBRADOR (faixa 1401–1414), 5.5 Nível 5 — GENERAL / BRAÇO-DIREITO (faixa 1451–1464), 5.6 ~~Ranking Clandestino~~ — REMOVIDO (v2.66.1), 5.7 Crosswalk — fichas migradas de string → id numérico, 5. O Álbum de Marélia — roster de inimigos
+Cohesion: 0.29
+Nodes (7): 5.1 Nível 1 — VIGIA / FOGUETEIRO (faixa 1101–1121), 5.2 Nível 2 — VAPOR (faixa 1201–1221), 5.3 Nível 3 — GERENTE DE BOCA (faixa 1301–1321), 5.4 Nível 4 — COBRADOR (faixa 1401–1414), 5.5 Nível 5 — GENERAL / BRAÇO-DIREITO (faixa 1451–1464), 5.6 Fichas do encontro aleatório (1701–1712, fora do Álbum), 5. O Álbum de Marélia — roster de inimigos
 
 ### Community 450 - "9. Itens — catálogo oficial"
 Cohesion: 0.29
