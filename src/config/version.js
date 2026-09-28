@@ -8,7 +8,7 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.307.4' // fix(gangues): farm em 2º plano só ataque normal (sem talento/PM) e a luta que estava no meio na volta não conta.
+export const SITE_VERSION = '10.307.5' // fix(minigames): labirinto mostra as setas sempre e cabe inteiro na coluna (celular e 'site para computador').
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.2' // fix: aba "stories" do rodape mostrava a chave crua pp.menu.pistas_label (nao existia) -> aponta pra pp.dossier.pistas_label; PuzzleWrapper mostrava pp.puzzle.nenhum/instrucao (nao existiam) -> pp.local.puzzle_nenhum/instrucao; confirm() de deletar save mostrava pp.menu.deletar_slot cru -> chave criada nos 3 idiomas.
@@ -18,7 +18,7 @@ export const GANGUES_VERSION   = '3.75.4' // farm ausente: lutas simuladas só c
 
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
-export const MINIGAMES_VERSION = '4.3.6'  // PuzzleStealthGrid: d-pad na tela sempre (mobile tambem) + grade nao vaza mais do viewport
+export const MINIGAMES_VERSION = '4.3.7'  // PuzzleLabirinto: setas na tela sempre + labirinto inteiro dimensionado pela largura do container (sem decidir por largura da janela)
 export const TS_VERSION        = '6.0.3'  // Top Trumps SP - fix: cartas cortadas em telas baixas (escala por JS) + audio iOS Chrome + player da Nina toca em mobile
 export const TM_VERSION        = '6.0.2'  // Top Trumps MP - alinhado com SP 6.0.2 (GameOverScreen compartilhado)
 export const TATICS_VERSION    = '7.5.1' // fix: PreBatalha.jsx chamava t('tatics.*') (namespace legado, sem essas chaves) em vez de t('games.tatics.*') — tela pre-batalha inteira mostrava chave crua. SimulacaoAuto.jsx usava 11 chaves games.tatics.sim_* que nunca existiram — criadas nos 3 idiomas.
