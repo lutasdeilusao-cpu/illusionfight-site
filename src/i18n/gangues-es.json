@@ -319,7 +319,7 @@
         "auto_pocao_desc": "¿Alguien con 50% de PV o menos? El más entero de la banda larga su turno y le da poción de PV al más golpeado.",
         "auto_tutorial": {
           "talento": "Acá armás el automático, pibe. Para cada uno de la banda elegí: solo ataque normal, o UN talento que larga cada vez que tenga PM. Se acabó el PM, vuelve al ataque normal.",
-          "pocao": "Prendé las pociones solas y nadie cae de gusto. PV: alguien llegó al 50%, el más entero larga su turno y le pasa la poción — el herido sigue a las piñas (vale hasta con la app en segundo plano). PM: el que larga talento y se quedó sin PM toma poción de PM y vuelve a largarlo. Con la app en segundo plano es solo ataque normal, sin talento.",
+          "pocao": "Prendé las pociones solas y nadie cae de gusto. PV: alguien llegó al 50%, el más entero larga su turno y le pasa la poción — el herido sigue a las piñas (vale hasta en la riña con la app en segundo plano). PM: el que larga talento y se quedó sin PM toma poción de PM y vuelve a largarlo. En la riña, con la app en segundo plano, es solo ataque normal, sin talento.",
           "derrota": "Pero ojo: perdiste la pelea y se apaga TODO lo automático. Ahí te toca a vos de nuevo."
         },
         "auto_pocao_pm": "Poción de PM sola",
@@ -761,12 +761,15 @@
         "niveis": "Subió de nivel",
         "teto": "Llegaste al tope de +5 niveles por ausencia — de acá en adelante, a jugar.",
         "derrota": "La banda cayó en una de las peleas: la arrastraron al bar y se apagó todo lo automático. Prendelo de nuevo cuando quieras volver a farmear.",
-        "sem_alvo": "No había rival para farmear: solo se grindea al último que enfrentaste — nunca uno rojo, el jefe o la zona del jefe. No cambió nada.",
-        "pouco_tempo": "Menos de 10 minutos afuera — en segundo plano la banda cierra 1 pelea cada 10 minutos, y esta no llegó.",
+        "pouco_tempo": "Menos de 5 minutos en la riña — ahí sale 1 pelea cada 5 minutos, y esta no llegó.",
         "voltar": "Volver a la calle",
         "pocoes": "Pociones",
-        "na_rua": "un cruce en la calle",
-        "meio_nao_conta": "La pelea que estaba en curso cuando volviste no terminó a tiempo — esa no cuenta."
+        "meio_nao_conta": "La pelea que estaba en curso cuando volviste no terminó a tiempo — esa no cuenta.",
+        "tempo_rua": "{min} min afuera · la banda siguió en el juego",
+        "ao_vivo": "Fuera de la riña el juego sigue de verdad en segundo plano, mientras el celular te deje — esto es lo que corrió. Para farmear con el reloj, dejá a la banda en la riña.",
+        "seguir": "Seguir",
+        "continuar_rinha": "Seguir en la riña",
+        "nada_rodou": "El celular pausó el juego antes de que cerrara alguna pelea — fuera de la riña solo cuenta lo que corre de verdad. Para farmear aunque el juego esté parado, dejá a la banda en la riña."
       },
       "guest_banner": "Sin cuenta: no se guarda el progreso.",
       "guest_create_account": "Crear cuenta",
@@ -4337,8 +4340,8 @@
           },
           "rinha": {
             "nome": "La riña del callejón",
-            "sub": "apuesta clandestina",
-            "fala": "Rueda de apuestas en el fondo del callejón, pibe. El que entra, come piña o cobra. Siempre hay algún loco que quiere probar la mano contra la banda nuevita de turno — dale, encará las veces que aguantes de pie."
+            "sub": "pelea sin fin — hasta con la app cerrada",
+            "fala": "Rueda de apuestas en el fondo del callejón, pibe. El que entra, come piña o cobra. Siempre hay algún loco que quiere probar la mano contra la banda nuevita de turno — dale, encará las veces que aguantes de pie. Acá la rueda no para: termina una, ya entra otro — más débil, más fuerte, es sorteo. Podés dejar a la banda acá e ir a hacer tu vida: 1 pelea cada 5 minutos."
           },
           "birosca": {
             "nome": "El bar de Don Nato",
@@ -4871,10 +4874,11 @@
           },
           "rinha_apostas": {
             "nome": "Riña de Apuestas",
-            "sub": "apuesta y pelea — ganás, te llevás el doble",
+            "sub": "apuesta y pelea sin fin — la apuesta vale en la 1ª",
             "fala": [
               "Acá a oscuras la rueda gira con plata en la mesa.",
-              "Poné tu apuesta y entrá. Ganás, te llevás el doble. Perdés, te quedás sin nada."
+              "Poné tu apuesta y entrá. Ganás, te llevás el doble. Perdés, te quedás sin nada.",
+              "La rueda no para: termina una, ya entra otro, sorteado. Podés dejar a la banda acá — 1 pelea cada 5 minutos."
             ]
           },
           "mercearia": {
@@ -5161,6 +5165,10 @@
         "acoes": "{n} acción(es)",
         "material": "material de reparación — no se usa en la pelea",
         "poder": "da un poder por 1 golpe"
+      },
+      "rinha": {
+        "proxima": "Próxima pelea",
+        "sair": "Salir de la riña"
       }
     }
   }

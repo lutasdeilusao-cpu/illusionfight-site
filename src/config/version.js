@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.307.10' // fix(gangues): farm em 2º plano grava o ponto de saída no save — aba descartada pelo celular ainda mostra o relatório; sem tela preta.
+export const SITE_VERSION = '10.307.11' // gangues: Rinha infinita (farm calculado só nela, 1 luta/5 min), jogo ao vivo no fundo com relatório no resto, teto de inimigo = chefão do território.
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.2' // fix: aba "stories" do rodape mostrava a chave crua pp.menu.pistas_label (nao existia) -> aponta pra pp.dossier.pistas_label; PuzzleWrapper mostrava pp.puzzle.nenhum/instrucao (nao existiam) -> pp.local.puzzle_nenhum/instrucao; confirm() de deletar save mostrava pp.menu.deletar_slot cru -> chave criada nos 3 idiomas.
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '3.76.2' // farm ausente: marca de saída no save (storyProgress.__farmAusente, gravada sem debounce), processada na volta ou ao abrir o save; tela desmontada nunca fica preta.
+export const GANGUES_VERSION   = '3.77.0' // Rinha infinita (luta atrás de luta, nível sorteado no território, derrota segue a sessão) + farm calculado só nela (1 luta a cada 5 min); fora dela o jogo segue ao vivo no fundo com relatório; nenhum inimigo passa do chefão do território.
 
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio

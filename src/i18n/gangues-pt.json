@@ -319,7 +319,7 @@
         "auto_pocao_desc": "Alguém com PV em 50% ou menos? O mais inteiro da tropa abre mão da vez e dá poção de PV pro mais machucado.",
         "auto_tutorial": {
           "talento": "Aqui tu monta o automático, cria. Pra cada um da tropa escolhe: só ataque normal, ou UM talento que ele solta toda vez que tiver PM. Acabou o PM, volta pro ataque normal.",
-          "pocao": "Liga as poções sozinho e ninguém morre à toa. PV: chegou em 50%, o mais inteiro da tropa larga a vez dele e dá a poção pro machucado — o ferido segue na porrada (vale até com o app no fundo). PM: quem solta talento e ficou sem PM toma poção de PM e volta a soltar. Com o app no fundo é só ataque normal, sem talento.",
+          "pocao": "Liga as poções sozinho e ninguém morre à toa. PV: chegou em 50%, o mais inteiro da tropa larga a vez dele e dá a poção pro machucado — o ferido segue na porrada (vale até na rinha com o app no fundo). PM: quem solta talento e ficou sem PM toma poção de PM e volta a soltar. Na rinha, com o app no fundo, é só ataque normal, sem talento.",
           "derrota": "Mas se liga: perdeu a briga, TODO automático desliga. Aí é contigo de novo."
         },
         "auto_pocao_pm": "Poção de PM sozinho",
@@ -761,12 +761,15 @@
         "niveis": "Subiu de nível",
         "teto": "Bateu o teto de +5 níveis por ausência — daqui pra frente, só jogando.",
         "derrota": "A tropa caiu numa das brigas: foi arrastada pra birosca e todo automático desligou. Liga de novo quando quiser voltar pro farm.",
-        "sem_alvo": "Não tinha adversário pra farmar: o farm só grinda o último cara que você enfrentou — e nunca vermelho, chefe ou área do chefe. Nada mudou.",
-        "pouco_tempo": "Menos de 10 minutos fora — no segundo plano a tropa fecha 1 briga a cada 10 minutos, e essa não fechou.",
+        "pouco_tempo": "Menos de 5 minutos na rinha — lá sai 1 briga a cada 5 minutos, e essa não fechou.",
         "voltar": "Voltar pra rua",
         "pocoes": "Poções",
-        "na_rua": "encontro na rua",
-        "meio_nao_conta": "A briga que tava rolando quando você voltou não terminou a tempo — essa não conta."
+        "meio_nao_conta": "A briga que tava rolando quando você voltou não terminou a tempo — essa não conta.",
+        "tempo_rua": "{min} min fora · a tropa seguiu no jogo",
+        "ao_vivo": "Fora da rinha o jogo segue de verdade no fundo, enquanto o celular deixar — isso é o que rodou. Pra farmar calculado, deixa a tropa na rinha.",
+        "seguir": "Seguir",
+        "continuar_rinha": "Continuar na rinha",
+        "nada_rodou": "O celular pausou o jogo antes de qualquer briga fechar — fora da rinha só conta o que roda de verdade. Pra farmar mesmo com o jogo parado, deixa a tropa na rinha."
       },
       "guest_banner": "Sem conta: progresso não é salvo.",
       "guest_create_account": "Criar conta",
@@ -1234,8 +1237,8 @@
           },
           "rinha": {
             "nome": "A rinha do beco",
-            "sub": "aposta clandestina",
-            "fala": "Roda de aposta no fundo do beco, cria. Quem entra, ou apanha ou embolsa. Sempre tem um doido querendo testar a mão contra a gangue novinha da vez — bora, encara quantas vez aguentar de pé."
+            "sub": "luta sem fim — até com o app fechado",
+            "fala": "Roda de aposta no fundo do beco, cria. Quem entra, ou apanha ou embolsa. Sempre tem um doido querendo testar a mão contra a gangue novinha da vez — bora, encara quantas vez aguentar de pé. Aqui a roda não para: acabou uma, já entra outro — mais fraco, mais forte, é sorteio. Pode largar a tropa aqui e ir cuidar da vida: 1 briga a cada 5 minutos."
           },
           "birosca": {
             "nome": "A birosca do Seu Nato",
@@ -1768,10 +1771,11 @@
           },
           "rinha_apostas": {
             "nome": "Rinha de Apostas",
-            "sub": "aposta e briga — venceu, leva em dobro",
+            "sub": "aposta e briga sem fim — a aposta vale na 1ª",
             "fala": [
               "Aqui no escuro a roda gira com grana na mesa.",
-              "Bota tua aposta e entra. Ganhou, leva o dobro. Perdeu, fica sem."
+              "Bota tua aposta e entra. Ganhou, leva o dobro. Perdeu, fica sem.",
+              "A roda não para: acabou uma, já entra outro, sorteado. Pode largar a tropa aqui — 1 briga a cada 5 minutos."
             ]
           },
           "mercearia": {
@@ -2058,6 +2062,10 @@
         "acoes": "{n} ação(ões)",
         "material": "material de conserto — não se usa na luta",
         "poder": "dá um poder por 1 golpe"
+      },
+      "rinha": {
+        "proxima": "Próxima luta",
+        "sair": "Sair da rinha"
       }
     }
   }

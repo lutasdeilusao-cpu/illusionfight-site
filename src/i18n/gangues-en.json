@@ -319,7 +319,7 @@
         "auto_pocao_desc": "Anyone at 50% HP or less? The healthiest in the crew gives up their turn to hand the most hurt one an HP potion.",
         "auto_tutorial": {
           "talento": "This is where you set up auto, kid. For each one in the crew pick: normal attack only, or ONE talent they fire every time they've got the MP. MP runs dry, back to the normal attack.",
-          "pocao": "Turn on the auto potions and nobody drops for nothing. HP: someone hits 50%, the healthiest one skips their turn to hand them a potion — the hurt one keeps swinging (works even with the app in the background). MP: whoever fires a talent and runs dry drinks an MP potion and gets back to it. With the app in the background it's normal attacks only, no talents.",
+          "pocao": "Turn on the auto potions and nobody drops for nothing. HP: someone hits 50%, the healthiest one skips their turn to hand them a potion — the hurt one keeps swinging (works even at the pit with the app in the background). MP: whoever fires a talent and runs dry drinks an MP potion and gets back to it. At the pit, with the app in the background, it's normal attacks only, no talents.",
           "derrota": "But listen: lose the brawl and EVERY auto mode switches off. Then it's on you again."
         },
         "auto_pocao_pm": "Auto MP potion",
@@ -761,12 +761,15 @@
         "niveis": "Leveled up",
         "teto": "Hit the +5 levels cap for one absence — from here on, you gotta play.",
         "derrota": "The crew went down in one of the brawls: dragged to the bar, and every auto mode switched off. Turn it back on when you want to farm again.",
-        "sem_alvo": "No opponent to farm: it only grinds the last guy you fought — never a red one, the boss, or the boss's turf. Nothing changed.",
-        "pouco_tempo": "Under 10 minutes away — in the background the crew closes 1 brawl every 10 minutes, and this one didn't make it.",
+        "pouco_tempo": "Under 5 minutes at the pit — it closes 1 brawl every 5 minutes, and this one didn't make it.",
         "voltar": "Back to the street",
         "pocoes": "Potions",
-        "na_rua": "a street run-in",
-        "meio_nao_conta": "The brawl that was going on when you came back didn't finish in time — that one doesn't count."
+        "meio_nao_conta": "The brawl that was going on when you came back didn't finish in time — that one doesn't count.",
+        "tempo_rua": "{min} min away · the crew kept playing",
+        "ao_vivo": "Outside the pit the game really keeps running in the background, as long as your phone lets it — this is what ran. To farm on the clock, leave the crew at the pit.",
+        "seguir": "Continue",
+        "continuar_rinha": "Back to the pit",
+        "nada_rodou": "Your phone paused the game before any brawl could finish — outside the pit only what really runs counts. To farm even with the game stopped, leave the crew at the pit."
       },
       "guest_banner": "No account: progress isn't saved.",
       "guest_create_account": "Create account",
@@ -4337,8 +4340,8 @@
           },
           "rinha": {
             "nome": "The back-alley pit",
-            "sub": "clandestine betting",
-            "fala": "Betting ring at the back of the alley, kid. You step in, you eat it or you cash out. There's always some nutcase wanting to test their hand against the fresh gang — come on, take it as many times as you can stay standing."
+            "sub": "endless fights — even with the app closed",
+            "fala": "Betting ring at the back of the alley, kid. You step in, you eat it or you cash out. There's always some nutcase wanting to test their hand against the fresh gang — come on, take it as many times as you can stay standing. The ring never stops here: one's done, the next steps in — weaker, stronger, luck of the draw. You can leave the crew here and go live your life: 1 brawl every 5 minutes."
           },
           "birosca": {
             "nome": "Old Nato's bar",
@@ -4871,10 +4874,11 @@
           },
           "rinha_apostas": {
             "nome": "Betting Ring",
-            "sub": "bet and brawl — win, take double",
+            "sub": "endless bets and brawls — the bet counts on the 1st",
             "fala": [
               "Out here in the dark the ring spins with cash on the table.",
-              "Put down your bet and step in. Win, take double. Lose, walk away empty."
+              "Put down your bet and step in. Win, take double. Lose, walk away empty.",
+              "The ring never stops: one's done, the next one steps in, drawn at random. You can leave the crew here — 1 brawl every 5 minutes."
             ]
           },
           "mercearia": {
@@ -5161,6 +5165,10 @@
         "acoes": "{n} action(s)",
         "material": "repair material — not used in fights",
         "poder": "grants a power for 1 hit"
+      },
+      "rinha": {
+        "proxima": "Next fight",
+        "sair": "Leave the pit"
       }
     }
   }

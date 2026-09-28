@@ -218,37 +218,20 @@ export const POIS_PISTA = [
     recompensa: { rep: 6 },
   },
   {
-    // Treta repetível de farm: pode ser encarada quantas vezes o jogador
-    // quiser, pra upar sem depender de progresso novo. Orçamento FIXO por
-    // corpo (`revezamento`, igual `beco`) — nunca dependeu do time do
-    // jogador, então o farm-lock (`travarPontosFarm`) nunca teve efeito real
-    // aqui apesar do comentário antigo dizer o contrário (corrigido
-    // 15/09/2026 — ver `iniciarTreta`/GanguesCena.jsx, que agora nem tenta
-    // travar pontos pra POI com `revezamento`).
     id: 'rinha',
     tipo: 'treta',
     opcional: true,
     repetivel: true,
     visivel: true,
     i18n: 'games.gangues.cena.pista.rinha',
-    // NÍVEL FIXO (ajuste 15/09/2026 nº2): `rinha` fica visível desde o
-    // início, junto com `sinal` (antes até de abrir a gazua do ferro-velho)
-    // — piso de 3, o mesmo da "1ª luta muito fácil", não o 8 de `beco`
-    // (que só existe depois de abrir o ferro-velho).
-    // AJUSTE 19/09/2026 (Isaias, achou o inimigo "muito fraco" farmando com
-    // a tropa já grande): ganhou `ratioComTime` igual o galpão. AJUSTE Nº2,
-    // mesmo dia (ele foi conferir os números de novo: "a rinha deveria se
-    // adaptar à minha ficha... essa numeração tá certa?" — não estava: a
-    // soma de pontos do time inteiro ÷ corpos ficava bem abaixo do
-    // personagem mais forte, e a "recompensa por risco" quase não dava AP
-    // nenhum farmando aqui). Trocado pro modo `baseMaisForte`
-    // (ganguesEncontros.js) — o líder do bando vira `Math.max(3,
-    // pontosMaisForte × 1)`, ou seja, sempre bem perto do personagem MAIS
-    // FORTE da gangue (nunca a soma do time todo) — a rinha vira um "sparring
-    // sempre no seu nível" de verdade, dentro da tolerância cheia da
-    // recompensa por risco.
     enemy: 1201,
-    revezamento: { pool: PISTA_POOL_RUA, budgetPorCorpo: 3, chanceDupla: 0.35, ratioComTime: 1, baseMaisForte: true },
+    // RINHA INFINITA (Isaias, 28/09/2026): entrou, é luta atrás de luta até
+    // sair — cada adversário com o nível sorteado entre os das lutas do
+    // bairro, do mais fraco ao chefão (`niveisTerritorio`). É o ÚNICO lugar com
+    // farm calculado com o app no fundo: 1 luta a cada 5 minutos (ver
+    // engine/ganguesFarmAusente.js).
+    rinhaInfinita: true,
+    revezamento: { pool: PISTA_POOL_RUA, budgetPorCorpo: 3, chanceDupla: 0.35, niveisTerritorio: true },
   },
   {
     // A "loja abandonada" do outro lado do muro. Só aparece e fica

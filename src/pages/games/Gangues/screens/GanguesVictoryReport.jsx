@@ -73,13 +73,18 @@ export default function GanguesVictoryReport({
     : []
   // Volta pra rua (vitória, socorro da derrota ou tentar de novo).
   const seguir = () => { store.setStoryTarget({ territorioId: storyAlvo.territorioId }); onNavigate('territorio') }
+  // Rinha infinita: ganhou ou perdeu, a próxima luta vem sozinha (adversário
+  // novo, força sorteada, a casa remenda a tropa — ver GanguesRoute); a
+  // aposta da Feira vale só na 1ª da sessão.
+  const naRinha = Boolean(storyAlvo?.rinha) && noModoHistoria
+  const proximaRinha = () => { store.setStoryTarget({ ...storyAlvo, aposta: 0, rinhaLuta: (storyAlvo.rinhaLuta || 1) + 1 }); onNavigate('story-combat') }
   // Briga automática da cena ligada: "Segue na quebrada" se clica sozinho em
   // 3s (ver useGanguesAvancoAutomatico). A vitória sobre o chefe fica de fora
   // — é o fecho do bairro, com a vaga de recruta pra decidir — e a derrota
   // também (perdeu, o automático desliga e o jogador tem que clicar).
   useGanguesAvancoAutomatico({
-    ativo: victory && Boolean(storyAlvo?.cenaId) && !torre && noModoHistoria && !cenaChefe,
-    ms: GANGUES_AVANCO_AUTO_MS.relatorio, acao: seguir,
+    ativo: (victory || naRinha) && Boolean(storyAlvo?.cenaId) && !torre && noModoHistoria && !cenaChefe,
+    ms: GANGUES_AVANCO_AUTO_MS.relatorio, acao: naRinha ? proximaRinha : seguir, forcar: naRinha,
   })
   const attacks = report.entries.filter(entry => entry.kind === 'attack_card')
   const playerDamage = attacks.filter(entry => entry.side === 'player').reduce((sum, entry) => sum + entry.dmg, 0)
@@ -245,6 +250,12 @@ export default function GanguesVictoryReport({
           <>
             {podeRecrutar && <button className="gang-report-primary" onClick={recrutar}>{t('games.gangues.report.recrutar')}</button>}
             <button className={podeRecrutar ? 'gang-report-secondary' : 'gang-report-primary'} onClick={() => onNavigate('story')}>{t('games.gangues.story.voltar_mapa')}</button>
+          </>
+        ) : naRinha ? (
+          <>
+            {podeRecrutar && <button className="gang-report-primary" onClick={recrutar}>{t('games.gangues.report.recrutar')}</button>}
+            <button className={podeRecrutar ? 'gang-report-secondary' : 'gang-report-primary'} onClick={proximaRinha}>{t('games.gangues.rinha.proxima')}</button>
+            <button className="gang-report-secondary" onClick={seguir}>{t('games.gangues.rinha.sair')}</button>
           </>
         ) : noModoHistoria ? (
           <>

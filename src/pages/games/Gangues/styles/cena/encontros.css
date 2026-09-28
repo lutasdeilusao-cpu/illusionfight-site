@@ -226,3 +226,4 @@
 .gang-farm-ausente__aviso.is-derrota{color:var(--if-danger);border-color:var(--if-danger)}
 .gang-farm-ausente__aviso.is-teto{color:var(--if-amber);border-color:var(--if-amber)}
 .gang-farm-ausente__voltar{padding:12px;border:0;cursor:pointer;font:900 .9rem var(--font-title);letter-spacing:.06em;text-transform:uppercase;color:var(--gang-preto);background:linear-gradient(135deg,var(--if-teal),var(--if-cyan));clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,0 100%)}
+.gang-farm-ausente__voltar.is-secundario{color:var(--if-cyan);background:transparent;border:1px solid var(--if-cyan)}

@@ -111,7 +111,20 @@ export function escalarInimigo(molde, pontosAlvo) {
  *  (`fixo`/Generais/rua comum, `revezamento`/rua-dungeon, chefe/orçamento×
  *  fração do líder — mesma conta de `gerarBandoChefe`). Não inclui o ajuste
  *  de dificuldade (ganguesDificuldade.js) — é o valor-base pra referência. */
+const somaPontos = e => ['A', 'H', 'D', 'PV', 'PM'].reduce((s, k) => s + (Number(e?.stats?.[k]) || 0), 0)
+
+/** Pontos de ficha REAIS do líder do chefe do território (mesma conta de
+ *  gerarBandoChefe: orçamento ajustado pela dificuldade × fração do líder,
+ *  escalado no molde dele). É o teto de todo inimigo daquele território. */
+export function pontosDoChefe(territorioId, modo, enemiesData) {
+  const budget = GANGUES_CHEFE_BUDGET[territorioId]
+  const molde = enemiesData?.find(e => e.id === GANGUES_CHEFE_EQUIPE[territorioId]?.[0])
+  if (!budget || !molde) return Infinity
+  return somaPontos(escalarInimigo(molde, Math.round(ajustarPontosFixo(budget, modo) * liderFracChefe(territorioId))))
+}
+
 export function pontosPreviewPoi(poi, territorioId) {
+  if (poi.rinhaInfinita) return null // nível sorteado a cada luta (niveisDoTerritorio)
   if (poi.pontosFixo > 0) return poi.pontosFixo
   if (poi.revezamento?.budgetPorCorpo > 0) return poi.revezamento.budgetPorCorpo
   if (poi.ehChefe) {
@@ -316,8 +329,12 @@ const GANGUES_DUPLA_DEDUCAO_MIN = 2
 const GANGUES_DUPLA_DEDUCAO_MAX = 3
 const GANGUES_MULTIDAO_DEGRAU_ABAIXO = GANGUES_LADDER_PASSO
 
-export function gerarBandoRevezamento({ pool, budgetPorCorpo = 5, chanceDupla = 0.3, enemiesData, modo = 'medio', qtdMin, qtdMax, playerTeam, ratioComTime = 0, baseMaisForte = false, apelidos }) {
+export function gerarBandoRevezamento({ pool, budgetPorCorpo: budgetBase = 5, chanceDupla = 0.3, enemiesData, modo = 'medio', qtdMin, qtdMax, playerTeam, ratioComTime = 0, baseMaisForte = false, niveisSorteio, tetoTerritorio, apelidos }) {
   if (!pool?.length || !enemiesData?.length) return null
+  // Rinha infinita (`niveisSorteio`, Isaias 28/09/2026: "segue a média de
+  // level do território"): cada luta sorteia o nível entre os das lutas do
+  // bairro, do mais fraco ao chefão (niveisDoTerritorio, cenaHelpers.js).
+  const budgetPorCorpo = niveisSorteio?.length ? niveisSorteio[Math.floor(Math.random() * niveisSorteio.length)] : budgetBase
   const multidaoGarantida = qtdMin != null && qtdMax != null
   const dupla = !multidaoGarantida && Math.random() < chanceDupla
   const qtd = multidaoGarantida ? (qtdMin + Math.floor(Math.random() * (qtdMax - qtdMin + 1))) : (dupla ? 2 : 1)
@@ -338,6 +355,7 @@ export function gerarBandoRevezamento({ pool, budgetPorCorpo = 5, chanceDupla = 
     return multidaoGarantida ? GANGUES_MULTIDAO_DEGRAU_ABAIXO : (GANGUES_DUPLA_DEDUCAO_MIN + Math.floor(Math.random() * (GANGUES_DUPLA_DEDUCAO_MAX - GANGUES_DUPLA_DEDUCAO_MIN + 1)))
   }
 
+  const teto = tetoTerritorio ? pontosDoChefe(tetoTerritorio, modo, enemiesData) : Infinity
   const bag = []
   const sortear = () => {
     if (!bag.length) bag.push(...pool)
@@ -346,8 +364,15 @@ export function gerarBandoRevezamento({ pool, budgetPorCorpo = 5, chanceDupla = 
   const bando = Array.from({ length: qtd }, (_, i) => {
     const id = sortear()
     const molde = enemiesData.find(e => e.id === id)
-    const orcamento = Math.max(2, ajustarPontosFixo(baseAlvo - deducaoCorpo(i), modo))
-    return molde ? escalarInimigo(molde, orcamento) : null
+    if (!molde) return null
+    // Teto = o chefão do território (a ficha REAL do líder do chefe): nada
+    // gerado ali passa dele, por mais forte que a tropa esteja (encontro que
+    // escala com o time, multidão...). O arredondamento do escalarInimigo
+    // pode estourar 1-2 pontos — desce o orçamento até caber.
+    let orcamento = Math.min(teto, Math.max(2, ajustarPontosFixo(baseAlvo - deducaoCorpo(i), modo)))
+    let inimigo = escalarInimigo(molde, orcamento)
+    while (somaPontos(inimigo) > teto && orcamento > 2) inimigo = escalarInimigo(molde, --orcamento)
+    return inimigo
   }).filter(Boolean)
 
   if (!bando.length) return null

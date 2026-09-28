@@ -275,15 +275,18 @@ export const POIS_FEIRA = [
     recompensa: { rep: 5, item: 21, qtd: 1 },
   },
   {
-    // A Rinha de Apostas — o farm da Feira (nível do seu mais forte), com
-    // aposta antes: venceu, recebe o DOBRO do que apostou (ver `aposta`).
+    // A Rinha de Apostas — o farm da Feira, com aposta antes da 1ª luta:
+    // venceu, recebe o DOBRO do que apostou (ver `aposta`).
     id: 'rinha_apostas',
     tipo: 'treta',
     opcional: true,
     repetivel: true,
     pos_portao: true,
     i18n: 'games.gangues.cena.feira.rinha_apostas',
-    revezamento: { pool: FEIRA_POOL_RUA, budgetPorCorpo: 3, chanceDupla: 0.35, ratioComTime: 1, baseMaisForte: true },
+    // RINHA INFINITA (igual a Rinha da Pista): luta atrás de luta com
+    // adversário sorteado; a aposta vale só na 1ª luta da sessão.
+    rinhaInfinita: true,
+    revezamento: { pool: FEIRA_POOL_RUA, budgetPorCorpo: 3, chanceDupla: 0.35, niveisTerritorio: true },
     aposta: [0, 50, 100, 200],
   },
   {

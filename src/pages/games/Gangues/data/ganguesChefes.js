@@ -100,6 +100,15 @@ const GANGUES_CHEFE_LIDER_FRAC_PADRAO = 0.60
 export function liderFracChefe(territorioId) {
   return GANGUES_CHEFE_LIDER_FRAC[territorioId] ?? GANGUES_CHEFE_LIDER_FRAC_PADRAO
 }
+/** REGRA (Isaias, 28/09/2026): o inimigo mais forte de cada território é
+ *  sempre o CHEFÃO — "não pode ter inimigo mais forte no território que o
+ *  boss". Este é o nível (pontos de ficha) do líder do bando do chefe — o
+ *  teto de qualquer corpo gerado naquele território (a conta exata, com a
+ *  ficha escalada, é pontosDoChefe em ganguesEncontros.js). */
+export function tetoDoTerritorio(territorioId) {
+  const budget = GANGUES_CHEFE_BUDGET[territorioId]
+  return budget ? Math.round(budget * liderFracChefe(territorioId)) : null
+}
 // Quantos CORPOS o bando do chefe tem (o resto de GANGUES_CHEFE_EQUIPE fica só
 // pra lore/álbum). Pista = 2 (Carvão + Rasteira Velha): 2×2 é a única treta
 // justa enquanto o elenco do jogador é travado em 2 fichas (a vaga nº 3 só abre

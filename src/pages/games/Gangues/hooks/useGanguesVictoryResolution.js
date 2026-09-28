@@ -141,11 +141,14 @@ export default function useGanguesVictoryResolution({ store, user, report, victo
       sfx.lose()
       // Perdeu na cena = desliga TODO automático (Isaias, 28/09/2026: "faz ele
       // começar de novo", pra ter interação) — a próxima luta/cena já nasce manual.
-      if (emCena) desligarAutomaticos()
+      // Na Rinha infinita, não: perdeu aquela luta, perdeu — a sessão segue,
+      // a casa remenda a tropa pra próxima (sem birosca, sem cobrança).
+      const naRinha = Boolean(storyAlvo?.rinha)
+      if (emCena && !naRinha) desligarAutomaticos()
       // Sem game over (Isaias, 27/09/2026): tropa caída numa luta da cena é
       // arrastada pra birosca mais perto, já DENTRO, recuperada — e a
       // recuperação é cobrada na hora (grana, empréstimo ou dívida a 10×).
-      const cena = emCena ? CENAS_POR_ID[storyAlvo.cenaId] : null
+      const cena = emCena && !naRinha ? CENAS_POR_ID[storyAlvo.cenaId] : null
       const destino = cena ? destinoSocorroDerrota(cena, store.cenaProgresso[cena.id]) : null
       // O que o encontro aleatório leva quando GANHA de você (Feira): o Rapa
       // leva 1 consumível, a Cobrança do Turco leva 10% da grana na mão

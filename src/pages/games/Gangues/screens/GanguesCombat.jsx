@@ -27,7 +27,7 @@ import GanguesMultidaoActionBar from '../components/GanguesMultidaoActionBar'
 import GanguesActionOrb from '../components/GanguesActionOrb'
 import GanguesCombatSairConfirm from '../components/GanguesCombatSairConfirm'
 import { useGanguesAvancoAutomatico, GANGUES_AVANCO_AUTO_MS } from '../hooks/useGanguesBrigaAutomatica.js'
-import { lutaAoVivo, ultimaLuta, lutaRepetivel } from '../engine/ganguesFarmAusente.js'
+import { lutaAoVivo } from '../engine/ganguesFarmAusente.js'
 import { sfx } from '../../../../lib/sfx'
 import './GanguesCombat.css'
 
@@ -287,20 +287,15 @@ export default function GanguesCombat({ onNavigate, onSairConfirmado }) {
   // Briga automática da cena ligada: o "NÓIS É CRIA" avança sozinho em 2s
   // (ver useGanguesAvancoAutomatico). Derrota nunca — o jogador tem que clicar.
   const lutaDaCena = Boolean(store.storyTarget?.cenaId) && !store.storyTarget?.torre && !store.storyTarget?.clube
-  useGanguesAvancoAutomatico({ ativo: lutaDaCena && result === 'victory' && !falaFinal, ms: GANGUES_AVANCO_AUTO_MS.resultado, acao: abrirRelatorio })
+  const naRinha = Boolean(store.storyTarget?.rinha)
+  useGanguesAvancoAutomatico({ ativo: lutaDaCena && (result === 'victory' || (naRinha && result)) && !falaFinal, ms: GANGUES_AVANCO_AUTO_MS.resultado, acao: abrirRelatorio, forcar: naRinha })
 
   // A vez automática (useGanguesModoAuto): talento escolhido / poção / ataque
   // normal, conforme a config do automático — ver escolherAcaoAuto.
   // Farm ausente: leitor do estado vivo desta luta, pra o app em 2º plano
   // terminar a MESMA luta por cálculo (ver lutaAoVivo / GanguesFarmAusente).
   lutaAoVivo.ler = () => ({ combatants: modoMultidaoAtivo ? estadoMultidao?.combatants : machine.combatants, round: modoMultidaoAtivo ? estadoMultidao?.round : machine.round, auto: modoMultidaoAtivo ? modoAutoMultidao.modoAutoMultidaoOn : modoAuto.modoAutoOn, terminou: Boolean(result) })
-  useEffect(() => {
-    // ...e a última luta de bairro, que o farm repete se a tropa já tiver
-    // voltado pra rua quando a espera de 3 minutos acabar (ultimaLuta).
-    const alvo = lutaRepetivel(useGanguesStore.getState().storyTarget)
-    if (alvo) ultimaLuta.alvo = alvo
-    return () => { lutaAoVivo.ler = null }
-  }, [])
+  useEffect(() => () => { lutaAoVivo.ler = null }, [])
   function agirAuto() {
     const acao = escolherAcaoAuto({ ator: actingMember, aliados: aliadosOrb, especiais: equippedSpecials, pagavel: canAffordSpecial, itens: itensDisponiveis, config: autoConfig.config })
     if (acao.tipo === 'item') handleUsarItem(acao.itemId, acao.alvoKey)

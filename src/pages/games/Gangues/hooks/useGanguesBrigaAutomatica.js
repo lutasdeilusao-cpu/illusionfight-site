@@ -11,8 +11,8 @@ import { cicloDoPinoMs, farolDe } from '../components/cena/GanguesCenaAtores.jsx
 
    Quem entra sozinho (switch ligado = o jogador quer BRIGA, não as outras
    opções — Isaias, 27/09/2026):
-   • POI `treta` (rua, dungeon, depósito, chefe). A Rinha de Apostas entra
-     sem apostar (a opção "Nada").
+   • POI `treta` (rua, dungeon, depósito). A Rinha infinita NÃO — ela é
+     escolha do jogador, só no toque (senão quem só anda fica preso nela).
    • papo com uma escolha que vira briga (o pivete do sinal, o contador do
      galpão, o Boleto Vencido): o switch escolhe a briga sozinho, pelo mesmo
      caminho do clique manual (inclusive o −1 de rep do "aperta").
@@ -73,6 +73,9 @@ export function desligarAutomaticos() {
 function brigaDoAlvo(alvo) {
   if (!alvo || alvo.ehPorta || alvo.ehSaida || alvo.ehVolta || alvo.ehPassagem || alvo.ehChefe) return null
   if (farolDe(alvo) === 'is-obrigatorio') return null
+  // A Rinha (luta infinita) é escolha do jogador, só no toque — senão quem
+  // só anda pela rua fica preso num farm sem fim.
+  if (alvo.rinhaInfinita) return null
   if (alvo.estado !== 'disponivel' && !alvo.repetivel) return null
   if (alvo.tipo === 'treta') return { aposta: 0 }
   const briga = alvo.tipo === 'papo' && (alvo.escolhas || []).find(e => e.viraTreta)
@@ -164,8 +167,11 @@ export default function useGanguesBrigaAutomatica({ alvos, colidindo, rodando, b
    contagem, pra não arrancar o jogador que parou pra ler). */
 export const GANGUES_AVANCO_AUTO_MS = { resultado: 2000, relatorio: 3000 }
 
-export function useGanguesAvancoAutomatico({ ativo, ms, acao }) {
-  const [ligado] = useGanguesAutoLembrado(GANGUES_BRIGA_AUTO_CHAVE)
+// `forcar`: avança mesmo com a briga automática desligada (a Rinha infinita
+// emenda uma luta na outra sozinha — é o que ela é).
+export function useGanguesAvancoAutomatico({ ativo, ms, acao, forcar = false }) {
+  const [salvo] = useGanguesAutoLembrado(GANGUES_BRIGA_AUTO_CHAVE)
+  const ligado = salvo || forcar
   const acaoRef = useRef(acao)
   acaoRef.current = acao
   useEffect(() => {

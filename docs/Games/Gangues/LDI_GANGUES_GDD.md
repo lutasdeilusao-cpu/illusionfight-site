@@ -24,7 +24,7 @@ Grafia oficial: **Marélia** com acento (o conto usa assim). O i18n do jogo aind
 tem "Marelia" sem acento em vários lugares — alinhar quando mexer em texto.
 
 > **Estado do documento: retrato do jogo como ele está HOJE — conferido contra
-> o código de GANGUES 3.76.2 (SITE 10.307.x), 28/09/2026.** Regra: o GDD
+> o código de GANGUES 3.77.0 (SITE 10.307.x), 28/09/2026.** Regra: o GDD
 > descreve o produto atual, não guarda diário de versões — quando algo muda
 > no jogo, o trecho que falava da versão antiga é REESCRITO, não empilhado
 > embaixo com "v3.xx: agora...". Histórico de mudança mora no git.
@@ -36,7 +36,7 @@ tem "Marelia" sem acento em vários lugares — alinhar quando mexer em texto.
 > de mecânica nova de combate — fuga / sumir inimigo) e todo o catálogo de
 > equipamento com faixa de bônus e aprimoramento (§9.3–9.6). Combate com menu
 > de ação, Briga em Multidão, automático configurável, briga automática na
-> cena e farm ausente (§17.2.1).
+> cena, Rinha infinita e app em segundo plano (§17.2.1).
 
 ---
 
@@ -358,7 +358,7 @@ completo "o bicho"):**
 
 - **Quando:** o 1º vem com **5 minutos de jogo** e depois **a cada 15 minutos**.
   O relógio conta o tempo na RUA da cena, parado ou andando (pausa em diálogo,
-  luta, interior, mochila, ficha, e com a cena desmontada pelo farm ausente) e
+  luta, interior, mochila, ficha) e
   fica salvo no save (`storyProgress.__aleatorio`).
 - **Como:** o **Nego Véio avisa** ("sujou o bagulho"), com 3 falas próprias de
   cada tipo. Aí o perseguidor nasce longe (16–26 passos de caminho) e **vem atrás
@@ -1556,7 +1556,7 @@ Reserva: cada faixa comporta crescer até ~99 sem remapear.
 | Briga em Multidão / modo automático | `engine/ganguesBrigaMultidao.js`, `hooks/useGanguesModoMultidao.js`, `hooks/useGanguesModoAuto.js` |
 | Menu de ação (bolinha) | `components/GanguesActionOrb.jsx` |
 | Briga automática na cena (switch, anti-loop, aviso) | `hooks/useGanguesBrigaAutomatica.js` |
-| Farm ausente (idle calculado na volta) | `engine/ganguesFarmAusente.js`, `components/cena/GanguesFarmAusente.jsx` |
+| Rinha infinita e app em segundo plano (farm calculado só na Rinha) | `engine/ganguesFarmAusente.js`, `components/cena/GanguesFarmAusente.jsx` |
 | Todo texto falado na Pista (pt/en/es, em ordem de fluxo) | `docs/Games/Gangues/PISTA_COMUNICACAO.md` |
 | **Mecânica** (combate, progressão, skill tree, modo história) | Seção 17 desta bíblia |
 
@@ -2109,7 +2109,7 @@ navegador e por save em `ldi-gangues-auto-config:<saveId>`; decisão pura em `es
 entre o analógico e o botão de interagir (`ldi-gangues-briga-auto:<saveId>`).
 - **Ligado, encostar num oponente de briga começa a luta sozinho**, sem o
   "interagir" e sem a carta "bora pro pau": todo POI `treta` repetível ou
-  disponível (a Rinha de Apostas entra sem apostar) e todo `papo` com uma
+  disponível (menos a Rinha infinita, que é só no toque) e todo `papo` com uma
   escolha de briga (o switch escolhe a briga, inclusive o −1 de rep do
   "aperta" — pivete do sinal, contador do galpão, Boleto Vencido).
 - **Nunca entra sozinho:** puzzle/corre (`parada`/`corre` — a briga ali vem de
@@ -2137,87 +2137,59 @@ entre o analógico e o botão de interagir (`ldi-gangues-briga-auto:<saveId>`).
   chefe (fecho do bairro, com a vaga de recruta), Clube e Torre.
 - **Perdeu = desliga tudo:** qualquer derrota na cena desliga a briga
   automática e o automático do combate (normal e Multidão) —
-  `desligarAutomaticos()`.
+  `desligarAutomaticos()`. Exceção: a Rinha infinita (perdeu, a sessão
+  segue — ver abaixo).
 
-**Farm ausente — o idle** (`engine/ganguesFarmAusente.js` +
-`components/cena/GanguesFarmAusente.jsx`). O embrulho do farm envolve a cena
-E a luta. **Só entra depois de 3 minutos com o app em segundo plano**: troca
-rápida de app (menos de 3 min) não muda nada — o jogo segue como estava. Bateu
-3 minutos no fundo, o jogo **para de rodar escondido**:
-- **Na rua**, com a briga automática ligada, a **cena é desmontada** (imagens,
-  animações e relógios saem da memória).
-- **No meio de uma luta de rua da cena com o automático ligado**, a **tela da
-  luta** é desmontada (som e relógios param) e o estado vivo dela — PV/PM de
-  cada um, rodada — é guardado (`lutaAoVivo`, que o `GanguesCombat` mantém
-  atualizado). Na volta, essa MESMA luta é terminada por cálculo do ponto
-  exato onde parou, e só depois vem o farm. Luta de chefe, Clube e Torre, ou
-  luta no manual, ficam de fora (seguem na tela como sempre).
-- Na volta: tela de carga, a conta do **tempo todo fora** (os 3 minutos de
-  espera inclusos) e o resumo "Enquanto você tava fora" (brigas, grana, rep,
-  sucata, poções, quem subiu de nível). Se o celular congelou a aba e a espera
-  nem chegou a disparar, a conta sai igual na volta. O instante da saída é um
-  só pra rua e luta — nos 3 minutos a tropa pode sair da rua pra uma luta, e
-  quem estiver na tela quando a espera acabar é que desmonta. O "Voltar pra
-  rua" leva pra cena daquele bairro: no ponto da briga, ou na birosca se a
-  tropa caiu.
-- **Toda luta é simulada de verdade**, rodada a rodada, no mesmo motor de
-  combate (o da Briga em Multidão): dá pra **perder**, o dano **fica** entre
-  uma luta e outra, e a tropa pode cair. Mesmo gerador de bando e nível
-  daquele adversário, mesmas ações de vitória do store (AP, grana, rep, álbum,
-  sucata). **No segundo plano é sempre ataque normal** — nenhum talento,
-  nenhum PM gasto (o ajuste de talento e a poção de PM valem só na luta ao
-  vivo). A **poção de PV** (se ligada) entra dentro da luta, rodada a rodada,
-  com a regra do mais inteiro (quem dá abre mão do ataque), e entre uma luta e
-  outra.
-- **Só o adversário que o jogador estava grindando**, nunca "a região":
-  - **saiu no meio de uma luta** → o farm repete **essa mesma luta** (mesmo
-    tipo de bando, mesmo nível) pelo resto do tempo, seja ela qual for (ponto
-    repetível, papo que virou briga, encontro aleatório) — com o automático da
-    luta ligado basta, mesmo com a briga automática da rua desligada. As
-    repetições dão AP, grana, sucata e itens de vitória comum; o ponto, o
-    prêmio de 1ª vez e a rep da escolha (ex.: o −1 do "aperta") só contam na
-    luta original;
-  - **a tropa já estava na rua** (briga automática ligada) → a **última luta
-    de bairro** desta página (`ultimaLuta`, anotada quando a luta começa),
-    repetida do mesmo jeito, seja ela qual for — é o caso mais comum: nos 3
-    minutos de espera o jogo segue vivo, a luta no automático termina e o
-    avanço automático devolve a tropa pra rua antes da espera acabar. A tela
-    de vitória, por onde esse avanço passa, também conta como rua. Fora da
-    área do chefe e só no mesmo bairro; chefe, Clube e Torre nunca. Página
-    recarregada (sem `ultimaLuta`): o adversário salvo (`posicao.adversario`),
-    se ele é treta repetível que não seja vermelha/chefe/área do chefe; sem
-    nada disso, não farma.
-- **Ritmo fixo: 1 luta a cada 10 minutos fora** (`GANGUES_FARM_S_POR_LUTA`),
-  6 por hora, não importa o bairro, o ponto nem o tamanho da luta — os 3
-  minutos de espera contam dentro disso (38 min fora = 3 lutas). Antes cada
-  luta custava o dobro do tempo dela no manual 1x, e luta de 1 rodada (tropa
-  forte contra ponto fraco) saía a ~47s: 38 min viravam 50 brigas e +3 níveis
-  — "roubado demais, tem que ter sacrifício" (Isaias, 28/09/2026). A luta que
-  estava na tela é a 1ª das lutas.
-- **A luta que estava no meio quando o jogador voltou não conta:** os
-  minutos que não fecharam 10 (inclusive ausência de menos de 10 minutos,
-  com a luta da tela) são descartados — sem dano, sem poção gasta, sem
-  prêmio — e o resumo avisa. O jogador volta pro último lugar da rua (o
-  ponto da briga).
-- **Resumo mostra o que mudou de verdade:** grana, sucata, poções gastas e
-  rep — a rep não desce abaixo de 0, então o "−1" do "aperta" com a rep já em
-  0 aparece como +0.
-- **Teto: +5 níveis por ausência** — bateu, para.
-- **O ponto de saída mora no save** (`storyProgress.__farmAusente`, gravado
-  na hora, sem debounce, quando o app vai pro fundo numa tela que vale pro
-  farm: `{ desde, territorioId, alvo, luta, ids }`). Se o celular descartar a
-  aba, abrir o save de novo acha a marca e calcula o tempo fora — relatório
-  igual. A marca é atualizada quando outra tela monta no fundo (a luta acabou
-  → vitória → rua) e quando a tela desmonta aos 3 min; tela que não vale
-  (ex.: vitória com a briga automática desligada) apaga a marca. Sem marca na
-  volta, a tela desmontada volta pra rua — nunca fica preta. Fechar a aba de
-  propósito conta igual (não dá pra diferenciar de descarte); o que segura o
-  "esquece e volta rico" é o ritmo de 6 lutas/hora e o teto de +5 níveis.
-- **Perdeu uma luta, para ali:** sem XP da luta em que caiu, a tropa acorda na
-  birosca **daquele bairro** (Pista: birosca; Feira: pensão — o mesmo socorro
-  da derrota) e todo automático desliga.
-- Sem a briga automática ligada, ir pra segundo plano não muda nada: a cena
-  continua montada e o navegador só desacelera os relógios dela.
+**Rinha infinita e o app em segundo plano** (Isaias, 28/09/2026 —
+`engine/ganguesFarmAusente.js` + `components/cena/GanguesFarmAusente.jsx`).
+
+- **A Rinha é o lugar do farm.** POI com `rinhaInfinita` (a Rinha do beco na
+  Pista e a Rinha de Apostas na Feira). Entrou (só no toque — a briga
+  automática da rua nunca puxa a tropa pra lá), é **luta atrás de luta**:
+  ganhou ou perdeu, o relatório avança sozinho pra próxima (mesmo com a briga
+  automática desligada), com os botões "Próxima luta" e "Sair da rinha". Dá
+  pra ficar assistindo ali, grindando.
+- **Força de cada luta = sorteio no nível do território**
+  (`niveisDoTerritorio`, cenaHelpers.js): o nível do adversário sai entre os
+  das lutas do bairro — toda treta da rua e dos cômodos, a briga de papo e o
+  líder do chefe — então a média é a do território (Pista ≈ 13, do 3 ao 30;
+  Feira ≈ 35, do 3 ao 52). Às vezes dupla (35%), o 2º corpo 2–3 abaixo.
+- **Perdeu, perdeu:** derrota na Rinha não leva pra birosca nem desliga
+  automático — só não rende nada daquela luta. **A casa remenda a tropa** da
+  2ª luta da sessão em diante (PV/PM cheios); a 1ª usa a vida de verdade, pra
+  Rinha não virar posto de cura de graça. A aposta da Feira vale só na 1ª luta
+  da sessão. Rinha não conta pra "regra da frustração".
+- **App no fundo NA RINHA (luta ou vitória de uma sessão de Rinha):** fica vivo
+  3 minutos (troca rápida de app não muda nada); bateu 3 minutos, a tela é
+  desmontada. Na volta, tela de carga e a conta: **1 luta a cada 5 minutos
+  fora** (`GANGUES_RINHA_S_POR_LUTA`), seja ela qual for — 20 minutos, 4
+  lutas. As lutas que já terminaram ao vivo no fundo (antes de desmontar)
+  descontam do ritmo; como luta ao vivo é mais rápida, o ritmo de 5 min é o
+  piso de quando a tela não roda. Cada luta calculada sorteia um adversário
+  novo (mesmo sorteio da Rinha ao vivo) e é **simulada de verdade**, rodada a
+  rodada, no motor da Briga em Multidão: dá pra perder. Fora da tela é sempre
+  **ataque normal** (sem talento, sem PM); a poção de PV, se ligada, entra
+  dentro da luta. A luta que estava na tela é a 1ª e segue do ponto exato onde
+  parou (`lutaAoVivo`). Os minutos que não fecham 5 são a luta que estava no
+  meio quando o jogador voltou — não conta. Teto de **+5 níveis por ausência**.
+  O resumo sai com "Continuar na rinha" (próxima luta, tropa remendada — vale
+  até com a página recarregada) e "Voltar pra rua".
+- **App no fundo EM QUALQUER OUTRO LUGAR:** nada é calculado nem desmontado —
+  o jogo segue **ao vivo** no fundo (briga automática, automático da luta), do
+  jeito de sempre, até o celular deixar. Se o celular matar a aba, perdeu —
+  ficou o que rodou. Na volta (3+ minutos fora), um relatório do que rodou —
+  sempre que algo mudou OU que tinha algo rodando sozinho na saída (`ativo`:
+  briga automática ou luta no automático); se nada fechou, ele avisa que o
+  celular pausou o jogo antes.
+- **O ponto de saída mora no SAVE** (`storyProgress.__farmAusente`, gravado na
+  hora, sem debounce): `{ tipo: 'rinha'|'rua', desde, foto, lutas, vitorias,
+  caiu }` + na Rinha `{ territorioId, alvo, luta, ids }`. `foto` = grana, rep,
+  sucata, poções e XP na saída — o relatório é a diferença entre ela e o save
+  na volta, então vale com a página viva ou recarregada (aba descartada). A
+  tela de vitória que monta com o app escondido conta a luta que acabou ao
+  vivo. Sem marca na volta, a tela desmontada volta pra rua — nunca fica
+  preta. Fechar a aba de propósito conta igual (não dá pra diferenciar de
+  descarte).
 
 **"Mete o pé"** (fugir da luta, com confirmação): luta de bairro volta pro
 **território**, no ponto da briga; Clube e Torre voltam pros **Modos**. Nunca
@@ -2407,7 +2379,7 @@ v3.30.0 os dois formatos usam o MESMO sistema de pontos fixos.
   | Ponto | Ficha | Forma | Obrigatório |
   |---|---|---|---|
   | `sinal` (apertar o pivete) | 3 | rev, dupla 15% | sim |
-  | `rinha` (farm) | ~ficha do seu mais forte (mín. 3) | rev, `baseMaisForte` | não |
+  | `rinha` (farm, luta infinita) | sorteada entre as fichas desta tabela + o Carvão (média ≈ 13) | rev, dupla 35%, `niveisTerritorio` | não |
   | `ferro` (falhar a gazua) | 8 | rev, dupla 10% | sim (a gazua) |
   | `beco` | 8 | rev, dupla 40% | sim |
   | `beco_2` | 11 | rev, dupla 40% | sim |
@@ -2418,6 +2390,15 @@ v3.30.0 os dois formatos usam o MESMO sistema de pontos fixos.
   | `posmuro_1` | 23 | rev, dupla 50% | sim (galpão) |
   | `posmuro_2` (Cão Louco) | 26 | rev, dupla 60%, Rep 25 | sim (galpão) |
   | galpão `m1` | 6 por corpo + 40% do time, 3–5 corpos | rev, bando | passagem |
+
+- **Regra de todo território (Isaias, 28/09/2026): o inimigo mais forte é
+  sempre o chefão.** Nenhum corpo gerado no bairro passa da ficha real do líder
+  do chefe (`pontosDoChefe`, ganguesEncontros.js — Pista 30, Feira 52): o
+  gerador de revezamento recebe `tetoTerritorio` (`revezamentoNoTerritorio`,
+  cenaHelpers.js) e corta o orçamento de qualquer luta que escala com o time
+  (encontros aleatórios, salas de multidão, o favor do Cobrador, a Rinha),
+  inclusive o estouro de arredondamento do `escalarInimigo`. As lutas de ficha
+  fixa já nascem abaixo do chefe.
   | galpão `m2` (1301) | 22 divididos em 3–5 corpos, Rep 25 | bando fixo | passagem |
   | encontro aleatório (perseguidor) | ~ficha do seu mais forte, mín. 2 corpos | rev, `baseMaisForte` | não |
   | **Carvão** (chefe) | **30** + escolta 20 | chefe fixo | — |

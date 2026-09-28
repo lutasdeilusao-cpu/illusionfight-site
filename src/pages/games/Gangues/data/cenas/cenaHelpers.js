@@ -10,6 +10,8 @@
    ══════════════════════════════════════════════════════════════ */
 import { CENA_PISTA } from './pista/index.js'
 import { CENA_FEIRA } from './feira/index.js'
+import { pontosPreviewPoi } from '../ganguesEncontros.js'
+import { tetoDoTerritorio } from '../ganguesChefes.js'
 
 export const CENAS_POR_ID = {
   [CENA_PISTA.id]: CENA_PISTA,
@@ -95,4 +97,33 @@ export function destinoSocorroDerrota(cena, prog = {}) {
   }
   candidatos.sort((a, b) => a.dist - b.dist)
   return candidatos[0] || null
+}
+
+/** Níveis (pontos de ficha) das lutas do bairro, do mais fraco ao chefão — a
+ *  Rinha infinita sorteia entre eles, então a força dela segue a média do
+ *  território (Isaias, 28/09/2026). Conta toda treta da rua e dos cômodos,
+ *  a briga de papo (`viraTreta`) e o líder do chefe; nunca passa dele. */
+export function niveisDoTerritorio(territorioId) {
+  const cena = CENAS_POR_ID[territorioId]
+  const teto = tetoDoTerritorio(territorioId)
+  if (!cena || !teto) return []
+  const internos = Object.values(cena.interiores || {}).flatMap(inter => (inter.comodos || []).flatMap(com => (com.pois || []).map(pd => pd.poi).filter(Boolean)))
+  const niveis = [...cena.pois, ...internos].flatMap(p => {
+    if (p.rinhaInfinita) return []
+    if (p.tipo === 'treta') return [pontosPreviewPoi(p, territorioId)]
+    return (p.escolhas || []).filter(e => e.viraTreta).map(e => e.viraTreta.pontosFixo || e.viraTreta.revezamento?.budgetPorCorpo)
+  })
+  return [...niveis, teto].filter(n => n > 0 && n <= teto)
+}
+
+/** O revezamento de uma luta como ele vai pro gerador de bando, com as regras
+ *  do território: teto no chefão (`tetoTerritorio`) e, na Rinha, o nível
+ *  sorteado entre os do bairro (`niveisSorteio`). */
+export function revezamentoNoTerritorio(revezamento, territorioId) {
+  if (!revezamento) return revezamento
+  return {
+    ...revezamento,
+    tetoTerritorio: tetoDoTerritorio(territorioId) ? territorioId : undefined,
+    niveisSorteio: revezamento.niveisTerritorio ? niveisDoTerritorio(territorioId) : undefined,
+  }
 }
