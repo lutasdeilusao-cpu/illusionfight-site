@@ -316,10 +316,10 @@
         "auto_cada_um": "Qué usa cada uno en automático",
         "auto_normal": "Ataque normal",
         "auto_pocao": "Poción sola",
-        "auto_pocao_desc": "Cualquiera con 50% de PV o menos toma poción de PV. Sin PM para el talento elegido, toma poción de PM.",
+        "auto_pocao_desc": "¿Alguien con 50% de PV o menos? El más entero de la banda larga su turno y le da poción de PV al más golpeado. Sin PM para el talento elegido, toma poción de PM.",
         "auto_tutorial": {
           "talento": "Acá armás el automático, pibe. Para cada uno de la banda elegí: solo ataque normal, o UN talento que larga cada vez que tenga PM. Se acabó el PM, vuelve al ataque normal.",
-          "pocao": "Prendé la poción sola y nadie cae de gusto: llegó al 50% de PV, la banda toma la poción de PV que haya en la bolsa. Y si falta PM para el talento, poción de PM. Tomar poción gasta el turno del que está peleando, igual que en manual.",
+          "pocao": "Prendé la poción sola y nadie cae de gusto: alguien llegó al 50% de PV, el más entero de la banda larga su turno y le pasa la poción de PV al golpeado — el herido sigue a las piñas. Y si falta PM para el talento, poción de PM.",
           "derrota": "Pero ojo: perdiste la pelea y se apaga TODO lo automático. Ahí te toca a vos de nuevo."
         }
       },

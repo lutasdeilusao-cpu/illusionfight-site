@@ -316,10 +316,10 @@
         "auto_cada_um": "O que cada um usa no automático",
         "auto_normal": "Ataque normal",
         "auto_pocao": "Poção sozinho",
-        "auto_pocao_desc": "Qualquer um com PV em 50% ou menos toma poção de PV. Sem PM pro talento escolhido, toma poção de PM.",
+        "auto_pocao_desc": "Alguém com PV em 50% ou menos? O mais inteiro da tropa abre mão da vez e dá poção de PV pro mais machucado. Sem PM pro talento escolhido, toma poção de PM.",
         "auto_tutorial": {
           "talento": "Aqui tu monta o automático, cria. Pra cada um da tropa escolhe: só ataque normal, ou UM talento que ele solta toda vez que tiver PM. Acabou o PM, volta pro ataque normal.",
-          "pocao": "Liga a poção sozinho e ninguém morre à toa: chegou em 50% de PV, a tropa toma a poção de PV que tiver na bolsa. E se faltar PM pro talento, toma poção de PM. Usar poção gasta a vez de quem tá agindo, igual no manual.",
+          "pocao": "Liga a poção sozinho e ninguém morre à toa: chegou em 50% de PV, o mais inteiro da tropa larga a vez dele e dá a poção de PV pro machucado — o ferido segue na porrada. E se faltar PM pro talento, toma poção de PM.",
           "derrota": "Mas se liga: perdeu a briga, TODO automático desliga. Aí é contigo de novo."
         }
       },

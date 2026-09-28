@@ -24,7 +24,7 @@ Grafia oficial: **Marélia** com acento (o conto usa assim). O i18n do jogo aind
 tem "Marelia" sem acento em vários lugares — alinhar quando mexer em texto.
 
 > **Estado do documento: retrato do jogo como ele está HOJE — conferido contra
-> o código de GANGUES 3.74.0 (SITE 10.306.x), 28/09/2026.** Regra: o GDD
+> o código de GANGUES 3.74.1 (SITE 10.306.x), 28/09/2026.** Regra: o GDD
 > descreve o produto atual, não guarda diário de versões — quando algo muda
 > no jogo, o trecho que falava da versão antiga é REESCRITO, não empilhado
 > embaixo com "v3.xx: agora...". Histórico de mudança mora no git.
@@ -2079,10 +2079,12 @@ sai sozinha, do jeito que o jogador **ajustou** (painel Ajustar, config por
 navegador em `ldi-gangues-auto-config`; decisão pura em `escolherAcaoAuto`):
 - **Por personagem:** só **ataque normal** (padrão) ou **um talento** — solta
   toda vez que tiver PM/PV pra pagar; sem recurso, ataque normal.
-- **Poção sozinho** (liga/desliga): qualquer um com **PV ≤ 50%** toma a poção
-  de PV que melhor tapa o buraco (as sem efeito colateral primeiro); sem PM pro
-  talento escolhido, o próprio personagem toma poção de PM. Usar item gasta a
-  vez de quem age, igual no manual.
+- **Poção sozinho** (liga/desliga): alguém com **PV ≤ 50%** → o **mais
+  inteiro da tropa** (mais PV) abre mão da vez dele e dá pro mais machucado a
+  poção de PV que melhor tapa o buraco (as sem efeito colateral primeiro). O
+  ferido nunca gasta a própria vez se curando — segue batendo; só se cura
+  sozinho quando é o único de pé. Sem PM pro talento escolhido, o próprio
+  personagem toma poção de PM. Usar item gasta a vez de quem age.
 - Tutorial de 3 passos (Nego Véio, por conta — `auto_config`) na 1ª vez que o
   Ajustar abre: talento, poção e "perdeu, desliga tudo".
 - **Liberado pra todo mundo hoje** (`MODO_AUTO_EXIGE_ASSINATURA = false`).

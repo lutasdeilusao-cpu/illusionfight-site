@@ -3,9 +3,10 @@
 // ver `escolherAcaoAuto`:
 //  • por personagem: só ataque normal (o de sempre) ou UM talento escolhido,
 //    que ele usa toda vez que tiver PM/PV pra pagar (senão, ataque normal);
-//  • poção automática: qualquer um da tropa com PV ≤ 50% toma a poção de PV
-//    que a gangue tiver; sem PM pro talento escolhido, o próprio personagem
-//    toma poção de PM. Usar item gasta a vez de quem está agindo, igual no manual.
+//  • poção automática: alguém da tropa com PV ≤ 50% → o MAIS INTEIRO (mais
+//    PV) gasta a vez dele dando a poção de PV pro mais machucado (o ferido
+//    segue batendo; sozinho de pé, se cura); sem PM pro talento escolhido, o
+//    próprio personagem toma poção de PM. Usar item gasta a vez de quem age.
 // `modoAutoOn` mora no GanguesCombat (o motor precisa dele pra acelerar a IA
 // do inimigo em 2x/3x — ver useGanguesVelocidadeAuto.js).
 // Extraído de GanguesCombat.jsx (PLANO_REFATORACAO_ARQUIVOS_GRANDES_GANGUES_2026-09-11.md §6).
@@ -54,10 +55,15 @@ export function melhorPocao(itens, tipo, falta) {
  *  `itens` = inventário de combate ({id,tipo,valor,quantidade,status}). */
 export function escolherAcaoAuto({ ator, aliados, especiais, pagavel, itens, config }) {
   if (config.pocao) {
-    const ferido = aliados
-      .filter(a => a.pv > 0 && a.pvMax > 0 && a.pv / a.pvMax <= POCAO_LIMIAR_PV)
+    // Quem cura é o MAIS INTEIRO da tropa (mais PV), abrindo mão da vez dele
+    // — nunca o ferido gastando a própria vez pra se curar (Isaias,
+    // 28/09/2026). Só quando o ferido é o único de pé ele se cura sozinho.
+    const vivos = aliados.filter(a => a.pv > 0 && a.pvMax > 0)
+    const ferido = vivos
+      .filter(a => a.pv / a.pvMax <= POCAO_LIMIAR_PV)
       .sort((a, b) => a.pv / a.pvMax - b.pv / b.pvMax)[0]
-    const pocao = ferido && melhorPocao(itens, 'cura_pv', ferido.pvMax - ferido.pv)
+    const maisInteiro = [...vivos].sort((a, b) => (b.pv - a.pv) || (b.pv / b.pvMax - a.pv / a.pvMax))[0]
+    const pocao = ferido && maisInteiro?.key === ator?.key && melhorPocao(itens, 'cura_pv', ferido.pvMax - ferido.pv)
     if (pocao) return { tipo: 'item', itemId: pocao.id, alvoKey: ferido.key }
   }
   const escolhido = especiais.find(s => s.id === config.talentos?.[ator?.id])

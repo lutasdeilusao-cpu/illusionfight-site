@@ -316,10 +316,10 @@
         "auto_cada_um": "What each one uses on auto",
         "auto_normal": "Normal attack",
         "auto_pocao": "Auto potion",
-        "auto_pocao_desc": "Anyone at 50% HP or less drinks an HP potion. Out of MP for the chosen talent? Drinks an MP potion.",
+        "auto_pocao_desc": "Anyone at 50% HP or less? The healthiest in the crew gives up their turn to hand the most hurt one an HP potion. Out of MP for the chosen talent? Drinks an MP potion.",
         "auto_tutorial": {
           "talento": "This is where you set up auto, kid. For each one in the crew pick: normal attack only, or ONE talent they fire every time they've got the MP. MP runs dry, back to the normal attack.",
-          "pocao": "Turn on auto potion and nobody drops for nothing: hit 50% HP and the crew drinks whatever HP potion's in the bag. Short on MP for the talent? MP potion. Drinking uses up that fighter's turn, same as manual.",
+          "pocao": "Turn on auto potion and nobody drops for nothing: someone hits 50% HP, the healthiest one in the crew skips their turn to hand them an HP potion — the hurt one keeps swinging. Short on MP for the talent? MP potion.",
           "derrota": "But listen: lose the brawl and EVERY auto mode switches off. Then it's on you again."
         }
       },

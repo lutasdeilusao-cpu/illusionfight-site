@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.306.0' // fix(gangues): luta automática em 2º plano para de rodar e é terminada por cálculo; abrir o save vai direto pro último território.
+export const SITE_VERSION = '10.306.1' // fix(gangues): poção automática — quem cura é o mais inteiro da tropa, não o ferido gastando a própria vez.
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.2' // fix: aba "stories" do rodape mostrava a chave crua pp.menu.pistas_label (nao existia) -> aponta pra pp.dossier.pistas_label; PuzzleWrapper mostrava pp.puzzle.nenhum/instrucao (nao existiam) -> pp.local.puzzle_nenhum/instrucao; confirm() de deletar save mostrava pp.menu.deletar_slot cru -> chave criada nos 3 idiomas.
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '3.74.0' // farm ausente cobre a luta em andamento (tela desmontada, mesma luta terminada por cálculo, volta pro ponto da briga/birosca); save abre no último território.
+export const GANGUES_VERSION   = '3.74.1' // poção automática: o personagem com mais PV abre mão da vez pra curar o mais machucado (ferido só se cura sozinho quando é o único de pé).
 
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
