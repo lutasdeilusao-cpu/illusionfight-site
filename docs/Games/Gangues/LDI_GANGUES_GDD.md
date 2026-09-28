@@ -23,17 +23,13 @@
 Grafia oficial: **Marélia** com acento (o conto usa assim). O i18n do jogo ainda
 tem "Marelia" sem acento em vários lugares — alinhar quando mexer em texto.
 
-> **Última revisão geral: 26/09/2026 — conferido contra o código de
-> GANGUES 3.56.0 (SITE 10.293.1).** Esta revisão trouxe pro GDD tudo o que
-> entrou no jogo entre a v3.30.0 (19/09) e a v3.56.0 (22/09) e que só
-> existia no código: a agiotagem refeita (agora com o agiota **Marimbondo**,
-> empréstimo em dinheiro e escada de dívida), o descanso com 2 preços,
-> **"o bicho"** (depois substituído pelo encontro aleatório perseguidor, v3.61.0), a **Lojinha do Zé**, a recompensa por risco (AP), a fórmula
-> de grana da vitória, a regra da frustração, o gate de dívida do chefe, a
-> Briga em Multidão, o modo automático e o farol dos pinos. Também marcou
-> como **planejado (não implementado)** o que o GDD descrevia como pronto
-> mas não está no código: consumíveis 3–12 e equipamentos 121–139 (incluindo
-> os 8 épicos de chefe).
+> **Última revisão geral: 28/09/2026 — conferido contra o código de
+> GANGUES 3.62.3.** Nesta revisão saiu tudo que era histórico sem uso
+> (crosswalk string→id, Ranking Clandestino, narrativa de bug já corrigido,
+> atributos A/H/R/D antigos, NeoGuide) e entrou o que só existia no código:
+> sistema do Pique (linha do tempo com raias), encontro aleatório com sirene,
+> retratos de inimigo/NPC, ciclo automático de pose e a estrutura de `styles/`.
+> O que ainda NÃO está no código aparece marcado como **planejado**.
 
 ---
 
@@ -54,35 +50,24 @@ tem "Marelia" sem acento em vários lugares — alinhar quando mexer em texto.
 | **1451–1464** | Inimigo comum — **General / Braço-Direito** (14) |
 | 1500–1599 | Chefes de território (7 bosses) |
 | 1600–1699 | Chefe final + reservado |
+| 1701–1799 | Fichas do encontro aleatório (fora do Álbum) |
 | 3000–3099 | NPCs não-combatentes |
 | 1–99 | Itens consumíveis *(contexto separa de "território")* |
 | 101–999 | Equipamento |
 | 10000+ | Cartas de socket (sistema futuro) |
 
-> **✅ IMPLEMENTADO (v2.66.x, 2026-09-08).** `data/gangues-enemies.json` tem as
-> **98 fichas** com id numérico + bloco `album` (91 da hierarquia + 7 chefes);
-> `data/ganguesInimigos.js` é o módulo-catálogo. Tela `GanguesAlbum.jsx`
-> acessível pelo lobby. As 70 fichas novas têm stats por fórmula
-> (cargo × território) e trash_talk genérico por cargo — calibrar jogando.
+> **Estado real:** `data/gangues-enemies.json` tem **102 fichas** com id
+> numérico — 91 da hierarquia (com bloco `album`), 7 chefes e 4 fichas do
+> encontro aleatório (1701/1702/1711/1712, fora do Álbum, ver §5.6).
+> `data/ganguesInimigos.js` é o módulo-catálogo.
 >
-> **O Ranking Clandestino foi REMOVIDO do projeto** (v2.66.1) — eram ecos de
-> cânone antigo (O Coveiro/Kronos, Breu/Jack, Corte Fundo/Kaeda, Cascudo/Viran,
-> etc.). O Modo Batalha avulso já estava bloqueado; `enemies_unlocked`,
-> `unlockNextEnemy` e `GanguesEnemyPick` saíram junto.
+> **Banco:** tabelas próprias — `gangues_saves` (a gangue/save) e
+> `gangues_fichas` (os lutadores). Nunca toca em `character_sheets` (que é da
+> "Lendas do LDI").
 >
-> **Banco (v2.67.0):** o Gangues tem tabelas próprias — `gangues_saves` (a
-> gangue/save) e `gangues_fichas` (os lutadores). Não toca mais em
-> `character_sheets` (que é da "Lendas do LDI"). Migration única
-> `038_gangues_church_unified.sql` substitui as 031–037 e faz reset total —
-> beta, sem compat de save.
->
-> **O álbum se organiza por CARGO, não por bairro.** Cada bairro tem inimigos em
-> vários níveis de cargo; a UI do álbum tem abas por cargo
-> (Vigia → Vapor → Gerente → Cobrador → General → Chefes), cada uma enchendo
-> conforme o jogador sobe os bairros. A última aba de cada território é sempre o
-> **General** — o "quase-chefe" que sinaliza que o portão vai abrir.
->
-> Crosswalk das 28 fichas que eram string → id numérico: §5.7.
+> **O álbum se organiza por CARGO, não por bairro:** abas Vigia → Vapor →
+> Gerente → Cobrador → General → Chefes. A última aba de cada território é
+> sempre o **General** — o "quase-chefe" que sinaliza que o portão vai abrir.
 
 ---
 
@@ -232,7 +217,7 @@ Facção: Rato de Pista (101) / Bonde do Sinal (102). O asfalto lá embaixo. Cri
 que corre no farol, arranca corrente, vende bala. **Todo mundo começa aqui** — o
 Retalho, o jogador, e (noutro bairro) o Alan.
 
-**POIs (estado atual, v3.56.0 — `data/cenas/pista/pois.js`):**
+**POIs (estado atual, v3.62.3 — `data/cenas/pista/pois.js`):**
 
 - **Obrigatórios pro portão** (`portao.precisa`, 8): A boca do sinal (`sinal`) ·
   O ferro-velho (`ferro`, `PuzzleSimonSays`) · **A oficina do Nando**
@@ -242,6 +227,9 @@ Retalho, o jogador, e (noutro bairro) o Alan.
   Rasteira (`beco_2`) · O terceiro ponto (`beco_3`) · **O Sinaleiro Chefe**
   (`sinaleiro`, 1451, General) · **A Rasteira Velha** (`rasteira_velha`, 1452,
   General). Os dois generais entram no Álbum aqui, antes do chefe.
+- **Ferro-velho na rua (v3.62.2–3.62.3):** o pino e a zona de interação do
+  `ferro` ficam na calçada acima do prédio (pino no centro); quando um pino
+  mora dentro de um prédio, uma marca de chão mostra onde interagir.
 - **Opcionais do lado de cá do muro:** o fundo do ferro-velho (`achado`) · o
   corre do Nato (`corre`, stealth — o convite dele agora aparece DENTRO do
   modal de Descanso, não num pino próprio) · a rinha (`rinha`, farm) · Duda, o
@@ -253,13 +241,10 @@ Retalho, o jogador, e (noutro bairro) o Alan.
   guarda-costas do Carvão (`posmuro_1` e `posmuro_2`, que destrancam o galpão) ·
   o galpão-dungeon com o Carvão no fim.
 - **Encontro aleatório (perseguidor):** em qualquer lugar da rua — ver abaixo.
-- **Removido em 20/09/2026:** o POI `birosca` (papo à parte), que duplicava o
-  Descanso. Estava preso em `portao.precisa` e fazia o portão nunca abrir —
-  corrigido em 21/09/2026.
 
 Ladder de força de cada ponto, lojas, descanso e agiota: §17.6.
 
-**Mapa de RPG (v2.73–2.74):** o exterior é favela desenhada em CSS (barraco /
+**Mapa de RPG:** o exterior é favela desenhada em CSS (barraco /
 laje com caixa d'água / sobrado / comércio com toldo / galpão) com rua de
 periferia (buracos, entulho, fiação/gato) e praça de verdade. **Interiores
 navegáveis**: encosta na porta → `ENTRAR` → fade → cômodo pequeno onde você anda
@@ -271,8 +256,7 @@ parado no escuro → `DESAFIAR`. Motor único (`montarAmbiente`/`ctx`) serve rua
 cômodo; comando contextual (`ENTRAR`/`SAIR`/`VOLTAR`/`AVANÇAR`/`DESAFIAR`); a
 posição salva inclui o interior. É o **template dos 7 bairros**.
 
-**Descanso, agiota e Clube da Luta (redesenho de 21/09/2026, v3.49–3.54 —
-substitui por completo o fiado 5×/10× por contagem de antes):**
+**Descanso, agiota e Clube da Luta:**
 
 - **A birosca do Seu Nato (`descanso`) é só cura, sem dívida nenhuma.** Duas
   opções de preço: **10** recupera só quem **não caiu** (PV > 0); **30** (3×)
@@ -291,8 +275,7 @@ substitui por completo o fiado 5×/10× por contagem de antes):**
     bairros) e **silenciosa** (sem HUD). Dá pra pagar parcial ou total a
     qualquer momento (`pagarBirosca`).
   - Constantes: `GANGUES_EMPRESTIMO_NATO_VALOR/MULT/TETO` = 100 / 10 / 10.000
-    (`data/ganguesLoadout.js`; o nome "NATO" ficou por legado, o texto na tela
-    já fala do agiota).
+    (`data/ganguesLoadout.js`).
 - **Gate do chefe:** com qualquer dívida em aberto, **o Carvão não aceita a
   luta** (aviso `aviso_divida_chefe`). O resto da Pista (farm, pós-muro)
   continua livre, pra não virar soft-lock. O jeito "certo" de quitar é o Clube.
@@ -324,8 +307,7 @@ Sinal (`tunel_m1/m2/m3`), passagem trancada até vencer cada um, e um achado
 lado de lá do muro, onde ficam a loja e o galpão. Túnel bidirecional. O muro
 físico só abre com `prog.boss` (chefe derrotado), aí vira atalho.
 
-**Encontro aleatório — o perseguidor (v3.61.0, 26/09/2026 — substitui por
-completo "o bicho"):**
+**Encontro aleatório — o perseguidor (v3.61.0):**
 
 - **Quando:** o 1º vem com **5 minutos de jogo** e depois **a cada 15 minutos**.
   O relógio conta só o tempo andando na RUA da cena (pausa em diálogo, luta,
@@ -356,32 +338,24 @@ completo "o bicho"):**
   O 1º encontro é sempre a moto e o 2º a polícia; depois sorteia entre os 4, sem
   repetir o anterior. As fichas 1701–1712 ficam fora do Álbum (não são cargo da
   hierarquia).
+- **Sirene (v3.62.3):** enquanto a Ronda (polícia) persegue, a tela da cena
+  pisca vermelho/azul (`GanguesCena.jsx` + `styles/cena/mundo.css`).
 
-**Balanço (v3.30.0, 19/09/2026 — substitui o ratio de v2.68.0):** todo bando do
-jogo (rua, revezamento, chefe, evento) agora parte de um número de pontos FIXO
-autorado por quem criou o encontro (ladder ponto-a-ponto, não mais um ratio
-contra o total de pontos do time do jogador). Pedido do Isaias: "força
+**Balanço:** todo bando do jogo (rua, revezamento, chefe, evento) parte de um
+número de pontos FIXO autorado por quem criou o encontro (ladder ponto-a-ponto,
+nunca um ratio contra o time do jogador). Pedido do Isaias: "força
 numericamente, é mais fácil de balancear". A dificuldade escolhida
 (fácil/médio/difícil) soma ou tira um valor fixo em cima desse número — ver
 `GANGUES_DIFICULDADE_AJUSTE` em `data/ganguesDificuldade.js`, o ÚNICO lugar
 que decide isso pro jogo inteiro. Curva completa em §17.6 desta bíblia.
 
-**Encontro de revezamento — dungeon (v2.74.5):** as tretas dentro do túnel (e
-futuramente do galpão) NÃO usam a geração de bando do território. Um POI `treta`
-com `revezamento: { pool:[ids], budgetPorCorpo, chanceDupla }` chama
-`gerarBandoRevezamento` — sorteia 1 capanga (às vezes 2, pela `chanceDupla`) de
-um punhado de fracos que se alternam, orçamento leve e FIXO por corpo (não escala
-com o jogador). É o "estilo Pokémon" pedido pelo Isaias: quase sempre 1 sozinho,
-de vez em quando uma dupla, sempre leve. Túnel da Pista: m1 `[1101,1102,1103]`
-b4/0.22 · m2 `[1101,1102,1103,1201]` b6/0.45 · m3 `[1101,1102,1103]` b5/0.30.
-
-**Também nas primeiras tretas de rua (v2.74.6):** `beco` (a 1ª treta de
-verdade), a `rinha` (farm) e as brigas-punição (`sinal`→apertar o pivete,
-falhar a gazua do `ferro`) trocaram o `enemy` fixo / o sorteio dos 11 moldes
-por `revezamento` do pool fraco `[1101,1102,1103,1201,1203]`
-(Farejador/Zóio/Pingo/Ratazana/Chinelada). Antes a `aperta`/`falha`
-davam SEMPRE uma Ratazana sozinha; agora rodam os 5, quase sempre solo. Isso
-vale para `viraTreta.revezamento` (não só `poi.revezamento`).
+**Encontro de revezamento ("estilo Pokémon"):** um POI `treta` com
+`revezamento: { pool:[ids], budgetPorCorpo, chanceDupla }` chama
+`gerarBandoRevezamento` — quase sempre 1 capanga, às vezes dupla (o 2º corpo
+sai 2–3 pontos abaixo, `GANGUES_DUPLA_DEDUCAO_MIN/MAX`). Vale também dentro de
+escolhas (`viraTreta.revezamento`). Pool da rua (`PISTA_POOL_RUA`):
+Farejador/Zóio/Pingo/Ratazana/Chinelada (1101/1102/1103/1201/1203). Túnel:
+m1 `[1101,1102,1103]` b4 · m2 `[1101,1102,1103,1201]` b6 · m3 `[1101,1102,1103]` b5.
 
 ### Território 2 — A Feira · Muvuca · `#7ee787`
 Facção: Acerto de Contas (103) / Os Gato (104). O comércio, os camelô, a luz de
@@ -472,8 +446,8 @@ Shape canônico:
 }
 ```
 
-★ = já tem ficha de combate em `data/gangues-enemies.json` (ver crosswalk §5.4).
-Os demais são canônicos mas ainda sem ficha.
+Todas as 91 entradas têm ficha de combate em `data/gangues-enemies.json`.
+Retrato (cabeça) existe hoje para o elenco da Pista — ver §15.
 
 ### 5.1 Nível 1 — VIGIA / FOGUETEIRO (faixa 1101–1121)
 
@@ -510,10 +484,10 @@ Vende, sustenta a boca, cara a cara com o cliente. Dano baixo, mas em número.
 
 | ID | Nome | Território | Arma | Lore |
 |---|---|---|---|---|
-| 1201 ★ | Ratazana | Pista | facão | Cria de ponto — a primeira treta de verdade da Pista. |
-| 1202 ★ | Brasa | Pista | estilingue | Copiava o Carvão até o apelido colar. |
+| 1201 | Ratazana | Pista | facão | Cria de ponto — a primeira treta de verdade da Pista. |
+| 1202 | Brasa | Pista | estilingue | Copiava o Carvão até o apelido colar. |
 | 1203 | Chinelada | Pista | sandália reforçada | Briga suja, ataca 2× mais rápido, dano baixo. |
-| 1204 ★ | Choque | Feira | faca | Faz ligação clandestina, some no meio das bancas. |
+| 1204 | Choque | Feira | faca | Faz ligação clandestina, some no meio das bancas. |
 | 1205 | Balconista | Feira | faca de cozinha | Trabalha na banca de dia, cobra à noite. |
 | 1206 | Fiado Vencido | Feira | facão curto | Cobra dívida velha que só ele lembra. |
 | 1207 | Água Parada | Baixada | faca enferrujada | Devoto do Sombra morto, ainda "fala com ele". |
@@ -538,26 +512,26 @@ Administra um ponto de verdade. Dano e defesa acima da média, disciplina própr
 
 | ID | Nome | Território | Arma | Lore |
 |---|---|---|---|---|
-| 1301 ★ | Cão Louco | Pista | corrente | Agressivo, um degrau acima da cria de ponto. |
+| 1301 | Cão Louco | Pista | corrente | Agressivo, um degrau acima da cria de ponto. |
 | 1302 | Riscado | Pista | canivete | Cicatrizes de quem já perdeu pra ele — troféus de guerra. |
 | 1303 | Mão de Cola | Pista | corrente curta | Rouba o que vê, não solta o que pega. |
-| 1304 ★ | Unha de Fome | Feira | porrete | Cobrador de rua — bate antes do chefe cobrar de verdade. |
+| 1304 | Unha de Fome | Feira | porrete | Cobrador de rua — bate antes do chefe cobrar de verdade. |
 | 1305 | Caderneta | Feira | — | Sabe o que cada morador deve, usa como arma psicológica. |
 | 1306 | Pesagem | Feira | balança de ferro | "Pesa" tudo — inclusive gente, literalmente. |
 | 1307 | Herdeiro | Baixada | faca dupla | Afirma ser sucessor legítimo, ninguém reconhece. |
-| 1308 ★ | Sangria | Baixada | faca | O mais bravo dos três cacos do Sombra. |
-| 1309 ★ | Gelo | Baixada | faca | O caco calculista — não erra. |
-| 1310 ★ | Cadeado | Vila | chave de cano | Toma conta do térreo. |
-| 1311 ★ | Trinco | Vila | chave de cano | Comanda um andar inteiro. |
+| 1308 | Sangria | Baixada | faca | O mais bravo dos três cacos do Sombra. |
+| 1309 | Gelo | Baixada | faca | O caco calculista — não erra. |
+| 1310 | Cadeado | Vila | chave de cano | Toma conta do térreo. |
+| 1311 | Trinco | Vila | chave de cano | Comanda um andar inteiro. |
 | 1312 | Elevador | Vila | cano curto | Só ataca em espaço fechado, luta suja em corredor. |
-| 1313 ★ | Cupim | Morro | faca | Vigia da escadaria com autoridade sobre a subida. |
-| 1314 ★ | Cascalho | Morro | faca | Capitão — subiu rápido, bate mais forte que todo mundo. |
+| 1313 | Cupim | Morro | faca | Vigia da escadaria com autoridade sobre a subida. |
+| 1314 | Cascalho | Morro | faca | Capitão — subiu rápido, bate mais forte que todo mundo. |
 | 1315 | Última Escada | Morro | bastão | Guarda a última curva antes do Alto do Morro. |
-| 1316 ★ | Verme | Alto do Morro | porrete | Um dos cinco que quase viraram cúpula. |
-| 1317 ★ | Presa | Alto do Morro | porrete | Braço-direito da cúpula quase formada. |
-| 1318 ★ | Engrenagem | Alto do Morro | corrente | Luta em formação, protege o centro. |
-| 1319 ★ | Fiapo | Laje | facão | Primeira linha do bonde do Retalho. |
-| 1320 ★ | Agulha | Laje | facão | Segunda linha, confiança de metade da Laje. |
+| 1316 | Verme | Alto do Morro | porrete | Um dos cinco que quase viraram cúpula. |
+| 1317 | Presa | Alto do Morro | porrete | Braço-direito da cúpula quase formada. |
+| 1318 | Engrenagem | Alto do Morro | corrente | Luta em formação, protege o centro. |
+| 1319 | Fiapo | Laje | facão | Primeira linha do bonde do Retalho. |
+| 1320 | Agulha | Laje | facão | Segunda linha, confiança de metade da Laje. |
 | 1321 | Linha Reta | Laje | facão longo | General mais antigo, sem movimento desperdiçado. |
 
 ### 5.4 Nível 4 — COBRADOR (faixa 1401–1414)
@@ -569,13 +543,13 @@ chefe.
 |---|---|---|---|---|
 | 1401 | Bala Solta | Pista | estilingue de metal | Vendedor de bala que guarda pedra no bolso. |
 | 1402 | Troco Certo | Pista | porrete | Cobra até a última moeda, nunca erra a conta. |
-| 1403 ★ | Marreta | Feira | porrete | Braço de confiança, cobra dívida grande sem conversa. |
+| 1403 | Marreta | Feira | porrete | Braço de confiança, cobra dívida grande sem conversa. |
 | 1404 | Juro Alto | Feira | porrete de metal | Dobra a dívida se o prazo passar. |
-| 1405 ★ | Sobra | Baixada | corrente | O mais desesperado dos cacos — nada a perder. |
+| 1405 | Sobra | Baixada | corrente | O mais desesperado dos cacos — nada a perder. |
 | 1406 | Resto de Faca | Baixada | faca dupla | Cobra em nome dos três cacos ao mesmo tempo. |
-| 1407 ★ | Goteira | Vila | taco | Olha o bonde de cima pra baixo. |
+| 1407 | Goteira | Vila | taco | Olha o bonde de cima pra baixo. |
 | 1408 | Aluguel Vencido | Vila | chave de cano | Cobra o "aluguel" que o bonde impõe em cada andar. |
-| 1409 ★ | Pavio Curto | Morro | rojão (fogo) | Solta aviso, não se importa de acertar você. |
+| 1409 | Pavio Curto | Morro | rojão (fogo) | Solta aviso, não se importa de acertar você. |
 | 1410 | Conta do Morro | Morro | vara curta | Guarda as contas de quem deve favor à Zefa. |
 | 1411 | Quase-Cúpula | Alto do Morro | espada curta | O mais ambicioso dos Cinco. |
 | 1412 | Dívida do Alto | Alto do Morro | bengala fina | Trabalha direto pro Contador. |
@@ -601,99 +575,67 @@ fora das lutas de território. **Um por território** (a Laje tem dois).
 | 1460 | Escadaria Inteira | Morro | bastão longo | Controla a subida sozinho, ninguém passa sem aval. |
 | 1461 | Quarto Nome | Alto do Morro | porrete | Um dos Cinco mais próximos de virar cúpula de verdade. |
 | 1462 | Formação Completa | Alto do Morro | corrente dupla | Comanda a Roda em batalha — a doutrina virou corpo. |
-| 1463 ★ | Tesoura | Laje | facão | General — comanda a Laje inteira em nome do Retalho. |
+| 1463 | Tesoura | Laje | facão | General — comanda a Laje inteira em nome do Retalho. |
 | 1464 | Corte Certo | Laje | facão gêmeo | Braço-direito da Tesoura, nunca erra o corte final. |
 
-### 5.6 ~~Ranking Clandestino~~ — REMOVIDO (v2.66.1)
+### 5.6 Fichas do encontro aleatório (1701–1712, fora do Álbum)
 
-A faixa **2001–2099 não existe mais**. Eram 8 fichas que ecoavam o cânone maior
-do LDI (O Coveiro ← Kronos, Breu ← primordial Jack, Corte Fundo ← Kaeda, Cascudo
-← Viran, Quebra-Queixo, Curto-Circuito, Traça, Saco de Pancada). Serviam ao Modo
-Batalha avulso, que já estava bloqueado. Removidas do `gangues-enemies.json`, do
-i18n, e junto com elas: `enemies_unlocked`, `unlockNextEnemy`, `GanguesEnemyPick`,
-e o bloco `npc_names` (personas Azuma/Karnazar/SDR/Bravara/Xakaxi — mesma matéria
-de eco de cânone). Se um dia voltar um Modo Batalha, ele puxa da própria
-hierarquia (1101–1464), não de um roster à parte.
+Não são cargo da hierarquia da Banca — existem só pro perseguidor da rua (§4).
 
-### 5.7 Crosswalk — fichas migradas de string → id numérico
+| ID | Nome | Tipo de encontro |
+|---|---|---|
+| 1701 | Piloto | Dois numa moto |
+| 1702 | Garupa | Dois numa moto |
+| 1711 | Soldado da Ronda | A Ronda (polícia) |
+| 1712 | Cabo da Ronda | A Ronda (polícia) |
 
-As 28 fichas que existiam em string, com stats (A/H/R/D · PV/PM) e o id oficial:
-
-| string atual | Nome | stats | id novo |
-|---|---|---|---|
-| `moleque_a` | Ratazana | 1/0/2/1 · 6/6 | 1201 |
-| `moleque_c` | Brasa | 1/1/2/2 · 8/4 | 1202 |
-| `gato_eletrico` | Choque | 2/3/4/1 · 12/12 | 1204 |
-| `moleque_b` | Cão Louco | 2/1/3/1 · 9/9 | 1301 |
-| `turco_batedor` | Unha de Fome | 2/1/3/1 · 9/9 | 1304 |
-| `sombra_rubra` | Sangria | 3/1/4/2 · 12/12 | 1308 |
-| `sombra_fria` | Gelo | 2/2/4/3 · 16/8 | 1309 |
-| `bonde_predio_1` | Cadeado | 2/1/4/3 · 16/8 | 1310 |
-| `bonde_predio_2` | Trinco | 3/2/6/3 · 18/18 | 1311 |
-| `frente_escada_1` | Cupim | 3/3/6/2 · 18/18 | 1313 |
-| `frente_escada_2` | Cascalho | 4/3/7/3 · 21/21 | 1314 |
-| `os_cinco_1` | Verme | 4/3/5/2 · 20/10 | 1316 |
-| `os_cinco_2` | Presa | 5/3/8/3 · 24/24 | 1317 |
-| `a_roda` | Engrenagem | 5/3/7/4 · 28/14 | 1318 |
-| `bonde_costura_1` | Fiapo | 4/4/8/3 · 24/24 | 1319 |
-| `bonde_costura_2` | Agulha | 5/4/9/4 · 27/27 | 1320 |
-| `turco_capanga` | Marreta | 2/2/3/1 · 12/6 | 1403 |
-| `os_restos` | Sobra | 3/2/5/1 · 15/15 | 1405 |
-| `andar_de_cima` | Goteira | 2/2/5/3 · 20/10 | 1407 |
-| `fogueteiro` | Pavio Curto | 5/2/11/3 · 22/44 | 1409 |
-| `bonde_costura_3` | Tesoura | 6/4/8/4 · 32/16 | 1463 |
-| `fumaca` | Carvão | 3/1/4/1 · 12/12 | 1500 |
-| `turco` | O Cobrador | 3/2/4/2 · 16/8 | 1501 |
-| `espeto` | Fura-Bucho | 4/2/5/2 · 20/10 | 1502 |
-| `sala` | Ferrugem | 3/2/5/4 · 20/10 | 1503 |
-| `zefa` | A Fera | 4/3/12/4 · 24/48 | 1504 |
-| `doutor` | O Contador | 5/4/15/5 · 30/60 | 1505 |
-| `costura` | O Retalho | 6/5/17/5 · 34/68 | 1600 |
-
-`preferred_mode` → caminho de combate: `fists→atacante`, `armed→defensor`,
-`power→místico`.
+`preferred_mode` → caminho: `fists` = Porradeiro, `armed` = Paredão,
+`power` = Mandingueiro.
 
 ---
 
 ## 6. Dossiê dos chefes (faixa 1500–1600)
 
+Stats = ficha base do catálogo; em luta, o chefe é escalado pro orçamento
+fixo do bairro (`GANGUES_CHEFE_BUDGET`, §12) — na Pista o Carvão luta com
+ficha 30.
+
 ### 1500 · Carvão — Chefe da Pista
-Facção: Rato de Pista (101) · Arma: facão · Stats: 3/1/4/1 · 12/12.
+Facção: Rato de Pista (101) · Arma: facão · Stats: Porrada 6 · Pique 1 · Couro 2 · Osso 3 · Malandragem 1 (nível de fachada 30).
 Fala: *"Cê é ligeiro? Eu sou fumaça, cria. Pisca que eu sumo — e cê apanha no
 escuro."* Some no meio da rua, ataca no escuro. Só desce pra encarar quando a
 Pista inteira já conhece o nome da sua gangue.
 
 ### 1501 · O Cobrador — Chefe da Feira
-Facção: Acerto de Contas (103) · Arma: porrete · Stats: 3/2/4/2 · 16/8.
+Facção: Acerto de Contas (103) · Arma: porrete · Stats: Porrada 2 · Pique 2 · Couro 6 · Osso 4 · Malandragem 1 (nível de fachada 28).
 Fala: *"Marélia inteira me deve. Agora a {suaGangue} também. Aqui quem não paga
 em dinheiro, paga no osso."* Anota tudo, cobra tudo. Bate no braço antes de bater
 na cara.
 
 ### 1502 · Fura-Bucho — Chefe da Baixada
-Facção: os três cacos, temporariamente unidos sob ele · Arma: espeto · Stats:
-4/2/5/2 · 20/10.
+Facção: os três cacos, temporariamente unidos sob ele · Arma: espeto · Stats: Porrada 2 · Pique 2 · Couro 7 · Osso 5 · Malandragem 2 (nível de fachada 42).
 Fala: *"A Baixada é minha desde que o Sombra caiu no valão. Cê tomou meus ponto?
 Vem tomar o resto."* Segura os três cacos numa lealdade frágil.
 
 ### 1503 · Ferrugem — Chefe da Vila
-Facção: Bonde dos Prédio (108) · Arma: taco · Stats: 3/2/5/4 · 20/10.
+Facção: Bonde dos Prédio (108) · Arma: taco · Stats: Porrada 2 · Pique 3 · Couro 7 · Osso 5 · Malandragem 2 (nível de fachada 56).
 Fala: *"Subiu os dez andar só pra apanhar no último? Respeito a disposição. Não
 muda merda nenhuma."* Mora no último dos dez andares — a exaustão é a arma dele
 antes da porrada.
 
 ### 1504 · A Fera / Zefa — Chefe do Morro
-Facção: Frente da Escada (110) · Arma: vara · Stats: 4/3/12/4 · 24/48.
+Facção: Frente da Escada (110) · Arma: vara · Stats: Porrada 8 · Pique 3 · Couro 8 · Osso 7 · Malandragem 9 (nível de fachada 70).
 Fala: *"Eu criei metade da criançada que a {suaGangue} bateu pra chegar aqui.
 Senta aí. O teu castigo vai demorar."* Sabe exatamente onde bater pra doer sem
 machucar de verdade — a única chefe tratada como figura materna da quebrada.
 
 ### 1505 · O Contador — Chefe do Alto do Morro
-Facção: A Roda (113) / Os Cinco (112) · Arma: bengala · Stats: 5/4/15/5 · 30/60.
+Facção: A Roda (113) / Os Cinco (112) · Arma: bengala · Stats: Porrada 10 · Pique 6 · Couro 9 · Osso 9 · Malandragem 10 (nível de fachada 84).
 Fala: *"Cê tem dois lutador. Eu tenho o Alto do Morro inteiro devendo favor. Faz
 a conta e vai embora."* Não briga por raiva, briga porque a conta fecha assim.
 
 ### 1600 · O Retalho — Damião — Chefe Final
-Facção: Bonde do Retalho (114) · Arma: facão · Stats: 6/5/17/5 · 34/68.
+Facção: Bonde do Retalho (114) · Arma: facão · Stats: Porrada 12 · Pique 5 · Couro 11 · Osso 10 · Malandragem 12 (nível de fachada 100).
 Fala: *"Marélia inteira já foi minha uma vez. Seis bairro na mão, a Laje no pé.
 Só que essa porra não costura — nem eu segurei. Sobe aqui que eu te mostro na
 marra."* O único que já segurou seis bairros de uma vez. Generais: **Tesoura**
@@ -705,8 +647,8 @@ marra."* O único que já segurou seis bairros de uma vez. Generais: **Tesoura**
 
 Catálogo `ldi_gangues_30_personagens_v1.json` (fonte única — esta tabela é gerada
 a partir de `unlock_plan`/`id`/`combat_path`/`special_path`/`max_evolution` do
-catálogo, nunca autorada à mão). Nome curto de rua + subcaminho + título de
-evolução máxima (nível 99, teto de personagem jogável).
+catálogo, nunca autorada à mão). Nome curto de rua + caminho + subcaminho + velocidade
+(`speed_tier`, §17.1) + título de evolução máxima (nível 99, teto de personagem jogável).
 
 **Ids 1-12 = os 12 personagens oficiais** (os únicos com arte pronta —
 `RECRUTAVEIS/`: Trinca, Fenda, Muro, Catraca, Faísca, Cicatriz, Marreta, Mira,
@@ -718,51 +660,38 @@ Sangue, 12 Troco. **Ids 13-30** (sem arte ainda) ficam fora do gameplay
 principal por ora: `w3` = liberado ao zerar a campanha uma 2ª vez (New Game+),
 `w4` = reservado só para evento/admin.
 
-> **Renumeração 2026-09-17:** os ids do catálogo foram renumerados pra que os
-> 12 oficiais ocupem 1-12 (antes espalhados: wave 1 era 1/3/11/17/27, e a
-> arte pronta dos outros 7 estava em 2/4/6/7/8/9/10). **Os 5 iniciais não
-> mudaram de personagem nem de stats/balanceamento** — só o número do id:
-> Trinca continua id 1, Fenda vai de 3→2, Muro de 11→3, Catraca de 17→4,
-> Faísca de 27→5. Os outros 25 ids também foram reajustados pra abrir espaço
-> (ver `unlock_plan` no catálogo — fonte única). Atualizado junto:
-> `ganguesBiografias.js` (bios remapeadas pro id novo de cada personagem) e
-> `ganguesCombatAnimations.js` (`TEMPLATE_SLUG`, o mapa id→slug usado pela
-> máquina de animação de combate: `11: 'muro'` virou `3: 'muro'`). Nenhum
-> save de jogador existia em produção até esta data, então não houve
-> migração de dado a fazer.
-
-| id | Nome | Caminho | Subcaminho | Título nv.99 | Libera | Genero
-|---|---|---|---|---|---|---|
-| 1 | Trinca | Atacante | Bruto | O Quebra-Linha | w1 | M
-| 2 | Fenda | Atacante | Duelista | Primeiro Corte | w1 | F
-| 3 | Muro | Defensor | Muralha | Fortaleza | w1 | M
-| 4 | Catraca | Defensor | Reativo | Bateu, Voltou | w1 |
-| 5 | Faísca | Místico | Tempestade | Antes do Trovão | w1 | M
-| 6 | Cicatriz | Atacante | Vingador | Dívida Antiga | w2 | M
-| 7 | Marreta | Atacante | Bruto | Demolidor | w2 | M
-| 8 | Mira | Atacante | Especialista | Cirúrgica | w2 | F
-| 9 | Navalha | Atacante | Duelista | Sem Aviso | w2 | F
-| 10 | Ponto | Atacante | Especialista | Ponto Cego | w2 | F
-| 11 | Sangue | Atacante | Fúria | Tudo ou Nada | w2 | F
-| 12 | Troco | Atacante | Vingador | Cobrança | w2 | M
-| 13 | Touro | Atacante | Fúria | Último de Pé | w3 |
-| 14 | Concreto | Defensor | Muralha | Bloco Vivo | w3 |
-| 15 | Guarda | Defensor | Guardião | Linha de Frente | w3 |
-| 16 | Ombro | Defensor | Guardião | Ninguém Passa | w3 |
-| 17 | Boca | Defensor | Provocador | Olha Pra Mim | w3 |
-| 18 | Isca | Defensor | Provocador | Alvo Perfeito | w3 |
-| 19 | Rebote | Defensor | Reativo | Volta em Dobro | w4 |
-| 20 | Ferro | Defensor | Resiliente | Não Cai | w4 |
-| 21 | Osso | Defensor | Resiliente | Ainda de Pé | w4 |
-| 22 | Brasa | Místico | Ígneo | Incêndio | w3 |
-| 23 | Cinza | Místico | Ígneo | Depois do Fogo | w3 |
-| 24 | Maré | Místico | Aquático | Maré Cheia | w3 |
-| 25 | Chuva | Místico | Aquático | Temporal | w3 |
-| 26 | Raiz | Místico | Terreno | Chão Fechado | w3 |
-| 27 | Racha | Místico | Terreno | Falha Sísmica | w4 |
-| 28 | Trovão | Místico | Tempestade | Queda do Céu | w4 |
-| 29 | Névoa | Místico | Ilusório | Sem Rosto | w4 |
-| 30 | Espelho | Místico | Ilusório | Duas Verdades | w4 |
+| id | Nome | Caminho | Subcaminho | Velocidade | Título nv.99 | Libera | Gênero |
+|---|---|---|---|---|---|---|---|
+| 1 | Trinca | Porradeiro | Bruto | medio | O Quebra-Linha | w1 | M |
+| 2 | Fenda | Porradeiro | Duelista | rapido | Primeiro Corte | w1 | F |
+| 3 | Muro | Paredão | Muralha | lento | Fortaleza | w1 | M |
+| 4 | Catraca | Paredão | Reativo | medio | Bateu, Voltou | w1 |  |
+| 5 | Faísca | Mandingueiro | Tempestade | rapido | Antes do Trovão | w1 | M |
+| 6 | Cicatriz | Porradeiro | Vingador | lento | Dívida Antiga | w2 | M |
+| 7 | Marreta | Porradeiro | Bruto | medio | Demolidor | w2 | M |
+| 8 | Mira | Porradeiro | Especialista | rapido | Cirúrgica | w2 | F |
+| 9 | Navalha | Porradeiro | Duelista | rapido | Sem Aviso | w2 | F |
+| 10 | Ponto | Porradeiro | Especialista | rapido | Ponto Cego | w2 | F |
+| 11 | Sangue | Porradeiro | Fúria | medio | Tudo ou Nada | w2 | F |
+| 12 | Troco | Porradeiro | Vingador | medio | Cobrança | w2 | M |
+| 13 | Touro | Porradeiro | Fúria | lento | Último de Pé | w3 |  |
+| 14 | Concreto | Paredão | Muralha | lento | Bloco Vivo | w3 |  |
+| 15 | Guarda | Paredão | Guardião | medio | Linha de Frente | w3 |  |
+| 16 | Ombro | Paredão | Guardião | lento | Ninguém Passa | w3 |  |
+| 17 | Boca | Paredão | Provocador | rapido | Olha Pra Mim | w3 |  |
+| 18 | Isca | Paredão | Provocador | rapido | Alvo Perfeito | w3 |  |
+| 19 | Rebote | Paredão | Reativo | rapido | Volta em Dobro | w4 |  |
+| 20 | Ferro | Paredão | Resiliente | lento | Não Cai | w4 |  |
+| 21 | Osso | Paredão | Resiliente | lento | Ainda de Pé | w4 |  |
+| 22 | Brasa | Mandingueiro | Ígneo | medio | Incêndio | w3 |  |
+| 23 | Cinza | Mandingueiro | Ígneo | medio | Depois do Fogo | w3 |  |
+| 24 | Maré | Mandingueiro | Aquático | lento | Maré Cheia | w3 |  |
+| 25 | Chuva | Mandingueiro | Aquático | rapido | Temporal | w3 |  |
+| 26 | Raiz | Mandingueiro | Terreno | lento | Chão Fechado | w3 |  |
+| 27 | Racha | Mandingueiro | Terreno | medio | Falha Sísmica | w4 |  |
+| 28 | Trovão | Mandingueiro | Tempestade | medio | Queda do Céu | w4 |  |
+| 29 | Névoa | Mandingueiro | Ilusório | rapido | Sem Rosto | w4 |  |
+| 30 | Espelho | Mandingueiro | Ilusório | medio | Duas Verdades | w4 |  |
 
 > Colisão de apelidos: **Marreta** (7) e **Brasa** (22) também são nomes de
 > inimigo (1403, 1202) — apelidos de rua se repetem, não é a mesma pessoa.
@@ -782,13 +711,7 @@ do jogador (pt/en/es), mas o texto de lore em si só existe em português
 por enquanto — traduzir os 30 pra en/es é trabalho futuro, não uma lacuna
 de bug.
 
-> Numeração desta lista (`1.`, `2.`...) é só agrupamento de leitura por
-> caminho de combate — ficou defasada em relação aos ids atuais depois da
-> renumeração de 2026-09-17 (ver §7). O texto de cada bio está correto e
-> igual ao de `ganguesBiografias.js`; só a ordem/numeral da lista aqui não
-> foi reordenado ainda.
-
-**ATACANTES**
+**PORRADEIROS**
 
 1. **Trinca** — Bruto · O Quebra-Linha
    *Quem é:* Um brigador de rua que aprendeu cedo que, quando uma
@@ -801,7 +724,7 @@ de bug.
    *Por que recrutar:* Trinca não recua quando a linha inimiga fecha. É
    o cara que entra primeiro para os outros conseguirem passar.
 
-2. **Marreta** — Bruto · Demolidor
+7. **Marreta** — Bruto · Demolidor
    *Quem é:* Um sujeito enorme, quieto e assustadoramente forte.
    *História:* Trabalhou anos quebrando parede, carregando concreto e
    desmontando construção clandestina. Quando o patrão desapareceu sem
@@ -811,7 +734,7 @@ de bug.
    *Por que recrutar:* Quando estratégia acaba e alguma coisa
    simplesmente precisa cair, Marreta resolve.
 
-3. **Fenda** — Duelista · Primeiro Corte
+2. **Fenda** — Duelista · Primeiro Corte
    *Quem é:* Uma lutadora rápida, fria e extremamente econômica nos
    movimentos.
    *História:* Fenda cresceu entre pequenos golpes e apostas de luta.
@@ -821,7 +744,7 @@ de bug.
    *Por que recrutar:* Fenda reconhece uma abertura antes que o
    adversário perceba que a deixou.
 
-4. **Navalha** — Duelista · Sem Aviso
+9. **Navalha** — Duelista · Sem Aviso
    *Quem é:* Um lutador veloz que odeia confronto prolongado.
    *História:* Foi criado trabalhando em barbearia e fazendo entrega
    pelas ruas estreitas de Marélia. Aprendeu a desaparecer por becos
@@ -831,7 +754,7 @@ de bug.
    *Por que recrutar:* Navalha é perfeito quando a gangue precisa
    derrubar alguém rápido antes que o resto do bando consiga reagir.
 
-5. **Touro** — Fúria · Último de Pé
+13. **Touro** — Fúria · Último de Pé
    *Quem é:* Um brigador que parece ficar mais perigoso quanto mais
    machucado fica.
    *História:* Touro cresceu numa família grande em que sempre era ele
@@ -841,7 +764,7 @@ de bug.
    *Por que recrutar:* Quando uma luta vira desastre e todo mundo começa
    a cair, Touro continua de pé.
 
-6. **Sangue** — Fúria · Tudo ou Nada
+11. **Sangue** — Fúria · Tudo ou Nada
    *Quem é:* Uma lutadora que entra em cada combate como se não
    existisse amanhã.
    *História:* Sangue sobreviveu a uma emboscada que derrubou todo o
@@ -851,7 +774,7 @@ de bug.
    *Por que recrutar:* É a pessoa que você coloca numa luta que todo
    mundo já considera perdida.
 
-7. **Mira** — Especialista · Cirúrgica
+8. **Mira** — Especialista · Cirúrgica
    *Quem é:* Uma combatente obsessiva por precisão.
    *História:* Mira passou anos trabalhando em barraca de tiro e jogos
    de habilidade em festas de bairro. Transformou coordenação e leitura
@@ -860,7 +783,7 @@ de bug.
    *Por que recrutar:* Mira não desperdiça ataque. Quando decide acertar
    alguma coisa, geralmente acerta o ponto que realmente importa.
 
-8. **Ponto** — Especialista · Ponto Cego
+10. **Ponto** — Especialista · Ponto Cego
    *Quem é:* Um lutador especializado em atacar de onde ninguém está
    olhando.
    *História:* Ponto sobreviveu como entregador, olheiro e atravessador
@@ -870,7 +793,7 @@ de bug.
    *Por que recrutar:* Ele transforma distração em arma e é excelente
    contra inimigos mais poderosos que dependem de controle do campo.
 
-9. **Cicatriz** — Vingador · Dívida Antiga
+6. **Cicatriz** — Vingador · Dívida Antiga
    *Quem é:* Uma veterana que guarda nomes melhor do que guarda dinheiro.
    *História:* Cicatriz perdeu gente demais para guerras que começaram
    por decisões de homens que nunca pisaram na rua onde o sangue caiu.
@@ -879,7 +802,7 @@ de bug.
    *Por que recrutar:* É paciente, experiente e impossível de intimidar
    quando acredita que existe uma conta a ser acertada.
 
-10. **Troco** — Vingador · Cobrança
+12. **Troco** — Vingador · Cobrança
     *Quem é:* Um lutador que acredita que tudo volta.
     *História:* Troco foi pequeno estelionatário, apostador e cobrador
     até ser traído pelo próprio grupo e abandonado com uma dívida que
@@ -888,9 +811,9 @@ de bug.
     *Por que recrutar:* Troco nunca esquece quem bateu primeiro — e
     costuma devolver com juros.
 
-**DEFENSORES**
+**PAREDÕES**
 
-11. **Muro** — Muralha · Fortaleza
+3. **Muro** — Muralha · Fortaleza
     *Quem é:* Um defensor enorme, calmo e quase impossível de deslocar.
     *História:* Muro trabalhou descarregando caminhão e fazendo
     segurança de comércio. Ficou conhecido quando segurou sozinho a
@@ -900,7 +823,7 @@ de bug.
     *Por que recrutar:* Toda gangue precisa de alguém capaz de dizer
     "daqui ninguém passa" e fazer isso ser verdade.
 
-12. **Concreto** — Muralha · Bloco Vivo
+14. **Concreto** — Muralha · Bloco Vivo
     *Quem é:* Um veterano pesado que luta como se tivesse sido
     construído no lugar.
     *História:* Passou a juventude na construção civil clandestina que
@@ -910,7 +833,7 @@ de bug.
     *Por que recrutar:* Concreto segura posições que outros personagens
     simplesmente não conseguiriam manter.
 
-13. **Guarda** — Guardião · Linha de Frente
+15. **Guarda** — Guardião · Linha de Frente
     *Quem é:* Uma lutadora que naturalmente coloca os outros atrás dela.
     *História:* Guarda sempre foi a irmã mais velha, a vizinha que
     buscava criança perdida e a primeira pessoa chamada quando havia
@@ -919,7 +842,7 @@ de bug.
     *Por que recrutar:* Ela não protege apenas a própria vida; protege a
     formação inteira da gangue.
 
-14. **Ombro** — Guardião · Ninguém Passa
+16. **Ombro** — Guardião · Ninguém Passa
     *Quem é:* Um defensor conhecido por entrar literalmente no caminho
     dos golpes.
     *História:* Ombro ganhou o apelido jogando bola nas quadras da
@@ -929,7 +852,7 @@ de bug.
     *Por que recrutar:* Se alguém importante precisa chegar vivo ao fim
     da luta, Ombro é quem você coloca ao lado.
 
-15. **Boca** — Provocador · Olha Pra Mim
+17. **Boca** — Provocador · Olha Pra Mim
     *Quem é:* Um provocador profissional incapaz de ficar calado.
     *História:* Boca vendia qualquer coisa que coubesse numa sacola e
     conseguia discutir com cliente, guarda, rival e comerciante no
@@ -938,7 +861,7 @@ de bug.
     *Por que recrutar:* Boca faz o adversário esquecer o plano e atacar
     exatamente quem ele quer.
 
-16. **Isca** — Provocador · Alvo Perfeito
+18. **Isca** — Provocador · Alvo Perfeito
     *Quem é:* Uma lutadora especializada em parecer mais vulnerável do
     que realmente é.
     *História:* Isca cresceu sobrevivendo a golpes em que seu papel era
@@ -949,7 +872,7 @@ de bug.
     escolhendo o alvo certo. Normalmente descobrem tarde demais que
     foram escolhidos por ela.
 
-17. **Catraca** — Reativo · Bateu, Voltou
+4. **Catraca** — Reativo · Bateu, Voltou
     *Quem é:* Uma defensora paciente que prefere que o adversário tome a
     primeira decisão.
     *História:* Catraca passou anos lidando com gente agressiva em
@@ -959,7 +882,7 @@ de bug.
     *Por que recrutar:* Contra inimigos impulsivos, lutar com Catraca é
     quase lutar contra si mesmo.
 
-18. **Rebote** — Reativo · Volta em Dobro
+19. **Rebote** — Reativo · Volta em Dobro
     *Quem é:* Um especialista em transformar pressão em contra-ataque.
     *História:* Rebote começou como parceiro de treino dos lutadores
     mais fortes do bairro. Passava horas apanhando porque ninguém queria
@@ -968,7 +891,7 @@ de bug.
     *Por que recrutar:* Quanto mais previsível e agressivo o inimigo,
     mais perigoso Rebote se torna.
 
-19. **Ferro** — Resiliente · Não Cai
+20. **Ferro** — Resiliente · Não Cai
     *Quem é:* Um sobrevivente que aparentemente não sabe quando deveria
     ficar no chão.
     *História:* Ferro trabalhou desde criança em ferro-velho e oficina.
@@ -978,7 +901,7 @@ de bug.
     *Por que recrutar:* Ferro compra para a gangue aquilo que nenhuma
     loja vende: tempo.
 
-20. **Osso** — Resiliente · Ainda de Pé
+21. **Osso** — Resiliente · Ainda de Pé
     *Quem é:* Uma lutadora magra, dura e muito mais resistente do que a
     aparência sugere.
     *História:* Osso cresceu ouvindo que era pequena demais para tudo.
@@ -988,9 +911,9 @@ de bug.
     *Por que recrutar:* É uma sobrevivente nata e uma das últimas
     pessoas que você verá abandonar uma luta.
 
-**MÍSTICOS**
+**MANDINGUEIROS**
 
-21. **Brasa** — Ígneo · Incêndio
+22. **Brasa** — Ígneo · Incêndio
     *Quem é:* Uma mística explosiva cujo poder começa pequeno e cresce
     rapidamente.
     *História:* Brasa descobriu a afinidade com fogo trabalhando perto
@@ -1001,7 +924,7 @@ de bug.
     *Por que recrutar:* Se tiver tempo para crescer dentro da luta,
     Brasa transforma uma faísca em problema para o campo inteiro.
 
-22. **Cinza** — Ígneo · Depois do Fogo
+23. **Cinza** — Ígneo · Depois do Fogo
     *Quem é:* Um místico que entende o fogo pelo que sobra depois dele.
     *História:* Cinza perdeu a casa num incêndio e voltou no dia
     seguinte para ajudar os vizinhos a procurar o que ainda podia ser
@@ -1012,7 +935,7 @@ de bug.
     queimar tudo de uma vez; só precisa garantir que o fogo nunca
     termine completamente.
 
-23. **Maré** — Aquático · Maré Cheia
+24. **Maré** — Aquático · Maré Cheia
     *Quem é:* Uma mística adaptável que raramente enfrenta força com
     força.
     *História:* Maré cresceu perto dos canais e áreas alagadas da
@@ -1022,7 +945,7 @@ de bug.
     *Por que recrutar:* Maré é excelente quando o plano original falha,
     porque muda de ritmo sem perder eficiência.
 
-24. **Chuva** — Aquático · Temporal
+25. **Chuva** — Aquático · Temporal
     *Quem é:* Um místico cujo domínio da água é muito menos delicado do
     que o nome sugere.
     *História:* Chuva passou anos escondendo suas capacidades porque
@@ -1032,7 +955,7 @@ de bug.
     *Por que recrutar:* Quando finalmente deixa de se conter, consegue
     alterar completamente o ritmo de uma batalha.
 
-25. **Raiz** — Terreno · Chão Fechado
+26. **Raiz** — Terreno · Chão Fechado
     *Quem é:* Uma mística ligada ao solo, à estabilidade e ao controle
     de espaço.
     *História:* Raiz cresceu numa família que ocupou e construiu a
@@ -1042,7 +965,7 @@ de bug.
     *Por que recrutar:* Raiz transforma o lugar da luta em vantagem.
     Tirar terreno dela é tão difícil quanto tirá-la dele.
 
-26. **Racha** — Terreno · Falha Sísmica
+27. **Racha** — Terreno · Falha Sísmica
     *Quem é:* Um místico destrutivo que encontrou no chão a melhor
     maneira de atingir quem está acima.
     *História:* Racha trabalhou abrindo vala, quebrando piso e
@@ -1052,7 +975,7 @@ de bug.
     Racha não precisa atravessar uma formação quando pode quebrar o
     chão que sustenta todo mundo.
 
-27. **Faísca** — Tempestade · Antes do Trovão
+5. **Faísca** — Tempestade · Antes do Trovão
     *Quem é:* Um jovem místico inquieto que sente eletricidade antes
     mesmo de entender de onde ela vem.
     *História:* Faísca sempre soube quando uma tempestade estava
@@ -1105,9 +1028,16 @@ de bug.
 | 3003 | **A cria do sinal** | Moleque vendendo bala no farol (Pista). Vende informação sobre o ferro-velho; pode ser apertado (vira treta fácil, −rep). |
 | 3004 | **Dona Regina** | Empresta no fiado na Feira em troca de favor. |
 
-**NeoGuide** — mascote/guia oficial do universo LDI (cor `#00B4D8`, aparece em
-outros jogos do site). Faz o onboarding e os tutoriais. **Não é personagem de
-Marélia** — é a voz meta/tutorial, fora da ficção do crime.
+Sem id numérico ainda (vivem só como POI/NPC da cena da Pista):
+**Seu Nando** (oficina — forja a Soqueira de Lata com 2× sucata), **o agiota
+Marimbondo** (dentro da birosca; retrato emprestado da ficha 1206), **o Zé**
+(Lojinha do Zé; retrato emprestado da ficha 1205) e **a Cida** (mercearia).
+O **Nego Véio** também é a voz que avisa o encontro aleatório e explica os
+modos trancados.
+
+Retratos de NPC: `assets/npcs/<slug>/neutro.png` (`nego_veio`,
+`duda_o_orelha`, `cria_do_sinal`), resolvidos por `data/ganguesNpcPortraits.js`
+e ligados ao POI por `npcSlug`.
 
 ---
 
@@ -1164,7 +1094,7 @@ Nunca são vendidos. Vêm de dois lugares: **marcos de reputação** (a cada
 Slots (bonecão de cima pra baixo): `cabeca` 🪖 · `corpo` 🦺 (a escolha PV vs PM) ·
 `bracos` 🧤 · `pes` 🥾 · `amuleto` 📿 · `arma` 🥊.
 Bônus = atributo plano (**A/H/D**) ou recurso plano (**pv/pm**, somado em cima do
-máximo, **não passa por R**). Raridades: `comum` · `incomum` · `raro` · `epico`.
+máximo). Raridades: `comum` · `incomum` · `raro` · `epico`.
 **Cartas/sockets** (`cardSlots` 0–2, estilo Ragnarok): os slots existem, as
 cartas vêm do sistema de drop (faixa 10000+, futuro). **Tirar carta encaixada
 DESTRÓI a carta. Desequipar o item inteiro não.**
@@ -1233,12 +1163,11 @@ próprio. Hoje a Pista tem duas:
 - **A loja da Pista** (`loja`, do lado de lá do muro, só aparece depois do
   portão): `1, 2, 101, 102, 104, 105, 107, 108, 109, 112, 113, 115, 116, 118` —
   as poções, 1 comum por slot e os incomuns.
-- **A Lojinha do Zé** (`loja_pocoes`, na rua, desde o começo — v3.48–3.56):
+- **A Lojinha do Zé** (`loja_pocoes`, na rua, desde o começo):
   só **poção de HP e MP, pelo dobro do preço** (`precoMultiplicador: 2`), "na
   cara de pau". Existe porque, com a recompensa por risco, quem quer arriscar
   luta mais forte precisa ir municiado. O dono é o Zé do Bar do Zé (retrato
-  emprestado da ficha 1205). Chegou a se chamar "Balcão do Aperto" e a ficar
-  dentro da birosca; voltou pra rua porque não tem nada a ver com a agiotagem.
+  emprestado da ficha 1205).
 
 ---
 
@@ -1308,7 +1237,7 @@ Reserva: cada faixa comporta crescer até ~99 sem remapear.
 
 ---
 
-## 12. Endgame — nível 99, a Torre e o multiplayer (v2.71.0)
+## 12. Endgame — nível 99, a Torre e o multiplayer
 
 - **Teto de nível: 99.** Cada um dos 30 personagens tem os **99 níveis autorados**
   no catálogo (`ldi_gangues_30_personagens_v1.json`): níveis 1–10 são os stats
@@ -1320,25 +1249,19 @@ Reserva: cada faixa comporta crescer até ~99 sem remapear.
   assinatura liberam **devagar** (níveis 4 / 12 / 24 / 40) e sobem de rank
   (→2 nos níveis 52–70, →3 nos 78–96). PV/PM sobem pela taxa do caminho.
   `GANGUES_LEVEL_CAP = 99`.
-- **Escada de nível dos 7 chefes** (rev. dez/2026): cada chefe é **pau a pau**
-  no nível-alvo — **Pista 15 · Feira 28 · Baixada 42 · Vila 56 · Morro 70 ·
-  Alto 84 · Laje 99+** (~14 níveis entre cada). O 7º (Laje) é PAREDÃO: encara no
-  L99 e ainda apanha, tem que voltar. Os 7 chefes usam **orçamento de pontos
-  FIXO** (`GANGUES_CHEFE_BUDGET`, não escala com o jogador) — como o
-  crescimento autorado é +1 ponto por nível, 1 ficha nível N = N pontos; o
-  budget de cada chefe ≈ 1.15×→1.18× o total do time no nível-alvo
-  (`{pista:50, feira:110, baixada:210, vila:345, morro:510, alto:606,
-  laje:732}`). **Pista, rev. 15/09/2026:** budget 50, com 2 corpos
-  (`GANGUES_CHEFE_CORPOS.pista`) e o líder levando 60% (`GANGUES_CHEFE_LIDER_FRAC`)
-  → **Carvão com ficha 30** + 1 escolta com 20; `chefe.nivelRec` = 30. Os
-  outros 6 budgets ainda são os da calibragem antiga, esperando cada bairro
-  ganhar cena. AP por inimigo é **10 fixo em qualquer modo** (chegou a subir
-  pra 30 no modo história pra acompanhar o ritmo dos ~15 eventos de cada
-  bairro, mas o Isaias reverteu em set/2026 — rendia AP demais numa luta só,
-  2 inimigos já davam 60 AP). Os chefes carregam `nivel` de fachada.
+- **Escada de nível dos 7 chefes** (nível de fachada no catálogo): **Pista 30 ·
+  Feira 28 · Baixada 42 · Vila 56 · Morro 70 · Alto 84 · Laje 100 (o Retalho)**.
+  Os chefes usam **orçamento de pontos FIXO** (`GANGUES_CHEFE_BUDGET` em
+  `data/ganguesEncontros.js`, nunca escala com o jogador):
+  `{pista:50, feira:110, baixada:210, vila:345, morro:510, alto:606, laje:732}`.
+  **Pista:** 2 corpos (`GANGUES_CHEFE_CORPOS.pista`), líder leva 60%
+  (`GANGUES_CHEFE_LIDER_FRAC`) → **Carvão com ficha 30 + 1 escolta com 20**;
+  `chefe.nivelRec` = 30. O Carvão quebra de propósito a escada de 3 em 3 da
+  rua (§17.6) — "pra ser ralado". Os outros 6 budgets são da calibragem antiga
+  e serão revistos quando cada bairro ganhar cena (a Feira, com 28, hoje fica
+  abaixo da Pista). AP por inimigo = **10 fixo em qualquer modo**.
   **O Retalho é o único nível 100 do jogo.**
-- **Estrutura de cada chefe** (rev. Isaias dez/2026 — só a Pista existe hoje, o
-  resto é o plano pra quando cada bairro ganhar cena):
+- **Estrutura de cada chefe** (só a Pista existe hoje; o resto é **planejado**):
   | # | Bairro | Estrutura |
   |---|---|---|
   | 1–3 | Pista · Feira · Baixada | Chefe único, 1 luta. |
@@ -1351,11 +1274,11 @@ Reserva: cada faixa comporta crescer até ~99 sem remapear.
   (folgado → brabo). Cada andar sobe a dificuldade e o AP (+100% a cada 5
   andares). É o grind de L50 → 99. Recorde de andar por bairro em
   `storyProgress.__torre`.
-- **Multiplayer online libera com 3 fichas no nível 99** (era 1 até a v3.31.0 —
+- **Multiplayer online libera com 3 fichas no nível 99** (
   `GANGUES_MULTIPLAYER_MIN_FICHAS = 3`, `GANGUES_MULTIPLAYER_LEVEL = 99`,
   `ganguesTemMultiplayer(roster)`). O online em si é fase futura — por ora só
   destrava o card em `GanguesModes`.
-- **Cards bloqueados da tela de Modos são clicáveis** (v3.31–3.32): em vez de
+- **Cards bloqueados da tela de Modos são clicáveis:** em vez de
   "EM BREVE", tocar num modo trancado abre um diálogo em tela cheia do Nego
   Véio explicando o que falta pra liberar.
 - **A Coleção** (3º botão da HUD da cena + lobby): abas Inimigos (o Álbum),
@@ -1377,13 +1300,16 @@ Reserva: cada faixa comporta crescer até ~99 sem remapear.
 | Consumíveis / equipamento | `src/pages/games/Gangues/data/ganguesItens.js`, `data/ganguesEquip.js` |
 | Loja / painel de equipamento | `src/pages/games/Gangues/components/cena/GanguesLoja.jsx`, `components/GanguesEquipPanel.jsx` |
 | Inventário + economia (store) | `src/pages/games/Gangues/store/useGanguesStore.js` + `store/slices/` |
-| Textos de história / itens (i18n) | `src/i18n/gangues-{pt,en,es}.json` → `games.gangues.{story,cena,dialogo,naming,itens,equip,loja,bag}` |
+| Textos de história / itens (i18n) | `src/i18n/gangues-{pt,en,es}.json` (carregado sob demanda por `hooks/useGanguesI18n.js`) → `games.gangues.*` |
 | Dificuldade (±2), degrau da ladder, frustração, nível real | `src/pages/games/Gangues/data/ganguesDificuldade.js` |
 | AP por risco, divisão do AP, grana da vitória | `src/pages/games/Gangues/engine/ganguesVictoryResolver.js` |
 | Descanso, agiota, Clube da Luta (store) | `src/pages/games/Gangues/store/slices/ganguesBiroscaSlice.js` |
 | Gates de Rep, marcos de Rep, empréstimo, multiplayer | `src/pages/games/Gangues/data/ganguesLoadout.js` |
 | Motor da cena (colisão, câmera) | `src/pages/games/Gangues/engine/ganguesCenaMotor.js` |
 | Encontro aleatório (tipos, relógio, pathfinding) | `engine/ganguesEncontroAleatorio.js` + `hooks/useGanguesEncontroAleatorio.js` |
+| Linha do tempo (Pique) + pista visual com raias | `engine/ganguesLinhaDoTempo.js`, `components/GanguesPistaTempo.jsx` |
+| CSS do jogo (índices de `@import` + paleta `--gang-*`) | `src/pages/games/Gangues/styles/` (auditado por `scripts/gangues-css-audit.cjs` no predeploy) |
+| Retratos (cabeça, corpo, inimigo, NPC) | `data/ganguesPortraits.js`, `data/ganguesEnemyPortraits.js`, `data/ganguesNpcPortraits.js` |
 | Briga em Multidão / modo automático | `engine/ganguesBrigaMultidao.js`, `hooks/useGanguesModoMultidao.js`, `hooks/useGanguesModoAuto.js` |
 | Todo texto falado na Pista (pt/en/es, em ordem de fluxo) | `docs/Games/Gangues/PISTA_COMUNICACAO.md` |
 | **Mecânica** (combate, progressão, skill tree, modo história) | Seção 17 desta bíblia |
@@ -1403,7 +1329,7 @@ bastante pro tom do jogo (rua, gangue, delegacia, cadeia, dinheiro, covardia,
 coragem) sem alterar a faixa etária.
 
 Regra de uso: **adaptação livre por idioma**, nunca tradução literal — isso já
-é convenção do projeto (ver Osso/Gás, Sobrinho, Patota, Mete o Pé). EN/ES
+é convenção do projeto (ver Osso/Malandragem, Sobrinho, Patota, Mete o Pé). EN/ES
 puxam o próprio banco de gíria de rua/crime equivalente, não uma tradução
 palavra-por-palavra do português.
 
@@ -1454,260 +1380,91 @@ Rango, Gororoba, Xepa *(comida de baixa qualidade)*.
 `games.gangues.{vitoria, vitoria_sub, report.enemy_thinking, report.enemy_gang,
 attr_labels, btn_fugir}`. Ver também a §13 (vocabulário).
 
-## 14. Auditoria de comunicação (set/2026) — i18n morto removido
+## 14. Regras de texto do jogo
 
-Pedido do Isaias: revisar TODA fala/texto do jogo. Antes de revisar tom, foi
-preciso separar o que é **conteúdo vivo** do que é **lixo de uma versão
-anterior do jogo** — os `gangues-{pt,en,es}.json` tinham ~430 chaves de texto
-(quase 1000 linhas em cada idioma) de um sistema de personagem **completamente
-abandonado**: atributos F/H/R/A/PdF (não confundir com o A/H/D/R atual), um
-sistema de 7 elementos (Fogo/Água/Terra/Ar/Trevas/Luz/Neutro — não confundir
-com os 5 subcaminhos místicos atuais: Ígneo/Aquático/Terreno/Tempestade/
-Ilusório), vantagens/desvantagens/perks/especializações estilo GURPS, um
-"manual" que fala de "3 bilhões de jogadores num ranking SDR", uma tela de
-criação de ficha "party.*" duplicada, e por aí vai. Confirmado com uma
-varredura cruzada (grep de toda referência i18n em todo componente `.jsx`,
-inclusive dentro de template strings com `${}` e ternários) que **nenhuma**
-dessas chaves é lida por nenhum componente hoje. Removidas dos 3 idiomas de
-uma vez (mesma estrutura, mesma remoção) — `gangues-pt.json` caiu de 2293
-para 1358 linhas. Verificado com Playwright que a tela mais densa em i18n
-(progressão/poderes da ficha) continua renderizando 100% certo, zero erro de
-console, depois da limpeza.
+- Todo texto visível está em `src/i18n/gangues-{pt,en,es}.json`, nos 3
+  idiomas, com adaptação livre de gíria por idioma (§13).
+- Rótulo de UI neutro é de propósito (ATACAR, EQUIPAR, Comprar, Fechar);
+  narração e fala usam gíria de rua de verdade.
+- **Antes de apagar chave "morta" do i18n**, procure por
+  `\$\{[^}]*[?|][^}]*\}` (ternário ou `||` dentro de template string, ex.:
+  `` `games.gangues.progression.${equipado ? 'unequip' : 'equip'}` ``) e
+  confira os dois lados manualmente — o grep simples não enxerga esses usos
+  e já apagou chave viva uma vez.
 
-Depois da limpeza, o que sobrou de comunicação **viva** (história, cena da
-Pista, Clube da Luta, diálogos dos NPCs, nomes e álbum dos inimigos,
-provocação de combate) já estava no tom certo — gíria de verdade, registro
-consistente. Os únicos pontos fora do tom eram os já listados no início
-desta seção 13 (e agora corrigidos): "FOI NÓS"/"provou seu valor na arena"
-(fala de e-sports), "bairro"/"INIMIGO"/"GANGUE RIVAL"/"FUGIR" (formal
-demais ou inventado sem checar gíria real). Não tem mais lixo de tom
-solto pelo jogo — o que sobrou de "genérico" é rótulo de UI neutro de
-propósito (ATACAR, EQUIPAR, Comprar, Fechar) ou nome de poder/habilidade
-(estilizado por natureza, não é narração).
+## 15. Retratos e animação
 
-**Nota pós-limpeza (importante pra próxima auditoria):** a remoção acima
-apagou por engano 5 chaves de verdade — todas escondidas atrás de um
-ternário DENTRO de uma template string (ex.:
-`` `games.gangues.progression.${equipado ? 'unequip' : 'equip'}` ``), padrão
-que o grep automático (que só entende `${var.path}` simples) não enxerga.
-Achado durante o teste visual do sistema de retratos (seção 15) — a chave
-`recruitment.subtitle_initial` apareceu crua na tela. Restauradas as 5
-(`recruitment.subtitle`/`subtitle_initial`, `progression.equip`/`unequip`,
-`cena.acao.avancar`) com o texto exato do histórico do git, nos 3 idiomas.
-Se for fazer outra varredura de chave morta no i18n do jogo, procure por
-`\$\{[^}]*[?|][^}]*\}` (ternário ou `||` dentro de `${}`) ANTES de rodar
-qualquer remoção automática — cada resultado precisa ter os dois lados do
-ternário conferidos manualmente contra o arquivo final, não só o padrão
-dinâmico simples.
+### 15.0 Cabeça (pixel art)
 
-## 15. Retratos de personagem (cabeça, pixel art) — set/2026
+- **Recrutáveis:** `assets/personagens/<slug>/neutro.png` (`<slug>` = campo
+  `.slug` do catálogo). `data/ganguesPortraits.js` descobre por
+  `import.meta.glob` — personagem novo é só criar a pasta.
+  `getGanguesPortrait(slug)` / `getGanguesPortraitByTemplateId(id)`.
+  Cobertura: os **12 oficiais** (ids 1–12). Os 18 restantes caem no fallback
+  (inicial do nome).
+- **Inimigos:** `assets/enemies/<slug>/neutro.png`, resolvidos por id numérico
+  via `ENEMY_ID_SLUG` em `data/ganguesEnemyPortraits.js`. Cobertura: **todo o
+  elenco de combate da Pista** (+ alguns da Feira/Baixada/Vila usados como
+  molde); os outros bairros caem no fallback.
+- **NPCs:** `assets/npcs/<slug>/neutro.png` (§8).
+- **Onde aparece:** recrutamento, elenco do lobby, roster de combate (os dois
+  lados), dado dramático, card de KO, fala final, relatório de vitória, álbum,
+  diálogos, pinos e marcador da cena (a cabeça do **líder**, §16).
+- **Falha de carregamento:** todo `<img>` de retrato usa
+  `GanguesRetratoImg.jsx` (ou o mesmo padrão `onError` local) — se a imagem
+  não baixar, cai pra inicial em vez de deixar um buraco. Quando o mesmo slot
+  troca de personagem, o componente leva `key` pra não herdar o "falhou" do
+  anterior.
+- **Receita de import:** master 1254×1254 → sharp resize 256×256 (`contain`,
+  fundo transparente) + PNG paletizado (256 cores), ~25KB. Nunca commitar a
+  arte de origem grande.
 
-Pedido do Isaias: identidade visual que faltava — "juice" nas telas de
-seleção, combate e navegação. Arte é só a CABEÇA, estilo pixel art,
-transparente, uma por personagem (por ora — arquitetura já pensa em
-expressões futuras).
+### 15.1 Corpo inteiro (fundação + recrutamento)
 
-- **Onde mora:** `src/pages/games/Gangues/assets/personagens/<slug>/<expressao>.png`
-  — uma pasta por personagem, não um arquivo direto. `<slug>` é o mesmo
-  campo `.slug` de cada entrada em `ldi_gangues_30_personagens_v1.json`
-  (já existia, não é convenção nova). Hoje só existe a expressão `neutro`;
-  quando entrarem expressões (raiva, dor, vitória...), cada uma vira outro
-  arquivo na mesma pasta — nenhum código muda.
-- **Resolução:** `src/pages/games/Gangues/data/ganguesPortraits.js` usa
-  `import.meta.glob('../assets/personagens/*/neutro.png', { eager: true })`
-  pra descobrir sozinho o que existe — adicionar personagem novo é só criar
-  a pasta/arquivo, zero linha de código. `getGanguesPortrait(slug)` e
-  `getGanguesPortraitByTemplateId(characterTemplateId)` (resolve o slug
-  pelo catálogo) retornam `null` quando não tem arte — todo consumidor cai
-  no fallback de sempre (inicial do nome) nesse caso.
-- **Cobertura hoje:** os 12 personagens oficiais, ids 1-12 (Trinca, Fenda,
-  Muro, Catraca, Faísca, Cicatriz, Marreta, Mira, Navalha, Ponto, Sangue,
-  Troco) — os outros 18 do catálogo ainda não têm arte, caem no fallback
-  normalmente. Portraits dos 7 novos (2026-09-17) vieram de
-  `Personagens/LDI GANGUES/RECRUTAVEIS/<Nome>/<NOME>.png` (masters
-  1254×1254 RGBA), processados com sharp: resize 256×256 (`fit: contain`,
-  fundo transparente) + PNG paletizado (256 cores) — mesma receita dos 5
-  originais, sem script dedicado no repo (feito ad-hoc, documentado aqui
-  pra próxima vez).
-- **Onde aparece:** card de recrutamento (`GanguesCreate.jsx`), card do
-  elenco no lobby (`GanguesLobby.jsx`), avatar do quadradinho de combate
-  (`GanguesCombatRoster.jsx`, só lado do jogador — inimigo não tem arte
-  ainda), e o marcador de navegação da cena (`GanguesCenaAtores.jsx`
-  `GangMarker` — a cabeça do LÍDER, `roster[0]`, flutua no lugar do escudo
-  genérico quando existe retrato pra ele).
-- **Pipeline de import:** arte de origem chegou em ~950KB/1254×1254 cada
-  (5 arquivos). Redimensionada pra 256×256 com paleta indexada via `sharp`
-  (instalado isolado num scratch dir, não polui `package.json` do site) —
-  ficou ~25KB cada (−97%), mantendo a transparência. Nunca commitar a arte
-  de origem em tamanho grande.
-- **Retrato na ficha detalhada:** `GanguesFichaCard.jsx` (componente único
-  usado no recrutamento, no popup rápido de combate e no topo da tela de
-  progressão) recebe a prop `retrato` — quando existe, substitui a letra
-  gigante translúcida do canto por a cabeça de verdade.
+- Só em `GanguesCreate.jsx` (fundação e recrutamento) e no modal de ficha
+  aberto de lá (`GanguesFichaCard` com `corpoSlug`). O resto do jogo usa a
+  cabeça.
+- Arte: `assets/personagens/<slug>/corpo-<pose>.webp`, poses **frente → lado
+  → costas** (`GANGUES_CORPO_POSES`). Os 12 oficiais têm as 3.
+  `getGanguesCorpo(slug, pose)` / `getGanguesCorpoPoses(slug)`.
+- **Troca automática a cada 2,5s** (`GanguesRetratoCorpo.jsx`); tocar avança
+  na hora e reinicia a contagem. O toque faz `stopPropagation` (a imagem vive
+  dentro do card que abre a ficha). Só o card atual do carrossel cicla; os
+  vizinhos mostram `frente`.
+- É ilustração pintada, **nunca** `image-rendering: pixelated`.
+- Recorte do turnaround: cortar nos vãos transparentes reais entre as figuras
+  (não em terços iguais), `.trim()`, webp q85.
+- CSS: botão e `<img>` são `position: absolute` ancorados no portrait —
+  `height/max-height` em `%` dentro de grid com `place-items: end` não
+  resolve (row `auto`).
+- Fallback: sem corpo → cabeça → inicial.
 
-### 15.1 Corpo inteiro no "primeiro contato" (lobby inicial + recrutamento) — set/2026
+### 15.2 Animação de combate (sprite)
 
-Pedido do Isaias: a cabeça (§15) é ótima pro resto do jogo, mas o
-**primeiro contato** do jogador com o elenco — a tela de fundação da
-gangue e o recrutamento (`GanguesCreate.jsx`, o MESMO componente pra
-ambos) — merece o personagem inteiro, não só a cabeça. A cabeça **continua
-igual em todo o resto** (roster do lobby, roster de combate, marcador de
-cena, progressão) — nada disso mudou.
+`data/ganguesCombatAnimations.js` (`DADOS_POR_SLUG`, `TEMPLATE_SLUG`,
+`getGanguesAnimacao(id, tipo)`), tocada **dentro do `DramaticDice`** — o
+momento do golpe, não o log.
 
-- **Origem da arte:** cada pasta em `Personagens/LDI GANGUES/RECRUTAVEIS/<Nome>/`
-  também traz um `<Nome>Sheet.png` — um turnaround de corpo inteiro
-  (frente/costas/lado lado a lado, 1916×821 na maioria, 1672×941 no Muro
-  que é mais largo). Só os 12 personagens oficiais (§7) têm esse arquivo
-  hoje.
-- **Recorte:** as 3 poses NÃO ficam em colunas perfeitamente iguais (o
-  personagem de cada pose tem largura própria — o punho/arma de uma pose
-  pode invadir o terço "certo" numericamente) — dividir a imagem em 3
-  fatias iguais corta pedaço de personagem (aconteceu com o braço do Muro
-  na 1ª tentativa). O jeito certo: varrer as colunas da imagem procurando
-  os 2 "vãos" transparentes de verdade entre as 3 figuras (gap ≥ 20px sem
-  nenhum pixel com alpha) e recortar exatamente nesses vãos, com ~12px de
-  respiro. Cada pose recortada é `.trim()`ada (sharp, remove a margem
-  transparente sobrando) e exportada `webp` qualidade 85 (~55-125KB cada,
-  36 arquivos = ~3,2MB) — **nunca** `image-rendering: pixelated` aqui,
-  essa arte é ilustração pintada de alto detalhe, não pixel art (isso é
-  só pra cabeça).
-- **Onde mora:** mesma pasta/convenção da cabeça —
-  `assets/personagens/<slug>/corpo-<pose>.webp`, `pose` = `frente` |
-  `costas` | `lado`. `ganguesPortraits.js` tem um segundo
-  `import.meta.glob('.../corpo-*.webp')` só pra isso — `getGanguesCorpo(slug, pose)`
-  e `getGanguesCorpoPoses(slug)` (as 3 de uma vez, ou `null` se não tiver
-  nenhuma — a maioria do elenco, 18 dos 30, por ora).
-- **Ciclo de pose por toque:** `GanguesRetratoCorpo.jsx` — um `<button>`
-  que troca a pose a cada toque (frente → costas → lado → frente...,
-  sempre nessa ordem, sempre voltando pro início) e mostra 3 pontinhos
-  (`.gang-corpo-poses`) indicando a pose atual. Chama
-  `event.stopPropagation()` no toque — importante porque ele SEMPRE vive
-  dentro de um elemento clicável maior (o card inteiro, ou a moldura da
-  ficha) que abre a ficha/faz outra coisa; sem o stop, tocar na imagem pra
-  trocar de pose também disparava a ação do pai.
-- **No card do carrossel** (`GanguesCreate.jsx`): só o card **atual**
-  (`position === 'current'`) cicla pose — os dois de trás (`prev`/`next`,
-  desbotados, só navegam) mostram a pose `frente` fixa. Isso forçou trocar
-  o wrapper do card atual de `motion.button` pra `motion.div` (só ele tem
-  conteúdo clicável ANINHADO — `<button>` dentro de `<button>` é HTML
-  inválido; `prev`/`next` continuam `motion.button` porque não têm nada
-  clicável dentro). O `onClick` de abrir a ficha continua no `div` inteiro
-  — só a imagem, por dentro, intercepta e para a propagação.
-- **Tamanho do card mudou, mas não como a 1ª tentativa fez:** a arte de
-  corpo é ALTA e ESTREITA (retrato ~0.55 largura:altura) — só a ALTURA do
-  portrait precisava crescer (232px → 342px), a largura original (242px)
-  já sobrava espaço. Alargar o card pra 264px (1ª tentativa) só roubou
-  espaço do peek `prev`/`next` sem ajudar a imagem em nada — corrigido pra
-  236px (mais estreito que o original de propósito) com os peeks
-  recuperando espaço.
-- **Armadilha de CSS — `height: 100%` dentro de grid `place-items: end`
-  não funciona:** o botão de ciclo (`.gang-fighter-card__corpo-btn`) é
-  filho de um container `display: grid; place-items: end center`. Uma
-  altura em `%` nesse filho depende da row `auto` do grid — e como
-  `align-items` não é `stretch` (é `end`), a spec resolve essa porcentagem
-  como **indefinida**, então o filho vira do tamanho do PRÓPRIO conteúdo
-  em vez de preencher o pai (o botão cresceu pra ~415px sozinho, bem além
-  dos 342px do portrait, e escondeu os pontinhos de pose lá embaixo fora
-  da vista). Fix: `position: absolute; inset: 0` no botão em vez de
-  `height: 100%` — ignora o problema de row do grid e cobre exatamente a
-  área do pai (que já tem `position: relative`).
-- **No modal de ficha** (`GanguesFichaCard.jsx`): prop nova `corpoSlug`
-  (só `GanguesCreate.jsx` passa) — quando presente, o hero do modal vira
-  um banner alto centralizado (imagem grande, nome/subcaminho abaixo dela)
-  em vez da faixa baixa com a cabeça pequena no canto (`--corpo` modifica
-  a classe `.gang-sheet-modal__hero`). Combate/cena/progressão não passam
-  `corpoSlug`, continuam exatamente como eram.
-- **Fallback:** sem nenhuma pose de corpo pro slug, cai de volta pra
-  cabeça (`retrato`) — e sem cabeça também, cai pra inicial do nome, igual
-  sempre foi.
-- **Testado ao vivo** (Playwright, viewport 390×844, mobile): fundação da
-  gangue → card mostra corpo inteiro → toque cicla frente/costas/lado/
-  frente → abrir ficha mostra o mesmo corpo grande no modal, cicla lá
-  também → seleção e confirmação de recrutamento funcionam normalmente →
-  zero erro de console.
+- **Cobertura:** os 5 iniciais — **Trinca, Fenda, Muro, Catraca, Faísca** —
+  têm `ataqueNormal` e `dano`, os dois com **16 quadros** (grade 4×4). Os
+  outros 25 caem no golpe sem sprite.
+- `golpes` = quadros de impacto, por personagem (não existe quadro fixo).
+- **Voz** só no Trinca e no Muro (`sons.voz` é opcional). Fenda e Catraca usam
+  o par de impacto `soco-leve`/`dano-leve`; Faísca reaproveita os sons do
+  Trinca e do Muro. Vozes dos outros: **planejado** (ElevenLabs).
+- Receita: folha 1448×1086 → estender embaixo até múltiplo de 8 → metade
+  (724×544) → webp lossless. Conferir cada quadro renderizado com a fórmula
+  CSS do `GanguesCombatSpriteAnim.jsx` antes de publicar — arte que sai da
+  célula só aparece olhando o quadro.
 
-### 15.2 Máquina de animação de combate — cobertura (18/09/2026)
-
-`ganguesCombatAnimations.js` (§ na doc de arquitetura do combate) — os
-**5 personagens iniciais têm ataqueNormal + dano completos**: Trinca,
-Muro (já existiam), Fenda, Catraca, Faísca (18/09/2026, mesma leva de arte
-que trouxe `<Nome>SocoNormal.png`/`<Nome>DanoNormal.png` em cada pasta de
-`RECRUTAVEIS/`). Nenhum dos 25 restantes tem ainda — cai no golpe sem
-sprite (efeito de sempre).
-
-- **Pipeline de recorte** (mesmo pra todos, verificado byte-a-byte contra
-  o `ataque-normal.webp` já publicado do Trinca antes de aplicar nos 3
-  novos): fonte `1448×1086` → `extend` (`bottom`) até a próxima altura
-  múltipla de 8 (`1086`→`1088`, +2px transparente) → resize exato pela
-  metade (`724×544`) → `webp({ lossless: true })`. O padding garante que
-  cada quadro da grade 4×4 (`724/4=181`, `544/4=136`) saia em número
-  inteiro de pixel — sem ele o último quadro de cada linha perderia
-  precisão de arredondamento.
-- **Frames de golpe são por personagem** (não existe convenção fixa de
-  "frame 9 sempre") — cada folha tem seu próprio ritmo de animação;
-  alguns golpes têm flash de impacto desenhado na própria arte (Trinca,
-  Muro, Catraca — nesses o quadro do flash é óbvio), outros não desenham
-  nenhum efeito (Fenda e Faísca, os dois de chute) — nesses o quadro de
-  golpe escolhido foi o pico da extensão do membro (perna totalmente
-  estendida), não um frame arbitrário.
-- **Sem voz ainda** (Fenda/Catraca/Faísca) — a arte chegou sem
-  `<Nome>FalaSocoNormal.mp3` (só Trinca/Muro têm); Isaias vai gravar as
-  vozes depois no ElevenLabs. `sons.voz` fica de fora da entrada desses 3
-  em `DADOS_POR_SLUG` até lá (o código já trata `voz`/`ambiente` como
-  opcionais, `if (anim.sons.voz)` em `DramaticDice.jsx` — não quebra sem).
-- **Som de impacto por GÊNERO, provisório** (pedido do Isaias, 18/09/2026:
-  "as mulheres precisam de um som de soco diferente... aplicar golpe e
-  tomar golpe diferente" — mas voz de verdade só depois): Fenda e Catraca
-  compartilham um par `soco-leve.mp3`/`dano-leve.mp3` (Mixkit, licença
-  Mixkit — "Soft quick punch"/"Weak hit impact", mesma fonte de licença
-  já usada pros sons do Trinca) — é um som por GÊNERO por ora, não por
-  personagem; ajustar quando cada uma ganhar efeito próprio. Faísca
-  (homem) reaproveita os sons já existentes do Trinca (`trinca-soco`, no
-  ataque) e do Muro (`muro-soco1`/`muro-soco2`, no dano) — sugestão do
-  próprio Isaias.
-- **BUG real, achado pelo Isaias jogando** (print de combate mostrando a
-  Catraca sem cabeça, 18/09/2026): a 1ª verificação (checagem de dados +
-  URL 200 via Playwright, sem olhar o VISUAL de cada quadro) não pegou
-  isso — passou confiando que "mesmo pipeline do Trinca" bastava, e não
-  bastou. Investigação real (renderizando os 16 quadros de cada folha com
-  a MESMA fórmula CSS do `GanguesCombatSpriteAnim.jsx` — `background-size`/
-  `background-position` por percentual — numa página HTML isolada,
-  screenshot de cada quadro): os `ataqueNormal` (não os `dano`, esses
-  vieram limpos nas 3) de Fenda, Catraca e Faísca têm a arte dos quadros
-  9-16 desenhada fora do quadrado da célula — a cabeça da Catraca fica
-  pra cima do quadro vizinho (só as pernas ficam visíveis), o corpo do
-  Faísca (chute voador) sai quase inteiro pra fora (só a bota sobra). O
-  Trinca, testado do mesmo jeito como controle, não tem NENHUM corte em
-  nenhum dos 16 quadros — confirma que é a ARTE DE ORIGEM (`<Nome>SocoNormal.png`)
-  que não respeita a grade 4×4 nessas linhas pra esses 3 personagens
-  específicos, não o pipeline/código.
-- **Fix aplicado**: `frames: 16` → `frames: 8` nos 3 `ataqueNormal`
-  quebrados (não nos `dano`, que continuam 16) — corta a animação
-  exatamente ANTES da parte com defeito; os quadros 1-8 foram conferidos
-  um por um (limpos) e já incluem o golpe de cada um (frame 6 Fenda, 7
-  Catraca, 7 Faísca — sobra folga). Quando a arte das linhas 3-4 vier
-  redesenhada respeitando a grade, volta pra 16.
-- **Verificado**: dados de `getGanguesAnimacao(id, tipo)` pros ids 1-5
-  corretos (sheet/frames/golpes) via Playwright; as 10 URLs de sprite
-  responderam 200; os 8 quadros de cada `ataqueNormal` afetado e os 16 de
-  cada `dano` renderizados um a um (mesma fórmula CSS do componente real)
-  sem nenhum corte, com prova em screenshot. **Não verificado dentro do
-  `DramaticDice.jsx` durante uma luta real** — chegar lá pede simular
-  arrasto de analógico na cena navegável (tentado, sem sucesso confiável
-  em automação — o personagem trava contra obstáculo antes de alcançar o
-  inimigo mais próximo); zero mudança de código nos componentes que
-  renderizam a animação, só dado — a mesma fórmula CSS que eu testei
-  isolada é a que o componente usa ao vivo, então o resultado deve ser
-  idêntico, mas o Isaias vai confirmar jogando.
-
-## 16. Líder da gangue (set/2026)
+## 16. Líder da gangue
 
 Pedido do Isaias: dar personalidade real ao "quem manda" da gangue, não só
 decoração. Regras de hoje:
 
 - **O 1º personagem que o jogador marca na fundação vira líder automático.**
   Aviso explícito na tela de recrutamento inicial
-  (`recruitment.aviso_lider`) pra ninguém escolher sem saber disso.
+  (`recruitment.aviso_lider`).
 - **Guardado em `storyProgress.__lider`** (mesmo JSONB/padrão de
   `__dificuldade`/`__torre`) — **não depende da ordem do array `roster`**.
   Isso importa: o roster recarregado da nuvem vem ordenado por
@@ -1730,28 +1487,15 @@ decoração. Regras de hoje:
 
 ---
 
-## 17. Mecânica de combate e progressão (fonte única — set/2026)
+## 17. Mecânica de combate e progressão (fonte única)
 
-Pedido do Isaias: **o GDD tem que ser a única bíblia**. Até aqui, a mecânica
-(combate/skill tree/progressão/modo história) vivia espalhada em 4 arquivos
-`.md` soltos na raiz de `src/pages/games/Gangues/` (`GANGUES_DESIGN.md`,
-`GANGUES_HEADSUP.md`, `GANGUES_PROGRESSAO_RASCUNHO.md`,
-`GANGUES_MODO_HISTORIA_ENCONTROS.md`) — **todos deletados** depois desta
-seção ser escrita. Dois deles (`GANGUES_DESIGN.md`, `GANGUES_HEADSUP.md`)
-descreviam o jogo na versão **v1.12–v1.14** (mais de 60 versões atrás):
-atributos `{A,H,R,D}` com Resistência genérica, 8 inimigos fixos, criação
-por 5 pontos livres, XP fixo de 10/1 por vitória/derrota, `GanguesTrainingZone`,
-mascote NeoGuide — **nada disso existe mais**. O que segue abaixo foi
-reconferido contra o código de verdade em set/2026, não copiado dos docs
-antigos.
+Fonte única da mecânica, conferida contra o código.
 
 ### 17.1 Ficha e atributos
 
 - Cada personagem tem 5 atributos: **A** (Porrada), **H** (Pique),
-  **D** (Defesa), **PV/Osso** e **PM/Gás** (`GANGUES_ATTRS` em
-  `data/ganguesCharacters.js`). **Não existe mais Resistência** — PV e PM
-  são atributos próprios desde a revisão "PV/PM separados" (v2.75.x);
-  crescem por nível seguindo o `growth_order` autorado de cada um dos 30
+  **D** (Couro), **PV** (Osso) e **PM** (Malandragem) (`GANGUES_ATTRS` em
+  `data/ganguesCharacters.js`). Crescem por nível seguindo o `growth_order` autorado de cada um dos 30
   personagens do catálogo (não são mais alocação livre do jogador).
 - **PV máx / PM máx** = atributo PV/PM × uma taxa por caminho
   (`GANGUES_RESOURCE_RATES` em `data/ganguesLoadout.js`):
@@ -1761,9 +1505,6 @@ antigos.
   | Porradeiro (atacante) | 3 | 3 |
   | Paredão (defensor) | 4 | 2 |
   | Mandingueiro (místico) | 3 | 4 |
-
-  Mandingueiro subiu de 2 pra 3 de PV por ponto em 26/09/2026 (defesa
-  normal, não de vidro).
 
 - **Criação de gangue não distribui pontos livres** — o jogador escolhe 2
   dos 30 personagens pré-autorados do catálogo (`ldi_gangues_30_personagens_v1.json`),
@@ -1783,9 +1524,9 @@ antigos.
 
   Só o NOME DO ATRIBUTO mudou: a ação de atacar continua "ataque" no texto, e
   os identificadores de código (`A/H/D`, `onUsarPoder`, `orb.poder`) ficaram
-  como estavam. `F`, `R` e `PdF` foram removidos do `attr_labels` (26/09/2026).
+  como estavam.
 
-- **Sistema do Pique (26/09/2026)** — papel de cada atributo:
+- **Papel de cada atributo (sistema do Pique):**
   - **Porrada (A)**: ataque. **Couro (D)**: defesa. **Osso (PV)**: vida.
   - **Pique (H)**: SÓ velocidade na linha do tempo (§17.2) — saiu do ataque.
   - **Malandragem (PM)**: o pool de PM E a força dos Talentos (+metade dela
@@ -1814,18 +1555,23 @@ Tudo em `engine/ganguesCombatResolver.js`:
 
 ```
 FA = Porrada + d3[+2 se crítico] + floor(Malandragem/2) só se usou TALENTO + efeitos de poder ativo
-FD = Defesa efetiva + d3 + efeitos de poder passivo
+FD = Couro efetivo + d3 + efeitos de poder passivo
 DANO = max(0, FA − FD)   // SEM piso de dano — defesa bem investida pode zerar o golpe
 ```
 
-**Ordem de ação — linha do tempo (Pique), 26/09/2026** (`engine/ganguesLinhaDoTempo.js`,
-estilo Medabots/ATB do Chrono Trigger; substitui a iniciativa Malícia+d3):
+**Ordem de ação — linha do tempo (Pique)** (`engine/ganguesLinhaDoTempo.js`,
+estilo Medabots/ATB do Chrono Trigger):
 - velocidade = Pique + base; base = 10% da ficha média da luta;
 - cada um enche uma barra até 100 (corre até o centro da pista na tela) e age;
 - ataque normal custa 100, Talento custa 125 (o "preparo" demora mais);
 - **teto: ninguém é mais que 3× o mais lento vivo**;
 - rodada fecha quando todo vivo agiu ≥1 vez. Os dois motores (normal e
   Multidão) usam as mesmas funções.
+- **Pista visual** (`components/GanguesPistaTempo.jsx`): raias em par — cada
+  raia leva um aliado (vem da esquerda) e um inimigo (vem da direita); só
+  aparecem as raias necessárias, até 6 (passou disso, dividem). Largada
+  animada no início da luta. A barra do automático fica logo acima do
+  roster inimigo.
 - **Velocidade 1x/2x/3x**: só com o AUTOMÁTICO ligado (normal ou Multidão) —
   benefício de assinante no lançamento; no beta tudo liberado.
 
@@ -1836,21 +1582,14 @@ estilo Medabots/ATB do Chrono Trigger; substitui a iniciativa Malícia+d3):
   `Math.max(1, ...)`. Foi tirado de propósito depois de muito playtest: com
   bandos grandes, "sempre acerta pelo menos 1" deixava toda defesa
   irrelevante.
-- **Ordem de ação**: linha do tempo do Pique (ver acima) — não existe mais
-  iniciativa sorteada (Habilidade + d3), aposentada em 26/09/2026.
 - **IA inimiga**: ataca depois de um delay fixo. Escolha de alvo evita
   repetir o último quando dá — ~55% mira em quem tem menos PV entre os
   vivos, ~45% escolhe aleatório (`pickEnemyTarget` em `useGanguesTurnMachine.js`).
-- **⚠️ Achado nesta auditoria: o bônus de caminho está DESLIGADO no código
-  hoje.** Os 3 docs antigos (e a UI do log de combate, que ainda mostra
-  "bônus de ataque: ativado/não ativou") descrevem Atacante +1 ataque
-  ~50%, Defensor +1 defesa ~50%, Místico +1 garantido — mas
+- **⚠️ Bônus de caminho DESLIGADO (pendência de decisão):**
   `resolveAttackerBonus`/`resolveDefenderBonus` em `ganguesCombatResolver.js`
-  **ignoram os parâmetros e sempre retornam `applied: false, amount: 0`**,
-  hoje só stub. Não foi corrigido nesta auditoria (o pedido era consolidar
-  documentação, não mexer em mecânica) — fica registrado aqui como bug real
-  a decidir: religar o bônus, ou tirar de vez o texto/UI que promete ele.
-  **Continua assim em 26/09/2026 (v3.56.0).**
+  sempre retornam `applied: false, amount: 0`, mas o log de combate
+  (`GanguesCombatLogList.jsx`) e o relatório ainda têm o texto "bônus de
+  ataque". Decidir: religar o bônus ou tirar o texto/UI.
 
 ### 17.2.1 Como o jogador age, e os modos de combate
 
@@ -1861,8 +1600,7 @@ estilo Medabots/ATB do Chrono Trigger; substitui a iniciativa Malícia+d3):
 - **O dado dramático** (`DramaticDice`): todo ataque pausa o combate numa tela
   cheia que rola o dado, mostra atacante e alvo e o resultado. É o "momento" do
   golpe — as animações de sprite de ataque (§15.2) tocam aqui, não no log.
-  Desde a v3.37.0 ele **destaca quando um poder passivo do defensor entra em
-  ação** na conta.
+  Ele **destaca quando um poder passivo do defensor entra em ação** na conta.
 - **KO:** personagem com PV 0 cai e para de agir até o fim da luta. **PV e PM
   perdidos persistem entre lutas dentro do bairro** (só voltam no descanso,
   saindo ou dominando). Tropa inteira caída não entra em luta nenhuma.
@@ -1871,7 +1609,7 @@ estilo Medabots/ATB do Chrono Trigger; substitui a iniciativa Malícia+d3):
   inteira de uma vez** a cada toque (todo mundo age), em vez de turno a turno.
   - É oferecido quando a luta tem **5 ou mais combatentes no total**
     (jogador + inimigos). O botão pisca na 1ª vez, com tutorial próprio.
-  - **Liga e desliga a qualquer momento** (desde 13/09/2026): os dois motores
+  - **Liga e desliga a qualquer momento:** os dois motores
     sincronizam o estado vivo da luta (`syncFrom` /
     `iniciarBrigaMultidaoDeCombatentes`). Só trava durante a animação de uma
     rodada ou depois do fim da luta.
@@ -1882,25 +1620,20 @@ estilo Medabots/ATB do Chrono Trigger; substitui a iniciativa Malícia+d3):
   = elite e primordial), mas o botão **aparece pra todo mundo** de propósito,
   como chamariz de assinatura. Um botão "sair do automático" fica logo abaixo
   do roster do jogador (posição medida, pra nunca tampar a barra de PV).
-- **"Mete o pé"** (fugir da luta) volta pra tela de **Modos**, não pro lobby
-  (v3.38.0).
+- **"Mete o pé"** (fugir da luta) volta pra tela de **Modos**, não pro lobby.
 - **Voltar nunca repete recompensa:** as fases de combate e vitória ficam fora
-  da pilha de histórico (`GANGUES_FASES_TRANSITORIAS`) — corrigiu um exploit
-  real de XP duplicado apertando Voltar (v3.34.0).
+  da   pilha de histórico (`GANGUES_FASES_TRANSITORIAS`) — senão Voltar duplica XP.
 
 ### 17.3 Poderes / especiais (skill tree)
 
 - **15 subcaminhos** (5 por caminho × 3 caminhos), **5 poderes cada** = 75
   poderes catalogados (`data/ganguesSpecials.js`), valores reais aplicados
-  em `engine/ganguesSpecialEffects.js`. Atacante: Bruto, Duelista, Fúria,
-  Especialista, Vingador. Defensor: Muralha, Guardião, Provocador, Reativo,
-  Resiliente. Místico: Ígneo, Aquático, Terreno, Tempestade, Ilusório.
-- **Os 3 caminhos têm design próprio** desde a v2.75.1 — Defensor e
-  Místico deixaram de usar template genérico (bug corrigido na mesma
-  versão: os ids de 9 dos 10 subcaminhos de Defensor/Místico não batiam
-  com `signature_specials` dos personagens, então o poder equipado nunca
-  era achado em combate pra 20 dos 30 personagens). Cada poder tem 3
-  níveis; só dá pra equipar **2 por vez** (`selected_specials`).
+  em `engine/ganguesSpecialEffects.js`.   Porradeiro: Bruto, Duelista, Fúria,
+  Especialista, Vingador. Paredão: Muralha, Guardião, Provocador, Reativo,
+  Resiliente. Mandingueiro: Ígneo, Aquático, Terreno, Tempestade, Ilusório.
+- **Os 3 caminhos têm design próprio.** Os ids de subcaminho têm que bater
+  com `signature_specials` do catálogo, senão o poder equipado não é achado
+  em combate. Cada poder tem 3 níveis; só dá pra equipar **2 por vez** (`selected_specials`).
 - **6º poder exclusivo por personagem**, nível 50, não repetido dentro do
   mesmo subcaminho — veio junto da correção acima.
 - Poderes liberam/sobem via **AP → XP**, não mais via pontos de criação:
@@ -1908,12 +1641,9 @@ estilo Medabots/ATB do Chrono Trigger; substitui a iniciativa Malícia+d3):
 
 ### 17.4 Progressão (AP, XP, nível)
 
-- **AP base por inimigo = 10** (história ou Torre) — chegou a subir pra 30 no
-  modo história (dez/2026) mas foi revertido (set/2026, pedido do Isaias: "2
-  inimigos já davam 60 AP numa luta só"). Chefe vale 5×; Torre escala +100% a
+- **AP base por inimigo = 10** (história ou Torre). Chefe vale 5×; Torre escala +100% a
   cada 5 andares. Derrota rende sempre 1 AP simbólico.
-- **Recompensa por risco** (v3.36.0, recalibrada na v3.41.0 —
-  `apPorInimigo` em `engine/ganguesVictoryResolver.js`). Cada inimigo rende AP
+- **Recompensa por risco** (`apPorInimigo` em `engine/ganguesVictoryResolver.js`). Cada inimigo rende AP
   pela diferença entre a ficha DELE e a do **personagem mais forte da
   gangue** (total bruto A+H+D+PV+PM, não o time inteiro). Motivo, nas
   palavras do Isaias: "subir não dá mais experiência do que ficar embaixo em
@@ -1934,12 +1664,12 @@ estilo Medabots/ATB do Chrono Trigger; substitui a iniciativa Malícia+d3):
   faixa de contribuição (abates pesam mais que dano) — quem mais contribuiu
   pesa 3, a 2ª faixa pesa 2, o resto 1; empatados ficam na mesma faixa. Na
   derrota todo mundo pesa igual.
-- **Grana da vitória** (v3.39.0, `calcularGranaTotal`): **10 por inimigo
+- **Grana da vitória** (`calcularGranaTotal`): **10 por inimigo
   derrotado**; chefe garante **no mínimo 500**. Substituiu a grana autorada
   por POI — a Rep continua autorada por POI.
 - **Marcos de reputação:** a cada 50 de Rep acumulada, a gangue ganha um chip
   de poder (§9.3).
-- **Regra da frustração** (v3.30.1–3.30.2): **2 derrotas seguidas** na
+- **Regra da frustração:** **2 derrotas seguidas** na
   história (`storyProgress.__derrotasSeguidas`,
   `GANGUES_FRUSTRACAO_LIMIAR = 2`) fazem a próxima treta comum vir com **um
   inimigo só, um degrau (3 pontos) abaixo** do normal (`suavizarPorFrustracao`).
@@ -1960,14 +1690,9 @@ estilo Medabots/ATB do Chrono Trigger; substitui a iniciativa Malícia+d3):
   adicionar personagem). Poderes liberam/sobem via **AP → XP** nos marcos
   autorados (4/12/24/40, ranks 52-70/78-96) — evento independente do
   atributo, nunca substitui o ganho de atributo do nível.
-  - Existiu, brevemente (set/2026), uma variante com **custo escalonado por
-    atributo** (cada ponto ficando mais caro em XP quanto mais alto o
-    atributo já estava, ao estilo de sistemas por pontos como 3D&T) — o
-    Isaias pediu, jogou de verdade e reverteu por completo: "isso aqui é
-    estilo Ragnarok, todo nível tem que subir atributo, como era antes".
-    Sem essa curva, muitos níveis seguidos não davam ganho nenhum (ex.:
-    Trinca NV96-99 zerado), o que quebrava a sensação de progressão. Não
-    reintroduzir sem pedido explícito e teste real em jogo.
+  - **Nunca reintroduzir custo escalonado por atributo** sem pedido explícito
+    e playtest — já foi tentado e revertido ("estilo Ragnarok, todo nível
+    sobe atributo").
 - **1ª luta de toda conta nova é suavizada** (1 corpo só, metade dos
   pontos) — `suavizarPrimeiraLuta` em `data/ganguesEncontros.js`. É global
   por conta, não por território.
@@ -1986,11 +1711,9 @@ estilo Medabots/ATB do Chrono Trigger; substitui a iniciativa Malícia+d3):
 
 ### 17.6 Modo História — a cena navegável (hoje só a Pista)
 
-Sistema descrito originalmente em `GANGUES_MODO_HISTORIA_ENCONTROS.md`
-(2026-09-04) e já implementado pra Pista (`data/cenas/pista/`) — os outros
-6 bairros ainda usam a trilha simples de nós (`GanguesTerritorio.jsx`, 3
-pontos comuns + chefe por bairro), sem cena navegável própria. Desde
-v3.30.0 os dois formatos usam o MESMO sistema de pontos fixos.
+Implementado pra Pista (`data/cenas/pista/`). Os outros 6 bairros ainda usam
+a trilha simples de nós (`GanguesTerritorio.jsx`, 3 pontos comuns + chefe por
+bairro). Os dois formatos usam o MESMO sistema de pontos fixos.
 
 - Cada bairro-cena é um mapa navegável com **5 tipos de POI**: **Treta**
   (combate), **Parada** (mini-jogo, falhar pode virar treta), **Papo**
@@ -2006,15 +1729,14 @@ v3.30.0 os dois formatos usam o MESMO sistema de pontos fixos.
   mundo); a dívida é com o agiota Marimbondo (empréstimo de 100 que vira
   1.000, cada cura fiada dobra, teto 10.000 → Clube forçado); com dívida em
   aberto o chefe não aceita a luta.
-- **Farol dos pinos** (13/09/2026, `farolDe` em `GanguesCenaAtores.jsx`):
+- **Farol dos pinos** (`farolDe` em `GanguesCenaAtores.jsx`):
   **vermelho** = obrigatório e ainda não feito; **amarelo** = opcional;
   **verde** = já feito (treta repetível vencida uma vez também fica verde — o
   selo giratório ↻ é que avisa que dá pra repetir). Fora do farol de
   propósito: navegação (porta, saída, passagem) e o chefe (identidade própria
   vermelho-escuro com ★). Um NPC com missão pendente (ex.: a oferta do corre
   no Descanso) também fica verde, como "tem missão aqui".
-- **O mapa não é estático** (v3.60.0, 26/09/2026 — substitui a andadinha
-  contínua de vaivém que TODO personagem fazia, "tá muito forçado"): cada
+- **O mapa não é estático:** cada
   personagem tem UM comportamento fixo (`movimentoDoPino` em
   `GanguesCenaAtores.jsx`, CSS em `styles/cena/mundo.css`):
   **parado** (só respira), **inquieto** (muda o peso de perna e olha pros
@@ -2029,8 +1751,7 @@ v3.30.0 os dois formatos usam o MESMO sistema de pontos fixos.
   galpão do Carvão / Cão Louco (`GANGUES_REP_GATE_GALPAO`) e Rep **40** pra
   entrar no Clube da Luta por vontade própria (`GANGUES_REP_GATE_CLUBE`).
   Reputação virou "risco liberado", não vaga de elenco.
-- **Bando inimigo é NÍVEL FIXO** (v3.30.0, 19/09/2026 — substitui o ratio
-  contra o time do jogador que existia até aqui): cada nó/POI tem um
+- **Bando inimigo é NÍVEL FIXO:** cada nó/POI tem um
   `pontosFixo` autorado (ladder subindo em degraus — ver `pontosFixo` nos
   nós de `ganguesTerritorios.js` e nos POIs de `data/cenas/pista/`), e a
   dificuldade escolhida (fácil/médio/difícil) só soma/tira um valor fixo em
@@ -2041,7 +1762,7 @@ v3.30.0 os dois formatos usam o MESMO sistema de pontos fixos.
   forte, não o chefe ficar mais fraco.
 - **Ladder da Pista hoje** (ficha em pontos por corpo; "rev" = revezamento:
   quase sempre 1 inimigo, às vezes dupla, e o 2º corpo sai 2–3 pontos
-  abaixo). Regra do Isaias (15/09/2026): **a 1ª luta é muito fácil de
+  abaixo). Regra do Isaias: **a 1ª luta é muito fácil de
   propósito (3); da 2ª em diante sobe de 3 em 3, sem exceção; o chefe quebra
   o padrão pra ser ralado.**
 
@@ -2059,7 +1780,7 @@ v3.30.0 os dois formatos usam o MESMO sistema de pontos fixos.
   | `posmuro_1` | 23 | rev, dupla 50% | sim (galpão) |
   | `posmuro_2` (Cão Louco) | 26 | rev, dupla 60%, Rep 25 | sim (galpão) |
   | galpão `m1` | 6 por corpo + 40% do time, 3–5 corpos | rev, bando | passagem |
-| galpão `m2` (1301) | 22 divididos em 3–5 corpos, Rep 25 | bando fixo | passagem |
+  | galpão `m2` (1301) | 22 divididos em 3–5 corpos, Rep 25 | bando fixo | passagem |
   | encontro aleatório (perseguidor) | ~ficha do seu mais forte, mín. 2 corpos | rev, `baseMaisForte` | não |
   | **Carvão** (chefe) | **30** + escolta 20 | chefe fixo | — |
 
@@ -2077,32 +1798,33 @@ v3.30.0 os dois formatos usam o MESMO sistema de pontos fixos.
   `onAuthStateChange`) — sem isso, o próximo guest/login na mesma aba
   herdava `_userId` órfão.
 
-### 17.8 Estrutura de arquivos (atual, pós-reorganização de set/2026)
+### 17.8 Estrutura de arquivos
 
 ```
 src/pages/games/Gangues/
 ├── GanguesRoute.jsx      # shell/router — troca de fase, carrega i18n dedicado
-├── Gangues.css           # folha de estilo base do módulo inteiro
+├── Gangues.css           # índice de @import (a ORDEM é a cascata)
 ├── screens/              # uma tela por fase (Lobby, Combat, Cena, Create,
 │                         # Modes, Victory*, Album, Batalha, Clube*, Naming,
 │                         # Progression, SaveSelect, StoryMap, Territorio)
-│                         # + CSS de cada uma, co-localizado
-├── assets/               # retratos de personagem (personagens/<slug>/neutro.png)
-├── components/           # peças reutilizadas por mais de uma screen
-│   └── cena/             # peças específicas da cena navegável
-├── data/                 # catálogo de personagens/inimigos/itens/território,
-│   └── cenas/pista/      # regras de pontos, especiais — dados, não lógica de UI
-├── engine/               # resolver de combate, efeitos de poder, motor de cena
-├── hooks/                # turno, i18n sob demanda, movimento de cena, etc.
+├── styles/               # CSS por assunto + paleta.css (--gang-*); cena/ e lobby/
+├── assets/               # personagens/, enemies/, npcs/, backgrounds/, logos/, sons/
+├── components/           # peças reutilizadas (dado dramático, orb, pista do Pique…)
+│   └── cena/             # peças da cena navegável (atores, loja, descanso, agiota…)
+├── data/                 # catálogos (30 personagens, 102 inimigos, itens, equip,
+│   └── cenas/pista/      # especiais, territórios, encontros) — dados, não UI
+├── engine/               # resolver, linha do tempo, Multidão, efeitos, cena,
+│                         # encontro aleatório, vitória
+├── hooks/                # turno, auto, Multidão, movimento de cena, i18n…
 └── store/
     ├── useGanguesStore.js    # composição das slices (zustand)
-    └── slices/               # um arquivo por fatia de estado
+    └── slices/               # save, sheet, story, progression, equip, colecao,
+                              # birosca, cenaEconomia, cenaProgresso, match
 ```
 
-**Índice cruzado**: qualquer comentário de código que ainda citar
-`GANGUES_DESIGN.md`/`GANGUES_HEADSUP.md`/`GANGUES_PROGRESSAO_RASCUNHO.md`/
-`GANGUES_MODO_HISTORIA_ENCONTROS.md` deveria apontar pra esta seção do GDD
-a partir de agora — os 4 arquivos foram removidos do repositório.
+CSS: `scripts/gangues-css-audit.cjs` roda no `predeploy` e barra seletor morto,
+arquivo > 500 linhas, `@media` por largura ≥ 480px, `vw` cru e `fixed` com
+`inset: 0`.
 
 ### 17.9 Referência completa — atributos e poderes por personagem (a cada 5 níveis)
 
@@ -2113,7 +1835,7 @@ abre/sobe de rank. Gerado direto do catálogo real
 `scripts/gangues-gdd-referencia-personagens.cjs` — **rodar esse script de
 novo e colar a saída aqui sempre que o catálogo for regenerado**
 (`scripts/gangues-regen-catalog.cjs`), senão esta tabela fica desatualizada.
-Colunas Osso/Gás = PV/PM (ver §17.1). Linhas fora do múltiplo de 5 aparecem
+Colunas Osso/Malandragem = PV/PM (ver §17.1). Linhas fora do múltiplo de 5 aparecem
 só quando cai um poder exatamente naquele nível (pra não perder o marco);
 nível 1 (base) e 99 (teto) sempre aparecem, mesmo sem evento. Atributo sobe
 +1 flat todo nível — sem gap nenhum (ver §17.4).
@@ -3167,4 +2889,3 @@ nível 1 (base) e 99 (teto) sempre aparecem, mesmo sem evento. Atributo sobe
 | 95 | 25 | 11 | 29 | 16 | 21 | — |
 | 96 | 25 | 11 | 30 | 16 | 21 | ⬆ **quebra_de_realidade** vira rank 3 |
 | 99 | 25 | 12 | 30 | 17 | 22 | — |
-
