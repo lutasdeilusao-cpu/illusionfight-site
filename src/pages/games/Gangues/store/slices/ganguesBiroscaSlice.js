@@ -7,7 +7,7 @@
 // os referencia; o texto visível ao jogador já fala "Marimbondo"/agiota.
 import {
   normalizeGanguesLoadout, getGanguesResources,
-  GANGUES_EMPRESTIMO_NATO_VALOR, GANGUES_EMPRESTIMO_NATO_MULT, GANGUES_EMPRESTIMO_NATO_TETO,
+  GANGUES_EMPRESTIMO_NATO_VALOR, GANGUES_EMPRESTIMO_NATO_MULT, GANGUES_EMPRESTIMO_NATO_TETO, GANGUES_CLUBE_PREMIO,
 } from '../../data/ganguesLoadout.js'
 import { getGanguesAttributesWithEquip, applyGanguesEquipResources } from '../../data/ganguesEquip.js'
 
@@ -197,14 +197,15 @@ export default function createGanguesBiroscaSlice(set, get) {
     //  `dividaPrevia` = a dívida ANTES de aceitar (antes do 15× de entrada, ou
     //  a dívida que já tava no teto, na entrada forçada do socorro do Nato).
     //  `heals` = quantas vezes deixou o Nato ajeitar entre as rondas.
-    //  • Venceu (ronda 3): quita TUDO, nome limpa. Se entrou LIMPO e não pediu
-    //    nenhum ajeite (dividaPrevia 0 e heals 0), ainda leva 200 na mão. Sem XP.
+    //  • Venceu (ronda 3): quita TUDO e leva GANGUES_CLUBE_PREMIO na mão. Sem XP.
     //  • Perdeu: te remendam e te largam. A dívida NÃO cresce mais — fica o que
     //    acumulou. Nunca é game over.
     resolverClubeDaLuta: (venceu, custoBase = 10, dividaPrevia = 0, heals = 0) => {
       if (venceu) {
         set(state => ({ storyProgress: { ...state.storyProgress, __birosca: { divida: 0 } } }))
-        if (Math.round(dividaPrevia) <= 0 && Number(heals) <= 0) get().ganharGrana(200)
+        // Toda vitória completa paga 200 (Isaias, 28/09/2026: o Clube é a fonte
+        // de grana do grind — rinha dá só XP, Clube dá só grana).
+        get().ganharGrana(GANGUES_CLUBE_PREMIO)
       }
       get().restaurarPvPmTodos()
       get()._persistStory()

@@ -290,8 +290,9 @@ posição salva inclui o interior. É o **template dos 7 bairros**.
   - **Entre rondas** (`GanguesClubeSala`): encarar machucado, **deixar o
     agiota ajeitar** (cura tudo e **dobra a dívida**) ou **cair fora** (te
     remendam, a dívida fica).
-  - **Vitória na ronda 3:** quita **toda** a dívida. Se entrou limpo e não
-    pediu nenhum ajeite, leva ainda **+200 de grana**. Nunca dá XP.
+  - **Vitória na ronda 3:** quita **toda** a dívida e paga **+200 de grana**
+    (`GANGUES_CLUBE_PREMIO`), sempre. Nunca dá XP. É a fonte de grana do
+    grind: a rinha dá só XP, o Clube dá só grana.
   - **Derrota:** te remendam, a dívida **não cresce mais**, fica o que
     acumulou. Nunca é game over.
 - **Trava:** tropa inteira no chão (todos PV 0) não entra em luta nenhuma.
@@ -1544,6 +1545,11 @@ Fonte única da mecânica, conferida contra o código.
 - **Inimigos** seguem o perfil do caminho (`preferred_mode`: fists =
   Porradeiro, armed = Paredão, power = Mandingueiro), mantendo o total de
   pontos de cada ficha; o Pique varia por personalidade (×0,6 a ×1,5).
+- **Teto de nível por área** (`nivelTetoDaHistoria` em
+  `ganguesTerritorios.js`, aplicado em `addGanguesAp`): o personagem só sobe
+  até o nível do chefe da área atual (a 1ª cujo chefe não caiu; Pista = 30,
+  o Carvão). No teto o AP não acumula e a tela de vitória avisa "nível máximo
+  da área". Nunca baixa entre áreas; campanha zerada libera até 99.
 - **Nível teto: 99** (`GANGUES_LEVEL_CAP`). Níveis 1–10 são estatísticas
   autoradas à mão; 11–99 crescem +1 ponto por nível seguindo o
   `growth_order` de cada ficha (fiel à identidade dela — um Bruto termina
@@ -1665,7 +1671,8 @@ estilo Medabots/ATB do Chrono Trigger):
   pesa 3, a 2ª faixa pesa 2, o resto 1; empatados ficam na mesma faixa. Na
   derrota todo mundo pesa igual.
 - **Grana da vitória** (`calcularGranaTotal`): **10 por inimigo
-  derrotado**; chefe garante **no mínimo 500**. Substituiu a grana autorada
+  derrotado**; chefe garante **no mínimo 500**. POI com `semGrana: true`
+  (hoje só a **rinha**) não paga grana, só XP. Substituiu a grana autorada
   por POI — a Rep continua autorada por POI.
 - **Marcos de reputação:** a cada 50 de Rep acumulada, a gangue ganha um chip
   de poder (§9.3).

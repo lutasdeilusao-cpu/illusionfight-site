@@ -92,6 +92,8 @@ export const GANGUES_REP_GATE_CLUBE = 40
 export const GANGUES_EMPRESTIMO_NATO_VALOR = 100
 export const GANGUES_EMPRESTIMO_NATO_MULT = 10
 export const GANGUES_EMPRESTIMO_NATO_TETO = 10000
+// Prêmio fixo de cada vitória completa no Clube da Luta (3 rondas), além de quitar a dívida.
+export const GANGUES_CLUBE_PREMIO = 200
 
 
 export function getGanguesRosterLimit(tier) {
@@ -135,19 +137,23 @@ export function ganguesXpMaxForSheet(sheet = {}) {
   return ganguesApCostForLevel(getGanguesLevelFromXp(sheet.xp_total))
 }
 
-export function addGanguesAp(sheet, amount) {
+// `levelCap`: teto de nível da área atual da história (nivelTetoDaHistoria em
+// ganguesTerritorios.js). No teto o personagem para de subir e o AP não
+// acumula — senão o grind guardava um banco de níveis pra despejar depois.
+export function addGanguesAp(sheet, amount, levelCap = Infinity) {
   const progression = getGanguesProgression(sheet)
   let ap = progression.ap + Math.max(0, Number(amount) || 0)
   let earnedXp = 0
   if (sheet.character_type === 'template') {
     let xpTotal = Math.max(0, Number(sheet.xp_total) || 0)
     let cost = ganguesApCostForLevel(getGanguesLevelFromXp(xpTotal))
-    while (ap >= cost) {
+    while (ap >= cost && getGanguesLevelFromXp(xpTotal) < levelCap) {
       ap -= cost
       earnedXp += 1
       xpTotal += 1
       cost = ganguesApCostForLevel(getGanguesLevelFromXp(xpTotal))
     }
+    if (getGanguesLevelFromXp(xpTotal) >= levelCap) ap = 0
   } else {
     earnedXp = Math.floor(ap / GANGUES_AP_PER_XP)
     ap = ap % GANGUES_AP_PER_XP

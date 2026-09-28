@@ -6,6 +6,8 @@ import { addGanguesAp, normalizeGanguesLoadout, getGanguesResources } from '../.
 import { hydrateGanguesTemplateSheet, getGanguesLevelFromXp } from '../../data/ganguesCharacters.js'
 import { getGanguesAttributesWithEquip, applyGanguesEquipResources } from '../../data/ganguesEquip.js'
 import { GANGUES_STORY_BATTLE_PARTY_MAX } from '../../data/ganguesLoadout.js'
+import { nivelTetoDaHistoria } from '../../data/ganguesTerritorios.js'
+import { GANGUES_LEVEL_CAP } from '../../data/ganguesCharacters.js'
 
 export default function createGanguesProgressionSlice(set, get) {
   return {
@@ -74,10 +76,11 @@ export default function createGanguesProgressionSlice(set, get) {
 
       const levelUps = []
       let totalXp = 0
+      const tetoNivel = nivelTetoDaHistoria(get().storyProgress, GANGUES_LEVEL_CAP)
       set(state => {
         const advance = member => {
           if (!(member.id in pesosPorId)) return member
-          const resultado = addGanguesAp(member, apPorMembro[member.id])
+          const resultado = addGanguesAp(member, apPorMembro[member.id], tetoNivel)
           totalXp += resultado.earnedXp
           const novoXpTotal = (member.xp_total || 0) + resultado.earnedXp
           const subiuDeNivel = member.character_type === 'template' && getGanguesLevelFromXp(novoXpTotal) > (member.level || 1)

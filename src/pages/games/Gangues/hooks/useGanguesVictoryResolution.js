@@ -6,6 +6,8 @@ import { useEffect, useRef, useState } from 'react'
 import { registrarPontuacaoArenaRanking } from '../../../../hooks/useLeaderboardDB'
 import { sfx } from '../../../../lib/sfx'
 import { calcularApTotal, calcularPesosEParticipantes, calcularRecompensaCena } from '../engine/ganguesVictoryResolver.js'
+import { nivelTetoDaHistoria } from '../data/ganguesTerritorios.js'
+import { GANGUES_LEVEL_CAP } from '../data/ganguesCharacters.js'
 
 export default function useGanguesVictoryResolution({ store, user, report, victory, storyAlvo, match, torre, torreAndar, clube, emCena, noModoHistoria, cenaChefe, confrontoFinal, onNavigate }) {
   const processed = useRef(false)
@@ -82,12 +84,20 @@ export default function useGanguesVictoryResolution({ store, user, report, victo
 
     // Mostra TODOS os escalados na tela de vitória (inclusive quem caiu, com
     // 0 e a marca de KO) — o rateio já ignorou os mortos acima.
-    const apLista = escaladosIds.map(id => ({
-      id,
-      nome: match.playerTeam.find(member => member.id === id)?.sheet_name || '?',
-      ap: apPorMembro[id] || 0,
-      ko: koIds.has(id),
-    }))
+    // Teto de nível da área (nivelTetoDaHistoria): quem já está nele não sobe
+    // mais até o chefe da área cair — a tela avisa em vez de mostrar AP.
+    const tetoNivel = nivelTetoDaHistoria(store.storyProgress, GANGUES_LEVEL_CAP)
+    const apLista = escaladosIds.map(id => {
+      const noTeto = Number(nivelPorId[id] ?? match.playerTeam.find(member => member.id === id)?.level) >= tetoNivel
+      return {
+        id,
+        nome: match.playerTeam.find(member => member.id === id)?.sheet_name || '?',
+        ap: noTeto ? 0 : (apPorMembro[id] || 0),
+        ko: koIds.has(id),
+        noTeto,
+        teto: tetoNivel,
+      }
+    })
 
     if (victory) {
       // Álbum de Marélia — todo inimigo do bando batido vira entrada.

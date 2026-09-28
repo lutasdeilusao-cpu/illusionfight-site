@@ -35,6 +35,7 @@
         "rewards_title": "Reward",
         "reward_ap": "Action Points",
         "reward_ap_ko": "Went down — no AP",
+        "reward_ap_teto": "Area level cap ({n}) — beat the boss to level up",
         "reward_grana": "Cash",
         "reward_rep": "Reputation",
         "rounds": "ROUNDS",
@@ -4140,7 +4141,7 @@
         "clube_botao": "▸ The Fight Club",
         "clube_oferta_tag": "Offer · Hornet's pit",
         "clube_oferta_limpo": "Hornet looks you over. \"You're clean with me. But I got a job: betting pit, mine. You go in, you win, you walk with 200 in hand. No experience — nobody learns anything in the pit. You lose, we patch you up and you try again. Only the buy-in's on credit: I heal you now and it turns into debt if you don't win. Deal?\"",
-        "clube_oferta_divida": "Hornet taps the book. \"You owe me. But I got a job for that: betting pit, mine. You go in, you win, your debt's gone — all of it, no matter the size. No money, no experience, just settling up. You lose, we patch you up and you try again. The buy-in I float you — fifteen times — and I heal the whole crew. Deal?\"",
+        "clube_oferta_divida": "Hornet taps the book. \"You owe me. But I got a job for that: betting pit, mine. You go in, you win, your debt's gone — all of it, no matter the size. And you walk out with 200 cash. No experience though — nobody learns a thing in the pit. You lose, we patch you up and you try again. The buy-in I float you — fifteen times — and I heal the whole crew. Deal?\"",
         "clube_recusar": "Not now",
         "clube_aceitar": "Take it (blindfold now)",
         "pista": {

@@ -148,7 +148,7 @@ export default function GanguesVictoryReport({
               <motion.div key={item.id} className={`gang-reward-ap-item${item.ko ? ' gang-reward-ap-item--ko' : ''}`} initial={{ opacity: 0, x: -8 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.2 + index * 0.12 }}>
                 <span className="gang-reward-ap-item__nome">{item.nome}</span>
                 <strong className="gang-reward-ap-item__val">+{item.ap}</strong>
-                <small className="gang-reward-ap-item__label">{item.ko ? t('games.gangues.report.reward_ap_ko') : t('games.gangues.report.reward_ap')}</small>
+                <small className="gang-reward-ap-item__label">{item.ko ? t('games.gangues.report.reward_ap_ko') : item.noTeto ? t('games.gangues.report.reward_ap_teto', { n: item.teto }) : t('games.gangues.report.reward_ap')}</small>
               </motion.div>
             ))}
           </div>

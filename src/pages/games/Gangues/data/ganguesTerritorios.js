@@ -1,4 +1,5 @@
 import { GANGUES_LADDER_PASSO } from './ganguesDificuldade.js'
+import enemiesData from './gangues-enemies.json'
 
 /* ══════════════════════════════════════════════════════════════
    MODO HISTÓRIA — o mapa de Marelia, antes de ter dono
@@ -211,4 +212,20 @@ export function precisaVoltarNoInformante(territorio, storyProgress = {}) {
   const p = storyProgress[territorio.id] || { pontos: [], chefe: false }
   const pontosFeitos = (p.pontos?.length || 0) >= (territorio.pontos?.length || 0)
   return pontosFeitos && !storyProgress.__flags?.[territorio.id]
+}
+
+/** Teto de nível da área atual da história (pedido do Isaias, 28/09/2026:
+ *  "você só pode upar até o level recomendado pro chefe daquela área").
+ *  Área atual = 1º território (na ordem) cujo chefe ainda não caiu. O teto é
+ *  o nível do chefe dela (`nivel` da ficha em gangues-enemies.json; Carvão =
+ *  30), sem nunca baixar em relação a uma área anterior. Campanha zerada =
+ *  teto do jogo (99). */
+export function nivelTetoDaHistoria(storyProgress = {}, tetoJogo = 99) {
+  let teto = 1
+  for (const terr of [...GANGUES_TERRITORIOS].sort((a, b) => a.ordem - b.ordem)) {
+    const nivelChefe = Number(enemiesData.find(e => e.id === terr.chefe?.enemy)?.nivel) || 0
+    teto = Math.max(teto, nivelChefe)
+    if (!storyProgress?.[terr.id]?.chefe) return Math.min(teto, tetoJogo)
+  }
+  return tetoJogo
 }

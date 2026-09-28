@@ -251,6 +251,8 @@ export const POIS_PISTA = [
     // recompensa por risco.
     enemy: 1201,
     revezamento: { pool: PISTA_POOL_RUA, budgetPorCorpo: 3, chanceDupla: 0.35, ratioComTime: 1, baseMaisForte: true },
+    // Farm dá só XP, nunca grana (Isaias, 28/09/2026) — grana de grind é o Clube.
+    semGrana: true,
     forca: 1,
   },
   {

@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1790593706.5075462,
-    "ast_hash": "4bd28550f4c1b4beed64afe2b4232f10",
+    "mtime": 1790635450.6237986,
+    "ast_hash": "61741d363ffedc9925319bdc8202f622",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2730,8 +2730,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1790593706.5447545,
-    "ast_hash": "b8bdb2eac1ca45f89bf14d247aaa2d27",
+    "mtime": 1790635450.6261988,
+    "ast_hash": "9f55ed15f1c016dabeee736ef3a1a20c",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -5085,8 +5085,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/screens/GanguesCombat.jsx": {
-    "mtime": 1790478156.2775977,
-    "ast_hash": "f7013f0c82d39cba082934e9201f48cf",
+    "mtime": 1790634763.410672,
+    "ast_hash": "a27676cbc37836ff242cc41bc7b9d348",
     "semantic_hash": ""
   },
   "src/pages/games/Gangues/screens/GanguesCreate.jsx": {
@@ -5802,6 +5802,11 @@
   "src/pages/games/Gangues/hooks/useGanguesVelocidadeAuto.js": {
     "mtime": 1790469339.172626,
     "ast_hash": "f7eb91a463104470353ba1ffbe66de22",
+    "semantic_hash": ""
+  },
+  "src/pages/games/Gangues/hooks/useGanguesDanoAoVivo.js": {
+    "mtime": 1790634751.0936494,
+    "ast_hash": "973e462f807d444e1f6d088aa93ba768",
     "semantic_hash": ""
   }
 }

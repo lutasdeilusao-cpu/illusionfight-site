@@ -35,6 +35,7 @@
         "rewards_title": "Recompensa",
         "reward_ap": "Puntos de Acción",
         "reward_ap_ko": "Cayó — sin PA",
+        "reward_ap_teto": "Nivel máximo de la zona ({n}) — tumba al jefe para subir",
         "reward_grana": "Plata",
         "reward_rep": "Reputación",
         "rounds": "RONDAS",
@@ -4140,7 +4141,7 @@
         "clube_botao": "▸ El Club de la Pelea",
         "clube_oferta_tag": "Propuesta · la rueda del Avispón",
         "clube_oferta_limpo": "El Avispón te encara. \"Estás limpio conmigo. Pero tengo un laburo: rueda de apuestas, mía. Entrás, ganás, salís con 200 en la mano. No da experiencia — en la rueda nadie aprende nada. Perdés, te remendamos y probás de nuevo. Solo que la entrada te la fío: te curo ahora y eso queda como deuda si no ganás. ¿Arreglamos?\"",
-        "clube_oferta_divida": "El Avispón golpea la libreta. \"Me debés. Pero tengo un laburo para eso: rueda de apuestas, mía. Entrás, ganás, tu deuda desaparece — toda, no importa el tamaño. Sin plata, sin experiencia, solo el arreglo de cuentas. Perdés, te remendamos y probás de nuevo. La entrada ya te la fío — 15 veces — y curo a toda la tropa. ¿Arreglamos?\"",
+        "clube_oferta_divida": "El Avispón golpea la libreta. \"Me debés. Pero tengo un laburo para eso: rueda de apuestas, mía. Entrás, ganás, tu deuda desaparece — toda, no importa el tamaño. Y encima salís con 200 en la mano. Experiencia no da — en la rueda nadie aprende nada. Perdés, te remendamos y probás de nuevo. La entrada ya te la fío — 15 veces — y curo a toda la tropa. ¿Arreglamos?\"",
         "clube_recusar": "Ahora no",
         "clube_aceitar": "Aceptar (te vendan ya)",
         "pista": {

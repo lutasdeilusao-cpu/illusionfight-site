@@ -164,5 +164,8 @@ export function calcularRecompensaCena({ emCena, storyAlvo, enemyCount = 1, ehCh
       if (rec.item) itens.push({ id: rec.item, qtd: rec.qtd || 1 })
     }
   }
-  return { grana: calcularGranaTotal({ enemyCount, ehChefe }), rep, itens }
+  // `semGrana` (ex: a rinha — pedido do Isaias, 28/09/2026): farm dá só XP;
+  // grana de grind vem do Clube da Luta.
+  const grana = emCena && storyAlvo.semGrana ? 0 : calcularGranaTotal({ enemyCount, ehChefe })
+  return { grana, rep, itens }
 }
