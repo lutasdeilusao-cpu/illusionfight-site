@@ -10,9 +10,11 @@
    fora da tela, o jogo é só dado.
 
    Regras do Isaias:
-   • só conta com a aba ABERTA (app em segundo plano). Fechou a aba, perdeu
-     — o ponto de partida mora só na memória da página, de propósito, pra o
-     jogo não virar "esquece e volta rico";
+   • o ponto de saída mora no SAVE (storyProgress.__farmAusente, gravado na
+     hora em que o app vai pro fundo): se o celular descartar a aba, a volta
+     ainda calcula o tempo fora (Isaias, 28/09/2026: "se o cara ficou upando,
+     isso tem que estar no save dele"). O que segura o "esquece e volta
+     rico" é o ritmo (6 lutas/hora) e o teto de níveis;
    • no máximo +5 níveis por ausência (GANGUES_FARM_TETO_NIVEIS): bateu, para;
    • farma SÓ o adversário que o jogador estava grindando — o da última
      luta (`posicao.adversario`), com o mesmo gerador de bando e o mesmo
@@ -267,12 +269,12 @@ function aplicarLuta({ store, cena, alvo, party, outcome, combatants, resumo, au
  *  • `farmar`: depois dela (ou sem ela), segue grindando o adversário da última
  *    luta pelo resto do tempo — só com a briga automática ligada.
  *  Devolve o resumo pra tela "Enquanto você tava fora". */
-export function simularFarmAusente({ store, cena, territorioId, segundos, enemiesData, onDerrota, lutaEmAndamento = null, farmar = true }) {
+export function simularFarmAusente({ store, cena, territorioId, segundos, enemiesData, onDerrota, lutaEmAndamento = null, alvoMarcado = null, idsMarcados = null, farmar = true }) {
   const s0 = store()
   const autoConfig = lerAutoConfig()
   const selecionados = s0.activeParty.filter(m => s0.roster.some(r => r.id === m.id))
-  const ids = lutaEmAndamento
-    ? (s0.match.playerTeam || []).map(m => m.id)
+  const ids = idsMarcados?.length
+    ? idsMarcados.filter(id => s0.roster.some(r => r.id === id))
     : (selecionados.length ? selecionados : s0.roster).slice(0, GANGUES_STORY_BATTLE_PARTY_MAX).map(m => m.id)
   const nivel0 = Object.fromEntries(s0.roster.filter(m => ids.includes(m.id)).map(m => [m.id, nivelDe(m)]))
   const modo = s0.storyProgress?.__dificuldade || 'medio'
@@ -281,7 +283,7 @@ export function simularFarmAusente({ store, cena, territorioId, segundos, enemie
   let tempo = segundos
 
   if (lutaEmAndamento) {
-    const alvo = s0.storyTarget || {}
+    const alvo = alvoMarcado || {}
     const party = s0.roster.filter(m => ids.includes(m.id))
     const inicio = iniciarBrigaMultidaoDeCombatentes(lutaEmAndamento.combatants, lutaEmAndamento.round || 1)
     const { outcome, combatants, usos } = rodarLuta(inicio, { store, config: autoConfig })
@@ -292,7 +294,6 @@ export function simularFarmAusente({ store, cena, territorioId, segundos, enemie
       resumo.meioNaoConta = true
       segue = false
     } else {
-      s0.endMatch(outcome)
       gastarPocoes(store, usos, resumo)
       segue = aplicarLuta({ store, cena, alvo, party, outcome, combatants, resumo, autoConfig, onDerrota })
       tempo -= GANGUES_FARM_S_POR_LUTA
@@ -304,17 +305,17 @@ export function simularFarmAusente({ store, cena, territorioId, segundos, enemie
   // aquele adversário (Isaias, 28/09/2026), seja ele o que for (ponto
   // repetível, papo que virou briga, encontro aleatório):
   // • saiu NO MEIO de uma luta → essa luta;
-  // • a tropa já tinha voltado pra rua → a última luta desta página
-  //   (ultimaLuta), se ela é deste bairro e fora da área do chefe; senão
-  //   (página recarregada), o adversário da última luta salvo (alvoDoFarm).
+  // • a tropa já tinha voltado pra rua → a última luta de bairro (a marca de
+  //   saída guarda ela — ultimaLuta), se é deste bairro e fora da área do
+  //   chefe; sem ela, o adversário da última luta salvo (alvoDoFarm).
   let gerarBando = null, alvo = null
   if (segue && farmar && tempo > 0) {
     const prog = store().cenaProgresso[cena.id] || { resolvidos: {}, revelados: {} }
-    const daRua = !lutaEmAndamento && lutaRepetivel(ultimaLuta.alvo)?.cenaId === cena.id
+    const daRua = !lutaEmAndamento && lutaRepetivel(alvoMarcado)?.cenaId === cena.id
       && !naAreaDoChefe(cena, prog, prog.posicao || {})
-      && !naAreaDoChefe(cena, prog, posNoMapa(cena, ultimaLuta.alvo.cenaPoiId) || {})
-      ? ultimaLuta.alvo : null
-    const original = lutaEmAndamento ? s0.storyTarget : daRua
+      && !naAreaDoChefe(cena, prog, posNoMapa(cena, alvoMarcado.cenaPoiId) || {})
+      ? alvoMarcado : null
+    const original = lutaEmAndamento ? alvoMarcado : daRua
     const poi = original ? null : alvoDoFarm(cena, prog, store().rep)
     if (original) {
       resumo.poiId = original.cenaPoiId

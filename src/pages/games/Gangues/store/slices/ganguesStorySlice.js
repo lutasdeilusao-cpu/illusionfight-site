@@ -73,6 +73,21 @@ export default function createGanguesStorySlice(set, get) {
       get()._persistStory()
     },
 
+    // Farm ausente (components/cena/GanguesFarmAusente.jsx): a MARCA de saída
+    // — { desde, territorioId, alvo, luta, ids, farmar } — mora no save
+    // (storyProgress.__farmAusente) e é gravada NA HORA, sem debounce: se o
+    // celular descartar a aba, a volta ainda acha o ponto de saída e calcula
+    // o tempo fora (Isaias, 28/09/2026: "tem que estar guardado no save").
+    marcarFarmAusente: (marca) => {
+      set(state => ({ storyProgress: { ...state.storyProgress, __farmAusente: marca } }))
+      get()._persistStory(true)
+    },
+    limparFarmAusente: () => {
+      if (!get().storyProgress.__farmAusente) return
+      set(state => { const { __farmAusente, ...resto } = state.storyProgress; return { storyProgress: resto } }) // eslint-disable-line no-unused-vars
+      get()._persistStory(true)
+    },
+
     marcarInformante: (chave) => {
       set(state => ({ storyProgress: { ...state.storyProgress, __flags: { ...(state.storyProgress.__flags || {}), [chave]: true } } }))
       get()._persistStory()

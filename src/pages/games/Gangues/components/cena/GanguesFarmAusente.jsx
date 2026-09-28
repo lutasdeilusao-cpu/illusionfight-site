@@ -3,99 +3,122 @@ import { useLanguage } from '../../../../../context/LanguageContext'
 import { useGanguesStore } from '../../store/useGanguesStore'
 import { CENAS_POR_ID } from '../../data/cenas/cenaHelpers.js'
 import { brigaAutoLigada, desligarAutomaticos } from '../../hooks/useGanguesBrigaAutomatica.js'
-import { simularFarmAusente, lutaAoVivo, lutaRepetivel } from '../../engine/ganguesFarmAusente.js'
+import { simularFarmAusente, lutaAoVivo, lutaRepetivel, ultimaLuta } from '../../engine/ganguesFarmAusente.js'
 import enemiesData from '../../data/gangues-enemies.json'
 
 // Farm ausente (ver engine/ganguesFarmAusente.js). Envolve a CENA, a LUTA e
 // a tela de VITÓRIA (por onde o avanço automático passa entre luta e rua).
-// App em segundo plano por MENOS de 3 minutos: nada muda — troca rápida de
-// app não dispara nada (Isaias, 28/09/2026). Bateu 3 minutos no fundo:
-// • cena: com a briga automática ligada, a cena é DESMONTADA (imagens,
-//   animações e relógios somem da memória);
-// • luta (`luta`): numa luta de rua da cena com o automático ligado, a tela
-//   da luta é desmontada (som e relógios param) e o estado vivo dela
-//   (lutaAoVivo) é guardado pra ser terminado por cálculo. Chefe, Clube e
-//   Torre ficam de fora.
-// Na volta: tela de carga, a conta do tempo TODO fora (os 3 minutos
-// inclusos) e o resumo; o "voltar" leva pra rua (`aoVoltar` — na luta, a
-// cena daquele bairro: o ponto da briga ou a birosca). Se o celular congelou
-// a aba e a espera de 3 minutos nem disparou, a conta sai igual na volta.
-// Fechar a aba perde tudo: o instante da saída mora só na memória da página.
+//
+// O PONTO DE SAÍDA MORA NO SAVE (Isaias, 28/09/2026: "voltei, tava em tela
+// preta, não me mostrou relatório... se o cara ficou upando, isso tem que
+// estar guardado no save dele"). App foi pro fundo numa tela que vale pro
+// farm → grava NA HORA a marca `storyProgress.__farmAusente` = { desde,
+// territorioId, alvo, luta, ids, farmar } (store.marcarFarmAusente, sem
+// debounce). Assim, se o celular descartar a aba, a volta — mesmo com a
+// página recarregada, ao abrir o save — acha a marca e calcula o tempo fora.
+// • menos de 3 minutos fora: nada muda (troca rápida de app), a marca some;
+// • 3 minutos no fundo com a página viva: a tela é DESMONTADA (imagens,
+//   animações, som e relógios somem da memória) e a marca ganha a foto mais
+//   nova (a luta do jeito que estava);
+// • volta: tela de carga, a conta do tempo TODO fora (os 3 minutos inclusos)
+//   e o resumo; o "voltar" leva pra rua (`aoVoltar`).
+// Quem vale: luta de bairro com o automático ligado (`luta`, chefe/Clube/Torre
+// não), a cena com a briga automática ligada, e a vitória de uma luta de
+// bairro com a briga automática ligada (`vitoria`). Tela que NÃO vale e monta
+// com o app no fundo (ex.: a luta acabou e o automático da rua tava
+// desligado) apaga a marca — a tropa parou de farmar ali.
 const GANGUES_FARM_ESPERA_MS = 3 * 60 * 1000
-// Instante em que o app foi pro fundo — um só pra cena e luta: nos 3 minutos
-// de espera o jogo segue vivo e a tropa pode sair da rua pra uma luta (ou
-// voltar dela); quem estiver montado quando a espera acabar é que desmonta.
-const ausencia = { desde: null }
-
-function lutaElegivel() {
-  const viva = lutaAoVivo.ler?.()
-  return viva && viva.auto && !viva.terminou && lutaRepetivel(useGanguesStore.getState().storyTarget) ? viva : null
-}
 const PAUSA_CALCULO_MS = 700
+
+const marcaAtual = () => useGanguesStore.getState().storyProgress?.__farmAusente || null
+
+// O que esta tela deixa na marca de saída — null se ela não vale pro farm.
+function fotoDaTela({ luta, vitoria }) {
+  const st = useGanguesStore.getState()
+  if (luta) {
+    const viva = lutaAoVivo.ler?.()
+    const alvo = lutaRepetivel(st.storyTarget)
+    // Luta já acabou (tela de resultado, a vitória vem em seguida): vale igual
+    // à vitória — sem luta pra terminar, farma essa mesma luta depois.
+    if (viva?.terminou) return brigaAutoLigada() && alvo ? { territorioId: alvo.territorioId, alvo, luta: null, ids: null, farmar: true } : null
+    if (!viva || !viva.auto || !alvo || !viva.combatants?.length) return null
+    return { territorioId: alvo.territorioId, alvo, luta: { combatants: viva.combatants, round: viva.round || 1 }, ids: (st.match.playerTeam || []).map(m => m.id), farmar: true }
+  }
+  if (!brigaAutoLigada()) return null
+  const territorioId = st.storyTarget?.territorioId
+  if (!CENAS_POR_ID[territorioId]) return null
+  const alvo = lutaRepetivel(vitoria ? st.storyTarget : ultimaLuta.alvo)
+  if (vitoria && !alvo) return null
+  return { territorioId, alvo: alvo || null, luta: null, ids: null, farmar: true }
+}
 
 export default function GanguesFarmAusente({ children, luta = false, vitoria = false, aoVoltar }) {
   const { t } = useLanguage()
+  const tRef = useRef(t); tRef.current = t
   const [fase, setFase] = useState('cena') // cena | fora | calculando | resultado
+
   const [resumo, setResumo] = useState(null)
-  const lutaGuardada = useRef(null)
-  const desmontada = useRef(false)
 
   useEffect(() => {
     let espera, timer
-    // Desmonta a tela (se esta tela vale pro farm) — devolve se desmontou.
-    const desmontar = () => {
-      if (desmontada.current) return true
-      const viva = luta ? lutaElegivel() : null
-      // Tela de vitória (vitoria): a luta acabou no automático durante a
-      // espera e o avanço automático ainda não voltou pra rua — vale igual
-      // à rua, farmando essa luta (a derrota desliga a briga automática).
-      if (luta ? !viva : !brigaAutoLigada() || (vitoria && !lutaRepetivel(useGanguesStore.getState().storyTarget))) return false
-      lutaGuardada.current = viva
-      desmontada.current = true
-      setFase('fora')
+    const store = useGanguesStore.getState
+    // Grava/atualiza a marca com a foto desta tela (mantém o `desde` de quem
+    // saiu primeiro). Tela que não vale apaga a marca. Devolve se vale.
+    const anotar = () => {
+      const foto = fotoDaTela({ luta, vitoria })
+      if (!foto) { store().limparFarmAusente(); return false }
+      store().marcarFarmAusente({ ...foto, desde: marcaAtual()?.desde || Date.now() })
       return true
     }
-    const armarEspera = () => {
+    const armar = () => {
       clearTimeout(espera)
-      espera = setTimeout(desmontar, Math.max(0, GANGUES_FARM_ESPERA_MS - (Date.now() - ausencia.desde)))
+      const m = marcaAtual()
+      if (!m) return
+      const acabou = () => {
+        // A luta acabou agora: a tela de vitória (que aplica o prêmio dela)
+        // tem que montar antes — ela mesma desmonta, que também é farm.
+        if (luta && lutaAoVivo.ler?.()?.terminou) { espera = setTimeout(acabou, 3000); return }
+        if (anotar()) setFase('fora')
+      }
+      espera = setTimeout(acabou, Math.max(0, GANGUES_FARM_ESPERA_MS - (Date.now() - m.desde)))
     }
-    const aoMudar = () => {
-      if (document.hidden) {
-        if (!ausencia.desde) ausencia.desde = Date.now()
-        armarEspera()
+    // App na frente com uma marca de saída: faz a conta (ou descarta se foi
+    // troca rápida). Sem marca, nunca fica preso na tela desmontada.
+    const processar = () => {
+      clearTimeout(espera)
+      const m = marcaAtual()
+      const ms = m ? Date.now() - m.desde : 0
+      if (!m || ms < GANGUES_FARM_ESPERA_MS) {
+        if (m) store().limparFarmAusente()
+        setFase(f => (f === 'fora' ? 'cena' : f))
         return
       }
-      clearTimeout(espera)
-      if (!ausencia.desde) return
-      const ms = Date.now() - ausencia.desde
-      ausencia.desde = null
-      if (ms < GANGUES_FARM_ESPERA_MS || !desmontar()) return // troca rápida (ou tela fora do farm): segue o jogo
-      const emAndamento = lutaGuardada.current
-      lutaGuardada.current = null
-      desmontada.current = false
-      const segundos = ms / 1000
       setFase('calculando')
       // Deixa a tela de carga pintar antes da conta (que roda de uma vez).
       timer = setTimeout(() => {
-        const store = useGanguesStore.getState
-        const territorioId = store().storyTarget?.territorioId
-        const cena = CENAS_POR_ID[territorioId]
-        const r = cena ? simularFarmAusente({ store, cena, territorioId, segundos, enemiesData, onDerrota: desligarAutomaticos, lutaEmAndamento: emAndamento, farmar: Boolean(emAndamento) || brigaAutoLigada() }) : null
+        const cena = CENAS_POR_ID[m.territorioId]
+        const segundos = ms / 1000
+        store().limparFarmAusente()
+        const r = cena ? simularFarmAusente({ store, cena, territorioId: m.territorioId, segundos, enemiesData, onDerrota: desligarAutomaticos, lutaEmAndamento: m.luta, alvoMarcado: m.alvo, idsMarcados: m.ids, farmar: m.farmar !== false }) : null
         const poi = r?.poiId ? cena.pois.find(p => p.id === r.poiId) : null
-        const lugar = poi?.i18n ? t(`${poi.i18n}.nome`) : r?.poiId === '__aleatorio' ? t('games.gangues.farm_ausente.na_rua') : ''
+        const lugar = poi?.i18n ? tRef.current(`${poi.i18n}.nome`) : r?.poiId === '__aleatorio' ? tRef.current('games.gangues.farm_ausente.na_rua') : ''
         setResumo({ ...(r || { lutas: 0, niveis: {} }), segundos, lugar })
         setFase('resultado')
       }, PAUSA_CALCULO_MS)
     }
+    const aoMudar = () => {
+      if (!document.hidden) { processar(); return }
+      if (anotar()) armar()
+    }
     document.addEventListener('visibilitychange', aoMudar)
-    // Montou já com o app no fundo (ex.: a luta começou durante a espera):
-    // continua a mesma contagem de 3 minutos. Montou com o app na frente e
-    // uma saída ainda marcada: a volta caiu numa tela fora do farm — essa
-    // saída já passou, não pode virar farm na próxima ida pro fundo.
-    if (document.hidden && ausencia.desde) armarEspera()
-    else if (!document.hidden) ausencia.desde = null
+    // Montou com o app no fundo (a luta começou/acabou durante a espera):
+    // atualiza a marca e segue a mesma contagem de 3 minutos. Montou com o
+    // app na frente e uma marca no save (página recarregada depois de a aba
+    // ser descartada, ou a volta caiu numa tela fora do farm): faz a conta.
+    if (document.hidden) { if (marcaAtual() && anotar()) armar() }
+    else if (marcaAtual()) processar()
     return () => { clearTimeout(espera); clearTimeout(timer); document.removeEventListener('visibilitychange', aoMudar) }
-  }, [t, luta, vitoria])
+  }, [luta, vitoria])
 
   if (fase === 'fora') return null
   if (fase === 'calculando') {

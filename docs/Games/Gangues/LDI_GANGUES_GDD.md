@@ -24,7 +24,7 @@ Grafia oficial: **Marélia** com acento (o conto usa assim). O i18n do jogo aind
 tem "Marelia" sem acento em vários lugares — alinhar quando mexer em texto.
 
 > **Estado do documento: retrato do jogo como ele está HOJE — conferido contra
-> o código de GANGUES 3.76.1 (SITE 10.307.x), 28/09/2026.** Regra: o GDD
+> o código de GANGUES 3.76.2 (SITE 10.307.x), 28/09/2026.** Regra: o GDD
 > descreve o produto atual, não guarda diário de versões — quando algo muda
 > no jogo, o trecho que falava da versão antiga é REESCRITO, não empilhado
 > embaixo com "v3.xx: agora...". Histórico de mudança mora no git.
@@ -2203,8 +2203,16 @@ rápida de app (menos de 3 min) não muda nada — o jogo segue como estava. Bat
   rep — a rep não desce abaixo de 0, então o "−1" do "aperta" com a rep já em
   0 aparece como +0.
 - **Teto: +5 níveis por ausência** — bateu, para.
-- **Só com a aba aberta:** fechou a aba, perdeu (o instante da saída mora só na
-  memória da página, de propósito — o jogo não vira "esquece e volta rico").
+- **O ponto de saída mora no save** (`storyProgress.__farmAusente`, gravado
+  na hora, sem debounce, quando o app vai pro fundo numa tela que vale pro
+  farm: `{ desde, territorioId, alvo, luta, ids }`). Se o celular descartar a
+  aba, abrir o save de novo acha a marca e calcula o tempo fora — relatório
+  igual. A marca é atualizada quando outra tela monta no fundo (a luta acabou
+  → vitória → rua) e quando a tela desmonta aos 3 min; tela que não vale
+  (ex.: vitória com a briga automática desligada) apaga a marca. Sem marca na
+  volta, a tela desmontada volta pra rua — nunca fica preta. Fechar a aba de
+  propósito conta igual (não dá pra diferenciar de descarte); o que segura o
+  "esquece e volta rico" é o ritmo de 6 lutas/hora e o teto de +5 níveis.
 - **Perdeu uma luta, para ali:** sem XP da luta em que caiu, a tropa acorda na
   birosca **daquele bairro** (Pista: birosca; Feira: pensão — o mesmo socorro
   da derrota) e todo automático desliga.
