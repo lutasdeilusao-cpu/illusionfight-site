@@ -24,7 +24,7 @@ Grafia oficial: **Marélia** com acento (o conto usa assim). O i18n do jogo aind
 tem "Marelia" sem acento em vários lugares — alinhar quando mexer em texto.
 
 > **Estado do documento: retrato do jogo como ele está HOJE — conferido contra
-> o código de GANGUES 3.75.0 (SITE 10.307.x), 28/09/2026.** Regra: o GDD
+> o código de GANGUES 3.75.1 (SITE 10.307.x), 28/09/2026.** Regra: o GDD
 > descreve o produto atual, não guarda diário de versões — quando algo muda
 > no jogo, o trecho que falava da versão antiga é REESCRITO, não empilhado
 > embaixo com "v3.xx: agora...". Histórico de mudança mora no git.
@@ -2136,18 +2136,24 @@ entre o analógico e o botão de interagir (`ldi-gangues-briga-auto`).
   `desligarAutomaticos()`.
 
 **Farm ausente — o idle** (`engine/ganguesFarmAusente.js` +
-`components/cena/GanguesFarmAusente.jsx`). O jogo **não roda escondido** — o
-embrulho do farm envolve a cena E a luta:
-- **Na rua**, com a briga automática ligada, o app ir pra segundo plano
-  **desmonta a cena** (imagens, animações e relógios saem da memória).
+`components/cena/GanguesFarmAusente.jsx`). O embrulho do farm envolve a cena
+E a luta. **Só entra depois de 3 minutos com o app em segundo plano**: troca
+rápida de app (menos de 3 min) não muda nada — o jogo segue como estava. Bateu
+3 minutos no fundo, o jogo **para de rodar escondido**:
+- **Na rua**, com a briga automática ligada, a **cena é desmontada** (imagens,
+  animações e relógios saem da memória).
 - **No meio de uma luta de rua da cena com o automático ligado**, a **tela da
   luta** é desmontada (som e relógios param) e o estado vivo dela — PV/PM de
   cada um, rodada — é guardado (`lutaAoVivo`, que o `GanguesCombat` mantém
   atualizado). Na volta, essa MESMA luta é terminada por cálculo do ponto
   exato onde parou, e só depois vem o farm. Luta de chefe, Clube e Torre, ou
   luta no manual, ficam de fora (seguem na tela como sempre).
-- Na volta: tela de carga, conta, e o resumo "Enquanto você tava fora"
-  (brigas, grana, rep, sucata, poções, quem subiu de nível). O "Voltar pra
+- Na volta: tela de carga, a conta do **tempo todo fora** (os 3 minutos de
+  espera inclusos) e o resumo "Enquanto você tava fora" (brigas, grana, rep,
+  sucata, poções, quem subiu de nível). Se o celular congelou a aba e a espera
+  nem chegou a disparar, a conta sai igual na volta. O instante da saída é um
+  só pra rua e luta — nos 3 minutos a tropa pode sair da rua pra uma luta, e
+  quem estiver na tela quando a espera acabar é que desmonta. O "Voltar pra
   rua" leva pra cena daquele bairro: no ponto da briga, ou na birosca se a
   tropa caiu.
 - **Contas iguais às de uma luta de verdade:** o gerador de bando e o nível
@@ -2161,9 +2167,8 @@ embrulho do farm envolve a cena E a luta:
   (`posicao.adversario`, lembrado mesmo entrando em cômodo ou sendo pego por
   encontro aleatório). Nunca "a região". Sem adversário, ou se ele é
   vermelho/chefe/área do chefe, não farma nada.
-- **1 luta a cada 40s** fora; mínimo de 30s fora pra farmar (a luta
-  interrompida sempre termina, mesmo com menos). O farm depois dela só roda
-  com a briga automática ligada.
+- **1 luta a cada 40s** fora. A luta interrompida sempre termina; o farm
+  depois dela só roda com a briga automática ligada (e sobrando 30s+).
 - **Teto: +5 níveis por ausência** — bateu, para.
 - **Só com a aba aberta:** fechou a aba, perdeu (o instante da saída mora só na
   memória da página, de propósito — o jogo não vira "esquece e volta rico").

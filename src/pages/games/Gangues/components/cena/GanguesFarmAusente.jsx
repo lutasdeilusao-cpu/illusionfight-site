@@ -3,19 +3,29 @@ import { useLanguage } from '../../../../../context/LanguageContext'
 import { useGanguesStore } from '../../store/useGanguesStore'
 import { CENAS_POR_ID } from '../../data/cenas/cenaHelpers.js'
 import { brigaAutoLigada, desligarAutomaticos } from '../../hooks/useGanguesBrigaAutomatica.js'
-import { simularFarmAusente, lutaAoVivo, GANGUES_FARM_MIN_S } from '../../engine/ganguesFarmAusente.js'
+import { simularFarmAusente, lutaAoVivo } from '../../engine/ganguesFarmAusente.js'
 import enemiesData from '../../data/gangues-enemies.json'
 
-// Farm ausente (ver engine/ganguesFarmAusente.js). Envolve a CENA e a LUTA:
-// • cena: app foi pra segundo plano com a briga automática ligada → a cena é
-//   DESMONTADA (imagens, animações e relógios somem da memória);
-// • luta (`luta`): app foi pro fundo no meio de uma luta de rua da cena com o
-//   automático ligado → a tela da luta é desmontada (som e relógios param) e
-//   o estado vivo dela (lutaAoVivo) é guardado pra ser terminado por cálculo.
-//   Chefe, Clube e Torre ficam de fora (continuam como sempre).
-// Voltou → tela de carga, conta e o resumo; o "voltar" leva pra rua
-// (`aoVoltar` — na luta, a cena daquele bairro: o ponto da briga ou a
-// birosca). Fechar a aba perde tudo: o instante da saída mora só aqui (ref).
+// Farm ausente (ver engine/ganguesFarmAusente.js). Envolve a CENA e a LUTA.
+// App em segundo plano por MENOS de 3 minutos: nada muda — troca rápida de
+// app não dispara nada (Isaias, 28/09/2026). Bateu 3 minutos no fundo:
+// • cena: com a briga automática ligada, a cena é DESMONTADA (imagens,
+//   animações e relógios somem da memória);
+// • luta (`luta`): numa luta de rua da cena com o automático ligado, a tela
+//   da luta é desmontada (som e relógios param) e o estado vivo dela
+//   (lutaAoVivo) é guardado pra ser terminado por cálculo. Chefe, Clube e
+//   Torre ficam de fora.
+// Na volta: tela de carga, a conta do tempo TODO fora (os 3 minutos
+// inclusos) e o resumo; o "voltar" leva pra rua (`aoVoltar` — na luta, a
+// cena daquele bairro: o ponto da briga ou a birosca). Se o celular congelou
+// a aba e a espera de 3 minutos nem disparou, a conta sai igual na volta.
+// Fechar a aba perde tudo: o instante da saída mora só na memória da página.
+const GANGUES_FARM_ESPERA_MS = 3 * 60 * 1000
+// Instante em que o app foi pro fundo — um só pra cena e luta: nos 3 minutos
+// de espera o jogo segue vivo e a tropa pode sair da rua pra uma luta (ou
+// voltar dela); quem estiver montado quando a espera acabar é que desmonta.
+const ausencia = { desde: null }
+
 function lutaElegivel() {
   const viva = lutaAoVivo.ler?.()
   const alvo = useGanguesStore.getState().storyTarget
@@ -27,28 +37,40 @@ export default function GanguesFarmAusente({ children, luta = false, aoVoltar })
   const { t } = useLanguage()
   const [fase, setFase] = useState('cena') // cena | fora | calculando | resultado
   const [resumo, setResumo] = useState(null)
-  const saiuEm = useRef(null)
   const lutaGuardada = useRef(null)
+  const desmontada = useRef(false)
 
   useEffect(() => {
-    let timer
+    let espera, timer
+    // Desmonta a tela (se esta tela vale pro farm) — devolve se desmontou.
+    const desmontar = () => {
+      if (desmontada.current) return true
+      const viva = luta ? lutaElegivel() : null
+      if (luta ? !viva : !brigaAutoLigada()) return false
+      lutaGuardada.current = viva
+      desmontada.current = true
+      setFase('fora')
+      return true
+    }
+    const armarEspera = () => {
+      clearTimeout(espera)
+      espera = setTimeout(desmontar, Math.max(0, GANGUES_FARM_ESPERA_MS - (Date.now() - ausencia.desde)))
+    }
     const aoMudar = () => {
       if (document.hidden) {
-        if (saiuEm.current) return
-        const viva = luta ? lutaElegivel() : null
-        if (luta ? !viva : !brigaAutoLigada()) return
-        lutaGuardada.current = viva
-        saiuEm.current = Date.now()
-        setFase('fora')
+        if (!ausencia.desde) ausencia.desde = Date.now()
+        armarEspera()
         return
       }
-      if (!saiuEm.current) return
-      const segundos = (Date.now() - saiuEm.current) / 1000
-      saiuEm.current = null
+      clearTimeout(espera)
+      if (!ausencia.desde) return
+      const ms = Date.now() - ausencia.desde
+      ausencia.desde = null
+      if (ms < GANGUES_FARM_ESPERA_MS || !desmontar()) return // troca rápida (ou tela fora do farm): segue o jogo
       const emAndamento = lutaGuardada.current
       lutaGuardada.current = null
-      // Luta desmontada não tem como voltar pra tela: sempre termina por conta.
-      if (!emAndamento && segundos < GANGUES_FARM_MIN_S) { setFase('cena'); return }
+      desmontada.current = false
+      const segundos = ms / 1000
       setFase('calculando')
       // Deixa a tela de carga pintar antes da conta (que roda de uma vez).
       timer = setTimeout(() => {
@@ -62,7 +84,10 @@ export default function GanguesFarmAusente({ children, luta = false, aoVoltar })
       }, PAUSA_CALCULO_MS)
     }
     document.addEventListener('visibilitychange', aoMudar)
-    return () => { clearTimeout(timer); document.removeEventListener('visibilitychange', aoMudar) }
+    // Montou já com o app no fundo (ex.: a luta começou durante a espera):
+    // continua a mesma contagem de 3 minutos.
+    if (document.hidden && ausencia.desde) armarEspera()
+    return () => { clearTimeout(espera); clearTimeout(timer); document.removeEventListener('visibilitychange', aoMudar) }
   }, [t, luta])
 
   if (fase === 'fora') return null

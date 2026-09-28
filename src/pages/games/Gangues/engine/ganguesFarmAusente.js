@@ -46,8 +46,9 @@ import { GANGUES_ITENS_LISTA } from '../data/ganguesItens.js'
 import { getEquippedActiveGanguesSpecials } from './ganguesSpecialEffects.js'
 import { lerAutoConfig, melhorPocao, POCAO_LIMIAR_PV } from '../hooks/useGanguesModoAuto.js'
 
-/** Menos que isso fora não conta (troca rápida de app não vira farm). */
-export const GANGUES_FARM_MIN_S = 30
+/** Sobra mínima de tempo (depois da luta interrompida) pra ainda farmar. A
+ *  espera de 3 minutos antes de tudo isso mora no GanguesFarmAusente.jsx. */
+const GANGUES_FARM_MIN_S = 30
 /** Quanto dura um ciclo de farm de verdade com a briga automática: encostar,
  *  lutar no automático e as telas de fim (medido ao vivo: ~25–35s). */
 const GANGUES_FARM_SEGUNDOS_POR_LUTA = 40
