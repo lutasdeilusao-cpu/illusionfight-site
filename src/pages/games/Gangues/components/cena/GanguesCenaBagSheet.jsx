@@ -1,3 +1,4 @@
+import { GANGUES_STATUS } from '../../engine/ganguesStatus.js'
 import { useState } from 'react'
 import { sfx } from '../../../../../lib/sfx'
 import { GANGUES_STORY_BATTLE_PARTY_MAX, getGanguesResources } from '../../data/ganguesLoadout.js'
@@ -26,10 +27,19 @@ export default function GanguesCenaBagSheet({ store, t, onClose }) {
       id: m.id, nome: m.sheet_name || '?',
       pv: Math.min(res.pvMax, Number(m.attributes?.pv_atual ?? res.pvMax)), pvMax: res.pvMax,
       pm: Math.min(res.pmMax, Number(m.attributes?.pm_atual ?? res.pmMax)), pmMax: res.pmMax,
+      statuses: Array.isArray(m.attributes?.status_atual) ? m.attributes.status_atual : [],
     }
   })
-  const podeUsar = it => it.tipo === 'cura_pv' || it.tipo === 'cura_pm'
+  const podeUsar = it => it.tipo === 'cura_pv' || it.tipo === 'cura_pm' || it.tipo === 'cura_status'
+  const temStatus = (m, status) => m.statuses.some(s => status === 'todos' || s.id === status)
   const usarEm = (item, memberId) => {
+    if (item.tipo === 'cura_status') {
+      const nome = time.find(m => m.id === memberId)?.nome || '?'
+      if (store.curarStatusMembro(memberId, item.status) > 0) { store.usarItem(item.id); sfx.reward?.(); setFeito(t('games.gangues.bag.status_curado', { nome })) }
+      else { sfx.cancel(); setFeito(t('games.gangues.bag.sem_status', { nome })) }
+      setUsando(null); setTimeout(() => setFeito(null), 2200)
+      return
+    }
     const r = store.curarMembro(memberId, item.tipo, item.valor)
     if (r.curou > 0) { store.usarItem(item.id); sfx.reward?.(); setFeito(`${r.nome} +${r.curou} ${r.campo}`) }
     else { sfx.cancel(); setFeito(t('games.gangues.bag.ja_cheio', { nome: r.nome })) }
@@ -65,10 +75,11 @@ export default function GanguesCenaBagSheet({ store, t, onClose }) {
       {usando && <div className="gang-bag-alvos">
         <small>{t('games.gangues.bag.usar_em', { item: t(usando.nome) })}</small>
         {time.map(m => {
-          const cheio = usando.tipo === 'cura_pm' ? m.pm >= m.pmMax : m.pv >= m.pvMax
+          const ehStatus = usando.tipo === 'cura_status'
+          const cheio = ehStatus ? !temStatus(m, usando.status) : usando.tipo === 'cura_pm' ? m.pm >= m.pmMax : m.pv >= m.pvMax
           return <button key={m.id} className="gang-bag-alvo" disabled={cheio} onClick={() => usarEm(usando, m.id)}>
             <strong>{m.nome}</strong>
-            <em>{usando.tipo === 'cura_pm' ? `${m.pm}/${m.pmMax} PM` : `${m.pv}/${m.pvMax} PV`}</em>
+            <em>{ehStatus ? (m.statuses.map(s => GANGUES_STATUS[s.id]?.icone).join(' ') || '—') : usando.tipo === 'cura_pm' ? `${m.pm}/${m.pmMax} PM` : `${m.pv}/${m.pvMax} PV`}</em>
           </button>
         })}
       </div>}

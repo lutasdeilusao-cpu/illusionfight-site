@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import { resolveGanguesAction } from '../engine/ganguesCombatResolver.js'
+import { resolveGanguesAction, resolveGanguesCura } from '../engine/ganguesCombatResolver.js'
+import { atribuirPersonas, decidirAcaoInimigo } from '../engine/ganguesPersonas.js'
 import { iniciarLinhaDoTempo, proximaVez, consumirVez, marcarAgiu, ordemDeVelocidade } from '../engine/ganguesLinhaDoTempo.js'
 import { getGanguesResources, normalizeGanguesLoadout } from '../data/ganguesLoadout.js'
 import { getGanguesAttributesWithEquip, applyGanguesEquipResources } from '../data/ganguesEquip.js'
@@ -37,11 +38,20 @@ export function prepare(combatant, side, index) {
   // quando descansou/dominou o território. Inimigo sempre entra cheio.
   const pvInicial = enemy ? resources.pvMax : Math.min(resources.pvMax, Number(normalized.attributes?.pv_atual ?? resources.pvMax))
   const pmInicial = enemy ? resources.pmMax : Math.min(resources.pmMax, Number(normalized.attributes?.pm_atual ?? resources.pmMax))
-  return { ...normalized, key: `${side}-${index}-${combatant.id}`, side, statuses: [], pv: pvInicial, pm: pmInicial, pvMax: resources.pvMax, pmMax: resources.pmMax, actedThisRound: false, specialState: { charge: 0, shield: 0, totalPvLost: 0 } }
+  return { ...normalized, key: `${side}-${index}-${combatant.id}`, side,
+    // Status do jogador persiste entre lutas (status_atual, gravado junto do
+    // PV/PM) — só sai com item ou no descanso completo.
+    statuses: enemy ? [] : (Array.isArray(normalized.attributes?.status_atual) ? normalized.attributes.status_atual : []), pv: pvInicial, pm: pmInicial, pvMax: resources.pvMax, pmMax: resources.pmMax, actedThisRound: false, specialState: { charge: 0, shield: 0, totalPvLost: 0 } }
+}
+
+/** Prepara os dois times e sorteia as personas dos inimigos — usado pelos
+ *  dois motores (normal e Briga em Multidão). */
+export function prepararTimes(playerTeam = [], enemyTeam = []) {
+  return atribuirPersonas([...playerTeam.map((member, index) => prepare(member, 'player', index)), ...enemyTeam.map((member, index) => prepare(member, 'enemy', index))])
 }
 
 export default function useGanguesTurnMachine({ playerTeam = [], enemyTeam = [], onFinish, attackRoll = d3, defenseRoll = d3, bonusRoll = coin, targetRoll = Math.random, enemyDelay = 2200, pausado = false }) {
-  const initial = useMemo(() => [...playerTeam.map((member, index) => prepare(member, 'player', index)), ...enemyTeam.map((member, index) => prepare(member, 'enemy', index))], [])
+  const initial = useMemo(() => prepararTimes(playerTeam, enemyTeam), [])
   // Linha do tempo (Pique, 26/09/2026 — ver engine/ganguesLinhaDoTempo.js):
   // quem age é quem chega primeiro no centro da pista, não mais uma ordem
   // fixa sorteada no começo. `tempo` = barras de cada um; `vez` = quem age agora.
@@ -62,6 +72,7 @@ export default function useGanguesTurnMachine({ playerTeam = [], enemyTeam = [],
   const aiQueued = useRef(false)
   const acaoSeq = useRef(0)
   const lastEnemyTargetKey = useRef(null)
+  const ultimoAgressorKey = useRef(null)
   const entered = useRef(false)
   const currentActor = combatants.find(item => item.key === vez)
   const phase = !started ? 'select' : pending ? 'rolling' : currentActor?.side || 'finished'
@@ -108,10 +119,34 @@ export default function useGanguesTurnMachine({ playerTeam = [], enemyTeam = [],
       if (item.key === pending.targetKey) return { ...item, statuses: pending.result.defenderStatuses, pv: Math.max(0, item.pv - pending.result.damage), specialState: pending.result.defenderSpecialState }
       return item
     })
+    if (pending.side === 'player') ultimoAgressorKey.current = pending.actorKey
     record({ type: 'attack', side: pending.side, actorKey: pending.actorKey, targetKey: pending.targetKey, result: pending.result, round })
     setPending(null)
     advanceTurn(next, pending.actorKey, Boolean(pending.result.activeSpecialId))
   }, [pending, combatants, advanceTurn, record, round])
+
+  // Talento de cura (Mandingueiro de cura): sem dado, cura o aliado e gasta a vez.
+  const curar = useCallback((ator, alvo, special) => {
+    const res = resolveGanguesCura({ ator, alvo, special })
+    if (!res) return false
+    const next = combatants.map(item => {
+      let novo = item
+      if (item.key === ator.key) novo = { ...novo, pm: Math.max(0, novo.pm - res.pmCost) }
+      if (item.key === alvo.key) novo = { ...novo, pv: Math.min(novo.pvMax, novo.pv + res.cura) }
+      return novo
+    })
+    record({ type: 'cura', side: ator.side, actorKey: ator.key, targetKey: alvo.key, specialId: res.specialId, curado: res.cura, round })
+    advanceTurn(next, ator.key, true)
+    return true
+  }, [combatants, advanceTurn, record, round])
+
+  // Jogador usando talento de cura: mira o aliado mais machucado.
+  const playerCura = useCallback((actorKey, special) => {
+    if (phase !== 'player' || currentActor?.key !== actorKey) return false
+    const aliados = combatants.filter(c => c.side === 'player' && c.pv > 0)
+    const alvo = [...aliados].sort((a, b) => a.pv / a.pvMax - b.pv / b.pvMax)[0]
+    return curar(currentActor, alvo, special)
+  }, [phase, currentActor, combatants, curar])
 
   useEffect(() => {
     // `pausado` (Briga em Multidão ativa): o motor normal PARA de agir
@@ -126,13 +161,16 @@ export default function useGanguesTurnMachine({ playerTeam = [], enemyTeam = [],
     if (pausado || phase !== 'enemy' || pending || aiQueued.current || !currentActor) return
     aiQueued.current = true
     const timer = setTimeout(() => {
-      const target = pickEnemyTarget(combatants, lastEnemyTargetKey.current, targetRoll)
-      lastEnemyTargetKey.current = target?.key || null
-      queueAction(currentActor, target)
+      // Persona decide alvo e talento (ganguesPersonas.js).
+      const acao = decidirAcaoInimigo(currentActor, combatants, { lastTargetKey: lastEnemyTargetKey.current, ultimoAgressorKey: ultimoAgressorKey.current }, targetRoll)
       aiQueued.current = false
+      if (!acao) return
+      lastEnemyTargetKey.current = acao.alvo?.key || null
+      if (acao.tipo === 'cura') { if (curar(currentActor, acao.alvo, acao.special)) return }
+      queueAction(currentActor, acao.alvo, acao.tipo === 'ataque' ? acao.specialId : null)
     }, enemyDelay)
     return () => { clearTimeout(timer); aiQueued.current = false }
-  }, [pausado, phase, pending, currentActor, combatants, queueAction, enemyDelay, targetRoll])
+  }, [pausado, phase, pending, currentActor, combatants, queueAction, enemyDelay, targetRoll, curar])
 
   const enterCombat = useCallback(() => {
     if (entered.current) return
@@ -170,7 +208,7 @@ export default function useGanguesTurnMachine({ playerTeam = [], enemyTeam = [],
       : 0
     const next = combatants.map(item => {
       const cura = item.key === alvoKey
-        ? { pv: Math.min(item.pvMax, item.pv + (delta.pv || 0)), pm: Math.min(item.pmMax, item.pm + (delta.pm || 0)) }
+        ? { pv: Math.min(item.pvMax, item.pv + (delta.pv || 0)), pm: Math.min(item.pmMax, item.pm + (delta.pm || 0)), ...(delta.status ? { statuses: (item.statuses || []).filter(s => delta.status !== 'todos' && s.id !== delta.status) } : {}) }
         : {}
       return { ...item, ...cura }
     })
@@ -179,5 +217,5 @@ export default function useGanguesTurnMachine({ playerTeam = [], enemyTeam = [],
     return true
   }, [phase, currentActor, combatants, advanceTurn, record, round])
 
-  return { combatants, phase, round, pending, events, initiative, tempo, currentActor, playerActors: phase === 'player' && currentActor ? [currentActor] : [], enterCombat, playerAction, completePending, useItemAction, syncFrom }
+  return { combatants, phase, round, pending, events, initiative, tempo, currentActor, playerActors: phase === 'player' && currentActor ? [currentActor] : [], enterCombat, playerAction, completePending, useItemAction, syncFrom, playerCura }
 }

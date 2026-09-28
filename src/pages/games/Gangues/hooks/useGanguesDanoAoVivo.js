@@ -17,7 +17,7 @@ export default function useGanguesDanoAoVivo({ store, combatants }) {
   const timerRef = useRef(null)
   const assinatura = combatants
     .filter(c => c.side === 'player')
-    .map(c => `${c.id}:${c.pv}:${c.pm}`)
+    .map(c => `${c.id}:${c.pv}:${c.pm}:${(c.statuses || []).map(s => s.id + s.turnos).join(',')}`)
     .join('|')
 
   useEffect(() => {

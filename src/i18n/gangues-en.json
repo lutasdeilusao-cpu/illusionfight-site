@@ -309,7 +309,12 @@
         "13": "Scrap",
         "20": "Brawler Chip (single use: grants the Iron Fist power for 1 hit)",
         "21": "Wall Chip (single use: grants the Defensive Stance power for 1 hit)",
-        "22": "Flame Chip (single use: grants the Fireball power for 1 hit)"
+        "22": "Flame Chip (single use: grants the Fireball power for 1 hit)",
+        "30": "Ankle Ice Pack",
+        "31": "Bandage",
+        "32": "Strong Coffee",
+        "33": "Arnica Ointment",
+        "34": "Grandma's Tonic"
       },
       "loja": {
         "sub": "Buy with the gang's cash — usable in any fight.",
@@ -390,7 +395,9 @@
         "ja_cheio": "{nome} is already maxed. Save the potion.",
         "equipar_em": "Put {item} ({slot}) on who?",
         "equipou": "{nome} equipped {item} ({slot}).",
-        "ja_equipado": "already has it"
+        "ja_equipado": "already has it",
+        "status_curado": "{nome} is clear of the status.",
+        "sem_status": "{nome} doesn't have that status."
       },
       "clube": {
         "nome": "Fight Club",
@@ -480,7 +487,8 @@
         "spend_charge_damage": "Unloads your charge: +{v} damage per charge.",
         "atk_flat": "+{v} wallop, always on.",
         "def_flat": "+{v} hide, always on.",
-        "charge_on_hit_taken": "Every hit you take builds {v} charge."
+        "charge_on_hit_taken": "Every hit you take builds {v} charge.",
+        "heal": "Heals {v} (+ half Street Smarts) Grit on the most hurt ally."
       },
       "combat_tutorial": {
         "iniciativa": "This list shows who's fastest on the track — more Pace means reaching the center sooner and acting more often. A lot of Pace can mean up to 3 actions against 1 from the slowest.",
@@ -4442,7 +4450,8 @@
           "tunel": "The tunnel mouth",
           "galpao": "Carvão's warehouse",
           "limpo": "Area's clear, kid."
-        }
+        },
+        "descanso_completo": "Full recovery: health, downed and status (−{grana})"
       },
       "enemy_album": {
         "1701": "Rides the stick-up bike. Never gets off, just revs — the backseat does the talking.",
@@ -4584,7 +4593,31 @@
           "7": "The Roof"
         }
       },
-      "velocidade_auto": "Auto speed"
+      "velocidade_auto": "Auto speed",
+      "passiva_ativou": "PASSIVE KICKED IN",
+      "log_passiva": "🛡 {nome}'s passive: {talento} came into play.",
+      "log_status": "😵 {alvo} is now {status}.",
+      "log_cura": "💚 {nome} used {talento} on {alvo} (+{n} Grit).",
+      "status": {
+        "lerdo": {
+          "nome": "Sluggish",
+          "desc": "Half Pace on the track."
+        },
+        "sangrando": {
+          "nome": "Bleeding",
+          "desc": "Loses 1 Grit every time they act."
+        },
+        "fraco": {
+          "nome": "Weak",
+          "desc": "−2 Wallop."
+        },
+        "rachado": {
+          "nome": "Cracked",
+          "desc": "−2 Hide."
+        }
+      },
+      "skill_desc_status": "Leaves the target {status}.",
+      "combat_item_sem_status": "They don't have that status."
     }
   }
 }

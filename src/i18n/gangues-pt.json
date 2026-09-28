@@ -309,7 +309,12 @@
         "13": "Sucata",
         "20": "Chip do Bruto (uso único: dá o poder Soco de Ferro por 1 golpe)",
         "21": "Chip da Muralha (uso único: dá o poder Postura Defensiva por 1 golpe)",
-        "22": "Chip Ígneo (uso único: dá o poder Bola de Fogo por 1 golpe)"
+        "22": "Chip Ígneo (uso único: dá o poder Bola de Fogo por 1 golpe)",
+        "30": "Gelo no Tornozelo",
+        "31": "Atadura",
+        "32": "Café Forte",
+        "33": "Pomada de Arnica",
+        "34": "Garrafada da Vó"
       },
       "loja": {
         "sub": "Compra com a grana da gangue — dá pra usar em qualquer luta.",
@@ -390,7 +395,9 @@
         "ja_cheio": "{nome} já tá no talo. Guarda a poção.",
         "equipar_em": "Botar {item} ({slot}) em quem?",
         "equipou": "{nome} equipou {item} ({slot}).",
-        "ja_equipado": "já tá com essa"
+        "ja_equipado": "já tá com essa",
+        "status_curado": "{nome} tá limpo do status.",
+        "sem_status": "{nome} não tem esse status."
       },
       "clube": {
         "nome": "Clube da Luta",
@@ -480,7 +487,8 @@
         "spend_charge_damage": "Descarrega o que acumulou: +{v} de dano por carga.",
         "atk_flat": "+{v} de porrada, sempre ativo.",
         "def_flat": "+{v} de couro, sempre ativo.",
-        "charge_on_hit_taken": "Cada golpe que você leva acumula {v} de carga."
+        "charge_on_hit_taken": "Cada golpe que você leva acumula {v} de carga.",
+        "heal": "Cura {v} (+ metade da Malandragem) de Osso no aliado mais machucado."
       },
       "combat_tutorial": {
         "iniciativa": "Essa lista mostra quem é mais rápido na pista — quanto mais Pique, mais cedo chega no centro e mais vezes age. Muito Pique pode dar até 3 ações contra 1 do mais lento.",
@@ -1339,7 +1347,8 @@
           "tunel": "A boca do túnel",
           "galpao": "O galpão do Carvão",
           "limpo": "Área limpa, cria."
-        }
+        },
+        "descanso_completo": "Cura completa: vida, caído e status (−{grana})"
       },
       "enemy_album": {
         "1701": "Pilota a moto do assalto. Não desce, só acelera — quem desce é a garupa.",
@@ -1481,7 +1490,31 @@
           "7": "A Laje"
         }
       },
-      "velocidade_auto": "Velocidade do automático"
+      "velocidade_auto": "Velocidade do automático",
+      "passiva_ativou": "PASSIVA ATIVOU",
+      "log_passiva": "🛡 Passiva de {nome}: {talento} entrou na jogada.",
+      "log_status": "😵 {alvo} ficou {status}.",
+      "log_cura": "💚 {nome} usou {talento} em {alvo} (+{n} de Osso).",
+      "status": {
+        "lerdo": {
+          "nome": "Lerdo",
+          "desc": "Pique pela metade na pista."
+        },
+        "sangrando": {
+          "nome": "Sangrando",
+          "desc": "Perde 1 de Osso toda vez que age."
+        },
+        "fraco": {
+          "nome": "Fraco",
+          "desc": "−2 de Porrada."
+        },
+        "rachado": {
+          "nome": "Rachado",
+          "desc": "−2 de Couro."
+        }
+      },
+      "skill_desc_status": "Deixa o alvo {status}.",
+      "combat_item_sem_status": "Esse aí não tá com esse status."
     }
   }
 }

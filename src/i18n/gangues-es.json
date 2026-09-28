@@ -309,7 +309,12 @@
         "13": "Chatarra",
         "20": "Chip del Bruto (uso único: da el poder Puño de Hierro por 1 golpe)",
         "21": "Chip de la Muralla (uso único: da el poder Postura Defensiva por 1 golpe)",
-        "22": "Chip Ígneo (uso único: da el poder Bola de Fuego por 1 golpe)"
+        "22": "Chip Ígneo (uso único: da el poder Bola de Fuego por 1 golpe)",
+        "30": "Hielo en el Tobillo",
+        "31": "Venda",
+        "32": "Café Cargado",
+        "33": "Pomada de Árnica",
+        "34": "Brebaje de la Abuela"
       },
       "loja": {
         "sub": "Compra con la plata de la banda — se puede usar en cualquier pelea.",
@@ -390,7 +395,9 @@
         "ja_cheio": "{nome} ya está al mango. Guardá la poción.",
         "equipar_em": "¿Ponerle {item} ({slot}) a quién?",
         "equipou": "{nome} equipó {item} ({slot}).",
-        "ja_equipado": "ya la tiene"
+        "ja_equipado": "ya la tiene",
+        "status_curado": "{nome} quedó limpio del estado.",
+        "sem_status": "{nome} no tiene ese estado."
       },
       "clube": {
         "nome": "Club de la Pelea",
@@ -480,7 +487,8 @@
         "spend_charge_damage": "Descarga lo acumulado: +{v} de daño por carga.",
         "atk_flat": "+{v} de trompada, siempre activo.",
         "def_flat": "+{v} de cuero, siempre activo.",
-        "charge_on_hit_taken": "Cada golpe que recibes acumula {v} de carga."
+        "charge_on_hit_taken": "Cada golpe que recibes acumula {v} de carga.",
+        "heal": "Cura {v} (+ la mitad de Viveza) de Aguante al aliado más herido."
       },
       "combat_tutorial": {
         "iniciativa": "Esta lista muestra quién es más rápido en la pista — más Pique es llegar antes al centro y actuar más veces. Mucho Pique puede dar hasta 3 acciones contra 1 del más lento.",
@@ -4442,7 +4450,8 @@
           "tunel": "La boca del túnel",
           "galpao": "El galpón del Carvão",
           "limpo": "Zona limpia, pibe."
-        }
+        },
+        "descanso_completo": "Cura completa: vida, caídos y estados (−{grana})"
       },
       "enemy_album": {
         "1701": "Maneja la moto del asalto. No se baja, solo acelera — el que se baja es el de atrás.",
@@ -4584,7 +4593,31 @@
           "7": "La Azotea"
         }
       },
-      "velocidade_auto": "Velocidad del automático"
+      "velocidade_auto": "Velocidad del automático",
+      "passiva_ativou": "PASIVA ACTIVADA",
+      "log_passiva": "🛡 Pasiva de {nome}: {talento} entró en juego.",
+      "log_status": "😵 {alvo} quedó {status}.",
+      "log_cura": "💚 {nome} usó {talento} en {alvo} (+{n} de Aguante).",
+      "status": {
+        "lerdo": {
+          "nome": "Lento",
+          "desc": "Pique a la mitad en la pista."
+        },
+        "sangrando": {
+          "nome": "Sangrando",
+          "desc": "Pierde 1 de Aguante cada vez que actúa."
+        },
+        "fraco": {
+          "nome": "Débil",
+          "desc": "−2 de Trompada."
+        },
+        "rachado": {
+          "nome": "Rajado",
+          "desc": "−2 de Cuero."
+        }
+      },
+      "skill_desc_status": "Deja al objetivo {status}.",
+      "combat_item_sem_status": "Ese no tiene ese estado."
     }
   }
 }

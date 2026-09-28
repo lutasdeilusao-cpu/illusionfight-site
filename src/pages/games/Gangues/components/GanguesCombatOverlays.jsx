@@ -1,3 +1,4 @@
+import { GANGUES_STATUS } from '../engine/ganguesStatus.js'
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { getGanguesEffectTheme } from '../data/ganguesEffectThemes.js'
@@ -121,6 +122,8 @@ export default function GanguesCombatOverlays({
               ...(machine.pending.result.passivosGatilho?.attacker || []),
               ...(machine.pending.result.passivosGatilho?.defender || []),
             ].map(id => t(`games.gangues.progression.skills.${id}`))}
+            passivaLabel={t('games.gangues.passiva_ativou')}
+            statusNome={machine.pending.result.statusAplicado ? `${GANGUES_STATUS[machine.pending.result.statusAplicado]?.icone || ''} ${t(`games.gangues.status.${machine.pending.result.statusAplicado}.nome`)}!` : null}
             theme={getGanguesEffectTheme(machine.pending.result.activeSpecialId)}
             attackerTemplateId={(() => {
               const actor = machine.combatants.find(item => item.key === machine.pending.actorKey)

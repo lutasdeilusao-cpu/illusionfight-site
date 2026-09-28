@@ -138,3 +138,19 @@
 .gang-enemy-thinking small { grid-column: 2; color: #667078; font-size: 8px; letter-spacing: 1px; text-transform: none; }
 .gang-thinking-pulse { grid-row: span 2; width: 10px; height: 10px; margin-right: 12px; border-radius: 50%; background: var(--if-amber); box-shadow: 0 0 12px var(--if-amber); animation: gang-thinking 0.8s ease-in-out infinite alternate; }
 @keyframes gang-thinking { to { opacity: 0.25; transform: scale(0.65); } }
+
+/* Status (ganguesStatus.js): ícone + vezes que faltam, embaixo do nome. */
+.gang-mini-status {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2px;
+  font-size: 10px;
+  line-height: 1;
+}
+.gang-mini-status b {
+  padding: 1px 3px;
+  border: 1px solid var(--if-danger);
+  color: var(--if-danger);
+  font-variant-numeric: tabular-nums;
+}

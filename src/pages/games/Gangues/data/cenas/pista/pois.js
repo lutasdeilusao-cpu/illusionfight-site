@@ -347,7 +347,7 @@ export const POIS_PISTA = [
     // tem arte e o nome nem podia combinar mais com "atende um balcão de
     // loja") — só a imagem, sem nenhuma implicação de combate.
     retratoEnemyId: 1205,
-    itens: [1, 2],
+    itens: [1, 2, 30, 31, 32, 33, 34],
     precoMultiplicador: 2,
   },
   {

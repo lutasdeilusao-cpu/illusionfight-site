@@ -125,7 +125,7 @@ export default function createGanguesProgressionSlice(set, get) {
       const aplicar = member => {
         const final = porId.get(member.id)
         if (!final) return member
-        return { ...member, attributes: { ...member.attributes, pv_atual: Math.max(0, final.pv), pm_atual: Math.max(0, final.pm) } }
+        return { ...member, attributes: { ...member.attributes, pv_atual: Math.max(0, final.pv), pm_atual: Math.max(0, final.pm), status_atual: Array.isArray(final.statuses) ? final.statuses : [] } }
       }
       return {
         roster: state.roster.map(aplicar),
@@ -160,6 +160,28 @@ export default function createGanguesProgressionSlice(set, get) {
       }
       set(state => ({ roster: state.roster.map(limpar), activeParty: state.activeParty.map(limpar) }))
       get().saveParticipantProgress(get().roster.map(member => member.id))
+    },
+
+    // Tira TODO status de todo o elenco (descanso completo da birosca).
+    limparStatusTodos: () => {
+      const limpar = m => (m.attributes?.status_atual?.length ? { ...m, attributes: { ...m.attributes, status_atual: [] } } : m)
+      set(state => ({ roster: state.roster.map(limpar), activeParty: state.activeParty.map(limpar), sheet: limpar(state.sheet) }))
+    },
+
+    // Tira status de UM personagem fora de combate (item da Bolsa). `status`
+    // = id do status ou 'todos'. Devolve quantos saíram (0 = não tinha).
+    curarStatusMembro: (memberId, status) => {
+      let saiu = 0
+      const aplicar = m => {
+        if (m.id !== memberId) return m
+        const lista = Array.isArray(m.attributes?.status_atual) ? m.attributes.status_atual : []
+        const resto = lista.filter(s => status !== 'todos' && s.id !== status)
+        saiu = lista.length - resto.length
+        return saiu ? { ...m, attributes: { ...m.attributes, status_atual: resto } } : m
+      }
+      set(state => ({ roster: state.roster.map(aplicar), activeParty: state.activeParty.map(aplicar), sheet: aplicar(state.sheet) }))
+      if (saiu) { get().saveParticipantProgress([memberId]); get()._persistCena() }
+      return saiu
     },
 
     // Cura UM personagem fora de combate (poção usada pela Bolsa da Gangue).

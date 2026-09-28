@@ -258,9 +258,10 @@ posição salva inclui o interior. É o **template dos 7 bairros**.
 
 **Descanso, agiota e Clube da Luta:**
 
-- **A birosca do Seu Nato (`descanso`) é só cura, sem dívida nenhuma.** Duas
+- **A birosca do Seu Nato (`descanso`) é só cura, sem dívida nenhuma.** Três
   opções de preço: **10** recupera só quem **não caiu** (PV > 0); **30** (3×)
-  recupera **todo mundo, revivendo os caídos**, com animação mais longa.
+  recupera **todo mundo, revivendo os caídos**; **50** (5×, só aparece com
+  alguém de status) é o descanso completo: vida, caídos e **status**.
   Store: `descansarTropa(custo, incluirCaidos)` / `descansoInfo()`.
 - **A agiotagem mudou de dono:** é o **agiota Marimbondo** (`agiota`), NPC
   novo, parado dentro do cômodo da birosca (retrato emprestado da ficha 1206,
@@ -1629,6 +1630,43 @@ estilo Medabots/ATB do Chrono Trigger):
 - **"Mete o pé"** (fugir da luta) volta pra tela de **Modos**, não pro lobby.
 - **Voltar nunca repete recompensa:** as fases de combate e vitória ficam fora
   da   pilha de histórico (`GANGUES_FASES_TRANSITORIAS`) — senão Voltar duplica XP.
+
+### 17.2.2 Personas da IA, status e cura (28/09/2026)
+
+- **Personas** (`engine/ganguesPersonas.js`): todo inimigo sorteia uma no começo
+  da luta, com peso pelo `preferred_mode`. Brigão (alvo aleatório, talento
+  raro), Covarde (termina o mais machucado), Caçador (mira a maior Porrada,
+  talento sempre), Protetor (Paredão; vai atrás de quem bateu num aliado),
+  Doido (sorteia tudo) e os 3 **Mandingueiros**: de ataque (Ígneo/Tempestade),
+  de cura (Aquático — cura o aliado inimigo mais machucado) e de status
+  (Terreno/Ilusório). **Bando de 3+ sempre leva 1 mandingueiro.**
+- **Inimigo tem talento**: ficha de talentos montada na hora (subcaminho +
+  rank pela ficha: <20 pontos rank 1, <50 rank 2, senão 3). Ativo a partir
+  de 3 pontos, passiva a partir de 8. Usa os mesmos talentos e passivas do
+  jogador.
+- **Status** (`engine/ganguesStatus.js`) — **só o Mandingueiro causa** (e os
+  chips de reputação que emprestam poder). Dura N vezes do lutador que carrega
+  (desce 1 cada vez que ele age):
+
+  | Status | Efeito | Dura |
+  |---|---|---|
+  | Lerdo 🐢 | Pique pela metade na linha do tempo | 2 |
+  | Sangrando 🩸 | −1 de Osso a cada vez que age (não mata) | 3 |
+  | Fraco 🥀 | −2 de Porrada | 2 |
+  | Rachado 💢 | −2 de Couro | 2 |
+
+  **Status persiste entre lutas** (`status_atual`, salvo junto do PV/PM). Só
+  sai com item (ids 30–34: Gelo no Tornozelo, Atadura, Café Forte, Pomada de
+  Arnica, Garrafada da Vó = todos) ou no **descanso completo** da birosca
+  (5× o preço: vida, caídos e status).
+- **Mandingueiro do jogador em 3 papéis**: ataque (Brasa, Cinza, Faísca,
+  Trovão), cura (Maré, Chuva — `neblina`, `fluxo_restaurador` e `temporal`
+  viraram cura `heal`) e status (Raiz, Racha, Névoa, Espelho — talentos com
+  `status` no efeito). Cura mira sozinha o aliado mais machucado: valor +
+  metade da Malandragem, sem dado.
+- **Destaque**: passiva que entrou e status que pegou aparecem grandes no
+  dado dramático e ganham linha própria no registro; o roster mostra os
+  ícones de status com as vezes restantes.
 
 ### 17.3 Poderes / especiais (skill tree)
 

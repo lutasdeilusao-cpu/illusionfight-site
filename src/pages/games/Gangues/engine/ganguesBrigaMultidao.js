@@ -1,6 +1,7 @@
-import { resolveGanguesAction } from './ganguesCombatResolver.js'
+import { resolveGanguesAction, resolveGanguesCura } from './ganguesCombatResolver.js'
+import { decidirAcaoInimigo } from './ganguesPersonas.js'
 import { iniciarLinhaDoTempo, proximaVez, consumirVez, marcarAgiu, ordemDeVelocidade } from './ganguesLinhaDoTempo.js'
-import { prepare, pickEnemyTarget } from '../hooks/useGanguesTurnMachine.js'
+import { prepararTimes } from '../hooks/useGanguesTurnMachine.js'
 
 /* ══════════════════════════════════════════════════════════════
    BRIGA EM MULTIDÃO — RODADA a rodada, não a luta inteira de um clique.
@@ -45,10 +46,7 @@ function montar(combatants, round, eventosIniciais) {
 
 /** Monta o estado inicial da briga (times preparados + linha do tempo). Nenhuma rodada resolvida ainda. */
 export function iniciarBrigaMultidao({ playerTeam, enemyTeam }) {
-  const combatants = [
-    ...playerTeam.map((m, i) => prepare(m, 'player', i)),
-    ...enemyTeam.map((m, i) => prepare(m, 'enemy', i)),
-  ]
+  const combatants = prepararTimes(playerTeam, enemyTeam)
   return montar(combatants, 1, [{ type: 'battle_start', id: 'bm-start' }])
 }
 
@@ -98,18 +96,38 @@ export function avancarRodadaMultidao(estado, poderesPorPersonagem = {}, especia
     } else {
       let target = null
       let activeSpecialId = null
+      let cura = null // { alvo, special } — talento de cura do Mandingueiro
       if (actor.side === 'player') {
         // Foca sempre o inimigo mais perto de cair — eficiente pra limpar um bando grande.
         target = lista.filter(c => c.side === 'enemy' && c.pv > 0).sort((a, b) => a.pv - b.pv)[0] || null
         const especiais = especiaisPorPersonagem[actor.id] || []
         const escolhaId = poderesPorPersonagem[actor.id] || null
         const especial = escolhaId ? especiais.find(s => s.id === escolhaId) : null
-        activeSpecialId = especial && podePagarCusto(actor, especial) ? escolhaId : null
+        const pode = especial && podePagarCusto(actor, especial)
+        if (pode && especial.effect?.type === 'heal') {
+          const aliados = lista.filter(c => c.side === 'player' && c.pv > 0)
+          cura = { alvo: [...aliados].sort((a, b) => a.pv / a.pvMax - b.pv / b.pvMax)[0], special: especial }
+        } else activeSpecialId = pode ? escolhaId : null
       } else {
-        target = pickEnemyTarget(lista, lastEnemyTargetKey, Math.random)
+        // Persona decide alvo e talento (ganguesPersonas.js), igual o motor normal.
+        const acao = decidirAcaoInimigo(actor, lista, { lastTargetKey: lastEnemyTargetKey }, Math.random)
+        target = acao?.alvo || null
         lastEnemyTargetKey = target?.key || null
+        if (acao?.tipo === 'cura') cura = { alvo: acao.alvo, special: acao.special }
+        else activeSpecialId = acao?.specialId || null
       }
-      if (target) {
+      const resCura = cura ? resolveGanguesCura({ ator: actor, alvo: cura.alvo, special: cura.special }) : null
+      if (resCura) {
+        lista = lista.map(c => {
+          let novo = c
+          if (c.key === actor.key) novo = { ...novo, pm: Math.max(0, novo.pm - resCura.pmCost) }
+          if (c.key === cura.alvo.key) novo = { ...novo, pv: Math.min(novo.pvMax, novo.pv + resCura.cura) }
+          return novo
+        })
+        usouTalento = true
+        seq += 1
+        eventosRodada.push({ type: 'cura', id: `bm-${seq}`, side: actor.side, actorKey: actor.key, targetKey: cura.alvo.key, specialId: resCura.specialId, curado: resCura.cura, round: rodadaAlvo })
+      } else if (target) {
         const result = resolveGanguesAction({
           attacker: actor, defender: target, action: { type: 'attack', mode: 'attack' },
           rolls: { fa: d3(), fd: d3(), attackerBonus: coin(), defenderBonus: coin() },

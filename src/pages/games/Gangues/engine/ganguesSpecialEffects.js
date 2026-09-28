@@ -12,7 +12,10 @@ import { getGanguesCharacter } from '../data/ganguesCharacters.js'
 // bloco "DEFENSOR e MÍSTICO" abaixo) — cada um tem efeito próprio, igual o
 // Atacante já tinha.
 
-const E = (type, values, cost = null) => ({ type, values, cost })
+// `extra.status`: talento do Mandingueiro de status — além do efeito, põe o
+// status no alvo (ganguesStatus.js). `heal`: talento de cura do Mandingueiro
+// de cura — mira um ALIADO, não bate (resolveGanguesCura).
+const E = (type, values, cost = null, extra = null) => ({ type, values, cost, ...(extra || {}) })
 
 const GANGUES_SPECIAL_EFFECTS = {
   golpe_forcado: E('damage_flat', [1], { kind: 'pm', values: [2] }),
@@ -116,17 +119,17 @@ const GANGUES_SPECIAL_EFFECTS = {
   // em vez de reforçar a própria (a "cura" fluxo_restaurador virou um escudo
   // reforçado — o motor não tem cura de poder ainda, ver nota no fim do arquivo).
   correnteza: E('def_flat', [1, 2, 3]),
-  neblina: E('reduce_target_defense', [2, 3, 5], { kind: 'pm', values: [1, 1, 1] }),
+  neblina: E('heal', [3, 5, 7], { kind: 'pm', values: [2, 2, 2] }),
   jato_pressurizado: E('reduce_target_defense', [3, 4, 6], { kind: 'pm', values: [2, 1, 1] }),
-  fluxo_restaurador: E('damage_reduction_next_hit', [4, 6, 8], { kind: 'pm', values: [2, 2, 1] }),
+  fluxo_restaurador: E('heal', [5, 8, 12], { kind: 'pm', values: [3, 3, 2] }),
   mare_alta: E('damage_flat', [6, 9, 12], { kind: 'pm', values: [4, 3, 3] }),
 
   // Místico · Terreno (Raiz/Racha) — prende o alvo no chão (reduce_target_defense)
   // e estilhaça (damage_flat/ignore_def_pct) — peso e ruptura, não velocidade.
   pele_de_pedra: E('def_flat', [2, 3, 5]),
-  raiz_prendente: E('reduce_target_defense', [3, 4, 6], { kind: 'pm', values: [2, 1, 1] }),
-  tremor: E('damage_flat', [3, 5, 7], { kind: 'pm', values: [2, 2, 1] }),
-  estilhaco_terrestre: E('damage_flat', [4, 6, 8], { kind: 'pm', values: [2, 2, 1] }),
+  raiz_prendente: E('reduce_target_defense', [3, 4, 6], { kind: 'pm', values: [2, 1, 1] }, { status: 'lerdo' }),
+  tremor: E('damage_flat', [3, 5, 7], { kind: 'pm', values: [2, 2, 1] }, { status: 'rachado' }),
+  estilhaco_terrestre: E('damage_flat', [4, 6, 8], { kind: 'pm', values: [2, 2, 1] }, { status: 'sangrando' }),
   ruptura_do_solo: E('ignore_def_pct', [25, 35, 50], { kind: 'pm', values: [3, 3, 2] }),
 
   // Místico · Tempestade (Faísca/Trovão) — velocidade: golpeia antes do
@@ -143,8 +146,8 @@ const GANGUES_SPECIAL_EFFECTS = {
   mente_nebulosa: E('def_flat', [1, 2, 3]),
   reflexo_falso: E('shield_next_hit', [3, 5, 7], { kind: 'pm', values: [2, 2, 1] }),
   duplo_ilusorio: E('shield_next_hit', [4, 6, 8], { kind: 'pm', values: [2, 2, 1] }),
-  distorcao: E('reduce_target_defense', [3, 4, 6], { kind: 'pm', values: [2, 1, 1] }),
-  quebra_de_realidade: E('execute_bonus', [40, 55, 75], { kind: 'pm', values: [3, 3, 2] }),
+  distorcao: E('reduce_target_defense', [3, 4, 6], { kind: 'pm', values: [2, 1, 1] }, { status: 'fraco' }),
+  quebra_de_realidade: E('execute_bonus', [40, 55, 75], { kind: 'pm', values: [3, 3, 2] }, { status: 'rachado', statusTurnos: 3 }),
 
   // ══════════════════════════════════════════════════════════════
   // 6º PODER — 1 por personagem, NV 50 (pedido do Isaias: "aumentar a lista
@@ -175,13 +178,13 @@ const GANGUES_SPECIAL_EFFECTS = {
   chama_eterna: E('damage_flat', [5, 7, 10], { kind: 'pm', values: [3, 2, 2] }), // Brasa
   cinzas_ao_vento: E('atk_flat', [2, 3, 4]), // Cinza
   onda_de_choque: E('damage_flat', [5, 7, 10], { kind: 'pm', values: [3, 2, 2] }), // Maré
-  temporal: E('reduce_target_defense', [4, 5, 7], { kind: 'pm', values: [2, 1, 1] }), // Chuva
+  temporal: E('heal', [7, 10, 14], { kind: 'pm', values: [4, 3, 3] }), // Chuva
   raizes_profundas: E('def_flat', [3, 4, 5]), // Raiz
-  fenda_no_chao: E('damage_flat', [5, 7, 10], { kind: 'pm', values: [3, 2, 2] }), // Racha
+  fenda_no_chao: E('damage_flat', [5, 7, 10], { kind: 'pm', values: [3, 2, 2] }, { status: 'lerdo', statusTurnos: 3 }), // Racha
   descarga: E('bonus_if_target_fresh', [4, 6, 8], { kind: 'pm', values: [2, 1, 1] }), // Faísca
   trovoada: E('ignore_def_pct', [30, 45, 60], { kind: 'pm', values: [2, 2, 2] }), // Trovão
   veu_de_nevoa: E('def_flat', [3, 4, 5]), // Névoa
-  espelho_quebrado: E('shield_next_hit', [5, 7, 9], { kind: 'pm', values: [2, 2, 1] }), // Espelho
+  espelho_quebrado: E('damage_flat', [3, 5, 7], { kind: 'pm', values: [2, 2, 1] }, { status: 'sangrando' }), // Espelho
 }
 
 const KIND_BY_ID = {}
@@ -215,7 +218,9 @@ export function describeGanguesSpecialEffect(t, id, level = 1) {
   const v = values[Math.max(0, Math.min(values.length - 1, level - 1))]
   const key = `games.gangues.skill_desc.${effect.type}`
   const txt = t(key, { v })
-  return txt === key ? '' : txt
+  const base = txt === key ? '' : txt
+  if (!effect.status) return base
+  return `${base} ${t('games.gangues.skill_desc_status', { status: t(`games.gangues.status.${effect.status}.nome`) })}`.trim()
 }
 
 /** Custo do poder (texto localizado) no nível dado. Passivo / base sem custo → string de "sem custo". */
@@ -338,6 +343,7 @@ export function applyGanguesAttackerEffect(item, ctx) {
     }
     default: break
   }
+  if (item.kind === 'active' && effect.status) ctx.statusAplicar = { id: effect.status, turnos: effect.statusTurnos }
   if (item.kind === 'active' && effect.cost) {
     const cost = effect.cost.values[level - 1]
     if (effect.cost.kind === 'pm') ctx.pmCost = cost

@@ -218,6 +218,10 @@ export default function GanguesCombat({ onNavigate, onSairConfirmado }) {
   const handleAttack = (specialId = selectedSpecialId) => {
     if (!selectedActor || !selectedTarget) return
     sfx.click()
+    // Talento de cura (Mandingueiro de cura) vai no aliado mais machucado.
+    const ator = players.find(item => item.key === selectedActor)
+    const cura = specialId && ator ? getEquippedActiveGanguesSpecials(ator).find(s => s.id === specialId && s.effect.type === 'heal') : null
+    if (cura) { machine.playerCura(selectedActor, cura); setSelectedSpecialId(null); return }
     machine.playerAction(selectedActor, selectedTarget, specialId)
     setSelectedSpecialId(null)
   }
@@ -231,7 +235,7 @@ export default function GanguesCombat({ onNavigate, onSairConfirmado }) {
   // Itens disponíveis (quantidade > 0) — a bolinha só mostra o que a gangue
   // realmente tem, lido direto do inventário compartilhado (store.inventario).
   const itensDisponiveis = GANGUES_ITENS_LISTA
-    .filter(item => item.tipo === 'cura_pv' || item.tipo === 'cura_pm' || item.tipo === 'poder_unico')
+    .filter(item => item.tipo === 'cura_pv' || item.tipo === 'cura_pm' || item.tipo === 'cura_status' || item.tipo === 'poder_unico')
     .map(item => ({ ...item, quantidade: store.inventario[item.id] || 0 }))
     .filter(item => item.quantidade > 0)
 
@@ -258,10 +262,11 @@ export default function GanguesCombat({ onNavigate, onSairConfirmado }) {
     if (alvoC) {
       if (item.tipo === 'cura_pv' && alvoC.pv >= alvoC.pvMax) { setAviso(t('games.gangues.combat_item_cheio')); setTimeout(() => setAviso(null), 2200); return }
       if (item.tipo === 'cura_pm' && alvoC.pm >= alvoC.pmMax) { setAviso(t('games.gangues.combat_item_cheio')); setTimeout(() => setAviso(null), 2200); return }
+      if (item.tipo === 'cura_status' && !(alvoC.statuses || []).some(s => item.status === 'todos' || s.id === item.status)) { setAviso(t('games.gangues.combat_item_sem_status')); setTimeout(() => setAviso(null), 2200); return }
     }
     if (!store.usarItem(itemId)) return
     sfx.reward?.()
-    const delta = item.tipo === 'cura_pv' ? { pv: item.valor } : item.tipo === 'cura_pm' ? { pm: item.valor } : {}
+    const delta = item.tipo === 'cura_pv' ? { pv: item.valor } : item.tipo === 'cura_pm' ? { pm: item.valor } : item.tipo === 'cura_status' ? { status: item.status } : {}
     machine.useItemAction(selectedActor, alvo, itemId, delta)
   }
 

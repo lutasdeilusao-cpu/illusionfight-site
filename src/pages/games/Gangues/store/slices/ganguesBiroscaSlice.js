@@ -23,16 +23,20 @@ export default function createGanguesBiroscaSlice(set, get) {
     //  • false (padrão, custo normal): só recupera quem NÃO tá com PV zerado.
     //    Quem já caiu continua caído.
     //  • true (custo × 3): recupera todo mundo, incluindo os caídos (revive).
-    descansarTropa: (custo = 0, incluirCaidos = false) => {
+    //  • curarStatus (custo × 5, Isaias 28/09/2026): o descanso COMPLETO —
+    //    revive, cura tudo e tira todo status. É o único descanso que tira
+    //    status; fora dele, só item (ganguesItens.js, ids 30–34).
+    descansarTropa: (custo = 0, incluirCaidos = false, curarStatus = false) => {
       const detalheCompleto = get()._deficitTropa()
-      const alvo = incluirCaidos ? detalheCompleto : detalheCompleto.filter(d => !d.caido)
-      const ferido = alvo.some(d => d.pv > 0 || d.pm > 0)
-      if (!ferido) return { ok: false, motivo: 'inteira', detalhe: [] }
+      const alvo = incluirCaidos || curarStatus ? detalheCompleto : detalheCompleto.filter(d => !d.caido)
+      const precisa = d => d.pv > 0 || d.pm > 0 || (curarStatus && d.status > 0)
+      if (!alvo.some(precisa)) return { ok: false, motivo: 'inteira', detalhe: [] }
       if (get().grana < custo) return { ok: false, motivo: 'grana', detalhe: [] }
       get().gastarGrana(custo)
-      if (incluirCaidos) get().restaurarPvPmTodos()
+      if (curarStatus) get().limparStatusTodos()
+      if (incluirCaidos || curarStatus) get().restaurarPvPmTodos()
       else get().restaurarPvPmVivos()
-      return { ok: true, detalhe: alvo.filter(d => d.pv > 0 || d.pm > 0) }
+      return { ok: true, detalhe: alvo.filter(precisa) }
     },
 
     // Info pra UI decidir que botão(ões) de descanso oferecer, sem gastar nada:
@@ -44,6 +48,7 @@ export default function createGanguesBiroscaSlice(set, get) {
         temCaido: detalhe.some(d => d.caido),
         feridoVivos: detalhe.some(d => !d.caido && (d.pv > 0 || d.pm > 0)),
         feridoTodos: detalhe.some(d => d.pv > 0 || d.pm > 0),
+        temStatus: detalhe.some(d => d.status > 0),
       }
     },
 
@@ -98,6 +103,7 @@ export default function createGanguesBiroscaSlice(set, get) {
         caido: pvAtual <= 0,
         pv: Math.max(0, Math.round(res.pvMax - pvAtual)),
         pm: Math.max(0, Math.round(res.pmMax - pmAtual)),
+        status: Array.isArray(m.attributes?.status_atual) ? m.attributes.status_atual.length : 0,
       }
     }),
 

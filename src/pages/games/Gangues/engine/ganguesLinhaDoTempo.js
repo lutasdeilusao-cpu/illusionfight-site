@@ -26,6 +26,8 @@
    usam as MESMAS funções, pra os dois motores nunca divergirem.
    ══════════════════════════════════════════════════════════════ */
 
+import { multVelocidadeStatus, tickStatusAoAgir } from './ganguesStatus.js'
+
 export const TL_LIMIAR = 100
 export const TL_CUSTO_ACAO = 100
 export const TL_CUSTO_TALENTO = 125
@@ -47,7 +49,8 @@ export function baseDaLuta(combatants) {
 /** Velocidade de cada combatente VIVO, já com o teto de 3× o mais lento vivo. */
 export function velocidades(combatants, base) {
   const vivos = combatants.filter(c => c.pv > 0)
-  const bruta = new Map(vivos.map(c => [c.key, (Number(c.attributes?.H) || 0) + base]))
+  // Lerdo (status) corta a velocidade pela metade.
+  const bruta = new Map(vivos.map(c => [c.key, ((Number(c.attributes?.H) || 0) + base) * multVelocidadeStatus(c.statuses)]))
   const lenta = Math.min(...bruta.values())
   const out = new Map()
   for (const [k, v] of bruta) out.set(k, Math.min(v, lenta * TL_TETO))
@@ -87,7 +90,8 @@ export function consumirVez(tempo, key, usouTalento = false) {
 
 /** Marca quem agiu e, se TODO vivo já agiu, fecha a rodada (reseta as marcas). */
 export function marcarAgiu(combatants, key) {
-  const marcados = combatants.map(c => (c.key === key ? { ...c, actedThisRound: true } : c))
+  // Quem agiu paga os status (sangramento) e eles perdem uma vez.
+  const marcados = combatants.map(c => (c.key === key ? { ...tickStatusAoAgir(c).combatant, actedThisRound: true } : c))
   const vivos = marcados.filter(c => c.pv > 0)
   const fechou = vivos.length > 0 && vivos.every(c => c.actedThisRound)
   return { combatants: fechou ? marcados.map(c => ({ ...c, actedThisRound: false })) : marcados, fechouRodada: fechou }

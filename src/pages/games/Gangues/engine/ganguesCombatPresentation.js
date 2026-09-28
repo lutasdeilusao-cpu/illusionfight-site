@@ -91,6 +91,11 @@ export function transformarEvento(t, event, combatants) {
     const chave = mesmo ? 'games.gangues.log_usou_item' : 'games.gangues.log_usou_item_em'
     return [{ id: event.id, kind: 'system', text: t(chave, { nome: fighterName(t, actor), alvo: fighterName(t, alvo), n: event.curado || 0 }) }]
   }
+  if (event.type === 'cura') {
+    const actor = combatants.find(m => m.key === event.actorKey)
+    const alvo = combatants.find(m => m.key === event.targetKey)
+    return [{ id: event.id, kind: 'system', text: t('games.gangues.log_cura', { nome: fighterName(t, actor), alvo: fighterName(t, alvo), talento: t(`games.gangues.progression.skills.${event.specialId}`), n: event.curado || 0 }) }]
+  }
   if (event.type !== 'attack') return []
   const actor = combatants.find(m => m.key === event.actorKey) || { side: event.side }
   const target = combatants.find(m => m.key === event.targetKey)
@@ -104,7 +109,14 @@ export function transformarEvento(t, event, combatants) {
     attackerBonus: event.result.attackerBonus, defenderBonus: event.result.defenderBonus,
     critical: event.result.critical, criticalBonus: event.result.criticalBonus,
     activeSpecialId: event.result.activeSpecialId || null,
+    statusAplicado: event.result.statusAplicado || null,
+    passivos: [...(event.result.passivosGatilho?.attacker || []), ...(event.result.passivosGatilho?.defender || [])],
   }]
+  // Passiva que entrou nesta jogada e status que pegou — linha própria no
+  // registro, pra passiva e status serem SENTIDOS (Isaias, 28/09/2026).
+  const passivos = [...(event.result.passivosGatilho?.attacker || []).map(id => [actor, id]), ...(event.result.passivosGatilho?.defender || []).map(id => [target, id])]
+  passivos.forEach(([quem, id], i) => entries.push({ id: `${event.id}-passiva-${i}`, kind: 'system', text: t('games.gangues.log_passiva', { nome: fighterName(t, quem), talento: t(`games.gangues.progression.skills.${id}`) }) }))
+  if (event.result.statusAplicado) entries.push({ id: `${event.id}-status`, kind: 'system', text: t('games.gangues.log_status', { alvo: fighterName(t, target), status: t(`games.gangues.status.${event.result.statusAplicado}.nome`) }) })
   const enemyCombatant = isPlayer ? target : actor
   if (enemyCombatant?.trash_talk) {
     const category = event.result.critical ? 'take_critical' : isPlayer ? 'take_damage' : 'attack_hit'

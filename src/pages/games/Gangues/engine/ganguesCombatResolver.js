@@ -1,4 +1,5 @@
 import { applyGanguesAttackerEffect, applyGanguesDefenderEffect, buildGanguesEffectsList } from './ganguesSpecialEffects.js'
+import { aplicarStatus, modAtaqueStatus, modDefesaStatus } from './ganguesStatus.js'
 
 /**
  * Bônus de caminho — regra combinada com Isaias em 2026-08-04:
@@ -33,8 +34,9 @@ export const CRITICAL_BONUS = 2
 // engine/ganguesSpecialEffects.js pros valores e docs/Games/Gangues/LDI_GANGUES_GDD.md §17.3
 // pro design original (com as simplificações feitas pra caber no modelo de 1 ação por turno).
 export function resolveGanguesAction({ attacker, defender, action, rolls, activeSpecialId = null, forcedSpecial = null }) {
-  const attack = Number(attacker.attributes?.A) || 0
-  const defense = Number(defender.attributes?.D) || 0
+  // Status (ganguesStatus.js): Fraco tira Porrada de quem bate, Rachado tira Couro de quem apanha.
+  const attack = Math.max(0, (Number(attacker.attributes?.A) || 0) + modAtaqueStatus(attacker.statuses))
+  const defense = Math.max(0, (Number(defender.attributes?.D) || 0) + modDefesaStatus(defender.statuses))
 
   const attackerBonus = resolveAttackerBonus(attacker.combat_path, rolls.attackerBonus)
   const defenderBonus = resolveDefenderBonus(defender.combat_path, attacker.combat_path, rolls.defenderBonus)
@@ -44,7 +46,7 @@ export function resolveGanguesAction({ attacker, defender, action, rolls, active
 
   const attackerEffects = buildGanguesEffectsList(attacker, activeSpecialId, forcedSpecial)
   const defenderEffects = buildGanguesEffectsList(defender, null)
-  const ctx = { attacker, target: defender, faMod: 0, fdMod: 0, ignoreDefPct: 0, targetDefenseReduction: 0, pmCost: 0, pvCostPct: 0, selfShieldSet: 0, chargeGain: 0, chargeSpent: 0 }
+  const ctx = { attacker, target: defender, faMod: 0, fdMod: 0, ignoreDefPct: 0, targetDefenseReduction: 0, pmCost: 0, pvCostPct: 0, selfShieldSet: 0, chargeGain: 0, chargeSpent: 0, statusAplicar: null }
   // Achado do Isaias (19/09/2026): quando um PODER ATIVO é usado, o dado
   // mostra "⚡ Nome do poder ⚡" (ver `powerName` em DramaticDice.jsx) — mas
   // um poder PASSIVO nunca tinha nenhum destaque, mesmo quando o efeito dele
@@ -105,10 +107,27 @@ export function resolveGanguesAction({ attacker, defender, action, rolls, active
     action, mode: 'attack', fa, fd, malandragem, damage, pmCost: ctx.pmCost, pvCost,
     rolls: { ...rolls }, attackerBonus, defenderBonus, critical, criticalBonus: critical ? CRITICAL_BONUS : 0,
     attackerStatuses: [...(attacker.statuses || [])],
-    defenderStatuses: [...(defender.statuses || [])],
+    // Talento de status do Mandingueiro: pega no alvo mesmo sem dano.
+    defenderStatuses: ctx.statusAplicar ? aplicarStatus(defender.statuses || [], ctx.statusAplicar.id, ctx.statusAplicar.turnos) : [...(defender.statuses || [])],
+    statusAplicado: ctx.statusAplicar?.id || null,
     activeSpecialId: attackerEffects.find(item => item.kind === 'active')?.id || null,
     passivosGatilho,
     ignoreDefPct: ctx.ignoreDefPct, shieldConsumed,
     attackerSpecialState, defenderSpecialState,
   }
+}
+
+/** Talento de CURA do Mandingueiro de cura (efeito `heal`): mira um aliado
+ *  vivo, cura `valor + metade da Malandragem` de Osso (até o máximo). Sem
+ *  dado — cura não erra. Devolve null se o talento não é de cura ou não dá
+ *  pra pagar. */
+export function resolveGanguesCura({ ator, alvo, special }) {
+  const effect = special?.effect
+  if (!effect || effect.type !== 'heal' || !alvo || alvo.pv <= 0) return null
+  const level = special.level || 1
+  const custo = effect.cost ? effect.cost.values[level - 1] : 0
+  if (effect.cost?.kind === 'pm' && (ator.pm || 0) < custo) return null
+  const bruto = effect.values[level - 1] + Math.floor((Number(ator.attributes?.PM) || 0) / 2)
+  const cura = Math.max(0, Math.min(alvo.pvMax, alvo.pv + bruto) - alvo.pv)
+  return { cura, pmCost: effect.cost?.kind === 'pm' ? custo : 0, specialId: special.id }
 }

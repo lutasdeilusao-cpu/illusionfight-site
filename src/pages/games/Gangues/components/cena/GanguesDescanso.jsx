@@ -55,6 +55,8 @@ export default function GanguesDescanso({ poi, cena, onClose }) {
   // pedido do Isaias, 21/09/2026: "recuperar quem não caiu custa 10... com o
   // caído dá mais trabalho, custa 30, pra equilibrar os preços".
   const custoCaidos = custo * 3
+  // Descanso completo (vida, caídos e status) — o único que tira status.
+  const custoCompleto = custo * 5
   const semGrana = store.grana < custo
   const semGranaCaidos = store.grana < custoCaidos
   const info = store.descansoInfo()
@@ -78,8 +80,8 @@ export default function GanguesDescanso({ poi, cena, onClose }) {
 
   // `incluirCaidos` = a opção cara, que também revive quem tá com PV zerado
   // (ver descansarTropa em ganguesBiroscaSlice.js) — animação mais longa.
-  const descansar = (incluirCaidos = false) => {
-    const r = store.descansarTropa(incluirCaidos ? custoCaidos : custo, incluirCaidos)
+  const descansar = (incluirCaidos = false, completo = false) => {
+    const r = store.descansarTropa(completo ? custoCompleto : incluirCaidos ? custoCaidos : custo, incluirCaidos, completo)
     if (!r.ok) { setRes(r); sfx.cancel(); return }
     comAnimacao(() => setRes(r), incluirCaidos)
   }
@@ -171,6 +173,7 @@ export default function GanguesDescanso({ poi, cena, onClose }) {
   if (!res?.ok) {
     if (!semGrana) escolhas.push({ id: 'descansar', label: t('games.gangues.cena.descanso_curar', { grana: custo }), variante: 'go', onClick: () => descansar(false) })
     if (info.temCaido && !semGranaCaidos) escolhas.push({ id: 'descansar_caidos', label: t('games.gangues.cena.descanso_curar_caidos', { grana: custoCaidos }), variante: 'go', onClick: () => descansar(true) })
+    if (info.temStatus && store.grana >= custoCompleto) escolhas.push({ id: 'descansar_completo', label: t('games.gangues.cena.descanso_completo', { grana: custoCompleto }), variante: 'go', onClick: () => descansar(true, true) })
   }
   escolhas.push({ id: 'fechar', label: fecharLabel, onClick: onClose })
 

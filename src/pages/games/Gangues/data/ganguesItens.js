@@ -31,6 +31,13 @@ const CATALOGO = [
   { id: 20, slug: 'chip_do_bruto', custo: 0, tipo: 'poder_unico', poderId: 'soco_de_ferro', poderNivel: 2, icone: '👊' },
   { id: 21, slug: 'chip_da_muralha', custo: 0, tipo: 'poder_unico', poderId: 'postura_defensiva', poderNivel: 2, icone: '🛡️' },
   { id: 22, slug: 'chip_igneo', custo: 0, tipo: 'poder_unico', poderId: 'bola_de_fogo', poderNivel: 2, icone: '🔥' },
+  // Curam STATUS (ganguesStatus.js) — status só sai com item ou no descanso
+  // completo (Isaias, 28/09/2026). `status: 'todos'` limpa qualquer um.
+  { id: 30, slug: 'gelo_no_tornozelo', custo: 12, tipo: 'cura_status', status: 'lerdo', icone: '🧊' },
+  { id: 31, slug: 'atadura', custo: 12, tipo: 'cura_status', status: 'sangrando', icone: '🩹' },
+  { id: 32, slug: 'cafe_forte', custo: 12, tipo: 'cura_status', status: 'fraco', icone: '☕' },
+  { id: 33, slug: 'pomada_arnica', custo: 12, tipo: 'cura_status', status: 'rachado', icone: '🧴' },
+  { id: 34, slug: 'garrafada_da_vo', custo: 30, tipo: 'cura_status', status: 'todos', icone: '🍶' },
 ]
 
 export const GANGUES_ITENS = Object.fromEntries(CATALOGO.map(item => [item.id, { ...item, nome: i18nNome(item.id) }]))

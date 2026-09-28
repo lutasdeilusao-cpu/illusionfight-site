@@ -62,7 +62,7 @@ export default function useGanguesCombatLog({
             if (event.side === 'enemy') dispararNudge()
           }
         }
-      } else if (event.type === 'item' && (event.curado || 0) > 0) {
+      } else if ((event.type === 'item' || event.type === 'cura') && (event.curado || 0) > 0) {
         soltarDmgPop({
           id: event.id, targetKey: event.targetKey,
           actorName: fighterName(t, atacante) || '?', amount: 0, heal: event.curado,

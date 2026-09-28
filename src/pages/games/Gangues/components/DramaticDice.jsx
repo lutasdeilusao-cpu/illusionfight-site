@@ -31,7 +31,7 @@ import './DramaticDice.css'
  *
  * @param {{ finalValue: number, sides?: number, side: 'player'|'enemy', onComplete: () => void, powerName?: string, attackerName?: string, attackerRetrato?: string|null, targetName?: string, theme?: { rgb: string, glyphs: string[], particleCount: number } | null, attackerTemplateId?: number|null, targetTemplateId?: number|null }} props
  */
-export default function DramaticDice({ finalValue, sides = 6, side, onComplete, powerName, passiveNames, attackerName, attackerRetrato, targetName, theme, attackerTemplateId, targetTemplateId, velocidade = 1 }) {
+export default function DramaticDice({ finalValue, sides = 6, side, onComplete, powerName, passiveNames, statusNome, passivaLabel, attackerName, attackerRetrato, targetName, theme, attackerTemplateId, targetTemplateId, velocidade = 1 }) {
   const { t } = useLanguage()
   // `side === 'player'`: o jogador ataca — mostra o ataque normal DELE (não
   // mostra nada se foi um PODER, ainda sem animação própria).
@@ -220,7 +220,20 @@ export default function DramaticDice({ finalValue, sides = 6, side, onComplete, 
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ delay: 0.1, duration: 0.4, ease: [0.175, 0.885, 0.32, 1.275] }}
             >
+              <small className="dramatic-dice-passivename__tag">{passivaLabel}</small>
               🛡 {passiveNames.join(' · ')}
+            </motion.div>
+          )}
+
+          {/* Status que o talento do Mandingueiro pôs no alvo (ganguesStatus.js). */}
+          {statusNome && (
+            <motion.div
+              className="dramatic-dice-status"
+              initial={{ opacity: 0, scale: 0.4 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.15, duration: 0.35, ease: [0.175, 0.885, 0.32, 1.275] }}
+            >
+              {statusNome}
             </motion.div>
           )}
 

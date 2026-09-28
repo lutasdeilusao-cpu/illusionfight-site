@@ -4,6 +4,7 @@ import { fighterName } from '../engine/ganguesCombatPresentation.js'
 import { getGanguesPortraitByTemplateId } from '../data/ganguesPortraits.js'
 import { getGanguesEnemyPortraitById } from '../data/ganguesEnemyPortraits.js'
 import GanguesRetratoImg from './GanguesRetratoImg'
+import { GANGUES_STATUS } from '../engine/ganguesStatus.js'
 
 // Roster compacto: quadradinho (avatar + anel de PV) + nome curto e PM
 // sempre visíveis embaixo — com 6 personagens em campo, "quem é quem" tem
@@ -68,6 +69,11 @@ const GanguesCombatRoster = forwardRef(function GanguesCombatRoster({ members, s
               {acted && <span className="gang-mini-tag">✓</span>}
             </button>
             <span className="gang-mini-nome">{nome}</span>
+            {member.statuses?.length > 0 && (
+              <span className="gang-mini-status">
+                {member.statuses.map(s => <b key={s.id} title={s.id}>{GANGUES_STATUS[s.id]?.icone}{s.turnos}</b>)}
+              </span>
+            )}
             <span className="gang-mini-bars" aria-label={nome}>
               <span className="gang-hpbar" role="progressbar" aria-valuenow={Math.max(0, member.pv || 0)} aria-valuemax={member.pvMax || 1}>
                 <i className="gang-hpbar-ghost" style={{ width: `${pvPct}%` }} />
