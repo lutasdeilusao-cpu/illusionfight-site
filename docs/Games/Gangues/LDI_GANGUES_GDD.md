@@ -24,7 +24,7 @@ Grafia oficial: **Marélia** com acento (o conto usa assim). O i18n do jogo aind
 tem "Marelia" sem acento em vários lugares — alinhar quando mexer em texto.
 
 > **Estado do documento: retrato do jogo como ele está HOJE — conferido contra
-> o código de GANGUES 3.75.6 (SITE 10.307.x), 28/09/2026.** Regra: o GDD
+> o código de GANGUES 3.76.0 (SITE 10.307.x), 28/09/2026.** Regra: o GDD
 > descreve o produto atual, não guarda diário de versões — quando algo muda
 > no jogo, o trecho que falava da versão antiga é REESCRITO, não empilhado
 > embaixo com "v3.xx: agora...". Histórico de mudança mora no git.
@@ -2183,25 +2183,21 @@ rápida de app (menos de 3 min) não muda nada — o jogo segue como estava. Bat
     recarregada (sem `ultimaLuta`): o adversário salvo (`posicao.adversario`),
     se ele é treta repetível que não seja vermelha/chefe/área do chefe; sem
     nada disso, não farma.
-- **Upagem no modo lento:** cada luta calculada dura o que ela duraria
-  jogada no **manual, na velocidade 1x**, golpe a golpe — e conta o
-  **dobro** disso (`GANGUES_FARM_LENTIDAO = 2`). Ritmo por ação, tirado do
-  combate: dado dramático ~3,15s; inimigo pensa 2,2s antes de bater; jogador
-  escolhe em ~2,5s; usar item ~3s; mais ~12s de telas por luta. Luta com
-  mais rodadas (inimigo casca-grossa) consome mais tempo e rende menos lutas
-  na mesma ausência. A luta interrompida sempre termina (e desconta a duração
-  dela); o farm depois precisa de 30s+ sobrando.
-- **A luta que estava no meio quando o jogador voltou não conta:** se a
-  simulação de uma luta passaria do tempo fora (inclusive a que estava na
-  tela, se o tempo fora foi curto), ela é descartada — sem dano, sem poção
-  gasta, sem prêmio — e o resumo avisa. O jogador volta pro último lugar da
-  rua (o ponto da briga).
+- **Ritmo fixo: 1 luta a cada 10 minutos fora** (`GANGUES_FARM_S_POR_LUTA`),
+  6 por hora, não importa o bairro, o ponto nem o tamanho da luta — os 3
+  minutos de espera contam dentro disso (38 min fora = 3 lutas). Antes cada
+  luta custava o dobro do tempo dela no manual 1x, e luta de 1 rodada (tropa
+  forte contra ponto fraco) saía a ~47s: 38 min viravam 50 brigas e +3 níveis
+  — "roubado demais, tem que ter sacrifício" (Isaias, 28/09/2026). A luta que
+  estava na tela é a 1ª das lutas.
+- **A luta que estava no meio quando o jogador voltou não conta:** os
+  minutos que não fecharam 10 (inclusive ausência de menos de 10 minutos,
+  com a luta da tela) são descartados — sem dano, sem poção gasta, sem
+  prêmio — e o resumo avisa. O jogador volta pro último lugar da rua (o
+  ponto da briga).
 - **Resumo mostra o que mudou de verdade:** grana, sucata, poções gastas e
   rep — a rep não desce abaixo de 0, então o "−1" do "aperta" com a rep já em
   0 aparece como +0.
-- **Luta longa rende pouco:** a Rinha é sparring no nível do mais forte e às
-  vezes vira luta de 10–27 rodadas (~1 em 5 passa de 5 minutos no modo
-  lento); numa ausência curta ela pode não fechar nenhuma briga.
 - **Teto: +5 níveis por ausência** — bateu, para.
 - **Só com a aba aberta:** fechou a aba, perdeu (o instante da saída mora só na
   memória da página, de propósito — o jogo não vira "esquece e volta rico").

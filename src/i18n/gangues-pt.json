@@ -762,7 +762,7 @@
         "teto": "Bateu o teto de +5 níveis por ausência — daqui pra frente, só jogando.",
         "derrota": "A tropa caiu numa das brigas: foi arrastada pra birosca e todo automático desligou. Liga de novo quando quiser voltar pro farm.",
         "sem_alvo": "Não tinha adversário pra farmar: o farm só grinda o último cara que você enfrentou — e nunca vermelho, chefe ou área do chefe. Nada mudou.",
-        "pouco_tempo": "Foi rapidinho — nenhuma briga chegou a fechar.",
+        "pouco_tempo": "Menos de 10 minutos fora — no segundo plano a tropa fecha 1 briga a cada 10 minutos, e essa não fechou.",
         "voltar": "Voltar pra rua",
         "pocoes": "Poções",
         "na_rua": "encontro na rua",

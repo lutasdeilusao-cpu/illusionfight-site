@@ -130,7 +130,7 @@ export default function GanguesFarmAusente({ children, luta = false, vitoria = f
             </ul>
           )}
           {aviso && <p className={`gang-farm-ausente__aviso is-${aviso}`}>{t(`games.gangues.farm_ausente.${aviso}`)}</p>}
-          {resumo.meioNaoConta && <p className="gang-farm-ausente__aviso">{t('games.gangues.farm_ausente.meio_nao_conta')}</p>}
+          {resumo.meioNaoConta && resumo.lutas > 0 && <p className="gang-farm-ausente__aviso">{t('games.gangues.farm_ausente.meio_nao_conta')}</p>}
           <button type="button" className="gang-farm-ausente__voltar" onClick={() => { setResumo(null); setFase('cena'); aoVoltar?.() }}>
             {t('games.gangues.farm_ausente.voltar')}
           </button>

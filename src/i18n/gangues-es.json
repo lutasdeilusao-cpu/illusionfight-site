@@ -762,7 +762,7 @@
         "teto": "Llegaste al tope de +5 niveles por ausencia — de acá en adelante, a jugar.",
         "derrota": "La banda cayó en una de las peleas: la arrastraron al bar y se apagó todo lo automático. Prendelo de nuevo cuando quieras volver a farmear.",
         "sem_alvo": "No había rival para farmear: solo se grindea al último que enfrentaste — nunca uno rojo, el jefe o la zona del jefe. No cambió nada.",
-        "pouco_tempo": "Fue un toque — ninguna pelea llegó a cerrar.",
+        "pouco_tempo": "Menos de 10 minutos afuera — en segundo plano la banda cierra 1 pelea cada 10 minutos, y esta no llegó.",
         "voltar": "Volver a la calle",
         "pocoes": "Pociones",
         "na_rua": "un cruce en la calle",
