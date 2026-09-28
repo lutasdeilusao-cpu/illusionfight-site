@@ -305,11 +305,23 @@
         "atacar": "Attack",
         "poder": "Talent",
         "item": "Item",
-        "item_vazio": "No items yet — coming soon.",
+        "item_vazio": "Empty bag — hit the neighborhood shop.",
         "item_qtd": "×{n}",
         "item_em_quem": "on who?",
         "alvo_caido": "down",
-        "alvo_cheio": "already full"
+        "alvo_cheio": "already full",
+        "na_vez": "Up now",
+        "voltar": "Back",
+        "auto_ajustar": "Tune",
+        "auto_cada_um": "What each one uses on auto",
+        "auto_normal": "Normal attack",
+        "auto_pocao": "Auto potion",
+        "auto_pocao_desc": "Anyone at 50% HP or less drinks an HP potion. Out of MP for the chosen talent? Drinks an MP potion.",
+        "auto_tutorial": {
+          "talento": "This is where you set up auto, kid. For each one in the crew pick: normal attack only, or ONE talent they fire every time they've got the MP. MP runs dry, back to the normal attack.",
+          "pocao": "Turn on auto potion and nobody drops for nothing: hit 50% HP and the crew drinks whatever HP potion's in the bag. Short on MP for the talent? MP potion. Drinking uses up that fighter's turn, same as manual.",
+          "derrota": "But listen: lose the brawl and EVERY auto mode switches off. Then it's on you again."
+        }
       },
       "itens": {
         "1": "HP Potion",
@@ -552,7 +564,7 @@
       },
       "auto": {
         "switch_label": "Auto",
-        "switch_titulo": "Turn on auto mode — your fighters attack on their own with the normal attack. To use a talent, turn it off and go back to manual.",
+        "switch_titulo": "Turn on auto mode — each fighter acts on their own the way you tuned it (normal attack or talent, with or without potions).",
         "premium_titulo": "Auto mode is a subscriber perk — tap to subscribe",
         "sair": "Exit auto mode"
       },
@@ -749,7 +761,8 @@
         "derrota": "The crew went down in one of the brawls: dragged to the bar, and every auto mode switched off. Turn it back on when you want to farm again.",
         "sem_alvo": "No opponent to farm: it only grinds the last guy you fought — never a red one, the boss, or the boss's turf. Nothing changed.",
         "pouco_tempo": "That was quick — no brawl got to finish.",
-        "voltar": "Back to the street"
+        "voltar": "Back to the street",
+        "pocoes": "Potions"
       },
       "guest_banner": "No account: progress isn't saved.",
       "guest_create_account": "Create account",

@@ -305,11 +305,23 @@
         "atacar": "Atacar",
         "poder": "Talento",
         "item": "Item",
-        "item_vazio": "Nenhum item ainda — em breve.",
+        "item_vazio": "Bolsa vazia — passa na loja do bairro.",
         "item_qtd": "×{n}",
         "item_em_quem": "usar em quem?",
         "alvo_caido": "caído",
-        "alvo_cheio": "já tá cheio"
+        "alvo_cheio": "já tá cheio",
+        "na_vez": "Na vez",
+        "voltar": "Voltar",
+        "auto_ajustar": "Ajustar",
+        "auto_cada_um": "O que cada um usa no automático",
+        "auto_normal": "Ataque normal",
+        "auto_pocao": "Poção sozinho",
+        "auto_pocao_desc": "Qualquer um com PV em 50% ou menos toma poção de PV. Sem PM pro talento escolhido, toma poção de PM.",
+        "auto_tutorial": {
+          "talento": "Aqui tu monta o automático, cria. Pra cada um da tropa escolhe: só ataque normal, ou UM talento que ele solta toda vez que tiver PM. Acabou o PM, volta pro ataque normal.",
+          "pocao": "Liga a poção sozinho e ninguém morre à toa: chegou em 50% de PV, a tropa toma a poção de PV que tiver na bolsa. E se faltar PM pro talento, toma poção de PM. Usar poção gasta a vez de quem tá agindo, igual no manual.",
+          "derrota": "Mas se liga: perdeu a briga, TODO automático desliga. Aí é contigo de novo."
+        }
       },
       "itens": {
         "1": "Poção de HP",
@@ -552,7 +564,7 @@
       },
       "auto": {
         "switch_label": "Automático",
-        "switch_titulo": "Liga o modo automático — seus lutadores atacam sozinhos com o ataque normal. Pra usar talento, desliga e volta pro manual.",
+        "switch_titulo": "Liga o modo automático — cada um da tropa age sozinho do jeito que tu ajustou (ataque normal ou talento, com ou sem poção).",
         "premium_titulo": "Modo automático é vantagem de assinante — toque pra assinar",
         "sair": "Sair do automático"
       },
@@ -749,7 +761,8 @@
         "derrota": "A tropa caiu numa das brigas: foi arrastada pra birosca e todo automático desligou. Liga de novo quando quiser voltar pro farm.",
         "sem_alvo": "Não tinha adversário pra farmar: o farm só grinda o último cara que você enfrentou — e nunca vermelho, chefe ou área do chefe. Nada mudou.",
         "pouco_tempo": "Foi rapidinho — nenhuma briga chegou a fechar.",
-        "voltar": "Voltar pra rua"
+        "voltar": "Voltar pra rua",
+        "pocoes": "Poções"
       },
       "guest_banner": "Sem conta: progresso não é salvo.",
       "guest_create_account": "Criar conta",

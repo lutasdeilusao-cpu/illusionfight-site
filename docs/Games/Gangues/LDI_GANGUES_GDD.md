@@ -2080,8 +2080,22 @@ estilo Medabots/ATB do Chrono Trigger; substitui a iniciativa Malícia+d3):
     rodada ou depois do fim da luta.
   - Tem automático próprio (`useGanguesModoAutoMultidao`), que foca o
     inimigo mais perto de cair.
-- **Modo automático** (`hooks/useGanguesModoAuto.js`): a luta anda sozinha,
-  **só com ataque normal**. É **vantagem de assinante** (`TIERS_COM_MODO_AUTO`
+- **Modo automático** (`hooks/useGanguesModoAuto.js`): a luta anda sozinha.
+  **Configurável desde a v3.73.0** (painel AUTOMÁTICO → Ajustar, no menu de
+  ação): pra cada personagem, **só ataque normal** (o padrão) ou **um talento**
+  que ele solta toda vez que tiver PM/PV pra pagar (sem, ataque normal); e a
+  **poção automática** — qualquer um com PV ≤ 50% toma a poção de PV que
+  melhor tapa o buraco (sem efeito colateral primeiro), e sem PM pro talento
+  o próprio personagem toma poção de PM. Usar item gasta a vez de quem age,
+  igual no manual. Decisão pura em `escolherAcaoAuto`; config por navegador
+  (`ldi-gangues-auto-config`). Tutorial de 3 passos (conta,
+  `auto_config`) na 1ª vez que o painel abre. O farm ausente segue o mesmo
+  ajuste (talento na luta calculada, poção de PV entre uma luta e outra).
+  **Menu de ação redesenhado** (v3.73.0, `components/GanguesActionOrb.jsx`):
+  cabeçalho de quem está na vez com PV/PM, ATACAR em destaque, TALENTO e ITEM
+  lado a lado (com contador), linha do automático (switch + Ajustar); cada
+  talento mostra custo e O QUE FAZ (`describeGanguesSpecialEffect`), pra
+  montar estratégia em luta difícil; fechar SEMPRE volta pro começo. É **vantagem de assinante** (`TIERS_COM_MODO_AUTO`
   = elite e primordial), mas o botão **aparece pra todo mundo** de propósito,
   como chamariz de assinatura. Um botão "sair do automático" fica logo abaixo
   do roster do jogador (posição medida, pra nunca tampar a barra de PV).

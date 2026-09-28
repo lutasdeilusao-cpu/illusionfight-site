@@ -73,6 +73,7 @@ export default function GanguesFarmAusente({ children }) {
               <div><dt>{t('games.gangues.farm_ausente.grana')}</dt><dd>+{resumo.grana}</dd></div>
               <div><dt>{t('games.gangues.farm_ausente.rep')}</dt><dd>+{resumo.rep}</dd></div>
               <div><dt>{t('games.gangues.farm_ausente.sucata')}</dt><dd>+{resumo.sucata}</dd></div>
+              {resumo.pocoes > 0 && <div><dt>{t('games.gangues.farm_ausente.pocoes')}</dt><dd>−{resumo.pocoes}</dd></div>}
             </dl>
           )}
           {niveis.length > 0 && (

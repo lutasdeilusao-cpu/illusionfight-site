@@ -20,6 +20,10 @@
      nível, a conta tem que ser a daquele cara (Isaias, 28/09/2026). Sem
      adversário, ou se ele não vale pra briga automática (vermelho, chefe,
      área do chefe — naAreaDoChefe, cenaHelpers.js), não farma nada;
+   • segue o AJUSTE do automático (v3.73.0): o talento escolhido pra cada
+     um entra na luta calculada (quando tem PM), e com a poção automática
+     ligada, quem terminou a luta com PV ≤ 50% toma poção de PV antes da
+     próxima;
    • perdeu uma luta = para ali, sem XP nenhum dessa luta, a tropa acorda na
      birosca DAQUELE bairro (o mesmo socorro da derrota de verdade — na
      Feira é a pensão) e TODO automático desliga.
@@ -33,6 +37,9 @@ import { ajustarPontosFixo } from '../data/ganguesDificuldade.js'
 import { getGanguesLevelFromXp } from '../data/ganguesCharacters.js'
 import { GANGUES_STORY_BATTLE_PARTY_MAX } from '../data/ganguesLoadout.js'
 import { GANGUES_SUCATA_ID } from '../data/ganguesEquip.js'
+import { GANGUES_ITENS_LISTA } from '../data/ganguesItens.js'
+import { getEquippedActiveGanguesSpecials } from './ganguesSpecialEffects.js'
+import { lerAutoConfig, melhorPocao, POCAO_LIMIAR_PV } from '../hooks/useGanguesModoAuto.js'
 
 /** Menos que isso fora não conta (troca rápida de app não vira farm). */
 export const GANGUES_FARM_MIN_S = 30
@@ -75,10 +82,32 @@ function bandoDoPoi(poi, { party, enemiesData, modo, territorioId }) {
   return gerarBandoInimigo({ territorioId, pontosFixo: ajustarPontosFixo(poi.pontosFixo, modo), playerTeam: party, enemiesData, liderFixo: poi.liderFixo, moldesPool: poi.moldesPool, qtdMin: poi.qtdMin, qtdMax: poi.qtdMax })
 }
 
-function lutar(party, bando) {
+function lutar(party, bando, talentos) {
+  const especiais = Object.fromEntries(party.map(m => [m.id, getEquippedActiveGanguesSpecials(m)]))
   let estado = iniciarBrigaMultidao({ playerTeam: party, enemyTeam: bando })
-  for (let i = 0; i < GANGUES_FARM_MAX_RODADAS && !estado.terminado; i++) estado = avancarRodadaMultidao(estado)
+  for (let i = 0; i < GANGUES_FARM_MAX_RODADAS && !estado.terminado; i++) estado = avancarRodadaMultidao(estado, talentos, especiais)
   return { outcome: estado.outcome || 'defeat', combatants: estado.combatants }
+}
+
+// Poção automática entre uma luta e outra: quem saiu de pé com PV ≤ 50%
+// toma poção de PV (a que melhor tapa o buraco) até passar dos 50% ou a bolsa
+// acabar. Devolve quantas foram usadas.
+function tomarPocoes(store, combatants) {
+  let usadas = 0
+  for (const c of combatants.filter(x => x.side === 'player' && x.pv > 0)) {
+    let pv = c.pv
+    while (pv / c.pvMax <= POCAO_LIMIAR_PV) {
+      const inventario = store().inventario
+      const itens = GANGUES_ITENS_LISTA.map(i => ({ ...i, quantidade: inventario[i.id] || 0 }))
+      const pocao = melhorPocao(itens, 'cura_pv', c.pvMax - pv)
+      if (!pocao) return usadas
+      const { curou } = store().curarMembro(c.id, 'cura_pv', pocao.valor)
+      if (!curou || !store().usarItem(pocao.id)) return usadas
+      pv += curou
+      usadas++
+    }
+  }
+  return usadas
 }
 
 /** Roda o farm do tempo fora. `store` = useGanguesStore.getState (lido de
@@ -87,13 +116,14 @@ export function simularFarmAusente({ store, cena, territorioId, segundos, enemie
   const s0 = store()
   const prog0 = s0.cenaProgresso[cena.id] || { resolvidos: {}, revelados: {} }
   const poi = alvoDoFarm(cena, prog0, s0.rep)
-  const resumo = { poiId: poi?.id || null, lutas: 0, vitorias: 0, grana: 0, rep: 0, sucata: 0, niveis: {}, teto: false, derrota: false, socorro: null }
+  const resumo = { poiId: poi?.id || null, lutas: 0, vitorias: 0, grana: 0, rep: 0, sucata: 0, pocoes: 0, niveis: {}, teto: false, derrota: false, socorro: null }
   if (!poi) return resumo
   const selecionados = s0.activeParty.filter(m => s0.roster.some(r => r.id === m.id))
   const ids = (selecionados.length ? selecionados : s0.roster).slice(0, GANGUES_STORY_BATTLE_PARTY_MAX).map(m => m.id)
   const nivel0 = Object.fromEntries(s0.roster.filter(m => ids.includes(m.id)).map(m => [m.id, nivelDe(m)]))
   const modo = s0.storyProgress?.__dificuldade || 'medio'
   const lutas = Math.min(GANGUES_FARM_MAX_LUTAS, Math.floor(segundos / GANGUES_FARM_SEGUNDOS_POR_LUTA))
+  const autoConfig = lerAutoConfig()
 
   for (let n = 0; n < lutas; n++) {
     const s = store()
@@ -102,7 +132,7 @@ export function simularFarmAusente({ store, cena, territorioId, segundos, enemie
     if (!party.length || party.every(m => Number(m.attributes?.pv_atual ?? 1) <= 0)) break
     const bando = bandoDoPoi(poi, { party, enemiesData, modo, territorioId })
     if (!bando?.length) break
-    const { outcome, combatants } = lutar(party, bando)
+    const { outcome, combatants } = lutar(party, bando, autoConfig.talentos)
     const victory = outcome === 'victory'
     resumo.lutas++
     s.registrarResultadoStory(outcome)
@@ -134,6 +164,7 @@ export function simularFarmAusente({ store, cena, territorioId, segundos, enemie
     if (rep) { s.ganharRep(rep); resumo.rep += rep }
     itens.forEach(({ id, qtd }) => s.darItem(id, qtd))
     if (Math.random() < GANGUES_FARM_SUCATA_CHANCE) { s.darItem(GANGUES_SUCATA_ID, 1); resumo.sucata++ }
+    if (autoConfig.pocao) resumo.pocoes += tomarPocoes(store, combatants)
   }
 
   const fim = store()

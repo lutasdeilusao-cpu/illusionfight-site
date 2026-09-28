@@ -305,11 +305,23 @@
         "atacar": "Atacar",
         "poder": "Talento",
         "item": "Objeto",
-        "item_vazio": "Todavía no hay objetos — pronto.",
+        "item_vazio": "Bolsa vacía — pasá por el almacén del barrio.",
         "item_qtd": "×{n}",
         "item_em_quem": "¿a quién?",
         "alvo_caido": "caído",
-        "alvo_cheio": "ya está lleno"
+        "alvo_cheio": "ya está lleno",
+        "na_vez": "Le toca",
+        "voltar": "Volver",
+        "auto_ajustar": "Ajustar",
+        "auto_cada_um": "Qué usa cada uno en automático",
+        "auto_normal": "Ataque normal",
+        "auto_pocao": "Poción sola",
+        "auto_pocao_desc": "Cualquiera con 50% de PV o menos toma poción de PV. Sin PM para el talento elegido, toma poción de PM.",
+        "auto_tutorial": {
+          "talento": "Acá armás el automático, pibe. Para cada uno de la banda elegí: solo ataque normal, o UN talento que larga cada vez que tenga PM. Se acabó el PM, vuelve al ataque normal.",
+          "pocao": "Prendé la poción sola y nadie cae de gusto: llegó al 50% de PV, la banda toma la poción de PV que haya en la bolsa. Y si falta PM para el talento, poción de PM. Tomar poción gasta el turno del que está peleando, igual que en manual.",
+          "derrota": "Pero ojo: perdiste la pelea y se apaga TODO lo automático. Ahí te toca a vos de nuevo."
+        }
       },
       "itens": {
         "1": "Poción de HP",
@@ -552,8 +564,8 @@
       },
       "auto": {
         "switch_label": "Automático",
-        "switch_titulo": "Activa el modo automático — tus luchadores atacan solos con el ataque normal. Para usar un talento, apágalo y vuelve al modo manual.",
-        "premium_titulo": "El modo automático es ventaja de suscriptor — toca para suscribirte",
+        "switch_titulo": "Prendé el modo automático — cada uno de la banda actúa solo como lo ajustaste (ataque normal o talento, con o sin poción).",
+        "premium_titulo": "El modo automático es ventaja de suscriptor — tocá para suscribirte",
         "sair": "Salir del automático"
       },
       "multidao": {
@@ -749,7 +761,8 @@
         "derrota": "La banda cayó en una de las peleas: la arrastraron al bar y se apagó todo lo automático. Prendelo de nuevo cuando quieras volver a farmear.",
         "sem_alvo": "No había rival para farmear: solo se grindea al último que enfrentaste — nunca uno rojo, el jefe o la zona del jefe. No cambió nada.",
         "pouco_tempo": "Fue un toque — ninguna pelea llegó a cerrar.",
-        "voltar": "Volver a la calle"
+        "voltar": "Volver a la calle",
+        "pocoes": "Pociones"
       },
       "guest_banner": "Sin cuenta: no se guarda el progreso.",
       "guest_create_account": "Crear cuenta",

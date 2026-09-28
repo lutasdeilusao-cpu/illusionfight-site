@@ -42,98 +42,124 @@
 .gang-orb-menu--cima { order: -1; margin-bottom: 8px; }
 .gang-orb-menu--baixo { order: 1; margin-top: 8px; }
 
+/* ── Painel (redesign v3.73.0) ─────────────────────────────────── */
 .gang-orb-panel {
-  width: max(calc(52 * var(--app-vw) / 100), 190px);
-  max-width: 260px;
+  width: min(300px, calc(82 * var(--app-vw) / 100));
+  max-height: 64dvh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  padding: 8px;
-  border: 1px solid rgba(245, 166, 35, 0.45);
-  background: linear-gradient(160deg, #14100a, #0a0806 80%);
-  box-shadow: 0 10px 34px -8px rgba(0, 0, 0, 0.7);
+  gap: 8px;
+  padding: 10px;
+  border: 1px solid color-mix(in srgb, var(--if-amber) 45%, transparent);
+  background: linear-gradient(165deg, var(--gang-noite-850), var(--gang-noite-950) 85%);
+  box-shadow: 0 14px 40px -10px var(--gang-preto), 0 0 30px -14px color-mix(in srgb, var(--if-amber) 60%, transparent);
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%);
+}
+
+/* Quem está na vez: nome + PV/PM. */
+.gang-orb-ator { display: grid; gap: 4px; padding-bottom: 8px; border-bottom: 1px solid var(--if-hair); }
+.gang-orb-ator__eyebrow { font: 700 0.52rem var(--font-mono); letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-secondary); }
+.gang-orb-ator strong { font: 900 1rem/1.1 var(--font-title); color: var(--if-amber); letter-spacing: 0.04em; text-transform: uppercase; }
+.gang-orb-barra { position: relative; display: flex; align-items: center; height: 18px; background: rgba(255, 255, 255, 0.05); overflow: hidden; }
+.gang-orb-barra i { position: absolute; inset: 0 auto 0 0; width: var(--v, 0%); background: var(--barra, var(--if-cyan)); opacity: 0.45; transition: width 0.3s; }
+.gang-orb-barra small { position: relative; padding-left: 6px; font: 700 0.58rem/1 var(--font-mono); color: var(--gang-branco); letter-spacing: 0.06em; }
+.gang-orb-barra--pv { --barra: var(--if-cyan); box-shadow: inset 2px 0 0 var(--if-cyan); }
+.gang-orb-barra--pm { --barra: var(--if-violet); box-shadow: inset 2px 0 0 var(--if-violet); }
+
+/* ATACAR em destaque: a ação de sempre, um toque só. */
+.gang-orb-atacar {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  min-height: 52px; border: 0; cursor: pointer;
+  font: 900 1rem var(--font-title); letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--gang-preto);
+  background: linear-gradient(135deg, var(--if-amber), color-mix(in srgb, var(--if-amber) 70%, var(--if-danger)));
   clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
 }
+.gang-orb-atacar b { font-size: 1.2rem; }
+.gang-orb-atacar:disabled { opacity: 0.35; cursor: not-allowed; }
 
-.gang-orb-ator {
-  padding: 2px 4px 4px;
-  color: var(--if-amber);
-  font: 800 0.6rem var(--font-mono);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  text-align: center;
-}
+.gang-orb-duas { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
 .gang-orb-opt {
-  display: flex; align-items: center; gap: 8px;
-  min-height: 44px; padding: 0 12px;
-  border: 1px solid var(--if-hair);
-  background: rgba(255, 255, 255, 0.03);
-  color: var(--text-primary);
-  font: 700 0.72rem var(--font-mono);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  position: relative; display: flex; align-items: center; justify-content: center; gap: 6px;
+  min-height: 46px; padding: 0 8px;
+  border: 1px solid var(--if-hair); background: rgba(255, 255, 255, 0.03);
+  font: 800 0.7rem var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase;
   cursor: pointer;
 }
-.gang-orb-opt b { font-size: 1.05rem; }
+.gang-orb-opt b { font-size: 1rem; }
+.gang-orb-opt em { position: absolute; top: 3px; right: 5px; font: 800 0.55rem var(--font-mono); font-style: normal; opacity: 0.8; }
 .gang-orb-opt:disabled { opacity: 0.35; cursor: not-allowed; }
-.gang-orb-opt--atacar { border-color: color-mix(in srgb, var(--if-amber) 55%, transparent); color: var(--if-amber); }
-.gang-orb-opt--poder { border-color: color-mix(in srgb, var(--if-cyan) 55%, transparent); color: var(--if-cyan); }
-.gang-orb-opt--item { border-color: color-mix(in srgb, var(--if-violet) 55%, transparent); color: var(--if-violet); }
+.gang-orb-opt--poder { border-color: color-mix(in srgb, var(--if-cyan) 50%, transparent); color: var(--if-cyan); }
+.gang-orb-opt--item { border-color: color-mix(in srgb, var(--if-violet) 50%, transparent); color: var(--if-violet); }
 
-/* Modo automático — vive no menu da bolinha (era um switch na barra do topo).
-   Aparece pra todo mundo; quando virar exclusivo de assinante ganha a coroa
-   e o toque manda pro /assinar (gang-orb-auto--lock). */
+/* Automático: switch + "ajustar" na mesma linha. Aparece pra todo mundo;
+   quando virar exclusivo de assinante ganha a coroa (gang-orb-auto--lock). */
+.gang-orb-auto-linha { display: grid; grid-template-columns: 1fr auto; gap: 8px; }
 .gang-orb-auto {
   display: flex; align-items: center; gap: 8px;
-  min-height: 40px; margin-top: 4px; padding: 0 10px;
+  min-height: 42px; padding: 0 10px;
   border: 1px solid color-mix(in srgb, var(--if-teal) 45%, transparent);
-  border-top-width: 1px;
-  background: rgba(0, 180, 216, 0.06);
-  color: var(--if-teal);
+  background: rgba(0, 180, 216, 0.06); color: var(--if-teal);
   font: 800 0.66rem var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase;
   cursor: pointer;
 }
-.gang-orb-auto__track {
-  flex-shrink: 0; position: relative; width: 30px; height: 16px;
-  border: 1px solid currentColor; border-radius: 999px; opacity: 0.8;
-}
-.gang-orb-auto__dot {
-  position: absolute; top: 1px; left: 1px; width: 12px; height: 12px;
-  border-radius: 50%; background: currentColor; transition: transform 0.15s;
-}
+.gang-orb-auto__track { flex-shrink: 0; position: relative; width: 30px; height: 16px; border: 1px solid currentColor; border-radius: 999px; opacity: 0.8; }
+.gang-orb-auto__dot { position: absolute; top: 1px; left: 1px; width: 12px; height: 12px; border-radius: 50%; background: currentColor; transition: transform 0.15s; }
 .gang-orb-auto--on { background: rgba(0, 180, 216, 0.16); box-shadow: 0 0 14px -2px rgba(0, 180, 216, 0.5); }
 .gang-orb-auto--on .gang-orb-auto__dot { transform: translateX(14px); }
 .gang-orb-auto--lock { border-color: color-mix(in srgb, var(--if-amber) 55%, transparent); color: var(--if-amber); background: rgba(245, 166, 35, 0.07); }
 .gang-orb-auto__crown { font-size: 0.8rem; }
-
+.gang-orb-ajustar {
+  padding: 0 12px; border: 1px solid var(--if-hair-strong); background: none; cursor: pointer;
+  color: var(--text-primary); font: 800 0.62rem var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase;
+}
 .gang-orb--auto { box-shadow: 0 0 0 2px var(--if-teal), 0 6px 18px rgba(0,0,0,0.4); }
 
-.gang-orb-panel-head {
+/* Listas (talento, item, alvo, automático). */
+.gang-orb-head {
   display: flex; align-items: center; gap: 8px;
-  padding-bottom: 4px; margin-bottom: 2px;
-  border-bottom: 1px solid var(--if-hair);
-  font: 800 0.66rem var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase;
-  color: var(--text-secondary);
+  padding-bottom: 6px; border-bottom: 1px solid var(--if-hair);
+  font: 800 0.66rem var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-secondary);
 }
-.gang-orb-voltar {
-  width: 26px; height: 26px; border: 1px solid var(--if-hair); background: none;
-  color: var(--text-primary); font-size: 0.9rem; cursor: pointer;
+.gang-orb-voltar { width: 30px; height: 30px; flex-shrink: 0; border: 1px solid var(--if-hair); background: none; color: var(--text-primary); font-size: 0.95rem; cursor: pointer; }
+.gang-orb-talento {
+  display: grid; gap: 3px; padding: 8px 10px; text-align: left; cursor: pointer;
+  border: 1px solid var(--if-hair); border-left: 2px solid var(--if-cyan);
+  background: rgba(255, 255, 255, 0.03); color: var(--text-primary);
 }
-.gang-orb-item-btn {
-  display: flex; flex-direction: column; align-items: flex-start; gap: 2px;
-  min-height: 40px; padding: 6px 10px;
-  border: 1px solid var(--if-hair);
-  background: rgba(255, 255, 255, 0.02);
-  color: var(--text-primary);
-  font: 700 0.68rem var(--font-mono);
-  letter-spacing: 0.03em;
-  text-align: left;
-  cursor: pointer;
-}
-.gang-orb-item-btn small { color: var(--text-secondary); font-weight: 600; letter-spacing: 0.02em; text-transform: none; }
-.gang-orb-item-btn--sem-recurso { opacity: 0.4; cursor: not-allowed; }
-.gang-orb-item-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.gang-orb-talento--item { border-left-color: var(--if-violet); }
+.gang-orb-talento:disabled { opacity: 0.4; cursor: not-allowed; }
+.gang-orb-talento__topo { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.gang-orb-talento strong { font: 800 0.74rem var(--font-mono); letter-spacing: 0.03em; }
+.gang-orb-talento small { font: 500 0.66rem/1.35 var(--font-mono); color: var(--text-secondary); }
+.gang-orb-talento__falta { color: var(--if-danger) !important; }
+.gang-orb-custo { flex-shrink: 0; padding: 1px 6px; font: 800 0.56rem var(--font-mono); font-style: normal; letter-spacing: 0.06em; color: var(--if-cyan); border: 1px solid color-mix(in srgb, var(--if-cyan) 45%, transparent); }
+.gang-orb-custo--pv { color: var(--if-danger); border-color: color-mix(in srgb, var(--if-danger) 45%, transparent); }
 .gang-orb-vazio { margin: 4px 2px; color: var(--text-secondary); font: 600 0.68rem var(--font-mono); text-align: center; }
+
+/* Ajuste do automático: o que cada um usa + poção automática. */
+.gang-orb-secao { font: 700 0.54rem var(--font-mono); letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-secondary); }
+.gang-orb-auto-membro { display: grid; gap: 5px; padding: 6px 0; border-bottom: 1px dashed var(--if-hair); }
+.gang-orb-auto-membro strong { font: 800 0.72rem var(--font-mono); color: var(--gang-branco); }
+.gang-orb-chips { display: flex; flex-wrap: wrap; gap: 5px; }
+.gang-orb-chip {
+  min-height: 30px; padding: 0 9px; cursor: pointer;
+  border: 1px solid var(--if-hair-strong); background: rgba(255, 255, 255, 0.03);
+  color: var(--text-secondary); font: 700 0.6rem var(--font-mono); letter-spacing: 0.04em;
+}
+.gang-orb-chip.is-on { color: var(--gang-preto); background: var(--if-amber); border-color: var(--if-amber); }
+.gang-orb-chip--talento.is-on { background: var(--if-cyan); border-color: var(--if-cyan); }
+.gang-orb-pocao {
+  display: flex; align-items: center; gap: 10px; padding: 10px; text-align: left; cursor: pointer;
+  border: 1px solid color-mix(in srgb, var(--if-violet) 45%, transparent); background: rgba(255, 255, 255, 0.03); color: var(--if-violet);
+}
+.gang-orb-pocao span:last-child { display: grid; gap: 2px; }
+.gang-orb-pocao strong { font: 800 0.68rem var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase; }
+.gang-orb-pocao small { font: 500 0.62rem/1.35 var(--font-mono); color: var(--text-secondary); }
+.gang-orb-pocao.is-on { background: color-mix(in srgb, var(--if-violet) 14%, transparent); }
+.gang-orb-pocao.is-on .gang-orb-auto__dot { transform: translateX(14px); }
 
 @media (max-width: 380px) {
   .gang-orb { width: 50px; height: 50px; font-size: 1.3rem; }

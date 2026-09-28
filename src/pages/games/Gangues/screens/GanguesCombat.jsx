@@ -5,7 +5,7 @@ import { useEventos } from '../../../../context/EventosContext'
 import { useGanguesStore } from '../store/useGanguesStore'
 import useGanguesTurnMachine from '../hooks/useGanguesTurnMachine'
 import useGanguesCombatFx from '../hooks/useGanguesCombatFx.js'
-import useGanguesModoAuto from '../hooks/useGanguesModoAuto.js'
+import useGanguesModoAuto, { useGanguesAutoConfig, escolherAcaoAuto } from '../hooks/useGanguesModoAuto.js'
 import useGanguesModoAutoMultidao from '../hooks/useGanguesModoAutoMultidao.js'
 import useGanguesVelocidadeAuto, { useGanguesAutoLembrado } from '../hooks/useGanguesVelocidadeAuto.js'
 import useGanguesModoMultidao from '../hooks/useGanguesModoMultidao.js'
@@ -224,8 +224,9 @@ export default function GanguesCombat({ onNavigate, onSairConfirmado }) {
   const modoAuto = useGanguesModoAuto({
     modoAutoOn, setModoAutoOn, velocidade: velocidadeEfetiva,
     perfil, modoMultidaoAtivo, machinePhase: machine.phase, result, koCena: fx.koCena,
-    selectedActor, selectedTarget, handleAttack,
+    selectedActor, selectedTarget, agir: agirAuto,
   })
+  const autoConfig = useGanguesAutoConfig()
 
   // Itens disponíveis (quantidade > 0) — a bolinha só mostra o que a gangue
   // realmente tem, lido direto do inventário compartilhado (store.inventario).
@@ -270,6 +271,8 @@ export default function GanguesCombat({ onNavigate, onSairConfirmado }) {
 
   const actingMember = players.find(item => item.key === (modoMultidaoAtivo ? null : selectedActor)) || null
   const equippedSpecials = actingMember ? getEquippedActiveGanguesSpecials(actingMember) : []
+  // Tropa pro menu de ação: PV/PM (alvo de item) e talentos (config do automático).
+  const aliadosOrb = players.map(p => ({ key: p.key, id: p.id, nome: fighterName(t, p), pv: Math.max(0, p.pv || 0), pvMax: p.pvMax || 1, pm: Math.max(0, p.pm || 0), pmMax: p.pmMax || 0, dead: p.pv <= 0, especiais: getEquippedActiveGanguesSpecials(p) }))
   const canAffordSpecial = (special) => {
     const cost = special.effect.cost
     if (!cost) return true
@@ -284,6 +287,14 @@ export default function GanguesCombat({ onNavigate, onSairConfirmado }) {
   // (ver useGanguesAvancoAutomatico). Derrota nunca — o jogador tem que clicar.
   const lutaDaCena = Boolean(store.storyTarget?.cenaId) && !store.storyTarget?.torre && !store.storyTarget?.clube
   useGanguesAvancoAutomatico({ ativo: lutaDaCena && result === 'victory' && !falaFinal, ms: GANGUES_AVANCO_AUTO_MS.resultado, acao: abrirRelatorio })
+
+  // A vez automática (useGanguesModoAuto): talento escolhido / poção / ataque
+  // normal, conforme a config do automático — ver escolherAcaoAuto.
+  function agirAuto() {
+    const acao = escolherAcaoAuto({ ator: actingMember, aliados: aliadosOrb, especiais: equippedSpecials, pagavel: canAffordSpecial, itens: itensDisponiveis, config: autoConfig.config })
+    if (acao.tipo === 'item') handleUsarItem(acao.itemId, acao.alvoKey)
+    else handleAttack(acao.tipo === 'talento' ? acao.specialId : null)
+  }
 
   if (!store.match.playerTeam?.length) return null
 
@@ -416,13 +427,17 @@ export default function GanguesCombat({ onNavigate, onSairConfirmado }) {
           equippedSpecials={equippedSpecials}
           canAffordSpecial={canAffordSpecial}
           itens={itensDisponiveis}
-          aliados={players.map(p => ({ key: p.key, nome: fighterName(t, p), pv: Math.max(0, p.pv || 0), pvMax: p.pvMax || 1, pm: Math.max(0, p.pm || 0), pmMax: p.pmMax || 0, dead: p.pv <= 0 }))}
+          atorKey={selectedActor}
+          aliados={aliadosOrb}
           onAtacar={() => handleAttack(null)}
           onUsarPoder={specialId => handleAttack(specialId)}
           onUsarItem={(itemId, alvoKey) => handleUsarItem(itemId, alvoKey)}
           autoOn={modoAuto.modoAutoOn}
           autoBloqueado={!modoAuto.podeUsarModoAuto}
           onToggleAuto={modoAuto.toggleModoAuto}
+          autoConfig={autoConfig.config}
+          onEscolherTalentoAuto={autoConfig.escolherTalento}
+          onAlternarPocaoAuto={autoConfig.alternarPocao}
         />
       )}
       {!modoMultidaoAtivo && machine.phase === 'enemy' && !machine.pending && <div className="gang-enemy-thinking"><span className="gang-thinking-pulse" /><strong>{t('games.gangues.report.enemy_thinking')}</strong><small>{t('games.gangues.report.enemy_strategy')}</small></div>}
