@@ -23,42 +23,20 @@
 Grafia oficial: **Marélia** com acento (o conto usa assim). O i18n do jogo ainda
 tem "Marelia" sem acento em vários lugares — alinhar quando mexer em texto.
 
-> **v3.65.0 (27/09/2026): A FEIRA É JOGÁVEL** — o 2º território virou cena
-> navegável (37 eventos, Galeria dos Gato, Mercadão, apagão, Serralheria até
-> +4, Pensão da Dona Regina com fiado por favor, Juro Alto, Rinha de Apostas,
-> Rapa/Apagão/Cobrança do Turco, consumíveis 3–12 e todo o catálogo 121–144 +
-> o épico 138). Ver §4 (Território 2), §9.3–9.5. Ficaram de fora só o **Apito
-> (7)** e o **Trocado Marcado (9)** — precisam de mecânica nova de combate
-> (fuga / sumir inimigo) e continuam só no design.
+> **Estado do documento: retrato do jogo como ele está HOJE — conferido contra
+> o código de GANGUES 3.73.0 (SITE 10.305.x), 28/09/2026.** Regra: o GDD
+> descreve o produto atual, não guarda diário de versões — quando algo muda
+> no jogo, o trecho que falava da versão antiga é REESCRITO, não empilhado
+> embaixo com "v3.xx: agora...". Histórico de mudança mora no git.
 >
-> **v3.64.0 (27/09/2026): range de equipamento, aprimoramento e fonte dos
-> raros implementados** — ver §9.4–9.6 (o plano `PLANO_ITENS_RANGE.md` marca o
-> que entrou e o que fica pra Feira).
->
-> **Última revisão geral: 27/09/2026 — conferido contra o código de
-> GANGUES 3.63.0 (SITE 10.295.x).** Entrou nesta revisão: **não existe game
-> over** (§4, Pista), o **automático lembrado entre lutas** (§17.2.1), a
-> **pista em raias** da linha do tempo (§17.2), a **sirene** do encontro com
-> a polícia (§4), os pools de inimigo reais da Pista (§4), a pasta
-> `styles/` + auditoria de CSS no deploy (§17.8), e correções: rótulos de
-> atributo (§17.1), roster × time de batalha (§17.5), escala de nível dos
-> chefes e AP da §12 (estavam da época do "1 nível = 1 ponto"), e o aviso de
-> que os equipamentos raros não têm fonte nenhuma no jogo hoje (§9.4).
-> Planejamentos daquele dia — **a Feira** (`PLANO_FEIRA.md`) e **range +
-> aprimoramento** (`PLANO_ITENS_RANGE.md`) — já estão implementados (v3.64.0
-> e v3.65.0, acima).
->
-> **Revisão geral anterior: 26/09/2026 — conferido contra o código de
-> GANGUES 3.56.0 (SITE 10.293.1).** Esta revisão trouxe pro GDD tudo o que
-> entrou no jogo entre a v3.30.0 (19/09) e a v3.56.0 (22/09) e que só
-> existia no código: a agiotagem refeita (agora com o agiota **Marimbondo**,
-> empréstimo em dinheiro e escada de dívida), o descanso com 2 preços,
-> **"o bicho"** (depois substituído pelo encontro aleatório perseguidor, v3.61.0), a **Lojinha do Zé**, a recompensa por risco (AP), a fórmula
-> de grana da vitória, a regra da frustração, o gate de dívida do chefe, a
-> Briga em Multidão, o modo automático e o farol dos pinos. Também marcou
-> como **planejado (não implementado)** o que o GDD descrevia como pronto
-> mas não está no código: consumíveis 3–12 e equipamentos 121–139 (incluindo
-> os 8 épicos de chefe).
+> Jogável hoje: os 7 bairros — **Pista e Feira com cena navegável** (§4);
+> Baixada, Vila, Morro, Alto e Laje no formato antigo (trilha de pontos, sem
+> cena, sem birosca). Itens: todos os
+> consumíveis 1–12 menos o **Apito (7)** e o **Trocado Marcado (9)** (precisam
+> de mecânica nova de combate — fuga / sumir inimigo) e todo o catálogo de
+> equipamento com faixa de bônus e aprimoramento (§9.3–9.6). Combate com menu
+> de ação, Briga em Multidão, automático configurável, briga automática na
+> cena e farm ausente (§17.2.1).
 
 ---
 
@@ -379,8 +357,9 @@ físico só abre com `prog.boss` (chefe derrotado), aí vira atalho.
 completo "o bicho"):**
 
 - **Quando:** o 1º vem com **5 minutos de jogo** e depois **a cada 15 minutos**.
-  O relógio conta só o tempo andando na RUA da cena (pausa em diálogo, luta,
-  interior, mochila, ficha) e fica salvo no save (`storyProgress.__aleatorio`).
+  O relógio conta o tempo na RUA da cena, parado ou andando (pausa em diálogo,
+  luta, interior, mochila, ficha, e com a cena desmontada pelo farm ausente) e
+  fica salvo no save (`storyProgress.__aleatorio`).
 - **Como:** o **Nego Véio avisa** ("sujou o bagulho"), com 3 falas próprias de
   cada tipo. Aí o perseguidor nasce longe (16–26 passos de caminho) e **vem atrás
   do jogador pelas ruas**, com pathfinding (BFS na grade de 20px, a mesma colisão
@@ -401,8 +380,8 @@ completo "o bicho"):**
 
   | Tipo | Bolinha | Quem | Onomatopeia |
   |---|---|---|---|
-  | **Dois numa moto** (assalto — "todo mundo tá sujeito") | amarela | 2–3: Piloto (1701) e Garupa (1702), ~90% do mais forte | VRUUUM! |
-  | **A Ronda** (polícia) | azul | 2–3: Soldado (1711) e Cabo da Ronda (1712), no nível do mais forte | PARADO! |
+  | **Dois numa moto** (assalto — "todo mundo tá sujeito") | amarela | 2–3 motoqueiros (fichas 1701/1702) com apelido de rua, ~90% do mais forte | VRUUUM! |
+  | **A Ronda** (polícia) | azul | 2–3 policiais (fichas 1711/1712) com patente e apelido, no nível do mais forte | PARADO! |
   | **Bonde Rival** (outro bairro vem tirar satisfação) | vermelha | 3–4 de Feira/Baixada (1204–1209), ~75% | BANG! |
   | **O Cobrador** (vem cobrar o salve da Banca) | roxa | 2: cobrador (1401–1406) + capanga, ~115% | PÁ! |
 
@@ -410,10 +389,9 @@ completo "o bicho"):**
   repetir o anterior. As fichas 1701–1712 ficam fora do Álbum (não são cargo da
   hierarquia).
 
-  **Apelidos de rua** (v3.71.0 — "garupa 1, garupa 2... tira toda a imersão,
-  cria nomes de rua e não deixa repetir"): moto, Ronda e Rapa (moldes de papel
-  genérico) ganham um nome próprio por corpo, sorteado sem repetir dentro da
-  luta, no lugar de "Garupa (1)/(2)". 12 por lista em
+  **Apelidos de rua:** moto, Ronda e Rapa (fichas de papel genérico) dão a
+  cada corpo um nome próprio, sorteado sem repetir dentro da luta — nunca
+  "Garupa (1)/(2)". 12 por lista em
   `games.gangues.apelidos.{moto,policia,rapa}` ×3 idiomas — moto: Zé Pipoco,
   Tico Rabeira, Neném Cavalo-de-Pau...; Ronda com patente: Capitão
   Cassetete, Sargento Brucutu, Tenente Baculejo...; Rapa: Fiscal Carimbão,
@@ -1576,6 +1554,9 @@ Reserva: cada faixa comporta crescer até ~99 sem remapear.
 | Motor da cena (colisão, câmera) | `src/pages/games/Gangues/engine/ganguesCenaMotor.js` |
 | Encontro aleatório (tipos, relógio, pathfinding) | `engine/ganguesEncontroAleatorio.js` + `hooks/useGanguesEncontroAleatorio.js` |
 | Briga em Multidão / modo automático | `engine/ganguesBrigaMultidao.js`, `hooks/useGanguesModoMultidao.js`, `hooks/useGanguesModoAuto.js` |
+| Menu de ação (bolinha) | `components/GanguesActionOrb.jsx` |
+| Briga automática na cena (switch, anti-loop, aviso) | `hooks/useGanguesBrigaAutomatica.js` |
+| Farm ausente (idle calculado na volta) | `engine/ganguesFarmAusente.js`, `components/cena/GanguesFarmAusente.jsx` |
 | Todo texto falado na Pista (pt/en/es, em ordem de fluxo) | `docs/Games/Gangues/PISTA_COMUNICACAO.md` |
 | **Mecânica** (combate, progressão, skill tree, modo história) | Seção 17 desta bíblia |
 
@@ -2055,142 +2036,131 @@ estilo Medabots/ATB do Chrono Trigger; substitui a iniciativa Malícia+d3):
 
 ### 17.2.1 Como o jogador age, e os modos de combate
 
-- **A bolinha de ação** (`GanguesActionOrb`): no turno do personagem, o
-  jogador escolhe **ATACAR** (ataque normal), **TALENTO** (um dos 2 poderes
-  equipados, gasta PM ou PV) ou **ITEM** (consumível da gangue). A bolinha usa
-  `onPointerDown/Up`, não `onClick` (importa pra teste automatizado).
-- **O dado dramático** (`DramaticDice`): todo ataque pausa o combate numa tela
-  cheia que rola o dado, mostra atacante e alvo e o resultado. É o "momento" do
-  golpe — as animações de sprite de ataque (§15.2) tocam aqui, não no log.
-  Desde a v3.37.0 ele **destaca quando um poder passivo do defensor entra em
-  ação** na conta.
-- **KO:** personagem com PV 0 cai e para de agir até o fim da luta. **PV e PM
-  perdidos persistem entre lutas dentro do bairro** (só voltam no descanso,
-  saindo ou dominando). Tropa inteira caída não entra em luta nenhuma.
-  **Perder a luta na cena não é game over:** a tropa acorda recuperada na
-  birosca e paga a recuperação (grana, empréstimo ou dívida — §4, Pista).
-- **Briga em Multidão** (`engine/ganguesBrigaMultidao.js`,
-  `hooks/useGanguesModoMultidao.js`): um interruptor que resolve **a rodada
-  inteira de uma vez** a cada toque (todo mundo age), em vez de turno a turno.
-  - É oferecido quando a luta tem **5 ou mais combatentes no total**
-    (jogador + inimigos). O botão pisca na 1ª vez, com tutorial próprio.
-  - **Liga e desliga a qualquer momento** (desde 13/09/2026): os dois motores
-    sincronizam o estado vivo da luta (`syncFrom` /
-    `iniciarBrigaMultidaoDeCombatentes`). Só trava durante a animação de uma
-    rodada ou depois do fim da luta.
-  - Tem automático próprio (`useGanguesModoAutoMultidao`), que foca o
-    inimigo mais perto de cair.
-- **Modo automático** (`hooks/useGanguesModoAuto.js`): a luta anda sozinha.
-  **Configurável desde a v3.73.0** (painel AUTOMÁTICO → Ajustar, no menu de
-  ação): pra cada personagem, **só ataque normal** (o padrão) ou **um talento**
-  que ele solta toda vez que tiver PM/PV pra pagar (sem, ataque normal); e a
-  **poção automática** — qualquer um com PV ≤ 50% toma a poção de PV que
-  melhor tapa o buraco (sem efeito colateral primeiro), e sem PM pro talento
-  o próprio personagem toma poção de PM. Usar item gasta a vez de quem age,
-  igual no manual. Decisão pura em `escolherAcaoAuto`; config por navegador
-  (`ldi-gangues-auto-config`). Tutorial de 3 passos (conta,
-  `auto_config`) na 1ª vez que o painel abre. O farm ausente segue o mesmo
-  ajuste (talento na luta calculada, poção de PV entre uma luta e outra).
-  **Menu de ação redesenhado** (v3.73.0, `components/GanguesActionOrb.jsx`):
-  cabeçalho de quem está na vez com PV/PM, ATACAR em destaque, TALENTO e ITEM
-  lado a lado (com contador), linha do automático (switch + Ajustar); cada
-  talento mostra custo e O QUE FAZ (`describeGanguesSpecialEffect`), pra
-  montar estratégia em luta difícil; fechar SEMPRE volta pro começo. É **vantagem de assinante** (`TIERS_COM_MODO_AUTO`
-  = elite e primordial), mas o botão **aparece pra todo mundo** de propósito,
-  como chamariz de assinatura. Um botão "sair do automático" fica logo abaixo
-  do roster do jogador (posição medida, pra nunca tampar a barra de PV).
-  - **Lembrado entre lutas (27/09/2026, v3.63.0):** terminou a luta no
-    automático, a próxima **já começa com ele ligado** — porradaria direto.
-    Só uma ação do próprio jogador (ligar/desligar o switch ou "sair do
-    automático") muda o que fica gravado. Vale pro automático normal e pro da
-    Briga em Multidão, cada um com o seu (`useGanguesAutoLembrado`,
-    `hooks/useGanguesVelocidadeAuto.js`; `localStorage` `ldi-gangues-auto` /
-    `ldi-gangues-auto-multidao` — preferência do navegador, igual à
-    velocidade 1x/2x/3x, não vai pro save).
-- **Briga automática na cena** (v3.68.0, `hooks/useGanguesBrigaAutomatica.js`):
-  switch no meio dos controles da cena (entre o analógico e o interagir),
-  lembrado por navegador (`ldi-gangues-briga-auto`). Ligado, **encostar num
-  oponente de briga entra direto na luta**, sem o "interagir" e sem a carta
-  "bora pro pau". Switch ligado = o jogador quer briga, não as outras opções
-  (v3.68.2): vale pra todo POI `treta` (rua, dungeon, depósito, chefe; a
-  Rinha de Apostas entra sem apostar) e pra todo `papo` que tem uma escolha
-  de briga — o switch escolhe ela sozinho (pivete do sinal e contador do
-  galpão na Pista, Boleto Vencido na Feira; inclusive o −1 de rep do
-  "aperta"). Só puzzle/corre (`parada`/`corre`) continuam manuais: ali a
-  briga vem de ERRAR o puzzle, não de uma escolha. Desligado, nada muda. **Anti-loop:** o adversário da última luta nesta cena, quem foi
-  barrado por uma trava (rep, dívida, informante, tropa no chão) e quem já
-  estava encostado na hora de ligar o switch ficam ignorados até a colisão
-  com eles acabar — separou, vale de novo (dá pra ficar parado esperando o
-  bicho voltar a encostar). Enquanto ignorado, o personagem que **anda não
-  para** ao encostar (v3.68.1): atravessa o jogador, termina o caminho dele e,
-  na próxima passada, encosta de novo e aí é briga. Quem é parado (não anda)
-  só libera quando o jogador se afasta. Sem isso, a volta da luta (que te devolve colado
-  no mesmo adversário) entraria em luta de novo na hora, pra sempre.
-  **Solta também por volta completa** (v3.69.1): quem anda sai da lista
-  de ignorados quando completa uma volta inteira do caminho desde que entrou
-  nela, mesmo sem nunca ter descolado — ficar parado em cima do caminho é
-  querer briga. **Colisor = 90% do desenho** (v3.69.3, regra do Isaias —
-  "o colisor ocupa 90% da região do sprite", pra qualquer jogo; vale pra
-  toda colisão de personagem, rua e cômodos — pausa, interagir e briga
-  automática): cada círculo colide com 90% do raio que aparece na tela
-  (`COLISOR_FRACAO`, `GanguesCenaAtores.jsx`). Histórico: soma inteira + 4px
-  (borda invisível maior que o desenho) → 50% (v3.69.1, pequeno demais pra
-  interagir) → 90%. Quem patrulha curto pode continuar sem descolar de quem
-  está parado no meio do caminho — é a volta completa acima que solta.
-  **Aviso antes da luta** (v3.70.0 — "tá tão automático... falta o cara ter
-  uma noção de que tá entrando numa briga"): encostou, sobe um carimbo por
-  2,5s ("BRIGA AUTO // ENCOSTOU, É TRETA" + uma de 8 frases de rua
-  sorteada, com o vocabulário da §13 — zica, patota, marrudo, cartear marra,
-  amarelar, truta, sobrinho, meter o pé) e só depois a luta abre. O aviso
-  sai DEPOIS das travas (rep, dívida com o chefe, tropa no chão, informante):
-  nunca promete uma briga que vai ser barrada. Não bloqueia toque. Textos em
-  `games.gangues.cena.briga_auto_aviso` (EN com gíria de rua própria, ES
-  rioplatense: bardo, agrandado, mufa, arrugar, a los bifes, quilombo).
-  **Limites pra manter interação** (v3.72.0 — "senão o cara larga o jogo"):
-  a briga automática NUNCA entra sozinha em personagem VERMELHO
-  (obrigatório ainda não feito — o jogador tem que clicar), no CHEFE, nem
-  em nada da ÁREA DO CHEFE (`naAreaDoChefe`, `cenaHelpers.js`: o outro lado
-  do muro, e interiores cujas portas ficam todas de lá, enquanto o chefe
-  não caiu — lá o switch fica apagado/travado). **Perdeu = desliga tudo**:
-  qualquer derrota na cena desliga a briga automática e o automático do
-  combate (normal e Multidão) — `desligarAutomaticos()`; as telas de
-  derrota não avançam sozinhas.
-  **Farm ausente — o idle** (v3.72.0, `engine/ganguesFarmAusente.js` +
-  `components/cena/GanguesFarmAusente.jsx`): com a briga automática
-  ligada, o app ir pra segundo plano DESMONTA a cena (imagens, animações,
-  relógios — o jogo não roda escondido, o navegador desacelera/congela aba
-  de fundo). Na volta: tela de carga, as lutas que cabem no tempo fora (1
-  a cada 40s) são calculadas "no seco" com as mesmas contas de uma luta de
-  verdade (gerador de bando do ponto, motor da Briga em Multidão, ações de
-  vitória do store: AP, grana, rep, álbum, sucata, dano que persiste) e sai
-  o resumo "Enquanto você tava fora". Regras: só conta com a ABA ABERTA
-  (fechou a aba, perdeu — o instante de saída mora só na memória da
-  página, de propósito); mínimo 30s fora; **teto de +5 níveis por
-  ausência** (bateu, para); farma **só o adversário da última luta** — o
-  cara que o jogador estava grindando, com o gerador de bando e o nível
-  DAQUELE ponto, nunca "a região" (v3.72.1; sem adversário, ou se ele é
-  vermelho/chefe/área do chefe, não farma nada — o adversário fica
-  lembrado mesmo entrando em cômodo ou sendo pego por encontro aleatório);
-  **perdeu uma luta, para ali** — sem XP nenhum da luta em que caiu, tropa
-  acorda na birosca DAQUELE bairro (Pista: birosca; Feira: pensão — o mesmo
-  socorro da derrota) e todo automático desliga. Como o dano persiste,
-  tropa sem descanso cai depois de algumas brigas: o idle rende mais pra
-  quem sai com a tropa curada.
-  **Saída automática** (v3.69.0): com o switch ligado, as telas depois de
-  uma luta da cena se clicam sozinhas — "NÓIS É CRIA"/"DEU RUIM" em 2s e o
-  relatório ("Segue na quebrada" / "Acordar na birosca" / "tentar de novo")
-  em 3s: no máximo 5s até voltar pra rua (a fala do derrotado antes, que já
-  some sozinha, não conta). Quem liga a briga automática quer upar — entrar
-  e sair de luta. Clique manual continua valendo, e qualquer toque na tela
-  reinicia a contagem (quem parou pra ler não é arrancado). Recompensa,
-  level-up e marco de rep já estão aplicados quando o relatório abre, então
-  pular os modais não perde nada. Fica manual: a vitória sobre o CHEFE (fecho
-  do bairro, com a vaga de recruta pra decidir), Clube e Torre.
-- **"Mete o pé"** (fugir da luta) volta pra tela de **Modos**, não pro lobby
-  (v3.38.0).
-- **Voltar nunca repete recompensa:** as fases de combate e vitória ficam fora
-  da pilha de histórico (`GANGUES_FASES_TRANSITORIAS`) — corrigiu um exploit
-  real de XP duplicado apertando Voltar (v3.34.0).
+**Menu de ação** (`components/GanguesActionOrb.jsx`) — a bolinha 👊 flutuante,
+arrastável pra 6 cantos (posição salva no navegador). Usa `onPointerDown/Up`,
+não `onClick` (importa pra teste automatizado). Toque abre o painel:
+
+- **Cabeçalho** de quem está na vez, com as barras de PV (ciano) e PM (roxo).
+- **ATACAR** em destaque — o ataque normal, um toque só.
+- **TALENTO** e **ITEM** lado a lado, com contador. A lista de talentos mostra,
+  pra cada um, o **custo** (PM ou PV) e **o que ele faz**
+  (`describeGanguesSpecialEffect`, gerado do efeito real); sem recurso, fica
+  apagado com o aviso. Item mostra quantidade e efeito; cura/buff pedem o
+  aliado, a Bombinha acerta todos os inimigos direto.
+- **AUTOMÁTICO**: switch de liga/desliga + **Ajustar** (abaixo).
+- Fechar **sempre** volta pro começo do menu.
+
+**O dado dramático** (`DramaticDice`): todo ataque pausa o combate numa tela
+cheia que rola o dado, mostra atacante e alvo e o resultado. É o "momento" do
+golpe — as animações de sprite de ataque (§15.2) tocam aqui, não no log. Destaca
+quando um poder passivo do defensor entra na conta.
+
+**KO:** personagem com PV 0 cai e para de agir até o fim da luta. **PV e PM
+perdidos persistem entre lutas dentro do bairro** (só voltam no descanso,
+saindo ou dominando). Tropa inteira caída não entra em luta nenhuma. **Perder
+na cena não é game over:** a tropa acorda recuperada na birosca daquele bairro
+e paga a recuperação (grana, empréstimo ou dívida — §4, Pista).
+
+**Briga em Multidão** (`engine/ganguesBrigaMultidao.js`,
+`hooks/useGanguesModoMultidao.js`): resolve **a rodada inteira** a cada toque
+(todo mundo age, o jogador foca o inimigo mais perto de cair), em vez de turno
+a turno.
+- Oferecida quando a luta tem **5 ou mais combatentes** (jogador + inimigos);
+  o botão pisca na 1ª vez, com tutorial próprio.
+- **Liga e desliga a qualquer momento**: os dois motores sincronizam o estado
+  vivo da luta (`syncFrom` / `iniciarBrigaMultidaoDeCombatentes`). Só trava
+  durante a animação de uma rodada ou depois do fim.
+- O talento de cada um é escolhido nos chips da própria Multidão; tem
+  automático próprio (`useGanguesModoAutoMultidao`), que avança rodada a
+  rodada. A poção automática NÃO vale na Multidão.
+
+**Modo automático** (`hooks/useGanguesModoAuto.js`): a vez de cada personagem
+sai sozinha, do jeito que o jogador **ajustou** (painel Ajustar, config por
+navegador em `ldi-gangues-auto-config`; decisão pura em `escolherAcaoAuto`):
+- **Por personagem:** só **ataque normal** (padrão) ou **um talento** — solta
+  toda vez que tiver PM/PV pra pagar; sem recurso, ataque normal.
+- **Poção sozinho** (liga/desliga): qualquer um com **PV ≤ 50%** toma a poção
+  de PV que melhor tapa o buraco (as sem efeito colateral primeiro); sem PM pro
+  talento escolhido, o próprio personagem toma poção de PM. Usar item gasta a
+  vez de quem age, igual no manual.
+- Tutorial de 3 passos (Nego Véio, por conta — `auto_config`) na 1ª vez que o
+  Ajustar abre: talento, poção e "perdeu, desliga tudo".
+- **Liberado pra todo mundo hoje** (`MODO_AUTO_EXIGE_ASSINATURA = false`).
+  Quando a trava ligar, vira vantagem de elite/primordial
+  (`TIERS_COM_MODO_AUTO`) — o botão continua aparecendo pra todos, com coroa,
+  e o toque manda pro /assinar.
+- Velocidade 1x/2x/3x. Botão "sair do automático" logo abaixo do roster do
+  jogador (posição medida, nunca tampa a barra de PV).
+- **Lembrado entre lutas:** terminou no automático, a próxima já começa com ele
+  ligado. Só o próprio jogador (switch ou "sair") muda isso — ou uma derrota na
+  cena, que desliga tudo. Normal e Multidão têm cada um o seu
+  (`useGanguesAutoLembrado`; `ldi-gangues-auto` / `ldi-gangues-auto-multidao`),
+  preferência do navegador, fora do save.
+
+**Briga automática na cena** (`hooks/useGanguesBrigaAutomatica.js`) — switch
+entre o analógico e o botão de interagir (`ldi-gangues-briga-auto`).
+- **Ligado, encostar num oponente de briga começa a luta sozinho**, sem o
+  "interagir" e sem a carta "bora pro pau": todo POI `treta` repetível ou
+  disponível (a Rinha de Apostas entra sem apostar) e todo `papo` com uma
+  escolha de briga (o switch escolhe a briga, inclusive o −1 de rep do
+  "aperta" — pivete do sinal, contador do galpão, Boleto Vencido).
+- **Nunca entra sozinho:** puzzle/corre (`parada`/`corre` — a briga ali vem de
+  errar), personagem **vermelho** (obrigatório ainda não feito — o jogador tem
+  que clicar), o **chefe**, e nada na **área do chefe** (`naAreaDoChefe`,
+  `cenaHelpers.js`: o outro lado do muro e os interiores cujas portas ficam
+  todas de lá, enquanto o chefe não caiu — lá o switch fica apagado e travado).
+- **Aviso antes da luta:** encostou, sobe por 2,5s o carimbo "BRIGA AUTO //
+  ENCOSTOU, É TRETA" com 1 de 8 frases de rua (vocabulário da §13;
+  `games.gangues.cena.briga_auto_aviso`). Sai depois das travas (rep, dívida
+  com o chefe, tropa no chão, informante): nunca promete briga barrada.
+- **Anti-loop:** o adversário da última luta, quem foi barrado por uma trava e
+  quem já estava encostado ao ligar o switch ficam **ignorados** até
+  descolarem (700ms sem encostar) **ou** até quem anda completar uma volta
+  inteira do caminho. Ignorado, quem anda não para ao encostar — atravessa e
+  termina o caminho. Quem é parado só libera quando o jogador se afasta.
+- **Colisor dos personagens = 90% do desenho** (`COLISOR_FRACAO`,
+  `GanguesCenaAtores.jsx`), rua e cômodos: encostar é os círculos se tocando
+  de verdade, sem borda invisível. Vale pra pausa, interagir e briga automática.
+- **Saída automática:** na **vitória**, as telas de fim se clicam sozinhas —
+  "NÓIS É CRIA" em 2s e o relatório ("Segue na quebrada") em 3s, de volta pra
+  rua (a fala do derrotado antes não conta). Clique manual vale; qualquer toque
+  reinicia a contagem. Recompensa, level-up e marco de rep já estão aplicados,
+  pular os modais não perde nada. Manual sempre: **derrota**, vitória sobre o
+  chefe (fecho do bairro, com a vaga de recruta), Clube e Torre.
+- **Perdeu = desliga tudo:** qualquer derrota na cena desliga a briga
+  automática e o automático do combate (normal e Multidão) —
+  `desligarAutomaticos()`.
+
+**Farm ausente — o idle** (`engine/ganguesFarmAusente.js` +
+`components/cena/GanguesFarmAusente.jsx`). O jogo **não roda escondido**: com a
+briga automática ligada, o app ir pra segundo plano **desmonta a cena**
+(imagens, animações e relógios saem da memória). Na volta: tela de carga, as
+lutas que cabem no tempo fora são **calculadas** e sai o resumo "Enquanto você
+tava fora" (brigas, grana, rep, sucata, poções, quem subiu de nível).
+- **Contas iguais às de uma luta de verdade:** o gerador de bando e o nível
+  daquele ponto, o motor da Briga em Multidão, as ações de vitória do store (AP,
+  grana, rep, álbum, sucata) e o dano que persiste. Segue o ajuste do
+  automático: o talento escolhido entra na luta, e com a poção sozinho ligada
+  quem terminou com PV ≤ 50% toma poção de PV antes da próxima.
+- **Só o adversário que o jogador estava grindando** — o da última luta
+  (`posicao.adversario`, lembrado mesmo entrando em cômodo ou sendo pego por
+  encontro aleatório). Nunca "a região". Sem adversário, ou se ele é
+  vermelho/chefe/área do chefe, não farma nada.
+- **1 luta a cada 40s** fora; mínimo de 30s fora.
+- **Teto: +5 níveis por ausência** — bateu, para.
+- **Só com a aba aberta:** fechou a aba, perdeu (o instante da saída mora só na
+  memória da página, de propósito — o jogo não vira "esquece e volta rico").
+- **Perdeu uma luta, para ali:** sem XP da luta em que caiu, a tropa acorda na
+  birosca **daquele bairro** (Pista: birosca; Feira: pensão — o mesmo socorro
+  da derrota) e todo automático desliga.
+- Sem a briga automática ligada, ir pra segundo plano não muda nada: a cena
+  continua montada e o navegador só desacelera os relógios dela.
+
+**"Mete o pé"** (fugir da luta, com confirmação) volta pra tela de **Modos**,
+nunca pro lobby.
+
+**Voltar nunca repete recompensa:** as fases de combate e vitória ficam fora da
+pilha de histórico (`GANGUES_FASES_TRANSITORIAS`).
 
 ### 17.3 Poderes / especiais (skill tree)
 
