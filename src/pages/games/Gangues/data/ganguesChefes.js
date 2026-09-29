@@ -92,12 +92,14 @@ export const GANGUES_CHEFE_EQUIPE = {
 // some com ele na luta de chefe.
 // Pista 48 (29/09/2026): calibrado por simulação pro teto 20 — dupla nível 20
 // com o conjunto comum vence ~60%, sem item ~30%.
-export const GANGUES_CHEFE_BUDGET = { pista: 48, feira: 110, baixada: 210, vila: 345, morro: 510, alto: 606, laje: 732 }
+// 29/09/2026 (Isaias: "46 tá muito alto, é o 2º de 7"): Feira comprimida pra
+// faixa 21–33 — Cobrador 82×0.40 = 33 (teto do bairro), escolta ~25 cada.
+export const GANGUES_CHEFE_BUDGET = { pista: 48, feira: 82, baixada: 210, vila: 345, morro: 510, alto: 606, laje: 732 }
 // Fração do orçamento que vai pro LÍDER (o chefe em si), por território.
 // Feira (v3.65.0, PLANO_FEIRA.md §5): 110 × 0,47 → Cobrador 52 e as duas
 // escoltas (Mão do Turco e Caixa Forte) com 29 cada — o orçamento 110 que já
 // existia fecha certinho, só mudou a divisão.
-const GANGUES_CHEFE_LIDER_FRAC = { pista: 0.60, feira: 0.47 }
+const GANGUES_CHEFE_LIDER_FRAC = { pista: 0.60, feira: 0.40 }
 const GANGUES_CHEFE_LIDER_FRAC_PADRAO = 0.60
 export function liderFracChefe(territorioId) {
   return GANGUES_CHEFE_LIDER_FRAC[territorioId] ?? GANGUES_CHEFE_LIDER_FRAC_PADRAO

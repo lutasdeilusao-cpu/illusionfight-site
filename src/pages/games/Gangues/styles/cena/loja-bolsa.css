@@ -99,6 +99,15 @@
 .gang-loja-det__icone { font-size: 2.4rem; line-height: 1; }
 .gang-loja-det__nome { margin: 0; font: 800 1rem var(--font-display); text-transform: uppercase; color: var(--gang-branco); }
 .gang-loja-det__tag { margin: 0; font: 700 0.56rem var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-secondary); }
+/* Historinha do item: caixa de texto de carta (Yu-Gi-Oh/Ragnarok), itálico,
+   canto chanfrado da linguagem do portal. */
+.gang-loja-det__lore {
+  width: 100%; margin: 8px 0 0; padding: 9px 11px;
+  font-size: 0.74rem; font-style: italic; line-height: 1.45; text-align: left;
+  color: var(--text-secondary); background: rgba(255, 255, 255, 0.04);
+  border-left: 2px solid var(--if-amber);
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
+}
 .gang-loja-det__da {
   width: 100%; margin: 8px 0 2px; padding: 10px;
   display: grid; gap: 3px; background: rgba(245, 166, 35, 0.07); border: 1px solid rgba(245, 166, 35, 0.35);

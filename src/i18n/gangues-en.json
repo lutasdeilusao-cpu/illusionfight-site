@@ -504,13 +504,13 @@
           "Last one standing is you. The whole pit saw it.",
           "Nato walks in hard, takes the book and tears it page by page in your face.",
           "«You're clean with me. Get lost.»",
-          "Then he counts {premio} into your hand. They blindfold you again. You wake up on some corner of the Strip — body aching, name back to zero."
+          "Then he counts {premio} into your hand. They blindfold you again. You wake up on some corner of the Track — body aching, name back to zero."
         ],
         "venceu_blocos_grana": [
           "Last one standing is you.",
           "Nato counts {premio} into your hand. Dry, without looking at you.",
           "«Business is business.»",
-          "You got nothing else — nobody leaves the pit smarter, just more marked up. They blindfold you, dump you on the Strip with a heavy pocket."
+          "You got nothing else — nobody leaves the pit smarter, just more marked up. They blindfold you, dump you on the Track with a heavy pocket."
         ],
         "perdeu_blocos": [
           "The pit floor came up fast.",
@@ -526,7 +526,7 @@
         ],
         "venceu_titulo": "YOU WALKED OUT WHOLE",
         "perdeu_titulo": "THEY PATCHED YOU UP",
-        "voltar": "Back to the Strip"
+        "voltar": "Back to the Track"
       },
       "skill_info": {
         "titulo": "Talents",
@@ -4139,7 +4139,7 @@
             "onomatopeia": "FREEZE!",
             "aviso": [
               "The heat's on, kid! Cops in the area.",
-              "A patrol car's sweeping the Strip for whoever's making noise.",
+              "A patrol car's sweeping the Track for whoever's making noise.",
               "Run if you want, but they know these streets better than you."
             ]
           },
@@ -4157,7 +4157,7 @@
             "onomatopeia": "WHAM!",
             "aviso": [
               "Oh, kid... today's the day.",
-              "The Bank's Collector is on the Strip. Every crew pays its cut, and you owe yours.",
+              "The Bank's Collector is on the Track. Every crew pays its cut, and you owe yours.",
               "He doesn't take excuses. He takes cash or blood."
             ]
           },
@@ -4585,7 +4585,7 @@
             "Every stall pays the Turk, and every cent is in his ledger. The upper half is pitch dark: the Cats cut the power.",
             "Want the Collector? Make the whole Market respect you first."
           ],
-          "aviso_informante": "The Collector won't even see you yet. Someone back on the Strip knows the way in — talk to Duda.",
+          "aviso_informante": "The Collector won't even see you yet. Someone back on the Track knows the way in — talk to Duda.",
           "boss_trancado": "The blackout barricade is shut — sort out the lower Market first.",
           "muro_passagem": "The barricade won't open — but the Cats' Gallery runs underneath.",
           "checklist_dica": "Clear everything down here to open the Cats' Gallery.",
@@ -4967,7 +4967,7 @@
         "1712": "Runs the patrol car. Doesn't want explanations, wants ID.",
         "1101": "Doesn't fight, he runs and warns — facing him is a chase before a beating.",
         "1102": "The corner's eye — clocks everything moving on the Track, and comments on all of it.",
-        "1103": "The fastest on the Strip — bolts after two hits in a row.",
+        "1103": "The fastest on the Track — bolts after two hits in a row.",
         "1104": "One of the boldest Cats, taps even a watched pole.",
         "1105": "A debtor turned thug to pay off his own debt.",
         "1106": "Light stun shock — the Market's living alarm.",
@@ -5056,7 +5056,7 @@
         "1462": "Leads the Wheel in battle — doctrine made flesh.",
         "1463": "General — runs the whole Roof for the Patchwork.",
         "1464": "Scissors' right hand, never misses the final cut.",
-        "1500": "Vanishes mid-street, strikes in the dark. Boss of the Strip.",
+        "1500": "Vanishes mid-street, strikes in the dark. Boss of the Track.",
         "1501": "Logs everything, collects everything. Breaks an arm before the face.",
         "1502": "Took the whole Lowlands when the Shadow fell in the ditch.",
         "1503": "Lives on the tenth floor — you arrive already tired.",
@@ -5265,6 +5265,74 @@
       "rinha": {
         "proxima": "Next fight",
         "sair": "Leave the pit"
+      },
+      "lore": {
+        "1": "A little unlabeled bottle the gas-station auntie swears is cough syrup. Nobody asks what's inside. It works.",
+        "2": "Blue water in a reused bottle. Legend says it's from the same tap Old Nego washed his face at before a fight.",
+        "3": "Rolled in corn husk, thick smoke. Calms the head and leaves the guard loose — the price of any calm on the street.",
+        "4": "Dented can, tastes like a battery. Whoever drinks it doesn't sleep; whoever doesn't sleep doesn't miss a turn.",
+        "5": "A strip of old T-shirt torn on the spot. It's no hospital, but it holds the blood till the next corner.",
+        "6": "From the corner bottle at Mr. Zé's bar. Gives courage to spare and takes judgment in equal measure.",
+        "8": "A June-festival firecracker with extra powder. It pops, it stinks, and nobody sees a thing for a moment.",
+        "10": "Flour with powdered guarana, the recipe of whoever trains in the alley. Sits heavy and raises the dead.",
+        "11": "Lit in the corner of the Hill's church. It doesn't stop punches, but the crew believes it does — sometimes that's enough.",
+        "12": "A one-real bag of candy from the trailer. Pure sugar for anyone seeing stars.",
+        "13": "Bolts, springs, a bit of pipe. To anyone else it's junk; to Bigode at the metal shop it's raw material.",
+        "14": "Wire yanked off a pole in the dark. Worth more than it looks, and gets you more jail time than it looks, too.",
+        "15": "An old radio valve, still warm from use. Only good for someone who knows how to fix what the world threw away.",
+        "20": "A scraped bottle cap stamped with a fist. Whoever keeps one says it carries the punch of a brute who fell on the Track.",
+        "21": "An arcade token with a wall scratched in by pocketknife. It takes one hit like it was brick.",
+        "22": "An empty lighter with a chip glued on. Nobody knows how it works. Nobody wants to be in front when it does.",
+        "30": "A bag of ice from the fish stall, wrapped round a twisted ankle. Whoever was dazed starts seeing again.",
+        "31": "A gauze roll bought on credit at the pharmacy. Stops the cut and the shame of bleeding in front of everyone.",
+        "32": "Cloth-filter coffee, black as the small hours. A limp arm lifts on the first sip.",
+        "33": "The ointment grandma rubbed on everything. Closes an open guard and leaves you smelling like home.",
+        "34": "A glass bottle of root, honey and prayer. Grandma never told the recipe, and nobody dared ask twice.",
+        "35": "A bucket from the laundry sink thrown in the face of whoever blacked out. Rude, effective, very street.",
+        "36": "Hot milk with cinnamon, to wash a hex out of the body. Grandma said spells don't like milk.",
+        "37": "A glass of water with three spoons of sugar. The universal cure for anyone groggy from a scare or a punch.",
+        "38": "A pharmacy patch that heats like crazy. Unlocks a stuck joint, and a stuck curse word too.",
+        "39": "An aloe leaf from the rooftop pot. Cut, squeeze, spread. The burn fades; the scar stays to tell the story.",
+        "201": "Ripped off mom's broom in the middle of an argument. She still wants it back.",
+        "202": "Flat brim, sticker still on. On the Track, whoever peels the sticker off didn't buy it.",
+        "203": "Tore in the first fight, stayed on in the second out of pride. Now it's a uniform.",
+        "204": "A wrap round the fist like a garage-gym boxer. Doesn't protect much, but it commands respect.",
+        "205": "Hole at the big toe, sole peeling off. Outran a lot of cops and never got caught.",
+        "206": "Gold-painted tin chain from a street vendor. Shines from afar, rusts up close.",
+        "207": "Real brass knuckles, turned on the lathe of someone who wouldn't give a name. Leaves marks that don't fade.",
+        "208": "Black cloth with the crew's symbol. Whoever wears it never walks alone, even when they do.",
+        "209": "Genuine leather, smells like an old motorbike. They say it belonged to a courier who vanished at the Market.",
+        "210": "A tennis wristband from a tournament nobody played. Steadies the wrist so the punch comes out faster.",
+        "211": "Army boot from a thrift store. It's kicked in more doors than its owner remembers.",
+        "212": "A real gold tooth — or close enough. A smile that warns: this one's been beaten and came back.",
+        "213": "A stub of construction pipe, short enough to hide in your pants. It's not a weapon, it's an argument.",
+        "214": "A faded fleece beanie. Keeps the head warm and hides the face at the right moment.",
+        "215": "A safety vest with magazines stuffed inside. Neighborhood engineering.",
+        "216": "A bricklayer's leather glove. It's held bricks, sledgehammers and the collar of plenty of loudmouths.",
+        "217": "Flip-flop with a tire sole sewn on. Won't slip even on a wet market floor.",
+        "218": "A saint's medal passed from father to son. Protects the body — and the family name.",
+        "219": "A manhole cover pried off a Market street. Heavy, ugly, and nothing gets past it.",
+        "220": "A yellow hard hat from a site stalled for ten years. The building never went up, but the hat took plenty of blows.",
+        "221": "Metal plates wired onto an old vest. Noisy, but no knife gets through.",
+        "222": "A strip of truck tire strapped to the forearm. Hits it and bounces back.",
+        "223": "Factory boot with a steel toe. Steps on nails, steps on people, feels nothing.",
+        "224": "A wooden-bead rosary, worn smooth by prayer. Grandma prayed for you before you were born.",
+        "225": "A black candle only lit at crossroads. Whoever snuffs it early pays for it later.",
+        "226": "A threadbare hood that's hidden three generations of folk healers. It keeps more secrets than the head inside it.",
+        "227": "Printed cloth bought at the last stall of the Market. The seller didn't charge, just said: \"it chose you\".",
+        "228": "Beads of every color, one for each saint. It snapped once and its owner didn't leave home for a month.",
+        "229": "A raw-leather sandal, handmade. Steps light, leaves no one's footprints.",
+        "230": "A bead necklace washed in waterfall water. Whoever wears it hears a little more than everyone else.",
+        "231": "A guava branch from a prayer-woman's backyard. Looks silly until someone takes a hit from it.",
+        "232": "A turban tied the old way. Keeps your thoughts in place when the fight gets ugly.",
+        "233": "A raw-cloth mantle embroidered in red thread. They say whoever wears it feels the street breathing.",
+        "234": "A ring carved from coconut shell. When it warms on your finger, it's a warning: envy's close by.",
+        "235": "A flip-flop that went through seven blessings. It won't step on an offering — it swerves on its own.",
+        "236": "A blue glass eye from far away. It looks back at whoever gives you the evil eye.",
+        "237": "Knuckles made from a crushed paint can. Every kid's first weapon, the day they thought they were grown.",
+        "238": "A cap found at the bus stop. No owner, no brand, no shame.",
+        "138": "The club the Collector used to settle accounts at the Market. Every notch in the wood is a debt someone paid with their teeth.",
+        "139": "The machete Coal wore at his hip and never needed to draw. When you draw it, the whole Track goes quiet."
       }
     }
   }

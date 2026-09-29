@@ -191,7 +191,7 @@ export const INTERIORES_FEIRA = {
         ],
         cenario: [{ tipo: 'chao-tunel' }, { tipo: 'escombro', x: 305, y: 100 }, { tipo: 'lampada-tunel', x: 190, y: 40 }],
         pois: [
-          { poi: { id: 'galeria_m1', tipo: 'treta', repetivel: true, nivelRec: 23, revezamento: { pool: FEIRA_POOL_GATO, budgetPorCorpo: 23, chanceDupla: 0.25 }, i18n: 'games.gangues.cena.feira.galeria.m1', recompensa: { rep: 2 } }, pos: { x: 190, y: 130 } },
+          { poi: { id: 'galeria_m1', tipo: 'treta', repetivel: true, nivelRec: 21, revezamento: { pool: FEIRA_POOL_GATO, budgetPorCorpo: 21, chanceDupla: 0.25 }, i18n: 'games.gangues.cena.feira.galeria.m1', recompensa: { rep: 2 } }, pos: { x: 190, y: 130 } },
         ],
         passagem: { x: 150, y: 30, w: 80, h: 24, para: 1, precisa: 'galeria_m1', label: 'avancar' },
       },
@@ -206,8 +206,8 @@ export const INTERIORES_FEIRA = {
         pois: [
           // A porta do meio abre com o código do gato (decoder). Errar vira
           // treta sem travar — dá pra tentar de novo.
-          { poi: { id: 'galeria_porta', tipo: 'parada', i18n: 'games.gangues.cena.feira.galeria.porta', puzzle: { type: 'decoder', config: { difficulty: 'easy' }, skin: 'gato' }, falha: { viraTreta: { enemy: 1104, revezamento: { pool: FEIRA_POOL_GATO, budgetPorCorpo: 26, chanceDupla: 0.1 }, semTravar: true } } }, pos: { x: 180, y: 300 } },
-          { poi: { id: 'galeria_m2', tipo: 'treta', repetivel: true, nivelRec: 26, revezamento: { pool: FEIRA_POOL_GATO, budgetPorCorpo: 26, chanceDupla: 0.45 }, i18n: 'games.gangues.cena.feira.galeria.m2', recompensa: { rep: 3 } }, pos: { x: 180, y: 190 }, precisa: 'galeria_porta' },
+          { poi: { id: 'galeria_porta', tipo: 'parada', i18n: 'games.gangues.cena.feira.galeria.porta', puzzle: { type: 'decoder', config: { difficulty: 'easy' }, skin: 'gato' }, falha: { viraTreta: { enemy: 1104, revezamento: { pool: FEIRA_POOL_GATO, budgetPorCorpo: 22, chanceDupla: 0.1 }, semTravar: true } } }, pos: { x: 180, y: 300 } },
+          { poi: { id: 'galeria_m2', tipo: 'treta', repetivel: true, nivelRec: 22, revezamento: { pool: FEIRA_POOL_GATO, budgetPorCorpo: 22, chanceDupla: 0.45 }, i18n: 'games.gangues.cena.feira.galeria.m2', recompensa: { rep: 3 } }, pos: { x: 180, y: 190 }, precisa: 'galeria_porta' },
           { poi: { id: 'pagina_3', tipo: 'achado', opcional: true, i18n: 'games.gangues.cena.feira.pagina_3', recompensa: { grana: 15, rep: 1, item: 5 } }, pos: { x: 290, y: 120 } },
         ],
         passagem: { x: 140, y: 30, w: 80, h: 24, para: 2, precisa: 'galeria_m2', label: 'avancar' },
@@ -224,7 +224,7 @@ export const INTERIORES_FEIRA = {
         ],
         cenario: [{ tipo: 'chao-tunel' }, { tipo: 'lampada-tunel', x: 190, y: 60 }, { tipo: 'escombro', x: 85, y: 110 }],
         pois: [
-          { poi: { id: 'galeria_m3', tipo: 'treta', repetivel: true, nivelRec: 29, revezamento: { pool: FEIRA_POOL_GATO, budgetPorCorpo: 29, chanceDupla: 0.3 }, i18n: 'games.gangues.cena.feira.galeria.m3', recompensa: { rep: 2 } }, pos: { x: 190, y: 180 } },
+          { poi: { id: 'galeria_m3', tipo: 'treta', repetivel: true, nivelRec: 23, revezamento: { pool: FEIRA_POOL_GATO, budgetPorCorpo: 23, chanceDupla: 0.3 }, i18n: 'games.gangues.cena.feira.galeria.m3', recompensa: { rep: 2 } }, pos: { x: 190, y: 180 } },
         ],
       },
     ],
@@ -245,22 +245,22 @@ export const INTERIORES_FEIRA = {
     comodos: [
       salaLabirinto({
         id: 'entrada', gaps: ['esq', 'dir', 'esq'], lona: 0, entrada: true,
-        briga1: { id: 'barraca_1', nivelRec: 44, revezamento: { pool: FEIRA_POOL_MERCADAO, budgetPorCorpo: 44, chanceDupla: 0.3 } },
-        briga2: { id: 'barraca_2', nivelRec: 45, revezamento: { pool: FEIRA_POOL_MERCADAO, budgetPorCorpo: 9, qtdMin: 3, qtdMax: 5, ratioComTime: 0.4 } },
+        briga1: { id: 'barraca_1', nivelRec: 30, revezamento: { pool: FEIRA_POOL_MERCADAO, budgetPorCorpo: 30, chanceDupla: 0.3 } },
+        briga2: { id: 'barraca_2', nivelRec: 30, revezamento: { pool: FEIRA_POOL_MERCADAO, budgetPorCorpo: 6, qtdMin: 3, qtdMax: 5, ratioComTime: 0.4 } },
         passagem: 1,
       }),
       salaLabirinto({
         id: 'lonas', gaps: ['dir', 'esq', 'dir'], lona: 2, voltaPara: 0,
-        briga1: { id: 'barraca_3', nivelRec: 46, revezamento: { pool: FEIRA_POOL_MERCADAO, budgetPorCorpo: 46, chanceDupla: 0.4 } },
-        briga2: { id: 'barraca_4', nivelRec: 47, revezamento: { pool: FEIRA_POOL_MERCADAO, budgetPorCorpo: 47, chanceDupla: 0.5 } },
+        briga1: { id: 'barraca_3', nivelRec: 31, revezamento: { pool: FEIRA_POOL_MERCADAO, budgetPorCorpo: 31, chanceDupla: 0.4 } },
+        briga2: { id: 'barraca_4', nivelRec: 31, revezamento: { pool: FEIRA_POOL_MERCADAO, budgetPorCorpo: 31, chanceDupla: 0.5 } },
         // O estoque escondido do Turco fica num canto do labirinto (opcional).
         extras: [{ poi: { id: 'mercadao_achado', tipo: 'achado', opcional: true, i18n: 'games.gangues.cena.feira.mercadao.achado', recompensa: { grana: 25, item: 13, qtd: 2, equip: 212 } }, pos: { x: 60, y: 110 } }],
         passagem: 2,
       }),
       salaLabirinto({
         id: 'praca', gaps: ['esq', 'dir', 'esq'], lona: 4, voltaPara: 1,
-        briga1: { id: 'barraca_5', nivelRec: 48, revezamento: { pool: FEIRA_POOL_MERCADAO, budgetPorCorpo: 48, chanceDupla: 0.5 } },
-        briga2: { id: 'barraca_6', nivelRec: 49, revezamento: { pool: FEIRA_POOL_MERCADAO, budgetPorCorpo: 49, chanceDupla: 0.6 } },
+        briga1: { id: 'barraca_5', nivelRec: 31, revezamento: { pool: FEIRA_POOL_MERCADAO, budgetPorCorpo: 31, chanceDupla: 0.5 } },
+        briga2: { id: 'barraca_6', nivelRec: 32, revezamento: { pool: FEIRA_POOL_MERCADAO, budgetPorCorpo: 32, chanceDupla: 0.6 } },
         passagem: 3,
       }),
       {
@@ -278,7 +278,7 @@ export const INTERIORES_FEIRA = {
         ],
         pois: [
           // 7ª briga: o Marreta e o bando dele guardam a porta do cofre.
-          { poi: { id: 'mercadao_m2', tipo: 'treta', repetivel: true, nivelRec: 46, enemy: 1403, liderFixo: 1403, repGate: FEIRA_REP_GATE_DEPOSITO, moldesPool: FEIRA_POOL_MERCADAO, pontosFixo: 40, qtdMin: 3, qtdMax: 5, i18n: 'games.gangues.cena.feira.mercadao.m2', recompensa: { rep: 4, item: 21, qtd: 1 } }, pos: { x: 220, y: 170 } },
+          { poi: { id: 'mercadao_m2', tipo: 'treta', repetivel: true, nivelRec: 31, enemy: 1403, liderFixo: 1403, repGate: FEIRA_REP_GATE_DEPOSITO, moldesPool: FEIRA_POOL_MERCADAO, pontosFixo: 28, qtdMin: 3, qtdMax: 5, i18n: 'games.gangues.cena.feira.mercadao.m2', recompensa: { rep: 4, item: 21, qtd: 1 } }, pos: { x: 220, y: 170 } },
           // O livro-caixa do Turco: quanto a Feira inteira deve. Com as 3
           // páginas da caderneta na mão, o ponto fraco do Cobrador fica claro.
           { poi: { id: 'livro_caixa', tipo: 'papo', opcional: true, repetivel: true, i18n: 'games.gangues.cena.feira.mercadao.livro_caixa', escolhas: [{ id: 'ler' }] }, pos: { x: 378, y: 150 } },

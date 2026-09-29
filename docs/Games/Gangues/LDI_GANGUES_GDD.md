@@ -1319,6 +1319,10 @@ o nível da luta: Facão do Carvão 15, Porrete do Cobrador 28. Só consumível
 acima dos outros caminhos (comum ≈4,7 pts contra ≈3,7–4; incomum ≈7,3 contra
 ≈6–7).
 
+**Feira comprimida pra 21–33** (29/09/2026, Isaias: "46 tá muito alto, é o 2º de 7"): a escada da Feira ia de 23 a 52 (Cobrador 52); foi remapeada linear pra 21–33 — tretas 21→32, Generais 26/27/28, Cobrador **33** (orçamento 82 × fração 0.40), Clube 22/42/66. A Baixada começa em 34.
+
+**Historinha de item** (29/09/2026): todo item tem a chave games.gangues.lore.ID (3 idiomas), mostrada no card de detalhe da loja. Item novo = historinha nova, uma ou duas frases, vocabulário da rua.
+
 **Escada de nível (decisão: Pista entre 15 e 20, o resto redistribuído).**
 ~13 níveis por bairro, fechando no 99; o Retalho é o único nível 100.
 Último território só no médio ou difícil (no fácil a Laje não abre —

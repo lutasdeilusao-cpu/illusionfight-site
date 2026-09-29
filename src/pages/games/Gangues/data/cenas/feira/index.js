@@ -47,9 +47,9 @@ export const CENA_FEIRA = {
     id: 'boss',
     poiNo: 'feira-chefe',
     tipo: 'treta',
-    // Cobrador 52 (+ Mão do Turco e Caixa Forte de escolta, 29 cada) — ver
+    // Cobrador 33 (+ Mão do Turco e Caixa Forte de escolta, ~25 cada) — teto da Feira é 33 — ver
     // GANGUES_CHEFE_BUDGET.feira / liderFracChefe em data/ganguesChefes.js.
-    nivelRec: 52,
+    nivelRec: 33,
     enemy: 1501,
     boss: 'turco',
     // O Porrete do Cobrador (138, épico) na 1ª vitória.

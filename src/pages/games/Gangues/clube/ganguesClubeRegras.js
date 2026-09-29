@@ -34,7 +34,7 @@ const GANGUES_CLUBE_POOL = [1211, 1212, 1213, 1219, 1311, 1312, 1411, 1412]
 // que já passou da Pista (PLANO_FEIRA.md §1).
 const GANGUES_CLUBE_RONDAS = {
   pista: { 1: { qtd: 1, budget: 7 }, 2: { qtd: 2, budget: 15 }, 3: { qtd: 3, budget: 26 } },
-  feira: { 1: { qtd: 1, budget: 26 }, 2: { qtd: 2, budget: 50 }, 3: { qtd: 3, budget: 80 } },
+  feira: { 1: { qtd: 1, budget: 22 }, 2: { qtd: 2, budget: 42 }, 3: { qtd: 3, budget: 66 } },
 }
 
 export function gerarBandoClube({ enemiesData, ronda = GANGUES_CLUBE_RONDAS_TOTAL, territorioId = 'pista' }) {

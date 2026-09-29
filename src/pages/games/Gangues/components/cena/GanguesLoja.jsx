@@ -116,6 +116,9 @@ function DetalheItem({ item, store, t, onClose, notificar }) {
           ? <p className="gang-loja-det__tag">{t(`games.gangues.equip.slots.${item.slot}`)} · {t(`games.gangues.equip.raridade.${item.raridade}`)} · {item.caminho === 'livre' ? t('games.gangues.equip.qualquer_caminho') : t('games.gangues.equip.so_caminho', { caminho: t(`games.gangues.loadout.paths.${item.caminho}.name`) })} · {t('games.gangues.equip.nivel_min', { n: nivelMinEquip(item) })}</p>
           : <p className="gang-loja-det__tag">{t('games.gangues.cena.tipo.loja')}</p>}
 
+        {/* Historinha do item, estilo carta (Isaias, 29/09/2026) — games.gangues.lore.<id>. */}
+        <p className="gang-loja-det__lore">{t(`games.gangues.lore.${item.id}`)}</p>
+
         <div className="gang-loja-det__da">
           <small>{t('games.gangues.equip.o_que_da')}</small>
           {item._equip

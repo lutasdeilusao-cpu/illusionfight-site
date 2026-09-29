@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.308.4' // feat(gangues): tutoriais revisados + nível mínimo nas peças
+export const SITE_VERSION = '10.308.5' // feat(gangues): historinha de cada item + Feira comprimida pra 21–33
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.2' // fix: aba "stories" do rodape mostrava a chave crua pp.menu.pistas_label (nao existia) -> aponta pra pp.dossier.pistas_label; PuzzleWrapper mostrava pp.puzzle.nenhum/instrucao (nao existiam) -> pp.local.puzzle_nenhum/instrucao; confirm() de deletar save mostrava pp.menu.deletar_slot cru -> chave criada nos 3 idiomas.
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '3.79.0' // tutoriais revisados (farol e AP num aviso só, textos da pista de vez, do menu, do descanso 10/30/50 e do Clube atualizados) + nível mínimo nas peças (comum 5, incomum 20, escada por território) + peças de Mandingueiro com orçamento acima dos outros caminhos
+export const GANGUES_VERSION   = '3.80.0' // historinha de cada item no card da loja (66 itens, 3 idiomas) + Feira comprimida pra faixa 21–33 (Cobrador 52→33, capangas e Clube junto)
 
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
