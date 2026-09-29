@@ -5812,5 +5812,62 @@
         "isso não acaba aqui 🚨"
       ]
     }
+  },
+  {
+    "id": 1322,
+    "name": "Zé Pavão",
+    "rank": 59000,
+    "stats": {
+      "A": 3,
+      "H": 2,
+      "D": 2,
+      "PV": 3,
+      "PM": 2
+    },
+    "pv_max": 12,
+    "pm_max": 8,
+    "weapon": "espeto de pau",
+    "weapon_damage": 2,
+    "elemental": null,
+    "preferred_mode": "fists",
+    "ai_pattern": "evasivo",
+    "difficulty": "easy",
+    "tier": 0,
+    "notes": "Modo história, Baixada. O folgado que se apresenta como Fura-Bucho e foge o bairro inteiro — é o mais fraco da Baixada. O Fura-Bucho de verdade é o velho da entrada.",
+    "trash_talk": {
+      "attack_miss": [
+        "era pra ter pegado 😅",
+        "calma, eu tô aquecendo 😤"
+      ],
+      "attack_hit": [
+        "VIU? eu sou brabo 😎",
+        "isso é Fura-Bucho puro 💢"
+      ],
+      "take_damage": [
+        "ai, ai, ai 😬",
+        "isso doeu, hein 🙄"
+      ],
+      "take_critical": [
+        "...para, para, para 😨",
+        "não na cara não 😳"
+      ],
+      "player_near_death": [
+        "falei que eu era brabo 😎",
+        "ninguém passa pelo Fura-Bucho 😈"
+      ],
+      "enemy_near_death": [
+        "tá bom, tá bom, eu não sou o Fura-Bucho 😭",
+        "chama o véio... chama o véio 🙏"
+      ],
+      "defeat": [
+        "...o nome é Pavão. Zé Pavão. 😨",
+        "o dono daqui é o véio da entrada. dá um café pra ele. 🫡"
+      ]
+    },
+    "album": {
+      "cargoId": 203,
+      "faccaoId": 105,
+      "territorioId": 3
+    }
   }
 ]

@@ -352,7 +352,8 @@
         "11": "Vela Benta",
         "12": "Sacola de Bala",
         "14": "Fio de Cobre",
-        "15": "Válvula de Rádio"
+        "15": "Válvula de Rádio",
+        "16": "Café do Véio"
       },
       "loja": {
         "sub": "Compra com a grana da gangue — dá pra usar em qualquer luta.",
@@ -440,7 +441,26 @@
           "237": "Soqueira de Lata",
           "238": "Boné Vira-Lata",
           "138": "Porrete do Cobrador",
-          "139": "Facão do Carvão"
+          "139": "Facão do Carvão",
+          "140": "Espeto do Fura-Bucho",
+          "301": "Espeto de Churrasco",
+          "302": "Capuz Preto",
+          "303": "Colete Cravejado",
+          "304": "Luva de Boxe Rasgada",
+          "305": "Tênis Falsificado",
+          "306": "Corrente de Prata",
+          "307": "Porta de Geladeira",
+          "308": "Capacete de Moto",
+          "309": "Colete de Pneu",
+          "310": "Caneleira de Cano",
+          "311": "Bota de Segurança",
+          "312": "Figa de Arruda",
+          "313": "Cajado de Arruda",
+          "314": "Chapéu de Palha Benzido",
+          "315": "Manto de Chita",
+          "316": "Fita do Bonfim",
+          "317": "Sandália de Corda",
+          "318": "Patuá"
         },
         "sem_caminho": "Ninguém do teu elenco é desse caminho.",
         "qualquer_caminho": "Qualquer caminho",
@@ -720,7 +740,8 @@
         "1503": "Ferrugem",
         "1504": "A Fera",
         "1505": "O Contador",
-        "1600": "O Retalho"
+        "1600": "O Retalho",
+        "1322": "Zé Pavão"
       },
       "guest_banner": "Sem conta: progresso não é salvo.",
       "guest_create_account": "Criar conta",
@@ -874,7 +895,7 @@
           },
           "espeto": {
             "nome": "Fura-Bucho",
-            "fala": "A Baixada é minha desde que o Sombra caiu no valão. Cê tomou meus ponto? Beleza. Vem tomar o resto."
+            "fala": "Café bom. Faz tempo que eu não acordava assim. Tu bateu nos meus menino e botou o Pavão pra correr… Beleza. Agora vem tomar a Baixada, se tu guentar."
           },
           "sala": {
             "nome": "Ferrugem",
@@ -1855,6 +1876,173 @@
             "Vixe… esse aí não veio de conversa. Vai ter que pegar pesado.",
             "Quem procura zica acha zica. E hoje você achou."
           ]
+        },
+        "baixada": {
+          "chegada": [
+            "Essa é a Baixada, cria. Do outro lado da linha do trem.",
+            "Quando o Sombra caiu no valão, a facção dele rachou em três: a Sangria, o Gelo e a Sobra. Tem um folgado aí que diz que manda em tudo — se apresenta como Fura-Bucho e vive fugindo.",
+            "Aqui ninguém te respeita de graça. Cada treta que tu ganhar é respeito na tua conta.",
+            "E fica esperto com o trem: quando apita, sai dos trilhos."
+          ],
+          "aviso_informante": "Ninguém na Baixada te leva até o chefe ainda. O rádio pirata da Feira sabe o caminho — escuta ele antes.",
+          "checklist_dica": "Ganha o respeito da Baixada: bate no folgado até ele não ter mais pra onde correr.",
+          "checklist_passagem": "O velho acordou. Vai lá na entrada encarar o dono da Baixada.",
+          "hint_cafe_falta": "O folgado abriu o bico: o dono da Baixada é o velho da entrada. Pega um café na padaria da Dona Cida.",
+          "hint_cafe_pronto": "Café na mão. Leva pro velho da entrada.",
+          "pich": "SOMBRA VIVE",
+          "grafite": "O TREM NÃO\nESPERA",
+          "trem_apito": "🚨 TREM VINDO",
+          "trem_atropelo": "O trem passou raspando — a tropa levou uma pancada e caiu fora dos trilhos.",
+          "respeito_titulo": "RESPEITO NA BAIXADA",
+          "respeito_falta": "falta {n} pro folgado parar de correr",
+          "respeito_cheio": "respeito cheio — o folgado não tem mais pra onde correr",
+          "predio": {
+            "birosca": "Birosca da Dona Lurdes",
+            "padaria": "Padaria da Dona Cida",
+            "birosca_2": "Pensão do Trilho",
+            "deposito": "Depósito do Seu Nono"
+          },
+          "int": {
+            "birosca": "Birosca da Dona Lurdes",
+            "padaria": "Padaria da Dona Cida",
+            "birosca_2": "Pensão do Trilho",
+            "deposito": "Depósito do Seu Nono"
+          },
+          "veio": {
+            "nome": "O velho da entrada",
+            "sub": "grogue, sentado no meio-fio",
+            "fala": [
+              "O céu vermelho contra o mundo azul, tá ligado? Pensa nisso aí.",
+              "O cego viu o que o surdo ouviu, parceiro. E ninguém acreditou nos dois.",
+              "Trem que passa não volta… mas o trilho fica, tá ligado?",
+              "Quem corre muito chega cedo no lugar errado.",
+              "Formiga não tem chefe e o formigueiro não cai. Pensa nisso aí, parceiro.",
+              "O café esfria, o respeito não.",
+              "Tu acha que tá subindo a rua, mas a rua é que tá descendo tu.",
+              "Nome grande em boca pequena não pesa nada, cria.",
+              "Eu já fui o valão e já fui a ponte. Hoje eu sou o meio-fio."
+            ],
+            "escolhas": {
+              "ouvir": {
+                "label": "Ouve e segue em frente"
+              }
+            }
+          },
+          "veio_cafe": {
+            "nome": "O velho da entrada",
+            "sub": "o nariz já sentiu o cheiro do café",
+            "fala": [
+              "Hm… que cheiro é esse? Faz tempo que ninguém me traz um café de verdade…"
+            ],
+            "escolhas": {
+              "dar_cafe": {
+                "label": "Entrega o café pro velho",
+                "resultado": "Ele toma de um gole. Pisca. O olho clareia — e de repente não tem mais velho grogue nenhum ali. Ele se levanta devagar, estala o pescoço e te encara."
+              }
+            }
+          },
+          "folgado_1": {
+            "nome": "O Fura-Bucho (?)",
+            "sub": "o folgado que manda na Baixada — é o que ele diz",
+            "fala": [
+              "Eu sou o Fura-Bucho, o dono disso aqui. Tu nem é digno de mim.",
+              "Sangria! Resolve esse pivete aí pra mim. Eu tenho mais o que fazer."
+            ]
+          },
+          "folgado_2": {
+            "nome": "O Fura-Bucho (?)",
+            "sub": "fugiu pro outro lado da linha",
+            "fala": [
+              "Tu de novo? Eu não perco meu tempo com gente sem nome.",
+              "Gelo, dá um jeito nele. Eu tô ocupado sendo importante."
+            ]
+          },
+          "folgado_3": {
+            "nome": "O Fura-Bucho (?)",
+            "sub": "voltou pra baixo da linha, suando",
+            "fala": [
+              "Olha, tu tá começando a me irritar, hein.",
+              "Sobra! Cadê a Sobra? Chama os Restos pra cá, agora!"
+            ]
+          },
+          "folgado_4": {
+            "nome": "O Fura-Bucho (?)",
+            "sub": "chamou reforço grande",
+            "fala": [
+              "Tá bom, tá bom. Tu é teimoso. Mas contra o Caco Maior tu não guenta.",
+              "Resolve aí, Caco. Eu vou… ali. Resolver uma coisa."
+            ]
+          },
+          "folgado_5": {
+            "nome": "O Fura-Bucho (?)",
+            "sub": "o último capanga que sobrou",
+            "fala": [
+              "Ninguém bate no Nome do Sombra. Ninguém!",
+              "Se tu passar por ele… não, tu não vai passar."
+            ]
+          },
+          "folgado_final": {
+            "nome": "O Fura-Bucho (?)",
+            "sub": "sem capanga, sem ter pra onde correr",
+            "fala": [
+              "Tá… tá bom. Sou eu e tu agora. Eu sou o Fura-Bucho! Eu… eu acho.",
+              "Vem, que eu sou brabo. Bem brabo. Muito brabo mesmo."
+            ]
+          },
+          "dona_cida": {
+            "nome": "Dona Cida",
+            "sub": "a padaria que abre antes do sol",
+            "fala": [
+              "O Pavão passou aqui correndo, todo roxo, falando que o nome dele não é Fura-Bucho coisa nenhuma.",
+              "O Fura-Bucho de verdade é o Seu Bucho, cria. O velho da entrada. Tá daquele jeito faz tempo… só um café forte pra acordar ele."
+            ],
+            "escolhas": {
+              "pega_cafe": {
+                "label": "Pega o café do velho",
+                "resultado": "Ela passa o café no coador de pano, bota numa garrafinha e te entrega. \"Leva quente. Frio ele não acorda.\""
+              }
+            }
+          },
+          "rinha_trilho": {
+            "nome": "Rinha do Trilho",
+            "sub": "briga sem fim na beira da linha",
+            "fala": [
+              "A roda da Baixada não para, nem quando o trem passa.",
+              "Acabou uma, já entra outro, sorteado. Pode largar a tropa aqui — 1 briga a cada 5 minutos."
+            ]
+          },
+          "caixa_trilho": {
+            "nome": "Caixa na beira da linha",
+            "sub": "caiu de algum vagão",
+            "linha": "Uma caixa amassada, largada na brita: uns trocado e um vidro de xarope que ninguém veio buscar."
+          },
+          "birosca": {
+            "nome": "Birosca da Dona Lurdes",
+            "sub": "cachaça, pão e sossego",
+            "intro": "A Dona Lurdes arruma a tropa no fundo da birosca, longe do barulho do trem. Custa uns trocado e todo mundo volta inteiro."
+          },
+          "birosca_2": {
+            "nome": "Pensão do Trilho",
+            "sub": "cama do outro lado da linha",
+            "intro": "Um quarto apertado com vista pros trilhos. Não é bonito, mas a tropa dorme e volta pro corre."
+          },
+          "taxa_fixa": {
+            "nome": "Resto de Faca",
+            "sub": "cobra em nome dos três cacos",
+            "fala": [
+              "Precisa de grana? Na Baixada a grana tem três dono, e eu cobro pelos três.",
+              "500 na mão agora. A conta… a conta eu te falo depois."
+            ],
+            "botao_ver_contrato": "Quero os 500",
+            "contrato_tag": "Contrato · três cacos",
+            "contrato_corpo": "\"500 na mão, na hora. Aceita ou não aceita?\"",
+            "contrato_letra_miuda": "Letra miúda do contrato: você fica devendo {divida}.",
+            "contrato_aceitar": "Aceito",
+            "contrato_recusar": "Não aceito"
+          },
+          "deposito": {
+            "nome": "Depósito do Seu Nono"
+          }
         }
       },
       "enemy_album": {
@@ -1959,7 +2147,8 @@
         "1503": "Mora no último dos dez andares — quem sobe já chega cansado.",
         "1504": "Criou metade da criançada da região. Sabe onde bater pra doer sem machucar.",
         "1505": "Não briga por raiva — briga porque a conta fecha assim.",
-        "1600": "O único que já segurou seis quebradas de uma vez."
+        "1600": "O único que já segurou seis quebradas de uma vez.",
+        "1322": "O folgado que se dizia Fura-Bucho. Marra de chefe, porrada de figurante."
       },
       "album": {
         "titulo": "Coleção",
@@ -2229,7 +2418,27 @@
         "237": "Soqueira feita de lata de tinta amassada. A primeira arma de todo moleque que achou que era homem.",
         "238": "Boné achado no ponto de ônibus. Não tem dono, não tem marca, não tem vergonha.",
         "138": "O porrete com que o Cobrador fechava as contas da Feira. Cada talho na madeira é uma dívida que alguém pagou com os dentes.",
-        "139": "Facão que o Carvão carregava na cintura e nunca precisou tirar. Quando você tira, a Pista inteira fica quieta."
+        "139": "Facão que o Carvão carregava na cintura e nunca precisou tirar. Quando você tira, a Pista inteira fica quieta.",
+        "16": "Passado no coador de pano da Dona Cida, forte que nem soco. Acorda até quem tá dormindo faz anos.",
+        "140": "O espeto que o Fura-Bucho nunca soltou, nem dormindo. Quem segura sente o peso da Baixada inteira.",
+        "301": "Tirado da churrasqueira de laje no meio do almoço de domingo. Ainda cheira a carvão.",
+        "302": "Capuz preto de quem não quer ser lembrado. Na Baixada, sumir é um talento.",
+        "303": "Colete de couro com tacha de cinto velho. Cada tacha é de uma briga que o dono ganhou.",
+        "304": "Luva de academia que fechou. A espuma saiu, a raiva ficou.",
+        "305": "A marca tá escrita errada, mas corre igual. Ninguém na Baixada pergunta a procedência.",
+        "306": "Prata de verdade — dizem. Tilinta quando o dono anda, e todo mundo sabe que ele chegou.",
+        "307": "A porta da geladeira que quebrou em 98. Não gela mais nada, mas segura soco que é uma beleza.",
+        "308": "Capacete de motoboy com o adesivo do Sombra meio arrancado. Já salvou mais cabeça que muito médico.",
+        "309": "Pedaços de pneu de caminhão costurados num colete. Pesado, fedido e ninguém passa.",
+        "310": "Cano de PVC cortado e amarrado no braço. Barato, feio, funciona.",
+        "311": "Bota de obra com o bico de aço aparecendo. Pisa no pé de quem se acha e o recado tá dado.",
+        "312": "Figa de madeira presa num raminho de arruda. A vó dizia: olho grande não passa dela.",
+        "313": "Galho de arruda seco e trançado. Onde bate, deixa um cheiro que ninguém esquece.",
+        "314": "Chapéu de palha que passou por três terreiros. Faz sombra no sol e na mandinga.",
+        "315": "Chita florida costurada à mão pela benzedeira da linha. Quem veste sente o chão tremer antes do trem.",
+        "316": "Três nós, três pedidos. Só pode arrebentar sozinha — e quando arrebenta, o pedido vem.",
+        "317": "Sandália de corda que a benzedeira usou até gastar. Pisa leve e deixa a rua em silêncio.",
+        "318": "Saquinho de couro costurado com reza dentro. Ninguém abre, ninguém pergunta, todo mundo respeita."
       }
     }
   }

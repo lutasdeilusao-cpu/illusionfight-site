@@ -70,6 +70,9 @@ export function montarAmbiente(cena, local, prog, baseFeita, muroAberto) {
     const dentro = refsInternos(cena)
     const pois = cena.pois
       .filter(p => !dentro.has(p.id) && (p.visivel || prog.revelados[p.id] || (p.pos_portao && laDeCima)))
+      // `someQuando`: some do mapa quando outro POI é resolvido (ex.: o velho
+      // da Baixada dá lugar ao pino do café, que dá lugar ao chefe).
+      .filter(p => !(p.someQuando && prog.resolvidos[p.someQuando]))
       .map(p => ({
         ...p, world: POS[p.id], zona: ENTRY_ZONES[p.id],
         estado: (p.pos_portao && laDeCima) ? estadoPoi({ ...p, visivel: true }, prog) : estadoPoi(p, prog),

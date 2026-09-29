@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.308.6' // chore: nenhum save local de jogo (Jack, Tamagoshi, Top Trumps) — progresso só na conta
+export const SITE_VERSION = '10.309.0' // feat(gangues): a Baixada jogável (3º território)
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.2' // fix: aba "stories" do rodape mostrava a chave crua pp.menu.pistas_label (nao existia) -> aponta pra pp.dossier.pistas_label; PuzzleWrapper mostrava pp.puzzle.nenhum/instrucao (nao existiam) -> pp.local.puzzle_nenhum/instrucao; confirm() de deletar save mostrava pp.menu.deletar_slot cru -> chave criada nos 3 idiomas.
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.3'  // sem cache local: progresso só na conta (sem conta perde tudo, de propósito)
-export const GANGUES_VERSION   = '3.80.0' // historinha de cada item no card da loja (66 itens, 3 idiomas) + Feira comprimida pra faixa 21–33 (Cobrador 52→33, capangas e Clube junto)
+export const GANGUES_VERSION   = '3.81.0' // a Baixada jogável: o velho da entrada (o Fura-Bucho de verdade), o folgado que foge e a Barra de Respeito, o café da Dona Cida, a linha do trem, loja do raro 301–318 e o Espeto do Fura-Bucho
 
 export const TAMA_VERSION      = '3.4.2' // sem cache local: progresso só na conta
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio

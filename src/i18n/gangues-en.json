@@ -352,7 +352,8 @@
         "11": "Blessed Candle",
         "12": "Bag of Candy",
         "14": "Copper Wire",
-        "15": "Radio Valve"
+        "15": "Radio Valve",
+        "16": "The Old Man's Coffee"
       },
       "loja": {
         "sub": "Buy with the gang's cash — usable in any fight.",
@@ -440,7 +441,26 @@
           "237": "Tin Knuckles",
           "238": "Stray Cap",
           "138": "Collector's Club",
-          "139": "Carvão's Machete"
+          "139": "Carvão's Machete",
+          "140": "Gut-Stabber's Skewer",
+          "301": "BBQ Skewer",
+          "302": "Black Hood",
+          "303": "Studded Vest",
+          "304": "Torn Boxing Glove",
+          "305": "Knockoff Sneakers",
+          "306": "Silver Chain",
+          "307": "Fridge Door",
+          "308": "Motorcycle Helmet",
+          "309": "Tire Vest",
+          "310": "Pipe Guard",
+          "311": "Safety Boot",
+          "312": "Rue Charm",
+          "313": "Rue Staff",
+          "314": "Blessed Straw Hat",
+          "315": "Calico Mantle",
+          "316": "Bonfim Ribbon",
+          "317": "Rope Sandal",
+          "318": "Patuá Pouch"
         },
         "sem_caminho": "Nobody in your crew walks this path.",
         "qualquer_caminho": "Any path",
@@ -720,7 +740,8 @@
         "1503": "Rust",
         "1504": "The Beast",
         "1505": "The Accountant",
-        "1600": "The Patchwork"
+        "1600": "The Patchwork",
+        "1322": "Joe Peacock"
       },
       "guest_banner": "No account: progress isn't saved.",
       "guest_create_account": "Create account",
@@ -3977,7 +3998,7 @@
           },
           "espeto": {
             "nome": "Gut-Stabber",
-            "fala": "The Lowside's been mine since the Shadow hit the ditch. Took my spots? Fine. Come take the rest."
+            "fala": "Good coffee. Been a long time since I woke up like this. You beat my boys and sent Peacock running… Fine. Now come take the Lowside, if you can handle it."
           },
           "sala": {
             "nome": "Rust",
@@ -4958,6 +4979,173 @@
             "Yikes… this one didn't come to talk. Gotta go in heavy.",
             "You went looking for trouble. Trouble looked back."
           ]
+        },
+        "baixada": {
+          "chegada": [
+            "This is the Lowside, kid. The other side of the train tracks.",
+            "When Shadow went into the ditch, his crew split in three: Sangria, Ice and Leftover. There's a loudmouth here who says he runs it all — calls himself Gut-Stabber and never stops running.",
+            "Nobody respects you for free here. Every fight you win is respect in your account.",
+            "And watch the train: when it whistles, get off the tracks."
+          ],
+          "aviso_informante": "Nobody in the Lowside will take you to the boss yet. The Market's pirate radio knows the way — listen to it first.",
+          "checklist_dica": "Earn the Lowside's respect: beat the loudmouth until he's got nowhere left to run.",
+          "checklist_passagem": "The old man woke up. Go to the entrance and face the real owner of the Lowside.",
+          "hint_cafe_falta": "The loudmouth spilled it: the Lowside's owner is the old man at the entrance. Get a coffee at Dona Cida's bakery.",
+          "hint_cafe_pronto": "Coffee in hand. Take it to the old man at the entrance.",
+          "pich": "SHADOW LIVES",
+          "grafite": "THE TRAIN\nDOESN'T WAIT",
+          "trem_apito": "🚨 TRAIN COMING",
+          "trem_atropelo": "The train brushed past — the crew took a hit and got thrown off the tracks.",
+          "respeito_titulo": "RESPECT IN THE LOWSIDE",
+          "respeito_falta": "{n} more before the loudmouth stops running",
+          "respeito_cheio": "respect full — the loudmouth has nowhere left to run",
+          "predio": {
+            "birosca": "Dona Lurdes' Bar",
+            "padaria": "Dona Cida's Bakery",
+            "birosca_2": "Trackside Inn",
+            "deposito": "Old Nono's Storeroom"
+          },
+          "int": {
+            "birosca": "Dona Lurdes' Bar",
+            "padaria": "Dona Cida's Bakery",
+            "birosca_2": "Trackside Inn",
+            "deposito": "Old Nono's Storeroom"
+          },
+          "veio": {
+            "nome": "The old man at the entrance",
+            "sub": "groggy, sitting on the curb",
+            "fala": [
+              "The red sky against the blue world, you feel me? Think about that.",
+              "The blind man saw what the deaf man heard, partner. And nobody believed either of them.",
+              "A train that passes doesn't come back… but the tracks stay, you feel me?",
+              "Whoever runs too much gets to the wrong place early.",
+              "Ants have no boss and the anthill never falls. Think about that, partner.",
+              "Coffee gets cold. Respect doesn't.",
+              "You think you're climbing the street, but the street's the one taking you down.",
+              "A big name in a small mouth weighs nothing, kid.",
+              "I've been the ditch and I've been the bridge. Today I'm the curb."
+            ],
+            "escolhas": {
+              "ouvir": {
+                "label": "Listen and move on"
+              }
+            }
+          },
+          "veio_cafe": {
+            "nome": "The old man at the entrance",
+            "sub": "his nose already caught the smell",
+            "fala": [
+              "Hm… what's that smell? Been a long time since anyone brought me a real coffee…"
+            ],
+            "escolhas": {
+              "dar_cafe": {
+                "label": "Hand the old man the coffee",
+                "resultado": "He drinks it in one gulp. Blinks. His eyes clear — and suddenly there's no groggy old man there anymore. He stands up slowly, cracks his neck and stares you down."
+              }
+            }
+          },
+          "folgado_1": {
+            "nome": "Gut-Stabber (?)",
+            "sub": "the loudmouth who runs the Lowside — or so he says",
+            "fala": [
+              "I'm Gut-Stabber, I own this place. You're not even worth my time.",
+              "Bloodletter! Handle this punk for me. I've got better things to do."
+            ]
+          },
+          "folgado_2": {
+            "nome": "Gut-Stabber (?)",
+            "sub": "ran to the other side of the tracks",
+            "fala": [
+              "You again? I don't waste my time on nobodies.",
+              "Ice, deal with him. I'm busy being important."
+            ]
+          },
+          "folgado_3": {
+            "nome": "Gut-Stabber (?)",
+            "sub": "back below the tracks, sweating",
+            "fala": [
+              "Look, you're starting to get on my nerves.",
+              "Leftover! Where's Leftover? Get the Scraps over here, now!"
+            ]
+          },
+          "folgado_4": {
+            "nome": "Gut-Stabber (?)",
+            "sub": "called in big backup",
+            "fala": [
+              "Fine, fine. You're stubborn. But you won't handle the Biggest Shard.",
+              "Take care of it, Shard. I'm gonna… go over there. Take care of something."
+            ]
+          },
+          "folgado_5": {
+            "nome": "Gut-Stabber (?)",
+            "sub": "the last henchman left",
+            "fala": [
+              "Nobody beats Shadow's Name. Nobody!",
+              "If you get past him… no, you're not getting past him."
+            ]
+          },
+          "folgado_final": {
+            "nome": "Gut-Stabber (?)",
+            "sub": "no henchmen, nowhere to run",
+            "fala": [
+              "Okay… okay. It's you and me now. I'm Gut-Stabber! I… I think.",
+              "Come on, I'm tough. Real tough. Super tough, honest."
+            ]
+          },
+          "dona_cida": {
+            "nome": "Dona Cida",
+            "sub": "the bakery that opens before the sun",
+            "fala": [
+              "Peacock came running in here, all bruised, saying his name isn't Gut-Stabber at all.",
+              "The real Gut-Stabber is Old Bucho, kid. The old man at the entrance. He's been like that a long time… only a strong coffee will wake him up."
+            ],
+            "escolhas": {
+              "pega_cafe": {
+                "label": "Take the old man's coffee",
+                "resultado": "She pours it through the cloth filter, bottles it and hands it over. \"Take it hot. Cold won't wake him.\""
+              }
+            }
+          },
+          "rinha_trilho": {
+            "nome": "Trackside Pit",
+            "sub": "endless fights by the tracks",
+            "fala": [
+              "The Lowside's circle never stops, not even when the train goes by.",
+              "One ends, another steps in, random. You can leave your crew here — 1 fight every 5 minutes."
+            ]
+          },
+          "caixa_trilho": {
+            "nome": "Crate by the tracks",
+            "sub": "fell off some wagon",
+            "linha": "A dented crate dumped on the gravel: some cash and a bottle of syrup nobody came back for."
+          },
+          "birosca": {
+            "nome": "Dona Lurdes' Bar",
+            "sub": "booze, bread and some peace",
+            "intro": "Dona Lurdes sets the crew up in the back, away from the train noise. Costs a little and everyone walks out whole."
+          },
+          "birosca_2": {
+            "nome": "Trackside Inn",
+            "sub": "a bed on the other side of the tracks",
+            "intro": "A cramped room overlooking the rails. Not pretty, but the crew sleeps and gets back to the grind."
+          },
+          "taxa_fixa": {
+            "nome": "Knife Leftover",
+            "sub": "collects for all three shards",
+            "fala": [
+              "Need cash? In the Lowside money's got three owners, and I collect for all three.",
+              "500 in your hand now. The bill… I'll tell you the bill later."
+            ],
+            "botao_ver_contrato": "I want the 500",
+            "contrato_tag": "Contract · three shards",
+            "contrato_corpo": "\"500 in hand, right now. Take it or leave it?\"",
+            "contrato_letra_miuda": "Fine print: you'll owe {divida}.",
+            "contrato_aceitar": "Deal",
+            "contrato_recusar": "No deal"
+          },
+          "deposito": {
+            "nome": "Old Nono's Storeroom"
+          }
         }
       },
       "enemy_album": {
@@ -5058,11 +5246,12 @@
         "1464": "Scissors' right hand, never misses the final cut.",
         "1500": "Vanishes mid-street, strikes in the dark. Boss of the Track.",
         "1501": "Logs everything, collects everything. Breaks an arm before the face.",
-        "1502": "Took the whole Lowlands when the Shadow fell in the ditch.",
+        "1502": "Took the whole Lowsides when the Shadow fell in the ditch.",
         "1503": "Lives on the tenth floor — you arrive already tired.",
         "1504": "Raised half the kids around here. Knows where to hit to hurt without harm.",
         "1505": "Doesn't fight out of anger — fights because the math works out.",
-        "1600": "The only one who ever held six blocks at once."
+        "1600": "The only one who ever held six blocks at once.",
+        "1322": "The loudmouth who called himself Gut-Stabber. A boss's swagger, an extra's punch."
       },
       "album": {
         "titulo": "Collection",
@@ -5093,7 +5282,7 @@
         "terr": {
           "1": "The Strip",
           "2": "The Market",
-          "3": "The Lowlands",
+          "3": "The Lowsides",
           "4": "The Projects",
           "5": "The Hill",
           "6": "Upper Hill",
@@ -5332,7 +5521,27 @@
         "237": "Knuckles made from a crushed paint can. Every kid's first weapon, the day they thought they were grown.",
         "238": "A cap found at the bus stop. No owner, no brand, no shame.",
         "138": "The club the Collector used to settle accounts at the Market. Every notch in the wood is a debt someone paid with their teeth.",
-        "139": "The machete Coal wore at his hip and never needed to draw. When you draw it, the whole Track goes quiet."
+        "139": "The machete Coal wore at his hip and never needed to draw. When you draw it, the whole Track goes quiet.",
+        "16": "Poured through Dona Cida's cloth filter, strong as a punch. Wakes up even someone who's been asleep for years.",
+        "140": "The skewer Gut-Stabber never let go of, not even asleep. Whoever holds it feels the weight of the whole Lowside.",
+        "301": "Pulled off a rooftop grill in the middle of Sunday lunch. Still smells like charcoal.",
+        "302": "A black hood for someone who doesn't want to be remembered. In the Lowside, vanishing is a talent.",
+        "303": "A leather vest studded with old belt rivets. Each stud is from a fight its owner won.",
+        "304": "A glove from a gym that shut down. The padding's gone, the anger stayed.",
+        "305": "The brand's misspelled, but it runs just the same. Nobody in the Lowside asks where it came from.",
+        "306": "Real silver — so they say. It jingles when its owner walks, and everyone knows he's arrived.",
+        "307": "The fridge door that broke in '98. Doesn't keep anything cold, but it takes a punch beautifully.",
+        "308": "A courier's helmet with a half-peeled Shadow sticker. It's saved more heads than a lot of doctors.",
+        "309": "Chunks of truck tire sewn into a vest. Heavy, smelly, and nothing gets through.",
+        "310": "PVC pipe cut and strapped to the arm. Cheap, ugly, works.",
+        "311": "A work boot with the steel toe poking through. Step on a show-off's foot and the message is sent.",
+        "312": "A wooden fig hand tied to a sprig of rue. Grandma said the evil eye doesn't get past it.",
+        "313": "A dried, braided rue branch. Where it hits, it leaves a smell nobody forgets.",
+        "314": "A straw hat that's been through three terreiros. Shades you from the sun and from the hex.",
+        "315": "Flowered calico hand-sewn by the trackside healer. Whoever wears it feels the ground shake before the train.",
+        "316": "Three knots, three wishes. It can only break on its own — and when it does, the wish comes true.",
+        "317": "A rope sandal the healer wore until it wore out. Steps light and leaves the street silent.",
+        "318": "A little leather pouch sewn shut with a prayer inside. Nobody opens it, nobody asks, everybody respects it."
       }
     }
   }

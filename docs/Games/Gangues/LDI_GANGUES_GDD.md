@@ -437,6 +437,39 @@ valão** (onde o Sombra morreu, ninguém entra à noite) · **O barraco do Sombr
 (abandonado, cada caco disputa o direito de ocupar) · **O trio de esquinas**
 (cada caco domina uma, briga constante entre elas).
 
+**A cena jogável (v3.81.0, 29/09/2026 — plano aprovado pelo Isaias).** Dado em
+`data/cenas/baixada/`, esqueleto da Pista **sem muro**: o bairro inteiro é
+andável desde o começo. Faixa de nível **34–46**.
+
+- **A virada.** O "chefe" que foge o bairro inteiro é o **folgado** — se
+  apresenta como Fura-Bucho, mas é o **Zé Pavão (1322)**, o inimigo mais fraco
+  da Baixada (ficha 34). O dono de verdade é o **velho da entrada**: grogue,
+  com cara de morador de rua, sentado no meio-fio, que a cada conversa solta
+  uma filosofia com gíria (`falasSorteadas` — "o céu vermelho contra o mundo
+  azul", "o cego viu o que o surdo ouviu"…). Ele é o **Fura-Bucho (1502)**.
+- **Barra de Respeito.** Tudo é ganhar respeito. A cadeia do folgado
+  (`folgado_1`…`folgado_5`) enche a barra: o folgado aparece com pino grande
+  (`fuga`), solta a marra ("tu nem é digno de mim"), joga um capanga — Sangria
+  34, Gelo 36, Sobra 38, depois os Generais Caco Maior 41 e Nome do Sombra 43 —
+  e some pro outro lado da linha. Barra cheia, ele não tem mais pra onde
+  correr (`folgado_final`, 34).
+- **O café.** Batido, o folgado entrega: "dá um café pro véio". A **Dona Cida**
+  (padaria) libera o **Café do Véio (item 16)**; entregue ao velho
+  (`veio_cafe`), ele acorda e vira o chefe no mesmo lugar da entrada: Fura-Bucho
+  46 + os dois Generais de escolta (orçamento 115 × 0,40). 1ª vitória: o
+  **Espeto do Fura-Bucho (140, épico, nível mín. 44)**.
+- **A linha do trem** corta o mapa (faixa y1296–1336): a cada ~24 s o trem
+  apita (3 s) e passa (8 s), fechando a travessia. Quem estiver nos trilhos
+  leva 2 de dano na tropa (nunca derruba) e é jogado pro lado mais perto
+  (`hooks/useGanguesTrem.js`).
+- **O resto do bairro:** Rinha do Trilho (farm infinito), Birosca da Dona
+  Lurdes e Pensão do Trilho (descansos dos dois lados da linha), o agiota
+  **Resto de Faca** (empréstimo de 500), o **Depósito do Seu Nono** (loja do
+  RARO 301–318 dos 3 caminhos, com o Mandingueiro acima) e a caixa na beira da
+  linha. O chefe só abre depois do rádio pirata da Feira (`precisaInformante`).
+- **Fica pra depois:** o "corre do respeito" (missão num bairro anterior) não
+  entrou nesta versão.
+
 ### Território 4 — A Vila · Disputa · `#ffae32`
 Facção: Bonde dos Prédio (108) / Os Andar de Cima (109). O conjunto, os prédios
 de dez andares, a escada sem luz. **Resistência militarizada** — a única região
@@ -675,6 +708,8 @@ na cara.
 Facção: os três cacos, temporariamente unidos sob ele · Arma: espeto · Stats: Porrada 2 · Pique 2 · Couro 7 · Osso 5 · Malandragem 2 (nível de fachada 46).
 Fala: *"A Baixada é minha desde que o Sombra caiu no valão. Cê tomou meus ponto?
 Vem tomar o resto."* Segura os três cacos numa lealdade frágil.
+**Na cena jogável** ele é o velho grogue da entrada — só acorda com o café da Dona
+Cida. O folgado que usa o nome dele é o Zé Pavão (1322).
 
 ### 1503 · Ferrugem — Chefe da Vila
 Facção: Bonde dos Prédio (108) · Arma: taco · Stats: Porrada 2 · Pique 3 · Couro 7 · Osso 5 · Malandragem 2 (nível de fachada 59).

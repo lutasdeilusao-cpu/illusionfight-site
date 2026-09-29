@@ -49,6 +49,8 @@ const CATALOGO = [
   // Luz) + 3 válvulas (a balança, a muamba e uma comprada no Camelô).
   { id: 14, slug: 'fio_cobre', custo: 0, tipo: 'material', valor: 0, icone: '🔌' },
   { id: 15, slug: 'valvula', custo: 20, tipo: 'material', valor: 0, icone: '💡' },
+  // O café da Dona Cida (Baixada) — acorda o velho da entrada. Não vende.
+  { id: 16, slug: 'cafe_do_veio', custo: 0, tipo: 'material', valor: 0, icone: '☕' },
   // `poder_unico` = chip de poder emprestado: usar em combate concede, por 1
   // golpe, um poder de nível baixo que o personagem talvez nem tenha
   // treinado (ver forcedSpecial em ganguesSpecialEffects.js). custo: 0 =

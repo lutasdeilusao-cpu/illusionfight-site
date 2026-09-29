@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1790703526.4872525,
-    "ast_hash": "d3d8c414bce91c826339967bac601dca",
+    "mtime": 1790704019.2322373,
+    "ast_hash": "4e19b02b4e2e65bb24bbf7ec4f793f4b",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -1185,9 +1185,9 @@
     "semantic_hash": "5a7c2a58a862cb660798ec9696afbe0b"
   },
   "src/pages/games/JackCandy/store/useJackStore.js": {
-    "mtime": 1783912026.9046736,
-    "ast_hash": "0e552c16aaf2c3276e7924d81637fd8e",
-    "semantic_hash": "0e552c16aaf2c3276e7924d81637fd8e"
+    "mtime": 1790703937.8543537,
+    "ast_hash": "f16425543a3a78bc28c0fce6af6215eb",
+    "semantic_hash": ""
   },
   "src/pages/games/KernelGames/BulletHellRafael/BulletHellRafael.jsx": {
     "mtime": 1788408770.9937952,
@@ -1840,9 +1840,9 @@
     "semantic_hash": "71a04e88957b14dd5505b7db069700e0"
   },
   "src/pages/games/Tamagoshi/store/useTamagoshiStore.js": {
-    "mtime": 1782447844.5783043,
-    "ast_hash": "530861f6f6eee2df5780ba1cbf7e2a0c",
-    "semantic_hash": "530861f6f6eee2df5780ba1cbf7e2a0c"
+    "mtime": 1790703937.8533604,
+    "ast_hash": "2e8f2c4bfd6c3b118b502d8c354ddcce",
+    "semantic_hash": ""
   },
   "src/pages/games/TopTrumps/TopTrumpsMP.jsx": {
     "mtime": 1785612536.9829292,
@@ -2690,8 +2690,8 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1790694255.1327314,
-    "ast_hash": "ec21c1b31b7e608c10daf278b86fc4ea",
+    "mtime": 1790704007.3260863,
+    "ast_hash": "052aa3f3b77059566881775a4ca6e81b",
     "semantic_hash": ""
   },
   "Jogos_Rafael/mg01_sliding.html": {
@@ -2730,8 +2730,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1790703526.524528,
-    "ast_hash": "6af6c11ac9d1275b87a6e11def794faf",
+    "mtime": 1790704019.2744827,
+    "ast_hash": "065cfa4f1f42610220dcc7e21ee9c353",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -3400,8 +3400,8 @@
     "semantic_hash": ""
   },
   "src/pages/games/TopTrumps/hooks/useTopTrumpsRewards.js": {
-    "mtime": 1785344903.8960183,
-    "ast_hash": "1af07cbbe43bdc9bf994e335d8fe36fe",
+    "mtime": 1790703937.8543537,
+    "ast_hash": "1215c7afb9ca6c975c92b156f79dfb64",
     "semantic_hash": ""
   },
   "src/pages/games/TopTrumps/hooks/useTopTrumpsSP.js": {

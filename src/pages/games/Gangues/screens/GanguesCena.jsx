@@ -34,6 +34,8 @@ import { WORLD, SPAWN, montarAmbiente, insideZone, validPosition, validPos, posN
 import { ALEATORIO_TIPOS } from '../engine/ganguesEncontroAleatorio.js'
 import useGanguesCenaMovimento from '../hooks/useGanguesCenaMovimento.js'
 import useGanguesEncontroAleatorio from '../hooks/useGanguesEncontroAleatorio.js'
+import useGanguesTrem from '../hooks/useGanguesTrem.js'
+import { TremFaixa, BarraRespeito } from '../components/cena/GanguesBaixadaHud'
 import './GanguesCena.css'
 
 // Cada cena vira um tutorial_id próprio (`cena_intro:<cenaId>`) dentro do
@@ -97,12 +99,15 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
   const amb = useMemo(() => montarAmbiente(cena, local, prog, baseFeita, muroAberto), [cena, local, prog, baseFeita, muroAberto])
   const collidersRef = useRef(null); collidersRef.current = amb?.colliders || []
   const worldRef = useRef(null); worldRef.current = amb?.world || WORLD
-  const gateRef = useRef(null); gateRef.current = amb?.gateAtivo || null
+  const gateRef = useRef(null)
 
   const { player, setPlayer, facing, andou, inputRef } = useGanguesCenaMovimento({
     intro, encontro, fade, gateRef, collidersRef, worldRef, initialPlayer: posInicial,
   })
 
+  // Linha do trem (Baixada): enquanto passa, os trilhos viram muro; quem tava neles leva dano.
+  const trem = useGanguesTrem({ trem: cena?.trem, rodando: Boolean(cena?.trem) && !local && !intro && !encontro && !fade, player, setPlayer, onAtropelo: () => { store.choqueTropa(cena.trem.dano); setAviso(t('games.gangues.cena.baixada.trem_atropelo')); setTimeout(() => setAviso(null), 3000) } })
+  gateRef.current = amb?.gateAtivo || (local ? null : trem.gate)
   const localRef = useRef(local); localRef.current = local
 
   // Nível MÉDIO da tropa de batalha — base do aviso "recomendado nível X" no
@@ -464,6 +469,7 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
         final), sem tocar a suavização do passo a passo normal. */}
     <div key={local ? `${local.id}-${local.comodo}` : 'rua'} className="gang-cena-world" style={{ width: W.w, height: W.h, transform: `translate3d(${-camX}px,${-camY}px,0)` }}>
       {local ? <CenaInterior amb={amb} /> : <CenaCenario cena={cena} bossAberto={baseFeita || muroAberto} muroAberto={muroAberto} />}
+      {!local && cena.trem && <TremFaixa trem={cena.trem} fase={trem.fase} t={t} />}
       {(amb?.alvos || []).map(p => <ZonaChao key={`z-${p.id}`} p={p} active={perto?.id === p.id} />)}
       {(amb?.alvos || []).map(p => <PinoAlvo key={p.id} p={p} t={t} active={perto?.id === p.id} onColidir={reportarColisao} ignorado={brigaAuto.ignorados.has(p.id)} />)}
       {/* key=local: rua e cada cômodo de interior são espaços de coordenada
@@ -475,7 +481,7 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
           (sem animação) toda vez que entra/sai de um interior. */}
       {!local && aleatorio.perseguidor && <div className={`gang-world-perseguidor is-${ALEATORIO_TIPOS[aleatorio.perseguidor.tipo]?.cor}`} style={{ left: aleatorio.perseguidor.x, top: aleatorio.perseguidor.y }}><span /><small>{t(`games.gangues.cena.aleatorio.${aleatorio.perseguidor.tipo}.nome`)}</small></div>}
       <GangMarker key={local ? `${local.id}-${local.comodo}` : 'rua'} player={player} facing={facing} gangName={store.gangName} retrato={getGanguesPortraitByTemplateId(store.getLider()?.character_template_id)} />
-    </div><div className="gang-cena-vignette" />{noEscuro && <div className="gang-cena-apagao" style={{ '--px': `${player.x - camX}px`, '--py': `${player.y - camY}px` }} aria-hidden="true" />}{!local && (aleatorio.perseguidor?.tipo === 'policia' || aleatorio.onomatopeia === 'policia') && <div className="gang-cena-sirene" aria-hidden="true" />}{hint && <div className="gang-cena-tutorial">{hint}</div>}{!local && !muroAberto && cena.muro && player.y < cena.muro.aviso && <div className="gang-cena-gatelock">🔒 {t(baseFeita ? cena.textos.muroPassagem : cena.textos.bossTrancado)}</div>}<AnimatePresence>{aleatorio.onomatopeia && <motion.div key="onomatopeia" className={`gang-cena-onomatopeia is-${ALEATORIO_TIPOS[aleatorio.onomatopeia]?.cor}`} initial={{ scale: .3, opacity: 0, rotate: -12 }} animate={{ scale: 1, opacity: 1, rotate: -6 }} exit={{ opacity: 0 }} transition={{ type: 'spring', stiffness: 520, damping: 14 }}><b>{t(`games.gangues.cena.aleatorio.${aleatorio.onomatopeia}.onomatopeia`)}</b></motion.div>}</AnimatePresence><AnimatePresence>{fade && <motion.div className="gang-cena-fade" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: .16 }} />}</AnimatePresence></div>
+    </div><div className="gang-cena-vignette" />{noEscuro && <div className="gang-cena-apagao" style={{ '--px': `${player.x - camX}px`, '--py': `${player.y - camY}px` }} aria-hidden="true" />}{!local && (aleatorio.perseguidor?.tipo === 'policia' || aleatorio.onomatopeia === 'policia') && <div className="gang-cena-sirene" aria-hidden="true" />}{!local && cena.respeito && !prog.boss && <BarraRespeito cena={cena} prog={prog} t={t} />}{hint && <div className="gang-cena-tutorial">{hint}</div>}{!local && !muroAberto && cena.muro && player.y < cena.muro.aviso && <div className="gang-cena-gatelock">🔒 {t(baseFeita ? cena.textos.muroPassagem : cena.textos.bossTrancado)}</div>}<AnimatePresence>{aleatorio.onomatopeia && <motion.div key="onomatopeia" className={`gang-cena-onomatopeia is-${ALEATORIO_TIPOS[aleatorio.onomatopeia]?.cor}`} initial={{ scale: .3, opacity: 0, rotate: -12 }} animate={{ scale: 1, opacity: 1, rotate: -6 }} exit={{ opacity: 0 }} transition={{ type: 'spring', stiffness: 520, damping: 14 }}><b>{t(`games.gangues.cena.aleatorio.${aleatorio.onomatopeia}.onomatopeia`)}</b></motion.div>}</AnimatePresence><AnimatePresence>{fade && <motion.div className="gang-cena-fade" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: .16 }} />}</AnimatePresence></div>
     {!local && !intro && <GanguesMiniMapa player={player} alvos={minimapaAlvos} />}
     {!local && !intro && !encontro && !fade && <GanguesAlvoTutorial alvos={amb?.alvos} />}
     <WorldControls onInput={v => { inputRef.current = v }} onInteract={() => abrir(perto)} action={perto ? interactionLabel(perto, t) : null} rotulo={t('games.gangues.cena.acao.interagir')} brigaAuto={brigaAuto.ligado} brigaAutoBloqueada={brigaAuto.bloqueado} onBrigaAuto={brigaAuto.alternar} rotuloBrigaAuto={t('games.gangues.cena.briga_auto')} />

@@ -28,8 +28,10 @@ export default function GanguesPapo({ poi, onResolve, onClose }) {
   const chaveFala = poi.falaDevedor && devendo ? 'fala_devedor' : 'fala'
   const falas = useMemo(() => {
     const raw = t(`${base}.${chaveFala}`)
-    return Array.isArray(raw) ? raw : [raw]
-  }, [t, base, chaveFala])
+    if (!Array.isArray(raw)) return [raw]
+    // `falasSorteadas` (o velho da Baixada): cada conversa sorteia uma linha.
+    return poi.falasSorteadas ? [raw[Math.floor(Math.random() * raw.length)]] : raw
+  }, [t, base, chaveFala, poi.falasSorteadas])
 
   const passa = (escolha) => {
     if (escolha.viraTreta) { onResolve({ viraTreta: escolha.viraTreta, revela: escolha.revela }); return }

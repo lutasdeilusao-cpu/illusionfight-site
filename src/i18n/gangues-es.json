@@ -352,7 +352,8 @@
         "11": "Vela Bendita",
         "12": "Bolsa de Caramelos",
         "14": "Cable de Cobre",
-        "15": "Válvula de Radio"
+        "15": "Válvula de Radio",
+        "16": "Café del Viejo"
       },
       "loja": {
         "sub": "Compra con la plata de la banda — se puede usar en cualquier pelea.",
@@ -440,7 +441,26 @@
           "237": "Manopla de Lata",
           "238": "Gorra Callejera",
           "138": "Garrote del Cobrador",
-          "139": "Machete de Carvão"
+          "139": "Machete de Carvão",
+          "140": "Pincho del Perfora-Tripas",
+          "301": "Pincho de Asado",
+          "302": "Capucha Negra",
+          "303": "Chaleco con Tachas",
+          "304": "Guante de Boxeo Roto",
+          "305": "Zapatillas Truchas",
+          "306": "Cadena de Plata",
+          "307": "Puerta de Heladera",
+          "308": "Casco de Moto",
+          "309": "Chaleco de Neumático",
+          "310": "Canillera de Caño",
+          "311": "Bota de Seguridad",
+          "312": "Higa de Ruda",
+          "313": "Bastón de Ruda",
+          "314": "Sombrero de Paja Bendito",
+          "315": "Manto de Chita",
+          "316": "Cinta del Bonfim",
+          "317": "Sandalia de Soga",
+          "318": "Patuá"
         },
         "sem_caminho": "Nadie de tu banda es de este camino.",
         "qualquer_caminho": "Cualquier camino",
@@ -720,7 +740,8 @@
         "1503": "Óxido",
         "1504": "La Fiera",
         "1505": "El Contador",
-        "1600": "El Retazo"
+        "1600": "El Retazo",
+        "1322": "Pepe Pavo"
       },
       "guest_banner": "Sin cuenta: no se guarda el progreso.",
       "guest_create_account": "Crear cuenta",
@@ -3977,7 +3998,7 @@
           },
           "espeto": {
             "nome": "Perfora-Tripas",
-            "fala": "La Bajada es mía desde que el Sombra cayó a la zanja. ¿Tomaste mis puntos? Bien. Ven a tomar el resto."
+            "fala": "Buen café. Hacía mucho que no me despertaba así. Le pegaste a mis pibes y lo hiciste correr al Pavo… Bueno. Ahora vení a quedarte con la Bajada, si aguantás."
           },
           "sala": {
             "nome": "Óxido",
@@ -4958,6 +4979,173 @@
             "Uy… este no vino a charlar. Vas a tener que ir con todo.",
             "Querías quilombo. El quilombo te encontró."
           ]
+        },
+        "baixada": {
+          "chegada": [
+            "Esta es la Bajada, pibe. Del otro lado de las vías del tren.",
+            "Cuando el Sombra cayó al zanjón, su banda se partió en tres: la Sangría, el Hielo y la Sobra. Hay un agrandado acá que dice que manda en todo — se hace llamar Perfora-Tripas y vive escapando.",
+            "Acá nadie te respeta gratis. Cada pelea que ganás es respeto en tu cuenta.",
+            "Y ojo con el tren: cuando pita, salí de las vías."
+          ],
+          "aviso_informante": "Nadie en la Bajada te lleva al jefe todavía. La radio pirata de la Feria sabe el camino — escuchala antes.",
+          "checklist_dica": "Ganate el respeto de la Bajada: dale al agrandado hasta que no tenga adónde correr.",
+          "checklist_passagem": "El viejo se despertó. Andá a la entrada a enfrentar al dueño de la Bajada.",
+          "hint_cafe_falta": "El agrandado lo largó: el dueño de la Bajada es el viejo de la entrada. Conseguí un café en la panadería de Doña Cida.",
+          "hint_cafe_pronto": "Café en la mano. Llevalo al viejo de la entrada.",
+          "pich": "SOMBRA VIVE",
+          "grafite": "EL TREN NO\nESPERA",
+          "trem_apito": "🚨 VIENE EL TREN",
+          "trem_atropelo": "El tren pasó rozando — la tropa se comió un golpe y salió despedida de las vías.",
+          "respeito_titulo": "RESPETO EN LA BAJADA",
+          "respeito_falta": "faltan {n} para que el agrandado deje de correr",
+          "respeito_cheio": "respeto lleno — el agrandado no tiene adónde correr",
+          "predio": {
+            "birosca": "Boliche de Doña Lurdes",
+            "padaria": "Panadería de Doña Cida",
+            "birosca_2": "Pensión de las Vías",
+            "deposito": "Depósito de Don Nono"
+          },
+          "int": {
+            "birosca": "Boliche de Doña Lurdes",
+            "padaria": "Panadería de Doña Cida",
+            "birosca_2": "Pensión de las Vías",
+            "deposito": "Depósito de Don Nono"
+          },
+          "veio": {
+            "nome": "El viejo de la entrada",
+            "sub": "grogui, sentado en el cordón",
+            "fala": [
+              "El cielo rojo contra el mundo azul, ¿me entendés? Pensalo.",
+              "El ciego vio lo que el sordo escuchó, compañero. Y nadie les creyó a ninguno.",
+              "El tren que pasa no vuelve… pero las vías quedan, ¿me entendés?",
+              "El que corre mucho llega temprano al lugar equivocado.",
+              "La hormiga no tiene jefe y el hormiguero no se cae. Pensalo, compañero.",
+              "El café se enfría. El respeto no.",
+              "Vos pensás que estás subiendo la calle, pero es la calle la que te está bajando a vos.",
+              "Nombre grande en boca chica no pesa nada, pibe.",
+              "Yo fui el zanjón y fui el puente. Hoy soy el cordón."
+            ],
+            "escolhas": {
+              "ouvir": {
+                "label": "Escuchá y seguí"
+              }
+            }
+          },
+          "veio_cafe": {
+            "nome": "El viejo de la entrada",
+            "sub": "la nariz ya olió el café",
+            "fala": [
+              "Mm… ¿qué es ese olor? Hace mucho que nadie me trae un café de verdad…"
+            ],
+            "escolhas": {
+              "dar_cafe": {
+                "label": "Dale el café al viejo",
+                "resultado": "Se lo toma de un trago. Parpadea. La mirada se aclara — y de golpe ya no hay ningún viejo grogui ahí. Se levanta despacio, se truena el cuello y te clava los ojos."
+              }
+            }
+          },
+          "folgado_1": {
+            "nome": "El Perfora-Tripas (?)",
+            "sub": "el agrandado que manda en la Bajada — eso dice él",
+            "fala": [
+              "Yo soy el Perfora-Tripas, el dueño de esto. Vos ni merecés mi tiempo.",
+              "¡Sangría! Arreglame a este pibe. Tengo cosas más importantes."
+            ]
+          },
+          "folgado_2": {
+            "nome": "El Perfora-Tripas (?)",
+            "sub": "escapó al otro lado de las vías",
+            "fala": [
+              "¿Vos otra vez? No pierdo el tiempo con nadies.",
+              "Hielo, ocupate de él. Yo estoy ocupado siendo importante."
+            ]
+          },
+          "folgado_3": {
+            "nome": "El Perfora-Tripas (?)",
+            "sub": "volvió abajo de las vías, transpirando",
+            "fala": [
+              "Mirá, me estás empezando a sacar.",
+              "¡Sobra! ¿Dónde está la Sobra? ¡Traé a los Restos, ya!"
+            ]
+          },
+          "folgado_4": {
+            "nome": "El Perfora-Tripas (?)",
+            "sub": "llamó refuerzos grandes",
+            "fala": [
+              "Bueno, bueno. Sos terco. Pero contra el Pedazo Mayor no aguantás.",
+              "Arreglalo, Pedazo. Yo voy… para allá. A arreglar una cosa."
+            ]
+          },
+          "folgado_5": {
+            "nome": "El Perfora-Tripas (?)",
+            "sub": "el último matón que quedó",
+            "fala": [
+              "¡Nadie le gana al Nombre del Sombra! ¡Nadie!",
+              "Si pasás por él… no, no vas a pasar."
+            ]
+          },
+          "folgado_final": {
+            "nome": "El Perfora-Tripas (?)",
+            "sub": "sin matones, sin adónde correr",
+            "fala": [
+              "Bueno… bueno. Somos vos y yo ahora. ¡Soy el Perfora-Tripas! Creo… creo que sí.",
+              "Vení, que soy bravo. Muy bravo. Bravísimo, en serio."
+            ]
+          },
+          "dona_cida": {
+            "nome": "Doña Cida",
+            "sub": "la panadería que abre antes del sol",
+            "fala": [
+              "El Pavo pasó corriendo por acá, todo morado, diciendo que su nombre no es Perfora-Tripas para nada.",
+              "El Perfora-Tripas de verdad es Don Bucho, pibe. El viejo de la entrada. Está así hace rato… solo un café fuerte lo despierta."
+            ],
+            "escolhas": {
+              "pega_cafe": {
+                "label": "Llevá el café del viejo",
+                "resultado": "Lo pasa por el colador de tela, lo mete en una botellita y te lo da. \"Llevalo caliente. Frío no lo despierta.\""
+              }
+            }
+          },
+          "rinha_trilho": {
+            "nome": "Riña de las Vías",
+            "sub": "pelea sin fin al lado de las vías",
+            "fala": [
+              "La ronda de la Bajada no para, ni cuando pasa el tren.",
+              "Termina una, entra otro, sorteado. Podés dejar la tropa acá — 1 pelea cada 5 minutos."
+            ]
+          },
+          "caixa_trilho": {
+            "nome": "Caja al lado de las vías",
+            "sub": "se cayó de algún vagón",
+            "linha": "Una caja abollada tirada en el balasto: unos pesos y un frasco de jarabe que nadie volvió a buscar."
+          },
+          "birosca": {
+            "nome": "Boliche de Doña Lurdes",
+            "sub": "caña, pan y tranquilidad",
+            "intro": "Doña Lurdes acomoda a la tropa en el fondo, lejos del ruido del tren. Cuesta unos pesos y todos salen enteros."
+          },
+          "birosca_2": {
+            "nome": "Pensión de las Vías",
+            "sub": "cama del otro lado de las vías",
+            "intro": "Un cuarto apretado con vista a los rieles. No es lindo, pero la tropa duerme y vuelve a la calle."
+          },
+          "taxa_fixa": {
+            "nome": "Resto de Cuchillo",
+            "sub": "cobra en nombre de los tres pedazos",
+            "fala": [
+              "¿Necesitás plata? En la Bajada la plata tiene tres dueños, y yo cobro por los tres.",
+              "500 en la mano ya. La cuenta… la cuenta te la digo después."
+            ],
+            "botao_ver_contrato": "Quiero los 500",
+            "contrato_tag": "Contrato · tres pedazos",
+            "contrato_corpo": "\"500 en la mano, ya. ¿Aceptás o no?\"",
+            "contrato_letra_miuda": "Letra chica del contrato: quedás debiendo {divida}.",
+            "contrato_aceitar": "Acepto",
+            "contrato_recusar": "No acepto"
+          },
+          "deposito": {
+            "nome": "Depósito de Don Nono"
+          }
         }
       },
       "enemy_album": {
@@ -5062,7 +5250,8 @@
         "1503": "Vive en el décimo piso — llegas ya cansado.",
         "1504": "Crió a la mitad de los niños de la zona. Sabe dónde pegar para doler sin dañar.",
         "1505": "No pelea por rabia — pelea porque la cuenta cuadra así.",
-        "1600": "El único que sostuvo seis barrios a la vez."
+        "1600": "El único que sostuvo seis barrios a la vez.",
+        "1322": "El agrandado que se decía Perfora-Tripas. Pinta de jefe, trompada de extra."
       },
       "album": {
         "titulo": "Colección",
@@ -5332,7 +5521,27 @@
         "237": "Manopla hecha de una lata de pintura aplastada. La primera arma de todo pibe que se creyó grande.",
         "238": "Gorra encontrada en la parada del colectivo. Sin dueño, sin marca, sin vergüenza.",
         "138": "El garrote con el que el Cobrador cerraba las cuentas de la Feria. Cada muesca en la madera es una deuda que alguien pagó con los dientes.",
-        "139": "El machete que el Carbón llevaba en la cintura y nunca necesitó sacar. Cuando vos lo sacás, toda la Pista se calla."
+        "139": "El machete que el Carbón llevaba en la cintura y nunca necesitó sacar. Cuando vos lo sacás, toda la Pista se calla.",
+        "16": "Pasado por el colador de tela de Doña Cida, fuerte como una trompada. Despierta hasta al que duerme hace años.",
+        "140": "El pincho que el Perfora-Tripas nunca soltó, ni dormido. Quien lo agarra siente el peso de toda la Bajada.",
+        "301": "Sacado de la parrilla de la terraza en pleno almuerzo de domingo. Todavía huele a carbón.",
+        "302": "Capucha negra de quien no quiere que lo recuerden. En la Bajada, desaparecer es un talento.",
+        "303": "Chaleco de cuero con tachas de cinturón viejo. Cada tacha es de una pelea que el dueño ganó.",
+        "304": "Guante de un gimnasio que cerró. La espuma se fue, la bronca quedó.",
+        "305": "La marca está mal escrita, pero corre igual. Nadie en la Bajada pregunta de dónde salió.",
+        "306": "Plata de verdad — dicen. Tintinea cuando el dueño camina, y todos saben que llegó.",
+        "307": "La puerta de la heladera que se rompió en el 98. Ya no enfría nada, pero aguanta trompadas de lujo.",
+        "308": "Casco de motoquero con la calcomanía del Sombra medio arrancada. Salvó más cabezas que muchos médicos.",
+        "309": "Pedazos de neumático de camión cosidos en un chaleco. Pesado, apestoso, y nadie pasa.",
+        "310": "Caño de PVC cortado y atado al brazo. Barato, feo, funciona.",
+        "311": "Bota de obra con la puntera de acero asomando. Pisás el pie del agrandado y el mensaje llega.",
+        "312": "Higa de madera atada a una ramita de ruda. La abuela decía: la envidia no pasa de ahí.",
+        "313": "Rama de ruda seca y trenzada. Donde pega, deja un olor que nadie olvida.",
+        "314": "Sombrero de paja que pasó por tres terreiros. Da sombra al sol y al embrujo.",
+        "315": "Chita floreada cosida a mano por la curandera de las vías. Quien la usa siente temblar el suelo antes del tren.",
+        "316": "Tres nudos, tres pedidos. Solo puede cortarse sola — y cuando se corta, el pedido llega.",
+        "317": "Sandalia de soga que la curandera usó hasta gastarla. Pisa liviano y deja la calle en silencio.",
+        "318": "Bolsita de cuero cosida con un rezo adentro. Nadie la abre, nadie pregunta, todos la respetan."
       }
     }
   }

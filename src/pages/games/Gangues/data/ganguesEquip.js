@@ -104,9 +104,32 @@ const CATALOGO = [
   { id: 236, slug: 'olho_grego', caminho: 'mistico', slot: 'amuleto', raridade: 'incomum', bonus: { PM: 1 }, cardSlots: 1, custo: 110, icone: '🧿' },
   { id: 237, slug: 'soqueira_lata', caminho: 'livre', slot: 'arma', raridade: 'comum', bonus: { A: [0, 2] }, cardSlots: 0, icone: '🥊' },
   { id: 238, slug: 'bone_vira_lata', caminho: 'livre', slot: 'cabeca', raridade: 'comum', bonus: { pv: 1 }, cardSlots: 0, custo: 20, icone: '🧢' },
+  // ── RARO (Baixada, 29/09/2026) — a loja do depósito do Seu Nono. Mesmo
+  // orçamento por caminho de antes, ~1,5× o incomum: Porradeiro ≈9,7,
+  // Paredão ≈10,3, Mandingueiro ≈10,7 (o Mandingueiro segue acima).
+  { id: 301, slug: 'espeto_churrasco', caminho: 'atacante', slot: 'arma', raridade: 'raro', bonus: { A: [2, 4] }, cardSlots: 2, custo: 330, icone: '🍢' },
+  { id: 302, slug: 'capuz_preto', caminho: 'atacante', slot: 'cabeca', raridade: 'raro', bonus: { pv: 3 }, cardSlots: 2, custo: 75, icone: '🥷' },
+  { id: 303, slug: 'colete_cravejado', caminho: 'atacante', slot: 'corpo', raridade: 'raro', bonus: { pv: 6 }, cardSlots: 2, custo: 135, icone: '🦺' },
+  { id: 304, slug: 'luva_boxe_rasgada', caminho: 'atacante', slot: 'bracos', raridade: 'raro', bonus: { H: [1, 3] }, cardSlots: 2, custo: 240, icone: '🥊' },
+  { id: 305, slug: 'tenis_falsificado', caminho: 'atacante', slot: 'pes', raridade: 'raro', bonus: { H: [0, 2] }, cardSlots: 2, custo: 120, icone: '👟' },
+  { id: 306, slug: 'corrente_prata', caminho: 'atacante', slot: 'amuleto', raridade: 'raro', bonus: { pm: 2 }, cardSlots: 2, custo: 45, icone: '⛓️' },
+  { id: 307, slug: 'porta_geladeira', caminho: 'defensor', slot: 'arma', raridade: 'raro', bonus: { D: [1, 3] }, cardSlots: 2, custo: 165, icone: '🚪' },
+  { id: 308, slug: 'capacete_moto', caminho: 'defensor', slot: 'cabeca', raridade: 'raro', bonus: { D: [0, 2] }, cardSlots: 2, custo: 90, icone: '🪖' },
+  { id: 309, slug: 'colete_pneu', caminho: 'defensor', slot: 'corpo', raridade: 'raro', bonus: { pv: 10 }, cardSlots: 2, custo: 240, icone: '🛞' },
+  { id: 310, slug: 'caneleira_cano', caminho: 'defensor', slot: 'bracos', raridade: 'raro', bonus: { pv: 4 }, cardSlots: 2, custo: 90, icone: '🦾' },
+  { id: 311, slug: 'bota_seguranca', caminho: 'defensor', slot: 'pes', raridade: 'raro', bonus: { pv: 5 }, cardSlots: 2, custo: 120, icone: '🥾' },
+  { id: 312, slug: 'figa_arruda', caminho: 'defensor', slot: 'amuleto', raridade: 'raro', bonus: { pm: 3 }, cardSlots: 2, custo: 75, icone: '🤞' },
+  { id: 313, slug: 'cajado_arruda', caminho: 'mistico', slot: 'arma', raridade: 'raro', bonus: { PM: 2 }, cardSlots: 2, custo: 315, icone: '🌿' },
+  { id: 314, slug: 'chapeu_palha', caminho: 'mistico', slot: 'cabeca', raridade: 'raro', bonus: { pm: 4 }, cardSlots: 2, custo: 90, icone: '👒' },
+  { id: 315, slug: 'manto_chita', caminho: 'mistico', slot: 'corpo', raridade: 'raro', bonus: { pm: 6, pv: 3 }, cardSlots: 2, custo: 210, icone: '🥻' },
+  { id: 316, slug: 'fita_bonfim', caminho: 'mistico', slot: 'bracos', raridade: 'raro', bonus: { pv: 4 }, cardSlots: 2, custo: 90, icone: '🎗️' },
+  { id: 317, slug: 'sandalia_corda', caminho: 'mistico', slot: 'pes', raridade: 'raro', bonus: { pm: 4 }, cardSlots: 2, custo: 90, icone: '🩴' },
+  { id: 318, slug: 'patua', caminho: 'mistico', slot: 'amuleto', raridade: 'raro', bonus: { PM: 1, pm: 2 }, cardSlots: 2, custo: 210, icone: '🧿' },
   // ── ÉPICO de chefe — drop, nunca à venda, qualquer caminho (vem da branch
   // da Feira, 27/09/2026). Faixa de valor: rola a cada golpe. ──
   { id: 138, slug: 'porrete_do_cobrador', caminho: 'livre', slot: 'arma', raridade: 'epico', bonus: { A: [3, 7], H: [1, 3], D: [0, 2] }, cardSlots: 2, icone: '🏏' },
+  // O Espeto do Fura-Bucho — prêmio da 1ª vitória contra o chefe da Baixada.
+  { id: 140, slug: 'espeto_do_fura_bucho', caminho: 'livre', slot: 'arma', raridade: 'epico', bonus: { A: [3, 6], D: [1, 3] }, cardSlots: 2, icone: '🗡️' },
   { id: 139, slug: 'facao_do_carvao', caminho: 'livre', slot: 'arma', raridade: 'epico', bonus: { A: [2, 5], D: [0, 2] }, cardSlots: 2, icone: '🔪' },
 ]
 
@@ -117,7 +140,7 @@ export const GANGUES_EQUIP_LISTA = Object.values(GANGUES_EQUIP)
 // raridade — comum = Pista (5), incomum = Feira (20), e daí pra cima segue a
 // escada de tetos (GDD §9.7). Épico de chefe tem o nível da luta que o dá.
 const NIVEL_MIN_RARIDADE = { comum: 5, incomum: 20, raro: 33, pesado: 46, epico: 59, grife: 72, lendario: 85 }
-const NIVEL_MIN_PECA = { 139: 15, 138: 28 }
+const NIVEL_MIN_PECA = { 139: 15, 138: 28, 140: 44 }
 
 export function nivelMinEquip(def) {
   if (!def) return 1
