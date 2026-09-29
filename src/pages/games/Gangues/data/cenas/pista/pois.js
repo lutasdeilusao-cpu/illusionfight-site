@@ -276,8 +276,9 @@ export const POIS_PISTA = [
     //                     · 112 luva · 115 tênis · 118 corrente
     //  incomum ("junta grana"): 102 faca · 105 capacete · 109 colete placa
     //                           · 113 manopla · 116 coturno
-    // Catálogo por caminho (ganguesEquip.js): comum + incomum dos 3 caminhos + livre.
-    itens: [1, 2, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 235, 236, 238],
+    // Catálogo por caminho (ganguesEquip.js): só o COMUM (29/09/2026): cada território vende a sua faixa, sem repetir —
+    // o incomum fica pra loja da Feira quando ela ganhar cena.
+    itens: [1, 2, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 201, 202, 203, 204, 205, 206, 213, 214, 215, 216, 217, 218, 225, 226, 227, 228, 229, 230, 238],
   },
   {
     // Reaproveitamento: continua na Pista mesmo depois dela virar
@@ -379,6 +380,20 @@ export const POIS_PISTA = [
     // `loja_pocoes` acima).
     retratoEnemyId: 1206,
     custoGrana: 10,
+  },
+  {
+    // A BANCA do Tio Dado (29/09/2026, pedido do Isaias) — apostas, a grana
+    // do farm sem porrada: desafio de mão (puzzle) e rinha de aposta (NPC x
+    // NPC). Mora dentro da birosca (interiores.js), igual o agiota. Regra em
+    // data/ganguesApostas.js. Retrato emprestado do "Troco Certo" (1402).
+    id: 'banca',
+    tipo: 'banca',
+    opcional: true,
+    repetivel: true,
+    i18n: 'games.gangues.cena.pista.banca',
+    retratoEnemyId: 1402,
+    rinhaPool: PISTA_POOL_RUA,
+    rinhaPontos: 8,
   },
   {
     // Birosca improvisada do OUTRO lado do muro — o Nato tem um primo lá.

@@ -56,6 +56,8 @@ export const INTERIORES_PISTA = {
         // dentro"). Meio da sala, livre do balcão (colisor y66-106) e longe
         // dos outros dois pinos.
         { ref: 'agiota', pos: { x: 230, y: 130 } },
+        // A Banca do Tio Dado (apostas) — na mesa da direita, longe dos outros pinos.
+        { ref: 'banca', pos: { x: 340, y: 262 } },
       ],
     }],
   },

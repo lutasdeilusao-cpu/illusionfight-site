@@ -4138,7 +4138,8 @@
           "achado": "Hallazgo",
           "descanso": "Bar",
           "loja": "Tienda",
-          "agiota": "Prestamista"
+          "agiota": "Prestamista",
+          "banca": "Apuestas"
         },
         "descanso_titulo": "La tropa descansó. Cada uno recuperó:",
         "descanso_ja_inteira": "La tropa ya está entera, pibe. Guardate la plata.",
@@ -4447,6 +4448,10 @@
               "sub": "lo que alguien escondió acá",
               "linha": "Metido en una grieta de la pared de tierra, medio escondido: algo que todavía sirve para la tropa."
             }
+          },
+          "banca": {
+            "nome": "La Banca del Tío Dado",
+            "fala": "\"Acá nadie cobra, pibe. Acá se apuesta. Cabeza buena gana, mano buena gana — y el que sabe de peleas lee la riña antes de la primera trompada.\""
           }
         },
         "carregando_mapa": "CARGANDO EL MAPA...",
@@ -4666,7 +4671,32 @@
       "combat_item_sem_status": "Ese no tiene ese estado.",
       "log_perdeu_vez_apagado": "💤 {nome} está apagado y perdió el turno.",
       "log_perdeu_vez_travado": "⚡ {nome} se trabó y perdió el turno.",
-      "log_grogue": "😵 {nome} quedó grogui y le pegó a {alvo}!"
+      "log_grogue": "😵 {nome} quedó grogui y le pegó a {alvo}!",
+      "banca": {
+        "mesa_desafio": "Desafío de mano",
+        "mesa_rinha": "Riña de apuesta",
+        "teto": "apuesta máx. {n}",
+        "sem_grana": "Sin plata para apostar ahora.",
+        "desafio_intro": "Elegí la apuesta y la dificultad. El Tío Dado sortea el desafío. Si lo resolvés, te llevás el premio; si fallás, la plata queda en la mesa.",
+        "desafio_jogando": "Vale {valor} — resolvé y llevate {premio}.",
+        "dif": {
+          "easy": "Fácil",
+          "medium": "Justo",
+          "hard": "Bravo"
+        },
+        "rinha_intro": "Dos de la calle se van a agarrar solos. Elegí a quién apostar: la cuota es cuánto paga cada 1 de plata.",
+        "ficha": "T{a} Pq{h} C{d} A{pv} V{pm}",
+        "apostar": "Apostar",
+        "linha_golpe": "{quem} pega: −{dano}",
+        "outra_rinha": "Otra riña",
+        "ganhou": "¡Ganaste! +{n} de plata.",
+        "perdeu": "Perdiste {n}. La casa agradece.",
+        "em_voce": "Apostar por vos",
+        "em_voce_paga": "paga ×{mult}",
+        "em_voce_nada": "Sin apuesta",
+        "aposta_ganha": "Apuesta por vos: +{n}",
+        "aposta_perdida": "Apuesta por vos: perdiste {n}"
+      }
     }
   }
 }

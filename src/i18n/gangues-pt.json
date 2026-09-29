@@ -1035,7 +1035,8 @@
           "achado": "Achado",
           "descanso": "Birosca",
           "loja": "Loja",
-          "agiota": "Agiota"
+          "agiota": "Agiota",
+          "banca": "Banca"
         },
         "descanso_titulo": "A tropa descansou. Cada um recuperou:",
         "descanso_ja_inteira": "A tropa já tá inteira, cria. Guarda a grana.",
@@ -1344,6 +1345,10 @@
               "sub": "o que alguém escondeu aqui",
               "linha": "Enfiado numa fresta da parede de terra, meio escondido: um bagulho que ainda serve pra tropa."
             }
+          },
+          "banca": {
+            "nome": "A Banca do Tio Dado",
+            "fala": "\"Aqui ninguém apanha, cria. Aqui se aposta. Cabeça boa ganha, mão boa ganha — e quem manja de briga lê a rinha antes do primeiro soco.\""
           }
         },
         "carregando_mapa": "CARREGANDO O MAPA...",
@@ -1563,7 +1568,32 @@
       "combat_item_sem_status": "Esse aí não tá com esse status.",
       "log_perdeu_vez_apagado": "💤 {nome} tá apagado e perdeu a vez.",
       "log_perdeu_vez_travado": "⚡ {nome} travou e perdeu a vez.",
-      "log_grogue": "😵 {nome} ficou grogue e acertou {alvo}!"
+      "log_grogue": "😵 {nome} ficou grogue e acertou {alvo}!",
+      "banca": {
+        "mesa_desafio": "Desafio de mão",
+        "mesa_rinha": "Rinha de aposta",
+        "teto": "aposta máx. {n}",
+        "sem_grana": "Sem grana pra apostar agora.",
+        "desafio_intro": "Escolhe a aposta e a dificuldade. O Tio Dado sorteia o desafio. Resolveu, leva o prêmio; errou, a grana fica na mesa.",
+        "desafio_jogando": "Valendo {valor} — resolve e leva {premio}.",
+        "dif": {
+          "easy": "Mole",
+          "medium": "Na medida",
+          "hard": "Cabuloso"
+        },
+        "rinha_intro": "Dois da rua vão se pegar sozinhos. Escolhe em quem apostar: a cotação é quanto paga cada 1 de grana.",
+        "ficha": "P{a} Pq{h} C{d} O{pv} M{pm}",
+        "apostar": "Apostar",
+        "linha_golpe": "{quem} acerta: −{dano}",
+        "outra_rinha": "Outra rinha",
+        "ganhou": "Ganhou! +{n} de grana.",
+        "perdeu": "Perdeu {n}. A casa agradece.",
+        "em_voce": "Apostar em você",
+        "em_voce_paga": "paga ×{mult}",
+        "em_voce_nada": "Sem aposta",
+        "aposta_ganha": "Aposta em você: +{n}",
+        "aposta_perdida": "Aposta em você: perdeu {n}"
+      }
     }
   }
 }

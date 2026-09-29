@@ -143,10 +143,13 @@ export function calcularPesosEParticipantes({ victory, report, match }) {
  *  outros 6 territórios ainda usam a trilha antiga), mas a régua já nasce
  *  genérica pra quando eles também ganharem chefe de verdade. */
 const GANGUES_GRANA_POR_INIMIGO = 10
-const GANGUES_GRANA_CHEFE_MINIMO = 500
-export function calcularGranaTotal({ enemyCount = 1, ehChefe = false }) {
+// Grana mínima do chefe por território (Carvão 500 → 250, 29/09/2026: sozinho
+// valia mais que a Pista inteira). Sem entrada = 500.
+const GANGUES_GRANA_CHEFE_MINIMO = { pista: 250 }
+const GANGUES_GRANA_CHEFE_PADRAO = 500
+export function calcularGranaTotal({ enemyCount = 1, ehChefe = false, territorioId = null }) {
   const base = GANGUES_GRANA_POR_INIMIGO * Math.max(1, enemyCount)
-  return ehChefe ? Math.max(GANGUES_GRANA_CHEFE_MINIMO, base) : base
+  return ehChefe ? Math.max(GANGUES_GRANA_CHEFE_MINIMO[territorioId] ?? GANGUES_GRANA_CHEFE_PADRAO, base) : base
 }
 
 /** Recompensa de rep/item da vitória, conforme o contexto (encontro aleatório
@@ -166,6 +169,6 @@ export function calcularRecompensaCena({ emCena, storyAlvo, enemyCount = 1, ehCh
   }
   // `semGrana` (ex: a rinha — pedido do Isaias, 28/09/2026): farm dá só XP;
   // grana de grind vem do Clube da Luta.
-  const grana = emCena && storyAlvo.semGrana ? 0 : calcularGranaTotal({ enemyCount, ehChefe })
+  const grana = emCena && storyAlvo.semGrana ? 0 : calcularGranaTotal({ enemyCount, ehChefe, territorioId: storyAlvo?.territorioId })
   return { grana, rep, itens }
 }

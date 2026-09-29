@@ -24,7 +24,7 @@ Grafia oficial: **Marélia** com acento (o conto usa assim). O i18n do jogo aind
 tem "Marelia" sem acento em vários lugares — alinhar quando mexer em texto.
 
 > **Última revisão geral: 28/09/2026 — conferido contra o código de
-> GANGUES 3.66.0.** Nesta revisão saiu tudo que era histórico sem uso
+> GANGUES 3.67.0.** Nesta revisão saiu tudo que era histórico sem uso
 > (crosswalk string→id, Ranking Clandestino, narrativa de bug já corrigido,
 > atributos A/H/R/D antigos, NeoGuide) e entrou o que só existia no código:
 > sistema do Pique (linha do tempo com raias), encontro aleatório com sirene,
@@ -1116,44 +1116,44 @@ Malandragem) ou recurso plano (**pv/pm**, somado no máximo). Raridades hoje:
 
 | id | Nome | Caminho | Espaço | Raridade | Bônus | Preço |
 |---|---|---|---|---|---|---|
-| 201 | Cabo de Vassoura | Porradeiro | arma | comum | +1 Pique | 18 |
-| 202 | Boné Aba Reta | Porradeiro | cabeça | comum | +1 Osso | 12 |
-| 203 | Regata Rasgada | Porradeiro | corpo | comum | +3 Osso | 16 |
-| 204 | Faixa no Punho | Porradeiro | braços | comum | +1 Osso | 12 |
-| 205 | Tênis Furado | Porradeiro | pés | comum | +1 Osso | 12 |
-| 206 | Corrente de Lata | Porradeiro | amuleto | comum | +2 energia | 14 |
-| 207 | Soqueira de Ferro | Porradeiro | arma | incomum | +2 Porrada | 60 |
-| 208 | Bandana de Bonde | Porradeiro | cabeça | incomum | +2 Osso | 30 |
-| 209 | Jaqueta de Couro | Porradeiro | corpo | incomum | +4 Osso | 38 |
-| 210 | Munhequeira | Porradeiro | braços | incomum | +1 Pique | 40 |
-| 211 | Coturno | Porradeiro | pés | incomum | +1 Osso | 28 |
-| 212 | Dente de Ouro | Porradeiro | amuleto | incomum | +2 energia | 30 |
-| 213 | Cano Curto | Paredão | arma | comum | +2 Osso | 14 |
-| 214 | Gorro de Moletom | Paredão | cabeça | comum | +1 Osso | 12 |
-| 215 | Colete Reforçado | Paredão | corpo | comum | +4 Osso | 18 |
-| 216 | Luva de Couro | Paredão | braços | comum | +1 Osso | 12 |
-| 217 | Chinelo Reforçado | Paredão | pés | comum | +2 Osso | 14 |
-| 218 | Medalhinha | Paredão | amuleto | comum | +2 energia | 14 |
-| 219 | Tampa de Bueiro | Paredão | arma | incomum | +1 Couro | 45 |
-| 220 | Capacete de Obra | Paredão | cabeça | incomum | +1 Couro | 45 |
-| 221 | Colete de Placa | Paredão | corpo | incomum | +8 Osso | 50 |
-| 222 | Braçadeira de Pneu | Paredão | braços | incomum | +2 Osso | 28 |
-| 223 | Bota com Biqueira | Paredão | pés | incomum | +3 Osso | 32 |
-| 224 | Terço da Vó | Paredão | amuleto | incomum | +2 energia | 30 |
-| 225 | Vela Preta | Mandingueiro | arma | comum | +1 Malandragem | 22 |
-| 226 | Capuz Surrado | Mandingueiro | cabeça | comum | +1 energia | 12 |
-| 227 | Manto de Feira | Mandingueiro | corpo | comum | +3 energia | 18 |
-| 228 | Pulseira de Miçanga | Mandingueiro | braços | comum | +1 Osso | 12 |
-| 229 | Sandália de Couro | Mandingueiro | pés | comum | +1 Osso | 12 |
-| 230 | Guia de Contas | Mandingueiro | amuleto | comum | +2 energia | 14 |
-| 231 | Cajado de Galho | Mandingueiro | arma | incomum | +1 Porrada | 45 |
-| 232 | Turbante | Mandingueiro | cabeça | incomum | +1 Malandragem | 45 |
-| 233 | Manto de Sintonia | Mandingueiro | corpo | incomum | +4 energia, +1 Osso | 50 |
-| 234 | Anel de Coco | Mandingueiro | braços | incomum | +2 Osso | 28 |
-| 235 | Chinelo Benzido | Mandingueiro | pés | incomum | +2 energia | 30 |
-| 236 | Olho Grego | Mandingueiro | amuleto | incomum | +1 Malandragem | 45 |
+| 201 | Cabo de Vassoura | Porradeiro | arma | comum | +1 Pique | 35 |
+| 202 | Boné Aba Reta | Porradeiro | cabeça | comum | +1 Osso | 25 |
+| 203 | Regata Rasgada | Porradeiro | corpo | comum | +3 Osso | 30 |
+| 204 | Faixa no Punho | Porradeiro | braços | comum | +1 Osso | 25 |
+| 205 | Tênis Furado | Porradeiro | pés | comum | +1 Osso | 25 |
+| 206 | Corrente de Lata | Porradeiro | amuleto | comum | +2 energia | 30 |
+| 207 | Soqueira de Ferro | Porradeiro | arma | incomum | +2 Porrada | 150 |
+| 208 | Bandana de Bonde | Porradeiro | cabeça | incomum | +2 Osso | 75 |
+| 209 | Jaqueta de Couro | Porradeiro | corpo | incomum | +4 Osso | 95 |
+| 210 | Munhequeira | Porradeiro | braços | incomum | +1 Pique | 100 |
+| 211 | Coturno | Porradeiro | pés | incomum | +1 Osso | 70 |
+| 212 | Dente de Ouro | Porradeiro | amuleto | incomum | +2 energia | 75 |
+| 213 | Cano Curto | Paredão | arma | comum | +2 Osso | 30 |
+| 214 | Gorro de Moletom | Paredão | cabeça | comum | +1 Osso | 25 |
+| 215 | Colete Reforçado | Paredão | corpo | comum | +4 Osso | 35 |
+| 216 | Luva de Couro | Paredão | braços | comum | +1 Osso | 25 |
+| 217 | Chinelo Reforçado | Paredão | pés | comum | +2 Osso | 30 |
+| 218 | Medalhinha | Paredão | amuleto | comum | +2 energia | 30 |
+| 219 | Tampa de Bueiro | Paredão | arma | incomum | +1 Couro | 110 |
+| 220 | Capacete de Obra | Paredão | cabeça | incomum | +1 Couro | 110 |
+| 221 | Colete de Placa | Paredão | corpo | incomum | +8 Osso | 125 |
+| 222 | Braçadeira de Pneu | Paredão | braços | incomum | +2 Osso | 70 |
+| 223 | Bota com Biqueira | Paredão | pés | incomum | +3 Osso | 80 |
+| 224 | Terço da Vó | Paredão | amuleto | incomum | +2 energia | 75 |
+| 225 | Vela Preta | Mandingueiro | arma | comum | +1 Malandragem | 45 |
+| 226 | Capuz Surrado | Mandingueiro | cabeça | comum | +1 energia | 25 |
+| 227 | Manto de Feira | Mandingueiro | corpo | comum | +3 energia | 35 |
+| 228 | Pulseira de Miçanga | Mandingueiro | braços | comum | +1 Osso | 25 |
+| 229 | Sandália de Couro | Mandingueiro | pés | comum | +1 Osso | 25 |
+| 230 | Guia de Contas | Mandingueiro | amuleto | comum | +2 energia | 30 |
+| 231 | Cajado de Galho | Mandingueiro | arma | incomum | +1 Porrada | 110 |
+| 232 | Turbante | Mandingueiro | cabeça | incomum | +1 Malandragem | 110 |
+| 233 | Manto de Sintonia | Mandingueiro | corpo | incomum | +4 energia, +1 Osso | 125 |
+| 234 | Anel de Coco | Mandingueiro | braços | incomum | +2 Osso | 70 |
+| 235 | Chinelo Benzido | Mandingueiro | pés | incomum | +2 energia | 75 |
+| 236 | Olho Grego | Mandingueiro | amuleto | incomum | +1 Malandragem | 110 |
 | 237 | Soqueira de Lata | Livre | arma | comum | +1 Porrada | não vende |
-| 238 | Boné Vira-Lata | Livre | cabeça | comum | +1 Osso | 10 |
+| 238 | Boné Vira-Lata | Livre | cabeça | comum | +1 Osso | 20 |
 
 ### 9.5 Épicos — drop de chefe (faixa 132+)
 
@@ -1176,9 +1176,16 @@ POI de tipo `loja`; catálogo por região (`poi.itens`, mistura consumível e
 equipamento; `poi.precoMultiplicador` opcional). Cada região ganha catálogo
 próprio. Hoje a Pista tem duas:
 
+- **Cada território vende a SUA faixa, sem repetir peça** (29/09/2026): quem
+  quiser peça de um bairro anterior tem que voltar lá. Bairro só ganha loja
+  quando ganhar cena (decisão do Isaias).
 - **A loja da Pista** (`loja`, do lado de lá do muro, só aparece depois do
-  portão): as poções, os itens de status (30–34) e todo o catálogo vendável
-  de equipamento (201–236 e 238).
+  portão): poções, remédios de status (30–39) e **só o equipamento COMUM** dos
+  3 caminhos + o boné livre. O **incomum (207–212, 219–224, 231–236) fica
+  guardado pra loja da Feira**, quando ela ganhar cena.
+- **Preços (29/09/2026)**: comum ×2 e incomum ×2,5 do valor inicial; poção
+  14 → 20. Conjunto comum completo ≈ 170 por personagem — equipar a dupla ≈
+  a Pista inteira (~300 de grana) + 1 vitória no Clube.
 - **A Lojinha do Zé** (`loja_pocoes`, na rua, desde o começo):
   **poções e itens de status, pelo dobro do preço** (`precoMultiplicador: 2`), "na
   cara de pau". Existe porque, com a recompensa por risco, quem quer arriscar
@@ -1329,6 +1336,7 @@ Reserva: cada faixa comporta crescer até ~99 sem remapear.
 | Status (9, ids numéricos) + itens de cura | `engine/ganguesStatus.js`, `data/ganguesItens.js` (30–39) |
 | Personas da IA inimiga + talentos de inimigo | `engine/ganguesPersonas.js` |
 | Dano gravado durante a luta | `hooks/useGanguesDanoAoVivo.js` |
+| Apostas (Banca, rinha de aposta, aposta em você) | `data/ganguesApostas.js`, `components/cena/GanguesBanca.jsx` |
 | Briga em Multidão / modo automático | `engine/ganguesBrigaMultidao.js`, `hooks/useGanguesModoMultidao.js`, `hooks/useGanguesModoAuto.js` |
 | Todo texto falado na Pista (pt/en/es, em ordem de fluxo) | `docs/Games/Gangues/PISTA_COMUNICACAO.md` |
 | **Mecânica** (combate, progressão, skill tree, modo história) | Seção 17 desta bíblia |
@@ -1721,6 +1729,30 @@ ou não). Dano de status **nunca derruba**: para em 1 de Osso.
   fazem perder a vez, Grogue acerta parceiro, passivas disparam, todas as
   personas aparecem.
 
+### 17.2.3 Apostas — A Banca do Tio Dado (29/09/2026)
+
+Fonte de grana do farm sem porrada (a rinha dá só XP; o Clube paga 200).
+Regra em `data/ganguesApostas.js`, tela em `components/cena/GanguesBanca.jsx`.
+O Tio Dado (POI `banca`, retrato emprestado do Troco Certo/1402) fica **dentro
+da birosca**, na mesa da direita.
+
+- **Teto de aposta pela Rep**: <10 → 25 · <25 → 50 · <50 → 100 · 50+ → 200.
+  Valores: 10, 25, 50, 100, 200 (só os que cabem no teto e na grana).
+- **Desafio de mão**: escolhe a aposta e a dificuldade, o Tio Dado sorteia um
+  puzzle da lib compartilhada (Simon, Decoder, Forca, Anagrama, Labirinto,
+  Stealth — o Sliding fica de fora por ter estilo inline de outro jogo).
+  Resolveu, leva **×1,5 (Mole) · ×2 (Na medida) · ×3 (Cabuloso)**; errou,
+  perde a aposta. É farm por habilidade, de propósito.
+- **Rinha de aposta**: duas fichas NPC do pool da rua, **mesma ficha** (≈8
+  pontos na Pista), brigam sozinhas no motor da Multidão. A cotação sai de 150
+  simulações da própria briga com **10% de margem da casa**, dos dois lados
+  (testado: apostar sempre no favorito ou sempre no azarão rende ≈ −10%).
+- **Aposta em você**: na carta de encarar a treta. A grana sai ao entrar e
+  volta multiplicada se vencer, pela ficha do inimigo contra o seu mais forte:
+  mais de 5 acima **×3** · 1–5 acima **×2** · até 2 abaixo **×1,5** · mais
+  fraco que isso **×1,1** (farmar fraco com aposta quase não rende). Perdeu ou
+  fugiu, perdeu a aposta.
+
 ### 17.3 Poderes / especiais (skill tree)
 
 - **15 subcaminhos** (5 por caminho × 3 caminhos), **5 poderes cada** = 75
@@ -1762,7 +1794,9 @@ ou não). Dano de status **nunca derruba**: para em 1 de Osso.
   pesa 3, a 2ª faixa pesa 2, o resto 1; empatados ficam na mesma faixa. Na
   derrota todo mundo pesa igual.
 - **Grana da vitória** (`calcularGranaTotal`): **10 por inimigo
-  derrotado**; chefe garante **no mínimo 500**. POI com `semGrana: true`
+  derrotado** (inclusive nas tretas repetíveis — decisão do Isaias, 29/09);
+  chefe garante um mínimo por território (`GANGUES_GRANA_CHEFE_MINIMO`:
+  **Carvão 250**, os demais 500). POI com `semGrana: true`
   (hoje só a **rinha**) não paga grana, só XP. Substituiu a grana autorada
   por POI — a Rep continua autorada por POI.
 - **Marcos de reputação:** a cada 50 de Rep acumulada, a gangue ganha um chip

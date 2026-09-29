@@ -66,7 +66,7 @@ export function ZonaChao({ p, active }) {
   return <div className={`gang-cena-zona-chao ${farol}${active ? ' is-perto' : ''}`} style={{ left: z.x, top: z.y, width: z.w, height: z.h }} aria-hidden="true"><span>{ICONE[p.tipo] || '●'}</span></div>
 }
 
-const ICONE = { treta: '✊', parada: '🔧', papo: '●', corre: '!', achado: '◆', descanso: '☕', loja: '🏪', agiota: '💰' }
+const ICONE = { treta: '✊', parada: '🔧', papo: '●', corre: '!', achado: '◆', descanso: '☕', loja: '🏪', agiota: '💰', banca: '🎲' }
 
 // Hash estável (string -> inteiro não-negativo) — só pra escolher SEMPRE o
 // mesmo molde de um pool pro mesmo POI (nunca sorteado de novo a cada
@@ -116,7 +116,7 @@ export function ehPersonagem(p) {
   // "Balcão do Aperto", e de novo pro agiota: "esse vai ficar parado"),
   // não personagem que anda por aí; continuam no grupo dos "pinos
   // estáticos de ação" (achado/parada/corre/nav).
-  return Boolean(retratoDoPino(p)) && !p.ehChefe && p.tipo !== 'loja' && p.tipo !== 'agiota'
+  return Boolean(retratoDoPino(p)) && !p.ehChefe && p.tipo !== 'loja' && p.tipo !== 'agiota' && p.tipo !== 'banca'
 }
 
 // Comportamento de movimento de um personagem na cena (26/09/2026). Pedido
@@ -243,7 +243,7 @@ export function PinoAlvo({ p, t, active, onColidir }) {
   </div>
 }
 
-const LABEL_TIPO = { papo: 'FALAR', treta: 'ENCARAR', parada: 'INVESTIGAR', corre: 'SEGUIR', descanso: 'DESCANSAR', loja: 'COMPRAR', achado: 'PEGAR', agiota: 'AGIOTA' }
+const LABEL_TIPO = { papo: 'FALAR', treta: 'ENCARAR', parada: 'INVESTIGAR', corre: 'SEGUIR', descanso: 'DESCANSAR', loja: 'COMPRAR', achado: 'PEGAR', agiota: 'AGIOTA', banca: 'APOSTAR' }
 export function interactionLabel(p, t) {
   if (p.ehChefe) return t('games.gangues.cena.acao.desafiar')
   if (p.ehPorta) return t('games.gangues.cena.acao.entrar')

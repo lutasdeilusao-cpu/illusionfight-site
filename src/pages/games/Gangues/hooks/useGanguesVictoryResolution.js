@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from 'react'
 import { registrarPontuacaoArenaRanking } from '../../../../hooks/useLeaderboardDB'
 import { sfx } from '../../../../lib/sfx'
 import { calcularApTotal, calcularPesosEParticipantes, calcularRecompensaCena } from '../engine/ganguesVictoryResolver.js'
+import { premio } from '../data/ganguesApostas.js'
 import { nivelTetoDaHistoria } from '../data/ganguesTerritorios.js'
 import { GANGUES_LEVEL_CAP } from '../data/ganguesCharacters.js'
 
@@ -118,6 +119,8 @@ export default function useGanguesVictoryResolution({ store, user, report, victo
           else if (storyAlvo.cenaPoiId !== '__aleatorio') store.marcarPoiResolvido(storyAlvo.cenaId, storyAlvo.cenaPoiId, storyAlvo.cenaRevela || [])
         }
         if (grana) { store.ganharGrana(grana); granaGanha += grana }
+        // Aposta em você (já descontada ao entrar): venceu, paga multiplicado.
+        if (storyAlvo.aposta?.valor) { const g = premio(storyAlvo.aposta.valor, storyAlvo.aposta.mult); store.ganharGrana(g); granaGanha += g }
         if (rep) { repMarcos = store.ganharRep(rep); repGanha += rep }
         itens.forEach(({ id, qtd }) => store.darItem(id, qtd))
         if (emCena && cenaChefe) {

@@ -1,0 +1,76 @@
+/* A BANCA (apostas) — GanguesBanca.jsx. Mesma linguagem das outras telas
+   de encontro: chanfro, fio âmbar, mono pros números. */
+.gang-banca-saldo {
+  margin: 0;
+  font: 700 0.72rem var(--font-mono);
+  letter-spacing: 0.06em;
+  color: var(--if-amber);
+  text-align: center;
+}
+.gang-banca-abas { display: flex; gap: 6px; }
+.gang-banca-aba {
+  flex: 1;
+  padding: 8px 6px;
+  border: 1px solid var(--if-hair-strong);
+  background: none;
+  color: var(--if-ink);
+  font: 700 0.7rem var(--font-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
+}
+.gang-banca-aba.is-on { border-color: var(--if-amber); box-shadow: inset 2px 0 var(--if-amber); color: var(--if-amber); }
+.gang-banca-mesa { display: grid; gap: 10px; }
+.gang-banca-valores { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; }
+.gang-banca-valor {
+  min-width: 52px;
+  padding: 8px 10px;
+  border: 1px solid var(--if-hair-strong);
+  background: none;
+  color: var(--if-ink);
+  font: 800 0.8rem var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  cursor: pointer;
+}
+.gang-banca-valor.is-on { border-color: var(--if-amber); color: var(--if-amber); }
+.gang-banca-difs { display: grid; gap: 6px; }
+.gang-banca-difs b { font-family: var(--font-mono); margin-left: 6px; }
+.gang-banca-aviso, .gang-banca-rodando { margin: 0; font-size: 0.8rem; text-align: center; color: var(--if-ink); opacity: 0.8; }
+.gang-banca-resultado {
+  margin: 0;
+  padding: 8px;
+  border: 1px solid var(--if-danger);
+  color: var(--if-danger);
+  font: 800 0.85rem var(--font-mono);
+  text-align: center;
+}
+.gang-banca-resultado.is-ganhou { border-color: var(--gang-verde-feito); color: var(--gang-verde-feito); }
+.gang-banca-duelo { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: 6px; align-items: center; }
+.gang-banca-x { font: 800 1.1rem var(--font-mono); color: var(--if-amber); }
+.gang-banca-lutador {
+  display: grid;
+  justify-items: center;
+  gap: 3px;
+  padding: 8px 6px;
+  border: 1px solid var(--if-hair-strong);
+  background: none;
+  color: var(--if-ink);
+  cursor: pointer;
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
+}
+.gang-banca-lutador.is-on { border-color: var(--if-amber); box-shadow: inset 2px 0 var(--if-amber); }
+.gang-banca-lutador.is-venceu { border-color: var(--gang-verde-feito); }
+.gang-banca-lutador__foto { display: grid; place-items: center; width: 48px; height: 48px; overflow: hidden; }
+.gang-banca-lutador__foto img { width: 100%; height: 100%; object-fit: cover; image-rendering: pixelated; }
+.gang-banca-lutador strong { font-size: 0.78rem; text-align: center; overflow-wrap: anywhere; }
+.gang-banca-lutador small { font: 600 0.6rem var(--font-mono); opacity: 0.75; }
+.gang-banca-lutador b { font: 800 0.9rem var(--font-mono); color: var(--if-amber); }
+.gang-banca-log { display: grid; gap: 4px; }
+.gang-banca-log p { margin: 0; font: 600 0.72rem var(--font-mono); color: var(--if-ink); }
+
+.gang-banca-emvoce { display: grid; gap: 6px; justify-items: center; }
+.gang-banca-emvoce small { font: 700 0.62rem var(--font-mono); letter-spacing: 0.08em; color: var(--if-amber); text-transform: uppercase; }
+.gang-banca-lutador { min-width: 0; }
+.gang-banca-log p { overflow-wrap: anywhere; }
+.gang-cena-enc--banca { min-width: 0; max-width: 100%; }

@@ -9,6 +9,7 @@ import GanguesPapo from '../components/cena/GanguesPapo'
 import GanguesParada from '../components/cena/GanguesParada'
 import GanguesDescanso from '../components/cena/GanguesDescanso'
 import GanguesAgiota from '../components/cena/GanguesAgiota'
+import GanguesBanca from '../components/cena/GanguesBanca'
 import GanguesLoja from '../components/cena/GanguesLoja'
 import GanguesMiniMapa from '../components/cena/GanguesMiniMapa'
 import GanguesAlvoTutorial from '../components/cena/GanguesAlvoTutorial'
@@ -289,7 +290,7 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
     onNavigate('story-combat')
     return true
   }
-  const iniciarTreta = (poi, { viraTreta, revela } = {}) => {
+  const iniciarTreta = (poi, { viraTreta, revela, aposta } = {}) => {
     if (barraSeChao()) return
     const chefe = Boolean(poi.ehChefe)
     // Gate da dívida com o agiota (Isaias, 21/09/2026: "antes de enfrentar o
@@ -320,7 +321,10 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
     // jogador na 1ª vitória de uma treta repetível) removido — não existe
     // mais nada que escale contra o jogador pra precisar congelar.
     const pontosFixo = viraTreta ? null : poi.pontosFixo
-    store.setStoryTarget({ territorioId: terr.id, cenaId: cena.id, cenaPoiId: poi.id, cenaRevela: viraTreta ? (revela || []) : (poi.revela || []), cenaRecompensa: viraTreta ? (viraTreta.recompensa || null) : poi.recompensa || null, cenaSemTravar: Boolean(viraTreta?.semTravar), pontoIds: terr.pontos.map(p => p.id), noId: chefe ? cena.chefe.poiNo : null, enemyId: viraTreta ? viraTreta.enemy : poi.enemy, fixo: Boolean(viraTreta) || Boolean(poi.fixo), liderFixo: (viraTreta || poi.fixo) ? null : poi.liderFixo, moldesPool: viraTreta ? null : poi.moldesPool, revezamento: viraTreta ? (viraTreta.revezamento || null) : poi.revezamento, isChefe: chefe, semGrana: !viraTreta && Boolean(poi.semGrana), repDelta: viraTreta?.rep || 0, pontosFixos: pontosFixo, qtdMin: viraTreta ? null : (poi.qtdMin ?? null), qtdMax: viraTreta ? null : (poi.qtdMax ?? null) })
+    // Aposta em você: sai da grana agora (só depois de passar por todos os
+    // bloqueios acima) e volta multiplicada se vencer (useGanguesVictoryResolution).
+    const apostaFeita = aposta?.valor && store.gastarGrana(aposta.valor) ? aposta : null
+    store.setStoryTarget({ territorioId: terr.id, cenaId: cena.id, cenaPoiId: poi.id, cenaRevela: viraTreta ? (revela || []) : (poi.revela || []), cenaRecompensa: viraTreta ? (viraTreta.recompensa || null) : poi.recompensa || null, cenaSemTravar: Boolean(viraTreta?.semTravar), pontoIds: terr.pontos.map(p => p.id), noId: chefe ? cena.chefe.poiNo : null, enemyId: viraTreta ? viraTreta.enemy : poi.enemy, fixo: Boolean(viraTreta) || Boolean(poi.fixo), liderFixo: (viraTreta || poi.fixo) ? null : poi.liderFixo, moldesPool: viraTreta ? null : poi.moldesPool, revezamento: viraTreta ? (viraTreta.revezamento || null) : poi.revezamento, isChefe: chefe, semGrana: !viraTreta && Boolean(poi.semGrana), repDelta: viraTreta?.rep || 0, pontosFixos: pontosFixo, qtdMin: viraTreta ? null : (poi.qtdMin ?? null), qtdMax: viraTreta ? null : (poi.qtdMax ?? null), aposta: apostaFeita })
     onNavigate('story-combat')
   }
   const resolver = res => {
@@ -437,7 +441,7 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
     {/* Marco de reputação recorrente (a cada 50) — modal BLOQUEANTE, não
         toast: só fecha ao clicar (pedido do Isaias, 2026-09-14). */}
     <GanguesRepRecompensaModal t={t} marco={repModalMarco} onClose={() => setRepModalMarco(null)} />
-    <AnimatePresence>{encontro && <motion.div className="gang-cena-modal" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}><div className="gang-cena-modal-bg" onClick={() => setEncontro(null)} /><motion.div className="gang-cena-modal-card" initial={{ y: 25 }} animate={{ y: 0 }}>{encontro.vs ? <TretaVS poi={encontro.poi} fala={encontro.fala} nivelTropa={nivelTropa} avisoOff={avisoNivelOff} onOcultarAviso={() => setAvisoNivelOff(true)} onSim={() => iniciarTreta(encontro.poi)} onNao={() => setEncontro(null)} t={t} territorioId={terr.id} /> : encontro.poi.tipo === 'papo' ? <GanguesPapo poi={encontro.poi} cena={cena} onResolve={resolver} onClose={() => setEncontro(null)} /> : encontro.poi.tipo === 'descanso' ? <GanguesDescanso poi={encontro.poi} cena={cena} onClose={() => setEncontro(null)} /> : encontro.poi.tipo === 'agiota' ? <GanguesAgiota poi={encontro.poi} onClose={() => setEncontro(null)} onClube={iniciarClube} /> : encontro.poi.tipo === 'loja' ? <GanguesLoja poi={encontro.poi} onClose={() => setEncontro(null)} /> : <GanguesParada poi={encontro.poi} cena={cena} onResolve={resolver} onClose={() => setEncontro(null)} />}</motion.div></motion.div>}</AnimatePresence>
+    <AnimatePresence>{encontro && <motion.div className="gang-cena-modal" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}><div className="gang-cena-modal-bg" onClick={() => setEncontro(null)} /><motion.div className="gang-cena-modal-card" initial={{ y: 25 }} animate={{ y: 0 }}>{encontro.vs ? <TretaVS poi={encontro.poi} fala={encontro.fala} nivelTropa={nivelTropa} avisoOff={avisoNivelOff} onOcultarAviso={() => setAvisoNivelOff(true)} onSim={aposta => iniciarTreta(encontro.poi, { aposta })} onNao={() => setEncontro(null)} t={t} territorioId={terr.id} grana={store.grana} rep={store.rep} roster={store.activeParty.length ? store.activeParty : store.roster} /> : encontro.poi.tipo === 'papo' ? <GanguesPapo poi={encontro.poi} cena={cena} onResolve={resolver} onClose={() => setEncontro(null)} /> : encontro.poi.tipo === 'descanso' ? <GanguesDescanso poi={encontro.poi} cena={cena} onClose={() => setEncontro(null)} /> : encontro.poi.tipo === 'agiota' ? <GanguesAgiota poi={encontro.poi} onClose={() => setEncontro(null)} onClube={iniciarClube} /> : encontro.poi.tipo === 'banca' ? <GanguesBanca poi={encontro.poi} onClose={() => setEncontro(null)} /> : encontro.poi.tipo === 'loja' ? <GanguesLoja poi={encontro.poi} onClose={() => setEncontro(null)} /> : <GanguesParada poi={encontro.poi} cena={cena} onResolve={resolver} onClose={() => setEncontro(null)} />}</motion.div></motion.div>}</AnimatePresence>
     <AnimatePresence>{fichaIndex !== null && store.activeParty[fichaIndex] && <motion.div className="gang-cena-modal" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}><div className="gang-cena-modal-bg" onClick={() => setFichaIndex(null)} /><motion.div className="gang-cena-modal-card gang-cena-ficha-scroll" initial={{ y: 25 }} animate={{ y: 0 }}><div className="gang-cena-enc-acoes gang-cena-ficha-nav">{store.activeParty.length > 1 && <button className="gang-cena-btn" onClick={() => setFichaIndex(i => (i + store.activeParty.length - 1) % store.activeParty.length)}>◀ ANTERIOR</button>}<button className="gang-cena-btn gang-cena-btn--go" onClick={() => setFichaIndex(null)}>FECHAR</button>{store.activeParty.length > 1 && <button className="gang-cena-btn" onClick={() => setFichaIndex(i => (i + 1) % store.activeParty.length)}>PRÓXIMO ▶</button>}</div>
       {/* Vaga de recrutamento liberada — nunca silencioso (mesmo motivo do
           marco de reputação): quem abre a ficha vê na hora que dá pra chamar

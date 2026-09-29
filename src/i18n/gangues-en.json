@@ -4138,7 +4138,8 @@
           "achado": "Find",
           "descanso": "Bar",
           "loja": "Shop",
-          "agiota": "Loan shark"
+          "agiota": "Loan shark",
+          "banca": "Bets"
         },
         "descanso_titulo": "The crew rested. Each one recovered:",
         "descanso_ja_inteira": "The crew's already whole, kid. Keep the cash.",
@@ -4447,6 +4448,10 @@
               "sub": "what someone stashed here",
               "linha": "Jammed into a crack in the dirt wall, half hidden: something that still works for the crew."
             }
+          },
+          "banca": {
+            "nome": "Uncle Dice's Book",
+            "fala": "\"Nobody gets beat up here, kid. Here you bet. Sharp head wins, sharp hands win — and whoever knows fighting reads the pit before the first punch.\""
           }
         },
         "carregando_mapa": "LOADING THE MAP...",
@@ -4666,7 +4671,32 @@
       "combat_item_sem_status": "They don't have that status.",
       "log_perdeu_vez_apagado": "💤 {nome} is out cold and lost the turn.",
       "log_perdeu_vez_travado": "⚡ {nome} seized up and lost the turn.",
-      "log_grogue": "😵 {nome} got groggy and hit {alvo}!"
+      "log_grogue": "😵 {nome} got groggy and hit {alvo}!",
+      "banca": {
+        "mesa_desafio": "Skill game",
+        "mesa_rinha": "Betting pit",
+        "teto": "max bet {n}",
+        "sem_grana": "No cash to bet right now.",
+        "desafio_intro": "Pick the stake and the difficulty. Uncle Dice draws the game. Solve it, take the prize; miss it, the cash stays on the table.",
+        "desafio_jogando": "Playing for {valor} — solve it and take {premio}.",
+        "dif": {
+          "easy": "Soft",
+          "medium": "Fair",
+          "hard": "Brutal"
+        },
+        "rinha_intro": "Two from the street are about to scrap on their own. Pick who you're backing: the odds are what each 1 cash pays.",
+        "ficha": "W{a} P{h} H{d} G{pv} S{pm}",
+        "apostar": "Place bet",
+        "linha_golpe": "{quem} lands: −{dano}",
+        "outra_rinha": "Another fight",
+        "ganhou": "You won! +{n} cash.",
+        "perdeu": "You lost {n}. The house thanks you.",
+        "em_voce": "Bet on yourself",
+        "em_voce_paga": "pays ×{mult}",
+        "em_voce_nada": "No bet",
+        "aposta_ganha": "Bet on yourself: +{n}",
+        "aposta_perdida": "Bet on yourself: lost {n}"
+      }
     }
   }
 }
