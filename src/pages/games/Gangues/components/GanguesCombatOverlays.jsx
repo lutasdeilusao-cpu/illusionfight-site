@@ -124,6 +124,7 @@ export default function GanguesCombatOverlays({
             ].map(id => t(`games.gangues.progression.skills.${id}`))}
             passivaLabel={t('games.gangues.passiva_ativou')}
             statusNome={machine.pending.result.statusAplicado ? `${GANGUES_STATUS[machine.pending.result.statusAplicado]?.icone || ''} ${t(`games.gangues.status.${machine.pending.result.statusAplicado}.nome`)}!` : null}
+            statusDesc={machine.pending.result.statusAplicado ? t(`games.gangues.status.${machine.pending.result.statusAplicado}.desc`) : null}
             theme={getGanguesEffectTheme(machine.pending.result.activeSpecialId)}
             attackerTemplateId={(() => {
               const actor = machine.combatants.find(item => item.key === machine.pending.actorKey)

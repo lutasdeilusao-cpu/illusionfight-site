@@ -1,6 +1,7 @@
 import { getGanguesProgression } from '../data/ganguesLoadout.js'
 import { GANGUES_SPECIAL_PATHS, getGanguesSpecials } from '../data/ganguesSpecials.js'
 import { getGanguesCharacter } from '../data/ganguesCharacters.js'
+import { ST } from './ganguesStatus.js'
 
 // Valores numéricos padrão da skill tree — ponto de partida pra testar e balancear, não é
 // balanceamento final. Design detalhado do Atacante em
@@ -110,9 +111,9 @@ const GANGUES_SPECIAL_EFFECTS = {
 
   // Místico · Ígneo (Brasa/Cinza) — fogo que queima através da guarda.
   bola_de_fogo: E('damage_flat', [3, 5, 7], { kind: 'pm', values: [2, 2, 1] }),
-  combustao: E('damage_flat', [4, 6, 8], { kind: 'pm', values: [2, 2, 1] }),
+  combustao: E('damage_flat', [4, 6, 8], { kind: 'pm', values: [2, 2, 1] }, { status: ST.QUEIMADO }),
   brasa_viva: E('atk_flat', [1, 2, 3]),
-  explosao_termica: E('ignore_def_pct', [20, 30, 40], { kind: 'pm', values: [2, 2, 2] }),
+  explosao_termica: E('ignore_def_pct', [20, 30, 40], { kind: 'pm', values: [2, 2, 2] }, { status: ST.QUEIMADO }),
   inferno_de_rua: E('damage_flat', [6, 9, 13], { kind: 'pm', values: [4, 3, 3] }),
 
   // Místico · Aquático (Maré/Chuva) — fluxo que abre brecha na guarda alheia
@@ -127,10 +128,10 @@ const GANGUES_SPECIAL_EFFECTS = {
   // Místico · Terreno (Raiz/Racha) — prende o alvo no chão (reduce_target_defense)
   // e estilhaça (damage_flat/ignore_def_pct) — peso e ruptura, não velocidade.
   pele_de_pedra: E('def_flat', [2, 3, 5]),
-  raiz_prendente: E('reduce_target_defense', [3, 4, 6], { kind: 'pm', values: [2, 1, 1] }, { status: 'lerdo' }),
-  tremor: E('damage_flat', [3, 5, 7], { kind: 'pm', values: [2, 2, 1] }, { status: 'rachado' }),
-  estilhaco_terrestre: E('damage_flat', [4, 6, 8], { kind: 'pm', values: [2, 2, 1] }, { status: 'sangrando' }),
-  ruptura_do_solo: E('ignore_def_pct', [25, 35, 50], { kind: 'pm', values: [3, 3, 2] }),
+  raiz_prendente: E('reduce_target_defense', [3, 4, 6], { kind: 'pm', values: [2, 1, 1] }, { status: ST.TRAVADO }),
+  tremor: E('damage_flat', [3, 5, 7], { kind: 'pm', values: [2, 2, 1] }, { status: ST.GUARDA_ABERTA }),
+  estilhaco_terrestre: E('damage_flat', [4, 6, 8], { kind: 'pm', values: [2, 2, 1] }, { status: ST.SANGRANDO }),
+  ruptura_do_solo: E('ignore_def_pct', [25, 35, 50], { kind: 'pm', values: [3, 3, 2] }, { status: ST.MOSCANDO }),
 
   // Místico · Tempestade (Faísca/Trovão) — velocidade: golpeia antes do
   // alvo se recompor (bonus_if_target_fresh) e no topo ignora blindagem de vez.
@@ -144,10 +145,10 @@ const GANGUES_SPECIAL_EFFECTS = {
   // fake absorve o golpe, distorção quebra a guarda alheia, e no topo
   // executa quem já tá desnorteado (execute_bonus).
   mente_nebulosa: E('def_flat', [1, 2, 3]),
-  reflexo_falso: E('shield_next_hit', [3, 5, 7], { kind: 'pm', values: [2, 2, 1] }),
+  reflexo_falso: E('damage_flat', [2, 3, 5], { kind: 'pm', values: [2, 2, 1] }, { status: ST.BRACO_MOLE }),
   duplo_ilusorio: E('shield_next_hit', [4, 6, 8], { kind: 'pm', values: [2, 2, 1] }),
-  distorcao: E('reduce_target_defense', [3, 4, 6], { kind: 'pm', values: [2, 1, 1] }, { status: 'fraco' }),
-  quebra_de_realidade: E('execute_bonus', [40, 55, 75], { kind: 'pm', values: [3, 3, 2] }, { status: 'rachado', statusTurnos: 3 }),
+  distorcao: E('reduce_target_defense', [3, 4, 6], { kind: 'pm', values: [2, 1, 1] }, { status: ST.GROGUE }),
+  quebra_de_realidade: E('execute_bonus', [40, 55, 75], { kind: 'pm', values: [3, 3, 2] }, { status: ST.APAGADO }),
 
   // ══════════════════════════════════════════════════════════════
   // 6º PODER — 1 por personagem, NV 50 (pedido do Isaias: "aumentar a lista
@@ -180,11 +181,11 @@ const GANGUES_SPECIAL_EFFECTS = {
   onda_de_choque: E('damage_flat', [5, 7, 10], { kind: 'pm', values: [3, 2, 2] }), // Maré
   temporal: E('heal', [7, 10, 14], { kind: 'pm', values: [4, 3, 3] }), // Chuva
   raizes_profundas: E('def_flat', [3, 4, 5]), // Raiz
-  fenda_no_chao: E('damage_flat', [5, 7, 10], { kind: 'pm', values: [3, 2, 2] }, { status: 'lerdo', statusTurnos: 3 }), // Racha
+  fenda_no_chao: E('damage_flat', [5, 7, 10], { kind: 'pm', values: [3, 2, 2] }, { status: ST.BATIZADO }), // Racha
   descarga: E('bonus_if_target_fresh', [4, 6, 8], { kind: 'pm', values: [2, 1, 1] }), // Faísca
   trovoada: E('ignore_def_pct', [30, 45, 60], { kind: 'pm', values: [2, 2, 2] }), // Trovão
   veu_de_nevoa: E('def_flat', [3, 4, 5]), // Névoa
-  espelho_quebrado: E('damage_flat', [3, 5, 7], { kind: 'pm', values: [2, 2, 1] }, { status: 'sangrando' }), // Espelho
+  espelho_quebrado: E('damage_flat', [3, 5, 7], { kind: 'pm', values: [2, 2, 1] }, { status: ST.BATIZADO }), // Espelho
 }
 
 const KIND_BY_ID = {}
@@ -220,7 +221,7 @@ export function describeGanguesSpecialEffect(t, id, level = 1) {
   const txt = t(key, { v })
   const base = txt === key ? '' : txt
   if (!effect.status) return base
-  return `${base} ${t('games.gangues.skill_desc_status', { status: t(`games.gangues.status.${effect.status}.nome`) })}`.trim()
+  return `${base} ${t('games.gangues.skill_desc_status', { status: t(`games.gangues.status.${effect.status}.nome`), desc: t(`games.gangues.status.${effect.status}.desc`) })}`.trim()
 }
 
 /** Custo do poder (texto localizado) no nível dado. Passivo / base sem custo → string de "sem custo". */

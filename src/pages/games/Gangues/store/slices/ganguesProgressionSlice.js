@@ -1,6 +1,7 @@
 // Slice: ganho de AP/XP, persistência de dano/nível, cura fora de combate, e
 // sincronização com o Supabase. Extraído de store/useGanguesStore.js
 // (PLANO_REFATORACAO_ARQUIVOS_GRANDES_GANGUES_2026-09-11.md §3).
+import { ST_TODOS, normalizarStatus } from '../../engine/ganguesStatus.js'
 import { supabase } from '../../../../../lib/supabase'
 import { addGanguesAp, normalizeGanguesLoadout, getGanguesResources } from '../../data/ganguesLoadout.js'
 import { hydrateGanguesTemplateSheet, getGanguesLevelFromXp } from '../../data/ganguesCharacters.js'
@@ -169,13 +170,13 @@ export default function createGanguesProgressionSlice(set, get) {
     },
 
     // Tira status de UM personagem fora de combate (item da Bolsa). `status`
-    // = id do status ou 'todos'. Devolve quantos saíram (0 = não tinha).
+    // = id do status ou ST_TODOS. Devolve quantos saíram (0 = não tinha).
     curarStatusMembro: (memberId, status) => {
       let saiu = 0
       const aplicar = m => {
         if (m.id !== memberId) return m
-        const lista = Array.isArray(m.attributes?.status_atual) ? m.attributes.status_atual : []
-        const resto = lista.filter(s => status !== 'todos' && s.id !== status)
+        const lista = normalizarStatus(m.attributes?.status_atual)
+        const resto = lista.filter(s => status !== ST_TODOS && s.id !== status)
         saiu = lista.length - resto.length
         return saiu ? { ...m, attributes: { ...m.attributes, status_atual: resto } } : m
       }

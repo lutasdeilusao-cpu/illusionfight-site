@@ -1,3 +1,4 @@
+import { ST_TODOS, normalizarStatus } from '../../engine/ganguesStatus.js'
 import { GANGUES_STATUS } from '../../engine/ganguesStatus.js'
 import { useState } from 'react'
 import { sfx } from '../../../../../lib/sfx'
@@ -27,11 +28,11 @@ export default function GanguesCenaBagSheet({ store, t, onClose }) {
       id: m.id, nome: m.sheet_name || '?',
       pv: Math.min(res.pvMax, Number(m.attributes?.pv_atual ?? res.pvMax)), pvMax: res.pvMax,
       pm: Math.min(res.pmMax, Number(m.attributes?.pm_atual ?? res.pmMax)), pmMax: res.pmMax,
-      statuses: Array.isArray(m.attributes?.status_atual) ? m.attributes.status_atual : [],
+      statuses: normalizarStatus(m.attributes?.status_atual),
     }
   })
   const podeUsar = it => it.tipo === 'cura_pv' || it.tipo === 'cura_pm' || it.tipo === 'cura_status'
-  const temStatus = (m, status) => m.statuses.some(s => status === 'todos' || s.id === status)
+  const temStatus = (m, status) => m.statuses.some(s => status === ST_TODOS || s.id === status)
   const usarEm = (item, memberId) => {
     if (item.tipo === 'cura_status') {
       const nome = time.find(m => m.id === memberId)?.nome || '?'

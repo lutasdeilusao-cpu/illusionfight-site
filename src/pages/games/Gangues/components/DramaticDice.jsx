@@ -31,7 +31,7 @@ import './DramaticDice.css'
  *
  * @param {{ finalValue: number, sides?: number, side: 'player'|'enemy', onComplete: () => void, powerName?: string, attackerName?: string, attackerRetrato?: string|null, targetName?: string, theme?: { rgb: string, glyphs: string[], particleCount: number } | null, attackerTemplateId?: number|null, targetTemplateId?: number|null }} props
  */
-export default function DramaticDice({ finalValue, sides = 6, side, onComplete, powerName, passiveNames, statusNome, passivaLabel, attackerName, attackerRetrato, targetName, theme, attackerTemplateId, targetTemplateId, velocidade = 1 }) {
+export default function DramaticDice({ finalValue, sides = 6, side, onComplete, powerName, passiveNames, statusNome, statusDesc, passivaLabel, attackerName, attackerRetrato, targetName, theme, attackerTemplateId, targetTemplateId, velocidade = 1 }) {
   const { t } = useLanguage()
   // `side === 'player'`: o jogador ataca — mostra o ataque normal DELE (não
   // mostra nada se foi um PODER, ainda sem animação própria).
@@ -234,6 +234,7 @@ export default function DramaticDice({ finalValue, sides = 6, side, onComplete, 
               transition={{ delay: 0.15, duration: 0.35, ease: [0.175, 0.885, 0.32, 1.275] }}
             >
               {statusNome}
+              {statusDesc && <small className="dramatic-dice-status__desc">{statusDesc}</small>}
             </motion.div>
           )}
 

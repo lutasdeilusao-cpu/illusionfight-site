@@ -1,25 +1,14 @@
+import { ST_TODOS } from '../engine/ganguesStatus.js'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { resolveGanguesAction, resolveGanguesCura } from '../engine/ganguesCombatResolver.js'
 import { atribuirPersonas, decidirAcaoInimigo } from '../engine/ganguesPersonas.js'
+import { statusImpedeAcao, alvoComTontura, normalizarStatus } from '../engine/ganguesStatus.js'
 import { iniciarLinhaDoTempo, proximaVez, consumirVez, marcarAgiu, ordemDeVelocidade } from '../engine/ganguesLinhaDoTempo.js'
 import { getGanguesResources, normalizeGanguesLoadout } from '../data/ganguesLoadout.js'
 import { getGanguesAttributesWithEquip, applyGanguesEquipResources } from '../data/ganguesEquip.js'
 
 const d3 = () => Math.floor(Math.random() * 3) + 1
 const coin = () => Math.random() < 0.5
-
-// IA de alvo: evita bater sempre no mesmo alvo quando há outro vivo — alterna entre focar
-// quem está com menos PV (foco) e escolher alguém aleatório entre os outros vivos.
-// Exportadas pra engine/ganguesBrigaMultidao.js reusar a MESMA lógica de
-// alvo/preparo — o modo rápido não pode divergir das contas do combate normal.
-export function pickEnemyTarget(combatants, lastTargetKey, roll = Math.random) {
-  const targets = combatants.filter(item => item.side === 'player' && item.pv > 0)
-  if (targets.length <= 1) return targets[0] || null
-  const others = targets.filter(item => item.key !== lastTargetKey)
-  const pool = others.length ? others : targets
-  if (roll() < 0.55) return [...pool].sort((a, b) => a.pv - b.pv)[0]
-  return pool[Math.floor(roll() * pool.length)]
-}
 
 export function prepare(combatant, side, index) {
   const enemy = side === 'enemy'
@@ -41,7 +30,7 @@ export function prepare(combatant, side, index) {
   return { ...normalized, key: `${side}-${index}-${combatant.id}`, side,
     // Status do jogador persiste entre lutas (status_atual, gravado junto do
     // PV/PM) — só sai com item ou no descanso completo.
-    statuses: enemy ? [] : (Array.isArray(normalized.attributes?.status_atual) ? normalized.attributes.status_atual : []), pv: pvInicial, pm: pmInicial, pvMax: resources.pvMax, pmMax: resources.pmMax, actedThisRound: false, specialState: { charge: 0, shield: 0, totalPvLost: 0 } }
+    statuses: enemy ? [] : normalizarStatus(normalized.attributes?.status_atual), pv: pvInicial, pm: pmInicial, pvMax: resources.pvMax, pmMax: resources.pmMax, actedThisRound: false, specialState: { charge: 0, shield: 0, totalPvLost: 0 } }
 }
 
 /** Prepara os dois times e sorteia as personas dos inimigos — usado pelos
@@ -69,13 +58,17 @@ export default function useGanguesTurnMachine({ playerTeam = [], enemyTeam = [],
   const [started, setStarted] = useState(false)
   const [pending, setPending] = useState(null)
   const [events, setEvents] = useState([])
+  // Cada vez nova (mesmo que seja o mesmo lutador de novo) — gatilho da
+  // checagem de status que faz perder a vez (Apagado/Travado).
+  const [turnoSeq, setTurnoSeq] = useState(0)
+  const [pulando, setPulando] = useState(false)
   const aiQueued = useRef(false)
   const acaoSeq = useRef(0)
   const lastEnemyTargetKey = useRef(null)
   const ultimoAgressorKey = useRef(null)
   const entered = useRef(false)
   const currentActor = combatants.find(item => item.key === vez)
-  const phase = !started ? 'select' : pending ? 'rolling' : currentActor?.side || 'finished'
+  const phase = !started ? 'select' : pending || pulando ? 'rolling' : currentActor?.side || 'finished'
   const record = useCallback(event => setEvents(list => [...list, { ...event, id: `${Date.now()}-${Math.random()}` }]), [])
 
   // Fim da ação de `actorKey`: volta ele pra largada, fecha a rodada se todo
@@ -90,10 +83,15 @@ export default function useGanguesTurnMachine({ playerTeam = [], enemyTeam = [],
     setCombatants(marcados)
     setTempo(proxima.tempo)
     setVez(proxima.key)
+    setTurnoSeq(value => value + 1)
   }, [onFinish, tempo])
 
   const queueAction = useCallback((actor, target, activeSpecialId = null, forcedSpecial = null) => {
     if (!actor || !target || pending) return false
+    // Grogue (tonto): às vezes o golpe vai num aliado — ou nele mesmo.
+    const alvoFinal = alvoComTontura(actor, target, combatants, targetRoll)
+    const confuso = alvoFinal.key !== target.key
+    target = alvoFinal
     const result = resolveGanguesAction({
       attacker: actor, defender: target, action: { type: 'attack', mode: 'attack' },
       rolls: { fa: attackRoll(), fd: defenseRoll(), attackerBonus: bonusRoll(), defenderBonus: bonusRoll() },
@@ -102,9 +100,9 @@ export default function useGanguesTurnMachine({ playerTeam = [], enemyTeam = [],
     // `id` único por ação: com a linha do tempo o MESMO lutador pode agir 2x
     // na mesma rodada — a key do DramaticDice não pode ser actorKey+round.
     acaoSeq.current += 1
-    setPending({ id: acaoSeq.current, actorKey: actor.key, targetKey: target.key, side: actor.side, result })
+    setPending({ id: acaoSeq.current, actorKey: actor.key, targetKey: target.key, side: actor.side, result, confuso })
     return true
-  }, [attackRoll, defenseRoll, bonusRoll, pending])
+  }, [attackRoll, defenseRoll, bonusRoll, pending, combatants, targetRoll])
 
   const playerAction = useCallback((actorKey, targetKey, activeSpecialId = null, forcedSpecial = null) => {
     if (phase !== 'player' || currentActor?.key !== actorKey) return false
@@ -114,16 +112,34 @@ export default function useGanguesTurnMachine({ playerTeam = [], enemyTeam = [],
 
   const completePending = useCallback(() => {
     if (!pending) return
+    // Grogue batendo em si mesmo: ator e alvo são o mesmo — aplica o dano no ator.
+    const emSiMesmo = pending.actorKey === pending.targetKey
     const next = combatants.map(item => {
-      if (item.key === pending.actorKey) return { ...item, statuses: pending.result.attackerStatuses, pm: Math.max(0, item.pm - pending.result.pmCost), pv: Math.max(0, item.pv - (pending.result.pvCost || 0)), specialState: pending.result.attackerSpecialState }
+      if (item.key === pending.actorKey) return { ...item, statuses: emSiMesmo ? pending.result.defenderStatuses : pending.result.attackerStatuses, pm: Math.max(0, item.pm - pending.result.pmCost), pv: Math.max(0, item.pv - (pending.result.pvCost || 0) - (emSiMesmo ? pending.result.damage : 0)), specialState: pending.result.attackerSpecialState }
       if (item.key === pending.targetKey) return { ...item, statuses: pending.result.defenderStatuses, pv: Math.max(0, item.pv - pending.result.damage), specialState: pending.result.defenderSpecialState }
       return item
     })
     if (pending.side === 'player') ultimoAgressorKey.current = pending.actorKey
-    record({ type: 'attack', side: pending.side, actorKey: pending.actorKey, targetKey: pending.targetKey, result: pending.result, round })
+    record({ type: 'attack', side: pending.side, actorKey: pending.actorKey, targetKey: pending.targetKey, result: pending.result, round, confuso: pending.confuso })
     setPending(null)
     advanceTurn(next, pending.actorKey, Boolean(pending.result.activeSpecialId))
   }, [pending, combatants, advanceTurn, record, round])
+
+  // Status que faz perder a vez (Apagado; Travado às vezes): chegou a vez,
+  // mostra um instante e passa pro próximo — o status ainda perde uma vez.
+  useEffect(() => {
+    if (!started || pausado || pending || !currentActor || currentActor.pv <= 0) return
+    const motivo = statusImpedeAcao(currentActor, targetRoll)
+    if (!motivo) return
+    setPulando(true)
+    const timer = setTimeout(() => {
+      record({ type: 'perdeu_vez', side: currentActor.side, actorKey: currentActor.key, motivo, round })
+      setPulando(false)
+      advanceTurn(combatants, currentActor.key, false)
+    }, Math.max(500, enemyDelay / 2))
+    return () => { clearTimeout(timer); setPulando(false) }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [turnoSeq, started, pausado])
 
   // Talento de cura (Mandingueiro de cura): sem dado, cura o aliado e gasta a vez.
   const curar = useCallback((ator, alvo, special) => {
@@ -158,7 +174,7 @@ export default function useGanguesTurnMachine({ playerTeam = [], enemyTeam = [],
     // reportado pelo Isaias (2026-09-14): "só de apertar o botãozinho já para
     // os inimigos de atacar" — na real o ataque acontecia sim, só que
     // escondido, dando a impressão de que os inimigos "pararam".
-    if (pausado || phase !== 'enemy' || pending || aiQueued.current || !currentActor) return
+    if (pausado || pulando || phase !== 'enemy' || pending || aiQueued.current || !currentActor) return
     aiQueued.current = true
     const timer = setTimeout(() => {
       // Persona decide alvo e talento (ganguesPersonas.js).
@@ -208,7 +224,7 @@ export default function useGanguesTurnMachine({ playerTeam = [], enemyTeam = [],
       : 0
     const next = combatants.map(item => {
       const cura = item.key === alvoKey
-        ? { pv: Math.min(item.pvMax, item.pv + (delta.pv || 0)), pm: Math.min(item.pmMax, item.pm + (delta.pm || 0)), ...(delta.status ? { statuses: (item.statuses || []).filter(s => delta.status !== 'todos' && s.id !== delta.status) } : {}) }
+        ? { pv: Math.min(item.pvMax, item.pv + (delta.pv || 0)), pm: Math.min(item.pmMax, item.pm + (delta.pm || 0)), ...(delta.status ? { statuses: (item.statuses || []).filter(s => delta.status !== ST_TODOS && s.id !== delta.status) } : {}) }
         : {}
       return { ...item, ...cura }
     })

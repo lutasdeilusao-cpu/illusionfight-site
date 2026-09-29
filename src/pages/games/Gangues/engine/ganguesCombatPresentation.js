@@ -91,6 +91,10 @@ export function transformarEvento(t, event, combatants) {
     const chave = mesmo ? 'games.gangues.log_usou_item' : 'games.gangues.log_usou_item_em'
     return [{ id: event.id, kind: 'system', text: t(chave, { nome: fighterName(t, actor), alvo: fighterName(t, alvo), n: event.curado || 0 }) }]
   }
+  if (event.type === 'perdeu_vez') {
+    const actor = combatants.find(m => m.key === event.actorKey)
+    return [{ id: event.id, kind: 'system', text: t(`games.gangues.log_perdeu_vez_${event.motivo}`, { nome: fighterName(t, actor) }) }]
+  }
   if (event.type === 'cura') {
     const actor = combatants.find(m => m.key === event.actorKey)
     const alvo = combatants.find(m => m.key === event.targetKey)
@@ -110,12 +114,12 @@ export function transformarEvento(t, event, combatants) {
     critical: event.result.critical, criticalBonus: event.result.criticalBonus,
     activeSpecialId: event.result.activeSpecialId || null,
     statusAplicado: event.result.statusAplicado || null,
-    passivos: [...(event.result.passivosGatilho?.attacker || []), ...(event.result.passivosGatilho?.defender || [])],
   }]
   // Passiva que entrou nesta jogada e status que pegou — linha própria no
   // registro, pra passiva e status serem SENTIDOS (Isaias, 28/09/2026).
   const passivos = [...(event.result.passivosGatilho?.attacker || []).map(id => [actor, id]), ...(event.result.passivosGatilho?.defender || []).map(id => [target, id])]
   passivos.forEach(([quem, id], i) => entries.push({ id: `${event.id}-passiva-${i}`, kind: 'system', text: t('games.gangues.log_passiva', { nome: fighterName(t, quem), talento: t(`games.gangues.progression.skills.${id}`) }) }))
+  if (event.confuso) entries.push({ id: `${event.id}-grogue`, kind: 'system', text: t('games.gangues.log_grogue', { nome: fighterName(t, actor), alvo: fighterName(t, target) }) })
   if (event.result.statusAplicado) entries.push({ id: `${event.id}-status`, kind: 'system', text: t('games.gangues.log_status', { alvo: fighterName(t, target), status: t(`games.gangues.status.${event.result.statusAplicado}.nome`) }) })
   const enemyCombatant = isPlayer ? target : actor
   if (enemyCombatant?.trash_talk) {

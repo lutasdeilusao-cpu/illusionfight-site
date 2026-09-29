@@ -15,9 +15,8 @@
 import { getGanguesSpecialPaths } from '../data/ganguesSpecials.js'
 import { getEquippedActiveGanguesSpecials, getGanguesSpecialEffect } from './ganguesSpecialEffects.js'
 
-export const GANGUES_PERSONAS = ['brigao', 'covarde', 'cacador', 'protetor', 'doido', 'mand_ataque', 'mand_cura', 'mand_status']
 const MANDINGUEIROS = ['mand_ataque', 'mand_cura', 'mand_status']
-export const ehMandingueiro = persona => MANDINGUEIROS.includes(persona)
+const ehMandingueiro = persona => MANDINGUEIROS.includes(persona)
 
 const PESOS = {
   fists: { brigao: 4, cacador: 3, covarde: 2, doido: 1 },

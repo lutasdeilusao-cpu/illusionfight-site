@@ -314,7 +314,12 @@
         "31": "Venda",
         "32": "Café Cargado",
         "33": "Pomada de Árnica",
-        "34": "Brebaje de la Abuela"
+        "34": "Jarabe de la Abuela",
+        "35": "Balde de Agua Fría",
+        "36": "Leche Caliente",
+        "37": "Agua con Azúcar",
+        "38": "Emplasto",
+        "39": "Aloe"
       },
       "loja": {
         "sub": "Compra con la plata de la banda — se puede usar en cualquier pelea.",
@@ -4620,25 +4625,48 @@
       "log_status": "😵 {alvo} quedó {status}.",
       "log_cura": "💚 {nome} usó {talento} en {alvo} (+{n} de Aguante).",
       "status": {
-        "lerdo": {
-          "nome": "Lento",
-          "desc": "Pique a la mitad en la pista."
+        "1": {
+          "nome": "Pajareando",
+          "desc": "Anda pajareando: Pique a la mitad, tarda el doble en tener su turno."
         },
-        "sangrando": {
+        "2": {
           "nome": "Sangrando",
-          "desc": "Pierde 1 de Aguante cada vez que actúa."
+          "desc": "Pierde 1 de Aguante cada turno. Nunca noquea: se queda en 1."
         },
-        "fraco": {
-          "nome": "Débil",
-          "desc": "−2 de Trompada."
+        "3": {
+          "nome": "Brazo Flojo",
+          "desc": "−2 de Trompada: pega mucho más débil."
         },
-        "rachado": {
-          "nome": "Rajado",
-          "desc": "−2 de Cuero."
+        "4": {
+          "nome": "Guardia Abierta",
+          "desc": "−2 de Cuero: recibe más golpes."
+        },
+        "5": {
+          "nome": "Apagado",
+          "desc": "Dormido de pie: pierde el turno (1 a 3 veces). Se despierta si le pegan."
+        },
+        "6": {
+          "nome": "Adulterado",
+          "desc": "Tomó algo adulterado: pierde 1/8 del Aguante máximo cada turno. Se queda en 1."
+        },
+        "7": {
+          "nome": "Grogui",
+          "desc": "No sabe a quién pega: 1 chance en 3 de golpear a un compañero (o a sí mismo)."
+        },
+        "8": {
+          "nome": "Trabado",
+          "desc": "El cuerpo se trabó: Pique a la mitad y 1 chance en 4 de perder el turno."
+        },
+        "9": {
+          "nome": "Quemado",
+          "desc": "Arde: pierde un poco de Aguante cada turno y pega con −2 de Trompada. Se queda en 1."
         }
       },
-      "skill_desc_status": "Deja al objetivo {status}.",
-      "combat_item_sem_status": "Ese no tiene ese estado."
+      "skill_desc_status": "Deja al objetivo {status}: {desc}",
+      "combat_item_sem_status": "Ese no tiene ese estado.",
+      "log_perdeu_vez_apagado": "💤 {nome} está apagado y perdió el turno.",
+      "log_perdeu_vez_travado": "⚡ {nome} se trabó y perdió el turno.",
+      "log_grogue": "😵 {nome} quedó grogui y le pegó a {alvo}!"
     }
   }
 }

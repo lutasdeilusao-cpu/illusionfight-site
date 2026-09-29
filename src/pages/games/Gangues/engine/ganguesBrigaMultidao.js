@@ -1,5 +1,6 @@
 import { resolveGanguesAction, resolveGanguesCura } from './ganguesCombatResolver.js'
 import { decidirAcaoInimigo } from './ganguesPersonas.js'
+import { statusImpedeAcao, alvoComTontura } from './ganguesStatus.js'
 import { iniciarLinhaDoTempo, proximaVez, consumirVez, marcarAgiu, ordemDeVelocidade } from './ganguesLinhaDoTempo.js'
 import { prepararTimes } from '../hooks/useGanguesTurnMachine.js'
 
@@ -16,8 +17,8 @@ import { prepararTimes } from '../hooks/useGanguesTurnMachine.js'
    por rodada) continua igual ao combate normal.
 
    Usa exatamente as mesmas contas do combate normal (mesmo
-   resolveGanguesAction, mesmo prepare/pickEnemyTarget da
-   useGanguesTurnMachine).
+   resolveGanguesAction, mesmo prepararTimes da
+   useGanguesTurnMachine, mesma IA de personas).
    ══════════════════════════════════════════════════════════════ */
 
 const d3 = () => Math.floor(Math.random() * 3) + 1
@@ -90,7 +91,11 @@ export function avancarRodadaMultidao(estado, poderesPorPersonagem = {}, especia
     if (!actor) break
     let usouTalento = false
 
-    if (actor.side === 'player' && personagensUsandoItem[actor.id]) {
+    const motivoPerde = actor.pv > 0 ? statusImpedeAcao(actor) : null
+    if (motivoPerde) {
+      seq += 1
+      eventosRodada.push({ type: 'perdeu_vez', id: `bm-${seq}`, side: actor.side, actorKey: actor.key, motivo: motivoPerde, round: rodadaAlvo })
+    } else if (actor.side === 'player' && personagensUsandoItem[actor.id]) {
       seq += 1
       eventosRodada.push({ type: 'item', id: `bm-${seq}`, actorKey: actor.key, round: rodadaAlvo })
     } else {
@@ -128,6 +133,9 @@ export function avancarRodadaMultidao(estado, poderesPorPersonagem = {}, especia
         seq += 1
         eventosRodada.push({ type: 'cura', id: `bm-${seq}`, side: actor.side, actorKey: actor.key, targetKey: cura.alvo.key, specialId: resCura.specialId, curado: resCura.cura, round: rodadaAlvo })
       } else if (target) {
+        const alvoOriginal = target
+        target = alvoComTontura(actor, target, lista, Math.random)
+        const confuso = target.key !== alvoOriginal.key
         const result = resolveGanguesAction({
           attacker: actor, defender: target, action: { type: 'attack', mode: 'attack' },
           rolls: { fa: d3(), fd: d3(), attackerBonus: coin(), defenderBonus: coin() },
@@ -135,12 +143,12 @@ export function avancarRodadaMultidao(estado, poderesPorPersonagem = {}, especia
         })
         usouTalento = Boolean(result.activeSpecialId)
         lista = lista.map(c => {
-          if (c.key === actor.key) return { ...c, statuses: result.attackerStatuses, pm: Math.max(0, c.pm - result.pmCost), pv: Math.max(0, c.pv - (result.pvCost || 0)), specialState: result.attackerSpecialState }
+          if (c.key === actor.key) return { ...c, statuses: c.key === target.key ? result.defenderStatuses : result.attackerStatuses, pm: Math.max(0, c.pm - result.pmCost), pv: Math.max(0, c.pv - (result.pvCost || 0) - (c.key === target.key ? result.damage : 0)), specialState: result.attackerSpecialState }
           if (c.key === target.key) return { ...c, statuses: result.defenderStatuses, pv: Math.max(0, c.pv - result.damage), specialState: result.defenderSpecialState }
           return c
         })
         seq += 1
-        eventosRodada.push({ type: 'attack', id: `bm-${seq}`, side: actor.side, actorKey: actor.key, targetKey: target.key, result, round: rodadaAlvo })
+        eventosRodada.push({ type: 'attack', id: `bm-${seq}`, side: actor.side, actorKey: actor.key, targetKey: target.key, result, round: rodadaAlvo, confuso })
       }
     }
 

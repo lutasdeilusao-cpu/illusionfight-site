@@ -314,7 +314,12 @@
         "31": "Bandage",
         "32": "Strong Coffee",
         "33": "Arnica Ointment",
-        "34": "Grandma's Tonic"
+        "34": "Grandma's Syrup",
+        "35": "Cold Water Bucket",
+        "36": "Warm Milk",
+        "37": "Sugar Water",
+        "38": "Plaster Patch",
+        "39": "Aloe"
       },
       "loja": {
         "sub": "Buy with the gang's cash — usable in any fight.",
@@ -4620,25 +4625,48 @@
       "log_status": "😵 {alvo} is now {status}.",
       "log_cura": "💚 {nome} used {talento} on {alvo} (+{n} Grit).",
       "status": {
-        "lerdo": {
-          "nome": "Sluggish",
-          "desc": "Half Pace on the track."
+        "1": {
+          "nome": "Dozing",
+          "desc": "Half Pace — takes twice as long to get a turn."
         },
-        "sangrando": {
+        "2": {
           "nome": "Bleeding",
-          "desc": "Loses 1 Grit every time they act."
+          "desc": "Loses 1 Grit every turn. Never knocks out: stops at 1."
         },
-        "fraco": {
-          "nome": "Weak",
-          "desc": "−2 Wallop."
+        "3": {
+          "nome": "Noodle Arm",
+          "desc": "−2 Wallop: hits a lot weaker."
         },
-        "rachado": {
-          "nome": "Cracked",
-          "desc": "−2 Hide."
+        "4": {
+          "nome": "Open Guard",
+          "desc": "−2 Hide: takes more damage."
+        },
+        "5": {
+          "nome": "Out Cold",
+          "desc": "Asleep on their feet: loses the turn (1 to 3 times). Wakes up when hit."
+        },
+        "6": {
+          "nome": "Spiked",
+          "desc": "Drank something spiked: loses 1/8 of max Grit every turn. Stops at 1."
+        },
+        "7": {
+          "nome": "Groggy",
+          "desc": "Can't tell who's who: 1 in 3 chance to hit a partner (or themselves)."
+        },
+        "8": {
+          "nome": "Seized Up",
+          "desc": "Body locked up: half Pace and 1 in 4 chance to lose the turn."
+        },
+        "9": {
+          "nome": "Scorched",
+          "desc": "Burning: loses a little Grit every turn and hits with −2 Wallop. Stops at 1."
         }
       },
-      "skill_desc_status": "Leaves the target {status}.",
-      "combat_item_sem_status": "They don't have that status."
+      "skill_desc_status": "Leaves the target {status}: {desc}",
+      "combat_item_sem_status": "They don't have that status.",
+      "log_perdeu_vez_apagado": "💤 {nome} is out cold and lost the turn.",
+      "log_perdeu_vez_travado": "⚡ {nome} seized up and lost the turn.",
+      "log_grogue": "😵 {nome} got groggy and hit {alvo}!"
     }
   }
 }

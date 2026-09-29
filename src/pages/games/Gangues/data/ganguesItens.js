@@ -1,3 +1,4 @@
+import { ST, ST_TODOS } from '../engine/ganguesStatus.js'
 /* ══════════════════════════════════════════════════════════════
    Catálogo de CONSUMÍVEL (poções, por enquanto).
 
@@ -32,12 +33,17 @@ const CATALOGO = [
   { id: 21, slug: 'chip_da_muralha', custo: 0, tipo: 'poder_unico', poderId: 'postura_defensiva', poderNivel: 2, icone: '🛡️' },
   { id: 22, slug: 'chip_igneo', custo: 0, tipo: 'poder_unico', poderId: 'bola_de_fogo', poderNivel: 2, icone: '🔥' },
   // Curam STATUS (ganguesStatus.js) — status só sai com item ou no descanso
-  // completo (Isaias, 28/09/2026). `status: 'todos'` limpa qualquer um.
-  { id: 30, slug: 'gelo_no_tornozelo', custo: 12, tipo: 'cura_status', status: 'lerdo', icone: '🧊' },
-  { id: 31, slug: 'atadura', custo: 12, tipo: 'cura_status', status: 'sangrando', icone: '🩹' },
-  { id: 32, slug: 'cafe_forte', custo: 12, tipo: 'cura_status', status: 'fraco', icone: '☕' },
-  { id: 33, slug: 'pomada_arnica', custo: 12, tipo: 'cura_status', status: 'rachado', icone: '🧴' },
-  { id: 34, slug: 'garrafada_da_vo', custo: 30, tipo: 'cura_status', status: 'todos', icone: '🍶' },
+  // completo (Isaias, 28/09/2026). `status: ST_TODOS` limpa qualquer um.
+  { id: 30, slug: 'gelo_no_tornozelo', custo: 12, tipo: 'cura_status', status: ST.MOSCANDO, icone: '🧊' },
+  { id: 31, slug: 'atadura', custo: 12, tipo: 'cura_status', status: ST.SANGRANDO, icone: '🩹' },
+  { id: 32, slug: 'cafe_forte', custo: 12, tipo: 'cura_status', status: ST.BRACO_MOLE, icone: '☕' },
+  { id: 33, slug: 'pomada_arnica', custo: 12, tipo: 'cura_status', status: ST.GUARDA_ABERTA, icone: '🧴' },
+  { id: 34, slug: 'xarope_da_vo', custo: 30, tipo: 'cura_status', status: ST_TODOS, icone: '🍶' },
+  { id: 35, slug: 'balde_agua_fria', custo: 12, tipo: 'cura_status', status: ST.APAGADO, icone: '🪣' },
+  { id: 36, slug: 'leite_quente', custo: 12, tipo: 'cura_status', status: ST.BATIZADO, icone: '🥛' },
+  { id: 37, slug: 'agua_com_acucar', custo: 12, tipo: 'cura_status', status: ST.GROGUE, icone: '🥤' },
+  { id: 38, slug: 'emplastro', custo: 12, tipo: 'cura_status', status: ST.TRAVADO, icone: '🩼' },
+  { id: 39, slug: 'babosa', custo: 12, tipo: 'cura_status', status: ST.QUEIMADO, icone: '🌿' },
 ]
 
 export const GANGUES_ITENS = Object.fromEntries(CATALOGO.map(item => [item.id, { ...item, nome: i18nNome(item.id) }]))

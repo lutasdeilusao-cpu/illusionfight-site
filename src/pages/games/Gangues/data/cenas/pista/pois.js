@@ -277,7 +277,7 @@ export const POIS_PISTA = [
     //  incomum ("junta grana"): 102 faca · 105 capacete · 109 colete placa
     //                           · 113 manopla · 116 coturno
     // Catálogo por caminho (ganguesEquip.js): comum + incomum dos 3 caminhos + livre.
-    itens: [1, 2, 30, 31, 32, 33, 34, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 235, 236, 238],
+    itens: [1, 2, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 235, 236, 238],
   },
   {
     // Reaproveitamento: continua na Pista mesmo depois dela virar
@@ -348,7 +348,7 @@ export const POIS_PISTA = [
     // tem arte e o nome nem podia combinar mais com "atende um balcão de
     // loja") — só a imagem, sem nenhuma implicação de combate.
     retratoEnemyId: 1205,
-    itens: [1, 2, 30, 31, 32, 33, 34],
+    itens: [1, 2, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39],
     precoMultiplicador: 2,
   },
   {

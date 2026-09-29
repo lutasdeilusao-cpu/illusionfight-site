@@ -1,3 +1,4 @@
+import { ST_TODOS } from '../engine/ganguesStatus.js'
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { useLanguage } from '../../../../context/LanguageContext'
 import { useAuth } from '../../../../context/AuthContext'
@@ -262,7 +263,7 @@ export default function GanguesCombat({ onNavigate, onSairConfirmado }) {
     if (alvoC) {
       if (item.tipo === 'cura_pv' && alvoC.pv >= alvoC.pvMax) { setAviso(t('games.gangues.combat_item_cheio')); setTimeout(() => setAviso(null), 2200); return }
       if (item.tipo === 'cura_pm' && alvoC.pm >= alvoC.pmMax) { setAviso(t('games.gangues.combat_item_cheio')); setTimeout(() => setAviso(null), 2200); return }
-      if (item.tipo === 'cura_status' && !(alvoC.statuses || []).some(s => item.status === 'todos' || s.id === item.status)) { setAviso(t('games.gangues.combat_item_sem_status')); setTimeout(() => setAviso(null), 2200); return }
+      if (item.tipo === 'cura_status' && !(alvoC.statuses || []).some(s => item.status === ST_TODOS || s.id === item.status)) { setAviso(t('games.gangues.combat_item_sem_status')); setTimeout(() => setAviso(null), 2200); return }
     }
     if (!store.usarItem(itemId)) return
     sfx.reward?.()

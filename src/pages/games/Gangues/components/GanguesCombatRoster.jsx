@@ -1,4 +1,4 @@
-import { forwardRef } from 'react'
+import { forwardRef, useState } from 'react'
 import { getGanguesProgression, ganguesXpMaxForSheet } from '../data/ganguesLoadout.js'
 import { fighterName } from '../engine/ganguesCombatPresentation.js'
 import { getGanguesPortraitByTemplateId } from '../data/ganguesPortraits.js'
@@ -16,6 +16,8 @@ import { GANGUES_STATUS } from '../engine/ganguesStatus.js'
 // pequeno demais pra tocar no celular.
 // Extraído de GanguesCombat.jsx (PLANO_REFATORACAO_ARQUIVOS_GRANDES_GANGUES_2026-09-11.md §6).
 const GanguesCombatRoster = forwardRef(function GanguesCombatRoster({ members, side, selectable, selectedKey, onSelect, actingKey, onAbrirFicha, dmgPops, t }, ref) {
+  // Toque no ícone do status mostra o que ele faz (celular não tem hover).
+  const [statusAberto, setStatusAberto] = useState(null)
   return (
     <div ref={ref} className={`gang-roster gang-roster--${side}`}>
       {members.map(member => {
@@ -71,9 +73,17 @@ const GanguesCombatRoster = forwardRef(function GanguesCombatRoster({ members, s
             <span className="gang-mini-nome">{nome}</span>
             {member.statuses?.length > 0 && (
               <span className="gang-mini-status">
-                {member.statuses.map(s => <b key={s.id} title={s.id}>{GANGUES_STATUS[s.id]?.icone}{s.turnos}</b>)}
+                {member.statuses.map(s => (
+                  <button key={s.id} type="button" onClick={() => setStatusAberto(a => (a === `${member.key}:${s.id}` ? null : `${member.key}:${s.id}`))}>
+                    {GANGUES_STATUS[s.id]?.icone}{s.turnos}
+                  </button>
+                ))}
               </span>
             )}
+            {member.statuses?.some(s => statusAberto === `${member.key}:${s.id}`) && (() => {
+              const id = statusAberto.split(':').pop()
+              return <small className="gang-mini-status-desc"><b>{t(`games.gangues.status.${id}.nome`)}</b> {t(`games.gangues.status.${id}.desc`)}</small>
+            })()}
             <span className="gang-mini-bars" aria-label={nome}>
               <span className="gang-hpbar" role="progressbar" aria-valuenow={Math.max(0, member.pv || 0)} aria-valuemax={member.pvMax || 1}>
                 <i className="gang-hpbar-ghost" style={{ width: `${pvPct}%` }} />

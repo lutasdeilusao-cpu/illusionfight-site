@@ -1,5 +1,5 @@
 import { applyGanguesAttackerEffect, applyGanguesDefenderEffect, buildGanguesEffectsList } from './ganguesSpecialEffects.js'
-import { aplicarStatus, modAtaqueStatus, modDefesaStatus } from './ganguesStatus.js'
+import { aplicarStatus, acordarAoApanhar, modAtaqueStatus, modDefesaStatus } from './ganguesStatus.js'
 
 /**
  * Bônus de caminho — regra combinada com Isaias em 2026-08-04:
@@ -108,7 +108,8 @@ export function resolveGanguesAction({ attacker, defender, action, rolls, active
     rolls: { ...rolls }, attackerBonus, defenderBonus, critical, criticalBonus: critical ? CRITICAL_BONUS : 0,
     attackerStatuses: [...(attacker.statuses || [])],
     // Talento de status do Mandingueiro: pega no alvo mesmo sem dano.
-    defenderStatuses: ctx.statusAplicar ? aplicarStatus(defender.statuses || [], ctx.statusAplicar.id, ctx.statusAplicar.turnos) : [...(defender.statuses || [])],
+    // Apanhou de verdade, acorda (Apagado); depois entra o status do talento.
+    defenderStatuses: ctx.statusAplicar ? aplicarStatus(acordarAoApanhar(defender.statuses || [], damage), ctx.statusAplicar.id, ctx.statusAplicar.turnos) : acordarAoApanhar(defender.statuses || [], damage),
     statusAplicado: ctx.statusAplicar?.id || null,
     activeSpecialId: attackerEffects.find(item => item.kind === 'active')?.id || null,
     passivosGatilho,

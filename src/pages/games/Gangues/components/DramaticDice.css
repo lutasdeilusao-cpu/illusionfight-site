@@ -421,7 +421,7 @@
 }
 
 .dramatic-dice-passivename__tag {
-  font-family: var(--if-font-mono, monospace);
+  font-family: var(--font-mono);
   font-size: 10px;
   letter-spacing: 2px;
   opacity: 0.85;
@@ -440,6 +440,15 @@
   letter-spacing: 1.5px;
   text-transform: uppercase;
   text-align: center;
+}
+
+.dramatic-dice-status { display: grid; gap: 2px; max-width: 280px; }
+.dramatic-dice-status__desc {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--gang-branco);
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -314,7 +314,12 @@
         "31": "Atadura",
         "32": "Café Forte",
         "33": "Pomada de Arnica",
-        "34": "Garrafada da Vó"
+        "34": "Xarope da Vó",
+        "35": "Balde de Água Fria",
+        "36": "Leite Quente",
+        "37": "Água com Açúcar",
+        "38": "Emplastro",
+        "39": "Babosa"
       },
       "loja": {
         "sub": "Compra com a grana da gangue — dá pra usar em qualquer luta.",
@@ -1517,25 +1522,48 @@
       "log_status": "😵 {alvo} ficou {status}.",
       "log_cura": "💚 {nome} usou {talento} em {alvo} (+{n} de Osso).",
       "status": {
-        "lerdo": {
-          "nome": "Lerdo",
-          "desc": "Pique pela metade na pista."
+        "1": {
+          "nome": "Moscando",
+          "desc": "Tá moscando: Pique pela metade, demora o dobro pra chegar na vez."
         },
-        "sangrando": {
+        "2": {
           "nome": "Sangrando",
-          "desc": "Perde 1 de Osso toda vez que age."
+          "desc": "Perde 1 de Osso toda vez que chega a vez dele. Nunca derruba: para em 1."
         },
-        "fraco": {
-          "nome": "Fraco",
-          "desc": "−2 de Porrada."
+        "3": {
+          "nome": "Braço Mole",
+          "desc": "−2 de Porrada: bate bem mais fraco."
         },
-        "rachado": {
-          "nome": "Rachado",
-          "desc": "−2 de Couro."
+        "4": {
+          "nome": "Guarda Aberta",
+          "desc": "−2 de Couro: toma mais porrada."
+        },
+        "5": {
+          "nome": "Apagado",
+          "desc": "Dormiu em pé: perde a vez (1 a 3 vezes). Acorda se apanhar."
+        },
+        "6": {
+          "nome": "Batizado",
+          "desc": "Tomou coisa batizada: perde 1/8 do Osso máximo toda vez que chega a vez. Para em 1."
+        },
+        "7": {
+          "nome": "Grogue",
+          "desc": "Não sabe pra onde bate: 1 chance em 3 de acertar um parceiro (ou a si mesmo)."
+        },
+        "8": {
+          "nome": "Travado",
+          "desc": "Corpo travou: Pique pela metade e 1 chance em 4 de perder a vez."
+        },
+        "9": {
+          "nome": "Queimado",
+          "desc": "Arde: perde um pouco de Osso por vez e bate com −2 de Porrada. Para em 1."
         }
       },
-      "skill_desc_status": "Deixa o alvo {status}.",
-      "combat_item_sem_status": "Esse aí não tá com esse status."
+      "skill_desc_status": "Deixa o alvo {status}: {desc}",
+      "combat_item_sem_status": "Esse aí não tá com esse status.",
+      "log_perdeu_vez_apagado": "💤 {nome} tá apagado e perdeu a vez.",
+      "log_perdeu_vez_travado": "⚡ {nome} travou e perdeu a vez.",
+      "log_grogue": "😵 {nome} ficou grogue e acertou {alvo}!"
     }
   }
 }

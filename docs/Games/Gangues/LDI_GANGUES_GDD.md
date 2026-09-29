@@ -24,7 +24,7 @@ Grafia oficial: **Marélia** com acento (o conto usa assim). O i18n do jogo aind
 tem "Marelia" sem acento em vários lugares — alinhar quando mexer em texto.
 
 > **Última revisão geral: 28/09/2026 — conferido contra o código de
-> GANGUES 3.62.3.** Nesta revisão saiu tudo que era histórico sem uso
+> GANGUES 3.66.0.** Nesta revisão saiu tudo que era histórico sem uso
 > (crosswalk string→id, Ranking Clandestino, narrativa de bug já corrigido,
 > atributos A/H/R/D antigos, NeoGuide) e entrou o que só existia no código:
 > sistema do Pique (linha do tempo com raias), encontro aleatório com sirene,
@@ -1061,8 +1061,8 @@ POI, alimenta o % de domínio e o texto do final). Estado em `store.grana` /
 
 ### 9.3 Consumíveis (faixa 1–99)
 
-> **Estado real (26/09/2026, `data/ganguesItens.js`):** só existem no jogo os
-> ids **1, 2, 13, 20, 21 e 22**. Os ids **3 a 12** abaixo são **design
+> **Estado real (26/09/2026, `data/ganguesItens.js`):** existem no jogo os
+> ids **1, 2, 13, 20, 21, 22** e os de curar status **30–39** (§17.2.2). Os ids **3 a 12** abaixo são **design
 > aprovado, ainda não implementado** — não estão no catálogo nem na loja.
 
 | id | Nome | tipo | efeito | custo | ícone |
@@ -1326,6 +1326,9 @@ Reserva: cada faixa comporta crescer até ~99 sem remapear.
 | Linha do tempo (Pique) + pista visual com raias | `engine/ganguesLinhaDoTempo.js`, `components/GanguesPistaTempo.jsx` |
 | CSS do jogo (índices de `@import` + paleta `--gang-*`) | `src/pages/games/Gangues/styles/` (auditado por `scripts/gangues-css-audit.cjs` no predeploy) |
 | Retratos (cabeça, corpo, inimigo, NPC) | `data/ganguesPortraits.js`, `data/ganguesEnemyPortraits.js`, `data/ganguesNpcPortraits.js` |
+| Status (9, ids numéricos) + itens de cura | `engine/ganguesStatus.js`, `data/ganguesItens.js` (30–39) |
+| Personas da IA inimiga + talentos de inimigo | `engine/ganguesPersonas.js` |
+| Dano gravado durante a luta | `hooks/useGanguesDanoAoVivo.js` |
 | Briga em Multidão / modo automático | `engine/ganguesBrigaMultidao.js`, `hooks/useGanguesModoMultidao.js`, `hooks/useGanguesModoAuto.js` |
 | Todo texto falado na Pista (pt/en/es, em ordem de fluxo) | `docs/Games/Gangues/PISTA_COMUNICACAO.md` |
 | **Mecânica** (combate, progressão, skill tree, modo história) | Seção 17 desta bíblia |
@@ -1648,40 +1651,75 @@ estilo Medabots/ATB do Chrono Trigger):
 
 ### 17.2.2 Personas da IA, status e cura (28/09/2026)
 
-- **Personas** (`engine/ganguesPersonas.js`): todo inimigo sorteia uma no começo
-  da luta, com peso pelo `preferred_mode`. Brigão (alvo aleatório, talento
-  raro), Covarde (termina o mais machucado), Caçador (mira a maior Porrada,
-  talento sempre), Protetor (Paredão; vai atrás de quem bateu num aliado),
-  Doido (sorteia tudo) e os 3 **Mandingueiros**: de ataque (Ígneo/Tempestade),
-  de cura (Aquático — cura o aliado inimigo mais machucado) e de status
-  (Terreno/Ilusório). **Bando de 3+ sempre leva 1 mandingueiro.**
-- **Inimigo tem talento**: ficha de talentos montada na hora (subcaminho +
-  rank pela ficha: <20 pontos rank 1, <50 rank 2, senão 3). Ativo a partir
-  de 3 pontos, passiva a partir de 8. Usa os mesmos talentos e passivas do
-  jogador.
-- **Status** (`engine/ganguesStatus.js`) — **só o Mandingueiro causa** (e os
-  chips de reputação que emprestam poder). Dura N vezes do lutador que carrega
-  (desce 1 cada vez que ele age):
+**Personas** (`engine/ganguesPersonas.js`) — todo inimigo sorteia uma no
+começo da luta, com peso pelo `preferred_mode` (fists → Brigão/Caçador/
+Covarde/Doido; armed → Protetor/Brigão/Covarde/Doido; power → os 3
+Mandingueiros). Os dois motores (normal e Multidão) usam a mesma decisão
+(`decidirAcaoInimigo`):
 
-  | Status | Efeito | Dura |
-  |---|---|---|
-  | Lerdo 🐢 | Pique pela metade na linha do tempo | 2 |
-  | Sangrando 🩸 | −1 de Osso a cada vez que age (não mata) | 3 |
-  | Fraco 🥀 | −2 de Porrada | 2 |
-  | Rachado 💢 | −2 de Couro | 2 |
+| Persona | Em quem bate | Quando usa talento |
+|---|---|---|
+| Brigão | qualquer um (evita repetir o último) | raro (20%) |
+| Covarde | o mais machucado | quando o alvo tá com ≤40% (ou 15%) |
+| Caçador | quem tem mais Porrada | sempre que dá |
+| Protetor (Paredão) | quem bateu num aliado dele | com ≤60% de Osso (ou 35%) |
+| Doido | sorteio | 50% |
+| Mandingueiro de ataque | o mais machucado | sempre que dá |
+| Mandingueiro de cura | cura o aliado dele com ≤60%; senão bate | cura sempre que precisa |
+| Mandingueiro de status | quem ainda não tem aquele status | sempre que dá |
 
-  **Status persiste entre lutas** (`status_atual`, salvo junto do PV/PM). Só
-  sai com item (ids 30–34: Gelo no Tornozelo, Atadura, Café Forte, Pomada de
-  Arnica, Garrafada da Vó = todos) ou no **descanso completo** da birosca
-  (5× o preço: vida, caídos e status).
-- **Mandingueiro do jogador em 3 papéis**: ataque (Brasa, Cinza, Faísca,
-  Trovão), cura (Maré, Chuva — `neblina`, `fluxo_restaurador` e `temporal`
-  viraram cura `heal`) e status (Raiz, Racha, Névoa, Espelho — talentos com
-  `status` no efeito). Cura mira sozinha o aliado mais machucado: valor +
-  metade da Malandragem, sem dado.
-- **Destaque**: passiva que entrou e status que pegou aparecem grandes no
-  dado dramático e ganham linha própria no registro; o roster mostra os
-  ícones de status com as vezes restantes.
+- **Bando de 3+ sempre leva 1 mandingueiro** (o de mais Malandragem vira um).
+- **Inimigo tem talento de verdade**: ficha de talentos montada na hora
+  (subcaminho do papel; rank pela ficha: <20 pontos = 1, <50 = 2, senão 3).
+  Ativo a partir de 3 pontos de ficha, passiva a partir de 8 — as mesmas
+  passivas e talentos do jogador.
+
+**Status** (`engine/ganguesStatus.js`, inspiração: Pokémon). **Só o
+Mandingueiro causa status** (e os chips de reputação que emprestam poder).
+ID É NÚMERO (regra do projeto); o nome na tela é gíria e mora no i18n
+(`games.gangues.status.<id>`), com a explicação de cada um. Cada status dura N
+vezes do lutador que carrega (desce 1 toda vez que chega a vez dele, agindo
+ou não). Dano de status **nunca derruba**: para em 1 de Osso.
+
+| id | Nome | O que faz | Dura | Quem causa (subcaminho · talento @nível) |
+|---|---|---|---|---|
+| 1 | 🐢 **Moscando** | Pique pela metade | 2 | Terreno · `ruptura_do_solo` (Raiz/Racha @40) |
+| 2 | 🩸 **Sangrando** | −1 de Osso por vez | 3 | Terreno · `estilhaco_terrestre` (Racha @4) |
+| 3 | 🥀 **Braço Mole** | −2 de Porrada | 2 | Ilusório · `reflexo_falso` (Espelho @4, Névoa @12) |
+| 4 | 💢 **Guarda Aberta** | −2 de Couro | 2 | Terreno · `tremor` (Raiz/Racha @24) |
+| 5 | 💤 **Apagado** | dorme: perde a vez 1–3 vezes; acorda ao apanhar | 1–3 | Ilusório · `quebra_de_realidade` (Névoa/Espelho @40) |
+| 6 | 🧪 **Batizado** | −1/8 do Osso máximo por vez | 4 | `fenda_no_chao` (Racha @50), `espelho_quebrado` (Espelho @50) |
+| 7 | 😵 **Grogue** | 1 em 3 de bater num parceiro (ou em si) | 3 | Ilusório · `distorcao` (Névoa @24) |
+| 8 | ⚡ **Travado** | Pique pela metade + 1 em 4 de perder a vez | 3 | Terreno · `raiz_prendente` (Raiz @12) |
+| 9 | 🔥 **Queimado** | −1/16 do Osso máximo por vez e −2 de Porrada | 3 | Ígneo · `combustao` (Cinza @12, Brasa @24), `explosao_termica` (Brasa @24) |
+
+- **Status persiste entre lutas** (`status_atual`, gravado junto do PV/PM).
+  Só sai com item ou no **descanso completo** (50 na birosca). Save antigo com
+  status por nome (v3.64) é convertido sozinho (`normalizarStatus`).
+- **Itens de curar status** (consumível): 30 Gelo no Tornozelo (Moscando) ·
+  31 Atadura (Sangrando) · 32 Café Forte (Braço Mole) · 33 Pomada de Arnica
+  (Guarda Aberta) · 35 Balde de Água Fria (Apagado) · 36 Leite Quente
+  (Batizado) · 37 Água com Açúcar (Grogue) · 38 Emplastro (Travado) · 39
+  Babosa (Queimado) — 12 cada; **34 Xarope da Vó** cura todos (30). Vendem na
+  Lojinha do Zé (dobro do preço) e na loja da Pista; dá pra usar na luta e na
+  bolsa.
+- **Mandingueiro do jogador em 3 papéis** (todos são Mandingueiros; o status
+  vem em cima do dano normal do talento — por isso o Mandingueiro tem mais
+  poder que Porradeiro e Paredão, de propósito):
+  - **Ataque**: Faísca e Trovão (Tempestade, sem status) · Brasa e Cinza
+    (Ígneo — Queimado).
+  - **Cura**: Maré e Chuva (Aquático) — `neblina` (@12/@24), `fluxo_restaurador`
+    (Maré @24) e `temporal` (Chuva @50) curam `valor + metade da Malandragem`
+    de Osso no aliado mais machucado, sem dado.
+  - **Status**: Raiz e Racha (Terreno), Névoa e Espelho (Ilusório).
+- **Na tela**: passiva que entrou aparece grande no dado ("PASSIVA ATIVOU",
+  pulsando) e ganha linha no registro; o status que pegou aparece no dado com
+  a explicação; o roster mostra o ícone + vezes restantes, e tocar no ícone
+  mostra o que o status faz. Perder a vez (Apagado/Travado) e o Grogue
+  acertando parceiro têm linha própria no registro.
+- **Teste (motor real, 60 lutas)**: todos os status aplicam, Apagado/Travado
+  fazem perder a vez, Grogue acerta parceiro, passivas disparam, todas as
+  personas aparecem.
 
 ### 17.3 Poderes / especiais (skill tree)
 
@@ -1853,6 +1891,11 @@ bairro). Os dois formatos usam o MESMO sistema de pontos fixos.
   `gangues_fichas` (Supabase), progresso de história em `gangues_saves` —
   ambos com debounce de escrita, sem depender de `localStorage` pra dado
   de jogo.
+- **Dano gravado ao vivo** (`hooks/useGanguesDanoAoVivo.js`, 28/09/2026): PV,
+  PM e status do time vão pro store a cada golpe e pra nuvem com debounce de
+  1,5s — e na hora em que a aba vai pro segundo plano. Antes o dano só era
+  gravado ao abrir o resultado: fugir, sair ou o celular recarregar a aba no
+  meio da luta devolvia a tropa inteira (bug de imortalidade).
 - Guest: tudo em memória, perde ao recarregar — banner avisa.
 - **Logout limpa o store do Gangues de verdade** (`AuthContext.jsx`, no
   `onAuthStateChange`) — sem isso, o próximo guest/login na mesma aba
@@ -1874,8 +1917,9 @@ src/pages/games/Gangues/
 ├── data/                 # catálogos (30 personagens, 102 inimigos, itens, equip,
 │   └── cenas/pista/      # especiais, territórios, encontros) — dados, não UI
 ├── engine/               # resolver, linha do tempo, Multidão, efeitos, cena,
-│                         # encontro aleatório, vitória
-├── hooks/                # turno, auto, Multidão, movimento de cena, i18n…
+│                         # encontro aleatório, vitória, status, personas (IA)
+├── hooks/                # turno, auto, Multidão, movimento de cena, i18n,
+│                         # dano ao vivo (PV/PM/status gravados durante a luta)
 └── store/
     ├── useGanguesStore.js    # composição das slices (zustand)
     └── slices/               # save, sheet, story, progression, equip, colecao,
