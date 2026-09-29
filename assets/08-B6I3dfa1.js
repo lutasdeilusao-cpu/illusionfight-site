@@ -1,0 +1,61 @@
+var e=`# CAPÍTULO 8 — O Subsolo
+
+O Jack esperou.
+
+Acendeu um cigarro. Deixou as balas rolarem.
+
+Subiu uns degraus, pra fugir de ricochete, e ficou num canto protegido, atrás de uma coluna. Fumando. Contando.
+
+Até ouvir as armas esvaziarem. Clique. Clique. Clique.
+
+---
+
+Aí ele gemeu alto.
+
+— Ai, meu Deus… que porra… isso é sangue…
+
+Fingiu que tinha tomado bala.
+
+O primeiro caiu na conversa. Veio conferir, devagar, a arma vazia na mão.
+
+Tomou uma bicuda no joelho que dobrou a perna pro lado errado.
+
+---
+
+O Jack segurou ele pelo pescoço antes de ele cair e botou na frente do corpo. Escudo humano.
+
+Os outros ficaram perdidos. Recarregar? Não recarregar? Atirar no próprio parceiro?
+
+Enquanto eles pensavam, o Jack arremessou o escudo em cima de um deles.
+
+E jogou o cano no que já tava virando a arma pra ele. Pegou no meio do estômago. O cara dobrou.
+
+---
+
+O terceiro também tava armado.
+
+O Jack abaixou só o suficiente. Dois tiros passaram por cima.
+
+Ele girou, ficou de costas pro cara e pegou o braço armado.
+
+Torceu a mão dele pro lado que mão dobra. Só que continuou. Continuou até a mão encostar no antebraço. E quebrou.
+
+---
+
+Não soltou.
+
+Ainda de costas, puxou o cara pra perto, passou o braço por trás da cabeça dele e girou o corpo.
+
+O cara deu uma volta de cento e oitenta graus no ar e caiu de costas no chão, na frente do Jack.
+
+O Jack nem olhou pra baixo. Olhando pro lado, pisou no peito do cara.
+
+Pisou de novo.
+
+Até ouvir o estalo da costela.
+
+---
+
+Foi quando mais dois apareceram lá do fundo.
+`;export{e as default};
+//# sourceMappingURL=08-B6I3dfa1.js.map
