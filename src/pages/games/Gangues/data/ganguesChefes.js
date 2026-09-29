@@ -90,7 +90,9 @@ export const GANGUES_CHEFE_EQUIPE = {
 // pra ser ralado"). Budget recalculado pra bater Carvão=30: corpos=2,
 // liderFrac=0.60 → 50×0.60=30 (Carvão) e o resto (20) pro Sinaleiro que
 // some com ele na luta de chefe.
-export const GANGUES_CHEFE_BUDGET = { pista: 50, feira: 110, baixada: 210, vila: 345, morro: 510, alto: 606, laje: 732 }
+// Pista 48 (29/09/2026): calibrado por simulação pro teto 20 — dupla nível 20
+// com o conjunto comum vence ~60%, sem item ~30%.
+export const GANGUES_CHEFE_BUDGET = { pista: 48, feira: 110, baixada: 210, vila: 345, morro: 510, alto: 606, laje: 732 }
 // Fração do orçamento que vai pro LÍDER (o chefe em si), por território.
 // Feira (v3.65.0, PLANO_FEIRA.md §5): 110 × 0,47 → Cobrador 52 e as duas
 // escoltas (Mão do Turco e Caixa Forte) com 29 cada — o orçamento 110 que já
