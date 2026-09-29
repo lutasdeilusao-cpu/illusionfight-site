@@ -913,5 +913,202 @@
         }
       }
     ]
+  },
+  {
+    "id": "06",
+    "peso": "leve",
+    "canon": true,
+    "temas": [
+      "humor",
+      "amizade",
+      "luta"
+    ],
+    "titulo": "Inocentes Até Que se Prove o Contrário",
+    "titulo_en": "Innocent Until Proven Otherwise",
+    "titulo_es": "Inocentes Hasta Que se Demuestre lo Contrario",
+    "tagline_pt": "O Freddy tem um olho roxo e muita raiva de dois caras. O Jack jura que eles não encostaram nele.",
+    "tagline_en": "Freddy has a black eye and a lot of anger at two guys. Jack swears they never laid a finger on him.",
+    "tagline_es": "Freddy tiene un ojo morado y mucha bronca con dos tipos. Jack jura que nunca lo tocaron.",
+    "resumo_pt": "A sexta-feira antes da terça em que tudo começou: a festa do Freddy, a Jasmine, o Kim de guarda no buffet, um bolo e a joelhada que não era de ninguém. Contado pelo Jack — do jeito dele — pra Nina, no estacionamento.",
+    "resumo_en": "The Friday before the Tuesday when it all began: Freddy's party, Jasmine, Kim guarding the buffet, a cake and the knee that belonged to nobody. Told by Jack — his way — to Nina, in the parking lot.",
+    "resumo_es": "El viernes antes del martes en que todo empezó: la fiesta de Freddy, Jasmine, Kim de guardia en el buffet, una torta y el rodillazo que no era de nadie. Contado por Jack — a su manera — a Nina, en el estacionamiento.",
+    "capitulos": [
+      {
+        "id": "01",
+        "numero": 1,
+        "titulo": "Antes Que Me Acusem",
+        "titulo_en": "Before You Accuse Me",
+        "titulo_es": "Antes de que Me Acusen",
+        "resumo_pt": "O Jack avisa: ele e o Kim são inocentes. E vai contar tudo direto da fonte.",
+        "resumo_en": "Jack warns you: he and Kim are innocent. And he's telling it straight from the source.",
+        "resumo_es": "Jack avisa: él y Kim son inocentes. Y lo va a contar directo de la fuente.",
+        "liberacao": {
+          "primordial": "2026-09-29",
+          "elite": "2026-09-29",
+          "conta": "2026-09-29",
+          "publico": "2026-09-29"
+        }
+      },
+      {
+        "id": "02",
+        "numero": 2,
+        "titulo": "O Convite",
+        "titulo_en": "The Invitation",
+        "titulo_es": "La Invitación",
+        "resumo_pt": "A maior festa do ano, um convite que não existe e um parça passa-fome.",
+        "resumo_en": "The biggest party of the year, an invitation that doesn't exist and a starving sidekick.",
+        "resumo_es": "La fiesta más grande del año, una invitación que no existe y un compañero muerto de hambre.",
+        "liberacao": {
+          "primordial": "2026-09-29",
+          "elite": "2026-09-29",
+          "conta": "2026-09-29",
+          "publico": "2026-09-29"
+        }
+      },
+      {
+        "id": "03",
+        "numero": 3,
+        "titulo": "Carga e Descarga",
+        "titulo_en": "Loading Dock",
+        "titulo_es": "Carga y Descarga",
+        "resumo_pt": "Segurança na porta. O plano da caixa na cara.",
+        "resumo_en": "Security at the door. The box-in-the-face plan.",
+        "resumo_es": "Seguridad en la puerta. El plan de la caja en la cara.",
+        "liberacao": {
+          "primordial": "2026-09-29",
+          "elite": "2026-09-29",
+          "conta": "2026-09-29",
+          "publico": "2026-09-29"
+        }
+      },
+      {
+        "id": "04",
+        "numero": 4,
+        "titulo": "Jasmine",
+        "titulo_en": "Jasmine",
+        "titulo_es": "Jasmine",
+        "resumo_pt": "O Kim monta guarda no buffet. O Jack encontra uma morena com maldade no olhar.",
+        "resumo_en": "Kim stands guard at the buffet. Jack finds a girl with mischief in her eyes.",
+        "resumo_es": "Kim monta guardia en el buffet. Jack encuentra una morocha con maldad en la mirada.",
+        "liberacao": {
+          "primordial": "2026-09-29",
+          "elite": "2026-09-29",
+          "conta": "2026-09-29",
+          "publico": "2026-09-29"
+        }
+      },
+      {
+        "id": "05",
+        "numero": 5,
+        "titulo": "O Doutor Freddy",
+        "titulo_en": "Doctor Freddy",
+        "titulo_es": "El Doctor Freddy",
+        "resumo_pt": "O som para. Desce um loiro possesso com a comitiva — e a Jasmine aponta pro Jack.",
+        "resumo_en": "The music stops. A furious blond comes down with his crew — and Jasmine points at Jack.",
+        "resumo_es": "La música para. Baja un rubio furioso con su comitiva — y Jasmine señala a Jack.",
+        "liberacao": {
+          "primordial": "2026-09-29",
+          "elite": "2026-09-29",
+          "conta": "2026-09-29",
+          "publico": "2026-09-29"
+        }
+      },
+      {
+        "id": "06",
+        "numero": 6,
+        "titulo": "Consideração",
+        "titulo_en": "Consideration",
+        "titulo_es": "Consideración",
+        "resumo_pt": "Mãos no bolso, por respeito ao Freddy. Pro grandão, nenhuma consideração.",
+        "resumo_en": "Hands in pockets, out of respect for Freddy. For the big guy, no consideration at all.",
+        "resumo_es": "Manos en los bolsillos, por respeto a Freddy. Para el grandote, ninguna consideración.",
+        "liberacao": {
+          "primordial": "2026-09-29",
+          "elite": "2026-09-29",
+          "conta": "2026-09-29",
+          "publico": "2026-09-29"
+        }
+      },
+      {
+        "id": "07",
+        "numero": 7,
+        "titulo": "Inocente",
+        "titulo_en": "Innocent",
+        "titulo_es": "Inocente",
+        "resumo_pt": "O Jack atravessa o salão sem encostar no Freddy. No buffet, ninguém encosta na mesa.",
+        "resumo_en": "Jack crosses the room without touching Freddy. At the buffet, nobody touches the table.",
+        "resumo_es": "Jack cruza el salón sin tocar a Freddy. En el buffet, nadie toca la mesa.",
+        "liberacao": {
+          "primordial": "2026-09-29",
+          "elite": "2026-09-29",
+          "conta": "2026-09-29",
+          "publico": "2026-09-29"
+        }
+      },
+      {
+        "id": "08",
+        "numero": 8,
+        "titulo": "Intriga da Oposição",
+        "titulo_en": "Opposition Scheming",
+        "titulo_es": "Intriga de la Oposición",
+        "resumo_pt": "É tudo intriga da oposição. E o Kim não sai dali sem comer o bolo.",
+        "resumo_en": "It's all opposition scheming. And Kim isn't leaving without the cake.",
+        "resumo_es": "Todo es intriga de la oposición. Y Kim no se va sin comer la torta.",
+        "liberacao": {
+          "primordial": "2026-09-29",
+          "elite": "2026-09-29",
+          "conta": "2026-09-29",
+          "publico": "2026-09-29"
+        }
+      },
+      {
+        "id": "09",
+        "numero": 9,
+        "titulo": "A Cozinha",
+        "titulo_en": "The Kitchen",
+        "titulo_es": "La Cocina",
+        "resumo_pt": "Um casal na bancada, uma menina com bandeja e um pedaço generoso de bolo.",
+        "resumo_en": "A couple on the counter, a girl with a tray and a generous slice of cake.",
+        "resumo_es": "Una pareja en la mesada, una chica con una bandeja y una porción generosa de torta.",
+        "liberacao": {
+          "primordial": "2026-09-29",
+          "elite": "2026-09-29",
+          "conta": "2026-09-29",
+          "publico": "2026-09-29"
+        }
+      },
+      {
+        "id": "10",
+        "numero": 10,
+        "titulo": "O Bolo",
+        "titulo_en": "The Cake",
+        "titulo_es": "La Torta",
+        "resumo_pt": "A sirene, o bolo voando e a joelhada que não era de ninguém.",
+        "resumo_en": "The siren, the flying cake and the knee that belonged to nobody.",
+        "resumo_es": "La sirena, la torta volando y el rodillazo que no era de nadie.",
+        "liberacao": {
+          "primordial": "2026-09-29",
+          "elite": "2026-09-29",
+          "conta": "2026-09-29",
+          "publico": "2026-09-29"
+        }
+      },
+      {
+        "id": "11",
+        "numero": 11,
+        "titulo": "Versão Oficial",
+        "titulo_en": "Official Version",
+        "titulo_es": "Versión Oficial",
+        "resumo_pt": "No estacionamento, a Nina escuta tudo. O Kim discorda. O Jack fala com você.",
+        "resumo_en": "In the parking lot, Nina hears it all. Kim disagrees. Jack talks to you.",
+        "resumo_es": "En el estacionamiento, Nina escucha todo. Kim no está de acuerdo. Jack te habla a vos.",
+        "liberacao": {
+          "primordial": "2026-09-29",
+          "elite": "2026-09-29",
+          "conta": "2026-09-29",
+          "publico": "2026-09-29"
+        }
+      }
+    ]
   }
 ]
