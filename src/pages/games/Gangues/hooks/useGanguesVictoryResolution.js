@@ -47,7 +47,7 @@ export default function useGanguesVictoryResolution({ store, user, report, victo
         onNavigate('clube-sala')
         return
       }
-      store.resolverClubeDaLuta(victory, storyAlvo.clubeBase || 10, storyAlvo.clubeDividaPrevia || 0, storyAlvo.clubeHeals || 0)
+      store.resolverClubeDaLuta(victory, storyAlvo.clubeBase || 10, storyAlvo.clubeDividaPrevia || 0, storyAlvo.clubeHeals || 0, storyAlvo.voltar?.territorioId || 'pista')
       // Chip Ígneo: só na vitória da RONDA FINAL (ronda 3) — as vitórias das
       // rondas 1/2 caem no branch acima (vão pra sala do Nato) e não chegam aqui.
       if (victory) store.darItem(22, 1)

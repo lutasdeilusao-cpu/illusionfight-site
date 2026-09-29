@@ -63,9 +63,10 @@ export const GANGUES_TERRITORIOS = [
       { id: 'pista-3', gangue: 'bonde_sinal', enemy: 1301, forca: 2, dificuldade: 'facil' },
     ],
     chefe: { id: 'pista-chefe', gangue: 'rato_pista', enemy: 1500, forca: 3, boss: 'fumaca' },
-    // Teto de nível da Pista (Isaias, 28/09/2026): 25, abaixo da ficha 30 do
-    // Carvão — na simulação, no nível 30 a dupla vencia 98% sem item.
-    nivelTeto: 25,
+    // Teto de nível (escada do GDD §9.7, 29/09/2026: Pista 20, ~13 por bairro
+    // até 99). Na simulação, dupla no nível 20 com o conjunto comum vence o
+    // Carvão ~60%; sem item ~30%.
+    nivelTeto: 20,
   },
   {
     id: 'feira',
@@ -86,6 +87,7 @@ export const GANGUES_TERRITORIOS = [
       { id: 'feira-3', gangue: 'os_gato', enemy: 1204, forca: 3, pontosFixo: proximoDegrauLadder() },
     ],
     chefe: { id: 'feira-chefe', gangue: 'cobranca_turco', enemy: 1501, forca: 4, boss: 'turco' },
+    nivelTeto: 33,
   },
   {
     id: 'baixada',
@@ -100,6 +102,7 @@ export const GANGUES_TERRITORIOS = [
       { id: 'baixada-3', gangue: 'os_restos', enemy: 1405, forca: 4, pontosFixo: proximoDegrauLadder() },
     ],
     chefe: { id: 'baixada-chefe', gangue: 'sombra_fria', enemy: 1502, forca: 5, boss: 'espeto' },
+    nivelTeto: 46,
   },
   {
     id: 'vila',
@@ -114,6 +117,7 @@ export const GANGUES_TERRITORIOS = [
       { id: 'vila-3', gangue: 'os_andar_de_cima', enemy: 1407, forca: 5, pontosFixo: proximoDegrauLadder() },
     ],
     chefe: { id: 'vila-chefe', gangue: 'bonde_predio', enemy: 1503, forca: 6, boss: 'sala' },
+    nivelTeto: 59,
   },
   {
     id: 'morro',
@@ -128,6 +132,7 @@ export const GANGUES_TERRITORIOS = [
       { id: 'morro-3', gangue: 'os_fogueteiro', enemy: 1409, forca: 6, pontosFixo: proximoDegrauLadder() },
     ],
     chefe: { id: 'morro-chefe', gangue: 'frente_escada', enemy: 1504, forca: 7, boss: 'zefa' },
+    nivelTeto: 72,
   },
   {
     id: 'alto',
@@ -142,6 +147,7 @@ export const GANGUES_TERRITORIOS = [
       { id: 'alto-3', gangue: 'a_roda', enemy: 1318, forca: 8, pontosFixo: proximoDegrauLadder() },
     ],
     chefe: { id: 'alto-chefe', gangue: 'os_cinco', enemy: 1505, forca: 9, boss: 'doutor' },
+    nivelTeto: 85,
   },
   {
     id: 'laje',
@@ -156,6 +162,7 @@ export const GANGUES_TERRITORIOS = [
       { id: 'laje-3', gangue: 'bonde_costura', enemy: 1463, forca: 9, pontosFixo: proximoDegrauLadder() },
     ],
     chefe: { id: 'laje-chefe', gangue: 'bonde_costura', enemy: 1600, forca: 10, boss: 'costura', ehFinal: true },
+    nivelTeto: 99,
   },
 ]
 
@@ -220,7 +227,7 @@ export function precisaVoltarNoInformante(territorio, storyProgress = {}) {
 /** Teto de nível da área atual da história (pedido do Isaias, 28/09/2026:
  *  "você só pode upar até o level recomendado pro chefe daquela área").
  *  Área atual = 1º território (na ordem) cujo chefe ainda não caiu. O teto é
- *  `nivelTeto` do território (Pista = 25) ou, sem ele, o nível do chefe
+ *  `nivelTeto` do território (Pista = 20) ou, sem ele, o nível do chefe
  *  (`nivel` em gangues-enemies.json), sem nunca baixar entre áreas. Campanha zerada =
  *  teto do jogo (99). */
 export function nivelTetoDaHistoria(storyProgress = {}, tetoJogo = 99) {

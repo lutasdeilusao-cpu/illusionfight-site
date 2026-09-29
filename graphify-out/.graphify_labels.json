@@ -461,10 +461,7 @@
   "459": "GanguesCombat.jsx",
   "460": "GangDialog.jsx",
   "461": "GanguesCombat.jsx",
-  "462": "Phase1SheetBuilder.jsx",
-  "463": "index.js",
   "464": "useScrollPosition.js",
-  "465": "Phase2Customize.jsx",
   "466": "GanguesModes.jsx",
   "467": "Criatura.jsx",
   "468": "CascataLiberacao.jsx",
@@ -499,8 +496,6 @@
   "497": "Universo.jsx",
   "498": "useGanguesVictoryResolution.js",
   "499": "GanguesCena.jsx",
-  "500": "index.js",
-  "501": "particles.js",
   "502": "ResultCard.jsx",
   "503": "Create",
   "504": "LanguageProvider.jsx",
@@ -510,11 +505,8 @@
   "508": "GanguesCombatTopBar.jsx",
   "509": "GanguesMultidaoActionBar.jsx",
   "510": "ganguesStoryProgress.js",
-  "511": "Jokempo.jsx",
   "512": "LanguageProvider.jsx",
   "513": "GanguesStoryMap.jsx",
   "514": "Criatura.jsx",
-  "515": "15. Retratos e animação",
-  "516": "Farol.jsx",
-  "517": "drawCombatBoard"
+  "516": "Farol.jsx"
 }

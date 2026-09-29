@@ -93,7 +93,8 @@ export const GANGUES_EMPRESTIMO_NATO_VALOR = 100
 export const GANGUES_EMPRESTIMO_NATO_MULT = 10
 export const GANGUES_EMPRESTIMO_NATO_TETO = 10000
 // Prêmio fixo de cada vitória completa no Clube da Luta (3 rondas), além de quitar a dívida.
-export const GANGUES_CLUBE_PREMIO = 200
+export const GANGUES_CLUBE_PREMIO = { pista: 200, feira: 300, baixada: 450, vila: 650, morro: 900, alto: 1200, laje: 1600 }
+export const clubePremioDe = territorioId => GANGUES_CLUBE_PREMIO[territorioId] ?? GANGUES_CLUBE_PREMIO.pista
 
 
 export function getGanguesRosterLimit(tier) {

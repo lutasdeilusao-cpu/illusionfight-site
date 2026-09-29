@@ -142,13 +142,16 @@ export function calcularPesosEParticipantes({ victory, report, match }) {
  *  não só o Carvão da Pista — hoje é o único chefe que passa por aqui (os
  *  outros 6 territórios ainda usam a trilha antiga), mas a régua já nasce
  *  genérica pra quando eles também ganharem chefe de verdade. */
-const GANGUES_GRANA_POR_INIMIGO = 10
-// Grana mínima do chefe por território (Carvão 500 → 250, 29/09/2026: sozinho
-// valia mais que a Pista inteira). Sem entrada = 500.
-const GANGUES_GRANA_CHEFE_MINIMO = { pista: 250 }
+// Grana por bairro (GDD §9.7, 29/09/2026): sem escalar, as peças do fim
+// ficam impossíveis de comprar.
+const GANGUES_GRANA_POR_INIMIGO = { pista: 10, feira: 15, baixada: 20, vila: 30, morro: 40, alto: 55, laje: 75 }
+const GANGUES_GRANA_POR_INIMIGO_PADRAO = 10
+// Grana mínima do chefe por território (Carvão 250 — sozinho valia mais que a
+// Pista inteira; o resto escala, GDD §9.7). Sem entrada = 500.
+const GANGUES_GRANA_CHEFE_MINIMO = { pista: 250, feira: 500, baixada: 800, vila: 1200, morro: 1700, alto: 2300, laje: 3000 }
 const GANGUES_GRANA_CHEFE_PADRAO = 500
 export function calcularGranaTotal({ enemyCount = 1, ehChefe = false, territorioId = null }) {
-  const base = GANGUES_GRANA_POR_INIMIGO * Math.max(1, enemyCount)
+  const base = (GANGUES_GRANA_POR_INIMIGO[territorioId] ?? GANGUES_GRANA_POR_INIMIGO_PADRAO) * Math.max(1, enemyCount)
   return ehChefe ? Math.max(GANGUES_GRANA_CHEFE_MINIMO[territorioId] ?? GANGUES_GRANA_CHEFE_PADRAO, base) : base
 }
 

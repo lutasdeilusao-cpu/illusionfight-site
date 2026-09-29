@@ -24,7 +24,7 @@ Grafia oficial: **Marélia** com acento (o conto usa assim). O i18n do jogo aind
 tem "Marelia" sem acento em vários lugares — alinhar quando mexer em texto.
 
 > **Última revisão geral: 28/09/2026 — conferido contra o código de
-> GANGUES 3.67.0.** Nesta revisão saiu tudo que era histórico sem uso
+> GANGUES 3.68.0.** Nesta revisão saiu tudo que era histórico sem uso
 > (crosswalk string→id, Ranking Clandestino, narrativa de bug já corrigido,
 > atributos A/H/R/D antigos, NeoGuide) e entrou o que só existia no código:
 > sistema do Pique (linha do tempo com raias), encontro aleatório com sirene,
@@ -1277,10 +1277,18 @@ o conjunto do time todo passa a custar 1,5× a 4× a passada — o resto vem do
 Clube e das apostas, de propósito. O teto de aposta da Banca também deve
 subir por bairro (hoje só sobe pela Rep).
 
-**Próximo passo na Pista (aprovado, ainda NÃO feito):** baixar o teto de 25
-pra 20 e reajustar a ladder da rua (hoje chega a 26 no pós-muro) e o Carvão
-(ficha 30) pra caber: calibrar por simulação até a dupla no nível 20 com o
-conjunto comum vencer o Carvão ~50% das vezes.
+**Aplicado no código (v3.68.0):** teto de todos os bairros (`nivelTeto` em
+`ganguesTerritorios.js`), nível de fachada dos chefes (Carvão 29 · Cobrador 33
+· Fura-Bucho 46 · Ferrugem 59 · Zefa 72 · Contador 85 · Retalho 100), grana
+por inimigo e mínimo do chefe por bairro (`ganguesVictoryResolver.js`) e
+prêmio do Clube por bairro (`clubePremioDe`). **Pista no teto 20:** a ladder
+da rua é em PONTOS de ficha (nível 20 ≈ 27 pontos), então a rua (até 26)
+continua cabendo; o Carvão caiu de orçamento 50 pra **48** (ficha ~29 +
+escolta ~19), calibrado por simulação (dupla nível 20, 80–150 lutas por
+cenário): com o conjunto comum vence ~60% (Trinca+Muro 59%, Trinca+Faísca 95%,
+Muro+Faísca 34%), sem item ~30%. A curva é íngreme: com 50 caía pra ~18% mesmo
+equipado. Os orçamentos de chefe dos outros 6 bairros ainda são da calibragem
+antiga — recalibrar pelo teto novo quando cada um ganhar cena.
 
 ## 10. Conto 02 — sinopse canônica ("Alan, o Campeão")
 
@@ -1360,17 +1368,17 @@ Reserva: cada faixa comporta crescer até ~99 sem remapear.
   assinatura liberam **devagar** (níveis 4 / 12 / 24 / 40) e sobem de rank
   (→2 nos níveis 52–70, →3 nos 78–96). PV/PM sobem pela taxa do caminho.
   `GANGUES_LEVEL_CAP = 99`.
-- **Escada de nível dos 7 chefes** (nível de fachada no catálogo): **Pista 30 ·
-  Feira 28 · Baixada 42 · Vila 56 · Morro 70 · Alto 84 · Laje 100 (o Retalho)**.
+- **Escada de nível dos 7 chefes** (nível de fachada no catálogo): **Pista 29 ·
+  Feira 33 · Baixada 46 · Vila 59 · Morro 72 · Alto 85 · Laje 100 (o Retalho)**
+  (escada da §9.7).
   Os chefes usam **orçamento de pontos FIXO** (`GANGUES_CHEFE_BUDGET` em
   `data/ganguesEncontros.js`, nunca escala com o jogador):
-  `{pista:50, feira:110, baixada:210, vila:345, morro:510, alto:606, laje:732}`.
+  `{pista:48, feira:110, baixada:210, vila:345, morro:510, alto:606, laje:732}`.
   **Pista:** 2 corpos (`GANGUES_CHEFE_CORPOS.pista`), líder leva 60%
-  (`GANGUES_CHEFE_LIDER_FRAC`) → **Carvão com ficha 30 + 1 escolta com 20**;
-  `chefe.nivelRec` = 30. O Carvão quebra de propósito a escada de 3 em 3 da
+  (`GANGUES_CHEFE_LIDER_FRAC`) → **Carvão com ficha ~29 + 1 escolta com ~19**
+  (orçamento 48); `chefe.nivelRec` = 20. O Carvão quebra de propósito a escada de 3 em 3 da
   rua (§17.6) — "pra ser ralado". Os outros 6 budgets são da calibragem antiga
-  e serão revistos quando cada bairro ganhar cena (a Feira, com 28, hoje fica
-  abaixo da Pista). AP por inimigo = **10 fixo em qualquer modo**.
+  e serão revistos pelo teto novo (§9.7) quando cada bairro ganhar cena. AP por inimigo = **10 fixo em qualquer modo**.
   **O Retalho é o único nível 100 do jogo.**
 - **Estrutura de cada chefe** (só a Pista existe hoje; o resto é **planejado**):
   | # | Bairro | Estrutura |
@@ -1662,8 +1670,8 @@ Fonte única da mecânica, conferida contra o código.
 - **Teto de nível por área** (`nivelTetoDaHistoria` em
   `ganguesTerritorios.js`, aplicado em `addGanguesAp`): o personagem só sobe
   até o teto da área atual (a 1ª cujo chefe não caiu): `nivelTeto` do
-  território ou, sem ele, o nível do chefe. **Pista = 25** (o Carvão tem ficha
-  30 — na simulação, no nível 30 a dupla vencia 98% sem item). No teto o AP não acumula e a tela de vitória avisa "nível máximo
+  território ou, sem ele, o nível do chefe. **Pista 20 · Feira 33 · Baixada 46
+  · Vila 59 · Morro 72 · Alto 85 · Laje 99** (§9.7). No teto o AP não acumula e a tela de vitória avisa "nível máximo
   da área". Nunca baixa entre áreas; campanha zerada libera até 99.
 - **Nível teto: 99** (`GANGUES_LEVEL_CAP`). Níveis 1–10 são estatísticas
   autoradas à mão; 11–99 crescem +1 ponto por nível seguindo o
@@ -1882,9 +1890,10 @@ da birosca**, na mesa da direita.
   pesa 3, a 2ª faixa pesa 2, o resto 1; empatados ficam na mesma faixa. Na
   derrota todo mundo pesa igual.
 - **Grana da vitória** (`calcularGranaTotal`): **10 por inimigo
-  derrotado** (inclusive nas tretas repetíveis — decisão do Isaias, 29/09);
-  chefe garante um mínimo por território (`GANGUES_GRANA_CHEFE_MINIMO`:
-  **Carvão 250**, os demais 500). POI com `semGrana: true`
+  derrotado na Pista**, escalando por bairro (15 · 20 · 30 · 40 · 55 · 75 —
+  §9.7), inclusive nas tretas repetíveis (decisão do Isaias, 29/09); chefe
+  garante um mínimo por território (`GANGUES_GRANA_CHEFE_MINIMO`: Carvão 250,
+  depois 500 · 800 · 1.200 · 1.700 · 2.300 · 3.000). POI com `semGrana: true`
   (hoje só a **rinha**) não paga grana, só XP. Substituiu a grana autorada
   por POI — a Rep continua autorada por POI.
 - **Marcos de reputação:** a cada 50 de Rep acumulada, a gangue ganha um chip
@@ -2002,7 +2011,7 @@ bairro). Os dois formatos usam o MESMO sistema de pontos fixos.
   | galpão `m1` | 6 por corpo + 40% do time, 3–5 corpos | rev, bando | passagem |
   | galpão `m2` (1301) | 22 divididos em 3–5 corpos, Rep 25 | bando fixo | passagem |
   | encontro aleatório (perseguidor) | ~ficha do seu mais forte, mín. 2 corpos | rev, `baseMaisForte` | não |
-  | **Carvão** (chefe) | **30** + escolta 20 | chefe fixo | — |
+  | **Carvão** (chefe) | **~29** + escolta ~19 (orçamento 48) | chefe fixo | — |
 
   A dificuldade soma ou tira 2 de cada número (fácil −2, médio 0,
   difícil +2).

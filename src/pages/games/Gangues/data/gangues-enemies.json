@@ -5263,7 +5263,7 @@
       "faccaoId": 101,
       "territorioId": 1
     },
-    "nivel": 30
+    "nivel": 29
   },
   {
     "id": 1501,
@@ -5321,7 +5321,7 @@
       "faccaoId": 103,
       "territorioId": 2
     },
-    "nivel": 28
+    "nivel": 33
   },
   {
     "id": 1502,
@@ -5379,7 +5379,7 @@
       "faccaoId": 105,
       "territorioId": 3
     },
-    "nivel": 42
+    "nivel": 46
   },
   {
     "id": 1503,
@@ -5437,7 +5437,7 @@
       "faccaoId": 108,
       "territorioId": 4
     },
-    "nivel": 56
+    "nivel": 59
   },
   {
     "id": 1504,
@@ -5495,7 +5495,7 @@
       "faccaoId": 110,
       "territorioId": 5
     },
-    "nivel": 70
+    "nivel": 72
   },
   {
     "id": 1505,
@@ -5553,7 +5553,7 @@
       "faccaoId": 112,
       "territorioId": 6
     },
-    "nivel": 84
+    "nivel": 85
   },
   {
     "id": 1600,
