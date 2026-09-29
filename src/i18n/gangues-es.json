@@ -439,24 +439,8 @@
           "236": "Ojo Turco",
           "237": "Manopla de Lata",
           "238": "Gorra Callejera",
-          "121": "Gorra Callejera",
-          "122": "Pasamontañas de Tela",
-          "123": "Chaqueta de Banda",
-          "124": "Manto de Sintonía",
-          "125": "Guantelete de Clavos",
-          "126": "Chancla Reforzada",
-          "127": "Cadena de Oro Falso",
-          "128": "Rosario de la Abuela",
-          "129": "Machete de Mango con Cinta",
-          "130": "Pincho de Reja",
-          "131": "Bastón de Señalero",
           "138": "Garrote del Cobrador",
-          "139": "Machete de Carvão",
-          "140": "Chanclas",
-          "141": "Reloj Parado",
-          "142": "Zapatillas de Correr",
-          "143": "Cinta del Bonfim",
-          "144": "Colgante de Ala"
+          "139": "Machete de Carvão"
         },
         "sem_caminho": "Nadie de tu banda es de este camino.",
         "qualquer_caminho": "Cualquier camino",
@@ -518,11 +502,11 @@
           "El último en pie sos vos. Lo vio toda la rueda.",
           "El Nato entra pisando fuerte, agarra la libreta y la rompe hoja por hoja en tu cara.",
           "«Estás limpio conmigo. Rajá.»",
-          "Te vendan de nuevo. Despertás en una esquina cualquiera de la Pista — el cuerpo doliendo, el nombre en cero."
+          "Y encima te cuenta {premio} en la mano. Te vendan de nuevo. Despertás en una esquina cualquiera de la Pista — el cuerpo doliendo, el nombre en cero."
         ],
         "venceu_blocos_grana": [
           "El último en pie sos vos.",
-          "El Nato te cuenta doscientos en la mano. Seco, sin mirarte a la cara.",
+          "El Nato te cuenta {premio} en la mano. Seco, sin mirarte a la cara.",
           "«Negocio es negocio.»",
           "No te llevaste nada más — de la rueda nadie sale más listo, solo más marcado. Te vendan, te tiran en la Pista con el bolsillo pesado."
         ],

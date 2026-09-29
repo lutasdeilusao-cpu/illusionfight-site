@@ -383,8 +383,8 @@ de lona espalhadas. Tudo que era chumbado da Pista virou dado da cena (`ruas`,
   (35, 1ª vitória dá uma válvula) → O Caderneta (35, fixo; **+1 Malícia contra
   quem deve**) → **Rádio do Toninho** (fetch quest: 1 fio de cobre + 3
   válvulas; conserta e revela a Mão do Turco e o rádio pirata) → **Mão do
-  Turco** (38, General fixo, 1ª vitória dá o Pingente de Asa 144) → **Caixa
-  Forte** (41, General fixo, **grana ×2**, 1ª vitória dá a Armadura de Rua 111).
+  Turco** (38, General fixo, 1ª vitória dá o Olho Grego 236) → **Caixa
+  Forte** (41, General fixo, **grana ×2**, 1ª vitória dá o Colete de Placa 221).
 - **Lado apagado:** depósito 1 (44) e depósito 2 (47, **Rep 60**) guardam o
   **Mercadão** — a dungeon final é um **labirinto de barracas** (v3.66.0,
   pedido do Isaias: "um mini labirinto com as barraquinhas... umas seis ou
@@ -412,7 +412,7 @@ de lona espalhadas. Tudo que era chumbado da Pista virou dado da cena (`ruas`,
   (agiota: empréstimo de **300**, mesma caderneta global do Marimbondo — os
   textos da agiotagem usam `{agiota}`) · **Rinha de Apostas** (aposta 0/50/100/
   200 antes da luta, volta em dobro) · Mercearia do Seu Aziz (lado apagado,
-  incomuns e raros) · **Serralheria do Bigode** (aprimora até **+4**) · rádio
+  o equipamento INCOMUM dos 3 caminhos — §9.7) · **Serralheria do Bigode** (aprimora até **+4**) · rádio
   pirata (informante da Baixada).
 - **Encontro aleatório:** os 4 da Pista + **o Rapa** (laranja; se ganhar de
   você leva 1 consumível) + **o Apagão** (só no lado escuro, Os Gato no breu)
@@ -660,36 +660,36 @@ fixo do bairro (`GANGUES_CHEFE_BUDGET`, §12) — na Pista o Carvão luta com
 ficha 30.
 
 ### 1500 · Carvão — Chefe da Pista
-Facção: Rato de Pista (101) · Arma: facão · Stats: Porrada 6 · Pique 1 · Couro 2 · Osso 3 · Malandragem 1 (nível de fachada 30).
+Facção: Rato de Pista (101) · Arma: facão · Stats: Porrada 6 · Pique 1 · Couro 2 · Osso 3 · Malandragem 1 (nível de fachada 29).
 Fala: *"Cê é ligeiro? Eu sou fumaça, cria. Pisca que eu sumo — e cê apanha no
 escuro."* Some no meio da rua, ataca no escuro. Só desce pra encarar quando a
 Pista inteira já conhece o nome da sua gangue.
 
 ### 1501 · O Cobrador — Chefe da Feira
-Facção: Acerto de Contas (103) · Arma: porrete · Stats: Porrada 2 · Pique 2 · Couro 6 · Osso 4 · Malandragem 1 (nível de fachada 28).
+Facção: Acerto de Contas (103) · Arma: porrete · Stats: Porrada 2 · Pique 2 · Couro 6 · Osso 4 · Malandragem 1 (nível de fachada 33).
 Fala: *"Marélia inteira me deve. Agora a {suaGangue} também. Aqui quem não paga
 em dinheiro, paga no osso."* Anota tudo, cobra tudo. Bate no braço antes de bater
 na cara.
 
 ### 1502 · Fura-Bucho — Chefe da Baixada
-Facção: os três cacos, temporariamente unidos sob ele · Arma: espeto · Stats: Porrada 2 · Pique 2 · Couro 7 · Osso 5 · Malandragem 2 (nível de fachada 42).
+Facção: os três cacos, temporariamente unidos sob ele · Arma: espeto · Stats: Porrada 2 · Pique 2 · Couro 7 · Osso 5 · Malandragem 2 (nível de fachada 46).
 Fala: *"A Baixada é minha desde que o Sombra caiu no valão. Cê tomou meus ponto?
 Vem tomar o resto."* Segura os três cacos numa lealdade frágil.
 
 ### 1503 · Ferrugem — Chefe da Vila
-Facção: Bonde dos Prédio (108) · Arma: taco · Stats: Porrada 2 · Pique 3 · Couro 7 · Osso 5 · Malandragem 2 (nível de fachada 56).
+Facção: Bonde dos Prédio (108) · Arma: taco · Stats: Porrada 2 · Pique 3 · Couro 7 · Osso 5 · Malandragem 2 (nível de fachada 59).
 Fala: *"Subiu os dez andar só pra apanhar no último? Respeito a disposição. Não
 muda merda nenhuma."* Mora no último dos dez andares — a exaustão é a arma dele
 antes da porrada.
 
 ### 1504 · A Fera / Zefa — Chefe do Morro
-Facção: Frente da Escada (110) · Arma: vara · Stats: Porrada 8 · Pique 3 · Couro 8 · Osso 7 · Malandragem 9 (nível de fachada 70).
+Facção: Frente da Escada (110) · Arma: vara · Stats: Porrada 8 · Pique 3 · Couro 8 · Osso 7 · Malandragem 9 (nível de fachada 72).
 Fala: *"Eu criei metade da criançada que a {suaGangue} bateu pra chegar aqui.
 Senta aí. O teu castigo vai demorar."* Sabe exatamente onde bater pra doer sem
 machucar de verdade — a única chefe tratada como figura materna da quebrada.
 
 ### 1505 · O Contador — Chefe do Alto do Morro
-Facção: A Roda (113) / Os Cinco (112) · Arma: bengala · Stats: Porrada 10 · Pique 6 · Couro 9 · Osso 9 · Malandragem 10 (nível de fachada 84).
+Facção: A Roda (113) / Os Cinco (112) · Arma: bengala · Stats: Porrada 10 · Pique 6 · Couro 9 · Osso 9 · Malandragem 10 (nível de fachada 85).
 Fala: *"Cê tem dois lutador. Eu tenho o Alto do Morro inteiro devendo favor. Faz
 a conta e vai embora."* Não briga por raiva, briga porque a conta fecha assim.
 
@@ -1254,12 +1254,12 @@ Osso/Malandragem (PV/PM) continuam **fixos** (`+6 PV`).
 - **Sucata virou recurso:** além do ferro-velho, cai em **~20% das vitórias de
   rua** na cena (não no chefe) e aparece no painel de recompensa.
 
-**Fontes dos raros** (antes nenhum tinha fonte): Cano de Ferro (103) na 1ª
-vitória sobre o Cão Louco (`posmuro_2`, `recompensa.equipPrimeiraVez`), Bota
-com Biqueira (117) no corre do Nato (`recompensa.equip`), Manto com Capuz (110)
-e Dente de Ouro (119) na loja da Pista. Na Feira (v3.65.0): Coroa (106) e
-Braçadeira (114) na Mercearia do Aziz, Armadura de Rua (111) na 1ª vitória
-sobre o Caixa Forte, Medalha de Santa (120) no achado do Mercadão.
+**Fontes de peça fora da loja** (depois do merge, 29/09/2026): Soqueira de
+Ferro (207) na 1ª vitória sobre o Cão Louco (`posmuro_2`), Bota com Biqueira
+(223) no corre do Nato, Soqueira de Lata (237) na oficina do Nando; na Feira,
+Colete de Placa (221) no Caixa Forte, Olho Grego (236) no Mão do Turco e Dente
+de Ouro (212) no achado do Mercadão. Épicos de chefe: Facão do Carvão (139) e
+Porrete do Cobrador (138).
 
 
 ### 9.5 Épicos — drop de chefe (faixa 132+)

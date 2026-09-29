@@ -138,7 +138,7 @@ export const POIS_PISTA = [
     // Corre opcional, primeira vez do jogador com stealth: grade 5×5, só 2
     // câmeras de alcance 1, sem timer. Falhar aqui só custa fôlego.
     puzzle: { type: 'stealth', config: { size: 5, cameraCount: 2, visionRange: 1, hasTimer: false }, skin: 'viatura' },
-    // + a Bota com Biqueira (117, raro de Pique) — os raros não tinham fonte
+    // + a Bota com Biqueira (223, incomum do Paredão) — as peças não tinham fonte
     // nenhuma no jogo (PLANO_ITENS_RANGE.md §6). O corre só se faz 1 vez.
     recompensa: { grana: 16, rep: 2, equip: 223 },
   },
@@ -250,15 +250,9 @@ export const POIS_PISTA = [
     visivel: false,
     pos_portao: true,
     i18n: 'games.gangues.cena.pista.loja',
-    // Catálogo final da Pista (ids numéricos — consumível 1–99 em
-    // data/ganguesItens.js, equipamento 101+ em data/ganguesEquip.js):
-    //  1/2   poção HP / MP
-    //  comum, 1 por slot: 101 soqueira · 104 gorro · 107/108 colete PV/PM
-    //                     · 112 luva · 115 tênis · 118 corrente
-    //  incomum ("junta grana"): 102 faca · 105 capacete · 109 colete placa
-    //                           · 113 manopla · 116 coturno
-    // Catálogo por caminho (ganguesEquip.js): só o COMUM (29/09/2026): cada território vende a sua faixa, sem repetir —
-    // o incomum fica pra loja da Feira quando ela ganhar cena.
+    // Loja da Pista (GDD §9.7): poções, remédios de status (30–39) e só o
+    // equipamento COMUM dos 3 caminhos + o boné livre. O incomum é da loja da
+    // Feira — cada território vende a sua faixa, sem repetir.
     itens: [1, 2, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 201, 202, 203, 204, 205, 206, 213, 214, 215, 216, 217, 218, 225, 226, 227, 228, 229, 230, 238],
   },
   {
@@ -419,7 +413,7 @@ export const POIS_PISTA = [
     // da rua — não trava o Sinaleiro/Rasteira Velha (progressão obrigatória).
     repGate: GANGUES_REP_GATE_GALPAO,
     revezamento: { pool: PISTA_POOL_GALPAO, budgetPorCorpo: 26, chanceDupla: 0.6 },
-    // `equipPrimeiraVez`: o Cano de Ferro (103, raro) só na 1ª vitória — é
+    // `equipPrimeiraVez`: a Soqueira de Ferro (207, incomum) só na 1ª vitória — é
     // treta repetível, o chip continua saindo em toda vitória.
     recompensa: { rep: 4, item: 21, qtd: 1, equipPrimeiraVez: 207 },
   },

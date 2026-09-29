@@ -3,7 +3,7 @@ import { GANGUES_STATUS } from '../../engine/ganguesStatus.js'
 import { useState } from 'react'
 import { sfx } from '../../../../../lib/sfx'
 import { GANGUES_STORY_BATTLE_PARTY_MAX, getGanguesResources } from '../../data/ganguesLoadout.js'
-import { getGanguesAttributesWithEquip, applyGanguesEquipResources, getGanguesEquip } from '../../data/ganguesEquip.js'
+import { getGanguesAttributesWithEquip, applyGanguesEquipResources, getGanguesEquip, podeEquiparGangues } from '../../data/ganguesEquip.js'
 import { GANGUES_ITENS_LISTA, textoEfeitoItem } from '../../data/ganguesItens.js'
 
 // Bolsa da gangue — o que o bando tem de item (consumível + equipamento
@@ -99,7 +99,7 @@ export default function GanguesCenaBagSheet({ store, t, onClose }) {
       ))}</div>
       {equipando && <div className="gang-bag-alvos">
         <small>{t('games.gangues.bag.equipar_em', { item: t(equipando.def.nome), slot: t(`games.gangues.equip.slots.${equipando.def.slot}`) })}</small>
-        {timeEquip.map(m => {
+        {timeEquip.filter(m => podeEquiparGangues(equipando.def, m)).map(m => {
           const noSlot = m.attributes?.equipment?.[equipando.def.slot]
           const defAtual = noSlot && getGanguesEquip(noSlot.itemId)
           const jaEssa = noSlot && noSlot.itemId === equipando.def.id

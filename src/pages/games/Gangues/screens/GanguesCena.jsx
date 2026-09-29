@@ -269,9 +269,8 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
   }
   // Aceitou o Clube da Luta com o agiota: a entrada já fia 15× e cura a
   // tropa, e o jogador é vendado e levado pra roda (fase 'clube' →
-  // sequestro → combate). `clubeDividaPrevia` = dívida ANTES da entrada —
-  // decide se a vitória paga os 200 de grana (entrou limpo) ou só quita a
-  // dívida.
+  // sequestro → combate). `clubeDividaPrevia` = dívida ANTES da entrada (a
+  // vitória quita a dívida e paga o prêmio do bairro, ver clubePremioDe).
   //
   // `gratis` (Isaias, 21/09/2026: "chegou em 10.000, ele não vai nem te
   // cobrar, ele vai te remendar, só que já vai te jogar pro Clube da Luta") —
@@ -364,7 +363,7 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
     const apostaValor = Number(typeof aposta === 'object' ? aposta?.valor : aposta) || 0
     const apostaMult = (typeof aposta === 'object' && aposta?.mult) || 2
     if (apostaValor > 0 && !store.gastarGrana(apostaValor)) return
-    store.setStoryTarget({ ajusteInimigo, aposta: apostaValor, apostaMult, rinha: Boolean(poi.rinhaInfinita && !viraTreta), territorioId: terr.id, cenaId: cena.id, cenaPoiId: poi.id, cenaRevela: viraTreta ? (revela || []) : (poi.revela || []), cenaRecompensa: viraTreta ? (viraTreta.recompensa || null) : poi.recompensa || null, cenaSemTravar: Boolean(viraTreta?.semTravar), pontoIds: terr.pontos.map(p => p.id), noId: chefe ? cena.chefe.poiNo : null, enemyId: viraTreta ? viraTreta.enemy : poi.enemy, fixo: Boolean(viraTreta) || Boolean(poi.fixo), liderFixo: (viraTreta || poi.fixo) ? null : poi.liderFixo, moldesPool: viraTreta ? null : poi.moldesPool, revezamento: viraTreta ? (viraTreta.revezamento || null) : poi.revezamento, isChefe: chefe, repDelta: viraTreta?.rep || 0, pontosFixos: pontosFixo, qtdMin: viraTreta ? null : (poi.qtdMin ?? null), qtdMax: viraTreta ? null : (poi.qtdMax ?? null) })
+    store.setStoryTarget({ ajusteInimigo, aposta: apostaValor, apostaMult, rinha: Boolean(poi.rinhaInfinita && !viraTreta), semGrana: !viraTreta && Boolean(poi.semGrana), territorioId: terr.id, cenaId: cena.id, cenaPoiId: poi.id, cenaRevela: viraTreta ? (revela || []) : (poi.revela || []), cenaRecompensa: viraTreta ? (viraTreta.recompensa || null) : poi.recompensa || null, cenaSemTravar: Boolean(viraTreta?.semTravar), pontoIds: terr.pontos.map(p => p.id), noId: chefe ? cena.chefe.poiNo : null, enemyId: viraTreta ? viraTreta.enemy : poi.enemy, fixo: Boolean(viraTreta) || Boolean(poi.fixo), liderFixo: (viraTreta || poi.fixo) ? null : poi.liderFixo, moldesPool: viraTreta ? null : poi.moldesPool, revezamento: viraTreta ? (viraTreta.revezamento || null) : poi.revezamento, isChefe: chefe, repDelta: viraTreta?.rep || 0, pontosFixos: pontosFixo, qtdMin: viraTreta ? null : (poi.qtdMin ?? null), qtdMax: viraTreta ? null : (poi.qtdMax ?? null) })
     onNavigate('story-combat')
   }
   const resolver = res => {

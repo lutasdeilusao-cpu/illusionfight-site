@@ -115,7 +115,7 @@ export const POIS_FEIRA = [
   },
   {
     // General 2 — o cofre da Feira: vencer DOBRA a grana da luta, e a 1ª
-    // vitória rende a Armadura de Rua (111, raro).
+    // vitória rende o Colete de Placa (221, incomum do Paredão).
     id: 'caixa_forte',
     tipo: 'treta',
     nivelRec: 41,

@@ -439,24 +439,8 @@
           "236": "Olho Grego",
           "237": "Soqueira de Lata",
           "238": "Boné Vira-Lata",
-          "121": "Boné Vira-Lata",
-          "122": "Balaclava de Pano",
-          "123": "Jaqueta de Bonde",
-          "124": "Manto de Sintonia",
-          "125": "Manopla de Prego",
-          "126": "Chinelo Reforçado",
-          "127": "Corrente de Ouro Falso",
-          "128": "Terço de Vó",
-          "129": "Facão de Cabo Fita",
-          "130": "Espeto de Grade",
-          "131": "Bastão de Sinaleiro",
           "138": "Porrete do Cobrador",
-          "139": "Facão do Carvão",
-          "140": "Chinelo de Dedo",
-          "141": "Relógio Parado",
-          "142": "Tênis de Corrida",
-          "143": "Fita do Bonfim",
-          "144": "Pingente de Asa"
+          "139": "Facão do Carvão"
         },
         "sem_caminho": "Ninguém do teu elenco é desse caminho.",
         "qualquer_caminho": "Qualquer caminho",
@@ -518,11 +502,11 @@
           "Última em pé é você. A roda inteira viu.",
           "O Nato entra pisando forte, pega a caderneta e rasga folha por folha na tua cara.",
           "«Tá limpo comigo. Some.»",
-          "Te vendam de novo. Acorda numa esquina qualquer da Pista — corpo doendo, nome zerado."
+          "E ainda te conta {premio} na mão. Te vendam de novo. Acorda numa esquina qualquer da Pista — corpo doendo, nome zerado."
         ],
         "venceu_blocos_grana": [
           "Última em pé é você.",
-          "O Nato conta duzentão na tua mão. Seco, sem te olhar na cara.",
+          "O Nato conta {premio} na tua mão. Seco, sem te olhar na cara.",
           "«Negócio é negócio.»",
           "Não levou mais nada — na roda ninguém sai mais esperto, só mais marcado. Te vendam, te largam na Pista com o bolso pesado."
         ],

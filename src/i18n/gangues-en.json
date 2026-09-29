@@ -439,24 +439,8 @@
           "236": "Evil Eye",
           "237": "Tin Knuckles",
           "238": "Stray Cap",
-          "121": "Stray Cap",
-          "122": "Cloth Balaclava",
-          "123": "Crew Jacket",
-          "124": "Tuned-In Cloak",
-          "125": "Nail Gauntlet",
-          "126": "Reinforced Flip-Flop",
-          "127": "Fake Gold Chain",
-          "128": "Grandma's Rosary",
-          "129": "Tape-Handle Machete",
-          "130": "Fence-Spike Shank",
-          "131": "Flagman's Baton",
           "138": "Collector's Club",
-          "139": "Carvão's Machete",
-          "140": "Flip-Flops",
-          "141": "Stopped Watch",
-          "142": "Running Shoes",
-          "143": "Bonfim Ribbon",
-          "144": "Wing Pendant"
+          "139": "Carvão's Machete"
         },
         "sem_caminho": "Nobody in your crew walks this path.",
         "qualquer_caminho": "Any path",
@@ -518,11 +502,11 @@
           "Last one standing is you. The whole pit saw it.",
           "Nato walks in hard, takes the book and tears it page by page in your face.",
           "«You're clean with me. Get lost.»",
-          "They blindfold you again. You wake up on some corner of the Strip — body aching, name back to zero."
+          "Then he counts {premio} into your hand. They blindfold you again. You wake up on some corner of the Strip — body aching, name back to zero."
         ],
         "venceu_blocos_grana": [
           "Last one standing is you.",
-          "Nato counts two hundred into your hand. Dry, without looking at you.",
+          "Nato counts {premio} into your hand. Dry, without looking at you.",
           "«Business is business.»",
           "You got nothing else — nobody leaves the pit smarter, just more marked up. They blindfold you, dump you on the Strip with a heavy pocket."
         ],

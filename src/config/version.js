@@ -8,13 +8,13 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.308.2' // docs: regra SEMPRE NA MAIN no AGENTS.md (antes: compilado das histórias em MD)
+export const SITE_VERSION = '10.308.3' // chore(gangues): revisão pós-merge — lixo e o que o merge engoliu
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.2' // fix: aba "stories" do rodape mostrava a chave crua pp.menu.pistas_label (nao existia) -> aponta pra pp.dossier.pistas_label; PuzzleWrapper mostrava pp.puzzle.nenhum/instrucao (nao existiam) -> pp.local.puzzle_nenhum/instrucao; confirm() de deletar save mostrava pp.menu.deletar_slot cru -> chave criada nos 3 idiomas.
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
 export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
-export const GANGUES_VERSION   = '3.78.0' // merge da branch da Feira (v3.77.0: Feira jogável, Mercadão, farm em 2º plano, rinha infinita, briga automática, menu de ação, faixa + aprimoramento + ferreiro, Clube como módulo) com a main (v3.68.0: status, personas, catálogo por caminho, apostas, escada de nível) — nos choques vale a main; peças por caminho ganharam faixa pra o aprimoramento valer
+export const GANGUES_VERSION   = '3.78.1' // revisão pós-merge: rinha volta a não dar grana (o semGrana tinha sumido na montagem da luta), tela do Clube mostra o prêmio do bairro também pra quem entrou devendo, bolsa só oferece equipar em quem pode usar a peça, 16 nomes de peça órfãos saem da tradução, comentários e GDD sem citar peça que não existe — antes: merge da branch da Feira (v3.77.0: Feira jogável, Mercadão, farm em 2º plano, rinha infinita, briga automática, menu de ação, faixa + aprimoramento + ferreiro, Clube como módulo) com a main (v3.68.0: status, personas, catálogo por caminho, apostas, escada de nível) — nos choques vale a main; peças por caminho ganharam faixa pra o aprimoramento valer
 
 export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio

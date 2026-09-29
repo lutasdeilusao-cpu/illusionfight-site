@@ -7,6 +7,7 @@ import useGanguesVictoryResolution from '../hooks/useGanguesVictoryResolution.js
 import GanguesVictoryFinal from './GanguesVictoryFinal'
 import GanguesVictoryReport from './GanguesVictoryReport'
 import GanguesClubeResultado from '../clube/GanguesClubeResultado'
+import { clubePremioDe } from '../data/ganguesLoadout.js'
 import './GanguesProgressionFlow.css'
 
 // Orquestrador: decide qual das 3 telas finais mostrar (Clube da Luta,
@@ -43,8 +44,8 @@ export default function GanguesVictory({ onNavigate }) {
   })
 
   // ── Clube da Luta — desfecho do gauntlet (ou derrota). Tela própria, épica. ──
-  //  vitória LIMPA (sem dívida prévia e sem ajeites) = 200 de grana na mão;
-  //  senão = quita a dívida. derrota = te remendam e te largam.
+  //  vitória = quita a dívida (se tinha) e paga o prêmio do bairro
+  //  (clubePremioDe); derrota = te remendam e te largam.
   if (clube) {
     // venceu ronda 1/2 → o hook já aplicou o dano persistente e mandou pra
     // 'clube-sala' (ver useGanguesVictoryResolution); não pisca a tela de
@@ -61,6 +62,7 @@ export default function GanguesVictory({ onNavigate }) {
       <GanguesClubeResultado
         modo={victory ? 'vitoria' : 'derrota'}
         entrouLimpo={entrouLimpo}
+        premio={clubePremioDe(storyAlvo?.voltar?.territorioId || 'pista')}
         divida={Math.round(store.storyProgress?.__birosca?.divida || 0)}
         onVoltar={voltar}
       />

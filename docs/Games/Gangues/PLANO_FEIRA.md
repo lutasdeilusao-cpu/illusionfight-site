@@ -1,5 +1,9 @@
 # PLANO — Território 2: A Feira (cena navegável)
 
+> **⚠️ Histórico (29/09/2026):** no merge com a `main`, o catálogo de equipamento virou o
+> catálogo por caminho (201–238) — os ids de peça citados abaixo (101–144) não
+> existem mais. A faixa e o aprimoramento continuam valendo. Fonte atual: GDD §9.4 e §9.7.
+
 > **Status: IMPLEMENTADO na v3.65.0 (27/09/2026)** — a regra oficial agora
 > mora no GDD (§4, Território 2). Este arquivo fica como registro do plano e
 > das decisões. Diferenças do que foi pro jogo em relação ao texto abaixo:

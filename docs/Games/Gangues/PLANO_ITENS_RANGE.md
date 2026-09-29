@@ -1,5 +1,9 @@
 # PLANO — Range de equipamento, aprimoramento e preços
 
+> **⚠️ Histórico (29/09/2026):** no merge com a `main`, o catálogo de equipamento virou o
+> catálogo por caminho (201–238) — os ids de peça citados abaixo (101–144) não
+> existem mais. A faixa e o aprimoramento continuam valendo. Fonte atual: GDD §9.4 e §9.7.
+
 > **Status (27/09/2026): APROVADO e IMPLEMENTADO na v3.64.0**, com as
 > respostas padrão das perguntas da §8 (Pique rola 1× por luta · PV/PM fixos ·
 > aprimoramento sem risco · vantagem nos níveis ímpares · preços novos).
