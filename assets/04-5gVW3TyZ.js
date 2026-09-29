@@ -1,0 +1,43 @@
+var e=`# CAPÍTULO 4 — Jasmine
+
+Lá dentro o bagulho ficou bom até demais.
+
+O Kimzão foi deslizando no rebolation, devagarzinho, até o alvo dele: a mesa do buffet. E montou guarda. Ninguém tirava o Kimzão de lá por nada nessa vida. Não passava garçom sem ele pegar dois copos, e ali ele usou sua habilidade mais incrível: as duas mãos se servindo ao mesmo tempo.
+
+Eu, por outro lado, tenho fome de outra coisa nesse tipo de evento.
+
+Infelizmente eu voo solo. O Kim não é o que se chama de *wingman*. E é bom que não seja, porque ele mais queima o meu filme do que ajuda.
+
+---
+
+Comecei a desfilar. Uma bebidinha aqui, uma conversa ali. A galera da escola me dava uns sorrisinhos tortos, mas o pessoal de fora estava suave. Vi umas droguinhas rodando também. Festa de playboy: todo mundo menor de idade, todo mundo de boa.
+
+De vez em quando eu passava pra ver o meu parça. Continuava lá. Comendo de tudo, bebendo de tudo.
+
+E eu rondando. Uma gatinha aqui, um abraço lá.
+
+---
+
+Aí eu vi um alvo interessante.
+
+Todas eram, mas essa tinha um detalhe. Pele morena, do jeito que eu gosto. Cabelo ondulado cor de mel, caindo pelo rosto. E uma maldade no olhar.
+
+Cheguei devagar, me apresentei, troquei uma ideia. Em pouco tempo ela estava rindo e eu passando a mão no rostinho dela. Ela mesma se aproximou.
+
+O clima esquentou. Numa casa daquele tamanho, com certeza tinha um quarto disponível. Ela curtiu a ideia.
+
+Subimos a escada de mãozinha dada.
+
+Daí pra frente, amigo, é intimidade do casal. Fica entre nós.
+
+---
+
+Uma horinha depois, ela disse que estava satisfeita e queria descer. Liberei, óbvio. Não sou dono de ninguém. Cada um foi curtir a festa do seu jeito.
+
+Desci, sondei o Kim. Tudo certo.
+
+E aí, do nada, começou uma gritaria. O som da festa parou.
+
+Lá em cima tinha um cara de cabelo loiro enlouquecido.
+`;export{e as default};
+//# sourceMappingURL=04-5gVW3TyZ.js.map
