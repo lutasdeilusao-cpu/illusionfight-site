@@ -1,7 +1,7 @@
 // Slice: equipamento (comprar/equipar/desequipar) + toggle de poder equipado
 // pra batalha. Extraído de store/useGanguesStore.js
 // (PLANO_REFATORACAO_ARQUIVOS_GRANDES_GANGUES_2026-09-11.md §3).
-import { createGanguesEquipInstance, normalizeGanguesEquipment, getGanguesEquip } from '../../data/ganguesEquip.js'
+import { createGanguesEquipInstance, normalizeGanguesEquipment, getGanguesEquip, podeEquiparGangues } from '../../data/ganguesEquip.js'
 import { toggleGanguesTemplateSpecial } from '../../data/ganguesCharacters.js'
 
 export default function createGanguesEquipSlice(set, get) {
@@ -33,6 +33,8 @@ export default function createGanguesEquipSlice(set, get) {
       const instancia = get().equipamentos.find(eq => eq.uid === uid)
       const def = instancia && getGanguesEquip(instancia.itemId)
       if (!def) return false
+      // Peça de caminho só vai no personagem daquele caminho.
+      if (!podeEquiparGangues(def, get().roster.find(m => m.id === memberId))) return false
       const slot = def.slot
       let devolvidoAoInventario = null
 

@@ -76,7 +76,7 @@ export const CENA_PISTA = {
     // Atualizado 15/09/2026 (achado nesta mesma revisão — tinha ficado pra
     // trás no rebalanceamento da ladder): o Carvão agora é fixo em 30 (era
     // 15), ver GANGUES_CHEFE_BUDGET.pista em ganguesEncontros.js.
-    nivelRec: 30,
+    nivelRec: 25,
     i18n: 'games.gangues.cena.pista.boss',
     // Ficha própria (não mais "kaeda" emprestado) — o combate real agora
     // mostra "Fumaça" lutando, batendo com a fala/nome já usados na tela

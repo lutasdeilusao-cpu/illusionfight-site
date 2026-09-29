@@ -1091,55 +1091,69 @@ Nunca são vendidos. Vêm de dois lugares: **marcos de reputação** (a cada
 22, com tela de recompensa — `repMarcosCruzados` em `ganguesLoadout.js`) e
 **drop de conteúdo arriscado** (ex.: `posmuro_2` e `galpao_m2` dão o chip 21).
 
-### 9.4 Equipamento — 6 slots por personagem
+### 9.4 Equipamento — 6 espaços, por caminho (28/09/2026)
 
-Slots (bonecão de cima pra baixo): `cabeca` 🪖 · `corpo` 🦺 (a escolha PV vs PM) ·
-`bracos` 🧤 · `pes` 🥾 · `amuleto` 📿 · `arma` 🥊.
-Bônus = atributo plano (**A/H/D**) ou recurso plano (**pv/pm**, somado em cima do
-máximo). Raridades: `comum` · `incomum` · `raro` · `epico`.
-**Cartas/sockets** (`cardSlots` 0–2, estilo Ragnarok): os slots existem, as
-cartas vêm do sistema de drop (faixa 10000+, futuro). **Tirar carta encaixada
-DESTRÓI a carta. Desequipar o item inteiro não.**
+Espaços (bonecão de cima pra baixo): `cabeca` 🪖 · `corpo` 🦺 · `bracos` 🧤 ·
+`pes` 🥾 · `amuleto` 📿 · `arma` 🥊. Bônus = atributo plano (**A/H/D/PM**, PM =
+Malandragem) ou recurso plano (**pv/pm**, somado no máximo). Raridades hoje:
+`comum` e `incomum` (sockets de carta: 0 e 1).
 
-> **Estado real (26/09/2026, `data/ganguesEquip.js`):** o catálogo do jogo
-> vai do **101 ao 120**. Os ids **121–131** abaixo e os épicos **132–139**
-> (§9.5) são **design aprovado, ainda não implementado**. Preços abaixo =
-> os do código (a coluna "—" = sem preço, não vendido em loja).
+- **Cada peça tem dono**: `caminho` = `atacante` (Porradeiro), `defensor`
+  (Paredão), `mistico` (Mandingueiro) ou `livre` (qualquer um). Só o caminho
+  certo equipa (`podeEquiparGangues`); a loja mostra "Só Porradeiro" etc. e
+  só oferece equipar em quem pode.
+- **Orçamento calibrado por simulação** (motor real, 120 lutas por cenário,
+  dupla contra o Carvão): conjunto comum completo ≈ **2–3 níveis**, incomum ≈
+  **4–5 níveis**. Porrada e Couro só aparecem no incomum — +1 de Porrada num
+  item comum já valia ~4 níveis (dano é subtração). O Paredão nunca passa de
+  +1 de Porrada. O Mandingueiro rende mais com o mesmo orçamento
+  (Malandragem = força do talento + gás).
+- **O catálogo antigo (101–120) sumiu dos saves** sem reembolso (decisão do
+  Isaias, beta): peça equipada ou no bolso com id que não existe mais é
+  descartada ao carregar.
+- A Soqueira de Lata (237, livre, +1 Porrada) é recompensa do Nando e não é
+  vendida.
 
-| id | Nome | slot | raridade | bônus | cartas | custo |
-|---|---|---|---|---|---|---|
-| 101 | Soqueira de Lata | arma | comum | +1 A | 0 | 28 💵 |
-| 102 | Faca Serrilhada | arma | incomum | +2 A | 1 | 58 💵 |
-| 103 | Cano de Ferro | arma | raro | +2 A, +1 H | 2 | — |
-| 104 | Gorro de Moletom | cabeça | comum | +1 D | 0 | 22 💵 |
-| 105 | Capacete de Obra | cabeça | incomum | +2 D | 1 | 44 💵 |
-| 106 | Coroa de Lata | cabeça | raro | +1 A, +1 D | 2 | — |
-| 107 | Colete Reforçado | corpo | comum | +6 PV | 0 | 36 💵 |
-| 108 | Colete Leve | corpo | comum | +6 PM | 0 | 36 💵 |
-| 109 | Colete de Placa | corpo | incomum | +12 PV | 1 | 80 💵 |
-| 110 | Manto com Capuz | corpo | incomum | +12 PM | 1 | — |
-| 111 | Armadura de Rua | corpo | raro | +18 PV | 2 | — |
-| 112 | Luva de Couro | braços | comum | +1 D | 0 | 22 💵 |
-| 113 | Manopla de Porca | braços | incomum | +2 A | 1 | 48 💵 |
-| 114 | Braçadeira de Cravo | braços | raro | +1 A, +1 D | 2 | — |
-| 115 | Tênis Furado | pés | comum | +1 H | 0 | 22 💵 |
-| 116 | Coturno | pés | incomum | +1 H, +1 D | 1 | 44 💵 |
-| 117 | Bota com Biqueira | pés | raro | +2 H | 2 | — |
-| 118 | Corrente de Lata | amuleto | comum | +1 H | 1 | 28 💵 |
-| 119 | Dente de Ouro | amuleto | incomum | +1 A | 1 | — |
-| 120 | Medalha de Santa | amuleto | raro | +1 D, +1 H | 2 | — |
-| *121–131* | *(planejados — abaixo)* | | | | | |
-| 121 | Boné Vira-Lata | cabeça | comum | +1 H | 0 | 12 💵 |
-| 122 | Balaclava de Pano | cabeça | incomum | +1 D, +1 H | 1 | — |
-| 123 | Jaqueta de Bonde | corpo | comum | +6 PV | 0 | 20 💵 |
-| 124 | Manto de Sintonia | corpo | raro | +18 PM | 2 | — |
-| 125 | Manopla de Prego | braços | incomum | +2 A | 1 | — |
-| 126 | Chinelo Reforçado | pés | comum | +1 H | 0 | 12 💵 |
-| 127 | Corrente de Ouro Falso | amuleto | incomum | +1 A | 1 | — |
-| 128 | Terço de Vó | amuleto | raro | +1 D, +1 H | 2 | — |
-| 129 | Facão de Cabo Fita | arma | comum | +1 A | 0 | 16 💵 |
-| 130 | Espeto de Grade | arma | raro | +2 A, +1 D | 2 | — |
-| 131 | Bastão de Sinaleiro | arma | incomum | +1 A, +1 H | 1 | — |
+| id | Nome | Caminho | Espaço | Raridade | Bônus | Preço |
+|---|---|---|---|---|---|---|
+| 201 | Cabo de Vassoura | Porradeiro | arma | comum | +1 Pique | 18 |
+| 202 | Boné Aba Reta | Porradeiro | cabeça | comum | +1 Osso | 12 |
+| 203 | Regata Rasgada | Porradeiro | corpo | comum | +3 Osso | 16 |
+| 204 | Faixa no Punho | Porradeiro | braços | comum | +1 Osso | 12 |
+| 205 | Tênis Furado | Porradeiro | pés | comum | +1 Osso | 12 |
+| 206 | Corrente de Lata | Porradeiro | amuleto | comum | +2 energia | 14 |
+| 207 | Soqueira de Ferro | Porradeiro | arma | incomum | +2 Porrada | 60 |
+| 208 | Bandana de Bonde | Porradeiro | cabeça | incomum | +2 Osso | 30 |
+| 209 | Jaqueta de Couro | Porradeiro | corpo | incomum | +4 Osso | 38 |
+| 210 | Munhequeira | Porradeiro | braços | incomum | +1 Pique | 40 |
+| 211 | Coturno | Porradeiro | pés | incomum | +1 Osso | 28 |
+| 212 | Dente de Ouro | Porradeiro | amuleto | incomum | +2 energia | 30 |
+| 213 | Cano Curto | Paredão | arma | comum | +2 Osso | 14 |
+| 214 | Gorro de Moletom | Paredão | cabeça | comum | +1 Osso | 12 |
+| 215 | Colete Reforçado | Paredão | corpo | comum | +4 Osso | 18 |
+| 216 | Luva de Couro | Paredão | braços | comum | +1 Osso | 12 |
+| 217 | Chinelo Reforçado | Paredão | pés | comum | +2 Osso | 14 |
+| 218 | Medalhinha | Paredão | amuleto | comum | +2 energia | 14 |
+| 219 | Tampa de Bueiro | Paredão | arma | incomum | +1 Couro | 45 |
+| 220 | Capacete de Obra | Paredão | cabeça | incomum | +1 Couro | 45 |
+| 221 | Colete de Placa | Paredão | corpo | incomum | +8 Osso | 50 |
+| 222 | Braçadeira de Pneu | Paredão | braços | incomum | +2 Osso | 28 |
+| 223 | Bota com Biqueira | Paredão | pés | incomum | +3 Osso | 32 |
+| 224 | Terço da Vó | Paredão | amuleto | incomum | +2 energia | 30 |
+| 225 | Vela Preta | Mandingueiro | arma | comum | +1 Malandragem | 22 |
+| 226 | Capuz Surrado | Mandingueiro | cabeça | comum | +1 energia | 12 |
+| 227 | Manto de Feira | Mandingueiro | corpo | comum | +3 energia | 18 |
+| 228 | Pulseira de Miçanga | Mandingueiro | braços | comum | +1 Osso | 12 |
+| 229 | Sandália de Couro | Mandingueiro | pés | comum | +1 Osso | 12 |
+| 230 | Guia de Contas | Mandingueiro | amuleto | comum | +2 energia | 14 |
+| 231 | Cajado de Galho | Mandingueiro | arma | incomum | +1 Porrada | 45 |
+| 232 | Turbante | Mandingueiro | cabeça | incomum | +1 Malandragem | 45 |
+| 233 | Manto de Sintonia | Mandingueiro | corpo | incomum | +4 energia, +1 Osso | 50 |
+| 234 | Anel de Coco | Mandingueiro | braços | incomum | +2 Osso | 28 |
+| 235 | Chinelo Benzido | Mandingueiro | pés | incomum | +2 energia | 30 |
+| 236 | Olho Grego | Mandingueiro | amuleto | incomum | +1 Malandragem | 45 |
+| 237 | Soqueira de Lata | Livre | arma | comum | +1 Porrada | não vende |
+| 238 | Boné Vira-Lata | Livre | cabeça | comum | +1 Osso | 10 |
 
 ### 9.5 Épicos — drop de chefe (faixa 132+)
 
@@ -1163,10 +1177,10 @@ equipamento; `poi.precoMultiplicador` opcional). Cada região ganha catálogo
 próprio. Hoje a Pista tem duas:
 
 - **A loja da Pista** (`loja`, do lado de lá do muro, só aparece depois do
-  portão): `1, 2, 101, 102, 104, 105, 107, 108, 109, 112, 113, 115, 116, 118` —
-  as poções, 1 comum por slot e os incomuns.
+  portão): as poções, os itens de status (30–34) e todo o catálogo vendável
+  de equipamento (201–236 e 238).
 - **A Lojinha do Zé** (`loja_pocoes`, na rua, desde o começo):
-  só **poção de HP e MP, pelo dobro do preço** (`precoMultiplicador: 2`), "na
+  **poções e itens de status, pelo dobro do preço** (`precoMultiplicador: 2`), "na
   cara de pau". Existe porque, com a recompensa por risco, quem quer arriscar
   luta mais forte precisa ir municiado. O dono é o Zé do Bar do Zé (retrato
   emprestado da ficha 1205).
@@ -1548,8 +1562,9 @@ Fonte única da mecânica, conferida contra o código.
   pontos de cada ficha; o Pique varia por personalidade (×0,6 a ×1,5).
 - **Teto de nível por área** (`nivelTetoDaHistoria` em
   `ganguesTerritorios.js`, aplicado em `addGanguesAp`): o personagem só sobe
-  até o nível do chefe da área atual (a 1ª cujo chefe não caiu; Pista = 30,
-  o Carvão). No teto o AP não acumula e a tela de vitória avisa "nível máximo
+  até o teto da área atual (a 1ª cujo chefe não caiu): `nivelTeto` do
+  território ou, sem ele, o nível do chefe. **Pista = 25** (o Carvão tem ficha
+  30 — na simulação, no nível 30 a dupla vencia 98% sem item). No teto o AP não acumula e a tela de vitória avisa "nível máximo
   da área". Nunca baixa entre áreas; campanha zerada libera até 99.
 - **Nível teto: 99** (`GANGUES_LEVEL_CAP`). Níveis 1–10 são estatísticas
   autoradas à mão; 11–99 crescem +1 ponto por nível seguindo o

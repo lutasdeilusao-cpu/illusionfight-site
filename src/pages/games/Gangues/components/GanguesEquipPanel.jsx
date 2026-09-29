@@ -2,11 +2,11 @@ import { useMemo, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { useLanguage } from '../../../../context/LanguageContext'
 import { useGanguesStore } from '../store/useGanguesStore'
-import { GANGUES_EQUIP_SLOTS, getGanguesEquip, normalizeGanguesEquipment } from '../data/ganguesEquip.js'
+import { GANGUES_EQUIP_SLOTS, getGanguesEquip, normalizeGanguesEquipment, podeEquiparGangues } from '../data/ganguesEquip.js'
 import { sfx } from '../../../../lib/sfx'
 import './GanguesEquipPanel.css'
 
-const ATTR_ORDER = ['A', 'H', 'D']
+const ATTR_ORDER = ['A', 'H', 'D', 'PM']
 
 /** Lê o bônus de um item como "+1 A · +6 PV" pros três idiomas (usa attr_labels curtos). */
 function bonusResumo(t, bonus = {}) {
@@ -39,7 +39,7 @@ export default function GanguesEquipPanel({ member }) {
 
   const disponiveisDoSlot = slot => equipamentos
     .map(inst => ({ inst, def: getGanguesEquip(inst.itemId) }))
-    .filter(entry => entry.def?.slot === slot)
+    .filter(entry => entry.def?.slot === slot && podeEquiparGangues(entry.def, member))
 
   const fechar = () => setSlotAberto(null)
 

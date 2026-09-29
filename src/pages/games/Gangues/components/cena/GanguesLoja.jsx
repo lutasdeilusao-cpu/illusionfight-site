@@ -3,7 +3,7 @@ import { createPortal } from 'react-dom'
 import { useLanguage } from '../../../../../context/LanguageContext'
 import { useGanguesStore } from '../../store/useGanguesStore'
 import { getGanguesItem } from '../../data/ganguesItens.js'
-import { getGanguesEquip, getGanguesAttributesWithEquip, previewGanguesAttributesWithEquip, applyGanguesEquipResources, withGanguesEquip, normalizeGanguesEquipment } from '../../data/ganguesEquip.js'
+import { getGanguesEquip, getGanguesAttributesWithEquip, previewGanguesAttributesWithEquip, applyGanguesEquipResources, withGanguesEquip, normalizeGanguesEquipment, podeEquiparGangues } from '../../data/ganguesEquip.js'
 import { getGanguesResources } from '../../data/ganguesLoadout.js'
 import { getGanguesCharacter, getGanguesLevelFromXp } from '../../data/ganguesCharacters.js'
 import { getGanguesPortraitByTemplateId } from '../../data/ganguesPortraits.js'
@@ -34,7 +34,7 @@ import { sfx } from '../../../../../lib/sfx'
    "balconista" já tem arte, e nem faz sentido de personagem de vitrine)
    sem nenhuma implicação de combate — é só a imagem. */
 
-const ATTR_ORDER = ['A', 'H', 'D']
+const ATTR_ORDER = ['A', 'H', 'D', 'PM']
 
 // Abas da loja — tipo de item. Ordem fixa; só aparecem as que têm item.
 const ABAS = ['pocao', 'arma', 'protecao', 'amuleto']
@@ -114,7 +114,7 @@ function DetalheItem({ item, store, t, onClose, notificar }) {
         <span className="gang-loja-det__icone">{item.icone}</span>
         <h4 className="gang-loja-det__nome">{t(item.nome)}</h4>
         {item._equip
-          ? <p className="gang-loja-det__tag">{t(`games.gangues.equip.slots.${item.slot}`)} · {t(`games.gangues.equip.raridade.${item.raridade}`)}</p>
+          ? <p className="gang-loja-det__tag">{t(`games.gangues.equip.slots.${item.slot}`)} · {t(`games.gangues.equip.raridade.${item.raridade}`)} · {item.caminho === 'livre' ? t('games.gangues.equip.qualquer_caminho') : t('games.gangues.equip.so_caminho', { caminho: t(`games.gangues.loadout.paths.${item.caminho}.name`) })}</p>
           : <p className="gang-loja-det__tag">{t('games.gangues.cena.tipo.loja')}</p>}
 
         <div className="gang-loja-det__da">
@@ -135,9 +135,9 @@ function DetalheItem({ item, store, t, onClose, notificar }) {
         {item._equip ? (
           <>
             <small className="gang-loja-det__titulo">{t('games.gangues.equip.equipar_em')}</small>
-            {elenco.length === 0
-              ? <p className="gang-loja-det__vazio">{t('games.gangues.equip.sem_elenco')}</p>
-              : elenco.map(member => (
+            {elenco.filter(m => podeEquiparGangues(item, m)).length === 0
+              ? <p className="gang-loja-det__vazio">{t('games.gangues.equip.sem_caminho')}</p>
+              : elenco.filter(m => podeEquiparGangues(item, m)).map(member => (
                 <LinhaComparacao key={member.id} t={t} member={member} item={item} podePagar={podePagar} onEquipar={equiparEm} />
               ))}
             <button className="gang-loja-det__so" disabled={!podePagar} onClick={soComprar}>
@@ -226,7 +226,7 @@ export default function GanguesLoja({ poi, onClose }) {
                 <span className="gang-loja-cena-item__icone">{item.icone}</span>
                 <span className="gang-loja-cena-item__info">
                   <strong>{t(item.nome)}</strong>
-                  {item._equip && <small>{t(`games.gangues.equip.slots.${item.slot}`)}</small>}
+                  {item._equip && <small>{t(`games.gangues.equip.slots.${item.slot}`)} · {item.caminho === 'livre' ? t('games.gangues.equip.qualquer_caminho') : t(`games.gangues.loadout.paths.${item.caminho}.name`)}</small>}
                   <small>{t('games.gangues.loja.no_inventario', { n: quantidade })}</small>
                   <em className="gang-loja-cena-item__ver">{t('games.gangues.equip.ver_detalhe')}</em>
                 </span>

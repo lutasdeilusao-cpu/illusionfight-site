@@ -1,3 +1,4 @@
+import { getGanguesEquip } from '../data/ganguesEquip.js'
 import { supabase } from '../../../../lib/supabase'
 
 /** Lista os saves (gangues) do usuário logado, mais antigo primeiro (Save 1, Save 2...). */
@@ -46,7 +47,8 @@ export async function carregarProgressoHistoria(saveId) {
     campaignClears: data.campaign_clears || 0,
     eventCharacterIds: data.event_character_ids || [],
     inventario: data.inventario || {},
-    equipamentos: Array.isArray(data.equipamentos) ? data.equipamentos : [],
+    // Peça que saiu do catálogo (o 101–120 antigo) some do save.
+    equipamentos: Array.isArray(data.equipamentos) ? data.equipamentos.filter(eq => getGanguesEquip(eq?.itemId)) : [],
   }
 }
 

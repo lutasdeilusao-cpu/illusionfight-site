@@ -35,48 +35,69 @@ export const GANGUES_EQUIP_SLOTS = [
 export const GANGUES_EQUIP_SLOT_IDS = GANGUES_EQUIP_SLOTS.map(slot => slot.id)
 
 // Chaves de bônus: atributo (A/H/D) ou recurso plano (pv/pm).
-export const GANGUES_EQUIP_ATTR_KEYS = ['A', 'H', 'D']
+export const GANGUES_EQUIP_ATTR_KEYS = ['A', 'H', 'D', 'PM']
 export const GANGUES_EQUIP_RES_KEYS = ['pv', 'pm']
 
 const i18nNome = id => `games.gangues.equip.itens.${id}`
 
 // Lista bruta — id numérico + slug só pra humano. O resto é dado de balanço.
+// Catálogo POR CAMINHO (28/09/2026, Isaias — substitui por completo o 101–120,
+// que sumiu dos saves). `caminho` = quem equipa: atacante (Porradeiro),
+// defensor (Paredão), mistico (Mandingueiro) ou livre (qualquer um).
+// Orçamento calibrado por simulação contra o Carvão (dupla): conjunto comum
+// completo ≈ 2–3 níveis, incomum ≈ 4–5. Porrada/Couro só no incomum (+1 de
+// Porrada num comum já valia ~4 níveis). O Mandingueiro rende mais com o
+// mesmo orçamento (Malandragem `PM` = força do talento + gás). O Paredão
+// nunca passa de +1 de Porrada.
 const CATALOGO = [
-  // ── ARMA (🥊) — foco em A ──
-  { id: 101, slug: 'soqueira_lata', slot: 'arma', raridade: 'comum', bonus: { A: 1 }, cardSlots: 0, custo: 28, icone: '🥊' },
-  { id: 102, slug: 'faca_serrilhada', slot: 'arma', raridade: 'incomum', bonus: { A: 2 }, cardSlots: 1, custo: 58, icone: '🔪' },
-  { id: 103, slug: 'cano_de_ferro', slot: 'arma', raridade: 'raro', bonus: { A: 2, H: 1 }, cardSlots: 2, icone: '🪈' },
-
-  // ── CABEÇA (🪖) — foco em D ──
-  { id: 104, slug: 'gorro_moletom', slot: 'cabeca', raridade: 'comum', bonus: { D: 1 }, cardSlots: 0, custo: 22, icone: '🧢' },
-  { id: 105, slug: 'capacete_obra', slot: 'cabeca', raridade: 'incomum', bonus: { D: 2 }, cardSlots: 1, custo: 44, icone: '⛑️' },
-  { id: 106, slug: 'coroa_lata', slot: 'cabeca', raridade: 'raro', bonus: { A: 1, D: 1 }, cardSlots: 2, icone: '👑' },
-
-  // ── CORPO (🦺) — a escolha PV vs PM (bônus plano, fora do atributo) ──
-  { id: 107, slug: 'colete_reforcado', slot: 'corpo', raridade: 'comum', bonus: { pv: 6 }, cardSlots: 0, custo: 36, icone: '🦺' }, // tanker
-  { id: 108, slug: 'colete_leve', slot: 'corpo', raridade: 'comum', bonus: { pm: 6 }, cardSlots: 0, custo: 36, icone: '🧥' }, // magro / místico
-  { id: 109, slug: 'colete_placa', slot: 'corpo', raridade: 'incomum', bonus: { pv: 12 }, cardSlots: 1, custo: 80, icone: '🛡️' },
-  { id: 110, slug: 'manto_capuz', slot: 'corpo', raridade: 'incomum', bonus: { pm: 12 }, cardSlots: 1, icone: '🥋' },
-  { id: 111, slug: 'armadura_rua', slot: 'corpo', raridade: 'raro', bonus: { pv: 18 }, cardSlots: 2, icone: '⚙️' },
-
-  // ── BRAÇOS (🧤) — foco em D/A ──
-  { id: 112, slug: 'luva_couro', slot: 'bracos', raridade: 'comum', bonus: { D: 1 }, cardSlots: 0, custo: 22, icone: '🧤' },
-  { id: 113, slug: 'manopla_porca', slot: 'bracos', raridade: 'incomum', bonus: { A: 2 }, cardSlots: 1, custo: 48, icone: '🦾' },
-  { id: 114, slug: 'bracadeira_cravo', slot: 'bracos', raridade: 'raro', bonus: { A: 1, D: 1 }, cardSlots: 2, icone: '⛓️' },
-
-  // ── PÉS (🥾) — foco em H ──
-  { id: 115, slug: 'tenis_furado', slot: 'pes', raridade: 'comum', bonus: { H: 1 }, cardSlots: 0, custo: 22, icone: '👟' },
-  { id: 116, slug: 'coturno', slot: 'pes', raridade: 'incomum', bonus: { H: 1, D: 1 }, cardSlots: 1, custo: 44, icone: '🥾' },
-  { id: 117, slug: 'bota_biqueira', slot: 'pes', raridade: 'raro', bonus: { H: 2 }, cardSlots: 2, icone: '🦿' },
-
-  // ── AMULETO (📿) — misto leve ──
-  { id: 118, slug: 'corrente_lata', slot: 'amuleto', raridade: 'comum', bonus: { H: 1 }, cardSlots: 1, custo: 28, icone: '📿' },
-  { id: 119, slug: 'dente_de_ouro', slot: 'amuleto', raridade: 'incomum', bonus: { A: 1 }, cardSlots: 1, icone: '🦷' },
-  { id: 120, slug: 'medalha_santa', slot: 'amuleto', raridade: 'raro', bonus: { D: 1, H: 1 }, cardSlots: 2, icone: '🎖️' },
+  { id: 201, slug: 'cabo_vassoura', caminho: 'atacante', slot: 'arma', raridade: 'comum', bonus: { H: 1 }, cardSlots: 0, custo: 18, icone: '🧹' },
+  { id: 202, slug: 'bone_aba_reta', caminho: 'atacante', slot: 'cabeca', raridade: 'comum', bonus: { pv: 1 }, cardSlots: 0, custo: 12, icone: '🧢' },
+  { id: 203, slug: 'regata_rasgada', caminho: 'atacante', slot: 'corpo', raridade: 'comum', bonus: { pv: 3 }, cardSlots: 0, custo: 16, icone: '🎽' },
+  { id: 204, slug: 'faixa_punho', caminho: 'atacante', slot: 'bracos', raridade: 'comum', bonus: { pv: 1 }, cardSlots: 0, custo: 12, icone: '🩹' },
+  { id: 205, slug: 'tenis_furado', caminho: 'atacante', slot: 'pes', raridade: 'comum', bonus: { pv: 1 }, cardSlots: 0, custo: 12, icone: '👟' },
+  { id: 206, slug: 'corrente_lata', caminho: 'atacante', slot: 'amuleto', raridade: 'comum', bonus: { pm: 2 }, cardSlots: 0, custo: 14, icone: '📿' },
+  { id: 207, slug: 'soqueira_ferro', caminho: 'atacante', slot: 'arma', raridade: 'incomum', bonus: { A: 2 }, cardSlots: 1, custo: 60, icone: '🥊' },
+  { id: 208, slug: 'bandana_bonde', caminho: 'atacante', slot: 'cabeca', raridade: 'incomum', bonus: { pv: 2 }, cardSlots: 1, custo: 30, icone: '🏴' },
+  { id: 209, slug: 'jaqueta_couro', caminho: 'atacante', slot: 'corpo', raridade: 'incomum', bonus: { pv: 4 }, cardSlots: 1, custo: 38, icone: '🧥' },
+  { id: 210, slug: 'munhequeira', caminho: 'atacante', slot: 'bracos', raridade: 'incomum', bonus: { H: 1 }, cardSlots: 1, custo: 40, icone: '🤛' },
+  { id: 211, slug: 'coturno', caminho: 'atacante', slot: 'pes', raridade: 'incomum', bonus: { pv: 1 }, cardSlots: 1, custo: 28, icone: '🥾' },
+  { id: 212, slug: 'dente_ouro', caminho: 'atacante', slot: 'amuleto', raridade: 'incomum', bonus: { pm: 2 }, cardSlots: 1, custo: 30, icone: '🦷' },
+  { id: 213, slug: 'cano_curto', caminho: 'defensor', slot: 'arma', raridade: 'comum', bonus: { pv: 2 }, cardSlots: 0, custo: 14, icone: '🪈' },
+  { id: 214, slug: 'gorro_moletom', caminho: 'defensor', slot: 'cabeca', raridade: 'comum', bonus: { pv: 1 }, cardSlots: 0, custo: 12, icone: '🧶' },
+  { id: 215, slug: 'colete_reforcado', caminho: 'defensor', slot: 'corpo', raridade: 'comum', bonus: { pv: 4 }, cardSlots: 0, custo: 18, icone: '🦺' },
+  { id: 216, slug: 'luva_couro', caminho: 'defensor', slot: 'bracos', raridade: 'comum', bonus: { pv: 1 }, cardSlots: 0, custo: 12, icone: '🧤' },
+  { id: 217, slug: 'chinelo_reforcado', caminho: 'defensor', slot: 'pes', raridade: 'comum', bonus: { pv: 2 }, cardSlots: 0, custo: 14, icone: '🩴' },
+  { id: 218, slug: 'medalhinha', caminho: 'defensor', slot: 'amuleto', raridade: 'comum', bonus: { pm: 2 }, cardSlots: 0, custo: 14, icone: '🏅' },
+  { id: 219, slug: 'tampa_bueiro', caminho: 'defensor', slot: 'arma', raridade: 'incomum', bonus: { D: 1 }, cardSlots: 1, custo: 45, icone: '🛡️' },
+  { id: 220, slug: 'capacete_obra', caminho: 'defensor', slot: 'cabeca', raridade: 'incomum', bonus: { D: 1 }, cardSlots: 1, custo: 45, icone: '⛑️' },
+  { id: 221, slug: 'colete_placa', caminho: 'defensor', slot: 'corpo', raridade: 'incomum', bonus: { pv: 8 }, cardSlots: 1, custo: 50, icone: '🛡' },
+  { id: 222, slug: 'bracadeira_pneu', caminho: 'defensor', slot: 'bracos', raridade: 'incomum', bonus: { pv: 2 }, cardSlots: 1, custo: 28, icone: '⛓️' },
+  { id: 223, slug: 'bota_biqueira', caminho: 'defensor', slot: 'pes', raridade: 'incomum', bonus: { pv: 3 }, cardSlots: 1, custo: 32, icone: '🥾' },
+  { id: 224, slug: 'terco_vo', caminho: 'defensor', slot: 'amuleto', raridade: 'incomum', bonus: { pm: 2 }, cardSlots: 1, custo: 30, icone: '📿' },
+  { id: 225, slug: 'vela_preta', caminho: 'mistico', slot: 'arma', raridade: 'comum', bonus: { PM: 1 }, cardSlots: 0, custo: 22, icone: '🕯️' },
+  { id: 226, slug: 'capuz_surrado', caminho: 'mistico', slot: 'cabeca', raridade: 'comum', bonus: { pm: 1 }, cardSlots: 0, custo: 12, icone: '🧙' },
+  { id: 227, slug: 'manto_feira', caminho: 'mistico', slot: 'corpo', raridade: 'comum', bonus: { pm: 3 }, cardSlots: 0, custo: 18, icone: '🥻' },
+  { id: 228, slug: 'pulseira_micanga', caminho: 'mistico', slot: 'bracos', raridade: 'comum', bonus: { pv: 1 }, cardSlots: 0, custo: 12, icone: '📿' },
+  { id: 229, slug: 'sandalia_couro', caminho: 'mistico', slot: 'pes', raridade: 'comum', bonus: { pv: 1 }, cardSlots: 0, custo: 12, icone: '👡' },
+  { id: 230, slug: 'guia_contas', caminho: 'mistico', slot: 'amuleto', raridade: 'comum', bonus: { pm: 2 }, cardSlots: 0, custo: 14, icone: '🔮' },
+  { id: 231, slug: 'cajado_galho', caminho: 'mistico', slot: 'arma', raridade: 'incomum', bonus: { A: 1 }, cardSlots: 1, custo: 45, icone: '🪄' },
+  { id: 232, slug: 'turbante', caminho: 'mistico', slot: 'cabeca', raridade: 'incomum', bonus: { PM: 1 }, cardSlots: 1, custo: 45, icone: '👳' },
+  { id: 233, slug: 'manto_sintonia', caminho: 'mistico', slot: 'corpo', raridade: 'incomum', bonus: { pm: 4, pv: 1 }, cardSlots: 1, custo: 50, icone: '🥋' },
+  { id: 234, slug: 'anel_coco', caminho: 'mistico', slot: 'bracos', raridade: 'incomum', bonus: { pv: 2 }, cardSlots: 1, custo: 28, icone: '💍' },
+  { id: 235, slug: 'chinelo_benzido', caminho: 'mistico', slot: 'pes', raridade: 'incomum', bonus: { pm: 2 }, cardSlots: 1, custo: 30, icone: '🩴' },
+  { id: 236, slug: 'olho_grego', caminho: 'mistico', slot: 'amuleto', raridade: 'incomum', bonus: { PM: 1 }, cardSlots: 1, custo: 45, icone: '🧿' },
+  { id: 237, slug: 'soqueira_lata', caminho: 'livre', slot: 'arma', raridade: 'comum', bonus: { A: 1 }, cardSlots: 0, icone: '🥊' },
+  { id: 238, slug: 'bone_vira_lata', caminho: 'livre', slot: 'cabeca', raridade: 'comum', bonus: { pv: 1 }, cardSlots: 0, custo: 10, icone: '🧢' },
 ]
 
 export const GANGUES_EQUIP = Object.fromEntries(CATALOGO.map(item => [item.id, { ...item, nome: i18nNome(item.id) }]))
 export const GANGUES_EQUIP_LISTA = Object.values(GANGUES_EQUIP)
+
+/** Esse personagem pode usar essa peça? (peça `livre` = qualquer um). */
+export function podeEquiparGangues(def, member) {
+  if (!def) return false
+  return def.caminho === 'livre' || def.caminho === member?.combat_path
+}
 
 export function getGanguesEquip(itemId) {
   const key = Number(itemId)
@@ -112,7 +133,7 @@ export function createGanguesEquipInstance(itemId) {
 
 /** Soma dos bônus de todos os itens equipados: A/H/D (atributo) + pv/pm (recurso plano). */
 export function getGanguesEquipBonuses(equipment = {}) {
-  const total = { A: 0, H: 0, D: 0, pv: 0, pm: 0 }
+  const total = { A: 0, H: 0, D: 0, PM: 0, pv: 0, pm: 0 }
   const safe = normalizeGanguesEquipment(equipment)
   for (const slot of GANGUES_EQUIP_SLOT_IDS) {
     const def = safe[slot] && getGanguesEquip(safe[slot].itemId)
@@ -129,7 +150,7 @@ export function getGanguesEquipBonuses(equipment = {}) {
 export function getGanguesAttributesWithEquip(attributes = {}) {
   const bonuses = getGanguesEquipBonuses(attributes.equipment)
   const out = { ...attributes }
-  for (const attr of ['A', 'H', 'D']) out[attr] = Math.max(0, (Number(attributes[attr]) || 0) + (bonuses[attr] || 0))
+  for (const attr of GANGUES_EQUIP_ATTR_KEYS) out[attr] = Math.max(0, (Number(attributes[attr]) || 0) + (bonuses[attr] || 0))
   return out
 }
 

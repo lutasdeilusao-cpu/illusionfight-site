@@ -63,6 +63,9 @@ export const GANGUES_TERRITORIOS = [
       { id: 'pista-3', gangue: 'bonde_sinal', enemy: 1301, forca: 2, dificuldade: 'facil' },
     ],
     chefe: { id: 'pista-chefe', gangue: 'rato_pista', enemy: 1500, forca: 3, boss: 'fumaca' },
+    // Teto de nível da Pista (Isaias, 28/09/2026): 25, abaixo da ficha 30 do
+    // Carvão — na simulação, no nível 30 a dupla vencia 98% sem item.
+    nivelTeto: 25,
   },
   {
     id: 'feira',
@@ -217,13 +220,13 @@ export function precisaVoltarNoInformante(territorio, storyProgress = {}) {
 /** Teto de nível da área atual da história (pedido do Isaias, 28/09/2026:
  *  "você só pode upar até o level recomendado pro chefe daquela área").
  *  Área atual = 1º território (na ordem) cujo chefe ainda não caiu. O teto é
- *  o nível do chefe dela (`nivel` da ficha em gangues-enemies.json; Carvão =
- *  30), sem nunca baixar em relação a uma área anterior. Campanha zerada =
+ *  `nivelTeto` do território (Pista = 25) ou, sem ele, o nível do chefe
+ *  (`nivel` em gangues-enemies.json), sem nunca baixar entre áreas. Campanha zerada =
  *  teto do jogo (99). */
 export function nivelTetoDaHistoria(storyProgress = {}, tetoJogo = 99) {
   let teto = 1
   for (const terr of [...GANGUES_TERRITORIOS].sort((a, b) => a.ordem - b.ordem)) {
-    const nivelChefe = Number(enemiesData.find(e => e.id === terr.chefe?.enemy)?.nivel) || 0
+    const nivelChefe = Number(terr.nivelTeto) || Number(enemiesData.find(e => e.id === terr.chefe?.enemy)?.nivel) || 0
     teto = Math.max(teto, nivelChefe)
     if (!storyProgress?.[terr.id]?.chefe) return Math.min(teto, tetoJogo)
   }

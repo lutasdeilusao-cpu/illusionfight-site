@@ -84,7 +84,7 @@ export const POIS_PISTA = [
     pino: { x: 30, y: 62 },
     i18n: 'games.gangues.cena.pista.oficina',
     escolhas: [
-      { id: 'forjar', precisaItens: { 13: 2 }, daEquip: [101], recompensa: { rep: 4 } },
+      { id: 'forjar', precisaItens: { 13: 2 }, daEquip: [237], recompensa: { rep: 4 } },
     ],
   },
   {
@@ -276,7 +276,8 @@ export const POIS_PISTA = [
     //                     · 112 luva · 115 tênis · 118 corrente
     //  incomum ("junta grana"): 102 faca · 105 capacete · 109 colete placa
     //                           · 113 manopla · 116 coturno
-    itens: [1, 2, 101, 102, 104, 105, 107, 108, 109, 112, 113, 115, 116, 118],
+    // Catálogo por caminho (ganguesEquip.js): comum + incomum dos 3 caminhos + livre.
+    itens: [1, 2, 30, 31, 32, 33, 34, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 235, 236, 238],
   },
   {
     // Reaproveitamento: continua na Pista mesmo depois dela virar
