@@ -1124,12 +1124,12 @@
     "titulo": "As Correntes",
     "titulo_en": "The Chains",
     "titulo_es": "Las Cadenas",
-    "tagline_pt": "O Kim não gosta de contar história. Vai contar mesmo assim.",
-    "tagline_en": "Kim doesn't like telling stories. He's telling this one anyway.",
-    "tagline_es": "A Kim no le gusta contar historias. Igual va a contar esta.",
-    "resumo_pt": "Contado pelo Kim: o que o Jack chama de correntes. A primeira vez, contra o Campeão, e a noite em que um clube de motoqueiros levou a Helena por causa de uma dívida.",
-    "resumo_en": "Told by Kim: what Jack calls the chains. The first time, against the Champion, and the night a biker club took Helena over a debt.",
-    "resumo_es": "Contado por Kim: lo que Jack llama las cadenas. La primera vez, contra el Campeón, y la noche en que un club de motoqueros se llevó a Helena por una deuda.",
+    "tagline_pt": "O Kim não gosta de contar história. Então o Jack conta junto.",
+    "tagline_en": "Kim doesn't like telling stories. So Jack tells it with him.",
+    "tagline_es": "A Kim no le gusta contar historias. Así que Jack la cuenta con él.",
+    "resumo_pt": "Contado pelo Kim e pelo Jack, um cobrindo o outro: o que o Jack chama de correntes. A primeira vez, contra o Campeão, e a noite em que um clube de motoqueiros levou a Helena por causa de uma dívida.",
+    "resumo_en": "Told by Kim and Jack, each covering for the other: what Jack calls the chains. The first time, against the Champion, and the night a biker club took Helena over a debt.",
+    "resumo_es": "Contado por Kim y Jack, uno cubriendo al otro: lo que Jack llama las cadenas. La primera vez, contra el Campeón, y la noche en que un club de motoqueros se llevó a Helena por una deuda.",
     "capitulos": [
       {
         "id": "01",
@@ -1252,6 +1252,22 @@
         "resumo_pt": "Lá embaixo, o Jack espera as armas esvaziarem. Depois é a vez dele.",
         "resumo_en": "Down below, Jack waits for the guns to run dry. Then it is his turn.",
         "resumo_es": "Allá abajo, Jack espera a que las armas se vacíen. Después le toca a él.",
+        "liberacao": {
+          "primordial": "2026-09-29",
+          "elite": "2026-09-29",
+          "conta": "2026-09-29",
+          "publico": "2026-09-29"
+        }
+      },
+      {
+        "id": "09",
+        "numero": 9,
+        "titulo": "A Ponte",
+        "titulo_en": "The Boost",
+        "titulo_es": "El Impulso",
+        "resumo_pt": "Tiroteio no bar, garrafas na escada e uma ponte de mãos pro primeiro andar.",
+        "resumo_en": "A shootout in the bar, bottles on the stairs and a hand boost to the first floor.",
+        "resumo_es": "Tiroteo en el bar, botellas en la escalera y un impulso de manos al primer piso.",
         "liberacao": {
           "primordial": "2026-09-29",
           "elite": "2026-09-29",
