@@ -1194,6 +1194,94 @@ próprio. Hoje a Pista tem duas:
 
 ---
 
+### 9.7 Progressão das lojas por território (plano fechado em 29/09/2026)
+
+Regras do Isaias: **cada território tem uma loja própria, cada uma melhor que
+a anterior, e nenhuma repete peça** — quem quiser peça de um bairro anterior
+volta lá. As melhores peças ficam na Laje. Bairro só ganha loja quando ganhar
+cena, mas a distribuição já fica definida aqui. O teto de nível (§12) manda em
+tudo: a peça de cada loja é calibrada pro teto daquele bairro, porque +1 de
+Porrada vale 17% no nível 25 e só 5% no 99 (atributo principal cresce ~0,37
+por nível).
+
+**Escada de nível (decisão: Pista entre 15 e 20, o resto redistribuído).**
+~13 níveis por bairro, fechando no 99; o Retalho é o único nível 100.
+Último território só no médio ou difícil (no fácil a Laje não abre —
+`bloqueadoNoFacil`, já no código).
+
+| # | Território | Teto de nível | Ficha no teto (pontos) | Raridade da loja |
+|---|---|---|---|---|
+| 1 | Pista | **20** | ~27 | comum |
+| 2 | Feira | 33 | ~41 | incomum |
+| 3 | Baixada | 46 | ~55 | raro |
+| 4 | Vila | 59 | ~68 | pesado |
+| 5 | Morro | 72 | ~80 | épico |
+| 6 | Alto do Morro | 85 | ~93 | de grife |
+| 7 | Laje | 99 (Retalho 100) | ~106 | lendário |
+
+**Força das peças (decisão: 12%, Mandingueiro 15%).** O conjunto completo (6
+peças) de cada loja vale ~12% da ficha no teto daquele bairro; o do
+Mandingueiro ~15% (ele é o cara de poder). Conta em pontos: 1 de atributo =
+1 ponto, 3 de Osso = 1, 3 de energia = 1. É a proporção que já foi simulada e
+aprovada na Pista (comum) e na Feira (incomum).
+
+| Território | Porradeiro (conjunto) | Paredão (conjunto) | Mandingueiro (conjunto) |
+|---|---|---|---|
+| Pista (3 / 4 pts) | Pique +1, Osso +6, energia +2 | Osso +10, energia +2 | Malandragem +1, energia +6, Osso +2 |
+| Feira (5 / 6) | Porrada +2, Pique +1, Osso +7 | Couro +2, Osso +13 | Malandragem +2, Porrada +1, energia +6, Osso +3 |
+| Baixada (7 / 8) | Porrada +3, Pique +1, Couro +1, Osso +6 | Couro +3, Porrada +1, Osso +9 | Malandragem +3, Porrada +1, Pique +1, energia +6, Osso +3 |
+| Vila (8 / 10) | Porrada +4, Pique +1, Couro +1, Osso +6 | Couro +4, Porrada +1, Osso +9 | Malandragem +4, Porrada +1, Pique +1, Couro +1, energia +6, Osso +3 |
+| Morro (10 / 12) | Porrada +5, Pique +2, Couro +1, Osso +6 | Couro +5, Porrada +1, Osso +12 | Malandragem +5, Porrada +2, Pique +1, Couro +1, energia +6, Osso +3 |
+| Alto (11 / 14) | Porrada +6, Pique +2, Couro +1, Osso +9 | Couro +6, Porrada +1, Osso +12 | Malandragem +6, Porrada +2, Pique +1, Couro +1, energia +9, Osso +3 |
+| Laje (13 / 16) | Porrada +7, Pique +2, Couro +2, Osso +9 | Couro +7, Porrada +1, Osso +15 | Malandragem +7, Porrada +3, Pique +1, Couro +1, energia +9, Osso +6 |
+
+- Regras fixas: o **Paredão nunca passa de +1 de Porrada** em nenhuma loja;
+  Porrada e Couro nunca entram em peça comum; o conjunto de cada loja é
+  dividido pelos 6 espaços (arma e corpo carregam o grosso).
+- Pista e Feira já existem no catálogo (ids 201–236). Baixada em diante usa
+  ids **301+ (Baixada), 401+ (Vila), 501+ (Morro), 601+ (Alto), 701+ (Laje)**
+  — 18 peças por loja (6 espaços × 3 caminhos) + até 2 livres. Criar no
+  catálogo e calibrar por simulação quando cada bairro ganhar cena.
+
+**O que cada loja vende (sem repetir):**
+
+| Território | Equipamento | Poção de Osso / energia | Contra status |
+|---|---|---|---|
+| Pista | comum (201–206, 213–218, 225–230, 238) | +5 (20) | remédios avulsos, 1 por status (30–33, 35–39) |
+| Feira | incomum (207–212, 219–224, 231–236) | +10 (35) | Xarope da Vó — cura todos (34) |
+| Baixada | raro (301+) | +15 (55) | kit de rua: cura status + 10 de Osso |
+| Vila | pesado (401+) | +20 (80) | — |
+| Morro | épico (501+) | +30 (120) | benzedeira: cura status do time inteiro |
+| Alto | de grife (601+) | +40 (170) | — |
+| Laje | lendário (701+) | +50 (230) | — |
+
+(Hoje a loja da Pista ainda vende também o Xarope da Vó — sai de lá quando a
+Feira tiver loja.)
+
+**Grana por bairro (decisão: escala).** Sem isso as peças do fim ficam
+impossíveis de comprar.
+
+| Território | Por inimigo | Chefe (mínimo) | Clube (vitória) | Conjunto por personagem (preço) |
+|---|---|---|---|---|
+| Pista | 10 | 250 | 200 | ~170 |
+| Feira | 15 | 500 | 300 | ~520 |
+| Baixada | 20 | 800 | 450 | ~900 |
+| Vila | 30 | 1.200 | 650 | ~1.300 |
+| Morro | 40 | 1.700 | 900 | ~1.900 |
+| Alto | 55 | 2.300 | 1.200 | ~2.600 |
+| Laje | 75 | 3.000 | 1.600 | ~3.500 |
+
+Conta de referência (≈30 inimigos por bairro, uma passada): a Pista paga ~550
+e equipa a dupla (~340). Daí pra frente o time cresce (+1 vaga por bairro) e
+o conjunto do time todo passa a custar 1,5× a 4× a passada — o resto vem do
+Clube e das apostas, de propósito. O teto de aposta da Banca também deve
+subir por bairro (hoje só sobe pela Rep).
+
+**Próximo passo na Pista (aprovado, ainda NÃO feito):** baixar o teto de 25
+pra 20 e reajustar a ladder da rua (hoje chega a 26 no pós-muro) e o Carvão
+(ficha 30) pra caber: calibrar por simulação até a dupla no nível 20 com o
+conjunto comum vencer o Carvão ~50% das vezes.
+
 ## 10. Conto 02 — sinopse canônica ("Alan, o Campeão")
 
 Fonte completa: `src/data/livro/contos/pt/02/01.md` … `19.md`. 1ª pessoa, contada
