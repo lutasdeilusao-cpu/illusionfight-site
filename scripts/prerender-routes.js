@@ -167,6 +167,66 @@ capitulos.forEach((capitulo, i) => {
   })
 })
 
+// Contos de Ilusão e as obras de fora (Mundo das Sombras, Mar de Cinzas):
+// página estática pro hub de cada história e pra cada capítulo. Sem isso o
+// GitHub Pages responde 404 nesses endereços e o WhatsApp/Twitter/Google não
+// veem título nem miniatura (pedido do Isaias, 29/09/2026 — o link do conto 06
+// saía sem prévia). Capítulo ainda não liberado ganha página (a prévia do link
+// funciona), mas fica fora do Google (`indexable` só quando já é público).
+const liberadoAte = cap => Boolean(cap.liberacao?.publico && cap.liberacao.publico <= BUILD_DATE)
+contos.forEach(conto => {
+  const nome = conto.titulo_en || conto.titulo
+  const hub = `/historias/contos/${conto.id}`
+  ROUTES.push({
+    path: hub,
+    title: `${nome} — Illusion Tales | Illusion Fight`,
+    description: conto.tagline_en || conto.resumo_en || conto.resumo_pt,
+    heading: nome,
+    content: conto.resumo_en || conto.resumo_pt,
+    extra: [conto.tagline_en, 'Read it online for free on Illusion Fight.'].filter(Boolean),
+    related: [
+      ...conto.capitulos.slice(0, 3).map(cap => ({ name: `Chapter ${cap.numero} — ${cap.titulo_en || cap.titulo}`, path: `${hub}/${cap.id}/` })),
+      { name: 'All Illusion Tales', path: '/historias/contos/' },
+    ],
+    priority: '0.7', changefreq: 'monthly', indexable: true,
+    parent: { name: 'Illusion Tales', path: '/historias/contos/' },
+  })
+  conto.capitulos.forEach((cap, i) => {
+    const anterior = conto.capitulos[i - 1]
+    const proximo = conto.capitulos[i + 1]
+    ROUTES.push({
+      path: `${hub}/${cap.id}`,
+      title: `${nome} — chapter ${cap.numero}: ${cap.titulo_en || cap.titulo} | Illusion Fight`,
+      description: cap.resumo_en || conto.tagline_en || cap.resumo_pt,
+      heading: `${nome} — Chapter ${cap.numero}: ${cap.titulo_en || cap.titulo}`,
+      content: cap.resumo_en || cap.resumo_pt,
+      extra: [conto.tagline_en].filter(Boolean),
+      related: [
+        anterior && { name: `Chapter ${anterior.numero} — ${anterior.titulo_en || anterior.titulo}`, path: `${hub}/${anterior.id}/` },
+        proximo && { name: `Chapter ${proximo.numero} — ${proximo.titulo_en || proximo.titulo}`, path: `${hub}/${proximo.id}/` },
+        { name: nome, path: `${hub}/` },
+      ].filter(Boolean),
+      lastmod: pastOr(cap.liberacao?.publico),
+      priority: '0.6', changefreq: 'monthly', indexable: true,
+      parent: { name: nome, path: `${hub}/` },
+    })
+  })
+})
+obras.forEach(obra => {
+  const nome = obra.titulo_en || obra.titulo
+  obra.capitulos.forEach(cap => ROUTES.push({
+    path: `/historias/${obra.id}/${cap.id}`,
+    title: `${nome} — ${cap.titulo_en || cap.titulo} | Illusion Fight`,
+    description: cap.resumo_en || obra.tagline_en || obra.resumo_en,
+    heading: `${nome} — ${cap.titulo_en || cap.titulo}`,
+    content: cap.resumo_en || obra.resumo_en || obra.tagline_en,
+    related: [{ name: nome, path: `/historias/${obra.id}/` }],
+    lastmod: pastOr(cap.liberacao?.publico),
+    priority: '0.5', changefreq: 'monthly', indexable: liberadoAte(cap),
+    parent: { name: nome, path: `/historias/${obra.id}/` },
+  }))
+})
+
 episodios.filter(episodio => episodio.paginas).forEach(episodio => ROUTES.push({
   path: `/webtoon/${episodio.id}`,
   title: `${episodio.titulo_en || episodio.titulo_pt} — Illusion Fight WEB SHARD, chapter ${episodio.numero}`,
