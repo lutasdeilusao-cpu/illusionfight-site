@@ -1110,5 +1110,107 @@
         }
       }
     ]
+  },
+  {
+    "id": "07",
+    "peso": "pesada",
+    "canon": true,
+    "temas": [
+      "familia",
+      "amizade",
+      "luta",
+      "violencia"
+    ],
+    "titulo": "As Correntes",
+    "titulo_en": "The Chains",
+    "titulo_es": "Las Cadenas",
+    "tagline_pt": "O Kim não gosta de contar história. Vai contar mesmo assim.",
+    "tagline_en": "Kim doesn't like telling stories. He's telling this one anyway.",
+    "tagline_es": "A Kim no le gusta contar historias. Igual va a contar esta.",
+    "resumo_pt": "Contado pelo Kim: o que o Jack chama de correntes. A primeira vez, contra o Campeão, e a noite em que um clube de motoqueiros levou a Helena por causa de uma dívida.",
+    "resumo_en": "Told by Kim: what Jack calls the chains. The first time, against the Champion, and the night a biker club took Helena over a debt.",
+    "resumo_es": "Contado por Kim: lo que Jack llama las cadenas. La primera vez, contra el Campeón, y la noche en que un club de motoqueros se llevó a Helena por una deuda.",
+    "capitulos": [
+      {
+        "id": "01",
+        "numero": 1,
+        "titulo": "Eu Não Conto História",
+        "titulo_en": "I Don't Tell Stories",
+        "titulo_es": "Yo No Cuento Historias",
+        "resumo_pt": "O Kim avisa: ele é péssimo contando história. E conta por que o Jack é especial.",
+        "resumo_en": "Kim warns you: he's terrible at telling stories. And he tells you why Jack is special.",
+        "resumo_es": "Kim avisa: es pésimo contando historias. Y cuenta por qué Jack es especial.",
+        "liberacao": {
+          "primordial": "2026-09-29",
+          "elite": "2026-09-29",
+          "conta": "2026-09-29",
+          "publico": "2026-09-29"
+        }
+      },
+      {
+        "id": "02",
+        "numero": 2,
+        "titulo": "A Primeira Vez",
+        "titulo_en": "The First Time",
+        "titulo_es": "La Primera Vez",
+        "resumo_pt": "A última briga com o Campeão: o Jack no chão, o mundo cinza e só lapsos na memória.",
+        "resumo_en": "The last fight with the Champion: Jack on the ground, the world gone grey, and only flashes in his memory.",
+        "resumo_es": "La última pelea con el Campeón: Jack en el suelo, el mundo gris y solo destellos en la memoria.",
+        "liberacao": {
+          "primordial": "2026-09-29",
+          "elite": "2026-09-29",
+          "conta": "2026-09-29",
+          "publico": "2026-09-29"
+        }
+      },
+      {
+        "id": "03",
+        "numero": 3,
+        "titulo": "O Clube",
+        "titulo_en": "The Club",
+        "titulo_es": "El Club",
+        "resumo_pt": "Quinze anos. Um clube de motoqueiros leva a Helena. O Kim chama o Jack.",
+        "resumo_en": "Fifteen years old. A biker club takes Helena. Kim calls Jack.",
+        "resumo_es": "Quince años. Un club de motoqueros se lleva a Helena. Kim llama a Jack.",
+        "liberacao": {
+          "primordial": "2026-09-29",
+          "elite": "2026-09-29",
+          "conta": "2026-09-29",
+          "publico": "2026-09-29"
+        }
+      },
+      {
+        "id": "04",
+        "numero": 4,
+        "titulo": "A Porta",
+        "titulo_en": "The Door",
+        "titulo_es": "La Puerta",
+        "resumo_pt": "O porteiro, a dívida da Helena e o aviso que ninguém levou a sério.",
+        "resumo_en": "The doorman, Helena's debt, and the warning nobody took seriously.",
+        "resumo_es": "El portero, la deuda de Helena y la advertencia que nadie tomó en serio.",
+        "liberacao": {
+          "primordial": "2026-09-29",
+          "elite": "2026-09-29",
+          "conta": "2026-09-29",
+          "publico": "2026-09-29"
+        }
+      },
+      {
+        "id": "05",
+        "numero": 5,
+        "titulo": "O Bar",
+        "titulo_en": "The Bar",
+        "titulo_es": "El Bar",
+        "resumo_pt": "A porta vem abaixo. Lá dentro: um bar, um bordel, um cassino — e dezoito homens de pé.",
+        "resumo_en": "The door comes down. Inside: a bar, a brothel, a casino — and eighteen men on their feet.",
+        "resumo_es": "La puerta se cae. Adentro: un bar, un burdel, un casino — y dieciocho hombres de pie.",
+        "liberacao": {
+          "primordial": "2026-09-29",
+          "elite": "2026-09-29",
+          "conta": "2026-09-29",
+          "publico": "2026-09-29"
+        }
+      }
+    ]
   }
 ]
