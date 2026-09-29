@@ -1274,6 +1274,22 @@
           "conta": "2026-09-29",
           "publico": "2026-09-29"
         }
+      },
+      {
+        "id": "10",
+        "numero": 10,
+        "titulo": "O Corredor",
+        "titulo_en": "The Hallway",
+        "titulo_es": "El Pasillo",
+        "resumo_pt": "Um corredor apertado, três portas e quatro dedos até o Kim descobrir onde está o chefe.",
+        "resumo_en": "A narrow hallway, three doors and four fingers until Kim finds out where the boss is.",
+        "resumo_es": "Un pasillo angosto, tres puertas y cuatro dedos hasta que Kim descubre dónde está el jefe.",
+        "liberacao": {
+          "primordial": "2026-09-29",
+          "elite": "2026-09-29",
+          "conta": "2026-09-29",
+          "publico": "2026-09-29"
+        }
       }
     ]
   }
