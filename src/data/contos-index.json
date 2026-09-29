@@ -1226,6 +1226,22 @@
           "conta": "2026-09-29",
           "publico": "2026-09-29"
         }
+      },
+      {
+        "id": "07",
+        "numero": 7,
+        "titulo": "Canudinho",
+        "titulo_en": "Through a Straw",
+        "titulo_es": "Con Pajita",
+        "resumo_pt": "O Jack quebra o primeiro, o Kim tira a arma do segundo. Depois eles se separam: um sobe, o outro desce.",
+        "resumo_en": "Jack breaks the first one, Kim takes the gun from the second. Then they split up: one goes up, the other goes down.",
+        "resumo_es": "Jack rompe al primero, Kim le saca el arma al segundo. Después se separan: uno sube, el otro baja.",
+        "liberacao": {
+          "primordial": "2026-09-29",
+          "elite": "2026-09-29",
+          "conta": "2026-09-29",
+          "publico": "2026-09-29"
+        }
       }
     ]
   }
