@@ -1,0 +1,61 @@
+var e=`# CAPÍTULO 5 — O Doutor Freddy
+
+Vocês conhecem ele como Freddy. Uso o nome pra vocês se localizarem, mas na hora eu não sabia quem era. Só sabia que um tal de Freddy estava dando uma festa.
+
+Desceu o Doutor Freddy com a comitiva dele.
+
+Aquela comitiva pequena, sabe? Galera magrinha, raquítica, que não curte academia nem foto de peitoral em rede social. Só uns treze, catorze marmanjos descendo a escada atrás dele.
+
+E eu, não sei por quê, senti no ar que a culpa era do Kim.
+
+Então fiquei na minha. Peguei uma garrafa e botei embaixo do braço, porque estava sentindo que a festa ia acabar.
+
+---
+
+O Freddy procurando, procurando, até que o menorzinho da comitiva, um armário de dois metros, apontou pra mim.
+
+Eu estava com a garrafa na boca. Olhei pra um lado, pro outro. O povo foi abrindo espaço, e eu fui ficando sozinho no meio.
+
+— Foi ele.
+
+*Eita, preula. Que que esse cabra feio quer?*
+
+Eu não estava entendendo que era comigo. Estava bebendo de boa. Não tinha batido em ninguém naquela noite ainda.
+
+---
+
+— Jasmine! — o Freddy gritou.
+
+E a morena da maldade no olhar colou do lado dele.
+
+— Foi ele?
+
+— Foi.
+
+— Por que você fez isso?
+
+— Pra você aprender, seu filho da puta. Você não gosta de me botar chifre? Pois eu botei em você. Na sua festa. Na sua casa. No mesmo quarto em que a gente transa.
+
+*No que eu fui me meter, maluco.*
+
+Ali não dava mais pra negar que era comigo. Jasmine. Depois dessa, jamais vou esquecer esse nome.
+
+---
+
+Começou uma risadinha na plateia, e o Freddy ficou mais possesso ainda. Veio pra cima de mim.
+
+— Você comeu minha namorada?
+
+Olhei pra ele com um sorriso leve. Queria ser educado e preservar um pouco da dignidade dele. Primeiro me veio um "Rapaz…", mas mudei na hora pra algo à altura da ocasião:
+
+— Meu senhor, quero dizer, de forma muito sincera, que em nenhum momento me foi informado que a moça aqui presente, agora nomeada como Jasmine, tinha qualquer compromisso anterior à minha apresentação (até aquele momento eu nem sabia o nome dela, reparem). Mas, visto que estamos em ambiente público, prefiro não compartilhar atos de intimidade que dizem respeito somente a mim e à Jasmine.
+
+---
+
+Como vocês podem ver, eu fui o mais educado possível. O cara já era declaradamente corno, anunciado no meio da própria festa. Na minha lógica, não interessava a ninguém esticar o assunto.
+
+Mas o Freddy não pensou com essa profundidade sobre ações e consequências.
+
+O que me indica que ele não aceitou bem é o que ele fez em seguida: balançou a cabeça com muita raiva e começou uma sequência de golpes na minha direção.
+`;export{e as default};
+//# sourceMappingURL=05-DFMRr5rB.js.map
