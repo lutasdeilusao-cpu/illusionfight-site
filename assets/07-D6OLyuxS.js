@@ -1,0 +1,41 @@
+var e=`# CAPÍTULO 7 — Inocente
+
+Eu poderia ter parado ali e resolvido. Mas eu tinha um compromisso moral com o Freddy: não encostar nele. E tinha um problema logístico, que era o Kim do outro lado do salão, sem saber que a festa tinha acabado.
+
+Então fui andando na direção do buffet.
+
+---
+
+O Freddy veio de novo, com o braço inteiro desenhando o soco lá de trás. Dei um giro de 360 graus em volta dele, como quem contorna um poste, e continuei andando. Ele passou reto e só parou porque bateu numa pilastra.
+
+No caminho tinha comitiva. Um veio pela frente e eu desci ele com um jab. Outro me agarrou pela camisa e desceu com a própria cadeira que tentou levantar. O terceiro eu nem vi direito, só senti o cotovelo encaixar.
+
+E atrás de mim, o tempo todo, o Freddy.
+
+— VOLTA AQUI!
+
+Desviei pela esquerda. Ele errou pela direita. Desviei pela direita. Ele errou pela esquerda. Parecia uma dança, só que eu era o único que sabia os passos.
+
+---
+
+Enquanto isso, na mesa do buffet.
+
+O Kim tinha uma coxinha na boca, um copo na mão esquerda e três salgadinhos equilibrados na direita. Ele olhava a confusão com a cara de quem assiste a um programa ruim na televisão de outra pessoa.
+
+Dois caras da comitiva pararam na frente dele.
+
+— Você é amigo daquele cabelo verde?
+
+O Kim mastigou. Pensou. Mastigou mais um pouco.
+
+— Depende do que ele fez.
+
+Um deles esbarrou na mesa e uma bandeja de empadinha começou a escorregar pela beirada.
+
+O Kim largou tudo. Pegou a bandeja no ar antes de ela chegar no chão, colocou de volta no lugar, ajeitou uma empadinha que tinha saído da fila e só então deu um soco na cara do sujeito.
+
+Nessa ordem. Nunca ao contrário.
+
+— Não encosta na mesa.
+`;export{e as default};
+//# sourceMappingURL=07-D6OLyuxS.js.map
