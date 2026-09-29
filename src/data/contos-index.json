@@ -1242,6 +1242,22 @@
           "conta": "2026-09-29",
           "publico": "2026-09-29"
         }
+      },
+      {
+        "id": "08",
+        "numero": 8,
+        "titulo": "O Subsolo",
+        "titulo_en": "The Basement",
+        "titulo_es": "El Sótano",
+        "resumo_pt": "Lá embaixo, o Jack espera as armas esvaziarem. Depois é a vez dele.",
+        "resumo_en": "Down below, Jack waits for the guns to run dry. Then it is his turn.",
+        "resumo_es": "Allá abajo, Jack espera a que las armas se vacíen. Después le toca a él.",
+        "liberacao": {
+          "primordial": "2026-09-29",
+          "elite": "2026-09-29",
+          "conta": "2026-09-29",
+          "publico": "2026-09-29"
+        }
       }
     ]
   }
