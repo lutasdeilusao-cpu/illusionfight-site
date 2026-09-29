@@ -1210,6 +1210,22 @@
           "conta": "2026-09-29",
           "publico": "2026-09-29"
         }
+      },
+      {
+        "id": "06",
+        "numero": 6,
+        "titulo": "Nós Dois de Pé",
+        "titulo_en": "Just the Two of Us Standing",
+        "titulo_es": "Solo Nosotros Dos de Pie",
+        "resumo_pt": "Uma promessa entre irmãos antes da briga: no final, só os dois de pé.",
+        "resumo_en": "A promise between brothers before the fight: at the end, only the two of them standing.",
+        "resumo_es": "Una promesa entre hermanos antes de la pelea: al final, solo ellos dos de pie.",
+        "liberacao": {
+          "primordial": "2026-09-29",
+          "elite": "2026-09-29",
+          "conta": "2026-09-29",
+          "publico": "2026-09-29"
+        }
       }
     ]
   }
