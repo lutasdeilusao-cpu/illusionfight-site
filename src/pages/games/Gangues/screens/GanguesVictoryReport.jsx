@@ -17,14 +17,15 @@ import { getGanguesItem } from '../data/ganguesItens.js'
 // quando o jogador já tem uma recompensa na tela pra olhar, não antes).
 // Escopado por CONTA (TutorialProgressContext), não mais por save/aparelho —
 // pedido do Isaias (14/09/2026).
-const XP_TUTORIAL_ID = 'xp'
+// Um aviso só: como o AP é dividido + por que risco rende mais (29/09/2026 —
+// antes eram 2 avisos seguidos na mesma tela).
+const XP_TUTORIAL_ID = 'xp_v2'
 // "Recompensa por risco" (pedido do Isaias, 19/09/2026 — "não tem porque
 // subir, porque subir não dá mais experiência... a gente tem que avisar
 // isso também no tutorial, tem que explicar pra upar contra personagens
 // [mais fortes]"). Mostra DEPOIS do tutorial de XP (nunca os 2 juntos —
 // `apRiscoTipVisto` só é checado quando `xpTipVisto` já é true, ver JSX),
 // então na prática aparece na 2ª vitória real em diante.
-const AP_RISCO_TUTORIAL_ID = 'ap_risco'
 
 // Linha do roster "ESTADO FINAL DAS GANGUES" — precisa ser componente
 // próprio (não inline no .map) porque a classe `--foto` do wrapper e o
@@ -57,8 +58,6 @@ export default function GanguesVictoryReport({
   const { jaViu, marcarVisto, carregado } = useTutorialProgress()
   const xpTipVisto = !carregado || jaViu(XP_TUTORIAL_ID)
   const fecharXpTip = () => marcarVisto(XP_TUTORIAL_ID)
-  const apRiscoTipVisto = !carregado || jaViu(AP_RISCO_TUTORIAL_ID)
-  const fecharApRiscoTip = () => marcarVisto(AP_RISCO_TUTORIAL_ID)
   // Cabeça de quem apanhou de verdade na tela de derrota (pedido do Isaias,
   // 15/09/2026: "usa a cabecinha do derrotado e coloca ele lá, se tiver
   // mais de um pode colocar a galera toda" — futuro banco de "carinhas"
@@ -230,9 +229,6 @@ export default function GanguesVictoryReport({
       )}
       {victory && rewardSummary && !xpTipVisto && (
         <GangTip text={t('games.gangues.xp_tutorial.regra')} side="right" isLast onNext={fecharXpTip} onSkip={fecharXpTip} />
-      )}
-      {victory && rewardSummary && xpTipVisto && !apRiscoTipVisto && (
-        <GangTip text={t('games.gangues.ap_risco_tutorial.regra')} side="right" isLast onNext={fecharApRiscoTip} onSkip={fecharApRiscoTip} />
       )}
 
       {/* Ação principal logo abaixo do resultado — é o botão que mais importa

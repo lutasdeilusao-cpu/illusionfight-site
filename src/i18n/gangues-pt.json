@@ -445,7 +445,9 @@
         "sem_caminho": "Ninguém do teu elenco é desse caminho.",
         "qualquer_caminho": "Qualquer caminho",
         "so_caminho": "Só {caminho}",
-        "faixa_explica": "O bônus é uma faixa e rola na hora: Porrada a cada golpe, Couro a cada defesa, Pique uma vez no começo da luta. A comparação abaixo usa a média."
+        "faixa_explica": "O bônus é uma faixa e rola na hora: Porrada a cada golpe, Couro a cada defesa, Pique uma vez no começo da luta. A comparação abaixo usa a média.",
+        "nivel_min": "Nível mín. {n}",
+        "falta_nivel": "Ninguém da tropa chegou no nível {n} pra usar isso ainda."
       },
       "bag": {
         "eyebrow": "Bolsa",
@@ -556,31 +558,27 @@
         "heal": "Cura {v} (+ metade da Malandragem) de Osso no aliado mais machucado."
       },
       "combat_tutorial": {
-        "iniciativa": "Essa lista mostra quem é mais rápido na pista — quanto mais Pique, mais cedo chega no centro e mais vezes age. Muito Pique pode dar até 3 ações contra 1 do mais lento.",
+        "iniciativa": "Essa pista lá em cima mostra a vez: cada um corre até o centro e age quando chega. Mais Pique chega antes e age mais vezes — até 3 ações contra 1 do mais lento.",
         "escolher_alvo": "Tem mais de um inimigo? Toque em quem você quer atacar pra escolher ele como alvo — quer matar o mais fraco primeiro ou focar o mais forte, a escolha é sua.",
-        "bolinha": "Aquela bolinha flutuante é onde você age agora. Toque nela: ATACAR resolve na hora sem custo, TALENTO gasta PM (ou PV) mas causa mais efeito, e ITEM vai mostrar seus itens quando você tiver algum."
+        "bolinha": "Essa bolinha é teu menu (dá pra arrastar pra qualquer canto). ATACAR não gasta nada; TALENTO gasta PM e mostra o que faz — o do Mandingueiro pode deixar status no alvo; ITEM usa poção ou remédio de status."
       },
       "alvo_tutorial": {
-        "farol": "Repara na cor dos pontos: vermelho é obrigatório pra abrir o caminho, amarelo é opcional (não trava nada, mas rende grana ou item). Anda até lá que a ação abre sozinha.",
-        "feito": "Ficou verde? Já tá resolvido. Se era treta repetível, ainda dá pra voltar e brigar de novo à vontade pra farmar."
+        "farol": "Repara na cor dos pontos: vermelho é obrigatório pra abrir o caminho, amarelo é opcional (rende grana ou item) e verde já tá feito — se era treta repetível, dá pra voltar e farmar. Anda até lá que a ação abre sozinha."
       },
       "ko_tutorial": {
         "aliado": "Caiu um aliado? Ele para de agir até a luta acabar, mas o resto da tropa segue brigando. Fica de olho no PV de todo mundo."
       },
       "xp_tutorial": {
-        "regra": "Os pontos de ação da luta não são divididos igual: quem finaliza mais inimigos ganha bem mais da fatia, dano causado desempata. Uma luta contra pouca coisa dá poucos pontos no total — não espera subir de nível toda hora."
-      },
-      "ap_risco_tutorial": {
-        "regra": "Óh, presta atenção nisso: bater sempre em quem é bem mais fraco que o teu brabo não compensa — quanto maior a diferença, menos AP a luta rende, mas nunca menos que 5. Mas encara alguém mais forte que ele e a coisa vira: 1 a 5 níveis acima já TRIPLICA o AP, e passou de 5, QUADRUPLICA. Quem se arrisca, ganha muito mais."
+        "regra": "Os pontos da luta não são divididos igual: quem finaliza mais pega a maior fatia. E bater em quem é bem mais fraco que o teu brabo rende pouco (nunca menos que 5); encarar alguém mais forte rende o dobro ou o triplo."
       },
       "descanso_tutorial": {
-        "recuperar": "Aqui a tropa recupera o PV e o PM inteiro, gastando uma grana. Sentado na birosca, ninguém arranja treta."
+        "recuperar": "Aqui a tropa descansa: 10 recupera quem tá de pé, 30 levanta até quem caiu, e 50 é o completo — vida, caído e status. Status só sai aqui ou com remédio."
       },
       "agiota_tutorial": {
         "emprestimo": "Grana curta? O agiota empresta — mas paga 10 vezes mais em dívida, e cada cura fiada depois DOBRA o que cê deve. Passou do talo, ele cura de graça e te joga direto pro Clube da Luta pra acertar as conta."
       },
       "clube_tutorial": {
-        "como_funciona": "O Clube da Luta é uma roda de aposta: 3 rondas seguidas, sem parar pra descansar. Ganha e sai com grana (ou quita a dívida); perde e te remendam — não conta como derrota de verdade. Só que a entrada já vem fiada: aceitar é entrar devendo.",
+        "como_funciona": "O Clube da Luta é uma roda de aposta: 3 rondas seguidas, sem descanso. Ganhou, quita a dívida E leva a grana do bairro; perdeu, te remendam — não conta como derrota de verdade. Só que a entrada já vem fiada.",
         "cura_dobra": "Entre uma ronda e outra dá pra se ajeitar — mas curar de novo DOBRA o que cê deve. Fugir no meio mantém a dívida do jeito que tava."
       },
       "auto": {

@@ -17,12 +17,13 @@ import GangTip from '../GangTip'
 // antiga, já que o SIGNIFICADO das cores mudou, não só o texto.
 // Escopado por CONTA (TutorialProgressContext), não mais por save/aparelho —
 // pedido do Isaias (14/09/2026).
-const TUTORIAL_FAROL = 'alvo_farol_v2'
-const TUTORIAL_FEITO = 'alvo_feito_v2'
+// Um aviso só com as 3 cores (29/09/2026 — antes o verde vinha num 2º aviso,
+// mais tarde; o Isaias prefere 1 tutorial que fala 2 coisas a 2 que aparecem).
+const TUTORIAL_FAROL = 'alvo_farol_v3'
 
 /** `alvos`: os alvos atuais da cena (amb.alvos). Quem monta decide QUANDO
  *  faz sentido (rua, sem intro/fade/encontro cobrindo a tela) — este
- *  componente só decide QUAL dos 2 avisos (se algum) mostrar. */
+ *  componente só decide se mostra o aviso. */
 export default function GanguesAlvoTutorial({ alvos }) {
   const { t } = useLanguage()
   const { jaViu, marcarVisto, carregado } = useTutorialProgress()
@@ -32,11 +33,6 @@ export default function GanguesAlvoTutorial({ alvos }) {
   if (!jaViu(TUTORIAL_FAROL)) {
     const fechar = () => marcarVisto(TUTORIAL_FAROL)
     return <GangTip text={t('games.gangues.alvo_tutorial.farol')} side="right" isLast onNext={fechar} onSkip={fechar} />
-  }
-
-  if (!jaViu(TUTORIAL_FEITO) && alvos.some(a => a.estado === 'resolvido' || a.farmCompleto)) {
-    const fechar = () => marcarVisto(TUTORIAL_FEITO)
-    return <GangTip text={t('games.gangues.alvo_tutorial.feito')} side="left" isLast onNext={fechar} onSkip={fechar} />
   }
 
   return null

@@ -445,7 +445,9 @@
         "sem_caminho": "Nadie de tu banda es de este camino.",
         "qualquer_caminho": "Cualquier camino",
         "so_caminho": "Solo {caminho}",
-        "faixa_explica": "El bono es un rango y se tira en el momento: Trompada en cada golpe, Cuero en cada defensa, Pique una vez al empezar la pelea. La comparación de abajo usa el promedio."
+        "faixa_explica": "El bono es un rango y se tira en el momento: Trompada en cada golpe, Cuero en cada defensa, Pique una vez al empezar la pelea. La comparación de abajo usa el promedio.",
+        "nivel_min": "Nivel mín. {n}",
+        "falta_nivel": "Nadie de la tropa llegó al nivel {n} para usar esto todavía."
       },
       "bag": {
         "eyebrow": "Bolso",
@@ -556,31 +558,27 @@
         "heal": "Cura {v} (+ la mitad de Viveza) de Aguante al aliado más herido."
       },
       "combat_tutorial": {
-        "iniciativa": "Esta lista muestra quién es más rápido en la pista — más Pique es llegar antes al centro y actuar más veces. Mucho Pique puede dar hasta 3 acciones contra 1 del más lento.",
+        "iniciativa": "Esa pista de arriba muestra el turno: cada uno corre al centro y actúa al llegar. Más Pique llega antes y actúa más veces — hasta 3 acciones contra 1 del más lento.",
         "escolher_alvo": "¿Hay más de un enemigo? Toca a quien quieras atacar para elegirlo como objetivo — matar al más débil primero o enfocar al más fuerte, tú decides.",
-        "bolinha": "Esa bolita flotante es donde actúas ahora. Tócala: ATACAR resuelve al instante gratis, TALENTO gasta PM (o PV) pero pega más fuerte, e ITEM va a mostrar tus objetos cuando tengas alguno."
+        "bolinha": "Esa bolita es tu menú (se arrastra a cualquier esquina). ATACAR no gasta nada; TALENTO gasta PM y muestra lo que hace — el del Brujo puede dejar un estado en el objetivo; ITEM usa poción o remedio de estado."
       },
       "alvo_tutorial": {
-        "farol": "Fijate en el color de los puntos: rojo es obligatorio pra abrir el camino, amarillo es opcional (no traba nada, pero da plata o un objeto). Camina hasta ahí y la acción se abre sola.",
-        "feito": "¿Se puso verde? Ya está resuelto. Si era una pelea repetible, todavía podés volver y pelear de nuevo las veces que quieras."
+        "farol": "Fijate el color de los puntos: rojo es obligatorio para abrir el camino, amarillo es opcional (da plata o ítem) y verde ya está hecho — si era pelea repetible, podés volver a farmear. Caminá hasta ahí y la acción se abre sola."
       },
       "ko_tutorial": {
         "aliado": "¿Cayó un aliado? Se queda fuera el resto de la pelea, pero el resto de tu banda sigue peleando. Ojo con el PV de todos."
       },
       "xp_tutorial": {
-        "regra": "Los puntos de acción de la pelea no se dividen igual: quien remata a más enemigos se lleva una porción bastante mayor, el daño causado desempata. Una pelea contra poca cosa da pocos puntos en total — no esperes subir de nivel todo el tiempo."
-      },
-      "ap_risco_tutorial": {
-        "regra": "Che, prestá atención a esto: pegarle siempre a alguien mucho más débil que tu más rana no conviene — cuanto mayor la diferencia, menos AP da la pelea, pero nunca menos de 5. Pero encará a alguien más fuerte y la cosa cambia: de 1 a 5 niveles arriba ya TRIPLICA el AP, y pasando de 5, lo CUADRUPLICA. El que se arriesga, gana mucho más."
+        "regra": "Los puntos de la pelea no se reparten igual: quien remata más se lleva la mayor parte. Pegarle a alguien mucho más débil que tu mejor rinde poco (nunca menos de 5); enfrentar a alguien más fuerte rinde el doble o el triple."
       },
       "descanso_tutorial": {
-        "recuperar": "Aquí tu banda recupera todo el PV y el PM, pagando una plata. Sentado en la birosca, nadie busca pelea."
+        "recuperar": "Acá la tropa descansa: 10 cura al que está de pie, 30 levanta hasta al caído, y 50 es el completo — vida, caídos y estados. El estado solo se va acá o con remedio."
       },
       "agiota_tutorial": {
         "emprestimo": "¿Corto de plata? El agiota presta — pero pagás 10 veces más de deuda, y cada cura fiada después DUPLICA lo que debés. Llegaste al tope, te cura gratis y te tira directo al Club de la Pelea pa' arreglar cuentas."
       },
       "clube_tutorial": {
-        "como_funciona": "El Clube da Luta es una ronda de apuestas: 3 rondas seguidas, sin descansar entre medio. Ganas y sales con plata (o saldas tu deuda); pierdes y te recomponen — no cuenta como derrota de verdad. Eso sí, la entrada siempre es fiada: aceptar ya es entrar debiendo.",
+        "como_funciona": "El Club de la Pelea es una rueda de apuestas: 3 rondas seguidas, sin descanso. Ganás, saldás la deuda Y te llevás la plata del barrio; perdés, te remiendan — no cuenta como derrota de verdad. Pero la entrada ya viene fiada.",
         "cura_dobra": "Entre ronda y ronda puedes curarte — pero curarte de nuevo DUPLICA lo que debes. Huir a la mitad deja la deuda como estaba."
       },
       "auto": {

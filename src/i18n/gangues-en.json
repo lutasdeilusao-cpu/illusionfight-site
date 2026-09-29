@@ -445,7 +445,9 @@
         "sem_caminho": "Nobody in your crew walks this path.",
         "qualquer_caminho": "Any path",
         "so_caminho": "{caminho} only",
-        "faixa_explica": "The bonus is a range and rolls on the spot: Wallop every hit, Hide every block, Pace once at the start of the fight. The comparison below uses the average."
+        "faixa_explica": "The bonus is a range and rolls on the spot: Wallop every hit, Hide every block, Pace once at the start of the fight. The comparison below uses the average.",
+        "nivel_min": "Min. level {n}",
+        "falta_nivel": "Nobody in the crew has hit level {n} to use this yet."
       },
       "bag": {
         "eyebrow": "Bag",
@@ -556,31 +558,27 @@
         "heal": "Heals {v} (+ half Street Smarts) Grit on the most hurt ally."
       },
       "combat_tutorial": {
-        "iniciativa": "This list shows who's fastest on the track — more Pace means reaching the center sooner and acting more often. A lot of Pace can mean up to 3 actions against 1 from the slowest.",
+        "iniciativa": "That track up top shows whose turn it is: everyone runs to the center and acts on arrival. More Pace gets there first and acts more — up to 3 actions to the slowest one's 1.",
         "escolher_alvo": "More than one enemy? Tap whoever you want to attack to pick them as your target — kill the weakest first or focus the strongest, your call.",
-        "bolinha": "That floating orb is where you act now. Tap it: ATTACK resolves instantly for free, TALENT costs PM (or PV) but hits harder, and ITEM will show your items once you have any."
+        "bolinha": "That little ball is your menu (drag it to any corner). ATTACK costs nothing; TALENT spends PM and shows what it does — a Hexer's can leave a status on the target; ITEM uses a potion or a status cure."
       },
       "alvo_tutorial": {
-        "farol": "Check the color of the markers: red is mandatory to clear the path, yellow is optional (skips nothing, but pays out cash or an item). Walk up to one and the action opens on its own.",
-        "feito": "Turned green? Already handled. If it was a repeatable fight, you can still go back and run it again to grind."
+        "farol": "Check the dot colors: red is required to open the way, yellow is optional (pays cash or items) and green is done — if it was a repeatable fight, you can come back and farm it. Walk up and the action opens by itself."
       },
       "ko_tutorial": {
         "aliado": "An ally went down? They're out for the rest of the fight, but the rest of your crew keeps swinging. Keep an eye on everyone's PV."
       },
       "xp_tutorial": {
-        "regra": "A fight's action points aren't split evenly: finishing off more enemies earns a much bigger slice, damage dealt breaks ties. A fight against weak stuff gives few total points — don't expect to level up every single time."
-      },
-      "ap_risco_tutorial": {
-        "regra": "Hey, pay attention to this: always beating up on someone way weaker than your best fighter doesn't pay off — the bigger the gap, the less AP the fight gives, but never less than 5. But take on someone stronger and it flips: 1 to 5 levels above already TRIPLES the AP, and past 5, it QUADRUPLES. Take the risk, get a lot more."
+        "regra": "Fight points aren't split evenly: whoever finishes off the most takes the biggest share. Beating someone way weaker than your strongest pays little (never under 5); taking on someone stronger pays double or triple."
       },
       "descanso_tutorial": {
-        "recuperar": "This is where your crew heals up PV and PM in full, for some cash. Sit down at the birosca and nobody starts trouble."
+        "recuperar": "Here the crew rests: 10 heals whoever's standing, 30 gets the downed back up too, and 50 is the full job — health, downed and status. Status only goes away here or with a cure."
       },
       "agiota_tutorial": {
         "emprestimo": "Short on cash? The loan shark lends — but you pay back 10x as debt, and every credit heal after that DOUBLES what you owe. Hit the ceiling and he heals you free, then throws you straight into the Fight Club to settle up."
       },
       "clube_tutorial": {
-        "como_funciona": "The Fight Club is a betting ring: 3 rounds back to back, no resting in between. Win and you walk out with cash (or clear your debt); lose and they patch you up — doesn't count as a real defeat. The entry's always on credit though: saying yes means walking in already owing.",
+        "como_funciona": "The Fight Club is a betting pit: 3 rounds back to back, no rest. Win and you clear the debt AND take the neighborhood's cash; lose and they patch you up — it doesn't count as a real loss. But the buy-in comes on credit.",
         "cura_dobra": "Between rounds you can patch yourself up — but healing again DOUBLES what you owe. Running mid-fight keeps the debt as it was."
       },
       "auto": {

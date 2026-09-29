@@ -3,7 +3,7 @@ import { createPortal } from 'react-dom'
 import { useLanguage } from '../../../../../context/LanguageContext'
 import { useGanguesStore } from '../../store/useGanguesStore'
 import { getGanguesItem, textoEfeitoItem } from '../../data/ganguesItens.js'
-import { getGanguesEquip, getGanguesAttributesWithEquip, previewGanguesAttributesWithEquip, applyGanguesEquipResources, withGanguesEquip, normalizeGanguesEquipment, textoBonusEquip, atributoPrincipal, podeEquiparGangues } from '../../data/ganguesEquip.js'
+import { getGanguesEquip, getGanguesAttributesWithEquip, previewGanguesAttributesWithEquip, applyGanguesEquipResources, withGanguesEquip, normalizeGanguesEquipment, textoBonusEquip, atributoPrincipal, podeEquiparGangues, caminhoAceitaGangues, nivelMinEquip } from '../../data/ganguesEquip.js'
 import { getGanguesResources } from '../../data/ganguesLoadout.js'
 import { getGanguesCharacter, getGanguesLevelFromXp } from '../../data/ganguesCharacters.js'
 import { getGanguesPortraitByTemplateId } from '../../data/ganguesPortraits.js'
@@ -113,7 +113,7 @@ function DetalheItem({ item, store, t, onClose, notificar }) {
         <span className="gang-loja-det__icone">{item.icone}</span>
         <h4 className="gang-loja-det__nome">{t(item.nome)}</h4>
         {item._equip
-          ? <p className="gang-loja-det__tag">{t(`games.gangues.equip.slots.${item.slot}`)} · {t(`games.gangues.equip.raridade.${item.raridade}`)} · {item.caminho === 'livre' ? t('games.gangues.equip.qualquer_caminho') : t('games.gangues.equip.so_caminho', { caminho: t(`games.gangues.loadout.paths.${item.caminho}.name`) })}</p>
+          ? <p className="gang-loja-det__tag">{t(`games.gangues.equip.slots.${item.slot}`)} · {t(`games.gangues.equip.raridade.${item.raridade}`)} · {item.caminho === 'livre' ? t('games.gangues.equip.qualquer_caminho') : t('games.gangues.equip.so_caminho', { caminho: t(`games.gangues.loadout.paths.${item.caminho}.name`) })} · {t('games.gangues.equip.nivel_min', { n: nivelMinEquip(item) })}</p>
           : <p className="gang-loja-det__tag">{t('games.gangues.cena.tipo.loja')}</p>}
 
         <div className="gang-loja-det__da">
@@ -138,7 +138,7 @@ function DetalheItem({ item, store, t, onClose, notificar }) {
           <>
             <small className="gang-loja-det__titulo">{t('games.gangues.equip.equipar_em')}</small>
             {elenco.filter(m => podeEquiparGangues(item, m)).length === 0
-              ? <p className="gang-loja-det__vazio">{t('games.gangues.equip.sem_caminho')}</p>
+              ? <p className="gang-loja-det__vazio">{t(elenco.some(m => caminhoAceitaGangues(item, m)) ? 'games.gangues.equip.falta_nivel' : 'games.gangues.equip.sem_caminho', { n: nivelMinEquip(item) })}</p>
               : elenco.filter(m => podeEquiparGangues(item, m)).map(member => (
                 <LinhaComparacao key={member.id} t={t} member={member} item={item} podePagar={podePagar} onEquipar={equiparEm} />
               ))}

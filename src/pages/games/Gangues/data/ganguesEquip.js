@@ -1,3 +1,4 @@
+import { getGanguesLevelFromXp } from './ganguesCharacters.js'
 /* ══════════════════════════════════════════════════════════════
    Catálogo de EQUIPAMENTO — pedido do Isaias.
 
@@ -90,16 +91,16 @@ const CATALOGO = [
   { id: 223, slug: 'bota_biqueira', caminho: 'defensor', slot: 'pes', raridade: 'incomum', bonus: { pv: 3 }, cardSlots: 1, custo: 80, icone: '🥾' },
   { id: 224, slug: 'terco_vo', caminho: 'defensor', slot: 'amuleto', raridade: 'incomum', bonus: { pm: 2 }, cardSlots: 1, custo: 75, icone: '📿' },
   { id: 225, slug: 'vela_preta', caminho: 'mistico', slot: 'arma', raridade: 'comum', bonus: { PM: 1 }, cardSlots: 0, custo: 45, icone: '🕯️' },
-  { id: 226, slug: 'capuz_surrado', caminho: 'mistico', slot: 'cabeca', raridade: 'comum', bonus: { pm: 1 }, cardSlots: 0, custo: 25, icone: '🧙' },
-  { id: 227, slug: 'manto_feira', caminho: 'mistico', slot: 'corpo', raridade: 'comum', bonus: { pm: 3 }, cardSlots: 0, custo: 35, icone: '🥻' },
-  { id: 228, slug: 'pulseira_micanga', caminho: 'mistico', slot: 'bracos', raridade: 'comum', bonus: { pv: 1 }, cardSlots: 0, custo: 25, icone: '📿' },
+  { id: 226, slug: 'capuz_surrado', caminho: 'mistico', slot: 'cabeca', raridade: 'comum', bonus: { pm: 2 }, cardSlots: 0, custo: 25, icone: '🧙' },
+  { id: 227, slug: 'manto_feira', caminho: 'mistico', slot: 'corpo', raridade: 'comum', bonus: { pm: 4 }, cardSlots: 0, custo: 35, icone: '🥻' },
+  { id: 228, slug: 'pulseira_micanga', caminho: 'mistico', slot: 'bracos', raridade: 'comum', bonus: { pv: 2 }, cardSlots: 0, custo: 25, icone: '📿' },
   { id: 229, slug: 'sandalia_couro', caminho: 'mistico', slot: 'pes', raridade: 'comum', bonus: { pv: 1 }, cardSlots: 0, custo: 25, icone: '👡' },
   { id: 230, slug: 'guia_contas', caminho: 'mistico', slot: 'amuleto', raridade: 'comum', bonus: { pm: 2 }, cardSlots: 0, custo: 30, icone: '🔮' },
   { id: 231, slug: 'cajado_galho', caminho: 'mistico', slot: 'arma', raridade: 'incomum', bonus: { A: [0, 2] }, cardSlots: 1, custo: 110, icone: '🪄' },
   { id: 232, slug: 'turbante', caminho: 'mistico', slot: 'cabeca', raridade: 'incomum', bonus: { PM: 1 }, cardSlots: 1, custo: 110, icone: '👳' },
-  { id: 233, slug: 'manto_sintonia', caminho: 'mistico', slot: 'corpo', raridade: 'incomum', bonus: { pm: 4, pv: 1 }, cardSlots: 1, custo: 125, icone: '🥋' },
-  { id: 234, slug: 'anel_coco', caminho: 'mistico', slot: 'bracos', raridade: 'incomum', bonus: { pv: 2 }, cardSlots: 1, custo: 70, icone: '💍' },
-  { id: 235, slug: 'chinelo_benzido', caminho: 'mistico', slot: 'pes', raridade: 'incomum', bonus: { pm: 2 }, cardSlots: 1, custo: 75, icone: '🩴' },
+  { id: 233, slug: 'manto_sintonia', caminho: 'mistico', slot: 'corpo', raridade: 'incomum', bonus: { pm: 5, pv: 2 }, cardSlots: 1, custo: 125, icone: '🥋' },
+  { id: 234, slug: 'anel_coco', caminho: 'mistico', slot: 'bracos', raridade: 'incomum', bonus: { pv: 3 }, cardSlots: 1, custo: 70, icone: '💍' },
+  { id: 235, slug: 'chinelo_benzido', caminho: 'mistico', slot: 'pes', raridade: 'incomum', bonus: { pm: 3 }, cardSlots: 1, custo: 75, icone: '🩴' },
   { id: 236, slug: 'olho_grego', caminho: 'mistico', slot: 'amuleto', raridade: 'incomum', bonus: { PM: 1 }, cardSlots: 1, custo: 110, icone: '🧿' },
   { id: 237, slug: 'soqueira_lata', caminho: 'livre', slot: 'arma', raridade: 'comum', bonus: { A: [0, 2] }, cardSlots: 0, icone: '🥊' },
   { id: 238, slug: 'bone_vira_lata', caminho: 'livre', slot: 'cabeca', raridade: 'comum', bonus: { pv: 1 }, cardSlots: 0, custo: 20, icone: '🧢' },
@@ -112,10 +113,26 @@ const CATALOGO = [
 export const GANGUES_EQUIP = Object.fromEntries(CATALOGO.map(item => [item.id, { ...item, nome: i18nNome(item.id) }]))
 export const GANGUES_EQUIP_LISTA = Object.values(GANGUES_EQUIP)
 
-/** Esse personagem pode usar essa peça? (peça `livre` = qualquer um). */
-export function podeEquiparGangues(def, member) {
+// Nível mínimo da peça (29/09/2026): sai da faixa do território que vende a
+// raridade — comum = Pista (5), incomum = Feira (20), e daí pra cima segue a
+// escada de tetos (GDD §9.7). Épico de chefe tem o nível da luta que o dá.
+const NIVEL_MIN_RARIDADE = { comum: 5, incomum: 20, raro: 33, pesado: 46, epico: 59, grife: 72, lendario: 85 }
+const NIVEL_MIN_PECA = { 139: 15, 138: 28 }
+
+export function nivelMinEquip(def) {
+  if (!def) return 1
+  return NIVEL_MIN_PECA[def.id] ?? NIVEL_MIN_RARIDADE[def.raridade] ?? 1
+}
+
+/** O caminho do personagem aceita essa peça? (peça `livre` = qualquer um). */
+export function caminhoAceitaGangues(def, member) {
   if (!def) return false
   return def.caminho === 'livre' || def.caminho === member?.combat_path
+}
+
+/** Esse personagem pode usar essa peça? Caminho certo E nível mínimo. */
+export function podeEquiparGangues(def, member) {
+  return caminhoAceitaGangues(def, member) && getGanguesLevelFromXp(member?.xp_total) >= nivelMinEquip(def)
 }
 
 export function getGanguesEquip(itemId) {

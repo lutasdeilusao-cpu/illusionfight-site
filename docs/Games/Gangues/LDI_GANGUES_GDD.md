@@ -1171,45 +1171,45 @@ Malandragem) ou recurso plano (**pv/pm**, somado no máximo). Raridades hoje:
 - A Soqueira de Lata (237, livre, +1 Porrada) é recompensa do Nando e não é
   vendida.
 
-| id | Nome | Caminho | Espaço | Raridade | Bônus | Preço |
-|---|---|---|---|---|---|---|
-| 201 | Cabo de Vassoura | Porradeiro | arma | comum | +1 Pique | 35 |
-| 202 | Boné Aba Reta | Porradeiro | cabeça | comum | +1 Osso | 25 |
-| 203 | Regata Rasgada | Porradeiro | corpo | comum | +3 Osso | 30 |
-| 204 | Faixa no Punho | Porradeiro | braços | comum | +1 Osso | 25 |
-| 205 | Tênis Furado | Porradeiro | pés | comum | +1 Osso | 25 |
-| 206 | Corrente de Lata | Porradeiro | amuleto | comum | +2 energia | 30 |
-| 207 | Soqueira de Ferro | Porradeiro | arma | incomum | +2 Porrada | 150 |
-| 208 | Bandana de Bonde | Porradeiro | cabeça | incomum | +2 Osso | 75 |
-| 209 | Jaqueta de Couro | Porradeiro | corpo | incomum | +4 Osso | 95 |
-| 210 | Munhequeira | Porradeiro | braços | incomum | +1 Pique | 100 |
-| 211 | Coturno | Porradeiro | pés | incomum | +1 Osso | 70 |
-| 212 | Dente de Ouro | Porradeiro | amuleto | incomum | +2 energia | 75 |
-| 213 | Cano Curto | Paredão | arma | comum | +2 Osso | 30 |
-| 214 | Gorro de Moletom | Paredão | cabeça | comum | +1 Osso | 25 |
-| 215 | Colete Reforçado | Paredão | corpo | comum | +4 Osso | 35 |
-| 216 | Luva de Couro | Paredão | braços | comum | +1 Osso | 25 |
-| 217 | Chinelo Reforçado | Paredão | pés | comum | +2 Osso | 30 |
-| 218 | Medalhinha | Paredão | amuleto | comum | +2 energia | 30 |
-| 219 | Tampa de Bueiro | Paredão | arma | incomum | +1 Couro | 110 |
-| 220 | Capacete de Obra | Paredão | cabeça | incomum | +1 Couro | 110 |
-| 221 | Colete de Placa | Paredão | corpo | incomum | +8 Osso | 125 |
-| 222 | Braçadeira de Pneu | Paredão | braços | incomum | +2 Osso | 70 |
-| 223 | Bota com Biqueira | Paredão | pés | incomum | +3 Osso | 80 |
-| 224 | Terço da Vó | Paredão | amuleto | incomum | +2 energia | 75 |
-| 225 | Vela Preta | Mandingueiro | arma | comum | +1 Malandragem | 45 |
-| 226 | Capuz Surrado | Mandingueiro | cabeça | comum | +1 energia | 25 |
-| 227 | Manto de Feira | Mandingueiro | corpo | comum | +3 energia | 35 |
-| 228 | Pulseira de Miçanga | Mandingueiro | braços | comum | +1 Osso | 25 |
-| 229 | Sandália de Couro | Mandingueiro | pés | comum | +1 Osso | 25 |
-| 230 | Guia de Contas | Mandingueiro | amuleto | comum | +2 energia | 30 |
-| 231 | Cajado de Galho | Mandingueiro | arma | incomum | +1 Porrada | 110 |
-| 232 | Turbante | Mandingueiro | cabeça | incomum | +1 Malandragem | 110 |
-| 233 | Manto de Sintonia | Mandingueiro | corpo | incomum | +4 energia, +1 Osso | 125 |
-| 234 | Anel de Coco | Mandingueiro | braços | incomum | +2 Osso | 70 |
-| 235 | Chinelo Benzido | Mandingueiro | pés | incomum | +2 energia | 75 |
-| 236 | Olho Grego | Mandingueiro | amuleto | incomum | +1 Malandragem | 110 |
-| 237 | Soqueira de Lata | Livre | arma | comum | +1 Porrada | não vende |
+| id | Nome | Caminho | Espaço | Raridade | Bônus | Preço |
+|---|---|---|---|---|---|---|
+| 201 | Cabo de Vassoura | Porradeiro | arma | comum | +1 Pique | 35 |
+| 202 | Boné Aba Reta | Porradeiro | cabeça | comum | +1 Osso | 25 |
+| 203 | Regata Rasgada | Porradeiro | corpo | comum | +3 Osso | 30 |
+| 204 | Faixa no Punho | Porradeiro | braços | comum | +1 Osso | 25 |
+| 205 | Tênis Furado | Porradeiro | pés | comum | +1 Osso | 25 |
+| 206 | Corrente de Lata | Porradeiro | amuleto | comum | +2 energia | 30 |
+| 207 | Soqueira de Ferro | Porradeiro | arma | incomum | +2 Porrada | 150 |
+| 208 | Bandana de Bonde | Porradeiro | cabeça | incomum | +2 Osso | 75 |
+| 209 | Jaqueta de Couro | Porradeiro | corpo | incomum | +4 Osso | 95 |
+| 210 | Munhequeira | Porradeiro | braços | incomum | +1 Pique | 100 |
+| 211 | Coturno | Porradeiro | pés | incomum | +1 Osso | 70 |
+| 212 | Dente de Ouro | Porradeiro | amuleto | incomum | +2 energia | 75 |
+| 213 | Cano Curto | Paredão | arma | comum | +2 Osso | 30 |
+| 214 | Gorro de Moletom | Paredão | cabeça | comum | +1 Osso | 25 |
+| 215 | Colete Reforçado | Paredão | corpo | comum | +4 Osso | 35 |
+| 216 | Luva de Couro | Paredão | braços | comum | +1 Osso | 25 |
+| 217 | Chinelo Reforçado | Paredão | pés | comum | +2 Osso | 30 |
+| 218 | Medalhinha | Paredão | amuleto | comum | +2 energia | 30 |
+| 219 | Tampa de Bueiro | Paredão | arma | incomum | +1 Couro | 110 |
+| 220 | Capacete de Obra | Paredão | cabeça | incomum | +1 Couro | 110 |
+| 221 | Colete de Placa | Paredão | corpo | incomum | +8 Osso | 125 |
+| 222 | Braçadeira de Pneu | Paredão | braços | incomum | +2 Osso | 70 |
+| 223 | Bota com Biqueira | Paredão | pés | incomum | +3 Osso | 80 |
+| 224 | Terço da Vó | Paredão | amuleto | incomum | +2 energia | 75 |
+| 225 | Vela Preta | Mandingueiro | arma | comum | +1 Malandragem | 45 |
+| 226 | Capuz Surrado | Mandingueiro | cabeça | comum | +1 energia | 25 |
+| 227 | Manto de Feira | Mandingueiro | corpo | comum | +3 energia | 35 |
+| 228 | Pulseira de Miçanga | Mandingueiro | braços | comum | +1 Osso | 25 |
+| 229 | Sandália de Couro | Mandingueiro | pés | comum | +1 Osso | 25 |
+| 230 | Guia de Contas | Mandingueiro | amuleto | comum | +2 energia | 30 |
+| 231 | Cajado de Galho | Mandingueiro | arma | incomum | +1 Porrada | 110 |
+| 232 | Turbante | Mandingueiro | cabeça | incomum | +1 Malandragem | 110 |
+| 233 | Manto de Sintonia | Mandingueiro | corpo | incomum | +4 energia, +1 Osso | 125 |
+| 234 | Anel de Coco | Mandingueiro | braços | incomum | +2 Osso | 70 |
+| 235 | Chinelo Benzido | Mandingueiro | pés | incomum | +2 energia | 75 |
+| 236 | Olho Grego | Mandingueiro | amuleto | incomum | +1 Malandragem | 110 |
+| 237 | Soqueira de Lata | Livre | arma | comum | +1 Porrada | não vende |
 | 238 | Boné Vira-Lata | Livre | cabeça | comum | +1 Osso | 20 |
 
 **Faixa e aprimoramento (vindo da branch da Feira, 27/09/2026 — merge de 29/09).**
@@ -1310,6 +1310,14 @@ cena, mas a distribuição já fica definida aqui. O teto de nível (§12) manda
 tudo: a peça de cada loja é calibrada pro teto daquele bairro, porque +1 de
 Porrada vale 17% no nível 25 e só 5% no 99 (atributo principal cresce ~0,37
 por nível).
+
+**Nível mínimo da peça** (29/09/2026, `nivelMinEquip` em `ganguesEquip.js`):
+sai do território que vende a raridade — comum (Pista) **5**, incomum (Feira)
+**20**, raro 33, pesado 46, épico 59, grife 72, lendário 85. Épico de chefe usa
+o nível da luta: Facão do Carvão 15, Porrete do Cobrador 28. Só consumível
+(poção/remédio) se repete entre lojas. **Mandingueiro** tem orçamento de peça
+acima dos outros caminhos (comum ≈4,7 pts contra ≈3,7–4; incomum ≈7,3 contra
+≈6–7).
 
 **Escada de nível (decisão: Pista entre 15 e 20, o resto redistribuído).**
 ~13 níveis por bairro, fechando no 99; o Retalho é o único nível 100.
