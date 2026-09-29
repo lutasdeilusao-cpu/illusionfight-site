@@ -7,12 +7,12 @@ import GanguesDialogoEncontro from './GanguesDialogoEncontro'
    Isaias, 21/09/2026: "cria um componente reutilizável desacoplado desse
    sistema"). Qualquer NPC de qualquer território que precise oferecer
    empréstimo/fiado monta este componente (com o próprio retrato/nome/
-   custoBase/onClube) sem duplicar a escada de dívida nem as 3 telas de
-   resultado — hoje só o Nato da Pista usa (GanguesDescanso.jsx), mas nada
-   aqui é específico dele.
+   custoBase/valorEmprestimo/onClube) sem duplicar a escada de dívida nem as
+   3 telas de resultado — hoje o Marimbondo (Pista) e o Juro Alto (Feira)
+   usam, via GanguesAgiota.jsx.
 
    A REGRA do sistema (quanto empresta, quanto dobra, o teto, o gate do
-   chefe) mora inteiramente no store — `agiotagemInfo`/`pedirEmprestimoNato`/
+   chefe) mora inteiramente no store — `agiotagemInfo`/`pedirEmprestimo`/
    `fiarDescanso` em ganguesBiroscaSlice.js, 100% NPC-agnóstica (só lê/grava
    `storyProgress.__birosca`). Este componente só cuida da UI: as 3 telas de
    resultado (empréstimo, cura fiada, socorro forçado) e a info/ações que
@@ -26,17 +26,17 @@ import GanguesDialogoEncontro from './GanguesDialogoEncontro'
    usa monta seu próprio diálogo/escolhas com essas peças. Falha (motivo)
    volta no retorno de `pedirEmprestimo`/`pedirCuraFiada` pra quem chama
    decidir a mensagem de erro; sucesso já vira a tela de resultado sozinho. */
-export default function GanguesAgiotagem({ retrato, nome, fecharLabel, onClose, custoBase = 10, onClube, comAnimacao, renderDetalheCura, children }) {
+export default function GanguesAgiotagem({ retrato, nome, fecharLabel, onClose, custoBase = 10, valorEmprestimo, onClube, comAnimacao, renderDetalheCura, children }) {
   const { t } = useLanguage()
   const store = useGanguesStore()
   const [emprestimo, setEmprestimo] = useState(null)     // resultado do empréstimo em dinheiro
   const [contrato, setContrato] = useState(null)         // resultado da cura fiada (dívida dobrou)
-  const [socorroPendente, setSocorroPendente] = useState(false) // teto — Nato remenda de graça e joga pro Clube
+  const [socorroPendente, setSocorroPendente] = useState(false) // teto — o agiota remenda de graça e joga pro Clube
 
-  const agio = store.agiotagemInfo()
+  const agio = store.agiotagemInfo(valorEmprestimo)
 
   const pedirEmprestimo = () => {
-    const r = store.pedirEmprestimoNato()
+    const r = store.pedirEmprestimo(valorEmprestimo)
     if (r.ok) setEmprestimo(r)
     return r
   }
@@ -47,15 +47,15 @@ export default function GanguesAgiotagem({ retrato, nome, fecharLabel, onClose, 
   }
   const pedirSocorro = () => setSocorroPendente(true)
 
-  // ── Teto da escada: o Nato não cobra mais nada, cura de graça, mas joga
+  // ── Teto da escada: o agiota não cobra mais nada, cura de graça, mas joga
   // direto pro Clube da Luta — sem a escolha normal de aceitar/recusar
   // (quem chama passa `onClube(custoBase, true)` como entrada forçada).
   if (socorroPendente) {
     return (
       <GanguesDialogoEncontro
-        retrato={retrato} nome={nome} sub={t('games.gangues.cena.nato_socorro_tag')}
-        falas={[t('games.gangues.cena.nato_socorro_fala')]}
-        escolhas={[{ id: 'seguir', label: t('games.gangues.cena.nato_socorro_seguir'), variante: 'go', onClick: () => onClube(custoBase, true) }]}
+        retrato={retrato} nome={nome} sub={t('games.gangues.cena.agiota_socorro_tag', { agiota: nome })}
+        falas={[t('games.gangues.cena.agiota_socorro_fala', { agiota: nome })]}
+        escolhas={[{ id: 'seguir', label: t('games.gangues.cena.agiota_socorro_seguir'), variante: 'go', onClick: () => onClube(custoBase, true) }]}
         onClose={onClose} fecharLabel={fecharLabel}
       />
     )
@@ -65,7 +65,7 @@ export default function GanguesAgiotagem({ retrato, nome, fecharLabel, onClose, 
     return (
       <GanguesDialogoEncontro
         retrato={retrato} nome={nome} sub={t('games.gangues.cena.emprestimo_contrato_tag')}
-        falas={[t('games.gangues.cena.emprestimo_contrato', { valor: emprestimo.valor, divida: emprestimo.divida })]}
+        falas={[t('games.gangues.cena.emprestimo_contrato', { valor: emprestimo.valor, divida: emprestimo.divida, agiota: nome })]}
         escolhas={[{ id: 'fechar', label: fecharLabel, variante: 'go', onClick: onClose }]}
         onClose={onClose} fecharLabel={fecharLabel}
       />
@@ -76,7 +76,7 @@ export default function GanguesAgiotagem({ retrato, nome, fecharLabel, onClose, 
     return (
       <GanguesDialogoEncontro
         retrato={retrato} nome={nome} sub={t('games.gangues.cena.fiado_contrato_tag')}
-        falas={[t('games.gangues.cena.fiado_contrato_cura', { divida: contrato.divida })]}
+        falas={[t('games.gangues.cena.fiado_contrato_cura', { divida: contrato.divida, agiota: nome })]}
         escolhas={[{ id: 'fechar', label: fecharLabel, variante: 'go', onClick: onClose }]}
         onClose={onClose} fecharLabel={fecharLabel}
       >

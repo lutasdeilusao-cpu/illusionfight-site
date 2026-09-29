@@ -4,7 +4,7 @@ import { useLanguage } from '../../../../context/LanguageContext'
 import { useGanguesStore } from '../store/useGanguesStore'
 import { getGanguesPortraitByTemplateId } from '../data/ganguesPortraits.js'
 import { sfx } from '../../../../lib/sfx'
-import './GanguesCena.css'
+import '../screens/GanguesCena.css' // joystick/controles do mundo (componente comum da cena)
 import './GanguesClube.css'
 
 /* CLUBE DA LUTA — a roda clandestina do Nato. O jogador aceitou o 3º fiado
@@ -177,7 +177,7 @@ export default function GanguesClube({ onNavigate }) {
 
       <div className="gang-world-controls">
         <Stick onInput={v => { inputRef.current = v }} />
-        <button disabled={!naPorta || fase !== 'saguao'} onClick={entrarNaRoda}>
+        <button className="gang-world-interagir" disabled={!naPorta || fase !== 'saguao'} onClick={entrarNaRoda}>
           <b>{naPorta ? t('games.gangues.clube.entrar') : '...'}</b>
           <span>{t('games.gangues.clube.interagir')}</span>
         </button>

@@ -108,6 +108,8 @@ export default function GanguesCombatOverlays({
             key={machine.pending.id}
             velocidade={velocidade}
             finalValue={machine.pending.result.rolls.fa}
+            armaRolada={machine.pending.result.rolls.arma}
+            armaduraRolada={machine.pending.result.rolls.armadura}
             sides={3}
             side={machine.pending.side}
             attackerName={fighterName(t, machine.combatants.find(item => item.key === machine.pending.actorKey))}
@@ -158,7 +160,7 @@ export default function GanguesCombatOverlays({
                 caminho={fichaAberta.combat_path}
                 retrato={fichaAberta.side !== 'enemy' ? getGanguesPortraitByTemplateId(fichaAberta.character_template_id) : getGanguesEnemyPortraitById(fichaAberta.id)}
                 nivel={fichaAberta.side !== 'enemy' ? fichaAberta.level : null}
-                atributos={fichaAberta.attributes || fichaAberta.stats}
+                atributos={fichaAberta.atributosFicha || fichaAberta.attributes || fichaAberta.stats}
                 pv={{ atual: fichaAberta.pv || 0, max: fichaAberta.pvMax || 1 }}
                 pm={{ atual: fichaAberta.pm || 0, max: fichaAberta.pmMax || 0 }}
                 xp={fichaAberta.side !== 'enemy' ? (() => {

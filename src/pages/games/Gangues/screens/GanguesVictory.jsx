@@ -6,7 +6,7 @@ import { getGanguesRosterLimitComHistoria } from '../data/ganguesLoadout.js'
 import useGanguesVictoryResolution from '../hooks/useGanguesVictoryResolution.js'
 import GanguesVictoryFinal from './GanguesVictoryFinal'
 import GanguesVictoryReport from './GanguesVictoryReport'
-import GanguesClubeResultado from './GanguesClubeResultado'
+import GanguesClubeResultado from '../clube/GanguesClubeResultado'
 import './GanguesProgressionFlow.css'
 
 // Orquestrador: decide qual das 3 telas finais mostrar (Clube da Luta,
@@ -37,7 +37,7 @@ export default function GanguesVictory({ onNavigate }) {
     && store.roster.length < getGanguesRosterLimitComHistoria(perfil?.tier, store.storyProgress)
   const recrutar = () => { store.newSheet(); onNavigate('create') }
 
-  const { levelUps, rewardSummary, clearLevelUps } = useGanguesVictoryResolution({
+  const { levelUps, rewardSummary, socorro, clearLevelUps } = useGanguesVictoryResolution({
     store, user, report, victory, storyAlvo, match, torre, torreAndar,
     clube, emCena, noModoHistoria, cenaChefe, confrontoFinal, onNavigate,
   })
@@ -77,7 +77,7 @@ export default function GanguesVictory({ onNavigate }) {
       t={t} store={store} report={report} victory={victory} torre={torre}
       cenaChefe={cenaChefe} noModoHistoria={noModoHistoria} storyAlvo={storyAlvo}
       podeRecrutar={podeRecrutar} recrutar={recrutar} levelUps={levelUps}
-      clearLevelUps={clearLevelUps} rewardSummary={rewardSummary} onNavigate={onNavigate}
+      clearLevelUps={clearLevelUps} rewardSummary={rewardSummary} socorro={socorro} onNavigate={onNavigate}
     />
   )
 }

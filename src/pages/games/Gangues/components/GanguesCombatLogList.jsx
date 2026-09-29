@@ -44,16 +44,6 @@ const GanguesCombatLogList = forwardRef(function GanguesCombatLogList({ log, t }
                       💥 {t('games.gangues.critico')} +{entry.criticalBonus}
                     </div>
                   )}
-                  {entry.attackerBonus?.path && (
-                    <div className={`gang-attack-card-bonus ${entry.attackerBonus.applied ? 'gang-attack-card-bonus--hit' : 'gang-attack-card-bonus--miss'}`}>
-                      {entry.attackerBonus.applied ? '⚡' : '✕'} {t(`games.gangues.loadout.paths.${entry.attackerBonus.path}.name`)} {t('games.gangues.bonus_ataque')} {entry.attackerBonus.applied ? `+${entry.attackerBonus.amount}` : t('games.gangues.bonus_falhou')}
-                    </div>
-                  )}
-                  {entry.defenderBonus?.path && (
-                    <div className={`gang-attack-card-bonus ${entry.defenderBonus.applied ? 'gang-attack-card-bonus--hit' : 'gang-attack-card-bonus--miss'}`}>
-                      {entry.defenderBonus.applied ? '🛡️' : '✕'} {t(`games.gangues.loadout.paths.${entry.defenderBonus.path}.name`)} {t('games.gangues.bonus_defesa')} {entry.defenderBonus.applied ? `+${entry.defenderBonus.amount}` : t('games.gangues.bonus_falhou')}
-                    </div>
-                  )}
                   {entry.shieldConsumed > 0 && (
                     <div className="gang-attack-card-bonus gang-attack-card-bonus--hit">
                       🛡️ {t('games.gangues.card_escudo')} −{entry.shieldConsumed}

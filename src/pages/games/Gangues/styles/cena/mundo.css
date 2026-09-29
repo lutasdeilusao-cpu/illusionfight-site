@@ -40,20 +40,17 @@
 .gang-cena-viewport { position:relative; flex:1 1 auto; min-height:0; overflow:hidden; touch-action:none; background:#081015; }
 .gang-cena-world { position:absolute; left:0; top:0; transform-origin:0 0; will-change:transform; transition:transform .11s ease-out; overflow:hidden; background-color:#10181b; background-image:linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),radial-gradient(circle at 70% 30%,#17241f 0,transparent 30%); background-size:36px 36px,36px 36px,100% 100%; }
 .gang-road { position:absolute; background:#171b1d; box-shadow:inset 0 0 0 3px #22292c,0 0 20px #030608; }
-.road-main { left:305px; top:0; width:150px; height:2840px; }
+/* Posição/tamanho de cada rua vem do dado da cena (cena.ruas, inline) —
+   aqui só a cara de cada tipo. */
 .road-main:after { content:''; position:absolute; left:50%; height:100%; border-left:2px dashed rgba(223,194,91,.2); }
-.road-cross { left:0; width:760px; height:112px; }
 .road-cross:after { content:''; position:absolute; top:50%; width:100%; border-top:2px dashed rgba(223,194,91,.17); }
-.road-cross.r1{top:2510px}.road-cross.r2{top:2190px}.road-cross.r3{top:1690px}
-/* travessas pós-muro (a rua longa até o galpão) */
-.road-cross.r4{top:1040px}.road-cross.r5{top:560px}
-.road-branch { width:260px; height:82px; top:1935px; transform-origin:right center; }
-.road-branch.left { left:80px; transform:rotate(-24deg); }.road-branch.right { right:80px; transform:rotate(24deg); }
+.road-branch-left { transform-origin:right center; transform:rotate(-24deg); }
+.road-branch-right { transform-origin:right center; transform:rotate(24deg); }
 /* A abertura do portão tem que casar exatamente com a estrada (.road-main:
    left:305px, width:150px → x:305-455), senão o jogador nunca alcança o
    vão andando pela rua — ficava atrás de um prédio sólido que não tem
    caminho até ele. */
-.gang-world-gate { position:absolute; z-index:8; left:0; top:1330px; width:760px; height:18px; border-block:3px solid #4f575a; background:linear-gradient(90deg,#0a0e10 0 305px,transparent 305px 455px,#0a0e10 455px),repeating-linear-gradient(90deg,#15191b 0 12px,#717a7c 13px 17px); box-shadow:0 0 20px var(--gang-preto); transition:.7s; }.gang-world-gate:after{content:'';position:absolute;left:305px;width:150px;height:18px;border:3px solid #6d777a;background:repeating-linear-gradient(90deg,#15191b 0 12px,#717a7c 13px 17px);transition:.7s}.gang-world-gate.is-open:after { transform:translateX(165px); border-color:var(--terr-cor); box-shadow:0 0 22px color-mix(in srgb,var(--terr-cor) 35%,transparent); }
+.gang-world-gate { position:absolute; z-index:8; left:0; width:760px; height:18px; border-block:3px solid #4f575a; background:linear-gradient(90deg,#0a0e10 0 305px,transparent 305px 455px,#0a0e10 455px),repeating-linear-gradient(90deg,#15191b 0 12px,#717a7c 13px 17px); box-shadow:0 0 20px var(--gang-preto); transition:.7s; }.gang-world-gate:after{content:'';position:absolute;left:305px;width:150px;height:18px;border:3px solid #6d777a;background:repeating-linear-gradient(90deg,#15191b 0 12px,#717a7c 13px 17px);transition:.7s}.gang-world-gate.is-open:after { transform:translateX(165px); border-color:var(--terr-cor); box-shadow:0 0 22px color-mix(in srgb,var(--terr-cor) 35%,transparent); }
 .gang-world-lamp { position:absolute; width:10px;height:10px;border-radius:50%;background:#ffd680;box-shadow:0 0 26px 12px rgba(255,205,100,.12); }
 .gang-world-npc { position:absolute; z-index:12; transform:translate(-50%,-50%); display:grid; justify-items:center; width:80px; pointer-events:none; }.gang-world-npc>span { display:grid;place-items:center;width:34px;height:42px;border:2px solid color-mix(in srgb, var(--terr-cor, var(--gang-pista)) 70%, var(--gang-gelo-100));border-radius:45% 45% 30% 30%;background:color-mix(in srgb, var(--terr-cor, var(--gang-pista)) 38%, var(--gang-verde-900));color:var(--gang-branco);box-shadow:0 8px 15px var(--gang-preto);animation:gang-person-breathe 1.8s ease-in-out infinite; }.gang-world-npc small { margin-top:5px; padding:2px 5px; color:var(--gang-branco);background:rgba(0,0,0,.82);font:800 .51rem var(--font-mono);text-align:center; }.gang-world-npc.is-resolvido:not(.is-feito){opacity:.3}.gang-world-npc.is-trancado{opacity:0}.gang-world-npc.is-boss>span{background:#671f27;border-color:var(--gang-vermelho-300);box-shadow:0 0 24px rgba(255,70,70,.5)}
 /* Retrato de verdade (cabeça, pixel art) no lugar do ícone genérico —
@@ -170,9 +167,21 @@
    espaço acima dela agora (flex column no .gang-cena-worldpage), então o jogador nunca "anda"
    por trás do analógico/botão — a área de navegação é só a tela de cima. */
 .gang-world-controls { position:relative;z-index:27;flex:0 0 auto;width:100%;box-sizing:border-box;min-height:148px;display:flex;align-items:center;justify-content:space-between;padding:18px 25px max(18px,env(safe-area-inset-bottom));background:linear-gradient(180deg,#0a1114,#050809);border-top:1px solid #2c393d;box-shadow:0 -10px 22px rgba(0,0,0,.4) inset; }.gang-world-stick { --jx:0px;--jy:0px;position:relative;width:112px;height:112px;border-radius:50%;border:2px solid #597077;background:radial-gradient(circle,#18262b 0 34%,#091115 36% 100%);box-shadow:inset 0 0 20px var(--gang-preto),0 7px 20px #0008;pointer-events:auto;touch-action:none; }.gang-world-stick:before,.gang-world-stick:after{content:'';position:absolute;background:#43565c55}.gang-world-stick:before{left:50%;top:12px;bottom:12px;width:1px}.gang-world-stick:after{top:50%;left:12px;right:12px;height:1px}.gang-world-stick i{position:absolute;z-index:2;left:50%;top:50%;width:48px;height:48px;border-radius:50%;transform:translate(calc(-50% + var(--jx)),calc(-50% + var(--jy)));background:linear-gradient(145deg,#2d464e,#101b1f);border:2px solid var(--terr-cor);box-shadow:0 5px 14px var(--gang-preto);transition:transform .04s}
-.gang-world-controls button { pointer-events:auto;width:98px;height:98px;border-radius:50%;border:2px solid var(--terr-cor);background:radial-gradient(circle,#12363a,#071114);color:var(--gang-branco);box-shadow:0 0 22px rgba(0,220,255,.16),inset 0 0 18px var(--gang-preto);display:grid;place-content:center;gap:3px; }.gang-world-controls button b{font:900 .72rem var(--font-display)}.gang-world-controls button span{font:700 .45rem var(--font-mono);color:var(--terr-cor)}.gang-world-controls button:disabled{opacity:.2;filter:grayscale(1)}
-@media(max-height:700px){.gang-cena-worldpage{min-height:540px}.gang-world-controls{min-height:120px;padding:12px 25px max(12px,env(safe-area-inset-bottom))}.gang-world-stick{width:92px;height:92px}.gang-world-controls button{width:82px;height:82px}.gang-cena-tutorial{bottom:14px}}
-@media(prefers-reduced-motion:reduce){.gang-cena-world{transition:none}.gang-world-player>span,.gang-world-npc>span,.gang-world-npc-farm-tag,.gang-world-npc.is-perto>span,.gang-world-npc.is-nav.is-perto>span,.gang-world-npc.mov-anda>span,.gang-world-npc-passo img,.gang-world-npc-passo{animation:none}}
+.gang-world-interagir { pointer-events:auto;width:98px;height:98px;border-radius:50%;border:2px solid var(--terr-cor);background:radial-gradient(circle,#12363a,#071114);color:var(--gang-branco);box-shadow:0 0 22px rgba(0,220,255,.16),inset 0 0 18px var(--gang-preto);display:grid;place-content:center;gap:3px; }.gang-world-interagir b{font:900 .72rem var(--font-display)}.gang-world-interagir span{font:700 .45rem var(--font-mono);color:var(--terr-cor)}.gang-world-interagir:disabled{opacity:.2;filter:grayscale(1)}
+@media(max-height:700px){.gang-cena-worldpage{min-height:540px}.gang-world-controls{min-height:120px;padding:12px 25px max(12px,env(safe-area-inset-bottom))}.gang-world-stick{width:92px;height:92px}.gang-world-interagir{width:82px;height:82px}.gang-cena-tutorial{bottom:14px}}
+/* Switch da BRIGA AUTOMÁTICA — entre o analógico e o interagir. Ligado,
+   encostar num oponente de briga já entra na luta (hooks/useGanguesBrigaAutomatica.js).
+   Trilho chanfrado (gesto do portal), sem border-radius. */
+.gang-world-auto { pointer-events:auto;display:grid;justify-items:center;gap:6px;padding:6px 4px;background:none;border:0;cursor:pointer;color:var(--text-secondary);touch-action:manipulation; }
+.gang-world-auto i { position:relative;display:block;width:48px;height:24px;background:var(--gang-noite-950);border:1px solid var(--gang-cinza-600);clip-path:polygon(0 0,calc(100% - 7px) 0,100% 7px,100% 100%,0 100%);transition:border-color .18s,box-shadow .18s; }
+.gang-world-auto i b { position:absolute;top:3px;left:3px;width:16px;height:16px;background:var(--gang-cinza-600);transition:transform .18s,background .18s; }
+/* Área do chefe (v3.72.0): a briga automática não vale lá — switch apagado. */
+.gang-world-auto.is-bloqueado { opacity:.35;cursor:not-allowed; }
+.gang-world-auto span { max-width:64px;font:700 .5rem var(--font-mono);letter-spacing:.1em;text-transform:uppercase;text-align:center;line-height:1.2; }
+.gang-world-auto.is-on { color:var(--terr-cor); }
+.gang-world-auto.is-on i { border-color:var(--terr-cor);box-shadow:0 0 12px color-mix(in srgb,var(--terr-cor) 45%,transparent); }
+.gang-world-auto.is-on i b { transform:translateX(24px);background:var(--terr-cor); }
+@media(prefers-reduced-motion:reduce){.gang-world-auto i,.gang-world-auto i b{transition:none}.gang-cena-world{transition:none}.gang-world-player>span,.gang-world-npc>span,.gang-world-npc-farm-tag,.gang-world-npc.is-perto>span,.gang-world-npc.is-nav.is-perto>span,.gang-world-npc.mov-anda>span,.gang-world-npc-passo img,.gang-world-npc-passo{animation:none}}
 
 /* ── Encontro aleatório: o perseguidor (26/09/2026) ──
    Por enquanto uma bolinha colorida por tipo (arte da moto/viatura vem depois):
@@ -183,6 +192,9 @@
 .gang-world-perseguidor.is-azul{--perseg:#3d8bff}
 .gang-world-perseguidor.is-vermelha{--perseg:var(--if-danger)}
 .gang-world-perseguidor.is-roxa{--perseg:var(--if-violet)}
+/* Feira: laranja = o Rapa (fiscal), cinza = o Apagão (Os Gato no breu) */
+.gang-world-perseguidor.is-laranja{--perseg:var(--gang-brasa-600)}
+.gang-world-perseguidor.is-cinza{--perseg:var(--gang-cinza-600)}
 .gang-world-perseguidor>span{position:relative;display:block;width:34px;height:34px;border-radius:50%;background:radial-gradient(circle at 35% 30%,var(--gang-branco),var(--perseg) 45%,color-mix(in srgb,var(--perseg) 55%,var(--gang-preto)));border:2px solid var(--gang-branco);box-shadow:0 0 18px var(--perseg),0 6px 12px var(--gang-preto)}
 .gang-world-perseguidor>span::after{content:'';position:absolute;inset:-8px;border-radius:50%;border:2px solid var(--perseg);opacity:.8;animation:gang-perseg-anel 1s ease-out infinite}
 @keyframes gang-perseg-anel{from{transform:scale(.7);opacity:.9}to{transform:scale(1.5);opacity:0}}
@@ -202,6 +214,11 @@
 /* Sirene da polícia (encontro aleatório tipo 'policia', 27/09/2026): enquanto
    a viatura persegue, a tela pisca vermelho/azul pelas bordas. */
 .gang-cena-sirene { position:absolute; inset:0; z-index:21; pointer-events:none; animation:gang-sirene .9s steps(1) infinite; }
+/* O APAGÃO da Feira (lado de cá da barricada, até o Cobrador cair): tudo
+   escuro menos um círculo de luz em volta do jogador (--px/--py = posição
+   dele na tela, calculada em GanguesCena.jsx). */
+.gang-cena-apagao { position:absolute; inset:0; z-index:19; pointer-events:none;
+  background:radial-gradient(circle 150px at var(--px) var(--py),transparent 0,rgba(0,0,0,.35) 55%,rgba(2,4,6,.93) 100%); }
 @keyframes gang-sirene {
   0% { box-shadow:inset 0 0 70px 14px rgba(255,20,40,.55); background:linear-gradient(90deg, rgba(255,20,40,.16), transparent 45%); }
   50% { box-shadow:inset 0 0 70px 14px rgba(30,90,255,.6); background:linear-gradient(270deg, rgba(30,90,255,.18), transparent 45%); }

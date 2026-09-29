@@ -34,14 +34,18 @@ export default function createGanguesCenaEconomiaSlice(set, get) {
     // faz sentido um upsert por campo. Guest e quem ainda não abriu um save
     // (sem `_saveId`) não salva nada, igual à ficha: o banner já avisa que o
     // progresso não fica.
-    _persistStory: () => {
+    // `agora` = grava SEM o debounce (app indo pro fundo — o celular pode
+    // congelar/descartar a aba a qualquer instante; ver farm ausente).
+    _persistStory: (agora = false) => {
       const saveId = get()._saveId
       if (!saveId) return
       clearTimeout(storySaveTimer)
-      storySaveTimer = setTimeout(() => {
+      const gravar = () => {
         const { gangName, storyProgress, cenaProgresso, grana, rep, campaignClears, eventCharacterIds, inventario, equipamentos } = get()
         salvarProgressoHistoria(saveId, { gangName, storyProgress, cenaProgresso, grana, rep, campaignClears, eventCharacterIds, inventario, equipamentos })
-      }, 800)
+      }
+      if (agora) gravar()
+      else storySaveTimer = setTimeout(gravar, 800)
     },
 
     _persistCena: () => get()._persistStory(),

@@ -44,10 +44,8 @@ function bfsPath(maze, start, goal, rows, cols) {
   return []
 }
 
-import { useState, useEffect, useCallback, useRef } from 'react'
+import { useState, useEffect, useLayoutEffect, useCallback, useRef } from 'react'
 import { useSwipe } from '../../hooks/useSwipe'
-import { useZoom } from '../../hooks/useZoom'
-import { useViewportScroll } from '../../hooks/useViewportScroll'
 import { useLanguage } from '../../context/LanguageContext'
 import { sfxMinigames } from './sfx-minigames'
 
@@ -61,8 +59,7 @@ export default function PuzzleLabirinto({ onSolve, onFail, config = {} }) {
   const { t } = useLanguage()
   const difficulty = config.difficulty || 'easy'
   const cfg = MAZE_CONFIGS[difficulty]
-  const { rows, cols, cellPx } = cfg
-  const isMobile = window.innerWidth < 600
+  const { rows, cols } = cfg
 
   const containerRef = useRef(null)
   const viewportRef = useRef(null)
@@ -81,11 +78,25 @@ export default function PuzzleLabirinto({ onSolve, onFail, config = {} }) {
   const lastMovimentoSfx = useRef(0)
 
   const goalPos = { r: rows - 1, c: cols - 1 }
-  const viewportCells = isMobile ? (difficulty === 'hard' ? 8 : 7) : Math.max(rows, cols)
-  const viewportPx = viewportCells * cellPx
 
-  const { zoom, setZoom, controlsVisible, showControls } = useZoom({ min: 1, max: 3 })
-  const gridOffset = useViewportScroll(playerPos, cellPx, viewportPx, Math.max(rows, cols))
+  // Uma visão só (o portal é mobile only — nada de decidir por largura da
+  // janela): o labirinto INTEIRO cabe na largura disponível do container, com
+  // a casa encolhendo até caber (teto = cellPx da dificuldade). Antes, com a
+  // janela < 600px, mostrava só um recorte de 7×7 sem as setas (e o arrastar
+  // não pegava dentro do modal — ninguém conseguia andar); com ≥ 600px
+  // ("site para computador" no celular) desenhava o labirinto em tamanho fixo,
+  // maior que a coluna do app, desenquadrado.
+  const [largura, setLargura] = useState(0)
+  useLayoutEffect(() => {
+    const el = containerRef.current
+    if (!el) return
+    const medir = () => setLargura(el.clientWidth)
+    medir()
+    const ro = new ResizeObserver(medir)
+    ro.observe(el)
+    return () => ro.disconnect()
+  }, [])
+  const cellPx = largura ? Math.max(14, Math.min(cfg.cellPx, Math.floor((largura - 8) / cols))) : cfg.cellPx
 
   useEffect(() => {
     if (!cfg.timer || done) return
@@ -208,7 +219,6 @@ export default function PuzzleLabirinto({ onSolve, onFail, config = {} }) {
 
   useSwipe(viewportRef, handleMove)
 
-  const zoomScale = zoom === 3 ? viewportPx / (Math.max(rows,cols) * cellPx) : zoom === 2 ? 0.7 : 1
   const timerColor = timeLeft <= 10 ? '#DC143C' : timeLeft <= 20 ? '#F5A623' : '#555'
 
   return (
@@ -224,9 +234,8 @@ export default function PuzzleLabirinto({ onSolve, onFail, config = {} }) {
       {!policeActive && policeCountdown > 0 && <p style={{ fontFamily:"'Share Tech Mono',monospace", fontSize:'0.7rem', color:'#DC143C', textAlign:'center', marginBottom:'0.3rem' }}>{t('games.minigames.labirinto.policial_chegando', { n: policeCountdown })}</p>}
       {policeAlert && <p style={{ fontFamily:"'Share Tech Mono',monospace", fontSize:'0.75rem', color:'#DC143C', textAlign:'center', marginBottom:'0.3rem', animation:'timer-urgent 0.5s infinite' }}>{t('games.minigames.labirinto.policial_alerta')}</p>}
       <div ref={viewportRef} className="puzzle-stealth-viewport"
-        style={{ width: viewportPx, height: viewportPx, overflow: 'hidden', position: 'relative', margin: '0 auto', cursor: 'crosshair' }}
-        onTouchStart={showControls} onClick={showControls}>
-        <div style={{ position: 'absolute', top: 0, left: 0, width: cols * cellPx, height: rows * cellPx, transform: `translate(${gridOffset.x}px, ${gridOffset.y}px) scale(${zoomScale})`, transformOrigin: 'top left' }}>
+        style={{ width: cols * cellPx, height: rows * cellPx, overflow: 'hidden', position: 'relative', margin: '0 auto', cursor: 'crosshair' }}>
+        <div style={{ position: 'absolute', top: 0, left: 0, width: cols * cellPx, height: rows * cellPx }}>
           {maze.map((row, r) => row.map((cell, c) => {
             const isPlayer = playerPos.r === r && playerPos.c === c
             const isPolice = policeActive && policePos.r === r && policePos.c === c
@@ -250,21 +259,14 @@ export default function PuzzleLabirinto({ onSolve, onFail, config = {} }) {
           }))}
         </div>
       </div>
-      {isMobile && (
-        <div className="puzzle-stealth-zoom-btns" style={{ opacity: controlsVisible ? 1 : 0.2, transition: 'opacity 0.3s' }}>
-          <button onClick={() => setZoom(z => z - 1)} className="puzzle-stealth-zoom-btn">−</button>
-          <span className="puzzle-stealth-zoom-label">{zoom === 1 ? 'NORMAL' : zoom === 2 ? 'WIDE' : 'MAPA'}</span>
-          <button onClick={() => setZoom(z => z + 1)} className="puzzle-stealth-zoom-btn">+</button>
-        </div>
-      )}
-      {!isMobile && (
-        <div className="puzzle-dpad">
-          <button className="puzzle-dpad-btn puzzle-dpad-btn--up" onClick={() => handleMove(-1,0)} disabled={done}>▲</button>
-          <button className="puzzle-dpad-btn puzzle-dpad-btn--left" onClick={() => handleMove(0,-1)} disabled={done}>◀</button>
-          <button className="puzzle-dpad-btn puzzle-dpad-btn--down" onClick={() => handleMove(1,0)} disabled={done}>▼</button>
-          <button className="puzzle-dpad-btn puzzle-dpad-btn--right" onClick={() => handleMove(0,1)} disabled={done}>▶</button>
-        </div>
-      )}
+      {/* Setas na tela SEMPRE (celular e computador) — o arrastar e o
+          teclado continuam valendo, mas não dá pra depender só deles. */}
+      <div className="puzzle-dpad">
+        <button className="puzzle-dpad-btn puzzle-dpad-btn--up" onClick={() => handleMove(-1,0)} disabled={done} aria-label="▲">▲</button>
+        <button className="puzzle-dpad-btn puzzle-dpad-btn--left" onClick={() => handleMove(0,-1)} disabled={done} aria-label="◀">◀</button>
+        <button className="puzzle-dpad-btn puzzle-dpad-btn--down" onClick={() => handleMove(1,0)} disabled={done} aria-label="▼">▼</button>
+        <button className="puzzle-dpad-btn puzzle-dpad-btn--right" onClick={() => handleMove(0,1)} disabled={done} aria-label="▶">▶</button>
+      </div>
     </div>
   )
 }

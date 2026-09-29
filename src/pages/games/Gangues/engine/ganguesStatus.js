@@ -36,7 +36,7 @@ const LEGADO = { lerdo: 1, sangrando: 2, fraco: 3, rachado: 4, apagado: 5, enven
 /** Normaliza a lista de status vinda do save. */
 export function normalizarStatus(lista) {
   if (!Array.isArray(lista)) return []
-  return lista.map(s => ({ ...s, id: LEGADO[s?.id] ?? Number(s?.id) })).filter(s => GANGUES_STATUS[s.id] && s.turnos > 0)
+  return lista.filter(s => s?.id != null).map(s => ({ ...s, id: LEGADO[s.id] ?? Number(s.id) })).filter(s => GANGUES_STATUS[s.id] && s.turnos > 0)
 }
 
 const tem = (statuses, id) => (statuses || []).some(s => s.id === id)
@@ -75,7 +75,11 @@ export function alvoComTontura(ator, alvo, combatants, rand = Math.random) {
 /** Depois da vez do lutador: dano de status (nunca abaixo de 1 de Osso) e
  *  todo status perde uma vez. */
 export function tickStatusAoAgir(combatant) {
-  const statuses = combatant.statuses || []
+  // A lista também guarda BUFF de item ({ attr, valor, acoes } — ganguesItens.js),
+  // que conta à parte (gastarAcaoStatus): aqui só mexe nos status (com `id`).
+  const todos = combatant.statuses || []
+  const buffs = todos.filter(s => s.id == null)
+  const statuses = todos.filter(s => s.id != null)
   if (!statuses.length || combatant.pv <= 0) return { combatant, perdeu: 0, expirados: [] }
   const max = Math.max(1, combatant.pvMax || 1)
   let dano = 0
@@ -85,7 +89,7 @@ export function tickStatusAoAgir(combatant) {
   const perdeu = Math.max(0, Math.min(dano, combatant.pv - 1))
   const restantes = statuses.map(s => ({ ...s, turnos: s.turnos - 1 }))
   return {
-    combatant: { ...combatant, pv: combatant.pv - perdeu, statuses: restantes.filter(s => s.turnos > 0) },
+    combatant: { ...combatant, pv: combatant.pv - perdeu, statuses: [...buffs, ...restantes.filter(s => s.turnos > 0)] },
     perdeu,
     expirados: restantes.filter(s => s.turnos <= 0).map(s => s.id),
   }

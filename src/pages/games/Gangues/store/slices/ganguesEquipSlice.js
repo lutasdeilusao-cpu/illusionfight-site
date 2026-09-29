@@ -1,7 +1,7 @@
 // Slice: equipamento (comprar/equipar/desequipar) + toggle de poder equipado
 // pra batalha. Extraído de store/useGanguesStore.js
 // (PLANO_REFATORACAO_ARQUIVOS_GRANDES_GANGUES_2026-09-11.md §3).
-import { createGanguesEquipInstance, normalizeGanguesEquipment, getGanguesEquip, podeEquiparGangues } from '../../data/ganguesEquip.js'
+import { createGanguesEquipInstance, normalizeGanguesEquipment, getGanguesEquip, aprimTeto, custoAprimoramento, GANGUES_SUCATA_ID, podeEquiparGangues } from '../../data/ganguesEquip.js'
 import { toggleGanguesTemplateSpecial } from '../../data/ganguesCharacters.js'
 
 export default function createGanguesEquipSlice(set, get) {
@@ -42,8 +42,8 @@ export default function createGanguesEquipSlice(set, get) {
         if (member.id !== memberId) return member
         const equipment = normalizeGanguesEquipment(member.attributes?.equipment)
         const anterior = equipment[slot]
-        if (anterior) devolvidoAoInventario = { uid: `eq-${anterior.itemId}-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 6)}`, itemId: anterior.itemId, cards: anterior.cards }
-        equipment[slot] = { itemId: def.id, cards: instancia.cards }
+        if (anterior) devolvidoAoInventario = { uid: `eq-${anterior.itemId}-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 6)}`, itemId: anterior.itemId, cards: anterior.cards, aprim: anterior.aprim || 0 }
+        equipment[slot] = { itemId: def.id, cards: instancia.cards, aprim: instancia.aprim || 0 }
         return { ...member, attributes: { ...member.attributes, equipment } }
       }
 
@@ -72,7 +72,7 @@ export default function createGanguesEquipSlice(set, get) {
         const equipment = normalizeGanguesEquipment(member.attributes?.equipment)
         const atual = equipment[slot]
         if (!atual) return member
-        devolvido = { uid: `eq-${atual.itemId}-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 6)}`, itemId: atual.itemId, cards: atual.cards }
+        devolvido = { uid: `eq-${atual.itemId}-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 6)}`, itemId: atual.itemId, cards: atual.cards, aprim: atual.aprim || 0 }
         equipment[slot] = null
         return { ...member, attributes: { ...member.attributes, equipment } }
       }
@@ -88,6 +88,46 @@ export default function createGanguesEquipSlice(set, get) {
       })
       if (devolvido) { get().saveParticipantProgress([memberId]); get()._persistCena() }
       return Boolean(devolvido)
+    },
+
+    // ── Aprimoramento (27/09/2026, PLANO_ITENS_RANGE.md §3) ──
+    // Sobe 1 nível de uma peça — equipada (`memberId` + `slot`) ou guardada na
+    // gangue (`uid`). `tetoFerreiro` = até onde AQUELE ferreiro aprimora (o
+    // Nando da Pista faz só +1); o teto da própria peça também vale. O nível
+    // mora na peça, não no personagem: vai junto se ela trocar de dono.
+    // Devolve { ok, motivo?, nivel, custo }.
+    aprimorarEquip: ({ uid = null, memberId = null, slot = null }, tetoFerreiro = 1) => {
+      const member = memberId ? get().roster.find(m => m.id === memberId) : null
+      const peca = uid
+        ? get().equipamentos.find(eq => eq.uid === uid)
+        : normalizeGanguesEquipment(member?.attributes?.equipment)[slot]
+      const def = peca && getGanguesEquip(peca.itemId)
+      if (!def) return { ok: false, motivo: 'sem_peca' }
+      const nivel = (peca.aprim || 0) + 1
+      if (nivel > Math.min(aprimTeto(def), tetoFerreiro)) return { ok: false, motivo: 'teto' }
+      const custo = custoAprimoramento(def, nivel)
+      if (get().grana < custo.grana) return { ok: false, motivo: 'grana', custo }
+      if ((get().inventario[GANGUES_SUCATA_ID] || 0) < custo.sucata) return { ok: false, motivo: 'sucata', custo }
+      get().gastarItens({ [GANGUES_SUCATA_ID]: custo.sucata })
+      get().gastarGrana(custo.grana)
+      if (uid) {
+        set(state => ({ equipamentos: state.equipamentos.map(eq => (eq.uid === uid ? { ...eq, aprim: nivel } : eq)) }))
+      } else {
+        const aplicar = m => {
+          if (m.id !== memberId) return m
+          const equipment = normalizeGanguesEquipment(m.attributes?.equipment)
+          equipment[slot] = { ...equipment[slot], aprim: nivel }
+          return { ...m, attributes: { ...m.attributes, equipment } }
+        }
+        set(state => {
+          const roster = state.roster.map(aplicar)
+          const byId = new Map(roster.map(m => [m.id, m]))
+          return { roster, activeParty: state.activeParty.map(m => byId.get(m.id) || m), sheet: byId.get(state.sheet.id) || state.sheet }
+        })
+        get().saveParticipantProgress([memberId])
+      }
+      get()._persistCena()
+      return { ok: true, nivel, custo }
     },
 
     // Equipa/desequipa um dos até-2 poderes ativos levados pra batalha (pedido

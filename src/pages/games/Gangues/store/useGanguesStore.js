@@ -19,6 +19,7 @@ import createGanguesCenaEconomiaSlice from './slices/ganguesCenaEconomiaSlice.js
 import createGanguesEquipSlice from './slices/ganguesEquipSlice.js'
 import createGanguesCenaProgressoSlice from './slices/ganguesCenaProgressoSlice.js'
 import createGanguesBiroscaSlice from './slices/ganguesBiroscaSlice.js'
+import createGanguesClubeSlice from '../clube/ganguesClubeSlice.js'
 import { defaultSheet } from './slices/ganguesSheetSlice.js'
 
 export { limiteFichasPorTier, podeCriarFicha }
@@ -34,6 +35,7 @@ export const useGanguesStore = create((set, get) => ({
   ...createGanguesStorySlice(set, get),
   ...createGanguesProgressionSlice(set, get),
   ...createGanguesBiroscaSlice(set, get),
+  ...createGanguesClubeSlice(set, get),
 
   // BUG CORRIGIDO (relatado pelo Isaias): fazer logout sem recarregar a
   // página deixava _userId (e roster/sheet/saves da conta anterior) presos

@@ -34,7 +34,7 @@ import './GanguesDescanso.css'
    pino "A birosca do Seu Nato" redundante com este, mesma cara duas vezes
    no mapa: "não precisa, a missão do Nego Véio pode aparecer ali no
    descanso"): existia um POI `birosca` À PARTE (papo) só pra oferecer o
-   corre e revelar beco_2 — removido. `poi.ofertaFlagId` ('nato_oferta')
+   corre e revelar beco_2 — removido. `poi.oferta.flagId` ('nato_oferta')
    chega revelado (não resolvido) quando `beco` é vencido; enquanto isso
    for verdade, ESTA tela abre primeiro com o convite do Nato (reaproveita
    o texto/escolhas que já existiam em i18n `cena.pista.birosca`), antes do
@@ -86,6 +86,14 @@ export default function GanguesDescanso({ poi, cena, onClose }) {
     comAnimacao(() => setRes(r), incluirCaidos)
   }
 
+  // Fiado por FAVOR (Pensão da Dona Regina, Feira — `poi.fiadoFavor`): sem
+  // grana pra recuperação, ela cura geral e a gangue fica devendo 1 favor.
+  const fiarFavor = () => {
+    const r = store.fiarPorFavor()
+    if (!r.ok) { setRes(r); sfx.cancel(); return }
+    comAnimacao(() => setRes({ ok: true, detalhe: r.detalhe, favor: true }), true)
+  }
+
   const listaCura = (detalhe) => (
     <ul className="gds-lista">
       {detalhe.map(d => (
@@ -114,33 +122,36 @@ export default function GanguesDescanso({ poi, cena, onClose }) {
   // "resultado" (resposta do Nato) nunca chegava a aparecer, porque a
   // condição virava falsa antes do próximo render mostrar `ofertaResultado`.
   const prog = cena ? store.cenaProgresso[cena.id] : null
-  const [ofertaAoAbrir] = useState(() => Boolean(poi.ofertaFlagId) && Boolean(prog?.revelados?.[poi.ofertaFlagId]) && !prog?.resolvidos?.[poi.ofertaFlagId])
+  // `poi.oferta` = { flagId, i18n, revelaSeAceitar } — o NPC que faz a
+  // oferta, os textos dela e o que aceitar revela (dado do POI, não chumbado).
+  const oferta = poi.oferta || null
+  const [ofertaAoAbrir] = useState(() => Boolean(oferta) && Boolean(prog?.revelados?.[oferta.flagId]) && !prog?.resolvidos?.[oferta.flagId])
   const decidirOferta = (aceitou) => {
     sfx.select?.()
-    store.marcarPoiResolvido(cena.id, poi.ofertaFlagId, aceitou ? ['corre'] : [])
-    setOfertaResultado(t(`games.gangues.cena.pista.birosca.escolhas.${aceitou ? 'aceita_corre' : 'so_papo'}.resultado`))
+    store.marcarPoiResolvido(cena.id, oferta.flagId, aceitou ? (oferta.revelaSeAceitar || []) : [])
+    setOfertaResultado(t(`${oferta.i18n}.escolhas.${aceitou ? 'aceita_corre' : 'so_papo'}.resultado`))
   }
   if (ofertaAoAbrir && !ofertaDecidida) {
-    const nomeNato = t('games.gangues.cena.pista.birosca.nome')
-    const subNato = t('games.gangues.cena.pista.birosca.sub')
+    const nomeOferta = t(`${oferta.i18n}.nome`)
+    const subOferta = t(`${oferta.i18n}.sub`)
     if (ofertaResultado) {
       return (
         <GanguesDialogoEncontro
-          retrato={retrato} nome={nomeNato} sub={subNato}
+          retrato={retrato} nome={nomeOferta} sub={subOferta}
           falas={[ofertaResultado]}
           escolhas={[{ id: 'continuar', label: fecharLabel, variante: 'go', onClick: () => setOfertaDecidida(true) }]}
           onClose={onClose} fecharLabel={fecharLabel}
         />
       )
     }
-    const falaNato = t('games.gangues.cena.pista.birosca.fala')
+    const falaOferta = t(`${oferta.i18n}.fala`)
     return (
       <GanguesDialogoEncontro
-        retrato={retrato} nome={nomeNato} sub={subNato}
-        falas={Array.isArray(falaNato) ? falaNato : [falaNato]}
+        retrato={retrato} nome={nomeOferta} sub={subOferta}
+        falas={Array.isArray(falaOferta) ? falaOferta : [falaOferta]}
         escolhas={[
-          { id: 'aceita_corre', label: t('games.gangues.cena.pista.birosca.escolhas.aceita_corre.label'), variante: 'go', onClick: () => decidirOferta(true) },
-          { id: 'so_papo', label: t('games.gangues.cena.pista.birosca.escolhas.so_papo.label'), onClick: () => decidirOferta(false) },
+          { id: 'aceita_corre', label: t(`${oferta.i18n}.escolhas.aceita_corre.label`), variante: 'go', onClick: () => decidirOferta(true) },
+          { id: 'so_papo', label: t(`${oferta.i18n}.escolhas.so_papo.label`), onClick: () => decidirOferta(false) },
         ]}
         onClose={onClose} fecharLabel={fecharLabel}
       />
@@ -162,7 +173,7 @@ export default function GanguesDescanso({ poi, cena, onClose }) {
 
   // ── Oferta (padrão) + resultado do descanso à vista ──
   const falas = res?.ok
-    ? [t('games.gangues.cena.descanso_titulo')]
+    ? [t(res.favor ? `${poi.i18n}.favor_fala` : 'games.gangues.cena.descanso_titulo')]
     : [res?.motivo === 'inteira'
       ? t('games.gangues.cena.descanso_ja_inteira')
       : res?.motivo === 'grana'
@@ -174,6 +185,10 @@ export default function GanguesDescanso({ poi, cena, onClose }) {
     if (!semGrana) escolhas.push({ id: 'descansar', label: t('games.gangues.cena.descanso_curar', { grana: custo }), variante: 'go', onClick: () => descansar(false) })
     if (info.temCaido && !semGranaCaidos) escolhas.push({ id: 'descansar_caidos', label: t('games.gangues.cena.descanso_curar_caidos', { grana: custoCaidos }), variante: 'go', onClick: () => descansar(true) })
     if (info.temStatus && store.grana >= custoCompleto) escolhas.push({ id: 'descansar_completo', label: t('games.gangues.cena.descanso_completo', { grana: custoCompleto }), variante: 'go', onClick: () => descansar(true, true) })
+    if (poi.fiadoFavor && info.feridoTodos && semGranaCaidos) {
+      const devendo = store.reginaDeveFavor()
+      escolhas.push({ id: 'fiado_favor', label: t(devendo ? `${poi.i18n}.favor_pendente` : `${poi.i18n}.favor_pedir`), variante: 'go', disabled: devendo, onClick: fiarFavor })
+    }
   }
   escolhas.push({ id: 'fechar', label: fecharLabel, onClick: onClose })
 

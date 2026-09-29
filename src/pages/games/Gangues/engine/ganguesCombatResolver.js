@@ -1,21 +1,26 @@
 import { applyGanguesAttackerEffect, applyGanguesDefenderEffect, buildGanguesEffectsList } from './ganguesSpecialEffects.js'
 import { aplicarStatus, acordarAoApanhar, modAtaqueStatus, modDefesaStatus } from './ganguesStatus.js'
+import { rolarFaixa } from '../data/ganguesEquip.js'
 
-/**
- * Bônus de caminho — regra combinada com Isaias em 2026-08-04:
- * - Atacante: +1 no ataque, por sorte (50%, mostrado no log se caiu ou não).
- * - Defensor: +1 na defesa, por sorte (50%), mesma lógica do lado defensivo.
- * - Místico: todo ataque dele é mágico neste sistema (não há escolha de modo físico/mágico
- *   separada), então o +1 de ataque é garantido sempre que ele ataca. Na defesa, só ganha
- *   +1 quando o atacante também é místico (mágica contra mágica); contra ataque físico não
- *   recebe bônus de defesa nenhum.
- */
-function resolveAttackerBonus(attackerPath, bonusRoll) {
-  return { path: null, applied: false, amount: 0 }
+// Dado das peças em FAIXA (27/09/2026, PLANO_ITENS_RANGE.md): cada peça rola o
+// próprio dado e soma. `null` = ninguém tem peça com faixa daquele atributo
+// (o dado dramático só mostra o chip da arma/armadura quando existe).
+function rolarDadosEquip(faixas) {
+  if (!faixas?.length) return null
+  return faixas.reduce((soma, f) => soma + rolarFaixa(f), 0)
 }
 
-function resolveDefenderBonus(defenderPath, attackerPath, bonusRoll) {
-  return { path: null, applied: false, amount: 0 }
+// STATUS temporários (consumíveis — Pinga, Vela Benta, Bombinha...): cada um é
+// { attr: 'A'|'D'|'H', valor, acoes } e dura `acoes` ações de QUEM carrega.
+/** Soma de todos os status de um atributo no combatente. */
+function somaStatus(combatente, attr) {
+  return (combatente?.statuses || []).reduce((s, st) => s + (st.attr === attr ? Number(st.valor) || 0 : 0), 0)
+}
+/** Quem agiu gastou 1 ação de cada status que carrega (some quando zera). */
+export function gastarAcaoStatus(statuses = []) {
+  // Só buff de item (`acoes`); status do Mandingueiro (`id`/`turnos`) conta à
+  // parte em ganguesStatus.js (tickStatusAoAgir).
+  return statuses.map(st => (st.id != null ? st : { ...st, acoes: st.acoes - 1 })).filter(st => st.id != null || st.acoes > 0)
 }
 
 // O dado de ataque é um d3 (1-3). Tirar o valor máximo (3) é crítico: soma +2 na rolagem
@@ -34,12 +39,15 @@ export const CRITICAL_BONUS = 2
 // engine/ganguesSpecialEffects.js pros valores e docs/Games/Gangues/LDI_GANGUES_GDD.md §17.3
 // pro design original (com as simplificações feitas pra caber no modelo de 1 ação por turno).
 export function resolveGanguesAction({ attacker, defender, action, rolls, activeSpecialId = null, forcedSpecial = null }) {
-  // Status (ganguesStatus.js): Fraco tira Porrada de quem bate, Rachado tira Couro de quem apanha.
-  const attack = Math.max(0, (Number(attacker.attributes?.A) || 0) + modAtaqueStatus(attacker.statuses))
-  const defense = Math.max(0, (Number(defender.attributes?.D) || 0) + modDefesaStatus(defender.statuses))
-
-  const attackerBonus = resolveAttackerBonus(attacker.combat_path, rolls.attackerBonus)
-  const defenderBonus = resolveDefenderBonus(defender.combat_path, attacker.combat_path, rolls.defenderBonus)
+  // `rolls.arma`/`rolls.armadura` podem vir prontos (teste); senão rola aqui
+  // a partir das faixas guardadas no combatente pelo `prepare`.
+  const arma = rolls.arma !== undefined ? rolls.arma : rolarDadosEquip(attacker.equipDados?.A)
+  const armadura = rolls.armadura !== undefined ? rolls.armadura : rolarDadosEquip(defender.equipDados?.D)
+  rolls = { ...rolls, arma, armadura }
+  // Buff de item (somaStatus) + status do Mandingueiro (Braço Mole / Guarda
+  // Aberta / Queimado — ganguesStatus.js).
+  const attack = Math.max(0, (Number(attacker.attributes?.A) || 0) + (arma || 0) + somaStatus(attacker, 'A') + modAtaqueStatus(attacker.statuses))
+  const defense = Math.max(0, (Number(defender.attributes?.D) || 0) + (armadura || 0) + somaStatus(defender, 'D') + modDefesaStatus(defender.statuses))
 
   const critical = rolls.fa === ATTACK_DIE_SIDES
   const attackRollValue = rolls.fa + (critical ? CRITICAL_BONUS : 0)
@@ -81,8 +89,8 @@ export function resolveGanguesAction({ attacker, defender, action, rolls, active
   // entra na jogada. Ataque normal = Porrada + dado.
   const talentoAtivo = attackerEffects.some(item => item.kind === 'active')
   const malandragem = talentoAtivo ? Math.floor((Number(attacker.attributes?.PM) || 0) / 2) : 0
-  const fa = attack + malandragem + attackRollValue + (attackerBonus.applied ? attackerBonus.amount : 0) + ctx.faMod
-  const fd = effectiveDefense + rolls.fd + (defenderBonus.applied ? defenderBonus.amount : 0) + ctx.fdMod
+  const fa = attack + malandragem + attackRollValue + ctx.faMod
+  const fd = effectiveDefense + rolls.fd + ctx.fdMod
   let damage = Math.max(0, fa - fd)
 
   const incomingShield = defender.specialState?.shield || 0
@@ -105,8 +113,8 @@ export function resolveGanguesAction({ attacker, defender, action, rolls, active
 
   return {
     action, mode: 'attack', fa, fd, malandragem, damage, pmCost: ctx.pmCost, pvCost,
-    rolls: { ...rolls }, attackerBonus, defenderBonus, critical, criticalBonus: critical ? CRITICAL_BONUS : 0,
-    attackerStatuses: [...(attacker.statuses || [])],
+    rolls: { ...rolls }, critical, criticalBonus: critical ? CRITICAL_BONUS : 0,
+    attackerStatuses: gastarAcaoStatus(attacker.statuses),
     // Talento de status do Mandingueiro: pega no alvo mesmo sem dano.
     // Apanhou de verdade, acorda (Apagado); depois entra o status do talento.
     defenderStatuses: ctx.statusAplicar ? aplicarStatus(acordarAoApanhar(defender.statuses || [], damage), ctx.statusAplicar.id, ctx.statusAplicar.turnos) : acordarAoApanhar(defender.statuses || [], damage),

@@ -6,9 +6,9 @@ import { useEventos } from '../../../../context/EventosContext'
 import { useGanguesStore } from '../store/useGanguesStore'
 import useGanguesTurnMachine from '../hooks/useGanguesTurnMachine'
 import useGanguesCombatFx from '../hooks/useGanguesCombatFx.js'
-import useGanguesModoAuto from '../hooks/useGanguesModoAuto.js'
+import useGanguesModoAuto, { useGanguesAutoConfig, escolherAcaoAuto } from '../hooks/useGanguesModoAuto.js'
 import useGanguesModoAutoMultidao from '../hooks/useGanguesModoAutoMultidao.js'
-import useGanguesVelocidadeAuto from '../hooks/useGanguesVelocidadeAuto.js'
+import useGanguesVelocidadeAuto, { useGanguesAutoLembrado } from '../hooks/useGanguesVelocidadeAuto.js'
 import useGanguesModoMultidao from '../hooks/useGanguesModoMultidao.js'
 import useGanguesBattleOutcome from '../hooks/useGanguesBattleOutcome.js'
 import useGanguesCombatLog from '../hooks/useGanguesCombatLog.js'
@@ -17,7 +17,7 @@ import { fighterName } from '../engine/ganguesCombatPresentation.js'
 import { getGanguesPortraitByTemplateId } from '../data/ganguesPortraits.js'
 import { precarregarAnimacaoCombate } from '../data/ganguesCombatAnimations.js'
 import { getEquippedActiveGanguesSpecials } from '../engine/ganguesSpecialEffects.js'
-import { GANGUES_ITENS_LISTA, getGanguesItem } from '../data/ganguesItens.js'
+import { GANGUES_ITENS_LISTA, GANGUES_TIPOS_USO_COMBATE, getGanguesItem } from '../data/ganguesItens.js'
 import GanguesCombatTutorial from '../components/GanguesCombatTutorial'
 import GanguesKoTutorial from '../components/GanguesKoTutorial'
 import GanguesCombatRoster from '../components/GanguesCombatRoster'
@@ -28,6 +28,8 @@ import GanguesCombatOverlays from '../components/GanguesCombatOverlays'
 import GanguesMultidaoActionBar from '../components/GanguesMultidaoActionBar'
 import GanguesActionOrb from '../components/GanguesActionOrb'
 import GanguesCombatSairConfirm from '../components/GanguesCombatSairConfirm'
+import { useGanguesAvancoAutomatico, GANGUES_AVANCO_AUTO_MS } from '../hooks/useGanguesBrigaAutomatica.js'
+import { lutaAoVivo } from '../engine/ganguesFarmAusente.js'
 import { sfx } from '../../../../lib/sfx'
 import './GanguesCombat.css'
 
@@ -117,8 +119,10 @@ export default function GanguesCombat({ onNavigate, onSairConfirmado }) {
   // em 1x: acelerar é benefício do automático, que vai ser de assinante.
   // Os dois estados de "auto ligado" moram aqui (não nos hooks) porque o motor
   // e a Multidão precisam da velocidade já na construção.
-  const [modoAutoOn, setModoAutoOn] = useState(false)
-  const [modoAutoMultidaoOn, setModoAutoMultidaoOn] = useState(false)
+  // Lembrados entre lutas: quem terminou no automático já começa a próxima
+  // com ele ligado (ver useGanguesAutoLembrado).
+  const [modoAutoOn, setModoAutoOn] = useGanguesAutoLembrado('ldi-gangues-auto')
+  const [modoAutoMultidaoOn, setModoAutoMultidaoOn] = useGanguesAutoLembrado('ldi-gangues-auto-multidao')
   const { velocidade, ciclarVelocidade } = useGanguesVelocidadeAuto()
   const velocidadeEfetiva = ((modoAutoOn && !modoMultidaoAtivoPreMachine) || (modoAutoMultidaoOn && modoMultidaoAtivoPreMachine)) ? velocidade : 1
 
@@ -230,13 +234,14 @@ export default function GanguesCombat({ onNavigate, onSairConfirmado }) {
   const modoAuto = useGanguesModoAuto({
     modoAutoOn, setModoAutoOn, velocidade: velocidadeEfetiva,
     perfil, modoMultidaoAtivo, machinePhase: machine.phase, result, koCena: fx.koCena,
-    selectedActor, selectedTarget, handleAttack,
+    selectedActor, selectedTarget, agir: agirAuto,
   })
+  const autoConfig = useGanguesAutoConfig()
 
   // Itens disponíveis (quantidade > 0) — a bolinha só mostra o que a gangue
   // realmente tem, lido direto do inventário compartilhado (store.inventario).
   const itensDisponiveis = GANGUES_ITENS_LISTA
-    .filter(item => item.tipo === 'cura_pv' || item.tipo === 'cura_pm' || item.tipo === 'cura_status' || item.tipo === 'poder_unico')
+    .filter(item => GANGUES_TIPOS_USO_COMBATE.has(item.tipo))
     .map(item => ({ ...item, quantidade: store.inventario[item.id] || 0 }))
     .filter(item => item.quantidade > 0)
 
@@ -267,12 +272,18 @@ export default function GanguesCombat({ onNavigate, onSairConfirmado }) {
     }
     if (!store.usarItem(itemId)) return
     sfx.reward?.()
-    const delta = item.tipo === 'cura_pv' ? { pv: item.valor } : item.tipo === 'cura_pm' ? { pm: item.valor } : item.tipo === 'cura_status' ? { status: item.status } : {}
+    // Cura (PV/PM) + efeitos temporários (status) — ver ganguesItens.js.
+    const delta = {
+      ...(item.tipo === 'cura_pv' ? { pv: item.valor } : item.tipo === 'cura_pm' ? { pm: item.valor } : {}),
+      ...(item.tipo === 'debuff_inimigos' ? { statusInimigos: item.status } : item.tipo === 'cura_status' ? { curaStatus: item.status } : { status: item.status || [] }),
+    }
     machine.useItemAction(selectedActor, alvo, itemId, delta)
   }
 
   const actingMember = players.find(item => item.key === (modoMultidaoAtivo ? null : selectedActor)) || null
   const equippedSpecials = actingMember ? getEquippedActiveGanguesSpecials(actingMember) : []
+  // Tropa pro menu de ação: PV/PM (alvo de item) e talentos (config do automático).
+  const aliadosOrb = players.map(p => ({ key: p.key, id: p.id, nome: fighterName(t, p), pv: Math.max(0, p.pv || 0), pvMax: p.pvMax || 1, pm: Math.max(0, p.pm || 0), pmMax: p.pmMax || 0, dead: p.pv <= 0, especiais: getEquippedActiveGanguesSpecials(p) }))
   const canAffordSpecial = (special) => {
     const cost = special.effect.cost
     if (!cost) return true
@@ -280,6 +291,25 @@ export default function GanguesCombat({ onNavigate, onSairConfirmado }) {
     if (cost.kind === 'pm') return (actingMember?.pm || 0) >= value
     if (cost.kind === 'pv') return (actingMember?.pv || 0) > 1
     return true
+  }
+
+  const abrirRelatorio = () => openBattleReport({ modoMultidaoAtivo, estadoMultidao, machine, log, eventosBrutosRef })
+  // Briga automática da cena ligada: o "NÓIS É CRIA" avança sozinho em 2s
+  // (ver useGanguesAvancoAutomatico). Derrota nunca — o jogador tem que clicar.
+  const lutaDaCena = Boolean(store.storyTarget?.cenaId) && !store.storyTarget?.torre && !store.storyTarget?.clube
+  const naRinha = Boolean(store.storyTarget?.rinha)
+  useGanguesAvancoAutomatico({ ativo: lutaDaCena && (result === 'victory' || (naRinha && result)) && !falaFinal, ms: GANGUES_AVANCO_AUTO_MS.resultado, acao: abrirRelatorio, forcar: naRinha })
+
+  // A vez automática (useGanguesModoAuto): talento escolhido / poção / ataque
+  // normal, conforme a config do automático — ver escolherAcaoAuto.
+  // Farm ausente: leitor do estado vivo desta luta, pra o app em 2º plano
+  // terminar a MESMA luta por cálculo (ver lutaAoVivo / GanguesFarmAusente).
+  lutaAoVivo.ler = () => ({ combatants: modoMultidaoAtivo ? estadoMultidao?.combatants : machine.combatants, round: modoMultidaoAtivo ? estadoMultidao?.round : machine.round, auto: modoMultidaoAtivo ? modoAutoMultidao.modoAutoMultidaoOn : modoAuto.modoAutoOn, terminou: Boolean(result) })
+  useEffect(() => () => { lutaAoVivo.ler = null }, [])
+  function agirAuto() {
+    const acao = escolherAcaoAuto({ ator: actingMember, aliados: aliadosOrb, especiais: equippedSpecials, pagavel: canAffordSpecial, itens: itensDisponiveis, config: autoConfig.config })
+    if (acao.tipo === 'item') handleUsarItem(acao.itemId, acao.alvoKey)
+    else handleAttack(acao.tipo === 'talento' ? acao.specialId : null)
   }
 
   if (!store.match.playerTeam?.length) return null
@@ -352,7 +382,7 @@ export default function GanguesCombat({ onNavigate, onSairConfirmado }) {
         dispararProximoKo={fx.dispararProximoKo} machine={machine} modoMultidaoAtivo={modoMultidaoAtivo}
         revelandoRodada={revelandoRodada} fichaAberta={fichaAberta} setFichaAberta={setFichaAberta}
         falaFinal={falaFinal} result={result} showResultBtn={showResultBtn}
-        openBattleReport={() => openBattleReport({ modoMultidaoAtivo, estadoMultidao, machine, log, eventosBrutosRef })}
+        openBattleReport={abrirRelatorio}
         enemy={store.match.enemy} velocidade={velocidadeEfetiva}
       />
 
@@ -413,13 +443,18 @@ export default function GanguesCombat({ onNavigate, onSairConfirmado }) {
           equippedSpecials={equippedSpecials}
           canAffordSpecial={canAffordSpecial}
           itens={itensDisponiveis}
-          aliados={players.map(p => ({ key: p.key, nome: fighterName(t, p), pv: Math.max(0, p.pv || 0), pvMax: p.pvMax || 1, pm: Math.max(0, p.pm || 0), pmMax: p.pmMax || 0, dead: p.pv <= 0 }))}
+          atorKey={selectedActor}
+          aliados={aliadosOrb}
           onAtacar={() => handleAttack(null)}
           onUsarPoder={specialId => handleAttack(specialId)}
           onUsarItem={(itemId, alvoKey) => handleUsarItem(itemId, alvoKey)}
           autoOn={modoAuto.modoAutoOn}
           autoBloqueado={!modoAuto.podeUsarModoAuto}
           onToggleAuto={modoAuto.toggleModoAuto}
+          autoConfig={autoConfig.config}
+          onEscolherTalentoAuto={autoConfig.escolherTalento}
+          onAlternarPocaoAuto={autoConfig.alternarPocao}
+          onAlternarPocaoPmAuto={autoConfig.alternarPocaoPm}
         />
       )}
       {!modoMultidaoAtivo && machine.phase === 'enemy' && !machine.pending && <div className="gang-enemy-thinking"><span className="gang-thinking-pulse" /><strong>{t('games.gangues.report.enemy_thinking')}</strong><small>{t('games.gangues.report.enemy_strategy')}</small></div>}

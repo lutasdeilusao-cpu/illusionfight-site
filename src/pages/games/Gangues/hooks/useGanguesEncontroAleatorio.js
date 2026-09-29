@@ -15,7 +15,7 @@ import {
 
 const ONOMATOPEIA_MS = 950
 
-export default function useGanguesEncontroAleatorio({ store, rodando, player, collidersRef, worldRef, gateRef, onAlcancou }) {
+export default function useGanguesEncontroAleatorio({ store, rodando, player, collidersRef, worldRef, gateRef, tiposRef, onAlcancou }) {
   const [aviso, setAviso] = useState(null) // tipo a ser anunciado pelo Nego Véio
   const [perseguidor, setPerseguidor] = useState(() => store.aleatorioEstado().ativo || null)
   const [onomatopeia, setOnomatopeia] = useState(null)
@@ -39,7 +39,7 @@ export default function useGanguesEncontroAleatorio({ store, rodando, player, co
       tick++
       const disparar = !e.ativo && !persRef.current && tempo >= (e.proxima || 0)
       if (disparar) {
-        const tipo = tipoDoEncontro(e.contador || 0, e.ultimo)
+        const tipo = tipoDoEncontro(e.contador || 0, e.ultimo, tiposRef?.current?.())
         storeRef.current.salvarAleatorio({ tempo, contador: (e.contador || 0) + 1, ultimo: tipo })
         setAviso(tipo)
       } else {

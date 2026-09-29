@@ -1,5 +1,6 @@
 import { getGanguesResources } from './ganguesLoadout.js'
 import { ajustarPontosFixo, GANGUES_LADDER_PASSO } from './ganguesDificuldade.js'
+import { GANGUES_CHEFE_EQUIPE, GANGUES_CHEFE_BUDGET, GANGUES_CHEFE_CORPOS, liderFracChefe } from './ganguesChefes.js'
 
 /* ══════════════════════════════════════════════════════════════
    MODO HISTÓRIA — geração de bando inimigo por encontro (não fixo)
@@ -47,101 +48,8 @@ export const GANGUES_TERRITORIO_ENCONTRO = {
   laje:    { moldes: [1119, 1120, 1121, 1219, 1220, 1221, 1319, 1320, 1321, 1413, 1414], min: 6, max: 10 },
 }
 
-// Equipe do CHEFE — fixa, nunca sorteada. O chefe não anda sozinho, leva os
-// melhores da própria gangue junto (o 1º id é sempre o próprio chefe). Sendo
-// sempre a mesma composição, dá pra aprender o combate e voltar mais forte —
-// bem diferente do bando comum, que é aleatório de propósito.
-// O 1º id é sempre o próprio chefe; os outros são os 2 GENERAIS daquele
-// território (faixa 1451+, ver GDD §5.5) — vencer o chefe desbloqueia os
-// generais no Álbum de uma vez, já que eles não aparecem em treta comum.
-export const GANGUES_CHEFE_EQUIPE = {
-  pista: [1500, 1451, 1452],
-  feira: [1501, 1453, 1454],
-  baixada: [1502, 1455, 1456],
-  vila: [1503, 1457, 1458],
-  morro: [1504, 1459, 1460],
-  alto: [1505, 1461, 1462],
-  laje: [1600, 1463, 1464],
-}
-
-// Orçamento de pontos FIXO do bando do chefe, por território — NÃO escala com o
-// jogador (ao contrário da treta comum). É de propósito: o chefe é um paredão
-// fixo, e o loop de RPG é você VOLTAR mais forte.
-//
-// ESCADA DE NÍVEL DOS 7 CHEFES (pedido do Isaias, dez/2026): 7 territórios,
-// teto do jogador L99. Cada chefe é "pau a pau" no nível-alvo abaixo:
-//   pista 15 · feira 28 · baixada 42 · vila 56 · morro 70 · alto 84 · laje 99+
-// (~14 níveis entre cada; o 7º é PAREDÃO — encara no L99 e ainda apanha).
-//
-// calcularPontosTime = soma de A+H+D+PV+PM, e o crescimento autorado é
-// EXATAMENTE +1 ponto por nível → 1 ficha nível N = N pontos (+ o total
-// inicial de nível 1). O time cresce 1 vaga por território dominado (2 na
-// Pista, 3 na Feira, ... até 6 = teto de batalha):
-//   pista  L15 · 2 fichas ·  30 pts → budget ~35  (~1.15×, pau a pau)
-//   feira  L28 · 3 fichas ·  84 pts → budget ~97
-//   baixada L42 · 4 fichas · 168 pts → budget ~193
-//   vila   L56 · 5 fichas · 280 pts → budget ~322
-//   morro  L70 · 6 fichas · 420 pts → budget ~483
-//   alto   L84 · 6 fichas · 504 pts → budget ~580
-//   laje   L99 · 6 fichas · 594 pts → budget ~700 (paredão, ~1.18×)
-//
-// AJUSTE jan/2027 (feedback do Isaias — "tô matando no automático com uma
-// porrada, sou muito de upar"): +~4 níveis por ficha em cada chefe (o Isaias
-// pediu "3 a 5 pontos"), +5 na Laje. Não é soft-scaling (o chefe continua
-// fixo — o loop de RPG é voltar mais forte), só um piso mais alto pra não
-// virar pushover pra quem chega no nível-alvo. "Playtest pra confirmar" —
-// ver o ajuste de 15/09/2026 logo abaixo, esse foi o playtest.
-//
-// AJUSTE 15/09/2026 (Isaias, via relato do amigo dele jogando): o playtest
-// pedido acima aconteceu — amigo chegou no Carvão no nível 11 (bem abaixo do
-// alvo L15) e "venceu com certa facilidade". Investigado com simulação real
-// (mesma iniciativa H+d3, mesmo FA/FD do resolver, sem usar poderes — modo
-// Automático só ataca no normal): SEM equipamento, o Carvão de fato esmaga
-// (só ~5% de vitória do jogador) — o budget em si tava correto. O furo real:
-// `calcularPontosTime` (usada em toda escala dinâmica) soma só atributo CRU,
-// nunca conta o bônus de equipamento — e o chefe, sendo orçamento FIXO, não
-// tem NENHUMA compensação em lugar nenhum. Simulado: +2A/+1D por ficha (1
-// arma barata cada, fácil de bancar) já vira a luta pra ~49%; +4A/+2D vira
-// ~88% pro jogador — "vitória com certa facilidade" bate exatamente com uma
-// gangue com um pouco de equipamento.
-//
-// Decisão do Isaias (não foi "só sobe o budget" — foi mudar o paradigma):
-// PARAR de tentar acompanhar a ficha do jogador nas tretas da Pista (a raiz
-// do problema é viver perseguindo um alvo que build de equipamento sempre
-// vai furar). Pista virou NÍVEL FIXO ponta a ponta — cada POI tem uma ficha
-// de pontos travada de propósito, sem depender de playerTeam/ratio nenhum
-// (ver `pontosFixo`/`poi.fixo` em GanguesCena.jsx+GanguesRoute.jsx e o
-// `revezamento` das tretas comuns em data/cenas/pista/pois.js). Ladder
-// aprovada pelo Isaias: 1º inimigo nível 3, tretas de rua sobem de 3 em 3
-// (6, 9), os 2 Generais ficam acima da média da rua (13, 16), o galpão
-// pós-muro continua subindo (17, 19) e o Carvão fecha fixo em nível 20 —
-// dessa vez o equipamento é um bônus de verdade (você fica mais forte que o
-// "nível" da luta), não um furo que zera o desafio.
-// Budget recalculado pra bater Carvão=20: corpos=2, liderFrac=0.60 →
-// 33×0.60=19.8→20 (Carvão) e o resto (13) pro Sinaleiro que o acompanha.
-// Os outros 6 territórios (ainda formato antigo) continuam na tabela velha
-// até passarem pelo mesmo tratamento.
-//
-// AJUSTE 15/09/2026 nº2 (Isaias, direto, sem ambiguidade): "de três em três
-// essa progressão, a primeira luta [sinal] é MUITO fácil de propósito (ficha
-// de 3, sempre) — a partir da segunda luta sobe de 3 em 3 sem exceção, cada
-// inimigo novo tem que obrigar a ralar uns 3 níveis pra encarar o próximo."
-// Ladder final da Pista: sinal=3 · beco=8 · beco_2=11 · beco_3=14 ·
-// Sinaleiro=17 · Rasteira Velha=20 · posmuro_1=23 · posmuro_2=26 ·
-// Carvão=30 (o chefe quebra o padrão de +3 de propósito — "pra ser difícil,
-// pra ser ralado"). Budget recalculado pra bater Carvão=30: corpos=2,
-// liderFrac=0.60 → 50×0.60=30 (Carvão) e o resto (20) pro Sinaleiro que
-// some com ele na luta de chefe.
-// Pista 48 (29/09/2026): calibrado por simulação pro teto 20 — dupla nível 20
-// com o conjunto comum vence ~60%, sem item ~30%. Os outros esperam a cena.
-export const GANGUES_CHEFE_BUDGET = { pista: 48, feira: 110, baixada: 210, vila: 345, morro: 510, alto: 606, laje: 732 }
-export const GANGUES_CHEFE_LIDER_FRAC = 0.60
-// Quantos CORPOS o bando do chefe tem (o resto de GANGUES_CHEFE_EQUIPE fica só
-// pra lore/álbum). Pista = 2 (Carvão + Rasteira Velha): 2×2 é a única treta
-// justa enquanto o elenco do jogador é travado em 2 fichas (a vaga nº 3 só abre
-// vencendo o próprio chefe). O 3º general (Sinaleiro Chefe, 1451) é
-// colecionável no POI `sinaleiro` da cena da Pista.
-export const GANGUES_CHEFE_CORPOS = { pista: 2 }
+// Tabelas dos CHEFES (equipe fixa, orçamento, fração do líder, corpos) moram
+// em ./ganguesChefes.js — aqui fica só a geração do bando (gerarBandoChefe).
 
 // Total de pontos de todo bando (rua, revezamento, chefe, evento) é um número
 // FIXO autorado por quem criou o encontro (ver ganguesTerritorios.js e
@@ -156,7 +64,7 @@ export function calcularPontosTime(team) {
   return team.reduce((sum, m) => sum + ['A', 'H', 'D', 'PV', 'PM'].reduce((s, k) => s + (Number(m.attributes?.[k]) || 0), 0), 0)
 }
 
-function distribuirPontos(total, qtd) {
+export function distribuirPontos(total, qtd) {
   const base = Math.floor(total / qtd)
   const resto = total - base * qtd
   const partes = Array.from({ length: qtd }, () => base)
@@ -203,12 +111,25 @@ export function escalarInimigo(molde, pontosAlvo) {
  *  (`fixo`/Generais/rua comum, `revezamento`/rua-dungeon, chefe/orçamento×
  *  fração do líder — mesma conta de `gerarBandoChefe`). Não inclui o ajuste
  *  de dificuldade (ganguesDificuldade.js) — é o valor-base pra referência. */
+const somaPontos = e => ['A', 'H', 'D', 'PV', 'PM'].reduce((s, k) => s + (Number(e?.stats?.[k]) || 0), 0)
+
+/** Pontos de ficha REAIS do líder do chefe do território (mesma conta de
+ *  gerarBandoChefe: orçamento ajustado pela dificuldade × fração do líder,
+ *  escalado no molde dele). É o teto de todo inimigo daquele território. */
+export function pontosDoChefe(territorioId, modo, enemiesData) {
+  const budget = GANGUES_CHEFE_BUDGET[territorioId]
+  const molde = enemiesData?.find(e => e.id === GANGUES_CHEFE_EQUIPE[territorioId]?.[0])
+  if (!budget || !molde) return Infinity
+  return somaPontos(escalarInimigo(molde, Math.round(ajustarPontosFixo(budget, modo) * liderFracChefe(territorioId))))
+}
+
 export function pontosPreviewPoi(poi, territorioId) {
+  if (poi.rinhaInfinita) return null // nível sorteado a cada luta (niveisDoTerritorio)
   if (poi.pontosFixo > 0) return poi.pontosFixo
   if (poi.revezamento?.budgetPorCorpo > 0) return poi.revezamento.budgetPorCorpo
   if (poi.ehChefe) {
     const budget = GANGUES_CHEFE_BUDGET[territorioId]
-    return budget ? Math.round(budget * GANGUES_CHEFE_LIDER_FRAC) : null
+    return budget ? Math.round(budget * liderFracChefe(territorioId)) : null
   }
   return null
 }
@@ -348,7 +269,7 @@ export function suavizarPorFrustracao(bando) {
 // nome idêntico na tela de combate, impossível de diferenciar (qual "Moleque da
 // Pista" já perdi PV, qual eu quero focar). numeroInstancia marca a 2ª, 3ª...
 // ocorrência de cada id repetido — fighterName() usa isso pra por " II", " III".
-function numerarRepetidos(bando) {
+export function numerarRepetidos(bando) {
   const contagem = {}
   bando.forEach(inimigo => { contagem[inimigo.id] = (contagem[inimigo.id] || 0) + 1 })
   const visto = {}
@@ -408,8 +329,12 @@ const GANGUES_DUPLA_DEDUCAO_MIN = 2
 const GANGUES_DUPLA_DEDUCAO_MAX = 3
 const GANGUES_MULTIDAO_DEGRAU_ABAIXO = GANGUES_LADDER_PASSO
 
-export function gerarBandoRevezamento({ pool, budgetPorCorpo = 5, chanceDupla = 0.3, enemiesData, modo = 'medio', qtdMin, qtdMax, playerTeam, ratioComTime = 0, baseMaisForte = false }) {
+export function gerarBandoRevezamento({ pool, budgetPorCorpo: budgetBase = 5, chanceDupla = 0.3, enemiesData, modo = 'medio', qtdMin, qtdMax, playerTeam, ratioComTime = 0, baseMaisForte = false, niveisSorteio, tetoTerritorio, apelidos }) {
   if (!pool?.length || !enemiesData?.length) return null
+  // Rinha infinita (`niveisSorteio`, Isaias 28/09/2026: "segue a média de
+  // level do território"): cada luta sorteia o nível entre os das lutas do
+  // bairro, do mais fraco ao chefão (niveisDoTerritorio, cenaHelpers.js).
+  const budgetPorCorpo = niveisSorteio?.length ? niveisSorteio[Math.floor(Math.random() * niveisSorteio.length)] : budgetBase
   const multidaoGarantida = qtdMin != null && qtdMax != null
   const dupla = !multidaoGarantida && Math.random() < chanceDupla
   const qtd = multidaoGarantida ? (qtdMin + Math.floor(Math.random() * (qtdMax - qtdMin + 1))) : (dupla ? 2 : 1)
@@ -430,6 +355,7 @@ export function gerarBandoRevezamento({ pool, budgetPorCorpo = 5, chanceDupla = 
     return multidaoGarantida ? GANGUES_MULTIDAO_DEGRAU_ABAIXO : (GANGUES_DUPLA_DEDUCAO_MIN + Math.floor(Math.random() * (GANGUES_DUPLA_DEDUCAO_MAX - GANGUES_DUPLA_DEDUCAO_MIN + 1)))
   }
 
+  const teto = tetoTerritorio ? pontosDoChefe(tetoTerritorio, modo, enemiesData) : Infinity
   const bag = []
   const sortear = () => {
     if (!bag.length) bag.push(...pool)
@@ -438,19 +364,43 @@ export function gerarBandoRevezamento({ pool, budgetPorCorpo = 5, chanceDupla = 
   const bando = Array.from({ length: qtd }, (_, i) => {
     const id = sortear()
     const molde = enemiesData.find(e => e.id === id)
-    const orcamento = Math.max(2, ajustarPontosFixo(baseAlvo - deducaoCorpo(i), modo))
-    return molde ? escalarInimigo(molde, orcamento) : null
+    if (!molde) return null
+    // Teto = o chefão do território (a ficha REAL do líder do chefe): nada
+    // gerado ali passa dele, por mais forte que a tropa esteja (encontro que
+    // escala com o time, multidão...). O arredondamento do escalarInimigo
+    // pode estourar 1-2 pontos — desce o orçamento até caber.
+    let orcamento = Math.min(teto, Math.max(2, ajustarPontosFixo(baseAlvo - deducaoCorpo(i), modo)))
+    let inimigo = escalarInimigo(molde, orcamento)
+    while (somaPontos(inimigo) > teto && orcamento > 2) inimigo = escalarInimigo(molde, --orcamento)
+    return inimigo
   }).filter(Boolean)
 
   if (!bando.length) return null
-  numerarRepetidos(bando)
+  if (GANGUES_APELIDOS_QTD[apelidos]) batizarBando(bando, apelidos)
+  else numerarRepetidos(bando)
   return bando
+}
+
+/** Apelidos de rua (v3.71.0 — Isaias: "tá usando os nomes genéricos, garupa
+ *  1, garupa 2... cria uns nomes da hora, de rua mesmo, e não deixa repetir;
+ *  os polícia também, capitão não sei o quê"). Bando com `apelidos` (a
+ *  chave de uma lista em games.gangues.apelidos.<lista>, nos 3 idiomas)
+ *  ganha um nome próprio por corpo, sorteado SEM repetir dentro da luta —
+ *  no lugar do nome do molde + "(1)", "(2)". Usado pelos encontros
+ *  aleatórios cujos moldes são papéis genéricos (Piloto/Garupa, Soldado/Cabo
+ *  da Ronda). QTD tem que bater com o tamanho da lista no i18n. */
+export const GANGUES_APELIDOS_QTD = { moto: 12, policia: 12, rapa: 12 }
+function batizarBando(bando, lista) {
+  const livres = Array.from({ length: GANGUES_APELIDOS_QTD[lista] }, (_, i) => i)
+  bando.forEach(inimigo => {
+    inimigo.apelido = { lista, i: livres.splice(Math.floor(Math.random() * livres.length), 1)[0] }
+  })
 }
 
 /** Bando do CHEFE — orçamento de pontos FIXO (GANGUES_CHEFE_BUDGET), nunca
  *  escalado contra o jogador. Corpos = os N primeiros ids de GANGUES_CHEFE_EQUIPE
  *  (N = GANGUES_CHEFE_CORPOS, default 3). O 1º corpo (o chefe) leva a maior
- *  fatia (piso = budget × GANGUES_CHEFE_LIDER_FRAC), o resto divide o que sobra.
+ *  fatia (piso = budget × liderFracChefe), o resto divide o que sobra.
  *  Sempre a mesma composição — dá pra aprender a luta e voltar mais preparado. */
 export function gerarBandoChefe({ territorioId, playerTeam, enemiesData, modo = 'medio' }) {
   const ids = GANGUES_CHEFE_EQUIPE[territorioId]
@@ -463,7 +413,7 @@ export function gerarBandoChefe({ territorioId, playerTeam, enemiesData, modo = 
   const partes = distribuirPontos(budget, n)
 
   // Piso do líder — desloca pontos das escoltas pro chefe sem estourar o budget.
-  const piso = Math.round(budget * GANGUES_CHEFE_LIDER_FRAC)
+  const piso = Math.round(budget * liderFracChefe(territorioId))
   if (partes[0] < piso) {
     let falta = piso - partes[0]
     partes[0] = piso
@@ -484,34 +434,4 @@ export function gerarBandoChefe({ territorioId, playerTeam, enemiesData, modo = 
   return bando
 }
 
-/** Pool e bando do CLUBE DA LUTA — a roda clandestina do Nato. Brigões de
- *  galpão (vapores e cobradores mais casca-grossa da Pista/Feira). Orçamento
- *  FIXO e alto (não escala com o jogador): é pra doer, o cara só cai aqui em
- *  último caso, endividado até o pescoço. 2–3 corpos. */
-export const GANGUES_CLUBE_POOL = [1211, 1212, 1213, 1219, 1311, 1312, 1411, 1412]
-export const GANGUES_CLUBE_BUDGET = 26
-// Gauntlet de 3 rondas: 1 corpo fraco → 2 → 3 casca-grossa (o bando de antes).
-const GANGUES_CLUBE_RONDAS = {
-  1: { qtd: 1, budget: 7 },
-  2: { qtd: 2, budget: 15 },
-  3: { qtd: 3, budget: GANGUES_CLUBE_BUDGET },
-}
-export function gerarBandoClube({ enemiesData, ronda = 3 }) {
-  if (!enemiesData?.length) return null
-  const cfg = GANGUES_CLUBE_RONDAS[ronda] || GANGUES_CLUBE_RONDAS[3]
-  const qtd = cfg.qtd
-  const partes = distribuirPontos(cfg.budget, qtd)
-  const bag = []
-  const sortear = () => {
-    if (!bag.length) bag.push(...GANGUES_CLUBE_POOL)
-    return bag.splice(Math.floor(Math.random() * bag.length), 1)[0]
-  }
-  const bando = partes.map(pontos => {
-    const id = sortear()
-    const molde = enemiesData.find(e => e.id === id)
-    return molde ? escalarInimigo(molde, pontos) : null
-  }).filter(Boolean)
-  if (!bando.length) return null
-  numerarRepetidos(bando)
-  return bando
-}
+// O bando do CLUBE DA LUTA mora no módulo do Clube: clube/ganguesClubeRegras.js.

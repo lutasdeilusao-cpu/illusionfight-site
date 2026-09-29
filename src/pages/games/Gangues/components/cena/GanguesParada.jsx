@@ -6,6 +6,7 @@ import PuzzleForça from '../../../../../components/Puzzles/PuzzleForça'
 import PuzzleStealthGrid from '../../../../../components/Puzzles/PuzzleStealthGrid'
 import PuzzleDecoder from '../../../../../components/Puzzles/PuzzleDecoder'
 import PuzzleSimonSays from '../../../../../components/Puzzles/PuzzleSimonSays'
+import PuzzleLabirinto from '../../../../../components/Puzzles/PuzzleLabirinto'
 // Os puzzles da lib (stealth/decoder/força) dependem das classes .puzzle-* —
 // sem este import a grade de infiltração renderiza em branco e falha sozinha.
 import '../../../../../components/Puzzles/Puzzles.css'
@@ -21,6 +22,7 @@ const PUZZLES = {
   stealth: PuzzleStealthGrid,
   decoder: PuzzleDecoder,
   simon: PuzzleSimonSays,
+  labirinto: PuzzleLabirinto,
 }
 
 export default function GanguesParada({ poi, onResolve, onClose }) {
@@ -43,21 +45,21 @@ export default function GanguesParada({ poi, onResolve, onClose }) {
     if (ganhou) {
       onResolve({ ok: true, recompensa: poi.recompensa, revela: poi.revela })
     } else if (poi.falha?.viraTreta) {
-      onResolve({ ok: false, viraTreta: poi.falha.viraTreta, revela: poi.revela })
+      onResolve({ ok: false, viraTreta: poi.falha.viraTreta, choque: poi.falha.choque, revela: poi.revela })
     } else {
       onResolve({ ok: false, revela: poi.revela })
     }
   }
 
   return (
-    <div className={`gang-cena-enc gang-cena-enc--parada gang-cena-skin--${spec.skin || 'gen'}`}>
+    <div className="gang-cena-enc gang-cena-enc--parada">
       {fase !== 'jogo' && (
         <button className="gang-cena-enc-x" onClick={onClose} aria-label={t('games.gangues.cena.fechar')}>✕</button>
       )}
 
       {fase === 'intro' && (
         <>
-          <span className="gang-cena-eyebrow">{t(`games.gangues.cena.tipo.${poi.tipo}`)}</span>
+          <span className="gang-cena-eyebrow">{t(`games.gangues.cena.tipo.${poi.tipo}`)}{spec.skin ? ` · ${t(`games.gangues.cena.skin.${spec.skin}`)}` : ''}</span>
           <h3 className="gang-cena-enc-titulo">{t(`${base}.nome`)}</h3>
           <p className="gang-cena-enc-sub">{t(`${base}.sub`)}</p>
           <p className="gang-cena-enc-intro">{t(`${base}.intro`)}</p>

@@ -64,6 +64,30 @@ export default function createGanguesStorySlice(set, get) {
     // ganguesTerritorios.js). Guardado dentro do próprio storyProgress (chave
     // reservada __flags) pra não precisar de coluna nova no Supabase — é o
     // mesmo JSONB que já existe.
+    // Último território em que o jogador estava (Isaias, 28/09/2026: "quando
+    // eu inicio um jogo, eu tenho que iniciar no último território que eu
+    // estava"). Abrir o save leva direto pra ele (GanguesSaveSelect).
+    marcarUltimoTerritorio: (territorioId) => {
+      if (!territorioId || !get()._saveId || get().storyProgress.__ultimoTerritorio === territorioId) return
+      set(state => ({ storyProgress: { ...state.storyProgress, __ultimoTerritorio: territorioId } }))
+      get()._persistStory()
+    },
+
+    // Farm ausente (components/cena/GanguesFarmAusente.jsx): a MARCA de saída
+    // — { desde, territorioId, alvo, luta, ids, farmar } — mora no save
+    // (storyProgress.__farmAusente) e é gravada NA HORA, sem debounce: se o
+    // celular descartar a aba, a volta ainda acha o ponto de saída e calcula
+    // o tempo fora (Isaias, 28/09/2026: "tem que estar guardado no save").
+    marcarFarmAusente: (marca) => {
+      set(state => ({ storyProgress: { ...state.storyProgress, __farmAusente: marca } }))
+      get()._persistStory(true)
+    },
+    limparFarmAusente: () => {
+      if (!get().storyProgress.__farmAusente) return
+      set(state => { const { __farmAusente, ...resto } = state.storyProgress; return { storyProgress: resto } }) // eslint-disable-line no-unused-vars
+      get()._persistStory(true)
+    },
+
     marcarInformante: (chave) => {
       set(state => ({ storyProgress: { ...state.storyProgress, __flags: { ...(state.storyProgress.__flags || {}), [chave]: true } } }))
       get()._persistStory()

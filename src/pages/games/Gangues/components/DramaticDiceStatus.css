@@ -1,0 +1,32 @@
+/* Destaque de PASSIVA e de STATUS no dado dramático (28/09/2026) — separado
+   de DramaticDice.css pra ele ficar abaixo de 500 linhas. */
+.dramatic-dice-passivename__tag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 2px;
+  opacity: 0.85;
+}
+@keyframes dramatic-dice-passiva-pulso {
+  0%, 100% { box-shadow: 0 0 0 rgba(24, 218, 251, 0); }
+  50% { box-shadow: 0 0 22px rgba(24, 218, 251, 0.7); }
+}
+.dramatic-dice-status {
+  padding: 4px 12px;
+  border: 1px solid var(--if-danger);
+  background: rgba(255, 80, 80, 0.14);
+  color: var(--if-danger);
+  font-family: 'Impact', 'Arial Black', sans-serif;
+  font-size: 20px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.dramatic-dice-status { display: grid; gap: 2px; max-width: 280px; }
+.dramatic-dice-status__desc {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--gang-branco);
+}

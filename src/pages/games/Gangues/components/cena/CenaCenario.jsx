@@ -8,20 +8,11 @@ import { useLanguage } from '../../../../../context/LanguageContext'
    `quarteiroes` + `obstaculos.solido` — aqui é só a arte.
    ══════════════════════════════════════════════════════════════ */
 
-// ── Rua asfaltada (o traçado fixo da Pista) ──
-function Ruas() {
-  return (
-    <>
-      <div className="gang-road road-main" />
-      <div className="gang-road road-cross r1" />
-      <div className="gang-road road-cross r2" />
-      <div className="gang-road road-cross r3" />
-      <div className="gang-road road-cross r4" />
-      <div className="gang-road road-cross r5" />
-      <div className="gang-road road-branch left" />
-      <div className="gang-road road-branch right" />
-    </>
-  )
+// ── Ruas asfaltadas — traçado vem do dado da cena (cena.ruas) ──
+function Ruas({ ruas = [] }) {
+  return ruas.map((r, i) => (
+    <div key={i} className={`gang-road road-${r.tipo}`} style={{ left: r.x, top: r.y, width: r.w, height: r.h }} aria-hidden="true" />
+  ))
 }
 
 function Predio({ p, bossAberto, t }) {
@@ -45,7 +36,7 @@ function Predio({ p, bossAberto, t }) {
       )}
       {p.luz && <i className="gang-predio-luz" />}
       {p.varal && <i className="gang-predio-varal" />}
-      {p.pich && <b className="gang-predio-pich">RATO<br />DE PISTA</b>}
+      {p.pich && <b className="gang-predio-pich">{t(p.pich)}</b>}
       {p.nome && <small className="gang-predio-nome">{t(p.nome)}</small>}
     </div>
   )
@@ -59,21 +50,20 @@ function ItemCenario({ c, t }) {
     </div>
   }
   if (c.tipo === 'varal') return <i className="gang-deco gang-deco--varal" style={{ ...base, width: c.w }} aria-hidden="true" />
-  if (c.tipo === 'grafite') return <div className="gang-deco gang-deco--grafite" style={base} aria-hidden="true">{c.texto ? t(c.texto) : 'A RUA LEMBRA'}</div>
+  if (c.tipo === 'grafite') return <div className="gang-deco gang-deco--grafite" style={base} aria-hidden="true">{t(c.texto)}</div>
+  // Banca de feira (lona colorida sobre o tabuleiro) — a cor da lona vem do dado.
+  if (c.tipo === 'banca') return <i className="gang-deco gang-deco--banca" style={{ ...base, '--lona': c.cor }} aria-hidden="true" />
   return <i className={`gang-deco gang-deco--${c.tipo}`} style={base} aria-hidden="true" />
 }
 
 export default function CenaCenario({ cena, bossAberto, muroAberto }) {
   const { t } = useLanguage()
-  const W = cena.mundo?.w || 760
-  const H = cena.mundo?.h || 2840
-  // postes: 2 na faixa pós-muro nova (o galpão fica lá no fundo) + os da rua
-  // (todos +500 pós a expansão do mundo).
-  const lamps = [120, 340, 520, 700, 880, 1060, 1240, 1510, 1690, 1870, 2050, 2260, 2440, 2620]
+  const W = cena.mundo.w
+  const H = cena.mundo.h
 
   return (
     <>
-      <Ruas />
+      <Ruas ruas={cena.ruas} />
 
       {/* quarteirões — a laje/terra de base sob os prédios */}
       {(cena.quarteiroes || []).map((q, i) => (
@@ -88,8 +78,8 @@ export default function CenaCenario({ cena, bossAberto, muroAberto }) {
       {/* prédios */}
       {(cena.predios || []).map(p => <Predio key={p.id} p={p} bossAberto={bossAberto} t={t} />)}
 
-      {/* o muro da gangue rival — só abre depois de bater o Carvão */}
-      <div className={`gang-world-gate ${muroAberto ? 'is-open' : ''}`} aria-hidden="true" />
+      {/* o muro da gangue rival — só abre depois de bater o chefe */}
+      {cena.muro && <div className={`gang-world-gate ${muroAberto ? 'is-open' : ''}`} style={{ top: cena.muro.y1 }} aria-hidden="true" />}
 
       {/* cenário de frente (árvores, bancos, vida) — depois dos prédios */}
       {(cena.cenario || []).filter(c => !['praca', 'quadra', 'mural', 'varal', 'grafite'].includes(c.tipo)).map((c, i) => (
@@ -102,7 +92,7 @@ export default function CenaCenario({ cena, bossAberto, muroAberto }) {
       ))}
 
       {/* postes */}
-      {lamps.map((y, i) => <span key={y} className="gang-world-lamp" style={{ left: i % 2 ? 690 : 45, top: y }} aria-hidden="true" />)}
+      {(cena.postes || []).map((y, i) => <span key={y} className="gang-world-lamp" style={{ left: i % 2 ? W - 70 : 45, top: y }} aria-hidden="true" />)}
 
       {/* fiação aérea (o gato) — por cima de tudo */}
       {cena.fiacao?.length > 0 && (

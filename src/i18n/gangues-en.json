@@ -2,8 +2,6 @@
   "games": {
     "gangues": {
       "log_batalha_inicio": "The fight has begun.",
-      "log_usou_item": "{nome} used an item — gave up their attack this round.",
-      "log_usou_item_em": "{nome} handed {alvo} an item (+{n}) — gave up the attack.",
       "combat_item_cheio": "That one's already maxed — pick someone else to heal.",
       "dano_cena_dano": "{nome}'s hit",
       "dano_cena_cura": "{nome} patched it up",
@@ -18,9 +16,6 @@
         "comecar": "START →"
       },
       "party_size_atual": "Current gang: {n}/{max}",
-      "bonus_ataque": "wallop bonus",
-      "bonus_defesa": "hide bonus",
-      "bonus_falhou": "didn't trigger",
       "critico": "CRITICAL",
       "derrota": "TOUGH BREAK",
       "derrota_sub": "The ones who fall and get back up are the ones who run it later.",
@@ -50,7 +45,19 @@
         "round_number": "ROUND {n}",
         "no_log": "No attacks recorded.",
         "back_to_gang": "BACK TO GANG",
-        "recrutar": "RECRUIT NEW MEMBER"
+        "recrutar": "RECRUIT NEW MEMBER",
+        "socorro_titulo": "They dragged you to the bar",
+        "socorro_pagou": "The crew went down and woke up at the bar. Patching everyone up cost {custo} cash — already out of your pocket.",
+        "socorro_emprestimo": "No cash for the patch-up, so the loan shark fronted {emprestimo} on his own. The bar's {custo} came out of it and you kept {grana}.",
+        "socorro_fiado": "Broke and already in debt, the loan shark covered the {custo} patch-up — at 10× the price. Your debt went up {acrescimo}.",
+        "socorro_divida": "Debt with the loan shark: {divida}",
+        "socorro_clube": "Only the Fight Club clears that name.",
+        "reward_sucata": "Scrap",
+        "reward_equip": "New gear",
+        "reward_item": "Item",
+        "reward_aposta": "Bet (doubled)",
+        "perda_item": "The Raid took your {item}.",
+        "perda_grana": "The Turk's Collection took {n} of your cash."
       },
       "progression": {
         "loadout": "Equipped: {n}/2",
@@ -258,13 +265,15 @@
         "carregando": "Loading gangs...",
         "sem_saves": "You don't have a gang yet. Found the first one.",
         "nova_gangue": "FOUND NEW GANG",
-        "limite_atingido": "Your plan's limit of {n} gang(s) reached.",
+        "limite_atingido": "All {n} gang slots are taken. Delete one to found another.",
         "abrir": "CONTINUE",
         "excluir": "Delete gang",
         "excluir_confirm": "Delete the gang \"{nome}\"? Roster and progress are gone for good.",
         "sem_nome": "Unnamed gang",
         "territorios": "{n}/7 territories",
-        "slot": "Save {n}"
+        "slot": "Save {n}",
+        "vagas": "Gang slots: {usadas}/{total}",
+        "beta_liberado": "Beta: 3 slots unlocked for everyone. After the beta: Free 1 · Elite 2 · Primordial 3."
       },
       "carregando": "loading...",
       "btn_proximo": "next →",
@@ -297,11 +306,25 @@
         "atacar": "Attack",
         "poder": "Talent",
         "item": "Item",
-        "item_vazio": "No items yet — coming soon.",
+        "item_vazio": "Empty bag — hit the neighborhood shop.",
         "item_qtd": "×{n}",
         "item_em_quem": "on who?",
         "alvo_caido": "down",
-        "alvo_cheio": "already full"
+        "alvo_cheio": "already full",
+        "na_vez": "Up now",
+        "voltar": "Back",
+        "auto_ajustar": "Tune",
+        "auto_cada_um": "What each one uses on auto",
+        "auto_normal": "Normal attack",
+        "auto_pocao": "Auto HP potion",
+        "auto_pocao_desc": "Anyone at 50% HP or less? The healthiest in the crew gives up their turn to hand the most hurt one an HP potion.",
+        "auto_tutorial": {
+          "talento": "This is where you set up auto, kid. For each one in the crew pick: normal attack only, or ONE talent they fire every time they've got the MP. MP runs dry, back to the normal attack.",
+          "pocao": "Turn on the auto potions and nobody drops for nothing. HP: someone hits 50%, the healthiest one skips their turn to hand them a potion — the hurt one keeps swinging (works even at the pit with the app in the background). MP: whoever fires a talent and runs dry drinks an MP potion and gets back to it. At the pit, with the app in the background, it's normal attacks only, no talents.",
+          "derrota": "But listen: lose the brawl and EVERY auto mode switches off. Then it's on you again."
+        },
+        "auto_pocao_pm": "Auto MP potion",
+        "auto_pocao_pm_desc": "Anyone set to use a talent on auto who's out of MP for it drinks an MP potion on their own turn."
       },
       "itens": {
         "1": "HP Potion",
@@ -319,7 +342,17 @@
         "36": "Warm Milk",
         "37": "Sugar Water",
         "38": "Plaster Patch",
-        "39": "Aloe"
+        "39": "Aloe",
+        "3": "Straw Cigarette",
+        "4": "Energy Water",
+        "5": "Cloth Bandage",
+        "6": "Moonshine",
+        "8": "Smoke Bomb",
+        "10": "Guaraná Flour",
+        "11": "Blessed Candle",
+        "12": "Bag of Candy",
+        "14": "Copper Wire",
+        "15": "Radio Valve"
       },
       "loja": {
         "sub": "Buy with the gang's cash — usable in any fight.",
@@ -333,7 +366,10 @@
           "arma": "Weapon",
           "protecao": "Armor",
           "amuleto": "Charm"
-        }
+        },
+        "pechincha_botao": "Haggle (−{n}% if you nail it)",
+        "pechincha_ok": "Deal! Everything {n}% off this visit.",
+        "pechincha_falha": "Blew the pitch — full price, no crying."
       },
       "equip": {
         "titulo": "Gear",
@@ -402,11 +438,30 @@
           "235": "Blessed Flip-Flops",
           "236": "Evil Eye",
           "237": "Tin Knuckles",
-          "238": "Stray Cap"
+          "238": "Stray Cap",
+          "121": "Stray Cap",
+          "122": "Cloth Balaclava",
+          "123": "Crew Jacket",
+          "124": "Tuned-In Cloak",
+          "125": "Nail Gauntlet",
+          "126": "Reinforced Flip-Flop",
+          "127": "Fake Gold Chain",
+          "128": "Grandma's Rosary",
+          "129": "Tape-Handle Machete",
+          "130": "Fence-Spike Shank",
+          "131": "Flagman's Baton",
+          "138": "Collector's Club",
+          "139": "Carvão's Machete",
+          "140": "Flip-Flops",
+          "141": "Stopped Watch",
+          "142": "Running Shoes",
+          "143": "Bonfim Ribbon",
+          "144": "Wing Pendant"
         },
         "sem_caminho": "Nobody in your crew walks this path.",
         "qualquer_caminho": "Any path",
-        "so_caminho": "{caminho} only"
+        "so_caminho": "{caminho} only",
+        "faixa_explica": "The bonus is a range and rolls on the spot: Wallop every hit, Hide every block, Pace once at the start of the fight. The comparison below uses the average."
       },
       "bag": {
         "eyebrow": "Bag",
@@ -546,7 +601,7 @@
       },
       "auto": {
         "switch_label": "Auto",
-        "switch_titulo": "Turn on auto mode — your fighters attack on their own with the normal attack. To use a talent, turn it off and go back to manual.",
+        "switch_titulo": "Turn on auto mode — each fighter acts on their own the way you tuned it (normal attack or talent, with or without potions).",
         "premium_titulo": "Auto mode is a subscriber perk — tap to subscribe",
         "sair": "Exit auto mode"
       },
@@ -3869,7 +3924,9 @@
         "resultado": "RESULT: {n}!",
         "ataca": "attacks",
         "critico_player": "CRITICAL! PERFECT HIT!",
-        "critico_enemy": "CRITICAL! FATAL BLOW!"
+        "critico_enemy": "CRITICAL! FATAL BLOW!",
+        "arma": "weapon +{n}",
+        "armadura": "hide +{n}"
       },
       "beat": {
         "derrotado": "DEFEATED"
@@ -3901,6 +3958,7 @@
         "agora_nao": "Not now",
         "continuar_territorio": "Stay on the block",
         "tentar_de_novo": "Back up top",
+        "ir_birosca": "Wake up at the bar",
         "dificuldades": {
           "rato": "Street rat",
           "muvuca": "Packed",
@@ -4120,6 +4178,30 @@
               "The Bank's Collector is on the Strip. Every crew pays its cut, and you owe yours.",
               "He doesn't take excuses. He takes cash or blood."
             ]
+          },
+          "rapa": {
+            "nome": "The Raid",
+            "onomatopeia": "TWEET!",
+            "aviso": [
+              "Heads up — city inspectors.",
+              "They're sweeping the Market. Get caught and they take whatever's in your bag."
+            ]
+          },
+          "apagao": {
+            "nome": "Cats in the dark",
+            "onomatopeia": "HSSS!",
+            "aviso": [
+              "Everything just went black...",
+              "The Cats don't need light — they close in from every side."
+            ]
+          },
+          "cobranca_divida": {
+            "nome": "The Turk's Collection",
+            "onomatopeia": "KNOCK KNOCK!",
+            "aviso": [
+              "The whole Market knows you owe.",
+              "The Turk's collectors came for a cut. Lose, and they take some of your cash."
+            ]
           }
         },
         "fechar": "Close",
@@ -4139,7 +4221,8 @@
           "descanso": "Bar",
           "loja": "Shop",
           "agiota": "Loan shark",
-          "banca": "Bets"
+          "banca": "Bets",
+          "ferreiro": "Metal shop"
         },
         "descanso_titulo": "The crew rested. Each one recovered:",
         "descanso_ja_inteira": "The crew's already whole, kid. Keep the cash.",
@@ -4149,7 +4232,7 @@
         "descanso_animando": "Resting...",
         "tropa_no_chao": "Your whole crew's down, kid. Nobody's facing anyone like this. Hit Nato's corner store first.",
         "aviso_rep_treta": "That one's a whole different animal, kid. Don't go acting hard with no name made yet — stack up more rep before you step in there (rep {rep}).",
-        "aviso_rep_clube": "Hornet won't even let you in the circle without a name on the street. Build more rep before you show up here (rep {rep}).",
+        "aviso_rep_clube": "{agiota} won't even let you in the circle without a name on the street. Build more rep before you show up here (rep {rep}).",
         "rep_recompensa": {
           "titulo": "REPUTATION {valor}!",
           "sub": "Your name's ringing out on the street, kid. Go on, grab it.",
@@ -4157,26 +4240,22 @@
         },
         "emprestimo_pedir": "Take a loan (+{valor}, ends up owing {divida})",
         "emprestimo_contrato_tag": "Contract · no deadline",
-        "emprestimo_contrato": "Hornet counts {valor} into your hand, doesn't even count it twice. \"This one pays off, kid. Now you owe me {divida}. No deadline — just don't disappear.\"",
-        "emprestimo_ja_deve": "You already owe Hornet, kid. Settle that before asking for more.",
+        "emprestimo_contrato": "{agiota} counts {valor} into your hand, doesn't even count it twice. \"This one pays off, kid. Now you owe me {divida}. No deadline — just don't disappear.\"",
+        "emprestimo_ja_deve": "You already owe {agiota}, kid. Settle that before asking for more.",
         "fiado_pedir": "Ask for more credit (heal everyone, ends up owing {divida})",
         "fiado_contrato_tag": "Contract · no deadline",
-        "fiado_contrato_cura": "Hornet has your whole crew healed, on the tab. \"Your debt doubled, kid. It's {divida} now.\"",
-        "fiado_sem_emprestimo": "You don't owe anything yet, kid. Take Hornet's loan first.",
-        "fiado_teto": "Your debt's maxed out, kid. Hornet's only fix now is throwing you into the pit.",
-        "fiado_devendo": "Hornet's book: you owe {divida} cash.",
-        "fiado_pagar": "Pay Hornet (−{grana})",
-        "fiado_pago_parcial": "Knocked {pago} off. Still {restante} left for Hornet.",
-        "fiado_pago_total": "Cleared the {pago}. Your name's clean with Hornet.",
-        "nato_socorro": "Beg Hornet for help",
-        "nato_socorro_tag": "Hornet's out of patience",
-        "nato_socorro_fala": "Hornet shakes his head. \"Enough, kid. That debt's past what I can even collect. I'll patch you up for free — but you're settling this in the pit, like it or not.\"",
-        "nato_socorro_seguir": "Go on (blindfold now)",
-        "aviso_divida_chefe": "You don't face Coal owing Hornet, kid. Clear that {divida} debt first — his pit's the fastest way.",
+        "fiado_contrato_cura": "{agiota} has your whole crew healed, on the tab. \"Your debt doubled, kid. It's {divida} now.\"",
+        "fiado_sem_emprestimo": "You don't owe anything yet, kid. Take {agiota}'s loan first.",
+        "fiado_teto": "Your debt's maxed out, kid. {agiota}'s only fix now is throwing you into the pit.",
+        "fiado_devendo": "{agiota}'s book: you owe {divida} cash.",
+        "fiado_pagar": "Pay {agiota} (−{grana})",
+        "fiado_pago_parcial": "Knocked {pago} off. Still {restante} left for {agiota}.",
+        "fiado_pago_total": "Cleared the {pago}. Your name's clean with {agiota}.",
+        "aviso_divida_chefe": "{chefe} won't face you while you owe {agiota}, kid. Clear that {divida} debt first — his pit's the fastest way.",
         "clube_botao": "▸ The Fight Club",
-        "clube_oferta_tag": "Offer · Hornet's pit",
-        "clube_oferta_limpo": "Hornet looks you over. \"You're clean with me. But I got a job: betting pit, mine. You go in, you win, you walk with 200 in hand. No experience — nobody learns anything in the pit. You lose, we patch you up and you try again. Only the buy-in's on credit: I heal you now and it turns into debt if you don't win. Deal?\"",
-        "clube_oferta_divida": "Hornet taps the book. \"You owe me. But I got a job for that: betting pit, mine. You go in, you win, your debt's gone — all of it, no matter the size. And you walk out with 200 cash. No experience though — nobody learns a thing in the pit. You lose, we patch you up and you try again. The buy-in I float you — fifteen times — and I heal the whole crew. Deal?\"",
+        "clube_oferta_tag": "Offer · {agiota}'s pit",
+        "clube_oferta_limpo": "{agiota} looks you over. \"You're clean with me. But I got a job: betting pit, mine. You go in, you win, you walk with {premio} in hand. No experience — nobody learns anything in the pit. You lose, we patch you up and you try again. Only the buy-in's on credit: I heal you now and it turns into debt if you don't win. Deal?\"",
+        "clube_oferta_divida": "{agiota} taps the book. \"You owe me. But I got a job for that: betting pit, mine. You go in, you win, your debt's gone — all of it, no matter the size. And you walk out with {premio} cash. No experience though — nobody learns a thing in the pit. You lose, we patch you up and you try again. The buy-in I float you — fifteen times — and I heal the whole crew. Deal?\"",
         "clube_recusar": "Not now",
         "clube_aceitar": "Take it (blindfold now)",
         "pista": {
@@ -4227,8 +4306,8 @@
           },
           "rinha": {
             "nome": "The back-alley pit",
-            "sub": "clandestine betting",
-            "fala": "Betting ring at the back of the alley, kid. You step in, you eat it or you cash out. There's always some nutcase wanting to test their hand against the fresh gang — come on, take it as many times as you can stay standing."
+            "sub": "endless fights — even with the app closed",
+            "fala": "Betting ring at the back of the alley, kid. You step in, you eat it or you cash out. There's always some nutcase wanting to test their hand against the fresh gang — come on, take it as many times as you can stay standing. The ring never stops here: one's done, the next steps in — weaker, stronger, luck of the draw. You can leave the crew here and go live your life: 1 brawl every 5 minutes."
           },
           "birosca": {
             "nome": "Old Nato's bar",
@@ -4452,7 +4531,13 @@
           "banca": {
             "nome": "Uncle Dice's Book",
             "fala": "\"Nobody gets beat up here, kid. Here you bet. Sharp head wins, sharp hands win — and whoever knows fighting reads the pit before the first punch.\""
-          }
+          },
+          "bancada_nando": {
+            "nome": "Nando's workbench",
+            "sub": "upgrades your gear",
+            "fala": "Bring the piece and some scrap and I'll hammer it right. A weapon that hit soft now and then hits solid every time after I'm done."
+          },
+          "pich": "PISTA RATS"
         },
         "carregando_mapa": "LOADING THE MAP...",
         "hint_andar": "Use the stick and head down to the street.",
@@ -4465,7 +4550,18 @@
           "voltar": "BACK",
           "avancar": "PUSH IN",
           "desafiar": "STEP UP",
-          "trancado": "SHUT"
+          "trancado": "SHUT",
+          "papo": "TALK",
+          "treta": "FACE",
+          "parada": "CHECK",
+          "corre": "FOLLOW",
+          "descanso": "REST",
+          "loja": "BUY",
+          "achado": "GRAB",
+          "agiota": "LOAN SHARK",
+          "ferreiro": "UPGRADE",
+          "interagir": "INTERACT",
+          "banca": "BET"
         },
         "comodo": "ROOM {n}/{de}",
         "muro_tunel": "The wall's not opening, straight up. Find the gap under it.",
@@ -4482,7 +4578,405 @@
           "galpao": "Carvão's warehouse",
           "limpo": "Area's clear, kid."
         },
-        "descanso_completo": "Full recovery: health, downed and status (−{grana})"
+        "descanso_completo": "Full recovery: health, downed and status (−{grana})",
+        "agiota_socorro": "Beg {agiota} for help",
+        "agiota_socorro_tag": "{agiota}'s out of patience",
+        "agiota_socorro_fala": "{agiota} shakes his head. \"Enough, kid. That debt's past what I can even collect. I'll patch you up for free — but you're settling this in the pit, like it or not.\"",
+        "agiota_socorro_seguir": "Go on (blindfold now)",
+        "dominada": "TAKEN",
+        "recompensa": "REWARD",
+        "ficha_anterior": "PREV",
+        "ficha_proximo": "NEXT",
+        "aposta_titulo": "How much you putting in the ring?",
+        "aposta_nada": "Nothing",
+        "aposta_premio": "Win it, take {n}.",
+        "skin": {
+          "gazua": "picking the gate",
+          "viatura": "the squad car's out",
+          "fios": "jury-rigged wiring",
+          "gato": "the Cats' code",
+          "rapa": "the Raid is patrolling"
+        },
+        "feira": {
+          "chegada": [
+            "This is the Market, kid. No gunfire here — just bills.",
+            "Every stall pays the Turk, and every cent is in his ledger. The upper half is pitch dark: the Cats cut the power.",
+            "Want the Collector? Make the whole Market respect you first."
+          ],
+          "aviso_informante": "The Collector won't even see you yet. Someone back on the Strip knows the way in — talk to Duda.",
+          "boss_trancado": "The blackout barricade is shut — sort out the lower Market first.",
+          "muro_passagem": "The barricade won't open — but the Cats' Gallery runs underneath.",
+          "checklist_dica": "Clear everything down here to open the Cats' Gallery.",
+          "checklist_passagem": "Gallery open — cross to the dark side.",
+          "minimapa_galeria": "Cats' Gallery",
+          "minimapa_mercadao": "Wholesale Market",
+          "hint_radio_pronto": "You've got the copper and all 3 valves — take them to Toninho to fix the radio.",
+          "hint_radio_falta": "Toninho's radio needs 1 copper wire and 3 valves. Search the Market (the street vendor sells one).",
+          "pich": "THE CATS",
+          "grafite": "WHO OWES\nFEARS",
+          "predio": {
+            "hortifruti": "Produce stand",
+            "pensao": "Dona Regina's Boarding House",
+            "caderneta": "The Turk's Ledger",
+            "acougue": "Butcher",
+            "pastel": "Pastry shop",
+            "radio": "Toninho's Radios",
+            "galeria_ent": "Cats' Gallery",
+            "galeria_sai": "Gallery exit",
+            "mercearia": "Mr. Aziz's Grocery",
+            "pensao_2": "The daughter's boarding house",
+            "serralheria": "Bigode's Metal Shop"
+          },
+          "int": {
+            "pensao": "Dona Regina's Boarding House",
+            "radio": "Radio repair shop",
+            "mercearia": "Mr. Aziz's Grocery",
+            "serralheria": "Bigode's Metal Shop",
+            "pensao_2": "The daughter's boarding house",
+            "galeria": "Cats' Gallery",
+            "mercadao": "The Wholesale Market"
+          },
+          "catraca": {
+            "nome": "The Turnstile",
+            "sub": "the Cats' toll at the entrance",
+            "fala": [
+              "Whoa, whoa. Market entry isn't free, pal.",
+              "Pay the change or get through us."
+            ]
+          },
+          "banca_turco": {
+            "nome": "The Turk's Stall",
+            "sub": "where the Market pays its dues",
+            "fala": [
+              "New crew in the Market... The Turk likes new people. New people still pay on time.",
+              "Arrival fee: 20. Pay and you're cool. Don't, and the Collector comes to chat."
+            ],
+            "fala_devedor": [
+              "Look who's here. You're in the ledger, huh? Owing the loan shark and still wanting a stall.",
+              "Pay the arrival fee or the collectors find you before you find the exit."
+            ],
+            "escolhas": {
+              "paga_taxa": {
+                "label": "Pay the 20 fee",
+                "resultado": "He writes your name down neatly. \"A payer. The Turk likes that. His collectors don't like anyone, though — they're right over there.\""
+              },
+              "nao_paga": {
+                "label": "Pay nothing",
+                "resultado": "He closes the ledger slowly. \"Noted. Go talk to the collectors, then.\""
+              }
+            }
+          },
+          "cobranca": {
+            "nome": "The collection",
+            "sub": "the Turk's collectors",
+            "fala": [
+              "We came for what's the Turk's.",
+              "Everybody pays. You'll pay too — one way or another."
+            ]
+          },
+          "quadro_luz": {
+            "nome": "The breaker box",
+            "sub": "the tap that feeds the Market",
+            "intro": "The Cats pull power for the whole Market from this box. Retrace the wires without touching the live ones — one mistake and the crew gets shocked, and the noise brings the gang."
+          },
+          "beco_gato": {
+            "nome": "Cats' Alley",
+            "sub": "where the wiring gang hides",
+            "fala": [
+              "You messed with our box? Nobody touches our power.",
+              "The Cats live in the dark, pal. Come learn how it feels."
+            ]
+          },
+          "balanca": {
+            "nome": "The rigged scale",
+            "sub": "the Turk's weight always wins",
+            "fala": [
+              "I do the weighing here. And I weighed you: you owe.",
+              "Every stall pays whatever weight I say."
+            ]
+          },
+          "caderneta_viva": {
+            "nome": "The Ledger",
+            "sub": "remembers every cent",
+            "fala": [
+              "I know the name of every debtor in Marélia. Yours is right here.",
+              "Debtors get beaten with interest."
+            ]
+          },
+          "mao_turco": {
+            "nome": "The Turk's Hand",
+            "sub": "the arm that collects",
+            "fala": [
+              "The pirate radio talked about me, huh? Then you know who I am.",
+              "I'm the hand the Turk uses to settle accounts."
+            ]
+          },
+          "caixa_forte": {
+            "nome": "The Strongbox",
+            "sub": "the Market's safe has legs",
+            "fala": [
+              "Everything the Market pays goes through me.",
+              "Want the cash? Come take it out of the safe."
+            ]
+          },
+          "radio": {
+            "nome": "Toninho the Radio Guy",
+            "sub": "fixes anything that crackles",
+            "fala": [
+              "This radio picks up the Settling Scores frequency — the Turk's guys talk about everything on it.",
+              "Only it's fried. Bring me 1 copper wire and 3 valves and I'll make it talk."
+            ],
+            "escolhas": {
+              "consertar": {
+                "label": "Hand over the copper and 3 valves",
+                "resultado": "Toninho solders, blows, turns the knob... and the radio crackles out a voice: \"The Hand and the Strongbox are in the Market today.\" Now you know where they are."
+              }
+            }
+          },
+          "camelo": {
+            "nome": "The Street Vendor",
+            "sub": "a bit of everything, cheaper if you can talk"
+          },
+          "muamba": {
+            "nome": "Sunday Contraband",
+            "sub": "cross the Market without the Raid seeing",
+            "intro": "Carry the goods from one end of the Market to the other. The Raid is patrolling and the clock is ticking — get spotted and you lose it all."
+          },
+          "favor_marmita": {
+            "nome": "Regina's lunchbox",
+            "sub": "a favor for Dona Regina",
+            "intro": "Dona Regina asked: take her son's lunchbox to the other side of the Market without the Raid seizing it. Favor paid means credit's open again."
+          },
+          "favor_devedor": {
+            "nome": "Red Ink",
+            "sub": "has owed Dona Regina for months",
+            "fala": [
+              "What? Regina sent you? I'll pay next week, I swear.",
+              "Next week, same as last week."
+            ],
+            "escolhas": {
+              "convence": {
+                "label": "Talk him into it",
+                "resultado": "He scratches his head, sighs and pays Regina. \"Fine, fine. She always fed me anyway.\""
+              },
+              "aperta": {
+                "label": "Lean on him",
+                "resultado": "He backs off and calls his buddies. \"Came to collect with your fists? Then take some fists.\""
+              }
+            }
+          },
+          "favor_cobrador": {
+            "nome": "The boarding house collector",
+            "sub": "is pressuring Dona Regina",
+            "fala": [
+              "The old lady owes the Turk. Out of the way.",
+              "Wanna pay for her? Pay in bruises."
+            ]
+          },
+          "pagina_1": {
+            "nome": "Torn page",
+            "sub": "from the Turk's ledger",
+            "linha": "Stuck to the floor of a stall: a page from the Turk's ledger, full of names and numbers. There are more around."
+          },
+          "pagina_2": {
+            "nome": "Another page",
+            "sub": "from the Turk's ledger",
+            "linha": "On the dark side, folded in a crate: another ledger page. There's a note from the Collector in the margin."
+          },
+          "pagina_3": {
+            "nome": "The last page",
+            "sub": "from the Turk's ledger",
+            "linha": "Hidden in the Cats' Gallery: the last page. Together they show where the Collector is weak — he drops his guard when he collects."
+          },
+          "radio_pirata": {
+            "nome": "The pirate radio",
+            "sub": "the Settling Scores frequency",
+            "fala": [
+              "The radio crackles in the corner of the shop. Between the static, a voice talks about the Lowside.",
+              "\"...down there the Gut-Stabber runs things. Anyone who wants to reach him has to listen first...\""
+            ],
+            "escolhas": {
+              "ouvir": {
+                "label": "Listen to the whole frequency",
+                "resultado": "You write down everything the radio said about the Lowside. When the time comes, you'll know the way in."
+              }
+            }
+          },
+          "pensao": {
+            "nome": "Dona Regina's Boarding House",
+            "sub": "hot food and a clean bed",
+            "intro": "Dona Regina serves a plate of food and settles the crew in a corner. Costs a bit of cash — and if you're broke, she finds another way.",
+            "favor_pedir": "Broke — ask for credit in exchange for a favor",
+            "favor_pendente": "You still owe Regina a favor",
+            "favor_fala": "\"Eat, kid. Later you do me a favor — the Market is full of people who owe me.\""
+          },
+          "pensao_2": {
+            "nome": "The daughter's boarding house",
+            "sub": "Regina's daughter, on the dark side",
+            "intro": "Dona Regina's daughter runs a boarding house on the dark side, by candlelight. Same rule as her mom: pay a bit and the crew gets patched up.",
+            "favor_pedir": "Broke — ask for credit in exchange for a favor",
+            "favor_pendente": "You still owe Regina a favor",
+            "favor_fala": "\"My mom told me about you. Eat up — settle the favor with her.\""
+          },
+          "juro_alto": {
+            "nome": "High Interest",
+            "sub": "lends big, collects way bigger",
+            "fala": [
+              "Need big money, kid? I don't do small change.",
+              "300 in hand right now. But the bill... the bill is mine."
+            ],
+            "botao_ver_contrato": "I want the 300",
+            "contrato_tag": "Contract · high interest",
+            "contrato_corpo": "\"300 in hand, right now. Take it or leave it?\"",
+            "contrato_letra_miuda": "Fine print: you'll owe {divida}.",
+            "contrato_aceitar": "I accept",
+            "contrato_recusar": "I refuse"
+          },
+          "deposito_1": {
+            "nome": "The warehouse door",
+            "sub": "High Interest and his goons",
+            "fala": [
+              "Past here is the Wholesale Market. Nobody passes without paying.",
+              "And you can't afford what we charge."
+            ]
+          },
+          "deposito_2": {
+            "nome": "The Market guard",
+            "sub": "only opens for people with a name",
+            "fala": [
+              "You got a name in the Market? Prove it.",
+              "The Turk only sees people the street respects."
+            ]
+          },
+          "rinha_apostas": {
+            "nome": "Betting Ring",
+            "sub": "endless bets and brawls — the bet counts on the 1st",
+            "fala": [
+              "Out here in the dark the ring spins with cash on the table.",
+              "Put down your bet and step in. Win, take double. Lose, walk away empty.",
+              "The ring never stops: one's done, the next one steps in, drawn at random. You can leave the crew here — 1 brawl every 5 minutes."
+            ]
+          },
+          "mercearia": {
+            "nome": "Mr. Aziz's Grocery"
+          },
+          "serralheria": {
+            "nome": "Bigode's Metal Shop",
+            "fala": "Nando does the first tune-up. I go all the way: bring the piece and scrap and I'll have it hitting hard every time."
+          },
+          "galeria": {
+            "m1": {
+              "nome": "Cats' lookout",
+              "fala": [
+                "Came into the Gallery? This is the Cats' house, pal.",
+                "Nobody crosses without paying the toll."
+              ]
+            },
+            "porta": {
+              "nome": "The Cats' door",
+              "sub": "locked with their code",
+              "intro": "An iron door with a code lock. The Cats change the password every week — crack the code to get through. Get it wrong and they'll come check who touched it."
+            },
+            "m2": {
+              "nome": "The Cats in the middle",
+              "fala": [
+                "You opened our door? Now you're stuck in here with us.",
+                "In the dark we see better than you."
+              ]
+            },
+            "m3": {
+              "nome": "Exit lookout",
+              "fala": [
+                "Almost out, huh? Almost.",
+                "The light is on the other side of me."
+              ]
+            }
+          },
+          "mercadao": {
+            "m2": {
+              "nome": "Sledge",
+              "fala": [
+                "The cold room is for dead meat. You're staying here.",
+                "I guard what's the Turk's. You don't pass."
+              ]
+            },
+            "achado": {
+              "nome": "The hidden stock",
+              "sub": "what the Turk keeps for himself",
+              "linha": "Behind the merchandise boxes: cash, scrap and a good piece. The Turk won't notice — he never counts his own stock."
+            },
+            "livro_caixa": {
+              "nome": "The cash book",
+              "sub": "the whole Market's accounts",
+              "fala": [
+                "On the desk, the Turk's cash book. Every stall, every debtor, every cent.",
+                "On the last sheet, a note from the Collector: \"when I collect, I drop my guard\"."
+              ],
+              "escolhas": {
+                "ler": {
+                  "label": "Read it all",
+                  "resultado": "You close the book. Gather the 3 ledger pages and the Collector steps into the fight with his guard down."
+                }
+              }
+            },
+            "barraca_1": {
+              "nome": "The first stall owner",
+              "fala": [
+                "You took the wrong aisle into the Wholesale Market, pal. Every stall in here is the Turk's.",
+                "Wanna pass? Pay the canvas toll — in bruises."
+              ]
+            },
+            "barraca_2": {
+              "nome": "The pastry crew",
+              "fala": [
+                "Hey, hey, hey! Call the boys, there's an intruder between the stalls!",
+                "In here we fight as a pack, kid. Alone, you don't get out."
+              ]
+            },
+            "barraca_3": {
+              "nome": "The canvas lookout",
+              "fala": [
+                "This maze was built so nobody finds the safe.",
+                "And whoever finds it gets beat by me first."
+              ]
+            },
+            "barraca_4": {
+              "nome": "The aisle inspector",
+              "fala": [
+                "Every stall you pass is a debt you make, you know?",
+                "I'm collecting this one right now."
+              ]
+            },
+            "barraca_5": {
+              "nome": "The collectors' square",
+              "fala": [
+                "You made it far, huh. All the Turk's collectors in one place.",
+                "From here on, only people who settle up get through."
+              ]
+            },
+            "barraca_6": {
+              "nome": "The last in the row",
+              "fala": [
+                "After me there's just Sledge and the safe.",
+                "And you won't see either one."
+              ]
+            }
+          }
+        },
+        "briga_auto": "Auto brawl",
+        "briga_auto_aviso": {
+          "titulo": "AUTO BRAWL // YOU BUMPED, NOW IT'S ON",
+          "frases": [
+            "Went looking for smoke? Well, you found it. Brace yourself!",
+            "Rolled up talking tough? Now you gotta back it up.",
+            "Uh-oh, bad luck: his crew's already closing in.",
+            "No chickening out, homie — it's hands now.",
+            "Bumped the wrong hardhead, kid. Go in heavy!",
+            "Nowhere left to run. Throw down!",
+            "Yikes… this one didn't come to talk. Gotta go in heavy.",
+            "You went looking for trouble. Trouble looked back."
+          ]
+        }
       },
       "enemy_album": {
         "1701": "Rides the stick-up bike. Never gets off, just revs — the backseat does the talking.",
@@ -4570,7 +5064,7 @@
         "1452": "The oldest of the Signal Crew, trained the kids.",
         "1453": "The Collector's right hand, handles what he won't touch.",
         "1454": "Guards the whole Market's money.",
-        "1455": "The most respected shard, nearly reunited the Lowlands alone.",
+        "1455": "The most respected shard, nearly reunited the Lowside alone.",
         "1456": "Uses the dead boss's name as a weapon.",
         "1457": "Runs a whole building by himself.",
         "1458": "Access to every unit — info worth more than cash.",
@@ -4696,6 +5190,99 @@
         "em_voce_nada": "No bet",
         "aposta_ganha": "Bet on yourself: +{n}",
         "aposta_perdida": "Bet on yourself: lost {n}"
+      },
+      "apelidos": {
+        "moto": [
+          "Popper Joe",
+          "Tailgate Tico",
+          "Wheelie Willy",
+          "Burnout Benny",
+          "Peanut",
+          "Muffler Dee",
+          "Gecko",
+          "Smokey Jr.",
+          "Biscuit",
+          "Full-Throttle Junior",
+          "Lane-Split Lou",
+          "Kickstand Vic"
+        ],
+        "policia": [
+          "Captain Nightstick",
+          "Sergeant Bruiser",
+          "Corporal Big Tony",
+          "Lieutenant Scowl",
+          "Officer Loose-Screw",
+          "Sergeant Cuffs",
+          "Corporal Mustache",
+          "Captain Siren",
+          "Officer Jackboot",
+          "Lieutenant Pat-Down",
+          "Corporal Squad-Car",
+          "Sergeant Heavy-Hand"
+        ],
+        "rapa": [
+          "Inspector Big Stamp",
+          "Inspector Petty Fine",
+          "Mr. Permit",
+          "Ms. Seizure",
+          "Inspector Side-Eye",
+          "Mr. Tow-Truck",
+          "Inspector Red Tape",
+          "Mr. Seal",
+          "Inspector Heavy Pen",
+          "Ms. Citation",
+          "Mr. Crooked Stamp",
+          "Inspector Grab-All"
+        ]
+      },
+      "farm_ausente": {
+        "eyebrow": "IF // WHILE YOU WERE GONE",
+        "titulo": "The crew kept grinding",
+        "calculando": "Counting what went down on the street…",
+        "tempo": "{min} min away · farming at {lugar}",
+        "lutas": "Brawls",
+        "grana": "Cash",
+        "rep": "Rep",
+        "sucata": "Scrap",
+        "niveis": "Leveled up",
+        "teto": "Hit the +5 levels cap for one absence — from here on, you gotta play.",
+        "derrota": "The crew went down in one of the brawls: dragged to the bar, and every auto mode switched off. Turn it back on when you want to farm again.",
+        "pouco_tempo": "Under 5 minutes at the pit — it closes 1 brawl every 5 minutes, and this one didn't make it.",
+        "voltar": "Back to the street",
+        "pocoes": "Potions",
+        "meio_nao_conta": "The brawl that was going on when you came back didn't finish in time — that one doesn't count.",
+        "tempo_rua": "{min} min away · the crew kept playing",
+        "ao_vivo": "Outside the pit the game really keeps running in the background, as long as your phone lets it — this is what ran. To farm on the clock, leave the crew at the pit.",
+        "seguir": "Continue",
+        "continuar_rinha": "Back to the pit",
+        "nada_rodou": "Your phone paused the game before any brawl could finish — outside the pit only what really runs counts. To farm even with the game stopped, leave the crew at the pit."
+      },
+      "ferreiro": {
+        "sub": "upgrades up to +{n}",
+        "sucata": "{n} scrap",
+        "regra": "Each upgrade takes the luck out of the gear: odd levels roll the die twice and keep the higher (▲), even levels raise the minimum. At the cap, it always hits the max.",
+        "vazio": "No gear in the crew can be upgraded — only weapon, head, hands, feet and amulet pieces with a range.",
+        "na_mochila": "stored with the crew",
+        "no_maximo": "maxed out",
+        "teto_aqui": "can't go higher here",
+        "feito": "{nome} is +{n} now. You'll feel it in your hand.",
+        "falta_teto": "I can't push that one any further.",
+        "falta_grana": "Not enough cash, kid.",
+        "falta_sucata": "Not enough scrap. No iron, no miracles.",
+        "falta_sem_peca": "Where's the gear?"
+      },
+      "log_item": "{nome} used {item} ({efeito}) — gave up the attack.",
+      "log_item_em": "{nome} handed {item} to {alvo} ({efeito}) — gave up the attack.",
+      "log_item_inimigos": "{nome} threw {item} at the crew ({efeito}) — gave up the attack.",
+      "itens_efeito": {
+        "inimigos": "enemy crew",
+        "acoes": "{n} action(s)",
+        "material": "repair material — not used in fights",
+        "poder": "grants a power for 1 hit"
+      },
+      "rinha": {
+        "proxima": "Next fight",
+        "sair": "Leave the pit"
       }
     }
   }

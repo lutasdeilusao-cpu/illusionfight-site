@@ -4,7 +4,9 @@ import { useNavigate } from 'react-router-dom'
 import { useLanguage } from '../../../../context/LanguageContext'
 import { useAuth } from '../../../../context/AuthContext'
 import { useGanguesStore } from '../store/useGanguesStore'
-import { contarTerritoriosDominados, getGanguesSaveSlotLimit } from '../data/ganguesLoadout.js'
+import { temCena } from '../data/cenas/cenaHelpers.js'
+import { GANGUES_TERRITORIOS } from '../data/ganguesTerritorios.js'
+import { contarTerritoriosDominados, getGanguesSaveSlotLimit, GANGUES_SAVE_SLOTS_BETA_LIBERADO } from '../data/ganguesLoadout.js'
 import { sfx } from '../../../../lib/sfx'
 import logoPt from '../assets/logos/logo-pt.png'
 import logoEn from '../assets/logos/logo-en.png'
@@ -70,6 +72,16 @@ function formatarData(iso) {
   try { return new Date(iso).toLocaleDateString() } catch { return '' }
 }
 
+// Em que bairro o save abre: o último em que o jogador esteve
+// (storyProgress.__ultimoTerritorio); save antigo sem essa marca → o bairro
+// mais adiantado em que a tropa já pisou (tem progresso de cena); nenhum → Pista.
+export function territorioParaAbrir(estado) {
+  const ultimo = estado.storyProgress?.__ultimoTerritorio
+  if (ultimo && temCena(ultimo)) return ultimo
+  const pisados = GANGUES_TERRITORIOS.filter(terr => temCena(terr.id) && estado.cenaProgresso?.[terr.id])
+  return pisados[pisados.length - 1]?.id || 'pista'
+}
+
 export default function GanguesSaveSelect({ onNavigate }) {
   const { t, locale } = useLanguage()
   const navigate = useNavigate()
@@ -127,11 +139,15 @@ export default function GanguesSaveSelect({ onNavigate }) {
     sfx.select?.()
     setAbrindo(saveId)
     await store.selecionarSave(saveId)
-    // Save que já tem gangue montada → direto pro MAPA (escolher território).
-    // Não faz sentido refazer o recrutamento toda vez. Save vazio cai no
-    // lobby, que é onde mora o onboarding de recrutar.
-    const temGangue = useGanguesStore.getState().roster.length >= 2
-    onNavigate(temGangue ? 'story' : 'lobby')
+    // Save com gangue montada = jogo em progresso → SEMPRE direto pra dentro
+    // do território, nunca pro mapa (Isaias, 28/09/2026: "não quero mais
+    // escolher o mapa, porque eu estou num jogo em progresso"). Cai no ponto
+    // da última briga, ou na birosca se a tropa caiu. Trocar de bairro é pelo
+    // Voltar da cena, que leva pro mapa. Save vazio cai no lobby (onboarding).
+    const estado = useGanguesStore.getState()
+    if (estado.roster.length < 2) { onNavigate('lobby'); return }
+    estado.setStoryTarget({ territorioId: territorioParaAbrir(estado) })
+    onNavigate('territorio')
   }
 
   const criar = async () => {
@@ -250,6 +266,10 @@ export default function GanguesSaveSelect({ onNavigate }) {
             ) : (
               <p className="gang-saves__limite">{t('games.gangues.saves.limite_atingido', { n: limite })}</p>
             )}
+            <p className="gang-saves__vagas">
+              {t('games.gangues.saves.vagas', { usadas: savesNomeados.length, total: limite })}
+              {GANGUES_SAVE_SLOTS_BETA_LIBERADO && <small>{t('games.gangues.saves.beta_liberado')}</small>}
+            </p>
           </>
         )}
       </div>

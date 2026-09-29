@@ -14,14 +14,16 @@ import GanguesProgression from './screens/GanguesProgression'
 import GanguesStoryMap from './screens/GanguesStoryMap'
 import GanguesTerritorio from './screens/GanguesTerritorio'
 import GanguesCena from './screens/GanguesCena'
+import GanguesFarmAusente from './components/cena/GanguesFarmAusente'
 import GanguesAlbum from './screens/GanguesAlbum'
 import GanguesBatalha from './screens/GanguesBatalha'
-import GanguesClube from './screens/GanguesClube'
-import GanguesClubeSala from './screens/GanguesClubeSala'
-import GanguesClubeResultado from './screens/GanguesClubeResultado'
-import { temCena } from './data/cenas/cenaHelpers.js'
+import GanguesClube from './clube/GanguesClube'
+import GanguesClubeSala from './clube/GanguesClubeSala'
+import GanguesClubeResultado from './clube/GanguesClubeResultado'
+import { gerarBandoClube } from './clube/ganguesClubeRegras.js'
+import { temCena, revezamentoNoTerritorio } from './data/cenas/cenaHelpers.js'
 import { GANGUES_STORY_BATTLE_PARTY_MAX } from './data/ganguesLoadout.js'
-import { gerarBandoInimigo, gerarBandoChefe, gerarBandoRevezamento, gerarBandoClube, suavizarPrimeiraLuta, suavizarPorFrustracao, escalarInimigo } from './data/ganguesEncontros.js'
+import { gerarBandoInimigo, gerarBandoChefe, gerarBandoRevezamento, suavizarPrimeiraLuta, suavizarPorFrustracao, escalarInimigo } from './data/ganguesEncontros.js'
 import { ajustarPontosFixo, GANGUES_FRUSTRACAO_LIMIAR } from './data/ganguesDificuldade.js'
 import GuestNotice from '../../../components/GuestNotice/GuestNotice'
 import enemiesData from './data/gangues-enemies.json'
@@ -99,10 +101,40 @@ export default function GanguesRoute() {
   }, [fase])
   const voltar = () => {
     const hist = historicoRef.current
-    hist.pop()
+    const atual = hist.pop()
     const anterior = hist.pop()
+    // Cena aberta direto da escolha de save (último território): voltar leva
+    // pro MAPA, pra escolher outro bairro — não de volta pra lista de saves.
+    if (atual === 'territorio' && anterior === 'save-select') { setFase('story'); return }
     if (anterior) setFase(anterior)
   }
+
+  // "Mete o pé" (fugir da luta): luta de bairro volta pro TERRITÓRIO, no ponto
+  // da briga (Isaias, 28/09/2026: "onde já se viu voltar pro menu inicial...
+  // você fugindo de uma luta"); Clube e Torre, que não moram num bairro,
+  // voltam pros Modos.
+  const meterOPe = () => {
+    const alvo = useGanguesStore.getState().storyTarget
+    if (alvo?.territorioId && !alvo.clube && !alvo.torre) {
+      store.setStoryTarget({ territorioId: alvo.territorioId })
+      setFase('territorio')
+      return
+    }
+    setFase('modes')
+  }
+
+  // Volta da tela "Enquanto você tava fora" (GanguesFarmAusente): pra rua do
+  // bairro, ou de volta pra Rinha — a próxima luta da sessão, com a tropa
+  // remendada (vale até com a página recarregada: o alvo vem da marca).
+  const voltarPraRua = () => { store.setStoryTarget({ territorioId: useGanguesStore.getState().storyTarget?.territorioId }); setFase('territorio') }
+  const continuarRinha = alvo => { store.setStoryTarget({ ...alvo, aposta: 0, rinhaLuta: (alvo.rinhaLuta || 1) + 1 }); setFase('story-combat') }
+
+  // Lembra o último território (storyProgress.__ultimoTerritorio): entrar na
+  // cena marca — é pra lá que o save abre (GanguesSaveSelect).
+  useEffect(() => {
+    const tid = store.storyTarget?.territorioId
+    if (fase === 'territorio' && temCena(tid)) store.marcarUltimoTerritorio(tid)
+  }, [fase])
 
   // Conta logada: cada gangue é um save separado (ver GanguesSaveSelect) — a
   // primeira coisa a fazer é escolher/criar um save, antes de ver o lobby.
@@ -196,7 +228,12 @@ export default function GanguesRoute() {
     if (fase !== 'story-combat') return
     const alvo = store.storyTarget
     const selected = store.activeParty.filter(member => store.roster.some(item => item.id === member.id))
-    const party = (selected.length ? selected : store.roster).slice(0, GANGUES_STORY_BATTLE_PARTY_MAX)
+    // Rinha infinita, da 2ª luta da sessão em diante: a casa remenda a tropa
+    // (PV/PM cheios) — ganhou ou perdeu a anterior, a próxima começa inteira.
+    // A 1ª usa a vida de verdade (a Rinha não é posto de cura de graça).
+    const remendar = m => ({ ...m, attributes: { ...m.attributes, pv_atual: null, pm_atual: null } })
+    const escalada = (selected.length ? selected : store.roster).slice(0, GANGUES_STORY_BATTLE_PARTY_MAX)
+    const party = alvo?.rinha && (alvo.rinhaLuta || 1) > 1 ? escalada.map(remendar) : escalada
     const temRevezamento = alvo?.revezamento?.pool?.length
     if ((!alvo?.enemyId && !temRevezamento && !alvo?.clube) || party.length < 1) { setFase('story'); return }
     // Tropa inteira no chão (todos PV 0) — não entra em luta até se recuperar
@@ -225,13 +262,16 @@ export default function GanguesRoute() {
     // Chefe/clube ficam de fora (osso duro de propósito — suavizar o chefe
     // destruiria o loop de "voltar mais forte").
     const lutaFrustrada = (store.storyProgress?.__derrotasSeguidas || 0) >= GANGUES_FRUSTRACAO_LIMIAR
-    const suavizarFn = primeiraLuta ? suavizarPrimeiraLuta : (lutaFrustrada ? suavizarPorFrustracao : null)
+    // A Rinha infinita não suaviza nada: a força de cada luta sai no sorteio.
+    const suavizarFn = alvo.rinha ? null : primeiraLuta ? suavizarPrimeiraLuta : (lutaFrustrada ? suavizarPorFrustracao : null)
 
     let enemyTeam
     if (alvo.clube) {
       // Clube da Luta — gauntlet de 3 rondas, bando fixo (não escala com o
       // jogador). A ronda vem do storyTarget (1 → 2 → 3).
-      enemyTeam = gerarBandoClube({ enemiesData, ronda: Number(alvo.clubeRonda) || 3 })
+      // As rondas escalam com o território de onde o jogador veio (o Clube
+      // da Feira é mais pesado que o da Pista — ver GANGUES_CLUBE_RONDAS).
+      enemyTeam = gerarBandoClube({ enemiesData, ronda: Number(alvo.clubeRonda) || 3, territorioId: alvo.voltar?.territorioId })
       if (!enemyTeam?.length) { setFase('territorio'); return }
     } else if (alvo.isChefe) {
       // Bando do chefe = orçamento de pontos FIXO por território (não escala com
@@ -243,7 +283,7 @@ export default function GanguesRoute() {
       // quase sempre 1 sozinho, orçamento leve e fixo por corpo — A MENOS que
       // o POI peça "multidão garantida" (qtdMin/qtdMax) e/ou escalonamento
       // pelo time (ratioComTime), caso do galpão do Carvão (ver interiores.js).
-      enemyTeam = gerarBandoRevezamento({ ...alvo.revezamento, enemiesData, modo, playerTeam: party })
+      enemyTeam = gerarBandoRevezamento({ ...revezamentoNoTerritorio(alvo.revezamento, alvo.territorioId), enemiesData, modo, playerTeam: party })
       if (!enemyTeam?.length) { setFase('story'); return }
       // Encontro aleatório (perseguidor) nunca é suavizado: o Isaias quer
       // SEMPRE no mínimo 2 inimigos (26/09/2026) — as duas suavizações cortam pra 1.
@@ -264,6 +304,14 @@ export default function GanguesRoute() {
       enemyTeam = gerarBandoInimigo({ territorioId: alvo.territorioId, pontosFixo: ajustarPontosFixo(alvo.pontosFixos, modo), playerTeam: party, enemiesData, liderFixo: alvo.liderFixo, moldesPool: alvo.moldesPool, qtdMin: alvo.qtdMin, qtdMax: alvo.qtdMax })
       if (!enemyTeam?.length) { setFase('story'); return }
       if (suavizarFn) enemyTeam = suavizarFn(enemyTeam)
+    }
+    // Ajuste na ficha do LÍDER desta luta (vem da cena — ver iniciarTreta em
+    // GanguesCena.jsx): o ponto fraco do chefe (Feira: −2 Couro com as 3
+    // páginas da caderneta) ou o inimigo mais forte contra devedor (+1 Pique).
+    if (alvo.ajusteInimigo && enemyTeam[0]?.stats) {
+      const stats = { ...enemyTeam[0].stats }
+      for (const [k, v] of Object.entries(alvo.ajusteInimigo)) stats[k] = Math.max(0, (Number(stats[k]) || 0) + v)
+      enemyTeam = [{ ...enemyTeam[0], stats }, ...enemyTeam.slice(1)]
     }
     if (primeiraLuta && !alvo.clube && !alvo.isChefe) store.marcarPrimeiraLutaFeita()
     store.startMatch(enemyTeam[0], enemyTeam, party)
@@ -323,19 +371,21 @@ export default function GanguesRoute() {
       )}
       {fase === 'territorio' && (
         temCena(store.storyTarget?.territorioId)
-          ? <GanguesCena onNavigate={navegar} onVoltar={voltar} />
+          ? <GanguesFarmAusente aoContinuarRinha={continuarRinha}><GanguesCena onNavigate={navegar} onVoltar={voltar} /></GanguesFarmAusente>
           : <GanguesTerritorio onNavigate={navegar} onVoltar={voltar} />
       )}
-      {/* "Mete o pé" (fugir da luta, com confirmação) mandava pro Lobby -
-          pedido do Isaias (19/09/2026, "usei o mete o pé, fui parar nessa
-          página que eu disse que não deveria existir... já pedi umas três
-          vezes"): a tela de escolher/gerenciar elenco não é mais um destino
-          de retorno normal do jogo (só existe pra fundar a gangue ou revisar
-          o elenco por escolha própria) - fugir de uma luta em andamento
-          volta pro hub de verdade (Modes), igual qualquer outra saída de
-          combate/território. */}
-      {fase === 'combat' && <GanguesCombat onNavigate={setFase} onSairConfirmado={() => setFase('modes')} />}
-      {fase === 'victory' && <GanguesVictory onNavigate={navegar} />}
+      {/* "Mete o pé" (fugir da luta, com confirmação): ver meterOPe — luta de
+          bairro volta pro território; Clube e Torre, pros Modos. Nunca pro lobby. */}
+      {fase === 'combat' && (
+        <GanguesFarmAusente luta aoVoltar={voltarPraRua} aoContinuarRinha={continuarRinha}>
+          <GanguesCombat onNavigate={setFase} onSairConfirmado={meterOPe} />
+        </GanguesFarmAusente>
+      )}
+      {fase === 'victory' && (
+        <GanguesFarmAusente vitoria aoVoltar={voltarPraRua} aoContinuarRinha={continuarRinha}>
+          <GanguesVictory onNavigate={navegar} />
+        </GanguesFarmAusente>
+      )}
     </div>
   )
 }

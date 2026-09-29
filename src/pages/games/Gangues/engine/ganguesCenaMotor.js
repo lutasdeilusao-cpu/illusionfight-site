@@ -36,6 +36,12 @@ export function estadoInternoPoi(def, prog) {
   if (prog.resolvidos[def.id] && !def.repetivel) return 'resolvido'
   return 'disponivel'
 }
+// Um NPC com oferta revelada e ainda não decidida (ex.: o corre do Nato no
+// Descanso) — pino verde de "tem missão aqui", na rua E dentro de interior.
+export function ofertaPendente(p, prog) {
+  const flag = p.oferta?.flagId
+  return Boolean(flag && prog.revelados[flag] && !prog.resolvidos[flag])
+}
 export function estadoPoi(p, prog) { if (!p.visivel && !prog.revelados[p.id]) return 'escondido'; if (prog.resolvidos[p.id] && !p.repetivel) return 'resolvido'; return 'disponivel' }
 // ids de POI que "moram dentro" de um interior — somem do mapa da rua.
 export function refsInternos(cena) {
@@ -44,6 +50,16 @@ export function refsInternos(cena) {
     for (const com of inter.comodos || [])
       for (const pd of com.pois || []) if (pd.ref && pd.ref !== '__chefe') s.add(pd.ref)
   return s
+}
+/** Onde um POI fica no mapa da RUA (setinha do mini-mapa): a própria
+ *  coordenada se ele mora na rua, ou a porta do prédio cujo interior o
+ *  guarda (ex. o rádio do Toninho, a oficina do Nando). */
+export function posNoMapa(cena, id) {
+  if (cena.pos?.[id]) return cena.pos[id]
+  const moraEm = Object.entries(cena.interiores || {}).find(([, inter]) =>
+    (inter.comodos || []).some(com => (com.pois || []).some(pd => pd.ref === id || pd.poi?.id === id)))?.[0]
+  const porta = moraEm && (cena.predios || []).find(pr => pr.porta?.para === moraEm)?.porta
+  return porta ? { x: porta.zx, y: porta.zy } : null
 }
 export function montarAmbiente(cena, local, prog, baseFeita, muroAberto) {
   if (!cena) return null
@@ -59,9 +75,9 @@ export function montarAmbiente(cena, local, prog, baseFeita, muroAberto) {
         estado: (p.pos_portao && laDeCima) ? estadoPoi({ ...p, visivel: true }, prog) : estadoPoi(p, prog),
         farmCompleto: Boolean(p.repetivel && prog.resolvidos[p.id]),
         // Oferta pendente (ex: o corre do Nato, oferecido dentro do
-        // Descanso — ver `ofertaFlagId` em pois.js) — pino verde de "tem
+        // Descanso — ver `oferta` em pois.js) — pino verde de "tem
         // missão aqui" enquanto revelada mas ainda não decidida.
-        ofertaPendente: Boolean(p.ofertaFlagId && prog.revelados[p.ofertaFlagId] && !prog.resolvidos[p.ofertaFlagId]),
+        ofertaPendente: ofertaPendente(p, prog),
       }))
       .filter(p => p.world)
     // portas dos prédios que abrem interior (porta.zx/zy = zona no chão)
@@ -93,7 +109,7 @@ export function montarAmbiente(cena, local, prog, baseFeita, muroAberto) {
     }
     return {
       interior: false, world: cena.mundo || WORLD, colliders: collidersDaCena(cena, laDeCima),
-      gateAtivo: muroAberto ? null : 'fechado', // o muro só abre depois do Carvão
+      gateAtivo: muroAberto ? null : (cena.muro || null), // o muro só abre depois do chefe
       alvos: alvos.filter(a => a.world), nomeLugar: null,
     }
   }
@@ -108,6 +124,7 @@ export function montarAmbiente(cena, local, prog, baseFeita, muroAberto) {
     return {
       ...def, world: pd.pos, zona: { x: pd.pos.x - 34, y: pd.pos.y - 34, w: 68, h: 68 },
       estado: estadoInternoPoi(def, prog), farmCompleto: Boolean(def.repetivel && prog.resolvidos[def.id]),
+      ofertaPendente: ofertaPendente(def, prog),
     }
   }).filter(Boolean)
   const alvos = [...pois]
@@ -132,7 +149,7 @@ export function montarAmbiente(cena, local, prog, baseFeita, muroAberto) {
   }
 }
 
-export function validPosition(p) { return Number.isFinite(p?.x) && Number.isFinite(p?.y) && p.x >= 35 && p.x <= WORLD.w - 35 && p.y >= 70 && p.y <= WORLD.h - 40 }
+export function validPosition(p, world = WORLD) { return Number.isFinite(p?.x) && Number.isFinite(p?.y) && p.x >= 35 && p.x <= world.w - 35 && p.y >= 70 && p.y <= world.h - 40 }
 export function validPos(p, w) { return Number.isFinite(p?.x) && Number.isFinite(p?.y) && p.x >= 20 && p.x <= (w?.w || WORLD.w) - 20 && p.y >= 20 && p.y <= (w?.h || WORLD.h) - 20 }
 // Overlap do "corpo" do jogador (mesmo raio da colisão) com a zona, não um
 // ponto exato — com movimento em grade, o centro do jogador raramente cai
@@ -143,9 +160,9 @@ export function insideZone(p, z) { return Boolean(z && p.x + PLAYER_RADIUS > z.x
 export function hitsSolid(x, y, gate, colliders = []) {
   const hit = colliders.some(r => x + PLAYER_RADIUS > r.x && x - PLAYER_RADIUS < r.x + r.w && y + PLAYER_RADIUS > r.y && y - PLAYER_RADIUS < r.y + r.h)
   if (hit) return true
-  // portão da gangue rival — enquanto FECHADO barra a faixa y330-350; depois
-  // de aberto (chefe/galpão liberados) a faixa fica livre.
-  if (gate === 'fechado' && y - PLAYER_RADIUS < 1350 && y + PLAYER_RADIUS > 1330) return true
+  // Muro da gangue rival (`cena.muro`, só enquanto FECHADO): barra a rua
+  // inteira na faixa y1–y2; depois do chefe `gate` vem null e a faixa libera.
+  if (gate && y - PLAYER_RADIUS < gate.y2 && y + PLAYER_RADIUS > gate.y1) return true
   return false
 }
 export function stepPlayer(p, dx, dy, gate, colliders, world) {

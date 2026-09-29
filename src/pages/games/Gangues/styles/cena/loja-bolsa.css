@@ -106,6 +106,7 @@
 .gang-loja-det__da small { font: 700 0.5rem var(--font-mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--gang-cinza-azul-500); }
 .gang-loja-det__da strong { font: 800 0.92rem var(--font-display); color: var(--if-amber); }
 .gang-loja-det__cards { margin: 0; font: 700 0.54rem var(--font-mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--if-teal); }
+.gang-loja-det__faixa { margin: 0; font-size: 0.72rem; line-height: 1.4; color: var(--text-secondary); text-align: center; }
 .gang-loja-det__titulo { width: 100%; margin-top: 10px; text-align: left; font: 700 0.52rem var(--font-mono); letter-spacing: 0.14em; text-transform: uppercase; color: var(--gang-cinza-azul-500); }
 .gang-loja-det__vazio { margin: 6px 0; font-size: 0.75rem; color: var(--gang-cinza-azul-500); }
 
@@ -154,6 +155,7 @@
 }
 .gang-bag-row span { font-size: 1.2rem; flex-shrink: 0; }
 .gang-bag-row strong { flex: 1 1 90px; min-width: 0; font: 800 0.72rem var(--font-display); text-transform: uppercase; color: var(--gang-branco); }
+.gang-bag-efeito { display: block; margin-top: 2px; font: 600 0.58rem var(--font-mono); text-transform: none; letter-spacing: 0; color: var(--gang-cinza-azul-500); }
 .gang-bag-row small { font: 700 0.5rem var(--font-mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-secondary); }
 .gang-bag-row b { font: 800 0.72rem var(--font-mono); color: var(--if-amber); }
 .gang-bag-nota { width: 100%; margin: 4px 0 0; text-align: left; font: 700 0.5rem var(--font-mono); letter-spacing: 0.04em; color: var(--gang-cinza-azul-500); }
@@ -212,3 +214,8 @@
   background: rgba(107, 224, 122, 0.1);
   border: 1px solid rgba(107, 224, 122, 0.4);
 }
+
+/* Pechincha do Camelô (Feira) — botão e resultado acima da vitrine. */
+.gang-loja-pechincha { align-self: center; margin: 4px 0 8px; }
+.gang-loja-pechincha-res { margin: 2px 0 8px; text-align: center; font: 700 0.68rem var(--font-mono); color: var(--gang-cinza-azul-500); }
+.gang-loja-pechincha-res.is-ok { color: var(--if-amber); }

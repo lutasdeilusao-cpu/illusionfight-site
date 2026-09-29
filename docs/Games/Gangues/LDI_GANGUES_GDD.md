@@ -24,7 +24,7 @@ Grafia oficial: **Marélia** com acento (o conto usa assim). O i18n do jogo aind
 tem "Marelia" sem acento em vários lugares — alinhar quando mexer em texto.
 
 > **Última revisão geral: 28/09/2026 — conferido contra o código de
-> GANGUES 3.68.0.** Nesta revisão saiu tudo que era histórico sem uso
+> GANGUES 3.78.0.** Nesta revisão saiu tudo que era histórico sem uso
 > (crosswalk string→id, Ranking Clandestino, narrativa de bug já corrigido,
 > atributos A/H/R/D antigos, NeoGuide) e entrou o que só existia no código:
 > sistema do Pique (linha do tempo com raias), encontro aleatório com sirene,
@@ -364,11 +364,68 @@ Facção: Acerto de Contas (103) / Os Gato (104). O comércio, os camelô, a luz
 gato. Aqui não tem tiro — tem **dívida**. Primeiro território costurado pelo
 Retalho sem sangue.
 
-POIs: **A banca do Turco** (onde a dívida é anotada, cabeça do esquema) · **O
-beco da luz de gato** (Os Gato fazem a ligação clandestina) · **A feira de
-domingo** (movimento intenso, boa pra se esconder ou negociar) · **O fiado da
-Dona Regina** (NPC que empresta em troca de favor) · **A oficina de rádio**
-(conserta rádio pirata, ponto de informação).
+**Cena navegável desde a v3.65.0** (`data/cenas/feira/`, plano completo e
+decisões em `PLANO_FEIRA.md`). Mesmo motor da Pista — o mapa é o esqueleto da
+Pista **espelhado** (ruas, muro e colisões iguais, lados trocados), com bancas
+de lona espalhadas. Tudo que era chumbado da Pista virou dado da cena (`ruas`,
+`muro`, `postes`, `textos`, `posMuro`, `dicaQuest`, `aleatorio`,
+`fraquezaChefe`), então o 3º território entra só com dado.
+
+- **Duas metades.** Embaixo, a Feira de dia. Em cima da **barricada do
+  apagão** (o "muro" daqui, y 1330–1350), a Feira **no escuro**: só um círculo
+  de luz em volta do jogador (`cena.apagao`) até o Cobrador cair. Chega-se lá
+  pela **Galeria dos Gato** (o "túnel": 3 cômodos escuros, a porta do meio com
+  o `PuzzleDecoder` — errar vira treta com Os Gato, sem travar o ponto).
+- **Caminho obrigatório (10, abre a Galeria):** A Catraca (26) → Banca do Turco
+  (papo: paga 20 de taxa ou não; fala diferente pra quem deve ao agiota) → A
+  cobrança (29) → Quadro de Luz (labirinto; errar dá **choque** −2 PV na tropa
+  e vira treta; dá o **fio de cobre**) → Beco dos Gato (32) → Balança viciada
+  (35, 1ª vitória dá uma válvula) → O Caderneta (35, fixo; **+1 Malícia contra
+  quem deve**) → **Rádio do Toninho** (fetch quest: 1 fio de cobre + 3
+  válvulas; conserta e revela a Mão do Turco e o rádio pirata) → **Mão do
+  Turco** (38, General fixo, 1ª vitória dá o Pingente de Asa 144) → **Caixa
+  Forte** (41, General fixo, **grana ×2**, 1ª vitória dá a Armadura de Rua 111).
+- **Lado apagado:** depósito 1 (44) e depósito 2 (47, **Rep 60**) guardam o
+  **Mercadão** — a dungeon final é um **labirinto de barracas** (v3.66.0,
+  pedido do Isaias: "um mini labirinto com as barraquinhas... umas seis ou
+  sete batalhas antes do chefe"). 3 salas compridas de barracas em
+  zigue-zague (`salaLabirinto` em `feira/interiores.js`: 3 fileiras por sala,
+  cada uma com um vão alternando de lado), **2 brigas por sala** — a 2ª só
+  aparece depois da 1ª e a passagem só abre depois da 2ª, então não dá pra
+  passar reto: barraca_1 (44) → barraca_2 (bando de 3–5) → barraca_3 (46) →
+  barraca_4 (47, com o estoque escondido num canto) → barraca_5 (48) →
+  barraca_6 (49) → o fundo com o **Marreta** e o bando dele (7ª briga) e o
+  livro-caixa → o cofre do Cobrador. **7 brigas obrigatórias dentro do
+  Mercadão**, 9 contando os depósitos.
+- **Chefe — O Cobrador (1501):** nível real 46 (52 pontos) + Mão do Turco e
+  Caixa Forte de escolta (29 cada) — `GANGUES_CHEFE_BUDGET.feira` 110,
+  `liderFracChefe` 0,47, 3 corpos. Só aceita a luta depois do **Duda** (Pista)
+  — `precisaInformante`. Com as **3 páginas da caderneta** (`pagina_1/2/3`,
+  uma em cada metade + uma na Galeria) ele entra com **−2 de Couro**. 1ª
+  vitória: **Porrete do Cobrador (138)**.
+- **Opcionais:** Camelô (loja dos consumíveis novos + válvula + sucata, com
+  **pechincha**: acertou o anagrama, −30% na visita) · Muamba de Domingo
+  (stealth 6×6 com cronômetro, dá válvula) · **Pensão da Dona Regina** (15 /
+  45; **sem grana, ela cura fiado e a gangue fica devendo 1 favor** —
+  `storyProgress.__regina`; os favores `favor_marmita`/`favor_devedor`/
+  `favor_cobrador` pagam) e a pensão da filha do lado apagado · **Juro Alto**
+  (agiota: empréstimo de **300**, mesma caderneta global do Marimbondo — os
+  textos da agiotagem usam `{agiota}`) · **Rinha de Apostas** (aposta 0/50/100/
+  200 antes da luta, volta em dobro) · Mercearia do Seu Aziz (lado apagado,
+  incomuns e raros) · **Serralheria do Bigode** (aprimora até **+4**) · rádio
+  pirata (informante da Baixada).
+- **Encontro aleatório:** os 4 da Pista + **o Rapa** (laranja; se ganhar de
+  você leva 1 consumível) + **o Apagão** (só no lado escuro, Os Gato no breu)
+  + a **Cobrança do Turco** no lugar do Cobrador quando você deve ao agiota
+  (se ganhar, leva 10% da grana na mão; nunca mexe na dívida).
+- **Economia:** grana da vitória 15 + 5 por inimigo a mais (chefe mínimo
+  800) e **AP ×1,5** (`GANGUES_RECOMPENSA_TERRITORIO`, `ganguesVictoryResolver.js`)
+  — a Feira é o grind, o multiplicador evita que fique arrastado. O Clube da
+  Luta escala com o território (rondas 26 / 50 / 80 na Feira).
+- **Derrota:** sem game over, igual à Pista — acorda na pensão mais perto
+  (`destinoSocorroDerrota` é genérico).
+- **Arte que falta:** retratos de 1304–1306, 1403–1404, 1453–1454, **1501** e
+  dos NPCs Regina, Toninho, Aziz e Bigode — até lá, cai na inicial.
 
 ### Território 3 — A Baixada · Correria · `#18dafb`
 Facção: os 3 cacos do Sombra (105/106/107). Do outro lado da linha do trem. A
@@ -1154,6 +1211,56 @@ Malandragem) ou recurso plano (**pv/pm**, somado no máximo). Raridades hoje:
 | 236 | Olho Grego | Mandingueiro | amuleto | incomum | +1 Malandragem | 110 |
 | 237 | Soqueira de Lata | Livre | arma | comum | +1 Porrada | não vende |
 | 238 | Boné Vira-Lata | Livre | cabeça | comum | +1 Osso | 20 |
+
+**Faixa e aprimoramento (vindo da branch da Feira, 27/09/2026 — merge de 29/09).**
+No merge, o catálogo por caminho (201–238) ganhou faixa em Porrada/Couro/Pique,
+centrada no valor fixo de antes (+2 → 1–3), pra o aprimoramento valer; Osso,
+energia e Malandragem continuam fixos. Os épicos de chefe 138 (Porrete do
+Cobrador) e 139 (Facão do Carvão) ficaram como peças livres. Regra original:
+
+**Bônus em FAIXA (v3.64.0, 27/09/2026 — plano completo em
+`PLANO_ITENS_RANGE.md`, aprovado pelo Isaias).** Porrada (A), Couro (D) e Pique
+(H) viraram **faixa** (`bonus: { A: [1, 3] }` em `data/ganguesEquip.js`);
+Osso/Malandragem (PV/PM) continuam **fixos** (`+6 PV`).
+- **Quando rola:** a Porrada da peça **a cada golpe**, o Couro **a cada defesa**
+  (`rolls.arma` / `rolls.armadura` em `resolveGanguesAction`), o Pique **uma
+  vez na entrada da luta** (no `prepare` — a linha do tempo lê o H já com ele).
+  Cada peça rola o próprio dado e soma. A Briga em Multidão usa o mesmo
+  resolver, então rola igual.
+- **Na tela:** o dado dramático mostra um chip **"🔪 arma +N"** / **"🛡️ couro +N"**
+  na revelação; a pista da linha do tempo mostra **"+N"** em cima de quem teve
+  Pique sorteado; card de item/loja/ficha mostram a faixa (**"+1–3 Porrada"**);
+  toda previsão (loja, ficha, aviso de nível) usa a **média**, nunca o máximo.
+- **Toda faixa nasceu centrada no valor fixo de antes** (a Faca era +2 → 1–3):
+  simulado, +2 fixo × 1–3 empata em 50,3% num duelo — o balanço da Pista não
+  mudou, só a emoção de cada golpe.
+- **Preço** = arredonda5(Σ média × peso × raridade) — pesos A 28 · D 22 ·
+  **H 30** · PV/PM 6; raridade comum 1 · incomum 1,1 · raro 1,3 · épico 1,6. Os
+  5 comuns mais baratos mantiveram o preço de antes (28/22/36).
+
+**Aprimoramento** (+1 a +4, `aprimorarEquip` em `ganguesEquipSlice.js`):
+- Mexe só no **atributo principal** da peça (o 1º com faixa). **Nível ímpar =
+  vantagem** (rola 2 vezes, fica com o maior, "▲" na tela); **nível par = sobe o
+  mínimo em 1**. Teto = mínimo encosta no máximo (faixa de 2 pontos → +4; 2–5 →
+  +6). Faca Serrilhada: +0 1–3 · +1 1–3▲ · **+2 2–3** · +3 2–3▲ · +4 sempre 3.
+  Simulado: a faca +2 vence 62% e a +4 vence 73% contra a mesma sem aprimorar.
+- **Custo:** grana = 25% do preço da peça × o nível (mín. 5) + **Sucata** (item
+  13) igual ao nível. Peça sem preço de loja usa o preço da fórmula.
+- O nível **mora na peça** (`aprim` na instância / no slot equipado), não no
+  personagem — vai junto ao trocar de dono. Save antigo sem `aprim` = +0.
+- **Onde:** a **bancada do Nando** (POI `bancada_nando`, tipo `ferreiro`, dentro
+  da oficina, só depois da quest da sucata) faz até **+1** (`poi.tetoAprim`). A
+  **Serralheria do Bigode** (Feira, `tetoAprim: 4`) vai até +4. Tela: `GanguesFerreiro.jsx`.
+- **Sucata virou recurso:** além do ferro-velho, cai em **~20% das vitórias de
+  rua** na cena (não no chefe) e aparece no painel de recompensa.
+
+**Fontes dos raros** (antes nenhum tinha fonte): Cano de Ferro (103) na 1ª
+vitória sobre o Cão Louco (`posmuro_2`, `recompensa.equipPrimeiraVez`), Bota
+com Biqueira (117) no corre do Nato (`recompensa.equip`), Manto com Capuz (110)
+e Dente de Ouro (119) na loja da Pista. Na Feira (v3.65.0): Coroa (106) e
+Braçadeira (114) na Mercearia do Aziz, Armadura de Rua (111) na 1ª vitória
+sobre o Caixa Forte, Medalha de Santa (120) no achado do Mercadão.
+
 
 ### 9.5 Épicos — drop de chefe (faixa 132+)
 

@@ -8,6 +8,9 @@ import { useTutorialProgress } from '../../../../context/TutorialProgressContext
 import GangTip from '../components/GangTip'
 import GanguesRepRecompensaModal from '../components/GanguesRepRecompensaModal'
 import GanguesRetratoImg from '../components/GanguesRetratoImg'
+import { useGanguesAvancoAutomatico, GANGUES_AVANCO_AUTO_MS } from '../hooks/useGanguesBrigaAutomatica.js'
+import { getGanguesEquip } from '../data/ganguesEquip.js'
+import { getGanguesItem } from '../data/ganguesItens.js'
 
 // Explica a regra de divisão de XP só na 1ª tela de vitória de verdade
 // (pedido do Isaias, 13/09/2026 — tutorial progressivo: a regra só importa
@@ -46,7 +49,7 @@ function ReportMemberRow({ member, retrato, nome, gangName, t }) {
 // (PLANO_REFATORACAO_ARQUIVOS_GRANDES_GANGUES_2026-09-11.md §2).
 export default function GanguesVictoryReport({
   t, store, report, victory, torre, cenaChefe, noModoHistoria, storyAlvo,
-  podeRecrutar, recrutar, levelUps, clearLevelUps, rewardSummary, onNavigate,
+  podeRecrutar, recrutar, levelUps, clearLevelUps, rewardSummary, socorro, onNavigate,
 }) {
   // Modal bloqueante do marco de reputação (a cada 50, ver
   // GANGUES_REP_MARCO_INTERVALO) — fecha só no clique, nunca sozinho.
@@ -68,6 +71,21 @@ export default function GanguesVictoryReport({
         return caidos.length ? caidos : report.combatants.filter(m => m.side === 'player')
       })()
     : []
+  // Volta pra rua (vitória, socorro da derrota ou tentar de novo).
+  const seguir = () => { store.setStoryTarget({ territorioId: storyAlvo.territorioId }); onNavigate('territorio') }
+  // Rinha infinita: ganhou ou perdeu, a próxima luta vem sozinha (adversário
+  // novo, força sorteada, a casa remenda a tropa — ver GanguesRoute); a
+  // aposta da Feira vale só na 1ª da sessão.
+  const naRinha = Boolean(storyAlvo?.rinha) && noModoHistoria
+  const proximaRinha = () => { store.setStoryTarget({ ...storyAlvo, aposta: 0, rinhaLuta: (storyAlvo.rinhaLuta || 1) + 1 }); onNavigate('story-combat') }
+  // Briga automática da cena ligada: "Segue na quebrada" se clica sozinho em
+  // 3s (ver useGanguesAvancoAutomatico). A vitória sobre o chefe fica de fora
+  // — é o fecho do bairro, com a vaga de recruta pra decidir — e a derrota
+  // também (perdeu, o automático desliga e o jogador tem que clicar).
+  useGanguesAvancoAutomatico({
+    ativo: (victory || naRinha) && Boolean(storyAlvo?.cenaId) && !torre && noModoHistoria && !cenaChefe,
+    ms: GANGUES_AVANCO_AUTO_MS.relatorio, acao: naRinha ? proximaRinha : seguir, forcar: naRinha,
+  })
   const attacks = report.entries.filter(entry => entry.kind === 'attack_card')
   const playerDamage = attacks.filter(entry => entry.side === 'player').reduce((sum, entry) => sum + entry.dmg, 0)
   const enemyDamage = attacks.filter(entry => entry.side === 'enemy').reduce((sum, entry) => sum + entry.dmg, 0)
@@ -135,6 +153,23 @@ export default function GanguesVictoryReport({
         )}
       </motion.header>
 
+      {/* Derrota na cena — sem game over: a tropa foi arrastada pra birosca e
+          a recuperação já foi cobrada (ver socorroDerrota). Mostra o preço. */}
+      {!victory && socorro && (
+        <section className="gang-reward-panel gang-socorro-panel">
+          <span className="gang-reward-panel__kicker">{t('games.gangues.report.socorro_titulo')}</span>
+          {socorro.perda?.itemId && <p className="gang-socorro-panel__texto">{t('games.gangues.report.perda_item', { item: t(getGanguesItem(socorro.perda.itemId)?.nome || '') })}</p>}
+          {socorro.perda?.grana > 0 && <p className="gang-socorro-panel__texto">{t('games.gangues.report.perda_grana', { n: socorro.perda.grana })}</p>}
+          <p className="gang-socorro-panel__texto">{t(`games.gangues.report.socorro_${socorro.tipo}`, socorro)}</p>
+          {socorro.divida > 0 && (
+            <p className="gang-socorro-panel__divida">
+              {t('games.gangues.report.socorro_divida', socorro)}
+              <small>{t('games.gangues.report.socorro_clube')}</small>
+            </p>
+          )}
+        </section>
+      )}
+
       {/* Recompensa de verdade ganha nesta luta — logo abaixo do resultado,
           antes de qualquer outra coisa, com pop-in escalonado por item. */}
       {victory && rewardSummary && (
@@ -156,6 +191,26 @@ export default function GanguesVictoryReport({
             {rewardSummary.grana > 0 && (
               <motion.div className="gang-reward-item gang-reward-item--grana" initial={{ scale: 0.5, opacity: 0, y: 10 }} animate={{ scale: 1, opacity: 1, y: 0 }} transition={{ delay: 0.5, type: 'spring', stiffness: 260, damping: 16 }}>
                 <b>💵</b><strong>+{rewardSummary.grana}</strong><span>{t('games.gangues.report.reward_grana')}</span>
+              </motion.div>
+            )}
+            {rewardSummary.equip && (
+              <motion.div className="gang-reward-item gang-reward-item--rep" initial={{ scale: 0.5, opacity: 0, y: 10 }} animate={{ scale: 1, opacity: 1, y: 0 }} transition={{ delay: 0.9, type: 'spring', stiffness: 260, damping: 16 }}>
+                <b>{getGanguesEquip(rewardSummary.equip)?.icone}</b><strong>{t(getGanguesEquip(rewardSummary.equip)?.nome || '')}</strong><span>{t('games.gangues.report.reward_equip')}</span>
+              </motion.div>
+            )}
+            {rewardSummary.item && (
+              <motion.div className="gang-reward-item gang-reward-item--rep" initial={{ scale: 0.5, opacity: 0, y: 10 }} animate={{ scale: 1, opacity: 1, y: 0 }} transition={{ delay: 0.95, type: 'spring', stiffness: 260, damping: 16 }}>
+                <b>{getGanguesItem(rewardSummary.item)?.icone}</b><strong>{t(getGanguesItem(rewardSummary.item)?.nome || '')}</strong><span>{t('games.gangues.report.reward_item')}</span>
+              </motion.div>
+            )}
+            {rewardSummary.aposta > 0 && (
+              <motion.div className="gang-reward-item gang-reward-item--grana" initial={{ scale: 0.5, opacity: 0, y: 10 }} animate={{ scale: 1, opacity: 1, y: 0 }} transition={{ delay: 0.55, type: 'spring', stiffness: 260, damping: 16 }}>
+                <b>🎲</b><strong>+{rewardSummary.aposta}</strong><span>{t('games.gangues.report.reward_aposta')}</span>
+              </motion.div>
+            )}
+            {rewardSummary.sucata > 0 && (
+              <motion.div className="gang-reward-item gang-reward-item--rep" initial={{ scale: 0.5, opacity: 0, y: 10 }} animate={{ scale: 1, opacity: 1, y: 0 }} transition={{ delay: 0.8, type: 'spring', stiffness: 260, damping: 16 }}>
+                <b>🔩</b><strong>+{rewardSummary.sucata}</strong><span>{t('games.gangues.report.reward_sucata')}</span>
               </motion.div>
             )}
             {rewardSummary.rep > 0 && (
@@ -196,11 +251,17 @@ export default function GanguesVictoryReport({
             {podeRecrutar && <button className="gang-report-primary" onClick={recrutar}>{t('games.gangues.report.recrutar')}</button>}
             <button className={podeRecrutar ? 'gang-report-secondary' : 'gang-report-primary'} onClick={() => onNavigate('story')}>{t('games.gangues.story.voltar_mapa')}</button>
           </>
+        ) : naRinha ? (
+          <>
+            {podeRecrutar && <button className="gang-report-primary" onClick={recrutar}>{t('games.gangues.report.recrutar')}</button>}
+            <button className={podeRecrutar ? 'gang-report-secondary' : 'gang-report-primary'} onClick={proximaRinha}>{t('games.gangues.rinha.proxima')}</button>
+            <button className="gang-report-secondary" onClick={seguir}>{t('games.gangues.rinha.sair')}</button>
+          </>
         ) : noModoHistoria ? (
           <>
             {podeRecrutar && <button className="gang-report-primary" onClick={recrutar}>{t('games.gangues.report.recrutar')}</button>}
-            <button className={podeRecrutar ? 'gang-report-secondary' : 'gang-report-primary'} onClick={() => { store.setStoryTarget({ territorioId: storyAlvo.territorioId }); onNavigate('territorio') }}>
-              {victory ? t('games.gangues.story.continuar_territorio') : t('games.gangues.story.tentar_de_novo')}
+            <button className={podeRecrutar ? 'gang-report-secondary' : 'gang-report-primary'} onClick={seguir}>
+              {victory ? t('games.gangues.story.continuar_territorio') : socorro ? t('games.gangues.story.ir_birosca') : t('games.gangues.story.tentar_de_novo')}
             </button>
           </>
         ) : (
@@ -242,7 +303,7 @@ export default function GanguesVictoryReport({
       <section className="gang-report-section gang-report-section--log">
         <h2>{t('games.gangues.report.complete_log')}</h2>
         <div className="gang-report-log">
-          {attacks.map((entry, index) => <article key={entry.id} className={`gang-report-attack gang-report-attack--${entry.side}`}><span>{String(index + 1).padStart(2, '0')}</span><div><small>{t('games.gangues.report.round_number', { n: entry.round })}</small><strong>{entry.actorName} → {entry.targetName}</strong><p>FA {entry.fa} · FD {entry.fd} · D3 {entry.dice}/{entry.defenseDice}{entry.critical ? ` · 💥 ${t('games.gangues.critico')} +${entry.criticalBonus}` : ''}{entry.attackerBonus?.applied ? ` · +${entry.attackerBonus.amount} ${t(`games.gangues.loadout.paths.${entry.attackerBonus.path}.name`)}` : ''}{entry.defenderBonus?.applied ? ` · +${entry.defenderBonus.amount} ${t(`games.gangues.loadout.paths.${entry.defenderBonus.path}.name`)} (def)` : ''}</p></div><b>−{entry.dmg} PV</b></article>)}
+          {attacks.map((entry, index) => <article key={entry.id} className={`gang-report-attack gang-report-attack--${entry.side}`}><span>{String(index + 1).padStart(2, '0')}</span><div><small>{t('games.gangues.report.round_number', { n: entry.round })}</small><strong>{entry.actorName} → {entry.targetName}</strong><p>FA {entry.fa} · FD {entry.fd} · D3 {entry.dice}/{entry.defenseDice}{entry.critical ? ` · 💥 ${t('games.gangues.critico')} +${entry.criticalBonus}` : ''}</p></div><b>−{entry.dmg} PV</b></article>)}
           {!attacks.length && <p className="gang-report-empty">{t('games.gangues.report.no_log')}</p>}
         </div>
       </section>

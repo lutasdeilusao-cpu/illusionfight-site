@@ -8,6 +8,10 @@ import { getGanguesLevelFromXp } from '../data/ganguesCharacters.js'
  *  molde de inimigo (ver gerarBandoInimigo/numeroInstancia). */
 export function combatantName(t, member) {
   if (member?.side !== 'enemy') return member?.sheet_name
+  if (member.apelido) {
+    const apelido = t(`games.gangues.apelidos.${member.apelido.lista}`)?.[member.apelido.i]
+    if (apelido) return apelido
+  }
   const base = t(`games.gangues.enemy_names.${member.id}`) || member.name
   return member.numeroInstancia ? `${base} (${member.numeroInstancia})` : base
 }
@@ -84,9 +88,10 @@ export function apPorInimigo(pontosInimigo, pontosMaisForte, tamanhoTime = 1) {
   return Math.max(GANGUES_AP_PISO_MINIMO, GANGUES_AP_POR_INIMIGO_BASE - niveisAbaixoDaTolerancia * time)
 }
 
-export function calcularApTotal({ victory, enemyCount, cenaChefe, torre, torreAndar, inimigosAttrs, pontosMaisForte, tamanhoTime = 1 }) {
+export function calcularApTotal({ victory, enemyCount, cenaChefe, torre, torreAndar, inimigosAttrs, pontosMaisForte, tamanhoTime = 1, territorioId = 'pista' }) {
   if (!victory) return 1
   const multiplicadorChefe = cenaChefe ? 5 : 1
+  const multiplicadorTerritorio = torre ? 1 : recompensaDoTerritorio(territorioId).apMult
   const multiplicadorTorre = torre ? 1 + Math.floor(torreAndar / 5) : 1
   // Sem os atributos dos inimigos (chamada antiga/defensiva) cai pro flat de
   // sempre — nunca deveria acontecer no fluxo real (useGanguesVictoryResolution
@@ -94,7 +99,7 @@ export function calcularApTotal({ victory, enemyCount, cenaChefe, torre, torreAn
   const base = Array.isArray(inimigosAttrs) && inimigosAttrs.length
     ? inimigosAttrs.reduce((soma, attrs) => soma + apPorInimigo(pontosDeAtributos(attrs), pontosMaisForte ?? 0, tamanhoTime), 0)
     : GANGUES_AP_POR_INIMIGO_BASE * Math.max(1, enemyCount)
-  return Math.round(base * multiplicadorChefe * multiplicadorTorre)
+  return Math.round(base * multiplicadorChefe * multiplicadorTorre * multiplicadorTerritorio)
 }
 
 /** Quem participou, quem caiu, e o peso de cada um pra dividir o AP.
@@ -142,17 +147,25 @@ export function calcularPesosEParticipantes({ victory, report, match }) {
  *  não só o Carvão da Pista — hoje é o único chefe que passa por aqui (os
  *  outros 6 territórios ainda usam a trilha antiga), mas a régua já nasce
  *  genérica pra quando eles também ganharem chefe de verdade. */
-// Grana por bairro (GDD §9.7, 29/09/2026): sem escalar, as peças do fim
-// ficam impossíveis de comprar.
-const GANGUES_GRANA_POR_INIMIGO = { pista: 10, feira: 15, baixada: 20, vila: 30, morro: 40, alto: 55, laje: 75 }
-const GANGUES_GRANA_POR_INIMIGO_PADRAO = 10
-// Grana mínima do chefe por território (Carvão 250 — sozinho valia mais que a
-// Pista inteira; o resto escala, GDD §9.7). Sem entrada = 500.
+//
+// Grana (merge 29/09/2026): garantido por BAIRRO (GDD §9.7) + 5 por inimigo a
+// mais no bando (regra da Feira, 27/09 — "tá ganhando muita grana") + mínimo
+// do chefe por bairro. O AP da Feira sai ×1,5 (subir do Carvão ao Cobrador).
+const GANGUES_GRANA_POR_EXTRA = 5
+const GANGUES_GRANA_BASE = { pista: 10, feira: 15, baixada: 20, vila: 30, morro: 40, alto: 55, laje: 75 }
 const GANGUES_GRANA_CHEFE_MINIMO = { pista: 250, feira: 500, baixada: 800, vila: 1200, morro: 1700, alto: 2300, laje: 3000 }
-const GANGUES_GRANA_CHEFE_PADRAO = 500
-export function calcularGranaTotal({ enemyCount = 1, ehChefe = false, territorioId = null }) {
-  const base = (GANGUES_GRANA_POR_INIMIGO[territorioId] ?? GANGUES_GRANA_POR_INIMIGO_PADRAO) * Math.max(1, enemyCount)
-  return ehChefe ? Math.max(GANGUES_GRANA_CHEFE_MINIMO[territorioId] ?? GANGUES_GRANA_CHEFE_PADRAO, base) : base
+const GANGUES_AP_MULT = { feira: 1.5 }
+function recompensaDoTerritorio(territorioId) {
+  return {
+    granaBase: GANGUES_GRANA_BASE[territorioId] ?? GANGUES_GRANA_BASE.pista,
+    chefeMinimo: GANGUES_GRANA_CHEFE_MINIMO[territorioId] ?? 500,
+    apMult: GANGUES_AP_MULT[territorioId] ?? 1,
+  }
+}
+export function calcularGranaTotal({ enemyCount = 1, ehChefe = false, territorioId = 'pista' }) {
+  const r = recompensaDoTerritorio(territorioId)
+  const base = r.granaBase + GANGUES_GRANA_POR_EXTRA * (Math.max(1, enemyCount) - 1)
+  return ehChefe ? Math.max(r.chefeMinimo, base) : base
 }
 
 /** Recompensa de rep/item da vitória, conforme o contexto (encontro aleatório
@@ -160,18 +173,25 @@ export function calcularGranaTotal({ enemyCount = 1, ehChefe = false, territorio
  *  números pra quem chamar aplicar. Grana não é mais autorada por POI, ver
  *  `calcularGranaTotal`. */
 export function calcularRecompensaCena({ emCena, storyAlvo, enemyCount = 1, ehChefe = false }) {
+  const rec = emCena ? (storyAlvo.cenaRecompensa || null) : null
   let rep = 0
   const itens = []
   if (emCena) {
     if (storyAlvo.repDelta) rep += storyAlvo.repDelta
-    const rec = storyAlvo.cenaRecompensa
     if (rec) {
       if (rec.rep) rep += rec.rep
       if (rec.item) itens.push({ id: rec.item, qtd: rec.qtd || 1 })
     }
   }
-  // `semGrana` (ex: a rinha — pedido do Isaias, 28/09/2026): farm dá só XP;
-  // grana de grind vem do Clube da Luta.
-  const grana = emCena && storyAlvo.semGrana ? 0 : calcularGranaTotal({ enemyCount, ehChefe, territorioId: storyAlvo?.territorioId })
-  return { grana, rep, itens }
+  // Só na 1ª vitória daquele ponto (quem chama decide se é a 1ª — aqui é
+  // cálculo puro, não lê o progresso): uma peça ou um item de quest.
+  // `granaMult` (o Caixa Forte dobra a grana) e `pagaFavor` (favor da Regina).
+  // `semGrana` (a rinha, 28/09/2026): farm dá só XP; grana vem do Clube e da Banca.
+  const grana = emCena && storyAlvo.semGrana ? 0 : calcularGranaTotal({ enemyCount, ehChefe, territorioId: storyAlvo?.territorioId }) * (rec?.granaMult || 1)
+  return {
+    grana, rep, itens,
+    equipPrimeiraVez: rec?.equipPrimeiraVez || null,
+    itemPrimeiraVez: rec?.itemPrimeiraVez || null,
+    pagaFavor: Boolean(rec?.pagaFavor),
+  }
 }

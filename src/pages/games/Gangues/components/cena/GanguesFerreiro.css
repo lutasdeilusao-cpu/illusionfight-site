@@ -1,0 +1,38 @@
+/* ══════════════════════════════════════════════════════════════
+   GanguesFerreiro — aprimoramento de equipamento. O card (retrato/balão/
+   botão de fechar) vem do GanguesDialogoEncontro; aqui só a lista de peças
+   com a faixa de agora → a de depois e o botão de aprimorar.
+   ══════════════════════════════════════════════════════════════ */
+.gang-ferreiro__saldo {
+  margin: 0.2rem 0 0; font: 800 0.72rem var(--font-mono); letter-spacing: 0.04em; color: var(--if-amber);
+}
+.gang-ferreiro__regra,
+.gang-ferreiro__vazio {
+  margin: 0; font-size: 0.7rem; line-height: 1.4; color: var(--text-secondary);
+}
+.gang-ferreiro__lista {
+  list-style: none; margin: 0.3rem 0 0; padding: 0; width: 100%;
+  max-height: 44vh; overflow-y: auto; overscroll-behavior: contain;
+  display: flex; flex-direction: column; gap: 6px;
+}
+.gang-ferreiro__peca {
+  display: flex; align-items: center; gap: 8px;
+  padding: 7px 9px; border: 1px solid var(--if-hair-strong);
+  background: rgba(255, 255, 255, 0.03);
+  clip-path: polygon(0 0, calc(100% - 7px) 0, 100% 7px, 100% 100%, 0 100%);
+}
+.gang-ferreiro__icone { flex: none; font-size: 1.2rem; }
+.gang-ferreiro__info { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 1px; }
+.gang-ferreiro__info strong { font: 800 0.78rem var(--font-display); letter-spacing: 0.03em; }
+.gang-ferreiro__info small { font: 700 0.56rem var(--font-mono); text-transform: uppercase; letter-spacing: 0.08em; color: var(--gang-cinza-azul-500); }
+.gang-ferreiro__info em { font-style: normal; font: 700 0.66rem var(--font-mono); color: var(--text-secondary); }
+.gang-ferreiro__info em b { color: var(--if-amber); }
+.gang-ferreiro__btn {
+  flex: none; display: flex; flex-direction: column; align-items: center; gap: 2px;
+  padding: 7px 10px; cursor: pointer;
+  border: 1px solid var(--terr-cor); background: color-mix(in srgb, var(--terr-cor) 14%, transparent);
+  color: var(--terr-cor); font: 800 0.8rem var(--font-mono);
+}
+.gang-ferreiro__btn small { font: 700 0.52rem var(--font-mono); color: var(--text-primary); }
+.gang-ferreiro__btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.gang-ferreiro__teto { flex: none; max-width: 76px; text-align: right; font: 700 0.54rem var(--font-mono); text-transform: uppercase; color: var(--gang-cinza-azul-500); }

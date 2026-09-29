@@ -4,6 +4,7 @@
 // Extraído de GanguesCombat.jsx (PLANO_REFATORACAO_ARQUIVOS_GRANDES_GANGUES_2026-09-11.md §6).
 import { getGanguesPortraitByTemplateId } from '../data/ganguesPortraits.js'
 import { getGanguesEnemyPortraitById } from '../data/ganguesEnemyPortraits.js'
+import { getGanguesItem, textoEfeitoItem } from '../data/ganguesItens.js'
 
 // Retrato do combatente pro log — mesma lógica de GanguesCombatRoster.jsx
 // (pedido do Isaias, 15/09/2026: "no resultado de cada golpe podia mostrar
@@ -41,6 +42,12 @@ export const randomOnoma = () => ONOMATOPEIAS[Math.floor(Math.random() * ONOMATO
 export function fighterName(t, member) {
   if (!member) return '?'
   if (member.side !== 'enemy') return member.sheet_name
+  // Apelido de rua (encontros aleatórios — ver batizarBando): nome próprio,
+  // único na luta, no lugar do nome do molde.
+  if (member.apelido) {
+    const apelido = t(`games.gangues.apelidos.${member.apelido.lista}`)?.[member.apelido.i]
+    if (apelido) return apelido
+  }
   const base = t(`games.gangues.enemy_names.${member.id}`) || member.name
   // Mesmo molde pode sair 2x+ no bando (ver gerarBandoInimigo) — sem isso os
   // dois aparecem com nome idêntico, impossível diferenciar quem já apanhou.
@@ -87,9 +94,13 @@ export function transformarEvento(t, event, combatants) {
   if (event.type === 'item') {
     const actor = combatants.find(m => m.key === event.actorKey)
     const alvo = combatants.find(m => m.key === event.targetKey)
-    const mesmo = !event.targetKey || event.targetKey === event.actorKey
-    const chave = mesmo ? 'games.gangues.log_usou_item' : 'games.gangues.log_usou_item_em'
-    return [{ id: event.id, kind: 'system', text: t(chave, { nome: fighterName(t, actor), alvo: fighterName(t, alvo), n: event.curado || 0 }) }]
+    // Nome do item + o que ele fez (cura, buff ou debuff nos inimigos).
+    const item = getGanguesItem(event.itemId)
+    const params = { nome: fighterName(t, actor), alvo: fighterName(t, alvo), item: item ? t(item.nome) : '', efeito: textoEfeitoItem(t, item) }
+    const chave = item?.tipo === 'debuff_inimigos'
+      ? 'games.gangues.log_item_inimigos'
+      : (!event.targetKey || event.targetKey === event.actorKey) ? 'games.gangues.log_item' : 'games.gangues.log_item_em'
+    return [{ id: event.id, kind: 'system', text: t(chave, params) }]
   }
   if (event.type === 'perdeu_vez') {
     const actor = combatants.find(m => m.key === event.actorKey)
@@ -110,7 +121,6 @@ export function transformarEvento(t, event, combatants) {
     fa: event.result.fa, fd: event.result.fd, dice: event.result.rolls.fa, defenseDice: event.result.rolls.fd,
     dmg: event.result.damage, onoma: randomOnoma(),
     shieldConsumed: event.result.shieldConsumed || 0,
-    attackerBonus: event.result.attackerBonus, defenderBonus: event.result.defenderBonus,
     critical: event.result.critical, criticalBonus: event.result.criticalBonus,
     activeSpecialId: event.result.activeSpecialId || null,
     statusAplicado: event.result.statusAplicado || null,

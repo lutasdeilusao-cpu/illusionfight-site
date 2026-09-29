@@ -11,6 +11,8 @@ import { apostasPossiveis, multApostaEmVoce, premio } from '../../data/ganguesAp
 // colide = luta automática, sem essa tela de escolha — ver GanguesCena.jsx).
 
 export function TretaVS({ poi, fala, nivelTropa, avisoOff, onOcultarAviso, onSim, onNao, t, territorioId, grana = 0, rep = 0, roster = [] }) {
+  // Rinha de Apostas (Feira, `poi.aposta`): valores fixos, volta em DOBRO;
+  // no resto das tretas vale a aposta em você (ganguesApostas.js).
   const nome = poi.ehChefe ? t(`games.gangues.story.bosses.${poi.boss}.nome`) : t(`${poi.i18n}.nome`)
   const falaRaw = fala ?? (poi.ehChefe ? t(`games.gangues.story.bosses.${poi.boss}.fala`, { suaGangue: t('games.gangues.report.your_gang') }) : t(`${poi.i18n}.fala`))
   const falaShow = Array.isArray(falaRaw) ? falaRaw[0] : falaRaw
@@ -45,7 +47,19 @@ export function TretaVS({ poi, fala, nivelTropa, avisoOff, onOcultarAviso, onSim
     <h3 className="gang-cena-enc-titulo">{nome}</h3>
     <p className="gang-cena-papo-fala">{falaShow}</p>
     {abaixo && <div className="gang-cena-vs-aviso">⚠ {t('games.gangues.cena.nivel_rec_baixo', { rec: nivelRecReal, atual: nivelTropa })}<button type="button" className="gang-cena-vs-aviso-off" onClick={onOcultarAviso}>{t('games.gangues.cena.nivel_rec_ocultar')}</button></div>}
-    {valoresAposta.length > 0 && <div className="gang-banca-emvoce">
+    {poi.aposta?.length > 0 ? (
+      <div className="gang-cena-aposta">
+        <small>{t('games.gangues.cena.aposta_titulo')}</small>
+        <div className="gang-cena-aposta__opcoes">
+          {poi.aposta.map(v => (
+            <button key={v} type="button" disabled={v > grana} className={`gang-cena-aposta__opt${aposta === v ? ' is-escolhida' : ''}`} onClick={() => setAposta(v)}>
+              {v === 0 ? t('games.gangues.cena.aposta_nada') : `💵 ${v}`}
+            </button>
+          ))}
+        </div>
+        {aposta > 0 && <p className="gang-cena-aposta__premio">{t('games.gangues.cena.aposta_premio', { n: aposta * 2 })}</p>}
+      </div>
+    ) : valoresAposta.length > 0 && <div className="gang-banca-emvoce">
       <small>{t('games.gangues.banca.em_voce')} · {t('games.gangues.banca.em_voce_paga', { mult: multAposta })}</small>
       <div className="gang-banca-valores">
         {[0, ...valoresAposta].map(v => (
@@ -57,7 +71,7 @@ export function TretaVS({ poi, fala, nivelTropa, avisoOff, onOcultarAviso, onSim
     </div>}
     <div className="gang-cena-enc-acoes">
       <button className="gang-cena-btn" onClick={onNao}>{t('games.gangues.cena.treta_nao')}</button>
-      <button className={`gang-cena-btn gang-cena-btn--go${abaixo ? ' gang-cena-btn--risco' : ''}`} onClick={() => onSim(aposta ? { valor: aposta, mult: multAposta } : null)}>{t(abaixo ? 'games.gangues.cena.treta_sim_risco' : 'games.gangues.cena.treta_sim')}</button>
+      <button className={`gang-cena-btn gang-cena-btn--go${abaixo ? ' gang-cena-btn--risco' : ''}`} onClick={() => onSim(aposta ? { valor: aposta, mult: poi.aposta?.length ? 2 : multAposta } : null)}>{t(abaixo ? 'games.gangues.cena.treta_sim_risco' : 'games.gangues.cena.treta_sim')}</button>
     </div>
   </div>
 }

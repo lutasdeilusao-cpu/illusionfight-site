@@ -1,13 +1,11 @@
-// Slice: descanso da birosca + agiotagem do agiota + Clube da Luta. Extraído
+// Slice: descanso da birosca + agiotagem do agiota. Extraído
 // de store/useGanguesStore.js (PLANO_REFATORACAO_ARQUIVOS_GRANDES_GANGUES_2026-09-11.md §3).
-// NOTA (21/09/2026): a agiotagem/Clube da Luta migraram do Nato (birosca)
-// pra um NPC novo, o agiota (pino próprio, ver GanguesAgiota.jsx/pois.js) —
-// os identificadores (pedirEmprestimoNato, GANGUES_EMPRESTIMO_NATO_*) ficaram
-// com o nome antigo por não valer o custo/risco de renomear em tudo que já
-// os referencia; o texto visível ao jogador já fala "Marimbondo"/agiota.
+// A agiotagem é de NPC agiota (Marimbondo na Pista, Juro Alto na Feira — POI
+// tipo `agiota`), a dívida é UMA caderneta global (storyProgress.__birosca).
+// O Clube da Luta (a rota de quitar a dívida) é módulo à parte: ../../clube/.
 import {
   normalizeGanguesLoadout, getGanguesResources,
-  GANGUES_EMPRESTIMO_NATO_VALOR, GANGUES_EMPRESTIMO_NATO_MULT, GANGUES_EMPRESTIMO_NATO_TETO, clubePremioDe,
+  GANGUES_EMPRESTIMO_VALOR, GANGUES_EMPRESTIMO_MULT, GANGUES_EMPRESTIMO_TETO,
 } from '../../data/ganguesLoadout.js'
 import { getGanguesAttributesWithEquip, applyGanguesEquipResources } from '../../data/ganguesEquip.js'
 
@@ -52,17 +50,17 @@ export default function createGanguesBiroscaSlice(set, get) {
       }
     },
 
-    // ── Agiotagem do Nato (empréstimo em dinheiro) ──────────────────
+    // ── Agiotagem (empréstimo em dinheiro do agiota) ────────────────
     // REDESENHO COMPLETO (Isaias, 21/09/2026) do fiado antigo (5×/10× por
     // contagem de fiados, "nome sujo" depois de 2). Agora é uma escada só,
     // sem contador — só a própria dívida em grana:
     //   divida = 0  → pode pegar o EMPRÉSTIMO (dinheiro na mão, GANGUES_
-    //                 EMPRESTIMO_NATO_VALOR), que já endivida em ×MULT.
+    //                 EMPRESTIMO_VALOR), que já endivida em ×MULT.
     //   divida > 0  → não pode pegar empréstimo de novo; pode pedir mais
     //                 CURA FIADA, que DOBRA a dívida atual.
-    //   divida×2 > GANGUES_EMPRESTIMO_NATO_TETO → chegou no teto: o Nato não
+    //   divida×2 > GANGUES_EMPRESTIMO_TETO → chegou no teto: o agiota não
     //                 cobra mais nada (cura de graça), mas força o Clube da
-    //                 Luta (ver iniciarClube(custoBase, gratis=true) em
+    //                 Luta (ver prepararEntradaClube({ gratis: true }) em clube/ganguesClubeSlice.js, chamado de
     //                 GanguesCena.jsx — não passa pela oferta normal de
     //                 aceitar/recusar, é jogado direto pra dentro).
     // A dívida é GLOBAL (uma caderneta só pra todas as biroscas de todos os
@@ -75,15 +73,16 @@ export default function createGanguesBiroscaSlice(set, get) {
     // Info pra UI decidir que opção de agiotagem oferecer, sem gastar nada.
     // `proximaDivida` = quanto a dívida vai virar se o jogador pedir agora
     // (empréstimo, se ainda não deve nada; ou o dobro, se já deve).
-    agiotagemInfo: () => {
+    // `valor` = quanto AQUELE agiota empresta (Marimbondo 100, Juro Alto 300).
+    agiotagemInfo: (valor = GANGUES_EMPRESTIMO_VALOR) => {
       const divida = get()._birosca().divida || 0
       return {
         divida,
         podeEmprestimo: divida <= 0,
-        podeFiarCura: divida > 0 && divida * 2 <= GANGUES_EMPRESTIMO_NATO_TETO,
-        noTeto: divida > 0 && divida * 2 > GANGUES_EMPRESTIMO_NATO_TETO,
-        valorEmprestimo: GANGUES_EMPRESTIMO_NATO_VALOR,
-        proximaDivida: divida > 0 ? divida * 2 : GANGUES_EMPRESTIMO_NATO_VALOR * GANGUES_EMPRESTIMO_NATO_MULT,
+        podeFiarCura: divida > 0 && divida * 2 <= GANGUES_EMPRESTIMO_TETO,
+        noTeto: divida > 0 && divida * 2 > GANGUES_EMPRESTIMO_TETO,
+        valorEmprestimo: valor,
+        proximaDivida: divida > 0 ? divida * 2 : valor * GANGUES_EMPRESTIMO_MULT,
       }
     },
 
@@ -116,13 +115,12 @@ export default function createGanguesBiroscaSlice(set, get) {
       return party.every(m => Number(m.attributes?.pv_atual ?? 1) <= 0)
     },
 
-    // Pegar o empréstimo com o Nato — só quando NÃO deve nada ainda (ver
+    // Pegar o empréstimo com o agiota — só quando NÃO deve nada ainda (ver
     // agiotagemInfo.podeEmprestimo). Dá grana na mão de verdade (não cura
     // ninguém) e já endivida em ×MULT.
-    pedirEmprestimoNato: () => {
+    pedirEmprestimo: (valor = GANGUES_EMPRESTIMO_VALOR) => {
       if (get()._birosca().divida > 0) return { ok: false, motivo: 'ja_deve' }
-      const valor = GANGUES_EMPRESTIMO_NATO_VALOR
-      const divida = valor * GANGUES_EMPRESTIMO_NATO_MULT
+      const divida = valor * GANGUES_EMPRESTIMO_MULT
       set(state => ({ storyProgress: { ...state.storyProgress, __birosca: { divida } } }))
       get().ganharGrana(valor)
       get()._persistStory()
@@ -134,7 +132,7 @@ export default function createGanguesBiroscaSlice(set, get) {
     fiarDescanso: () => {
       const rec = get()._birosca()
       if (rec.divida <= 0) return { ok: false, motivo: 'sem_emprestimo' }
-      if (rec.divida * 2 > GANGUES_EMPRESTIMO_NATO_TETO) return { ok: false, motivo: 'teto' }
+      if (rec.divida * 2 > GANGUES_EMPRESTIMO_TETO) return { ok: false, motivo: 'teto' }
       const detalhe = get()._deficitTropa()
       if (!detalhe.some(d => d.pv > 0 || d.pm > 0)) return { ok: false, motivo: 'inteira' }
       const divida = rec.divida * 2
@@ -142,6 +140,85 @@ export default function createGanguesBiroscaSlice(set, get) {
       get().restaurarPvPmTodos()
       get()._persistStory()
       return { ok: true, divida, detalhe: detalhe.filter(d => d.pv > 0 || d.pm > 0) }
+    },
+
+    // ── Socorro da derrota — NÃO existe game over (pedido do Isaias,
+    // 27/09/2026). A tropa caiu inteira numa luta da cena: é arrastada pra
+    // birosca (a posição é resolvida em destinoSocorroDerrota, cenaHelpers.js)
+    // e a recuperação completa (o descanso que revive, custoBase × 3 = 30) é
+    // cobrada NA HORA, sem perguntar:
+    //  • tem os 30 → paga do bolso.
+    //  • não tem e nunca pegou empréstimo → pega o empréstimo do agiota
+    //    sozinho (100 na mão, dívida 1000), paga os 30 e fica com o troco.
+    //  • não tem e JÁ deve → pega só os 30 emprestados, só que a 10× o
+    //    valor: +300 na dívida. Sem teto — a dívida vai escalando, e o único
+    //    jeito realista de zerar é o Clube da Luta (resolverClubeDaLuta).
+    socorroDerrota: (custoBase = 10) => {
+      const custo = Math.max(1, Math.round(custoBase)) * 3
+      const dividaAntes = get()._birosca().divida || 0
+      let tipo = 'pagou'
+      let emprestimo = 0
+      let divida = dividaAntes
+      if (get().grana < custo) {
+        if (dividaAntes <= 0) {
+          tipo = 'emprestimo'
+          emprestimo = GANGUES_EMPRESTIMO_VALOR
+          divida = GANGUES_EMPRESTIMO_VALOR * GANGUES_EMPRESTIMO_MULT
+        } else {
+          tipo = 'fiado'
+          emprestimo = custo
+          divida = dividaAntes + custo * GANGUES_EMPRESTIMO_MULT
+        }
+        set(state => ({ storyProgress: { ...state.storyProgress, __birosca: { divida } } }))
+        get().ganharGrana(emprestimo)
+      }
+      get().gastarGrana(custo)
+      get().restaurarPvPmTodos()
+      get()._persistStory()
+      return { tipo, custo, emprestimo, divida, acrescimo: divida - dividaAntes, grana: get().grana }
+    },
+
+    // ── Fiado por FAVOR da Dona Regina (Feira) ──────────────────────
+    // Sem grana, a Regina cura a tropa inteira igual (revive os caídos) e a
+    // gangue fica devendo 1 favor — sem grana e sem juro. Com favor em
+    // aberto ela não fia de novo; paga o favor fazendo um dos 3 eventos de
+    // favor (recompensa `pagaFavor`, ver data/cenas/feira/pois.js).
+    // Guardado em storyProgress.__regina = { favor: bool }.
+    reginaDeveFavor: () => Boolean(get().storyProgress.__regina?.favor),
+    fiarPorFavor: () => {
+      if (get().reginaDeveFavor()) return { ok: false, motivo: 'favor_pendente' }
+      const detalhe = get()._deficitTropa().filter(d => d.pv > 0 || d.pm > 0)
+      if (!detalhe.length) return { ok: false, motivo: 'inteira' }
+      set(state => ({ storyProgress: { ...state.storyProgress, __regina: { favor: true } } }))
+      get().restaurarPvPmTodos()
+      get()._persistStory()
+      return { ok: true, detalhe }
+    },
+    pagarFavorRegina: () => {
+      if (!get().reginaDeveFavor()) return false
+      set(state => ({ storyProgress: { ...state.storyProgress, __regina: { favor: false } } }))
+      get()._persistStory()
+      return true
+    },
+
+    // Choque do Quadro de Luz (Feira): tira `n` de PV de cada um da tropa,
+    // sem nunca derrubar ninguém (fica com pelo menos 1).
+    choqueTropa: (n) => {
+      const pvAtualPorId = Object.fromEntries(get()._deficitTropa().map(d => [d.id, d]))
+      const aplicar = m => {
+        const norm = normalizeGanguesLoadout(m)
+        const attrs = getGanguesAttributesWithEquip(norm.attributes)
+        const res = applyGanguesEquipResources(getGanguesResources(norm.combat_path, attrs?.PV, attrs?.PM), norm.attributes?.equipment)
+        const atual = res.pvMax - (pvAtualPorId[m.id]?.pv || 0)
+        if (atual <= 0) return m
+        return { ...m, attributes: { ...m.attributes, pv_atual: Math.max(1, atual - n) } }
+      }
+      set(state => {
+        const roster = state.roster.map(aplicar)
+        const byId = new Map(roster.map(m => [m.id, m]))
+        return { roster, activeParty: state.activeParty.map(m => byId.get(m.id) || m) }
+      })
+      get().saveParticipantProgress(get().roster.map(m => m.id))
     },
 
     // Pagar a dívida (parcial ou total). Abate de `grana` o que der.
@@ -155,66 +232,6 @@ export default function createGanguesBiroscaSlice(set, get) {
       set(state => ({ storyProgress: { ...state.storyProgress, __birosca: { divida: restante } } }))
       get()._persistStory()
       return { ok: true, pago, restante }
-    },
-
-    // (legado — o Clube agora é oferecido SEMPRE na birosca, não só num beco sem
-    // saída. Mantido caso algum código antigo referencie.)
-    clubeDaLutaElegivel: () => {
-      const rec = get()._birosca()
-      return rec.divida > 0 && get().tropaNoChao() && get().grana < rec.divida
-    },
-
-    // Aceitou o Clube da Luta. Ao entrar, o Nato já te fia 15× o descanso
-    // (te "curam adiantado" — a tropa toda volta pro máximo) e a dívida sobe
-    // na hora. A luta roda com storyTarget { clube: true, clubeRonda: 1 } —
-    // é um gauntlet de 3 rondas (1 fraco → 2 → 3 casca-grossa).
-    entrarClubeDaLuta: (custoBase = 10) => {
-      const rec = get()._birosca()
-      const valor = 15 * Math.max(1, Math.round(custoBase))
-      const divida = rec.divida + valor
-      set(state => ({ storyProgress: { ...state.storyProgress, __birosca: { divida } } }))
-      get().restaurarPvPmTodos()
-      get()._persistStory()
-      return { valor, divida }
-    },
-
-    // Entre uma ronda e outra do gauntlet, o Nato oferece te ajeitar — cura a
-    // tropa toda na hora, e DOBRA a dívida na tua cara, na maior cara de pau.
-    // É opcional (dá pra encarar a próxima ronda machucado).
-    curarNoClubeSala: () => {
-      const rec = get()._birosca()
-      const antes = Math.max(1, Math.round(rec.divida))
-      const divida = antes * 2
-      set(state => ({ storyProgress: { ...state.storyProgress, __birosca: { divida } } }))
-      get().restaurarPvPmTodos()
-      get()._persistStory()
-      return { antes, divida }
-    },
-
-    // Vazou no meio do gauntlet: te arrastam pra fora e te largam (a tropa é
-    // remendada), mas a dívida acumulada FICA — não quita nada.
-    desistirDoClube: () => {
-      get().restaurarPvPmTodos()
-      get()._persistStory()
-      return get()._birosca().divida
-    },
-
-    // Fim do gauntlet do Clube (só chamado na 3ª ronda ou numa derrota).
-    //  `dividaPrevia` = a dívida ANTES de aceitar (antes do 15× de entrada, ou
-    //  a dívida que já tava no teto, na entrada forçada do socorro do Nato).
-    //  `heals` = quantas vezes deixou o Nato ajeitar entre as rondas.
-    //  • Venceu (ronda 3): quita TUDO e leva o prêmio do bairro (clubePremioDe). Sem XP.
-    //  • Perdeu: te remendam e te largam. A dívida NÃO cresce mais — fica o que
-    //    acumulou. Nunca é game over.
-    resolverClubeDaLuta: (venceu, custoBase = 10, dividaPrevia = 0, heals = 0, territorioId = 'pista') => {
-      if (venceu) {
-        set(state => ({ storyProgress: { ...state.storyProgress, __birosca: { divida: 0 } } }))
-        // Toda vitória completa paga 200 (Isaias, 28/09/2026: o Clube é a fonte
-        // de grana do grind — rinha dá só XP, Clube dá só grana).
-        get().ganharGrana(clubePremioDe(territorioId))
-      }
-      get().restaurarPvPmTodos()
-      get()._persistStory()
     },
   }
 }

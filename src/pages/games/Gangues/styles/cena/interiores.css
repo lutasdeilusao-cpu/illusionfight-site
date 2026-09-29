@@ -34,7 +34,7 @@
 .gang-int-obj--pilha-sucata{width:44px;height:30px;background:repeating-linear-gradient(40deg,#6a6f72 0 5px,#3f4448 5px 8px);clip-path:polygon(6% 100%,24% 40%,46% 62%,64% 26%,86% 54%,96% 100%);box-shadow:0 4px 6px rgba(0,0,0,.5);}
 /* túnel — chão de terra batida, escombro, lâmpada pendurada */
 .gang-int-chao.is-tunel{background:repeating-linear-gradient(92deg,#3a2e22 0 40px,#332920 40px 42px),#37291c;box-shadow:inset 0 0 140px rgba(0,0,0,.9);}
-.gang-int-obj--escombro{width:46px;height:32px;background:repeating-linear-gradient(38deg,#5a4632 0 6px,#3e2f20 6px 9px);clip-path:polygon(4% 100%,22% 44%,44% 64%,62% 28%,84% 56%,96% 100%);box-shadow:0 4px 8px rgba(0,0,0,.6);}
+.gang-int-obj--escombro{width:46px;height:32px;background:repeating-linear-gradient(38deg,var(--gang-banca-tampo) 0 6px,#3e2f20 6px 9px);clip-path:polygon(4% 100%,22% 44%,44% 64%,62% 28%,84% 56%,96% 100%);box-shadow:0 4px 8px rgba(0,0,0,.6);}
 .gang-int-obj--lampada-tunel{width:12px;height:12px;border-radius:50%;background:#ffd782;box-shadow:0 0 22px 10px rgba(255,200,110,.28),0 -14px 0 -5px var(--gang-carvao-700);}
 
 /* pinos de navegação (porta/saída/passagem) — visual mais discreto que POI */
@@ -45,3 +45,12 @@
    de propósito (visual mais discreto, ver regra acima) — mas continua
    pulsando quando o jogador chega perto, igual pino de conteúdo. */
 .gang-world-npc.is-nav.is-perto>span{animation:gang-entry-pulse .85s ease-in-out infinite alternate;box-shadow:0 0 24px rgba(255,255,255,.5),0 8px 15px var(--gang-preto)}
+
+/* Barraca de feira — o labirinto do Mercadão (Feira). A fileira inteira é um
+   colisor só; cada barraca é desenhada em cima: tampo de madeira com frutas e
+   a lona listrada (cor em --lona) por cima. */
+.gang-int-obj--barraca{background:linear-gradient(var(--gang-banca-tampo),var(--gang-banca-tampo-sombra));box-shadow:0 8px 12px rgba(0,0,0,.5),inset 0 -6px 0 rgba(0,0,0,.25);}
+.gang-int-obj--barraca::before{content:'';position:absolute;left:-3px;right:-3px;top:-10px;height:18px;
+  background:repeating-linear-gradient(90deg,var(--lona,var(--gang-lona)) 0 10px,var(--gang-lona-listra) 10px 20px);box-shadow:0 4px 5px rgba(0,0,0,.4);}
+.gang-int-obj--barraca::after{content:'';position:absolute;left:8px;right:8px;top:16px;height:14px;
+  background:radial-gradient(circle,var(--gang-fruta-laranja) 4px,transparent 4.5px) 0 0/12px 12px,radial-gradient(circle,var(--gang-fruta-verde) 4px,transparent 4.5px) 6px 2px/12px 12px;}

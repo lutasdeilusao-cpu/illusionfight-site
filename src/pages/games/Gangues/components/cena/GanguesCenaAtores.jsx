@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import { STEP_MS } from '../../engine/ganguesCenaMotor.js'
 import { getGanguesNpcPortrait } from '../../data/ganguesNpcPortraits.js'
 import { getGanguesEnemyPortraitById } from '../../data/ganguesEnemyPortraits.js'
@@ -39,13 +39,13 @@ export function GangMarker({ player, facing, gangName, retrato: retratoUrl }) {
 // continuar farmável — ver `estadoPoi`/`estadoInternoPoi` em
 // ganguesCenaMotor.js); é o `farmCompleto` que sinaliza "já venceu, mas pode
 // repetir", e por isso conta como "feito" (verde) aqui também.
-function farolDe(p) {
+export function farolDe(p) {
   if (p.ehPorta || p.ehSaida || p.ehVolta || p.ehPassagem || p.ehChefe) return ''
   // Oferta pendente (ex: o corre do Nato, dentro do Descanso) força verde —
   // pedido do Isaias, 20/09/2026 ("tem que ficar verde, óbvio, pro cara
   // saber que tem uma missão ali") — exceção deliberada ao farol normal
   // (aqui verde não é "já feito", é "tem novidade"), só pra quem tem
-  // `ofertaFlagId` (ver ganguesCenaMotor.js/pois.js).
+  // `oferta` (ver ganguesCenaMotor.js/pois.js).
   if (p.ofertaPendente) return 'is-feito'
   if (p.estado === 'resolvido' || p.farmCompleto) return 'is-feito'
   if (p.estado !== 'disponivel') return ''
@@ -130,6 +130,19 @@ export function ehPersonagem(p) {
 // Sempre o mesmo pra cada personagem (hash do id), nunca sorteado a cada visita.
 // Metade fica no lugar (parado/inquieto), metade anda — "nem todos precisam andar".
 const MOVIMENTOS_TRETA = ['inquieto', 'patrulha-h', 'parado', 'ronda', 'inquieto', 'patrulha-v', 'parado', 'patrulha-h']
+// Quanto dura UMA volta do caminho de quem anda (ms), ou null pra quem fica
+// parado. É a mesma duração da animação de movimento (--gp-dur, abaixo) —
+// a briga automática usa pra soltar um adversário ignorado depois que ele
+// completou o caminho (hooks/useGanguesBrigaAutomatica.js).
+function duracaoMovimentoS(movimento, h) {
+  return movimento === 'ronda' ? 22 + (h % 7) : movimento === 'inquieto' ? 9 + (h % 5) : 14 + (h % 7)
+}
+export function cicloDoPinoMs(p) {
+  if (!ehPersonagem(p)) return null
+  const movimento = movimentoDoPino(p)
+  return movimento === 'parado' ? null : duracaoMovimentoS(movimento, hashEstavel(p.id)) * 1000
+}
+
 export function movimentoDoPino(p) {
   if (p.movimento) return p.movimento
   const h = hashEstavel(p.id)
@@ -148,7 +161,20 @@ export function movimentoDoPino(p) {
 // REAL (círculo contra círculo na tela), usada só pra pausar a andadinha
 // (`is-colidindo`) no momento exato que o personagem "esbarra" no
 // jogador, não assim que entra na zona generosa de interação.
-export function PinoAlvo({ p, t, active, onColidir }) {
+// `ignorado`: a briga automática está ignorando esse oponente até ele
+// descolar (hooks/useGanguesBrigaAutomatica.js) — então ele NÃO pausa ao
+// encostar: atravessa o jogador e termina o caminho dele.
+// Colisor = 90% do desenho (regra do Isaias, 27/09/2026: "o colisor ocupa
+// 90% da região do sprite... o correto pra qualquer jogo"), igual na rua e
+// nos cômodos. Cada círculo colide com 90% do raio que o jogador vê —
+// encostar é os desenhos se tocando de verdade, sem borda invisível em
+// volta. Histórico: soma inteira + 4px (maior que o desenho) → 50% (v3.69.1,
+// pequeno demais pra interagir) → 90%. Quem patrulha curto ainda pode não
+// "descolar" de quem está parado no meio do caminho — pra isso a briga
+// automática solta o ignorado depois de uma volta do caminho.
+const COLISOR_FRACAO = 0.9
+
+export function PinoAlvo({ p, t, active, onColidir, ignorado }) {
   // useState/useRef/useEffect sempre no topo, antes de qualquer return
   // condicional (regra dos hooks) — falha de carregamento (rede ruim) cai
   // pro ícone genérico, igual quando não tem retrato nenhum.
@@ -164,7 +190,7 @@ export function PinoAlvo({ p, t, active, onColidir }) {
   // círculo do pino contra o círculo do marcador do jogador na TELA
   // (getBoundingClientRect, já considerando a posição visual da andadinha
   // em CSS, que o React/JS não sabe onde está exatamente) — só pausa
-  // quando as bordas realmente se tocam. Poll leve (150ms, não every
+  // quando os desenhos já se sobrepõem (COLISOR_FRACAO, acima). Poll leve (150ms, não every
   // frame) porque é só um efeito visual, não precisão de física.
   // AJUSTE (mesmo dia, print na sequência): "o botão de interação só ativa
   // na antiga área do quadradinho... tem que ativar no momento que eu
@@ -193,7 +219,7 @@ export function PinoAlvo({ p, t, active, onColidir }) {
       const a = pinoEl.getBoundingClientRect()
       const b = playerEl.getBoundingClientRect()
       const dist = Math.hypot((a.left + a.width / 2) - (b.left + b.width / 2), (a.top + a.height / 2) - (b.top + b.height / 2))
-      const tocou = dist < a.width / 2 + b.width / 2 + 4
+      const tocou = dist < (a.width / 2 + b.width / 2) * COLISOR_FRACAO
       setColidindo(tocou)
       onColidir?.(p.id, tocou)
     }, 150)
@@ -224,7 +250,7 @@ export function PinoAlvo({ p, t, active, onColidir }) {
   const movimento = personagem ? movimentoDoPino(p) : null
   const h = personagem ? hashEstavel(p.id) : 0
   const anda = movimento && movimento !== 'parado'
-  const dur = movimento === 'ronda' ? 22 + (h % 7) : movimento === 'inquieto' ? 9 + (h % 5) : 14 + (h % 7)
+  const dur = duracaoMovimentoS(movimento, h)
   const movStyle = personagem ? {
     '--gp-w': `${movimento === 'ronda' ? 50 + (h % 21) : 45 + (h % 41)}px`,
     '--gp-dur': `${dur}s`,
@@ -232,7 +258,7 @@ export function PinoAlvo({ p, t, active, onColidir }) {
     '--gp-resp': `${3.2 + (h % 5) * 0.3}s`,
   } : undefined
   const movClasse = movimento ? `mov-${movimento}${anda ? ' mov-anda' : ''}` : ''
-  return <div className={`gang-world-npc is-${p.estado} ${farolDe(p)} ${p.ehChefe ? 'is-boss' : ''} ${p.farmCompleto ? 'is-farm' : ''} ${active ? 'is-perto' : ''} ${colidindo ? 'is-colidindo' : ''} ${p.ehPorta || p.ehSaida || p.ehVolta || p.ehPassagem ? 'is-nav' : ''} ${retrato ? 'gang-world-npc--retrato' : ''} ${movClasse}`} style={{ left: p.world.x, top: p.world.y }}>
+  return <div className={`gang-world-npc is-${p.estado} ${farolDe(p)} ${p.ehChefe ? 'is-boss' : ''} ${p.farmCompleto ? 'is-farm' : ''} ${active ? 'is-perto' : ''} ${colidindo && !ignorado ? 'is-colidindo' : ''} ${p.ehPorta || p.ehSaida || p.ehVolta || p.ehPassagem ? 'is-nav' : ''} ${retrato ? 'gang-world-npc--retrato' : ''} ${movClasse}`} style={{ left: p.world.x, top: p.world.y }}>
     <span ref={spanRef} style={movStyle}>
       <span className={personagem ? 'gang-world-npc-passo' : undefined}>
         {retrato ? <img src={retrato} alt="" onError={() => setRetratoFalhou(true)} /> : icone}
@@ -243,18 +269,39 @@ export function PinoAlvo({ p, t, active, onColidir }) {
   </div>
 }
 
-const LABEL_TIPO = { papo: 'FALAR', treta: 'ENCARAR', parada: 'INVESTIGAR', corre: 'SEGUIR', descanso: 'DESCANSAR', loja: 'COMPRAR', achado: 'PEGAR', agiota: 'AGIOTA', banca: 'APOSTAR' }
+// Verbo do botão de ação por tipo de POI (texto no i18n, cena.acao.<tipo>).
+const TIPOS_COM_VERBO = new Set(['papo', 'treta', 'parada', 'corre', 'descanso', 'loja', 'achado', 'agiota', 'ferreiro', 'banca'])
 export function interactionLabel(p, t) {
   if (p.ehChefe) return t('games.gangues.cena.acao.desafiar')
   if (p.ehPorta) return t('games.gangues.cena.acao.entrar')
   if (p.ehSaida) return t('games.gangues.cena.acao.sair')
   if (p.ehVolta) return t('games.gangues.cena.acao.voltar')
   if (p.ehPassagem) return t(`games.gangues.cena.acao.${p.label || 'avancar'}`)
-  return LABEL_TIPO[p.tipo] || 'INTERAGIR'
+  return t(`games.gangues.cena.acao.${TIPOS_COM_VERBO.has(p.tipo) ? p.tipo : 'interagir'}`)
 }
 
 // Joystick + botão de ação contextual (mobile).
-export function WorldControls({ onInput, onInteract, action }) {
+// Controles da cena: analógico · switch da briga automática · interagir.
+// Aviso da briga automática (v3.70.0): encostou num oponente com o switch
+// ligado → carimbo de 2,5s com uma frase de rua antes da luta abrir (o hook
+// useGanguesBrigaAutomatica escolhe a frase e segura a luta). Não bloqueia
+// toque — é só aviso, a luta vem de qualquer jeito.
+export function BrigaAutoAviso({ anuncio, t }) {
+  return (
+    <AnimatePresence>
+      {anuncio && (
+        <motion.div key="briga-auto-aviso" className="gang-briga-auto-aviso" role="status"
+          initial={{ scale: .4, opacity: 0, rotate: -8 }} animate={{ scale: 1, opacity: 1, rotate: -3 }} exit={{ opacity: 0, scale: 1.08 }}
+          transition={{ type: 'spring', stiffness: 480, damping: 16 }}>
+          <span>{t('games.gangues.cena.briga_auto_aviso.titulo')}</span>
+          <b>{t('games.gangues.cena.briga_auto_aviso.frases')[anuncio.frase]}</b>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  )
+}
+
+export function WorldControls({ onInput, onInteract, action, rotulo, brigaAuto, brigaAutoBloqueada, onBrigaAuto, rotuloBrigaAuto }) {
   const base = useRef(null), active = useRef(null)
   const update = useCallback((x, y) => {
     const r = base.current?.getBoundingClientRect(); if (!r) return
@@ -271,6 +318,9 @@ export function WorldControls({ onInput, onInteract, action }) {
   }, [onInput])
   return <div className="gang-world-controls">
     <div ref={base} className="gang-world-stick" onPointerDown={e => { active.current = e.pointerId; e.currentTarget.setPointerCapture(e.pointerId); update(e.clientX, e.clientY) }} onPointerMove={e => { if (active.current === e.pointerId) update(e.clientX, e.clientY) }} onPointerUp={stop} onPointerCancel={stop}><i /></div>
-    <button disabled={!action} onClick={onInteract}><b>{action || '...'}</b><span>INTERAGIR</span></button>
+    <button type="button" role="switch" aria-checked={brigaAuto} disabled={brigaAutoBloqueada} className={`gang-world-auto${brigaAuto ? ' is-on' : ''}${brigaAutoBloqueada ? ' is-bloqueado' : ''}`} onClick={onBrigaAuto}>
+      <i aria-hidden="true"><b /></i><span>{rotuloBrigaAuto}</span>
+    </button>
+    <button className="gang-world-interagir" disabled={!action} onClick={onInteract}><b>{action || '...'}</b><span>{rotulo}</span></button>
   </div>
 }

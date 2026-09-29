@@ -1,14 +1,13 @@
 import { ST_TODOS } from '../engine/ganguesStatus.js'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import { resolveGanguesAction, resolveGanguesCura } from '../engine/ganguesCombatResolver.js'
+import { resolveGanguesAction, resolveGanguesCura, gastarAcaoStatus } from '../engine/ganguesCombatResolver.js'
 import { atribuirPersonas, decidirAcaoInimigo } from '../engine/ganguesPersonas.js'
 import { statusImpedeAcao, alvoComTontura, normalizarStatus } from '../engine/ganguesStatus.js'
 import { iniciarLinhaDoTempo, proximaVez, consumirVez, marcarAgiu, ordemDeVelocidade } from '../engine/ganguesLinhaDoTempo.js'
 import { getGanguesResources, normalizeGanguesLoadout } from '../data/ganguesLoadout.js'
-import { getGanguesAttributesWithEquip, applyGanguesEquipResources } from '../data/ganguesEquip.js'
+import { getGanguesAttributesWithEquip, applyGanguesEquipResources, getGanguesEquipDados, rolarFaixa } from '../data/ganguesEquip.js'
 
 const d3 = () => Math.floor(Math.random() * 3) + 1
-const coin = () => Math.random() < 0.5
 
 export function prepare(combatant, side, index) {
   const enemy = side === 'enemy'
@@ -18,7 +17,25 @@ export function prepare(combatant, side, index) {
   // por R — ver ganguesEquip.js). `equipment` continua acessível em
   // `attributes.equipment` pros efeitos de carta que virão depois.
   const equipment = normalized.attributes?.equipment
-  if (!enemy) normalized.attributes = getGanguesAttributesWithEquip(normalized.attributes)
+  // Equipamento em FAIXA (27/09/2026, PLANO_ITENS_RANGE.md): a Porrada e o
+  // Couro das peças NÃO entram no atributo — viram dados (`equipDados`) que o
+  // resolver rola a cada golpe/defesa. O Pique rola UMA vez aqui, na entrada
+  // da luta, e já entra no H (a linha do tempo lê o H direto). `atributosFicha`
+  // é só pra ficha aberta no meio da luta mostrar a média, como fora dela.
+  let equipDados = null
+  let equipPique = null
+  let atributosFicha = null
+  if (!enemy) {
+    const dados = getGanguesEquipDados(equipment)
+    atributosFicha = getGanguesAttributesWithEquip(normalized.attributes)
+    const baseH = Number(normalized.attributes?.H) || 0
+    equipPique = dados.H.length ? dados.H.reduce((soma, f) => soma + rolarFaixa(f), 0) : null
+    // Malandragem de peça (Mandingueiro) é fixa: entra direto no atributo.
+    const equipPM = dados.PM.reduce((soma, f) => soma + f.min, 0)
+    normalized.attributes = { ...normalized.attributes, H: baseH + (equipPique || 0), PM: (Number(normalized.attributes?.PM) || 0) + equipPM }
+    atributosFicha = { ...atributosFicha, H: normalized.attributes.H }
+    equipDados = { A: dados.A, D: dados.D }
+  }
   const resources = enemy
     ? { pvMax: Number(combatant.pv_max) || 10, pmMax: Number(combatant.pm_max) || 0 }
     : applyGanguesEquipResources(getGanguesResources(normalized.combat_path, normalized.attributes?.PV, normalized.attributes?.PM), equipment)
@@ -39,7 +56,7 @@ export function prepararTimes(playerTeam = [], enemyTeam = []) {
   return atribuirPersonas([...playerTeam.map((member, index) => prepare(member, 'player', index)), ...enemyTeam.map((member, index) => prepare(member, 'enemy', index))])
 }
 
-export default function useGanguesTurnMachine({ playerTeam = [], enemyTeam = [], onFinish, attackRoll = d3, defenseRoll = d3, bonusRoll = coin, targetRoll = Math.random, enemyDelay = 2200, pausado = false }) {
+export default function useGanguesTurnMachine({ playerTeam = [], enemyTeam = [], onFinish, attackRoll = d3, defenseRoll = d3, targetRoll = Math.random, enemyDelay = 2200, pausado = false }) {
   const initial = useMemo(() => prepararTimes(playerTeam, enemyTeam), [])
   // Linha do tempo (Pique, 26/09/2026 — ver engine/ganguesLinhaDoTempo.js):
   // quem age é quem chega primeiro no centro da pista, não mais uma ordem
@@ -94,7 +111,7 @@ export default function useGanguesTurnMachine({ playerTeam = [], enemyTeam = [],
     target = alvoFinal
     const result = resolveGanguesAction({
       attacker: actor, defender: target, action: { type: 'attack', mode: 'attack' },
-      rolls: { fa: attackRoll(), fd: defenseRoll(), attackerBonus: bonusRoll(), defenderBonus: bonusRoll() },
+      rolls: { fa: attackRoll(), fd: defenseRoll() },
       activeSpecialId, forcedSpecial,
     })
     // `id` único por ação: com a linha do tempo o MESMO lutador pode agir 2x
@@ -102,7 +119,7 @@ export default function useGanguesTurnMachine({ playerTeam = [], enemyTeam = [],
     acaoSeq.current += 1
     setPending({ id: acaoSeq.current, actorKey: actor.key, targetKey: target.key, side: actor.side, result, confuso })
     return true
-  }, [attackRoll, defenseRoll, bonusRoll, pending, combatants, targetRoll])
+  }, [attackRoll, defenseRoll, pending, combatants, targetRoll])
 
   const playerAction = useCallback((actorKey, targetKey, activeSpecialId = null, forcedSpecial = null) => {
     if (phase !== 'player' || currentActor?.key !== actorKey) return false
@@ -214,19 +231,29 @@ export default function useGanguesTurnMachine({ playerTeam = [], enemyTeam = [],
 
   // Usar item: aplica a cura num ALIADO (o próprio ator OU outro personagem da
   // gangue — dá pra o tanque ficar curando o atacante). Consome o turno do
-  // ATOR igual um ataque. `delta` é { pv?, pm? }, sempre positivo (cura).
+  // ATOR igual um ataque. `delta` é { pv?, pm?, status?, statusInimigos? }:
+  // cura sempre positiva; `status` = efeitos temporários no aliado (Pinga,
+  // Vela Benta, Cigarro); `statusInimigos` = em todo inimigo vivo (Bombinha).
+  // O ator gasta 1 ação dos status que JÁ carregava ANTES de receber os novos
+  // (senão uma Pinga tomada em si mesmo já nascia com uma ação a menos).
   const useItemAction = useCallback((actorKey, targetKey, itemId, delta) => {
     if (phase !== 'player' || currentActor?.key !== actorKey) return false
     const alvoKey = targetKey || actorKey
+    // quanto de PV+PM entrou de verdade (o número verde que flutua na cura)
     const alvoAntes = combatants.find(item => item.key === alvoKey)
     const curado = alvoAntes
       ? Math.max(0, Math.min(alvoAntes.pvMax, alvoAntes.pv + (delta.pv || 0)) - alvoAntes.pv) + Math.max(0, Math.min(alvoAntes.pmMax, alvoAntes.pm + (delta.pm || 0)) - alvoAntes.pm)
       : 0
     const next = combatants.map(item => {
+      let statuses = item.key === actorKey ? gastarAcaoStatus(item.statuses) : (item.statuses || [])
+      if (item.key === alvoKey && delta.status?.length) statuses = [...statuses, ...delta.status]
+      if (item.side === 'enemy' && item.pv > 0 && delta.statusInimigos?.length) statuses = [...statuses, ...delta.statusInimigos]
+      // Remédio de status (ids 30–39): tira o status do Mandingueiro (entrada com `id`), nunca buff de item.
+      if (item.key === alvoKey && delta.curaStatus != null) statuses = statuses.filter(st => st.id == null || (delta.curaStatus !== ST_TODOS && st.id !== delta.curaStatus))
       const cura = item.key === alvoKey
-        ? { pv: Math.min(item.pvMax, item.pv + (delta.pv || 0)), pm: Math.min(item.pmMax, item.pm + (delta.pm || 0)), ...(delta.status ? { statuses: (item.statuses || []).filter(s => delta.status !== ST_TODOS && s.id !== delta.status) } : {}) }
+        ? { pv: Math.min(item.pvMax, item.pv + (delta.pv || 0)), pm: Math.min(item.pmMax, item.pm + (delta.pm || 0)) }
         : {}
-      return { ...item, ...cura }
+      return { ...item, ...cura, statuses }
     })
     record({ type: 'item', side: 'player', actorKey, targetKey: alvoKey, itemId, delta, curado, round })
     advanceTurn(next, actorKey)

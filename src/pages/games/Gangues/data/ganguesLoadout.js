@@ -11,8 +11,16 @@ export const GANGUES_ROSTER_LIMITS = { free: 2, elite: 2, primordial: 2 }
 // recrutar elencos diferentes sem perder o save anterior. Guest não salva
 // na nuvem, então não tem conceito de save slot (joga só em memória).
 export const GANGUES_SAVE_SLOT_LIMITS = { free: 1, elite: 2, primordial: 3 }
+// BETA (Isaias, 27/09/2026): "deixa liberado três slots para todo mundo
+// durante o beta". Enquanto for true, toda conta (free/elite/primordial) tem
+// o teto máximo. No lançamento é só virar pra false — a regra 1/2/3 por plano
+// já está pronta acima. Gangue criada a mais no beta NÃO some quando virar:
+// o limite só impede fundar gangue nova, nunca apaga nem esconde save.
+export const GANGUES_SAVE_SLOTS_BETA_LIBERADO = true
+const GANGUES_SAVE_SLOT_MAX = Math.max(...Object.values(GANGUES_SAVE_SLOT_LIMITS))
 
 export function getGanguesSaveSlotLimit(tier) {
+  if (GANGUES_SAVE_SLOTS_BETA_LIBERADO) return GANGUES_SAVE_SLOT_MAX
   return GANGUES_SAVE_SLOT_LIMITS[tier] || GANGUES_SAVE_SLOT_LIMITS.free
 }
 
@@ -80,19 +88,21 @@ export function repMarcosCruzados(antes, depois) {
 // encontro aleatório de hoje (perseguidor, engine/ganguesEncontroAleatorio.js)
 // não usa gate de reputação — vem por tempo de jogo.
 export const GANGUES_REP_GATE_GALPAO = 25
-export const GANGUES_REP_GATE_CLUBE = 40
+// (O gate do Clube da Luta mora no módulo dele: clube/ganguesClubeRegras.js.)
 
-// Agiotagem do Nato (empréstimo em dinheiro) — pedido do Isaias, 21/09/2026:
+// Agiotagem (empréstimo em dinheiro do agiota) — pedido do Isaias, 21/09/2026:
 // "você pega um empréstimo de até 100, mas paga 10 vezes mais, fica devendo
 // 1000... a partir daí pode se endividar pelo dobro pra ganhar uma cura, até
-// 10.000 — aí o Nato não cobra mais nada, te remenda de graça mas te joga
+// 10.000 — aí o agiota não cobra mais nada, te remenda de graça mas te joga
 // pro Clube da Luta". Substitui de vez o fiado antigo (5×/10× por contagem).
-// Escada: divida=0 → empréstimo (GANGUES_EMPRESTIMO_NATO_VALOR na mão, vira
-// dívida ×MULT) → cada cura fiada DOBRA a dívida atual, até o teto.
-export const GANGUES_EMPRESTIMO_NATO_VALOR = 100
-export const GANGUES_EMPRESTIMO_NATO_MULT = 10
-export const GANGUES_EMPRESTIMO_NATO_TETO = 10000
-// Prêmio fixo de cada vitória completa no Clube da Luta (3 rondas), além de quitar a dívida.
+// Escada: divida=0 → empréstimo (GANGUES_EMPRESTIMO_VALOR na mão, vira
+// dívida ×MULT) → cada cura fiada DOBRA a dívida atual, até o teto. O agiota
+// da Feira (Juro Alto) empresta mais (`poi.emprestimo`, 300) — mesmo ×MULT.
+export const GANGUES_EMPRESTIMO_VALOR = 100
+export const GANGUES_EMPRESTIMO_MULT = 10
+export const GANGUES_EMPRESTIMO_TETO = 10000
+// Prêmio de cada vitória completa no Clube da Luta, por bairro (GDD §9.7) —
+// paga sempre, além de quitar a dívida.
 export const GANGUES_CLUBE_PREMIO = { pista: 200, feira: 300, baixada: 450, vila: 650, morro: 900, alto: 1200, laje: 1600 }
 export const clubePremioDe = territorioId => GANGUES_CLUBE_PREMIO[territorioId] ?? GANGUES_CLUBE_PREMIO.pista
 

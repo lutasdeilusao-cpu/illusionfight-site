@@ -2,8 +2,6 @@
   "games": {
     "gangues": {
       "log_batalha_inicio": "La pelea ha comenzado.",
-      "log_usou_item": "{nome} usó un objeto — renunció a su ataque esta ronda.",
-      "log_usou_item_em": "{nome} le pasó un objeto a {alvo} (+{n}) — renunció al ataque.",
       "combat_item_cheio": "Ese ya está a full — elegí a otro para curar.",
       "dano_cena_dano": "golpe de {nome}",
       "dano_cena_cura": "{nome} le pasó la cura",
@@ -18,9 +16,6 @@
         "comecar": "EMPEZAR →"
       },
       "party_size_atual": "Pandilla actual: {n}/{max}",
-      "bonus_ataque": "bono de trompada",
-      "bonus_defesa": "bono de cuero",
-      "bonus_falhou": "no se activó",
       "critico": "CRÍTICO",
       "derrota": "SE PUDRIÓ",
       "derrota_sub": "El que cae y se levanta es el que manda de verdad después.",
@@ -50,7 +45,19 @@
         "round_number": "RONDA {n}",
         "no_log": "No hay ataques registrados.",
         "back_to_gang": "VOLVER A LA PANDILLA",
-        "recrutar": "RECLUTAR NUEVO MIEMBRO"
+        "recrutar": "RECLUTAR NUEVO MIEMBRO",
+        "socorro_titulo": "Los arrastraron al bar",
+        "socorro_pagou": "La banda cayó y despertó en el bar. Remendar a todos costó {custo} de plata — ya salió del bolsillo.",
+        "socorro_emprestimo": "Sin plata para la recuperación, el usurero adelantó {emprestimo} solito. Los {custo} del bar salieron de ahí y te quedaron {grana}.",
+        "socorro_fiado": "Sin plata y ya debiendo, el usurero pagó los {custo} de la recuperación — a 10× el valor. La deuda subió {acrescimo}.",
+        "socorro_divida": "Deuda con el usurero: {divida}",
+        "socorro_clube": "Solo el Club de la Pelea limpia ese nombre.",
+        "reward_sucata": "Chatarra",
+        "reward_equip": "Pieza nueva",
+        "reward_item": "Objeto",
+        "reward_aposta": "Apuesta (al doble)",
+        "perda_item": "La Redada se llevó tu {item}.",
+        "perda_grana": "El Cobro del Turco se llevó {n} de tu plata."
       },
       "progression": {
         "loadout": "Equipados: {n}/2",
@@ -258,13 +265,15 @@
         "carregando": "Cargando bandas...",
         "sem_saves": "Todavía no tienes ninguna banda. Funda la primera.",
         "nova_gangue": "FUNDAR NUEVA BANDA",
-        "limite_atingido": "Límite de {n} banda(s) de tu plan alcanzado.",
+        "limite_atingido": "Los {n} espacios de banda están ocupados. Borrá uno para fundar otra.",
         "abrir": "CONTINUAR",
         "excluir": "Borrar banda",
         "excluir_confirm": "¿Borrar la banda \"{nome}\"? El elenco y el progreso se pierden para siempre.",
         "sem_nome": "Banda sin nombre",
         "territorios": "{n}/7 territorios",
-        "slot": "Guardado {n}"
+        "slot": "Guardado {n}",
+        "vagas": "Espacios de banda: {usadas}/{total}",
+        "beta_liberado": "Beta: 3 espacios liberados para todos. Después del beta: Free 1 · Elite 2 · Primordial 3."
       },
       "carregando": "cargando...",
       "btn_proximo": "siguiente →",
@@ -297,11 +306,25 @@
         "atacar": "Atacar",
         "poder": "Talento",
         "item": "Objeto",
-        "item_vazio": "Todavía no hay objetos — pronto.",
+        "item_vazio": "Bolsa vacía — pasá por el almacén del barrio.",
         "item_qtd": "×{n}",
         "item_em_quem": "¿a quién?",
         "alvo_caido": "caído",
-        "alvo_cheio": "ya está lleno"
+        "alvo_cheio": "ya está lleno",
+        "na_vez": "Le toca",
+        "voltar": "Volver",
+        "auto_ajustar": "Ajustar",
+        "auto_cada_um": "Qué usa cada uno en automático",
+        "auto_normal": "Ataque normal",
+        "auto_pocao": "Poción de PV sola",
+        "auto_pocao_desc": "¿Alguien con 50% de PV o menos? El más entero de la banda larga su turno y le da poción de PV al más golpeado.",
+        "auto_tutorial": {
+          "talento": "Acá armás el automático, pibe. Para cada uno de la banda elegí: solo ataque normal, o UN talento que larga cada vez que tenga PM. Se acabó el PM, vuelve al ataque normal.",
+          "pocao": "Prendé las pociones solas y nadie cae de gusto. PV: alguien llegó al 50%, el más entero larga su turno y le pasa la poción — el herido sigue a las piñas (vale hasta en la riña con la app en segundo plano). PM: el que larga talento y se quedó sin PM toma poción de PM y vuelve a largarlo. En la riña, con la app en segundo plano, es solo ataque normal, sin talento.",
+          "derrota": "Pero ojo: perdiste la pelea y se apaga TODO lo automático. Ahí te toca a vos de nuevo."
+        },
+        "auto_pocao_pm": "Poción de PM sola",
+        "auto_pocao_pm_desc": "El que tiene talento en automático y se quedó sin PM para largarlo toma poción de PM en su propio turno."
       },
       "itens": {
         "1": "Poción de HP",
@@ -319,7 +342,17 @@
         "36": "Leche Caliente",
         "37": "Agua con Azúcar",
         "38": "Emplasto",
-        "39": "Aloe"
+        "39": "Aloe",
+        "3": "Cigarro de Paja",
+        "4": "Agua Energética",
+        "5": "Venda de Trapo",
+        "6": "Aguardiente",
+        "8": "Bomba de Humo",
+        "10": "Harina de Guaraná",
+        "11": "Vela Bendita",
+        "12": "Bolsa de Caramelos",
+        "14": "Cable de Cobre",
+        "15": "Válvula de Radio"
       },
       "loja": {
         "sub": "Compra con la plata de la banda — se puede usar en cualquier pelea.",
@@ -333,7 +366,10 @@
           "arma": "Arma",
           "protecao": "Protección",
           "amuleto": "Amuleto"
-        }
+        },
+        "pechincha_botao": "Regatear (−{n}% si aciertas)",
+        "pechincha_ok": "¡Trato hecho! Todo con {n}% de descuento en esta visita.",
+        "pechincha_falha": "Te equivocaste — precio completo, sin llorar."
       },
       "equip": {
         "titulo": "Equipo",
@@ -402,11 +438,30 @@
           "235": "Ojotas Benditas",
           "236": "Ojo Turco",
           "237": "Manopla de Lata",
-          "238": "Gorra Callejera"
+          "238": "Gorra Callejera",
+          "121": "Gorra Callejera",
+          "122": "Pasamontañas de Tela",
+          "123": "Chaqueta de Banda",
+          "124": "Manto de Sintonía",
+          "125": "Guantelete de Clavos",
+          "126": "Chancla Reforzada",
+          "127": "Cadena de Oro Falso",
+          "128": "Rosario de la Abuela",
+          "129": "Machete de Mango con Cinta",
+          "130": "Pincho de Reja",
+          "131": "Bastón de Señalero",
+          "138": "Garrote del Cobrador",
+          "139": "Machete de Carvão",
+          "140": "Chanclas",
+          "141": "Reloj Parado",
+          "142": "Zapatillas de Correr",
+          "143": "Cinta del Bonfim",
+          "144": "Colgante de Ala"
         },
         "sem_caminho": "Nadie de tu banda es de este camino.",
         "qualquer_caminho": "Cualquier camino",
-        "so_caminho": "Solo {caminho}"
+        "so_caminho": "Solo {caminho}",
+        "faixa_explica": "El bono es un rango y se tira en el momento: Trompada en cada golpe, Cuero en cada defensa, Pique una vez al empezar la pelea. La comparación de abajo usa el promedio."
       },
       "bag": {
         "eyebrow": "Bolso",
@@ -546,8 +601,8 @@
       },
       "auto": {
         "switch_label": "Automático",
-        "switch_titulo": "Activa el modo automático — tus luchadores atacan solos con el ataque normal. Para usar un talento, apágalo y vuelve al modo manual.",
-        "premium_titulo": "El modo automático es ventaja de suscriptor — toca para suscribirte",
+        "switch_titulo": "Prendé el modo automático — cada uno de la banda actúa solo como lo ajustaste (ataque normal o talento, con o sin poción).",
+        "premium_titulo": "El modo automático es ventaja de suscriptor — tocá para suscribirte",
         "sair": "Salir del automático"
       },
       "multidao": {
@@ -3869,7 +3924,9 @@
         "resultado": "RESULTADO: {n}!",
         "ataca": "ataca",
         "critico_player": "¡CRÍTICO! ¡GOLPE PERFECTO!",
-        "critico_enemy": "¡CRÍTICO! ¡GOLPE FATAL!"
+        "critico_enemy": "¡CRÍTICO! ¡GOLPE FATAL!",
+        "arma": "arma +{n}",
+        "armadura": "cuero +{n}"
       },
       "beat": {
         "derrotado": "DERROTADO"
@@ -3901,6 +3958,7 @@
         "agora_nao": "Ahora no",
         "continuar_territorio": "Seguir en el barrio",
         "tentar_de_novo": "Volver arriba",
+        "ir_birosca": "Despertar en el bar",
         "dificuldades": {
           "rato": "Rata de calle",
           "muvuca": "Amontonado",
@@ -4120,6 +4178,30 @@
               "El Cobrador de la Banca está en la Pista. Toda banda paga su parte, y vos debés la tuya.",
               "No acepta excusas. Acepta plata o piñas."
             ]
+          },
+          "rapa": {
+            "nome": "La Redada",
+            "onomatopeia": "¡PRIII!",
+            "aviso": [
+              "Se pudrió, pibe — los inspectores de la municipalidad.",
+              "Están barriendo la Feria. Si te agarran, se llevan lo que tengas en la mochila."
+            ]
+          },
+          "apagao": {
+            "nome": "Los Gatos en lo oscuro",
+            "onomatopeia": "¡TSSS!",
+            "aviso": [
+              "Se apagó todo de una...",
+              "A oscuras los Gatos no necesitan luz — te rodean por todos lados."
+            ]
+          },
+          "cobranca_divida": {
+            "nome": "El Cobro del Turco",
+            "onomatopeia": "¡TOC TOC!",
+            "aviso": [
+              "Toda la Feria sabe que debés.",
+              "Los cobradores del Turco vinieron por un pedazo. Si perdés, se llevan de tu plata."
+            ]
           }
         },
         "fechar": "Cerrar",
@@ -4139,7 +4221,8 @@
           "descanso": "Bar",
           "loja": "Tienda",
           "agiota": "Prestamista",
-          "banca": "Apuestas"
+          "banca": "Apuestas",
+          "ferreiro": "Herrería"
         },
         "descanso_titulo": "La tropa descansó. Cada uno recuperó:",
         "descanso_ja_inteira": "La tropa ya está entera, pibe. Guardate la plata.",
@@ -4149,7 +4232,7 @@
         "descanso_animando": "Descansando...",
         "tropa_no_chao": "Tu tropa está toda en el piso, pibe. Así nadie encara a nadie. Pasá por el kiosco del Nato antes.",
         "aviso_rep_treta": "Esa es harina de otro costal, pibe. No es hora de hacerte el guapo sin nombre hecho en la calle — juntá más reputación antes de encarar (rep {rep}).",
-        "aviso_rep_clube": "El Avispón ni te deja entrar a la rueda sin que tengas nombre en la calle. Juntá más reputación antes de aparecer por acá (rep {rep}).",
+        "aviso_rep_clube": "El {agiota} ni te deja entrar a la rueda sin que tengas nombre en la calle. Juntá más reputación antes de aparecer por acá (rep {rep}).",
         "rep_recompensa": {
           "titulo": "¡REPUTACIÓN {valor}!",
           "sub": "Tu nombre ya suena en la calle, pibe. Agarrá esto.",
@@ -4157,26 +4240,22 @@
         },
         "emprestimo_pedir": "Pedir un préstamo (+{valor}, quedás debiendo {divida})",
         "emprestimo_contrato_tag": "Contrato · sin plazo",
-        "emprestimo_contrato": "El Avispón te cuenta {valor} en la mano, ni lo cuenta dos veces. \"Esto rinde, pibe. Ahora me debés {divida}. Sin plazo — solo no desaparezcas.\"",
-        "emprestimo_ja_deve": "Ya le debés al Avispón, pibe. Arreglá esa cuenta antes de pedir más.",
+        "emprestimo_contrato": "El {agiota} te cuenta {valor} en la mano, ni lo cuenta dos veces. \"Esto rinde, pibe. Ahora me debés {divida}. Sin plazo — solo no desaparezcas.\"",
+        "emprestimo_ja_deve": "Ya le debés al {agiota}, pibe. Arreglá esa cuenta antes de pedir más.",
         "fiado_pedir": "Pedir más fiado (cura general, quedás debiendo {divida})",
         "fiado_contrato_tag": "Contrato · sin plazo",
-        "fiado_contrato_cura": "El Avispón manda curar a toda tu tropa, a cuenta. \"Tu deuda se duplicó, pibe. Ahora son {divida}.\"",
-        "fiado_sem_emprestimo": "Todavía no le debés nada, pibe. Pedí el préstamo del Avispón primero.",
-        "fiado_teto": "Tu deuda ya está al tope, pibe. El Avispón solo arregla esto tirándote a la rueda.",
-        "fiado_devendo": "Libreta del Avispón: le debés {divida} de plata.",
-        "fiado_pagar": "Pagarle al Avispón (−{grana})",
-        "fiado_pago_parcial": "Bajaste {pago}. Todavía faltan {restante} para el Avispón.",
-        "fiado_pago_total": "Saldaste los {pago}. Tu nombre quedó limpio con el Avispón.",
-        "nato_socorro": "Pedirle socorro al Avispón",
-        "nato_socorro_tag": "El Avispón pierde la paciencia",
-        "nato_socorro_fala": "El Avispón niega con la cabeza. \"Basta, pibe. Esa deuda ya pasó lo que puedo cobrar. Te remiendo gratis — pero esto lo arreglás en la rueda, quieras o no.\"",
-        "nato_socorro_seguir": "Seguir (te vendan ya)",
-        "aviso_divida_chefe": "No encarás al Carbón debiéndole al Avispón, pibe. Saldá esa deuda de {divida} antes — su rueda es el camino más rápido.",
+        "fiado_contrato_cura": "El {agiota} manda curar a toda tu tropa, a cuenta. \"Tu deuda se duplicó, pibe. Ahora son {divida}.\"",
+        "fiado_sem_emprestimo": "Todavía no le debés nada, pibe. Pedí el préstamo del {agiota} primero.",
+        "fiado_teto": "Tu deuda ya está al tope, pibe. El {agiota} solo arregla esto tirándote a la rueda.",
+        "fiado_devendo": "Libreta del {agiota}: le debés {divida} de plata.",
+        "fiado_pagar": "Pagarle al {agiota} (−{grana})",
+        "fiado_pago_parcial": "Bajaste {pago}. Todavía faltan {restante} para el {agiota}.",
+        "fiado_pago_total": "Saldaste los {pago}. Tu nombre quedó limpio con el {agiota}.",
+        "aviso_divida_chefe": "{chefe} no te recibe si le debés al {agiota}, pibe. Saldá esa deuda de {divida} antes — su rueda es el camino más rápido.",
         "clube_botao": "▸ El Club de la Pelea",
-        "clube_oferta_tag": "Propuesta · la rueda del Avispón",
-        "clube_oferta_limpo": "El Avispón te encara. \"Estás limpio conmigo. Pero tengo un laburo: rueda de apuestas, mía. Entrás, ganás, salís con 200 en la mano. No da experiencia — en la rueda nadie aprende nada. Perdés, te remendamos y probás de nuevo. Solo que la entrada te la fío: te curo ahora y eso queda como deuda si no ganás. ¿Arreglamos?\"",
-        "clube_oferta_divida": "El Avispón golpea la libreta. \"Me debés. Pero tengo un laburo para eso: rueda de apuestas, mía. Entrás, ganás, tu deuda desaparece — toda, no importa el tamaño. Y encima salís con 200 en la mano. Experiencia no da — en la rueda nadie aprende nada. Perdés, te remendamos y probás de nuevo. La entrada ya te la fío — 15 veces — y curo a toda la tropa. ¿Arreglamos?\"",
+        "clube_oferta_tag": "Propuesta · la rueda del {agiota}",
+        "clube_oferta_limpo": "El {agiota} te encara. \"Estás limpio conmigo. Pero tengo un laburo: rueda de apuestas, mía. Entrás, ganás, salís con {premio} en la mano. No da experiencia — en la rueda nadie aprende nada. Perdés, te remendamos y probás de nuevo. Solo que la entrada te la fío: te curo ahora y eso queda como deuda si no ganás. ¿Arreglamos?\"",
+        "clube_oferta_divida": "El {agiota} golpea la libreta. \"Me debés. Pero tengo un laburo para eso: rueda de apuestas, mía. Entrás, ganás, tu deuda desaparece — toda, no importa el tamaño. Y encima salís con {premio} en la mano. Experiencia no da — en la rueda nadie aprende nada. Perdés, te remendamos y probás de nuevo. La entrada ya te la fío — 15 veces — y curo a toda la tropa. ¿Arreglamos?\"",
         "clube_recusar": "Ahora no",
         "clube_aceitar": "Aceptar (te vendan ya)",
         "pista": {
@@ -4227,8 +4306,8 @@
           },
           "rinha": {
             "nome": "La riña del callejón",
-            "sub": "apuesta clandestina",
-            "fala": "Rueda de apuestas en el fondo del callejón, pibe. El que entra, come piña o cobra. Siempre hay algún loco que quiere probar la mano contra la banda nuevita de turno — dale, encará las veces que aguantes de pie."
+            "sub": "pelea sin fin — hasta con la app cerrada",
+            "fala": "Rueda de apuestas en el fondo del callejón, pibe. El que entra, come piña o cobra. Siempre hay algún loco que quiere probar la mano contra la banda nuevita de turno — dale, encará las veces que aguantes de pie. Acá la rueda no para: termina una, ya entra otro — más débil, más fuerte, es sorteo. Podés dejar a la banda acá e ir a hacer tu vida: 1 pelea cada 5 minutos."
           },
           "birosca": {
             "nome": "El bar de Don Nato",
@@ -4452,7 +4531,13 @@
           "banca": {
             "nome": "La Banca del Tío Dado",
             "fala": "\"Acá nadie cobra, pibe. Acá se apuesta. Cabeza buena gana, mano buena gana — y el que sabe de peleas lee la riña antes de la primera trompada.\""
-          }
+          },
+          "bancada_nando": {
+            "nome": "El banco de Nando",
+            "sub": "mejora tu pieza",
+            "fala": "Traé la pieza y unos pedazos de chatarra que la arreglo a martillazo. Arma que antes pegaba flojo de vez en cuando, después de mí pega firme siempre."
+          },
+          "pich": "RATAS DE PISTA"
         },
         "carregando_mapa": "CARGANDO EL MAPA...",
         "hint_andar": "Usá el joystick y bajá a la calle.",
@@ -4465,7 +4550,18 @@
           "voltar": "VOLVER",
           "avancar": "AVANZAR",
           "desafiar": "ENCARÁ",
-          "trancado": "CERRADO"
+          "trancado": "CERRADO",
+          "papo": "HABLAR",
+          "treta": "ENFRENTAR",
+          "parada": "INVESTIGAR",
+          "corre": "SEGUIR",
+          "descanso": "DESCANSAR",
+          "loja": "COMPRAR",
+          "achado": "AGARRAR",
+          "agiota": "USURERO",
+          "ferreiro": "MEJORAR",
+          "interagir": "INTERACTUAR",
+          "banca": "APOSTAR"
         },
         "comodo": "CUARTO {n}/{de}",
         "muro_tunel": "El muro no se abre así nomás. Encontrá la brecha por debajo.",
@@ -4482,7 +4578,405 @@
           "galpao": "El galpón del Carvão",
           "limpo": "Zona limpia, pibe."
         },
-        "descanso_completo": "Cura completa: vida, caídos y estados (−{grana})"
+        "descanso_completo": "Cura completa: vida, caídos y estados (−{grana})",
+        "agiota_socorro": "Pedirle socorro al {agiota}",
+        "agiota_socorro_tag": "El {agiota} pierde la paciencia",
+        "agiota_socorro_fala": "El {agiota} niega con la cabeza. \"Basta, pibe. Esa deuda ya pasó lo que puedo cobrar. Te remiendo gratis — pero esto lo arreglás en la rueda, quieras o no.\"",
+        "agiota_socorro_seguir": "Seguir (te vendan ya)",
+        "dominada": "DOMINADA",
+        "recompensa": "RECOMPENSA",
+        "ficha_anterior": "ANTERIOR",
+        "ficha_proximo": "SIGUIENTE",
+        "aposta_titulo": "¿Cuánto pones en la rueda?",
+        "aposta_nada": "Nada",
+        "aposta_premio": "Ganás, te llevás {n}.",
+        "skin": {
+          "gazua": "ganzúa en el portón",
+          "viatura": "la patrulla está en la calle",
+          "fios": "enganche en el cableado",
+          "gato": "el código de los Gatos",
+          "rapa": "la Redada está rondando"
+        },
+        "feira": {
+          "chegada": [
+            "Esta es la Feria, pibe. Acá no hay tiros — hay cuentas.",
+            "Cada puesto le paga al Turco, y cada centavo está en su libreta. La mitad de arriba está a oscuras: los Gatos cortaron la luz.",
+            "¿Querés al Cobrador? Primero hacé que toda la Feria te respete."
+          ],
+          "aviso_informante": "El Cobrador ni te recibe todavía. Alguien en la Pista sabe cómo llegar a él — habla con Duda.",
+          "boss_trancado": "La barricada del apagón está cerrada — resuelve primero la Feria de abajo.",
+          "muro_passagem": "La barricada no abre — pero la Galería de los Gatos pasa por debajo.",
+          "checklist_dica": "Resolvé todo acá abajo para abrir la Galería de los Gatos.",
+          "checklist_passagem": "Galería abierta — cruza al lado apagado.",
+          "minimapa_galeria": "Galería de los Gatos",
+          "minimapa_mercadao": "Mercadón",
+          "hint_radio_pronto": "Ya tenés el cobre y las 3 válvulas — llevaselos a Toninho para arreglar la radio.",
+          "hint_radio_falta": "La radio de Toninho necesita 1 cable de cobre y 3 válvulas. Buscá en la Feria (el vendedor ambulante vende una).",
+          "pich": "LOS GATOS",
+          "grafite": "QUIEN DEBE\nTEME",
+          "predio": {
+            "hortifruti": "Verdulería",
+            "pensao": "Pensión de Doña Regina",
+            "caderneta": "Libreta del Turco",
+            "acougue": "Carnicería",
+            "pastel": "Pastelería",
+            "radio": "Radios de Toninho",
+            "galeria_ent": "Galería de los Gatos",
+            "galeria_sai": "Salida de la Galería",
+            "mercearia": "Almacén de Don Aziz",
+            "pensao_2": "Pensión de la hija",
+            "serralheria": "Herrería del Bigote"
+          },
+          "int": {
+            "pensao": "Pensión de Doña Regina",
+            "radio": "Taller de radios",
+            "mercearia": "Almacén de Don Aziz",
+            "serralheria": "Herrería del Bigote",
+            "pensao_2": "Pensión de la hija",
+            "galeria": "Galería de los Gatos",
+            "mercadao": "El Mercadón"
+          },
+          "catraca": {
+            "nome": "El Torniquete",
+            "sub": "el peaje de los Gatos en la entrada",
+            "fala": [
+              "Epa, epa. La entrada a la Feria se paga, pibe.",
+              "O largás el vuelto, o pasás por encima nuestro."
+            ]
+          },
+          "banca_turco": {
+            "nome": "El Puesto del Turco",
+            "sub": "donde la Feria paga su cuota",
+            "fala": [
+              "Banda nueva en la Feria... Al Turco le gusta la gente nueva. La gente nueva todavía paga a tiempo.",
+              "Cuota de llegada: 20. Pagas y quedas tranquilo. No pagas y el Cobrador viene a conversar contigo."
+            ],
+            "fala_devedor": [
+              "Mirá quién llegó. Estás en la libreta, ¿eh? Debiéndole al usurero y todavía querés puesto en la Feria.",
+              "Pagá la cuota de llegada o los cobradores te encuentran antes de que encuentres la salida."
+            ],
+            "escolhas": {
+              "paga_taxa": {
+                "label": "Pagá los 20 de cuota",
+                "resultado": "Anota tu nombre con cuidado. \"Pagador. Al Turco le gusta. Pero a sus cobradores no les gusta nadie — están ahí nomás.\""
+              },
+              "nao_paga": {
+                "label": "No paga nada",
+                "resultado": "Cierra la libreta despacio. \"Anotado. Andá a hablar con los cobradores, entonces.\""
+              }
+            }
+          },
+          "cobranca": {
+            "nome": "El cobro",
+            "sub": "los cobradores del Turco",
+            "fala": [
+              "Vinimos por lo que es del Turco.",
+              "Todo el mundo paga. Vos también vas a pagar — de una forma o de otra."
+            ]
+          },
+          "quadro_luz": {
+            "nome": "El tablero de luz",
+            "sub": "el enganche que alimenta la Feria",
+            "intro": "Los Gatos sacan la luz de toda la Feria desde este tablero. Rehacé el camino de los cables sin tocar los que están vivos — un error y la banda se electrocuta, y el ruido llama a la pandilla."
+          },
+          "beco_gato": {
+            "nome": "El Callejón de los Gatos",
+            "sub": "donde se esconde la banda del cableado",
+            "fala": [
+              "¿Tocaste nuestro tablero? Acá nadie toca nuestra luz.",
+              "Los Gatos viven a oscuras, pibe. Vení a aprender cómo es."
+            ]
+          },
+          "balanca": {
+            "nome": "La balanza trucada",
+            "sub": "el peso del Turco siempre gana",
+            "fala": [
+              "Acá el que pesa soy yo. Y te pesé: debés.",
+              "Cada puesto paga el peso que yo digo."
+            ]
+          },
+          "caderneta_viva": {
+            "nome": "El Libreta",
+            "sub": "recuerda cada centavo",
+            "fala": [
+              "Sé el nombre de cada deudor de Marélia. Y el tuyo está acá.",
+              "El que debe cobra con intereses."
+            ]
+          },
+          "mao_turco": {
+            "nome": "La Mano del Turco",
+            "sub": "el brazo que cobra",
+            "fala": [
+              "La radio pirata habló de mí, ¿no? Entonces sabés quién soy.",
+              "Soy la mano que usa el Turco para cerrar la cuenta."
+            ]
+          },
+          "caixa_forte": {
+            "nome": "La Caja Fuerte",
+            "sub": "la caja de la Feria tiene piernas",
+            "fala": [
+              "Todo lo que paga la Feria pasa por mí.",
+              "¿Querés la plata? Vení a sacarla de la caja."
+            ]
+          },
+          "radio": {
+            "nome": "Toninho de la Radio",
+            "sub": "arregla todo lo que chisporrotea",
+            "fala": [
+              "Esta radio agarra la frecuencia del Ajuste de Cuentas — los del Turco hablan todo por ahí.",
+              "Solo que se quemó. Traeme 1 cable de cobre y 3 válvulas y la hago hablar."
+            ],
+            "escolhas": {
+              "consertar": {
+                "label": "Entrega el cobre y las 3 válvulas",
+                "resultado": "Toninho suelda, sopla, gira la perilla... y la radio larga una voz: \"La Mano y la Caja Fuerte están en la Feria hoy.\" Ahora sabés dónde están."
+              }
+            }
+          },
+          "camelo": {
+            "nome": "El Vendedor Ambulante",
+            "sub": "un poco de todo, y más barato si sabés hablar"
+          },
+          "muamba": {
+            "nome": "El Contrabando del Domingo",
+            "sub": "cruza la Feria sin que la Redada te vea",
+            "intro": "Llevá el contrabando de una punta a la otra de la Feria. La Redada está rondando y el tiempo corre — si te ven, perdés todo."
+          },
+          "favor_marmita": {
+            "nome": "La vianda de Regina",
+            "sub": "favor para Doña Regina",
+            "intro": "Doña Regina pidió: lleva la vianda de su hijo al otro lado de la Feria sin que la Redada la confisque. Favor pagado es fiado liberado."
+          },
+          "favor_devedor": {
+            "nome": "Números Rojos",
+            "sub": "le debe a Doña Regina hace meses",
+            "fala": [
+              "¿Qué? ¿Regina te mandó? Pago la semana que viene, lo juro.",
+              "La semana que viene, igual que la semana pasada."
+            ],
+            "escolhas": {
+              "convence": {
+                "label": "Convencelo hablando",
+                "resultado": "Se rasca la cabeza, suspira y le paga a Regina. \"Está bien, está bien. Ella siempre me dio de comer.\""
+              },
+              "aperta": {
+                "label": "Apretalo",
+                "resultado": "Retrocede y llama a sus amigos. \"¿Viniste a cobrar con la mano? Entonces cobrá con la mano.\""
+              }
+            }
+          },
+          "favor_cobrador": {
+            "nome": "El cobrador de la pensión",
+            "sub": "está presionando a Doña Regina",
+            "fala": [
+              "La vieja le debe al Turco. Quítate del medio.",
+              "¿Querés pagar por ella? Pagá con los huesos."
+            ]
+          },
+          "pagina_1": {
+            "nome": "Página rota",
+            "sub": "de la libreta del Turco",
+            "linha": "Pegada al piso de un puesto: una página de la libreta del Turco, llena de nombres y números. Hay más por ahí."
+          },
+          "pagina_2": {
+            "nome": "Otra página",
+            "sub": "de la libreta del Turco",
+            "linha": "En el lado apagado, doblada en un cajón: otra página de la libreta. Tiene una nota del Cobrador en el margen."
+          },
+          "pagina_3": {
+            "nome": "La última página",
+            "sub": "de la libreta del Turco",
+            "linha": "Escondida en la Galería de los Gatos: la última página. Juntas, muestran dónde el Cobrador es débil — baja la guardia cuando cobra."
+          },
+          "radio_pirata": {
+            "nome": "La radio pirata",
+            "sub": "la frecuencia del Ajuste de Cuentas",
+            "fala": [
+              "La radio chisporrotea en un rincón del taller. Entre ruido y ruido, una voz habla de la Bajada.",
+              "\"...allá abajo manda el Perfora-Tripas. Quien quiera llegar a él tiene que escuchar antes...\""
+            ],
+            "escolhas": {
+              "ouvir": {
+                "label": "Escuchá toda la frecuencia",
+                "resultado": "Anotás todo lo que dijo la radio sobre la Bajada. Cuando llegue la hora, ya sabés por dónde entrar."
+              }
+            }
+          },
+          "pensao": {
+            "nome": "Pensión de Doña Regina",
+            "sub": "comida caliente y cama limpia",
+            "intro": "Doña Regina sirve un plato de comida y acomoda a la banda en un rincón. Cuesta unas monedas — y si no tenés plata, ella lo resuelve de otra forma.",
+            "favor_pedir": "Sin plata — pide fiado a cambio de un favor",
+            "favor_pendente": "Todavía le debés un favor a Regina",
+            "favor_fala": "\"Comé, pibe. Después me hacés un favor — la Feria está llena de gente que me debe.\""
+          },
+          "pensao_2": {
+            "nome": "Pensión de la hija",
+            "sub": "la hija de Regina, del lado apagado",
+            "intro": "La hija de Doña Regina lleva una pensión del lado oscuro, a luz de vela. La misma regla de la madre: pagas unas monedas y la banda se arregla.",
+            "favor_pedir": "Sin plata — pide fiado a cambio de un favor",
+            "favor_pendente": "Todavía le debés un favor a Regina",
+            "favor_fala": "\"Mi mamá me habló de vos. Comé — el favor lo arreglás con ella.\""
+          },
+          "juro_alto": {
+            "nome": "Interés Alto",
+            "sub": "presta mucho, cobra mucho más",
+            "fala": [
+              "¿Necesitás plata grande, pibe? Yo no trabajo con monedas.",
+              "300 en la mano ahora. Pero la cuenta... la cuenta es mía."
+            ],
+            "botao_ver_contrato": "Quiero los 300",
+            "contrato_tag": "Contrato · interés alto",
+            "contrato_corpo": "\"300 en la mano, ya. ¿Aceptas o no aceptas?\"",
+            "contrato_letra_miuda": "Letra chica del contrato: quedas debiendo {divida}.",
+            "contrato_aceitar": "Acepto",
+            "contrato_recusar": "No acepto"
+          },
+          "deposito_1": {
+            "nome": "La puerta del depósito",
+            "sub": "Interés Alto y sus matones",
+            "fala": [
+              "De acá en adelante es el Mercadón. Nadie pasa sin pagar.",
+              "Y no te alcanza para lo que cobramos."
+            ]
+          },
+          "deposito_2": {
+            "nome": "El guardia del Mercadón",
+            "sub": "solo abre para quien tiene nombre",
+            "fala": [
+              "¿Tenés nombre en la Feria? Entonces probalo.",
+              "El Turco solo recibe a quien la calle respeta."
+            ]
+          },
+          "rinha_apostas": {
+            "nome": "Riña de Apuestas",
+            "sub": "apuesta y pelea sin fin — la apuesta vale en la 1ª",
+            "fala": [
+              "Acá a oscuras la rueda gira con plata en la mesa.",
+              "Poné tu apuesta y entrá. Ganás, te llevás el doble. Perdés, te quedás sin nada.",
+              "La rueda no para: termina una, ya entra otro, sorteado. Podés dejar a la banda acá — 1 pelea cada 5 minutos."
+            ]
+          },
+          "mercearia": {
+            "nome": "Almacén de Don Aziz"
+          },
+          "serralheria": {
+            "nome": "Herrería del Bigote",
+            "fala": "Nando hace el primer ajuste. Yo voy hasta el final: trae la pieza y chatarra y la dejo pegando firme siempre."
+          },
+          "galeria": {
+            "m1": {
+              "nome": "Vigía de los Gatos",
+              "fala": [
+                "¿Entraste a la Galería? Esta es la casa de los Gatos, pibe.",
+                "Nadie cruza sin pagar peaje."
+              ]
+            },
+            "porta": {
+              "nome": "La puerta de los Gatos",
+              "sub": "cerrada con su código",
+              "intro": "Una puerta de hierro con candado de código. Los Gatos cambian la clave cada semana — descifrá el código para pasar. Si le errás, vienen a ver quién la tocó."
+            },
+            "m2": {
+              "nome": "Los Gatos del medio",
+              "fala": [
+                "¿Abriste nuestra puerta? Ahora estás encerrado acá con nosotros.",
+                "A oscuras vemos mejor que vos."
+              ]
+            },
+            "m3": {
+              "nome": "Vigía de la salida",
+              "fala": [
+                "Casi saliendo, ¿no? Casi.",
+                "La luz está del otro lado de mí."
+              ]
+            }
+          },
+          "mercadao": {
+            "m2": {
+              "nome": "Mazo",
+              "fala": [
+                "La cámara fría es lugar de carne quieta. Vos te quedás acá.",
+                "Yo cuido lo que es del Turco. Vos no pasás."
+              ]
+            },
+            "achado": {
+              "nome": "El stock escondido",
+              "sub": "lo que el Turco guarda para él",
+              "linha": "Detrás de las cajas de mercancía: plata, chatarra y una buena pieza. El Turco no lo va a notar — nunca cuenta su propio stock."
+            },
+            "livro_caixa": {
+              "nome": "El libro de caja",
+              "sub": "la cuenta de toda la Feria",
+              "fala": [
+                "Sobre la mesa, el libro de caja del Turco. Cada puesto, cada deudor, cada centavo.",
+                "En la última hoja, una nota del Cobrador: \"cuando cobro, bajo la guardia\"."
+              ],
+              "escolhas": {
+                "ler": {
+                  "label": "Leelo todo",
+                  "resultado": "Cerrás el libro. Si juntás las 3 páginas de la libreta, el Cobrador entra a la pelea con la guardia baja."
+                }
+              }
+            },
+            "barraca_1": {
+              "nome": "El dueño del primer puesto",
+              "fala": [
+                "Entraste al Mercadón por el pasillo equivocado, pibe. Acá cada puesto es del Turco.",
+                "¿Querés pasar? Pagá el peaje de la lona — con los huesos."
+              ]
+            },
+            "barraca_2": {
+              "nome": "La banda de las empanadas",
+              "fala": [
+                "¡Epa, epa, epa! ¡Llamen a la muchachada, hay un intruso entre los puestos!",
+                "Acá adentro peleamos en banda, pibe. Solo no salís."
+              ]
+            },
+            "barraca_3": {
+              "nome": "El vigía de las lonas",
+              "fala": [
+                "Este laberinto se armó para que nadie encuentre la caja fuerte.",
+                "Y el que la encuentra, antes cobra de mí."
+              ]
+            },
+            "barraca_4": {
+              "nome": "El fiscal del pasillo",
+              "fala": [
+                "Cada puesto que pasás es una deuda que hacés, ¿sabías?",
+                "Esta te la cobro ahora."
+              ]
+            },
+            "barraca_5": {
+              "nome": "La plaza de los cobradores",
+              "fala": [
+                "Llegaste lejos, ¿eh? Todos los cobradores del Turco juntos acá.",
+                "De acá en adelante solo pasa el que salda la cuenta."
+              ]
+            },
+            "barraca_6": {
+              "nome": "El último de la fila",
+              "fala": [
+                "Después de mí solo quedan Mazo y la caja fuerte.",
+                "Y no vas a ver a ninguno de los dos."
+              ]
+            }
+          }
+        },
+        "briga_auto": "Pelea auto",
+        "briga_auto_aviso": {
+          "titulo": "PELEA AUTO // TE CHOCASTE, SE ARMÓ",
+          "frases": [
+            "¿Buscabas bardo? Ahí lo tenés. ¡Bancátela!",
+            "¿Viniste agrandado? Ahora demostralo.",
+            "Uh, qué mufa: su barra ya te está rodeando.",
+            "Nada de arrugar, pibe — ahora es a las piñas.",
+            "Te chocaste con el pesado equivocado, pibe. ¡Metele con todo!",
+            "No queda para dónde rajar. ¡A los bifes!",
+            "Uy… este no vino a charlar. Vas a tener que ir con todo.",
+            "Querías quilombo. El quilombo te encontró."
+          ]
+        }
       },
       "enemy_album": {
         "1701": "Maneja la moto del asalto. No se baja, solo acelera — el que se baja es el de atrás.",
@@ -4696,6 +5190,99 @@
         "em_voce_nada": "Sin apuesta",
         "aposta_ganha": "Apuesta por vos: +{n}",
         "aposta_perdida": "Apuesta por vos: perdiste {n}"
+      },
+      "apelidos": {
+        "moto": [
+          "Pipo Caño Libre",
+          "Tito Cola",
+          "Loco Willy",
+          "Nene Trompo",
+          "Maní",
+          "Dedé Escape",
+          "Lagartija",
+          "Humito",
+          "Galletita",
+          "Juancito a Fondo",
+          "Mulita del Carril",
+          "Vava Wheelie"
+        ],
+        "policia": [
+          "Comisario Cachiporra",
+          "Sargento Bruto",
+          "Cabo Tonga",
+          "Oficial Carancho",
+          "Agente Tornillo",
+          "Sargento Esposas",
+          "Cabo Bigotón",
+          "Comisario Sirena",
+          "Agente Borceguí",
+          "Oficial Cacheo",
+          "Cabo Patrullero",
+          "Sargento Mano Pesada"
+        ],
+        "rapa": [
+          "Inspector Sellazo",
+          "Inspector Multita",
+          "Don Habilitación",
+          "Doña Decomiso",
+          "Inspector Ojo de Halcón",
+          "Don Grúa",
+          "Inspector Papeleo",
+          "Don Precinto",
+          "Inspector Birome Pesada",
+          "Doña Intimación",
+          "Don Sello Torcido",
+          "Inspector Llevatodo"
+        ]
+      },
+      "farm_ausente": {
+        "eyebrow": "IF // MIENTRAS NO ESTABAS",
+        "titulo": "La banda no aflojó",
+        "calculando": "Contando lo que pasó en la calle…",
+        "tempo": "{min} min afuera · farmeando en {lugar}",
+        "lutas": "Peleas",
+        "grana": "Plata",
+        "rep": "Rep",
+        "sucata": "Chatarra",
+        "niveis": "Subió de nivel",
+        "teto": "Llegaste al tope de +5 niveles por ausencia — de acá en adelante, a jugar.",
+        "derrota": "La banda cayó en una de las peleas: la arrastraron al bar y se apagó todo lo automático. Prendelo de nuevo cuando quieras volver a farmear.",
+        "pouco_tempo": "Menos de 5 minutos en la riña — ahí sale 1 pelea cada 5 minutos, y esta no llegó.",
+        "voltar": "Volver a la calle",
+        "pocoes": "Pociones",
+        "meio_nao_conta": "La pelea que estaba en curso cuando volviste no terminó a tiempo — esa no cuenta.",
+        "tempo_rua": "{min} min afuera · la banda siguió en el juego",
+        "ao_vivo": "Fuera de la riña el juego sigue de verdad en segundo plano, mientras el celular te deje — esto es lo que corrió. Para farmear con el reloj, dejá a la banda en la riña.",
+        "seguir": "Seguir",
+        "continuar_rinha": "Seguir en la riña",
+        "nada_rodou": "El celular pausó el juego antes de que cerrara alguna pelea — fuera de la riña solo cuenta lo que corre de verdad. Para farmear aunque el juego esté parado, dejá a la banda en la riña."
+      },
+      "ferreiro": {
+        "sub": "mejora hasta +{n}",
+        "sucata": "{n} chatarra",
+        "regra": "Cada mejora le quita la suerte a la pieza: la impar tira el dado 2 veces y se queda con el mayor (▲), la par sube el mínimo. En el tope, siempre da el máximo.",
+        "vazio": "Ninguna pieza de la banda se puede mejorar — solo arma, cabeza, manos, pies y amuleto con rango.",
+        "na_mochila": "guardada en la banda",
+        "no_maximo": "al máximo",
+        "teto_aqui": "acá no pasa de eso",
+        "feito": "{nome} ahora está +{n}. Se siente en la mano.",
+        "falta_teto": "Eso ya no lo puedo subir más.",
+        "falta_grana": "Falta plata, pibe.",
+        "falta_sucata": "Falta chatarra. Sin fierro no hago milagros.",
+        "falta_sem_peca": "¿Y la pieza?"
+      },
+      "log_item": "{nome} usó {item} ({efeito}) — renunció al ataque.",
+      "log_item_em": "{nome} le pasó {item} a {alvo} ({efeito}) — renunció al ataque.",
+      "log_item_inimigos": "{nome} le tiró {item} a la banda ({efeito}) — renunció al ataque.",
+      "itens_efeito": {
+        "inimigos": "banda enemiga",
+        "acoes": "{n} acción(es)",
+        "material": "material de reparación — no se usa en la pelea",
+        "poder": "da un poder por 1 golpe"
+      },
+      "rinha": {
+        "proxima": "Próxima pelea",
+        "sair": "Salir de la riña"
       }
     }
   }

@@ -2,8 +2,8 @@ import { useState } from 'react'
 import { createPortal } from 'react-dom'
 import { useLanguage } from '../../../../../context/LanguageContext'
 import { useGanguesStore } from '../../store/useGanguesStore'
-import { getGanguesItem } from '../../data/ganguesItens.js'
-import { getGanguesEquip, getGanguesAttributesWithEquip, previewGanguesAttributesWithEquip, applyGanguesEquipResources, withGanguesEquip, normalizeGanguesEquipment, podeEquiparGangues } from '../../data/ganguesEquip.js'
+import { getGanguesItem, textoEfeitoItem } from '../../data/ganguesItens.js'
+import { getGanguesEquip, getGanguesAttributesWithEquip, previewGanguesAttributesWithEquip, applyGanguesEquipResources, withGanguesEquip, normalizeGanguesEquipment, textoBonusEquip, atributoPrincipal, podeEquiparGangues } from '../../data/ganguesEquip.js'
 import { getGanguesResources } from '../../data/ganguesLoadout.js'
 import { getGanguesCharacter, getGanguesLevelFromXp } from '../../data/ganguesCharacters.js'
 import { getGanguesPortraitByTemplateId } from '../../data/ganguesPortraits.js'
@@ -11,6 +11,8 @@ import { getGanguesNpcPortrait } from '../../data/ganguesNpcPortraits.js'
 import { getGanguesEnemyPortraitById } from '../../data/ganguesEnemyPortraits.js'
 import GanguesRetratoImg from '../GanguesRetratoImg'
 import { sfx } from '../../../../../lib/sfx'
+import PuzzleAnagrama from '../../../../../components/Puzzles/PuzzleAnagrama'
+import '../../../../../components/Puzzles/Puzzles.css'
 
 /* Encontro LOJA — vende os itens do próprio POI (poi.itens: ['pocao_hp',
    'colete_couro',...]). Catálogo mistura consumível (data/ganguesItens.js) e
@@ -32,7 +34,10 @@ import { sfx } from '../../../../../lib/sfx'
    carregado globalmente — sem CSS novo). `retratoEnemyId` existe pra
    loja poder pedir emprestada uma cara do catálogo de INIMIGO (ex: o
    "balconista" já tem arte, e nem faz sentido de personagem de vitrine)
-   sem nenhuma implicação de combate — é só a imagem. */
+   sem nenhuma implicação de combate — é só a imagem.
+   `poi.pechincha` (opcional, { desconto }) — o Camelô da Feira: acertou o
+   anagrama, a vitrine inteira sai com desconto NESTA visita (estado local,
+   fechou a loja acabou). Errou, paga o preço cheio — só uma tentativa. */
 
 const ATTR_ORDER = ['A', 'H', 'D', 'PM']
 
@@ -45,12 +50,6 @@ const abaDoItem = (item) => {
   return 'protecao' // cabeca / corpo / bracos / pes
 }
 
-function bonusResumo(t, bonus = {}) {
-  const parts = ATTR_ORDER.filter(attr => bonus[attr]).map(attr => `+${bonus[attr]} ${t(`games.gangues.attr_labels.${attr}`)}`)
-  if (bonus.pv) parts.push(`+${bonus.pv} PV`)
-  if (bonus.pm) parts.push(`+${bonus.pm} PM`)
-  return parts.join(' · ')
-}
 
 /** Uma linha de comparação: como a ficha do `member` fica com este equipamento. */
 function LinhaComparacao({ t, member, item, onEquipar, podePagar }) {
@@ -120,9 +119,12 @@ function DetalheItem({ item, store, t, onClose, notificar }) {
         <div className="gang-loja-det__da">
           <small>{t('games.gangues.equip.o_que_da')}</small>
           {item._equip
-            ? <strong>{bonusResumo(t, item.bonus) || '—'}</strong>
-            : <strong>+{item.valor} {item.tipo === 'cura_pm' ? 'PM' : 'PV'}</strong>}
+            ? <strong>{textoBonusEquip(t, item) || '—'}</strong>
+            : <strong>{textoEfeitoItem(t, item) || '—'}</strong>}
         </div>
+        {/* Faixa (range): explica que o bônus rola na hora e que a comparação
+            abaixo é pela MÉDIA — nunca promete o máximo. */}
+        {item._equip && atributoPrincipal(item) && <p className="gang-loja-det__faixa">{t('games.gangues.equip.faixa_explica')}</p>}
 
         {item._equip && (
           <p className="gang-loja-det__cards">
@@ -160,13 +162,15 @@ export default function GanguesLoja({ poi, onClose }) {
   const [aviso, setAviso] = useState(null) // { itemId, texto }
   const [detalhe, setDetalhe] = useState(null)
   const [aba, setAba] = useState('pocao')
+  const [pechincha, setPechincha] = useState('nao') // nao | jogando | ganhou | perdeu
 
-  const multiplicador = poi.precoMultiplicador || 1
+  const desconto = pechincha === 'ganhou' ? (poi.pechincha?.desconto || 0) : 0
+  const multiplicador = (poi.precoMultiplicador || 1) * (1 - desconto)
   const catalogo = (poi.itens || []).map(id => {
     const equip = getGanguesEquip(id)
     const base = equip ? { ...equip, _equip: true } : getGanguesItem(id)
     if (!base) return null
-    return multiplicador === 1 ? base : { ...base, custo: Math.round(base.custo * multiplicador) }
+    return multiplicador === 1 || !Number.isFinite(base.custo) ? base : { ...base, custo: Math.max(1, Math.round(base.custo * multiplicador)) }
   }).filter(Boolean).filter(item => Number.isFinite(item.custo)) // sem preço = fora da loja (rede pra não mostrar "UNDEFINED")
 
   const retrato = poi.npcSlug ? getGanguesNpcPortrait(poi.npcSlug) : poi.retratoEnemyId ? getGanguesEnemyPortraitById(poi.retratoEnemyId) : null
@@ -203,6 +207,20 @@ export default function GanguesLoja({ poi, onClose }) {
       <p className="gang-cena-enc-sub">{t('games.gangues.loja.sub')}</p>
       <p className="gang-cena-enc-sub"><b>💵 {store.grana}</b>{aviso?.itemId === '_global' && <span className="gang-loja-cena-item__aviso"> {aviso.texto}</span>}</p>
 
+      {poi.pechincha && pechincha === 'nao' && (
+        <button className="gang-cena-btn gang-loja-pechincha" onClick={() => { sfx.select?.(); setPechincha('jogando') }}>
+          {t('games.gangues.loja.pechincha_botao', { n: Math.round(poi.pechincha.desconto * 100) })}
+        </button>
+      )}
+      {pechincha === 'ganhou' && <p className="gang-loja-pechincha-res is-ok">{t('games.gangues.loja.pechincha_ok', { n: Math.round(poi.pechincha.desconto * 100) })}</p>}
+      {pechincha === 'perdeu' && <p className="gang-loja-pechincha-res">{t('games.gangues.loja.pechincha_falha')}</p>}
+      {pechincha === 'jogando' && (
+        <div className="gang-cena-puzzle-wrap">
+          <PuzzleAnagrama config={{ difficulty: 'easy' }} onSolve={() => { sfx.reward?.(); setPechincha('ganhou') }} onFail={() => { sfx.lose?.(); setPechincha('perdeu') }} />
+        </div>
+      )}
+
+      {pechincha !== 'jogando' && <>
       <div className="gang-loja-abas" role="tablist">
         {abasComItem.map(a => (
           <button
@@ -226,7 +244,7 @@ export default function GanguesLoja({ poi, onClose }) {
                 <span className="gang-loja-cena-item__icone">{item.icone}</span>
                 <span className="gang-loja-cena-item__info">
                   <strong>{t(item.nome)}</strong>
-                  {item._equip && <small>{t(`games.gangues.equip.slots.${item.slot}`)} · {item.caminho === 'livre' ? t('games.gangues.equip.qualquer_caminho') : t(`games.gangues.loadout.paths.${item.caminho}.name`)}</small>}
+                  <small>{item._equip ? `${t(`games.gangues.equip.slots.${item.slot}`)} · ${item.caminho === 'livre' ? t('games.gangues.equip.qualquer_caminho') : t(`games.gangues.loadout.paths.${item.caminho}.name`)}` : textoEfeitoItem(t, item)}</small>
                   <small>{t('games.gangues.loja.no_inventario', { n: quantidade })}</small>
                   <em className="gang-loja-cena-item__ver">{t('games.gangues.equip.ver_detalhe')}</em>
                 </span>
@@ -239,6 +257,7 @@ export default function GanguesLoja({ poi, onClose }) {
           )
         })}
       </div>
+      </>}
 
       <div className="gang-cena-enc-acoes">
         <button className="gang-cena-btn" onClick={onClose}>{t('games.gangues.cena.fechar')}</button>

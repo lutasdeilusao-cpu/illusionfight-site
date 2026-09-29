@@ -40,6 +40,9 @@ export default function GanguesPistaTempo({ t, tempo, combatants, vezKey }) {
             title={nome}
           >
             {(nome || '?')[0]}
+            {/* Pique sorteado das peças nesta luta (faixa, 27/09/2026) —
+                "hoje o tênis tá ligeiro". Só aparece se a peça somou algo. */}
+            {c.equipPique > 0 && <i className="gang-pista__pique">+{c.equipPique}</i>}
           </span>
         )
       })}

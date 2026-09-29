@@ -13,7 +13,7 @@
    mesmo `poi.itens` da loja e o mesmo resolvedor.
 
    Cada personagem tem 6 slots (arma + 5 de vestimenta). Bônus = atributo
-   plano (A/H/D) OU recurso plano (pv/pm — somado em cima do PV/PM máximo,
+   em FAIXA (A/H/D, ver abaixo) OU recurso plano (pv/pm — somado em cima do PV/PM máximo,
    NÃO passa por R; +R mexia em PV e PM ao mesmo tempo e ficou forte
    demais). Slot `corpo` é a escolha PV vs PM. `cardSlots` 0–2 (teto 2,
    estilo Ragnarok) — as cartas em si vêm com o sistema de drop.
@@ -40,6 +40,19 @@ export const GANGUES_EQUIP_RES_KEYS = ['pv', 'pm']
 
 const i18nNome = id => `games.gangues.equip.itens.${id}`
 
+// ── FAIXA (range) de bônus — pedido do Isaias, 27/09/2026 (plano completo em
+// docs/Games/Gangues/PLANO_ITENS_RANGE.md): Porrada (A), Couro (D) e Pique
+// (H) viraram FAIXA — `bonus: { A: [1, 3] }` rola de 1 a 3. Número solto
+// continua valendo como fixo. Osso/Malandragem (pv/pm) ficam SEMPRE fixos:
+// vida máxima mudando a cada luta não é "arma imprevisível", é só confuso.
+//  • A rola a cada golpe, D a cada defesa, H uma vez no começo da luta.
+//  • Toda faixa nasceu CENTRADA no valor fixo de antes (a Faca era +2 → 1–3,
+//    média 2): simulado, +2 fixo × 1–3 empata em 50,3% num duelo espelhado —
+//    o balanço já calibrado da Pista não muda, só a emoção de cada golpe.
+//  • Preço = arredonda5(Σ média × peso × raridade). Pesos por ponto de média:
+//    A 28 · D 22 · H 30 (Pique é velocidade desde o sistema do Pique, o
+//    ponto mais valioso) · pv/pm 6. Raridade: comum 1 · incomum 1,1 ·
+//    raro 1,3 · épico 1,6. Sem `custo` = não vende em loja (drop/recompensa).
 // Lista bruta — id numérico + slug só pra humano. O resto é dado de balanço.
 // Catálogo POR CAMINHO (28/09/2026, Isaias — substitui por completo o 101–120,
 // que sumiu dos saves). `caminho` = quem equipa: atacante (Porradeiro),
@@ -52,16 +65,16 @@ const i18nNome = id => `games.gangues.equip.itens.${id}`
 // mesmo orçamento (Malandragem `PM` = força do talento + gás). O Paredão
 // nunca passa de +1 de Porrada.
 const CATALOGO = [
-  { id: 201, slug: 'cabo_vassoura', caminho: 'atacante', slot: 'arma', raridade: 'comum', bonus: { H: 1 }, cardSlots: 0, custo: 35, icone: '🧹' },
+  { id: 201, slug: 'cabo_vassoura', caminho: 'atacante', slot: 'arma', raridade: 'comum', bonus: { H: [0, 2] }, cardSlots: 0, custo: 35, icone: '🧹' },
   { id: 202, slug: 'bone_aba_reta', caminho: 'atacante', slot: 'cabeca', raridade: 'comum', bonus: { pv: 1 }, cardSlots: 0, custo: 25, icone: '🧢' },
   { id: 203, slug: 'regata_rasgada', caminho: 'atacante', slot: 'corpo', raridade: 'comum', bonus: { pv: 3 }, cardSlots: 0, custo: 30, icone: '🎽' },
   { id: 204, slug: 'faixa_punho', caminho: 'atacante', slot: 'bracos', raridade: 'comum', bonus: { pv: 1 }, cardSlots: 0, custo: 25, icone: '🩹' },
   { id: 205, slug: 'tenis_furado', caminho: 'atacante', slot: 'pes', raridade: 'comum', bonus: { pv: 1 }, cardSlots: 0, custo: 25, icone: '👟' },
   { id: 206, slug: 'corrente_lata', caminho: 'atacante', slot: 'amuleto', raridade: 'comum', bonus: { pm: 2 }, cardSlots: 0, custo: 30, icone: '📿' },
-  { id: 207, slug: 'soqueira_ferro', caminho: 'atacante', slot: 'arma', raridade: 'incomum', bonus: { A: 2 }, cardSlots: 1, custo: 150, icone: '🥊' },
+  { id: 207, slug: 'soqueira_ferro', caminho: 'atacante', slot: 'arma', raridade: 'incomum', bonus: { A: [1, 3] }, cardSlots: 1, custo: 150, icone: '🥊' },
   { id: 208, slug: 'bandana_bonde', caminho: 'atacante', slot: 'cabeca', raridade: 'incomum', bonus: { pv: 2 }, cardSlots: 1, custo: 75, icone: '🏴' },
   { id: 209, slug: 'jaqueta_couro', caminho: 'atacante', slot: 'corpo', raridade: 'incomum', bonus: { pv: 4 }, cardSlots: 1, custo: 95, icone: '🧥' },
-  { id: 210, slug: 'munhequeira', caminho: 'atacante', slot: 'bracos', raridade: 'incomum', bonus: { H: 1 }, cardSlots: 1, custo: 100, icone: '🤛' },
+  { id: 210, slug: 'munhequeira', caminho: 'atacante', slot: 'bracos', raridade: 'incomum', bonus: { H: [0, 2] }, cardSlots: 1, custo: 100, icone: '🤛' },
   { id: 211, slug: 'coturno', caminho: 'atacante', slot: 'pes', raridade: 'incomum', bonus: { pv: 1 }, cardSlots: 1, custo: 70, icone: '🥾' },
   { id: 212, slug: 'dente_ouro', caminho: 'atacante', slot: 'amuleto', raridade: 'incomum', bonus: { pm: 2 }, cardSlots: 1, custo: 75, icone: '🦷' },
   { id: 213, slug: 'cano_curto', caminho: 'defensor', slot: 'arma', raridade: 'comum', bonus: { pv: 2 }, cardSlots: 0, custo: 30, icone: '🪈' },
@@ -70,8 +83,8 @@ const CATALOGO = [
   { id: 216, slug: 'luva_couro', caminho: 'defensor', slot: 'bracos', raridade: 'comum', bonus: { pv: 1 }, cardSlots: 0, custo: 25, icone: '🧤' },
   { id: 217, slug: 'chinelo_reforcado', caminho: 'defensor', slot: 'pes', raridade: 'comum', bonus: { pv: 2 }, cardSlots: 0, custo: 30, icone: '🩴' },
   { id: 218, slug: 'medalhinha', caminho: 'defensor', slot: 'amuleto', raridade: 'comum', bonus: { pm: 2 }, cardSlots: 0, custo: 30, icone: '🏅' },
-  { id: 219, slug: 'tampa_bueiro', caminho: 'defensor', slot: 'arma', raridade: 'incomum', bonus: { D: 1 }, cardSlots: 1, custo: 110, icone: '🛡️' },
-  { id: 220, slug: 'capacete_obra', caminho: 'defensor', slot: 'cabeca', raridade: 'incomum', bonus: { D: 1 }, cardSlots: 1, custo: 110, icone: '⛑️' },
+  { id: 219, slug: 'tampa_bueiro', caminho: 'defensor', slot: 'arma', raridade: 'incomum', bonus: { D: [0, 2] }, cardSlots: 1, custo: 110, icone: '🛡️' },
+  { id: 220, slug: 'capacete_obra', caminho: 'defensor', slot: 'cabeca', raridade: 'incomum', bonus: { D: [0, 2] }, cardSlots: 1, custo: 110, icone: '⛑️' },
   { id: 221, slug: 'colete_placa', caminho: 'defensor', slot: 'corpo', raridade: 'incomum', bonus: { pv: 8 }, cardSlots: 1, custo: 125, icone: '🛡' },
   { id: 222, slug: 'bracadeira_pneu', caminho: 'defensor', slot: 'bracos', raridade: 'incomum', bonus: { pv: 2 }, cardSlots: 1, custo: 70, icone: '⛓️' },
   { id: 223, slug: 'bota_biqueira', caminho: 'defensor', slot: 'pes', raridade: 'incomum', bonus: { pv: 3 }, cardSlots: 1, custo: 80, icone: '🥾' },
@@ -82,14 +95,18 @@ const CATALOGO = [
   { id: 228, slug: 'pulseira_micanga', caminho: 'mistico', slot: 'bracos', raridade: 'comum', bonus: { pv: 1 }, cardSlots: 0, custo: 25, icone: '📿' },
   { id: 229, slug: 'sandalia_couro', caminho: 'mistico', slot: 'pes', raridade: 'comum', bonus: { pv: 1 }, cardSlots: 0, custo: 25, icone: '👡' },
   { id: 230, slug: 'guia_contas', caminho: 'mistico', slot: 'amuleto', raridade: 'comum', bonus: { pm: 2 }, cardSlots: 0, custo: 30, icone: '🔮' },
-  { id: 231, slug: 'cajado_galho', caminho: 'mistico', slot: 'arma', raridade: 'incomum', bonus: { A: 1 }, cardSlots: 1, custo: 110, icone: '🪄' },
+  { id: 231, slug: 'cajado_galho', caminho: 'mistico', slot: 'arma', raridade: 'incomum', bonus: { A: [0, 2] }, cardSlots: 1, custo: 110, icone: '🪄' },
   { id: 232, slug: 'turbante', caminho: 'mistico', slot: 'cabeca', raridade: 'incomum', bonus: { PM: 1 }, cardSlots: 1, custo: 110, icone: '👳' },
   { id: 233, slug: 'manto_sintonia', caminho: 'mistico', slot: 'corpo', raridade: 'incomum', bonus: { pm: 4, pv: 1 }, cardSlots: 1, custo: 125, icone: '🥋' },
   { id: 234, slug: 'anel_coco', caminho: 'mistico', slot: 'bracos', raridade: 'incomum', bonus: { pv: 2 }, cardSlots: 1, custo: 70, icone: '💍' },
   { id: 235, slug: 'chinelo_benzido', caminho: 'mistico', slot: 'pes', raridade: 'incomum', bonus: { pm: 2 }, cardSlots: 1, custo: 75, icone: '🩴' },
   { id: 236, slug: 'olho_grego', caminho: 'mistico', slot: 'amuleto', raridade: 'incomum', bonus: { PM: 1 }, cardSlots: 1, custo: 110, icone: '🧿' },
-  { id: 237, slug: 'soqueira_lata', caminho: 'livre', slot: 'arma', raridade: 'comum', bonus: { A: 1 }, cardSlots: 0, icone: '🥊' },
+  { id: 237, slug: 'soqueira_lata', caminho: 'livre', slot: 'arma', raridade: 'comum', bonus: { A: [0, 2] }, cardSlots: 0, icone: '🥊' },
   { id: 238, slug: 'bone_vira_lata', caminho: 'livre', slot: 'cabeca', raridade: 'comum', bonus: { pv: 1 }, cardSlots: 0, custo: 20, icone: '🧢' },
+  // ── ÉPICO de chefe — drop, nunca à venda, qualquer caminho (vem da branch
+  // da Feira, 27/09/2026). Faixa de valor: rola a cada golpe. ──
+  { id: 138, slug: 'porrete_do_cobrador', caminho: 'livre', slot: 'arma', raridade: 'epico', bonus: { A: [3, 7], H: [1, 3], D: [0, 2] }, cardSlots: 2, icone: '🏏' },
+  { id: 139, slug: 'facao_do_carvao', caminho: 'livre', slot: 'arma', raridade: 'epico', bonus: { A: [2, 5], D: [0, 2] }, cardSlots: 2, icone: '🔪' },
 ]
 
 export const GANGUES_EQUIP = Object.fromEntries(CATALOGO.map(item => [item.id, { ...item, nome: i18nNome(item.id) }]))
@@ -113,7 +130,8 @@ export function emptyGanguesEquipment() {
 }
 
 /** Normaliza o que veio do banco pro shape esperado (6 chaves, cards do tamanho certo,
- *  itemId numérico). Item que não existe mais no catálogo é descartado do slot. */
+ *  itemId numérico, `aprim` dentro do teto da peça). Item que não existe mais no
+ *  catálogo é descartado do slot. Save antigo sem `aprim` = +0. */
 export function normalizeGanguesEquipment(equipment = {}) {
   const safe = emptyGanguesEquipment()
   for (const slot of GANGUES_EQUIP_SLOT_IDS) {
@@ -121,28 +139,148 @@ export function normalizeGanguesEquipment(equipment = {}) {
     const def = equipped && getGanguesEquip(equipped.itemId)
     if (!def || def.slot !== slot) continue
     const cards = Array.from({ length: def.cardSlots }, (_, i) => equipped.cards?.[i] ?? null)
-    safe[slot] = { itemId: def.id, cards }
+    safe[slot] = { itemId: def.id, cards, aprim: normalizarAprim(def, equipped.aprim) }
   }
   return safe
 }
 
-/** Instância de item pro inventário (uid próprio + sockets vazios). */
-export function createGanguesEquipInstance(itemId) {
+/** Instância de item pro inventário (uid próprio + sockets vazios + aprimoramento). */
+export function createGanguesEquipInstance(itemId, aprim = 0) {
   const def = getGanguesEquip(itemId)
   if (!def) return null
-  return { uid: `eq-${def.id}-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 6)}`, itemId: def.id, cards: Array.from({ length: def.cardSlots }, () => null) }
+  return { uid: `eq-${def.id}-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 6)}`, itemId: def.id, cards: Array.from({ length: def.cardSlots }, () => null), aprim: normalizarAprim(def, aprim) }
 }
 
-/** Soma dos bônus de todos os itens equipados: A/H/D (atributo) + pv/pm (recurso plano). */
+// ── Faixa, aprimoramento e rolagem ──────────────────────────────
+// APRIMORAMENTO (plano em PLANO_ITENS_RANGE.md §3): só mexe no atributo
+// PRINCIPAL da peça (o 1º com faixa). Nível ímpar = VANTAGEM (rola 2 vezes,
+// fica com o maior); nível par = sobe o MÍNIMO em 1. Teto = mínimo encosta no
+// máximo (faixa de 2 pontos → +4). "Com dois aprimoramentos, 1–3 dá 2–3."
+
+/** O atributo que o aprimoramento mexe (1º A/H/D em faixa), ou null. */
+export function atributoPrincipal(def) {
+  if (!def?.bonus) return null
+  return Object.keys(def.bonus).find(k => GANGUES_EQUIP_ATTR_KEYS.includes(k) && Array.isArray(def.bonus[k])) || null
+}
+
+/** Maior aprimoramento possível da peça (0 = não aprimora). */
+export function aprimTeto(def) {
+  const principal = atributoPrincipal(def)
+  if (!principal) return 0
+  const [min, max] = def.bonus[principal]
+  return Math.max(0, 2 * (max - min))
+}
+
+function normalizarAprim(def, aprim) {
+  const n = Math.floor(Number(aprim) || 0)
+  return Math.max(0, Math.min(aprimTeto(def), n))
+}
+
+/** Faixa efetiva de `attr` numa peça, com o aprimoramento: { min, max, vant } ou null. */
+function faixaDaPeca(def, attr, aprim = 0) {
+  const raw = def?.bonus?.[attr]
+  if (raw == null) return null
+  if (!Array.isArray(raw)) {
+    const v = Number(raw) || 0
+    return v ? { min: v, max: v, vant: false } : null
+  }
+  let [min, max] = raw
+  let vant = false
+  if (attr === atributoPrincipal(def)) {
+    const n = normalizarAprim(def, aprim)
+    min = Math.min(max, min + Math.floor(n / 2))
+    vant = n % 2 === 1 && min < max
+  }
+  return { min, max, vant }
+}
+
+/** Valor médio de uma faixa (com vantagem = média do maior de 2 dados). */
+function mediaFaixa(f) {
+  if (!f) return 0
+  const n = f.max - f.min + 1
+  if (!f.vant || n <= 1) return (f.min + f.max) / 2
+  let soma = 0
+  for (let v = f.min; v <= f.max; v++) soma += v * ((v - f.min + 1) ** 2 - (v - f.min) ** 2)
+  return soma / (n * n)
+}
+
+/** Rola uma faixa (vantagem = rola 2, fica com o maior). */
+export function rolarFaixa(f, rnd = Math.random) {
+  if (!f) return 0
+  const n = f.max - f.min + 1
+  const um = () => f.min + Math.floor(rnd() * n)
+  return f.vant ? Math.max(um(), um()) : um()
+}
+
+// Preço pela fórmula do plano (mesma dos preços do catálogo) — referência
+// pra peça que não vende em loja (épico/prêmio) poder ser aprimorada também.
+const PESO_PRECO = { A: 28, D: 22, H: 30, pv: 6, pm: 6 }
+const FATOR_RARIDADE = { comum: 1, incomum: 1.1, raro: 1.3, epico: 1.6 }
+function precoReferencia(def) {
+  if (!def) return 0
+  if (Number.isFinite(def.custo)) return def.custo
+  let soma = 0
+  for (const [k, v] of Object.entries(def.bonus || {})) soma += (Array.isArray(v) ? (v[0] + v[1]) / 2 : Number(v) || 0) * (PESO_PRECO[k] || 0)
+  return Math.round(soma * (FATOR_RARIDADE[def.raridade] || 1) / 5) * 5
+}
+
+// Custo de levar a peça pro nível `nivel` de aprimoramento: grana = 25% do
+// preço × o nível (+1 = 25%, +4 = 100%, arredonda de 5 em 5, mínimo 5) e
+// `nivel` pedaços de Sucata (item 13) — a Sucata vira recurso de verdade.
+export const GANGUES_SUCATA_ID = 13
+const GANGUES_APRIM_CUSTO_FRAC = 0.25
+export function custoAprimoramento(def, nivel) {
+  const grana = Math.max(5, Math.round(precoReferencia(def) * GANGUES_APRIM_CUSTO_FRAC * nivel / 5) * 5)
+  return { grana, sucata: nivel }
+}
+
+/** Todas as faixas de A/H/D do que está equipado, peça por peça (o combate
+ *  rola cada uma separado): { A: [{min,max,vant}], H: [...], D: [...] }. */
+export function getGanguesEquipDados(equipment = {}) {
+  const dados = { A: [], H: [], D: [], PM: [] }
+  const safe = normalizeGanguesEquipment(equipment)
+  for (const slot of GANGUES_EQUIP_SLOT_IDS) {
+    const eq = safe[slot]
+    const def = eq && getGanguesEquip(eq.itemId)
+    if (!def) continue
+    for (const attr of GANGUES_EQUIP_ATTR_KEYS) {
+      const f = faixaDaPeca(def, attr, eq.aprim)
+      if (f) dados[attr].push(f)
+    }
+  }
+  return dados
+}
+
+/** Soma dos bônus de todos os itens equipados: A/H/D pela MÉDIA da faixa
+ *  (pode ser fracionária — quem exibe arredonda) + pv/pm (recurso plano).
+ *  Média, nunca máximo: loja/ficha/aviso de nível não prometem mais do que a
+ *  arma entrega. */
 export function getGanguesEquipBonuses(equipment = {}) {
   const total = { A: 0, H: 0, D: 0, PM: 0, pv: 0, pm: 0 }
   const safe = normalizeGanguesEquipment(equipment)
   for (const slot of GANGUES_EQUIP_SLOT_IDS) {
-    const def = safe[slot] && getGanguesEquip(safe[slot].itemId)
+    const eq = safe[slot]
+    const def = eq && getGanguesEquip(eq.itemId)
     if (!def) continue
-    for (const key of [...GANGUES_EQUIP_ATTR_KEYS, ...GANGUES_EQUIP_RES_KEYS]) total[key] += Number(def.bonus?.[key]) || 0
+    for (const attr of GANGUES_EQUIP_ATTR_KEYS) total[attr] += mediaFaixa(faixaDaPeca(def, attr, eq.aprim))
+    for (const key of GANGUES_EQUIP_RES_KEYS) total[key] += Number(def.bonus?.[key]) || 0
   }
   return total
+}
+
+/** "+1–3 Porrada ▲ · +6 PV" — resumo do bônus de uma peça nos 3 idiomas. */
+export function textoBonusEquip(t, def, aprim = 0) {
+  if (!def) return ''
+  const parts = []
+  for (const attr of GANGUES_EQUIP_ATTR_KEYS) {
+    const f = faixaDaPeca(def, attr, aprim)
+    if (!f) continue
+    const valor = f.min === f.max ? `+${f.min}` : `+${f.min}–${f.max}`
+    parts.push(`${valor}${f.vant ? '▲' : ''} ${t(`games.gangues.attr_labels.${attr}`)}`)
+  }
+  if (def.bonus?.pv) parts.push(`+${def.bonus.pv} PV`)
+  if (def.bonus?.pm) parts.push(`+${def.bonus.pm} PM`)
+  return parts.join(' · ')
 }
 
 /** Atributos A/H/D já com os bônus de equipamento somados (nunca abaixo de
@@ -152,7 +290,7 @@ export function getGanguesEquipBonuses(equipment = {}) {
 export function getGanguesAttributesWithEquip(attributes = {}) {
   const bonuses = getGanguesEquipBonuses(attributes.equipment)
   const out = { ...attributes }
-  for (const attr of GANGUES_EQUIP_ATTR_KEYS) out[attr] = Math.max(0, (Number(attributes[attr]) || 0) + (bonuses[attr] || 0))
+  for (const attr of GANGUES_EQUIP_ATTR_KEYS) out[attr] = Math.max(0, Math.round((Number(attributes[attr]) || 0) + (bonuses[attr] || 0)))
   return out
 }
 
@@ -166,7 +304,7 @@ export function applyGanguesEquipResources(resources = {}, equipment = {}) {
 export function withGanguesEquip(equipment = {}, itemId) {
   const eq = normalizeGanguesEquipment(equipment)
   const def = getGanguesEquip(itemId)
-  if (def) eq[def.slot] = { itemId: def.id, cards: Array.from({ length: def.cardSlots }, () => null) }
+  if (def) eq[def.slot] = { itemId: def.id, cards: Array.from({ length: def.cardSlots }, () => null), aprim: 0 }
   return eq
 }
 

@@ -11,6 +11,7 @@ import GanguesDescanso from '../components/cena/GanguesDescanso'
 import GanguesAgiota from '../components/cena/GanguesAgiota'
 import GanguesBanca from '../components/cena/GanguesBanca'
 import GanguesLoja from '../components/cena/GanguesLoja'
+import GanguesFerreiro from '../components/cena/GanguesFerreiro'
 import GanguesMiniMapa from '../components/cena/GanguesMiniMapa'
 import GanguesAlvoTutorial from '../components/cena/GanguesAlvoTutorial'
 import { useTutorialProgress } from '../../../../context/TutorialProgressContext'
@@ -19,16 +20,17 @@ import CenaInterior from '../components/cena/CenaInterior'
 import GanguesCenaBagSheet from '../components/cena/GanguesCenaBagSheet'
 import GanguesCenaFichaCard from '../components/cena/GanguesCenaFichaCard'
 import GanguesRepRecompensaModal from '../components/GanguesRepRecompensaModal'
-import { GangMarker, PinoAlvo, ZonaChao, WorldControls, interactionLabel, ehPersonagem } from '../components/cena/GanguesCenaAtores'
+import { GangMarker, PinoAlvo, ZonaChao, WorldControls, BrigaAutoAviso, interactionLabel, ehPersonagem } from '../components/cena/GanguesCenaAtores'
 import { TretaVS } from '../components/cena/GanguesCenaEncontros'
-import { CENAS_POR_ID, portaoAberto, contarCena } from '../data/cenas/cenaHelpers.js'
+import { CENAS_POR_ID, portaoAberto, contarCena, naAreaDoChefe } from '../data/cenas/cenaHelpers.js'
 import { GANGUES_TERRITORIO_POR_ID } from '../data/ganguesTerritorios.js'
 import { getGanguesPortraitByTemplateId } from '../data/ganguesPortraits.js'
 import { getGanguesNpcPortrait } from '../data/ganguesNpcPortraits.js'
-import { getGanguesRosterLimitComHistoria, GANGUES_REP_GATE_CLUBE } from '../data/ganguesLoadout.js'
+import { getGanguesRosterLimitComHistoria } from '../data/ganguesLoadout.js'
 import { getGanguesLevelFromXp } from '../data/ganguesCharacters.js'
-import { getGanguesAttributesWithEquip } from '../data/ganguesEquip.js'
-import { WORLD, SPAWN, montarAmbiente, insideZone, validPosition, validPos } from '../engine/ganguesCenaMotor.js'
+import { getGanguesAttributesWithEquip, getGanguesEquip } from '../data/ganguesEquip.js'
+import useGanguesBrigaAutomatica from '../hooks/useGanguesBrigaAutomatica.js'
+import { WORLD, SPAWN, montarAmbiente, insideZone, validPosition, validPos, posNoMapa } from '../engine/ganguesCenaMotor.js'
 import { ALEATORIO_TIPOS } from '../engine/ganguesEncontroAleatorio.js'
 import useGanguesCenaMovimento from '../hooks/useGanguesCenaMovimento.js'
 import useGanguesEncontroAleatorio from '../hooks/useGanguesEncontroAleatorio.js'
@@ -39,6 +41,9 @@ import './GanguesCena.css'
 // não mais localStorage por save/aparelho. Pedido do Isaias (14/09/2026):
 // "toda vez que abro num aparelho novo, aparece de novo, grava no Supabase".
 function cenaIntroTutorialId(cenaId) { return `cena_intro:${cenaId}` }
+
+// Referência estável pra lista vazia (a briga automática observa `alvos`).
+const EMPTY_ALVOS = []
 
 export default function GanguesCena({ onNavigate, onVoltar }) {
   const { perfil } = useAuth()
@@ -51,7 +56,7 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
   const posInicial = () => {
     const p = prog.posicao
     if (p?.local) { const c = cena?.interiores?.[p.local.id]?.comodos?.[p.local.comodo]; return c ? (validPos(p, c.world) ? { x: p.x, y: p.y } : c.spawn) : SPAWN }
-    return validPosition(p) ? { x: p.x, y: p.y } : (cena?.mundo?.spawn || SPAWN)
+    return validPosition(p, cena?.mundo) ? { x: p.x, y: p.y } : (cena?.mundo?.spawn || SPAWN)
   }
   const { jaViu: jaViuTutorial, marcarVisto: marcarTutorialVisto, carregado: tutoriaisCarregados } = useTutorialProgress()
   // Começa assumindo "não visto" (mostra a intro) e corrige assim que os
@@ -133,10 +138,11 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
   const reportarColisao = useCallback((id, colide) => {
     setColisoes(prev => (Boolean(prev[id]) === colide ? prev : { ...prev, [id]: colide }))
   }, [])
+  const colidindo = useCallback(a => ehPersonagem(a) ? Boolean(colisoes[a.id]) : insideZone(player, a.zona), [colisoes, player])
   const perto = useMemo(() => (amb?.alvos || []).find(a => {
     if (a.estado !== 'disponivel' && !a.repetivel) return false
-    return ehPersonagem(a) ? Boolean(colisoes[a.id]) : insideZone(player, a.zona)
-  }) || null, [amb, player, colisoes])
+    return colidindo(a)
+  }) || null, [amb, colidindo])
   const { feitos, total } = cena ? contarCena(cena, prog.resolvidos, prog.boss) : { feitos: 0, total: 0 }
   // local aponta pra um interior/cômodo que não existe (save antigo, cena
   // diferente) → volta pra rua.
@@ -146,8 +152,27 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
   // relógio de jogo + perseguidor. Só corre com o jogador na RUA e sem nada
   // aberto por cima; senão congela e continua de onde parou.
   const iniciarAleatorioRef = useRef(null)
+  // Briga automática (switch dos controles) — regra e anti-loop no hook.
+  // O adversário da última luta (gravado junto da posição quando a treta
+  // começou) começa ignorado até descolar, senão a volta cairia em outra luta.
+  const brigaAutoRef = useRef(null)
+  const onBrigaAuto = useCallback((poi, opcoes) => brigaAutoRef.current?.(poi, opcoes), [])
+  const brigaAuto = useGanguesBrigaAutomatica({
+    alvos: amb?.alvos || EMPTY_ALVOS, colidindo,
+    rodando: Boolean(cena) && !intro && !encontro && !fade && fichaIndex === null && !bagAberta && !repModalMarco,
+    ultimoPoiId: prog.posicao?.adversario || null, bloqueado: naAreaDoChefe(cena, prog, { ...player, local }),
+    onBriga: onBrigaAuto,
+  })
+  // Lado apagado (Feira): do outro lado da barricada, até o chefe cair.
+  const ladoApagado = Boolean(cena?.apagao) && !local && !prog.boss && player.y < (cena?.muro?.y1 ?? 0)
+  // Interior marcado `escuro` (a Galeria dos Gato) também fica no breu até o chefe cair.
+  const noEscuro = ladoApagado || (Boolean(local) && Boolean(cena?.interiores?.[local.id]?.escuro) && !prog.boss)
+  // Tipos de encontro aleatório que esta cena sorteia agora (cada território
+  // tem os seus — ver `aleatorio` em data/cenas/<território>/index.js).
+  const tiposAleatorioRef = useRef(null)
+  tiposAleatorioRef.current = () => cena?.aleatorio?.({ divida: store.storyProgress.__birosca?.divida || 0, ladoApagado }) || null
   const aleatorio = useGanguesEncontroAleatorio({
-    store, player, collidersRef, worldRef, gateRef,
+    store, player, collidersRef, worldRef, gateRef, tiposRef: tiposAleatorioRef,
     rodando: Boolean(cena) && !intro && !encontro && !fade && !local && fichaIndex === null && !bagAberta && !repModalMarco,
     onAlcancou: tipo => iniciarAleatorioRef.current?.(tipo),
   })
@@ -156,26 +181,20 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
     if (!andou) { setHint(t('games.gangues.cena.hint_andar')); return }
     if (local) { setHint(null); return }
     if (perto && Object.keys(prog.resolvidos).length === 0) { setHint(t('games.gangues.cena.hint_interagir')); return }
-    if (prog.resolvidos.ferro && !prog.resolvidos.oficina) {
-      // Oficina do Nando é OBRIGATÓRIA pro portão e só fecha com 2× sucata
-      // (item 13) — 1 no puzzle do ferro-velho, 1 no fundo dele (`achado`).
-      // Se o jogador só tem 1, aponta pro achado — MAS só enquanto o achado
-      // ainda existir pra pegar. Se falhou a gazua (perdeu aquele pedaço pra
-      // sempre) e já pegou o achado, não sobra fonte nenhuma: apontar de
-      // novo pro "fundo do ferro-velho" (que ele já esvaziou) é mentira —
-      // era exatamente o bug reportado pelo Isaias (13/09/2026).
-      if ((store.inventario?.[13] || 0) >= 2) { setHint(t('games.gangues.cena.hint_sucata')); return }
-      if (!prog.resolvidos.achado) { setHint(t('games.gangues.cena.hint_sucata_falta')); return }
-      setHint(null); return
-    }
-    setHint(null)
-  }, [intro, encontro, andou, perto, prog.resolvidos, local, t, store.inventario])
+    // Dica da quest de coleta do território (cada cena decide a sua — ver
+    // `dicaQuest` em data/cenas/<território>/index.js).
+    const dica = cena?.dicaQuest?.(prog, store.inventario || {})
+    setHint(dica ? t(dica) : null)
+  }, [intro, encontro, andou, perto, prog, local, t, store.inventario, cena])
   if (!cena || !terr) return <main className="gang-lobby"><button className="gang-new-sheet" onClick={onVoltar || (() => onNavigate('story'))}>{t('games.gangues.btn_voltar')}</button></main>
   // `local` aponta pra um interior inválido — o efeito acima já vai zerar; só
   // não renderiza esse frame pra não quebrar em amb null.
   if (local && !amb) return <main className="gang-cena-worldpage" style={{ '--terr-cor': cena.cor }}><div className="gang-cena-viewport" /></main>
   const fecharIntro = () => { marcarTutorialVisto(cenaIntroTutorialId(cena.id)); setIntro(false) }
   const guardarPosicao = (over) => store.salvarPosicaoCena(cena.id, { ...(over || player), local: over?.local !== undefined ? over.local : local })
+  // Saindo da cena (luta, app em 2º plano — farm ausente —, voltar) grava onde o jogador está, sem perder o adversário marcado.
+  const saidaRef = useRef(null); saidaRef.current = () => cena && store.salvarPosicaoCena(cena.id, { ...player, local, adversario: useGanguesStore.getState().cenaProgresso[cena.id]?.posicao?.adversario })
+  useEffect(() => () => saidaRef.current?.(), [])
   // troca de ambiente com fade curto (rua↔interior, cômodo↔cômodo)
   const trocarPara = (novoLocal, spawn) => {
     sfx.select?.(); setFade(true)
@@ -219,7 +238,10 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
       const marcos = r.rep ? store.ganharRep(r.rep) : []
       registrarMarcosRep(marcos)
       if (r.item) store.darItem(r.item, r.qtd || 1)
-      if (r.grana || r.rep || r.item) { setToast({ ...r }); setTimeout(() => setToast(null), 2600) }
+      if (r.equip) store.comprarEquip(r.equip, 0)
+    // Favor da Dona Regina pago (Feira) — libera o fiado da pensão de novo.
+    if (r.pagaFavor) store.pagarFavorRegina()
+      if (r.grana || r.rep || r.item || r.equip) { setToast({ ...r }); setTimeout(() => setToast(null), 2600) }
       store.marcarPoiResolvido(cena.id, poi.id, poi.revela || [])
       return
     }
@@ -256,24 +278,20 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
   // o socorro do teto da agiotagem: cura de graça (sem somar o 15× de
   // entrada) e joga direto pra dentro, sem a tela normal de aceitar/recusar
   // (ver GanguesAgiota.jsx, botão "socorro" quando agiotagemInfo().noTeto).
+  // Nome do agiota DESTA cena (Marimbondo na Pista, Juro Alto na Feira) —
+  // os textos da caderneta/clube são genéricos, com {agiota}.
+  const nomeAgiota = () => { const ag = cena?.pois.find(p => p.tipo === 'agiota'); return ag ? t(`${ag.i18n}.nome`) : '' }
   const iniciarClube = (custoBase, gratis = false) => {
-    // Rota de escape de quem já tá endividado com o agiota — NUNCA bloqueia
-    // quem já tem dívida, senão vira soft-lock cruel (endividado sem rep
-    // preso sem conseguir quitar). O gate só vale pra quem entra "por
-    // vontade própria" (sem dívida, atrás dos 200 de grana). O socorro
-    // forçado (gratis) nunca passa por esse gate — não tem escolha.
-    const dividaAtualGate = store.storyProgress.__birosca?.divida || 0
-    if (!gratis && dividaAtualGate <= 0 && store.rep < GANGUES_REP_GATE_CLUBE) {
-      setEncontro(null); sfx.cancel?.()
-      setAviso(t('games.gangues.cena.aviso_rep_clube', { rep: GANGUES_REP_GATE_CLUBE }))
+    // Regra (gate de rep, entrada, alvo da 1ª ronda) é do módulo do Clube.
+    const r = store.prepararEntradaClube({ custoBase, gratis, territorioId: terr.id })
+    setEncontro(null)
+    if (!r.ok) {
+      sfx.cancel?.()
+      setAviso(t('games.gangues.cena.aviso_rep_clube', { rep: r.rep, agiota: nomeAgiota() }))
       setTimeout(() => setAviso(null), 3600)
       return
     }
-    setEncontro(null); guardarPosicao(); sfx.vs?.()
-    const dividaPrevia = store.storyProgress.__birosca?.divida || 0
-    if (gratis) store.restaurarPvPmTodos()
-    else store.entrarClubeDaLuta(custoBase || 10)
-    store.setStoryTarget({ clube: true, clubeBase: custoBase || 10, clubeDividaPrevia: dividaPrevia, clubeRonda: 1, clubeHeals: 0, voltar: { territorioId: terr.id } })
+    guardarPosicao(); sfx.vs?.()
     onNavigate('clube')
   }
   // Encontro aleatório: o perseguidor alcançou o jogador → luta direto, sem
@@ -283,6 +301,7 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
     if (!def || barraSeChao()) return false
     guardarPosicao(); sfx.vs?.()
     store.setStoryTarget({
+      aleatorioTipo: tipo,
       territorioId: terr.id, cenaId: cena.id, cenaPoiId: '__aleatorio',
       cenaRevela: [], cenaRecompensa: null, pontoIds: terr.pontos.map(p => p.id),
       revezamento: def.revezamento,
@@ -290,7 +309,8 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
     onNavigate('story-combat')
     return true
   }
-  const iniciarTreta = (poi, { viraTreta, revela, aposta } = {}) => {
+  brigaAutoRef.current = (poi, opcoes) => iniciarTreta(poi, { ...opcoes, anunciar: brigaAuto.anunciar })
+  const iniciarTreta = (poi, { viraTreta, revela, aposta = 0, anunciar } = {}) => {
     if (barraSeChao()) return
     const chefe = Boolean(poi.ehChefe)
     // Gate da dívida com o agiota (Isaias, 21/09/2026: "antes de enfrentar o
@@ -298,10 +318,19 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
     // melhor esquema pra pagar é o Clube da Luta") — só trava o CHEFE
     // especificamente; o resto da Pista (farm, pós-muro) continua livre com
     // dívida em aberto, senão vira soft-lock cruel demais.
+    // Ponte entre territórios (`precisaInformante`, ganguesTerritorios.js): o
+    // chefe daqui só aceita depois de falar com o informante do bairro
+    // anterior (a Feira precisa do Duda, na Pista).
+    if (chefe && terr.precisaInformante && !store.storyProgress.__flags?.[terr.id]) {
+      setEncontro(null); sfx.cancel?.()
+      setAviso(t(`games.gangues.cena.${cena.id}.aviso_informante`))
+      setTimeout(() => setAviso(null), 3600)
+      return
+    }
     const dividaAgiota = store.storyProgress.__birosca?.divida || 0
     if (chefe && dividaAgiota > 0) {
       setEncontro(null); sfx.cancel?.()
-      setAviso(t('games.gangues.cena.aviso_divida_chefe', { divida: dividaAgiota }))
+      setAviso(t('games.gangues.cena.aviso_divida_chefe', { divida: dividaAgiota, agiota: nomeAgiota(), chefe: t(`games.gangues.story.bosses.${cena.chefe.boss}.nome`) }))
       setTimeout(() => setAviso(null), 3600)
       return
     }
@@ -311,7 +340,9 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
       setTimeout(() => setAviso(null), 3600)
       return
     }
-    guardarPosicao(); sfx.vs?.()
+    // Briga automática: passou das travas → aviso de 2,5s e aí sim a luta.
+    if (anunciar) { anunciar(() => iniciarTreta(poi, { viraTreta, revela, aposta })); return }
+    guardarPosicao({ ...player, adversario: poi.id }); sfx.vs?.()
     // `poi.fixo`: POI de NÍVEL FIXO, single-enemy (Generais da Pista) — a
     // luta é sempre contra a MESMA ficha (`poi.enemy`) escalada pro ponto
     // autorado `poi.pontosFixo`. `poi.pontosFixo` também existe em POIs
@@ -321,14 +352,26 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
     // jogador na 1ª vitória de uma treta repetível) removido — não existe
     // mais nada que escale contra o jogador pra precisar congelar.
     const pontosFixo = viraTreta ? null : poi.pontosFixo
-    // Aposta em você: sai da grana agora (só depois de passar por todos os
-    // bloqueios acima) e volta multiplicada se vencer (useGanguesVictoryResolution).
-    const apostaFeita = aposta?.valor && store.gastarGrana(aposta.valor) ? aposta : null
-    store.setStoryTarget({ territorioId: terr.id, cenaId: cena.id, cenaPoiId: poi.id, cenaRevela: viraTreta ? (revela || []) : (poi.revela || []), cenaRecompensa: viraTreta ? (viraTreta.recompensa || null) : poi.recompensa || null, cenaSemTravar: Boolean(viraTreta?.semTravar), pontoIds: terr.pontos.map(p => p.id), noId: chefe ? cena.chefe.poiNo : null, enemyId: viraTreta ? viraTreta.enemy : poi.enemy, fixo: Boolean(viraTreta) || Boolean(poi.fixo), liderFixo: (viraTreta || poi.fixo) ? null : poi.liderFixo, moldesPool: viraTreta ? null : poi.moldesPool, revezamento: viraTreta ? (viraTreta.revezamento || null) : poi.revezamento, isChefe: chefe, semGrana: !viraTreta && Boolean(poi.semGrana), repDelta: viraTreta?.rep || 0, pontosFixos: pontosFixo, qtdMin: viraTreta ? null : (poi.qtdMin ?? null), qtdMax: viraTreta ? null : (poi.qtdMax ?? null), aposta: apostaFeita })
+    // Ajustes na ficha do inimigo líder desta luta: o ponto fraco do chefe
+    // (Feira: as 3 páginas da caderneta → −2 Couro) e o inimigo que fica mais
+    // forte contra quem deve ao agiota (o Caderneta, +1 Malícia).
+    const fraqueza = chefe && cena.fraquezaChefe && cena.fraquezaChefe.precisa.every(id => prog.resolvidos[id]) ? cena.fraquezaChefe.efeito : null
+    const bonusDivida = !viraTreta && poi.inimigoBonusSeDivida && dividaAgiota > 0 ? poi.inimigoBonusSeDivida : null
+    const ajusteInimigo = fraqueza || bonusDivida || null
+    // Aposta (Rinha de Apostas da Feira ×2, ou aposta em você ×risco — ver
+    // ganguesApostas.js): aceita número (valor, ×2) ou { valor, mult }. Sai do
+    // bolso na entrada, volta multiplicada na vitória.
+    const apostaValor = Number(typeof aposta === 'object' ? aposta?.valor : aposta) || 0
+    const apostaMult = (typeof aposta === 'object' && aposta?.mult) || 2
+    if (apostaValor > 0 && !store.gastarGrana(apostaValor)) return
+    store.setStoryTarget({ ajusteInimigo, aposta: apostaValor, apostaMult, rinha: Boolean(poi.rinhaInfinita && !viraTreta), territorioId: terr.id, cenaId: cena.id, cenaPoiId: poi.id, cenaRevela: viraTreta ? (revela || []) : (poi.revela || []), cenaRecompensa: viraTreta ? (viraTreta.recompensa || null) : poi.recompensa || null, cenaSemTravar: Boolean(viraTreta?.semTravar), pontoIds: terr.pontos.map(p => p.id), noId: chefe ? cena.chefe.poiNo : null, enemyId: viraTreta ? viraTreta.enemy : poi.enemy, fixo: Boolean(viraTreta) || Boolean(poi.fixo), liderFixo: (viraTreta || poi.fixo) ? null : poi.liderFixo, moldesPool: viraTreta ? null : poi.moldesPool, revezamento: viraTreta ? (viraTreta.revezamento || null) : poi.revezamento, isChefe: chefe, repDelta: viraTreta?.rep || 0, pontosFixos: pontosFixo, qtdMin: viraTreta ? null : (poi.qtdMin ?? null), qtdMax: viraTreta ? null : (poi.qtdMax ?? null) })
     onNavigate('story-combat')
   }
   const resolver = res => {
     const poi = encontro.poi; setEncontro(null)
+    // Choque do Quadro de Luz (Feira): errar o gato tira PV da tropa inteira
+    // antes da treta (nunca derruba — fica com pelo menos 1).
+    if (res?.choque) store.choqueTropa(res.choque)
     if (res?.viraTreta) { iniciarTreta(poi, { viraTreta: res.viraTreta, revela: res.revela }); return }
     // Escolha com requisito de item (fetch quest do Nando): consome os itens —
     // aborta sem marcar nada se faltar (o botão já vem travado, isso é rede).
@@ -341,7 +384,10 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
     const marcos = r.rep ? store.ganharRep(r.rep) : []
     registrarMarcosRep(marcos)
     if (r.item) store.darItem(r.item, r.qtd || 1)
-    if (r.grana || r.rep || r.xp || r.item || res?.daEquip?.length) { setToast({ ...r }); setTimeout(() => setToast(null), 2600) }
+    // `recompensa.equip`: peça de equipamento de prêmio (ex.: a Bota com
+    // Biqueira do corre do Nato — fonte dos raros, PLANO_ITENS_RANGE.md §6).
+    if (r.equip) store.comprarEquip(r.equip, 0)
+    if (r.grana || r.rep || r.xp || r.item || r.equip || res?.daEquip?.length) { setToast({ ...r }); setTimeout(() => setToast(null), 2600) }
     // marcarPoiResolvido também pra papo repetível (ex: Duda/informante) —
     // não trava a interação de novo (estadoPoi trata repetível como sempre
     // disponível), só liga farmCompleto (pino vira azul, igual treta
@@ -363,7 +409,7 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
   const camY = W.h <= vh ? (W.h - vh) / 2 : Math.max(0, Math.min(W.h - vh, player.y - vh / 2 + lookY))
   const breadcrumb = local
     ? `${t(amb.nomeLugar)}${amb.comodoTotal > 1 ? ` · ${t('games.gangues.cena.comodo', { n: amb.comodoIdx + 1, de: amb.comodoTotal })}` : ''}`
-    : `A PISTA `
+    : `${t(`games.gangues.story.territorios.${terr.id}.nome`)} `
   // Metas obrigatórias da cena (portao.precisa + o chefe) — o que abre o
   // caminho por baixo do muro. Vira a lista do checklist do topo.
   const metaDe = id => {
@@ -372,36 +418,35 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
   }
   const metas = local ? [] : [
     ...(cena.portao?.precisa || []).map(metaDe),
-    // depois que a brecha abre, os 2 bondes de tocaia pós-muro entram na lista
-    ...(baseFeita ? ['posmuro_1', 'posmuro_2'].map(metaDe) : []),
+    // depois que a passagem abre, as metas do outro lado do muro entram na lista
+    ...(baseFeita ? (cena.posMuro?.metas || []).map(metaDe) : []),
     { id: '__boss', nome: t(`games.gangues.story.bosses.${cena.chefe.boss}.nome`), feito: Boolean(prog.boss) },
   ]
   // Setinhas do mini-mapa: só os objetivos PENDENTES E JÁ REVELADOS (não
   // spoila o que o jogador ainda nem descobriu), com a posição no mundo. Se
   // tudo fechou mas o muro ainda não abriu, o alvo vira a boca do túnel.
   const minimapaAlvos = local ? [] : metas.filter(m => !m.feito).map(m => {
-    if (m.id === '__boss' && baseFeita && !muroAberto) {
-      // Antes do muro: aponta pra boca do túnel.
-      if (player.y >= 1330) return { id: '__tunel', nome: t('games.gangues.cena.minimapa.tunel'), pos: { x: 452, y: 1404 } }
-      // Já do outro lado: primeiro os 2 bondes de tocaia (posmuro_1 → posmuro_2),
-      // depois a porta do galpão.
-      if (!prog.resolvidos.posmuro_1) return { id: 'posmuro_1', nome: t('games.gangues.cena.pista.posmuro_1.nome'), pos: cena.pos.posmuro_1 }
-      if (!prog.resolvidos.posmuro_2) return { id: 'posmuro_2', nome: t('games.gangues.cena.pista.posmuro_2.nome'), pos: cena.pos.posmuro_2 }
-      return { id: '__galpao', nome: t('games.gangues.cena.minimapa.galpao'), pos: { x: 596, y: 262 } }
+    if (m.id === '__boss' && baseFeita && !muroAberto && cena.posMuro) {
+      // Antes do muro: aponta pra passagem (túnel/galeria).
+      if (player.y >= (cena.muro?.y1 ?? 0)) return { id: '__passagem', nome: t(cena.posMuro.passagem.nome), pos: cena.posMuro.passagem.pos }
+      // Já do outro lado: as metas pós-muro em ordem, depois a dungeon final.
+      const proxima = (cena.posMuro.metas || []).find(id => !prog.resolvidos[id])
+      if (proxima) return { id: proxima, nome: t(`${cena.pois.find(x => x.id === proxima)?.i18n}.nome`), pos: posNoMapa(cena, proxima) }
+      return { id: '__final', nome: t(cena.posMuro.final.nome), pos: cena.posMuro.final.pos }
     }
-    if (m.id === '__boss') return { ...m, pos: cena.pos.boss }
+    if (m.id === '__boss') return { ...m, pos: posNoMapa(cena, 'boss') }
     const pd = cena.pois.find(x => x.id === m.id)
     if (!pd || !(pd.visivel || prog.revelados[m.id])) return null
-    return { ...m, pos: cena.pos[m.id] }
+    return { ...m, pos: posNoMapa(cena, m.id) }
   }).filter(m => m?.pos)
   return <main className={`gang-cena-worldpage${local ? ' is-interior' : ''}`} style={{ '--terr-cor': cena.cor }}>
     <AnimatePresence>{intro && <GangDialog lines={t(cena.chegada)} speaker={t(cena.falante)} sub={t(cena.falanteSub)} retrato={getGanguesNpcPortrait(cena.falanteSlug)} onFinish={fecharIntro} onSkip={fecharIntro} />}</AnimatePresence>
     <AnimatePresence>{aleatorio.aviso && <GangDialog key="aleatorio" lines={t(`games.gangues.cena.aleatorio.${aleatorio.aviso}.aviso`)} speaker={t(cena.falante)} sub={t(cena.falanteSub)} retrato={getGanguesNpcPortrait(cena.falanteSlug)} onFinish={aleatorio.confirmarAviso} onSkip={aleatorio.confirmarAviso} />}</AnimatePresence>
-    <header className="gang-cena-worldhud"><button onClick={() => { local ? sair() : (guardarPosicao(), (onVoltar || (() => onNavigate('story')))()) }}>← {local ? t('games.gangues.cena.acao.sair') : t('games.gangues.cena.acao.voltar')}</button><strong>{breadcrumb}{!local && (prog.boss ? <i className="gang-cena-dominado-selo">⚑ DOMINADA</i> : <button className="gang-cena-meta-btn" onClick={() => setChecklist(v => !v)}>{feitos}/{total} ▾</button>)}</strong><span>💵 {store.grana}　⚑ {store.rep}</span><button className="gang-cena-ficha-btn" onClick={() => setBagAberta(true)} aria-label={t('games.gangues.bag.titulo')}>🎒</button>{store.activeParty.length > 0 && <button className="gang-cena-ficha-btn" onClick={() => setFichaIndex(0)}>👤</button>}<button className="gang-cena-ficha-btn" onClick={() => { guardarPosicao(); onNavigate('album') }} aria-label={t('games.gangues.album.titulo')}>📕</button></header>
+    <header className="gang-cena-worldhud"><button onClick={() => { local ? sair() : (guardarPosicao(), (onVoltar || (() => onNavigate('story')))()) }}>← {local ? t('games.gangues.cena.acao.sair') : t('games.gangues.cena.acao.voltar')}</button><strong>{breadcrumb}{!local && (prog.boss ? <i className="gang-cena-dominado-selo">⚑ {t('games.gangues.cena.dominada')}</i> : <button className="gang-cena-meta-btn" onClick={() => setChecklist(v => !v)}>{feitos}/{total} ▾</button>)}</strong><span>💵 {store.grana}　⚑ {store.rep}</span><button className="gang-cena-ficha-btn" onClick={() => setBagAberta(true)} aria-label={t('games.gangues.bag.titulo')}>🎒</button>{store.activeParty.length > 0 && <button className="gang-cena-ficha-btn" onClick={() => setFichaIndex(0)}>👤</button>}<button className="gang-cena-ficha-btn" onClick={() => { guardarPosicao(); onNavigate('album') }} aria-label={t('games.gangues.album.titulo')}>📕</button></header>
     <AnimatePresence>{checklist && !local && <motion.div className="gang-cena-checklist" initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }}>
       <b>{t('games.gangues.cena.checklist_titulo')}</b>
       <ul>{metas.map(m => <li key={m.id} className={m.feito ? 'is-feito' : ''}><span>{m.feito ? '✓' : '○'}</span>{m.nome}</li>)}</ul>
-      <p>{t(baseFeita ? (prog.boss ? 'games.gangues.cena.checklist_dominada' : 'games.gangues.cena.checklist_tunel_aberto') : 'games.gangues.cena.checklist_dica')}</p>
+      <p>{t(baseFeita ? (prog.boss ? 'games.gangues.cena.checklist_dominada' : cena.textos.checklistPassagem) : cena.textos.checklistDica)}</p>
     </motion.div>}</AnimatePresence>
     <div className="gang-cena-viewport" ref={viewportRef}>
     {/* key=local, igual o GangMarker logo abaixo: `.gang-cena-world` tem
@@ -421,7 +466,7 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
     <div key={local ? `${local.id}-${local.comodo}` : 'rua'} className="gang-cena-world" style={{ width: W.w, height: W.h, transform: `translate3d(${-camX}px,${-camY}px,0)` }}>
       {local ? <CenaInterior amb={amb} /> : <CenaCenario cena={cena} bossAberto={baseFeita || muroAberto} muroAberto={muroAberto} />}
       {(amb?.alvos || []).map(p => <ZonaChao key={`z-${p.id}`} p={p} active={perto?.id === p.id} />)}
-      {(amb?.alvos || []).map(p => <PinoAlvo key={p.id} p={p} t={t} active={perto?.id === p.id} onColidir={reportarColisao} />)}
+      {(amb?.alvos || []).map(p => <PinoAlvo key={p.id} p={p} t={t} active={perto?.id === p.id} onColidir={reportarColisao} ignorado={brigaAuto.ignorados.has(p.id)} />)}
       {/* key=local: rua e cada cômodo de interior são espaços de coordenada
           DIFERENTES (mundo pequeno do cômodo vs WORLD da rua) — sem isso, o
           Framer Motion anima o left/top do marcador DE UMA posição pra OUTRA
@@ -431,18 +476,19 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
           (sem animação) toda vez que entra/sai de um interior. */}
       {!local && aleatorio.perseguidor && <div className={`gang-world-perseguidor is-${ALEATORIO_TIPOS[aleatorio.perseguidor.tipo]?.cor}`} style={{ left: aleatorio.perseguidor.x, top: aleatorio.perseguidor.y }}><span /><small>{t(`games.gangues.cena.aleatorio.${aleatorio.perseguidor.tipo}.nome`)}</small></div>}
       <GangMarker key={local ? `${local.id}-${local.comodo}` : 'rua'} player={player} facing={facing} gangName={store.gangName} retrato={getGanguesPortraitByTemplateId(store.getLider()?.character_template_id)} />
-    </div><div className="gang-cena-vignette" />{!local && (aleatorio.perseguidor?.tipo === 'policia' || aleatorio.onomatopeia === 'policia') && <div className="gang-cena-sirene" aria-hidden="true" />}{hint && <div className="gang-cena-tutorial">{hint}</div>}{!local && !muroAberto && player.y < 1430 && <div className="gang-cena-gatelock">🔒 {t(baseFeita ? 'games.gangues.cena.muro_tunel' : 'games.gangues.cena.boss_trancado')}</div>}<AnimatePresence>{aleatorio.onomatopeia && <motion.div key="onomatopeia" className={`gang-cena-onomatopeia is-${ALEATORIO_TIPOS[aleatorio.onomatopeia]?.cor}`} initial={{ scale: .3, opacity: 0, rotate: -12 }} animate={{ scale: 1, opacity: 1, rotate: -6 }} exit={{ opacity: 0 }} transition={{ type: 'spring', stiffness: 520, damping: 14 }}><b>{t(`games.gangues.cena.aleatorio.${aleatorio.onomatopeia}.onomatopeia`)}</b></motion.div>}</AnimatePresence><AnimatePresence>{fade && <motion.div className="gang-cena-fade" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: .16 }} />}</AnimatePresence></div>
+    </div><div className="gang-cena-vignette" />{noEscuro && <div className="gang-cena-apagao" style={{ '--px': `${player.x - camX}px`, '--py': `${player.y - camY}px` }} aria-hidden="true" />}{!local && (aleatorio.perseguidor?.tipo === 'policia' || aleatorio.onomatopeia === 'policia') && <div className="gang-cena-sirene" aria-hidden="true" />}{hint && <div className="gang-cena-tutorial">{hint}</div>}{!local && !muroAberto && cena.muro && player.y < cena.muro.aviso && <div className="gang-cena-gatelock">🔒 {t(baseFeita ? cena.textos.muroPassagem : cena.textos.bossTrancado)}</div>}<AnimatePresence>{aleatorio.onomatopeia && <motion.div key="onomatopeia" className={`gang-cena-onomatopeia is-${ALEATORIO_TIPOS[aleatorio.onomatopeia]?.cor}`} initial={{ scale: .3, opacity: 0, rotate: -12 }} animate={{ scale: 1, opacity: 1, rotate: -6 }} exit={{ opacity: 0 }} transition={{ type: 'spring', stiffness: 520, damping: 14 }}><b>{t(`games.gangues.cena.aleatorio.${aleatorio.onomatopeia}.onomatopeia`)}</b></motion.div>}</AnimatePresence><AnimatePresence>{fade && <motion.div className="gang-cena-fade" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: .16 }} />}</AnimatePresence></div>
     {!local && !intro && <GanguesMiniMapa player={player} alvos={minimapaAlvos} />}
     {!local && !intro && !encontro && !fade && <GanguesAlvoTutorial alvos={amb?.alvos} />}
-    <WorldControls onInput={v => { inputRef.current = v }} onInteract={() => abrir(perto)} action={perto ? interactionLabel(perto, t) : null} />
-    <AnimatePresence>{toast && <motion.div className="gang-cena-toast" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}><b>RECOMPENSA</b>{toast.grana ? <span>💵 +{toast.grana}</span> : null}{toast.rep ? <span>⚑ +{toast.rep}</span> : null}{toast.xp ? <span>⚡ +{toast.xp} XP</span> : null}
+    <WorldControls onInput={v => { inputRef.current = v }} onInteract={() => abrir(perto)} action={perto ? interactionLabel(perto, t) : null} rotulo={t('games.gangues.cena.acao.interagir')} brigaAuto={brigaAuto.ligado} brigaAutoBloqueada={brigaAuto.bloqueado} onBrigaAuto={brigaAuto.alternar} rotuloBrigaAuto={t('games.gangues.cena.briga_auto')} />
+    <AnimatePresence>{toast && <motion.div className="gang-cena-toast" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}><b>{t('games.gangues.cena.recompensa')}</b>{toast.grana ? <span>💵 +{toast.grana}</span> : null}{toast.rep ? <span>⚑ +{toast.rep}</span> : null}{toast.xp ? <span>⚡ +{toast.xp} XP</span> : null}{toast.equip ? <span>{getGanguesEquip(toast.equip)?.icone} {t(getGanguesEquip(toast.equip)?.nome || '')}</span> : null}
     </motion.div>}</AnimatePresence>
+    <BrigaAutoAviso anuncio={brigaAuto.anuncio} t={t} />
     <AnimatePresence>{aviso && <motion.div className="gang-cena-toast gang-cena-toast--aviso" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}>{aviso}</motion.div>}</AnimatePresence>
     {/* Marco de reputação recorrente (a cada 50) — modal BLOQUEANTE, não
         toast: só fecha ao clicar (pedido do Isaias, 2026-09-14). */}
     <GanguesRepRecompensaModal t={t} marco={repModalMarco} onClose={() => setRepModalMarco(null)} />
-    <AnimatePresence>{encontro && <motion.div className="gang-cena-modal" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}><div className="gang-cena-modal-bg" onClick={() => setEncontro(null)} /><motion.div className="gang-cena-modal-card" initial={{ y: 25 }} animate={{ y: 0 }}>{encontro.vs ? <TretaVS poi={encontro.poi} fala={encontro.fala} nivelTropa={nivelTropa} avisoOff={avisoNivelOff} onOcultarAviso={() => setAvisoNivelOff(true)} onSim={aposta => iniciarTreta(encontro.poi, { aposta })} onNao={() => setEncontro(null)} t={t} territorioId={terr.id} grana={store.grana} rep={store.rep} roster={store.activeParty.length ? store.activeParty : store.roster} /> : encontro.poi.tipo === 'papo' ? <GanguesPapo poi={encontro.poi} cena={cena} onResolve={resolver} onClose={() => setEncontro(null)} /> : encontro.poi.tipo === 'descanso' ? <GanguesDescanso poi={encontro.poi} cena={cena} onClose={() => setEncontro(null)} /> : encontro.poi.tipo === 'agiota' ? <GanguesAgiota poi={encontro.poi} onClose={() => setEncontro(null)} onClube={iniciarClube} /> : encontro.poi.tipo === 'banca' ? <GanguesBanca poi={encontro.poi} onClose={() => setEncontro(null)} /> : encontro.poi.tipo === 'loja' ? <GanguesLoja poi={encontro.poi} onClose={() => setEncontro(null)} /> : <GanguesParada poi={encontro.poi} cena={cena} onResolve={resolver} onClose={() => setEncontro(null)} />}</motion.div></motion.div>}</AnimatePresence>
-    <AnimatePresence>{fichaIndex !== null && store.activeParty[fichaIndex] && <motion.div className="gang-cena-modal" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}><div className="gang-cena-modal-bg" onClick={() => setFichaIndex(null)} /><motion.div className="gang-cena-modal-card gang-cena-ficha-scroll" initial={{ y: 25 }} animate={{ y: 0 }}><div className="gang-cena-enc-acoes gang-cena-ficha-nav">{store.activeParty.length > 1 && <button className="gang-cena-btn" onClick={() => setFichaIndex(i => (i + store.activeParty.length - 1) % store.activeParty.length)}>◀ ANTERIOR</button>}<button className="gang-cena-btn gang-cena-btn--go" onClick={() => setFichaIndex(null)}>FECHAR</button>{store.activeParty.length > 1 && <button className="gang-cena-btn" onClick={() => setFichaIndex(i => (i + 1) % store.activeParty.length)}>PRÓXIMO ▶</button>}</div>
+    <AnimatePresence>{encontro && <motion.div className="gang-cena-modal" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}><div className="gang-cena-modal-bg" onClick={() => setEncontro(null)} /><motion.div className="gang-cena-modal-card" initial={{ y: 25 }} animate={{ y: 0 }}>{encontro.vs ? <TretaVS poi={encontro.poi} fala={encontro.fala} nivelTropa={nivelTropa} avisoOff={avisoNivelOff} onOcultarAviso={() => setAvisoNivelOff(true)} onSim={aposta => iniciarTreta(encontro.poi, { aposta })} grana={store.grana} onNao={() => setEncontro(null)} t={t} territorioId={terr.id} rep={store.rep} roster={store.activeParty.length ? store.activeParty : store.roster} /> : encontro.poi.tipo === 'papo' ? <GanguesPapo poi={encontro.poi} cena={cena} onResolve={resolver} onClose={() => setEncontro(null)} /> : encontro.poi.tipo === 'descanso' ? <GanguesDescanso poi={encontro.poi} cena={cena} onClose={() => setEncontro(null)} /> : encontro.poi.tipo === 'agiota' ? <GanguesAgiota poi={encontro.poi} territorioId={terr.id} onClose={() => setEncontro(null)} onClube={iniciarClube} /> : encontro.poi.tipo === 'banca' ? <GanguesBanca poi={encontro.poi} onClose={() => setEncontro(null)} /> : encontro.poi.tipo === 'loja' ? <GanguesLoja poi={encontro.poi} onClose={() => setEncontro(null)} /> : encontro.poi.tipo === 'ferreiro' ? <GanguesFerreiro poi={encontro.poi} onClose={() => setEncontro(null)} /> : <GanguesParada poi={encontro.poi} cena={cena} onResolve={resolver} onClose={() => setEncontro(null)} />}</motion.div></motion.div>}</AnimatePresence>
+    <AnimatePresence>{fichaIndex !== null && store.activeParty[fichaIndex] && <motion.div className="gang-cena-modal" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}><div className="gang-cena-modal-bg" onClick={() => setFichaIndex(null)} /><motion.div className="gang-cena-modal-card gang-cena-ficha-scroll" initial={{ y: 25 }} animate={{ y: 0 }}><div className="gang-cena-enc-acoes gang-cena-ficha-nav">{store.activeParty.length > 1 && <button className="gang-cena-btn" onClick={() => setFichaIndex(i => (i + store.activeParty.length - 1) % store.activeParty.length)}>◀ {t('games.gangues.cena.ficha_anterior')}</button>}<button className="gang-cena-btn gang-cena-btn--go" onClick={() => setFichaIndex(null)}>{t('games.gangues.cena.fechar')}</button>{store.activeParty.length > 1 && <button className="gang-cena-btn" onClick={() => setFichaIndex(i => (i + 1) % store.activeParty.length)}>{t('games.gangues.cena.ficha_proximo')} ▶</button>}</div>
       {/* Vaga de recrutamento liberada — nunca silencioso (mesmo motivo do
           marco de reputação): quem abre a ficha vê na hora que dá pra chamar
           mais alguém, com o botão pra ir direto lá. */}

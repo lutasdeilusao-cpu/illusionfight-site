@@ -5,6 +5,7 @@ import { sfx } from '../../../../lib/sfx'
 import { getGanguesAnimacao, tocarSomCombate } from '../data/ganguesCombatAnimations.js'
 import GanguesCombatSpriteAnim from './GanguesCombatSpriteAnim.jsx'
 import './DramaticDice.css'
+import './DramaticDiceStatus.css'
 
 // Máquina de animação de combate (16/09/2026) — generalizada a partir do
 // teste único do Trinca (soco de 8, depois 16 quadros) depois de aprovado:
@@ -31,7 +32,7 @@ import './DramaticDice.css'
  *
  * @param {{ finalValue: number, sides?: number, side: 'player'|'enemy', onComplete: () => void, powerName?: string, attackerName?: string, attackerRetrato?: string|null, targetName?: string, theme?: { rgb: string, glyphs: string[], particleCount: number } | null, attackerTemplateId?: number|null, targetTemplateId?: number|null }} props
  */
-export default function DramaticDice({ finalValue, sides = 6, side, onComplete, powerName, passiveNames, statusNome, statusDesc, passivaLabel, attackerName, attackerRetrato, targetName, theme, attackerTemplateId, targetTemplateId, velocidade = 1 }) {
+export default function DramaticDice({ finalValue, sides = 6, side, onComplete, powerName, passiveNames, statusNome, statusDesc, passivaLabel, attackerName, attackerRetrato, targetName, theme, attackerTemplateId, targetTemplateId, velocidade = 1, armaRolada = null, armaduraRolada = null }) {
   const { t } = useLanguage()
   // `side === 'player'`: o jogador ataca — mostra o ataque normal DELE (não
   // mostra nada se foi um PODER, ainda sem animação própria).
@@ -385,6 +386,17 @@ export default function DramaticDice({ finalValue, sides = 6, side, onComplete, 
               </motion.span>
             )}
           </motion.div>
+
+          {/* Dado das peças em FAIXA (27/09/2026): o quanto a arma do
+              atacante e a armadura do alvo tiraram NESTE golpe — "você nunca
+              sabe exatamente quanto a arma vai tirar". Só na revelação, e só
+              quando o lado tem peça com faixa (null = sem peça). */}
+          {phase === 'reveal' && (armaRolada != null || armaduraRolada != null) && (
+            <div className="dramatic-dice-equip">
+              {armaRolada != null && <span className="dramatic-dice-equip__chip">🔪 {t('games.gangues.dado.arma', { n: armaRolada })}</span>}
+              {armaduraRolada != null && <span className="dramatic-dice-equip__chip dramatic-dice-equip__chip--def">🛡️ {t('games.gangues.dado.armadura', { n: armaduraRolada })}</span>}
+            </div>
+          )}
 
           {/* Barra de progresso no rodapé (sutil) */}
           {phase === 'rolling' && (
