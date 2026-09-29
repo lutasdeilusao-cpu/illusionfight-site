@@ -137,23 +137,6 @@ const defaultState = {
   _faseAtual: null,
 }
 
-function cacheLocal(state) {
-  try {
-    const uid = state._userId || 'anon'
-    const key = `tama_save_${uid}_${state._slot || 1}`
-    localStorage.setItem(key, JSON.stringify(state))
-  } catch { /* quota */ }
-}
-
-function cacheLoad(userId, slot = 1) {
-  try {
-    if (!userId) return null
-    const key = `tama_save_${userId}_${slot}`
-    const raw = localStorage.getItem(key)
-    return raw ? JSON.parse(raw) : null
-  } catch { return null }
-}
-
 export const useTamagoshiStore = create((set, get) => ({
   ...defaultState,
 
@@ -166,7 +149,6 @@ export const useTamagoshiStore = create((set, get) => ({
 
   setFlags: (flags) => {
     set({ flags })
-    cacheLocal(get())
     const uid = get()._userId
     if (uid && get().criaturaId) {
       supabase.from('tamagoshi_saves').update({
@@ -180,7 +162,6 @@ export const useTamagoshiStore = create((set, get) => ({
 
   eclodir: () => {
     set({ fase: 'selecao' })
-    cacheLocal(get())
   },
 
   // criaturaId e SEMPRE number (CRIATURAS_BASE.id)
@@ -324,13 +305,11 @@ export const useTamagoshiStore = create((set, get) => ({
       } catch { /* notif unavailable */ }
     }
 
-    cacheLocal(get())
   },
 
   saveToCloud: async (userId) => {
     const state = get()
     const uid = userId || state._userId
-    cacheLocal(state)
     if (!uid || !state.criaturaId) return
 
     const payload = {
@@ -403,7 +382,6 @@ export const useTamagoshiStore = create((set, get) => ({
       set({ fase: 'partida' })
     }
 
-    cacheLocal(get())
     return mapped
   },
 
@@ -604,7 +582,6 @@ export const useTamagoshiStore = create((set, get) => ({
     }
     set({ status: 'partida', fase: 'partida', fome: 0, higiene: 0, energia: 0, humor: 0, saude: 0 })
     get().saveToCloud(uid)
-    cacheLocal(get())
     if (!get()._isAdmin) registrarPontuacaoTamaRanking(uid, PONTOS_TAMA.partida, true)
   },
 

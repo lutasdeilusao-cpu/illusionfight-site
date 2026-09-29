@@ -7,33 +7,6 @@ import { ITENS } from '../data/itens'
 import { MONOLOGUES } from '../data/monologues'
 import { FLAGS } from '../data/flags'
 
-// Cache local — NUNCA fonte de verdade, só acelera leitura
-function cacheLocal(state) {
-  try {
-    if (!state._slot) return
-    localStorage.setItem(`jack_cache_${state._slot}`, JSON.stringify({
-      cervejas: state.cervejas, cervejasPorSegundo: state.cervejasPorSegundo, cervejasTotais: state.cervejasTotais,
-      fragmentos: state.fragmentos, notas: state.notas, fase: state.fase, flags: state.flags,
-      hpAtual: state.hpAtual, hpMax: state.hpMax, nivel: state.nivel, xp: state.xp,
-      inventario: state.inventario, equipado: state.equipado,
-      dungeonsCompletas: state.dungeonsCompletas, tempoJogo: state.tempoJogo, titleDone: state.titleDone,
-      cidadeAtual: state.cidadeAtual, periodo: state.periodo,
-      medidorPrimordial: state.medidorPrimordial, aliadoAtual: state.aliadoAtual,
-      casoAtivo: state.casoAtivo, pistasColetadas: state.pistasColetadas,
-      suspeitos: state.suspeitos, locaisVisitados: state.locaisVisitados,
-      acusacoesErradas: state.acusacoesErradas, casosResolvidos: state.casosResolvidos, comprou: state.comprou,
-    }))
-  } catch (_) {}
-}
-
-function cacheLoad(slot) {
-  try {
-    const raw = localStorage.getItem(`jack_cache_${slot}`)
-    if (raw) return JSON.parse(raw)
-  } catch (_) {}
-  return null
-}
-
 const defaultState = {
   cervejas: 0, cervejasPorSegundo: 1, cervejasTotais: 0,
   fragmentos: 0, notas: 0,
@@ -67,7 +40,6 @@ export const useJackStore = create((set, get) => {
     // === AUTO-SAVE TRIGGERS ===
     _autoSave: () => {
       const state = get()
-      if (state._userId) cacheLocal(state)
       debouncedSave()
     },
 
@@ -355,7 +327,6 @@ export const useJackStore = create((set, get) => {
         .from('jack_saves')
         .upsert(payload, { onConflict: 'user_id,slot_num' })
       if (error) console.error('[JACK] saveToCloud error:', error)
-      cacheLocal(state)
     },
 
     loadFromCloud: async (userId, slotNum = 1) => {
@@ -367,10 +338,9 @@ export const useJackStore = create((set, get) => {
         .eq('slot_num', slotNum)
         .maybeSingle()
       if (!error && data) {
-        cacheLocal({ ...data, _slot: slotNum })
         return data
       }
-      return cacheLoad(slotNum)
+      return null
     },
 
     // Carrega todos os slots do usuário (para o MainMenu)
@@ -390,9 +360,6 @@ export const useJackStore = create((set, get) => {
           })
         }
       } catch (_) {}
-      for (let i = 1; i <= 3; i++) {
-        if (!slots[i - 1]) slots[i - 1] = cacheLoad(i)
-      }
       return slots
     },
 
@@ -400,19 +367,15 @@ export const useJackStore = create((set, get) => {
       if (userId) {
         await supabase.from('jack_saves').delete().eq('user_id', userId).eq('slot_num', slotNum)
       }
-      localStorage.removeItem(`jack_cache_${slotNum}`)
-      localStorage.removeItem(`jack_beer_slot_${slotNum}`)
     },
 
     persistNow: () => {
       const state = get()
       if (state._userId) state.saveToCloud(state._userId)
-      else cacheLocal(state)
     },
 
     reset: () => {
       const slot = get()._slot
-      if (slot) localStorage.removeItem(`jack_cache_${slot}`)
       set({ ...defaultState, _slot: slot, _userId: get()._userId })
     },
   }

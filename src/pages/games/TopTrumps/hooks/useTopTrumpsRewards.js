@@ -11,11 +11,6 @@ function getTierInicial(user, perfil) {
   return tier === 'guest' || tier === 'evento' ? 'free' : tier
 }
 
-function getDeckKey(user) {
-  const uid = user?.id || 'anon'
-  return `ldi-toptrumps-deck-${uid}`
-}
-
 export function useTopTrumpsRewards({
   user, perfil, deckUsuario, setDeckUsuario, todasCartas,
   historicoRodadas, desbloquear, onRecompensaConfirmada
@@ -53,10 +48,6 @@ export function useTopTrumpsRewards({
         return
       }
     }
-    const chave = getDeckKey(user)
-    const ids = JSON.parse(localStorage.getItem(chave) || '[]')
-    ids.push(carta.id)
-    localStorage.setItem(chave, JSON.stringify(ids))
     setDeckUsuario([...deckUsuario, carta])
     salvarCartasDeck(user.id, [carta.id])
     setJaGanhouHoje(true)

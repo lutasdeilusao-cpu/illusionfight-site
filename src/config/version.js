@@ -8,18 +8,18 @@
  */
 
  // ── Site ──────────────────────────────────────────
-export const SITE_VERSION = '10.308.5' // feat(gangues): historinha de cada item + Feira comprimida pra 21–33
+export const SITE_VERSION = '10.308.6' // chore: nenhum save local de jogo (Jack, Tamagoshi, Top Trumps) — progresso só na conta
 
 // ── Games ─────────────────────────────────────────
 export const PP_VERSION        = '2.3.2' // fix: aba "stories" do rodape mostrava a chave crua pp.menu.pistas_label (nao existia) -> aponta pra pp.dossier.pistas_label; PuzzleWrapper mostrava pp.puzzle.nenhum/instrucao (nao existiam) -> pp.local.puzzle_nenhum/instrucao; confirm() de deletar save mostrava pp.menu.deletar_slot cru -> chave criada nos 3 idiomas.
 export const LDI_VERSION       = '2.0.1'  // Lendas do LDI — guest aviso melhorado no lobby (título, texto explicativo, link cadastro)
-export const JACK_VERSION      = '5.3.2'  // Jack Dream Beer — correção de encoding em comentário
+export const JACK_VERSION      = '5.3.3'  // sem cache local: progresso só na conta (sem conta perde tudo, de propósito)
 export const GANGUES_VERSION   = '3.80.0' // historinha de cada item no card da loja (66 itens, 3 idiomas) + Feira comprimida pra faixa 21–33 (Cobrador 52→33, capangas e Clube junto)
 
-export const TAMA_VERSION      = '3.4.1' // Tamagoshi LDI — preserva oferta inicial ao voltar do gacha pago
+export const TAMA_VERSION      = '3.4.2' // sem cache local: progresso só na conta
 export const DUELO_VERSION     = '2.8.1'  // Duelo LDI — TrapActivator: CSS extraído de inline para arquivo próprio
 export const MINIGAMES_VERSION = '4.3.7'  // PuzzleLabirinto: setas na tela sempre + labirinto inteiro dimensionado pela largura do container (sem decidir por largura da janela)
-export const TS_VERSION        = '6.0.3'  // Top Trumps SP - fix: cartas cortadas em telas baixas (escala por JS) + audio iOS Chrome + player da Nina toca em mobile
+export const TS_VERSION        = '6.0.4'  // tirada a cópia local do deck (só gravava, nunca lia)
 export const TM_VERSION        = '6.0.2'  // Top Trumps MP - alinhado com SP 6.0.2 (GameOverScreen compartilhado)
 export const TATICS_VERSION    = '7.5.1' // fix: PreBatalha.jsx chamava t('tatics.*') (namespace legado, sem essas chaves) em vez de t('games.tatics.*') — tela pre-batalha inteira mostrava chave crua. SimulacaoAuto.jsx usava 11 chaves games.tatics.sim_* que nunca existiram — criadas nos 3 idiomas.
 export const SRGRM_VERSION = '3.5.0' // SRGRM 3v3 — extração fiel do original rpg_3v3-3-4-1.html, 129 funções preservadas
