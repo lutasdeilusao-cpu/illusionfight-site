@@ -5,7 +5,7 @@ import enemiesData from './gangues-enemies.json'
    MODO HISTÓRIA — o mapa de Marelia, antes de ter dono
    Esqueleto pra o Isaias polir o visual e pôr arte dos bosses depois.
 
-   AMBIENTAÇÃO (liga no conto "Alan, o Campeão", contos-index id 02):
+   AMBIENTAÇÃO (liga no conto "Alan, o Campeão", historias/contos.json id 02):
    Anos antes do Alan, um cara chamado Damião — o Costura — quase fez o
    que o Alan ia fazer: juntar Marelia inteira numa bandeira só. Chegou
    a segurar seis bairros e a Laje. Não durou. Marelia rachou de novo.

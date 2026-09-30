@@ -8,10 +8,10 @@ import { useEventos } from '../../context/EventosContext'
 import { useReadingCompletionGate } from '../../hooks/useReadingCompletionGate'
 import { notificationManager } from '../../lib/notificationManager'
 import { useTrackedSession } from '../../lib/sessionAnalytics'
-import index from '../../data/livro-index.json'
+import index from '../../data/historias/lutas-de-ilusao.json'
 import LeitorCapitulo from '../../components/Leitor/LeitorCapitulo'
 
-const chapterLoaders = import.meta.glob('../../data/livro/**/*.md', { query: '?raw', import: 'default' })
+const chapterLoaders = import.meta.glob('../../data/historias/lutas-de-ilusao/**/*.md', { query: '?raw', import: 'default' })
 const ADMIN_EMAILS = ['isaiasgamedev@gmail.com', 'gramikgames@gmail.com']
 
 /** Capítulo da linha principal (o livro Lutas de Ilusão) — só resolve o dado
@@ -63,7 +63,7 @@ export default function LivroCapitulo() {
     setCarregando(true)
     if (!chapter || !liberado(chapter)) { setNotFound(true); return }
     const lang = locale === 'en' ? 'en' : locale === 'es' ? 'es' : 'pt'
-    const loader = chapterLoaders[`../../data/livro/${lang}/${id}.md`] || chapterLoaders[`../../data/livro/pt/${id}.md`]
+    const loader = chapterLoaders[`../../data/historias/lutas-de-ilusao/${lang}/${id}.md`] || chapterLoaders[`../../data/historias/lutas-de-ilusao/pt/${id}.md`]
     if (!loader) { setNotFound(true); return }
     loader().then(texto => { setMd(texto); setCarregando(false) }).catch(() => setNotFound(true))
   }, [id, chapter, isAdmin, locale])

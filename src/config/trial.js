@@ -6,5 +6,5 @@ export const TRIAL_ACTIVE = false
 
 /** Beta: os 5 Contos de Ilusão ficam abertos pra visitante sem conta
  *  enquanto a gente coleta feedback. Desligar quando a fase acabar —
- *  as datas de liberação em contos-index.json voltam a valer sozinhas. */
+ *  as datas de liberação em historias/contos.json voltam a valer sozinhas. */
 export const BETA_CONTOS_PUBLICO = true

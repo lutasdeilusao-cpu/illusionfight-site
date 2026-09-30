@@ -1,7 +1,7 @@
 # ILLUSIONFIGHT.COM — MAPA DO SITE E DO PROJETO
 
 > Referência do estado atual do projeto para navegação humana e contexto de IA.
-> Atualizado em 2026-09-30 — `SITE_VERSION` **10.315.1**.
+> Atualizado em 2026-09-30 — `SITE_VERSION` **10.315.2**.
 > Histórico de tarefas, bugfixes e pendências não pertence a este documento.
 > Regras de trabalho, arquivos proibidos e decisões arquiteturais: `AGENTS.md`.
 
@@ -166,7 +166,7 @@ Reorganização de setembro/2026: `/livro` e `/mundo` (páginas únicas) viraram
 
 - **`/historias`** (`historias/HistoriasHub.jsx`) — redesign 25/09/2026 (v10.293.10) no padrão do WEB SHARD: cabeçalho `IF // HISTÓRIAS`, destaque da linha principal (capa oficial do WEB SHARD), "continuar lendo" por título, estante numerada (`TituloCard`) com filtro do farol, **próximos capítulos** com a cascata assinante → conta → público (`CascataLiberacao`) e **capítulos recentes**. `/historias/contos` é o mesmo hub com `tipo="conto"`.
 - **Página de título** (`historias/HistoriaTitulo.jsx`) — uma só pra linha principal, conto e obra: `TituloHero` (capa, selos, sinopse), farol completo, bloco "o universo" (obras), link da Amazon, lista de capítulos (`historias/HistoriaCapLinha.jsx`, o `.ws-cap` do WEB SHARD + resumo) e o `LerAntesCta`.
-- **Dado**: `src/lib/historias/catalogo.js` junta `livro-index` / `contos-index` / `obras-index` no formato de título do WEB SHARD — a UI nunca lê os índices direto. A linha principal puxa nome/chamada/sinopse/capa de `webshard-titulos.json` (uma fonte só do produto). Sem arte própria → `ComingSoon.png` (padrão do projeto). Acesso em `src/hooks/useHistoriasAcesso.js` (espelho do `useWebshardAcesso`: Cap. 01 do livro sempre livre, contos pela Beta, resto pela cascata).
+- **Dado**: `src/lib/historias/catalogo.js` junta `historias/lutas-de-ilusao.json` / `contos.json` / `obras.json` no formato de título do WEB SHARD — a UI nunca lê os índices direto. A linha principal puxa nome/chamada/sinopse/capa de `webshard-titulos.json` (uma fonte só do produto). Sem arte própria → `ComingSoon.png` (padrão do projeto). Acesso em `src/hooks/useHistoriasAcesso.js` (espelho do `useWebshardAcesso`: Cap. 01 do livro sempre livre, contos pela Beta, resto pela cascata).
 - **Leitores** inalterados: `LivroCapitulo.jsx`, `ContoCapitulo.jsx`, `ObraCapitulo.jsx` (com o gate de conta em 50%).
 - **Gating de conteúdo não-lançado:** `data_publicacao` futura (`2099-01-01` nas obras) → badge "Em breve" pro público; `estaDisponivel(cap, isAdmin)` libera pra admin. Mesmo mecanismo dos contos, sem lógica de auth nova.
 - **Cross-links entre histórias:** citações de eventos viram `[texto](/historias/lutas-de-ilusao/capitulo-0N)` ou `[texto](/historias/contos/NN/NN)`, renderizados client-side por `readerMdComponents` (`src/lib/mdComponents.jsx`).
@@ -234,7 +234,7 @@ Cada jogo mantém componentes, dados, hooks/engine e store próprios dentro de s
 - Notificações: `AchievementToast`, `LDINotification`, `UnifiedNotification`.
 - Home/conteúdo: `src/pages/site/Home/` concentra a página, o CSS visual e os componentes exclusivos `HeroSlideshow`, `LatestEpisodes`, `BookChaptersRow`, `CharactersRow`, `MusicSection`, `NowLive` e `StoryProgress`. As vitrines consomem os catálogos oficiais para refletir novos conteúdos sem listas duplicadas.
 - Histórias: `HistoriaCapLinha` (`src/pages/content/historias/`) — linha de capítulo em texto sobre o `.ws-cap` do WEB SHARD.
-- Farol (`src/components/Farol/`) — badge de peso (leve/média/pesada), canonicidade e tags de temática. Dados em `contos-index.json` / `obras-index.json` (`peso`, `canon`, `temas[]`, `selo`); labels em `pages.contos.peso_*` / `tema_*` (temas incluem `sobrenatural`, `opressao`, `horror_cosmico`, `resistencia`). Usado em `historias/HistoriasHub.jsx` (estante + filtro por peso) e `historias/HistoriaTitulo.jsx`.
+- Farol (`src/components/Farol/`) — badge de peso (leve/média/pesada), canonicidade e tags de temática. Dados em `historias/contos.json` / `historias/obras.json` (`peso`, `canon`, `temas[]`, `selo`); labels em `pages.contos.peso_*` / `tema_*` (temas incluem `sobrenatural`, `opressao`, `horror_cosmico`, `resistencia`). Usado em `historias/HistoriasHub.jsx` (estante + filtro por peso) e `historias/HistoriaTitulo.jsx`.
 - Universo: `src/lib/mdComponents.jsx` (`readerMdComponents`) transforma links `/...` do markdown em `<Link>` do React Router — usado por todos os leitores (livro, conto, obra) para as citações cruzadas.
 - Jogos/resultado: `BackToGamesBtn`, `Jokempo`, `Puzzles`, `ResultCard`, `TopTrumpsCard`.
 - Mídia: `RadioNina` — barra fixa no rodapé, toca MP3 do R2 via Worker. Pasta dedicada `src/components/RadioNina/`: `RadioNina.jsx` (casca), `useRadioNina.js` (motor de áudio + fila + eventos GA), `RadioNinaPlaylist.jsx` (painel), `radio-nina.playlist.js` (Supabase CRUD), `radio-nina.config.json` (base/cores/aberturas/excluir/títulos), `radio-nina.i18n.json`. 1ª faixa = abertura oficial do locale. Progresso/seek estilo streaming, painel de playlist, e playlist salva por conta (`radio_nina_playlists`). A cada 2 músicas ouvidas toca 1 **propaganda** do idioma do site (pastas R2 `MaketingBR/EN/ES/`, servidas pelo Worker em `/ads/<lang>`; shuffle-bag sem repetir a última). Eventos GA4: `radio_ligar`, `radio_play`, `radio_completa`, `radio_pular`, `radio_ad`, `radio_playlist_salva`. A barra é um rodapé real: publica `--radio-nina-h` (54px/0) em `:root`, e `body`/nav flutuante do leitor reservam essa altura. Modo compacto = bolinha arrastável pros 4 cantos (`ldi-radio-nina-canto`). Volume no `ldi-radio-nina-vol`. Também: `PlatformIcons`, `SocialBar`.
@@ -247,10 +247,10 @@ Cada jogo mantém componentes, dados, hooks/engine e store próprios dentro de s
 |---|---|
 | Personagens | `src/data/personagens-{pt,en,es}.json` |
 | Mundo/lore | `src/data/mundo-{pt,en,es}.json` |
-| Livro (linha principal) | `src/data/livro-index.json` (com `resumo_*` / `tagline_*` e `liberacao.{primordial,elite,conta,publico}` por capítulo) e `src/data/livro/{pt,en,es}/capitulo-NN.md` |
+| Livro (linha principal) | `src/data/historias/lutas-de-ilusao.json` (com `resumo_*` / `tagline_*` e `liberacao.{primordial,elite,conta,publico}` por capítulo) e `src/data/historias/lutas-de-ilusao/{pt,en,es}/capitulo-NN.md` |
 | Calendário público | `src/data/season-one-schedule.js` reúne as 39 linhas da timeline da Temporada 1 (Portal: assinante/conta grátis/público, sempre -15/0/+15 dias entre si, + Outras Plataformas com ritmo próprio) + `SEASONS_OVERVIEW` (panorama T1-T6, só T1 marcada como confirmada, T2+ é projeção explícita). `Calendario.jsx` renderiza uma grade mês a mês real (nov/2026–jan/2028, ano de 2027 inteiro, todo mês aparece mesmo sem evento) com bolinhas por dia (assinante/conta/público/outras), igual nas abas Capítulos e WEB SHARD; as datas de acesso que alimentam o gate ficam nos três índices editoriais |
-| Contos de Ilusão | `src/data/contos-index.json` (com `resumo_{pt,en,es}` por capítulo) e `src/data/livro/contos/{pt,en,es}/NN/NN.md` |
-| Obras (Mundo das Sombras, Mar de Cinzas) | `src/data/obras-index.json` (`peso`, `canon:false`, `selo`, `idiomas`, `capitulos[].data_publicacao`) e `src/data/livro/obras/<slug>/<lang>/NN.md`; arte webp em `src/assets/obras/<slug>/` (capa + `cap-NN`). Gating por `data_publicacao` futura + bypass de admin |
+| Contos de Ilusão | `src/data/historias/contos.json` (com `resumo_{pt,en,es}` por capítulo) e `src/data/historias/contos/<id>/{pt,en,es}/NN.md` |
+| Obras (Mundo das Sombras, Mar de Cinzas) | `src/data/historias/obras.json` (`peso`, `canon:false`, `selo`, `idiomas`, `capitulos[].data_publicacao`) e `src/data/historias/obras/<slug>/<lang>/NN.md`; arte webp em `src/assets/obras/<slug>/` (capa + `cap-NN`). Gating por `data_publicacao` futura + bypass de admin |
 | Worldbuilding dos universos | `src/data/universo-index.json` (define abas; uma aba pode ter `partes: [...]`) e `src/data/universo/<slug>/<lang>/<secao>.json` — **array de blocos tipados** (`prose`, `card`, `box`, `callout`, `timeline`, `personagens`, `protagonista`, `tabela`, `quote`, `lista`, `sub`, `tags`) renderizado por `Universo.jsx`. Mar de Cinzas foi extraído do `mar-de-cinzas-v5.html` via `bs4`. `/mundo/lutas-de-ilusao` ainda usa o formato antigo (`mundo-{pt,en,es}.json` + `Mundo.jsx`) |
 | WEB SHARD (webtoon) | Títulos em `src/data/webshard-titulos.json`; capítulos de Lutas de Ilusão em `src/data/episodios.json`; páginas em `public/webtoon/<cap>/<idioma>/`; capas/miniaturas em `src/assets/webshard/`; lógica em `src/lib/webshard/` (catálogo, progresso, reações — tabela `webshard_reacoes`, migration 042) |
 | Músicas | `src/data/musicas.json` |
@@ -263,7 +263,7 @@ Cada jogo mantém componentes, dados, hooks/engine e store próprios dentro de s
 | Conquistas | `src/data/achievements-*.json` e `achievements-strings-*.json` |
 | Cartas Top Trumps | `src/data/supertrunfo-{pt,en,es}.json` |
 
-Arquivos do livro são carregados por `import.meta.glob`; ao mover leitores, os caminhos relativos precisam ser conferidos. A publicação é controlada por `livro-index.json`. Páginas do webtoon ficam em `public/` porque exigem URL direta. Demais assets devem ficar em `src/assets/` e ser importados pelo código.
+Arquivos do livro são carregados por `import.meta.glob`; ao mover leitores, os caminhos relativos precisam ser conferidos. A publicação é controlada por `historias/lutas-de-ilusao.json`. Páginas do webtoon ficam em `public/` porque exigem URL direta. Demais assets devem ficar em `src/assets/` e ser importados pelo código.
 
 ### 6.2 i18n
 
@@ -390,7 +390,7 @@ Fonte única: `src/config/version.js`. Esta tabela registra somente a identifica
 
 | Constante | Módulo | Versão |
 |---|---|---:|
-| `SITE_VERSION` | Site global | **10.315.1** |
+| `SITE_VERSION` | Site global | **10.315.2** |
 | `PP_VERSION` | Pesadelo Particular | 2.3.1 |
 | `LDI_VERSION` | Lendas do LDI | 2.0.1 |
 | `JACK_VERSION` | Jack Dream Beer | 5.3.3 |
@@ -421,7 +421,7 @@ Fonte única: `src/config/version.js`. Esta tabela registra somente a identifica
 | Versões | `src/config/version.js` |
 | Catálogo visível de jogos | `src/pages/games/Games.jsx` |
 | Conteúdo e traduções | `src/data/` e `src/i18n/` |
-| Histórias, obras e cross-links | `src/data/obras-index.json`, `src/data/livro/obras/`, `src/lib/historias/catalogo.js` · `src/pages/content/historias/` |
+| Histórias, obras e cross-links | `src/data/historias/obras.json`, `src/data/historias/obras/`, `src/lib/historias/catalogo.js` · `src/pages/content/historias/` |
 | Worldbuilding dos universos | `src/data/universo-index.json`, `src/data/universo/`, `src/pages/content/Universo.jsx` (blocos tipados) |
 | Estado de um jogo | `src/pages/games/<Jogo>/store/` ou hooks do próprio módulo |
 | Esquema/evolução do backend | `supabase/migrations/` |

@@ -13,9 +13,9 @@ const pastOr = date => (date && date <= BUILD_DATE ? date : BUILD_DATE)
 
 const readJson = file => JSON.parse(fs.readFileSync(path.resolve(process.cwd(), file), 'utf-8'))
 const personagens = readJson('src/data/personagens-en.json')
-const capitulos = readJson('src/data/livro-index.json')
-const contos = readJson('src/data/contos-index.json')
-const obras = readJson('src/data/obras-index.json')
+const capitulos = readJson('src/data/historias/lutas-de-ilusao.json')
+const contos = readJson('src/data/historias/contos.json')
+const obras = readJson('src/data/historias/obras.json')
 const episodios = readJson('src/data/episodios.json')
 
 const releaseItems = [

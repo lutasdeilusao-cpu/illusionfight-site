@@ -3,11 +3,11 @@ import { useParams, useNavigate } from 'react-router-dom'
 import { useLanguage } from '../../context/LanguageContext'
 import { useAuth } from '../../context/AuthContext'
 import { contoLiberado } from '../../config/site'
-import index from '../../data/contos-index.json'
+import index from '../../data/historias/contos.json'
 import { useTrackedSession } from '../../lib/sessionAnalytics'
 import LeitorCapitulo from '../../components/Leitor/LeitorCapitulo'
 
-const contoLoaders = import.meta.glob('../../data/livro/contos/**/*.md', { query: '?raw', import: 'default' })
+const contoLoaders = import.meta.glob('../../data/historias/contos/**/*.md', { query: '?raw', import: 'default' })
 const ADMIN_EMAILS = ['isaiasgamedev@gmail.com', 'gramikgames@gmail.com']
 
 /** Capítulo de um Conto de Ilusão — só resolve o dado; a tela é o
@@ -42,7 +42,7 @@ export default function ContoCapitulo() {
     setCarregando(true)
     if (!h || !capitulo || !contoLiberado(capitulo, isAdmin, { user, perfil })) { setNotFound(true); return }
     const lang = locale === 'en' ? 'en' : locale === 'es' ? 'es' : 'pt'
-    const loader = contoLoaders[`../../data/livro/contos/${lang}/${historia}/${cap}.md`] || contoLoaders[`../../data/livro/contos/pt/${historia}/${cap}.md`]
+    const loader = contoLoaders[`../../data/historias/contos/${historia}/${lang}/${cap}.md`] || contoLoaders[`../../data/historias/contos/${historia}/pt/${cap}.md`]
     if (!loader) { setNotFound(true); return }
     loader().then(texto => { setMd(texto); setCarregando(false) }).catch(() => setNotFound(true))
     window.scrollTo(0, 0)

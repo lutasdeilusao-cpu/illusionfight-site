@@ -3,11 +3,11 @@ import { useParams, useNavigate } from 'react-router-dom'
 import { useLanguage } from '../../context/LanguageContext'
 import { useAuth } from '../../context/AuthContext'
 import { estaDisponivel } from '../../config/site'
-import obras from '../../data/obras-index.json'
+import obras from '../../data/historias/obras.json'
 import { useTrackedSession } from '../../lib/sessionAnalytics'
 import LeitorCapitulo from '../../components/Leitor/LeitorCapitulo'
 
-const obraLoaders = import.meta.glob('../../data/livro/obras/**/*.md', { query: '?raw', import: 'default' })
+const obraLoaders = import.meta.glob('../../data/historias/obras/**/*.md', { query: '?raw', import: 'default' })
 const ADMIN_EMAILS = ['isaiasgamedev@gmail.com', 'gramikgames@gmail.com']
 
 /** Capítulo de uma obra de fora (Mundo das Sombras, Mar de Cinzas) — só
@@ -43,7 +43,7 @@ export default function ObraCapitulo() {
     if (!obra || !capitulo || !estaDisponivel(capitulo, isAdmin, { user, perfil })) { setNotFound(true); return }
     const idiomas = obra.idiomas || ['pt']
     const lang = idiomas.includes(locale) ? locale : 'pt'
-    const loader = obraLoaders[`../../data/livro/obras/${slug}/${lang}/${cap}.md`] || obraLoaders[`../../data/livro/obras/${slug}/pt/${cap}.md`]
+    const loader = obraLoaders[`../../data/historias/obras/${slug}/${lang}/${cap}.md`] || obraLoaders[`../../data/historias/obras/${slug}/pt/${cap}.md`]
     if (!loader) { setNotFound(true); return }
     loader().then(texto => { setMd(texto); setCarregando(false) }).catch(() => setNotFound(true))
     window.scrollTo(0, 0)

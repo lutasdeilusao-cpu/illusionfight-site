@@ -9,8 +9,8 @@
 > `GANGUES_PROGRESSAO_RASCUNHO.md`, `GANGUES_MODO_HISTORIA_ENCONTROS.md`)
 > foram fundidos aqui (ver seção 17) e **removidos do repositório**.
 >
-> **Fonte narrativa:** o conto **"Alan, o Campeão"** (`src/data/livro/contos/pt/02/01.md`
-> … `19.md`, contos-index id `02`). O jogo é o pano de fundo histórico desse
+> **Fonte narrativa:** o conto **"Alan, o Campeão"** (`src/data/historias/contos/02/pt/01.md`
+> … `19.md`, `historias/contos.json` id `02`). O jogo é o pano de fundo histórico desse
 > conto: a década final da fragmentação de Marélia, terminando pouco antes de o
 > Alan reivindicar a coroa.
 >
@@ -1446,7 +1446,7 @@ antiga — recalibrar pelo teto novo quando cada um ganhar cena.
 
 ## 10. Conto 02 — sinopse canônica ("Alan, o Campeão")
 
-Fonte completa: `src/data/livro/contos/pt/02/01.md` … `19.md`. 1ª pessoa, contada
+Fonte completa: `src/data/historias/contos/02/pt/01.md` … `19.md`. 1ª pessoa, contada
 pelo Campeão. Peso pesado, canônico.
 
 | Cap | Título | O que estabelece |
@@ -1564,7 +1564,7 @@ Reserva: cada faixa comporta crescer até ~99 sem remapear.
 
 | Assunto | Arquivo |
 |---|---|
-| Conto "Alan, o Campeão" (texto completo) | `src/data/livro/contos/pt/02/01.md` … `19.md` |
+| Conto "Alan, o Campeão" (texto completo) | `src/data/historias/contos/02/pt/01.md` … `19.md` |
 | Mapa, territórios, gangues, chefes, portões | `src/pages/games/Gangues/data/ganguesTerritorios.js` |
 | Fichas dos inimigos + trash talk | `src/pages/games/Gangues/data/gangues-enemies.json` |
 | Geração de bando + equipe fixa dos chefes | `src/pages/games/Gangues/data/ganguesEncontros.js` |

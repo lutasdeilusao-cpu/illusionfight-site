@@ -1,5 +1,5 @@
 import personagens from './personagens-pt.json'
-import livro from './livro-index.json'
+import livro from './historias/lutas-de-ilusao.json'
 import episodios from './episodios.json'
 import musicas from './musicas.json'
 import mundo from './mundo-pt.json'

@@ -1,6 +1,6 @@
-import livroIndex from '../../data/livro-index.json'
-import contosIndex from '../../data/contos-index.json'
-import obrasIndex from '../../data/obras-index.json'
+import livroIndex from '../../data/historias/lutas-de-ilusao.json'
+import contosIndex from '../../data/historias/contos.json'
+import obrasIndex from '../../data/historias/obras.json'
 import { imagemWebshard, tituloLegado } from '../webshard/catalogo'
 import comingSoon from '../../assets/images/ComingSoon.png'
 // Arte oficial da área de Contos (Illusion Tales) — por enquanto a mesma pra
@@ -8,7 +8,7 @@ import comingSoon from '../../assets/images/ComingSoon.png'
 import capaContosArte from '../../assets/images/contos/capa-illusion-tales.webp'
 
 /* Catálogo de Histórias — mesma ideia do catálogo WEB SHARD: a UI nunca lê
-   livro-index / contos-index / obras-index direto. Os três viram "títulos"
+   historias/lutas-de-ilusao.json / contos.json / obras.json direto. Os três viram "títulos"
    no mesmo formato (nome_*, tagline_*, sinopse_*, capa, cor, capítulos com
    `liberacao`), então a vitrine e a página do título não sabem de onde o
    dado veio. Título novo entra só com dado.

@@ -249,6 +249,8 @@ Registro vivo de problemas já resolvidos no projeto para o agente não repetir 
 
 - **Espanhol do projeto = NEUTRO LATINO-AMERICANO, sempre** (Isaias, 30/09/2026, depois da tradução dos 7 contos sair misturada: o 01/03 com "vos"/"che" argentino, o 06 com gíria mexicana "vocho"/"me vale madre"). Vale pra TODO texto em espanhol — contos, livro, obras, i18n, jogos. Tuteo ("tú"), nunca voseo ("vos", "sos", "tenés"); sem regionalismo marcado de um país só ("güey", "carnal", "chamaco", "che", "boludo", "vocho", "chingada", "lana" = dinheiro). Gíria e palavrão continuam — adaptação livre, nunca tradução literal (a regra de gíria do GDD §13 segue valendo) —, só que escolhendo a forma que qualquer latino-americano entende ("carajo", "hermano", "pelea", "dinero"). Inglês = americano natural. Tradução de conto: sempre ADAPTAR piada, trocadilho, medida e gíria pro idioma, nunca palavra por palavra.
 
+- **Tudo que é história mora em `src/data/historias/`** (reorganizado em 30/09/2026 — Isaias: "essa hierarquia de pastas tá bem confusa"). `lutas-de-ilusao/{pt,en,es}/capitulo-NN.md` + `lutas-de-ilusao.json` (linha principal), `contos/<id>/{pt,en,es}/NN.md` + `contos.json` (cada conto numa pasta com os 3 idiomas dentro — antes era o contrário, idioma por fora), `obras/<slug>/{pt,en,es}/` + `obras.json`. A antiga `src/data/livro/` e os `*-index.json` soltos em `src/data/` não existem mais. Os 3 leitores (`LivroCapitulo`/`ContoCapitulo`/`ObraCapitulo`), a Home, a busca e o prerender apontam pra cá — ao mover de novo, conferir cada `import.meta.glob` (falha em silêncio).
+
 ## Regra Anti-Over-Engineering
 
 Antes de criar **mais de 2 arquivos novos** para resolver qualquer problema, o agente deve apresentar a proposta e aguardar aprovação explícita.
@@ -287,7 +289,7 @@ AGENTS.md **deve crescer** a cada problema novo resolvido no projeto. A cada tas
 - **i18n** uses `LanguageContext` (persisted as `ldi-locale` in localStorage) with JSON files in `src/i18n/`. The `t("key.path")` function resolves translations.
 - **ReaderContext** wraps the app — when `readerMode` is true, Navbar and TrialBanner are hidden (used by WebtoonEpisodio and LivroCapitulo).
 - **z-index layers** are defined and must not collide: SearchModal (2000), AchievementToast (1500), Navbar (1000), TrialBanner (998), CookieBanner (200), LDINotification (150), ScrollToTop (100), MusicSection dropdown (50).
-- **Book chapters** are `.md` files in `src/data/livro/{lang}/` loaded via `import.meta.glob`. Publication control is in `src/data/livro-index.json` (`publicado: true/false`).
+- **Book chapters** are `.md` files in `src/data/historias/lutas-de-ilusao/{lang}/` loaded via `import.meta.glob`. Publication control is in `src/data/historias/lutas-de-ilusao.json` (`publicado: true/false`).
 - **Webtoon pages** live in `public/webtoon/` (not `src/assets/`) because they need direct URL access.
 - **All other assets** go in `src/assets/` and are imported (Vite processes and hashes them).
 - **Supabase migrations** are in `supabase/migrations/`. Files 001-003 exist only on the remote database; the repo has `004_jack_v3.sql` and `005_pesadelo_particular.sql`. All tables use RLS with `auth.uid() = user_id`.
