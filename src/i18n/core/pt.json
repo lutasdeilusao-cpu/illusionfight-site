@@ -1272,7 +1272,8 @@
       "secondary": "SAIBA MAIS"
     },
     "aria": {
-      "slide": "Slide"
+      "slide": "Slide",
+      "carrossel": "carrossel"
     },
     "slide1": {
       "tag": "Lutas de Ilusão — Livro 1",
@@ -1305,7 +1306,8 @@
       "subtitulo": "Se você quiser fazer parte disso, pode. E vai ser muito bem recompensado por isso.",
       "cta1": "Ver loja",
       "cta2": "Apoiar"
-    }
+    },
+    "faltam": "dias pro lançamento"
   },
   "episodes": {
     "title": "EPISÓDIOS",

@@ -1,381 +1,268 @@
-/* ═══════════════════════════════════════════
-   HeroSlideshow — v3.0 (set/2026)
-   Mobile-only de verdade: este site NUNCA tem visão desktop (ver
-   src/index.css, --app-w/--app-vw/--app-gutter). A v2.0 tinha uma seção
-   "desktop" (min-height:100vh, setas, texto à esquerda) que NENHUM
-   viewport real via — era sempre sobrescrita por um bloco "mobile" sem
-   media query nenhuma, sempre ativo por baixo. Isso é código morto: dá a
-   ilusão de que existe um layout desktop, mas ele nunca roda. Reescrito
-   como UMA fonte de verdade só, pro único layout que existe de verdade.
-
-   Mudança de fundo: as artes novas (banner-0X.webp) foram desenhadas já
-   pensando nesse formato vertical — o palco (.hero-slideshow__stage) usa
-   a proporção REAL de cada imagem (aspect-ratio, setado inline por
-   HeroSlideshow.jsx) em vez de forçar min-height:100vh + object-fit:cover
-   cortando a composição. Resultado: a arte aparece inteira, do jeito que
-   foi desenhada — nada de cabeça ou perna cortada por um corte pensado
-   pra outro formato.
-   ═══════════════════════════════════════════ */
-
-.hero-slideshow {
+/* Abertura da Home — banner rotativo (v10.315.4).
+   Palco de proporção FIXA (2:3): o conteúdo abaixo nunca pula quando a arte
+   troca. As 3 artes 9:16 perdem um pouco de altura — cada uma com o foco
+   escolhido pra ninguém perder a cabeça (`is-<foco>`). */
+.hero-show {
+  --hero-tempo: 6.5s;
   position: relative;
-  width: 100%;
-  overflow: hidden;
   background: var(--bg-primary);
-  border-bottom: 1px solid rgba(0, 229, 255, 0.5);
-  box-shadow: inset 3px 0 0 rgba(0, 229, 255, 0.85);
 }
 
-/* Moldura decorativa (cantos cortados) por cima de tudo — puramente
-   estética, não interfere no layout do conteúdo abaixo. */
-.hero-slideshow::after {
+.hero-show__palco {
+  position: relative;
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+  background: var(--bg-primary);
+}
+
+.hero-show__palco::after {
   content: '';
   position: absolute;
-  inset: 12px 10px;
-  z-index: 4;
-  pointer-events: none;
-  border: 1px solid rgba(0, 229, 255, 0.16);
-  clip-path: polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 0 100%);
+  inset: auto 0 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--if-cyan-45), transparent);
 }
 
-/* Palco — a altura vem do aspect-ratio (inline, por slide), a largura é a
-   coluna mobile inteira. Tudo dentro dele (imagem, overlay, texto, nav)
-   é relativo a este box, não à janela crua. NUNCA setar min-height/padding
-   vertical fixo aqui nem em nenhum outro arquivo (ex: Home.css já fez
-   isso uma vez e brigou com o aspect-ratio, empurrando o texto pra fora
-   da imagem) — a altura tem que vir SÓ do aspect-ratio. */
-.hero-slideshow__stage {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-}
-
-/* ── Track / slides ── */
-.hero-slideshow__track {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-}
-
-.hero-slideshow__slide {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.hero-slideshow__slide--active {
-  z-index: 2;
-  pointer-events: auto;
-}
-
-/* A imagem cobre o palco 1:1 — o aspect-ratio do palco já é o da imagem
-   ativa, então object-fit:cover aqui é só uma rede de segurança (não
-   deveria sobrar nem faltar pixel nenhum na prática). */
-.hero-slideshow__bg {
+/* ── Arte: troca em fade, zoom lento enquanto está no ar ── */
+.hero-show__arte {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  max-width: none;
   object-fit: cover;
-  object-position: center;
+  object-position: 50% 30%;
   opacity: 0;
-  transition: opacity 700ms cubic-bezier(0.4, 0, 0.2, 1),
-              transform 700ms cubic-bezier(0.4, 0, 0.2, 1);
+  transform: scale(1.02);
+  transition: opacity 0.9s ease;
+  pointer-events: none;
+  -webkit-user-drag: none;
 }
 
-.hero-slideshow__slide--active .hero-slideshow__bg {
+.hero-show__arte.is-trio { object-position: 50% 22%; }
+.hero-show__arte.is-arcade { object-position: 50% 30%; }
+.hero-show__arte.is-banda { object-position: 50% 40%; }
+
+.hero-show__arte.is-ativa,
+.hero-show__arte.is-saindo {
+  animation: hero-show-zoom calc(var(--hero-tempo) + 1s) ease-out forwards;
+}
+
+.hero-show__arte.is-ativa {
+  z-index: 1;
   opacity: 1;
-  transform: translateX(0);
 }
 
-.hero-slideshow__slide--exit .hero-slideshow__bg {
-  opacity: 0;
-}
-
-.hero-slideshow__slide--exit-left .hero-slideshow__bg {
-  transform: translateX(-6%);
-}
-
-.hero-slideshow__slide--exit-right .hero-slideshow__bg {
-  transform: translateX(6%);
-}
-
-/* ── Overlay — vinheta só embaixo (é onde mora o texto agora, a imagem
-   inteira aparece por cima) ── */
-.hero-slideshow__overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 3;
-  background:
-    linear-gradient(180deg, rgba(3, 7, 10, 0.1) 0%, rgba(3, 7, 10, 0.97) 82%),
-    linear-gradient(90deg, rgba(3, 7, 10, 0.55), transparent 65%);
-  pointer-events: none;
-}
-
-/* ── Marca completa (por idioma), topo do palco — primeiro lugar do site
-   a usar a versão por extenso (navbar/rodapé usam só a curta). ── */
-.hero-slideshow__logo {
-  position: absolute;
-  z-index: 5;
-  top: max(0.9rem, env(safe-area-inset-top, 0px));
-  left: 1.1rem;
-  height: 26px;
-  width: auto;
-  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.7));
-}
-
-/* ── Conteúdo — ancorado embaixo do palco, dentro da vinheta ── */
-.hero-slideshow__content {
-  position: absolute;
-  z-index: 5;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 1.25rem 1.25rem 3.25rem;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-}
-
-.hero-slideshow__tag {
-  display: inline-block;
-  background: #00e5cc;
-  color: #000;
-  font-family: var(--font-desc);
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  padding: 4px 11px;
-  border-radius: 100px;
-  margin-bottom: 0.7rem;
-  animation: tag-pulse 3s ease-in-out infinite;
-}
-
-@keyframes tag-pulse {
-  0%, 100% { box-shadow: 0 0 8px rgba(0, 229, 204, 0.4); }
-  50% { box-shadow: 0 0 20px rgba(0, 229, 204, 0.8), 0 0 40px rgba(0, 229, 204, 0.3); }
-}
-
-/* Os títulos dos 5 slides não são headline curta — são frase inteira
-   ("Comecei isso com 17 anos. Levei 23 pra realizar.", 49 caracteres). Um
-   tamanho de "hero dramático" (2.5rem+) força a frase mais longa a
-   quebrar NO MEIO DE PALAVRA (overflow-wrap:break-word não tem escolha
-   quando a palavra sozinha não cabe na linha) — era o "texto estourando"
-   que o Isaias reportou. Corrigido tratando como frase mesmo: menor,
-   várias linhas, só quebra em espaço (nunca no meio da palavra). */
-.hero-slideshow__title {
-  font-family: var(--font-title);
-  font-size: clamp(1.35rem, 6.2vw, 1.75rem);
-  line-height: 1.18;
-  color: #fff;
-  margin: 0 0 0.5rem;
-  max-width: 94%;
-  text-shadow: 0 2px 16px rgba(0,0,0,0.6);
-  position: relative;
-  overflow-wrap: normal;
-  word-break: normal;
-  hyphens: none;
-}
-
-.hero-slideshow__title::before,
-.hero-slideshow__title::after {
-  content: attr(data-text);
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  clip-path: polygon(0 30%, 100% 30%, 100% 50%, 0 50%);
-  pointer-events: none;
-}
-
-.hero-slideshow__title::before {
-  color: #00e5cc;
-  animation: glitch-1 4s infinite;
-  animation-delay: 2s;
-}
-
-.hero-slideshow__title::after {
-  color: #ff6b35;
-  animation: glitch-2 4s infinite;
-  animation-delay: 2.15s;
-}
-
-@keyframes glitch-1 {
-  0%, 95%, 100% { transform: translateX(0); opacity: 0; }
-  96% { transform: translateX(-3px); opacity: 0.8; }
-  97% { transform: translateX(3px); opacity: 0.8; }
-  98% { transform: translateX(-2px); opacity: 0.8; }
-  99% { transform: translateX(0); opacity: 0; }
-}
-
-@keyframes glitch-2 {
-  0%, 95%, 100% { transform: translateX(0); opacity: 0; }
-  96% { transform: translateX(3px); opacity: 0.6; }
-  97% { transform: translateX(-3px); opacity: 0.6; }
-  98% { transform: translateX(2px); opacity: 0.6; }
-  99% { transform: translateX(0); opacity: 0; }
-}
-
-.hero-slideshow__subtitle {
-  font-family: var(--font-desc);
-  font-size: clamp(0.82rem, 3.6vw, 0.95rem);
-  color: var(--text-secondary);
-  font-weight: 300;
-  letter-spacing: 0.02em;
-  text-shadow: 0 1px 8px rgba(0,0,0,0.5);
-  margin: 0 0 1.1rem;
-  max-width: 100%;
-  line-height: 1.45;
-  /* trava em 3 linhas — subtítulo mais longo num idioma não estoura o
-     palco nem empurra os botões pra fora da área visível. */
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.hero-slideshow__actions {
-  display: flex;
-  gap: 0.6rem;
-  flex-wrap: wrap;
-  width: 100%;
-}
-
-.hero-slideshow__cta--primary,
-.hero-slideshow__cta--secondary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 20px;
-  font-family: var(--font-desc);
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  border-radius: 4px;
-  cursor: pointer;
-  white-space: nowrap;
-  transition: background 200ms, box-shadow 200ms, border-color 200ms, color 200ms, transform 150ms;
-}
-
-.hero-slideshow__cta--primary {
-  background: #c74617;
-  color: #fff;
-  border: none;
-}
-
-.hero-slideshow__cta--primary:active {
-  background: #ff8555;
-  transform: translateY(-1px);
-}
-
-.hero-slideshow__cta--secondary {
-  background: rgba(0,0,0,0.25);
-  color: #fff;
-  border: 1.5px solid rgba(255,255,255,0.5);
-}
-
-.hero-slideshow__cta--secondary:active {
-  border-color: #00e5cc;
-  color: #00e5cc;
-  transform: translateY(-1px);
-}
-
-/* ── Contador de slide (canto, discreto) ── */
-.hero-slideshow__edge {
-  position: absolute;
-  z-index: 5;
-  top: max(0.9rem, env(safe-area-inset-top, 0px));
-  right: 1.1rem;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-family: var(--font-mono, monospace);
-  font-size: 0.65rem;
-  letter-spacing: 0.06em;
-  color: rgba(255,255,255,0.75);
-  text-shadow: 0 1px 4px rgba(0,0,0,0.6);
-}
-
-.hero-slideshow__edge i {
-  display: block;
-  width: 14px;
-  height: 1px;
-  background: rgba(255,255,255,0.4);
-}
-
-/* ── Stagger de entrada ── */
-.hero-stagger {
-  opacity: 0;
-  transform: translateY(16px);
-  animation: stagger-in 400ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
-
-.hero-slideshow__tag.hero-stagger { animation-delay: 0ms; }
-.hero-slideshow__title.hero-stagger { animation-delay: 90ms; }
-.hero-slideshow__subtitle.hero-stagger { animation-delay: 200ms; }
-.hero-slideshow__actions.hero-stagger { animation-delay: 320ms; }
-
-@keyframes stagger-in {
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* ── Barras de progresso ── */
-.hero-slideshow__nav {
-  position: absolute;
-  z-index: 6;
-  left: 1.25rem;
-  right: 1.25rem;
-  bottom: 1.1rem;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.hero-slideshow__progress {
-  flex: 1;
-  height: 20px;
-  background: transparent;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-}
-
-.hero-slideshow__progress-fill {
-  display: block;
-  height: 3px;
-  width: 0%;
-  background: rgba(255,255,255,0.35);
-  border-radius: 2px;
-}
-
-.hero-slideshow__progress--active .hero-slideshow__progress-fill {
-  animation: progress-fill 6000ms linear forwards;
-  background: #fff;
-}
-
-.hero-slideshow__progress--paused .hero-slideshow__progress-fill {
+.hero-show__arte.is-saindo {
   animation-play-state: paused;
 }
 
-@keyframes progress-fill {
-  from { width: 0%; }
-  to { width: 100%; }
+@keyframes hero-show-zoom {
+  from { transform: scale(1.02); }
+  to { transform: scale(1.1); }
+}
+
+/* Véu: escuro em cima (barrinhas e logo legíveis) e fundindo na página
+   embaixo, onde mora o texto. */
+.hero-show__veu {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background:
+    linear-gradient(to bottom, rgb(5 8 10 / 0.72), transparent 22%),
+    linear-gradient(to top, var(--bg-primary) 4%, rgb(11 13 15 / 0.9) 30%, rgb(11 13 15 / 0.35) 52%, transparent 66%);
+}
+
+/* ── Topo: barrinhas estilo stories + marca + contagem ── */
+.hero-show__topo {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 3;
+  display: grid;
+  gap: 10px;
+  padding: 8px 14px 0;
+}
+
+.hero-show__barras {
+  display: flex;
+  gap: 5px;
+}
+
+.hero-show__barra {
+  position: relative;
+  flex: 1;
+  height: 18px;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.hero-show__barra::before,
+.hero-show__barra-fill {
+  content: '';
+  position: absolute;
+  inset: 8px 0 auto;
+  height: 2px;
+}
+
+.hero-show__barra::before {
+  background: rgb(255 255 255 / 0.22);
+}
+
+.hero-show__barra-fill {
+  background: var(--if-cyan);
+  box-shadow: 0 0 8px var(--if-cyan-58);
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.hero-show__barra.is-vista .hero-show__barra-fill {
+  transform: scaleX(1);
+  background: rgb(255 255 255 / 0.75);
+  box-shadow: none;
+}
+
+.hero-show__barra.is-ativa .hero-show__barra-fill {
+  animation: hero-show-barra var(--hero-tempo) linear forwards;
+}
+
+.hero-show__palco.is-pausado .hero-show__barra-fill,
+.hero-show__palco.is-pausado .hero-show__arte.is-ativa {
+  animation-play-state: paused;
+}
+
+@keyframes hero-show-barra {
+  to { transform: scaleX(1); }
+}
+
+.hero-show__marca {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.hero-show__logo {
+  width: auto;
+  height: 38px;
+  filter: drop-shadow(0 2px 10px rgb(0 0 0 / 0.7));
+}
+
+.hero-show__contagem {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  padding: 5px 12px 5px 10px;
+  font: 700 0.55rem var(--font-mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--if-amber-soft);
+  border: 1px solid var(--if-amber-72);
+  background: linear-gradient(90deg, rgb(5 8 10 / 0.85), rgb(5 8 10 / 0.55));
+  box-shadow: inset 2px 0 var(--if-amber);
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
+}
+
+.hero-show__contagem b {
+  font: 700 1.05rem/1 var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  color: var(--if-ink);
+}
+
+/* ── Texto do slide: entra em cascata a cada troca (key no JSX) ── */
+.hero-show__conteudo {
+  position: absolute;
+  inset: auto 0 0;
+  z-index: 3;
+  display: grid;
+  gap: 10px;
+  padding: 0 18px 24px;
+}
+
+.hero-show__conteudo > * {
+  animation: hero-show-sobe 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.hero-show__conteudo > :nth-child(2) { animation-delay: 0.08s; }
+.hero-show__conteudo > :nth-child(3) { animation-delay: 0.16s; }
+.hero-show__conteudo > :nth-child(4) { animation-delay: 0.24s; }
+
+@keyframes hero-show-sobe {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: none; }
+}
+
+.hero-show__tag {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font: 700 0.6rem var(--font-mono);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--if-cyan);
+}
+
+.hero-show__tag i {
+  font-style: normal;
+  color: var(--if-amber);
+}
+
+.hero-show__tag i::after {
+  content: '';
+  display: inline-block;
+  width: 18px;
+  height: 1px;
+  margin-left: 10px;
+  vertical-align: middle;
+  background: var(--if-cyan-45);
+}
+
+.hero-show__titulo {
+  margin: 0;
+  font: 700 2.05rem/1.02 var(--font-display);
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: var(--if-ink);
+  text-shadow: 0 2px 18px rgb(0 0 0 / 0.75);
+  text-wrap: balance;
+}
+
+.hero-show__sub {
+  display: -webkit-box;
+  margin: 0;
+  overflow: hidden;
+  font: 400 0.9rem/1.5 var(--font-body);
+  color: var(--text-primary);
+  opacity: 0.82;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  text-shadow: 0 1px 8px rgb(0 0 0 / 0.8);
+}
+
+.hero-show__acoes {
+  display: flex;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.hero-show__btn {
+  flex: 1;
+  text-decoration: none;
+}
+
+.hero-show__btn.if-btn--ghost {
+  background: rgb(5 12 16 / 0.6);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-slideshow__bg,
-  .hero-slideshow__tag,
-  .hero-stagger,
-  .hero-slideshow__progress-fill {
-    animation: none !important;
-    transition: none !important;
+  .hero-show__arte.is-ativa,
+  .hero-show__arte.is-saindo,
+  .hero-show__conteudo > * {
+    animation: none;
   }
-  .hero-stagger { opacity: 1; transform: none; }
+  .hero-show__arte { transition-duration: 0.2s; }
 }
