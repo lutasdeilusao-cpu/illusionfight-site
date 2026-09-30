@@ -1,0 +1,191 @@
+var e=`# CAPÍTULO 15 — O Imposto do Rei
+
+**ALAN**
+
+— Acorda.
+
+Nada.
+
+— Acorda.
+
+Ele abriu um olho. Depois o outro. Tentou mexer os braços e descobriu que estavam presos na cadeira. Tentou mexer as pernas e descobriu a mesma coisa.
+
+— Que porra é essa? O que tá acontecendo?
+
+Deixei ele olhar em volta. Uma sala sem janela, uma lâmpada só, o cheiro de cimento molhado. Meus homens encostados na parede, sem pressa. Eu sentado na frente dele, perna cruzada, esperando.
+
+Sempre deixo olhar em volta. Economiza explicação.
+
+---
+
+— E aí, meu amigo. Você sabe quem eu sou?
+
+Ele me encarou. Demorou. A cara dele ainda tinha as marcas daquela noite — o nariz torto, o olho roxo, um curativo mal feito no supercílio. Mas o que mudou na cara dele não foi nada disso. Foi quando ele entendeu.
+
+— Você… você é o Alan. O rei de Marelia.
+
+— Exato.
+
+Descruzei a perna.
+
+— Então, se você sabe quem eu sou, você devia conhecer as regras pra operar no meu castelo.
+
+---
+
+Eu não sei se você entende por que eu sou o rei de Marelia. Não vou perder tempo explicando. Vou ser curto e claro.
+
+Marelia é o meu castelo.
+
+Nada acontece aqui sem eu ficar sabendo. Nenhuma moto passa, nenhuma carga desce, nenhum galpão abre as portas de noite sem que alguém, em algum lugar, me conte. Eu sabia do clube de vocês antes de vocês terem nome.
+
+— Se você conhecesse as regras de Marelia — eu falei —, você ia saber que cometeu um erro muito grave. Muito grave mesmo.
+
+---
+
+Ele começou a falar rápido. É sempre assim. Quem entende que tá perdido fala rápido, como se as palavras pudessem pagar alguma coisa.
+
+— Mano, me desculpa. Me desculpa. A gente tava tentando montar a nossa operação, só isso. Se é grana, se é mercadoria, a gente acerta, a gente divide, você pode ficar com tudo. Só que… só que queimou tudo. Tudo. Apareceram dois malucos no nosso esquema e destruíram tudo.
+
+Dois malucos.
+
+Eu quase sorri.
+
+---
+
+— Meu querido, a coisa é o seguinte.
+
+Levantei. Dei a volta na cadeira dele devagar.
+
+— Eu não quero saber da sua grana. Não quero saber da sua droga. Não quero saber dos seus esquemas.
+
+Parei atrás dele. Ele não conseguia me ver, e isso fazia ele tremer mais.
+
+— Isso tudo eu já sabia. Eu tava deixando. Tava deixando vocês frutificarem. Porque uma hora vocês iam ter que dividir comigo, se quisessem continuar atuando aqui. Todo mundo divide. É o imposto do rei.
+
+Voltei pra frente dele.
+
+— Mas essa parte é negociação. Essa parte é só negócio. E negócio eu resolvo com conversa.
+
+— Então vamos conversar, mano. Por favor.
+
+— O problema não é o negócio.
+
+---
+
+— O problema é que você quebrou uma regra. Uma regra muito clara.
+
+Me abaixei até ficar na altura dos olhos dele.
+
+— Tem uma regra nessa cidade. E ela funciona assim: o moleque de cabelo verde e o indiozinho de boné azul, ninguém toca.
+
+Ele piscou. Não entendeu.
+
+— Essa regra é clara pra todo mundo que opera nessa cidade. Da menor boca da Baixada até a cúpula lá no alto do Morro. Ninguém encosta num fio de cabelo daqueles moleques.
+
+— Mas… mas quem são esses moleques? Por que eles atacaram a gente?
+
+— Não importa por quê.
+
+— Mano, eles tacaram fogo em tudo. Eles…
+
+— Eu não sei por quê. — Eu falei devagar, pra ele ouvir cada palavra. — Vocês devem ter feito alguma merda muito grande. Eu já vi aqueles dois atuarem muito. Muito mesmo. Mas eu nunca vi eles fazerem uma desgraça como a que eles fizeram com você.
+
+Olhei pro curativo dele.
+
+— Você tem sorte de ter saído vivo daquele galpão.
+
+---
+
+— Mano, eu sou o chefe daquele lugar. — A voz dele quebrou no meio. — Eu não sabia. Juro que eu não sabia. Se você queria mandar os seus homens…
+
+— Eles não são meus homens.
+
+Ele parou.
+
+Acho que foi a primeira coisa que eu falei que assustou ele de verdade. Porque se aqueles dois não eram meus, e mesmo assim eu tava ali por causa deles, então eles eram outra coisa. Uma coisa que ele não sabia nomear.
+
+Eu também não sei. Faz anos que eu tento.
+
+— Eu não sei por que eles fizeram aquilo — ele disse, quase chorando.
+
+— Não importa mais. Você já quebrou a regra.
+
+Endireitei as costas.
+
+— E quando alguém quebra a regra nessa cidade, paga com sangue.
+
+---
+
+Ele ainda tentou mais alguma coisa. Um nome, um número, uma promessa. Eu já não estava ouvindo.
+
+— A gente já pegou todo o seu grupo que fugiu — eu disse. — Os que estavam nas estradas, os que estavam na casa das mães, os que estavam escondidos no interior achando que Marelia acaba na placa da cidade. Não acaba.
+
+Os que a polícia prendeu naquela noite não iam precisar de mim. Eu tenho gente em toda cadeia desse estado. Iam morrer lá dentro, um por um, no tempo deles.
+
+Os que fugiram estavam no galpão ao lado, esperando.
+
+Dali a uma semana, o clube inteiro não ia existir mais. Nem o nome. Nem as jaquetas. Nem a lembrança de que um dia alguém tentou montar alguma coisa em Marelia sem pagar o imposto.
+
+Cem por cento. Pra aprender a seguir as regras.
+
+---
+
+Fiz um sinal com a cabeça pros meus comandantes.
+
+Não fiquei pra ver. Nunca fico. Rei que suja a mão com tudo não tem tempo de ser rei.
+
+Saí da sala. A porta fechou atrás de mim.
+
+O resto foi rápido.
+
+---
+
+Lá fora, o meu braço direito veio andando do meu lado.
+
+O mesmo de sempre. O que me segurou pelo braço seis anos atrás, numa laje, com um revólver na mão e um moleque desmaiado no chão. Ele nunca esqueceu aquela noite. Eu também não.
+
+— Alan. — Ele acendeu um cigarro. — Você tá deixando esses moleques irem longe demais.
+
+— Eu sei.
+
+— Qualquer dia desses eles vão mexer com a Banca, tá ligado? E a Banca vai cobrar. Não vai ser um clube de motoqueiro de beira de estrada. Vai ser a Banca.
+
+— Não se preocupa com isso, menino.
+
+— Eu me preocupo. É o meu trabalho me preocupar.
+
+Parei no meio do pátio e olhei pra ele.
+
+— Eu já falei e tenho dito. Com esses dois ninguém mexe. O que tiver que rolar por causa deles, eu assumo.
+
+Ele soltou a fumaça devagar. Não discutiu. Nunca discute quando eu falo nesse tom.
+
+---
+
+— Bom — ele disse, depois de um tempo. — Pelo menos dessa vez eles ajudaram a gente.
+
+— Ajudaram.
+
+— Isso vai servir de exemplo. Tem um monte de negocinho aparecendo por aí na surdina. Gente achando que dá pra crescer sem subir o Morro pra conversar.
+
+— É.
+
+Olhei pra cidade lá embaixo. As luzes acendendo uma a uma.
+
+Em algum lugar ali, num hospital, um moleque de cabelo verde tava dizendo pra polícia que tinha sido um acidente de moto coletivo. E o outro, o indiozinho, tava sentado do lado da cama da Helena, sem falar com ninguém.
+
+Nenhum dos dois ia ficar sabendo dessa sala. Melhor assim.
+
+---
+
+— Dessa vez o Kim e o Jack prestaram pra alguma coisa — eu disse. — Em vez de só me trazer problema, me trouxeram uma solução.
+
+Meu braço direito riu pelo nariz.
+
+— Vai ser um bom aviso — eu completei. — Pra todo mundo que tá pensando em montar um negócio paralelo nessa cidade sem antes pagar o imposto do rei.
+
+Joguei o casaco no ombro e desci a escada.
+
+Tinha mais um homem de trinta e poucos anos esperando na minha sala. Devendo dois meses.
+`;export{e as default};
+//# sourceMappingURL=15-D0XLdjkA.js.map
