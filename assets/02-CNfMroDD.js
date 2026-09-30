@@ -1,0 +1,59 @@
+var e=`# CHAPTER 2 — Who Decides
+
+This stays between us. If you tell Jack, I'll deny everything and finish you off afterward.
+
+In our duo, the one who decides what we do is Jack.
+
+I know it doesn't look that way. I'm the rational one. I have an argument for everything, I explain little, I spend few words, and I'm against it. Always. Doesn't matter what Jack proposes, I'm going to be against it and I'm going to argue against it. It's automatic. If Jack says the sky is blue, I'll ask since when.
+
+Except Jack is Jack. He's emotional. He's persuasive. He talks, and talks, and talks, and in the end we always do what he wants. Every time.
+
+He doesn't win on the argument. He wins on the exhaustion. And on the fact that, deep down, I know he'll never propose something that could really hurt us. He's reckless about everything except that.
+
+---
+
+And here's the part I hate to admit.
+
+There isn't a single choice Jack made in this life that didn't take our brotherhood somewhere better.
+
+Every time I give in and we do what Jack wants, we gain something. Even if it's just an absurd memory to laugh about later. But there's always something good left over. Every single time.
+
+It was Jack who insisted we try for the Elite Academy scholarship, and I was against it for a whole week. It was Jack who dragged Nina into the group, and I was against it until after she was already in. It was Jack who got me into LDI ([main line, ch. 3](/historias/lutas-de-ilusao/capitulo-03)). Every one of those things I fought with every argument I had. And every one took me somewhere better than where I was.
+
+If it were up to me, we'd be sitting still. Sitting on a wall. Doing nothing, forever.
+
+I'm a stone that doesn't move. Jack is a force that pushes. And he gets the stone rolling.
+
+I'm never going to tell him that. The guy's ego is already too big. If he found out, he'd become unbearable.
+
+---
+
+Let me draw you how one of our conversations works.
+
+Jack shows up and says: "let's do X."
+
+I say no. I explain in one sentence why it's a terrible idea. He answers with a ten-minute story about an uncle of his, or a movie, or a time it worked out for someone else. I say no again, firmer. He changes the subject. We talk about something else for half an hour.
+
+And then, without me noticing when, we're already in the middle of X. Doing X. And I'm still complaining about X while I do it.
+
+The next day X turned into the best thing that happened all week, and Jack looks at me with that "who's the boss" face, and I say it was luck.
+
+It's always like this. Every time.
+
+---
+
+It was around eleven that he said it for the first time.
+
+— Man, it'd be so cool if we started a band. Always wanted a band. I like music. We should start a band.
+
+He kept at it for a week. Talked about it all the time, on the bus, at recess, in the cafeteria line. "We should start a band." Then never brought it up again.
+
+I didn't pay attention. I said I didn't know how to play anything, that he didn't know how to play anything, that we didn't have a single instrument, and that a band doesn't pay bills. Three good arguments. I won the discussion and forgot about it.
+
+But something of it stuck.
+
+I'm almost sure that's how he convinced me — not that week, not to my face. It was slow, through repetition, the way he always convinces me of everything. He plants the idea, disappears, and months later I catch myself doing exactly what he wanted, thinking the idea was mine.
+
+You'll see.
+`;export{e as default};
+//# sourceMappingURL=02-CNfMroDD.js.map
