@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1790773077.4932487,
-    "ast_hash": "b9add48d04f4d8292ab3548dedc45d86",
+    "mtime": 1790775423.8707712,
+    "ast_hash": "d7ead4018479948188249250c698091c",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -2685,8 +2685,8 @@
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1790772768.5438004,
-    "ast_hash": "a3f6fb63fa3a57c2bd04dab2b51877cb",
+    "mtime": 1790775423.694869,
+    "ast_hash": "e24d06be53cb1b4835a4c84f8c9bf763",
     "semantic_hash": ""
   },
   "Jogos_Rafael/mg01_sliding.html": {
@@ -2725,8 +2725,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1790773077.5453956,
-    "ast_hash": "b691a57f4ff973a9c484f4d66a913fb0",
+    "mtime": 1790775423.9083123,
+    "ast_hash": "a4bd65d33aeb88548686172c01dbdaad",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -4510,13 +4510,8 @@
     "semantic_hash": ""
   },
   "src/pages/site/Home/Home.jsx": {
-    "mtime": 1790772592.0478394,
-    "ast_hash": "6a5dd6058ba2093ad2eb8e83f5dd8655",
-    "semantic_hash": ""
-  },
-  "src/pages/site/Home/components/CharactersRow.jsx": {
-    "mtime": 1788444529.4702208,
-    "ast_hash": "bf1626b89abefd6bc5e5303718bfbf68",
+    "mtime": 1790775423.6928697,
+    "ast_hash": "7ce3df48064cd6d53615e05e87633d57",
     "semantic_hash": ""
   },
   "src/pages/site/Home/components/LatestEpisodes.jsx": {
@@ -6000,8 +5995,8 @@
     "semantic_hash": ""
   },
   "src/data/livro/contos/pt/07/06.md": {
-    "mtime": 1790773039.3917272,
-    "ast_hash": "2c9f37bbdf9edccc5fdde62f1e96bf10",
+    "mtime": 1790773116.72084,
+    "ast_hash": "112597a6703619f79db4cc80dfe0dd45",
     "semantic_hash": ""
   },
   "src/data/livro/contos/pt/07/07.md": {
@@ -6150,8 +6145,8 @@
     "semantic_hash": ""
   },
   "src/pages/site/Home/components/HomeHistorias.jsx": {
-    "mtime": 1790772543.7868197,
-    "ast_hash": "d7132c3f01c453c5d1db53df0422a6f2",
+    "mtime": 1790775448.3820608,
+    "ast_hash": "4fd5f147721639ccbdbe63347ac46b12",
     "semantic_hash": ""
   }
 }
