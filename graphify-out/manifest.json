@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "src/config/version.js": {
-    "mtime": 1790740257.722189,
-    "ast_hash": "57ade429a6eb88d9883566f768c64961",
+    "mtime": 1790740585.7382283,
+    "ast_hash": "b2c8bc1fed1513c2b66a7a3e29a4be64",
     "semantic_hash": ""
   },
   "src/context/AchievementsContext.jsx": {
@@ -645,8 +645,8 @@
     "semantic_hash": ""
   },
   "src/main.jsx": {
-    "mtime": 1789358427.3788862,
-    "ast_hash": "76ebee5de8d3451e80b0a614ba94098c",
+    "mtime": 1790740478.5858188,
+    "ast_hash": "316d1ee6963df1c4555d1edbc0cb1ae4",
     "semantic_hash": ""
   },
   "src/pages/content/LivroCapitulo.jsx": {
@@ -2730,8 +2730,8 @@
     "semantic_hash": ""
   },
   "SITE_MAP.md": {
-    "mtime": 1790740257.7609332,
-    "ast_hash": "9a8f7838a8183326ab0f6694c5d265ea",
+    "mtime": 1790740585.7725937,
+    "ast_hash": "486c59af4c5197a11a0fba507944e8f7",
     "semantic_hash": ""
   },
   "docs/BIBLIA_DO_ISAIAS.md": {
@@ -6085,8 +6085,8 @@
     "semantic_hash": ""
   },
   "src/components/Leitor/leitorMarkdown.jsx": {
-    "mtime": 1790739559.3307753,
-    "ast_hash": "47bad39903b2d9531e885c43827ef5b8",
+    "mtime": 1790740553.0933566,
+    "ast_hash": "b9ff6b20f862c2b3345aaa59d7dd16d9",
     "semantic_hash": ""
   },
   "src/components/Leitor/useLeitorPreferencias.js": {
@@ -6107,6 +6107,11 @@
   "src/hooks/useBarraAutoOculta.js": {
     "mtime": 1790292032.068403,
     "ast_hash": "6edf234bbcb0f102ad2fdc18b22dfe81",
+    "semantic_hash": ""
+  },
+  "src/lib/colunaApp.js": {
+    "mtime": 1790740478.5623615,
+    "ast_hash": "5f8c37c61198df1bd9ccc7ed194d94ed",
     "semantic_hash": ""
   }
 }

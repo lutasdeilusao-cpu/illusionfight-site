@@ -160,7 +160,7 @@ export default function WebshardLeitor({ titulo, capId }) {
 
   return (
     <>
-      <Helmet><title>{`${nomeCap} — ${localizado(titulo, 'nome', locale)} — ${t('site.nome_curto')}`}</title></Helmet>
+      <Helmet><title>{[nomeCap, localizado(titulo, 'nome', locale), t('site.nome_curto')].filter((v, i, a) => a.indexOf(v) === i).join(' — ')}</title></Helmet>
 
       <div className="ws-leitor" style={{ '--ws-cor': titulo.cor }}>
         <LeitorBarra

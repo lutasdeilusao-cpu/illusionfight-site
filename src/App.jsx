@@ -91,7 +91,9 @@ function AnalyticsPageView() {
   const location = useLocation()
 
   useEffect(() => {
-    const timer = setTimeout(() => trackPageView(`${location.pathname}${location.search}`), 0)
+    // Espera a página trocar o <title> (Helmet + i18n da área carregando);
+    // com 0ms o relatório gravava o título da tela anterior ou a chave crua.
+    const timer = setTimeout(() => trackPageView(`${location.pathname}${location.search}`), 1500)
     return () => clearTimeout(timer)
   }, [location.pathname, location.search])
 

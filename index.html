@@ -161,6 +161,7 @@
         wait_for_update: 500
       });
       gtag('js', new Date());
+      try { if (localStorage.getItem('ldi-analytics-off') === '1') window['ga-disable-G-QVDGMZ1F58'] = true; } catch (e) {}
       gtag('config', 'G-QVDGMZ1F58', { send_page_view: false });
 
       function loadGoogleAnalytics() {
