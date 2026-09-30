@@ -5,8 +5,8 @@
    2. RINHA DE APOSTA: duas fichas NPC brigam sozinhas (motor da Multidão),
       o jogador aposta num lado; a cotação sai da chance real, com margem
       da casa.
-   3. APOSTA EM VOCÊ: antes de uma treta, aposta em si; paga pelo risco
-      (mesma régua de risco do AP, ganguesVictoryResolver.js).
+   (Até 30/09/2026 existia a 3ª, APOSTA EM VOCÊ antes de qualquer treta —
+   removida: aposta é só na Banca e no Clube da Luta de quem entra sem dívida.)
    O teto de aposta sobe com a reputação, pra não virar máquina infinita
    logo no começo. Lógica pura — as telas só chamam estas funções.
    ══════════════════════════════════════════════════════════════ */
@@ -87,17 +87,4 @@ export function montarRinhaApostas({ pool, enemiesData, pontosBase, rand = Math.
   return { a, b, cotacaoA: cot(pa), cotacaoB: cot(1 - pa) }
 }
 
-// ── 3. Aposta em você ──
-const pontosFicha = attrs => ['A', 'H', 'D', 'PV', 'PM'].reduce((s, k) => s + (Number(attrs?.[k]) || 0), 0)
 
-/** Multiplicador da aposta em si, pela ficha do inimigo contra o seu mais
- *  forte: mais de 5 acima ×3 · 1–5 acima ×2 · até 2 abaixo ×1,5 · mais
- *  fraco que isso ×1,1 (farmar fraco com aposta quase não rende). */
-export function multApostaEmVoce(pontosInimigo, roster = []) {
-  const maisForte = Math.max(1, ...roster.map(m => pontosFicha(m.attributes)))
-  const dif = (Number(pontosInimigo) || 0) - maisForte
-  if (dif > 5) return 3
-  if (dif >= 1) return 2
-  if (dif >= -2) return 1.5
-  return 1.1
-}

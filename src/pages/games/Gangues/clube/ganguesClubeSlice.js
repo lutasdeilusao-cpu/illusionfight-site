@@ -22,7 +22,9 @@ export default function createGanguesClubeSlice(set, get) {
     // entrada e sem passar pelo gate de reputação (não tem escolha).
     // Devolve { ok: false, motivo: 'rep', rep } quando barrado — quem chama
     // decide a mensagem; com ok, o storyTarget da 1ª ronda já está montado.
-    prepararEntradaClube: ({ custoBase = 10, gratis = false, territorioId }) => {
+    // `aposta`: só quem entra SEM dívida (Isaias, 30/09/2026) — sai do bolso
+    // na entrada; venceu as 3 rondas, volta o dobro (resolverClubeDaLuta).
+    prepararEntradaClube: ({ custoBase = 10, gratis = false, territorioId, aposta = 0 }) => {
       const dividaPrevia = get()._birosca().divida || 0
       // Gate só pra quem entra "por vontade própria" (sem dívida). Quem já deve
       // nunca é barrado, senão vira soft-lock (endividado sem rep, sem saída).
@@ -30,9 +32,11 @@ export default function createGanguesClubeSlice(set, get) {
         return { ok: false, motivo: 'rep', rep: GANGUES_REP_GATE_CLUBE }
       }
       const base = custoBase || 10
+      const clubeAposta = !gratis && dividaPrevia <= 0 ? Math.max(0, Math.round(aposta) || 0) : 0
+      if (clubeAposta > 0 && !get().gastarGrana(clubeAposta)) return { ok: false, motivo: 'grana' }
       if (gratis) get().restaurarPvPmTodos()
       else get().entrarClubeDaLuta(base)
-      get().setStoryTarget({ clube: true, clubeBase: base, clubeDividaPrevia: dividaPrevia, clubeRonda: 1, clubeHeals: 0, voltar: { territorioId } })
+      get().setStoryTarget({ clube: true, clubeBase: base, clubeDividaPrevia: dividaPrevia, clubeRonda: 1, clubeHeals: 0, clubeAposta, voltar: { territorioId } })
       return { ok: true }
     },
 
@@ -76,7 +80,7 @@ export default function createGanguesClubeSlice(set, get) {
         get().aplicarDanoPersistente(combatants)
         return 'clube-sala'
       }
-      get().resolverClubeDaLuta(victory, alvo?.clubeDividaPrevia || 0, alvo?.clubeHeals || 0, alvo?.voltar?.territorioId || 'pista')
+      get().resolverClubeDaLuta(victory, alvo?.clubeDividaPrevia || 0, alvo?.clubeHeals || 0, alvo?.voltar?.territorioId || 'pista', alvo?.clubeAposta || 0)
       if (victory) get().darItem(GANGUES_CLUBE_ITEM_PREMIO, 1)
       return null
     },
@@ -86,10 +90,10 @@ export default function createGanguesClubeSlice(set, get) {
     //  • Venceu: quita TUDO e leva o prêmio do bairro (clubePremioDe, GDD §9.7 —
     //    paga sempre, 29/09/2026: o Clube é fonte de grana do grind). Sem XP.
     //  • Perdeu: te remendam e te largam; a dívida fica o que acumulou.
-    resolverClubeDaLuta: (venceu, dividaPrevia = 0, heals = 0, territorioId = 'pista') => {
+    resolverClubeDaLuta: (venceu, dividaPrevia = 0, heals = 0, territorioId = 'pista', aposta = 0) => {
       if (venceu) {
         gravarDivida(0)
-        get().ganharGrana(clubePremioDe(territorioId))
+        get().ganharGrana(clubePremioDe(territorioId) + aposta * 2)
       }
       get().restaurarPvPmTodos()
       get()._persistStory()

@@ -63,6 +63,7 @@ export default function GanguesVictory({ onNavigate }) {
         modo={victory ? 'vitoria' : 'derrota'}
         entrouLimpo={entrouLimpo}
         premio={clubePremioDe(storyAlvo?.voltar?.territorioId || 'pista')}
+        aposta={storyAlvo?.clubeAposta || 0}
         divida={Math.round(store.storyProgress?.__birosca?.divida || 0)}
         onVoltar={voltar}
       />

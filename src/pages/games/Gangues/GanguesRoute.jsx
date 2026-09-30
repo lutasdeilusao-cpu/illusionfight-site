@@ -130,7 +130,7 @@ export default function GanguesRoute() {
   // bairro, ou de volta pra Rinha — a próxima luta da sessão, com a tropa
   // remendada (vale até com a página recarregada: o alvo vem da marca).
   const voltarPraRua = () => { store.setStoryTarget({ territorioId: useGanguesStore.getState().storyTarget?.territorioId }); setFase('territorio') }
-  const continuarRinha = alvo => { store.setStoryTarget({ ...alvo, aposta: 0, rinhaLuta: (alvo.rinhaLuta || 1) + 1 }); setFase('story-combat') }
+  const continuarRinha = alvo => { store.setStoryTarget({ ...alvo, rinhaLuta: (alvo.rinhaLuta || 1) + 1 }); setFase('story-combat') }
 
   // Lembra o último território (storyProgress.__ultimoTerritorio): entrar na
   // cena marca — é pra lá que o save abre (GanguesSaveSelect).

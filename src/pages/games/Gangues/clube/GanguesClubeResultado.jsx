@@ -26,7 +26,7 @@ const ehFala = (s) => /^[«»"“”].+/.test(String(s).trim())
 const limpaAspas = (s) => String(s).replace(/[«»]/g, '').trim()
 
 // modo: 'vitoria' | 'derrota' | 'fuga'
-export default function GanguesClubeResultado({ modo = 'derrota', entrouLimpo = false, divida = 0, premio = 200, onVoltar }) {
+export default function GanguesClubeResultado({ modo = 'derrota', entrouLimpo = false, divida = 0, premio = 200, aposta = 0, onVoltar }) {
   const { t } = useLanguage()
   const R = useRef(prefersReduced()).current
   const venceu = modo === 'vitoria'
@@ -37,7 +37,11 @@ export default function GanguesClubeResultado({ modo = 'derrota', entrouLimpo = 
     ? (entrouLimpo ? 'games.gangues.clube.venceu_blocos_grana' : 'games.gangues.clube.venceu_blocos')
     : `games.gangues.clube.${chave}_blocos`
   const raw = t(blocosKey, { premio })
-  const blocos = Array.isArray(raw) ? raw : String(raw).split('\n').filter(Boolean)
+  const blocos = [
+    ...(Array.isArray(raw) ? raw : String(raw).split('\n').filter(Boolean)),
+    // Clube apostado: o que a aposta rendeu (ou levou)
+    ...(aposta > 0 && modo !== 'fuga' ? [t(venceu ? 'games.gangues.clube.aposta_ganhou' : 'games.gangues.clube.aposta_perdeu', { n: venceu ? aposta * 2 : aposta })] : []),
+  ]
 
   const D0 = R ? 0.1 : 0.7          // atraso do 1º bloco (depois do título)
   const STEP = R ? 0.06 : 0.62      // entre blocos

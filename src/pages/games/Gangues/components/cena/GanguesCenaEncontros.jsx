@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { getGanguesEnemyPortraitById } from '../../data/ganguesEnemyPortraits.js'
 import { pontosPreviewPoi } from '../../data/ganguesEncontros.js'
 import { nivelRealDePontos } from '../../data/ganguesDificuldade.js'
-import { apostasPossiveis, multApostaEmVoce, premio } from '../../data/ganguesApostas.js'
 
 // A tela de "encarar ou não" da treta programada (POI/chefe) — extraído de
 // GanguesCena.jsx (PLANO_REFATORACAO_ARQUIVOS_GRANDES_GANGUES_2026-09-11.md
@@ -10,9 +9,9 @@ import { apostasPossiveis, multApostaEmVoce, premio } from '../../data/ganguesAp
 // passo) foi removido em 21/09/2026 — virou "o bicho" (pino persistente, que por sua vez foi substituído em 26/09/2026 pelo encontro aleatório perseguidor — engine/ganguesEncontroAleatorio.js,
 // colide = luta automática, sem essa tela de escolha — ver GanguesCena.jsx).
 
-export function TretaVS({ poi, fala, nivelTropa, avisoOff, onOcultarAviso, onSim, onNao, t, territorioId, grana = 0, rep = 0, roster = [] }) {
-  // Rinha de Apostas (Feira, `poi.aposta`): valores fixos, volta em DOBRO;
-  // no resto das tretas vale a aposta em você (ganguesApostas.js).
+// Sem aposta aqui (Isaias, 30/09/2026: "a aposta é só lá na birosca" — a
+// Banca do Tio Dado e o Clube da Luta de quem entra sem dívida).
+export function TretaVS({ poi, fala, nivelTropa, avisoOff, onOcultarAviso, onSim, onNao, t, territorioId }) {
   const nome = poi.ehChefe ? t(`games.gangues.story.bosses.${poi.boss}.nome`) : t(`${poi.i18n}.nome`)
   const falaRaw = fala ?? (poi.ehChefe ? t(`games.gangues.story.bosses.${poi.boss}.fala`, { suaGangue: t('games.gangues.report.your_gang') }) : t(`${poi.i18n}.fala`))
   const falaShow = Array.isArray(falaRaw) ? falaRaw[0] : falaRaw
@@ -36,42 +35,15 @@ export function TretaVS({ poi, fala, nivelTropa, avisoOff, onOcultarAviso, onSim
   // 15/09/2026) cai pra inicial, igual quando não tem retrato nenhum.
   const [retratoFalhou, setRetratoFalhou] = useState(false)
   const temFoto = Boolean(retrato) && !retratoFalhou
-  // Aposta em você (ganguesApostas.js): paga pelo risco — inimigo mais forte
-  // que o seu mais forte paga mais. A grana sai ao entrar na treta.
-  const multAposta = multApostaEmVoce(pontosPreviewPoi(poi, territorioId) ?? poi.nivelRec, roster)
-  const valoresAposta = apostasPossiveis(rep, grana)
-  const [aposta, setAposta] = useState(0)
   return <div className="gang-cena-enc gang-cena-enc--vs">
     <span className={`gang-cena-enc-selo${temFoto ? ' gang-cena-enc-selo--foto' : ''}`}>{temFoto ? <img src={retrato} alt="" onError={() => setRetratoFalhou(true)} /> : (nome || '?')[0]}</span>
     <span className="gang-cena-eyebrow">{poi.ehChefe ? t('games.gangues.story.boss_tag') : t('games.gangues.cena.tipo.treta')}</span>
     <h3 className="gang-cena-enc-titulo">{nome}</h3>
     <p className="gang-cena-papo-fala">{falaShow}</p>
     {abaixo && <div className="gang-cena-vs-aviso">⚠ {t('games.gangues.cena.nivel_rec_baixo', { rec: nivelRecReal, atual: nivelTropa })}<button type="button" className="gang-cena-vs-aviso-off" onClick={onOcultarAviso}>{t('games.gangues.cena.nivel_rec_ocultar')}</button></div>}
-    {poi.aposta?.length > 0 ? (
-      <div className="gang-cena-aposta">
-        <small>{t('games.gangues.cena.aposta_titulo')}</small>
-        <div className="gang-cena-aposta__opcoes">
-          {poi.aposta.map(v => (
-            <button key={v} type="button" disabled={v > grana} className={`gang-cena-aposta__opt${aposta === v ? ' is-escolhida' : ''}`} onClick={() => setAposta(v)}>
-              {v === 0 ? t('games.gangues.cena.aposta_nada') : `💵 ${v}`}
-            </button>
-          ))}
-        </div>
-        {aposta > 0 && <p className="gang-cena-aposta__premio">{t('games.gangues.cena.aposta_premio', { n: aposta * 2 })}</p>}
-      </div>
-    ) : valoresAposta.length > 0 && <div className="gang-banca-emvoce">
-      <small>{t('games.gangues.banca.em_voce')} · {t('games.gangues.banca.em_voce_paga', { mult: multAposta })}</small>
-      <div className="gang-banca-valores">
-        {[0, ...valoresAposta].map(v => (
-          <button key={v} type="button" className={`gang-banca-valor${v === aposta ? ' is-on' : ''}`} onClick={() => setAposta(v)}>
-            {v ? `${v}→${premio(v, multAposta)}` : t('games.gangues.banca.em_voce_nada')}
-          </button>
-        ))}
-      </div>
-    </div>}
     <div className="gang-cena-enc-acoes">
       <button className="gang-cena-btn" onClick={onNao}>{t('games.gangues.cena.treta_nao')}</button>
-      <button className={`gang-cena-btn gang-cena-btn--go${abaixo ? ' gang-cena-btn--risco' : ''}`} onClick={() => onSim(aposta ? { valor: aposta, mult: poi.aposta?.length ? 2 : multAposta } : null)}>{t(abaixo ? 'games.gangues.cena.treta_sim_risco' : 'games.gangues.cena.treta_sim')}</button>
+      <button className={`gang-cena-btn gang-cena-btn--go${abaixo ? ' gang-cena-btn--risco' : ''}`} onClick={() => onSim()}>{t(abaixo ? 'games.gangues.cena.treta_sim_risco' : 'games.gangues.cena.treta_sim')}</button>
     </div>
   </div>
 }

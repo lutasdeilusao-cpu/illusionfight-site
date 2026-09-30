@@ -69,8 +69,6 @@
 .gang-banca-log { display: grid; gap: 4px; }
 .gang-banca-log p { margin: 0; font: 600 0.72rem var(--font-mono); color: var(--if-ink); }
 
-.gang-banca-emvoce { display: grid; gap: 6px; justify-items: center; }
-.gang-banca-emvoce small { font: 700 0.62rem var(--font-mono); letter-spacing: 0.08em; color: var(--if-amber); text-transform: uppercase; }
 .gang-banca-lutador { min-width: 0; }
 .gang-banca-log p { overflow-wrap: anywhere; }
 .gang-cena-enc--banca { min-width: 0; max-width: 100%; }

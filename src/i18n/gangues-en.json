@@ -55,7 +55,6 @@
         "reward_sucata": "Scrap",
         "reward_equip": "New gear",
         "reward_item": "Item",
-        "reward_aposta": "Bet (doubled)",
         "perda_item": "The Raid took your {item}.",
         "perda_grana": "The Turk's Collection took {n} of your cash.",
         "socorro_rinha_titulo": "The house patched you up",
@@ -548,7 +547,13 @@
         ],
         "venceu_titulo": "YOU WALKED OUT WHOLE",
         "perdeu_titulo": "THEY PATCHED YOU UP",
-        "voltar": "Back to the Track"
+        "voltar": "Back to the Track",
+        "aposta_titulo": "Want to bet on yourself?",
+        "aposta_nada": "No bet",
+        "aposta_premio": "Win all 3 rounds: take the prize + 💵 {n}",
+        "aposta_ganhou": "And the bet: 💵 {n} in your pocket.",
+        "aposta_perdeu": "The bet stayed on the table: 💵 {n} gone.",
+        "aposta_sem_grana": "Not enough cash for that bet."
       },
       "skill_info": {
         "titulo": "Talents",
@@ -4593,9 +4598,6 @@
         "recompensa": "REWARD",
         "ficha_anterior": "PREV",
         "ficha_proximo": "NEXT",
-        "aposta_titulo": "How much you putting in the ring?",
-        "aposta_nada": "Nothing",
-        "aposta_premio": "Win it, take {n}.",
         "skin": {
           "gazua": "picking the gate",
           "viatura": "the squad car's out",
@@ -4855,11 +4857,11 @@
             ]
           },
           "rinha_apostas": {
-            "nome": "Betting Ring",
-            "sub": "endless bets and brawls — the bet counts on the 1st",
+            "nome": "The Market Pit",
+            "sub": "endless brawls, one after another",
             "fala": [
-              "Out here in the dark the ring spins with cash on the table.",
-              "Put down your bet and step in. Win, take double. Lose, walk away empty.",
+              "Out here in the dark the ring never stops spinning.",
+              "Step in and take the hits. This is where you grind, not where you get rich.",
               "The ring never stops: one's done, the next one steps in, drawn at random. You can leave the crew here — 1 brawl every 5 minutes."
             ]
           },
@@ -5359,9 +5361,6 @@
         "outra_rinha": "Another fight",
         "ganhou": "You won! +{n} cash.",
         "perdeu": "You lost {n}. The house thanks you.",
-        "em_voce": "Bet on yourself",
-        "em_voce_paga": "pays ×{mult}",
-        "em_voce_nada": "No bet",
         "aposta_ganha": "Bet on yourself: +{n}",
         "aposta_perdida": "Bet on yourself: lost {n}"
       },

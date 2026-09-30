@@ -73,12 +73,11 @@ export default function GanguesVictoryReport({
   // Volta pra rua (vitória, socorro da derrota ou tentar de novo).
   const seguir = () => { store.setStoryTarget({ territorioId: storyAlvo.territorioId }); onNavigate('territorio') }
   // Rinha infinita: ganhou, a próxima luta vem sozinha (adversário novo, força
-  // sorteada, a casa remenda a tropa — ver GanguesRoute); a aposta da Feira
-  // vale só na 1ª da sessão. PERDEU com grana, a casa cobrou a recuperação e
+  // sorteada, a casa remenda a tropa — ver GanguesRoute). PERDEU com grana, a casa cobrou a recuperação e
   // a roda segue igual (socorro.tipo 'rinha', useGanguesVictoryResolution);
   // perdeu SEM grana, acabou: caminho normal da derrota (birosca).
   const naRinha = Boolean(storyAlvo?.rinha) && noModoHistoria && (victory || socorro?.tipo === 'rinha')
-  const proximaRinha = () => { const { rinhaRemendada, ...alvo } = storyAlvo; store.setStoryTarget({ ...alvo, aposta: 0, rinhaLuta: (alvo.rinhaLuta || 1) + 1 }); onNavigate('story-combat') }
+  const proximaRinha = () => { const { rinhaRemendada, ...alvo } = storyAlvo; store.setStoryTarget({ ...alvo, rinhaLuta: (alvo.rinhaLuta || 1) + 1 }); onNavigate('story-combat') }
   // Briga automática da cena ligada: "Segue na quebrada" se clica sozinho em
   // 3s (ver useGanguesAvancoAutomatico). A vitória sobre o chefe fica de fora
   // — é o fecho do bairro, com a vaga de recruta pra decidir — e a derrota
@@ -202,11 +201,6 @@ export default function GanguesVictoryReport({
             {rewardSummary.item && (
               <motion.div className="gang-reward-item gang-reward-item--rep" initial={{ scale: 0.5, opacity: 0, y: 10 }} animate={{ scale: 1, opacity: 1, y: 0 }} transition={{ delay: 0.95, type: 'spring', stiffness: 260, damping: 16 }}>
                 <b>{getGanguesItem(rewardSummary.item)?.icone}</b><strong>{t(getGanguesItem(rewardSummary.item)?.nome || '')}</strong><span>{t('games.gangues.report.reward_item')}</span>
-              </motion.div>
-            )}
-            {rewardSummary.aposta > 0 && (
-              <motion.div className="gang-reward-item gang-reward-item--grana" initial={{ scale: 0.5, opacity: 0, y: 10 }} animate={{ scale: 1, opacity: 1, y: 0 }} transition={{ delay: 0.55, type: 'spring', stiffness: 260, damping: 16 }}>
-                <b>🎲</b><strong>+{rewardSummary.aposta}</strong><span>{t('games.gangues.report.reward_aposta')}</span>
               </motion.div>
             )}
             {rewardSummary.sucata > 0 && (

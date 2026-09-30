@@ -8,6 +8,7 @@ import GanguesAgiotagem from './GanguesAgiotagem'
 import { GanguesClubeTutorial, GanguesAgiotaTutorial } from './GanguesDescansoTutorial'
 import './GanguesDescanso.css'
 import { clubePremioDe } from '../../data/ganguesLoadout.js'
+import { apostasPossiveis } from '../../data/ganguesApostas.js'
 
 /* Encontro AGIOTA — pino dedicado, pedido do Isaias, 21/09/2026: "vamos
    criar um pin dedicado ao agiota, escolhe uma imagem, coloca ele no
@@ -41,6 +42,7 @@ export default function GanguesAgiota({ poi, onClose, onClube, territorioId = 'p
   const [res, setRes] = useState(null)      // falha (motivo) de alguma ação
   const [pgto, setPgto] = useState(null)    // resultado de "pagar dívida"
   const [verClube, setVerClube] = useState(false)
+  const [apostaClube, setApostaClube] = useState(0) // só quem entra sem dívida aposta
   const [animando, setAnimando] = useState(false)
   const timerRef = useRef(null)
   useEffect(() => () => clearTimeout(timerRef.current), [])
@@ -90,13 +92,28 @@ export default function GanguesAgiota({ poi, onClose, onClube, territorioId = 'p
         falas={[t(divida > 0 ? 'games.gangues.cena.clube_oferta_divida' : 'games.gangues.cena.clube_oferta_limpo', { agiota: nome, premio: clubePremioDe(territorioId) })]}
         escolhas={[
           { id: 'recusar', label: t('games.gangues.cena.clube_recusar'), onClick: () => setVerClube(false) },
-          { id: 'aceitar', label: t('games.gangues.cena.clube_aceitar'), variante: 'go', onClick: () => onClube(custo) },
+          { id: 'aceitar', label: t('games.gangues.cena.clube_aceitar'), variante: 'go', onClick: () => onClube(custo, false, divida > 0 ? 0 : apostaClube) },
         ]}
         onClose={onClose} fecharLabel={fecharLabel}
       >
         {divida > 0 && (
           <div className="gang-cena-fiado-caderneta">
             <p className="gang-cena-fiado-linha">{t('games.gangues.cena.fiado_devendo', { divida, agiota: nome })}</p>
+          </div>
+        )}
+        {/* Clube apostado (Isaias, 30/09/2026): só pra quem entra sem dívida —
+            põe uma grana a mais; venceu as 3 rondas, leva o prêmio + o dobro. */}
+        {divida <= 0 && apostasPossiveis(store.rep, store.grana).length > 0 && (
+          <div className="gang-cena-aposta">
+            <small>{t('games.gangues.clube.aposta_titulo')}</small>
+            <div className="gang-cena-aposta__opcoes">
+              {[0, ...apostasPossiveis(store.rep, store.grana)].map(v => (
+                <button key={v} type="button" className={`gang-cena-aposta__opt${apostaClube === v ? ' is-escolhida' : ''}`} onClick={() => setApostaClube(v)}>
+                  {v === 0 ? t('games.gangues.clube.aposta_nada') : `💵 ${v}`}
+                </button>
+              ))}
+            </div>
+            {apostaClube > 0 && <p className="gang-cena-aposta__premio">{t('games.gangues.clube.aposta_premio', { n: apostaClube * 2 })}</p>}
           </div>
         )}
         <GanguesClubeTutorial />

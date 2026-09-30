@@ -112,7 +112,7 @@ export const lutaAoVivo = { ler: null }
 
 // Aplica o resultado de UMA luta calculada da Rinha no store, com as mesmas
 // regras da tela de vitória de verdade (useGanguesVictoryResolution): dano,
-// AP, álbum, grana/rep/itens do ponto, aposta (só a da 1ª luta da sessão) e
+// AP, álbum, grana/rep/itens do ponto e
 // sucata. Perdeu, nada dessa luta — e a sessão acaba ali (simularFarmRinha para).
 function aplicarLuta({ store, cena, alvo, party, outcome, combatants, resumo }) {
   const s = store()
@@ -131,7 +131,6 @@ function aplicarLuta({ store, cena, alvo, party, outcome, combatants, resumo }) 
   if (grana) s.ganharGrana(grana)
   if (rep) s.ganharRep(rep)
   itens.forEach(({ id, qtd }) => s.darItem(id, qtd))
-  if (alvo.aposta > 0) s.ganharGrana(Math.round(alvo.aposta * (alvo.apostaMult || 2)))
   if (Math.random() < GANGUES_FARM_SUCATA_CHANCE) s.darItem(GANGUES_SUCATA_ID, 1)
 }
 
@@ -173,8 +172,7 @@ export function simularFarmRinha({ store, cena, segundos, enemiesData, alvo, lut
     const { outcome, combatants, usos } = rodarLuta(inicio, { store, config: autoConfig })
     lutas--
     gastarPocoes(store, usos, resumo)
-    // A aposta (Feira) só vale na luta que já estava na tela — a 1ª da sessão.
-    aplicarLuta({ store, cena, alvo: n === 0 && lutaEmAndamento ? alvo : { ...alvo, aposta: 0 }, party, outcome, combatants, resumo })
+    aplicarLuta({ store, cena, alvo, party, outcome, combatants, resumo })
     // Perdeu com grana: a casa cobra a recuperação e a roda segue (igual à
     // Rinha ao vivo). Sem grana, acabou: mesmo socorro da derrota ao vivo —
     // birosca mais perto, recuperação cobrada.

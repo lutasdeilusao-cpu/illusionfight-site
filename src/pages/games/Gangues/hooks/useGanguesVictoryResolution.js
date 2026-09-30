@@ -6,7 +6,6 @@ import { useEffect, useRef, useState } from 'react'
 import { registrarPontuacaoArenaRanking } from '../../../../hooks/useLeaderboardDB'
 import { sfx } from '../../../../lib/sfx'
 import { calcularApTotal, calcularPesosEParticipantes, calcularRecompensaCena } from '../engine/ganguesVictoryResolver.js'
-import { premio } from '../data/ganguesApostas.js'
 import { nivelTetoDaHistoria } from '../data/ganguesTerritorios.js'
 import { GANGUES_LEVEL_CAP } from '../data/ganguesCharacters.js'
 import { CENAS_POR_ID, destinoSocorroDerrota, custoRecuperacaoRinha } from '../data/cenas/cenaHelpers.js'
@@ -104,7 +103,7 @@ export default function useGanguesVictoryResolution({ store, user, report, victo
     if (victory) {
       // Álbum de Marélia — todo inimigo do bando batido vira entrada.
       store.registrarNoAlbum([match.enemy_id, ...report.combatants.filter(c => c.side === 'enemy').map(c => c.id)])
-      let granaGanha = 0, repGanha = 0, repMarcos = [], sucataGanha = 0, equipGanho = null, itemGanho = null, apostaGanha = 0
+      let granaGanha = 0, repGanha = 0, repMarcos = [], sucataGanha = 0, equipGanho = null, itemGanho = null
       if (emCena || noModoHistoria) {
         const { grana, rep, itens, equipPrimeiraVez, itemPrimeiraVez, pagaFavor } = calcularRecompensaCena({ emCena, storyAlvo, enemyCount, ehChefe: Boolean(storyAlvo.isChefe) })
         // Checa "1ª vitória" ANTES de marcar o ponto como resolvido logo abaixo.
@@ -130,9 +129,6 @@ export default function useGanguesVictoryResolution({ store, user, report, victo
         if (itemPrimeiraVez && primeiraVitoria) { store.darItem(itemPrimeiraVez, 1); itemGanho = itemPrimeiraVez }
         // Favor da Dona Regina pago (Feira) — libera o fiado da pensão de novo.
         if (pagaFavor) store.pagarFavorRegina()
-        // Aposta (Rinha de Apostas da Feira ×2 ou aposta em você ×risco): saiu do
-        // bolso na entrada; venceu, volta multiplicada.
-        if (storyAlvo.aposta > 0) { apostaGanha = premio(storyAlvo.aposta, storyAlvo.apostaMult || 2); store.ganharGrana(apostaGanha) }
         if (emCena && !cenaChefe && Math.random() < GANGUES_SUCATA_DROP_CHANCE) { store.darItem(GANGUES_SUCATA_ID, 1); sucataGanha = 1 }
         if (emCena && cenaChefe) {
           store.marcarBossCena(storyAlvo.cenaId)
@@ -148,7 +144,7 @@ export default function useGanguesVictoryResolution({ store, user, report, victo
       if (confrontoFinal) store.completeCampaign()
       // repMarco: só o ÚLTIMO marco cruzado (pra mostrar 1 modal) — todos os
       // itens já foram concedidos de verdade no inventário dentro de ganharRep.
-      setRewardSummary({ apLista, grana: granaGanha, rep: repGanha, sucata: sucataGanha, equip: equipGanho, item: itemGanho, aposta: apostaGanha, repMarco: repMarcos[repMarcos.length - 1] || null })
+      setRewardSummary({ apLista, grana: granaGanha, rep: repGanha, sucata: sucataGanha, equip: equipGanho, item: itemGanho, repMarco: repMarcos[repMarcos.length - 1] || null })
       sfx.win()
     } else {
       sfx.lose()

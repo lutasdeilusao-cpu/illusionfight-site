@@ -55,7 +55,6 @@
         "reward_sucata": "Sucata",
         "reward_equip": "Peça nova",
         "reward_item": "Item",
-        "reward_aposta": "Aposta (em dobro)",
         "perda_item": "O Rapa levou teu {item} embora.",
         "perda_grana": "A Cobrança do Turco levou {n} da tua grana na mão.",
         "socorro_rinha_titulo": "A casa te remendou",
@@ -548,7 +547,13 @@
         ],
         "venceu_titulo": "VOCÊ SAIU INTEIRO",
         "perdeu_titulo": "TE REMENDARAM",
-        "voltar": "Voltar pra Pista"
+        "voltar": "Voltar pra Pista",
+        "aposta_titulo": "Quer apostar em você?",
+        "aposta_nada": "Sem aposta",
+        "aposta_premio": "Vence as 3 rondas: leva o prêmio + 💵 {n}",
+        "aposta_ganhou": "E a aposta: 💵 {n} no bolso.",
+        "aposta_perdeu": "A aposta ficou na mesa: 💵 {n} a menos.",
+        "aposta_sem_grana": "Sem grana pra essa aposta."
       },
       "skill_info": {
         "titulo": "Talentos",
@@ -1490,9 +1495,6 @@
         "recompensa": "RECOMPENSA",
         "ficha_anterior": "ANTERIOR",
         "ficha_proximo": "PRÓXIMO",
-        "aposta_titulo": "Quanto tu bota na roda?",
-        "aposta_nada": "Nada",
-        "aposta_premio": "Venceu, leva {n}.",
         "skin": {
           "gazua": "gazua no portão",
           "viatura": "a viatura tá na rua",
@@ -1752,11 +1754,11 @@
             ]
           },
           "rinha_apostas": {
-            "nome": "Rinha de Apostas",
-            "sub": "aposta e briga sem fim — a aposta vale na 1ª",
+            "nome": "Rinha da Feira",
+            "sub": "briga sem fim, um atrás do outro",
             "fala": [
-              "Aqui no escuro a roda gira com grana na mesa.",
-              "Bota tua aposta e entra. Ganhou, leva o dobro. Perdeu, fica sem.",
+              "Aqui no escuro a roda não para de girar.",
+              "Entra e segura a pancada. Aqui é pra ralar, não pra ficar rico.",
               "A roda não para: acabou uma, já entra outro, sorteado. Pode largar a tropa aqui — 1 briga a cada 5 minutos."
             ]
           },
@@ -2256,9 +2258,6 @@
         "outra_rinha": "Outra rinha",
         "ganhou": "Ganhou! +{n} de grana.",
         "perdeu": "Perdeu {n}. A casa agradece.",
-        "em_voce": "Apostar em você",
-        "em_voce_paga": "paga ×{mult}",
-        "em_voce_nada": "Sem aposta",
         "aposta_ganha": "Aposta em você: +{n}",
         "aposta_perdida": "Aposta em você: perdeu {n}"
       },

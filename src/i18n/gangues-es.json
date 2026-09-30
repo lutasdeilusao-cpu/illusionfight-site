@@ -55,7 +55,6 @@
         "reward_sucata": "Chatarra",
         "reward_equip": "Pieza nueva",
         "reward_item": "Objeto",
-        "reward_aposta": "Apuesta (al doble)",
         "perda_item": "La Redada se llevó tu {item}.",
         "perda_grana": "El Cobro del Turco se llevó {n} de tu plata.",
         "socorro_rinha_titulo": "La casa te remendó",
@@ -548,7 +547,13 @@
         ],
         "venceu_titulo": "SALISTE ENTERO",
         "perdeu_titulo": "TE REMENDARON",
-        "voltar": "Volver a la Pista"
+        "voltar": "Volver a la Pista",
+        "aposta_titulo": "¿Quieres apostar por ti?",
+        "aposta_nada": "Sin apuesta",
+        "aposta_premio": "Ganas las 3 rondas: te llevas el premio + 💵 {n}",
+        "aposta_ganhou": "Y la apuesta: 💵 {n} al bolsillo.",
+        "aposta_perdeu": "La apuesta se quedó en la mesa: 💵 {n} menos.",
+        "aposta_sem_grana": "No te alcanza para esa apuesta."
       },
       "skill_info": {
         "titulo": "Talentos",
@@ -4593,9 +4598,6 @@
         "recompensa": "RECOMPENSA",
         "ficha_anterior": "ANTERIOR",
         "ficha_proximo": "SIGUIENTE",
-        "aposta_titulo": "¿Cuánto pones en la rueda?",
-        "aposta_nada": "Nada",
-        "aposta_premio": "Ganas, te llevas {n}.",
         "skin": {
           "gazua": "ganzúa en el portón",
           "viatura": "la patrulla está en la calle",
@@ -4855,11 +4857,11 @@
             ]
           },
           "rinha_apostas": {
-            "nome": "Riña de Apuestas",
-            "sub": "apuesta y pelea sin fin — la apuesta vale en la 1ª",
+            "nome": "La Riña del Mercado",
+            "sub": "pelea sin fin, uno tras otro",
             "fala": [
-              "Acá a oscuras la rueda gira con plata en la mesa.",
-              "Pon tu apuesta y entra. Ganas, te llevas el doble. Pierdes, te quedas sin nada.",
+              "Acá a oscuras la rueda nunca deja de girar.",
+              "Entra y aguanta los golpes. Aquí se viene a entrenar, no a hacerse rico.",
               "La rueda no para: termina una, ya entra otro, sorteado. Puedes dejar a la banda acá — 1 pelea cada 5 minutos."
             ]
           },
@@ -5359,9 +5361,6 @@
         "outra_rinha": "Otra riña",
         "ganhou": "¡Ganaste! +{n} de plata.",
         "perdeu": "Perdiste {n}. La casa agradece.",
-        "em_voce": "Apostar por ti",
-        "em_voce_paga": "paga ×{mult}",
-        "em_voce_nada": "Sin apuesta",
         "aposta_ganha": "Apuesta por ti: +{n}",
         "aposta_perdida": "Apuesta por ti: perdiste {n}"
       },

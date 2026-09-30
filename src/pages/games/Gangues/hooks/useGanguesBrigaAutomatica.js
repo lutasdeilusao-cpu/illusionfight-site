@@ -76,7 +76,7 @@ function brigaDoAlvo(alvo) {
   // só anda pela rua fica preso num farm sem fim.
   if (alvo.rinhaInfinita) return null
   if (alvo.estado !== 'disponivel' && !alvo.repetivel) return null
-  if (alvo.tipo === 'treta') return { aposta: 0 }
+  if (alvo.tipo === 'treta') return {}
   const briga = alvo.tipo === 'papo' && (alvo.escolhas || []).find(e => e.viraTreta)
   return briga ? { viraTreta: briga.viraTreta, revela: briga.revela } : null
 }
