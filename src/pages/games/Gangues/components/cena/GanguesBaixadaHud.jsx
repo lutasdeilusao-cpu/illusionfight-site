@@ -25,3 +25,16 @@ export function BarraRespeito({ cena, prog, t }) {
     </div>
   )
 }
+
+/** Barra de Alerta (Vila, `cena.alerta`): o quanto o bonde tá avisado —
+ *  cada ponto soma +1 de ficha nos corpos das tretas daqui. */
+export function BarraAlerta({ cena, n, t }) {
+  const max = cena.alerta.max
+  return (
+    <div className={`gang-respeito gang-alerta${n >= max ? ' is-cheia' : ''}`}>
+      <small>{t('games.gangues.cena.vila.alerta.titulo')}</small>
+      <span className="gang-respeito__barra">{Array.from({ length: max }, (_, i) => <i key={i} className={i < n ? 'is-on' : ''} />)}</span>
+      <em>{t(n > 0 ? 'games.gangues.cena.vila.alerta.sobe' : 'games.gangues.cena.vila.alerta.calmo', { n })}</em>
+    </div>
+  )
+}

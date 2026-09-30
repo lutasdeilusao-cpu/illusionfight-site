@@ -154,7 +154,8 @@ export function calcularPesosEParticipantes({ victory, report, match }) {
 const GANGUES_GRANA_POR_EXTRA = 5
 const GANGUES_GRANA_BASE = { pista: 10, feira: 15, baixada: 20, vila: 30, morro: 40, alto: 55, laje: 75 }
 const GANGUES_GRANA_CHEFE_MINIMO = { pista: 250, feira: 500, baixada: 800, vila: 1200, morro: 1700, alto: 2300, laje: 3000 }
-const GANGUES_AP_MULT = { feira: 1.5 }
+// Vila ×1,5 também (PLANO_VILA.md §5: ~13 níveis do Fura-Bucho ao Ferrugem).
+const GANGUES_AP_MULT = { feira: 1.5, vila: 1.5 }
 function recompensaDoTerritorio(territorioId) {
   return {
     granaBase: GANGUES_GRANA_BASE[territorioId] ?? GANGUES_GRANA_BASE.pista,

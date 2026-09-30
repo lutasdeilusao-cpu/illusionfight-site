@@ -45,6 +45,15 @@
 .gang-respeito.is-cheia { border-color: var(--if-amber); }
 .gang-respeito.is-cheia .gang-respeito__barra i { background: var(--if-amber); }
 
+/* Barra de Alerta (Vila): mesma peça, cor de perigo — encher é ruim. */
+.gang-alerta { border-color: var(--if-danger); }
+/* Dentro do prédio a escada de subir fica no topo: a barra vira uma linha só, sem o texto. */
+.gang-cena-worldpage.is-interior .gang-alerta { grid-auto-flow: column; align-items: center; top: 50px; }
+.gang-cena-worldpage.is-interior .gang-alerta em { display: none; }
+.gang-alerta small { color: var(--if-danger); }
+.gang-alerta .gang-respeito__barra i.is-on,
+.gang-alerta.is-cheia .gang-respeito__barra i.is-on { background: var(--if-danger); box-shadow: 0 0 6px var(--if-danger); }
+
 /* O folgado (e todo chefe) aparece MAIOR no mapa — dá pra reconhecer de longe. */
 .gang-world-npc.is-fuga > span,
 .gang-world-npc.is-boss > span { width: 46px; height: 56px; }

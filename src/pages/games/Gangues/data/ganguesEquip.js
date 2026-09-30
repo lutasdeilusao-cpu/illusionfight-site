@@ -125,12 +125,34 @@ const CATALOGO = [
   { id: 316, slug: 'fita_bonfim', caminho: 'mistico', slot: 'bracos', raridade: 'raro', bonus: { pv: 4 }, cardSlots: 2, custo: 90, icone: '🎗️' },
   { id: 317, slug: 'sandalia_corda', caminho: 'mistico', slot: 'pes', raridade: 'raro', bonus: { pm: 4 }, cardSlots: 2, custo: 90, icone: '🩴' },
   { id: 318, slug: 'patua', caminho: 'mistico', slot: 'amuleto', raridade: 'raro', bonus: { PM: 1, pm: 2 }, cardSlots: 2, custo: 210, icone: '🧿' },
+  // ── PESADO da Vila (Brechó da Síndica, PLANO_VILA.md §6.1) — custo ≈ 1,4× o
+  // raro equivalente. 405 e 412 não vendem: são o prêmio dos dois Generais. ──
+  { id: 401, slug: 'chave_de_cano', caminho: 'atacante', slot: 'arma', raridade: 'pesado', bonus: { A: [3, 5] }, cardSlots: 2, custo: 460, icone: '🔧' },
+  { id: 402, slug: 'capacete_obra_pintado', caminho: 'atacante', slot: 'cabeca', raridade: 'pesado', bonus: { pv: 3 }, cardSlots: 2, custo: 105, icone: '⛑️' },
+  { id: 403, slug: 'colete_do_bonde', caminho: 'atacante', slot: 'corpo', raridade: 'pesado', bonus: { pv: 6, D: [0, 2] }, cardSlots: 2, custo: 230, icone: '🦺' },
+  { id: 404, slug: 'cotoveleira_borracha', caminho: 'atacante', slot: 'bracos', raridade: 'pesado', bonus: { H: [1, 3] }, cardSlots: 2, custo: 335, icone: '💪' },
+  { id: 405, slug: 'bota_de_trabalho', caminho: 'atacante', slot: 'pes', raridade: 'pesado', bonus: { A: [0, 2] }, cardSlots: 2, icone: '🥾' },
+  { id: 406, slug: 'molho_de_chaves', caminho: 'atacante', slot: 'amuleto', raridade: 'pesado', bonus: { pm: 3 }, cardSlots: 2, custo: 65, icone: '🗝️' },
+  { id: 407, slug: 'porta_de_aco', caminho: 'defensor', slot: 'arma', raridade: 'pesado', bonus: { D: [2, 4], A: 1 }, cardSlots: 2, custo: 330, icone: '🚪' },
+  { id: 408, slug: 'balde_de_concreto', caminho: 'defensor', slot: 'cabeca', raridade: 'pesado', bonus: { D: [0, 2] }, cardSlots: 2, custo: 125, icone: '🪣' },
+  { id: 409, slug: 'colchao_amarrado', caminho: 'defensor', slot: 'corpo', raridade: 'pesado', bonus: { pv: 12 }, cardSlots: 2, custo: 335, icone: '🛏️' },
+  { id: 410, slug: 'grade_de_janela', caminho: 'defensor', slot: 'bracos', raridade: 'pesado', bonus: { D: [0, 2] }, cardSlots: 2, custo: 125, icone: '🪟' },
+  { id: 411, slug: 'bota_de_borracha', caminho: 'defensor', slot: 'pes', raridade: 'pesado', bonus: { pv: 6 }, cardSlots: 2, custo: 170, icone: '🥾' },
+  { id: 412, slug: 'cracha_da_sindica', caminho: 'defensor', slot: 'amuleto', raridade: 'pesado', bonus: { pm: 3, pv: 3 }, cardSlots: 2, icone: '🪪' },
+  { id: 413, slug: 'antena_de_tv', caminho: 'mistico', slot: 'arma', raridade: 'pesado', bonus: { PM: [3, 5] }, cardSlots: 2, custo: 440, icone: '📡' },
+  { id: 414, slug: 'touca_de_aluminio', caminho: 'mistico', slot: 'cabeca', raridade: 'pesado', bonus: { pm: 4, A: 1 }, cardSlots: 2, custo: 200, icone: '🧢' },
+  { id: 415, slug: 'cortina_de_renda', caminho: 'mistico', slot: 'corpo', raridade: 'pesado', bonus: { pm: 6, pv: 3, D: 1 }, cardSlots: 2, custo: 330, icone: '🥻' },
+  { id: 416, slug: 'pulseira_de_fio', caminho: 'mistico', slot: 'bracos', raridade: 'pesado', bonus: { H: 1, pv: 3 }, cardSlots: 2, custo: 190, icone: '🧵' },
+  { id: 417, slug: 'chinelo_de_quarto', caminho: 'mistico', slot: 'pes', raridade: 'pesado', bonus: { pm: 4 }, cardSlots: 2, custo: 125, icone: '🩴' },
+  { id: 418, slug: 'santinho_do_elevador', caminho: 'mistico', slot: 'amuleto', raridade: 'pesado', bonus: { PM: 1, pm: 2 }, cardSlots: 2, custo: 290, icone: '📿' },
   // ── ÉPICO de chefe — drop, nunca à venda, qualquer caminho (vem da branch
   // da Feira, 27/09/2026). Faixa de valor: rola a cada golpe. ──
   { id: 138, slug: 'porrete_do_cobrador', caminho: 'livre', slot: 'arma', raridade: 'epico', bonus: { A: [3, 7], H: [1, 3], D: [0, 2] }, cardSlots: 2, icone: '🏏' },
   // O Espeto do Fura-Bucho — prêmio da 1ª vitória contra o chefe da Baixada.
   { id: 140, slug: 'espeto_do_fura_bucho', caminho: 'livre', slot: 'arma', raridade: 'epico', bonus: { A: [3, 6], D: [1, 3] }, cardSlots: 2, icone: '🗡️' },
   { id: 139, slug: 'facao_do_carvao', caminho: 'livre', slot: 'arma', raridade: 'epico', bonus: { A: [2, 5], D: [0, 2] }, cardSlots: 2, icone: '🔪' },
+  // O Taco da Ferrugem — prêmio da 1ª vitória contra o chefe da Vila.
+  { id: 141, slug: 'taco_da_ferrugem', caminho: 'livre', slot: 'arma', raridade: 'epico', bonus: { A: [3, 6], D: [1, 4] }, cardSlots: 2, icone: '🏏' },
 ]
 
 export const GANGUES_EQUIP = Object.fromEntries(CATALOGO.map(item => [item.id, { ...item, nome: i18nNome(item.id) }]))
@@ -255,7 +277,7 @@ export function rolarFaixa(f, rnd = Math.random) {
 // Preço pela fórmula do plano (mesma dos preços do catálogo) — referência
 // pra peça que não vende em loja (épico/prêmio) poder ser aprimorada também.
 const PESO_PRECO = { A: 28, D: 22, H: 30, pv: 6, pm: 6 }
-const FATOR_RARIDADE = { comum: 1, incomum: 1.1, raro: 1.3, epico: 1.6 }
+const FATOR_RARIDADE = { comum: 1, incomum: 1.1, raro: 1.3, pesado: 1.45, epico: 1.6 }
 function precoReferencia(def) {
   if (!def) return 0
   if (Number.isFinite(def.custo)) return def.custo

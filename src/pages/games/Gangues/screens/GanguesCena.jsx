@@ -22,7 +22,7 @@ import GanguesCenaFichaCard from '../components/cena/GanguesCenaFichaCard'
 import GanguesRepRecompensaModal from '../components/GanguesRepRecompensaModal'
 import { GangMarker, PinoAlvo, ZonaChao, WorldControls, BrigaAutoAviso, interactionLabel, ehPersonagem } from '../components/cena/GanguesCenaAtores'
 import { TretaVS } from '../components/cena/GanguesCenaEncontros'
-import { CENAS_POR_ID, portaoAberto, contarCena, naAreaDoChefe } from '../data/cenas/cenaHelpers.js'
+import { CENAS_POR_ID, portaoAberto, contarCena, naAreaDoChefe, alertaDaCena, pontosComAlerta } from '../data/cenas/cenaHelpers.js'
 import { GANGUES_TERRITORIO_POR_ID } from '../data/ganguesTerritorios.js'
 import { getGanguesPortraitByTemplateId } from '../data/ganguesPortraits.js'
 import { getGanguesNpcPortrait } from '../data/ganguesNpcPortraits.js'
@@ -35,7 +35,7 @@ import { ALEATORIO_TIPOS } from '../engine/ganguesEncontroAleatorio.js'
 import useGanguesCenaMovimento from '../hooks/useGanguesCenaMovimento.js'
 import useGanguesEncontroAleatorio from '../hooks/useGanguesEncontroAleatorio.js'
 import useGanguesTrem from '../hooks/useGanguesTrem.js'
-import { TremFaixa, BarraRespeito } from '../components/cena/GanguesBaixadaHud'
+import { TremFaixa, BarraRespeito, BarraAlerta } from '../components/cena/GanguesBaixadaHud'
 import './GanguesCena.css'
 
 // Cada cena vira um tutorial_id próprio (`cena_intro:<cenaId>`) dentro do
@@ -171,8 +171,9 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
   })
   // Lado apagado (Feira): do outro lado da barricada, até o chefe cair.
   const ladoApagado = Boolean(cena?.apagao) && !local && !prog.boss && player.y < (cena?.muro?.y1 ?? 0)
-  // Interior marcado `escuro` (a Galeria dos Gato) também fica no breu até o chefe cair.
-  const noEscuro = ladoApagado || (Boolean(local) && Boolean(cena?.interiores?.[local.id]?.escuro) && !prog.boss)
+  // Interior (a Galeria dos Gato) ou cômodo (a escada sem luz da Vila) marcado `escuro` também fica no breu até o chefe cair.
+  const interLocal = local ? cena?.interiores?.[local.id] : null
+  const noEscuro = ladoApagado || (Boolean(interLocal?.escuro || interLocal?.comodos?.[local.comodo]?.escuro) && !prog.boss)
   // Tipos de encontro aleatório que esta cena sorteia agora (cada território
   // tem os seus — ver `aleatorio` em data/cenas/<território>/index.js).
   const tiposAleatorioRef = useRef(null)
@@ -365,8 +366,24 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
     const fraqueza = chefe && cena.fraquezaChefe && cena.fraquezaChefe.precisa.every(id => prog.resolvidos[id]) ? cena.fraquezaChefe.efeito : null
     const bonusDivida = !viraTreta && poi.inimigoBonusSeDivida && dividaAgiota > 0 ? poi.inimigoBonusSeDivida : null
     const ajusteInimigo = fraqueza || bonusDivida || null
-    store.setStoryTarget({ ajusteInimigo, rinha: Boolean(poi.rinhaInfinita && !viraTreta), semGrana: !viraTreta && Boolean(poi.semGrana), territorioId: terr.id, cenaId: cena.id, cenaPoiId: poi.id, cenaRevela: viraTreta ? (revela || []) : (poi.revela || []), cenaRecompensa: viraTreta ? (viraTreta.recompensa || null) : poi.recompensa || null, cenaSemTravar: Boolean(viraTreta?.semTravar), pontoIds: terr.pontos.map(p => p.id), noId: chefe ? cena.chefe.poiNo : null, enemyId: viraTreta ? viraTreta.enemy : poi.enemy, fixo: Boolean(viraTreta) || Boolean(poi.fixo), liderFixo: (viraTreta || poi.fixo) ? null : poi.liderFixo, moldesPool: viraTreta ? null : poi.moldesPool, revezamento: viraTreta ? (viraTreta.revezamento || null) : poi.revezamento, isChefe: chefe, repDelta: viraTreta?.rep || 0, pontosFixos: pontosFixo, qtdMin: viraTreta ? null : (poi.qtdMin ?? null), qtdMax: viraTreta ? null : (poi.qtdMax ?? null) })
+    // Barra de Alerta (Vila): +1 de ficha por corpo a cada ponto de alerta, nunca no chefe nem acima dele.
+    const comAlerta = pts => (chefe || !pts ? pts : pontosComAlerta(pts, cena, store.storyProgress))
+    const revez = viraTreta ? (viraTreta.revezamento || null) : poi.revezamento
+    const revezamento = revez && !revez.nivelDaTropa ? { ...revez, budgetPorCorpo: comAlerta(revez.budgetPorCorpo) } : revez
+    store.setStoryTarget({ ajusteInimigo, rinha: Boolean(poi.rinhaInfinita && !viraTreta), semGrana: !viraTreta && Boolean(poi.semGrana), territorioId: terr.id, cenaId: cena.id, cenaPoiId: poi.id, cenaRevela: viraTreta ? (revela || []) : (poi.revela || []), cenaRecompensa: viraTreta ? (viraTreta.recompensa || null) : poi.recompensa || null, cenaSemTravar: Boolean(viraTreta?.semTravar), pontoIds: terr.pontos.map(p => p.id), noId: chefe ? cena.chefe.poiNo : null, enemyId: viraTreta ? viraTreta.enemy : poi.enemy, fixo: Boolean(viraTreta) || Boolean(poi.fixo), liderFixo: (viraTreta || poi.fixo) ? null : poi.liderFixo, moldesPool: viraTreta ? null : poi.moldesPool, revezamento, isChefe: chefe, repDelta: viraTreta?.rep || 0, pontosFixos: comAlerta(pontosFixo), qtdMin: viraTreta ? null : (poi.qtdMin ?? null), qtdMax: viraTreta ? null : (poi.qtdMax ?? null) })
     onNavigate('story-combat')
+  }
+  // O elevador quebrado (Vila, `cena.elevador`): leva pro andar escolhido — ou
+  // trava no caminho (+1 de alerta) e o bonde abre a porta na marra.
+  const usarElevador = destino => {
+    const el = cena.elevador
+    if (Math.random() < el.chanceTravar) {
+      if (cena.alerta) store.mexerAlerta(cena.id, cena.alerta.max, 1)
+      sfx.cancel?.(); setAviso(t('games.gangues.cena.vila.elevador.travou'))
+      setTimeout(() => { setAviso(null); iniciarTreta({ id: 'elevador' }, { viraTreta: { enemy: el.pool[0], revezamento: { pool: el.pool, budgetPorCorpo: destino.pontos, chanceDupla: 0.6 }, semTravar: true } }) }, 1600)
+      return
+    }
+    if (local?.id === el.interior) irComodo(destino.comodo); else entrar(el.interior, destino.comodo)
   }
   const resolver = res => {
     const poi = encontro.poi; setEncontro(null)
@@ -374,6 +391,7 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
     // antes da treta (nunca derruba — fica com pelo menos 1).
     if (res?.choque) store.choqueTropa(res.choque)
     if (res?.viraTreta) { iniciarTreta(poi, { viraTreta: res.viraTreta, revela: res.revela }); return }
+    if (res?.elevador) { usarElevador(res.elevador); return }
     // Escolha com requisito de item (fetch quest do Nando): consome os itens —
     // aborta sem marcar nada se faltar (o botão já vem travado, isso é rede).
     if (res?.precisaItens && !store.gastarItens(res.precisaItens)) return
@@ -409,7 +427,7 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
   const camX = W.w <= vw ? (W.w - vw) / 2 : Math.max(0, Math.min(W.w - vw, player.x - vw / 2 + lookX))
   const camY = W.h <= vh ? (W.h - vh) / 2 : Math.max(0, Math.min(W.h - vh, player.y - vh / 2 + lookY))
   const breadcrumb = local
-    ? `${t(amb.nomeLugar)}${amb.comodoTotal > 1 ? ` · ${t('games.gangues.cena.comodo', { n: amb.comodoIdx + 1, de: amb.comodoTotal })}` : ''}`
+    ? `${t(amb.nomeLugar)}${amb.andares ? ` · ${amb.comodoIdx ? t('games.gangues.cena.andar', { n: amb.comodoIdx }) : t('games.gangues.cena.andar_terreo')}` : amb.comodoTotal > 1 ? ` · ${t('games.gangues.cena.comodo', { n: amb.comodoIdx + 1, de: amb.comodoTotal })}` : ''}`
     : `${t(`games.gangues.story.territorios.${terr.id}.nome`)} `
   // Metas obrigatórias da cena (portao.precisa + o chefe) — o que abre o
   // caminho por baixo do muro. Vira a lista do checklist do topo.
@@ -478,7 +496,7 @@ export default function GanguesCena({ onNavigate, onVoltar }) {
           (sem animação) toda vez que entra/sai de um interior. */}
       {!local && aleatorio.perseguidor && <div className={`gang-world-perseguidor is-${ALEATORIO_TIPOS[aleatorio.perseguidor.tipo]?.cor}`} style={{ left: aleatorio.perseguidor.x, top: aleatorio.perseguidor.y }}><span /><small>{t(`games.gangues.cena.aleatorio.${aleatorio.perseguidor.tipo}.nome`)}</small></div>}
       <GangMarker key={local ? `${local.id}-${local.comodo}` : 'rua'} player={player} facing={facing} gangName={store.gangName} retrato={getGanguesPortraitByTemplateId(store.getLider()?.character_template_id)} />
-    </div><div className="gang-cena-vignette" />{noEscuro && <div className="gang-cena-apagao" style={{ '--px': `${player.x - camX}px`, '--py': `${player.y - camY}px` }} aria-hidden="true" />}{!local && (aleatorio.perseguidor?.tipo === 'policia' || aleatorio.onomatopeia === 'policia') && <div className="gang-cena-sirene" aria-hidden="true" />}{!local && cena.respeito && !prog.boss && <BarraRespeito cena={cena} prog={prog} t={t} />}{hint && <div className="gang-cena-tutorial">{hint}</div>}{!local && !muroAberto && cena.muro && player.y < cena.muro.aviso && <div className="gang-cena-gatelock">🔒 {t(baseFeita ? cena.textos.muroPassagem : cena.textos.bossTrancado)}</div>}<AnimatePresence>{aleatorio.onomatopeia && <motion.div key="onomatopeia" className={`gang-cena-onomatopeia is-${ALEATORIO_TIPOS[aleatorio.onomatopeia]?.cor}`} initial={{ scale: .3, opacity: 0, rotate: -12 }} animate={{ scale: 1, opacity: 1, rotate: -6 }} exit={{ opacity: 0 }} transition={{ type: 'spring', stiffness: 520, damping: 14 }}><b>{t(`games.gangues.cena.aleatorio.${aleatorio.onomatopeia}.onomatopeia`)}</b></motion.div>}</AnimatePresence><AnimatePresence>{fade && <motion.div className="gang-cena-fade" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: .16 }} />}</AnimatePresence></div>
+    </div><div className="gang-cena-vignette" />{noEscuro && <div className="gang-cena-apagao" style={{ '--px': `${player.x - camX}px`, '--py': `${player.y - camY}px` }} aria-hidden="true" />}{!local && (aleatorio.perseguidor?.tipo === 'policia' || aleatorio.onomatopeia === 'policia') && <div className="gang-cena-sirene" aria-hidden="true" />}{!local && cena.respeito && !prog.boss && <BarraRespeito cena={cena} prog={prog} t={t} />}{cena.alerta && !prog.boss && <BarraAlerta cena={cena} n={alertaDaCena(cena, store.storyProgress)} t={t} />}{hint && <div className="gang-cena-tutorial">{hint}</div>}{!local && !muroAberto && cena.muro && player.y < cena.muro.aviso && <div className="gang-cena-gatelock">🔒 {t(baseFeita ? cena.textos.muroPassagem : cena.textos.bossTrancado)}</div>}<AnimatePresence>{aleatorio.onomatopeia && <motion.div key="onomatopeia" className={`gang-cena-onomatopeia is-${ALEATORIO_TIPOS[aleatorio.onomatopeia]?.cor}`} initial={{ scale: .3, opacity: 0, rotate: -12 }} animate={{ scale: 1, opacity: 1, rotate: -6 }} exit={{ opacity: 0 }} transition={{ type: 'spring', stiffness: 520, damping: 14 }}><b>{t(`games.gangues.cena.aleatorio.${aleatorio.onomatopeia}.onomatopeia`)}</b></motion.div>}</AnimatePresence><AnimatePresence>{fade && <motion.div className="gang-cena-fade" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: .16 }} />}</AnimatePresence></div>
     {!local && !intro && <GanguesMiniMapa player={player} alvos={minimapaAlvos} />}
     {!local && !intro && !encontro && !fade && <GanguesAlvoTutorial alvos={amb?.alvos} />}
     <WorldControls onInput={v => { inputRef.current = v }} onInteract={() => abrir(perto)} action={perto ? interactionLabel(perto, t) : null} rotulo={t('games.gangues.cena.acao.interagir')} brigaAuto={brigaAuto.ligado} brigaAutoBloqueada={brigaAuto.bloqueado} onBrigaAuto={brigaAuto.alternar} rotuloBrigaAuto={t('games.gangues.cena.briga_auto')} />

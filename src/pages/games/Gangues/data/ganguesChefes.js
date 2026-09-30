@@ -94,12 +94,14 @@ export const GANGUES_CHEFE_EQUIPE = {
 // com o conjunto comum vence ~60%, sem item ~30%.
 // 29/09/2026 (Isaias: "46 tá muito alto, é o 2º de 7"): Feira comprimida pra
 // faixa 21–33 — Cobrador 82×0.40 = 33 (teto do bairro), escolta ~25 cada.
-export const GANGUES_CHEFE_BUDGET = { pista: 48, feira: 82, baixada: 115, vila: 345, morro: 510, alto: 606, laje: 732 }
+export const GANGUES_CHEFE_BUDGET = { pista: 48, feira: 82, baixada: 115, vila: 148, morro: 510, alto: 606, laje: 732 }
 // Fração do orçamento que vai pro LÍDER (o chefe em si), por território.
 // Feira (v3.65.0, PLANO_FEIRA.md §5): 110 × 0,47 → Cobrador 52 e as duas
 // escoltas (Mão do Turco e Caixa Forte) com 29 cada — o orçamento 110 que já
 // existia fecha certinho, só mudou a divisão.
-const GANGUES_CHEFE_LIDER_FRAC = { pista: 0.60, feira: 0.40, baixada: 0.40 }
+// Vila (30/09/2026, PLANO_VILA.md §5): 148 × 0,40 → Ferrugem 59 e os dois
+// Generais de escolta (Bloco Inteiro e Chave Mestra Maior) com ~44 cada.
+const GANGUES_CHEFE_LIDER_FRAC = { pista: 0.60, feira: 0.40, baixada: 0.40, vila: 0.40 }
 const GANGUES_CHEFE_LIDER_FRAC_PADRAO = 0.60
 export function liderFracChefe(territorioId) {
   return GANGUES_CHEFE_LIDER_FRAC[territorioId] ?? GANGUES_CHEFE_LIDER_FRAC_PADRAO
@@ -119,4 +121,4 @@ export function tetoDoTerritorio(territorioId) {
 // vencendo o próprio chefe). O 3º general (Sinaleiro Chefe, 1451) é
 // colecionável no POI `sinaleiro` da cena da Pista. Feira = 3 (Cobrador + os
 // dois generais), pra um time que já tem a 3ª vaga.
-export const GANGUES_CHEFE_CORPOS = { pista: 2, feira: 3, baixada: 3 }
+export const GANGUES_CHEFE_CORPOS = { pista: 2, feira: 3, baixada: 3, vila: 3 }

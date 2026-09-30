@@ -93,6 +93,19 @@ export default function createGanguesStorySlice(set, get) {
       get()._persistStory()
     },
 
+    // Barra de Alerta da cena (Vila, `cena.alerta`): `op` = +1 (perdeu /
+    // elevador travou), -1 (bateu o Portaria) ou 'zera' (bateu a última
+    // aparição dele — a barra trava em 0 pra sempre). Mora no save, em
+    // storyProgress.__alerta[cenaId] = { n, travada }.
+    mexerAlerta: (cenaId, max, op) => {
+      const atual = get().storyProgress.__alerta?.[cenaId] || { n: 0 }
+      if (atual.travada) return
+      const prox = op === 'zera' ? { n: 0, travada: true } : { n: Math.max(0, Math.min(max, (atual.n || 0) + op)) }
+      if (prox.n === atual.n && !prox.travada) return
+      set(state => ({ storyProgress: { ...state.storyProgress, __alerta: { ...(state.storyProgress.__alerta || {}), [cenaId]: prox } } }))
+      get()._persistStory()
+    },
+
     // ── Líder da gangue (pedido do Isaias, set/2026) ──────
     // O 1º personagem recrutado vira líder automaticamente (ver GanguesCreate.jsx
     // no fim do recrutamento inicial) — mas o jogador pode trocar depois. Guardado

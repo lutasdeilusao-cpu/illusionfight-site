@@ -480,6 +480,25 @@ sem luz** (sobe apanhando, andar por andar) · **O elevador quebrado**
 (puzzle/obstáculo, atalho arriscado) · **A cobertura** (onde Os Andar de Cima
 vivem, vista de toda a Vila).
 
+**Cena navegável (v3.84.0, 30/09/2026 — plano em `PLANO_VILA.md`, código em
+`data/cenas/vila/`).** Ponte: a Dona Lurdes (birosca da Baixada, `informante_vila`)
+destranca o Ferrugem. Térreo livre: guarita (47) → o Portaria foge (48) → Cadeado (49)
+abre o **Bloco A**, um interior só com o hall e os 10 andares (a escada é a
+`passagem` de cada cômodo, trancada até bater quem segura o andar). Ladder 50 · 51 ·
+Trinco 52 · 53 · 54 · 55 · Bloco Inteiro 56 (G, drop 405) · 57 · Chave Mestra Maior
+58 (G, drop 412) · **Ferrugem 59** na cobertura (+ escolta ~44/46; orçamento 148 ×
+0,40, 3 corpos). Andares 1–4 e 6 no escuro até o chefe cair. **Elevador quebrado**:
+sem a chave (Dona Neide, 5º andar) só vai do hall ao 1º; com ela, térreo/5º/9º — só
+andar já liberado — e 35% de travar (emboscada + 1 de alerta). **Barra de Alerta**
+(0–3): perder na Vila ou o elevador travar sobe; cada ponto é +1 de ficha em todo
+corpo das tretas daqui (nunca passa do Ferrugem); bater o Portaria desce, a última
+aparição dele (6º andar) zera e trava. Descanso 30 (Birosca do Térreo e Dona Neide —
+quem cai do 5º pra cima acorda nela), agiota Aluguel Vencido (empréstimo 800), Brechó
+da Síndica (pesado 401–418 + Poção de Osso 41), Oficina do Zelador (aprimora até
++6), Rinha da Laje, Clube 49/96/150. AP ×1,5. Ponto fraco: a caixa d'água da
+cobertura (−2 Couro). Drop do chefe: Taco da Ferrugem (141). Ficou pra depois: o
+corre do respeito (stealth da ponte), a pilha de lanterna e o chefe falso.
+
 ### Território 5 — O Morro · Guerra · `#ff8f3c`
 Facção: Frente da Escada (110) / Os Fogueteiro (111), sob Zefa. A favela de
 encosta, a escadaria que muda de forma a cada laje nova. **Lealdade pessoal** — a

@@ -1514,7 +1514,8 @@
       "visao": "Visão",
       "agora": "Agora",
       "sessoes": "Sessões",
-      "financeiro": "Financeiro"
+      "financeiro": "Financeiro",
+      "logs": "Logs"
     },
     "periodo": {
       "hoje": "Hoje",
@@ -1648,6 +1649,16 @@
       "visitante": "Visitante",
       "free": "Conta grátis",
       "assinante": "Assinante"
+    },
+    "logs": {
+      "titulo": "Log das contas admin ({n})",
+      "conta": "Conta",
+      "sessao": "Sessão",
+      "tipo": "Tipo (ex. gangues.)",
+      "copiar": "Copiar sessão (JSON)",
+      "copiado": "Copiado!",
+      "vazio": "Nenhum log nesse período.",
+      "falta_migration": "Falta rodar a migration 046_debug_logs.sql no Supabase."
     }
   }
 }

@@ -8,12 +8,13 @@ import { useLanguage } from '../../context/LanguageContext'
 import { ADMIN_EMAILS } from '../../config/launch'
 import PainelVisao from './PainelVisao'
 import PainelFinanceiro from './PainelFinanceiro'
+import PainelLogs from './PainelLogs'
 import { PainelAgora, PainelSessoes } from './PainelSessoes'
 import { PERIODOS, intervalo, rpc, localeDe } from './painelUtil'
 import './Painel.css'
 
 const NotFound = lazy(() => import('../site/NotFound/NotFound'))
-const ABAS = ['visao', 'agora', 'sessoes', 'financeiro']
+const ABAS = ['visao', 'agora', 'sessoes', 'financeiro', 'logs']
 const FILTROS = ['origem', 'rota', 'dispositivo', 'idioma', 'pais', 'logado']
 
 export default function Painel() {
@@ -119,6 +120,7 @@ export default function Painel() {
       {aba === 'visao' && !erro && (dados ? <PainelVisao dados={dados} t={t} locale={lc} onFiltro={filtrar} /> : <p className="painel-vazio">{t('painel.carregando')}</p>)}
       {aba === 'agora' && <PainelAgora t={t} locale={lc} />}
       {aba === 'sessoes' && <PainelSessoes t={t} locale={lc} inicio={inicio} fim={fim} />}
+      {aba === 'logs' && <PainelLogs t={t} locale={lc} inicio={inicio} />}
       {aba === 'financeiro' && <PainelFinanceiro t={t} locale={lc} inicio={inicio} fim={fim} />}
     </main>
   )

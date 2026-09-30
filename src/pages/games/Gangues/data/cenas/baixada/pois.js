@@ -125,6 +125,17 @@ export const POIS_BAIXADA = [
     recompensa: { grana: 60, rep: 2, item: 34 },
   },
   {
+    // A Dona Lurdes (dentro da birosca): boato da Vila + a ponte pra lá —
+    // destranca o Ferrugem, igual o rádio pirata faz pra Baixada
+    // (`__flags.vila`, ver `precisaInformante`).
+    id: 'informante_vila',
+    tipo: 'papo',
+    opcional: true,
+    repetivel: true,
+    i18n: 'games.gangues.cena.baixada.informante_vila',
+    escolhas: [{ id: 'ouvir', informante: 'vila' }],
+  },
+  {
     // Birosca da Dona Lurdes — descanso de baixo da linha.
     id: 'birosca',
     tipo: 'descanso',

@@ -12,6 +12,7 @@ import ScrollToTopOnNav from './components/ScrollToTopOnNav'
 import CookieBanner from './components/CookieBanner'
 import DesktopShellBar from './components/DesktopShellBar/DesktopShellBar'
 import AnalyticsTracker from './components/AnalyticsTracker'
+import DebugLogTracker from './components/DebugLogTracker/DebugLogTracker'
 import LoginGate from './components/LoginGate/LoginGate'
 import FichaGateRoute from './components/FichaGateRoute/FichaGateRoute'
 import GameSessionRoute from './components/GameSessionRoute/GameSessionRoute'
@@ -136,6 +137,7 @@ export default function App() {
   return (
     <>
       <AnalyticsPageView />
+      <DebugLogTracker />
       <AnalyticsTracker />
       <ScrollToTopOnNav />
       <DesktopShellBar />

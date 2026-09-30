@@ -17,6 +17,10 @@ export default function GanguesPapo({ poi, onResolve, onClose }) {
   const grana = useGanguesStore(s => s.grana)
   const inventario = useGanguesStore(s => s.inventario)
   const temItens = (mapa) => Object.entries(mapa || {}).every(([id, q]) => (inventario[id] || 0) >= q)
+  // `precisaResolvido`: a escolha só aparece depois de um ponto (o elevador da
+  // Vila só para em andar já liberado). Ids de POI são únicos entre as cenas.
+  const cenaProgresso = useGanguesStore(s => s.cenaProgresso)
+  const resolvido = id => Object.values(cenaProgresso || {}).some(p => p?.resolvidos?.[id])
   const [resultado, setResultado] = useState(null)
 
   const base = poi.i18n
@@ -35,12 +39,14 @@ export default function GanguesPapo({ poi, onResolve, onClose }) {
 
   const passa = (escolha) => {
     if (escolha.viraTreta) { onResolve({ viraTreta: escolha.viraTreta, revela: escolha.revela }); return }
-    onResolve({ ok: true, revela: escolha.revela, recompensa: escolha.recompensa, custoGrana: escolha.custoGrana, informante: escolha.informante, precisaItens: escolha.precisaItens, daEquip: escolha.daEquip })
+    onResolve({ ok: true, revela: escolha.revela, recompensa: escolha.recompensa, custoGrana: escolha.custoGrana, informante: escolha.informante, precisaItens: escolha.precisaItens, daEquip: escolha.daEquip, elevador: escolha.elevador })
   }
 
   const escolher = (escolha) => {
     if (escolha.custoGrana && grana < escolha.custoGrana) { sfx.cancel(); return }
     if (escolha.precisaItens && !temItens(escolha.precisaItens)) { sfx.cancel(); return }
+    // `exigeItem`: precisa TER o item (a chave do elevador), sem gastar.
+    if (escolha.exigeItem && !(inventario[escolha.exigeItem] > 0)) { sfx.cancel(); return }
     sfx.select()
     // Mesmo pras escolhas que viram treta (ex: apertar o pivete do sinal),
     // se tiver um `.resultado` no i18n, mostra a linha ANTES de partir pro
@@ -68,14 +74,14 @@ export default function GanguesPapo({ poi, onResolve, onClose }) {
     )
   }
 
-  const escolhas = (poi.escolhas || []).map(escolha => {
+  const escolhas = (poi.escolhas || []).filter(escolha => !escolha.precisaResolvido || resolvido(escolha.precisaResolvido)).map(escolha => {
     const semGrana = escolha.custoGrana && grana < escolha.custoGrana
-    const semItens = escolha.precisaItens && !temItens(escolha.precisaItens)
+    const semItens = (escolha.precisaItens && !temItens(escolha.precisaItens)) || (escolha.exigeItem && !(inventario[escolha.exigeItem] > 0))
     const custoItens = escolha.precisaItens
       ? Object.entries(escolha.precisaItens).map(([id, q]) => `${getGanguesItem(id)?.icone || '▪'}×${q}`).join(' ')
       : null
     const ganhaEquip = (escolha.daEquip || []).map(id => getGanguesEquip(id)?.icone).filter(Boolean).join(' ')
-    const extra = escolha.custoGrana ? `−${escolha.custoGrana}` : custoItens || (ganhaEquip ? `→ ${ganhaEquip}` : null)
+    const extra = escolha.custoGrana ? `−${escolha.custoGrana}` : custoItens || (ganhaEquip ? `→ ${ganhaEquip}` : null) || (escolha.exigeItem ? getGanguesItem(escolha.exigeItem)?.icone : null)
     return {
       id: escolha.id,
       label: t(`${base}.escolhas.${escolha.id}.label`),

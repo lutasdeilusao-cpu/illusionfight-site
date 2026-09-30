@@ -328,6 +328,8 @@
         "auto_pocao_pm_desc": "Anyone set to use a talent on auto who's out of MP for it drinks an MP potion on their own turn."
       },
       "itens": {
+        "18": "Elevator Key",
+        "41": "Bone Potion",
         "1": "HP Potion",
         "2": "MP Potion",
         "13": "Scrap",
@@ -397,12 +399,32 @@
           "arma": "Weapon"
         },
         "raridade": {
+          "pesado": "Heavy",
           "comum": "Common",
           "incomum": "Uncommon",
           "raro": "Rare",
           "epico": "Epic"
         },
         "itens": {
+          "141": "Rust's Bat",
+          "401": "Pipe Wrench",
+          "402": "Painted Hard Hat",
+          "403": "Crew Vest",
+          "404": "Rubber Elbow Pad",
+          "405": "Work Boot",
+          "406": "Key Ring",
+          "407": "Steel Door",
+          "408": "Concrete Bucket",
+          "409": "Strapped Mattress",
+          "410": "Window Bars",
+          "411": "Rubber Boot",
+          "412": "The Super's Badge",
+          "413": "TV Antenna",
+          "414": "Tinfoil Cap",
+          "415": "Lace Curtain",
+          "416": "Wire Bracelet",
+          "417": "House Slipper",
+          "418": "Elevator Saint Card",
           "201": "Broomstick",
           "202": "Flat-Brim Cap",
           "203": "Torn Tank Top",
@@ -4150,6 +4172,257 @@
         "fechar": "got it, boss"
       },
       "cena": {
+        "andar": "FLOOR {n}",
+        "andar_terreo": "LOBBY",
+        "vila": {
+          "chegada": [
+            "This is the Projects, kid. Three blocks, ten floors each, and a stairwell with no lights.",
+            "The war here runs bottom to top: the Tower Crew holds the ground floor and the stairs, and the Upstairs folks live way up high.",
+            "The owner is Rust, on the rooftop. To reach him you climb floor by floor, taking hits on every landing.",
+            "And watch out for the Front Desk: he runs ahead warning the crew. The more you lose, the readier they wait for you."
+          ],
+          "aviso_informante": "Nobody in the Projects will take you to the rooftop yet. Dona Lurdes, at the bar in the Lowside, knows the way — hear her out first.",
+          "checklist_dica": "Climb Block A: beat whoever holds each floor, all the way to the rooftop.",
+          "checklist_passagem": "All ten floors are clear. Go up to the rooftop and face Rust.",
+          "hint_elevador": "Dona Neide, on the 5th floor, has the elevator key. With it you go up and down without redoing the stairs.",
+          "pich": "TOWER CREW",
+          "grafite": "WHO GOES UP\nDON'T COME DOWN",
+          "predio": {
+            "birosca": "Ground Floor Bar",
+            "oficina": "Janitor's Workshop",
+            "brecho": "The Super's Thrift Shop",
+            "bloco_a": "Block A"
+          },
+          "int": {
+            "birosca": "Ground Floor Bar",
+            "oficina": "Janitor's Workshop",
+            "brecho": "The Super's Thrift Shop",
+            "bloco_a": "Block A"
+          },
+          "alerta": {
+            "titulo": "TOWER ALERT",
+            "sobe": "the crew is warned: +{n} on each of them",
+            "calmo": "nobody's seen you yet"
+          },
+          "elevador": {
+            "nome": "The elevator",
+            "sub": "broken since forever",
+            "fala": [
+              "The car creaks, the light flickers. Smells like burnt oil and trouble.",
+              "Sometimes it stops halfway. And whoever's waiting outside isn't there to help."
+            ],
+            "escolhas": {
+              "terreo": {
+                "label": "Down to the ground floor"
+              },
+              "andar_1": {
+                "label": "Up to the 1st floor"
+              },
+              "andar_5": {
+                "label": "Go to the 5th floor"
+              },
+              "andar_9": {
+                "label": "Go to the 9th floor"
+              }
+            },
+            "travou": "The elevator got stuck between floors! The doors get pried open — and the crew is right outside."
+          },
+          "guarita": {
+            "nome": "The guardhouse",
+            "sub": "the front gate of the Projects",
+            "fala": [
+              "Resident? No. Visitor? Nope. Then you ain't coming in.",
+              "Here the crew decides who goes up. And the crew said no."
+            ]
+          },
+          "portaria_fuga_1": {
+            "nome": "Front Desk",
+            "sub": "ran to Block A yelling into his radio",
+            "fala": [
+              "Come in, come in, someone's coming up! Someone's coming up!",
+              "Hold this guy while I warn the folks upstairs!"
+            ]
+          },
+          "cadeado": {
+            "nome": "Padlock",
+            "sub": "runs the ground floor",
+            "fala": [
+              "You wanna get through that gate? Only over my body.",
+              "The key to Block A is in my pocket. Come and get it."
+            ]
+          },
+          "andar_1": {
+            "nome": "1st floor",
+            "sub": "the unlit stairwell starts here",
+            "fala": [
+              "Down here in the dark, I'm the one who sees.",
+              "You trip, you fall. You fall, you get beat."
+            ]
+          },
+          "andar_2": {
+            "nome": "2nd floor",
+            "sub": "the dark keeps going",
+            "fala": [
+              "You can't even find the next step and you wanna fight?",
+              "Every floor has an owner. This one's mine."
+            ]
+          },
+          "trinco": {
+            "nome": "Deadbolt",
+            "sub": "runs a whole floor",
+            "fala": [
+              "Two floors up and you're already sweating. Eight to go.",
+              "Nobody gets through here without opening the deadbolt. And the deadbolt is me."
+            ]
+          },
+          "andar_4": {
+            "nome": "Front Desk, again",
+            "sub": "still yelling into his radio",
+            "fala": [
+              "You again?! Guys, he's on the fourth floor!",
+              "I call it in, they bring the beating. That's how it works here."
+            ]
+          },
+          "condominio": {
+            "nome": "The Complex",
+            "sub": "the building fee nobody pays",
+            "fala": [
+              "You're behind on your fees, visitor. The fine goes on your face.",
+              "The janitor here works for us. Got it?"
+            ]
+          },
+          "andar_6": {
+            "nome": "Front Desk, cornered",
+            "sub": "nowhere left to run",
+            "fala": [
+              "Okay, okay! But if you get past here, I'll never warn anybody again!",
+              "This radio's all I got, kid. Don't break it..."
+            ]
+          },
+          "bloco_inteiro": {
+            "nome": "Whole Block",
+            "sub": "the seventh-floor general",
+            "fala": [
+              "You climbed seven floors to find me? Feel the weight of the block.",
+              "I'm the wall that keeps this building standing."
+            ]
+          },
+          "goteira": {
+            "nome": "The Leak",
+            "sub": "the Upstairs start here",
+            "fala": [
+              "Drips slow, but never stops. Just like me.",
+              "From here up it's another level, punk. We pay for our lights."
+            ]
+          },
+          "chave_mestra": {
+            "nome": "Grand Master Key",
+            "sub": "opens every door — except yours",
+            "fala": [
+              "Every door in this building opens with my key. Except the rooftop.",
+              "You came far. But far ain't the top."
+            ]
+          },
+          "apto_801": {
+            "nome": "Apartment 801",
+            "sub": "the janitor posing as a tenant",
+            "fala": [
+              "I've lived here twenty years. Nobody ever knocked on my door like that.",
+              "You weren't supposed to see my uniform under the bathrobe."
+            ]
+          },
+          "vizinho": {
+            "nome": "Loud Neighbor",
+            "sub": "loud music and a louder mouth",
+            "fala": [
+              "Rust never comes down. They say he hasn't touched the ground floor in ten years.",
+              "The elevator? Breaks every week. But the crew fixes it real quick when it's time for an ambush.",
+              "The Upstairs pay for the lights in their stairwell. The one down here stays dark on purpose.",
+              "Dona Neide on the fifth is the only one the crew respects. She raised half of them when they were kids.",
+              "Front Desk is scared of everything. But his radio is what holds this building together.",
+              "Whoever climbs here gets tired. And Rust is counting on that."
+            ],
+            "escolhas": {
+              "ouvir": {
+                "label": "Listen and move on"
+              }
+            }
+          },
+          "varal_patio": {
+            "nome": "Courtyard clothesline",
+            "sub": "laundry forgotten ages ago",
+            "linha": "In the pocket of some pants left on the line: a little cash and a bottle of syrup."
+          },
+          "apto_302": {
+            "nome": "Apartment 302",
+            "sub": "kicked-in door, pitch black",
+            "linha": "Feeling around in the dark, you find a bandage and some cash on the floor."
+          },
+          "apto_604": {
+            "nome": "Apartment 604",
+            "sub": "the door was left open",
+            "linha": "On top of the fridge: a bottle of bone potion and a little cash."
+          },
+          "rinha_laje": {
+            "nome": "Rooftop Ring",
+            "sub": "endless fights up on the slab",
+            "fala": [
+              "The Projects' ring is up on the slab, with the whole building watching from the windows.",
+              "One ends, another steps in, random. You can leave the crew here — 1 fight every 5 minutes."
+            ]
+          },
+          "birosca_vila": {
+            "nome": "Ground Floor Bar",
+            "sub": "warm beer and plastic chairs",
+            "intro": "The owner sets the crew up in a corner, away from the stairs. Costs a little and everyone walks out whole."
+          },
+          "dona_neide_descanso": {
+            "nome": "Dona Neide's apartment",
+            "sub": "couch, coffee and a lecture",
+            "intro": "Dona Neide puts the crew on the couch, brews some coffee and scolds everybody. Costs a little — and nobody leaves without eating."
+          },
+          "dona_neide": {
+            "nome": "Dona Neide",
+            "sub": "the only one the crew respects",
+            "fala": [
+              "Made it to the fifth, huh? The whole building's talking about you.",
+              "Here, the elevator key. My knees can't take these stairs anymore, and yours won't either."
+            ],
+            "escolhas": {
+              "pega_chave": {
+                "label": "Take the elevator key",
+                "resultado": "She takes the key off her neck and hands it over. \"Careful, it gets stuck. And when it does, it's no accident.\""
+              }
+            }
+          },
+          "aluguel_vencido": {
+            "nome": "Overdue Rent",
+            "sub": "collects for the Upstairs",
+            "fala": [
+              "Need cash, visitor? In the Projects everything has rent. Even money.",
+              "800 in your hand now. The due date... I decide the due date."
+            ],
+            "botao_ver_contrato": "I want the 800",
+            "contrato_tag": "Contract · overdue rent",
+            "contrato_corpo": "\"800 in hand, right now. Take it or leave it?\"",
+            "contrato_letra_miuda": "Fine print: you end up owing {divida}.",
+            "contrato_aceitar": "I'm in",
+            "contrato_recusar": "No deal"
+          },
+          "brecho": {
+            "nome": "The Super's Thrift Shop",
+            "sub": "whatever the building left behind, she sells"
+          },
+          "oficina_zelador": {
+            "nome": "Janitor's Workshop",
+            "fala": "I even fix elevators here, kid. Bring the piece and some scrap and I'll get it right — up to +6."
+          },
+          "caixa_dagua": {
+            "nome": "The water tank",
+            "sub": "the rooftop valve",
+            "intro": "The valve on Rust's water tank sits in a tangle of pipes. Find the way without opening the wrong one — one mistake and the crew gets shocked, and the noise brings the janitor."
+          }
+        },
         "boss_trancado": "Lock the spots down before you level up, kid.",
         "treta_nao": "Not now, chill",
         "treta_sim": "Let's scrap",
@@ -4559,6 +4832,7 @@
         "hint_sucata": "🔩 Take both scrap pieces to Nando at the workshop. He'll sort you out.",
         "hint_sucata_falta": "🔩 You're missing a scrap piece — it's in the back of the junkyard. Grab both and take them to Nando.",
         "acao": {
+          "subir": "CLIMB",
           "entrar": "GO IN",
           "sair": "BOUNCE",
           "voltar": "BACK",
@@ -4989,6 +5263,20 @@
           ]
         },
         "baixada": {
+          "informante_vila": {
+            "nome": "Dona Lurdes",
+            "sub": "the bar hears everything",
+            "fala": [
+              "You wanna go to the Projects? Kid, those are ten-floor towers, and every floor has an owner.",
+              "My nephew lives on the fifth. Says Rust lives way up top, and nobody ever reached him without taking a beating on every flight."
+            ],
+            "escolhas": {
+              "ouvir": {
+                "label": "Hear everything about the Projects",
+                "resultado": "She tells you about the front desk, the padlock, the unlit stairwell and Dona Neide on the fifth floor. When the time comes, you know who to look for."
+              }
+            }
+          },
           "chegada": [
             "This is the Lowside, kid. The other side of the train tracks.",
             "When Shadow went into the ditch, his crew split in three: Sangria, Ice and Leftover. There's a loudmouth here who says he runs it all — calls himself Gut-Stabber and never stops running.",

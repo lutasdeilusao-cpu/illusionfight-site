@@ -328,6 +328,8 @@
         "auto_pocao_pm_desc": "Quem tem talento no automático e ficou sem PM pra soltar ele toma poção de PM na própria vez."
       },
       "itens": {
+        "18": "Chave do Elevador",
+        "41": "Poção de Osso",
         "1": "Poção de HP",
         "2": "Poção de MP",
         "13": "Sucata",
@@ -397,12 +399,32 @@
           "arma": "Arma"
         },
         "raridade": {
+          "pesado": "Pesado",
           "comum": "Comum",
           "incomum": "Incomum",
           "raro": "Raro",
           "epico": "Épico"
         },
         "itens": {
+          "141": "Taco da Ferrugem",
+          "401": "Chave de Cano",
+          "402": "Capacete de Obra Pintado",
+          "403": "Colete do Bonde",
+          "404": "Cotoveleira de Borracha",
+          "405": "Bota de Trabalho",
+          "406": "Molho de Chaves",
+          "407": "Porta de Aço",
+          "408": "Balde de Concreto",
+          "409": "Colchão Amarrado",
+          "410": "Grade de Janela",
+          "411": "Bota de Borracha",
+          "412": "Crachá da Síndica",
+          "413": "Antena de TV",
+          "414": "Touca de Alumínio",
+          "415": "Cortina de Renda",
+          "416": "Pulseira de Fio",
+          "417": "Chinelo de Quarto",
+          "418": "Santinho do Elevador",
           "201": "Cabo de Vassoura",
           "202": "Boné Aba Reta",
           "203": "Regata Rasgada",
@@ -1047,6 +1069,257 @@
         "fechar": "entendido, patrão"
       },
       "cena": {
+        "andar": "{n}º ANDAR",
+        "andar_terreo": "TÉRREO",
+        "vila": {
+          "chegada": [
+            "Essa é a Vila, cria. O conjunto. Três bloco de dez andar e uma escada sem luz.",
+            "Aqui a guerra é de baixo pra cima: o Bonde dos Prédio segura o térreo e a escada, e Os Andar de Cima moram lá no alto.",
+            "O dono é o Ferrugem, na cobertura. Pra chegar nele tu vai subir andar por andar, apanhando em cada patamar.",
+            "E fica esperto com o Portaria: ele corre avisando o bonde. Quanto mais tu perde, mais preparado eles te esperam."
+          ],
+          "aviso_informante": "Ninguém na Vila te leva até a cobertura ainda. A Dona Lurdes, lá na birosca da Baixada, sabe o caminho — escuta ela antes.",
+          "checklist_dica": "Sobe o Bloco A: bate em quem segura cada andar até a cobertura.",
+          "checklist_passagem": "Os dez andar tão limpos. Sobe na cobertura e encara o Ferrugem.",
+          "hint_elevador": "A Dona Neide, no 5º andar, tem a chave do elevador. Com ela tu sobe e desce sem refazer a escada.",
+          "pich": "BONDE DOS PRÉDIO",
+          "grafite": "QUEM SOBE\nNÃO DESCE",
+          "predio": {
+            "birosca": "Birosca do Térreo",
+            "oficina": "Oficina do Zelador",
+            "brecho": "Brechó da Síndica",
+            "bloco_a": "Bloco A"
+          },
+          "int": {
+            "birosca": "Birosca do Térreo",
+            "oficina": "Oficina do Zelador",
+            "brecho": "Brechó da Síndica",
+            "bloco_a": "Bloco A"
+          },
+          "alerta": {
+            "titulo": "ALERTA NO PRÉDIO",
+            "sobe": "o bonde tá avisado: +{n} em cada um deles",
+            "calmo": "ninguém te viu ainda"
+          },
+          "elevador": {
+            "nome": "O elevador",
+            "sub": "quebrado desde sempre",
+            "fala": [
+              "A cabine range, a luz pisca. Tem cheiro de óleo queimado e de encrenca.",
+              "Às vezes ele para no meio do caminho. E quem tá esperando do lado de fora não tá ali pra ajudar."
+            ],
+            "escolhas": {
+              "terreo": {
+                "label": "Desce pro térreo"
+              },
+              "andar_1": {
+                "label": "Sobe pro 1º andar"
+              },
+              "andar_5": {
+                "label": "Vai pro 5º andar"
+              },
+              "andar_9": {
+                "label": "Vai pro 9º andar"
+              }
+            },
+            "travou": "O elevador travou entre os andar! A porta abre na marra — e o bonde tá do lado de fora."
+          },
+          "guarita": {
+            "nome": "A guarita",
+            "sub": "a portaria do conjunto",
+            "fala": [
+              "Morador? Não. Visita? Também não. Então tu não entra.",
+              "Aqui quem decide quem sobe é o bonde. E o bonde disse não."
+            ]
+          },
+          "portaria_fuga_1": {
+            "nome": "O Portaria",
+            "sub": "correu pro Bloco A gritando no rádio",
+            "fala": [
+              "Alô, alô, tem gente subindo! Tem gente subindo!",
+              "Segura esse aí que eu vou avisar o pessoal lá de cima!"
+            ]
+          },
+          "cadeado": {
+            "nome": "O Cadeado",
+            "sub": "toma conta do térreo",
+            "fala": [
+              "Tu vai passar por aquele portão? Só se for por cima de mim.",
+              "A chave do Bloco A tá no meu bolso. Vem buscar."
+            ]
+          },
+          "andar_1": {
+            "nome": "1º andar",
+            "sub": "a escada sem luz começa aqui",
+            "fala": [
+              "Aqui no escuro quem enxerga sou eu.",
+              "Tropeçou, caiu. Caiu, apanhou."
+            ]
+          },
+          "andar_2": {
+            "nome": "2º andar",
+            "sub": "o breu continua",
+            "fala": [
+              "Tu nem sabe onde tá o degrau e já quer brigar?",
+              "Cada andar é um dono. Esse aqui é meu."
+            ]
+          },
+          "trinco": {
+            "nome": "O Trinco",
+            "sub": "comanda um andar inteiro",
+            "fala": [
+              "Tu subiu dois andar e já tá suando. Faltam oito.",
+              "Aqui ninguém passa sem abrir o trinco. E o trinco sou eu."
+            ]
+          },
+          "andar_4": {
+            "nome": "O Portaria de novo",
+            "sub": "ainda gritando no rádio",
+            "fala": [
+              "Tu de novo?! Pessoal, ele tá no quarto andar!",
+              "Eu aviso, eles batem. É assim que funciona aqui."
+            ]
+          },
+          "condominio": {
+            "nome": "O Condomínio",
+            "sub": "a taxa que ninguém paga",
+            "fala": [
+              "Tá atrasado com o condomínio, visitante. A multa é na cara.",
+              "O zelador aqui trabalha pra nós. Entendeu?"
+            ]
+          },
+          "andar_6": {
+            "nome": "O Portaria, encurralado",
+            "sub": "sem ter mais pra onde correr",
+            "fala": [
+              "Tá bom, tá bom! Mas se tu passar daqui, eu nunca mais aviso ninguém!",
+              "Esse rádio é tudo que eu tenho, cria. Não quebra ele não..."
+            ]
+          },
+          "bloco_inteiro": {
+            "nome": "Bloco Inteiro",
+            "sub": "o general do sétimo andar",
+            "fala": [
+              "Tu subiu sete andar pra me encontrar? Sente o peso do bloco.",
+              "Eu sou a parede que segura esse prédio em pé."
+            ]
+          },
+          "goteira": {
+            "nome": "A Goteira",
+            "sub": "Os Andar de Cima começam aqui",
+            "fala": [
+              "Cai devagar, mas não para nunca. Igual eu.",
+              "Daqui pra cima é outro nível, pivete. A gente paga a luz."
+            ]
+          },
+          "chave_mestra": {
+            "nome": "Chave Mestra Maior",
+            "sub": "abre todas as portas — menos a tua",
+            "fala": [
+              "Toda porta desse prédio abre com a minha chave. Menos a da cobertura.",
+              "Tu chegou longe. Mas longe não é o topo."
+            ]
+          },
+          "apto_801": {
+            "nome": "O 801",
+            "sub": "o zelador disfarçado de morador",
+            "fala": [
+              "Moro aqui faz vinte ano. Ninguém nunca bateu na minha porta assim.",
+              "Tu não era pra ter visto meu uniforme debaixo do roupão."
+            ]
+          },
+          "vizinho": {
+            "nome": "Vizinho Barulhento",
+            "sub": "som alto e boca maior ainda",
+            "fala": [
+              "O Ferrugem nunca desce. Dizem que faz dez ano que ele não pisa no térreo.",
+              "O elevador? Quebra toda semana. Mas o bonde conserta rapidinho quando é pra emboscar alguém.",
+              "Os Andar de Cima pagam a luz da escada deles. A de baixo fica no escuro de propósito.",
+              "A Dona Neide do quinto é a única que o bonde respeita. Ela cuidou de metade deles quando eram moleque.",
+              "O Portaria tem medo de tudo. Mas o rádio dele é o que segura esse prédio.",
+              "Aqui quem sobe cansa. E o Ferrugem conta com isso."
+            ],
+            "escolhas": {
+              "ouvir": {
+                "label": "Ouve e segue em frente"
+              }
+            }
+          },
+          "varal_patio": {
+            "nome": "Varal do pátio",
+            "sub": "roupa esquecida faz tempo",
+            "linha": "No bolso de uma calça esquecida no varal: uns trocado e um vidro de xarope."
+          },
+          "apto_302": {
+            "nome": "Apartamento 302",
+            "sub": "porta arrombada, no escuro",
+            "linha": "Tateando no escuro, tu acha uma atadura e uns trocado jogados no chão."
+          },
+          "apto_604": {
+            "nome": "Apartamento 604",
+            "sub": "a porta ficou aberta",
+            "linha": "Em cima da geladeira: uma garrafa de poção de osso e uns trocado."
+          },
+          "rinha_laje": {
+            "nome": "Rinha da Laje",
+            "sub": "briga sem fim no alto do pátio",
+            "fala": [
+              "A roda da Vila é na laje, com o prédio inteiro olhando da janela.",
+              "Acabou uma, já entra outro, sorteado. Pode largar a tropa aqui — 1 briga a cada 5 minutos."
+            ]
+          },
+          "birosca_vila": {
+            "nome": "Birosca do Térreo",
+            "sub": "cerveja quente e cadeira de plástico",
+            "intro": "O dono da birosca arruma a tropa num canto, longe da escada. Custa uns trocado e todo mundo volta inteiro."
+          },
+          "dona_neide_descanso": {
+            "nome": "Apartamento da Dona Neide",
+            "sub": "sofá, café e sermão",
+            "intro": "A Dona Neide põe a tropa no sofá, passa um café e dá uma bronca em todo mundo. Custa uns trocado — e ninguém sai sem comer."
+          },
+          "dona_neide": {
+            "nome": "Dona Neide",
+            "sub": "a única que o bonde respeita",
+            "fala": [
+              "Chegou até o quinto, é? Tá todo mundo falando de tu no prédio.",
+              "Toma, a chave do elevador. Meus joelho não aguentam mais essa escada, e os teus também não vão aguentar."
+            ],
+            "escolhas": {
+              "pega_chave": {
+                "label": "Pega a chave do elevador",
+                "resultado": "Ela tira a chave do pescoço e te entrega. \"Cuidado que ele trava. E quando trava, não é por acaso.\""
+              }
+            }
+          },
+          "aluguel_vencido": {
+            "nome": "Aluguel Vencido",
+            "sub": "cobra em nome d'Os Andar de Cima",
+            "fala": [
+              "Precisa de grana, visitante? Na Vila tudo tem aluguel. Até o dinheiro.",
+              "800 na mão agora. O vencimento... o vencimento eu decido."
+            ],
+            "botao_ver_contrato": "Quero os 800",
+            "contrato_tag": "Contrato · aluguel vencido",
+            "contrato_corpo": "\"800 na mão, na hora. Aceita ou não aceita?\"",
+            "contrato_letra_miuda": "Letra miúda do contrato: você fica devendo {divida}.",
+            "contrato_aceitar": "Aceito",
+            "contrato_recusar": "Não aceito"
+          },
+          "brecho": {
+            "nome": "Brechó da Síndica",
+            "sub": "o que o prédio largou, ela vende"
+          },
+          "oficina_zelador": {
+            "nome": "Oficina do Zelador",
+            "fala": "Aqui eu conserto até elevador, cria. Traz a peça e sucata que eu deixo ela no ponto — até +6."
+          },
+          "caixa_dagua": {
+            "nome": "A caixa d'água",
+            "sub": "o registro da cobertura",
+            "intro": "O registro da caixa d'água do Ferrugem fica num emaranhado de cano. Acha o caminho sem abrir o errado — um erro e a tropa toma um choque, e o barulho chama o zelador."
+          }
+        },
         "boss_trancado": "Fecha os ponto antes de subir o nível, cria.",
         "treta_nao": "Agora não, sussa",
         "treta_sim": "Partiu porrada",
@@ -1456,6 +1729,7 @@
         "hint_sucata": "🔩 Leva os dois pedaço de sucata pro Nando, na oficina. Ele te retorna.",
         "hint_sucata_falta": "🔩 Falta um pedaço de sucata — tá no fundo do ferro-velho. Pega os dois e leva pro Nando.",
         "acao": {
+          "subir": "SUBIR",
           "entrar": "ENTRA",
           "sair": "VAZA",
           "voltar": "VOLTAR",
@@ -1886,6 +2160,20 @@
           ]
         },
         "baixada": {
+          "informante_vila": {
+            "nome": "Dona Lurdes",
+            "sub": "a birosca escuta tudo",
+            "fala": [
+              "Tu quer ir pra Vila? Menino, aquilo lá é prédio de dez andar, e cada andar tem dono.",
+              "Meu sobrinho mora no quinto. Diz que o Ferrugem mora lá em cima, e que ninguém nunca chegou nele sem subir tudo apanhando."
+            ],
+            "escolhas": {
+              "ouvir": {
+                "label": "Ouve tudo sobre a Vila",
+                "resultado": "Ela te conta da portaria, do cadeado, da escada sem luz e da Dona Neide do quinto andar. Quando chegar a hora, tu já sabe quem procurar."
+              }
+            }
+          },
           "chegada": [
             "Essa é a Baixada, cria. Do outro lado da linha do trem.",
             "Quando o Sombra caiu no valão, a facção dele rachou em três: a Sangria, o Gelo e a Sobra. Tem um folgado aí que diz que manda em tudo — se apresenta como Fura-Bucho e vive fugindo.",

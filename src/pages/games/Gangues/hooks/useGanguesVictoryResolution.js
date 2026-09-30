@@ -130,6 +130,13 @@ export default function useGanguesVictoryResolution({ store, user, report, victo
         // Favor da Dona Regina pago (Feira) — libera o fiado da pensão de novo.
         if (pagaFavor) store.pagarFavorRegina()
         if (emCena && !cenaChefe && Math.random() < GANGUES_SUCATA_DROP_CHANCE) { store.darItem(GANGUES_SUCATA_ID, 1); sucataGanha = 1 }
+        // Barra de Alerta (Vila): bater o Portaria desce 1; a última
+        // aparição dele zera e trava a barra.
+        const cenaAlerta = emCena ? CENAS_POR_ID[storyAlvo.cenaId] : null
+        if (cenaAlerta?.alerta) {
+          if (storyAlvo.cenaPoiId === cenaAlerta.alerta.zeraCom) store.mexerAlerta(cenaAlerta.id, cenaAlerta.alerta.max, 'zera')
+          else if (cenaAlerta.alerta.pois.includes(storyAlvo.cenaPoiId)) store.mexerAlerta(cenaAlerta.id, cenaAlerta.alerta.max, -1)
+        }
         if (emCena && cenaChefe) {
           store.marcarBossCena(storyAlvo.cenaId)
           store.dominarTerritorioViaCena(storyAlvo.territorioId, storyAlvo.pontoIds || [])
@@ -168,6 +175,9 @@ export default function useGanguesVictoryResolution({ store, user, report, victo
       // morreram na rinha, apareceu próxima luta e continuou"): tropa no chão
       // encerra a sessão da Rinha — birosca e cobrança igual a qualquer derrota.
       if (emCena) desligarAutomaticos()
+      // Barra de Alerta (Vila): perder aqui avisa o bonde (+1).
+      const cenaDoAlerta = emCena ? CENAS_POR_ID[storyAlvo.cenaId] : null
+      if (cenaDoAlerta?.alerta) store.mexerAlerta(cenaDoAlerta.id, cenaDoAlerta.alerta.max, 1)
       // Sem game over (Isaias, 27/09/2026): tropa caída numa luta da cena é
       // arrastada pra birosca mais perto, já DENTRO, recuperada — e a
       // recuperação é cobrada na hora (grana, empréstimo ou dívida a 10×).

@@ -101,8 +101,9 @@ export function montarAmbiente(cena, local, prog, baseFeita, muroAberto) {
         estado: inter ? (liberada ? 'disponivel' : 'trancado') : 'trancado',
       }
     })
-    // se existe galpão-interior, o pino de chefe da RUA some (a luta é dentro)
-    const temGalpaoInterno = Boolean(cena.interiores?.galpao)
+    // chefe que mora DENTRO de um interior (galpão da Pista, cobertura da
+    // Vila): o pino de chefe da RUA some (a luta é lá dentro)
+    const temGalpaoInterno = Object.values(cena.interiores || {}).some(inter => (inter.comodos || []).some(com => (com.pois || []).some(pd => pd.ref === '__chefe')))
     const alvos = [...pois, ...portas]
     if (!temGalpaoInterno) {
       alvos.push({
@@ -148,7 +149,7 @@ export function montarAmbiente(cena, local, prog, baseFeita, muroAberto) {
   const colliders = (com.colliders || []).filter(c => com.voltaPara == null || c.y < com.world.h - 34)
   return {
     interior: true, world: com.world, colliders, gateAtivo: false,
-    alvos, nomeLugar: inter.nome, comodoIdx: local.comodo, comodoTotal: inter.comodos.length, cenario: com.cenario || [],
+    alvos, nomeLugar: inter.nome, comodoIdx: local.comodo, comodoTotal: inter.comodos.length, andares: Boolean(inter.andares), cenario: com.cenario || [],
   }
 }
 

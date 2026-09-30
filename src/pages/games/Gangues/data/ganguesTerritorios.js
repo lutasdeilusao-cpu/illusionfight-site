@@ -116,6 +116,8 @@ export const GANGUES_TERRITORIOS = [
     cor: '#ffae32',
     poly: '57,112 74,120 90,106 100,116 94,98 100,80 90,70 74,84 56,76 44,94',
     pos: { top: 64, left: 78 },
+    // Ponte da Baixada: a Dona Lurdes (POI `informante_vila`) grava __flags.vila.
+    precisaInformante: true,
     pontos: [
       { id: 'vila-1', gangue: 'bonde_predio', enemy: 1310, pontosFixo: proximoDegrauLadder() },
       { id: 'vila-2', gangue: 'bonde_predio', enemy: 1311, pontosFixo: proximoDegrauLadder() },

@@ -328,6 +328,8 @@
         "auto_pocao_pm_desc": "El que tiene talento en automático y se quedó sin PM para largarlo toma poción de PM en su propio turno."
       },
       "itens": {
+        "18": "Llave del Ascensor",
+        "41": "Poción de Hueso",
         "1": "Poción de HP",
         "2": "Poción de MP",
         "13": "Chatarra",
@@ -397,12 +399,32 @@
           "arma": "Arma"
         },
         "raridade": {
+          "pesado": "Pesado",
           "comum": "Común",
           "incomum": "Poco común",
           "raro": "Raro",
           "epico": "Épico"
         },
         "itens": {
+          "141": "Bate del Óxido",
+          "401": "Llave de Tubo",
+          "402": "Casco de Obra Pintado",
+          "403": "Chaleco de la Banda",
+          "404": "Codera de Goma",
+          "405": "Bota de Trabajo",
+          "406": "Manojo de Llaves",
+          "407": "Puerta de Acero",
+          "408": "Cubeta de Concreto",
+          "409": "Colchón Amarrado",
+          "410": "Reja de Ventana",
+          "411": "Bota de Goma",
+          "412": "Gafete de la Administradora",
+          "413": "Antena de TV",
+          "414": "Gorro de Aluminio",
+          "415": "Cortina de Encaje",
+          "416": "Pulsera de Alambre",
+          "417": "Pantufla",
+          "418": "Estampita del Ascensor",
           "201": "Palo de Escoba",
           "202": "Gorra Visera Plana",
           "203": "Musculosa Rota",
@@ -4150,6 +4172,257 @@
         "fechar": "entendido, patrón"
       },
       "cena": {
+        "andar": "PISO {n}",
+        "andar_terreo": "PLANTA BAJA",
+        "vila": {
+          "chegada": [
+            "Este es el Conjunto, hermano. Tres bloques de diez pisos y una escalera sin luz.",
+            "Aquí la guerra va de abajo hacia arriba: la Banda de los Bloques controla la planta baja y la escalera, y Los de Arriba viven en lo más alto.",
+            "El dueño es el Óxido, en la azotea. Para llegar a él vas a subir piso por piso, recibiendo golpes en cada descanso.",
+            "Y ojo con la Portería: corre avisándole a la banda. Mientras más pierdes, más preparados te esperan."
+          ],
+          "aviso_informante": "Nadie en el Conjunto te lleva a la azotea todavía. Doña Lurdes, en el bar de la Bajada, conoce el camino — escúchala primero.",
+          "checklist_dica": "Sube el Bloque A: vence a quien controla cada piso hasta la azotea.",
+          "checklist_passagem": "Los diez pisos están limpios. Sube a la azotea y enfrenta al Óxido.",
+          "hint_elevador": "Doña Neide, en el 5º piso, tiene la llave del ascensor. Con ella subes y bajas sin repetir la escalera.",
+          "pich": "BANDA DE LOS BLOQUES",
+          "grafite": "EL QUE SUBE\nNO BAJA",
+          "predio": {
+            "birosca": "Bar de la Planta Baja",
+            "oficina": "Taller del Conserje",
+            "brecho": "Tienda de Segunda de la Administradora",
+            "bloco_a": "Bloque A"
+          },
+          "int": {
+            "birosca": "Bar de la Planta Baja",
+            "oficina": "Taller del Conserje",
+            "brecho": "Tienda de Segunda de la Administradora",
+            "bloco_a": "Bloque A"
+          },
+          "alerta": {
+            "titulo": "ALERTA EN EL EDIFICIO",
+            "sobe": "la banda está avisada: +{n} en cada uno",
+            "calmo": "nadie te ha visto todavía"
+          },
+          "elevador": {
+            "nome": "El ascensor",
+            "sub": "descompuesto desde siempre",
+            "fala": [
+              "La cabina cruje, la luz parpadea. Huele a aceite quemado y a problemas.",
+              "A veces se detiene a mitad de camino. Y el que espera afuera no está ahí para ayudar."
+            ],
+            "escolhas": {
+              "terreo": {
+                "label": "Baja a la planta baja"
+              },
+              "andar_1": {
+                "label": "Sube al 1er piso"
+              },
+              "andar_5": {
+                "label": "Ve al 5º piso"
+              },
+              "andar_9": {
+                "label": "Ve al 9º piso"
+              }
+            },
+            "travou": "¡El ascensor se trabó entre pisos! La puerta se abre a la fuerza — y la banda está afuera."
+          },
+          "guarita": {
+            "nome": "La caseta",
+            "sub": "la portería del Conjunto",
+            "fala": [
+              "¿Vecino? No. ¿Visita? Tampoco. Entonces no entras.",
+              "Aquí la banda decide quién sube. Y la banda dijo que no."
+            ]
+          },
+          "portaria_fuga_1": {
+            "nome": "La Portería",
+            "sub": "corrió al Bloque A gritando por el radio",
+            "fala": [
+              "¡Atención, atención, alguien viene subiendo! ¡Alguien viene subiendo!",
+              "¡Detengan a ese que voy a avisarle a los de arriba!"
+            ]
+          },
+          "cadeado": {
+            "nome": "El Candado",
+            "sub": "manda en la planta baja",
+            "fala": [
+              "¿Vas a pasar por esa reja? Solo sobre mi cadáver.",
+              "La llave del Bloque A está en mi bolsillo. Ven por ella."
+            ]
+          },
+          "andar_1": {
+            "nome": "1er piso",
+            "sub": "aquí empieza la escalera sin luz",
+            "fala": [
+              "Aquí en la oscuridad el que ve soy yo.",
+              "Tropezaste, caíste. Caíste, cobraste."
+            ]
+          },
+          "andar_2": {
+            "nome": "2º piso",
+            "sub": "la oscuridad sigue",
+            "fala": [
+              "¿Ni sabes dónde está el escalón y ya quieres pelear?",
+              "Cada piso tiene un dueño. Este es mío."
+            ]
+          },
+          "trinco": {
+            "nome": "El Pestillo",
+            "sub": "manda en un piso entero",
+            "fala": [
+              "Subiste dos pisos y ya estás sudando. Faltan ocho.",
+              "Aquí nadie pasa sin abrir el pestillo. Y el pestillo soy yo."
+            ]
+          },
+          "andar_4": {
+            "nome": "La Portería otra vez",
+            "sub": "sigue gritando por el radio",
+            "fala": [
+              "¡¿Tú otra vez?! ¡Muchachos, está en el cuarto piso!",
+              "Yo aviso, ellos pegan. Así funciona aquí."
+            ]
+          },
+          "condominio": {
+            "nome": "El Complejo",
+            "sub": "la cuota que nadie paga",
+            "fala": [
+              "Estás atrasado con la cuota, visitante. La multa va en la cara.",
+              "El conserje de aquí trabaja para nosotros. ¿Entendiste?"
+            ]
+          },
+          "andar_6": {
+            "nome": "La Portería, acorralada",
+            "sub": "sin adónde más correr",
+            "fala": [
+              "¡Está bien, está bien! ¡Pero si pasas de aquí, nunca más le aviso a nadie!",
+              "Este radio es todo lo que tengo, hermano. No lo rompas..."
+            ]
+          },
+          "bloco_inteiro": {
+            "nome": "Bloque Entero",
+            "sub": "el general del séptimo piso",
+            "fala": [
+              "¿Subiste siete pisos para encontrarme? Siente el peso del bloque.",
+              "Yo soy la pared que mantiene este edificio en pie."
+            ]
+          },
+          "goteira": {
+            "nome": "La Gotera",
+            "sub": "aquí empiezan Los de Arriba",
+            "fala": [
+              "Cae despacio, pero no para nunca. Igual que yo.",
+              "De aquí para arriba es otro nivel, mocoso. Nosotros pagamos la luz."
+            ]
+          },
+          "chave_mestra": {
+            "nome": "Llave Maestra Mayor",
+            "sub": "abre todas las puertas — menos la tuya",
+            "fala": [
+              "Todas las puertas de este edificio abren con mi llave. Menos la de la azotea.",
+              "Llegaste lejos. Pero lejos no es la cima."
+            ]
+          },
+          "apto_801": {
+            "nome": "El 801",
+            "sub": "el conserje disfrazado de vecino",
+            "fala": [
+              "Vivo aquí hace veinte años. Nadie tocó nunca mi puerta así.",
+              "No tenías que ver mi uniforme debajo de la bata."
+            ]
+          },
+          "vizinho": {
+            "nome": "Vecino Ruidoso",
+            "sub": "música alta y una boca más grande",
+            "fala": [
+              "El Óxido nunca baja. Dicen que hace diez años que no pisa la planta baja.",
+              "¿El ascensor? Se descompone cada semana. Pero la banda lo arregla rapidito cuando hay que emboscar a alguien.",
+              "Los de Arriba pagan la luz de su escalera. La de abajo se queda a oscuras a propósito.",
+              "Doña Neide del quinto es la única que la banda respeta. Cuidó a la mitad de ellos cuando eran niños.",
+              "La Portería le tiene miedo a todo. Pero su radio es lo que sostiene este edificio.",
+              "Aquí el que sube se cansa. Y el Óxido cuenta con eso."
+            ],
+            "escolhas": {
+              "ouvir": {
+                "label": "Escucha y sigue adelante"
+              }
+            }
+          },
+          "varal_patio": {
+            "nome": "Tendedero del patio",
+            "sub": "ropa olvidada hace tiempo",
+            "linha": "En el bolsillo de un pantalón olvidado en el tendedero: algo de dinero y un frasco de jarabe."
+          },
+          "apto_302": {
+            "nome": "Departamento 302",
+            "sub": "puerta forzada, a oscuras",
+            "linha": "Tanteando en la oscuridad, encuentras una venda y algo de dinero tirado en el suelo."
+          },
+          "apto_604": {
+            "nome": "Departamento 604",
+            "sub": "la puerta quedó abierta",
+            "linha": "Encima del refrigerador: una botella de poción de hueso y algo de dinero."
+          },
+          "rinha_laje": {
+            "nome": "Pelea de la Azotea",
+            "sub": "pelea sin fin en lo alto del patio",
+            "fala": [
+              "La ronda del Conjunto es en la losa, con todo el edificio mirando desde las ventanas.",
+              "Termina una, entra otro, al azar. Puedes dejar a la tropa aquí — 1 pelea cada 5 minutos."
+            ]
+          },
+          "birosca_vila": {
+            "nome": "Bar de la Planta Baja",
+            "sub": "cerveza tibia y sillas de plástico",
+            "intro": "El dueño del bar acomoda a la tropa en un rincón, lejos de la escalera. Cuesta un poco de dinero y todos salen enteros."
+          },
+          "dona_neide_descanso": {
+            "nome": "Departamento de Doña Neide",
+            "sub": "sofá, café y sermón",
+            "intro": "Doña Neide sienta a la tropa en el sofá, prepara un café y regaña a todos. Cuesta un poco de dinero — y nadie se va sin comer."
+          },
+          "dona_neide": {
+            "nome": "Doña Neide",
+            "sub": "la única que la banda respeta",
+            "fala": [
+              "¿Llegaste hasta el quinto, eh? Todo el edificio está hablando de ti.",
+              "Toma, la llave del ascensor. Mis rodillas ya no aguantan esta escalera, y las tuyas tampoco van a aguantar."
+            ],
+            "escolhas": {
+              "pega_chave": {
+                "label": "Toma la llave del ascensor",
+                "resultado": "Se quita la llave del cuello y te la entrega. \"Cuidado que se traba. Y cuando se traba, no es por casualidad.\""
+              }
+            }
+          },
+          "aluguel_vencido": {
+            "nome": "Alquiler Vencido",
+            "sub": "cobra en nombre de Los de Arriba",
+            "fala": [
+              "¿Necesitas dinero, visitante? En el Conjunto todo tiene alquiler. Hasta el dinero.",
+              "800 en la mano ya. El vencimiento... el vencimiento lo decido yo."
+            ],
+            "botao_ver_contrato": "Quiero los 800",
+            "contrato_tag": "Contrato · alquiler vencido",
+            "contrato_corpo": "\"800 en la mano, ya. ¿Aceptas o no?\"",
+            "contrato_letra_miuda": "Letra chica del contrato: quedas debiendo {divida}.",
+            "contrato_aceitar": "Acepto",
+            "contrato_recusar": "No acepto"
+          },
+          "brecho": {
+            "nome": "Tienda de Segunda de la Administradora",
+            "sub": "lo que el edificio dejó, ella lo vende"
+          },
+          "oficina_zelador": {
+            "nome": "Taller del Conserje",
+            "fala": "Aquí arreglo hasta ascensores, hermano. Trae la pieza y chatarra y la dejo a punto — hasta +6."
+          },
+          "caixa_dagua": {
+            "nome": "El tanque de agua",
+            "sub": "la llave de paso de la azotea",
+            "intro": "La llave de paso del tanque del Óxido está en una maraña de tubos. Encuentra el camino sin abrir el equivocado — un error y la tropa recibe una descarga, y el ruido atrae al conserje."
+          }
+        },
         "boss_trancado": "Cierra los puntos antes de subir de nivel, chico.",
         "treta_nao": "Ahora no, tranqui",
         "treta_sim": "A los golpes",
@@ -4559,6 +4832,7 @@
         "hint_sucata": "🔩 Lleva los dos pedazos de chatarra a Nando, en el taller. Él te devuelve el favor.",
         "hint_sucata_falta": "🔩 Te falta un pedazo de chatarra — está en el fondo del desarmadero. Agarra los dos y llévalos a Nando.",
         "acao": {
+          "subir": "SUBIR",
           "entrar": "ENTRA",
           "sair": "LÁRGATE",
           "voltar": "VOLVER",
@@ -4989,6 +5263,20 @@
           ]
         },
         "baixada": {
+          "informante_vila": {
+            "nome": "Doña Lurdes",
+            "sub": "el bar lo escucha todo",
+            "fala": [
+              "¿Quieres ir al Conjunto? Muchacho, eso son edificios de diez pisos, y cada piso tiene dueño.",
+              "Mi sobrino vive en el quinto. Dice que el Óxido vive allá arriba, y que nadie llegó nunca hasta él sin subir todo recibiendo golpes."
+            ],
+            "escolhas": {
+              "ouvir": {
+                "label": "Escucha todo sobre el Conjunto",
+                "resultado": "Te cuenta de la portería, del candado, de la escalera sin luz y de Doña Neide del quinto piso. Cuando llegue la hora, ya sabes a quién buscar."
+              }
+            }
+          },
           "chegada": [
             "Esta es la Bajada, chico. Del otro lado de las vías del tren.",
             "Cuando el Sombra cayó al zanjón, su banda se partió en tres: la Sangría, el Hielo y la Sobra. Hay un creído acá que dice que manda en todo — se hace llamar Perfora-Tripas y vive escapando.",

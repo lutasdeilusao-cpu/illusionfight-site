@@ -11,12 +11,14 @@
 import { CENA_PISTA } from './pista/index.js'
 import { CENA_FEIRA } from './feira/index.js'
 import { CENA_BAIXADA } from './baixada/index.js'
+import { CENA_VILA } from './vila/index.js'
 import { tetoDoTerritorio } from '../ganguesChefes.js'
 
 export const CENAS_POR_ID = {
   [CENA_PISTA.id]: CENA_PISTA,
   [CENA_FEIRA.id]: CENA_FEIRA,
   [CENA_BAIXADA.id]: CENA_BAIXADA,
+  [CENA_VILA.id]: CENA_VILA,
 }
 
 /** Uma cena existe para este território? (senão, cai na trilha antiga) */
@@ -88,10 +90,16 @@ export function destinoSocorroDerrota(cena, prog = {}) {
     if (!pr || (pr.pos_portao && !laDeCima)) continue
     inter.comodos?.forEach((com, comodo) => {
       const pino = com.pois?.find(pd => cena.pois.find(p => p.id === pd.ref)?.tipo === 'descanso')
-      if (!pino) return
+      // Descanso que só existe depois de um ponto (`precisa` — a Dona Neide,
+      // no 5º andar da Vila) não acorda quem ainda não chegou lá.
+      if (!pino || (pino.precisa && !prog.resolvidos?.[pino.precisa])) return
       const porta = { x: pr.porta?.zx ?? pr.x, y: pr.porta?.zy ?? pr.y }
-      const outroLado = (porta.y < MURO_Y) !== (rua.y < MURO_Y)
-      const dist = Math.hypot(porta.x - rua.x, porta.y - rua.y) + (outroLado ? 100000 : 0)
+      // "Lado" só existe em cena cortada no meio (muro da Pista/Feira, linha do trem da Baixada).
+      const outroLado = Boolean(cena.muro || cena.trem) && (porta.y < MURO_Y) !== (rua.y < MURO_Y)
+      // Quem cai na RUA acorda numa birosca da rua, nunca num andar de cima
+      // de um prédio (cômodo > 0 de um interior de vários cômodos).
+      const andarDeCima = !predioLocal && comodo > 0 ? 50000 : 0
+      const dist = Math.hypot(porta.x - rua.x, porta.y - rua.y) + (outroLado ? 100000 : 0) + andarDeCima
       const alvo = { x: pino.pos.x, y: Math.min(pino.pos.y + 44, com.world.h - 40) }
       candidatos.push({ dist, poiId: pino.ref, posicao: { ...alvo, local: { id: interId, comodo } } })
     })
@@ -137,4 +145,19 @@ export function revezamentoNoTerritorio(revezamento, territorioId, playerTeam) {
     tetoTerritorio: tetoDoTerritorio(territorioId) ? territorioId : undefined,
     niveisSorteio: revezamento.nivelDaTropa ? niveisDaRinha(playerTeam) : undefined,
   }
+}
+
+/** Barra de Alerta (Vila, `cena.alerta`): quanto o bonde tá avisado agora
+ *  (0 a `max`). Mora no save, em storyProgress.__alerta[cenaId]. */
+export function alertaDaCena(cena, storyProgress = {}) {
+  if (!cena?.alerta) return 0
+  return Math.max(0, Math.min(cena.alerta.max, Number(storyProgress.__alerta?.[cena.id]?.n) || 0))
+}
+
+/** Os pontos de ficha de uma treta da cena com o alerta somado: +1 por ponto
+ *  de alerta em cada corpo, sem nunca passar do chefão do território. */
+export function pontosComAlerta(pontos, cena, storyProgress = {}) {
+  const extra = alertaDaCena(cena, storyProgress)
+  if (!extra || !(pontos > 0)) return pontos
+  return Math.min(pontos + extra, tetoDoTerritorio(cena.territorioId) || pontos + extra)
 }

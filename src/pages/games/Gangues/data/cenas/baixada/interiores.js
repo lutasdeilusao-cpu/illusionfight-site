@@ -34,6 +34,7 @@ export const INTERIORES_BAIXADA = {
       pois: [
         { ref: 'birosca', pos: { x: 74, y: 210 } },
         { ref: 'taxa_fixa', pos: { x: 390, y: 200 } },
+        { ref: 'informante_vila', pos: { x: 230, y: 200 } },
       ],
     })],
   },

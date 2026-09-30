@@ -51,6 +51,8 @@ const CATALOGO = [
   { id: 15, slug: 'valvula', custo: 20, tipo: 'material', valor: 0, icone: '💡' },
   // O café da Dona Cida (Baixada) — acorda o velho da entrada. Não vende.
   { id: 16, slug: 'cafe_do_veio', custo: 0, tipo: 'material', valor: 0, icone: '☕' },
+  // A chave do elevador (Vila) — a Dona Neide entrega no 5º andar. Não vende.
+  { id: 18, slug: 'chave_elevador', custo: 0, tipo: 'material', valor: 0, icone: '🔑' },
   // `poder_unico` = chip de poder emprestado: usar em combate concede, por 1
   // golpe, um poder de nível baixo que o personagem talvez nem tenha
   // treinado (ver forcedSpecial em ganguesSpecialEffects.js). custo: 0 =
@@ -71,6 +73,8 @@ const CATALOGO = [
   { id: 37, slug: 'agua_com_acucar', custo: 12, tipo: 'cura_status', status: ST.GROGUE, icone: '🥤' },
   { id: 38, slug: 'emplastro', custo: 12, tipo: 'cura_status', status: ST.TRAVADO, icone: '🩼' },
   { id: 39, slug: 'babosa', custo: 12, tipo: 'cura_status', status: ST.QUEIMADO, icone: '🌿' },
+  // Poção de Osso (Vila, Brechó da Síndica): +20 PV — a régua da poção (~2,8 por ponto) com desconto de volume.
+  { id: 41, slug: 'pocao_osso_20', custo: 80, tipo: 'cura_pv', valor: 20, icone: '🦴' },
 ]
 
 export const GANGUES_ITENS = Object.fromEntries(CATALOGO.map(item => [item.id, { ...item, nome: i18nNome(item.id) }]))

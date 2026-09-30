@@ -1514,7 +1514,8 @@
       "visao": "Overview",
       "agora": "Live",
       "sessoes": "Sessions",
-      "financeiro": "Finance"
+      "financeiro": "Finance",
+      "logs": "Logs"
     },
     "periodo": {
       "hoje": "Today",
@@ -1648,6 +1649,16 @@
       "visitante": "Visitor",
       "free": "Free account",
       "assinante": "Subscriber"
+    },
+    "logs": {
+      "titulo": "Admin account log ({n})",
+      "conta": "Account",
+      "sessao": "Session",
+      "tipo": "Type (e.g. gangues.)",
+      "copiar": "Copy session (JSON)",
+      "copiado": "Copied!",
+      "vazio": "No logs in this period.",
+      "falta_migration": "Migration 046_debug_logs.sql has not been run on Supabase yet."
     }
   }
 }

@@ -1,6 +1,11 @@
 # PLANO — Território 4: A Vila (cena navegável, vertical)
 
-> **Status: PROPOSTA (30/09/2026) — nada implementado.** Fonte da lore: GDD §4
+> **Status: IMPLEMENTADO na v3.84.0 (30/09/2026)** — ver GDD §4 Território 4 pro
+> que entrou e o que ficou pra depois (corre do respeito, pilha, chefe falso).
+> Decisões do topo aprovadas pelo Isaias com a recomendação: vertical, as 3
+> mecânicas, ponte pela Dona Lurdes, orçamento 148, drop 141, AP ×1,5.
+>
+> Proposta original: Fonte da lore: GDD §4
 > (Território 4), §6 (facções 108/109), catálogos 1110–1112 / 1210–1212 /
 > 1310–1312 / 1407–1408 / 1457–1458, chefe 1503, timeline "Ano 6 — A Vila
 > resiste", §9.4/§9.7 (itens e escada de nível).
